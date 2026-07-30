@@ -67,6 +67,34 @@ def kilder(emne=None):
     return ut
 
 
+def forklaringer(s):
+    """Gir (feltnavn, strenginnhold) for hver `explanation`-verdi i teksten.
+
+    Porten leste tidligere HELE filteksten. Da kan den ikke skille en forklaring
+    fra et ALTERNATIV, og et alternativ har full rett til å nevne plassering:
+    in1020 har distraktoren «Kryss av det første alternativet som stemmer, og gå
+    videre» i et spørsmål om arbeidsmåte på eksamen. Det er eksamensstrategi, det
+    betyr det samme uansett stokking, og det SKAL stå.
+
+    En port som melder ett evig avvik ingen har lov til å rette, blir en port
+    ingen leser. Derfor scopes skanningen til `explanation` — det eneste feltet
+    der en posisjonsreferanse faktisk er gal.
+
+    ⚠ Alle TRE strengformene må dekkes. Første forsøk leste bare `"..."`, og var
+    da blind for 101 av 174 quiz-filer — 18 717 forklaringer, altså 42 % av
+    korpuset. De eldre VGS-bøkene (`quiz-data-1p.ts` m.fl.) bruker enkeltfnutter.
+    En scoping som gjør porten blind er verre enn den falske positiven den skulle
+    fjerne, så kravet er nulltap: like mange uttrukne som deklarerte
+    `explanation`-felt i hver enkelt fil. Regresjonstesten står i
+    `test_forklaringer()` nederst.
+    """
+    for m in re.finditer(r'(?:"explanation"|\bexplanation)\s*:\s*'
+                         r'(?:"((?:[^"\\]|\\.)*)"'
+                         r"|'((?:[^'\\]|\\.)*)'"
+                         r'|`((?:[^`\\]|\\.)*)`)', s):
+        yield "explanation", next(g for g in m.groups() if g is not None)
+
+
 def main():
     valgte = set(sys.argv[1:])
     alle = kilder()
@@ -90,11 +118,12 @@ def main():
         s = "\n".join(open(p, encoding="utf-8", errors="replace").read()
                       for p in alle[emne])
         funn = []
-        for rx, navn in MONSTRE:
-            for m in re.finditer(rx, s):
-                i = m.start()
-                utdrag = " ".join(s[max(0, i - 70):i + 70].split())
-                funn.append((navn, utdrag))
+        for felt, tekst in forklaringer(s):
+            for rx, navn in MONSTRE:
+                for m in re.finditer(rx, tekst):
+                    i = m.start()
+                    utdrag = " ".join(tekst[max(0, i - 70):i + 70].split())
+                    funn.append((navn, utdrag))
         if funn:
             tot += len(funn)
             print(f"\n{emne}: {len(funn)} posisjonsreferanser")
