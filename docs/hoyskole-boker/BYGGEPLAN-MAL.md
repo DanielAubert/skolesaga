@@ -239,6 +239,23 @@ Redaktør per del-gruppe (3–4 agenter à 7–10 kapitler) + for JUS-fag ALLTID
       Og tallene som havner i wiring/metadata regnes ut fra de faktiske filene, så
       overskyting gir ingen usann påstand noe sted.
 
+- [ ] **⚠ STAGE FILENE ÉN FOR ÉN I DELTE ARBEIDSTRÆR — NYTT 30. juli 2026.**
+      `Skolesaga/CLAUDE.md` sier «stage kun dine filer eksplisitt». Presiseringen
+      som manglet: **et GLOB er ikke eksplisitt.**
+
+      `git add src/lib/data/chapters/tfy4115-*.json` traff fire filer midt i en
+      parallell agents arbeid, og dro inn en omfordelt fasitrekke i 12.4 som
+      commit-teksten ikke nevnte med et ord. Arbeidet var godt — men en commit
+      som beskriver noe annet enn den inneholder, er verdiløs som historikk.
+
+      Skriv filnavnene ut. Er de mange, list dem fra en målt kilde
+      (`git status --porcelain` filtrert på dine egne id-er), ikke fra et mønster
+      som kan treffe andres arbeid mellom to sekunder.
+
+      Samme runde: en tabellfiks i `12-1` ble overskrevet av en parallell økt og
+      måtte settes tilbake. Kjør portene på nytt RETT FØR commit, ikke bare etter
+      at du gjorde endringen.
+
 - [ ] **⚠ ARBEIDSTRE-REVISJON ETTER HVER AGENTBØLGE — NYTT 30. juli 2026.**
       ```bash
       for w in .claude/worktrees/*/; do
