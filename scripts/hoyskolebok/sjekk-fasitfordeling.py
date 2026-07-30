@@ -46,8 +46,26 @@ GROVT = 60.0            # så skjevt at utvalgsstørrelsen ikke redder det
 # er IKKE enkeltsvar — de begynner per konstruksjon på a) og ga meg et
 # artefakt der in1020 Del 3 så ut som 100 % a) i 11 av 11.
 # Krev derfor at det IKKE følger et nytt «, b)» like etter.
+# ⚠ VAKTEN MÅ KRYSSE ÉN LINJE. Fram til 30. juli 2026 sto den som
+# `(?![^\n]{0,60}\bb\))`, og `[^\n]` kan ikke krysse linjeskift. En flerdels-
+# fasit skrevet slik:
+#
+#     ### Fasit
+#     **a)** konfidensialitet
+#     **b)** integritet
+#
+# ble derfor lest som ETT enkeltsvar på «a» — og en del med bare slike fasiter
+# så ut som 100 % a). Det ga falske utslag i tfy4115 1-prove (3) og 4-prove (2).
+#
+# Løsningen er ikke `[\s\S]{0,60}`: da hopper porten over ekte enkeltsvar som
+# tilfeldigvis har en «b)» i neste avsnitt, og blir blind i stedet for støyende.
+# Vakten kjenner i stedet igjen FORTSETTELSE av samme liste — «, b)» på samme
+# linje, eller «b)» først på neste linje, eventuelt med **, - eller «1.» foran.
+# Testet mot sju tilfeller: fire flerdels-varianter hoppes, tre ekte enkeltsvar
+# telles.
 FASIT = re.compile(r"(?:riktig svar|rett svar|fasit|svar)\s*[:=]?\s*\*{0,2}([a-e])\)"
-                   r"(?![^\n]{0,60}\bb\))", re.I)
+                   r"(?![^\n]{0,60}\bb\)"
+                   r"|[^\n]{0,60}\n\s*(?:\*\*|[-*]\s+|\d+\.\s*)?\*{0,2}b\))", re.I)
 FASITREKKE = re.compile(r"\b\d+([a-e])\b(?:\s*[·,]\s*\d+[a-e]\b){2,}", re.I)
 REKKELEDD = re.compile(r"\b\d+([a-e])\b")
 # Tredje konvensjon: «**Oppgave 9** (2 p): **b) 7.**» — IN1000. Fasiten står

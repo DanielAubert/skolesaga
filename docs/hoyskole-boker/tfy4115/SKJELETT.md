@@ -350,7 +350,7 @@ tall» (MC-oppskrift)**, samt en **avrundings-/faktorfelle-`warning`**.
 - **description:** Impulsbevarelse, elastisk og fullstendig uelastisk støt med energitap, og impuls fra en tidsavhengig kraft $\int F\,dt$.
 - **Eksamensbelegg:** Sjanger M6 i **~100 %**. Signatur: to legemer i støt (elastisk → fartsformel; uelastisk → felles fart + energitap $\Delta K$); impuls som areal under $F(t)$ (trekantpuls). Prioritet: **perfekt**.
 - **Forkunnskaper/kryssbok:** kap. 2.2; [Bestemt integral som grenseverdi](/r2/r2-2-4) ($\int F\,dt$).
-- **Innholdskontrakt:** MÅ KUNNE BRUKES AKTIVT: bevegelsesmengde $\mathbf{p}=m\mathbf{v}$ (vektor — merk kollisjon med trykk $p$ i termodelen); **impulsbevarelse** $\sum m\mathbf{v}=\sum m\mathbf{v}'$; elastisk støt (mot legeme i ro) $v_1'=\frac{M-m}{M+m}v_0$, $v_2'=\frac{2m}{M+m}v_0$; **fullstendig uelastisk** → felles fart $v'=\frac{m v_0}{m+M}$ med energitap $\Delta K=\tfrac12\frac{mM}{m+M}v_0^2$ (andel $\frac{M}{m+M}$ av $K_0$); impuls $\mathbf{J}=\Delta\mathbf{p}=\int\mathbf{F}\,dt$ (areal under $F(t)$; trekantpuls $a_\text{maks}=F_\text{maks}/m$). **Rask vei til tall (MC-oppskrift):** identifiser støttype (elastisk = energi bevart; uelastisk = felles fart), bruk ferdig fartsformel, regn energitap som differanse $K_0-K'$. **Utledning som kreves aktivt:** utled uelastisk energitap fra impuls- + energiregnskap. **Figurkrav:** før-/etter-skisse med fartspiler; $F(t)$-graf med areal.
+- **Innholdskontrakt:** MÅ KUNNE BRUKES AKTIVT: bevegelsesmengde $\mathbf{p}=m\mathbf{v}$ (vektor — merk kollisjon med trykk $p$ i termodelen); **impulsbevarelse** $\sum m\mathbf{v}=\sum m\mathbf{v}'$; elastisk støt (mot legeme i ro) $v_1' = \frac{m-M}{m+M}v_0$, $v_2'=\frac{2m}{M+m}v_0$; **fullstendig uelastisk** → felles fart $v'=\frac{m v_0}{m+M}$ med energitap $\Delta K=\tfrac12\frac{mM}{m+M}v_0^2$ (andel $\frac{M}{m+M}$ av $K_0$); impuls $\mathbf{J}=\Delta\mathbf{p}=\int\mathbf{F}\,dt$ (areal under $F(t)$; trekantpuls $a_\text{maks}=F_\text{maks}/m$). **Rask vei til tall (MC-oppskrift):** identifiser støttype (elastisk = energi bevart; uelastisk = felles fart), bruk ferdig fartsformel, regn energitap som differanse $K_0-K'$. **Utledning som kreves aktivt:** utled uelastisk energitap fra impuls- + energiregnskap. **Figurkrav:** før-/etter-skisse med fartspiler; $F(t)$-graf med areal.
 - **Oppgavesjangre:** M6. Mønstereksempel: «En kule med masse $m$ og fart $v_0$ treffer en stillestående kloss med masse $M$ og blir sittende fast. Finn felles fart etter støtet og hvor stor andel av den kinetiske energien som går tapt.»
 - **Typiske feil (analysen §5):** Bruke energibevaring i uelastisk støt (energi er IKKE bevart der); fortegnsfeil på fart i impulsbevarelse; regne energitap som andel feil vei; feil grenser/areal i $\int F\,dt$.
 - **Quiz: 24 · Flashcards: 20**
@@ -362,7 +362,7 @@ tall» (MC-oppskrift)**, samt en **avrundings-/faktorfelle-`warning`**.
 - **description:** Sirkelbane under gravitasjon ($GMm/r^2=m\omega^2 r$), geostasjonær bane og rakettligningen fra impulsbevarelse — kompakt beredskap.
 - **Eksamensbelegg:** Sjanger M12: satellittbane **~40 %**, rakett **~20 %**. Prioritet: **kunne** (kompakt, men sikrer poeng når det dukker opp).
 - **Forkunnskaper/kryssbok:** kap. 3.1; [Newtons gravitasjonslov](/fysikk2/fysikk2-2-1), [Gravitasjonsfelt](/fysikk2/fysikk2-2-2) og [Gravitasjonell potensiell energi](/fysikk2/fysikk2-2-3) (fysikk 2-fundament).
-- **Innholdskontrakt:** MÅ KUNNE BRUKES AKTIVT: sirkelbane $\frac{GMm}{r^2}=\frac{mv^2}{r}=m\omega^2 r$, kombinert med $v=\frac{2\pi r}{T}$; **geostasjonær bane** (finn $r$ av $T=24$ t): $r=\left(\frac{GMT^2}{4\pi^2}\right)^{1/3}$; rakettligning fra impulsbevarelse med utstøtsfart $u$: $m=m_0 e^{(v-v_0)/u}$, skyvekraft $F=u|dm/dt|$. **Rask vei til tall (MC-oppskrift):** for bane — sett gravitasjon = sentripetalkraft, løs for etterspurt størrelse; hold enheter (timer vs. sekunder) rene. **Utledning som kreves aktivt:** utled baneperiode/radius fra kraftbalansen; utled rakettligningen fra $\sum p$ bevart. **Figurkrav:** bane med kraftvektorer; raketten med utstøtt masse.
+- **Innholdskontrakt:** MÅ KUNNE BRUKES AKTIVT: sirkelbane $\frac{GMm}{r^2}=\frac{mv^2}{r}=m\omega^2 r$, kombinert med $v=\frac{2\pi r}{T}$; **geostasjonær bane** (finn $r$ av $T=24$ t): $r=\left(\frac{GMT^2}{4\pi^2}\right)^{1/3}$; rakettligning fra impulsbevarelse med utstøtsfart $u$: $m = m_0 e^{-\Delta v/u}$, skyvekraft $F=u|dm/dt|$. **Rask vei til tall (MC-oppskrift):** for bane — sett gravitasjon = sentripetalkraft, løs for etterspurt størrelse; hold enheter (timer vs. sekunder) rene. **Utledning som kreves aktivt:** utled baneperiode/radius fra kraftbalansen; utled rakettligningen fra $\sum p$ bevart. **Figurkrav:** bane med kraftvektorer; raketten med utstøtt masse.
 - **Oppgavesjangre:** M12. Mønstereksempel: «En satellitt går i sirkelbane rundt jorda med omløpstid $T$. Finn baneradien, og avgjør om banen er høyere eller lavere enn geostasjonær høyde.»
 - **Typiske feil:** Blande $v$ og $\omega$ i sentripetalleddet; glemme $v=2\pi r/T$-koblingen; enhetsslurv (timer vs. sekunder for $T$); feil retning på utstøtsfart i rakettligningen.
 - **Quiz: 18 · Flashcards: 16**
@@ -986,3 +986,25 @@ Studieguiden settes sammen av Del 0 (kjernen) + kapitlenes Eksamensvinkel-blokke
 - [ ] **Verifiser rendering:** prod-server + curl mot kapittel- og narrativ-ruter
       (200 + kapittelspesifikk streng), jf. `getChapterMeta`-lærdommen. ALDRI meld
       ferdig uten dette.
+
+
+---
+
+## RETTELSER 30. juli 2026 (byggeleder, verifisert numerisk)
+
+To fortegnsfeil i dette skjelettet er rettet. Begge er reell fysikk, ikke
+skrivefeil, og begge ville gitt en umulig konklusjon i boka:
+
+1. **Elastisk støt** sto som $v_1' = \frac{M-m}{M+m}v_0$. Riktig er
+   $\frac{m-M}{m+M}$. Med skjelettets form ville en lett kule fortsatt
+   FRAMOVER etter å ha truffet en tung i ro. Kontrollert ved å løse
+   bevegelsesmengde- og energibevaring symbolsk med sympy: for $m=1$, $M=5$,
+   $v_0=10$ gir bevaringslovene $v_1' = -6{,}667$, mens skjelettets form gir
+   $+6{,}667$.
+2. **Rakettligningen** sto som $m = m_0 e^{(v-v_0)/u}$. Riktig er
+   $m = m_0 e^{-\Delta v/u}$, siden $\Delta v = u\ln(m_0/m)$. Med skjelettets
+   form ville massen ØKT når farten øker: $m_0 = 1000$ kg, $u = 3000$,
+   $\Delta v = 2000$ gir 513 kg riktig, mot 1 948 kg med feilformen.
+
+Del 2+3-agenten oppdaget begge, brukte korrekt form, gjorde fortegnet til et
+eksplisitt læringspunkt, og brukte skjelettets feilform som *regnet distraktor*.
