@@ -224,6 +224,28 @@ Redaktør per del-gruppe (3–4 agenter à 7–10 kapitler) + for JUS-fag ALLTID
       ingen collapsible har tom/manglende `content`-array; stikkprøv at Del 0
       har «Lite tid?»-boks + kildenote + prosedyrekort, og at «kap. X.Y» i
       fasiter er markdown-lenker.
+- [ ] **⚠ ARBEIDSTRE-REVISJON ETTER HVER AGENTBØLGE — NYTT 30. juli 2026.**
+      ```bash
+      for w in .claude/worktrees/*/; do
+        echo "$(basename $w): $(git -C "$w" status --porcelain | grep -c '^??') usporet"
+      done
+      ```
+      **Byggeagenter glemmer å committe.** Kapittelfiler de skriver blir liggende
+      som USPORET arbeid, og `git worktree remove --force` sletter dem uten varsel.
+      Dette har skjedd fire ganger: tdt4110 Del 9 (3 filer), med1100 Del 14 (12),
+      tfy4115 Del 2+3 (**14 filer, 668 kB**) og tdt4110s quiz-staging. Hver gang ble
+      det oppdaget ved tilfeldighet, ikke av en rutine.
+
+      Kjør revisjonen etter hver bølge, ikke bare før treet fjernes. Valider JSON
+      (`json.load`) før commit — en agent har skrevet ugyldig JSON før.
+
+      **Skiller en arbeidstre-kopi seg fra hovedtreets fil, er hovedtreet
+      normalt riktig** (byggelederen retter der etter merge). Sjekk likevel HVA
+      som skiller: er det bare avsluttende linjeskift, kast kopien; er det
+      innhold, etterregn begge og behold den beste. tdt4110-9-2 hadde to ulike
+      Euklid-kjeder — begge korrekte, men hovedtreets `myst(152, 57)` gir tre
+      sporingssteg mot arbeidstreets to.
+
 - [ ] **⚠ POSISJONSREFERANSER I QUIZFORKLARINGER — NYTT 30. juli 2026.**
       `python3 scripts/hoyskolebok/sjekk-alternativref.py <emne>` → OK.
       **Ikke valgfri, og må kjøres BÅDE i byggefasen og etter wiring.**
