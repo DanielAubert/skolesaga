@@ -14,15 +14,23 @@ og undervises til høsten — belegg i valgnotatet nederst.
 |---|---|---|---|---|---|---|
 | `tdt4110` | NTNU | 47/47 | ✅ | ✅ | ✅ | ✅ |
 | `med1100` | UiO | 63/63 | ✅ | ✅ | ✅ | ✅ |
-| `in2010` | UiO | 42/42 | ✅ | ✅ | ✅ | — |
-| `tma4135` | NTNU | 44/44 | ✅ | ✅ | ✅ | — |
-| `ma1301` | NTNU | 0/39 | ✅ | ⏳ | — | — |
-| `tfy4115` | NTNU | 0/48 | ✅ | ⏳ | — | — |
+| `in2010` | UiO | 42/42 | ✅ | ✅ | ✅ | ✅ |
+| `tma4135` | NTNU | 44/44 | ✅ | ✅ | ✅ | ✅ |
+| `ma1301` | NTNU | 35/39 | ✅ | ⏳ | — | — |
+| `tfy4115` | NTNU | 20/48 | ✅ | ⏳ | — | — |
 
 **Fire bøker er wiret og live: 196 kapitler, 2 479 quiz, 2 629 flashcards.**
+Alle fire har nå vært gjennom verifiseringsbølgen.
 
-De to første har vært gjennom verifiseringsbølgen. `in2010` og `tma4135` venter
-på den.
+## ⚠ Venter på deg: én ting
+
+**Ingenting er pushet.** Lokal `main` ligger ~32 commits foran `origin/main`,
+inkludert alle fire bøkene. Jeg holder pushen tilbake med vilje: en push
+deployer til skolesaga.no, og går noe galt mens du er utilgjengelig, står
+produksjonen nede uten at noen kan rulle tilbake. Alt er gatet, bygd og
+prod-curl-verifisert lokalt, så det ligger trygt og venter.
+
+Si «push» når du vil ha det ut.
 
 ---
 
@@ -41,6 +49,25 @@ på den.
 ---
 
 ## Logg
+
+**30. juli, verifiseringsbølgen fant to live-feil** — `in2010` hadde 12
+quizforklaringer som pekte på et alternativs PLASSERING («det siste alternativet
+er hashtabellens kjøretid»). Alternativene stokkes ved kjøretid, så leseren fikk
+en forklaring om et tilfeldig svar. Feilen sto i den wirete `quiz-data-in2010.ts`,
+ikke i kapittelfilene — en sondering som bare leser `chapters/` melder null.
+`tma4135-9-3` hadde et løsningsfragment (`b[n-1] -= 1.0`) i et ```python-gjerde;
+utskriftsporten kjører hver slik blokk og fikk NameError. Endret til ```text
+framfor ```py, som ville sneket forbi porten og uthulet den for alle senere
+bøker. Commit `8447cd1c7`. Alle åtte porter grønne for begge bøker, build
+fullført, prod-curl bekrefter de rettede forklaringene i servert HTML.
+
+**30. juli, samme port avdekket 774 treff i `in1020` — en live bok** — Del 3–5
+ble ryddet 26. juli, men Del 0–2 ble aldri gjort: 15 kapitler, 774
+posisjonsreferanser. Verifiserte premisset i kildekoden selv
+(`quiz-client.tsx:71`) før jeg satte tre agenter på omskrivingen, siden
+kostnaden er høy. Agentene redigerer utdratte fragmenter i scratchpad — alle 774
+ligger i ÉN fil, så parallelle agenter ville kollidert; byggelederen spleiser
+tilbake.
 
 **28. juli, andre bølge** — tdt4110 Del 0, 1, 2, 3, 4 ferdige (27 av 47 filer).
 med1100 Del 0, 1 ferdige (16 av 63). Sju agenter ute på Del 5–8 og med1100 Del 2–6.
