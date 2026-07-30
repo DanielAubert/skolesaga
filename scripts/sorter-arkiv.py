@@ -374,12 +374,32 @@ def md5(sti):
     return h.hexdigest()
 
 
+# Typer i manifestene som er VERIFISERT mot PDF-teksten, ikke gjettet fra
+# filnavnet. Mattewiki-jobben kjørte pdftotext på førstesidene av alle 1 938
+# filer og omklassifiserte 49 av dem. Filnavn lyver i BEGGE retninger:
+# «MA1201/2007h.pdf» ER et løsningsforslag, «MidtSem_UtenFasit15.pdf» er det
+# ikke. En slik verifisert type skal alltid slå vår egen navnegjetting.
+MANIFEST_TYPE = {
+    'losningsforslag': 'losning',
+    'l\xf8sningsforslag': 'losning',
+    'oppgave': 'oppgave',
+    'temanotat': 'temanotat',   # forelesningsstoff — teller ikke som eksamenssett
+}
+
+
 def manifest():
+    """(kode, filnavn) → (kilde_url, verifisert type eller '')."""
     m = {}
     for f in glob.glob(os.path.join(ROT, 'MANIFEST*.csv')):
         with open(f, encoding='utf-8') as fh:
             for r in csv.DictReader(fh):
-                m[(r['emnekode'].upper(), r['filnavn'])] = r.get('kilde_url', '')
+                nøkkel = (r['emnekode'].upper(), r['filnavn'])
+                typ = MANIFEST_TYPE.get((r.get('type') or '').strip().lower(), '')
+                url = r.get('kilde_url', '')
+                # Flere manifester dekker samme fil. Behold den raden som
+                # faktisk bærer informasjon framfor å la den siste vinne.
+                gml_url, gml_typ = m.get(nøkkel, ('', ''))
+                m[nøkkel] = (url or gml_url, typ or gml_typ)
     return m
 
 
@@ -475,7 +495,7 @@ def main():
             sti = os.path.join(d, fn)
             if not os.path.isfile(sti) or fn.startswith('.'):
                 continue
-            url = man.get((mappe.upper(), fn), '')
+            url, verifisert_type = man.get((mappe.upper(), fn), ('', ''))
             ekte = ekte_filnavn(mappe, fn, url)
             h = md5(sti)
             # ⚠ DEDUPLISER PER EMNE, ikke globalt. TMA4240 og TMA4245 deler
@@ -508,7 +528,9 @@ def main():
                 'ar': år or '',
                 'sesong': ses or '',
                 'termin': ('%d%s' % (år, ses)) if år and ses else '',
-                'type': finn_type(ekte),
+                # Verifisert mot PDF-teksten slår vår navnegjetting.
+                'type': verifisert_type or finn_type(ekte),
+                'type_kilde': 'pdf-verifisert' if verifisert_type else 'filnavn',
                 'sprak': finn_sprak(ekte),
                 'bytes': os.path.getsize(sti),
                 'md5': h,
@@ -525,7 +547,8 @@ def main():
     # Terminer: bare unike filer teller, og pensum er ikke et eksamenssett.
     term = defaultdict(lambda: {'oppgave': 0, 'losning': 0, 'sprak': set()})
     for r in rader:
-        if r['dublett_av'] or r['type'] == 'pensum' or not r['termin']:
+        if (r['dublett_av'] or r['type'] in ('pensum', 'temanotat')
+                or not r['termin']):
             continue
         t = term[(r['emnekode'], r['termin'])]
         t[r['type']] += 1
