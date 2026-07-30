@@ -39,6 +39,23 @@ export function generateStaticParams() {
   return INSTITUSJONER.map((inst) => ({ institusjon: inst.slug }));
 }
 
+/** Stryker emnekoden fra starten av et fagnavn.
+ *
+ * «IN2010 Algoritmer og datastrukturer» → «Algoritmer og datastrukturer».
+ * Brukes bare når kortet har forsidebilde, for da står koden i illustrasjonen
+ * og ville stått to ganger — den lange tittelen brøt dessuten over to linjer og
+ * la seg oppå koden i bildet.
+ *
+ * Fag uten kode («Matematikk for økonomer») er urørt: mønsteret krever minst to
+ * STORE bokstaver først, og «Matematikk» har bare én.
+ *
+ * ⚠ To siffer, ikke tre: EXPHIL03 slapp gjennom med {3,4} og sto med koden to
+ * ganger.
+ */
+function utenEmnekode(navn: string) {
+  return navn.replace(/^[A-ZÆØÅ]{2,8}\d{2,4}\s+/, '');
+}
+
 function getCourseStats(courseId: string) {
   const course = TEXTBOOK_COURSES.find((c) => c.id === courseId);
   if (!course) return { chapters: 0, exercises: 0 };
@@ -117,6 +134,14 @@ function SubjectCard({ courseId, name, icon, color, image }: {
             </div>
           )}
 
+          {/* Skygge nederst. Illustrasjonene varierer fra nesten svarte til
+              nesten hvite — SOSANT1000 er lys sand — og hvit tittel forsvant
+              helt på de lyseste. Bare der det ER bilde; gradientkortene har
+              kontrast fra før. */}
+          {image && (
+            <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/70 via-black/25 to-transparent" />
+          )}
+
           <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
             <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
           </div>
@@ -130,9 +155,14 @@ function SubjectCard({ courseId, name, icon, color, image }: {
               </div>
             </div>
             <div>
-              <h3 className="text-xl font-bold mb-1">{name}</h3>
+              {/* Har kortet forsidebilde, står emnekoden ALT i illustrasjonen —
+                  da strykes den fra tittelen. Uten dette leste kortet
+                  «IN2010 Algoritmer …» rett oppå «IN2010» i bildet. */}
+              <h3 className="text-xl font-bold mb-1 drop-shadow-md">
+                {image ? utenEmnekode(name) : name}
+              </h3>
               <div className="flex items-center gap-3 text-sm opacity-80">
-                <span>{stats.exercises} oppgaver</span>
+                {!image && <span>{stats.exercises} oppgaver</span>}
               </div>
             </div>
           </div>
