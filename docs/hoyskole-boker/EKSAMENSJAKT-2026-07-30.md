@@ -112,6 +112,33 @@ ingen emneside, ingen søketreff. Emnekodene i kartleggingen må kontrolleres.
 vurderingskriterier, ikke et konkret sett. De er talt som funnet, men er reelt
 tynne.
 
+## ⚠ Etterkontroll: filtellingene i dette dokumentet er for høye
+
+En kvalitetskontroll av det nedlastede materialet
+(`ARKIV-KVALITETSKONTROLL-2026-07-30.md`) fant to feil som ville forplantet seg
+inn i bøkene:
+
+**1. To «emner» er hele instituttarkiv.** `MEVIT1010` hadde 305 filer — men bare
+**8** gjelder MEVIT1010. Mappa var Institutt for medier og kommunikasjons samlede
+arkiv med 79 emnekoder. `EXFAC03-MUS`: 205 filer, **7** relevante. En bok bygget
+på «305 sett» ville bommet med to størrelsesordener på hver frekvenspåstand.
+Begge er døpt om til `_INSTITUTTARKIV-*` i nedlastingsmappa.
+
+**2. Filer er ikke sett.** Bokmål, nynorsk og engelsk er tre filer av samme
+eksamen. `TMA4110`: 201 filer → **68 unike terminer**.
+
+Samlet: ~2 800 filer → **1 134 unike eksamensterminer**, 893 med fasit (79 %).
+
+Og det tallet er et **gulv, ikke et tak.** Antakelsen «ett semester = ett sett»
+er feil minst tre steder: EXPHIL03 har 2–4 papirer per semester (seminar,
+selvstudium, utsatt), SVEXFAC03 hadde 4- og 5-timersvarianter 2012–14, og
+MAT111/112/121 har deleksamen i tillegg.
+
+**Konsekvens for bøkene:** «N av M sett»-påstandene må bygge på TERMINER, ikke
+filer. Bruk tabellen i kvalitetskontrollen, ikke filtellingene under.
+
+Dessuten fjernet: 27 «PDF-er» i TMA4135 som var NTNUs 404-side, bit-identiske.
+
 ## Neste steg
 
 1. **Last ned `SVEXFAC03`** (22 sett, 17 med sensorveiledning) — beste
