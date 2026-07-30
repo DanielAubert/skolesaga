@@ -60,7 +60,10 @@ KODE = re.compile(
     r'|LING\d{4}|NOR\d{4}|NFI\d{4}|JUR\d{4}|INTER\d{4}|SPED\d{4}|PED\d{4}'
     # SIF#### er NTNUs gamle emnekoder (SIF5017 = dagens TMA4135). De må
     # strykes som alle andre koder, ellers leses «SIF5017k03» som årstall 5017.
-    r'|SIF\d{4}|MA\d{4}|ST\d{4}|FY\d{4}|IN\d{4}|KJM\d{4})'
+    r'|SIF\d{4}|JAP\d{4}|KIN\d{4}|ARA\d{4}|PER\d{4}|TYR\d{4}|MONA\d{4}'
+    r'|ARK\d{4}|HIS\d{4}|FRA\d{4}|SOS\d{4}|KRIM\d{4}|BIOS\d{4}|MUS\d{4}'
+    r'|STK\d{4}|ECON\d{4}|TFF\d{4}|JUS\d{4}'
+    r'|MA\d{4}|ST\d{4}|FY\d{4}|IN\d{4}|KJM\d{4})'
     r'(?![0-9])', re.I)
 
 MÅNED = {
@@ -69,6 +72,9 @@ MÅNED = {
     'juli': 7, 'jul': 7, 'august': 8, 'aug': 8, 'september': 9, 'sep': 9,
     'oktober': 10, 'okt': 10, 'oct': 10, 'november': 11, 'nov': 11,
     'desember': 12, 'des': 12, 'dec': 12,
+    # Engelske former: arkivene har både «2004june» og «des07».
+    'january': 1, 'february': 2, 'march': 3, 'june': 6, 'july': 7,
+    'september': 9, 'october': 10, 'november': 11, 'december': 12,
 }
 # Lengste først, ellers matcher «des» før «desember» og etterlater «ember».
 # Ingen ordgrense FORAN: måneden står ofte klistret til et prefiks («eksaug13»).
@@ -164,9 +170,37 @@ def ekte_filnavn(mappe, filnavn, kilde_url):
 # og et siffer), ellers ville et ord som «lfelt» blitt kuttet.
 LF_PREFIKS = re.compile(r'(?i)^(lf|lsf)(?=[a-z]{2,5}\d)')
 
+# Samme problem, men midt i navnet: «eksamenma1301h06.pdf» og
+# «sensorveiledningjus5590jur159024.pdf» har emnekoden klistret til et ord.
+# Da ser tilbakeblikket en bokstav og avviser koden — og fordi koden ikke blir
+# strøket, blokkerer sifrene i den også terminlesingen. Vi skyter inn en
+# understrek foran kode-formede tokens. Kravet om fire sifre etter holder
+# falske treff nede: et ord må ha både riktig prefiks OG et firesifret tall.
+#
+# ⚠ LENGSTE PREFIKS FØRST, ellers finner mønsteret «ma4115» inne i «tma4115»
+# og deler ordet på feil sted — emnekoden ble «MA4115», som ikke finnes.
+# Selvtesten fanget det på nitten saker.
+GLIMT_KODE = re.compile(
+    r'(?i)(?<=[a-z])(?=(?:' + '|'.join(sorted(
+        ['TMA', 'TFY', 'TDT', 'MEVIT', 'SOSANT', 'PSYC', 'PSY', 'STV', 'SGO',
+         'LING', 'MAT', 'NOR', 'NFI', 'JUR', 'JUS', 'INTER', 'SPED', 'PED',
+         'SIF', 'KJM', 'JAP', 'KIN', 'ARA', 'PER', 'TYR', 'MONA', 'ARK',
+         'HIS', 'FRA', 'SOS', 'KRIM', 'BIOS', 'MUS', 'STK', 'ECON', 'TFF',
+         'MA', 'ST', 'FY', 'IN'], key=len, reverse=True))
+    + r')\d{3,4}(?!\d))')
+
 
 def normaliser(navn):
-    return LF_PREFIKS.sub(r'\1_', navn)
+    """Skyter inn skille foran emnekoder som er klistret til et ord.
+
+    ⚠ BARE når den strenge kode-regexen ikke finner noe. Kjørte den alltid,
+    delte den «tma4115» i «t_ma4115» og fant emnekoden MA4115. Er koden
+    allerede lesbar, skal navnet være i fred.
+    """
+    n = LF_PREFIKS.sub(r'\1_', navn)
+    if not KODE.search(n):
+        n = GLIMT_KODE.sub('_', n)
+    return n
 
 
 def finn_kode(navn, mappe):
@@ -206,11 +240,22 @@ def finn_termin(navn):
     # «2022h», «2013v», «2003_h», «2016hb» (h=høst, b=bokmål), «2005-hoest»
     # Halen etter sesongbokstaven er språkkode eller ordrest, ikke noe som
     # ugyldiggjør treffet — derfor bare (?![0-9]) og ikke (?![a-z0-9]).
-    m = re.search(r'(?<!\d)(\d{4})[\s_.\-]?(v|h)(?![0-9])', n)
+    # «k» må med: «eksamen-2013k-no», «tma4100_2025k», «SIF501X-2001-k».
+    # (?!\d{2}) i stedet for (?![0-9]) slik at «midtsem_2004h1» (høst, del 1)
+    # treffer, men «h13» fortsatt overlates til sesong-først-mønsteret.
+    m = re.search(r'(?<!\d)(\d{4})[\s_.\-]?(v|h|k)(?!\d{2})', n)
     if m:
         å = firesifret(m.group(1))
         if å:
-            return å, ('K' if kont else m.group(2).upper())
+            s_ = 'K' if (kont or m.group(2) == 'k') else m.group(2).upper()
+            return å, s_
+    # «kont16», «kont2016» — hele ordet, ikke bare bokstaven.
+    m = re.search(r'(?<![a-z])(kont|konte|utsatt)[\s_.\-]?(\d{2,4})(?![0-9])', n)
+    if m:
+        å = firesifret(m.group(2))
+        if å:
+            return å, 'K'
+
     # «des07», «juni14», «aug04», «mai1998», «eksAug13e», «eksNov17n»
     # ⚠ Måneden er ofte KLISTRET til et prefiks («eksaug13»), så et krav om
     # ordgrense foran den drepte treffet. Vi matcher månedsnavnene direkte i
@@ -240,6 +285,13 @@ def finn_termin(navn):
             s = 'K' if (kont or m.group(2) == 'k') else m.group(2).upper()
             return å, s
 
+    # «2004june» — årstallet står FØR måneden. Alle mønstrene over har
+    # måneden først, så dette falt mellom dem.
+    for m in re.finditer(r'(?<!\d)(19[89]\d|20[0-3]\d)[\s_.\-]?' + MÅNED_RX, n):
+        å = firesifret(m.group(1))
+        if å and m.group(2) in MÅNED:
+            return å, _sesong(MÅNED[m.group(2)], kont)
+
     # «h13», «v18», «v2013», «k19» (k = kontinuasjon), «eksamh2012»
     m = re.search(r'(?<![0-9])(v|h|k)[\s_.\-]?(\d{2,4})(?![0-9])', n)
     if m:
@@ -254,10 +306,11 @@ def finn_termin(navn):
                 return å, _sesong(MÅNED[m.group(2)], kont)
 
     # «vår 2019», «host_2019», «haust2018»
-    m = re.search(r'(?<![a-z])(v\xe5r|var|vaar|spring|h\xf8st|host|haust|autumn|fall)'
+    m = re.search(r'(?<![a-z])(v\xe5ren|varen|vaaren|v\xe5r|var|vaar|spring'
+                  r'|h\xf8sten|hosten|hausten|h\xf8st|host|haust|autumn|fall)'
                   r'[\s_.\-]*(\d{2,4})(?![0-9])', n)
     if m:
-        s = 'V' if m.group(1) in ('v\xe5r', 'var', 'vaar', 'spring') else 'H'
+        s = 'V' if m.group(1).startswith(('v', 'sp')) else 'H'
         å = firesifret(m.group(2))
         if å:
             return å, ('K' if kont else s)
@@ -372,6 +425,16 @@ def selvtest():
         ('eksAug10b.pdf',                          None,      2010, 'K', 'oppgave'),
         ('eks14Aug08b.pdf',                        None,      2008, 'K', 'oppgave'),
         ('eksNov17n.pdf',                          None,      2017, 'H', 'oppgave'),
+        # Runde fire: mønstre indeksen fortsatt sto uten termin på.
+        ('eksamen-2013k-no.pdf',                   None,      2013, 'K', 'oppgave'),
+        ('tma4100_2025k.pdf',                      'TMA4100', 2025, 'K', 'oppgave'),
+        ('tma4115kont16_nynorsk.pdf',              'TMA4115', 2016, 'K', 'oppgave'),
+        ('eksamenma1301h06.pdf',                   'MA1301',  2006, 'H', 'oppgave'),
+        ('lfeksamenma1301h04.pdf',                 'MA1301',  2004, 'H', 'losning'),
+        ('2004june.pdf',                           None,      2004, 'V', 'oppgave'),
+        ('midtsem_2004h1.pdf',                     None,      2004, 'H', 'oppgave'),
+        ('sensorveiledning-jap1501-hosten-2025.pdf','JAP1501', 2025, 'H', 'losning'),
+        ('kin1503-sensorveiledning-varen-2026.pdf', None,      2026, 'V', 'losning'),
     ]
     feil = 0
     for navn, kode, år, ses, typ in saker:
