@@ -62,7 +62,18 @@ TØRR = bool(os.environ.get('DRY') or os.environ.get('TORR') or os.environ.get('
 DOKUMENT = re.compile(r'\.(pdf|docx?|rtf|odt)(\?|/|$)', re.I)
 # Eksamenssett som ligger som HTML-side, ikke fil. Kjennetegn: emnekode + semester
 # i filnavnet, f.eks. STV1100-2013H.html
-HTML_SETT = re.compile(r'/[A-ZÆØÅ]{2,8}\d{3,4}[-_]?\d{4}[HVhv]?\.html?$')
+# ⚠ Mønsteret krevde STORE bokstaver før 30. juli 2026. UiO skriver halvparten
+# av sidene med små: STV1100-2010H.html ble hentet, stv1100-2015h.html ikke.
+# Fire STV1100-sett, fem STV1200, fire INTER1000 og tre STV1400 lå usynlige.
+HTML_SETT = re.compile(
+    r'/[A-Za-zÆØÅæøå]{2,10}\d{3,4}[-_][^/]*\.html?$')
+# Sider som matcher HTML_SETT, men aldri er eksamenssett.
+IKKE_SETT = re.compile(r'(index\.html|/english/|personvern|kontakt|karakter|'
+                       r'kalkulator|fusk|klage|tilrettelegging|sykdom|trekk|'
+                       r'ny-eksamen|kildebruk)', re.I)
+# Innloggingsvegg. Et par STV-sett er IKKE åpent publisert; sida svarer 200 med
+# Weblogin-skjemaet. Slikt skal ikke i arkivet — se den rettslige rammen øverst.
+INNLOGGING = re.compile(r'Logg inn med din UiO-konto|Weblogin', re.I)
 
 
 def hent(url, binaer=False):
@@ -97,13 +108,67 @@ def hent(url, binaer=False):
 
 
 def lenker(sidehtml, base):
-    """Alle absolutte lenker på siden."""
+    """Alle absolutte lenker på siden.
+
+    ⚠ Filer som bare er lenket gjennom Microsofts nettviser
+    (view.officeapps.live.com/op/view.aspx?src=<prosentkodet URL>.docx&wdOrigin=…)
+    pakkes ut til den ekte URL-en. Endelsen står da midt i spørrestrengen med `&`
+    etter, så DOKUMENT ser den ikke. STV1100 og STV1200 hadde én
+    sensorveiledning hver som lå usynlig på denne måten.
+    """
     ut = []
     for m in re.finditer(r'href=["\']([^"\'#]+)', sidehtml):
         u = html.unescape(m.group(1))
         if u.startswith(('mailto:', 'javascript:', 'tel:')):
             continue
-        ut.append(urllib.parse.urljoin(base, u))
+        u = urllib.parse.urljoin(base, u)
+        if 'officeapps.live.com' in u or 'docs.google.com/viewer' in u:
+            q = urllib.parse.parse_qs(urllib.parse.urlparse(u).query)
+            for v in (q.get('src') or q.get('url') or []):
+                if re.search(r'\.(pdf|docx?|rtf|odt)', v, re.I):
+                    ut.append(v)
+            continue
+        # DokuWiki (NTNUs mattewiki) serverer eldre vedlegg gjennom
+        # lib/exe/fetch.php?media=<prosentkodet URL>. Uten utpakking blir
+        # filnavnet «fetch.php» for alle sammen. Fire TMA4105-sett lå slik.
+        if '/lib/exe/fetch.php' in u:
+            q = urllib.parse.parse_qs(urllib.parse.urlparse(u).query)
+            for v in q.get('media', []):
+                if re.search(r'\.(pdf|docx?|rtf|odt)', v, re.I):
+                    ut.append(v)
+            continue
+        ut.append(u)
+    return ut
+
+
+def alle_sider(rot):
+    """Arkivsiden og alle sidene bak pagineringen.
+
+    ⚠ UiOs mappelister (Vortex) viser bare de første ~20–25 oppføringene og
+    legger resten bak «?page=2&u-page=2». Fram til 30. juli 2026 leste denne
+    hentekoden bare side 1 — MAT1120 manglet 9 sett og NOR1300 18 av den grunn.
+    """
+    ut, sett, u = [], set(), rot
+    for _ in range(40):
+        if u in sett:
+            break
+        sett.add(u)
+        try:
+            s = hent(u)
+        except Exception as ex:
+            print('   KUNNE IKKE HENTE %s: %s' % (u, str(ex)[:90]))
+            break
+        time.sleep(PAUSE)
+        ut.append((u, s))
+        neste = None
+        for l in lenker(s, u):
+            if re.search(r'[?&]page=\d+', l) and l not in sett and \
+                    l.split('?')[0].rstrip('/') == rot.split('?')[0].rstrip('/'):
+                neste = l
+                break
+        if not neste:
+            break
+        u = neste
     return ut
 
 
@@ -155,22 +220,24 @@ def main():
     tot_fil = tot_byte = 0
 
     for e in liste:
-        kode = e['kode'].upper()
+        # Koder som «PSY1300/PSYC1230» ville laget en NESTET mappe og lastet ned
+        # alt på nytt ved siden av det som alt lå der. Skråstrek → understrek.
+        kode = e['kode'].upper().replace('/', '_')
         mappe = os.path.join(MÅL, kode)
         print('── %s  (%s)' % (kode, e.get('arkiv_url', '')[:78]))
-        try:
-            side = hent(e['arkiv_url'])
-        except Exception as ex:
-            print('   KUNNE IKKE HENTE ARKIVSIDEN: %s' % ex)
+        sider = alle_sider(e['arkiv_url'])
+        if not sider:
             continue
-        time.sleep(PAUSE)
+        if len(sider) > 1:
+            print('   %d sider (paginert)' % len(sider))
 
         kandidater = []
-        for u in lenker(side, e['arkiv_url']):
-            if DOKUMENT.search(u):
-                kandidater.append((u, 'dokument'))
-            elif HTML_SETT.search(u):
-                kandidater.append((u, 'html-sett'))
+        for base, side in sider:
+            for u in lenker(side, base):
+                if DOKUMENT.search(u):
+                    kandidater.append((u, 'dokument'))
+                elif HTML_SETT.search(u) and not IKKE_SETT.search(u):
+                    kandidater.append((u, 'html-sett'))
         # dedupliser, behold rekkefølge
         sett = set(); unike = []
         for u, t in kandidater:
@@ -201,6 +268,11 @@ def main():
                 continue
             if len(data) < 400:
                 print('      HOPPET OVER %s (bare %d B — trolig feilside)' % (navn, len(data)))
+                continue
+            if t == 'html-sett' and INNLOGGING.search(
+                    data[:20000].decode('utf-8', 'replace')):
+                print('      HOPPET OVER %s (innloggingsvegg, ikke åpent '
+                      'publisert)' % navn)
                 continue
             open(sti, 'wb').write(data)
             w.writerow([kode, e.get('institutt', ''), navn, t, len(data),
