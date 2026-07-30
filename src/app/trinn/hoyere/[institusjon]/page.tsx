@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { ChevronLeft } from 'lucide-react';
 import { TextbookHeader } from '@/components/textbook/textbook-header';
@@ -154,10 +155,29 @@ export default async function InstitusjonPage({ params }: PageProps) {
 
       {/* Hero Section */}
       <div className={`relative overflow-hidden bg-gradient-to-br ${inst.color}`}>
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-white/20 blur-3xl -translate-y-1/2 translate-x-1/2" />
-          <div className="absolute bottom-0 left-0 w-64 h-64 rounded-full bg-black/10 blur-3xl translate-y-1/2 -translate-x-1/2" />
-        </div>
+        {inst.imageHero ? (
+          /* Illustrasjonen ligger til HØYRE og tones ut mot venstre med en
+             maske, ikke med et fargelag. En maske er fargeuavhengig: gradienten
+             under skinner gjennom uansett hvilken farge institusjonen har, så
+             overskriften til venstre står på ren flate og forblir lesbar.
+             `<h1>{inst.name}</h1>` blir stående — den er sidens hovedoverskrift
+             for søk og skjermlesere, og skal ikke erstattes av et bilde. */
+          <div className="absolute inset-y-0 right-0 w-full md:w-[68%] pointer-events-none select-none [mask-image:linear-gradient(to_right,transparent_0%,black_45%)]">
+            <Image
+              src={inst.imageHero}
+              alt=""
+              fill
+              sizes="(max-width: 768px) 100vw, 68vw"
+              className="object-cover object-center opacity-90"
+              priority
+            />
+          </div>
+        ) : (
+          <div className="absolute inset-0 opacity-30">
+            <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-white/20 blur-3xl -translate-y-1/2 translate-x-1/2" />
+            <div className="absolute bottom-0 left-0 w-64 h-64 rounded-full bg-black/10 blur-3xl translate-y-1/2 -translate-x-1/2" />
+          </div>
+        )}
 
         <div className="relative container mx-auto px-4 py-12 md:py-20">
           <Link

@@ -21,6 +21,9 @@ export interface Institusjon {
   /** Forsidebilde til kortet. Bildet bærer kortnavnet, så kortet viser bare
    *  fullName som HTML — ellers står navnet to ganger. */
   image?: string;
+  /** Samme illustrasjon i 2800 px, til fullbredde-heroet på institusjonssiden.
+   *  Kortversjonen på 1600 px blir synlig myk der. */
+  imageHero?: string;
   subjects: HoyskoleFag[];
 }
 
@@ -32,6 +35,7 @@ export const INSTITUSJONER: Institusjon[] = [
     icon: '🎓',
     color: 'from-red-600 to-rose-700',
     image: '/images/institusjoner/uio.webp',
+      imageHero: '/images/institusjoner/uio-hero.webp',
     subjects: [
       { courseId: 'in2010', name: 'IN2010 Algoritmer og datastrukturer', icon: '🌳', color: 'from-slate-500 to-slate-700' },
       { courseId: 'med1100', name: 'MED1100 Medisinstudiet modul 1', icon: '🩺', color: 'from-slate-500 to-slate-700' },
@@ -66,6 +70,7 @@ export const INSTITUSJONER: Institusjon[] = [
     icon: '🏛️',
     color: 'from-blue-600 to-indigo-700',
     image: '/images/institusjoner/bi.webp',
+      imageHero: '/images/institusjoner/bi-hero.webp',
     subjects: [
       { courseId: 'bi-okonomi', name: 'Matematikk for økonomer', icon: '📊', color: 'from-amber-500 to-orange-600' },
     ],
@@ -77,6 +82,7 @@ export const INSTITUSJONER: Institusjon[] = [
     icon: '⛰️',
     color: 'from-cyan-700 to-blue-800',
     image: '/images/institusjoner/uib.webp',
+      imageHero: '/images/institusjoner/uib-hero.webp',
     subjects: [
       { courseId: 'mat111-uib', name: 'MAT111 Grunnkurs i matematikk I', icon: '📐', color: 'from-slate-500 to-slate-700' },
     ],
@@ -88,6 +94,7 @@ export const INSTITUSJONER: Institusjon[] = [
     icon: '🔬',
     color: 'from-blue-700 to-cyan-700',
     image: '/images/institusjoner/ntnu.webp',
+      imageHero: '/images/institusjoner/ntnu-hero.webp',
     subjects: [
       { courseId: 'ma1301', name: 'MA1301 Tallteori', icon: '🔢', color: 'from-slate-500 to-slate-700' },
       { courseId: 'tma4135', name: 'TMA4135 Matematikk 4D', icon: '∫', color: 'from-slate-500 to-slate-700' },
