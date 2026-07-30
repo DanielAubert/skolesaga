@@ -6,6 +6,15 @@ er sikkerhetsnettet som gjentar det som oftest glipper.
 
 ## Arbeidstre
 
+⚠ **`node_modules` i dette arbeidstreet er HARDLENKER til hovedtreet**
+(`cp -al`), lagt inn av Del 0+1-agenten for å få KaTeX-porten og `npm run build`
+til å kjøre. En symlink virker IKKE — Turbopack panikker med «Symlink
+node_modules is invalid».
+
+**Kjør ALDRI `npm install` her.** Filene deler inoder med hovedtreet, så en
+installasjon ville skrevet over hovedtreets pakker.
+
+
 Jobb i `.claude/worktrees/bok-tfy4115`, ikke i hovedtreet.
 
 ## Les først
