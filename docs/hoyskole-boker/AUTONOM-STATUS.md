@@ -61,13 +61,29 @@ framfor ```py, som ville sneket forbi porten og uthulet den for alle senere
 bøker. Commit `8447cd1c7`. Alle åtte porter grønne for begge bøker, build
 fullført, prod-curl bekrefter de rettede forklaringene i servert HTML.
 
-**30. juli, samme port avdekket 774 treff i `in1020` — en live bok** — Del 3–5
-ble ryddet 26. juli, men Del 0–2 ble aldri gjort: 15 kapitler, 774
-posisjonsreferanser. Verifiserte premisset i kildekoden selv
-(`quiz-client.tsx:71`) før jeg satte tre agenter på omskrivingen, siden
-kostnaden er høy. Agentene redigerer utdratte fragmenter i scratchpad — alle 774
-ligger i ÉN fil, så parallelle agenter ville kollidert; byggelederen spleiser
-tilbake.
+**30. juli, in1020-oppryddingen FULLFØRT** — 774 posisjonsreferanser i 295
+forklaringer, 15 kapitler i Del 0–2. Del 3–5 ble ryddet 26. juli; resten sto urørt
+i fire dager, fordi porten ble kjørt på de filene noen så på framfor på emnet.
+Commit `2599a231b`. Verifisering: explanation/question/options står 697/697/697 før
+og etter spleisingen, hvert fragment parset med node før innsetting, porten grønn på
+HELE korpuset, build fullført, og prod-curl på tre kapittelquizer gir 200 med null
+posisjonstreff i servert HTML.
+
+Tre steder krevde et annet grep enn sitering: ett spørsmål har fasit og distraktor
+med SAMME bitmønster (`10010001₂`), så sitatet måtte være egenskapen framfor tallet;
+rekkefølge-alternativer kan ikke siteres i sin helhet og er identifisert ved sitt
+første element; og én distraktor SIER «Kryss av det første alternativet som stemmer»
+— den er eksamensstrategi og skal stå, så forklaringen parafraserer den.
+
+**Porten er strammet to ganger som følge.** (1) Den skannet hele filteksten og
+kunne ikke skille en forklaring fra et ALTERNATIV — nå leser den kun
+`explanation`-feltet. (2) Første forsøk på den scopingen var blind for 101 av 174
+quiz-filer, 18 717 forklaringer, fordi de eldre VGS-bøkene bruker enkeltfnutter der
+høyskolebøkene bruker doble. Fanget ved å kreve at antall uttrukne forklaringer er
+LIK antall deklarerte, per fil: nå 44 618 av 44 618. En blind port er verre enn den
+falske positiven den fjerner. Commit `7b29b5467`; regelen er dessuten skrevet inn i
+BYGGEPLAN-MAL steg 4 (`671c891a0`), som ikke nevnte porten i det hele tatt — det er
+grunnen til at feilen kom inn i åtte bøker.
 
 **28. juli, andre bølge** — tdt4110 Del 0, 1, 2, 3, 4 ferdige (27 av 47 filer).
 med1100 Del 0, 1 ferdige (16 av 63). Sju agenter ute på Del 5–8 og med1100 Del 2–6.
