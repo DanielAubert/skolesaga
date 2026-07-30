@@ -229,13 +229,24 @@ def main():
         kode = e['kode'].upper().replace('/', '_')
         mappe = os.path.join(MÅL, kode)
         print('── %s  (%s)' % (kode, e.get('arkiv_url', '')[:78]))
-        sider = alle_sider(e['arkiv_url'])
-        if not sider:
-            continue
+
+        # ⚠ ARKIV-URL-EN KAN VÆRE SELVE FILA, ikke en side med lenker.
+        # SV-fakultetets hub blander mappelenker og direktelenker til
+        # enkeltdokumenter — STV2380 er én PDF, ikke en mappe. En henter som
+        # antar at hver arkiv-URL er en side, prøver å lese HTML ut av en PDF
+        # og mister fila uten å si fra.
+        if DOKUMENT.search(e['arkiv_url']):
+            sider = []
+            unike_direkte = [(e['arkiv_url'], 'dokument')]
+        else:
+            unike_direkte = []
+            sider = alle_sider(e['arkiv_url'])
+            if not sider:
+                continue
         if len(sider) > 1:
             print('   %d sider (paginert)' % len(sider))
 
-        kandidater = []
+        kandidater = list(unike_direkte)
         for base, side in sider:
             for u in lenker(side, base):
                 if DOKUMENT.search(u):
