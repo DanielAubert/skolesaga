@@ -1,0 +1,408 @@
+{
+  "id": "ma1301-5-1",
+  "courseId": "ma1301",
+  "chapterNumber": "5.1",
+  "title": "Orden modulo n og «orden deler ϕ(n)»",
+  "description": "Ordenen til a mod n (minste k med aᵏ≡1), det sentrale lemmaet «orden deler ϕ(n)» (ofte selv en bevisdel), og metoden for å finne orden ved å teste divisorene av ϕ(n).",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "forklare hva ordenen til et tall modulo n er, og hvorfor den bare finnes når tallene er relativt primiske",
+    "finne ordenen ved å teste divisorene av fi-verdien i stigende rekkefølge, og begrunne at svaret er det minste",
+    "bruke ordenslemmaet begge veier: til å avgjøre hvilke eksponenter som gir én, og til å vise at ordenen deler fi-verdien",
+    "redusere store eksponenter med ordenen, og finne ordenen til en potens av tallet"
+  ],
+  "content": [
+    {
+      "id": "ma1301-5-1-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Orden og primitive røtter er sjanger G, og sjangeren forekommer i 9 av 15 sett — 60 %.** Sjangerbokstavene er bokas forkortelser for oppgavetypene, forklart i [kap. 0.1](/ma1301/ma1301-0-1); **G** er orden modulo $n$ og primitive røtter.\n\nDette er **den delen som skiller C fra A**. Grunnen er ikke at stoffet er tungt — definisjonen er én linje og metoden er fire — men at det kommer sist i pensum og derfor ofte blir lest overfladisk. Karakterskillene i arkivet er tydelige: mekanikken (Euklid, $\\phi$, ett CRT-system, RSA med gitt $d$) gir bestått; **orden og primitive røtter med telling** er blant markørene for toppsjiktet.\n\n| Hva oppgaven spør om | Hvor apparatet står |\n|---|---|\n| «Finn ordenen til $a$ modulo $n$» | dette kapitlet |\n| «Vis at $a$ er en primitiv rot modulo $p$» | [kap. 5.2](/ma1301/ma1301-5-2) |\n| «Hvor mange elementer har orden $d$?» | [kap. 5.2](/ma1301/ma1301-5-2) |\n| «Vis at $\\operatorname{ord}_n(a)\\mid\\phi(n)$» | dette kapitlet — ofte selv en bevisdel |\n\n**Merk den siste raden.** Lemmaet «ordenen deler $\\phi(n)$» er ikke bare et verktøy du bruker; det er en påstand du kan bli bedt om å **bevise**, og beviset er fire linjer med divisjonsalgoritmen. Det gjør dette kapitlet dobbelt lønnsomt: samme stoff gir både et regnedelpunkt og et bevisdelpunkt.\n\n**Prioritet:** høy, men under Del 1–4. Har du knapt med tid, sikrer du først de fem søylene — men skal du over C, er det her og i [kap. 4.2](/ma1301/ma1301-4-2) marginen ligger."
+    },
+    {
+      "id": "ma1301-5-1-utenat",
+      "type": "tip",
+      "title": "Utenat under kode D",
+      "content": "Eksamen er hjelpemiddelkode D: ingen bok, ingen formelsamling, ingen tabeller, ingen egne notater — bare en enkel kalkulator. Den kan gange og dele med rest, men den kan ikke regne $a^k\\bmod n$ for deg, og det er nettopp de potensene ordensarbeidet består av.\n\n**Må sitte utenat:**\n\n- **definisjonen:** $\\operatorname{ord}_n(a)$ er det **minste** $k\\ge 1$ med $a^k\\equiv 1\\pmod n$\n- **vilkåret** $\\gcd(a,n)=1$ — uten det finnes ingen orden\n- **ordenslemmaet:** $a^t\\equiv 1\\pmod n\\iff \\operatorname{ord}_n(a)\\mid t$\n- **metoden:** finn $\\phi(n)$, list divisorene, test dem **stigende**, første $d$ med $a^d\\equiv 1$ er ordenen\n- **kvadrer-og-multipliser**, som du trenger til hver potens\n\n**Utledes på stedet:**\n\n- **$\\operatorname{ord}_n(a)\\mid\\phi(n)$** — én linje ut av ordenslemmaet: Eulers teorem gir $a^{\\phi(n)}\\equiv 1$, og lemmaet sier da at ordenen deler $\\phi(n)$. Utledningen står i løkke 2 og tar under et halvt minutt.\n- **$\\operatorname{ord}_n(a^k)=\\dfrac{\\operatorname{ord}_n(a)}{\\gcd(k,\\operatorname{ord}_n(a))}$** — tre linjer, i løkke 4.\n- **at potensene $a^0,a^1,\\dots,a^{d-1}$ er innbyrdes ulike** når $d$ er ordenen — to linjer.\n\n**Selvtest, to minutter:** dekk til boka og skriv ned definisjonen (med ordet **minste**), ordenslemmaet, og de fire stegene i metoden. Klarer du å si hvorfor du bare trenger teste **divisorene** av $\\phi(n)$, har du kapitlets kjerne — for det er nettopp ordenslemmaet som gir den innsnevringen."
+    },
+    {
+      "id": "ma1301-5-1-forkunnskaper",
+      "type": "text",
+      "content": "### Forkunnskaper\n\nFra boka: [kap. 2.1](/ma1301/ma1301-2-1) ($\\phi$-funksjonen og Eulers teorem — hele kapitlet hviler på dem), [kap. 1.4](/ma1301/ma1301-1-4) (kongruens og modulær invers) og [kap. 1.1](/ma1301/ma1301-1-1) (divisorer og faktorisering, som du bruker til å liste divisorene av $\\phi(n)$).\n\n**Sist du var her.** De to resultatene fra [kap. 2.1](/ma1301/ma1301-2-1) som dette kapitlet står helt på:\n\n**Eulers $\\phi$-funksjon.** $\\phi(n)$ er antallet tall mellom $1$ og $n$ som er relativt primiske til $n$, og den regnes ut fra faktoriseringen:\n$$\\phi(p^k)=p^k-p^{k-1},\\qquad \\phi(mn)=\\phi(m)\\phi(n)\\ \\text{når}\\ \\gcd(m,n)=1.$$\n\n**Eulers teorem.** For $\\gcd(a,n)=1$:\n$$a^{\\phi(n)}\\equiv 1\\pmod n.$$\n\nFra videregående kreves ingenting."
+    },
+    {
+      "id": "ma1301-5-1-motivasjon",
+      "type": "text",
+      "content": "### Når har hjulet gått rundt?\n\nDel $1$ på $41$ og se på desimalene:\n$$\\tfrac{1}{41}=0{,}02439\\ 02439\\ 02439\\dots$$\nSifrene gjentar seg med **periode $5$**. Prøver du $\\tfrac 17$, får du periode $6$; $\\tfrac{1}{11}$ gir periode $2$.\n\nHvor kommer de tallene fra? De er ordener. Perioden i desimalutviklingen av $\\tfrac 1n$ er nøyaktig det minste $k$ med\n$$10^k\\equiv 1\\pmod n,$$\nfor det er da divisjonen «kommer tilbake til start». Og for $n=41$ er det $k=5$: $10^5=100\\,000=2439\\cdot 41+1$.\n\n**Det tallet — det minste $k$ med $a^k\\equiv 1$ — er det vi kaller ordenen til $a$ modulo $n$.** Bildet å ha i hodet er et hjul: du ganger med $a$ om og om igjen, og ordenen er hvor mange steg det tar før du er tilbake der du startet.\n\n**Hvorfor det er verdt et kapittel:** ordenen er den eneste størrelsen som forteller **presis** hvor mye du kan redusere en eksponent. Eulers teorem sier at $a^{\\phi(n)}\\equiv 1$, og det er nyttig — men ordenen kan være mye mindre enn $\\phi(n)$, og da er reduksjonen mye kraftigere. For $a=10$, $n=41$ er $\\phi(41)=40$, men ordenen er bare $5$: åtte ganger bedre.\n\n**Og det er her forbindelsen til resten av faget ligger.** Ordenen er den mekanismen som gjør at potenser modulo $n$ er periodiske. Er ordenen så stor den kan bli — nemlig $\\phi(n)$ — kalles $a$ en **primitiv rot**, og det er tema for [kap. 5.2](/ma1301/ma1301-5-2).\n\n*Tidsanslag for kapitlet: ~55 minutter lesetid, fordelt på fem løkker à 9–13 minutter. Regner du med penn underveis, legg til omtrent halvparten.*"
+    },
+    {
+      "id": "ma1301-5-1-l1-intro",
+      "type": "text",
+      "content": "## Løkke 1: Definisjonen og divisortesten\n\n*~11 minutter.*\n\nVi begynner med begrepet og med den ene metoden du trenger for å finne ordenen med penn og papir."
+    },
+    {
+      "id": "ma1301-5-1-d-orden",
+      "type": "definition",
+      "title": "Orden modulo n",
+      "content": "La $\\gcd(a,n)=1$. **Ordenen til $a$ modulo $n$**, skrevet $\\operatorname{ord}_n(a)$, er det **minste** positive hele tallet $k$ med\n\n$$a^k\\equiv 1\\pmod n.$$\n\nI klarspråk: hvor mange ganger du må gange med $a$ før du kommer tilbake til $1$.\n\n**Ordet «minste» er hele definisjonen.** At $a^{12}\\equiv 1$ betyr **ikke** at ordenen er $12$ — den kan være $1$, $2$, $3$, $4$, $6$ eller $12$. Å oppgi en $k$ med $a^k\\equiv 1$ uten å utelukke de mindre, er den mest belagte feilen i sjangeren, og den koster uttelling selv når tallet er riktig.\n\n**Definisjonen må sitte utenat**, med ordet «minste», og notasjonen skrives $\\operatorname{ord}_n(a)$ — **alltid med modulusen som indeks.** «$\\operatorname{ord}(a)$» er meningsløst uten modulus, siden samme tall har ulik orden modulo ulike $n$: $\\operatorname{ord}_{17}(2)=8$, men $\\operatorname{ord}_{13}(2)=12$.\n\n**Eksempel med tall.** Modulo $17$: $3^1=3$, $3^2=9$, $3^4\\equiv 13$, $3^8\\equiv 16$, $3^{16}\\equiv 1$. Ordenen er $16$ — ingen mindre eksponent gir $1$, som vi kontrollerer i eksempel 1."
+    },
+    {
+      "id": "ma1301-5-1-d-gcd-kravet",
+      "type": "definition",
+      "title": "Vilkåret gcd(a, n) = 1",
+      "content": "Ordenen finnes **bare** når $\\gcd(a,n)=1$. Ellers finnes det ingen $k$ med $a^k\\equiv 1\\pmod n$ i det hele tatt.\n\n**Grunnen, i én linje:** var $a^k\\equiv 1\\pmod n$, ville $a^k-1=mn$ for et helt tall $m$, altså $a\\cdot a^{k-1}-n m=1$ — og da ville $\\gcd(a,n)$ måtte dele $1$ etter lineærkombinasjonsregelen fra [kap. 1.1](/ma1301/ma1301-1-1).\n\n**Konkret hva som skjer uten vilkåret:** ta $a=3$, $n=12$, der $\\gcd(3,12)=3$. Potensene er\n$$3,\\ 9,\\ 3,\\ 9,\\ 3,\\ 9,\\dots$$\nDe blir periodiske, men de treffer aldri $1$. Følgen «henger seg opp» i en syklus som ikke inneholder $1$.\n\n**Vilkåret må sitte utenat, og det skal skrives ut i besvarelsen.** Første linje i en ordensoppgave er «siden $\\gcd(a,n)=1$, finnes ordenen» — det er en gratis begrunnelse, og instruksen på hvert eksamenssett er at alle svar skal begrunnes.\n\n**Praktisk:** i eksamensoppgaver er $n$ oftest et primtall, og da er vilkåret oppfylt for alle $a$ som ikke er delelig med $n$. Men si det likevel."
+    },
+    {
+      "id": "ma1301-5-1-d-divisortesten",
+      "type": "definition",
+      "title": "Divisortesten — metoden",
+      "content": "Prosedyren for å finne $\\operatorname{ord}_n(a)$ med penn og papir. **Den må sitte utenat.**\n\n1. **Sjekk $\\gcd(a,n)=1$** og si det.\n2. **Regn $\\phi(n)$** fra faktoriseringen av $n$ ([kap. 2.1](/ma1301/ma1301-2-1)).\n3. **List alle divisorene** av $\\phi(n)$, i **stigende** rekkefølge.\n4. **Test dem stigende:** regn $a^d\\bmod n$ for hver divisor $d$, med kvadrer-og-multipliser. **Den første** som gir $1$, er ordenen — og fordi du gikk stigende, har du samtidig utelukket alle mindre.\n5. **Konkludér i ord:** «Altså er $\\operatorname{ord}_n(a)=d$, og ingen mindre eksponent gir $1$, siden ordenen må dele $\\phi(n)$.»\n\n**Hvorfor du bare trenger teste divisorene:** ordenen deler $\\phi(n)$ (løkke 2). Det er den innsnevringen som gjør oppgaven regnbar — uten den måtte du testet alle $k$ fra $1$ til $\\phi(n)$.\n\n**Arbeidsmengden er liten.** $\\phi(n)$ har typisk 4–8 divisorer, og potensene bygger på hverandre: har du $a^2$, får du $a^4$ ved én kvadrering. Under kode D er dette en oppgave på fem minutter.\n\n**Kontrollen:** endte du på en $d$ som **ikke** deler $\\phi(n)$, har du regnet feil — ordenen er alltid en divisor."
+    },
+    {
+      "id": "ma1301-5-1-e1",
+      "type": "example",
+      "title": "Ordenen til 3 modulo 17",
+      "problem": "Finn $\\operatorname{ord}_{17}(3)$.",
+      "solution": "**Steg 1: vilkåret.** $\\gcd(3,17)=1$ siden $17$ er et primtall som ikke deler $3$, så ordenen finnes.\n\n**Steg 2: $\\phi(n)$.** Modulusen er et primtall, så $\\phi(17)=17-1=16$.\n\n**Steg 3: divisorene av $16$**, i stigende rekkefølge:\n$$1,\\ 2,\\ 4,\\ 8,\\ 16.$$\n\n**Steg 4: test dem stigende.** Hver potens bygger på den forrige ved kvadrering:\n\n| $d$ | $3^d\\bmod 17$ | utregning |\n|---|---|---|\n| $1$ | $3$ | — |\n| $2$ | $9$ | $3^2=9$ |\n| $4$ | $13$ | $9^2=81=4\\cdot 17+13$ |\n| $8$ | $16$ | $13^2=169=9\\cdot 17+16$ |\n| $16$ | $1$ | $16^2=256=15\\cdot 17+1$ |\n\nDen første divisoren som gir $1$, er $d=16$.\n\n**Steg 5: konklusjon.** Altså er\n$$\\operatorname{ord}_{17}(3)=16.$$\nOg ingen mindre eksponent gir $1$: ordenen må dele $\\phi(17)=16$, og vi har testet **alle** divisorene av $16$ som er mindre enn $16$ — ingen av dem ga $1$.\n\n**Kontroll.** Legg merke til at $3^8\\equiv 16\\equiv -1\\pmod{17}$. Det er en fin bekreftelse: kvadrerer vi, får vi $3^{16}\\equiv(-1)^2=1$ ✓. Og det viser med én gang at ordenen ikke kan være $8$ eller mindre.\n\n**Sluttsvar:** $\\operatorname{ord}_{17}(3)=16$.\n\n*Merk at ordenen her ble så stor den kunne bli, nemlig $\\phi(17)=16$. Da kalles $3$ en **primitiv rot** modulo $17$ — begrepet er tema for [kap. 5.2](/ma1301/ma1301-5-2), og du har nettopp verifisert et tilfelle av det.*\n\n*Merk også arbeidsbesparelsen i tabellen: fire kvadreringer, ingen multiplikasjoner. Det er fordi divisorene av $16$ er toerpotenser, så hver rad er kvadratet av den forrige. Er $\\phi(n)$ ikke en toerpotens, må du regne noen potenser med kvadrer-og-multipliser — se eksempel 2.*"
+    },
+    {
+      "id": "ma1301-5-1-ex-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-5-1-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Finn $\\operatorname{ord}_{11}(3)$ med divisortesten. Vis at ordenen er den **minste** eksponenten som gir $1$.",
+        "solution": "**Steg 1: vilkåret.** $\\gcd(3,11)=1$, så ordenen finnes.\n\n**Steg 2:** $\\phi(11)=11-1=10$.\n\n**Steg 3: divisorene av $10$:** $1,\\ 2,\\ 5,\\ 10$.\n\n**Steg 4: test stigende.**\n\n| $d$ | $3^d\\bmod 11$ | utregning |\n|---|---|---|\n| $1$ | $3$ | — |\n| $2$ | $9$ | $3^2=9$ |\n| $5$ | $1$ | $3^4=81\\equiv 4$, så $3^5=3^4\\cdot 3\\equiv 4\\cdot 3=12\\equiv 1$ |\n\nDen første divisoren som gir $1$, er $d=5$, og vi trenger ikke teste $10$.\n\n**Steg 5: konklusjon.** $\\operatorname{ord}_{11}(3)=5$.\n\n**At $5$ er den minste:** ordenen må dele $\\phi(11)=10$, og de eneste kandidatene mindre enn $5$ er $1$ og $2$. Vi testet begge — de ga $3$ og $9$, ikke $1$. Altså er $5$ den minste.\n\n**Kontroll:** $3^{10}=(3^5)^2\\equiv 1^2=1$ ✓, som Eulers teorem krever.\n\n**Sluttsvar:** $\\operatorname{ord}_{11}(3)=5$.\n\n*Legg merke til at vi kunne stoppe ved $d=5$ og hoppe over $10$. Så snart du treffer $1$ i en stigende divisortest, er du ferdig — og alle større divisorer gir også $1$, siden ordenen deler dem.*",
+        "hints": [
+          "$\\phi(11)=10$, og divisorene er $1,2,5,10$.",
+          "Til $3^5$: regn $3^4$ først (som $9^2$ redusert), og gang med $3$.",
+          "Test stigende, og stopp første gang du får $1$."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-5-1-ex-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-5-1-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Finn $\\operatorname{ord}_{13}(5)$.",
+        "solution": "**Steg 1:** $\\gcd(5,13)=1$, så ordenen finnes.\n\n**Steg 2:** $\\phi(13)=12$.\n\n**Steg 3: divisorene av $12$:** $1,\\ 2,\\ 3,\\ 4,\\ 6,\\ 12$.\n\n**Steg 4: test stigende.**\n\n| $d$ | $5^d\\bmod 13$ | utregning |\n|---|---|---|\n| $1$ | $5$ | — |\n| $2$ | $12$ | $25=13+12$ |\n| $3$ | $8$ | $5^3=5^2\\cdot 5\\equiv 12\\cdot 5=60=4\\cdot 13+8$ |\n| $4$ | $1$ | $5^4=(5^2)^2\\equiv 12^2=144=11\\cdot 13+1$ |\n\nFørste divisor som gir $1$: $d=4$.\n\n**Steg 5: konklusjon.** $\\operatorname{ord}_{13}(5)=4$, og de tre mindre divisorene ($1$, $2$, $3$) ga ikke $1$.\n\n**Kontroll.** Merk at $5^2\\equiv 12\\equiv -1\\pmod{13}$. Da er $5^4\\equiv(-1)^2=1$ ✓, og ordenen er nødvendigvis $4$: den kan ikke være $1$ eller $2$ (vi testet), og $3$ ville ikke delt $4$.\n\n**Sluttsvar:** $\\operatorname{ord}_{13}(5)=4$.\n\n*Snarveien er verdt å merke seg: lander en potens på $-1$, er ordenen **det dobbelte** av den eksponenten. Her ga $5^2\\equiv -1$ umiddelbart ordenen $4$.*",
+        "hints": [
+          "$\\phi(13)=12$, og divisorene er $1,2,3,4,6,12$.",
+          "Regn $5^2$ først og se om den er $\\equiv -1$.",
+          "Lander en potens på $-1$, hva er da ordenen?"
+        ]
+      }
+    },
+    {
+      "id": "ma1301-5-1-l2-intro",
+      "type": "text",
+      "content": "## Løkke 2: Ordenslemmaet\n\n*~13 minutter.*\n\nNå kommer resultatet hele kapitlet hviler på — og som i tillegg er en bevisoppgave i seg selv. Det svarer på spørsmålet: **hvilke** eksponenter $t$ gir $a^t\\equiv 1$? Svaret er «nøyaktig multiplene av ordenen», og det er sterkere enn det ser ut.\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "ma1301-5-1-t-ordenslemmaet",
+      "type": "theorem",
+      "title": "Ordenslemmaet",
+      "content": "La $\\gcd(a,n)=1$ og sett $d=\\operatorname{ord}_n(a)$. For hvert helt tall $t\\ge 0$:\n\n$$a^t\\equiv 1\\pmod n\\quad\\Longleftrightarrow\\quad d\\mid t.$$\n\n**Bevis.**\n\n*Retning $\\Leftarrow$ (den lette).* Er $d\\mid t$, skriv $t=dm$. Da er\n$$a^t=(a^d)^m\\equiv 1^m=1\\pmod n.$$\n\n*Retning $\\Rightarrow$ (den som bruker divisjonsalgoritmen).* Anta $a^t\\equiv 1$. **Ved divisjonsalgoritmen** ([kap. 1.1](/ma1301/ma1301-1-1)) finnes $q$ og $r$ med\n$$t=qd+r,\\qquad 0\\le r<d.$$\nDa er\n$$1\\equiv a^t=a^{qd+r}=(a^d)^q\\cdot a^r\\equiv 1^q\\cdot a^r=a^r\\pmod n.$$\nSå $a^r\\equiv 1$ med $0\\le r<d$. Men $d$ er per definisjon det **minste** positive tallet med den egenskapen, så $r$ kan ikke være positiv. Altså er $r=0$, og $t=qd$, det vil si $d\\mid t$. $\\blacksquare$\n\n**Lemmaet må sitte utenat**, og det må navngis når du bruker det. Det er selve motoren i alt ordensarbeid.\n\n**Intuisjon:** hjulet kommer tilbake til start etter $d$ steg. Da er de **eneste** stedene det står på start, etter $d$, $2d$, $3d$, … steg. Ingen andre — for kom det tilbake etter $r<d$ steg også, var $d$ ikke det minste.\n\n**Korollaret som brukes hele tiden — utledes på stedet, én linje:** **Eulers teorem** gir $a^{\\phi(n)}\\equiv 1\\pmod n$, og lemmaet sier da at\n$$\\operatorname{ord}_n(a)\\mid\\phi(n).$$\nFor primtallsmodulus $p$ blir det $\\operatorname{ord}_p(a)\\mid p-1$, siden $\\phi(p)=p-1$ — der er det **Fermats lille teorem** som gir kongruensen.\n\n**Dette korollaret er selve grunnen til at divisortesten virker.** Uten det måtte du prøvd alle eksponenter opp til $\\phi(n)$; med det holder det å prøve divisorene."
+    },
+    {
+      "id": "ma1301-5-1-d-ord-deler-phi",
+      "type": "definition",
+      "title": "Ordenen deler φ(n)",
+      "content": "$$\\operatorname{ord}_n(a)\\mid\\phi(n)\\qquad\\text{når }\\gcd(a,n)=1.$$\n\nFor primtallsmodulus: $\\operatorname{ord}_p(a)\\mid p-1$.\n\n**Utledes på stedet, én linje:** Eulers teorem gir $a^{\\phi(n)}\\equiv 1$, og ordenslemmaet oversetter det til «ordenen deler $\\phi(n)$».\n\n**Dette er den mest brukte konsekvensen i hele kapitlet**, og den brukes på tre måter:\n\n1. **Som innsnevring:** du trenger bare teste divisorene av $\\phi(n)$ når du leter etter ordenen.\n2. **Som kontroll:** fikk du en orden som ikke deler $\\phi(n)$, har du regnet feil.\n3. **Som argument i bevis:** «siden ordenen deler $\\phi(n)=28$ og ikke er $1$, $2$, $4$, $7$ eller $14$, må den være $28$» — det er hele strukturen i en primitiv-rot-verifikasjon ([kap. 5.2](/ma1301/ma1301-5-2)).\n\n**Merk at det ikke går andre veien.** At $d\\mid\\phi(n)$ betyr ikke at det finnes et element av orden $d$ — men for primtallsmodulus gjør det faktisk det, og antallet er $\\phi(d)$ ([kap. 5.2](/ma1301/ma1301-5-2)).\n\n**Som eksamensoppgave:** «Vis at $\\operatorname{ord}_n(a)$ deler $\\phi(n)$» er en bevisoppgave på fire linjer — ordenslemmaets $\\Rightarrow$-retning pluss Eulers teorem. Den er verdt å kunne føre kaldt."
+    },
+    {
+      "id": "ma1301-5-1-d-multiplene",
+      "type": "definition",
+      "title": "Alle t med aᵗ≡1 er multiplene av ordenen",
+      "content": "Ordenslemmaet leses ofte baklengs, og da er det denne formen du bruker:\n\n$$\\{t\\ge 1: a^t\\equiv 1\\pmod n\\}=\\{d,\\ 2d,\\ 3d,\\ \\dots\\},\\qquad d=\\operatorname{ord}_n(a).$$\n\n**I klarspråk:** eksponentene som «treffer $1$», ligger jevnt fordelt med avstand $d$. Ingen andre treffer.\n\n**Slik brukes det på eksamen, tre typiske spørsmål:**\n\n- **«Finn alle $t\\le 100$ med $a^t\\equiv 1$.»** Svar: multiplene av $d$ opp til $100$.\n- **«Er $a^{45}\\equiv 1$?»** Svar: ja nøyaktig når $d\\mid 45$.\n- **«Gitt at $a^{12}\\equiv 1$ og $a^{18}\\equiv 1$ — hva kan du si om ordenen?»** Svar: $d$ deler både $12$ og $18$, altså deler $d$ tallet $\\gcd(12,18)=6$. Det er et grep verdt å kjenne: **ordenen deler enhver eksponent som gir $1$, derfor deler den også deres gcd.**\n\n**Og motsatt, den vanligste fellen:** at $a^{12}\\equiv 1$ betyr **ikke** at ordenen er $12$. Den er en divisor av $12$, og du må teste de mindre divisorene for å vite hvilken.\n\n**Kontrollregel:** har du funnet at $a^d\\equiv 1$ for en $d$, og $d\\nmid\\phi(n)$, er noe galt — for ordenen deler $\\phi(n)$, og $d$ må være et multiplum av ordenen."
+    },
+    {
+      "id": "ma1301-5-1-e2",
+      "type": "example",
+      "title": "Ordenen når φ(n) ikke er en toerpotens",
+      "problem": "Finn $\\operatorname{ord}_{20}(7)$.",
+      "solution": "**Steg 1: vilkåret.** $\\gcd(7,20)=1$, så ordenen finnes.\n\n**Steg 2: $\\phi(20)$.** Faktoriseringen er $20=2^2\\cdot 5$, så **ved multiplikativiteten** ([kap. 2.1](/ma1301/ma1301-2-1))\n$$\\phi(20)=\\phi(4)\\phi(5)=(4-2)(5-1)=2\\cdot 4=8.$$\n\n**Steg 3: divisorene av $8$:** $1,\\ 2,\\ 4,\\ 8$.\n\n**Steg 4: test stigende.**\n\n| $d$ | $7^d\\bmod 20$ | utregning |\n|---|---|---|\n| $1$ | $7$ | — |\n| $2$ | $9$ | $49=2\\cdot 20+9$ |\n| $4$ | $1$ | $9^2=81=4\\cdot 20+1$ |\n\nFørste divisor som gir $1$: $d=4$.\n\n**Steg 5: konklusjon.** Altså er\n$$\\operatorname{ord}_{20}(7)=4.$$\nDe mindre divisorene $1$ og $2$ ga $7$ og $9$, ikke $1$, så $4$ er den minste.\n\n**Kontroll, to veier.**\n\n*Vei 1 — mot Eulers teorem.* Ordenen skal dele $\\phi(20)=8$, og $4\\mid 8$ ✓.\n\n*Vei 2 — sjekk $7^8$.* $7^8=(7^4)^2\\equiv 1^2=1$ ✓, som Eulers teorem krever.\n\n**Sluttsvar:** $\\operatorname{ord}_{20}(7)=4$.\n\n*Legg merke til at ordenen ($4$) er **strengt mindre** enn $\\phi(20)=8$. Det er det vanlige: ordenen er $\\phi(n)$ bare for spesielt gunstige $a$, og for $n=20$ finnes det faktisk **ingen** slik $a$ — modulo $20$ har ingen primitiv rot i det hele tatt, siden $20$ ikke er på formen $2$, $4$, $p^k$ eller $2p^k$ ([kap. 5.2](/ma1301/ma1301-5-2)).*\n\n*Om føringen: at $\\phi(20)$ regnes ut med multiplikativiteten og med navnet nevnt, er en del av besvarelsen. Instruksen på hvert eksamenssett er at alle svar skal begrunnes, og «$\\phi(20)=8$» uten utregning er et sluttall uten metode.*"
+    },
+    {
+      "id": "ma1301-5-1-ex-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-5-1-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "**a)** Finn $\\operatorname{ord}_{17}(2)$.\n**b)** Bruk ordenslemmaet til å avgjøre om $2^{100}\\equiv 1\\pmod{17}$.\n**c)** Finn alle $t$ med $1\\le t\\le 40$ og $2^t\\equiv 1\\pmod{17}$.",
+        "solution": "**a) Steg 1:** $\\gcd(2,17)=1$, så ordenen finnes. **Steg 2:** $\\phi(17)=16$. **Steg 3:** divisorene er $1,2,4,8,16$.\n\n**Steg 4: test stigende.**\n\n| $d$ | $2^d\\bmod 17$ | utregning |\n|---|---|---|\n| $1$ | $2$ | — |\n| $2$ | $4$ | — |\n| $4$ | $16$ | $4^2=16$ |\n| $8$ | $1$ | $16^2=256=15\\cdot 17+1$ |\n\nFørste divisor som gir $1$: $d=8$.\n\n**a) Sluttsvar:** $\\operatorname{ord}_{17}(2)=8$.\n\n*(Snarvei: $2^4\\equiv 16\\equiv -1\\pmod{17}$, så $2^8\\equiv 1$ og ordenen er $8$ direkte.)*\n\n**b)** **Ved ordenslemmaet** er $2^{100}\\equiv 1\\pmod{17}$ nøyaktig når $8\\mid 100$. Men\n$$100=12\\cdot 8+4,$$\nså $8\\nmid 100$. Altså er $2^{100}\\not\\equiv 1\\pmod{17}$.\n\n**Hva den er i stedet:** $2^{100}=2^{96}\\cdot 2^4=(2^8)^{12}\\cdot 2^4\\equiv 1\\cdot 16=16\\pmod{17}$. Så $2^{100}\\equiv 16\\equiv -1$.\n\n**c)** **Ved ordenslemmaet** er $2^t\\equiv 1$ nøyaktig når $8\\mid t$. Multiplene av $8$ opp til $40$ er\n$$t=8,\\ 16,\\ 24,\\ 32,\\ 40.$$\n\n**Kontroll:** $\\operatorname{ord}_{17}(2)=8$ deler $\\phi(17)=16$ ✓.\n\n**Sluttsvar:** a) $8$; b) nei, $2^{100}\\equiv 16\\pmod{17}$; c) $t\\in\\{8,16,24,32,40\\}$.\n\n*Merk hvordan del b) og c) ikke krevde ny regning — bare ordenslemmaet. Det er derfor lemmaet er verdt å kunne som en toveis-ekvivalens og ikke bare som «ordenen deler $\\phi(n)$».*",
+        "hints": [
+          "I a): se om $2^4$ er $\\equiv -1\\pmod{17}$.",
+          "I b): ordenslemmaet sier at $a^t\\equiv 1$ nøyaktig når ordenen deler $t$.",
+          "I c): hvilke $t$ er delelige med ordenen?"
+        ]
+      }
+    },
+    {
+      "id": "ma1301-5-1-ex-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-5-1-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Finn $\\operatorname{ord}_9(2)$ og $\\operatorname{ord}_{25}(7)$. Regn $\\phi$ i begge tilfeller med formelen for primtallspotenser.",
+        "solution": "**Første: $\\operatorname{ord}_9(2)$.**\n\n$\\gcd(2,9)=1$, så ordenen finnes. Modulusen er en primtallspotens, så\n$$\\phi(9)=\\phi(3^2)=3^2-3^1=9-3=6.$$\n\nDivisorene av $6$ er $1,\\ 2,\\ 3,\\ 6$. Test stigende:\n\n| $d$ | $2^d\\bmod 9$ |\n|---|---|\n| $1$ | $2$ |\n| $2$ | $4$ |\n| $3$ | $8$ |\n| $6$ | $1$ |\n\nsiden $2^3=8$ og $2^6=(2^3)^2\\equiv 8^2=64=7\\cdot 9+1\\equiv 1$.\n\nAltså er $\\operatorname{ord}_9(2)=6$, og de tre mindre divisorene ga ikke $1$.\n\n*Merk: her er ordenen lik $\\phi(9)=6$, så $2$ er en **primitiv rot** modulo $9$ ([kap. 5.2](/ma1301/ma1301-5-2)).*\n\n**Andre: $\\operatorname{ord}_{25}(7)$.**\n\n$\\gcd(7,25)=1$. Modulusen er en primtallspotens:\n$$\\phi(25)=\\phi(5^2)=5^2-5^1=25-5=20.$$\n\nDivisorene av $20$ er $1,\\ 2,\\ 4,\\ 5,\\ 10,\\ 20$. Test stigende:\n\n| $d$ | $7^d\\bmod 25$ | utregning |\n|---|---|---|\n| $1$ | $7$ | — |\n| $2$ | $24$ | $49=25+24$ |\n| $4$ | $1$ | $24^2=576=23\\cdot 25+1$ |\n\nAltså er $\\operatorname{ord}_{25}(7)=4$.\n\n**Snarveien:** $7^2=49\\equiv 24\\equiv -1\\pmod{25}$, så $7^4\\equiv 1$ direkte, og ordenen er $4$.\n\n**Kontroll:** $4\\mid 20$ ✓, som ordenslemmaet krever.\n\n**Sluttsvar:** $\\operatorname{ord}_9(2)=6$ og $\\operatorname{ord}_{25}(7)=4$.\n\n*To ting å ta med: **(1)** $\\phi(p^k)=p^k-p^{k-1}$, ikke $p^k-1$ — den feilen er dokumentert i arkivet. **(2)** Ordenen kan være mye mindre enn $\\phi(n)$; her er $4$ mot $20$.*",
+        "hints": [
+          "$\\phi(p^k)=p^k-p^{k-1}$. Regn $\\phi(9)$ og $\\phi(25)$ først.",
+          "List divisorene av $\\phi$ og test dem stigende.",
+          "Se etter potenser som lander på $-1$ — de gir ordenen med én gang."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-5-1-ex-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-5-1-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**a)** Bevis at $\\operatorname{ord}_n(a)\\mid\\phi(n)$ når $\\gcd(a,n)=1$.\n**b)** La $\\gcd(a,n)=1$ og anta at $a^{18}\\equiv 1\\pmod n$ og $a^{30}\\equiv 1\\pmod n$. Hva kan du si om $\\operatorname{ord}_n(a)$?",
+        "solution": "**a)** Sett $d=\\operatorname{ord}_n(a)$.\n\n**Ved Eulers teorem** er\n$$a^{\\phi(n)}\\equiv 1\\pmod n,$$\nsiden $\\gcd(a,n)=1$.\n\n**Ved ordenslemmaet** ($\\Rightarrow$-retningen) følger det at $d\\mid\\phi(n)$. $\\blacksquare$\n\n**Beviset for ordenslemmaets $\\Rightarrow$-retning, skrevet ut** (det er den delen som gjør arbeidet, og en fullstendig besvarelse tar den med): la $a^t\\equiv 1$. Divisjonsalgoritmen gir $t=qd+r$ med $0\\le r<d$. Da er\n$$1\\equiv a^t=(a^d)^q\\cdot a^r\\equiv a^r\\pmod n.$$\nSiden $d$ er det **minste** positive tallet med $a^d\\equiv 1$, og $0\\le r<d$, må $r=0$. Altså $d\\mid t$. Med $t=\\phi(n)$ gir dette påstanden.\n\n**b)** **Ved ordenslemmaet** deler $d$ både $18$ og $30$. Da deler $d$ også enhver lineærkombinasjon av dem, og spesielt\n$$d\\mid\\gcd(18,30)=6.$$\n\nAltså er $d\\in\\{1,2,3,6\\}$ — og mer kan vi ikke si uten flere opplysninger. **Alle fire er mulige**, som disse eksemplene viser:\n\n- $d=1$: $a\\equiv 1$ modulo hva som helst.\n- $d=2$: $a=4$, $n=5$ ($4\\equiv -1$, så $4^2\\equiv 1$).\n- $d=3$: $a=2$, $n=7$ ($2^3=8\\equiv 1$).\n- $d=6$: $a=3$, $n=7$ ($3^6\\equiv 1$, og $3^2=2$, $3^3=6\\not\\equiv 1$).\n\n**Kontroll av det siste:** $\\operatorname{ord}_7(3)=6$ deler $\\gcd(18,30)=6$ ✓, og faktisk $3^{18}=(3^6)^3\\equiv 1$ og $3^{30}=(3^6)^5\\equiv 1$ ✓.\n\n**Sluttsvar:** a) bevist via Eulers teorem og ordenslemmaet; b) $d$ deler $\\gcd(18,30)=6$, altså $d\\in\\{1,2,3,6\\}$, og alle fire kan forekomme.\n\n*Grepet i b) er verdt å kjenne: **ordenen deler enhver eksponent som gir $1$, derfor deler den også deres største felles divisor.** Det dukker opp i bevisoppgaver, og det er en direkte anvendelse av ordenslemmaet i baklengs form.*",
+        "hints": [
+          "I a): hvilket teorem gir deg en eksponent som gir $1$? Og hva sier ordenslemmaet om den?",
+          "I b): ordenen deler både $18$ og $30$. Hva deler den da også?",
+          "I b): finn konkrete eksempler for hver av de mulige ordenene."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-5-1-l3-intro",
+      "type": "text",
+      "content": "## Løkke 3: Å redusere eksponenter med ordenen\n\n*~9 minutter.*\n\nHer er den praktiske gevinsten. Ordenen er den **presise** perioden, og det gjør den til et sterkere reduksjonsverktøy enn Eulers teorem — noen ganger mye sterkere."
+    },
+    {
+      "id": "ma1301-5-1-d-eksponentreduksjon-orden",
+      "type": "definition",
+      "title": "Eksponentreduksjon med ordenen",
+      "content": "For å regne $a^N\\bmod n$ med $\\gcd(a,n)=1$:\n\n$$a^N\\equiv a^{N\\bmod d}\\pmod n,\\qquad d=\\operatorname{ord}_n(a).$$\n\n**Utledes på stedet, to linjer:** skriv $N=qd+r$ med $0\\le r<d$ (divisjonsalgoritmen). Da er\n$$a^N=(a^d)^q\\cdot a^r\\equiv 1^q\\cdot a^r=a^r\\pmod n.$$\n\n**Sammenlign med Euler-reduksjonen fra [kap. 2.1](/ma1301/ma1301-2-1),** der du reduserte eksponenten modulo $\\phi(n)$. Begge er riktige, men ordenen er **minst mulig** periode, og derfor gir den den kraftigste reduksjonen:\n\n| | Modulus for eksponenten | Eksempel: $10^{1000}\\bmod 41$ |\n|---|---|---|\n| Eulers teorem | $\\phi(n)$ | $1000\\bmod 40=0$, så $10^{1000}\\equiv 1$ |\n| Ordenen | $d\\mid\\phi(n)$ | $1000\\bmod 5=0$, så $10^{1000}\\equiv 1$ |\n\nHer ga begge samme svar, men ordensveien krevde en tabell over fem potenser i stedet for førti — og der eksponenten ikke er delelig med $\\phi(n)$, er forskjellen større.\n\n**Den praktiske avveiningen:** å finne ordenen koster arbeid (divisortesten). Skal du regne **én** potens, er Euler-reduksjonen ofte raskest. Skal du regne **flere** potenser av samme $a$, eller er $\\phi(n)$ stor og du mistenker at ordenen er liten, lønner det seg å finne ordenen først.\n\n**På eksamen:** oppgaven sier vanligvis hva den vil. «Finn ordenen» er sjanger G; «finn resten» er sjanger E ([kap. 2.5](/ma1301/ma1301-2-5)). Men vet du ordenen fra en tidligere deloppgave, **bruk den** — det er billigere, og det viser sammenhengen."
+    },
+    {
+      "id": "ma1301-5-1-d-desimalperiode",
+      "type": "definition",
+      "title": "Ordenen og desimalperioden",
+      "content": "For $\\gcd(10,n)=1$ er **perioden** i desimalutviklingen av $\\tfrac 1n$ nøyaktig\n$$\\operatorname{ord}_n(10).$$\n\n**Hvorfor:** desimalutviklingen av $\\tfrac 1n$ gjentar seg etter $k$ siffer nøyaktig når $10^k\\cdot\\tfrac 1n$ og $\\tfrac 1n$ har samme desimaldel, altså når $n\\mid 10^k-1$, altså når $10^k\\equiv 1\\pmod n$. Den minste slike $k$ er ordenen.\n\n**Eksempler, alle etterprøvbare med divisjon:**\n\n| $n$ | $\\operatorname{ord}_n(10)$ | $\\tfrac 1n$ |\n|---|---|---|\n| $3$ | $1$ | $0{,}333\\dots$ |\n| $7$ | $6$ | $0{,}142857\\ 142857\\dots$ |\n| $11$ | $2$ | $0{,}0909\\dots$ |\n| $41$ | $5$ | $0{,}02439\\ 02439\\dots$ |\n\n**Konsekvens som er verdt å kjenne:** perioden deler alltid $\\phi(n)$. For $n=7$ er $\\phi(7)=6$ og perioden $6$ — maksimal. For $n=41$ er $\\phi(41)=40$, men perioden bare $5$.\n\n**Kortet er ikke pensum i seg selv**, men det er en av de mest konkrete måtene å forstå hva ordenen *er*: en periode. Og det gir deg en gratis kontroll — regn ut $\\tfrac 1{41}$ med divisjon, og se at sifrene gjentar seg etter fem plasser."
+    },
+    {
+      "id": "ma1301-5-1-e3",
+      "type": "example",
+      "title": "Eksamensnivå: orden brukt til å regne en stor potens",
+      "problem": "**a)** Finn $\\operatorname{ord}_{41}(10)$.\n**b)** Bruk svaret til å finne resten når $10^{1000}$ deles på $41$.\n**c)** Finn resten når $10^{2026}$ deles på $41$.",
+      "solution": "**a) Steg 1: vilkåret.** $\\gcd(10,41)=1$ siden $41$ er primtall og $41\\nmid 10$. Ordenen finnes.\n\n**Steg 2: $\\phi(41)$.** Modulusen er primtall, så $\\phi(41)=40$.\n\n**Steg 3: divisorene av $40$**, stigende:\n$$1,\\ 2,\\ 4,\\ 5,\\ 8,\\ 10,\\ 20,\\ 40.$$\n\n**Steg 4: test stigende.**\n\n| $d$ | $10^d\\bmod 41$ | utregning |\n|---|---|---|\n| $1$ | $10$ | — |\n| $2$ | $18$ | $100=2\\cdot 41+18$ |\n| $4$ | $37$ | $18^2=324=7\\cdot 41+37$ |\n| $5$ | $1$ | $10^5=10^4\\cdot 10\\equiv 37\\cdot 10=370=9\\cdot 41+1$ |\n\nFørste divisor som gir $1$: $d=5$.\n\n**Steg 5: konklusjon.** Altså er\n$$\\operatorname{ord}_{41}(10)=5,$$\nog de tre mindre divisorene ($1$, $2$, $4$) ga $10$, $18$ og $37$ — ikke $1$. Ordenen deler $\\phi(41)=40$ ✓.\n\n*Merk hvor mye mindre ordenen er enn $\\phi(41)=40$: åtte ganger. Det er nettopp den typen tilfelle der det lønner seg å finne ordenen framfor å bruke Euler-reduksjon.*\n\n**b)** **Ved ordenslemmaet** kan vi redusere eksponenten modulo ordenen:\n$$1000=200\\cdot 5+0,$$\nså $1000\\equiv 0\\pmod 5$ og\n$$10^{1000}=(10^5)^{200}\\equiv 1^{200}=1\\pmod{41}.$$\n\n**Resten er $1$.**\n\n**Kontroll med Euler-veien** ([kap. 2.1](/ma1301/ma1301-2-1)): $1000\\bmod\\phi(41)=1000\\bmod 40=0$, så $10^{1000}\\equiv 1$ ✓. Samme svar, to uavhengige veier.\n\n**c)** Nå reduserer vi $2026$ modulo ordenen $5$:\n$$2026=405\\cdot 5+1,$$\nså\n$$10^{2026}=(10^5)^{405}\\cdot 10^1\\equiv 1^{405}\\cdot 10=10\\pmod{41}.$$\n\n**Resten er $10$.**\n\n**Kontroll med Euler-veien:** $2026\\bmod 40=26$, så $10^{2026}\\equiv 10^{26}\\pmod{41}$. Og $26=5\\cdot 5+1$, så $10^{26}=(10^5)^5\\cdot 10\\equiv 10$ ✓. Merk at Euler-veien her krevde et ekstra reduksjonssteg — ordenen tok oss rett frem.\n\n**Sluttsvar:** a) $\\operatorname{ord}_{41}(10)=5$; b) resten er $1$; c) resten er $10$.\n\n*Om føringen: legg merke til at hvert steg bærer et navn — divisortesten, ordenslemmaet, Eulers teorem i kontrollen. Instruksen på hvert eksamenssett er at alle svar skal begrunnes, og i denne sjangeren er navnene på lemmaene begrunnelsen. Et sluttall som «$1$» uten reduksjonsargumentet er et sluttall uten metode.*"
+    },
+    {
+      "id": "ma1301-5-1-ex-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-5-1-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "**a)** Finn $\\operatorname{ord}_{17}(3)$ (du kan bruke eksempel 1).\n**b)** Finn resten når $3^{1000}$ deles på $17$.\n**c)** Finn resten når $3^{2027}$ deles på $17$.",
+        "solution": "**a)** Fra eksempel 1: $\\operatorname{ord}_{17}(3)=16$, funnet ved divisortesten på divisorene $1,2,4,8,16$ av $\\phi(17)=16$.\n\n**b)** **Ved ordenslemmaet** reduserer vi eksponenten modulo $16$:\n$$1000=62\\cdot 16+8,$$\nså $1000\\equiv 8\\pmod{16}$ og\n$$3^{1000}=(3^{16})^{62}\\cdot 3^8\\equiv 1^{62}\\cdot 3^8=3^8\\pmod{17}.$$\n\nFra tabellen i eksempel 1 er $3^8\\equiv 16\\pmod{17}$.\n\n**Resten er $16$.**\n\n*(Merk at $16\\equiv -1\\pmod{17}$, som er en fin kontroll: $3^8\\equiv -1$ betyr at ordenen er $16$, som stemmer med a).)*\n\n**c)** $$2027=126\\cdot 16+11,$$\nså $2027\\equiv 11\\pmod{16}$ og $3^{2027}\\equiv 3^{11}\\pmod{17}$.\n\nVi regner $3^{11}$ med kvadrer-og-multipliser, $11=1011_2=8+2+1$, med verdiene fra eksempel 1:\n$$3^{11}=3^8\\cdot 3^2\\cdot 3^1\\equiv 16\\cdot 9\\cdot 3\\pmod{17}.$$\nSteg for steg: $16\\cdot 9=144=8\\cdot 17+8\\equiv 8$, og $8\\cdot 3=24=17+7\\equiv 7$.\n\n**Resten er $7$.**\n\n**Kontroll:** $16\\equiv -1$, så $3^{11}\\equiv(-1)\\cdot 9\\cdot 3=-27\\equiv -27+34=7\\pmod{17}$ ✓ — samme svar med mindre tall.\n\n**Sluttsvar:** a) $16$; b) resten er $16$; c) resten er $7$.\n\n*Her var ordenen lik $\\phi(17)$, så ordensreduksjonen og Euler-reduksjonen er identiske. Det er tilfellet nøyaktig når $a$ er en primitiv rot — og da får du ingen ekstra gevinst av å finne ordenen. Gevinsten kommer når ordenen er liten, som for $10$ modulo $41$ i eksempel 3.*",
+        "hints": [
+          "Ordenen er $16$, så reduser eksponentene modulo $16$.",
+          "$1000=62\\cdot 16+8$. Hva er $3^8$ modulo $17$?",
+          "I c): bruk at $3^8\\equiv -1$ for å regne $3^{11}$ med små tall."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-5-1-l4-intro",
+      "type": "text",
+      "content": "## Løkke 4: Ordenen til en potens\n\n*~10 minutter.*\n\nTil slutt en regel som ser teknisk ut, men som er billig å utlede og som brukes direkte i [kap. 5.2](/ma1301/ma1301-5-2) — både til å telle primitive røtter og til å finne elementer av en gitt orden.\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "ma1301-5-1-d-ord-potens",
+      "type": "definition",
+      "title": "Ordenen til en potens",
+      "content": "La $d=\\operatorname{ord}_n(a)$. For hvert $k\\ge 1$:\n\n$$\\operatorname{ord}_n(a^k)=\\frac{d}{\\gcd(k,d)}.$$\n\n**Utledes på stedet, tre linjer.** Sett $g=\\gcd(k,d)$. Vi spør: hva er det minste $m\\ge 1$ med $(a^k)^m\\equiv 1$? **Ved ordenslemmaet** er $(a^k)^m=a^{km}\\equiv 1$ nøyaktig når $d\\mid km$. Skriv $d=g\\,d'$ og $k=g\\,k'$ med $\\gcd(k',d')=1$. Da er\n$$d\\mid km\\iff g d'\\mid g k' m\\iff d'\\mid k'm\\iff d'\\mid m,$$\nder siste steg bruker at $\\gcd(k',d')=1$ (Euklids lemma). Det minste slike $m$ er $m=d'=d/g$. $\\blacksquare$\n\n**To spesialtilfeller verdt å lese av med én gang:**\n\n- **$\\gcd(k,d)=1$:** da er $\\operatorname{ord}_n(a^k)=d$ — potensen har **samme** orden som $a$. Dette er nøkkelen til at alle primitive røtter er $r^k$ med $\\gcd(k,\\phi(n))=1$ ([kap. 5.2](/ma1301/ma1301-5-2)).\n- **$k\\mid d$:** da er $\\gcd(k,d)=k$ og $\\operatorname{ord}_n(a^k)=d/k$ — en ryddig måte å **lage** et element av en ønsket orden.\n\n**Eksempel med tall.** Modulo $17$ er $\\operatorname{ord}_{17}(3)=16$. Da er\n$$\\operatorname{ord}_{17}(3^6)=\\frac{16}{\\gcd(6,16)}=\\frac{16}{2}=8.$$\nKontroll: $3^6=729=42\\cdot 17+15$, altså $3^6\\equiv 15$, og $\\operatorname{ord}_{17}(15)=8$ — som vi kan sjekke: $15\\equiv -2$, så $15^2\\equiv 4$, $15^4\\equiv 16\\equiv -1$, $15^8\\equiv 1$ ✓.\n\n**Regelen bør sitte utenat for tempoets skyld**, men den **utledes på stedet** i tre linjer om den glipper — og utledningen er verdt å kunne, for den er en typisk delpunkt-a i en bevisoppgave."
+    },
+    {
+      "id": "ma1301-5-1-d-orden-1-og-2",
+      "type": "definition",
+      "title": "Elementene av orden 1 og 2",
+      "content": "De to minste ordenene er lette å beskrive fullstendig, og de er verdt å kunne som refleks.\n\n**Orden $1$:** $\\operatorname{ord}_n(a)=1$ betyr $a^1\\equiv 1$, altså $a\\equiv 1\\pmod n$. Det er **nøyaktig ett** slikt element.\n\n**Orden $2$:** $\\operatorname{ord}_n(a)=2$ betyr $a^2\\equiv 1$ men $a\\not\\equiv 1$. For **primtallsmodulus** $p$ har $x^2\\equiv 1$ nøyaktig to løsninger, $x\\equiv\\pm 1$ ([kap. 4.1](/ma1301/ma1301-4-1)), så det er **nøyaktig ett** element av orden $2$, nemlig\n$$a\\equiv -1\\equiv p-1\\pmod p.$$\n\n**Praktisk konsekvens — snarveien du bruker hele tiden:** lander en potens på $-1$, er ordenen det **dobbelte** av eksponenten:\n$$a^m\\equiv -1\\pmod p\\ \\Longrightarrow\\ \\operatorname{ord}_p(a)=2m.$$\nUtledningen er to linjer: $a^{2m}\\equiv 1$, så ordenen deler $2m$; og ordenen deler ikke $m$ (for $a^m\\equiv -1\\not\\equiv 1$), så den må være $2m$ selv eller en divisor av $2m$ som ikke deler $m$ — og for $m$ en toerpotens er $2m$ den eneste. *(For generell $m$ gir argumentet at ordenen deler $2m$ men ikke $m$; det holder til å utelukke halvparten av divisorene, og resten testes.)*\n\n**Merk at det er annerledes for sammensatt modulus.** Modulo $8$ har $x^2\\equiv 1$ fire løsninger ($1,3,5,7$), så det er **tre** elementer av orden $2$. Det er en av grunnene til at primtallsmoduler er så mye ryddigere, og til at primitive røtter ikke finnes for alle $n$ ([kap. 5.2](/ma1301/ma1301-5-2))."
+    },
+    {
+      "id": "ma1301-5-1-ex-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-5-1-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $\\operatorname{ord}_{13}(2)=12$ (du kan bruke dette uten å vise det).\n\n**a)** Finn $\\operatorname{ord}_{13}(2^3)$ og $\\operatorname{ord}_{13}(2^4)$ med regelen for ordenen til en potens.\n**b)** Kontrollér svaret for $2^3$ ved å regne ut potensene direkte.\n**c)** Hvilke $k$ mellom $1$ og $12$ gir $\\operatorname{ord}_{13}(2^k)=12$?",
+        "solution": "**a)** Regelen er $\\operatorname{ord}_n(a^k)=\\dfrac{d}{\\gcd(k,d)}$ med $d=12$:\n\n$$\\operatorname{ord}_{13}(2^3)=\\frac{12}{\\gcd(3,12)}=\\frac{12}{3}=4,$$\n$$\\operatorname{ord}_{13}(2^4)=\\frac{12}{\\gcd(4,12)}=\\frac{12}{4}=3.$$\n\n**b) Kontroll for $2^3$.** Først: $2^3=8$. Vi finner $\\operatorname{ord}_{13}(8)$ med divisortesten. Divisorene av $\\phi(13)=12$ er $1,2,3,4,6,12$:\n\n| $d$ | $8^d\\bmod 13$ | utregning |\n|---|---|---|\n| $1$ | $8$ | — |\n| $2$ | $12$ | $64=4\\cdot 13+12$ |\n| $3$ | $5$ | $8^3=8^2\\cdot 8\\equiv 12\\cdot 8=96=7\\cdot 13+5$ |\n| $4$ | $1$ | $8^4=(8^2)^2\\equiv 12^2=144=11\\cdot 13+1$ |\n\nFørste divisor som gir $1$: $d=4$ ✓ — samme som regelen ga.\n\n*(Snarvei: $8^2\\equiv 12\\equiv -1\\pmod{13}$, så ordenen er $2\\cdot 2=4$ direkte.)*\n\n**c)** Etter regelen er $\\operatorname{ord}_{13}(2^k)=\\dfrac{12}{\\gcd(k,12)}$, og dette er $12$ nøyaktig når $\\gcd(k,12)=1$.\n\nTallene $k$ mellom $1$ og $12$ med $\\gcd(k,12)=1$ er\n$$k=1,\\ 5,\\ 7,\\ 11,$$\naltså **fire** stykker — og $\\phi(12)=4$ ✓.\n\nDe tilsvarende elementene er $2^1=2$, $2^5=32\\equiv 6$, $2^7\\equiv 2^5\\cdot 4=24\\equiv 11$, og $2^{11}\\equiv 2^{12}/2\\equiv 1\\cdot 2^{-1}\\equiv 7$ (siden $2\\cdot 7=14\\equiv 1$). Altså er $\\{2,6,7,11\\}$ elementene av orden $12$ modulo $13$.\n\n**Sluttsvar:** a) $4$ og $3$; b) direkte regning gir også $4$; c) $k\\in\\{1,5,7,11\\}$, altså $\\phi(12)=4$ verdier, med elementene $\\{2,6,7,11\\}$.\n\n*Del c) er nøyaktig mekanismen i [kap. 5.2](/ma1301/ma1301-5-2): er $r$ en primitiv rot, er de andre primitive røttene $r^k$ med $\\gcd(k,\\phi(n))=1$, og det er $\\phi(\\phi(n))$ av dem. Du har regnet det ut i et konkret tilfelle før du møter setningen.*",
+        "hints": [
+          "Regelen er $\\operatorname{ord}(a^k)=d/\\gcd(k,d)$ med $d=12$.",
+          "I b): $2^3=8$, og $8^2=64\\equiv -1\\pmod{13}$.",
+          "I c): når er $12/\\gcd(k,12)$ lik $12$?"
+        ]
+      }
+    },
+    {
+      "id": "ma1301-5-1-ex-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-5-1-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "La $p$ være et odde primtall og $\\gcd(a,p)=1$.\n\n**a)** Vis at potensene $a^0,a^1,\\dots,a^{d-1}$ er innbyrdes ikke-kongruente modulo $p$, der $d=\\operatorname{ord}_p(a)$.\n**b)** Vis at $\\operatorname{ord}_p(a^{-1})=\\operatorname{ord}_p(a)$, der $a^{-1}$ er den modulære inversen fra [kap. 1.4](/ma1301/ma1301-1-4).",
+        "solution": "**a)** Anta at to av dem er kongruente:\n$$a^i\\equiv a^j\\pmod p,\\qquad 0\\le i<j\\le d-1.$$\n\nSiden $\\gcd(a,p)=1$, har $a$ en invers modulo $p$, og vi kan gange begge sider med $(a^{-1})^i$. Det gir\n$$1\\equiv a^{j-i}\\pmod p,\\qquad\\text{med}\\ 1\\le j-i\\le d-1.$$\n\nMen **ved ordenslemmaet** må $d$ dele $j-i$, og et positivt tall mindre enn $d$ kan ikke være delelig med $d$. **Motsigelse.**\n\nAltså er de $d$ potensene innbyrdes ikke-kongruente. $\\blacksquare$\n\n*Konsekvens: syklusen $1,a,a^2,\\dots,a^{d-1}$ har nøyaktig $d$ ulike elementer, og deretter gjentar den seg. Det er dette som gjør bildet av «hjulet» presist: ordenen er antall ulike posisjoner hjulet har.*\n\n**b)** Sett $d=\\operatorname{ord}_p(a)$ og $e=\\operatorname{ord}_p(a^{-1})$.\n\n*Først $e\\mid d$:* fra $a^d\\equiv 1$ får vi, ved å ta inversen på begge sider,\n$$(a^{-1})^d=(a^d)^{-1}\\equiv 1^{-1}=1\\pmod p.$$\n**Ved ordenslemmaet** deler $e$ da $d$.\n\n*Så $d\\mid e$:* samme argument med rollene byttet. Fra $(a^{-1})^e\\equiv 1$ følger $a^e\\equiv 1$ ved å ta inversen, og ordenslemmaet gir $d\\mid e$.\n\nSiden $d$ og $e$ er positive og deler hverandre, er $d=e$. $\\blacksquare$\n\n**Kontroll med tall.** Modulo $13$ er $\\operatorname{ord}_{13}(2)=12$. Inversen til $2$ er $7$, siden $2\\cdot 7=14\\equiv 1$. Og $\\operatorname{ord}_{13}(7)$: $7^2=49\\equiv 10$, $7^3\\equiv 70\\equiv 5$, $7^4\\equiv 35\\equiv 9$, $7^6\\equiv 5^2=25\\equiv 12\\equiv -1$, så $7^{12}\\equiv 1$ og ingen mindre divisor gir $1$ — ordenen er $12$ ✓, samme som for $2$.\n\n**Sluttsvar:** a) vist ved motsigelse med ordenslemmaet; b) $d$ og $e$ deler hverandre, altså er de like.\n\n*Merk mønsteret i b): «$d\\mid e$ og $e\\mid d$, altså $d=e$» er en standardmanøver i tallteori. Den er verdt å ha som ferdig mal — du bruker den igjen i Del 6.*",
+        "hints": [
+          "I a): anta to potenser er like, og bruk inversen til å forenkle.",
+          "I a): hva sier ordenslemmaet om eksponenten $j-i$?",
+          "I b): vis begge delelighetene, og bruk at to positive tall som deler hverandre er like."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-5-1-ex-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-5-1-o9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "**a)** Regn ut $\\operatorname{ord}_{31}(5)$.\n**b)** Forklar hvorfor $5$ ikke kan være en primitiv rot modulo $31$ (altså ha orden $\\phi(31)=30$), uten å regne flere potenser.\n**c)** Bruk ordenen til å finne resten når $5^{100}$ deles på $31$.",
+        "solution": "**a) Steg 1:** $\\gcd(5,31)=1$, så ordenen finnes. **Steg 2:** $\\phi(31)=30$. **Steg 3:** divisorene av $30$, stigende: $1,2,3,5,6,10,15,30$.\n\n**Steg 4: test stigende.**\n\n| $d$ | $5^d\\bmod 31$ | utregning |\n|---|---|---|\n| $1$ | $5$ | — |\n| $2$ | $25$ | — |\n| $3$ | $1$ | $5^3=125=4\\cdot 31+1$ |\n\nFørste divisor som gir $1$: $d=3$.\n\n**a) Sluttsvar:** $\\operatorname{ord}_{31}(5)=3$.\n\n**b)** Ordenen er $3$, og en primitiv rot modulo $31$ må ha orden $\\phi(31)=30$. Siden $3\\ne 30$, er $5$ **ikke** en primitiv rot.\n\nMer presist, og det er poenget med spørsmålet: ordenen er **entydig** bestemt — det finnes bare ett minste $k$ med $5^k\\equiv 1$. Har du funnet at det er $3$, er saken avgjort, og du behøver ikke regne en eneste potens mer.\n\n**c)** **Ved ordenslemmaet** reduserer vi eksponenten modulo $3$:\n$$100=33\\cdot 3+1,$$\nså $100\\equiv 1\\pmod 3$ og\n$$5^{100}=(5^3)^{33}\\cdot 5^1\\equiv 1^{33}\\cdot 5=5\\pmod{31}.$$\n\n**Resten er $5$.**\n\n**Kontroll med Euler-veien:** $100\\bmod\\phi(31)=100\\bmod 30=10$, så $5^{100}\\equiv 5^{10}\\pmod{31}$. Og $5^{10}=(5^3)^3\\cdot 5\\equiv 1\\cdot 5=5$ ✓. Samme svar — men merk at ordensveien var ett steg kortere, fordi $3$ er en mye mindre modulus enn $30$.\n\n**Sluttsvar:** a) $3$; b) fordi ordenen er entydig og lik $3$, ikke $30$; c) resten er $5$.\n\n*Dette er det gunstigste tilfellet for ordensmetoden: ordenen er $3$ mot $\\phi(31)=30$, altså ti ganger mindre. Ser du en liten potens som gir $1$ tidlig i divisortesten, har du funnet en kraftig reduksjon.*",
+        "hints": [
+          "$\\phi(31)=30$. List divisorene og test stigende — $5^3$ er verdt å prøve tidlig.",
+          "I b): kan et tall ha to ulike ordener?",
+          "I c): reduser $100$ modulo ordenen, ikke modulo $\\phi(31)$."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-5-1-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "De fem feilene under er dokumentert i arkivets løsningsforslag som noe fasiten advarer mot.\n\n- **Ordenen ikke verifisert som den minste.** Dette er den best belagte feilen i sjangeren. Å vise at $a^d\\equiv 1$ for **én** $d$ er ikke nok — du må utelukke de mindre divisorene. **Motmiddelet er innebygd i metoden:** test divisorene **stigende**, og si eksplisitt at de mindre ble testet. «$a^{12}\\equiv 1$, altså er ordenen $12$» er ufullstendig, og det er en billig feil å unngå.\n\n- **Tester ikke bare divisorer av $\\phi(n)$.** Det er lovlig men sløsende å teste alle eksponenter: ordenen **deler** $\\phi(n)$, så bare divisorene er kandidater. Under kode D er forskjellen mellom å regne 5 potenser og 40 avgjørende.\n\n- **Glemmer $\\gcd(a,n)=1$-kravet.** Uten det finnes ingen orden i det hele tatt. Skriv den ene linjen — det er en gratis begrunnelse, og instruksen på hvert sett er at alle svar skal begrunnes.\n\n- **Regnefeil i potensene.** En gal $a^4$ forplanter seg til $a^8$ og $a^{16}$, siden hver rad i tabellen bygger på den forrige. **Kontrollen:** endte du på en orden som ikke deler $\\phi(n)$, er det regnefeil. Og sjekk at $a^{\\phi(n)}\\equiv 1$ til slutt — det må Eulers teorem gi.\n\n- **Blander ordenen og $\\phi(n)$ i eksponentreduksjon.** Begge er lovlige (ordenen deler $\\phi(n)$, så modulo-ordenen er en finere reduksjon), men de gir ulike mellomregninger. Si hvilken du bruker, og bland dem ikke i samme utregning.\n\n**Og en presiseringsfeil som er lett å gjøre i bevis:** at $d\\mid\\phi(n)$ betyr **ikke** at det finnes et element av orden $d$ for enhver divisor $d$ — det er en annen påstand, og den krever primtallsmodulus ([kap. 5.2](/ma1301/ma1301-5-2))."
+    },
+    {
+      "id": "ma1301-5-1-begrepsbank-intro",
+      "type": "text",
+      "content": "### Begrepsbank\n\nDette er flashcard-stoff — hopp trygt over ved førstegangslesing; tidsanslaget på 55 minutter gjelder kjernestoffet over.\n\nUnder kode D er banken **eksamensverktøyet, ikke pynt**: det finnes ingen tabell over ordener å slå opp i 24. november. Men merk at dette kapitlet har uvanlig **få** ting som må pugges — definisjonen, lemmaet og metoden. Resten utledes, og kortene under er derfor mest **prosedyre- og kontrollkort**.\n\n**Slik pugges de:** faktakortene ved aktiv gjenkalling (dekk til, skriv ned, sjekk), og divisortesten ved å **kjøres** på nye tall. Tre nye ordener regnet med lukket bok er mer verdt enn tre gjennomlesninger."
+    },
+    {
+      "id": "ma1301-5-1-d-notasjonen-ord",
+      "type": "definition",
+      "title": "Notasjonen ord_n(a)",
+      "content": "Ordenen skrives $\\operatorname{ord}_n(a)$, **alltid med modulusen som indeks**.\n\n**Hvorfor indeksen er obligatorisk:** samme tall har ulik orden modulo ulike $n$. For $a=2$:\n\n| $n$ | $\\phi(n)$ | $\\operatorname{ord}_n(2)$ |\n|---|---|---|\n| $9$ | $6$ | $6$ |\n| $13$ | $12$ | $12$ |\n| $17$ | $16$ | $8$ |\n| $31$ | $30$ | $5$ |\n\nSkriver du «$\\operatorname{ord}(2)=8$», er utsagnet meningsløst uten å si modulo hva.\n\n**Skrivemåter du kan møte ellers:** noen bøker skriver $\\operatorname{ord}_n a$ uten parentes, andre $|a|$ eller $\\operatorname{ord}(a\\bmod n)$. Boka bruker konsekvent $\\operatorname{ord}_n(a)$, som er formen løsningsforslagene i arkivet bruker.\n\n**Merk formateringen:** i LaTeX skrives det `\\operatorname{ord}` og ikke bare `ord`, slik at det settes som et funksjonsnavn og ikke som produktet $o\\cdot r\\cdot d$. Det er en detalj i føringen, men den gjør besvarelsen lettere å lese.\n\n**Og verdien er alltid et positivt helt tall som deler $\\phi(n)$.** Får du noe annet, er det regnefeil."
+    },
+    {
+      "id": "ma1301-5-1-d-hvorfor-orden-finnes",
+      "type": "definition",
+      "title": "Hvorfor ordenen i det hele tatt finnes",
+      "content": "At det finnes et minste $k$ med $a^k\\equiv 1$, er ikke en selvfølge — det må begrunnes, og begrunnelsen er kort.\n\n**Utledes på stedet, to linjer:** **ved Eulers teorem** er $a^{\\phi(n)}\\equiv 1\\pmod n$ når $\\gcd(a,n)=1$. Altså er mengden\n$$\\{k\\ge 1: a^k\\equiv 1\\pmod n\\}$$\n**ikke tom**. En ikke-tom mengde av positive hele tall har et minste element, og det minste elementet er ordenen. $\\blacksquare$\n\n**Argumentet «en ikke-tom mengde av positive hele tall har et minste element»** heter velordningsprinsippet, og det er samme prinsipp som ligger under induksjon (kap. 6.2) og under termineringen av Euklids algoritme ([kap. 1.2](/ma1301/ma1301-1-2)).\n\n**Hvorfor kortet er verdt en plass i bunken:** «vis at ordenen finnes» er en tenkelig delpunkt-a, og den koster to linjer når du har argumentet klart. Uten Eulers teorem har du ingenting å si.\n\n**Og merk at $\\gcd(a,n)=1$ er nødvendig her:** uten den gjelder ikke Eulers teorem, mengden er tom, og ordenen finnes ikke."
+    },
+    {
+      "id": "ma1301-5-1-d-kort-divisortest",
+      "type": "definition",
+      "title": "Kort: divisortesten",
+      "content": "**1.** Sjekk $\\gcd(a,n)=1$ og si det.\n**2.** Regn $\\phi(n)$ fra faktoriseringen.\n**3.** List divisorene av $\\phi(n)$ **stigende**.\n**4.** Regn $a^d\\bmod n$ for hver divisor, stigende. Første $1$ er ordenen.\n**5.** Konkludér: «$\\operatorname{ord}_n(a)=d$; de mindre divisorene ga ikke $1$.»\n\n**Arbeidsbesparelser du bør bruke:**\n\n- **Bygg potensene på hverandre.** Har du $a^2$, får du $a^4$ ved én kvadrering.\n- **Se etter $-1$.** Lander en potens på $-1$, er ordenen det dobbelte av den eksponenten.\n- **Stopp ved første $1$.** Alle større divisorer gir også $1$ — de er multipler av ordenen.\n\n**Kontroller:**\n\n- Deler svaret $\\phi(n)$? (Det må det.)\n- Er $a^{\\phi(n)}\\equiv 1$? (Eulers teorem krever det.)\n\n**Kjør den nå, på $\\operatorname{ord}_{19}(4)$ og $\\operatorname{ord}_{23}(2)$, uten å se på oppskriften.** *(Svar: $\\phi(19)=18$ med divisorer $1,2,3,6,9,18$; $4^9=(2^2)^9=2^{18}\\equiv 1$, og $4^3=64\\equiv 7$, $4^2=16$, så ordenen er $9$. For $23$: $\\phi=22$, divisorer $1,2,11,22$; $2^{11}=2048=89\\cdot 23+1$, så ordenen er $11$.)*"
+    },
+    {
+      "id": "ma1301-5-1-d-kort-kontroll-minste",
+      "type": "definition",
+      "title": "Kort: å vise at ordenen er den minste",
+      "content": "Det ene kravet som skiller en fullstendig besvarelse fra en halv, og den best belagte feilen i sjangeren.\n\n**Kravet:** det er ikke nok å vise at $a^d\\equiv 1$. Du må utelukke alle mindre kandidater.\n\n**Den effektive måten — og grunnen til at metoden er formulert som den er:**\n\n1. Ordenen **deler** $\\phi(n)$ (ordenslemmaet + Eulers teorem).\n2. Derfor er de eneste kandidatene divisorene av $\\phi(n)$.\n3. Tester du dem **stigende** og stopper ved første $1$, har du samtidig vist at ingen mindre virker.\n\n**Setningen som skal stå i besvarelsen:** «Ordenen deler $\\phi(n)=\\dots$, og av divisorene $\\dots$ er $d$ den minste som gir $1$. Altså er $\\operatorname{ord}_n(a)=d$.»\n\n**Snarveien når $\\phi(n)$ har få divisorer:** for $\\phi(n)=2^k$ er alle divisorer toerpotenser, og hele testen er kvadreringer. For $\\phi(n)=2q$ med $q$ primtall er det bare fire kandidater: $1$, $2$, $q$, $2q$.\n\n**Den relaterte varianten i [kap. 5.2](/ma1301/ma1301-5-2):** for å vise at ordenen er **maksimal** (altså $\\phi(n)$), trenger du bare teste $\\phi(n)/q$ for hver **primdivisor** $q$ — en kraftig innsnevring, men den gjelder bare for den påstanden."
+    },
+    {
+      "id": "ma1301-5-1-d-kort-snarvei-minus-en",
+      "type": "definition",
+      "title": "Kort: snarveien via −1",
+      "content": "**Regelen:** lander en potens på $-1$, er ordenen det dobbelte av den eksponenten. Presist, for primtallsmodulus $p$ og $m$ en toerpotens:\n\n$$a^m\\equiv -1\\pmod p\\ \\Longrightarrow\\ \\operatorname{ord}_p(a)=2m.$$\n\n**Utledes på stedet:** $a^{2m}\\equiv(-1)^2=1$, så ordenen deler $2m$. Og ordenen deler ikke $m$, for $a^m\\equiv -1\\not\\equiv 1$. Når $2m$ er en toerpotens, er den eneste divisoren av $2m$ som ikke deler $m$, tallet $2m$ selv.\n\n**Hvor mye den sparer:** i eksempel 1 ga $3^8\\equiv 16\\equiv -1\\pmod{17}$ ordenen $16$ med én gang, uten å regne $3^{16}$.\n\n**Eksempler fra kapitlet:**\n\n- $3^8\\equiv -1\\pmod{17}$ → $\\operatorname{ord}_{17}(3)=16$\n- $5^2\\equiv -1\\pmod{13}$ → $\\operatorname{ord}_{13}(5)=4$\n- $7^2\\equiv -1\\pmod{25}$ → $\\operatorname{ord}_{25}(7)=4$\n- $2^4\\equiv -1\\pmod{17}$ → $\\operatorname{ord}_{17}(2)=8$\n\n**Se etter $-1$ i hver rad du regner.** Det er den enkeltvanen som sparer mest tid i denne sjangeren — og husk at $-1$ skrives $n-1$ i tabellen din, så let etter tall som ligger rett under modulusen."
+    },
+    {
+      "id": "ma1301-5-1-d-kort-eksponentreduksjon",
+      "type": "definition",
+      "title": "Kort: reduser eksponenten med ordenen",
+      "content": "$$a^N\\equiv a^{N\\bmod d}\\pmod n,\\qquad d=\\operatorname{ord}_n(a).$$\n\n**Utledes på stedet, to linjer:** $N=qd+r$ gir $a^N=(a^d)^q a^r\\equiv a^r$.\n\n**Sammenlign de to reduksjonsveiene:**\n\n| Vei | Modulus | Når den er best |\n|---|---|---|\n| Eulers teorem ([kap. 2.1](/ma1301/ma1301-2-1)) | $\\phi(n)$ | én potens, og ordenen er ukjent |\n| Ordenen | $d\\mid\\phi(n)$ | flere potenser, eller ordenen alt kjent |\n\n**Begge er fullgode**, og fasitpraksisen i arkivet honorerer dem likt. Si hvilken du bruker.\n\n**Den typiske eksamenssituasjonen:** delpunkt a) ber om ordenen, delpunkt b) ber om en stor potens. Da **skal** du bruke ordenen i b) — det er hele grunnen til at a) står der, og det viser at du ser sammenhengen.\n\n**Eksempel:** $\\operatorname{ord}_{41}(10)=5$ gir $10^{2026}\\equiv 10^{2026\\bmod 5}=10^1=10\\pmod{41}$. Med Euler-veien måtte du regnet $10^{26}$ først.\n\n**Kontroll:** regn samme potens med den andre veien. To uavhengige reduksjoner som gir samme svar, er den beste sikkerheten du har under kode D."
+    },
+    {
+      "id": "ma1301-5-1-d-kort-ord-potens",
+      "type": "definition",
+      "title": "Kort: ordenen til en potens",
+      "content": "$$\\operatorname{ord}_n(a^k)=\\frac{d}{\\gcd(k,d)},\\qquad d=\\operatorname{ord}_n(a).$$\n\n**To spesialtilfeller som brukes hele tiden:**\n\n- $\\gcd(k,d)=1$ → **samme orden** som $a$. (Grunnlaget for at alle primitive røtter er $r^k$ med $\\gcd(k,\\phi(n))=1$.)\n- $k\\mid d$ → orden $d/k$. (Måten du **lager** et element av ønsket orden.)\n\n**Utledes på stedet, tre linjer:** $(a^k)^m\\equiv 1\\iff d\\mid km$. Med $g=\\gcd(k,d)$, $d=gd'$, $k=gk'$ og $\\gcd(k',d')=1$ blir betingelsen $d'\\mid m$, så minste $m$ er $d'=d/g$.\n\n**Eksempel:** $\\operatorname{ord}_{13}(2)=12$, så $\\operatorname{ord}_{13}(2^3)=12/3=4$ og $\\operatorname{ord}_{13}(2^8)=12/\\gcd(8,12)=12/4=3$.\n\n**Hvor du får bruk for det:** i [kap. 5.2](/ma1301/ma1301-5-2), både til å generere alle primitive røtter og til å telle elementene av en gitt orden. Kortet er egentlig en Del 5-nøkkel forkledd som en teknisk formel.\n\n**Kontroll:** svaret må dele $d$, og det må dele $\\phi(n)$."
+    },
+    {
+      "id": "ma1301-5-1-d-kort-syklusen",
+      "type": "definition",
+      "title": "Kort: syklusen a, a², a³, …",
+      "content": "Potensene av $a$ modulo $n$ danner en **syklus** av lengde $d=\\operatorname{ord}_n(a)$:\n\n$$1,\\ a,\\ a^2,\\ \\dots,\\ a^{d-1},\\ 1,\\ a,\\ a^2,\\dots$$\n\n**De $d$ første er innbyrdes ulike** (oppgave 8a), og deretter gjentar rekken seg. Ordenen er altså **antall ulike verdier** blant alle potensene av $a$.\n\n**Tre konsekvenser verdt å ha:**\n\n1. $a^i\\equiv a^j\\pmod n\\iff i\\equiv j\\pmod d$. (Det er reduksjonsregelen, i sin skarpeste form.)\n2. Syklusen inneholder $1$, og den inneholder $a^{-1}=a^{d-1}$ — inversen ligger alltid i samme syklus.\n3. $d\\le\\phi(n)$, med likhet nøyaktig når $a$ er en **primitiv rot** ([kap. 5.2](/ma1301/ma1301-5-2)) — da treffer syklusen **alle** de $\\phi(n)$ restene som er relativt primiske til $n$.\n\n**Bildet:** et hjul med $d$ tenner. Å gange med $a$ er å dreie hjulet ett hakk. Ordenen er hvor mange hakk det er rundt.\n\n**Praktisk verdi:** når du har regnet tabellen over potenser i en ordensoppgave, har du samtidig hele syklusen — og den kan brukes til å svare på tilleggsspørsmål («finn et element av orden $4$», «finn inversen til $a$») uten ny regning."
+    },
+    {
+      "id": "ma1301-5-1-d-kort-orden-fermat",
+      "type": "definition",
+      "title": "Kort: ordenen for primtallsmodulus",
+      "content": "For primtallsmodulus $p$ og $p\\nmid a$ forenkles alt:\n\n$$\\operatorname{ord}_p(a)\\mid p-1,$$\n\nsiden $\\phi(p)=p-1$. Kongruensen som starter argumentet, er **Fermats lille teorem** ($a^{p-1}\\equiv 1$).\n\n**Konsekvenser for oppgaveregningen:**\n\n- Kandidatene er divisorene av $p-1$ — og $p-1$ er et partall, så $1$ og $2$ er alltid med.\n- Det finnes **nøyaktig ett** element av orden $2$, nemlig $p-1\\equiv -1$.\n- Det finnes elementer av **hver** orden $d$ som deler $p-1$, og de er $\\phi(d)$ i tallet ([kap. 5.2](/ma1301/ma1301-5-2)). Det gjelder **ikke** for sammensatt modulus.\n- Er ordenen $p-1$, er $a$ en primitiv rot, og potensene av $a$ treffer alle de $p-1$ ikke-null restene.\n\n**Koblingen til Del 4, som er verdt å kunne:** **ved Eulers kriterium** ([kap. 4.1](/ma1301/ma1301-4-1)) er $\\left(\\frac ap\\right)=1$ nøyaktig når $a^{(p-1)/2}\\equiv 1$, altså — **ved ordenslemmaet** — nøyaktig når ordenen deler $\\frac{p-1}{2}$.\n\n**I klarspråk:** $a$ er en kvadratisk rest nøyaktig når ordenen deler halve $p-1$. Det gir en gratis test: er ordenen $p-1$ (primitiv rot), kan $a$ ikke være kvadratisk rest."
+    },
+    {
+      "id": "ma1301-5-1-d-kort-gcd-orden",
+      "type": "definition",
+      "title": "Kort: ordenen deler gcd av eksponentene",
+      "content": "Et grep til bevisoppgaver, direkte ut av ordenslemmaet:\n\n$$a^{s}\\equiv 1\\ \\text{og}\\ a^{t}\\equiv 1\\pmod n\\ \\Longrightarrow\\ \\operatorname{ord}_n(a)\\mid\\gcd(s,t).$$\n\n**Utledes på stedet, to linjer:** ordenslemmaet gir $d\\mid s$ og $d\\mid t$. Da deler $d$ enhver lineærkombinasjon $sx+ty$, og **etter Bézout** ([kap. 1.2](/ma1301/ma1301-1-2)) er $\\gcd(s,t)$ en slik lineærkombinasjon.\n\n**Typisk bruk:** «Anta $a^{18}\\equiv 1$ og $a^{30}\\equiv 1$. Vis at $a^6\\equiv 1$.» Løsning: ordenen deler $\\gcd(18,30)=6$, så $a^6\\equiv 1$ **ved ordenslemmaet** ($\\Leftarrow$-retningen).\n\n**Den omvendte fellen:** at $a^{18}\\equiv 1$ betyr **ikke** at ordenen er $18$. Den er en divisor.\n\n**Beslektet grep, verdt å kjenne:** har $a$ orden $s$ og $b$ orden $t$ med $\\gcd(s,t)=1$, så har produktet $ab$ orden $st$. Det brukes til å **konstruere** elementer av stor orden, og det er ett av flere bevis for at primitive røtter finnes modulo et primtall."
+    },
+    {
+      "id": "ma1301-5-1-d-kort-tid-G",
+      "type": "definition",
+      "title": "Kort: tidsbudsjettet for en G-oppgave",
+      "content": "Eksamen er 4 timer på rundt ti likt vektede delpunkt, altså **~24 minutter per delpunkt**.\n\n| Arbeid | Tid |\n|---|---|\n| $\\gcd$-sjekk, $\\phi(n)$, liste divisorene | ~2 min |\n| Divisortesten (4–8 potenser med kvadrer-og-multipliser) | ~5 min |\n| Konklusjonssetning med «minste»-begrunnelsen | ~1 min |\n| Kontroll (deler svaret $\\phi(n)$? er $a^{\\phi(n)}\\equiv 1$?) | ~1 min |\n\n**Til sammen 8–10 minutter** for en ren ordensoppgave. Er delpunktet todelt («finn ordenen, og bruk den til å regne $a^N$»), legg til 3–4 minutter.\n\n**Hvor tiden går galt:** i potensberegningene. Bygg alltid på forrige rad, reduser etter hver kvadrering, og se etter $-1$.\n\n**Hva du IKKE skal bruke tid på:** å teste eksponenter som ikke deler $\\phi(n)$, og å regne $a^{\\phi(n)}$ når du alt har funnet ordenen (den er $1$ av nødvendighet).\n\n**Realistisk forventning:** dette er et delpunkt du kan sikre helt hvis metoden sitter. Sjangeren er 60 % frekvent, og den er en av markørene for toppsjiktet — men den koster mindre enn resiprositeten i [kap. 4.2](/ma1301/ma1301-4-2)."
+    },
+    {
+      "id": "ma1301-5-1-d-kort-innpakninger-G",
+      "type": "definition",
+      "title": "Kort: innpakningene i arkivet",
+      "content": "Hvordan sjanger G formuleres. Å kjenne igjen formen er halve jobben.\n\n- **«Finn ordenen til $a$ modulo $n$.»** Divisortesten, med «minste»-begrunnelsen.\n- **«Vis at $\\operatorname{ord}_n(a)\\mid\\phi(n)$.»** Bevisoppgave på fire linjer: Eulers teorem + ordenslemmaet.\n- **«Finn alle $t$ med $a^t\\equiv 1\\pmod n$.»** Multiplene av ordenen — ordenslemmaet baklengs.\n- **«Finn resten når $a^N$ deles på $n$», med ordenen kjent fra a).** Reduser eksponenten modulo ordenen.\n- **«Vis at $a$ er en primitiv rot modulo $p$.»** [Kap. 5.2](/ma1301/ma1301-5-2) — primdivisortesten, ikke full divisortest.\n- **«Hvor mange elementer har orden $d$?»** [Kap. 5.2](/ma1301/ma1301-5-2) — svaret er $\\phi(d)$.\n- **«Finn ordenen til $a^k$ når ordenen til $a$ er gitt.»** Formelen $d/\\gcd(k,d)$.\n\n**Fellesnevneren:** alle hviler på ordenslemmaet. Sitter det, og sitter divisortesten, er hele sjangeren tilgjengelig.\n\n**Og alle krever en konklusjonssetning.** Et tall alene er ikke et svar på «finn ordenen» — begrunnelsen for at det er den **minste**, er en del av svaret."
+    },
+    {
+      "id": "ma1301-5-1-d-kort-selvdiagnose-51",
+      "type": "definition",
+      "title": "Kort: selvdiagnose for orden",
+      "content": "Sitter kapitlet? Dekk til boka, sett tre minutter, og svar:\n\n- ☐ Hva er definisjonen av $\\operatorname{ord}_n(a)$ — med det viktige ordet?\n- ☐ Hvilket vilkår må $a$ og $n$ oppfylle?\n- ☐ Hva sier ordenslemmaet (begge retninger)?\n- ☐ Hvorfor deler ordenen $\\phi(n)$?\n- ☐ Hva er de fem stegene i divisortesten?\n- ☐ Hva er $\\operatorname{ord}_n(a^k)$ uttrykt ved $\\operatorname{ord}_n(a)$?\n- ☐ Hva gjør du hvis en potens lander på $-1$?\n- ☐ Hvordan reduserer du en stor eksponent med ordenen?\n\n**Åtte spørsmål. Det er hele kapitlet.**\n\n**Deretter, og det er den viktigste delen:** regn tre nye ordener med lukket bok. Velg selv $a$ og $n$ med $n$ mellom $20$ og $50$.\n\n**Hvis noe glapp:** punkt 1 (ordet «minste») og punkt 4 er de to som gir uttelling i seg selv på eksamen. Prioritér dem."
+    },
+    {
+      "id": "ma1301-5-1-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "ma1301-5-1-rep-inn",
+          "type": "text",
+          "content": "Fem korte oppgaver fra forkunnskapskapitlene. Fasit under hver.\n\n**R1.** Regn ut $\\phi(20)$, $\\phi(25)$ og $\\phi(41)$.\n\n*Fasit:* $20=2^2\\cdot 5$, så $\\phi(20)=\\phi(4)\\phi(5)=2\\cdot 4=8$ (multiplikativitet, [kap. 2.1](/ma1301/ma1301-2-1)). $\\phi(25)=\\phi(5^2)=25-5=20$. Og $\\phi(41)=40$, siden $41$ er primtall. Merk formelen $\\phi(p^k)=p^k-p^{k-1}$ — ikke $p^k-1$.\n\n**R2.** Hva sier Eulers teorem for $a=7$, $n=20$?\n\n*Fasit:* At $7^{\\phi(20)}=7^8\\equiv 1\\pmod{20}$, siden $\\gcd(7,20)=1$. I eksempel 2 fant vi at ordenen er $4$, som deler $8$ ✓.\n\n**R3.** List alle divisorene av $40$.\n\n*Fasit:* $40=2^3\\cdot 5$, så divisorene er $1,2,4,5,8,10,20,40$ — åtte stykker, som stemmer med $\\tau(40)=(3+1)(1+1)=8$ ([kap. 5.3](/ma1301/ma1301-5-3)).\n\n**R4.** Regn $2^{10}\\bmod 41$ med kvadrer-og-multipliser.\n\n*Fasit:* $10=1010_2=8+2$. Kvadratene: $2^2=4$, $2^4=16$, $2^8=256=6\\cdot 41+10\\equiv 10$. Da er $2^{10}=2^8\\cdot 2^2\\equiv 10\\cdot 4=40\\equiv -1\\pmod{41}$. (Og det viser at $\\operatorname{ord}_{41}(2)=20$ — snarveien via $-1$.)\n\n**R5.** Finn inversen til $3$ modulo $17$.\n\n*Fasit:* Vi trenger $u$ med $3u\\equiv 1\\pmod{17}$. Siden $3\\cdot 6=18\\equiv 1$, er $u=6$. (Eller via Euklid baklengs, [kap. 1.2](/ma1301/ma1301-1-2).) Merk sammenhengen med dette kapitlet: inversen er $3^{15}$, siden $\\operatorname{ord}_{17}(3)=16$ og $3\\cdot 3^{15}=3^{16}\\equiv 1$."
+        }
+      ]
+    },
+    {
+      "id": "ma1301-5-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "ma1301-5-1-symbol-inn",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $\\operatorname{ord}_n(a)$ | ordenen til $a$ modulo $n$ — minste $k\\ge 1$ med $a^k\\equiv 1$ |\n| $d$ | brukes gjennomgående om ordenen |\n| $\\phi(n)$ | Eulers $\\phi$-funksjon ([kap. 2.1](/ma1301/ma1301-2-1)) |\n| $\\gcd(a,n)=1$ | vilkåret for at ordenen finnes |\n| $a^t\\equiv 1\\pmod n$ | kongruensen ordenslemmaet handler om |\n| $d\\mid t$ | «$d$ deler $t$» |\n| $N\\bmod d$ | den reduserte eksponenten |\n| $a^{-1}$ | den modulære inversen ([kap. 1.4](/ma1301/ma1301-1-4)) |\n| $\\left(\\frac ap\\right)$ | Legendre-symbolet ([kap. 4.1](/ma1301/ma1301-4-1)) |\n| $\\blacksquare$ | bevis slutt |\n\n**Formler i dette delkapitlet:**\n\n$$\\operatorname{ord}_n(a)=\\min\\{k\\ge 1: a^k\\equiv 1\\pmod n\\}$$\nDefinisjonen. Ordet **minste** er hele innholdet. **(må sitte utenat)**\n\n$$\\gcd(a,n)=1$$\nVilkåret for at ordenen finnes i det hele tatt. **(må sitte utenat — og skrives i besvarelsen)**\n\n$$a^t\\equiv 1\\pmod n\\iff \\operatorname{ord}_n(a)\\mid t$$\nOrdenslemmaet. Motoren i alt ordensarbeid. **(må sitte utenat)**\n\n$$\\operatorname{ord}_n(a)\\mid\\phi(n),\\qquad \\operatorname{ord}_p(a)\\mid p-1$$\nKorollaret som gjør divisortesten mulig. **(utledes på stedet — Eulers teorem gir $a^{\\phi(n)}\\equiv 1$, og ordenslemmaet oversetter det; én linje)**\n\n$$a^N\\equiv a^{N\\bmod d}\\pmod n$$\nEksponentreduksjon med ordenen. **(utledes på stedet — divisjonsalgoritmen på eksponenten; to linjer)**\n\n$$\\operatorname{ord}_n(a^k)=\\frac{\\operatorname{ord}_n(a)}{\\gcd(k,\\operatorname{ord}_n(a))}$$\nOrdenen til en potens. **(utledes på stedet — tre linjer via ordenslemmaet og Euklids lemma; se løkke 4)**\n\n$$a^m\\equiv -1\\pmod p\\ \\Longrightarrow\\ \\operatorname{ord}_p(a)=2m\\quad (m\\ \\text{en toerpotens})$$\nSnarveien via $-1$. **(utledes på stedet — ordenen deler $2m$ men ikke $m$)**\n\n$$\\operatorname{ord}_n(a^{-1})=\\operatorname{ord}_n(a)$$\nInversen har samme orden. **(utledes på stedet — to delelighetsargumenter; se oppgave 8b)**\n\n$$a^s\\equiv 1\\ \\text{og}\\ a^t\\equiv 1\\ \\Longrightarrow\\ \\operatorname{ord}_n(a)\\mid\\gcd(s,t)$$\nOrdenen deler gcd av eksponentene. **(utledes på stedet — ordenslemmaet + Bézout)**\n\n$$\\left(\\frac ap\\right)=1\\iff \\operatorname{ord}_p(a)\\mid\\frac{p-1}{2}$$\nBroen til Del 4. **(utledes på stedet — Eulers kriterium + ordenslemmaet)**\n\n$$\\text{perioden i }\\tfrac 1n=\\operatorname{ord}_n(10)$$\nOrdenen som desimalperiode. **(utledes på stedet — $10^k\\equiv 1$ er nøyaktig når utviklingen gjentar seg)**\n\n**Divisortesten i fem steg** — (1) $\\gcd$-sjekk, (2) $\\phi(n)$, (3) list divisorene stigende, (4) test dem stigende, (5) konkludér med «minste»-begrunnelsen. **(må sitte utenat — det er metoden, og «minste»-begrunnelsen er egne poeng)**"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

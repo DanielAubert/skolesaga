@@ -1,0 +1,426 @@
+{
+  "id": "ma1301-1-2",
+  "courseId": "ma1301",
+  "chapterNumber": "1.2",
+  "title": "Euklids algoritme frem og baklengs (Bézout)",
+  "description": "Fagets aller viktigste teknikk: Euklids algoritme som divisjonskjede for å finne gcd, og den baklengs substitusjonskjeden som skriver gcd = ax+by (Bézout) — føringen sensor krever fullt utskrevet, og motoren bak diofant, invers og RSA.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "kjøre Euklids algoritme som divisjonskjede og lese av største felles divisor",
+    "gjøre rede for hvorfor algoritmen virker, ut fra at gcd er uendret når man erstatter et tall med resten",
+    "skrive største felles divisor som en kombinasjon av de to opprinnelige tallene ved substitusjon baklengs",
+    "vise at to uttrykk med en ukjent er relativt primiske ved å presentere tallet 1 som en kombinasjon av dem"
+  ],
+  "content": [
+    {
+      "id": "ma1301-1-2-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er kapitlet med høyest frekvens i hele boka. Euklids algoritme forekommer i 15 av 15 sett — 100 %.**\n\nIngen annen enkeltteknikk kommer i nærheten. Grunnen er at algoritmen ikke bare løser sin egen oppgavetype; den er motoren i tre andre:\n\n| Hvor den brukes | Sjanger | Frekvens |\n|---|---|---|\n| Lineær diofantisk likning $ax+by=c$ — trenger $\\gcd(a,b)$ og Bézout-koeffisientene | **A** | 10 av 15 sett |\n| Lineær kongruens og modulær invers — inversen finnes ved baklengs substitusjon | **B** | inngår i ~10 av 15 sett |\n| RSA — dekrypteringseksponenten $d$ finnes ved å løse $ed\\equiv 1\\pmod{\\phi(n)}$ | **D** | 10 av 15 sett |\n\nSjangerbokstavene er bokas egne forkortelser, forklart i [kap. 0.1](/ma1301/ma1301-0-1).\n\n**Føringskravet — dette er den viktigste setningen i kapitlet.** Løsningsforslagene i arkivet fører algoritmen **frem** (divisjonene, linje for linje) **og baklengs** (substitusjonskjeden) som eksplisitt utskrevet arbeid. Å oppgi bare $\\gcd$ uten Bézout-koeffisientene gir trekk, og det er verre enn det: uten koeffisientene faller resten av diofant- eller invers-oppgaven, fordi det er koeffisientene den bygger på.\n\nBoka fører derfor **alle** Euklid-eksempler i samme tre steg: (i) divisjonskjeden frem, (ii) substitusjonskjeden baklengs, (iii) konklusjonssetning. Den malen er identisk i hvert kapittel der Euklid brukes, slik at du kjenner den igjen.\n\n**Prioritet: høyeste.** Bruker du én ekstra uke på noe i dette emnet, bruk den her."
+    },
+    {
+      "id": "ma1301-1-2-utenat",
+      "type": "tip",
+      "title": "Utenat under kode D",
+      "content": "Eksamen er hjelpemiddelkode D: ingen bok, ingen formelsamling, ingen tabeller, ingen egne notater — bare en enkel kalkulator. Kalkulatoren kan dele med rest, men den kan ikke kjøre Euklids algoritme for deg, og den kan ikke faktorisere de fire- og femsifrede tallene som står i oppgavene.\n\n**Må sitte utenat:**\n\n- **Euklids algoritme som prosedyre** — divisjonskjeden frem til rest $0$, og at siste ikke-null rest er $\\gcd$\n- **substitusjonskjeden baklengs** — at du starter i den nest siste linja og substituerer oppover\n- **føringsmalen i tre steg** (i)–(ii)–(iii), fordi det er føringen som gir uttelling\n- at $\\gcd(a,b)$ **er** en lineærkombinasjon $ax+by$ (Bézouts identitet)\n\n**Utledes på stedet:** **Bézout-koeffisientene $x$ og $y$.** De finnes ikke utenat, og du skal ikke prøve — de leses ut av substitusjonskjeden, hver gang, for hvert nytt tallpar. Det er derfor prosedyren og ikke tallene er puggematerialet her.\n\n**Selvtest, fem minutter:** velg to tall i tusenklassen, dekk til boka, og kjør begge veier til du har $\\gcd=ax+by$. Kontroller ved innsetting. Klarer du det uten å se på oppskriften, har du kapitlets kjerne — og du har den ferdigheten som bærer flest delpunkt på eksamen.\n\n**Prosedyrer pugges ved å kjøres, ikke ved å leses.** Tre nye tallpar er mer verdt enn tre gjennomlesninger."
+    },
+    {
+      "id": "ma1301-1-2-forkunnskaper",
+      "type": "text",
+      "content": "### Forkunnskaper\n\nFra boka: [kap. 1.1](/ma1301/ma1301-1-1) — divisjonsalgoritmen, delelighet og $\\gcd$.\n\n**Sist du var her.** De to resultatene fra [kap. 1.1](/ma1301/ma1301-1-1) som dette kapitlet står helt på, ferdig oppfrisket:\n\n**Divisjonsalgoritmen.** For hvert helt tall $a$ og hvert positivt $b$ finnes nøyaktig ett par $q,r$ med\n$$a=qb+r,\\qquad 0\\le r<b.$$\nDette er den ene operasjonen Euklids algoritme gjentar. Kravet $0\\le r<b$ er det som gjør at algoritmen stopper.\n\n**Lineærkombinasjonsregelen.** Hvis $d\\mid a$ og $d\\mid b$, så\n$$d\\mid(ax+by)\\qquad\\text{for alle hele tall }x,y.$$\nDette er den ene regelen som forklarer *hvorfor* algoritmen virker — den brukes i beviset for nøkkellemmaet nedenfor.\n\nFra videregående er ingenting påkrevd, men [Polynomer og polynomdivisjon](/r1/r1-1-1) gir en nyttig analogi: Euklids algoritme finnes også for polynomer, og ser der helt lik ut."
+    },
+    {
+      "id": "ma1301-1-2-motivasjon",
+      "type": "text",
+      "content": "### To rektangler og et gulv\n\nDu skal legge kvadratiske fliser i et rom som er $803$ cm langt og $154$ cm bredt, uten å skjære en eneste flis. Hvor stor kan flisen være?\n\nSvaret er $\\gcd(803,154)$, og du kan finne det uten å faktorisere noe: legg først så mange $154$-fliser du får plass til langs lengden. Det blir fem, og du har $33$ cm igjen. Nå er problemet redusert — den nye biten er $154\\times 33$, og du fortsetter på samme måte. Til slutt står du med en bit som går opp i seg selv, og den er svaret.\n\nDet er Euklids algoritme. Den er over to tusen år gammel, den bruker ingenting annet enn divisjon med rest, og den er raskere enn faktorisering på store tall — for disse to tallene tar den fire linjer.\n\n**Men den gjør mer enn å finne $\\gcd$.** Går du kjeden baklengs, får du noe som er strengt sterkere: du får skrevet $\\gcd$ som en kombinasjon $803x+154y$. Det er den delen som gjør algoritmen til fagets viktigste teknikk, for de to tallene $x$ og $y$ er nøkkelen til diofantiske likninger, til modulære inverser, og til dekrypteringsnøkkelen i RSA.\n\nDerfor er dette kapitlet delt i to halvdeler som må sitte like godt: **frem** for å finne $\\gcd$, og **baklengs** for å finne $x$ og $y$.\n\n*Tidsanslag for kapitlet: ~60 minutter lesetid, fordelt på seks løkker à 7–12 minutter. Regner du med penn, som du bør her av alle steder, legg til omtrent halvparten.*"
+    },
+    {
+      "id": "ma1301-1-2-l1-intro",
+      "type": "text",
+      "content": "## Løkke 1: Divisjonskjeden frem\n\n*~9 minutter.*\n\nProsedyren er kort nok å beskrive i tre setninger, og du skal kunne den utenat. Vi tar den først, og forklarer hvorfor den virker i neste løkke."
+    },
+    {
+      "id": "ma1301-1-2-d-euklids-algoritme",
+      "type": "definition",
+      "title": "Euklids algoritme (frem)",
+      "content": "En prosedyre som finner $\\gcd(a,b)$ ved gjentatt divisjon med rest, uten å faktorisere noe.\n\n**Oppskriften**, med $a>b>0$:\n\n1. Del $a$ på $b$: $a=q_1b+r_1$ med $0\\le r_1<b$.\n2. Er $r_1=0$, er $\\gcd(a,b)=b$, og du er ferdig.\n3. Ellers gjentar du med det **forrige tallet du delte på** og **resten**: del $b$ på $r_1$.\n4. Fortsett slik til resten blir $0$. **Den siste resten som ikke var $0$, er $\\gcd(a,b)$.**\n\nMed symboler er dette divisjonskjeden\n$$r_{k-1}=q_{k+1}r_k+r_{k+1},\\qquad 0\\le r_{k+1}<r_k.$$\n\n**Prosedyren må sitte utenat.** Det er det tallmessige håndverket i 15 av 15 eksamenssett, og under kode D har du ingen alternativ metode for tall i denne størrelsesordenen.\n\n**Den vanligste feilen i steg 3:** å dele det opprinnelige $a$ på den nye resten. Du skal alltid dele **divisoren fra forrige linje** på **resten fra forrige linje**. Tallene flytter seg ett hakk til venstre for hver linje."
+    },
+    {
+      "id": "ma1301-1-2-d-divisjonskjeden",
+      "type": "definition",
+      "title": "Divisjonskjeden",
+      "content": "Rekken av divisjoner Euklids algoritme produserer, skrevet under hverandre:\n\n$$a=q_1b+r_1,\\quad b=q_2r_1+r_2,\\quad r_1=q_3r_2+r_3,\\quad\\dots,\\quad r_{k-1}=q_{k+1}r_k+0.$$\n\nLegg merke til mønsteret, for det er den beste kontrollen du har mens du regner: **hvert tall opptrer to ganger nedover kjeden** — først som rest, så som divisor, så som dividend. Bryter mønsteret, har du gjort en avskrivningsfeil.\n\nRestene $r_1>r_2>r_3>\\dots$ er **strengt avtakende og ikke-negative**, siden hver rest er mindre enn divisoren den kom fra ($0\\le r<b$ i divisjonsalgoritmen). Derfor må kjeden nå $0$ etter endelig mange steg.\n\n**Kjeden er også arbeidsmaterialet for baklengs-halvdelen.** Ikke visk den ut når du har funnet $\\gcd$ — du trenger hver linje igjen om et øyeblikk."
+    },
+    {
+      "id": "ma1301-1-2-d-terminering",
+      "type": "definition",
+      "title": "Hvorfor algoritmen alltid stopper",
+      "content": "Restene danner en strengt avtakende følge av ikke-negative hele tall:\n\n$$b>r_1>r_2>\\dots\\ge 0.$$\n\nEn slik følge kan ikke være uendelig — det finnes bare endelig mange hele tall mellom $0$ og $b$. Altså blir en rest $0$ etter endelig mange steg, og algoritmen stopper.\n\nDette er **utledes på stedet** og tar én linje å si, men det er ikke bare formalisme: det er argumentet for at prosedyren er en *algoritme* og ikke bare et forsøk.\n\n**Hvor rask er den?** Verste tilfelle er nabotall i Fibonacci-følgen, og selv da vokser antall linjer bare som logaritmen av tallene. Praktisk konsekvens for eksamen: for firesifrede tall får du typisk **4–6 divisjonslinjer**. Er kjeden din på tolv linjer, har du sannsynligvis regnet feil et sted — det er en gratis kontroll."
+    },
+    {
+      "id": "ma1301-1-2-d-siste-rest",
+      "type": "definition",
+      "title": "Siste ikke-null rest",
+      "content": "Svaret Euklids algoritme gir: **den siste resten før resten blir $0$**.\n\nDette er stedet folk leser av feil tall under tidspress. Kjeden ender slik:\n\n$$\\dots,\\qquad r_{k-1}=q\\cdot r_k+0.$$\n\nHer er svaret $r_k$ — **divisoren i den siste linja**, som samtidig er resten i linja over. Det er ikke $r_{k-1}$, og det er ikke $0$.\n\n**Kontrollen tar fem sekunder og bør gjøres hver gang:** sjekk at tallet ditt deler begge de opprinnelige tallene. Får du $\\gcd(803,154)=11$, sjekk at $803=11\\cdot 73$ og $154=11\\cdot 14$. Stemmer begge, er $\\gcd$ i hvert fall en felles divisor — og Euklids algoritme garanterer at den er den største."
+    },
+    {
+      "id": "ma1301-1-2-e1",
+      "type": "example",
+      "title": "Euklids algoritme frem: gcd(1071, 462)",
+      "problem": "Finn $\\gcd(1071,462)$ med Euklids algoritme.",
+      "solution": "**(i) Divisjonskjeden frem.** Vi deler gjentatt med rest, **ved Euklids algoritme**, til resten blir $0$:\n\n$$1\\,071 = 2\\cdot 462 + 147$$\n$$462 = 3\\cdot 147 + 21$$\n$$147 = 7\\cdot 21 + 0$$\n\nDen siste resten som ikke er $0$, er $21$. Altså er $\\gcd(1\\,071,462)=21$. Kjeden har 3 divisjonslinjer.\n\n**Kontroll.** Deler $21$ begge tallene? $1071=21\\cdot 51$ og $462=21\\cdot 22$. Ja, begge går opp.\n\n*Legg merke til hvordan tallene flytter seg. I linje 1 deler vi $1071$ på $462$ og får resten $147$. I linje 2 deler vi **$462$** — divisoren fra forrige linje — på **$147$** — resten fra forrige linje. Aldri det opprinnelige $1071$ igjen. Det er hele mekanikken.*\n\n**Sluttsvar:** $\\gcd(1071,462)=21$."
+    },
+    {
+      "id": "ma1301-1-2-ex-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-1-2-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Regn ut $\\gcd(1440,693)$ med Euklids algoritme. Før divisjonskjeden linje for linje, og oppgi hvor mange divisjonslinjer du brukte.",
+        "solution": "**(i) Divisjonskjeden frem.** Vi deler gjentatt med rest, **ved Euklids algoritme**, til resten blir $0$:\n\n$$1\\,440 = 2\\cdot 693 + 54$$\n$$693 = 12\\cdot 54 + 45$$\n$$54 = 1\\cdot 45 + 9$$\n$$45 = 5\\cdot 9 + 0$$\n\nDen siste resten som ikke er $0$, er $9$. Altså er $\\gcd(1\\,440,693)=9$. Kjeden har 4 divisjonslinjer.\n\n**Kontroll.** $1440=9\\cdot 160$ og $693=9\\cdot 77$. Begge går opp, så $9$ er en felles divisor — og etter Euklids algoritme den største.\n\n**Sluttsvar:** $\\gcd(1440,693)=9$, funnet på 4 divisjonslinjer.\n\n*Merk at $693=3^2\\cdot 7\\cdot 11$ og $1440=2^5\\cdot 3^2\\cdot 5$. Faktoriseringsveien ville også gitt $9$, men den krever at du faktoriserer to firesifrede tall — Euklids algoritme brukte fire divisjoner. Det er forskjellen som betyr noe under kode D.*",
+        "hints": [
+          "Første linje: hvor mange ganger går $693$ i $1440$?",
+          "I hver ny linje deler du divisoren fra forrige linje på resten fra forrige linje."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-1-2-ex-1b",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-1-2-o1b",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "**a)** Regn ut $\\gcd(1105,391)$ med Euklids algoritme.\n**b)** Kontroller svaret ved å sjekke at det deler begge tallene.",
+        "solution": "**(i) Divisjonskjeden frem.** Vi deler gjentatt med rest, **ved Euklids algoritme**, til resten blir $0$:\n\n$$1\\,105 = 2\\cdot 391 + 323$$\n$$391 = 1\\cdot 323 + 68$$\n$$323 = 4\\cdot 68 + 51$$\n$$68 = 1\\cdot 51 + 17$$\n$$51 = 3\\cdot 17 + 0$$\n\nDen siste resten som ikke er $0$, er $17$. Altså er $\\gcd(1\\,105,391)=17$. Kjeden har 5 divisjonslinjer.\n\n**b) Kontroll.** $1105=17\\cdot 65$ og $391=17\\cdot 23$. Begge går opp, så $17$ er en felles divisor — og etter Euklids algoritme er den den største.\n\n**Sluttsvar:** $\\gcd(1105,391)=17$, funnet på 5 divisjonslinjer.\n\n*Kjeden her har fem linjer med tall som synker jevnt: $1105\\to 391\\to 323\\to 68\\to 51\\to 17$. Merk at kvotientene er små ($2,1,4,1,3$) — det er typisk, og det er derfor kjeden ikke ble kortere. Store kvotienter gir korte kjeder.*",
+        "hints": [
+          "Første linje: hvor mange ganger går $391$ i $1105$?",
+          "Husk at du i hver ny linje deler divisoren fra forrige linje på resten fra forrige linje."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-1-2-l2-intro",
+      "type": "text",
+      "content": "## Løkke 2: Hvorfor algoritmen virker\n\n*~8 minutter.*\n\nEtt lemma bærer hele prosedyren. Det er verdt de fem minuttene, fordi det samme argumentet dukker opp igjen i beviset for Bézouts identitet og i kap. 6.3.\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "ma1301-1-2-t-nokkellemma",
+      "type": "theorem",
+      "title": "Euklids nøkkellemma",
+      "content": "For hele tall $a$, $b>0$ med $a=qb+r$:\n\n$$\\gcd(a,b)=\\gcd(b,r).$$\n\n**Bevis.** Vi viser at de to parene har **nøyaktig de samme felles divisorene**. Da har de også samme største.\n\n*Retning 1.* La $d$ være en felles divisor i $a$ og $b$. Siden $r=a-qb$ er en lineærkombinasjon av $a$ og $b$, gir **lineærkombinasjonsregelen** fra [kap. 1.1](/ma1301/ma1301-1-1) at $d\\mid r$. Altså er $d$ en felles divisor i $b$ og $r$.\n\n*Retning 2.* La $d$ være en felles divisor i $b$ og $r$. Siden $a=qb+r$ er en lineærkombinasjon av $b$ og $r$, gir samme regel at $d\\mid a$. Altså er $d$ en felles divisor i $a$ og $b$.\n\nDe to mengdene av felles divisorer er dermed like, og spesielt er de største like: $\\gcd(a,b)=\\gcd(b,r)$. $\\blacksquare$\n\n**Intuisjon:** resten $r$ inneholder all informasjon om felles divisorer som $a$ hadde. Du kaster bort $qb$-delen, og mister ingenting — fordi $b$ er med i det nye paret uansett.\n\n**Hvorfor lemmaet gir algoritmen:** hver linje i divisjonskjeden erstatter paret $(a,b)$ med det mindre paret $(b,r)$ **uten å endre $\\gcd$**. Til slutt står du med paret $(r_k,0)$, og $\\gcd(r_k,0)=r_k$ siden alt deler $0$. Derfor er siste ikke-null rest svaret."
+    },
+    {
+      "id": "ma1301-1-2-d-gcd-null",
+      "type": "definition",
+      "title": "gcd(a, 0) = a",
+      "content": "For hvert positivt helt tall $a$ er $\\gcd(a,0)=a$.\n\nGrunnen: **hvert** tall deler $0$, siden $0=a\\cdot 0$. Så divisorene i $0$ er alle tall, og de felles divisorene i $a$ og $0$ er nettopp divisorene i $a$. Den største av dem er $a$ selv.\n\nDette er ikke en kuriositet — det er **sluttsteget i Euklids algoritme**. Når kjeden når $r_{k-1}=q\\cdot r_k+0$, er du i praksis kommet til paret $(r_k,0)$, og nøkkellemmaet pluss dette kortet gir at svaret er $r_k$.\n\nMerk at $\\gcd(0,0)$ ikke er definert: alle tall er felles divisorer, og det finnes ingen største."
+    },
+    {
+      "id": "ma1301-1-2-d-euklid-negativ",
+      "type": "definition",
+      "title": "Euklids algoritme på negative tall",
+      "content": "Algoritmen er formulert for positive tall, men det er ingen begrensning: **ta absoluttverdiene først.**\n\nGrunnen er at $\\gcd$ ikke ser fortegn:\n$$\\gcd(a,b)=\\gcd(|a|,|b|),$$\nsiden $d\\mid a$ nøyaktig når $d\\mid(-a)$.\n\nTrenger du Bézout-koeffisienter for negative tall, regner du med absoluttverdiene og **snur fortegnet på koeffisienten** til slutt. Har du funnet $\\gcd(803,154)=803\\cdot 5+154\\cdot(-26)$, så er\n$$\\gcd(-803,154)=11=(-803)\\cdot(-5)+154\\cdot(-26).$$\n\nPraktisk råd: gjør dette som første linje i besvarelsen, ikke underveis. «Siden $\\gcd(a,b)=\\gcd(|a|,|b|)$, regner vi med positive tall» — én setning, og du har fjernet en fortegnsfelle fra hele resten av oppgaven."
+    },
+    {
+      "id": "ma1301-1-2-l3-intro",
+      "type": "text",
+      "content": "## Løkke 3: Substitusjonskjeden baklengs\n\n*~12 minutter.*\n\nNå kommer halvdelen som gir uttelling. Idéen er enkel: hver linje i divisjonskjeden kan løses for sin egen rest, og da har du resten uttrykt ved de to tallene over den. Gjør du det gjentatt, nedenfra og opp, ender du med $\\gcd$ uttrykt ved de to opprinnelige tallene.\n\nDette er den ferdigheten flest studenter slurver med, og den som koster mest når den slurves."
+    },
+    {
+      "id": "ma1301-1-2-d-baklengs",
+      "type": "definition",
+      "title": "Baklengs substitusjon",
+      "content": "Prosedyren som skriver $\\gcd(a,b)$ som en lineærkombinasjon $ax+by$, ved å nøste opp divisjonskjeden fra nedenfra.\n\n**Oppskriften:**\n\n1. Gå til den **nest siste** linja i kjeden — den der resten er $\\gcd$. Løs den for $\\gcd$:\n$$\\gcd = r_{k-2}-q_k\\cdot r_{k-1}.$$\n2. Ta linja **over**, løs den for sin rest, og sett uttrykket inn.\n3. **Trekk sammen**, men bare de to tallene som nå står der — ikke regn ut produktene.\n4. Gjenta oppover til bare $a$ og $b$ står igjen.\n\n**Prosedyren må sitte utenat.** Koeffisientene den produserer, gjør det ikke — de **utledes på stedet**, for hvert nytt tallpar.\n\n**Det ene rådet som forhindrer flest feil:** *ikke gang ut tallene.* Står det $5\\cdot 33$, la det stå som $5\\cdot 33$ til slutt. Ganger du ut til $165$, mister du sporet av hvilket tall som skal substitueres neste gang, og da er kjeden ødelagt. Mange skriver derfor de to «aktive» tallene i en boks eller understreket for hver linje."
+    },
+    {
+      "id": "ma1301-1-2-d-substitusjonsregelen",
+      "type": "definition",
+      "title": "Substitusjonsregelen",
+      "content": "Hvert steg baklengs bruker samme omskrivning. Divisjonslinja\n\n$$A=q\\cdot B+r$$\n\nløses for resten:\n\n$$r=A-q\\cdot B.$$\n\nDet er alt. Skrittet baklengs består i å bytte ut ett tall (resten $r$) med to (dividenden $A$ og divisoren $B$), og hver gang du gjør det, klatrer du én linje oppover i kjeden.\n\n**Bokføringen:** etter hvert steg står $\\gcd$ som en kombinasjon av nøyaktig **to** tall fra kjeden, og de to tallene ligger alltid ved siden av hverandre i kjeden. Er du i tvil om du har gjort det riktig, sjekk at du har to og ikke tre.\n\n**Kontrollen underveis** (verdt de ti sekundene på et langt tallpar): regn ut uttrykket ditt numerisk etter hvert steg. Det skal alltid gi $\\gcd$. Får du noe annet, ligger feilen i det siste steget, og ikke tolv linjer tilbake."
+    },
+    {
+      "id": "ma1301-1-2-d-euklid-malen",
+      "type": "definition",
+      "title": "Føringsmalen for Euklid — tre steg",
+      "content": "Slik føres hver Euklid-oppgave i boka, og slik bør du føre den på eksamen. Malen er identisk i alle kapitler der Euklids algoritme brukes.\n\n**(i) Divisjonskjeden frem.** Divisjonene linje for linje til rest $0$, med siste ikke-null rest identifisert som $\\gcd$.\n\n**(ii) Substitusjonskjeden baklengs.** Fra nest siste linje og oppover, eksplisitt, til $\\gcd(a,b)=ax+by$.\n\n**(iii) Konklusjonssetning.** «Altså er $\\gcd(a,b)=d=a\\cdot x+b\\cdot y$» — skrevet ut som en setning, med tall.\n\n**Malen må sitte utenat**, og hvert av de tre stegene bærer uttelling for seg selv. Grunnen er instruksen som står på hvert eneste sett: **alle svar må begrunnes.** Et riktig $\\gcd$ uten kjeden er et sluttall uten metode, og koeffisienter uten kjeden er ikke etterprøvbare.\n\n**Legg til kontrollen.** Sett koeffisientene inn i $ax+by$ og se at du får $d$. Det tar tjue sekunder, og det er den eneste feilen i dette stoffet du kan oppdage helt sikkert selv."
+    },
+    {
+      "id": "ma1301-1-2-e2",
+      "type": "example",
+      "title": "Hele malen på gcd(803, 154)",
+      "problem": "Finn $\\gcd(803,154)$, og skriv den på formen $803x+154y$.",
+      "solution": "**(i) Divisjonskjeden frem.** Vi deler gjentatt med rest, **ved Euklids algoritme**, til resten blir $0$:\n\n$$803 = 5\\cdot 154 + 33$$\n$$154 = 4\\cdot 33 + 22$$\n$$33 = 1\\cdot 22 + 11$$\n$$22 = 2\\cdot 11 + 0$$\n\nDen siste resten som ikke er $0$, er $11$. Altså er $\\gcd(803,154)=11$. Kjeden har 4 divisjonslinjer.\n\n**(ii) Substitusjonskjeden baklengs.** Vi løser den nest siste linja for resten og substituerer oppover, linje for linje:\n\n$$11 = 33 - 1\\cdot 22$$\nSett inn $22 = 154 - 4\\cdot 33$:\n$$11 = -1\\cdot 154 + 5\\cdot 33$$\nSett inn $33 = 803 - 5\\cdot 154$:\n$$11 = 5\\cdot 803 - 26\\cdot 154$$\n\n**(iii) Konklusjon.** Altså er\n\n$$\\gcd(803,154) = 11 = 803\\cdot(5) + 154\\cdot(-26).$$\n\n**Kontroll ved innsetting:** $803\\cdot(5) + 154\\cdot(-26) = 4\\,015 - 4\\,004 = 11$. Stemmer.\n\n*Se på steg (ii) én gang til, for det er der arbeidet ligger. Vi startet i linja $33=1\\cdot 22+11$ — den nest siste — og løste den for $11$. Deretter erstattet vi $22$ med $154-4\\cdot 33$ fra linja over, og trakk sammen de to $33$-leddene: $1\\cdot 33+4\\cdot 33=5\\cdot 33$. Til slutt erstattet vi $33$ med $803-5\\cdot 154$.*\n\n*Legg merke til at vi aldri ganget ut. Hadde vi skrevet $4\\cdot 33=132$ underveis, ville $33$ forsvunnet fra uttrykket, og vi hadde ikke hatt noe å substituere i siste steg.*\n\n**Sluttsvar:** $\\gcd(803,154)=11$, og $11=803\\cdot 5+154\\cdot(-26)$."
+    },
+    {
+      "id": "ma1301-1-2-ex-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-1-2-o2",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Finn $\\gcd(897,364)$, og skriv den som en lineærkombinasjon $897x+364y$. Følg malen i tre steg, og kontroller svaret ved innsetting.",
+        "solution": "**(i) Divisjonskjeden frem.** Vi deler gjentatt med rest, **ved Euklids algoritme**, til resten blir $0$:\n\n$$897 = 2\\cdot 364 + 169$$\n$$364 = 2\\cdot 169 + 26$$\n$$169 = 6\\cdot 26 + 13$$\n$$26 = 2\\cdot 13 + 0$$\n\nDen siste resten som ikke er $0$, er $13$. Altså er $\\gcd(897,364)=13$. Kjeden har 4 divisjonslinjer.\n\n**(ii) Substitusjonskjeden baklengs.** Vi løser den nest siste linja for resten og substituerer oppover, linje for linje:\n\n$$13 = 169 - 6\\cdot 26$$\nSett inn $26 = 364 - 2\\cdot 169$:\n$$13 = -6\\cdot 364 + 13\\cdot 169$$\nSett inn $169 = 897 - 2\\cdot 364$:\n$$13 = 13\\cdot 897 - 32\\cdot 364$$\n\n**(iii) Konklusjon.** Altså er\n\n$$\\gcd(897,364) = 13 = 897\\cdot(13) + 364\\cdot(-32).$$\n\n**Kontroll ved innsetting:** $897\\cdot(13) + 364\\cdot(-32) = 11\\,661 - 11\\,648 = 13$. Stemmer.\n\n**Sluttsvar:** $\\gcd(897,364)=13$, og $13=897\\cdot 13+364\\cdot(-32)$.\n\n*Her er en fin tilfeldighet å ikke la seg lure av: $\\gcd$ er $13$, og koeffisienten foran $897$ er også $13$. Det er ren slump. Koeffisientene har ingen systematisk sammenheng med $\\gcd$ — de må leses ut av kjeden hver gang.*",
+        "hints": [
+          "Start med divisjonskjeden: hvor mange ganger går $364$ i $897$?",
+          "Til baklengs-kjeden: gå til den nest siste linja og løs den for resten $13$.",
+          "Ikke gang ut produktene underveis — la $6\\cdot 26$ stå som $6\\cdot 26$."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-1-2-ex-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-1-2-o3",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Finn $\\gcd(1729,703)$ og skriv den på formen $1729x+703y$.",
+        "solution": "**(i) Divisjonskjeden frem.** Vi deler gjentatt med rest, **ved Euklids algoritme**, til resten blir $0$:\n\n$$1\\,729 = 2\\cdot 703 + 323$$\n$$703 = 2\\cdot 323 + 57$$\n$$323 = 5\\cdot 57 + 38$$\n$$57 = 1\\cdot 38 + 19$$\n$$38 = 2\\cdot 19 + 0$$\n\nDen siste resten som ikke er $0$, er $19$. Altså er $\\gcd(1\\,729,703)=19$. Kjeden har 5 divisjonslinjer.\n\n**(ii) Substitusjonskjeden baklengs.** Vi løser den nest siste linja for resten og substituerer oppover, linje for linje:\n\n$$19 = 57 - 1\\cdot 38$$\nSett inn $38 = 323 - 5\\cdot 57$:\n$$19 = -1\\cdot 323 + 6\\cdot 57$$\nSett inn $57 = 703 - 2\\cdot 323$:\n$$19 = 6\\cdot 703 - 13\\cdot 323$$\nSett inn $323 = 1\\,729 - 2\\cdot 703$:\n$$19 = -13\\cdot 1\\,729 + 32\\cdot 703$$\n\n**(iii) Konklusjon.** Altså er\n\n$$\\gcd(1\\,729,703) = 19 = 1\\,729\\cdot(-13) + 703\\cdot(32).$$\n\n**Kontroll ved innsetting:** $1\\,729\\cdot(-13) + 703\\cdot(32) = -22\\,477 + 22\\,496 = 19$. Stemmer.\n\n**Sluttsvar:** $\\gcd(1729,703)=19$, og $19=1729\\cdot(-13)+703\\cdot 32$.\n\n*Kontroll av at $19$ virkelig er en felles divisor: $1729=19\\cdot 91$ og $703=19\\cdot 37$. Begge går opp.*",
+        "hints": [
+          "Fem divisjonslinjer er nok her.",
+          "Den nest siste linja er $57=1\\cdot 38+19$ — start der.",
+          "Koeffisienten foran $1729$ blir negativ. Det er helt normalt; nøyaktig én av de to er det (når $\\gcd$ ikke er $a$ eller $b$)."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-1-2-l4-intro",
+      "type": "text",
+      "content": "## Løkke 4: Bézouts identitet\n\n*~10 minutter.*\n\nDet vi nettopp gjorde med tall, er et teorem. Og teoremet sier noe mer enn prosedyren: det sier at $\\gcd(a,b)$ er det **minste** positive tallet som kan skrives som $ax+by$. Den formuleringen er den vi bruker i bevis, og den er grunnen til at hele Del 1 hviler på dette."
+    },
+    {
+      "id": "ma1301-1-2-t-bezout",
+      "type": "theorem",
+      "title": "Bézouts identitet",
+      "content": "For alle hele tall $a$ og $b$ (ikke begge null) finnes det hele tall $x$ og $y$ slik at\n\n$$\\gcd(a,b)=ax+by.$$\n\nMer presist: **$\\gcd(a,b)$ er det minste positive tallet som kan skrives som en lineærkombinasjon $ax+by$**, og hvert tall på den formen er et multiplum av $\\gcd(a,b)$.\n\n**Bevis for eksistensen.** Euklids algoritme *er* beviset: substitusjonskjeden baklengs produserer $x$ og $y$ i endelig mange steg, for hvilket som helst par. Det er et konstruktivt bevis, og det er grunnen til at teoremet er praktisk og ikke bare sant.\n\n**Bevis for minimaliteten.** La $d=\\gcd(a,b)$ og la $m=ax+by$ være et vilkårlig positivt tall på den formen. Siden $d\\mid a$ og $d\\mid b$, gir **lineærkombinasjonsregelen** at $d\\mid m$, altså $m\\ge d$. Og $d$ selv er på formen, etter eksistensdelen. Dermed er $d$ den minste. $\\blacksquare$\n\n**Teoremet må sitte utenat, og det må navngis.** Fasitene i arkivet skriver «etter Bézout» der koeffisientene brukes.\n\n**Tre steder det bærer alt som kommer:**\n\n- **Løsbarheten** av $ax+by=c$: likningen har heltallsløsninger nøyaktig når $\\gcd(a,b)\\mid c$, fordi lineærkombinasjonene av $a$ og $b$ er nøyaktig multiplene av $\\gcd(a,b)$ ([kap. 1.3](/ma1301/ma1301-1-3)).\n- **Modulær invers:** $a$ har en invers modulo $m$ nøyaktig når $\\gcd(a,m)=1$, for da gir Bézout $ax+my=1$, altså $ax\\equiv 1\\pmod m$ ([kap. 1.4](/ma1301/ma1301-1-4)).\n- **Dekrypteringsnøkkelen i RSA** er nettopp en slik invers (kap. 3.1)."
+    },
+    {
+      "id": "ma1301-1-2-d-bezout-koeffisienter",
+      "type": "definition",
+      "title": "Bézout-koeffisienter",
+      "content": "Tallene $x$ og $y$ i $\\gcd(a,b)=ax+by$.\n\n**De utledes på stedet**, alltid — de finnes ikke i noen tabell, og under kode D finnes det heller ikke noen tabell. Substitusjonskjeden er den ene måten du får dem.\n\n**De er ikke entydige.** Har du funnet ett par, får du uendelig mange andre ved å flytte langs\n$$x'=x+\\frac{b}{d}t,\\qquad y'=y-\\frac{a}{d}t,\\qquad t\\in\\mathbb{Z}.$$\nKontroll: $ax'+by'=ax+by+\\frac{ab}{d}t-\\frac{ab}{d}t=d$, som før.\n\n**Praktisk betydning for eksamen:** fasiten din kan ha andre koeffisienter enn løsningsforslaget og fortsatt være riktig. Det som avgjør, er at innsettingen stemmer. Kontroller derfor alltid ved innsetting — da vet du at du er trygg selv om tallene ser annerledes ut enn du forventet.\n\n*Dette er også nøkkelen til hele løsningsmengden i [kap. 1.3](/ma1301/ma1301-1-3): parametriseringen over er den samme formelen som gir alle løsninger av en diofantisk likning.*"
+    },
+    {
+      "id": "ma1301-1-2-d-relativt-primisk-bezout",
+      "type": "definition",
+      "title": "Relativt primisk, sett gjennom Bézout",
+      "content": "To tall $a$ og $b$ er relativt primiske nøyaktig når det finnes hele tall $x$ og $y$ med\n\n$$ax+by=1.$$\n\n**Begge retninger er korte.** Er $\\gcd(a,b)=1$, gir Bézout slike $x,y$. Og finnes det slike $x,y$, må $\\gcd(a,b)$ dele $1$ etter lineærkombinasjonsregelen, altså være $1$.\n\n**Dette er den mest brukte formen av Bézout på eksamen**, og grunnen er praktisk: å *vise* at to tall er relativt primiske krever ellers at du utelukker alle felles primfaktorer. Med Bézout holder det å **presentere én lineærkombinasjon som gir $1$** — og det er en enkelt likning å skrive ned.\n\nDette er nøyaktig grepet i parameter-i-koeffisient-varianten i løkke 6, der tallene ikke er tall men uttrykk i en ukjent $n$, og faktorisering derfor ikke er en mulighet i det hele tatt."
+    },
+    {
+      "id": "ma1301-1-2-d-fortegnsmonsteret",
+      "type": "definition",
+      "title": "Fortegnsmønsteret i koeffisientene",
+      "content": "I substitusjonskjeden veksler fortegnene systematisk, og det gir en kontroll som er verdt å kunne.\n\n**Regelen:** når $\\gcd(a,b)$ er *mindre* enn både $a$ og $b$, har de to koeffisientene **motsatt fortegn**. Den ene er positiv, den andre negativ.\n\nGrunnen er en størrelsesbetraktning: skal $ax+by$ bli et lite positivt tall mens $a$ og $b$ er store, må de to leddene nesten kansellere hverandre. To positive ledd gir minst $a+b$; to negative gir noe negativt.\n\n**Bruk den som kontroll.** Får du to positive koeffisienter på et par der $\\gcd$ er lite, har du regnet feil — sannsynligvis mistet et minustegn i en substitusjon.\n\nSer du på eksemplene i kapitlet, stemmer mønsteret hver gang: $(5,-26)$ for $(803,154)$, $(13,-32)$ for $(897,364)$, $(-13,32)$ for $(1729,703)$, $(-13,30)$ for $(2431,1054)$."
+    },
+    {
+      "id": "ma1301-1-2-e3",
+      "type": "example",
+      "title": "Bézout når tallene er relativt primiske",
+      "problem": "Vis at $779$ og $357$ er relativt primiske, og skriv $1$ som en lineærkombinasjon av dem.",
+      "solution": "**(i) Divisjonskjeden frem.** Vi deler gjentatt med rest, **ved Euklids algoritme**, til resten blir $0$:\n\n$$779 = 2\\cdot 357 + 65$$\n$$357 = 5\\cdot 65 + 32$$\n$$65 = 2\\cdot 32 + 1$$\n$$32 = 32\\cdot 1 + 0$$\n\nDen siste resten som ikke er $0$, er $1$. Altså er $\\gcd(779,357)=1$. Kjeden har 4 divisjonslinjer.\n\n**(ii) Substitusjonskjeden baklengs.** Vi løser den nest siste linja for resten og substituerer oppover, linje for linje:\n\n$$1 = 65 - 2\\cdot 32$$\nSett inn $32 = 357 - 5\\cdot 65$:\n$$1 = -2\\cdot 357 + 11\\cdot 65$$\nSett inn $65 = 779 - 2\\cdot 357$:\n$$1 = 11\\cdot 779 - 24\\cdot 357$$\n\n**(iii) Konklusjon.** Altså er\n\n$$\\gcd(779,357) = 1 = 779\\cdot(11) + 357\\cdot(-24).$$\n\n**Kontroll ved innsetting:** $779\\cdot(11) + 357\\cdot(-24) = 8\\,569 - 8\\,568 = 1$. Stemmer.\n\nSiden $\\gcd(779,357)=1$, er tallene **relativt primiske**.\n\n**Sluttsvar:** $\\gcd(779,357)=1$, og $1=779\\cdot 11+357\\cdot(-24)$. Tallene er relativt primiske.\n\n*Legg merke til hva vi nettopp har gjort, for det er et grep du får bruk for i [kap. 1.4](/ma1301/ma1301-1-4). Likningen $1=779\\cdot 11+357\\cdot(-24)$ kan leses modulo $357$: da forsvinner $357$-leddet, og vi står med*\n$$779\\cdot 11\\equiv 1\\pmod{357}.$$\n*Altså er $11$ inversen til $779$ modulo $357$. Baklengs-kjeden er hele metoden for å finne modulære inverser — det er samme regning, bare lest på en annen måte.*"
+    },
+    {
+      "id": "ma1301-1-2-ex-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-1-2-o4",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**a)** Finn $\\gcd(851,247)$ og skriv den som en lineærkombinasjon $851x+247y$.\n**b)** Bruk svaret til å finne inversen til $247$ modulo $851$, altså et tall $u$ med $247u\\equiv 1\\pmod{851}$. Oppgi $u$ i intervallet $0\\le u<851$.",
+        "solution": "**(i) Divisjonskjeden frem.** Vi deler gjentatt med rest, **ved Euklids algoritme**, til resten blir $0$:\n\n$$851 = 3\\cdot 247 + 110$$\n$$247 = 2\\cdot 110 + 27$$\n$$110 = 4\\cdot 27 + 2$$\n$$27 = 13\\cdot 2 + 1$$\n$$2 = 2\\cdot 1 + 0$$\n\nDen siste resten som ikke er $0$, er $1$. Altså er $\\gcd(851,247)=1$. Kjeden har 5 divisjonslinjer.\n\n**(ii) Substitusjonskjeden baklengs.** Vi løser den nest siste linja for resten og substituerer oppover, linje for linje:\n\n$$1 = 27 - 13\\cdot 2$$\nSett inn $2 = 110 - 4\\cdot 27$:\n$$1 = -13\\cdot 110 + 53\\cdot 27$$\nSett inn $27 = 247 - 2\\cdot 110$:\n$$1 = 53\\cdot 247 - 119\\cdot 110$$\nSett inn $110 = 851 - 3\\cdot 247$:\n$$1 = -119\\cdot 851 + 410\\cdot 247$$\n\n**(iii) Konklusjon.** Altså er\n\n$$\\gcd(851,247) = 1 = 851\\cdot(-119) + 247\\cdot(410).$$\n\n**Kontroll ved innsetting:** $851\\cdot(-119) + 247\\cdot(410) = -101\\,269 + 101\\,270 = 1$. Stemmer.\n\n**a) Sluttsvar:** $\\gcd(851,247)=1$, og $1=851\\cdot(-119)+247\\cdot 410$.\n\n**b)** Vi leser likningen fra a) **modulo $851$**. Leddet $851\\cdot(-119)$ er et multiplum av $851$ og forsvinner:\n$$247\\cdot 410\\equiv 1\\pmod{851}.$$\nAltså er $u=410$ en invers. Den ligger allerede i intervallet $0\\le u<851$, så vi er ferdige.\n\n**Kontroll:** $247\\cdot 410=101\\,270$. Og $101\\,270=851\\cdot 119+1$, siden $851\\cdot 119=101\\,269$. Resten er $1$. Stemmer.\n\n**b) Sluttsvar:** $u=410$.\n\n*Merk at $851=23\\cdot 37$ er sammensatt, og at inversen finnes likevel. Det eneste kravet er $\\gcd(247,851)=1$ — modulusen behøver ikke være et primtall. Det er nettopp derfor RSA fungerer, der modulusen alltid er et produkt av to primtall.*",
+        "hints": [
+          "Fem divisjonslinjer i a). Den nest siste er $27=13\\cdot 2+1$.",
+          "I b): les likningen fra a) modulo $851$. Hva skjer med leddet som inneholder $851$?",
+          "Kontroller til slutt at $247u$ gir rest $1$ ved divisjon med $851$."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-1-2-l5-intro",
+      "type": "text",
+      "content": "## Løkke 5: Den utvidede algoritmen i tabellform\n\n*~8 minutter.*\n\nDet finnes en alternativ bokføring som regner koeffisientene **mens** du går fremover, slik at du slipper baklengs-kjeden. Den er raskere når du har den i fingrene, og noen foretrekker den.\n\n**Men les advarselen først.** Føringskravet i dette emnet er at Euklids algoritme vises frem *og* baklengs. Tabellformen er en **alternativ føring** du kan vise ved siden av — den er **aldri en erstatning** for substitusjonskjeden. Bruker du bare tabellen, har du oppgitt koeffisienter uten den utregningen fasitene forventer."
+    },
+    {
+      "id": "ma1301-1-2-d-utvidet-euklid",
+      "type": "definition",
+      "title": "Den utvidede Euklids algoritme (tabellform)",
+      "content": "En bokføring som regner Bézout-koeffisientene fremover, i samme sveip som divisjonene.\n\n**Oppsettet.** Lag en tabell med kolonnene $r$ (rest), $q$ (kvotient), $x$ og $y$. Start med to rader:\n\n| $r$ | $q$ | $x$ | $y$ |\n|---|---|---|---|\n| $a$ | — | $1$ | $0$ |\n| $b$ | — | $0$ | $1$ |\n\n**Regelen for hver ny rad.** Er $q$ kvotienten i den aktuelle divisjonen, regnes hver av de tre kolonnene med **samme** formel:\n\n$$\\text{ny} = \\text{to rader opp} - q\\cdot(\\text{én rad opp}).$$\n\nDu stopper når $r$-kolonnen blir $0$. Raden **over** den inneholder $\\gcd$ i $r$-kolonnen, og de tilhørende Bézout-koeffisientene i $x$- og $y$-kolonnen.\n\n**Invarianten som gjør det riktig:** i hver rad gjelder $ax+by=r$. Det er en gratis kontroll — velg en rad, sett inn, og se at det stemmer.\n\n**Bruk:** vis den gjerne som tillegg, eller bruk den til å kontrollere baklengs-kjeden din. Men **før alltid substitusjonskjeden også** — det er den som er føringsstandarden i dette emnet."
+    },
+    {
+      "id": "ma1301-1-2-e4",
+      "type": "example",
+      "title": "Samme oppgave, alternativ føring",
+      "problem": "Regn ut $\\gcd(803,154)$ og Bézout-koeffisientene med den utvidede algoritmen i tabellform, og sammenlign med resultatet fra eksempel 2.",
+      "solution": "Vi kjenner divisjonskjeden fra eksempel 2, med kvotientene $5$, $4$, $1$, $2$.\n\n| $r$ | $q$ | $x$ | $y$ | Kontroll: $803x+154y$ |\n|---|---|---|---|---|\n| $803$ | — | $1$ | $0$ | $803$ ✓ |\n| $154$ | — | $0$ | $1$ | $154$ ✓ |\n| $33$ | $5$ | $1$ | $-5$ | $803-770=33$ ✓ |\n| $22$ | $4$ | $-4$ | $21$ | $-3212+3234=22$ ✓ |\n| $11$ | $1$ | $5$ | $-26$ | $4015-4004=11$ ✓ |\n| $0$ | $2$ | — | — | |\n\n**Slik ble radene til.** Hver rad er «to rader opp minus $q$ ganger én rad opp», anvendt på alle tre kolonnene:\n\n- Rad 3 ($q=5$): $r=803-5\\cdot 154=33$, $x=1-5\\cdot 0=1$, $y=0-5\\cdot 1=-5$.\n- Rad 4 ($q=4$): $r=154-4\\cdot 33=22$, $x=0-4\\cdot 1=-4$, $y=1-4\\cdot(-5)=21$.\n- Rad 5 ($q=1$): $r=33-1\\cdot 22=11$, $x=1-1\\cdot(-4)=5$, $y=-5-1\\cdot 21=-26$.\n\nResten blir $0$ i neste rad, så vi stopper. Siste rad med $r\\ne 0$ gir\n$$\\gcd(803,154)=11=803\\cdot 5+154\\cdot(-26).$$\n\n**Dette er nøyaktig samme svar som i eksempel 2** — som det skal være. De to metodene er to bokføringer av samme regning.\n\n*Legg merke til kontrollkolonnen. Invarianten $803x+154y=r$ holder i hver enkelt rad, så du kan stoppe hvor som helst og sjekke. Det er tabellformens store fordel: feilen oppdages i raden der den skjedde, ikke til slutt.*\n\n*Og legg merke til den ulempen som gjør at boka likevel fører baklengs-kjeden som hovedmetode: tabellen gir koeffisientene uten å vise substitusjonene. Fasitene i dette emnet forventer substitusjonskjeden utskrevet.*"
+    },
+    {
+      "id": "ma1301-1-2-l6-intro",
+      "type": "text",
+      "content": "## Løkke 6: Når koeffisientene inneholder en ukjent\n\n*~10 minutter.*\n\nHer er varianten arkivet er glad i, og som gjør Bézout uunnværlig: koeffisientene er ikke tall, men uttrykk i en ukjent $n$. Da kan du ikke faktorisere, du kan ikke kjøre Euklids algoritme på tall, og prøvedivisjon er meningsløs.\n\nDet du kan, er å **presentere $1$ som en eksplisitt lineærkombinasjon**. Én likning, og saken er avgjort for alle $n$ samtidig."
+    },
+    {
+      "id": "ma1301-1-2-d-parameter-variant",
+      "type": "definition",
+      "title": "Parameter-i-koeffisient-varianten",
+      "content": "Oppgavetypen: vis at to uttrykk i en ukjent $n$ er relativt primiske for **alle** hele tall $n$.\n\n**Metoden:** finn hele tall $u$ og $v$ (som ikke avhenger av $n$) slik at\n$$u\\cdot(\\text{første uttrykk})+v\\cdot(\\text{andre uttrykk})=1.$$\nDa er $\\gcd=1$ for alle $n$, **etter Bézout** — eller mer direkte: enhver felles divisor deler venstresiden, altså deler den $1$.\n\n**Slik finner du $u$ og $v$:** velg dem slik at $n$-leddene kanselleres. Er uttrykkene $an+b$ og $cn+d$, skal $u\\cdot a+v\\cdot c=0$, så $u=c$ og $v=-a$ er det naturlige forsøket. Regn deretter ut hva konstantleddet blir, og skaler om det ikke ble $\\pm 1$.\n\n**Hvorfor dette er den eneste veien:** her er tallene ikke tall. Det finnes ingenting å faktorisere og ingen divisjonskjede å kjøre. Bézout-formen er den ene karakteriseringen av «relativt primisk» som tåler en ukjent — og det er derfor kortet «Relativt primisk, sett gjennom Bézout» er verdt å ha sittende.\n\n**Fortegnet betyr ingenting.** Ender du med $-1$ i stedet for $1$, gang hele likningen med $-1$. En felles divisor som deler $-1$, deler også $1$."
+    },
+    {
+      "id": "ma1301-1-2-e5",
+      "type": "example",
+      "title": "Relativt primiske for alle n",
+      "problem": "La $n$ være et helt tall. Vis at $4n+3$ og $3n+2$ er relativt primiske for alle $n$.",
+      "solution": "**Strategien:** vi finner en lineærkombinasjon som gir $1$. Da er saken avgjort for alle $n$ samtidig, **etter Bézout**.\n\n**Steg 1: kanseller $n$-leddene.** Koeffisientene foran $n$ er $4$ og $3$. Ganger vi det første uttrykket med $3$ og det andre med $4$, får begge $12n$, og differansen fjerner $n$:\n$$3(4n+3)-4(3n+2) = (12n+9)-(12n+8) = 1.$$\n\n**Steg 2: les av lineærkombinasjonen.** Vi har altså, for hvert helt tall $n$:\n$$3\\cdot(4n+3)+(-4)\\cdot(3n+2)=1.$$\n\n**Steg 3: konkluder.** La $d$ være en felles divisor i $4n+3$ og $3n+2$. **Etter lineærkombinasjonsregelen** deler $d$ da venstresiden, altså $d\\mid 1$. Dermed er $d=\\pm 1$, og\n$$\\gcd(4n+3,3n+2)=1$$\nfor alle hele tall $n$. $\\blacksquare$\n\n**Kontroll med to verdier.** For $n=5$: uttrykkene er $23$ og $17$, og $3\\cdot 23-4\\cdot 17=69-68=1$. Riktig, og $\\gcd(23,17)=1$. For $n=11$: uttrykkene er $47$ og $35$, og $3\\cdot 47-4\\cdot 35=141-140=1$. Riktig, og $\\gcd(47,35)=1$ (siden $35=5\\cdot 7$ og $47$ er et primtall).\n\n*Merk hvor lite arbeid dette var, og hvor mye det ga. Én likning dekket uendelig mange tallpar. Hadde vi forsøkt å faktorisere, ville vi ikke kommet i gang — $4n+3$ har ingen faktorisering før $n$ er valgt.*\n\n**Sluttsvar:** $3(4n+3)-4(3n+2)=1$ for alle $n$, altså er uttrykkene relativt primiske for alle hele tall $n$."
+    },
+    {
+      "id": "ma1301-1-2-ex-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-1-2-o5",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $n$ være et helt tall.\n\n**a)** Vis at $3n+1$ og $2n+1$ er relativt primiske for alle $n$.\n**b)** Kontroller resultatet for $n=7$ og $n=12$.",
+        "solution": "**a)** Vi leter etter en lineærkombinasjon som gir $\\pm 1$.\n\nKoeffisientene foran $n$ er $3$ og $2$. Vi ganger det første uttrykket med $2$ og det andre med $3$, slik at begge får $6n$:\n$$2(3n+1)-3(2n+1) = (6n+2)-(6n+3) = -1.$$\n\nVi fikk $-1$. Det er like godt — gang hele likningen med $-1$:\n$$(-2)\\cdot(3n+1)+3\\cdot(2n+1)=1.$$\n\nLa nå $d$ være en felles divisor i $3n+1$ og $2n+1$. **Etter lineærkombinasjonsregelen** deler $d$ venstresiden, altså $d\\mid 1$, så $d=\\pm 1$. Dermed\n$$\\gcd(3n+1,2n+1)=1$$\nfor alle hele tall $n$. $\\blacksquare$\n\n**b) Kontroll.**\n\nFor $n=7$: uttrykkene er $3\\cdot 7+1=22$ og $2\\cdot 7+1=15$. Lineærkombinasjonen: $(-2)\\cdot 22+3\\cdot 15=-44+45=1$ ✓. Og $\\gcd(22,15)=1$, siden $22=2\\cdot 11$ og $15=3\\cdot 5$ ikke har felles primfaktor ✓.\n\nFor $n=12$: uttrykkene er $37$ og $25$. Lineærkombinasjonen: $(-2)\\cdot 37+3\\cdot 25=-74+75=1$ ✓. Og $\\gcd(37,25)=1$, siden $37$ er et primtall som ikke deler $25$ ✓.\n\n**Sluttsvar:** $(-2)(3n+1)+3(2n+1)=1$ for alle $n$, så uttrykkene er relativt primiske for alle hele tall $n$.",
+        "hints": [
+          "Gang uttrykkene med hverandres $n$-koeffisient, og trekk fra hverandre.",
+          "Får du $-1$, gang hele likningen med $-1$ — det er like gyldig.",
+          "Til slutt: hva må en felles divisor $d$ dele, når den deler begge uttrykkene?"
+        ]
+      }
+    },
+    {
+      "id": "ma1301-1-2-eksamensniva-intro",
+      "type": "text",
+      "content": "## Eksamensnivå: hele malen på et typisk oppgave-1-tallpar\n\n*~5 minutter.*\n\nTil slutt ett eksempel av samme størrelse og form som du møter på eksamen, ført som en A-besvarelse fra første til siste linje. Legg merke til at det ikke er noe nytt fagstoff her — bare malen, kjørt uten snarveier."
+    },
+    {
+      "id": "ma1301-1-2-e6",
+      "type": "example",
+      "title": "Eksamensnivå: gcd(2431, 1054) med Bézout",
+      "problem": "Bruk Euklids algoritme til å finne $\\gcd(2431,1054)$, og skriv den på formen $2431x+1054y$.",
+      "solution": "**(i) Divisjonskjeden frem.** Vi deler gjentatt med rest, **ved Euklids algoritme**, til resten blir $0$:\n\n$$2\\,431 = 2\\cdot 1\\,054 + 323$$\n$$1\\,054 = 3\\cdot 323 + 85$$\n$$323 = 3\\cdot 85 + 68$$\n$$85 = 1\\cdot 68 + 17$$\n$$68 = 4\\cdot 17 + 0$$\n\nDen siste resten som ikke er $0$, er $17$. Altså er $\\gcd(2\\,431,1\\,054)=17$. Kjeden har 5 divisjonslinjer.\n\n**(ii) Substitusjonskjeden baklengs.** Vi løser den nest siste linja for resten og substituerer oppover, linje for linje:\n\n$$17 = 85 - 1\\cdot 68$$\nSett inn $68 = 323 - 3\\cdot 85$:\n$$17 = -1\\cdot 323 + 4\\cdot 85$$\nSett inn $85 = 1\\,054 - 3\\cdot 323$:\n$$17 = 4\\cdot 1\\,054 - 13\\cdot 323$$\nSett inn $323 = 2\\,431 - 2\\cdot 1\\,054$:\n$$17 = -13\\cdot 2\\,431 + 30\\cdot 1\\,054$$\n\n**(iii) Konklusjon.** Altså er\n\n$$\\gcd(2\\,431,1\\,054) = 17 = 2\\,431\\cdot(-13) + 1\\,054\\cdot(30).$$\n\n**Kontroll ved innsetting:** $2\\,431\\cdot(-13) + 1\\,054\\cdot(30) = -31\\,603 + 31\\,620 = 17$. Stemmer.\n\n**Sluttsvar:** $\\gcd(2431,1054)=17$, og $17=2431\\cdot(-13)+1054\\cdot 30$.\n\n**Hvor føringspoengene sitter i denne besvarelsen:**\n\n- **Divisjonskjeden er skrevet ut linje for linje** (steg i). Et $\\gcd$ oppgitt uten kjeden er et sluttall uten metode.\n- **Siste ikke-null rest er identifisert eksplisitt** som $\\gcd$ — ikke bare underforstått.\n- **Substitusjonskjeden er skrevet ut, steg for steg** (steg ii), med hvert innsettingssteg vist. Dette er den delen som slurves oftest, og den som bærer resten av en diofant- eller invers-oppgave.\n- **Konklusjonssetningen står der** (steg iii), med tall, som en setning.\n- **Kontrollen ved innsetting er utført.** Den koster tjue sekunder og fanger den ene feiltypen du ellers ikke oppdager.\n\n*Tallene her er realistiske for kode D: fem divisjonslinjer, alle divisjoner gjørbare med enkel kalkulator. Merk også at $2431=11\\cdot 13\\cdot 17$ og $1054=2\\cdot 17\\cdot 31$ — faktoriseringsveien ville krevd at du fant disse fem primtallene ved prøvedivisjon. Euklids algoritme brukte fem divisjoner.*"
+    },
+    {
+      "id": "ma1301-1-2-ex-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-1-2-o6",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Finn $\\gcd(1666,646)$ og skriv den på formen $1666x+646y$. Bruk deretter Bézout-koeffisientene til å avgjøre om det finnes hele tall $x,y$ med\n\n$$1666x+646y=51.$$\n\nBegrunn svaret uten å løse likningen.",
+        "solution": "**(i) Divisjonskjeden frem.** Vi deler gjentatt med rest, **ved Euklids algoritme**, til resten blir $0$:\n\n$$1\\,666 = 2\\cdot 646 + 374$$\n$$646 = 1\\cdot 374 + 272$$\n$$374 = 1\\cdot 272 + 102$$\n$$272 = 2\\cdot 102 + 68$$\n$$102 = 1\\cdot 68 + 34$$\n$$68 = 2\\cdot 34 + 0$$\n\nDen siste resten som ikke er $0$, er $34$. Altså er $\\gcd(1\\,666,646)=34$. Kjeden har 6 divisjonslinjer.\n\n**(ii) Substitusjonskjeden baklengs.** Vi løser den nest siste linja for resten og substituerer oppover, linje for linje:\n\n$$34 = 102 - 1\\cdot 68$$\nSett inn $68 = 272 - 2\\cdot 102$:\n$$34 = -1\\cdot 272 + 3\\cdot 102$$\nSett inn $102 = 374 - 1\\cdot 272$:\n$$34 = 3\\cdot 374 - 4\\cdot 272$$\nSett inn $272 = 646 - 1\\cdot 374$:\n$$34 = -4\\cdot 646 + 7\\cdot 374$$\nSett inn $374 = 1\\,666 - 2\\cdot 646$:\n$$34 = 7\\cdot 1\\,666 - 18\\cdot 646$$\n\n**(iii) Konklusjon.** Altså er\n\n$$\\gcd(1\\,666,646) = 34 = 1\\,666\\cdot(7) + 646\\cdot(-18).$$\n\n**Kontroll ved innsetting:** $1\\,666\\cdot(7) + 646\\cdot(-18) = 11\\,662 - 11\\,628 = 34$. Stemmer.\n\n**Første del, sluttsvar:** $\\gcd(1666,646)=34$, og $34=1666\\cdot 7+646\\cdot(-18)$.\n\n**Andre del.** **Etter Bézout** er tallene på formen $1666x+646y$ nøyaktig multiplene av $\\gcd(1666,646)=34$. Spørsmålet er derfor bare om $34\\mid 51$.\n\nDet er den ikke: $51=34+17$, altså $51=1\\cdot 34+17$ med rest $17\\ne 0$. (Eller via faktoriseringene: $34=2\\cdot 17$ og $51=3\\cdot 17$ — $51$ har ikke faktoren $2$.)\n\n**Konklusjon:** det finnes **ingen** hele tall $x,y$ med $1666x+646y=51$.\n\n**Andre del, sluttsvar:** nei, fordi $34\\nmid 51$.\n\n*Dette er løsbarhetskriteriet for lineære diofantiske likninger, som er hovedtemaet i [kap. 1.3](/ma1301/ma1301-1-3). Legg merke til at du fikk svaret uten å forsøke å løse noe: Bézout forteller deg presist hvilke tall som er nåbare, og resten er én delelighetssjekk.*\n\n*Til sammenligning: $1666x+646y=102$ **har** løsninger, siden $102=3\\cdot 34$. Da skalerer du Bézout-likningen med $3$ og får $x_0=21$, $y_0=-54$. Kontroll: $1666\\cdot 21+646\\cdot(-54)=34\\,986-34\\,884=102$ ✓.*",
+        "hints": [
+          "Seks divisjonslinjer. Den nest siste er $102=1\\cdot 68+34$.",
+          "Til andre del: hvilke tall kan i det hele tatt skrives som $1666x+646y$? Bézout gir svaret.",
+          "Sjekk om $\\gcd$ deler $51$."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-1-2-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "Dette er kapitlet der feilene koster mest, fordi de forplanter seg. En slurvefeil her ødelegger diofant-oppgaven, invers-oppgaven og RSA-oppgaven i samme sett.\n\n- **Euklid baklengs slurves.** Dette er den best belagte feilen i hele arkivet for dette stoffet. De to vanligste variantene: et **fortegn mistes** i en substitusjon, og **produktene ganges ut underveis** slik at tallet du skulle substituere forsvinner. **Kontrollen:** sett koeffisientene inn i $ax+by$ og se at du får $\\gcd$. Tjue sekunder, og du er sikker.\n\n- **Bare $\\gcd$ oppgis, uten Bézout-koeffisientene.** Da har du halve svaret, og — verre — du har ikke det du trenger videre. Diofant-oppgaven i [kap. 1.3](/ma1301/ma1301-1-3), inversen i [kap. 1.4](/ma1301/ma1301-1-4) og dekrypteringseksponenten i RSA bygger alle på koeffisientene. Spør oppgaven om $\\gcd$ «på formen $ax+by$», er koeffisientene hele poenget.\n\n- **Regnefeil i divisjonene.** Én gal kvotient, og hele kjeden nedover er feil. **Kontrollen ligger i mønsteret:** hvert tall skal opptre igjen som divisor i neste linje og som dividend i linja etter. Bryter mønsteret, har du skrevet av feil. Og til slutt: sjekk at $\\gcd$-en din faktisk deler begge de opprinnelige tallene.\n\n- **Baklengs-kjeden stoppes for tidlig.** Du skal helt opp til de **to opprinnelige tallene** står der. Ender du med $\\gcd$ uttrykt ved to mellomrester, er du ikke ferdig — det er ingen som spurte om en kombinasjon av $r_2$ og $r_3$.\n\n- **Feil tall leses av som $\\gcd$.** Svaret er den siste resten som **ikke** er $0$, altså divisoren i den siste linja. Ikke $0$, og ikke tallet til venstre i siste linje.\n\n- **Å dele det opprinnelige $a$ på den nye resten.** I hver ny linje deler du **divisoren fra forrige linje** på **resten fra forrige linje**. Tallene flytter seg ett hakk; det opprinnelige $a$ er ute av bildet etter linje 1."
+    },
+    {
+      "id": "ma1301-1-2-begrepsbank-intro",
+      "type": "text",
+      "content": "### Begrepsbank\n\nDette er flashcard-stoff — hopp trygt over ved førstegangslesing; tidsanslaget på 60 minutter gjelder kjernestoffet over.\n\nFor dette kapitlet gjelder noe spesielt: **det viktigste kortet er ikke et faktum, men en prosedyre.** Og prosedyrer pugges ved å kjøres. Les kortene, men avsett halvparten av repetisjonstiden til å regne nye tallpar med boka lukket — det er den delen som virker."
+    },
+    {
+      "id": "ma1301-1-2-d-restfolgen",
+      "type": "definition",
+      "title": "Restfølgen og notasjonen for den",
+      "content": "Standardnotasjonen for tallene Euklids algoritme produserer: $r_1,r_2,r_3,\\dots$ for restene, og $q_1,q_2,\\dots$ for kvotientene, med $r_0=b$ og $r_{-1}=a$ når man vil ha en enhetlig indeksering.\n\nMed denne notasjonen er kjeden\n$$r_{k-1}=q_{k+1}r_k+r_{k+1},$$\nog algoritmen stopper når $r_{k+1}=0$, med $\\gcd=r_k$.\n\n**Hvorfor notasjonen er verdt å kjenne:** den brukes i kjedebrøk-kapitlet (kap. 7.1), der de samme kvotientene $q_1,q_2,\\dots$ viser seg å være nøyaktig leddene i kjedebrøkutviklingen. Euklids algoritme og kjedebrøk er samme regning sett på to måter.\n\nI praktisk føring på eksamen trenger du ikke indeksene — skriv tallene. Notasjonen er for teoriens skyld."
+    },
+    {
+      "id": "ma1301-1-2-d-lineaerkombinasjonsmengden",
+      "type": "definition",
+      "title": "Mengden av lineærkombinasjoner",
+      "content": "For faste $a$ og $b$: mengden av alle tall på formen $ax+by$, der $x$ og $y$ løper over de hele tallene, er **nøyaktig mengden av multipler av $\\gcd(a,b)$**:\n\n$$\\{ax+by: x,y\\in\\mathbb{Z}\\}=\\{k\\cdot\\gcd(a,b): k\\in\\mathbb{Z}\\}.$$\n\n**Begge inklusjoner er korte.** Hver lineærkombinasjon er delelig med $\\gcd(a,b)$, etter lineærkombinasjonsregelen. Og hvert multiplum $k\\cdot\\gcd(a,b)$ nås ved å skalere Bézout-likningen med $k$.\n\n**Dette er den setningen som gir løsbarhetskriteriet** i [kap. 1.3](/ma1301/ma1301-1-3): likningen $ax+by=c$ har heltallsløsninger nøyaktig når $c$ ligger i denne mengden, altså når $\\gcd(a,b)\\mid c$. Hele sjanger A hviler på denne ene observasjonen."
+    },
+    {
+      "id": "ma1301-1-2-d-hvorfor-ikke-faktorisering",
+      "type": "definition",
+      "title": "Euklid eller faktorisering — når hva",
+      "content": "Begge metodene finner $\\gcd$. Valget mellom dem er praktisk, og under kode D er det avgjort.\n\n| | Faktorisering | Euklids algoritme |\n|---|---|---|\n| Krever | at du kan faktorisere begge tall | bare divisjon med rest |\n| Arbeid for firesifrede tall | prøvedivisjon opp til $\\sqrt n$, to ganger | 4–6 divisjoner |\n| Gir Bézout-koeffisienter | nei | ja, ved baklengs substitusjon |\n| Virker på uttrykk med ukjent | nei | nei — men Bézout-formen gjør |\n\n**Konklusjonen for eksamen: bruk Euklids algoritme.** Faktoriseringsveien er nyttig til forståelse og til små tall, men oppgavene i sjanger A og B har tall der prøvedivisjon tar for lang tid — og den gir deg ikke koeffisientene, som er det du faktisk trenger videre.\n\nFaktoriseringen har likevel én rolle å beholde: som **kontroll**. Har du fått $\\gcd(1440,693)=9$, er det raskt å se at $9\\mid 1440$ og $9\\mid 693$."
+    },
+    {
+      "id": "ma1301-1-2-d-kontroll-innsetting",
+      "type": "definition",
+      "title": "Kontroll ved innsetting",
+      "content": "Den ene kontrollen som avgjør om Bézout-arbeidet ditt er riktig: sett koeffisientene inn og regn ut.\n\n$$ax+by\\ \\overset{?}{=}\\ \\gcd(a,b).$$\n\n**Gjør dette hver gang.** Det tar tjue sekunder, det krever ingen ny innsikt, og det fanger nøyaktig den feiltypen du ellers ikke oppdager — et mistet fortegn eller en gal sammentrekning midt i substitusjonskjeden.\n\nTo ting til å kontrollere samtidig, som er like billige:\n\n- **Deler $\\gcd$-en din begge de opprinnelige tallene?** Hvis ikke, ligger feilen i divisjonskjeden, ikke i substitusjonene.\n- **Har koeffisientene motsatt fortegn?** Når $\\gcd$ er lite i forhold til $a$ og $b$, skal de ha det.\n\n*Under kode D er selvkontroll den eneste kontrollen du har. Det er ikke noe å slå opp i og ingen fasit å sammenligne med — så kontrollrutinene er en del av ferdigheten, ikke et tillegg til den.*"
+    },
+    {
+      "id": "ma1301-1-2-d-euklid-invers-forvarsel",
+      "type": "definition",
+      "title": "Fra Bézout til modulær invers",
+      "content": "Grepet som gjør baklengs-kjeden til metoden for modulære inverser.\n\nHar du $\\gcd(a,m)=1$ og Bézout-likningen\n\n$$ax+my=1,$$\n\nles den **modulo $m$**. Leddet $my$ er et multiplum av $m$ og forsvinner:\n\n$$ax\\equiv 1\\pmod m.$$\n\nAltså er $x$ inversen til $a$ modulo $m$. Ligger $x$ utenfor $0\\le x<m$, legg til eller trekk fra $m$ til den er inne — det endrer ikke restklassen.\n\n**Dette er hele metoden**, og det er derfor kapitlet er en forutsetning for [kap. 1.4](/ma1301/ma1301-1-4) og for RSA i kap. 3.1. Legg merke til at kravet er $\\gcd(a,m)=1$ og ingenting mer: modulusen behøver **ikke** være et primtall.\n\nVi bruker grepet i eksempel 3 og i oppgave 4."
+    },
+    {
+      "id": "ma1301-1-2-d-hvorfor-gcd-alene-ikke-nok",
+      "type": "definition",
+      "title": "Hvorfor gcd alene ikke er nok",
+      "content": "Et føringskort, ikke et fagkort — men det er verdt en plass i bunken, fordi det er den dyreste vanen å ikke ha.\n\n**Regelen:** når en oppgave nevner Euklids algoritme, forventes **både** $\\gcd$ og veien dit, frem og baklengs. Grunnlaget er instruksen på hvert sett — *alle svar må begrunnes* — sammen med fasitpraksisen i arkivet, som konsekvent skriver ut begge kjedene.\n\n**To grunner til at det ikke er formalisme:**\n\n1. **Uttelling.** Et $\\gcd$ uten kjede er et sluttall uten metode, og teller lite. Motsatt: en riktig ført kjede med en regnefeil i siste linje gir betydelig uttelling.\n2. **Fremdrift.** Koeffisientene er det du trenger videre — til løsningsmengden i [kap. 1.3](/ma1301/ma1301-1-3), til inversen i [kap. 1.4](/ma1301/ma1301-1-4), til $d$ i RSA. Har du dem ikke, stopper oppgaven.\n\n**Selvtesten:** kan noen som leser besvarelsen din, følge hvert steg fra de to opprinnelige tallene til $\\gcd=ax+by$ uten å regne selv? Da er føringen god nok."
+    },
+    {
+      "id": "ma1301-1-2-d-rekkefolgen",
+      "type": "definition",
+      "title": "Rekkefølgen på a og b",
+      "content": "Algoritmen er beskrevet med $a>b$, men **du behøver ikke sortere først.**\n\nStarter du med det minste tallet øverst, ordner første linje det selv. Deler du $154$ på $803$, får du\n$$154=0\\cdot 803+154,$$\naltså kvotient $0$ og resten uendret. Neste linje deler da $803$ på $154$ — og du er i gang som normalt, bare med én tom linje ekstra.\n\n**Praktisk råd likevel: sorter.** Det koster ingenting, og den tomme linja er en unødvendig kilde til forvirring når du senere skal gå baklengs gjennom kjeden. Skriv det største tallet først, hver gang.\n\nMerk også at $\\gcd$ er symmetrisk: $\\gcd(a,b)=\\gcd(b,a)$. Rekkefølgen påvirker altså bare bokføringen, aldri svaret. Bézout-koeffisientene bytter naturligvis plass med tallene sine."
+    },
+    {
+      "id": "ma1301-1-2-d-differansevarianten",
+      "type": "definition",
+      "title": "Differansevarianten",
+      "content": "En variant av nøkkellemmaet som bruker subtraksjon i stedet for divisjon:\n\n$$\\gcd(a,b)=\\gcd(a-b,b).$$\n\n**Beviset er det samme argumentet** som for nøkkellemmaet: $a-b$ er en lineærkombinasjon av $a$ og $b$, og $a=(a-b)+b$ er en lineærkombinasjon av $a-b$ og $b$, så de to parene har nøyaktig samme felles divisorer.\n\nFaktisk er dette spesialtilfellet $q=1$ av nøkkellemmaet — og divisjonsvarianten er bare «trekk fra $b$ så mange ganger du kan, på én gang».\n\n**Når den er nyttig:** som argument i bevis, der en enkelt subtraksjon er lettere å skrive enn en divisjon. Vi brukte den formen i [kap. 1.1](/ma1301/ma1301-1-1), oppgave 5.\n\n**Når den ikke er nyttig:** til regning. $\\gcd(1000,3)$ ville tatt over 300 subtraksjoner og tar to divisjoner. På eksamen bruker du alltid divisjonsvarianten."
+    },
+    {
+      "id": "ma1301-1-2-d-bezout-flere-tall",
+      "type": "definition",
+      "title": "Bézout for tre eller flere tall",
+      "content": "Både $\\gcd$ og Bézout utvider seg til flere tall, og metoden er å ta dem to av gangen:\n\n$$\\gcd(a,b,c)=\\gcd\\!\\left(\\gcd(a,b),\\,c\\right).$$\n\n**Bézout-formen** blir tilsvarende: det finnes hele tall $x,y,z$ med\n$$\\gcd(a,b,c)=ax+by+cz.$$\n\n**Slik regner du den ut i praksis, i to runder:**\n\n1. Kjør Euklids algoritme på $a$ og $b$: $\\gcd(a,b)=au+bv$.\n2. Kjør den så på $\\gcd(a,b)$ og $c$: $\\gcd(a,b,c)=\\gcd(a,b)\\cdot s+c\\cdot t$.\n3. Sett inn uttrykket fra runde 1: $\\gcd(a,b,c)=a(us)+b(vs)+ct$.\n\n**Merk fellen:** at tre tall har $\\gcd=1$ betyr **ikke** at de er parvis relativt primiske. $\\gcd(6,10,15)=1$, men ingen av de tre parene er relativt primiske. Skillet er avgjørende i det kinesiske restteoremet (kap. 2.4), som krever den *parvise* egenskapen."
+    },
+    {
+      "id": "ma1301-1-2-d-fibonacci-verste",
+      "type": "definition",
+      "title": "Verste tilfelle: Fibonacci-tallene",
+      "content": "Hvilke tallpar tvinger Euklids algoritme til flest divisjoner? Svaret er **nabotall i Fibonacci-følgen** $1,1,2,3,5,8,13,21,34,55,\\dots$\n\nKjører du algoritmen på $\\gcd(55,34)$, blir hver kvotient $1$, og kjeden blir så lang som den kan bli:\n$$55=1\\cdot 34+21,\\quad 34=1\\cdot 21+13,\\quad 21=1\\cdot 13+8,\\quad\\dots$$\nHver linje flytter deg bare ett hakk nedover i følgen, i stedet for å hoppe.\n\n**Konsekvensen er en øvre grense:** antall divisjonslinjer vokser bare som logaritmen av tallene. Det er derfor algoritmen er praktisk på store tall, og det er derfor **firesifrede tall gir 4–6 linjer** — som er nøyaktig hva du møter på eksamen.\n\n**Bruk det som kontroll:** blir kjeden din uventet lang, og alle kvotientene er $1$, er tallene Fibonacci-lignende. Blir den lang med varierende kvotienter, har du sannsynligvis regnet feil.\n\n*Fibonacci-tallene dukker opp igjen i kap. 6.2, der identiteter om dem bevises ved induksjon (sjanger J), og i kap. 7.1, der de er konvergent-nevnerne til den enkleste kjedebrøken.*"
+    },
+    {
+      "id": "ma1301-1-2-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "ma1301-1-2-rep-inn",
+          "type": "text",
+          "content": "Fem korte oppgaver fra [kap. 1.1](/ma1301/ma1301-1-1), som dette kapitlet bygger på. Fasit under hver.\n\n**R1.** Finn kvotient og rest når $2\\,431$ deles på $1\\,054$.\n\n*Fasit:* $1054\\cdot 2=2108$ og $1054\\cdot 3=3162>2431$, så $q=2$ og $r=2431-2108=323$. Altså $2431=2\\cdot 1054+323$, og $0\\le 323<1054$. (Dette er første linje i eksempel 6.)\n\n**R2.** La $d\\mid a$ og $d\\mid b$. Vis at $d\\mid(a-3b)$.\n\n*Fasit:* Skriv $a=ds$ og $b=dt$. Da er $a-3b=ds-3dt=d(s-3t)$, og $s-3t$ er et helt tall. Altså $d\\mid(a-3b)$. (Dette er lineærkombinasjonsregelen med $x=1$, $y=-3$ — og det er nøyaktig skrittet i beviset for nøkkellemmaet.)\n\n**R3.** Faktoriser $1\\,054$ og $2\\,431$ i primtall, og finn $\\gcd$ den veien. Sammenlign med eksempel 6.\n\n*Fasit:* $1054=2\\cdot 527=2\\cdot 17\\cdot 31$. Og $2431$: ikke like, siffersum $10$ (ikke delelig med 3), ender ikke på 0 eller 5; $2431=11\\cdot 221=11\\cdot 13\\cdot 17$. Felles primfaktor er bare $17$, så $\\gcd=17$ — samme svar som Euklids algoritme ga. Merk hvor mye mer arbeid det var: fem primtall å finne, mot fem divisjoner.\n\n**R4.** Er $2\\,431$ og $1\\,054$ relativt primiske?\n\n*Fasit:* Nei. $\\gcd(2431,1054)=17\\ne 1$. De har primfaktoren $17$ til felles.\n\n**R5.** Bruk produktregelen til å finne $\\operatorname{lcm}(1440,693)$, gitt at $\\gcd(1440,693)=9$ fra oppgave 1.\n\n*Fasit:* $\\operatorname{lcm}=ab/\\gcd=1440\\cdot 693/9$. Forkort først: $1440/9=160$, så $\\operatorname{lcm}=160\\cdot 693=110\\,880$."
+        }
+      ]
+    },
+    {
+      "id": "ma1301-1-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "ma1301-1-2-symbol-inn",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $\\gcd(a,b)$ | største felles divisor av $a$ og $b$ |\n| $a=qb+r$ | én divisjonslinje: $q$ kvotient, $r$ rest |\n| $q_1,q_2,\\dots$ | kvotientene i divisjonskjeden |\n| $r_1,r_2,\\dots$ | restene i divisjonskjeden, strengt avtakende |\n| $r_k$ | siste ikke-null rest, altså $\\gcd(a,b)$ |\n| $x,y$ | Bézout-koeffisientene i $\\gcd(a,b)=ax+by$ |\n| $ax+by$ | lineærkombinasjon av $a$ og $b$ |\n| $t\\in\\mathbb{Z}$ | parameteren når koeffisientene varieres |\n| $a\\mid b$, $a\\nmid b$ | «$a$ deler $b$», «$a$ deler ikke $b$» |\n| $\\operatorname{lcm}(a,b)$ | minste felles multiplum |\n| $\\blacksquare$ | bevis slutt |\n\n**Formler i dette delkapitlet:**\n\n$$r_{k-1}=q_{k+1}r_k+r_{k+1},\\qquad 0\\le r_{k+1}<r_k$$\nDivisjonskjeden i Euklids algoritme. Kjør til resten blir $0$; siste ikke-null rest er $\\gcd$. **(må sitte utenat — dette er prosedyren, og den er 100 % frekvent i arkivet)**\n\n$$\\gcd(a,b)=\\gcd(b,r)\\qquad\\text{når }a=qb+r$$\nEuklids nøkkellemma — grunnen til at algoritmen virker. **(må sitte utenat)**\n\n$$r=A-q\\cdot B\\qquad\\text{fra linja }A=qB+r$$\nSubstitusjonsregelen, brukt i hvert steg baklengs. **(må sitte utenat)**\n\n$$\\gcd(a,b)=ax+by$$\nBézouts identitet. $\\gcd$ er det minste positive tallet på denne formen, og alle tall på formen er multipler av $\\gcd$. **(må sitte utenat — men merk at KOEFFISIENTENE ikke er utenat-stoff, se neste linje)**\n\n$$x,y\\ \\text{leses ut av substitusjonskjeden}$$\nBézout-koeffisientene. **(utledes på stedet — hver gang, for hvert nytt tallpar. De finnes ikke i noen tabell, og du skal ikke prøve å huske dem)**\n\n$$\\gcd(a,b)=1\\iff\\exists\\,x,y:\\ ax+by=1$$\nBézout-karakteriseringen av relativt primisk. Den ene formen som tåler en ukjent i koeffisientene. **(må sitte utenat)**\n\n$$x'=x+\\frac{b}{d}t,\\qquad y'=y-\\frac{a}{d}t,\\qquad t\\in\\mathbb{Z}$$\nAlle Bézout-koeffisientpar, gitt ett av dem. **(utledes på stedet — én linje: de to ekstraleddene $\\frac{ab}{d}t$ og $-\\frac{ab}{d}t$ kansellerer, så $ax'+by'=ax+by=d$)**\n\n$$ax+my=1\\ \\Longrightarrow\\ ax\\equiv 1\\pmod m$$\nFra Bézout til modulær invers: les likningen modulo $m$, så forsvinner $my$-leddet. **(utledes på stedet — det er én lesning av en likning du alt har)**\n\n$$\\text{ny rad}=(\\text{to rader opp})-q\\cdot(\\text{én rad opp})$$\nRegelen i den utvidede algoritmens tabellform, brukt på $r$, $x$ og $y$ likt. Invariant i hver rad: $ax+by=r$. **(utledes på stedet — dette er en alternativ bokføring, aldri en erstatning for substitusjonskjeden)**\n\n$$\\gcd(a,b)=\\gcd(|a|,|b|),\\qquad \\gcd(a,0)=a$$\nFortegn spiller ingen rolle, og $\\gcd(a,0)=a$ er algoritmens sluttsteg. **(må sitte utenat)**\n\n**Føringsmalen i tre steg** — (i) divisjonskjeden frem, (ii) substitusjonskjeden baklengs, (iii) konklusjonssetning med tall. **(må sitte utenat — det er føringen, ikke bare svaret, som gir uttelling)**"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

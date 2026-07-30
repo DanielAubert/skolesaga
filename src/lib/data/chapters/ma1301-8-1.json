@@ -1,0 +1,587 @@
+{
+  "id": "ma1301-8-1",
+  "courseId": "ma1301",
+  "chapterNumber": "8.1",
+  "title": "Bevis- og føringsstandarden + utenat-banken",
+  "description": "Sensorreglene operasjonalisert: alt begrunnes, teoremer navngis, Euklid frem+baklengs, løsbarhet før løsning, hele løsningsmengden, effektiv potensopphøyning vises, minst to veier på kjernesjangrene — samlet med den teorem- og formelbanken du må kunne utenat under kode D.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "føre en besvarelse slik at metoden er synlig: kjeden regnet, vilkåret kommentert, teoremet navngitt og svaret komplett",
+    "kjenne igjen hvilken oppgavetype en eksamenstekst hører til, ut fra ordene i teksten alene",
+    "planlegge fire timer på omtrent ti likt vektede delpunkt, og vite hva du skriver før du forlater et delpunkt",
+    "gjengi hele teorem- og formelapparatet fra hukommelsen, siden det ikke finnes noe å slå opp i på eksamen"
+  ],
+  "content": [
+    {
+      "id": "ma1301-8-1-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette kapitlet gir ingen ny matematikk. Det gir deg poengene du allerede har regnet deg til, men ikke skrevet ned.**\n\nInstruksen står på hvert eneste eksamenssett i arkivet: **alle svar må begrunnes.** Et riktig sluttall uten metode teller lite. Løsningsforslagene for 2014–2025 viser hva «begrunnet» betyr i praksis, og de er påfallende samstemte — de samme ni kravene går igjen, år etter år, uansett hvilken oppgavetype de gjelder:\n\n| Føringskravet | Hvor det gjelder | Hvor mange sett det gjelder i |\n|---|---|---|\n| Alle svar begrunnes | hele settet | 15 av 15 sett |\n| Euklids algoritme ført **frem og baklengs** | sjanger A, B, D | 15 av 15 sett |\n| Teoremet navngitt der argumentet hviler på det | sjanger C, E, F, I | 15 av 15 sett |\n| Løsbarhet kommentert **før** man løser | sjanger A, B, C | 10 av 15 sett |\n| Hele løsningsmengden / alle inkongruente løsninger | sjanger A, B, C | 10 av 15 sett |\n| Effektiv potensopphøyning vist med mellomsteg | sjanger D, E | 14 av 15 sett |\n| Uttømmende case-analyse | sjanger I | 8 av 15 sett |\n| Alle tre induksjonsstegene merket | sjanger J | 8 av 15 sett |\n| Alternative metoder honoreres — begge gir full uttelling | sjanger C, I, J | 15 av 15 sett |\n\n*(Sjangerbokstavene A–K er bokas egne forkortelser for oppgavetypene; katalogen står i [kap. 0.1](/ma1301/ma1301-0-1) og gjentas i tabellen i løkke 2. Frekvensene er telte forekomster i de 15 løsningsforslagene 2014–2025.)*\n\n**Prioritet: høyeste.** Ikke fordi kravene er vanskelige — de er lette — men fordi de gjelder **hvert delpunkt du skriver**. En student som mister ett føringspoeng per delpunkt, mister det ti ganger.\n\n⚠️ Der et løsningsforslag oppgir et sluttall uten å skrive metoden, er føringen i dette kapitlet **metode = faglig standard**: den er lest ut av oppgaveinstruksen og av de fasitene som faktisk fører metoden."
+    },
+    {
+      "id": "ma1301-8-1-utenat",
+      "type": "tip",
+      "title": "Utenat under kode D",
+      "content": "Eksamen er hjelpemiddelkode **D**: ingen bok, ingen formelsamling, ingen tabeller, ingen egne notater — bare en bestemt, enkel kalkulator som gjør aritmetikk. Det er nettopp derfor dette kapitlet finnes: hele apparatet må være i hodet den dagen, og en «slå opp»-vane er ikke bare unyttig, den erstatter en ferdighet du trenger med en handling du ikke får utføre.\n\n**Må sitte utenat — dette kapitlets eget stoff:**\n\n- **de fem bokføringskravene** (løkke 1) — de er en form, ikke en formel, og formen kan ikke slås opp\n- **begrunnelsestrappen per sjanger** (løkke 2): hva som er *nok* begrunnelse i hver oppgavetype\n- **tidsbudsjettet**: fire timer på omtrent ti likt vektede delpunkt gir omtrent 24 minutter per delpunkt\n- **sjekklisten før innlevering** (løkke 5), ni spørsmål\n\n**Utledes på stedet:** ingenting i dette kapitlet. Det er poenget med det. Utledningene hører til fagkapitlene, og de ni av dem som skal gjøres på stedet, er samlet på ett kort i begrepsbanken nederst — med utledningen skrevet ut hver gang.\n\n**Selvtest, fem minutter:** dekk til siden og skriv ned de fem bokføringskravene og de ni punktene i sjekklista. Får du sju av fjorten, er du på vei; får du fjorten, kan du bruke resten av lesetiden på regning."
+    },
+    {
+      "id": "ma1301-8-1-forkunnskaper",
+      "type": "text",
+      "content": "### Forkunnskaper\n\nDette kapitlet forutsetter **hele boka**. Det er ikke et sted å begynne: det opererer på metodene du alt kan, og gir dem den formen sensor leser.\n\nFra boka: [kap. 1.2](/ma1301/ma1301-1-2) (Euklids algoritme frem og baklengs), [kap. 1.3](/ma1301/ma1301-1-3) (diofantiske likninger), [kap. 1.4](/ma1301/ma1301-1-4) (lineære kongruenser), [kap. 2.1](/ma1301/ma1301-2-1) (Eulers $\\phi$ og Eulers teorem), [kap. 2.2](/ma1301/ma1301-2-2) (Fermats lille teorem), [kap. 2.3](/ma1301/ma1301-2-3) (Wilsons teorem), [kap. 2.4](/ma1301/ma1301-2-4) (det kinesiske restteoremet), [kap. 3.1](/ma1301/ma1301-3-1) (RSA), [kap. 4.1](/ma1301/ma1301-4-1)–[kap. 4.2](/ma1301/ma1301-4-2) (Legendre-symbolet og resiprositet), [kap. 5.1](/ma1301/ma1301-5-1)–[kap. 5.3](/ma1301/ma1301-5-3) (orden, primitive røtter, $\\tau$ og $\\sigma$), [kap. 6.1](/ma1301/ma1301-6-1)–[kap. 6.3](/ma1301/ma1301-6-3) (bevisteknikkene) og [kap. 7.1](/ma1301/ma1301-7-1)–[kap. 7.2](/ma1301/ma1301-7-2) (spesialtemaene).\n\n**Sist du var her** — de tre resultatene dette kapitlet bruker som eksempler, ferdig oppfrisket, så du ikke trenger å bla:\n\n- **Bézout-formen.** Euklids algoritme gir ikke bare $\\gcd(a,b)$, men to hele tall $x,y$ med\n$$\\gcd(a,b)=ax+by,$$\nlest ut av substitusjonskjeden baklengs ([kap. 1.2](/ma1301/ma1301-1-2)).\n- **RSA-oppsettet.** Med $n=pq$ er $\\phi(n)=(p-1)(q-1)$, og dekrypteringseksponenten $d$ er løsningen av $ed\\equiv 1\\pmod{\\phi(n)}$ ([kap. 3.1](/ma1301/ma1301-3-1)).\n- **Wilsons teorem.** For et primtall $p$ er\n$$(p-1)!\\equiv -1\\pmod p,$$\nog de manglende faktorene i et mindre fakultet skrives som negative rester: $p-j\\equiv -j\\pmod p$ ([kap. 2.3](/ma1301/ma1301-2-3))."
+    },
+    {
+      "id": "ma1301-8-1-motivasjon",
+      "type": "text",
+      "content": "### To besvarelser, samme tall, ulik uttelling\n\nTo studenter leverer samme oppgave. Begge har regnet riktig, og begge skriver $d=97$ på siste linje.\n\nDen første skriver: «$n=209=11\\cdot 19$, $\\phi(n)=180$, og $d=97$.» Tre tall, alle korrekte. Hun har brukt Euklids algoritme på kladdearket, men bare ført svaret inn.\n\nDen andre skriver de samme tallene, men med divisjonskjeden og substitusjonskjeden ført ut, med setningen «fordi $\\gcd(13,180)=1$ har $13d\\equiv 1\\pmod{180}$ nøyaktig én løsning modulo $180$», og med kontrollen $13\\cdot 97=1261=180\\cdot 7+1$ til slutt.\n\n**Bare den andre får full uttelling for delpunktet.** Ikke fordi den første regnet dårligere — hun regnet like godt — men fordi instruksen på settet er at alle svar skal begrunnes, og et tall alene er ikke en begrunnelse.\n\nDet er hele dette kapitlet i en nøtteskall: **du har allerede gjort arbeidet. Dette handler om å få det ned på papiret i den formen som teller.** Og det tar tid å skrive — omtrent to av de tjuefire minuttene per delpunkt. Det er de to best investerte minuttene på hele settet."
+    },
+    {
+      "id": "ma1301-8-1-lokke1-intro",
+      "type": "text",
+      "content": "## Løkke 1: De fem bokføringskravene\n\n*~12 minutter.*\n\nNi krav sto i tabellen over. Fem av dem er **bokføringskrav**: de handler om hva som skal stå på arket, i hvilken rekkefølge. De er formulert likt gjennom hele boka, og de er formulert likt her — bevisst, for at de skal kunne gjenkjennes i søvne.\n\nDe fire siste kravene (case-analyse, induksjonsstegene, alternative metoder, «alt begrunnes») kommer i løkke 4 og 5."
+    },
+    {
+      "id": "ma1301-8-1-def-krav1",
+      "type": "definition",
+      "title": "Føringskrav 1: Euklid-malen i tre steg",
+      "content": "Euklids algoritme føres **begge veier**, hver gang, i tre steg — og bare det tredje steget er en setning du kan la være å skrive hvis tiden er knapp.\n\n**(i) Divisjonskjeden frem**, linje for linje, til rest $0$. Siste ikke-null rest er $\\gcd(a,b)$.\n**(ii) Substitusjonskjeden baklengs**, fra nest siste linje og oppover, til du står med\n$$\\gcd(a,b)=ax+by.$$\n**(iii) Konklusjonssetningen:** «altså er $\\gcd(a,b)=a\\cdot x+b\\cdot y$.»\n\nGcd alene, uten Bézout-koeffisientene, gir trekk — og verre: det stopper resten av oppgaven, for både den diofantiske løsningen, den modulære inversen og RSA-eksponenten $d$ leses ut av **kjeden baklengs**, ikke ut av gcd-en.\n\nDen utvidede algoritmen i tabellform er en fullgod **alternativ** føring, aldri en erstatning for at koeffisientene vises.\n\n**(må sitte utenat — malen er en form, og under kode D finnes ingen mal å slå opp i)**"
+    },
+    {
+      "id": "ma1301-8-1-def-krav2",
+      "type": "definition",
+      "title": "Føringskrav 2: løsbarhet før løsning",
+      "content": "Ved diofantiske likninger, lineære kongruenser og kongruenssystemer **kommenteres løsbarheten som en setning, før du løser**. Malen er ordrett den samme i hele boka:\n\n- diofantisk likning $ax+by=c$: «fordi $d=\\gcd(a,b)$ deler $c$, har likningen løsninger»;\n- lineær kongruens $ax\\equiv b\\pmod m$: «siden $d=\\gcd(a,m)$ deler $b$, er kongruensen løsbar, og den har $d$ inkongruente løsninger modulo $m$»;\n- kongruenssystem: «modulene er parvis relativt primiske, så systemet har **ved det kinesiske restteoremet** nøyaktig én løsning modulo $M$».\n\nSetningen er verdt poeng i seg selv, og den koster ti sekunder. Er kriteriet **ikke** oppfylt, er den hele svaret: «$d\\nmid c$, altså finnes ingen heltallsløsninger» — og du er ferdig med delpunktet.\n\n**(må sitte utenat)**"
+    },
+    {
+      "id": "ma1301-8-1-def-krav3",
+      "type": "definition",
+      "title": "Føringskrav 3: hele løsningsmengden",
+      "content": "Har oppgaven uendelig mange løsninger, skal **alle** stå der. Ett tall er ikke svaret.\n\n- Diofantisk likning: full parametrisering\n$$x=x_0+\\frac bd t,\\qquad y=y_0-\\frac ad t,\\qquad t\\in\\mathbb{Z}.$$\n- Lineær kongruens: **alle $d$ inkongruente løsninger** modulo $m$, med avstand $m/d$.\n- Kongruenssystem: svaret som en **restklasse med periode**, $x\\equiv x_0\\pmod M$ — ikke bare tallet $x_0$.\n- Kvadratisk kongruens: «**to** løsninger, $x\\equiv\\pm x_0$» eller «ingen løsning».\n\nOg: **«minste positive» besvares eksplisitt når det spørres om**, med både $x$ og $y$ regnet ut. Det er det delpunktet som oftest mistes helt på slutten av en ellers korrekt besvarelse.\n\n**(må sitte utenat)**"
+    },
+    {
+      "id": "ma1301-8-1-def-krav4",
+      "type": "definition",
+      "title": "Føringskrav 4: kvadrer-og-multipliser-malen",
+      "content": "Store potenser modulo $n$ føres i sju steg, ordrett som i [kap. 2.1](/ma1301/ma1301-2-1) og [kap. 2.6](/ma1301/ma1301-2-6):\n\n**(i)** faktoriser modulusen; **(ii)** skriv $\\gcd$-sjekken som en setning; **(iii)** regn ut $\\phi(n)$ (eller les $p-1$ for primtallsmodulus); **(iv)** reduser eksponenten modulo $\\phi(n)$ eller $p-1$, **med teoremnavnet**; **(v)** binærutviklingen av eksponenten og kvadrattabellen; **(vi)** sett sammen produktet, to faktorer av gangen; **(vii)** konklusjon, med svaret i $0,\\dots,n-1$.\n\nSteg (ii) er det som avgjør om steg (iv) i det hele tatt er lovlig, og steg (v) er det som viser at du regnet det selv. Et sluttall uten kvadrattabell er et sluttall uten metode.\n\n**(må sitte utenat)**"
+    },
+    {
+      "id": "ma1301-8-1-def-krav5",
+      "type": "definition",
+      "title": "Føringskrav 5: teoremnavnet båret",
+      "content": "Bærer et teorem argumentet, skal navnet stå i setningen. Fasitene i arkivet gjør det rutinemessig, og formuleringene er faste:\n\n«ved Euklids algoritme» · «etter Bézout» · «ved det kinesiske restteoremet» · «fra Fermats lille teorem» · «fra Eulers teorem» · «ved Wilsons teorem» · «etter aritmetikkens fundamentalteorem» · «ved Euklids lemma» · «etter den kvadratiske resiprositetsloven» · «ved Eulers kriterium» · «ved induksjonsprinsippet».\n\nGrunnen er ikke seremoniell. Navnet er stedet der **vilkåret** bor: sier du «fra Eulers teorem», har du samtidig sagt at $\\gcd(a,n)=1$ er sjekket; sier du «ved Wilsons teorem», har du sagt at modulusen er et primtall. Et argument uten teoremnavn er et argument uten vilkårssjekk.\n\n**(må sitte utenat — de elleve formuleringene er hele listen)**"
+    },
+    {
+      "id": "ma1301-8-1-ex-kontrastpar1",
+      "type": "example",
+      "title": "Kontrastpar 1: samme $d$, ulik uttelling",
+      "problem": "Den offentlige nøkkelen i et RSA-system er $(n,e)=(209,13)$. Finn $\\phi(n)$ og dekrypteringseksponenten $d$.\n\nUnder står to besvarelser med samme, korrekte sluttsvar. Bare den andre er ført etter standarden. **Pek på hva som skiller dem**, krav for krav.",
+      "solution": "**Besvarelse 1 (korrekt tall, mangelfull føring).**\n\n> $209=11\\cdot 19$, så $\\phi(209)=10\\cdot 18=180$. Euklids algoritme gir $d=97$.\n\nTallene er riktige. Men to av de fem bokføringskravene er brutt: **Euklid-malen** (kjeden er ikke ført, verken frem eller baklengs — «Euklids algoritme gir» er en påstand om at man har regnet, ikke en regning) og **løsbarhet før løsning** ($\\gcd(13,180)=1$ er aldri nevnt, og det er nettopp den som gjør at $d$ finnes og er entydig).\n\n**Besvarelse 2 (ført etter standarden).**\n\n$n=209$ faktoriseres ved prøvedivisjon: $209$ er ikke delelig med $2,3,5$ eller $7$, men $209=11\\cdot 19$. Begge faktorene er primtall, så **etter aritmetikkens fundamentalteorem** er dette den entydige faktoriseringen, og\n$$\\phi(209)=(11-1)(19-1)=10\\cdot 18=180.$$\n\nDekrypteringseksponenten er løsningen av $13d\\equiv 1\\pmod{180}$. **Løsbarhet først:** $\\gcd(13,180)=1$ (som divisjonskjeden under bekrefter), så kongruensen har nøyaktig **én** løsning modulo $180$.\n\n**(i) Divisjonskjeden frem** — **ved Euklids algoritme**:\n\n$$180 = 13\\cdot 13 + 11$$\n$$13 = 1\\cdot 11 + 2$$\n$$11 = 5\\cdot 2 + 1$$\n$$2 = 2\\cdot 1 + 0$$\n\nSiste ikke-null rest er $1$, altså er $\\gcd(180,13)=1$.\n\n**(ii) Substitusjonskjeden baklengs**, fra nest siste linje og oppover:\n\n$$1 = 11-5\\cdot 2$$\n$$1 = 11-5(13-11)=6\\cdot 11-5\\cdot 13$$\n$$1 = 6(180-13\\cdot 13)-5\\cdot 13 = 6\\cdot 180-83\\cdot 13$$\n\n**(iii) Konklusjonssetningen:** altså er $1=180\\cdot 6+13\\cdot(-83)$, **etter Bézout**.\n\nModulo $180$ gir dette $13\\cdot(-83)\\equiv 1$, og vi justerer inn i intervallet: $-83+180=97$. Altså er\n$$d=97.$$\n\n**Kontroll:** $13\\cdot 97=1261=180\\cdot 7+1$ ✓ — resten er $1$, som den skal være.\n\n**Sluttsvar:** $\\phi(209)=180$ og $d=97$.\n\n**Hva de to besvarelsene faktisk skiller seg på:** ikke matematikken, men fire linjer skrift — divisjonskjeden, substitusjonskjeden, $\\gcd$-setningen og kontrollen. Det er omtrent halvannet minutt med penn. Til sammenligning tar det tjue minutter å finne $d$ på nytt hvis du har regnet feil og ikke har kjeden på arket å lete i."
+    },
+    {
+      "id": "ma1301-8-1-ex1",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-8-1-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Under står fire linjer fra fire ulike besvarelser. Hver linje bryter **nøyaktig ett** av de fem bokføringskravene. Si hvilket, og skriv linjen om så kravet er oppfylt.\n\n**a)** «$\\gcd(1734,510)=102$.»\n**b)** «$8^{240}\\equiv 1\\pmod{45}$, så resten er $1$.»\n**c)** «Løsningen er $x=7$.» *(oppgaven var: løs $12x\\equiv 20\\pmod{28}$)*\n**d)** «Systemet har løsningen $x\\equiv 23$.» *(oppgaven var et system med moduler $5$, $7$ og $9$)*",
+        "solution": "**a) Føringskrav 1 — Euklid-malen.** Gcd-en er oppgitt uten divisjonskjede og uten Bézout-koeffisienter.\n\nOmskrevet: «**Ved Euklids algoritme:** $1734=3\\cdot 510+204$, $510=2\\cdot 204+102$, $204=2\\cdot 102+0$. Siste ikke-null rest er $102$, altså er $\\gcd(1734,510)=102$. Baklengs: $102=510-2\\cdot 204=510-2(1734-3\\cdot 510)=7\\cdot 510-2\\cdot 1734$. Altså er $102=1734\\cdot(-2)+510\\cdot 7$.»\n\n*(Kontroll: $1734\\cdot(-2)+510\\cdot 7=-3468+3570=102$ ✓.)*\n\n**b) Føringskrav 5 — teoremnavnet båret,** og med det vilkåret. Her mangler både navnet og $\\gcd$-sjekken, og sjekken svikter faktisk: $\\gcd(8,45)=1$ ✓ er greit, men leseren får ikke vite hvorfor eksponenten $240$ skulle gi $1$.\n\nOmskrevet: «$45=3^2\\cdot 5$ og $\\gcd(8,45)=1$, så **fra Eulers teorem** er $8^{\\phi(45)}\\equiv 1\\pmod{45}$ med $\\phi(45)=(9-3)\\cdot 4=24$. Siden $24\\mid 240$, er $8^{240}=(8^{24})^{10}\\equiv 1^{10}=1\\pmod{45}$. Resten er $1$.»\n\n**c) Føringskrav 3 — hele løsningsmengden.** Her er $d=\\gcd(12,28)=4$, som deler $20$, så kongruensen har **fire** inkongruente løsninger modulo $28$ — ikke én.\n\nOmskrevet: «$d=\\gcd(12,28)=4$ deler $20$, så kongruensen er løsbar med fire inkongruente løsninger modulo $28$. Forkortet: $3x\\equiv 5\\pmod 7$. Inversen til $3$ modulo $7$ er $5$, så $x\\equiv 25\\equiv 4\\pmod 7$. De fire løsningene modulo $28$ er $x\\equiv 4,11,18,25$.»\n\n*(Kontroll: $12\\cdot 4=48=28+20$ ✓; $12\\cdot 11=132=28\\cdot 4+20$ ✓.)*\n\n**d) Føringskrav 3 — hele løsningsmengden, i CRT-varianten.** Svaret på et kongruenssystem er en restklasse **med periode**, og perioden er produktet av modulene.\n\nOmskrevet: «Modulene $5$, $7$ og $9$ er parvis relativt primiske, så **ved det kinesiske restteoremet** har systemet nøyaktig én løsning modulo $M=5\\cdot 7\\cdot 9=315$: $x\\equiv 23\\pmod{315}$, altså $x=23+315t$ for $t\\in\\mathbb{Z}$.»\n\n**Sluttsvar:** a) krav 1, b) krav 5, c) krav 3, d) krav 3.",
+        "hints": [
+          "Gå gjennom de fem kravene i rekkefølge for hver linje: er kjeden ført? er løsbarheten kommentert? står hele løsningsmengden der? er potensen vist? er teoremet navngitt?",
+          "I c): regn $\\gcd(12,28)$ først. Hvor mange inkongruente løsninger gir det?",
+          "I d): hva er perioden i svaret på et kongruenssystem?"
+        ]
+      }
+    },
+    {
+      "id": "ma1301-8-1-ex2",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-8-1-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Besvarelsen under finner riktig $d$ i et RSA-system, men taper uttelling.\n\n> **Oppgave:** i et RSA-system er $p=13$, $q=29$ og $e=11$. Finn $d$, og forklar hvorfor dekrypteringen gjenoppretter meldingen.\n>\n> **Besvarelse:** $n=13\\cdot 29=377$ og $\\phi(n)=12\\cdot 28=336$. Euklids algoritme gir $d=275$. Dekrypteringen virker fordi $ed\\equiv 1\\pmod{\\phi(n)}$, og da er $(m^e)^d=m^{ed}=m$.\n\n**a)** Pek på de to manglene.\n**b)** Skriv besvarelsen om til full uttelling.",
+        "solution": "**a) De to manglene.**\n\n**Mangel 1 — Euklid baklengs er ikke skrevet ut** (føringskrav 1). «Euklids algoritme gir $d=275$» er en påstand om at en regning er gjort, ikke regningen. Både divisjonskjeden og substitusjonskjeden mangler, og det er substitusjonskjeden som *produserer* $d$.\n\n**Mangel 2 — teoremet er ikke navngitt i korrekthetsargumentet** (føringskrav 5). Linjen $m^{ed}=m$ hopper over hele poenget: $ed\\equiv 1\\pmod{\\phi(n)}$ betyr $ed=1+k\\phi(n)$, og at $m^{1+k\\phi(n)}\\equiv m$ følger av **Eulers teorem** — som krever $\\gcd(m,n)=1$. Uten navnet står det en likhet uten vilkårssjekk, og tilfellet der $p$ eller $q$ deler $m$ er ikke behandlet.\n\n**b) Omskrevet til full uttelling.**\n\n$n=pq=13\\cdot 29=377$, og **fra RSA-oppsettet** er\n$$\\phi(n)=(p-1)(q-1)=12\\cdot 28=336.$$\n\n$e=11$ er et lovlig valg fordi $\\gcd(11,336)=1$: $336=2^4\\cdot 3\\cdot 7$ har ingen faktor $11$. Da har $11d\\equiv 1\\pmod{336}$ nøyaktig **én** løsning modulo $336$.\n\n**(i) Divisjonskjeden frem** — **ved Euklids algoritme**:\n\n$$336 = 30\\cdot 11 + 6$$\n$$11 = 1\\cdot 6 + 5$$\n$$6 = 1\\cdot 5 + 1$$\n$$5 = 5\\cdot 1 + 0$$\n\nSiste ikke-null rest er $1$, altså er $\\gcd(336,11)=1$ ✓.\n\n**(ii) Substitusjonskjeden baklengs**, fra nest siste linje og oppover:\n\n$$1 = 6-1\\cdot 5$$\n$$1 = 6-(11-6)=2\\cdot 6-11$$\n$$1 = 2(336-30\\cdot 11)-11 = 2\\cdot 336-61\\cdot 11$$\n\n**(iii) Konklusjonssetningen:** altså er $1=336\\cdot 2+11\\cdot(-61)$, **etter Bézout**.\n\nModulo $336$ gir dette $11\\cdot(-61)\\equiv 1$, og vi justerer inn i intervallet $0\\le d<336$: $-61+336=275$. Altså er\n$$d=275.$$\n\n**Kontroll:** $11\\cdot 275=3025=336\\cdot 9+1$ ✓.\n\n**Korrekthetsargumentet, ført ut.** Fra $ed\\equiv 1\\pmod{\\phi(n)}$ finnes et helt tall $k$ med\n$$ed=1+k\\phi(n).$$\nEr $\\gcd(m,n)=1$, gir **Eulers teorem** at $m^{\\phi(n)}\\equiv 1\\pmod n$, og dermed\n$$(m^e)^d=m^{ed}=m^{1+k\\phi(n)}=m\\cdot\\left(m^{\\phi(n)}\\right)^k\\equiv m\\cdot 1^k=m\\pmod n.$$\nEr $\\gcd(m,n)\\ne 1$, deler ett av primtallene $m$ — si $p\\mid m$. Da er både $m^{ed}$ og $m$ delelige med $p$, så $m^{ed}\\equiv 0\\equiv m\\pmod p$. Modulo $q$ er $\\gcd(m,q)=1$, og siden $q-1\\mid\\phi(n)$ gir **Fermats lille teorem** at $m^{ed}=m\\cdot\\left(m^{q-1}\\right)^{k(p-1)}\\equiv m\\pmod q$. Modulene $p$ og $q$ er ulike primtall, altså relativt primiske, så **ved det kinesiske restteoremet** følger $m^{ed}\\equiv m\\pmod{pq}$. $\\blacksquare$\n\n**Sluttsvar:** a) Euklid baklengs mangler, og Eulers teorem er ikke navngitt i korrekthetsargumentet; b) $d=275$, med kjeden begge veier og korrekthetsbeviset ført i to tilfeller.\n\n*Legg merke til hvor lite arbeid omskrivningen var: fire linjer divisjonskjede, tre linjer substitusjon, en kontroll og fire linjer bevis. Under to minutter med penn — for et delpunkt som ellers ligger halvveis.*",
+        "hints": [
+          "Sammenlign besvarelsen mot føringskrav 1 og 5. Hva er *skrevet*, og hva er bare *påstått*?",
+          "Kjør Euklids algoritme på $336$ og $11$ selv, og les $d$ ut av substitusjonskjeden.",
+          "I korrekthetsargumentet: hvilket teorem gjør $m^{k\\phi(n)}$ til $1$, og hvilket vilkår krever det?"
+        ]
+      }
+    },
+    {
+      "id": "ma1301-8-1-lokke2-intro",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\n## Løkke 2: Begrunnelsestrappen — hva som er *nok* i hver sjanger\n\n*~14 minutter.*\n\nEn eksamensoppgave sier ikke hvilket kapittel den hører til. Den sier «finn resten når …», «avgjør om …», «vis at …» — og du har omtrent tjue sekunder på å avgjøre hvilken sjanger det er, før du begynner å regne. **Metodevalg er en egen ferdighet**, og den trenes ved å lese oppgavetekster, ikke ved å regne dem.\n\nTabellen under er derfor lest fra to sider samtidig: hvilke **ord** peker mot hvilken sjanger, og hva som er **nok begrunnelse** når du først er der. Sjangerbokstavene er bokas egne forkortelser, presentert i [kap. 0.1](/ma1301/ma1301-0-1): **A** lineær diofantisk likning, **B** lineær kongruens, **C** kinesisk restteorem, **D** RSA, **E** restberegning med Fermat/Euler/Wilson, **F** kvadratiske rester og Legendre, **G** orden og primitive røtter, **H** tallteoretiske funksjoner, **I** delelighets- og primtallsbevis, **J** induksjon, **K** roterende spesialtema.\n\n| Sjanger | Signalordene i oppgaveteksten | Nok begrunnelse er |\n|---|---|---|\n| **A** ([kap. 1.3](/ma1301/ma1301-1-3)) | «i hele tall», «samtlige løsninger», «$ax+by=c$» | Euklid begge veier + løsbarhet ($d\\mid c$) + hele løsningsmengden + «minste positive» om spurt |\n| **B** ([kap. 1.4](/ma1301/ma1301-1-4)) | «$\\equiv$» med én ukjent, «alle inkongruente løsninger», «invers» | $d=\\gcd(a,m)$ + antall løsninger + forkorting med modulusen delt + alle $d$ restklassene |\n| **C** ([kap. 2.4](/ma1301/ma1301-2-4)) | «samtidig», to eller flere kongruenser, «det minste tallet som …» | parvis primiskhet kommentert + teoremnavnet + svaret som restklasse modulo $M$ + kontroll i **alle** kongruensene |\n| **D** ([kap. 3.1](/ma1301/ma1301-3-1)) | «offentlig nøkkel», «krypter», «dekrypter», «$(n,e)$» | faktorisering av $n$ + $\\phi(n)=(p-1)(q-1)$ + Euklid begge veier for $d$ + kvadrer-og-multipliser vist |\n| **E** ([kap. 2.5](/ma1301/ma1301-2-5)) | «finn resten når … deles på …», fakultetstegn, stor eksponent | faktorisert modulus + $\\gcd$-sjekk + teoremnavn ved reduksjonen + kvadrattabell + Wilson-fortegnene |\n| **F** ([kap. 4.2](/ma1301/ma1301-4-2)) | «$x^2\\equiv a$», «kvadratisk rest», «har løsning» | regelnavn ved hvert steg i kjeden + fortegnsfaktoren + konklusjonen «to løsninger» eller «ingen løsning» |\n| **G** ([kap. 5.2](/ma1301/ma1301-5-2)) | «minste $k$ med», «orden», «primitiv rot», «generator» | at ordenen er den **minste** (mindre divisorer utelukket) + alle primdivisorer testet + tellingen begrunnet |\n| **H** ([kap. 5.3](/ma1301/ma1301-5-3)) | «antall divisorer», «summen av divisorene», «minste $n$ med» | faktorisering + formelen brukt + ved optimering: hvorfor ingen mindre $n$ virker |\n| **I** ([kap. 6.3](/ma1301/ma1301-6-3)) | «vis at … er delelig med», «vis at … er sammensatt», «uendelig mange» | start fra definisjonen + teoremnavnet + uttømmende case-analyse + klar konklusjonssetning |\n| **J** ([kap. 6.2](/ma1301/ma1301-6-2)) | «for alle $n\\ge$», «vis ved induksjon» | riktig $n_0$ + alle tre stegene merket + «her bruker vi induksjonshypotesen» der den brukes |\n| **K** ([kap. 7.1](/ma1301/ma1301-7-1)–[kap. 7.2](/ma1301/ma1301-7-2)) | «kjedebrøk», «konvergent», «$x^2-Dy^2=1$», «pytagoreisk» | tabellen fullt ført + kontroll ved innsetting + **alle tre** betingelsene ved tripler |\n\n**Legg merke til mønsteret i høyre kolonne.** Tre ting går igjen i nesten hver rad: et **vilkår** som skal kommenteres, et **teoremnavn** som skal skrives, og et **fullstendig svar** (hele mengden, alle løsningene, alle tilfellene). Kan du de tre, kan du føringsstandarden — resten er detaljer per sjanger."
+    },
+    {
+      "id": "ma1301-8-1-def-trapp",
+      "type": "definition",
+      "title": "Begrunnelsestrappen",
+      "content": "**Begrunnelsestrappen** er de tre nivåene et delpunkt kan ligge på, uansett sjanger:\n\n**Trinn 1 — svaret.** Sluttallet, riktig. Alene teller det lite: instruksen på hvert sett er at alle svar skal begrunnes.\n\n**Trinn 2 — regningen.** Mellomstegene som fører til svaret: divisjonskjeden, kvadrattabellen, reduksjonskjeden. Dette er det de fleste husker å skrive.\n\n**Trinn 3 — rammen rundt regningen.** Vilkåret kommentert *før* du regner ($\\gcd$-sjekken, $d\\mid c$, parvis primiskhet, «$p$ er et primtall»), teoremnavnet der argumentet hviler, konklusjonen som en **setning**, og svaret komplett (hele mengden / alle løsningene / alle tilfellene).\n\nTrinn 3 er det som skiller en besvarelse som «har regnet riktig» fra en som er ferdig. Den koster ti–tjue sekunder per delpunkt, og den er den billigste karakterøkningen i hele faget.\n\n**(må sitte utenat — de tre trinnene er selvsjekken du kjører på hvert delpunkt før du blar videre)**"
+    },
+    {
+      "id": "ma1301-8-1-def-signalord",
+      "type": "definition",
+      "title": "Signalordene: sjangeren lest ut av oppgaveteksten",
+      "content": "Ordene i oppgaveteksten peker nesten alltid entydig på sjangeren, og du kan lære listen:\n\n- «**i hele tall**» / «**samtlige løsninger**» ⇒ diofantisk likning (**A**)\n- «**alle inkongruente løsninger**» / «**invers modulo**» ⇒ lineær kongruens (**B**)\n- to eller flere kongruenser samtidig / «**det minste tallet som gir rest … og rest …**» ⇒ kinesisk restteorem (**C**)\n- «**offentlig nøkkel**» / «**krypter**» / «**dekrypter**» ⇒ RSA (**D**)\n- «**finn resten når … deles på …**», særlig med fakultet eller stor eksponent ⇒ restberegning (**E**)\n- «**har $x^2\\equiv a\\pmod p$ løsning**» / «**kvadratisk rest**» ⇒ Legendre (**F**)\n- «**minste $k$ med $a^k\\equiv 1$**» / «**primitiv rot**» ⇒ orden (**G**)\n- «**antall divisorer**» / «**summen av divisorene**» / «**minste $n$ med**» ⇒ $\\tau$ og $\\sigma$ (**H**)\n- «**vis at … er delelig med**» / «**er sammensatt**» / «**uendelig mange primtall**» ⇒ delelighetsbevis (**I**)\n- «**for alle $n\\ge n_0$**» ⇒ induksjon (**J**)\n- «**kjedebrøk**» / «**konvergent**» / «**$x^2-Dy^2=1$**» / «**pytagoreisk trippel**» ⇒ spesialtema (**K**)\n\n**To signalord som lurer:** «finn resten» med en **liten** eksponent er ren kongruensregning, ikke sjanger E — reduser og bli ferdig. Og «vis at» foran en **tallpåstand** (ikke en allpåstand) er ofte bare en utregning: «vis at $7$ er en primitiv rot modulo $13$» er sjanger G, ikke et bevis i sjanger I.\n\n**(må sitte utenat — dette er metodevalget, og det er ikke noe du kan slå opp under kode D)**"
+    },
+    {
+      "id": "ma1301-8-1-ex-metodevalg",
+      "type": "example",
+      "title": "Metodevalg på tjue sekunder: seks oppgavetekster",
+      "problem": "For hver tekst: hvilken sjanger, hva er første grep, og hva **må** stå i svaret?\n\n**a)** «Finn samtlige heltallsløsninger av $483x+322y=161$.»\n**b)** «Finn resten når $4\\cdot 26!$ deles på $31$.»\n**c)** «Avgjør om $x^2\\equiv 30\\pmod{101}$ har løsning.»\n**d)** «Finn det minste positive heltallet som gir rest $3$ ved divisjon med $7$ og rest $5$ ved divisjon med $12$.»\n**e)** «Vis at $9\\mid 4^n+6n-1$ for alle $n\\ge 1$.»\n**f)** «Finn det minste positive heltallet $n$ med nøyaktig $14$ divisorer.»",
+      "solution": "**a) Sjanger A — lineær diofantisk likning.** Signalordene er «samtlige heltallsløsninger».\n*Første grep:* $d=\\gcd(483,322)$ med Euklids algoritme. *(Her: $483=1\\cdot 322+161$, $322=2\\cdot 161+0$, så $d=161$.)*\n*Må stå i svaret:* at $161\\mid 161$ (løsbar), Bézout-koeffisientene, og **hele** løsningsmengden $x=x_0+\\frac{322}{161}t=x_0+2t$, $y=y_0-3t$.\n\n**b) Sjanger E — restberegning, Wilson-varianten.** Signalordet er fakultetstegnet sammen med «finn resten når … deles på …», og modulusen er et primtall.\n*Første grep:* skriv **Wilsons teorem** for $p=31$: $30!\\equiv -1\\pmod{31}$. Uttrykk så $30!$ ved $26!$.\n*Må stå i svaret:* at $31$ er et primtall, teoremnavnet, de manglende faktorene som **negative** rester ($27\\equiv -4$, $28\\equiv -3$, $29\\equiv -2$, $30\\equiv -1$), og at du ganger med en **invers** i stedet for å dele.\n\n**c) Sjanger F — kvadratisk rest.** Signalordet er $x^2\\equiv a\\pmod p$.\n*Første grep:* faktoriser telleren, $30=2\\cdot 3\\cdot 5$, og splitt symbolet med **multiplikativiteten**.\n*Må stå i svaret:* regelnavnet ved hvert steg (supplementsregelen for $(2/p)$ etter $p$ modulo $8$, resiprositetsloven med fortegnsfaktoren), og konklusjonen som **antall løsninger** — «to løsninger» eller «ingen løsning».\n\n**d) Sjanger C — kinesisk restteorem.** Signalordet er «rest … og rest …» samtidig.\n*Første grep:* sjekk at $\\gcd(7,12)=1$, altså parvis relativt primiske moduler.\n*Må stå i svaret:* teoremnavnet, at svaret er entydig modulo $M=84$, selve restklassen **med periode**, og det minste positive tallet siden det er det som spørres om. *(Begge metodene — formelen og suksessiv innsetting — er fullgode.)*\n\n**e) Sjanger J — induksjon.** Signalordet er «for alle $n\\ge 1$».\n*Første grep:* skriv opp $P(n)$ og verifiser basissteget $n=1$ med tall: $4^1+6\\cdot 1-1=9$, og $9\\mid 9$ ✓.\n*Må stå i svaret:* alle tre stegene merket, hypotesen skrevet ut som egen linje, og setningen «her bruker vi induksjonshypotesen» der innsettingen skjer. *(Merk: dette er nøyaktig eksempelet i [kap. 6.2](/ma1301/ma1301-6-2) løkke 3 — kjenner du det igjen, er halve jobben gjort.)*\n\n**f) Sjanger H — tallteoretiske funksjoner.** Signalordet er «nøyaktig $14$ divisorer».\n*Første grep:* faktoriser antallet: $14=14=2\\cdot 7$, så $\\tau(n)=\\prod(k_i+1)$ krever eksponentmønsteret $(13)$ eller $(6,1)$.\n*Må stå i svaret:* begge kandidatene regnet ut ($2^{13}=8192$ og $2^6\\cdot 3=192$), og **begrunnelsen for at ingen mindre $n$ virker** — de største eksponentene skal på de minste primtallene. Svaret er $192$.\n\n**Mønsteret:** i alle seks tilfellene tok metodevalget under tjue sekunder, og i alle seks bestemte **ett** ord i teksten sjangeren. Det er derfor det er verdt å lese oppgaveteksten to ganger før du regner én linje."
+    },
+    {
+      "id": "ma1301-8-1-ex3",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-8-1-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Metodevalgsdrill. For hver tekst: oppgi sjanger (A–K), første grep, og **ett** krav som må være oppfylt i svaret. Du skal **ikke** regne oppgavene.\n\n**a)** «Vis at $2^{33}-1$ er sammensatt, og oppgi en ekte divisor.»\n**b)** «Finn ordenen til $5$ modulo $23$, og bruk den til å finne resten når $5^{400}$ deles på $23$.»\n**c)** «Løs $105x\\equiv 63\\pmod{126}$, og oppgi alle inkongruente løsninger.»\n**d)** «Finn kjedebrøkutviklingen til $\\sqrt{29}$ og de tre første konvergentene.»\n**e)** «I et RSA-system er $(n,e)=(667,7)$. Finn $d$.»",
+        "solution": "**a) Sjanger I — delelighets-/primtallsbevis** (arketype 2 i [kap. 6.3](/ma1301/ma1301-6-3)).\n*Første grep:* $33=3\\cdot 11$ er sammensatt, så bruk den geometriske faktoriseringen $x^d-1=(x-1)(x^{d-1}+\\dots+1)$ med $x=2^3$ eller $x=2^{11}$.\n*Krav:* at **begge** faktorene er **ekte** divisorer — altså større enn $1$ og mindre enn $2^{33}-1$. Delelighet alene viser ikke at tallet er sammensatt.\n\n**b) Sjanger G — orden modulo $n$.**\n*Første grep:* regn $\\phi(23)=22$ og test **divisorene** $1,2,11,22$ i stigende rekkefølge.\n*Krav:* at svaret er den **minste** eksponenten — de mindre divisorene må eksplisitt utelukkes.\n\n**c) Sjanger B — lineær kongruens.**\n*Første grep:* $d=\\gcd(105,126)$ med Euklids algoritme, og løsbarhetssetningen.\n*Krav:* **alle $d$ inkongruente løsninger** modulo $126$, og at modulusen ble delt på $d$ ved forkortingen.\n\n**d) Sjanger K — spesialtema, kjedebrøk.**\n*Første grep:* $a_0=\\lfloor\\sqrt{29}\\rfloor=5$, og kjør hjelpetabellen med $m$, $d$ og $a$.\n*Krav:* rekursjonsskjemaet $p_n=a_np_{n-1}+p_{n-2}$, $q_n=a_nq_{n-1}+q_{n-2}$ ført **rad for rad**, med kontroll av hver rad.\n\n**e) Sjanger D — RSA.**\n*Første grep:* faktoriser $n=667$ ved prøvedivisjon ($667=23\\cdot 29$), og regn $\\phi(n)=22\\cdot 28=616$.\n*Krav:* Euklids algoritme ført **begge veier** på $616$ og $7$, og kontrollen $ed\\equiv 1\\pmod{616}$ til slutt.\n\n**Sluttsvar:** a) I, b) G, c) B, d) K, e) D.\n\n*Legg merke til at ingen av de fem krevde en eneste utregning for å plasseres. Sjangeren lå i ordene: «er sammensatt», «ordenen», «alle inkongruente løsninger», «kjedebrøkutviklingen», «$(n,e)$».*",
+        "hints": [
+          "Les etter signalordene i kortet over: hvilket ord i hver tekst er det som avgjør?",
+          "I c): hva heter kravet om at *alle* løsningene skal oppgis?",
+          "I a): hva skiller «$d$ deler tallet» fra «tallet er sammensatt»?"
+        ]
+      }
+    },
+    {
+      "id": "ma1301-8-1-ex4",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-8-1-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Besvarelsen under regner riktig, men uten et eneste regelnavn. Skriv den om slik at hvert steg bærer navnet på regelen som brukes, og kontrollér fortegnsbokføringen.\n\n> **Oppgave:** avgjør om $x^2\\equiv 21\\pmod{103}$ har løsning.\n>\n> **Besvarelse:** $\\left(\\frac{21}{103}\\right)=\\left(\\frac{3}{103}\\right)\\left(\\frac{7}{103}\\right)$. Videre $\\left(\\frac{3}{103}\\right)=-\\left(\\frac{103}{3}\\right)=-\\left(\\frac13\\right)=-1$ og $\\left(\\frac{7}{103}\\right)=-\\left(\\frac{103}{7}\\right)=-\\left(\\frac57\\right)=-\\left(\\frac75\\right)=-\\left(\\frac25\\right)=1$. Svar: $-1$.",
+        "solution": "**Omskrevet med regelnavn ved hvert steg.**\n\n$103$ er et primtall, og $\\gcd(21,103)=1$, så symbolet er $\\pm 1$.\n\n**Steg 1 — fullstendig multiplikativitet** ([kap. 4.1](/ma1301/ma1301-4-1)): $21=3\\cdot 7$, altså\n$$\\left(\\frac{21}{103}\\right)=\\left(\\frac{3}{103}\\right)\\left(\\frac{7}{103}\\right).$$\n\n**Steg 2 — den kvadratiske resiprositetsloven** på $\\left(\\frac{3}{103}\\right)$. Både $3\\equiv 3$ og $103\\equiv 3\\pmod 4$, så fortegnsfaktoren\n$$(-1)^{\\frac{3-1}{2}\\cdot\\frac{103-1}{2}}=(-1)^{1\\cdot 51}=-1$$\ner $-1$, og symbolene bytter fortegn når vi snur:\n$$\\left(\\frac{3}{103}\\right)=-\\left(\\frac{103}{3}\\right).$$\n**Periodisiteten** gir $103\\equiv 1\\pmod 3$, så $\\left(\\frac{103}{3}\\right)=\\left(\\frac13\\right)=1$, og dermed $\\left(\\frac{3}{103}\\right)=-1$.\n\n**Steg 3 — resiprositetsloven på $\\left(\\frac{7}{103}\\right)$.** Igjen er begge $\\equiv 3\\pmod 4$ ($7\\equiv 3$, $103\\equiv 3$), så fortegnsfaktoren er $-1$:\n$$\\left(\\frac{7}{103}\\right)=-\\left(\\frac{103}{7}\\right)=-\\left(\\frac57\\right)$$\nsiden $103=7\\cdot 14+5$ **ved periodisiteten**. Nå er $5\\equiv 1\\pmod 4$, så fortegnsfaktoren er $+1$ og\n$$\\left(\\frac57\\right)=\\left(\\frac75\\right)=\\left(\\frac25\\right)$$\n**ved periodisiteten** ($7\\equiv 2\\pmod 5$). **Supplementsregelen for $(2/p)$** ([kap. 4.2](/ma1301/ma1301-4-2)) gir $\\left(\\frac25\\right)=-1$ fordi $5\\equiv 5\\pmod 8$. Altså er $\\left(\\frac57\\right)=-1$, og\n$$\\left(\\frac{7}{103}\\right)=-(-1)=+1.$$\n\n**Steg 4 — sett sammen.**\n$$\\left(\\frac{21}{103}\\right)=(-1)\\cdot(+1)=-1.$$\n\n**Konklusjon:** $21$ er en kvadratisk ikke-rest modulo $103$, så kongruensen $x^2\\equiv 21\\pmod{103}$ har **ingen løsning**.\n\n**Fortegnsbokføringen kontrollert:** to snuoperasjoner ga fortegn $-1$ hver (steg 2 og steg 3), én ga $+1$ (steg 3, siste snu), og supplementsregelen ga $-1$. Produktet av de fire: $(-1)\\cdot(-1)\\cdot(+1)\\cdot(-1)=-1$ ✓ — samme svar, regnet på en uavhengig måte.\n\n**Hva som manglet i den opprinnelige besvarelsen:** hvert `$=$`-tegn var korrekt, men ingen av dem hadde en grunn. En leser kan ikke se om fortegnsfaktoren er *regnet* eller *gjettet* — og siden nøyaktig den faktoren er den mest belagte feilen i sjangeren, er det den sensor ser etter. Fire regelnavn og én paritetsberegning var alt som skulle til.",
+        "hints": [
+          "Hvilke tre regler brukes i en Legendre-kjede? Multiplikativitet, periodisitet, resiprositet — pluss de to supplementsreglene.",
+          "Fortegnsfaktoren i resiprositetsloven er $(-1)^{\\frac{p-1}{2}\\cdot\\frac{q-1}{2}}$. Når er den $-1$?",
+          "Kontrollér til slutt: tell hvor mange fortegnsbytter kjeden hadde, og gang dem sammen."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-8-1-lokke3-intro",
+      "type": "text",
+      "content": "## Løkke 3: Tidsbudsjettet og rekkefølgen\n\n*~10 minutter.*\n\nEksamen er **fire timer**, og nyere sett er organisert som **omtrent ti delpunkt som alle teller likt**. Det gir et tall du skal ha i hodet når klokka starter:\n\n$$\\frac{240\\text{ min}}{10\\text{ delpunkt}}=24\\text{ min per delpunkt.}$$\n\nTallet er ikke en fartsgrense, det er en **alarm**. Bruker du 45 minutter på det første delpunktet, har du lånt tid fra et annet delpunkt som er verdt akkurat like mye — og som du sannsynligvis kunne tatt på tolv minutter."
+    },
+    {
+      "id": "ma1301-8-1-def-tid",
+      "type": "definition",
+      "title": "Tidsbudsjettet: 24 minutter per delpunkt",
+      "content": "Fire timer, omtrent ti likt vektede delpunkt: **24 minutter per delpunkt**, med den fordelingen at de mekaniske sjangrene tar mindre og bevisoppgaven tar mer.\n\nEt realistisk budsjett, målt på oppgavetypene i denne boka:\n\n| Sjanger | Realistisk tid | Kommentar |\n|---|---|---|\n| **H** ($\\tau$, $\\sigma$) | 8–12 min | den billigste sjangeren i faget |\n| **A**, **B** (diofant, kongruens) | 12–18 min | fast oppskrift, ingen overraskelser |\n| **C** (CRT) | 15–20 min | mest tid går til inversene |\n| **F** (Legendre) | 12–20 min | rask når kjeden sitter |\n| **E** (restberegning) | 18–25 min | kvadrattabellen tar tid å skrive |\n| **D** (RSA) | 20–25 min | to fulle prosedyrer i én oppgave |\n| **G** (orden, primitiv rot) | 15–25 min | tellingen er raskest, verifikasjonen tregest |\n| **I**, **J** (bevis) | 20–30 min | strukturen skal skrives, ikke bare tenkes |\n\nSummen av «realistisk tid» for et typisk sett ligger under fire timer — det er meningen. **Marginen er kontrolltiden**, og kontroll er den eneste kontrollen som finnes under kode D.\n\n**(må sitte utenat — 24 minutter er tallet du planlegger etter, og de åtte radene er kalibreringen)**"
+    },
+    {
+      "id": "ma1301-8-1-def-rekkefolge",
+      "type": "definition",
+      "title": "Rekkefølgeregelen: tre runder gjennom settet",
+      "content": "Ikke løs settet fra oppgave 1 til oppgave 8 i rekkefølge. Kjør **tre runder**:\n\n**Runde 1 (~5 min, ingen regning).** Les hele settet. Skriv sjangerbokstaven i margen ved hvert delpunkt. Marker de tre du er sikrest på.\n\n**Runde 2 (~2,5 timer).** Ta de sikre først, i økende vanskelighet. Grunnen er ikke psykologisk, den er aritmetisk: alle delpunkt teller likt, så et delpunkt du tar på tolv minutter er verdt like mye som et du bruker førti på. Å ta de billige først maksimerer antall ferdige delpunkt per time.\n\n**Runde 3 (~40 min).** De vanskelige, med det du har lært av de andre. Ofte har delpunkt i samme oppgave felles $\\phi(n)$, felles faktorisering eller felles gcd — regnet du den i a), er den gratis i c).\n\n**Sett av de siste 20 minuttene til kontroll**, ikke til et nytt delpunkt. En funnet regnefeil er verdt mer enn en halv ny oppgave.\n\n**(må sitte utenat — dette er hele eksamensstrategien, og den kan ikke leses fra et ark du ikke har med deg)**"
+    },
+    {
+      "id": "ma1301-8-1-def-forlate",
+      "type": "definition",
+      "title": "Å forlate et delpunkt — og hva du skriver før du gjør det",
+      "content": "Står du fast, forlater du delpunktet. Men **ikke tomt**. Tre linjer, alltid, før du blar videre:\n\n1. **Sjangeren og metoden:** «dette er en kvadratisk kongruens; jeg skal regne $\\left(\\frac{a}{p}\\right)$ med resiprositetsloven».\n2. **Vilkåret eller oppsettet:** det du faktisk har fått til — faktoriseringen, $\\phi(n)$, $\\gcd$-en, de to første linjene i divisjonskjeden.\n3. **Der du stoppet:** «her trenger jeg inversen til $24$ modulo $89$, som jeg ikke fikk til».\n\nGrunnen er enkel: delpunktene er **selvstendige** og teller likt, men innenfor ett delpunkt gis uttelling for metode. Tre linjer riktig oppsett er langt fra null.\n\nOg motsatt: **oppgi aldri et sluttall du ikke har regnet.** Et gjettet tall uten metode gir ingenting og koster tid du kunne brukt på neste delpunkt.\n\n**(må sitte utenat — regelen brukes under tidspress, og det er nettopp da den glemmes)**"
+    },
+    {
+      "id": "ma1301-8-1-ex-tid",
+      "type": "example",
+      "title": "Fire timer fordelt på et helt sett",
+      "problem": "Et sett har åtte oppgaver med til sammen ti delpunkt, i denne rekkefølgen:\n\n**O1** (2 delpunkt) diofantisk likning · **O2** (2) restberegning med fakultet · **O3** (1) kongruenssystem · **O4** (2) RSA · **O5** (1) Legendre · **O6** (1) orden · **O7** (1) bevis ved induksjon.\n\nDu er trygg på O1, O3 og O6, middels på O2 og O5, og har alltid slitt med RSA. Legg en plan for de fire timene.",
+      "solution": "**Runde 1 — kartlegging, 5 minutter (kl. 15:00–15:05).**\n\nLes alt. Skriv i margen: O1a/b = **A**, O2a/b = **E**, O3 = **C**, O4a/b = **D**, O5 = **F**, O6 = **G**, O7 = **J**. Marker O1, O3, O6 som sikre.\n\nLegg samtidig merke til to gjenbruk: O2 og O4 trenger begge en faktorisering og en $\\phi$-verdi, og O4b trenger $d$ fra O4a. Det betyr at O4 må tas **samlet**, ikke splittet over pausen.\n\n**Runde 2 — de sikre først, 2 timer 20 minutter (kl. 15:05–17:25).**\n\n| Tid | Delpunkt | Anslag | Hvorfor her |\n|---|---|---|---|\n| 15:05–15:20 | O6 (orden) | 15 min | sikker, og billigst av de sikre |\n| 15:20–15:38 | O1a+b (diofant) | 18 min | fast oppskrift; b) gjenbruker Bézout fra a) |\n| 15:38–15:56 | O3 (CRT) | 18 min | sikker; suksessiv innsetting om inversene blir stygge |\n| 15:56–16:20 | O2a+b (restberegning) | 24 min | middels; to delpunkt som deler modulus |\n| 16:20–16:38 | O5 (Legendre) | 18 min | middels; kjeden går fort når fortegnene bokføres |\n| 16:38–17:05 | O7 (induksjon) | 27 min | bevis tar tid å **skrive**, ikke å tenke |\n| 17:05–17:25 | O4a (RSA, finn $d$) | 20 min | den vanskeligste, men a) er ren Euklid |\n\n**Runde 3 — restene, 20 minutter (kl. 17:25–17:45).**\n\nO4b (dekrypteringen). Har du $d$ fra a), er dette bare kvadrer-og-multipliser. Rekker du ikke hele kvadrattabellen, skriv oppsettet: binærutviklingen av $d$, de kvadratene du har regnet, og setningen «resten av produktet gjenstår». Det er metode, og metode teller.\n\n**Kontrolltid — 15 minutter (kl. 17:45–18:00).**\n\nGå gjennom sjekklisten i løkke 5 for hvert delpunkt. Erfaringsmessig finner du én av tre ting: en manglende «minste positive», en $\\gcd$-setning som aldri ble skrevet, eller et sluttall utenfor $0,\\dots,n-1$. Alle tre er gratis poeng.\n\n**Regnskapet:** $5+140+20+15=180$ minutter planlagt av $240$. De $60$ minuttene som står igjen, er bufferen — og den blir brukt. Et sett uten buffer er et sett du ikke rekker.\n\n**Merk hva planen *ikke* gjorde:** den startet ikke på O1. Oppgave 1 er ofte den lettest tilgjengelige, men her var O6 billigere for **denne** studenten. Rekkefølgen følger din egen sikkerhet, ikke settets nummerering — nettopp fordi alle delpunkt teller likt."
+    },
+    {
+      "id": "ma1301-8-1-ex5",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-8-1-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Klokka er 17:15. Du har $45$ minutter igjen og tre uløste delpunkt:\n\n- **X:** «Finn resten når $7\\cdot 40!$ deles på $43$.» Du husker Wilsons teorem, men ikke fortegnsregelen for de manglende faktorene.\n- **Y:** «Avgjør om $x^2\\equiv 15\\pmod{79}$ har løsning.» Du kan reduksjonsalgoritmen godt.\n- **Z:** «Vis ved induksjon at $2^n>n^2$ for alle $n\\ge 5$.» Du kan malen, men har ikke begynt.\n\n**a)** I hvilken rekkefølge tar du dem, og hvor mange minutter setter du av til hver?\n**b)** Anta at du ved 17:50 fortsatt står fast på X. Hva skriver du på arket før du leverer?",
+        "solution": "**a) Rekkefølge og tid.**\n\n**Y først (12 min).** Den er du sikker på, og den er billigst: en Legendre-kjede med to faktorer er tre–fire linjer. Sikre delpunkt tas alltid før usikre, fordi alle teller likt.\n\n**Z deretter (20 min).** Du kan malen, og malen ER besvarelsen i denne sjangeren: basissteget $2^5=32>25$ ✓, hypotesen som egen linje, og steget $2^{k+1}=2\\cdot 2^k>2k^2\\ge(k+1)^2$ for $k\\ge 5$ — med restulikheten $2k^2\\ge (k+1)^2$ bevist ($k^2\\ge 2k+1$ for $k\\ge 3$). At du «ikke har begynt» er irrelevant: tiden i et induksjonsbevis går med til å skrive, og du vet hva som skal stå.\n\n**X sist (13 min).** Her mangler du én ting — fortegnsregelen — og den kan du **utlede på stedet**, men det tar tid, og utfallet er usikkert. Usikre delpunkt tas sist.\n\n*Utledningen, om du kommer så langt:* $42!\\equiv -1\\pmod{43}$ **ved Wilsons teorem**, og $42!=40!\\cdot 41\\cdot 42$. Skriv de manglende faktorene som negative rester: $41\\equiv -2$ og $42\\equiv -1$, så $42!\\equiv 40!\\cdot(-2)(-1)=2\\cdot 40!$. Da er $2\\cdot 40!\\equiv -1$, og med $2^{-1}\\equiv 22\\pmod{43}$ (fordi $2\\cdot 22=44=43+1$) blir $40!\\equiv -22\\equiv 21\\pmod{43}$. Til slutt $7\\cdot 40!\\equiv 7\\cdot 21=147=43\\cdot 3+18$, altså **resten er $18$**.\n\n*(Fortegnsregelen selv: med $j$ manglende faktorer er koeffisienten $(-1)^j\\cdot j!$. Her $j=2$, altså $(+1)\\cdot 2=2$ ✓ — stemmer med utregningen.)*\n\n**b) Hva du skriver før du leverer.**\n\nTre linjer, etter regelen for å forlate et delpunkt:\n\n> «**Sjanger E, Wilson-varianten.** $43$ er et primtall, så **ved Wilsons teorem** er $42!\\equiv -1\\pmod{43}$.\n> $42!=40!\\cdot 41\\cdot 42$, og de to manglende faktorene skrives som negative rester: $41\\equiv -2$, $42\\equiv -1\\pmod{43}$.\n> Det gir $-1\\equiv 40!\\cdot(-2)(-1)$. Her stopper jeg: jeg mangler inversen til koeffisienten modulo $43$.»\n\nDet er sjangeren, teoremnavnet, oppsettet og det eksakte stoppunktet — og det er langt fra null uttelling. Til sammenligning: et gjettet tall uten noen av linjene gir ingenting.\n\n**Sluttsvar:** a) Y (12 min) → Z (20 min) → X (13 min), altså sikker før usikker og billig før dyr; b) sjanger, teoremnavn, oppsettet du har, og hvor du stoppet.",
+        "hints": [
+          "Alle delpunkt teller likt. Hva følger av det for rekkefølgen mellom et sikkert og et usikkert delpunkt?",
+          "I Z: hvor mye av tiden i et induksjonsbevis går til å tenke, og hvor mye til å skrive?",
+          "I b): se på de tre linjene i kortet «Å forlate et delpunkt»."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-8-1-lokke4-intro",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\n## Løkke 4: Bevisføringen — der strukturen *er* begrunnelsen\n\n*~12 minutter.*\n\nHvert eneste sett i arkivet har minst én ren bevisoppgave, og i bevis er føringskravene ikke pynt rundt regningen: **strukturen er hele argumentet.** Et induksjonsbevis uten basissteg er ikke et bevis med en liten mangel — det er ikke et bevis, og løkken under viser hvorfor med et konkret eksempel.\n\nDe tre malene under er ordrett de samme som i [kap. 6.1](/ma1301/ma1301-6-1)–[kap. 6.2](/ma1301/ma1301-6-2). De gjentas her fordi de er det du skal ha i hodet, ikke i boka."
+    },
+    {
+      "id": "ma1301-8-1-def-induksjon",
+      "type": "definition",
+      "title": "Induksjonens tre steg — og de to setningene som må stå",
+      "content": "**(1) Basissteg.** Verifiser $P(n_0)$ **med tall**, og med riktig $n_0$ — det er ikke alltid $1$. «Åpenbart» er ikke et basissteg.\n\n**(2) Induksjonshypotese.** Som egen linje, med innholdet skrevet ut: «anta at $P(k)$ holder for en $k\\ge n_0$, altså at [påstanden for $k$].»\n\n**(3) Induksjonssteg.** Utled $P(k+1)$, og skriv setningen\n> **«Her bruker vi induksjonshypotesen:»**\n\nnøyaktig der innsettingen skjer. Avslutt med «ved induksjonsprinsippet holder $P(n)$ for alle $n\\ge n_0$.»\n\n**De to setningene som må stå**, er hypotesen (steg 2) og «her bruker vi induksjonshypotesen» (steg 3). De er de to stedene en leser kontrollerer at beviset faktisk er et induksjonsbevis og ikke en omskrivning.\n\n**Antall basissteg = antall ledd rekursjonen ser tilbake.** Bruker steget både $P(k)$ og $P(k-1)$, trengs to basissteg (sterk induksjon).\n\n**(må sitte utenat)**"
+    },
+    {
+      "id": "ma1301-8-1-def-case",
+      "type": "definition",
+      "title": "Uttømmende case-analyse",
+      "content": "Skal en påstand vises for **alle** hele tall, og argumentet går via rester modulo $m$, skal **alle $m$ restene** stå der — hver som en merket linje:\n\n> «Tilfelle $n\\equiv 0\\pmod 3$: …» · «Tilfelle $n\\equiv 1\\pmod 3$: …» · «Tilfelle $n\\equiv 2\\pmod 3$: …»\n\nGrunnlaget er divisjonsalgoritmen: hvert helt tall har nøyaktig én rest $r$ med $0\\le r<m$, så de $m$ tilfellene dekker alt. En case-analyse som hopper over en rest, beviser ingenting — og et tilfelle som «åpenbart ikke kan skje», skal **utelukkes med en setning**, ikke ved stillhet.\n\n**Valget av modulus er hele trikset:** velg den $m$ som gjør at kvadratene (eller potensene) i påstanden får få mulige verdier. $n^2\\equiv 0,1\\pmod 3$; $n^2\\equiv 0,1\\pmod 4$; $n^2\\equiv 1\\pmod 8$ for odde $n$.\n\n**(må sitte utenat — både formen og de tre kvadratrest-listene)**"
+    },
+    {
+      "id": "ma1301-8-1-def-motsigelse",
+      "type": "definition",
+      "title": "Motsigelsesmalen",
+      "content": "**(1)** Skriv antagelsen ut: «anta, for motsigelse, at …» — og negér påstanden riktig. Negasjonen av «for alle $n$ gjelder $P$» er «det finnes en $n$ der $P$ ikke gjelder», ikke «for alle $n$ gjelder ikke $P$».\n\n**(2)** Regn videre til noe umulig.\n\n**(3)** Avslutt med en **klar umulighetssetning**: «men da er $q$ både et primtall og sammensatt — motsigelse», eller «men $10\\nmid 5$, og det er umulig». Ikke la beviset renne ut i en observasjon.\n\n**(4)** Konkluder: «antagelsen kan derfor ikke holde, og påstanden er bevist. $\\blacksquare$»\n\nMalen bærer tre av bokas sjangre: irrasjonalitet ([kap. 7.3](/ma1301/ma1301-7-3)), uendelig mange primtall av en gitt form ([kap. 6.3](/ma1301/ma1301-6-3)), og likninger uten heltallsløsninger ([kap. 6.1](/ma1301/ma1301-6-1)).\n\n**(må sitte utenat)**"
+    },
+    {
+      "id": "ma1301-8-1-ex-kontrastpar2",
+      "type": "example",
+      "title": "Kontrastpar 2: induksjonssteget holder, påstanden er gal",
+      "problem": "Under står en besvarelse av påstanden\n\n$$1+2+\\dots+n=\\frac{n(n+1)}{2}+5\\qquad\\text{for alle }n\\ge 1.$$\n\n> **Besvarelse.** Anta at $1+2+\\dots+k=\\frac{k(k+1)}{2}+5$. Da er\n> $$1+2+\\dots+k+(k+1)=\\frac{k(k+1)}{2}+5+(k+1)=\\frac{k(k+1)+2(k+1)}{2}+5=\\frac{(k+1)(k+2)}{2}+5,$$\n> som er påstanden for $k+1$. Ved induksjonsprinsippet holder påstanden for alle $n\\ge 1$.\n\n**Er beviset gyldig? Er påstanden sann?** Svar på begge, og forklar hva som gikk galt.",
+      "solution": "**Induksjonssteget er helt riktig regnet.** Hvert likhetstegn stemmer: $\\frac{k(k+1)}{2}+(k+1)=\\frac{k(k+1)+2(k+1)}{2}=\\frac{(k+1)(k+2)}{2}$, og $+5$ står urørt gjennom hele kjeden. Steget viser altså at *hvis* påstanden holder for $k$, holder den for $k+1$.\n\n**Men påstanden er gal.** Sett inn $n=1$: venstresiden er $1$, høyresiden er $\\frac{1\\cdot 2}{2}+5=6$. Og $1\\ne 6$.\n\n**Hva som gikk galt: basissteget mangler.** Beviset har bare to av de tre stegene — hypotesen og steget. Uten steg (1) er dominorekken aldri veltet: implikasjonene $P(1)\\Rightarrow P(2)\\Rightarrow P(3)\\Rightarrow\\dots$ er alle sanne, men ingen av dem har noen sann forutsetning å starte fra.\n\n**Hvorfor eksempelet er ubehagelig:** $+5$-leddet forsvinner aldri i steget, uansett hvilken konstant du velger. Påstanden\n$$1+2+\\dots+n=\\frac{n(n+1)}{2}+c$$\nhar et gyldig induksjonssteg **for hver** konstant $c$ — og er sann bare for $c=0$. Basissteget er det **eneste** som skiller den sanne påstanden fra de uendelig mange falske. Det er derfor et induksjonsbevis uten basissteg ikke er et bevis med en liten mangel, men et bevis uten innhold.\n\n**Ført riktig, for $c=0$:**\n\n**(1) Basissteg ($n=1$):** venstresiden er $1$, høyresiden er $\\frac{1\\cdot 2}{2}=1$. Begge sider er $1$ ✓.\n\n**(2) Induksjonshypotese:** anta at $1+2+\\dots+k=\\frac{k(k+1)}{2}$ for en $k\\ge 1$.\n\n**(3) Induksjonssteg:** vi ser på summen til $k+1$:\n$$1+2+\\dots+k+(k+1).$$\n**Her bruker vi induksjonshypotesen:** de $k$ første leddene er $\\frac{k(k+1)}{2}$, så summen er\n$$\\frac{k(k+1)}{2}+(k+1)=\\frac{k(k+1)+2(k+1)}{2}=\\frac{(k+1)(k+2)}{2},$$\nsom er påstanden for $k+1$.\n\nVed induksjonsprinsippet holder $1+2+\\dots+n=\\frac{n(n+1)}{2}$ for alle $n\\ge 1$. $\\blacksquare$\n\n**Kontroll:** $n=4$ gir $1+2+3+4=10$ og $\\frac{4\\cdot 5}{2}=10$ ✓.\n\n**Merk arbeidsvanen dette gir deg:** før du beviser en påstand, **sett inn to små tall**. Det tar tjue sekunder, og det er den ene kontrollen som skiller en sann påstand fra en du kommer til å kaste bort tjue minutter på."
+    },
+    {
+      "id": "ma1301-8-1-ex6",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-8-1-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Avgjør for hver av påstandene om den er sann. Er den sann, før beviset komplett; er den gal, gi et moteksempel.\n\n**a)** $6\\mid n^3+5n$ for alle hele tall $n$.\n**b)** $8\\mid n^2+3$ for alle odde hele tall $n$.\n**c)** $n^2+n+17$ er et primtall for alle hele tall $n\\ge 0$.\n\n*Test alltid med små tall før du velger side.*",
+        "solution": "**a) Sann.** Test først: $n=1$ gir $6$, $n=2$ gir $18$, $n=3$ gir $42$ — alle delelige med $6$ ✓.\n\n*Bevis ved induksjon (for $n\\ge 1$; tilfellet $n\\le 0$ følger under).*\n\n**(1) Basissteg ($n=1$):** $1^3+5\\cdot 1=6$, og $6\\mid 6$ ✓.\n\n**(2) Induksjonshypotese:** anta at $6\\mid k^3+5k$ for en $k\\ge 1$, altså at $k^3+5k=6t$ for et helt tall $t$.\n\n**(3) Induksjonssteg:** vi regner ut uttrykket for $k+1$:\n$$(k+1)^3+5(k+1)=k^3+3k^2+3k+1+5k+5=(k^3+5k)+3k^2+3k+6.$$\n**Her bruker vi induksjonshypotesen:** $k^3+5k=6t$, så\n$$(k+1)^3+5(k+1)=6t+3k(k+1)+6.$$\nNå er $k(k+1)$ et produkt av to etterfølgende hele tall, altså et partall, si $k(k+1)=2s$. Da er $3k(k+1)=6s$, og\n$$(k+1)^3+5(k+1)=6t+6s+6=6(t+s+1),$$\nsom er delelig med $6$. Ved induksjonsprinsippet holder påstanden for alle $n\\ge 1$. $\\blacksquare$\n\n*For $n=0$ er uttrykket $0$, og $6\\mid 0$ ✓. For negative $n$: uttrykket er odde i $n$ i den forstand at $(-n)^3+5(-n)=-(n^3+5n)$, og $6$ deler et tall nøyaktig når det deler tallets motsatte. Altså holder påstanden for alle hele tall.*\n\n**b) Gal.** Test med små odde tall: $n=1$ gir $1+3=4$, og $8\\nmid 4$. **Moteksempel: $n=1$.**\n\n*(Hva som er sant, er nabopåstanden: for odde $n$ er $n^2\\equiv 1\\pmod 8$ ([kap. 6.1](/ma1301/ma1301-6-1)), så $n^2+3\\equiv 4\\pmod 8$ — uttrykket er alltid $\\equiv 4$, aldri $\\equiv 0$. Altså er $8\\nmid n^2+3$ for **alle** odde $n$, det motsatte av påstanden.)*\n\n**c) Gal.** Uttrykket gir primtall for $n=0,1,2,\\dots,15$ ($17,19,23,29,37,47,59,73,89,107,127,149,173,199,227,257$), og det er nettopp fellen. Men $n=16$ gir\n$$16^2+16+17=256+16+17=289=17^2,$$\nsom er sammensatt. **Moteksempel: $n=16$.**\n\n*Grunnen er lett å se i ettertid: for $n=17$ er alle tre leddene delelige med $17$, så $17\\mid n^2+n+17$. Og allerede ved $n=16$ er $n^2+n=16\\cdot 17$ delelig med $17$. Seksten bekreftelser er ikke et bevis — det er den lærdommen fra [kap. 6.1](/ma1301/ma1301-6-1) som denne oppgaven gjentar med nye tall.*\n\n**Sluttsvar:** a) sann, bevist ved induksjon med lemmaet «$k(k+1)$ er et partall» brukt i steget; b) gal, $n=1$; c) gal, $n=16$ (og $n=17$).\n\n*Fordelingen — en sann og to gale — er ikke tilfeldig valgt her. På eksamen er «avgjør om»-formuleringen et signal om at moteksempel er et lovlig svar, mens «vis at» sier at påstanden holder. Les hvilken av de to som står.*",
+        "hints": [
+          "Sett inn $n=1,2,3$ i hver påstand før du velger side. Tjue sekunder, og du unngår å bevise noe galt.",
+          "I a): i induksjonssteget dukker $3k(k+1)$ opp. Hvorfor er det delelig med $6$?",
+          "I c): prøv $n$ opp mot $17$ — hva skjer med leddene da?"
+        ]
+      }
+    },
+    {
+      "id": "ma1301-8-1-ex7",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-8-1-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Besvarelsen under har **ett** fortegnsfeil. Finn det, rett det, og skriv fortegnskontrollen som fanger feilen.\n\n> **Oppgave:** finn resten når $5\\cdot 63!$ deles på $67$.\n>\n> **Besvarelse:** $67$ er et primtall, så $66!\\equiv -1\\pmod{67}$ ved Wilsons teorem. Nå er $66!=63!\\cdot 64\\cdot 65\\cdot 66$, og $64\\equiv 3$, $65\\equiv 2$, $66\\equiv 1\\pmod{67}$, så $-1\\equiv 63!\\cdot 6$. Inversen til $6$ modulo $67$ er $56$, så $63!\\equiv -56\\equiv 11$, og $5\\cdot 63!\\equiv 55\\pmod{67}$.",
+        "solution": "**Feilen: de manglende faktorene er skrevet som positive rester.**\n\nLinjen «$64\\equiv 3$, $65\\equiv 2$, $66\\equiv 1$» er gal. Faktorene er nær $67$, ikke nær $0$, så de skal skrives som **negative** rester ([kap. 2.3](/ma1301/ma1301-2-3)):\n$$64\\equiv -3,\\qquad 65\\equiv -2,\\qquad 66\\equiv -1\\pmod{67}.$$\n\n**Rettet besvarelse.** $67$ er et primtall (ingen av $2,3,5,7$ deler det, og $\\sqrt{67}\\approx 8{,}2$), så **ved Wilsons teorem** er\n$$66!\\equiv -1\\pmod{67}.$$\nVi uttrykker $66!$ ved $63!$:\n$$66!=63!\\cdot 64\\cdot 65\\cdot 66.$$\nMed de negative restene er $64\\cdot 65\\cdot 66\\equiv(-3)(-2)(-1)=-6\\pmod{67}$, altså\n$$-1\\equiv 63!\\cdot(-6)\\pmod{67}.$$\nVi ganger med inversen til $-6\\equiv 61$. Inversen er $11$, fordi\n$$61\\cdot 11=671=67\\cdot 10+1\\ \\checkmark$$\nDa er\n$$63!\\equiv(-1)\\cdot 11=-11\\equiv 56\\pmod{67},$$\nog til slutt\n$$5\\cdot 63!\\equiv 5\\cdot 56=280=67\\cdot 4+12\\pmod{67}.$$\n\n**Konklusjon:** resten når $5\\cdot 63!$ deles på $67$, er $12$.\n\n**Fortegnskontrollen som fanger feilen.** Med $j$ manglende faktorer er koeffisienten alltid\n$$(-1)^j\\cdot j!$$\nHer mangler tre faktorer ($64,65,66$), så $j=3$ er et **oddetall** og koeffisienten skal være **negativ**: $(-1)^3\\cdot 3!=-6$ ✓. Besvarelsen hadde $+6$, altså feil fortegn — og kontrollen tar fem sekunder: *tell de manglende faktorene, og se om antallet er odde eller likt.*\n\n**Kontroll av sluttsvaret på en uavhengig måte:** vi har $63!\\equiv 56\\equiv -11$. Sett inn i utgangspunktet: $63!\\cdot(-6)\\equiv(-11)(-6)=66\\equiv -1\\pmod{67}$ ✓, som er nettopp Wilsons teorem.\n\n**Sluttsvar:** feilen var positive i stedet for negative rester; riktig svar er $12$, og kontrollen er fortegnsregelen $(-1)^j\\cdot j!$.\n\n*Merk hvor billig feilen var å gjøre og hvor billig den var å finne. Den er den mest belagte enkeltfeilen i sjanger E, og fortegnstellingen er hele forsvaret.*",
+        "hints": [
+          "Se på hvordan de manglende faktorene er skrevet om. Er $64$ nærmere $0$ eller nærmere $67$?",
+          "Fortegnsregelen: med $j$ manglende faktorer er koeffisienten $(-1)^j\\cdot j!$. Hva er $j$ her?",
+          "Kontrollér inversen din ved å gange den med koeffisienten og se at du får $1$."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-8-1-lokke5-intro",
+      "type": "text",
+      "content": "## Løkke 5: Sjekklisten før innlevering\n\n*~7 minutter.*\n\nDe siste tjue minuttene av eksamen skal ikke brukes på et nytt delpunkt. De skal brukes på ni spørsmål, stilt til hvert delpunkt du har skrevet. Erfaringen fra fasitene er tydelig: de poengene som mistes på slutten, mistes på **samme ni ting** hver gang."
+    },
+    {
+      "id": "ma1301-8-1-def-sjekkliste",
+      "type": "definition",
+      "title": "Sjekklisten før innlevering",
+      "content": "Ni spørsmål, i denne rekkefølgen — de tre første er de som oftest gir treff:\n\n1. **Er Euklid ført baklengs**, der oppgaven trengte Bézout-koeffisienter, en invers eller $d$ i RSA?\n2. **Er løsbarheten kommentert** før løsningen — $d\\mid c$, $d\\mid b$, parvis primiskhet?\n3. **Står hele løsningsmengden der** — alle $d$ restklassene, $t$-parametriseringen, perioden i CRT-svaret — og er «minste positive» besvart der det ble spurt?\n4. **Er $\\gcd$-sjekken skrevet** før Eulers teorem ble brukt?\n5. **Er Wilson-fortegnene riktige** — $j$ manglende faktorer gir koeffisienten $(-1)^j\\cdot j!$?\n6. **Er fortegnsfaktoren i resiprositetsloven regnet**, ikke gjettet — og er supplementsreglene brukt med riktig modulus ($4$ for $(-1/p)$, $8$ for $(2/p)$)?\n7. **Er alle restene dekket** i hver case-analyse?\n8. **Er basissteget skrevet** i hvert induksjonsbevis, med riktig $n_0$?\n9. **Er teoremet navngitt** der argumentet hviler på det?\n\nOg til slutt, det tiende som ikke er et spørsmål men en sjekk: **ligger hvert sluttsvar i $0,\\dots,n-1$?** Et negativt eller for stort svar på en restberegning er nesten alltid en glemt siste reduksjon.\n\n**(må sitte utenat — dette er kontrolltiden din, og lista finnes ikke på arket)**"
+    },
+    {
+      "id": "ma1301-8-1-ex8",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-8-1-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Kjør sjekklisten på besvarelsen under, og skriv opp hvilke av de ni punktene som gir treff. Du skal **ikke** løse oppgaven på nytt.\n\n> **Oppgave:** løs $57x\\equiv 24\\pmod{81}$.\n>\n> **Besvarelse:** $\\gcd(57,81)=3$. Forkortet: $19x\\equiv 8\\pmod{27}$. Inversen til $19$ modulo $27$ er $10$, siden $19\\cdot 10=190=27\\cdot 7+1$. Da er $x\\equiv 80\\equiv 26\\pmod{27}$. Svar: $x\\equiv 26$.",
+        "solution": "**Treff på punkt 1, 2 og 3.**\n\n**Punkt 1 — Euklid baklengs.** Inversen $10$ er oppgitt med en kontroll, men uten kjeden som produserte den. Kontrollen $19\\cdot 10=190=27\\cdot 7+1$ er god (og bedre enn ingenting), men føringskrav 1 ber om divisjonskjeden og substitusjonskjeden. Her er de:\n$$27=1\\cdot 19+8,\\qquad 19=2\\cdot 8+3,\\qquad 8=2\\cdot 3+2,\\qquad 3=1\\cdot 2+1,\\qquad 2=2\\cdot 1+0.$$\nBaklengs: $1=3-2=3-(8-2\\cdot 3)=3\\cdot 3-8=3(19-2\\cdot 8)-8=3\\cdot 19-7\\cdot 8=3\\cdot 19-7(27-19)=10\\cdot 19-7\\cdot 27$. Altså $19\\cdot 10\\equiv 1\\pmod{27}$ ✓ — samme invers, nå produsert.\n\n**Punkt 2 — løsbarheten kommentert.** $\\gcd(57,81)=3$ er regnet, men setningen mangler: at $3$ **deler** $24$, og at kongruensen derfor er løsbar med **tre** inkongruente løsninger modulo $81$. Uten den setningen er forkortingen i neste linje ubegrunnet.\n\n**Punkt 3 — hele løsningsmengden.** Dette er den alvorlige. Svaret «$x\\equiv 26$» er en løsning modulo $27$, men oppgaven spurte modulo $81$, og der finnes **tre** inkongruente løsninger med avstand $81/3=27$:\n$$x\\equiv 26,\\quad 53,\\quad 80\\pmod{81}.$$\n*(Kontroll: $57\\cdot 26=1482=81\\cdot 18+24$ ✓; $57\\cdot 53=3021=81\\cdot 37+24$ ✓; $57\\cdot 80=4560=81\\cdot 56+24$ ✓.)*\n\n**Punktene som ikke gir treff:** 4 (ingen Euler brukt), 5 (ingen fakultet), 6 (ingen Legendre), 7 (ingen case-analyse), 8 (ingen induksjon). Punkt 9 er på grensen: «inversen til $19$ modulo $27$» er riktig terminologi, men setningen «etter Bézout er $1=10\\cdot 19-7\\cdot 27$» hadde vært det som bar argumentet.\n\nOg den tiende sjekken: sluttsvarene $26,53,80$ ligger alle i $0,\\dots,80$ ✓.\n\n**Sluttsvar:** treff på punkt 1, 2 og 3 — hvorav punkt 3 alene er forskjellen mellom en tredjedel av delpunktet og hele.\n\n*Tidsregnskapet er verdt å merke seg: de tre manglene tok til sammen omtrent halvannet minutt å rette. Det er derfor kontrolltiden er den best betalte tiden på hele settet.*",
+        "hints": [
+          "Gå gjennom de ni punktene i rekkefølge og spør: er dette relevant for oppgaven, og er det i så fall gjort?",
+          "Oppgaven spurte modulo $81$. Hva er modulusen i svaret?",
+          "$d=\\gcd(57,81)$ inkongruente løsninger — hvor mange er det, og hvor langt fra hverandre ligger de?"
+        ]
+      }
+    },
+    {
+      "id": "ma1301-8-1-kald-bank",
+      "type": "collapsible",
+      "title": "Kald bank — utenat-banken testet uten hint",
+      "buttonText": "Vis den kalde banken",
+      "content": [
+        {
+          "id": "ma1301-8-1-kald-intro",
+          "type": "text",
+          "content": "**Dette er bokas ene kalde bank: åtte oppgaver uten hint, der fasiten er en momentliste.**\n\nSlik brukes den: legg bort boka, ta et blankt ark, sett klokka på tolv minutter, og skriv ned svarene fra hukommelsen. Så — og først så — åpner du fasiten og krysser av punkt for punkt.\n\nGrunnen til at det ikke er hint her, er ikke strenghet. Det er realisme: **under kode D finnes det ingen hint.** Det finnes bare det du husker. En bank med hint tester gjenkjenning; denne tester gjenkalling, og det er gjenkalling eksamen krever.\n\n**Ikke bli motløs av en dårlig første runde.** Aktiv gjenkalling kjennes verre enn gjenlesing og virker langt bedre. Ta banken på nytt om tre dager, og igjen uken etter — det er den spredte repetisjonen som flytter kortene fra «kjenner igjen» til «kan skrive ned»."
+        },
+        {
+          "id": "ma1301-8-1-kb1",
+          "type": "exercise",
+          "exercise": {
+            "id": "ma1301-8-1-kb-o1",
+            "number": "K1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Skriv ned, uten å se: **Eulers teorem** med vilkåret, **Fermats lille teorem** i begge former med vilkåret der det trengs, og **Wilsons teorem**.",
+            "solution": "**Momentliste — kryss av:**\n\n- ☐ **Eulers teorem:** er $\\gcd(a,n)=1$, så er $a^{\\phi(n)}\\equiv 1\\pmod n$. *(Vilkåret $\\gcd(a,n)=1$ må stå.)*\n- ☐ **Fermat, form 1:** er $p$ et primtall og $p\\nmid a$, så er $a^{p-1}\\equiv 1\\pmod p$.\n- ☐ **Fermat, form 2:** er $p$ et primtall, så er $a^p\\equiv a\\pmod p$ for **alle** hele tall $a$ — ingen vilkår.\n- ☐ **Wilsons teorem:** er $p$ et primtall, så er $(p-1)!\\equiv -1\\pmod p$.\n- ☐ Fikk du med at Fermat følger av Euler fordi $\\phi(p)=p-1$?",
+            "hints": []
+          }
+        },
+        {
+          "id": "ma1301-8-1-kb2",
+          "type": "exercise",
+          "exercise": {
+            "id": "ma1301-8-1-kb-o2",
+            "number": "K2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Skriv ned **CRT-formelen** fullstendig, med vilkåret, og oppgi hva svaret er entydig modulo.",
+            "solution": "**Momentliste — kryss av:**\n\n- ☐ **Vilkåret:** modulene $m_1,\\dots,m_r$ er **parvis** relativt primiske.\n- ☐ $M=m_1m_2\\cdots m_r$.\n- ☐ $N_k=M/m_k$ for hver $k$.\n- ☐ Løs $N_kx_k\\equiv 1\\pmod{m_k}$ for hver $k$ *(inversen til $N_k$ modulo sin egen $m_k$)*.\n- ☐ $x\\equiv\\sum_k b_kN_kx_k\\pmod M$.\n- ☐ **Entydig modulo $M$** — svaret er én restklasse, ikke ett tall.\n- ☐ Husket du at **suksessiv innsetting** er en fullgod alternativ vei, og at den ikke krever at formelen sitter?",
+            "hints": []
+          }
+        },
+        {
+          "id": "ma1301-8-1-kb3",
+          "type": "exercise",
+          "exercise": {
+            "id": "ma1301-8-1-kb-o3",
+            "number": "K3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "Skriv ned **den kvadratiske resiprositetsloven** med fortegnsfaktoren, og **begge** supplementsreglene med riktig modulus i hver.",
+            "solution": "**Momentliste — kryss av:**\n\n- ☐ **Resiprositetsloven:** for ulike odde primtall $p,q$ er\n$$\\left(\\frac pq\\right)\\left(\\frac qp\\right)=(-1)^{\\frac{p-1}{2}\\cdot\\frac{q-1}{2}}.$$\n- ☐ **Snu-regelen i praksis:** fortegnet bytter nøyaktig når **begge** primtallene er $\\equiv 3\\pmod 4$; ellers er symbolene like.\n- ☐ **Supplementsregel 1:** $\\left(\\frac{-1}{p}\\right)=1$ hvis $p\\equiv 1\\pmod 4$, og $-1$ hvis $p\\equiv 3\\pmod 4$. *(Modulus $4$.)*\n- ☐ **Supplementsregel 2:** $\\left(\\frac 2p\\right)=1$ hvis $p\\equiv\\pm 1\\pmod 8$, og $-1$ hvis $p\\equiv\\pm 3\\pmod 8$. *(Modulus $8$ — «8-regelen».)*\n- ☐ Husket du at loven **bare** gjelder odde primtall, og at et sammensatt tall i telleren først skal splittes med multiplikativiteten?",
+            "hints": []
+          }
+        },
+        {
+          "id": "ma1301-8-1-kb4",
+          "type": "exercise",
+          "exercise": {
+            "id": "ma1301-8-1-kb-o4",
+            "number": "K4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Skriv ned $\\phi(p^k)$, hvordan $\\phi$ oppfører seg for et produkt, $\\tau(n)$ og $\\sigma(n)$ — alle fra primtallsfaktoriseringen.",
+            "solution": "**Momentliste — kryss av:**\n\n- ☐ $\\phi(p^k)=p^k-p^{k-1}$ *(ikke $p^k-1$)*.\n- ☐ $\\phi(mn)=\\phi(m)\\phi(n)$ **når** $\\gcd(m,n)=1$.\n- ☐ $\\tau(n)=\\prod_i(k_i+1)$ for $n=\\prod_i p_i^{k_i}$.\n- ☐ $\\sigma(n)=\\prod_i\\dfrac{p_i^{k_i+1}-1}{p_i-1}$.\n- ☐ Husket du at $\\sigma$-formelen **utledes på stedet** fra den geometriske summen $1+p+\\dots+p^k$, og at alle tre funksjonene er multiplikative for relativt primiske faktorer?",
+            "hints": []
+          }
+        },
+        {
+          "id": "ma1301-8-1-kb5",
+          "type": "exercise",
+          "exercise": {
+            "id": "ma1301-8-1-kb-o5",
+            "number": "K5",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Skriv ned **ordenslemmaet**, hvilke $n$ som har primitive røtter, hvor mange de er, og hvordan du verifiserer én.",
+            "solution": "**Momentliste — kryss av:**\n\n- ☐ **Ordenslemmaet:** for $\\gcd(a,n)=1$ er $a^t\\equiv 1\\pmod n$ nøyaktig når $\\operatorname{ord}_n(a)\\mid t$.\n- ☐ Spesialtilfellet: $\\operatorname{ord}_n(a)\\mid\\phi(n)$ — derfor er bare **divisorene** av $\\phi(n)$ kandidater.\n- ☐ **Eksistens:** primitive røtter finnes nøyaktig for $n=2,\\ 4,\\ p^k$ og $2p^k$ med $p$ odde primtall.\n- ☐ **Antall:** $\\phi(\\phi(n))$ primitive røtter når de finnes.\n- ☐ **Primdivisortesten:** $a$ er en primitiv rot nøyaktig når $a^{\\phi(n)/q}\\not\\equiv 1\\pmod n$ for **hver** primdivisor $q$ i $\\phi(n)$.\n- ☐ Husket du $\\operatorname{ord}(a^k)=\\dfrac{\\operatorname{ord}(a)}{\\gcd(k,\\operatorname{ord}(a))}$, og at antallet elementer av orden $d$ er $\\phi(d)$ når det finnes en primitiv rot?",
+            "hints": []
+          }
+        },
+        {
+          "id": "ma1301-8-1-kb6",
+          "type": "exercise",
+          "exercise": {
+            "id": "ma1301-8-1-kb-o6",
+            "number": "K6",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Skriv ned **RSA-oppsettet** fullstendig: hvilke fem størrelser systemet har, hvordan de henger sammen, og hvordan kryptering og dekryptering ser ut.",
+            "solution": "**Momentliste — kryss av:**\n\n- ☐ To ulike primtall $p,q$, og $n=pq$.\n- ☐ $\\phi(n)=(p-1)(q-1)$.\n- ☐ Krypteringseksponenten $e$ velges med $\\gcd(e,\\phi(n))=1$.\n- ☐ Dekrypteringseksponenten $d$ løser $ed\\equiv 1\\pmod{\\phi(n)}$ — funnet med Euklids algoritme **baklengs**.\n- ☐ Offentlig nøkkel $(n,e)$, privat nøkkel $d$ *(og $p,q,\\phi(n)$ er hemmelige)*.\n- ☐ Kryptering $c\\equiv m^e\\pmod n$, dekryptering $m\\equiv c^d\\pmod n$.\n- ☐ Husket du at korrektheten $(m^e)^d\\equiv m\\pmod n$ **utledes på stedet** fra $ed=1+k\\phi(n)$ pluss Eulers teorem?",
+            "hints": []
+          }
+        },
+        {
+          "id": "ma1301-8-1-kb7",
+          "type": "exercise",
+          "exercise": {
+            "id": "ma1301-8-1-kb-o7",
+            "number": "K7",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "Skriv ned **parametriseringen av primitive pytagoreiske tripler** med alle betingelsene, og **kjedebrøk-rekursjonen** for konvergentene.",
+            "solution": "**Momentliste — kryss av:**\n\n- ☐ $x=2st$, $y=s^2-t^2$, $z=s^2+t^2$.\n- ☐ Betingelse 1: $s>t\\ge 1$.\n- ☐ Betingelse 2: $\\gcd(s,t)=1$.\n- ☐ Betingelse 3: $s$ og $t$ har **ulik paritet** (én odde, én par).\n- ☐ Husket du at alle tre er nødvendige — uten den tredje blir trippelen delelig med $2$, uten den andre blir den avledet?\n- ☐ **Kjedebrøk-rekursjonen:** $p_n=a_np_{n-1}+p_{n-2}$ og $q_n=a_nq_{n-1}+q_{n-2}$, med $p_{-1}=1$, $p_{-2}=0$, $q_{-1}=0$, $q_{-2}=1$.\n- ☐ Husket du at Pell-løsningen leses av som en **konvergent** $p_n/q_n$ der $p_n^2-Dq_n^2=1$?",
+            "hints": []
+          }
+        },
+        {
+          "id": "ma1301-8-1-kb8",
+          "type": "exercise",
+          "exercise": {
+            "id": "ma1301-8-1-kb-o8",
+            "number": "K8",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Skriv ned de **fem bokføringskravene** og de **ni punktene** i sjekklisten før innlevering. Denne er den viktigste i banken: den er den eneste som gjelder hvert delpunkt du skriver.",
+            "solution": "**Momentliste — kryss av. Fem bokføringskrav:**\n\n- ☐ 1. Euklid-malen: divisjonskjeden frem, substitusjonskjeden baklengs, konklusjonssetning.\n- ☐ 2. Løsbarhet kommentert **før** løsning.\n- ☐ 3. Hele løsningsmengden — og «minste positive» når det spørres.\n- ☐ 4. Kvadrer-og-multipliser med $\\gcd$-sjekk, $\\phi(n)$, eksponentreduksjon og kvadrattabell.\n- ☐ 5. Teoremnavnet båret der argumentet hviler på det.\n\n**Ni sjekkpunkt:**\n\n- ☐ 1. Euklid ført baklengs? ☐ 2. Løsbarhet kommentert? ☐ 3. Hele løsningsmengden / minste positive?\n- ☐ 4. $\\gcd$-sjekk før Euler? ☐ 5. Wilson-fortegnene $(-1)^j\\cdot j!$? ☐ 6. Fortegnsfaktoren og supplementsreglene?\n- ☐ 7. Alle restene i case-analysen? ☐ 8. Basissteget med riktig $n_0$? ☐ 9. Teoremet navngitt?\n- ☐ Og den tiende: ligger hvert sluttsvar i $0,\\dots,n-1$?\n\n**Fikk du elleve av fjorten punkt?** Da har du føringsstandarden. Fikk du under sju, er dette kapitlet det du skal lese om igjen i morgen — det er det billigste stoffet i hele boka å eie.",
+            "hints": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "ma1301-8-1-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "Feilene i dette kapitlet er ikke regnefeil — det er ting som **ikke ble skrevet**. Derfor er de også de eneste feilene i boka du kan fjerne uten å lære noe nytt.\n\n- **Gcd oppgitt uten Bézout-koeffisientene.** Den enkeltfeilen som koster mest, fordi den stopper diofant-, invers- og RSA-delpunktet som følger etter.\n- **Eulers teorem brukt uten $\\gcd$-sjekken.** Vilkåret er ikke en formalitet: uten det er reduksjonen av eksponenten ganske enkelt ugyldig, og svaret blir galt.\n- **Wilson-fortegnene.** De manglende faktorene skrives som $-1,-2,-3,\\dots$, aldri som $+1,+2,+3$. Tell dem: $j$ faktorer gir koeffisienten $(-1)^j\\cdot j!$.\n- **Fortegnsfaktoren i resiprositetsloven glemt eller gjettet.** Skriv pariteten ut: $\\frac{p-1}{2}\\cdot\\frac{q-1}{2}$, og les av om den er odde.\n- **Supplementsreglene forvekslet.** $(-1/p)$ leses av $p$ modulo **4**; $(2/p)$ av $p$ modulo **8**. To ulike moduler, to ulike regler.\n- **Ufullstendig løsningsmengde.** Én løsning der det er $d$; ett tall der svaret er en restklasse; ingen «minste positive» der oppgaven ba om den.\n- **Glemt basissteg.** Den mest belagte feilen i bevisdelen — og som løkke 4 viste: uten basissteg er beviset tomt, ikke bare mangelfullt.\n- **Ufullstendig case-analyse.** En rest som ikke er behandlet, er et hull i beviset. Et tilfelle som «ikke kan skje», utelukkes med en setning.\n- **Sluttall uten metode.** «Kalkulatoren» er ikke en metode, og under kode D kan den ikke gjøre dette likevel: den reduserer ikke $19^{505}\\bmod 132$, den faktoriserer ikke $451$, og den kjører ikke Euklids algoritme.\n- **Potens uten kvadrer-og-multipliser.** Binærutviklingen og kvadrattabellen er beviset på at du regnet det selv.\n- **Metodevalg tatt før oppgaveteksten er lest ut.** Den dyreste feilen i tid: å begynne på riktig sjanger etter ti minutter på feil.\n- **Kontrolltiden brukt på et nytt delpunkt.** Et halvt nytt delpunkt er nesten alltid verdt mindre enn tre funnede feil i de ferdige."
+    },
+    {
+      "id": "ma1301-8-1-bank-notis",
+      "type": "text",
+      "content": "### Begrepsbank: teorem- og formelbanken\n\nDette er flashcard-stoff — **hopp trygt over ved førstegangslesing**; tidsanslaget på 55 minutter gjelder kjernestoffet over. Kom tilbake hit når du repeterer.\n\n**Men merk at denne banken er noe annet enn de andre i boka.** I fagkapitlene er kortene støtte til teksten. Her er de **eksamensverktøyet selv**: dette er hele apparatet du skal ha i hodet 24. november, samlet på ett sted, i den formen du skal kunne skrive det ned i. Under hjelpemiddelkode D finnes ingen bok, ingen formelsamling og ingen tabeller — banken er derfor ikke et supplement til pensum, den *er* pensum sett fra eksamensdagen.\n\nSlik brukes den: **dekk til, skriv ned, sjekk.** Aktiv gjenkalling slår gjenlesing, hver gang, og prosedyrekortene pugges ved å **kjøre** prosedyren på nye tall — ikke ved å lese den."
+    },
+    {
+      "id": "ma1301-8-1-def-bank01",
+      "type": "definition",
+      "title": "Kort: Euklids algoritme og Bézout",
+      "content": "**Divisjonskjeden frem:** gjentatt divisjon med rest til rest $0$; siste ikke-null rest er $\\gcd(a,b)$.\n\n**Substitusjonskjeden baklengs:** start i nest siste linje, substituer oppover, til\n$$\\gcd(a,b)=ax+by.$$\n\n**Bézouts identitet:** $\\gcd(a,b)$ er den minste positive verdien $ax+by$ kan ha.\n\n**Kontroll:** sett $x$ og $y$ inn og se at du får $\\gcd$-en, ikke noe annet.\n\n**(prosedyren må sitte utenat; koeffisientene $x,y$ utledes på stedet — de finnes ikke utenat for noe tallpar, og leses ut av kjeden hver gang)**"
+    },
+    {
+      "id": "ma1301-8-1-def-bank02",
+      "type": "definition",
+      "title": "Kort: Eulers ϕ-funksjon og Eulers teorem",
+      "content": "$\\phi(n)$ teller tallene $1,\\dots,n$ som er relativt primiske til $n$.\n\n$$\\phi(p^k)=p^k-p^{k-1},\\qquad \\phi(mn)=\\phi(m)\\phi(n)\\ \\text{ når }\\gcd(m,n)=1.$$\n\n**Eulers teorem:** er $\\gcd(a,n)=1$, så er $a^{\\phi(n)}\\equiv 1\\pmod n$.\n\n**Brukt som verktøy:** reduser eksponenten modulo $\\phi(n)$ — ikke modulo $n$.\n\n**(begge formler og teoremet med vilkåret må sitte utenat; den generelle formen $\\phi(n)=n\\prod_{p\\mid n}\\left(1-\\frac1p\\right)$ utledes på stedet av $\\phi(p^k)$ pluss multiplikativiteten, to linjer)**"
+    },
+    {
+      "id": "ma1301-8-1-def-bank03",
+      "type": "definition",
+      "title": "Kort: Fermats lille teorem",
+      "content": "**Form 1:** er $p$ et primtall og $p\\nmid a$, så er\n$$a^{p-1}\\equiv 1\\pmod p.$$\n\n**Form 2:** er $p$ et primtall, så er $a^p\\equiv a\\pmod p$ for **alle** hele tall $a$ — ingen vilkår.\n\n**Brukt som verktøy:** ved primtallsmodulus reduseres eksponenten modulo $p-1$.\n\n**(begge former må sitte utenat — men om formen glipper: Fermat utledes på stedet av Euler, siden $\\phi(p)=p-1$ for et primtall. Én linje, under et halvt minutt.)**"
+    },
+    {
+      "id": "ma1301-8-1-def-bank04",
+      "type": "definition",
+      "title": "Kort: Wilsons teorem og fakultets-trikset",
+      "content": "**Wilsons teorem:** for et primtall $p$ er\n$$(p-1)!\\equiv -1\\pmod p.$$\n\n**Trikset på $k\\cdot m!\\bmod p$:** skriv $(p-1)!=m!\\cdot(m+1)\\cdots(p-1)$, bytt hver manglende faktor med en **negativ rest** ($p-j\\equiv -j$), og gang med **inversen** til koeffisienten — aldri «del».\n\n**Fortegnsregelen:** med $j$ manglende faktorer er koeffisienten $(-1)^j\\cdot j!$.\n\n**(teoremet og fortegnsregelen må sitte utenat; $(p-2)!\\equiv 1\\pmod p$ utledes på stedet på én linje, og invers-parringen er minnekroken når teoremet nøler)**"
+    },
+    {
+      "id": "ma1301-8-1-def-bank05",
+      "type": "definition",
+      "title": "Kort: det kinesiske restteoremet",
+      "content": "**Vilkår:** modulene er **parvis** relativt primiske. **Svaret er entydig modulo $M=\\prod m_k$.**\n\n**Formelen:** $N_k=M/m_k$; løs $N_kx_k\\equiv 1\\pmod{m_k}$; sett\n$$x\\equiv\\sum_k b_kN_kx_k\\pmod M.$$\n\n**Suksessiv innsetting:** $x=b_1+m_1t$, sett inn i neste kongruens, løs for $t$, gjenta. **Begge veier gir full uttelling** — og under kode D er innsetting sikkerhetsnettet, fordi den ikke krever at noen formel sitter.\n\n**Ikke parvis primiske moduler:** løsbar nøyaktig når $\\gcd(m_1,m_2)$ deler $b_1-b_2$; perioden er da $\\operatorname{lcm}$, ikke produktet.\n\n**(formelen og vilkåret må sitte utenat; innsettingsveien er ren kongruensregning og utledes på stedet)**"
+    },
+    {
+      "id": "ma1301-8-1-def-bank06",
+      "type": "definition",
+      "title": "Kort: RSA-oppsettet",
+      "content": "$n=pq$ med $p\\ne q$ primtall · $\\phi(n)=(p-1)(q-1)$ · $\\gcd(e,\\phi(n))=1$ · $ed\\equiv 1\\pmod{\\phi(n)}$.\n\nOffentlig nøkkel $(n,e)$; privat $d$. Kryptering $c\\equiv m^e\\pmod n$, dekryptering $m\\equiv c^d\\pmod n$.\n\n**Den raske dekrypteringsveien:** regn $c^{d\\bmod(p-1)}\\bmod p$ og $c^{d\\bmod(q-1)}\\bmod q$, og sett sammen med det kinesiske restteoremet. Fullgod, og ofte raskere for hånd.\n\n**(oppsettet må sitte utenat; korrektheten $(m^e)^d\\equiv m\\pmod n$ utledes på stedet fra $ed=1+k\\phi(n)$ pluss Eulers teorem — tre linjer, pluss to for tilfellet $p\\mid m$)**"
+    },
+    {
+      "id": "ma1301-8-1-def-bank07",
+      "type": "definition",
+      "title": "Kort: Legendre-symbolet og Eulers kriterium",
+      "content": "$\\left(\\frac ap\\right)=+1$ om $a$ er en kvadratisk rest modulo $p$, $-1$ om ikke, $0$ om $p\\mid a$.\n\n**Periodisitet:** $a\\equiv b\\pmod p\\Rightarrow\\left(\\frac ap\\right)=\\left(\\frac bp\\right)$ — reduser alltid telleren først.\n\n**Fullstendig multiplikativitet:** $\\left(\\frac{ab}{p}\\right)=\\left(\\frac ap\\right)\\left(\\frac bp\\right)$ — så kvadrater i telleren faller bort.\n\n**Eulers kriterium:** $\\left(\\frac ap\\right)\\equiv a^{(p-1)/2}\\pmod p$.\n\n**Antall løsninger av $x^2\\equiv a$:** to (som $\\pm x_0$) om symbolet er $1$, ingen om det er $-1$.\n\n**(alt dette må sitte utenat; at det finnes $(p-1)/2$ kvadratiske rester og at $\\sum_{a=1}^{p-1}\\left(\\frac ap\\right)=0$ utledes på stedet av multiplikativiteten, to linjer)**"
+    },
+    {
+      "id": "ma1301-8-1-def-bank08",
+      "type": "definition",
+      "title": "Kort: resiprositetsloven og de to supplementsreglene",
+      "content": "**Loven** (ulike odde primtall $p,q$):\n$$\\left(\\frac pq\\right)\\left(\\frac qp\\right)=(-1)^{\\frac{p-1}{2}\\cdot\\frac{q-1}{2}}.$$\nI praksis: fortegnet bytter nøyaktig når **begge** er $\\equiv 3\\pmod 4$.\n\n**Supplement 1:** $\\left(\\frac{-1}{p}\\right)=1$ om $p\\equiv 1\\pmod 4$, ellers $-1$. *(Modulus 4.)*\n\n**Supplement 2 — «8-regelen»:** $\\left(\\frac 2p\\right)=1$ om $p\\equiv\\pm 1\\pmod 8$, ellers $-1$. *(Modulus 8.)*\n\n**Reduksjonsalgoritmen:** reduser telleren · faktoriser · splitt med multiplikativiteten · behandle $-1$ og $2$ med supplementene · snu de odde primtallene med loven · gjenta til alt er $\\pm 1$.\n\n**(loven med fortegnsfaktoren og begge supplementer må sitte utenat; supplementet for $(-1/p)$ kan i tillegg utledes på stedet fra Eulers kriterium — én linje)**"
+    },
+    {
+      "id": "ma1301-8-1-def-bank09",
+      "type": "definition",
+      "title": "Kort: ordenslemmaet",
+      "content": "$\\operatorname{ord}_n(a)$ er den minste $k\\ge 1$ med $a^k\\equiv 1\\pmod n$, og finnes nøyaktig når $\\gcd(a,n)=1$.\n\n**Ordenslemmaet:** $a^t\\equiv 1\\pmod n\\iff\\operatorname{ord}_n(a)\\mid t$. Spesielt $\\operatorname{ord}_n(a)\\mid\\phi(n)$.\n\n**Divisortesten:** regn $\\phi(n)$, og test divisorene i **stigende** rekkefølge; første treff er ordenen. Å vise at den er den **minste**, er en del av svaret.\n\n**Brukt som verktøy:** reduser eksponenter modulo ordenen — den er ofte mye mindre enn $\\phi(n)$.\n\n**(lemmaet begge veier må sitte utenat; $\\operatorname{ord}(a^k)=\\operatorname{ord}(a)/\\gcd(k,\\operatorname{ord}(a))$ utledes på stedet av lemmaet, to linjer)**"
+    },
+    {
+      "id": "ma1301-8-1-def-bank10",
+      "type": "definition",
+      "title": "Kort: primitive røtter — eksistens, antall, test",
+      "content": "En **primitiv rot** modulo $n$ er et element av orden $\\phi(n)$; potensene treffer da alle restene som er relativt primiske til $n$.\n\n**Eksistens:** nøyaktig for $n=2,\\ 4,\\ p^k,\\ 2p^k$ med $p$ odde primtall.\n\n**Antall:** $\\phi(\\phi(n))$.\n\n**Primdivisortesten:** $a$ er primitiv rot $\\iff a^{\\phi(n)/q}\\not\\equiv 1\\pmod n$ for **hver** primdivisor $q$ i $\\phi(n)$. Én test per primdivisor — ikke per divisor.\n\n**Antall elementer av orden $d$** (når en primitiv rot finnes, og $d\\mid\\phi(n)$): $\\phi(d)$.\n\n**(eksistens, antall og testen må sitte utenat; at alle primitive røtter er $r^k$ med $\\gcd(k,\\phi(n))=1$ utledes på stedet av ordensformelen for potenser, to linjer)**"
+    },
+    {
+      "id": "ma1301-8-1-def-bank11",
+      "type": "definition",
+      "title": "Kort: τ og σ",
+      "content": "For $n=p_1^{k_1}\\cdots p_r^{k_r}$:\n$$\\tau(n)=\\prod_i(k_i+1),\\qquad \\sigma(n)=\\prod_i\\frac{p_i^{k_i+1}-1}{p_i-1}.$$\n\nBegge er **multiplikative** for relativt primiske faktorer.\n\n**Minste $n$ med gitt $\\tau(n)=m$:** faktoriser $m$ på alle måter som produkt av heltall $>1$, tolk hver faktorisering som eksponentmønster $(k_i+1)$, og legg de **største** eksponentene på de **minste** primtallene. Regn ut alle kandidatene og velg den minste.\n\n**Identiteter:** $\\tau(n)$ er odde nøyaktig når $n$ er et kvadrattall; $\\dfrac{\\sigma(n)}{n}=\\sum_{d\\mid n}\\dfrac 1d$.\n\n**($\\tau$-formelen må sitte utenat; $\\sigma$-formelen utledes på stedet fra den geometriske summen $1+p+\\dots+p^k$ — én linje per primtallspotens)**"
+    },
+    {
+      "id": "ma1301-8-1-def-bank12",
+      "type": "definition",
+      "title": "Kort: pytagoreisk parametrisering",
+      "content": "Alle **primitive** pytagoreiske tripler (med $x$ par) er\n$$x=2st,\\qquad y=s^2-t^2,\\qquad z=s^2+t^2,$$\nmed de tre betingelsene: $s>t\\ge 1$, $\\gcd(s,t)=1$, og $s,t$ av **ulik paritet**.\n\nHver betingelse har sin jobb: den første gir positive sider, den andre gjør trippelen primitiv, den tredje hindrer at alle tre sidene blir delelige med $2$.\n\n**Faste delelighetsresultater:** $4\\mid x$; $3\\mid xy$; $5\\mid xyz$; $z\\equiv 1\\pmod 4$.\n\n**(parametriseringen med alle tre betingelsene må sitte utenat — å glemme paritetsbetingelsen er den belagte feilen i sjangeren; delelighetsresultatene utledes på stedet med case-analyse på $s$ og $t$, tre–fem linjer hver)**"
+    },
+    {
+      "id": "ma1301-8-1-def-bank13",
+      "type": "definition",
+      "title": "Kort: kjedebrøk og Pell",
+      "content": "**Rasjonalt tall:** kjedebrøkleddene er kvotientene i Euklids algoritme.\n\n**$\\sqrt D$:** periodisk kjedebrøk $[a_0;\\overline{a_1,\\dots,a_{k-1},2a_0}]$, funnet med hjelpetabellen for $m$, $d$ og $a$.\n\n**Konvergentene:**\n$$p_n=a_np_{n-1}+p_{n-2},\\qquad q_n=a_nq_{n-1}+q_{n-2},$$\nmed $p_{-1}=1$, $p_{-2}=0$, $q_{-1}=0$, $q_{-2}=1$.\n\n**Pells likning $x^2-Dy^2=1$:** den minste ikke-trivielle løsningen er en konvergent $p_n/q_n$ — regn $p_n^2-Dq_n^2$ rad for rad til du treffer $1$. Neste løsning: $(x_1^2+Dy_1^2,\\ 2x_1y_1)$.\n\n**(rekursjonen må sitte utenat; at neste Pell-løsning kommer av kvadrering utledes på stedet ved å gange $x_1+y_1\\sqrt D$ med seg selv, to linjer)**"
+    },
+    {
+      "id": "ma1301-8-1-def-bank14",
+      "type": "definition",
+      "title": "Kort: de utledningene du gjør på stedet",
+      "content": "Ni resultater skal **ikke** pugges. De utledes når du trenger dem, og hver tar under to minutter:\n\n1. **Bézout-koeffisientene** — ut av substitusjonskjeden.\n2. **Fermat ut av Euler** — $\\phi(p)=p-1$, én linje.\n3. **Den generelle $\\phi$-formelen** — ut av $\\phi(p^k)$ pluss multiplikativitet.\n4. **$\\sigma$-formelen** — geometrisk sum.\n5. **Supplementet for $(-1/p)$** — ut av Eulers kriterium.\n6. **$\\operatorname{ord}(a^k)$** — ut av ordenslemmaet.\n7. **RSA-korrektheten** — ut av $ed=1+k\\phi(n)$ pluss Euler.\n8. **CRT ved suksessiv innsetting** — ren kongruensregning, ingen formel.\n9. **$(p-2)!\\equiv 1\\pmod p$** — ut av Wilson, én linje.\n\n**Hvorfor listen er kort:** «kan utledes» er bare et løfte hvis utledningen faktisk tar noen få linjer under tidspress. Alt annet i banken må sitte utenat.\n\n**(listen over hva som utledes på stedet, må selv sitte utenat — det er den som avgjør hva du bruker pugge tiden på)**"
+    },
+    {
+      "id": "ma1301-8-1-def-bank15",
+      "type": "definition",
+      "title": "Kort: aktiv gjenkalling og spredt repetisjon",
+      "content": "**Hvorfor pugging er en ferdighet her:** hjelpemiddelkode D fjerner oppslaget. Da er gjenkalling den eneste tilgangen til apparatet, og gjenkalling trenes annerledes enn forståelse.\n\n- **Dekk til, skriv ned, sjekk.** Aktiv gjenkalling slår gjenlesing — også når det kjennes verre, som det gjør.\n- **Prosedyrer pugges ved å kjøres.** Euklid frem og baklengs på tre nye tallpar er mer verdt enn tre gjennomlesninger av oppskriften.\n- **Spredt repetisjon:** ta kortene fra Del 1–2 på nytt når du er i Del 4–6. De fem søylene er de som må sitte i november, ikke i oktober.\n- **Minnekroker der de finnes:** «8-regelen» for $(2/p)$ · invers-parringen bak Wilson · «trekk fra multiplene» for $\\phi$ · dominobrikkene for induksjon.\n- **Den kalde banken over** er måleinstrumentet: elleve av fjorten punkt er godt, fjorten er målet.\n\n**(må sitte utenat — som vane, ikke som formel)**"
+    },
+    {
+      "id": "ma1301-8-1-def-bank16",
+      "type": "definition",
+      "title": "Kort: hvor føringspoengene sitter",
+      "content": "Samlet, i den rekkefølgen de oftest mistes:\n\n1. **Euklid baklengs** (sjanger A, B, D) — og med den hele resten av delpunktet.\n2. **Hele løsningsmengden** (A, B, C) — alle $d$ restklassene, $t$-parametriseringen, perioden.\n3. **«Minste positive»** når det spørres om — det siste kravet i oppgaveteksten, det første som glemmes.\n4. **$\\gcd$-sjekken** før Eulers teorem (E, D).\n5. **Wilson-fortegnene** (E).\n6. **Fortegnsfaktoren** i resiprositetsloven (F).\n7. **Basissteget** i induksjon (J).\n8. **Den siste resten** i en case-analyse (I).\n9. **Teoremnavnet** (C, E, F, I) — det er der vilkåret bor.\n\n**Tidsprisen for alle ni til sammen: under to minutter per delpunkt.** Det er hele regnestykket bak dette kapitlet.\n\n**(må sitte utenat — det er lista du går gjennom i kontrolltiden)**"
+    },
+    {
+      "id": "ma1301-8-1-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "ma1301-8-1-rep-intro",
+          "type": "text",
+          "content": "Fem korte oppgaver fra kapitlene dette kapitlet hviler på. De tar til sammen omtrent tolv minutter, og de er valgt slik at hver av dem er et **føringskrav i miniatyr**. Fasitene står under hver oppgave."
+        },
+        {
+          "id": "ma1301-8-1-rep1",
+          "type": "text",
+          "content": "**1.** Regn ut $\\gcd(1064,418)$ med Euklids algoritme, og skriv gcd-en på formen $1064x+418y$. *([kap. 1.2](/ma1301/ma1301-1-2))*\n\n**Fasit.** **Ved Euklids algoritme:** $1064=2\\cdot 418+228$; $418=1\\cdot 228+190$; $228=1\\cdot 190+38$; $190=5\\cdot 38+0$. Siste ikke-null rest er $38$, altså $\\gcd(1064,418)=38$.\n\nBaklengs: $38=228-190=228-(418-228)=2\\cdot 228-418=2(1064-2\\cdot 418)-418=2\\cdot 1064-5\\cdot 418$.\n\nAltså er $38=1064\\cdot 2+418\\cdot(-5)$. **Kontroll:** $2128-2090=38$ ✓."
+        },
+        {
+          "id": "ma1301-8-1-rep2",
+          "type": "text",
+          "content": "**2.** Hvor mange inkongruente løsninger har $34x\\equiv 51\\pmod{85}$, og hva er de? *([kap. 1.4](/ma1301/ma1301-1-4))*\n\n**Fasit.** $d=\\gcd(34,85)=17$, og $17\\mid 51$ (siden $51=17\\cdot 3$), så kongruensen er løsbar med **17** inkongruente løsninger modulo $85$.\n\nForkortet — **også modulusen** deles på $17$: $2x\\equiv 3\\pmod 5$. Inversen til $2$ modulo $5$ er $3$ ($2\\cdot 3=6\\equiv 1$), så $x\\equiv 9\\equiv 4\\pmod 5$.\n\nDe sytten løsningene modulo $85$ er $x\\equiv 4,9,14,\\dots,84$, altså $x\\equiv 4+5k$ for $k=0,1,\\dots,16$. **Kontroll:** $34\\cdot 4=136=85+51$ ✓."
+        },
+        {
+          "id": "ma1301-8-1-rep3",
+          "type": "text",
+          "content": "**3.** Finn resten når $3^{101}$ deles på $50$. *([kap. 2.1](/ma1301/ma1301-2-1))*\n\n**Fasit.** $50=2\\cdot 5^2$, og $\\gcd(3,50)=1$ ✓, så teoremet kan brukes. $\\phi(50)=\\phi(2)\\phi(25)=1\\cdot(25-5)=20$.\n\n**Fra Eulers teorem** er $3^{20}\\equiv 1\\pmod{50}$, og $101=20\\cdot 5+1$, så\n$$3^{101}=\\left(3^{20}\\right)^5\\cdot 3\\equiv 1^5\\cdot 3=3\\pmod{50}.$$\n**Resten er $3$.** *(Kontroll på snarveien: her var reduksjonen alt som skulle til — ingen kvadrattabell nødvendig, fordi eksponenten ble $1$.)*"
+        },
+        {
+          "id": "ma1301-8-1-rep4",
+          "type": "text",
+          "content": "**4.** Avgjør om $\\left(\\frac{-1}{83}\\right)$ og $\\left(\\frac{2}{47}\\right)$ er $+1$ eller $-1$. *([kap. 4.2](/ma1301/ma1301-4-2))*\n\n**Fasit.** **Supplementsregel 1** leser $p$ modulo $4$: $83=4\\cdot 20+3$, altså $83\\equiv 3\\pmod 4$, og\n$$\\left(\\frac{-1}{83}\\right)=-1.$$\n\n**Supplementsregel 2** leser $p$ modulo $8$: $47=8\\cdot 5+7$, altså $47\\equiv 7\\equiv -1\\pmod 8$, og\n$$\\left(\\frac{2}{47}\\right)=+1.$$\n\n*(Merk de to ulike modulene — det er nettopp de to reglene som forveksles.)*"
+        },
+        {
+          "id": "ma1301-8-1-rep5",
+          "type": "text",
+          "content": "**5.** Vis ved induksjon at $5\\mid 6^n-1$ for alle $n\\ge 1$, med alle tre stegene merket. *([kap. 6.2](/ma1301/ma1301-6-2))*\n\n**Fasit.**\n\n**(1) Basissteg ($n=1$):** $6^1-1=5$, og $5\\mid 5$ ✓.\n\n**(2) Induksjonshypotese:** anta at $5\\mid 6^k-1$ for en $k\\ge 1$, altså at $6^k-1=5t$ for et helt tall $t$.\n\n**(3) Induksjonssteg:** $6^{k+1}-1=6\\cdot 6^k-1=6\\left(6^k-1\\right)+5$. **Her bruker vi induksjonshypotesen:** $6^k-1=5t$, så\n$$6^{k+1}-1=6\\cdot 5t+5=5(6t+1),$$\nsom er delelig med $5$.\n\nVed induksjonsprinsippet holder påstanden for alle $n\\ge 1$. $\\blacksquare$ **Kontroll:** $n=3$ gir $216-1=215=5\\cdot 43$ ✓."
+        }
+      ]
+    },
+    {
+      "id": "ma1301-8-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "ma1301-8-1-symb",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $\\gcd(a,b)$ | største felles divisor av $a$ og $b$ |\n| $\\operatorname{lcm}(a,b)$ | minste felles multiplum |\n| $a\\mid b$, $a\\nmid b$ | «$a$ deler $b$» / «deler ikke» |\n| $a\\equiv b\\pmod m$ | $a$ og $b$ gir samme rest ved divisjon med $m$ |\n| $a\\bmod n$ | resten når $a$ deles på $n$ |\n| $d$ | $\\gcd$-en i sjanger A og B — antallet inkongruente løsninger |\n| $t\\in\\mathbb{Z}$ | parameteren i en løsningsmengde |\n| $\\phi(n)$, $\\tau(n)$, $\\sigma(n)$ | Eulers $\\phi$ · antall divisorer · divisorsum |\n| $\\left(\\frac ap\\right)$ | Legendre-symbolet |\n| $\\operatorname{ord}_n(a)$ | ordenen til $a$ modulo $n$ |\n| $(n,e)$, $d$ | offentlig RSA-nøkkel og dekrypteringseksponent |\n| $P(n)$, $n_0$, $k$ | påstanden, startverdien og hypoteseverdien i induksjon |\n| $p_n/q_n$ | konvergent nummer $n$ i en kjedebrøk |\n| $j$ | antall manglende faktorer i Wilson-trikset |\n| $\\blacksquare$ | bevis slutt |\n\n**Formler i dette delkapitlet:**\n\n$$\\gcd(a,b)=ax+by$$\nBézout-formen, målet for substitusjonskjeden baklengs. **(formen må sitte utenat; koeffisientene utledes på stedet av kjeden)**\n\n$$d\\mid c\\ \\Longrightarrow\\ x=x_0+\\frac bd t,\\quad y=y_0-\\frac ad t,\\quad t\\in\\mathbb{Z}$$\nLøsbarhet og hele løsningsmengden i sjanger A. **(må sitte utenat)**\n\n$$ax\\equiv b\\pmod m\\ \\text{har}\\ d=\\gcd(a,m)\\ \\text{inkongruente løsninger når}\\ d\\mid b$$\nLøsbarhet og antall i sjanger B, med avstand $m/d$ mellom løsningene. **(må sitte utenat)**\n\n$$a^{\\phi(n)}\\equiv 1\\pmod n\\quad(\\gcd(a,n)=1)$$\nEulers teorem — vilkåret er en del av formelen. **(må sitte utenat)**\n\n$$a^{p-1}\\equiv 1\\pmod p\\ (p\\nmid a),\\qquad a^p\\equiv a\\pmod p$$\nFermats lille teorem i begge former. **(utledes på stedet av Euler via $\\phi(p)=p-1$ — én linje)**\n\n$$(p-1)!\\equiv -1\\pmod p,\\qquad \\text{koeffisient}=(-1)^j\\cdot j!$$\nWilsons teorem og fortegnsregelen for $j$ manglende faktorer. **(må sitte utenat)**\n\n$$N_k=\\frac{M}{m_k},\\quad N_kx_k\\equiv 1\\pmod{m_k},\\quad x\\equiv\\sum_k b_kN_kx_k\\pmod M$$\nCRT-formelen, med parvis primiskhet som vilkår. **(må sitte utenat — men suksessiv innsetting utledes på stedet og er fullgod)**\n\n$$n=pq,\\quad\\phi(n)=(p-1)(q-1),\\quad ed\\equiv 1\\pmod{\\phi(n)}$$\nRSA-oppsettet. **(må sitte utenat; korrektheten $(m^e)^d\\equiv m$ utledes på stedet — tre linjer)**\n\n$$\\left(\\frac ap\\right)\\equiv a^{(p-1)/2}\\pmod p$$\nEulers kriterium. **(må sitte utenat)**\n\n$$\\left(\\frac pq\\right)\\left(\\frac qp\\right)=(-1)^{\\frac{p-1}{2}\\cdot\\frac{q-1}{2}}$$\nDen kvadratiske resiprositetsloven. **(må sitte utenat)**\n\n$$\\left(\\frac{-1}{p}\\right)\\ \\text{etter}\\ p\\bmod 4,\\qquad \\left(\\frac 2p\\right)\\ \\text{etter}\\ p\\bmod 8$$\nDe to supplementsreglene, med to ulike moduler. **(må sitte utenat)**\n\n$$a^t\\equiv 1\\pmod n\\iff\\operatorname{ord}_n(a)\\mid t,\\qquad \\operatorname{ord}_n(a)\\mid\\phi(n)$$\nOrdenslemmaet. **(må sitte utenat)**\n\n$$\\#\\{\\text{primitive røtter}\\}=\\phi(\\phi(n)),\\qquad \\#\\{\\text{elementer av orden }d\\}=\\phi(d)$$\nTellingene i sjanger G. **(må sitte utenat)**\n\n$$\\tau(n)=\\prod_i(k_i+1),\\qquad \\sigma(n)=\\prod_i\\frac{p_i^{k_i+1}-1}{p_i-1}$$\nDe tallteoretiske funksjonene. **($\\tau$ må sitte utenat; $\\sigma$ utledes på stedet av den geometriske summen)**\n\n$$x=2st,\\quad y=s^2-t^2,\\quad z=s^2+t^2\\qquad (s>t,\\ \\gcd(s,t)=1,\\ \\text{ulik paritet})$$\nPytagoreisk parametrisering med alle tre betingelsene. **(må sitte utenat)**\n\n$$p_n=a_np_{n-1}+p_{n-2},\\qquad q_n=a_nq_{n-1}+q_{n-2}$$\nKjedebrøk-rekursjonen. **(må sitte utenat)**\n\n$$\\text{(1) basissteg}\\quad\\text{(2) induksjonshypotese}\\quad\\text{(3) induksjonssteg}$$\nInduksjonsmalen, med «her bruker vi induksjonshypotesen» i steg 3. **(må sitte utenat — det er en form, og formen kan ikke slås opp)**\n\n$$\\frac{240\\text{ min}}{10\\text{ delpunkt}}=24\\text{ min per delpunkt}$$\nTidsbudsjettet. **(må sitte utenat)**"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

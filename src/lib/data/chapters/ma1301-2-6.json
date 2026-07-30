@@ -1,0 +1,392 @@
+{
+  "id": "ma1301-2-6",
+  "courseId": "ma1301",
+  "chapterNumber": "2.6",
+  "title": "Drill: restberegning med de fire teoremene og CRT",
+  "description": "Hele restberegning- og CRT-repertoaret drillet: aᴺ mod n via Euler/Fermat, rest av k·n! mod p via Wilson, CRT-system via begge metoder, og den sammensatte fakultetsoppgaven — verktøykassen som gir flest delpunkt i hvert sett.",
+  "estimatedMinutes": 85,
+  "competenceGoals": [
+    "velge riktig teorem for et gitt uttrykk og en gitt modulus, uten å se på oppskriften",
+    "regne restberegninger og kongruenssystemer på eksamensnivå under tidspress",
+    "løse et system av kongruenser med begge metodene, og bruke den ene som kontroll på den andre",
+    "kontrollere eget arbeid på hvert steg, siden det ikke finnes hjelpemidler å slå opp i på eksamen"
+  ],
+  "content": [
+    {
+      "id": "ma1301-2-6-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette kapitlet driller hele restberegning- og CRT-repertoaret: sjanger C og E samlet.**\n\nSjangerbokstavene er bokas egne forkortelser, forklart i [kap. 0.1](/ma1301/ma1301-0-1). Her er frekvensene du driller mot:\n\n| Variant | Sjanger | Frekvens |\n|---|---|---|\n| Eulers $\\phi$ og eksponentreduksjon | **E** | 14 av 15 sett |\n| Det kinesiske restteoremet | **C** | 12 av 15 sett |\n| Wilsons teorem på et fakultet | **E** | 11 av 15 sett |\n| Fermats lille teorem | **E** | 8 av 15 sett |\n| Sammensatt fakultetsoppgave (begge i samme uttrykk) | **C+E** | praktisk talt hvert sett fra 2014 |\n\n**Til sammen bærer disse fire teoremene omtrent halvparten av settet.** Det er derfor Del 2 er tyngdepunktet i boka, og det er derfor dette drillkapitlet er langt.\n\n**Prioritet: høyeste.** Sitter dette, har du sikret deg mot å tape delpunkt på det som faktisk kommer hvert år.\n\n**Slik bruker du kapitlet:** les løsningsoppskriftene én gang, gå gjennom den gjennomregnede casen med margnotatene, og regn deretter oppgavene **med lukket bok**. Det er den eneste treningsformen som ligner eksamen under hjelpemiddelkode D."
+    },
+    {
+      "id": "ma1301-2-6-utenat",
+      "type": "tip",
+      "title": "Utenat under kode D",
+      "content": "Eksamen er hjelpemiddelkode D: ingen bok, ingen formelsamling, ingen tabeller, ingen egne notater. Alt du regner i dette kapitlet, regner du med penn og en enkel kalkulator som bare gjør aritmetikk.\n\n**Må sitte utenat — de fire teoremene og de fire prosedyrene:**\n\n- **$\\phi(p^k)=p^k-p^{k-1}$** og multiplikativiteten\n- **Eulers teorem** med $\\gcd(a,n)=1$; **Fermats lille teorem** i begge former; **Wilsons teorem** $(p-1)!\\equiv -1\\pmod p$\n- **CRT-formelen** med parvis-primiskhet-vilkåret\n- **kvadrer-og-multipliser**, **fakultets-trikset** ($p-j\\equiv -j$), **beslutningstreet**\n\n**Utledes på stedet:**\n\n- **suksessiv innsetting** som alternativ til CRT-formelen — bare kongruensregning, ingen formel. Står ført ut i oppgave 9.\n- **Fermat ut av Euler** ($\\phi(p)=p-1$) — én linje, hvis formen glipper.\n- **$(p-2)!\\equiv 1$** ut av Wilson — én linje.\n\n**Selvtest, femten minutter:** regn oppgave 1, 4, 7 og 11 med boka lukket. Fire oppgaver, fire ulike varianter. Klarer du alle fire uten å se på oppskriften, sitter Del 2.\n\n**Prosedyrer pugges ved å kjøres.** Tretten oppgaver her er mer verdt enn tretten gjennomlesninger av [kap. 2.1](/ma1301/ma1301-2-1)–[kap. 2.5](/ma1301/ma1301-2-5)."
+    },
+    {
+      "id": "ma1301-2-6-forkunnskaper",
+      "type": "text",
+      "content": "### Forkunnskaper\n\nFra boka: hele Del 2 — [kap. 2.1](/ma1301/ma1301-2-1) (Euler og $\\phi$), [kap. 2.2](/ma1301/ma1301-2-2) (Fermat), [kap. 2.3](/ma1301/ma1301-2-3) (Wilson), [kap. 2.4](/ma1301/ma1301-2-4) (CRT) og [kap. 2.5](/ma1301/ma1301-2-5) (den sammensatte oppgaven). Fra Del 1 trenger du [kap. 1.2](/ma1301/ma1301-1-2) (Euklids algoritme til inverser) og [kap. 1.4](/ma1301/ma1301-1-4) (kongruensregning).\n\n**Sist du var her.** De fem resultatene alle oppgavene bygger på, ferdig oppfrisket:\n\n**1.** $\\phi(p^k)=p^k-p^{k-1}$, og $\\phi(mn)=\\phi(m)\\phi(n)$ når $\\gcd(m,n)=1$.\n\n**2. Eulers teorem.** $a^{\\phi(n)}\\equiv 1\\pmod n$ når $\\gcd(a,n)=1$ — reduser eksponenten modulo $\\phi(n)$.\n\n**3. Fermats lille teorem.** $a^{p-1}\\equiv 1\\pmod p$ når $p\\nmid a$ — reduser eksponenten modulo $p-1$.\n\n**4. Wilsons teorem.** $(p-1)!\\equiv -1\\pmod p$ — og de manglende faktorene skrives $p-j\\equiv -j$.\n\n**5. Det kinesiske restteoremet.** Parvis relativt primiske moduler gir én løsning modulo produktet; $N_j=M/m_j$ og $N_jx_j\\equiv 1\\pmod{m_j}$.\n\nEr noe av dette usikkert, gå tilbake til kapitlet det står i **før** du regner oppgavene her. Drill på et usikkert fundament fester feilen i stedet for ferdigheten."
+    },
+    {
+      "id": "ma1301-2-6-oppskrift-intro",
+      "type": "text",
+      "content": "## Løsningsoppskriftene\n\n*~12 minutter. Les dem, og bruk dem som referanse mens du regner oppgavene.*\n\nFire oppskrifter dekker hele sjanger C og E. Den femte — den sammensatte — er bare de andre brukt etter hverandre.\n\n**Alle fire starter med samme spørsmål:** hva er modulusen, og hva er leddet? Det er beslutningstreet fra [kap. 2.5](/ma1301/ma1301-2-5), og det avgjør hvilken oppskrift du er i."
+    },
+    {
+      "id": "ma1301-2-6-oppskrift-1",
+      "type": "text",
+      "content": "### Oppskrift 1: $a^{N}\\bmod n$ i sju steg\n\n**(i) Faktoriser modulusen.** Primtall eller sammensatt?\n\n**(ii) $\\gcd$-sjekken.** Skriv setningen «$\\gcd(a,n)=1$». Er den ikke $1$, gå til oppskrift 3.\n\n**(iii) Regn ut $\\phi(n)$** (eller les $p-1$ direkte for primtall).\n\n**(iv) Reduser eksponenten** modulo $\\phi(n)$ eller $p-1$, **med teoremnavnet**: «fra Eulers teorem» / «fra Fermats lille teorem».\n\n**(v) Binærutvikling og kvadrattabell** — reduser etter hvert kvadrat.\n\n**(vi) Sett sammen produktet**, to faktorer av gangen.\n\n**(vii) Konklusjon** som en setning, svaret i $0,\\dots,n-1$.\n\n*Snarvei å se etter i steg (ii)–(iii): reduser grunntallet først. Blir det $0$, $1$ eller $-1$, er oppgaven ferdig på én linje.*"
+    },
+    {
+      "id": "ma1301-2-6-oppskrift-2",
+      "type": "text",
+      "content": "### Oppskrift 2: $k\\cdot m!\\bmod p$ i fem steg\n\n**(1) Sjekk at $p$ er et primtall**, og skriv **Wilsons teorem**: $(p-1)!\\equiv -1\\pmod p$.\n\n**(2) Uttrykk $(p-1)!$ ved $m!$:** $(p-1)!=m!\\cdot(m+1)(m+2)\\cdots(p-1)$.\n\n**(3) Bytt de manglende faktorene med negative rester** ($p-j\\equiv -j$), og regn det lille produktet. Med $j$ manglende faktorer er koeffisienten $(-1)^{j}\\cdot j!$.\n\n**(4) Gang med inversen** til koeffisienten modulo $p$ — aldri «del».\n\n**(5) Gang med $k$**, reduser, og konkludér.\n\n*Er modulusen sammensatt, gjelder ikke Wilson. Da er $m!\\equiv 0$ hvis faktorene i modulusen står i $m!$.*"
+    },
+    {
+      "id": "ma1301-2-6-oppskrift-3",
+      "type": "text",
+      "content": "### Oppskrift 3: CRT — system, og splitting\n\n**A. Løs et system** $x\\equiv b_j\\pmod{m_j}$:\n\n**(1)** Sjekk **parvis** primiskhet, og skriv setningen.\n**(2)** Forenkle hver kongruens til formen $x\\equiv b_j$.\n**(3)** *Formelen:* $M=\\prod m_j$, $N_j=M/m_j$, løs $N_jx_j\\equiv 1\\pmod{m_j}$, og sett $x\\equiv\\sum b_jN_jx_j\\pmod M$.\n**(3′)** *Eller suksessiv innsetting:* $x=b_1+m_1t$, sett inn i neste, løs for $t$, gjenta. **Begge er fullgode.**\n**(4)** Reduser modulo $M$, og **kontrollér i alle kongruensene**.\n\n**B. Splitt en beregning** når $\\gcd(a,n)\\ne 1$:\n\n**(1)** Faktoriser $n$ i primtallspotenser.\n**(2)** Regn hele uttrykket modulo hver potens: er $p\\mid a$ og eksponenten $\\ge k$, er leddet $\\equiv 0\\pmod{p^k}$; ellers Euler.\n**(3)** Sett sammen med CRT, og kontrollér.\n\n*Ikke parvis primiske moduler? Sjekk om $\\gcd(m_1,m_2)$ deler $b_1-b_2$ — er det ikke slik, har systemet ingen løsning.*"
+    },
+    {
+      "id": "ma1301-2-6-oppskrift-4",
+      "type": "text",
+      "content": "### Oppskrift 4: den sammensatte oppgaven i seks steg\n\n**(1)** Faktoriser modulusen.\n**(2)** Del uttrykket i ledd — fakultet, potens, vanlig tall.\n**(3)** $\\gcd$-sjekk for hvert potensledd. Ikke $1$ ⇒ oppskrift 3B.\n**(4)** Reduser hvert ledd med sitt teorem (oppskrift 1 eller 2).\n**(5)** Kombiner restene slik uttrykket sier, og reduser modulo $n$.\n**(6)** Konkludér.\n\n**Arbeidsvanen som forebygger den vanligste feilen:** to kolonner på arket, én per ledd, som møtes først i siste linje.\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "ma1301-2-6-kontrollpunkter",
+      "type": "text",
+      "content": "### De fem kontrollpunktene\n\nUnder kode D er selvkontroll den eneste kontrollen du har — det finnes ingen fasit i rommet og ingenting å slå opp i. Disse fem tar til sammen under to minutter og fanger nesten alt.\n\n| Etter | Kontroll | Fanger |\n|---|---|---|\n| faktoriseringen | gang faktorene sammen igjen | avskrivningsfeil |\n| $\\phi(n)$ | partall (for $n\\ge 3$) og mindre enn $n$? | $\\phi(p^k)=p^k-1$-feilen |\n| Wilson-koeffisienten | stemmer den med $(-1)^{j}\\cdot j!$? | fortegnsfeil |\n| kvadrattabellen | er alle tall under $n$? | glemt reduksjon |\n| CRT-svaret | sett inn i **alle** kongruensene | alle regnefeil |\n\n**Og til slutt, den billigste av alle:** ligger sluttsvaret mellom $0$ og $n-1$? Får du $25$ som rest modulo $19$, har du glemt siste reduksjon."
+    },
+    {
+      "id": "ma1301-2-6-case-intro",
+      "type": "text",
+      "content": "## Gjennomregnet eksamenscase\n\n*~15 minutter.*\n\nHer er en typisk oppgave av den sammensatte typen, med tre delpunkt som bygger på hverandre — nøyaktig den formen arkivet bruker. Underveis står **margnotater** som sier hva hvert steg er verdt, og hvorfor.\n\nLes den én gang med blyanten i hånda, og regn deretter oppgavene selv."
+    },
+    {
+      "id": "ma1301-2-6-case",
+      "type": "example",
+      "title": "Eksamenscase: fakultet, potens og sammensetting modulo 29",
+      "problem": "La $p=29$.\n\n**a)** Finn resten når $25!$ deles på $29$. (3 poeng)\n**b)** Finn resten når $3^{404}$ deles på $29$. (3 poeng)\n**c)** Finn resten når $6\\cdot 25!+3^{404}$ deles på $29$. (2 poeng)",
+      "solution": "**Er $29$ et primtall?** $\\sqrt{29}\\approx 5{,}4$, og verken $2$, $3$ eller $5$ går opp. **Ja.**\n\n> **Margnotat:** denne setningen er verdt et poeng i seg selv. Både Wilsons og Fermats teorem krever primtallsmodulus, og en besvarelse som bruker dem uten å ha sagt det, har hoppet over premisset.\n\n---\n\n**a) $25!$ modulo $29$.** *(~5 min)*\n\n**Ved Wilsons teorem** er $(29-1)! = 28!\\equiv -1\\pmod{29}$.\n\nVi skriver $28!$ ved hjelp av $25!$ og de faktorene som mangler:\n\n$$28! = 25!\\cdot 26\\cdot 27\\cdot 28.$$\n\nNå skrives hver av de manglende faktorene som en **negativ rest** modulo $29$ — det er hele trikset, og det er her fortegnene avgjør:\n\n$$26\\equiv -3\\pmod{29},\\qquad 27\\equiv -2\\pmod{29},\\qquad 28\\equiv -1\\pmod{29}.$$\n\nAltså er\n\n$$-1\\equiv 28!\\equiv 25!\\cdot (-3)\\cdot (-2)\\cdot (-1) = -6\\cdot 25!\\pmod{29}.$$\n\nVi løser for $25!$. Koeffisienten er $-6\\equiv 23\\pmod{29}$, og inversen til $23$ modulo $29$ er $24$ (kontroll: $23\\cdot 24 = 552 = 29\\cdot 19 + 1$). Ganger vi begge sider med $24$:\n\n$$25!\\equiv -1\\cdot 24 = -24\\equiv 5\\pmod{29}.$$\n\nTil slutt ganger vi med $1$:\n\n$$1\\cdot 25!\\equiv 1\\cdot 5 = 5\\equiv 5\\pmod{29}.$$\n\n**Konklusjon.** Resten når $1\\cdot 25!$ deles på $29$, er $\\boxed{5}$.\n\n> **Margnotat til a):** tre ting bærer uttellingen. **(1)** Teoremnavnet «ved Wilsons teorem» — uten det er $(28)!\\equiv -1$ en påstand uten hjemmel. **(2)** De manglende faktorene skrevet som **negative rester**; dette er selve trikset, og fortegnene er det som skiller riktig fra galt. **(3)** Inversen regnet ut **og kontrollert** — en gal invers gir et svar som ser helt rimelig ut.\n\n---\n\n**b) $3^{404}$ modulo $29$.** *(~5 min)*\n\n**(i) Faktoriser modulusen.** $29$ er et primtall.\n\n**(ii) $\\gcd$-sjekken.** $\\gcd(3,29)=1$, siden primtallet $29$ ikke deler $3$. Vilkåret er oppfylt, så teoremet kan brukes.\n\n**(iii) Regn ut $\\phi(n)$.** Modulusen er primtallet $29$, så $\\phi(29)=29-1=28$.\n\n**(iv) Reduser eksponenten.** **Fra Fermats lille teorem** er $3^{28}\\equiv 1\\pmod{29}$, så vi kan redusere eksponenten modulo $p-1=28$:\n\n$$404 = 28\\cdot 14 + 12,\\qquad\\text{så}\\qquad 3^{404} = \\left(3^{28}\\right)^{14}\\cdot 3^{12}\\equiv 1^{14}\\cdot 3^{12} = 3^{12}\\pmod{29}.$$\n\n**(v) Binærutviklingen av eksponenten og de suksessive kvadratene.** Vi skriver eksponenten som en sum av toerpotenser: $12 = 8 + 4$, altså $12$ i binær er $1100$. Deretter kvadrerer vi oss oppover, og reduserer modulo $29$ etter hvert kvadrat:\n\n| Potens | Utregning | Rest modulo $29$ |\n|---|---|---|\n| $3^{1}$ | — | $3$ |\n| $3^{2}$ | $3^2=9$ | $9$ |\n| $3^{4}$ | $9^2=81$, og $81=29\\cdot 2+23$ | $23$ |\n| $3^{8}$ | $23^2=529$, og $529=29\\cdot 18+7$ | $7$ |\n\n**(vi) Sett sammen produktet.** Da er\n\n$$3^{12} = 3^{8} \\cdot 3^{4} \\equiv 7 \\cdot 23 \\pmod{29},$$\n\nog vi multipliserer to av gangen, med reduksjon underveis: $7\\cdot 23 = 161\\equiv 16$.\n\n**(vii) Konklusjon.** Resten når $3^{404}$ deles på $29$, er $\\boxed{16}$.\n\n> **Margnotat til b):** her er det steg (ii) og (iv) som gir poeng. **$\\gcd$-sjekken** («$29\\nmid 3$») er premisset for reduksjonen, og **teoremnavnet** er hjemmelen. Og legg merke til at **kvadrattabellen står i besvarelsen**: et sluttall uten den er et svar uten metode, og instruksen på hvert sett er at alle svar må begrunnes.\n\n---\n\n**c) $6\\cdot 25!+3^{404}$ modulo $29$.** *(~2 min)*\n\nNå er begge delene ferdig regnet. Fra a) er $25!\\equiv 5\\pmod{29}$, så\n$$6\\cdot 25!\\equiv 6\\cdot 5=30\\equiv 1\\pmod{29},$$\nsiden $30=29\\cdot 1+1$. Og fra b) er $3^{404}\\equiv 16\\pmod{29}$.\n\nKongruenser kan adderes ([kap. 1.4](/ma1301/ma1301-1-4)), så\n$$6\\cdot 25!+3^{404}\\equiv 1+16=17\\equiv 17\\pmod{29}.$$\n\n**Konklusjon.** Resten når $6\\cdot 25!+3^{404}$ deles på $29$, er $\\boxed{17}$.\n\n> **Margnotat til c):** delpunktet er verdt få poeng, men det er gratis hvis a) og b) er riktige — og det faller helt hvis en av dem er gal. **Derfor er kontrollene i a) og b) verdt tiden.** Legg også merke til at summen måtte reduseres én gang til: en rest modulo $29$ ligger mellom $0$ og $28$.\n\n**Samlet tidsbruk: ~12 minutter for tre delpunkt.** Til sammenligning gir eksamensbudsjettet ~24 minutter **per** delpunkt (4 timer på ~10 likt vektede delpunkt). Sitter apparatet, henter du altså inn tid her som du kan bruke på bevisoppgaven eller resiprositetsoppgaven senere i settet."
+    },
+    {
+      "id": "ma1301-2-6-oppgaver-intro",
+      "type": "text",
+      "content": "## Oppgavene\n\n*~55 minutter til sammen. Tretten oppgaver, gruppert etter variant.*\n\nRegn dem med **penn og lukket bok**. Det er den eneste treningsformen som ligner eksamen under hjelpemiddelkode D, og forskjellen mellom å ha lest en oppskrift og å kunne den, viser seg først når boka er lukket.\n\n**Gruppene:** oppgave 1–4 er $a^{N}\\bmod n$ (den siste med $\\gcd\\ne 1$), 5–7 er Wilson-fakultet, 8–10 er CRT (én med hver metode, én med ikke-primiske moduler), og 11–13 er sammensatte. Den siste er tredelt, som på eksamen.\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "ma1301-2-6-ex-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-2-6-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Finn resten når $2^{365}$ deles på $91$.",
+        "solution": "**(i) Faktoriser modulusen.** $91 = 7 \\cdot 13$.\n\n**(ii) $\\gcd$-sjekken.** $\\gcd(2,91)=1$, siden $2$ ikke har noen primfaktor felles med $91$. Vilkåret er oppfylt, så teoremet kan brukes.\n\n**(iii) Regn ut $\\phi(n)$.** Fra faktoriseringen: $\\phi(91)=(7-1)\\cdot (13-1) = 6\\cdot 12=72$.\n\n**(iv) Reduser eksponenten.** **Fra Eulers teorem** er $2^{72}\\equiv 1\\pmod{91}$, så vi kan redusere eksponenten modulo $\\phi(91)=72$:\n\n$$365 = 72\\cdot 5 + 5,\\qquad\\text{så}\\qquad 2^{365} = \\left(2^{72}\\right)^{5}\\cdot 2^{5}\\equiv 1^{5}\\cdot 2^{5} = 2^{5}\\pmod{91}.$$\n\n**(v) Binærutviklingen av eksponenten og de suksessive kvadratene.** Vi skriver eksponenten som en sum av toerpotenser: $5 = 4 + 1$, altså $5$ i binær er $101$. Deretter kvadrerer vi oss oppover, og reduserer modulo $91$ etter hvert kvadrat:\n\n| Potens | Utregning | Rest modulo $91$ |\n|---|---|---|\n| $2^{1}$ | — | $2$ |\n| $2^{2}$ | $2^2=4$ | $4$ |\n| $2^{4}$ | $4^2=16$ | $16$ |\n\n**(vi) Sett sammen produktet.** Da er\n\n$$2^{5} = 2^{4} \\cdot 2^{1} \\equiv 16 \\cdot 2 \\pmod{91},$$\n\nog vi multipliserer to av gangen, med reduksjon underveis: $16\\cdot 2 = 32$.\n\n**(vii) Konklusjon.** Resten når $2^{365}$ deles på $91$, er $\\boxed{32}$.\n\n*Merk at $91=7\\cdot 13$ **ikke** er et primtall, selv om det ser slik ut. Hadde du brukt $90$ som eksponentmodulus, ville svaret blitt galt. Sjekk alltid $7$, $11$ og $13$ på tosifrede og tresifrede tall.*",
+        "hints": [
+          "Er $91$ et primtall? Prøv $7$.",
+          "Regn $\\phi(91)$ fra faktoriseringen, og sjekk $\\gcd(2,91)$.",
+          "Reduser $365$ modulo $\\phi(91)$."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-2-6-ex-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-2-6-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Finn resten når $7^{1234}$ deles på $45$.",
+        "solution": "**(i) Faktoriser modulusen.** $45 = 3^{2} \\cdot 5$.\n\n**(ii) $\\gcd$-sjekken.** $\\gcd(7,45)=1$, siden $7$ ikke har noen primfaktor felles med $45$. Vilkåret er oppfylt, så teoremet kan brukes.\n\n**(iii) Regn ut $\\phi(n)$.** Fra faktoriseringen: $\\phi(45)=(3^{2}-3^{1})\\cdot (5-1) = 6\\cdot 4=24$.\n\n**(iv) Reduser eksponenten.** **Fra Eulers teorem** er $7^{24}\\equiv 1\\pmod{45}$, så vi kan redusere eksponenten modulo $\\phi(45)=24$:\n\n$$1234 = 24\\cdot 51 + 10,\\qquad\\text{så}\\qquad 7^{1234} = \\left(7^{24}\\right)^{51}\\cdot 7^{10}\\equiv 1^{51}\\cdot 7^{10} = 7^{10}\\pmod{45}.$$\n\n**(v) Binærutviklingen av eksponenten og de suksessive kvadratene.** Vi skriver eksponenten som en sum av toerpotenser: $10 = 8 + 2$, altså $10$ i binær er $1010$. Deretter kvadrerer vi oss oppover, og reduserer modulo $45$ etter hvert kvadrat:\n\n| Potens | Utregning | Rest modulo $45$ |\n|---|---|---|\n| $7^{1}$ | — | $7$ |\n| $7^{2}$ | $7^2=49$, og $49=45\\cdot 1+4$ | $4$ |\n| $7^{4}$ | $4^2=16$ | $16$ |\n| $7^{8}$ | $16^2=256$, og $256=45\\cdot 5+31$ | $31$ |\n\n**(vi) Sett sammen produktet.** Da er\n\n$$7^{10} = 7^{8} \\cdot 7^{2} \\equiv 31 \\cdot 4 \\pmod{45},$$\n\nog vi multipliserer to av gangen, med reduksjon underveis: $31\\cdot 4 = 124\\equiv 34$.\n\n**(vii) Konklusjon.** Resten når $7^{1234}$ deles på $45$, er $\\boxed{34}$.\n\n*Kontroll det er verdt å gjøre: $7^2=49\\equiv 4\\pmod{45}$, som er et lite tall — derfor ble kvadrattabellen enkel. Se etter slike små kvadrater før du starter; de gjør regningen kortere.*",
+        "hints": [
+          "$45=3^2\\cdot 5$. Regn $\\phi(45)$ fra faktoriseringen.",
+          "Sjekk $\\gcd(7,45)$: har $7$ noen primfaktor felles med $45$?",
+          "Reduser $1234$ modulo $\\phi(45)$."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-2-6-ex-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-2-6-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Finn resten når $10^{200}$ deles på $63$.",
+        "solution": "**(i) Faktoriser modulusen.** $63 = 3^{2} \\cdot 7$.\n\n**(ii) $\\gcd$-sjekken.** $\\gcd(10,63)=1$, siden $10$ ikke har noen primfaktor felles med $63$. Vilkåret er oppfylt, så teoremet kan brukes.\n\n**(iii) Regn ut $\\phi(n)$.** Fra faktoriseringen: $\\phi(63)=(3^{2}-3^{1})\\cdot (7-1) = 6\\cdot 6=36$.\n\n**(iv) Reduser eksponenten.** **Fra Eulers teorem** er $10^{36}\\equiv 1\\pmod{63}$, så vi kan redusere eksponenten modulo $\\phi(63)=36$:\n\n$$200 = 36\\cdot 5 + 20,\\qquad\\text{så}\\qquad 10^{200} = \\left(10^{36}\\right)^{5}\\cdot 10^{20}\\equiv 1^{5}\\cdot 10^{20} = 10^{20}\\pmod{63}.$$\n\n**(v) Binærutviklingen av eksponenten og de suksessive kvadratene.** Vi skriver eksponenten som en sum av toerpotenser: $20 = 16 + 4$, altså $20$ i binær er $10100$. Deretter kvadrerer vi oss oppover, og reduserer modulo $63$ etter hvert kvadrat:\n\n| Potens | Utregning | Rest modulo $63$ |\n|---|---|---|\n| $10^{1}$ | — | $10$ |\n| $10^{2}$ | $10^2=100$, og $100=63\\cdot 1+37$ | $37$ |\n| $10^{4}$ | $37^2=1\\,369$, og $1\\,369=63\\cdot 21+46$ | $46$ |\n| $10^{8}$ | $46^2=2\\,116$, og $2\\,116=63\\cdot 33+37$ | $37$ |\n| $10^{16}$ | $37^2=1\\,369$, og $1\\,369=63\\cdot 21+46$ | $46$ |\n\n**(vi) Sett sammen produktet.** Da er\n\n$$10^{20} = 10^{16} \\cdot 10^{4} \\equiv 46 \\cdot 46 \\pmod{63},$$\n\nog vi multipliserer to av gangen, med reduksjon underveis: $46\\cdot 46 = 2\\,116\\equiv 37$.\n\n**(vii) Konklusjon.** Resten når $10^{200}$ deles på $63$, er $\\boxed{37}$.\n\n*Legg merke til at $\\gcd(10,63)=1$ selv om begge tallene er sammensatte: $10=2\\cdot 5$ og $63=3^2\\cdot 7$ har ingen primfaktor felles. Vilkåret handler om felles primfaktorer, ikke om å være primtall.*",
+        "hints": [
+          "$63=3^2\\cdot 7$. Regn $\\phi(63)$.",
+          "Sjekk $\\gcd(10,63)$ ved å sammenligne primfaktorene.",
+          "Reduser $200$ modulo $36$."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-2-6-ex-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-2-6-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Finn resten når $18^{50}$ deles på $45$.",
+        "solution": "**Steg 1: $\\gcd$-sjekken — og den svikter.** $45=3^2\\cdot 5$ og $18=2\\cdot 3^2$, så\n$$\\gcd(18,45)=9\\ne 1.$$\n**Eulers teorem kan ikke brukes på modulus $45$.** Vi splitter (oppskrift 3B).\n\n**Steg 2: splitt modulusen.** $45=9\\cdot 5$ med $\\gcd(9,5)=1$.\n\n**Modulo $9$:** $18=9\\cdot 2$, så $18\\equiv 0\\pmod 9$, og\n$$18^{50}\\equiv 0\\pmod 9.$$\n\n**Modulo $5$:** her er $\\gcd(18,5)=1$ ✓. Vi reduserer grunntallet først: $18\\equiv 3\\pmod 5$. Og $\\phi(5)=4$, så **fra Eulers teorem** reduseres eksponenten modulo $4$:\n$$50=4\\cdot 12+2,\\qquad\\text{så}\\qquad 18^{50}\\equiv 3^{2}=9\\equiv 4\\pmod 5.$$\n\n**Steg 3: sett sammen.** Vi søker $x$ med $x\\equiv 0\\pmod 9$, $x\\equiv 4\\pmod 5$ og $0\\le x<45$. Multiplene av $9$ under $45$ er $0,9,18,27,36$, og restene modulo $5$ er $0,4,3,2,1$ — bare $9$ gir $4$.\n\n**Kontroll:** $9=9\\cdot 1+0$ ✓ og $9=5+4$ ✓.\n\n**Konklusjon.** Resten når $18^{50}$ deles på $45$, er $\\boxed{9}$.\n\n*Merk hvorfor splittingen var nødvendig: $18$ og $45$ deler primfaktoren $3$, så potensen samler opp treere modulo $9$ og lander på $0$ der, mens den går pent i ring modulo $5$. Eulers teorem beskriver bare den andre oppførselen.*",
+        "hints": [
+          "Sjekk $\\gcd(18,45)$ først. Kan Eulers teorem brukes?",
+          "Splitt $45=9\\cdot 5$ og regn modulo hver del for seg.",
+          "Modulo $9$: hva blir $18^{50}$ når $9$ deler $18$?",
+          "Modulo $5$: reduser grunntallet først, så eksponenten modulo $4$."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-2-6-ex-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-2-6-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Finn resten når $3\\cdot 26!$ deles på $29$.",
+        "solution": "**Ved Wilsons teorem** er $(29-1)! = 28!\\equiv -1\\pmod{29}$.\n\nVi skriver $28!$ ved hjelp av $26!$ og de faktorene som mangler:\n\n$$28! = 26!\\cdot 27\\cdot 28.$$\n\nNå skrives hver av de manglende faktorene som en **negativ rest** modulo $29$ — det er hele trikset, og det er her fortegnene avgjør:\n\n$$27\\equiv -2\\pmod{29},\\qquad 28\\equiv -1\\pmod{29}.$$\n\nAltså er\n\n$$-1\\equiv 28!\\equiv 26!\\cdot (-2)\\cdot (-1) = 2\\cdot 26!\\pmod{29}.$$\n\nVi løser for $26!$. Koeffisienten er $2\\equiv 2\\pmod{29}$, og inversen til $2$ modulo $29$ er $15$ (kontroll: $2\\cdot 15 = 30 = 29\\cdot 1 + 1$). Ganger vi begge sider med $15$:\n\n$$26!\\equiv -1\\cdot 15 = -15\\equiv 14\\pmod{29}.$$\n\nTil slutt ganger vi med $3$:\n\n$$3\\cdot 26!\\equiv 3\\cdot 14 = 42\\equiv 13\\pmod{29}.$$\n\n**Konklusjon.** Resten når $3\\cdot 26!$ deles på $29$, er $\\boxed{13}$.\n\n*To faktorer manglet, altså et partall, så produktet av de negative restene ble positivt. Kontrollen mot fortegnsregelen: $(-1)^{2}\\cdot 2!=2$ ✓.*",
+        "hints": [
+          "$28!\\equiv -1\\pmod{29}$ ved Wilsons teorem.",
+          "Hvilke to faktorer mangler i $26!$? Skriv dem som negative rester.",
+          "Gang til slutt med inversen til koeffisienten, ikke del."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-2-6-ex-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-2-6-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Finn resten når $5\\cdot 36!$ deles på $41$.",
+        "solution": "**Ved Wilsons teorem** er $(41-1)! = 40!\\equiv -1\\pmod{41}$.\n\nVi skriver $40!$ ved hjelp av $36!$ og de faktorene som mangler:\n\n$$40! = 36!\\cdot 37\\cdot 38\\cdot 39\\cdot 40.$$\n\nNå skrives hver av de manglende faktorene som en **negativ rest** modulo $41$ — det er hele trikset, og det er her fortegnene avgjør:\n\n$$37\\equiv -4\\pmod{41},\\qquad 38\\equiv -3\\pmod{41},\\qquad 39\\equiv -2\\pmod{41},\\qquad 40\\equiv -1\\pmod{41}.$$\n\nAltså er\n\n$$-1\\equiv 40!\\equiv 36!\\cdot (-4)\\cdot (-3)\\cdot (-2)\\cdot (-1) = 24\\cdot 36!\\pmod{41}.$$\n\nVi løser for $36!$. Koeffisienten er $24\\equiv 24\\pmod{41}$, og inversen til $24$ modulo $41$ er $12$ (kontroll: $24\\cdot 12 = 288 = 41\\cdot 7 + 1$). Ganger vi begge sider med $12$:\n\n$$36!\\equiv -1\\cdot 12 = -12\\equiv 29\\pmod{41}.$$\n\nTil slutt ganger vi med $5$:\n\n$$5\\cdot 36!\\equiv 5\\cdot 29 = 145\\equiv 22\\pmod{41}.$$\n\n**Konklusjon.** Resten når $5\\cdot 36!$ deles på $41$, er $\\boxed{22}$.\n\n*Inversen til $24$ modulo $41$ var lett her: $24\\cdot 12=288=41\\cdot 7+1$. Se alltid etter et slikt lykketreff blant små multipler før du starter Euklids algoritme — det tar tjue sekunder og sparer fire linjer.*",
+        "hints": [
+          "$40!\\equiv -1\\pmod{41}$.",
+          "Fire faktorer mangler: $37,38,39,40$. Skriv dem negativt.",
+          "Produktet av fire negative tall er positivt. Hva blir koeffisienten?",
+          "Finn inversen til koeffisienten ved å prøve små multipler."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-2-6-ex-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-2-6-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "**a)** Finn resten når $44!$ deles på $47$.\n**b)** Finn resten når $45!$ deles på $47$.",
+        "solution": "**a)** **Ved Wilsons teorem** er $(47-1)! = 46!\\equiv -1\\pmod{47}$.\n\nVi skriver $46!$ ved hjelp av $44!$ og de faktorene som mangler:\n\n$$46! = 44!\\cdot 45\\cdot 46.$$\n\nNå skrives hver av de manglende faktorene som en **negativ rest** modulo $47$ — det er hele trikset, og det er her fortegnene avgjør:\n\n$$45\\equiv -2\\pmod{47},\\qquad 46\\equiv -1\\pmod{47}.$$\n\nAltså er\n\n$$-1\\equiv 46!\\equiv 44!\\cdot (-2)\\cdot (-1) = 2\\cdot 44!\\pmod{47}.$$\n\nVi løser for $44!$. Koeffisienten er $2\\equiv 2\\pmod{47}$, og inversen til $2$ modulo $47$ er $24$ (kontroll: $2\\cdot 24 = 48 = 47\\cdot 1 + 1$). Ganger vi begge sider med $24$:\n\n$$44!\\equiv -1\\cdot 24 = -24\\equiv 23\\pmod{47}.$$\n\nTil slutt ganger vi med $1$:\n\n$$1\\cdot 44!\\equiv 1\\cdot 23 = 23\\equiv 23\\pmod{47}.$$\n\n**Konklusjon.** Resten når $1\\cdot 44!$ deles på $47$, er $\\boxed{23}$.\n\n**b)** Nå mangler bare **én** faktor, nemlig $46\\equiv -1\\pmod{47}$:\n$$-1\\equiv 46!=45!\\cdot 46\\equiv 45!\\cdot(-1)\\pmod{47},$$\nog ganging med $-1$ gir\n$$45!\\equiv 1\\pmod{47}.$$\n**Resten er $1$.**\n\n**Kontroll av sammenhengen mellom a) og b):** $45!=44!\\cdot 45$, og $45\\equiv -2\\pmod{47}$. Fra a) er $44!\\equiv 23$, så\n$$45!\\equiv 23\\cdot(-2)=-46\\equiv 1\\pmod{47}$$\n— samme svar ✓ (siden $-46=-47+1$).\n\n**Sluttsvar:** a) $23$, b) $1$.\n\n*Punkt b) er $(p-2)!\\equiv 1$, og det er verdt å kjenne igjen: mangler nøyaktig én faktor, er fakultetet $\\equiv 1$. Men utled det heller enn å huske det — utledningen er én linje.*",
+        "hints": [
+          "$46!\\equiv -1\\pmod{47}$ ved Wilsons teorem.",
+          "I a): to faktorer mangler i $44!$.",
+          "I b): bare én faktor mangler. Hva er $46$ modulo $47$?"
+        ]
+      }
+    },
+    {
+      "id": "ma1301-2-6-ex-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-2-6-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Finn det minste positive heltallet $x$ som oppfyller\n\n$$x\\equiv 2\\pmod 7,\\qquad x\\equiv 5\\pmod 9,\\qquad x\\equiv 1\\pmod{11}.$$\n\nBruk CRT-formelen.",
+        "solution": "**Parvis primiskhet, kommentert først.** $\\gcd(7,9)=1$, $\\gcd(7,11)=1$, $\\gcd(9,11)=1$ — modulene er **parvis relativt primiske**. Da har systemet, **ved det kinesiske restteoremet**, nøyaktig én løsning modulo $M=7\\cdot 9\\cdot 11=693$.\n\n**Sett opp $N_k$ og løs $N_kx_k\\equiv 1\\pmod{m_k}$:**\n\n| $k$ | $m_k$ | $b_k$ | $N_k=M/m_k$ | $N_k\\bmod m_k$ | $x_k$ med $N_kx_k\\equiv 1$ |\n|---|---|---|---|---|---|\n| $1$ | $7$ | $2$ | $99$ | $1$ | $1$ |\n| $2$ | $9$ | $5$ | $77$ | $5$ | $2$ |\n| $3$ | $11$ | $1$ | $63$ | $8$ | $7$ |\n\n**Sett sammen:**\n\n$$x\\equiv 2\\cdot 99\\cdot 1 + 5\\cdot 77\\cdot 2 + 1\\cdot 63\\cdot 7 = 1\\,409\\pmod{693}.$$\n\nReduksjon: $1\\,409 = 693\\cdot 2 + 23$, så $x\\equiv 23\\pmod{693}$.\n\n**Kontroll — sett inn i ALLE kongruensene:** $23 = 7\\cdot 3 + 2$ ✓; $23 = 9\\cdot 2 + 5$ ✓; $23 = 11\\cdot 2 + 1$ ✓.\n\n**Det minste positive tallet er $\\boxed{23}$**, og hele løsningsmengden er $x\\equiv 23\\pmod{693}$.\n\n*Merk hvor lite tallet ble i forhold til $M=693$. Det er tilfeldig — men det gjør kontrollen billig: $23=7\\cdot 3+2$, $23=9\\cdot 2+5$, $23=11\\cdot 2+1$, alle tre i hodet.*",
+        "hints": [
+          "Sjekk at $7$, $9$ og $11$ er parvis relativt primiske.",
+          "$M=693$. Regn $N_1=99$, $N_2=77$, $N_3=63$.",
+          "Reduser hver $N_j$ modulo sin egen $m_j$ før du leter etter inversen."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-2-6-ex-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-2-6-o9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Løs systemet\n\n$$x\\equiv 4\\pmod 9,\\qquad x\\equiv 7\\pmod{16}$$\n\n**a)** med suksessiv innsetting;\n**b)** med CRT-formelen, som kontroll.",
+        "solution": "**a) Suksessiv innsetting.**\n\n**Suksessiv innsetting.** Vi starter i kongruensen med **størst modulus**, fordi den gir færrest tall å prøve, og arbeider oss nedover.\n\nFra $x\\equiv 7\\pmod{16}$ skriver vi\n\n$$x = 7 + 16t,\\qquad t\\in\\mathbb{Z}.$$\n\nSetter vi dette inn i $x\\equiv 4\\pmod{9}$, får vi\n\n$$7 + 16t\\equiv 4\\pmod{9}\\quad\\Longleftrightarrow\\quad 7t\\equiv 6\\pmod{9}.$$\n\nInversen til $7$ modulo $9$ er $4$ (kontroll: $7\\cdot 4 = 28 = 9\\cdot 3+1$), så $t\\equiv 4\\cdot 6 = 24\\equiv 6\\pmod{9}$.\n\nDa er $t = 6 + 9s$, og\n\n$$x = 7 + 16(6 + 9s) = 103 + 144s,$$\n\naltså $x\\equiv 103\\pmod{144}$.\n\n**Kontroll — sett inn i ALLE kongruensene:** $103 = 9\\cdot 11 + 4$ ✓; $103 = 16\\cdot 6 + 7$ ✓. Samme svar som formelen gir.\n\n**b) CRT-formelen, som kontroll.**\n\n**Parvis primiskhet, kommentert først.** $\\gcd(9,16)=1$ — modulene er **parvis relativt primiske**. Da har systemet, **ved det kinesiske restteoremet**, nøyaktig én løsning modulo $M=9\\cdot 16=144$.\n\n**Sett opp $N_k$ og løs $N_kx_k\\equiv 1\\pmod{m_k}$:**\n\n| $k$ | $m_k$ | $b_k$ | $N_k=M/m_k$ | $N_k\\bmod m_k$ | $x_k$ med $N_kx_k\\equiv 1$ |\n|---|---|---|---|---|---|\n| $1$ | $9$ | $4$ | $16$ | $7$ | $4$ |\n| $2$ | $16$ | $7$ | $9$ | $9$ | $9$ |\n\n**Sett sammen:**\n\n$$x\\equiv 4\\cdot 16\\cdot 4 + 7\\cdot 9\\cdot 9 = 823\\pmod{144}.$$\n\nReduksjon: $823 = 144\\cdot 5 + 103$, så $x\\equiv 103\\pmod{144}$.\n\n**Kontroll — sett inn i ALLE kongruensene:** $103 = 9\\cdot 11 + 4$ ✓; $103 = 16\\cdot 6 + 7$ ✓.\n\n**Begge metodene gir $x\\equiv 103\\pmod{144}$**, så svaret er sikret. Det minste positive tallet er $103$.\n\n*For to kongruenser er innsetting nesten alltid raskest: den krever én invers, formelen krever to. **Begge er fullgode**, og å kjøre den ene som kontroll på den andre er den sikreste kontrollen som finnes under kode D.*",
+        "hints": [
+          "I a): start i kongruensen med største modulus, altså $x\\equiv 7\\pmod{16}$.",
+          "I a): sett $x=7+16t$ inn i $x\\equiv 4\\pmod 9$ og løs for $t$.",
+          "I b): $M=144$, $N_1=16$, $N_2=9$."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-2-6-ex-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-2-6-o10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Betrakt systemet\n\n$$x\\equiv 7\\pmod{15},\\qquad x\\equiv 13\\pmod{21}.$$\n\n**a)** Avgjør om systemet har løsninger.\n**b)** Finn i så fall alle, og oppgi det minste positive tallet.",
+        "solution": "**a)** $15=3\\cdot 5$ og $21=3\\cdot 7$, så\n$$\\gcd(15,21)=3\\ne 1.$$\nModulene er **ikke** relativt primiske, så CRT-formelen kan ikke brukes, og vi må undersøke løsbarheten.\n\n**Løsbarhetskriteriet** ([kap. 2.4](/ma1301/ma1301-2-4)): systemet er løsbart nøyaktig når $\\gcd(15,21)=3$ deler differansen $7-13=-6$. Og $3\\mid 6$ ✓, så **systemet har løsninger**, entydig modulo $\\operatorname{lcm}(15,21)=105$.\n\n**b)** Vi løser med **suksessiv innsetting** (formelen gjelder ikke her). Start i den største modulusen: $x=13+21t$. Sett inn i den andre kongruensen:\n$$13+21t\\equiv 7\\pmod{15}\\quad\\Longleftrightarrow\\quad 6t\\equiv -6\\equiv 9\\pmod{15}.$$\nHer er $d=\\gcd(6,15)=3$, som deler $9$, så kongruensen er løsbar med **tre** inkongruente løsninger modulo $15$ ([kap. 1.4](/ma1301/ma1301-1-4)). Vi forkorter med $3$ — **også modulusen**:\n$$2t\\equiv 3\\pmod 5.$$\nInversen til $2$ modulo $5$ er $3$ (siden $2\\cdot 3=6\\equiv 1$), så\n$$t\\equiv 3\\cdot 3=9\\equiv 4\\pmod 5.$$\nAltså $t=4+5s$, og\n$$x=13+21(4+5s)=97+105s.$$\n\n**Løsningen er $x\\equiv 97\\pmod{105}$**, og det minste positive tallet er $\\boxed{97}$.\n\n**Kontroll:** $97=15\\cdot 6+7$ ✓ og $97=21\\cdot 4+13$ ✓.\n\n**Sluttsvar:** a) ja, systemet er løsbart siden $3\\mid(7-13)$; b) $x\\equiv 97\\pmod{105}$, minste positive $97$.\n\n*To ting å merke seg. **Perioden er $\\operatorname{lcm}(15,21)=105$, ikke produktet $315$** — det er kontrollen på at du har behandlet de ikke-primiske modulene riktig. Og **forkortingen delte modulusen**: $6t\\equiv 9\\pmod{15}$ ble $2t\\equiv 3\\pmod 5$. Glemmer du det, mister du to tredeler av løsningene for $t$.*",
+        "hints": [
+          "Er modulene relativt primiske? Regn $\\gcd(15,21)$.",
+          "Bruk løsbarhetskriteriet: deler $\\gcd$ differansen $b_1-b_2$?",
+          "Bruk suksessiv innsetting, ikke formelen. Start i modulus $21$.",
+          "Når du forkorter kongruensen i $t$: husk å dele modulusen også."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-2-6-ex-11",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-2-6-o11",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Finn resten når $4\\cdot 15!+2^{300}$ deles på $17$.",
+        "solution": "**Steg 1: modulusen.** $17$ er et primtall.\n\n**Steg 2: to ledd** — $4\\cdot 15!$ (Wilson) og $2^{300}$ (Fermat).\n\n---\n\n**Ledd 1: $4\\cdot 15!$ modulo $17$.**\n\n**Ved Wilsons teorem** er $(17-1)! = 16!\\equiv -1\\pmod{17}$.\n\nVi skriver $16!$ ved hjelp av $15!$ og de faktorene som mangler:\n\n$$16! = 15!\\cdot 16.$$\n\nNå skrives hver av de manglende faktorene som en **negativ rest** modulo $17$ — det er hele trikset, og det er her fortegnene avgjør:\n\n$$16\\equiv -1\\pmod{17}.$$\n\nAltså er\n\n$$-1\\equiv 16!\\equiv 15!\\cdot (-1) = -1\\cdot 15!\\pmod{17}.$$\n\nVi løser for $15!$. Koeffisienten er $-1\\equiv 16\\pmod{17}$, og inversen til $16$ modulo $17$ er $16$ (kontroll: $16\\cdot 16 = 256 = 17\\cdot 15 + 1$). Ganger vi begge sider med $16$:\n\n$$15!\\equiv -1\\cdot 16 = -16\\equiv 1\\pmod{17}.$$\n\nTil slutt ganger vi med $4$:\n\n$$4\\cdot 15!\\equiv 4\\cdot 1 = 4\\equiv 4\\pmod{17}.$$\n\n**Konklusjon.** Resten når $4\\cdot 15!$ deles på $17$, er $\\boxed{4}$.\n\n---\n\n**Ledd 2: $2^{300}$ modulo $17$.**\n\n**(i) Faktoriser modulusen.** $17$ er et primtall.\n\n**(ii) $\\gcd$-sjekken.** $\\gcd(2,17)=1$, siden primtallet $17$ ikke deler $2$. Vilkåret er oppfylt, så teoremet kan brukes.\n\n**(iii) Regn ut $\\phi(n)$.** Modulusen er primtallet $17$, så $\\phi(17)=17-1=16$.\n\n**(iv) Reduser eksponenten.** **Fra Fermats lille teorem** er $2^{16}\\equiv 1\\pmod{17}$, så vi kan redusere eksponenten modulo $p-1=16$:\n\n$$300 = 16\\cdot 18 + 12,\\qquad\\text{så}\\qquad 2^{300} = \\left(2^{16}\\right)^{18}\\cdot 2^{12}\\equiv 1^{18}\\cdot 2^{12} = 2^{12}\\pmod{17}.$$\n\n**(v) Binærutviklingen av eksponenten og de suksessive kvadratene.** Vi skriver eksponenten som en sum av toerpotenser: $12 = 8 + 4$, altså $12$ i binær er $1100$. Deretter kvadrerer vi oss oppover, og reduserer modulo $17$ etter hvert kvadrat:\n\n| Potens | Utregning | Rest modulo $17$ |\n|---|---|---|\n| $2^{1}$ | — | $2$ |\n| $2^{2}$ | $2^2=4$ | $4$ |\n| $2^{4}$ | $4^2=16$ | $16$ |\n| $2^{8}$ | $16^2=256$, og $256=17\\cdot 15+1$ | $1$ |\n\n**(vi) Sett sammen produktet.** Da er\n\n$$2^{12} = 2^{8} \\cdot 2^{4} \\equiv 1 \\cdot 16 \\pmod{17},$$\n\nog vi multipliserer to av gangen, med reduksjon underveis: $1\\cdot 16 = 16$.\n\n**(vii) Konklusjon.** Resten når $2^{300}$ deles på $17$, er $\\boxed{16}$.\n\n---\n\n**Steg 5: kombiner.** Fra de to delregningene er $4\\cdot 15!\\equiv 4$ og $2^{300}\\equiv 16$ modulo $17$, så\n$$4\\cdot 15!+2^{300}\\equiv 4+16=20\\equiv 3\\pmod{17},$$\nsiden $20=17+3$.\n\n**Konklusjon.** Resten er $\\boxed{3}$.\n\n*Legg merke til at $2^{300}\\equiv 16\\equiv -1\\pmod{17}$. Det er ikke tilfeldig: $300=16\\cdot 18+12$, og $2^{12}\\equiv -1$ fordi ordenen til $2$ modulo $17$ er $8$ … kontrollér selv med kvadrattabellen over. Slike $-1$-er er verdt å se etter, for de gjør siste steg trivielt.*",
+        "hints": [
+          "$17$ er et primtall. Wilson på fakultetet, Fermat på potensen.",
+          "Wilson: én faktor mangler i $15!$ — nemlig $16$.",
+          "Fermat: reduser $300$ modulo $16$.",
+          "Husk å redusere summen til slutt."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-2-6-ex-12",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-2-6-o12",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Finn resten når $3\\cdot 10!+5^{250}$ deles på $55$.",
+        "solution": "**Steg 1: faktoriser modulusen.** $55=5\\cdot 11$, som er **sammensatt**. Da gjelder verken Wilsons teorem eller Fermats lille teorem for $55$ direkte. I tillegg er $\\gcd(5,55)=5\\ne 1$, så Eulers teorem kan ikke brukes på potensleddet heller.\n\n**Vi splitter** (oppskrift 3B): $55=5\\cdot 11$ med $\\gcd(5,11)=1$, så det er nok å regne hele uttrykket modulo $5$ og modulo $11$.\n\n---\n\n**Modulo $5$:**\n\n*Fakultetsleddet:* $10!$ inneholder faktoren $5$, så $5\\mid 10!$ og $3\\cdot 10!\\equiv 0\\pmod 5$.\n\n*Potensleddet:* $5\\mid 5$, så $5^{250}\\equiv 0\\pmod 5$.\n\n*Sum:* $3\\cdot 10!+5^{250}\\equiv 0+0=0\\pmod 5$.\n\n---\n\n**Modulo $11$:**\n\n*Fakultetsleddet:* $11$ er et primtall, og $10=11-1$, så **ved Wilsons teorem** er\n$$10!\\equiv -1\\pmod{11}.$$\nDa er $3\\cdot 10!\\equiv 3\\cdot(-1)=-3\\equiv 8\\pmod{11}$.\n\n*Potensleddet:* $11$ er et primtall og $11\\nmid 5$ ✓, så **fra Fermats lille teorem** er $5^{10}\\equiv 1\\pmod{11}$, og vi reduserer eksponenten modulo $10$:\n$$250=10\\cdot 25+0,\\qquad\\text{så}\\qquad 5^{250}\\equiv 5^{0}=1\\pmod{11}.$$\n\n*Sum:* $3\\cdot 10!+5^{250}\\equiv 8+1=9\\pmod{11}$.\n\n---\n\n**Steg 3: sett sammen med CRT.** Vi søker $x$ med\n$$x\\equiv 0\\pmod 5,\\qquad x\\equiv 9\\pmod{11},\\qquad 0\\le x<55.$$\nModulene er relativt primiske, så **ved det kinesiske restteoremet** finnes nøyaktig én løsning modulo $55$.\n\nMultiplene av $5$ under $55$ er $0,5,10,\\dots,50$, og vi leter etter den som gir rest $9$ modulo $11$. Restene er $0,5,10,4,9,\\dots$ — og $20\\equiv 9\\pmod{11}$ (siden $20=11+9$).\n\n**Kontroll:** $20=5\\cdot 4$ ✓ og $20=11+9$ ✓.\n\n**Konklusjon.** Resten når $3\\cdot 10!+5^{250}$ deles på $55$, er $\\boxed{20}$.\n\n*Denne oppgaven har alle Del 2-teknikkene i én: sammensatt modulus (splitting), et fakultet som er $\\equiv 0$ modulo den ene primfaktoren og $\\equiv -1$ modulo den andre (Wilson), en potens der grunntallet deler modulusen på den ene siden og er relativt primisk på den andre (Fermat), og en CRT til slutt. Ingen enkelt del er vanskelig — det som kreves, er å holde orden på hvilken modulus du er i. **Bruk to kolonner på arket.***",
+        "hints": [
+          "$55=5\\cdot 11$ er sammensatt, og $\\gcd(5,55)=5$. Splitt modulusen.",
+          "Modulo $5$: både $10!$ og $5^{250}$ er delelige med $5$.",
+          "Modulo $11$: her er $10!=(11-1)!$ — det er nøyaktig Wilsons teorem.",
+          "Sett sammen med CRT til slutt, og kontroller."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-2-6-ex-13",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-2-6-o13",
+        "number": "13",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Denne oppgaven har eksamensform: tre delpunkt som bygger på hverandre.\n\n**a)** Finn resten når $36!$ deles på $41$.\n**b)** Finn resten når $2^{1000}$ deles på $41$.\n**c)** Finn resten når $5\\cdot 36!+2^{1000}$ deles på $41$, og angi svaret som et tall mellom $0$ og $40$.",
+        "solution": "$41$ er et primtall ($\\sqrt{41}\\approx 6{,}4$; $2,3,5$ går ikke opp).\n\n---\n\n**a)** **Ved Wilsons teorem** er $(41-1)! = 40!\\equiv -1\\pmod{41}$.\n\nVi skriver $40!$ ved hjelp av $36!$ og de faktorene som mangler:\n\n$$40! = 36!\\cdot 37\\cdot 38\\cdot 39\\cdot 40.$$\n\nNå skrives hver av de manglende faktorene som en **negativ rest** modulo $41$ — det er hele trikset, og det er her fortegnene avgjør:\n\n$$37\\equiv -4\\pmod{41},\\qquad 38\\equiv -3\\pmod{41},\\qquad 39\\equiv -2\\pmod{41},\\qquad 40\\equiv -1\\pmod{41}.$$\n\nAltså er\n\n$$-1\\equiv 40!\\equiv 36!\\cdot (-4)\\cdot (-3)\\cdot (-2)\\cdot (-1) = 24\\cdot 36!\\pmod{41}.$$\n\nVi løser for $36!$. Koeffisienten er $24\\equiv 24\\pmod{41}$, og inversen til $24$ modulo $41$ er $12$ (kontroll: $24\\cdot 12 = 288 = 41\\cdot 7 + 1$). Ganger vi begge sider med $12$:\n\n$$36!\\equiv -1\\cdot 12 = -12\\equiv 29\\pmod{41}.$$\n\nTil slutt ganger vi med $1$:\n\n$$1\\cdot 36!\\equiv 1\\cdot 29 = 29\\equiv 29\\pmod{41}.$$\n\n**Konklusjon.** Resten når $1\\cdot 36!$ deles på $41$, er $\\boxed{29}$.\n\n---\n\n**b)** **(i) Faktoriser modulusen.** $41$ er et primtall.\n\n**(ii) $\\gcd$-sjekken.** $\\gcd(2,41)=1$, siden primtallet $41$ ikke deler $2$. Vilkåret er oppfylt, så teoremet kan brukes.\n\n**(iii) Regn ut $\\phi(n)$.** Modulusen er primtallet $41$, så $\\phi(41)=41-1=40$.\n\n**(iv) Reduser eksponenten.** **Fra Fermats lille teorem** er $2^{40}\\equiv 1\\pmod{41}$, så vi kan redusere eksponenten modulo $p-1=40$:\n\n$$1000 = 40\\cdot 25 + 0,\\qquad\\text{så}\\qquad 2^{1000} = \\left(2^{40}\\right)^{25}\\cdot 2^{0}\\equiv 1^{25}\\cdot 2^{0} = 2^{0}\\pmod{41}.$$\n\n**(v)–(vi) Ingen kvadrattabell er nødvendig.** Resten ble $0$, så den reduserte potensen er $2^{0}=1$ — eksponenten gikk opp i $p-1$ uten rest.\n\n\n**(vii) Konklusjon.** Resten når $2^{1000}$ deles på $41$, er $\\boxed{1}$.\n\n---\n\n**c)** Fra a) er $36!\\equiv 29\\pmod{41}$, så\n$$5\\cdot 36!\\equiv 5\\cdot 29=145\\equiv 22\\pmod{41},$$\nsiden $145=41\\cdot 3+22$. Og fra b) er $2^{1000}\\equiv 16\\pmod{41}$.\n\nSummen blir\n$$5\\cdot 36!+2^{1000}\\equiv 22+16=38\\pmod{41}.$$\n\n**Sluttsvar:** a) $29$, b) $16$, c) $\\boxed{38}$.\n\n**Tidsbudsjett:** a) ~5 min, b) ~5 min, c) ~2 min — til sammen ~12 minutter for tre delpunkt. Eksamensbudsjettet er ~24 minutter **per** delpunkt, så du har god margin når apparatet sitter.\n\n*Merk at c) er gratis når a) og b) er riktige, og faller helt hvis en av dem er gal. Det er derfor kontrollene i a) og b) er verdt tiden: inversen kontrollert, kvadrattabellen sjekket rad for rad.*",
+        "hints": [
+          "$41$ er et primtall. Wilson i a), Fermat i b).",
+          "I a): fire faktorer mangler i $36!$ — $37,38,39,40$.",
+          "I b): reduser $1000$ modulo $40$.",
+          "I c): hent delresultatene fra a) og b), og reduser summen til slutt."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-2-6-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "Under tidspress er det ikke forståelsen som svikter, men bokføringen og vilkårssjekkene. Disse sju er de som faktisk skjer, og alle fanges av kontrollpunktene over.\n\n- **$\\gcd$-sjekken glemt.** Eulers teorem brukt der $\\gcd(a,n)\\ne 1$. Den mest belagte fellen i hele delen. **Kontrollen:** skriv $\\gcd(a,n)$ ned som eget tall før du rører eksponenten.\n\n- **Wilson-fortegn.** De manglende faktorene skrevet som $+1,+2,\\dots$ i stedet for $-1,-2,\\dots$. **Kontrollen:** tell antallet, og sjekk koeffisienten mot $(-1)^{j}\\cdot j!$.\n\n- **CRT uten parvis primiskhet.** Formelen brukt på moduler med felles faktor. **Kontrollen:** er perioden din $\\operatorname{lcm}$ eller produktet? De skal være like når vilkåret holder.\n\n- **Feil $\\phi$.** $\\phi(p^k)=p^k-1$ i stedet for $p^k-p^{k-1}$, eller $n-1$ brukt for et sammensatt $n$. **Kontrollen:** er $\\phi(n)$ et partall og mindre enn $n$? Og er modulusen virkelig et primtall — sjekk $7$, $11$ og $13$.\n\n- **Regnefeil i kvadrer-og-multipliser under tidspress.** **Kontrollen:** hver rad i tabellen er kvadratet av forrige, redusert. Alle tall skal være under $n$.\n\n- **Forkorting uten å dele modulusen.** $6t\\equiv 9\\pmod{15}$ blir $2t\\equiv 3\\pmod 5$, ikke $\\pmod{15}$. **Kontrollen:** er $\\gcd(\\text{koeffisient},\\text{modulus})>1$, skal modulusen deles.\n\n- **Sluttsvaret ikke redusert.** $22+1=23$ er greit modulo $41$, men $4+16=20$ er **ikke** en rest modulo $17$. **Kontrollen:** ligger svaret mellom $0$ og $n-1$?"
+    },
+    {
+      "id": "ma1301-2-6-prosedyrekort-intro",
+      "type": "text",
+      "content": "### Prosedyrekort\n\nDette er flashcard-stoff — hopp trygt over ved førstegangslesing; tidsanslaget på 85 minutter gjelder oppskriftene, casen og oppgavene.\n\nDrillkapitlene har ingen begrepsbank i vanlig forstand: begrepene står i [kap. 2.1](/ma1301/ma1301-2-1)–[kap. 2.5](/ma1301/ma1301-2-5). Kortene her er **oppskriftskort** — de tar prosedyrene og gjør dem til noe du kan gjenkalle kaldt, som kode D krever."
+    },
+    {
+      "id": "ma1301-2-6-d-kort-beslutning",
+      "type": "definition",
+      "title": "Kort: beslutningstreet",
+      "content": "| Leddet er | Modulusen er | Verktøy | Reduser modulo |\n|---|---|---|---|\n| potens $a^{N}$ | primtall $p$, $p\\nmid a$ | Fermat | $p-1$ |\n| potens $a^{N}$ | sammensatt, $\\gcd(a,n)=1$ | Euler | $\\phi(n)$ |\n| potens $a^{N}$ | $\\gcd(a,n)\\ne 1$ | splitt + CRT | hver del |\n| fakultet $m!$ | primtall, $m<p$ | Wilson | — |\n| fakultet $m!$ | sammensatt, faktorene i $m!$ | $\\equiv 0$ | — |\n\n**Må sitte utenat.** Tre spørsmål gir hele løsningsveien: er modulusen et primtall? hvilke ledd har uttrykket? holder $\\gcd$-vilkåret?\n\n**Selvtest:** dekk til og gjenskap tabellen på tretti sekunder."
+    },
+    {
+      "id": "ma1301-2-6-d-kort-euler-mal",
+      "type": "definition",
+      "title": "Kort: $a^N \\bmod n$ i sju steg",
+      "content": "**(i)** Faktoriser modulusen. **(ii)** $\\gcd$-sjekken, som setning. **(iii)** $\\phi(n)$ eller $p-1$. **(iv)** Reduser eksponenten, med teoremnavnet. **(v)** Binærutvikling + kvadrattabell, redusert etter hvert kvadrat. **(vi)** Sett sammen produktet, to av gangen. **(vii)** Konklusjon, svaret i $0,\\dots,n-1$.\n\n**Må sitte utenat.** Steg (ii) er det som oftest mangler, og det avgjør om metoden er lovlig.\n\n**Snarvei før du starter:** reduser grunntallet. Blir det $0$, $1$ eller $-1$, er oppgaven ferdig.\n\n**Kontroll:** ingen tall i kvadrattabellen større enn $n$."
+    },
+    {
+      "id": "ma1301-2-6-d-kort-wilson-mal",
+      "type": "definition",
+      "title": "Kort: $k\\cdot m! \\bmod p$ i fem steg",
+      "content": "**(1)** Sjekk at $p$ er et primtall; skriv $(p-1)!\\equiv -1\\pmod p$. **(2)** $(p-1)!=m!\\cdot(m+1)\\cdots(p-1)$. **(3)** Bytt hver manglende faktor $p-j$ med $-j$; koeffisienten blir $(-1)^{j}\\cdot j!$. **(4)** Gang med inversen til koeffisienten. **(5)** Gang med $k$, reduser, konkludér.\n\n**Må sitte utenat.** Fortegnet i steg (3) er det som avgjør riktig og galt.\n\n**Koeffisientene som faktisk forekommer:** $-1$, $2$, $-6$, $24$, $-120$ for $j=1,\\dots,5$. Kjenner du inversene til $2$, $6$, $24$ og $120$ modulo tosifrede primtall, går steg (4) på tjue sekunder."
+    },
+    {
+      "id": "ma1301-2-6-d-kort-crt-mal",
+      "type": "definition",
+      "title": "Kort: CRT i fem steg",
+      "content": "**(1)** Sjekk **parvis** primiskhet, som setning. **(2)** Forenkle hver kongruens til $x\\equiv b_j$. **(3)** $M=\\prod m_j$, $N_j=M/m_j$, løs $N_jx_j\\equiv 1\\pmod{m_j}$. **(4)** $x\\equiv\\sum b_jN_jx_j\\pmod M$. **(5)** Reduser, og kontrollér i **alle** kongruensene.\n\n**Må sitte utenat.**\n\n**Alternativet — suksessiv innsetting — utledes på stedet:** $x=b_1+m_1t$, sett inn i neste kongruens, løs for $t$, gjenta. **Begge er fullgode**, og innsetting er sikkerhetsnettet under kode D fordi den ikke krever noen formel.\n\n**Triks i steg (3):** reduser $N_j$ modulo $m_j$ først, så leter du etter inversen til et lite tall."
+    },
+    {
+      "id": "ma1301-2-6-d-kort-splitting-mal",
+      "type": "definition",
+      "title": "Kort: splitt modulusen når gcd ≠ 1",
+      "content": "**(1)** Faktoriser $n$ i primtallspotenser. **(2)** Regn hele uttrykket modulo hver potens: er $p\\mid a$ og eksponenten $\\ge k$, er leddet $\\equiv 0\\pmod{p^k}$; ellers Euler med $\\phi(p^k)=p^k-p^{k-1}$. **(3)** Sett sammen med CRT. **(4)** Kontrollér i alle delkongruensene.\n\n**Må sitte utenat.** Dette er den ene veien når Eulers teorem ikke kan brukes.\n\n**To vanlige spesialtilfeller:** «de to siste sifrene» er modulo $100=4\\cdot 25$; «siste siffer» er modulo $10=2\\cdot 5$.\n\n**Og det er ofte raskeste vei også når $\\gcd=1$**, hvis $n=pq$: da blir eksponentene redusert mot $p-1$ og $q-1$ i stedet for mot $\\phi(n)$."
+    },
+    {
+      "id": "ma1301-2-6-d-kort-sammensatt-mal",
+      "type": "definition",
+      "title": "Kort: den sammensatte oppgaven i seks steg",
+      "content": "**(1)** Faktoriser modulusen. **(2)** Del uttrykket i ledd. **(3)** $\\gcd$-sjekk per potensledd. **(4)** Reduser hvert ledd med sitt teorem. **(5)** Kombiner restene, reduser. **(6)** Konkludér.\n\n**Må sitte utenat.** Det er rekkefølgen som hindrer at du velger feil teorem.\n\n**Arbeidsvanen:** to kolonner på arket, én per ledd, som møtes først i siste linje. Ved splitting: én kolonne per modulus.\n\n**Snarvei:** er ett ledd i et **produkt** $\\equiv 0$, er hele produktet $\\equiv 0$. For **summer** finnes ingen slik snarvei."
+    },
+    {
+      "id": "ma1301-2-6-d-kort-kontroller",
+      "type": "definition",
+      "title": "Kort: kontrollene, samlet",
+      "content": "Under kode D finnes ingen fasit i rommet. Disse er hele kvalitetssikringen din, og de koster under to minutter til sammen.\n\n| Etter | Kontroll | Fanger |\n|---|---|---|\n| faktorisering | gang faktorene sammen | avskrivningsfeil |\n| $\\phi(n)$ | partall, mindre enn $n$ | $p^k-1$-feilen |\n| Wilson-koeffisient | mot $(-1)^{j}j!$ | fortegnsfeil |\n| invers | $c\\cdot c^{-1}\\equiv 1$ | gal invers |\n| kvadrattabell | alle tall under $n$ | glemt reduksjon |\n| CRT-svar | innsetting i alle kongruensene | alle regnefeil |\n| sluttsvar | i $0,\\dots,n-1$ | glemt siste reduksjon |\n\n**Den beste av alle:** regn oppgaven på en annen vei. Formel mot innsetting, mal mot snarvei — to uavhengige veier til samme svar er så sikkert som det blir."
+    },
+    {
+      "id": "ma1301-2-6-d-kort-kode-d-tall",
+      "type": "definition",
+      "title": "Kort: kode D-realistiske tallstørrelser",
+      "content": "Kalibreringen som forteller deg om du har regnet feil eller møtt en vanskelig oppgave.\n\n| Størrelse | Typisk verdi på eksamen |\n|---|---|\n| modulusen | primtall $11$–$101$, eller produkt av to små primtall |\n| $\\phi(n)$ | to- til tresifret |\n| eksponenten | to- til firesifret (ofte et årstall) |\n| eksponenten etter reduksjon | **under 32** — 2–5 kvadrater |\n| manglende faktorer i fakultetet | **1–5** |\n| antall kongruenser i et CRT-system | **2 eller 3** |\n| $M$ i CRT | under ~$1\\,000$ |\n\n**Bruk det som kontroll.** Blir kvadrattabellen åtte rader, har du glemt eksponentreduksjonen. Mangler tolv faktorer i fakultetet, har du lest feil. Blir $M$ femsifret, har du lest en modulus feil."
+    },
+    {
+      "id": "ma1301-2-6-d-kort-tidsbudsjett",
+      "type": "definition",
+      "title": "Kort: tidsbudsjettet for sjanger C og E",
+      "content": "Eksamen er 4 timer på omtrent 10 likt vektede delpunkt — **~24 minutter per delpunkt**.\n\n| Oppgavetype | Tid når prosedyren sitter |\n|---|---|\n| $a^{N}\\bmod n$ | ~8–11 min |\n| $k\\cdot m!\\bmod p$ | ~7 min |\n| CRT-system, 3 kongruenser | ~13 min |\n| sammensatt oppgave, 2 ledd | ~15 min |\n| sammensatt med splitting | ~23 min |\n\n**Alle ligger innenfor ett delpunkts budsjett**, og de fleste godt under. Det er derfor Del 2 er stedet du henter inn tid til bevisoppgaven og resiprositetsoppgaven senere i settet.\n\n**Er du over det dobbelte,** ligger det nesten alltid i én av tre ting: du regner potenser uten å redusere underveis, du har hoppet over $\\gcd$-sjekken og må starte på nytt, eller du leter etter en invers uten å ha redusert tallet først."
+    },
+    {
+      "id": "ma1301-2-6-d-kort-teoremnavn",
+      "type": "definition",
+      "title": "Kort: teoremnavnene som skal skrives",
+      "content": "Et føringskort. Fasitene i arkivet navngir teoremet der det bærer argumentet, og **et argument uten teoremnavn er en byggefeil** i denne boka.\n\n| Der du gjør dette | Skriv dette |\n|---|---|\n| reduserer eksponent mot $\\phi(n)$ | «fra Eulers teorem» |\n| reduserer eksponent mot $p-1$ | «fra Fermats lille teorem» |\n| bruker $(p-1)!\\equiv -1$ | «ved Wilsons teorem» |\n| setter sammen kongruenser | «ved det kinesiske restteoremet» |\n| finner en invers med Euklid | «ved Euklids algoritme» / «etter Bézout» |\n| bruker at $p\\mid ab\\Rightarrow p\\mid a$ eller $p\\mid b$ | «ved Euklids lemma» |\n\n**Må sitte utenat.** Det koster fire ord per bruk og er den billigste uttellingen i hele faget.\n\n**Selvtesten:** kan noen som leser besvarelsen din, se hvilket resultat hvert steg hviler på? Da er føringen god nok."
+    },
+    {
+      "id": "ma1301-2-6-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "ma1301-2-6-symbol-inn",
+          "type": "text",
+          "content": "Oppslagsverk — alt her er innført i [kap. 2.1](/ma1301/ma1301-2-1)–[kap. 2.5](/ma1301/ma1301-2-5) og brukes i oppgavene over.\n\n| Symbol | Betydning |\n|---|---|\n| $\\phi(n)$ | Eulers $\\phi$-funksjon |\n| $p$ | et primtall |\n| $m!$ | fakultet |\n| $a^{N}\\bmod n$ | resten når $a^N$ deles på $n$ |\n| $M$, $N_j$, $x_j$, $b_j$, $m_j$ | symbolene i CRT-formelen |\n| $\\operatorname{lcm}(m_1,m_2)$ | perioden når modulene ikke er primiske |\n| $(-1)^{j}\\cdot j!$ | Wilson-koeffisienten ved $j$ manglende faktorer |\n| $\\gcd(a,n)$ | vilkåret som avgjør om Euler kan brukes |\n| $t,s,u$ | parametrene i suksessiv innsetting |\n\n**Formler i dette delkapitlet:**\n\n$$a^{\\phi(n)}\\equiv 1\\pmod n\\quad(\\gcd(a,n)=1),\\qquad a^{p-1}\\equiv 1\\pmod p\\quad(p\\nmid a)$$\nEulers teorem og Fermats lille teorem. **(må sitte utenat, med vilkårene)**\n\n$$\\phi(p^k)=p^k-p^{k-1},\\qquad\\phi(mn)=\\phi(m)\\phi(n)\\ (\\gcd(m,n)=1)$$\n$\\phi$ fra faktoriseringen. **(må sitte utenat)**\n\n$$(p-1)!\\equiv -1\\pmod p,\\qquad p-j\\equiv -j\\pmod p$$\nWilsons teorem og fakultets-trikset. **(må sitte utenat)**\n\n$$x\\equiv\\sum_j b_jN_jx_j\\pmod M,\\qquad N_j=M/m_j,\\qquad N_jx_j\\equiv 1\\pmod{m_j}$$\nCRT-formelen. **(må sitte utenat)**\n\n$$x=b_1+m_1t\\ \\longrightarrow\\ m_1t\\equiv b_2-b_1\\pmod{m_2}$$\nSuksessiv innsetting, ett steg. **(utledes på stedet — bare kongruensregning, og sikkerhetsnettet under kode D)**\n\n$$\\gcd(m_1,m_2)\\mid(b_1-b_2)$$\nLøsbarhetskriteriet for ikke-primiske moduler; perioden blir $\\operatorname{lcm}(m_1,m_2)$. **(utledes på stedet — to linjer via en diofantisk likning, se [kap. 1.3](/ma1301/ma1301-1-3))**\n\n$$a^{N}\\equiv 0\\pmod{p^k}\\quad(p\\mid a,\\ N\\ge k)$$\nDen lette delen av en splitting. **(utledes på stedet — én linje: $a=ps$ gir $a^N=p^Ns^N$)**\n\n$$m!\\equiv 0\\pmod n\\quad(n\\text{ sammensatt, faktorene i }m!)$$\nFakultet med sammensatt modulus. **(utledes på stedet)**\n\n$$A\\equiv a,\\ B\\equiv b\\ \\Longrightarrow\\ A+B\\equiv a+b,\\quad AB\\equiv ab\\pmod n$$\nHjemmelen for å regne ledd for ledd. **(utledes på stedet — regnereglene fra [kap. 1.4](/ma1301/ma1301-1-4))**\n\n**De fire oppskriftene** — (1) $a^N\\bmod n$ i sju steg, (2) $k\\cdot m!\\bmod p$ i fem steg, (3) CRT i fem steg / splitting i fire, (4) den sammensatte i seks steg. **(må sitte utenat — de er selve innholdet i dette kapitlet)**\n\n**Beslutningstreet** — primtall + potens ⇒ Fermat; sammensatt + potens ⇒ Euler; $\\gcd\\ne 1$ ⇒ splitt + CRT; fakultet + primtall ⇒ Wilson; fakultet + sammensatt ⇒ $\\equiv 0$. **(må sitte utenat)**"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

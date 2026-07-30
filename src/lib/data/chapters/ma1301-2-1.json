@@ -1,0 +1,520 @@
+{
+  "id": "ma1301-2-1",
+  "courseId": "ma1301",
+  "chapterNumber": "2.1",
+  "title": "Eulers ϕ-funksjon og Eulers teorem",
+  "description": "ϕ(n) via faktorisering (ϕ(pᵏ)=pᵏ−pᵏ⁻¹ og multiplikativitet), Eulers teorem aᵠ⁽ⁿ⁾≡1 med gcd-betingelsen, og eksponentreduksjon for å regne aᴺ mod n — den hyppigste restberegningsteknikken i faget.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "regne ut Eulers ϕ-funksjon fra primtallsfaktoriseringen, også for primtallspotenser",
+    "bruke Eulers teorem til å redusere en stor eksponent, og alltid sjekke betingelsen først",
+    "finne resten når en stor potens deles på et tall, ved å kvadrere og multiplisere",
+    "håndtere tilfellet der grunntallet og modulusen har en felles faktor, ved å dele opp modulusen"
+  ],
+  "content": [
+    {
+      "id": "ma1301-2-1-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Eulers $\\phi$-funksjon og Eulers teorem forekommer i 14 av 15 sett — 93 %. Det er den hyppigste enkeltmekanismen i faget etter Euklids algoritme.**\n\nOppgavetypen har et navn i denne boka: **sjanger E — restberegning med Fermat, Euler og Wilson**. Sjangerbokstavene er bokas egne forkortelser, forklart i [kap. 0.1](/ma1301/ma1301-0-1); her betyr E oppgaven «finn resten når [et stort uttrykk] deles på [et tall]».\n\n| Hvor $\\phi$ og Eulers teorem dukker opp | Sjanger | Frekvens |\n|---|---|---|\n| Restberegning $a^N\\bmod n$ med eksponentreduksjon | **E** | 14 av 15 sett |\n| RSA — $\\phi(n)=(p-1)(q-1)$ og $ed\\equiv 1\\pmod{\\phi(n)}$ | **D** | 10 av 15 sett |\n| Orden og primitive røtter — ordenen deler alltid $\\phi(n)$ | **G** | 9 av 15 sett |\n| Tallteoretiske funksjoner — $\\phi$ som multiplikativ funksjon | **H** | 7 av 15 sett |\n\nLegg merke til hva tabellen sier: $\\phi$ er ikke bare ett tema, den er **inngangsbilletten til fire av dem**. Regner du $\\phi(n)$ feil, faller restberegningen, RSA-nøkkelen og ordensoppgaven samtidig.\n\n**Fasitens grep, i den rekkefølgen fasitene bruker:** faktoriser modulusen, regn $\\phi(n)$, **sjekk $\\gcd(a,n)=1$**, reduser eksponenten modulo $\\phi(n)$, og regn resten med kvadrer-og-multipliser. Alle fem stegene skal stå i besvarelsen — instruksen på hvert sett er at alle svar skal begrunnes, og et riktig sluttall uten metode teller lite.\n\n**Prioritet: høyeste.** Dette kapitlet og [kap. 1.2](/ma1301/ma1301-1-2) er de to du bør kunne kaldt."
+    },
+    {
+      "id": "ma1301-2-1-utenat",
+      "type": "tip",
+      "title": "Utenat under kode D",
+      "content": "Eksamen er hjelpemiddelkode D: ingen bok, ingen formelsamling, ingen tabeller, ingen egne notater — bare en enkel kalkulator. Kalkulatoren kan gange og dele med rest, men den kan ikke redusere $3^{455}\\bmod 100$ for deg, og den kan ikke faktorisere modulusen. Alt i dette kapitlet regnes for hånd.\n\n**Må sitte utenat:**\n\n- **$\\phi(p^k)=p^k-p^{k-1}$** — den ene formelen flest bommer på\n- at **$\\phi$ er multiplikativ når $\\gcd(m,n)=1$**: $\\phi(mn)=\\phi(m)\\phi(n)$\n- **Eulers teorem** $a^{\\phi(n)}\\equiv 1\\pmod n$ **med vilkåret $\\gcd(a,n)=1$** — vilkåret er en del av teoremet, ikke en fotnote\n- **kvadrer-og-multipliser** som prosedyre: binærutvikling av eksponenten, suksessive kvadrater, reduksjon underveis\n\n**Utledes på stedet:**\n\n- **Den generelle formelen** $\\phi(n)=n\\prod_{p\\mid n}\\left(1-\\frac1p\\right)$. Den følger av $\\phi(p^k)=p^k-p^{k-1}$ pluss multiplikativiteten, fordi $p^k-p^{k-1}=p^k\\left(1-\\frac1p\\right)$ — to linjer, under et minutt. Du trenger den ikke: faktoriseringsveien er raskere for hånd.\n- **$\\phi(p)=p-1$** for primtall, som er $k=1$ i formelen over.\n\n**Selvtest, tre minutter:** dekk til siden og skriv ned (1) $\\phi(p^k)$, (2) Eulers teorem med vilkåret, og (3) $\\phi(360)$ regnet ut fra faktoriseringen. Får du alle tre uten å se, har du kjernen i sjanger E.\n\n**Prosedyrer pugges ved å kjøres, ikke ved å leses.** Tre nye restberegninger er mer verdt enn tre gjennomlesninger."
+    },
+    {
+      "id": "ma1301-2-1-forkunnskaper",
+      "type": "text",
+      "content": "### Forkunnskaper\n\nFra boka: [kap. 1.1](/ma1301/ma1301-1-1) (primtallsfaktorisering, relativt primiske tall), [kap. 1.2](/ma1301/ma1301-1-2) (Euklids algoritme — du trenger den for $\\gcd$-sjekken) og [kap. 1.4](/ma1301/ma1301-1-4) (kongruens, regnereglene, modulær invers).\n\n**Sist du var her.** De tre resultatene dette kapitlet står på, ferdig oppfrisket:\n\n**Kongruensregnereglene.** Er $a\\equiv b\\pmod m$ og $c\\equiv d\\pmod m$, så\n$$a+c\\equiv b+d,\\qquad ac\\equiv bd,\\qquad a^k\\equiv b^k\\pmod m.$$\nPotensregelen er den vi lever av her: du kan redusere grunntallet før du opphøyer.\n\n**Relativt primiske tall.** $\\gcd(a,n)=1$ betyr at $a$ og $n$ ikke har noen primfaktor felles. Det er nøyaktig betingelsen for at $a$ har en invers modulo $n$ ([kap. 1.4](/ma1301/ma1301-1-4)), og det blir vilkåret i Eulers teorem.\n\n**Å splitte modulusen.** Når $\\gcd(m,n)=1$:\n$$a\\equiv b\\pmod{mn}\\iff a\\equiv b\\pmod m\\ \\text{ og }\\ a\\equiv b\\pmod n.$$\nVi bruker den i siste løkke, der Eulers teorem ikke kan brukes direkte.\n\nFra videregående er ingenting påkrevd."
+    },
+    {
+      "id": "ma1301-2-1-motivasjon",
+      "type": "text",
+      "content": "### Et tall med 200 siffer, og fire timers eksamen\n\nOppgaven er: **finn det siste sifferet i $7^{2026}$.**\n\nTallet $7^{2026}$ har over 1700 siffer. Kalkulatoren din gir opp lenge før den kommer dit, og du har ingen datamaskin. Likevel er dette en oppgave du skal kunne gjøre på under to minutter med penn og papir — og oppgaver av nøyaktig denne typen står i 14 av 15 eksamenssett.\n\nNøkkelen er at du ikke skal *regne ut* $7^{2026}$. Du skal finne **resten** når det deles på $10$, og rester gjentar seg. Sjekk selv: $7^1$ ender på $7$, $7^2=49$ ender på $9$, $7^3=343$ ender på $3$, $7^4=2401$ ender på $1$ — og så starter mønsteret på nytt. Fire steg, og du er tilbake til $1$.\n\n**Hjulet gikk rundt.** Det er hele idéen i kapitlet: for hver modulus $n$ finnes det et tall som forteller hvor mange steg hjulet bruker på en hel runde. Eulers teorem sier at $\\phi(n)$ alltid er en slik rundetid — og $\\phi(n)$ kan du regne ut fra faktoriseringen av $n$ uten å prøve deg frem. Da blir en eksponent på 2026 redusert til noe du kan regne i hodet.\n\nVi bygger det i tre trinn: først **hva $\\phi(n)$ er og hvordan du regner den ut**, så **Eulers teorem** som sier hva den kan brukes til, og til slutt **føringsmalen** som gjør det til en oppgavebesvarelse sensor kan følge.\n\n*Tidsanslag for kapitlet: ~60 minutter lesetid, fordelt på seks løkker à 8–12 minutter. Regner du med penn underveis, som du bør, legg til omtrent halvparten.*"
+    },
+    {
+      "id": "ma1301-2-1-l1-intro",
+      "type": "text",
+      "content": "## Løkke 1: Hva $\\phi(n)$ teller, og formelen for primtallspotenser\n\n*~10 minutter.*\n\nVi begynner med definisjonen og den ene formelen som må sitte: verdien av $\\phi$ på en primtallspotens. Alt annet bygges av den."
+    },
+    {
+      "id": "ma1301-2-1-d-phi",
+      "type": "definition",
+      "title": "Eulers ϕ-funksjon",
+      "content": "For et positivt helt tall $n$ er $\\phi(n)$ **antallet tall i $1,2,\\dots,n$ som er relativt primiske til $n$** — altså antallet $a$ i det intervallet med $\\gcd(a,n)=1$.\n\nMed symboler:\n$$\\phi(n)=\\#\\{a: 1\\le a\\le n,\\ \\gcd(a,n)=1\\}.$$\n\nFunksjonen kalles **Eulers $\\phi$-funksjon** (eller «Eulers totientfunksjon»), og skrives $\\phi$ — boka bruker den skrivemåten gjennomgående.\n\n**Tell den for hånd én gang, så sitter idéen.** For $n=12$ ser vi på $1,\\dots,12$: tallene $1,5,7,11$ er relativt primiske til $12$, mens $2,3,4,6,8,9,10,12$ deler en faktor med $12$. Altså $\\phi(12)=4$.\n\n**Merk grensene.** Intervallet er $1\\le a\\le n$, og $a=n$ teller bare når $n=1$ (siden $\\gcd(n,n)=n$). Derfor er $\\phi(1)=1$."
+    },
+    {
+      "id": "ma1301-2-1-d-hva-phi-teller",
+      "type": "definition",
+      "title": "Hva ϕ(n) teller — tre likeverdige beskrivelser",
+      "content": "Samme tall, sett fra tre sider. Alle tre brukes i faget, og det lønner seg å kjenne dem igjen:\n\n1. **Antall tall $\\le n$ som er relativt primiske til $n$.** Dette er definisjonen, og den du teller med.\n2. **Antall restklasser modulo $n$ som har en invers.** Fra [kap. 1.4](/ma1301/ma1301-1-4): $a$ har invers modulo $n$ nøyaktig når $\\gcd(a,n)=1$. Så $\\phi(n)$ teller de inverterbare restklassene.\n3. **Størrelsen på et redusert restsystem modulo $n$.** Se kortet under.\n\n**Hvorfor beskrivelse 2 er verdt å ha:** den forklarer hvorfor $\\phi$ dukker opp i RSA. Krypteringseksponenten $e$ må ha en invers modulo $\\phi(n)$, og det er nettopp den inversen som er den private nøkkelen $d$.\n\n**Og hvorfor beskrivelse 3 er verdt å ha:** den er nøkkelen i beviset for Eulers teorem i løkke 3."
+    },
+    {
+      "id": "ma1301-2-1-d-phi-primtall",
+      "type": "definition",
+      "title": "ϕ(p) for et primtall",
+      "content": "For et primtall $p$ er\n$$\\phi(p)=p-1.$$\n\n**Grunnen er kort:** et primtall har ingen andre divisorer enn $1$ og seg selv, så hvert av tallene $1,2,\\dots,p-1$ er relativt primisk til $p$. Bare $p$ selv faller ut. Det gir $p-1$ tall.\n\n**Dette utledes på stedet** — det er tilfellet $k=1$ av formelen i neste kort, og det er én setning å begrunne.\n\n**Der du får bruk for det oftest:** i RSA, der $n=pq$ og $\\phi(n)=(p-1)(q-1)$, og i Fermats lille teorem, som er Eulers teorem med $\\phi(p)=p-1$ satt inn (kap. 2.2).\n\n*Eksempler:* $\\phi(7)=6$, $\\phi(13)=12$, $\\phi(83)=82$, $\\phi(101)=100$."
+    },
+    {
+      "id": "ma1301-2-1-d-phi-primtallspotens",
+      "type": "definition",
+      "title": "ϕ(pᵏ) = pᵏ − pᵏ⁻¹",
+      "content": "For et primtall $p$ og $k\\ge 1$:\n$$\\phi(p^k)=p^k-p^{k-1}=p^{k-1}(p-1).$$\n\n**Utledningen er en tellemetode du bør kunne gjenskape.** Hvilke tall i $1,\\dots,p^k$ er *ikke* relativt primiske til $p^k$? Nøyaktig de som er delelige med $p$ — for $p$ er den eneste primfaktoren i $p^k$. Multiplene av $p$ i intervallet er\n$$p,\\ 2p,\\ 3p,\\ \\dots,\\ p^{k-1}\\cdot p,$$\naltså $p^{k-1}$ stykker. Trekker vi dem fra alle $p^k$ tallene, står vi igjen med $p^k-p^{k-1}$. $\\blacksquare$\n\n**Formelen må sitte utenat.** Den er den best belagte fellen i hele sjanger E: løsningsforslagene advarer mot å regne $\\phi(p^k)=p^k-1$, som er formelen for $k=1$ brukt der $k>1$.\n\n**Kontrollen som avslører feilen på fem sekunder:** $\\phi(9)$. Tallene $1,\\dots,9$ som er relativt primiske til $9$, er $1,2,4,5,7,8$ — seks stykker. Formelen gir $9-3=6$ ✓. Den gale formelen ville gitt $8$.\n\n*Eksempler:* $\\phi(27)=27-9=18$, $\\phi(49)=49-7=42$, $\\phi(32)=32-16=16$, $\\phi(125)=125-25=100$."
+    },
+    {
+      "id": "ma1301-2-1-e1",
+      "type": "example",
+      "title": "ϕ på primtallspotenser, og en telling som kontroll",
+      "problem": "**a)** Regn ut $\\phi(27)$ og $\\phi(49)$.\n**b)** Kontroller $\\phi(27)$ ved å telle direkte hvor mange av tallene $1,\\dots,27$ som er relativt primiske til $27$.",
+      "solution": "**a)** Begge tallene er primtallspotenser, så vi bruker $\\phi(p^k)=p^k-p^{k-1}$ — **må sitte utenat**:\n\n$$\\phi(27)=\\phi(3^3)=3^3-3^2=27-9=18.$$\n$$\\phi(49)=\\phi(7^2)=7^2-7=49-7=42.$$\n\n**b) Kontroll ved telling.** De tallene i $1,\\dots,27$ som *ikke* er relativt primiske til $27=3^3$, er nøyaktig multiplene av $3$:\n$$3,6,9,12,15,18,21,24,27,$$\naltså $9$ stykker — som er $3^{2}=3^{3-1}$, akkurat som utledningen sier. Da er det $27-9=18$ tall igjen, og $\\phi(27)=18$ ✓.\n\n**Sluttsvar:** $\\phi(27)=18$ og $\\phi(49)=42$.\n\n*Legg merke til hva kontrollen viste: utledningen og formelen er samme sak. Skulle du glemme formelen på eksamen, kan du telle multiplene av $p$ og trekke fra — det tar tjue sekunder, og du får den riktige formelen tilbake.*"
+    },
+    {
+      "id": "ma1301-2-1-ex-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-2-1-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Regn ut $\\phi(13)$, $\\phi(32)$ og $\\phi(121)$.",
+        "solution": "Alle tre er primtallspotenser.\n\n$13$ er et primtall, så **$\\phi(p)=p-1$** gir\n$$\\phi(13)=12.$$\n\n$32=2^5$, så **$\\phi(p^k)=p^k-p^{k-1}$** gir\n$$\\phi(32)=2^5-2^4=32-16=16.$$\n\n$121=11^2$, så\n$$\\phi(121)=11^2-11=121-11=110.$$\n\n**Sluttsvar:** $\\phi(13)=12$, $\\phi(32)=16$, $\\phi(121)=110$.\n\n*Merk $\\phi(32)=16$: nøyaktig halvparten. Det gjelder for alle toerpotenser, siden $\\phi(2^k)=2^k-2^{k-1}=2^{k-1}$ — de odde tallene er de relativt primiske, og de er halvparten.*",
+        "hints": [
+          "Er tallet et primtall, eller en potens av et primtall? Faktoriser først.",
+          "For en primtallspotens: $\\phi(p^k)=p^k-p^{k-1}$. Ikke $p^k-1$."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-2-1-l2-intro",
+      "type": "text",
+      "content": "## Løkke 2: Multiplikativitet — $\\phi$ av et sammensatt tall\n\n*~11 minutter.*\n\nNå har vi $\\phi$ på primtallspotenser. Sammensatte tall er produkter av primtallspotenser, og det viser seg at $\\phi$ **oppfører seg pent mot slike produkter**. Det er den egenskapen som gjør at du kan regne $\\phi(360)$ i hodet.\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "ma1301-2-1-d-multiplikativ",
+      "type": "definition",
+      "title": "Multiplikativ funksjon",
+      "content": "En tallteoretisk funksjon $f$ kalles **multiplikativ** dersom\n$$f(mn)=f(m)f(n)\\qquad\\text{for alle }m,n\\text{ med }\\gcd(m,n)=1.$$\n\n**Merk vilkåret.** Kravet er ikke at det gjelder for alle par, bare for **relativt primiske** par. Det er derfor $\\phi(2\\cdot 4)\\ne \\phi(2)\\phi(4)$: her er $\\gcd(2,4)=2\\ne 1$. (Sjekk: $\\phi(8)=4$, men $\\phi(2)\\phi(4)=1\\cdot 2=2$.)\n\n**Hvorfor begrepet er verdt et eget kort:** det gir en oppskrift som gjelder mange funksjoner samtidig. Faktoriser $n$ i primtallspotenser, regn funksjonen på hver potens, og gang sammen. Samme grep virker for $\\phi$ her, og for antall divisorer $\\tau$ og divisorsummen $\\sigma$ i Del 5.\n\nEn multiplikativ funksjon er altså **fullstendig bestemt av verdiene sine på primtallspotenser**."
+    },
+    {
+      "id": "ma1301-2-1-d-phi-multiplikativ",
+      "type": "definition",
+      "title": "ϕ er multiplikativ",
+      "content": "For alle $m,n$ med $\\gcd(m,n)=1$:\n$$\\phi(mn)=\\phi(m)\\phi(n).$$\n\n**Dette må sitte utenat**, med vilkåret. Uten $\\gcd(m,n)=1$ er påstanden gal.\n\n**Intuisjon:** et tall er relativt primisk til $mn$ nøyaktig når det er relativt primisk til $m$ **og** til $n$. Splittingsregelen fra [kap. 1.4](/ma1301/ma1301-1-4) sier at en restklasse modulo $mn$ svarer til nøyaktig ett par av restklasser (én modulo $m$, én modulo $n$) når $\\gcd(m,n)=1$ — og da svarer de inverterbare klassene modulo $mn$ til parene av inverterbare klasser. Antallet blir produktet. Den presise versjonen av dette argumentet er det kinesiske restteoremet i kap. 2.4.\n\n**Kontroll med små tall, som er verdt å gjøre én gang:** $\\phi(15)$. Direkte telling: $1,2,4,7,8,11,13,14$ er relativt primiske til $15$ — åtte stykker. Og $\\phi(3)\\phi(5)=2\\cdot 4=8$ ✓. Her er $\\gcd(3,5)=1$, så regelen gjelder."
+    },
+    {
+      "id": "ma1301-2-1-d-phi-oppskrift",
+      "type": "definition",
+      "title": "Oppskrift: ϕ(n) fra faktoriseringen",
+      "content": "Slik regner du $\\phi(n)$ for hånd, hver gang. Dette er den prosedyren du skal bruke på eksamen.\n\n1. **Faktoriser $n$** i primtallspotenser: $n=p_1^{k_1}p_2^{k_2}\\cdots p_r^{k_r}$.\n2. **Regn $\\phi$ på hver potens** med $\\phi(p^k)=p^k-p^{k-1}$.\n3. **Gang sammen** — lovlig fordi de ulike primtallspotensene er parvis relativt primiske, og $\\phi$ er multiplikativ.\n4. **Kontroller** at svaret er mindre enn $n$, og (for $n\\ge 3$) at det er et partall.\n\nMed symboler:\n$$\\phi(n)=\\prod_{i=1}^{r}\\left(p_i^{k_i}-p_i^{k_i-1}\\right).$$\n\n**Prosedyren må sitte utenat.** Den er raskere for hånd enn den generelle brøkformelen i neste kort, fordi du aldri får brøker å holde orden på.\n\n**Faktoriseringen er det eneste virkelige arbeidet.** Under kode D betyr det prøvedivisjon: del på $2$, så $3$, så $5$, $7$, $11$, $13$ … opp til $\\sqrt n$. Eksamensmodulene er valgt slik at dette går på et halvt minutt."
+    },
+    {
+      "id": "ma1301-2-1-d-phi-generell",
+      "type": "definition",
+      "title": "Den generelle ϕ-formelen",
+      "content": "$$\\phi(n)=n\\prod_{p\\mid n}\\left(1-\\frac{1}{p}\\right),$$\n\nder produktet går over de **distinkte** primtallene som deler $n$ (ikke over potensene).\n\n**Denne utledes på stedet, i to linjer.** Skriv $n=p_1^{k_1}\\cdots p_r^{k_r}$. For hver faktor er\n$$p_i^{k_i}-p_i^{k_i-1}=p_i^{k_i}\\left(1-\\frac{1}{p_i}\\right),$$\nog ganger vi de $r$ faktorene sammen, samler alle $p_i^{k_i}$-ene seg til $n$:\n$$\\phi(n)=\\prod_i p_i^{k_i}\\left(1-\\frac1{p_i}\\right)=n\\prod_{p\\mid n}\\left(1-\\frac1p\\right).\\qquad\\blacksquare$$\n\nUnder et minutt, og du trenger bare $\\phi(p^k)$ for å komme dit. Derfor står denne formelen i «utledes på stedet»-listen og ikke i utenat-listen.\n\n**Når den likevel er den raskeste:** når $n$ har mange små primfaktorer og brøkene forkorter pent. For $n=360=2^3\\cdot 3^2\\cdot 5$:\n$$\\phi(360)=360\\cdot\\frac12\\cdot\\frac23\\cdot\\frac45=96.$$\n**Fellen i den:** produktet går over **distinkte** primtall. Skriver du en faktor $\\left(1-\\frac12\\right)$ tre ganger fordi $2^3$ står i faktoriseringen, blir svaret galt."
+    },
+    {
+      "id": "ma1301-2-1-e2",
+      "type": "example",
+      "title": "ϕ(360) på to måter, og ϕ(1000)",
+      "problem": "**a)** Regn ut $\\phi(360)$ fra faktoriseringen.\n**b)** Regn ut $\\phi(360)$ på nytt med den generelle formelen, og sammenlign.\n**c)** Regn ut $\\phi(1000)$.",
+      "solution": "**a)** Vi faktoriserer og bruker oppskriften.\n\n$$360=2^3\\cdot 3^2\\cdot 5.$$\n\n$\\phi$ på hver potens, med **$\\phi(p^k)=p^k-p^{k-1}$**:\n$$\\phi(2^3)=8-4=4,\\qquad \\phi(3^2)=9-3=6,\\qquad \\phi(5)=4.$$\n\nDe tre primtallspotensene er parvis relativt primiske, så **multiplikativiteten** gir\n$$\\phi(360)=4\\cdot 6\\cdot 4=96.$$\n\n**b)** Med den generelle formelen, som **utledes på stedet**: de distinkte primfaktorene er $2,3,5$, så\n$$\\phi(360)=360\\left(1-\\frac12\\right)\\left(1-\\frac13\\right)\\left(1-\\frac15\\right)=360\\cdot\\frac12\\cdot\\frac23\\cdot\\frac45.$$\nVi regner stegvis: $360\\cdot\\frac12=180$, $180\\cdot\\frac23=120$, $120\\cdot\\frac45=96$. Samme svar ✓.\n\n**c)** $1000=2^3\\cdot 5^3$, så\n$$\\phi(1000)=(8-4)(125-25)=4\\cdot 100=400.$$\n\n**Kontroll.** Alle tre svarene er mindre enn tallet og er partall, som de skal være. Og $\\phi(1000)=400$ stemmer med den generelle formelen: $1000\\cdot\\frac12\\cdot\\frac45=400$ ✓.\n\n**Sluttsvar:** $\\phi(360)=96$ og $\\phi(1000)=400$.\n\n*Hvilken vei er raskest? For hånd er faktoriseringsveien i a) tryggest, fordi du aldri får brøker. Brøkformelen er raskest når tallet er rundt og brøkene forkorter — som i c). **Begge er fullgode**, og fasitene i arkivet honorerer dem likt.*"
+    },
+    {
+      "id": "ma1301-2-1-ex-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-2-1-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Regn ut $\\phi(84)$ og $\\phi(200)$ fra faktoriseringene.",
+        "solution": "**$\\phi(84)$.** Faktorisering: $84=2^2\\cdot 3\\cdot 7$.\n$$\\phi(2^2)=4-2=2,\\qquad\\phi(3)=2,\\qquad\\phi(7)=6.$$\n**Ved multiplikativiteten** (faktorene er parvis relativt primiske):\n$$\\phi(84)=2\\cdot 2\\cdot 6=24.$$\n\n**$\\phi(200)$.** Faktorisering: $200=2^3\\cdot 5^2$.\n$$\\phi(2^3)=8-4=4,\\qquad\\phi(5^2)=25-5=20.$$\n$$\\phi(200)=4\\cdot 20=80.$$\n\n**Kontroll:** begge svar er partall og mindre enn tallet ✓. Og $200\\cdot\\frac12\\cdot\\frac45=80$ ✓.\n\n**Sluttsvar:** $\\phi(84)=24$, $\\phi(200)=80$.\n\n*Merk fellen i $\\phi(200)$: den gale formelen $\\phi(5^2)=25-1=24$ ville gitt $96$. Det er den enkeltfeilen som oftest velter en hel restberegning.*",
+        "hints": [
+          "Faktoriser først. $84$ er delelig med $4$.",
+          "Regn $\\phi$ på hver primtallspotens for seg, og gang sammen."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-2-1-ex-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-2-1-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "**a)** Regn ut $\\phi(675)$.\n**b)** Finn alle $n$ med $\\phi(n)=n-1$, og begrunn svaret.",
+        "solution": "**a)** $675$ er ikke like; siffersummen er $18$, så $9\\mid 675$: $675=27\\cdot 25=3^3\\cdot 5^2$.\n\n$$\\phi(3^3)=27-9=18,\\qquad\\phi(5^2)=25-5=20,$$\nog **ved multiplikativiteten**\n$$\\phi(675)=18\\cdot 20=360.$$\n\n**Kontroll med den generelle formelen:** $675\\cdot\\frac23\\cdot\\frac45=675\\cdot\\frac{8}{15}=360$ ✓.\n\n**b)** $\\phi(n)=n-1$ betyr at nøyaktig **ett** av tallene $1,\\dots,n$ ikke er relativt primisk til $n$. Det ene tallet er alltid $n$ selv (for $n\\ge 2$), så kravet er at **alle** tallene $1,\\dots,n-1$ er relativt primiske til $n$.\n\nEr $n$ sammensatt, $n=ab$ med $1<a<n$, så er $a$ et tall i $1,\\dots,n-1$ med $\\gcd(a,n)=a>1$ — altså minst to tall som ikke teller, og $\\phi(n)\\le n-2$.\n\nEr $n$ et primtall, er alle $1,\\dots,n-1$ relativt primiske til $n$, og $\\phi(n)=n-1$.\n\n**Konklusjon:** $\\phi(n)=n-1$ nøyaktig når $n$ er et primtall. $\\blacksquare$\n\n**Sluttsvar:** $\\phi(675)=360$; og $\\phi(n)=n-1$ gjelder nøyaktig for primtallene.\n\n*Punkt b) er verdt å merke seg som en **primtallstest i teoretisk form**: $\\phi$ ser om tallet er et primtall. Det er også grunnen til at $\\phi(p^k)=p^k-1$ er så farlig gal — den ville sagt at $p^k$ var et primtall.*",
+        "hints": [
+          "I a): er $675$ delelig med $9$? Bruk siffersummen.",
+          "I b): hvilke tall i $1,\\dots,n$ er ikke relativt primiske til $n$? Ett av dem er alltid $n$ selv.",
+          "I b): anta at $n$ er sammensatt, og finn et tall mellom $1$ og $n-1$ som deler en faktor med $n$."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-2-1-l3-intro",
+      "type": "text",
+      "content": "## Løkke 3: Eulers teorem\n\n*~10 minutter.*\n\nNå kommer resultatet som gjør $\\phi$ til et regneverktøy. Det sier at $\\phi(n)$ er en «rundetid»: opphøyer du et tall som er relativt primisk til $n$ i $\\phi(n)$, kommer du tilbake til $1$."
+    },
+    {
+      "id": "ma1301-2-1-t-euler",
+      "type": "theorem",
+      "title": "Eulers teorem",
+      "content": "For alle hele tall $a$ og $n\\ge 1$ med $\\gcd(a,n)=1$:\n$$a^{\\phi(n)}\\equiv 1\\pmod n.$$\n\n**Vilkåret $\\gcd(a,n)=1$ er en del av teoremet.** Uten det er påstanden gal, og feilen er dokumentert som en av de vanligste i faget: $\\gcd(6,9)=3$, og $6^{\\phi(9)}=6^6$ er ikke $\\equiv 1\\pmod 9$ — det er $\\equiv 0\\pmod 9$, siden $6^6$ er delelig med $3^6$.\n\n**Bevis.** La $r_1,r_2,\\dots,r_{\\phi(n)}$ være et redusert restsystem modulo $n$ — altså de $\\phi(n)$ tallene i $1,\\dots,n$ som er relativt primiske til $n$.\n\n*Steg 1: multiplikasjon med $a$ stokker om systemet.* Betrakt tallene\n$$ar_1,\\ ar_2,\\ \\dots,\\ ar_{\\phi(n)}.$$\nHvert av dem er relativt primisk til $n$: både $a$ og $r_i$ er det, og et produkt av to tall uten felles primfaktor med $n$ har heller ingen. Og de er **parvis inkongruente**: er $ar_i\\equiv ar_j\\pmod n$, kan vi forkorte med $a$ (lovlig, **etter forkortingsregelen** i [kap. 1.4](/ma1301/ma1301-1-4), siden $\\gcd(a,n)=1$) og få $r_i\\equiv r_j$, altså $i=j$.\n\nDermed er $ar_1,\\dots,ar_{\\phi(n)}$ nøyaktig de samme $\\phi(n)$ restklassene som $r_1,\\dots,r_{\\phi(n)}$, bare i en annen rekkefølge.\n\n*Steg 2: gang alt sammen.* Produktet av de to listene er derfor kongruent modulo $n$:\n$$(ar_1)(ar_2)\\cdots(ar_{\\phi(n)})\\equiv r_1r_2\\cdots r_{\\phi(n)}\\pmod n.$$\nVenstresiden er $a^{\\phi(n)}\\cdot r_1r_2\\cdots r_{\\phi(n)}$. Sett $R=r_1r_2\\cdots r_{\\phi(n)}$; da er\n$$a^{\\phi(n)}R\\equiv R\\pmod n.$$\n\n*Steg 3: forkort med $R$.* Hver $r_i$ er relativt primisk til $n$, så $\\gcd(R,n)=1$, og forkorting er lovlig. Det gir\n$$a^{\\phi(n)}\\equiv 1\\pmod n.\\qquad\\blacksquare$$\n\n**Intuisjon:** å gange med $a$ er å stokke om en kortstokk med $\\phi(n)$ kort. Gjør du det $\\phi(n)$ ganger og ganger alle kortene sammen, må du ende der du startet — og det tvinger $a^{\\phi(n)}$ til å være $1$.\n\n**Teoremet må sitte utenat, og det må navngis.** Fasitene skriver «fra Eulers teorem» der reduksjonen gjøres, og det er teoremnavnet som bærer argumentet."
+    },
+    {
+      "id": "ma1301-2-1-d-euler-vilkar",
+      "type": "definition",
+      "title": "Vilkåret i Eulers teorem — og hva du gjør uten det",
+      "content": "Eulers teorem krever **$\\gcd(a,n)=1$**. Det er ikke en teknikalitet, det er hele forutsetningen — og det er den mest belagte fellen i sjanger E.\n\n**Sjekken skal stå i besvarelsen**, som én setning: «Siden $\\gcd(a,n)=1$, gir Eulers teorem …». Fasitene i arkivet skriver den ut, og en besvarelse som reduserer eksponenten uten å ha sagt det, har hoppet over premisset.\n\n**Hvordan du sjekker den raskt:** du har allerede faktorisert $n$ (steg 1 i oppskriften). Se om noen av primfaktorene i $n$ deler $a$. Er $n=100$ og $a=3$, er primfaktorene $2$ og $5$, og ingen av dem deler $3$ — ferdig.\n\n**Er $\\gcd(a,n)\\ne 1$?** Da kan du ikke bruke Euler på $n$. Det er ikke en blindvei, men en annen vei: splitt modulusen i primtallspotenser og behandle hver del for seg. Det er løkke 6.\n\n**Merk en presisering det er verdt å ha:** vilkåret gjelder $a$ og $n$, ikke $a$ og eksponenten. Eksponenten kan være hva som helst."
+    },
+    {
+      "id": "ma1301-2-1-d-redusert-restsystem",
+      "type": "definition",
+      "title": "Redusert restsystem modulo n",
+      "content": "En liste med $\\phi(n)$ tall som er **parvis inkongruente modulo $n$** og **alle relativt primiske til $n$** — altså én representant for hver inverterbar restklasse.\n\nDet naturlige valget er tallene i $1,\\dots,n$ som er relativt primiske til $n$. For $n=12$: $\\{1,5,7,11\\}$. For $n=10$: $\\{1,3,7,9\\}$.\n\n**Egenskapen som brukes i beviset for Eulers teorem:** ganger du hele systemet med et tall $a$ som er relativt primisk til $n$, får du **samme system om igjen**, bare i en annen rekkefølge. Prøv med $n=10$ og $a=3$: $3\\cdot\\{1,3,7,9\\}=\\{3,9,21,27\\}\\equiv\\{3,9,1,7\\}$ — samme fire restklasser ✓.\n\n**Hvorfor det er verdt å kjenne begrepet:** det er nøyaktig samme omstokkings-idé som brukes i beviset for Wilsons teorem (kap. 2.3), der faktorene parer seg med sine inverser. To av fagets fire store teoremer hviler på den."
+    },
+    {
+      "id": "ma1301-2-1-e3",
+      "type": "example",
+      "title": "Eulers teorem kontrollert på to moduler",
+      "problem": "**a)** Verifiser Eulers teorem for $a=3$, $n=10$ ved direkte regning.\n**b)** Verifiser den for $a=2$, $n=9$.\n**c)** Hva skjer med $a=6$, $n=9$?",
+      "solution": "**a)** $10=2\\cdot 5$, så $\\phi(10)=1\\cdot 4=4$. Og $\\gcd(3,10)=1$ ✓, så **Eulers teorem** sier $3^4\\equiv 1\\pmod{10}$.\n\nDirekte: $3^4=81=10\\cdot 8+1$, altså $3^4\\equiv 1\\pmod{10}$ ✓.\n\n**b)** $9=3^2$, så $\\phi(9)=9-3=6$. Og $\\gcd(2,9)=1$ ✓, så teoremet sier $2^6\\equiv 1\\pmod 9$.\n\nDirekte: $2^6=64=9\\cdot 7+1$, altså $2^6\\equiv 1\\pmod 9$ ✓.\n\n**c)** Her er $\\gcd(6,9)=3\\ne 1$, så **vilkåret svikter og teoremet gjelder ikke**. Vi ser hva som faktisk skjer:\n$$6^2=36\\equiv 0\\pmod 9,$$\nog da er $6^k\\equiv 0\\pmod 9$ for alle $k\\ge 2$ — spesielt $6^6\\equiv 0$, ikke $1$.\n\n**Sluttsvar:** teoremet holder i a) og b); i c) er vilkåret brutt, og $6^{\\phi(9)}\\equiv 0\\pmod 9$.\n\n*Punkt c) er verdt å se én gang med egne øyne, for det er nettopp denne situasjonen fasitene advarer mot. Når $a$ og $n$ deler en primfaktor, vokser den felles faktoren i potensene i stedet for å gå i ring — så $a^k$ nærmer seg $0$ modulo $n$ og kommer aldri tilbake til $1$.*"
+    },
+    {
+      "id": "ma1301-2-1-ex-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-2-1-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "**a)** Regn ut $\\phi(20)$, og verifiser Eulers teorem for $a=7$, $n=20$ ved direkte regning.\n**b)** Kan Eulers teorem brukes på $a=10$, $n=20$? Begrunn.",
+        "solution": "**a)** $20=2^2\\cdot 5$, så $\\phi(20)=(4-2)\\cdot 4=2\\cdot 4=8$.\n\n$\\gcd(7,20)=1$ (primfaktorene i $20$ er $2$ og $5$, og ingen deler $7$) ✓, så **Eulers teorem** sier $7^8\\equiv 1\\pmod{20}$.\n\nDirekte, med reduksjon underveis:\n$$7^2=49\\equiv 9\\pmod{20},\\qquad 7^4\\equiv 9^2=81\\equiv 1\\pmod{20},$$\n$$7^8\\equiv 1^2=1\\pmod{20}\\ \\checkmark.$$\n\n**b)** Nei. $\\gcd(10,20)=10\\ne 1$, så vilkåret i teoremet er ikke oppfylt. Og påstanden er faktisk gal her: $10^2=100\\equiv 0\\pmod{20}$, så $10^8\\equiv 0\\pmod{20}$, ikke $1$.\n\n**Sluttsvar:** $\\phi(20)=8$ og $7^8\\equiv 1\\pmod{20}$; for $a=10$ kan teoremet ikke brukes.\n\n*Legg merke til en detalj i a): vi fant at allerede $7^4\\equiv 1$. Eksponenten $\\phi(n)$ er en rundetid, men ikke nødvendigvis den minste — den minste kalles **ordenen** til $7$ modulo $20$ og behandles i Del 5. Det påvirker ikke regningen her: $\\phi(n)$ virker alltid.*",
+        "hints": [
+          "Faktoriser $20$, og bruk $\\phi(p^k)=p^k-p^{k-1}$ på hver potens.",
+          "Reduser underveis: regn $7^2$ først, kvadrer så resten.",
+          "I b): sjekk $\\gcd(10,20)$ før du gjør noe annet."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-2-1-l4-intro",
+      "type": "text",
+      "content": "## Løkke 4: Eksponentreduksjon — teoremet brukt som verktøy\n\n*~9 minutter.*\n\nEulers teorem sier at $a^{\\phi(n)}\\equiv 1$. Konsekvensen er at **eksponenten bare betyr noe modulo $\\phi(n)$** — og det er hele grunnen til at en eksponent på 455 kan behandles for hånd."
+    },
+    {
+      "id": "ma1301-2-1-d-eksponentreduksjon",
+      "type": "definition",
+      "title": "Eksponentreduksjon modulo ϕ(n)",
+      "content": "Er $\\gcd(a,n)=1$ og $N=\\phi(n)\\cdot q+r$ med $0\\le r<\\phi(n)$, så\n$$a^N=\\left(a^{\\phi(n)}\\right)^{q}\\cdot a^{r}\\equiv 1^{q}\\cdot a^{r}=a^{r}\\pmod n.$$\n\nMed andre ord: **del eksponenten på $\\phi(n)$ og behold bare resten.**\n\n**Regelen må sitte utenat**, og utledningen over er den du skriver i besvarelsen — den er tre symboler lang og gjør reduksjonen begrunnet i stedet for postulert.\n\n**Merk at $r$ kan være $0$.** Da er $a^N\\equiv a^0=1\\pmod n$. Det er riktig svar, ikke et tegn på at noe er galt.\n\n**Og merk at reduksjonen bare gjelder eksponenten.** Grunntallet $a$ reduseres modulo $n$ (vanlig kongruensregning), eksponenten modulo $\\phi(n)$. De to modulene blandes lett, og det er den nest vanligste feilen i sjangeren."
+    },
+    {
+      "id": "ma1301-2-1-d-hvorfor-phi-ikke-n",
+      "type": "definition",
+      "title": "Hvorfor eksponenten reduseres mod ϕ(n) og ikke mod n",
+      "content": "Dette er den forvekslingen som koster mest, og den er verdt et eget kort.\n\n**To ulike moduler er i spill samtidig:**\n\n| Det du reduserer | Modulus | Hjemmel |\n|---|---|---|\n| **grunntallet** $a$ | $n$ | vanlige kongruensregneregler ([kap. 1.4](/ma1301/ma1301-1-4)) |\n| **eksponenten** $N$ | $\\phi(n)$ | Eulers teorem, og bare når $\\gcd(a,n)=1$ |\n\n**Se på et eksempel der forskjellen er tydelig.** Skal du finne $3^{455}\\bmod 100$, er $\\phi(100)=40$. Riktig reduksjon: $455\\equiv 15\\pmod{40}$, altså $3^{455}\\equiv 3^{15}\\equiv 7$. Gal reduksjon modulo $100$: $455\\equiv 55$, og $3^{55}\\equiv 47\\pmod{100}$ — et helt annet svar.\n\n**Minnekroken:** eksponenten teller *runder på hjulet*, og hjulet har $\\phi(n)$ hakk, ikke $n$. Modulusen $n$ hører til tallene, $\\phi(n)$ hører til eksponentene.\n\n**Praktisk vane som forebygger feilen:** skriv $\\phi(n)$ ned som et eget tall på arket, med navn, før du rører eksponenten."
+    },
+    {
+      "id": "ma1301-2-1-d-grunntall-forst",
+      "type": "definition",
+      "title": "Reduser grunntallet først",
+      "content": "Er grunntallet større enn modulusen, **reduser det først**. Det er lovlig etter potensregelen for kongruenser i [kap. 1.4](/ma1301/ma1301-1-4): er $a\\equiv b\\pmod n$, så er $a^N\\equiv b^N\\pmod n$.\n\n*Eksempel:* $123^{50}\\bmod 11$. Først $123=11\\cdot 11+2$, så $123\\equiv 2\\pmod{11}$, og oppgaven er blitt $2^{50}\\bmod 11$.\n\n**Hvorfor det er verdt å gjøre først:** små grunntall gir små kvadrater. $2^2=4$ er lettere å holde i hodet enn $123^2=15\\,129$, og hvert kvadrat du regner med et lite tall er en feil mindre.\n\n**En bonus:** reduksjonen gjør ofte $\\gcd$-sjekken lettere å se. $\\gcd(123,11)$ er ikke åpenbart; $\\gcd(2,11)=1$ er det.\n\n**Men vær nøyaktig med hva du reduserer.** Grunntallet modulo $n$, eksponenten modulo $\\phi(n)$ — aldri omvendt."
+    },
+    {
+      "id": "ma1301-2-1-e4",
+      "type": "example",
+      "title": "Restberegning etter malen: 3^455 modulo 100",
+      "problem": "Finn resten når $3^{455}$ deles på $100$.",
+      "solution": "**(i) Faktoriser modulusen.** $100 = 2^{2} \\cdot 5^{2}$.\n\n**(ii) $\\gcd$-sjekken.** $\\gcd(3,100)=1$, siden $3$ ikke har noen primfaktor felles med $100$. Vilkåret er oppfylt, så teoremet kan brukes.\n\n**(iii) Regn ut $\\phi(n)$.** Fra faktoriseringen: $\\phi(100)=(2^{2}-2^{1})\\cdot (5^{2}-5^{1}) = 2\\cdot 20=40$.\n\n**(iv) Reduser eksponenten.** **Fra Eulers teorem** er $3^{40}\\equiv 1\\pmod{100}$, så vi kan redusere eksponenten modulo $\\phi(100)=40$:\n\n$$455 = 40\\cdot 11 + 15,\\qquad\\text{så}\\qquad 3^{455} = \\left(3^{40}\\right)^{11}\\cdot 3^{15}\\equiv 1^{11}\\cdot 3^{15} = 3^{15}\\pmod{100}.$$\n\n**(v) Binærutviklingen av eksponenten og de suksessive kvadratene.** Vi skriver eksponenten som en sum av toerpotenser: $15 = 8 + 4 + 2 + 1$, altså $15$ i binær er $1111$. Deretter kvadrerer vi oss oppover, og reduserer modulo $100$ etter hvert kvadrat:\n\n| Potens | Utregning | Rest modulo $100$ |\n|---|---|---|\n| $3^{1}$ | — | $3$ |\n| $3^{2}$ | $3^2=9$ | $9$ |\n| $3^{4}$ | $9^2=81$ | $81$ |\n| $3^{8}$ | $81^2=6\\,561$, og $6\\,561=100\\cdot 65+61$ | $61$ |\n\n**(vi) Sett sammen produktet.** Da er\n\n$$3^{15} = 3^{8} \\cdot 3^{4} \\cdot 3^{2} \\cdot 3^{1} \\equiv 61 \\cdot 81 \\cdot 9 \\cdot 3 \\pmod{100},$$\n\nog vi multipliserer to av gangen, med reduksjon underveis: $61\\cdot 81 = 4\\,941\\equiv 41$; $41\\cdot 9 = 369\\equiv 69$; $69\\cdot 3 = 207\\equiv 7$.\n\n**(vii) Konklusjon.** Resten når $3^{455}$ deles på $100$, er $\\boxed{7}$.\n\n*Legg merke til hvor lite regning dette var: fire kvadrater og tre multiplikasjoner, alle med tall under $100$. Det er kode D-realistisk — og det er hele grunnen til at eksponentreduksjonen kommer FØR potensregningen.*\n\n*Og legg merke til at svaret $7$ er det siste sifferet i $3^{455}$ pluss noe: resten modulo $100$ er de to siste sifrene, altså $07$.*"
+    },
+    {
+      "id": "ma1301-2-1-ex-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-2-1-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Finn resten når $3^{1000}$ deles på $14$.",
+        "solution": "**(i) Faktoriser modulusen.** $14 = 2 \\cdot 7$.\n\n**(ii) $\\gcd$-sjekken.** $\\gcd(3,14)=1$, siden $3$ ikke har noen primfaktor felles med $14$. Vilkåret er oppfylt, så teoremet kan brukes.\n\n**(iii) Regn ut $\\phi(n)$.** Fra faktoriseringen: $\\phi(14)=(2-1)\\cdot (7-1) = 1\\cdot 6=6$.\n\n**(iv) Reduser eksponenten.** **Fra Eulers teorem** er $3^{6}\\equiv 1\\pmod{14}$, så vi kan redusere eksponenten modulo $\\phi(14)=6$:\n\n$$1000 = 6\\cdot 166 + 4,\\qquad\\text{så}\\qquad 3^{1000} = \\left(3^{6}\\right)^{166}\\cdot 3^{4}\\equiv 1^{166}\\cdot 3^{4} = 3^{4}\\pmod{14}.$$\n\n**(v) Binærutviklingen av eksponenten og de suksessive kvadratene.** Vi skriver eksponenten som en sum av toerpotenser: $4 = 4$, altså $4$ i binær er $100$. Deretter kvadrerer vi oss oppover, og reduserer modulo $14$ etter hvert kvadrat:\n\n| Potens | Utregning | Rest modulo $14$ |\n|---|---|---|\n| $3^{1}$ | — | $3$ |\n| $3^{2}$ | $3^2=9$ | $9$ |\n| $3^{4}$ | $9^2=81$, og $81=14\\cdot 5+11$ | $11$ |\n\n**(vi) Sett sammen produktet.** Da er\n\n$$3^{4} = 3^{4} \\equiv 11 \\pmod{14},$$\n\naltså direkte $3^{4}\\equiv 11\\pmod{14}$.\n\n**(vii) Konklusjon.** Resten når $3^{1000}$ deles på $14$, er $\\boxed{11}$.\n\n*Merk at $\\phi(14)=6$, ikke $13$: modulusen er sammensatt ($14=2\\cdot 7$), så $\\phi$ må regnes fra faktoriseringen. Hadde du brukt $14-1=13$, ville reduksjonen gitt $3^{12}$ og et galt svar.*",
+        "hints": [
+          "Faktoriser $14$ og regn $\\phi(14)$ fra faktoriseringen.",
+          "Sjekk $\\gcd(3,14)$ før du reduserer eksponenten.",
+          "Reduser $1000$ modulo $\\phi(14)$, ikke modulo $14$."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-2-1-ex-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-2-1-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Finn resten når $11^{403}$ deles på $24$.",
+        "solution": "**(i) Faktoriser modulusen.** $24 = 2^{3} \\cdot 3$.\n\n**(ii) $\\gcd$-sjekken.** $\\gcd(11,24)=1$, siden $11$ ikke har noen primfaktor felles med $24$. Vilkåret er oppfylt, så teoremet kan brukes.\n\n**(iii) Regn ut $\\phi(n)$.** Fra faktoriseringen: $\\phi(24)=(2^{3}-2^{2})\\cdot (3-1) = 4\\cdot 2=8$.\n\n**(iv) Reduser eksponenten.** **Fra Eulers teorem** er $11^{8}\\equiv 1\\pmod{24}$, så vi kan redusere eksponenten modulo $\\phi(24)=8$:\n\n$$403 = 8\\cdot 50 + 3,\\qquad\\text{så}\\qquad 11^{403} = \\left(11^{8}\\right)^{50}\\cdot 11^{3}\\equiv 1^{50}\\cdot 11^{3} = 11^{3}\\pmod{24}.$$\n\n**(v) Binærutviklingen av eksponenten og de suksessive kvadratene.** Vi skriver eksponenten som en sum av toerpotenser: $3 = 2 + 1$, altså $3$ i binær er $11$. Deretter kvadrerer vi oss oppover, og reduserer modulo $24$ etter hvert kvadrat:\n\n| Potens | Utregning | Rest modulo $24$ |\n|---|---|---|\n| $11^{1}$ | — | $11$ |\n| $11^{2}$ | $11^2=121$, og $121=24\\cdot 5+1$ | $1$ |\n\n**(vi) Sett sammen produktet.** Da er\n\n$$11^{3} = 11^{2} \\cdot 11^{1} \\equiv 1 \\cdot 11 \\pmod{24},$$\n\nog vi multipliserer to av gangen, med reduksjon underveis: $1\\cdot 11 = 11$.\n\n**(vii) Konklusjon.** Resten når $11^{403}$ deles på $24$, er $\\boxed{11}$.\n\n*En kontroll det er verdt å gjøre her: $11\\equiv -13$, men enklere er $11^2=121=24\\cdot 5+1$, altså $11^2\\equiv 1\\pmod{24}$. Da er $11^{403}=11^{402}\\cdot 11=(11^2)^{201}\\cdot 11\\equiv 11$ — samme svar, på en snarvei. **Begge veier er fullgode**; malen er den som alltid virker, snarveien er den som er rask når du ser den.*",
+        "hints": [
+          "$24=2^3\\cdot 3$. Regn $\\phi(24)$ fra faktoriseringen.",
+          "Er $\\gcd(11,24)=1$? Se på primfaktorene i $24$.",
+          "Reduser $403$ modulo $\\phi(24)$."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-2-1-l5-intro",
+      "type": "text",
+      "content": "## Løkke 5: Kvadrer-og-multipliser, og føringsmalen\n\n*~11 minutter.*\n\nEtter reduksjonen står du med noe som $3^{15}\\bmod 100$. Det er fremdeles for stort å regne rått — $3^{15}$ er nesten fjorten millioner. Prosedyren under gjør det til fire kvadrater.\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "ma1301-2-1-d-kvadrer-multipliser",
+      "type": "definition",
+      "title": "Kvadrer-og-multipliser",
+      "content": "Prosedyren for å regne $a^{e}\\bmod n$ med få operasjoner, ved å bruke **binærutviklingen** av eksponenten.\n\n**Oppskriften:**\n\n1. **Skriv $e$ som en sum av toerpotenser** ($e$ i binær). For $e=15$: $15=8+4+2+1$.\n2. **Regn de suksessive kvadratene** $a^1,a^2,a^4,a^8,\\dots$ — hvert ledd er kvadratet av det forrige, **redusert modulo $n$ etter hvert kvadrat**.\n3. **Gang sammen** de kvadratene som svarer til $1$-erne i binærutviklingen, to av gangen, med reduksjon underveis.\n\n**Prosedyren må sitte utenat.** Under kode D er den den eneste måten å regne $a^{e}\\bmod n$ for eksponenter over ti — kalkulatoren mister presisjonen lenge før.\n\n**Hvorfor reduksjonen etter hvert kvadrat er kritisk:** uten den vokser tallene eksponentielt, og du regner med sekssifrede tall etter tre steg. Med den er hvert tall alltid mindre enn $n$.\n\n**Antall operasjoner:** omtrent $\\log_2 e$ kvadrater og like mange multiplikasjoner i verste fall. For $e<32$ betyr det **2–5 kvadrater**, som er nøyaktig kode D-nivå.\n\n**Fasitkravet:** mellomstegene skal stå. Løsningsforslagene dokumenterer binærutviklingen og kvadrattabellen, og et sluttall uten dem er et svar uten metode."
+    },
+    {
+      "id": "ma1301-2-1-d-restmal",
+      "type": "definition",
+      "title": "Føringsmalen for restberegning — sju steg",
+      "content": "Slik føres hver restberegning i boka, og slik bør du føre den på eksamen. Malen er identisk i alle kapitler der $a^N\\bmod n$ regnes ([kap. 2.5](/ma1301/ma1301-2-5), [kap. 2.6](/ma1301/ma1301-2-6), kap. 3.1, kap. 3.2).\n\n**(i) Faktoriser modulusen.**\n**(ii) $\\gcd$-sjekken** — skriv setningen «$\\gcd(a,n)=1$, så vilkåret er oppfylt».\n**(iii) Regn ut $\\phi(n)$** fra faktoriseringen.\n**(iv) Reduser eksponenten** modulo $\\phi(n)$ (Eulers teorem) eller modulo $p-1$ (Fermats lille teorem), **med teoremnavnet**.\n**(v) Binærutviklingen av eksponenten og de suksessive kvadratene**, som liten tabell.\n**(vi) Sett sammen produktet**, to faktorer av gangen, med reduksjon underveis.\n**(vii) Konklusjon** — «resten er …», som en setning, med sluttsvaret markert.\n\n**Malen må sitte utenat**, og hvert steg bærer uttelling for seg selv. Grunnen er instruksen som står på hvert eneste sett: **alle svar må begrunnes.**\n\n**Steg (ii) er det som oftest mangler** i en ellers riktig besvarelse — og det er det steget som avgjør om metoden i det hele tatt er lovlig."
+    },
+    {
+      "id": "ma1301-2-1-ex-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-2-1-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Finn resten når $8^{247}$ deles på $63$. Bruk føringsmalen, og kommenter til slutt om reduksjonen kunne gjøres kortere.",
+        "solution": "**(i) Faktoriser modulusen.** $63 = 3^{2} \\cdot 7$.\n\n**(ii) $\\gcd$-sjekken.** $\\gcd(8,63)=1$, siden $8$ ikke har noen primfaktor felles med $63$. Vilkåret er oppfylt, så teoremet kan brukes.\n\n**(iii) Regn ut $\\phi(n)$.** Fra faktoriseringen: $\\phi(63)=(3^{2}-3^{1})\\cdot (7-1) = 6\\cdot 6=36$.\n\n**(iv) Reduser eksponenten.** **Fra Eulers teorem** er $8^{36}\\equiv 1\\pmod{63}$, så vi kan redusere eksponenten modulo $\\phi(63)=36$:\n\n$$247 = 36\\cdot 6 + 31,\\qquad\\text{så}\\qquad 8^{247} = \\left(8^{36}\\right)^{6}\\cdot 8^{31}\\equiv 1^{6}\\cdot 8^{31} = 8^{31}\\pmod{63}.$$\n\n**(v) Binærutviklingen av eksponenten og de suksessive kvadratene.** Vi skriver eksponenten som en sum av toerpotenser: $31 = 16 + 8 + 4 + 2 + 1$, altså $31$ i binær er $11111$. Deretter kvadrerer vi oss oppover, og reduserer modulo $63$ etter hvert kvadrat:\n\n| Potens | Utregning | Rest modulo $63$ |\n|---|---|---|\n| $8^{1}$ | — | $8$ |\n| $8^{2}$ | $8^2=64$, og $64=63\\cdot 1+1$ | $1$ |\n| $8^{4}$ | $1^2=1$ | $1$ |\n| $8^{8}$ | $1^2=1$ | $1$ |\n| $8^{16}$ | $1^2=1$ | $1$ |\n\n**(vi) Sett sammen produktet.** Da er\n\n$$8^{31} = 8^{16} \\cdot 8^{8} \\cdot 8^{4} \\cdot 8^{2} \\cdot 8^{1} \\equiv 1 \\cdot 1 \\cdot 1 \\cdot 1 \\cdot 8 \\pmod{63},$$\n\nog vi multipliserer to av gangen, med reduksjon underveis: $1\\cdot 1 = 1$; $1\\cdot 1 = 1$; $1\\cdot 1 = 1$; $1\\cdot 8 = 8$.\n\n**(vii) Konklusjon.** Resten når $8^{247}$ deles på $63$, er $\\boxed{8}$.\n\n**Kunne det gjøres kortere?** Ja, og det er verdt å se: $8^2=64=63+1$, så\n$$8^2\\equiv 1\\pmod{63}.$$\nDa er $8^{247}=8^{246}\\cdot 8=(8^2)^{123}\\cdot 8\\equiv 1^{123}\\cdot 8=8\\pmod{63}$ — samme svar i to linjer.\n\n**Begge veier er fullgode.** Malen virker alltid og krever ingen oppdagelse; snarveien krever at du ser at $8^2\\equiv 1$. På eksamen: start malen, og se etter en liten potens som gir $1$ mens du regner kvadrattabellen — oppdager du den, sier du det og sparer tid.\n\n*Det snarveien egentlig viser, er at **ordenen** til $8$ modulo $63$ er $2$, mye mindre enn $\\phi(63)=36$. Orden er temaet i Del 5; her er det nok å vite at $\\phi(n)$ alltid virker, men ikke alltid er det minste som virker.*",
+        "hints": [
+          "$63=3^2\\cdot 7$. Regn $\\phi(63)$ fra faktoriseringen.",
+          "Sjekk $\\gcd(8,63)$: har $8$ noen primfaktor felles med $63$?",
+          "Se på $8^2$ modulo $63$ når du lager kvadrattabellen."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-2-1-l6-intro",
+      "type": "text",
+      "content": "## Løkke 6: Når $\\gcd(a,n)\\ne 1$\n\n*~9 minutter.*\n\nHer er tilfellet fasitene advarer mot, og som en del av oppgavene i arkivet er bygget rundt: grunntallet og modulusen deler en primfaktor. Da kan Eulers teorem **ikke** brukes på $n$ — og oppgaven er fortsatt løsbar, med en omvei."
+    },
+    {
+      "id": "ma1301-2-1-d-gcd-ikke-1",
+      "type": "definition",
+      "title": "Når gcd(a, n) ≠ 1 — splitt modulusen",
+      "content": "Eulers teorem krever $\\gcd(a,n)=1$. Deler $a$ og $n$ en primfaktor, gjør du dette i stedet:\n\n1. **Faktoriser $n$ i primtallspotenser**, $n=p^k\\cdot m$ med $\\gcd(p^k,m)=1$.\n2. **Regn resten modulo hver del for seg.** Der $\\gcd(a,\\text{delen})=1$ bruker du Eulers teorem som normalt. Der primtallet deler $a$, blir $a^N\\equiv 0$ så snart eksponenten er stor nok (se neste kort).\n3. **Sett sammen igjen** med splittingsregelen fra [kap. 1.4](/ma1301/ma1301-1-4): $x\\equiv b\\pmod{p^k}$ og $x\\equiv c\\pmod m$ bestemmer $x$ entydig modulo $n$, siden $\\gcd(p^k,m)=1$.\n\n**Steg 3 er det kinesiske restteoremet**, og i [kap. 2.4](/ma1301/ma1301-2-4) får du en systematisk oppskrift for det. Her klarer vi oss med å lete: skriv opp de få tallene under $n$ som oppfyller den ene kongruensen, og se hvilket av dem som oppfyller den andre.\n\n**Merk hva som IKKE virker:** å bruke $\\phi(n)$ likevel og håpe. $6^{\\phi(9)}=6^6\\equiv 0\\pmod 9$, ikke $1$ — reduksjonen ville gitt galt svar, ikke bare et upresist et."
+    },
+    {
+      "id": "ma1301-2-1-d-null-modulo-primpotens",
+      "type": "definition",
+      "title": "Hvorfor a^N ≡ 0 når primtallet deler grunntallet",
+      "content": "Deler primtallet $p$ tallet $a$, og er $N\\ge k$, så\n$$a^N\\equiv 0\\pmod{p^k}.$$\n\n**Utledes på stedet, én linje:** skriv $a=p\\cdot s$. Da er $a^N=p^N s^N$, og siden $N\\ge k$ er $p^k\\mid p^N$, altså $p^k\\mid a^N$. $\\blacksquare$\n\n**Praktisk betydning:** i en splitting er dette den *lette* delen. Skal du regne $12^{103}\\bmod 45$ og splitter i $9$ og $5$, gir $3\\mid 12$ og $103\\ge 2$ direkte at $12^{103}\\equiv 0\\pmod 9$ — ingen $\\phi$, ingen kvadrattabell.\n\n**Men sjekk eksponenten.** Kravet er $N\\ge k$, der $k$ er eksponenten i primtallspotensen. For $9=3^2$ trengs $N\\ge 2$. Er eksponenten mindre (f.eks. $12^1\\bmod 9=3$), regner du direkte i stedet.\n\n**Og merk at dette er grunnen til at Euler feiler her:** potensen går ikke i ring, den samler opp faktorer av $p$ og blir stående på $0$."
+    },
+    {
+      "id": "ma1301-2-1-e5",
+      "type": "example",
+      "title": "Eksamensnivå: 12^103 modulo 45, der Euler ikke kan brukes direkte",
+      "problem": "Finn resten når $12^{103}$ deles på $45$.",
+      "solution": "**Steg 1: $\\gcd$-sjekken — og den svikter.** $45=3^2\\cdot 5$ og $12=2^2\\cdot 3$, så\n$$\\gcd(12,45)=3\\ne 1.$$\n**Eulers teorem kan altså ikke brukes på modulus $45$.** Vi splitter i stedet.\n\n**Steg 2: splitt modulusen.** $45=9\\cdot 5$ med $\\gcd(9,5)=1$, så **etter splittingsregelen** fra [kap. 1.4](/ma1301/ma1301-1-4) er det nok å finne resten modulo $9$ og modulo $5$.\n\n**Steg 3: modulo $9$.** Her er $3\\mid 12$, og eksponenten $103\\ge 2$, så\n$$12^{103}\\equiv 0\\pmod 9.$$\n(Grunn: $12=3\\cdot 4$, så $12^{103}=3^{103}4^{103}$, og $3^2\\mid 3^{103}$.)\n\n**Steg 4: modulo $5$.** Her er $\\gcd(12,5)=1$ ✓, så **Eulers teorem** kan brukes. Vi reduserer først grunntallet: $12\\equiv 2\\pmod 5$. Og $\\phi(5)=4$, så eksponenten reduseres modulo $4$:\n$$103=4\\cdot 25+3,\\qquad\\text{så}\\qquad 12^{103}\\equiv 2^{103}\\equiv 2^{3}=8\\equiv 3\\pmod 5.$$\n\n**Steg 5: sett sammen.** Vi trenger $x$ med\n$$x\\equiv 0\\pmod 9,\\qquad x\\equiv 3\\pmod 5,\\qquad 0\\le x<45.$$\nMultiplene av $9$ under $45$ er $0,9,18,27,36$. Restene deres modulo $5$ er $0,4,3,2,1$. Bare $18$ gir rest $3$.\n\n**Kontroll.** $18=9\\cdot 2+0$ ✓ og $18=5\\cdot 3+3$ ✓.\n\n**Konklusjon.** Resten når $12^{103}$ deles på $45$, er $\\boxed{18}$.\n\n*Steg 5 er det kinesiske restteoremet gjort med bare øyne. Med fem kandidater er letingen raskere enn formelen — men blir modulusen større, trenger du systematikken i [kap. 2.4](/ma1301/ma1301-2-4).*\n\n*Og merk hvorfor oppgaven i det hele tatt var vanskelig: hadde du glemt $\\gcd$-sjekken og redusert $103$ modulo $\\phi(45)=24$, ville du fått $12^{7}$, og $12^7\\equiv 18\\pmod{45}$ — samme svar ved ren flaks i dette tilfellet, men ingen begrunnelse som holder. Metoden er det som vurderes.*"
+    },
+    {
+      "id": "ma1301-2-1-ex-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-2-1-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Finn resten når $6^{85}$ deles på $75$.",
+        "solution": "**Steg 1: $\\gcd$-sjekken.** $75=3\\cdot 5^2$ og $6=2\\cdot 3$, så\n$$\\gcd(6,75)=3\\ne 1.$$\n**Eulers teorem kan ikke brukes på modulus $75$.** Vi splitter.\n\n**Steg 2: splitt modulusen.** $75=3\\cdot 25$ med $\\gcd(3,25)=1$, så det er nok å finne resten modulo $3$ og modulo $25$ (**splittingsregelen**, [kap. 1.4](/ma1301/ma1301-1-4)).\n\n**Steg 3: modulo $3$.** Siden $3\\mid 6$ og $85\\ge 1$:\n$$6^{85}\\equiv 0\\pmod 3.$$\n\n**Steg 4: modulo $25$.** Her er $\\gcd(6,25)=1$ ✓, så **Eulers teorem** gjelder. $\\phi(25)=25-5=20$, og\n$$85=20\\cdot 4+5,\\qquad\\text{så}\\qquad 6^{85}\\equiv 6^{5}\\pmod{25}.$$\nKvadrer-og-multipliser med $5=4+1$: $6^2=36\\equiv 11$, $6^4\\equiv 11^2=121\\equiv 21$, og\n$$6^5\\equiv 21\\cdot 6=126\\equiv 1\\pmod{25}.$$\n\n**Steg 5: sett sammen.** Vi trenger $x$ med $x\\equiv 0\\pmod 3$, $x\\equiv 1\\pmod{25}$ og $0\\le x<75$. Tallene $\\equiv 1\\pmod{25}$ under $75$ er $1,26,51$. Restene modulo $3$ er $1,2,0$ — bare $51$ gir $0$.\n\n**Kontroll.** $51=3\\cdot 17$ ✓ og $51=25\\cdot 2+1$ ✓.\n\n**Konklusjon.** Resten når $6^{85}$ deles på $75$, er $\\boxed{51}$.\n\n*Merk at $6^5\\equiv 1\\pmod{25}$ selv om $\\phi(25)=20$ — igjen en orden som er mindre enn $\\phi$. Det gjør ingen skade: reduksjonen til $6^5$ var riktig, og at $6^5$ tilfeldigvis ble $1$, var bare hyggelig.*",
+        "hints": [
+          "Sjekk $\\gcd(6,75)$ først. Kan Eulers teorem brukes?",
+          "Splitt $75=3\\cdot 25$ og regn modulo hver del for seg.",
+          "Modulo $3$: hva blir $6^{85}$ når $3$ deler $6$?",
+          "Til slutt: hvilke tall under $75$ er $\\equiv 1\\pmod{25}$?"
+        ]
+      }
+    },
+    {
+      "id": "ma1301-2-1-ex-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-2-1-o9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "**a)** Finn det siste sifferet i $7^{2026}$.\n**b)** Finn de to siste sifrene i $7^{2026}$.",
+        "solution": "**a)** Det siste sifferet er resten modulo $10$.\n\n$10=2\\cdot 5$, så $\\phi(10)=1\\cdot 4=4$. Og $\\gcd(7,10)=1$ ✓, så **Eulers teorem** gir $7^4\\equiv 1\\pmod{10}$ og lar oss redusere eksponenten modulo $4$:\n$$2026=4\\cdot 506+2,\\qquad\\text{så}\\qquad 7^{2026}\\equiv 7^2=49\\equiv 9\\pmod{10}.$$\n\n**Siste siffer: $9$.**\n\n**b)** De to siste sifrene er resten modulo $100$.\n\n$100=2^2\\cdot 5^2$, så $\\phi(100)=(4-2)(25-5)=2\\cdot 20=40$. Og $\\gcd(7,100)=1$ ✓, så **Eulers teorem** gir\n$$2026=40\\cdot 50+26,\\qquad\\text{så}\\qquad 7^{2026}\\equiv 7^{26}\\pmod{100}.$$\n\nKvadrer-og-multipliser, med $26=16+8+2$:\n\n| Potens | Utregning | Rest modulo $100$ |\n|---|---|---|\n| $7^1$ | — | $7$ |\n| $7^2$ | $7^2=49$ | $49$ |\n| $7^4$ | $49^2=2\\,401$, og $2\\,401=100\\cdot 24+1$ | $1$ |\n| $7^8$ | $1^2=1$ | $1$ |\n| $7^{16}$ | $1^2=1$ | $1$ |\n\n$$7^{26}=7^{16}\\cdot 7^{8}\\cdot 7^{2}\\equiv 1\\cdot 1\\cdot 49=49\\pmod{100}.$$\n\n**De to siste sifrene: $49$.**\n\n**Kontroll av sammenhengen mellom a) og b):** $49$ ender på $9$, som stemmer med svaret i a) ✓.\n\n**Sluttsvar:** siste siffer $9$; de to siste sifrene $49$.\n\n*Legg merke til at $7^4\\equiv 1\\pmod{100}$ dukket opp i kvadrattabellen. Det gjorde resten av regningen triviell — og det er nettopp derfor du regner tabellen først og ser på den, i stedet for å gange blindt.*",
+        "hints": [
+          "Siste siffer = resten modulo $10$. Regn $\\phi(10)$.",
+          "I b): modulo $100$, og $\\phi(100)=40$.",
+          "Se hva $7^4$ blir modulo $100$ når du lager kvadrattabellen."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-2-1-ex-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-2-1-o10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Eulers teorem kan brukes til å finne inverser.\n\n**a)** Vis at når $\\gcd(a,n)=1$, er $a^{\\phi(n)-1}$ en invers til $a$ modulo $n$.\n**b)** Bruk det til å finne inversen til $7$ modulo $20$.\n**c)** Finn samme invers med Euklids algoritme, og sammenlign metodene.",
+        "solution": "**a)** Anta $\\gcd(a,n)=1$. **Fra Eulers teorem** er $a^{\\phi(n)}\\equiv 1\\pmod n$. Vi skiller ut én faktor $a$:\n$$a\\cdot a^{\\phi(n)-1}=a^{\\phi(n)}\\equiv 1\\pmod n.$$\nMen det er nøyaktig definisjonen av invers fra [kap. 1.4](/ma1301/ma1301-1-4): et tall $u$ med $au\\equiv 1\\pmod n$. Altså er $u=a^{\\phi(n)-1}$ en invers til $a$ modulo $n$. $\\blacksquare$\n\n(Merk at $\\phi(n)\\ge 1$, så eksponenten $\\phi(n)-1$ er ikke negativ.)\n\n**b)** $\\phi(20)=(4-2)\\cdot 4=8$ og $\\gcd(7,20)=1$ ✓, så inversen er $7^{7}\\bmod 20$.\n\nKvadrer-og-multipliser med $7=4+2+1$: $7^2=49\\equiv 9$, $7^4\\equiv 9^2=81\\equiv 1$, så\n$$7^7=7^4\\cdot 7^2\\cdot 7\\equiv 1\\cdot 9\\cdot 7=63\\equiv 3\\pmod{20}.$$\n\n**Kontroll:** $7\\cdot 3=21=20+1\\equiv 1\\pmod{20}$ ✓.\n\n**Inversen er $3$.**\n\n**c) Samme invers med Euklids algoritme.**\n\n**(i) Divisjonskjeden frem.** Vi deler gjentatt med rest, **ved Euklids algoritme**, til resten blir $0$:\n\n$$20 = 2\\cdot 7 + 6$$\n$$7 = 1\\cdot 6 + 1$$\n$$6 = 6\\cdot 1 + 0$$\n\nDen siste resten som ikke er $0$, er $1$. Altså er $\\gcd(20,7)=1$. Kjeden har 3 divisjonslinjer.\n\n**(ii) Substitusjonskjeden baklengs.** Vi løser den nest siste linja for resten og substituerer oppover, linje for linje:\n\n$$1 = 7 - 1\\cdot 6$$\nSett inn $6 = 20 - 2\\cdot 7$:\n$$1 = -1\\cdot 20 + 3\\cdot 7$$\n\n**(iii) Konklusjon.** Altså er\n\n$$\\gcd(20,7) = 1 = 20\\cdot(-1) + 7\\cdot(3).$$\n\n**Kontroll ved innsetting:** $20\\cdot(-1) + 7\\cdot(3) = -20 + 21 = 1$. Stemmer.\n\nVi leser likningen **modulo $20$**: leddet med $20$ faller bort, så\n$$7\\cdot 3\\equiv 1\\pmod{20},$$\naltså er inversen $3$ — samme svar ✓.\n\n**Sammenligning.** **Begge metodene er fullgode.** Euler-veien krever at du kjenner $\\phi(n)$ og regner en potens; Euklid-veien krever en divisjonskjede og en substitusjonskjede.\n\n| | Euler-veien | Euklids algoritme |\n|---|---|---|\n| Krever | $\\phi(n)$, altså faktorisering av $n$ | bare divisjon med rest |\n| Arbeid her | tre kvadrater/produkt | to divisjonslinjer + baklengs |\n| Skalerer til store $n$ | dårlig (potensen blir stor) | godt |\n\n**Konklusjonen for eksamen: bruk Euklids algoritme til inverser.** Euler-veien er verdt å kjenne fordi den viser sammenhengen, og fordi den er rask når $\\phi(n)$ er liten og du alt har regnet den.\n\n**Sluttsvar:** $a^{\\phi(n)-1}$ er en invers; inversen til $7$ modulo $20$ er $3$, funnet på begge måter.",
+        "hints": [
+          "I a): skill ut én faktor $a$ fra $a^{\\phi(n)}$.",
+          "I b): regn $\\phi(20)$ først, så $7^{\\phi(20)-1}\\bmod 20$.",
+          "I c): kjør Euklids algoritme på $20$ og $7$, og les Bézout-likningen modulo $20$."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-2-1-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "Fire feil står for nesten alt som går galt i sjanger E, og de tre første er dokumentert som gjengangere i løsningsforslagene.\n\n- **Eulers teorem brukt når $\\gcd(a,n)\\ne 1$.** Den mest belagte fellen i kapitlet — fasitene advarer eksplisitt mot den. **Kontrollen:** skriv $\\gcd$-sjekken som en setning før du reduserer eksponenten. Svikter den, splitt modulusen (løkke 6).\n\n- **Feil $\\phi$ ved primtallspotenser.** Å regne $\\phi(p^k)=p^k-1$ i stedet for $p^k-p^{k-1}$. **Kontrollen:** $\\phi(9)$ skal bli $6$, ikke $8$ — tell $1,2,4,5,7,8$. Gjør den testen i hodet hver gang du møter en primtallspotens.\n\n- **Multiplikativiteten glemt ved sammensatte moduler.** Å regne $\\phi(14)=13$ fordi man behandler $14$ som om det var et primtall. **Kontrollen:** er modulusen sammensatt, SKAL faktoriseringen stå i besvarelsen før $\\phi$ regnes.\n\n- **Kvadrer-og-multipliser hoppet over.** Å skrive sluttallet uten mellomsteg. Det er et svar uten metode, og instruksen på hvert sett er at alle svar må begrunnes. **Kontrollen:** har besvarelsen din en kvadrattabell og en binærutvikling? Hvis ikke, mangler steg (v) og (vi).\n\n- **Eksponenten redusert modulo $n$ i stedet for modulo $\\phi(n)$.** **Kontrollen:** to tall, to navn — skriv $\\phi(n)$ ned som eget tall før du rører eksponenten.\n\n- **Faktoren $\\left(1-\\frac1p\\right)$ gjentatt** i den generelle formelen fordi $p^3$ står i faktoriseringen. Produktet går over **distinkte** primtall. **Kontrollen:** antall faktorer i produktet = antall ulike primtall i $n$."
+    },
+    {
+      "id": "ma1301-2-1-begrepsbank-intro",
+      "type": "text",
+      "content": "### Begrepsbank\n\nDette er flashcard-stoff — hopp trygt over ved førstegangslesing; tidsanslaget på 60 minutter gjelder kjernestoffet over.\n\nKortene under er delt i to slag: **fagkort** (hva $\\phi$ er og hvordan den oppfører seg) og **prosedyrekort** (hvordan du regner og fører). Under kode D er begge slagene eksamensverktøy — det finnes ingen formelsamling å slå opp i, så disse kortene er hele apparatet du har med deg inn i rommet."
+    },
+    {
+      "id": "ma1301-2-1-d-phi-partall",
+      "type": "definition",
+      "title": "ϕ(n) er alltid partall for n ≥ 3",
+      "content": "For alle $n\\ge 3$ er $\\phi(n)$ et **partall**.\n\n**Utledes på stedet, to tilfeller:**\n\n- Har $n$ en odde primfaktor $p$, inneholder $\\phi(n)$ faktoren $\\phi(p^k)=p^{k-1}(p-1)$, og $p-1$ er et partall.\n- Ellers er $n=2^k$ med $k\\ge 2$, og $\\phi(2^k)=2^{k-1}$ er et partall.\n\n$\\blacksquare$\n\n**Bruk det som kontroll.** Får du et odde svar for $\\phi(n)$ med $n\\ge 3$, har du regnet feil — garantert. Det er den billigste feilsjekken i kapitlet, og den fanger nettopp $\\phi(p^k)=p^k-1$-feilen (som gir odde svar når $p$ er odde).\n\n*Unntakene er $\\phi(1)=1$ og $\\phi(2)=1$.*"
+    },
+    {
+      "id": "ma1301-2-1-d-phi-vanlige-verdier",
+      "type": "definition",
+      "title": "ϕ-verdier verdt å ha i fingrene",
+      "content": "Ikke som tabell å slå opp i — den finnes ikke under kode D — men som gjenkjenning, slik at du ser når du har regnet feil.\n\n| $n$ | $\\phi(n)$ | Hvorfor |\n|---|---|---|\n| $10$ | $4$ | $1\\cdot 4$ |\n| $12$ | $4$ | $(4-2)\\cdot 2$ |\n| $100$ | $40$ | $(4-2)(25-5)=2\\cdot 20$ |\n| $1000$ | $400$ | $(8-4)(125-25)=4\\cdot 100$ |\n| $2^k$ | $2^{k-1}$ | halvparten — de odde tallene |\n| $p$ | $p-1$ | primtall |\n| $pq$ | $(p-1)(q-1)$ | to ulike primtall — **RSA-tilfellet** |\n\n**Den siste linja er den viktigste**, for den er hele nøkkelgenereringen i RSA (kap. 3.1). Merk at den følger av multiplikativiteten pluss $\\phi(p)=p-1$ — ikke noe nytt å pugge.\n\n**Merk også at $\\phi$ ikke er voksende:** $\\phi(10)=4$ mens $\\phi(9)=6$. Et større tall kan ha færre relativt primiske tall under seg, hvis det har flere små primfaktorer."
+    },
+    {
+      "id": "ma1301-2-1-d-phi-sum-divisorer",
+      "type": "definition",
+      "title": "Gauss' identitet: summen av ϕ over divisorene",
+      "content": "For hvert positivt $n$:\n$$\\sum_{d\\mid n}\\phi(d)=n.$$\n\n**Kontroll for $n=12$:** divisorene er $1,2,3,4,6,12$, og\n$$\\phi(1)+\\phi(2)+\\phi(3)+\\phi(4)+\\phi(6)+\\phi(12)=1+1+2+2+2+4=12\\ \\checkmark.$$\n\n**Intuisjonen bak:** sorter brøkene $\\frac1n,\\frac2n,\\dots,\\frac nn$ etter hvilken nevner de får når de forkortes helt. For hver divisor $d$ av $n$ er det nøyaktig $\\phi(d)$ brøker som ender med nevner $d$. Til sammen er brøkene $n$ stykker.\n\n**Hvor du får bruk for den:** i tellingen av elementer med gitt orden i Del 5, der den forklarer hvorfor antallet primitive røtter blir $\\phi(\\phi(n))$. Den er sjelden en oppgave i seg selv i arkivet, men den er en pen kontroll og et godt tegn på at du forstår hva $\\phi$ teller."
+    },
+    {
+      "id": "ma1301-2-1-d-kontrollrutine-e",
+      "type": "definition",
+      "title": "Kontrollrutinen i sjanger E",
+      "content": "Under kode D er selvkontroll den eneste kontrollen du har. Disse fire tar til sammen under ett minutt og fanger nesten alt.\n\n| Etter | Kontroll | Fanger |\n|---|---|---|\n| faktoriseringen | gang faktorene sammen igjen | avskrivningsfeil |\n| $\\phi(n)$ | er svaret partall (for $n\\ge 3$) og mindre enn $n$? | $\\phi(p^k)=p^k-1$-feilen |\n| $\\gcd$-sjekken | står setningen der? | ulovlig bruk av Euler |\n| kvadrattabellen | er hver rad kvadratet av forrige, redusert? | kjedefeil som forplanter seg |\n\n**Og til slutt, den beste av alle:** er sluttsvaret et tall mellom $0$ og $n-1$? Får du $103$ som rest modulo $45$, har du glemt en reduksjon.\n\n**Én kontroll som ikke finnes:** du kan ikke regne $a^N$ rått og sammenligne. Tallet har hundrevis av siffer. Derfor må kontrollene ligge underveis, ikke til slutt."
+    },
+    {
+      "id": "ma1301-2-1-d-kode-d-tall-e",
+      "type": "definition",
+      "title": "Kode D-realisme: hva tallene ser ut som",
+      "content": "Kalibreringskortet som forteller deg om du har regnet feil eller møtt en vanskelig oppgave.\n\n| Størrelse | Typisk verdi på eksamen |\n|---|---|\n| modulusen $n$ | to- til firesifret, lett å faktorisere med prøvedivisjon |\n| $\\phi(n)$ | to- til tresifret |\n| eksponenten $N$ | to- til firesifret (ofte et årstall) |\n| eksponenten etter reduksjon | **under 32** — altså 2–5 kvadrater |\n| tallene i kvadrattabellen | alltid under $n$, fordi du reduserer underveis |\n\n**Bruk det som kontroll.** Blir eksponenten etter reduksjon tresifret, har du sannsynligvis redusert modulo feil tall. Får du sekssifrede tall i kvadrattabellen, har du glemt å redusere etter et kvadrat.\n\n**Og bruk det når du lager egne øvingsoppgaver:** velg modulusen først (et produkt av to små primtallspotenser), regn $\\phi$, og velg en eksponent som gir en liten rest. Da vet du at oppgaven er regnbar før du begynner."
+    },
+    {
+      "id": "ma1301-2-1-d-euler-vs-fermat-forvarsel",
+      "type": "definition",
+      "title": "Euler og Fermat — forholdet mellom dem",
+      "content": "**Fermats lille teorem er Eulers teorem med en primtallsmodulus.** Er $n=p$ et primtall, er $\\phi(p)=p-1$, og Eulers teorem\n$$a^{\\phi(n)}\\equiv 1\\pmod n$$\nblir\n$$a^{p-1}\\equiv 1\\pmod p\\qquad\\text{når }p\\nmid a.$$\n\n**Det er hele utledningen — én linje.** Derfor står Fermat i «utledes på stedet»-listen: kan du Euler, får du Fermat gratis. Vi tar teoremet for seg selv i [kap. 2.2](/ma1301/ma1301-2-2), fordi det har egne bruksmåter og en egen felle.\n\n**Den praktiske forskjellen ligger i hva du reduserer modulo:**\n\n| Modulus | Reduser eksponenten modulo | Vilkår |\n|---|---|---|\n| primtall $p$ | $p-1$ | $p\\nmid a$ |\n| sammensatt $n$ | $\\phi(n)$ | $\\gcd(a,n)=1$ |\n\n**Den vanligste blandingen:** å bruke $n-1$ som eksponentmodulus for et sammensatt $n$. For $n=14$ er $\\phi(14)=6$, ikke $13$."
+    },
+    {
+      "id": "ma1301-2-1-d-orden-forvarsel",
+      "type": "definition",
+      "title": "ϕ(n) virker alltid, men er ikke alltid minst",
+      "content": "Eulers teorem sier at $a^{\\phi(n)}\\equiv 1$. Den sier **ikke** at $\\phi(n)$ er den minste eksponenten som gir $1$.\n\n*Eksempel:* $8^2=64\\equiv 1\\pmod{63}$, mens $\\phi(63)=36$. Den minste eksponenten er $2$.\n\nDen minste positive $k$ med $a^k\\equiv 1\\pmod n$ kalles **ordenen** til $a$ modulo $n$, skrevet $\\operatorname{ord}_n(a)$, og er temaet i Del 5. Hovedresultatet der er at ordenen alltid **deler** $\\phi(n)$.\n\n**Hva det betyr for regningen din nå:** ingenting går galt om du bruker $\\phi(n)$ — reduksjonen er riktig uansett. Men ser du at en liten potens gir $1$ mens du lager kvadrattabellen, kan du bruke den i stedet og spare tid. Si det da: «siden $8^2\\equiv 1$, er $8^{247}=(8^2)^{123}\\cdot 8\\equiv 8$».\n\n**Praktisk vane:** kast alltid et blikk på $a^2$ og $a^3$ modulo $n$ før du starter. Er en av dem $1$ eller $-1$, er hele oppgaven kort."
+    },
+    {
+      "id": "ma1301-2-1-d-euler-i-rsa",
+      "type": "definition",
+      "title": "Hvor Euler møter RSA",
+      "content": "RSA hviler på Eulers teorem, og det er verdt å se koblingen før du kommer til kap. 3.1.\n\n**Oppsettet:** $n=pq$ med $p,q$ ulike primtall, så $\\phi(n)=(p-1)(q-1)$ **ved multiplikativiteten**. Krypteringseksponenten $e$ velges med $\\gcd(e,\\phi(n))=1$, og dekrypteringseksponenten $d$ er inversen: $ed\\equiv 1\\pmod{\\phi(n)}$.\n\n**Hvorfor det virker:** $ed=1+k\\phi(n)$ for et helt tall $k$, så\n$$(m^{e})^{d}=m^{ed}=m^{1+k\\phi(n)}=m\\cdot\\left(m^{\\phi(n)}\\right)^{k}\\equiv m\\cdot 1^{k}=m\\pmod n,$$\n**fra Eulers teorem**, når $\\gcd(m,n)=1$. Dekrypteringen gjenoppretter meldingen.\n\n**Dette utledes på stedet** — tre linjer, og du har korrekthetsbeviset for RSA. Det er en eksamensoppgave i seg selv (sjanger D), og du skal ikke pugge det som et faktum, men kunne føre det.\n\n*Tilfellet $\\gcd(m,n)\\ne 1$ krever litt mer, og behandles i kap. 3.1.*"
+    },
+    {
+      "id": "ma1301-2-1-d-phi-storrelse",
+      "type": "definition",
+      "title": "Hvor liten kan ϕ(n) bli?",
+      "content": "$\\phi(n)<n$ for alle $n\\ge 2$, og $\\phi(n)=n-1$ nøyaktig når $n$ er et primtall.\n\n**Motsatt vei:** $\\phi(n)$ blir liten når $n$ har mange små primfaktorer. For $n=2\\cdot 3\\cdot 5\\cdot 7=210$:\n$$\\phi(210)=1\\cdot 2\\cdot 4\\cdot 6=48,$$\naltså under en fjerdedel av $n$.\n\n**Hvorfor det er praktisk å vite:** i en restberegning er det $\\phi(n)$ som bestemmer hvor mye eksponenten kan krympe. En modulus med mange små primfaktorer gir liten $\\phi$ og dermed kort regning — og det er nettopp derfor eksamensoppgavene bruker moduler som $100$, $45$, $63$ og $210$.\n\n**Kontrollbruk:** er $\\phi(n)$-svaret ditt større enn $n-1$, er det garantert feil. Er det $n-1$ uten at $n$ er et primtall, er det også feil."
+    },
+    {
+      "id": "ma1301-2-1-d-tidsbudsjett-e",
+      "type": "definition",
+      "title": "Tidsbudsjettet for sjanger E",
+      "content": "Eksamen er 4 timer på omtrent 10 likt vektede delpunkt — altså **~24 minutter per delpunkt**.\n\n**Slik fordeler en restberegning seg når prosedyren sitter:**\n\n| Steg | Innhold | Tid |\n|---|---|---|\n| (i)–(ii) | faktoriser modulusen, $\\gcd$-sjekken | ~2 min |\n| (iii) | $\\phi(n)$ | ~1 min |\n| (iv) | eksponentreduksjonen med teoremnavnet | ~2 min |\n| (v)–(vi) | kvadrattabell og produkt | ~5 min |\n| (vii) | konklusjon og kontroll | ~1 min |\n\n**Til sammen ~11 minutter** — under halve budsjettet for ett delpunkt. Det er derfor sjanger E er billige poeng: prosedyren er kort når den sitter, og den sitter bare hvis du har kjørt den mange ganger.\n\n**Er du over 20 minutter**, ligger det nesten alltid i faktoriseringen eller i at du regner uten å redusere underveis. Begge er vanesaker, ikke forståelsesproblemer."
+    },
+    {
+      "id": "ma1301-2-1-d-skriveraden",
+      "type": "definition",
+      "title": "Skriveraden: hva som SKAL stå i besvarelsen",
+      "content": "Et føringskort, ikke et fagkort — men det avgjør uttellingen.\n\nEn fullgod besvarelse av «finn resten når $a^N$ deles på $n$» inneholder **alle** disse setningene:\n\n1. faktoriseringen av $n$;\n2. setningen «$\\gcd(a,n)=1$», med begrunnelse;\n3. $\\phi(n)$ regnet ut, med $\\phi(p^k)$-formelen synlig;\n4. **teoremnavnet**: «fra Eulers teorem» / «fra Fermats lille teorem»;\n5. divisjonen $N=\\phi(n)q+r$ og den reduserte potensen;\n6. binærutviklingen og kvadrattabellen;\n7. en konklusjonssetning med sluttsvaret.\n\n**Selvtesten:** kan noen som leser besvarelsen din, følge hvert steg fra $a^N$ til resten uten å regne selv? Da er føringen god nok.\n\n**Det som IKKE holder:** «$3^{455}\\equiv 7\\pmod{100}$» alene. Riktig svar, ingen metode — og instruksen på hvert sett er at alle svar må begrunnes."
+    },
+    {
+      "id": "ma1301-2-1-d-phi-av-2n",
+      "type": "definition",
+      "title": "To små regneregler for ϕ",
+      "content": "Begge **utledes på stedet** fra multiplikativiteten, og begge sparer tid.\n\n**Regel 1: dobling av et odde tall.** Er $n$ odde, er $$\\phi(2n)=\\phi(2)\\phi(n)=\\phi(n).$$\nGrunnen: $\\gcd(2,n)=1$ når $n$ er odde, og $\\phi(2)=1$. Så $\\phi(14)=\\phi(7)=6$ og $\\phi(50)=\\phi(25)=20$.\n\n**Regel 2: dobling av et partall.** Er $n$ et partall, er\n$$\\phi(2n)=2\\phi(n).$$\nGrunnen: da vokser bare eksponenten på $2$, og $\\phi(2^{k+1})=2^{k}=2\\cdot 2^{k-1}=2\\phi(2^k)$. Så $\\phi(20)=2\\phi(10)=8$.\n\n**Merk at reglene ikke er noe nytt fagstoff** — de er multiplikativiteten brukt på en spesiell faktor. Verdien deres er at de gir en rask kontroll: $\\phi(50)$ skal være lik $\\phi(25)$, og er den ikke det, har du regnet feil et sted."
+    },
+    {
+      "id": "ma1301-2-1-d-phi-oppgavetyper",
+      "type": "definition",
+      "title": "De tre måtene ϕ spørres om på eksamen",
+      "content": "Sjanger E og H spør om $\\phi$ på tre forskjellige måter, og det er verdt å kjenne dem igjen.\n\n1. **Direkte:** «Regn ut $\\phi(n)$.» Faktoriser og bruk oppskriften. Billigste delpunkt i settet.\n2. **Som verktøy i en restberegning:** «Finn resten når $a^N$ deles på $n$.» $\\phi(n)$ er steg (iii) av sju. Dette er den vanligste formen.\n3. **Baklengs:** «Finn alle $n$ med $\\phi(n)=8$.» Her må du tenke på hvilke primtallspotenser som kan gange sammen til $8$. Sjeldnere, men forekommer — og teknikken er den samme som «minste $n$ med gitt antall divisorer» i Del 5.\n\n**Til form 3, som mange ikke har sett:** $\\phi(n)=8$ krever at hver faktor $\\phi(p^k)$ deler $8$. Kandidatene er $\\phi(16)=8$, $\\phi(32)=16$ (for stor), $\\phi(15)=8$, $\\phi(20)=8$, $\\phi(24)=8$, $\\phi(30)=8$. Svaret er $n\\in\\{15,16,20,24,30\\}$ — og systematikken er å gå gjennom primtallene $p$ med $p-1\\mid 8$, altså $p\\in\\{2,3,5\\}$."
+    },
+    {
+      "id": "ma1301-2-1-d-phi-notasjon",
+      "type": "definition",
+      "title": "Notasjon: ϕ, og hva den ikke er",
+      "content": "Boka skriver **$\\phi$** for Eulers funksjon, gjennomgående. Andre framstillinger bruker den andre skrivemåten av samme greske bokstav (den med krøll på staven) — det er samme funksjon, og forskjellen er bare typografisk. Velg én form og hold deg til den; boka har valgt $\\phi$.\n\n**Tre forvekslinger å unngå:**\n\n- $\\phi(n)$ er **ikke** antall divisorer i $n$. Det er $\\tau(n)$, en annen funksjon (Del 5). $\\phi(12)=4$ og $\\tau(12)=6$.\n- $\\phi(n)$ er **ikke** det gyldne snitt, som noen framstillinger også kaller $\\phi$. I tallteori er $\\phi$ alltid totientfunksjonen.\n- $\\phi(n)$ er en **verdi**, ikke en operasjon på en kongruens. Skriv $\\phi(100)=40$, aldri «$\\phi\\pmod{100}$».\n\n**Uttalen:** «fi av n», eller «Eulers fi-funksjon». Navnet «totient» brukes også, men sjelden på norsk."
+    },
+    {
+      "id": "ma1301-2-1-d-phi-1",
+      "type": "definition",
+      "title": "Grensetilfellene ϕ(1) og ϕ(2)",
+      "content": "$$\\phi(1)=1,\\qquad \\phi(2)=1.$$\n\n**$\\phi(1)=1$:** intervallet $1\\le a\\le 1$ inneholder bare $a=1$, og $\\gcd(1,1)=1$, så tallet teller. Konvensjonen er nyttig fordi den gjør $\\phi$ multiplikativ helt ned til $n=1$: $\\phi(1\\cdot n)=\\phi(1)\\phi(n)$.\n\n**$\\phi(2)=1$:** bare $a=1$ er relativt primisk til $2$.\n\n**Hvor det betyr noe i praksis:** i en faktorisering som $14=2\\cdot 7$ er faktoren $\\phi(2)=1$, som er grunnen til at $\\phi(14)=\\phi(7)=6$. Glemmer du at $\\phi(2)=1$ og skriver $2$, blir svaret dobbelt så stort.\n\n**Og merk at disse to er de eneste odde verdiene $\\phi$ tar** — for $n\\ge 3$ er $\\phi(n)$ alltid partall."
+    },
+    {
+      "id": "ma1301-2-1-d-euler-bevis-idé",
+      "type": "definition",
+      "title": "Bevisidéen i Eulers teorem, i én setning",
+      "content": "Verdt å kunne gjengi, fordi den samme idéen bærer Wilsons teorem (kap. 2.3) og ordensteorien i Del 5.\n\n**Setningen:** *å gange et redusert restsystem med $a$ stokker om systemet, og produktet av kortene er uendret — derfor må $a^{\\phi(n)}$ være $1$.*\n\n**De tre stegene, som stikkord:**\n\n1. $ar_1,\\dots,ar_{\\phi(n)}$ er samme restklasser som $r_1,\\dots,r_{\\phi(n)}$, i annen rekkefølge (fordi forkorting med $a$ er lovlig når $\\gcd(a,n)=1$).\n2. Produktene er derfor kongruente: $a^{\\phi(n)}R\\equiv R$.\n3. Forkort med $R$ (lovlig, $\\gcd(R,n)=1$): $a^{\\phi(n)}\\equiv 1$.\n\n**Hvorfor det er verdt plass i bunken:** en eksamensoppgave kan be deg «forklare hvorfor Eulers teorem gjelder» eller «vise Fermats lille teorem». Da er dette skjelettet du fyller ut. Og forkortingsregelen er det ene stedet vilkåret $\\gcd(a,n)=1$ faktisk brukes — det er verdt å kunne peke på."
+    },
+    {
+      "id": "ma1301-2-1-d-euler-samleoversikt",
+      "type": "definition",
+      "title": "Sjanger E i én oversikt",
+      "content": "Kortet som binder kapitlet sammen — hva du gjør, avhengig av hva du ser.\n\n| Situasjon | Verktøy | Reduser eksponenten modulo |\n|---|---|---|\n| $n$ primtall, $p\\nmid a$ | Fermats lille teorem | $p-1$ |\n| $n$ sammensatt, $\\gcd(a,n)=1$ | Eulers teorem | $\\phi(n)$ |\n| $\\gcd(a,n)\\ne 1$ | splitt $n$ i primtallspotenser | hver del for seg |\n| fakultet i uttrykket | Wilsons teorem ([kap. 2.3](/ma1301/ma1301-2-3)) | — |\n| flere kongruenser samtidig | det kinesiske restteoremet ([kap. 2.4](/ma1301/ma1301-2-4)) | — |\n\n**Første spørsmål er alltid det samme:** er $\\gcd(a,n)=1$? Svaret bestemmer hvilken rad du er i, og det er derfor $\\gcd$-sjekken er steg (ii) og ikke steg (v).\n\nDen sammensatte varianten — der flere av radene brukes i samme oppgave — er [kap. 2.5](/ma1301/ma1301-2-5), og den er den mest belagte restberegningen i arkivet."
+    },
+    {
+      "id": "ma1301-2-1-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "ma1301-2-1-rep-inn",
+          "type": "text",
+          "content": "Fem korte oppgaver fra [kap. 1.1](/ma1301/ma1301-1-1), [kap. 1.2](/ma1301/ma1301-1-2) og [kap. 1.4](/ma1301/ma1301-1-4), som dette kapitlet bygger på. Fasit under hver.\n\n**R1.** Faktoriser $360$ og $1000$ i primtall.\n\n*Fasit:* $360=2^3\\cdot 3^2\\cdot 5$ (del på $2$ tre ganger: $360\\to 180\\to 90\\to 45$, og $45=9\\cdot 5$). $1000=10^3=(2\\cdot 5)^3=2^3\\cdot 5^3$.\n\n**R2.** Er $\\gcd(7,100)=1$? Og $\\gcd(12,45)$?\n\n*Fasit:* $100=2^2\\cdot 5^2$, og verken $2$ eller $5$ deler $7$, så $\\gcd(7,100)=1$. For det andre: $45=3^2\\cdot 5$ og $12=2^2\\cdot 3$, felles primfaktor $3$, så $\\gcd(12,45)=3$.\n\n**R3.** Reduser $123$ modulo $11$, og $2^{10}$ modulo $11$.\n\n*Fasit:* $123=11\\cdot 11+2$, så $123\\equiv 2\\pmod{11}$. Og $2^{10}=1024=11\\cdot 93+1$, så $2^{10}\\equiv 1\\pmod{11}$. (Det siste er Fermats lille teorem i aksjon — se [kap. 2.2](/ma1301/ma1301-2-2).)\n\n**R4.** Finn inversen til $7$ modulo $20$ med Euklids algoritme.\n\n*Fasit:* $20=2\\cdot 7+6$, $7=1\\cdot 6+1$, $6=6\\cdot 1+0$, så $\\gcd(20,7)=1$. Baklengs: $1=7-1\\cdot 6$, og $6=20-2\\cdot 7$, så $1=7-(20-2\\cdot 7)=3\\cdot 7-1\\cdot 20$. Lest modulo $20$: $7\\cdot 3\\equiv 1$, så inversen er $3$.\n\n**R5.** Hvorfor er $a\\equiv b\\pmod{45}$ det samme som «$a\\equiv b\\pmod 9$ og $a\\equiv b\\pmod 5$»?\n\n*Fasit:* Fordi $\\gcd(9,5)=1$. Deler $45$ differansen, gjør $9$ og $5$ det også. Og deler både $9$ og $5$ differansen, deler produktet $45$ den — det er resultatet «$m\\mid k$, $n\\mid k$ og $\\gcd(m,n)=1$ gir $mn\\mid k$» fra [kap. 1.1](/ma1301/ma1301-1-1). Uten primiskhetskravet er det galt: $12$ er delelig med både $4$ og $6$, men ikke med $24$."
+        }
+      ]
+    },
+    {
+      "id": "ma1301-2-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "ma1301-2-1-symbol-inn",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $\\phi(n)$ | Eulers $\\phi$-funksjon: antall $a$ med $1\\le a\\le n$ og $\\gcd(a,n)=1$ |\n| $p^k$ | primtallspotens |\n| $\\gcd(a,n)$ | største felles divisor |\n| $a\\equiv b\\pmod n$ | kongruens: $n$ deler $a-b$ |\n| $a^N\\bmod n$ | resten når $a^N$ deles på $n$ (en verdi) |\n| $r_1,\\dots,r_{\\phi(n)}$ | et redusert restsystem modulo $n$ |\n| $\\prod$ | produkt over faktorene |\n| $\\sum_{d\\mid n}$ | sum over divisorene i $n$ |\n| $\\mathbb{Z}$ | de hele tallene |\n| $\\blacksquare$ | bevis slutt |\n\n**Formler i dette delkapitlet:**\n\n$$\\phi(n)=\\#\\{a: 1\\le a\\le n,\\ \\gcd(a,n)=1\\}$$\nDefinisjonen av Eulers $\\phi$-funksjon. **(må sitte utenat)**\n\n$$\\phi(p)=p-1$$\n$\\phi$ på et primtall. **(utledes på stedet — alle tall under $p$ er relativt primiske til $p$; det er tilfellet $k=1$ under)**\n\n$$\\phi(p^k)=p^k-p^{k-1}=p^{k-1}(p-1)$$\n$\\phi$ på en primtallspotens — trekk fra de $p^{k-1}$ multiplene av $p$. **(må sitte utenat — den best belagte fellen i faget er $p^k-1$)**\n\n$$\\phi(mn)=\\phi(m)\\phi(n)\\qquad\\text{når }\\gcd(m,n)=1$$\n$\\phi$ er multiplikativ. **(må sitte utenat, med vilkåret)**\n\n$$\\phi(n)=\\prod_i\\left(p_i^{k_i}-p_i^{k_i-1}\\right)$$\nOppskriften: faktoriser, regn $\\phi$ på hver potens, gang sammen. **(må sitte utenat — dette er prosedyren du bruker)**\n\n$$\\phi(n)=n\\prod_{p\\mid n}\\left(1-\\frac1p\\right)$$\nDen generelle formelen, over **distinkte** primtall. **(utledes på stedet — to linjer fra $\\phi(p^k)$ og multiplikativiteten, se kortet «Den generelle ϕ-formelen»)**\n\n$$a^{\\phi(n)}\\equiv 1\\pmod n\\qquad\\text{når }\\gcd(a,n)=1$$\n**Eulers teorem.** Vilkåret er en del av teoremet. **(må sitte utenat)**\n\n$$N=\\phi(n)q+r\\ \\Longrightarrow\\ a^N\\equiv a^r\\pmod n$$\nEksponentreduksjon: eksponenten teller bare modulo $\\phi(n)$. **(må sitte utenat)**\n\n$$a^{\\phi(n)-1}\\equiv a^{-1}\\pmod n$$\nInvers via Eulers teorem. **(utledes på stedet — én linje: skill ut én faktor $a$ fra $a^{\\phi(n)}\\equiv 1$)**\n\n$$a^N\\equiv 0\\pmod{p^k}\\qquad\\text{når }p\\mid a,\\ N\\ge k$$\nDen lette delen av en splitting. **(utledes på stedet — én linje: $a=ps$ gir $a^N=p^Ns^N$)**\n\n$$\\sum_{d\\mid n}\\phi(d)=n$$\nGauss' identitet. **(utledes på stedet — sorter brøkene $k/n$ etter nevner i forkortet form)**\n\n**Føringsmalen i sju steg** — (i) faktoriser modulusen, (ii) $\\gcd$-sjekken, (iii) $\\phi(n)$, (iv) eksponentreduksjon med teoremnavnet, (v) binærutvikling og kvadrattabell, (vi) sett sammen produktet, (vii) konklusjon. **(må sitte utenat — det er føringen, ikke bare svaret, som gir uttelling)**\n\n**Kvadrer-og-multipliser** — binærutvikling av eksponenten, suksessive kvadrater, reduksjon etter hvert steg. **(må sitte utenat — kalkulatoren under kode D kan ikke gjøre dette for deg)**"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

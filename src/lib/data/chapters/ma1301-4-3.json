@@ -1,0 +1,369 @@
+{
+  "id": "ma1301-4-3",
+  "courseId": "ma1301",
+  "chapterNumber": "4.3",
+  "title": "Drill: Legendre-symbol og resiprositet",
+  "description": "Hele Legendre-repertoaret drillet til automatikk: reduser (a/p) via multiplikativitet, supplementsregler og resiprositetsloven til et sikkert svar «to løsninger» eller «ingen løsning» — regnereglene som må sitte utenat under kode D.",
+  "estimatedMinutes": 75,
+  "competenceGoals": [
+    "kjøre reduksjonsalgoritmen for Legendre-symbolet uten å se på oppskriften",
+    "holde fortegnsbokføringen korrekt gjennom en kjede med flere snuoperasjoner",
+    "velge mellom reduksjonskjede og Eulers kriterium ut fra hvor stort primtallet er",
+    "kontrollere eget svar på flere uavhengige måter, siden det ikke finnes hjelpemidler å slå opp i på eksamen"
+  ],
+  "content": [
+    {
+      "id": "ma1301-4-3-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette kapitlet driller sjanger F, som forekommer i 10 av 15 sett — 67 %.** Sjangerbokstavene er bokas forkortelser for oppgavetypene, forklart i [kap. 0.1](/ma1301/ma1301-0-1); **F** er kvadratiske rester og Legendre-symbolet.\n\nTeorien står i [kap. 4.1](/ma1301/ma1301-4-1) og [kap. 4.2](/ma1301/ma1301-4-2). Her er poenget noe annet: **at reduksjonen skal gå automatisk, uten at du tenker på reglene mens du bruker dem.** Det er forskjellen mellom å ha lest kapitlet og å ta delpunktet på syv minutter i november.\n\n**Variantkatalogen du møter i arkivet, og som oppgavene under dekker:**\n\n| Variant | Antall oppgaver her |\n|---|---|\n| Avgjør løsbarhet med resiprositetsloven | 5 |\n| Symbol der supplementsreglene for $2$ eller $-1$ bærer svaret | 3 |\n| Sammensatt teller med tre eller flere primfaktorer | 2 |\n| Eulers kriterium som metode eller som kontroll | 2 |\n| «Summér Legendre-symbolene» / tell restene | 1 |\n\n**Prioritet: høyeste.** Ingen annen sjanger i faget har et bedre forhold mellom drillet tid og sikret uttelling — apparatet er tre regler og en fast rekkefølge."
+    },
+    {
+      "id": "ma1301-4-3-utenat",
+      "type": "tip",
+      "title": "Utenat under kode D",
+      "content": "Eksamen er hjelpemiddelkode D: ingen bok, ingen formelsamling, ingen tabeller, ingen egne notater — bare en enkel kalkulator. Kalkulatoren kan gange og dele med rest, men den kan ikke redusere et Legendre-symbol, og den kan ikke regne $a^{(p-1)/2}\\bmod p$ for deg.\n\n**Må sitte utenat, og det er dette du driller inn her:**\n\n- **reduksjonsalgoritmen i fem steg** (reduser, faktoriser, splitt og stryk kvadrater, behandle hver faktor, gang sammen)\n- **resiprositetsloven** med fortegnsbytte nøyaktig når $p\\equiv q\\equiv 3\\pmod 4$\n- **supplementsregelen for $-1$**: $p\\bmod 4$\n- **supplementsregelen for $2$** («8-regelen»): $p\\bmod 8$, med $+1$ for $p\\equiv\\pm 1$\n- **konklusjonsregelen**: $1$ gir to løsninger, $-1$ gir ingen\n- **kvadrer-og-multipliser**, som du trenger til Eulers kriterium\n\n**Utledes på stedet:**\n\n- **$\\left(\\frac{-1}{p}\\right)$** ut av Eulers kriterium — $(-1)^{(p-1)/2}$, tre linjer\n- **$\\left(\\frac{a^2b}{p}\\right)=\\left(\\frac bp\\right)$** — kvadrater faller bort, én linje\n- **$\\left(\\frac a3\\right)$ og $\\left(\\frac a5\\right)$** — kvadrer restene modulo $3$ og $5$; fem sekunder, og du har avslutningen på kjeden\n- **at summen av alle symboler er $0$** — like mange $+1$ som $-1$\n\n**Selvtest, to minutter:** dekk til boka og skriv ned de fem stegene i reduksjonsalgoritmen, og de to modulusene ($4$ og $8$) knyttet til riktig supplementsregel. Nøler du på hvilken modulus som hører til hvilken regel, er det den ene tingen å drille før du går videre — det er den feilen som snur svaret.\n\n**Prosedyrer pugges ved å kjøres, ikke ved å leses.** Tretten regnede symboler med lukket bok er mer verdt enn tretten gjennomlesninger."
+    },
+    {
+      "id": "ma1301-4-3-forkunnskaper",
+      "type": "text",
+      "content": "### Forkunnskaper\n\nHele Del 4: [kap. 4.1](/ma1301/ma1301-4-1) (definisjonen, multiplikativitet, periodisitet, Eulers kriterium) og [kap. 4.2](/ma1301/ma1301-4-2) (resiprositetsloven, supplementsreglene, reduksjonsalgoritmen). Du bør også ha faktorisering fra [kap. 1.1](/ma1301/ma1301-1-1) og kvadrer-og-multipliser fra [kap. 2.1](/ma1301/ma1301-2-1) i fingrene.\n\n**Sist du var her.** De tre resultatene du skal bruke i hver eneste oppgave under, ferdig oppfrisket:\n\n**Resiprositetsloven, praktisk form.** For ulike odde primtall:\n$$\\left(\\frac pq\\right)=\\begin{cases}-\\left(\\frac qp\\right) & p\\equiv q\\equiv 3\\pmod 4,\\\\ \\ \\ \\,\\left(\\frac qp\\right) & \\text{ellers.}\\end{cases}$$\n\n**Supplementsreglene.**\n$$\\left(\\frac{-1}{p}\\right)=1\\iff p\\equiv 1\\pmod 4,\\qquad \\left(\\frac{2}{p}\\right)=1\\iff p\\equiv\\pm 1\\pmod 8.$$\n\n**Eulers kriterium.**\n$$\\left(\\frac ap\\right)\\equiv a^{\\frac{p-1}{2}}\\pmod p,$$\nsom du her mest bruker som **uavhengig kontroll** av en kjede.\n\nFra videregående kreves ingenting."
+    },
+    {
+      "id": "ma1301-4-3-oppskriften-intro",
+      "type": "text",
+      "content": "## Løsningsoppskriften\n\n*~10 minutter. Les den, og bruk den som referanse mens du regner oppgavene — men legg den bort før du tar de siste fem.*\n\nAlle oppgavene i sjanger F går gjennom samme fem steg. Forskjellen mellom variantene ligger bare i **steg 4**: hvilken regel som gjelder for hvilken faktor."
+    },
+    {
+      "id": "ma1301-4-3-oppskrift-F",
+      "type": "text",
+      "content": "### Oppskrift: Legendre-symbol i fem steg\n\nFor $\\left(\\frac ap\\right)$ med $p$ et odde primtall:\n\n1. **Margnotat.** Skriv $p\\bmod 4$ og $p\\bmod 8$. Du trenger begge, til hver sin regel.\n2. **Reduser** telleren modulo $p$. Er den negativ, legg til $p$ — eller behold $-1$ som egen faktor. Er $p\\mid a$, er svaret $0$ og du er ferdig.\n3. **Faktoriser** telleren, **splitt** symbolet (multiplikativitet), og **stryk** alle faktorer med partall eksponent.\n4. **Behandle hver gjenstående faktor:**\n   - $-1$ → supplementsregel 1, se $p\\bmod 4$;\n   - $2$ → supplementsregel 2 (8-regelen), se $p\\bmod 8$;\n   - odde primtall $q$ → **snu** med resiprositetsloven (fortegnsbytte bare hvis $q\\equiv p\\equiv 3\\pmod 4$), og **gå til steg 2** med det nye symbolet.\n5. **Tell minustegnene** — partall gir $+1$, oddetall gir $-1$ — og **konkludér i ord**: to løsninger eller ingen.\n\n**Oppskriften må sitte utenat.** Steg 1 og steg 5 er de som glemmes: margnotatet fordi det virker overflødig (til du mister et fortegn), og konklusjonssetningen fordi symbolverdien føles som svaret. Begge er egne føringspoeng — instruksen på hvert eksamenssett er at alle svar skal begrunnes.\n\n**Tidsbudsjett:** 6–8 minutter for en normal F-oppgave, av de ~24 minuttene et delpunkt har. Bruker du femten, er det nesten alltid fordi steg 2 ble hoppet over etter en snuing."
+    },
+    {
+      "id": "ma1301-4-3-oppskrift-euler",
+      "type": "text",
+      "content": "### Oppskrift: Eulers kriterium som metode eller kontroll\n\nNoen ganger er kriteriet raskeste vei, og alltid er det den beste kontrollen.\n\n1. **Reduser** telleren modulo $p$.\n2. **Eksponenten** er $m=\\frac{p-1}{2}$. Skriv $m$ i binærform.\n3. **Suksessive kvadrater** $a^1,a^2,a^4,a^8,\\dots$ modulo $p$, med reduksjon etter **hver** kvadrering.\n4. **Gang sammen** de potensene som svarer til ett-erne i binærutviklingen, med reduksjon mellom hver multiplikasjon.\n5. **Les av:** $1$ gir symbolet $+1$, $p-1$ gir $-1$. Noe annet er regnefeil.\n\n**Når kriteriet er raskest:** når $p\\le 30$ eller så, når en tidlig potens lander på $-1$ (da er resten gratis), og når $m$ er en toerpotens (da er det bare kvadreringer).\n\n**Når det ikke er raskest:** for tresifrede primtall. Med $p=137$ er $m=68$, og det er sju kvadreringer med tall opp mot $20\\,000$ før reduksjon. Da bruker du reduksjonsalgoritmen — og kriteriet på **én liten faktor** som kontroll.\n\n**Merk at de to veiene er likeverdige og begge fullgode.** Fasitpraksisen i arkivet honorerer dem likt. Si i besvarelsen hvilken du bruker, og bruk gjerne den andre til å kontrollere."
+    },
+    {
+      "id": "ma1301-4-3-kontrollpunktene",
+      "type": "text",
+      "content": "### De fire kontrollpunktene\n\nUnder kode D er selvkontroll den eneste kontrollen du har — det finnes ingen fasit i rommet og ingenting å slå opp i. Disse fire tar til sammen under ett minutt.\n\n**1. Etter margnotatet:** stemmer restene? Regn $p-4k$ og $p-8k$ på papiret, ikke i hodet. Er $83$ kongruent med $3$ eller $5$ modulo $8$? ($3$, siden $83=80+3$.)\n\n**2. Etter hver snuing:** ble telleren redusert? Er den nye telleren større enn den nye nevneren, har du glemt steg 2, og kjeden vil ikke ta slutt.\n\n**3. Før du ganger sammen:** endte hvert delsymbol i $\\pm 1$? Alt annet er regnefeil, ikke et nytt svar.\n\n**4. Til slutt:** er antall minustegn talt riktig — både supplementsverdiene og fortegnsbyttene? Og står konklusjonen som en **setning** med antall løsninger?\n\n**Legg til to gratis kontroller:**\n\n- **Kjedelengden:** tresifrede primtall gir 3–5 snuoperasjoner. Blir kjeden på ti, er noe galt.\n- **Uavhengig vei:** splitt telleren annerledes, eller regn ett lite symbol med Eulers kriterium. To veier til samme svar er det nærmeste en fasit du kommer på eksamensdagen."
+    },
+    {
+      "id": "ma1301-4-3-case-intro",
+      "type": "text",
+      "content": "## Gjennomregnet eksamenscase\n\n*~15 minutter.*\n\nHer er en typisk F-oppgave med tre delpunkt, nøyaktig i den formen arkivet bruker. Underveis står **margnotater** som sier hva hvert steg gir uttelling for. De er destillert fra hvordan løsningsforslagene i arkivet fører sjangeren, og fra oppgaveinstruksen om at alle svar skal begrunnes.\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "ma1301-4-3-case",
+      "type": "example",
+      "title": "Eksamenscase: to symboler og en telling",
+      "problem": "**a)** Regn ut $\\left(\\frac{30}{53}\\right)$.\n**b)** Avgjør om $x^2\\equiv 42\\pmod{61}$ har løsning, og oppgi antall løsninger.\n**c)** Hvor mange av tallene $1,2,\\dots,60$ er kvadratiske rester modulo $61$, og hva er $\\sum_{a=1}^{60}\\left(\\frac{a}{61}\\right)$?",
+      "solution": "## Del a)\n\n**Steg 1: margnotat.** $53=13\\cdot 4+1$, så $53\\equiv 1\\pmod 4$. Og $53=6\\cdot 8+5$, så $53\\equiv 5\\pmod 8$.\n\n**Steg 2:** telleren $30<53$, ingenting å redusere.\n\n**Steg 3: faktoriser og splitt (multiplikativitet).** $30=2\\cdot 3\\cdot 5$:\n$$\\left(\\frac{30}{53}\\right)=\\left(\\frac{2}{53}\\right)\\left(\\frac{3}{53}\\right)\\left(\\frac{5}{53}\\right).$$\n\n**Steg 4, faktor 1 — 8-regelen.** $53\\equiv 5\\pmod 8$, som er en av de to indre restene:\n$$\\left(\\frac{2}{53}\\right)=-1.$$\n\n**Steg 4, faktor 2.** $3\\equiv 3\\pmod 4$, men $53\\equiv 1\\pmod 4$, så ingen fortegnsfaktor **(resiprositet)**:\n$$\\left(\\frac{3}{53}\\right)=\\left(\\frac{53}{3}\\right)=\\left(\\frac{2}{3}\\right)=-1,$$\nder vi reduserte $53\\equiv 2\\pmod 3$ **(periodisitet)** og brukte **8-regelen** på $\\left(\\frac 23\\right)$, siden $3\\equiv 3\\pmod 8$.\n\n**Steg 4, faktor 3.** $5\\equiv 1\\pmod 4$, ingen fortegnsfaktor **(resiprositet)**:\n$$\\left(\\frac{5}{53}\\right)=\\left(\\frac{53}{5}\\right)=\\left(\\frac{3}{5}\\right),$$\netter reduksjonen $53\\equiv 3\\pmod 5$. Snu igjen: $3\\equiv 3$, men $5\\equiv 1\\pmod 4$, så ingen fortegnsfaktor:\n$$\\left(\\frac{3}{5}\\right)=\\left(\\frac{5}{3}\\right)=\\left(\\frac{2}{3}\\right)=-1.$$\n\n**Steg 5: tell minustegnene.** Tre minustegn — **oddetall**:\n$$\\left(\\frac{30}{53}\\right)=(-1)(-1)(-1)=-1.$$\n\n**a) Sluttsvar:** $\\left(\\frac{30}{53}\\right)=-1$, så $30$ er en kvadratisk ikke-rest modulo $53$ og $x^2\\equiv 30\\pmod{53}$ har ingen løsning.\n\n> **Sensorblikk på del a).** Fire ting gir uttelling, og de gir det hver for seg. **(1)** Faktoriseringen og splittingen er skrevet ut — et symbol med sammensatt teller kan ikke snus, og at du vet det, vises her. **(2)** Hvert steg har et **regelnavn**. I denne sjangeren er regelnavnet begrunnelsen, og instruksen på hvert sett er at alle svar skal begrunnes. **(3)** Fortegnstellingen står eksplisitt: «tre minustegn, altså oddetall». Med tre faktorer er det lett å miste ett. **(4)** Konklusjonen er en setning om løsbarhet, ikke bare et symbol.\n>\n> Merk også hva som **ikke** kreves: løsningene. Oppgaven spurte om symbolet.\n\n## Del b)\n\n**Steg 1: margnotat.** $61=15\\cdot 4+1$, så $61\\equiv 1\\pmod 4$. Og $61=7\\cdot 8+5$, så $61\\equiv 5\\pmod 8$.\n\n**Steg 3: faktoriser og splitt.** $42=2\\cdot 3\\cdot 7$:\n$$\\left(\\frac{42}{61}\\right)=\\left(\\frac{2}{61}\\right)\\left(\\frac{3}{61}\\right)\\left(\\frac{7}{61}\\right).$$\n\n**Faktor 1 — 8-regelen.** $61\\equiv 5\\pmod 8$, altså $\\left(\\frac{2}{61}\\right)=-1$.\n\n**Faktor 2.** $61\\equiv 1\\pmod 4$, ingen fortegnsfaktor **(resiprositet)**:\n$$\\left(\\frac{3}{61}\\right)=\\left(\\frac{61}{3}\\right)=\\left(\\frac 13\\right)=1,$$\netter reduksjonen $61\\equiv 1\\pmod 3$.\n\n**Faktor 3.** $61\\equiv 1\\pmod 4$, ingen fortegnsfaktor **(resiprositet)**:\n$$\\left(\\frac{7}{61}\\right)=\\left(\\frac{61}{7}\\right)=\\left(\\frac{5}{7}\\right),$$\netter reduksjonen $61\\equiv 5\\pmod 7$. Snu igjen: $5\\equiv 1\\pmod 4$, ingen fortegnsfaktor:\n$$\\left(\\frac{5}{7}\\right)=\\left(\\frac{7}{5}\\right)=\\left(\\frac{2}{5}\\right)=-1$$\nved **8-regelen**, siden $5\\equiv 5\\pmod 8$ (og $7\\equiv 2\\pmod 5$).\n\n**Steg 5: tell.** To minustegn — partall:\n$$\\left(\\frac{42}{61}\\right)=(-1)\\cdot 1\\cdot(-1)=1.$$\n\n**b) Sluttsvar:** $\\left(\\frac{42}{61}\\right)=1$, så $42$ er en kvadratisk rest modulo $61$, og kongruensen $x^2\\equiv 42\\pmod{61}$ har **nøyaktig to** løsninger modulo $61$.\n\n**Kontroll:** løsningene er $x\\equiv 15$ og $x\\equiv 46$, siden $15^2=225=3\\cdot 61+42\\equiv 42$ ✓ og $46=61-15$ ✓.\n\n> **Sensorblikk på del b).** Her er det **konklusjonen** som er delpunktet. «$\\left(\\frac{42}{61}\\right)=1$» er et mellomsvar; spørsmålet var om kongruensen har løsning og hvor mange. Skriv «nøyaktig to løsninger modulo $61$» — tallet **to** er det oppgaven ber om, og det er den setningen som lukker delpunktet.\n>\n> Merk også at kontrollen med $15^2$ er tatt med for din del. Den er billig når tallet er lite, men den er ikke en del av besvarelsen — og på et tresifret primtall ville det tatt for lang tid å finne røttene.\n\n## Del c)\n\n**Antallet.** Etter halvparten-regelen er nøyaktig $\\frac{p-1}{2}$ av restene $1,\\dots,p-1$ kvadratiske rester. Her er\n$$\\frac{61-1}{2}=30.$$\nAltså er **$30$** av tallene $1,\\dots,60$ kvadratiske rester modulo $61$ (og de resterende $30$ er ikke-rester).\n\n**Begrunnelsen, skrevet ut:** kvadreringen $x\\mapsto x^2$ er to-til-en på de $60$ ikke-null restene, fordi $x$ og $61-x$ har samme kvadrat, og fordi $x^2\\equiv y^2$ gir $61\\mid(x-y)(x+y)$, altså $y\\equiv\\pm x$ **ved Euklids lemma**. Et bilde av $60$ elementer under en to-til-en-avbildning har $30$ elementer.\n\n**Summen.** Summen har $30$ ledd med verdi $+1$ og $30$ ledd med verdi $-1$, altså\n$$\\sum_{a=1}^{60}\\left(\\frac{a}{61}\\right)=30\\cdot 1+30\\cdot(-1)=0.$$\n\n**c) Sluttsvar:** $30$ kvadratiske rester, og summen er $0$.\n\n> **Sensorblikk på del c).** Dette delpunktet krever **ingen** regning — bare halvparten-regelen og en begrunnelse. Men begrunnelsen er hele uttellingen: «$30$» alene er et sluttall uten metode. Skriv de to linjene om at kvadreringen er to-til-en. Det er en av de billigste poengene på hele settet, og det er ren gjengivelse fra utenat-listen.\n>\n> **Tidsbruk for hele oppgaven:** del a) ~6 min, del b) ~6 min, del c) ~3 min. Til sammen godt innenfor de ~24 minuttene et delpunkt har — og det er slik en drillet F-oppgave skal føles."
+    },
+    {
+      "id": "ma1301-4-3-oppgaver-intro",
+      "type": "text",
+      "content": "## Oppgavene\n\n*~40 minutter til sammen. Tretten oppgaver, gruppert etter variant.*\n\nRegn dem med penn og lukket bok. Det er den eneste treningsformen som ligner eksamen, og forskjellen mellom å ha lest oppskriften og å kunne den viser seg bare her.\n\n**Slik er de gruppert:**\n\n- **Oppgave 1–2:** supplementsreglene alene (oppvarming)\n- **Oppgave 3–7:** løsbarhet med resiprositetsloven\n- **Oppgave 8–9:** sammensatt teller med tre eller flere faktorer\n- **Oppgave 10–11:** Eulers kriterium som metode\n- **Oppgave 12:** «summér symbolene» og telling\n- **Oppgave 13:** kjedet oppgave i eksamensform\n\n**Del dem gjerne over to økter.** Oppgave 1–7 er én naturlig økt (~20 min), oppgave 8–13 en annen (~20 min).\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "ma1301-4-3-ex-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-4-3-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Regn ut symbolene under med supplementsreglene alene.\n\n**a)** $\\left(\\frac{-1}{113}\\right)$ og $\\left(\\frac{-1}{127}\\right)$\n**b)** $\\left(\\frac{2}{101}\\right)$ og $\\left(\\frac{2}{107}\\right)$",
+        "solution": "**a) Supplementsregel 1 ser på $p\\bmod 4$.**\n\n$113=28\\cdot 4+1$, så $113\\equiv 1\\pmod 4$, og $\\left(\\frac{-1}{113}\\right)=1$. Kongruensen $x^2\\equiv -1\\pmod{113}$ har to løsninger.\n\n$127=31\\cdot 4+3$, så $127\\equiv 3\\pmod 4$, og $\\left(\\frac{-1}{127}\\right)=-1$. Kongruensen $x^2\\equiv -1\\pmod{127}$ har ingen løsning.\n\n**b) Supplementsregel 2, 8-regelen, ser på $p\\bmod 8$.**\n\n$101=12\\cdot 8+5$, så $101\\equiv 5\\pmod 8$, som er en av de to indre restene: $\\left(\\frac{2}{101}\\right)=-1$.\n\n$107=13\\cdot 8+3$, så $107\\equiv 3\\pmod 8$, også en indre rest: $\\left(\\frac{2}{107}\\right)=-1$.\n\n**Sluttsvar:** a) $1$ og $-1$; b) $-1$ og $-1$.\n\n*Fire symboler, fire divisjoner med rest, ingen potensberegning. Det er verdien av supplementsreglene — og grunnen til at 8-regelen er den ene formelen i Del 4 du er helt avhengig av å ha pugget.*",
+        "hints": [
+          "Regelen for $-1$ bruker modulus $4$; regelen for $2$ bruker modulus $8$.",
+          "$113=112+1$ og $101=96+5$ — trekk fra nærmeste multiplum og skriv det ned."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-4-3-ex-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-4-3-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Avgjør om $x^2\\equiv 26\\pmod{79}$ har løsning.",
+        "solution": "**Steg 1: margnotat.** $79=19\\cdot 4+3$, så $79\\equiv 3\\pmod 4$. Og $79=9\\cdot 8+7$, så $79\\equiv 7\\pmod 8$.\n\n**Steg 3: faktoriser og splitt (multiplikativitet).** $26=2\\cdot 13$:\n$$\\left(\\frac{26}{79}\\right)=\\left(\\frac{2}{79}\\right)\\left(\\frac{13}{79}\\right).$$\n\n**Faktor 1 — 8-regelen.** $79\\equiv 7\\equiv -1\\pmod 8$, altså $\\left(\\frac{2}{79}\\right)=1$.\n\n**Faktor 2.** $13\\equiv 1\\pmod 4$, så ingen fortegnsfaktor **(resiprositet)**:\n$$\\left(\\frac{13}{79}\\right)=\\left(\\frac{79}{13}\\right)=\\left(\\frac{1}{13}\\right)=1,$$\netter reduksjonen $79=6\\cdot 13+1$, altså $79\\equiv 1\\pmod{13}$ **(periodisitet)**.\n\n**Steg 5: tell.** Ingen minustegn:\n$$\\left(\\frac{26}{79}\\right)=1\\cdot 1=1.$$\n\n**Konklusjon.** $26$ er en kvadratisk rest modulo $79$, og kongruensen $x^2\\equiv 26\\pmod{79}$ har **to** løsninger.\n\n**Kontroll ved å finne dem:** $37^2=1369=17\\cdot 79+26\\equiv 26\\pmod{79}$ ✓. Løsningene er $x\\equiv 37$ og $x\\equiv 79-37=42\\pmod{79}$.\n\n**Sluttsvar:** $\\left(\\frac{26}{79}\\right)=1$; to løsninger, $x\\equiv 37$ og $x\\equiv 42\\pmod{79}$.\n\n*Kjeden stoppet med én gang, fordi $79$ er kongruent med $1$ modulo $13$. Se etter det: reduserer telleren til $1$ eller til et kvadrattall, er du ferdig.*",
+        "hints": [
+          "$26=2\\cdot 13$ — én faktor til 8-regelen, én til resiprositeten.",
+          "$79\\equiv 7\\pmod 8$: hva gir 8-regelen da?",
+          "Etter snuingen: hva er $79$ modulo $13$?"
+        ]
+      }
+    },
+    {
+      "id": "ma1301-4-3-ex-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-4-3-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Avgjør om $x^2\\equiv 21\\pmod{59}$ har løsning, og oppgi antall løsninger.",
+        "solution": "**Steg 1: margnotat.** $59=14\\cdot 4+3$, så $59\\equiv 3\\pmod 4$.\n\n**Steg 3: faktoriser og splitt (multiplikativitet).** $21=3\\cdot 7$:\n$$\\left(\\frac{21}{59}\\right)=\\left(\\frac{3}{59}\\right)\\left(\\frac{7}{59}\\right).$$\n\n**Faktor 1.** Både $3\\equiv 3$ og $59\\equiv 3\\pmod 4$ — **fortegnsbytte (resiprositet)**:\n$$\\left(\\frac{3}{59}\\right)=-\\left(\\frac{59}{3}\\right)=-\\left(\\frac{2}{3}\\right)=-(-1)=1,$$\nder vi reduserte $59\\equiv 2\\pmod 3$ **(periodisitet)** og brukte **8-regelen** på $\\left(\\frac 23\\right)$, siden $3\\equiv 3\\pmod 8$.\n\n**Faktor 2.** Både $7\\equiv 3$ og $59\\equiv 3\\pmod 4$ — **fortegnsbytte (resiprositet)**:\n$$\\left(\\frac{7}{59}\\right)=-\\left(\\frac{59}{7}\\right)=-\\left(\\frac{3}{7}\\right),$$\netter reduksjonen $59=8\\cdot 7+3$, altså $59\\equiv 3\\pmod 7$. Snu igjen: både $3\\equiv 3$ og $7\\equiv 3\\pmod 4$ — **nytt fortegnsbytte**:\n$$-\\left(\\frac{3}{7}\\right)=-\\left(-\\left(\\frac{7}{3}\\right)\\right)=\\left(\\frac{7}{3}\\right)=\\left(\\frac{1}{3}\\right)=1,$$\netter reduksjonen $7\\equiv 1\\pmod 3$. Altså $\\left(\\frac{7}{59}\\right)=1$.\n\n**Steg 5: tell.** Begge faktorene ble $+1$:\n$$\\left(\\frac{21}{59}\\right)=1\\cdot 1=1.$$\n\n**Konklusjon.** $21$ er en kvadratisk rest modulo $59$, og kongruensen har **nøyaktig to** løsninger modulo $59$.\n\n**Kontroll ved å finne dem:** $27^2=729=12\\cdot 59+21\\equiv 21\\pmod{59}$ ✓. Løsningene er $x\\equiv 27$ og $x\\equiv 59-27=32\\pmod{59}$.\n\n**Sluttsvar:** $\\left(\\frac{21}{59}\\right)=1$; to løsninger, $x\\equiv 27$ og $x\\equiv 32\\pmod{59}$.\n\n*Tre fortegnsbytter i denne kjeden, og svaret ble likevel $+1$ — fordi to av minustegnene traff samme faktor og kansellerte hverandre. Det er nettopp derfor du fører ett steg per linje: med tre fortegnsbytter i hodet mister de fleste ett.*",
+        "hints": [
+          "Faktoriser $21$ og behandle faktorene hver for seg.",
+          "$59\\equiv 3\\pmod 4$ — så begge snuingene med teller $\\equiv 3\\pmod 4$ gir fortegnsbytte.",
+          "Faktor 2 krever to snuoperasjoner, og begge gir fortegnsbytte. Hva blir nettofortegnet?"
+        ]
+      }
+    },
+    {
+      "id": "ma1301-4-3-ex-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-4-3-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Avgjør om $x^2\\equiv 55\\pmod{97}$ har løsning.",
+        "solution": "**Steg 1: margnotat.** $97=24\\cdot 4+1$, så $97\\equiv 1\\pmod 4$.\n\n**Steg 3: faktoriser og splitt (multiplikativitet).** $55=5\\cdot 11$:\n$$\\left(\\frac{55}{97}\\right)=\\left(\\frac{5}{97}\\right)\\left(\\frac{11}{97}\\right).$$\n\n**Faktor 1.** $97\\equiv 1\\pmod 4$, ingen fortegnsfaktor **(resiprositet)**:\n$$\\left(\\frac{5}{97}\\right)=\\left(\\frac{97}{5}\\right)=\\left(\\frac{2}{5}\\right)=-1$$\nved **8-regelen** ($5\\equiv 5\\pmod 8$), etter reduksjonen $97=19\\cdot 5+2$, altså $97\\equiv 2\\pmod 5$.\n\n**Faktor 2.** $11\\equiv 3\\pmod 4$, men $97\\equiv 1\\pmod 4$, så ingen fortegnsfaktor **(resiprositet)**:\n$$\\left(\\frac{11}{97}\\right)=\\left(\\frac{97}{11}\\right)=\\left(\\frac{9}{11}\\right)=1,$$\netter reduksjonen $97=8\\cdot 11+9$, altså $97\\equiv 9\\pmod{11}$ — og $9=3^2$ er et **kvadrat**, så symbolet er $1$.\n\n**Steg 5: tell.** Ett minustegn:\n$$\\left(\\frac{55}{97}\\right)=(-1)\\cdot 1=-1.$$\n\n**Konklusjon.** $55$ er en kvadratisk ikke-rest modulo $97$, og kongruensen $x^2\\equiv 55\\pmod{97}$ har **ingen løsning**.\n\n**Sluttsvar:** $\\left(\\frac{55}{97}\\right)=-1$; ingen løsning.\n\n*Merk at $97\\equiv 1\\pmod 4$ gjorde hele oppgaven fortegnsfri: er nevneren $\\equiv 1\\pmod 4$, kan snuing aldri gi fortegnsbytte, uansett teller. Det er verdt å legge merke til i margnotatet — da vet du at du bare skal holde styr på supplementsverdiene.*",
+        "hints": [
+          "$97\\equiv 1\\pmod 4$: kan noen snuing gi fortegnsbytte her?",
+          "Reduser $97$ modulo $5$ og modulo $11$ etter snuingene.",
+          "$9$ er et kvadrattall. Hva gjør det med symbolet?"
+        ]
+      }
+    },
+    {
+      "id": "ma1301-4-3-ex-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-4-3-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Avgjør om $x^2\\equiv 10\\pmod{89}$ har løsning, og oppgi løsningene.",
+        "solution": "**Steg 1: margnotat.** $89=22\\cdot 4+1$, så $89\\equiv 1\\pmod 4$. Og $89=11\\cdot 8+1$, så $89\\equiv 1\\pmod 8$.\n\n**Steg 3: faktoriser og splitt (multiplikativitet).** $10=2\\cdot 5$:\n$$\\left(\\frac{10}{89}\\right)=\\left(\\frac{2}{89}\\right)\\left(\\frac{5}{89}\\right).$$\n\n**Faktor 1 — 8-regelen.** $89\\equiv 1\\pmod 8$, altså $\\left(\\frac{2}{89}\\right)=1$.\n\n**Faktor 2.** $89\\equiv 1\\pmod 4$, ingen fortegnsfaktor **(resiprositet)**:\n$$\\left(\\frac{5}{89}\\right)=\\left(\\frac{89}{5}\\right)=\\left(\\frac{4}{5}\\right)=1,$$\netter reduksjonen $89=17\\cdot 5+4$, altså $89\\equiv 4\\pmod 5$ — og $4=2^2$ er et **kvadrat**.\n\n**Steg 5: tell.** Ingen minustegn:\n$$\\left(\\frac{10}{89}\\right)=1\\cdot 1=1.$$\n\n**Konklusjon.** $10$ er en kvadratisk rest modulo $89$, og kongruensen har **to** løsninger.\n\n**Løsningene.** Vi leter etter $x$ med $x^2\\equiv 10\\pmod{89}$. Prøver vi oppover blant tallene der kvadratet er nær et multiplum av $89$ pluss $10$: $30^2=900=10\\cdot 89+10\\equiv 10$ ✓. Altså er\n$$x\\equiv 30\\quad\\text{og}\\quad x\\equiv 89-30=59\\pmod{89}.$$\n\n**Kontroll av den andre:** $59^2=3481=39\\cdot 89+10\\equiv 10$ ✓ (siden $39\\cdot 89=3471$).\n\n**Sluttsvar:** $\\left(\\frac{10}{89}\\right)=1$; løsningene er $x\\equiv 30$ og $x\\equiv 59\\pmod{89}$.\n\n*Merk at oppgaven her ba om løsningene, og da må de finnes — symbolet sier bare at de eksisterer. Med $p=89$ er det fortsatt overkommelig å prøve oppover, men det er en egen jobb på toppen av reduksjonen, og den koster tid. Les oppgaveteksten nøye: står det bare «avgjør om», skal du ikke lete.*",
+        "hints": [
+          "$10=2\\cdot 5$: 8-regelen på den ene, resiprositet på den andre.",
+          "Etter snuing: $89$ modulo $5$ er $4$, som er et kvadrattall.",
+          "Til løsningene: prøv $x$ oppover og se etter $x^2-10$ delelig med $89$. Start rundt $30$."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-4-3-ex-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-4-3-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Avgjør om $x^2\\equiv 70\\pmod{107}$ har løsning.",
+        "solution": "**Steg 1: margnotat.** $107=26\\cdot 4+3$, så $107\\equiv 3\\pmod 4$. Og $107=13\\cdot 8+3$, så $107\\equiv 3\\pmod 8$.\n\n**Steg 3: faktoriser og splitt (multiplikativitet).** $70=2\\cdot 5\\cdot 7$:\n$$\\left(\\frac{70}{107}\\right)=\\left(\\frac{2}{107}\\right)\\left(\\frac{5}{107}\\right)\\left(\\frac{7}{107}\\right).$$\n\n**Faktor 1 — 8-regelen.** $107\\equiv 3\\pmod 8$, en indre rest: $\\left(\\frac{2}{107}\\right)=-1$.\n\n**Faktor 2.** $5\\equiv 1\\pmod 4$, ingen fortegnsfaktor **(resiprositet)**:\n$$\\left(\\frac{5}{107}\\right)=\\left(\\frac{107}{5}\\right)=\\left(\\frac{2}{5}\\right)=-1$$\nved **8-regelen** ($5\\equiv 5\\pmod 8$), etter reduksjonen $107=21\\cdot 5+2$, altså $107\\equiv 2\\pmod 5$.\n\n**Faktor 3.** Både $7\\equiv 3$ og $107\\equiv 3\\pmod 4$ — **fortegnsbytte (resiprositet)**:\n$$\\left(\\frac{7}{107}\\right)=-\\left(\\frac{107}{7}\\right)=-\\left(\\frac{2}{7}\\right)=-1,$$\netter reduksjonen $107=15\\cdot 7+2$, altså $107\\equiv 2\\pmod 7$, og **8-regelen** gir $\\left(\\frac 27\\right)=1$ siden $7\\equiv 7\\pmod 8$.\n\n**Steg 5: tell.** Tre minustegn — **oddetall**:\n$$\\left(\\frac{70}{107}\\right)=(-1)(-1)(-1)=-1.$$\n\n**Konklusjon.** $70$ er en kvadratisk ikke-rest modulo $107$, og kongruensen $x^2\\equiv 70\\pmod{107}$ har **ingen løsning**.\n\n**Sluttsvar:** $\\left(\\frac{70}{107}\\right)=-1$; ingen løsning.\n\n*Legg merke til at 8-regelen ble brukt **tre** ganger her, med tre ulike nevnere: $107$, $5$ og $7$. Det er typisk for kjeder der telleren har faktoren $2$ — og det er grunnen til at regelen må sitte kaldt, ikke bare for det opprinnelige primtallet.*",
+        "hints": [
+          "Tre primfaktorer i telleren betyr tre delsymboler.",
+          "Både faktor 2 og faktor 3 ender i $\\left(\\frac 2q\\right)$ med liten $q$ — bruk 8-regelen.",
+          "Tell minustegnene til slutt: tre av dem gir hva?"
+        ]
+      }
+    },
+    {
+      "id": "ma1301-4-3-ex-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-4-3-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Avgjør om $x^2\\equiv 46\\pmod{61}$ har løsning.",
+        "solution": "**Steg 1: margnotat.** $61\\equiv 1\\pmod 4$ og $61\\equiv 5\\pmod 8$.\n\n**Steg 3: faktoriser og splitt (multiplikativitet).** $46=2\\cdot 23$:\n$$\\left(\\frac{46}{61}\\right)=\\left(\\frac{2}{61}\\right)\\left(\\frac{23}{61}\\right).$$\n\n**Faktor 1 — 8-regelen.** $61\\equiv 5\\pmod 8$: $\\left(\\frac{2}{61}\\right)=-1$.\n\n**Faktor 2.** $23\\equiv 3\\pmod 4$, men $61\\equiv 1\\pmod 4$, så ingen fortegnsfaktor **(resiprositet)**:\n$$\\left(\\frac{23}{61}\\right)=\\left(\\frac{61}{23}\\right)=\\left(\\frac{15}{23}\\right),$$\netter reduksjonen $61=2\\cdot 23+15$, altså $61\\equiv 15\\pmod{23}$. Faktoriser og splitt igjen: $15=3\\cdot 5$:\n$$\\left(\\frac{15}{23}\\right)=\\left(\\frac{3}{23}\\right)\\left(\\frac{5}{23}\\right).$$\n\n*Delfaktor $\\left(\\frac{3}{23}\\right)$:* både $3\\equiv 3$ og $23\\equiv 3\\pmod 4$ — **fortegnsbytte**:\n$$\\left(\\frac{3}{23}\\right)=-\\left(\\frac{23}{3}\\right)=-\\left(\\frac{2}{3}\\right)=-(-1)=1,$$\netter reduksjonen $23\\equiv 2\\pmod 3$ og **8-regelen** på $\\left(\\frac 23\\right)$.\n\n*Delfaktor $\\left(\\frac{5}{23}\\right)$:* $5\\equiv 1\\pmod 4$, ingen fortegnsfaktor:\n$$\\left(\\frac{5}{23}\\right)=\\left(\\frac{23}{5}\\right)=\\left(\\frac{3}{5}\\right)=\\left(\\frac{5}{3}\\right)=\\left(\\frac{2}{3}\\right)=-1,$$\netter reduksjonene $23\\equiv 3\\pmod 5$ og $5\\equiv 2\\pmod 3$, med **8-regelen** til slutt.\n\nAltså er $\\left(\\frac{23}{61}\\right)=1\\cdot(-1)=-1$.\n\n**Steg 5: tell.** To minustegn — partall:\n$$\\left(\\frac{46}{61}\\right)=(-1)\\cdot(-1)=1.$$\n\n**Konklusjon.** $46$ er en kvadratisk rest modulo $61$, og kongruensen har **to** løsninger.\n\n**Kontroll ved å finne dem:** $30^2=900=14\\cdot 61+46\\equiv 46\\pmod{61}$ ✓. Løsningene er $x\\equiv 30$ og $x\\equiv 61-30=31\\pmod{61}$.\n\n**Sluttsvar:** $\\left(\\frac{46}{61}\\right)=1$; to løsninger, $x\\equiv 30$ og $x\\equiv 31\\pmod{61}$.\n\n*Dette er den lengste kjeden i settet — fem snuoperasjoner i alt. Legg merke til at den likevel stoppet, og at hvert steg gjorde tallene mindre: $61\\to 23\\to 5\\to 3$. Det er nedstigningen, og den er grunnen til at algoritmen alltid terminerer.*",
+        "hints": [
+          "$46=2\\cdot 23$: 8-regelen på $2$, resiprositet på $23$.",
+          "Etter første snuing blir telleren $15$ — den må faktoriseres og splittes på nytt.",
+          "Begge delfaktorene ender i $\\left(\\frac 23\\right)$. Hva er den?"
+        ]
+      }
+    },
+    {
+      "id": "ma1301-4-3-ex-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-4-3-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Avgjør om $x^2\\equiv 105\\pmod{137}$ har løsning, og oppgi antall løsninger.",
+        "solution": "**Steg 1: margnotat.** $137=34\\cdot 4+1$, så $137\\equiv 1\\pmod 4$. Og $137=17\\cdot 8+1$, så $137\\equiv 1\\pmod 8$. Nevneren er $\\equiv 1\\pmod 4$, så **ingen snuing i denne oppgaven kan gi fortegnsbytte** — men delfaktorene kan.\n\n**Steg 3: faktoriser og splitt (multiplikativitet).** $105=3\\cdot 5\\cdot 7$:\n$$\\left(\\frac{105}{137}\\right)=\\left(\\frac{3}{137}\\right)\\left(\\frac{5}{137}\\right)\\left(\\frac{7}{137}\\right).$$\n\n**Faktor 1.** $137\\equiv 1\\pmod 4$, ingen fortegnsfaktor **(resiprositet)**:\n$$\\left(\\frac{3}{137}\\right)=\\left(\\frac{137}{3}\\right)=\\left(\\frac{2}{3}\\right)=-1$$\nved **8-regelen** ($3\\equiv 3\\pmod 8$), etter reduksjonen $137=45\\cdot 3+2$, altså $137\\equiv 2\\pmod 3$.\n\n**Faktor 2.** Ingen fortegnsfaktor:\n$$\\left(\\frac{5}{137}\\right)=\\left(\\frac{137}{5}\\right)=\\left(\\frac{2}{5}\\right)=-1$$\nved **8-regelen** ($5\\equiv 5\\pmod 8$), etter reduksjonen $137=27\\cdot 5+2$, altså $137\\equiv 2\\pmod 5$.\n\n**Faktor 3.** Ingen fortegnsfaktor:\n$$\\left(\\frac{7}{137}\\right)=\\left(\\frac{137}{7}\\right)=\\left(\\frac{4}{7}\\right)=1,$$\netter reduksjonen $137=19\\cdot 7+4$, altså $137\\equiv 4\\pmod 7$ — og $4=2^2$ er et **kvadrat**.\n\n**Steg 5: tell.** To minustegn — partall:\n$$\\left(\\frac{105}{137}\\right)=(-1)(-1)\\cdot 1=1.$$\n\n**Konklusjon.** $105$ er en kvadratisk rest modulo $137$, og kongruensen $x^2\\equiv 105\\pmod{137}$ har **nøyaktig to** løsninger modulo $137$.\n\n**Kontroll:** løsningene er $x\\equiv 67$ og $x\\equiv 70$, siden $67^2=4489=32\\cdot 137+105\\equiv 105$ ✓ og $70=137-67$ ✓.\n\n**Sluttsvar:** $\\left(\\frac{105}{137}\\right)=1$; to løsninger.\n\n*Tre faktorer, tre snuoperasjoner, tre reduksjoner — og hele kjeden var fortegnsfri fordi $137\\equiv 1\\pmod 4$. Legg merke til hvor mye margnotatet sparte deg: så snart du hadde skrevet «$137\\equiv 1\\pmod 4$», visste du at du bare skulle holde styr på supplementsverdiene.*",
+        "hints": [
+          "Faktoriser $105$ — tre primfaktorer gir tre delsymboler.",
+          "$137\\equiv 1\\pmod 4$: ingen av snuingene gir fortegnsbytte.",
+          "Alle tre reduksjonene gir små tellere: $2$, $2$ og $4$."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-4-3-ex-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-4-3-o9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Avgjør om $x^2\\equiv 51\\pmod{113}$ har løsning.",
+        "solution": "**Steg 1: margnotat.** $113=28\\cdot 4+1$, så $113\\equiv 1\\pmod 4$. Og $113=14\\cdot 8+1$, så $113\\equiv 1\\pmod 8$.\n\n**Steg 3: faktoriser og splitt (multiplikativitet).** $51=3\\cdot 17$:\n$$\\left(\\frac{51}{113}\\right)=\\left(\\frac{3}{113}\\right)\\left(\\frac{17}{113}\\right).$$\n\n**Faktor 1.** $113\\equiv 1\\pmod 4$, ingen fortegnsfaktor **(resiprositet)**:\n$$\\left(\\frac{3}{113}\\right)=\\left(\\frac{113}{3}\\right)=\\left(\\frac{2}{3}\\right)=-1$$\nved **8-regelen**, etter reduksjonen $113=37\\cdot 3+2$, altså $113\\equiv 2\\pmod 3$.\n\n**Faktor 2.** $17\\equiv 1\\pmod 4$, ingen fortegnsfaktor:\n$$\\left(\\frac{17}{113}\\right)=\\left(\\frac{113}{17}\\right)=\\left(\\frac{11}{17}\\right),$$\netter reduksjonen $113=6\\cdot 17+11$, altså $113\\equiv 11\\pmod{17}$.\n\nSnu igjen: $11\\equiv 3\\pmod 4$, men $17\\equiv 1\\pmod 4$, så ingen fortegnsfaktor:\n$$\\left(\\frac{11}{17}\\right)=\\left(\\frac{17}{11}\\right)=\\left(\\frac{6}{11}\\right),$$\netter reduksjonen $17\\equiv 6\\pmod{11}$. Faktoriser og splitt: $6=2\\cdot 3$:\n$$\\left(\\frac{6}{11}\\right)=\\left(\\frac{2}{11}\\right)\\left(\\frac{3}{11}\\right).$$\n\n*Delfaktor $\\left(\\frac{2}{11}\\right)$:* **8-regelen** med $11\\equiv 3\\pmod 8$ gir $-1$.\n\n*Delfaktor $\\left(\\frac{3}{11}\\right)$:* både $3\\equiv 3$ og $11\\equiv 3\\pmod 4$ — **fortegnsbytte**:\n$$\\left(\\frac{3}{11}\\right)=-\\left(\\frac{11}{3}\\right)=-\\left(\\frac{2}{3}\\right)=-(-1)=1,$$\netter reduksjonen $11\\equiv 2\\pmod 3$.\n\nAltså er $\\left(\\frac{6}{11}\\right)=(-1)\\cdot 1=-1$, og dermed $\\left(\\frac{17}{113}\\right)=-1$.\n\n**Steg 5: tell.** To minustegn — partall:\n$$\\left(\\frac{51}{113}\\right)=(-1)\\cdot(-1)=1.$$\n\n**Konklusjon.** $51$ er en kvadratisk rest modulo $113$, og kongruensen $x^2\\equiv 51\\pmod{113}$ har **to** løsninger.\n\n**Kontroll:** løsningene er $x\\equiv 27$ og $x\\equiv 86$, siden $27^2=729=6\\cdot 113+51\\equiv 51$ ✓ og $86=113-27$ ✓.\n\n**Sluttsvar:** $\\left(\\frac{51}{113}\\right)=1$; to løsninger.\n\n*Nedstigningen i nevnerne var $113\\to 17\\to 11\\to 3$. Fire nivåer er i øvre enden av det du møter på eksamen, men fortsatt fullt regnbart: hvert steg er én divisjon med rest og én fortegnsvurdering. Tell arbeidet — fire snuoperasjoner, fire reduksjoner, to bruk av 8-regelen. Under ti minutter når rutinen sitter.*",
+        "hints": [
+          "$51=3\\cdot 17$. Behandle faktorene hver for seg.",
+          "Faktor 2 krever flere runder: reduser til $11$, snu, reduser til $6$, faktoriser igjen.",
+          "To av delsymbolene er $\\left(\\frac 23\\right)$ og $\\left(\\frac 2{11}\\right)$ — begge fra 8-regelen."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-4-3-ex-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-4-3-o10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Avgjør om $x^2\\equiv 7\\pmod{19}$ har løsning, **først** med Eulers kriterium og **deretter** med resiprositetsloven. Oppgi løsningene.",
+        "solution": "**Vei 1: Eulers kriterium.**\n\nEksponenten er $m=\\frac{19-1}{2}=9$, og $9=1001_2=8+1$. Suksessive kvadrater modulo $19$:\n\n| potens | utregning | verdi mod $19$ |\n|---|---|---|\n| $7^1$ | — | $7$ |\n| $7^2$ | $49=2\\cdot 19+11$ | $11$ |\n| $7^4$ | $11^2=121=6\\cdot 19+7$ | $7$ |\n| $7^8$ | $7^2=49\\equiv 11$ | $11$ |\n\n$$7^9=7^8\\cdot 7^1\\equiv 11\\cdot 7=77=4\\cdot 19+1\\equiv 1\\pmod{19}.$$\n\n**Ved Eulers kriterium** er derfor $\\left(\\frac{7}{19}\\right)=1$.\n\n**Vei 2: resiprositetsloven.**\n\nMargnotat: $19=4\\cdot 4+3$, så $19\\equiv 3\\pmod 4$. Både $7\\equiv 3$ og $19\\equiv 3\\pmod 4$ — **fortegnsbytte (resiprositet)**:\n$$\\left(\\frac{7}{19}\\right)=-\\left(\\frac{19}{7}\\right)=-\\left(\\frac{5}{7}\\right),$$\netter reduksjonen $19=2\\cdot 7+5$, altså $19\\equiv 5\\pmod 7$. Snu igjen: $5\\equiv 1\\pmod 4$, ingen fortegnsfaktor:\n$$-\\left(\\frac{5}{7}\\right)=-\\left(\\frac{7}{5}\\right)=-\\left(\\frac{2}{5}\\right)=-(-1)=1$$\nved **8-regelen** ($5\\equiv 5\\pmod 8$), etter reduksjonen $7\\equiv 2\\pmod 5$.\n\n**Begge veier gir $\\left(\\frac{7}{19}\\right)=1$** — og begge er fullgode. Det er den beste kontrollen som finnes under kode D: to helt uavhengige metoder, samme svar.\n\n**Konklusjon og løsninger.** $7$ er en kvadratisk rest modulo $19$, og kongruensen har **to** løsninger. Vi finner dem ved å kvadrere oppover: $8^2=64=3\\cdot 19+7\\equiv 7$ ✓. Altså\n$$x\\equiv 8\\quad\\text{og}\\quad x\\equiv 19-8=11\\pmod{19}.$$\n\n**Kontroll:** $11^2=121=6\\cdot 19+7\\equiv 7$ ✓.\n\n**Sluttsvar:** $\\left(\\frac{7}{19}\\right)=1$ (bekreftet to veier); løsningene er $x\\equiv 8$ og $x\\equiv 11\\pmod{19}$.\n\n*Sammenlign arbeidsmengden: kriteriet krevde tre kvadreringer og én multiplikasjon; kjeden krevde to snuoperasjoner og to reduksjoner. For $p=19$ er de omtrent likeverdige. Ved $p=100$ er kriteriet klart tyngre, og ved $p=1000$ er det uaktuelt.*",
+        "hints": [
+          "Eksponenten i kriteriet er $\\frac{19-1}{2}=9$, og $9=8+1$.",
+          "I vei 2: både $7$ og $19$ er $\\equiv 3\\pmod 4$ — det gir fortegnsbytte.",
+          "Til løsningene: kvadrer $x=1,\\dots,9$ og se hvilken som gir $7$."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-4-3-ex-11",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-4-3-o11",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Bruk Eulers kriterium til å avgjøre om $13$ er en kvadratisk rest modulo $23$, og oppgi løsningene av $x^2\\equiv 13\\pmod{23}$ hvis de finnes.",
+        "solution": "**Steg 1:** telleren $13<23$, ingenting å redusere.\n\n**Steg 2: eksponenten.** $m=\\frac{23-1}{2}=11$, og $11=1011_2=8+2+1$.\n\n**Steg 3: suksessive kvadrater modulo $23$.**\n\n| potens | utregning | verdi mod $23$ |\n|---|---|---|\n| $13^1$ | — | $13$ |\n| $13^2$ | $169=7\\cdot 23+8$ | $8$ |\n| $13^4$ | $8^2=64=2\\cdot 23+18$ | $18$ |\n| $13^8$ | $18^2=324=14\\cdot 23+2$ | $2$ |\n\n**Steg 4: gang sammen etter binærutviklingen $11=8+2+1$:**\n$$13^{11}=13^8\\cdot 13^2\\cdot 13^1\\equiv 2\\cdot 8\\cdot 13\\pmod{23}.$$\nSteg for steg: $2\\cdot 8=16$, og $16\\cdot 13=208=9\\cdot 23+1\\equiv 1\\pmod{23}$.\n\n**Steg 5: les av.** Vi fikk $1$, så **ved Eulers kriterium** er\n$$\\left(\\frac{13}{23}\\right)=1,$$\nog $13$ er en kvadratisk rest modulo $23$. Kongruensen har **to** løsninger.\n\n**Løsningene.** Kvadrer oppover: $6^2=36=23+13\\equiv 13$ ✓. Altså\n$$x\\equiv 6\\quad\\text{og}\\quad x\\equiv 23-6=17\\pmod{23}.$$\n\n**Kontroll:** $17^2=289=12\\cdot 23+13\\equiv 13$ ✓.\n\n**Kontroll med resiprositetsloven** (uavhengig vei): $13\\equiv 1\\pmod 4$, så ingen fortegnsfaktor, og\n$$\\left(\\frac{13}{23}\\right)=\\left(\\frac{23}{13}\\right)=\\left(\\frac{10}{13}\\right)=\\left(\\frac{2}{13}\\right)\\left(\\frac{5}{13}\\right)=(-1)(-1)=1,$$\nder $\\left(\\frac{2}{13}\\right)=-1$ ved 8-regelen ($13\\equiv 5\\pmod 8$) og $\\left(\\frac{5}{13}\\right)=-1$ fra [kap. 4.1](/ma1301/ma1301-4-1) ✓.\n\n**Sluttsvar:** $\\left(\\frac{13}{23}\\right)=1$; løsningene er $x\\equiv 6$ og $x\\equiv 17\\pmod{23}$.\n\n*Merk hvor billig kontrollen var her: fire linjer med resiprositet, mot fire kvadreringer med kriteriet. Når $p$ er lite, koster det nesten ingenting å gjøre begge — og da vet du at du er trygg.*",
+        "hints": [
+          "$m=11=8+2+1$ i binær — du trenger $13^1$, $13^2$ og $13^8$.",
+          "Reduser etter hver kvadrering: hold tallene under $23$.",
+          "Til løsningene: kvadrer $x=1,\\dots,11$."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-4-3-ex-12",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-4-3-o12",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $p=17$.\n**a)** Hvor mange av tallene $1,2,\\dots,16$ er kvadratiske rester modulo $17$? Begrunn uten å lage tabellen.\n**b)** Hva er $\\sum_{a=1}^{16}\\left(\\frac{a}{17}\\right)$? Begrunn.\n**c)** Kontrollér a) ved å lage tabellen over kvadratiske rester.",
+        "solution": "**a)** Etter halvparten-regelen er nøyaktig $\\frac{p-1}{2}$ av restene $1,\\dots,p-1$ kvadratiske rester. Her er\n$$\\frac{17-1}{2}=8.$$\n\n**Begrunnelsen, skrevet ut:** kvadreringen $x\\mapsto x^2$ på de $16$ ikke-null restene er **to-til-en**. Den treffer hvert bilde nøyaktig to ganger, fordi $x$ og $17-x$ har samme kvadrat, og fordi $x^2\\equiv y^2$ gir $17\\mid(x-y)(x+y)$, altså $y\\equiv\\pm x$ **ved Euklids lemma**. Et bilde av $16$ elementer under en to-til-en-avbildning har $8$ elementer.\n\nAltså er **$8$** av tallene kvadratiske rester, og de øvrige $8$ er ikke-rester.\n\n**b)** Summen har ett ledd per rest: $+1$ for hver av de $8$ kvadratiske restene og $-1$ for hver av de $8$ ikke-restene. Altså\n$$\\sum_{a=1}^{16}\\left(\\frac{a}{17}\\right)=8\\cdot 1+8\\cdot(-1)=0.$$\n\n**c) Tabellen.** Vi kvadrerer opp til $\\frac{p-1}{2}=8$:\n\n| $x$ | $1$ | $2$ | $3$ | $4$ | $5$ | $6$ | $7$ | $8$ |\n|---|---|---|---|---|---|---|---|---|\n| $x^2\\bmod 17$ | $1$ | $4$ | $9$ | $16$ | $8$ | $2$ | $15$ | $13$ |\n\nRegningen for de fire siste: $5^2=25\\equiv 8$, $6^2=36\\equiv 2$, $7^2=49\\equiv 15$, $8^2=64\\equiv 13$.\n\nDe kvadratiske restene modulo $17$ er dermed\n$$\\{1,2,4,8,9,13,15,16\\},$$\nog det er **$8$** tall ✓ — som stemmer med a).\n\n**Sluttsvar:** a) $8$; b) $0$; c) tabellen gir $\\{1,2,4,8,9,13,15,16\\}$, altså $8$ rester.\n\n*Denne oppgavetypen krever ingen regning i del a) og b) — bare halvparten-regelen og en begrunnelse på to linjer. Det er blant de billigste delpunktene som finnes i faget, og det er ren gjengivelse fra utenat-listen. Men begrunnelsen er hele uttellingen: «$8$» og «$0$» uten argument er sluttall uten metode.*",
+        "hints": [
+          "Halvparten-regelen: hvor mange av restene er kvadrater?",
+          "I b): hvor mange ledd er $+1$, og hvor mange er $-1$?",
+          "I c): du trenger bare kvadrere opp til $8$ — resten speiler seg."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-4-3-ex-13",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-4-3-o13",
+        "number": "13",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**a)** Regn ut $\\left(\\frac{33}{71}\\right)$ med reduksjonsalgoritmen, ført med regelnavn.\n**b)** Hvor mange løsninger har $x^2\\equiv 33\\pmod{71}$?\n**c)** Kontrollér én av delfaktorene fra a) med Eulers kriterium.",
+        "solution": "**a) Steg 1: margnotat.** $71=17\\cdot 4+3$, så $71\\equiv 3\\pmod 4$. Og $71=8\\cdot 8+7$, så $71\\equiv 7\\pmod 8$.\n\n**Steg 3: faktoriser og splitt (multiplikativitet).** $33=3\\cdot 11$:\n$$\\left(\\frac{33}{71}\\right)=\\left(\\frac{3}{71}\\right)\\left(\\frac{11}{71}\\right).$$\n\n**Faktor 1.** Både $3\\equiv 3$ og $71\\equiv 3\\pmod 4$ — **fortegnsbytte (resiprositet)**:\n$$\\left(\\frac{3}{71}\\right)=-\\left(\\frac{71}{3}\\right)=-\\left(\\frac{2}{3}\\right)=-(-1)=1,$$\netter reduksjonen $71=23\\cdot 3+2$, altså $71\\equiv 2\\pmod 3$, og **8-regelen** på $\\left(\\frac 23\\right)$ ($3\\equiv 3\\pmod 8$).\n\n**Faktor 2.** Både $11\\equiv 3$ og $71\\equiv 3\\pmod 4$ — **fortegnsbytte (resiprositet)**:\n$$\\left(\\frac{11}{71}\\right)=-\\left(\\frac{71}{11}\\right)=-\\left(\\frac{5}{11}\\right),$$\netter reduksjonen $71=6\\cdot 11+5$, altså $71\\equiv 5\\pmod{11}$. Snu igjen: $5\\equiv 1\\pmod 4$, ingen fortegnsfaktor:\n$$-\\left(\\frac{5}{11}\\right)=-\\left(\\frac{11}{5}\\right)=-\\left(\\frac{1}{5}\\right)=-1,$$\netter reduksjonen $11\\equiv 1\\pmod 5$.\n\n**Steg 5: tell.** Ett minustegn — oddetall:\n$$\\left(\\frac{33}{71}\\right)=1\\cdot(-1)=-1.$$\n\n**a) Sluttsvar:** $\\left(\\frac{33}{71}\\right)=-1$.\n\n**b)** Siden symbolet er $-1$, er $33$ en kvadratisk ikke-rest modulo $71$, og kongruensen $x^2\\equiv 33\\pmod{71}$ har **ingen løsning** — altså $0$ løsninger.\n\n**c) Kontroll av $\\left(\\frac{3}{71}\\right)$ med Eulers kriterium.**\n\nEksponenten er $m=\\frac{71-1}{2}=35$, og $35=100011_2=32+2+1$. Suksessive kvadrater modulo $71$:\n\n| potens | utregning | verdi mod $71$ |\n|---|---|---|\n| $3^1$ | — | $3$ |\n| $3^2$ | $9$ | $9$ |\n| $3^4$ | $9^2=81=71+10$ | $10$ |\n| $3^8$ | $10^2=100=71+29$ | $29$ |\n| $3^{16}$ | $29^2=841=11\\cdot 71+60$ | $60$ |\n| $3^{32}$ | $60^2=3600=50\\cdot 71+50$ | $50$ |\n\nGang sammen etter binærutviklingen:\n$$3^{35}=3^{32}\\cdot 3^2\\cdot 3^1\\equiv 50\\cdot 9\\cdot 3\\pmod{71}.$$\nSteg for steg: $50\\cdot 9=450=6\\cdot 71+24\\equiv 24$, og $24\\cdot 3=72\\equiv 1\\pmod{71}$.\n\n**Ved Eulers kriterium** er derfor $\\left(\\frac{3}{71}\\right)=1$ — som stemmer med resiprositetsveien i a) ✓.\n\n**c) Sluttsvar:** kontrollen bekrefter $\\left(\\frac{3}{71}\\right)=1$.\n\n*Merk kostnadsforskjellen, for den er hele argumentet for reduksjonsalgoritmen: **fem kvadreringer og to multiplikasjoner** for **ett** delsymbol med kriteriet, mot **to linjer** med resiprositet. Kontrollen er verdt tiden på et sett der du har minutter til overs — men den er ikke metoden.*\n\n*Og merk hva som skjedde i a): to fortegnsbytter, men bare ett netto minustegn, fordi det andre traff en $\\left(\\frac 23\\right)=-1$ og kansellerte den. Fortegnsbokføringen er der oppgaven vinnes eller tapes.*",
+        "hints": [
+          "$33=3\\cdot 11$, og $71\\equiv 3\\pmod 4$ — begge snuingene gir fortegnsbytte.",
+          "Faktor 2 krever to snuoperasjoner. Reduser mellom dem.",
+          "I c): $m=35=32+2+1$. Du trenger $3^{32}$, altså fem kvadreringer."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-4-3-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "De fem feilene under er dokumentert i arkivets løsningsforslag som noe fasiten advarer mot. Fire av dem snur svaret helt — og du merker det ikke, for et galt $\\pm 1$ ser like riktig ut som et riktig.\n\n- **Glemmer fortegnsfaktoren i resiprositetsloven.** Den mest belagte feilen i sjangeren. Symptomet er at «to løsninger» og «ingen løsning» bytter plass. **Motmiddelet:** skriv begge primtallenes rest modulo $4$ ved **hver** snuing — også midt i kjeden, der tallene har skiftet. Se oppgave 3 og 13: der ble kjeden avgjort av fortegnsbokføringen.\n\n- **Forveksler de to supplementsreglene.** $\\left(\\frac{-1}{p}\\right)$ ser på $p\\bmod 4$; $\\left(\\frac 2p\\right)$ ser på $p\\bmod 8$. **Motmiddelet:** skriv opp begge restene i margnotatet, og knytt hver til sin regel — «$4$ hører til $-1$, $8$ hører til $2$».\n\n- **Reduserer ikke telleren mellom stegene.** Etter en snuing er telleren typisk mye større enn den nye nevneren. Glemmer du reduksjonen, vokser tallene og kjeden tar aldri slutt. **Symptom:** en kjede på over åtte steg.\n\n- **Snur et sammensatt tall.** Resiprositetsloven gjelder for **primtall**. Faktoriser og splitt før du snur — se oppgave 7 og 9, der telleren måtte faktoriseres på nytt midt i kjeden.\n\n- **Paritetsfeil modulo $4$ eller $8$.** Er $107$ kongruent med $3$ eller $5$ modulo $8$? ($3$, siden $107=104+3$.) Ren aritmetikk, men en reell feilkilde under tidspress. **Motmiddelet:** trekk fra nærmeste multiplum og skriv det ned; ikke gjør det i hodet.\n\n**Og to føringsfeil som koster uten å være regnefeil:**\n\n- **Stopper ved symbolverdien.** Oppgaven spør om løsbarhet eller antall løsninger. Skriv setningen.\n- **Leter etter løsningene når det ikke spørres.** Å finne røttene modulo et tresifret primtall er en egen og mye tyngre jobb. Symbolet sier at de finnes, ikke hvor de er — og på et sett med ti delpunkt er den tiden dyr."
+    },
+    {
+      "id": "ma1301-4-3-prosedyrekort-intro",
+      "type": "text",
+      "content": "### Prosedyrekort\n\nDette er flashcard-stoff — hopp trygt over ved førstegangslesing; tidsanslaget på 75 minutter gjelder oppskriften, casen og oppgavene.\n\nDrillkapitlene har ingen begrepsbank i vanlig forstand. I stedet er kortene her **oppskriftskort**: hvert av dem er en prosedyre du skal kunne kjøre, ikke et faktum du skal kunne si.\n\n**Og det er slik de skal pugges:** ikke ved å lese kortet, men ved å kjøre prosedyren på nye tall. Velg selv en teller på to siffer og et primtall mellom $50$ og $150$, og regn. Et kort du har lest fem ganger, hjelper deg ikke 24. november. En prosedyre du har kjørt fem ganger, gjør det."
+    },
+    {
+      "id": "ma1301-4-3-d-kort-reduksjon",
+      "type": "definition",
+      "title": "Kort: Legendre-symbol i fem steg",
+      "content": "**1. Margnotat:** skriv $p\\bmod 4$ og $p\\bmod 8$.\n\n**2. Reduser** telleren modulo $p$. Negativ teller: legg til $p$, eller behold $-1$ som faktor. Er $p\\mid a$: svaret er $0$.\n\n**3. Faktoriser, splitt, stryk kvadrater.**\n\n**4. Behandle hver faktor:** $-1$ → $p\\bmod 4$; $2$ → $p\\bmod 8$; odde primtall → snu (fortegnsbytte bare hvis begge er $\\equiv 3\\pmod 4$), og **tilbake til steg 2**.\n\n**5. Tell minustegnene** (partall $\\to +1$, oddetall $\\to -1$) og **konkludér i ord**.\n\n**Kontroll:** endte hvert delsymbol i $\\pm 1$? Er kjeden under seks steg? Ble telleren redusert etter hver snuing?\n\n**Kjør den nå, på $\\left(\\frac{42}{61}\\right)$ og $\\left(\\frac{33}{71}\\right)$, uten å se på oppskriften.** Det er dette kortet betyr — ikke å ha lest det, men å kunne kjøre det."
+    },
+    {
+      "id": "ma1301-4-3-d-kort-fortegn",
+      "type": "definition",
+      "title": "Kort: fortegnsbokføringen",
+      "content": "**Regelen:** fortegnsbytte i resiprositeten nøyaktig når **begge** primtallene er $\\equiv 3\\pmod 4$.\n\n**Bokføringen:** skriv hvert minustegn som en egen linje i kjeden, og **tell dem samlet til slutt**. Partall antall gir $+1$, oddetall gir $-1$.\n\n**Kildene til minustegn, alle tre:**\n\n1. fortegnsbytter fra resiprositeten,\n2. $\\left(\\frac{-1}{p}\\right)=-1$ når $p\\equiv 3\\pmod 4$,\n3. $\\left(\\frac{2}{p}\\right)=-1$ når $p\\equiv\\pm 3\\pmod 8$.\n\n**Hvorfor telling slår multiplikasjon underveis:** du kan gå tilbake og etterprøve tellingen uten å regne kjeden om. Ganger du fortegnene inn linje for linje, må du gjøre hele reduksjonen på nytt for å finne feilen.\n\n**Selvtest:** i oppgave 13 var det to fortegnsbytter og én $\\left(\\frac 23\\right)=-1$. Hvor mange minustegn i alt, og hva ble svaret? (Tre — men det ene fortegnsbyttet kansellerte $\\left(\\frac 23\\right)$-verdien innenfor samme faktor, så nettoresultatet ble ett minustegn og svaret $-1$.)"
+    },
+    {
+      "id": "ma1301-4-3-d-kort-avslutninger",
+      "type": "definition",
+      "title": "Kort: hvor kjeden stopper",
+      "content": "De symbolene du leser av direkte, uten videre regning. **Kjenn dem igjen — de sparer to snuoperasjoner hver.**\n\n- $\\left(\\frac 1q\\right)=1$ — alltid.\n- $\\left(\\frac{a^2}{q}\\right)=1$ — kvadrattall i telleren ($4$, $9$, $16$, $25$, $36$, $49$).\n- $\\left(\\frac{q-1}{q}\\right)=\\left(\\frac{-1}{q}\\right)$ — bruk $q\\bmod 4$.\n- $\\left(\\frac a3\\right)$: $1$ hvis $a\\equiv 1\\pmod 3$, ellers $-1$. (Restene modulo $3$ er $\\{1\\}$.)\n- $\\left(\\frac a5\\right)$: $1$ hvis $a\\equiv\\pm 1\\pmod 5$, ellers $-1$. (Restene modulo $5$ er $\\{1,4\\}$.)\n- $\\left(\\frac 23\\right)=-1$, $\\left(\\frac 25\\right)=-1$, $\\left(\\frac 27\\right)=1$, $\\left(\\frac 2{11}\\right)=-1$, $\\left(\\frac 2{13}\\right)=-1$ — de fem 8-regel-verdiene som dukker opp i nesten hver kjede.\n\n**De to mengdene $\\{1\\}$ og $\\{1,4\\}$ er verdt å ha kaldt**, for kjeden ender svært ofte med nevner $3$ eller $5$.\n\n**Utledes på stedet hvis du nøler:** kvadrer restene. Modulo $3$: $1^2=1$, $2^2\\equiv 1$. Modulo $5$: $1^2=1$, $2^2=4$. Fem sekunder."
+    },
+    {
+      "id": "ma1301-4-3-d-kort-euler-drill",
+      "type": "definition",
+      "title": "Kort: Eulers kriterium for hånd",
+      "content": "**1.** Reduser telleren modulo $p$.\n**2.** $m=\\frac{p-1}{2}$, skrevet i binærform.\n**3.** Suksessive kvadrater $a^1,a^2,a^4,a^8,\\dots$, med **reduksjon etter hver kvadrering**.\n**4.** Gang sammen potensene som svarer til ett-erne i $m$, med reduksjon mellom hver multiplikasjon.\n**5.** Les av: $1$ gir $+1$, $p-1$ gir $-1$. **Noe annet er regnefeil.**\n\n**To snarveier som halverer arbeidet:**\n\n- lander en potens på $-1$, er alle høyere partallsmultipler gratis;\n- er $m$ en toerpotens (som for $p=17$, $m=8$), er hele regningen bare kvadreringer.\n\n**Når kriteriet er metoden:** små $p$ (opp til rundt $30$).\n**Når det er kontrollen:** alltid, på **én liten faktor** av gangen.\n**Når det ikke er noe av dem:** tresifrede primtall, der $m$ er over $50$.\n\n**Kjør det nå, på $\\left(\\frac{5}{19}\\right)$, uten å se.** ($m=9$, $5^2=6$, $5^4=36\\equiv 17$, $5^8\\equiv 17^2=289\\equiv 4$, $5^9\\equiv 20\\equiv 1$, altså $+1$ — og faktisk $9^2=81\\equiv 5\\pmod{19}$.)"
+    },
+    {
+      "id": "ma1301-4-3-d-kort-margnotat",
+      "type": "definition",
+      "title": "Kort: margnotatet",
+      "content": "**Første handling i hver F-oppgave:** skriv $p\\bmod 4$ og $p\\bmod 8$ i margen.\n\n**Hva du bruker dem til:**\n\n| Rest | Brukes til |\n|---|---|\n| $p\\bmod 4$ | fortegnsfaktoren i resiprositeten, og $\\left(\\frac{-1}{p}\\right)$ |\n| $p\\bmod 8$ | $\\left(\\frac 2p\\right)$ (8-regelen) |\n\n**Regn dem på papiret:** trekk fra nærmeste multiplum og skriv mellomregningen. $107=104+3$, altså $3$ modulo $8$. Gjør du det i hodet under tidspress, er det en reell feilkilde.\n\n**Og gjenta notatet for hvert nytt primtall i kjeden.** Snur du til $\\left(\\frac{5}{11}\\right)$, er det nå $11$ som er nevneren, og $11\\bmod 4$ og $11\\bmod 8$ som gjelder. Dette er det stedet fortegnsfeil oftest oppstår: man husker det opprinnelige primtallets rester og bruker dem videre.\n\n**Den ene observasjonen som kan spare deg hele fortegnsarbeidet:** er $p\\equiv 1\\pmod 4$, kan **ingen** snuing med $p$ som nevner gi fortegnsbytte. Se oppgave 4 og 8."
+    },
+    {
+      "id": "ma1301-4-3-d-kort-tid",
+      "type": "definition",
+      "title": "Kort: tidsbudsjettet for sjanger F",
+      "content": "Eksamen er 4 timer på rundt ti likt vektede delpunkt, altså **~24 minutter per delpunkt**. En F-oppgave skal ligge godt under det.\n\n| Arbeid | Tid |\n|---|---|\n| Margnotat + faktorisering | ~1 min |\n| Kjeden, 3–5 snuoperasjoner med reduksjon | ~4 min |\n| Fortegnstelling + konklusjonssetning | ~1 min |\n| Kontroll (tell fortegn, evt. annen splitting) | ~2 min |\n\n**Til sammen 6–8 minutter.** Bruker du femten, er årsaken nesten alltid én av tre: manglende reduksjon mellom stegene, Eulers kriterium på et for stort primtall, eller leting etter løsninger som ikke ble etterspurt.\n\n**Hva du IKKE skal bruke tid på:** å finne røttene når oppgaven bare spør om løsbarhet, og å gjenskape beviset for resiprositetsloven.\n\n**Konsekvensen for repetisjonsplanen din:** dette er et delpunkt du kan gjøre nesten gratis hvis apparatet sitter — og som du taper helt hvis det ikke gjør det. Det finnes ingen halv vei gjennom en reduksjonskjede."
+    },
+    {
+      "id": "ma1301-4-3-d-kort-telling",
+      "type": "definition",
+      "title": "Kort: tellings- og summeringsoppgaven",
+      "content": "Varianten som ikke krever regning i det hele tatt.\n\n**Antall kvadratiske rester** blant $1,\\dots,p-1$ er $\\frac{p-1}{2}$.\n\n**Summen av alle symbolene** er\n$$\\sum_{a=1}^{p-1}\\left(\\frac ap\\right)=0.$$\n\n**Begrunnelsen — og den er hele uttellingen, skriv den ut:** kvadreringen $x\\mapsto x^2$ er to-til-en på de $p-1$ ikke-null restene, siden $x$ og $p-x$ har samme kvadrat og siden $x^2\\equiv y^2$ gir $y\\equiv\\pm x$ **ved Euklids lemma**. Da er antall bilder $\\frac{p-1}{2}$, og summen har like mange $+1$ som $-1$.\n\n**Varianter du bør kjenne igjen:**\n\n- Tar du med $a=0$: ingen endring, siden $\\left(\\frac 0p\\right)=0$.\n- Antall **ikke-rester** er også $\\frac{p-1}{2}$.\n- Antall løsninger av $x^2\\equiv a$ summert over alle $a=0,\\dots,p-1$ er $p$ — hver $x$ bidrar til nøyaktig én $a$.\n\n**Utledes på stedet, alt sammen.** Ingenting her er puggematerialet utover halvparten-regelen selv."
+    },
+    {
+      "id": "ma1301-4-3-d-kort-to-veier",
+      "type": "definition",
+      "title": "Kort: to veier, begge fullgode",
+      "content": "Kjernesjangeren F har **to likeverdige metoder**, og fasitpraksisen i arkivet honorerer dem likt.\n\n| | Reduksjonsalgoritmen | Eulers kriterium |\n|---|---|---|\n| Arbeid for $p\\approx 100$ | 3–5 snuoperasjoner | 6–7 kvadreringer med tresifrede tall |\n| Arbeid for $p\\approx 20$ | 2–3 snuoperasjoner | 3–4 kvadreringer med små tall |\n| Krever utenat | loven + to supplementsregler | eksponenten $\\frac{p-1}{2}$ |\n| Feilkilde | glemt fortegnsfaktor | regnefeil i en kvadrering |\n\n**Si hvilken du bruker, og aldri at den andre er feil.** Begge gir full uttelling.\n\n**Den praktiske anbefalingen:** reduksjonsalgoritmen som metode, kriteriet som kontroll på **én** liten faktor. Det er den kombinasjonen som både er rask og etterprøvbar.\n\n**Og for små $p$: gjør begge.** Det koster to minutter, og under kode D er to uavhengige veier til samme svar det nærmeste en fasit du kommer på eksamensdagen."
+    },
+    {
+      "id": "ma1301-4-3-d-kort-selvdiagnose",
+      "type": "definition",
+      "title": "Kort: selvdiagnose for Del 4",
+      "content": "Sitter Del 4? Dekk til boka, sett fem minutter, og svar:\n\n- ☐ Hva er de fem stegene i reduksjonsalgoritmen?\n- ☐ Når gir resiprositetsloven fortegnsbytte?\n- ☐ Hvilken modulus hører til $\\left(\\frac{-1}{p}\\right)$, og hvilken til $\\left(\\frac 2p\\right)$?\n- ☐ Hvilke rester modulo $8$ gir $\\left(\\frac 2p\\right)=1$?\n- ☐ Hva er eksponenten i Eulers kriterium?\n- ☐ Hva betyr symbolverdiene $1$, $-1$ og $0$ for antall løsninger?\n- ☐ Hvor mange kvadratiske rester finnes modulo $p$, og hva er summen av symbolene?\n- ☐ Hvorfor kan du ikke snu et sammensatt tall?\n\n**Åtte spørsmål. Det er hele Del 4.**\n\n**Står mer enn to åpne:** gå tilbake til [kap. 4.2](/ma1301/ma1301-4-2) og les løkke 1–3 på nytt før du tar prøvene i [kap. 4.P](/ma1301/ma1301-4-prove).\n\n**Står alle åpne bortsett fra ett eller to:** hopp rett til prøvene. Du lærer mer av å regne dem under tidspress enn av å lese kapitlet en tredje gang."
+    },
+    {
+      "id": "ma1301-4-3-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "ma1301-4-3-symbol-inn",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares i [kap. 4.1](/ma1301/ma1301-4-1) og [kap. 4.2](/ma1301/ma1301-4-2).\n\n| Symbol | Betydning |\n|---|---|\n| $p$, $q$ | odde primtall |\n| $\\left(\\frac{a}{p}\\right)$ | Legendre-symbolet: $1$, $-1$ eller $0$ |\n| $m=\\frac{p-1}{2}$ | eksponenten i Eulers kriterium, og antall kvadratiske rester |\n| $p\\bmod 4$ | margnotatet til fortegnsfaktoren og til $\\left(\\frac{-1}{p}\\right)$ |\n| $p\\bmod 8$ | margnotatet til 8-regelen for $\\left(\\frac 2p\\right)$ |\n| $x^2\\equiv a\\pmod p$ | kongruensen løsbarheten gjelder |\n| $\\pm x_0$ | løsningsparet $x\\equiv x_0$ og $x\\equiv p-x_0$ |\n| $\\sum_{a=1}^{p-1}$ | sum over alle ikke-null rester |\n| $\\blacksquare$ | bevis slutt |\n\n**Formler brukt i drillen:**\n\n$$\\left(\\frac pq\\right)=\\begin{cases}-\\left(\\frac qp\\right) & p\\equiv q\\equiv 3\\pmod 4\\\\ \\ \\ \\,\\left(\\frac qp\\right) & \\text{ellers}\\end{cases}$$\nResiprositetsloven, praktisk form. **(må sitte utenat)**\n\n$$\\left(\\frac{-1}{p}\\right)=1\\iff p\\equiv 1\\pmod 4$$\nSupplementsregel 1. **(utledes på stedet — sett $a=-1$ i Eulers kriterium: $(-1)^{(p-1)/2}$ er $1$ nøyaktig når $\\frac{p-1}{2}$ er partall)**\n\n$$\\left(\\frac{2}{p}\\right)=1\\iff p\\equiv\\pm 1\\pmod 8$$\nSupplementsregel 2, 8-regelen. **(må sitte utenat — beviset går via Gauss' lemma og er for langt under eksamen)**\n\n$$\\left(\\frac{ab}{p}\\right)=\\left(\\frac ap\\right)\\left(\\frac bp\\right),\\qquad a\\equiv b\\pmod p\\Rightarrow\\left(\\frac ap\\right)=\\left(\\frac bp\\right)$$\nMultiplikativitet og periodisitet. **(må sitte utenat)**\n\n$$\\left(\\frac{a^2b}{p}\\right)=\\left(\\frac bp\\right)$$\nKvadrater i telleren faller bort. **(utledes på stedet — $(\\pm 1)^2=1$)**\n\n$$\\left(\\frac ap\\right)\\equiv a^{\\frac{p-1}{2}}\\pmod p$$\nEulers kriterium. **(må sitte utenat — med eksakt eksponent)**\n\n$$\\left(\\frac a3\\right)=1\\iff a\\equiv 1\\pmod 3,\\qquad \\left(\\frac a5\\right)=1\\iff a\\equiv\\pm 1\\pmod 5$$\nAvslutningene kjeden ender i. **(utledes på stedet — kvadrer restene: $\\{1\\}$ og $\\{1,4\\}$)**\n\n$$\\text{antall kvadratiske rester}=\\frac{p-1}{2},\\qquad \\sum_{a=1}^{p-1}\\left(\\frac ap\\right)=0$$\nHalvparten-regelen og symbolsummen. **(må sitte utenat — begrunnelsen utledes på stedet: kvadreringen er to-til-en)**\n\n$$x^2\\equiv a\\pmod p\\ \\text{har}\\ 2,\\ 0\\ \\text{eller}\\ 1\\ \\text{løsninger etter om}\\ \\left(\\frac ap\\right)=1,\\ -1\\ \\text{eller}\\ 0$$\nKonklusjonsregelen — det oppgaven spør om. **(må sitte utenat)**\n\n**Oppskriften i fem steg** — (1) margnotat, (2) reduser, (3) faktoriser/splitt/stryk, (4) behandle hver faktor, (5) tell minustegn og konkludér i ord. **(må sitte utenat — rekkefølgen er det som holder tallene små)**\n\n**Føringsmalen i tre nivåer** — (i) restene i margen, (ii) kjeden med regelnavn ved hvert steg, (iii) konklusjonssetning med antall løsninger. **(må sitte utenat — føringen, ikke sluttsymbolet, gir uttellingen)**"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

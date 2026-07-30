@@ -1,0 +1,450 @@
+{
+  "id": "ma1301-6-1",
+  "courseId": "ma1301",
+  "chapterNumber": "6.1",
+  "title": "Bevisteknikker: direkte, kontrapositivt, ved motsigelse og case-analyse",
+  "description": "Den generelle bevisverktøykassen for tallteori — direkte, kontrapositivt, ved motsigelse, og uttømmende case-analyse modulo m — som bæres inn i alle delelighets- og primtallsbevisene.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "velge riktig bevisteknikk ut fra hvordan oppgaven er formulert, og skrive malens første setning før du regner",
+    "oversette delelighet til likninger og føre et direkte bevis som ender i en konklusjonssetning",
+    "gjennomføre en uttømmende case-analyse der alle rester er behandlet eller utelukkelsene begrunnet",
+    "felle en påstand med et regnet moteksempel, og forklare hvorfor mange bekreftelser ikke er et bevis"
+  ],
+  "content": [
+    {
+      "id": "ma1301-6-1-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Bevis er obligatorisk i dette emnet: hvert eneste sett i arkivet har minst én ren bevisoppgave.** Delelighets- og primtallsbevis er sjanger **I** og forekommer i ~8 av 15 sett (~53 %); induksjon er sjanger **J** og forekommer i 8 av 15 sett (53 %). Sjangerbokstavene er bokas forkortelser for oppgavetypene, forklart i [kap. 0.1](/ma1301/ma1301-0-1) — **I** er «bevis en påstand om delelighet eller primtall», **J** er «bevis en formel ved matematisk induksjon».\n\nDette kapitlet er ikke selv en sjanger. Det er **verktøykassen** de to bevissjangrene bruker, og det er den ene ferdigheten i faget som gir uttelling *for formen sin*, ikke bare for svaret.\n\n| Hva oppgaven ber om | Teknikken du velger | Hvor den står |\n|---|---|---|\n| «Vis at hvis … så …» | direkte bevis | dette kapitlet |\n| «Vis at hvis $n^2$ er delelig med $3$, er $n$ delelig med $3$» | kontrapositivt bevis | dette kapitlet |\n| «Vis at det ikke finnes heltall med …» | bevis ved motsigelse | dette kapitlet |\n| «Vis at $\\dots$ for **alle** heltall $n$» (uten $n$-rekursjon) | uttømmende case-analyse modulo $m$ | dette kapitlet |\n| «Vis at $\\dots$ for alle $n\\ge n_0$» (formel/rekursjon) | induksjon | [kap. 6.2](/ma1301/ma1301-6-2) |\n| «Vis at $2^n-1$ er sammensatt når $n$ er sammensatt» | arketypene | [kap. 6.3](/ma1301/ma1301-6-3) |\n\n**Den best belagte enkeltfeilen i sjangeren er en ufullstendig case-analyse** — en besvarelse som behandler restene $1$ og $2$ modulo $3$ og glemmer $0$. Løsningsforslagene i arkivet lister rutinemessig alle rester eksplisitt, og det er dokumentert praksis at strukturen teller for seg selv.\n\n**Prioritet:** høyeste prioritet. Bevisdelen kan ikke reddes med regneferdighet, og den kommer hvert år. Til gjengjeld er teknikkene få: fire maler, og de er ferdig utskrevet i dette kapitlet."
+    },
+    {
+      "id": "ma1301-6-1-utenat",
+      "type": "tip",
+      "title": "Utenat under kode D",
+      "content": "Eksamen er hjelpemiddelkode D: ingen bok, ingen formelsamling, ingen tabeller, ingen egne notater — bare en bestemt, enkel kalkulator. Den regner aritmetikk, og et bevis er ikke aritmetikk. **Her har kalkulatoren ingenting å bidra med i det hele tatt** — bevisformen er en ferdighet, og den må komme fra hodet.\n\n**Må sitte utenat:**\n\n- **de fire malene** — direkte, kontrapositivt, motsigelse, case-analyse — med den første setningen i hver\n- **at $a\\mid b$ betyr «det finnes et helt tall $t$ med $b=at$»**, for det er der hvert delelighetsbevis starter\n- **divisjonsalgoritmen** $n=qm+r$ med $0\\le r<m$, som er selve grunnlaget for case-analyse\n- **at en case-analyse modulo $m$ har nøyaktig $m$ tilfeller**, og at alle skal skrives\n\n**Utledes på stedet:**\n\n- **kontrapositiv-ekvivalensen** ($P\\Rightarrow Q$ er det samme utsagnet som $\\neg Q\\Rightarrow\\neg P$) — én linje med en sannhetsbetraktning, og den står i løkke 2\n- **kvadrattallenes rester** ($n^2\\equiv 0$ eller $1\\pmod 3$; $n^2\\equiv 0$ eller $1\\pmod 4$; $n^2\\equiv 1\\pmod 8$ for odde $n$) — hver av dem er en case-analyse på to eller tre linjer, ført ut i løkke 4\n- **at et odde tall kan skrives $2k+1$ og et partall $2k$** — det er paritets-case-analysen med $m=2$\n\n**Selvtest, to minutter:** dekk til boka og skriv ned åpningssetningen i hver av de fire malene. «Anta at …» er ikke nok — hva antar du, og hva skal du frem til? Klarer du å si hva forskjellen er mellom kontrapositiv og omvending, sitter det som glipper oftest."
+    },
+    {
+      "id": "ma1301-6-1-forkunnskaper",
+      "type": "text",
+      "content": "### Forkunnskaper\n\nFra boka: [kap. 1.1](/ma1301/ma1301-1-1) er den ene forutsetningen — delelighet, divisjonsalgoritmen, primtall, Euklids lemma og aritmetikkens fundamentalteorem. Alt annet i kapitlet bygges fra grunnen.\n\nDu får også bruk for kongruensspråket fra [kap. 1.4](/ma1301/ma1301-1-4), men bare i den enkleste formen: at $a\\equiv b\\pmod m$ betyr at $a$ og $b$ har samme rest ved divisjon med $m$.\n\nFra videregående er dette de sterkeste ankrene, og de dekker den generelle bevislogikken: [Direkte bevis og moteksempler](/r1/r1-9-1), [Kontrapositiv og kontradiksjon](/r1/r1-9-3), [Bevis i algebra](/r1/r1-1-5), [Matematisk argumentasjon](/1t/1t-6-1) og [Lese og forstå bevis](/1t/1t-6-2). Har du hatt R1, er de fire teknikkene i dette kapitlet kjente navn — det nye er at de brukes på delelighet og primtall, og at kravene til føring er strengere.\n\n*Tidsanslag for kapitlet: ~55 minutter lesetid, fordelt på fem løkker à 9–13 minutter. Regner og skriver du med penn underveis, legg til omtrent halvparten.*"
+    },
+    {
+      "id": "ma1301-6-1-motivasjon",
+      "type": "text",
+      "content": "### Hvorfor det ikke holder å prøve seg frem\n\nSe på uttrykket $n^2+n+41$ og sett inn $n=0,1,2,3,\\dots$:\n$$41,\\ 43,\\ 47,\\ 53,\\ 61,\\ 71,\\ 83,\\ 97,\\ 113,\\ 131,\\dots$$\nAlle er primtall. Fortsetter du, får du primtall for $n=10$, for $n=20$, for $n=39$ — førti tall på rad, alle primtall. En rimelig person ville sagt seg overbevist.\n\nMen sett inn $n=40$:\n$$40^2+40+41=1681=41^2.$$\nIkke et primtall. **Førti bekreftelser var verdiløse**, fordi påstanden gjaldt *alle* $n$.\n\n**Det er hele grunnen til at faget krever bevis.** En påstand om alle heltall handler om uendelig mange tall, og ingen endelig mengde utregninger kan lukke saken. Et bevis er den eneste konstruksjonen som kan, og et bevis virker ved å **stenge alle utveier** — ikke ved å vise mange eksempler.\n\n**Den gode nyheten er at det bare finnes fire dører inn.** Alle bevisene i dette emnet er bygget av fire teknikker:\n\n1. **Direkte:** anta det som er gitt, regn frem til det som skal vises.\n2. **Kontrapositivt:** vis den logisk likeverdige påstanden «hvis ikke konklusjonen, så ikke hypotesen».\n3. **Ved motsigelse:** anta at påstanden er gal, og utled noe umulig.\n4. **Ved case-analyse:** del alle tall inn i endelig mange klasser, og behandle hver klasse.\n\nDen fjerde er den viktigste i tallteori, og grunnen er enkel: **divisjonsalgoritmen deler alle heltall inn i $m$ restklasser modulo $m$.** Uendelig mange tall, endelig mange tilfeller. Det er nettopp der uendeligheten blir håndterbar.\n\n**Merk hva dette kapitlet IKKE dekker:** påstander der $n+1$-tilfellet bygger på $n$-tilfellet. De krever induksjon, og de har sitt eget kapittel ([kap. 6.2](/ma1301/ma1301-6-2)).\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "ma1301-6-1-l1-intro",
+      "type": "text",
+      "content": "## Løkke 1: Direkte bevis, og å arbeide fra definisjonen\n\n*~11 minutter.*\n\nVi starter med den enkleste teknikken, og med den ene vanen som bærer alle delelighetsbevis: å oversette $a\\mid b$ til en likning."
+    },
+    {
+      "id": "ma1301-6-1-d-utsagn",
+      "type": "definition",
+      "title": "Utsagn, implikasjon og ekvivalens",
+      "content": "Et **utsagn** er en påstand som er sann eller falsk — «$7$ er et primtall», «$3\\mid 12$», «$n^2\\ge 0$ for alle heltall $n$».\n\n**Implikasjon** skrives $P\\Rightarrow Q$ og leses «hvis $P$, så $Q$». Den sier at $Q$ er sann *hver gang* $P$ er sann. Den sier **ingenting** om hva som skjer når $P$ er falsk.\n\n**Ekvivalens** skrives $P\\Leftrightarrow Q$ og leses «$P$ hvis og bare hvis $Q$». Den er to implikasjoner i én: $P\\Rightarrow Q$ **og** $Q\\Rightarrow P$.\n\n**Dette skillet er en poengkilde.** Ber oppgaven om «hvis og bare hvis», må du føre **begge** retningene — eller en kjede av ekvivalenser der hvert ledd er en ekvivalens og ikke bare en implikasjon. Å vise én vei og skrive «altså ekvivalent» er en dokumentert felle.\n\n**I klarspråk:** $\\Rightarrow$ er en énveiskjørt gate. $\\Leftrightarrow$ er en gate med trafikk i begge retninger, og du må kjøre den to ganger.\n\n**Eksempel på forskjellen.** «$n$ er delelig med $4$ $\\Rightarrow$ $n$ er et partall» er sann. Den omvendte, «$n$ er et partall $\\Rightarrow$ $n$ er delelig med $4$», er falsk ($n=6$). Så her er det **ikke** ekvivalens, og det er nettopp fordi den ene retningen har et moteksempel."
+    },
+    {
+      "id": "ma1301-6-1-d-fra-definisjonen",
+      "type": "definition",
+      "title": "Å arbeide fra definisjonen",
+      "content": "Den ene vanen som starter praktisk talt hvert delelighetsbevis i dette emnet:\n\n$$a\\mid b\\quad\\text{betyr}\\quad b=at\\ \\text{for et helt tall }t.$$\n\n**Oversett med én gang.** Får du opplyst at $a\\mid b$, skriver du «altså finnes det et helt tall $t$ med $b=at$» og regner videre med likningen. Skal du **vise** at $a\\mid c$, er målet å skrive $c$ som $a$ ganget med et helt tall — og da er du ferdig i samme øyeblikk som uttrykket står der.\n\n**Malen må sitte utenat**, og den er kort:\n\n1. Oversett alle gitte delelighetsantakelser til likninger, med **ulike bokstaver** for de ulike faktorene ($b=at$, $c=au$ — ikke $t$ i begge).\n2. Regn frem til uttrykket du skal vise noe om.\n3. **Faktoriser ut** det tallet som skal dele.\n4. Konkludér i ord: «altså er $c=a\\cdot(\\text{helt tall})$, så $a\\mid c$».\n\n**Steg 3 er hele beviset.** Alt arbeidet går ut på å få det tallet som skal dele, ut foran en parentes.\n\n**Den vanligste feilen:** å bruke samme bokstav for to ulike faktorer. Skriver du $b=at$ og $c=at$, har du i tillegg antatt at $b=c$ — og beviset er ugyldig, selv om regningen ser riktig ut.\n\n**Merk at parentesinnholdet må være et HELT tall.** Ender du på $c=a\\cdot\\frac{u+1}{2}$, er du ikke ferdig: du må vise at $u+1$ er et partall før parentesen er et helt tall."
+    },
+    {
+      "id": "ma1301-6-1-d-direkte",
+      "type": "definition",
+      "title": "Direkte bevis",
+      "content": "Malen: **anta hypotesen, utled konklusjonen.**\n\n**Oppsettet, ordrett:**\n\n> «Anta at $P$. [Oversett til likninger. Regn.] Altså er $Q$. $\\blacksquare$»\n\n**Malen må sitte utenat.** Den er den første du prøver, og den er nok i de fleste delelighetsoppgaver.\n\n**Tre krav som gir uttelling hver for seg:**\n\n1. **Antakelsen står skrevet.** «Anta at $a\\mid b$ og $a\\mid c$» — ikke bare implisitt.\n2. **Hvert mellomsteg er en likning eller en kongruens**, ikke en setning om hva du «ser».\n3. **Konklusjonen er en setning**, ikke et uttrykk som stopper. «Altså er $a\\mid (b+c)$.»\n\n**Når direkte bevis ikke virker:** når hypotesen er vanskelig å bruke, men **negasjonen av konklusjonen** er lett. Da bytter du til kontrapositivt (løkke 2) eller motsigelse (løkke 3). Det er ikke et nederlag — det er teknikkvalg, og teknikkvalget er en del av ferdigheten.\n\n**Symbolet $\\blacksquare$** (eller «q.e.d.») markerer at beviset er slutt. Bruk det. Det gjør det tydelig for den som retter hvor argumentet ender, og det koster ingenting."
+    },
+    {
+      "id": "ma1301-6-1-e1",
+      "type": "example",
+      "title": "Direkte bevis: 8 deler kvadratet av et odde tall minus én",
+      "problem": "Vis at hvis $n$ er et odde heltall, så er $n^2-1$ delelig med $8$.",
+      "solution": "**Teknikkvalg.** Hypotesen «$n$ er odde» er lett å bruke — den gir oss en likning. Altså **direkte bevis**.\n\n**Anta at $n$ er odde.** Da finnes det et helt tall $k$ med\n$$n=2k+1.$$\n\n**Regn ut $n^2-1$:**\n$$n^2-1=(2k+1)^2-1=4k^2+4k+1-1=4k^2+4k=4k(k+1).$$\n\n**Nå er vi nesten der:** vi har $4$ utenfor parentesen, og trenger én faktor $2$ mer. Den ligger i $k(k+1)$.\n\n**Delargumentet:** $k$ og $k+1$ er to etterfølgende heltall, så **ett av dem er et partall** (dette er case-analyse med $m=2$, ført ut i løkke 4). Altså er $k(k+1)=2m$ for et helt tall $m$.\n\n**Sett inn:**\n$$n^2-1=4\\cdot 2m=8m.$$\n\n**Konklusjon.** Altså er $n^2-1=8\\cdot m$ med $m$ et helt tall, det vil si\n$$8\\mid n^2-1\\quad\\text{for alle odde }n.\\qquad\\blacksquare$$\n\n**Kontroll med tall.** $n=3$: $9-1=8=8\\cdot 1$ ✓. $n=5$: $25-1=24=8\\cdot 3$ ✓. $n=7$: $48=8\\cdot 6$ ✓. $n=11$: $120=8\\cdot 15$ ✓.\n\n**Om føringen.** Legg merke til tre ting som er egne føringspoeng, og som en halv besvarelse mangler:\n\n- **Antakelsen er oversatt til en likning** ($n=2k+1$) i første linje.\n- **Delargumentet om $k(k+1)$ er skrevet ut.** Å skrive «og $k(k+1)$ er åpenbart partall» er svakere; å si *hvorfor* (to etterfølgende tall) tar fire ord og lukker hullet.\n- **Konklusjonen står som en setning** med det hele tallet identifisert.\n\n*Resultatet er verdt å huske i seg selv: **kvadratet av et odde tall er alltid $1$ mer enn et multiplum av $8$**, altså $n^2\\equiv 1\\pmod 8$. Det brukes i eksempel 4 og i [kap. 7.2](/ma1301/ma1301-7-2).*"
+    },
+    {
+      "id": "ma1301-6-1-ex-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-6-1-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Vis direkte at hvis $a\\mid b$, så er $a\\mid (b^2+3b)$.",
+        "solution": "**Teknikkvalg.** Hypotesen er en delelighet og er lett å oversette. **Direkte bevis.**\n\n**Anta at $a\\mid b$.** Da finnes det et helt tall $t$ med\n$$b=at.$$\n\n**Regn ut uttrykket:**\n$$b^2+3b=(at)^2+3(at)=a^2t^2+3at.$$\n\n**Faktoriser ut $a$:**\n$$b^2+3b=a\\,(at^2+3t).$$\n\n**Er parentesen et helt tall?** Ja: $a$ og $t$ er hele tall, så $at^2+3t$ er et helt tall.\n\n**Konklusjon.** Altså er $b^2+3b=a\\cdot(\\text{helt tall})$, det vil si $a\\mid (b^2+3b)$. $\\blacksquare$\n\n**Kontroll med tall.** $a=3$, $b=6$: $36+18=54=3\\cdot 18$ ✓.\n\n*Legg merke til at beviset aldri brukte noe om $a$ eller $b$ utover likningen $b=at$. Det er kjennetegnet på et rent direkte bevis: hypotesen inn, algebra, konklusjon ut.*",
+        "hints": [
+          "Oversett $a\\mid b$ til en likning $b=at$.",
+          "Sett inn og se om du kan faktorisere ut $a$.",
+          "Sjekk at det som står i parentesen, er et helt tall."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-6-1-ex-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-6-1-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Vis at $2\\mid n^2+n$ for alle heltall $n$.\n\nFør beviset på **to** måter:\n\n**a)** Direkte ved faktorisering.\n**b)** Ved case-analyse på pariteten til $n$.",
+        "solution": "**a) Direkte ved faktorisering.**\n\n$$n^2+n=n(n+1).$$\n\nDette er produktet av **to etterfølgende heltall**. Av to etterfølgende heltall er ett et partall, så produktet er et partall.\n\nMer presist: enten er $n=2k$, og da er $n(n+1)=2\\cdot k(n+1)$; eller er $n+1=2k$, og da er $n(n+1)=2\\cdot kn$. I begge tilfeller er produktet $2$ ganget med et helt tall.\n\nAltså er $2\\mid n^2+n$. $\\blacksquare$\n\n**b) Ved case-analyse på pariteten.**\n\n**Ved divisjonsalgoritmen** ([kap. 1.1](/ma1301/ma1301-1-1)) har $n$ rest $0$ eller $1$ ved divisjon med $2$. Det gir nøyaktig to tilfeller, og vi behandler begge.\n\n**Tilfelle 1: $n$ er et partall,** $n=2k$. Da er\n$$n^2+n=4k^2+2k=2(2k^2+k),$$\nsom er $2$ ganget med et helt tall.\n\n**Tilfelle 2: $n$ er odde,** $n=2k+1$. Da er\n$$n^2+n=(2k+1)^2+(2k+1)=4k^2+4k+1+2k+1=4k^2+6k+2=2(2k^2+3k+1),$$\nsom er $2$ ganget med et helt tall.\n\n**Begge tilfeller er dekket**, og i begge er uttrykket delelig med $2$. Altså er $2\\mid n^2+n$ for alle heltall $n$. $\\blacksquare$\n\n**Kontroll med tall.** $n=3$: $9+3=12$ ✓. $n=4$: $20$ ✓. $n=-3$: $9-3=6$ ✓.\n\n**Sluttsvar:** begge veier gir samme konklusjon, og **begge er fullgode**. Fasitpraksisen i arkivet honorerer likeverdige metoder — velg den korteste, men ikke kall den andre feil.\n\n*Merk hvorfor case-analysen har nøyaktig to tilfeller: divisjonsalgoritmen gir rest $0$ eller $1$ modulo $2$, og det er ingen tredje mulighet. Å si det er hva «uttømmende» betyr.*",
+        "hints": [
+          "I a): faktoriser $n^2+n$ og se hva de to faktorene er.",
+          "I b): del i to tilfeller etter om $n$ er $2k$ eller $2k+1$.",
+          "I begge tilfeller: få faktoren $2$ ut foran en parentes med hele tall inni."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-6-1-l2-intro",
+      "type": "text",
+      "content": "## Løkke 2: Kontrapositivt bevis\n\n*~10 minutter.*\n\nNoen ganger er hypotesen ubrukelig og negasjonen av konklusjonen gullkantet. Da snur du påstanden — og det er **ikke** et nytt bevis, det er nøyaktig samme påstand skrevet på en annen måte."
+    },
+    {
+      "id": "ma1301-6-1-t-kontrapositiv",
+      "type": "theorem",
+      "title": "Kontrapositiv-ekvivalensen",
+      "content": "For to utsagn $P$ og $Q$ er\n$$(P\\Rightarrow Q)\\quad\\text{og}\\quad(\\neg Q\\Rightarrow\\neg P)$$\n**samme utsagn** — de er sanne samtidig og falske samtidig.\n\n**Utledes på stedet, én linje:** $P\\Rightarrow Q$ er brutt nøyaktig i det tilfellet der $P$ er sann og $Q$ er falsk. $\\neg Q\\Rightarrow\\neg P$ er brutt nøyaktig i det tilfellet der $\\neg Q$ er sann og $\\neg P$ er falsk — altså der $Q$ er falsk og $P$ er sann. Det er samme tilfelle. Altså har de to implikasjonene nøyaktig samme brudd-situasjon, og da er de logisk likeverdige. $\\blacksquare$\n\n**Hva det betyr i praksis:** du får velge fritt hvilken av de to du vil bevise. Beviser du den ene, har du bevist den andre. Ingenting går tapt, og du trenger ikke si mer enn «vi viser den kontrapositive påstanden».\n\n**Eksempel på oversettelsen:**\n\n| Påstand | Kontrapositiv |\n|---|---|\n| $3\\mid n^2\\Rightarrow 3\\mid n$ | $3\\nmid n\\Rightarrow 3\\nmid n^2$ |\n| $n^2$ odde $\\Rightarrow n$ odde | $n$ partall $\\Rightarrow n^2$ partall |\n| $p$ primtall og $p\\mid ab\\Rightarrow p\\mid a$ eller $p\\mid b$ | $p\\nmid a$ og $p\\nmid b\\Rightarrow p\\nmid ab$ |\n\n**Legg merke til mønsteret i den øverste raden:** den opprinnelige hypotesen «$3\\mid n^2$» sier nesten ingenting du kan regne med. Den kontrapositive hypotesen «$3\\nmid n$» sier at $n=3k+1$ eller $n=3k+2$ — to konkrete likninger. Det er hele gevinsten."
+    },
+    {
+      "id": "ma1301-6-1-d-kontrapositiv",
+      "type": "definition",
+      "title": "Kontrapositivt bevis",
+      "content": "Malen: **for å vise $P\\Rightarrow Q$, vis i stedet $\\neg Q\\Rightarrow\\neg P$.**\n\n**Oppsettet, ordrett:**\n\n> «Vi viser den kontrapositive påstanden: hvis $\\neg Q$, så $\\neg P$. Anta $\\neg Q$. [Regn.] Altså $\\neg P$. Dermed er den opprinnelige påstanden bevist. $\\blacksquare$»\n\n**Malen må sitte utenat**, og den siste setningen er ikke pynt: den som retter, skal se at du vet at du er ferdig med den opprinnelige påstanden — ikke bare med en annen.\n\n**Når du velger kontrapositivt:** når konklusjonen er en delelighet eller en paritet som er lett å **negere til noe konkret**. Tre gjenkjennelige signaler:\n\n- konklusjonen er «$d\\mid n$», og negasjonen «$d\\nmid n$» gir deg $n=dk+r$ med $r\\ne 0$;\n- konklusjonen er «$n$ er odde», og negasjonen gir $n=2k$;\n- hypotesen handler om $n^2$ eller $n^3$, og konklusjonen om $n$ — da går regningen «nedover» i den opprinnelige retningen, og «oppover» i den kontrapositive. Oppover er alltid lettere.\n\n**Den vanligste feilen — og den koster:** å bevise **omvendingen** $Q\\Rightarrow P$ i stedet. Se neste kort."
+    },
+    {
+      "id": "ma1301-6-1-d-omvending",
+      "type": "definition",
+      "title": "Kontrapositiv og omvending — hold dem fra hverandre",
+      "content": "To ulike ting som ser like ut på papiret:\n\n| Navn | Formen | Forholdet til $P\\Rightarrow Q$ |\n|---|---|---|\n| **Kontrapositiv** | $\\neg Q\\Rightarrow\\neg P$ | **samme utsagn** — beviser du den, er du ferdig |\n| **Omvending** | $Q\\Rightarrow P$ | **et annet utsagn** — kan godt være falsk |\n\n**Eksempelet som gjør forskjellen synlig.** Ta påstanden «hvis $4\\mid n$, så er $n$ et partall». Den er sann.\n\n- **Kontrapositiv:** «hvis $n$ er odde, er $4\\nmid n$.» Også sann — nødvendigvis, siden det er samme utsagn.\n- **Omvending:** «hvis $n$ er et partall, så er $4\\mid n$.» **Falsk** — $n=6$ er et moteksempel.\n\n**Konsekvensen for besvarelsen:** beviser du omvendingen når oppgaven ba om implikasjonen, har du bevist en annen påstand, og det gir ingen uttelling selv om regningen er feilfri.\n\n**Kontrollspørsmålet, som tar fem sekunder:** i den kontrapositive skal **både** hypotesen og konklusjonen være negert, **og** rekkefølgen byttet. Er bare rekkefølgen byttet, har du omvendingen.\n\n**Og merk sammenhengen med ekvivalens:** en «hvis og bare hvis»-oppgave krever implikasjonen **og** omvendingen. Der er omvendingen ikke en felle, men halve jobben — du må bare si tydelig hvilken retning du fører når."
+    },
+    {
+      "id": "ma1301-6-1-e2",
+      "type": "example",
+      "title": "Kontrapositivt bevis: 3 deler n når 3 deler n i annen",
+      "problem": "Vis at hvis $3\\mid n^2$, så er $3\\mid n$.",
+      "solution": "**Teknikkvalg.** Hypotesen «$3\\mid n^2$» gir bare $n^2=3t$, og derfra er det ingen vei videre uten et primtallsargument. Negasjonen av konklusjonen, «$3\\nmid n$», gir derimot to helt konkrete former for $n$. Altså **kontrapositivt bevis**.\n\n**Vi viser den kontrapositive påstanden:** hvis $3\\nmid n$, så er $3\\nmid n^2$.\n\n**Anta at $3\\nmid n$.** **Ved divisjonsalgoritmen** ([kap. 1.1](/ma1301/ma1301-1-1)) er $n=3k+r$ med $r\\in\\{0,1,2\\}$, og siden $3\\nmid n$ er $r\\ne 0$. Det gir to tilfeller, og vi behandler begge.\n\n**Tilfelle $r=1$:** $n=3k+1$, og\n$$n^2=9k^2+6k+1=3(3k^2+2k)+1.$$\nAltså har $n^2$ rest $1$ ved divisjon med $3$, så $3\\nmid n^2$.\n\n**Tilfelle $r=2$:** $n=3k+2$, og\n$$n^2=9k^2+12k+4=3(3k^2+4k+1)+1.$$\nAltså har $n^2$ igjen rest $1$, så $3\\nmid n^2$.\n\n**Begge tilfeller er dekket**, og i begge er $3\\nmid n^2$. Dermed er den kontrapositive påstanden bevist, og siden en påstand og dens kontrapositive er samme utsagn, er den opprinnelige påstanden bevist:\n$$3\\mid n^2\\ \\Longrightarrow\\ 3\\mid n.\\qquad\\blacksquare$$\n\n**Kontroll med tall.** $n=6$: $n^2=36$, $3\\mid 36$ og $3\\mid 6$ ✓. $n=7$: $n^2=49=3\\cdot 16+1$, og verken $3\\mid 49$ eller $3\\mid 7$ ✓. $n=8$: $64=3\\cdot 21+1$ ✓.\n\n**Den andre veien — også fullgod.** Samme påstand følger på én linje **ved Euklids lemma** ([kap. 1.1](/ma1301/ma1301-1-1)): $3$ er et primtall, og $3\\mid n\\cdot n$, så $3\\mid n$ eller $3\\mid n$ — altså $3\\mid n$. Den er kortere, og den er like gyldig.\n\n**Hvorfor boka viser begge:** løsningsforslagene i arkivet honorerer likeverdige metoder eksplisitt, og det er verdt å kjenne begge veier. Men merk forskjellen i hva de krever: Euklids lemma må **navngis** for å bære argumentet, mens case-analysen må være **uttømmende**. Hver vei har sitt eget føringskrav.\n\n*Sluttsvar: bevist, både kontrapositivt med uttømmende case-analyse og direkte ved Euklids lemma.*\n\n*Et biprodukt verdt å ta med: utregningen viste at $n^2\\equiv 0$ eller $1\\pmod 3$ — aldri $2$. Det er en av de mest brukte småfaktaene i hele bevisdelen, og den kommer igjen i eksempel 3.*"
+    },
+    {
+      "id": "ma1301-6-1-ex-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-6-1-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Vis kontrapositivt at hvis $n^2$ er et odde tall, så er $n$ odde.\n\nSkriv eksplisitt hva den kontrapositive påstanden er, før du beviser den.",
+        "solution": "**Den kontrapositive påstanden.** Den opprinnelige er\n$$P\\Rightarrow Q:\\quad n^2\\ \\text{odde}\\ \\Rightarrow\\ n\\ \\text{odde}.$$\nNegér begge og bytt rekkefølge:\n$$\\neg Q\\Rightarrow\\neg P:\\quad n\\ \\text{partall}\\ \\Rightarrow\\ n^2\\ \\text{partall}.$$\n\n**Bevis av den kontrapositive.** Anta at $n$ er et partall. Da finnes det et helt tall $k$ med $n=2k$, og\n$$n^2=(2k)^2=4k^2=2\\cdot(2k^2).$$\nSiden $2k^2$ er et helt tall, er $n^2$ et partall.\n\n**Konklusjon.** Den kontrapositive påstanden er bevist, og en påstand og dens kontrapositive er samme utsagn. Altså: er $n^2$ odde, så er $n$ odde. $\\blacksquare$\n\n**Kontroll med tall.** $n=5$: $25$ odde ✓. $n=6$: $36$ partall ✓.\n\n**Merk hvorfor kontrapositivt er det riktige valget her.** Det direkte beviset måtte startet med «$n^2$ er odde, altså $n^2=2m+1$» — og derfra er det ingen vei til en likning for $n$ selv. Den kontrapositive hypotesen ga oss $n=2k$ på første linje.\n\n*Sluttsvar: bevist kontrapositivt. Legg merke til at dette er nøyaktig samme mønster som eksempel 2, med $2$ i stedet for $3$ — og at case-analysen der har to tilfeller mens paritetsvarianten har ett, fordi «ikke odde» er én form og «ikke delelig med $3$» er to.*",
+        "hints": [
+          "Skriv opp $P$ og $Q$ først, og negér begge.",
+          "Den kontrapositive hypotesen «$n$ er et partall» gir deg likningen $n=2k$.",
+          "Få faktoren $2$ ut foran en parentes med et helt tall inni."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-6-1-ex-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-6-1-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Vis at $n^2$ er delelig med $4$ **hvis og bare hvis** $n$ er et partall.\n\nFør begge retningene, og si tydelig hvilken du fører når.",
+        "solution": "Oppgaven ber om en **ekvivalens**, altså to implikasjoner. Vi fører dem hver for seg.\n\n**Retning 1 ($\\Leftarrow$): er $n$ et partall, er $4\\mid n^2$.**\n\nAnta at $n$ er et partall, altså $n=2k$ for et helt tall $k$. Da er\n$$n^2=4k^2=4\\cdot k^2,$$\nog $k^2$ er et helt tall. Altså $4\\mid n^2$. ✓\n\n**Retning 2 ($\\Rightarrow$): er $4\\mid n^2$, er $n$ et partall.**\n\nDenne fører vi **kontrapositivt**: hvis $n$ er odde, så er $4\\nmid n^2$.\n\nAnta at $n$ er odde, altså $n=2k+1$. Da er\n$$n^2=4k^2+4k+1=4(k^2+k)+1,$$\nså $n^2$ har rest $1$ ved divisjon med $4$. Altså $4\\nmid n^2$. ✓\n\n**Konklusjon.** Begge retninger er vist, så\n$$4\\mid n^2\\iff n\\ \\text{er et partall}.\\qquad\\blacksquare$$\n\n**Kontroll med tall.** $n=6$: $36=4\\cdot 9$ ✓ (partall). $n=7$: $49=4\\cdot 12+1$ ✓ (odde, ikke delelig med $4$). $n=10$: $100=4\\cdot 25$ ✓.\n\n**Om føringen — dette er kravet oppgaven egentlig tester.** En besvarelse som bare fører retning 1 og skriver «altså hvis og bare hvis», har vist **halvparten**. Ekvivalens er to implikasjoner, og hver av dem må stå.\n\n*Biproduktet er igjen verdt å merke seg: $n^2\\equiv 0$ eller $1\\pmod 4$ — aldri $2$ eller $3$. Sammen med resultatet fra eksempel 2 ($n^2\\equiv 0$ eller $1\\pmod 3$) er dette de to mest brukte kvadrattallsfaktaene i sjanger I.*",
+        "hints": [
+          "To retninger: skriv dem opp som to separate påstander før du starter.",
+          "Retning $\\Leftarrow$ går direkte fra $n=2k$.",
+          "Retning $\\Rightarrow$ er lettest kontrapositivt: anta $n$ odde og regn ut $n^2$ modulo $4$."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-6-1-l3-intro",
+      "type": "text",
+      "content": "## Løkke 3: Bevis ved motsigelse\n\n*~11 minutter.*\n\nDen tredje teknikken, og den som brukes til å vise at noe **ikke** finnes: ingen heltallsløsning, ingen endelig liste over primtallene, ingen brøkform av $\\sqrt 2$.\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "ma1301-6-1-d-motsigelse",
+      "type": "definition",
+      "title": "Bevis ved motsigelse",
+      "content": "Malen: **anta at påstanden er falsk, og utled noe umulig.**\n\n**Oppsettet, ordrett:**\n\n> «Anta, for å komme til en motsigelse, at $\\neg Q$. [Regn.] Men da er … og … samtidig, som er umulig. Altså er antakelsen gal, og $Q$ holder. $\\blacksquare$»\n\n**Malen må sitte utenat.** Den brukes til alle «det finnes ikke»-påstander og til alle «uendelig mange»-påstander, og de to formene dekker mesteparten av sjanger I.\n\n**Tre krav som er egne føringspoeng:**\n\n1. **Antakelsen skrives ut eksplisitt.** «Anta at det finnes hele tall $x,y$ med …» — leseren skal vite hva du senere skal felle.\n2. **Motsigelsen navngis når du treffer den.** Ikke «dette er rart», men «men $r$ er både $0$ og forskjellig fra $0$ — motsigelse».\n3. **Konklusjonen trekkes.** «Altså finnes det ingen slike hele tall.» Et bevis som stopper ved motsigelsen uten å si hva den beviser, er ikke ferdig ført.\n\n**Den best belagte feilen: at beviset renner ut.** Du treffer noe merkelig, skriver «altså umulig», og går videre. En motsigelse er alltid av formen «$A$ og ikke-$A$» — pek på nøyaktig hvilket $A$ det er.\n\n**Hvor du kjenner igjen sjangeren:** «Vis at det ikke finnes …», «Vis at $\\dots$ er irrasjonal», «Vis at det finnes uendelig mange …». Alle tre er motsigelsesbevis, og malen er den samme.\n\n*Malen står også i [kap. 1.1](/ma1301/ma1301-1-1), der den ble brukt til å vise at det finnes uendelig mange primtall. Den formen kommer igjen i [kap. 6.3](/ma1301/ma1301-6-3) og [kap. 7.3](/ma1301/ma1301-7-3).*"
+    },
+    {
+      "id": "ma1301-6-1-d-negasjon",
+      "type": "definition",
+      "title": "Å negere en påstand riktig",
+      "content": "Motsigelsesbeviset starter med negasjonen, så negasjonen må være riktig. Fire mønstre dekker alt du møter:\n\n| Påstand | Negasjon |\n|---|---|\n| «for alle $n$ gjelder $A(n)$» | «det finnes en $n$ med ikke-$A(n)$» |\n| «det finnes en $n$ med $A(n)$» | «for alle $n$ gjelder ikke-$A(n)$» |\n| «$A$ og $B$» | «ikke-$A$ eller ikke-$B$» |\n| «$A$ eller $B$» | «ikke-$A$ og ikke-$B$» |\n\n**Merk de to øverste radene:** «for alle» og «det finnes» bytter plass når du negerer. Det er derfor et moteksempel er nok til å felle en allpåstand — negasjonen av «alle» er «det finnes én som ikke».\n\n**Merk de to nederste:** «og» og «eller» bytter også plass. Det brukes i praksis når du negerer «$p\\mid a$ eller $p\\mid b$» til «$p\\nmid a$ **og** $p\\nmid b$» — som er formen du får to konkrete opplysninger av.\n\n**Negasjonen av «uendelig mange»** er «endelig mange», og i praksis skriver du den som «anta at det bare finnes $k$ stykker, nemlig $p_1,\\dots,p_k$». Det er den formen som gir deg noe å regne med — en **liste** du kan gange sammen. Se [kap. 6.3](/ma1301/ma1301-6-3).\n\n**Den vanligste negasjonsfeilen:** å negere «for alle $n$: $A(n)$» til «for alle $n$: ikke-$A(n)$». Det er en helt annen, mye sterkere påstand — og den er nesten alltid falsk, så beviset ditt kollapser."
+    },
+    {
+      "id": "ma1301-6-1-e3",
+      "type": "example",
+      "title": "Motsigelse og case-analyse: en likning uten heltallsløsninger",
+      "problem": "Vis at likningen $x^2-3y^2=2$ ikke har løsninger i hele tall.",
+      "solution": "**Teknikkvalg.** Påstanden er en «det finnes ikke»-påstand. Altså **bevis ved motsigelse** — og motsigelsen finner vi ved å se på restene modulo $3$, altså med en **uttømmende case-analyse**.\n\n**Anta, for å komme til en motsigelse,** at det finnes hele tall $x$ og $y$ med\n$$x^2-3y^2=2.$$\n\n**Se på likningen modulo $3$.** Leddet $3y^2$ er delelig med $3$, så\n$$x^2\\equiv 2\\pmod 3.$$\n\n**Nå viser vi at det er umulig, ved case-analyse på $x$.** **Ved divisjonsalgoritmen** er $x=3k+r$ med $r\\in\\{0,1,2\\}$. Vi behandler **alle tre**:\n\n**Tilfelle $r=0$:** $x=3k$ gir $x^2=9k^2=3(3k^2)$, altså $x^2\\equiv 0\\pmod 3$.\n\n**Tilfelle $r=1$:** $x=3k+1$ gir $x^2=9k^2+6k+1=3(3k^2+2k)+1$, altså $x^2\\equiv 1\\pmod 3$.\n\n**Tilfelle $r=2$:** $x=3k+2$ gir $x^2=9k^2+12k+4=3(3k^2+4k+1)+1$, altså $x^2\\equiv 1\\pmod 3$.\n\n**Alle tre tilfellene er dekket**, og i ingen av dem er $x^2\\equiv 2\\pmod 3$. Kvadrattall har altså bare restene $0$ og $1$ modulo $3$.\n\n**Motsigelsen.** Vi har utledet at $x^2\\equiv 2\\pmod 3$, og samtidig vist at $x^2\\equiv 0$ eller $1\\pmod 3$. Da er $2\\equiv 0$ eller $2\\equiv 1\\pmod 3$, og ingen av dem holder — **motsigelse**.\n\n**Konklusjon.** Antakelsen var gal. Altså har $x^2-3y^2=2$ **ingen løsninger i hele tall**. $\\blacksquare$\n\n**Kontroll ved å prøve.** De minste kandidatene: $x^2-3y^2$ for $x\\le 6$, $y\\le 3$ gir verdiene $1,-2,-11,4,1,-8,9,6,-3,16,13,4,25,22,13,36,33,24$ — og $2$ er ikke blant dem. Prøvingen **beviser** ingenting (det var poenget i kapitlets åpning), men den bekrefter at vi ikke leter etter en løsning som finnes.\n\n**Om føringen — tre ting som er egne poeng:**\n\n- **Antakelsen står i klartekst** på første linje, med «for å komme til en motsigelse».\n- **Case-analysen er uttømmende:** alle tre restene modulo $3$ er behandlet, hver med sin egen utregning. Å hoppe over $r=0$ (fordi «det er jo klart») er den best belagte feilen i sjangeren.\n- **Motsigelsen er navngitt:** vi peker på nøyaktig hvilke to uforenlige utsagn vi har.\n\n*Merk valget av modulus. Vi valgte $3$ fordi leddet $3y^2$ da forsvinner — det er nesten alltid slik man finner riktig modulus: **velg den som dreper flest ledd.** For $x^2-5y^2=2$ ville du valgt $5$, og for $x^2+y^2=4k+3$ ville du valgt $4$.*"
+    },
+    {
+      "id": "ma1301-6-1-ex-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-6-1-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Vis at likningen $x^2-7y^2=3$ ikke har løsninger i hele tall.",
+        "solution": "**Teknikkvalg.** «Finnes ikke» $\\Rightarrow$ **motsigelse**, med case-analyse modulo $7$ (den modulusen som dreper leddet $7y^2$).\n\n**Anta, for å komme til en motsigelse,** at det finnes hele tall $x,y$ med $x^2-7y^2=3$.\n\n**Modulo $7$** faller $7y^2$ bort, så\n$$x^2\\equiv 3\\pmod 7.$$\n\n**Case-analyse: hvilke rester kan $x^2$ ha modulo $7$?** **Ved divisjonsalgoritmen** er $x\\equiv r\\pmod 7$ med $r\\in\\{0,1,2,3,4,5,6\\}$, og vi regner ut alle sju:\n\n| $r$ | $0$ | $1$ | $2$ | $3$ | $4$ | $5$ | $6$ |\n|---|---|---|---|---|---|---|---|\n| $r^2$ | $0$ | $1$ | $4$ | $9$ | $16$ | $25$ | $36$ |\n| $r^2\\bmod 7$ | $0$ | $1$ | $4$ | $2$ | $2$ | $4$ | $1$ |\n\n**Alle sju tilfellene er dekket.** Mulige rester for et kvadrattall modulo $7$ er derfor\n$$\\{0,\\ 1,\\ 2,\\ 4\\},$$\nog $3$ er **ikke** blant dem.\n\n**Motsigelsen.** Vi har både $x^2\\equiv 3\\pmod 7$ og $x^2\\in\\{0,1,2,4\\}\\pmod 7$. Det er umulig — motsigelse.\n\n**Konklusjon.** Altså har $x^2-7y^2=3$ ingen løsninger i hele tall. $\\blacksquare$\n\n**Kontroll:** for $x=0,\\dots,6$ og $y=0,1$ gir $x^2-7y^2$ verdiene $0,1,4,9,16,25,36$ og $-7,-6,-3,2,9,18,29$ — ingen $3$ ✓.\n\n*Merk at tabellen bare trengte $r=0,\\dots,6$, og at $r$ og $7-r$ gir samme kvadrat. Du kan altså halvere arbeidet ved å stoppe på $r=3$ og si «og $r=4,5,6$ gir samme kvadrater som $r=3,2,1$ siden $(7-r)^2\\equiv r^2$». Da er case-analysen fortsatt uttømmende — du har begrunnet at de resterende tilfellene er dekket, og det er kravet.*\n\n*Dette er den samme mekanismen som Legendre-symbolet i [kap. 4.1](/ma1301/ma1301-4-1) systematiserer: spørsmålet «er $3$ en kvadratisk rest modulo $7$?» har svaret nei, og der kan det avgjøres uten tabell.*",
+        "hints": [
+          "Hvilken modulus dreper leddet $7y^2$?",
+          "Sett opp en tabell over $r^2\\bmod 7$ for alle sju restene.",
+          "Sammenlign listen av mulige kvadratrester med den resten likningen krever."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-6-1-ex-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-6-1-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**a)** Vis at $5\\nmid n^2+n+1$ for alle heltall $n$.\n**b)** Bruk a) til å vise at likningen $n^2+n+1=5m$ ikke har løsninger i hele tall.",
+        "solution": "**a) Case-analyse modulo $5$.**\n\n**Ved divisjonsalgoritmen** er $n\\equiv r\\pmod 5$ med $r\\in\\{0,1,2,3,4\\}$. Siden $n^2+n+1$ bare avhenger av $n$ modulo $5$ (kongruensregnereglene fra [kap. 1.4](/ma1301/ma1301-1-4) tillater å regne med representanten), holder det å regne ut de fem tilfellene:\n\n| $r$ | $r^2+r+1$ | rest mod $5$ |\n|---|---|---|\n| $0$ | $1$ | $1$ |\n| $1$ | $3$ | $3$ |\n| $2$ | $7$ | $2$ |\n| $3$ | $13$ | $3$ |\n| $4$ | $21$ | $1$ |\n\n**Alle fem tilfellene er dekket**, og resten er $1$, $3$, $2$, $3$ eller $1$ — **aldri $0$**.\n\nAltså er $n^2+n+1$ aldri delelig med $5$:\n$$5\\nmid n^2+n+1\\quad\\text{for alle heltall }n.\\qquad\\blacksquare$$\n\n**b)** Anta, for å komme til en motsigelse, at det finnes hele tall $n$ og $m$ med\n$$n^2+n+1=5m.$$\nDa er $n^2+n+1$ delelig med $5$ — men i a) viste vi at det aldri er tilfellet. **Motsigelse.**\n\nAltså har likningen ingen løsninger i hele tall. $\\blacksquare$\n\n**Kontroll med tall.** $n=0,\\dots,9$ gir $1,3,7,13,21,31,43,57,73,91$. Ingen av dem er delelig med $5$ ✓. Merk at restene gjentar seg i mønsteret $1,3,2,3,1,\\ 1,3,2,3,1,\\dots$ — periode $5$, akkurat som case-analysen forutsier.\n\n**Om føringen.** Tre ting bærer besvarelsen:\n\n- **Begrunnelsen for at fem tilfeller er nok.** Uttrykket avhenger bare av $n$ modulo $5$ — si det, ellers ser det ut som du bare prøvde fem tall.\n- **Alle fem radene står.** Ikke «og de andre går på samme måte».\n- **Konklusjonen i b) er en setning**, og motsigelsen er navngitt.\n\n*Merk hvor lite arbeid en case-analyse er når modulusen er liten: fem utregninger med ensifrede tall. Det er en av de billigste bevisformene i faget — og en av de mest brukte i sjanger I.*",
+        "hints": [
+          "I a): uttrykket avhenger bare av $n$ modulo $5$. Hvor mange tilfeller gir det?",
+          "Sett opp tabellen med $r=0,1,2,3,4$ og regn ut $r^2+r+1$ i hver rad.",
+          "I b): hva ville en løsning bety for delelighet med $5$?"
+        ]
+      }
+    },
+    {
+      "id": "ma1301-6-1-l4-intro",
+      "type": "text",
+      "content": "## Løkke 4: Uttømmende case-analyse modulo m\n\n*~13 minutter.*\n\nNå den teknikken som er tallteoriens egen, og den som gir flest trekk når den slurves. Ideen er enkel og kraftig: **divisjonsalgoritmen deler uendelig mange tall inn i endelig mange klasser.**"
+    },
+    {
+      "id": "ma1301-6-1-t-divisjonsalgoritmen",
+      "type": "theorem",
+      "title": "Divisjonsalgoritmen — bevisverktøyet bak case-analysen",
+      "content": "For hvert helt tall $n$ og hvert positivt helt tall $m$ finnes det **entydige** hele tall $q$ og $r$ med\n$$n=qm+r,\\qquad 0\\le r<m.$$\n\nDette er divisjonsalgoritmen fra [kap. 1.1](/ma1301/ma1301-1-1), og i bevissammenheng leses den som en **inndeling**:\n\n$$\\text{alle heltall}=\\underbrace{\\{qm\\}}_{r=0}\\cup\\underbrace{\\{qm+1\\}}_{r=1}\\cup\\dots\\cup\\underbrace{\\{qm+(m-1)\\}}_{r=m-1}.$$\n\n**De $m$ klassene dekker alt** (fordi $r$ finnes for hver $n$) **og overlapper ikke** (fordi $q$ og $r$ er entydige). Det er nøyaktig det en case-analyse trenger.\n\n**Konsekvensen, og hele poenget:** for å vise en påstand om **alle** heltall, holder det å vise den for $m$ tilfeller — én per rest. Uendelig mange tall, $m$ utregninger.\n\n**Hvordan du velger $m$:** velg den modulusen som gjør uttrykket enklest. Tre gjenkjennelige situasjoner:\n\n- Skal du vise at noe er delelig med $d$, prøv $m=d$ først.\n- Er det et ledd med faktor $d$ i uttrykket, dreper $m=d$ det leddet.\n- Handler påstanden om primtall større enn $3$, er $m=3$ og $m=2$ (eller $m=6$) nesten alltid riktig — for da er $r=0$ utelukket allerede av at tallet er primtall.\n\n**Merk at du kan regne med representanten.** Kongruensregnereglene ([kap. 1.4](/ma1301/ma1301-1-4)) sier at $n\\equiv r$ gir $n^2\\equiv r^2$, $n^3\\equiv r^3$ og så videre. Derfor holder det å sette inn $r$ i uttrykket — du behøver ikke skrive ut $(qm+r)^2$ i full bredde. **Si at du bruker regnereglene**, så er snarveien begrunnet."
+    },
+    {
+      "id": "ma1301-6-1-d-case",
+      "type": "definition",
+      "title": "Case-analyse modulo m",
+      "content": "Malen: **del alle heltall i restklassene modulo $m$, og behandle hver klasse.**\n\n**Oppsettet, ordrett:**\n\n> «**Ved divisjonsalgoritmen** er $n\\equiv r\\pmod m$ med $r\\in\\{0,1,\\dots,m-1\\}$. Vi behandler alle $m$ tilfellene.\n> **Tilfelle $r=0$:** … **Tilfelle $r=1$:** … [alle] …\n> Alle tilfeller er dekket, og i hvert av dem gjelder påstanden. $\\blacksquare$»\n\n**Malen må sitte utenat**, og de to setningene i ytterkantene er begge egne føringspoeng: den første sier hvorfor listen er komplett, den siste sier at du har gjennomgått den.\n\n**Kravet: uttømmende.** Alle rester $0,1,\\dots,m-1$ skal stå, hver med sin egen linje eller rad. **En case-analyse som hopper over en rest, er en byggefeil** — og det er den best belagte enkeltfeilen i arkivets bevisdel.\n\n**To lovlige forkortelser** (og de er lovlige fordi de er *begrunnet*, ikke fordi de er korte):\n\n1. **Symmetri:** $(m-r)^2\\equiv r^2\\pmod m$, så i rene kvadratoppgaver holder det å regne $r=0,\\dots,\\lfloor m/2\\rfloor$ — hvis du **skriver** at de øvrige er speilbilder.\n2. **Utelukkelse:** er $n$ et primtall større enn $m$, er $r=0$ umulig, og du kan skrive «$r=0$ er utelukket siden $m\\nmid n$».\n\n**Tabellform er tillatt og ofte best.** En tabell med kolonnene $r$, uttrykket og resten er lettere å lese enn fem avsnitt — og lettere for deg å kontrollere.\n\n**Hvor teknikken ikke rekker:** når påstanden knytter $n+1$ til $n$ (summeformler, rekursjoner). Da er det induksjon, [kap. 6.2](/ma1301/ma1301-6-2)."
+    },
+    {
+      "id": "ma1301-6-1-d-kvadratrester-sma",
+      "type": "definition",
+      "title": "Kvadrattall modulo 3, 4 og 8",
+      "content": "Tre småfakta som er case-analyser du kan **utlede på stedet** på to linjer hver, og som brukes om og om igjen i sjanger I:\n\n$$n^2\\equiv 0\\ \\text{eller}\\ 1\\pmod 3,\\qquad n^2\\equiv 0\\ \\text{eller}\\ 1\\pmod 4,\\qquad n^2\\equiv 1\\pmod 8\\ (n\\ \\text{odde}).$$\n\n**Utledningene, ferdig ført:**\n\n*Modulo $3$:* $r=0$ gir $0$; $r=1$ gir $1$; $r=2$ gir $4\\equiv 1$. Tre tilfeller, restene $\\{0,1\\}$.\n\n*Modulo $4$:* $r=0$ gir $0$; $r=1$ gir $1$; $r=2$ gir $4\\equiv 0$; $r=3$ gir $9\\equiv 1$. Fire tilfeller, restene $\\{0,1\\}$.\n\n*Modulo $8$ for odde $n$:* $n=2k+1$ gir $n^2=4k(k+1)+1$, og $k(k+1)$ er et partall (to etterfølgende tall), så $n^2=8m+1$. Ett tilfelle, resten $1$.\n\n**Hva de brukes til:** å felle likninger. Skal du vise at $x^2-3y^2=2$ er uløselig, er det den første. Skal du vise at $x^2+y^2=4k+3$ er uløselig, er det den andre (to kvadrater gir restene $0,1,2$ modulo $4$ — aldri $3$). Skal du vise noe om odde kvadrater, er det den tredje.\n\n**Kortet er «utledes på stedet», ikke «må sitte utenat»** — men gjenkjennelsen bør sitte: ser du et kvadrattall i en umulighetsoppgave, er restene modulo $3$, $4$ eller $8$ det første du prøver.\n\n**Den beslektede systematikken:** hvilke tall som er kvadratiske rester modulo et primtall, er selve temaet i [kap. 4.1](/ma1301/ma1301-4-1)–[kap. 4.2](/ma1301/ma1301-4-2). Her holder vi oss til de tre små modulene, som du kan regne ut i hodet."
+    },
+    {
+      "id": "ma1301-6-1-e4",
+      "type": "example",
+      "title": "Eksamensnivå: 24 deler kvadratet av et primtall større enn 3, minus én",
+      "problem": "La $p$ være et primtall med $p>3$. Vis at $24\\mid p^2-1$.",
+      "solution": "**Teknikkvalg.** Påstanden gjelder alle primtall over $3$, altså uendelig mange tall. Men $24=8\\cdot 3$, og $\\gcd(8,3)=1$ — så vi kan vise delelighet med $8$ og med $3$ hver for seg og sette dem sammen. Begge delene er **case-analyser**.\n\n**Steg 1: $8\\mid p^2-1$.**\n\nSiden $p$ er et primtall større enn $3$, er $p$ **odde** (ellers ville $2\\mid p$). Fra eksempel 1 vet vi da at\n$$8\\mid p^2-1.$$\n\n*Utledningen, gjentatt kort:* $p=2k+1$ gir $p^2-1=4k(k+1)$, og $k(k+1)$ er et partall siden det er to etterfølgende heltall. Altså $p^2-1=8m$.\n\n**Steg 2: $3\\mid p^2-1$.**\n\n**Ved divisjonsalgoritmen** er $p\\equiv r\\pmod 3$ med $r\\in\\{0,1,2\\}$. Vi behandler alle tre:\n\n**Tilfelle $r=0$:** da er $3\\mid p$. Men $p$ er et primtall større enn $3$, så den eneste divisoren over $1$ er $p$ selv — og $3\\ne p$. **Dette tilfellet er utelukket.**\n\n**Tilfelle $r=1$:** $p=3k+1$ gir\n$$p^2-1=(3k+1)^2-1=9k^2+6k=3(3k^2+2k),$$\naltså $3\\mid p^2-1$.\n\n**Tilfelle $r=2$:** $p=3k+2$ gir\n$$p^2-1=(3k+2)^2-1=9k^2+12k+3=3(3k^2+4k+1),$$\naltså $3\\mid p^2-1$.\n\n**Alle tre tilfellene er dekket** — ett utelukket, to regnet ut — og i de mulige tilfellene er $3\\mid p^2-1$.\n\n**Steg 3: sett sammen.**\n\nVi har $8\\mid p^2-1$ og $3\\mid p^2-1$, og $\\gcd(8,3)=1$. **Da er $8\\cdot 3=24$ en divisor i $p^2-1$** — det er arketypen «relativt primiske $\\Rightarrow$ produktet deler», som føres komplett i [kap. 6.3](/ma1301/ma1301-6-3).\n\n*Argumentet i én linje, for fullstendighetens skyld:* $p^2-1=8a=3b$. Da er $3\\mid 8a$, og siden $\\gcd(3,8)=1$ gir **Euklids lemma** ([kap. 1.1](/ma1301/ma1301-1-1)) at $3\\mid a$, altså $a=3c$ og $p^2-1=24c$.\n\n**Konklusjon.** For hvert primtall $p>3$ er\n$$24\\mid p^2-1.\\qquad\\blacksquare$$\n\n**Kontroll med tall.**\n\n| $p$ | $p^2-1$ | $(p^2-1)/24$ |\n|---|---|---|\n| $5$ | $24$ | $1$ ✓ |\n| $7$ | $48$ | $2$ ✓ |\n| $11$ | $120$ | $5$ ✓ |\n| $13$ | $168$ | $7$ ✓ |\n| $17$ | $288$ | $12$ ✓ |\n\n**Hvorfor $p>3$ er nødvendig:** $p=3$ gir $p^2-1=8$, og $24\\nmid 8$. $p=2$ gir $3$, og $24\\nmid 3$. **Betingelsen i oppgaveteksten er ikke pynt** — den er det som utelukker tilfellet $r=0$ og sikrer at $p$ er odde. En besvarelse som ikke bruker den, har et hull.\n\n**Om føringen — de fire tingene som gir uttelling hver for seg:**\n\n1. **Oppsplittingen i $8$ og $3$ er begrunnet** med at de er relativt primiske. Uten den begrunnelsen er sammensettingen i steg 3 et sprang.\n2. **Case-analysen er uttømmende**, og tilfellet $r=0$ er **utelukket med et argument** — ikke bare utelatt.\n3. **Teoremet er navngitt** der det bærer (Euklids lemma i steg 3).\n4. **Konklusjonen er en setning** med kvantoren på plass («for hvert primtall $p>3$»).\n\n*Merk den generelle strategien, som er verdt mer enn dette ene resultatet: **for å vise delelighet med et sammensatt tall, splitt i relativt primiske faktorer og vis hver for seg.** $24=8\\cdot 3$, $30=2\\cdot 3\\cdot 5$, $12=4\\cdot 3$. Det gjør case-analysen mye kortere enn en direkte analyse modulo $24$ ville vært — som ville krevd tjuefire tilfeller.*"
+    },
+    {
+      "id": "ma1301-6-1-ex-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-6-1-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Vis at $4\\nmid n^2+2$ for alle heltall $n$.",
+        "solution": "**Teknikkvalg.** Påstanden er «aldri delelig», altså en umulighet for alle $n$ — **case-analyse modulo $4$**, som er den modulusen påstanden handler om.\n\n**Ved divisjonsalgoritmen** er $n\\equiv r\\pmod 4$ med $r\\in\\{0,1,2,3\\}$. Uttrykket $n^2+2$ avhenger bare av $n$ modulo $4$ (kongruensregnereglene, [kap. 1.4](/ma1301/ma1301-1-4)), så vi regner ut alle fire tilfellene:\n\n| $r$ | $r^2+2$ | rest mod $4$ |\n|---|---|---|\n| $0$ | $2$ | $2$ |\n| $1$ | $3$ | $3$ |\n| $2$ | $6$ | $2$ |\n| $3$ | $11$ | $3$ |\n\n**Alle fire tilfellene er dekket**, og resten er $2$ eller $3$ — **aldri $0$**.\n\n**Konklusjon.** Altså er $n^2+2$ aldri delelig med $4$:\n$$4\\nmid n^2+2\\quad\\text{for alle heltall }n.\\qquad\\blacksquare$$\n\n**Kontroll:** $n=0,\\dots,6$ gir $2,3,6,11,18,27,38$. Restene modulo $4$ er $2,3,2,3,2,3,2$ ✓ — mønsteret case-analysen forutsier.\n\n**Den korte varianten, også fullgod:** kvadrattall har rest $0$ eller $1$ modulo $4$ (kortet i løkke 4), så $n^2+2$ har rest $2$ eller $3$. Aldri $0$.\n\n*Legg merke til at den korte varianten er den samme case-analysen, bare med mellomresultatet gjenbrukt. Det er verdt å ha de tre kvadrattallskortene klare — de forkorter en mengde oppgaver til to linjer.*",
+        "hints": [
+          "Hvor mange tilfeller gir en case-analyse modulo $4$?",
+          "Regn ut $r^2+2$ for $r=0,1,2,3$ og reduser modulo $4$.",
+          "Er $0$ blant restene du får?"
+        ]
+      }
+    },
+    {
+      "id": "ma1301-6-1-ex-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-6-1-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Vis at $6\\mid n^3-n$ for alle heltall $n$.\n\nFør beviset på **to** måter:\n\n**a)** Ved faktorisering pluss delelighet med $2$ og $3$ hver for seg.\n**b)** Ved en uttømmende case-analyse modulo $6$.",
+        "solution": "**a) Faktorisering pluss to delelighetsargumenter.**\n\nFaktoriser:\n$$n^3-n=n(n^2-1)=(n-1)n(n+1).$$\nDette er **produktet av tre etterfølgende heltall**.\n\n**Delelighet med $2$:** blant to etterfølgende heltall er ett et partall, så blant tre er minst ett et partall. Altså $2\\mid (n-1)n(n+1)$.\n\n**Delelighet med $3$:** **ved divisjonsalgoritmen** er $n\\equiv r\\pmod 3$ med $r\\in\\{0,1,2\\}$. Alle tre tilfellene:\n\n- $r=0$: da er $3\\mid n$.\n- $r=1$: da er $n-1=3k$, altså $3\\mid n-1$.\n- $r=2$: da er $n+1=3k+3=3(k+1)$, altså $3\\mid n+1$.\n\nI hvert tilfelle deler $3$ **en av de tre faktorene**, og dermed produktet.\n\n**Sett sammen:** $2\\mid n^3-n$ og $3\\mid n^3-n$ med $\\gcd(2,3)=1$, så $6\\mid n^3-n$ (arketypen fra [kap. 6.3](/ma1301/ma1301-6-3); i én linje: $n^3-n=2a=3b$ gir $3\\mid 2a$, og **ved Euklids lemma** $3\\mid a$, så $n^3-n=6c$). $\\blacksquare$\n\n**b) Uttømmende case-analyse modulo $6$.**\n\n**Ved divisjonsalgoritmen** er $n\\equiv r\\pmod 6$ med $r\\in\\{0,1,2,3,4,5\\}$. Uttrykket avhenger bare av $n$ modulo $6$, så vi regner ut alle seks:\n\n| $r$ | $r^3-r$ | rest mod $6$ |\n|---|---|---|\n| $0$ | $0$ | $0$ |\n| $1$ | $0$ | $0$ |\n| $2$ | $6$ | $0$ |\n| $3$ | $24$ | $0$ |\n| $4$ | $60$ | $0$ |\n| $5$ | $120$ | $0$ |\n\n**Alle seks tilfellene er dekket**, og i alle er resten $0$. Altså $6\\mid n^3-n$ for alle heltall $n$. $\\blacksquare$\n\n**Kontroll med tall.** $n=4$: $64-4=60=6\\cdot 10$ ✓. $n=5$: $120=6\\cdot 20$ ✓. $n=-3$: $-27+3=-24=6\\cdot(-4)$ ✓.\n\n**Sluttsvar: begge veier er fullgode.** Vei b) er kortere å skrive og krever ingen lemma; vei a) er den som generaliserer — samme grep viser at $30\\mid n^5-n$ (se [kap. 6.3](/ma1301/ma1301-6-3)), der en case-analyse modulo $30$ ville krevd tretti rader.\n\n*Og merk hva som skjer i vei b) hvis du glemmer én rad: da har du vist påstanden for fem av seks restklasser, altså for fem sjettedeler av heltallene. Det er ikke et bevis, og det er nettopp derfor «uttømmende» er et krav og ikke en anbefaling.*\n\n*Dette resultatet får du dessuten gratis fra **Fermats lille teorem** ([kap. 2.2](/ma1301/ma1301-2-2)): $n^3\\equiv n\\pmod 3$ og $n^2\\equiv n\\pmod 2$ gir de to delelighetene. En tredje fullgod vei — og et eksempel på at bevisdelen og regnedelen av faget er samme apparat.*",
+        "hints": [
+          "I a): faktoriser $n^3-n$. Hva slags tre tall er faktorene?",
+          "I a): for delelighet med $3$, se hvilken av de tre faktorene som treffes i hvert av tilfellene $r=0,1,2$.",
+          "I b): regn ut $r^3-r$ for alle seks restene modulo $6$ og reduser."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-6-1-l5-intro",
+      "type": "text",
+      "content": "## Løkke 5: Moteksempler, og å velge teknikk\n\n*~10 minutter.*\n\nTil slutt den motsatte oppgaven — å **felle** en påstand — og beslutningstabellen som knytter de fire teknikkene til det oppgaveteksten sier.\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "ma1301-6-1-d-allpastand",
+      "type": "definition",
+      "title": "Allpåstand, eksistenspåstand og moteksempel",
+      "content": "To former, med helt ulike krav til hva som skal vises:\n\n| Form | Sannhetsbevis krever | Falskhetsbevis krever |\n|---|---|---|\n| «for alle $n$: $A(n)$» | et **generelt argument** | **ett moteksempel** |\n| «det finnes en $n$: $A(n)$» | **ett eksempel** | et **generelt argument** |\n\n**Merk asymmetrien**, for den er hele grunnen til at bevis er nødvendig: en allpåstand kan felles med ett tall, men aldri bekreftes med tall alene. En eksistenspåstand er motsatt: den bekreftes med ett tall, men å felle den krever et argument som dekker alle.\n\n**Ordene som signaliserer allpåstand:** «for alle», «for hvert», «alltid», «ethvert heltall $n$» — og ofte ingenting i det hele tatt: «Vis at $3\\mid n^3+2n$» betyr «for alle heltall $n$».\n\n**Ordene som signaliserer eksistenspåstand:** «det finnes», «vis at det er mulig», «finn en …», «vis at minst ett …».\n\n**Blandingen du møter oftest i sjanger I:** «det finnes uendelig mange primtall med egenskap $A$». Det er en eksistenspåstand med uendelig mange vitner, og den bevises alltid ved **motsigelse** — anta at listen er endelig, og konstruér et nytt medlem. Se [kap. 6.3](/ma1301/ma1301-6-3).\n\n**Moteksempel — og hvordan du finner et.** Et **moteksempel** til «for alle $n$: $A(n)$» er én enkelt $n$ der $A(n)$ er falsk. Ett er nok, og ett er alt du trenger å skrive.\n\n**Malen, ordrett:**\n\n> «Påstanden er falsk. Ta $n=\\dots$. Da er … , men … . Altså holder ikke påstanden for alle $n$. $\\blacksquare$»\n\n**Kravet: regn det ut.** Et moteksempel som bare oppgis, er et sluttall uten metode. Skriv verdiene, og vis hvorfor påstanden brytes nettopp der.\n\n**Hvordan du leter etter et moteksempel:**\n\n1. **Prøv de små tallene** $0$, $1$, $2$ og de negative — mange påstander glipper nettopp i randen.\n2. **Prøv tallene der påstandens ledd «møtes»** — som $n=41$ i $n^2+n+41$, der leddet $41$ blir en faktor.\n3. **Prøv tall med spesiell struktur** — kvadrattall, primtall, primtallspotenser, $1$.\n\n**Og motsatt:** finner du ikke et moteksempel etter en rimelig innsats, er det et signal om at påstanden er sann og at du skal bytte til bevismodus. Fravær av moteksempler er ikke et bevis, men det er informasjon.\n\n**Merk formuleringen i oppgaveteksten.** Står det «Avgjør om …», er begge utfall i spill, og du skal si hvilket. Står det «Vis at …», er påstanden sann, og du skal bevise den — leter du etter et moteksempel der, leter du forgjeves. Det er verdt tjue sekunders lesing før du starter."
+    },
+    {
+      "id": "ma1301-6-1-d-velg-teknikk",
+      "type": "definition",
+      "title": "Å velge bevisteknikk",
+      "content": "Beslutningstabellen. Den er kort, og den dekker sjanger I og J i praksis:\n\n| Det oppgaven ser slik ut | Teknikk | Første setning du skriver |\n|---|---|---|\n| «hvis $P$ så $Q$», og $P$ er en likning eller delelighet | direkte | «Anta at $P$. Da finnes $t$ med …» |\n| «hvis $P$ så $Q$», og $\\neg Q$ er lettere å bruke enn $P$ | kontrapositivt | «Vi viser den kontrapositive: hvis $\\neg Q$, så $\\neg P$.» |\n| «det finnes ikke …», «$\\dots$ er irrasjonal», «uendelig mange …» | motsigelse | «Anta, for å komme til en motsigelse, at …» |\n| «for alle heltall $n$ …» uten rekursjon | case-analyse modulo $m$ | «Ved divisjonsalgoritmen er $n\\equiv r\\pmod m$ …» |\n| «for alle $n\\ge n_0$», formel eller rekursjon | induksjon ([kap. 6.2](/ma1301/ma1301-6-2)) | «Basissteg: $P(n_0)$ …» |\n| «avgjør om …» | let etter moteksempel først | «Påstanden er falsk. Ta $n=\\dots$» |\n\n**Valget er ikke bindende.** Kommer du i stampe med direkte, prøv kontrapositivt — det koster to minutter og du mister ingenting. Flere av arkivets oppgaver kan føres på to måter, og **fasitpraksisen honorerer likeverdige metoder**.\n\n**De to signalene som er mest pålitelige:**\n\n- **«det finnes ikke» $\\Rightarrow$ motsigelse.** Nesten uten unntak.\n- **«delelig med $d$ for alle $n$» $\\Rightarrow$ case-analyse modulo $d$** (eller modulo faktorene i $d$, hvis $d$ er sammensatt).\n\n**Og den ene vanen som gjelder uansett teknikk:** skriv første setning i malen **før** du begynner å regne. Den setningen er egne poeng, og den strukturerer resten av arbeidet."
+    },
+    {
+      "id": "ma1301-6-1-e5",
+      "type": "example",
+      "title": "Å felle en påstand: moteksempel og hva et moteksempel ikke gjør",
+      "problem": "Avgjør om påstanden er sann: «For alle heltall $n\\ge 0$ er $n^2+n+41$ et primtall.»",
+      "solution": "**Les oppgaveteksten.** Det står «avgjør om», ikke «vis at». Begge utfall er altså i spill, og vi må si hvilket.\n\n**Steg 1: prøv noen verdier.**\n\n| $n$ | $n^2+n+41$ | primtall? |\n|---|---|---|\n| $0$ | $41$ | ja |\n| $1$ | $43$ | ja |\n| $2$ | $47$ | ja |\n| $5$ | $71$ | ja |\n| $10$ | $151$ | ja |\n| $20$ | $461$ | ja |\n| $39$ | $1601$ | ja |\n\nSju treff, og faktisk holder påstanden for **alle** $n$ fra $0$ til $39$. Det er et sterkt inntrykk — og det er verdiløst som bevis.\n\n**Steg 2: se etter struktur.** Leddet $41$ er en primtallsfaktor som venter på å bli felles. Setter vi $n=41$, får vi\n$$41^2+41+41=41(41+1+1)=41\\cdot 43,$$\nsom åpenbart er sammensatt. Men vi kan gjøre det ett hakk tidligere: for $n=40$ er\n\n$$40^2+40+41=1600+40+41=1681.$$\n\n**Er $1681$ et primtall?** $41^2=1681$. Altså\n$$40^2+40+41=41^2=41\\cdot 41,$$\nsom er sammensatt.\n\n**Steg 3: konklusjon.** Påstanden er **falsk**. Moteksempelet er $n=40$: der er $n^2+n+41=1681=41^2$, som har divisoren $41$ og derfor ikke er et primtall. $\\blacksquare$\n\n**Hva de førti bekreftelsene var verdt.** Ingenting, som bevis. Påstanden «for alle $n$» handler om uendelig mange tall, og førti er ikke uendelig mange. **Ett moteksempel feller en allpåstand; ingen endelig mengde eksempler bekrefter den.**\n\n**Den relaterte sanne påstanden**, som viser hvor fint skillet er: for $0\\le n\\le 39$ **er** $n^2+n+41$ et primtall. Det er en påstand om førti tall, og den kan bevises ved å regne ut alle førti — en uttømmende case-analyse med førti tilfeller. Sant, men uinteressant, og ikke det oppgaven spurte om.\n\n**Om føringen.** To ting bærer besvarelsen:\n\n- **Moteksempelet er regnet ut**, ikke bare oppgitt: $1681=41^2$ står der, med faktoriseringen synlig.\n- **Konklusjonen er en setning** som sier at påstanden er falsk. Et tall alene er ikke et svar.\n\n*Merk hvorfor $n=40$ og $n=41$ begge virker, og hvorfor det ikke er tilfeldig: $n^2+n+41$ er delelig med $41$ nøyaktig når $n^2+n\\equiv 0\\pmod{41}$, altså når $41\\mid n(n+1)$ — altså når $n\\equiv 0$ eller $n\\equiv 40\\pmod{41}$. **Ved Euklids lemma** er det de eneste mulighetene. Det er en case-analyse som forklarer moteksempelet i stedet for bare å oppgi det, og den typen innsikt er det som skiller et godt svar fra et riktig svar.*"
+    },
+    {
+      "id": "ma1301-6-1-ex-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-6-1-o9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Avgjør om påstandene er sanne. Bevis dem som er sanne, og gi et moteksempel til dem som er falske.\n\n**a)** For alle heltall $n$ er $n^2+n+1$ et odde tall.\n**b)** For alle heltall $n\\ge 1$ er $2^n-1$ et primtall.\n**c)** For alle primtall $p$ er $2^p-1$ et primtall.",
+        "solution": "**a) Sann.**\n\n$n^2+n+1=n(n+1)+1$. Produktet $n(n+1)$ er to etterfølgende heltall og derfor et partall (oppgave 2). Altså er $n^2+n+1$ et partall pluss $1$, som er odde. $\\blacksquare$\n\n*Kontroll:* $n=0,1,2,3$ gir $1,3,7,13$ — alle odde ✓.\n\n**b) Falsk.**\n\nMoteksempel $n=4$:\n$$2^4-1=15=3\\cdot 5,$$\nsom er sammensatt. Altså holder påstanden ikke for alle $n\\ge 1$. $\\blacksquare$\n\n*(Også $n=6$ virker: $2^6-1=63=7\\cdot 9$. Ett moteksempel er nok, men merk mønsteret: begge har sammensatt eksponent. Det er ikke tilfeldig — se [kap. 6.3](/ma1301/ma1301-6-3), arketype 2.)*\n\n**c) Falsk.**\n\nHer er $p$ et primtall, så moteksemplene fra b) ($n=4$, $n=6$) er utelukket. Vi må prøve primtallseksponenter: $p=2$ gir $3$, $p=3$ gir $7$, $p=5$ gir $31$, $p=7$ gir $127$ — alle primtall.\n\nNeste primtall er $p=11$:\n$$2^{11}-1=2047=23\\cdot 89.$$\n\n$2047$ er altså sammensatt, og påstanden er falsk. $\\blacksquare$\n\n*Kontroll av faktoriseringen:* $23\\cdot 89=23\\cdot 90-23=2070-23=2047$ ✓.\n\n**Sluttsvar:** a) sann, bevist; b) falsk, moteksempel $n=4$; c) falsk, moteksempel $p=11$.\n\n**Merk hva c) illustrerer.** Fire primtallseksponenter på rad ga primtall — og den femte gjorde det ikke. Det er samme lærepenge som eksempel 5, i en form som faktisk har stått på eksamen i mange varianter: **den omvendte av arketype 2 er falsk.** At $2^n-1$ er sammensatt når $n$ er sammensatt, er et teorem ([kap. 6.3](/ma1301/ma1301-6-3)); at $2^p-1$ er primtall når $p$ er primtall, er bare ofte sant.\n\n*Tallene $2^p-1$ som faktisk er primtall, kalles Mersenne-primtall, og det er et åpent problem om det finnes uendelig mange av dem. Det trenger du ikke kunne — men det er greit å vite at c) ikke er en påstand du kunne «regnet ut» deg til.*",
+        "hints": [
+          "I a): skriv $n^2+n$ som et produkt og bruk oppgave 2.",
+          "I b): prøv små $n$ og se etter det første sammensatte tallet.",
+          "I c): moteksemplene fra b) har sammensatt eksponent. Prøv primtallseksponenter i stigende rekkefølge — det femte er det interessante."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-6-1-ex-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-6-1-o10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "La $p$ være et primtall med $p>3$. Vis at $p\\equiv 1$ eller $p\\equiv 5\\pmod 6$.\n\nBruk deretter dette til å vise at $p^2\\equiv 1\\pmod{12}$ for alle primtall $p>3$.",
+        "solution": "**Del 1: restene modulo $6$.**\n\n**Ved divisjonsalgoritmen** er $p\\equiv r\\pmod 6$ med $r\\in\\{0,1,2,3,4,5\\}$. Vi behandler **alle seks**, og utelukker dem som er umulige for et primtall $p>3$:\n\n- **$r=0$:** da er $6\\mid p$, spesielt $2\\mid p$. Umulig, siden $p$ er et primtall større enn $3$ og dermed odde. **Utelukket.**\n- **$r=1$:** mulig.\n- **$r=2$:** da er $p=6k+2=2(3k+1)$, altså $2\\mid p$. **Utelukket.**\n- **$r=3$:** da er $p=6k+3=3(2k+1)$, altså $3\\mid p$. Siden $p>3$ er $p$ da sammensatt. **Utelukket.**\n- **$r=4$:** da er $p=6k+4=2(3k+2)$, altså $2\\mid p$. **Utelukket.**\n- **$r=5$:** mulig.\n\n**Alle seks tilfellene er dekket**, fire er utelukket med et argument hver, og de to som står, er $r=1$ og $r=5$. Altså\n$$p\\equiv 1\\ \\text{eller}\\ p\\equiv 5\\pmod 6.\\qquad\\blacksquare$$\n\n**Del 2: $p^2\\equiv 1\\pmod{12}$.**\n\nVi bruker resultatet fra del 1 og behandler de to mulige tilfellene.\n\n**Tilfelle $p=6k+1$:**\n$$p^2=36k^2+12k+1=12(3k^2+k)+1,$$\naltså $p^2\\equiv 1\\pmod{12}$.\n\n**Tilfelle $p=6k+5$:**\n$$p^2=36k^2+60k+25=12(3k^2+5k+2)+1,$$\nsiden $25=24+1$. Altså $p^2\\equiv 1\\pmod{12}$.\n\n**Begge mulige tilfeller er dekket**, og i begge er $p^2\\equiv 1\\pmod{12}$. $\\blacksquare$\n\n**Kontroll med tall.**\n\n| $p$ | $p\\bmod 6$ | $p^2$ | $p^2\\bmod 12$ |\n|---|---|---|---|\n| $5$ | $5$ | $25$ | $1$ ✓ |\n| $7$ | $1$ | $49$ | $1$ ✓ |\n| $11$ | $5$ | $121$ | $1$ ✓ |\n| $13$ | $1$ | $169$ | $1$ ✓ |\n| $17$ | $5$ | $289$ | $1$ ✓ |\n\n**Sluttsvar:** $p\\equiv 1$ eller $5\\pmod 6$, og $p^2\\equiv 1\\pmod{12}$.\n\n**Om føringen — den ene tingen som bærer del 1.** At fire av seks tilfeller er **utelukket med et argument** er hele beviset. En besvarelse som skriver «$p$ må være $1$ eller $5$ modulo $6$, siden de andre er delelige med $2$ eller $3$» har riktig idé, men mangler utregningene som viser det — og det er nettopp de fire faktoriseringene ($6k+2=2(3k+1)$ og så videre) som gjør argumentet etterprøvbart.\n\n*Merk sammenhengen med eksempel 4: der viste vi $24\\mid p^2-1$, som er sterkere enn $12\\mid p^2-1$. Denne oppgaven er samme resultat med en annen vei — via restene modulo $6$ i stedet for via oppsplittingen $24=8\\cdot 3$. **Begge er fullgode**, og den som velger den ene, skal ikke kalle den andre feil.*",
+        "hints": [
+          "Del 1: gå gjennom alle seks restene modulo $6$, og finn for hver av dem en grunn til at et primtall over $3$ ikke kan ha den — eller la den stå.",
+          "Utelukkelsene bygger på at $p$ er odde og at $p$ ikke er delelig med $3$.",
+          "Del 2: sett inn $p=6k+1$ og $p=6k+5$, og reduser modulo $12$."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-6-1-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "De fem feilene under er dokumentert i arkivets løsningsforslag som noe fasitene fører eksplisitt imot — og de er alle **strukturfeil**, ikke regnefeil. Det er verdt å merke seg: i bevisdelen er det formen som glipper, ikke aritmetikken.\n\n- **Ufullstendig case-analyse.** Den best belagte enkeltfeilen i hele bevisdelen. En besvarelse behandler restene $1$ og $2$ modulo $3$ og glemmer $0$ — eller behandler «$n$ odde» og glemmer «$n$ partall». **Kontrollen tar fem sekunder:** tell radene. En case-analyse modulo $m$ har nøyaktig $m$ rader, med mindre du **skriver** hvorfor noen er utelukket eller speilbilder av andre.\n\n- **Å bevise en allpåstand med eksempler.** «Jeg prøvde $n=1,2,3,4,5$ og det stemte» er ikke et bevis, og det gir ikke delvis uttelling. $n^2+n+41$ ga førti riktige og var likevel falsk. **Regelen:** eksempler kan felle en allpåstand, aldri bekrefte den.\n\n- **Bare én retning vist i en «hvis og bare hvis»-oppgave.** Ekvivalens er to implikasjoner. Ser du ordene «hvis og bare hvis», «nøyaktig når» eller «ekvivalent med», skal to bevis stå — eller en kjede der hvert ledd er en ekvivalens. **Skriv hvilken retning du fører når**, så ser den som retter at begge er der.\n\n- **Kontrapositiv forvekslet med omvending.** Å bevise $Q\\Rightarrow P$ når oppgaven ba om $P\\Rightarrow Q$ er å bevise en annen påstand. **Kontrollen:** i den kontrapositive skal begge deler være negert *og* rekkefølgen byttet. Er bare rekkefølgen byttet, er du på feil spor.\n\n- **Ikke arbeide fra definisjonen.** Et delelighetsbevis som aldri skriver $b=at$, har ingenting å regne med. **Første linje i et delelighetsbevis er oversettelsen**, og den er egne poeng.\n\n**Og tre føringsfeil som koster uten å være feil i matematikken:**\n\n- **Teoremet ikke navngitt.** Bruker du Euklids lemma eller aritmetikkens fundamentalteorem, skal navnet stå. Instruksen på hvert eksamenssett er at alle svar skal begrunnes, og i bevisdelen er navnet på resultatet en del av begrunnelsen.\n- **Motsigelsesbeviset renner ut.** Du treffer noe merkelig og skriver «umulig». Pek på de to uforenlige utsagnene, og trekk konklusjonen: «altså finnes det ingen slike tall».\n- **Samme bokstav for to ulike faktorer.** $b=at$ og $c=at$ antar i tillegg at $b=c$. Bruk $t$ og $u$."
+    },
+    {
+      "id": "ma1301-6-1-begrepsbank-intro",
+      "type": "text",
+      "content": "## Begrepsbank\n\nDette er flashcard-stoff — hopp trygt over ved førstegangslesing; tidsanslaget på 55 minutter gjelder kjernestoffet over.\n\nUnder kode D er banken **eksamensverktøyet, ikke pynt.** Det finnes ingen mal å slå opp i 24. november, og bevismalene er nettopp det som må komme ferdig ut av hodet når du leser oppgaven. Merk at kortene her er **former**, ikke fakta: de pugges ved å **brukes**. Å skrive tre case-analyser med lukket bok er mer verdt enn tre gjennomlesninger."
+    },
+    {
+      "id": "ma1301-6-1-k-fire-maler",
+      "type": "definition",
+      "title": "Kort: de fire malene, og valget mellom dem",
+      "content": "**Direkte.** «Anta at $P$. [Oversett til likninger, regn.] Altså $Q$. $\\blacksquare$»\n\n**Kontrapositivt.** «Vi viser den kontrapositive: hvis $\\neg Q$, så $\\neg P$. Anta $\\neg Q$. [Regn.] Altså $\\neg P$. Dermed er den opprinnelige påstanden bevist. $\\blacksquare$»\n\n**Motsigelse.** «Anta, for å komme til en motsigelse, at $\\neg Q$. [Regn.] Men da er $A$ og ikke-$A$ samtidig — motsigelse. Altså $Q$. $\\blacksquare$»\n\n**Case-analyse.** «Ved divisjonsalgoritmen er $n\\equiv r\\pmod m$ med $r\\in\\{0,\\dots,m-1\\}$. Tilfelle $r=0$: … [alle $m$] … Alle tilfeller er dekket. $\\blacksquare$»\n\n**Alle fire må sitte utenat**, og det er de fire første setningene som er det viktige — resten er regning.\n\n**Selvtest:** dekk til kortet og skriv de fire åpningssetningene. Klarer du det, har du strukturen i alle bevisoppgavene i faget.\n\n**Merk fellestrekket:** hver mal starter med et **antakelse-ord** («anta», «vi viser», «ved divisjonsalgoritmen») og ender med en **konklusjonssetning**. Det er de to endene som gir uttelling for struktur.\n\n**Valget mellom dem — les oppgaveteksten og se etter signalordene:**\n\n| Ser du … | Velg |\n|---|---|\n| «hvis … så …» med en likning i hypotesen | direkte |\n| konklusjon som er lett å negere ($d\\mid n$, «odde») | kontrapositivt |\n| «det finnes ikke», «irrasjonal», «uendelig mange» | motsigelse |\n| «for alle heltall $n$», delelighet med et lite tall | case-analyse modulo $d$ |\n| «for alle $n\\ge n_0$», sumformel, rekursjon | induksjon ([kap. 6.2](/ma1301/ma1301-6-2)) |\n| «avgjør om», «er det sant at» | let etter moteksempel først |\n\n**Er $d$ sammensatt, splitt.** Skal du vise $12\\mid \\dots$, vis $4\\mid\\dots$ og $3\\mid\\dots$ hver for seg — fire pluss tre tilfeller i stedet for tolv.\n\n**Kommer du i stampe:** bytt teknikk. Direkte og kontrapositivt koster begge to minutter å prøve, og du mister ingenting på å ha prøvd den andre først.\n\n**Og les hva som spørres.** «Vis at» betyr at påstanden er sann. «Avgjør om» betyr at den kan være falsk. Å lete etter et moteksempel til en sann påstand er den dyreste måten å bruke eksamenstid på."
+    },
+    {
+      "id": "ma1301-6-1-k-fra-definisjonen",
+      "type": "definition",
+      "title": "Kort: fra definisjonen",
+      "content": "$$a\\mid b\\iff b=at\\ \\text{for et helt tall }t.$$\n\n**Malen må sitte utenat:**\n\n1. Oversett hver gitt delelighet til en likning, med **ulike bokstaver**.\n2. Regn frem til uttrykket du skal vise noe om.\n3. **Faktoriser ut** tallet som skal dele.\n4. Konkludér: «altså er $\\dots=a\\cdot(\\text{helt tall})$, så $a\\mid\\dots$».\n\n**Kontroll før du setter punktum:** er parentesinnholdet virkelig et **helt** tall? Står det en brøk der, mangler du et argument.\n\n**Regnereglene du får gratis** ([kap. 1.1](/ma1301/ma1301-1-1)): $a\\mid b$ og $a\\mid c$ gir $a\\mid(bx+cy)$ for alle hele $x,y$; og $a\\mid b$, $b\\mid c$ gir $a\\mid c$. Begge er direkte bevis du kan føre på to linjer, og begge er verdt å navngi når du bruker dem.\n\n**Den motsatte oversettelsen, som brukes i kontrapositive bevis:** $d\\nmid n$ betyr $n=dk+r$ med $1\\le r\\le d-1$ — altså $d-1$ konkrete tilfeller å regne på."
+    },
+    {
+      "id": "ma1301-6-1-k-case-krav",
+      "type": "definition",
+      "title": "Kort: hva «uttømmende» betyr",
+      "content": "En case-analyse modulo $m$ er uttømmende når **hver** av de $m$ restene $0,1,\\dots,m-1$ er behandlet — eller når det står skrevet hvorfor noen ikke trenger behandling.\n\n**Tre lovlige måter å slippe unna en rad:**\n\n1. **Utelukkelse:** «$r=0$ er umulig, siden $p$ er et primtall større enn $m$.»\n2. **Symmetri:** «$r$ og $m-r$ gir samme kvadrat, siden $(m-r)^2\\equiv r^2\\pmod m$.»\n3. **Sammenslåing:** «for $r\\in\\{1,5\\}$ er $p^2\\equiv 1$», hvis regningen faktisk er identisk — og da skal begge tallene stå.\n\n**Ulovlig:** «og tilfellene $r=3,4,5$ går på samme måte.» Det er ikke en begrunnelse, det er en utsettelse.\n\n**Kontrollen, fem sekunder:** tell radene i tabellen din. Færre enn $m$? Da skal det stå en setning for hver manglende rad.\n\n**Og et praktisk råd:** bruk tabellform. Kolonnene $r$, uttrykket, resten. Da ser både du og den som retter, med ett blikk om alle radene er der — og du unngår den vanligste versjonen av feilen, som er å glemme en rad midt i et løpende avsnitt."
+    },
+    {
+      "id": "ma1301-6-1-k-kvadratrester",
+      "type": "definition",
+      "title": "Kort: kvadrattall modulo 3, 4 og 8, og paritet",
+      "content": "$$n^2\\equiv 0,1\\pmod 3\\qquad n^2\\equiv 0,1\\pmod 4\\qquad n^2\\equiv 1\\pmod 8\\ (n\\ \\text{odde})$$\n\n**Alle tre utledes på stedet**, hver på to linjer:\n\n- **mod $3$:** $r=0,1,2$ gir $0,1,4\\equiv 1$.\n- **mod $4$:** $r=0,1,2,3$ gir $0,1,4\\equiv 0,9\\equiv 1$.\n- **mod $8$, odde $n$:** $n=2k+1$ gir $n^2=4k(k+1)+1$, og $k(k+1)$ er partall.\n\n**Hva de feller.** Umulighetsoppgaver, på to linjer:\n\n| Likning | Modulus | Hvorfor den er uløselig |\n|---|---|---|\n| $x^2-3y^2=2$ | $3$ | krever $x^2\\equiv 2$ |\n| $x^2+y^2=4k+3$ | $4$ | to kvadrater gir rest $0,1,2$ |\n| $x^2-8y^2=3$ | $8$ | krever $x^2\\equiv 3$ |\n\n**Konsekvensen som brukes i [kap. 7.2](/ma1301/ma1301-7-2):** to odde kvadrater gir $1+1=2$ modulo $4$, som ikke er et kvadrat modulo $4$. Derfor kan ikke begge katetene i en primitiv pytagoreisk trippel være odde.\n\n**Merk at kortet er «utledes på stedet», ikke «må sitte utenat»** — men gjenkjennelsen bør sitte: ser du et kvadrat i en umulighetsoppgave, sjekk restene modulo $3$, $4$ og $8$ først.\n\n**Paritetsargumentet — case-analyse med $m=2$**, som er så vanlig at det har eget navn.\n\n**Formene:** $n$ er partall $\\Rightarrow n=2k$; $n$ er odde $\\Rightarrow n=2k+1$. To tilfeller, alltid.\n\n**De fire småresultatene du bruker hele tiden:**\n\n- **Blant to etterfølgende heltall er ett et partall.** Derfor er $n(n+1)$ alltid delelig med $2$.\n- **Blant tre etterfølgende heltall er minst ett et partall og nøyaktig ett delelig med $3$.** Derfor er $(n-1)n(n+1)$ delelig med $6$.\n- **Odde ganger odde er odde; partall ganger hva som helst er partall.**\n- **Summen av to tall har samme paritet som differansen**, siden $(a+b)-(a-b)=2b$.\n\n**Der pariteten avgjør en hel oppgave:** i [kap. 7.2](/ma1301/ma1301-7-2) er kravet «$s$ og $t$ har ulik paritet» én av de tre betingelsene i den pytagoreiske parametriseringen, og den er nettopp et paritetsargument.\n\n**Vanlig feil:** å behandle «$n$ er odde» som ett tilfelle og glemme partallstilfellet fordi det «er trivielt». Skriv det. Én linje.\n\n**Og merk at paritet er case-analyse modulo $2$** — ikke en egen teknikk. Alt som gjelder uttømmende case-analyse, gjelder her."
+    },
+    {
+      "id": "ma1301-6-1-k-teoremnavn",
+      "type": "definition",
+      "title": "Kort: teoremnavnene du skal bære",
+      "content": "Instruksen på hvert eksamenssett er at alle svar skal begrunnes, og i bevisdelen er **navnet på resultatet** en del av begrunnelsen. Disse er de som bærer argumenter i sjanger I:\n\n| Navn | Hva det sier | Hvor det står |\n|---|---|---|\n| **divisjonsalgoritmen** | $n=qm+r$, $0\\le r<m$, entydig | [kap. 1.1](/ma1301/ma1301-1-1) |\n| **Euklids lemma** | $p$ primtall, $p\\mid ab\\Rightarrow p\\mid a$ eller $p\\mid b$ | [kap. 1.1](/ma1301/ma1301-1-1) |\n| **aritmetikkens fundamentalteorem** | entydig primtallsfaktorisering | [kap. 1.1](/ma1301/ma1301-1-1) |\n| **Bézouts identitet** | $\\gcd(a,b)=ax+by$ | [kap. 1.2](/ma1301/ma1301-1-2) |\n| **Fermats lille teorem** | $a^p\\equiv a\\pmod p$ | [kap. 2.2](/ma1301/ma1301-2-2) |\n\n**Slik skrives det:** «**ved Euklids lemma** er $3\\mid n$», «**etter aritmetikkens fundamentalteorem** er faktoriseringen entydig», «**ved divisjonsalgoritmen** er $n=3k+r$».\n\n**Et argument uten teoremnavn der teoremet bærer det, er en byggefeil** — og den koster selv når matematikken er riktig, fordi den som retter ikke kan se om du kjenner resultatet eller gjettet.\n\n**Merk hvor ofte divisjonsalgoritmen skal navngis:** hver gang du starter en case-analyse. Det er den setningen som gjør listen av rester komplett, og den er billig å skrive."
+    },
+    {
+      "id": "ma1301-6-1-k-iff",
+      "type": "definition",
+      "title": "Kort: «hvis og bare hvis» i to retninger",
+      "content": "Ser du ordene «hvis og bare hvis», «nøyaktig når», «ekvivalent med» eller symbolet $\\iff$, skal **to** implikasjoner stå.\n\n**Oppsettet som gjør det synlig:**\n\n> «**Retning $\\Rightarrow$:** anta $P$ … altså $Q$. ✓\n> **Retning $\\Leftarrow$:** anta $Q$ … altså $P$. ✓\n> Begge retninger er vist, så $P\\iff Q$. $\\blacksquare$»\n\n**Alternativet: en ekvivalenskjede.** $P\\iff A\\iff B\\iff Q$, der **hvert** ledd er en ekvivalens. Det er kortere, men farligere: er ett av leddene bare en implikasjon, faller hele kjeden. Skriv $\\iff$ mellom leddene bare når du mener det.\n\n**De to retningene har ofte ulik teknikk.** Typisk går den ene direkte og den andre kontrapositivt — som i oppgave 4, der «partall $\\Rightarrow 4\\mid n^2$» går direkte og «$4\\mid n^2\\Rightarrow$ partall» går kontrapositivt. Det er normalt, ikke et tegn på at du har gjort noe galt.\n\n**Kontrollspørsmålet før du setter punktum:** står ordet «anta» to ganger i beviset? Hvis ikke, har du sannsynligvis bare én retning."
+    },
+    {
+      "id": "ma1301-6-1-k-uendelig-mange",
+      "type": "definition",
+      "title": "Kort: «uendelig mange»-malen",
+      "content": "Påstander av formen «det finnes uendelig mange primtall med egenskap $A$» bevises alltid ved **motsigelse**, og malen er fast:\n\n1. **Anta at det bare finnes endelig mange**, og gi dem navn: $p_1,p_2,\\dots,p_k$.\n2. **Konstruér et nytt tall** $N$ av dem — typisk et produkt pluss eller minus $1$.\n3. **Vis at $N$ har en primdivisor $q$ med egenskap $A$** (her kommer case-analysen inn).\n4. **Vis at $q$ ikke er i listen**, fordi $q\\mid N$ og $q\\mid$ produktet ville gitt $q\\mid 1$.\n5. **Konkludér:** listen var ikke komplett — motsigelse.\n\n**Malen må sitte utenat.** Den brukes til «uendelig mange primtall» ([kap. 1.1](/ma1301/ma1301-1-1)), «uendelig mange primtall $\\equiv 2\\pmod 3$» og «$\\equiv 3\\pmod 4$» ([kap. 6.3](/ma1301/ma1301-6-3)).\n\n**Steg 2 er der oppgaven avgjøres**, og valget av $N$ styres av hvilken rest du vil at $N$ skal ha. Vil du ha $N\\equiv 2\\pmod 3$, tar du $N=3p_1\\cdots p_k-1$.\n\n**Steg 4 er den setningen som glemmes oftest.** Skriv den: «var $q$ en av $p_i$-ene, ville $q$ delt både produktet og $N$, altså $q\\mid 1$ — umulig.»"
+    },
+    {
+      "id": "ma1301-6-1-k-vanlige-oversettelser",
+      "type": "definition",
+      "title": "Kort: oversettelsene du gjør uten å tenke",
+      "content": "Bevisarbeid er i stor grad oversettelse. Disse går fra ord til likning, og de skal gå automatisk:\n\n| Ord | Likning |\n|---|---|\n| «$a$ deler $b$» | $b=at$, $t$ helt |\n| «$a$ deler ikke $b$» | $b=at+r$, $1\\le r\\le a-1$ |\n| «$n$ er et partall» | $n=2k$ |\n| «$n$ er odde» | $n=2k+1$ |\n| «$n$ er et kvadrattall» | $n=m^2$ |\n| «$p$ er et primtall» | $p>1$, og de eneste positive divisorene er $1$ og $p$ |\n| «$a$ og $b$ er relativt primiske» | $\\gcd(a,b)=1$, altså $ax+by=1$ for noen $x,y$ (Bézout) |\n| «$n$ er sammensatt» | $n=ab$ med $1<a,b<n$ |\n| «$a\\equiv b\\pmod m$» | $a-b=mt$, altså $m\\mid a-b$ |\n\n**Den nederste raden er den mest brukte** av dem alle: kongruens **er** en delelighetspåstand. Står du fast i et kongruensbevis, oversett til delelighet og arbeid derfra.\n\n**Og merk raden om relativt primiske.** «$\\gcd(a,b)=1$» kan brukes på tre måter — via Bézout ($ax+by=1$), via Euklids lemma, eller via faktoriseringene. Hvilken som er best, avgjøres av oppgaven; alle tre er fullgode ([kap. 6.3](/ma1301/ma1301-6-3))."
+    },
+    {
+      "id": "ma1301-6-1-k-skriveraden",
+      "type": "definition",
+      "title": "Kort: skriveraden, og de tre ugyldige argumentformene",
+      "content": "Tre former som ser ut som bevis og ikke er det. De er verdt å kjenne igjen i sitt eget arbeid.\n\n**1. Sirkelbevis: å bruke det du skal vise.** Å starte med påstanden, regne på begge sider og ende på «$0=0$» beviser ingenting — med mindre hvert steg er en **ekvivalens** og du sier det. **Den trygge formen:** start i den ene enden og regn til den andre, uten å røre påstanden.\n\n**2. Å bevise omvendingen.** Behandlet i løkke 2. $Q\\Rightarrow P$ er ikke $P\\Rightarrow Q$.\n\n**3. Å bevise en allpåstand med eksempler.** Behandlet i kapitlets åpning. Førti bekreftelser er null bevis.\n\n**Selvtesten som avdekker alle tre, og som tar tjue sekunder:** les beviset ditt baklengs og spør for hvert steg «hva rettferdiggjør dette?». Er svaret «det jeg skal vise», er det sirkelbevis. Er svaret «jeg prøvde noen tall», er det eksempelbevis.\n\n**En fjerde, mildere variant:** å hoppe over et steg fordi det er «åpenbart». Det er ikke ugyldig, men det er dyrt — «$k(k+1)$ er åpenbart et partall» koster fire ord mindre enn «$k$ og $k+1$ er etterfølgende, så ett av dem er et partall», og det siste er det som gir uttelling.\n\n**Skriveraden — sjekklista for føringen, uavhengig av teknikk.** Hvert punkt er egne poeng.\n\n- ☐ **Teknikken er navngitt** i første setning («vi viser den kontrapositive», «anta, for å komme til en motsigelse»).\n- ☐ **Antakelsen er skrevet ut**, ikke bare underforstått.\n- ☐ **Hver delelighet er oversatt til en likning** med egen bokstav.\n- ☐ **Teoremene er navngitt** der de bærer argumentet.\n- ☐ **Case-analysen er uttømmende**, eller utelukkelsene er begrunnet.\n- ☐ **Hypotesen er brukt**, og du har pekt på hvor (særlig i induksjon, [kap. 6.2](/ma1301/ma1301-6-2)).\n- ☐ **Motsigelsen er navngitt** — hvilke to utsagn er uforenlige?\n- ☐ **Konklusjonen er en setning** med kvantoren på plass, og $\\blacksquare$ til slutt.\n\n**Åtte punkt. De tar til sammen under ett minutt å kontrollere**, og de er nøyaktig det som skiller en full besvarelse fra en halv i denne sjangeren.\n\n**Merk at ingen av dem handler om regning.** I bevisdelen er det formen som gir uttelling — det er den best belagte metaregelen i faget, og den er grunnen til at Del 6 finnes som egen del."
+    },
+    {
+      "id": "ma1301-6-1-k-tid-bevis",
+      "type": "definition",
+      "title": "Kort: tidsbudsjettet for en bevisoppgave",
+      "content": "Eksamen er 4 timer på rundt ti likt vektede delpunkt, altså **~24 minutter per delpunkt**.\n\n| Arbeid | Tid |\n|---|---|\n| Lese oppgaven og velge teknikk | ~2 min |\n| Skrive malens første setning og oversette antakelsene | ~2 min |\n| Regningen (case-analyse, algebra) | ~6–10 min |\n| Konklusjonssetning og opprydding | ~2 min |\n| Kontroll med to–tre tallverdier | ~2 min |\n\n**Til sammen 14–18 minutter** for et rent bevisdelpunkt. Er oppgaven todelt (lemma i a, anvend i b), regn med hele budsjettet på ~24 minutter for begge.\n\n**Hvor tiden går galt:** i letingen etter riktig teknikk. Bruk tabellen i «velg teknikk»-kortet — tjue sekunder der sparer fem minutters famling.\n\n**Hva du IKKE skal bruke tid på:** å prøve mange tallverdier før du starter. To verdier er nok til å forstå påstanden; flere er tidsbruk uten uttelling. Unntaket er «avgjør om»-oppgaver, der du faktisk leter etter et moteksempel.\n\n**Realistisk forventning:** en bevisoppgave er det delpunktet der struktur alene henter mye. Selv om du ikke kommer helt frem, gir riktig mal med riktig antakelse og en påbegynt case-analyse uttelling — mens et riktig svar uten struktur gir lite."
+    },
+    {
+      "id": "ma1301-6-1-k-selvdiagnose-61",
+      "type": "definition",
+      "title": "Kort: selvdiagnose for bevisteknikk",
+      "content": "Sitter kapitlet? Dekk til boka, sett tre minutter, og svar:\n\n- ☐ Hva er de fire åpningssetningene i de fire malene?\n- ☐ Hva betyr $a\\mid b$, skrevet som en likning?\n- ☐ Hva er den kontrapositive til «hvis $3\\mid n^2$, så $3\\mid n$»?\n- ☐ Hva er forskjellen på kontrapositiv og omvending?\n- ☐ Hvor mange tilfeller har en case-analyse modulo $m$, og hvorfor?\n- ☐ Hvilke rester kan et kvadrattall ha modulo $3$? Modulo $4$?\n- ☐ Hva kreves for å bevise «hvis og bare hvis»?\n- ☐ Hvorfor er førti bekreftelser ikke et bevis?\n\n**Åtte spørsmål. Det er hele kapitlet.**\n\n**Deretter, og det er den viktigste delen:** ta tre av oppgavene over på nytt med lukket bok, og se om malens første setning kommer av seg selv. Gjør den det, sitter kapitlet.\n\n**Hvis noe glapp:** punkt 1 og punkt 5 er de to som gir uttelling i seg selv på eksamen. Prioritér dem."
+    },
+    {
+      "id": "ma1301-6-1-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "ma1301-6-1-rep-inn",
+          "type": "text",
+          "content": "Fem korte oppgaver fra forkunnskapskapitlet. Fasit under hver.\n\n**R1.** Hva sier divisjonsalgoritmen, og hvorfor er $q$ og $r$ entydige?\n\n*Fasit:* For hvert helt tall $n$ og hvert positivt $m$ finnes entydige $q,r$ med $n=qm+r$ og $0\\le r<m$ ([kap. 1.1](/ma1301/ma1301-1-1)). Entydigheten: har du $n=q_1m+r_1=q_2m+r_2$ med begge rester i $[0,m)$, gir subtraksjon $m(q_1-q_2)=r_2-r_1$, og høyresiden ligger strengt mellom $-m$ og $m$. Det eneste multiplum av $m$ i det intervallet er $0$, så $r_1=r_2$ og $q_1=q_2$.\n\n**R2.** Hva sier Euklids lemma, og hvorfor kreves det at $p$ er et primtall?\n\n*Fasit:* Er $p$ et primtall og $p\\mid ab$, så er $p\\mid a$ eller $p\\mid b$ ([kap. 1.1](/ma1301/ma1301-1-1)). Kravet er nødvendig: $6\\mid 4\\cdot 9=36$, men $6\\nmid 4$ og $6\\nmid 9$.\n\n**R3.** Vis at $a\\mid b$ og $a\\mid c$ gir $a\\mid(5b-3c)$.\n\n*Fasit:* Skriv $b=at$ og $c=au$ med $t\\ne u$ som **ulike** bokstaver. Da er $5b-3c=5at-3au=a(5t-3u)$, og $5t-3u$ er et helt tall. Altså $a\\mid(5b-3c)$. Dette er lineærkombinasjonsregelen fra [kap. 1.1](/ma1301/ma1301-1-1).\n\n**R4.** Hva betyr $a\\equiv b\\pmod m$, uttrykt som en delelighet?\n\n*Fasit:* $m\\mid a-b$ ([kap. 1.4](/ma1301/ma1301-1-4)). Det er den formen du bruker når du vil oversette et kongruensbevis til et delelighetsbevis — for eksempel når du skal faktorisere ut $m$.\n\n**R5.** Hvilke tall er sine egne kvadratrøtter modulo $5$, altså har $r^2\\equiv r$?\n\n*Fasit:* $r^2\\equiv r$ betyr $5\\mid r(r-1)$. **Ved Euklids lemma** må $5\\mid r$ eller $5\\mid r-1$, altså $r\\equiv 0$ eller $r\\equiv 1\\pmod 5$. Kontroll ved case-analyse: $r=0,1,2,3,4$ gir $r^2-r=0,0,2,6\\equiv 1,12\\equiv 2$ — bare de to første er $0$ ✓."
+        }
+      ]
+    },
+    {
+      "id": "ma1301-6-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "ma1301-6-1-symbol-inn",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $P\\Rightarrow Q$ | «hvis $P$, så $Q$» — implikasjon |\n| $P\\Leftrightarrow Q$ | «$P$ hvis og bare hvis $Q$» — ekvivalens, to implikasjoner |\n| $\\neg P$ | negasjonen av $P$, «ikke $P$» |\n| $a\\mid b$ | «$a$ deler $b$», altså $b=at$ for et helt tall $t$ |\n| $a\\nmid b$ | «$a$ deler ikke $b$» |\n| $n=qm+r$ | divisjonsalgoritmen, $0\\le r<m$ |\n| $r$ | resten, og i case-analyse navnet på tilfellet |\n| $a\\equiv b\\pmod m$ | $a$ og $b$ har samme rest ved divisjon med $m$ |\n| $t,u,k,m$ | hjelpevariabler for hele tall — **ulike bokstaver for ulike faktorer** |\n| $\\gcd(a,b)$ | største felles divisor ([kap. 1.1](/ma1301/ma1301-1-1)) |\n| $\\blacksquare$ | bevis slutt |\n\n**Formler i dette delkapitlet:**\n\n$$a\\mid b\\iff b=at\\ \\text{for et helt tall }t$$\nDefinisjonen av delelighet, og startpunktet for hvert delelighetsbevis. **(må sitte utenat)**\n\n$$n=qm+r,\\qquad 0\\le r<m$$\nDivisjonsalgoritmen. Grunnlaget for at en case-analyse modulo $m$ har nøyaktig $m$ tilfeller. **(må sitte utenat)**\n\n$$(P\\Rightarrow Q)\\ \\text{er samme utsagn som}\\ (\\neg Q\\Rightarrow\\neg P)$$\nKontrapositiv-ekvivalensen. **(utledes på stedet — de to implikasjonene har samme brudd-situasjon; én linje, se løkke 2)**\n\n$$P\\Leftrightarrow Q\\ \\text{krever}\\ P\\Rightarrow Q\\ \\text{og}\\ Q\\Rightarrow P$$\nEkvivalens er to bevis. **(må sitte utenat)**\n\n$$n^2\\equiv 0\\ \\text{eller}\\ 1\\pmod 3$$\nKvadrattall modulo $3$. **(utledes på stedet — tre tilfeller, to linjer)**\n\n$$n^2\\equiv 0\\ \\text{eller}\\ 1\\pmod 4$$\nKvadrattall modulo $4$. **(utledes på stedet — fire tilfeller, to linjer)**\n\n$$n^2\\equiv 1\\pmod 8\\quad (n\\ \\text{odde})$$\nOdde kvadrattall modulo $8$. **(utledes på stedet — $n=2k+1$ gir $4k(k+1)+1$; to linjer, se eksempel 1)**\n\n$$2\\mid n(n+1)$$\nProduktet av to etterfølgende heltall er et partall. **(utledes på stedet — ett av dem er et partall; én linje)**\n\n$$6\\mid (n-1)n(n+1)$$\nProduktet av tre etterfølgende heltall. **(utledes på stedet — delelig med $2$ og med $3$, og $\\gcd(2,3)=1$; se oppgave 8)**\n\n$$24\\mid p^2-1\\quad (p\\ \\text{primtall},\\ p>3)$$\nResultatet fra eksempel 4. **(utledes på stedet — splitt $24=8\\cdot 3$ og gjør begge som case-analyse; ~8 minutter)**\n\n**De fire bevismalene** — direkte («anta $P$ …»), kontrapositivt («vi viser den kontrapositive …»), motsigelse («anta, for å komme til en motsigelse …»), case-analyse («ved divisjonsalgoritmen er $n\\equiv r\\pmod m$ …»). **(må sitte utenat — det er formen som gir uttelling, og under kode D finnes ingen mal å slå opp i)**\n\n**Uttømmende-kravet** — alle $m$ rester behandlet, eller utelukkelsene begrunnet. **(må sitte utenat — den best belagte enkeltfeilen i bevisdelen er en manglende rad)**"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

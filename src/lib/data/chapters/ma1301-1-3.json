@@ -1,0 +1,399 @@
+{
+  "id": "ma1301-1-3",
+  "courseId": "ma1301",
+  "chapterNumber": "1.3",
+  "title": "Lineære diofantiske likninger (ax + by = c)",
+  "description": "Den klassiske oppgave 1: løs ax+by=c i heltall — sjekk løsbarhet (gcd|c), finn én løsning via Bézout, skaler opp, og skriv HELE løsningsmengden med t-parameter, slik sensor krever.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "avgjøre om en likning av typen ax+by=c har heltallsløsninger, og begrunne svaret",
+    "finne én løsning ved å skalere opp resultatet fra Euklids algoritme baklengs",
+    "skrive hele løsningsmengden med en fri parameter, og kontrollere den ved innsetting",
+    "finne den minste positive løsningen og alle løsninger i et gitt intervall"
+  ],
+  "content": [
+    {
+      "id": "ma1301-1-3-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Sjanger A — lineær diofantisk likning. 10 av 15 sett (67 %), og nesten alltid oppgave 1.**\n\nSjangerbokstavene er bokas egne forkortelser for oppgavetypene, forklart i [kap. 0.1](/ma1301/ma1301-0-1). Sjanger A betyr: løs $ax+by=c$ i hele tall, og oppgi **alle** løsningene.\n\nDette er de billigste poengene på hele settet. Oppskriften er fast, den varierer ikke fra år til år, og den kan drilles til automatikk. At oppgaven kommer først, er også en fordel: du starter eksamen med noe du kan.\n\n**Slik fører fasitene i arkivet det:**\n\n1. Regn $d=\\gcd(a,b)$ **med Euklids algoritme**.\n2. **Sjekk og kommentér** at $d\\mid c$ — før noe løses.\n3. Finn Bézout-koeffisientene ved substitusjon baklengs.\n4. **Skalér** med $c/d$ for å treffe høyresiden.\n5. Skriv **hele** løsningsmengden: $x=x_0+(b/d)t$, $y=y_0-(a/d)t$ med $t\\in\\mathbb{Z}$.\n\n**To varianter som går igjen:**\n\n- **Parameter i koeffisientene** — koeffisientene er uttrykk i en ukjent $n$, og du viser $\\gcd=1$ ved å presentere $1$ som en eksplisitt lineærkombinasjon (løkke 5).\n- **Løsninger i et gitt intervall** — finn hvilke $t$-verdier som treffer, eller den minste positive løsningen (løkke 4).\n\n**Prioritet: høyeste.** Kjent oppskrift, høy frekvens, tidlig i settet."
+    },
+    {
+      "id": "ma1301-1-3-utenat",
+      "type": "tip",
+      "title": "Utenat under kode D",
+      "content": "Eksamen er hjelpemiddelkode D: ingen bok, ingen formelsamling, ingen tabeller, ingen egne notater. Denne oppgavetypen består i sin helhet av ting du må kunne uten hjelp.\n\n**Må sitte utenat:**\n\n- **løsbarhetskriteriet** $d\\mid c$ der $d=\\gcd(a,b)$ — og at du kommenterer det *før* du løser\n- **løsningsmengden**, med fortegnene på riktig plass:\n$$x=x_0+\\frac{b}{d}t,\\qquad y=y_0-\\frac{a}{d}t,\\qquad t\\in\\mathbb{Z}$$\n- at partikulærløsningen må **skaleres med $c/d$** — Bézout gir deg $d$, ikke $c$\n- at «minste positive» skal besvares **eksplisitt** når det spørres\n\n**Merk fortegnene i løsningsmengden:** $x$ får **pluss** $b/d$, $y$ får **minus** $a/d$. Kryssingen er ikke tilfeldig — den er nettopp det som gjør at leddene med $t$ kansellerer. Blander du dem, får du ikke løsninger.\n\n**Utledes på stedet:** at parametriseringen fanger *alle* løsninger. Utledningen tar tre linjer og står i løkke 3 — og den forklarer samtidig hvorfor det er $b/d$ og ikke $b$ som er skrittlengden.\n\n**Selvtest, ett minutt:** dekk til siden og skriv ned løsningsmengden med begge fortegn, og si hva $d$ er. Skriv deretter løsbarhetskriteriet. Får du begge, har du kapitlets kjerne."
+    },
+    {
+      "id": "ma1301-1-3-forkunnskaper",
+      "type": "text",
+      "content": "### Forkunnskaper\n\nFra boka: [kap. 1.2](/ma1301/ma1301-1-2) — Euklids algoritme frem og baklengs, og Bézouts identitet. Dette kapitlet er en anvendelse av det forrige; kan du ikke Euklid begge veier, er dette stedet å gå tilbake.\n\n**Sist du var her.** De to resultatene fra [kap. 1.2](/ma1301/ma1301-1-2) som alt her hviler på:\n\n**Bézouts identitet.** For alle hele tall $a,b$ (ikke begge null) finnes hele tall $x,y$ med\n$$\\gcd(a,b)=ax+by,$$\nog $\\gcd(a,b)$ er det **minste** positive tallet på denne formen.\n\n**Mengden av lineærkombinasjoner.** Tallene på formen $ax+by$ er **nøyaktig** multiplene av $\\gcd(a,b)$:\n$$\\{ax+by:x,y\\in\\mathbb{Z}\\}=\\{k\\cdot\\gcd(a,b):k\\in\\mathbb{Z}\\}.$$\nDenne ene setningen **er** løsbarhetskriteriet i dette kapitlet. Likningen $ax+by=c$ har løsning nøyaktig når $c$ ligger i mengden til venstre — altså når $\\gcd(a,b)\\mid c$.\n\nFra videregående: ingenting påkrevd."
+    },
+    {
+      "id": "ma1301-1-3-motivasjon",
+      "type": "text",
+      "content": "### Frimerker som ikke går opp\n\nDu skal sende en pakke og har bare to frimerkevalører i skuffen: $14$ kr og $22$ kr. Portoen er $96$ kr. Går det opp?\n\nSpørsmålet er om likningen\n$$14x+22y=96$$\nhar en løsning i hele tall — og siden du ikke kan lime på negative frimerker, i **ikke-negative** hele tall. Første del er dette kapitlet. Andre del er varianten «løsninger i et gitt intervall», som kommer i løkke 4.\n\nMerk hva som gjør spørsmålet ikke-trivielt: begge valørene er like tall, så summen er alltid et like tall. Portoen $96$ er like, så det er i hvert fall mulig. Hadde portoen vært $95$, kunne du sluttet der.\n\nDet er hele løsbarhetskriteriet i miniatyr: **$\\gcd(14,22)=2$ må dele høyresiden.** Alt annet i kapitlet er å gjøre den observasjonen presis, og å finne løsningene når de finnes.\n\nEn likning som dette — heltallskoeffisienter, og der vi bare tillater heltallsløsninger — kalles en **diofantisk likning**, etter Diofantos fra Alexandria. Er den i tillegg av første grad, som her, kalles den **lineær**.\n\n*Tidsanslag for kapitlet: ~55 minutter lesetid, fordelt på fem løkker à 8–12 minutter. Regner du med penn, legg til omtrent halvparten.*"
+    },
+    {
+      "id": "ma1301-1-3-l1-intro",
+      "type": "text",
+      "content": "## Løkke 1: Løsbarhetskriteriet — sjekk før du regner\n\n*~10 minutter.*\n\nDen viktigste vanen i denne oppgavetypen er å sjekke løsbarheten **først**. Det tar tjue sekunder, det er et føringspoeng i seg selv, og av og til er det hele svaret."
+    },
+    {
+      "id": "ma1301-1-3-d-diofantisk",
+      "type": "definition",
+      "title": "Lineær diofantisk likning",
+      "content": "En likning\n\n$$ax+by=c,$$\n\nder $a$, $b$ og $c$ er gitte hele tall, og der vi bare godtar **hele tall** som løsninger for $x$ og $y$.\n\nOrdet **diofantisk** betyr nettopp «vi krever heltallsløsninger». Uten kravet ville likningen vært trivielt løsbar: velg $x=0$ og $y=c/b$, og du er ferdig. Det er heltallskravet som gjør oppgaven til et tallteoretisk spørsmål.\n\nOrdet **lineær** betyr at $x$ og $y$ opptrer i første potens. Ikke-lineære diofantiske likninger finnes også i pensum: $x^2-Dy^2=1$ er Pells likning (kap. 7.1), og $x^2+y^2=z^2$ gir de pytagoreiske triplene (kap. 7.2). De løses med helt andre metoder.\n\nGeometrisk: $ax+by=c$ er en rett linje i planet, og vi spør hvilke **gitterpunkt** (punkt med heltallskoordinater) linja treffer. Svaret er enten ingen, eller uendelig mange jevnt fordelt langs linja — aldri et endelig antall."
+    },
+    {
+      "id": "ma1301-1-3-t-losbarhet",
+      "type": "theorem",
+      "title": "Løsbarhetskriteriet",
+      "content": "Likningen $ax+by=c$ har heltallsløsninger **hvis og bare hvis**\n\n$$d\\mid c,\\qquad\\text{der } d=\\gcd(a,b).$$\n\n**Bevis.** Fra [kap. 1.2](/ma1301/ma1301-1-2) vet vi at mengden av tall på formen $ax+by$ er nøyaktig mengden av multipler av $d$.\n\n*Retning 1 (nødvendig).* Har likningen en løsning, er $c$ på formen $ax+by$, altså et multiplum av $d$. Da er $d\\mid c$.\n\n*Retning 2 (tilstrekkelig).* Er $d\\mid c$, skriv $c=kd$. **Etter Bézout** finnes $x_0',y_0'$ med $ax_0'+by_0'=d$. Gang likningen med $k$:\n$$a(kx_0')+b(ky_0')=kd=c,$$\nog vi har en løsning. $\\blacksquare$\n\n**Kriteriet må sitte utenat, og det må kommenteres i besvarelsen** — ikke bare brukes stilltiende. Fasitene i arkivet skriver det ut som en setning: «Fordi $d=11$ deler $c=44$, har likningen løsninger.»\n\n**Merk hva som følger når kriteriet svikter.** Da er du ferdig, og du har svart fullstendig: likningen har ingen heltallsløsninger. Du skal ikke forsøke å løse videre — det finnes ingenting å finne."
+    },
+    {
+      "id": "ma1301-1-3-e1",
+      "type": "example",
+      "title": "Når likningen ikke har løsning",
+      "problem": "Avgjør om likningen $803x+154y=30$ har heltallsløsninger.",
+      "solution": "**Steg 1: regn ut $\\gcd(803,154)$ med Euklids algoritme.**\n\n**(i) Divisjonskjeden frem.** Vi deler gjentatt med rest, **ved Euklids algoritme**, til resten blir $0$:\n\n$$803 = 5\\cdot 154 + 33$$\n$$154 = 4\\cdot 33 + 22$$\n$$33 = 1\\cdot 22 + 11$$\n$$22 = 2\\cdot 11 + 0$$\n\nDen siste resten som ikke er $0$, er $11$. Altså er $\\gcd(803,154)=11$. Kjeden har 4 divisjonslinjer.\n\n**Steg 2: kommenter løsbarheten FØR vi løser.**\n\nLøsbarhetskriteriet er $d\\mid c$, der $d=\\gcd(803,154)=11$. Her er $c=30$, og\n$$30 = 2\\cdot 11 + 8,$$\naltså $11\\nmid 30$.\n\n**Konklusjon: likningen har ingen heltallsløsninger.** Etter Bézout er tallene på formen $803x+154y$ nøyaktig multiplene av $11$, og $30$ er ikke et slikt multiplum.\n\n*Legg merke til at vi ikke forsøkte å løse noe. Løsbarhetssjekken er ett delelighetsspørsmål, og den avgjør saken.*\n\n**Sluttsvar:** nei, $803x+154y=30$ har ingen heltallsløsninger, siden $\\gcd(803,154)=11$ og $11\\nmid 30$.\n\n*Merk hvor lite arbeid dette var: én Euklid-kjede og én delelighetssjekk. Hadde vi hoppet rett til Bézout og skalering, ville vi endt med brøken $30/11$ og et svar som ikke er et helt tall — og sannsynligvis brukt fem minutter på å lete etter regnefeilen. Løsbarhetssjekken først er derfor både et føringspoeng og en tidsbesparelse.*"
+    },
+    {
+      "id": "ma1301-1-3-ex-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-1-3-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Avgjør for hver av likningene om den har heltallsløsninger. Du skal **ikke** løse dem — bare avgjøre løsbarheten, med begrunnelse.\n\n**a)** $1440x+693y=100$\n**b)** $1440x+693y=99$\n**c)** $14x+22y=95$",
+        "solution": "**a)** Fra [kap. 1.2](/ma1301/ma1301-1-2), oppgave 1, er $\\gcd(1440,693)=9$. Er $9\\mid 100$? Nei: $100=11\\cdot 9+1$, med rest $1$.\n\n**Etter løsbarhetskriteriet har likningen ingen heltallsløsninger.**\n\n**b)** Samme $\\gcd=9$. Er $9\\mid 99$? Ja: $99=11\\cdot 9$.\n\n**Etter løsbarhetskriteriet har likningen løsninger.** (Vi finner dem ikke her, men vi vet at de finnes, og at det er uendelig mange.)\n\n**c)** $\\gcd(14,22)$: begge er like, $14=2\\cdot 7$ og $22=2\\cdot 11$, så $\\gcd=2$. Er $2\\mid 95$? Nei — $95$ er et oddetall.\n\n**Etter løsbarhetskriteriet har likningen ingen heltallsløsninger.**\n\n*Merk at c) kunne besvarts helt uten $\\gcd$: venstresiden $14x+22y=2(7x+11y)$ er alltid et like tall, og $95$ er odde. Det er samme argument, sett fra en annen side — og det er nettopp poenget med kriteriet: felles faktorer i $a$ og $b$ tvinger venstresiden inn i multiplene av $d$.*\n\n**Sluttsvar:** **a)** ingen løsninger. **b)** har løsninger. **c)** ingen løsninger.",
+        "hints": [
+          "Regn først $\\gcd(a,b)$ for hver likning.",
+          "Spør deretter om det $\\gcd$-tallet deler høyresiden.",
+          "I c): hva slags tall er $14x+22y$ alltid?"
+        ]
+      }
+    },
+    {
+      "id": "ma1301-1-3-l2-intro",
+      "type": "text",
+      "content": "## Løkke 2: Partikulærløsningen — Bézout, så skalering\n\n*~10 minutter.*\n\nNå til det steget som glemmes oftest. Bézout gir deg $\\gcd(a,b)$ som en kombinasjon — men oppgaven spør om $c$, ikke om $\\gcd$. Broen mellom dem er én multiplikasjon, og den er den mest belagte feilkilden i sjanger A.\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "ma1301-1-3-d-partikulaerlosning",
+      "type": "definition",
+      "title": "Partikulærløsning",
+      "content": "**Én** løsning av likningen, kalt $(x_0,y_0)$. Ordet «partikulær» betyr «en bestemt, enkelt» — i motsetning til den **generelle** løsningen, som er alle på én gang.\n\nSlik finner du den, i to skritt:\n\n1. **Etter Bézout**, finn $x',y'$ med $ax'+by'=d$ (substitusjonskjeden baklengs fra [kap. 1.2](/ma1301/ma1301-1-2)).\n2. **Skalér** med $k=c/d$:\n$$x_0=k\\,x',\\qquad y_0=k\\,y'.$$\n\nDa er $ax_0+by_0=k\\cdot d=c$, som ønsket.\n\n**Skaleringen må sitte utenat**, og den må gjøres. Bézout gir deg alltid $d$ på høyre side — aldri $c$. Er $c=d$, er $k=1$ og skaleringen er usynlig; det er nettopp derfor den glemmes når $c\\ne d$.\n\n**Kontrollen tar tjue sekunder:** sett $(x_0,y_0)$ inn i den opprinnelige likningen og se at du får $c$. Gjør det hver gang."
+    },
+    {
+      "id": "ma1301-1-3-d-skalering",
+      "type": "definition",
+      "title": "Skaleringsfaktoren c/d",
+      "content": "Tallet $k=c/d$ du ganger Bézout-likningen med.\n\n**To ting å merke:**\n\n- **$k$ er et helt tall** — det er nettopp det løsbarhetskriteriet $d\\mid c$ garanterer. Får du en brøk her, har du hoppet over løsbarhetssjekken, og likningen har ingen løsning.\n- **$k$ kan være negativ.** Er $c$ negativ, blir $k$ negativ, og partikulærløsningen skifter fortegn. Det er helt i orden — heltallsløsninger har ingen fortegnsrestriksjon med mindre oppgaven sier noe annet.\n\n**Den mest belagte feilen i sjanger A** er å glemme dette steget: man finner $d=ax'+by'$ riktig, og oppgir $(x',y')$ som svar. Men $(x',y')$ løser likningen $ax+by=d$, ikke $ax+by=c$.\n\n**Kontrollen som fanger den:** sett svaret inn. Får du $d$ i stedet for $c$, mangler skaleringen — og du er ett multiplikasjonssteg fra riktig svar."
+    },
+    {
+      "id": "ma1301-1-3-e2",
+      "type": "example",
+      "title": "Fra Bézout til partikulærløsning",
+      "problem": "Finn én heltallsløsning av $803x+154y=44$.",
+      "solution": "**Steg 1: regn ut $\\gcd(803,154)$ med Euklids algoritme.**\n\n**(i) Divisjonskjeden frem.** Vi deler gjentatt med rest, **ved Euklids algoritme**, til resten blir $0$:\n\n$$803 = 5\\cdot 154 + 33$$\n$$154 = 4\\cdot 33 + 22$$\n$$33 = 1\\cdot 22 + 11$$\n$$22 = 2\\cdot 11 + 0$$\n\nDen siste resten som ikke er $0$, er $11$. Altså er $\\gcd(803,154)=11$. Kjeden har 4 divisjonslinjer.\n\n**Steg 2: kommenter løsbarheten FØR vi løser.**\n\nLøsbarhetskriteriet er $d\\mid c$, der $d=\\gcd(803,154)=11$. Her er $44=4\\cdot 11$, så $11\\mid 44$. **Fordi $d=11$ deler $c=44$, har likningen løsninger** — og vi kan gå videre.\n\n**Steg 3: finn Bézout-koeffisientene ved substitusjon baklengs.**\n\n**(ii) Substitusjonskjeden baklengs.** Vi løser den nest siste linja for resten og substituerer oppover, linje for linje:\n\n$$11 = 33 - 1\\cdot 22$$\nSett inn $22 = 154 - 4\\cdot 33$:\n$$11 = -1\\cdot 154 + 5\\cdot 33$$\nSett inn $33 = 803 - 5\\cdot 154$:\n$$11 = 5\\cdot 803 - 26\\cdot 154$$\n\n**(iii) Konklusjon.** Altså er\n\n$$\\gcd(803,154) = 11 = 803\\cdot(5) + 154\\cdot(-26).$$\n\n**Kontroll ved innsetting:** $803\\cdot(5) + 154\\cdot(-26) = 4\\,015 - 4\\,004 = 11$. Stemmer.\n\n**Steg 4: skaler opp til en partikulærløsning.** Vi trenger høyresiden $44$, ikke $11$, så vi ganger hele Bézout-likningen med $c/d=44/11=4$:\n\n$$803\\cdot(20) + 154\\cdot(-104) = 44.$$\n\nAltså er $x_0=20$, $y_0=-104$ én løsning. **Kontroll:** $803\\cdot(20)=16\\,060$ og $154\\cdot(-104)=-16\\,016$, med sum $44$. Stemmer.\n\n**Steg 5: skriv HELE løsningsmengden.** Med $b/d=154/11=14$ og $a/d=803/11=73$:\n\n$$x = 20 + 14t,\\qquad y = -104 - 73t,\\qquad t\\in\\mathbb{Z}.$$\n\n**Kontroll av parametriseringen.** Sett inn og se at $t$ faller ut:\n$$803(20+14t) + 154(-104-73t) = 44 + 803\\cdot 14t - 154\\cdot 73t = 44 + 11\\,242t - 11\\,242t = 44.$$\nLeddene med $t$ kansellerer, som de skal — begge er $\\pm\\operatorname{lcm}(803,154)t = \\pm11\\,242t$.\n\n**Sluttsvar:** $x_0=20$, $y_0=-104$ er en løsning. (Hele løsningsmengden er også oppgitt over — vi kommer tilbake til hvorfor den ser slik ut i neste løkke.)\n\n*Legg merke til skaleringssteget. Bézout ga oss $11=803\\cdot 5+154\\cdot(-26)$. Hadde vi stoppet der og svart $(5,-26)$, ville vi løst likningen $803x+154y=11$ — som ingen spurte om. Multiplikasjonen med $4$ er broen, og den er hele forskjellen mellom riktig og galt svar.*"
+    },
+    {
+      "id": "ma1301-1-3-ex-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-1-3-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Finn én heltallsløsning av $1071x+462y=84$, og kontroller den ved innsetting.\n\n*(Du kan bruke at $\\gcd(1071,462)=21$ og at $21=1071\\cdot(-3)+462\\cdot 7$ fra [kap. 1.2](/ma1301/ma1301-1-2), eksempel 1 — men skriv opp Euklid-kjeden hvis du vil trene på den.)*",
+        "solution": "**Steg 1: løsbarhet.** $d=\\gcd(1071,462)=21$, og $84=4\\cdot 21$, så $21\\mid 84$. **Fordi $d=21$ deler $c=84$, har likningen løsninger.**\n\n**Steg 2: Bézout.** Fra [kap. 1.2](/ma1301/ma1301-1-2):\n$$21=1071\\cdot(-3)+462\\cdot 7.$$\n\n**Steg 3: skalér med $c/d=84/21=4$.**\n$$1071\\cdot(-12)+462\\cdot(28)=84.$$\n\nAltså er $x_0=-12$, $y_0=28$ en løsning.\n\n**Kontroll ved innsetting:** $1071\\cdot(-12)=-12\\,852$ og $462\\cdot 28=12\\,936$. Summen er $12\\,936-12\\,852=84$ ✓.\n\n**Sluttsvar:** $x_0=-12$, $y_0=28$.\n\n*Merk at løsningen har negativ $x$. Det er helt greit — oppgaven ba om en heltallsløsning, ikke en positiv. Vil du ha en med begge positive, finnes ikke det her: hele løsningsmengden er $x=-12+22t$, $y=28-51t$, og $x>0$ krever $t\\ge 1$, som gir $y=28-51=-23<0$. Positive løsninger av begge finnes altså ikke — en observasjon som er hele poenget i «frimerke»-varianten.*",
+        "hints": [
+          "Skalér Bézout-likningen så høyresiden blir $84$ i stedet for $21$.",
+          "Hvilket tall må du gange med? $84/21$.",
+          "Husk å gange BEGGE koeffisientene."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-1-3-l3-intro",
+      "type": "text",
+      "content": "## Løkke 3: Hele løsningsmengden\n\n*~12 minutter.*\n\nEn diofantisk likning som har én løsning, har uendelig mange. Oppgaven spør nesten alltid om **alle** — «finn samtlige heltallsløsninger», «angi den generelle løsningen» — og et svar med bare én løsning er et ufullstendig svar.\n\nHer er formelen, og her er grunnen til at den ser ut som den gjør."
+    },
+    {
+      "id": "ma1301-1-3-t-losningsmengden",
+      "type": "theorem",
+      "title": "Hele løsningsmengden",
+      "content": "La $d=\\gcd(a,b)$, anta $d\\mid c$, og la $(x_0,y_0)$ være **én** løsning av $ax+by=c$. Da er samtlige heltallsløsninger gitt ved\n\n$$x=x_0+\\frac{b}{d}\\,t,\\qquad y=y_0-\\frac{a}{d}\\,t,\\qquad t\\in\\mathbb{Z},$$\n\nog hver verdi av $t$ gir en ny løsning.\n\n**Bevis, i to deler.**\n\n*Del 1: hver slik $(x,y)$ er en løsning.* Sett inn:\n$$a\\left(x_0+\\frac bd t\\right)+b\\left(y_0-\\frac ad t\\right)=ax_0+by_0+\\frac{ab}{d}t-\\frac{ab}{d}t=c.$$\nDe to $t$-leddene er identiske og kansellerer. **Dette er grunnen til fortegnskryssingen:** $x$ får $+b/d$ og $y$ får $-a/d$ nettopp for at $\\frac{ab}{d}t$ skal opptre én gang med hvert fortegn.\n\n*Del 2: hver løsning er på denne formen.* La $(x,y)$ være en vilkårlig løsning. Trekk de to likningene fra hverandre:\n$$a(x-x_0)+b(y-y_0)=c-c=0,\\qquad\\text{altså}\\qquad a(x-x_0)=-b(y-y_0).$$\nDel på $d$ og sett $a'=a/d$, $b'=b/d$:\n$$a'(x-x_0)=-b'(y-y_0).$$\nNå er $\\gcd(a',b')=1$ (vi har delt ut hele den felles faktoren). Siden $b'$ deler venstresiden og $\\gcd(a',b')=1$, må $b'\\mid(x-x_0)$ — **etter Euklids lemma** anvendt på primfaktorene i $b'$. Skriv $x-x_0=b't$. Da gir likningen $a'b't=-b'(y-y_0)$, altså $y-y_0=-a't$. Det er nøyaktig formen i påstanden. $\\blacksquare$\n\n**Formelen må sitte utenat, med begge fortegn.** Utledningen over **utledes på stedet** — Del 1 tar to linjer og er verdt å kunne kjøre, fordi den samtidig er kontrollen din på at du husker fortegnene riktig."
+    },
+    {
+      "id": "ma1301-1-3-d-losningsmengden",
+      "type": "definition",
+      "title": "Løsningsmengden — formen og fortegnene",
+      "content": "Standardformen for svaret i sjanger A:\n\n$$x=x_0+\\frac{b}{d}t,\\qquad y=y_0-\\frac{a}{d}t,\\qquad t\\in\\mathbb{Z}.$$\n\n**Fire ting som må stemme, og som hver for seg er en vanlig feil:**\n\n1. **Fortegnene krysser.** $x$ får pluss, $y$ får minus. (Motsatt fungerer også — det svarer til å bytte $t$ mot $-t$ — men *samme* fortegn på begge er galt.)\n2. **Koeffisientene bytter plass.** $x$ får $b/d$ (det andre tallet), $y$ får $a/d$ (det første). Dette er kryssingen som gjør at leddene kansellerer.\n3. **Det er $b/d$, ikke $b$.** Skrittlengden er delt på $\\gcd$. Bruker du $b$, hopper du over $d-1$ av $d$ løsninger.\n4. **$t$ løper over alle hele tall**, også de negative. Skriv $t\\in\\mathbb{Z}$ eksplisitt.\n\n**Kontrollen som fanger alle fire:** sett inn og se at $t$ faller ut. Gjør den til rutine — det tar tjue sekunder, og alternativet er et svar som er systematisk galt."
+    },
+    {
+      "id": "ma1301-1-3-d-skrittlengden",
+      "type": "definition",
+      "title": "Skrittlengden — hvorfor b/d og ikke b",
+      "content": "Avstanden mellom nabo-løsninger i $x$-retningen er $b/d$, ikke $b$.\n\n**Utledningen utledes på stedet, i to linjer:** for at et skritt $\\Delta x$ i $x$ skal kunne kompenseres av et helt skritt $\\Delta y$ i $y$, må $a\\Delta x=-b\\Delta y$. Det minste positive $\\Delta x$ som gjør høyresiden delelig med $a$, er $\\Delta x=b/d$ — og da er $\\Delta y=-a/d$. Med $\\Delta x=b$ ville $\\Delta y=-a$, som også virker, men det er $d$ ganger for langt skritt.\n\n**Konkret hva feilen koster.** For $803x+154y=44$ er $d=11$, og skrittlengden er $154/11=14$. Løsningene i $x$ er\n$$\\dots,-8,\\ 6,\\ 20,\\ 34,\\ 48,\\dots$$\nBruker du $b=154$ i stedet, får du bare $\\dots,20,174,\\dots$ — altså **1 av 11** løsninger. Du har mistet ti elleventedeler av svaret, og med dem «minste positive», som var $6$.\n\n**Merk sammenhengen:** $a\\cdot\\frac bd=\\operatorname{lcm}(a,b)$. Skrittet er altså nøyaktig så langt at begge ledd flytter seg et helt multiplum av det minste felles multiplum."
+    },
+    {
+      "id": "ma1301-1-3-e3",
+      "type": "example",
+      "title": "Hele løsningsmengden, og den minste positive",
+      "problem": "Finn samtlige heltallsløsninger av\n$$803x+154y=44,$$\nog angi den løsningen der $x$ er minst mulig positivt tall.",
+      "solution": "**Steg 1: regn ut $\\gcd(803,154)$ med Euklids algoritme.**\n\n**(i) Divisjonskjeden frem.** Vi deler gjentatt med rest, **ved Euklids algoritme**, til resten blir $0$:\n\n$$803 = 5\\cdot 154 + 33$$\n$$154 = 4\\cdot 33 + 22$$\n$$33 = 1\\cdot 22 + 11$$\n$$22 = 2\\cdot 11 + 0$$\n\nDen siste resten som ikke er $0$, er $11$. Altså er $\\gcd(803,154)=11$. Kjeden har 4 divisjonslinjer.\n\n**Steg 2: kommenter løsbarheten FØR vi løser.**\n\nLøsbarhetskriteriet er $d\\mid c$, der $d=\\gcd(803,154)=11$. Her er $44=4\\cdot 11$, så $11\\mid 44$. **Fordi $d=11$ deler $c=44$, har likningen løsninger** — og vi kan gå videre.\n\n**Steg 3: finn Bézout-koeffisientene ved substitusjon baklengs.**\n\n**(ii) Substitusjonskjeden baklengs.** Vi løser den nest siste linja for resten og substituerer oppover, linje for linje:\n\n$$11 = 33 - 1\\cdot 22$$\nSett inn $22 = 154 - 4\\cdot 33$:\n$$11 = -1\\cdot 154 + 5\\cdot 33$$\nSett inn $33 = 803 - 5\\cdot 154$:\n$$11 = 5\\cdot 803 - 26\\cdot 154$$\n\n**(iii) Konklusjon.** Altså er\n\n$$\\gcd(803,154) = 11 = 803\\cdot(5) + 154\\cdot(-26).$$\n\n**Kontroll ved innsetting:** $803\\cdot(5) + 154\\cdot(-26) = 4\\,015 - 4\\,004 = 11$. Stemmer.\n\n**Steg 4: skaler opp til en partikulærløsning.** Vi trenger høyresiden $44$, ikke $11$, så vi ganger hele Bézout-likningen med $c/d=44/11=4$:\n\n$$803\\cdot(20) + 154\\cdot(-104) = 44.$$\n\nAltså er $x_0=20$, $y_0=-104$ én løsning. **Kontroll:** $803\\cdot(20)=16\\,060$ og $154\\cdot(-104)=-16\\,016$, med sum $44$. Stemmer.\n\n**Steg 5: skriv HELE løsningsmengden.** Med $b/d=154/11=14$ og $a/d=803/11=73$:\n\n$$x = 20 + 14t,\\qquad y = -104 - 73t,\\qquad t\\in\\mathbb{Z}.$$\n\n**Kontroll av parametriseringen.** Sett inn og se at $t$ faller ut:\n$$803(20+14t) + 154(-104-73t) = 44 + 803\\cdot 14t - 154\\cdot 73t = 44 + 11\\,242t - 11\\,242t = 44.$$\nLeddene med $t$ kansellerer, som de skal — begge er $\\pm\\operatorname{lcm}(803,154)t = \\pm11\\,242t$.\n\n**Steg 6: den minste positive $x$ (eksplisitt besvart, siden det spørres).** Vi trenger $x=20+14t\\ge 1$, altså $t\\ge -19/14$, som gir $t\\ge -1$. Minste slike $t$ er $t=-1$:\n\n$$x = 20+14\\cdot(-1) = 6,\\qquad y = -104-73\\cdot(-1) = -31.$$\n\n**Kontroll:** $803\\cdot 6 + 154\\cdot(-31) = 4\\,818 - 4\\,774 = 44$. Stemmer.\n\n**Minste positive $x$ er $6$**, med tilhørende $y=-31$.\n\n**Sluttsvar:** samtlige heltallsløsninger er\n$$x=20+14t,\\qquad y=-104-73t,\\qquad t\\in\\mathbb{Z},$$\nog den med minste positive $x$ er $(x,y)=(6,-31)$.\n\n*Legg merke til at «minste positive» ble besvart eksplisitt, med egen setning og egen kontroll. Fasitene i arkivet gjør det samme, og de gjør det fordi det spørres om det — et svar som stopper ved parametriseringen har ikke besvart siste del av oppgaven.*"
+    },
+    {
+      "id": "ma1301-1-3-ex-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-1-3-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Finn samtlige heltallsløsninger av $897x+364y=52$.",
+        "solution": "**Steg 1: regn ut $\\gcd(897,364)$ med Euklids algoritme.**\n\n**(i) Divisjonskjeden frem.** Vi deler gjentatt med rest, **ved Euklids algoritme**, til resten blir $0$:\n\n$$897 = 2\\cdot 364 + 169$$\n$$364 = 2\\cdot 169 + 26$$\n$$169 = 6\\cdot 26 + 13$$\n$$26 = 2\\cdot 13 + 0$$\n\nDen siste resten som ikke er $0$, er $13$. Altså er $\\gcd(897,364)=13$. Kjeden har 4 divisjonslinjer.\n\n**Steg 2: kommenter løsbarheten FØR vi løser.**\n\nLøsbarhetskriteriet er $d\\mid c$, der $d=\\gcd(897,364)=13$. Her er $52=4\\cdot 13$, så $13\\mid 52$. **Fordi $d=13$ deler $c=52$, har likningen løsninger** — og vi kan gå videre.\n\n**Steg 3: finn Bézout-koeffisientene ved substitusjon baklengs.**\n\n**(ii) Substitusjonskjeden baklengs.** Vi løser den nest siste linja for resten og substituerer oppover, linje for linje:\n\n$$13 = 169 - 6\\cdot 26$$\nSett inn $26 = 364 - 2\\cdot 169$:\n$$13 = -6\\cdot 364 + 13\\cdot 169$$\nSett inn $169 = 897 - 2\\cdot 364$:\n$$13 = 13\\cdot 897 - 32\\cdot 364$$\n\n**(iii) Konklusjon.** Altså er\n\n$$\\gcd(897,364) = 13 = 897\\cdot(13) + 364\\cdot(-32).$$\n\n**Kontroll ved innsetting:** $897\\cdot(13) + 364\\cdot(-32) = 11\\,661 - 11\\,648 = 13$. Stemmer.\n\n**Steg 4: skaler opp til en partikulærløsning.** Vi trenger høyresiden $52$, ikke $13$, så vi ganger hele Bézout-likningen med $c/d=52/13=4$:\n\n$$897\\cdot(52) + 364\\cdot(-128) = 52.$$\n\nAltså er $x_0=52$, $y_0=-128$ én løsning. **Kontroll:** $897\\cdot(52)=46\\,644$ og $364\\cdot(-128)=-46\\,592$, med sum $52$. Stemmer.\n\n**Steg 5: skriv HELE løsningsmengden.** Med $b/d=364/13=28$ og $a/d=897/13=69$:\n\n$$x = 52 + 28t,\\qquad y = -128 - 69t,\\qquad t\\in\\mathbb{Z}.$$\n\n**Kontroll av parametriseringen.** Sett inn og se at $t$ faller ut:\n$$897(52+28t) + 364(-128-69t) = 52 + 897\\cdot 28t - 364\\cdot 69t = 52 + 25\\,116t - 25\\,116t = 52.$$\nLeddene med $t$ kansellerer, som de skal — begge er $\\pm\\operatorname{lcm}(897,364)t = \\pm25\\,116t$.\n\n**Sluttsvar:** $x=52+28t$, $y=-128-69t$ med $t\\in\\mathbb{Z}$.\n\n*Kontroll av skrittlengden: $364/13=28$ og $897/13=69$. Og $897\\cdot 28=25\\,116=364\\cdot 69$ — de to $t$-leddene er like store, som de skal være (begge er $\\operatorname{lcm}(897,364)$).*",
+        "hints": [
+          "Regn $\\gcd(897,364)$ med Euklids algoritme — du gjorde dette i [kap. 1.2](/ma1301/ma1301-1-2), oppgave 3.",
+          "Kommentér løsbarheten før du løser: deler $\\gcd$ tallet $52$?",
+          "Husk å skalere Bézout-likningen, og husk at skrittlengdene er $b/d$ og $a/d$."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-1-3-ex-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-1-3-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Finn samtlige heltallsløsninger av $1729x+703y=95$, og oppgi den med minste positive $x$.",
+        "solution": "**Steg 1: regn ut $\\gcd(1\\,729,703)$ med Euklids algoritme.**\n\n**(i) Divisjonskjeden frem.** Vi deler gjentatt med rest, **ved Euklids algoritme**, til resten blir $0$:\n\n$$1\\,729 = 2\\cdot 703 + 323$$\n$$703 = 2\\cdot 323 + 57$$\n$$323 = 5\\cdot 57 + 38$$\n$$57 = 1\\cdot 38 + 19$$\n$$38 = 2\\cdot 19 + 0$$\n\nDen siste resten som ikke er $0$, er $19$. Altså er $\\gcd(1\\,729,703)=19$. Kjeden har 5 divisjonslinjer.\n\n**Steg 2: kommenter løsbarheten FØR vi løser.**\n\nLøsbarhetskriteriet er $d\\mid c$, der $d=\\gcd(1\\,729,703)=19$. Her er $95=5\\cdot 19$, så $19\\mid 95$. **Fordi $d=19$ deler $c=95$, har likningen løsninger** — og vi kan gå videre.\n\n**Steg 3: finn Bézout-koeffisientene ved substitusjon baklengs.**\n\n**(ii) Substitusjonskjeden baklengs.** Vi løser den nest siste linja for resten og substituerer oppover, linje for linje:\n\n$$19 = 57 - 1\\cdot 38$$\nSett inn $38 = 323 - 5\\cdot 57$:\n$$19 = -1\\cdot 323 + 6\\cdot 57$$\nSett inn $57 = 703 - 2\\cdot 323$:\n$$19 = 6\\cdot 703 - 13\\cdot 323$$\nSett inn $323 = 1\\,729 - 2\\cdot 703$:\n$$19 = -13\\cdot 1\\,729 + 32\\cdot 703$$\n\n**(iii) Konklusjon.** Altså er\n\n$$\\gcd(1\\,729,703) = 19 = 1\\,729\\cdot(-13) + 703\\cdot(32).$$\n\n**Kontroll ved innsetting:** $1\\,729\\cdot(-13) + 703\\cdot(32) = -22\\,477 + 22\\,496 = 19$. Stemmer.\n\n**Steg 4: skaler opp til en partikulærløsning.** Vi trenger høyresiden $95$, ikke $19$, så vi ganger hele Bézout-likningen med $c/d=95/19=5$:\n\n$$1\\,729\\cdot(-65) + 703\\cdot(160) = 95.$$\n\nAltså er $x_0=-65$, $y_0=160$ én løsning. **Kontroll:** $1\\,729\\cdot(-65)=-112\\,385$ og $703\\cdot(160)=112\\,480$, med sum $95$. Stemmer.\n\n**Steg 5: skriv HELE løsningsmengden.** Med $b/d=703/19=37$ og $a/d=1\\,729/19=91$:\n\n$$x = -65 + 37t,\\qquad y = 160 - 91t,\\qquad t\\in\\mathbb{Z}.$$\n\n**Kontroll av parametriseringen.** Sett inn og se at $t$ faller ut:\n$$1\\,729(-65+37t) + 703(160-91t) = 95 + 1\\,729\\cdot 37t - 703\\cdot 91t = 95 + 63\\,973t - 63\\,973t = 95.$$\nLeddene med $t$ kansellerer, som de skal — begge er $\\pm\\operatorname{lcm}(1\\,729,703)t = \\pm63\\,973t$.\n\n**Steg 6: den minste positive $x$ (eksplisitt besvart, siden det spørres).** Vi trenger $x=-65+37t\\ge 1$, altså $t\\ge 66/37$, som gir $t\\ge 2$. Minste slike $t$ er $t=2$:\n\n$$x = -65+37\\cdot(2) = 9,\\qquad y = 160-91\\cdot(2) = -22.$$\n\n**Kontroll:** $1\\,729\\cdot 9 + 703\\cdot(-22) = 15\\,561 - 15\\,466 = 95$. Stemmer.\n\n**Minste positive $x$ er $9$**, med tilhørende $y=-22$.\n\n**Sluttsvar:** $x=-65+37t$, $y=160-91t$ med $t\\in\\mathbb{Z}$; minste positive $x$ er $9$, med $y=-22$.\n\n*Merk at partikulærløsningen fra skaleringen ($x_0=-65$) er langt fra den minste positive ($x=9$). Det er helt normalt — Bézout gir en tilfeldig representant, og «minste positive» krever alltid det ekstra steget der du løser en ulikhet i $t$.*",
+        "hints": [
+          "$\\gcd(1729,703)=19$ — regnet i [kap. 1.2](/ma1301/ma1301-1-2), oppgave 4.",
+          "Skalér med $95/19$.",
+          "Til siste del: løs ulikheten $x_0+(b/d)t\\ge 1$ for $t$, og velg det minste hele tallet som oppfyller den."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-1-3-l4-intro",
+      "type": "text",
+      "content": "## Løkke 4: Løsninger i et intervall, og «minste positive»\n\n*~10 minutter.*\n\nNå til de tilleggsspørsmålene som gjør oppgaven til mer enn ren mekanikk. De er alle av samme type: du har parametriseringen, og skal finne hvilke $t$-verdier som oppfyller en betingelse. Det er en ulikhet i $t$, ikke noe nytt tallteoretisk."
+    },
+    {
+      "id": "ma1301-1-3-d-minste-positive",
+      "type": "definition",
+      "title": "«Minste positive» — prosedyren",
+      "content": "Spør oppgaven om den minste positive verdien av $x$, gjør du dette:\n\n1. Skriv løsningsmengden $x=x_0+\\frac bd t$.\n2. **Krev $x\\ge 1$** og løs for $t$:\n$$t\\ \\ge\\ \\frac{1-x_0}{b/d}\\qquad\\text{(snu ulikheten hvis }b/d<0).$$\n3. **Velg det minste hele tallet** $t$ som oppfyller ulikheten — altså rund oppover.\n4. Regn ut både $x$ og $y$ for den $t$-en, og **kontroller ved innsetting**.\n\n**Prosedyren må sitte utenat**, og steg 4 er ikke valgfritt: et «minste positive»-svar uten kontroll er lett å ta feil av med én skrittlengde.\n\n**Merk forskjellen på «positiv» og «ikke-negativ».** «Minste positive» betyr $x\\ge 1$. Er $x=0$ tillatt, sier oppgaven «ikke-negativ» eller «minste $x\\ge 0$». Les nøye — de gir forskjellige svar når $x_0$ er et multiplum av skrittlengden.\n\n**Og merk at svaret skal skrives ut som en setning.** «Minste positive $x$ er $6$, med tilhørende $y=-31$.» Fasitene i arkivet peker eksplisitt på dette svaret; det er et eget delpunkt."
+    },
+    {
+      "id": "ma1301-1-3-d-intervallvarianten",
+      "type": "definition",
+      "title": "Løsninger i et gitt intervall",
+      "content": "Varianten der oppgaven begrenser $x$ eller $y$ til et intervall — «finn alle løsninger med $0<y<200$», eller «hvor mange løsninger har begge koordinater positive?»\n\n**Prosedyren er den samme som for «minste positive», men med to ulikheter:**\n\n1. Sett inn parametriseringen i begge grensene.\n2. Løs den doble ulikheten for $t$.\n3. **Tell de hele tallene** $t$ i intervallet du får — det er antall løsninger.\n4. List dem opp hvis oppgaven ber om det, med kontroll på minst én.\n\n**Fellen å unngå:** å telle feil i endepunktene. Er intervallet $0<y<200$ (strengt), skal $t$-verdier som gir $y=0$ eller $y=200$ **ikke** med. Er det $0\\le y\\le 200$, skal de med. Skriv ut hvilke $t$ du inkluderer og hvorfor.\n\n**Typisk «frimerke»-form:** krav om at *begge* er ikke-negative. Da får du to ulikheter — én fra $x\\ge 0$ og én fra $y\\ge 0$ — og svaret er $t$-ene som oppfyller begge. Ofte er det ingen, og det er et fullgodt svar så lenge du viser at intervallet er tomt."
+    },
+    {
+      "id": "ma1301-1-3-e4",
+      "type": "example",
+      "title": "Frimerkene fra innledningen",
+      "problem": "Du har frimerker på $14$ kr og $22$ kr, og portoen er $96$ kr.\n\n**a)** Finn samtlige heltallsløsninger av $14x+22y=96$.\n**b)** Hvilke løsninger har både $x\\ge 0$ og $y\\ge 0$? Det er de som svarer til frimerker du faktisk kan lime på.",
+      "solution": "**a) Steg 1: løsbarhet.** $\\gcd(14,22)$: $22=1\\cdot 14+8$, $14=1\\cdot 8+6$, $8=1\\cdot 6+2$, $6=3\\cdot 2+0$. Siste ikke-null rest er $2$, så $d=2$.\n\nEr $2\\mid 96$? Ja, $96=48\\cdot 2$. **Fordi $d=2$ deler $c=96$, har likningen løsninger.**\n\n**Steg 2: Bézout.** Baklengs fra $8=1\\cdot 6+2$:\n$$2=8-1\\cdot 6.$$\nSett inn $6=14-1\\cdot 8$: $\\;2=8-1\\cdot(14-1\\cdot 8)=2\\cdot 8-1\\cdot 14$.\nSett inn $8=22-1\\cdot 14$: $\\;2=2\\cdot(22-1\\cdot 14)-1\\cdot 14=2\\cdot 22-3\\cdot 14$.\n\nAltså $\\gcd(14,22)=2=14\\cdot(-3)+22\\cdot 2$. **Kontroll:** $-42+44=2$ ✓.\n\n**Steg 3: skalér med $96/2=48$.**\n$$14\\cdot(-144)+22\\cdot 96=96.$$\nSå $x_0=-144$, $y_0=96$. **Kontroll:** $-2016+2112=96$ ✓.\n\n**Steg 4: hele løsningsmengden.** Med $b/d=22/2=11$ og $a/d=14/2=7$:\n$$x=-144+11t,\\qquad y=96-7t,\\qquad t\\in\\mathbb{Z}.$$\n**Kontroll:** $14\\cdot 11=154=22\\cdot 7$, så $t$-leddene kansellerer ✓.\n\n**b) De to ulikhetene.**\n\nFra $x\\ge 0$: $-144+11t\\ge 0$, altså $t\\ge 144/11\\approx 13{,}09$, som gir $t\\ge 14$.\n\nFra $y\\ge 0$: $96-7t\\ge 0$, altså $t\\le 96/7\\approx 13{,}71$, som gir $t\\le 13$.\n\n**Vi trenger $t\\ge 14$ og $t\\le 13$ samtidig. Det er umulig — intervallet er tomt.**\n\n**Konklusjon:** det finnes **ingen** løsning med både $x\\ge 0$ og $y\\ge 0$. Portoen $96$ kr kan ikke settes sammen av frimerker på $14$ kr og $22$ kr.\n\n**Kontroll av konklusjonen ved å se på de to nærmeste løsningene.** For $t=13$: $x=-144+143=-1$ og $y=96-91=5$. For $t=14$: $x=-144+154=10$ og $y=96-98=-2$. Begge har én negativ koordinat, og det finnes ingen $t$ mellom $13$ og $14$. Stemmer.\n\n*Dette er et ærlig svar, og det er verdt å merke seg formen: likningen **har** uendelig mange heltallsløsninger, men ingen med begge ikke-negative. De to spørsmålene er forskjellige, og en oppgave som spør om det andre, er ikke besvart med det første.*\n\n*Til sammenligning: hadde portoen vært $98$ kr, ville $t=14$ gitt $x=10$, $y=0$ — altså ti frimerker på $14$ kr. Løsningen «finnes» eller «finnes ikke» avhenger av høyresiden, ikke bare av valørene.*\n\n**Sluttsvar:** **a)** $x=-144+11t$, $y=96-7t$, $t\\in\\mathbb{Z}$. **b)** Ingen løsning har begge koordinater ikke-negative."
+    },
+    {
+      "id": "ma1301-1-3-ex-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-1-3-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Betrakt likningen $1105x+391y=102$.\n\n**a)** Finn samtlige heltallsløsninger.\n**b)** Finn alle løsninger med $0\\le x\\le 100$.",
+        "solution": "**Steg 1: regn ut $\\gcd(1\\,105,391)$ med Euklids algoritme.**\n\n**(i) Divisjonskjeden frem.** Vi deler gjentatt med rest, **ved Euklids algoritme**, til resten blir $0$:\n\n$$1\\,105 = 2\\cdot 391 + 323$$\n$$391 = 1\\cdot 323 + 68$$\n$$323 = 4\\cdot 68 + 51$$\n$$68 = 1\\cdot 51 + 17$$\n$$51 = 3\\cdot 17 + 0$$\n\nDen siste resten som ikke er $0$, er $17$. Altså er $\\gcd(1\\,105,391)=17$. Kjeden har 5 divisjonslinjer.\n\n**Steg 2: kommenter løsbarheten FØR vi løser.**\n\nLøsbarhetskriteriet er $d\\mid c$, der $d=\\gcd(1\\,105,391)=17$. Her er $102=6\\cdot 17$, så $17\\mid 102$. **Fordi $d=17$ deler $c=102$, har likningen løsninger** — og vi kan gå videre.\n\n**Steg 3: finn Bézout-koeffisientene ved substitusjon baklengs.**\n\n**(ii) Substitusjonskjeden baklengs.** Vi løser den nest siste linja for resten og substituerer oppover, linje for linje:\n\n$$17 = 68 - 1\\cdot 51$$\nSett inn $51 = 323 - 4\\cdot 68$:\n$$17 = -1\\cdot 323 + 5\\cdot 68$$\nSett inn $68 = 391 - 1\\cdot 323$:\n$$17 = 5\\cdot 391 - 6\\cdot 323$$\nSett inn $323 = 1\\,105 - 2\\cdot 391$:\n$$17 = -6\\cdot 1\\,105 + 17\\cdot 391$$\n\n**(iii) Konklusjon.** Altså er\n\n$$\\gcd(1\\,105,391) = 17 = 1\\,105\\cdot(-6) + 391\\cdot(17).$$\n\n**Kontroll ved innsetting:** $1\\,105\\cdot(-6) + 391\\cdot(17) = -6\\,630 + 6\\,647 = 17$. Stemmer.\n\n**Steg 4: skaler opp til en partikulærløsning.** Vi trenger høyresiden $102$, ikke $17$, så vi ganger hele Bézout-likningen med $c/d=102/17=6$:\n\n$$1\\,105\\cdot(-36) + 391\\cdot(102) = 102.$$\n\nAltså er $x_0=-36$, $y_0=102$ én løsning. **Kontroll:** $1\\,105\\cdot(-36)=-39\\,780$ og $391\\cdot(102)=39\\,882$, med sum $102$. Stemmer.\n\n**Steg 5: skriv HELE løsningsmengden.** Med $b/d=391/17=23$ og $a/d=1\\,105/17=65$:\n\n$$x = -36 + 23t,\\qquad y = 102 - 65t,\\qquad t\\in\\mathbb{Z}.$$\n\n**Kontroll av parametriseringen.** Sett inn og se at $t$ faller ut:\n$$1\\,105(-36+23t) + 391(102-65t) = 102 + 1\\,105\\cdot 23t - 391\\cdot 65t = 102 + 25\\,415t - 25\\,415t = 102.$$\nLeddene med $t$ kansellerer, som de skal — begge er $\\pm\\operatorname{lcm}(1\\,105,391)t = \\pm25\\,415t$.\n\n**a) Sluttsvar:** $x=-36+23t$, $y=102-65t$ med $t\\in\\mathbb{Z}$.\n\n**b)** Vi krever $0\\le x\\le 100$, altså $0\\le -36+23t\\le 100$.\n\nVenstre ulikhet: $23t\\ge 36$, altså $t\\ge 36/23\\approx 1{,}57$, som gir $t\\ge 2$.\nHøyre ulikhet: $23t\\le 136$, altså $t\\le 136/23\\approx 5{,}91$, som gir $t\\le 5$.\n\nAltså $t\\in\\{2,3,4,5\\}$ — **fire løsninger**:\n\n| $t$ | $x=-36+23t$ | $y=102-65t$ | Kontroll $1105x+391y$ |\n|---|---|---|---|\n| $2$ | $10$ | $-28$ | $11\\,050-10\\,948=102$ ✓ |\n| $3$ | $33$ | $-93$ | $36\\,465-36\\,363=102$ ✓ |\n| $4$ | $56$ | $-158$ | $61\\,880-61\\,778=102$ ✓ |\n| $5$ | $79$ | $-223$ | $87\\,295-87\\,193=102$ ✓ |\n\n**b) Sluttsvar:** fire løsninger, $(x,y)\\in\\{(10,-28),\\,(33,-93),\\,(56,-158),\\,(79,-223)\\}$.\n\n*Merk at alle fire har negativ $y$. Det er ikke en feil — oppgaven begrenset bare $x$. Hadde den også krevd $y\\ge 0$, ville vi trengt $t\\le 102/65\\approx 1{,}57$, altså $t\\le 1$, som ikke overlapper med $t\\ge 2$: ingen løsning.*",
+        "hints": [
+          "$\\gcd(1105,391)=17$ — regnet i [kap. 1.2](/ma1301/ma1301-1-2), oppgave 2.",
+          "I b): sett parametriseringen inn i BEGGE ulikhetene og løs for $t$.",
+          "Tell de hele tallene $t$ i intervallet du får — det er antall løsninger."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-1-3-l5-intro",
+      "type": "text",
+      "content": "## Løkke 5: Parameter i koeffisientene\n\n*~10 minutter.*\n\nDette er varianten arkivet er glad i, og den som gjør Bézout uunnværlig. Koeffisientene er ikke tall, men uttrykk i en ukjent $n$ — og da finnes det ingen divisjonskjede å kjøre.\n\nTeknikken er den samme som i [kap. 1.2](/ma1301/ma1301-1-2), løkke 6, brukt på en likning."
+    },
+    {
+      "id": "ma1301-1-3-d-parameter-diofant",
+      "type": "definition",
+      "title": "Diofantisk likning med parameter i koeffisientene",
+      "content": "Oppgavetypen: koeffisientene inneholder en ukjent $n$, og du skal vise at likningen er løsbar for **alle** hele tall $n$ — og gjerne finne løsningen.\n\n**Prosedyren, i tre skritt:**\n\n1. **Vis at $\\gcd=1$** ved å presentere $1$ som en eksplisitt lineærkombinasjon av de to uttrykkene. Velg multiplikatorene slik at $n$-leddene kanselleres.\n2. **Konkludér løsbarhet:** siden $\\gcd=1$ deler enhver høyreside, er likningen løsbar for alle $c$ — **etter løsbarhetskriteriet**.\n3. **Skalér** lineærkombinasjonen med $c$ for å få en partikulærløsning, og skriv løsningsmengden med $b$ og $a$ (nå uttrykk i $n$) som skrittlengder. Siden $d=1$, er skrittlengdene $b$ og $a$ selv.\n\n**Hvorfor dette er den eneste veien:** her er tallene ikke tall. Det finnes ingenting å faktorisere, ingen divisjonskjede å kjøre, ingen prøvedivisjon som gir mening. Bézout-formen «$\\gcd=1$ nøyaktig når $ax+by=1$ har løsning» er den ene karakteriseringen som tåler en ukjent.\n\n**Merk at svaret nå inneholder $n$.** Både partikulærløsningen og skrittlengdene er uttrykk i $n$, og det er riktig — du har løst uendelig mange likninger på én gang."
+    },
+    {
+      "id": "ma1301-1-3-e5",
+      "type": "example",
+      "title": "Likning med parameter i koeffisientene",
+      "problem": "La $n$ være et helt tall.\n\n**a)** Vis at likningen $(4n+3)x+(3n+2)y=c$ har heltallsløsninger for **hvert** helt tall $c$ og hvert helt tall $n$.\n**b)** Finn den generelle løsningen for $c=5$.",
+      "solution": "**a) Steg 1: vis at koeffisientene er relativt primiske.**\n\nKoeffisientene foran $n$ er $4$ og $3$. Vi ganger det første uttrykket med $3$ og det andre med $4$, slik at begge får $12n$:\n$$3(4n+3)-4(3n+2)=(12n+9)-(12n+8)=1.$$\n\nAltså har vi, for hvert helt tall $n$:\n$$3\\cdot(4n+3)+(-4)\\cdot(3n+2)=1.\\tag{$\\ast$}$$\n\nLa $d$ være en felles divisor i $4n+3$ og $3n+2$. **Etter lineærkombinasjonsregelen** deler $d$ venstresiden i $(\\ast)$, altså $d\\mid 1$. Dermed\n$$\\gcd(4n+3,\\,3n+2)=1\\qquad\\text{for alle hele tall }n.$$\n\n**Steg 2: konkludér løsbarhet.** **Etter løsbarhetskriteriet** har likningen heltallsløsninger nøyaktig når $\\gcd$ deler høyresiden. Siden $\\gcd=1$ og $1$ deler alle hele tall, er likningen løsbar for **hvert** $c$ og hvert $n$. $\\blacksquare$\n\n*Merk at $(\\ast)$ er Bézout-likningen — vi trengte ikke Euklids algoritme for å finne den, fordi vi kunne konstruere den direkte.*\n\n**b) Steg 3: skalér og skriv løsningsmengden.**\n\nGang $(\\ast)$ med $c=5$:\n$$15\\cdot(4n+3)+(-20)\\cdot(3n+2)=5.$$\nAltså er\n$$x_0=15,\\qquad y_0=-20$$\nen partikulærløsning — **og legg merke til at den ikke avhenger av $n$.**\n\n**Kontroll:** $15(4n+3)-20(3n+2)=60n+45-60n-40=5$ ✓ for alle $n$.\n\nSiden $d=1$, er skrittlengdene $b/d=3n+2$ og $a/d=4n+3$. Hele løsningsmengden er dermed\n$$x=15+(3n+2)t,\\qquad y=-20-(4n+3)t,\\qquad t\\in\\mathbb{Z}.$$\n\n**Kontroll av parametriseringen:**\n$$(4n+3)\\big(15+(3n+2)t\\big)+(3n+2)\\big(-20-(4n+3)t\\big)=5+(4n+3)(3n+2)t-(3n+2)(4n+3)t=5.$$\n$t$-leddene kansellerer ✓.\n\n**Kontroll med et konkret $n$.** Sett $n=5$: koeffisientene blir $23$ og $17$, og likningen er $23x+17y=5$. Vår formel gir $x_0=15$, $y_0=-20$: $23\\cdot 15-17\\cdot 20=345-340=5$ ✓. Løsningsmengden blir $x=15+17t$, $y=-20-23t$, som stemmer med at $b=17$ og $a=23$.\n\n**Sluttsvar:** **a)** $3(4n+3)-4(3n+2)=1$ gir $\\gcd=1$, og dermed løsbarhet for alle $c$ og alle $n$. **b)** $x=15+(3n+2)t$, $y=-20-(4n+3)t$ med $t\\in\\mathbb{Z}$."
+    },
+    {
+      "id": "ma1301-1-3-ex-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-1-3-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "La $n$ være et helt tall.\n\n**a)** Vis at $\\gcd(5n+2,\\,2n+1)=1$ for alle hele tall $n$.\n**b)** Finn den generelle heltallsløsningen av $(5n+2)x+(2n+1)y=3$.\n**c)** Kontroller svaret for $n=4$.",
+        "solution": "**a)** Koeffisientene foran $n$ er $5$ og $2$. Vi ganger det første uttrykket med $2$ og det andre med $5$, slik at begge får $10n$:\n$$2(5n+2)-5(2n+1)=(10n+4)-(10n+5)=-1.$$\n\nVi fikk $-1$; gang hele likningen med $-1$:\n$$(-2)\\cdot(5n+2)+5\\cdot(2n+1)=1.\\tag{$\\ast$}$$\n\nLa $d$ være en felles divisor i $5n+2$ og $2n+1$. **Etter lineærkombinasjonsregelen** deler $d$ venstresiden i $(\\ast)$, altså $d\\mid 1$, så $d=\\pm 1$. Dermed er\n$$\\gcd(5n+2,\\,2n+1)=1\\qquad\\text{for alle hele tall }n. \\qquad\\blacksquare$$\n\n**b)** Siden $\\gcd=1$ deler høyresiden $3$, har likningen løsninger **etter løsbarhetskriteriet**.\n\nGang $(\\ast)$ med $3$:\n$$(-6)\\cdot(5n+2)+15\\cdot(2n+1)=3.$$\nAltså $x_0=-6$, $y_0=15$.\n\n**Kontroll:** $-6(5n+2)+15(2n+1)=-30n-12+30n+15=3$ ✓ for alle $n$.\n\nMed $d=1$ er skrittlengdene $b=2n+1$ og $a=5n+2$, så\n$$x=-6+(2n+1)t,\\qquad y=15-(5n+2)t,\\qquad t\\in\\mathbb{Z}.$$\n\n**Kontroll av parametriseringen:**\n$$(5n+2)\\big(-6+(2n+1)t\\big)+(2n+1)\\big(15-(5n+2)t\\big)=3+(5n+2)(2n+1)t-(2n+1)(5n+2)t=3.$$\n$t$-leddene kansellerer ✓.\n\n**c) Kontroll for $n=4$.** Koeffisientene blir $5\\cdot 4+2=22$ og $2\\cdot 4+1=9$, så likningen er\n$$22x+9y=3.$$\nFørst: er $\\gcd(22,9)=1$? $22=2\\cdot 9+4$, $9=2\\cdot 4+1$, $4=4\\cdot 1+0$ — siste ikke-null rest er $1$ ✓.\n\nFormelen gir $x_0=-6$, $y_0=15$: $22\\cdot(-6)+9\\cdot 15=-132+135=3$ ✓.\n\nLøsningsmengden blir $x=-6+9t$, $y=15-22t$. Sjekk med $t=1$: $x=3$, $y=-7$, og $22\\cdot 3+9\\cdot(-7)=66-63=3$ ✓.\n\n**Sluttsvar:** **a)** $(-2)(5n+2)+5(2n+1)=1$. **b)** $x=-6+(2n+1)t$, $y=15-(5n+2)t$, $t\\in\\mathbb{Z}$. **c)** For $n=4$ blir likningen $22x+9y=3$ med løsning $x=-6+9t$, $y=15-22t$, bekreftet ved innsetting.",
+        "hints": [
+          "I a): gang uttrykkene med hverandres $n$-koeffisient og trekk fra hverandre.",
+          "Får du $-1$, gang hele likningen med $-1$.",
+          "I b): skalér lineærkombinasjonen med $3$. Skrittlengdene er $b/d$ og $a/d$ — hva er $d$ her?"
+        ]
+      }
+    },
+    {
+      "id": "ma1301-1-3-ex-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-1-3-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Finn samtlige heltallsløsninger av $2465x+1003y=85$, og avgjør om det finnes en løsning der både $x$ og $y$ er positive.",
+        "solution": "**Steg 1: regn ut $\\gcd(2\\,465,1\\,003)$ med Euklids algoritme.**\n\n**(i) Divisjonskjeden frem.** Vi deler gjentatt med rest, **ved Euklids algoritme**, til resten blir $0$:\n\n$$2\\,465 = 2\\cdot 1\\,003 + 459$$\n$$1\\,003 = 2\\cdot 459 + 85$$\n$$459 = 5\\cdot 85 + 34$$\n$$85 = 2\\cdot 34 + 17$$\n$$34 = 2\\cdot 17 + 0$$\n\nDen siste resten som ikke er $0$, er $17$. Altså er $\\gcd(2\\,465,1\\,003)=17$. Kjeden har 5 divisjonslinjer.\n\n**Steg 2: kommenter løsbarheten FØR vi løser.**\n\nLøsbarhetskriteriet er $d\\mid c$, der $d=\\gcd(2\\,465,1\\,003)=17$. Her er $85=5\\cdot 17$, så $17\\mid 85$. **Fordi $d=17$ deler $c=85$, har likningen løsninger** — og vi kan gå videre.\n\n**Steg 3: finn Bézout-koeffisientene ved substitusjon baklengs.**\n\n**(ii) Substitusjonskjeden baklengs.** Vi løser den nest siste linja for resten og substituerer oppover, linje for linje:\n\n$$17 = 85 - 2\\cdot 34$$\nSett inn $34 = 459 - 5\\cdot 85$:\n$$17 = -2\\cdot 459 + 11\\cdot 85$$\nSett inn $85 = 1\\,003 - 2\\cdot 459$:\n$$17 = 11\\cdot 1\\,003 - 24\\cdot 459$$\nSett inn $459 = 2\\,465 - 2\\cdot 1\\,003$:\n$$17 = -24\\cdot 2\\,465 + 59\\cdot 1\\,003$$\n\n**(iii) Konklusjon.** Altså er\n\n$$\\gcd(2\\,465,1\\,003) = 17 = 2\\,465\\cdot(-24) + 1\\,003\\cdot(59).$$\n\n**Kontroll ved innsetting:** $2\\,465\\cdot(-24) + 1\\,003\\cdot(59) = -59\\,160 + 59\\,177 = 17$. Stemmer.\n\n**Steg 4: skaler opp til en partikulærløsning.** Vi trenger høyresiden $85$, ikke $17$, så vi ganger hele Bézout-likningen med $c/d=85/17=5$:\n\n$$2\\,465\\cdot(-120) + 1\\,003\\cdot(295) = 85.$$\n\nAltså er $x_0=-120$, $y_0=295$ én løsning. **Kontroll:** $2\\,465\\cdot(-120)=-295\\,800$ og $1\\,003\\cdot(295)=295\\,885$, med sum $85$. Stemmer.\n\n**Steg 5: skriv HELE løsningsmengden.** Med $b/d=1\\,003/17=59$ og $a/d=2\\,465/17=145$:\n\n$$x = -120 + 59t,\\qquad y = 295 - 145t,\\qquad t\\in\\mathbb{Z}.$$\n\n**Kontroll av parametriseringen.** Sett inn og se at $t$ faller ut:\n$$2\\,465(-120+59t) + 1\\,003(295-145t) = 85 + 2\\,465\\cdot 59t - 1\\,003\\cdot 145t = 85 + 145\\,435t - 145\\,435t = 85.$$\nLeddene med $t$ kansellerer, som de skal — begge er $\\pm\\operatorname{lcm}(2\\,465,1\\,003)t = \\pm145\\,435t$.\n\n**Løsningsmengden:** $x=-120+59t$, $y=295-145t$ med $t\\in\\mathbb{Z}$.\n\n**Finnes en løsning med begge positive?** Vi krever $x\\ge 1$ og $y\\ge 1$.\n\nFra $x\\ge 1$: $-120+59t\\ge 1$, altså $59t\\ge 121$, altså $t\\ge 121/59\\approx 2{,}05$, som gir $t\\ge 3$.\n\nFra $y\\ge 1$: $295-145t\\ge 1$, altså $145t\\le 294$, altså $t\\le 294/145\\approx 2{,}03$, som gir $t\\le 2$.\n\nVi trenger $t\\ge 3$ og $t\\le 2$ samtidig — **umulig**.\n\n**Konklusjon: det finnes ingen løsning med både $x$ og $y$ positive.**\n\n**Kontroll ved de to nærmeste.** For $t=2$: $x=-120+118=-2$, $y=295-290=5$. For $t=3$: $x=-120+177=57$, $y=295-435=-140$. Begge har én negativ koordinat, og det finnes ingen $t$ mellom $2$ og $3$ ✓.\n\n**Sluttsvar:** $x=-120+59t$, $y=295-145t$ med $t\\in\\mathbb{Z}$; ingen løsning har begge koordinater positive.\n\n*Merk at $t$-intervallene her nesten møtes — grensene er $2{,}05$ og $2{,}03$. Det er derfor du må regne dem ut og ikke gjette: forskjellen mellom «ingen løsning» og «nøyaktig én løsning» kan ligge i annen desimal.*",
+        "hints": [
+          "$\\gcd(2465,1003)=17$. Kjør Euklids algoritme — fem linjer.",
+          "Skalér med $85/17=5$.",
+          "Til siste del: sett opp én ulikhet fra $x\\ge 1$ og én fra $y\\ge 1$, og se om $t$-intervallene overlapper."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-1-3-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "Fem feil, alle hentet fra arkivets feilprofil for sjanger A. De tre første er de mest belagte i hele emnet.\n\n- **Glemmer å skalere opp.** Man finner $d=ax'+by'$ helt riktig, og oppgir $(x',y')$ som svar. Men det løser $ax+by=d$, ikke $ax+by=c$. **Kontrollen:** sett svaret inn i den opprinnelige likningen. Får du $d$ i stedet for $c$, mangler multiplikasjonen med $c/d$ — og du er ett skritt fra riktig svar.\n\n- **Bare én løsning oppgitt.** Spørsmålet «finn samtlige heltallsløsninger» eller «angi den generelle løsningen» er ikke besvart med et enkelt tallpar. Svaret skal ha $t$-parameteren, og $t\\in\\mathbb{Z}$ skal stå der. Dette er et eget føringspoeng.\n\n- **Glemmer å sjekke $d\\mid c$ først.** Da regner du videre på en likning som kanskje ikke har løsning, og oppdager det først når skaleringsfaktoren blir en brøk. Verre: kommentaren om løsbarhet er i seg selv et føringspoeng som fasitene i arkivet skriver ut. Det koster tjue sekunder å ta det først.\n\n- **Feil fortegn i retningsvektoren.** $x$ får $+b/d$ og $y$ får $-a/d$. Samme fortegn på begge gir ikke løsninger — de to $t$-leddene kansellerer da ikke. **Kontrollen:** sett parametriseringen inn og se at $t$ faller ut.\n\n- **Skrittlengden $b$ i stedet for $b/d$.** Da får du bare hver $d$-te løsning. For $803x+154y=44$ ($d=11$) mister du 10 av 11 løsninger — og med dem gjerne «minste positive», som var $x=6$ og ikke $x=20$.\n\n- **Glemmer «minste positive» når det spørres.** Det er et eget delpunkt med eget svar, og det skal skrives ut som en setning med både $x$ og $y$. Å stoppe ved parametriseringen er å levere halve svaret på siste del."
+    },
+    {
+      "id": "ma1301-1-3-begrepsbank-intro",
+      "type": "text",
+      "content": "### Begrepsbank\n\nDette er flashcard-stoff — hopp trygt over ved førstegangslesing; tidsanslaget på 55 minutter gjelder kjernestoffet over.\n\nKortene under er kortere enn i de forrige kapitlene, og det er med vilje: denne sjangeren er først og fremst en **prosedyre**, og prosedyrer pugges ved å kjøres. Bruk halvparten av repetisjonstiden på å regne nye likninger med boka lukket."
+    },
+    {
+      "id": "ma1301-1-3-d-oppskriften",
+      "type": "definition",
+      "title": "Oppskriften for sjanger A i seks steg",
+      "content": "Kapitlets samlede prosedyre, i den rekkefølgen fasitene i arkivet fører den:\n\n1. **Euklid frem:** regn $d=\\gcd(a,b)$ med divisjonskjeden.\n2. **Løsbarhet:** sjekk og **kommentér** at $d\\mid c$. Er $d\\nmid c$: konkludér «ingen heltallsløsninger» og stopp.\n3. **Euklid baklengs:** finn $x',y'$ med $ax'+by'=d$.\n4. **Skalér** med $k=c/d$: $x_0=kx'$, $y_0=ky'$.\n5. **Hele løsningsmengden:** $x=x_0+\\frac bd t$, $y=y_0-\\frac ad t$, $t\\in\\mathbb{Z}$.\n6. **Svar «minste positive» eksplisitt** hvis det spørres, med både $x$ og $y$ og en kontroll.\n\n**Oppskriften må sitte utenat.** Steg 2 og steg 6 er de som glemmes, og begge er egne føringspoeng.\n\n**Legg til kontroll to steder:** etter steg 4 (sett $(x_0,y_0)$ inn, få $c$) og etter steg 5 (sett parametriseringen inn, se at $t$ faller ut). Til sammen førti sekunder, og de fanger nesten alle feilene i listen over «Typiske feil»."
+    },
+    {
+      "id": "ma1301-1-3-d-generell-vs-partikulaer",
+      "type": "definition",
+      "title": "Generell og partikulær løsning",
+      "content": "To ord som skiller de to typene svar, og som oppgaveteksten bruker presist.\n\n**Partikulær løsning:** ett tallpar $(x_0,y_0)$ som oppfyller likningen. Oppgaveformuleringer: «finn en heltallsløsning», «vis at likningen har en løsning».\n\n**Generell løsning:** hele mengden, med parameter. Oppgaveformuleringer: «finn samtlige heltallsløsninger», «angi den generelle løsningen», «finn alle løsninger».\n\n**Regelen for føring:** oppgir oppgaven «samtlige» eller «generell», skal $t\\in\\mathbb{Z}$ stå i svaret. Er du i tvil, gi den generelle — den inneholder den partikulære, og et for fullstendig svar taper ingenting.\n\n*Merk at partikulærløsningen ikke er entydig. Din $(x_0,y_0)$ kan avvike fra løsningsforslagets og likevel være riktig — de skiller seg med et multiplum av skrittlengdene. Kontrollen ved innsetting er det som avgjør.*"
+    },
+    {
+      "id": "ma1301-1-3-d-gitterpunkt",
+      "type": "definition",
+      "title": "Det geometriske bildet: gitterpunkt på en linje",
+      "content": "Likningen $ax+by=c$ beskriver en **rett linje** i planet. De diofantiske løsningene er punktene på linja med heltallskoordinater — **gitterpunktene** den treffer.\n\nBildet forklarer tre ting på én gang:\n\n- **Løsningene ligger jevnt fordelt.** Skrittet fra ett gitterpunkt til det neste er alltid $(b/d,\\,-a/d)$ — samme vektor hver gang. Derfor er svaret en parametrisering med én parameter.\n- **Antallet er null eller uendelig.** Treffer linja ett gitterpunkt, treffer den uendelig mange (gå i begge retninger). Treffer den ingen, treffer den aldri noe. Et endelig antall større enn null er umulig.\n- **Intervallvarianten er et linjestykke.** «Alle løsninger med $0\\le x\\le 100$» er gitterpunktene på et avgrenset stykke av linja — derfor blir svaret et endelig antall, og derfor teller du hele tall $t$ i et intervall.\n\n*Vektoren $(b/d,-a/d)$ er retningsvektoren til linja, skalert ned til det korteste heltallsskrittet. Det er derfor $d$ står i nevneren.*"
+    },
+    {
+      "id": "ma1301-1-3-d-ikke-negativ-variant",
+      "type": "definition",
+      "title": "Når bare ikke-negative løsninger godtas",
+      "content": "Varianten der konteksten begrenser løsningene — antall frimerker, antall gjenstander, antall mynter. Da kreves $x\\ge 0$ og $y\\ge 0$.\n\n**Metoden:** to ulikheter, én fra hver koordinat, og du finner de $t$ som oppfyller **begge**.\n\n$$x_0+\\frac bd t\\ge 0\\qquad\\text{og}\\qquad y_0-\\frac ad t\\ge 0.$$\n\nDen første gir en nedre grense for $t$, den andre en øvre. Svaret er de hele tallene mellom.\n\n**Tre mulige utfall, alle fullgode svar:**\n\n- **Tomt intervall:** ingen slik løsning finnes. Vis at grensene krysser, og konkludér.\n- **Ett helt tall:** nøyaktig én løsning.\n- **Flere:** list dem, med kontroll på minst én.\n\n**Merk at «har løsninger» og «har ikke-negative løsninger» er to forskjellige spørsmål.** En likning kan ha uendelig mange heltallsløsninger og ingen ikke-negative — se eksempel 4. Les oppgaveteksten nøye."
+    },
+    {
+      "id": "ma1301-1-3-d-antall-losninger-i-intervall",
+      "type": "definition",
+      "title": "Å telle løsninger i et intervall",
+      "content": "Har du parametriseringen og et intervall for $x$ (eller $y$), er antall løsninger antallet hele tall $t$ i et intervall du regner ut.\n\n**Prosedyren:**\n\n1. Sett inn parametriseringen i begge grensene, og løs for $t$. Du får $t_{\\min}\\le t\\le t_{\\max}$ med (typisk) desimaltall som grenser.\n2. **Rund innover:** nedre grense oppover, øvre grense nedover. Nå har du hele tall.\n3. **Antallet er $t_{\\max}-t_{\\min}+1$** — husk å legge til $1$, ellers teller du ett for lite.\n\n**De to fellene:**\n\n- **Å glemme $+1$.** Fra $t=2$ til $t=5$ er det fire verdier, ikke tre.\n- **Å runde feil vei i endepunktene.** Er ulikheten streng ($x<100$ og ikke $x\\le 100$), skal $t$-verdien som gir $x=100$ ikke med. Skriv ut hvilke $t$ du inkluderer, så ser den som retter at du har tenkt på det.\n\n**Kontrollen:** regn ut $x$ for både $t_{\\min}$ og $t_{\\max}$ og sjekk at begge ligger inne i intervallet, og at $t_{\\min}-1$ og $t_{\\max}+1$ ligger utenfor."
+    },
+    {
+      "id": "ma1301-1-3-d-lcm-i-skrittet",
+      "type": "definition",
+      "title": "Skrittet er lcm(a,b)",
+      "content": "En observasjon som gjør fortegnene i løsningsmengden lettere å huske.\n\nNår du går ett skritt i $t$, endrer venstresiden seg med\n$$a\\cdot\\frac bd-b\\cdot\\frac ad=\\frac{ab}{d}-\\frac{ab}{d}=0,$$\nog de to leddene som kansellerer, er hver på $\\frac{ab}{d}$. Men fra [kap. 1.1](/ma1301/ma1301-1-1) er\n$$\\frac{ab}{\\gcd(a,b)}=\\operatorname{lcm}(a,b).$$\n\n**Altså:** hvert skritt flytter $ax$-leddet opp med $\\operatorname{lcm}(a,b)$ og $by$-leddet ned med det samme. Det er den minste flyttingen som kan gjøres med hele tall i begge koordinater — og det er derfor $b/d$ og $a/d$ er de riktige skrittlengdene.\n\n**Bruk det som kontroll:** regn ut $a\\cdot(b/d)$ og $b\\cdot(a/d)$. De skal være **like**, og de skal være $\\operatorname{lcm}(a,b)$. Er de ikke like, har du delt på feil tall et sted.\n\nFor $803x+154y=44$: $803\\cdot 14=11\\,242$ og $154\\cdot 73=11\\,242$ ✓, og $\\operatorname{lcm}(803,154)=11\\,242$."
+    },
+    {
+      "id": "ma1301-1-3-d-hvorfor-uendelig",
+      "type": "definition",
+      "title": "Hvorfor antallet er null eller uendelig",
+      "content": "En lineær diofantisk likning har **aldri** et endelig antall løsninger større enn null.\n\n**Argumentet er kort.** Har du én løsning $(x_0,y_0)$, gir hver verdi av $t$ en ny:\n$$\\left(x_0+\\tfrac bd t,\\ y_0-\\tfrac ad t\\right).$$\nOg de er alle forskjellige, siden $b/d\\ne 0$ når $b\\ne 0$. Altså gir de uendelig mange $t$-verdiene uendelig mange løsninger.\n\n**Konsekvens for hvordan du leser oppgaveteksten:** spør oppgaven «hvor mange løsninger har likningen?», er svaret alltid enten «ingen» eller «uendelig mange». Får du et endelig tall større enn null, har oppgaven en tilleggsbetingelse — et intervall, eller et krav om ikke-negative verdier — og den betingelsen er da hele poenget med spørsmålet.\n\n*Sammenlign med lineære kongruenser i [kap. 1.4](/ma1301/ma1301-1-4): der er antallet **inkongruente** løsninger endelig, nemlig $d$. Forskjellen er at man der teller restklasser, ikke tall.*"
+    },
+    {
+      "id": "ma1301-1-3-d-homogen",
+      "type": "definition",
+      "title": "Den homogene likningen ax + by = 0",
+      "content": "Spesialtilfellet $c=0$. Den er alltid løsbar, siden $d\\mid 0$ for alle $d$, og $(0,0)$ er en åpenbar løsning.\n\nLøsningsmengden blir da, med $x_0=y_0=0$:\n$$x=\\frac bd\\,t,\\qquad y=-\\frac ad\\,t,\\qquad t\\in\\mathbb{Z}.$$\n\n**Hvorfor den er verdt et eget kort:** dette er nøyaktig «retningsdelen» av den generelle løsningen. Strukturen i svaret på en vilkårlig diofantisk likning er\n\n$$\\text{generell løsning} = \\text{én partikulær løsning} + \\text{alle løsninger av den homogene}.$$\n\nDet er samme struktur som i lineær algebra og i differensiallikninger — én partikulær pluss hele nullrommet. Kjenner du den derfra, har du et anker for hvorfor svaret må se ut som det gjør.\n\n**Praktisk bruk:** husker du at retningsvektoren er løsningen av den homogene likningen, husker du også fortegnene. $a\\cdot\\frac bd+b\\cdot\\left(-\\frac ad\\right)=0$ — det er hele kryssingen."
+    },
+    {
+      "id": "ma1301-1-3-d-reparametrisering",
+      "type": "definition",
+      "title": "Å velge t for penere tall",
+      "content": "Parametriseringen er ikke unik. Erstatter du $t$ med $t+t_1$ for et fast helt tall $t_1$, får du samme løsningsmengde med en annen «start»:\n\n$$x=x_0'+\\frac bd t,\\qquad y=y_0'-\\frac ad t,\\qquad\\text{der}\\ x_0'=x_0+\\frac bd t_1.$$\n\n**Hvorfor det er nyttig:** skaleringen fra Bézout gir ofte store tall. For $14x+22y=96$ ble $x_0=-144$, $y_0=96$ — riktig, men uhåndterlig. Velger du i stedet representanten med $t_1=13$, får du $x_0'=-1$, $y_0'=5$, og løsningsmengden\n$$x=-1+11t,\\qquad y=5-7t,$$\nsom er den samme mengden med mye mindre tall.\n\n**Er det lov?** Ja, fullt ut — de to parametriseringene beskriver identiske mengder. Men **si det**: «med $t\\to t+13$ kan dette skrives …». Og **kontrollér** den nye partikulærløsningen ved innsetting, siden du nå har regnet ett skritt ekstra.\n\n**Rådet:** gjør det bare hvis det faktisk sparer arbeid videre. Det er ingen feil å levere svaret med store tall, og et unødvendig ekstra skritt er en ny sjanse til å regne feil."
+    },
+    {
+      "id": "ma1301-1-3-d-fortegnskonvensjon",
+      "type": "definition",
+      "title": "Fortegnskonvensjon i svaret",
+      "content": "Fasitene i arkivet skriver løsningsmengden med et bestemt fortegnsmønster, og det er verdt å følge den — ikke fordi noe annet er galt, men fordi det gjør besvarelsen lett å sammenligne.\n\n**Konvensjonen:**\n$$x=x_0+\\frac bd t,\\qquad y=y_0-\\frac ad t.$$\nPluss på $x$, minus på $y$, og skrittlengdene skrevet som **positive** tall.\n\n**Tre varianter som også er riktige**, men som kan forvirre den som retter:\n\n- $x=x_0-\\frac bd t$, $y=y_0+\\frac ad t$ — dette er bare $t\\to -t$, altså samme mengde.\n- Negative skrittlengder skrevet ut, som $x=x_0+(-14)t$ — teknisk riktig, unødvendig rotete.\n- Parameteren kalt $n$, $k$ eller $s$ i stedet for $t$ — helt greit, men **si hvilken mengde den løper over**: $t\\in\\mathbb{Z}$.\n\n**Det ene som faktisk er galt:** samme fortegn på begge ledd. Da kansellerer ikke $t$-leddene, og du har ikke løsninger. Kontrollen ved innsetting fanger det umiddelbart."
+    },
+    {
+      "id": "ma1301-1-3-d-kontrollrutinen",
+      "type": "definition",
+      "title": "Kontrollrutinen i sjanger A",
+      "content": "Tre kontroller, til sammen under ett minutt, som til sammen fanger alle feilene i «Typiske feil»-listen. **Under kode D er selvkontroll den eneste kontrollen du har** — det finnes ingen fasit i rommet.\n\n**1. Etter Bézout (20 sekunder):** sett $x',y'$ inn og se at $ax'+by'=d$. Fanger fortegnsfeil og sammentrekningsfeil i substitusjonskjeden.\n\n**2. Etter skaleringen (20 sekunder):** sett $(x_0,y_0)$ inn og se at $ax_0+by_0=c$ — **ikke $d$**. Fanger den mest belagte feilen i hele sjangeren: glemt skalering.\n\n**3. Etter parametriseringen (20 sekunder):** sett inn og se at $t$-leddene kansellerer, altså at $a\\cdot\\frac bd=b\\cdot\\frac ad$. Fanger både feil fortegn og feil skrittlengde ($b$ i stedet for $b/d$).\n\n**En fjerde, gratis:** deler $\\gcd$-en din begge de opprinnelige tallene? Hvis ikke, ligger feilen i divisjonskjeden, og alt nedenfor er bortkastet.\n\n**Gjør dem til rutine, ikke til noe du gjør hvis du har tid.** De koster ett minutt av de ~24 du har per delpunkt, og de er forskjellen mellom et svar du vet er riktig og et du håper er riktig."
+    },
+    {
+      "id": "ma1301-1-3-d-flere-ukjente",
+      "type": "definition",
+      "title": "Tre eller flere ukjente",
+      "content": "Likningen $ax+by+cz=e$ løses ved å ta to av gangen, og løsbarhetskriteriet generaliserer direkte:\n\n$$ax+by+cz=e\\ \\text{løsbar}\\iff\\gcd(a,b,c)\\mid e.$$\n\n**Metoden i to runder:**\n\n1. Sett $g=\\gcd(a,b)$. Da er $\\{ax+by\\}$ nøyaktig multiplene av $g$, så likningen blir $gw+cz=e$ i de nye ukjente $w$ og $z$.\n2. Løs $gw+cz=e$ som en vanlig todelt diofantisk likning. For hver løsning $(w,z)$ løser du deretter $ax+by=gw$ — som alltid er løsbar, siden $g\\mid gw$.\n\n**Resultatet har to frie parametre**, ikke én: du får en toparameterfamilie av løsninger. Geometrisk er det naturlig — $ax+by+cz=e$ er et **plan** i rommet, og gitterpunktene i et plan utgjør et todimensjonalt gitter.\n\n**Merk fellen:** $\\gcd(a,b,c)=1$ betyr **ikke** at tallene er parvis relativt primiske. $\\gcd(6,10,15)=1$, men ingen av parene er relativt primiske. Skillet blir avgjørende i det kinesiske restteoremet (kap. 2.4)."
+    },
+    {
+      "id": "ma1301-1-3-d-bro-til-kongruens",
+      "type": "definition",
+      "title": "Broen til lineær kongruens",
+      "content": "De to sjangrene A og B er samme likning, lest på to måter. Grepet er verdt å ha, fordi det gir deg to metoder på hver oppgave.\n\n**Fra diofantisk til kongruens.** Likningen\n$$ax+by=c$$\nkan leses **modulo $b$**: leddet $by$ forsvinner, og du står med\n$$ax\\equiv c\\pmod b.$$\n\n**Fra kongruens til diofantisk.** Omvendt betyr $ax\\equiv c\\pmod m$ at $ax-c$ er et multiplum av $m$, altså at det finnes en $y$ med\n$$ax-c=my,\\qquad\\text{altså}\\qquad ax-my=c.$$\n\n**Praktisk konsekvens:** løsbarhetskriteriene er de samme, som de må være. $\\gcd(a,b)\\mid c$ for likningen, og $\\gcd(a,m)\\mid c$ for kongruensen — samme betingelse.\n\n**Og en nyttig snarvei:** står du fast på en diofantisk likning, kan du løse den tilhørende kongruensen i stedet, og hente $y$ fra likningen etterpå. Det er en av de «minst to veier» som fasitene i arkivet honorerer som fullgode. Metoden utvikles i [kap. 1.4](/ma1301/ma1301-1-4)."
+    },
+    {
+      "id": "ma1301-1-3-d-kode-d-tallstorrelse",
+      "type": "definition",
+      "title": "Kode D-realisme: hva tallene ser ut som",
+      "content": "Et kalibreringskort, så du kjenner igjen når du har regnet feil.\n\n**Slik ser tallene i en sjanger A-oppgave typisk ut:**\n\n- **$a$ og $b$:** tre- til femsifrede, og valgt så Euklid-kjeden blir **4–6 divisjonslinjer**. Ikke lenger — oppgaven skal være regnbar med penn i eksamenstempo.\n- **$d=\\gcd(a,b)$:** oftest mellom $1$ og noen få titall, og gjerne et primtall eller et lite produkt.\n- **$c$:** valgt slik at $c/d$ er et lite helt tall, typisk mellom $1$ og $10$.\n- **Kvotientene i kjeden:** små, ofte $1$–$5$.\n\n**Bruk det som kontroll.** Blir kjeden din tolv linjer lang, eller får du $c/d$ som en brøk, eller femsifrede Bézout-koeffisienter — da har du sannsynligvis regnet feil, ikke fått en vanskelig oppgave.\n\n**Og bruk det når du lager egne øvingsoppgaver.** Velg $d$ først, så $a=d\\cdot a'$ og $b=d\\cdot b'$ med $\\gcd(a',b')=1$, og til slutt $c=kd$ for en liten $k$. Da vet du at oppgaven er løsbar, og du kjenner svaret på forhånd."
+    },
+    {
+      "id": "ma1301-1-3-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "ma1301-1-3-rep-inn",
+          "type": "text",
+          "content": "Fem korte oppgaver fra [kap. 1.1](/ma1301/ma1301-1-1) og [kap. 1.2](/ma1301/ma1301-1-2), som dette kapitlet bygger på. Fasit under hver.\n\n**R1.** Finn $\\gcd(2465,1003)$ med Euklids algoritme.\n\n*Fasit:* $2465=2\\cdot 1003+459$, $1003=2\\cdot 459+85$, $459=5\\cdot 85+34$, $85=2\\cdot 34+17$, $34=2\\cdot 17+0$. Siste ikke-null rest er $17$, så $\\gcd=17$. (Kontroll: $2465=17\\cdot 145$ og $1003=17\\cdot 59$.)\n\n**R2.** Skriv $\\gcd(1105,391)$ som en lineærkombinasjon av $1105$ og $391$.\n\n*Fasit:* Kjeden er $1105=2\\cdot 391+323$, $391=1\\cdot 323+68$, $323=4\\cdot 68+51$, $68=1\\cdot 51+17$, $51=3\\cdot 17+0$. Baklengs: $17=68-1\\cdot 51$; sett inn $51=323-4\\cdot 68$ og få $17=5\\cdot 68-1\\cdot 323$; sett inn $68=391-1\\cdot 323$ og få $17=5\\cdot 391-6\\cdot 323$; sett inn $323=1105-2\\cdot 391$ og få $17=17\\cdot 391-6\\cdot 1105$. Altså $17=1105\\cdot(-6)+391\\cdot 17$. Kontroll: $-6630+6647=17$ ✓.\n\n**R3.** Hvorfor er tallene på formen $803x+154y$ nøyaktig multiplene av $11$?\n\n*Fasit:* $\\gcd(803,154)=11$. Enhver lineærkombinasjon er delelig med $11$ etter lineærkombinasjonsregelen. Og hvert multiplum $11k$ nås ved å skalere Bézout-likningen $11=803\\cdot 5+154\\cdot(-26)$ med $k$. Derfor er de to mengdene like — og det er nettopp løsbarhetskriteriet.\n\n**R4.** La $n$ være et helt tall. Vis at $\\gcd(4n+3,3n+2)=1$.\n\n*Fasit:* $3(4n+3)-4(3n+2)=12n+9-12n-8=1$. En felles divisor deler venstresiden, altså $1$. (Brukt i eksempel 5.)\n\n**R5.** Finn $\\operatorname{lcm}(803,154)$ ved produktregelen, gitt at $\\gcd(803,154)=11$.\n\n*Fasit:* $\\operatorname{lcm}=ab/\\gcd=803\\cdot 154/11$. Forkort først: $803/11=73$, så $\\operatorname{lcm}=73\\cdot 154=11\\,242$. (Merk at dette er nøyaktig skrittstørrelsen i løsningsmengden — se kortet «Skrittet er lcm(a,b)».)"
+        }
+      ]
+    },
+    {
+      "id": "ma1301-1-3-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "ma1301-1-3-symbol-inn",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $ax+by=c$ | lineær diofantisk likning; bare heltallsløsninger godtas |\n| $d$ | brukes gjennomgående om $\\gcd(a,b)$ |\n| $c/d$ | skaleringsfaktoren fra Bézout til partikulærløsning |\n| $(x_0,y_0)$ | partikulærløsning — én bestemt løsning |\n| $t\\in\\mathbb{Z}$ | parameteren i den generelle løsningen |\n| $b/d$, $a/d$ | skrittlengdene i $x$- og $y$-retningen |\n| $\\gcd(a,b)$ | største felles divisor |\n| $\\operatorname{lcm}(a,b)$ | minste felles multiplum; lik $a\\cdot(b/d)$ |\n| $d\\mid c$ | løsbarhetskriteriet |\n| $d\\nmid c$ | ingen heltallsløsninger |\n| $\\blacksquare$ | bevis slutt |\n\n**Formler i dette delkapitlet:**\n\n$$ax+by=c\\ \\text{løsbar}\\iff d\\mid c,\\qquad d=\\gcd(a,b)$$\nLøsbarhetskriteriet. Sjekk og **kommentér** det før du løser. **(må sitte utenat)**\n\n$$x_0=\\frac cd\\,x',\\qquad y_0=\\frac cd\\,y'\\qquad\\text{når}\\ ax'+by'=d$$\nSkaleringen fra Bézout til partikulærløsning. Den mest belagte glemte feilen i sjangeren. **(må sitte utenat)**\n\n$$x=x_0+\\frac bd\\,t,\\qquad y=y_0-\\frac ad\\,t,\\qquad t\\in\\mathbb{Z}$$\nHele løsningsmengden. Merk kryssingen: $x$ får $+b/d$, $y$ får $-a/d$. **(må sitte utenat)**\n\n$$a\\left(x_0+\\tfrac bd t\\right)+b\\left(y_0-\\tfrac ad t\\right)=c+\\tfrac{ab}{d}t-\\tfrac{ab}{d}t=c$$\nKontrollen av parametriseringen: $t$ faller ut. **(utledes på stedet — to linjer, og den er samtidig kontrollen på at du husker fortegnene riktig)**\n\n$$a\\cdot\\frac bd=b\\cdot\\frac ad=\\operatorname{lcm}(a,b)$$\nSkrittstørrelsen. Begge ledd flytter seg $\\operatorname{lcm}(a,b)$ per skritt i $t$. **(utledes på stedet — én linje, fra $\\gcd\\cdot\\operatorname{lcm}=ab$)**\n\n$$t\\ \\ge\\ \\frac{1-x_0}{b/d}\\ \\Longrightarrow\\ \\text{minste positive } x$$\n«Minste positive»: løs ulikheten, rund oppover, regn ut både $x$ og $y$, kontrollér. **(må sitte utenat — det er et eget delpunkt når det spørres)**\n\n$$\\#\\{\\text{løsninger i intervall}\\}=t_{\\max}-t_{\\min}+1$$\nAntall løsninger når $x$ eller $y$ er begrenset. Husk $+1$. **(utledes på stedet)**\n\n$$u\\cdot(an+b)+v\\cdot(cn+d)=1\\ \\Longrightarrow\\ \\gcd=1\\ \\text{for alle }n$$\nParameter-i-koeffisient-varianten: velg $u,v$ som kanselleres $n$-leddene, og presentér $1$ eksplisitt. **(må sitte utenat — det er den ene metoden som tåler en ukjent i koeffisientene)**"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

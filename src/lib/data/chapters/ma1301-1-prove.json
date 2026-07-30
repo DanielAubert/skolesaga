@@ -1,0 +1,288 @@
+{
+  "id": "ma1301-1-prove",
+  "courseId": "ma1301",
+  "chapterNumber": "1.P",
+  "title": "Prøver til del 1: Delelighet, Euklids algoritme og diofantiske likninger",
+  "description": "Fire nyskrevne prøver med fullstendige løsningsforslag: Euklid frem og baklengs med Bézout, full løsningsmengde for en diofantisk likning, alle inkongruente løsninger av en lineær kongruens, og en kjedet simulering i eksamensform. Fire prøver à ~35–40 min — kan deles over flere kvelder.",
+  "estimatedMinutes": 145,
+  "competenceGoals": [
+    "gjennomføre Euklids algoritme frem og baklengs under tidspress, med fullstendig føring",
+    "løse en diofantisk likning fullstendig: løsbarhet kommentert, hele løsningsmengden, og løsninger i et gitt intervall",
+    "løse en lineær kongruens og oppgi alle inkongruente løsninger, med modulusen riktig behandlet ved forkorting",
+    "kjede sammen flere teknikker i én oppgave, slik oppgave 1 er bygget på eksamen"
+  ],
+  "content": [
+    {
+      "id": "ma1301-1-prove-om-provene",
+      "type": "tip",
+      "title": "Om prøvene til del 1",
+      "content": "**Fire prøver, til sammen 145 minutter.** Alle oppgavene er nyskrevne for denne boka, i arkivets sjangre.\n\n| Prøve | Tema | Tid | Kapitler |\n|---|---|---|---|\n| **1.A** | Euklids algoritme frem og baklengs, Bézout, $\\gcd$ og $\\operatorname{lcm}$ via faktorisering | ~35 min | [1.1](/ma1301/ma1301-1-1)–[1.2](/ma1301/ma1301-1-2) |\n| **1.B** | Lineær diofantisk likning: full løsningsmengde og parameter i koeffisientene | ~35 min | [1.3](/ma1301/ma1301-1-3) |\n| **1.C** | Lineær kongruens: alle inkongruente løsninger og modulær invers | ~35 min | [1.4](/ma1301/ma1301-1-4) |\n| **1.D** | Simulering: Euklid, diofant, kongruens og «minste positive» kjedet | ~40 min | [1.1](/ma1301/ma1301-1-1)–[1.5](/ma1301/ma1301-1-5) |\n\n**Fire prøver à ~35–40 minutter — kan trygt deles over flere kvelder, én prøve per økt.** Det er ikke meningen at du skal ta alle fire på rad. Tvert imot: én prøve, rettet grundig og med selvdiagnosen fylt ut, er mer verdt enn fire prøver rettet raskt.\n\n**Slik tar du dem, hvis treningen skal ligne eksamen:**\n\n- **Sett klokka**, og bruk bare det du får bruke 24. november: penn, papir og en enkel kalkulator. Ingen bok, ingen formelsamling, ingen tabeller, ingen egne notater.\n- **Lukk boka helt.** Har du oppskriften ved siden av deg, trener du oppslag — og oppslag er nettopp det hjelpemiddelkode D har fjernet.\n- **Skriv fullstendig**, som om noen skal rette det. Instruksen på hvert eksamenssett er at alle svar skal begrunnes; et riktig sluttall uten metode teller lite.\n- **Rett etterpå**, og fyll ut selvdiagnose-sjekklista under hver fasit. Den er der du finner ut hva neste repetisjonsøkt skal handle om.\n\n**Om poengene.** Hver prøve har oppgitt poeng per oppgave, som en veiledning til hvor mye arbeid som forventes. Tallene er bokas egne — arkivet oppgir ingen karaktergrenser i prosent for dette emnet, og boka oppfinner ingen.\n\n**Ingen flervalgsoppgaver.** Eksamen i MA1301 har aldri hatt en flervalgsdel, og prøvene her speiler det: alt er begrunnet langsvar."
+    },
+    {
+      "id": "ma1301-1-prove-forkunnskaper",
+      "type": "text",
+      "content": "### Forkunnskaper\n\nAlt du trenger, står i Del 1: [kap. 1.1](/ma1301/ma1301-1-1) (delelighet, primtall, $\\gcd$ og $\\operatorname{lcm}$), [kap. 1.2](/ma1301/ma1301-1-2) (Euklids algoritme og Bézout), [kap. 1.3](/ma1301/ma1301-1-3) (diofantiske likninger), [kap. 1.4](/ma1301/ma1301-1-4) (kongruenser og modulær invers) og [kap. 1.5](/ma1301/ma1301-1-5) (drillen med hele oppskriften).\n\n**Har du ikke lest Del 1 ennå,** er prøvene ikke stedet å begynne. Gå til [kap. 1.1](/ma1301/ma1301-1-1) og les deg gjennom — prøvene er der for å teste at stoffet sitter, ikke for å lære det.\n\n**Har du lest Del 1 men er usikker,** ta prøve 1.A først. Den er den mest grunnleggende, og går det bra der, sitter fundamentet."
+    },
+    {
+      "id": "ma1301-1-prove-intro",
+      "type": "text",
+      "content": "### Slik er prøvene bygget\n\nHver prøve har tre oppgaver, og de er ordnet etter stigende vanskelighet: den første er ren mekanikk, den siste krever at du setter sammen to eller flere teknikker.\n\n**Fasitene er skrevet som A-besvarelser.** Det betyr at hvert mellomsteg står der, at teoremet er navngitt der argumentet hviler på det, og at kontrollene er utført. Det er ikke pynt — det er hva instruksen «alle svar må begrunnes» krever, og det er standarden du selv skal skrive etter.\n\n**Etter hver fasit står en avkryssbar selvdiagnose.** Bruk den. Den er formulert som de spørsmålene du bør stille deg selv om metoden, ikke bare om svaret — for på eksamen er det metoden som vurderes.\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "ma1301-1-prove-prove-A",
+      "type": "collapsible",
+      "title": "Prøve 1.A — Euklids algoritme, Bézout og faktorisering (35 min)",
+      "buttonText": "Vis prøve 1.A",
+      "content": [
+        {
+          "id": "ma1301-1-prove-A-intro",
+          "type": "text",
+          "content": "**Prøve 1.A — Euklids algoritme, Bézout, $\\gcd$ og $\\operatorname{lcm}$.** 35 minutter, 25 poeng. Sjanger A-motoren, som bærer 15 av 15 eksamenssett.\n\nHjelpemidler: penn, papir og en enkel kalkulator. Ingenting annet.\n\nTidsbudsjett: oppgave 1 ~14 min (12 poeng), oppgave 2 ~11 min (8 poeng), oppgave 3 ~10 min (5 poeng)."
+        },
+        {
+          "id": "ma1301-1-prove-ex-A1",
+          "type": "exercise",
+          "exercise": {
+            "id": "ma1301-1-prove-oA1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(12 poeng, ~14 min)\n\n**a)** Bruk Euklids algoritme til å finne $\\gcd(2337,969)$. Før divisjonskjeden linje for linje. (5 poeng)\n**b)** Skriv $\\gcd(2337,969)$ på formen $2337x+969y$ ved substitusjon baklengs. (5 poeng)\n**c)** Kontrollér svaret i b) ved innsetting, og sjekk i tillegg at $\\gcd$-en din deler begge tallene. (2 poeng)",
+            "solution": "**a)** og **b)** følger malen i tre steg:\n\n**(i) Divisjonskjeden frem.** Vi deler gjentatt med rest, **ved Euklids algoritme**, til resten blir $0$:\n\n$$2\\,337 = 2\\cdot 969 + 399$$\n$$969 = 2\\cdot 399 + 171$$\n$$399 = 2\\cdot 171 + 57$$\n$$171 = 3\\cdot 57 + 0$$\n\nDen siste resten som ikke er $0$, er $57$. Altså er $\\gcd(2\\,337,969)=57$. Kjeden har 4 divisjonslinjer.\n\n**(ii) Substitusjonskjeden baklengs.** Vi løser den nest siste linja for resten og substituerer oppover, linje for linje:\n\n$$57 = 399 - 2\\cdot 171$$\nSett inn $171 = 969 - 2\\cdot 399$:\n$$57 = -2\\cdot 969 + 5\\cdot 399$$\nSett inn $399 = 2\\,337 - 2\\cdot 969$:\n$$57 = 5\\cdot 2\\,337 - 12\\cdot 969$$\n\n**(iii) Konklusjon.** Altså er\n\n$$\\gcd(2\\,337,969) = 57 = 2\\,337\\cdot(5) + 969\\cdot(-12).$$\n\n**Kontroll ved innsetting:** $2\\,337\\cdot(5) + 969\\cdot(-12) = 11\\,685 - 11\\,628 = 57$. Stemmer.\n\n**c) Tilleggskontroll at $57$ er en felles divisor:** $2337=57\\cdot 41$ og $969=57\\cdot 17$. Begge går opp ✓.\n\n*(Innsettingskontrollen står allerede i steg (iii) over.)*\n\n**Sluttsvar:** $\\gcd(2337,969)=57$, og $57=2337\\cdot 5+969\\cdot(-12)$.\n\n*Merk at $2337=3\\cdot 19\\cdot 41$ og $969=3\\cdot 17\\cdot 19$, så $\\gcd=3\\cdot 19=57$. Faktoriseringsveien gir samme svar, men krever at du finner fem primtall ved prøvedivisjon — Euklids algoritme brukte fire divisjoner. Det er forskjellen som betyr noe under kode D.*",
+            "hints": [
+              "Første linje: hvor mange ganger går $969$ i $2337$?",
+              "Fire divisjonslinjer er nok. Nest siste linje er $399=2\\cdot 171+57$.",
+              "Ikke gang ut produktene underveis i baklengs-kjeden."
+            ]
+          }
+        },
+        {
+          "id": "ma1301-1-prove-ex-A2",
+          "type": "exercise",
+          "exercise": {
+            "id": "ma1301-1-prove-oA2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(8 poeng, ~11 min)\n\nLa $a=1080$ og $b=3960$.\n\n**a)** Finn primtallsfaktoriseringen til begge tallene. (3 poeng)\n**b)** Bestem $\\gcd(a,b)$ og $\\operatorname{lcm}(a,b)$ fra faktoriseringene. (3 poeng)\n**c)** Kontrollér svaret med produktregelen. (2 poeng)",
+            "solution": "**a)** $1080$: like, så $1080=2\\cdot 540=2^2\\cdot 270=2^3\\cdot 135$. Videre er $135=27\\cdot 5=3^3\\cdot 5$. Altså\n$$1080=2^3\\cdot 3^3\\cdot 5.$$\n**Kontroll:** $8\\cdot 27\\cdot 5=1080$ ✓.\n\n$3960$: like, så $3960=2\\cdot 1980=2^2\\cdot 990=2^3\\cdot 495$. Siffersummen i $495$ er $18$, delelig med $9$: $495=9\\cdot 55=3^2\\cdot 5\\cdot 11$. Altså\n$$3960=2^3\\cdot 3^2\\cdot 5\\cdot 11.$$\n**Kontroll:** $8\\cdot 9\\cdot 5\\cdot 11=3960$ ✓.\n\n**b)** Vi stiller opp eksponentene, med $0$ der et primtall mangler:\n\n| Primtall | i $1080$ | i $3960$ | $\\min$ (til $\\gcd$) | $\\max$ (til $\\operatorname{lcm}$) |\n|---|---|---|---|---|\n| $2$ | $3$ | $3$ | $3$ | $3$ |\n| $3$ | $3$ | $2$ | $2$ | $3$ |\n| $5$ | $1$ | $1$ | $1$ | $1$ |\n| $11$ | $0$ | $1$ | $0$ | $1$ |\n\n$\\gcd$ tar **minste** eksponent:\n$$\\gcd(1080,3960)=2^3\\cdot 3^2\\cdot 5=8\\cdot 9\\cdot 5=360.$$\n$\\operatorname{lcm}$ tar **største**:\n$$\\operatorname{lcm}(1080,3960)=2^3\\cdot 3^3\\cdot 5\\cdot 11=8\\cdot 27\\cdot 5\\cdot 11=11\\,880.$$\n\n**c) Produktregelen** $\\gcd\\cdot\\operatorname{lcm}=ab$:\n$$360\\cdot 11\\,880=4\\,276\\,800,\\qquad 1080\\cdot 3960=4\\,276\\,800.$$\nDe er like, så begge svarene er riktige ✓.\n\n**Sluttsvar:** $1080=2^3\\cdot 3^3\\cdot 5$, $3960=2^3\\cdot 3^2\\cdot 5\\cdot 11$, $\\gcd=360$, $\\operatorname{lcm}=11\\,880$.\n\n*Merk en snarvei du kunne brukt: $1080\\mid 3960$? Nei — $3960/1080=3{,}67$. Men $\\gcd=360$ og $1080/360=3$, så $\\operatorname{lcm}=3\\cdot 3960=11\\,880$ direkte. Under kode D er det verdt å forkorte før du multipliserer sekssifrede tall.*",
+            "hints": [
+              "Trekk ut alle faktorene $2$ først, så $3$ (bruk siffersummen), så $5$.",
+              "$\\gcd$ tar minste eksponent for hvert primtall, $\\operatorname{lcm}$ tar største.",
+              "I c): regn ut begge produktene og sammenlign."
+            ]
+          }
+        },
+        {
+          "id": "ma1301-1-prove-ex-A3",
+          "type": "exercise",
+          "exercise": {
+            "id": "ma1301-1-prove-oA3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(5 poeng, ~10 min)\n\nLa $n$ være et helt tall.\n\n**a)** Vis at $9n+4$ og $7n+3$ er relativt primiske for alle hele tall $n$. (3 poeng)\n**b)** Kontrollér resultatet for $n=2$ og $n=6$. (2 poeng)",
+            "solution": "**a)** Koeffisientene foran $n$ er $9$ og $7$. Vi ganger det første uttrykket med $7$ og det andre med $9$, slik at begge får $63n$:\n$$7(9n+4)-9(7n+3)=(63n+28)-(63n+27)=1.$$\n\nAltså har vi, for hvert helt tall $n$:\n$$7\\cdot(9n+4)+(-9)\\cdot(7n+3)=1.\\tag{$\\ast$}$$\n\nLa $d$ være en felles divisor i $9n+4$ og $7n+3$. **Etter lineærkombinasjonsregelen** deler $d$ venstresiden i $(\\ast)$, altså $d\\mid 1$, så $d=\\pm 1$. Dermed er\n$$\\gcd(9n+4,\\,7n+3)=1\\qquad\\text{for alle hele tall }n.\\qquad\\blacksquare$$\n\n*Merk at $(\\ast)$ **er** Bézout-likningen for de to uttrykkene — vi konstruerte den direkte, uten Euklids algoritme. Det er nødvendig her: med en ukjent $n$ i koeffisientene finnes det ingen divisjonskjede å kjøre, og ingenting å faktorisere.*\n\n**b) Kontroll.**\n\nFor $n=2$: uttrykkene er $9\\cdot 2+4=22$ og $7\\cdot 2+3=17$. Lineærkombinasjonen: $7\\cdot 22-9\\cdot 17=154-153=1$ ✓. Og $\\gcd(22,17)=1$, siden $22=2\\cdot 11$ og $17$ er et primtall som ikke deler $22$ ✓.\n\nFor $n=6$: uttrykkene er $58$ og $45$. Lineærkombinasjonen: $7\\cdot 58-9\\cdot 45=406-405=1$ ✓. Og $\\gcd(58,45)=1$, siden $58=2\\cdot 29$ og $45=3^2\\cdot 5$ ikke har felles primfaktor ✓.\n\n**Sluttsvar:** $7(9n+4)-9(7n+3)=1$ for alle $n$, så uttrykkene er relativt primiske for hvert helt tall $n$.\n\n*Legg merke til at metoden også virker for negative $n$: med $n=-3$ blir uttrykkene $-23$ og $-18$, og $7\\cdot(-23)-9\\cdot(-18)=-161+162=1$ ✓. Beviset gjaldt alle hele tall, og det gjorde ingen antagelse om fortegn.*",
+            "hints": [
+              "Gang uttrykkene med hverandres $n$-koeffisient, og trekk fra hverandre.",
+              "Hva må en felles divisor $d$ dele, når den deler begge uttrykkene?",
+              "I b): regn ut uttrykkene for de to $n$-verdiene og sjekk $\\gcd$ direkte."
+            ]
+          }
+        },
+        {
+          "id": "ma1301-1-prove-A-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose — prøve 1.A\n\nKryss av det du faktisk gjorde, ikke det du vet at man skal gjøre. Punktene som står åpne, er repetisjonslisten din.\n\n**Metode:**\n\n- ☐ Jeg førte divisjonskjeden **linje for linje**, ikke bare sluttresultatet.\n- ☐ Jeg identifiserte **siste ikke-null rest** eksplisitt som $\\gcd$ — ikke bare underforstått.\n- ☐ Jeg skrev ut substitusjonskjeden **steg for steg** baklengs, og lot produktene stå uutregnet underveis.\n- ☐ Jeg avsluttet med en **konklusjonssetning** med tall: «altså er $\\gcd(a,b)=\\dots=a\\cdot\\dots+b\\cdot\\dots$».\n- ☐ I oppgave 3 begrunnet jeg at $\\gcd=1$ ved å **presentere $1$ som en lineærkombinasjon**, og sa hvorfor det er nok.\n\n**Kontroller:**\n\n- ☐ Jeg kontrollerte Bézout-koeffisientene **ved innsetting**.\n- ☐ Jeg sjekket at $\\gcd$-en min **deler begge** de opprinnelige tallene.\n- ☐ Jeg brukte **produktregelen** $\\gcd\\cdot\\operatorname{lcm}=ab$ som kontroll i oppgave 2.\n\n**Hvis noe skar seg:**\n\n- ☐ Fikk jeg **andre Bézout-koeffisienter** enn fasiten? Sjekk innsettingen — flere par er riktige, og alle på formen $(x+\\frac bd t,\\ y-\\frac ad t)$ fungerer.\n- ☐ Ble Euklid-kjeden **lengre enn 6 linjer**? Da har jeg sannsynligvis regnet feil, ikke møtt et vanskelig tallpar.\n- ☐ Fikk jeg **to positive** Bézout-koeffisienter? Når $\\gcd$ er lite i forhold til $a$ og $b$, skal de ha **motsatt** fortegn — sjekk om et minustegn er mistet.\n- ☐ Tok jeg **største** eksponent til $\\gcd$ i oppgave 2? Det skal være den **minste**.\n\n**Neste steg:** står mer enn to punkt åpne under «Metode», gå tilbake til [kap. 1.2](/ma1301/ma1301-1-2) og regn oppgavene der på nytt før du tar prøve 1.B."
+        }
+      ]
+    },
+    {
+      "id": "ma1301-1-prove-prove-B",
+      "type": "collapsible",
+      "title": "Prøve 1.B — Lineære diofantiske likninger (35 min)",
+      "buttonText": "Vis prøve 1.B",
+      "content": [
+        {
+          "id": "ma1301-1-prove-B-intro",
+          "type": "text",
+          "content": "**Prøve 1.B — Lineær diofantisk likning.** 35 minutter, 25 poeng. Sjanger A, som forekommer i 10 av 15 eksamenssett og nesten alltid er oppgave 1.\n\nHjelpemidler: penn, papir og en enkel kalkulator.\n\nTidsbudsjett: oppgave 1 ~12 min (10 poeng), oppgave 2 ~13 min (10 poeng), oppgave 3 ~10 min (5 poeng).\n\n**Husk hva som gir uttelling her:** løsbarheten kommentert før du løser, skaleringen med $c/d$, og **hele** løsningsmengden med $t\\in\\mathbb{Z}$."
+        },
+        {
+          "id": "ma1301-1-prove-ex-B1",
+          "type": "exercise",
+          "exercise": {
+            "id": "ma1301-1-prove-oB1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(10 poeng, ~12 min)\n\nFinn samtlige heltallsløsninger av\n$$1794x+713y=92.$$",
+            "solution": "**Steg 1: regn ut $\\gcd(1\\,794,713)$ med Euklids algoritme.**\n\n**(i) Divisjonskjeden frem.** Vi deler gjentatt med rest, **ved Euklids algoritme**, til resten blir $0$:\n\n$$1\\,794 = 2\\cdot 713 + 368$$\n$$713 = 1\\cdot 368 + 345$$\n$$368 = 1\\cdot 345 + 23$$\n$$345 = 15\\cdot 23 + 0$$\n\nDen siste resten som ikke er $0$, er $23$. Altså er $\\gcd(1\\,794,713)=23$. Kjeden har 4 divisjonslinjer.\n\n**Steg 2: kommenter løsbarheten FØR vi løser.**\n\nLøsbarhetskriteriet er $d\\mid c$, der $d=\\gcd(1\\,794,713)=23$. Her er $92=4\\cdot 23$, så $23\\mid 92$. **Fordi $d=23$ deler $c=92$, har likningen løsninger** — og vi kan gå videre.\n\n**Steg 3: finn Bézout-koeffisientene ved substitusjon baklengs.**\n\n**(ii) Substitusjonskjeden baklengs.** Vi løser den nest siste linja for resten og substituerer oppover, linje for linje:\n\n$$23 = 368 - 1\\cdot 345$$\nSett inn $345 = 713 - 1\\cdot 368$:\n$$23 = -1\\cdot 713 + 2\\cdot 368$$\nSett inn $368 = 1\\,794 - 2\\cdot 713$:\n$$23 = 2\\cdot 1\\,794 - 5\\cdot 713$$\n\n**(iii) Konklusjon.** Altså er\n\n$$\\gcd(1\\,794,713) = 23 = 1\\,794\\cdot(2) + 713\\cdot(-5).$$\n\n**Kontroll ved innsetting:** $1\\,794\\cdot(2) + 713\\cdot(-5) = 3\\,588 - 3\\,565 = 23$. Stemmer.\n\n**Steg 4: skaler opp til en partikulærløsning.** Vi trenger høyresiden $92$, ikke $23$, så vi ganger hele Bézout-likningen med $c/d=92/23=4$:\n\n$$1\\,794\\cdot(8) + 713\\cdot(-20) = 92.$$\n\nAltså er $x_0=8$, $y_0=-20$ én løsning. **Kontroll:** $1\\,794\\cdot(8)=14\\,352$ og $713\\cdot(-20)=-14\\,260$, med sum $92$. Stemmer.\n\n**Steg 5: skriv HELE løsningsmengden.** Med $b/d=713/23=31$ og $a/d=1\\,794/23=78$:\n\n$$x = 8 + 31t,\\qquad y = -20 - 78t,\\qquad t\\in\\mathbb{Z}.$$\n\n**Kontroll av parametriseringen.** Sett inn og se at $t$ faller ut:\n$$1\\,794(8+31t) + 713(-20-78t) = 92 + 1\\,794\\cdot 31t - 713\\cdot 78t = 92 + 55\\,614t - 55\\,614t = 92.$$\nLeddene med $t$ kansellerer, som de skal — begge er $\\pm\\operatorname{lcm}(1\\,794,713)t = \\pm55\\,614t$.\n\n**Sluttsvar:** $x=8+31t$, $y=-20-78t$ med $t\\in\\mathbb{Z}$.\n\n*Kontroll av skrittlengdene: $1794\\cdot 31=55\\,614$ og $713\\cdot 78=55\\,614$ — like, som de skal være. Begge er $\\operatorname{lcm}(1794,713)$.*",
+            "hints": [
+              "Fire divisjonslinjer i Euklid-kjeden.",
+              "Kommentér løsbarheten før du løser: deler $\\gcd$ tallet $92$?",
+              "Husk å skalere Bézout-likningen, og at skrittlengdene er $b/d$ og $a/d$."
+            ]
+          }
+        },
+        {
+          "id": "ma1301-1-prove-ex-B2",
+          "type": "exercise",
+          "exercise": {
+            "id": "ma1301-1-prove-oB2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(10 poeng, ~13 min)\n\nBetrakt likningen\n$$2337x+969y=171.$$\n\n**a)** Avgjør om likningen har heltallsløsninger, og finn i så fall samtlige. (7 poeng)\n**b)** Finn alle løsninger med $0\\le x\\le 100$. (3 poeng)",
+            "solution": "**Steg 1: regn ut $\\gcd(2\\,337,969)$ med Euklids algoritme.**\n\n**(i) Divisjonskjeden frem.** Vi deler gjentatt med rest, **ved Euklids algoritme**, til resten blir $0$:\n\n$$2\\,337 = 2\\cdot 969 + 399$$\n$$969 = 2\\cdot 399 + 171$$\n$$399 = 2\\cdot 171 + 57$$\n$$171 = 3\\cdot 57 + 0$$\n\nDen siste resten som ikke er $0$, er $57$. Altså er $\\gcd(2\\,337,969)=57$. Kjeden har 4 divisjonslinjer.\n\n**Steg 2: kommenter løsbarheten FØR vi løser.**\n\nLøsbarhetskriteriet er $d\\mid c$, der $d=\\gcd(2\\,337,969)=57$. Her er $171=3\\cdot 57$, så $57\\mid 171$. **Fordi $d=57$ deler $c=171$, har likningen løsninger** — og vi kan gå videre.\n\n**Steg 3: finn Bézout-koeffisientene ved substitusjon baklengs.**\n\n**(ii) Substitusjonskjeden baklengs.** Vi løser den nest siste linja for resten og substituerer oppover, linje for linje:\n\n$$57 = 399 - 2\\cdot 171$$\nSett inn $171 = 969 - 2\\cdot 399$:\n$$57 = -2\\cdot 969 + 5\\cdot 399$$\nSett inn $399 = 2\\,337 - 2\\cdot 969$:\n$$57 = 5\\cdot 2\\,337 - 12\\cdot 969$$\n\n**(iii) Konklusjon.** Altså er\n\n$$\\gcd(2\\,337,969) = 57 = 2\\,337\\cdot(5) + 969\\cdot(-12).$$\n\n**Kontroll ved innsetting:** $2\\,337\\cdot(5) + 969\\cdot(-12) = 11\\,685 - 11\\,628 = 57$. Stemmer.\n\n**Steg 4: skaler opp til en partikulærløsning.** Vi trenger høyresiden $171$, ikke $57$, så vi ganger hele Bézout-likningen med $c/d=171/57=3$:\n\n$$2\\,337\\cdot(15) + 969\\cdot(-36) = 171.$$\n\nAltså er $x_0=15$, $y_0=-36$ én løsning. **Kontroll:** $2\\,337\\cdot(15)=35\\,055$ og $969\\cdot(-36)=-34\\,884$, med sum $171$. Stemmer.\n\n**Steg 5: skriv HELE løsningsmengden.** Med $b/d=969/57=17$ og $a/d=2\\,337/57=41$:\n\n$$x = 15 + 17t,\\qquad y = -36 - 41t,\\qquad t\\in\\mathbb{Z}.$$\n\n**Kontroll av parametriseringen.** Sett inn og se at $t$ faller ut:\n$$2\\,337(15+17t) + 969(-36-41t) = 171 + 2\\,337\\cdot 17t - 969\\cdot 41t = 171 + 39\\,729t - 39\\,729t = 171.$$\nLeddene med $t$ kansellerer, som de skal — begge er $\\pm\\operatorname{lcm}(2\\,337,969)t = \\pm39\\,729t$.\n\n**a) Sluttsvar:** $x=15+17t$, $y=-36-41t$ med $t\\in\\mathbb{Z}$.\n\n**b)** Vi krever $0\\le 15+17t\\le 100$.\n\nVenstre ulikhet: $17t\\ge -15$, altså $t\\ge -15/17\\approx -0{,}88$, som gir $t\\ge 0$.\nHøyre ulikhet: $17t\\le 85$, altså $t\\le 5$.\n\nAltså $t\\in\\{0,1,2,3,4,5\\}$ — **seks løsninger**:\n\n| $t$ | $x=15+17t$ | $y=-36-41t$ | Kontroll $2337x+969y$ |\n|---|---|---|---|\n| $0$ | $15$ | $-36$ | $35\\,055-34\\,884=171$ ✓ |\n| $1$ | $32$ | $-77$ | $74\\,784-74\\,613=171$ ✓ |\n| $2$ | $49$ | $-118$ | $114\\,513-114\\,342=171$ ✓ |\n| $3$ | $66$ | $-159$ | $154\\,242-154\\,071=171$ ✓ |\n| $4$ | $83$ | $-200$ | $193\\,971-193\\,800=171$ ✓ |\n| $5$ | $100$ | $-241$ | $233\\,700-233\\,529=171$ ✓ |\n\n**Kontroll av endepunktene:** $t=-1$ gir $x=-2<0$, og $t=6$ gir $x=117>100$. Begge utenfor ✓.\n\n**b) Sluttsvar:** seks løsninger, med $x\\in\\{15,32,49,66,83,100\\}$ og tilhørende $y\\in\\{-36,-77,-118,-159,-200,-241\\}$.\n\n*Merk at $x=100$ er inkludert, siden ulikheten er $x\\le 100$ og ikke $x<100$. Hadde den vært streng, ville $t=5$ falt ut og svaret vært fem løsninger. Les alltid om ulikheten er streng — det er den vanligste feilen i intervallvarianten.*",
+            "hints": [
+              "$\\gcd(2337,969)=57$ — du regnet det i prøve 1.A.",
+              "Skalér med $171/57$.",
+              "I b): sett parametriseringen inn i begge ulikhetene, og husk å telle med $+1$."
+            ]
+          }
+        },
+        {
+          "id": "ma1301-1-prove-ex-B3",
+          "type": "exercise",
+          "exercise": {
+            "id": "ma1301-1-prove-oB3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(5 poeng, ~10 min)\n\nLa $n$ være et helt tall.\n\n**a)** Vis at likningen $(11n+5)x+(9n+4)y=6$ har heltallsløsninger for hvert helt tall $n$. (2 poeng)\n**b)** Finn den generelle heltallsløsningen. (3 poeng)",
+            "solution": "**a) Steg 1: vis at koeffisientene er relativt primiske.**\n\nKoeffisientene foran $n$ er $11$ og $9$. Vi ganger det første uttrykket med $9$ og det andre med $11$, slik at begge får $99n$:\n$$9(11n+5)-11(9n+4)=(99n+45)-(99n+44)=1.$$\n\nAltså, for hvert helt tall $n$:\n$$9\\cdot(11n+5)+(-11)\\cdot(9n+4)=1.\\tag{$\\ast$}$$\n\nLa $d$ være en felles divisor i de to uttrykkene. **Etter lineærkombinasjonsregelen** deler $d$ venstresiden i $(\\ast)$, altså $d\\mid 1$. Dermed er $\\gcd(11n+5,\\,9n+4)=1$ for alle $n$.\n\n**Steg 2: konkludér løsbarhet.** **Etter løsbarhetskriteriet** har likningen heltallsløsninger nøyaktig når $\\gcd$ deler høyresiden. Siden $\\gcd=1$ og $1$ deler alle hele tall, er likningen løsbar for hvert $n$ — og for hvilken som helst høyreside. $\\blacksquare$\n\n**b) Skalér og skriv løsningsmengden.**\n\nGang $(\\ast)$ med $6$:\n$$54\\cdot(11n+5)+(-66)\\cdot(9n+4)=6.$$\nAltså er\n$$x_0=54,\\qquad y_0=-66$$\nen partikulærløsning — **og den avhenger ikke av $n$**.\n\n**Kontroll:** $54(11n+5)-66(9n+4)=594n+270-594n-264=6$ ✓ for alle $n$.\n\nSiden $d=1$, er skrittlengdene uttrykkene selv: $b/d=9n+4$ og $a/d=11n+5$. Hele løsningsmengden er\n$$x=54+(9n+4)t,\\qquad y=-66-(11n+5)t,\\qquad t\\in\\mathbb{Z}.$$\n\n**Kontroll av parametriseringen:**\n$$(11n+5)\\big(54+(9n+4)t\\big)+(9n+4)\\big(-66-(11n+5)t\\big)=6+(11n+5)(9n+4)t-(9n+4)(11n+5)t=6.$$\n$t$-leddene kansellerer ✓.\n\n**Kontroll med et konkret $n$.** Sett $n=1$: koeffisientene blir $16$ og $13$, og likningen er $16x+13y=6$. Formelen gir $x_0=54$, $y_0=-66$: $16\\cdot 54+13\\cdot(-66)=864-858=6$ ✓. Løsningsmengden blir $x=54+13t$, $y=-66-16t$, som stemmer med at $b=13$ og $a=16$. Med $t=-4$: $x=2$, $y=-2$, og $16\\cdot 2+13\\cdot(-2)=32-26=6$ ✓.\n\n**Sluttsvar:** **a)** $9(11n+5)-11(9n+4)=1$ gir $\\gcd=1$, og dermed løsbarhet for hvert $n$. **b)** $x=54+(9n+4)t$, $y=-66-(11n+5)t$ med $t\\in\\mathbb{Z}$.",
+            "hints": [
+              "Gang uttrykkene med hverandres $n$-koeffisient og trekk fra hverandre.",
+              "I b): skalér lineærkombinasjonen med $6$. Hva er $d$, og dermed skrittlengdene?",
+              "Kontrollér til slutt med en konkret $n$-verdi."
+            ]
+          }
+        },
+        {
+          "id": "ma1301-1-prove-B-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose — prøve 1.B\n\nKryss av det du faktisk gjorde.\n\n**Metode:**\n\n- ☐ Jeg **kommenterte løsbarheten** med en setning før jeg løste: «Fordi $d=\\dots$ deler $c=\\dots$, har likningen løsninger.»\n- ☐ Jeg **skalerte** Bézout-likningen med $c/d$ — og gjorde det på **begge** koeffisientene.\n- ☐ Jeg skrev **hele** løsningsmengden, med $t\\in\\mathbb{Z}$ eksplisitt.\n- ☐ Jeg brukte skrittlengdene $b/d$ og $a/d$ — ikke $b$ og $a$.\n- ☐ Jeg fikk fortegnene riktig: **pluss** på $x$, **minus** på $y$.\n- ☐ I oppgave 3 presenterte jeg $1$ som en eksplisitt lineærkombinasjon, og sa hvorfor $\\gcd=1$ følger.\n\n**Kontroller:**\n\n- ☐ Jeg kontrollerte partikulærløsningen ved innsetting, og fikk **$c$** — ikke $d$.\n- ☐ Jeg kontrollerte at **$t$-leddene kansellerer** i parametriseringen.\n- ☐ I oppgave 2 b) sjekket jeg at $t_{\\min}-1$ og $t_{\\max}+1$ faller **utenfor** intervallet.\n- ☐ I oppgave 3 kontrollerte jeg med minst én konkret $n$-verdi.\n\n**Hvis noe skar seg:**\n\n- ☐ Ga innsettingen **$d$ i stedet for $c$**? Da glemte jeg skaleringen — den mest belagte feilen i denne sjangeren.\n- ☐ Oppga jeg **bare én løsning**? «Samtlige heltallsløsninger» krever parameteren.\n- ☐ Brukte jeg **$b$ i stedet for $b/d$** som skrittlengde? Da mistet jeg $d-1$ av hver $d$ løsninger.\n- ☐ Telte jeg **feil antall** i oppgave 2 b)? Antallet er $t_{\\max}-t_{\\min}+1$ — husk $+1$.\n\n**Neste steg:** står punktet om skalering eller om hele løsningsmengden åpent, les [kap. 1.3](/ma1301/ma1301-1-3) løkke 2 og 3 på nytt, og regn oppgave 3–5 der."
+        }
+      ]
+    },
+    {
+      "id": "ma1301-1-prove-prove-C",
+      "type": "collapsible",
+      "title": "Prøve 1.C — Lineære kongruenser og modulær invers (35 min)",
+      "buttonText": "Vis prøve 1.C",
+      "content": [
+        {
+          "id": "ma1301-1-prove-C-intro",
+          "type": "text",
+          "content": "**Prøve 1.C — Lineær kongruens og modulær invers.** 35 minutter, 25 poeng. Sjanger B, som inngår i omtrent 10 av 15 eksamenssett — og som er infrastrukturen under sjanger C (det kinesiske restteoremet), D (RSA) og E (restberegninger).\n\nHjelpemidler: penn, papir og en enkel kalkulator.\n\nTidsbudsjett: oppgave 1 ~12 min (10 poeng), oppgave 2 ~11 min (8 poeng), oppgave 3 ~12 min (7 poeng).\n\n**Husk de tre tingene som gir uttelling:** løsbarheten **og antallet** kommentert før du løser, modulusen delt når du forkorter, og **alle $d$** løsningene listet."
+        },
+        {
+          "id": "ma1301-1-prove-ex-C1",
+          "type": "exercise",
+          "exercise": {
+            "id": "ma1301-1-prove-oC1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(10 poeng, ~12 min)\n\nLøs kongruensen\n$$87x\\equiv 69\\pmod{96},$$\nog oppgi alle inkongruente løsninger modulo $96$.",
+            "solution": "**Steg 1: regn ut $d=\\gcd(87,96)$, og kommenter løsbarhet og antall løsninger FØR vi løser.**\n\n**(i) Divisjonskjeden frem.** Vi deler gjentatt med rest, **ved Euklids algoritme**, til resten blir $0$:\n\n$$96 = 1\\cdot 87 + 9$$\n$$87 = 9\\cdot 9 + 6$$\n$$9 = 1\\cdot 6 + 3$$\n$$6 = 2\\cdot 3 + 0$$\n\nDen siste resten som ikke er $0$, er $3$. Altså er $\\gcd(96,87)=3$. Kjeden har 4 divisjonslinjer.\n\nLøsbarhetskriteriet er $d\\mid b$: her er $d=3$ og $b=69$, og $69=23\\cdot 3$, så $3\\mid 69$. Kongruensen er løsbar, og **antall inkongruente løsninger modulo $96$ er $d=3$.**\n\n**Steg 2: forkort kongruensen med $d=3$ — husk at modulusen også deles.**\n\n$$29x \\equiv 23 \\pmod{32}$$\n\nNå er $\\gcd(29,32)=1$, så den forkortede kongruensen har nøyaktig én løsning modulo $32$.\n\n**Steg 3: finn inversen til $29$ modulo $32$ via Euklids algoritme baklengs.**\n\n**(i) Divisjonskjeden frem.** Vi deler gjentatt med rest, **ved Euklids algoritme**, til resten blir $0$:\n\n$$32 = 1\\cdot 29 + 3$$\n$$29 = 9\\cdot 3 + 2$$\n$$3 = 1\\cdot 2 + 1$$\n$$2 = 2\\cdot 1 + 0$$\n\nDen siste resten som ikke er $0$, er $1$. Altså er $\\gcd(32,29)=1$. Kjeden har 4 divisjonslinjer.\n\n**(ii) Substitusjonskjeden baklengs.** Vi løser den nest siste linja for resten og substituerer oppover, linje for linje:\n\n$$1 = 3 - 1\\cdot 2$$\nSett inn $2 = 29 - 9\\cdot 3$:\n$$1 = -1\\cdot 29 + 10\\cdot 3$$\nSett inn $3 = 32 - 1\\cdot 29$:\n$$1 = 10\\cdot 32 - 11\\cdot 29$$\n\n**(iii) Konklusjon.** Altså er\n\n$$\\gcd(32,29) = 1 = 32\\cdot(10) + 29\\cdot(-11).$$\n\n**Kontroll ved innsetting:** $32\\cdot(10) + 29\\cdot(-11) = 320 - 319 = 1$. Stemmer.\n\nLest **modulo $32$** forsvinner leddet med $32$, og vi står med\n\n$$29\\cdot(-11) \\equiv 1 \\pmod{32}.$$\n\nVi flytter koeffisienten inn i intervallet $0\\le u<32$ ved å legge til $32$: inversen er $u=21$.\n\n**Kontroll:** $29\\cdot 21 = 609 = 19\\cdot 32 + 1$. Resten er $1$. Stemmer.\n\n**Steg 4: gang opp med inversen.**\n\n$$x \\equiv 21\\cdot 23 = 483 \\equiv 3 \\pmod{32}$$\n\n**Steg 5: list alle $3$ inkongruente løsningene modulo $96$.** De ligger $m/d=32$ fra hverandre, altså $x_0+k\\cdot\\frac{m}{d}$ for $k=0,1,\\dots,2$:\n\n$$x \\equiv 3,\\qquad x \\equiv 35,\\qquad x \\equiv 67 \\pmod{96}$$\n\n**Kontroll ved innsetting** (alle $3$ skal gi resten $69$):\n\n- $x=3$: $87\\cdot 3 = 261$, og $261 \\bmod 96 = 69$ ✓\n- $x=35$: $87\\cdot 35 = 3\\,045$, og $3\\,045 \\bmod 96 = 69$ ✓\n- $x=67$: $87\\cdot 67 = 5\\,829$, og $5\\,829 \\bmod 96 = 69$ ✓\n\n**Sluttsvar:** $3$ inkongruente løsninger modulo $96$:\n$$x\\equiv 3,\\ 35,\\ 67\\pmod{96}.$$\n\n*Kontroll av avstanden: løsningene ligger $32$ fra hverandre, og $m/d=96/3=32$ ✓.*",
+            "hints": [
+              "Regn $d=\\gcd(87,96)$, og si både om kongruensen er løsbar og hvor mange løsninger den har.",
+              "Forkort med $d$ — husk at modulusen også deles.",
+              "Du skal ende med tre løsninger, med avstand $96/3$."
+            ]
+          }
+        },
+        {
+          "id": "ma1301-1-prove-ex-C2",
+          "type": "exercise",
+          "exercise": {
+            "id": "ma1301-1-prove-oC2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(8 poeng, ~11 min)\n\n**a)** Avgjør om $43$ har en invers modulo $96$, og finn den i så fall. (5 poeng)\n**b)** Bruk inversen til å løse $43x\\equiv 25\\pmod{96}$. (3 poeng)",
+            "solution": "**a) Steg 1: sjekk eksistensbetingelsen.** Inversen finnes nøyaktig når $\\gcd(43,96)=1$. Vi regner den med Euklids algoritme:\n\n**(i) Divisjonskjeden frem.** Vi deler gjentatt med rest, **ved Euklids algoritme**, til resten blir $0$:\n\n$$96 = 2\\cdot 43 + 10$$\n$$43 = 4\\cdot 10 + 3$$\n$$10 = 3\\cdot 3 + 1$$\n$$3 = 3\\cdot 1 + 0$$\n\nDen siste resten som ikke er $0$, er $1$. Altså er $\\gcd(96,43)=1$. Kjeden har 4 divisjonslinjer.\n\n**(ii) Substitusjonskjeden baklengs.** Vi løser den nest siste linja for resten og substituerer oppover, linje for linje:\n\n$$1 = 10 - 3\\cdot 3$$\nSett inn $3 = 43 - 4\\cdot 10$:\n$$1 = -3\\cdot 43 + 13\\cdot 10$$\nSett inn $10 = 96 - 2\\cdot 43$:\n$$1 = 13\\cdot 96 - 29\\cdot 43$$\n\n**(iii) Konklusjon.** Altså er\n\n$$\\gcd(96,43) = 1 = 96\\cdot(13) + 43\\cdot(-29).$$\n\n**Kontroll ved innsetting:** $96\\cdot(13) + 43\\cdot(-29) = 1\\,248 - 1\\,247 = 1$. Stemmer.\n\nSiden $\\gcd(96,43)=1$, **finnes inversen**.\n\n**Steg 2: les Bézout-likningen modulo $96$.** Leddet med $96$ er et multiplum av $96$ og forsvinner:\n$$43\\cdot(-29)\\equiv 1\\pmod{96}.$$\n\n**Steg 3: juster inn i intervallet** $0\\le u<96$: $-29+96=67$.\n\n**Kontroll:** $43\\cdot 67=2881$, og $2881=30\\cdot 96+1$, siden $30\\cdot 96=2880$. Resten er $1$ ✓.\n\n**a) Sluttsvar:** $43^{-1}\\equiv 67\\pmod{96}$.\n\n**b)** Siden $\\gcd(43,96)=1$, har kongruensen **nøyaktig én** løsning modulo $96$. Gang begge sider med inversen $67$:\n$$x\\equiv 67\\cdot 25=1675\\pmod{96}.$$\nReduser: $1675=17\\cdot 96+43$, siden $17\\cdot 96=1632$. Altså\n$$x\\equiv 43\\pmod{96}.$$\n\n**Kontroll:** $43\\cdot 43=1849$, og $1849=19\\cdot 96+25$, siden $19\\cdot 96=1824$. Resten er $25$ ✓.\n\n**b) Sluttsvar:** $x\\equiv 43\\pmod{96}$.\n\n*Legg merke til at $96=2^5\\cdot 3$ ikke er et primtall, og at inversen finnes likevel. Kravet er bare $\\gcd(43,96)=1$, som holder siden $43$ er et primtall som ikke deler $96$. Det er nettopp derfor RSA fungerer, der modulusen alltid er et produkt av to primtall.*",
+            "hints": [
+              "Inversen finnes nøyaktig når $\\gcd(43,96)=1$ — regn den med Euklids algoritme.",
+              "Les Bézout-likningen modulo $96$, og juster koeffisienten inn i $0\\le u<96$.",
+              "I b): gang begge sider med inversen, og reduser svaret modulo $96$."
+            ]
+          }
+        },
+        {
+          "id": "ma1301-1-prove-ex-C3",
+          "type": "exercise",
+          "exercise": {
+            "id": "ma1301-1-prove-oC3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(7 poeng, ~12 min)\n\n**a)** Løs $55x\\equiv 35\\pmod{75}$, og oppgi alle inkongruente løsninger modulo $75$. (5 poeng)\n**b)** Forklar hvorfor det ville vært galt å forkorte kongruensen til $11x\\equiv 7\\pmod{75}$. (2 poeng)",
+            "solution": "**Steg 1: regn ut $d=\\gcd(55,75)$, og kommenter løsbarhet og antall løsninger FØR vi løser.**\n\n**(i) Divisjonskjeden frem.** Vi deler gjentatt med rest, **ved Euklids algoritme**, til resten blir $0$:\n\n$$75 = 1\\cdot 55 + 20$$\n$$55 = 2\\cdot 20 + 15$$\n$$20 = 1\\cdot 15 + 5$$\n$$15 = 3\\cdot 5 + 0$$\n\nDen siste resten som ikke er $0$, er $5$. Altså er $\\gcd(75,55)=5$. Kjeden har 4 divisjonslinjer.\n\nLøsbarhetskriteriet er $d\\mid b$: her er $d=5$ og $b=35$, og $35=7\\cdot 5$, så $5\\mid 35$. Kongruensen er løsbar, og **antall inkongruente løsninger modulo $75$ er $d=5$.**\n\n**Steg 2: forkort kongruensen med $d=5$ — husk at modulusen også deles.**\n\n$$11x \\equiv 7 \\pmod{15}$$\n\nNå er $\\gcd(11,15)=1$, så den forkortede kongruensen har nøyaktig én løsning modulo $15$.\n\n**Steg 3: finn inversen til $11$ modulo $15$ via Euklids algoritme baklengs.**\n\n**(i) Divisjonskjeden frem.** Vi deler gjentatt med rest, **ved Euklids algoritme**, til resten blir $0$:\n\n$$15 = 1\\cdot 11 + 4$$\n$$11 = 2\\cdot 4 + 3$$\n$$4 = 1\\cdot 3 + 1$$\n$$3 = 3\\cdot 1 + 0$$\n\nDen siste resten som ikke er $0$, er $1$. Altså er $\\gcd(15,11)=1$. Kjeden har 4 divisjonslinjer.\n\n**(ii) Substitusjonskjeden baklengs.** Vi løser den nest siste linja for resten og substituerer oppover, linje for linje:\n\n$$1 = 4 - 1\\cdot 3$$\nSett inn $3 = 11 - 2\\cdot 4$:\n$$1 = -1\\cdot 11 + 3\\cdot 4$$\nSett inn $4 = 15 - 1\\cdot 11$:\n$$1 = 3\\cdot 15 - 4\\cdot 11$$\n\n**(iii) Konklusjon.** Altså er\n\n$$\\gcd(15,11) = 1 = 15\\cdot(3) + 11\\cdot(-4).$$\n\n**Kontroll ved innsetting:** $15\\cdot(3) + 11\\cdot(-4) = 45 - 44 = 1$. Stemmer.\n\nLest **modulo $15$** forsvinner leddet med $15$, og vi står med\n\n$$11\\cdot(-4) \\equiv 1 \\pmod{15}.$$\n\nVi flytter koeffisienten inn i intervallet $0\\le u<15$ ved å legge til $15$: inversen er $u=11$.\n\n**Kontroll:** $11\\cdot 11 = 121 = 8\\cdot 15 + 1$. Resten er $1$. Stemmer.\n\n**Steg 4: gang opp med inversen.**\n\n$$x \\equiv 11\\cdot 7 = 77 \\equiv 2 \\pmod{15}$$\n\n**Steg 5: list alle $5$ inkongruente løsningene modulo $75$.** De ligger $m/d=15$ fra hverandre, altså $x_0+k\\cdot\\frac{m}{d}$ for $k=0,1,\\dots,4$:\n\n$$x \\equiv 2,\\qquad x \\equiv 17,\\qquad x \\equiv 32,\\qquad x \\equiv 47,\\qquad x \\equiv 62 \\pmod{75}$$\n\n**Kontroll ved innsetting** (alle $5$ skal gi resten $35$):\n\n- $x=2$: $55\\cdot 2 = 110$, og $110 \\bmod 75 = 35$ ✓\n- $x=17$: $55\\cdot 17 = 935$, og $935 \\bmod 75 = 35$ ✓\n- $x=32$: $55\\cdot 32 = 1\\,760$, og $1\\,760 \\bmod 75 = 35$ ✓\n- $x=47$: $55\\cdot 47 = 2\\,585$, og $2\\,585 \\bmod 75 = 35$ ✓\n- $x=62$: $55\\cdot 62 = 3\\,410$, og $3\\,410 \\bmod 75 = 35$ ✓\n\n**a) Sluttsvar:** $5$ inkongruente løsninger modulo $75$:\n$$x\\equiv 2,\\ 17,\\ 32,\\ 47,\\ 62\\pmod{75}.$$\n\n**b)** Fordi forkortingen med $5$ **også må dele modulusen**.\n\nDen riktige forkortingen er\n$$11x\\equiv 7\\pmod{15},$$\nmed modulus $15=75/5$ — ikke $75$.\n\n**Hva som går galt hvis modulusen står.** Kongruensen $11x\\equiv 7\\pmod{75}$ er en *annen* kongruens. Her er $\\gcd(11,75)=1$, så den har nøyaktig **én** løsning modulo $75$. Men den opprinnelige kongruensen har **fem**. Å beholde modulusen ville altså gitt en femtedel av svaret.\n\nLa oss regne det ut for å se det konkret. Inversen til $11$ modulo $75$ er $41$ (siden $11\\cdot 41=451=6\\cdot 75+1$). Det ville gitt\n$$x\\equiv 41\\cdot 7=287\\equiv 62\\pmod{75},$$\nsiden $287=3\\cdot 75+62$. Her traff vi tilfeldigvis én av de fem riktige — $62$ er en løsning. Men vi mistet de fire andre: $2$, $17$, $32$ og $47$.\n\n**Den generelle grunnen**, fra forkortingsregelen: den gyldige regelen er\n$$ca\\equiv cb\\pmod{cm}\\iff a\\equiv b\\pmod m.$$\nFaktoren $c=5$ må ut av **alle tre** posisjonene, modulusen inkludert. Beholder du modulusen, har du brukt spesialtilfellet som krever $\\gcd(c,m)=1$ — og her er $\\gcd(5,75)=5\\ne 1$, så det gjelder ikke.\n\n**b) Sluttsvar:** forkorting med $5$ krever at modulusen også deles på $5$, altså $11x\\equiv 7\\pmod{15}$. Med modulus $75$ løser man en annen kongruens og finner bare én av de fem løsningene.",
+            "hints": [
+              "$\\gcd(55,75)=5$. Sjekk om $5\\mid 35$, og si hvor mange løsninger det gir.",
+              "Forkort riktig: alle tre tallene deles på $5$.",
+              "I b): sammenlign hvor mange løsninger de to kongruensene har. Hva er $\\gcd(11,75)$?"
+            ]
+          }
+        },
+        {
+          "id": "ma1301-1-prove-C-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose — prøve 1.C\n\nKryss av det du faktisk gjorde.\n\n**Metode:**\n\n- ☐ Jeg regnet $d=\\gcd(a,m)$ **med Euklids algoritme**, ført linje for linje.\n- ☐ Jeg kommenterte **både løsbarheten og antallet** før jeg løste: «Siden $d=\\dots$ deler $b=\\dots$, er kongruensen løsbar og har $d=\\dots$ inkongruente løsninger modulo $m$.»\n- ☐ Da jeg forkortet, delte jeg **modulusen også**.\n- ☐ Jeg fant inversen ved **Euklids algoritme baklengs**, ikke ved å prøve meg fram.\n- ☐ Jeg justerte inversen inn i intervallet $0\\le u<m$.\n- ☐ Jeg listet **alle $d$** løsningene modulo den **opprinnelige** modulusen.\n\n**Kontroller:**\n\n- ☐ Jeg sjekket at $\\gcd$ av de **nye** $a$ og $m$ er $1$ etter forkortingen.\n- ☐ Jeg kontrollerte inversen: gir $au$ resten $1$?\n- ☐ Jeg satte **alle** løsningene inn, ikke bare den første.\n- ☐ Jeg sjekket at løsningene ligger **$m/d$** fra hverandre, og at det er **$d$** av dem.\n\n**Hvis noe skar seg:**\n\n- ☐ Endte jeg med **én** løsning der det skulle være flere? Da glemte jeg steg 6 — å legge til $m/d$ gjentatt.\n- ☐ Lot jeg **modulusen stå** under forkortingen? Det er den best belagte feilen i denne sjangeren, og oppgave 3 b) handler om nettopp den.\n- ☐ Ble **inversen feil**? Feilen ligger nesten alltid i Euklid baklengs — et mistet fortegn, eller et produkt ganget ut for tidlig.\n- ☐ Glemte jeg å **sjekke $d\\mid b$**? Da ville jeg oppdaget problemet først når $b/d$ ble en brøk.\n\n**Neste steg:** står punktet om å dele modulusen åpent, les [kap. 1.4](/ma1301/ma1301-1-4) løkke 4 på nytt — den handler bare om dette."
+        }
+      ]
+    },
+    {
+      "id": "ma1301-1-prove-prove-D",
+      "type": "collapsible",
+      "title": "Prøve 1.D — Simulering: hele Del 1 kjedet (40 min)",
+      "buttonText": "Vis prøve 1.D",
+      "content": [
+        {
+          "id": "ma1301-1-prove-D-intro",
+          "type": "text",
+          "content": "**Prøve 1.D — Simulering.** 40 minutter, 30 poeng. Sjanger A og B kjedet, i den formen en tredelt oppgave 1 faktisk har på eksamen.\n\nHjelpemidler: penn, papir og en enkel kalkulator.\n\n**Dette er den prøven som ligner mest på eksamen.** Alle fire delpunktene hviler på **én** Euklid-kjede, regnet én gang i del a). Det er slik arkivets oppgave 1 er bygget: en trapp der hvert trinn bruker det forrige.\n\nTidsbudsjett: a) ~8 min (8 poeng), b) ~12 min (10 poeng), c) ~14 min (9 poeng), d) ~6 min (3 poeng).\n\n**Ta den på klokka, med lukket bok.** Det er den eneste treningen som faktisk simulerer hjelpemiddelkode D."
+        },
+        {
+          "id": "ma1301-1-prove-ex-D1",
+          "type": "exercise",
+          "exercise": {
+            "id": "ma1301-1-prove-oD1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(30 poeng, ~40 min)\n\n**a)** Finn $\\gcd(1707,762)$ med Euklids algoritme, og skriv den på formen $1707x+762y$. (8 poeng)\n\n**b)** Avgjør om likningen $1707x+762y=51$ har heltallsløsninger, og finn i så fall samtlige. (10 poeng)\n\n**c)** Løs kongruensen $762x\\equiv 51\\pmod{1707}$, og oppgi alle inkongruente løsninger modulo $1707$. (9 poeng)\n\n**d)** Angi den minste positive løsningen av kongruensen i c). (3 poeng)",
+            "solution": "## Del a)\n\n**(i) Divisjonskjeden frem.** Vi deler gjentatt med rest, **ved Euklids algoritme**, til resten blir $0$:\n\n$$1\\,707 = 2\\cdot 762 + 183$$\n$$762 = 4\\cdot 183 + 30$$\n$$183 = 6\\cdot 30 + 3$$\n$$30 = 10\\cdot 3 + 0$$\n\nDen siste resten som ikke er $0$, er $3$. Altså er $\\gcd(1\\,707,762)=3$. Kjeden har 4 divisjonslinjer.\n\n**(ii) Substitusjonskjeden baklengs.** Vi løser den nest siste linja for resten og substituerer oppover, linje for linje:\n\n$$3 = 183 - 6\\cdot 30$$\nSett inn $30 = 762 - 4\\cdot 183$:\n$$3 = -6\\cdot 762 + 25\\cdot 183$$\nSett inn $183 = 1\\,707 - 2\\cdot 762$:\n$$3 = 25\\cdot 1\\,707 - 56\\cdot 762$$\n\n**(iii) Konklusjon.** Altså er\n\n$$\\gcd(1\\,707,762) = 3 = 1\\,707\\cdot(25) + 762\\cdot(-56).$$\n\n**Kontroll ved innsetting:** $1\\,707\\cdot(25) + 762\\cdot(-56) = 42\\,675 - 42\\,672 = 3$. Stemmer.\n\n**Tilleggskontroll:** $1707=3\\cdot 569$ og $762=3\\cdot 254$. Begge går opp ✓.\n\n**a) Sluttsvar:** $\\gcd(1707,762)=3$, og $3=1707\\cdot 25+762\\cdot(-56)$.\n\n## Del b)\n\n**Løsbarhet.** Fra a) er $d=3$. Er $3\\mid 51$? Ja, $51=17\\cdot 3$. **Fordi $d=3$ deler $c=51$, har likningen løsninger.**\n\n**Skalér** Bézout-likningen fra a) med $c/d=51/3=17$:\n$$1707\\cdot 425+762\\cdot(-952)=51.$$\nAltså $x_0=425$, $y_0=-952$.\n\n**Kontroll:** $1707\\cdot 425=725\\,475$ og $762\\cdot 952=725\\,424$. Differansen er $725\\,475-725\\,424=51$ ✓.\n\n**Hele løsningsmengden.** Med $b/d=762/3=254$ og $a/d=1707/3=569$:\n$$x=425+254t,\\qquad y=-952-569t,\\qquad t\\in\\mathbb{Z}.$$\n\n**Kontroll av parametriseringen:** $1707\\cdot 254=433\\,578$ og $762\\cdot 569=433\\,578$ — like, så $t$-leddene kansellerer ✓. (Begge er $\\operatorname{lcm}(1707,762)$.)\n\n**b) Sluttsvar:** likningen har løsninger, og samtlige er $x=425+254t$, $y=-952-569t$ med $t\\in\\mathbb{Z}$.\n\n## Del c)\n\n**Steg 1: regn ut $d=\\gcd(762,1\\,707)$, og kommenter løsbarhet og antall løsninger FØR vi løser.**\n\n**(i) Divisjonskjeden frem.** Vi deler gjentatt med rest, **ved Euklids algoritme**, til resten blir $0$:\n\n$$1\\,707 = 2\\cdot 762 + 183$$\n$$762 = 4\\cdot 183 + 30$$\n$$183 = 6\\cdot 30 + 3$$\n$$30 = 10\\cdot 3 + 0$$\n\nDen siste resten som ikke er $0$, er $3$. Altså er $\\gcd(1\\,707,762)=3$. Kjeden har 4 divisjonslinjer.\n\nLøsbarhetskriteriet er $d\\mid b$: her er $d=3$ og $b=51$, og $51=17\\cdot 3$, så $3\\mid 51$. Kongruensen er løsbar, og **antall inkongruente løsninger modulo $1\\,707$ er $d=3$.**\n\n**Steg 2: forkort kongruensen med $d=3$ — husk at modulusen også deles.**\n\n$$254x \\equiv 17 \\pmod{569}$$\n\nNå er $\\gcd(254,569)=1$, så den forkortede kongruensen har nøyaktig én løsning modulo $569$.\n\n**Steg 3: finn inversen til $254$ modulo $569$ via Euklids algoritme baklengs.**\n\n**(i) Divisjonskjeden frem.** Vi deler gjentatt med rest, **ved Euklids algoritme**, til resten blir $0$:\n\n$$569 = 2\\cdot 254 + 61$$\n$$254 = 4\\cdot 61 + 10$$\n$$61 = 6\\cdot 10 + 1$$\n$$10 = 10\\cdot 1 + 0$$\n\nDen siste resten som ikke er $0$, er $1$. Altså er $\\gcd(569,254)=1$. Kjeden har 4 divisjonslinjer.\n\n**(ii) Substitusjonskjeden baklengs.** Vi løser den nest siste linja for resten og substituerer oppover, linje for linje:\n\n$$1 = 61 - 6\\cdot 10$$\nSett inn $10 = 254 - 4\\cdot 61$:\n$$1 = -6\\cdot 254 + 25\\cdot 61$$\nSett inn $61 = 569 - 2\\cdot 254$:\n$$1 = 25\\cdot 569 - 56\\cdot 254$$\n\n**(iii) Konklusjon.** Altså er\n\n$$\\gcd(569,254) = 1 = 569\\cdot(25) + 254\\cdot(-56).$$\n\n**Kontroll ved innsetting:** $569\\cdot(25) + 254\\cdot(-56) = 14\\,225 - 14\\,224 = 1$. Stemmer.\n\nLest **modulo $569$** forsvinner leddet med $569$, og vi står med\n\n$$254\\cdot(-56) \\equiv 1 \\pmod{569}.$$\n\nVi flytter koeffisienten inn i intervallet $0\\le u<569$ ved å legge til $569$: inversen er $u=513$.\n\n**Kontroll:** $254\\cdot 513 = 130\\,302 = 229\\cdot 569 + 1$. Resten er $1$. Stemmer.\n\n**Steg 4: gang opp med inversen.**\n\n$$x \\equiv 513\\cdot 17 = 8\\,721 \\equiv 186 \\pmod{569}$$\n\n**Steg 5: list alle $3$ inkongruente løsningene modulo $1\\,707$.** De ligger $m/d=569$ fra hverandre, altså $x_0+k\\cdot\\frac{m}{d}$ for $k=0,1,\\dots,2$:\n\n$$x \\equiv 186,\\qquad x \\equiv 755,\\qquad x \\equiv 1324 \\pmod{1\\,707}$$\n\n**Kontroll ved innsetting** (alle $3$ skal gi resten $51$):\n\n- $x=186$: $762\\cdot 186 = 141\\,732$, og $141\\,732 \\bmod 1\\,707 = 51$ ✓\n- $x=755$: $762\\cdot 755 = 575\\,310$, og $575\\,310 \\bmod 1\\,707 = 51$ ✓\n- $x=1324$: $762\\cdot 1324 = 1\\,008\\,888$, og $1\\,008\\,888 \\bmod 1\\,707 = 51$ ✓\n\n**c) Sluttsvar:** $3$ inkongruente løsninger modulo $1707$:\n$$x\\equiv 186,\\ 755,\\ 1324\\pmod{1707}.$$\n\n## Del d)\n\nBlant de tre løsningene er alle positive, og den minste er $186$.\n\n**Kontroll:** $762\\cdot 186=141\\,732$. Og $141\\,732=83\\cdot 1707+51$, siden $83\\cdot 1707=141\\,681$. Resten er $51$ ✓.\n\n**d) Sluttsvar:** den minste positive løsningen er $x=186$.\n\n## Sammenhengen mellom delpunktene\n\nLegg merke til hvordan trappen henger sammen — det er poenget med oppgaveformen:\n\n- **Del a)** ga $\\gcd=3$ og Bézout-koeffisientene $(25,-56)$. Alt annet bruker disse.\n- **Del b)** brukte begge: $\\gcd$ til løsbarhetssjekken, og koeffisientene til partikulærløsningen etter skalering.\n- **Del c)** brukte $\\gcd$ igjen — til løsbarheten, til antallet ($d=3$), og til forkortingen ($1707/3=569$).\n- **Del d)** var bare å velge blant de tre svarene fra c).\n\n**Én Euklid-kjede, fire delpunkt.** Sitter kjeden, henter du hele oppgaven på 25–30 minutter av de 40 du har. Det er derfor sjanger A og B kalles «billige poeng» — og derfor slurv i del a) er så kostbar: den forplanter seg til alle tre de andre.\n\n**Og legg merke til forskjellen mellom b) og c) — her er det en felle.**\n\nBegge handler om likningen $1707x+762y=51$, men $x$ spiller to forskjellige roller. I b) er $x$ variabelen som ganges med $1707$. I c) betyr $762x\\equiv 51\\pmod{1707}$ at det finnes en $y$ med $762x-1707y=51$ — der $x$ ganges med **$762$**, altså rollen $y$ hadde i b).\n\nSå det er $y$-verdiene fra b) som gir svaret i c). Fra b) er $y=-952-569t$, og med $569\\cdot 3=1707$ gjentar disse seg med periode $3$ modulo $1707$:\n\n| $t$ | $y=-952-569t$ | $y\\bmod 1707$ |\n|---|---|---|\n| $0$ | $-952$ | $-952+1707=755$ |\n| $1$ | $-1521$ | $-1521+1707=186$ |\n| $2$ | $-2090$ | $-2090+2\\cdot 1707=1324$ |\n\nVi får $\\{186,\\ 755,\\ 1324\\}$ — nøyaktig de tre løsningene fra c) ✓.\n\nPerioden er $3$ fordi skrittlengden i $y$ er $a/d=569$, og $569\\cdot 3=1707$. Det er også forklaringen på at antallet inkongruente løsninger er $d$: skrittet $a/d$ kommer tilbake til utgangspunktet modulo $m$ etter nøyaktig $d$ steg.\n\n**Sammendraget:** b) teller **løsningspar** $(x,y)$ i hele tall — uendelig mange. Del c) teller **restklasser** for den variabelen kongruensen handler om — nøyaktig $3$. Sjekk alltid hvilken variabel som ganges med hva før du leser av svaret.",
+            "hints": [
+              "Regn Euklid-kjeden i a) ÉN gang, og gjenbruk $\\gcd$ og koeffisientene i b), c) og d).",
+              "I b): skalér med $51/3=17$, og husk at skrittlengdene er $b/d$ og $a/d$.",
+              "I c): $d=\\gcd(762,1707)=3$, så tre inkongruente løsninger med avstand $1707/3=569$."
+            ]
+          }
+        },
+        {
+          "id": "ma1301-1-prove-D-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose — prøve 1.D\n\nDenne prøven tester om du kan **hele kjeden** under tidspress. Kryss av det du faktisk gjorde.\n\n**Metode — Euklid (del a):**\n\n- ☐ Jeg førte divisjonskjeden linje for linje, og identifiserte siste ikke-null rest som $\\gcd$.\n- ☐ Jeg førte substitusjonskjeden baklengs, steg for steg, uten å gange ut produktene.\n- ☐ Jeg avsluttet med en konklusjonssetning med tall.\n\n**Metode — diofantisk likning (del b):**\n\n- ☐ Jeg kommenterte løsbarheten med en setning før jeg løste.\n- ☐ Jeg skalerte med $c/d$ — på begge koeffisientene.\n- ☐ Jeg skrev hele løsningsmengden med $t\\in\\mathbb{Z}$, og brukte $b/d$ og $a/d$ som skrittlengder.\n\n**Metode — kongruens (del c og d):**\n\n- ☐ Jeg kommenterte både løsbarheten og **antallet** før jeg løste.\n- ☐ Jeg delte **modulusen** da jeg forkortet.\n- ☐ Jeg fant inversen med Euklids algoritme baklengs.\n- ☐ Jeg listet alle $3$ løsningene, og svarte på «minste positive» som **eget** svar i del d).\n\n**Gjenbruk — det som skiller en kjedet oppgave fra fire løse:**\n\n- ☐ Jeg regnet Euklid-kjeden **én** gang, og gjenbrukte den i b), c) og d).\n- ☐ Jeg **sa** at jeg gjenbrukte den («fra del a) er $\\gcd=3$ og $3=1707\\cdot 25+762\\cdot(-56)$»).\n\n**Kontroller:**\n\n- ☐ Innsetting etter Bézout (fikk $d$), etter skalering (fikk $c$), og på **alle** kongruensløsningene (fikk $b$).\n- ☐ $t$-leddene kansellerer i parametriseringen.\n- ☐ Tre løsninger, med avstand $1707/3=569$.\n\n**Tid:**\n\n- ☐ Jeg ble ferdig innenfor 40 minutter.\n- ☐ Hvis ikke: hvor gikk tiden? Var det Euklid-kjeden (da mangler drill — [kap. 1.5](/ma1301/ma1301-1-5)), eller var det å huske hva neste steg var (da mangler oppskriften — [kap. 1.5](/ma1301/ma1301-1-5) har den i seks steg)?\n\n**Neste steg:** klarte du 1.D innenfor tiden, med alle kontrollene, sitter Del 1. Gå videre til Del 2 — de fire store teoremene. Klarte du den ikke, er det drillen i [kap. 1.5](/ma1301/ma1301-1-5) som mangler, ikke teorien: regn tre nye tallpar gjennom hele oppskriften før du går videre.\n\n**Og en påminnelse om kalibreringen:** dette var én oppgave av de sju til ni du møter på eksamen. Med ~24 minutter per delpunkt og fire delpunkt her, hadde du hatt god tid. C er en god og vanlig karakter, og den får du ved å beherske nettopp denne mekanikken sikkert."
+        }
+      ]
+    },
+    {
+      "id": "ma1301-1-prove-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "ma1301-1-prove-symbol-inn",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares i [kap. 1.1](/ma1301/ma1301-1-1)–[kap. 1.5](/ma1301/ma1301-1-5).\n\n| Symbol | Betydning |\n|---|---|\n| $a\\mid b$, $a\\nmid b$ | «$a$ deler $b$», «$a$ deler ikke $b$» |\n| $\\gcd(a,b)$ | største felles divisor |\n| $\\operatorname{lcm}(a,b)$ | minste felles multiplum |\n| $d$ | brukes gjennomgående om $\\gcd(a,b)$ eller $\\gcd(a,m)$ |\n| $a=qb+r$ | én divisjonslinje i Euklids algoritme |\n| $x,y$ | Bézout-koeffisientene i $\\gcd(a,b)=ax+by$ |\n| $(x_0,y_0)$ | partikulærløsning av en diofantisk likning |\n| $t\\in\\mathbb{Z}$ | parameteren i den generelle løsningen |\n| $b/d$, $a/d$ | skrittlengdene i løsningsmengden |\n| $a\\equiv b\\pmod m$ | $a$ og $b$ gir samme rest ved divisjon med $m$ |\n| $a\\bmod n$ | resten som et tall |\n| $m/d$ | avstanden mellom inkongruente løsninger |\n| $a^{-1}$, $u$ | den modulære inversen |\n| $p_1^{k_1}\\cdots p_m^{k_m}$ | primtallsfaktorisering |\n| $\\min$, $\\max$ | minste og største eksponent (til $\\gcd$ og $\\operatorname{lcm}$) |\n| $\\blacksquare$ | bevis slutt |\n\n**Formler brukt i prøvene:**\n\n$$r_{k-1}=q_{k+1}r_k+r_{k+1},\\qquad 0\\le r_{k+1}<r_k$$\nDivisjonskjeden. Siste ikke-null rest er $\\gcd$. **(må sitte utenat)**\n\n$$\\gcd(a,b)=ax+by$$\nBézouts identitet. **(må sitte utenat — men koeffisientene utledes på stedet, fra substitusjonskjeden, for hvert nytt tallpar)**\n\n$$\\gcd(a,b)=\\prod p_i^{\\min(k_i,l_i)},\\qquad \\operatorname{lcm}(a,b)=\\prod p_i^{\\max(k_i,l_i)}$$\nFra faktoriseringen: $\\gcd$ tar minste eksponent, $\\operatorname{lcm}$ tar største. **(må sitte utenat)**\n\n$$\\gcd(a,b)\\cdot\\operatorname{lcm}(a,b)=ab$$\nProduktregelen — brukt som snarvei og som kontroll i prøve 1.A. **(må sitte utenat)**\n\n$$ax+by=c\\ \\text{løsbar}\\iff d\\mid c$$\nLøsbarhetskriteriet. Kommentér det før du løser. **(må sitte utenat)**\n\n$$x=x_0+\\frac bd t,\\qquad y=y_0-\\frac ad t,\\qquad t\\in\\mathbb{Z}$$\nHele løsningsmengden. Pluss på $x$, minus på $y$. **(må sitte utenat)**\n\n$$a\\cdot\\frac bd=b\\cdot\\frac ad=\\operatorname{lcm}(a,b)$$\nKontrollen på at $t$-leddene kansellerer. **(utledes på stedet — én linje fra produktregelen)**\n\n$$ax\\equiv b\\pmod m\\ \\text{løsbar}\\iff d\\mid b,\\qquad d=\\gcd(a,m)$$\nLøsbarhetskriteriet for kongruensen. **(må sitte utenat)**\n\n$$\\text{antall inkongruente løsninger}=d$$\nIkke $1$. **(må sitte utenat)**\n\n$$\\frac ad x\\equiv\\frac bd\\ \\left(\\!\\!\\!\\mod\\frac md\\right)$$\nForkortingen. Alle tre tallene deles — **modulusen inkludert**. **(må sitte utenat)**\n\n$$ca\\equiv cb\\pmod{cm}\\iff a\\equiv b\\pmod m$$\nDen generelle forkortingsregelen, som prøve 1.C oppgave 3 b) handler om. **(må sitte utenat)**\n\n$$x\\equiv x_0+k\\cdot\\frac md\\pmod m,\\qquad k=0,1,\\dots,d-1$$\nAlle $d$ løsningene, gitt én. **(må sitte utenat)**\n\n$$a^{-1}\\ \\text{finnes}\\iff\\gcd(a,m)=1;\\qquad ax+my=1\\Rightarrow ax\\equiv 1\\pmod m$$\nInversen: eksistensbetingelse og metode. Modulusen behøver **ikke** være et primtall. **(betingelsen må sitte utenat; selve inversen utledes på stedet med Euklids algoritme)**\n\n$$u(an+b)+v(cn+e)=1\\ \\Longrightarrow\\ \\gcd=1\\ \\text{for alle }n$$\nParameter-i-koeffisient-varianten (prøve 1.A oppgave 3 og 1.B oppgave 3): velg $u=c$ og $v=-a$ så $n$-leddene kanselleres. **(må sitte utenat — den ene metoden som tåler en ukjent i koeffisientene)**"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

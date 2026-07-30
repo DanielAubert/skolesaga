@@ -1,0 +1,419 @@
+{
+  "id": "ma1301-2-2",
+  "courseId": "ma1301",
+  "chapterNumber": "2.2",
+  "title": "Fermats lille teorem",
+  "description": "Fermats lille teorem aᵖ⁻¹≡1 (mod p) som eget verktøy i restberegninger og som byggekloss i bevis — spesialtilfellet av Euler for primtallsmodulus, med den flytende grensen mot Euler tydeliggjort.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "gjøre rede for hvorfor Fermats lille teorem følger av Eulers teorem, og skrive utledningen",
+    "redusere en stor eksponent modulo p−1 når modulusen er et primtall, og sjekke vilkåret først",
+    "bruke den vilkårsfrie formen til å vise delelighetspåstander som gjelder for alle hele tall",
+    "kjenne igjen når modulusen ikke er et primtall, og velge riktig teorem"
+  ],
+  "content": [
+    {
+      "id": "ma1301-2-2-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Fermats lille teorem forekommer i 8 av 15 sett — 53 %**, både som selvstendig regneverktøy og som byggekloss i bevis.\n\nTeoremet hører til **sjanger E — restberegning med Fermat, Euler og Wilson** (sjangerbokstavene er bokas egne forkortelser, forklart i [kap. 0.1](/ma1301/ma1301-0-1)), og det dukker i tillegg opp i **sjanger I — bevis om delelighet og primtall**, der formen $a^p\\equiv a\\pmod p$ er en standard byggekloss.\n\n| Bruksmåte | Sjanger | Hvor ofte |\n|---|---|---|\n| Eksponentreduksjon modulo $p-1$ ved primtallsmodulus | **E** | 8 av 15 sett |\n| Byggekloss i delelighetsbevis ($a^p\\equiv a$) | **I** | ~8 av 15 sett |\n| Korrekthetsargumentet i RSA | **D** | 10 av 15 sett |\n| Grunnlaget for at ordenen deler $p-1$ | **G** | 9 av 15 sett |\n\n**Prioritet: høyeste — men med en presisering.** Teoremet i seg selv er billig: det er Eulers teorem med $\\phi(p)=p-1$, og du får det gratis når du kan [kap. 2.1](/ma1301/ma1301-2-1). Det som må sitte skarpt, er **grensen mot Euler** — hvilken modulus du reduserer eksponenten etter, og hva som skjer når $p$ deler grunntallet. Det er der feilene ligger.\n\n**Fasitens grep:** for primtallsmodulus $p$, sjekk at $p\\nmid a$, og reduser eksponenten modulo $p-1$. Teoremnavnet skrives ut: «fra Fermats lille teorem»."
+    },
+    {
+      "id": "ma1301-2-2-utenat",
+      "type": "tip",
+      "title": "Utenat under kode D",
+      "content": "Eksamen er hjelpemiddelkode D: ingen bok, ingen formelsamling, ingen tabeller, ingen egne notater — bare en enkel kalkulator.\n\n**Må sitte utenat:**\n\n- **Fermats lille teorem i begge former:** $a^{p-1}\\equiv 1\\pmod p$ når $p\\nmid a$, og $a^{p}\\equiv a\\pmod p$ for **alle** $a$\n- at eksponenten reduseres modulo **$p-1$** ved primtallsmodulus — ikke modulo $p$\n- at $a^{p-2}$ er inversen til $a$ modulo $p$\n\n**Utledes på stedet:**\n\n- **Fermat ut av Euler.** For et primtall $p$ er $\\phi(p)=p-1$, så Eulers teorem $a^{\\phi(n)}\\equiv 1\\pmod n$ blir $a^{p-1}\\equiv 1\\pmod p$ direkte. **Én linje**, og du har to teoremer for prisen av ett. Utledningen står ferdig ført i løkke 1.\n- **Den andre formen ut av den første:** gang $a^{p-1}\\equiv 1$ med $a$ og få $a^p\\equiv a$; sjekk deretter tilfellet $p\\mid a$ separat (da er begge sider $\\equiv 0$). **To linjer**, og står ført ut i løkke 2.\n- **Inversen $a^{p-2}$:** fra $a\\cdot a^{p-2}=a^{p-1}\\equiv 1$. Én linje.\n\n**Selvtest, to minutter:** dekk til siden og skriv ned (1) begge formene med vilkårene, og (2) utledningen av Fermat fra Euler. Klarer du (2), trenger du ikke huske (1) som et selvstendig faktum.\n\n**Prosedyrer pugges ved å kjøres.** Regn tre restberegninger med primtallsmodulus før du går videre."
+    },
+    {
+      "id": "ma1301-2-2-forkunnskaper",
+      "type": "text",
+      "content": "### Forkunnskaper\n\nFra boka: [kap. 2.1](/ma1301/ma1301-2-1) (Eulers teorem, $\\phi$, eksponentreduksjon, kvadrer-og-multipliser) og [kap. 1.4](/ma1301/ma1301-1-4) (kongruens og modulær invers). Binomialkoeffisienten i løkke 6 bygger på [kap. 1.1](/ma1301/ma1301-1-1) (Euklids lemma).\n\n**Sist du var her.** De to resultatene dette kapitlet står på:\n\n**Eulers teorem.** Når $\\gcd(a,n)=1$:\n$$a^{\\phi(n)}\\equiv 1\\pmod n.$$\n\n**$\\phi$ på et primtall.** $\\phi(p)=p-1$, fordi alle tallene $1,\\dots,p-1$ er relativt primiske til $p$.\n\nSett de to sammen, og du har hele dette kapitlets hovedresultat. Vi gjør det i første løkke.\n\nFra videregående: [Induksjon](/r1/r1-9-2) er nyttig til løkke 6, men ikke påkrevd — den fulle behandlingen kommer i Del 6."
+    },
+    {
+      "id": "ma1301-2-2-motivasjon",
+      "type": "text",
+      "content": "### Hvorfor et eget kapittel om et spesialtilfelle?\n\nFermats lille teorem er Eulers teorem med primtallsmodulus. Så hvorfor ikke bare bruke Euler overalt?\n\nTre grunner, og alle tre er praktiske:\n\n**1. Modulusen er ofte et primtall på eksamen.** Da slipper du å faktorisere og regne $\\phi$ — du leser $p-1$ rett av. Det er tretti sekunder spart per delpunkt, og på fire timer teller det.\n\n**2. Den andre formen har ingen vilkår.** $a^p\\equiv a\\pmod p$ gjelder for **alle** $a$, også når $p$ deler $a$. Det gjør den til en byggekloss i bevis, der du ikke alltid vet noe om $a$ — og den formen finnes ikke hos Euler.\n\n**3. Grensen mellom de to teoremene er en dokumentert felle.** Å redusere eksponenten modulo $p$ i stedet for $p-1$, eller å bruke $n-1$ når $n$ er sammensatt, er blant de vanligste feilene i faget. Å ha sett de to teoremene side om side er den beste forsikringen mot det.\n\n**Et lite hverdagsbilde til den første formen.** Tenk på klokka igjen, men med et primtall antall timer — si $7$. Ganger du deg oppover med et fast tall som ikke er $0$, går du rundt i en løkke, og løkken lukker seg etter høyst $6$ steg. Fermat sier at $6$ steg **alltid** bringer deg tilbake til $1$: $a^6\\equiv 1\\pmod 7$ for $a=1,\\dots,6$. Prøv med $a=3$: $3,2,6,4,5,1$ — seks steg, og der er $1$.\n\n*Tidsanslag for kapitlet: ~50 minutter lesetid, fordelt på seks løkker à 6–10 minutter. Regner du med penn underveis, legg til omtrent halvparten.*"
+    },
+    {
+      "id": "ma1301-2-2-l1-intro",
+      "type": "text",
+      "content": "## Løkke 1: Fermat ut av Euler\n\n*~8 minutter.*\n\nVi starter med utledningen, ikke med teoremet. Det er en bevisst rekkefølge: kan du utledningen, har du teoremet selv om formuleringen glipper i eksamensrommet."
+    },
+    {
+      "id": "ma1301-2-2-t-fermat",
+      "type": "theorem",
+      "title": "Fermats lille teorem",
+      "content": "La $p$ være et primtall. Da gjelder **to former**:\n\n**Form 1** (med vilkår): for alle $a$ med $p\\nmid a$,\n$$a^{p-1}\\equiv 1\\pmod p.$$\n\n**Form 2** (uten vilkår): for **alle** hele tall $a$,\n$$a^{p}\\equiv a\\pmod p.$$\n\n**Bevis av form 1 — Fermat ut av Euler, ferdig ført.** Siden $p$ er et primtall, er $\\phi(p)=p-1$ ([kap. 2.1](/ma1301/ma1301-2-1)). Og $p\\nmid a$ betyr nøyaktig at $\\gcd(a,p)=1$ — for de eneste divisorene i $p$ er $1$ og $p$. Vilkåret i **Eulers teorem** er altså oppfylt, og teoremet gir\n$$a^{\\phi(p)}\\equiv 1\\pmod p,\\qquad\\text{altså}\\qquad a^{p-1}\\equiv 1\\pmod p.\\qquad\\blacksquare$$\n\n**Det var hele utledningen: to linjer, under ett minutt.** Derfor står form 1 i «utledes på stedet»-listen — du trenger bare Euler.\n\n**Bevis av form 2 — to tilfeller.**\n\n*Tilfelle 1: $p\\nmid a$.* Gang form 1 med $a$ på begge sider:\n$$a\\cdot a^{p-1}\\equiv a\\cdot 1,\\qquad\\text{altså}\\qquad a^{p}\\equiv a\\pmod p.$$\n\n*Tilfelle 2: $p\\mid a$.* Da er $a\\equiv 0\\pmod p$, og også $a^p\\equiv 0\\pmod p$ (et produkt av tall delelige med $p$ er delelig med $p$). Begge sider er $\\equiv 0$, så $a^p\\equiv a$ holder også her. $\\blacksquare$\n\n**Case-analysen er uttømmende:** enten deler $p$ tallet $a$, eller ikke. Det er derfor form 2 gjelder uten noe vilkår — og det er nettopp den egenskapen som gjør den brukbar i bevis.\n\n**Begge former må sitte utenat, og teoremet må navngis.** Fasitene skriver «fra Fermats lille teorem» der reduksjonen gjøres."
+    },
+    {
+      "id": "ma1301-2-2-d-vilkaret",
+      "type": "definition",
+      "title": "Vilkåret p ∤ a i form 1",
+      "content": "Form 1, $a^{p-1}\\equiv 1\\pmod p$, krever at **$p$ ikke deler $a$**.\n\n**Hvorfor det er samme krav som Eulers $\\gcd(a,p)=1$:** et primtall har bare divisorene $1$ og $p$, så $\\gcd(a,p)$ er antingen $1$ eller $p$. Den er $p$ nøyaktig når $p\\mid a$. Derfor er «$p\\nmid a$» og «$\\gcd(a,p)=1$» to måter å si det samme.\n\n**Sjekken er triviell, og skal likevel stå.** Er $p=13$ og $a=5$, er $13\\nmid 5$ — én setning. Er $a$ større enn $p$, reduser først: $a=1729$ og $p=7$ gir $1729=7\\cdot 247$, altså $7\\mid a$, og form 1 gjelder **ikke**.\n\n**Hva som skjer når vilkåret svikter:** $a^{p-1}\\equiv 0\\pmod p$, ikke $1$. Se kortet «Når p deler grunntallet».\n\n**Form 2 har ingen vilkår** — bruk den når du ikke vet noe om $a$."
+    },
+    {
+      "id": "ma1301-2-2-d-fermat-av-euler",
+      "type": "definition",
+      "title": "Fermat ut av Euler — utledningen du skriver",
+      "content": "**Sett $n=p$ i Eulers teorem.** Det er alt.\n\n$$\\phi(p)=p-1\\quad\\Longrightarrow\\quad a^{\\phi(p)}=a^{p-1}\\equiv 1\\pmod p\\qquad(\\gcd(a,p)=1).$$\n\n**Dette utledes på stedet**, og det er verdt å skrive de to linjene i besvarelsen når du bruker Fermat første gang i en oppgave: det viser at du vet hvorfor reduksjonen er lovlig, ikke bare at den er tillatt.\n\n**Merk retningen.** Euler er det generelle teoremet, Fermat spesialtilfellet. Du kan altså **ikke** utlede Euler fra Fermat — og du kan ikke bruke Fermat på en sammensatt modulus. Prøver du med $n=15$ og $a=2$: $2^{14}=16\\,384=15\\cdot 1092+4$, altså $2^{14}\\equiv 4\\pmod{15}$, ikke $1$. (Riktig eksponent her er $\\phi(15)=8$: $2^8=256\\equiv 1$ ✓.)\n\n**Praktisk konsekvens:** første spørsmål i en restberegning er alltid «er modulusen et primtall?». Er den det, er du i Fermat-sporet og sparer faktoriseringen."
+    },
+    {
+      "id": "ma1301-2-2-e1",
+      "type": "example",
+      "title": "Fermat kontrollert, og grensen mot Euler",
+      "problem": "**a)** Verifiser Fermats lille teorem for $a=3$, $p=7$ ved direkte regning.\n**b)** Hva gir Fermats lille teorem for $a=2$, «$p$» $=15$? Hvorfor er det galt?",
+      "solution": "**a)** $p=7$ er et primtall og $7\\nmid 3$ ✓, så **form 1 av Fermats lille teorem** sier $3^{6}\\equiv 1\\pmod 7$.\n\nDirekte, med reduksjon underveis:\n$$3^2=9\\equiv 2\\pmod 7,\\qquad 3^3\\equiv 2\\cdot 3=6\\pmod 7,$$\n$$3^6\\equiv 6^2=36\\equiv 1\\pmod 7\\ \\checkmark.$$\n\nVi kan også se hele løkken: potensene $3^1,3^2,\\dots,3^6$ er kongruente med $3,2,6,4,5,1$ — alle de seks tallene $1,\\dots,6$ dukker opp én gang, og den siste er $1$.\n\n**b)** $15$ er **ikke** et primtall ($15=3\\cdot 5$), så Fermats lille teorem gjelder ikke. Ville vi brukt den likevel, ville vi «fått» $2^{14}\\equiv 1\\pmod{15}$. Det er galt:\n$$2^4=16\\equiv 1\\pmod{15}\\ \\Longrightarrow\\ 2^{14}=2^{12}\\cdot 2^2\\equiv 1\\cdot 4=4\\pmod{15}.$$\n\nRiktig verktøy her er **Eulers teorem**: $\\phi(15)=2\\cdot 4=8$, og $2^8=256=15\\cdot 17+1\\equiv 1\\pmod{15}$ ✓.\n\n**Sluttsvar:** $3^6\\equiv 1\\pmod 7$ ✓; og for sammensatt modulus må $\\phi(n)$ brukes, ikke $n-1$ — her ga $n-1$ svaret $4$, ikke $1$.\n\n*Punkt b) er selve grensen mellom de to teoremene. Det ene spørsmålet du må stille før du reduserer en eksponent, er: **er modulusen et primtall?***"
+    },
+    {
+      "id": "ma1301-2-2-ex-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-2-2-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "**a)** Hva sier Fermats lille teorem om $5^{12}$ modulo $13$?\n**b)** Hva sier den om $13^{12}$ modulo $13$?",
+        "solution": "**a)** $13$ er et primtall og $13\\nmid 5$ ✓, så **form 1** gir\n$$5^{12}\\equiv 1\\pmod{13}.$$\n\n**b)** Her deler $13$ tallet $13$, så **vilkåret i form 1 er ikke oppfylt** og vi kan ikke slutte at potensen er $\\equiv 1$. Direkte: $13\\equiv 0\\pmod{13}$, så\n$$13^{12}\\equiv 0^{12}=0\\pmod{13}.$$\n\n**Merk at form 2 fortsatt holder:** $13^{13}\\equiv 13\\pmod{13}$, siden begge sider er $\\equiv 0$ ✓.\n\n**Sluttsvar:** $5^{12}\\equiv 1\\pmod{13}$; $13^{12}\\equiv 0\\pmod{13}$.\n\n*Dette er den enkleste versjonen av kapitlets viktigste distinksjon: form 1 har et vilkår, form 2 har ikke.*",
+        "hints": [
+          "Er modulusen et primtall? Og deler den grunntallet?",
+          "I b): hva er $13$ modulo $13$?"
+        ]
+      }
+    },
+    {
+      "id": "ma1301-2-2-l2-intro",
+      "type": "text",
+      "content": "## Løkke 2: Formen uten vilkår — $a^p\\equiv a$\n\n*~7 minutter.*\n\nForm 2 er den som brukes i bevis, og den er verdt å forstå som noe annet enn en omskrivning: den sier at **opphøying i $p$-te potens ikke gjør noe modulo $p$**.\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "ma1301-2-2-d-form-2",
+      "type": "definition",
+      "title": "Formen a^p ≡ a — og hvorfor den er vilkårsfri",
+      "content": "For **alle** hele tall $a$ og alle primtall $p$:\n$$a^{p}\\equiv a\\pmod p.$$\n\n**Dette må sitte utenat**, og det er den formen du bruker i delelighetsbevis (sjanger I).\n\n**Hvorfor den ikke trenger vilkår — utledningen i to linjer, som du skal kunne skrive:**\n\n- *Er $p\\nmid a$:* gang form 1 med $a$: $a\\cdot a^{p-1}\\equiv a\\cdot 1$.\n- *Er $p\\mid a$:* begge sider er $\\equiv 0\\pmod p$.\n\nCase-analysen dekker alle $a$, så påstanden gjelder uten unntak. $\\blacksquare$\n\n**En annen måte å si det:** $p\\mid(a^p-a)$ for alle $a$. Den formen er ofte det oppgaven ber om — «vis at $a^5-a$ er delelig med $5$ for alle hele tall $a$» er nøyaktig form 2 med $p=5$.\n\n**Merk at det virkelig kreves at $p$ er et primtall.** Med $n=4$: $2^4=16$ og $16-2=14$, som ikke er delelig med $4$."
+    },
+    {
+      "id": "ma1301-2-2-d-form-1-vs-2",
+      "type": "definition",
+      "title": "Når bruker du form 1, og når form 2?",
+      "content": "| Situasjon | Form | Hvorfor |\n|---|---|---|\n| Redusere en stor eksponent | **1** ($a^{p-1}\\equiv 1$) | gir reduksjon modulo $p-1$ |\n| Delelighetsbevis om $a^p-a$ | **2** ($a^p\\equiv a$) | gjelder for alle $a$, uten antagelser |\n| Finne en invers modulo $p$ | **1** | $a^{p-2}$ er inversen |\n| Vise en påstand for alle $a$ | **2** | ingen vilkår å utelukke |\n| RSA-korrekthet når $p$ kan dele meldingen | **2** | dekker $p\\mid m$-tilfellet |\n\n**Tommelfingerregelen:** vet du at $p\\nmid a$ (typisk fordi tallene er oppgitt), bruk form 1. Skal påstanden gjelde for *alle* $a$, bruk form 2.\n\n**Den vanligste feilen i bevis:** å bruke form 1 i en påstand om alle $a$, og glemme å behandle $p\\mid a$ separat. Da er case-analysen ikke uttømmende, og beviset har et hull — og bevisstruktur teller for seg selv i dette faget."
+    },
+    {
+      "id": "ma1301-2-2-e2",
+      "type": "example",
+      "title": "Et delelighetsbevis fra form 2",
+      "problem": "Vis at $a^{11}-a$ er delelig med $11$ for alle hele tall $a$.",
+      "solution": "**Påstanden er nøyaktig form 2 av Fermats lille teorem med $p=11$**, men vi fører beviset ut, siden det er selve begrunnelsen som vurderes.\n\n$11$ er et primtall. Vi ser på to tilfeller, og de dekker alle hele tall $a$.\n\n**Tilfelle 1: $11\\nmid a$.** Da er $\\gcd(a,11)=1$, og **form 1 av Fermats lille teorem** gir\n$$a^{10}\\equiv 1\\pmod{11}.$$\nVi ganger med $a$ på begge sider:\n$$a^{11}\\equiv a\\pmod{11},$$\naltså $11\\mid(a^{11}-a)$.\n\n**Tilfelle 2: $11\\mid a$.** Da er $a\\equiv 0\\pmod{11}$, og dermed $a^{11}\\equiv 0\\pmod{11}$. Begge leddene i $a^{11}-a$ er delelige med $11$, så differansen er det også.\n\n**Konklusjon.** I begge tilfeller er $11\\mid(a^{11}-a)$, og de to tilfellene dekker alle hele tall $a$. Altså er $a^{11}-a$ delelig med $11$ for alle $a$. $\\blacksquare$\n\n**Kontroll med to verdier.** $a=2$: $2^{11}-2=2048-2=2046=11\\cdot 186$ ✓. $a=3$: $3^{11}-3=177\\,147-3=177\\,144=11\\cdot 16\\,104$ ✓.\n\n**Hvor føringspoengene sitter:** (1) at $11$ er et primtall er sagt; (2) **case-analysen er uttømmende** — begge tilfeller nevnt og behandlet; (3) **teoremet er navngitt** der det bærer argumentet; (4) konklusjonen er skrevet ut som en setning.\n\n*Et bevis som bare sier «dette følger av Fermats lille teorem» får betydelig mindre uttelling, fordi det hopper over nettopp den delen sensor ser etter: at du vet at form 1 har et vilkår, og at du har håndtert tilfellet der vilkåret svikter.*"
+    },
+    {
+      "id": "ma1301-2-2-ex-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-2-2-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "**a)** Vis at $a^7-a$ er delelig med $7$ for alle hele tall $a$.\n**b)** Er $a^7-a$ delelig med $6$ for alle $a$? Undersøk med tre verdier, og forklar hva du finner.",
+        "solution": "**a)** $7$ er et primtall. Vi behandler to tilfeller.\n\n**Tilfelle 1: $7\\nmid a$.** Da er $\\gcd(a,7)=1$, og **fra Fermats lille teorem (form 1)** er $a^{6}\\equiv 1\\pmod 7$. Ganger vi med $a$:\n$$a^{7}\\equiv a\\pmod 7,$$\naltså $7\\mid(a^7-a)$.\n\n**Tilfelle 2: $7\\mid a$.** Da er $a\\equiv 0$ og $a^7\\equiv 0\\pmod 7$, så $7\\mid(a^7-a)$.\n\nDe to tilfellene dekker alle hele tall $a$, så $7\\mid(a^7-a)$ for alle $a$. $\\blacksquare$\n\n**Kontroll:** $a=3$ gir $3^7-3=2187-3=2184=7\\cdot 312$ ✓.\n\n**b)** Vi prøver:\n\n| $a$ | $a^7-a$ | delelig med $6$? |\n|---|---|---|\n| $2$ | $126$ | $126=6\\cdot 21$ ✓ |\n| $3$ | $2\\,184$ | $2184=6\\cdot 364$ ✓ |\n| $5$ | $78\\,120$ | $78120=6\\cdot 13\\,020$ ✓ |\n\nDet ser ut til å holde, og det gjør det. **Grunnen:** $6=2\\cdot 3$, og\n\n- **fra form 2 med $p=2$** er $a^2\\equiv a\\pmod 2$, og dermed $a^7\\equiv a\\pmod 2$ (gang gjentatt med $a$, eller merk at $a^7$ og $a$ har samme paritet);\n- **fra form 2 med $p=3$** er $a^3\\equiv a\\pmod 3$, så $a^7=a^{3}\\cdot a^{3}\\cdot a\\equiv a\\cdot a\\cdot a=a^3\\equiv a\\pmod 3$.\n\nAltså deler både $2$ og $3$ tallet $a^7-a$, og siden $\\gcd(2,3)=1$, deler $6$ det (**resultatet fra [kap. 1.1](/ma1301/ma1301-1-1)**).\n\n**Sluttsvar:** $7\\mid(a^7-a)$ for alle $a$; og $6\\mid(a^7-a)$ for alle $a$ også, fordi både $2$ og $3$ deler det.\n\n*Kombinerer du de to, får du at $42=6\\cdot 7$ deler $a^7-a$ for alle $a$ — et resultat av nøyaktig den typen som dukker opp i sjanger I. Teknikken er å bruke form 2 for hvert primtall for seg og sette sammen med primiskhet.*",
+        "hints": [
+          "I a): del i tilfellene $7\\nmid a$ og $7\\mid a$.",
+          "I b): regn ut tre verdier først, og se etter et mønster.",
+          "I b): $6=2\\cdot 3$. Hva sier form 2 med $p=2$ og med $p=3$?"
+        ]
+      }
+    },
+    {
+      "id": "ma1301-2-2-l3-intro",
+      "type": "text",
+      "content": "## Løkke 3: Eksponentreduksjon modulo $p-1$\n\n*~9 minutter.*\n\nNå bruker vi teoremet til det det oftest brukes til på eksamen: å krympe en stor eksponent. Malen er den samme sju-stegs malen som i [kap. 2.1](/ma1301/ma1301-2-1), men steg (iii) er gratis."
+    },
+    {
+      "id": "ma1301-2-2-d-reduksjon-p-minus-1",
+      "type": "definition",
+      "title": "Eksponentreduksjon ved primtallsmodulus",
+      "content": "Er $p$ et primtall, $p\\nmid a$, og $N=(p-1)q+r$ med $0\\le r<p-1$, så\n$$a^{N}=\\left(a^{p-1}\\right)^{q}\\cdot a^{r}\\equiv 1^{q}\\cdot a^{r}=a^{r}\\pmod p.$$\n\n**Del eksponenten på $p-1$ og behold resten.** Regelen **må sitte utenat**, og utledningen over er den du skriver i besvarelsen.\n\n**Merk at det er $p-1$, ikke $p$.** Dette er den mest belagte regnefeilen i sjangeren. Minnekroken: hjulet har $p-1$ hakk, fordi restklassen $0$ ikke er med i løkken — den kommer man aldri tilbake fra.\n\n**Malen for hele oppgaven er den samme som i [kap. 2.1](/ma1301/ma1301-2-1)**, med to forenklinger: faktoriseringen i steg (i) er trivielt («$p$ er et primtall»), og $\\phi$ i steg (iii) er $p-1$ uten regning. Steg (ii), $\\gcd$-sjekken, står fortsatt — den er her «$p\\nmid a$».\n\n**Blir $r=0$?** Da er $a^N\\equiv 1$. Det er riktig svar."
+    },
+    {
+      "id": "ma1301-2-2-d-primtallsmodulus-gjenkjenning",
+      "type": "definition",
+      "title": "Er modulusen et primtall?",
+      "content": "Det ene spørsmålet som avgjør hvilket teorem du er i. Under kode D må du svare på det selv, uten primtallstabell.\n\n**Prøvedivisjon, med stopp ved kvadratrota** ([kap. 1.1](/ma1301/ma1301-1-1)): del på $2,3,5,7,11,13,\\dots$ opp til $\\sqrt n$. Går ingen opp, er $n$ et primtall.\n\n**Primtallene du møter oftest i sjanger E** — verdt å kjenne igjen, ikke som tabell, men fordi de går igjen: $7,11,13,17,19,23,29,31,37,41,43,47$, og de tresifrede $101,103,107,109,113$.\n\n**Rask utelukking før du deler:** er tallet like, eller ender på $5$, er det ikke et primtall (bortsett fra $2$ og $5$). Er siffersummen delelig med $3$, er tallet delelig med $3$.\n\n*Eksempel:* er $91$ et primtall? Ikke like, siffersum $10$, ender ikke på $0$ eller $5$; $91/7=13$ ✓ — altså $91=7\\cdot 13$, sammensatt. Her skal $\\phi(91)=6\\cdot 12=72$ brukes, ikke $90$.\n\n**Fellen $91$ er ekte:** den ser ut som et primtall, og $n-1=90$ ser brukbart ut. Sjekk alltid $7$ og $13$ på tosifrede og tresifrede tall."
+    },
+    {
+      "id": "ma1301-2-2-e3",
+      "type": "example",
+      "title": "Restberegning med primtallsmodulus: 5^123 modulo 11",
+      "problem": "Finn resten når $5^{123}$ deles på $11$.",
+      "solution": "**(i) Faktoriser modulusen.** $11$ er et primtall.\n\n**(ii) $\\gcd$-sjekken.** $\\gcd(5,11)=1$, siden primtallet $11$ ikke deler $5$. Vilkåret er oppfylt, så teoremet kan brukes.\n\n**(iii) Regn ut $\\phi(n)$.** Modulusen er primtallet $11$, så $\\phi(11)=11-1=10$.\n\n**(iv) Reduser eksponenten.** **Fra Fermats lille teorem** er $5^{10}\\equiv 1\\pmod{11}$, så vi kan redusere eksponenten modulo $p-1=10$:\n\n$$123 = 10\\cdot 12 + 3,\\qquad\\text{så}\\qquad 5^{123} = \\left(5^{10}\\right)^{12}\\cdot 5^{3}\\equiv 1^{12}\\cdot 5^{3} = 5^{3}\\pmod{11}.$$\n\n**(v) Binærutviklingen av eksponenten og de suksessive kvadratene.** Vi skriver eksponenten som en sum av toerpotenser: $3 = 2 + 1$, altså $3$ i binær er $11$. Deretter kvadrerer vi oss oppover, og reduserer modulo $11$ etter hvert kvadrat:\n\n| Potens | Utregning | Rest modulo $11$ |\n|---|---|---|\n| $5^{1}$ | — | $5$ |\n| $5^{2}$ | $5^2=25$, og $25=11\\cdot 2+3$ | $3$ |\n\n**(vi) Sett sammen produktet.** Da er\n\n$$5^{3} = 5^{2} \\cdot 5^{1} \\equiv 3 \\cdot 5 \\pmod{11},$$\n\nog vi multipliserer to av gangen, med reduksjon underveis: $3\\cdot 5 = 15\\equiv 4$.\n\n**(vii) Konklusjon.** Resten når $5^{123}$ deles på $11$, er $\\boxed{4}$.\n\n*Legg merke til at hele oppgaven tok fire linjer. Med primtallsmodulus er steg (i) og (iii) nesten gratis — det er derfor du alltid sjekker om modulusen er et primtall før du begynner å faktorisere.*"
+    },
+    {
+      "id": "ma1301-2-2-ex-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-2-2-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Finn resten når $2^{1000}$ deles på $13$.",
+        "solution": "**(i) Faktoriser modulusen.** $13$ er et primtall.\n\n**(ii) $\\gcd$-sjekken.** $\\gcd(2,13)=1$, siden primtallet $13$ ikke deler $2$. Vilkåret er oppfylt, så teoremet kan brukes.\n\n**(iii) Regn ut $\\phi(n)$.** Modulusen er primtallet $13$, så $\\phi(13)=13-1=12$.\n\n**(iv) Reduser eksponenten.** **Fra Fermats lille teorem** er $2^{12}\\equiv 1\\pmod{13}$, så vi kan redusere eksponenten modulo $p-1=12$:\n\n$$1000 = 12\\cdot 83 + 4,\\qquad\\text{så}\\qquad 2^{1000} = \\left(2^{12}\\right)^{83}\\cdot 2^{4}\\equiv 1^{83}\\cdot 2^{4} = 2^{4}\\pmod{13}.$$\n\n**(v) Binærutviklingen av eksponenten og de suksessive kvadratene.** Vi skriver eksponenten som en sum av toerpotenser: $4 = 4$, altså $4$ i binær er $100$. Deretter kvadrerer vi oss oppover, og reduserer modulo $13$ etter hvert kvadrat:\n\n| Potens | Utregning | Rest modulo $13$ |\n|---|---|---|\n| $2^{1}$ | — | $2$ |\n| $2^{2}$ | $2^2=4$ | $4$ |\n| $2^{4}$ | $4^2=16$, og $16=13\\cdot 1+3$ | $3$ |\n\n**(vi) Sett sammen produktet.** Da er\n\n$$2^{4} = 2^{4} \\equiv 3 \\pmod{13},$$\n\naltså direkte $2^{4}\\equiv 3\\pmod{13}$.\n\n**(vii) Konklusjon.** Resten når $2^{1000}$ deles på $13$, er $\\boxed{3}$.\n\n*Kontroll det er verdt å gjøre: $2^{12}=4096=13\\cdot 315+1$, så $2^{12}\\equiv 1\\pmod{13}$ ✓ — teoremet stemmer for disse tallene, og reduksjonen var lovlig.*",
+        "hints": [
+          "Er $13$ et primtall? Da reduserer du eksponenten modulo $13-1$.",
+          "$1000$ delt på $12$: hva er resten?",
+          "Regn $2^4$ direkte — det er lite nok."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-2-2-ex-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-2-2-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Finn resten når $3^{201}$ deles på $17$.",
+        "solution": "**(i) Faktoriser modulusen.** $17$ er et primtall.\n\n**(ii) $\\gcd$-sjekken.** $\\gcd(3,17)=1$, siden primtallet $17$ ikke deler $3$. Vilkåret er oppfylt, så teoremet kan brukes.\n\n**(iii) Regn ut $\\phi(n)$.** Modulusen er primtallet $17$, så $\\phi(17)=17-1=16$.\n\n**(iv) Reduser eksponenten.** **Fra Fermats lille teorem** er $3^{16}\\equiv 1\\pmod{17}$, så vi kan redusere eksponenten modulo $p-1=16$:\n\n$$201 = 16\\cdot 12 + 9,\\qquad\\text{så}\\qquad 3^{201} = \\left(3^{16}\\right)^{12}\\cdot 3^{9}\\equiv 1^{12}\\cdot 3^{9} = 3^{9}\\pmod{17}.$$\n\n**(v) Binærutviklingen av eksponenten og de suksessive kvadratene.** Vi skriver eksponenten som en sum av toerpotenser: $9 = 8 + 1$, altså $9$ i binær er $1001$. Deretter kvadrerer vi oss oppover, og reduserer modulo $17$ etter hvert kvadrat:\n\n| Potens | Utregning | Rest modulo $17$ |\n|---|---|---|\n| $3^{1}$ | — | $3$ |\n| $3^{2}$ | $3^2=9$ | $9$ |\n| $3^{4}$ | $9^2=81$, og $81=17\\cdot 4+13$ | $13$ |\n| $3^{8}$ | $13^2=169$, og $169=17\\cdot 9+16$ | $16$ |\n\n**(vi) Sett sammen produktet.** Da er\n\n$$3^{9} = 3^{8} \\cdot 3^{1} \\equiv 16 \\cdot 3 \\pmod{17},$$\n\nog vi multipliserer to av gangen, med reduksjon underveis: $16\\cdot 3 = 48\\equiv 14$.\n\n**(vii) Konklusjon.** Resten når $3^{201}$ deles på $17$, er $\\boxed{14}$.\n\n*Merk at $3^{8}\\equiv 16\\equiv -1\\pmod{17}$. Det er en snarvei verdt å se: da er $3^{9}\\equiv -1\\cdot 3=-3\\equiv 14\\pmod{17}$, samme svar i én linje. Å skrive en rest som $-1$ i stedet for $p-1$ er ofte det som korter ned regningen — samme grep som bærer Wilson-trikset i [kap. 2.3](/ma1301/ma1301-2-3).*",
+        "hints": [
+          "$17$ er et primtall. Reduser eksponenten modulo $16$.",
+          "$201=16\\cdot 12+9$.",
+          "Når du regner kvadrattabellen: hva blir $3^8$ modulo $17$? Skriv det som et negativt tall."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-2-2-ex-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-2-2-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "**a)** Finn resten når $7^{85}$ deles på $19$.\n**b)** Finn resten når $3^{1\\,000\\,000}$ deles på $7$.",
+        "solution": "**a)** **(i) Faktoriser modulusen.** $19$ er et primtall.\n\n**(ii) $\\gcd$-sjekken.** $\\gcd(7,19)=1$, siden primtallet $19$ ikke deler $7$. Vilkåret er oppfylt, så teoremet kan brukes.\n\n**(iii) Regn ut $\\phi(n)$.** Modulusen er primtallet $19$, så $\\phi(19)=19-1=18$.\n\n**(iv) Reduser eksponenten.** **Fra Fermats lille teorem** er $7^{18}\\equiv 1\\pmod{19}$, så vi kan redusere eksponenten modulo $p-1=18$:\n\n$$85 = 18\\cdot 4 + 13,\\qquad\\text{så}\\qquad 7^{85} = \\left(7^{18}\\right)^{4}\\cdot 7^{13}\\equiv 1^{4}\\cdot 7^{13} = 7^{13}\\pmod{19}.$$\n\n**(v) Binærutviklingen av eksponenten og de suksessive kvadratene.** Vi skriver eksponenten som en sum av toerpotenser: $13 = 8 + 4 + 1$, altså $13$ i binær er $1101$. Deretter kvadrerer vi oss oppover, og reduserer modulo $19$ etter hvert kvadrat:\n\n| Potens | Utregning | Rest modulo $19$ |\n|---|---|---|\n| $7^{1}$ | — | $7$ |\n| $7^{2}$ | $7^2=49$, og $49=19\\cdot 2+11$ | $11$ |\n| $7^{4}$ | $11^2=121$, og $121=19\\cdot 6+7$ | $7$ |\n| $7^{8}$ | $7^2=49$, og $49=19\\cdot 2+11$ | $11$ |\n\n**(vi) Sett sammen produktet.** Da er\n\n$$7^{13} = 7^{8} \\cdot 7^{4} \\cdot 7^{1} \\equiv 11 \\cdot 7 \\cdot 7 \\pmod{19},$$\n\nog vi multipliserer to av gangen, med reduksjon underveis: $11\\cdot 7 = 77\\equiv 1$; $1\\cdot 7 = 7$.\n\n**(vii) Konklusjon.** Resten når $7^{85}$ deles på $19$, er $\\boxed{7}$.\n\n**b)** **(i) Faktoriser modulusen.** $7$ er et primtall.\n\n**(ii) $\\gcd$-sjekken.** $\\gcd(3,7)=1$, siden primtallet $7$ ikke deler $3$. Vilkåret er oppfylt, så teoremet kan brukes.\n\n**(iii) Regn ut $\\phi(n)$.** Modulusen er primtallet $7$, så $\\phi(7)=7-1=6$.\n\n**(iv) Reduser eksponenten.** **Fra Fermats lille teorem** er $3^{6}\\equiv 1\\pmod{7}$, så vi kan redusere eksponenten modulo $p-1=6$:\n\n$$1000000 = 6\\cdot 166666 + 4,\\qquad\\text{så}\\qquad 3^{1000000} = \\left(3^{6}\\right)^{166666}\\cdot 3^{4}\\equiv 1^{166666}\\cdot 3^{4} = 3^{4}\\pmod{7}.$$\n\n**(v) Binærutviklingen av eksponenten og de suksessive kvadratene.** Vi skriver eksponenten som en sum av toerpotenser: $4 = 4$, altså $4$ i binær er $100$. Deretter kvadrerer vi oss oppover, og reduserer modulo $7$ etter hvert kvadrat:\n\n| Potens | Utregning | Rest modulo $7$ |\n|---|---|---|\n| $3^{1}$ | — | $3$ |\n| $3^{2}$ | $3^2=9$, og $9=7\\cdot 1+2$ | $2$ |\n| $3^{4}$ | $2^2=4$ | $4$ |\n\n**(vi) Sett sammen produktet.** Da er\n\n$$3^{4} = 3^{4} \\equiv 4 \\pmod{7},$$\n\naltså direkte $3^{4}\\equiv 4\\pmod{7}$.\n\n**(vii) Konklusjon.** Resten når $3^{1000000}$ deles på $7$, er $\\boxed{4}$.\n\n*I b) er poenget at eksponentens størrelse er helt uvesentlig. Det eneste som betyr noe, er resten ved divisjon med $6$ — og den finner du på tjue sekunder uansett hvor mange siffer eksponenten har.*\n\n**Sluttsvar:** a) resten er $7$; b) resten er $4$.",
+        "hints": [
+          "Begge modulene er primtall. Reduser eksponenten modulo $p-1$.",
+          "I a): $85$ delt på $18$.",
+          "I b): $1\\,000\\,000$ delt på $6$ — se på det som $10^6$."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-2-2-l4-intro",
+      "type": "text",
+      "content": "## Løkke 4: Når $p$ deler grunntallet\n\n*~6 minutter.*\n\nHer er kapitlets ene felle, og den er dokumentert: å bruke form 1 når vilkåret ikke holder."
+    },
+    {
+      "id": "ma1301-2-2-d-p-deler-a",
+      "type": "definition",
+      "title": "Når p deler grunntallet",
+      "content": "Er $p\\mid a$, så er\n$$a^{k}\\equiv 0\\pmod p\\qquad\\text{for alle }k\\ge 1,$$\nog **form 1 gjelder ikke** — potensen er $\\equiv 0$, aldri $\\equiv 1$.\n\n**Utledes på stedet, én linje:** $a=ps$ gir $a^k=p^ks^k$, som er delelig med $p$. $\\blacksquare$\n\n**Hva du gjør i praksis:** ingenting mer. Svaret er $0$, og oppgaven er ferdig. Det er den enkleste restberegningen som finnes — men bare hvis du sjekker vilkåret først. Hopper du rett til reduksjon modulo $p-1$, får du et galt svar med et helt riktig utseende.\n\n**Merk at form 2 fortsatt holder:** $a^p\\equiv a\\pmod p$ blir $0\\equiv 0$, som er sant. Det er hele grunnen til at form 2 er den vilkårsfrie.\n\n*Eksempel:* $14^{12}\\bmod 7$. Her er $7\\mid 14$, så $14\\equiv 0$ og $14^{12}\\equiv 0\\pmod 7$. Hadde du redusert $12$ modulo $6$ og fått $14^{0}=1$, ville svaret vært galt."
+    },
+    {
+      "id": "ma1301-2-2-d-reduser-grunntallet-forst-2",
+      "type": "definition",
+      "title": "Reduser grunntallet først — og se vilkåret",
+      "content": "Er grunntallet større enn modulusen, reduser det først. Det er lovlig etter potensregelen for kongruenser ([kap. 1.4](/ma1301/ma1301-1-4)), og det gjør vilkårssjekken synlig.\n\n*Eksempel:* $105^{40}\\bmod 7$. Reduser: $105=7\\cdot 15$, så $105\\equiv 0\\pmod 7$, og hele potensen er $\\equiv 0$. Uten reduksjonen ville du kanskje ikke sett at $7$ deler $105$.\n\n*Og et der vilkåret holder:* $102^{40}\\bmod 7$. Her er $102=7\\cdot 14+4$, så $102\\equiv 4\\pmod 7$, og oppgaven er blitt $4^{40}\\bmod 7$. Fermat: $40=6\\cdot 6+4$, så $4^{40}\\equiv 4^{4}=256\\equiv 4\\pmod 7$ (siden $256=7\\cdot 36+4$).\n\n**Rekkefølgen som forebygger feil:**\n\n1. reduser grunntallet modulo $p$;\n2. se om resultatet er $0$ — da er du ferdig;\n3. ellers reduser eksponenten modulo $p-1$.\n\n**Merk at små grunntall også gjør kvadrattabellen lettere.** $4^2=16$ er enklere enn $102^2=10\\,404$."
+    },
+    {
+      "id": "ma1301-2-2-ex-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-2-2-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Finn resten når hvert av disse deles på $7$:\n\n**a)** $105^{40}$\n**b)** $102^{40}$",
+        "solution": "**a)** Vi reduserer grunntallet først: $105=7\\cdot 15$, så\n$$105\\equiv 0\\pmod 7.$$\nDa er $105^{40}\\equiv 0^{40}=0\\pmod 7$.\n\n**Merk at Fermats lille teorem ikke kan brukes her** — vilkåret $p\\nmid a$ svikter. Hadde vi redusert eksponenten modulo $6$ og fått $105^{4}$, ville vi likevel endt på $0$; men hadde eksponenten vært $42$, ville reduksjonen gitt $105^{0}=1$, som er galt.\n\n**Resten er $0$.**\n\n**b)** $102=7\\cdot 14+4$, så $102\\equiv 4\\pmod 7$, og\n$$102^{40}\\equiv 4^{40}\\pmod 7.$$\nNå er $7\\nmid 4$ ✓, så **fra Fermats lille teorem** er $4^{6}\\equiv 1\\pmod 7$, og vi reduserer eksponenten modulo $6$:\n$$40=6\\cdot 6+4,\\qquad\\text{så}\\qquad 4^{40}\\equiv 4^{4}\\pmod 7.$$\nKvadrer-og-multipliser med $4=4$: $4^2=16\\equiv 2$, $4^4\\equiv 2^2=4\\pmod 7$.\n\n**Resten er $4$.**\n\n**Kontroll:** $4^3=64=7\\cdot 9+1$, så $4^3\\equiv 1\\pmod 7$ og $4^{40}=4^{39}\\cdot 4\\equiv 4$ ✓ — samme svar på en snarvei.\n\n**Sluttsvar:** a) $0$; b) $4$.\n\n*De to oppgavene ser like ut og har helt forskjellig løsning. Forskjellen avgjøres i det første steget: reduser grunntallet, og se om det ble $0$.*",
+        "hints": [
+          "Reduser grunntallet modulo $7$ først i begge.",
+          "I a): deler $7$ tallet $105$?",
+          "I b): $102\\equiv 4$, og så reduserer du eksponenten modulo $6$."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-2-2-l5-intro",
+      "type": "text",
+      "content": "## Løkke 5: Fermat som inversmaskin\n\n*~7 minutter.*\n\nMed primtallsmodulus gir Fermat en formel for inversen. Den er ikke alltid den raskeste veien, men den er verdt å kunne — og den brukes i bevis der du trenger en invers uten å regne den ut."
+    },
+    {
+      "id": "ma1301-2-2-d-invers-p-minus-2",
+      "type": "definition",
+      "title": "Invers modulo p: a^(p−2)",
+      "content": "Er $p$ et primtall og $p\\nmid a$, så er\n$$a^{-1}\\equiv a^{p-2}\\pmod p.$$\n\n**Dette utledes på stedet, én linje:**\n$$a\\cdot a^{p-2}=a^{p-1}\\equiv 1\\pmod p$$\n**fra Fermats lille teorem** — og det er nøyaktig definisjonen av invers ([kap. 1.4](/ma1301/ma1301-1-4)). $\\blacksquare$\n\n*Eksempel:* inversen til $5$ modulo $13$ er $5^{11}\\bmod 13$. Med kvadrer-og-multipliser: $5^2=25\\equiv 12\\equiv -1$, så $5^{4}\\equiv 1$, $5^{8}\\equiv 1$, og $5^{11}=5^{8}\\cdot 5^{2}\\cdot 5\\equiv 1\\cdot(-1)\\cdot 5=-5\\equiv 8\\pmod{13}$. Kontroll: $5\\cdot 8=40=39+1\\equiv 1$ ✓.\n\n**Når er dette raskere enn Euklids algoritme?** Nesten aldri for hånd — Euklid tar to eller tre divisjonslinjer. **Begge metodene er fullgode**, men Euklid er standardveien i dette faget, og den virker også for sammensatt modulus.\n\n**Der formelen likevel er den rette:** i bevis og i algebraiske omskrivninger, der du vil skrive inversen som en potens og ikke som et tall. Og i Wilson-trikset i [kap. 2.3](/ma1301/ma1301-2-3), der du deler på et tall modulo $p$."
+    },
+    {
+      "id": "ma1301-2-2-d-negativ-rest",
+      "type": "definition",
+      "title": "Å skrive rester som negative tall",
+      "content": "Et regnetriks som korter ned nesten alle Fermat-oppgaver: **rester nær $p$ skrives som negative tall**.\n\n$$p-1\\equiv -1,\\qquad p-2\\equiv -2,\\qquad p-3\\equiv -3\\pmod p.$$\n\n**Hvorfor det hjelper:** $(-1)^k$ er $1$ eller $-1$ avhengig av pariteten, og små negative tall kvadreres like lett som små positive. Ser du at $a^k\\equiv -1$, er $a^{2k}\\equiv 1$ — og da er hele resten av regningen kort.\n\n*Eksempel:* $3^{8}\\equiv 16\\pmod{17}$, og $16\\equiv -1$. Dermed er $3^{16}\\equiv 1$ (som Fermat lovte), og $3^{9}\\equiv -3\\equiv 14\\pmod{17}$.\n\n**Konverter tilbake til slutt.** Sluttsvaret skal normalt være i $0,\\dots,p-1$: skriv $-3\\equiv 14\\pmod{17}$, ikke bare $-3$. Spørres det om «resten», er resten et tall mellom $0$ og $p-1$.\n\n**Dette grepet er selve Wilson-trikset** i [kap. 2.3](/ma1301/ma1301-2-3), der faktorene $p-1,p-2,\\dots$ skrives som $-1,-2,\\dots$. Å bli vant til det nå er direkte forberedelse."
+    },
+    {
+      "id": "ma1301-2-2-ex-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-2-2-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "**a)** Finn inversen til $5$ modulo $13$ ved hjelp av Fermats lille teorem.\n**b)** Finn den samme inversen med Euklids algoritme.\n**c)** Bruk inversen til å løse $5x\\equiv 7\\pmod{13}$.",
+        "solution": "**a)** $13$ er et primtall og $13\\nmid 5$ ✓, så **fra Fermats lille teorem** er inversen $5^{13-2}=5^{11}\\bmod 13$.\n\nVi regner med kvadrer-og-multipliser, og bruker at rester nær $13$ kan skrives negativt:\n$$5^2=25\\equiv 12\\equiv -1\\pmod{13},$$\n$$5^4\\equiv(-1)^2=1,\\qquad 5^8\\equiv 1\\pmod{13}.$$\nMed $11=8+2+1$:\n$$5^{11}\\equiv 1\\cdot(-1)\\cdot 5=-5\\equiv 8\\pmod{13}.$$\n\n**Kontroll:** $5\\cdot 8=40=13\\cdot 3+1\\equiv 1\\pmod{13}$ ✓.\n\n**Inversen er $8$.**\n\n**b) Samme invers med Euklids algoritme.**\n\n**(i) Divisjonskjeden frem.** Vi deler gjentatt med rest, **ved Euklids algoritme**, til resten blir $0$:\n\n$$13 = 2\\cdot 5 + 3$$\n$$5 = 1\\cdot 3 + 2$$\n$$3 = 1\\cdot 2 + 1$$\n$$2 = 2\\cdot 1 + 0$$\n\nDen siste resten som ikke er $0$, er $1$. Altså er $\\gcd(13,5)=1$. Kjeden har 4 divisjonslinjer.\n\n**(ii) Substitusjonskjeden baklengs.** Vi løser den nest siste linja for resten og substituerer oppover, linje for linje:\n\n$$1 = 3 - 1\\cdot 2$$\nSett inn $2 = 5 - 1\\cdot 3$:\n$$1 = -1\\cdot 5 + 2\\cdot 3$$\nSett inn $3 = 13 - 2\\cdot 5$:\n$$1 = 2\\cdot 13 - 5\\cdot 5$$\n\n**(iii) Konklusjon.** Altså er\n\n$$\\gcd(13,5) = 1 = 13\\cdot(2) + 5\\cdot(-5).$$\n\n**Kontroll ved innsetting:** $13\\cdot(2) + 5\\cdot(-5) = 26 - 25 = 1$. Stemmer.\n\nVi leser likningen **modulo $13$**: leddet med $13$ faller bort, så\n$$5\\cdot(-5)\\equiv 1\\pmod{13}.$$\nOg $-5\\equiv 8\\pmod{13}$, så inversen er $8$ — samme svar ✓.\n\n**Begge metodene er fullgode.** Euklid brukte to divisjonslinjer, Fermat tre kvadrater. På eksamen er Euklid standardveien, fordi den også virker når modulusen er sammensatt.\n\n**c)** Vi ganger begge sider med inversen $8$:\n$$5x\\equiv 7\\pmod{13}\\ \\Longrightarrow\\ 8\\cdot 5x\\equiv 8\\cdot 7\\pmod{13}\\ \\Longrightarrow\\ x\\equiv 56\\pmod{13}.$$\nOg $56=13\\cdot 4+4$, så $x\\equiv 4\\pmod{13}$.\n\n**Løsbarhet og antall, som skal kommenteres:** $\\gcd(5,13)=1$, så kongruensen har nøyaktig **én** inkongruent løsning modulo $13$ ([kap. 1.4](/ma1301/ma1301-1-4)).\n\n**Kontroll:** $5\\cdot 4=20=13+7\\equiv 7\\pmod{13}$ ✓.\n\n**Sluttsvar:** inversen er $8$; og $x\\equiv 4\\pmod{13}$ er den eneste inkongruente løsningen.",
+        "hints": [
+          "I a): inversen er $a^{p-2}$. Regn $5^2$ modulo $13$ først — det blir $-1$.",
+          "I b): kjør Euklids algoritme på $13$ og $5$, og les Bézout-likningen modulo $13$.",
+          "I c): gang begge sider av kongruensen med inversen du fant."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-2-2-l6-intro",
+      "type": "text",
+      "content": "## Løkke 6: Et annet bevis — og et teorem om binomialkoeffisienter\n\n*~9 minutter.*\n\nFermats lille teorem kan bevises på minst to måter, og fasitene i arkivet honorerer begge. Vi har sett veien via Euler. Her er veien via induksjon og binomialformelen — den som ikke krever Eulers teorem i det hele tatt.\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "ma1301-2-2-d-p-deler-binom",
+      "type": "definition",
+      "title": "p deler binomialkoeffisienten C(p,k)",
+      "content": "For et primtall $p$ og $0<k<p$:\n$$p\\ \\Big|\\ \\binom{p}{k}.$$\n\n**Utledes på stedet, tre linjer.** Fra definisjonen er\n$$k!\\,(p-k)!\\,\\binom{p}{k}=p!.$$\nHøyresiden er delelig med $p$. Venstresiden har faktorene $k!$ og $(p-k)!$, som er produkter av tall mellom $1$ og $p-1$ — og **etter Euklids lemma** ([kap. 1.1](/ma1301/ma1301-1-1)) kan primtallet $p$ ikke dele et slikt produkt, siden det ikke deler noen av faktorene. Altså må $p$ dele $\\binom{p}{k}$. $\\blacksquare$\n\n**Kontroll for $p=5$:** $\\binom51=5$, $\\binom52=10$, $\\binom53=10$, $\\binom54=5$ — alle delelige med $5$ ✓. Og merk at $\\binom50=\\binom55=1$ ikke er det; derfor kravet $0<k<p$.\n\n**Merk at $p$ må være et primtall.** For $p=4$: $\\binom42=6$, som ikke er delelig med $4$. Det er Euklids lemma som svikter, og det er presis der primtallsegenskapen brukes.\n\n**Hvor det brukes:** i induksjonsbeviset for $a^p\\equiv a$ under, og i delelighetsbevis i Del 6."
+    },
+    {
+      "id": "ma1301-2-2-d-induksjonsbevis-fermat",
+      "type": "definition",
+      "title": "Induksjonsbeviset for a^p ≡ a",
+      "content": "Den andre veien til form 2, uten Eulers teorem. Strukturen er induksjonens tre steg, som **må sitte utenat**:\n\n**(1) Basissteg:** $a=0$ gir $0^p=0\\equiv 0\\pmod p$ ✓.\n\n**(2) Induksjonshypotese:** anta at $a^p\\equiv a\\pmod p$ for en $a\\ge 0$.\n\n**(3) Induksjonssteg:** binomialformelen gir\n$$(a+1)^p=\\sum_{k=0}^{p}\\binom{p}{k}a^{k}=a^{p}+\\binom{p}{1}a^{p-1}+\\dots+\\binom{p}{p-1}a+1.$$\nAlle mellomleddene har en faktor $\\binom pk$ med $0<k<p$, og **de er delelige med $p$** etter forrige kort. Altså\n$$(a+1)^p\\equiv a^{p}+1\\pmod p.$$\n**Her bruker vi induksjonshypotesen:** $a^p\\equiv a$, så\n$$(a+1)^p\\equiv a+1\\pmod p.$$\nDermed holder påstanden for $a+1$, og ved induksjon for alle $a\\ge 0$. $\\blacksquare$\n\n**Negative $a$:** hvert negativt tall er kongruent med et ikke-negativt modulo $p$ (legg til et multiplum av $p$), og påstanden avhenger bare av restklassen. Så resultatet gjelder for alle hele tall.\n\n**Begge bevisveier er fullgode.** Euler-veien er kortest; induksjonsveien er den du bruker hvis oppgaven **ber om** et induksjonsbevis, eller hvis den ber deg vise Fermat uten å bruke Eulers teorem. Legg merke til at hypotesen brukes ett bestemt sted, og at stedet er markert — det er et krav i dette faget."
+    },
+    {
+      "id": "ma1301-2-2-e4",
+      "type": "example",
+      "title": "Eksamensnivå: to veier til samme delelighet",
+      "problem": "La $a$ være et helt tall.\n\n**a)** Vis at $5\\mid(a^5-a)$ for alle $a$, ved hjelp av Fermats lille teorem.\n**b)** Vis det samme ved induksjon på $a\\ge 0$, uten å bruke Fermats lille teorem.\n**c)** Finn resten når $a^{25}$ deles på $5$, uttrykt ved $a$.",
+      "solution": "**a) Via Fermats lille teorem.** $5$ er et primtall. To tilfeller, som dekker alle $a$:\n\n*Tilfelle 1: $5\\nmid a$.* Da er $\\gcd(a,5)=1$, og **form 1** gir $a^4\\equiv 1\\pmod 5$. Ganger vi med $a$: $a^5\\equiv a\\pmod 5$.\n\n*Tilfelle 2: $5\\mid a$.* Da er $a\\equiv 0$ og $a^5\\equiv 0\\pmod 5$, så $a^5\\equiv a$.\n\nI begge tilfeller er $5\\mid(a^5-a)$. $\\blacksquare$\n\n**b) Ved induksjon på $a\\ge 0$.**\n\n**(1) Basissteg:** for $a=0$ er $0^5-0=0$, og $5\\mid 0$ ✓.\n\n**(2) Induksjonshypotese:** anta at $5\\mid(a^5-a)$ for en $a\\ge 0$, altså $a^5\\equiv a\\pmod 5$.\n\n**(3) Induksjonssteg:** vi ser på $a+1$. Binomialformelen gir\n$$(a+1)^5=a^5+5a^4+10a^3+10a^2+5a+1.$$\nKoeffisientene $5,10,10,5$ er alle delelige med $5$ — som de skal være, **siden $5\\mid\\binom5k$ for $0<k<5$**. Altså\n$$(a+1)^5\\equiv a^5+1\\pmod 5.$$\n**Her bruker vi induksjonshypotesen:** $a^5\\equiv a$, og dermed\n$$(a+1)^5\\equiv a+1\\pmod 5,$$\naltså $5\\mid\\big((a+1)^5-(a+1)\\big)$.\n\nVed induksjon holder påstanden for alle $a\\ge 0$. For negative $a$: hvert helt tall er kongruent med et av $0,1,2,3,4$ modulo $5$, og både $a^5$ og $a$ avhenger bare av restklassen — så påstanden gjelder for alle hele tall. $\\blacksquare$\n\n**c)** Vi bruker resultatet tre ganger. Fra $a^5\\equiv a\\pmod 5$:\n$$a^{25}=\\left(a^{5}\\right)^{5}\\equiv a^{5}\\equiv a\\pmod 5.$$\n**Resten når $a^{25}$ deles på $5$, er den samme som resten av $a$.**\n\n**Kontroll med to verdier.** $a=2$: $2^{25}=33\\,554\\,432$, og $33\\,554\\,432=5\\cdot 6\\,710\\,886+2$ — rest $2$, samme som $2$ ✓. $a=3$: $3^{25}\\equiv 3\\pmod 5$, og $3^{25}=847\\,288\\,609\\,443$, som ender på $3$ ✓ (siste siffer $3$ gir rest $3$ modulo $5$).\n\n**Hvor føringspoengene sitter:** (1) i a) er case-analysen uttømmende og teoremet navngitt; (2) i b) står **alle tre induksjonsstegene merket**, og setningen «her bruker vi induksjonshypotesen» står nøyaktig der hypotesen brukes; (3) delelighetspåstanden om binomialkoeffisientene er begrunnet, ikke bare observert; (4) utvidelsen til negative $a$ er nevnt, ikke forbigått.\n\n*Et induksjonsbevis uten basissteg er en byggefeil — det er den mest belagte sensorregelen i dette faget. Skriv alltid steget, selv når det er trivielt.*"
+    },
+    {
+      "id": "ma1301-2-2-ex-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-2-2-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "La $p$ være et primtall og $a$ et helt tall.\n\n**a)** Vis at $\\binom{p}{k}$ er delelig med $p$ for alle $k$ med $0<k<p$.\n**b)** Bruk a) til å vise at $(a+b)^p\\equiv a^p+b^p\\pmod p$ for alle hele tall $a$ og $b$.\n**c)** Kontroller b) for $p=5$, $a=2$, $b=3$.",
+        "solution": "**a)** Fra definisjonen av binomialkoeffisienten:\n$$\\binom{p}{k}=\\frac{p!}{k!\\,(p-k)!},\\qquad\\text{altså}\\qquad k!\\,(p-k)!\\,\\binom{p}{k}=p!.$$\n\nHøyresiden $p!=1\\cdot 2\\cdots p$ er delelig med $p$.\n\nSe nå på venstresiden. Siden $0<k<p$, er både $k!$ og $(p-k)!$ produkter av tall mellom $1$ og $p-1$. Primtallet $p$ deler ingen av disse tallene, og **etter Euklids lemma** ([kap. 1.1](/ma1301/ma1301-1-1)) deler et primtall et produkt bare hvis det deler en av faktorene. Altså deler $p$ verken $k!$ eller $(p-k)!$.\n\nMen $p$ deler produktet $k!\\,(p-k)!\\,\\binom pk$. Bruker vi Euklids lemma på nytt, må $p$ dele $\\binom pk$. $\\blacksquare$\n\n**b)** Binomialformelen gir\n$$(a+b)^p=\\sum_{k=0}^{p}\\binom{p}{k}a^{k}b^{p-k}=b^{p}+\\binom{p}{1}ab^{p-1}+\\dots+\\binom{p}{p-1}a^{p-1}b+a^{p}.$$\nLeddene med $0<k<p$ har alle faktoren $\\binom pk$, som er delelig med $p$ etter a). Modulo $p$ faller de bort, og bare de to ytterste står igjen:\n$$(a+b)^p\\equiv a^{p}+b^{p}\\pmod p.\\qquad\\blacksquare$$\n\n**c) Kontroll for $p=5$, $a=2$, $b=3$.**\n\nVenstresiden: $(2+3)^5=5^5=3125$, og $5\\mid 3125$, så $(a+b)^5\\equiv 0\\pmod 5$.\n\nHøyresiden: $2^5+3^5=32+243=275=5\\cdot 55$, så også $a^5+b^5\\equiv 0\\pmod 5$ ✓.\n\nDe to sidene er kongruente modulo $5$, som påstått.\n\n**Sluttsvar:** $p\\mid\\binom pk$ for $0<k<p$; $(a+b)^p\\equiv a^p+b^p\\pmod p$; kontrollen stemmer.\n\n*Resultatet i b) kalles ofte «freshman's dream», fordi det er den regelen elever ønsker seg i vanlig algebra — der er den gal. Modulo et primtall er den sann, og den er et effektivt verktøy i delelighetsbevis (sjanger I).*\n\n*Merk også at b) gir et tredje bevis for form 2: sett $b=1$ og bruk induksjon på $a$, nøyaktig som i eksempel 4.*",
+        "hints": [
+          "I a): start fra $k!\\,(p-k)!\\,\\binom pk=p!$ og se hvilken side som er delelig med $p$.",
+          "I a): hva sier Euklids lemma om et primtall som deler et produkt?",
+          "I b): skriv ut binomialformelen, og se hvilke ledd som forsvinner modulo $p$."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-2-2-d-fermat-test",
+      "type": "definition",
+      "title": "Fermat-testen — og hvorfor den ikke er en primtallstest",
+      "content": "Fermats lille teorem sier: er $p$ et primtall og $p\\nmid a$, så er $a^{p-1}\\equiv 1\\pmod p$.\n\n**Den omvendte påstanden er ikke sann.** At $a^{n-1}\\equiv 1\\pmod n$ beviser **ikke** at $n$ er et primtall.\n\n**Moteksempel:** $n=341=11\\cdot 31$ er sammensatt, men\n$$2^{340}\\equiv 1\\pmod{341}.$$\nSlike tall kalles **Fermat-pseudoprimtall** (til grunntallet $2$).\n\n**Verre:** $n=561=3\\cdot 11\\cdot 17$ oppfyller $a^{560}\\equiv 1\\pmod{561}$ for **alle** $a$ med $\\gcd(a,561)=1$. Tall med den egenskapen kalles Carmichael-tall, og de finnes det uendelig mange av.\n\n**Hva testen faktisk er god for:** å bevise at et tall **ikke** er et primtall. Finner du én $a$ med $a^{n-1}\\not\\equiv 1\\pmod n$, er $n$ sammensatt — og du har bevist det uten å faktorisere. Det er en logisk kontrapositiv, og den er helt gyldig.\n\n**Merk retningen når du skriver:** «$n$ primtall $\\Rightarrow$ $a^{n-1}\\equiv 1$» er teoremet. Å bruke pilen baklengs er en logisk feil, ikke bare en unøyaktighet."
+    },
+    {
+      "id": "ma1301-2-2-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "Tre feil står for nesten alt som går galt her, og alle tre er dokumentert i løsningsforslagene.\n\n- **Form 1 brukt når $p\\mid a$.** Da er potensen $\\equiv 0$, ikke $\\equiv 1$. **Kontrollen:** reduser grunntallet modulo $p$ **først**, og se om du får $0$. Fikk du det, er svaret $0$ og oppgaven er ferdig.\n\n- **Eksponenten redusert modulo $p$ i stedet for modulo $p-1$.** **Kontrollen:** skriv $p-1$ ned som eget tall før du deler. For $p=13$: «$p-1=12$», og så $N=12q+r$.\n\n- **Fermat brukt på sammensatt modulus.** Å bruke $n-1$ når $n$ ikke er et primtall. **Kontrollen:** avgjør om modulusen er et primtall FØR du velger teorem. Fellene er tall som *ser* prime ut: $91=7\\cdot 13$, $119=7\\cdot 17$, $133=7\\cdot 19$, $161=7\\cdot 23$. Sjekk alltid $7$, $11$ og $13$.\n\n- **Form 1 brukt i en påstand om alle $a$.** I et bevis der $a$ er vilkårlig, må tilfellet $p\\mid a$ behandles separat — ellers er case-analysen ikke uttømmende, og bevisstruktur teller for seg selv i dette faget. **Kontrollen:** står det «for alle hele tall $a$» i oppgaven? Da skal besvarelsen ha to tilfeller, eller bruke form 2.\n\n- **Teoremet ikke navngitt.** «Vi reduserer eksponenten» uten «fra Fermats lille teorem» er et argument uten hjemmel. Skriv navnet.\n\n- **Den omvendte påstanden brukt som primtallstest.** $a^{n-1}\\equiv 1\\pmod n$ beviser ikke at $n$ er et primtall — $2^{340}\\equiv 1\\pmod{341}$, og $341=11\\cdot 31$."
+    },
+    {
+      "id": "ma1301-2-2-begrepsbank-intro",
+      "type": "text",
+      "content": "### Begrepsbank\n\nDette er flashcard-stoff — hopp trygt over ved førstegangslesing; tidsanslaget på 50 minutter gjelder kjernestoffet over.\n\nMerk at det viktigste kortet i dette kapitlet ikke er teoremet, men **utledningen av det fra Euler** og **grensen mellom de to teoremene**. Under kode D er det utledningen som redder deg om formuleringen glipper."
+    },
+    {
+      "id": "ma1301-2-2-d-fermat-vs-euler-tabell",
+      "type": "definition",
+      "title": "Fermat eller Euler — beslutningstabellen",
+      "content": "| Modulus | Teorem | Reduser eksponenten modulo | Vilkår |\n|---|---|---|---|\n| primtall $p$ | Fermats lille teorem | $p-1$ | $p\\nmid a$ |\n| sammensatt $n$ | Eulers teorem | $\\phi(n)$ | $\\gcd(a,n)=1$ |\n| vilkåret svikter | splitt modulusen | hver del for seg | — |\n\n**Første spørsmål: er modulusen et primtall?** Er den det, sparer du faktoriseringen og $\\phi$-regningen.\n\n**Andre spørsmål: holder vilkåret?** Reduser grunntallet modulo $n$ og se om du får $0$ (eller, for sammensatt $n$, om grunntallet deler en primfaktor med modulusen).\n\n**Merk at Euler alltid virker der Fermat virker** — Fermat er spesialtilfellet. Er du usikker på om $n$ er et primtall, kan du bruke $\\phi(n)$: for et primtall gir det $p-1$ likevel. Det koster litt tid, men det gir aldri galt svar.\n\n**Motsatt vei er farlig:** $n-1$ som eksponentmodulus for et sammensatt $n$ gir galt svar."
+    },
+    {
+      "id": "ma1301-2-2-d-fermat-i-rsa-2",
+      "type": "definition",
+      "title": "Hvor Fermat brukes i RSA",
+      "content": "RSA-korrektheten $(m^e)^d\\equiv m\\pmod n$ hviler på Euler når $\\gcd(m,n)=1$. Men **når meldingen $m$ er delelig med $p$ eller $q$**, svikter Euler-argumentet — og da er det Fermat, i form 2, som redder beviset.\n\n**Skissen:** $n=pq$. Vis at $m^{ed}\\equiv m$ **modulo $p$** og **modulo $q$** hver for seg, og sett sammen med splittingsregelen (formelt: det kinesiske restteoremet, [kap. 2.4](/ma1301/ma1301-2-4)).\n\nModulo $p$ er det to tilfeller:\n\n- *$p\\nmid m$:* Fermat form 1 gir $m^{p-1}\\equiv 1$, og siden $(p-1)\\mid\\phi(n)$ følger $m^{ed}=m^{1+k\\phi(n)}\\equiv m$.\n- *$p\\mid m$:* begge sider er $\\equiv 0\\pmod p$, så påstanden holder trivielt — og det er nøyaktig det form 2 sier.\n\n**Derfor gjelder RSA for ALLE meldinger**, ikke bare de som er relativt primiske til $n$. Det er et poeng en oppgave kan spørre om (sjanger D), og det er et sted der form 2 er uunnværlig. Hele argumentet føres ut i kap. 3.1."
+    },
+    {
+      "id": "ma1301-2-2-d-orden-deler-p-1",
+      "type": "definition",
+      "title": "Ordenen deler p − 1",
+      "content": "Fermats teorem sier at $a^{p-1}\\equiv 1$. Den minste positive $k$ med $a^k\\equiv 1\\pmod p$ kalles **ordenen** til $a$ modulo $p$, og hovedresultatet i Del 5 er at\n$$\\operatorname{ord}_p(a)\\mid p-1.$$\n\n**Hva det betyr for regningen din nå:** ordenen kan være mindre enn $p-1$, og oppdager du det, blir regningen kortere. I eksempel 3 så vi $5^2\\equiv -1\\pmod{13}$, altså $5^4\\equiv 1$ — ordenen er $4$, ikke $12$.\n\n**Men reduksjonen modulo $p-1$ er riktig uansett.** Du taper ingenting ved å bruke $p-1$; du sparer bare tid hvis du ser en mindre eksponent.\n\n**Praktisk vane:** regn $a^2$ og se om den er $\\pm 1$ modulo $p$. Er den $-1$, er ordenen $4$; er den $1$, er ordenen $2$. Det tar fem sekunder og gjør av og til hele oppgaven triviell.\n\n*Det er også dette som gjør at $a^{(p-1)/2}$ er interessant: den er $\\pm 1$, og fortegnet avgjør om $a$ er et kvadrat modulo $p$. Det er Eulers kriterium i Del 4.*"
+    },
+    {
+      "id": "ma1301-2-2-d-sum-potenser",
+      "type": "definition",
+      "title": "Summen av potenser modulo p",
+      "content": "Et resultat som brukes i bevis, og som følger av Fermat.\n\nFor et primtall $p$ og $1\\le k\\le p-2$ er\n$$1^{k}+2^{k}+\\dots+(p-1)^{k}\\equiv 0\\pmod p.$$\nFor $k=p-1$ derimot gir **Fermats lille teorem** at hvert ledd er $\\equiv 1$, så summen er $\\equiv p-1\\equiv -1\\pmod p$.\n\n**Det siste utledes på stedet:** hvert av tallene $1,\\dots,p-1$ er ikke delelig med $p$, så $a^{p-1}\\equiv 1$ for hvert av dem, og summen av $p-1$ ettere er $p-1\\equiv -1$.\n\n*Kontroll for $p=5$, $k=4$:* $1+16+81+256=354=5\\cdot 70+4$, og $4\\equiv -1\\pmod 5$ ✓.\n\n*Kontroll for $p=5$, $k=2$:* $1+4+9+16=30=5\\cdot 6\\equiv 0$ ✓.\n\n**Hvorfor det er verdt en plass i bunken:** oppgaver av typen «finn resten når $1^{12}+2^{12}+\\dots+12^{12}$ deles på $13$» løses på én linje med $k=p-1$-tilfellet. Svaret er $-1\\equiv 12$."
+    },
+    {
+      "id": "ma1301-2-2-d-fermat-navn",
+      "type": "definition",
+      "title": "Fermats lille — ikke Fermats siste",
+      "content": "To helt ulike ting med nesten samme navn:\n\n**Fermats lille teorem** (dette kapitlet): $a^{p-1}\\equiv 1\\pmod p$ når $p\\nmid a$. Elementær, bevist over, og pensum.\n\n**Fermats siste teorem:** likningen $x^n+y^n=z^n$ har ingen løsning i positive hele tall for $n\\ge 3$. Formulert på 1600-tallet, bevist i 1995 av Andrew Wiles med metoder langt utenfor dette emnet. **Ikke pensum**, og ikke noe du kan bruke.\n\n**Hvorfor skillet betyr noe i praksis:** skriver du «etter Fermats teorem» uten «lille», kan det leses som det gale. Fasitspråket i faget er **«Fermats lille teorem»**, fullt ut, og det er den formen du bør bruke.\n\n*Merk at $n=2$ i den siste er de pytagoreiske triplene, som har uendelig mange løsninger og er tema i Del 7. Det er nettopp derfor kravet er $n\\ge 3$.*"
+    },
+    {
+      "id": "ma1301-2-2-d-kontroll-fermat",
+      "type": "definition",
+      "title": "Kontrollrutinen ved primtallsmodulus",
+      "content": "Fire kontroller, til sammen under ett minutt. Under kode D er dette hele kvalitetssikringen din.\n\n| Etter | Kontroll | Fanger |\n|---|---|---|\n| valg av teorem | er modulusen virkelig et primtall? | Fermat brukt på $91$, $119$, $133$ |\n| reduksjon av grunntallet | ble det $0$? | form 1 brukt når $p\\mid a$ |\n| eksponentreduksjonen | delte du på $p-1$? | den vanligste regnefeilen |\n| sluttsvaret | ligger det mellom $0$ og $p-1$? | manglende siste reduksjon |\n\n**Og en femte som er gratis:** se om en liten potens av $a$ gir $1$ eller $-1$ modulo $p$. Gjør den det, har du både en snarvei og en kontroll på at kvadrattabellen din er riktig.\n\n**Merk at du ikke kan kontrollere ved å regne $a^N$ rått.** Tallet har hundrevis av siffer. Kontrollene må ligge underveis."
+    },
+    {
+      "id": "ma1301-2-2-d-kode-d-tall-fermat",
+      "type": "definition",
+      "title": "Kode D-realisme: hva tallene ser ut som",
+      "content": "| Størrelse | Typisk verdi på eksamen |\n|---|---|\n| primtallsmodulusen $p$ | to- til tresifret, oftest $7$–$101$ |\n| $p-1$ | to- til tresifret, ofte med små primfaktorer |\n| eksponenten $N$ | to- til firesifret, ofte et årstall |\n| eksponenten etter reduksjon | **under $p-1$**, altså 2–5 kvadrater |\n\n**Bruk det som kontroll.** Er eksponenten etter reduksjon større enn $p-1$, har du regnet feil. Er den tresifret mens $p$ er tosifret, har du delt på feil tall.\n\n**Og bruk det når du lager egne øvingsoppgaver:** velg et tosifret primtall, et grunntall under $p$, og en eksponent som gir en rest mellom $3$ og $20$ ved divisjon med $p-1$. Da vet du at oppgaven er regnbar for hånd på under fem minutter.\n\n**Et varsel:** blir kvadrattabellen din lengre enn fem rader, har du sannsynligvis glemt eksponentreduksjonen."
+    },
+    {
+      "id": "ma1301-2-2-d-fermat-oppgavetyper",
+      "type": "definition",
+      "title": "De fire måtene Fermat spørres om på eksamen",
+      "content": "1. **Ren restberegning:** «Finn resten når $a^N$ deles på $p$.» Malen i sju steg, med $p-1$ i steg (iv). Det vanligste.\n2. **Delelighetsbevis:** «Vis at $p\\mid(a^p-a)$ for alle $a$» eller «Vis at $n^{13}-n$ er delelig med $2730$». Form 2, ett primtall om gangen, satt sammen med primiskhet.\n3. **Invers:** «Finn inversen til $a$ modulo $p$.» Kan gjøres med $a^{p-2}$, men Euklids algoritme er raskere — **begge er fullgode**.\n4. **Teoretisk:** «Formuler Fermats lille teorem og vis hvordan det følger av Eulers teorem.» Da er det utledningen som er svaret, og den er to linjer.\n\n**Merk hvordan type 2 settes sammen.** «Vis at $2730\\mid(n^{13}-n)$»: $2730=2\\cdot 3\\cdot 5\\cdot 7\\cdot 13$, og for hvert av de fem primtallene $p$ gjelder $p-1\\mid 12$, så $n^{13}\\equiv n\\pmod p$ **fra Fermats lille teorem**. Siden primtallene er parvis relativt primiske, deler produktet. Det er en typisk sjanger I-oppgave, og mekanikken er nøyaktig oppgave 2 b) i dette kapitlet."
+    },
+    {
+      "id": "ma1301-2-2-d-skriveraden-fermat",
+      "type": "definition",
+      "title": "Skriveraden: hva som SKAL stå i besvarelsen",
+      "content": "En fullgod besvarelse av «finn resten når $a^N$ deles på $p$» inneholder **alle** disse setningene:\n\n1. at $p$ er et primtall;\n2. at $p\\nmid a$ (eller reduksjonen som viser det);\n3. **teoremnavnet**: «fra Fermats lille teorem»;\n4. hva $p-1$ er, og divisjonen $N=(p-1)q+r$;\n5. den reduserte potensen $a^r$;\n6. kvadrattabellen med binærutviklingen;\n7. en konklusjonssetning med sluttsvaret.\n\n**Punkt 2 og 3 er de som oftest mangler**, og de er de to som avgjør om metoden er begrunnet.\n\n**Selvtesten:** kan noen som leser besvarelsen din, se *hvorfor* du fikk redusere eksponenten? Da er føringen god nok.\n\n**Det som ikke holder:** «$5^{123}\\equiv 4\\pmod{11}$» alene. Riktig svar, ingen metode — og instruksen på hvert sett er at alle svar må begrunnes."
+    },
+    {
+      "id": "ma1301-2-2-d-tidsbudsjett-fermat",
+      "type": "definition",
+      "title": "Tidsbudsjettet for en Fermat-oppgave",
+      "content": "Eksamen er 4 timer på omtrent 10 likt vektede delpunkt — **~24 minutter per delpunkt**.\n\n| Steg | Innhold | Tid |\n|---|---|---|\n| (i)–(ii) | primtallssjekk, reduser grunntallet | ~1 min |\n| (iii)–(iv) | $p-1$, og eksponenten delt på $p-1$ | ~2 min |\n| (v)–(vi) | kvadrattabell og produkt | ~4 min |\n| (vii) | konklusjon og kontroll | ~1 min |\n\n**Til sammen ~8 minutter** — en tredel av budsjettet for ett delpunkt. Fermat-oppgaver er de billigste poengene i settet når prosedyren sitter.\n\n**Bruk tiden du sparer** på bevisoppgaven eller på resiprositetsoppgaven, som er der karakterskillene ligger.\n\n**Er du over 15 minutter,** ligger det nesten alltid i at du regner potenser uten å redusere underveis."
+    },
+    {
+      "id": "ma1301-2-2-d-fermat-samleoversikt",
+      "type": "definition",
+      "title": "Fermats lille teorem i én oversikt",
+      "content": "| Det du har | Det du bruker | Det du får |\n|---|---|---|\n| $p$ primtall, $p\\nmid a$ | form 1 | $a^{p-1}\\equiv 1\\pmod p$ |\n| $p$ primtall, vilkårlig $a$ | form 2 | $a^{p}\\equiv a\\pmod p$ |\n| stor eksponent $N$ | form 1 | reduser $N$ modulo $p-1$ |\n| behov for invers | form 1 | $a^{-1}\\equiv a^{p-2}$ |\n| $p\\mid a$ | direkte | $a^{k}\\equiv 0$ for $k\\ge 1$ |\n| krav om induksjonsbevis | $p\\mid\\binom pk$ | $(a+1)^p\\equiv a^p+1$ |\n\n**Og det ene du IKKE kan:** bruke teoremet baklengs som primtallstest. $2^{340}\\equiv 1\\pmod{341}$, men $341=11\\cdot 31$.\n\n**Neste kapittel** ([kap. 2.3](/ma1301/ma1301-2-3)) tar det tredje av de fire store teoremene, Wilsons teorem, som handler om fakultet modulo et primtall — og som bruker nøyaktig det samme grepet med negative rester som du har møtt her."
+    },
+    {
+      "id": "ma1301-2-2-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "ma1301-2-2-rep-inn",
+          "type": "text",
+          "content": "Fem korte oppgaver fra [kap. 2.1](/ma1301/ma1301-2-1) og [kap. 1.4](/ma1301/ma1301-1-4). Fasit under hver.\n\n**R1.** Regn ut $\\phi(11)$, $\\phi(13)$ og $\\phi(17)$.\n\n*Fasit:* alle tre er primtall, så $\\phi(p)=p-1$ gir $10$, $12$ og $16$.\n\n**R2.** Er $91$ et primtall?\n\n*Fasit:* Nei. $91=7\\cdot 13$. Merk at $\\sqrt{91}\\approx 9{,}5$, så det er nok å prøve $2,3,5,7$ — og $7$ går opp. Dette er en vanlig felle: for modulus $91$ skal $\\phi(91)=6\\cdot 12=72$ brukes, ikke $90$.\n\n**R3.** Hva sier Eulers teorem om $2^{8}$ modulo $15$?\n\n*Fasit:* $15=3\\cdot 5$, så $\\phi(15)=2\\cdot 4=8$, og $\\gcd(2,15)=1$. Altså $2^8\\equiv 1\\pmod{15}$. Kontroll: $2^8=256=15\\cdot 17+1$ ✓.\n\n**R4.** Reduser $1729$ modulo $7$.\n\n*Fasit:* $1729=7\\cdot 247$, så $1729\\equiv 0\\pmod 7$. (Legg merke til konsekvensen: $1729^{k}\\equiv 0\\pmod 7$ for alle $k\\ge 1$, og Fermats form 1 kan ikke brukes.)\n\n**R5.** Hva er $\\binom52$, $\\binom53$ og $\\binom{7}{3}$?\n\n*Fasit:* $\\binom52=10$, $\\binom53=10$, $\\binom73=35$. Merk at $5\\mid 10$ og $7\\mid 35$ — som kortet «p deler binomialkoeffisienten» sier."
+        }
+      ]
+    },
+    {
+      "id": "ma1301-2-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "ma1301-2-2-symbol-inn",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $p$ | et primtall (bokas faste bokstav for det) |\n| $p\\nmid a$ | «$p$ deler ikke $a$» — vilkåret i form 1 |\n| $a^{p-1}$ | potensen i form 1 av Fermats lille teorem |\n| $\\phi(p)=p-1$ | Eulers $\\phi$ på et primtall |\n| $\\binom{p}{k}$ | binomialkoeffisient: antall $k$-utvalg av $p$ |\n| $a^{-1}$ | den modulære inversen til $a$ |\n| $\\operatorname{ord}_p(a)$ | ordenen: minste $k>0$ med $a^k\\equiv 1\\pmod p$ (Del 5) |\n| $\\sum_{k=0}^{p}$ | sum over $k$ fra $0$ til $p$ |\n| $\\blacksquare$ | bevis slutt |\n\n**Formler i dette delkapitlet:**\n\n$$a^{p-1}\\equiv 1\\pmod p\\qquad\\text{når }p\\nmid a$$\n**Fermats lille teorem, form 1.** **(må sitte utenat — men utledes også på stedet fra Euler, se under)**\n\n$$a^{p}\\equiv a\\pmod p\\qquad\\text{for alle }a$$\n**Fermats lille teorem, form 2** — den vilkårsfrie, som brukes i bevis. **(må sitte utenat)**\n\n$$\\phi(p)=p-1\\ \\Longrightarrow\\ a^{p-1}\\equiv 1\\pmod p$$\nFermat ut av Euler. **(utledes på stedet — én linje: sett $n=p$ i Eulers teorem, siden $\\phi(p)=p-1$ og $p\\nmid a$ betyr $\\gcd(a,p)=1$)**\n\n$$a\\cdot a^{p-1}\\equiv a\\ \\Longrightarrow\\ a^p\\equiv a$$\nForm 2 ut av form 1, pluss tilfellet $p\\mid a$ der begge sider er $\\equiv 0$. **(utledes på stedet — to linjer, og case-analysen må være uttømmende)**\n\n$$N=(p-1)q+r\\ \\Longrightarrow\\ a^{N}\\equiv a^{r}\\pmod p$$\nEksponentreduksjon ved primtallsmodulus — modulo $p-1$, ikke modulo $p$. **(må sitte utenat)**\n\n$$a^{-1}\\equiv a^{p-2}\\pmod p$$\nInvers ved primtallsmodulus. **(utledes på stedet — én linje: $a\\cdot a^{p-2}=a^{p-1}\\equiv 1$)**\n\n$$a^{k}\\equiv 0\\pmod p\\qquad\\text{når }p\\mid a,\\ k\\ge 1$$\nTilfellet der form 1 ikke gjelder. **(utledes på stedet — én linje: $a=ps$ gir $a^k=p^ks^k$)**\n\n$$p\\ \\Big|\\ \\binom{p}{k}\\qquad\\text{for }0<k<p$$\nDelelighetsresultatet bak induksjonsbeviset. **(utledes på stedet — tre linjer fra $k!(p-k)!\\binom pk=p!$ og Euklids lemma)**\n\n$$(a+b)^{p}\\equiv a^{p}+b^{p}\\pmod p$$\nFølger av forrige linje. **(utledes på stedet — binomialformelen, der mellomleddene faller bort modulo $p$)**\n\n$$1^{p-1}+2^{p-1}+\\dots+(p-1)^{p-1}\\equiv -1\\pmod p$$\nSummen av $(p-1)$-te potenser. **(utledes på stedet — hvert ledd er $\\equiv 1$ etter form 1, og det er $p-1$ ledd)**\n\n**Beslutningsregelen** — primtallsmodulus $\\Rightarrow$ Fermat og $p-1$; sammensatt modulus $\\Rightarrow$ Euler og $\\phi(n)$; vilkåret svikter $\\Rightarrow$ splitt modulusen. **(må sitte utenat — det er valget som avgjør om resten av regningen er lovlig)**"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

@@ -1,0 +1,390 @@
+{
+  "id": "ma1301-5-3",
+  "courseId": "ma1301",
+  "chapterNumber": "5.3",
+  "title": "Tallteoretiske funksjoner: τ, σ og multiplikativitet",
+  "description": "Antall divisorer τ(n)=∏(kᵢ+1) og divisorsummen σ(n) via primtallsfaktorisering og multiplikativitet, pluss optimeringsoppgaven «finn minste n med gitt τ(n)» — fordel eksponentene på de minste primtallene.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "regne ut antall divisorer og divisorsummen fra primtallsfaktoriseringen",
+    "utlede divisorsummen for en primtallspotens fra den geometriske summen",
+    "bruke multiplikativitet riktig, med vilkåret om at faktorene er relativt primiske",
+    "finne det minste tallet med et gitt antall divisorer ved å fordele eksponentene på de minste primtallene"
+  ],
+  "content": [
+    {
+      "id": "ma1301-5-3-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Tallteoretiske funksjoner er sjanger H, som forekommer i 7 av 15 sett — 47 %.** Sjangerbokstavene er bokas forkortelser for oppgavetypene, forklart i [kap. 0.1](/ma1301/ma1301-0-1); **H** dekker $\\tau$, $\\sigma$, $\\phi$ og multiplikativitet.\n\nDette er den **billigste** sjangeren i hele faget. Apparatet er to formler, og oppgavene er ren regning på en faktorisering du finner i hodet. En trent student tar delpunktet på fem minutter.\n\n| Hva oppgaven spør om | Verktøy |\n|---|---|\n| «Hvor mange divisorer har $n$?» | $\\tau(n)=\\prod(k_i+1)$ |\n| «Finn divisorsummen $\\sigma(n)$» | $\\sigma(n)=\\prod\\frac{p_i^{k_i+1}-1}{p_i-1}$ |\n| «Finn det minste $n$ med $\\tau(n)=$ gitt verdi» | eksponentfordeling (løkke 4) |\n| «Vis at $\\tau(n)$ er odde hvis og bare hvis $n$ er et kvadrattall» | bevisoppgave, tre linjer |\n\n**Optimeringsvarianten** — «finn minste $n$ med nøyaktig $16$ divisorer» — er den mest karakteristiske. Den ser ut som en søkeoppgave, men den er ren faktorisering av **måltallet**, og oppskriften er kort.\n\n**Prioritet:** kunne. Sjangeren er lavere frekvent enn de fem søylene, men forholdet mellom innsats og uttelling er svært godt: to formler dekker hele temaet.\n\n**Merk sammenhengen med resten av Del 5:** $\\phi$ ([kap. 2.1](/ma1301/ma1301-2-1)) er også en multiplikativ funksjon, og du bruker den samme faktoriseringsteknikken. Har du $\\phi$ i fingrene, er $\\tau$ og $\\sigma$ nesten gratis."
+    },
+    {
+      "id": "ma1301-5-3-utenat",
+      "type": "tip",
+      "title": "Utenat under kode D",
+      "content": "Eksamen er hjelpemiddelkode D: ingen bok, ingen formelsamling, ingen tabeller, ingen egne notater — bare en enkel kalkulator. Den kan gange og dele, men den kan ikke faktorisere $n$ for deg, og den kjenner ingen $\\tau$- eller $\\sigma$-formler.\n\n**Må sitte utenat:**\n\n- **$\\tau(n)=\\prod(k_i+1)$** for $n=\\prod p_i^{k_i}$ — antall divisorer\n- at **$\\tau$, $\\sigma$ og $\\phi$ er multiplikative**: $f(mn)=f(m)f(n)$ **når $\\gcd(m,n)=1$**\n- **minste-$n$-oppskriften**: faktoriser måltallet, trekk $1$ fra hver faktor, og gi de **største** eksponentene til de **minste** primtallene\n- at **$\\tau(n)$ er odde $\\iff$ $n$ er et kvadrattall**\n\n**Utledes på stedet:**\n\n- **$\\sigma$-formelen** ut av den geometriske summen:\n  $$\\sigma(p^k)=1+p+p^2+\\dots+p^k=\\frac{p^{k+1}-1}{p-1}.$$\n  To linjer, og utledningen står i løkke 2. **Dette er den ene formelen i kapitlet du ikke behøver pugge** — den geometriske summen kjenner du fra videregående.\n- **$\\tau(n)$ odde $\\iff$ kvadrattall** — tre linjer: alle $k_i+1$ må være odde, altså alle $k_i$ partall.\n- **$\\sigma(n)/n=\\sum_{d\\mid n}1/d$** — én linje: $d\\mapsto n/d$ er en bijeksjon på divisorene.\n- **$\\sigma(n)=n+1\\iff n$ er primtall** — to linjer.\n\n**Selvtest, to minutter:** dekk til boka, faktoriser $360$, og skriv ned $\\tau(360)$ og $\\sigma(360)$ med utregning. Får du $24$ og $1\\,170$, sitter kapitlets kjerne. Nøler du på om det er $k_i+1$ eller $k_i$ i $\\tau$-formelen, er det den ene tingen å drille — $\\tau(n)=\\prod k_i$ er en dokumentert felle."
+    },
+    {
+      "id": "ma1301-5-3-forkunnskaper",
+      "type": "text",
+      "content": "### Forkunnskaper\n\nFra boka: [kap. 1.1](/ma1301/ma1301-1-1) (primtallsfaktorisering, divisorer, aritmetikkens fundamentalteorem) er grunnlaget, og [kap. 2.1](/ma1301/ma1301-2-1) (multiplikativitet for $\\phi$) gir mønsteret vi gjenbruker.\n\n**Sist du var her.** De to resultatene du bruker i hver oppgave:\n\n**Aritmetikkens fundamentalteorem.** Hvert tall $n>1$ har en **entydig** primtallsfaktorisering\n$$n=p_1^{k_1}p_2^{k_2}\\cdots p_m^{k_m}.$$\nAlt i dette kapitlet leses av fra den.\n\n**Multiplikativitet.** En funksjon $f$ er multiplikativ når\n$$f(mn)=f(m)f(n)\\qquad\\text{for }\\gcd(m,n)=1.$$\nDu kjenner det fra $\\phi$: $\\phi(20)=\\phi(4)\\phi(5)=2\\cdot 4=8$.\n\nFra videregående er den **geometriske summen** nyttig: $1+p+\\dots+p^k=\\frac{p^{k+1}-1}{p-1}$. Den utleder vi likevel på stedet i løkke 2."
+    },
+    {
+      "id": "ma1301-5-3-motivasjon",
+      "type": "text",
+      "content": "### Hvor mange rektangler?\n\nDu har $36$ like fliser og skal legge dem i et rektangel. Hvor mange former kan du velge?\n$$1\\times 36,\\quad 2\\times 18,\\quad 3\\times 12,\\quad 4\\times 9,\\quad 6\\times 6,\\quad 9\\times 4,\\quad\\dots$$\nAntall muligheter er antall **divisorer** i $36$ — og det er $9$: tallene $1,2,3,4,6,9,12,18,36$.\n\nLegg merke til at $9$ er et **oddetall**, mens divisorene til de fleste tall kommer i par. Grunnen er at $36=6^2$ er et kvadrattall, så divisoren $6$ er sin egen partner. Det er et lite mønster med en helt presis forklaring, og vi beviser det i løkke 5.\n\n**Dette kapitlet handler om to funksjoner av faktoriseringen:**\n\n$$\\tau(n)=\\text{antall divisorer},\\qquad \\sigma(n)=\\text{summen av divisorene}.$$\n\nFor $n=36$ er $\\tau(36)=9$ og $\\sigma(36)=1+2+3+4+6+9+12+18+36=91$.\n\n**Det bemerkelsesverdige er at ingen av dem krever at du lister divisorene.** Begge leses av rett fra primtallsfaktoriseringen med en formel — og for $\\tau$ er formelen så enkel at du kan regne $\\tau$ av et sekssifret tall i hodet, forutsatt at du kan faktorisere det.\n\n**Hvorfor det virker:** en divisor av $n=p^{k_1}q^{k_2}$ er ikke noe annet enn et **valg** av hvor mange $p$-er og hvor mange $q$-er du tar med. Antall valg er $(k_1+1)(k_2+1)$, og der er $\\tau$-formelen. Samme observasjon, ganget ut i stedet for telt, gir $\\sigma$.\n\n**Den tredje oppgavetypen** går baklengs: «finn det **minste** tallet med nøyaktig $18$ divisorer». Da faktoriserer du måltallet i stedet, og fordeler eksponentene smart. Det er løkke 4.\n\n*Tidsanslag for kapitlet: ~55 minutter lesetid, fordelt på fem løkker à 9–13 minutter. Regner du med penn underveis, legg til omtrent halvparten.*"
+    },
+    {
+      "id": "ma1301-5-3-l1-intro",
+      "type": "text",
+      "content": "## Løkke 1: Antall divisorer\n\n*~11 minutter.*\n\nVi begynner med $\\tau$, som er den enkleste av de to — og den som oftest står i oppgaveteksten."
+    },
+    {
+      "id": "ma1301-5-3-d-tau",
+      "type": "definition",
+      "title": "Antall divisorer τ(n)",
+      "content": "$\\tau(n)$ er **antallet positive divisorer** i $n$. For $n=\\prod_{i} p_i^{k_i}$ er\n\n$$\\tau(n)=\\prod_i(k_i+1)=(k_1+1)(k_2+1)\\cdots(k_m+1).$$\n\n**Utledningen, som er så kort at du bør kunne si den:** en divisor av $n$ er nøyaktig et tall på formen $\\prod p_i^{e_i}$ med $0\\le e_i\\le k_i$ for hver $i$ (dette er aritmetikkens fundamentalteorem, [kap. 1.1](/ma1301/ma1301-1-1)). For hver eksponent $e_i$ har du $k_i+1$ valg — nemlig $0,1,\\dots,k_i$ — og valgene er uavhengige. Antall kombinasjoner er produktet. $\\blacksquare$\n\n**Formelen må sitte utenat**, og **det er $k_i+1$, ikke $k_i$**. Å skrive $\\tau(n)=\\prod k_i$ er en dokumentert felle, og den gir feil svar i praktisk talt alle tilfeller — for $n=12=2^2\\cdot 3$ ville den gitt $2\\cdot 1=2$ i stedet for $3\\cdot 2=6$.\n\n**Grunnen til «$+1$»** er at eksponenten $0$ også er et lovlig valg: divisoren $1$ tar ingen primfaktorer i det hele tatt.\n\n**Eksempel:** $n=36=2^2\\cdot 3^2$ gir $\\tau(36)=(2+1)(2+1)=9$ — de ni divisorene $1,2,3,4,6,9,12,18,36$.\n\n**Notasjonen:** noen bøker skriver $d(n)$ eller $\\nu(n)$ for det samme. Boka bruker $\\tau(n)$, som er formen løsningsforslagene i arkivet bruker."
+    },
+    {
+      "id": "ma1301-5-3-d-divisorstruktur",
+      "type": "definition",
+      "title": "Hvordan divisorene ser ut",
+      "content": "En divisor av $n=p_1^{k_1}\\cdots p_m^{k_m}$ er nøyaktig et tall\n\n$$d=p_1^{e_1}\\cdots p_m^{e_m},\\qquad 0\\le e_i\\le k_i.$$\n\n**Dette er den ene observasjonen hele kapitlet hviler på.** Den følger av aritmetikkens fundamentalteorem: deler $d$ tallet $n$, kan $d$ ikke inneholde primfaktorer som ikke er i $n$, og ikke flere av hver enn $n$ har.\n\n**Praktisk verdi 1 — å liste divisorene systematisk.** For $n=36=2^2\\cdot 3^2$ setter du opp en tabell over valgene:\n\n| | $3^0$ | $3^1$ | $3^2$ |\n|---|---|---|---|\n| $2^0$ | $1$ | $3$ | $9$ |\n| $2^1$ | $2$ | $6$ | $18$ |\n| $2^2$ | $4$ | $12$ | $36$ |\n\nNi ruter, ni divisorer — og tabellen er både tellingen og listen.\n\n**Praktisk verdi 2 — divisorene kommer i par.** Er $d$ en divisor, er $n/d$ også en, og de to «møtes» ved $\\sqrt n$. Det gir en gratis kontroll når du lister divisorer: du finner dem i par $(d,n/d)$, og du trenger bare lete opp til $\\sqrt n$.\n\n**Praktisk verdi 3 — kvadrattall er unntaket.** Er $n$ et kvadrattall, er $\\sqrt n$ sin egen partner, og da er antallet **odde**. Det er beviset i løkke 5, i én linje."
+    },
+    {
+      "id": "ma1301-5-3-e1",
+      "type": "example",
+      "title": "τ(360) og hele divisorstrukturen",
+      "problem": "Finn $\\tau(360)$, og forklar hva tallet betyr.",
+      "solution": "**Steg 1: faktoriser.** Vi deler ut småprimtall:\n$$360=36\\cdot 10=(2^2\\cdot 3^2)(2\\cdot 5)=2^3\\cdot 3^2\\cdot 5.$$\n\n**Kontroll av faktoriseringen:** $2^3\\cdot 3^2\\cdot 5=8\\cdot 9\\cdot 5=360$ ✓.\n\n**Steg 2: bruk formelen.** Eksponentene er $k_1=3$, $k_2=2$, $k_3=1$, så\n$$\\tau(360)=(3+1)(2+1)(1+1)=4\\cdot 3\\cdot 2=24.$$\n\n**Steg 3: konkludér i ord.** Tallet $360$ har **$24$ positive divisorer**.\n\n**Hva tallet betyr, konkret:** en divisor velges ved å bestemme hvor mange $2$-ere (fire valg: $0,1,2,3$), hvor mange $3$-ere (tre valg) og hvor mange $5$-ere (to valg) du tar med. Til sammen $4\\cdot 3\\cdot 2=24$ kombinasjoner.\n\n**Kontroll ved å liste noen av dem:** $1,2,3,4,5,6,8,9,10,12,15,18,20,24,30,36,40,45,60,72,90,120,180,360$ — det er $24$ tall ✓. (Legg merke til at de kommer i par som ganger til $360$: $1\\cdot 360$, $2\\cdot 180$, $3\\cdot 120$, og så videre — tolv par.)\n\n**Sluttsvar:** $\\tau(360)=24$.\n\n*Om føringen: faktoriseringen **skal** stå i besvarelsen. Instruksen på hvert eksamenssett er at alle svar skal begrunnes, og i denne sjangeren er faktoriseringen hele begrunnelsen — formelen er ubrukelig uten den. «$\\tau(360)=24$» alene er et sluttall uten metode.*\n\n*Merk også at $360$ er et usedvanlig divisorrikt tall for sin størrelse: $24$ divisorer. Det er ingen tilfeldighet at det er antall grader i en sirkel og antall dager i mange gamle kalendere — tall med mange divisorer er praktiske å dele opp.*"
+    },
+    {
+      "id": "ma1301-5-3-ex-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-5-3-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Finn $\\tau(540)$ og $\\tau(1024)$. Skriv faktoriseringen i begge tilfeller.",
+        "solution": "**Første: $\\tau(540)$.**\n\n**Faktoriser:** $540=54\\cdot 10=(2\\cdot 3^3)(2\\cdot 5)=2^2\\cdot 3^3\\cdot 5$.\n\n**Kontroll:** $4\\cdot 27\\cdot 5=540$ ✓.\n\n**Formelen:**\n$$\\tau(540)=(2+1)(3+1)(1+1)=3\\cdot 4\\cdot 2=24.$$\n\n**Andre: $\\tau(1024)$.**\n\n**Faktoriser:** $1024=2^{10}$.\n\n**Formelen:**\n$$\\tau(1024)=(10+1)=11.$$\n\nDe elleve divisorene er $1,2,4,8,16,32,64,128,256,512,1024$ ✓.\n\n**Sluttsvar:** $\\tau(540)=24$ og $\\tau(1024)=11$.\n\n*Legg merke til to ting. **(1)** $540$ og $360$ har like mange divisorer ($24$) med ulik faktorisering — $\\tau$ ser bare eksponentene, ikke primtallene. **(2)** $\\tau(1024)=11$ er et **oddetall**, og $1024=32^2$ er et kvadrattall. Det mønsteret beviser vi i løkke 5.*",
+        "hints": [
+          "Faktoriser først: $540=2^2\\cdot 3^3\\cdot 5$.",
+          "Formelen er $\\prod(k_i+1)$ — legg til $1$ på hver eksponent."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-5-3-l2-intro",
+      "type": "text",
+      "content": "## Løkke 2: Divisorsummen\n\n*~13 minutter.*\n\nNå $\\sigma$. Formelen ser tyngre ut enn $\\tau$-formelen, men den **utledes på stedet** i to linjer med den geometriske summen — så du behøver ikke pugge den.\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "ma1301-5-3-t-sigma",
+      "type": "theorem",
+      "title": "Divisorsummen σ(n)",
+      "content": "$\\sigma(n)$ er **summen av alle positive divisorer** i $n$. For $n=\\prod_i p_i^{k_i}$ er\n\n$$\\sigma(n)=\\prod_i\\frac{p_i^{k_i+1}-1}{p_i-1}.$$\n\n**Bevis, i to steg.**\n\n*Steg 1 — primtallspotenser.* Divisorene i $p^k$ er nøyaktig $1,p,p^2,\\dots,p^k$, så\n$$\\sigma(p^k)=1+p+p^2+\\dots+p^k.$$\nDette er en **geometrisk sum** med kvotient $p$ og $k+1$ ledd. **Utledningen av summeformelen, for ordens skyld:** kall summen $S$. Da er\n$$pS=p+p^2+\\dots+p^{k+1},$$\nog trekker vi $S$ fra $pS$, faller alle mellomledd bort:\n$$pS-S=p^{k+1}-1\\ \\Longrightarrow\\ S(p-1)=p^{k+1}-1\\ \\Longrightarrow\\ S=\\frac{p^{k+1}-1}{p-1}.$$\n\n*Steg 2 — generelt $n$.* Hver divisor av $n$ er et produkt $\\prod p_i^{e_i}$ med $0\\le e_i\\le k_i$, og hvert slikt produkt forekommer nøyaktig én gang. Ganger vi ut\n$$\\left(1+p_1+\\dots+p_1^{k_1}\\right)\\cdots\\left(1+p_m+\\dots+p_m^{k_m}\\right),$$\nfår vi derfor **summen av alle divisorene**, hver én gang. Altså er $\\sigma(n)=\\prod_i\\sigma(p_i^{k_i})$, og steg 1 gir formelen. $\\blacksquare$\n\n**Formelen utledes på stedet** — to linjer, under et minutt. Det du **må** kunne, er at $\\sigma(p^k)$ er den geometriske summen $1+p+\\dots+p^k$; resten er videregåendealgebra.\n\n**Praktisk regnetips:** for små eksponenter er det ofte raskest å **summere direkte** i stedet for å bruke brøken. $\\sigma(2^3)=1+2+4+8=15$ går fortere enn $\\frac{2^4-1}{2-1}=15$, og det er mindre å regne feil på. Bruk brøken når eksponenten er stor.\n\n**Intuisjonen bak steg 2** er verdt å ha: å gange ut de $m$ parentesene er nøyaktig å velge ett ledd fra hver — altså å velge en divisor. «Gang ut parentesene» og «list divisorene» er samme operasjon."
+    },
+    {
+      "id": "ma1301-5-3-d-sigma-praksis",
+      "type": "definition",
+      "title": "σ i praksis — tre regnegrep",
+      "content": "**Grep 1: regn faktor for faktor.** Skriv $\\sigma(n)$ som et produkt av $\\sigma(p^k)$-er, én per primtall, og regn hver for seg:\n$$\\sigma(360)=\\sigma(2^3)\\cdot\\sigma(3^2)\\cdot\\sigma(5)=15\\cdot 13\\cdot 6.$$\n\n**Grep 2: summer direkte for små eksponenter.** $\\sigma(2^3)=1+2+4+8=15$; $\\sigma(3^2)=1+3+9=13$; $\\sigma(5)=1+5=6$. Ingen brøker, ingen sjanse for divisjonsfeil.\n\n**Grep 3: sett sammen til slutt, med mellomregning.** $15\\cdot 13=195$, og $195\\cdot 6=1\\,170$. Ett steg per linje, slik at en regnefeil er lett å finne.\n\n**De verdiene som dukker opp oftest, og som du kan lære å kjenne igjen:**\n\n| $p^k$ | $\\sigma(p^k)$ |\n|---|---|\n| $2$, $4$, $8$, $16$, $32$ | $3$, $7$, $15$, $31$, $63$ |\n| $3$, $9$, $27$ | $4$, $13$, $40$ |\n| $5$, $25$, $125$ | $6$, $31$, $156$ |\n| $7$, $49$ | $8$, $57$ |\n\nLegg merke til at $\\sigma(2^k)=2^{k+1}-1$ — Mersenne-tallene. Det er derfor toerpotenser er sentrale i teorien om perfekte tall (løkke 5).\n\n**Kontrollen:** $\\sigma(n)>n$ alltid (for $n>1$), siden både $1$ og $n$ er divisorer. Og $\\sigma(n)=n+1$ nøyaktig når $n$ er et primtall — da er det ingen andre divisorer."
+    },
+    {
+      "id": "ma1301-5-3-e2",
+      "type": "example",
+      "title": "σ(360) og σ(1000)",
+      "problem": "Regn ut $\\sigma(360)$ og $\\sigma(1000)$.",
+      "solution": "**Første: $\\sigma(360)$.**\n\n**Faktoriseringen** er $360=2^3\\cdot 3^2\\cdot 5$ (fra eksempel 1).\n\n**Regn faktor for faktor**, med direkte summering:\n$$\\sigma(2^3)=1+2+4+8=15,$$\n$$\\sigma(3^2)=1+3+9=13,$$\n$$\\sigma(5)=1+5=6.$$\n\n**Sett sammen:**\n$$\\sigma(360)=15\\cdot 13\\cdot 6.$$\nSteg for steg: $15\\cdot 13=195$, og $195\\cdot 6=1\\,170$.\n\n$$\\sigma(360)=1\\,170.$$\n\n**Kontroll med brøkformelen** på den første faktoren: $\\frac{2^4-1}{2-1}=\\frac{15}{1}=15$ ✓.\n\n**Grov rimelighetskontroll:** $\\sigma(360)$ skal være større enn $360$ og mindre enn $24\\cdot 360=8\\,640$ (siden det er $24$ divisorer, alle $\\le 360$). Og $1\\,170$ ligger godt innenfor ✓.\n\n**Andre: $\\sigma(1000)$.**\n\n**Faktoriser:** $1000=10^3=(2\\cdot 5)^3=2^3\\cdot 5^3$.\n\n**Regn faktor for faktor:**\n$$\\sigma(2^3)=1+2+4+8=15,$$\n$$\\sigma(5^3)=1+5+25+125=156.$$\n\n**Sett sammen:**\n$$\\sigma(1000)=15\\cdot 156=2\\,340.$$\n\n*(Mellomregning: $15\\cdot 156=15\\cdot 150+15\\cdot 6=2\\,250+90=2\\,340$.)*\n\n**Kontroll av $\\sigma(5^3)$ med brøkformelen:** $\\frac{5^4-1}{5-1}=\\frac{625-1}{4}=\\frac{624}{4}=156$ ✓ — to uavhengige veier til samme tall.\n\n**Sluttsvar:** $\\sigma(360)=1\\,170$ og $\\sigma(1000)=2\\,340$.\n\n*Merk at $\\tau(1000)=(3+1)(3+1)=16$. De to funksjonene leses av fra **samme** faktorisering — har du faktorisert én gang, får du begge nesten gratis. På eksamen spør oppgaven ofte om begge i samme delpunkt, nettopp derfor.*"
+    },
+    {
+      "id": "ma1301-5-3-ex-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-5-3-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Finn $\\tau$ og $\\sigma$ for $n=540$ og $n=200$.",
+        "solution": "**Første: $n=540=2^2\\cdot 3^3\\cdot 5$** (faktorisert i oppgave 1).\n\n$$\\tau(540)=(2+1)(3+1)(1+1)=3\\cdot 4\\cdot 2=24.$$\n\n$$\\sigma(2^2)=1+2+4=7,\\qquad\\sigma(3^3)=1+3+9+27=40,\\qquad\\sigma(5)=1+5=6.$$\n\n$$\\sigma(540)=7\\cdot 40\\cdot 6.$$\nSteg for steg: $7\\cdot 40=280$, og $280\\cdot 6=1\\,680$.\n\n**Andre: $n=200$.**\n\n**Faktoriser:** $200=8\\cdot 25=2^3\\cdot 5^2$.\n\n$$\\tau(200)=(3+1)(2+1)=4\\cdot 3=12.$$\n\n$$\\sigma(2^3)=1+2+4+8=15,\\qquad\\sigma(5^2)=1+5+25=31.$$\n\n$$\\sigma(200)=15\\cdot 31=465.$$\n\n**Kontroll:** begge $\\sigma$-verdiene er større enn $n$ ✓ ($1\\,680>540$ og $465>200$). Og $\\sigma(5^2)=31$ stemmer med brøkformelen: $\\frac{125-1}{4}=31$ ✓.\n\n**Sluttsvar:** $\\tau(540)=24$, $\\sigma(540)=1\\,680$; $\\tau(200)=12$, $\\sigma(200)=465$.\n\n*Merk at $200$ har $12$ divisorer og $540$ har $24$ — dobbelt så mange, med bare litt større tall. Det er eksponentene som styrer, ikke størrelsen.*",
+        "hints": [
+          "Faktoriser først: $200=2^3\\cdot 5^2$.",
+          "$\\sigma(p^k)=1+p+\\dots+p^k$ — summer direkte for små eksponenter.",
+          "Kontroller at $\\sigma(n)>n$ i begge tilfeller."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-5-3-l3-intro",
+      "type": "text",
+      "content": "## Løkke 3: Multiplikativitet — og vilkåret\n\n*~9 minutter.*\n\nBegge formlene er egentlig samme observasjon: funksjonene er **multiplikative**. Det er et begrep du kjenner fra $\\phi$ i [kap. 2.1](/ma1301/ma1301-2-1) — og vilkåret er det samme, og like ufravikelig."
+    },
+    {
+      "id": "ma1301-5-3-d-multiplikativ",
+      "type": "definition",
+      "title": "Multiplikativ funksjon",
+      "content": "En funksjon $f$ på de positive heltallene kalles **multiplikativ** dersom\n\n$$f(mn)=f(m)f(n)\\qquad\\textbf{når } \\gcd(m,n)=1.$$\n\n**Vilkåret $\\gcd(m,n)=1$ er ufravikelig**, og det er der feilene skjer. Uten det holder likheten ikke.\n\n**Moteksempel som viser hvorfor — verdt å ha klart:** $\\tau(4)=3$ og $\\tau(6)=4$, så produktet er $12$. Men $4\\cdot 6=24=2^3\\cdot 3$, og\n$$\\tau(24)=(3+1)(1+1)=8\\ne 12.$$\nHer er $\\gcd(4,6)=2\\ne 1$, så multiplikativiteten gjelder ikke — og svaret blir feil.\n\n**De tre multiplikative funksjonene i dette faget:**\n\n$$\\phi(n)\\ \\text{([kap. 2.1](/ma1301/ma1301-2-1))},\\qquad \\tau(n),\\qquad \\sigma(n).$$\n\n**At $\\tau$ og $\\sigma$ er multiplikative, følger av formlene** — produktet over primtallene deler seg opp så snart faktoriseringene er disjunkte. Og omvendt: multiplikativiteten er **grunnen** til at det finnes en formel per primtallspotens som kan ganges sammen.\n\n**Praktisk konsekvens for regningen:** du behandler **én primtallspotens av gangen**. Det er hele arbeidsflyten i sjangeren, og den er den samme for alle tre funksjonene:\n\n1. faktoriser $n$,\n2. regn funksjonen for hver primtallspotens,\n3. gang sammen.\n\n**Merk at «multiplikativ» ikke betyr «$f(mn)=f(m)f(n)$ for alle $m,n$»** — det ville vært «fullstendig multiplikativ», og det er $\\tau$, $\\sigma$ og $\\phi$ **ikke**. (Legendre-symbolet i [kap. 4.1](/ma1301/ma1301-4-1) er derimot fullstendig multiplikativt i telleren.)"
+    },
+    {
+      "id": "ma1301-5-3-ex-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-5-3-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "**a)** Regn ut $\\tau(1000)$ og $\\sigma(1000)$ ved å bruke multiplikativiteten på $1000=8\\cdot 125$.\n**b)** Vis med et konkret eksempel at $\\tau(mn)=\\tau(m)\\tau(n)$ **ikke** holder når $\\gcd(m,n)>1$.",
+        "solution": "**a)** Her er $8=2^3$ og $125=5^3$, og $\\gcd(8,125)=1$ — så multiplikativiteten gjelder.\n\n**Antall divisorer:**\n$$\\tau(1000)=\\tau(8)\\tau(125)=(3+1)(3+1)=4\\cdot 4=16.$$\n\n**Divisorsummen:**\n$$\\sigma(1000)=\\sigma(8)\\sigma(125)=(1+2+4+8)(1+5+25+125)=15\\cdot 156=2\\,340.$$\n\n*(Mellomregning: $15\\cdot 156=2\\,340$.)*\n\n**Kontroll:** samme svar som i eksempel 2, der vi gikk direkte via faktoriseringen $2^3\\cdot 5^3$ ✓. Det er ikke en tilfeldighet — multiplikativiteten **er** det som gjør at formelen kan skrives som et produkt over primtallene.\n\n**b)** Ta $m=6$ og $n=10$, der $\\gcd(6,10)=2\\ne 1$.\n\n$$\\tau(6)=\\tau(2\\cdot 3)=2\\cdot 2=4,\\qquad \\tau(10)=\\tau(2\\cdot 5)=2\\cdot 2=4,$$\nså produktet er $\\tau(6)\\tau(10)=16$.\n\nMen $6\\cdot 10=60=2^2\\cdot 3\\cdot 5$, og\n$$\\tau(60)=(2+1)(1+1)(1+1)=3\\cdot 2\\cdot 2=12\\ne 16.$$\n\n**Altså holder ikke likheten.** Grunnen er at faktoren $2$ opptrer i **begge** tall, og da blir eksponenten i produktet $2$ — ikke to uavhengige valg, men tre ($2^0$, $2^1$, $2^2$).\n\n**Et enda enklere eksempel:** $\\tau(2)\\tau(2)=2\\cdot 2=4$, men $\\tau(4)=3$.\n\n**Sluttsvar:** a) $\\tau(1000)=16$ og $\\sigma(1000)=2\\,340$; b) med $m=6$, $n=10$ er $\\tau(6)\\tau(10)=16$ mens $\\tau(60)=12$.\n\n*Fellen i b) er dokumentert i arkivet: å bruke multiplikativiteten på faktorer som ikke er relativt primiske. **Sjekk gcd-en før du splitter** — det er én linje, og den hører i besvarelsen.*",
+        "hints": [
+          "I a): $\\gcd(8,125)=1$, så du kan splitte.",
+          "I b): velg $m$ og $n$ med en felles primfaktor, for eksempel begge partall.",
+          "I b): regn $\\tau$ av produktet fra faktoriseringen, ikke fra formelen."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-5-3-l4-intro",
+      "type": "text",
+      "content": "## Løkke 4: Minste n med gitt antall divisorer\n\n*~13 minutter.*\n\nDen mest karakteristiske H-oppgaven, og den som ser vanskeligst ut: «finn det minste positive heltallet med nøyaktig $18$ divisorer». Den er ikke et søk — den er en **faktorisering av måltallet**, og oppskriften er kort.\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "ma1301-5-3-d-minste-n",
+      "type": "definition",
+      "title": "Oppskrift: minste n med τ(n) = m",
+      "content": "Du skal finne det minste $n$ med $\\tau(n)=m$. **Oppskriften må sitte utenat:**\n\n1. **Faktoriser måltallet $m$** på alle måter som produkt av faktorer $\\ge 2$ (rekkefølgen spiller ingen rolle).\n2. **Hver slik faktorisering $m=f_1f_2\\cdots f_r$ svarer til en eksponentliste** $k_i=f_i-1$, altså til et tall $n=\\prod p_i^{k_i}$.\n3. **Sorter eksponentene synkende**, og gi den største til $2$, den nest største til $3$, så $5$, $7$, … Det gir det minste tallet for **den** eksponentlisten.\n4. **Regn ut kandidatene**, og velg den minste.\n\n**Hvorfor steg 3 virker:** skal du plassere eksponentene $k_1\\ge k_2$ på primtallene $2<3$, er $2^{k_1}3^{k_2}<2^{k_2}3^{k_1}$ — det lønner seg å gi den store eksponenten til det lille primtallet. Utledningen er én linje: forholdet mellom de to er $(3/2)^{k_1-k_2}>1$.\n\n**Hvorfor du må prøve **alle** faktoriseringene av $m$:** de gir ulike eksponentlister, og hvilken som er minst, er ikke opplagt. Med $m=12$ konkurrerer $2^{11}$, $2^5\\cdot 3$, $2^3\\cdot 3^2$ og $2^2\\cdot 3\\cdot 5$ — og vinneren er den siste, $60$.\n\n**Antall faktoriseringer er lite.** For $m$ opp til rundt $24$ er det tre til fem, og listen er kort å skrive ned. Sorter dem gjerne etter antall faktorer: **flere faktorer betyr flere primtall, men lavere eksponenter** — og oftest vinner det.\n\n**Kontrollen:** regn $\\tau$ av kandidaten din og se at du får $m$. Det er en gratis kontroll, og den fanger både regnefeil og feil eksponentliste."
+    },
+    {
+      "id": "ma1301-5-3-e3",
+      "type": "example",
+      "title": "Minste n med 18 divisorer",
+      "problem": "Finn det minste positive heltallet $n$ med $\\tau(n)=18$.",
+      "solution": "**Steg 1: faktoriser måltallet på alle måter.** Vi har $18=2\\cdot 3^2$, og faktoriseringene i faktorer $\\ge 2$ er\n$$18,\\qquad 9\\cdot 2,\\qquad 6\\cdot 3,\\qquad 3\\cdot 3\\cdot 2.$$\n(Rekkefølgen spiller ingen rolle, så $2\\cdot 9$ er samme som $9\\cdot 2$.)\n\n**Steg 2–3: gjør hver om til en eksponentliste, sortert synkende, og plasser på de minste primtallene.**\n\n| Faktorisering | Eksponenter $f_i-1$ | Kandidat | Verdi |\n|---|---|---|---|\n| $18$ | $17$ | $2^{17}$ | $131\\,072$ |\n| $9\\cdot 2$ | $8,1$ | $2^8\\cdot 3$ | $256\\cdot 3=768$ |\n| $6\\cdot 3$ | $5,2$ | $2^5\\cdot 3^2$ | $32\\cdot 9=288$ |\n| $3\\cdot 3\\cdot 2$ | $2,2,1$ | $2^2\\cdot 3^2\\cdot 5$ | $4\\cdot 9\\cdot 5=180$ |\n\n**Steg 4: velg den minste.** Den minste kandidaten er\n$$n=180.$$\n\n**Kontroll.** $180=2^2\\cdot 3^2\\cdot 5$, så\n$$\\tau(180)=(2+1)(2+1)(1+1)=3\\cdot 3\\cdot 2=18\\ \\checkmark$$\n\n**Konklusjon i ord:** det minste positive heltallet med nøyaktig $18$ divisorer er $180$.\n\n**Sluttsvar:** $n=180$.\n\n*Tre observasjoner verdt å ta med til neste oppgave av denne typen.*\n\n*Først: **flest faktorer vant.** Faktoriseringen med tre faktorer ($3\\cdot 3\\cdot 2$) ga det minste tallet, og det er det vanlige mønsteret — flere primtall med lave eksponenter slår få primtall med høye. Men det er ikke en regel du kan stole blindt på, så regn ut alle kandidatene.*\n\n*Dernest: **den ene faktoren $18$ er alltid håpløs.** $2^{m-1}$ er nesten alltid den største kandidaten, og du kan sette den nederst på listen med én gang.*\n\n*Til sist: **sorteringen i steg 3 er ikke valgfri.** Hadde vi skrevet $2^1\\cdot 3^2\\cdot 5^2=450$ i stedet for $2^2\\cdot 3^2\\cdot 5=180$, ville vi fått samme $\\tau$ men et større tall. Store eksponenter på små primtall — hver gang.*"
+    },
+    {
+      "id": "ma1301-5-3-ex-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-5-3-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Finn det minste positive heltallet med nøyaktig $10$ divisorer, og det minste med nøyaktig $12$ divisorer.",
+        "solution": "**Første: $\\tau(n)=10$.**\n\n**Faktoriseringer av $10$:** $10$ og $5\\cdot 2$.\n\n| Faktorisering | Eksponenter | Kandidat | Verdi |\n|---|---|---|---|\n| $10$ | $9$ | $2^9$ | $512$ |\n| $5\\cdot 2$ | $4,1$ | $2^4\\cdot 3$ | $16\\cdot 3=48$ |\n\nDen minste er $n=48$.\n\n**Kontroll:** $48=2^4\\cdot 3$, så $\\tau(48)=(4+1)(1+1)=5\\cdot 2=10$ ✓.\n\n**Andre: $\\tau(n)=12$.**\n\n**Faktoriseringer av $12$:** $12$, $6\\cdot 2$, $4\\cdot 3$, $3\\cdot 2\\cdot 2$.\n\n| Faktorisering | Eksponenter | Kandidat | Verdi |\n|---|---|---|---|\n| $12$ | $11$ | $2^{11}$ | $2\\,048$ |\n| $6\\cdot 2$ | $5,1$ | $2^5\\cdot 3$ | $32\\cdot 3=96$ |\n| $4\\cdot 3$ | $3,2$ | $2^3\\cdot 3^2$ | $8\\cdot 9=72$ |\n| $3\\cdot 2\\cdot 2$ | $2,1,1$ | $2^2\\cdot 3\\cdot 5$ | $4\\cdot 3\\cdot 5=60$ |\n\nDen minste er $n=60$.\n\n**Kontroll:** $60=2^2\\cdot 3\\cdot 5$, så $\\tau(60)=(2+1)(1+1)(1+1)=3\\cdot 2\\cdot 2=12$ ✓.\n\n**Sluttsvar:** minste $n$ med $10$ divisorer er $48$; minste med $12$ divisorer er $60$.\n\n*Legg merke til forskjellen mellom de to. For $\\tau=10$ er $10=2\\cdot 5$, og siden $5$ er et primtall kan ikke faktoriseringen deles finere — det ble bare to kandidater. For $\\tau=12$ er $12$ rikt på faktorer, og det ga fire kandidater med den mest oppdelte som vinner.*\n\n*Praktisk lærdom: **jo flere faktorer måltallet har, desto flere kandidater må du regne** — men desto mer sannsynlig er det at den mest oppdelte vinner.*",
+        "hints": [
+          "Faktoriser måltallet ($10$, deretter $12$) på alle måter i faktorer $\\ge 2$.",
+          "Trekk $1$ fra hver faktor for å få eksponentene.",
+          "Gi den største eksponenten til $2$, den neste til $3$, og så videre."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-5-3-ex-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-5-3-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "**a)** Finn det minste positive heltallet med nøyaktig $16$ divisorer.\n**b)** Finn det minste positive heltallet med nøyaktig $14$ divisorer, og forklar hvorfor svaret blir så mye større enn i a).",
+        "solution": "**a) Faktoriseringer av $16$:** $16$, $8\\cdot 2$, $4\\cdot 4$, $4\\cdot 2\\cdot 2$, $2\\cdot 2\\cdot 2\\cdot 2$.\n\n| Faktorisering | Eksponenter | Kandidat | Verdi |\n|---|---|---|---|\n| $16$ | $15$ | $2^{15}$ | $32\\,768$ |\n| $8\\cdot 2$ | $7,1$ | $2^7\\cdot 3$ | $128\\cdot 3=384$ |\n| $4\\cdot 4$ | $3,3$ | $2^3\\cdot 3^3$ | $8\\cdot 27=216$ |\n| $4\\cdot 2\\cdot 2$ | $3,1,1$ | $2^3\\cdot 3\\cdot 5$ | $8\\cdot 15=120$ |\n| $2\\cdot 2\\cdot 2\\cdot 2$ | $1,1,1,1$ | $2\\cdot 3\\cdot 5\\cdot 7$ | $210$ |\n\nDen minste er $n=120$.\n\n**Kontroll:** $120=2^3\\cdot 3\\cdot 5$, så $\\tau(120)=(3+1)(1+1)(1+1)=4\\cdot 2\\cdot 2=16$ ✓.\n\n**a) Sluttsvar:** $120$.\n\n*Merk at den mest oppdelte kandidaten ($210$) **ikke** vant her — den nest mest oppdelte gjorde det. Det er derfor du må regne ut alle.*\n\n**b) Faktoriseringer av $14$:** $14$ og $7\\cdot 2$.\n\n| Faktorisering | Eksponenter | Kandidat | Verdi |\n|---|---|---|---|\n| $14$ | $13$ | $2^{13}$ | $8\\,192$ |\n| $7\\cdot 2$ | $6,1$ | $2^6\\cdot 3$ | $64\\cdot 3=192$ |\n\nDen minste er $n=192$.\n\n**Kontroll:** $192=2^6\\cdot 3$, så $\\tau(192)=(6+1)(1+1)=7\\cdot 2=14$ ✓.\n\n**b) Sluttsvar:** $192$.\n\n**Hvorfor så mye større enn i a)?** Fordi $14=2\\cdot 7$ har en **stor primfaktor**. Faktoren $7$ tvinger en eksponent på $6$ et sted, og en sjettepotens er dyr — selv den minste, $2^6=64$. Til sammenligning er $16=2^4$ rik på faktorer, og eksponentene kan spres tynt over flere primtall ($2^3\\cdot 3\\cdot 5$).\n\n**Regelen bak observasjonen:** store primfaktorer i måltallet gir store eksponenter, og store eksponenter gir store tall. $\\tau(n)=13$ (et primtall) tvinger $n=2^{12}=4\\,096$ — det er ingen annen mulighet.\n\n*Det er verdt å legge merke til fordi det gir en rimelighetskontroll: er måltallet en toerpotens eller rikt på små faktorer, forvent et lite svar; har det en stor primfaktor, forvent et stort.*",
+        "hints": [
+          "I a): $16$ har fem faktoriseringer — regn alle fem kandidatene.",
+          "I b): $14=2\\cdot 7$ har bare to faktoriseringer.",
+          "Sammenlign hvor store eksponenter de to måltallene tvinger fram."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-5-3-l5-intro",
+      "type": "text",
+      "content": "## Løkke 5: Identitetene\n\n*~11 minutter.*\n\nTil slutt fire små resultater som dukker opp som «vis at»-oppgaver. Alle **utledes på stedet** i to–tre linjer, og alle hviler på divisorstrukturen fra løkke 1."
+    },
+    {
+      "id": "ma1301-5-3-d-tau-odde",
+      "type": "definition",
+      "title": "τ(n) er odde nøyaktig når n er et kvadrattall",
+      "content": "$$\\tau(n)\\ \\text{odde}\\quad\\Longleftrightarrow\\quad n\\ \\text{er et kvadrattall}.$$\n\n**Utledes på stedet, tre linjer.** Etter formelen er $\\tau(n)=\\prod(k_i+1)$. Et produkt er odde nøyaktig når **hver** faktor er odde, altså når hver $k_i+1$ er odde, altså når hver $k_i$ er **partall**. Og et tall har alle eksponenter partall nøyaktig når det er et kvadrattall:\n$$n=\\prod p_i^{2m_i}=\\left(\\prod p_i^{m_i}\\right)^2. \\qquad\\blacksquare$$\n\n**Det parvise argumentet, som er den samme innsikten sett fra en annen side:** divisorene kommer i par $(d,n/d)$. Paret består av to **ulike** tall unntatt når $d=n/d$, altså når $d=\\sqrt n$ — og det skjer nøyaktig når $n$ er et kvadrattall. Da er antallet odde; ellers er det partall. **Begge argumentene er fullgode**, og fasitpraksisen honorerer dem likt.\n\n**Eksempler:** $\\tau(36)=9$ odde ($36=6^2$) ✓; $\\tau(1024)=11$ odde ($1024=32^2$) ✓; $\\tau(12)=6$ partall ($12$ er ikke kvadrattall) ✓.\n\n**Som eksamensoppgave** er dette en typisk delpunkt-a: kort, ren og fullt beviselig på tre linjer. Skriv **begge** retningene, eller skriv ekvivalenskjeden slik at begge er dekket.\n\n**Beslektet resultat verdt å kjenne:** for **odde** $n$ er $\\sigma(n)\\equiv\\tau(n)\\pmod 2$. Grunnen er at alle divisorene til et oddetall er odde, så $\\sigma(n)$ er en sum av $\\tau(n)$ oddetall — og pariteten til en slik sum er pariteten til antall ledd."
+    },
+    {
+      "id": "ma1301-5-3-d-sigma-over-n",
+      "type": "definition",
+      "title": "σ(n)/n som en sum av brøker",
+      "content": "$$\\frac{\\sigma(n)}{n}=\\sum_{d\\mid n}\\frac 1d.$$\n\n**Utledes på stedet, én linje.** Avbildningen $d\\mapsto n/d$ er en **bijeksjon** på divisorene i $n$ (den er sin egen invers). Derfor er\n$$\\sigma(n)=\\sum_{d\\mid n}d=\\sum_{d\\mid n}\\frac nd=n\\sum_{d\\mid n}\\frac 1d,$$\nog vi deler på $n$. $\\blacksquare$\n\n**Eksempel:** $n=28$ har divisorene $1,2,4,7,14,28$, og\n$$\\sum_{d\\mid 28}\\frac 1d=1+\\tfrac 12+\\tfrac 14+\\tfrac 17+\\tfrac 1{14}+\\tfrac 1{28}=2.$$\nOg $\\sigma(28)=1+2+4+7+14+28=56=2\\cdot 28$ ✓ — forholdet er nøyaktig $2$.\n\n**Hvorfor identiteten er nyttig:** den gjør $\\sigma(n)/n$ til et mål på hvor «divisorrikt» $n$ er, uavhengig av størrelsen. Og den gir en pen omskrivning av begrepet **perfekt tall**:\n$$\\sigma(n)=2n\\iff\\sum_{d\\mid n}\\frac 1d=2.$$\n\n**Bijeksjons-grepet i beviset er verdt å ha som mal.** «Summer over divisorene, og bytt $d$ med $n/d$» er en standardmanøver i tallteori, og den dukker opp igjen i identiteter om $\\tau$ og $\\phi$."
+    },
+    {
+      "id": "ma1301-5-3-d-perfekte-tall",
+      "type": "definition",
+      "title": "Perfekte tall",
+      "content": "Et tall $n$ kalles **perfekt** dersom det er lik summen av sine egne ekte divisorer — altså dersom\n\n$$\\sigma(n)=2n.$$\n\n(Grunnen til $2n$ og ikke $n$: $\\sigma$ teller $n$ selv med, så «summen av de ekte divisorene» er $\\sigma(n)-n$.)\n\n**De tre minste:**\n\n| $n$ | divisorer | $\\sigma(n)$ |\n|---|---|---|\n| $6$ | $1,2,3,6$ | $12=2\\cdot 6$ ✓ |\n| $28$ | $1,2,4,7,14,28$ | $56=2\\cdot 28$ ✓ |\n| $496$ | $1,2,4,8,16,31,62,124,248,496$ | $992=2\\cdot 496$ ✓ |\n\n**Euklids karakterisering** (og en fin anvendelse av $\\sigma$-formelen): er $2^k-1$ et primtall, så er\n$$n=2^{k-1}(2^k-1)$$\net perfekt tall. **Utledningen er tre linjer:** med $q=2^k-1$ primtall og $\\gcd(2^{k-1},q)=1$ gir multiplikativiteten\n$$\\sigma(n)=\\sigma(2^{k-1})\\sigma(q)=(2^k-1)(q+1)=q\\cdot 2^k=2\\cdot 2^{k-1}q=2n.$$\n\n**Sjekk med tall:** $k=2$ gir $q=3$ og $n=2\\cdot 3=6$; $k=3$ gir $q=7$ og $n=4\\cdot 7=28$; $k=5$ gir $q=31$ og $n=16\\cdot 31=496$ ✓.\n\n**Primtall på formen $2^k-1$ kalles Mersenne-primtall**, og Euler viste at Euklids formel gir **alle** partalls perfekte tall. Om det finnes odde perfekte tall, er fortsatt ukjent — et av de eldste åpne problemene i matematikken.\n\n**Eksamensrelevansen:** perfekte tall er ikke en egen sjanger, men de er den naturligste anvendelsen av $\\sigma$-formelen og en typisk «vis at»-oppgave. Kortet er verdt plassen for utledningen over."
+    },
+    {
+      "id": "ma1301-5-3-e4",
+      "type": "example",
+      "title": "Eksamensnivå: identiteter og en optimering",
+      "problem": "**a)** Vis at $\\tau(n)$ er odde hvis og bare hvis $n$ er et kvadrattall.\n**b)** Vis at $\\sigma(n)=n+1$ hvis og bare hvis $n$ er et primtall.\n**c)** Finn det minste $n>1$ med både $\\tau(n)$ odde og $\\tau(n)>3$.",
+      "solution": "**a)** Skriv $n=\\prod_i p_i^{k_i}$. Etter formelen er\n$$\\tau(n)=\\prod_i(k_i+1).$$\n\n*Retning $\\Rightarrow$.* Er produktet odde, må **hver** faktor $k_i+1$ være odde (et produkt med minst én partallsfaktor er partall). Da er hver $k_i$ partall, si $k_i=2m_i$, og\n$$n=\\prod_i p_i^{2m_i}=\\left(\\prod_i p_i^{m_i}\\right)^2$$\ner et kvadrattall.\n\n*Retning $\\Leftarrow$.* Er $n=t^2$ et kvadrattall, har $n$ alle eksponenter partall (faktoriser $t$ og doble eksponentene — entydigheten i aritmetikkens fundamentalteorem gir at det er **alle** eksponentene i $n$). Da er hver $k_i+1$ odde, og produktet er odde. $\\blacksquare$\n\n*Alternativt bevis, like fullgodt:* divisorene i $n$ kommer i par $(d,n/d)$. To slike er like nøyaktig når $d^2=n$. Er $n$ ikke et kvadrattall, er alle par ekte og antallet er partall; er $n=t^2$, står $t$ alene og antallet er odde.\n\n**b)** *Retning $\\Leftarrow$.* Er $n=p$ et primtall, er divisorene bare $1$ og $p$, så $\\sigma(p)=1+p=n+1$.\n\n*Retning $\\Rightarrow$.* Anta $\\sigma(n)=n+1$ med $n>1$. Både $1$ og $n$ er divisorer, og de bidrar med $1+n$ til summen. Da kan det **ikke** finnes flere divisorer — enhver ekstra divisor $d$ med $1<d<n$ ville gjort summen strengt større enn $n+1$. Et tall $n>1$ med bare divisorene $1$ og $n$ er per definisjon et primtall. $\\blacksquare$\n\n*(Merk at $n=1$ er unntatt: $\\sigma(1)=1$, ikke $2$.)*\n\n**c)** Vi trenger $\\tau(n)$ odde, altså — etter a) — at $n$ er et kvadrattall. Og vi trenger $\\tau(n)>3$.\n\nVi går gjennom kvadrattallene i stigende rekkefølge og regner $\\tau$:\n\n| $n$ | faktorisering | $\\tau(n)$ |\n|---|---|---|\n| $4$ | $2^2$ | $3$ |\n| $9$ | $3^2$ | $3$ |\n| $16$ | $2^4$ | $5$ ✓ |\n\nDe to første har $\\tau=3$, som ikke er $>3$. Ved $n=16=2^4$ er $\\tau(16)=4+1=5$, som er odde og større enn $3$.\n\n**Altså er $n=16$ det minste.**\n\n**Kontroll:** divisorene i $16$ er $1,2,4,8,16$ — fem stykker, odde antall ✓, og $16=4^2$ er et kvadrattall ✓.\n\n*(Merk at $36=6^2$ også har odde $\\tau$, nemlig $9$, men $36>16$.)*\n\n**Sluttsvar:** a) og b) bevist begge veier; c) $n=16$.\n\n*Om føringen i a) og b): begge er **ekvivalenser**, og da må **begge retninger** vises. Å bare vise én vei er den dokumenterte fellen i «hvis og bare hvis»-oppgaver, og den koster halve uttellingen. Skriv retningene som to merkede avsnitt, slik det er gjort her — da ser både du og sensor at begge er med.*"
+    },
+    {
+      "id": "ma1301-5-3-ex-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-5-3-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "**a)** Regn ut $\\sigma(496)$ og avgjør om $496$ er et perfekt tall.\n**b)** Bruk Euklids karakterisering til å finne det neste perfekte tallet etter $496$. (Du kan bruke at $2^7-1=127$ er et primtall.)",
+        "solution": "**a) Faktoriser:** $496=16\\cdot 31=2^4\\cdot 31$, og $31$ er et primtall.\n\n**Regn $\\sigma$ faktor for faktor:**\n$$\\sigma(2^4)=1+2+4+8+16=31,$$\n$$\\sigma(31)=1+31=32.$$\n\n**Sett sammen** (lovlig, siden $\\gcd(16,31)=1$):\n$$\\sigma(496)=31\\cdot 32=992.$$\n\n**Avgjør:** er $\\sigma(496)=2\\cdot 496$? Vi har $2\\cdot 496=992$ ✓.\n\n**Altså er $496$ et perfekt tall.**\n\n**Kontroll ved å liste divisorene:** $1,2,4,8,16,31,62,124,248,496$. Summen er\n$$1+2+4+8+16=31\\quad\\text{og}\\quad 31+62+124+248+496=961,$$\ntil sammen $31+961=992$ ✓.\n\n**b)** Euklids karakterisering: er $2^k-1$ et primtall, er $n=2^{k-1}(2^k-1)$ perfekt.\n\nVi har brukt $k=2,3,5$ til $6$, $28$ og $496$. Neste kandidat er $k=7$, der $2^7-1=127$ er oppgitt å være primtall. Da er\n$$n=2^{6}\\cdot 127=64\\cdot 127=8\\,128.$$\n\n**Kontroll med $\\sigma$-formelen:** $8\\,128=2^6\\cdot 127$, så\n$$\\sigma(8\\,128)=\\sigma(2^6)\\sigma(127)=(2^7-1)(1+127)=127\\cdot 128=16\\,256=2\\cdot 8\\,128\\ \\checkmark$$\n\n**Hvorfor $k=4$ og $k=6$ ikke gir noe:** $2^4-1=15=3\\cdot 5$ er ikke primtall, og $2^6-1=63=7\\cdot 9$ er ikke primtall. Formelen krever at $2^k-1$ er primtall.\n\n**Sluttsvar:** a) $\\sigma(496)=992=2\\cdot 496$, så $496$ er perfekt; b) neste perfekte tall er $8\\,128$.\n\n*Merk mønsteret i utledningen av Euklids formel: $\\sigma(2^{k-1})=2^k-1$ er nøyaktig primtallet, og $\\sigma(2^k-1)=2^k$ er nøyaktig toerpotensen. De to «bytter plass», og produktet blir $2n$. Det er en av de peneste utregningene i elementær tallteori.*",
+        "hints": [
+          "Faktoriser $496$ — den har bare to primfaktorer.",
+          "Perfekt betyr $\\sigma(n)=2n$.",
+          "I b): prøv $k=7$ i formelen $n=2^{k-1}(2^k-1)$."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-5-3-ex-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-5-3-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**a)** Finn alle $n$ med $\\tau(n)=3$.\n**b)** Finn alle $n$ med $\\tau(n)=4$.\n**c)** Hva er den generelle betingelsen for at $\\tau(n)$ er et primtall $q$?",
+        "solution": "**a)** Etter formelen er $\\tau(n)=\\prod(k_i+1)=3$. Siden $3$ er et primtall, må produktet ha **nøyaktig én** faktor større enn $1$, og den må være $3$. Altså har $n$ nøyaktig én primfaktor, med eksponent $k=3-1=2$:\n$$n=p^2\\qquad\\text{for et primtall } p.$$\n\n**Alle $n$ med $\\tau(n)=3$ er altså kvadratene av primtall:** $4,\\ 9,\\ 25,\\ 49,\\ 121,\\ 169,\\dots$\n\n**Kontroll:** $\\tau(49)=\\tau(7^2)=3$ ✓, og divisorene er $1,7,49$ — tre stykker ✓.\n\n**b)** Nå er $\\tau(n)=4$, og $4=4$ eller $4=2\\cdot 2$. To muligheter:\n\n- **Én primfaktor:** $k+1=4$, altså $n=p^3$. Eksempler: $8$, $27$, $125$, $343$.\n- **To primfaktorer:** $(k_1+1)(k_2+1)=2\\cdot 2$, altså $k_1=k_2=1$ og $n=pq$ med $p\\ne q$ primtall. Eksempler: $6$, $10$, $14$, $15$, $21$, $22$.\n\n**Alle $n$ med $\\tau(n)=4$ er altså $p^3$ eller $pq$** med $p\\ne q$ primtall.\n\n**Kontroll:** $\\tau(8)=\\tau(2^3)=4$ ✓ (divisorer $1,2,4,8$); $\\tau(15)=\\tau(3\\cdot 5)=2\\cdot 2=4$ ✓ (divisorer $1,3,5,15$).\n\n**c)** Er $\\tau(n)=q$ et **primtall**, kan produktet $\\prod(k_i+1)$ bare ha én faktor $>1$ — for enhver oppdeling i to eller flere faktorer $\\ge 2$ ville gitt et sammensatt tall. Altså har $n$ nøyaktig én primfaktor:\n$$n=p^{q-1}\\qquad\\text{for et primtall } p.$$\n\n**Konsekvens for optimeringsoppgaven i løkke 4:** er måltallet $m$ et primtall, er svaret **entydig bestemt** som $2^{m-1}$ — det finnes ingen alternativ faktorisering å konkurrere med. For $\\tau(n)=13$ er minste $n$ derfor $2^{12}=4\\,096$, og for $\\tau(n)=7$ er det $2^6=64$.\n\n**Sluttsvar:** a) $n=p^2$; b) $n=p^3$ eller $n=pq$ med ulike primtall; c) $n=p^{q-1}$, og minste slike er $2^{q-1}$.\n\n*Denne oppgavetypen — «finn alle $n$ med gitt $\\tau$» — er baklengs-varianten av formelen, og den løses **alltid** ved å faktorisere måltallet. Legg merke til hvor mye struktur som ligger i ett tall: $\\tau(n)=4$ deler alle slike $n$ i nøyaktig to familier.*",
+        "hints": [
+          "Sett $\\prod(k_i+1)=3$ og tenk på hvor mange faktorer produktet kan ha.",
+          "I b): $4$ kan faktoriseres på to måter.",
+          "I c): hvor mange faktorer $\\ge 2$ kan et primtall skrives som produkt av?"
+        ]
+      }
+    },
+    {
+      "id": "ma1301-5-3-ex-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-5-3-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**a)** Vis at $\\dfrac{\\sigma(n)}{n}=\\sum_{d\\mid n}\\dfrac 1d$.\n**b)** Bruk identiteten til å avgjøre om $\\sum_{d\\mid 24}\\frac 1d$ er større eller mindre enn $2$.\n**c)** Vis at $\\sigma(n)\\equiv\\tau(n)\\pmod 2$ når $n$ er et oddetall.",
+        "solution": "**a)** Avbildningen $d\\mapsto n/d$ sender divisorer i $n$ til divisorer i $n$, og den er sin egen invers — altså en **bijeksjon** på divisormengden. Derfor kan vi summere over $n/d$ i stedet for over $d$ uten å endre summen:\n$$\\sigma(n)=\\sum_{d\\mid n}d=\\sum_{d\\mid n}\\frac nd=n\\sum_{d\\mid n}\\frac 1d.$$\n\nDeler vi på $n$, får vi\n$$\\frac{\\sigma(n)}{n}=\\sum_{d\\mid n}\\frac 1d. \\qquad\\blacksquare$$\n\n**b)** Etter a) er\n$$\\sum_{d\\mid 24}\\frac 1d=\\frac{\\sigma(24)}{24}.$$\n\nVi regner $\\sigma(24)$: faktoriseringen er $24=2^3\\cdot 3$, så\n$$\\sigma(24)=\\sigma(2^3)\\sigma(3)=(1+2+4+8)(1+3)=15\\cdot 4=60.$$\n\nDermed er\n$$\\sum_{d\\mid 24}\\frac 1d=\\frac{60}{24}=\\frac 52=2{,}5>2.$$\n\n**Summen er større enn $2$.**\n\n*(Kontroll ved direkte summering: $1+\\tfrac 12+\\tfrac 13+\\tfrac 14+\\tfrac 16+\\tfrac 18+\\tfrac 1{12}+\\tfrac 1{24}$. Med fellesnevner $24$: $\\tfrac{24+12+8+6+4+3+2+1}{24}=\\tfrac{60}{24}$ ✓.)*\n\n*Merk hva svaret betyr: siden $\\sigma(24)>2\\cdot 24$, er $24$ et såkalt **rikelig** tall — summen av de ekte divisorene overstiger tallet selv.*\n\n**c)** La $n$ være et oddetall. Da er **hver** divisor $d$ i $n$ også et oddetall (en partallsdivisor ville krevd faktoren $2$ i $n$).\n\nSummen $\\sigma(n)$ er dermed en sum av $\\tau(n)$ **oddetall**. Og en sum av oddetall er kongruent med **antallet ledd** modulo $2$, siden hvert ledd er $\\equiv 1\\pmod 2$:\n$$\\sigma(n)=\\sum_{d\\mid n}d\\equiv\\sum_{d\\mid n}1=\\tau(n)\\pmod 2. \\qquad\\blacksquare$$\n\n**Kontroll med tall:** $n=45=3^2\\cdot 5$ gir $\\tau(45)=3\\cdot 2=6$ og $\\sigma(45)=13\\cdot 6=78$. Begge er partall ✓. Og $n=9$ gir $\\tau(9)=3$ og $\\sigma(9)=13$ — begge odde ✓.\n\n**Sluttsvar:** a) bevist ved bijeksjonen $d\\mapsto n/d$; b) summen er $\\frac{60}{24}=2{,}5>2$; c) bevist ved at alle divisorer i et oddetall er odde.\n\n*Bijeksjons-grepet i a) er en standardmanøver: «summér over divisorene, og bytt $d$ med $n/d$». Den er verdt å ha som ferdig mal — den løser flere identiteter av denne typen med én linje.*",
+        "hints": [
+          "I a): hva skjer om du bytter $d$ med $n/d$ i summen?",
+          "I b): bruk identiteten fra a) og regn $\\sigma(24)$ med formelen.",
+          "I c): hvilke divisorer kan et oddetall ha?"
+        ]
+      }
+    },
+    {
+      "id": "ma1301-5-3-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "De fem feilene under er dokumentert i arkivets løsningsforslag som noe fasiten advarer mot.\n\n- **Regner $\\tau(n)=\\prod k_i$ i stedet for $\\prod(k_i+1)$.** Den best belagte feilen i sjangeren. Grunnen til «$+1$» er at eksponenten $0$ også er et lovlig valg — divisoren $1$ tar ingen primfaktorer. **Kontrollen:** $\\tau(12)$ skal være $6$ ($12=2^2\\cdot 3$ gir $3\\cdot 2$), og du kan liste divisorene $1,2,3,4,6,12$ på fem sekunder for å være sikker.\n\n- **Bruker multiplikativiteten på faktorer som ikke er relativt primiske.** $\\tau(4)\\tau(6)=12$, men $\\tau(24)=8$. **Sjekk $\\gcd$-en før du splitter**, og skriv den linjen i besvarelsen.\n\n- **Fordeler eksponentene på feil primtall i minste-$n$-oppgaven.** Den **største** eksponenten skal på det **minste** primtallet. $2^2\\cdot 3^2\\cdot 5=180$, men $2\\cdot 3^2\\cdot 5^2=450$ — samme $\\tau$, mer enn dobbelt så stort tall.\n\n- **Glemmer å prøve alle faktoriseringene av måltallet.** For $\\tau(n)=16$ er det fem kandidater, og vinneren ($120$) er verken den mest eller minst oppdelte. Skriv opp hele listen før du regner.\n\n- **Feil $\\sigma$-formel.** $\\sigma(p^k)$ er $\\frac{p^{k+1}-1}{p-1}$, ikke $\\frac{p^k-1}{p-1}$ — eksponenten er $k+1$, fordi summen har $k+1$ ledd. **Kontrollen er gratis:** summér direkte for små eksponenter, $\\sigma(2^3)=1+2+4+8=15$, og se at brøken gir samme tall.\n\n**Og to føringsfeil som koster uten å være regnefeil:**\n\n- **Faktoriseringen mangler i besvarelsen.** Den **er** begrunnelsen i denne sjangeren — formelen er ubrukelig uten den. Et $\\tau$-tall alene er et sluttall uten metode.\n- **Bare én retning vist i en «hvis og bare hvis»-oppgave.** «$\\tau(n)$ odde $\\iff$ $n$ kvadrattall» krever begge veier, eller en ekvivalenskjede som dekker begge."
+    },
+    {
+      "id": "ma1301-5-3-begrepsbank-intro",
+      "type": "text",
+      "content": "### Begrepsbank\n\nDette er flashcard-stoff — hopp trygt over ved førstegangslesing; tidsanslaget på 55 minutter gjelder kjernestoffet over.\n\nUnder kode D er banken **eksamensverktøyet, ikke pynt**. Men merk at dette er et av de **minst** puggetunge kapitlene i boka: én formel må sitte kaldt ($\\tau$), én utledes fra videregåendealgebra ($\\sigma$), og én er en oppskrift du kjører (minste-$n$).\n\n**Slik pugges de:** $\\tau$-formelen ved aktiv gjenkalling, $\\sigma$ ved å **utlede** den et par ganger til utledningen er automatisk, og minste-$n$-oppskriften ved å kjøres på nye måltall."
+    },
+    {
+      "id": "ma1301-5-3-d-notasjon-funksjoner",
+      "type": "definition",
+      "title": "Notasjonen τ, σ og φ",
+      "content": "De tre tallteoretiske funksjonene i faget, samlet:\n\n| Funksjon | Betyr | Formel |\n|---|---|---|\n| $\\tau(n)$ | antall divisorer | $\\prod(k_i+1)$ |\n| $\\sigma(n)$ | sum av divisorene | $\\prod\\frac{p_i^{k_i+1}-1}{p_i-1}$ |\n| $\\phi(n)$ | antall $\\le n$ relativt primiske til $n$ | $\\prod(p_i^{k_i}-p_i^{k_i-1})$ |\n\n**Alle tre er multiplikative**, og alle tre leses av fra samme faktorisering. Det er derfor et delpunkt ofte spør om to av dem samtidig — arbeidet med faktoriseringen er felles.\n\n**Alternative navn du kan møte:** $d(n)$ eller $\\nu(n)$ for $\\tau(n)$; $\\sigma_1(n)$ for $\\sigma(n)$ (der $\\sigma_0=\\tau$ og $\\sigma_k(n)=\\sum_{d\\mid n}d^k$ generelt). Boka bruker $\\tau$ og $\\sigma$, som er formen løsningsforslagene i arkivet bruker.\n\n**Verdiene for $n=1$:** $\\tau(1)=1$, $\\sigma(1)=1$, $\\phi(1)=1$. Det tomme produktet er $1$, og det passer med formlene.\n\n**Sammenlign de tre på $n=12=2^2\\cdot 3$:** $\\tau(12)=3\\cdot 2=6$; $\\sigma(12)=7\\cdot 4=28$; $\\phi(12)=(4-2)(3-1)=4$. Tre helt ulike tall fra samme faktorisering."
+    },
+    {
+      "id": "ma1301-5-3-d-kort-tau",
+      "type": "definition",
+      "title": "Kort: τ-formelen",
+      "content": "$$\\tau(n)=\\prod_i(k_i+1)\\qquad\\text{for } n=\\prod_i p_i^{k_i}.$$\n\n**Det er $k_i+1$, ikke $k_i$.** Grunnen: eksponenten $0$ er et lovlig valg.\n\n**Oppskriften:**\n\n1. Faktoriser $n$.\n2. Legg til $1$ på hver eksponent.\n3. Gang sammen.\n\n**Kontrollen for små $n$:** list divisorene og tell. For $n\\le 100$ tar det under et minutt og er en helt uavhengig sjekk.\n\n**Verdier verdt å kjenne igjen:**\n\n| $n$ | $\\tau(n)$ |\n|---|---|\n| primtall $p$ | $2$ |\n| $p^2$ | $3$ |\n| $p^3$ eller $pq$ | $4$ |\n| $60=2^2\\cdot 3\\cdot 5$ | $12$ |\n| $120=2^3\\cdot 3\\cdot 5$ | $16$ |\n| $360=2^3\\cdot 3^2\\cdot 5$ | $24$ |\n\n**Kjør formelen nå, på $n=720$ og $n=1\\,260$, uten å se.** *(Svar: $720=2^4\\cdot 3^2\\cdot 5$ gir $5\\cdot 3\\cdot 2=30$; $1\\,260=2^2\\cdot 3^2\\cdot 5\\cdot 7$ gir $3\\cdot 3\\cdot 2\\cdot 2=36$.)*"
+    },
+    {
+      "id": "ma1301-5-3-d-kort-sigma",
+      "type": "definition",
+      "title": "Kort: σ-formelen og utledningen",
+      "content": "$$\\sigma(p^k)=1+p+\\dots+p^k=\\frac{p^{k+1}-1}{p-1},\\qquad \\sigma(n)=\\prod_i\\sigma(p_i^{k_i}).$$\n\n**Utledningen — kunn den, så slipper du å pugge brøken.** Kall summen $S$. Da er $pS-S=p^{k+1}-1$, altså $S=\\frac{p^{k+1}-1}{p-1}$. To linjer.\n\n**Hvorfor produktet gir alle divisorene:** å gange ut parentesene $(1+p_1+\\dots)(1+p_2+\\dots)$ er å velge ett ledd fra hver — altså å velge en divisor. Hver divisor forekommer nøyaktig én gang.\n\n**Regnegrepet i praksis: summer direkte for små eksponenter.**\n\n| $p^k$ | $\\sigma$ |\n|---|---|\n| $2,4,8,16,32,64$ | $3,7,15,31,63,127$ |\n| $3,9,27,81$ | $4,13,40,121$ |\n| $5,25,125$ | $6,31,156$ |\n| $7,49$ | $8,57$ |\n| $11,13$ | $12,14$ |\n\n**Merk $\\sigma(2^k)=2^{k+1}-1$** — Mersenne-formen, som er nøkkelen til perfekte tall.\n\n**Kontrollene:** $\\sigma(n)>n$ alltid (for $n>1$), og $\\sigma(n)=n+1$ nøyaktig for primtall."
+    },
+    {
+      "id": "ma1301-5-3-d-kort-minste-n",
+      "type": "definition",
+      "title": "Kort: minste n med gitt τ",
+      "content": "**1.** Faktoriser måltallet $m$ på **alle** måter i faktorer $\\ge 2$.\n**2.** Hver faktorisering $m=f_1\\cdots f_r$ gir eksponentene $k_i=f_i-1$.\n**3.** Sorter eksponentene **synkende** og plasser dem på $2,3,5,7,\\dots$\n**4.** Regn ut alle kandidatene og velg den minste.\n**5.** Kontrollér ved å regne $\\tau$ av svaret.\n\n**Hvorfor steg 3:** $2^{k_1}3^{k_2}<2^{k_2}3^{k_1}$ når $k_1>k_2$ — store eksponenter hører på små primtall.\n\n**Fasit for de vanlige måltallene, verdt å kjenne:**\n\n| $m$ | minste $n$ | faktorisering av $n$ |\n|---|---|---|\n| $6$ | $12$ | $2^2\\cdot 3$ |\n| $8$ | $24$ | $2^3\\cdot 3$ |\n| $10$ | $48$ | $2^4\\cdot 3$ |\n| $12$ | $60$ | $2^2\\cdot 3\\cdot 5$ |\n| $14$ | $192$ | $2^6\\cdot 3$ |\n| $16$ | $120$ | $2^3\\cdot 3\\cdot 5$ |\n| $18$ | $180$ | $2^2\\cdot 3^2\\cdot 5$ |\n| $24$ | $360$ | $2^3\\cdot 3^2\\cdot 5$ |\n\n**Mønsteret å lese ut av tabellen:** store primfaktorer i $m$ (som $7$ i $14$) tvinger store eksponenter og dermed store svar. Er $m$ et primtall $q$, er svaret entydig $2^{q-1}$.\n\n**Kjør oppskriften nå, på $m=20$, uten å se.** *(Kandidater: $2^{19}$; $2^9\\cdot 3=1536$; $2^4\\cdot 3^3=432$; $2^4\\cdot 3\\cdot 5=240$; $2^3\\cdot 3^3\\cdot ...$ — nei, $20=2\\cdot 2\\cdot 5$ gir $2^4\\cdot 3\\cdot 5=240$, og $20=4\\cdot 5$ gir $2^4\\cdot 3^3=432$, og $20=2\\cdot 10$ gir $2^9\\cdot 3=1536$. Minste er $240$.)*"
+    },
+    {
+      "id": "ma1301-5-3-d-kort-identiteter",
+      "type": "definition",
+      "title": "Kort: de fire identitetene",
+      "content": "**1.** $\\tau(n)$ odde $\\iff$ $n$ er et kvadrattall. *(Alle $k_i$ partall.)*\n\n**2.** $\\dfrac{\\sigma(n)}{n}=\\displaystyle\\sum_{d\\mid n}\\frac 1d$. *(Bijeksjonen $d\\mapsto n/d$.)*\n\n**3.** $\\sigma(n)=n+1\\iff n$ er et primtall. *(Ingen andre divisorer plass.)*\n\n**4.** $\\sigma(n)\\equiv\\tau(n)\\pmod 2$ for **odde** $n$. *(Alle divisorer odde, så summen har antall ledds paritet.)*\n\n**Alle fire utledes på stedet i to–tre linjer**, og alle er typiske «vis at»-oppgaver — kort nok til å være delpunkt a) i en todelt bevisoppgave.\n\n**Den femte, som er verdt å kjenne:** $n$ perfekt $\\iff\\sigma(n)=2n\\iff\\sum_{d\\mid n}\\frac 1d=2$. Og Euklids formel: er $2^k-1$ primtall, er $2^{k-1}(2^k-1)$ perfekt.\n\n**Malen som går igjen i alle bevisene:** arbeid med **faktoriseringen** ($\\tau$, $\\sigma$) eller med **divisorparene** $(d,n/d)$. De to grepene dekker hele sjangeren.\n\n**Husk kravet om begge retninger** i ekvivalensene (1) og (3). Én vei er halve svaret."
+    },
+    {
+      "id": "ma1301-5-3-d-kort-kontroller-H",
+      "type": "definition",
+      "title": "Kort: kontrollene i sjanger H",
+      "content": "Fem kontroller, alle gratis, som fanger nesten enhver feil i sjangeren:\n\n1. **Er faktoriseringen riktig?** Gang faktorene sammen igjen. Ett tastetrykk på kalkulatoren.\n2. **Er $\\tau$ regnet med $k_i+1$?** For $n=12$ skal svaret være $6$, ikke $2$.\n3. **Er $\\sigma(n)>n$?** Alltid, for $n>1$. Og $\\sigma(n)$ skal være mindre enn $\\tau(n)\\cdot n$.\n4. **I minste-$n$-oppgaven: gir svaret riktig $\\tau$?** Regn $\\tau$ av kandidaten din.\n5. **Er den største eksponenten på det minste primtallet?** Ellers har du ikke det minste tallet.\n\n**En sjette som er verdt tiden på små $n$:** list divisorene og tell/summer direkte. For $n\\le 100$ tar det under et minutt, og det er en fullstendig uavhengig kontroll — den beste du kan få under kode D.\n\n**Og en syvende, spesielt for $\\sigma$:** regn én av $\\sigma(p^k)$-faktorene på to måter (direkte sum og brøkformel). De skal gi samme tall."
+    },
+    {
+      "id": "ma1301-5-3-d-kort-tid-H",
+      "type": "definition",
+      "title": "Kort: tidsbudsjettet for en H-oppgave",
+      "content": "Eksamen er 4 timer på rundt ti likt vektede delpunkt, altså **~24 minutter per delpunkt**. Sjanger H er blant de raskeste.\n\n| Oppgavetype | Tid |\n|---|---|\n| «Finn $\\tau(n)$» | ~2 min |\n| «Finn $\\tau(n)$ og $\\sigma(n)$» | ~4 min |\n| «Minste $n$ med $\\tau(n)=m$» | ~7 min |\n| «Vis at $\\tau(n)$ er odde $\\iff$ kvadrattall» | ~5 min |\n| «Finn alle $n$ med $\\tau(n)=4$» | ~5 min |\n\n**Hvor tiden går:** i faktoriseringen, hvis tallet er stort. Øv på å faktorisere firesifrede tall raskt — del ut $2$, $3$, $5$, $7$, $11$, $13$ i tur og orden, og stopp når kvotienten er under kvadratet av neste primtall.\n\n**Hva du IKKE skal bruke tid på:** å liste alle divisorene når oppgaven bare vil ha antallet. Formelen er der for å slippe det.\n\n**Realistisk forventning:** dette er den sjangeren der du kan hente et helt delpunkt på fem minutter. Bruk den tiden du sparer, på resiprositeten i [kap. 4.2](/ma1301/ma1301-4-2) eller bevisoppgaven i Del 6."
+    },
+    {
+      "id": "ma1301-5-3-d-kort-faktorisering",
+      "type": "definition",
+      "title": "Kort: rask faktorisering for hånd",
+      "content": "Alt i dette kapitlet begynner med en faktorisering, og under kode D må den gjøres for hånd. Rutinen:\n\n1. **Del ut $2$** så mange ganger som mulig (partallstesten er å se på siste siffer).\n2. **Del ut $3$** (siffersummen er delelig med $3$).\n3. **Del ut $5$** (siste siffer $0$ eller $5$).\n4. **Prøv $7$, $11$, $13$, $17$, $19$, …** i tur og orden.\n5. **Stopp når kvotienten er mindre enn kvadratet av neste primtall du prøver** — da er kvotienten selv et primtall.\n\n**Delelighetsreglene som er verdt å ha:**\n\n| Divisor | Test |\n|---|---|\n| $2$ | siste siffer er partall |\n| $3$ | siffersummen er delelig med $3$ |\n| $4$ | de to siste sifrene danner et tall delelig med $4$ |\n| $5$ | siste siffer er $0$ eller $5$ |\n| $9$ | siffersummen er delelig med $9$ |\n| $11$ | alternerende siffersum er delelig med $11$ |\n\n**Eksempel:** $1\\,260$. Partall: $/2=630$, $/2=315$. Siffersum $9$: $/3=105$, $/3=35$. Deretter $35=5\\cdot 7$. Altså $1\\,260=2^2\\cdot 3^2\\cdot 5\\cdot 7$, og $\\tau=3\\cdot 3\\cdot 2\\cdot 2=36$.\n\n**Kode D-realisme:** tallene i eksamensoppgaver er valgt slik at denne rutinen tar under et minutt. Møter du et tall som ikke vil faktorisere seg, har du sannsynligvis lest av feil."
+    },
+    {
+      "id": "ma1301-5-3-d-kort-hvor-brukes",
+      "type": "definition",
+      "title": "Kort: hvor τ og σ dukker opp ellers",
+      "content": "Et orienteringskort — sjangeren er liten, men koblingene er flere.\n\n- **$\\phi$-funksjonen ([kap. 2.1](/ma1301/ma1301-2-1))** er den tredje multiplikative funksjonen, og den brukes hele tiden i Del 2, 3 og 5. Arbeidsflyten er identisk.\n- **Ordenen ([kap. 5.1](/ma1301/ma1301-5-1))** krever at du **lister divisorene** av $\\phi(n)$ — og $\\tau(\\phi(n))$ er antallet du skal teste.\n- **Primitive røtter ([kap. 5.2](/ma1301/ma1301-5-2))** teller elementer per divisor av $\\phi(n)$, med identiteten $\\sum_{d\\mid m}\\phi(d)=m$ som fullstendighetskontroll. Det er samme «summér over divisorene»-grep som i $\\sigma(n)/n$-identiteten.\n- **Kvadrattall ([kap. 4.1](/ma1301/ma1301-4-1))** — at $\\tau(n)$ er odde nøyaktig for kvadrattall, er en annen inngang til kvadratbegrepet enn Legendre-symbolet, men samme idé: eksponentenes paritet.\n- **Bevisdelen (Del 6)** bruker $\\tau$- og $\\sigma$-identitetene som korte «vis at»-oppgaver, gjerne som delpunkt a) i en todelt oppgave.\n\n**Praktisk konsekvens:** kortene i dette kapitlet er ikke ferdige når Del 5 er lest. Divisorlisting er en ferdighet du bruker i hver ordensoppgave — og den er verdt å ha rask."
+    },
+    {
+      "id": "ma1301-5-3-d-kort-selvdiagnose-53",
+      "type": "definition",
+      "title": "Kort: selvdiagnose for τ og σ",
+      "content": "Sitter kapitlet? Dekk til boka, sett tre minutter, og svar:\n\n- ☐ Hva er $\\tau(n)$-formelen, og hvorfor står det $+1$?\n- ☐ Hva er $\\sigma(p^k)$, og hvordan utleder du brøkformen?\n- ☐ Hva er vilkåret for at $f(mn)=f(m)f(n)$?\n- ☐ Hva er de fire stegene i minste-$n$-oppskriften?\n- ☐ Hvorfor skal store eksponenter på små primtall?\n- ☐ Når er $\\tau(n)$ odde?\n- ☐ Hva er $\\sigma(n)/n$ uttrykt som en sum?\n- ☐ Hva betyr det at $n$ er perfekt?\n\n**Åtte spørsmål. Det er hele kapitlet.**\n\n**Deretter:** regn $\\tau$ og $\\sigma$ for $720$ og $1\\,260$ med lukket bok, og finn minste $n$ med $\\tau(n)=20$.\n\n*(Svar: $\\tau(720)=30$, $\\sigma(720)=31\\cdot 13\\cdot 6=2\\,418$; $\\tau(1\\,260)=36$, $\\sigma(1\\,260)=7\\cdot 13\\cdot 6\\cdot 8=4\\,368$; minste $n$ med $\\tau=20$ er $240=2^4\\cdot 3\\cdot 5$.)*\n\n**Hvis noe glapp:** spørsmål 1 og 4 er de som gir uttelling i seg selv. Prioritér dem."
+    },
+    {
+      "id": "ma1301-5-3-d-kort-sum-over-divisorer",
+      "type": "definition",
+      "title": "Kort: å summere over divisorene",
+      "content": "En teknikk, ikke en formel — og den løser flere identiteter i faget med én linje.\n\n**Grepet:** i en sum $\\sum_{d\\mid n}f(d)$ kan du bytte $d$ med $n/d$, fordi $d\\mapsto n/d$ er en **bijeksjon** på divisormengden (den er sin egen invers).\n\n**Tre steder det brukes:**\n\n1. **$\\sigma(n)/n=\\sum_{d\\mid n}1/d$** — bytt $d$ med $n/d$ i $\\sigma(n)=\\sum d$.\n2. **$\\sum_{d\\mid n}\\phi(d)=n$** — identiteten som er fullstendighetskontrollen i [kap. 5.2](/ma1301/ma1301-5-2). Beviset er å telle tallene $1,\\dots,n$ etter hvilken gcd de har med $n$.\n3. **Multiplikative funksjoner generelt:** er $f$ multiplikativ, er $g(n)=\\sum_{d\\mid n}f(d)$ også multiplikativ. Det er derfor $\\sigma=\\sum_{d\\mid n}d$ er multiplikativ i det hele tatt.\n\n**Praktisk kontroll som følger av (1):** $\\sum_{d\\mid n}\\frac 1d$ er alltid mellom $1$ og $\\sigma(n)/n$, og for $n=360$ er den $\\frac{1170}{360}=3{,}25$. Er tallet ditt under $1$ eller over $4$ for et tresifret $n$, har du regnet feil.\n\n**Hvorfor kortet står her:** «summér over divisorene» er formuleringen i oppgaveteksten når en identitet skal vises, og bijeksjonsgrepet er nesten alltid første steg. Ha det klart, og halvparten av «vis at»-oppgavene i sjangeren er tre linjer."
+    },
+    {
+      "id": "ma1301-5-3-d-kort-grenser",
+      "type": "definition",
+      "title": "Kort: rimelighetsgrenser for τ og σ",
+      "content": "Tre ulikheter som er gratis kontroller på et svar. Alle **utledes på stedet** i én linje.\n\n**1. $\\tau(n)\\le 2\\sqrt n$.** Divisorene kommer i par $(d,n/d)$ der minst én er $\\le\\sqrt n$. Det er høyst $\\sqrt n$ kandidater under grensen, og hver gir høyst to divisorer.\n\n*Bruk:* $\\tau(360)=24$, og $2\\sqrt{360}\\approx 38$ ✓. Får du $\\tau=50$ for et tresifret tall, er det regnefeil.\n\n**2. $n+1\\le\\sigma(n)<n\\cdot\\tau(n)$.** Nedre grense: både $1$ og $n$ er divisorer, med likhet nøyaktig for primtall. Øvre grense: det er $\\tau(n)$ divisorer, alle $\\le n$, og ikke alle er $n$.\n\n*Bruk:* $\\sigma(360)=1\\,170$, og grensene er $361\\le 1\\,170<24\\cdot 360=8\\,640$ ✓.\n\n**3. $\\sigma(n)/n=\\sum_{d\\mid n}1/d$ vokser sakte.** For $n$ opp til noen tusen ligger forholdet mellom $1$ og $4$. Perfekte tall har forholdet nøyaktig $2$.\n\n**Hvorfor kortet er verdt plassen under kode D:** du har ingen fasit å sammenligne med, og grovkontroller er det nærmeste du kommer. Alle tre tar under ti sekunder, og de fanger de store regnefeilene — de som kommer av en feil faktorisering."
+    },
+    {
+      "id": "ma1301-5-3-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "ma1301-5-3-rep-inn",
+          "type": "text",
+          "content": "Fem korte oppgaver fra [kap. 1.1](/ma1301/ma1301-1-1) og [kap. 2.1](/ma1301/ma1301-2-1). Fasit under hver.\n\n**R1.** Faktoriser $720$ og $1\\,260$ i primtall.\n\n*Fasit:* $720=72\\cdot 10=(2^3\\cdot 3^2)(2\\cdot 5)=2^4\\cdot 3^2\\cdot 5$. Og $1\\,260=2^2\\cdot 3^2\\cdot 5\\cdot 7$ (del ut $2$ to ganger, $3$ to ganger, så $35=5\\cdot 7$). Kontroll: $16\\cdot 9\\cdot 5=720$ ✓ og $4\\cdot 9\\cdot 35=1\\,260$ ✓.\n\n**R2.** Regn ut $\\phi(720)$.\n\n*Fasit:* $\\phi(720)=\\phi(2^4)\\phi(3^2)\\phi(5)=(16-8)(9-3)(5-1)=8\\cdot 6\\cdot 4=192$ ([kap. 2.1](/ma1301/ma1301-2-1)). Merk at $\\phi(p^k)=p^k-p^{k-1}$, ikke $p^k-1$.\n\n**R3.** List alle divisorene av $24$.\n\n*Fasit:* $24=2^3\\cdot 3$, så divisorene er $1,2,3,4,6,8,12,24$ — åtte stykker, som stemmer med $\\tau(24)=(3+1)(1+1)=8$ ✓.\n\n**R4.** Hva sier aritmetikkens fundamentalteorem?\n\n*Fasit:* At hvert helt tall $n>1$ har en primtallsfaktorisering, og at den er **entydig** opp til rekkefølgen ([kap. 1.1](/ma1301/ma1301-1-1)). Entydigheten er det som gjør at $\\tau$ og $\\sigma$ er veldefinerte funksjoner av faktoriseringen.\n\n**R5.** Regn ut den geometriske summen $1+3+9+27$.\n\n*Fasit:* $40$. Med formelen: $\\frac{3^4-1}{3-1}=\\frac{80}{2}=40$ ✓. Dette er $\\sigma(27)$."
+        }
+      ]
+    },
+    {
+      "id": "ma1301-5-3-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "ma1301-5-3-symbol-inn",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $\\tau(n)$ | antall positive divisorer i $n$ |\n| $\\sigma(n)$ | summen av de positive divisorene i $n$ |\n| $\\phi(n)$ | Eulers $\\phi$-funksjon ([kap. 2.1](/ma1301/ma1301-2-1)) |\n| $n=\\prod p_i^{k_i}$ | primtallsfaktoriseringen |\n| $k_i$ | eksponenten til primtallet $p_i$ |\n| $d\\mid n$ | «$d$ er en divisor i $n$» |\n| $\\sum_{d\\mid n}$ | sum over alle positive divisorer |\n| $m$ | måltallet i «minste $n$ med $\\tau(n)=m$» |\n| $2^k-1$ | Mersenne-form, brukt i perfekte tall |\n| $\\blacksquare$ | bevis slutt |\n\n**Formler i dette delkapitlet:**\n\n$$\\tau(n)=\\prod_i(k_i+1)$$\nAntall divisorer. **(må sitte utenat — det er $k_i+1$, ikke $k_i$; grunnen er at eksponenten $0$ er et lovlig valg)**\n\n$$\\sigma(p^k)=1+p+\\dots+p^k=\\frac{p^{k+1}-1}{p-1}$$\nDivisorsummen for en primtallspotens. **(utledes på stedet — $pS-S=p^{k+1}-1$; to linjer. Det du må kunne, er at $\\sigma(p^k)$ ER den geometriske summen.)**\n\n$$\\sigma(n)=\\prod_i\\sigma(p_i^{k_i})$$\nDivisorsummen generelt, ved multiplikativitet. **(utledes på stedet — å gange ut parentesene er å velge en divisor)**\n\n$$f(mn)=f(m)f(n)\\quad\\text{når }\\gcd(m,n)=1$$\nMultiplikativitet — gjelder $\\tau$, $\\sigma$ og $\\phi$. **(må sitte utenat — vilkåret $\\gcd=1$ er ufravikelig; $\\tau(4)\\tau(6)\\ne\\tau(24)$)**\n\n$$k_i=f_i-1,\\qquad\\text{største eksponent på minste primtall}$$\nMinste-$n$-oppskriften: faktoriser måltallet, trekk fra $1$, sorter synkende. **(må sitte utenat)**\n\n$$\\tau(n)\\ \\text{odde}\\iff n\\ \\text{kvadrattall}$$\nParitetsidentiteten. **(utledes på stedet — alle $k_i+1$ odde betyr alle $k_i$ partall; tre linjer)**\n\n$$\\frac{\\sigma(n)}{n}=\\sum_{d\\mid n}\\frac 1d$$\nDivisorsum-identiteten. **(utledes på stedet — bijeksjonen $d\\mapsto n/d$; én linje)**\n\n$$\\sigma(n)=n+1\\iff n\\ \\text{er primtall}$$\nKarakteriseringen av primtall ved $\\sigma$. **(utledes på stedet — ingen plass til flere divisorer; to linjer)**\n\n$$\\sigma(n)\\equiv\\tau(n)\\pmod 2\\qquad (n\\ \\text{odde})$$\nParitetssammenhengen for oddetall. **(utledes på stedet — alle divisorer odde)**\n\n$$n\\ \\text{perfekt}\\iff\\sigma(n)=2n$$\nPerfekte tall: $6$, $28$, $496$, $8\\,128$. **(må kjenne definisjonen)**\n\n$$2^k-1\\ \\text{primtall}\\ \\Longrightarrow\\ 2^{k-1}(2^k-1)\\ \\text{perfekt}$$\nEuklids karakterisering. **(utledes på stedet — $\\sigma(2^{k-1})\\sigma(q)=(2^k-1)(q+1)=2n$; tre linjer)**\n\n**Arbeidsflyten i sjangeren** — (1) faktoriser $n$, (2) regn funksjonen per primtallspotens, (3) gang sammen, (4) kontrollér. **(må sitte utenat — den er identisk for $\\tau$, $\\sigma$ og $\\phi$)**"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

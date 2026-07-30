@@ -1,0 +1,482 @@
+{
+  "id": "ma1301-1-1",
+  "courseId": "ma1301",
+  "chapterNumber": "1.1",
+  "title": "Delelighet, primtall og aritmetikkens fundamentalteorem",
+  "description": "Grunnbegrepene faget hviler på: delelighet a|b, primtall, entydig primtallsfaktorisering (aritmetikkens fundamentalteorem), Euklids lemma og gcd/lcm via faktorisering — arbeidshestene i alt som kommer.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "avgjøre om et tall deler et annet, og begrunne det ut fra definisjonen",
+    "bruke divisjonsalgoritmen til å finne kvotient og rest, også for negative tall",
+    "faktorisere et tall i primtall med prøvedivisjon, og avgjøre om et tall er et primtall",
+    "finne største felles divisor og minste felles multiplum fra primtallsfaktoriseringen, og kontrollere svaret med produktregelen"
+  ],
+  "content": [
+    {
+      "id": "ma1301-1-1-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "Dette kapitlet gir ingen egen eksamensoppgave. Det gir grunnlaget for fire av dem.\n\n**Sjangrene dette kapitlet bærer** — bokstavene er bokas egne forkortelser for oppgavetypene, forklart i [kap. 0.1](/ma1301/ma1301-0-1):\n\n| Sjanger | Oppgavetypen | Frekvens |\n|---|---|---|\n| **A** — lineær diofantisk likning $ax+by=c$ | krever $\\gcd(a,b)$ | 10 av 15 sett |\n| **B** — lineær kongruens $ax\\equiv b\\pmod m$ | krever $\\gcd(a,m)$ | inngår i ~10 av 15 sett |\n| **C** — det kinesiske restteoremet | krever «parvis relativt primiske» | 12 av 15 sett |\n| **I** — bevis om delelighet og primtall | bruker aritmetikkens fundamentalteorem og Euklids lemma direkte | ~8 av 15 sett |\n\nOg over alt: **Euklids algoritme forekommer i 15 av 15 sett (100 %)**, og den regner ut nettopp $\\gcd(a,b)$ — begrepet som defineres her.\n\n**Slik brukes stoffet i fasitene i arkivet.** Standardgrepet i et delelighetsbevis er å faktorisere i primtall, og deretter navngi **aritmetikkens fundamentalteorem** eller **Euklids lemma** der argumentet hviler på dem. Et bevis som bruker entydig faktorisering uten å si at det gjør det, viser ikke at du kjenner resultatet — og det er kjennskapen som vurderes.\n\n**Prioritet: høyeste.** Ikke fordi kapitlet spørres om direkte, men fordi alt annet i boka står på det."
+    },
+    {
+      "id": "ma1301-1-1-utenat",
+      "type": "tip",
+      "title": "Utenat under kode D",
+      "content": "Eksamen er hjelpemiddelkode D: ingen bok, ingen formelsamling, ingen tabeller, ingen egne notater — bare en enkel kalkulator. Fra dette kapitlet må dette ligge i hodet:\n\n**Må sitte utenat:**\n\n- **divisjonsalgoritmen** $a=qb+r$ med $0\\le r<b$ — og at resten alltid er ikke-negativ, også når $a$ er negativ\n- **delelighetsregnereglene**, særlig $a\\mid b$ og $a\\mid c\\ \\Rightarrow\\ a\\mid(bx+cy)$\n- at $\\gcd$ og $\\operatorname{lcm}$ leses av primtallsfaktoriseringen: **minste** eksponent for $\\gcd$, **største** for $\\operatorname{lcm}$\n- **produktregelen** $\\gcd(a,b)\\cdot\\operatorname{lcm}(a,b)=ab$\n\n**Utledes på stedet:** at du kan stoppe prøvedivisjonen ved $\\sqrt{n}$. Utledningen tar to linjer: er $n=ab$ med $1<a\\le b<n$, så er $a\\le\\sqrt n$, for ellers ville $ab>\\sqrt n\\cdot\\sqrt n=n$. Altså har hvert sammensatt tall en divisor $\\le\\sqrt n$, og finner du ingen, er $n$ et primtall. Under et halvt minutt, og du slipper å huske en grense du kan resonnere deg til.\n\n**Selvtest, ett minutt:** dekk til siden og skriv ned (i) divisjonsalgoritmen med begge betingelsene, (ii) hva $\\gcd$ og $\\operatorname{lcm}$ gjør med eksponentene i faktoriseringen, og (iii) produktregelen. Får du alle tre, er fundamentet på plass."
+    },
+    {
+      "id": "ma1301-1-1-forkunnskaper",
+      "type": "text",
+      "content": "### Forkunnskaper\n\n**Dette kapitlet kan leses uten forkunnskaper fra boka** — det er her faget begynner. Delelighet, primtall og faktorisering bygges opp fra grunnen.\n\nHar du R2 fra videregående, som er opptakskravet til emnet, har du alt du trenger. To VGS-kapitler er nyttige ankre hvis du vil friske opp noe først: [Polynomer og polynomdivisjon](/r1/r1-1-1) (divisjon med rest, men for polynomer — samme idé, andre objekter) og [Mengdelære](/1t/1t-1-7) (notasjonen for tallmengder)."
+    },
+    {
+      "id": "ma1301-1-1-motivasjon",
+      "type": "text",
+      "content": "### Der faget begynner: hva som blir igjen når du deler\n\nDu kjøper 17 boller til 12 personer. Hver får én, og fem blir igjen. Det er hele tallteorien i én setning: **vi bryr oss om hva som blir igjen.**\n\nNesten alt i MA1301 handler om rester. «Hvilken rest gir $7^{402}$ når du deler på 100?» «Finnes det et tall som gir rest 3 ved divisjon med 7 og rest 4 ved divisjon med 9?» «Hvordan finner du dekrypteringsnøkkelen i et RSA-system?» Alle tre spørsmålene besvares med apparatet som bygges opp i dette og de neste fire kapitlene.\n\nOg apparatet starter med det motsatte tilfellet: når resten er **null**. Det er dét delelighet betyr, og det er den ene relasjonen mellom to tall som hele faget hviler på.\n\nUnderveis møter du to resultater som ser trivielle ut og ikke er det: at hvert tall kan skrives som et produkt av primtall på **nøyaktig én måte**, og at et primtall som deler et produkt, må dele **en av faktorene**. De to er arbeidshestene i praktisk talt hvert delelighetsbevis på eksamen, og de er de to du navngir når du fører beviset.\n\n*Tidsanslag for kapitlet: ~55 minutter lesetid, fordelt på seks løkker à 7–12 minutter. Regner du oppgavene med penn, som du bør, legg til omtrent halvparten.*"
+    },
+    {
+      "id": "ma1301-1-1-l1-intro",
+      "type": "text",
+      "content": "## Løkke 1: Delelighet — når resten er null\n\n*~8 minutter.*\n\nVi starter med å si presist hva det betyr at et tall «går opp i» et annet. Definisjonen ser beskjeden ut, men merk formen: den sier ikke noe om divisjon. Den sier at **det finnes et tall**. Det er derfor delelighetsbevis alltid starter med å sette navn på det tallet."
+    },
+    {
+      "id": "ma1301-1-1-d-delelighet",
+      "type": "definition",
+      "title": "Delelighet",
+      "content": "At $a$ **deler** $b$ betyr at $b$ er et helt antall $a$-er — at det finnes et helt tall $t$ slik at $b=at$. Vi skriver da\n\n$$a\\mid b,$$\n\nog leser det «$a$ deler $b$». Hvis det ikke finnes noe slikt $t$, skriver vi $a\\nmid b$.\n\nHer er $a$ og $b$ hele tall, og $a\\ne 0$. Merk retningen på symbolet: **det lille tallet står først**. $3\\mid 12$ er sant, $12\\mid 3$ er galt. Dette er den vanligste forvekslingen i faget, og den koster hele oppgaver.\n\n**Poenget med formen «det finnes en $t$»:** når du skal bevise noe om delelighet, er $t$ det du får utdelt gratis. Sier oppgaven $a\\mid b$, skriver du straks $b=at$ og har et tall å regne med. Sier oppgaven at du skal *vise* $a\\mid b$, er jobben å produsere en $t$."
+    },
+    {
+      "id": "ma1301-1-1-d-divisor-multiplum",
+      "type": "definition",
+      "title": "Divisor, multiplum og trivielle divisorer",
+      "content": "Når $a\\mid b$, kaller vi $a$ en **divisor** i $b$, og $b$ et **multiplum** av $a$.\n\nHvert tall $n>1$ har alltid minst fire divisorer å regne med: $1$, $-1$, $n$ og $-n$. Disse kalles de **trivielle** divisorene, fordi de finnes uansett hva $n$ er. En divisor $d$ med $1<d<n$ kalles en **ekte** divisor.\n\nDet er de ekte divisorene alt handler om: et tall er et primtall nettopp når det ikke har noen.\n\nI dette faget arbeider vi nesten alltid med **positive** divisorer, og skriver bare $1$ og $n$ når vi mener de trivielle. Fortegnet spiller sjelden noen rolle, siden $a\\mid b$ nøyaktig når $|a|\\mid|b|$."
+    },
+    {
+      "id": "ma1301-1-1-d-regneregler",
+      "type": "definition",
+      "title": "Regneregler for delelighet",
+      "content": "Fire regler som brukes hele tiden. La $a$, $b$, $c$, $x$ og $y$ være hele tall.\n\n1. Hvis $a\\mid b$ og $a\\mid c$, så $a\\mid(b+c)$ og $a\\mid(b-c)$.\n2. Hvis $a\\mid b$, så $a\\mid bc$ for hvilken som helst $c$.\n3. **Lineærkombinasjonsregelen** (den viktigste): hvis $a\\mid b$ og $a\\mid c$, så\n$$a\\mid(bx+cy)\\qquad\\text{for alle hele tall }x,y.$$\n4. Hvis $a\\mid b$ og $b\\mid c$, så $a\\mid c$.\n\nRegel 3 inneholder regel 1 og 2 som spesialtilfeller ($x=y=1$, henholdsvis $y=0$). **Denne regelen må sitte utenat** — den er verktøyet i et flertall av delelighetsbevisene på eksamen, og den er selve grunnen til at Euklids algoritme virker.\n\nAlle fire bevises på samme måte: skriv $b=at$ og $c=as$, og faktoriser ut $a$."
+    },
+    {
+      "id": "ma1301-1-1-d-lineaerkombinasjon",
+      "type": "definition",
+      "title": "Lineærkombinasjon",
+      "content": "En **lineærkombinasjon** av $a$ og $b$ er et tall på formen\n\n$$ax+by,$$\n\nder $x$ og $y$ er hele tall. Både $x$ og $y$ får være negative eller null.\n\nUttrykket ser uskyldig ut, men det er det sentrale i hele Del 1. To eksempler på hvor det dukker opp: **Bézouts identitet** ([kap. 1.2](/ma1301/ma1301-1-2)) sier at $\\gcd(a,b)$ selv er en lineærkombinasjon av $a$ og $b$; og en **lineær diofantisk likning** ([kap. 1.3](/ma1301/ma1301-1-3)) spør nettopp om hvilke tall som er lineærkombinasjoner av $a$ og $b$.\n\nLineærkombinasjonsregelen over sier derfor noe sterkt: enhver felles divisor i $a$ og $b$ deler *alle* lineærkombinasjoner av dem."
+    },
+    {
+      "id": "ma1301-1-1-d-transitiv",
+      "type": "definition",
+      "title": "Delelighet er transitiv",
+      "content": "Hvis $a\\mid b$ og $b\\mid c$, så $a\\mid c$.\n\nBeviset er én linje og verdt å kunne kjøre: $b=at$ og $c=bs$ gir $c=(at)s=a(ts)$, og $ts$ er et helt tall.\n\nPraktisk bruk: transitiviteten er grunnen til at det holder å finne **én** primdivisor når du skal vise at et tall er sammensatt. Har du vist at $7\\mid n$, og $7$ er et primtall, er $n$ sammensatt — du behøver ikke faktorisere resten."
+    },
+    {
+      "id": "ma1301-1-1-e1",
+      "type": "example",
+      "title": "Lineærkombinasjonsregelen i bruk",
+      "problem": "La $n$ være et helt tall, og anta at $7\\mid n$. Vis at $7\\mid(3n+91)$.",
+      "solution": "**Vi bruker lineærkombinasjonsregelen — den må sitte utenat.** For å bruke den trenger vi at $7$ deler begge leddene vi kombinerer.\n\n**Steg 1: skriv ut det vi har fått.** At $7\\mid n$ betyr at det finnes et helt tall $t$ med\n$$n=7t.$$\n\n**Steg 2: sjekk det andre leddet.** $91=7\\cdot 13$, altså $7\\mid 91$.\n\n**Steg 3: kombiner.** Nå deler $7$ både $n$ og $91$, så etter lineærkombinasjonsregelen deler $7$ også $3n+1\\cdot 91$:\n$$3n+91 = 3(7t)+7\\cdot 13 = 7(3t+13).$$\nSiden $3t+13$ er et helt tall, har vi funnet den $t$-en definisjonen ber om.\n\n**Konklusjon:** $7\\mid(3n+91)$, som var det vi skulle vise. $\\blacksquare$\n\n**Kontroll med et tall.** Sett $n=21$ (som er delelig med 7). Da er $3n+91=63+91=154=7\\cdot 22$. Stemmer.\n\n*Legg merke til føringen: vi skrev ut $t$-en eksplisitt og endte med å presentere $3n+91$ som $7$ ganger et helt tall. Det er hele beviset — å produsere tallet definisjonen krever.*"
+    },
+    {
+      "id": "ma1301-1-1-ex-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-1-1-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Avgjør for hvert av tallene $3$, $4$, $6$ og $9$ om det deler $1386$. Begrunn hvert svar.",
+        "solution": "Vi tester hver for seg med divisjon.\n\n**$3\\mid 1386$?** $1386 = 3\\cdot 462$, så **ja**.\n\n**$4\\mid 1386$?** $1386 = 4\\cdot 346 + 2$. Resten er $2$, ikke $0$, så **nei**. (Kort begrunnelse: $1386$ er delelig med $2$, men $1386/2=693$ er et oddetall, så $1386$ inneholder bare én faktor $2$.)\n\n**$6\\mid 1386$?** $1386=6\\cdot 231$, så **ja**. (Alternativt: $2\\mid 1386$ og $3\\mid 1386$, og siden $\\gcd(2,3)=1$ følger $6\\mid 1386$.)\n\n**$9\\mid 1386$?** $1386 = 9\\cdot 154$, så **ja**.\n\n**Sluttsvar:** $3$, $6$ og $9$ deler $1386$; $4$ gjør det ikke.\n\n*Kontroll mot faktoriseringen (som vi bygger opp i løkke 4): $1386 = 2\\cdot 3^2\\cdot 7\\cdot 11$. Her ser du alt på én gang — bare én faktor $2$ forklarer at $4$ faller ut, og to faktorer $3$ forklarer at både $3$ og $9$ går opp.*",
+        "hints": [
+          "Del hvert tall og se om resten er $0$.",
+          "For $4$: hvor mange faktorer $2$ inneholder $1386$?"
+        ]
+      }
+    },
+    {
+      "id": "ma1301-1-1-l2-intro",
+      "type": "text",
+      "content": "## Løkke 2: Divisjonsalgoritmen — resten er entydig\n\n*~8 minutter.*\n\nDeler du $17$ på $12$, får du $1$ og $5$ igjen. Det interessante er at det ikke finnes noe alternativ: kvotienten og resten er **entydig bestemt**. Det er innholdet i divisjonsalgoritmen, og det er grunnsteinen under Euklids algoritme i neste kapittel.\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "ma1301-1-1-d-divisjonsalgoritmen",
+      "type": "definition",
+      "title": "Divisjonsalgoritmen",
+      "content": "For hvert helt tall $a$ og hvert positivt helt tall $b$ finnes det **nøyaktig ett** par hele tall $q$ og $r$ slik at\n\n$$a=qb+r,\\qquad 0\\le r<b.$$\n\nTallet $q$ heter **kvotienten** og $r$ heter **resten**.\n\nTo ting er verdt å merke seg, og de er begge kilder til feil:\n\n- **Resten er alltid ikke-negativ**, og alltid strengt mindre enn $b$. Betingelsen $0\\le r<b$ er ikke pynt — det er den som gjør paret entydig.\n- **Entydigheten** er det vi bruker. Har du på ett vis funnet $a=qb+r$ med $0\\le r<b$, så er det *det* svaret; ingen annen framstilling finnes.\n\n**Dette må sitte utenat**, med begge betingelsene. Divisjonsalgoritmen er den ene setningen Euklids algoritme kjøres på, om og om igjen."
+    },
+    {
+      "id": "ma1301-1-1-d-kvotient-rest",
+      "type": "definition",
+      "title": "Kvotient og rest",
+      "content": "I $a=qb+r$ er **kvotienten** $q$ hvor mange hele $b$-er som får plass i $a$, og **resten** $r$ er hva som blir liggende igjen.\n\nNotasjon vi bruker gjennom boka: $a\\bmod b$ betyr resten $r$. Altså er $17\\bmod 12=5$.\n\nSammenhengen med delelighet er direkte: **$b\\mid a$ nøyaktig når $a\\bmod b=0$.** Delelighet er altså spesialtilfellet «ingen rest» av divisjonsalgoritmen, og resten er målet på hvor langt fra delelighet vi er. Hele resten av faget handler om det målet."
+    },
+    {
+      "id": "ma1301-1-1-d-negativ-rest",
+      "type": "definition",
+      "title": "Rest ved negative tall",
+      "content": "Kravet $0\\le r<b$ gjelder også når $a$ er negativ, og det er da folk regner feil.\n\nTa $a=-37$ og $b=10$. Fristelsen er å skrive $-37=(-3)\\cdot 10-7$, altså rest $-7$. Men $-7$ er negativ, så det bryter betingelsen. Riktig framstilling er\n\n$$-37=(-4)\\cdot 10+3,\\qquad 0\\le 3<10.$$\n\n**Regelen:** rund kvotienten **nedover** (mot minus uendelig), aldri mot null. Da blir resten automatisk ikke-negativ.\n\nKontrollen tar to sekunder: er resten din negativ eller $\\ge b$, har du valgt feil $q$. Legg til eller trekk fra én, og juster resten med $b$."
+    },
+    {
+      "id": "ma1301-1-1-e2",
+      "type": "example",
+      "title": "Divisjonsalgoritmen i to retninger",
+      "problem": "Finn kvotient og rest når **a)** $2024$ deles på $47$, og **b)** $-37$ deles på $10$.",
+      "solution": "**a)** Vi leter etter hvor mange hele $47$-ere som får plass i $2024$. Siden $47\\cdot 40=1880$ og $47\\cdot 43=2021$, mens $47\\cdot 44=2068>2024$, er kvotienten $43$:\n$$2024=43\\cdot 47+3.$$\n**Kontroll av betingelsen:** $0\\le 3<47$. Oppfylt, så **ved divisjonsalgoritmen** er dette den eneste framstillingen. Kvotient $q=43$, rest $r=3$.\n\n**b)** Her er $a$ negativ. Kvotienten skal rundes **nedover**: $-37/10=-3{,}7$, og nærmeste hele tall nedover er $-4$. Da blir\n$$-37=(-4)\\cdot 10+3.$$\n**Kontroll av betingelsen:** $0\\le 3<10$. Oppfylt. Kvotient $q=-4$, rest $r=3$.\n\n*Den vanlige feilen her er å skrive $-37=(-3)\\cdot 10-7$. Regnestykket stemmer, men $r=-7$ bryter $0\\le r<b$, så det er ikke framstillingen divisjonsalgoritmen snakker om — og i kongruensregningen fra [kap. 1.4](/ma1301/ma1301-1-4) ville det gitt deg feil restklasse.*\n\n**Sluttsvar:** **a)** $q=43$, $r=3$. **b)** $q=-4$, $r=3$."
+    },
+    {
+      "id": "ma1301-1-1-ex-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-1-1-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Bruk divisjonsalgoritmen på $73$ som divisor.\n\n**a)** Finn $q$ og $r$ når $a=3458$.\n**b)** Finn $q$ og $r$ når $a=-3458$.\n**c)** Hva er $3458\\bmod 73$?",
+        "solution": "**a)** Vi finner hvor mange hele $73$-ere som får plass i $3458$. Siden $73\\cdot 47=3431$ og $73\\cdot 48=3504>3458$, er\n$$3458=47\\cdot 73+27.$$\n**Kontroll:** $3431+27=3458$, og $0\\le 27<73$. Altså $q=47$, $r=27$.\n\n**b)** Kvotienten rundes nedover. Fra a) vet vi at $3458$ ligger mellom $47\\cdot 73$ og $48\\cdot 73$, så $-3458$ ligger mellom $-48\\cdot 73$ og $-47\\cdot 73$, og kvotienten er $-48$:\n$$-3458=(-48)\\cdot 73+r,\\qquad r=-3458+48\\cdot 73=-3458+3504=46.$$\n**Kontroll:** $0\\le 46<73$. Altså $q=-48$, $r=46$.\n\n*Legg merke til sammenhengen: restene $27$ og $46$ summerer til $73$. Det er ingen tilfeldighet — bytter du fortegn på $a$, blir den nye resten $b-r$ (så lenge $r\\ne 0$).*\n\n**c)** $3458\\bmod 73 = 27$, altså resten fra a).\n\n**Sluttsvar:** **a)** $q=47$, $r=27$. **b)** $q=-48$, $r=46$. **c)** $27$.",
+        "hints": [
+          "I a): hvor mange ganger går $73$ i $3458$? Prøv $73\\cdot 47$.",
+          "I b): kvotienten rundes nedover, så den blir én mindre enn $-47$."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-1-1-l3-intro",
+      "type": "text",
+      "content": "## Løkke 3: Primtall og prøvedivisjon\n\n*~10 minutter.*\n\nPrimtallene er byggesteinene. Definisjonen er enkel, men det praktiske spørsmålet på eksamen er alltid det samme: **hvordan avgjør du raskt, med penn og en enkel kalkulator, om et gitt tall er et primtall?** Svaret er prøvedivisjon — og trikset som gjør den kort."
+    },
+    {
+      "id": "ma1301-1-1-d-primtall",
+      "type": "definition",
+      "title": "Primtall",
+      "content": "Et helt tall $p>1$ er et **primtall** hvis det ikke har andre positive divisorer enn $1$ og $p$ selv — altså ingen ekte divisorer.\n\nDe første er $2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,\\dots$\n\nTre presiseringer som er verdt å ha på plass:\n\n- **$1$ er ikke et primtall.** Grunnen er ikke smakssak: hadde $1$ vært med, ville entydig faktorisering falt bort, siden $6=2\\cdot 3=1\\cdot 2\\cdot 3=1\\cdot 1\\cdot 2\\cdot 3$.\n- **$2$ er et primtall**, og det eneste like. Alle andre primtall er odde — et faktum som brukes i praktisk talt hver case-analyse i Del 6.\n- Kravet $p>1$ utelukker også $0$ og de negative tallene fra definisjonen.\n\nI dette faget dukker primtallene opp i tre roller: som byggesteiner i faktoriseringen, som moduler (Fermat og Wilson gjelder bare modulo primtall), og som selve emnet i bevisoppgavene."
+    },
+    {
+      "id": "ma1301-1-1-d-sammensatt",
+      "type": "definition",
+      "title": "Sammensatt tall",
+      "content": "Et helt tall $n>1$ som **ikke** er et primtall, kalles **sammensatt**. Da finnes det en ekte divisor, altså en faktorisering\n\n$$n=ab\\qquad\\text{med}\\qquad 1<a\\le b<n.$$\n\nTallet $1$ er verken primtall eller sammensatt — det står i en klasse for seg (det kalles en *enhet*).\n\nMerk hva det koster å vise de to tingene. For å vise at $n$ er **sammensatt** holder det å finne **én** divisor. For å vise at $n$ er et **primtall** må du utelukke **alle**. Det er derfor prøvedivisjon trenger trikset i neste kort — uten det ville jobben vært håpløs."
+    },
+    {
+      "id": "ma1301-1-1-d-divisorpar",
+      "type": "definition",
+      "title": "Divisorpar-trikset: hvorfor du kan stoppe ved kvadratrota",
+      "content": "Hvis $n$ er sammensatt, har $n$ en primdivisor $p$ med $p\\le\\sqrt n$.\n\n**Utledningen tar to linjer og utledes på stedet:** skriv $n=ab$ med $1<a\\le b<n$. Var begge faktorene større enn $\\sqrt n$, ville $n=ab>\\sqrt n\\cdot\\sqrt n=n$ — umulig. Altså er $a\\le\\sqrt n$, og enhver primdivisor i $a$ er da også $\\le\\sqrt n$ og deler $n$.\n\n**Konsekvensen er hele grunnen til at prøvedivisjon er praktisk:** finner du ingen primdivisor $\\le\\sqrt n$, er $n$ et primtall. Du slipper å teste videre.\n\nBildet bak navnet: divisorene i $n$ kommer i par $(a,b)$ med $ab=n$, og i hvert par ligger én på hver side av $\\sqrt n$. Finner du ingen på undersiden, finnes det ingen par — og da ingen ekte divisor."
+    },
+    {
+      "id": "ma1301-1-1-d-provedivisjon",
+      "type": "definition",
+      "title": "Prøvedivisjon som prosedyre",
+      "content": "Slik avgjør du om $n$ er et primtall, med penn og enkel kalkulator:\n\n1. Regn $\\sqrt n$, og finn det største hele tallet under (dette er den øvre grensen).\n2. Prøv å dele $n$ på primtallene $2,3,5,7,11,\\dots$ opp til denne grensen.\n3. Går ingen av dem opp, er $n$ et primtall. Går én opp, er $n$ sammensatt — og du har funnet en faktor.\n\n**Bare primtallene trenger testes.** Grunnen: hvis et sammensatt tall som $6$ deler $n$, gjør $2$ det også, så $2$ ble allerede fanget.\n\n**Prosedyren må sitte utenat**, og den er verdt å kjøre til den er automatisk — under kode D er det den eneste faktoriseringsmetoden du har. To snarveier å ha i fingrene: $3\\mid n$ nøyaktig når siffersummen er delelig med $3$, og $11\\mid n$ nøyaktig når den alternerende siffersummen er delelig med $11$."
+    },
+    {
+      "id": "ma1301-1-1-e3",
+      "type": "example",
+      "title": "Er 391 et primtall?",
+      "problem": "Avgjør om $391$ er et primtall. Er det ikke, oppgi en faktorisering.",
+      "solution": "**Steg 1: finn grensen.** $\\sqrt{391}\\approx 19{,}8$, så etter **divisorpar-trikset** holder det å teste primtall opp til $19$. Kandidatene er $2,3,5,7,11,13,17,19$ — åtte divisjoner i verste fall.\n\n**Steg 2: test dem i rekkefølge.**\n\n| $p$ | Test | Resultat |\n|---|---|---|\n| $2$ | $391$ er odde | nei |\n| $3$ | siffersum $3+9+1=13$, ikke delelig med $3$ | nei |\n| $5$ | siste siffer er ikke $0$ eller $5$ | nei |\n| $7$ | $391=7\\cdot 55+6$ | nei |\n| $11$ | alternerende siffersum $3-9+1=-5$ | nei |\n| $13$ | $391=13\\cdot 30+1$ | nei |\n| $17$ | $391=17\\cdot 23$ | **ja** |\n\n**Steg 3: konkluder.** Vi fant en ekte divisor, så $391$ er **sammensatt**:\n$$391=17\\cdot 23.$$\nBegge faktorene er primtall ($17$ og $23$ står i primtallslisten), så dette er den fullstendige primtallsfaktoriseringen.\n\n**Kontroll:** $17\\cdot 23=17\\cdot 20+17\\cdot 3=340+51=391$. Stemmer.\n\n*Legg merke til hvor billig grensen gjorde jobben. Uten divisorpar-trikset måtte vi i prinsippet testet opp mot $391$; med det holdt sju tester før vi traff. Og legg merke til at $23>\\sqrt{391}$ — den store faktoren i paret ligger alltid på oversiden, og den finner du gratis når du har funnet den lille.*"
+    },
+    {
+      "id": "ma1301-1-1-ex-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-1-1-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Avgjør om $493$ er et primtall. Er det ikke, oppgi primtallsfaktoriseringen.",
+        "solution": "**Steg 1: grensen.** $\\sqrt{493}\\approx 22{,}2$, så etter divisorpar-trikset tester vi primtallene opp til $22$: $2,3,5,7,11,13,17,19$.\n\n**Steg 2: testene.**\n\n- $2$: $493$ er odde. Nei.\n- $3$: siffersum $4+9+3=16$, ikke delelig med $3$. Nei.\n- $5$: siste siffer er $3$. Nei.\n- $7$: $493=7\\cdot 70+3$. Nei.\n- $11$: alternerende siffersum $4-9+3=-2$. Nei.\n- $13$: $493=13\\cdot 37+12$. Nei.\n- $17$: $493=17\\cdot 29$. **Ja.**\n\n**Steg 3: konklusjon.** $493$ er **sammensatt**, med faktorisering\n$$493=17\\cdot 29.$$\nBegge faktorene er primtall, så faktoriseringen er fullstendig.\n\n**Kontroll:** $17\\cdot 29=17\\cdot 30-17=510-17=493$. Stemmer.\n\n**Sluttsvar:** $493$ er ikke et primtall; $493=17\\cdot 29$.",
+        "hints": [
+          "Regn $\\sqrt{493}$ først — det forteller deg hvor mange primtall du må teste.",
+          "Du kommer til $17$ før du er ferdig. Prøv $17\\cdot 29$."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-1-1-l4-intro",
+      "type": "text",
+      "content": "## Løkke 4: De to arbeidshestene\n\n*~12 minutter.*\n\nNå kommer de to resultatene du navngir oftest på eksamen. Begge virker selvfølgelige, og ingen av dem er det."
+    },
+    {
+      "id": "ma1301-1-1-t-fundamental",
+      "type": "theorem",
+      "title": "Aritmetikkens fundamentalteorem",
+      "content": "Hvert helt tall $n>1$ kan skrives som et produkt av primtall, og **på nøyaktig én måte** når faktorene ordnes etter størrelse:\n\n$$n=p_1^{k_1}p_2^{k_2}\\cdots p_m^{k_m},\\qquad p_1<p_2<\\dots<p_m,\\qquad k_i\\ge 1.$$\n\nTeoremet har to halvdeler, og de brukes til helt ulike ting:\n\n- **Eksistens** — det *finnes* en slik faktorisering. Denne halvdelen bruker du når du faktoriserer et tall.\n- **Entydighet** — det finnes ikke to forskjellige. Denne halvdelen bruker du i bevis, og det er nesten alltid den som bærer argumentet.\n\n**Teoremet må sitte utenat, og det må navngis.** Fasitene i arkivet skriver rutinemessig «etter aritmetikkens fundamentalteorem …» der de sammenligner faktoriseringer. Sammenligner du eksponenter på to sider av en likning uten å si hvorfor du får lov, mangler beviset sin begrunnelse.\n\n**Intuisjon:** entydigheten er grunnen til at du kan «lese av» egenskaper ved $n$ fra faktoriseringen. Er $n=2^3\\cdot 5^2$, så *vet* du at $3\\nmid n$ — ikke fordi du har prøvd, men fordi $3$ ikke står der, og faktoriseringen er den eneste som finnes."
+    },
+    {
+      "id": "ma1301-1-1-t-euklids-lemma",
+      "type": "theorem",
+      "title": "Euklids lemma",
+      "content": "La $p$ være et **primtall**. Hvis $p\\mid ab$, så $p\\mid a$ eller $p\\mid b$.\n\n**Merk ordet «eller».** Konklusjonen er ikke at $p$ deler begge. Fra $3\\mid 6\\cdot 5$ følger $3\\mid 6$ — ikke $3\\mid 5$. Å lese «og» der det står «eller» er en av de best belagte feilene i arkivet.\n\n**Merk også at $p$ må være et primtall.** For sammensatte tall er påstanden gal: $6\\mid 4\\cdot 9=36$, men $6\\nmid 4$ og $6\\nmid 9$. Lemmaet er altså en egenskap som *karakteriserer* primtallene, ikke en generell delelighetsregel.\n\n**Lemmaet må sitte utenat, og det må navngis.** Det generaliserer direkte: deler $p$ et produkt av flere faktorer, deler $p$ minst én av dem — og deler $p$ tallet $a^n$, så deler $p$ tallet $a$.\n\nSammen med fundamentalteoremet er dette de to resultatene du strekker deg etter i sjanger I (bevis om delelighet og primtall, ~8 av 15 sett)."
+    },
+    {
+      "id": "ma1301-1-1-e4",
+      "type": "example",
+      "title": "Faktorisering, og Euklids lemma brukt to ganger",
+      "problem": "**a)** Finn primtallsfaktoriseringen til $2450$.\n**b)** La $p$ være et primtall og $n$ et helt tall. Vis at hvis $p\\mid n^2$, så $p\\mid n$.",
+      "solution": "**a)** Vi bruker prøvedivisjon og trekker ut én primfaktor av gangen.\n\n$2450$ er like: $2450=2\\cdot 1225$.\n$1225$ er odde, siffersum $10$ er ikke delelig med $3$, men tallet ender på $5$: $1225=5\\cdot 245$.\n$245$ ender på $5$: $245=5\\cdot 49$.\n$49=7^2$.\n\nSamlet:\n$$2450=2\\cdot 5^2\\cdot 7^2.$$\n\n**Kontroll:** $2\\cdot 25=50$, og $50\\cdot 49=2450$. Stemmer. Og eksponentene bekrefter noe umiddelbart: siden $3$ ikke står i faktoriseringen, er $3\\nmid 2450$ — **etter aritmetikkens fundamentalteorem** er denne faktoriseringen den eneste som finnes, så det er nok å se at $3$ mangler.\n\n**b)** **Ved Euklids lemma** anvendt på produktet $n\\cdot n$: siden $p$ er et primtall og $p\\mid n\\cdot n$, må $p\\mid n$ eller $p\\mid n$. Begge alternativene er samme utsagn, så $p\\mid n$. $\\blacksquare$\n\n*Beviset er kort fordi lemmaet gjør hele arbeidet. Men legg merke til at det står og faller på at $p$ er et primtall. Er tallet sammensatt, er påstanden gal: $4\\mid 6^2=36$, men $4\\nmid 6$. Her er $4$ ikke et primtall, og Euklids lemma gjelder ikke.*\n\n**Sluttsvar:** **a)** $2450=2\\cdot 5^2\\cdot 7^2$. **b)** Påstanden følger av Euklids lemma med $a=b=n$."
+    },
+    {
+      "id": "ma1301-1-1-ex-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-1-1-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Finn primtallsfaktoriseringen til $4116$, og bruk den til å avgjøre om $4116$ er delelig med **a)** $14$, **b)** $8$, **c)** $49$.",
+        "solution": "**Faktorisering.** Vi trekker ut primfaktorer i rekkefølge:\n\n$4116$ er like: $4116=2\\cdot 2058$.\n$2058$ er like: $2058=2\\cdot 1029$.\n$1029$ er odde; siffersum $1+0+2+9=12$ er delelig med $3$: $1029=3\\cdot 343$.\n$343=7^3$.\n\nSamlet:\n$$4116=2^2\\cdot 3\\cdot 7^3.$$\n**Kontroll:** $4\\cdot 3=12$ og $12\\cdot 343=4116$. Stemmer.\n\nNå leser vi av svarene. **Etter aritmetikkens fundamentalteorem** er faktoriseringen entydig, så $d\\mid 4116$ nøyaktig når hver primfaktor i $d$ finnes i $4116$ med minst like høy eksponent.\n\n**a)** $14=2\\cdot 7$. Vi har $2^2$ og $7^3$ i $4116$, altså rikelig. **Ja:** $4116=14\\cdot 294$.\n\n**b)** $8=2^3$. Men $4116$ inneholder bare $2^2$. **Nei** — én faktor $2$ mangler. (Kontroll: $4116/4=1029$, som er odde.)\n\n**c)** $49=7^2$. Vi har $7^3$. **Ja:** $4116=49\\cdot 84$.\n\n**Sluttsvar:** $4116=2^2\\cdot 3\\cdot 7^3$; $14$ og $49$ deler tallet, $8$ gjør det ikke.",
+        "hints": [
+          "Trekk ut faktor $2$ så lenge tallet er like, deretter $3$ (bruk siffersummen).",
+          "$343$ er en primtallspotens — hvilket primtall?",
+          "Sammenlign eksponentene i $d$ med eksponentene i $4116$."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-1-1-ex-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-1-1-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "La $a$ og $b$ være hele tall, og la $d$ være et helt tall som deler både $a$ og $b$. Vis at $d$ deler hver lineærkombinasjon $ax+by$, der $x$ og $y$ er hele tall.\n\nBruk deretter resultatet til å vise at $\\gcd(a,b)$ deler $a-b$.",
+        "solution": "**Del 1: hovedpåstanden.**\n\nAt $d\\mid a$ betyr at det finnes et helt tall $s$ med $a=ds$. At $d\\mid b$ betyr at det finnes et helt tall $t$ med $b=dt$. **Vi arbeider fra definisjonen** — det er alltid utgangspunktet i et delelighetsbevis.\n\nSett inn i lineærkombinasjonen:\n$$ax+by = (ds)x+(dt)y = d(sx+ty).$$\n\nHer er $sx+ty$ et helt tall, siden $s,t,x,y$ alle er hele tall og hele tall er lukket under multiplikasjon og addisjon. Vi har altså presentert $ax+by$ som $d$ ganget med et helt tall, som er nøyaktig hva definisjonen av delelighet krever.\n\n**Konklusjon:** $d\\mid(ax+by)$. $\\blacksquare$\n\n**Del 2: anvendelsen.**\n\n$\\gcd(a,b)$ er per definisjon en felles divisor i $a$ og $b$. Etter Del 1 deler den derfor hver lineærkombinasjon av $a$ og $b$. Og $a-b$ **er** en lineærkombinasjon — velg $x=1$ og $y=-1$:\n$$a-b=a\\cdot 1+b\\cdot(-1).$$\n\n**Konklusjon:** $\\gcd(a,b)\\mid(a-b)$. $\\blacksquare$\n\n**Kontroll med tall.** La $a=504$ og $b=396$, der $\\gcd(504,396)=36$. Da er $a-b=108=36\\cdot 3$. Stemmer.\n\n*Del 2 er mer enn en øvelse. Den samme observasjonen — at en felles divisor overlever når du trekker det ene tallet fra det andre — er selve motoren i Euklids algoritme i [kap. 1.2](/ma1301/ma1301-1-2). Der brukes den med rester i stedet for differanser, men ideen er den samme.*",
+        "hints": [
+          "Start med definisjonen: hva betyr $d\\mid a$ helt konkret? Gi tallet et navn.",
+          "Etter innsetting: kan du faktorisere ut $d$?",
+          "I del 2: hvilke $x$ og $y$ gjør $ax+by$ til $a-b$?"
+        ]
+      }
+    },
+    {
+      "id": "ma1301-1-1-l5-intro",
+      "type": "text",
+      "content": "## Løkke 5: Største felles divisor og minste felles multiplum\n\n*~12 minutter.*\n\nNå til det begrepet som bærer mest i hele emnet. Euklids algoritme, som forekommer i **15 av 15 eksamenssett**, regner ut nettopp $\\gcd(a,b)$. Her definerer vi det, og lærer den metoden som virker når du *har* faktoriseringene. Neste kapittel gir metoden som virker når du ikke har dem — og det er den du trenger på eksamen, fordi tallene der er for store å faktorisere."
+    },
+    {
+      "id": "ma1301-1-1-d-gcd",
+      "type": "definition",
+      "title": "Største felles divisor",
+      "content": "**Største felles divisor** av $a$ og $b$ (ikke begge null) er det største positive hele tallet som deler både $a$ og $b$. Vi skriver\n\n$$\\gcd(a,b).$$\n\nNotasjonen skrives $\\gcd$ med bakstrek i formler, aldri bare «gcd» inne i en formel. Noen bøker skriver $(a,b)$; denne boka gjør det ikke, fordi det kolliderer med parentesbruk ellers.\n\nTre verdier du bør kunne umiddelbart: $\\gcd(a,a)=a$ for positiv $a$; $\\gcd(a,0)=a$; og $\\gcd(a,1)=1$.\n\n**Hvorfor begrepet er så sentralt:** $\\gcd(a,b)$ avgjør om likningen $ax+by=c$ har heltallsløsninger ([kap. 1.3](/ma1301/ma1301-1-3)), hvor mange løsninger kongruensen $ax\\equiv b\\pmod m$ har ([kap. 1.4](/ma1301/ma1301-1-4)), om et tall har en modulær invers, og om du får bruke Eulers teorem (kap. 2.1). Fire av bokas fem søyler går gjennom dette ene tallet."
+    },
+    {
+      "id": "ma1301-1-1-d-lcm",
+      "type": "definition",
+      "title": "Minste felles multiplum",
+      "content": "**Minste felles multiplum** av to positive hele tall $a$ og $b$ er det minste positive tallet som både $a$ og $b$ deler. Vi skriver\n\n$$\\operatorname{lcm}(a,b).$$\n\nSkrivemåten er $\\operatorname{lcm}$ med `\\operatorname` i formler, slik at det settes som et funksjonsnavn og ikke som produktet $l\\cdot c\\cdot m$.\n\nMerk at $\\operatorname{lcm}$ og $\\gcd$ er speilbilder: $\\gcd$ er den største som deler *inn i* begge, $\\operatorname{lcm}$ det minste som begge deler *inn i*. Alltid er $\\gcd(a,b)\\le a,b\\le\\operatorname{lcm}(a,b)$.\n\n$\\operatorname{lcm}$ dukker opp i det kinesiske restteoremet (kap. 2.4): når to kongruenser med moduler $m$ og $n$ skal gjelde samtidig, er perioden til den kombinerte løsningen $\\operatorname{lcm}(m,n)$."
+    },
+    {
+      "id": "ma1301-1-1-d-relativt-primisk",
+      "type": "definition",
+      "title": "Relativt primiske tall",
+      "content": "To hele tall $a$ og $b$ er **relativt primiske** (også kalt innbyrdes primiske) hvis\n\n$$\\gcd(a,b)=1,$$\n\naltså hvis de ikke har noen felles primfaktor. Legg merke til at ingen av dem behøver å være primtall: $8$ og $9$ er relativt primiske, selv om begge er sammensatte.\n\nUttrykket **parvis relativt primiske** brukes om tre eller flere tall, og betyr at *hvert par* er relativt primisk. Det er strengere enn at ikke alle tre har en felles faktor: tallene $6$, $10$ og $15$ har ingen felles faktor for alle tre, men er ikke parvis relativt primiske, siden $\\gcd(6,10)=2$.\n\n**Skillet er eksamensviktig.** Det kinesiske restteoremet (kap. 2.4, 12 av 15 sett) krever at modulene er *parvis* relativt primiske, og fasitene i arkivet påpeker det eksplisitt. Å bruke formelen uten å sjekke er en av de best belagte feilene.\n\nDer ellers vilkåret dukker opp: $\\gcd(a,n)=1$ er kravet for at $a$ har en invers modulo $n$ ([kap. 1.4](/ma1301/ma1301-1-4)), for at Eulers teorem gjelder (kap. 2.1), og for at $\\phi$ er multiplikativ."
+    },
+    {
+      "id": "ma1301-1-1-d-gcd-fra-faktorisering",
+      "type": "definition",
+      "title": "gcd fra primtallsfaktoriseringen: minste eksponent",
+      "content": "Har du faktoriseringene, leser du $\\gcd$ direkte av dem: ta **hvert primtall som finnes i begge**, og gi det den **minste** av de to eksponentene.\n\nMed $a=\\prod p_i^{k_i}$ og $b=\\prod p_i^{l_i}$ (der eksponenten er $0$ for primtall som mangler):\n\n$$\\gcd(a,b)=\\prod_i p_i^{\\min(k_i,\\,l_i)}.$$\n\n**Dette må sitte utenat.** Intuisjonen: en felles divisor kan ikke bruke flere kopier av $p_i$ enn det knappeste av de to tallene har.\n\n**Men merk begrensningen.** Metoden krever at du *kan* faktorisere. På eksamen er tallene i sjanger A og B typisk fire- og femsifrede, og faktorisering med prøvedivisjon tar da for lang tid. Derfor er Euklids algoritme ([kap. 1.2](/ma1301/ma1301-1-2)) og ikke denne metoden hovedverktøyet — og derfor er dette kortet et *forståelseskort*, mens Euklid er et *ferdighetskort*."
+    },
+    {
+      "id": "ma1301-1-1-d-lcm-fra-faktorisering",
+      "type": "definition",
+      "title": "lcm fra primtallsfaktoriseringen: største eksponent",
+      "content": "Speilbildet av forrige kort: ta **hvert primtall som finnes i minst ett** av tallene, og gi det den **største** av eksponentene:\n\n$$\\operatorname{lcm}(a,b)=\\prod_i p_i^{\\max(k_i,\\,l_i)}.$$\n\n**Dette må sitte utenat.** Intuisjonen: et felles multiplum må ha nok kopier av $p_i$ til å dekke det mest krevende av de to tallene.\n\nMinnekroken for begge kortene: **$\\gcd$ tar minst, $\\operatorname{lcm}$ tar mest.** Og siden $\\min(k,l)+\\max(k,l)=k+l$ for hvert primtall, følger produktregelen i neste kort umiddelbart."
+    },
+    {
+      "id": "ma1301-1-1-d-produktregelen",
+      "type": "definition",
+      "title": "Produktregelen for gcd og lcm",
+      "content": "For alle positive hele tall $a$ og $b$:\n\n$$\\gcd(a,b)\\cdot\\operatorname{lcm}(a,b)=ab.$$\n\n**Dette må sitte utenat**, og det er den billigste tidsbesparelsen i kapitlet: har du regnet ut $\\gcd$ — for eksempel med Euklids algoritme, som er rask — får du $\\operatorname{lcm}$ gratis ved én divisjon:\n$$\\operatorname{lcm}(a,b)=\\frac{ab}{\\gcd(a,b)}.$$\n\n**Utledningen utledes på stedet, i én linje:** for hvert primtall $p_i$ er summen av eksponentene på venstresiden $\\min(k_i,l_i)+\\max(k_i,l_i)=k_i+l_i$, som er nøyaktig eksponenten i $ab$. Siden faktoriseringene er entydige **etter aritmetikkens fundamentalteorem**, er de to sidene like.\n\nBruk den også som **kontroll**: har du regnet ut både $\\gcd$ og $\\operatorname{lcm}$ på hver sin måte, skal produktet bli $ab$. Stemmer det ikke, er én av dem gal."
+    },
+    {
+      "id": "ma1301-1-1-e5",
+      "type": "example",
+      "title": "gcd og lcm fra faktoriseringen, med kontroll",
+      "problem": "La $a=504$ og $b=396$. Finn $\\gcd(a,b)$ og $\\operatorname{lcm}(a,b)$ ved primtallsfaktorisering, og kontroller svaret med produktregelen.",
+      "solution": "**Steg 1: faktoriser begge.**\n\n$504$: like, så $504=2\\cdot 252=2^2\\cdot 126=2^3\\cdot 63$, og $63=9\\cdot 7=3^2\\cdot 7$. Altså\n$$504=2^3\\cdot 3^2\\cdot 7.$$\n\n$396$: like, så $396=2\\cdot 198=2^2\\cdot 99$, og $99=9\\cdot 11=3^2\\cdot 11$. Altså\n$$396=2^2\\cdot 3^2\\cdot 11.$$\n\n**Steg 2: still dem opp mot hverandre.** Vi skriver eksponent $0$ der et primtall mangler:\n\n| Primtall | i $504$ | i $396$ | $\\min$ (til $\\gcd$) | $\\max$ (til $\\operatorname{lcm}$) |\n|---|---|---|---|---|\n| $2$ | $3$ | $2$ | $2$ | $3$ |\n| $3$ | $2$ | $2$ | $2$ | $2$ |\n| $7$ | $1$ | $0$ | $0$ | $1$ |\n| $11$ | $0$ | $1$ | $0$ | $1$ |\n\n**Steg 3: les av.**\n$$\\gcd(504,396)=2^2\\cdot 3^2=4\\cdot 9=36,$$\n$$\\operatorname{lcm}(504,396)=2^3\\cdot 3^2\\cdot 7\\cdot 11=8\\cdot 9\\cdot 77=5544.$$\n\n**Steg 4: kontroller med produktregelen.**\n$$\\gcd\\cdot\\operatorname{lcm}=36\\cdot 5544=199\\,584,$$\n$$ab=504\\cdot 396=199\\,584.$$\nDe stemmer, så begge svarene er riktige.\n\n**Sluttsvar:** $\\gcd(504,396)=36$ og $\\operatorname{lcm}(504,396)=5544$.\n\n*Den raskere veien i praksis: regn $\\gcd=36$ (med Euklids algoritme, som tar tre linjer for disse tallene), og få deretter $\\operatorname{lcm}=504\\cdot 396/36=5544$ med én divisjon. Under kode D er det den ruten du velger — men da har du brukt produktregelen, som altså må sitte.*"
+    },
+    {
+      "id": "ma1301-1-1-ex-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-1-1-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $a=1176$ og $b=2100$.\n\n**a)** Finn primtallsfaktoriseringen til begge tallene.\n**b)** Bestem $\\gcd(a,b)$ og $\\operatorname{lcm}(a,b)$.\n**c)** Kontroller svaret med produktregelen.",
+        "solution": "**a)** $1176$: like, $1176=2\\cdot 588=2^2\\cdot 294=2^3\\cdot 147$. Videre er $147=3\\cdot 49=3\\cdot 7^2$. Altså\n$$1176=2^3\\cdot 3\\cdot 7^2.$$\n\n$2100$: $2100=2\\cdot 1050=2^2\\cdot 525$. Videre er $525=3\\cdot 175=3\\cdot 5^2\\cdot 7$. Altså\n$$2100=2^2\\cdot 3\\cdot 5^2\\cdot 7.$$\n\n**Kontroll:** $8\\cdot 3\\cdot 49=1176$ ✓ og $4\\cdot 3\\cdot 25\\cdot 7=2100$ ✓.\n\n**b)** Vi stiller opp eksponentene:\n\n| Primtall | i $1176$ | i $2100$ | $\\min$ | $\\max$ |\n|---|---|---|---|---|\n| $2$ | $3$ | $2$ | $2$ | $3$ |\n| $3$ | $1$ | $1$ | $1$ | $1$ |\n| $5$ | $0$ | $2$ | $0$ | $2$ |\n| $7$ | $2$ | $1$ | $1$ | $2$ |\n\n$\\gcd$ tar minste eksponent:\n$$\\gcd(1176,2100)=2^2\\cdot 3\\cdot 7=4\\cdot 3\\cdot 7=84.$$\n$\\operatorname{lcm}$ tar største:\n$$\\operatorname{lcm}(1176,2100)=2^3\\cdot 3\\cdot 5^2\\cdot 7^2=8\\cdot 3\\cdot 25\\cdot 49=29\\,400.$$\n\n**c)** Produktregelen: $\\gcd\\cdot\\operatorname{lcm}=84\\cdot 29\\,400=2\\,469\\,600$, og $ab=1176\\cdot 2100=2\\,469\\,600$. De er like, så begge svarene er riktige.\n\n**Sluttsvar:** $1176=2^3\\cdot 3\\cdot 7^2$, $2100=2^2\\cdot 3\\cdot 5^2\\cdot 7$, $\\gcd=84$, $\\operatorname{lcm}=29\\,400$.",
+        "hints": [
+          "Trekk ut alle faktorene $2$ først, så $3$, så $5$, så $7$.",
+          "$\\gcd$ tar minste eksponent for hvert primtall, $\\operatorname{lcm}$ tar største.",
+          "I c): regn ut $84\\cdot 29\\,400$ og $1176\\cdot 2100$ og sammenlign."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-1-1-ex-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-1-1-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $a=1512$ og $b=2646$.\n\n**a)** Finn $\\gcd(a,b)$ ved primtallsfaktorisering.\n**b)** Bruk produktregelen — ikke faktoriseringen — til å finne $\\operatorname{lcm}(a,b)$.\n**c)** Er $a$ og $b$ relativt primiske? Begrunn.",
+        "solution": "**a)** $1512$: $1512=2\\cdot 756=2^2\\cdot 378=2^3\\cdot 189$, og $189=27\\cdot 7=3^3\\cdot 7$. Altså\n$$1512=2^3\\cdot 3^3\\cdot 7.$$\n\n$2646$: like, $2646=2\\cdot 1323$. Siffersummen i $1323$ er $9$, så $1323=3\\cdot 441=3\\cdot 3\\cdot 147=3^3\\cdot 49=3^3\\cdot 7^2$. Altså\n$$2646=2\\cdot 3^3\\cdot 7^2.$$\n\nMinste eksponent for hvert felles primtall:\n$$\\gcd(1512,2646)=2^1\\cdot 3^3\\cdot 7^1=2\\cdot 27\\cdot 7=378.$$\n\n**b)** **Ved produktregelen** $\\gcd\\cdot\\operatorname{lcm}=ab$:\n$$\\operatorname{lcm}(1512,2646)=\\frac{1512\\cdot 2646}{378}=\\frac{4\\,000\\,752}{378}=10\\,584.$$\n\n*Snarvei som er verdt å ha: forkort før du multipliserer. $1512/378=4$, så $\\operatorname{lcm}=4\\cdot 2646=10\\,584$. Da slipper du å regne ut sekssifrede produkter for hånd — en reell tidsbesparelse under kode D.*\n\n**Kontroll mot faktoriseringen:** største eksponenter gir $2^3\\cdot 3^3\\cdot 7^2=8\\cdot 27\\cdot 49=10\\,584$. Stemmer.\n\n**c)** **Nei.** $\\gcd(1512,2646)=378\\ne 1$, så tallene er ikke relativt primiske. Det ses også direkte av faktoriseringene: de har både $2$, $3$ og $7$ til felles.\n\n**Sluttsvar:** $\\gcd=378$, $\\operatorname{lcm}=10\\,584$, og tallene er ikke relativt primiske.",
+        "hints": [
+          "Begynn med å trekke ut faktorene $2$ — merk at $2646$ bare har én.",
+          "I b): $\\operatorname{lcm}=ab/\\gcd$. Forkort $1512/378$ først, så blir regningen liten.",
+          "I c): hva må $\\gcd$ være for at to tall skal være relativt primiske?"
+        ]
+      }
+    },
+    {
+      "id": "ma1301-1-1-l6-intro",
+      "type": "text",
+      "content": "## Løkke 6: Uendelig mange primtall — det første beviset\n\n*~5 minutter.*\n\nVi avslutter med et bevis. Det er over to tusen år gammelt, det er kort, og det er malen for en hel arketype av eksamensoppgaver i sjanger I: «vis at det finnes uendelig mange primtall av typen …». Denne arketypen dukker opp i Del 6, og da med den samme strukturen.\n\nBeviset går ved **motsigelse**: vi antar det motsatte av det vi vil vise, og jager antagelsen til den kolliderer med noe vi vet."
+    },
+    {
+      "id": "ma1301-1-1-d-motsigelsesbevis",
+      "type": "definition",
+      "title": "Motsigelsesbevis — malen",
+      "content": "For å vise at en påstand $P$ er sann:\n\n1. **Anta at $P$ er gal.** Skriv antagelsen eksplisitt ned som egen linje — det er her de fleste bevis mister leseren.\n2. **Regn videre** på den antagelsen, med vanlige gyldige skritt.\n3. **Kom fram til noe umulig** — en påstand som strider mot antagelsen eller mot et kjent resultat.\n4. **Avslutt med en klar umulighetssetning:** «men da er $q$ både et primtall og sammensatt — motsigelse». Derfor var antagelsen gal, og $P$ er sann.\n\n**Malen må sitte utenat**, og punkt 4 er den som gir uttelling. Et motsigelsesbevis som «renner ut» uten å si hva som er umulig, er ufullstendig — leseren skal ikke måtte finne motsigelsen selv.\n\nMalen brukes gjennom hele boka: her på primtallenes uendelighet, senere på irrasjonalitet (kap. 7.3) og på uløselige kongruenssystemer (kap. 2.4)."
+    },
+    {
+      "id": "ma1301-1-1-d-euklids-tall",
+      "type": "definition",
+      "title": "Euklids tall",
+      "content": "Gitt en endelig liste primtall $p_1,p_2,\\dots,p_k$, er **Euklids tall** for listen\n\n$$N=p_1p_2\\cdots p_k+1.$$\n\nEgenskapen som gjør det nyttig: **ingen av primtallene i listen deler $N$.** Grunnen er at hver $p_i$ deler produktet, så deler den også $N$, ville den delt differansen $N-p_1\\cdots p_k=1$ — etter lineærkombinasjonsregelen. Men ingen primtall deler $1$.\n\n$N$ er altså et tall som er «immun» mot hele listen din. Det er hele motoren i beviset under, og i alle varianter av det.\n\n**Merk at $N$ ikke behøver å være et primtall selv.** For listen $2,3,5,7,11,13$ er $N=30\\,031=59\\cdot 509$ — sammensatt. Beviset trenger ikke at $N$ er prim, bare at $N$ har en primdivisor som ikke står i listen."
+    },
+    {
+      "id": "ma1301-1-1-t-uendelig-primtall",
+      "type": "theorem",
+      "title": "Det finnes uendelig mange primtall",
+      "content": "Mengden av primtall er uendelig.\n\n**Bevis (ved motsigelse).**\n\n**Antagelse:** anta at det finnes bare endelig mange primtall, og la $p_1,p_2,\\dots,p_k$ være samtlige.\n\n**Konstruksjon:** sett\n$$N=p_1p_2\\cdots p_k+1.$$\nDa er $N>1$, så **etter aritmetikkens fundamentalteorem** har $N$ minst én primdivisor. Kall den $q$.\n\n**Utelukkelse:** $q$ må stå i listen, siden listen etter antagelsen inneholder *alle* primtall. Altså er $q=p_i$ for en $i$, og dermed deler $q$ produktet $p_1p_2\\cdots p_k$. Men $q$ deler også $N$. **Etter lineærkombinasjonsregelen** deler $q$ da differansen:\n$$N-p_1p_2\\cdots p_k=1.$$\n\n**Motsigelsen:** $q\\mid 1$ er umulig, for $q$ er et primtall og dermed $q\\ge 2$. Antagelsen om at det finnes endelig mange primtall er derfor gal.\n\n**Konklusjon:** det finnes uendelig mange primtall. $\\blacksquare$\n\n*Legg merke til at beviset er en oppskrift, ikke bare et argument: gi det en liste, og det produserer et primtall utenfor listen. Det er den formen varianter av oppgaven har på eksamen — «vis at det finnes uendelig mange primtall som er $\\equiv 2\\pmod 3$» løses ved å bygge et $N$ som tvinger fram en primdivisor av riktig type. Arketypen behandles i kap. 6.3.*"
+    },
+    {
+      "id": "ma1301-1-1-ex-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-1-1-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "La $p_1,p_2,\\dots,p_k$ være primtall, og sett $N=p_1p_2\\cdots p_k+1$.\n\n**a)** Vis at $p_i\\nmid N$ for hver $i$.\n**b)** Sett $k=6$ med primtallene $2,3,5,7,11,13$. Regn ut $N$, og avgjør om $N$ er et primtall.\n**c)** Forklar kort hvorfor svaret i b) ikke skader beviset for at det finnes uendelig mange primtall.",
+        "solution": "**a)** La $M=p_1p_2\\cdots p_k$, slik at $N=M+1$. Fest $i$, og anta for motsigelse at $p_i\\mid N$.\n\nSiden $p_i$ er en av faktorene i $M$, har vi også $p_i\\mid M$. **Etter lineærkombinasjonsregelen** (med $x=1$, $y=-1$) deler $p_i$ da\n$$N-M=1.$$\nMen $p_i$ er et primtall, så $p_i\\ge 2$, og et tall $\\ge 2$ kan ikke dele $1$ — **motsigelse**.\n\nAltså er antagelsen gal, og $p_i\\nmid N$. Siden $i$ var vilkårlig, gjelder dette for hver $i$. $\\blacksquare$\n\n**b)** Produktet er\n$$M=2\\cdot 3\\cdot 5\\cdot 7\\cdot 11\\cdot 13=30\\,030,$$\nregnet steg for steg: $2\\cdot 3=6$, $6\\cdot 5=30$, $30\\cdot 7=210$, $210\\cdot 11=2310$, $2310\\cdot 13=30\\,030$. Altså\n$$N=30\\,031.$$\n\nEr $N$ et primtall? Grensen er $\\sqrt{30\\,031}\\approx 173{,}3$, så vi må i verste fall teste primtallene opp til $173$. Men vi vet fra a) at $2,3,5,7,11$ og $13$ ikke deler $N$, så vi starter på $17$:\n\n| $p$ | Utregning | Rest |\n|---|---|---|\n| $17$ | $17\\cdot 1766=30\\,022$ | $9$ |\n| $19$ | $19\\cdot 1580=30\\,020$ | $11$ |\n| $23$ | $23\\cdot 1305=30\\,015$ | $16$ |\n| $29$ | $29\\cdot 1035=30\\,015$ | $16$ |\n| $31$ | $31\\cdot 968=30\\,008$ | $23$ |\n| $37$ | $37\\cdot 811=30\\,007$ | $24$ |\n| $41$ | $41\\cdot 732=30\\,012$ | $19$ |\n| $43$ | $43\\cdot 698=30\\,014$ | $17$ |\n| $47$ | $47\\cdot 638=29\\,986$ | $45$ |\n| $53$ | $53\\cdot 566=29\\,998$ | $33$ |\n| $59$ | $59\\cdot 509=30\\,031$ | **$0$** |\n\nAltså er $N$ **sammensatt**:\n$$30\\,031=59\\cdot 509.$$\n**Kontroll:** $59\\cdot 509=59\\cdot 500+59\\cdot 9=29\\,500+531=30\\,031$. Stemmer. (Og $509$ er selv et primtall — $\\sqrt{509}\\approx 22{,}6$, og ingen av $2,3,5,7,11,13,17,19$ deler det.)\n\n**c)** Beviset trenger ikke at $N$ er et primtall. Det trenger bare at $N$ har **en primdivisor som ikke står i listen** — og det følger av a) sammen med aritmetikkens fundamentalteorem: $N>1$ har minst én primdivisor, og ingen av $p_1,\\dots,p_k$ er kandidat.\n\nHer ser vi det konkret: primdivisorene $59$ og $509$ er begge nye, altså utenfor listen $2,3,5,7,11,13$. Beviset produserte nye primtall, som lovet — det lovet bare aldri at $N$ selv skulle være ett av dem.\n\n**Sluttsvar:** **a)** følger av lineærkombinasjonsregelen. **b)** $N=30\\,031=59\\cdot 509$, ikke et primtall. **c)** Beviset krever bare en primdivisor utenfor listen, og både $59$ og $509$ er utenfor.",
+        "hints": [
+          "I a): la $M$ være produktet. Hva er $N-M$, og hvem deler det hvis $p_i$ deler begge?",
+          "I b): du kan hoppe over $2,3,5,7,11,13$ — a) har allerede utelukket dem.",
+          "I c): les nøye hva beviset faktisk bruker $N$ til. Må $N$ selv være prim?"
+        ]
+      }
+    },
+    {
+      "id": "ma1301-1-1-ex-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-1-1-o9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Vis at et positivt helt tall $n$ er et kvadrattall (altså $n=m^2$ for et helt tall $m$) hvis og bare hvis **alle** eksponentene i primtallsfaktoriseringen til $n$ er like tall.",
+        "solution": "Vi skal vise begge retninger. Skriv $n=p_1^{k_1}p_2^{k_2}\\cdots p_r^{k_r}$ for primtallsfaktoriseringen, som **etter aritmetikkens fundamentalteorem** er entydig.\n\n**Retning 1: hvis alle eksponentene er like, er $n$ et kvadrattall.**\n\nAnta $k_i=2c_i$ for hver $i$, med $c_i$ hele tall. Sett\n$$m=p_1^{c_1}p_2^{c_2}\\cdots p_r^{c_r}.$$\nDa er\n$$m^2=p_1^{2c_1}\\cdots p_r^{2c_r}=p_1^{k_1}\\cdots p_r^{k_r}=n.$$\nAltså er $n$ et kvadrattall. $\\blacksquare$\n\n**Retning 2: hvis $n$ er et kvadrattall, er alle eksponentene like.**\n\nAnta $n=m^2$ for et positivt helt tall $m$, og la $m=q_1^{c_1}\\cdots q_s^{c_s}$ være primtallsfaktoriseringen til $m$. Da er\n$$n=m^2=q_1^{2c_1}\\cdots q_s^{2c_s}.$$\nDette **er** en primtallsfaktorisering av $n$, og alle eksponentene i den er like. **Etter aritmetikkens fundamentalteorem** har $n$ bare én primtallsfaktorisering, så denne må være den samme som $p_1^{k_1}\\cdots p_r^{k_r}$. Dermed er $r=s$, primtallene er de samme, og $k_i=2c_i$ er like tall for hver $i$. $\\blacksquare$\n\n*Legg merke til hvor entydigheten bærer argumentet. Uten den kunne $n$ i prinsippet hatt én faktorisering med bare like eksponenter og en annen med odde — og da hadde påstanden vært innholdsløs. Det er nettopp derfor teoremet skal navngis: det er ikke pynt, det er det leddet som gjør skrittet lovlig.*\n\n**Kontroll med tall.** $n=1764$: faktoriseringen er $1764=2^2\\cdot 3^2\\cdot 7^2$, alle eksponenter like, og $1764=42^2$ med $42=2\\cdot 3\\cdot 7$. Stemmer. Motsatt: $n=1176=2^3\\cdot 3\\cdot 7^2$ har odde eksponenter på $2$ og $3$, og $\\sqrt{1176}\\approx 34{,}3$ er ikke et helt tall. Stemmer også.\n\n**Sluttsvar:** begge retninger følger av å sammenligne primtallsfaktoriseringer, og skrittet der de sammenlignes er lovlig fordi faktoriseringen er entydig.",
+        "hints": [
+          "Vis begge retninger hver for seg — «hvis og bare hvis» krever to bevis.",
+          "Fra like eksponenter: hva er kvadratrota, uttrykt i primtallene?",
+          "Fra $n=m^2$: faktoriser $m$ og kvadrer. Hvorfor er den faktoriseringen av $n$ nødvendigvis DEN faktoriseringen?"
+        ]
+      }
+    },
+    {
+      "id": "ma1301-1-1-ex-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-1-1-o10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $a$ og $b$ være positive hele tall med $\\gcd(a,b)=1$, og anta at både $a\\mid n$ og $b\\mid n$ for et helt tall $n$.\n\nVis at $ab\\mid n$, ved å bruke aritmetikkens fundamentalteorem.\n\n*(Dette er en arketype i sjanger I — bevis om delelighet. Den kommer igjen i kap. 6.3, der du også får se to andre veier til samme resultat.)*",
+        "solution": "**Oppsett.** Vi kan anta $n>0$ (er $n$ negativ, gjelder samme argument for $|n|$, og er $n=0$ er påstanden triviell siden alt deler $0$).\n\nLa $p$ være et vilkårlig primtall, og la $\\alpha$, $\\beta$ og $\\nu$ være eksponentene til $p$ i primtallsfaktoriseringen av henholdsvis $a$, $b$ og $n$ (eksponenten er $0$ hvis $p$ ikke forekommer).\n\n**Steg 1: hva $\\gcd(a,b)=1$ gir oss.** Siden $a$ og $b$ ikke har noen felles primfaktor, kan ikke både $\\alpha$ og $\\beta$ være positive. Altså er $\\alpha=0$ eller $\\beta=0$ — for **hvert** primtall $p$.\n\n**Steg 2: hva forutsetningene gir oss.** At $a\\mid n$ betyr, **etter aritmetikkens fundamentalteorem**, at $\\alpha\\le\\nu$. Tilsvarende gir $b\\mid n$ at $\\beta\\le\\nu$.\n\n**Steg 3: eksponenten i $ab$.** Eksponenten til $p$ i produktet $ab$ er $\\alpha+\\beta$. Etter Steg 1 er én av de to null, så\n$$\\alpha+\\beta=\\max(\\alpha,\\beta).$$\nOg etter Steg 2 er begge $\\le\\nu$, altså $\\max(\\alpha,\\beta)\\le\\nu$. Dermed\n$$\\alpha+\\beta\\le\\nu.$$\n\n**Steg 4: konkluder.** Ulikheten holder for hvert primtall $p$. Da deler $ab$ tallet $n$, **etter aritmetikkens fundamentalteorem** — delelighet er nøyaktig det at hver eksponent i divisoren er $\\le$ den tilsvarende i tallet. $\\blacksquare$\n\n**Hvor $\\gcd(a,b)=1$ var nødvendig.** Uten den kunne $\\alpha+\\beta$ blitt større enn $\\nu$. Konkret moteksempel: $a=4$, $b=6$, $n=12$. Både $4\\mid 12$ og $6\\mid 12$, men $ab=24\\nmid 12$. Her er $\\gcd(4,6)=2\\ne 1$, og for $p=2$ er $\\alpha=2$, $\\beta=1$, $\\nu=2$ — slik at $\\alpha+\\beta=3>2=\\nu$.\n\n**Sluttsvar:** for hvert primtall er $\\alpha+\\beta=\\max(\\alpha,\\beta)\\le\\nu$ fordi relativ primiskhet tvinger én av eksponentene til null, og dermed er $ab\\mid n$.",
+        "hints": [
+          "Se på ett primtall $p$ av gangen, og sammenlign eksponenter.",
+          "Hva sier $\\gcd(a,b)=1$ om eksponentene til samme primtall i $a$ og i $b$?",
+          "Til slutt: hva må gjelde for hver eksponent for at $ab$ skal dele $n$?"
+        ]
+      }
+    },
+    {
+      "id": "ma1301-1-1-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "Disse fire står i arkivets feilprofil for dette stoffet. Alle fire er billige å unngå, og alle fire koster hele delpunkt når de skjer.\n\n- **Å bytte om retningen i $a\\mid b$.** $3\\mid 12$ er sant; $12\\mid 3$ er galt. Feilen forplanter seg umiddelbart: løsbarhetskriteriet i [kap. 1.3](/ma1301/ma1301-1-3) er $d\\mid c$, altså at *største felles divisor* deler *høyresiden* — snur du det, konkluderer du feil om hele oppgaven. **Kontrollen:** det lille tallet står alltid først.\n\n- **Å bruke entydig faktorisering uten å navngi teoremet.** Sammenligner du eksponenter på to sider av en likning, er det **aritmetikkens fundamentalteorem** som gir deg lov. Fasitene i arkivet skriver det ut hver gang. Et skritt uten begrunnelse er et skritt uten uttelling, selv når konklusjonen er riktig.\n\n- **Å lese Euklids lemma som «og».** Lemmaet sier: hvis $p\\mid ab$, så $p\\mid a$ **eller** $p\\mid b$. Ikke begge. Fra $5\\mid 10\\cdot 3$ følger $5\\mid 10$, ikke $5\\mid 3$. Og husk at $p$ må være et primtall: $6\\mid 4\\cdot 9$, men $6$ deler ingen av faktorene.\n\n- **Regnefeil i $\\gcd$ og $\\operatorname{lcm}$ fra faktoriseringen.** De to vanligste: å ta største eksponent til $\\gcd$ (det skal være minste), og å glemme primtall som bare finnes i ett av tallene når du regner $\\operatorname{lcm}$ (de skal med, med sin fulle eksponent). **Kontrollen er gratis:** produktregelen $\\gcd\\cdot\\operatorname{lcm}=ab$. Stemmer den ikke, er én av de to gal — og du finner det på tjue sekunder i stedet for etter at oppgaven er levert."
+    },
+    {
+      "id": "ma1301-1-1-begrepsbank-intro",
+      "type": "text",
+      "content": "### Begrepsbank\n\nDette er flashcard-stoff — hopp trygt over ved førstegangslesing; tidsanslaget på 55 minutter gjelder kjernestoffet over. Kortene under supplerer dem du alt har møtt i løkkene.\n\nFor dette kapitlet er banken ikke pynt: under kode D har du ingen bok, ingen formelsamling og ingen tabeller på eksamen, så apparatet må ligge i hodet. Kortene er måten det kommer dit."
+    },
+    {
+      "id": "ma1301-1-1-d-paritet",
+      "type": "definition",
+      "title": "Paritet",
+      "content": "**Pariteten** til et helt tall er om det er like eller odde. Formelt: $n$ er like hvis $2\\mid n$, og odde hvis ikke.\n\nMed divisjonsalgoritmen på $b=2$: hvert helt tall er $n=2q$ (like) eller $n=2q+1$ (odde). Det er ikke mer å velge mellom, og det er derfor paritetsargumenter er så effektive — de deler alle tall i nøyaktig to grupper.\n\nTre fakta som brukes gjennom boka: **like + like = like**, **odde + odde = like**, **like $\\cdot$ hva som helst = like**. Og: **$2$ er det eneste like primtallet**, siden alle andre like tall har $2$ som ekte divisor.\n\nParitet er også det enkleste tilfellet av case-analyse modulo $m$ (§ kap. 6.1) — det er case-analyse med $m=2$. Og den dukker opp som en av de tre betingelsene i den pytagoreiske parametriseringen i kap. 7.2, der $s$ og $t$ må ha **ulik** paritet."
+    },
+    {
+      "id": "ma1301-1-1-d-primtallspotens",
+      "type": "definition",
+      "title": "Primtallspotens",
+      "content": "Et tall på formen $p^k$, der $p$ er et primtall og $k\\ge 1$, kalles en **primtallspotens**. Eksempler: $8=2^3$, $27=3^3$, $49=7^2$, og et primtall $p=p^1$ er selv en primtallspotens.\n\nDivisorene i $p^k$ er nøyaktig $1,p,p^2,\\dots,p^k$ — altså $k+1$ stykker, og ikke flere, **etter aritmetikkens fundamentalteorem**.\n\nPrimtallspotensene er byggeklossene i alle de multiplikative formlene senere i boka: $\\phi(p^k)=p^k-p^{k-1}$ (kap. 2.1), $\\tau(p^k)=k+1$ og $\\sigma(p^k)=1+p+\\dots+p^k$ (kap. 5.3). Fremgangsmåten er alltid den samme: regn ut formelen for en primtallspotens, og bruk deretter multiplikativiteten for å sette sammen svaret for et generelt $n$."
+    },
+    {
+      "id": "ma1301-1-1-d-kvadratfri",
+      "type": "definition",
+      "title": "Kvadratfritt tall",
+      "content": "Et positivt helt tall er **kvadratfritt** hvis ingen eksponent i primtallsfaktoriseringen er større enn $1$ — altså hvis ingen primtallskvadrat deler det.\n\n$30=2\\cdot 3\\cdot 5$ er kvadratfritt. $12=2^2\\cdot 3$ er ikke, siden $4\\mid 12$.\n\nBegrepet er nyttig som språk: «$n$ er kvadratfritt» er en kort måte å si at alle primfaktorer forekommer bare én gang. Det kommer igjen i kap. 5.3, der kvadratfrie tall er nøyaktig de tallene der divisorantallet er en ren potens av $2$ ($\\tau(n)=2^r$ for $r$ primfaktorer)."
+    },
+    {
+      "id": "ma1301-1-1-d-kvadrattall-eksponenter",
+      "type": "definition",
+      "title": "Kvadrattall og eksponentparitet",
+      "content": "Et positivt helt tall $n$ er et kvadrattall hvis og bare hvis **alle** eksponentene i primtallsfaktoriseringen er like tall.\n\n$$n=\\prod p_i^{k_i}\\ \\text{er et kvadrattall}\\iff \\text{alle }k_i\\text{ er like.}$$\n\nEksempel: $1764=2^2\\cdot 3^2\\cdot 7^2=(2\\cdot 3\\cdot 7)^2=42^2$. Motsatt er $1176=2^3\\cdot 3\\cdot 7^2$ ikke et kvadrattall, siden eksponentene $3$ og $1$ er odde.\n\n**Utledes på stedet** (og utledningen står i oppgave 9): den ene retningen ved å halvere eksponentene, den andre ved å kvadrere faktoriseringen til $m$ og bruke entydigheten.\n\nResultatet er mer nyttig enn det ser ut. Det er nøkkelen til at $\\tau(n)$ er odde nøyaktig når $n$ er et kvadrattall (kap. 5.3), og det er skrittet som bærer irrasjonalitetsbevisene i kap. 7.3."
+    },
+    {
+      "id": "ma1301-1-1-d-fellesdivisor",
+      "type": "definition",
+      "title": "Felles divisor og felles multiplum",
+      "content": "En **felles divisor** i $a$ og $b$ er et tall som deler begge. Et **felles multiplum** er et tall som begge deler.\n\nStrukturen bak de to begrepene er verdt å legge merke til, for den forklarer hvorfor ordene «største» og «minste» kan brukes:\n\n- Mengden av felles divisorer er **endelig** (ingen divisor i $a$ er større enn $|a|$), så det finnes en største. Det er $\\gcd(a,b)$.\n- Mengden av positive felles multipler er **uendelig**, men har et minste element. Det er $\\operatorname{lcm}(a,b)$.\n\nOg et resultat som er sterkere enn navnet antyder: **hver felles divisor deler $\\gcd(a,b)$**, og **hvert felles multiplum er delelig med $\\operatorname{lcm}(a,b)$**. $\\gcd$ er altså ikke bare den største — den er den som alle de andre går opp i. Det er den formen egenskapen har når den brukes i bevis."
+    },
+    {
+      "id": "ma1301-1-1-d-notasjonsvanen",
+      "type": "definition",
+      "title": "Notasjonsvanen i dette faget",
+      "content": "Fasitene i arkivet bruker en fast notasjon, og boka følger den. Det lønner seg å skrive slik selv, fordi det gjør besvarelsen lesbar for den som retter.\n\n| Skriv | Ikke | Hvorfor |\n|---|---|---|\n| $\\gcd(a,b)$ | $(a,b)$ | parentesformen kolliderer med vanlige parenteser |\n| $a\\mid b$ | $a/b$ eller «a deler b» alene i en utregning | $/$ betyr divisjon, ikke delelighet |\n| $a\\nmid b$ | «$a$ deler ikke $b$» inne i en formel | symbolet finnes, bruk det |\n| $\\operatorname{lcm}(a,b)$ | $lcm(a,b)$ | uten funksjonsnavn settes det som et produkt |\n| $a\\equiv b\\pmod m$ | $a=b\\pmod m$ | kongruens er ikke likhet |\n\nOg fasitspråket, som er verdt å legge seg til: «parvis relativt primiske», «inkongruente løsninger modulo $m$», «det minste positive tallet som tilfredsstiller …», «det følger av [teoremnavn] at …», «altså er $\\gcd(a,b)=ax+by$».\n\nDette er ikke pedanteri. **Alle svar må begrunnes** er instruksen på hvert sett, og en begrunnelse leses raskere når notasjonen er den forventede."
+    },
+    {
+      "id": "ma1301-1-1-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "ma1301-1-1-rep-intro",
+          "type": "text",
+          "content": "Fem korte oppgaver til oppfrisking. Dette kapitlet har ingen forkunnskapskapitler i boka, så oppgavene under repeterer kapitlets eget kjernestoff — de er ment som en rask selvtest før du går videre til [kap. 1.2](/ma1301/ma1301-1-2). Fasitene står under hver oppgave.\n\n**R1.** Finn kvotient og rest når $-58$ deles på $9$.\n\n*Fasit:* Kvotienten rundes nedover: $-58/9\\approx -6{,}4$, så $q=-7$. Da er $r=-58+63=5$, og $0\\le 5<9$. Altså $-58=(-7)\\cdot 9+5$.\n\n**R2.** Er $667$ et primtall?\n\n*Fasit:* $\\sqrt{667}\\approx 25{,}8$, så vi tester $2,3,5,7,11,13,17,19,23$. De fem første går ikke opp; $17$: $667=17\\cdot 39+4$, nei; $19$: $667=19\\cdot 35+2$, nei; $23$: $667=23\\cdot 29$, **ja**. Altså er $667=23\\cdot 29$ sammensatt.\n\n**R3.** Finn $\\gcd(360,84)$ og $\\operatorname{lcm}(360,84)$ ved faktorisering, og kontroller med produktregelen.\n\n*Fasit:* $360=2^3\\cdot 3^2\\cdot 5$ og $84=2^2\\cdot 3\\cdot 7$. Minste eksponenter: $\\gcd=2^2\\cdot 3=12$. Største: $\\operatorname{lcm}=2^3\\cdot 3^2\\cdot 5\\cdot 7=2520$. Kontroll: $12\\cdot 2520=30\\,240$ og $360\\cdot 84=30\\,240$. Stemmer.\n\n**R4.** Er tallene $15$, $28$ og $22$ parvis relativt primiske?\n\n*Fasit:* $\\gcd(15,28)=1$ ($15=3\\cdot 5$, $28=2^2\\cdot 7$), $\\gcd(15,22)=1$ ($22=2\\cdot 11$), $\\gcd(28,22)=2$. Det siste paret har felles faktor, så tallene er **ikke** parvis relativt primiske. (Legg merke til at ingen faktor er felles for alle tre — det er nettopp derfor kravet må sjekkes parvis.)\n\n**R5.** La $p$ være et primtall. Vis at hvis $p\\mid a^3$, så $p\\mid a$.\n\n*Fasit:* **Ved Euklids lemma** anvendt på $a\\cdot a^2$: siden $p\\mid a\\cdot a^2$, er $p\\mid a$ eller $p\\mid a^2$. I det første tilfellet er vi ferdige. I det andre bruker vi lemmaet en gang til på $a\\cdot a$ og får $p\\mid a$. Altså $p\\mid a$ i begge tilfeller."
+        }
+      ]
+    },
+    {
+      "id": "ma1301-1-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "ma1301-1-1-symbol-inn",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $a\\mid b$ | «$a$ deler $b$»: det finnes et helt tall $t$ med $b=at$ |\n| $a\\nmid b$ | «$a$ deler ikke $b$» |\n| $a=qb+r$ | divisjonsalgoritmen: $q$ er kvotient, $r$ er rest |\n| $a\\bmod b$ | resten når $a$ deles på $b$ |\n| $p$ | brukes gjennomgående om et primtall |\n| $\\gcd(a,b)$ | største felles divisor |\n| $\\operatorname{lcm}(a,b)$ | minste felles multiplum |\n| $p_1^{k_1}\\cdots p_m^{k_m}$ | primtallsfaktorisering på kanonisk form |\n| $\\min(k,l)$, $\\max(k,l)$ | minste og største av to eksponenter |\n| $ax+by$ | lineærkombinasjon av $a$ og $b$ ($x,y$ hele tall) |\n| $\\sqrt n$ | grensen for prøvedivisjon |\n| $\\blacksquare$ | bevis slutt |\n\n**Formler i dette delkapitlet:**\n\n$$b=at\\ \\text{for et helt tall }t\\iff a\\mid b$$\nDefinisjonen av delelighet. Å bevise delelighet er å produsere $t$. **(må sitte utenat)**\n\n$$a=qb+r,\\qquad 0\\le r<b$$\nDivisjonsalgoritmen. Kvotient og rest er entydig bestemt, og resten er alltid ikke-negativ — også når $a$ er negativ. **(må sitte utenat)**\n\n$$a\\mid b\\ \\text{og}\\ a\\mid c\\ \\Longrightarrow\\ a\\mid(bx+cy)$$\nLineærkombinasjonsregelen — kapitlets mest brukte verktøy, og motoren i Euklids algoritme. **(må sitte utenat)**\n\n$$n=p_1^{k_1}p_2^{k_2}\\cdots p_m^{k_m}\\quad\\text{entydig}$$\nAritmetikkens fundamentalteorem. Navngis hver gang du sammenligner eksponenter. **(må sitte utenat)**\n\n$$p\\mid ab\\ \\Longrightarrow\\ p\\mid a\\ \\text{eller}\\ p\\mid b\\qquad (p\\text{ primtall})$$\nEuklids lemma. Merk «eller», og merk at $p$ må være prim. **(må sitte utenat)**\n\n$$\\gcd(a,b)=\\prod_i p_i^{\\min(k_i,l_i)},\\qquad \\operatorname{lcm}(a,b)=\\prod_i p_i^{\\max(k_i,l_i)}$$\n$\\gcd$ tar minste eksponent, $\\operatorname{lcm}$ tar største. **(må sitte utenat)**\n\n$$\\gcd(a,b)\\cdot\\operatorname{lcm}(a,b)=ab$$\nProduktregelen. Bruk den både som snarvei ($\\operatorname{lcm}=ab/\\gcd$) og som kontroll. **(må sitte utenat)**\n\n$$n\\ \\text{sammensatt}\\ \\Longrightarrow\\ n\\ \\text{har en primdivisor}\\ \\le\\sqrt n$$\nGrensen for prøvedivisjon. **(utledes på stedet — divisorpar-argumentet, to linjer: var begge faktorene $>\\sqrt n$, ville produktet blitt $>n$)**\n\n$$N=p_1p_2\\cdots p_k+1\\ \\Longrightarrow\\ p_i\\nmid N\\ \\text{for alle }i$$\nEuklids tall. Motoren i beviset for uendelig mange primtall. **(utledes på stedet — én linje: $p_i$ deler både $N$ og produktet, altså differansen $1$, som er umulig)**\n\n$$n\\ \\text{kvadrattall}\\iff\\text{alle eksponenter }k_i\\ \\text{like}$$\n**(utledes på stedet — halver eksponentene i én retning, kvadrer faktoriseringen i den andre; se oppgave 9)**"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

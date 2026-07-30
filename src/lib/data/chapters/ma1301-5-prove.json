@@ -1,0 +1,322 @@
+{
+  "id": "ma1301-5-prove",
+  "courseId": "ma1301",
+  "chapterNumber": "5.P",
+  "title": "Prøver til del 5: Orden, primitive røtter og tallteoretiske funksjoner",
+  "description": "Fire nyskrevne prøver med fullstendige løsningsforslag: orden med divisortesten og ordenslemmaet bevist, primitive røtter verifisert og elementer av gitt orden telt, τ og σ med minste-n-optimering, og en full simulering av hele Del 5.",
+  "estimatedMinutes": 150,
+  "competenceGoals": [
+    "finne ordenen under tidspress, med begrunnelse for at svaret er det minste",
+    "verifisere en primitiv rot med én potens per primdivisor, og oppgi hvor mange tester som kreves",
+    "telle primitive røtter, elementer av gitt orden og mulige ordener, og kontrollere tellingen",
+    "regne antall divisorer og divisorsum, og finne det minste tallet med et gitt antall divisorer"
+  ],
+  "content": [
+    {
+      "id": "ma1301-5-prove-om-provene",
+      "type": "tip",
+      "title": "Om prøvene til del 5",
+      "content": "**Fire prøver, til sammen 150 minutter.** Alle oppgavene er nyskrevne for denne boka, i arkivets sjangre.\n\n| Prøve | Tema | Tid | Kapitler |\n|---|---|---|---|\n| **5.A** | Orden modulo $n$ og «orden deler $\\phi(n)$» | ~35 min | [5.1](/ma1301/ma1301-5-1) |\n| **5.B** | Primitive røtter: verifiser og tell elementer av gitt orden | ~40 min | [5.2](/ma1301/ma1301-5-2) |\n| **5.C** | $\\tau$ og $\\sigma$ via multiplikativitet + minste $n$ med gitt $\\tau$ | ~35 min | [5.3](/ma1301/ma1301-5-3) |\n| **5.D** | Simulering: orden, primitiv rot og $\\tau$-optimering kjedet | ~40 min | [5.1](/ma1301/ma1301-5-1)–[5.4](/ma1301/ma1301-5-4) |\n\n**Fire prøver à ~35–40 minutter — kan trygt deles over flere kvelder, én prøve per økt.** Det er ikke meningen at du skal ta alle fire på rad. Én prøve, rettet grundig og med selvdiagnosen fylt ut, er mer verdt enn fire prøver rettet raskt.\n\n**Slik tar du dem, hvis treningen skal ligne eksamen:**\n\n- **Sett klokka**, og bruk bare det du får bruke 24. november: penn, papir og en enkel kalkulator. Ingen bok, ingen formelsamling, ingen tabeller, ingen egne notater.\n- **Lukk boka helt.** Har du prosedyrene ved siden av deg, trener du oppslag — og oppslag er nettopp det hjelpemiddelkode D har fjernet. Merk at kalkulatoren ikke kan regne $a^k\\bmod n$ for deg: alle potenser føres med kvadrer-og-multipliser.\n- **Skriv fullstendig**, som om noen skal rette det. Instruksen på hvert eksamenssett er at alle svar skal begrunnes. I denne delen betyr det særlig én ting: at ordenen er den **minste**, og at **alle** primdivisorene er testet.\n- **Rett etterpå**, og fyll ut selvdiagnose-sjekklista under hver fasit.\n\n**Om poengene.** Hver prøve har oppgitt poeng per oppgave, som en veiledning til hvor mye arbeid som forventes. Tallene er bokas egne — arkivet oppgir ingen karaktergrenser i prosent for dette emnet, og boka oppfinner ingen.\n\n**Ingen flervalgsoppgaver.** Eksamen i MA1301 har aldri hatt en flervalgsdel, og prøvene her speiler det: alt er begrunnet langsvar."
+    },
+    {
+      "id": "ma1301-5-prove-forkunnskaper",
+      "type": "text",
+      "content": "### Forkunnskaper\n\nAlt du trenger, står i Del 5: [kap. 5.1](/ma1301/ma1301-5-1) (orden, ordenslemmaet, potensformelen), [kap. 5.2](/ma1301/ma1301-5-2) (primitive røtter, eksistens, telling), [kap. 5.3](/ma1301/ma1301-5-3) ($\\tau$, $\\sigma$, minste $n$) og [kap. 5.4](/ma1301/ma1301-5-4) (drillen, med de tre prosedyrene og kontrollpunktene).\n\nDu bør i tillegg ha $\\phi$-funksjonen fra [kap. 2.1](/ma1301/ma1301-2-1) og kvadrer-og-multipliser friskt — begge brukes i hver prøve. Legendre-symbolet fra [kap. 4.1](/ma1301/ma1301-4-1) gir en gratis utelukkelsestest i prøve 5.B.\n\n**Har du ikke lest Del 5 ennå,** er prøvene ikke stedet å begynne. Gå til [kap. 5.1](/ma1301/ma1301-5-1) og les deg gjennom; prøvene er der for å teste at stoffet sitter, ikke for å lære det.\n\n**Har du lest Del 5 men er usikker,** ta prøve 5.A først. Den bruker bare definisjonen av orden, ordenslemmaet og divisortesten — går det bra der, sitter grunnlaget for resten."
+    },
+    {
+      "id": "ma1301-5-prove-intro",
+      "type": "text",
+      "content": "### Slik er prøvene bygget\n\nHver prøve har tre oppgaver, ordnet etter stigende vanskelighet: den første er ren mekanikk, den siste krever at du kjeder sammen flere resultater eller fører et bevis.\n\n**Fasitene er skrevet som A-besvarelser.** Det betyr at hvert mellomsteg står der, at **lemmaet er navngitt** der argumentet hviler på det (ordenslemmaet, primdivisortesten, Eulers teorem, multiplikativiteten), og at kontrollene er utført. Det er ikke pynt — det er hva instruksen «alle svar må begrunnes» krever.\n\n**To ting går igjen som eksplisitte krav i denne delen:**\n\n- **«Minste»-begrunnelsen** i ordensoppgaver: at de mindre divisorene er testet og utelukket.\n- **Alle primdivisorene** i primitiv-rot-oppgaver: antall tester = antall ulike primfaktorer i $\\phi(n)$.\n\nBegge er dokumenterte fallgruver, og begge er egne føringspoeng.\n\n**Etter hver fasit står en avkryssbar selvdiagnose.** Bruk den.\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "ma1301-5-prove-prove-A",
+      "type": "collapsible",
+      "title": "Prøve 5.A — Orden modulo n (35 min)",
+      "buttonText": "Vis prøve 5.A",
+      "content": [
+        {
+          "id": "ma1301-5-prove-A-intro",
+          "type": "text",
+          "content": "**Prøve 5.A — Orden modulo $n$.** 35 minutter, 25 poeng. Bygger på [kap. 5.1](/ma1301/ma1301-5-1).\n\nHjelpemidler: penn, papir og en enkel kalkulator.\n\nTidsbudsjett: oppgave 1 ~13 min (10 poeng), oppgave 2 ~11 min (8 poeng), oppgave 3 ~11 min (7 poeng)."
+        },
+        {
+          "id": "ma1301-5-prove-ex-A1",
+          "type": "exercise",
+          "exercise": {
+            "id": "ma1301-5-prove-oA1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(10 poeng, ~13 min)\n\n**a)** Finn $\\operatorname{ord}_{31}(2)$ med divisortesten, og begrunn at svaret er den minste eksponenten. (5 poeng)\n**b)** Finn resten når $2^{1000}$ deles på $31$. (3 poeng)\n**c)** Forklar hvorfor $2$ ikke er en primitiv rot modulo $31$. (2 poeng)",
+            "solution": "**a) Steg 1: vilkåret.** $\\gcd(2,31)=1$, siden $31$ er primtall, så ordenen finnes.\n\n**Steg 2:** $\\phi(31)=31-1=30$.\n\n**Steg 3: divisorene av $30$**, stigende:\n$$1,\\ 2,\\ 3,\\ 5,\\ 6,\\ 10,\\ 15,\\ 30.$$\n\n**Steg 4: test dem stigende.**\n\n| $d$ | $2^d\\bmod 31$ | utregning |\n|---|---|---|\n| $1$ | $2$ | — |\n| $2$ | $4$ | — |\n| $3$ | $8$ | — |\n| $5$ | $1$ | $2^5=32=31+1$ |\n\nFørste divisor som gir $1$: $d=5$.\n\n**Steg 5: konklusjon.** Altså er\n$$\\operatorname{ord}_{31}(2)=5.$$\n\n**«Minste»-begrunnelsen:** ordenen må dele $\\phi(31)=30$ **ved ordenslemmaet** og Eulers teorem. Av divisorene mindre enn $5$ — nemlig $1$, $2$ og $3$ — ga ingen $1$ (vi fikk $2$, $4$ og $8$). Altså er $5$ den minste.\n\n**b)** **Ved ordenslemmaet** kan eksponenten reduseres modulo ordenen:\n$$1000=200\\cdot 5+0,$$\nså $1000\\equiv 0\\pmod 5$ og\n$$2^{1000}=(2^5)^{200}\\equiv 1^{200}=1\\pmod{31}.$$\n\n**Resten er $1$.**\n\n**Kontroll med Euler-veien:** $1000\\bmod\\phi(31)=1000\\bmod 30=10$, så $2^{1000}\\equiv 2^{10}=(2^5)^2\\equiv 1$ ✓. Samme svar, to uavhengige veier.\n\n**c)** En primitiv rot modulo $31$ må ha orden $\\phi(31)=30$. Vi fant $\\operatorname{ord}_{31}(2)=5$, og $5\\ne 30$, så **$2$ er ikke en primitiv rot modulo $31$**.\n\nOrdenen er entydig bestemt — det finnes bare **ett** minste $k$ med $2^k\\equiv 1$ — så saken er avgjort uten videre regning.\n\n*(En annen vei til samme konklusjon: $31\\equiv 7\\equiv -1\\pmod 8$, så **ved 8-regelen** ([kap. 4.2](/ma1301/ma1301-4-2)) er $\\left(\\frac 2{31}\\right)=1$. En kvadratisk rest kan ikke være primitiv rot ([kap. 5.2](/ma1301/ma1301-5-2)), så $2$ er utelukket allerede der.)*\n\n**Sluttsvar:** a) $\\operatorname{ord}_{31}(2)=5$; b) resten er $1$; c) fordi ordenen er $5$, ikke $30$.\n\n*Merk hvor kraftig reduksjonen i b) ble: ordenen $5$ mot $\\phi(31)=30$ er seks ganger mindre. Når divisortesten treffer $1$ tidlig, har du funnet en billig reduksjon — og det er verdt å si i besvarelsen.*",
+            "hints": [
+              "$\\phi(31)=30$, med divisorene $1,2,3,5,6,10,15,30$.",
+              "$2^5=32$ — hva er det modulo $31$?",
+              "I b): reduser $1000$ modulo ordenen, ikke modulo $30$."
+            ]
+          }
+        },
+        {
+          "id": "ma1301-5-prove-ex-A2",
+          "type": "exercise",
+          "exercise": {
+            "id": "ma1301-5-prove-oA2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(8 poeng, ~11 min)\n\nFinn $\\operatorname{ord}_{25}(3)$. Regn $\\phi(25)$ med formelen for primtallspotenser, og før divisortesten fullstendig.",
+            "solution": "**Steg 1: vilkåret.** $\\gcd(3,25)=1$, så ordenen finnes.\n\n**Steg 2: $\\phi(n)$.** Modulusen er en primtallspotens, så\n$$\\phi(25)=\\phi(5^2)=5^2-5^1=25-5=20.$$\n\n*(Merk formelen: $\\phi(p^k)=p^k-p^{k-1}$, ikke $p^k-1$.)*\n\n**Steg 3: divisorene av $20$**, stigende:\n$$1,\\ 2,\\ 4,\\ 5,\\ 10,\\ 20.$$\n\n**Steg 4: test dem stigende.**\n\n| $d$ | $3^d\\bmod 25$ | utregning |\n|---|---|---|\n| $1$ | $3$ | — |\n| $2$ | $9$ | — |\n| $4$ | $6$ | $81=3\\cdot 25+6$ |\n| $5$ | $18$ | $3^5=3^4\\cdot 3\\equiv 6\\cdot 3=18$ |\n| $10$ | $24$ | $(3^5)^2\\equiv 18^2=324=12\\cdot 25+24$ |\n| $20$ | $1$ | $(3^{10})^2\\equiv 24^2\\equiv(-1)^2=1$ |\n\nFørste divisor som gir $1$: $d=20$.\n\n**Steg 5: konklusjon.** Altså er\n$$\\operatorname{ord}_{25}(3)=20=\\phi(25),$$\nog de fem mindre divisorene ($1$, $2$, $4$, $5$, $10$) ga ikke $1$.\n\n**Snarveien som gjør siste rad gratis:** $3^{10}\\equiv 24\\equiv -1\\pmod{25}$, og da er ordenen det dobbelte av $10$, altså $20$ — uten å kvadrere.\n\n**Konsekvens:** siden ordenen er lik $\\phi(25)$, er **$3$ en primitiv rot modulo $25$**. Det er konsistent med eksistenskriteriet: $25=5^2$ er på formen $p^k$ ([kap. 5.2](/ma1301/ma1301-5-2)).\n\n**Kontroll:** $20\\mid\\phi(25)=20$ ✓.\n\n**Sluttsvar:** $\\operatorname{ord}_{25}(3)=20$, og $3$ er dermed en primitiv rot modulo $25$.\n\n*To ting å ta med: **(1)** $\\phi$ for primtallspotenser er $p^k-p^{k-1}$ — den feilen er dokumentert i arkivet. **(2)** Å se etter $-1$ i tabellen sparte oss den siste kvadreringen, og den vanen er verdt mest i nettopp denne sjangeren.*",
+            "hints": [
+              "$\\phi(p^k)=p^k-p^{k-1}$, så $\\phi(25)=20$.",
+              "Divisorene av $20$ er $1,2,4,5,10,20$. Test dem stigende.",
+              "Se etter en potens som lander på $-1$, altså på $24$."
+            ]
+          }
+        },
+        {
+          "id": "ma1301-5-prove-ex-A3",
+          "type": "exercise",
+          "exercise": {
+            "id": "ma1301-5-prove-oA3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(7 poeng, ~11 min)\n\n**a)** Bevis at $\\operatorname{ord}_n(a)$ deler $\\phi(n)$ når $\\gcd(a,n)=1$. Skriv ut argumentet fullstendig. (4 poeng)\n**b)** Anta $\\gcd(a,n)=1$ og at både $a^{20}\\equiv 1\\pmod n$ og $a^{30}\\equiv 1\\pmod n$. Hva kan du si om $\\operatorname{ord}_n(a)$? (3 poeng)",
+            "solution": "**a)** Sett $d=\\operatorname{ord}_n(a)$.\n\n**Steg 1 — en eksponent som treffer $1$.** **Ved Eulers teorem** er\n$$a^{\\phi(n)}\\equiv 1\\pmod n,$$\nsiden $\\gcd(a,n)=1$.\n\n**Steg 2 — ordenslemmaet, med beviset skrevet ut.** Vi viser at $a^t\\equiv 1$ medfører $d\\mid t$. **Ved divisjonsalgoritmen** ([kap. 1.1](/ma1301/ma1301-1-1)) finnes $q$ og $r$ med\n$$t=qd+r,\\qquad 0\\le r<d.$$\nDa er\n$$1\\equiv a^t=a^{qd+r}=(a^d)^q\\cdot a^r\\equiv 1^q\\cdot a^r=a^r\\pmod n.$$\nSå $a^r\\equiv 1$ med $0\\le r<d$. Men $d$ er per definisjon det **minste** positive tallet med denne egenskapen, så $r$ kan ikke være positiv. Altså er $r=0$ og $d\\mid t$.\n\n**Steg 3 — sett $t=\\phi(n)$.** Fra steg 1 er $a^{\\phi(n)}\\equiv 1$, og steg 2 gir da\n$$d\\mid\\phi(n). \\qquad\\blacksquare$$\n\n**b)** **Ved ordenslemmaet** deler $d$ både $20$ og $30$. Da deler $d$ enhver lineærkombinasjon av dem, og **etter Bézout** ([kap. 1.2](/ma1301/ma1301-1-2)) er $\\gcd(20,30)$ en slik lineærkombinasjon. Altså\n$$d\\mid\\gcd(20,30)=10.$$\n\nOrdenen er derfor én av $1$, $2$, $5$ eller $10$ — og mer kan **ikke** sluttes uten flere opplysninger. Alle fire er mulige:\n\n| $d$ | eksempel |\n|---|---|\n| $1$ | $a\\equiv 1$ modulo hva som helst |\n| $2$ | $a=4$, $n=5$ (siden $4\\equiv -1$) |\n| $5$ | $a=2$, $n=31$ (fra oppgave 1) |\n| $10$ | $a=2$, $n=11$ (siden $2^{10}\\equiv 1$ og $2^5\\equiv 10$) |\n\n**Kontroll av det siste:** $\\operatorname{ord}_{11}(2)=10$ deler $\\gcd(20,30)=10$ ✓, og $2^{20}=(2^{10})^2\\equiv 1$, $2^{30}=(2^{10})^3\\equiv 1$ ✓.\n\n**Sluttsvar:** a) bevist via Eulers teorem og ordenslemmaet, med divisjonsalgoritmen skrevet ut; b) $d\\mid 10$, altså $d\\in\\{1,2,5,10\\}$, og alle fire kan forekomme.\n\n*Om føringen i a): det er **divisjonsalgoritme-steget** som er beviset. Å skrive «ordenslemmaet gir at $d$ deler $\\phi(n)$» uten å vise hvorfor lemmaet holder, er en henvisning og ikke et bevis — og oppgaven ba om argumentet fullstendig. Merk også hvor kort det er når det først står der: fire linjer.*",
+            "hints": [
+              "I a): hvilket teorem gir deg en eksponent som treffer $1$?",
+              "I a): bruk divisjonsalgoritmen på eksponenten, og utnytt at $d$ er den minste.",
+              "I b): ordenen deler både $20$ og $30$ — hva deler den da også?"
+            ]
+          }
+        },
+        {
+          "id": "ma1301-5-prove-A-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose — prøve 5.A\n\nKryss av det du faktisk gjorde, ikke det du vet at man skal gjøre. Punktene som står åpne, er repetisjonslisten din.\n\n**Metode:**\n\n- ☐ Jeg skrev $\\gcd(a,n)=1$-linjen før jeg regnet noe.\n- ☐ Jeg regnet $\\phi(n)$ **med utregning** — og brukte $p^k-p^{k-1}$ for primtallspotensen $25$.\n- ☐ Jeg listet divisorene av $\\phi(n)$ og testet dem **stigende**.\n- ☐ Jeg skrev **«minste»-begrunnelsen**: at de mindre divisorene ble testet og ikke ga $1$.\n- ☐ Jeg brukte ordenen — ikke $\\phi(n)$ — til å redusere eksponenten i 1b.\n- ☐ Jeg navngav lemmaene: «ved ordenslemmaet», «ved Eulers teorem», «ved divisjonsalgoritmen».\n\n**Kontroller:**\n\n- ☐ Jeg sjekket at ordenen **deler** $\\phi(n)$.\n- ☐ Jeg regnet 1b på nytt med Euler-veien og fikk samme svar.\n- ☐ Jeg lette etter potenser som lander på $-1$ (og fant $3^{10}\\equiv 24$ i oppgave 2).\n\n**Hvis noe skar seg:**\n\n- ☐ Fikk jeg en orden som **ikke** deler $\\phi(n)$? Da er det regnefeil i potensene — ikke et nytt svar.\n- ☐ Skrev jeg bare «$\\operatorname{ord}=d$» uten minste-begrunnelsen? Det er den best belagte feilen i sjangeren, og den koster selv når tallet er riktig.\n- ☐ Regnet jeg $\\phi(25)=24$? Formelen er $p^k-p^{k-1}$, ikke $p^k-1$.\n- ☐ I 3a: skrev jeg ut divisjonsalgoritme-steget, eller bare henviste til lemmaet? Oppgaven ba om argumentet.\n\n**Neste steg:** står mer enn to punkt åpne under «Metode», gå tilbake til [kap. 5.1](/ma1301/ma1301-5-1) og regn oppgavene der på nytt før du tar prøve 5.B."
+        }
+      ]
+    },
+    {
+      "id": "ma1301-5-prove-prove-B",
+      "type": "collapsible",
+      "title": "Prøve 5.B — Primitive røtter og telling (40 min)",
+      "buttonText": "Vis prøve 5.B",
+      "content": [
+        {
+          "id": "ma1301-5-prove-B-intro",
+          "type": "text",
+          "content": "**Prøve 5.B — Primitive røtter og telling.** 40 minutter, 30 poeng. Bygger på [kap. 5.2](/ma1301/ma1301-5-2).\n\nHjelpemidler: penn, papir og en enkel kalkulator.\n\nTidsbudsjett: oppgave 1 ~10 min (8 poeng), oppgave 2 ~16 min (12 poeng), oppgave 3 ~14 min (10 poeng).\n\n**Krav til føringen:** faktoriser $\\phi(n)$ og skriv opp **hele** listen over eksponenter $\\phi(n)/q$ før du regner. Antall tester = antall ulike primfaktorer, og alle må med."
+        },
+        {
+          "id": "ma1301-5-prove-ex-B1",
+          "type": "exercise",
+          "exercise": {
+            "id": "ma1301-5-prove-oB1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(8 poeng, ~10 min)\n\n**a)** Vis at $3$ er en primitiv rot modulo $17$. Hvor mange potenser krever primdivisortesten her, og hvorfor? (5 poeng)\n**b)** Hvor mange primitive røtter finnes modulo $17$? (3 poeng)",
+            "solution": "**a) Steg 1: formen.** $17$ er et primtall, altså på formen $p^k$ — en primitiv rot finnes.\n\n**Steg 2: vilkåret.** $\\gcd(3,17)=1$.\n\n**Steg 3: $\\phi(n)$ og faktoriseringen.**\n$$\\phi(17)=16=2^4.$$\nHer er det **bare én** ulik primfaktor, nemlig $q=2$. Primdivisortesten krever derfor **én eneste** potens:\n$$3^{16/2}=3^8.$$\n\n**Steg 4: regn den.** Vi kvadrerer oppover:\n\n| potens | utregning | verdi mod $17$ |\n|---|---|---|\n| $3^2$ | $9$ | $9$ |\n| $3^4$ | $81=4\\cdot 17+13$ | $13\\equiv -4$ |\n| $3^8$ | $(-4)^2=16$ | $16\\equiv -1$ |\n\n$$3^8\\equiv 16\\not\\equiv 1\\pmod{17}\\ \\checkmark$$\n\n**Steg 5: konklusjon.** Den ene testen er bestått, så **ved primdivisortesten** er\n$$\\operatorname{ord}_{17}(3)=16=\\phi(17),$$\nog **$3$ er en primitiv rot modulo $17$**.\n\n**Hvorfor bare én potens:** antall tester er antall **ulike** primfaktorer i $\\phi(n)$, og $16=2^4$ har bare én. Multiplisiteten ($4$) spiller ingen rolle. Det er det gunstigste tilfellet som finnes: én kvadreringskjede, og saken er avgjort.\n\n*(Til sammenligning ville en full **divisortest** krevd opp til fem potenser — divisorene $1,2,4,8,16$.)*\n\n**b)** Antallet er\n$$\\phi(\\phi(17))=\\phi(16)=\\phi(2^4)=2^4-2^3=16-8=8.$$\n\n**Det finnes $8$ primitive røtter modulo $17$** — av $16$ rester, altså nøyaktig halvparten.\n\n*(Det er samme antall som ikke-restene, og det er ingen tilfeldighet her: modulo $17$ er $\\frac{p-1}{2}=8$ en toerpotens, og da er hver kvadratisk ikke-rest faktisk en primitiv rot. For de fleste primtall gjelder ikke det.)*\n\n**Sluttsvar:** a) $3$ er en primitiv rot; testen krevde én potens fordi $\\phi(17)=2^4$ bare har én ulik primfaktor; b) $8$.",
+            "hints": [
+              "$\\phi(17)=16=2^4$. Hvor mange ULIKE primfaktorer har $16$?",
+              "Eksponenten å teste er $16/2=8$.",
+              "I b): antallet er $\\phi(\\phi(17))=\\phi(16)$."
+            ]
+          }
+        },
+        {
+          "id": "ma1301-5-prove-ex-B2",
+          "type": "exercise",
+          "exercise": {
+            "id": "ma1301-5-prove-oB2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(12 poeng, ~16 min)\n\nVis at $2$ er en primitiv rot modulo $61$. Før alle testene, og oppgi hvor mange tester som kreves.",
+            "solution": "**Steg 1: formen.** $61$ er et primtall, så en primitiv rot finnes.\n\n**Steg 2: vilkåret.** $\\gcd(2,61)=1$.\n\n**Steg 3: $\\phi(n)$ og faktoriseringen.**\n$$\\phi(61)=60=2^2\\cdot 3\\cdot 5.$$\nDe **ulike** primfaktorene er $2$, $3$ og $5$ — altså **tre** tester, med eksponentene\n$$\\frac{60}{2}=30,\\qquad \\frac{60}{3}=20,\\qquad \\frac{60}{5}=12.$$\n\n**Steg 4: bygg en potenstabell og gjenbruk den.** Vi regner suksessive kvadrater og noen produkter, og bruker negative representanter der de er mindre:\n\n| potens | utregning | verdi mod $61$ |\n|---|---|---|\n| $2^6$ | $64=61+3$ | $3$ |\n| $2^{12}$ | $(2^6)^2\\equiv 3^2=9$ | $9$ |\n| $2^{24}$ | $9^2=81=61+20$ | $20$ |\n| $2^{20}$ | $2^{12}\\cdot 2^6\\cdot 2^2\\equiv 9\\cdot 3\\cdot 4=108=61+47$ | $47$ |\n| $2^{30}$ | $2^{24}\\cdot 2^6\\equiv 20\\cdot 3=60$ | $60\\equiv -1$ |\n\n*Test 1 ($q=2$), eksponent $30$:* $2^{30}\\equiv 60\\equiv -1\\not\\equiv 1$ ✓\n\n*Test 2 ($q=3$), eksponent $20$:* $2^{20}\\equiv 47\\not\\equiv 1$ ✓\n\n*Test 3 ($q=5$), eksponent $12$:* $2^{12}\\equiv 9\\not\\equiv 1$ ✓\n\n**Steg 5: konklusjon.** Alle tre testene er bestått, så **ved primdivisortesten** er\n$$\\operatorname{ord}_{61}(2)=60=\\phi(61),$$\nog **$2$ er en primitiv rot modulo $61$**.\n\n**Antall tester: tre**, fordi $\\phi(61)=60$ har tre ulike primfaktorer.\n\n**Kontroll:** testen for $q=2$ ga $-1$, som forventet når svaret er ja ✓. (For primtallsmodulus er $a^{\\phi(n)/2}$ en kvadratrot av $1$, og den er $-1$ nøyaktig når ordenen ikke deler $\\frac{p-1}{2}$.)\n\n*Merk arbeidsøkonomien: $2^6\\equiv 3$ var nøkkelen. Alle tre eksponentene ($30$, $20$, $12$) er multipler av $6$ eller bygget lett på $2^6$ og $2^{12}$, så hele oppgaven ble fem korte utregninger. Med tre primdivisorer er det verdt tretti sekunder å finne en slik mellompotens først.*\n\n**Sluttsvar:** $2$ er en primitiv rot modulo $61$, verifisert med tre tester.",
+            "hints": [
+              "$\\phi(61)=60=2^2\\cdot 3\\cdot 5$ — tre ulike primfaktorer.",
+              "Eksponentene er $30$, $20$ og $12$. Regn $2^6$ først.",
+              "$2^6=64\\equiv 3\\pmod{61}$ gjør alle tre potensene enkle."
+            ]
+          }
+        },
+        {
+          "id": "ma1301-5-prove-ex-B3",
+          "type": "exercise",
+          "exercise": {
+            "id": "ma1301-5-prove-oB3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(10 poeng, ~14 min)\n\nBruk at $2$ er en primitiv rot modulo $61$ (oppgave 2).\n\n**a)** Hvor mange primitive røtter finnes modulo $61$? (3 poeng)\n**b)** Hvor mange elementer har orden $4$ modulo $61$? (3 poeng)\n**c)** Finn dem, og kontrollér svaret. (4 poeng)",
+            "solution": "**a)** Antallet er\n$$\\phi(\\phi(61))=\\phi(60).$$\nMed $60=2^2\\cdot 3\\cdot 5$ og **multiplikativiteten** ([kap. 2.1](/ma1301/ma1301-2-1)):\n$$\\phi(60)=\\phi(4)\\phi(3)\\phi(5)=2\\cdot 2\\cdot 4=16.$$\n\n**Det finnes $16$ primitive røtter modulo $61$.**\n\n**b)** Ordenen $4$ deler $\\phi(61)=60$, så tellingsteoremet gjelder: antall elementer av orden $d$ er $\\phi(d)$. Med $d=4$:\n$$\\phi(4)=4-2=2.$$\n\n**To elementer har orden $4$ modulo $61$.**\n\n**c)** Vi lager ett av dem som $r^{\\phi(n)/d}$ med $r=2$ og $d=4$:\n$$2^{60/4}=2^{15}.$$\n\nFra tabellen i oppgave 2 har vi $2^{12}\\equiv 9$, så\n$$2^{15}=2^{12}\\cdot 2^3\\equiv 9\\cdot 8=72=61+11\\equiv 11\\pmod{61}.$$\n\n**Kontroll av ordenen til $11$:** $11^2=121=2\\cdot 61-1$, altså\n$$11^2\\equiv -1\\pmod{61},$$\nog dermed $11^4\\equiv(-1)^2=1$. Ordenen er $4$ — ikke $1$ eller $2$, siden $11\\not\\equiv 1$ og $11^2\\equiv -1\\not\\equiv 1$ ✓.\n\n**Det andre elementet** er $11^k$ med $\\gcd(k,4)=1$, altså $k=3$:\n$$11^3=11^2\\cdot 11\\equiv(-1)\\cdot 11=-11\\equiv 61-11=50\\pmod{61}.$$\n\n**Kontroll av $50$:** $50\\equiv -11$, så $50^2\\equiv 121\\equiv -1$ og $50^4\\equiv 1$ ✓ — ordenen er $4$.\n\n**De to elementene av orden $4$ modulo $61$ er $11$ og $50$**, og det er $\\phi(4)=2$ stykker ✓.\n\n**Fullstendighetskontroll av tellingen** (for de små ordenene): $\\phi(1)+\\phi(2)+\\phi(4)=1+1+2=4$, og det er nøyaktig antall løsninger av $x^4\\equiv 1\\pmod{61}$ — som stemmer, siden et fjerdegradspolynom har høyst fire røtter modulo et primtall ✓.\n\n**Sluttsvar:** a) $16$; b) $2$; c) $11$ og $50$.\n\n*Merk at $11$ og $50$ er hverandres negative ($50\\equiv -11$), og at begge kvadrerer til $-1$. Det er ingen tilfeldighet: elementene av orden $4$ er nettopp kvadratrøttene av $-1$, og de finnes fordi $61\\equiv 1\\pmod 4$ ([kap. 4.1](/ma1301/ma1301-4-1)). Del 4 og Del 5 møtes her.*",
+            "hints": [
+              "I a): $\\phi(\\phi(61))=\\phi(60)$.",
+              "I b): formelen er $\\phi(d)$ med $d=4$.",
+              "I c): ett element er $2^{60/4}=2^{15}$; bruk $2^{12}\\equiv 9$ fra oppgave 2."
+            ]
+          }
+        },
+        {
+          "id": "ma1301-5-prove-B-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose — prøve 5.B\n\n**Metode:**\n\n- ☐ Jeg sjekket **formen** på modulusen ($2$, $4$, $p^k$, $2p^k$) før jeg lette etter en primitiv rot.\n- ☐ Jeg faktoriserte $\\phi(n)$ og skrev opp **hele** listen over eksponenter $\\phi(n)/q$ før jeg regnet.\n- ☐ Jeg testet **alle** de ulike primdivisorene — tre i oppgave 2, én i oppgave 1.\n- ☐ Jeg brukte formelen $\\phi(\\phi(n))$ til antallet, ikke $\\phi(n)$.\n- ☐ Jeg brukte $\\phi(d)$ til antall elementer av orden $d$, ikke $d$.\n- ☐ Jeg konstruerte elementet av orden $4$ som $r^{\\phi(n)/d}$, og de øvrige som potenser med eksponent relativt primisk til $d$.\n\n**Kontroller:**\n\n- ☐ Jeg sjekket at testen for $q=2$ ga $-1$ (som den skal når svaret er ja).\n- ☐ Jeg kontrollerte ordenen til begge elementene i 3c ved å kvadrere.\n- ☐ Jeg gjenbrukte mellompotenser i stedet for å regne hver test fra bunnen.\n\n**Hvis noe skar seg:**\n\n- ☐ Testet jeg bare **én** primdivisor i oppgave 2? Da er konklusjonen ikke gyldig — det er den best belagte feilen i sjangeren.\n- ☐ Svarte jeg $60$ i 3a? Det er antall **rester**, ikke antall primitive røtter.\n- ☐ Svarte jeg $4$ i 3b? Formelen er $\\phi(4)=2$, ikke $d$ selv.\n- ☐ Brukte jeg over 16 minutter på oppgave 2? Se om du fant en mellompotens å gjenbruke — $2^6\\equiv 3$ er nøkkelen der.\n\n**Neste steg:** sitter primdivisortesten men glapp tellingen, les kortet «tellingsformlene» i [kap. 5.4](/ma1301/ma1301-5-4) og gå videre til 5.C."
+        }
+      ]
+    },
+    {
+      "id": "ma1301-5-prove-prove-C",
+      "type": "collapsible",
+      "title": "Prøve 5.C — Tallteoretiske funksjoner (35 min)",
+      "buttonText": "Vis prøve 5.C",
+      "content": [
+        {
+          "id": "ma1301-5-prove-C-intro",
+          "type": "text",
+          "content": "**Prøve 5.C — Tallteoretiske funksjoner.** 35 minutter, 25 poeng. Bygger på [kap. 5.3](/ma1301/ma1301-5-3).\n\nHjelpemidler: penn, papir og en enkel kalkulator.\n\nTidsbudsjett: oppgave 1 ~9 min (8 poeng), oppgave 2 ~14 min (10 poeng), oppgave 3 ~12 min (7 poeng).\n\n**Krav til føringen:** faktoriseringen **er** begrunnelsen i denne sjangeren. Den skal stå i besvarelsen, med kontroll av at faktorene ganger til tallet."
+        },
+        {
+          "id": "ma1301-5-prove-ex-C1",
+          "type": "exercise",
+          "exercise": {
+            "id": "ma1301-5-prove-oC1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(8 poeng, ~9 min)\n\nFinn $\\tau(2\\,520)$ og $\\sigma(2\\,520)$. Skriv faktoriseringen, og kontrollér svarene mot grensene $\\sigma(n)>n$ og $\\tau(n)\\le 2\\sqrt n$.",
+            "solution": "**Steg 1: faktoriser.** Vi deler ut småprimtall i tur og orden:\n$$2\\,520=2\\cdot 1\\,260=2^2\\cdot 630=2^3\\cdot 315,$$\nog $315=5\\cdot 63=5\\cdot 9\\cdot 7$. Altså\n$$2\\,520=2^3\\cdot 3^2\\cdot 5\\cdot 7.$$\n\n**Kontroll av faktoriseringen:** $8\\cdot 9\\cdot 5\\cdot 7=8\\cdot 9=72$, $72\\cdot 35=2\\,520$ ✓.\n\n**Steg 2: $\\tau$.** Eksponentene er $3,2,1,1$, så\n$$\\tau(2\\,520)=(3+1)(2+1)(1+1)(1+1)=4\\cdot 3\\cdot 2\\cdot 2=48.$$\n\n**Steg 3: $\\sigma$**, faktor for faktor med direkte summering:\n$$\\sigma(2^3)=1+2+4+8=15,$$\n$$\\sigma(3^2)=1+3+9=13,$$\n$$\\sigma(5)=1+5=6,$$\n$$\\sigma(7)=1+7=8.$$\n\n$$\\sigma(2\\,520)=15\\cdot 13\\cdot 6\\cdot 8.$$\nSteg for steg: $15\\cdot 13=195$; $195\\cdot 6=1\\,170$; $1\\,170\\cdot 8=9\\,360$.\n\n**Steg 4: kontroller.**\n\n- $\\sigma(2\\,520)=9\\,360>2\\,520$ ✓\n- $\\sigma(n)<n\\tau(n)=2\\,520\\cdot 48$ ✓ (med god margin)\n- $\\tau(2\\,520)=48$ og $2\\sqrt{2\\,520}\\approx 100$, så $48\\le 100$ ✓\n- $2\\,520$ er ikke et kvadrattall, og $\\tau=48$ er et partall ✓\n\n**Sluttsvar:** $\\tau(2\\,520)=48$ og $\\sigma(2\\,520)=9\\,360$.\n\n*Merk at $2\\,520$ er det minste tallet som er delelig med alle tallene $1$ til $10$ — derfor de mange divisorene. Tall med eksponentene spredt på små primtall er divisorrike, og det er nettopp mekanismen bak minste-$n$-oppgaven i neste oppgave.*",
+            "hints": [
+              "Del ut $2$ tre ganger, deretter $3$ to ganger.",
+              "$\\tau=\\prod(k_i+1)$ med fire faktorer her.",
+              "Regn $\\sigma$ per primtallspotens og gang sammen til slutt."
+            ]
+          }
+        },
+        {
+          "id": "ma1301-5-prove-ex-C2",
+          "type": "exercise",
+          "exercise": {
+            "id": "ma1301-5-prove-oC2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(10 poeng, ~14 min)\n\nFinn det minste positive heltallet $n$ med $\\tau(n)=32$. Sett opp alle kandidatene, og kontrollér svaret.",
+            "solution": "**Steg 1: faktoriser måltallet på alle måter.** $32=2^5$, og faktoriseringene i faktorer $\\ge 2$ er\n$$32,\\quad 16\\cdot 2,\\quad 8\\cdot 4,\\quad 8\\cdot 2\\cdot 2,\\quad 4\\cdot 4\\cdot 2,\\quad 4\\cdot 2\\cdot 2\\cdot 2,\\quad 2\\cdot 2\\cdot 2\\cdot 2\\cdot 2.$$\n\n**Steg 2–3: eksponentene er $f_i-1$, sortert synkende, plassert på $2,3,5,7,11$.**\n\n| Faktorisering | Eksponenter | Kandidat | Verdi |\n|---|---|---|---|\n| $32$ | $31$ | $2^{31}$ | over $2$ milliarder |\n| $16\\cdot 2$ | $15,1$ | $2^{15}\\cdot 3$ | $32\\,768\\cdot 3=98\\,304$ |\n| $8\\cdot 4$ | $7,3$ | $2^7\\cdot 3^3$ | $128\\cdot 27=3\\,456$ |\n| $8\\cdot 2\\cdot 2$ | $7,1,1$ | $2^7\\cdot 3\\cdot 5$ | $128\\cdot 15=1\\,920$ |\n| $4\\cdot 4\\cdot 2$ | $3,3,1$ | $2^3\\cdot 3^3\\cdot 5$ | $8\\cdot 27\\cdot 5=1\\,080$ |\n| $4\\cdot 2\\cdot 2\\cdot 2$ | $3,1,1,1$ | $2^3\\cdot 3\\cdot 5\\cdot 7$ | $8\\cdot 105=840$ |\n| $2\\cdot 2\\cdot 2\\cdot 2\\cdot 2$ | $1,1,1,1,1$ | $2\\cdot 3\\cdot 5\\cdot 7\\cdot 11$ | $2\\,310$ |\n\n**Steg 4: velg den minste.** Den minste kandidaten er\n$$n=840.$$\n\n**Steg 5: kontroll.** $840=2^3\\cdot 3\\cdot 5\\cdot 7$, så\n$$\\tau(840)=(3+1)(1+1)(1+1)(1+1)=4\\cdot 2\\cdot 2\\cdot 2=32\\ \\checkmark$$\n\n**Sluttsvar:** $n=840$.\n\n*Tre observasjoner.*\n\n*Først: **den mest oppdelte faktoriseringen vant ikke.** $2\\cdot 3\\cdot 5\\cdot 7\\cdot 11=2\\,310$ er nesten tre ganger større enn $840$, fordi primtallet $11$ er dyrt. Det er derfor du må regne ut **alle** kandidatene og ikke stole på en tommelfingerregel.*\n\n*Dernest: **vinneren har den nest mest oppdelte formen** — fire primtall med én stor eksponent. Det er det typiske mønsteret når måltallet er en toerpotens.*\n\n*Til sist: $840$ er også det minste tallet delelig med alle tallene $1$ til $8$ — divisorrike tall dukker opp i flere sammenhenger.*",
+            "hints": [
+              "$32=2^5$ har sju faktoriseringer i faktorer $\\ge 2$ — skriv dem alle.",
+              "Trekk $1$ fra hver faktor, sorter synkende, og plasser på $2,3,5,7,11$.",
+              "Regn ut alle kandidatene — den mest oppdelte er ikke alltid minst."
+            ]
+          }
+        },
+        {
+          "id": "ma1301-5-prove-ex-C3",
+          "type": "exercise",
+          "exercise": {
+            "id": "ma1301-5-prove-oC3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(7 poeng, ~12 min)\n\n**a)** Vis at $\\tau(n)$ er et oddetall hvis og bare hvis $n$ er et kvadrattall. Skriv begge retninger. (4 poeng)\n**b)** Avgjør, uten å regne ut $\\tau$, hvilke av tallene $900$, $1\\,000$ og $1\\,024$ som har odde $\\tau$. Kontrollér deretter ved å regne. (3 poeng)",
+            "solution": "**a)** Skriv $n=\\prod_i p_i^{k_i}$. Etter formelen er\n$$\\tau(n)=\\prod_i(k_i+1).$$\n\n*Retning $\\Rightarrow$: er $\\tau(n)$ odde, er $n$ et kvadrattall.* Et produkt er odde nøyaktig når **hver** faktor er odde (én partallsfaktor gjør hele produktet partall). Altså er hver $k_i+1$ odde, og dermed hver $k_i$ **partall**. Skriv $k_i=2m_i$; da er\n$$n=\\prod_i p_i^{2m_i}=\\left(\\prod_i p_i^{m_i}\\right)^2,$$\naltså et kvadrattall.\n\n*Retning $\\Leftarrow$: er $n$ et kvadrattall, er $\\tau(n)$ odde.* Skriv $n=t^2$ og faktoriser $t=\\prod p_i^{m_i}$. Da er $n=\\prod p_i^{2m_i}$, og **ved entydigheten i aritmetikkens fundamentalteorem** ([kap. 1.1](/ma1301/ma1301-1-1)) er dette **hele** faktoriseringen av $n$ — alle eksponenter er partall. Da er hver $k_i+1$ odde, og produktet er odde. $\\blacksquare$\n\n*Alternativt bevis, like fullgodt:* divisorene i $n$ kommer i par $(d,n/d)$. De to i et par er like nøyaktig når $d^2=n$. Er $n$ ikke et kvadrattall, er alle par ekte, og antallet er partall. Er $n=t^2$, står $t$ alene igjen, og antallet er odde.\n\n**b) Uten å regne $\\tau$:** etter a) er $\\tau$ odde nøyaktig for kvadrattall. Vi sjekker hvilke av de tre som er kvadrattall:\n\n- $900=30^2$ ✓ — **odde** $\\tau$\n- $1\\,000$: $\\sqrt{1\\,000}\\approx 31{,}6$, og $31^2=961$, $32^2=1\\,024$ — altså **ikke** et kvadrattall, så $\\tau$ er **partall**\n- $1\\,024=32^2$ ✓ — **odde** $\\tau$\n\n**Kontroll ved å regne:**\n\n$$900=2^2\\cdot 3^2\\cdot 5^2\\ \\Longrightarrow\\ \\tau=3\\cdot 3\\cdot 3=27\\quad\\text{(odde ✓)}$$\n$$1\\,000=2^3\\cdot 5^3\\ \\Longrightarrow\\ \\tau=4\\cdot 4=16\\quad\\text{(partall ✓)}$$\n$$1\\,024=2^{10}\\ \\Longrightarrow\\ \\tau=11\\quad\\text{(odde ✓)}$$\n\nAlle tre stemmer med kriteriet.\n\n**Sluttsvar:** a) bevist i begge retninger; b) $900$ og $1\\,024$ har odde $\\tau$ (de er kvadrattall), $1\\,000$ har partall $\\tau$ — bekreftet ved $\\tau=27$, $16$ og $11$.\n\n*Om føringen i a): oppgaven sier «hvis og bare hvis», og da må **begge retninger** vises. Å skrive bare den ene er den dokumenterte fellen i ekvivalensoppgaver, og den koster halve uttellingen. Merk hvor kort hver retning er når strukturen er klar — to setninger hver.*",
+            "hints": [
+              "I a): når er et produkt av heltall et oddetall?",
+              "I a): husk at «hvis og bare hvis» krever to retninger.",
+              "I b): er $1\\,000$ et kvadrattall? Sjekk $31^2$ og $32^2$."
+            ]
+          }
+        },
+        {
+          "id": "ma1301-5-prove-C-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose — prøve 5.C\n\n**Metode:**\n\n- ☐ Jeg skrev **faktoriseringen** i besvarelsen, med kontroll av at faktorene ganger til tallet.\n- ☐ Jeg brukte $\\tau(n)=\\prod(k_i+1)$ — med $+1$.\n- ☐ Jeg regnet $\\sigma$ **per primtallspotens** og ganget sammen til slutt, med mellomregning.\n- ☐ Jeg satte opp **alle** faktoriseringene av måltallet i oppgave 2 — sju av dem.\n- ☐ Jeg plasserte de største eksponentene på de minste primtallene.\n- ☐ Jeg viste **begge retninger** i ekvivalensen i 3a.\n\n**Kontroller:**\n\n- ☐ Jeg sjekket $\\sigma(n)>n$ og $\\tau(n)\\le 2\\sqrt n$.\n- ☐ Jeg regnet $\\tau$ av kandidaten i oppgave 2 og fikk $32$.\n- ☐ Jeg kontrollerte pariteten: $\\tau$ odde $\\iff$ kvadrattall.\n\n**Hvis noe skar seg:**\n\n- ☐ Fikk jeg $\\tau(2\\,520)=24$? Da har jeg sannsynligvis glemt en primfaktor — det er fire av dem.\n- ☐ Valgte jeg $2\\,310$ i oppgave 2 fordi «flest faktorer vinner»? Regelen er en tendens, ikke en lov — primtallet $11$ er dyrt.\n- ☐ Skrev jeg bare én retning i 3a? Oppgaven ba om begge.\n- ☐ Brukte jeg over 14 minutter på oppgave 2? Kandidattabellen kan skrives raskt når du har systemet: faktoriser måltallet, trekk fra $1$, sorter.\n\n**Neste steg:** sitter $\\tau$ og $\\sigma$, gå til prøve 5.D — den kjeder sammen hele Del 5."
+        }
+      ]
+    },
+    {
+      "id": "ma1301-5-prove-prove-D",
+      "type": "collapsible",
+      "title": "Prøve 5.D — Simulering: hele Del 5 kjedet (40 min)",
+      "buttonText": "Vis prøve 5.D",
+      "content": [
+        {
+          "id": "ma1301-5-prove-D-intro",
+          "type": "text",
+          "content": "**Prøve 5.D — Simulering: hele Del 5 kjedet.** 40 minutter, 30 poeng. Bygger på [kap. 5.1](/ma1301/ma1301-5-1)–[kap. 5.4](/ma1301/ma1301-5-4).\n\nDette er den prøven som ligner mest på et virkelig eksamensdelpunkt i Del 5: én tung verifikasjon, to tellespørsmål og en $\\tau$-oppgave — nøyaktig den miksen arkivet bruker.\n\nHjelpemidler: penn, papir og en enkel kalkulator.\n\nTidsbudsjett: oppgave 1 ~14 min (12 poeng), oppgave 2 ~12 min (10 poeng), oppgave 3 ~14 min (8 poeng).\n\n**Krav til føringen:** som på eksamen skal alle svar begrunnes. Lemma- og testnavn ved hvert steg, og en konklusjonssetning til slutt."
+        },
+        {
+          "id": "ma1301-5-prove-ex-D1",
+          "type": "exercise",
+          "exercise": {
+            "id": "ma1301-5-prove-oD1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(12 poeng, ~14 min)\n\nLa $p=83$.\n\n**a)** Vis at $2$ er en primitiv rot modulo $83$. (7 poeng)\n**b)** Hvor mange primitive røtter finnes modulo $83$? (3 poeng)\n**c)** Hvor mange **mulige ordener** finnes modulo $83$, og hvilke er de? (2 poeng)",
+            "solution": "**a) Steg 1: formen.** $83$ er et primtall, så en primitiv rot finnes.\n\n**Steg 2: vilkåret.** $\\gcd(2,83)=1$.\n\n**Steg 3: $\\phi(n)$ og faktoriseringen.**\n$$\\phi(83)=82=2\\cdot 41,$$\nog både $2$ og $41$ er primtall. **To** ulike primfaktorer, altså **to** tester med eksponentene\n$$\\frac{82}{2}=41\\qquad\\text{og}\\qquad\\frac{82}{41}=2.$$\n\n**Steg 4: regn dem.**\n\n*Test 2 først (den billigste):* $2^2=4\\not\\equiv 1\\pmod{83}$ ✓\n\n*Test 1:* $2^{41}\\bmod 83$. Binærutviklingen er $41=101001_2=32+8+1$. Suksessive kvadrater:\n\n| potens | utregning | verdi mod $83$ |\n|---|---|---|\n| $2^2$ | $4$ | $4$ |\n| $2^4$ | $16$ | $16$ |\n| $2^8$ | $16^2=256=3\\cdot 83+7$ | $7$ |\n| $2^{16}$ | $7^2=49$ | $49$ |\n| $2^{32}$ | $49^2=2\\,401=28\\cdot 83+77$ | $77\\equiv -6$ |\n\n$$2^{41}=2^{32}\\cdot 2^8\\cdot 2^1\\equiv(-6)\\cdot 7\\cdot 2\\pmod{83}.$$\nSteg for steg: $(-6)\\cdot 7=-42$, og $-42\\cdot 2=-84\\equiv -84+83=-1\\pmod{83}$.\n\nAltså $2^{41}\\equiv -1\\equiv 82\\not\\equiv 1$ ✓\n\n**Steg 5: konklusjon.** Begge testene er bestått, så **ved primdivisortesten** er\n$$\\operatorname{ord}_{83}(2)=82=\\phi(83),$$\nog **$2$ er en primitiv rot modulo $83$**.\n\n**Kontroll:** $q=2$-testen ga $-1$, som forventet ✓. Og $83\\equiv 3\\pmod 8$, så **ved 8-regelen** ([kap. 4.2](/ma1301/ma1301-4-2)) er $\\left(\\frac 2{83}\\right)=-1$ — altså er $2$ en kvadratisk ikke-rest, og var ikke utelukket på forhånd ✓.\n\n**b)** Antallet er\n$$\\phi(\\phi(83))=\\phi(82)=\\phi(2)\\phi(41)=1\\cdot 40=40.$$\n\n**Det finnes $40$ primitive røtter modulo $83$** — av $82$ rester, altså nesten halvparten.\n\n**c)** De mulige ordenene er nøyaktig **divisorene av $\\phi(83)=82$**, og antallet er\n$$\\tau(82)=\\tau(2\\cdot 41)=(1+1)(1+1)=4.$$\n\n**De fire mulige ordenene er $1$, $2$, $41$ og $82$.**\n\n**Fullstendighetskontroll:** antall elementer av hver orden skal summere til $\\phi(83)=82$:\n$$\\phi(1)+\\phi(2)+\\phi(41)+\\phi(82)=1+1+40+40=82\\ \\checkmark$$\n\n**Sluttsvar:** a) $2$ er en primitiv rot med orden $82$; b) $40$; c) fire mulige ordener: $1$, $2$, $41$, $82$.\n\n*Merk hvor lite «ordensrik» denne modulusen er: bare fire mulige ordener, og $80$ av de $82$ elementene har orden $41$ eller $82$. Grunnen er at $82=2\\cdot 41$ har svært få divisorer. Til sammenligning har modulo $61$ tolv mulige ordener, siden $60$ har tolv divisorer.*",
+            "hints": [
+              "$\\phi(83)=82=2\\cdot 41$ — to primtall, altså to tester.",
+              "Eksponentene er $41$ og $2$. Ta den billigste først.",
+              "I c): de mulige ordenene er divisorene av $82$ — og antallet er $\\tau(82)$."
+            ]
+          }
+        },
+        {
+          "id": "ma1301-5-prove-ex-D2",
+          "type": "exercise",
+          "exercise": {
+            "id": "ma1301-5-prove-oD2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(10 poeng, ~12 min)\n\nLa $p=31$, og bruk at $\\operatorname{ord}_{31}(2)=5$ (prøve 5.A, oppgave 1).\n\n**a)** Hvor mange elementer har orden $5$ modulo $31$? (3 poeng)\n**b)** Finn dem alle, og kontrollér svaret. (5 poeng)\n**c)** Hvorfor kan ingen av dem være en primitiv rot modulo $31$? (2 poeng)",
+            "solution": "**a)** Ordenen $5$ deler $\\phi(31)=30$, og $31$ er et primtall, så en primitiv rot finnes og tellingsteoremet gjelder. Antallet er\n$$\\phi(5)=4.$$\n\n**Fire elementer har orden $5$ modulo $31$.**\n\n**b)** Vi vet at $\\operatorname{ord}_{31}(2)=5$, altså har $2$ nettopp orden $5$. Da er de øvrige elementene av orden $5$ potensene $2^k$ med $\\gcd(k,5)=1$, altså $k=1,2,3,4$:\n\n$$2^1=2,\\qquad 2^2=4,\\qquad 2^3=8,\\qquad 2^4=16.$$\n\n**De fire elementene av orden $5$ modulo $31$ er**\n$$\\{2,\\ 4,\\ 8,\\ 16\\}.$$\n\n**Kontroll av hver:** $2^5=32\\equiv 1$ ✓. For de andre bruker vi potensformelen fra [kap. 5.1](/ma1301/ma1301-5-1):\n$$\\operatorname{ord}_{31}(2^k)=\\frac{5}{\\gcd(k,5)}=\\frac 51=5\\qquad\\text{for }k=1,2,3,4,$$\nsiden $\\gcd(k,5)=1$ for alle fire ✓.\n\n**Direkte kontroll av én av dem, $a=8$:** $8^2=64=2\\cdot 31+2\\equiv 2$, $8^3\\equiv 2\\cdot 8=16$, $8^4\\equiv 16\\cdot 8=128=4\\cdot 31+4\\equiv 4$, $8^5\\equiv 4\\cdot 8=32\\equiv 1$ ✓. Ordenen er $5$ (ingen mindre eksponent ga $1$).\n\n**Antallet stemmer:** vi fant $4=\\phi(5)$ stykker ✓.\n\n**c)** En primitiv rot modulo $31$ må ha orden $\\phi(31)=30$. Alle fire elementene har orden $5$, og $5\\ne 30$, så **ingen av dem er en primitiv rot**.\n\nMer generelt: ordenen er entydig bestemt for hvert element, så et element av orden $5$ kan ikke samtidig ha orden $30$.\n\n*(For sammenligning: antall primitive røtter modulo $31$ er $\\phi(30)=8$ ([kap. 5.2](/ma1301/ma1301-5-2)), og den minste er $3$.)*\n\n**Sluttsvar:** a) $4$; b) $\\{2,4,8,16\\}$; c) fordi de har orden $5$, ikke $\\phi(31)=30$.\n\n*Merk strukturen: de fire elementene er hele syklusen til $2$ bortsett fra $2^5\\equiv 1$. Slik er det alltid — elementene av orden $d$ er de $\\phi(d)$ «generatorene» innenfor én syklus av lengde $d$.*",
+            "hints": [
+              "I a): formelen er $\\phi(d)$ med $d=5$.",
+              "I b): $2$ har selv orden $5$ — hva er da de andre?",
+              "I c): kan et element ha to ulike ordener?"
+            ]
+          }
+        },
+        {
+          "id": "ma1301-5-prove-ex-D3",
+          "type": "exercise",
+          "exercise": {
+            "id": "ma1301-5-prove-oD3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(8 poeng, ~14 min)\n\n**a)** Regn ut $\\tau(60)$ og $\\sigma(60)$. (3 poeng)\n**b)** Modulo $61$ er $\\phi(61)=60$. Hvor mange **mulige ordener** finnes det da modulo $61$, og hvordan henger svaret sammen med a)? (2 poeng)\n**c)** Sett opp hele ordensfordelingen modulo $61$ for divisorene $1$, $2$, $3$, $4$, $5$ og $6$ av $60$, og kontrollér at summen over **alle** divisorene blir $60$. (3 poeng)",
+            "solution": "**a) Faktoriser:** $60=2^2\\cdot 3\\cdot 5$.\n\n**Kontroll:** $4\\cdot 3\\cdot 5=60$ ✓.\n\n$$\\tau(60)=(2+1)(1+1)(1+1)=3\\cdot 2\\cdot 2=12.$$\n\n$$\\sigma(2^2)=1+2+4=7,\\qquad\\sigma(3)=1+3=4,\\qquad\\sigma(5)=1+5=6,$$\n$$\\sigma(60)=7\\cdot 4\\cdot 6=168.$$\n\n*(Mellomregning: $7\\cdot 4=28$, og $28\\cdot 6=168$.)*\n\n**Kontroller:** $168>60$ ✓, og $\\tau(60)=12\\le 2\\sqrt{60}\\approx 15{,}5$ ✓.\n\n**a) Sluttsvar:** $\\tau(60)=12$ og $\\sigma(60)=168$.\n\n**b)** De mulige ordenene modulo $61$ er nøyaktig **divisorene av $\\phi(61)=60$**, og antall divisorer er $\\tau(60)$. Altså er det\n$$\\tau(60)=12$$\nmulige ordener modulo $61$.\n\n**Sammenhengen med a):** tallet $\\tau(60)$ har to helt ulike betydninger som er samme tall her — «antall divisorer av $60$» og «antall mulige ordener modulo $61$». Det er ikke en tilfeldighet, men en direkte konsekvens av at ordenen alltid deler $\\phi(n)$ ([kap. 5.1](/ma1301/ma1301-5-1)).\n\nDe tolv divisorene er $1,2,3,4,5,6,10,12,15,20,30,60$.\n\n**c)** Antall elementer av orden $d$ er $\\phi(d)$ ([kap. 5.2](/ma1301/ma1301-5-2)), siden $61$ er et primtall og dermed har en primitiv rot. For de seks første divisorene:\n\n| $d$ | $1$ | $2$ | $3$ | $4$ | $5$ | $6$ |\n|---|---|---|---|---|---|---|\n| antall $=\\phi(d)$ | $1$ | $1$ | $2$ | $2$ | $4$ | $2$ |\n\n**Fullstendighetskontroll over alle tolv divisorene:**\n\n| $d$ | $1$ | $2$ | $3$ | $4$ | $5$ | $6$ | $10$ | $12$ | $15$ | $20$ | $30$ | $60$ |\n|---|---|---|---|---|---|---|---|---|---|---|---|---|\n| $\\phi(d)$ | $1$ | $1$ | $2$ | $2$ | $4$ | $2$ | $4$ | $4$ | $8$ | $8$ | $8$ | $16$ |\n\nSummen:\n$$1+1+2+2+4+2+4+4+8+8+8+16=60=\\phi(61)\\ \\checkmark$$\n\nKontrollen bekrefter at fordelingen er komplett: hvert av de $60$ elementene har nøyaktig én orden, og alle er telt.\n\n*Merk at nederste celle, $\\phi(60)=16$, er antall **primitive røtter** modulo $61$ — samme tall vi fant i prøve 5.B, oppgave 3a ✓. Og cellen for $d=4$ er $\\phi(4)=2$, som er de to elementene $11$ og $50$ vi fant der ✓.*\n\n**Sluttsvar:** a) $\\tau(60)=12$, $\\sigma(60)=168$; b) $12$ mulige ordener, nemlig antall divisorer av $60$; c) fordelingen over, med sum $60$ ✓.\n\n*Om føringen: **summeringskontrollen i c) er den viktigste delen av oppgaven**, og den er lett å hoppe over. Den viser at du forstår at ordenene **partisjonerer** restene — at hvert element har nøyaktig én orden. Det er nettopp den innsikten en todelt Del 5-oppgave er bygget på, og instruksen om at alle svar skal begrunnes gjør den til en del av svaret.*",
+            "hints": [
+              "I a): $60=2^2\\cdot 3\\cdot 5$.",
+              "I b): hvilke tall kan være ordener modulo $61$?",
+              "I c): antall av orden $d$ er $\\phi(d)$ — regn hver med multiplikativiteten."
+            ]
+          }
+        },
+        {
+          "id": "ma1301-5-prove-D-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose — prøve 5.D\n\n**Metode:**\n\n- ☐ Jeg faktoriserte $\\phi(n)$ og testet **alle** primdivisorene i 1a.\n- ☐ Jeg tok den billigste testen først.\n- ☐ Jeg brukte små representanter i potensregningen (som $77\\equiv -6$ modulo $83$).\n- ☐ Jeg brukte $\\phi(\\phi(n))$ til antall primitive røtter og $\\tau(\\phi(n))$ til antall mulige ordener — og holdt de to fra hverandre.\n- ☐ Jeg brukte potensformelen $d/\\gcd(k,d)$ i 2b i stedet for å regne hver orden fra bunnen.\n- ☐ Jeg gjennomførte **summeringskontrollen** $\\sum_{d\\mid\\phi(n)}\\phi(d)=\\phi(n)$ i 3c.\n\n**Kontroller:**\n\n- ☐ $q=2$-testen ga $-1$ i 1a, som den skal når svaret er ja.\n- ☐ Jeg kontrollerte ett av elementene i 2b ved direkte potensregning.\n- ☐ Jeg sjekket $\\sigma(60)>60$ og $\\tau(60)\\le 2\\sqrt{60}$.\n- ☐ Tallene i 3c stemmer med prøve 5.B: $\\phi(60)=16$ primitive røtter og $\\phi(4)=2$ elementer av orden $4$.\n\n**Hvis noe skar seg:**\n\n- ☐ Blandet jeg $\\phi(\\phi(n))$ og $\\tau(\\phi(n))$? Det første er antall **primitive røtter**, det andre antall **mulige ordener**. Modulo $83$ er de $40$ og $4$ — svært ulike tall.\n- ☐ Regnet jeg $2^{41}$ feil? Sjekk om du reduserte etter **hver** kvadrering, og om du brukte $2^{32}\\equiv -6$.\n- ☐ Hoppet jeg over summeringskontrollen i 3c? Det er den delen som viser forståelsen, og den er eksplisitt etterspurt.\n- ☐ Brukte jeg over 40 minutter i alt? Fordelingen skal være ~14 + ~12 + ~14 min. Går det tregt, er det nesten alltid potensregningen — bruk små representanter.\n\n**Neste steg:** klarte du 5.D innenfor tiden, sitter Del 5. Gå videre til kap. 6.1 og bevisdelen — og ta med deg at ordenslemmaet er et av de resultatene du kan bli bedt om å **bevise**, ikke bare bruke."
+        }
+      ]
+    },
+    {
+      "id": "ma1301-5-prove-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "ma1301-5-prove-symbol-inn",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares i [kap. 5.1](/ma1301/ma1301-5-1)–[kap. 5.4](/ma1301/ma1301-5-4).\n\n| Symbol | Betydning |\n|---|---|\n| $\\operatorname{ord}_n(a)$ | ordenen til $a$ modulo $n$ — minste $k$ med $a^k\\equiv 1$ |\n| $\\phi(n)$ | Eulers $\\phi$-funksjon — taket for ordenen |\n| $\\phi(\\phi(n))$ | antall primitive røtter modulo $n$ |\n| $\\tau(\\phi(n))$ | antall mulige ordener modulo $n$ |\n| $q$ | en primdivisor av $\\phi(n)$ i primdivisortesten |\n| $r$ | en primitiv rot |\n| $d$ | ordenen, eller en divisor av $\\phi(n)$ |\n| $\\tau(n)$, $\\sigma(n)$ | antall divisorer og divisorsum |\n| $k_i$ | eksponenten til $p_i$ i faktoriseringen |\n| $\\left(\\frac ap\\right)$ | Legendre-symbolet ([kap. 4.1](/ma1301/ma1301-4-1)) |\n| $\\blacksquare$ | bevis slutt |\n\n**Formler brukt i prøvene:**\n\n$$a^t\\equiv 1\\pmod n\\iff\\operatorname{ord}_n(a)\\mid t$$\nOrdenslemmaet. **(må sitte utenat)**\n\n$$\\operatorname{ord}_n(a)\\mid\\phi(n)$$\nGrunnen til at divisortesten virker. **(utledes på stedet — Eulers teorem + ordenslemmaet)**\n\n$$\\operatorname{ord}_n(a^k)=\\frac{\\operatorname{ord}_n(a)}{\\gcd(k,\\operatorname{ord}_n(a))}$$\nPotensformelen. **(utledes på stedet — tre linjer)**\n\n$$a\\ \\text{primitiv rot}\\iff a^{\\phi(n)/q}\\not\\equiv 1\\ \\text{for hver primdivisor } q\\mid\\phi(n)$$\nPrimdivisortesten. **(må sitte utenat — ALLE primdivisorene)**\n\n$$n=2,\\ 4,\\ p^k,\\ 2p^k$$\nEksistenskriteriet. **(må sitte utenat)**\n\n$$\\#\\{\\text{primitive røtter}\\}=\\phi(\\phi(n)),\\qquad \\#\\{\\operatorname{ord}=d\\}=\\phi(d)$$\nTellingsformlene. **(må sitte utenat)**\n\n$$\\sum_{d\\mid\\phi(n)}\\phi(d)=\\phi(n)$$\nFullstendighetskontrollen. **(utledes på stedet — hvert element har én orden)**\n\n$$\\phi(p^k)=p^k-p^{k-1}$$\n$\\phi$ for primtallspotenser. **(må sitte utenat — ikke $p^k-1$)**\n\n$$\\tau(n)=\\prod(k_i+1),\\qquad \\sigma(p^k)=1+p+\\dots+p^k$$\nDivisorfunksjonene. **(τ må sitte utenat; σ utledes på stedet fra den geometriske summen)**\n\n$$\\tau(n)\\ \\text{odde}\\iff n\\ \\text{kvadrattall}$$\nParitetsidentiteten. **(utledes på stedet — alle eksponenter partall)**\n\n$$k_i=f_i-1,\\ \\text{største eksponent på minste primtall}$$\nMinste-$n$-oppskriften. **(må sitte utenat)**\n\n$$a^m\\equiv -1\\ \\Longrightarrow\\ \\operatorname{ord}(a)=2m$$\nSnarveien via $-1$. **(utledes på stedet)**\n\n**De tre prosedyrene** — divisortesten (finn ordenen), primdivisortesten (er ordenen maksimal?), $\\tau$/$\\sigma$-flyten (faktoriser, per primtallspotens, gang sammen). **(må sitte utenat — og holdes fra hverandre)**"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

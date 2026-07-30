@@ -1,0 +1,478 @@
+{
+  "id": "ma1301-6-2",
+  "courseId": "ma1301",
+  "chapterNumber": "6.2",
+  "title": "Matematisk induksjon: strukturen og de fire undertypene",
+  "description": "Induksjonsprinsippet og den obligatoriske tredelte strukturen (basissteg, hypotese, steg — fasiten markerer hvor hypotesen brukes) anvendt på fagets fire undertyper: summeformler, delelighet, ulikheter og aᵖ≡a.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "føre et induksjonsbevis med alle tre stegene merket, og plassere setningen om hypotesen der den faktisk brukes",
+    "forklare hvorfor basissteget ikke kan hoppes over, med en falsk påstand som eksempel",
+    "gjenkjenne hvilken av de fire undertypene en oppgave hører til, og bruke det tilhørende grepet i steget",
+    "finne riktig startverdi i en ulikhet, og avgjøre hvor mange basissteg en rekursjon krever"
+  ],
+  "content": [
+    {
+      "id": "ma1301-6-2-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Induksjon er sjanger J og forekommer i 8 av 15 sett — 53 %.** Det er den vanligste bevisformen i emnet, og den er den ene bevisoppgaven som er lettest å forberede seg på: strukturen er den samme hver gang, uansett hva som skal vises. Sjangerbokstavene er bokas forkortelser for oppgavetypene, forklart i [kap. 0.1](/ma1301/ma1301-0-1); **J** er «bevis en formel ved matematisk induksjon».\n\nLøsningsforslagene i arkivet fører **hele** strukturen hver gang, og de markerer eksplisitt stedet der induksjonshypotesen brukes. Det er dokumentert praksis, ikke en stilpreferanse — bevisstrukturen teller for seg selv.\n\n| Varianten du møter | Hva den ber om | Frekvens i arkivet |\n|---|---|---|\n| **Summeformel** — «vis at $1+2+\\dots$» | skriv $S(k+1)=S(k)+$ nytt ledd | den vanligste |\n| **Delelighet** — «vis at $9\\mid 4^n+6n-1$» | finn det åpenbart delelige leddet | nest vanligst |\n| **Ulikhet** — «vis at $2^n>n^2$ for $n\\ge 5$» | riktig $n_0$, og bruk hypotesen som ulikhet | forekommer |\n| **Kongruensmønster / $a^p\\equiv a$** | induksjon på $a$, med $p\\mid\\binom pk$ | kobler til [kap. 2.2](/ma1301/ma1301-2-2) |\n| **Fibonacci-identiteter** | ofte sterk induksjon | Fibonacci i 3 av 15 sett (20 %) |\n\n**Den best belagte enkeltfeilen: manglende basissteg.** Et induksjonsbevis uten basissteg er ikke et bevis — induksjonssteget alene viser bare at *hvis* påstanden holder ett sted, holder den neste sted. Uten et startpunkt kan hele kjeden hvile på ingenting, og eksempel 5 i dette kapitlet viser en påstand der nettopp det skjer.\n\n**Prioritet:** høyeste prioritet. Sjangeren kommer i mer enn halvparten av settene, malen er tre linjer, og de tre linjene bærer uttelling hver for seg."
+    },
+    {
+      "id": "ma1301-6-2-utenat",
+      "type": "tip",
+      "title": "Utenat under kode D",
+      "content": "Eksamen er hjelpemiddelkode D: ingen bok, ingen formelsamling, ingen tabeller, ingen egne notater — bare en bestemt, enkel kalkulator. **Induksjonsmalen er en form, ikke et faktum**, og den kan ikke slås opp noe sted. Den må komme ferdig ut av hodet i det øyeblikket du leser ordet «vis».\n\n**Må sitte utenat:**\n\n- **de tre stegene med navn:** (1) basissteg, (2) induksjonshypotese, (3) induksjonssteg\n- **setningen «Her bruker vi induksjonshypotesen:»** — den skal stå nøyaktig der hypotesen brukes\n- **grepet i summeformler:** $S(k+1)=S(k)+a_{k+1}$, altså «legg til det nye leddet»\n- **grepet i delelighetsbevis:** skriv $f(k+1)$ som $f(k)$ pluss noe åpenbart delelig\n- **at $n_0$ ikke alltid er $1$** — i ulikheter er det ofte $4$ eller $5$, og det skal finnes ved å prøve\n\n**Utledes på stedet:**\n\n- **selve sumformelen**, hvis du har glemt den: $1+2+\\dots+n=\\frac{n(n+1)}2$ finner du ved å legge følgen til seg selv baklengs (Gauss-trikset), på to linjer. Se løkke 2.\n- **riktig $n_0$ i en ulikhet** — prøv $n=1,2,3,\\dots$ til påstanden blir sann og *forblir* sann; det tar under et minutt og skal stå i besvarelsen.\n- **sterk induksjon** ut av vanlig induksjon: hypotesen utvides fra «$P(k)$» til «$P(j)$ for alle $j\\le k$», og basissteget må da dekke like mange startverdier som rekursjonen ser tilbake. Utledningen av hvorfor det er nødvendig, står i løkke 5.\n\n**Selvtest, to minutter:** dekk til boka og skriv ned de tre stegene med de ordene fasitene bruker. Klarer du i tillegg å si hva som går galt hvis du hopper over basissteget — ikke bare at det er «feil» — sitter kapitlets kjerne."
+    },
+    {
+      "id": "ma1301-6-2-forkunnskaper",
+      "type": "text",
+      "content": "### Forkunnskaper\n\nFra boka: [kap. 6.1](/ma1301/ma1301-6-1) (bevisstruktur, og særlig hva «uttømmende» betyr) og [kap. 1.1](/ma1301/ma1301-1-1) (delelighet — $a\\mid b$ betyr $b=at$). Til den fjerde undertypen får du bruk for [kap. 2.2](/ma1301/ma1301-2-2) (Fermats lille teorem og $p\\mid\\binom pk$), men den løkka kan leses selvstendig.\n\nFra videregående er dette de sterkeste ankrene, og de dekker induksjon på et nivå du kan bygge rett videre fra: [Induksjonsbevis](/r2/r2-1-6), [Følger og tallmønstre](/r2/r2-1-1), [Rekker og summasjon](/r2/r2-1-4) og [Induksjon](/r1/r1-9-2). Har du hatt R2, har du sett malen — det nye her er delelighetsvarianten, kongruensvarianten og sterk induksjon.\n\n*Tidsanslag for kapitlet: ~60 minutter lesetid, fordelt på fem løkker à 10–14 minutter. Regner og skriver du med penn underveis, legg til omtrent halvparten.*"
+    },
+    {
+      "id": "ma1301-6-2-motivasjon",
+      "type": "text",
+      "content": "### Dominobrikkene, og hvorfor to ting må stemme\n\nSett opp en rad dominobrikker. For at hele raden skal falle, må **to** ting være på plass:\n\n1. **Den første brikken faller.**\n2. **Hver brikke som faller, velter den neste.**\n\nMangler den andre, stopper raden etter én brikke. Mangler den **første**, skjer ingenting i det hele tatt — uansett hvor perfekt avstandene er.\n\n**Det er hele induksjonsprinsippet.** Punkt 1 er basissteget, punkt 2 er induksjonssteget, og hypotesen er antakelsen «brikke nummer $k$ faller».\n\n**Hvorfor det gir et gyldig bevis om uendelig mange tall:** vil du vite om brikke nummer $1000$ faller, følger du kjeden. Brikke $1$ faller (punkt 1), altså faller brikke $2$ (punkt 2), altså brikke $3$, … altså brikke $1000$. Argumentet er endelig for hvert enkelt tall, men det virker for alle tall samtidig — og det er nettopp det [kap. 6.1](/ma1301/ma1301-6-1) sa at ingen endelig mengde utregninger kan gjøre.\n\n**Og her er grunnen til at manglende basissteg er en så alvorlig feil.** Se på påstanden\n$$1+2+\\dots+n=\\tfrac{n(n+1)}2+5.$$\nDen er falsk for hvert eneste $n$. Men induksjonssteget virker: legger du $k+1$ til begge sider av «formelen», får du nøyaktig formelen for $k+1$. En besvarelse som bare fører steget, «beviser» altså noe som er galt. Vi fører det ut i eksempel 5, fordi det er den ene feilen sensor er sikrest på å oppdage.\n\n**De fire undertypene i dette faget** er summeformler, delelighet, ulikheter og kongruensmønstre. Malen er den samme i alle fire; det som varierer, er hvordan du kobler $k+1$-tilfellet til $k$-tilfellet. Det grepet er det du skal drille.\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "ma1301-6-2-l1-intro",
+      "type": "text",
+      "content": "## Løkke 1: Prinsippet og de tre stegene\n\n*~12 minutter.*\n\nFørst selve prinsippet, så malen — ordrett, slik den skal stå på arket ditt."
+    },
+    {
+      "id": "ma1301-6-2-t-induksjonsprinsippet",
+      "type": "theorem",
+      "title": "Induksjonsprinsippet",
+      "content": "La $P(n)$ være et utsagn for hvert helt tall $n\\ge n_0$. Anta at\n\n1. **$P(n_0)$ er sann**, og\n2. **for hver $k\\ge n_0$: er $P(k)$ sann, så er $P(k+1)$ sann.**\n\nDa er $P(n)$ sann for **alle** $n\\ge n_0$.\n\n**Hvorfor prinsippet holder — argumentet i tre linjer.** Anta at det finnes minst én $n\\ge n_0$ der $P(n)$ er falsk, og la $M$ være **den minste** slike (en ikke-tom mengde av hele tall som er nedad begrenset, har et minste element — velordningsprinsippet, samme prinsipp som ligger under termineringen av Euklids algoritme i [kap. 1.2](/ma1301/ma1301-1-2)). Fra punkt 1 er $M>n_0$, så $M-1\\ge n_0$, og $P(M-1)$ er sann siden $M$ var den minste med falsk utsagn. Men da gir punkt 2 at $P(M)$ er sann — motsigelse. Altså finnes ingen slik $M$. $\\blacksquare$\n\n**Merk hva punkt 2 sier, og hva det ikke sier.** Det sier «hvis $P(k)$, så $P(k+1)$» — en **implikasjon**. Det sier ikke at $P(k)$ er sann. Å anta $P(k)$ er derfor ikke et sirkelbevis: du antar ikke det du skal vise, du antar det ene leddet i en implikasjon du skal etablere.\n\n**Den vanligste misforståelsen** er nettopp den: «du antar det du skal bevise». Svaret er at du beviser en implikasjon, og at basissteget er det som gjør implikasjonskjeden til noe mer enn en tom påstand.\n\n**Notasjonen $P(n)$** brukes gjennomgående i dette kapitlet for «påstanden for $n$». Skriv den opp eksplisitt i besvarelsen — «La $P(n)$ være påstanden $\\dots$» — det tar én linje og gjør hele resten lettere å lese."
+    },
+    {
+      "id": "ma1301-6-2-d-tre-steg",
+      "type": "definition",
+      "title": "De tre stegene — hva et induksjonsbevis består av",
+      "content": "Et induksjonsbevis har **nøyaktig tre** merkede deler. Alle tre skal stå, hver gang.\n\n**(1) Basissteg.** Verifisér $P(n_0)$ **med tall**. Ikke «det er klart for $n=1$» — regn ut begge sider og se at de er like.\n\n**(2) Induksjonshypotese.** Skriv som egen linje: «Anta at $P(k)$ holder for en $k\\ge n_0$», og skriv ut hva $P(k)$ *er*.\n\n**(3) Induksjonssteg.** Utled $P(k+1)$, med setningen **«Her bruker vi induksjonshypotesen:»** plassert nøyaktig der du bruker den.\n\n**Malen må sitte utenat.** Under kode D finnes ingen mal å slå opp i, og de tre stegene er selve strukturen løsningsforslagene fører.\n\n**Hvert steg bærer uttelling for seg selv.** Det betyr at et halvferdig induksjonsbevis med riktig struktur er verdt mer enn et ferdig svar uten den — og at et bevis uten basissteg mangler en tredjedel av det oppgaven ber om.\n\n**Avslutningssetningen:** «Ved induksjonsprinsippet holder $P(n)$ for alle $n\\ge n_0$.» Den er ikke pynt: den sier at du har brukt prinsippet, og at du vet at de to punktene til sammen er nok.\n\n**Merk hva som IKKE hører i et induksjonsbevis:** en tabell over noen verdier. Sjekker du $n=1,2,3,4$ i basissteget, har du gjort fire basissteg og trenger fortsatt bare ett. Bruk tiden på steget i stedet."
+    },
+    {
+      "id": "ma1301-6-2-d-basissteg",
+      "type": "definition",
+      "title": "Basissteget",
+      "content": "Verifikasjonen av $P(n_0)$ — det ene tilfellet du regner ut direkte.\n\n**Slik føres det:**\n\n> «**Basissteg ($n=n_0$):** venstre side er $\\dots$, høyre side er $\\dots$. De er like, så $P(n_0)$ holder.»\n\n**Begge sider skal regnes ut.** Det er hele poenget: du viser at kjeden har et startpunkt som faktisk er sant.\n\n**Et induksjonsbevis uten basissteg er en byggefeil**, og det er den best belagte feilen i arkivets bevisdel. Grunnen er ikke formalisme — den er at steget alene beviser ingenting, som eksempel 5 viser med en falsk påstand der steget går perfekt.\n\n**Hvilket $n_0$?** Det oppgaven sier. Står det «for alle $n\\ge 1$», er $n_0=1$. Står det «for alle $n\\ge 5$», er $n_0=5$, og du skal regne ut $n=5$ — ikke $n=1$.\n\n**Når $n_0$ ikke er oppgitt** (typisk i ulikheter: «finn den minste $n_0$ slik at …»), skal du prøve deg frem og **skrive at du gjorde det**: «For $n=1,2,3$ er påstanden falsk; for $n=4$ er den sann. Vi tar $n_0=4$.» Det er en del av svaret.\n\n**Flere basissteg?** Ja, når rekursjonen ser mer enn ett ledd tilbake. Bruker steget både $P(k)$ og $P(k-1)$, må **to** startverdier verifiseres — se sterk induksjon i løkke 5."
+    },
+    {
+      "id": "ma1301-6-2-d-hypotese",
+      "type": "definition",
+      "title": "Induksjonshypotesen",
+      "content": "Antakelsen «$P(k)$ holder for en $k\\ge n_0$», skrevet som **egen linje** med innholdet utskrevet.\n\n**Slik føres det:**\n\n> «**Induksjonshypotese:** anta at det for en $k\\ge n_0$ gjelder at $\\underbrace{1+2+\\dots+k=\\tfrac{k(k+1)}2}_{P(k)}$.»\n\n**Skriv ut hva $P(k)$ er.** «Anta at påstanden holder for $k$» er halvveis; likningen skal stå, for det er den du skal sette inn om et øyeblikk.\n\n**Ordet «en $k$» er viktig.** Du antar ikke at det gjelder for alle $k$ (det ville vært det du skal vise). Du antar det for én, vilkårlig, fast $k$ — og viser at det da også gjelder for $k+1$.\n\n**Hvorfor det ikke er sirkelbevis:** du beviser implikasjonen «$P(k)\\Rightarrow P(k+1)$». Å anta $P(k)$ inne i et bevis for en implikasjon er nøyaktig hva man skal gjøre — det er samme grep som «anta $P$» i et direkte bevis ([kap. 6.1](/ma1301/ma1301-6-1)).\n\n**Den vanligste feilen her er å ikke bruke hypotesen i det hele tatt.** Kommer du gjennom steget uten å ha satt inn $P(k)$ noe sted, har du enten funnet et direkte bevis (som er fint, men da skal du si det) eller gjort en feil. **Kontrollen:** pek på linjen der hypotesen ble brukt. Finnes den ikke, er det ikke induksjon."
+    },
+    {
+      "id": "ma1301-6-2-d-steg",
+      "type": "definition",
+      "title": "Induksjonssteget",
+      "content": "Utledningen av $P(k+1)$ fra $P(k)$ — den delen som er faglig arbeid.\n\n**Slik føres det:**\n\n> «**Induksjonssteg:** vi skal vise $P(k+1)$, altså at $\\dots$. Start fra venstre side:\n> [regn frem til noe som inneholder $P(k)$-uttrykket]\n> **Her bruker vi induksjonshypotesen:** [sett inn]\n> [regn videre til høyre side av $P(k+1)$]\n> Altså holder $P(k+1)$.»\n\n**Setningen «Her bruker vi induksjonshypotesen:» må sitte utenat**, og den skal stå nøyaktig der innsettingen skjer. Fasitene i arkivet markerer alltid dette stedet, og det er den enkleste måten å vise at beviset faktisk er et induksjonsbevis.\n\n**Arbeidsretningen: begynn i den enden som inneholder $P(k)$.** For summeformler er det venstre side ($S(k+1)=S(k)+a_{k+1}$). For delelighet er det uttrykket $f(k+1)$, som skal skrives om til $f(k)$ pluss noe. For ulikheter starter du med den minste siden og bruker hypotesen som en ulikhet.\n\n**Skriv ned hva $P(k+1)$ er, før du begynner.** Å ha målet på papiret er halve arbeidet — ellers regner du i blinde.\n\n**Den andre vanlige feilen: å regne på begge sider samtidig** til man ender på «$0=0$». Det er sirkelbevis-formen fra [kap. 6.1](/ma1301/ma1301-6-1) med mindre hvert steg er en ekvivalens. **Den trygge formen** er å starte i én ende og regne til den andre."
+    },
+    {
+      "id": "ma1301-6-2-d-foringsmal",
+      "type": "definition",
+      "title": "Føringsmalen for induksjon — tre steg",
+      "content": "Slik føres hvert induksjonsbevis i boka, og slik bør du føre det på eksamen. Malen er identisk i [kap. 6.4](/ma1301/ma1301-6-4), i prøvene og i øvingseksamenene.\n\n**(i) Basissteg.** $P(n_0)$ verifisert med tall — begge sider regnet ut, og riktig $n_0$.\n\n**(ii) Induksjonshypotese.** «Anta at $P(k)$ holder for en $k\\ge n_0$», satt opp som egen linje, med innholdet utskrevet.\n\n**(iii) Induksjonssteg.** Utled $P(k+1)$, med setningen **«Her bruker vi induksjonshypotesen:»** plassert nøyaktig der den brukes.\n\n**Avslutning:** «Ved induksjonsprinsippet holder $P(n)$ for alle $n\\ge n_0$. $\\blacksquare$»\n\n**Malen må sitte utenat**, og hvert av de tre stegene bærer uttelling for seg selv. Grunnen er instruksen som står på hvert eneste sett: **alle svar må begrunnes** — og i et bevis er strukturen begrunnelsen.\n\n**Legg til kontrollen.** Sett inn $n=n_0+1$ i den ferdige formelen og regn ut begge sider direkte. Stemmer de, har du fanget de fleste regnefeil; stemmer de ikke, er det formelen eller steget som er galt, og du vet hvor du skal se."
+    },
+    {
+      "id": "ma1301-6-2-e1",
+      "type": "example",
+      "title": "Malen ført ut: summen av de tredje potensene",
+      "problem": "Vis ved induksjon at $1^3+2^3+\\dots+n^3=\\left(\\dfrac{n(n+1)}2\\right)^2$ for alle $n\\ge 1$.",
+      "solution": "**La $P(n)$ være påstanden** $\\displaystyle\\sum_{i=1}^n i^3=\\left(\\frac{n(n+1)}2\\right)^2$.\n\n**(1) Basissteg ($n=1$).**\n\nVenstre side: $1^3=1$.\nHøyre side: $\\left(\\frac{1\\cdot 2}2\\right)^2=1^2=1$.\n\nDe er like, så $P(1)$ holder. ✓\n\n**(2) Induksjonshypotese.**\n\nAnta at det for en $k\\ge 1$ gjelder\n$$1^3+2^3+\\dots+k^3=\\left(\\frac{k(k+1)}2\\right)^2.$$\n\n**(3) Induksjonssteg.**\n\nVi skal vise $P(k+1)$, altså at\n$$1^3+2^3+\\dots+k^3+(k+1)^3=\\left(\\frac{(k+1)(k+2)}2\\right)^2.$$\n\nStart fra venstre side, og skill ut det nye leddet:\n$$\\underbrace{1^3+\\dots+k^3}_{=S(k)}+(k+1)^3.$$\n\n**Her bruker vi induksjonshypotesen:**\n$$=\\left(\\frac{k(k+1)}2\\right)^2+(k+1)^3=\\frac{k^2(k+1)^2}4+(k+1)^3.$$\n\nSett $(k+1)^2$ utenfor:\n$$=(k+1)^2\\left(\\frac{k^2}4+(k+1)\\right)=(k+1)^2\\cdot\\frac{k^2+4k+4}4=(k+1)^2\\cdot\\frac{(k+2)^2}4.$$\n\nOg det er nøyaktig\n$$\\left(\\frac{(k+1)(k+2)}2\\right)^2,$$\naltså høyre side av $P(k+1)$. Så $P(k+1)$ holder.\n\n**Ved induksjonsprinsippet** holder $P(n)$ for alle $n\\ge 1$. $\\blacksquare$\n\n**Kontroll med tall.**\n\n| $n$ | venstre side | høyre side |\n|---|---|---|\n| $2$ | $1+8=9$ | $(3)^2=9$ ✓ |\n| $3$ | $9+27=36$ | $(6)^2=36$ ✓ |\n| $4$ | $36+64=100$ | $(10)^2=100$ ✓ |\n\n**Om føringen — de fem tingene som gir uttelling hver for seg:**\n\n1. **$P(n)$ er skrevet opp** som en navngitt påstand i første linje.\n2. **Basissteget regner ut begge sider.** «$1=1$» med tallene synlige, ikke «åpenbart».\n3. **Hypotesen står som egen linje** med likningen utskrevet.\n4. **Setningen «Her bruker vi induksjonshypotesen:» står nøyaktig der innsettingen skjer.**\n5. **Målet $P(k+1)$ er skrevet ned før regningen starter**, så det er tydelig hva vi skal frem til.\n\n*Merk grepet som er kjernen i alle summeformler: **$S(k+1)=S(k)+a_{k+1}$**. Du skiller ut det nye leddet, bytter $S(k)$ med formelen fra hypotesen, og regner sammen. Alt annet i denne oppgaven er algebra.*\n\n*Og merk den fine detaljen at $\\left(\\frac{n(n+1)}2\\right)^2$ er kvadratet av $1+2+\\dots+n$. Summen av kubene er altså kvadratet av summen — et resultat verdt å kjenne, og det er ikke tilfeldig at kontrollen ga $9$, $36$ og $100$, som er $3^2$, $6^2$ og $10^2$.*"
+    },
+    {
+      "id": "ma1301-6-2-ex-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-6-2-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Vis ved induksjon at $1+3+5+\\dots+(2n-1)=n^2$ for alle $n\\ge 1$.\n\nSkriv basissteg, hypotese og steg eksplisitt.",
+        "solution": "**La $P(n)$ være påstanden** $1+3+5+\\dots+(2n-1)=n^2$.\n\n**(1) Basissteg ($n=1$).** Venstre side er $2\\cdot 1-1=1$. Høyre side er $1^2=1$. Like, så $P(1)$ holder. ✓\n\n**(2) Induksjonshypotese.** Anta at det for en $k\\ge 1$ gjelder\n$$1+3+\\dots+(2k-1)=k^2.$$\n\n**(3) Induksjonssteg.** Vi skal vise $P(k+1)$, altså at\n$$1+3+\\dots+(2k-1)+(2(k+1)-1)=(k+1)^2.$$\n\nStart fra venstre side og skill ut det nye leddet, som er $2k+1$:\n$$\\underbrace{1+3+\\dots+(2k-1)}_{=k^2\\ \\text{etter hypotesen}}+(2k+1).$$\n\n**Her bruker vi induksjonshypotesen:**\n$$=k^2+2k+1=(k+1)^2,$$\nsom er høyre side av $P(k+1)$. Så $P(k+1)$ holder.\n\n**Ved induksjonsprinsippet** holder $P(n)$ for alle $n\\ge 1$. $\\blacksquare$\n\n**Kontroll:** $n=3$ gir $1+3+5=9=3^2$ ✓. $n=4$ gir $16=4^2$ ✓.\n\n*Merk at det nye leddet er $2(k+1)-1=2k+1$ — regn det ut eksplisitt før du setter det inn. Å skrive «$+(2k+1)$» uten å vise at det kommer fra $2(k+1)-1$ er et lite hull, og det er billig å lukke.*\n\n*Summen av de $n$ første odde tallene er altså $n^2$. Det er et av de fineste resultatene i elementær tallteori, og det kan også ses geometrisk: legger du $L$-formede lag rundt et kvadrat, er hvert lag et odde antall ruter.*",
+        "hints": [
+          "Skriv opp hva $P(n)$ er, og regn ut begge sider for $n=1$.",
+          "Hva er det nye leddet når du går fra $k$ til $k+1$? Regn ut $2(k+1)-1$.",
+          "Etter innsettingen står du med $k^2+2k+1$ — kjenner du igjen det uttrykket?"
+        ]
+      }
+    },
+    {
+      "id": "ma1301-6-2-ex-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-6-2-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Vis ved induksjon at $\\displaystyle\\sum_{i=1}^n\\frac{1}{i(i+1)}=\\frac{n}{n+1}$ for alle $n\\ge 1$.",
+        "solution": "**La $P(n)$ være påstanden** $\\displaystyle\\sum_{i=1}^n\\frac{1}{i(i+1)}=\\frac{n}{n+1}$.\n\n**(1) Basissteg ($n=1$).** Venstre side er $\\frac{1}{1\\cdot 2}=\\frac 12$. Høyre side er $\\frac{1}{2}$. Like, så $P(1)$ holder. ✓\n\n**(2) Induksjonshypotese.** Anta at det for en $k\\ge 1$ gjelder\n$$\\sum_{i=1}^k\\frac{1}{i(i+1)}=\\frac{k}{k+1}.$$\n\n**(3) Induksjonssteg.** Vi skal vise\n$$\\sum_{i=1}^{k+1}\\frac{1}{i(i+1)}=\\frac{k+1}{k+2}.$$\n\nSkill ut det nye leddet, som er $\\frac{1}{(k+1)(k+2)}$:\n$$\\sum_{i=1}^{k+1}\\frac{1}{i(i+1)}=\\sum_{i=1}^{k}\\frac{1}{i(i+1)}+\\frac{1}{(k+1)(k+2)}.$$\n\n**Her bruker vi induksjonshypotesen:**\n$$=\\frac{k}{k+1}+\\frac{1}{(k+1)(k+2)}.$$\n\nFelles nevner $(k+1)(k+2)$:\n$$=\\frac{k(k+2)+1}{(k+1)(k+2)}=\\frac{k^2+2k+1}{(k+1)(k+2)}=\\frac{(k+1)^2}{(k+1)(k+2)}=\\frac{k+1}{k+2},$$\nsom er høyre side av $P(k+1)$. Så $P(k+1)$ holder.\n\n**Ved induksjonsprinsippet** holder $P(n)$ for alle $n\\ge 1$. $\\blacksquare$\n\n**Kontroll:** $n=3$ gir $\\frac 12+\\frac 16+\\frac 1{12}=\\frac{6+2+1}{12}=\\frac{9}{12}=\\frac 34$, og $\\frac{n}{n+1}=\\frac 34$ ✓.\n\n**Den andre veien — også fullgod.** Legg merke til at $\\frac{1}{i(i+1)}=\\frac 1i-\\frac 1{i+1}$. Da teleskoperer summen:\n$$\\left(1-\\tfrac 12\\right)+\\left(\\tfrac 12-\\tfrac 13\\right)+\\dots+\\left(\\tfrac 1n-\\tfrac 1{n+1}\\right)=1-\\tfrac 1{n+1}=\\frac{n}{n+1}.$$\nDet er et **direkte** bevis, uten induksjon, og det er like gyldig. Fasitpraksisen i arkivet honorerer likeverdige metoder — men ber oppgaven eksplisitt om induksjon, skal du føre induksjon.\n\n*Sluttsvar: bevist ved induksjon, med et direkte teleskop-bevis som alternativ.*",
+        "hints": [
+          "Hva er leddet du legger til når du går fra $k$ til $k+1$?",
+          "Etter innsettingen har du $\\frac{k}{k+1}+\\frac{1}{(k+1)(k+2)}$ — sett på felles nevner.",
+          "Telleren blir $k^2+2k+1$. Faktoriser den."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-6-2-l2-intro",
+      "type": "text",
+      "content": "## Løkke 2: Undertype 1 — summeformler\n\n*~11 minutter.*\n\nDen vanligste varianten. Grepet er ett og det samme: **skill ut det nye leddet.**"
+    },
+    {
+      "id": "ma1301-6-2-d-undertype-sum",
+      "type": "definition",
+      "title": "Undertype 1: summeformler",
+      "content": "Formen: «vis at $\\displaystyle\\sum_{i=1}^n a_i=F(n)$ for alle $n\\ge n_0$».\n\n**Grepet i steget, som må sitte utenat:**\n$$S(k+1)=S(k)+a_{k+1}.$$\nDu skiller ut det siste leddet, bytter $S(k)$ med $F(k)$ fra hypotesen, og regner $F(k)+a_{k+1}$ om til $F(k+1)$.\n\n**Arbeidsflyten i fire trinn:**\n\n1. Skriv ned målet $F(k+1)$ **først**, med $k+1$ satt inn og forenklet.\n2. Skriv $S(k+1)=S(k)+a_{k+1}$, med $a_{k+1}$ regnet ut eksplisitt.\n3. Sett inn hypotesen.\n4. Regn $F(k)+a_{k+1}$ frem til $F(k+1)$ — og det er her algebraen ligger.\n\n**Trinn 1 er det som sparer mest tid.** Vet du hva du skal frem til, ser du hvilken faktorisering du trenger. Uten målet regner du i blinde.\n\n**Det vanligste algebra-grepet:** sett den felles faktoren utenfor. I eksempel 1 var det $(k+1)^2$; i sumformelen for $\\sum i^2$ er det $\\frac{k+1}{6}$. Se etter faktoren $k+1$ i begge leddene — den er der nesten alltid.\n\n**Formlene du kan møte, og som du kan utlede hvis de glipper:**\n\n$$\\sum_{i=1}^n i=\\frac{n(n+1)}2,\\qquad \\sum_{i=1}^n i^2=\\frac{n(n+1)(2n+1)}6,\\qquad \\sum_{i=1}^n i^3=\\left(\\frac{n(n+1)}2\\right)^2.$$\n\n**Den første utledes på stedet, to linjer** (Gauss-trikset): skriv summen forlengs og baklengs under hverandre,\n$$\\begin{aligned}S&=1+2+\\dots+n\\\\ S&=n+(n-1)+\\dots+1\\end{aligned}$$\nog legg sammen kolonnevis: hver kolonne gir $n+1$, og det er $n$ kolonner, så $2S=n(n+1)$. Under et minutt, så formelen kan gjenskapes selv om den skulle glippe."
+    },
+    {
+      "id": "ma1301-6-2-e2",
+      "type": "example",
+      "title": "Summeformel med et ledd som vokser: summen av i ganger 2 i n-te",
+      "problem": "Vis ved induksjon at $\\displaystyle\\sum_{i=1}^n i\\cdot 2^i=(n-1)2^{n+1}+2$ for alle $n\\ge 1$.",
+      "solution": "**La $P(n)$ være påstanden** $\\displaystyle\\sum_{i=1}^n i\\cdot 2^i=(n-1)2^{n+1}+2$.\n\n**(1) Basissteg ($n=1$).**\n\nVenstre side: $1\\cdot 2^1=2$.\nHøyre side: $(1-1)\\cdot 2^2+2=0+2=2$.\n\nLike, så $P(1)$ holder. ✓\n\n**(2) Induksjonshypotese.**\n\nAnta at det for en $k\\ge 1$ gjelder\n$$\\sum_{i=1}^k i\\cdot 2^i=(k-1)2^{k+1}+2.$$\n\n**(3) Induksjonssteg.**\n\n**Målet først.** $P(k+1)$ sier\n$$\\sum_{i=1}^{k+1} i\\cdot 2^i=\\bigl((k+1)-1\\bigr)2^{(k+1)+1}+2=k\\cdot 2^{k+2}+2.$$\n\n**Det nye leddet** er $a_{k+1}=(k+1)2^{k+1}$.\n\nStart fra venstre side:\n$$\\sum_{i=1}^{k+1} i\\cdot 2^i=\\sum_{i=1}^{k} i\\cdot 2^i+(k+1)2^{k+1}.$$\n\n**Her bruker vi induksjonshypotesen:**\n$$=(k-1)2^{k+1}+2+(k+1)2^{k+1}.$$\n\nSett $2^{k+1}$ utenfor de to første–siste leddene:\n$$=2^{k+1}\\bigl[(k-1)+(k+1)\\bigr]+2=2^{k+1}\\cdot 2k+2.$$\n\nOg $2^{k+1}\\cdot 2k=k\\cdot 2^{k+2}$, så\n$$=k\\cdot 2^{k+2}+2,$$\nsom er nøyaktig målet. Så $P(k+1)$ holder.\n\n**Ved induksjonsprinsippet** holder $P(n)$ for alle $n\\ge 1$. $\\blacksquare$\n\n**Kontroll med tall.**\n\n| $n$ | venstre side | høyre side |\n|---|---|---|\n| $2$ | $2+2\\cdot 4=10$ | $1\\cdot 2^3+2=10$ ✓ |\n| $3$ | $10+3\\cdot 8=34$ | $2\\cdot 2^4+2=34$ ✓ |\n| $4$ | $34+4\\cdot 16=98$ | $3\\cdot 2^5+2=98$ ✓ |\n\n**Om føringen — det ene grepet som gjør oppgaven lett.** Vi skrev målet $k\\cdot 2^{k+2}+2$ **før** vi begynte å regne. Da var det tydelig at vi trengte $2^{k+1}$ utenfor en parentes, og at parentesen måtte bli $2k$. Uten målet på papiret ser regningen ut som famling.\n\n**Den andre veien — også fullgod.** Summer kan også håndteres med et teleskop-grep: legg merke til at\n$$i\\cdot 2^i=(i-1)2^{i+1}-(i-2)2^{i},$$\nsom du kan kontrollere ved å regne ut høyresiden ($2^i[2(i-1)-(i-2)]=2^i\\cdot i$ ✓). Da teleskoperer summen direkte til $(n-1)2^{n+1}-(-1)\\cdot 2^1=(n-1)2^{n+1}+2$. Det er kortere, men det krever at du **finner** identiteten — og på eksamen er induksjonsmalen den sikre veien.\n\n*Merk at eksponentregningen er der feilene sitter i denne varianten: $2^{k+1}\\cdot 2=2^{k+2}$, ikke $2^{2k+2}$. Skriv om ett steg av gangen.*"
+    },
+    {
+      "id": "ma1301-6-2-ex-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-6-2-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Vis ved induksjon at $1\\cdot 2+2\\cdot 3+\\dots+n(n+1)=\\dfrac{n(n+1)(n+2)}3$ for alle $n\\ge 1$.",
+        "solution": "**La $P(n)$ være påstanden** $\\displaystyle\\sum_{i=1}^n i(i+1)=\\frac{n(n+1)(n+2)}3$.\n\n**(1) Basissteg ($n=1$).** Venstre side: $1\\cdot 2=2$. Høyre side: $\\frac{1\\cdot 2\\cdot 3}3=2$. Like, så $P(1)$ holder. ✓\n\n**(2) Induksjonshypotese.** Anta at det for en $k\\ge 1$ gjelder\n$$\\sum_{i=1}^k i(i+1)=\\frac{k(k+1)(k+2)}3.$$\n\n**(3) Induksjonssteg.**\n\n**Målet først:** $P(k+1)$ sier\n$$\\sum_{i=1}^{k+1} i(i+1)=\\frac{(k+1)(k+2)(k+3)}3.$$\n\n**Det nye leddet** er $a_{k+1}=(k+1)(k+2)$.\n\nStart fra venstre side:\n$$\\sum_{i=1}^{k+1} i(i+1)=\\sum_{i=1}^{k} i(i+1)+(k+1)(k+2).$$\n\n**Her bruker vi induksjonshypotesen:**\n$$=\\frac{k(k+1)(k+2)}3+(k+1)(k+2).$$\n\nSett den felles faktoren $(k+1)(k+2)$ utenfor:\n$$=(k+1)(k+2)\\left(\\frac k3+1\\right)=(k+1)(k+2)\\cdot\\frac{k+3}3=\\frac{(k+1)(k+2)(k+3)}3,$$\nsom er målet. Så $P(k+1)$ holder.\n\n**Ved induksjonsprinsippet** holder $P(n)$ for alle $n\\ge 1$. $\\blacksquare$\n\n**Kontroll:** $n=3$ gir $2+6+12=20$, og $\\frac{3\\cdot 4\\cdot 5}3=20$ ✓. $n=4$ gir $20+20=40$, og $\\frac{4\\cdot 5\\cdot 6}3=40$ ✓.\n\n*Merk hvor mye den felles faktoren $(k+1)(k+2)$ sparte. Hadde vi ganget ut alt, ville vi hatt et tredjegradspolynom å faktorisere tilbake. **Se alltid etter den felles faktoren før du ganger ut** — det er det viktigste algebra-rådet i denne undertypen.*\n\n*Formelen er dessuten $2\\sum\\binom{i+1}{2}$, altså $\\frac{n(n+1)(n+2)}{3}=2\\binom{n+2}{3}$ — en liten kobling til binomialkoeffisientene fra [kap. 2.2](/ma1301/ma1301-2-2), men det trenger du ikke for oppgaven.*",
+        "hints": [
+          "Skriv opp målet $P(k+1)$ først, med $k+1$ satt inn.",
+          "Det nye leddet er $(k+1)(k+2)$ — sett det opp som eget ledd.",
+          "Sett $(k+1)(k+2)$ utenfor en parentes i stedet for å gange ut."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-6-2-l3-intro",
+      "type": "text",
+      "content": "## Løkke 3: Undertype 2 — delelighet\n\n*~12 minutter.*\n\nNest vanligste variant, og den som knytter induksjon til resten av faget. Grepet er igjen ett: **skriv $f(k+1)$ som $f(k)$ pluss noe åpenbart delelig.**\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "ma1301-6-2-d-undertype-del",
+      "type": "definition",
+      "title": "Undertype 2: delelighet",
+      "content": "Formen: «vis at $d\\mid f(n)$ for alle $n\\ge n_0$».\n\n**Grepet i steget, som må sitte utenat:**\n$$f(k+1)=f(k)+\\underbrace{R}_{\\text{åpenbart delelig med }d}.$$\nEr begge leddene delelige med $d$ — det første etter hypotesen, det andre fordi du ser det — er summen det.\n\n**Arbeidsflyten i fem trinn:**\n\n1. Regn ut $f(k+1)$.\n2. **Let etter $f(k)$ inni uttrykket.** Det ligger der, ofte skjult bak en faktor.\n3. Skriv $f(k+1)=A\\cdot f(k)+R$, der $A$ er et helt tall.\n4. **Her bruker vi induksjonshypotesen:** $f(k)=d\\cdot t$.\n5. Vis at $R$ er delelig med $d$, og faktoriser $d$ ut av helheten.\n\n**Trinn 2 er der oppgaven avgjøres**, og trikset er å regne baklengs: hva må du gange $f(k)$ med for å nærme deg $f(k+1)$?\n\n**Eksempel på grepet, uten hele beviset:** skal du vise $7\\mid 8^n-1$, er\n$$8^{k+1}-1=8\\cdot 8^k-1=8(8^k-1)+7,$$\naltså $f(k+1)=8f(k)+7$. Begge leddene er delelige med $7$ — det første etter hypotesen, det andre fordi det **er** $7$.\n\n**Alternativ som ofte er kortere:** skriv $f(k+1)-f(k)$ og vis at differansen er delelig med $d$. Det er samme regning, snudd, og noen fasiter fører den slik. **Begge er fullgode.**\n\n**Merk at delelighetspåstander ofte kan vises uten induksjon** — med case-analyse ([kap. 6.1](/ma1301/ma1301-6-1)), med kongruensregning ([kap. 1.4](/ma1301/ma1301-1-4)) eller med Fermats lille teorem ([kap. 2.2](/ma1301/ma1301-2-2)). Ber oppgaven om induksjon, fører du induksjon; ber den bare om et bevis, velger du selv."
+    },
+    {
+      "id": "ma1301-6-2-e3",
+      "type": "example",
+      "title": "Delelighet ved induksjon: 9 deler fire i n-te pluss seks n minus én",
+      "problem": "Vis ved induksjon at $9\\mid 4^n+6n-1$ for alle $n\\ge 1$.",
+      "solution": "**La $P(n)$ være påstanden** at $9\\mid 4^n+6n-1$, og sett $f(n)=4^n+6n-1$.\n\n**(1) Basissteg ($n=1$).**\n$$f(1)=4^1+6\\cdot 1-1=4+6-1=9=9\\cdot 1.$$\nAltså $9\\mid f(1)$, så $P(1)$ holder. ✓\n\n**(2) Induksjonshypotese.**\n\nAnta at det for en $k\\ge 1$ gjelder at $9\\mid f(k)$, altså at det finnes et helt tall $t$ med\n$$4^k+6k-1=9t.$$\n\n**(3) Induksjonssteg.**\n\nVi skal vise at $9\\mid f(k+1)$, der\n$$f(k+1)=4^{k+1}+6(k+1)-1=4\\cdot 4^k+6k+5.$$\n\n**Nå leter vi etter $f(k)$ inni uttrykket.** Vi har $4\\cdot 4^k$, så vi prøver $4f(k)$:\n$$4f(k)=4\\bigl(4^k+6k-1\\bigr)=4\\cdot 4^k+24k-4.$$\n\nDifferansen mellom $f(k+1)$ og $4f(k)$ er\n$$f(k+1)-4f(k)=(4\\cdot 4^k+6k+5)-(4\\cdot 4^k+24k-4)=-18k+9.$$\n\nAltså\n$$f(k+1)=4f(k)-18k+9=4f(k)-9(2k-1).$$\n\n**Her bruker vi induksjonshypotesen:** $f(k)=9t$, så\n$$f(k+1)=4\\cdot 9t-9(2k-1)=9\\bigl(4t-2k+1\\bigr).$$\n\nParentesen $4t-2k+1$ er et helt tall, siden $t$ og $k$ er hele tall. Altså er $9\\mid f(k+1)$, og $P(k+1)$ holder.\n\n**Ved induksjonsprinsippet** holder $P(n)$ for alle $n\\ge 1$. $\\blacksquare$\n\n**Kontroll med tall.**\n\n| $n$ | $4^n+6n-1$ | delt på $9$ |\n|---|---|---|\n| $1$ | $9$ | $1$ ✓ |\n| $2$ | $16+12-1=27$ | $3$ ✓ |\n| $3$ | $64+18-1=81$ | $9$ ✓ |\n| $4$ | $256+24-1=279$ | $31$ ✓ |\n\n**Om føringen — de fire tingene som bærer besvarelsen:**\n\n1. **$f(n)$ er navngitt.** Det gjør resten av regningen lesbar.\n2. **Basissteget regner ut tallet** og identifiserer det som $9\\cdot 1$.\n3. **Hypotesen er oversatt til en likning** ($f(k)=9t$) — det er [kap. 6.1](/ma1301/ma1301-6-1)-vanen «arbeid fra definisjonen», og uten den har du ingenting å sette inn.\n4. **Setningen «Her bruker vi induksjonshypotesen:» står der innsettingen skjer.**\n\n**Alternativ vei, også fullgod — med kongruensregning.** Modulo $9$ er $4^3=64\\equiv 1$, så $4^n$ har periode $3$. En case-analyse på $n$ modulo $3$ (tre tilfeller) gir samme resultat uten induksjon. Den veien er kortere hvis du er trygg på kongruenser, men ber oppgaven om induksjon, er malen over svaret.\n\n*Merk hvorfor vi valgte faktoren $4$: leddet $4^{k+1}$ er $4$ ganger $4^k$, så $4f(k)$ er det som treffer eksponentleddet. **Se alltid på det raskest voksende leddet for å finne faktoren $A$** — det er hele trikset i trinn 2.*"
+    },
+    {
+      "id": "ma1301-6-2-ex-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-6-2-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Vis ved induksjon at $7\\mid 8^n-1$ for alle $n\\ge 1$.",
+        "solution": "**La $P(n)$ være påstanden** at $7\\mid 8^n-1$, og sett $f(n)=8^n-1$.\n\n**(1) Basissteg ($n=1$).** $f(1)=8-1=7=7\\cdot 1$, så $7\\mid f(1)$ og $P(1)$ holder. ✓\n\n**(2) Induksjonshypotese.** Anta at det for en $k\\ge 1$ gjelder $7\\mid 8^k-1$, altså at det finnes et helt tall $t$ med\n$$8^k-1=7t.$$\n\n**(3) Induksjonssteg.** Vi skal vise at $7\\mid 8^{k+1}-1$.\n\nRegn ut, og let etter $f(k)$:\n$$8^{k+1}-1=8\\cdot 8^k-1=8(8^k-1)+8-1=8(8^k-1)+7.$$\n\n**Her bruker vi induksjonshypotesen:** $8^k-1=7t$, så\n$$8^{k+1}-1=8\\cdot 7t+7=7(8t+1).$$\n\nParentesen $8t+1$ er et helt tall, så $7\\mid 8^{k+1}-1$ og $P(k+1)$ holder.\n\n**Ved induksjonsprinsippet** holder $P(n)$ for alle $n\\ge 1$. $\\blacksquare$\n\n**Kontroll:** $n=2$ gir $63=7\\cdot 9$ ✓. $n=3$ gir $511=7\\cdot 73$ ✓.\n\n**Alternativ vei, også fullgod:** $8\\equiv 1\\pmod 7$, så $8^n\\equiv 1^n=1\\pmod 7$, altså $7\\mid 8^n-1$ — én linje med kongruensregning ([kap. 1.4](/ma1301/ma1301-1-4)). Den er kortere, og den er like gyldig. Ber oppgaven om induksjon, fører du malen; ber den bare om et bevis, kan du velge.\n\n*Merk grepet «$8\\cdot 8^k-1=8(8^k-1)+7$»: du legger til og trekker fra $8$ for å få $f(k)$ frem. Det er standardomskrivningen i denne undertypen, og den er verdt å ha i fingrene — for $a^n-1$ blir den $a(a^k-1)+(a-1)$.*",
+        "hints": [
+          "Skriv $8^{k+1}=8\\cdot 8^k$ og se om du kan få $8^k-1$ frem.",
+          "Legg til og trekk fra $8$: $8\\cdot 8^k-1=8(8^k-1)+7$.",
+          "Oversett hypotesen til en likning $8^k-1=7t$ før du setter inn."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-6-2-ex-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-6-2-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Vis ved induksjon at $8\\mid 3^{2n}-1$ for alle $n\\ge 1$.\n\nForklar til slutt hvorfor påstanden også kan leses som «$8$ deler $9^n-1$».",
+        "solution": "**La $P(n)$ være påstanden** at $8\\mid 3^{2n}-1$, og sett $f(n)=3^{2n}-1$.\n\n**(1) Basissteg ($n=1$).** $f(1)=3^2-1=9-1=8=8\\cdot 1$, så $8\\mid f(1)$ og $P(1)$ holder. ✓\n\n**(2) Induksjonshypotese.** Anta at det for en $k\\ge 1$ gjelder $8\\mid 3^{2k}-1$, altså\n$$3^{2k}-1=8t\\quad\\text{for et helt tall }t.$$\n\n**(3) Induksjonssteg.** Vi skal vise at $8\\mid 3^{2(k+1)}-1$.\n\nRegn ut, og merk at eksponenten øker med $2$:\n$$3^{2(k+1)}-1=3^{2k+2}-1=9\\cdot 3^{2k}-1=9(3^{2k}-1)+9-1=9(3^{2k}-1)+8.$$\n\n**Her bruker vi induksjonshypotesen:** $3^{2k}-1=8t$, så\n$$3^{2(k+1)}-1=9\\cdot 8t+8=8(9t+1).$$\n\nParentesen er et helt tall, så $8\\mid f(k+1)$ og $P(k+1)$ holder.\n\n**Ved induksjonsprinsippet** holder $P(n)$ for alle $n\\ge 1$. $\\blacksquare$\n\n**Kontroll:** $n=2$ gir $3^4-1=80=8\\cdot 10$ ✓. $n=3$ gir $3^6-1=728=8\\cdot 91$ ✓.\n\n**Omskrivingen til slutt.** Siden $3^{2n}=(3^2)^n=9^n$, sier påstanden nøyaktig at $8\\mid 9^n-1$. Det er samme utsagn skrevet på to måter, og den andre formen viser hvorfor resultatet er så naturlig: **$9\\equiv 1\\pmod 8$**, så $9^n\\equiv 1^n=1\\pmod 8$.\n\n*Sluttsvar: bevist ved induksjon, og resultatet er $8\\mid 9^n-1$ i omskrevet form.*\n\n*Merk at eksponenten her økte med $2$ per steg, ikke $1$ — derfor ble faktoren $A=9$ og ikke $3$. **Se på hvor mye eksponenten faktisk øker** før du velger faktoren; det er den vanligste feilkilden i varianter med $2n$, $3n$ eller $n+2$ i eksponenten.*",
+        "hints": [
+          "Eksponenten øker med $2$ per steg, så faktoren er $3^2=9$, ikke $3$.",
+          "Skriv $9\\cdot 3^{2k}-1=9(3^{2k}-1)+8$.",
+          "Til siste del: hva er $(3^2)^n$?"
+        ]
+      }
+    },
+    {
+      "id": "ma1301-6-2-ex-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-6-2-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Vis ved induksjon at $3\\mid n^3+2n$ for alle $n\\ge 1$.\n\nSammenlign til slutt med case-analyse-beviset i [kap. 6.1](/ma1301/ma1301-6-1) og si hvilken vei du ville valgt på eksamen.",
+        "solution": "**La $P(n)$ være påstanden** at $3\\mid n^3+2n$, og sett $f(n)=n^3+2n$.\n\n**(1) Basissteg ($n=1$).** $f(1)=1+2=3=3\\cdot 1$, så $3\\mid f(1)$ og $P(1)$ holder. ✓\n\n**(2) Induksjonshypotese.** Anta at det for en $k\\ge 1$ gjelder $3\\mid k^3+2k$, altså\n$$k^3+2k=3t\\quad\\text{for et helt tall }t.$$\n\n**(3) Induksjonssteg.** Vi skal vise at $3\\mid (k+1)^3+2(k+1)$.\n\nRegn ut:\n$$(k+1)^3+2(k+1)=k^3+3k^2+3k+1+2k+2=\\underbrace{(k^3+2k)}_{=f(k)}+3k^2+3k+3.$$\n\n**Her bruker vi induksjonshypotesen:** $f(k)=3t$, så\n$$f(k+1)=3t+3k^2+3k+3=3\\bigl(t+k^2+k+1\\bigr).$$\n\nParentesen er et helt tall, så $3\\mid f(k+1)$ og $P(k+1)$ holder.\n\n**Ved induksjonsprinsippet** holder $P(n)$ for alle $n\\ge 1$. $\\blacksquare$\n\n**Kontroll:** $n=2$ gir $8+4=12=3\\cdot 4$ ✓. $n=3$ gir $27+6=33=3\\cdot 11$ ✓. $n=4$ gir $64+8=72=3\\cdot 24$ ✓.\n\n**Sammenligningen.** I [kap. 6.1](/ma1301/ma1301-6-1) ble samme påstand vist med **case-analyse modulo $3$**: tre tilfeller, hver med en kort utregning. Her er den vist ved **induksjon**: tre steg, med en utvidelse av $(k+1)^3$.\n\n| Vei | Arbeid | Risiko |\n|---|---|---|\n| case-analyse mod $3$ | tre rader med små tall | å glemme en rad |\n| induksjon | én kubisk utvidelse | å glemme basissteget |\n\n**Begge er fullgode**, og fasitpraksisen i arkivet honorerer likeverdige metoder. **På eksamen ville jeg valgt case-analyse her** — den er kortere, og den krever ingen algebra ut over å kvadrere små tall. Men ber oppgaven eksplisitt om induksjon, er valget tatt for deg.\n\n*Merk at induksjonssteget her ikke trengte noe triks: hele $f(k)$ dukket opp av seg selv da vi ganget ut $(k+1)^3$. Det er typisk for polynomiale delelighetspåstander — de er blant de lettere induksjonsoppgavene, nettopp fordi $f(k)$ ligger synlig i utvidelsen.*",
+        "hints": [
+          "Gang ut $(k+1)^3$ fullstendig, og se om $k^3+2k$ dukker opp.",
+          "Restleddene skal alle være delelige med $3$ — sjekk hver av dem.",
+          "Oversett hypotesen til likningen $k^3+2k=3t$ før du setter inn."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-6-2-l4-intro",
+      "type": "text",
+      "content": "## Løkke 4: Undertype 3 — ulikheter, og riktig startverdi\n\n*~11 minutter.*\n\nHer kommer den ene tingen som skiller ulikheter fra de to første undertypene: **$n_0$ er ikke $1$**, og å finne den er en del av oppgaven."
+    },
+    {
+      "id": "ma1301-6-2-d-n0",
+      "type": "definition",
+      "title": "Startverdien n-null",
+      "content": "Tallet $n_0$ der påstanden begynner å gjelde. **Det er ikke alltid $1$**, og i ulikheter er det nesten aldri $1$.\n\n**Hvordan du finner den — utledes på stedet, under et minutt:** prøv $n=1,2,3,\\dots$ til påstanden blir sann. Men **pass på to feller**:\n\n1. **Påstanden kan være sann for små $n$ og så bli falsk igjen**, før den blir sann for godt. Da er $n_0$ det stedet der den blir sann **og forblir det** — og induksjonssteget er det som garanterer «forblir».\n2. **Likhet er ikke ulikhet.** For $2^n>n^2$ gir $n=4$ at $16>16$ er **falsk**. Da er $n_0=5$, ikke $4$.\n\n**Hva som skal stå i besvarelsen:** «For $n=1,2,3,4$ er påstanden falsk (verdiene er $\\dots$); for $n=5$ er den sann. Vi tar $n_0=5$.» Prøvingen er en del av svaret, ikke forarbeid du kan skjule.\n\n**Basissteget bruker $n_0$, ikke $1$.** Skriver du «basissteg $n=1$» i en oppgave med $n_0=5$, har du verifisert noe som er galt — og det er en umiddelbar feil.\n\n**Merk at induksjonssteget kan kreve $k\\ge$ noe.** I ulikhetsbevis trenger du ofte at $k$ er stor nok for at en mellomulikhet holder (typisk $k^2\\ge 2k+1$, som krever $k\\ge 3$). **Skriv betingelsen når du bruker den**, og sjekk at den er oppfylt for alle $k\\ge n_0$."
+    },
+    {
+      "id": "ma1301-6-2-d-undertype-ulikhet",
+      "type": "definition",
+      "title": "Undertype 3: ulikheter",
+      "content": "Formen: «vis at $A(n)>B(n)$ (eller $\\ge$) for alle $n\\ge n_0$».\n\n**Grepet i steget:** du kan ikke regne deg fra venstre til høyre med likhetstegn. I stedet lager du en **kjede av ulikheter**, der hypotesen er ett av leddene:\n$$A(k+1)\\ \\ge\\ (\\text{noe med }A(k))\\ \\overset{\\text{hypotese}}{>}\\ (\\text{noe med }B(k))\\ \\ge\\ B(k+1).$$\n\n**Arbeidsflyten i fem trinn:**\n\n1. **Finn $n_0$** ved å prøve, og skriv hva du fant.\n2. **Basissteg med $n_0$**, begge sider regnet ut.\n3. **Hypotese:** $A(k)>B(k)$ for en $k\\ge n_0$.\n4. **Steg:** uttrykk $A(k+1)$ ved $A(k)$ (typisk $A(k+1)=2A(k)$ eller $A(k+1)=(k+1)A(k)$), bruk hypotesen, og vis at det du får, er $\\ge B(k+1)$.\n5. **Den siste ulikheten er ofte en egen liten påstand** — «$2k^2\\ge(k+1)^2$ for $k\\ge 3$». Vis den, ikke bare påstå den.\n\n**Trinn 5 er der ulikhetsoppgaver skiller seg fra de andre undertypene.** Du får en restulikhet som må vises for seg, og den vises typisk ved å gange ut og se at differansen er positiv.\n\n**Retningen på ulikhetene må holdes.** Ganger du med et negativt tall, snur ulikheten — men i disse oppgavene er alt positivt, så det er sjelden et problem. Verre er å blande $>$ og $\\ge$: er hypotesen streng, er konklusjonen streng, og du skal skrive den riktige."
+    },
+    {
+      "id": "ma1301-6-2-e4",
+      "type": "example",
+      "title": "Ulikhet med riktig startverdi: to i n-te vokser fortere enn n i annen",
+      "problem": "Finn den minste $n_0$ slik at $2^n>n^2$ for alle $n\\ge n_0$, og bevis påstanden ved induksjon.",
+      "solution": "**Steg 1: finn $n_0$ ved å prøve.**\n\n| $n$ | $2^n$ | $n^2$ | $2^n>n^2$? |\n|---|---|---|---|\n| $1$ | $2$ | $1$ | ja |\n| $2$ | $4$ | $4$ | **nei** (likhet) |\n| $3$ | $8$ | $9$ | **nei** |\n| $4$ | $16$ | $16$ | **nei** (likhet) |\n| $5$ | $32$ | $25$ | ja |\n| $6$ | $64$ | $36$ | ja |\n\nPåstanden er sann for $n=1$, **falsk for $n=2,3,4$**, og sann fra $n=5$. Den minste $n_0$ slik at påstanden holder for **alle** $n\\ge n_0$, er derfor\n$$n_0=5.$$\n\n*Merk at $n=1$ ikke kan brukes som $n_0$: påstanden faller sammen igjen ved $n=2$. Dette er nøyaktig felle 1 fra kortet om startverdien.*\n\n**La $P(n)$ være påstanden** $2^n>n^2$.\n\n**(1) Basissteg ($n=5$).** $2^5=32$ og $5^2=25$. Siden $32>25$, holder $P(5)$. ✓\n\n**(2) Induksjonshypotese.** Anta at det for en $k\\ge 5$ gjelder\n$$2^k>k^2.$$\n\n**(3) Induksjonssteg.** Vi skal vise $2^{k+1}>(k+1)^2$.\n\nStart fra venstre side:\n$$2^{k+1}=2\\cdot 2^k.$$\n\n**Her bruker vi induksjonshypotesen:** $2^k>k^2$, så\n$$2^{k+1}=2\\cdot 2^k>2k^2.$$\n\n**Nå gjenstår restulikheten** $2k^2\\ge(k+1)^2$ for $k\\ge 5$. Vi viser den:\n$$2k^2-(k+1)^2=2k^2-k^2-2k-1=k^2-2k-1=(k-1)^2-2.$$\nFor $k\\ge 5$ er $(k-1)^2\\ge 16$, så $(k-1)^2-2\\ge 14>0$. Altså er $2k^2>(k+1)^2$ for $k\\ge 5$. ✓\n\n**Sett kjeden sammen:**\n$$2^{k+1}>2k^2>(k+1)^2,$$\naltså $2^{k+1}>(k+1)^2$, og $P(k+1)$ holder.\n\n**Ved induksjonsprinsippet** holder $P(n)$ for alle $n\\ge 5$. $\\blacksquare$\n\n**Kontroll med tall.** $n=7$: $128>49$ ✓. $n=10$: $1024>100$ ✓.\n\n**Om føringen — de fem tingene som gir uttelling:**\n\n1. **Prøvingen står i besvarelsen**, med tabellen som viser at $n=2,3,4$ faktisk feiler.\n2. **$n_0=5$ er begrunnet**, ikke gjettet — og at $n=4$ gir likhet (ikke ulikhet) er nevnt eksplisitt.\n3. **Basissteget bruker $n=5$**, ikke $n=1$.\n4. **Restulikheten $2k^2\\ge(k+1)^2$ er bevist**, ikke bare påstått. Det er den delen som glemmes oftest.\n5. **Ulikhetskjeden står samlet til slutt**, så det er tydelig at konklusjonen følger.\n\n*Merk at restulikheten holder allerede fra $k=3$ ($2\\cdot 9=18>16$). Vi trengte den bare for $k\\ge 5$, så det er ingen grunn til å finne den skarpeste grensen — **det holder å vise ulikheten der du bruker den.** Å bruke tid på å finne minste $k$ for restulikheten er tid uten uttelling.*"
+    },
+    {
+      "id": "ma1301-6-2-ex-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-6-2-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**a)** Finn den minste $n_0$ slik at $n!>2^n$ for alle $n\\ge n_0$.\n**b)** Bevis påstanden ved induksjon.",
+        "solution": "**a) Prøv deg frem.**\n\n| $n$ | $n!$ | $2^n$ | $n!>2^n$? |\n|---|---|---|---|\n| $1$ | $1$ | $2$ | nei |\n| $2$ | $2$ | $4$ | nei |\n| $3$ | $6$ | $8$ | nei |\n| $4$ | $24$ | $16$ | ja |\n| $5$ | $120$ | $32$ | ja |\n\nPåstanden er falsk for $n=1,2,3$ og sann fra $n=4$. Altså\n$$n_0=4.$$\n\n**b) La $P(n)$ være påstanden** $n!>2^n$.\n\n**(1) Basissteg ($n=4$).** $4!=24$ og $2^4=16$. Siden $24>16$, holder $P(4)$. ✓\n\n**(2) Induksjonshypotese.** Anta at det for en $k\\ge 4$ gjelder\n$$k!>2^k.$$\n\n**(3) Induksjonssteg.** Vi skal vise $(k+1)!>2^{k+1}$.\n\nStart fra venstre side:\n$$(k+1)!=(k+1)\\cdot k!.$$\n\n**Her bruker vi induksjonshypotesen:** $k!>2^k$, og $k+1>0$, så\n$$(k+1)!>(k+1)\\cdot 2^k.$$\n\n**Restulikheten:** siden $k\\ge 4$, er $k+1\\ge 5>2$, altså\n$$(k+1)\\cdot 2^k>2\\cdot 2^k=2^{k+1}.$$\n\n**Sett kjeden sammen:**\n$$(k+1)!>(k+1)2^k>2\\cdot 2^k=2^{k+1},$$\naltså $(k+1)!>2^{k+1}$, og $P(k+1)$ holder.\n\n**Ved induksjonsprinsippet** holder $P(n)$ for alle $n\\ge 4$. $\\blacksquare$\n\n**Kontroll:** $n=6$ gir $720>64$ ✓. $n=8$ gir $40320>256$ ✓.\n\n**Sluttsvar:** $n_0=4$, og påstanden er bevist for alle $n\\ge 4$.\n\n*Merk hvor enkel restulikheten ble her: vi trengte bare $k+1>2$, som er oppfylt for alle $k\\ge 2$ — altså med god margin for $k\\ge 4$. **Si hvorfor den holder** («siden $k\\ge 4$ er $k+1\\ge 5>2$»), selv når det er åpenbart; det er én linje og det er egne poeng.*\n\n*Og merk at fakultetet vokser mye fortere enn $2^n$ etter hvert: for $n=10$ er $10!=3\\,628\\,800$ mot $2^{10}=1024$. Ulikheten er ikke knapp, men den *er* knapp rundt $n_0$, og det er der oppgaven ligger.*",
+        "hints": [
+          "I a): regn ut begge sider for $n=1,2,3,4$ og se hvor det snur.",
+          "I b): skriv $(k+1)!=(k+1)\\cdot k!$ og bruk hypotesen på $k!$.",
+          "Restulikheten er $(k+1)\\cdot 2^k>2\\cdot 2^k$ — hva krever den av $k$?"
+        ]
+      }
+    },
+    {
+      "id": "ma1301-6-2-ex-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-6-2-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Vis ved induksjon at $\\dbinom{2n}{n}<2^{2n-2}$ for alle $n\\ge 5$.\n\nKontrollér først at $n_0=5$ er riktig, altså at ulikheten er falsk for $n=4$.\n\n*(Krevende — restulikheten krever litt regning.)*",
+        "solution": "**Kontroll av $n_0$.**\n\n| $n$ | $\\binom{2n}{n}$ | $2^{2n-2}$ | ulikhet? |\n|---|---|---|---|\n| $1$ | $2$ | $1$ | nei |\n| $2$ | $6$ | $4$ | nei |\n| $3$ | $20$ | $16$ | nei |\n| $4$ | $70$ | $64$ | **nei** |\n| $5$ | $252$ | $256$ | **ja** |\n\nPåstanden er falsk for $n\\le 4$ og sann fra $n=5$, så $n_0=5$ er riktig. Merk hvor knapt det er ved $n=5$: $252<256$, en margin på $4$.\n\n**La $P(n)$ være påstanden** $\\binom{2n}{n}<2^{2n-2}$.\n\n**(1) Basissteg ($n=5$).** $\\binom{10}{5}=252$ og $2^{8}=256$. Siden $252<256$, holder $P(5)$. ✓\n\n**(2) Induksjonshypotese.** Anta at det for en $k\\ge 5$ gjelder\n$$\\binom{2k}{k}<2^{2k-2}.$$\n\n**(3) Induksjonssteg.** Vi skal vise $\\binom{2k+2}{k+1}<2^{2k}$.\n\n**Først kobler vi de to binomialkoeffisientene.** Skriv dem ut:\n$$\\frac{\\binom{2k+2}{k+1}}{\\binom{2k}{k}}=\\frac{(2k+2)!}{(k+1)!(k+1)!}\\cdot\\frac{k!\\,k!}{(2k)!}=\\frac{(2k+1)(2k+2)}{(k+1)^2}=\\frac{2(2k+1)}{k+1}.$$\n\nAltså\n$$\\binom{2k+2}{k+1}=\\frac{2(2k+1)}{k+1}\\cdot\\binom{2k}{k}.$$\n\n**Her bruker vi induksjonshypotesen:** $\\binom{2k}{k}<2^{2k-2}$, og faktoren foran er positiv, så\n$$\\binom{2k+2}{k+1}<\\frac{2(2k+1)}{k+1}\\cdot 2^{2k-2}.$$\n\n**Restulikheten.** Vi trenger\n$$\\frac{2(2k+1)}{k+1}\\cdot 2^{2k-2}\\le 2^{2k},\\quad\\text{altså}\\quad \\frac{2(2k+1)}{k+1}\\le 4.$$\nGang med $k+1>0$:\n$$2(2k+1)\\le 4(k+1)\\iff 4k+2\\le 4k+4\\iff 2\\le 4,$$\nsom er sant for **alle** $k$. ✓\n\n**Sett kjeden sammen:**\n$$\\binom{2k+2}{k+1}<\\frac{2(2k+1)}{k+1}\\cdot 2^{2k-2}\\le 4\\cdot 2^{2k-2}=2^{2k},$$\naltså $\\binom{2k+2}{k+1}<2^{2k}$, og $P(k+1)$ holder.\n\n**Ved induksjonsprinsippet** holder $P(n)$ for alle $n\\ge 5$. $\\blacksquare$\n\n**Kontroll:** $n=6$ gir $\\binom{12}{6}=924<1024=2^{10}$ ✓. $n=7$ gir $\\binom{14}{7}=3432<4096=2^{12}$ ✓.\n\n**Sluttsvar:** $n_0=5$, og ulikheten er bevist for alle $n\\ge 5$.\n\n*Merk at restulikheten ble $2\\le 4$ — altså sann uten betingelser på $k$. Det er en fin situasjon, men den er ikke gitt på forhånd, og du må regne den ut for å vite. **Skriv utregningen**: «$2(2k+1)\\le 4(k+1)\\iff 2\\le 4$» er tre symboler og lukker hullet.*\n\n*Og merk hvor arbeidet egentlig lå: i å finne **forholdet** mellom $\\binom{2k+2}{k+1}$ og $\\binom{2k}{k}$. Det er det generelle grepet i induksjon på binomialkoeffisienter — regn ut forholdet mellom to nabotilfeller, og du har koblingen steget trenger. Binomialkoeffisientene og deres delelighetsegenskaper møter du igjen i [kap. 6.3](/ma1301/ma1301-6-3) og [kap. 2.2](/ma1301/ma1301-2-2).*",
+        "hints": [
+          "Regn ut forholdet $\\binom{2k+2}{k+1}\\big/\\binom{2k}{k}$ ved å skrive ut fakultetene.",
+          "Forholdet forenkles til $\\frac{2(2k+1)}{k+1}$ — kontrollér med $k=1$.",
+          "Restulikheten du trenger, er $\\frac{2(2k+1)}{k+1}\\le 4$. Gang opp med $k+1$."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-6-2-l5-intro",
+      "type": "text",
+      "content": "## Løkke 5: Undertype 4 — kongruensmønstre, sterk induksjon, og Fibonacci\n\n*~14 minutter.*\n\nDen siste undertypen, den utvidede malen, og en gjennomgang av besvarelsen som mangler ett steg.\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "ma1301-6-2-d-undertype-kongruens",
+      "type": "definition",
+      "title": "Undertype 4: kongruensmønstre og a opphøyd i p",
+      "content": "Formen: «vis at $a^p\\equiv a\\pmod p$», eller «vis at følgen $u_n$ oppfyller $u_{n+3}\\equiv u_n\\pmod 2$».\n\n**Grepet:** induksjonen går på **grunntallet $a$**, ikke på eksponenten, når påstanden er $a^p\\equiv a\\pmod p$. Steget bruker binomialformelen og resultatet $p\\mid\\binom pk$ for $1\\le k\\le p-1$ ([kap. 2.2](/ma1301/ma1301-2-2), fullt bevist i [kap. 6.3](/ma1301/ma1301-6-3)):\n\n$$(a+1)^p=\\sum_{k=0}^p\\binom pk a^k=a^p+\\underbrace{\\binom p1 a^{p-1}+\\dots+\\binom p{p-1}a}_{\\text{alle ledd delelige med }p}+1.$$\n\nModulo $p$ faller mellomleddene bort, så\n$$(a+1)^p\\equiv a^p+1\\pmod p.$$\n\n**Her bruker vi induksjonshypotesen** $a^p\\equiv a$:\n$$(a+1)^p\\equiv a+1\\pmod p,$$\nsom er påstanden for $a+1$. Med basissteget $a=1$ ($1^p=1\\equiv 1$) er beviset ferdig.\n\n**Dette er ett av to fullgode bevis for samme resultat.** Det andre er **Fermats lille teorem** ([kap. 2.2](/ma1301/ma1301-2-2)): for $p\\nmid a$ er $a^{p-1}\\equiv 1$, og gang med $a$; for $p\\mid a$ er begge sider $\\equiv 0$. **Si hvilken vei du bruker.** Induksjonsveien er den oppgaven ber om når den sier «vis ved induksjon», og den er dessuten den som ikke forutsetter Fermat.\n\n**Kongruensmønstre i følger** følger vanlig induksjon, ofte sterk: er $u_{n+1}=u_n+u_{n-1}$, ser steget to ledd tilbake, og da trenger du to basissteg. Se neste kort.\n\n**Merk at kongruensregning gjør induksjonsteget kort.** Å arbeide modulo $p$ i stedet for med hele tall sparer deg for å holde orden på et delelig restledd — kongruensspråket fra [kap. 1.4](/ma1301/ma1301-1-4) er verktøyet som gjør denne undertypen håndterlig."
+    },
+    {
+      "id": "ma1301-6-2-d-sterk-induksjon",
+      "type": "definition",
+      "title": "Sterk induksjon",
+      "content": "En utvidet hypotese: i stedet for å anta bare $P(k)$, antar du **$P(j)$ for alle $j$ med $n_0\\le j\\le k$**.\n\n**Malen:**\n\n> **(1) Basissteg:** verifisér $P(n_0)$ — og $P(n_0+1)$, $P(n_0+2)$, … så mange som rekursjonen ser tilbake.\n> **(2) Induksjonshypotese (sterk):** anta at $P(j)$ holder for alle $j$ med $n_0\\le j\\le k$.\n> **(3) Induksjonssteg:** utled $P(k+1)$, med bruk av **de** tidligere tilfellene du trenger — og si hvilke.\n\n**Når du trenger den:** når $P(k+1)$ avhenger av mer enn ett tidligere tilfelle. To typiske situasjoner:\n\n1. **Rekursjoner som ser to ledd tilbake:** $u_{k+1}=3u_k-2u_{k-1}$. Steget bruker både $P(k)$ og $P(k-1)$, så basissteget må dekke **to** startverdier.\n2. **Påstander der du deler et tall i to mindre faktorer:** «hvert $n\\ge 2$ er et produkt av primtall» — steget skriver $n=ab$ med $a,b<n$ og bruker hypotesen på **begge**, som kan ligge hvor som helst under $n$.\n\n**Antall basissteg = antall ledd rekursjonen ser tilbake.** Det er regelen, og den er den vanligste feilen i sterk induksjon: ett basissteg der to var nødvendig. **Kontrollen:** se på steget og tell hvilke tidligere tilfeller du bruker. Bruker du $P(k)$ og $P(k-1)$, må steget virke fra $k=n_0+1$, og da må $P(n_0)$ og $P(n_0+1)$ begge være verifisert direkte.\n\n**Sterk induksjon er ikke sterkere enn vanlig induksjon** i logisk forstand — begge følger av velordningsprinsippet, og du kan oversette mellom dem. Men den er ofte mye bekvemmere, og fasitene bruker den der rekursjonen krever det."
+    },
+    {
+      "id": "ma1301-6-2-e5",
+      "type": "example",
+      "title": "Besvarelsen som mangler ett steg — og hva den koster",
+      "problem": "Under står en innlevert besvarelse av oppgaven «Vis ved induksjon at $1+2+\\dots+n=\\frac{n(n+1)}2+5$ for alle $n\\ge 1$». Besvarelsen er nyskrevet for denne boka og ligger på et **midtnivå (B/C)**: idéen er riktig ført, men den mangler ett steg. Finn hva som mangler, og si presist hva det koster.\n\n> **Induksjonshypotese:** anta at $1+2+\\dots+k=\\frac{k(k+1)}2+5$.\n>\n> **Induksjonssteg:** da er\n> $$1+2+\\dots+k+(k+1)=\\frac{k(k+1)}2+5+(k+1)=\\frac{k(k+1)+2(k+1)}2+5=\\frac{(k+1)(k+2)}2+5,$$\n> som er påstanden for $k+1$. Altså holder formelen for alle $n\\ge 1$.",
+      "solution": "**Det som mangler: basissteget.** Besvarelsen har hypotese og steg, men verifiserer aldri ett enkelt tilfelle.\n\n**Og her er hvorfor det ikke er en formalitet: påstanden er falsk.** For $n=1$ er venstre side $1$, mens høyre side er\n$$\\frac{1\\cdot 2}2+5=1+5=6.$$\n$1\\ne 6$. Formelen er faktisk gal for **hvert** $n$ — den er alltid $5$ for stor:\n$$1+2+\\dots+n=\\frac{n(n+1)}2\\ne\\frac{n(n+1)}2+5.$$\n\n**Likevel er induksjonssteget i besvarelsen helt korrekt.** Regningen er feilfri: legger du $k+1$ til begge sider av den falske «formelen», får du nøyaktig den falske formelen for $k+1$. Det $+5$ blir bare båret med videre.\n\n**Det er hele poenget.** Induksjonssteget viser at *hvis* påstanden holder ett sted, holder den neste sted. Uten et sant startpunkt er kjeden en rekke dominobrikker som står perfekt oppstilt — og som ingen har veltet.\n\n**Hva besvarelsen koster, presist:**\n\n| Del | Status | Hva den er verdt |\n|---|---|---|\n| Basissteg | **mangler** | ett av tre steg — og det som gjør beviset til et bevis |\n| Induksjonshypotese | ført, men «for en $k$» mangler | i det vesentlige i orden |\n| Induksjonssteg | korrekt, algebra feilfri | full uttelling for steget |\n| Konklusjon | **gal** — påstanden er falsk | konklusjonen kan ikke stå |\n\n**Den riktige besvarelsen av oppgaven** er derfor ikke et induksjonsbevis i det hele tatt, men en **avvisning**:\n\n> Påstanden er falsk. For $n=1$ er venstre side $1$ og høyre side $\\frac{1\\cdot 2}2+5=6$, og $1\\ne 6$. Induksjonssteget går riktignok igjennom — legger man $k+1$ til begge sider, følger formelen for $k+1$ — men uten et sant basissteg beviser steget ingenting. Den riktige formelen er $1+2+\\dots+n=\\frac{n(n+1)}2$, og den kan bevises ved induksjon: basissteg $n=1$ gir $1=\\frac{1\\cdot 2}2=1$ ✓; hypotesen gir $1+\\dots+k=\\frac{k(k+1)}2$; og steget gir $\\frac{k(k+1)}2+(k+1)=\\frac{(k+1)(k+2)}2$ ✓.\n\n**Tre lærepenger å ta med:**\n\n1. **Basissteget er ikke en formalitet.** Det er det ene stedet der påstanden møter virkeligheten.\n2. **Et perfekt induksjonssteg garanterer ingenting alene.** Det er en implikasjon, og implikasjoner trenger et sant utgangspunkt.\n3. **Les påstanden kritisk før du beviser den.** Ti sekunder med $n=1$ ville spart hele besvarelsen. Det er samme råd som i [kap. 6.1](/ma1301/ma1301-6-1): sjekk et par verdier først, uansett hvilken teknikk du skal bruke.\n\n*Merk hva som gjør denne feilen så synlig for den som retter: den er **strukturell**, og struktur er det man ser først. Et manglende basissteg oppdages med ett blikk på arket, mens en regnefeil midt i et steg krever gjennomregning. Det er en av grunnene til at strukturfeil er dyrere enn regnefeil i denne sjangeren.*"
+    },
+    {
+      "id": "ma1301-6-2-ex-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-6-2-o9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Vis ved induksjon at $F_1+F_2+\\dots+F_n=F_{n+2}-1$ for alle $n\\ge 1$, der $F_n$ er Fibonacci-tallene definert ved $F_1=F_2=1$ og $F_{n+1}=F_n+F_{n-1}$ for $n\\ge 2$.",
+        "solution": "**Fibonacci-følgen:** $1,\\ 1,\\ 2,\\ 3,\\ 5,\\ 8,\\ 13,\\ 21,\\ 34,\\ 55,\\ 89,\\dots$\n\n**La $P(n)$ være påstanden** $\\displaystyle\\sum_{i=1}^n F_i=F_{n+2}-1$.\n\n**(1) Basissteg ($n=1$).** Venstre side er $F_1=1$. Høyre side er $F_3-1=2-1=1$. Like, så $P(1)$ holder. ✓\n\n**(2) Induksjonshypotese.** Anta at det for en $k\\ge 1$ gjelder\n$$F_1+F_2+\\dots+F_k=F_{k+2}-1.$$\n\n**(3) Induksjonssteg.** Vi skal vise $F_1+\\dots+F_k+F_{k+1}=F_{k+3}-1$.\n\nStart fra venstre side og skill ut det nye leddet:\n$$\\sum_{i=1}^{k+1}F_i=\\sum_{i=1}^{k}F_i+F_{k+1}.$$\n\n**Her bruker vi induksjonshypotesen:**\n$$=\\bigl(F_{k+2}-1\\bigr)+F_{k+1}=\\bigl(F_{k+2}+F_{k+1}\\bigr)-1.$$\n\n**Nå bruker vi rekursjonen** $F_{k+3}=F_{k+2}+F_{k+1}$:\n$$=F_{k+3}-1,$$\nsom er høyre side av $P(k+1)$. Så $P(k+1)$ holder.\n\n**Ved induksjonsprinsippet** holder $P(n)$ for alle $n\\ge 1$. $\\blacksquare$\n\n**Kontroll med tall.**\n\n| $n$ | $F_1+\\dots+F_n$ | $F_{n+2}-1$ |\n|---|---|---|\n| $3$ | $1+1+2=4$ | $F_5-1=5-1=4$ ✓ |\n| $5$ | $4+3+5=12$ | $F_7-1=13-1=12$ ✓ |\n| $7$ | $12+8+13=33$ | $F_9-1=34-1=33$ ✓ |\n\n*Merk at oppgaven bruker **vanlig** induksjon, ikke sterk: steget trengte bare $P(k)$. At rekursjonen for $F$ ser to ledd tilbake, betyr ikke automatisk at induksjonen må være sterk — det avhenger av hva **påstanden** krever. Her ble rekursjonen brukt som en ren omskriving, ikke som en hypotese.*\n\n*Fibonacci-tallene dukker opp flere steder i faget: som verste tilfelle for Euklids algoritme ([kap. 1.2](/ma1301/ma1301-1-2)), og som nevnere i konvergentene til den enkleste kjedebrøken ([kap. 7.1](/ma1301/ma1301-7-1)).*",
+        "hints": [
+          "Regn ut begge sider for $n=1$ — husk at $F_3=2$.",
+          "Skill ut $F_{k+1}$ og sett inn hypotesen for de $k$ første.",
+          "Etter innsettingen står du med $F_{k+2}+F_{k+1}-1$. Hva sier rekursjonen om $F_{k+2}+F_{k+1}$?"
+        ]
+      }
+    },
+    {
+      "id": "ma1301-6-2-ex-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-6-2-o10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En følge er definert ved $a_1=1$, $a_2=3$ og $a_n=3a_{n-1}-2a_{n-2}$ for $n\\ge 3$.\n\nVis ved **sterk induksjon** at $a_n=2^n-1$ for alle $n\\ge 1$.",
+        "solution": "**La $P(n)$ være påstanden** $a_n=2^n-1$.\n\n**Merk først hvor mange basissteg som kreves.** Rekursjonen $a_n=3a_{n-1}-2a_{n-2}$ ser **to** ledd tilbake, så induksjonssteget virker først fra $n=3$. Altså må $P(1)$ **og** $P(2)$ verifiseres direkte.\n\n**(1) Basissteg — to av dem.**\n\n$n=1$: $a_1=1$ og $2^1-1=1$ ✓.\n$n=2$: $a_2=3$ og $2^2-1=3$ ✓.\n\nSå $P(1)$ og $P(2)$ holder.\n\n**(2) Induksjonshypotese (sterk).** Anta at det for en $k\\ge 2$ gjelder\n$$a_j=2^j-1\\quad\\text{for alle }j\\text{ med }1\\le j\\le k.$$\n\n**(3) Induksjonssteg.** Vi skal vise $a_{k+1}=2^{k+1}-1$.\n\nSiden $k+1\\ge 3$, gjelder rekursjonen:\n$$a_{k+1}=3a_k-2a_{k-1}.$$\n\n**Her bruker vi induksjonshypotesen** — på **begge** de to tilfellene $j=k$ og $j=k-1$, som begge ligger i intervallet $[1,k]$ fordi $k\\ge 2$:\n$$a_{k+1}=3\\bigl(2^k-1\\bigr)-2\\bigl(2^{k-1}-1\\bigr).$$\n\nRegn ut:\n$$=3\\cdot 2^k-3-2\\cdot 2^{k-1}+2=3\\cdot 2^k-2^k-1=2\\cdot 2^k-1=2^{k+1}-1,$$\nder vi brukte at $2\\cdot 2^{k-1}=2^k$.\n\nAltså $a_{k+1}=2^{k+1}-1$, og $P(k+1)$ holder.\n\n**Ved (sterk) induksjon** holder $P(n)$ for alle $n\\ge 1$. $\\blacksquare$\n\n**Kontroll med tall.**\n\n| $n$ | $a_n$ fra rekursjonen | $2^n-1$ |\n|---|---|---|\n| $3$ | $3\\cdot 3-2\\cdot 1=7$ | $7$ ✓ |\n| $4$ | $3\\cdot 7-2\\cdot 3=15$ | $15$ ✓ |\n| $5$ | $3\\cdot 15-2\\cdot 7=31$ | $31$ ✓ |\n| $6$ | $3\\cdot 31-2\\cdot 15=63$ | $63$ ✓ |\n\n**De tre tingene som gir uttelling i sterk induksjon:**\n\n1. **At antallet basissteg er begrunnet.** «Rekursjonen ser to ledd tilbake, så vi trenger to basissteg» — det er den setningen som viser at du forstår hvorfor malen er utvidet.\n2. **At hypotesen er formulert sterkt** («for alle $j\\le k$»), ikke bare for $k$.\n3. **At du sier hvilke tidligere tilfeller du bruker** ($j=k$ og $j=k-1$), og at de faktisk ligger i hypotesens intervall.\n\n*Punkt 3 er verdt en ekstra tanke: for $k=2$ bruker vi $j=2$ og $j=1$, som begge er dekket. Hadde vi bare hatt ett basissteg ($P(1)$), ville steget for $k+1=3$ krevd $P(1)$ og $P(2)$ — og $P(2)$ ville ikke vært tilgjengelig. **Det er nøyaktig der ett basissteg for lite blir en feil**, og det er verdt å kunne peke på.*\n\n*Sluttsvar: $a_n=2^n-1$ for alle $n\\ge 1$, bevist ved sterk induksjon med to basissteg.*",
+        "hints": [
+          "Hvor mange ledd tilbake ser rekursjonen? Det bestemmer antall basissteg.",
+          "Formulér hypotesen for **alle** $j\\le k$, ikke bare for $k$.",
+          "I steget: sett inn både $a_k=2^k-1$ og $a_{k-1}=2^{k-1}-1$, og bruk at $2\\cdot 2^{k-1}=2^k$."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-6-2-ex-11",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-6-2-o11",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Vis ved induksjon at $F_{n+1}F_{n-1}-F_n^2=(-1)^n$ for alle $n\\ge 2$, der $F$ er Fibonacci-følgen fra oppgave 9.",
+        "solution": "**La $P(n)$ være påstanden** $F_{n+1}F_{n-1}-F_n^2=(-1)^n$.\n\n**(1) Basissteg ($n=2$).** Med $F_1=1$, $F_2=1$, $F_3=2$:\n$$F_3F_1-F_2^2=2\\cdot 1-1=1=(-1)^2.$$\nLike, så $P(2)$ holder. ✓\n\n**(2) Induksjonshypotese.** Anta at det for en $k\\ge 2$ gjelder\n$$F_{k+1}F_{k-1}-F_k^2=(-1)^k.$$\n\n**(3) Induksjonssteg.** Vi skal vise\n$$F_{k+2}F_k-F_{k+1}^2=(-1)^{k+1}.$$\n\nStart fra venstre side og bruk **rekursjonen** $F_{k+2}=F_{k+1}+F_k$:\n$$F_{k+2}F_k-F_{k+1}^2=(F_{k+1}+F_k)F_k-F_{k+1}^2=F_{k+1}F_k+F_k^2-F_{k+1}^2.$$\n\nSett $F_{k+1}$ utenfor de to leddene som inneholder den:\n$$=F_k^2-F_{k+1}\\bigl(F_{k+1}-F_k\\bigr).$$\n\nBruk rekursjonen igjen, nå baklengs: $F_{k+1}-F_k=F_{k-1}$. Altså\n$$=F_k^2-F_{k+1}F_{k-1}=-\\bigl(F_{k+1}F_{k-1}-F_k^2\\bigr).$$\n\n**Her bruker vi induksjonshypotesen:** parentesen er $(-1)^k$, så\n$$F_{k+2}F_k-F_{k+1}^2=-(-1)^k=(-1)^{k+1},$$\nsom er høyre side av $P(k+1)$. Så $P(k+1)$ holder.\n\n**Ved induksjonsprinsippet** holder $P(n)$ for alle $n\\ge 2$. $\\blacksquare$\n\n**Kontroll med tall.**\n\n| $n$ | $F_{n+1}F_{n-1}$ | $F_n^2$ | differanse | $(-1)^n$ |\n|---|---|---|---|---|\n| $3$ | $3\\cdot 1=3$ | $4$ | $-1$ | $-1$ ✓ |\n| $4$ | $5\\cdot 2=10$ | $9$ | $1$ | $1$ ✓ |\n| $5$ | $8\\cdot 3=24$ | $25$ | $-1$ | $-1$ ✓ |\n| $6$ | $13\\cdot 5=65$ | $64$ | $1$ | $1$ ✓ |\n\n**Det ene grepet som gjør oppgaven løsbar:** å bruke rekursjonen **to ganger** — først forlengs ($F_{k+2}=F_{k+1}+F_k$) og så baklengs ($F_{k+1}-F_k=F_{k-1}$). Da faller uttrykket sammen til minus hypotesens venstre side, og fortegnsvekslingen $(-1)^k\\to(-1)^{k+1}$ kommer gratis.\n\n*Merk at dette er **vanlig** induksjon, selv om Fibonacci-rekursjonen ser to ledd tilbake. Igjen: det er påstanden som avgjør, ikke følgen. Her trengte vi bare $P(k)$.*\n\n*Identiteten kalles Cassinis identitet. Den er en av de klassiske Fibonacci-identitetene, og induksjon er standardveien til alle av dem — grepet er alltid å bruke rekursjonen til å skrive $n+1$-tilfellet ved $n$-tilfellet.*",
+        "hints": [
+          "Regn ut basissteget for $n=2$ med $F_1=F_2=1$ og $F_3=2$.",
+          "I steget: bruk $F_{k+2}=F_{k+1}+F_k$ først, og gang ut.",
+          "Du trenger rekursjonen én gang mer, baklengs: hva er $F_{k+1}-F_k$?"
+        ]
+      }
+    },
+    {
+      "id": "ma1301-6-2-ex-12",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-6-2-o12",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Vis ved **sterk induksjon** at hvert helt tall $n\\ge 2$ kan skrives som et produkt av primtall (ett primtall regnes som et produkt med én faktor).\n\nDette er eksistensdelen av aritmetikkens fundamentalteorem ([kap. 1.1](/ma1301/ma1301-1-1)).",
+        "solution": "**La $P(n)$ være påstanden** at $n$ kan skrives som et produkt av primtall.\n\n**Hvorfor sterk induksjon?** Steget vil dele $n$ i to faktorer som begge er mindre enn $n$, men vi vet ikke **hvor** mye mindre. Derfor trenger vi hypotesen for **alle** tall under $n$, ikke bare for det nærmeste.\n\n**(1) Basissteg ($n=2$).** $2$ er et primtall, altså et produkt med én faktor. Så $P(2)$ holder. ✓\n\n**(2) Induksjonshypotese (sterk).** Anta at det for en $k\\ge 2$ gjelder\n$$P(j)\\ \\text{for alle}\\ j\\ \\text{med}\\ 2\\le j\\le k.$$\n\n**(3) Induksjonssteg.** Vi skal vise $P(k+1)$. Her er det **to tilfeller**, og vi behandler begge:\n\n**Tilfelle 1: $k+1$ er et primtall.** Da er $k+1$ selv et produkt med én faktor, og $P(k+1)$ holder.\n\n**Tilfelle 2: $k+1$ er sammensatt.** Da finnes det, per definisjon av sammensatt tall ([kap. 1.1](/ma1301/ma1301-1-1)), hele tall $a$ og $b$ med\n$$k+1=ab,\\qquad 1<a<k+1,\\quad 1<b<k+1.$$\nAltså er $2\\le a\\le k$ og $2\\le b\\le k$.\n\n**Her bruker vi induksjonshypotesen** — på **begge** faktorene, siden begge ligger i intervallet $[2,k]$: $a$ er et produkt av primtall, og $b$ er et produkt av primtall. Sett dem sammen:\n$$k+1=ab=\\underbrace{(p_1\\cdots p_r)}_{=a}\\cdot\\underbrace{(q_1\\cdots q_s)}_{=b},$$\nsom er et produkt av primtall. Så $P(k+1)$ holder.\n\n**Begge tilfeller er dekket.** **Ved sterk induksjon** holder $P(n)$ for alle $n\\ge 2$. $\\blacksquare$\n\n**Kontroll med tall.** $12=4\\cdot 3=(2\\cdot 2)\\cdot 3$ ✓ — nøyaktig konstruksjonen i tilfelle 2. $91=7\\cdot 13$, begge primtall ✓. $17$ er primtall, altså tilfelle 1 ✓.\n\n**Hvorfor vanlig induksjon ikke ville rukket.** Steget fra $k$ til $k+1$ gir ingen sammenheng mellom faktoriseringen av $k$ og av $k+1$ — $k=16=2^4$ sier ingenting om $k+1=17$. Sterk induksjon er nødvendig fordi faktorene $a$ og $b$ kan ligge **hvor som helst** under $k+1$.\n\n*Merk at dette bare er **eksistens**-delen av fundamentalteoremet. **Entydigheten** — at faktoriseringen er den samme uansett hvordan du finner den — krever Euklids lemma og er et eget argument ([kap. 1.1](/ma1301/ma1301-1-1)). De to delene forveksles lett, og en oppgave som ber om «eksistens» er betydelig lettere enn en som ber om «entydighet».*\n\n*Legg også merke til at beviset er en **case-analyse** ([kap. 6.1](/ma1301/ma1301-6-1)) inne i et induksjonssteg: primtall eller sammensatt, og begge tilfeller behandlet. Det er en helt vanlig kombinasjon i sjanger I og J.*",
+        "hints": [
+          "Hvorfor holder ikke vanlig induksjon her? Tenk på hva faktorene i $k+1$ kan være.",
+          "Del i to tilfeller: $k+1$ primtall, eller $k+1$ sammensatt.",
+          "I det sammensatte tilfellet: hvor ligger $a$ og $b$ i forhold til $k$? Bruk hypotesen på begge."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-6-2-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "De fem feilene under er dokumentert i arkivets løsningsforslag som noe fasitene fører eksplisitt imot. Fire av dem er **strukturfeil** — og det er nettopp strukturen som teller for seg selv i denne sjangeren.\n\n- **Glemt eller forkludret basissteg.** Den best belagte enkeltfeilen i hele bevisdelen. Uten basissteg viser induksjonssteget bare en implikasjon, og eksempel 5 fører en falsk påstand der steget går perfekt igjennom. **Kontrollen:** står det «Basissteg» som eget merket punkt, med begge sider regnet ut? Og er $n_0$ det oppgaven ba om — ikke $1$ av vane?\n\n- **Hypotesen ikke skrevet eksplisitt.** «Anta at det holder for $k$» uten å skrive **hva** som holder. Da har du ingenting å sette inn, og den som retter kan ikke se at innsettingen er lovlig. **Skriv likningen.**\n\n- **Hypotesen ikke brukt i steget.** Kommer du gjennom steget uten å ha satt inn $P(k)$, er beviset ikke et induksjonsbevis. Noen ganger er det fordi du har funnet et direkte bevis — og da skal du si det. Oftere er det en feil. **Kontrollen:** pek på linjen der du satte inn hypotesen. Finnes den ikke, er noe galt.\n\n- **Sirkelbevis: å regne på begge sider til «$0=0$».** Se [kap. 6.1](/ma1301/ma1301-6-1). Det er bare gyldig hvis hvert steg er en ekvivalens og du skriver det. **Den trygge formen** er å starte i én ende og regne til den andre.\n\n- **Feil $n_0$ i ulikheter.** $2^n>n^2$ er sann for $n=1$, falsk for $n=2,3,4$, sann fra $n=5$. Å ta $n_0=1$ gir et bevis for en påstand som ikke holder. **Kontrollen:** prøv verdiene, og se om det er **likhet** i grensetilfellet — likhet er ikke streng ulikhet.\n\n**Og tre feil som er spesifikke for de enkelte undertypene:**\n\n- **Sum: å glemme å regne ut det nye leddet.** $a_{k+1}$ skal skrives ut med $k+1$ satt inn ($2(k+1)-1=2k+1$), ikke bare antydes.\n- **Delelighet: å ikke oversette hypotesen til en likning.** «$9\\mid f(k)$» må bli «$f(k)=9t$» før du kan sette inn.\n- **Sterk induksjon: for få basissteg.** Ser rekursjonen to ledd tilbake, trengs to. **Tell hvilke tidligere tilfeller steget bruker.**"
+    },
+    {
+      "id": "ma1301-6-2-begrepsbank-intro",
+      "type": "text",
+      "content": "## Begrepsbank\n\nDette er flashcard-stoff — hopp trygt over ved førstegangslesing; tidsanslaget på 60 minutter gjelder kjernestoffet over.\n\nUnder kode D er banken **eksamensverktøyet, ikke pynt.** Induksjonsmalen finnes ikke i noen bok du har med deg 24. november, og den er en **form** — den pugges ved å skrives, ikke ved å leses. Tre induksjonsbevis ført med lukket bok er mer verdt enn tre gjennomlesninger av malen."
+    },
+    {
+      "id": "ma1301-6-2-k-tre-steg",
+      "type": "definition",
+      "title": "Kort: induksjonens tre steg, og de to setningene som må stå",
+      "content": "**(1) Basissteg.** Verifisér $P(n_0)$ med tall, begge sider regnet ut. Riktig $n_0$.\n\n**(2) Induksjonshypotese.** «Anta at $P(k)$ holder for en $k\\ge n_0$» — som egen linje, med innholdet utskrevet.\n\n**(3) Induksjonssteg.** Utled $P(k+1)$, med **«Her bruker vi induksjonshypotesen:»** der innsettingen skjer.\n\n**Avslutning.** «Ved induksjonsprinsippet holder $P(n)$ for alle $n\\ge n_0$. $\\blacksquare$»\n\n**Malen må sitte utenat**, og de tre stegene bærer uttelling hver for seg.\n\n**Selvtest:** dekk til kortet og skriv de tre stegene med de ordene fasitene bruker. Deretter: før et induksjonsbevis for $1+2+\\dots+n=\\frac{n(n+1)}2$ helt ut, med lukket bok. Tar det under fem minutter, sitter malen.\n\n**Kontrollvanen:** sett $n=n_0+1$ inn i den ferdige formelen og regn ut begge sider direkte. Det fanger de fleste regnefeil på tjue sekunder.\n\n**Hvorfor basissteget ikke kan hoppes over.**\n\n**Fordi induksjonssteget bare er en implikasjon.** Det sier «hvis $P(k)$, så $P(k+1)$» — ingenting om at $P(k)$ er sann noe sted.\n\n**Motbeviset i tre linjer.** Påstanden «$1+2+\\dots+n=\\frac{n(n+1)}2+5$» er falsk for alle $n$. Men steget virker: legg $k+1$ til begge sider, og du får formelen for $k+1$. En besvarelse uten basissteg «beviser» altså noe galt (eksempel 5).\n\n**Dominobildet:** steget er avstanden mellom brikkene, basissteget er at den første faktisk blir veltet. Perfekte avstander uten et dytt gir ingen fallende rekke.\n\n**Hva som skal stå:** «Basissteg ($n=n_0$): venstre side er $\\dots$, høyre side er $\\dots$, de er like.» Begge sider, med tall.\n\n**Og merk hvorfor feilen er dyr:** den er strukturell og synes med ett blikk på arket. Det er en av grunnene til at strukturfeil koster mer enn regnefeil i denne sjangeren.\n\n**Å vise at hypotesen faktisk ble brukt.**\n\nDen ene setningen som gjør et induksjonsbevis gjenkjennelig:\n\n> **«Her bruker vi induksjonshypotesen:»**\n\n**Den må sitte utenat**, og den skal stå nøyaktig der innsettingen skjer — ikke i innledningen, ikke i konklusjonen.\n\n**Hvorfor den er egne poeng:** fasitene i arkivet markerer alltid dette stedet. Det er den enkleste måten for den som retter å se at beviset er et induksjonsbevis og ikke noe annet.\n\n**Kontrollen før du setter punktum:** pek fysisk på linjen der hypotesen ble brukt. Finnes den ikke, har du enten et direkte bevis (si det!) eller en feil.\n\n**Den beslektede kontrollen:** har du brukt hypotesen **på riktig tilfelle**? I sterk induksjon skal du bruke $P(j)$ for de $j$-ene du faktisk trenger, og de må ligge i hypotesens intervall. Å bruke $P(k+1)$ inne i steget for $P(k+1)$ er sirkelbevis.\n\n**Et lite skriveråd:** understrek eller ram inn stedet. Det koster ingenting og gjør besvarelsen lettere å rette — og en besvarelse som er lett å rette, får lettere den uttellingen den fortjener."
+    },
+    {
+      "id": "ma1301-6-2-k-sum-mal",
+      "type": "definition",
+      "title": "Kort: summeformel-malen",
+      "content": "**Grepet:** $S(k+1)=S(k)+a_{k+1}$.\n\n**Arbeidsflyten:**\n\n1. Skriv målet $F(k+1)$ **først**, med $k+1$ satt inn og forenklet.\n2. Skill ut det nye leddet, og **regn ut $a_{k+1}$ eksplisitt**.\n3. Sett inn hypotesen.\n4. **Se etter den felles faktoren** — den er nesten alltid $(k+1)$ eller en potens av den — og sett den utenfor i stedet for å gange ut.\n\n**Formlene, med utledning der den finnes:**\n\n$$\\sum_{i=1}^n i=\\frac{n(n+1)}2\\quad\\text{(utledes på stedet: Gauss-trikset, to linjer)}$$\n$$\\sum_{i=1}^n i^2=\\frac{n(n+1)(2n+1)}6,\\qquad \\sum_{i=1}^n i^3=\\left(\\frac{n(n+1)}2\\right)^2$$\n\n**Gauss-trikset, ferdig ført:** skriv $S$ forlengs og baklengs under hverandre og legg sammen kolonnevis — hver kolonne gir $n+1$, og det er $n$ av dem, så $2S=n(n+1)$.\n\n**Kontroll:** sett $n=2$ og $n=3$ inn i formelen og regn ut summen direkte."
+    },
+    {
+      "id": "ma1301-6-2-k-del-mal",
+      "type": "definition",
+      "title": "Kort: delelighets-malen",
+      "content": "**Grepet:** $f(k+1)=A\\cdot f(k)+R$, der $A$ er et helt tall og $R$ er åpenbart delelig med $d$.\n\n**Arbeidsflyten:**\n\n1. Regn ut $f(k+1)$.\n2. **Se på det raskest voksende leddet** for å finne $A$. Er leddet $a^{k+1}$, er $A=a$; er det $a^{2(k+1)}$, er $A=a^2$.\n3. Regn ut $f(k+1)-A\\cdot f(k)$ og se at differansen er delelig med $d$.\n4. **Oversett hypotesen til en likning:** $f(k)=dt$.\n5. Sett inn og faktoriser $d$ ut av helheten.\n\n**Standardomskrivningen:** $a^{k+1}-1=a(a^k-1)+(a-1)$. Den dekker hele familien «$d\\mid a^n-1$» når $d\\mid a-1$.\n\n**Alternativ som noen fasiter bruker:** vis at differansen $f(k+1)-f(k)$ er delelig med $d$. Samme regning, snudd. **Begge er fullgode.**\n\n**Merk at delelighet ofte kan vises uten induksjon** — med kongruensregning ([kap. 1.4](/ma1301/ma1301-1-4)), case-analyse ([kap. 6.1](/ma1301/ma1301-6-1)) eller Fermat ([kap. 2.2](/ma1301/ma1301-2-2)). Ber oppgaven om induksjon, fører du induksjon."
+    },
+    {
+      "id": "ma1301-6-2-k-ulikhet-mal",
+      "type": "definition",
+      "title": "Kort: ulikhets-malen",
+      "content": "**Grepet:** en kjede av ulikheter der hypotesen er ett ledd:\n$$A(k+1)\\ \\ge\\ (\\text{noe med }A(k))\\ >\\ (\\text{noe med }B(k))\\ \\ge\\ B(k+1).$$\n\n**Arbeidsflyten:**\n\n1. **Finn $n_0$ ved å prøve**, og skriv tabellen i besvarelsen.\n2. Basissteg med $n_0$ — ikke med $1$.\n3. Hypotese: $A(k)>B(k)$ for en $k\\ge n_0$.\n4. Uttrykk $A(k+1)$ ved $A(k)$, bruk hypotesen.\n5. **Vis restulikheten** som en egen liten påstand.\n\n**De to fellene:**\n\n- **Likhet er ikke ulikhet.** $2^4=4^2$ betyr at $n=4$ **ikke** oppfyller $2^n>n^2$.\n- **Påstanden kan være sann, falsk, og så sann igjen.** $n_0$ er der den blir sann **og forblir det**.\n\n**Restulikheten skal bevises, ikke påstås.** Typisk «$2k^2\\ge(k+1)^2$ for $k\\ge 3$» — vis den ved å regne ut differansen og se at den er positiv.\n\n**Og merk:** det holder å vise restulikheten der du bruker den. Å finne den skarpeste grensen er tid uten uttelling."
+    },
+    {
+      "id": "ma1301-6-2-k-kongruens-mal",
+      "type": "definition",
+      "title": "Kort: a opphøyd i p, ved induksjon",
+      "content": "Påstanden $a^p\\equiv a\\pmod p$ for alle $a\\ge 1$, med $p$ et primtall. **Induksjonen går på $a$.**\n\n**(1) Basissteg ($a=1$):** $1^p=1\\equiv 1\\pmod p$ ✓.\n\n**(2) Hypotese:** anta $a^p\\equiv a\\pmod p$ for en $a\\ge 1$.\n\n**(3) Steg:** binomialformelen gir\n$$(a+1)^p=\\sum_{k=0}^p\\binom pk a^k=a^p+\\binom p1a^{p-1}+\\dots+\\binom p{p-1}a+1.$$\nAlle mellomleddene har faktoren $\\binom pk$ med $1\\le k\\le p-1$, og **$p\\mid\\binom pk$** ([kap. 6.3](/ma1301/ma1301-6-3)). Modulo $p$ faller de bort:\n$$(a+1)^p\\equiv a^p+1\\pmod p.$$\n**Her bruker vi induksjonshypotesen:** $a^p\\equiv a$, så $(a+1)^p\\equiv a+1$ ✓.\n\n**Den andre veien, også fullgod:** **Fermats lille teorem** ([kap. 2.2](/ma1301/ma1301-2-2)) — for $p\\nmid a$ gir $a^{p-1}\\equiv 1$ at $a^p\\equiv a$; for $p\\mid a$ er begge sider $\\equiv 0$. Kortere, men den forutsetter Fermat.\n\n**Lemmaet $p\\mid\\binom pk$ må sitte utenat** som en påstand du kan bruke; **beviset for det utledes på stedet** fra $k!(p-k)!\\binom pk=p!$ og Euklids lemma (tre linjer, [kap. 6.3](/ma1301/ma1301-6-3))."
+    },
+    {
+      "id": "ma1301-6-2-k-sterk",
+      "type": "definition",
+      "title": "Kort: sterk induksjon",
+      "content": "**Hypotesen utvides:** anta $P(j)$ for **alle** $j$ med $n_0\\le j\\le k$, ikke bare for $k$.\n\n**Antall basissteg = antall ledd rekursjonen ser tilbake.** Ser steget både $P(k)$ og $P(k-1)$, må $P(n_0)$ og $P(n_0+1)$ verifiseres direkte. **Dette er den vanligste feilen i sterk induksjon.**\n\n**De to situasjonene der du trenger den:**\n\n1. **Rekursjoner med to ledd:** $a_n=3a_{n-1}-2a_{n-2}$, eller Fibonacci-påstander der begge foregående brukes.\n2. **Oppdelinger i mindre faktorer:** «hvert $n\\ge 2$ er et produkt av primtall» — faktorene kan ligge hvor som helst under $n$.\n\n**Hva som skal stå:** at antall basissteg er **begrunnet** («rekursjonen ser to ledd tilbake»), at hypotesen er formulert sterkt, og **hvilke** tidligere tilfeller steget bruker.\n\n**Sterk induksjon er ikke logisk sterkere enn vanlig induksjon** — begge følger av velordningsprinsippet. Den er bare bekvemmere når koblingen bakover ikke er til nabotilfellet.\n\n**Kontrollen:** virker steget for det minste tillatte $k$? For $k=n_0+1$ må alle tilfellene steget bruker, ligge blant de verifiserte."
+    },
+    {
+      "id": "ma1301-6-2-k-n0",
+      "type": "definition",
+      "title": "Kort: å finne riktig startverdi",
+      "content": "**$n_0$ er ikke alltid $1$.** I ulikheter er den nesten aldri $1$.\n\n**Prosedyren, under et minutt:** regn ut begge sider for $n=1,2,3,\\dots$ til påstanden blir sann **og forblir sann**.\n\n**De to fellene:**\n\n| Felle | Eksempel |\n|---|---|\n| likhet i grensetilfellet | $2^4=4^2$, så $2^n>n^2$ er **falsk** for $n=4$ |\n| sann, så falsk, så sann | $2^n>n^2$ holder for $n=1$, faller for $n=2,3,4$, og holder fra $5$ |\n\n**Hva som skal stå i besvarelsen:** tabellen med de prøvde verdiene, og setningen «vi tar $n_0=\\dots$». Prøvingen er en del av svaret.\n\n**Basissteget bruker $n_0$.** Skriver du «basissteg $n=1$» i en oppgave med $n_0=5$, har du verifisert noe som er galt — og den feilen er umiddelbar.\n\n**Merk også at induksjonssteget kan kreve $k\\ge$ noe** (typisk for en mellomulikhet). Skriv betingelsen der du bruker den, og sjekk at den holder for alle $k\\ge n_0$."
+    },
+    {
+      "id": "ma1301-6-2-k-fire-undertyper",
+      "type": "definition",
+      "title": "Kort: de fire undertypene på én side",
+      "content": "| Undertype | Grepet i steget | Vanligste feil |\n|---|---|---|\n| **Sum** | $S(k+1)=S(k)+a_{k+1}$ | glemmer å regne ut $a_{k+1}$ |\n| **Delelighet** | $f(k+1)=A f(k)+R$, $d\\mid R$ | hypotesen ikke oversatt til likning |\n| **Ulikhet** | ulikhetskjede med hypotesen som ledd | feil $n_0$; restulikheten ikke bevist |\n| **Kongruens / $a^p\\equiv a$** | binomialformel + $p\\mid\\binom pk$ | induksjon på feil variabel |\n\n**Fellesnevneren:** alle fire bruker samme tre steg. Det som varierer, er **hvordan $k+1$-tilfellet kobles til $k$-tilfellet**, og det er den koblingen du skal drille.\n\n**Gjenkjennelsen tar fem sekunder:**\n\n- Ser du et summetegn eller «$1+2+\\dots+n$»? Undertype 1.\n- Ser du «$d$ deler …»? Undertype 2.\n- Ser du «$>$» eller «$\\ge$»? Undertype 3, og let etter $n_0$.\n- Ser du en kongruens eller et primtall i eksponenten? Undertype 4.\n\n**Og en femte form du bør kjenne:** rekursivt definerte følger (Fibonacci og slektninger). De er ofte undertype 1 eller 2 i forkledning, men de kan kreve sterk induksjon — se på hvor mange ledd tilbake **påstanden** trenger, ikke hvor mange rekursjonen har."
+    },
+    {
+      "id": "ma1301-6-2-k-tid-J",
+      "type": "definition",
+      "title": "Kort: tidsbudsjettet for en J-oppgave",
+      "content": "Eksamen er 4 timer på rundt ti likt vektede delpunkt, altså **~24 minutter per delpunkt**.\n\n| Arbeid | Tid |\n|---|---|\n| Lese påstanden, sjekke ett–to tilfeller, finne $n_0$ | ~3 min |\n| Skrive $P(n)$ og basissteget | ~2 min |\n| Skrive hypotesen | ~1 min |\n| Induksjonssteget (algebraen) | ~6–9 min |\n| Konklusjonssetning | ~1 min |\n| Kontroll med $n=n_0+1$ | ~2 min |\n\n**Til sammen 15–18 minutter** for et rent induksjonsdelpunkt. Ulikheter med restulikhet ligger i øvre ende; polynomiale delelighetspåstander i nedre.\n\n**Hvor tiden går galt:** i algebraen i steget, fordi målet $P(k+1)$ ikke er skrevet ned. **Skriv målet først** — det er det enkeltrådet som sparer mest tid i denne sjangeren.\n\n**Hva du IKKE skal bruke tid på:** flere basissteg enn nødvendig, og å lete etter den skarpeste grensen i en restulikhet.\n\n**Realistisk forventning:** dette er et delpunkt du kan sikre helt hvis malen sitter. Og selv når algebraen skjærer seg, gir riktig struktur med basissteg, utskrevet hypotese og et påbegynt steg reell uttelling — det er hele grunnen til at strukturen er verdt å pugge."
+    },
+    {
+      "id": "ma1301-6-2-k-innpakninger-J",
+      "type": "definition",
+      "title": "Kort: innpakningene i arkivet",
+      "content": "Hvordan sjanger J formuleres. Å kjenne igjen formen er halve jobben.\n\n- **«Vis ved induksjon at $\\sum\\dots=\\dots$»** Undertype 1. Skriv målet, skill ut leddet.\n- **«Vis at $d$ deler $f(n)$ for alle $n$»** Undertype 2 — men sjekk om kongruensregning er kortere.\n- **«Finn den minste $n_0$ slik at $\\dots$, og bevis påstanden»** Undertype 3. Prøvingen er en del av svaret.\n- **«Vis at $a^p\\equiv a\\pmod p$»** Undertype 4, eller Fermat direkte.\n- **«Vis ved induksjon at $F_n\\dots$»** Fibonacci-identitet. Bruk rekursjonen, ofte to ganger.\n- **«(a) Vis lemmaet … (b) bruk (a) til å vise ved induksjon …»** Todelt oppgave — den vanligste formen i nyere sett. Se [kap. 6.4](/ma1301/ma1301-6-4).\n- **«Skriv basissteg, hypotese og steg eksplisitt»** Oppgaveteksten sier rett ut at strukturen teller. Da er den også det første som rettes.\n\n**Fellesnevneren:** alle krever de tre stegene. Sitter malen, er hele sjangeren tilgjengelig — det som varierer, er algebraen.\n\n**Og merk den siste innpakningen:** når oppgaven ber om eksplisitt struktur, er det ikke en høflighet. Det er en beskjed om hvor poengene ligger."
+    },
+    {
+      "id": "ma1301-6-2-k-selvdiagnose-62",
+      "type": "definition",
+      "title": "Kort: selvdiagnose for induksjon",
+      "content": "Sitter kapitlet? Dekk til boka, sett tre minutter, og svar:\n\n- ☐ Hva er de tre stegene, med de navnene fasitene bruker?\n- ☐ Hvorfor kan basissteget ikke hoppes over? Gi den falske påstanden som eksempel.\n- ☐ Hvorfor er det ikke sirkelbevis å anta $P(k)$?\n- ☐ Hva er grepet i en summeformel? I en delelighetspåstand?\n- ☐ Hva er $n_0$ for $2^n>n^2$, og hvorfor ikke $4$?\n- ☐ Hvor mange basissteg trenger en rekursjon som ser to ledd tilbake?\n- ☐ Hvilken setning skal stå der hypotesen brukes?\n- ☐ Hvordan viser du $a^p\\equiv a\\pmod p$ ved induksjon, og hvilket lemma trenger du?\n\n**Åtte spørsmål. Det er hele kapitlet.**\n\n**Deretter, og det er den viktigste delen:** før to induksjonsbevis helt ut med lukket bok — én sumformel og én delelighetspåstand. Velg selv, eller ta oppgave 1 og oppgave 4 på nytt.\n\n**Hvis noe glapp:** punkt 1, 2 og 7 er de tre som gir uttelling i seg selv på eksamen. Prioritér dem."
+    },
+    {
+      "id": "ma1301-6-2-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "ma1301-6-2-rep-inn",
+          "type": "text",
+          "content": "Fem korte oppgaver fra forkunnskapskapitlene. Fasit under hver.\n\n**R1.** Hva er de fire bevisteknikkene fra [kap. 6.1](/ma1301/ma1301-6-1), og hvilken av dem er induksjon *ikke*?\n\n*Fasit:* Direkte, kontrapositivt, ved motsigelse og uttømmende case-analyse. Induksjon er ingen av dem — den er en femte teknikk, og den brukes når påstanden knytter $n+1$-tilfellet til $n$-tilfellet. Case-analyse dekker «for alle $n$» når tilfellene kan deles i endelig mange restklasser; induksjon dekker det når de ikke kan.\n\n**R2.** Oversett «$9\\mid f(k)$» til en likning.\n\n*Fasit:* $f(k)=9t$ for et helt tall $t$ ([kap. 1.1](/ma1301/ma1301-1-1)). Dette er oversettelsen du **må** gjøre før du kan sette hypotesen inn i et delelighetsbevis.\n\n**R3.** Hva er $\\binom{p}{k}$, og hvorfor er $p\\mid\\binom pk$ for $1\\le k\\le p-1$ når $p$ er et primtall?\n\n*Fasit:* $\\binom pk=\\frac{p!}{k!(p-k)!}$ er antall måter å velge $k$ av $p$ ting. Fra $k!(p-k)!\\binom pk=p!$ ser vi at $p\\mid k!(p-k)!\\binom pk$. **Ved Euklids lemma** deler $p$ en av faktorene, og $p$ deler ikke $k!$ eller $(p-k)!$ (alle faktorene der er mindre enn $p$). Altså $p\\mid\\binom pk$. Se [kap. 2.2](/ma1301/ma1301-2-2) og [kap. 6.3](/ma1301/ma1301-6-3).\n\n**R4.** Regn ut $\\sum_{i=1}^{6}i$ og $\\sum_{i=1}^{6}i^2$ med formlene, og kontrollér direkte.\n\n*Fasit:* $\\frac{6\\cdot 7}2=21$, og $1+2+3+4+5+6=21$ ✓. $\\frac{6\\cdot 7\\cdot 13}6=91$, og $1+4+9+16+25+36=91$ ✓.\n\n**R5.** Hva sier Fermats lille teorem, og hvordan følger $a^p\\equiv a\\pmod p$ av det?\n\n*Fasit:* For $p$ primtall og $p\\nmid a$ er $a^{p-1}\\equiv 1\\pmod p$ ([kap. 2.2](/ma1301/ma1301-2-2)). Gang med $a$: $a^p\\equiv a$. For $p\\mid a$ er $a\\equiv 0$ og $a^p\\equiv 0$, så kongruensen holder også der. **Begge tilfeller må nevnes** — det er en case-analyse med to tilfeller."
+        }
+      ]
+    },
+    {
+      "id": "ma1301-6-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "ma1301-6-2-symbol-inn",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $P(n)$ | påstanden for $n$ — skriv den opp eksplisitt |\n| $n_0$ | startverdien, der basissteget verifiseres |\n| $k$ | den faste, vilkårlige verdien i hypotesen |\n| $S(n)$ | summen $\\sum_{i=1}^n a_i$ |\n| $a_{k+1}$ | det nye leddet i steget |\n| $f(n)$ | uttrykket i en delelighetspåstand |\n| $\\sum_{i=1}^n$ | sum fra $i=1$ til $i=n$ |\n| $\\binom nk$ | binomialkoeffisient, $\\frac{n!}{k!(n-k)!}$ |\n| $n!$ | fakultet, $1\\cdot 2\\cdots n$ |\n| $F_n$ | Fibonacci-tallene, $F_1=F_2=1$, $F_{n+1}=F_n+F_{n-1}$ |\n| $a\\mid b$ | «$a$ deler $b$», altså $b=at$ ([kap. 1.1](/ma1301/ma1301-1-1)) |\n| $a\\equiv b\\pmod m$ | kongruens ([kap. 1.4](/ma1301/ma1301-1-4)) |\n| $\\blacksquare$ | bevis slutt |\n\n**Formler i dette delkapitlet:**\n\n$$\\text{(1) basissteg}\\quad\\text{(2) induksjonshypotese}\\quad\\text{(3) induksjonssteg}$$\nInduksjonens tre steg. **(må sitte utenat — det er en form, ikke et faktum, og den finnes ikke i noen bok du har med deg)**\n\n**«Her bruker vi induksjonshypotesen:»**\nSetningen som skal stå der innsettingen skjer. **(må sitte utenat)**\n\n$$S(k+1)=S(k)+a_{k+1}$$\nGrepet i summeformler. **(må sitte utenat)**\n\n$$f(k+1)=A\\cdot f(k)+R,\\qquad d\\mid R$$\nGrepet i delelighetsbevis. **(må sitte utenat)**\n\n$$\\sum_{i=1}^n i=\\frac{n(n+1)}2$$\n**(utledes på stedet — Gauss-trikset: skriv summen forlengs og baklengs og legg sammen kolonnevis; to linjer)**\n\n$$\\sum_{i=1}^n i^2=\\frac{n(n+1)(2n+1)}6,\\qquad \\sum_{i=1}^n i^3=\\left(\\frac{n(n+1)}2\\right)^2$$\nDe to neste sumformlene. **(må sitte utenat — de er for lange å utlede under tidspress, og de forekommer i arkivet)**\n\n$$a^{k+1}-1=a\\bigl(a^k-1\\bigr)+(a-1)$$\nStandardomskrivningen i delelighetsbevis for $a^n-1$. **(utledes på stedet — legg til og trekk fra $a$; én linje)**\n\n$$(a+1)^p\\equiv a^p+1\\pmod p$$\nSteget i induksjonsbeviset for $a^p\\equiv a$. **(utledes på stedet — binomialformelen pluss $p\\mid\\binom pk$; tre linjer, se løkke 5)**\n\n$$p\\mid\\binom pk\\quad\\text{for }1\\le k\\le p-1$$\nLemmaet steget hviler på. **(må sitte utenat som påstand; beviset utledes på stedet fra $k!(p-k)!\\binom pk=p!$ og Euklids lemma — tre linjer, [kap. 6.3](/ma1301/ma1301-6-3))**\n\n$$F_1+F_2+\\dots+F_n=F_{n+2}-1$$\nFibonacci-sumformelen. **(utledes på stedet — induksjon med rekursjonen i siste steg; ~8 minutter, se oppgave 9)**\n\n$$F_{n+1}F_{n-1}-F_n^2=(-1)^n$$\nCassinis identitet. **(utledes på stedet — induksjon med rekursjonen brukt to ganger; ~10 minutter, se oppgave 11)**\n\n**Sterk induksjon** — hypotesen «$P(j)$ for alle $j\\le k$», og **antall basissteg = antall ledd rekursjonen ser tilbake**. **(må sitte utenat — feilen «ett basissteg for lite» er den vanligste i denne varianten)**\n\n**Startverdien $n_0$** — prøv $n=1,2,3,\\dots$ til påstanden blir sann og forblir sann; likhet er ikke streng ulikhet. **(utledes på stedet — under ett minutt, og prøvingen skal stå i besvarelsen)**"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

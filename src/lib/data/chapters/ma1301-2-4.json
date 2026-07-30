@@ -1,0 +1,408 @@
+{
+  "id": "ma1301-2-4",
+  "courseId": "ma1301",
+  "chapterNumber": "2.4",
+  "title": "Det kinesiske restteoremet (CRT)",
+  "description": "System av lineære kongruenser løst med CRT: sjekk parvis primiskhet, forenkle hver kongruens, og løs med enten CRT-formelen (Nₖ = M/mₖ) ELLER suksessiv innsetting — begge fullgode, pluss ikke-primisk-modul-ryddingen.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "avgjøre om modulene i et system er parvis relativt primiske, og si hva det betyr for løsningen",
+    "løse et system av kongruenser både med formelen og ved suksessiv innsetting",
+    "forenkle hver enkelt kongruens før systemet settes sammen",
+    "håndtere systemer der modulene har en felles faktor, og avgjøre om de har løsning"
+  ],
+  "content": [
+    {
+      "id": "ma1301-2-4-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Det kinesiske restteoremet forekommer i 12 av 15 sett — 80 %**, vanligvis som oppgave 2 eller 3.\n\nDet er den fjerde av de fire store teoremene, og det har sin egen sjangerbokstav i boka: **sjanger C — system av kongruenser** (sjangerbokstavene er bokas egne forkortelser, forklart i [kap. 0.1](/ma1301/ma1301-0-1)).\n\n| Formen oppgaven har | Frekvens |\n|---|---|\n| System av 2–3 kongruenser, «finn det minste positive $x$» | 12 av 15 sett |\n| Moduler som **ikke** er parvis relativt primiske (rydding eller «ingen løsning») | forekommer regelmessig |\n| CRT brukt til å splitte en restberegning med sammensatt modulus | vanlig, se [kap. 2.5](/ma1301/ma1301-2-5) |\n| CRT i korrekthetsbeviset for RSA | kap. 3.1 |\n\n**Fasitens grep:** sjekk at modulene er **parvis relativt primiske** (det påpekes eksplisitt i fasitene), forenkle hver kongruens først, og løs — enten med **CRT-formelen** eller med **suksessiv innsetting**.\n\n**Begge metodene er fullgode**, og løsningsforslagene i arkivet bruker dem om hverandre. Boka fører derfor begge komplett, og sier hvilken som er raskest når. Under kode D er suksessiv innsetting sikkerhetsnettet: den krever ikke at formelen sitter.\n\n**Prioritet: høyeste.** 80 % frekvens, kjent oppskrift, og et delpunkt du kan hente i under et kvarter når metoden sitter."
+    },
+    {
+      "id": "ma1301-2-4-utenat",
+      "type": "tip",
+      "title": "Utenat under kode D",
+      "content": "Eksamen er hjelpemiddelkode D: ingen bok, ingen formelsamling, ingen tabeller, ingen egne notater — bare en enkel kalkulator.\n\n**Må sitte utenat:**\n\n- **CRT-formelen:** $M=m_1m_2\\cdots m_k$, $N_j=M/m_j$, løs $N_jx_j\\equiv 1\\pmod{m_j}$, og sett $x\\equiv\\sum_j b_jN_jx_j\\pmod M$\n- **vilkåret:** modulene må være **parvis** relativt primiske\n- at løsningen er **entydig modulo $M$** — én restklasse, ikke ett tall\n- **splittingsregelen** $a\\equiv b\\pmod{mn}\\iff a\\equiv b\\pmod m$ og $a\\equiv b\\pmod n$ (når $\\gcd(m,n)=1$)\n\n**Utledes på stedet:**\n\n- **Suksessiv innsetting.** Skriv den ene kongruensen som $x=b+mt$, sett inn i den neste, løs for $t$, og gjenta. **Ingen formel å huske** — bare kongruensregning du alt kan fra [kap. 1.4](/ma1301/ma1301-1-4). Metoden står ferdig ført i løkke 4, og den er **sikkerhetsnettet ditt under kode D**: glipper formelen i eksamensrommet, kommer du like langt med innsetting, og det gir full uttelling.\n- **Kriteriet for løsbarhet når modulene ikke er primiske:** systemet er løsbart nøyaktig når $\\gcd(m_i,m_j)$ deler $b_i-b_j$ for alle par. Utledningen er to linjer og står i løkke 5.\n\n**Selvtest, tre minutter:** dekk til siden og skriv ned (1) CRT-formelen med alle symbolene forklart, og (2) løs systemet $x\\equiv 2\\pmod 3$, $x\\equiv 3\\pmod 5$ ved suksessiv innsetting. Får du begge, sitter kjernen.\n\n**Prosedyrer pugges ved å kjøres.** Regn tre systemer med begge metoder."
+    },
+    {
+      "id": "ma1301-2-4-forkunnskaper",
+      "type": "text",
+      "content": "### Forkunnskaper\n\nFra boka: [kap. 1.4](/ma1301/ma1301-1-4) (kongruens, lineær kongruens, modulær invers, splittingsregelen) og [kap. 1.2](/ma1301/ma1301-1-2) (Euklids algoritme — du trenger den til inversene).\n\n**Sist du var her.** De tre resultatene dette kapitlet står på:\n\n**Modulær invers.** Er $\\gcd(a,m)=1$, finnes $u$ med $au\\equiv 1\\pmod m$, funnet med Euklids algoritme baklengs. Dette er den ene regneoperasjonen CRT-formelen krever.\n\n**Lineær kongruens.** $ax\\equiv b\\pmod m$ er løsbar nøyaktig når $d=\\gcd(a,m)$ deler $b$, og har da $d$ inkongruente løsninger modulo $m$.\n\n**Å splitte modulusen.** Når $\\gcd(m,n)=1$:\n$$a\\equiv b\\pmod{mn}\\iff a\\equiv b\\pmod m\\ \\text{ og }\\ a\\equiv b\\pmod n.$$\nDette er halvparten av CRT allerede — retningen fra høyre til venstre er nettopp «to kongruenser bestemmer én modulo produktet».\n\nFra videregående er ingenting påkrevd."
+    },
+    {
+      "id": "ma1301-2-4-motivasjon",
+      "type": "text",
+      "content": "### Tre kalendere som møtes\n\nEn bussrute går hver 4. dag, en søppelbil hver 6. dag og et marked arrangeres hver 7. dag. I dag er det buss. Søppelbilen kom i går, og markedet var for to dager siden. **Hvor mange dager er det til alle tre faller på samme dag?**\n\nDet er et system av kongruenser. Kaller vi svaret $x$ (antall dager fra i dag), skal $x$ gi bestemte rester ved divisjon med $4$, $6$ og $7$ samtidig — én betingelse per kalender.\n\nSpørsmålet er om et slikt system alltid har en løsning, og hvordan man finner den uten å prøve alle tall. Svaret er **det kinesiske restteoremet**, og det er over halvannet tusen år gammelt: den kinesiske matematikeren Sun Zi formulerte et slikt problem i det 3. århundre — «det finnes et ukjent antall ting; delt på tre blir det to til rest, delt på fem blir det tre til rest, delt på sju blir det to til rest».\n\n**To ting teoremet forteller oss, og som er verdt å skille:**\n\n- **at** en løsning finnes, og at den er entydig modulo produktet av modulene — forutsatt at modulene er parvis relativt primiske;\n- **hvordan** du finner den, med to ulike metoder som gir samme svar.\n\nLegg merke til at eksempelet over har et problem: $\\gcd(4,6)=2$, så modulene er *ikke* parvis relativt primiske. Da gjelder ikke teoremet direkte, og systemet kan være uløselig. Det tilfellet er løkke 5 — og det er nettopp den varianten arkivet er glad i.\n\n*Tidsanslag for kapitlet: ~60 minutter lesetid, fordelt på seks løkker à 8–12 minutter. Regner du med penn underveis, legg til omtrent halvparten.*"
+    },
+    {
+      "id": "ma1301-2-4-l1-intro",
+      "type": "text",
+      "content": "## Løkke 1: Teoremet og vilkåret\n\n*~9 minutter.*\n\nVi starter med hva teoremet sier, og med det ene vilkåret som avgjør om det kan brukes."
+    },
+    {
+      "id": "ma1301-2-4-d-system",
+      "type": "definition",
+      "title": "System av kongruenser",
+      "content": "Flere kongruensbetingelser på samme ukjente tall:\n$$x\\equiv b_1\\pmod{m_1},\\quad x\\equiv b_2\\pmod{m_2},\\quad\\dots,\\quad x\\equiv b_k\\pmod{m_k}.$$\n\nÅ **løse** systemet er å finne alle $x$ som oppfyller **alle** kongruensene samtidig.\n\n**Merk hva svaret er:** ikke ett tall, men en **restklasse** — en uendelig familie av tall som skiller seg med et fast sprang. Svaret skrives derfor $x\\equiv c\\pmod M$, aldri bare «$x=c$».\n\n**Notasjonen boka bruker gjennomgående:** $m_j$ for modulene, $b_j$ for restene, $M=m_1m_2\\cdots m_k$ for produktet, og $c$ for løsningen. Den notasjonen brukes også i CRT-formelen, så det lønner seg å skrive den opp på arket før du begynner.\n\n**Hver enkelt kongruens i systemet er en lineær kongruens** av typen i [kap. 1.4](/ma1301/ma1301-1-4), og skal forenkles med metodene der **før** du setter systemet sammen. Se løkke 3."
+    },
+    {
+      "id": "ma1301-2-4-d-parvis-primisk",
+      "type": "definition",
+      "title": "Parvis relativt primiske moduler",
+      "content": "Modulene $m_1,\\dots,m_k$ er **parvis relativt primiske** dersom\n$$\\gcd(m_i,m_j)=1\\qquad\\text{for alle }i\\ne j.$$\n\n**Merk at dette er strengere enn at $\\gcd$ av alle er $1$.** $\\gcd(6,10,15)=1$, men ingen av de tre parene er relativt primiske: $\\gcd(6,10)=2$, $\\gcd(6,15)=3$, $\\gcd(10,15)=5$. Systemet med disse modulene er **ikke** dekket av teoremet.\n\n**Slik sjekker du det raskt:** faktoriser hver modulus, og se om noe primtall opptrer i to av dem. For $5,7,9$: primtallene er $5$; $7$; $3$ — ingen overlapp, altså parvis relativt primiske ✓.\n\n**Sjekken skal stå i besvarelsen**, som én setning: «Modulene er parvis relativt primiske, siden $\\gcd(5,7)=\\gcd(5,9)=\\gcd(7,9)=1$. Da har systemet, ved det kinesiske restteoremet, nøyaktig én løsning modulo $315$.» Fasitene i arkivet påpeker den eksplisitt, og en besvarelse som bruker formelen uten å ha sagt det, har hoppet over premisset.\n\n**Er de ikke parvis relativt primiske?** Da er systemet kanskje løsbart og kanskje ikke — se løkke 5. Det er en egen oppgavevariant, ikke en blindvei."
+    },
+    {
+      "id": "ma1301-2-4-t-crt",
+      "type": "theorem",
+      "title": "Det kinesiske restteoremet",
+      "content": "La $m_1,m_2,\\dots,m_k$ være **parvis relativt primiske** positive tall, og sett $M=m_1m_2\\cdots m_k$. Da har systemet\n$$x\\equiv b_1\\pmod{m_1},\\quad\\dots,\\quad x\\equiv b_k\\pmod{m_k}$$\n**nøyaktig én løsning modulo $M$** — uansett hva restene $b_j$ er.\n\n**Bevis av entydigheten.** Anta at $x$ og $y$ begge løser systemet. Da er $x\\equiv y\\pmod{m_j}$ for hver $j$, altså $m_j\\mid(x-y)$ for alle $j$. Siden modulene er parvis relativt primiske, deler produktet: $M\\mid(x-y)$, altså $x\\equiv y\\pmod M$. (Det siste er splittingsregelen fra [kap. 1.4](/ma1301/ma1301-1-4), brukt gjentatt.) $\\blacksquare$\n\n**Bevis av eksistensen — konstruktivt, og det gir formelen.** For hver $j$, sett\n$$N_j=\\frac{M}{m_j}=\\prod_{i\\ne j}m_i.$$\nDa er $\\gcd(N_j,m_j)=1$: hver faktor i $N_j$ er relativt primisk til $m_j$, og da er produktet det også. Altså finnes inversen $x_j$ med\n$$N_jx_j\\equiv 1\\pmod{m_j}$$\n([kap. 1.4](/ma1301/ma1301-1-4)). Sett nå\n$$x=b_1N_1x_1+b_2N_2x_2+\\dots+b_kN_kx_k.$$\n\n**Hvorfor denne $x$ virker:** se på kongruensen modulo $m_1$. Hvert ledd $b_jN_jx_j$ med $j\\ne 1$ har faktoren $N_j$, som inneholder $m_1$ — så alle de leddene er $\\equiv 0\\pmod{m_1}$. Bare det første leddet står igjen, og der er $N_1x_1\\equiv 1$, så\n$$x\\equiv b_1N_1x_1\\equiv b_1\\cdot 1=b_1\\pmod{m_1}.$$\nSamme argument gjelder for hver $j$. $\\blacksquare$\n\n**Intuisjon:** hvert ledd i summen er en «bryter» som er tent modulo sin egen modulus og slukket modulo alle de andre. Du bygger løsningen ved å sette hver bryter til den resten du vil ha.\n\n**Teoremet og formelen må sitte utenat, og teoremet må navngis.** Fasitene skriver «ved det kinesiske restteoremet»."
+    },
+    {
+      "id": "ma1301-2-4-d-entydig-modulo-M",
+      "type": "definition",
+      "title": "Entydig modulo M — hva svaret er",
+      "content": "Løsningen er **én restklasse modulo $M$**, altså uendelig mange tall:\n$$x=c+Mt,\\qquad t\\in\\mathbb{Z}.$$\n\n**Tre måter å skrive svaret, alle riktige:**\n\n- $x\\equiv c\\pmod M$ — den vanligste og den boka bruker;\n- $x=c+Mt$ for $t\\in\\mathbb{Z}$ — den eksplisitte;\n- «$c$ er det minste positive tallet som tilfredsstiller alle tre kongruensene» — når oppgaven spør etter det.\n\n**Det som IKKE er riktig:** å skrive bare «$x=c$». Systemet har uendelig mange løsninger, og fasitpraksisen krever at perioden $M$ oppgis. Det er samme krav som til løsningsmengden for en diofantisk likning i [kap. 1.3](/ma1301/ma1301-1-3): hele mengden, ikke én representant.\n\n**Spørres det om «det minste positive»?** Da er svaret representanten i $1\\le c\\le M$ (eller $0\\le c<M$, om $0$ godtas) — og du skal si eksplisitt at det er den. Det er nesten alltid det arkivet spør om."
+    },
+    {
+      "id": "ma1301-2-4-e1",
+      "type": "example",
+      "title": "CRT-formelen på tre kongruenser",
+      "problem": "Finn det minste positive heltallet $x$ som oppfyller\n\n$$x\\equiv 2\\pmod 5,\\qquad x\\equiv 3\\pmod 7,\\qquad x\\equiv 4\\pmod 9.$$",
+      "solution": "**Parvis primiskhet, kommentert først.** $\\gcd(5,7)=1$, $\\gcd(5,9)=1$, $\\gcd(7,9)=1$ — modulene er **parvis relativt primiske**. Da har systemet, **ved det kinesiske restteoremet**, nøyaktig én løsning modulo $M=5\\cdot 7\\cdot 9=315$.\n\n**Sett opp $N_k$ og løs $N_kx_k\\equiv 1\\pmod{m_k}$:**\n\n| $k$ | $m_k$ | $b_k$ | $N_k=M/m_k$ | $N_k\\bmod m_k$ | $x_k$ med $N_kx_k\\equiv 1$ |\n|---|---|---|---|---|---|\n| $1$ | $5$ | $2$ | $63$ | $3$ | $2$ |\n| $2$ | $7$ | $3$ | $45$ | $3$ | $5$ |\n| $3$ | $9$ | $4$ | $35$ | $8$ | $8$ |\n\n**Sett sammen:**\n\n$$x\\equiv 2\\cdot 63\\cdot 2 + 3\\cdot 45\\cdot 5 + 4\\cdot 35\\cdot 8 = 2\\,047\\pmod{315}.$$\n\nReduksjon: $2\\,047 = 315\\cdot 6 + 157$, så $x\\equiv 157\\pmod{315}$.\n\n**Kontroll — sett inn i ALLE kongruensene:** $157 = 5\\cdot 31 + 2$ ✓; $157 = 7\\cdot 22 + 3$ ✓; $157 = 9\\cdot 17 + 4$ ✓.\n\n**Svar på spørsmålet som ble stilt:** det minste positive tallet er $\\boxed{157}$, og hele løsningsmengden er $x\\equiv 157\\pmod{315}$, altså $x=157+315t$ for $t\\in\\mathbb{Z}$.\n\n*Legg merke til at inversene var det eneste virkelige arbeidet: tre små kongruenser $N_jx_j\\equiv 1\\pmod{m_j}$, hver løst ved å prøve små tall. Med tosifrede moduler er det raskere enn Euklids algoritme — men Euklid virker alltid, og **begge er fullgode**.*\n\n*Og legg merke til kontrollen: den er obligatorisk her. Setter du inn i alle kongruensene, oppdager du hver eneste regnefeil du kan ha gjort — og under kode D er det den eneste kontrollen du har.*"
+    },
+    {
+      "id": "ma1301-2-4-ex-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-2-4-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "**a)** Er modulene $4$, $9$ og $25$ parvis relativt primiske?\n**b)** Er modulene $6$, $10$ og $15$ parvis relativt primiske?\n**c)** Hvor mange løsninger modulo $M$ har et system med parvis relativt primiske moduler?",
+        "solution": "**a)** Vi faktoriserer: $4=2^2$, $9=3^2$, $25=5^2$. Primtallene $2$, $3$ og $5$ opptrer i bare én modulus hver, så ingen par har felles faktor:\n$$\\gcd(4,9)=1,\\qquad\\gcd(4,25)=1,\\qquad\\gcd(9,25)=1.$$\n**Ja, de er parvis relativt primiske.** Da gjelder teoremet, med $M=4\\cdot 9\\cdot 25=900$.\n\n**b)** $6=2\\cdot 3$, $10=2\\cdot 5$, $15=3\\cdot 5$. Her deler hvert par en primfaktor:\n$$\\gcd(6,10)=2,\\qquad\\gcd(6,15)=3,\\qquad\\gcd(10,15)=5.$$\n**Nei.** Merk at $\\gcd(6,10,15)=1$ — de tre har ingen felles faktor *alle tre* — men det er ikke det vilkåret krever. Kravet er **parvis**, og det svikter for hvert par.\n\n**c)** Nøyaktig **én** løsning modulo $M$, altså én restklasse. Det betyr uendelig mange tall, alle på formen $c+Mt$ for $t\\in\\mathbb{Z}$.\n\n**Sluttsvar:** a) ja, b) nei, c) én løsning modulo $M$.\n\n*Punkt b) er den fellen kortet «Parvis relativt primiske» advarer mot, og den er verdt å se med tall: at tre tall til sammen ikke har noen felles faktor, sier ingenting om parene.*",
+        "hints": [
+          "Faktoriser hver modulus, og se om et primtall opptrer i to av dem.",
+          "I b): regn $\\gcd$ for hvert av de tre parene, ikke for alle tre samtidig."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-2-4-l2-intro",
+      "type": "text",
+      "content": "## Løkke 2: Formelen som prosedyre\n\n*~10 minutter.*\n\nBeviset ga oss formelen. Nå gjør vi den til en oppskrift du kan kjøre under tidspress, med en fast bokføring.\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "ma1301-2-4-d-crt-formelen",
+      "type": "definition",
+      "title": "CRT-formelen — oppskriften i fem steg",
+      "content": "For systemet $x\\equiv b_j\\pmod{m_j}$, $j=1,\\dots,k$, med parvis relativt primiske moduler:\n\n1. **Sjekk parvis primiskhet**, og skriv setningen.\n2. **Regn $M=m_1m_2\\cdots m_k$.**\n3. **For hver $j$:** regn $N_j=M/m_j$, reduser $N_j$ modulo $m_j$, og løs $N_jx_j\\equiv 1\\pmod{m_j}$ — altså finn inversen.\n4. **Sett sammen:** $x\\equiv b_1N_1x_1+\\dots+b_kN_kx_k\\pmod M$.\n5. **Reduser modulo $M$**, og **kontroller i alle kongruensene**.\n\n**Formelen må sitte utenat.** Bokføringen boka bruker, er en tabell med kolonnene $m_j$, $b_j$, $N_j$, $N_j\\bmod m_j$ og $x_j$ — den holder orden på fem tall per rad og gjør det lett å se hvor en feil ligger.\n\n**Steg 3-triks:** reduser $N_j$ modulo $m_j$ **før** du leter etter inversen. Da leter du etter inversen til et lite tall, ikke til et tresifret. For $M=315$, $m_1=5$: $N_1=63\\equiv 3\\pmod 5$, og inversen til $3$ modulo $5$ er $2$ — lettere enn å tenke på $63$.\n\n**Den vanligste feilen i formelen:** å bytte om $b_j$-ene, eller å bruke $m_j$ der $N_j$ skal stå. Tabellen forebygger begge."
+    },
+    {
+      "id": "ma1301-2-4-d-N-og-x",
+      "type": "definition",
+      "title": "Hva $N_j$ og $x_j$ er — og hvorfor de virker",
+      "content": "$$N_j=\\frac{M}{m_j}=\\text{produktet av ALLE de andre modulene}.$$\n\n**To egenskaper, og de er hele mekanikken:**\n\n- $N_j\\equiv 0\\pmod{m_i}$ for alle $i\\ne j$ — fordi $m_i$ er en av faktorene i $N_j$;\n- $\\gcd(N_j,m_j)=1$ — fordi ingen av faktorene i $N_j$ deler en primfaktor med $m_j$ (her brukes den parvise primiskheten).\n\nDen andre egenskapen er grunnen til at inversen $x_j$ **finnes**.\n\n**Leddet $b_jN_jx_j$ er derfor en bryter:** modulo $m_j$ er det $\\equiv b_j$, og modulo alle andre moduler er det $\\equiv 0$. Summen av bryterne treffer alle restene samtidig.\n\n**Merk at $x_j$ er en invers modulo $m_j$**, ikke modulo $M$. Det er en vanlig forveksling, og den gjør tallene håndterbare: du regner alltid med små moduler i steg 3.\n\n*Kontroll du kan gjøre for hånd:* $N_jx_j$ skal gi rest $1$ ved divisjon med $m_j$. Fem sekunder per rad, og du har sikret hele oppgaven."
+    },
+    {
+      "id": "ma1301-2-4-ex-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-2-4-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Løs systemet\n\n$$x\\equiv 1\\pmod 4,\\qquad x\\equiv 2\\pmod 5,\\qquad x\\equiv 3\\pmod 7$$\n\nmed CRT-formelen, og oppgi det minste positive tallet.",
+        "solution": "**Parvis primiskhet, kommentert først.** $\\gcd(4,5)=1$, $\\gcd(4,7)=1$, $\\gcd(5,7)=1$ — modulene er **parvis relativt primiske**. Da har systemet, **ved det kinesiske restteoremet**, nøyaktig én løsning modulo $M=4\\cdot 5\\cdot 7=140$.\n\n**Sett opp $N_k$ og løs $N_kx_k\\equiv 1\\pmod{m_k}$:**\n\n| $k$ | $m_k$ | $b_k$ | $N_k=M/m_k$ | $N_k\\bmod m_k$ | $x_k$ med $N_kx_k\\equiv 1$ |\n|---|---|---|---|---|---|\n| $1$ | $4$ | $1$ | $35$ | $3$ | $3$ |\n| $2$ | $5$ | $2$ | $28$ | $3$ | $2$ |\n| $3$ | $7$ | $3$ | $20$ | $6$ | $6$ |\n\n**Sett sammen:**\n\n$$x\\equiv 1\\cdot 35\\cdot 3 + 2\\cdot 28\\cdot 2 + 3\\cdot 20\\cdot 6 = 577\\pmod{140}.$$\n\nReduksjon: $577 = 140\\cdot 4 + 17$, så $x\\equiv 17\\pmod{140}$.\n\n**Kontroll — sett inn i ALLE kongruensene:** $17 = 4\\cdot 4 + 1$ ✓; $17 = 5\\cdot 3 + 2$ ✓; $17 = 7\\cdot 2 + 3$ ✓.\n\n**Det minste positive tallet er $\\boxed{17}$**, og hele løsningsmengden er $x\\equiv 17\\pmod{140}$.\n\n*Merk at $17$ er et lite tall i forhold til $M=140$. Det er tilfeldig — løsningen kan ligge hvor som helst i intervallet. Men det gjør kontrollen billig: $17=4\\cdot 4+1$, $17=5\\cdot 3+2$, $17=7\\cdot 2+3$, alle tre i hodet.*",
+        "hints": [
+          "Sjekk først at $4$, $5$ og $7$ er parvis relativt primiske.",
+          "$M=140$. Regn $N_1=35$, $N_2=28$, $N_3=20$.",
+          "Reduser hver $N_j$ modulo sin egen $m_j$ før du leter etter inversen."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-2-4-l3-intro",
+      "type": "text",
+      "content": "## Løkke 3: Forenkle først\n\n*~8 minutter.*\n\nEksamensoppgavene gir sjelden systemet på formen $x\\equiv b\\pmod m$. Det står oftere $4x\\equiv 3\\pmod 7$, og da må hver kongruens løses for seg **før** systemet settes sammen."
+    },
+    {
+      "id": "ma1301-2-4-d-forenkle-forst",
+      "type": "definition",
+      "title": "Forenkle hver kongruens før du bruker CRT",
+      "content": "Står det $a_jx\\equiv c_j\\pmod{m_j}$ i stedet for $x\\equiv b_j$, gjør du dette **først**, kongruens for kongruens:\n\n1. **Reduser koeffisienten og høyresiden** modulo $m_j$.\n2. **Kommentér løsbarhet:** $d=\\gcd(a_j,m_j)$ må dele $c_j$ ([kap. 1.4](/ma1301/ma1301-1-4)).\n3. **Er $d=1$:** gang med inversen til $a_j$, og du har $x\\equiv b_j\\pmod{m_j}$.\n4. **Er $d>1$:** forkort **hele** kongruensen med $d$ — også modulusen. Da blir modulusen $m_j/d$, og det er den nye modulusen du tar med i systemet.\n\n**Steg 4 er det som overraskes over.** Kongruensen $6x\\equiv 4\\pmod{10}$ blir $3x\\equiv 2\\pmod 5$, altså med **modulus $5$**, ikke $10$. Glemmer du å dele modulusen, får du et system med gale moduler — og kanskje et som ikke engang er parvis relativt primisk.\n\n**Hvorfor forenklingen lønner seg:** fasitene i arkivet gjør den rutinemessig, den gjør tallene små, og den kan **avsløre at modulene ikke er parvis relativt primiske** før du har brukt formelen feil.\n\n**Merk at et system med flere løsninger per kongruens** (altså $d>1$ som ikke forkortes bort) må splittes i flere systemer, ett per kombinasjon av restklasser. Det er sjelden på eksamen, men prinsippet er greit å kjenne."
+    },
+    {
+      "id": "ma1301-2-4-e2",
+      "type": "example",
+      "title": "System med koeffisienter foran x",
+      "problem": "Løs systemet\n\n$$3x\\equiv 2\\pmod 5,\\qquad 4x\\equiv 3\\pmod 7,$$\n\nog oppgi det minste positive tallet.",
+      "solution": "**Steg 1: forenkle hver kongruens.**\n\n*Første kongruens, $3x\\equiv 2\\pmod 5$.* Her er $\\gcd(3,5)=1$, som deler $2$, så kongruensen er løsbar med nøyaktig **én** inkongruent løsning modulo $5$ ([kap. 1.4](/ma1301/ma1301-1-4)). Inversen til $3$ modulo $5$ er $2$, siden $3\\cdot 2=6\\equiv 1$. Vi ganger begge sider med $2$:\n$$x\\equiv 2\\cdot 2=4\\pmod 5.$$\n\n*Andre kongruens, $4x\\equiv 3\\pmod 7$.* Her er $\\gcd(4,7)=1$, som deler $3$, så én løsning modulo $7$. Inversen til $4$ modulo $7$ er $2$, siden $4\\cdot 2=8\\equiv 1$. Vi ganger med $2$:\n$$x\\equiv 2\\cdot 3=6\\pmod 7.$$\n\n**Steg 2: nå har vi et rent CRT-system.**\n$$x\\equiv 4\\pmod 5,\\qquad x\\equiv 6\\pmod 7.$$\n\n**Parvis primiskhet, kommentert først.** $\\gcd(5,7)=1$ — modulene er **parvis relativt primiske**. Da har systemet, **ved det kinesiske restteoremet**, nøyaktig én løsning modulo $M=5\\cdot 7=35$.\n\n**Sett opp $N_k$ og løs $N_kx_k\\equiv 1\\pmod{m_k}$:**\n\n| $k$ | $m_k$ | $b_k$ | $N_k=M/m_k$ | $N_k\\bmod m_k$ | $x_k$ med $N_kx_k\\equiv 1$ |\n|---|---|---|---|---|---|\n| $1$ | $5$ | $4$ | $7$ | $2$ | $3$ |\n| $2$ | $7$ | $6$ | $5$ | $5$ | $3$ |\n\n**Sett sammen:**\n\n$$x\\equiv 4\\cdot 7\\cdot 3 + 6\\cdot 5\\cdot 3 = 174\\pmod{35}.$$\n\nReduksjon: $174 = 35\\cdot 4 + 34$, så $x\\equiv 34\\pmod{35}$.\n\n**Kontroll — sett inn i ALLE kongruensene:** $34 = 5\\cdot 6 + 4$ ✓; $34 = 7\\cdot 4 + 6$ ✓.\n\n**Det minste positive tallet er $\\boxed{34}$**, og løsningsmengden er $x\\equiv 34\\pmod{35}$.\n\n**Kontroll mot de opprinnelige kongruensene** — det er dem oppgaven stilte, så det er dem vi må sjekke: $3\\cdot 34=102=5\\cdot 20+2$ ✓, og $4\\cdot 34=136=7\\cdot 19+3$ ✓.\n\n*Merk at $34\\equiv -1\\pmod{35}$. Det er en pen kontroll: $3\\cdot(-1)=-3\\equiv 2\\pmod 5$ ✓ og $4\\cdot(-1)=-4\\equiv 3\\pmod 7$ ✓. Ligger løsningen nær $M$, er det ofte lettere å regne med den negative representanten.*"
+    },
+    {
+      "id": "ma1301-2-4-ex-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-2-4-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Løs systemet\n\n$$2x\\equiv 1\\pmod 5,\\qquad 3x\\equiv 2\\pmod 7,\\qquad x\\equiv 5\\pmod 9,$$\n\nog oppgi det minste positive tallet.",
+        "solution": "**Steg 1: forenkle de to første kongruensene.**\n\n*$2x\\equiv 1\\pmod 5$:* $\\gcd(2,5)=1$ deler $1$, så kongruensen har nøyaktig én inkongruent løsning modulo $5$ ([kap. 1.4](/ma1301/ma1301-1-4)). Inversen til $2$ modulo $5$ er $3$, siden $2\\cdot 3=6\\equiv 1$. Vi ganger begge sider med $3$:\n$$x\\equiv 3\\cdot 1=3\\pmod 5.$$\n\n*$3x\\equiv 2\\pmod 7$:* $\\gcd(3,7)=1$ deler $2$, så én inkongruent løsning modulo $7$. Inversen til $3$ modulo $7$ er $5$, siden $3\\cdot 5=15=14+1\\equiv 1$. Vi ganger med $5$:\n$$x\\equiv 5\\cdot 2=10\\equiv 3\\pmod 7.$$\n\n**Steg 2: nå er systemet et rent CRT-system.**\n$$x\\equiv 3\\pmod 5,\\qquad x\\equiv 3\\pmod 7,\\qquad x\\equiv 5\\pmod 9.$$\n\n**Parvis primiskhet, kommentert først.** $\\gcd(5,7)=1$, $\\gcd(5,9)=1$, $\\gcd(7,9)=1$ — modulene er **parvis relativt primiske**. Da har systemet, **ved det kinesiske restteoremet**, nøyaktig én løsning modulo $M=5\\cdot 7\\cdot 9=315$.\n\n**Sett opp $N_k$ og løs $N_kx_k\\equiv 1\\pmod{m_k}$:**\n\n| $k$ | $m_k$ | $b_k$ | $N_k=M/m_k$ | $N_k\\bmod m_k$ | $x_k$ med $N_kx_k\\equiv 1$ |\n|---|---|---|---|---|---|\n| $1$ | $5$ | $3$ | $63$ | $3$ | $2$ |\n| $2$ | $7$ | $3$ | $45$ | $3$ | $5$ |\n| $3$ | $9$ | $5$ | $35$ | $8$ | $8$ |\n\n**Sett sammen:**\n\n$$x\\equiv 3\\cdot 63\\cdot 2 + 3\\cdot 45\\cdot 5 + 5\\cdot 35\\cdot 8 = 2\\,453\\pmod{315}.$$\n\nReduksjon: $2\\,453 = 315\\cdot 7 + 248$, så $x\\equiv 248\\pmod{315}$.\n\n**Kontroll — sett inn i ALLE kongruensene:** $248 = 5\\cdot 49 + 3$ ✓; $248 = 7\\cdot 35 + 3$ ✓; $248 = 9\\cdot 27 + 5$ ✓.\n\n**Det minste positive tallet er $\\boxed{248}$**, og hele løsningsmengden er $x\\equiv 248\\pmod{315}$.\n\n**Kontroll mot de OPPRINNELIGE kongruensene** — det er dem oppgaven stilte:\n\n- $2\\cdot 248=496=5\\cdot 99+1$ ✓\n- $3\\cdot 248=744=7\\cdot 106+2$ ✓\n- $248=9\\cdot 27+5$ ✓\n\n*Merk at de to første kongruensene ga samme rest ($3$) modulo to ulike moduler. Da kunne vi slått dem sammen med splittingsregelen: $x\\equiv 3\\pmod{35}$. Det er en fullgod snarvei, og den halverer arbeidet — men bare fordi restene tilfeldigvis var like. Kontroller alltid mot de originale kongruensene, ikke mot de forenklede: en feil i forenklingen ville ellers ikke blitt oppdaget.*",
+        "hints": [
+          "Forenkle hver av de to første kongruensene ved å gange med en invers.",
+          "$2^{-1}\\equiv 3\\pmod 5$ og $3^{-1}\\equiv 5\\pmod 7$.",
+          "Når systemet er på formen $x\\equiv b_j$: sjekk parvis primiskhet, og bruk formelen eller suksessiv innsetting.",
+          "Kontroller til slutt mot de ORIGINALE kongruensene, ikke de forenklede."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-2-4-l4-intro",
+      "type": "text",
+      "content": "## Løkke 4: Suksessiv innsetting — den andre veien\n\n*~11 minutter.*\n\nNå den metoden som ikke krever at formelen sitter. Den bruker bare kongruensregning fra [kap. 1.4](/ma1301/ma1301-1-4), og fasitene i arkivet regner den som **fullt likeverdig** med formelen.\n\nUnder kode D er dette sikkerhetsnettet ditt: glipper formelen, kommer du like langt her."
+    },
+    {
+      "id": "ma1301-2-4-d-suksessiv",
+      "type": "definition",
+      "title": "Suksessiv innsetting — oppskriften",
+      "content": "**Idéen:** løs én kongruens av gangen, og ta med den forrige løsningen som en parametrisering.\n\n**Oppskriften:**\n\n1. **Start i kongruensen med største modulus** — den gir færrest tall å prøve senere. Skriv $x=b_1+m_1t$ med $t\\in\\mathbb{Z}$.\n2. **Sett uttrykket inn i neste kongruens.** Du får en lineær kongruens i $t$: $m_1t\\equiv b_2-b_1\\pmod{m_2}$.\n3. **Løs for $t$** ved å gange med inversen til $m_1$ modulo $m_2$. Du får $t\\equiv t_0\\pmod{m_2}$, altså $t=t_0+m_2s$.\n4. **Sett tilbake:** $x=b_1+m_1(t_0+m_2s)=c+m_1m_2s$. Nå har du løst de to første, og du står med én kongruens modulo $m_1m_2$.\n5. **Gjenta** med neste kongruens, til alle er brukt.\n\n**Dette utledes på stedet** — det er ingen formel, bare de samme fire grepene gjentatt. Derfor er metoden trygg under kode D.\n\n**Bruk nye bokstaver for hver parameter** ($t$, så $s$, så $u$). Gjenbruker du $t$, mister du fort oversikten over hvilken $t$ som er hvilken.\n\n**Fordel:** ingen formel, og du ser løsningen bygge seg opp. **Ulempe:** flere steg, og en feil forplanter seg. **Begge metodene er fullgode** — velg den du er trygg på, og bruk den andre som kontroll."
+    },
+    {
+      "id": "ma1301-2-4-d-metodevalg",
+      "type": "definition",
+      "title": "Hvilken metode når?",
+      "content": "| | CRT-formelen | Suksessiv innsetting |\n|---|---|---|\n| Krever | at formelen sitter | bare kongruensregning |\n| Arbeid ved 2 kongruenser | 2 inverser | 1 invers |\n| Arbeid ved 3–4 kongruenser | $k$ inverser, alle små | $k-1$ runder |\n| Alle ledd uavhengige? | ja — en feil rammer ett ledd | nei — feil forplanter seg |\n| Passer når restene endres | ja, $N_jx_j$ kan gjenbrukes | nei, alt må gjøres på nytt |\n| Trygg under kode D | krever pugging | **krever ingenting** |\n\n**Rådet:** lær begge, bruk formelen som hovedvei (den er systematisk og lett å kontrollere ledd for ledd), og ha innsetting som sikkerhetsnett.\n\n**Én situasjon der innsetting er klart best:** når en av modulene er stor og de andre små. Starter du i den store, er det få muligheter igjen å prøve.\n\n**Én situasjon der formelen er klart best:** når samme moduler brukes med flere forskjellige rester (som i en oppgave med flere delpunkt). Da regner du $N_jx_j$ én gang og setter inn nye $b_j$.\n\n**Si aldri at den andre metoden er feil.** Fasitene i arkivet honorerer dem likt, og oppgaveinstruksen krever begrunnelse, ikke en bestemt vei."
+    },
+    {
+      "id": "ma1301-2-4-e3",
+      "type": "example",
+      "title": "Samme system, andre metode: suksessiv innsetting",
+      "problem": "Løs systemet fra eksempel 1 på nytt, med suksessiv innsetting:\n\n$$x\\equiv 2\\pmod 5,\\qquad x\\equiv 3\\pmod 7,\\qquad x\\equiv 4\\pmod 9.$$",
+      "solution": "**Suksessiv innsetting.** Vi starter i kongruensen med **størst modulus**, fordi den gir færrest tall å prøve, og arbeider oss nedover.\n\nFra $x\\equiv 4\\pmod{9}$ skriver vi\n\n$$x = 4 + 9t,\\qquad t\\in\\mathbb{Z}.$$\n\nSetter vi dette inn i $x\\equiv 3\\pmod{7}$, får vi\n\n$$4 + 9t\\equiv 3\\pmod{7}\\quad\\Longleftrightarrow\\quad 2t\\equiv 6\\pmod{7}.$$\n\nInversen til $2$ modulo $7$ er $4$ (kontroll: $2\\cdot 4 = 8 = 7\\cdot 1+1$), så $t\\equiv 4\\cdot 6 = 24\\equiv 3\\pmod{7}$.\n\nDa er $t = 3 + 7s$, og\n\n$$x = 4 + 9(3 + 7s) = 31 + 63s,$$\n\naltså $x\\equiv 31\\pmod{63}$.\n\nSetter vi dette inn i $x\\equiv 2\\pmod{5}$, får vi\n\n$$31 + 63s\\equiv 2\\pmod{5}\\quad\\Longleftrightarrow\\quad 3s\\equiv 1\\pmod{5}.$$\n\nInversen til $3$ modulo $5$ er $2$ (kontroll: $3\\cdot 2 = 6 = 5\\cdot 1+1$), så $s\\equiv 2\\cdot 1 = 2\\equiv 2\\pmod{5}$.\n\nDa er $s = 2 + 5u$, og\n\n$$x = 31 + 63(2 + 5u) = 157 + 315u,$$\n\naltså $x\\equiv 157\\pmod{315}$.\n\n**Kontroll — sett inn i ALLE kongruensene:** $157 = 5\\cdot 31 + 2$ ✓; $157 = 7\\cdot 22 + 3$ ✓; $157 = 9\\cdot 17 + 4$ ✓. Samme svar som formelen gir.\n\n**Sluttsvar:** $x\\equiv 157\\pmod{315}$ — nøyaktig samme svar som CRT-formelen ga i eksempel 1, som det skal være.\n\n**Sammenligning av de to veiene på samme oppgave:**\n\n- **Formelen** krevde tre inverser (én per modulus) og én stor sum. Alle tre leddene var uavhengige, så en regnefeil rammer bare ett ledd — det er lett å finne.\n- **Innsetting** krevde to inverser og to runder. Tallene ble aldri store, men en feil i første runde forplanter seg til andre.\n\n**Begge er fullgode**, og de gir samme svar. Å kjøre den ene som kontroll på den andre koster tre minutter og er den sikreste kontrollen som finnes i denne sjangeren."
+    },
+    {
+      "id": "ma1301-2-4-ex-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-2-4-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Løs systemet\n\n$$x\\equiv 3\\pmod 8,\\qquad x\\equiv 4\\pmod{11}$$\n\n**a)** med suksessiv innsetting;\n**b)** med CRT-formelen, som kontroll.",
+        "solution": "**a) Suksessiv innsetting.**\n\n**Suksessiv innsetting.** Vi starter i kongruensen med **størst modulus**, fordi den gir færrest tall å prøve, og arbeider oss nedover.\n\nFra $x\\equiv 4\\pmod{11}$ skriver vi\n\n$$x = 4 + 11t,\\qquad t\\in\\mathbb{Z}.$$\n\nSetter vi dette inn i $x\\equiv 3\\pmod{8}$, får vi\n\n$$4 + 11t\\equiv 3\\pmod{8}\\quad\\Longleftrightarrow\\quad 3t\\equiv 7\\pmod{8}.$$\n\nInversen til $3$ modulo $8$ er $3$ (kontroll: $3\\cdot 3 = 9 = 8\\cdot 1+1$), så $t\\equiv 3\\cdot 7 = 21\\equiv 5\\pmod{8}$.\n\nDa er $t = 5 + 8s$, og\n\n$$x = 4 + 11(5 + 8s) = 59 + 88s,$$\n\naltså $x\\equiv 59\\pmod{88}$.\n\n**Kontroll — sett inn i ALLE kongruensene:** $59 = 8\\cdot 7 + 3$ ✓; $59 = 11\\cdot 5 + 4$ ✓. Samme svar som formelen gir.\n\n**b) CRT-formelen, som kontroll.**\n\n**Parvis primiskhet, kommentert først.** $\\gcd(8,11)=1$ — modulene er **parvis relativt primiske**. Da har systemet, **ved det kinesiske restteoremet**, nøyaktig én løsning modulo $M=8\\cdot 11=88$.\n\n**Sett opp $N_k$ og løs $N_kx_k\\equiv 1\\pmod{m_k}$:**\n\n| $k$ | $m_k$ | $b_k$ | $N_k=M/m_k$ | $N_k\\bmod m_k$ | $x_k$ med $N_kx_k\\equiv 1$ |\n|---|---|---|---|---|---|\n| $1$ | $8$ | $3$ | $11$ | $3$ | $3$ |\n| $2$ | $11$ | $4$ | $8$ | $8$ | $7$ |\n\n**Sett sammen:**\n\n$$x\\equiv 3\\cdot 11\\cdot 3 + 4\\cdot 8\\cdot 7 = 323\\pmod{88}.$$\n\nReduksjon: $323 = 88\\cdot 3 + 59$, så $x\\equiv 59\\pmod{88}$.\n\n**Kontroll — sett inn i ALLE kongruensene:** $59 = 8\\cdot 7 + 3$ ✓; $59 = 11\\cdot 5 + 4$ ✓.\n\n**Begge metodene gir $x\\equiv 59\\pmod{88}$**, så svaret er sikret. Det minste positive tallet er $59$.\n\n*Legg merke til hvor lite arbeid dette var med to kongruenser: innsetting krevde én invers, formelen krevde to. For to kongruenser er innsetting nesten alltid raskest — og den er tryggest, fordi den ikke krever at formelen sitter.*",
+        "hints": [
+          "I a): start i kongruensen med største modulus, altså $x\\equiv 4\\pmod{11}$, og skriv $x=4+11t$.",
+          "I a): sett inn i $x\\equiv 3\\pmod 8$ og løs for $t$.",
+          "I b): $M=88$, $N_1=11$, $N_2=8$."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-2-4-l5-intro",
+      "type": "text",
+      "content": "## Løkke 5: Når modulene ikke er parvis relativt primiske\n\n*~12 minutter.*\n\nHer er varianten arkivet er glad i. Vilkåret i teoremet svikter, og da er det tre muligheter: systemet er uløselig, det kan ryddes til et lovlig system, eller det har løsninger med en annen periode.\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "ma1301-2-4-d-ikke-primisk-kriterium",
+      "type": "definition",
+      "title": "Løsbarhetskriteriet når modulene deler en faktor",
+      "content": "Systemet\n$$x\\equiv b_1\\pmod{m_1},\\qquad x\\equiv b_2\\pmod{m_2}$$\ner løsbart **nøyaktig når**\n$$\\gcd(m_1,m_2)\\ \\Big|\\ (b_1-b_2).$$\nLøsningen er da entydig modulo $\\operatorname{lcm}(m_1,m_2)$.\n\n**Utledes på stedet, to linjer.** Sett $d=\\gcd(m_1,m_2)$. Er $x$ en løsning, er $m_1\\mid(x-b_1)$ og $m_2\\mid(x-b_2)$, så $d$ deler begge — og dermed differansen $(x-b_2)-(x-b_1)=b_1-b_2$. Motsatt: deler $d$ differansen, er likningen $b_1+m_1t=b_2+m_2s$ løsbar i hele tall, fordi den er en diofantisk likning $m_1t-m_2s=b_2-b_1$ med $\\gcd(m_1,m_2)\\mid(b_2-b_1)$ ([kap. 1.3](/ma1301/ma1301-1-3)). $\\blacksquare$\n\n**Kriteriet er den ene tingen du sjekker** når modulene ikke er parvis relativt primiske. Er det oppfylt, løser du systemet med suksessiv innsetting (formelen gjelder ikke!). Er det ikke oppfylt, er svaret «ingen løsning» — og det er et helt legitimt eksamenssvar, som skal begrunnes.\n\n**Merk hvor perioden ble av:** den er $\\operatorname{lcm}$, ikke produktet. Med parvis relativt primiske moduler er de to det samme ($\\operatorname{lcm}=M$), og det er derfor teoremet ser enklere ut i det tilfellet.\n\n**For flere enn to kongruenser** må kriteriet holde for **hvert par**."
+    },
+    {
+      "id": "ma1301-2-4-d-rydding",
+      "type": "definition",
+      "title": "Rydding: å splitte en modulus i primtallspotenser",
+      "content": "Har to moduler en felles faktor, kan systemet ofte **ryddes** til et lovlig CRT-system ved å splitte modulene i primtallspotenser.\n\n**Verktøyet** er splittingsregelen fra [kap. 1.4](/ma1301/ma1301-1-4): når $\\gcd(m,n)=1$,\n$$x\\equiv b\\pmod{mn}\\iff x\\equiv b\\pmod m\\ \\text{ og }\\ x\\equiv b\\pmod n.$$\n\n**Oppskriften:**\n\n1. **Faktoriser hver modulus** i primtallspotenser.\n2. **Splitt hver kongruens** i én per primtallspotens.\n3. **Sammenlign de kongruensene som har samme primtall.** Er de forenlige (samme rest), behold den med **høyest** potens og stryk den andre. Er de uforenlige, har systemet **ingen løsning**.\n4. **Det som står igjen, er et lovlig CRT-system** — moduler som er potenser av ulike primtall er parvis relativt primiske.\n\n**Merk hva steg 3 gjør:** den svakere betingelsen er en konsekvens av den sterkere. Er $x\\equiv 5\\pmod 8$, følger $x\\equiv 1\\pmod 4$ automatisk — så en kongruens modulo $4$ er overflødig hvis den stemmer, og motsigende hvis den ikke gjør det.\n\n**Dette er den varianten som skiller midtsjiktet fra bestått** i arkivet: å se at et system med modulene $8$ og $20$ ikke skal behandles med formelen, men ryddes først."
+    },
+    {
+      "id": "ma1301-2-4-e4",
+      "type": "example",
+      "title": "Rydding: moduler med felles faktor",
+      "problem": "Løs systemet\n\n$$x\\equiv 5\\pmod 8,\\qquad x\\equiv 13\\pmod{20}.$$",
+      "solution": "**Steg 1: sjekk vilkåret — og det svikter.** $\\gcd(8,20)=4\\ne 1$, så modulene er **ikke** relativt primiske, og CRT-formelen kan ikke brukes direkte.\n\n**Steg 2: er systemet i det hele tatt løsbart?** Kriteriet er at $\\gcd(8,20)=4$ deler differansen $13-5=8$. Og $4\\mid 8$ ✓, så systemet **har** løsninger.\n\n**Steg 3: rydd ved å splitte i primtallspotenser.** Vi faktoriserer modulene: $8=2^3$ og $20=2^2\\cdot 5$. Andre kongruens splittes **etter splittingsregelen** (lovlig, siden $\\gcd(4,5)=1$):\n$$x\\equiv 13\\pmod{20}\\iff x\\equiv 13\\equiv 1\\pmod 4\\ \\text{ og }\\ x\\equiv 13\\equiv 3\\pmod 5.$$\n\nNå har vi tre kongruenser:\n$$x\\equiv 5\\pmod 8,\\qquad x\\equiv 1\\pmod 4,\\qquad x\\equiv 3\\pmod 5.$$\n\n**Steg 4: rydd bort den overflødige.** De to første handler om samme primtall ($2$). Er de forenlige? Fra $x\\equiv 5\\pmod 8$ følger $x\\equiv 5\\equiv 1\\pmod 4$ — som er nøyaktig den andre kongruensen. **De er forenlige**, og den svakere ($\\bmod 4$) er overflødig; vi beholder den sterkere ($\\bmod 8$).\n\n**Steg 5: nå er systemet lovlig.**\n$$x\\equiv 5\\pmod 8,\\qquad x\\equiv 3\\pmod 5.$$\n\n**Parvis primiskhet, kommentert først.** $\\gcd(8,5)=1$ — modulene er **parvis relativt primiske**. Da har systemet, **ved det kinesiske restteoremet**, nøyaktig én løsning modulo $M=8\\cdot 5=40$.\n\n**Sett opp $N_k$ og løs $N_kx_k\\equiv 1\\pmod{m_k}$:**\n\n| $k$ | $m_k$ | $b_k$ | $N_k=M/m_k$ | $N_k\\bmod m_k$ | $x_k$ med $N_kx_k\\equiv 1$ |\n|---|---|---|---|---|---|\n| $1$ | $8$ | $5$ | $5$ | $5$ | $5$ |\n| $2$ | $5$ | $3$ | $8$ | $3$ | $2$ |\n\n**Sett sammen:**\n\n$$x\\equiv 5\\cdot 5\\cdot 5 + 3\\cdot 8\\cdot 2 = 173\\pmod{40}.$$\n\nReduksjon: $173 = 40\\cdot 4 + 13$, så $x\\equiv 13\\pmod{40}$.\n\n**Kontroll — sett inn i ALLE kongruensene:** $13 = 8\\cdot 1 + 5$ ✓; $13 = 5\\cdot 2 + 3$ ✓.\n\n**Kontroll mot de OPPRINNELIGE kongruensene:** $13=8+5$, så $13\\equiv 5\\pmod 8$ ✓. Og $13=20\\cdot 0+13$, så $13\\equiv 13\\pmod{20}$ ✓.\n\n**Sluttsvar:** $x\\equiv 13\\pmod{40}$. Det minste positive tallet er $\\boxed{13}$.\n\n*Merk perioden: $40=\\operatorname{lcm}(8,20)$, ikke $8\\cdot 20=160$. Det er alltid slik når modulene har en felles faktor — og det er en kontroll verdt å gjøre: er perioden din $160$, har du brukt formelen der den ikke gjelder.*"
+    },
+    {
+      "id": "ma1301-2-4-e5",
+      "type": "example",
+      "title": "Et system uten løsning",
+      "problem": "Vis at systemet\n\n$$x\\equiv 3\\pmod{12},\\qquad x\\equiv 7\\pmod{18}$$\n\nikke har noen løsning.",
+      "solution": "**Steg 1: sjekk vilkåret.** $12=2^2\\cdot 3$ og $18=2\\cdot 3^2$, så\n$$\\gcd(12,18)=2\\cdot 3=6\\ne 1.$$\nModulene er ikke relativt primiske, så CRT-formelen gjelder ikke, og vi må undersøke løsbarheten.\n\n**Steg 2: bruk løsbarhetskriteriet.** Systemet er løsbart nøyaktig når $\\gcd(12,18)=6$ deler differansen $3-7=-4$. Men $6\\nmid 4$, så **systemet har ingen løsning**.\n\n**Steg 3: samme konklusjon som en direkte motsigelse** — den formen fasitene ofte fører, og den som er lettest å lese:\n\nAnta at $x$ løser systemet. Fra $x\\equiv 3\\pmod{12}$ følger, siden $6\\mid 12$, at\n$$x\\equiv 3\\pmod 6.$$\nFra $x\\equiv 7\\pmod{18}$ følger, siden $6\\mid 18$, at\n$$x\\equiv 7\\equiv 1\\pmod 6.$$\nMen da er $3\\equiv x\\equiv 1\\pmod 6$, altså $6\\mid 2$ — **og det er umulig**. Antagelsen kan derfor ikke holde, og systemet har ingen løsning. $\\blacksquare$\n\n**Kontroll ved å prøve:** tallene $\\equiv 3\\pmod{12}$ er $3,15,27,39,51,63,\\dots$, og restene deres modulo $18$ er $3,15,9,3,15,9,\\dots$ — bare $3$, $9$ og $15$ opptrer, aldri $7$ ✓.\n\n**Sluttsvar:** systemet har ingen løsning, fordi $\\gcd(12,18)=6$ ikke deler $3-7$.\n\n*Legg merke til hvordan motsigelsen ble ført: antagelsen skrevet ut, konsekvensene trukket, og en **klar umulighetssetning** til slutt. Det er bevisstandarden i dette faget, og den gjelder også i en regneoppgave.*\n\n*Og legg merke til at «ingen løsning» er et fullgodt svar. Det er en av variantene arkivet bruker, og den prøver om du sjekker vilkåret i stedet for å regne mekanisk.*"
+    },
+    {
+      "id": "ma1301-2-4-ex-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-2-4-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "For hvert av systemene: avgjør om det har løsninger, og finn i så fall alle.\n\n**a)** $x\\equiv 4\\pmod 6$ og $x\\equiv 7\\pmod {15}$\n**b)** $x\\equiv 2\\pmod 9$ og $x\\equiv 5\\pmod{12}$",
+        "solution": "**a)** $6=2\\cdot 3$ og $15=3\\cdot 5$, så $\\gcd(6,15)=3$.\n\n**Løsbarhetskriteriet:** deler $3$ differansen $4-7=-3$? Ja, $3\\mid 3$ ✓. Så systemet **har** løsninger, entydig modulo $\\operatorname{lcm}(6,15)=30$.\n\nVi løser med **suksessiv innsetting** (formelen gjelder ikke her). Start i den største modulusen: $x=7+15t$. Sett inn i første kongruens:\n$$7+15t\\equiv 4\\pmod 6\\quad\\Longleftrightarrow\\quad 1+3t\\equiv 4\\pmod 6\\quad\\Longleftrightarrow\\quad 3t\\equiv 3\\pmod 6.$$\nHer er $\\gcd(3,6)=3$, som deler $3$, så kongruensen er løsbar med **tre** inkongruente løsninger modulo $6$ ([kap. 1.4](/ma1301/ma1301-1-4)). Vi forkorter hele kongruensen med $3$ — **også modulusen**:\n$$t\\equiv 1\\pmod 2.$$\nAltså $t=1+2s$, og\n$$x=7+15(1+2s)=22+30s.$$\n\n**Løsningen er $x\\equiv 22\\pmod{30}$**, minste positive $22$.\n\n**Kontroll:** $22=6\\cdot 3+4$ ✓ og $22=15+7$ ✓.\n\n**b)** $9=3^2$ og $12=2^2\\cdot 3$, så $\\gcd(9,12)=3$.\n\n**Løsbarhetskriteriet:** deler $3$ differansen $2-5=-3$? Ja ✓. Systemet har løsninger, entydig modulo $\\operatorname{lcm}(9,12)=36$.\n\n**Suksessiv innsetting.** Start i den største: $x=5+12t$. Sett inn i $x\\equiv 2\\pmod 9$:\n$$5+12t\\equiv 2\\pmod 9\\quad\\Longleftrightarrow\\quad 3t\\equiv -3\\equiv 6\\pmod 9.$$\nHer er $\\gcd(3,9)=3$, som deler $6$, så tre inkongruente løsninger modulo $9$. Forkort med $3$, modulusen inkludert:\n$$t\\equiv 2\\pmod 3.$$\nAltså $t=2+3s$, og\n$$x=5+12(2+3s)=29+36s.$$\n\n**Løsningen er $x\\equiv 29\\pmod{36}$**, minste positive $29$.\n\n**Kontroll:** $29=9\\cdot 3+2$ ✓ og $29=12\\cdot 2+5$ ✓.\n\n**Sluttsvar:** a) $x\\equiv 22\\pmod{30}$; b) $x\\equiv 29\\pmod{36}$.\n\n*To ting å merke seg. **Perioden er $\\operatorname{lcm}$, ikke produktet** — $30$ og ikke $90$; $36$ og ikke $108$. Og **forkortingen delte modulusen**: $3t\\equiv 3\\pmod 6$ ble $t\\equiv 1\\pmod 2$. Glemmer du å dele modulusen, får du bare én tredel av løsningene.*",
+        "hints": [
+          "Sjekk først om modulene er relativt primiske. De er de ikke — så bruk løsbarhetskriteriet.",
+          "Deler $\\gcd(m_1,m_2)$ differansen $b_1-b_2$?",
+          "Bruk suksessiv innsetting, ikke formelen. Start i den største modulusen.",
+          "Når du forkorter kongruensen i $t$: husk å dele modulusen også."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-2-4-l6-intro",
+      "type": "text",
+      "content": "## Løkke 6: CRT som regneverktøy — splitt beregningen\n\n*~10 minutter.*\n\nTil slutt den bruken som binder Del 2 sammen: CRT er ikke bare en oppgavetype, det er **verktøyet som gjør en beregning modulo et sammensatt tall til to enklere beregninger**."
+    },
+    {
+      "id": "ma1301-2-4-d-splitt-beregning",
+      "type": "definition",
+      "title": "Å splitte en restberegning med CRT",
+      "content": "Skal du finne $a^{N}\\bmod n$ der $n=m_1m_2$ med $\\gcd(m_1,m_2)=1$, kan du regne **modulo hver faktor for seg** og sette sammen med CRT.\n\n**Oppskriften:**\n\n1. **Faktoriser** $n$ i primtallspotenser.\n2. **Regn $a^{N}$ modulo hver potens** — der er modulusen liten, og Euler eller Fermat gir en kort eksponent ([kap. 2.1](/ma1301/ma1301-2-1), [kap. 2.2](/ma1301/ma1301-2-2)).\n3. **Sett sammen** med CRT.\n\n**Når det er lønnsomt:**\n\n- når $\\gcd(a,n)\\ne 1$, slik at Euler **ikke** kan brukes på $n$ — da er splitting ikke bare raskere, den er nødvendig ([kap. 2.1](/ma1301/ma1301-2-1), løkke 6);\n- når $n$ er et produkt av to primtall, så hver del får en liten $p-1$ å redusere mot;\n- i RSA-dekryptering, der modulusen alltid er $pq$ (kap. 3.1).\n\n**Når det ikke er lønnsomt:** når $\\phi(n)$ alt er liten. Da er det enklere å regne direkte modulo $n$ enn å gjøre to beregninger pluss en CRT.\n\n**Begge veier er fullgode.** Si hvilken du bruker, og hvorfor."
+    },
+    {
+      "id": "ma1301-2-4-e6",
+      "type": "example",
+      "title": "Eksamensnivå: 3^100 modulo 91, splittet med CRT",
+      "problem": "Finn resten når $3^{100}$ deles på $91$.",
+      "solution": "**Steg 1: faktoriser modulusen.** $91=7\\cdot 13$ — merk at $91$ **ikke** er et primtall, selv om det ser slik ut. (Prøvedivisjon: $91/7=13$.)\n\n**Steg 2: velg strategi.** To veier er mulige, og begge er fullgode:\n\n- *Direkte med Euler:* $\\phi(91)=6\\cdot 12=72$, og $\\gcd(3,91)=1$, så $3^{100}\\equiv 3^{28}\\pmod{91}$ — en eksponent på $28$ krever fem kvadrater.\n- *Splittet med CRT:* modulo $7$ og modulo $13$ blir eksponentene mye mindre, fordi $p-1$ er $6$ og $12$.\n\nVi tar den splittede veien, som er den fasitene bruker når modulusen er et produkt av to primtall.\n\n**Steg 3: modulo $7$.** $7$ er et primtall og $7\\nmid 3$ ✓, så **fra Fermats lille teorem** er $3^{6}\\equiv 1\\pmod 7$, og eksponenten reduseres modulo $6$:\n$$100=6\\cdot 16+4,\\qquad\\text{så}\\qquad 3^{100}\\equiv 3^{4}=81\\equiv 4\\pmod 7,$$\nsiden $81=7\\cdot 11+4$.\n\n**Steg 4: modulo $13$.** $13$ er et primtall og $13\\nmid 3$ ✓, så **fra Fermats lille teorem** er $3^{12}\\equiv 1\\pmod{13}$, og eksponenten reduseres modulo $12$:\n$$100=12\\cdot 8+4,\\qquad\\text{så}\\qquad 3^{100}\\equiv 3^{4}=81\\equiv 3\\pmod{13},$$\nsiden $81=13\\cdot 6+3$.\n\n**Steg 5: sett sammen med CRT.** Vi skal finne $x$ med\n$$x\\equiv 4\\pmod 7,\\qquad x\\equiv 3\\pmod{13}.$$\nModulene er parvis relativt primiske ($\\gcd(7,13)=1$), så **ved det kinesiske restteoremet** finnes nøyaktig én løsning modulo $91$.\n\n**Suksessiv innsetting.** Vi starter i kongruensen med **størst modulus**, fordi den gir færrest tall å prøve, og arbeider oss nedover.\n\nFra $x\\equiv 3\\pmod{13}$ skriver vi\n\n$$x = 3 + 13t,\\qquad t\\in\\mathbb{Z}.$$\n\nSetter vi dette inn i $x\\equiv 4\\pmod{7}$, får vi\n\n$$3 + 13t\\equiv 4\\pmod{7}\\quad\\Longleftrightarrow\\quad 6t\\equiv 1\\pmod{7}.$$\n\nInversen til $6$ modulo $7$ er $6$ (kontroll: $6\\cdot 6 = 36 = 7\\cdot 5+1$), så $t\\equiv 6\\cdot 1 = 6\\equiv 6\\pmod{7}$.\n\nDa er $t = 6 + 7s$, og\n\n$$x = 3 + 13(6 + 7s) = 81 + 91s,$$\n\naltså $x\\equiv 81\\pmod{91}$.\n\n**Kontroll — sett inn i ALLE kongruensene:** $81 = 7\\cdot 11 + 4$ ✓; $81 = 13\\cdot 6 + 3$ ✓. Samme svar som formelen gir.\n\n**Konklusjon.** Resten når $3^{100}$ deles på $91$, er $\\boxed{81}$.\n\n**Kontroll på den andre veien.** Vi lovet at Euler-veien gir samme svar: $3^{100}\\equiv 3^{28}\\pmod{91}$. Kvadrer-og-multipliser med $28=16+8+4$: $3^2=9$, $3^4=81$, $3^8\\equiv 81^2=6\\,561$ og $6561=91\\cdot 72+9$, altså $3^8\\equiv 9$; $3^{16}\\equiv 9^2=81$. Da er\n$$3^{28}=3^{16}\\cdot 3^{8}\\cdot 3^{4}\\equiv 81\\cdot 9\\cdot 81\\pmod{91}.$$\nVi regner: $81\\cdot 9=729=91\\cdot 8+1$, så $\\equiv 1$; og $1\\cdot 81=81$. **Samme svar** ✓.\n\n*To uavhengige veier til $81$ er så sikker kontroll som du får under kode D. Merk også at $81=3^4$ — det er ikke tilfeldig: $3^{100}$ og $3^4$ er kongruente modulo $91$, fordi $\\operatorname{lcm}(6,12)=12$ deler $96=100-4$.*"
+    },
+    {
+      "id": "ma1301-2-4-ex-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-2-4-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**a)** Finn resten når $2^{1\\,000}$ deles på $77$, ved å splitte modulusen.\n**b)** Kontroller svaret ved å regne direkte modulo $77$ med Eulers teorem.",
+        "solution": "**a) Splittet med CRT.**\n\n**Faktoriser:** $77=7\\cdot 11$, og $\\gcd(7,11)=1$.\n\n*Modulo $7$:* $7$ er et primtall og $7\\nmid 2$ ✓, så **fra Fermats lille teorem** er $2^{6}\\equiv 1\\pmod 7$. Vi reduserer eksponenten modulo $6$:\n$$1000=6\\cdot 166+4,\\qquad\\text{så}\\qquad 2^{1000}\\equiv 2^{4}=16\\equiv 2\\pmod 7.$$\n\n*Modulo $11$:* $11$ er et primtall og $11\\nmid 2$ ✓, så $2^{10}\\equiv 1\\pmod{11}$. Vi reduserer modulo $10$:\n$$1000=10\\cdot 100+0,\\qquad\\text{så}\\qquad 2^{1000}\\equiv 2^{0}=1\\pmod{11}.$$\n\n*Sett sammen:* vi trenger $x$ med $x\\equiv 2\\pmod 7$ og $x\\equiv 1\\pmod{11}$. Modulene er relativt primiske, så **ved det kinesiske restteoremet** finnes én løsning modulo $77$.\n\n**Suksessiv innsetting.** Vi starter i kongruensen med **størst modulus**, fordi den gir færrest tall å prøve, og arbeider oss nedover.\n\nFra $x\\equiv 1\\pmod{11}$ skriver vi\n\n$$x = 1 + 11t,\\qquad t\\in\\mathbb{Z}.$$\n\nSetter vi dette inn i $x\\equiv 2\\pmod{7}$, får vi\n\n$$1 + 11t\\equiv 2\\pmod{7}\\quad\\Longleftrightarrow\\quad 4t\\equiv 1\\pmod{7}.$$\n\nInversen til $4$ modulo $7$ er $2$ (kontroll: $4\\cdot 2 = 8 = 7\\cdot 1+1$), så $t\\equiv 2\\cdot 1 = 2\\equiv 2\\pmod{7}$.\n\nDa er $t = 2 + 7s$, og\n\n$$x = 1 + 11(2 + 7s) = 23 + 77s,$$\n\naltså $x\\equiv 23\\pmod{77}$.\n\n**Kontroll — sett inn i ALLE kongruensene:** $23 = 7\\cdot 3 + 2$ ✓; $23 = 11\\cdot 2 + 1$ ✓. Samme svar som formelen gir.\n\n**Resten er $\\boxed{23}$.**\n\n**b) Kontroll direkte modulo $77$.**\n\n$\\phi(77)=\\phi(7)\\phi(11)=6\\cdot 10=60$ **ved multiplikativiteten**, og $\\gcd(2,77)=1$ ✓, så **fra Eulers teorem** er $2^{60}\\equiv 1\\pmod{77}$. Vi reduserer eksponenten modulo $60$:\n$$1000=60\\cdot 16+40,\\qquad\\text{så}\\qquad 2^{1000}\\equiv 2^{40}\\pmod{77}.$$\n\nKvadrer-og-multipliser med $40=32+8$:\n\n| Potens | Utregning | Rest modulo $77$ |\n|---|---|---|\n| $2^1$ | — | $2$ |\n| $2^2$ | $2^2=4$ | $4$ |\n| $2^4$ | $4^2=16$ | $16$ |\n| $2^8$ | $16^2=256$, og $256=77\\cdot 3+25$ | $25$ |\n| $2^{16}$ | $25^2=625$, og $625=77\\cdot 8+9$ | $9$ |\n| $2^{32}$ | $9^2=81$, og $81=77+4$ | $4$ |\n\n$$2^{40}=2^{32}\\cdot 2^{8}\\equiv 4\\cdot 25=100\\equiv 23\\pmod{77},$$\nsiden $100=77+23$.\n\n**Samme svar: $23$** ✓.\n\n**Sluttsvar:** resten er $23$, funnet på to uavhengige måter.\n\n*Sammenlign arbeidsmengden: den splittede veien krevde to små eksponentreduksjoner og én CRT; den direkte krevde en tabell med fem kvadrater av tosifrede tall. **Begge er fullgode**, og hvilken som er raskest avhenger av tallene — men den splittede er den som også virker når $\\gcd(a,n)\\ne 1$.*",
+        "hints": [
+          "I a): $77=7\\cdot 11$. Regn $2^{1000}$ modulo $7$ og modulo $11$ hver for seg.",
+          "I a): $1000$ er delelig med $10$ — hva betyr det modulo $11$?",
+          "I a): sett sammen med CRT eller suksessiv innsetting.",
+          "I b): $\\phi(77)=60$. Reduser $1000$ modulo $60$."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-2-4-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "Fem feil står for nesten alt som går galt i sjanger C, og den første er den mest belagte.\n\n- **CRT-formelen brukt uten å sjekke parvis primiskhet.** Har modulene en felles faktor, gjelder ikke formelen, og svaret blir galt — ofte med en periode som er for stor. **Kontrollen:** står setningen «modulene er parvis relativt primiske» i besvarelsen din? Og er perioden din $\\operatorname{lcm}$ eller produktet? De skal være like, ellers har du brukt formelen der den ikke gjelder.\n\n- **Glemt å forenkle først.** Står det $4x\\equiv 3\\pmod 7$, må det bli $x\\equiv 6\\pmod 7$ før systemet settes sammen. **Kontrollen:** har alle kongruensene formen $x\\equiv b_j$ når du starter formelen?\n\n- **Regnefeil i inversene $N_jx_j\\equiv 1$.** Dette er der de fleste tallfeilene oppstår. **Kontrollen:** gang $N_j$ med $x_j$ og se at du får rest $1$ ved divisjon med $m_j$. Fem sekunder per rad.\n\n- **Glemt «minste positive».** Spør oppgaven om det minste positive tallet, er svaret et tall i $1,\\dots,M$ — ikke restklassen alene, og ikke et negativt tall. **Kontrollen:** les oppgaveteksten en gang til til slutt.\n\n- **Blandet sammen $b_j$-ene i formelen.** Å gange $b_1$ med $N_2x_2$. **Kontrollen:** bruk tabellen med én rad per kongruens, og hold $b_j$, $N_j$ og $x_j$ på samme rad.\n\n- **Forkortet uten å dele modulusen.** I suksessiv innsetting blir $3t\\equiv 3\\pmod 6$ til $t\\equiv 1\\pmod 2$, ikke $t\\equiv 1\\pmod 6$. **Kontrollen:** er $\\gcd(\\text{koeffisient},\\text{modulus})>1$, skal modulusen deles også."
+    },
+    {
+      "id": "ma1301-2-4-begrepsbank-intro",
+      "type": "text",
+      "content": "### Begrepsbank\n\nDette er flashcard-stoff — hopp trygt over ved førstegangslesing; tidsanslaget på 60 minutter gjelder kjernestoffet over.\n\nKortene dekker begge metodene, vilkåret, ikke-primisk-varianten og kontrollrutinene. Under kode D er de eksamensverktøy: det finnes ingen formelsamling å slå opp CRT-formelen i."
+    },
+    {
+      "id": "ma1301-2-4-d-crt-notasjon",
+      "type": "definition",
+      "title": "Notasjonen i CRT — hold symbolene fra hverandre",
+      "content": "| Symbol | Hva det er | Typisk størrelse |\n|---|---|---|\n| $m_j$ | modulene i systemet | ensifret til tosifret |\n| $b_j$ | restene, høyresidene | mindre enn $m_j$ |\n| $M$ | produktet $m_1m_2\\cdots m_k$ | to- til firesifret |\n| $N_j$ | $M/m_j$, produktet av **de andre** modulene | to- til tresifret |\n| $x_j$ | inversen til $N_j$ **modulo $m_j$** | mindre enn $m_j$ |\n| $c$ | løsningen, i $0\\le c<M$ | to- til firesifret |\n\n**De to forvekslingene som koster mest:** å bruke $m_j$ der $N_j$ skal stå, og å regne $x_j$ som en invers modulo $M$ i stedet for modulo $m_j$.\n\n**Vanen som forebygger begge:** skriv tabellen med kolonnene $m_j\\mid b_j\\mid N_j\\mid N_j\\bmod m_j\\mid x_j$ **før** du regner, og fyll den rad for rad. Da kan du ikke bytte om noe, og en kontrollør (eller sensor) ser hva du har gjort.\n\n**Merk at $N_j$ ikke er $m_j$ og ikke $M$** — det er $M$ **delt på** $m_j$. Med tre moduler har $N_1$ to faktorer."
+    },
+    {
+      "id": "ma1301-2-4-d-crt-hverdagsanker",
+      "type": "definition",
+      "title": "Hverdagsankeret: kalendere og syklusar",
+      "content": "CRT handler om **når flere sykluser møtes**. Det er derfor teoremet er eldre enn algebra: problemene var praktiske.\n\n**Tre situasjoner som er systemer av kongruenser:**\n\n- **Kalendere.** Ukedag har periode $7$, dato i måneden omtrent $30$, skuddår $4$. «Når faller 17. mai på en lørdag i et skuddår?» er et CRT-system.\n- **Tannhjul.** To hjul med $m_1$ og $m_2$ tenner, som starter i en gitt posisjon: når står de begge i en bestemt stilling? Perioden er $\\operatorname{lcm}(m_1,m_2)$ — nøyaktig som i løkke 5.\n- **Sun Zis originale problem:** «et ukjent antall ting; delt på tre blir det to til rest, delt på fem tre til rest, delt på sju to til rest». Systemet er $x\\equiv 2\\pmod 3$, $x\\equiv 3\\pmod 5$, $x\\equiv 2\\pmod 7$, og løsningen er $x\\equiv 23\\pmod{105}$.\n\n**Hvorfor ankeret hjelper:** det gjør «entydig modulo $M$» konkret. Sykluser gjentar seg, så svaret må være en syklus — og perioden er produktet (eller $\\operatorname{lcm}$-en) av delperiodene.\n\n*Kontroll av Sun Zi-svaret: $23=3\\cdot 7+2$ ✓, $23=5\\cdot 4+3$ ✓, $23=7\\cdot 3+2$ ✓.*"
+    },
+    {
+      "id": "ma1301-2-4-d-crt-mange",
+      "type": "definition",
+      "title": "CRT med flere enn tre kongruenser",
+      "content": "Formelen og innsettingsmetoden virker for **hvor mange kongruenser som helst**, så lenge modulene er parvis relativt primiske.\n\n**Med formelen:** én rad per kongruens i tabellen, og summen får $k$ ledd. Arbeidet vokser lineært, og hvert ledd er uavhengig — det er formelens store fordel ved mange kongruenser.\n\n**Med innsetting:** $k-1$ runder, der modulusen vokser for hver runde. Etter tre runder regner du med firesifrede tall.\n\n**Praktisk grense på eksamen:** arkivet bruker **to eller tre** kongruenser. Fire forekommer, men da er modulene små.\n\n**Sjekk parvis primiskhet for ALLE par.** Med fire moduler er det seks par. Det er lettere å faktorisere alle fire og se om et primtall opptrer to ganger — én sjekk i stedet for seks.\n\n*Eksempel med fire: modulene $4,9,25,49$ er potenser av ulike primtall, altså parvis relativt primiske, og $M=4\\cdot 9\\cdot 25\\cdot 49=44\\,100$. Fullt lovlig, men et større regnestykke enn eksamen ber om.*"
+    },
+    {
+      "id": "ma1301-2-4-d-crt-i-rsa",
+      "type": "definition",
+      "title": "Hvor CRT møter RSA",
+      "content": "CRT brukes to steder i RSA, og det er verdt å kjenne begge før kap. 3.1.\n\n**1. I korrekthetsbeviset.** Man viser at $(m^{e})^{d}\\equiv m$ **modulo $p$** og **modulo $q$** hver for seg (med Fermats lille teorem, [kap. 2.2](/ma1301/ma1301-2-2)), og setter sammen med CRT til $\\equiv m\\pmod{pq}$. Uten CRT dekker beviset bare meldinger med $\\gcd(m,n)=1$.\n\n**2. I raskere dekryptering.** I stedet for å regne $c^{d}\\bmod n$ direkte, regner man $c^{d\\bmod(p-1)}\\bmod p$ og $c^{d\\bmod(q-1)}\\bmod q$, og setter sammen med CRT. Eksponentene blir mye mindre, og for hånd betyr det færre kvadrater.\n\n**Det er den samme teknikken som i løkke 6** — splitt beregningen — brukt på RSA-modulusen. Og det er en av grunnene til at CRT står i utenat-listen: den er ikke bare én oppgavetype, den er en regneteknikk du bruker i flere sjangre.\n\n**Merk et vilkår:** teknikken i punkt 2 krever at du **kjenner $p$ og $q$**. Den som bare har den offentlige nøkkelen $(n,e)$, kan ikke bruke den — og det er hele sikkerheten i RSA."
+    },
+    {
+      "id": "ma1301-2-4-d-crt-antall-losninger",
+      "type": "definition",
+      "title": "Hvorfor svaret er én restklasse, ikke ett tall",
+      "content": "Systemet har uendelig mange løsninger, men de utgjør **én** restklasse modulo $M$. Det er innholdet i «entydig modulo $M$».\n\n**Sammenlign med [kap. 1.3](/ma1301/ma1301-1-3) og [kap. 1.4](/ma1301/ma1301-1-4):**\n\n| Oppgavetype | Svaret er |\n|---|---|\n| diofantisk likning $ax+by=c$ | en parametrisert familie, $x=x_0+(b/d)t$ |\n| lineær kongruens $ax\\equiv b\\pmod m$ | $d=\\gcd(a,m)$ restklasser modulo $m$ |\n| CRT-system, parvis primiske moduler | **én** restklasse modulo $M$ |\n| CRT-system, moduler med felles faktor | én restklasse modulo $\\operatorname{lcm}$, eller ingen |\n\n**Fellestrekket:** i alle fire tilfeller skal **hele** løsningsmengden oppgis, ikke én representant. Det er den samme fasitregelen gjennom hele Del 1 og Del 2.\n\n**Og fellesfellen:** å oppgi ett tall og stoppe. Skriv perioden."
+    },
+    {
+      "id": "ma1301-2-4-d-kontrollrutine-crt",
+      "type": "definition",
+      "title": "Kontrollrutinen i sjanger C",
+      "content": "Fem kontroller, til sammen under to minutter. Under kode D er dette hele kvalitetssikringen din.\n\n| Etter | Kontroll | Fanger |\n|---|---|---|\n| oppsettet | er modulene parvis relativt primiske? | formelen brukt ulovlig |\n| forenklingen | har alle kongruenser formen $x\\equiv b_j$? | glemt invers-ganging |\n| hver rad i tabellen | er $N_jx_j\\equiv 1\\pmod{m_j}$? | gal invers |\n| sluttsvaret | **sett inn i ALLE kongruensene** | alle regnefeil |\n| helt til slutt | er perioden $M$ (eller $\\operatorname{lcm}$)? og er svaret det minste positive, om det spørres? | glemt periode, glemt spørsmålet |\n\n**Den fjerde er den viktigste, og den er obligatorisk.** Å sette svaret inn i alle kongruensene tar tjue sekunder og fanger **hver** regnefeil du kan ha gjort. Fasitene i arkivet gjør den rutinemessig.\n\n**Og en sjette som er gratis:** kjør den andre metoden. Får formelen og innsettingen samme svar, er du sikker."
+    },
+    {
+      "id": "ma1301-2-4-d-kode-d-tall-crt",
+      "type": "definition",
+      "title": "Kode D-realisme: hva tallene ser ut som",
+      "content": "| Størrelse | Typisk verdi på eksamen |\n|---|---|\n| antall kongruenser | **2 eller 3** |\n| modulene $m_j$ | ensifret til tosifret ($3$–$25$) |\n| $M$ | to- til firesifret (under ~$1\\,000$) |\n| inversene $x_j$ | ensifret, funnet ved å prøve små tall |\n| koeffisienter foran $x$ | ensifret, ofte $2$–$6$ |\n\n**Bruk det som kontroll.** Blir $M$ femsifret, har du sannsynligvis lest en modulus feil. Må du kjøre Euklids algoritme i fem linjer for en invers modulo $9$, har du glemt å redusere $N_j$ først.\n\n**Og bruk det når du lager egne øvingsoppgaver:** velg to eller tre moduler som er potenser av ulike primtall, velg et tall $c$ under produktet, og regn ut restene $b_j=c\\bmod m_j$. Da vet du svaret før du begynner, og oppgaven er garantert løsbar.\n\n**Ikke-primisk-varianten** lages på samme måte, men med to moduler som deler en faktor: velg $c$ først, så blir kriteriet automatisk oppfylt. Vil du ha et uløselig system, endrer du én rest med noe som ikke er delelig med $\\gcd$."
+    },
+    {
+      "id": "ma1301-2-4-d-tidsbudsjett-crt",
+      "type": "definition",
+      "title": "Tidsbudsjettet for en CRT-oppgave",
+      "content": "Eksamen er 4 timer på omtrent 10 likt vektede delpunkt — **~24 minutter per delpunkt**.\n\n| Steg | Innhold | Tid |\n|---|---|---|\n| oppsett | primiskhetssjekk, $M$ | ~2 min |\n| forenkling | hver kongruens til $x\\equiv b_j$ | ~3 min |\n| $N_j$ og inversene | én rad per kongruens | ~5 min |\n| sammensetting | summen, redusert modulo $M$ | ~2 min |\n| kontroll | innsetting i alle kongruensene | ~1 min |\n\n**Til sammen ~13 minutter** — omtrent halve budsjettet for ett delpunkt. Og CRT-oppgaven har ofte to delpunkt (systemet, og «minste positive» eller en variant), så tiden passer.\n\n**Er du over 25 minutter,** ligger det nesten alltid i inversene. Øv på å finne inverser modulo ensifrede og små tosifrede tall ved å prøve — det er raskere enn Euklid for de tallene, og det er alt eksamen krever.\n\n**Kjører du begge metoder** som kontroll, legg til ~5 minutter. Det er godt investert på en oppgave som er verdt et helt delpunkt."
+    },
+    {
+      "id": "ma1301-2-4-d-skriveraden-crt",
+      "type": "definition",
+      "title": "Skriveraden: hva som SKAL stå i besvarelsen",
+      "content": "En fullgod besvarelse av et CRT-system inneholder **alle** disse setningene:\n\n1. **primiskhetssjekken**: «$\\gcd(m_i,m_j)=1$ for alle par, så modulene er parvis relativt primiske»;\n2. **teoremnavnet**: «ved det kinesiske restteoremet har systemet nøyaktig én løsning modulo $M$»;\n3. forenklingen av hver kongruens, med løsbarhet kommentert;\n4. $M$ og hver $N_j$, med inversene $x_j$ **og kontrollen** $N_jx_j\\equiv 1$;\n5. summen, og reduksjonen modulo $M$;\n6. **kontrollen**: svaret satt inn i alle kongruensene;\n7. en konklusjonssetning med **hele** løsningsmengden ($x\\equiv c\\pmod M$) — og det minste positive tallet, om det spørres.\n\n**Punkt 1 og 7 er de som oftest mangler.** Punkt 1 er premisset, punkt 7 er spørsmålet.\n\n**Selvtesten:** kan noen som leser besvarelsen din, se hvorfor metoden var lovlig, og hva hele løsningsmengden er? Da er føringen god nok.\n\n**Det som ikke holder:** «$x=157$». Riktig tall, men ingen periode, ingen metode og ingen begrunnelse — og instruksen på hvert sett er at alle svar må begrunnes."
+    },
+    {
+      "id": "ma1301-2-4-d-crt-hvorfor-navnet",
+      "type": "definition",
+      "title": "Hvorfor teoremet heter det det heter",
+      "content": "Navnet kommer fra den kinesiske matematikeren **Sun Zi** (3. århundre), som i *Sunzi Suanjing* formulerte problemet: «Det finnes et ukjent antall ting. Delt på tre blir det to til rest, delt på fem tre til rest, delt på sju to til rest. Hvor mange ting er det?»\n\nDen generelle metoden ble beskrevet av **Qin Jiushao** i 1247, over fire hundre år før tilsvarende resultater i Europa.\n\n**Hvorfor det er verdt en linje i en lærebok:** navnet forteller deg at teoremet er en *algoritme* fra praktisk regning, ikke et abstrakt eksistensresultat. Det er derfor beviset er konstruktivt — det gir formelen.\n\n**På eksamen skriver du «det kinesiske restteoremet»**, eventuelt forkortelsen CRT etter at du har skrevet navnet fullt ut én gang. Fasitene i arkivet bruker den norske formen.\n\n*Sun Zis eget svar var $23$, og han bemerket at man kan legge til $105$ for å få flere — altså kjente han både løsningen og perioden.*"
+    },
+    {
+      "id": "ma1301-2-4-d-crt-samleoversikt",
+      "type": "definition",
+      "title": "Sjanger C i én oversikt",
+      "content": "| Det du ser | Det du gjør | Svaret er |\n|---|---|---|\n| $x\\equiv b_j\\pmod{m_j}$, parvis primiske | formelen eller innsetting | én restklasse modulo $M$ |\n| koeffisient foran $x$ | forenkle først (gang med invers) | som over |\n| moduler med felles faktor $d$, $d\\mid(b_1-b_2)$ | rydd, eller sett inn suksessivt | én restklasse modulo $\\operatorname{lcm}$ |\n| moduler med felles faktor $d$, $d\\nmid(b_1-b_2)$ | vis motsigelsen | **ingen løsning** |\n| $a^{N}\\bmod n$ med sammensatt $n$ | splitt, regn hver del, sett sammen | én rest modulo $n$ |\n| «minste positive» | representanten i $1,\\dots,M$ | ett tall, **pluss** perioden |\n\n**Første spørsmål er alltid: er modulene parvis relativt primiske?** Svaret bestemmer hvilken rad du er i — og om formelen i det hele tatt er lovlig.\n\n**Neste kapittel** ([kap. 2.5](/ma1301/ma1301-2-5)) setter de fire teoremene sammen i signaturoppgaven: «finn resten når [uttrykk med fakultet og potens] deles på [modulus]» — der Euler, Fermat, Wilson og CRT opptrer i samme besvarelse."
+    },
+    {
+      "id": "ma1301-2-4-d-slaa-sammen",
+      "type": "definition",
+      "title": "Å slå sammen to kongruenser med samme rest",
+      "content": "Har to kongruenser **samme rest** og relativt primiske moduler, kan de slås sammen til én:\n$$x\\equiv b\\pmod m\\ \\text{ og }\\ x\\equiv b\\pmod n\\iff x\\equiv b\\pmod{mn}\\qquad(\\gcd(m,n)=1).$$\n\n**Dette er splittingsregelen lest baklengs**, og den **utledes på stedet**: begge kongruensene sier at $m\\mid(x-b)$ og $n\\mid(x-b)$, og med $\\gcd(m,n)=1$ gir det $mn\\mid(x-b)$ ([kap. 1.1](/ma1301/ma1301-1-1)).\n\n**Hvorfor det er praktisk:** i et system med tre kongruenser der to har samme rest, halverer du arbeidet. Er $x\\equiv 3\\pmod 5$ og $x\\equiv 3\\pmod 7$, er det samme som $x\\equiv 3\\pmod{35}$, og du står med to kongruenser i stedet for tre.\n\n**Merk at det krever samme rest.** Er restene ulike, må du gjennom CRT — snarveien finnes ikke. Og er modulene ikke relativt primiske, gjelder regelen ikke: $x\\equiv 3\\pmod 4$ og $x\\equiv 3\\pmod 6$ gir $x\\equiv 3\\pmod{12}$, ikke modulo $24$ — perioden er $\\operatorname{lcm}$, ikke produktet.\n\n**Bruk den også som kontroll:** ser du at svaret ditt har samme rest mot to moduler, skal det ha den resten mot produktet også."
+    },
+    {
+      "id": "ma1301-2-4-d-crt-oppgavetyper",
+      "type": "definition",
+      "title": "De fire måtene CRT spørres om på eksamen",
+      "content": "1. **Rent system:** «finn det minste positive $x$ med $x\\equiv b_1\\pmod{m_1}$, …». Formelen eller innsetting. Den dominerende formen.\n2. **System med koeffisienter:** «$3x\\equiv 2\\pmod 5$, …». Forenkle hver kongruens først, så som type 1.\n3. **Moduler med felles faktor:** rydding, eller «vis at systemet ikke har løsning». Her testes om du sjekker vilkåret i stedet for å regne mekanisk.\n4. **CRT som verktøy i en restberegning:** «finn resten når $a^{N}$ deles på $n$» med sammensatt $n$ — særlig når $\\gcd(a,n)\\ne 1$. Se [kap. 2.5](/ma1301/ma1301-2-5).\n\n**Alle fire starter med samme spørsmål:** er modulene parvis relativt primiske? I type 3 er svaret nei, og det er hele poenget med oppgaven.\n\n**Og alle fire krever samme sluttføring:** hele løsningsmengden ($x\\equiv c\\pmod M$), pluss det minste positive tallet når det spørres, pluss kontroll ved innsetting i alle kongruensene."
+    },
+    {
+      "id": "ma1301-2-4-d-crt-bevisidé",
+      "type": "definition",
+      "title": "Bevisidéen i CRT, i én setning",
+      "content": "Verdt å kunne gjengi, fordi en oppgave kan be deg «forklare hvorfor systemet har nøyaktig én løsning».\n\n**Setningen:** *hvert ledd $b_jN_jx_j$ er en bryter som er tent modulo $m_j$ og slukket modulo alle de andre modulene — så summen treffer alle restene samtidig, og entydigheten følger av at $M$ deler differansen mellom to løsninger.*\n\n**De to halvdelene, som stikkord:**\n\n- **Eksistens:** $N_j=M/m_j$ er $\\equiv 0$ modulo alle andre moduler, og $N_jx_j\\equiv 1\\pmod{m_j}$. Derfor er summen $\\equiv b_j$ modulo hver $m_j$.\n- **Entydighet:** er $x$ og $y$ begge løsninger, deler hver $m_j$ differansen $x-y$; med parvis primiske moduler deler produktet $M$ den.\n\n**Hvor entydigheten brukes i praksis:** den er grunnen til at du kan **gjette** løsningen og bare kontrollere. Finner du et tall som passer i alle kongruensene, ER det løsningen — det finnes ingen annen modulo $M$. Det er en helt legitim metode på små systemer, og den er rask: skriv opp tallene som oppfyller den strengeste kongruensen, og sjekk dem mot de andre.\n\n**Men si hva du gjør.** «Tallene $\\equiv 3\\pmod{13}$ under $91$ er … og bare $81$ gir rest $4$ modulo $7$; ved entydigheten i det kinesiske restteoremet er dette den eneste løsningen» er en fullgod besvarelse."
+    },
+    {
+      "id": "ma1301-2-4-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "ma1301-2-4-rep-inn",
+          "type": "text",
+          "content": "Fem korte oppgaver fra [kap. 1.4](/ma1301/ma1301-1-4) og [kap. 1.2](/ma1301/ma1301-1-2). Fasit under hver.\n\n**R1.** Finn inversen til $3$ modulo $5$, til $2$ modulo $7$ og til $8$ modulo $9$.\n\n*Fasit:* $3\\cdot 2=6\\equiv 1\\pmod 5$, så $3^{-1}\\equiv 2$. $2\\cdot 4=8\\equiv 1\\pmod 7$, så $2^{-1}\\equiv 4$. $8\\cdot 8=64=63+1\\equiv 1\\pmod 9$, så $8^{-1}\\equiv 8$ — $8$ er sin egen invers (og $8\\equiv -1\\pmod 9$).\n\n**R2.** Løs $4x\\equiv 3\\pmod 7$.\n\n*Fasit:* $\\gcd(4,7)=1$ deler $3$, så én inkongruent løsning. Inversen til $4$ er $2$ ($4\\cdot 2=8\\equiv 1$), så $x\\equiv 2\\cdot 3=6\\pmod 7$. Kontroll: $4\\cdot 6=24=21+3\\equiv 3$ ✓.\n\n**R3.** Løs $3t\\equiv 3\\pmod 6$, og oppgi alle inkongruente løsninger.\n\n*Fasit:* $d=\\gcd(3,6)=3$, som deler $3$, så det finnes **tre** inkongruente løsninger modulo $6$. Forkort med $3$ — også modulusen: $t\\equiv 1\\pmod 2$. Løsningene er $t=1,3,5$ modulo $6$.\n\n**R4.** Hvorfor er $x\\equiv 13\\pmod{20}$ det samme som «$x\\equiv 1\\pmod 4$ og $x\\equiv 3\\pmod 5$»?\n\n*Fasit:* Fordi $20=4\\cdot 5$ med $\\gcd(4,5)=1$ — splittingsregelen. Og $13=4\\cdot 3+1$, $13=5\\cdot 2+3$.\n\n**R5.** Regn $\\operatorname{lcm}(8,20)$ og $\\operatorname{lcm}(6,15)$.\n\n*Fasit:* Produktregelen $\\gcd\\cdot\\operatorname{lcm}=ab$ gir $\\operatorname{lcm}(8,20)=160/4=40$ og $\\operatorname{lcm}(6,15)=90/3=30$. Det er nettopp periodene i løkke 5."
+        }
+      ]
+    },
+    {
+      "id": "ma1301-2-4-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "ma1301-2-4-symbol-inn",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $m_1,\\dots,m_k$ | modulene i systemet |\n| $b_1,\\dots,b_k$ | restene (høyresidene) |\n| $M=m_1m_2\\cdots m_k$ | produktet av modulene |\n| $N_j=M/m_j$ | produktet av **de andre** modulene |\n| $x_j$ | inversen til $N_j$ modulo $m_j$ |\n| $\\operatorname{lcm}(m_1,m_2)$ | minste felles multiplum — perioden når modulene ikke er primiske |\n| $\\gcd(m_i,m_j)$ | brukt i primiskhetssjekken og i løsbarhetskriteriet |\n| $t,s,u$ | parametrene i suksessiv innsetting |\n| $\\mathbb{Z}$ | de hele tallene |\n| $\\blacksquare$ | bevis slutt |\n\n**Formler i dette delkapitlet:**\n\n$$\\gcd(m_i,m_j)=1\\quad\\text{for alle }i\\ne j$$\nVilkåret: modulene skal være **parvis** relativt primiske. **(må sitte utenat — det er premisset, og det svikter oftere enn man tror)**\n\n$$M=m_1m_2\\cdots m_k,\\qquad N_j=\\frac{M}{m_j},\\qquad N_jx_j\\equiv 1\\pmod{m_j}$$\nOppsettet i CRT-formelen. **(må sitte utenat)**\n\n$$x\\equiv b_1N_1x_1+b_2N_2x_2+\\dots+b_kN_kx_k\\pmod M$$\n**CRT-formelen.** **(må sitte utenat)**\n\n$$x=b_1+m_1t\\ \\longrightarrow\\ m_1t\\equiv b_2-b_1\\pmod{m_2}$$\nSuksessiv innsetting, ett steg. **(utledes på stedet — det er bare kongruensregning fra [kap. 1.4](/ma1301/ma1301-1-4), og det er sikkerhetsnettet ditt under kode D)**\n\n$$a\\equiv b\\pmod{mn}\\iff a\\equiv b\\pmod m\\ \\text{og}\\ a\\equiv b\\pmod n\\qquad(\\gcd(m,n)=1)$$\nSplittingsregelen — brukes til rydding og til å splitte beregninger. **(må sitte utenat)**\n\n$$\\gcd(m_1,m_2)\\mid(b_1-b_2)$$\nLøsbarhetskriteriet når modulene ikke er relativt primiske; perioden blir da $\\operatorname{lcm}(m_1,m_2)$. **(utledes på stedet — to linjer via den diofantiske likningen $m_1t-m_2s=b_2-b_1$, se [kap. 1.3](/ma1301/ma1301-1-3))**\n\n$$\\gcd(N_j,m_j)=1$$\nGrunnen til at inversen $x_j$ finnes. **(utledes på stedet — hver faktor i $N_j$ er relativt primisk til $m_j$)**\n\n$$x\\equiv c\\pmod M\\quad\\text{er}\\quad x=c+Mt,\\ t\\in\\mathbb{Z}$$\nSvaret er en restklasse, ikke ett tall. **(må sitte utenat — fasitkravet er hele løsningsmengden)**\n\n**CRT-formelens fem steg** — (1) sjekk parvis primiskhet, (2) regn $M$, (3) $N_j$ og inversene $x_j$, (4) sett sammen summen, (5) reduser modulo $M$ og kontroller i alle kongruensene. **(må sitte utenat)**\n\n**Ryddeoppskriften** — faktoriser modulene, splitt hver kongruens i primtallspotenser, behold den sterkeste av to som gjelder samme primtall (eller konkludér «ingen løsning» om de motsier hverandre), og løs det som står igjen. **(utledes på stedet — den er splittingsregelen brukt gjentatt)**"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

@@ -1,0 +1,311 @@
+{
+  "id": "ma1301-3-2",
+  "courseId": "ma1301",
+  "chapterNumber": "3.2",
+  "title": "Drill: RSA fra nøkkelpar til dekryptering",
+  "description": "Hele RSA-oppgaven drillet: bygg nøkkelpar fra p, q, e, finn d via Euklid, krypter og dekrypter med kvadrer-og-multipliser, og før korrekthetsbeviset — de tre variantene fasitene bruker.",
+  "estimatedMinutes": 70,
+  "competenceGoals": [
+    "bygge et RSA-nøkkelpar og finne dekrypteringseksponenten under tidspress",
+    "kryptere og dekryptere for hånd med kvadrer-og-multipliser, med kontroll",
+    "dekryptere via de to primtallene og sette svaret sammen med det kinesiske restteoremet",
+    "føre korrekthetsbeviset, også for meldinger der et av primtallene deler meldingen"
+  ],
+  "content": [
+    {
+      "id": "ma1301-3-2-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette kapitlet driller hele RSA-oppgaven: sjanger D, som forekommer i 10 av 15 sett — 67 %.**\n\nSjangerbokstavene er bokas egne forkortelser, forklart i [kap. 0.1](/ma1301/ma1301-0-1). RSA er nesten alltid en **egen oppgave** med to eller tre delpunkt, og variantkatalogen er kort:\n\n| Variant | Nivå | Oppgaver her |\n|---|---|---|\n| Dekrypter med oppgitt $d$ | bestått-nivå | 7–8 |\n| **Finn $d$ selv, og dekrypter** | midtsjiktet | 1–3 |\n| Bygg helt nøkkelpar fra $p,q,e$ | midtsjiktet | 4–5 |\n| Krypter en melding | bestått-nivå | 6 |\n| Vis at dekrypteringen gjenoppretter meldingen | toppsjiktet | 9–10 |\n\n**Prioritet: høyeste.** Oppgaven er nesten alltid der, den er alltid bygget likt, og den bruker bare Euklids algoritme og kvadrer-og-multipliser — verktøy du alt har drillet i [kap. 1.5](/ma1301/ma1301-1-5) og [kap. 2.6](/ma1301/ma1301-2-6).\n\n**Slik bruker du kapitlet:** les løsningsoppskriften én gang, gå gjennom den gjennomregnede casen med margnotatene, og regn deretter oppgavene **med lukket bok**. Det er den eneste treningsformen som ligner eksamen under hjelpemiddelkode D."
+    },
+    {
+      "id": "ma1301-3-2-utenat",
+      "type": "tip",
+      "title": "Utenat under kode D",
+      "content": "Eksamen er hjelpemiddelkode D: ingen bok, ingen formelsamling, ingen tabeller, ingen egne notater — bare en enkel kalkulator som ikke kan faktorisere $n$ og ikke kan regne $c^{d}\\bmod n$.\n\n**Må sitte utenat:**\n\n- **oppsettet:** $n=pq$, $\\phi(n)=(p-1)(q-1)$, $\\gcd(e,\\phi(n))=1$, $ed\\equiv 1\\pmod{\\phi(n)}$\n- **$c\\equiv m^{e}$** og **$m\\equiv c^{d}$**, begge modulo $n$\n- **Euklids algoritme frem og baklengs** — den ene måten å finne $d$\n- **kvadrer-og-multipliser** med reduksjon etter hvert kvadrat\n\n**Utledes på stedet:**\n\n- **korrektheten** $(m^{e})^{d}\\equiv m\\pmod n$: $ed=1+k\\phi(n)$ gir $m^{ed}=m\\cdot(m^{\\phi(n)})^{k}\\equiv m$ **fra Eulers teorem**. Tre linjer, og de føres ut i oppgave 9.\n- **$\\phi(pq)=(p-1)(q-1)$** fra multiplikativiteten. Én linje.\n- **den raske dekrypteringsveien:** $d_p=d\\bmod(p-1)$, $d_q=d\\bmod(q-1)$, to små potenser, CRT. Føres ut i oppgave 8.\n\n**Selvtest, tjue minutter:** regn oppgave 1, 4 og 7 med boka lukket. Tre oppgaver, tre varianter. Klarer du alle tre uten oppskriften, sitter sjanger D.\n\n**Prosedyrer pugges ved å kjøres.** Ti RSA-oppgaver er mer verdt enn ti gjennomlesninger av kap. 3.1."
+    },
+    {
+      "id": "ma1301-3-2-forkunnskaper",
+      "type": "text",
+      "content": "### Forkunnskaper\n\nFra boka: [kap. 3.1](/ma1301/ma1301-3-1) (hele RSA-oppsettet), [kap. 1.2](/ma1301/ma1301-1-2) (Euklids algoritme frem og baklengs), [kap. 2.1](/ma1301/ma1301-2-1) (Eulers teorem og kvadrer-og-multipliser), [kap. 2.2](/ma1301/ma1301-2-2) (Fermats lille teorem) og [kap. 2.4](/ma1301/ma1301-2-4) (CRT).\n\n**Sist du var her.** De fire resultatene hver oppgave i kapitlet bygger på, ferdig oppfrisket:\n\n**1. Oppsettet.** $n=pq$, $\\phi(n)=(p-1)(q-1)$, offentlig nøkkel $(n,e)$ med $\\gcd(e,\\phi(n))=1$, privat $d$ med $ed\\equiv 1\\pmod{\\phi(n)}$.\n\n**2. Operasjonene.** $c\\equiv m^{e}\\pmod n$ og $m\\equiv c^{d}\\pmod n$.\n\n**3. Å finne $d$.** Kjør Euklids algoritme på $\\phi(n)$ og $e$, gå baklengs til $1=\\phi(n)y+ex$, og les modulo $\\phi(n)$: $d=x$.\n\n**4. Korrektheten.** $ed=1+k\\phi(n)$ gir $m^{ed}=m\\cdot\\left(m^{\\phi(n)}\\right)^{k}\\equiv m\\pmod n$ **fra Eulers teorem**, når $\\gcd(m,n)=1$.\n\nEr noe av dette usikkert, gå tilbake til [kap. 3.1](/ma1301/ma1301-3-1) **før** du regner oppgavene her."
+    },
+    {
+      "id": "ma1301-3-2-oppskrift",
+      "type": "text",
+      "content": "## Løsningsoppskriften\n\n*~8 minutter. Les den, og bruk den som referanse mens du regner oppgavene.*\n\n### Oppskrift: RSA i fire steg\n\n**(1) $\\phi(n)=(p-1)(q-1)$.** Har du bare $n$, faktoriser først med prøvedivisjon opp til $\\sqrt n$. Kontroll: $(p-1)(q-1)=n-p-q+1$.\n\n**(2) $\\gcd(e,\\phi(n))=1$-sjekken.** Faktoriser $\\phi(n)$ og se om $e$ har noen primfaktor felles. Sjekken faller ut gratis av steg (3): Euklid-kjeden ender på $\\gcd=1$.\n\n**(3) $d$ via Euklids algoritme baklengs.** Kjør algoritmen på $\\phi(n)$ og $e$, gå baklengs til $1=\\phi(n)\\,y+e\\,x$, og les modulo $\\phi(n)$: $d=x\\bmod\\phi(n)$. **Kontroll: $ed$ skal gi rest $1$ ved divisjon med $\\phi(n)$.**\n\n**(4) Potensen via kvadrer-og-multipliser.** Kryptering $c\\equiv m^{e}$, dekryptering $m\\equiv c^{d}$, begge modulo $n$. Reduser grunntallet først, skriv binærutviklingen, og reduser etter hvert kvadrat.\n\n**Alternativ i steg (4), når du kjenner $p$ og $q$:** reduser eksponenten mot hvert primtall ($d_p=d\\bmod(p-1)$, $d_q=d\\bmod(q-1)$), regn to små potenser, og sett sammen med CRT. **Begge veier er fullgode**, og den siste gir mindre tall.\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "ma1301-3-2-kontrollpunkter",
+      "type": "text",
+      "content": "### De fire kontrollpunktene\n\nUnder kode D er selvkontroll den eneste kontrollen du har. Disse fire tar til sammen under ett minutt og fanger nesten alt.\n\n| Etter | Kontroll | Fanger |\n|---|---|---|\n| faktoriseringen | gang $p$ og $q$ sammen igjen | avskrivningsfeil |\n| $\\phi(n)$ | er $(p-1)(q-1)=n-p-q+1$? | utregningsfeil |\n| $d$ | gir $ed$ rest $1$ ved divisjon med $\\phi(n)$? | Euklid baklengs-slurv |\n| dekrypteringen | krypter svaret tilbake: gir $m^{e}\\bmod n$ tilbake $c$? | alt |\n\n**Den siste er unik for RSA og helt avgjørende:** du kan alltid gå den andre veien. Det koster like mye som krypteringen, men det er en absolutt kontroll — og på eksamen betyr det at du **vet** at svaret er riktig.\n\n**Er du presset på tid,** ta i det minste $ed$-kontrollen. Den er den billigste, og $d$-feil er den vanligste."
+    },
+    {
+      "id": "ma1301-3-2-case-intro",
+      "type": "text",
+      "content": "## Gjennomregnet eksamenscase\n\n*~15 minutter.*\n\nHer er en typisk RSA-oppgave med tre delpunkt, med **margnotater** som sier hva hvert steg er verdt og hvorfor. Les den én gang med blyanten i hånda, og regn deretter oppgavene selv."
+    },
+    {
+      "id": "ma1301-3-2-case",
+      "type": "example",
+      "title": "Eksamenscase: finn d og dekrypter, med (n, e) = (437, 13)",
+      "problem": "Den offentlige nøkkelen i et RSA-system er $(n,e)=(437,13)$, og du har fanget opp den krypterte meldingen $c=289$.\n\n**a)** Faktoriser $n$ og finn $\\phi(n)$. (3 poeng)\n**b)** Finn dekrypteringseksponenten $d$. (5 poeng)\n**c)** Dekrypter meldingen. (4 poeng)",
+      "solution": "**a) Faktoriser $n=437$.** *(~2 min)*\n\n$\\sqrt{437}\\approx 20{,}9$, så vi prøvedividerer med primtallene opp til $20$: ikke like; siffersum $14$ (ikke delelig med $3$); ender ikke på $0$ eller $5$; $7\\cdot 62=434$ — nei; $11\\cdot 39=429$, $11\\cdot 40=440$ — nei; $13\\cdot 33=429$, $13\\cdot 34=442$ — nei; $17\\cdot 25=425$, $17\\cdot 26=442$ — nei; $19\\cdot 23=437$ ✓.\n\nAltså $437=19\\cdot 23$, og **ved multiplikativiteten** til $\\phi$:\n$$\\phi(437)=(19-1)(23-1)=18\\cdot 22=396.$$\n\n**Kontroll:** $n-p-q+1=437-19-23+1=396$ ✓.\n\n> **Margnotat:** faktoriseringen er premisset for hele oppgaven, og den skal **vises** — ikke bare påstås. Legg merke til at prøvedivisjonen stopper ved $\\sqrt n$: det er ikke en snarvei, det er et teorem ([kap. 1.1](/ma1301/ma1301-1-1)).\n\n---\n\n**b) Finn $d$.** *(~5 min)*\n\n$d$ er inversen til $13$ modulo $396$. Vi bruker **Euklids algoritme** ([kap. 1.2](/ma1301/ma1301-1-2)), ført frem og baklengs:\n\n**(i) Divisjonskjeden frem.** Vi deler gjentatt med rest, **ved Euklids algoritme**, til resten blir $0$:\n\n$$396 = 30\\cdot 13 + 6$$\n$$13 = 2\\cdot 6 + 1$$\n$$6 = 6\\cdot 1 + 0$$\n\nDen siste resten som ikke er $0$, er $1$. Altså er $\\gcd(396,13)=1$. Kjeden har 3 divisjonslinjer.\n\n**(ii) Substitusjonskjeden baklengs.** Vi løser den nest siste linja for resten og substituerer oppover, linje for linje:\n\n$$1 = 13 - 2\\cdot 6$$\nSett inn $6 = 396 - 30\\cdot 13$:\n$$1 = -2\\cdot 396 + 61\\cdot 13$$\n\n**(iii) Konklusjon.** Altså er\n\n$$\\gcd(396,13) = 1 = 396\\cdot(-2) + 13\\cdot(61).$$\n\n**Kontroll ved innsetting:** $396\\cdot(-2) + 13\\cdot(61) = -792 + 793 = 1$. Stemmer.\n\nVi leser likningen **modulo $396$**. Leddet $396\\cdot(-2)$ er et multiplum av $396$ og faller bort:\n\n$$13\\cdot(61)\\equiv 1\\pmod{396}.$$\n\nAltså er $u=61$.\n\n**Kontroll:** $13\\cdot 61 = 793$, og $793 = 396\\cdot 2 + 1$, så resten er $1$. Stemmer.\n\nAltså er $d=61$.\n\n**Kontroll:** $ed=13\\cdot 61=793$, og $793=396\\cdot 2+1$ ✓.\n\n> **Margnotat:** to ting bærer uttellingen her. **(1)** Kjeden **frem og baklengs** — det er føringsstandarden i emnet, og et $d$ uten kjeden er et sluttall uten metode. **(2)** $ed$-kontrollen, som koster tjue sekunder og fanger den vanligste tallfeilen i hele sjangeren. Merk også at Euklid-kjeden ender på $\\gcd=1$ — det bekrefter samtidig at $e=13$ var et lovlig valg.\n\n---\n\n**c) Dekrypter $c=289$.** *(~6 min)*\n\n$$m\\equiv c^{d}=289^{61}\\pmod{437}.$$\n\n**(v) Binærutviklingen av eksponenten og de suksessive kvadratene.** Vi skriver eksponenten som en sum av toerpotenser: $61 = 32 + 16 + 8 + 4 + 1$, altså $61$ i binær er $111101$. Deretter kvadrerer vi oss oppover, og reduserer modulo $437$ etter hvert kvadrat:\n\n| Potens | Utregning | Rest modulo $437$ |\n|---|---|---|\n| $289^{1}$ | — | $289$ |\n| $289^{2}$ | $289^2=83\\,521$, og $83\\,521=437\\cdot 191+54$ | $54$ |\n| $289^{4}$ | $54^2=2\\,916$, og $2\\,916=437\\cdot 6+294$ | $294$ |\n| $289^{8}$ | $294^2=86\\,436$, og $86\\,436=437\\cdot 197+347$ | $347$ |\n| $289^{16}$ | $347^2=120\\,409$, og $120\\,409=437\\cdot 275+234$ | $234$ |\n| $289^{32}$ | $234^2=54\\,756$, og $54\\,756=437\\cdot 125+131$ | $131$ |\n\n**(vi) Sett sammen produktet.** Da er\n\n$$289^{61} = 289^{32} \\cdot 289^{16} \\cdot 289^{8} \\cdot 289^{4} \\cdot 289^{1} \\equiv 131 \\cdot 234 \\cdot 347 \\cdot 294 \\cdot 289 \\pmod{437},$$\n\nog vi multipliserer to av gangen, med reduksjon underveis: $131\\cdot 234 = 30\\,654\\equiv 64$; $64\\cdot 347 = 22\\,208\\equiv 358$; $358\\cdot 294 = 105\\,252\\equiv 372$; $372\\cdot 289 = 107\\,508\\equiv 6$.\n\n**Den dekrypterte meldingen er $m=\\boxed{6}$.**\n\n**Kontroll — krypter tilbake:** $6^{13}\\bmod 437$ skal gi $289$.\n\n**(v) Binærutviklingen av eksponenten og de suksessive kvadratene.** Vi skriver eksponenten som en sum av toerpotenser: $13 = 8 + 4 + 1$, altså $13$ i binær er $1101$. Deretter kvadrerer vi oss oppover, og reduserer modulo $437$ etter hvert kvadrat:\n\n| Potens | Utregning | Rest modulo $437$ |\n|---|---|---|\n| $6^{1}$ | — | $6$ |\n| $6^{2}$ | $6^2=36$ | $36$ |\n| $6^{4}$ | $36^2=1\\,296$, og $1\\,296=437\\cdot 2+422$ | $422$ |\n| $6^{8}$ | $422^2=178\\,084$, og $178\\,084=437\\cdot 407+225$ | $225$ |\n\n**(vi) Sett sammen produktet.** Da er\n\n$$6^{13} = 6^{8} \\cdot 6^{4} \\cdot 6^{1} \\equiv 225 \\cdot 422 \\cdot 6 \\pmod{437},$$\n\nog vi multipliserer to av gangen, med reduksjon underveis: $225\\cdot 422 = 94\\,950\\equiv 121$; $121\\cdot 6 = 726\\equiv 289$.\n\nSamme $c=289$ ✓. Svaret er sikret.\n\n> **Margnotat:** **kvadrattabellen skal stå i besvarelsen.** Et sluttall uten den er et svar uten metode, og instruksen på hvert sett er at alle svar må begrunnes. Og legg merke til kontrollen: å kryptere tilbake er den eneste absolutte kontrollen som finnes i denne sjangeren — bruk den når du har tid.\n\n**Samlet tidsbruk: ~13 minutter for tre delpunkt** (uten tilbake-krypteringen; med den ~19). Eksamensbudsjettet er ~24 minutter **per** delpunkt (4 timer på ~10 likt vektede delpunkt), så du har god margin når apparatet sitter."
+    },
+    {
+      "id": "ma1301-3-2-oppgaver-intro",
+      "type": "text",
+      "content": "## Oppgavene\n\n*~45 minutter til sammen. Ti oppgaver, gruppert etter variant.*\n\nRegn dem med **penn og lukket bok**. Forskjellen mellom å ha lest en oppskrift og å kunne den, viser seg først når boka er lukket — og på eksamen er den lukket.\n\n**Gruppene:** oppgave 1–3 er «finn $d$ og dekrypter», 4–5 er «bygg nøkkelpar», 6 er kryptering, 7–8 er dekryptering med oppgitt $d$ (8 med den raske veien via $p$ og $q$), og 9–10 er korrekthetsbeviset.\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "ma1301-3-2-ex-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-3-2-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Den offentlige nøkkelen er $(n,e)=(299,5)$, og du har mottatt $c=63$.\n\n**a)** Faktoriser $n$ og finn $\\phi(n)$.\n**b)** Finn $d$, og kontrollér svaret.\n**c)** Dekrypter meldingen.",
+        "solution": "**a)** $\\sqrt{299}\\approx 17{,}3$. Vi prøvedividerer: ikke like; siffersum $20$ (ikke delelig med $3$); ender ikke på $0$ eller $5$; $7\\cdot 42=294$ — nei; $11\\cdot 27=297$ — nei; $13\\cdot 23=299$ ✓.\n\nAltså $299=13\\cdot 23$, og\n$$\\phi(299)=(13-1)(23-1)=12\\cdot 22=264.$$\n**Kontroll:** $299-13-23+1=264$ ✓.\n\n**b)** $d$ er inversen til $5$ modulo $264$:\n\n**(i) Divisjonskjeden frem.** Vi deler gjentatt med rest, **ved Euklids algoritme**, til resten blir $0$:\n\n$$264 = 52\\cdot 5 + 4$$\n$$5 = 1\\cdot 4 + 1$$\n$$4 = 4\\cdot 1 + 0$$\n\nDen siste resten som ikke er $0$, er $1$. Altså er $\\gcd(264,5)=1$. Kjeden har 3 divisjonslinjer.\n\n**(ii) Substitusjonskjeden baklengs.** Vi løser den nest siste linja for resten og substituerer oppover, linje for linje:\n\n$$1 = 5 - 1\\cdot 4$$\nSett inn $4 = 264 - 52\\cdot 5$:\n$$1 = -1\\cdot 264 + 53\\cdot 5$$\n\n**(iii) Konklusjon.** Altså er\n\n$$\\gcd(264,5) = 1 = 264\\cdot(-1) + 5\\cdot(53).$$\n\n**Kontroll ved innsetting:** $264\\cdot(-1) + 5\\cdot(53) = -264 + 265 = 1$. Stemmer.\n\nVi leser likningen **modulo $264$**. Leddet $264\\cdot(-1)$ er et multiplum av $264$ og faller bort:\n\n$$5\\cdot(53)\\equiv 1\\pmod{264}.$$\n\nAltså er $u=53$.\n\n**Kontroll:** $5\\cdot 53 = 265$, og $265 = 264\\cdot 1 + 1$, så resten er $1$. Stemmer.\n\nAltså er $d=53$. **Kontroll:** $5\\cdot 53=265=264+1$ ✓.\n\n**c)** $$m\\equiv 63^{53}\\pmod{299}.$$\n\n**(v) Binærutviklingen av eksponenten og de suksessive kvadratene.** Vi skriver eksponenten som en sum av toerpotenser: $53 = 32 + 16 + 4 + 1$, altså $53$ i binær er $110101$. Deretter kvadrerer vi oss oppover, og reduserer modulo $299$ etter hvert kvadrat:\n\n| Potens | Utregning | Rest modulo $299$ |\n|---|---|---|\n| $63^{1}$ | — | $63$ |\n| $63^{2}$ | $63^2=3\\,969$, og $3\\,969=299\\cdot 13+82$ | $82$ |\n| $63^{4}$ | $82^2=6\\,724$, og $6\\,724=299\\cdot 22+146$ | $146$ |\n| $63^{8}$ | $146^2=21\\,316$, og $21\\,316=299\\cdot 71+87$ | $87$ |\n| $63^{16}$ | $87^2=7\\,569$, og $7\\,569=299\\cdot 25+94$ | $94$ |\n| $63^{32}$ | $94^2=8\\,836$, og $8\\,836=299\\cdot 29+165$ | $165$ |\n\n**(vi) Sett sammen produktet.** Da er\n\n$$63^{53} = 63^{32} \\cdot 63^{16} \\cdot 63^{4} \\cdot 63^{1} \\equiv 165 \\cdot 94 \\cdot 146 \\cdot 63 \\pmod{299},$$\n\nog vi multipliserer to av gangen, med reduksjon underveis: $165\\cdot 94 = 15\\,510\\equiv 261$; $261\\cdot 146 = 38\\,106\\equiv 133$; $133\\cdot 63 = 8\\,379\\equiv 7$.\n\n**Den dekrypterte meldingen er $m=\\boxed{7}$.**\n\n**Kontroll:** $7^{5}=16\\,807$, og $16\\,807=299\\cdot 56+63$, så $7^{5}\\equiv 63\\pmod{299}$ ✓ — vi får $c$ tilbake.\n\n**Sluttsvar:** a) $299=13\\cdot 23$, $\\phi(n)=264$; b) $d=53$; c) $m=7$.\n\n*Merk at kontrollen i c) var billig her, fordi $e=5$ er liten: $7^5$ kan regnes direkte. Med større $e$ må du bruke kvadrer-og-multipliser også på kontrollen.*",
+        "hints": [
+          "Prøvedivider $299$ — prøv $7$, $11$ og $13$.",
+          "$\\phi(n)=(p-1)(q-1)$, og kontrollen er $n-p-q+1$.",
+          "Finn $d$ som inversen til $5$ modulo $264$ med Euklids algoritme.",
+          "Dekrypter med $m\\equiv c^{d}$, og krypter tilbake som kontroll."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-3-2-ex-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-3-2-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Den offentlige nøkkelen er $(n,e)=(851,13)$, og du har mottatt $c=84$.\n\n**a)** Finn $\\phi(n)$ og $d$.\n**b)** Dekrypter meldingen.",
+        "solution": "**a)** $\\sqrt{851}\\approx 29{,}2$. Prøvedivisjon: ikke like; siffersum $14$; ender ikke på $0$/$5$; $7\\cdot 121=847$ — nei; $11\\cdot 77=847$ — nei; $13\\cdot 65=845$ — nei; $17\\cdot 50=850$ — nei; $19\\cdot 44=836$, $19\\cdot 45=855$ — nei; $23\\cdot 37=851$ ✓.\n\nAltså $851=23\\cdot 37$, og\n$$\\phi(851)=(23-1)(37-1)=22\\cdot 36=792.$$\n**Kontroll:** $851-23-37+1=792$ ✓.\n\n$d$ er inversen til $13$ modulo $792$:\n\n**(i) Divisjonskjeden frem.** Vi deler gjentatt med rest, **ved Euklids algoritme**, til resten blir $0$:\n\n$$792 = 60\\cdot 13 + 12$$\n$$13 = 1\\cdot 12 + 1$$\n$$12 = 12\\cdot 1 + 0$$\n\nDen siste resten som ikke er $0$, er $1$. Altså er $\\gcd(792,13)=1$. Kjeden har 3 divisjonslinjer.\n\n**(ii) Substitusjonskjeden baklengs.** Vi løser den nest siste linja for resten og substituerer oppover, linje for linje:\n\n$$1 = 13 - 1\\cdot 12$$\nSett inn $12 = 792 - 60\\cdot 13$:\n$$1 = -1\\cdot 792 + 61\\cdot 13$$\n\n**(iii) Konklusjon.** Altså er\n\n$$\\gcd(792,13) = 1 = 792\\cdot(-1) + 13\\cdot(61).$$\n\n**Kontroll ved innsetting:** $792\\cdot(-1) + 13\\cdot(61) = -792 + 793 = 1$. Stemmer.\n\nVi leser likningen **modulo $792$**. Leddet $792\\cdot(-1)$ er et multiplum av $792$ og faller bort:\n\n$$13\\cdot(61)\\equiv 1\\pmod{792}.$$\n\nAltså er $u=61$.\n\n**Kontroll:** $13\\cdot 61 = 793$, og $793 = 792\\cdot 1 + 1$, så resten er $1$. Stemmer.\n\nAltså er $d=61$. **Kontroll:** $13\\cdot 61=793=792+1$ ✓.\n\n**b)** $$m\\equiv 84^{61}\\pmod{851}.$$\n\n**(v) Binærutviklingen av eksponenten og de suksessive kvadratene.** Vi skriver eksponenten som en sum av toerpotenser: $61 = 32 + 16 + 8 + 4 + 1$, altså $61$ i binær er $111101$. Deretter kvadrerer vi oss oppover, og reduserer modulo $851$ etter hvert kvadrat:\n\n| Potens | Utregning | Rest modulo $851$ |\n|---|---|---|\n| $84^{1}$ | — | $84$ |\n| $84^{2}$ | $84^2=7\\,056$, og $7\\,056=851\\cdot 8+248$ | $248$ |\n| $84^{4}$ | $248^2=61\\,504$, og $61\\,504=851\\cdot 72+232$ | $232$ |\n| $84^{8}$ | $232^2=53\\,824$, og $53\\,824=851\\cdot 63+211$ | $211$ |\n| $84^{16}$ | $211^2=44\\,521$, og $44\\,521=851\\cdot 52+269$ | $269$ |\n| $84^{32}$ | $269^2=72\\,361$, og $72\\,361=851\\cdot 85+26$ | $26$ |\n\n**(vi) Sett sammen produktet.** Da er\n\n$$84^{61} = 84^{32} \\cdot 84^{16} \\cdot 84^{8} \\cdot 84^{4} \\cdot 84^{1} \\equiv 26 \\cdot 269 \\cdot 211 \\cdot 232 \\cdot 84 \\pmod{851},$$\n\nog vi multipliserer to av gangen, med reduksjon underveis: $26\\cdot 269 = 6\\,994\\equiv 186$; $186\\cdot 211 = 39\\,246\\equiv 100$; $100\\cdot 232 = 23\\,200\\equiv 223$; $223\\cdot 84 = 18\\,732\\equiv 10$.\n\n**Den dekrypterte meldingen er $m=\\boxed{10}$.**\n\n**Kontroll — krypter tilbake:** $10^{13}\\bmod 851$:\n\n**(v) Binærutviklingen av eksponenten og de suksessive kvadratene.** Vi skriver eksponenten som en sum av toerpotenser: $13 = 8 + 4 + 1$, altså $13$ i binær er $1101$. Deretter kvadrerer vi oss oppover, og reduserer modulo $851$ etter hvert kvadrat:\n\n| Potens | Utregning | Rest modulo $851$ |\n|---|---|---|\n| $10^{1}$ | — | $10$ |\n| $10^{2}$ | $10^2=100$ | $100$ |\n| $10^{4}$ | $100^2=10\\,000$, og $10\\,000=851\\cdot 11+639$ | $639$ |\n| $10^{8}$ | $639^2=408\\,321$, og $408\\,321=851\\cdot 479+692$ | $692$ |\n\n**(vi) Sett sammen produktet.** Da er\n\n$$10^{13} = 10^{8} \\cdot 10^{4} \\cdot 10^{1} \\equiv 692 \\cdot 639 \\cdot 10 \\pmod{851},$$\n\nog vi multipliserer to av gangen, med reduksjon underveis: $692\\cdot 639 = 442\\,188\\equiv 519$; $519\\cdot 10 = 5\\,190\\equiv 84$.\n\nSamme $c=84$ ✓.\n\n**Sluttsvar:** a) $\\phi(851)=792$, $d=61$; b) $m=10$.\n\n*Legg merke til at $\\phi(n)=792$ og $ed=793$ — altså $ed=\\phi(n)+1$, det minste mulige. Det er ikke tilfeldig at eksamensoppgaver ofte har den formen: da blir $d$ lite nok til å regnes med for hånd.*",
+        "hints": [
+          "Prøvedivider $851$ opp til $\\sqrt{851}\\approx 29$.",
+          "$\\phi(n)=22\\cdot 36$.",
+          "Finn $d$ som inversen til $13$ modulo $792$.",
+          "$61=111101_2$ — fem kvadrater og fire multiplikasjoner."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-3-2-ex-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-3-2-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Den offentlige nøkkelen er $(n,e)=(407,23)$, og du har mottatt $c=347$.\n\n**a)** Finn $p$, $q$, $\\phi(n)$ og $d$.\n**b)** Dekrypter meldingen.\n**c)** Kontrollér ved å kryptere svaret tilbake.",
+        "solution": "**a)** $\\sqrt{407}\\approx 20{,}2$. Prøvedivisjon: ikke like; siffersum $11$; ender ikke på $0$/$5$; $7\\cdot 58=406$ — nei; $11\\cdot 37=407$ ✓.\n\nAltså $p=11$, $q=37$, og\n$$\\phi(407)=(11-1)(37-1)=10\\cdot 36=360.$$\n**Kontroll:** $407-11-37+1=360$ ✓.\n\n$d$ er inversen til $23$ modulo $360$:\n\n**(i) Divisjonskjeden frem.** Vi deler gjentatt med rest, **ved Euklids algoritme**, til resten blir $0$:\n\n$$360 = 15\\cdot 23 + 15$$\n$$23 = 1\\cdot 15 + 8$$\n$$15 = 1\\cdot 8 + 7$$\n$$8 = 1\\cdot 7 + 1$$\n$$7 = 7\\cdot 1 + 0$$\n\nDen siste resten som ikke er $0$, er $1$. Altså er $\\gcd(360,23)=1$. Kjeden har 5 divisjonslinjer.\n\n**(ii) Substitusjonskjeden baklengs.** Vi løser den nest siste linja for resten og substituerer oppover, linje for linje:\n\n$$1 = 8 - 1\\cdot 7$$\nSett inn $7 = 15 - 1\\cdot 8$:\n$$1 = -1\\cdot 15 + 2\\cdot 8$$\nSett inn $8 = 23 - 1\\cdot 15$:\n$$1 = 2\\cdot 23 - 3\\cdot 15$$\nSett inn $15 = 360 - 15\\cdot 23$:\n$$1 = -3\\cdot 360 + 47\\cdot 23$$\n\n**(iii) Konklusjon.** Altså er\n\n$$\\gcd(360,23) = 1 = 360\\cdot(-3) + 23\\cdot(47).$$\n\n**Kontroll ved innsetting:** $360\\cdot(-3) + 23\\cdot(47) = -1\\,080 + 1\\,081 = 1$. Stemmer.\n\nVi leser likningen **modulo $360$**. Leddet $360\\cdot(-3)$ er et multiplum av $360$ og faller bort:\n\n$$23\\cdot(47)\\equiv 1\\pmod{360}.$$\n\nAltså er $u=47$.\n\n**Kontroll:** $23\\cdot 47 = 1\\,081$, og $1\\,081 = 360\\cdot 3 + 1$, så resten er $1$. Stemmer.\n\nAltså er $d=47$. **Kontroll:** $23\\cdot 47=1\\,081=360\\cdot 3+1$ ✓.\n\n**b)** $$m\\equiv 347^{47}\\pmod{407}.$$\n\n**Vi reduserer grunntallet først** — $347$ ligger nær $407$:\n$$347=407-60\\equiv -60\\pmod{407}.$$\nDet hjelper ikke mye her ($60$ er ikke mye mindre enn $347$ å kvadrere), så vi regner direkte med $347$:\n\n**(v) Binærutviklingen av eksponenten og de suksessive kvadratene.** Vi skriver eksponenten som en sum av toerpotenser: $47 = 32 + 8 + 4 + 2 + 1$, altså $47$ i binær er $101111$. Deretter kvadrerer vi oss oppover, og reduserer modulo $407$ etter hvert kvadrat:\n\n| Potens | Utregning | Rest modulo $407$ |\n|---|---|---|\n| $347^{1}$ | — | $347$ |\n| $347^{2}$ | $347^2=120\\,409$, og $120\\,409=407\\cdot 295+344$ | $344$ |\n| $347^{4}$ | $344^2=118\\,336$, og $118\\,336=407\\cdot 290+306$ | $306$ |\n| $347^{8}$ | $306^2=93\\,636$, og $93\\,636=407\\cdot 230+26$ | $26$ |\n| $347^{16}$ | $26^2=676$, og $676=407\\cdot 1+269$ | $269$ |\n| $347^{32}$ | $269^2=72\\,361$, og $72\\,361=407\\cdot 177+322$ | $322$ |\n\n**(vi) Sett sammen produktet.** Da er\n\n$$347^{47} = 347^{32} \\cdot 347^{8} \\cdot 347^{4} \\cdot 347^{2} \\cdot 347^{1} \\equiv 322 \\cdot 26 \\cdot 306 \\cdot 344 \\cdot 347 \\pmod{407},$$\n\nog vi multipliserer to av gangen, med reduksjon underveis: $322\\cdot 26 = 8\\,372\\equiv 232$; $232\\cdot 306 = 70\\,992\\equiv 174$; $174\\cdot 344 = 59\\,856\\equiv 27$; $27\\cdot 347 = 9\\,369\\equiv 8$.\n\n**Den dekrypterte meldingen er $m=\\boxed{8}$.**\n\n**c) Kontroll — krypter tilbake:** $8^{23}\\bmod 407$:\n\n**(v) Binærutviklingen av eksponenten og de suksessive kvadratene.** Vi skriver eksponenten som en sum av toerpotenser: $23 = 16 + 4 + 2 + 1$, altså $23$ i binær er $10111$. Deretter kvadrerer vi oss oppover, og reduserer modulo $407$ etter hvert kvadrat:\n\n| Potens | Utregning | Rest modulo $407$ |\n|---|---|---|\n| $8^{1}$ | — | $8$ |\n| $8^{2}$ | $8^2=64$ | $64$ |\n| $8^{4}$ | $64^2=4\\,096$, og $4\\,096=407\\cdot 10+26$ | $26$ |\n| $8^{8}$ | $26^2=676$, og $676=407\\cdot 1+269$ | $269$ |\n| $8^{16}$ | $269^2=72\\,361$, og $72\\,361=407\\cdot 177+322$ | $322$ |\n\n**(vi) Sett sammen produktet.** Da er\n\n$$8^{23} = 8^{16} \\cdot 8^{4} \\cdot 8^{2} \\cdot 8^{1} \\equiv 322 \\cdot 26 \\cdot 64 \\cdot 8 \\pmod{407},$$\n\nog vi multipliserer to av gangen, med reduksjon underveis: $322\\cdot 26 = 8\\,372\\equiv 232$; $232\\cdot 64 = 14\\,848\\equiv 196$; $196\\cdot 8 = 1\\,568\\equiv 347$.\n\nSamme $c=347$ ✓. Svaret er sikret.\n\n**Sluttsvar:** a) $407=11\\cdot 37$, $\\phi(n)=360$, $d=47$; b) $m=8$; c) kontrollen stemmer.\n\n*Merk at $11\\cdot 37$ er en av de faktoriseringene som er lett å overse: $11$ er det andre primtallet du prøver, og det treffer. Prøv alltid $7$, $11$ og $13$ tidlig.*",
+        "hints": [
+          "Prøvedivider $407$ — $11$ treffer.",
+          "$\\phi(n)=10\\cdot 36=360$.",
+          "Finn $d$ som inversen til $23$ modulo $360$.",
+          "$47=101111_2$ — fem kvadrater og fire multiplikasjoner."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-3-2-ex-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-3-2-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Et RSA-system skal bygges med $p=29$, $q=41$ og $e=19$.\n\n**a)** Finn $n$ og $\\phi(n)$, og bekreft at $e$ er et lovlig valg.\n**b)** Finn $d$.\n**c)** Krypter meldingen $m=5$.",
+        "solution": "**a)** $$n=29\\cdot 41=1\\,189,\\qquad \\phi(n)=(29-1)(41-1)=28\\cdot 40=1\\,120.$$\n**Kontroll:** $1189-29-41+1=1120$ ✓.\n\n$1120=2^5\\cdot 5\\cdot 7$, og $19$ er et primtall som ikke deler $2$, $5$ eller $7$, så $\\gcd(19,1120)=1$ ✓ — **$e=19$ er lovlig**.\n\n**b)** $d$ er inversen til $19$ modulo $1120$:\n\n**(i) Divisjonskjeden frem.** Vi deler gjentatt med rest, **ved Euklids algoritme**, til resten blir $0$:\n\n$$1\\,120 = 58\\cdot 19 + 18$$\n$$19 = 1\\cdot 18 + 1$$\n$$18 = 18\\cdot 1 + 0$$\n\nDen siste resten som ikke er $0$, er $1$. Altså er $\\gcd(1\\,120,19)=1$. Kjeden har 3 divisjonslinjer.\n\n**(ii) Substitusjonskjeden baklengs.** Vi løser den nest siste linja for resten og substituerer oppover, linje for linje:\n\n$$1 = 19 - 1\\cdot 18$$\nSett inn $18 = 1\\,120 - 58\\cdot 19$:\n$$1 = -1\\cdot 1\\,120 + 59\\cdot 19$$\n\n**(iii) Konklusjon.** Altså er\n\n$$\\gcd(1\\,120,19) = 1 = 1\\,120\\cdot(-1) + 19\\cdot(59).$$\n\n**Kontroll ved innsetting:** $1\\,120\\cdot(-1) + 19\\cdot(59) = -1\\,120 + 1\\,121 = 1$. Stemmer.\n\nVi leser likningen **modulo $1\\,120$**. Leddet $1\\,120\\cdot(-1)$ er et multiplum av $1\\,120$ og faller bort:\n\n$$19\\cdot(59)\\equiv 1\\pmod{1\\,120}.$$\n\nAltså er $u=59$.\n\n**Kontroll:** $19\\cdot 59 = 1\\,121$, og $1\\,121 = 1\\,120\\cdot 1 + 1$, så resten er $1$. Stemmer.\n\nAltså er $d=59$. **Kontroll:** $19\\cdot 59=1\\,121=1120+1$ ✓.\n\n**c)** $$c\\equiv 5^{19}\\pmod{1\\,189}.$$\n\n**(v) Binærutviklingen av eksponenten og de suksessive kvadratene.** Vi skriver eksponenten som en sum av toerpotenser: $19 = 16 + 2 + 1$, altså $19$ i binær er $10011$. Deretter kvadrerer vi oss oppover, og reduserer modulo $1\\,189$ etter hvert kvadrat:\n\n| Potens | Utregning | Rest modulo $1\\,189$ |\n|---|---|---|\n| $5^{1}$ | — | $5$ |\n| $5^{2}$ | $5^2=25$ | $25$ |\n| $5^{4}$ | $25^2=625$ | $625$ |\n| $5^{8}$ | $625^2=390\\,625$, og $390\\,625=1\\,189\\cdot 328+633$ | $633$ |\n| $5^{16}$ | $633^2=400\\,689$, og $400\\,689=1\\,189\\cdot 336+1185$ | $1\\,185$ |\n\n**(vi) Sett sammen produktet.** Da er\n\n$$5^{19} = 5^{16} \\cdot 5^{2} \\cdot 5^{1} \\equiv 1\\,185 \\cdot 25 \\cdot 5 \\pmod{1\\,189},$$\n\nog vi multipliserer to av gangen, med reduksjon underveis: $1\\,185\\cdot 25 = 29\\,625\\equiv 1\\,089$; $1\\,089\\cdot 5 = 5\\,445\\equiv 689$.\n\n**Den krypterte meldingen er $c=\\boxed{689}$.**\n\n**Sluttsvar:** a) $n=1189$, $\\phi(n)=1120$, $e$ lovlig; b) $d=59$; c) $c=689$.\n\n*Nøkkelparet er altså: offentlig $(n,e)=(1189,19)$, privat $d=59$ (med $p=29$, $q=41$). Merk at $n<10\\,000$, som er kalibreringen for hva som er regnbart under kode D.*",
+        "hints": [
+          "$n=pq$ og $\\phi(n)=(p-1)(q-1)$.",
+          "Faktoriser $\\phi(n)=1120$ for å sjekke $\\gcd(19,1120)$.",
+          "Finn $d$ med Euklids algoritme på $1120$ og $19$.",
+          "I c): $19=10011_2$ — fire kvadrater og to multiplikasjoner."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-3-2-ex-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-3-2-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Et RSA-system skal bygges med $p=17$, $q=23$ og $e=15$.\n\n**a)** Finn $n$ og $\\phi(n)$, og bekreft at $e$ er lovlig — selv om $e$ ikke er et primtall.\n**b)** Finn $d$.\n**c)** Krypter meldingen $m=9$.",
+        "solution": "**a)** $$n=17\\cdot 23=391,\\qquad\\phi(n)=(17-1)(23-1)=16\\cdot 22=352.$$\n**Kontroll:** $391-17-23+1=352$ ✓.\n\n$352=2^5\\cdot 11$, og $15=3\\cdot 5$. Verken $3$ eller $5$ deler $352$, så $\\gcd(15,352)=1$ ✓ — **$e=15$ er lovlig.**\n\nKravet til $e$ er nemlig **ikke** at den er et primtall, bare at $\\gcd(e,\\phi(n))=1$ ([kap. 3.1](/ma1301/ma1301-3-1)).\n\n**b)** $d$ er inversen til $15$ modulo $352$:\n\n**(i) Divisjonskjeden frem.** Vi deler gjentatt med rest, **ved Euklids algoritme**, til resten blir $0$:\n\n$$352 = 23\\cdot 15 + 7$$\n$$15 = 2\\cdot 7 + 1$$\n$$7 = 7\\cdot 1 + 0$$\n\nDen siste resten som ikke er $0$, er $1$. Altså er $\\gcd(352,15)=1$. Kjeden har 3 divisjonslinjer.\n\n**(ii) Substitusjonskjeden baklengs.** Vi løser den nest siste linja for resten og substituerer oppover, linje for linje:\n\n$$1 = 15 - 2\\cdot 7$$\nSett inn $7 = 352 - 23\\cdot 15$:\n$$1 = -2\\cdot 352 + 47\\cdot 15$$\n\n**(iii) Konklusjon.** Altså er\n\n$$\\gcd(352,15) = 1 = 352\\cdot(-2) + 15\\cdot(47).$$\n\n**Kontroll ved innsetting:** $352\\cdot(-2) + 15\\cdot(47) = -704 + 705 = 1$. Stemmer.\n\nVi leser likningen **modulo $352$**. Leddet $352\\cdot(-2)$ er et multiplum av $352$ og faller bort:\n\n$$15\\cdot(47)\\equiv 1\\pmod{352}.$$\n\nAltså er $u=47$.\n\n**Kontroll:** $15\\cdot 47 = 705$, og $705 = 352\\cdot 2 + 1$, så resten er $1$. Stemmer.\n\nAltså er $d=47$. **Kontroll:** $15\\cdot 47=705=352\\cdot 2+1$ ✓.\n\n**c)** $$c\\equiv 9^{15}\\pmod{391}.$$\n\n**(v) Binærutviklingen av eksponenten og de suksessive kvadratene.** Vi skriver eksponenten som en sum av toerpotenser: $15 = 8 + 4 + 2 + 1$, altså $15$ i binær er $1111$. Deretter kvadrerer vi oss oppover, og reduserer modulo $391$ etter hvert kvadrat:\n\n| Potens | Utregning | Rest modulo $391$ |\n|---|---|---|\n| $9^{1}$ | — | $9$ |\n| $9^{2}$ | $9^2=81$ | $81$ |\n| $9^{4}$ | $81^2=6\\,561$, og $6\\,561=391\\cdot 16+305$ | $305$ |\n| $9^{8}$ | $305^2=93\\,025$, og $93\\,025=391\\cdot 237+358$ | $358$ |\n\n**(vi) Sett sammen produktet.** Da er\n\n$$9^{15} = 9^{8} \\cdot 9^{4} \\cdot 9^{2} \\cdot 9^{1} \\equiv 358 \\cdot 305 \\cdot 81 \\cdot 9 \\pmod{391},$$\n\nog vi multipliserer to av gangen, med reduksjon underveis: $358\\cdot 305 = 109\\,190\\equiv 101$; $101\\cdot 81 = 8\\,181\\equiv 361$; $361\\cdot 9 = 3\\,249\\equiv 121$.\n\n**Den krypterte meldingen er $c=\\boxed{121}$.**\n\n**Sluttsvar:** a) $n=391$, $\\phi(n)=352$, $e=15$ lovlig fordi $\\gcd(15,352)=1$; b) $d=47$; c) $c=121$.\n\n*Oppgaven prøver om du kjenner kravet til $e$ presist. Mange husker «$e$ er et lite primtall» fra eksempler, men det er en vane, ikke et krav — og en oppgave kan bruke et sammensatt $e$ nettopp for å se om du vet det.*",
+        "hints": [
+          "$n=pq$ og $\\phi(n)=16\\cdot 22$.",
+          "Kravet til $e$ er $\\gcd(e,\\phi(n))=1$ — ikke at $e$ er et primtall.",
+          "Faktoriser $352$ og $15$ og sammenlign primfaktorene.",
+          "I c): $15=1111_2$ — tre kvadrater og tre multiplikasjoner."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-3-2-ex-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-3-2-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "I et RSA-system er den offentlige nøkkelen $(n,e)=(1147,23)$.\n\n**a)** Krypter meldingen $m=12$.\n**b)** Hva er det største tallet som kan sendes som én melding i dette systemet, og hvorfor?",
+        "solution": "**a)** $$c\\equiv 12^{23}\\pmod{1\\,147}.$$\n\n**(v) Binærutviklingen av eksponenten og de suksessive kvadratene.** Vi skriver eksponenten som en sum av toerpotenser: $23 = 16 + 4 + 2 + 1$, altså $23$ i binær er $10111$. Deretter kvadrerer vi oss oppover, og reduserer modulo $1\\,147$ etter hvert kvadrat:\n\n| Potens | Utregning | Rest modulo $1\\,147$ |\n|---|---|---|\n| $12^{1}$ | — | $12$ |\n| $12^{2}$ | $12^2=144$ | $144$ |\n| $12^{4}$ | $144^2=20\\,736$, og $20\\,736=1\\,147\\cdot 18+90$ | $90$ |\n| $12^{8}$ | $90^2=8\\,100$, og $8\\,100=1\\,147\\cdot 7+71$ | $71$ |\n| $12^{16}$ | $71^2=5\\,041$, og $5\\,041=1\\,147\\cdot 4+453$ | $453$ |\n\n**(vi) Sett sammen produktet.** Da er\n\n$$12^{23} = 12^{16} \\cdot 12^{4} \\cdot 12^{2} \\cdot 12^{1} \\equiv 453 \\cdot 90 \\cdot 144 \\cdot 12 \\pmod{1\\,147},$$\n\nog vi multipliserer to av gangen, med reduksjon underveis: $453\\cdot 90 = 40\\,770\\equiv 625$; $625\\cdot 144 = 90\\,000\\equiv 534$; $534\\cdot 12 = 6\\,408\\equiv 673$.\n\n**Den krypterte meldingen er $c=\\boxed{673}$.**\n\n**b)** Meldingen må oppfylle $0\\le m<n$, så det største tallet er $m=n-1=1\\,146$.\n\n**Grunnen:** dekrypteringen gir tilbake **resten** modulo $n$. To meldinger som er kongruente modulo $n$, krypteres til samme $c$ og kan ikke skilles fra hverandre. Med $m=n$ ville $m\\equiv 0$, altså samme kryptering som meldingen $0$.\n\nI praksis deles derfor lengre meldinger i **blokker** som hver er mindre enn $n$ ([kap. 3.1](/ma1301/ma1301-3-1)).\n\n**Sluttsvar:** a) $c=673$; b) $m=1146$, fordi dekrypteringen bare bestemmer $m$ modulo $n$.\n\n*Merk at oppgaven kunne løses uten å kjenne $p$ og $q$ — kryptering krever bare den offentlige nøkkelen. Det er hele poenget med offentlig-nøkkel-kryptografi: alle kan låse.*",
+        "hints": [
+          "Kryptering bruker $e$: $c\\equiv m^{e}\\pmod n$.",
+          "$23=10111_2$ — fire kvadrater og tre multiplikasjoner.",
+          "I b): hva gir dekrypteringen tilbake — tallet eller resten?"
+        ]
+      }
+    },
+    {
+      "id": "ma1301-3-2-ex-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-3-2-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "I et RSA-system er $n=329$ og den private eksponenten $d=65$. Du har mottatt $c=38$.\n\n**Dekrypter meldingen.**",
+        "solution": "$$m\\equiv c^{d}=38^{65}\\pmod{329}.$$\n\nVi regner med **kvadrer-og-multipliser**. Eksponenten er $65=64+1=1000001_2$, altså bare **to** enere — seks kvadrater og én multiplikasjon.\n\n**(v) Binærutviklingen av eksponenten og de suksessive kvadratene.** Vi skriver eksponenten som en sum av toerpotenser: $65 = 64 + 1$, altså $65$ i binær er $1000001$. Deretter kvadrerer vi oss oppover, og reduserer modulo $329$ etter hvert kvadrat:\n\n| Potens | Utregning | Rest modulo $329$ |\n|---|---|---|\n| $38^{1}$ | — | $38$ |\n| $38^{2}$ | $38^2=1\\,444$, og $1\\,444=329\\cdot 4+128$ | $128$ |\n| $38^{4}$ | $128^2=16\\,384$, og $16\\,384=329\\cdot 49+263$ | $263$ |\n| $38^{8}$ | $263^2=69\\,169$, og $69\\,169=329\\cdot 210+79$ | $79$ |\n| $38^{16}$ | $79^2=6\\,241$, og $6\\,241=329\\cdot 18+319$ | $319$ |\n| $38^{32}$ | $319^2=101\\,761$, og $101\\,761=329\\cdot 309+100$ | $100$ |\n| $38^{64}$ | $100^2=10\\,000$, og $10\\,000=329\\cdot 30+130$ | $130$ |\n\n**(vi) Sett sammen produktet.** Da er\n\n$$38^{65} = 38^{64} \\cdot 38^{1} \\equiv 130 \\cdot 38 \\pmod{329},$$\n\nog vi multipliserer to av gangen, med reduksjon underveis: $130\\cdot 38 = 4\\,940\\equiv 5$.\n\n**Den dekrypterte meldingen er $m=\\boxed{5}$.**\n\n**Kontroll.** Her er $329=7\\cdot 47$ (prøvedivisjon: $7\\cdot 47=329$), og $\\phi(329)=6\\cdot 46=276$. Med $d=65$ må $e$ være inversen til $65$ modulo $276$, og det er $e=17$ (kontroll: $65\\cdot 17=1\\,105=276\\cdot 4+1$ ✓). Da skal $5^{17}\\bmod 329$ gi $38$:\n\n**(v) Binærutviklingen av eksponenten og de suksessive kvadratene.** Vi skriver eksponenten som en sum av toerpotenser: $17 = 16 + 1$, altså $17$ i binær er $10001$. Deretter kvadrerer vi oss oppover, og reduserer modulo $329$ etter hvert kvadrat:\n\n| Potens | Utregning | Rest modulo $329$ |\n|---|---|---|\n| $5^{1}$ | — | $5$ |\n| $5^{2}$ | $5^2=25$ | $25$ |\n| $5^{4}$ | $25^2=625$, og $625=329\\cdot 1+296$ | $296$ |\n| $5^{8}$ | $296^2=87\\,616$, og $87\\,616=329\\cdot 266+102$ | $102$ |\n| $5^{16}$ | $102^2=10\\,404$, og $10\\,404=329\\cdot 31+205$ | $205$ |\n\n**(vi) Sett sammen produktet.** Da er\n\n$$5^{17} = 5^{16} \\cdot 5^{1} \\equiv 205 \\cdot 5 \\pmod{329},$$\n\nog vi multipliserer to av gangen, med reduksjon underveis: $205\\cdot 5 = 1\\,025\\equiv 38$.\n\nSamme $c=38$ ✓.\n\n**Sluttsvar:** $m=5$.\n\n*Legg merke til hvor lite arbeid $d=65$ ga: seks kvadrater og én multiplikasjon. Sammenlign med $d=63=111111_2$, som ville krevd fem kvadrater og fem multiplikasjoner. **Se på binærutviklingen før du starter** — den forteller deg hvor lang oppgaven blir.*",
+        "hints": [
+          "Dekryptering bruker $d$: $m\\equiv c^{d}\\pmod n$.",
+          "$65=64+1$, så binærutviklingen har bare to enere.",
+          "Reduser etter hvert kvadrat — alle tall skal holdes under $329$."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-3-2-ex-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-3-2-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "I et RSA-system er $p=19$, $q=23$, $e=13$ og $d=61$. Du har mottatt $c=289$.\n\n**a)** Dekrypter meldingen ved å regne modulo $p$ og modulo $q$ hver for seg, og sette sammen med det kinesiske restteoremet.\n**b)** Sammenlign arbeidsmengden med den direkte metoden ($c^{d}\\bmod n$), som ble brukt i eksamenscasen over.",
+        "solution": "**a)** Her er $n=19\\cdot 23=437$, altså samme system som i eksamenscasen — men vi bruker den raske veien.\n\n**Steg 1: reduser eksponenten mot hvert primtall.** **Fra Fermats lille teorem** ([kap. 2.2](/ma1301/ma1301-2-2)) er $c^{p-1}\\equiv 1\\pmod p$ når $p\\nmid c$, så eksponenten kan reduseres modulo $p-1$:\n$$d_p=61\\bmod 18=7,\\qquad d_q=61\\bmod 22=17.$$\n(Vilkårene holder: $289=17^2$, og verken $19$ eller $23$ deler $289$.)\n\n**Steg 2: to små potenser.**\n\n*Modulo $19$:* $289=19\\cdot 15+4$, så $289\\equiv 4\\pmod{19}$. Da er\n$$m\\equiv 4^{7}\\pmod{19}.$$\nKvadrer-og-multipliser: $4^2=16\\equiv -3$, $4^4\\equiv(-3)^2=9$, og med $7=4+2+1$:\n$$4^{7}\\equiv 9\\cdot(-3)\\cdot 4=-108\\equiv 6\\pmod{19},$$\nsiden $-108+114=6$ og $114=19\\cdot 6$.\n\n*Modulo $23$:* $289=23\\cdot 12+13$, så $289\\equiv 13\\pmod{23}$. Da er\n$$m\\equiv 13^{17}\\pmod{23}.$$\nKvadrer-og-multipliser: $13^2=169=23\\cdot 7+8\\equiv 8$; $13^4\\equiv 8^2=64\\equiv 18\\equiv -5$; $13^8\\equiv(-5)^2=25\\equiv 2$; $13^{16}\\equiv 2^2=4$. Med $17=16+1$:\n$$13^{17}\\equiv 4\\cdot 13=52\\equiv 6\\pmod{23},$$\nsiden $52=23\\cdot 2+6$.\n\n**Steg 3: sett sammen med CRT.** Vi søker $m$ med\n$$m\\equiv 6\\pmod{19},\\qquad m\\equiv 6\\pmod{23}.$$\nHer har begge kongruensene **samme rest**, og modulene er relativt primiske — så vi kan slå dem sammen direkte ([kap. 2.4](/ma1301/ma1301-2-4)):\n$$m\\equiv 6\\pmod{19\\cdot 23}=\\pmod{437}.$$\n\n**Den dekrypterte meldingen er $m=\\boxed{6}$** — samme svar som eksamenscasen fikk med den direkte metoden ✓.\n\n**b) Sammenligning.**\n\n| | Direkte ($289^{61}\\bmod 437$) | Via $p$ og $q$ |\n|---|---|---|\n| Eksponenter | $61$ | $7$ og $17$ |\n| Kvadrater | 5, med tall under $437$ | 2 + 4, med tall under $23$ |\n| Multiplikasjoner | 4 | 2 + 1 |\n| Ekstra arbeid | — | to reduksjoner + CRT |\n| Krever | $d$ og $n$ | $d$, $p$ **og** $q$ |\n\n**Begge er fullgode.** Den raske veien har flere små steg i stedet for færre store, og gevinsten vokser med tallenes størrelse: kvadrering av tosifrede tall er mye lettere for hånd enn av tresifrede.\n\n**Og merk sikkerhetspoenget:** en angriper som bare har $(n,e)$ og $c$, kan ikke bruke denne veien — den forutsetter faktoriseringen, altså nøyaktig hemmeligheten han mangler.\n\n**Sluttsvar:** a) $m=6$; b) den raske veien gir mindre tall, men krever $p$ og $q$.\n\n*At begge kongruensene ga rest $6$, er ikke tilfeldig: meldingen $m=6$ er mindre enn både $19$ og $23$, så $m$ **er** sin egen rest mot begge. Det gjør CRT-steget trivielt — og det er typisk når meldingen er liten.*",
+        "hints": [
+          "Reduser $d$ modulo $p-1$ og modulo $q-1$ — hjemmelen er Fermats lille teorem.",
+          "Reduser også $c$ modulo $p$ og modulo $q$ før du regner potensene.",
+          "Regn de to små potensene med kvadrer-og-multipliser.",
+          "Sett sammen med CRT — men se først om de to restene er like."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-3-2-ex-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-3-2-o9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "**a)** Vis at dekrypteringen i RSA gjenoppretter meldingen når $\\gcd(m,n)=1$, altså at $(m^{e})^{d}\\equiv m\\pmod n$.\n**b)** Hvor i beviset brukes at $ed\\equiv 1\\pmod{\\phi(n)}$, og hvor brukes Eulers teorem?\n**c)** Kontrollér beviset numerisk for $n=299$, $e=5$, $d=53$ og $m=7$.",
+        "solution": "**a)** Fra $ed\\equiv 1\\pmod{\\phi(n)}$ finnes det et helt tall $k$ med\n$$ed=1+k\\phi(n).$$\nDa er\n$$(m^{e})^{d}=m^{ed}=m^{1+k\\phi(n)}=m\\cdot\\left(m^{\\phi(n)}\\right)^{k}.$$\nSiden $\\gcd(m,n)=1$, gir **Eulers teorem** ([kap. 2.1](/ma1301/ma1301-2-1)) at $m^{\\phi(n)}\\equiv 1\\pmod n$, og dermed\n$$(m^{e})^{d}\\equiv m\\cdot 1^{k}=m\\pmod n.\\qquad\\blacksquare$$\n\n**b)** \n\n- **$ed\\equiv 1\\pmod{\\phi(n)}$ brukes i første linje**, når vi skriver $ed=1+k\\phi(n)$. Det er nettopp innholdet i kongruensen: differansen $ed-1$ er et multiplum av $\\phi(n)$.\n- **Eulers teorem brukes i siste skritt**, når $m^{\\phi(n)}$ erstattes med $1$. Det er der vilkåret $\\gcd(m,n)=1$ kreves.\n\nUten den første ville eksponenten ikke ha formen $1+k\\phi(n)$; uten den andre kunne vi ikke forenklet potensen. **Beviset består av nøyaktig disse to skrittene.**\n\n**c) Numerisk kontroll for $n=299=13\\cdot 23$, $e=5$, $d=53$, $m=7$.**\n\nHer er $\\phi(299)=12\\cdot 22=264$, og $ed=5\\cdot 53=265=264+1$, altså $k=1$.\n\n$\\gcd(7,299)=1$ ✓ (siden $299=13\\cdot 23$ og $7$ deler ingen av dem), så **Eulers teorem** gir $7^{264}\\equiv 1\\pmod{299}$.\n\nDa er\n$$7^{265}=7\\cdot 7^{264}\\equiv 7\\cdot 1=7\\pmod{299},$$\nsom er nøyaktig påstanden.\n\n**Og direkte, via kryptering og dekryptering:** vi krypterte $m=7$ til $c=63$ i oppgave 1 ($7^5=16\\,807=299\\cdot 56+63$), og dekrypterte $63$ tilbake til $7$ ✓.\n\n**Sluttsvar:** a) bevist i tre linjer; b) kongruensen i første linje, Eulers teorem i siste; c) $ed=265=264+1$, og $7^{265}\\equiv 7\\pmod{299}$ ✓.\n\n*Punkt b) er verdt å ha tenkt gjennom: en oppgave kan spørre nettopp «hvor i argumentet brukes vilkåret?». Svaret er at $\\gcd(m,n)=1$ kreves av Eulers teorem, og bare der.*",
+        "hints": [
+          "Skriv om $ed\\equiv 1\\pmod{\\phi(n)}$ til en likning med et helt tall $k$.",
+          "Del opp potensen: $m^{1+k\\phi(n)}=m\\cdot(m^{\\phi(n)})^{k}$.",
+          "Hvilket teorem gir $m^{\\phi(n)}\\equiv 1$, og hva krever det?",
+          "I c): regn $\\phi(299)$ og se hva $ed$ er i forhold til den."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-3-2-ex-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-3-2-o10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "La $n=pq$ med $p\\ne q$ primtall, og la $ed\\equiv 1\\pmod{\\phi(n)}$.\n\n**a)** Forklar hvorfor beviset i oppgave 9 ikke dekker meldinger $m$ der $p\\mid m$.\n**b)** Vis at $(m^{e})^{d}\\equiv m\\pmod n$ likevel holder for **alle** $m$ med $0\\le m<n$.\n**c)** Kontrollér for $n=391=17\\cdot 23$, $e=15$, $d=47$ og $m=17$.",
+        "solution": "**a)** Beviset bruker **Eulers teorem**, som krever $\\gcd(m,n)=1$. Deler $p$ tallet $m$, er $\\gcd(m,n)\\ge p>1$, og vilkåret er brutt — teoremet gjelder ikke, og skrittet der $m^{\\phi(n)}$ erstattes med $1$, faller.\n\n(At påstanden likevel er sann, må vises på en annen måte — se b).)\n\n**b)** Vi viser $m^{ed}\\equiv m$ **modulo $p$ og modulo $q$ hver for seg**, og setter sammen med det kinesiske restteoremet.\n\n**Modulo $p$, to tilfeller som dekker alle $m$:**\n\n*Tilfelle 1: $p\\mid m$.* Da er $m\\equiv 0\\pmod p$, og også $m^{ed}\\equiv 0\\pmod p$ (et produkt av tall delelige med $p$ er delelig med $p$). Begge sider er $\\equiv 0$, så $m^{ed}\\equiv m\\pmod p$.\n\n*Tilfelle 2: $p\\nmid m$.* **Fra Fermats lille teorem** er $m^{p-1}\\equiv 1\\pmod p$. Skriv $ed=1+k\\phi(n)$ med $\\phi(n)=(p-1)(q-1)$; da er $k\\phi(n)=(p-1)\\cdot k(q-1)$, altså et multiplum av $p-1$, og\n$$m^{ed}=m\\cdot\\left(m^{p-1}\\right)^{k(q-1)}\\equiv m\\cdot 1=m\\pmod p.$$\n\n**Modulo $q$:** samme argument med $q$ i stedet for $p$, og $p-1$ byttet med $q-1$.\n\n**Sett sammen:** vi har $m^{ed}\\equiv m$ både modulo $p$ og modulo $q$, og $\\gcd(p,q)=1$ siden $p\\ne q$ er primtall. **Ved det kinesiske restteoremet** ([kap. 2.4](/ma1301/ma1301-2-4)) følger\n$$m^{ed}\\equiv m\\pmod{pq}=\\pmod n.\\qquad\\blacksquare$$\n\n**Case-analysen er uttømmende:** for hvert primtall er det enten så at det deler $m$, eller ikke.\n\n**c) Kontroll for $n=391$, $e=15$, $d=47$, $m=17$.**\n\nHer er $17\\mid 391$, så $\\gcd(17,391)=17\\ne 1$ — vi er i tilfelle 1 modulo $p=17$.\n\n*Kryptering:* $c\\equiv 17^{15}\\pmod{391}$. Vi merker at $17\\mid 391$, så alle potenser av $17$ er delelige med $17$. Vi regner: $17^2=289$, og $17^3=4\\,913=391\\cdot 12+221$, så $17^3\\equiv 221$. Videre $17^4\\equiv 221\\cdot 17=3\\,757=391\\cdot 9+238$, så $17^4\\equiv 238$.\n\nI stedet for å regne videre bruker vi splittingen, som er raskere og samtidig illustrerer beviset:\n\n- **modulo $17$:** $17\\equiv 0$, så $17^{15}\\equiv 0$ og $17^{15\\cdot 47}\\equiv 0\\equiv 17\\pmod{17}$ ✓ (begge sider er $\\equiv 0$);\n- **modulo $23$:** $\\gcd(17,23)=1$, og **fra Fermats lille teorem** er $17^{22}\\equiv 1\\pmod{23}$. Eksponenten er $ed=15\\cdot 47=705=352\\cdot 2+1$, og $352=\\phi(391)=16\\cdot 22$, så $ed-1=704=22\\cdot 32$ er et multiplum av $22$. Altså\n$$17^{705}=17\\cdot\\left(17^{22}\\right)^{32}\\equiv 17\\cdot 1=17\\pmod{23}.$$\n\n**Begge kongruensene gir $m^{ed}\\equiv 17$**, og **ved det kinesiske restteoremet** er $17^{705}\\equiv 17\\pmod{391}$ ✓ — dekrypteringen gjenoppretter meldingen, selv om $\\gcd(m,n)=17\\ne 1$.\n\n**Sluttsvar:** a) Eulers teorem krever $\\gcd(m,n)=1$; b) vis modulo $p$ og $q$ hver for seg med Fermat, og sett sammen med CRT; c) kontrollen stemmer, med $m^{ed}\\equiv 17$ mot begge primtall.\n\n*Merk hvor sjelden dette tilfellet er i praksis: sannsynligheten for at en tilfeldig melding er delelig med $p$ eller $q$, er omtrent $1/p+1/q$ — astronomisk liten når primtallene har hundre siffer. **På eksamen er det likevel et delpunkt**, fordi det prøver om du ser at Eulers teorem har et vilkår.*",
+        "hints": [
+          "I a): hvilket vilkår har Eulers teorem, og hva skjer med det når $p\\mid m$?",
+          "I b): del i tilfellene $p\\mid m$ og $p\\nmid m$, og bruk Fermats lille teorem i det andre.",
+          "I b): hvorfor er $k\\phi(n)$ et multiplum av $p-1$?",
+          "I c): $17\\mid 391$, så regn modulo $17$ og modulo $23$ hver for seg."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-3-2-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "Under tidspress er det ikke forståelsen som svikter, men bokføringen. Disse seks er de som faktisk skjer, og alle fanges av kontrollpunktene over.\n\n- **$\\phi(n)$ regnet feil.** Å bruke $n-1$ i stedet for $(p-1)(q-1)$. **Kontrollen:** $(p-1)(q-1)=n-p-q+1$ — regn den på begge måter. For $n=437$: $18\\cdot 22=396$ og $437-19-23+1=396$ ✓.\n\n- **$d$ funnet feil** (Euklid baklengs-slurv, eller glemt å legge til $\\phi(n)$ når koeffisienten ble negativ). **Kontrollen:** gir $ed$ rest $1$ ved divisjon med $\\phi(n)$? Tjue sekunder.\n\n- **Potensfeil: glemt kvadrer-og-multipliser**, eller glemt å redusere etter et kvadrat. **Kontrollen:** alle tall i tabellen skal være under $n$. Og til slutt: krypter svaret tilbake.\n\n- **$e$ og $d$ blandet.** Å kryptere med $d$ eller dekryptere med $e$. **Kontrollen:** skriv ned hvilken eksponent du bruker, med navn. $e$ er den offentlige — den låser.\n\n- **Euler eller Fermat ikke navngitt i korrekthetsargumentet.** Beviset hviler på teoremet, og et argument uten teoremnavn er en byggefeil. **Kontrollen:** står ordene «fra Eulers teorem» der $m^{\\phi(n)}$ erstattes med $1$?\n\n- **$\\gcd(m,n)\\ne 1$-tilfellet glemt** når oppgaven ber om «alle meldinger». Da er case-analysen ikke uttømmende. **Kontrollen:** står det «for alle $m$»? Da trengs modulo $p$ og modulo $q$ hver for seg, pluss CRT.\n\n- **Faktoriseringen ikke vist.** Får du bare $(n,e)$, er faktoriseringen premisset for hele oppgaven, og prøvedivisjonen skal stå."
+    },
+    {
+      "id": "ma1301-3-2-prosedyrekort-intro",
+      "type": "text",
+      "content": "### Prosedyrekort\n\nDette er flashcard-stoff — hopp trygt over ved førstegangslesing; tidsanslaget på 70 minutter gjelder oppskriften, casen og oppgavene.\n\nDrillkapitlene har ingen begrepsbank i vanlig forstand: begrepene står i [kap. 3.1](/ma1301/ma1301-3-1). Kortene her er **oppskriftskort** — de tar prosedyrene og gjør dem til noe du kan gjenkalle kaldt, som kode D krever."
+    },
+    {
+      "id": "ma1301-3-2-d-kort-rsa-oppskrift",
+      "type": "definition",
+      "title": "Kort: RSA i fire steg",
+      "content": "**(1)** $\\phi(n)=(p-1)(q-1)$ — faktoriser $n$ først om nødvendig. Kontroll: $=n-p-q+1$.\n\n**(2)** $\\gcd(e,\\phi(n))=1$-sjekken.\n\n**(3)** $d$ via **Euklids algoritme frem og baklengs** på $\\phi(n)$ og $e$; les $1=\\phi(n)y+ex$ modulo $\\phi(n)$. Kontroll: $ed$ gir rest $1$.\n\n**(4)** Potensen via **kvadrer-og-multipliser**: $c\\equiv m^{e}$, $m\\equiv c^{d}$, begge modulo $n$.\n\n**Må sitte utenat.** Rekkefølgen er alltid den samme: $n\\to\\phi(n)\\to d\\to$ potens.\n\n**Selvtest:** dekk til og skriv de fire stegene på tjue sekunder."
+    },
+    {
+      "id": "ma1301-3-2-d-kort-finn-d",
+      "type": "definition",
+      "title": "Kort: finn d",
+      "content": "$d$ er inversen til $e$ modulo $\\phi(n)$:\n$$ed\\equiv 1\\pmod{\\phi(n)}.$$\n\n**Prosedyre:** Euklids algoritme frem på $\\phi(n)$ og $e$ → baklengs til $1=\\phi(n)y+ex$ → $d=x\\bmod\\phi(n)$.\n\n**Må sitte utenat**, og **føringen frem OG baklengs er føringskravet** ([kap. 1.2](/ma1301/ma1301-1-2)).\n\n**Ble $x$ negativ?** Legg til $\\phi(n)$. Det endrer ikke restklassen, og $d$ skal oppgis i $0<d<\\phi(n)$.\n\n**Kontroll:** $ed$ skal gi rest $1$ ved divisjon med $\\phi(n)$. Typisk er $ed=\\phi(n)+1$ eller $2\\phi(n)+1$ på eksamen.\n\n**Snarvei å se etter:** er $ed=\\phi(n)+1$ for en liten $d$, finner du $d$ ved å prøve — men **skriv kjeden likevel**, den er føringskravet."
+    },
+    {
+      "id": "ma1301-3-2-d-kort-potensen",
+      "type": "definition",
+      "title": "Kort: potensen i RSA",
+      "content": "**Kryptering:** $c\\equiv m^{e}\\pmod n$. **Dekryptering:** $m\\equiv c^{d}\\pmod n$.\n\n**Prosedyre (kvadrer-og-multipliser):** reduser grunntallet først → skriv eksponenten binært → regn suksessive kvadrater, **redusert modulo $n$ etter hvert** → gang sammen de som svarer til enerne.\n\n**Må sitte utenat.**\n\n**Se på binærutviklingen først** — den forteller hvor lang oppgaven blir. $d=65=1000001_2$ gir seks kvadrater og **én** multiplikasjon; $d=63=111111_2$ gir fem kvadrater og **fem** multiplikasjoner.\n\n**Reduser grunntallet, og se etter negative rester.** Er $c\\equiv -3\\pmod n$, er kvadratene mye lettere.\n\n**Kontroll:** alle tall i tabellen under $n$; og til slutt, krypter svaret tilbake."
+    },
+    {
+      "id": "ma1301-3-2-d-kort-rask-vei",
+      "type": "definition",
+      "title": "Kort: den raske dekrypteringsveien",
+      "content": "Kjenner du $p$ og $q$:\n\n**(1)** $d_p=d\\bmod(p-1)$ og $d_q=d\\bmod(q-1)$ — hjemmelen er **Fermats lille teorem**.\n**(2)** Reduser også $c$ modulo $p$ og modulo $q$.\n**(3)** Regn $m_p\\equiv c^{d_p}\\pmod p$ og $m_q\\equiv c^{d_q}\\pmod q$.\n**(4)** Sett sammen med **CRT** til $m$ modulo $n$.\n\n**Utledes på stedet** — det er Fermat brukt to ganger pluss CRT, alt fra Del 2.\n\n**Gevinsten:** små eksponenter og små tall. Tap: to reduksjoner og en CRT ekstra. **Begge veier er fullgode.**\n\n**Vilkåret:** $p\\nmid c$ og $q\\nmid c$. Er ett brutt, er den resten $0$, og du regner den direkte.\n\n**Sikkerhetsmerknad:** veien krever faktoriseringen, så en angriper kan ikke bruke den."
+    },
+    {
+      "id": "ma1301-3-2-d-kort-korrekthet",
+      "type": "definition",
+      "title": "Kort: korrekthetsbeviset",
+      "content": "**Tilfelle $\\gcd(m,n)=1$, tre linjer:**\n\n1. $ed\\equiv 1\\pmod{\\phi(n)}$ betyr $ed=1+k\\phi(n)$.\n2. $m^{ed}=m\\cdot\\left(m^{\\phi(n)}\\right)^{k}$.\n3. **Fra Eulers teorem** er $m^{\\phi(n)}\\equiv 1$, så $m^{ed}\\equiv m\\pmod n$.\n\n**Tilfelle $p\\mid m$ (kreves når oppgaven sier «alle $m$»):** vis $m^{ed}\\equiv m$ modulo $p$ (begge sider $\\equiv 0$) og modulo $q$ (**Fermats lille teorem**, siden $(q-1)\\mid\\phi(n)$), og sett sammen med **CRT**.\n\n**Utledes på stedet** — begge tilfellene. Ikke pugg konklusjonen; kunn utledningen.\n\n**Det som MÅ stå:** hva kongruensen $ed\\equiv 1$ betyr, **teoremnavnet**, og case-analysen om oppgaven ber om alle $m$."
+    },
+    {
+      "id": "ma1301-3-2-d-kort-kontroller-rsa",
+      "type": "definition",
+      "title": "Kort: kontrollene, samlet",
+      "content": "| Etter | Kontroll | Fanger |\n|---|---|---|\n| faktorisering | $pq=n$? | avskrivningsfeil |\n| $\\phi(n)$ | $(p-1)(q-1)=n-p-q+1$? | utregningsfeil |\n| $d$ | gir $ed$ rest $1$ modulo $\\phi(n)$? | Euklid baklengs-slurv |\n| kvadrattabell | alle tall under $n$? | glemt reduksjon |\n| sluttsvar | i $0,\\dots,n-1$? | glemt siste reduksjon |\n| **hele runden** | krypter svaret tilbake — gir det $c$? | **alt** |\n\n**Den siste er unik for RSA og absolutt.** Har du tid, bruk den: da **vet** du at svaret er riktig, og det er en sjelden luksus på en eksamen uten hjelpemidler.\n\n**Er du presset:** ta $ed$-kontrollen. Den koster tjue sekunder og fanger den vanligste feilen."
+    },
+    {
+      "id": "ma1301-3-2-d-kort-kode-d-rsa",
+      "type": "definition",
+      "title": "Kort: kode D-realistiske RSA-tall",
+      "content": "| Størrelse | Typisk verdi på eksamen |\n|---|---|\n| $p$, $q$ | tosifrede primtall, $7$–$47$ |\n| $n=pq$ | **under $10\\,000$** |\n| $\\phi(n)$ | to- til firesifret |\n| $e$ | ensifret eller lite tosifret |\n| $d$ | tosifret, funnet i **3–5 Euklid-linjer** |\n| meldingen $m$ | ensifret eller tosifret |\n| dekrypteringssteg | **5–9** kvadrer-og-multipliser-steg |\n\n**Bruk det som kontroll.** Blir Euklid-kjeden tolv linjer, har du regnet feil. Blir $d$ tresifret, sjekk $\\phi(n)$.\n\n**Og bruk det når du lager egne øvingsoppgaver:** velg to tosifrede primtall, regn $\\phi(n)$, og velg $e$ slik at $ed=\\phi(n)+1$ eller $2\\phi(n)+1$ med begge eksponenter tosifrede. Da er oppgaven regnbar på under et kvarter."
+    },
+    {
+      "id": "ma1301-3-2-d-kort-tidsbudsjett-rsa",
+      "type": "definition",
+      "title": "Kort: tidsbudsjettet for sjanger D",
+      "content": "Eksamen er 4 timer på omtrent 10 likt vektede delpunkt — **~24 minutter per delpunkt**. RSA-oppgaven har typisk to eller tre delpunkt.\n\n| Steg | Tid |\n|---|---|\n| faktorisering av $n$ | ~2 min |\n| $\\phi(n)$ med kontroll | ~1 min |\n| $d$ via Euklid frem og baklengs | ~5 min |\n| kryptering (liten $e$) | ~3 min |\n| dekryptering (5–9 steg) | ~6 min |\n| korrekthetsbevis | ~3 min |\n| tilbake-krypteringskontroll | ~4 min |\n\n**En full oppgave (finn $d$ + dekrypter + kontroll) tar ~18 minutter**, altså under ett delpunkts budsjett — mens oppgaven er verdt to eller tre.\n\n**Prioriteringsråd:** ta $\\phi(n)$ og $d$ først (billige poeng), og dekrypteringen etterpå. Blir tiden knapp, er et riktig $d$ med vist kjede mer verdt enn en halvferdig potensberegning."
+    },
+    {
+      "id": "ma1301-3-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "ma1301-3-2-symbol-inn",
+          "type": "text",
+          "content": "Oppslagsverk — alt her er innført i [kap. 3.1](/ma1301/ma1301-3-1) og brukes i oppgavene over.\n\n| Symbol | Betydning |\n|---|---|\n| $p$, $q$ | de to hemmelige primtallene |\n| $n=pq$ | modulusen, offentlig |\n| $\\phi(n)=(p-1)(q-1)$ | hemmelig |\n| $e$ | krypteringseksponenten, offentlig |\n| $d$ | dekrypteringseksponenten, hemmelig |\n| $m$, $c$ | melding og kryptert melding, begge i $0,\\dots,n-1$ |\n| $d_p$, $d_q$ | $d$ redusert modulo $p-1$ og $q-1$ |\n| $\\gcd(e,\\phi(n))$ | kravet til $e$ |\n| $\\blacksquare$ | bevis slutt |\n\n**Formler i dette delkapitlet:**\n\n$$n=pq,\\qquad\\phi(n)=(p-1)(q-1)=n-p-q+1$$\nOppsettet, med kontrollformen. **(må sitte utenat)**\n\n$$\\gcd(e,\\phi(n))=1,\\qquad ed\\equiv 1\\pmod{\\phi(n)}$$\nKravet til $e$, og definisjonen av $d$. **(må sitte utenat)**\n\n$$c\\equiv m^{e}\\pmod n,\\qquad m\\equiv c^{d}\\pmod n$$\nKryptering og dekryptering. **(må sitte utenat)**\n\n$$1=\\phi(n)\\,y+e\\,x\\ \\Longrightarrow\\ d=x\\bmod\\phi(n)$$\n$d$ fra Euklids algoritme baklengs. **(utledes på stedet — koeffisientene leses ut av substitusjonskjeden hver gang)**\n\n$$m^{ed}=m\\cdot\\left(m^{\\phi(n)}\\right)^{k}\\equiv m\\pmod n\\qquad(\\gcd(m,n)=1)$$\nKorrektheten. **(utledes på stedet — tre linjer fra Eulers teorem)**\n\n$$m^{ed}\\equiv m\\pmod p\\ \\text{og}\\ \\pmod q\\ \\Longrightarrow\\ m^{ed}\\equiv m\\pmod n$$\nKorrektheten også når $p$ eller $q$ deler $m$. **(utledes på stedet — Fermat mot hvert primtall, så CRT)**\n\n$$d_p=d\\bmod(p-1),\\qquad d_q=d\\bmod(q-1)$$\nDen raske dekrypteringsveien. **(utledes på stedet — Fermats lille teorem; krever at du kjenner $p$ og $q$)**\n\n**Oppskriften i fire steg** — (1) $\\phi(n)$, (2) $\\gcd(e,\\phi(n))$-sjekken, (3) $d$ via Euklid frem og baklengs, (4) potensen via kvadrer-og-multipliser. **(må sitte utenat)**\n\n**Kvadrer-og-multipliser** — reduser grunntallet, binærutvikle eksponenten, kvadrer oppover med reduksjon etter hvert steg, gang sammen enerne. **(må sitte utenat — kalkulatoren under kode D kan ikke gjøre dette)**"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

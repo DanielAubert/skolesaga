@@ -1,0 +1,472 @@
+{
+  "id": "ma1301-4-1",
+  "courseId": "ma1301",
+  "chapterNumber": "4.1",
+  "title": "Kvadratiske rester, Legendre-symbolet og Eulers kriterium",
+  "description": "Når har x²≡a (mod p) løsning? Legendre-symbolet (a/p), dets fullstendige multiplikativitet og periodisitet, og Eulers kriterium (a/p)≡a^((p−1)/2) — verktøyene før resiprositetsloven.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "avgjøre om et tall er et kvadrat modulo et primtall, både ved å kvadrere alle rester og ved regneregler",
+    "regne ut Legendre-symbolet ved å redusere telleren, faktorisere den og splitte symbolet over faktorene",
+    "bruke Eulers kriterium til å avgjøre løsbarhet, med potensen regnet for hånd ved kvadrer-og-multipliser",
+    "svare på hvor mange løsninger en kvadratisk kongruens har, og oppgi løsningene som et pluss-minus-par"
+  ],
+  "content": [
+    {
+      "id": "ma1301-4-1-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Kvadratiske rester, Legendre-symbolet og resiprositet er sjanger F, og sjangeren forekommer i 10 av 15 sett — 67 %.**\n\nSjangerbokstavene er bokas egne forkortelser for oppgavetypene, forklart i [kap. 0.1](/ma1301/ma1301-0-1). **F** står for kvadratiske rester og Legendre-symbolet.\n\n| Hva oppgaven spør om | Hvor du finner apparatet |\n|---|---|\n| «Har $x^2\\equiv a\\pmod p$ løsning?» | dette kapitlet og [kap. 4.2](/ma1301/ma1301-4-2) |\n| «Regn ut $\\left(\\frac{a}{p}\\right)$» | dette kapitlet (regnereglene og Eulers kriterium) |\n| «Hvor mange løsninger har kongruensen?» | dette kapitlet (svaret er alltid $2$ eller $0$) |\n\nDette er **den tydelige karakterskilleren i settets andre halvdel**. Grunnen er ikke at stoffet er vanskeligere enn Euklid — det er at det er mindre kjent. En student som har drillet Euklid og Euler, men aldri regnet et Legendre-symbol, taper dette delpunktet i sin helhet, mens en som har drillet det, tar det på under ti minutter.\n\n**Dette kapitlet er halve sjangeren.** Her får du definisjonen, de to regnereglene (multiplikativitet og periodisitet) og Eulers kriterium. I [kap. 4.2](/ma1301/ma1301-4-2) kommer resiprositetsloven og de to supplementsreglene, som er det som gjør regningen rask nok for store primtall.\n\n**Prioritet: høyeste.** Sjangeren er høyfrekvent, oppskriften er kort, og det finnes ingen deloppgave i faget der forholdet mellom innsats og uttelling er bedre."
+    },
+    {
+      "id": "ma1301-4-1-utenat",
+      "type": "tip",
+      "title": "Utenat under kode D",
+      "content": "Eksamen er hjelpemiddelkode D: ingen bok, ingen formelsamling, ingen tabeller, ingen egne notater — bare en enkel kalkulator. Det rammer dette kapitlet hardere enn noe annet i boka, for det er nettopp her en student med hjelpemidler ville slått opp: i en tabell over kvadratiske rester, eller i en oppstilling av regnereglene. **Den tabellen finnes ikke 24. november.** Derfor må apparatet inn i hodet.\n\n**Må sitte utenat:**\n\n- **definisjonen** av kvadratisk rest og av Legendre-symbolet $\\left(\\frac{a}{p}\\right)\\in\\{1,-1,0\\}$\n- **periodisiteten** — symbolet avhenger bare av $a\\bmod p$, så reduser FØRST\n- **multiplikativiteten** $\\left(\\frac{ab}{p}\\right)=\\left(\\frac{a}{p}\\right)\\left(\\frac{b}{p}\\right)$\n- **Eulers kriterium** $\\left(\\frac{a}{p}\\right)\\equiv a^{(p-1)/2}\\pmod p$ — med den eksakte eksponenten $(p-1)/2$\n- **konklusjonsregelen**: symbolet $1$ betyr **to** løsninger, $-1$ betyr **ingen**\n\n**Utledes på stedet:**\n\n- **$\\left(\\frac{-1}{p}\\right)$** ut av Eulers kriterium: $\\left(\\frac{-1}{p}\\right)\\equiv(-1)^{(p-1)/2}$, som er $1$ når $p\\equiv 1\\pmod 4$ og $-1$ når $p\\equiv 3\\pmod 4$. To linjer, under et halvt minutt — utledningen står i løkke 5.\n- **at $\\left(\\frac{a^2}{p}\\right)=1$** når $p\\nmid a$: multiplikativiteten gir $\\left(\\frac ap\\right)^2$, og $(\\pm 1)^2=1$. Én linje.\n- **at det finnes $(p-1)/2$ kvadratiske rester**, og at $\\sum_{a=1}^{p-1}\\left(\\frac ap\\right)=0$. Begge følger av at kvadreringen parrer $x$ med $p-x$ — tre linjer, i løkke 2.\n\n**Selvtest, tre minutter:** dekk til boka og skriv ned Eulers kriterium med riktig eksponent, de to regnereglene, og hva symbolverdien $-1$ betyr for antall løsninger. Får du eksponenten $(p-1)/2$ riktig uten å nøle, har du kapitlets kjerne."
+    },
+    {
+      "id": "ma1301-4-1-forkunnskaper",
+      "type": "text",
+      "content": "### Forkunnskaper\n\nFra boka: [kap. 2.2](/ma1301/ma1301-2-2) (Fermats lille teorem — Eulers kriterium er en direkte konsekvens), [kap. 1.4](/ma1301/ma1301-1-4) (kongruens, restklasser, regneregler) og [kap. 2.1](/ma1301/ma1301-2-1) (kvadrer-og-multipliser, som er måten du regner ut potensen i Eulers kriterium).\n\n**Sist du var her.** De to resultatene du bruker hele veien i dette kapitlet, ferdig oppfrisket:\n\n**Fermats lille teorem.** For et primtall $p$ og $p\\nmid a$:\n$$a^{p-1}\\equiv 1\\pmod p.$$\n\n**Kvadrer-og-multipliser.** For å regne $a^N\\bmod n$: skriv $N$ i binærform, regn de suksessive kvadratene $a^1,a^2,a^4,a^8,\\dots$ modulo $n$, og gang sammen dem som svarer til ett-erne i binærutviklingen.\n\nFra videregående kreves ingenting, men [Mengdelære](/1t/1t-1-7) gir språket vi bruker når vi snakker om *mengden* av kvadratiske rester."
+    },
+    {
+      "id": "ma1301-4-1-motivasjon",
+      "type": "text",
+      "content": "### Hvilke tall kan slutte på 7?\n\nSkriv opp kvadrattallene: $1,4,9,16,25,36,49,64,81,100,121,\\dots$ Se på siste siffer: $1,4,9,6,5,6,9,4,1,0,1,\\dots$ Noe mangler. **Ingen kvadrattall slutter på $2$, $3$, $7$ eller $8$.**\n\nDet er et delelighetsutsagn i forkledning. Siste siffer er tallet modulo $10$, og påstanden er at kongruensen $x^2\\equiv 7\\pmod{10}$ ikke har noen løsning. Du har brukt dette lenge uten å kalle det noe: når noen spør om $12\\,347$ er et kvadrattall, svarer du nei uten å regne.\n\n**Dette kapitlet handler om det samme spørsmålet, med et primtall som modulus:** for hvilke $a$ har $x^2\\equiv a\\pmod p$ en løsning? Svaret er overraskende ryddig. For et odde primtall $p$ er **nøyaktig halvparten** av de $p-1$ ikke-null restene kvadrater, og den andre halvparten er det ikke. Med $p=13$ er det seks av hver.\n\n**Hvorfor det er verdt et helt kapittel:** spørsmålet «har denne kongruensen løsning?» kan besvares uten å prøve seg frem. Det finnes et symbol, $\\left(\\frac{a}{p}\\right)$, som er $+1$ når svaret er ja og $-1$ når svaret er nei, og det symbolet oppfører seg som et vanlig produkt. Det gjør at du kan bryte et stort spørsmål ned i små, akkurat som du faktoriserer et tall.\n\nHer i kap. 4.1 bygger vi symbolet og de to regnereglene, pluss Eulers kriterium som regner det ut direkte. I [kap. 4.2](/ma1301/ma1301-4-2) kommer resiprositetsloven, som gjør regningen rask nok til at et firesifret primtall ikke er noe problem.\n\n*Tidsanslag for kapitlet: ~55 minutter lesetid, fordelt på fem løkker à 8–13 minutter. Regner du med penn underveis — og det bør du — legg til omtrent halvparten.*"
+    },
+    {
+      "id": "ma1301-4-1-l1-intro",
+      "type": "text",
+      "content": "## Løkke 1: Kvadratiske rester og tabellmetoden\n\n*~10 minutter.*\n\nVi begynner med det konkrete: å finne ut hvilke rester som er kvadrater, ved å kvadrere alt. Det er alltid mulig, det er alltid riktig, og for små primtall er det raskeste vei."
+    },
+    {
+      "id": "ma1301-4-1-d-kvadratisk-rest",
+      "type": "definition",
+      "title": "Kvadratisk rest modulo p",
+      "content": "Et tall $a$ kalles en **kvadratisk rest** modulo $p$ dersom kongruensen\n\n$$x^2\\equiv a\\pmod p$$\n\nhar en løsning — altså dersom $a$ er «et kvadrattall sett med modulo-$p$-øyne».\n\nI klarspråk: $a$ er en kvadratisk rest når du kan finne et tall som, opphøyd i annen, gir rest $a$ ved divisjon med $p$. Med $p=13$ er $10$ en kvadratisk rest, fordi $6^2=36=2\\cdot 13+10$.\n\n**Er det ingen slik $x$, kalles $a$ en kvadratisk ikke-rest.**\n\nTo presiseringer som er verdt å ha med fra starten:\n\n- Vi ser bare på **odde primtall** $p$ som modulus. Primtallet $2$ er et unntak (alt er kvadrat modulo $2$), og sammensatte moduler behandles ved å splitte modulusen i primtallspotenser.\n- Vi antar **$p\\nmid a$**. Er $p\\mid a$, er $a\\equiv 0$, og $x=0$ er en løsning — men det tilfellet er trivielt og holdes utenfor tellingen.\n\n**Definisjonen må sitte utenat**, og den er også språket sensor forventer: skriv «$a$ er en kvadratisk rest modulo $p$», ikke «$a$ er et kvadrattall mod $p$»."
+    },
+    {
+      "id": "ma1301-4-1-d-tabellmetoden",
+      "type": "definition",
+      "title": "Tabellmetoden",
+      "content": "Den direkte måten å finne alle kvadratiske rester modulo $p$: **kvadrer alt**.\n\n**Oppskriften:** regn ut $1^2,2^2,3^2,\\dots$ modulo $p$, og stopp ved $x=\\frac{p-1}{2}$. Restene du har fått, er nøyaktig de kvadratiske restene.\n\n**Hvorfor du kan stoppe halvveis:** $x$ og $p-x$ gir samme kvadrat, siden\n$$(p-x)^2=p^2-2px+x^2\\equiv x^2\\pmod p.$$\nAndre halvdel av tabellen gjentar altså første halvdel baklengs, og det er derfor det er **nøyaktig $(p-1)/2$** kvadratiske rester.\n\n**Når du skal bruke den:** for $p$ opp til rundt $20$ er tabellmetoden raskest, og den gir deg i tillegg **løsningene** og ikke bare et ja/nei. Er $p$ større, blir tabellen for lang for eksamenstid, og du går over til regnereglene og Eulers kriterium.\n\n**Utledes på stedet** — dette er ikke et kort du pugger, men en tabell du lager i margen på tjue sekunder."
+    },
+    {
+      "id": "ma1301-4-1-e1",
+      "type": "example",
+      "title": "Alle kvadratiske rester modulo 13",
+      "problem": "Finn alle kvadratiske rester modulo $13$, og avgjør om $x^2\\equiv 10\\pmod{13}$ og $x^2\\equiv 11\\pmod{13}$ har løsning.",
+      "solution": "**Vi kvadrerer opp til $\\frac{p-1}{2}=6$**, siden andre halvdel gjentar første:\n\n| $x$ | $1$ | $2$ | $3$ | $4$ | $5$ | $6$ |\n|---|---|---|---|---|---|---|\n| $x^2\\bmod 13$ | $1$ | $4$ | $9$ | $3$ | $12$ | $10$ |\n\nRegningen: $4^2=16\\equiv 3$, $5^2=25\\equiv 12$, $6^2=36\\equiv 10$.\n\n**De kvadratiske restene modulo $13$ er derfor**\n$$\\{1,3,4,9,10,12\\}.$$\nDet er $6$ tall, og $\\frac{p-1}{2}=\\frac{12}{2}=6$. **Antallet stemmer** — det er den gratis kontrollen på at du ikke har mistet en rad.\n\n**Kontroll av andre halvdel:** $7^2=49\\equiv 10$, som er samme verdi som $6^2$. Og $7=13-6$. Speilingen stemmer.\n\n**$x^2\\equiv 10\\pmod{13}$:** $10$ står i tabellen, ved $x=6$. Kongruensen har altså løsning, og løsningene er\n$$x\\equiv 6\\quad\\text{og}\\quad x\\equiv 13-6=7\\pmod{13}.$$\nDet er **to** løsninger, ikke én — mer om det i løkke 5.\n\n**$x^2\\equiv 11\\pmod{13}$:** $11$ står ikke i tabellen. Siden tabellen er uttømmende, har kongruensen **ingen løsning**, og $11$ er en kvadratisk ikke-rest modulo $13$.\n\n**Sluttsvar:** restene er $\\{1,3,4,9,10,12\\}$; $x^2\\equiv 10$ har løsningene $x\\equiv 6,7$; $x^2\\equiv 11$ har ingen løsning."
+    },
+    {
+      "id": "ma1301-4-1-ex-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-4-1-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Finn alle kvadratiske rester modulo $11$ ved tabellmetoden, og kontrollér at antallet er $\\frac{p-1}{2}$.",
+        "solution": "**Vi kvadrerer opp til $\\frac{p-1}{2}=5$:**\n\n| $x$ | $1$ | $2$ | $3$ | $4$ | $5$ |\n|---|---|---|---|---|---|\n| $x^2\\bmod 11$ | $1$ | $4$ | $9$ | $5$ | $3$ |\n\nRegningen: $4^2=16\\equiv 5$ og $5^2=25\\equiv 3$.\n\n**De kvadratiske restene modulo $11$ er**\n$$\\{1,3,4,5,9\\}.$$\n\n**Kontroll:** det er $5$ tall, og $\\frac{11-1}{2}=5$ ✓.\n\n**Sluttsvar:** $\\{1,3,4,5,9\\}$, altså $5$ stykker, som er $\\frac{p-1}{2}$.\n\n*Legg merke til hvilke tall som IKKE er med: $2,6,7,8,10$. Det er også fem. Halvparten av restene er kvadrater og halvparten er ikke — hver gang, for hvert odde primtall.*",
+        "hints": [
+          "Du trenger bare kvadrere $x=1,2,3,4,5$ — resten av tabellen speiler seg.",
+          "$16$ og $25$ må reduseres modulo $11$."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-4-1-l2-intro",
+      "type": "text",
+      "content": "## Løkke 2: Legendre-symbolet\n\n*~11 minutter.*\n\nTabellmetoden svarer på spørsmålet, men den skalerer ikke: for $p=101$ måtte du kvadrert femti tall. Løsningen er å gi svaret et navn og finne regneregler for navnet. Det navnet er Legendre-symbolet, og de reglene er resten av Del 4.\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "ma1301-4-1-d-legendre",
+      "type": "definition",
+      "title": "Legendre-symbolet",
+      "content": "For et odde primtall $p$ og et helt tall $a$ defineres **Legendre-symbolet** som\n\n$$\\left(\\frac{a}{p}\\right)=\\begin{cases}\\ \\ \\,1 & \\text{hvis } a \\text{ er en kvadratisk rest modulo } p,\\\\ -1 & \\text{hvis } a \\text{ er en kvadratisk ikke-rest modulo } p,\\\\ \\ \\ \\,0 & \\text{hvis } p\\mid a.\\end{cases}$$\n\nI klarspråk: symbolet er en **ja/nei-maskin** for spørsmålet «har $x^2\\equiv a\\pmod p$ løsning?», med $+1$ for ja og $-1$ for nei. Den tredje verdien $0$ er randtilfellet der $a$ er delelig med $p$.\n\n**Definisjonen må sitte utenat.** Den er ikke en formel du regner med, men avtalen alt annet hviler på.\n\n**Notasjonen er ikke en brøk.** $\\left(\\frac{a}{p}\\right)$ ser ut som $a$ delt på $p$, men det er den ikke — det er et symbol med to innganger, og verdien er alltid $1$, $-1$ eller $0$. Boka skriver det som brøk inne i alle utregninger, fordi det er formen løsningsforslagene bruker, og den korte formen $(a/p)$ i løpende prosa der plassen er trang.\n\n**Ett triks for å lese det riktig:** tallet **oppe** er det du spør om, tallet **nede** er modulusen. Bytter du dem, spør du om noe helt annet — og hele resiprositetsloven i [kap. 4.2](/ma1301/ma1301-4-2) handler om nettopp hva som skjer når du bytter."
+    },
+    {
+      "id": "ma1301-4-1-d-halvparten",
+      "type": "definition",
+      "title": "Halvparten-regelen",
+      "content": "Blant de $p-1$ ikke-null restene modulo et odde primtall $p$ er **nøyaktig $\\frac{p-1}{2}$ kvadratiske rester** og nøyaktig $\\frac{p-1}{2}$ ikke-rester.\n\n**Utledes på stedet, tre linjer:** avbildningen $x\\mapsto x^2$ på de $p-1$ ikke-null restene treffer hver kvadratisk rest **nøyaktig to ganger**, siden $x^2\\equiv y^2$ gir $p\\mid(x-y)(x+y)$, altså $y\\equiv\\pm x$ etter Euklids lemma. Da må antall bilder være $\\frac{p-1}{2}$.\n\n**Konsekvensen for Legendre-symbolet** er en identitet du kan bli spurt om direkte:\n\n$$\\sum_{a=1}^{p-1}\\left(\\frac{a}{p}\\right)=0,$$\n\nfordi summen har like mange $+1$-er som $-1$-er.\n\n**Praktisk verdi:** dette er kontrollen din når du lager en tabell. Har du funnet syv kvadratiske rester modulo $13$, har du regnet feil — det skal være seks."
+    },
+    {
+      "id": "ma1301-4-1-d-null-tilfellet",
+      "type": "definition",
+      "title": "Tilfellet p deler a",
+      "content": "Når $p\\mid a$, er $\\left(\\frac{a}{p}\\right)=0$.\n\nGrunnen er at $a\\equiv 0\\pmod p$, og da har $x^2\\equiv 0$ nøyaktig **én** løsning, nemlig $x\\equiv 0$ — ikke to, som ellers. Tilfellet er altså kvalitativt annerledes, og derfor får det sin egen verdi.\n\n**Hvor det faktisk dukker opp på eksamen:** midt i en reduksjonskjede. Reduserer du $\\left(\\frac{158}{79}\\right)$ og finner at $158=2\\cdot 79$, er svaret $0$ og du er ferdig — ingen resiprositet, ingen supplementsregel.\n\n**Fellen å kjenne:** multiplikativiteten holder også når en faktor gir $0$, men da er hele produktet $0$. Skriv aldri $\\left(\\frac{a}{p}\\right)=\\pm 1$ uten å ha sjekket at $p\\nmid a$ først. Sjekken tar to sekunder, og for de primtallene som brukes på eksamen ser du det med øyet."
+    },
+    {
+      "id": "ma1301-4-1-ex-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-4-1-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Bruk tabellen over kvadratiske rester modulo $11$ fra oppgave 1 til å skrive ned verdien av $\\left(\\frac{a}{11}\\right)$ for $a=2,3,4,5,6$. Kontrollér til slutt at summen $\\sum_{a=1}^{10}\\left(\\frac{a}{11}\\right)$ er $0$.",
+        "solution": "Restene modulo $11$ er $\\{1,3,4,5,9\\}$ fra oppgave 1. Vi leser av:\n\n$$\\left(\\frac{2}{11}\\right)=-1,\\qquad \\left(\\frac{3}{11}\\right)=1,\\qquad \\left(\\frac{4}{11}\\right)=1,\\qquad \\left(\\frac{5}{11}\\right)=1,\\qquad \\left(\\frac{6}{11}\\right)=-1.$$\n\nBegrunnelsen for hver: $3,4,5$ står i mengden av kvadratiske rester, mens $2$ og $6$ ikke gjør det.\n\n**Summen.** De ti verdiene er, for $a=1,\\dots,10$:\n$$1,\\ -1,\\ 1,\\ 1,\\ 1,\\ -1,\\ -1,\\ -1,\\ 1,\\ -1.$$\nDet er fem $+1$-er (for $a=1,3,4,5,9$) og fem $-1$-er (for $a=2,6,7,8,10$), så\n$$\\sum_{a=1}^{10}\\left(\\frac{a}{11}\\right)=5\\cdot 1+5\\cdot(-1)=0.$$\n\n**Sluttsvar:** $\\left(\\frac{2}{11}\\right)=-1$, $\\left(\\frac{3}{11}\\right)=1$, $\\left(\\frac{4}{11}\\right)=1$, $\\left(\\frac{5}{11}\\right)=1$, $\\left(\\frac{6}{11}\\right)=-1$, og summen er $0$.\n\n*Merk at $\\left(\\frac{4}{11}\\right)=1$ kunne vært lest av uten tabell: $4=2^2$ er et kvadrattall i vanlig forstand, og da er det kvadratisk rest modulo hvilket som helst primtall som ikke deler det. Det er kortet «$\\left(\\frac{a^2}{p}\\right)=1$» i løkke 4.*",
+        "hints": [
+          "Et tall er kvadratisk rest nøyaktig når det står i mengden $\\{1,3,4,5,9\\}$.",
+          "Til summen: tell antall $+1$ og antall $-1$ blant alle ti restene."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-4-1-l3-intro",
+      "type": "text",
+      "content": "## Løkke 3: Eulers kriterium\n\n*~13 minutter.*\n\nNå kommer den første regnemaskinen: en formel som gir symbolverdien direkte, uten tabell. Den er en nesten umiddelbar konsekvens av Fermats lille teorem, og den er **utgangspunktet for alt annet i Del 4** — begge supplementsreglene i [kap. 4.2](/ma1301/ma1301-4-2) leses ut av den."
+    },
+    {
+      "id": "ma1301-4-1-t-eulers-kriterium",
+      "type": "theorem",
+      "title": "Eulers kriterium",
+      "content": "For et odde primtall $p$ og $p\\nmid a$:\n\n$$\\left(\\frac{a}{p}\\right)\\equiv a^{\\frac{p-1}{2}}\\pmod p.$$\n\nSiden venstresiden er $\\pm 1$ og $p$ er odde, bestemmer kongruensen symbolet entydig: er $a^{(p-1)/2}\\equiv 1$, er symbolet $+1$; er den $\\equiv -1$ (altså $\\equiv p-1$), er symbolet $-1$.\n\n**Bevis.** Sett $m=\\frac{p-1}{2}$.\n\n*Retning 1: er $a$ en kvadratisk rest, er $a^m\\equiv 1$.* Skriv $a\\equiv x^2$ for en $x$ med $p\\nmid x$. Da er\n$$a^m\\equiv (x^2)^{\\frac{p-1}{2}}=x^{p-1}\\equiv 1\\pmod p$$\n**ved Fermats lille teorem**. Ferdig — én linje.\n\n*Mellomsteg: $a^m$ er alltid $\\pm 1$.* Etter Fermat er $(a^m)^2=a^{p-1}\\equiv 1$, så $p\\mid (a^m-1)(a^m+1)$. **Ved Euklids lemma** deler $p$ én av faktorene, altså er $a^m\\equiv 1$ eller $a^m\\equiv -1$. Ingen tredje mulighet.\n\n*Retning 2: er $a$ en ikke-rest, er $a^m\\equiv -1$.* Etter retning 1 er alle de $\\frac{p-1}{2}$ kvadratiske restene røtter i kongruensen $z^m\\equiv 1\\pmod p$. Et polynom av grad $m$ har **høyst $m$ røtter modulo et primtall** (Lagranges rotsetning — samme argument som at $p$ må dele en faktor i et produkt). Siden $m=\\frac{p-1}{2}$ er nøyaktig antallet kvadratiske rester, er de kvadratiske restene **alle** røttene. En ikke-rest kan derfor ikke gi $1$, og etter mellomsteget må den gi $-1$. $\\blacksquare$\n\n**Teoremet må sitte utenat**, og det må navngis: løsningsforslagene skriver «ved Eulers kriterium». **Eksponenten er $\\frac{p-1}{2}$** — halve Fermat-eksponenten. Skriver du $p-1$, får du alltid $1$ og svaret er verdiløst; det er den vanligste feilen på dette kortet.\n\n**Intuisjon:** Fermat sier at $a^{p-1}\\equiv 1$. Å ta halve eksponenten er å ta «kvadratroten av $1$», og modulo et primtall har $1$ nøyaktig to kvadratrøtter: $+1$ og $-1$. Kvadratene lander på $+1$, ikke-kvadratene på $-1$ — symbolet er rett og slett hvilken av de to du havner på."
+    },
+    {
+      "id": "ma1301-4-1-d-kriteriet-i-praksis",
+      "type": "definition",
+      "title": "Eulers kriterium i praksis",
+      "content": "Prosedyren for å regne ut $\\left(\\frac{a}{p}\\right)$ med kriteriet:\n\n1. **Reduser $a$ modulo $p$** (periodisiteten i løkke 4). Regn aldri med et tall større enn $p$.\n2. **Regn eksponenten** $m=\\frac{p-1}{2}$.\n3. **Regn $a^m\\bmod p$ med kvadrer-og-multipliser** — binærutvikling av $m$, suksessive kvadrater, gang sammen. Potensen skal **føres** — den regnes ikke bort med et tastetrykk.\n4. **Les av:** $1$ gir symbolet $+1$, og $p-1$ gir symbolet $-1$. Får du noe annet, har du regnet feil — det finnes ingen tredje mulighet.\n5. **Konkludér i ord:** «altså har kongruensen to løsninger» eller «altså har kongruensen ingen løsning».\n\n**Når kriteriet er raskest:** når $a$ eller $p$ er lite, når $a^{(p-1)/2}$ faller pent sammen (som når $a^2\\equiv -1$), og alltid som **uavhengig kontroll** av en resiprositetskjede.\n\n**Når det ikke er raskest:** for store $p$. Med $p=101$ er eksponenten $50$, og det er 5–6 kvadreringer med tresifrede tall. Da er resiprositetsloven i [kap. 4.2](/ma1301/ma1301-4-2) mye kortere. **Steg 3 må sitte utenat** som prosedyre, siden kalkulatoren under kode D ikke kan regne modulære potenser."
+    },
+    {
+      "id": "ma1301-4-1-e2",
+      "type": "example",
+      "title": "Eulers kriterium på (5/13)",
+      "problem": "Avgjør ved Eulers kriterium om $x^2\\equiv 5\\pmod{13}$ har løsning.",
+      "solution": "**Steg 1: $a$ er alt redusert.** Her er $a=5<13$, så det er ingenting å redusere.\n\n**Steg 2: eksponenten.** $m=\\frac{p-1}{2}=\\frac{13-1}{2}=6$.\n\n**Steg 3: regn $5^6\\bmod 13$ med kvadrer-og-multipliser.** Binærutviklingen av $6$ er $110_2=4+2$, så vi trenger $5^2$ og $5^4$:\n\n| potens | verdi mod $13$ |\n|---|---|\n| $5^1$ | $5$ |\n| $5^2$ | $25\\equiv 12\\equiv -1$ |\n| $5^4$ | $(-1)^2=1$ |\n\n$$5^6=5^4\\cdot 5^2\\equiv 1\\cdot(-1)=-1\\equiv 12\\pmod{13}.$$\n\n**Steg 4: les av.** Vi fikk $-1$, altså **ved Eulers kriterium**\n$$\\left(\\frac{5}{13}\\right)=-1.$$\n\n**Steg 5: konklusjon i ord.** Siden symbolet er $-1$, er $5$ en kvadratisk ikke-rest modulo $13$, og kongruensen $x^2\\equiv 5\\pmod{13}$ har **ingen løsning**.\n\n**Kontroll mot tabellen** fra eksempel 1: restene modulo $13$ er $\\{1,3,4,9,10,12\\}$, og $5$ er ikke blant dem ✓.\n\n**Sluttsvar:** $\\left(\\frac{5}{13}\\right)=-1$; kongruensen har ingen løsning.\n\n*Legg merke til snarveien som gjorde regningen kort: $5^2\\equiv -1$. Når en potens lander på $-1$, er alle høyere potenser gratis. Se etter det hver gang — det sparer to kvadreringer.*"
+    },
+    {
+      "id": "ma1301-4-1-ex-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-4-1-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Bruk Eulers kriterium til å avgjøre om $x^2\\equiv 3\\pmod{11}$ har løsning. Oppgi løsningene hvis den har noen.",
+        "solution": "**Steg 1:** $a=3$ er alt redusert modulo $11$.\n\n**Steg 2: eksponenten.** $m=\\frac{11-1}{2}=5$.\n\n**Steg 3: regn $3^5\\bmod 11$.** Binærutviklingen av $5$ er $101_2=4+1$:\n\n| potens | verdi mod $11$ |\n|---|---|\n| $3^1$ | $3$ |\n| $3^2$ | $9$ |\n| $3^4$ | $81\\equiv 4$ |\n\n$$3^5=3^4\\cdot 3^1\\equiv 4\\cdot 3=12\\equiv 1\\pmod{11}.$$\n\n**Steg 4:** vi fikk $1$, så **ved Eulers kriterium** er $\\left(\\frac{3}{11}\\right)=1$.\n\n**Steg 5: konklusjon.** $3$ er en kvadratisk rest modulo $11$, og kongruensen har **to** løsninger.\n\n**Løsningene:** vi prøver oss frem blant $x\\le 5$ (resten speiler seg): $5^2=25\\equiv 3$ ✓. Altså er\n$$x\\equiv 5\\quad\\text{og}\\quad x\\equiv 11-5=6\\pmod{11}.$$\n\n**Kontroll:** $6^2=36=3\\cdot 11+3\\equiv 3$ ✓.\n\n**Sluttsvar:** $\\left(\\frac{3}{11}\\right)=1$; løsningene er $x\\equiv 5$ og $x\\equiv 6\\pmod{11}$.",
+        "hints": [
+          "Eksponenten er $\\frac{p-1}{2}$, ikke $p-1$.",
+          "$3^4=81$ må reduseres modulo $11$ før du ganger med $3$.",
+          "Har du fått symbolet $+1$, finn løsningen ved å kvadrere $x=1,2,3,4,5$."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-4-1-ex-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-4-1-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "**a)** Avgjør ved Eulers kriterium om $7$ er en kvadratisk rest modulo $13$.\n**b)** Hva er $\\left(\\frac{7}{13}\\right)$, og hvor mange løsninger har $x^2\\equiv 7\\pmod{13}$?",
+        "solution": "**a)** Eksponenten er $m=\\frac{13-1}{2}=6$. Binærutviklingen av $6$ er $110_2=4+2$:\n\n| potens | verdi mod $13$ |\n|---|---|\n| $7^1$ | $7$ |\n| $7^2$ | $49\\equiv 10$ |\n| $7^4$ | $10^2=100\\equiv 9$ |\n\n$$7^6=7^4\\cdot 7^2\\equiv 9\\cdot 10=90\\equiv 90-78=12\\equiv -1\\pmod{13}.$$\n\nVi fikk $-1$, så $7$ er en kvadratisk **ikke-rest** modulo $13$.\n\n**b)** **Ved Eulers kriterium** er\n$$\\left(\\frac{7}{13}\\right)=-1,$$\nog kongruensen $x^2\\equiv 7\\pmod{13}$ har derfor **ingen løsning** — altså $0$ løsninger.\n\n**Kontroll mot tabellen** i eksempel 1: restene er $\\{1,3,4,9,10,12\\}$, og $7$ er ikke blant dem ✓.\n\n**Sluttsvar:** $7$ er ikke-rest, $\\left(\\frac{7}{13}\\right)=-1$, og kongruensen har ingen løsning.",
+        "hints": [
+          "$m=6$, og $6=4+2$ i binær — du trenger $7^2$ og $7^4$.",
+          "$90$ må reduseres modulo $13$: $90-78=12$.",
+          "$12\\equiv -1$, og hva betyr $-1$ for antall løsninger?"
+        ]
+      }
+    },
+    {
+      "id": "ma1301-4-1-l4-intro",
+      "type": "text",
+      "content": "## Løkke 4: De to regnereglene\n\n*~11 minutter.*\n\nEulers kriterium virker alltid, men den blir tung når $p$ vokser. De to reglene i denne løkka er det som gjør Legendre-symbolet **regnbart**: de bryter et vanskelig symbol ned i lette. Sammen med resiprositetsloven i [kap. 4.2](/ma1301/ma1301-4-2) utgjør de hele maskineriet.\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "ma1301-4-1-d-periodisitet",
+      "type": "definition",
+      "title": "Periodisitet — reduser først",
+      "content": "Legendre-symbolet avhenger bare av $a$ **modulo $p$**:\n\n$$a\\equiv b\\pmod p\\quad\\Longrightarrow\\quad \\left(\\frac{a}{p}\\right)=\\left(\\frac{b}{p}\\right).$$\n\nGrunnen er at kongruensen $x^2\\equiv a$ og kongruensen $x^2\\equiv b$ er **samme kongruens** når $a\\equiv b$ — de har nøyaktig de samme løsningene.\n\n**Regelen må sitte utenat**, og den brukes som **første og siste** handling i hver utregning: reduser $a$ modulo $p$ før du gjør noe annet, og reduser igjen etter hvert resiprositetssteg i [kap. 4.2](/ma1301/ma1301-4-2).\n\n**Eksempel på hvor mye den sparer:** $\\left(\\frac{94}{13}\\right)$. Her er $94=7\\cdot 13+3$, så\n$$\\left(\\frac{94}{13}\\right)=\\left(\\frac{3}{13}\\right),$$\nog $\\left(\\frac{3}{13}\\right)$ er $1$ fordi $4^2=16\\equiv 3$. Uten reduksjonen ville du regnet $94^6\\bmod 13$.\n\n**Å ikke redusere først er en dokumentert felle.** Den koster ikke bare tid: regner du videre med et stort $a$, får du store tall i faktoriseringen og en unødvendig lang kjede."
+    },
+    {
+      "id": "ma1301-4-1-d-multiplikativitet",
+      "type": "definition",
+      "title": "Fullstendig multiplikativitet",
+      "content": "Legendre-symbolet er **multiplikativt i telleren**:\n\n$$\\left(\\frac{ab}{p}\\right)=\\left(\\frac{a}{p}\\right)\\left(\\frac{b}{p}\\right).$$\n\n**Utledes på stedet fra Eulers kriterium, én linje:**\n$$\\left(\\frac{ab}{p}\\right)\\equiv (ab)^{\\frac{p-1}{2}}=a^{\\frac{p-1}{2}}b^{\\frac{p-1}{2}}\\equiv\\left(\\frac{a}{p}\\right)\\left(\\frac{b}{p}\\right)\\pmod p,$$\nog siden begge sider er $\\pm 1$ og $p>2$, er de like som tall og ikke bare kongruente.\n\n**Regelen må sitte utenat.** Den er grunnen til at hele sjangeren er regnbar: **faktoriser $a$, og regn ett lite symbol per primfaktor.**\n\n**Fellen — symbolet er IKKE additivt.** $\\left(\\frac{a+b}{p}\\right)$ har ingenting å gjøre med $\\left(\\frac ap\\right)+\\left(\\frac bp\\right)$. Med $p=13$: $\\left(\\frac{3}{13}\\right)=1$ og $\\left(\\frac{10}{13}\\right)=1$, men $3+10=13\\equiv 0$, så $\\left(\\frac{13}{13}\\right)=0$ og ikke $2$. Det er en av de mest belagte feilene i sjangeren.\n\n**Konsekvenser du bør kunne lese av med én gang:**\n\n- **Kvadrater faller bort:** $\\left(\\frac{a^2b}{p}\\right)=\\left(\\frac bp\\right)$, siden $\\left(\\frac{a}{p}\\right)^2=1$.\n- **Rest $\\cdot$ rest $=$ rest**, **ikke-rest $\\cdot$ ikke-rest $=$ rest**, **rest $\\cdot$ ikke-rest $=$ ikke-rest** — nøyaktig fortegnsregningen for $\\pm 1$."
+    },
+    {
+      "id": "ma1301-4-1-d-kvadrat-faller-bort",
+      "type": "definition",
+      "title": "Kvadrater i telleren faller bort",
+      "content": "For $p\\nmid a$ er\n\n$$\\left(\\frac{a^2}{p}\\right)=1,\\qquad\\text{og derfor}\\qquad \\left(\\frac{a^2b}{p}\\right)=\\left(\\frac{b}{p}\\right).$$\n\n**Utledes på stedet, én linje:** multiplikativiteten gir $\\left(\\frac{a^2}{p}\\right)=\\left(\\frac ap\\right)^2$, og $(\\pm 1)^2=1$.\n\n**Praktisk verdi: dette er tidsbesparelsen i faktoriseringssteget.** Faktoriser $a$, og se bare på primfaktorene med **odde** eksponent — de med partall eksponent bidrar med $1$ og kan strykes med en gang.\n\n**Eksempel:** $\\left(\\frac{45}{59}\\right)$. Her er $45=3^2\\cdot 5$, så\n$$\\left(\\frac{45}{59}\\right)=\\left(\\frac{3}{59}\\right)^2\\left(\\frac{5}{59}\\right)=\\left(\\frac{5}{59}\\right).$$\nEtt symbol i stedet for to, og det gjenstående er det minste.\n\n**Merk hvorfor $\\left(\\frac{a^2}{p}\\right)=1$ ikke er en overraskelse:** $a^2$ **er** et kvadrat, så kongruensen $x^2\\equiv a^2$ har den åpenbare løsningen $x\\equiv a$."
+    },
+    {
+      "id": "ma1301-4-1-e3",
+      "type": "example",
+      "title": "De to reglene brukt sammen",
+      "problem": "Avgjør om $x^2\\equiv 10\\pmod{13}$ har løsning ved å bruke multiplikativiteten, og regn deretter ut $\\left(\\frac{158}{13}\\right)$.",
+      "solution": "**Del 1: $\\left(\\frac{10}{13}\\right)$ ved multiplikativitet.**\n\nVi faktoriserer $10=2\\cdot 5$ og splitter symbolet:\n$$\\left(\\frac{10}{13}\\right)=\\left(\\frac{2}{13}\\right)\\left(\\frac{5}{13}\\right).$$\n\n**Faktor $\\left(\\frac{2}{13}\\right)$ ved Eulers kriterium**, med eksponent $m=6$ og $6=4+2$:\n\n| potens | verdi mod $13$ |\n|---|---|\n| $2^2$ | $4$ |\n| $2^4$ | $16\\equiv 3$ |\n\n$$2^6=2^4\\cdot 2^2\\equiv 3\\cdot 4=12\\equiv -1\\pmod{13}\\quad\\Longrightarrow\\quad \\left(\\frac{2}{13}\\right)=-1.$$\n\n**Faktor $\\left(\\frac{5}{13}\\right)$:** regnet ut i eksempel 2, $\\left(\\frac{5}{13}\\right)=-1$.\n\n**Sett sammen:**\n$$\\left(\\frac{10}{13}\\right)=(-1)\\cdot(-1)=1.$$\n\nSymbolet er $+1$, så kongruensen har **to** løsninger. Vi finner dem ved å kvadrere oppover: $6^2=36\\equiv 10$ ✓, altså\n$$x\\equiv 6\\quad\\text{og}\\quad x\\equiv 13-6=7\\pmod{13}.$$\n\n*Merk hva som skjedde her: to ikke-rester ganget sammen ble en rest. Det er fortegnsregningen $(-1)(-1)=+1$, og det er ikke en tilfeldighet — det er multiplikativiteten.*\n\n**Del 2: $\\left(\\frac{158}{13}\\right)$.**\n\n**Reduser først** (periodisiteten): $158=12\\cdot 13+2$, så $158\\equiv 2\\pmod{13}$ og\n$$\\left(\\frac{158}{13}\\right)=\\left(\\frac{2}{13}\\right)=-1$$\nfra regningen over.\n\n**Sluttsvar:** $\\left(\\frac{10}{13}\\right)=1$ med løsningene $x\\equiv 6,7\\pmod{13}$; og $\\left(\\frac{158}{13}\\right)=-1$, så $x^2\\equiv 158\\pmod{13}$ har ingen løsning.\n\n*To ting å ta med fra dette eksemplet. **(1)** Rekkefølgen: reduser, faktoriser, splitt, regn små symboler, sett sammen. **(2)** At $158$-oppgaven ble triviell så snart vi reduserte. Hadde vi hoppet over reduksjonen, ville vi faktorisert $158=2\\cdot 79$ og fått et symbol med $79$ i telleren — helt unødvendig arbeid.*"
+    },
+    {
+      "id": "ma1301-4-1-ex-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-4-1-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Regn ut $\\left(\\frac{73}{17}\\right)$. Bruk periodisiteten først, og deretter Eulers kriterium. Avgjør om $x^2\\equiv 73\\pmod{17}$ har løsning.",
+        "solution": "**Steg 1: reduser modulo $17$** (periodisiteten). $73=4\\cdot 17+5$, så $73\\equiv 5\\pmod{17}$ og\n$$\\left(\\frac{73}{17}\\right)=\\left(\\frac{5}{17}\\right).$$\n\n**Steg 2: eksponenten.** $m=\\frac{17-1}{2}=8$, og $8=1000_2$ — vi trenger bare kvadrere tre ganger.\n\n**Steg 3: regn $5^8\\bmod 17$.**\n\n| potens | verdi mod $17$ |\n|---|---|\n| $5^2$ | $25\\equiv 8$ |\n| $5^4$ | $8^2=64\\equiv 64-51=13$ |\n| $5^8$ | $13^2=169\\equiv 169-153=16$ |\n\nAltså $5^8\\equiv 16\\equiv -1\\pmod{17}$.\n\n**Steg 4:** **ved Eulers kriterium** er $\\left(\\frac{5}{17}\\right)=-1$, og dermed\n$$\\left(\\frac{73}{17}\\right)=-1.$$\n\n**Steg 5: konklusjon.** Kongruensen $x^2\\equiv 73\\pmod{17}$ har **ingen løsning**.\n\n**Kontroll:** de kvadratiske restene modulo $17$ er $\\{1,2,4,8,9,13,15,16\\}$, og $5$ er ikke blant dem ✓.\n\n**Sluttsvar:** $\\left(\\frac{73}{17}\\right)=-1$; ingen løsning.\n\n*Merk at $8$ er en ren toerpotens, så kvadrer-og-multipliser besto av bare kvadreringer — ingen multiplikasjoner å holde styr på. Det skjer hver gang $\\frac{p-1}{2}$ er en toerpotens, altså for $p=5,17,257,\\dots$*",
+        "hints": [
+          "Reduser $73$ modulo $17$ før du gjør noe annet.",
+          "$m=8=2^3$, så tre kvadreringer er nok: $5^2$, $5^4$, $5^8$.",
+          "$169-153=16$, og $16\\equiv -1\\pmod{17}$."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-4-1-ex-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-4-1-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Avgjør om $x^2\\equiv 6\\pmod{19}$ har løsning. Bruk multiplikativiteten, og regn hver faktor med Eulers kriterium.",
+        "solution": "**Steg 1: faktoriser og splitt.** $6=2\\cdot 3$, så **ved multiplikativiteten**\n$$\\left(\\frac{6}{19}\\right)=\\left(\\frac{2}{19}\\right)\\left(\\frac{3}{19}\\right).$$\n\n**Steg 2: eksponenten.** $m=\\frac{19-1}{2}=9$, og $9=1001_2=8+1$.\n\n**Faktor $\\left(\\frac{2}{19}\\right)$:**\n\n| potens | verdi mod $19$ |\n|---|---|\n| $2^2$ | $4$ |\n| $2^4$ | $16$ |\n| $2^8$ | $256\\equiv 256-247=9$ |\n\n$$2^9=2^8\\cdot 2\\equiv 9\\cdot 2=18\\equiv -1\\pmod{19}\\quad\\Longrightarrow\\quad\\left(\\frac{2}{19}\\right)=-1.$$\n\n**Faktor $\\left(\\frac{3}{19}\\right)$:**\n\n| potens | verdi mod $19$ |\n|---|---|\n| $3^2$ | $9$ |\n| $3^4$ | $81\\equiv 81-76=5$ |\n| $3^8$ | $25\\equiv 6$ |\n\n$$3^9=3^8\\cdot 3\\equiv 6\\cdot 3=18\\equiv -1\\pmod{19}\\quad\\Longrightarrow\\quad\\left(\\frac{3}{19}\\right)=-1.$$\n\n**Steg 3: sett sammen.**\n$$\\left(\\frac{6}{19}\\right)=(-1)(-1)=1.$$\n\n**Steg 4: konklusjon.** Kongruensen har **to** løsninger. Vi finner dem ved å kvadrere oppover: $5^2=25\\equiv 6\\pmod{19}$ ✓, altså\n$$x\\equiv 5\\quad\\text{og}\\quad x\\equiv 19-5=14\\pmod{19}.$$\n\n**Kontroll:** $14^2=196=10\\cdot 19+6\\equiv 6$ ✓.\n\n**Sluttsvar:** $\\left(\\frac{6}{19}\\right)=1$; løsningene er $x\\equiv 5$ og $x\\equiv 14\\pmod{19}$.\n\n*To ikke-rester som gir en rest, igjen. Merk også at oppgaven ikke er ferdig når symbolet er regnet ut: spør teksten om løsningene, skal begge oppgis.*",
+        "hints": [
+          "Faktoriser $6$ og bruk multiplikativiteten før du regner noe.",
+          "Eksponenten er $9=8+1$, så du trenger $a^8$ og en multiplikasjon med $a$.",
+          "Når symbolet er $+1$, finn løsningene ved å kvadrere $x=1,2,3,\\dots$ opp til $9$."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-4-1-l5-intro",
+      "type": "text",
+      "content": "## Løkke 5: To løsninger eller ingen — og den første supplementsregelen\n\n*~10 minutter.*\n\nTil slutt: hva svaret betyr, og den ene supplementsregelen som følger direkte av Eulers kriterium. Den andre — $\\left(\\frac 2p\\right)$ — krever et annet argument og kommer i [kap. 4.2](/ma1301/ma1301-4-2)."
+    },
+    {
+      "id": "ma1301-4-1-d-to-losninger",
+      "type": "definition",
+      "title": "To løsninger eller ingen",
+      "content": "Kongruensen $x^2\\equiv a\\pmod p$ med $p\\nmid a$ har **nøyaktig to** løsninger når $\\left(\\frac ap\\right)=1$, og **ingen** når $\\left(\\frac ap\\right)=-1$. Det finnes ingen mellomting.\n\n**Utledes på stedet, to linjer:** er $x_0$ en løsning, er $-x_0\\equiv p-x_0$ også en løsning, siden $(-x_0)^2=x_0^2$. Og de er ulike modulo $p$, for $x_0\\equiv -x_0$ ville gitt $p\\mid 2x_0$, umulig når $p$ er odde og $p\\nmid x_0$. Er $y$ en tredje løsning, gir $x_0^2\\equiv y^2$ at $p\\mid(x_0-y)(x_0+y)$, og **ved Euklids lemma** er $y\\equiv\\pm x_0$.\n\n**Løsningene er alltid et $\\pm$-par:** $x\\equiv x_0$ og $x\\equiv p-x_0$.\n\n**Konklusjonsregelen må sitte utenat, og den må skrives ut.** Fasitpraksisen i arkivet er at svaret på en F-oppgave er en **setning**, ikke et symbol: «Siden $\\left(\\frac{a}{p}\\right)=1$, har kongruensen to løsninger modulo $p$.» Å svare «$1$» og stoppe er et sluttall uten konklusjon.\n\n**Den dokumenterte fellen:** å skrive «én løsning». Det er feil, og det er en feil som er lett å gjøre når man har funnet den ene løsningen ved å prøve seg frem og glemmer speilingen."
+    },
+    {
+      "id": "ma1301-4-1-d-supplement-minus-en",
+      "type": "definition",
+      "title": "Supplementsregelen for (−1/p)",
+      "content": "$$\\left(\\frac{-1}{p}\\right)=(-1)^{\\frac{p-1}{2}}=\\begin{cases}\\ \\ \\,1 & \\text{hvis } p\\equiv 1\\pmod 4,\\\\ -1 & \\text{hvis } p\\equiv 3\\pmod 4.\\end{cases}$$\n\n**Utledes på stedet — dette er selve eksempelet på en utledning du gjør i margen, og den tar under et halvt minutt:**\n\nSett $a=-1$ i Eulers kriterium:\n$$\\left(\\frac{-1}{p}\\right)\\equiv(-1)^{\\frac{p-1}{2}}\\pmod p.$$\nNå er $\\frac{p-1}{2}$ **partall** nøyaktig når $p-1$ er delelig med $4$, altså når $p\\equiv 1\\pmod 4$ — og da er høyresiden $1$. Ellers er $\\frac{p-1}{2}$ odde og høyresiden $-1$. Ferdig, tre linjer.\n\n**Så: må du kunne resultatet utenat?** Du bør kunne det, fordi det sparer tid — men du **trenger** det ikke, og det er poenget. Kan du Eulers kriterium, har du regelen tilgjengelig når som helst. Det er slik hele Del 4 er bygget: få kort utenat, resten utledet på stedet.\n\n**Bruk:** $p=29$ gir $29=7\\cdot 4+1$, altså $p\\equiv 1\\pmod 4$ og $\\left(\\frac{-1}{29}\\right)=1$ — kongruensen $x^2\\equiv -1\\pmod{29}$ har to løsninger. (De er $x\\equiv 12$ og $x\\equiv 17$, siden $12^2=144=5\\cdot 29-1\\equiv -1$.) Med $p=23$ er $23=5\\cdot 4+3$, så $\\left(\\frac{-1}{23}\\right)=-1$ og $x^2\\equiv -1\\pmod{23}$ er uløselig.\n\n**Praktisk grep:** $\\left(\\frac{p-1}{p}\\right)$ er det samme som $\\left(\\frac{-1}{p}\\right)$, siden $p-1\\equiv -1$. Ser du $p-1$ i telleren, bruk regelen — ikke faktoriser $p-1$."
+    },
+    {
+      "id": "ma1301-4-1-d-negativ-teller",
+      "type": "definition",
+      "title": "Negative tall i telleren",
+      "content": "Legendre-symbolet er definert for **alle** hele tall $a$, også negative, og du håndterer fortegnet med multiplikativiteten:\n\n$$\\left(\\frac{-a}{p}\\right)=\\left(\\frac{-1}{p}\\right)\\left(\\frac{a}{p}\\right).$$\n\n**Oppskriften i praksis:** trekk ut $-1$ som egen faktor, bruk supplementsregelen på den, og regn videre med det positive tallet.\n\n**Alternativet er ofte enklere:** legg til $p$ til telleren blir positiv, siden symbolet bare avhenger av $a\\bmod p$. For eksempel er\n$$\\left(\\frac{-5}{17}\\right)=\\left(\\frac{12}{17}\\right)=\\left(\\frac{4}{17}\\right)\\left(\\frac{3}{17}\\right)=\\left(\\frac{3}{17}\\right),$$\nder $4=2^2$ falt bort som kvadrat.\n\n**Hvor det dukker opp:** i oppgaver formulert som «har $x^2+5\\equiv 0\\pmod{17}$ løsning?». Det er $x^2\\equiv -5$, og da er du her.\n\n**Kontrollregel:** for $p\\equiv 1\\pmod 4$ er $a$ og $-a$ **alltid** av samme type (begge rester eller begge ikke-rester), fordi $\\left(\\frac{-1}{p}\\right)=1$. For $p\\equiv 3\\pmod 4$ er de **alltid** av motsatt type. Det er en fin sjekk på at fortegnsarbeidet ble riktig."
+    },
+    {
+      "id": "ma1301-4-1-e4",
+      "type": "example",
+      "title": "Eksamensnivå: full behandling av en kvadratisk kongruens",
+      "problem": "Avgjør om kongruensen $x^2\\equiv -6\\pmod{19}$ har løsning. Har den løsninger, oppgi dem alle, og oppgi antallet eksplisitt.",
+      "solution": "**Steg 1: gjør telleren positiv.** Siden symbolet bare avhenger av $a\\bmod p$ (periodisiteten), er $-6\\equiv 13\\pmod{19}$, og vi kan like godt bruke $-1$ som egen faktor. Vi velger faktorveien, fordi den gir minst regning:\n$$\\left(\\frac{-6}{19}\\right)=\\left(\\frac{-1}{19}\\right)\\left(\\frac{2}{19}\\right)\\left(\\frac{3}{19}\\right),$$\n**ved multiplikativiteten** og faktoriseringen $6=2\\cdot 3$.\n\n**Steg 2: $\\left(\\frac{-1}{19}\\right)$ — utledes på stedet.** Eulers kriterium med $a=-1$ gir $\\left(\\frac{-1}{19}\\right)=(-1)^{\\frac{19-1}{2}}=(-1)^9=-1$. (Samme svar av regelen: $19=4\\cdot 4+3$, altså $p\\equiv 3\\pmod 4$.)\n\n**Steg 3: de to andre faktorene.** Fra oppgave 6 har vi, **ved Eulers kriterium**, at $\\left(\\frac{2}{19}\\right)=-1$ og $\\left(\\frac{3}{19}\\right)=-1$.\n\n**Steg 4: sett sammen.**\n$$\\left(\\frac{-6}{19}\\right)=(-1)\\cdot(-1)\\cdot(-1)=-1.$$\n\n**Steg 5: konklusjon i ord.** Siden $\\left(\\frac{-6}{19}\\right)=-1$, er $-6$ en kvadratisk ikke-rest modulo $19$, og kongruensen $x^2\\equiv -6\\pmod{19}$ har **ingen løsning**. Antallet løsninger er $0$.\n\n**Kontroll, to veier.**\n\n*Vei 1 — mot tabellen.* $-6\\equiv 13\\pmod{19}$, og de kvadratiske restene modulo $19$ er $\\{1,4,5,6,7,9,11,16,17\\}$. $13$ er ikke blant dem ✓.\n\n*Vei 2 — kontrollregelen for $p\\equiv 3\\pmod 4$.* Vi vet fra oppgave 6 at $6$ **er** en kvadratisk rest modulo $19$. Siden $19\\equiv 3\\pmod 4$, må $-6$ da være en ikke-rest ✓. To uavhengige kontroller, samme svar.\n\n**Sluttsvar:** $\\left(\\frac{-6}{19}\\right)=-1$; kongruensen har ingen løsning.\n\n*Om føringen: legg merke til at hvert steg bærer et navn — periodisitet, multiplikativitet, Eulers kriterium. Instruksen på hvert eksamenssett er at alle svar skal begrunnes, og i denne sjangeren er begrunnelsen nettopp navnene på reglene du bruker. Et symbol som bare står der, uten regelen som produserte det, er et sluttall uten metode.*"
+    },
+    {
+      "id": "ma1301-4-1-ex-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-4-1-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "**a)** Bruk supplementsregelen til å avgjøre om $x^2\\equiv -1\\pmod{29}$ har løsning.\n**b)** Finn løsningene ved å prøve deg frem, og kontrollér dem.\n**c)** Hva blir svaret i a) om modulusen byttes til $31$? Begrunn uten å regne potenser.",
+        "solution": "**a)** Vi bruker $\\left(\\frac{-1}{p}\\right)=(-1)^{\\frac{p-1}{2}}$, som **utledes på stedet** fra Eulers kriterium med $a=-1$.\n\nHer er $\\frac{29-1}{2}=14$, et partall, så\n$$\\left(\\frac{-1}{29}\\right)=(-1)^{14}=1.$$\n\nSamme svar av restformen: $29=7\\cdot 4+1$, altså $29\\equiv 1\\pmod 4$, og da er symbolet $1$. Kongruensen har **to** løsninger.\n\n**b)** Vi leter etter $x$ med $x^2\\equiv -1\\equiv 28\\pmod{29}$. Kvadrerer vi oppover, er $12^2=144$, og $144=4\\cdot 29+28$, altså $12^2\\equiv 28\\equiv -1$ ✓.\n\nLøsningene er dermed\n$$x\\equiv 12\\quad\\text{og}\\quad x\\equiv 29-12=17\\pmod{29}.$$\n\n**Kontroll av den andre:** $17^2=289=10\\cdot 29-1\\equiv -1$ ✓.\n\n**c)** For $p=31$ er $\\frac{31-1}{2}=15$, et oddetall, så\n$$\\left(\\frac{-1}{31}\\right)=(-1)^{15}=-1.$$\nSamme svar av restformen: $31=7\\cdot 4+3$, altså $31\\equiv 3\\pmod 4$. Kongruensen $x^2\\equiv -1\\pmod{31}$ har derfor **ingen løsning** — og det er avgjort uten en enkelt potensberegning.\n\n**Sluttsvar:** a) to løsninger; b) $x\\equiv 12$ og $x\\equiv 17\\pmod{29}$; c) ingen løsning modulo $31$, fordi $31\\equiv 3\\pmod 4$.\n\n*Merk hvor billig del c) var. Det er hele poenget med supplementsreglene: de erstatter en potensberegning med en resttest.*",
+        "hints": [
+          "Supplementsregelen leser bare av $p$ modulo $4$.",
+          "I b): $-1\\equiv 28\\pmod{29}$, så du leter etter $x$ med $x^2\\equiv 28$. Prøv oppover fra $10$.",
+          "I c): hvilken rest gir $31$ ved divisjon med $4$?"
+        ]
+      }
+    },
+    {
+      "id": "ma1301-4-1-ex-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-4-1-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Regn ut $\\left(\\frac{11}{23}\\right)$ ved Eulers kriterium, med kvadrer-og-multipliser fullt ført. Avgjør om $x^2\\equiv 11\\pmod{23}$ har løsning.",
+        "solution": "**Steg 1:** $a=11$ er alt redusert modulo $23$.\n\n**Steg 2: eksponenten.** $m=\\frac{23-1}{2}=11$, og binærutviklingen er $11=1011_2=8+2+1$.\n\n**Steg 3: de suksessive kvadratene modulo $23$.**\n\n| potens | utregning | verdi mod $23$ |\n|---|---|---|\n| $11^1$ | — | $11$ |\n| $11^2$ | $121=5\\cdot 23+6$ | $6$ |\n| $11^4$ | $6^2=36=23+13$ | $13$ |\n| $11^8$ | $13^2=169=7\\cdot 23+8$ | $8$ |\n\n**Sett sammen etter binærutviklingen $11=8+2+1$:**\n$$11^{11}=11^8\\cdot 11^2\\cdot 11^1\\equiv 8\\cdot 6\\cdot 11\\pmod{23}.$$\nVi regner steg for steg: $8\\cdot 6=48=2\\cdot 23+2\\equiv 2$, og $2\\cdot 11=22\\equiv -1\\pmod{23}$.\n\n**Steg 4:** **ved Eulers kriterium** er\n$$\\left(\\frac{11}{23}\\right)=-1.$$\n\n**Steg 5: konklusjon.** $11$ er en kvadratisk ikke-rest modulo $23$, og kongruensen $x^2\\equiv 11\\pmod{23}$ har **ingen løsning**.\n\n**Kontroll:** de kvadratiske restene modulo $23$ er $\\{1,2,3,4,6,8,9,12,13,16,18\\}$ — elleve stykker, som er $\\frac{p-1}{2}$ ✓ — og $11$ er ikke blant dem ✓.\n\n**Sluttsvar:** $\\left(\\frac{11}{23}\\right)=-1$; ingen løsning.\n\n*Tellingen av arbeid, som er verdt å merke seg for eksamen: tre kvadreringer og to multiplikasjoner, alle med tall under $200$. Det er kode D-realistisk. Var $p$ i hundreklassen, ville eksponenten vært rundt $50$ og arbeidet omtrent det dobbelte — der begynner resiprositetsloven i [kap. 4.2](/ma1301/ma1301-4-2) å lønne seg tydelig.*",
+        "hints": [
+          "Eksponenten er $\\frac{23-1}{2}=11$. Skriv $11$ i binærform først.",
+          "Du trenger $11^1$, $11^2$, $11^4$ og $11^8$ modulo $23$ — tre kvadreringer.",
+          "Reduser etter hver kvadrering, aldri etterpå: hold tallene under $23$."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-4-1-ex-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-4-1-o9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "La $p$ være et odde primtall.\n**a)** Vis at produktet av to kvadratiske ikke-rester modulo $p$ alltid er en kvadratisk rest.\n**b)** Vis at hvis $p\\equiv 3\\pmod 4$, kan ikke både $a$ og $-a$ være kvadratiske rester modulo $p$.",
+        "solution": "**a)** La $a$ og $b$ være kvadratiske ikke-rester modulo $p$, altså\n$$\\left(\\frac ap\\right)=-1\\qquad\\text{og}\\qquad\\left(\\frac bp\\right)=-1.$$\n\n**Ved multiplikativiteten** til Legendre-symbolet er\n$$\\left(\\frac{ab}{p}\\right)=\\left(\\frac ap\\right)\\left(\\frac bp\\right)=(-1)(-1)=1.$$\n\nSymbolverdien $1$ betyr per definisjon at $ab$ er en kvadratisk rest modulo $p$. $\\blacksquare$\n\n*Merk at beviset ikke produserer noen kvadratrot av $ab$ — det sier bare at en finnes. Det er typisk for Legendre-argumenter: de avgjør eksistens, ikke verdi.*\n\n**b)** Anta at $p\\equiv 3\\pmod 4$ og at både $a$ og $-a$ er kvadratiske rester, altså\n$$\\left(\\frac ap\\right)=1\\qquad\\text{og}\\qquad\\left(\\frac{-a}{p}\\right)=1.$$\n\n**Ved multiplikativiteten** er\n$$\\left(\\frac{-a}{p}\\right)=\\left(\\frac{-1}{p}\\right)\\left(\\frac ap\\right).$$\n\nSiden $p\\equiv 3\\pmod 4$, gir supplementsregelen — som **utledes på stedet** fra Eulers kriterium med $a=-1$ — at $\\left(\\frac{-1}{p}\\right)=-1$. Da er\n$$\\left(\\frac{-a}{p}\\right)=(-1)\\cdot 1=-1,$$\nmen vi antok at den var $1$. **Motsigelse:** symbolet kan ikke være både $1$ og $-1$.\n\nAltså kan ikke både $a$ og $-a$ være kvadratiske rester når $p\\equiv 3\\pmod 4$. $\\blacksquare$\n\n**Kontroll med tall.** Ta $p=19$ (og $19\\equiv 3\\pmod 4$). Restene er $\\{1,4,5,6,7,9,11,16,17\\}$. For $a=6$: $-6\\equiv 13$, og $13$ er **ikke** i mengden ✓. For $a=7$: $-7\\equiv 12$, som heller ikke er i mengden ✓. Mønsteret holder for hvert par.\n\n*Til sammenligning: for $p=13\\equiv 1\\pmod 4$ er $\\left(\\frac{-1}{13}\\right)=1$, og da er $a$ og $-a$ alltid av samme type. Restene modulo $13$ er $\\{1,3,4,9,10,12\\}$, og paret $3$ og $-3\\equiv 10$ er begge med ✓.*",
+        "hints": [
+          "Begge deler følger av multiplikativiteten — du skal ikke regne en eneste potens.",
+          "I b): skriv $-a$ som produktet $(-1)\\cdot a$ og bruk supplementsregelen på $-1$-faktoren.",
+          "I b): sett opp antagelsen som en likning i symbolverdier og let etter motsigelsen."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-4-1-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "Feilene i denne sjangeren er få og svært forutsigbare. Alle seks under er dokumentert i arkivets løsningsforslag som noe fasiten advarer mot.\n\n- **Reduserer ikke $a$ modulo $p$ først.** Periodisiteten er første handling, hver gang. Regner du med $\\left(\\frac{158}{13}\\right)$ i stedet for $\\left(\\frac{2}{13}\\right)$, faktoriserer du $158$ helt unødvendig — og i [kap. 4.2](/ma1301/ma1301-4-2), der reduksjonen må gjentas mellom hvert resiprositetssteg, blir feilen dyrere: tallene vokser i stedet for å krympe.\n\n- **Forveksler multiplikativitet med additivitet.** Symbolet er multiplikativt i telleren og **ikke** additivt: $\\left(\\frac{a+b}{p}\\right)$ har ingen enkel sammenheng med de to enkeltsymbolene. Splitt bare over **produkter**, aldri over summer.\n\n- **Feil eksponent i Eulers kriterium.** Eksponenten er $\\frac{p-1}{2}$, ikke $p-1$. Bruker du $p-1$, får du $1$ uansett hva $a$ er (det er Fermat), og svaret er innholdsløst. **Kontrollen:** får du noe annet enn $1$ eller $p-1$ ut av potensberegningen, er det regnefeil — kriteriet kan bare gi de to verdiene.\n\n- **Konkluderer «én løsning» i stedet for «to».** Når $\\left(\\frac ap\\right)=1$, er løsningene **et par** $x\\equiv\\pm x_0$. Den vanligste veien inn i feilen er å finne den ene løsningen ved å prøve seg frem og glemme speilingen $x_0\\mapsto p-x_0$.\n\n- **Glemmer $\\left(\\frac{a}{p}\\right)=0$-tilfellet.** Er $p\\mid a$, er symbolet $0$ og kongruensen har nøyaktig én løsning ($x\\equiv 0$). Sjekk $p\\nmid a$ før du hevder $\\pm 1$.\n\n- **Stopper ved symbolverdien.** Oppgaven spør nesten alltid om løsbarhet eller antall løsninger, ikke om et tall i $\\{1,-1\\}$. Skriv konklusjonssetningen: «Siden $\\left(\\frac ap\\right)=-1$, har kongruensen ingen løsning.» Instruksen på hvert eksamenssett er at alle svar skal begrunnes, og en konklusjon uten setning er en halv besvarelse."
+    },
+    {
+      "id": "ma1301-4-1-begrepsbank-intro",
+      "type": "text",
+      "content": "### Begrepsbank\n\nDette er flashcard-stoff — hopp trygt over ved førstegangslesing; tidsanslaget på 55 minutter gjelder kjernestoffet over.\n\nUnder kode D er denne banken **eksamensverktøyet, ikke pynt**: det finnes ingen tabell over kvadratiske rester å slå opp i 24. november, og ingen oppstilling av regnereglene. Kortene under er derfor delt i to typer, og de skal pugges ulikt:\n\n- **Faktakortene** (definisjonen, Eulers kriterium, de to reglene) pugges ved **aktiv gjenkalling**: dekk til, skriv ned, sjekk.\n- **Prosedyrekortene** (reduksjonsrekkefølgen, kvadrer-og-multipliser) pugges ved å **kjøres** på nye tall. Et kort du har lest fem ganger, hjelper deg ikke i november; en prosedyre du har kjørt fem ganger, gjør det."
+    },
+    {
+      "id": "ma1301-4-1-d-ikke-rest",
+      "type": "definition",
+      "title": "Kvadratisk ikke-rest",
+      "content": "Et tall $a$ med $p\\nmid a$ som **ikke** er kongruent med noe kvadrat modulo $p$ — altså der $x^2\\equiv a\\pmod p$ er uløselig, og $\\left(\\frac ap\\right)=-1$.\n\n**Det er nøyaktig $\\frac{p-1}{2}$ av dem**, like mange som det er kvadratiske rester.\n\n**Hvorfor begrepet trenger et eget navn:** ikke-restene har egne regneegenskaper. To ikke-rester ganget sammen gir en **rest** (fortegnsregningen $(-1)(-1)=1$), mens en rest ganget med en ikke-rest gir en ikke-rest. Ikke-restene er altså ikke «restene som ble borte» — de er en like strukturert halvdel.\n\n**Språkbruk i besvarelsen:** skriv «$a$ er en kvadratisk ikke-rest modulo $p$», ikke «$a$ er ikke en kvadratisk rest». Den første formen er den fasitene bruker, og den gjør konklusjonen tydeligere.\n\n*Koblingen fremover: i kap. 5.2 viser det seg at en primitiv rot modulo $p$ alltid er en kvadratisk ikke-rest — de to begrepene henger sammen gjennom Eulers kriterium.*"
+    },
+    {
+      "id": "ma1301-4-1-d-notasjon-legendre",
+      "type": "definition",
+      "title": "Notasjonen (a/p) og brøkformen",
+      "content": "Legendre-symbolet skrives på to måter, og begge er standard:\n\n$$\\left(\\frac{a}{p}\\right)\\qquad\\text{og}\\qquad (a/p).$$\n\n**Boka bruker brøkformen inne i alle utregninger og reduksjonskjeder**, fordi det er formen løsningsforslagene bruker og fordi den gjør det lettere å se hvilket tall som er teller og hvilket som er modulus. Den korte formen brukes i løpende prosa der plassen er trang.\n\n**Regelen for din egen føring: hold én form gjennom en hel kjede.** Bytter du frem og tilbake midt i en reduksjon, blir det vanskelig for leseren — og for deg selv — å følge hvilket symbol som ble snudd hvor.\n\n**Hva symbolet IKKE er:** en brøk. Verdien er alltid $1$, $-1$ eller $0$, aldri noe imellom, og du kan ikke forkorte teller mot nevner. Ser du $\\left(\\frac{6}{3}\\right)$ i en utregning, er det en skrivefeil — nevneren i et Legendre-symbol er alltid et **odde primtall**, og telleren blir aldri forkortet mot den.\n\n**Slektningen du ikke trenger:** Jacobi-symbolet utvider notasjonen til sammensatte nevnere. Det er ikke pensum her, og du skal ikke bruke det — men det forklarer hvorfor du kan se $\\left(\\frac{a}{n}\\right)$ med sammensatt $n$ i andre bøker."
+    },
+    {
+      "id": "ma1301-4-1-d-reduksjonsrekkefolgen",
+      "type": "definition",
+      "title": "Reduksjonsrekkefølgen — fire steg",
+      "content": "Rekkefølgen du behandler et Legendre-symbol i. Den er den samme hver gang, og den **må sitte utenat**:\n\n1. **Reduser** telleren modulo $p$ (periodisiteten). Er telleren negativ, legg til $p$ — eller trekk ut $-1$ som egen faktor.\n2. **Faktoriser** telleren i primtall.\n3. **Splitt** symbolet over faktorene (multiplikativiteten), og **stryk alle faktorer med partall eksponent** — de bidrar med $1$.\n4. **Regn hvert gjenstående lille symbol**, med Eulers kriterium her i kap. 4.1, og med supplementsreglene og resiprositetsloven i [kap. 4.2](/ma1301/ma1301-4-2).\n\n**Deretter: konkludér i ord.** Antall løsninger, ikke bare symbolverdien.\n\n**Hvorfor rekkefølgen er viktig og ikke bare ryddig:** hvert steg gjør tallene mindre. Bytter du om på 1 og 2, faktoriserer du et større tall enn nødvendig. Hopper du over 3, regner du potenser av store tall. Under kode D er dette forskjellen mellom fem minutter og tjue."
+    },
+    {
+      "id": "ma1301-4-1-d-kvadrer-multipliser-kriteriet",
+      "type": "definition",
+      "title": "Kort: kvadrer-og-multipliser i Eulers kriterium",
+      "content": "Prosedyren for å regne $a^{(p-1)/2}\\bmod p$ for hånd. Den er den samme malen som i [kap. 2.1](/ma1301/ma1301-2-1), brukt på en spesiell eksponent.\n\n1. **Skriv $m=\\frac{p-1}{2}$ i binærform** — for eksempel $11=1011_2=8+2+1$.\n2. **Lag tabellen over suksessive kvadrater** $a^1,a^2,a^4,a^8,\\dots$ modulo $p$, hver som kvadratet av den forrige.\n3. **Reduser etter HVER kvadrering.** Aldri regn $a^8$ som et helt tall først; hold alt under $p$.\n4. **Gang sammen** de potensene som svarer til ett-erne i binærutviklingen, og reduser mellom hver multiplikasjon.\n5. **Les av** $1$ eller $p-1$.\n\n**Prosedyren må sitte utenat**, for kalkulatoren du får bruke kan ikke regne modulære potenser.\n\n**To snarveier verdt å se etter, som ofte halverer arbeidet:**\n\n- Lander en potens på $-1$ (altså $p-1$), er alle høyere potenser gratis: $a^{2k}\\equiv 1$, $a^{4k}\\equiv 1$ og så videre.\n- Er $\\frac{p-1}{2}$ en toerpotens (som for $p=17$: $m=8$), består hele regningen av kvadreringer — ingen multiplikasjoner å holde styr på."
+    },
+    {
+      "id": "ma1301-4-1-d-tabell-eller-kriterium",
+      "type": "definition",
+      "title": "Tabell eller kriterium — når hva",
+      "content": "Begge metodene i dette kapitlet gir riktig svar. Valget er praktisk:\n\n| | Tabellmetoden | Eulers kriterium |\n|---|---|---|\n| Arbeid | $\\frac{p-1}{2}$ kvadreringer | 3–6 kvadreringer + noen multiplikasjoner |\n| Gir løsningene? | **ja** | nei, bare ja/nei |\n| Praktisk grense | $p\\lesssim 20$ | $p$ opp til noen hundre |\n| Krever utenat | ingenting | eksponenten $\\frac{p-1}{2}$ |\n\n**Tommelfingerregelen:** spør oppgaven om **løsningene**, må du finne dem — og for små $p$ er tabellen da raskeste vei uansett. Spør den bare om **løsbarhet** eller **antall**, bruk kriteriet (eller, for store $p$, resiprositetsloven i [kap. 4.2](/ma1301/ma1301-4-2)).\n\n**Og bruk den ene som kontroll på den andre.** Under kode D er selvkontroll den eneste kontrollen du har: to uavhengige metoder som gir samme svar, er så nær en fasit du kommer på eksamensdagen."
+    },
+    {
+      "id": "ma1301-4-1-d-losningene-finnes",
+      "type": "definition",
+      "title": "Å finne løsningene når symbolet er 1",
+      "content": "Legendre-symbolet sier **om** kongruensen har løsning, ikke **hva** løsningen er. Spør oppgaven om løsningene, må du finne dem — og det er en egen jobb.\n\n**For små $p$ (opp til rundt $30$): prøv oppover.** Kvadrer $x=1,2,3,\\dots$ til du treffer $a$. Du trenger aldri gå lenger enn $\\frac{p-1}{2}$, siden andre halvdel speiler seg. **Og oppgi begge**: $x\\equiv x_0$ og $x\\equiv p-x_0$.\n\n**For $p\\equiv 3\\pmod 4$ finnes en formel, og den utledes på stedet:** er $\\left(\\frac ap\\right)=1$, er\n$$x\\equiv \\pm a^{\\frac{p+1}{4}}\\pmod p$$\nen løsning. Utledningen er to linjer: $\\left(a^{\\frac{p+1}{4}}\\right)^2=a^{\\frac{p+1}{2}}=a\\cdot a^{\\frac{p-1}{2}}\\equiv a\\cdot 1=a$, der siste steg er Eulers kriterium og bruker at symbolet er $1$. Merk at $\\frac{p+1}{4}$ er et helt tall nøyaktig når $p\\equiv 3\\pmod 4$.\n\n**Eksempel:** $p=19$, $a=6$. Da er $\\frac{p+1}{4}=5$, og $6^5\\bmod 19$: $6^2=36\\equiv 17\\equiv -2$, $6^4\\equiv 4$, $6^5\\equiv 24\\equiv 5$. Løsningene er $x\\equiv\\pm 5$, altså $5$ og $14$ ✓ — samme svar som prøvemetoden ga i oppgave 6.\n\n**For $p\\equiv 1\\pmod 4$ finnes ingen tilsvarende enkel formel**, og på eksamen er $p$ da lite nok til at du prøver oppover."
+    },
+    {
+      "id": "ma1301-4-1-d-sum-symboler",
+      "type": "definition",
+      "title": "Summen av alle Legendre-symboler",
+      "content": "$$\\sum_{a=1}^{p-1}\\left(\\frac{a}{p}\\right)=0.$$\n\n**Utledes på stedet, én linje:** summen har $\\frac{p-1}{2}$ ledd som er $+1$ (de kvadratiske restene) og $\\frac{p-1}{2}$ ledd som er $-1$ (ikke-restene), og de kansellerer.\n\n**Hvorfor identiteten dukker opp på eksamen:** den er en «vis at»-oppgave som ikke krever regning i det hele tatt, bare halvparten-regelen. Ser du «summér Legendre-symbolene», er dette svaret.\n\n**To varianter du bør kjenne igjen:**\n\n- Tar du med $a=0$, endres ingenting, siden $\\left(\\frac 0p\\right)=0$. Summen fra $0$ til $p-1$ er også $0$.\n- Summerer du over et **delvis** intervall, er svaret ikke lenger $0$ og krever faktisk regning — det er en annen og mye vanskeligere oppgavetype, og den er ikke belagt i arkivet.\n\n**Kontroll med tall:** for $p=11$ er symbolene $1,-1,1,1,1,-1,-1,-1,1,-1$ — fem av hver, sum $0$ ✓."
+    },
+    {
+      "id": "ma1301-4-1-d-produktreglene",
+      "type": "definition",
+      "title": "Fortegnsregningen: rest og ikke-rest",
+      "content": "De tre reglene som følger direkte av multiplikativiteten, og som er verdt å kunne som refleks:\n\n| | rest | ikke-rest |\n|---|---|---|\n| **rest** | rest | ikke-rest |\n| **ikke-rest** | ikke-rest | **rest** |\n\nI symboler: $(+1)(+1)=+1$, $(+1)(-1)=-1$, $(-1)(-1)=+1$.\n\n**Den ene som overrasker, er nederst til høyre:** to ikke-rester ganget sammen gir en **rest**. Med $p=13$ er både $2$ og $5$ ikke-rester, men $2\\cdot 5=10$ er en rest — og faktisk $6^2\\equiv 10$.\n\n**Praktisk bruk:** i en reduksjonskjede teller du bare **antall $-1$-er**. Er de i partall, er svaret $+1$; er de i oddetall, er svaret $-1$. Det er raskere enn å gange fortegn underveis, og det er lettere å kontrollere.\n\n**Kontrasten til vanlige tall:** for reelle tall gir «ikke-kvadrat $\\cdot$ ikke-kvadrat» ingen forutsigbar type ($2\\cdot 3=6$ er heller ikke et kvadrat). Modulo et primtall er strukturen strammere: de to halvdelene oppfører seg som $+1$ og $-1$ under multiplikasjon."
+    },
+    {
+      "id": "ma1301-4-1-d-sammensatt-modulus",
+      "type": "definition",
+      "title": "Sammensatt modulus — hva som skjer da",
+      "content": "Legendre-symbolet er definert for **odde primtall** som modulus. Er modulusen sammensatt, gjelder ikke teorien direkte, og du må splitte.\n\n**Fremgangsmåten:** faktoriser modulusen i primtallspotenser, avgjør løsbarheten for hver av dem, og sett sammen igjen med det kinesiske restteoremet (kap. 2.4). Kongruensen $x^2\\equiv a\\pmod n$ er løsbar nøyaktig når den er løsbar modulo hver primtallspotens i $n$.\n\n**Konsekvensen for antall løsninger:** det er ikke lenger «to eller ingen». Modulo $n=pq$ med to ulike odde primtall gir en løsbar kongruens **fire** løsninger — to valg modulo $p$ ganget med to valg modulo $q$. Det er nettopp den observasjonen som gjør at kvadratrøtter modulo $n=pq$ er vanskelig uten å kjenne faktoriseringen, og som ligger under en del kryptografi.\n\n**På eksamen i MA1301 er modulusen i F-oppgaver et primtall.** Kortet står her for å skille begrepene, og for at du skal kjenne igjen tilfellet om det dukker opp — ikke fordi det er hovedsjangeren."
+    },
+    {
+      "id": "ma1301-4-1-d-eulers-kriterium-som-kontroll",
+      "type": "definition",
+      "title": "Eulers kriterium som uavhengig kontroll",
+      "content": "Under kode D har du ingen fasit å sammenligne med. Den beste kontrollen du kan bygge inn, er å regne **samme symbol på to måter**.\n\n**Malen:** regn $\\left(\\frac ap\\right)$ med reduksjonskjeden (multiplikativitet, supplementsregler, resiprositet — [kap. 4.2](/ma1301/ma1301-4-2)), og kontrollér med Eulers kriterium på **én** av de små faktorene, eller på hele symbolet om $p$ er lite nok.\n\n**Når det er verdt tiden:** i en kjede med fire eller fem steg, der ett mistet fortegn i resiprositetsfaktoren snur svaret. Kontrollen tar ett til to minutter, og den fanger nøyaktig den feiltypen du ellers ikke oppdager.\n\n**Når det ikke er verdt tiden:** for tresifrede primtall der eksponenten $\\frac{p-1}{2}$ blir stor. Da kontrollerer du i stedet ved å regne kjeden en gang til med en annen splitting av telleren.\n\n**Og den viktigste kontrollen er gratis:** får potensberegningen noe annet enn $1$ eller $p-1$, er det regnefeil. Kriteriet kan **ikke** gi noe annet."
+    },
+    {
+      "id": "ma1301-4-1-d-fermat-vs-euler",
+      "type": "definition",
+      "title": "Fermat, Euler og Eulers kriterium — tre navn å ikke blande",
+      "content": "Tre resultater med lignende navn, som er lette å forveksle i en besvarelse. Sensor forventer at du navngir det riktige.\n\n| Navn | Utsagn | Hvor |\n|---|---|---|\n| **Fermats lille teorem** | $a^{p-1}\\equiv 1\\pmod p$ for $p\\nmid a$ | [kap. 2.2](/ma1301/ma1301-2-2) |\n| **Eulers teorem** | $a^{\\phi(n)}\\equiv 1\\pmod n$ for $\\gcd(a,n)=1$ | [kap. 2.1](/ma1301/ma1301-2-1) |\n| **Eulers kriterium** | $\\left(\\frac ap\\right)\\equiv a^{\\frac{p-1}{2}}\\pmod p$ | dette kapitlet |\n\n**Sammenhengen:** Eulers teorem er den generelle formen, Fermat er spesialtilfellet $n=p$ (fordi $\\phi(p)=p-1$), og Eulers kriterium er det som skjer når du tar **halve** Fermat-eksponenten.\n\n**Praktisk konsekvens for føringen:** står det $a^{p-1}$ i utregningen din, er det Fermat du bruker. Står det $a^{(p-1)/2}$, er det Eulers kriterium. Skriv navnet som passer — «etter Fermats lille teorem» der eksponenten er $p-1$, «ved Eulers kriterium» der den er halvparten. Et argument uten teoremnavn der teoremet bærer det, er en unødvendig svakhet i en besvarelse som ellers er riktig."
+    },
+    {
+      "id": "ma1301-4-1-d-kvadratrot-av-en",
+      "type": "definition",
+      "title": "De to kvadratrøttene av 1",
+      "content": "Modulo et primtall $p$ har $1$ **nøyaktig to** kvadratrøtter: $x\\equiv 1$ og $x\\equiv -1$.\n\n**Utledes på stedet, to linjer:** $x^2\\equiv 1$ betyr $p\\mid x^2-1=(x-1)(x+1)$, og **ved Euklids lemma** deler $p$ én av faktorene, altså er $x\\equiv 1$ eller $x\\equiv -1$.\n\n**Hvorfor kortet står her:** det er nøkkelsteget i beviset for Eulers kriterium. Fermat gir $(a^{m})^2\\equiv 1$ der $m=\\frac{p-1}{2}$, og dette kortet er det som gjør at $a^m$ må være $\\pm 1$ — ikke noe annet.\n\n**Merk at egenskapen krever et primtall.** Modulo $8$ har $1$ fire kvadratrøtter: $1,3,5,7$ (sjekk: $3^2=9\\equiv 1$, $5^2=25\\equiv 1$, $7^2=49\\equiv 1$). Det er en av grunnene til at hele Legendre-teorien er formulert for primtallsmoduler, og den samme observasjonen dukker opp igjen i kap. 5.2 om når primitive røtter finnes."
+    },
+    {
+      "id": "ma1301-4-1-d-p-mod-4",
+      "type": "definition",
+      "title": "Restklassen p mod 4 — hvorfor den avgjør så mye",
+      "content": "Om et odde primtall er $\\equiv 1$ eller $\\equiv 3$ modulo $4$, avgjør flere av resultatene i Del 4. Det er verdt å ha oversikten på ett sted:\n\n| $p\\equiv 1\\pmod 4$ | $p\\equiv 3\\pmod 4$ |\n|---|---|\n| $\\left(\\frac{-1}{p}\\right)=1$ | $\\left(\\frac{-1}{p}\\right)=-1$ |\n| $a$ og $-a$ er alltid av samme type | $a$ og $-a$ er alltid av motsatt type |\n| ingen enkel rot-formel | $x\\equiv\\pm a^{\\frac{p+1}{4}}$ når $\\left(\\frac ap\\right)=1$ |\n| resiprositet snur **uten** fortegnsbytte | fortegnsbytte hvis ALLE de involverte er $\\equiv 3$ |\n\n**Den praktiske rutinen:** første gang et primtall dukker opp i en oppgave, skriv i margen hva det er modulo $4$ (og modulo $8$, som du trenger til $\\left(\\frac 2p\\right)$ i [kap. 4.2](/ma1301/ma1301-4-2)). Det tar fem sekunder og fjerner en hel klasse av fortegnsfeil.\n\n**Eksempler:** $13\\equiv 1$, $17\\equiv 1$, $29\\equiv 1$, $37\\equiv 1$, $41\\equiv 1$; $11\\equiv 3$, $19\\equiv 3$, $23\\equiv 3$, $31\\equiv 3$, $43\\equiv 3$."
+    },
+    {
+      "id": "ma1301-4-1-d-eksponenten-halv",
+      "type": "definition",
+      "title": "Hvorfor eksponenten er (p−1)/2",
+      "content": "Et minnekort for den eneste detaljen i Eulers kriterium som må sitte helt presist: **eksponenten er halve Fermat-eksponenten.**\n\n**Sammenhengen, som er verdt å kunne si i én setning:** Fermat gir $a^{p-1}\\equiv 1$. Vi vil skille kvadratene fra ikke-kvadratene, så vi tar kvadratroten av $1$ — og da halveres eksponenten. Resultatet er $\\pm 1$, og hvilken av de to du får, er nøyaktig svaret på om $a$ er et kvadrat.\n\n**Hvorfor det ikke kunne vært noe annet tall:** er $a\\equiv x^2$, blir $a^{\\frac{p-1}{2}}=x^{p-1}$, som er $1$ etter Fermat. Enhver annen eksponent gir ikke den utregningen, og da faller argumentet.\n\n**Selvtesten:** hva er eksponenten for $p=41$? Svar: $\\frac{40}{2}=20$. Og for $p=101$? Svar: $50$. Nøler du, er det dette kortet som skal repeteres — feil eksponent gjør hele svaret verdiløst, og det er den best belagte feilen på Eulers kriterium."
+    },
+    {
+      "id": "ma1301-4-1-d-parkontroll",
+      "type": "definition",
+      "title": "Kontrollrutinen for en F-oppgave",
+      "content": "Fire kontroller å kjøre før du forlater en oppgave om kvadratiske rester. Til sammen tar de under ett minutt, og de fanger nesten alle feilene i sjangeren.\n\n1. **Er telleren redusert modulo $p$?** Og er $p\\nmid a$, slik at symbolet virkelig er $\\pm 1$ og ikke $0$?\n2. **Ga potensberegningen $1$ eller $p-1$?** Noe annet er regnefeil, ikke et nytt svar.\n3. **Er antall $-1$-faktorer talt riktig?** Partall gir $+1$, oddetall gir $-1$. Tell dem én gang til.\n4. **Står konklusjonen som en setning?** «Kongruensen har to løsninger» / «ingen løsning» — og er løsningene oppgitt hvis oppgaven ba om dem, som et $\\pm$-par?\n\n**En femte, når du har tid:** regn ett av de små symbolene på nytt med den andre metoden (tabell eller kriterium). To uavhengige veier til samme svar er den nærmeste tingen til en fasit du har på eksamensdagen.\n\n**Under kode D er kontrollrutinen en del av ferdigheten, ikke et tillegg til den.** Det finnes ingenting å slå opp i, og ingen som sier fra."
+    },
+    {
+      "id": "ma1301-4-1-d-fortegn-i-teller",
+      "type": "definition",
+      "title": "Å håndtere store og negative tellere",
+      "content": "Et lite verktøykort for de to formene telleren kan komme i.\n\n**Stor teller:** reduser modulo $p$ først. Er telleren mye større enn $p$, gjør divisjonen med rest på papiret — ikke i hodet. $\\left(\\frac{1\\,234}{17}\\right)$: $1234=72\\cdot 17+10$, altså $\\left(\\frac{10}{17}\\right)$.\n\n**Negativ teller:** to likeverdige veier, og begge er fullgode.\n\n- **Legg til $p$** til telleren er positiv: $\\left(\\frac{-5}{17}\\right)=\\left(\\frac{12}{17}\\right)$.\n- **Trekk ut $-1$** som egen faktor: $\\left(\\frac{-5}{17}\\right)=\\left(\\frac{-1}{17}\\right)\\left(\\frac{5}{17}\\right)$, og bruk supplementsregelen på den første.\n\n**Hvilken som er raskest, avhenger av tallene.** Blir $a+p$ et tall med pen faktorisering (som $12=2^2\\cdot 3$, der kvadratet faller bort), er første vei kortere. Ellers er andre vei mer forutsigbar. Si i besvarelsen hvilken du bruker.\n\n**Fellen:** å reduseres til et negativt tall og glemme det. $-5\\bmod 17$ er $12$, ikke $-5$ — og et symbol med negativ teller som ikke er behandlet, er en halvferdig utregning."
+    },
+    {
+      "id": "ma1301-4-1-d-hvorfor-halvparten",
+      "type": "definition",
+      "title": "Hvorfor nøyaktig halvparten",
+      "content": "Et forståelseskort til halvparten-regelen, som er verdt å kunne forklare og ikke bare bruke.\n\n**Argumentet i tre linjer:** kvadreringen $x\\mapsto x^2$ tar de $p-1$ ikke-null restene til de kvadratiske restene. Den er **to-til-en**: $x$ og $p-x$ har samme kvadrat, og ingen andre gjør det (om $x^2\\equiv y^2$, deler $p$ produktet $(x-y)(x+y)$, så $y\\equiv\\pm x$ **ved Euklids lemma**). Da må bildet ha $\\frac{p-1}{2}$ elementer.\n\n**Hvorfor det krever et primtall:** Euklids lemma er steget som bruker at $p$ er primtall. Modulo $8$ er ikke kvadreringen to-til-en — der har $1$ fire kvadratrøtter — og da holder ikke tellingen.\n\n**Konsekvensene, samlet:**\n\n- $\\frac{p-1}{2}$ kvadratiske rester og like mange ikke-rester\n- $\\sum_{a=1}^{p-1}\\left(\\frac ap\\right)=0$\n- en kvadratisk kongruens har $2$ eller $0$ løsninger, aldri én\n- Eulers kriterium virker (antallet passer med graden i Lagranges rotsetning)\n\nFire resultater fra ett argument. Det er derfor det er verdt tre linjers plass i hodet."
+    },
+    {
+      "id": "ma1301-4-1-d-eksamensformuleringer",
+      "type": "definition",
+      "title": "Hva oppgaveteksten kan spørre om",
+      "content": "Sjanger F kommer i noen få innpakninger. Å kjenne dem igjen er halve jobben, for de krever samme regning og ulik konklusjon.\n\n- **«Avgjør om $x^2\\equiv a\\pmod p$ har løsning.»** Regn symbolet, svar med en setning. Løsningene skal **ikke** finnes med mindre det spørres.\n- **«Regn ut $\\left(\\frac ap\\right)$.»** Svaret er et tall i $\\{1,-1,0\\}$ — men reduksjonskjeden er det som gir uttelling, ikke tallet.\n- **«Hvor mange løsninger har …?»** Svaret er $2$, $1$ (bare når $p\\mid a$) eller $0$. Skriv hvorfor.\n- **«Har likningen $x^2+bx+c\\equiv 0\\pmod p$ løsning?»** Fullfør kvadratet først: $\\left(x+\\frac b2\\right)^2\\equiv \\frac{b^2}{4}-c$, der $\\frac 12$ betyr inversen til $2$ modulo $p$ ([kap. 1.4](/ma1301/ma1301-1-4)). Da er du tilbake til standardformen.\n- **«Vis at $a$ er en kvadratisk rest modulo $p$ for alle primtall $p$ av formen …»** En bevisoppgave: bruk supplementsreglene og resiprositet ([kap. 4.2](/ma1301/ma1301-4-2)) på restklassen, ikke på et konkret tall.\n- **«Summér Legendre-symbolene.»** Svaret er $0$, og begrunnelsen er halvparten-regelen.\n\n**Fellesnevneren:** ingen av dem er ferdig besvart med et symbol. Alle vil ha en setning."
+    },
+    {
+      "id": "ma1301-4-1-d-hvor-brukes-legendre",
+      "type": "definition",
+      "title": "Hvor kvadratiske rester dukker opp ellers i faget",
+      "content": "Et orienteringskort: hvorfor dette kapitlet ikke er en isolert øy.\n\n- **Primitive røtter (kap. 5.2).** En primitiv rot modulo $p$ er aldri en kvadratisk rest. Begrunnelsen er Eulers kriterium: er $r$ primitiv rot, er $r^{(p-1)/2}\\not\\equiv 1$, altså er symbolet $-1$. Det gir en rask **utelukkelsestest**: er $\\left(\\frac ap\\right)=1$, kan $a$ ikke være primitiv rot.\n- **Orden (kap. 5.1).** Eulers kriterium er en utsagn om ordenen til $a$: symbolet er $1$ nøyaktig når ordenen deler $\\frac{p-1}{2}$.\n- **Bevisoppgaver (Del 6).** «Vis at $x^2\\equiv -1\\pmod p$ er uløselig når $p\\equiv 3\\pmod 4$» er en typisk delpunkt-a som brukes videre i en delpunkt-b.\n- **Pytagoreiske tripler og summer av to kvadrater (kap. 7.2).** At et primtall $p\\equiv 1\\pmod 4$ kan skrives som en sum av to kvadrater, henger direkte sammen med at $\\left(\\frac{-1}{p}\\right)=1$.\n\n**Praktisk konsekvens:** kortene fra dette kapitlet er ikke ferdige når Del 4 er lest. Ta dem opp igjen når du er i Del 5 — det er den spredte repetisjonen som gjør at de sitter i november."
+    },
+    {
+      "id": "ma1301-4-1-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "ma1301-4-1-rep-inn",
+          "type": "text",
+          "content": "Fem korte oppgaver fra forkunnskapskapitlene, som dette kapitlet bygger på. Fasit under hver.\n\n**R1.** Hva sier Fermats lille teorem for $p=13$ og $a=7$?\n\n*Fasit:* At $7^{12}\\equiv 1\\pmod{13}$, siden $13\\nmid 7$. Merk at Eulers kriterium bruker **halve** denne eksponenten: $7^6\\equiv\\pm 1$, og i oppgave 4 fant vi at den er $-1$.\n\n**R2.** Regn $3^{10}\\bmod 17$ med kvadrer-og-multipliser.\n\n*Fasit:* $10=1010_2=8+2$. Kvadratene: $3^2=9$, $3^4=81\\equiv 81-68=13$, $3^8\\equiv 13^2=169\\equiv 169-153=16$. Da er $3^{10}=3^8\\cdot 3^2\\equiv 16\\cdot 9=144\\equiv 144-136=8\\pmod{17}$.\n\n**R3.** Finn inversen til $2$ modulo $17$.\n\n*Fasit:* Vi trenger $u$ med $2u\\equiv 1\\pmod{17}$. Siden $2\\cdot 9=18\\equiv 1$, er $u=9$. (Generelt: for odde $p$ er inversen til $2$ tallet $\\frac{p+1}{2}$.) Dette brukes når du fullfører kvadratet i en generell annengradskongruens.\n\n**R4.** Hvor mange inkongruente løsninger har $6x\\equiv 9\\pmod{15}$?\n\n*Fasit:* $d=\\gcd(6,15)=3$, og $3\\mid 9$, så kongruensen er løsbar med $d=3$ inkongruente løsninger modulo $15$ ([kap. 1.4](/ma1301/ma1301-1-4)). Merk kontrasten til dette kapitlet: en **lineær** kongruens kan ha mange løsninger, en **kvadratisk** modulo et primtall har alltid $2$ eller $0$.\n\n**R5.** Regn $\\phi(13)$ og $\\phi(17)$.\n\n*Fasit:* For et primtall $p$ er $\\phi(p)=p-1$, så $\\phi(13)=12$ og $\\phi(17)=16$ ([kap. 2.1](/ma1301/ma1301-2-1)). Halvparten av hver er eksponenten i Eulers kriterium: $6$ og $8$."
+        }
+      ]
+    },
+    {
+      "id": "ma1301-4-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "ma1301-4-1-symbol-inn",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $p$ | gjennomgående et **odde primtall** (modulusen) |\n| $\\left(\\frac{a}{p}\\right)$, $(a/p)$ | Legendre-symbolet: $1$, $-1$ eller $0$ |\n| $x^2\\equiv a\\pmod p$ | den kvadratiske kongruensen vi avgjør løsbarheten av |\n| $m=\\frac{p-1}{2}$ | eksponenten i Eulers kriterium, og antall kvadratiske rester |\n| $\\pm x_0$ | løsningsparet $x\\equiv x_0$ og $x\\equiv p-x_0$ |\n| $p\\nmid a$ | «$p$ deler ikke $a$» — vilkåret for at symbolet er $\\pm 1$ |\n| $a\\equiv b\\pmod p$ | $a$ og $b$ gir samme rest ved divisjon med $p$ |\n| $\\sum_{a=1}^{p-1}$ | sum over alle ikke-null rester modulo $p$ |\n| $\\phi(n)$ | Eulers $\\phi$-funksjon ([kap. 2.1](/ma1301/ma1301-2-1)) |\n| $\\blacksquare$ | bevis slutt |\n\n**Formler i dette delkapitlet:**\n\n$$\\left(\\frac{a}{p}\\right)=\\begin{cases}1 & a\\ \\text{kvadratisk rest}\\\\ -1 & a\\ \\text{kvadratisk ikke-rest}\\\\ 0 & p\\mid a\\end{cases}$$\nDefinisjonen av Legendre-symbolet. **(må sitte utenat)**\n\n$$\\left(\\frac{a}{p}\\right)\\equiv a^{\\frac{p-1}{2}}\\pmod p$$\nEulers kriterium. Eksponenten er halve Fermat-eksponenten, og resultatet er alltid $1$ eller $p-1$. **(må sitte utenat — med eksakt eksponent)**\n\n$$a\\equiv b\\pmod p\\ \\Longrightarrow\\ \\left(\\frac ap\\right)=\\left(\\frac bp\\right)$$\nPeriodisiteten. Reduser telleren FØRST. **(må sitte utenat)**\n\n$$\\left(\\frac{ab}{p}\\right)=\\left(\\frac ap\\right)\\left(\\frac bp\\right)$$\nFullstendig multiplikativitet — grunnen til at du faktoriserer telleren. **(må sitte utenat)**\n\n$$\\left(\\frac{a^2}{p}\\right)=1,\\qquad \\left(\\frac{a^2b}{p}\\right)=\\left(\\frac bp\\right)$$\nKvadrater i telleren faller bort. **(utledes på stedet — én linje: $\\left(\\frac ap\\right)^2=(\\pm 1)^2=1$)**\n\n$$\\left(\\frac{-1}{p}\\right)=(-1)^{\\frac{p-1}{2}}=\\begin{cases}1 & p\\equiv 1\\pmod 4\\\\ -1 & p\\equiv 3\\pmod 4\\end{cases}$$\nSupplementsregelen for $-1$. **(utledes på stedet — sett $a=-1$ i Eulers kriterium; tre linjer, under et halvt minutt. Verdt å kunne utenat for tempoets skyld, men du er ikke avhengig av det.)**\n\n$$\\text{antall kvadratiske rester modulo } p=\\frac{p-1}{2}$$\nHalvparten-regelen. **(må sitte utenat — den er kontrollen på hver tabell du lager)**\n\n$$\\sum_{a=1}^{p-1}\\left(\\frac{a}{p}\\right)=0$$\nSummen av alle symboler. **(utledes på stedet — like mange $+1$ som $-1$)**\n\n$$x^2\\equiv a\\pmod p\\ \\text{har}\\ \\begin{cases}2\\ \\text{løsninger} & \\left(\\frac ap\\right)=1\\\\ 0\\ \\text{løsninger} & \\left(\\frac ap\\right)=-1\\\\ 1\\ \\text{løsning} & p\\mid a\\end{cases}$$\nKonklusjonsregelen — det oppgaven faktisk spør om. **(må sitte utenat)**\n\n$$x\\equiv\\pm a^{\\frac{p+1}{4}}\\pmod p\\quad\\text{når } p\\equiv 3\\pmod 4\\ \\text{og}\\ \\left(\\frac ap\\right)=1$$\nRot-formelen for $p\\equiv 3\\pmod 4$. **(utledes på stedet — kvadrer: $a^{\\frac{p+1}{2}}=a\\cdot a^{\\frac{p-1}{2}}\\equiv a$ ved Eulers kriterium)**\n\n$$x^2\\equiv 1\\pmod p\\ \\Longrightarrow\\ x\\equiv\\pm 1$$\nDe to kvadratrøttene av $1$ — nøkkelsteget i beviset for Eulers kriterium. **(utledes på stedet — Euklids lemma på $(x-1)(x+1)$)**\n\n**Reduksjonsrekkefølgen i fire steg** — (1) reduser telleren mod $p$, (2) faktoriser, (3) splitt og stryk kvadrater, (4) regn de små symbolene. **(må sitte utenat — det er rekkefølgen som holder tallene små)**"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

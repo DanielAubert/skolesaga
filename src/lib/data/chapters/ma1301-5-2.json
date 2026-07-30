@@ -1,0 +1,420 @@
+{
+  "id": "ma1301-5-2",
+  "courseId": "ma1301",
+  "chapterNumber": "5.2",
+  "title": "Primitive røtter: eksistens, verifikasjon og telling",
+  "description": "Primitiv rot = element av orden ϕ(n): eksistens (2, 4, pᵏ, 2pᵏ), verifikasjon ved å sjekke aᵈ≢1 for alle ekte divisorer av ϕ(n), generering av alle primitive røtter, og telling av elementer av gitt orden.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "forklare hva en primitiv rot er, og hvorfor potensene av den treffer alle restene",
+    "avgjøre om en modulus i det hele tatt har en primitiv rot, ut fra formen på tallet",
+    "verifisere en primitiv rot ved å teste én potens for hver primdivisor av fi-verdien",
+    "telle primitive røtter og elementer av en gitt orden, og kontrollere tellingen ved å summere over divisorene"
+  ],
+  "content": [
+    {
+      "id": "ma1301-5-2-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Primitive røtter er andre halvdel av sjanger G, som forekommer i 9 av 15 sett — 60 %.** Sjangerbokstavene er bokas forkortelser for oppgavetypene, forklart i [kap. 0.1](/ma1301/ma1301-0-1).\n\nDer [kap. 5.1](/ma1301/ma1301-5-1) handlet om å **finne** en orden, handler dette kapitlet om de tilfellene der ordenen er så stor den kan bli — og om å **telle**. Det er tellingen som er karakterskilleren: å verifisere en primitiv rot er mekanisk, men «hvor mange elementer har orden $4$?» krever at du kjenner strukturen.\n\n| Hva oppgaven spør om | Hva du trenger |\n|---|---|\n| «Vis at $a$ er en primitiv rot modulo $p$» | primdivisortesten (løkke 2) |\n| «Hvor mange primitive røtter finnes modulo $p$?» | $\\phi(\\phi(p))$ (løkke 4) |\n| «Finn alle primitive røtter» | $r^k$ med $\\gcd(k,\\phi(n))=1$ (løkke 4) |\n| «Hvor mange elementer har orden $d$?» | $\\phi(d)$ (løkke 5) |\n| «Har $n$ en primitiv rot?» | eksistenskriteriet $2$, $4$, $p^k$, $2p^k$ (løkke 3) |\n\n**Arkivets kalibrering av karakterskillene** plasserer «orden og primitive røtter med telling» blant markørene for **toppsjiktet**, sammen med sikker kvadratisk resiprositet og ett stramt ført bevis. Mekanikken alene (Euklid, $\\phi$, CRT, RSA med gitt $d$) gir bestått.\n\n**Prioritet:** høy, men under Del 1–4. Skal du over C, er dette et av de tre stedene marginen ligger.\n\n**Merk den korte veien inn:** verifikasjonstesten er **billigere** enn en full ordensberegning. Du tester bare én potens per primdivisor av $\\phi(n)$ — typisk to eller tre potenser, ikke åtte."
+    },
+    {
+      "id": "ma1301-5-2-utenat",
+      "type": "tip",
+      "title": "Utenat under kode D",
+      "content": "Eksamen er hjelpemiddelkode D: ingen bok, ingen formelsamling, ingen tabeller, ingen egne notater — bare en enkel kalkulator. Det finnes ingen tabell over primitive røtter å slå opp i 24. november, og kalkulatoren kan ikke regne $a^k\\bmod n$ for deg.\n\n**Må sitte utenat:**\n\n- **definisjonen:** $a$ er en primitiv rot modulo $n$ når $\\operatorname{ord}_n(a)=\\phi(n)$\n- **eksistenskriteriet:** primitiv rot finnes **nøyaktig** for $n=2$, $n=4$, $n=p^k$ og $n=2p^k$ med $p$ et odde primtall — og for ingen andre $n$\n- **primdivisortesten:** $a$ er primitiv rot $\\iff$ $a^{\\phi(n)/q}\\not\\equiv 1\\pmod n$ for **hver primdivisor** $q$ av $\\phi(n)$\n- **antallet:** det finnes $\\phi(\\phi(n))$ primitive røtter modulo $n$ (når de finnes)\n- **antall elementer av orden $d$:** $\\phi(d)$, for hver $d$ som deler $\\phi(n)$ (når en primitiv rot finnes)\n\n**Utledes på stedet:**\n\n- **at alle primitive røtter er $r^k$ med $\\gcd(k,\\phi(n))=1$** — én linje ut av potensformelen fra [kap. 5.1](/ma1301/ma1301-5-1): $\\operatorname{ord}(r^k)=\\phi(n)/\\gcd(k,\\phi(n))$, som er $\\phi(n)$ nøyaktig når $\\gcd(k,\\phi(n))=1$.\n- **at antallet er $\\phi(\\phi(n))$** — det er bare å telle de $k$-ene: definisjonen av $\\phi$ anvendt på $\\phi(n)$.\n- **at elementene av orden $d$ er $r^{k\\phi(n)/d}$ med $\\gcd(k,d)=1$** — samme formel, tre linjer (løkke 5).\n- **at en primitiv rot aldri er en kvadratisk rest** — to linjer via Eulers kriterium ([kap. 4.1](/ma1301/ma1301-4-1)).\n- **hvorfor primdivisortesten holder** — tre linjer: en ekte divisor av $\\phi(n)$ deler alltid en av tallene $\\phi(n)/q$.\n\n**Selvtest, tre minutter:** dekk til boka og skriv ned eksistenskriteriet (fire former), primdivisortesten, og formelen for antallet. Nøler du på om testen bruker **alle** divisorer eller bare **primdivisorene**, er det den ene tingen å drille — den forskjellen er hele tidsbesparelsen i sjangeren."
+    },
+    {
+      "id": "ma1301-5-2-forkunnskaper",
+      "type": "text",
+      "content": "### Forkunnskaper\n\nFra boka: [kap. 5.1](/ma1301/ma1301-5-1) (orden, ordenslemmaet, potensformelen) er hele grunnlaget, og [kap. 2.1](/ma1301/ma1301-2-1) ($\\phi$-funksjonen) brukes i hver eneste oppgave. Koblingen til [kap. 4.1](/ma1301/ma1301-4-1) (Eulers kriterium) gir en gratis utelukkelsestest i løkke 5.\n\n**Sist du var her.** De fire resultatene fra [kap. 5.1](/ma1301/ma1301-5-1) som dette kapitlet står helt på, ferdig oppfrisket:\n\n**Ordenen.** $\\operatorname{ord}_n(a)$ er det minste $k\\ge 1$ med $a^k\\equiv 1\\pmod n$, og den finnes når $\\gcd(a,n)=1$.\n\n**Ordenslemmaet.**\n$$a^t\\equiv 1\\pmod n\\iff \\operatorname{ord}_n(a)\\mid t.$$\n\n**Ordenen deler $\\phi(n)$.**\n$$\\operatorname{ord}_n(a)\\mid\\phi(n).$$\n\n**Ordenen til en potens.**\n$$\\operatorname{ord}_n(a^k)=\\frac{\\operatorname{ord}_n(a)}{\\gcd(k,\\operatorname{ord}_n(a))}.$$\n\nDen siste er nøkkelen til hele dette kapitlet — både til å generere alle primitive røtter og til å telle elementene av en gitt orden.\n\nFra videregående kreves ingenting."
+    },
+    {
+      "id": "ma1301-5-2-motivasjon",
+      "type": "text",
+      "content": "### Ett tall som treffer alle\n\nRegn ut potensene av $3$ modulo $7$:\n$$3^1=3,\\quad 3^2=2,\\quad 3^3=6,\\quad 3^4=4,\\quad 3^5=5,\\quad 3^6=1.$$\n\nSe på listen: $3,2,6,4,5,1$. Den inneholder **hvert** av tallene $1,2,3,4,5,6$ — nøyaktig én gang. Én enkelt potensrekke har truffet alle restene modulo $7$.\n\nPrøver du det samme med $2$, får du noe annet:\n$$2^1=2,\\quad 2^2=4,\\quad 2^3=1,\\quad 2^4=2,\\dots$$\nBare tre verdier, og så gjentar det seg. Syklusen til $2$ er kort; syklusen til $3$ er så lang den kan bli.\n\n**Et tall med maksimal syklus kalles en primitiv rot.** Med språket fra [kap. 5.1](/ma1301/ma1301-5-1): $\\operatorname{ord}_7(3)=6=\\phi(7)$, mens $\\operatorname{ord}_7(2)=3$.\n\n**Hvorfor det er et sentralt begrep:** når en primitiv rot finnes, kan **hver** rest skrives som en potens av den. Da er multiplikasjon modulo $n$ i praksis addisjon av eksponenter, og alle spørsmål om orden, kvadratiske rester og løsbarhet blir spørsmål om heltall. Det er den samme forenklingen som logaritmer gir for vanlige tall — og eksponenten kalles faktisk en **diskret logaritme**.\n\n**Hva kapitlet svarer på, i rekkefølge:** hvordan du **verifiserer** at et tall er en primitiv rot uten å regne hele syklusen (løkke 2), for hvilke $n$ de i det hele tatt **finnes** (løkke 3), hvor **mange** det er og hvordan du finner dem alle (løkke 4), og hvordan du **teller** elementer av en gitt orden (løkke 5).\n\n*Tidsanslag for kapitlet: ~55 minutter lesetid, fordelt på fem løkker à 9–13 minutter. Regner du med penn underveis, legg til omtrent halvparten.*"
+    },
+    {
+      "id": "ma1301-5-2-l1-intro",
+      "type": "text",
+      "content": "## Løkke 1: Definisjonen\n\n*~9 minutter.*\n\nBegrepet er en setning fra [kap. 5.1](/ma1301/ma1301-5-1) med et navn festet på: maksimal orden."
+    },
+    {
+      "id": "ma1301-5-2-d-primitiv-rot",
+      "type": "definition",
+      "title": "Primitiv rot",
+      "content": "Et tall $a$ med $\\gcd(a,n)=1$ kalles en **primitiv rot modulo $n$** dersom\n\n$$\\operatorname{ord}_n(a)=\\phi(n),$$\n\naltså dersom ordenen er så stor den i det hele tatt kan bli. (Ordenen deler alltid $\\phi(n)$, så $\\phi(n)$ er taket.)\n\n**Den likeverdige formuleringen, som er den du bruker til å forstå hva det betyr:** potensene\n$$a^1,a^2,\\dots,a^{\\phi(n)}$$\nløper gjennom **alle** de $\\phi(n)$ restene modulo $n$ som er relativt primiske til $n$ — hver nøyaktig én gang. En primitiv rot **genererer** alle restene.\n\n**Utledningen av at de to formuleringene er like, i to linjer:** de $\\phi(n)$ første potensene er innbyrdes ulike (vist i [kap. 5.1](/ma1301/ma1301-5-1), oppgave 8a), og de er alle relativt primiske til $n$. Da er de $\\phi(n)$ ulike tall i en mengde med $\\phi(n)$ elementer — altså hele mengden.\n\n**Definisjonen må sitte utenat.** Merk at «primitiv rot» ikke er en egenskap ved $a$ alene: $3$ er en primitiv rot modulo $7$, men ikke modulo $11$ (der $\\operatorname{ord}_{11}(3)=5\\ne 10$). Modulusen hører alltid med.\n\n**Språkbruk:** boka skriver «$a$ er en primitiv rot modulo $n$». I noen bøker heter det «generator» eller «$a$ genererer $\\mathbb{Z}_n^*$» — samme sak."
+    },
+    {
+      "id": "ma1301-5-2-e1",
+      "type": "example",
+      "title": "3 er en primitiv rot modulo 7",
+      "problem": "Vis at $3$ er en primitiv rot modulo $7$, og at $2$ ikke er det.",
+      "solution": "**Vilkåret.** $\\gcd(3,7)=\\gcd(2,7)=1$, så begge har en orden.\n\n**Taket.** $\\phi(7)=7-1=6$, siden $7$ er et primtall. En primitiv rot modulo $7$ må ha orden $6$.\n\n**For $a=3$: regn hele syklusen.**\n\n| $k$ | $1$ | $2$ | $3$ | $4$ | $5$ | $6$ |\n|---|---|---|---|---|---|---|\n| $3^k\\bmod 7$ | $3$ | $2$ | $6$ | $4$ | $5$ | $1$ |\n\nUtregningen: $3^2=9\\equiv 2$, $3^3\\equiv 2\\cdot 3=6$, $3^4\\equiv 6\\cdot 3=18\\equiv 4$, $3^5\\equiv 4\\cdot 3=12\\equiv 5$, $3^6\\equiv 5\\cdot 3=15\\equiv 1$.\n\nDen første $k$ med $3^k\\equiv 1$ er $k=6$, altså er $\\operatorname{ord}_7(3)=6=\\phi(7)$. **Altså er $3$ en primitiv rot modulo $7$.**\n\nLegg merke til at listen $3,2,6,4,5,1$ inneholder alle de seks ikke-null restene — presis som definisjonens andre formulering sier.\n\n**For $a=2$:** $2^1=2$, $2^2=4$, $2^3=8\\equiv 1$. Ordenen er $3$, som deler $6$ men ikke er $6$. **Altså er $2$ ikke en primitiv rot modulo $7$**, og potensene av $2$ treffer bare $\\{1,2,4\\}$ — halvparten av restene.\n\n**Sluttsvar:** $\\operatorname{ord}_7(3)=6=\\phi(7)$, så $3$ er en primitiv rot; $\\operatorname{ord}_7(2)=3\\ne 6$, så $2$ er ikke.\n\n*Merk at $\\{1,2,4\\}$ er nøyaktig de kvadratiske restene modulo $7$ ([kap. 4.1](/ma1301/ma1301-4-1)). Det er ikke tilfeldig: potensene av et element med orden $\\frac{p-1}{2}$ er nøyaktig kvadratene. Vi kommer tilbake til den koblingen i løkke 5.*\n\n*Merk også arbeidsmengden: seks potenser for å verifisere **én** primitiv rot. For $p=29$ ville det vært 28 potenser, og det er for mye på eksamen. Primdivisortesten i neste løkke gjør samme jobb med to potenser.*"
+    },
+    {
+      "id": "ma1301-5-2-ex-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-5-2-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Vis at $2$ er en primitiv rot modulo $11$ ved å regne hele syklusen, og oppgi hvilke rester potensene treffer.",
+        "solution": "**Vilkåret.** $\\gcd(2,11)=1$, så ordenen finnes.\n\n**Taket.** $\\phi(11)=10$, siden $11$ er primtall.\n\n**Syklusen:**\n\n| $k$ | $1$ | $2$ | $3$ | $4$ | $5$ | $6$ | $7$ | $8$ | $9$ | $10$ |\n|---|---|---|---|---|---|---|---|---|---|---|\n| $2^k\\bmod 11$ | $2$ | $4$ | $8$ | $5$ | $10$ | $9$ | $7$ | $3$ | $6$ | $1$ |\n\nUtregningen: $2^4=16\\equiv 5$, $2^5\\equiv 10$, $2^6\\equiv 20\\equiv 9$, $2^7\\equiv 18\\equiv 7$, $2^8\\equiv 14\\equiv 3$, $2^9\\equiv 6$, $2^{10}\\equiv 12\\equiv 1$.\n\nDen første $k$ med $2^k\\equiv 1$ er $k=10$, altså er\n$$\\operatorname{ord}_{11}(2)=10=\\phi(11),$$\nog **$2$ er en primitiv rot modulo $11$.**\n\n**Restene som treffes:** $\\{2,4,8,5,10,9,7,3,6,1\\}$ — alle de ti ikke-null restene modulo $11$, hver nøyaktig én gang ✓.\n\n**Kontroll:** $2^5\\equiv 10\\equiv -1\\pmod{11}$, som bekrefter at ordenen er $2\\cdot 5=10$ (snarveien via $-1$ fra [kap. 5.1](/ma1301/ma1301-5-1)).\n\n**Sluttsvar:** $\\operatorname{ord}_{11}(2)=10=\\phi(11)$, så $2$ er en primitiv rot; potensene treffer alle restene $1,\\dots,10$.\n\n*Merk snarveien: så snart du ser $2^5\\equiv -1$, er ordenen $10$ og du er ferdig. Du trengte ikke resten av tabellen — men det var lærerikt å se at alle restene faktisk dukker opp.*",
+        "hints": [
+          "$\\phi(11)=10$, så du må vise at ordenen er $10$.",
+          "Regn potensene fortløpende: gang forrige verdi med $2$ og reduser.",
+          "Se etter $2^5$: er den $\\equiv -1$?"
+        ]
+      }
+    },
+    {
+      "id": "ma1301-5-2-l2-intro",
+      "type": "text",
+      "content": "## Løkke 2: Primdivisortesten\n\n*~13 minutter.*\n\nÅ regne hele syklusen er uaktuelt for $p$ over rundt $15$. Heldigvis finnes en test som bruker **én potens per primdivisor** av $\\phi(n)$ — typisk to eller tre potenser i alt.\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "ma1301-5-2-t-primdivisortesten",
+      "type": "theorem",
+      "title": "Primdivisortesten",
+      "content": "La $\\gcd(a,n)=1$ og la $q_1,\\dots,q_r$ være de **ulike primdivisorene** av $\\phi(n)$. Da er\n\n$$a\\ \\text{primitiv rot modulo}\\ n\\quad\\Longleftrightarrow\\quad a^{\\phi(n)/q_i}\\not\\equiv 1\\pmod n\\ \\text{for alle}\\ i=1,\\dots,r.$$\n\n**Bevis.**\n\n*Retning $\\Rightarrow$.* Er $a$ en primitiv rot, er ordenen $\\phi(n)$, og da kan ingen mindre eksponent gi $1$. Tallene $\\phi(n)/q_i$ er alle mindre enn $\\phi(n)$, så ingen av dem kan gi $1$.\n\n*Retning $\\Leftarrow$ (den som gjør arbeidet).* Sett $d=\\operatorname{ord}_n(a)$. Vi vet at $d\\mid\\phi(n)$. Anta $d<\\phi(n)$ — altså at $d$ er en **ekte** divisor. Da er $\\phi(n)/d>1$, så tallet $\\phi(n)/d$ har minst én primdivisor; kall den $q$. Nå deler $d$ tallet $\\phi(n)/q$:\n$$\\frac{\\phi(n)}{q}=d\\cdot\\frac{\\phi(n)}{dq},$$\nog brøken $\\frac{\\phi(n)}{dq}$ er et helt tall nettopp fordi $q$ deler $\\phi(n)/d$. **Ved ordenslemmaet** gir $d\\mid\\phi(n)/q$ da\n$$a^{\\phi(n)/q}\\equiv 1\\pmod n,$$\ni strid med antagelsen. Altså er $d=\\phi(n)$, og $a$ er en primitiv rot. $\\blacksquare$\n\n**Intuisjonen bak beviset:** en ekte divisor av $\\phi(n)$ må «mangle» minst én primfaktor, og da ligger den under $\\phi(n)/q$ for den primfaktoren. Derfor er det nok å sjekke de $r$ «nesten-maksimale» eksponentene $\\phi(n)/q_i$ — de fanger **alle** mulige ekte divisorer på én gang.\n\n**Testen må sitte utenat**, og den er hele tidsbesparelsen i sjangeren: for $\\phi(n)=28=2^2\\cdot 7$ er primdivisorene $2$ og $7$, så du regner **to** potenser i stedet for å teste seks divisorer.\n\n**Merk hva som ikke virker:** å teste bare **én** primdivisor, eller å teste $\\phi(n)/d$ for en sammensatt $d$. Testen krever **alle** primdivisorene, og bare dem. Å konkludere «primitiv rot» etter én test er den mest belagte feilen i sjangeren."
+    },
+    {
+      "id": "ma1301-5-2-d-kort-primdivisortesten",
+      "type": "definition",
+      "title": "Oppskrift: verifiser en primitiv rot",
+      "content": "Prosedyren, som **må sitte utenat**:\n\n1. **Sjekk $\\gcd(a,n)=1$** og si det.\n2. **Regn $\\phi(n)$**, og **faktoriser** den.\n3. **List de ulike primdivisorene** $q_1,\\dots,q_r$ av $\\phi(n)$.\n4. **Regn $a^{\\phi(n)/q_i}\\bmod n$** for hver $i$, med kvadrer-og-multipliser.\n5. **Konkludér:** er **alle** verdiene $\\ne 1$, er $a$ en primitiv rot. Er **én** av dem $=1$, er den ikke.\n\n**Antall potenser du må regne = antall ulike primfaktorer i $\\phi(n)$.** Det er nesten alltid $2$ eller $3$:\n\n| $\\phi(n)$ | faktorisering | primdivisorer | antall tester |\n|---|---|---|---|\n| $28$ | $2^2\\cdot 7$ | $2$, $7$ | $2$ |\n| $30$ | $2\\cdot 3\\cdot 5$ | $2$, $3$, $5$ | $3$ |\n| $36$ | $2^2\\cdot 3^2$ | $2$, $3$ | $2$ |\n| $40$ | $2^3\\cdot 5$ | $2$, $5$ | $2$ |\n\n**Bonusen når testen feiler:** verdien du fikk, forteller deg noe. Er $a^{\\phi(n)/q}\\equiv 1$, deler ordenen $\\phi(n)/q$ — og da har du innsnevret ordenen betydelig uten ekstra arbeid.\n\n**Kontroll:** når svaret er «ja», bør du se at én av testverdiene er $\\equiv -1$ (det skjer for $q=2$, siden $a^{\\phi(n)/2}$ er en kvadratrot av $1$ som ikke er $1$). Ser du noe annet enn $-1$ i den raden for primtallsmodulus, har du regnet feil."
+    },
+    {
+      "id": "ma1301-5-2-e2",
+      "type": "example",
+      "title": "2 er en primitiv rot modulo 29",
+      "problem": "Vis at $2$ er en primitiv rot modulo $29$.",
+      "solution": "**Steg 1: vilkåret.** $\\gcd(2,29)=1$, siden $29$ er primtall.\n\n**Steg 2: $\\phi(n)$ og faktoriseringen.** $\\phi(29)=28$, og\n$$28=2^2\\cdot 7.$$\n\n**Steg 3: primdivisorene** av $28$ er $q=2$ og $q=7$. Vi skal derfor regne **to** potenser:\n$$2^{28/2}=2^{14}\\qquad\\text{og}\\qquad 2^{28/7}=2^{4}.$$\n\n**Steg 4: regn dem.**\n\n*Første test, $2^{14}\\bmod 29$.* Binærutviklingen er $14=8+4+2$:\n\n| potens | utregning | verdi mod $29$ |\n|---|---|---|\n| $2^2$ | $4$ | $4$ |\n| $2^4$ | $16$ | $16$ |\n| $2^8$ | $16^2=256=8\\cdot 29+24$ | $24$ |\n\n$$2^{14}=2^8\\cdot 2^4\\cdot 2^2\\equiv 24\\cdot 16\\cdot 4\\pmod{29}.$$\nSteg for steg: $24\\cdot 16=384=13\\cdot 29+7\\equiv 7$, og $7\\cdot 4=28\\equiv -1\\pmod{29}$.\n\nAltså $2^{14}\\equiv 28\\not\\equiv 1$ ✓ — første test bestått.\n\n*Andre test, $2^4\\bmod 29$.* Direkte: $2^4=16\\not\\equiv 1$ ✓ — andre test bestått.\n\n**Steg 5: konklusjon.** Begge testverdiene er ulik $1$, så **ved primdivisortesten** er\n$$\\operatorname{ord}_{29}(2)=\\phi(29)=28,$$\nog **$2$ er en primitiv rot modulo $29$**.\n\n**Kontroll.** Merk at $2^{14}\\equiv -1$. Det er som forventet: $2^{14}$ er en kvadratrot av $2^{28}\\equiv 1$, og modulo et primtall er kvadratrøttene av $1$ bare $\\pm 1$ ([kap. 4.1](/ma1301/ma1301-4-1)). Siden den ikke er $1$, må den være $-1$ ✓.\n\n**Sluttsvar:** $2$ er en primitiv rot modulo $29$, med orden $28$.\n\n*Tell arbeidet: **to** potensberegninger, den ene triviell. En full ordensberegning ville krevd seks tester (divisorene $1,2,4,7,14,28$), og en full syklus 28 potenser. Det er derfor primdivisortesten er den ene tingen å kunne i denne sjangeren.*\n\n*Om føringen: at faktoriseringen av $\\phi(n)$ står skrevet, er en del av besvarelsen — det er den som forklarer hvorfor nettopp $14$ og $4$ er de riktige eksponentene. Instruksen på hvert eksamenssett er at alle svar skal begrunnes, og her er faktoriseringen begrunnelsen for testens form.*"
+    },
+    {
+      "id": "ma1301-5-2-ex-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-5-2-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "**a)** Vis med primdivisortesten at $2$ er en primitiv rot modulo $13$.\n**b)** Vis at $3$ **ikke** er en primitiv rot modulo $13$, og finn ordenen til $3$.",
+        "solution": "**a) Steg 1:** $\\gcd(2,13)=1$.\n\n**Steg 2:** $\\phi(13)=12=2^2\\cdot 3$.\n\n**Steg 3: primdivisorene** er $2$ og $3$, så vi regner $2^{12/2}=2^6$ og $2^{12/3}=2^4$.\n\n**Steg 4:**\n$$2^6=64=4\\cdot 13+12\\equiv 12\\equiv -1\\pmod{13}\\quad\\Longrightarrow\\quad \\ne 1\\ \\checkmark$$\n$$2^4=16\\equiv 3\\pmod{13}\\quad\\Longrightarrow\\quad \\ne 1\\ \\checkmark$$\n\n**Steg 5:** begge er ulik $1$, så **ved primdivisortesten** er $\\operatorname{ord}_{13}(2)=12=\\phi(13)$, og **$2$ er en primitiv rot modulo $13$**.\n\n**b)** Samme to tester for $a=3$:\n$$3^6=729=56\\cdot 13+1\\equiv 1\\pmod{13}.$$\n\nHer ble testverdien **lik** $1$, så testen feiler, og $3$ er **ikke** en primitiv rot modulo $13$.\n\n**Ordenen til $3$.** Testen ga oss mer enn et nei: siden $3^6\\equiv 1$, deler ordenen $6$ **ved ordenslemmaet**. Kandidatene er derfor $1$, $2$, $3$ og $6$. Vi tester stigende:\n$$3^1=3,\\qquad 3^2=9,\\qquad 3^3=27\\equiv 1\\pmod{13}.$$\n\nAltså er\n$$\\operatorname{ord}_{13}(3)=3.$$\n\n**Kontroll:** $3\\mid 12=\\phi(13)$ ✓, og $3^6=(3^3)^2\\equiv 1$ ✓.\n\n**Sluttsvar:** a) $2$ er en primitiv rot modulo $13$; b) $3$ er ikke, og $\\operatorname{ord}_{13}(3)=3$.\n\n*Legg merke til gevinsten i b): den feilede testen innsnevret ordenen fra «en divisor av $12$» til «en divisor av $6$» **gratis**. Når en primdivisortest feiler, les av hva den forteller deg før du begynner å regne på nytt.*",
+        "hints": [
+          "$\\phi(13)=12=2^2\\cdot 3$, så primdivisorene er $2$ og $3$.",
+          "Eksponentene å teste er $12/2=6$ og $12/3=4$.",
+          "I b): når $3^6\\equiv 1$, hva vet du da om ordenen?"
+        ]
+      }
+    },
+    {
+      "id": "ma1301-5-2-ex-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-5-2-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Avgjør om $5$ er en primitiv rot modulo $23$.",
+        "solution": "**Steg 1:** $\\gcd(5,23)=1$, siden $23$ er primtall.\n\n**Steg 2:** $\\phi(23)=22=2\\cdot 11$.\n\n**Steg 3: primdivisorene** er $2$ og $11$. Eksponentene å teste er\n$$\\frac{22}{2}=11\\qquad\\text{og}\\qquad\\frac{22}{11}=2.$$\n\n**Steg 4: regn de to potensene.**\n\n*Andre test først, siden den er billigst:* $5^2=25\\equiv 2\\pmod{23}$, altså $\\ne 1$ ✓.\n\n*Første test, $5^{11}\\bmod 23$.* Binærutviklingen er $11=8+2+1$:\n\n| potens | utregning | verdi mod $23$ |\n|---|---|---|\n| $5^1$ | — | $5$ |\n| $5^2$ | $25=23+2$ | $2$ |\n| $5^4$ | $2^2=4$ | $4$ |\n| $5^8$ | $4^2=16$ | $16$ |\n\n$$5^{11}=5^8\\cdot 5^2\\cdot 5^1\\equiv 16\\cdot 2\\cdot 5\\pmod{23}.$$\nSteg for steg: $16\\cdot 2=32\\equiv 9$, og $9\\cdot 5=45=23+22\\equiv 22\\equiv -1\\pmod{23}$.\n\nAltså $5^{11}\\equiv 22\\not\\equiv 1$ ✓.\n\n**Steg 5: konklusjon.** Begge testene bestått, så **ved primdivisortesten** er $\\operatorname{ord}_{23}(5)=22=\\phi(23)$, og **$5$ er en primitiv rot modulo $23$**.\n\n**Kontroll:** $5^{11}\\equiv -1$, som forventet for $q=2$-testen når svaret er ja ✓.\n\n**Sluttsvar:** ja, $5$ er en primitiv rot modulo $23$.\n\n*Merk rekkefølgen: vi tok den billigste testen først. Hadde $5^2$ vært $\\equiv 1$, ville vi vært ferdige etter én linje — og det er verdt tretti sekunders planlegging. Sorter testene etter hvor lette de er.*",
+        "hints": [
+          "$\\phi(23)=22=2\\cdot 11$, så to tester: eksponentene $11$ og $2$.",
+          "Ta den billigste testen først — $5^2$ er raskt.",
+          "Til $5^{11}$: $11=8+2+1$, og $5^2\\equiv 2$ gjør kvadreringene små."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-5-2-l3-intro",
+      "type": "text",
+      "content": "## Løkke 3: For hvilke n finnes de?\n\n*~10 minutter.*\n\nPrimitive røtter finnes ikke modulo alle $n$ — og det er en del av pensum å vite for hvilke. Kriteriet er kort, og det skal sitte utenat."
+    },
+    {
+      "id": "ma1301-5-2-d-eksistens",
+      "type": "definition",
+      "title": "Eksistenskriteriet",
+      "content": "En primitiv rot modulo $n$ finnes **nøyaktig** for\n\n$$n=2,\\qquad n=4,\\qquad n=p^k,\\qquad n=2p^k,$$\n\nder $p$ er et **odde** primtall og $k\\ge 1$. For alle andre $n$ finnes **ingen** primitiv rot.\n\n**Kriteriet må sitte utenat**, og det brukes som **første** handling i en oppgave som spør om primitive røtter: sjekk at $n$ har den rette formen. Er den ikke det, er svaret «finnes ikke», og du skal ikke lete.\n\n**De minste $n$ uten primitiv rot:** $8$, $12$, $15$, $16$, $20$, $21$, $24$ — altså alle $n$ som er delelig med $8$, med to ulike odde primtall, eller med $4$ og et odde primtall.\n\n**Hvorfor $15$ ikke har noen — utledes på stedet, tre linjer.** Her er $\\phi(15)=8$. Men $15=3\\cdot 5$, og for hvert $a$ med $\\gcd(a,15)=1$ gjelder $a^2\\equiv 1\\pmod 3$ og $a^4\\equiv 1\\pmod 5$ (Fermat), altså\n$$a^4\\equiv 1\\pmod{3}\\quad\\text{og}\\quad a^4\\equiv 1\\pmod 5\\ \\Longrightarrow\\ a^4\\equiv 1\\pmod{15}.$$\nOrdenen deler derfor $4$ for **alle** $a$, og ingen kan ha orden $8$. Sjekk med tall: ordenene modulo $15$ er $1,4,2,4,4,2,4,2$ for $a=1,2,4,7,8,11,13,14$ — største orden er $4$, ikke $8$ ✓.\n\n**Merk hva argumentet bruker:** at $\\operatorname{lcm}(\\phi(3),\\phi(5))=\\operatorname{lcm}(2,4)=4$ er mindre enn $\\phi(15)=8$. Det samme argumentet virker for alle $n$ med to ulike odde primfaktorer, og det er kjernen i beviset for at kriteriet er skarpt.\n\n**Beviset for at primitive røtter faktisk finnes for $n=p^k$ og $2p^k$**, er lengre og ikke pensum å gjengi. Det du skal kunne, er kriteriet og bruken av det."
+    },
+    {
+      "id": "ma1301-5-2-d-eksistens-bruk",
+      "type": "definition",
+      "title": "Hvordan kriteriet brukes",
+      "content": "Sjekklisten når en oppgave nevner primitive røtter modulo $n$:\n\n1. **Faktoriser $n$.**\n2. **Sammenlign med de fire formene** $2$, $4$, $p^k$, $2p^k$.\n3. Er $n$ **ikke** på en av dem, svar «det finnes ingen primitiv rot modulo $n$», med begrunnelse.\n\n**Tabell over de vanlige tilfellene:**\n\n| $n$ | faktorisering | primitiv rot? | grunn |\n|---|---|---|---|\n| $13$ | primtall | **ja** | $n=p$ |\n| $14$ | $2\\cdot 7$ | **ja** | $n=2p$ |\n| $15$ | $3\\cdot 5$ | nei | to ulike odde primtall |\n| $16$ | $2^4$ | nei | toerpotens $>4$ |\n| $18$ | $2\\cdot 3^2$ | **ja** | $n=2p^2$ |\n| $20$ | $2^2\\cdot 5$ | nei | $4\\mid n$ og odde primfaktor |\n| $25$ | $5^2$ | **ja** | $n=p^2$ |\n| $27$ | $3^3$ | **ja** | $n=p^3$ |\n| $2$, $4$ | — | **ja** | egne tilfeller |\n\n**Merk de to fellene i tabellen:** $16$ har ingen primitiv rot (toerpotenser over $4$ faller utenfor), og $20$ heller ikke ($4\\cdot 5$ er ikke $2p^k$). Den siste er lett å ta feil av, siden $20=2^2\\cdot 5$ *ser* ut som «$2$ ganger en primtallspotens».\n\n**Konkret verdi på eksamen:** i [kap. 5.1](/ma1301/ma1301-5-1), eksempel 2 regnet vi $\\operatorname{ord}_{20}(7)=4$, og $\\phi(20)=8$. At ingen $a$ kan nå $8$, følger nå av kriteriet — $20$ er ikke på noen av de fire formene."
+    },
+    {
+      "id": "ma1301-5-2-ex-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-5-2-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Avgjør for hver av modulusene $n=14$, $15$, $16$, $18$ og $27$ om det finnes en primitiv rot. Begrunn med eksistenskriteriet.",
+        "solution": "Kriteriet: primitiv rot finnes nøyaktig for $n=2$, $4$, $p^k$ og $2p^k$ med $p$ et odde primtall.\n\n**$n=14=2\\cdot 7$.** Dette er $2p$ med $p=7$ odde primtall, altså formen $2p^k$ med $k=1$. **Ja**, primitiv rot finnes. (Og $\\phi(14)=6$; $3$ er en primitiv rot: $3^2=9$, $3^3=27\\equiv 13\\equiv -1$, så ordenen er $6$.)\n\n**$n=15=3\\cdot 5$.** To **ulike odde** primtall — ikke på noen av formene. **Nei.**\n\n*Begrunnelsen med tall:* $\\phi(15)=8$, men $a^4\\equiv 1\\pmod{15}$ for alle $a$ med $\\gcd(a,15)=1$, siden $\\operatorname{lcm}(\\phi(3),\\phi(5))=\\operatorname{lcm}(2,4)=4$. Største orden er $4<8$.\n\n**$n=16=2^4$.** En toerpotens større enn $4$ — ikke på formen. **Nei.** (Her er $\\phi(16)=8$, men største orden er $4$; for eksempel er $3^4=81=5\\cdot 16+1\\equiv 1\\pmod{16}$.)\n\n**$n=18=2\\cdot 3^2$.** Dette er $2p^k$ med $p=3$, $k=2$. **Ja.** (Og $\\phi(18)=6$; $5$ er en primitiv rot: $5^2=25\\equiv 7$, $5^3\\equiv 35\\equiv 17\\equiv -1$, så ordenen er $6$.)\n\n**$n=27=3^3$.** En odde primtallspotens, altså $p^k$. **Ja.** ($\\phi(27)=18$, og $2$ er en primitiv rot.)\n\n**Sluttsvar:** primitiv rot finnes for $n=14$, $18$ og $27$; ikke for $n=15$ og $16$.\n\n*Fellen i denne oppgaven er $16$: det er lett å tenke at «$2$ og potenser av $2$» er greit, men bare $2$ og $4$ er med. Fra $8$ og oppover har toerpotensene ingen primitiv rot.*",
+        "hints": [
+          "Faktoriser hver modulus først.",
+          "De fire tillatte formene er $2$, $4$, $p^k$ og $2p^k$ med $p$ ODDE primtall.",
+          "Er $16$ på noen av formene? Og $15$?"
+        ]
+      }
+    },
+    {
+      "id": "ma1301-5-2-l4-intro",
+      "type": "text",
+      "content": "## Løkke 4: Hvor mange, og hvordan finne dem alle\n\n*~12 minutter.*\n\nHar du **én** primitiv rot, har du dem alle — og du kan telle dem uten å regne en eneste potens til. Begge resultatene følger av potensformelen fra [kap. 5.1](/ma1301/ma1301-5-1).\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "ma1301-5-2-t-generering",
+      "type": "theorem",
+      "title": "Alle primitive røtter, og hvor mange",
+      "content": "La $r$ være en primitiv rot modulo $n$. Da gjelder:\n\n**(i)** Elementet $r^k$ er en primitiv rot modulo $n$ **nøyaktig når** $\\gcd(k,\\phi(n))=1$.\n\n**(ii)** Antallet primitive røtter modulo $n$ er $\\phi(\\phi(n))$.\n\n**Bevis av (i) — én linje, ut av potensformelen.** Fra [kap. 5.1](/ma1301/ma1301-5-1) er\n$$\\operatorname{ord}_n(r^k)=\\frac{\\operatorname{ord}_n(r)}{\\gcd(k,\\operatorname{ord}_n(r))}=\\frac{\\phi(n)}{\\gcd(k,\\phi(n))},$$\nog dette er $\\phi(n)$ nøyaktig når $\\gcd(k,\\phi(n))=1$. $\\blacksquare$\n\n**Bevis av (ii) — også kort.** Siden $r$ er en primitiv rot, løper $r^1,r^2,\\dots,r^{\\phi(n)}$ gjennom **alle** restene som er relativt primiske til $n$, hver nøyaktig én gang. Etter (i) er de primitive røttene blant dem nøyaktig de med $\\gcd(k,\\phi(n))=1$, og antallet slike $k$ i $\\{1,\\dots,\\phi(n)\\}$ er per definisjon\n$$\\phi(\\phi(n)).\\qquad\\blacksquare$$\n\n**Begge resultatene må sitte utenat** — særlig antallet $\\phi(\\phi(n))$, som er et vanlig delspørsmål. Men merk at **utledningen er så kort at du kan gjenskape dem** om de glipper: potensformelen pluss definisjonen av $\\phi$.\n\n**Praktisk bruk, i tre steg:**\n\n1. Finn **én** primitiv rot $r$ (primdivisortesten, med prøving fra $2$ oppover).\n2. Antallet er $\\phi(\\phi(n))$ — og det svaret krever ingen videre regning.\n3. Vil oppgaven ha dem **alle**, regn $r^k\\bmod n$ for hver $k$ med $\\gcd(k,\\phi(n))=1$.\n\n**Merk asymmetrien:** å **telle** dem er gratis; å **liste** dem koster én potensberegning per rot. På eksamen er $n$ da lite, eller oppgaven ber bare om noen få."
+    },
+    {
+      "id": "ma1301-5-2-d-antallet",
+      "type": "definition",
+      "title": "Antallet primitive røtter",
+      "content": "$$\\#\\{\\text{primitive røtter modulo } n\\}=\\phi(\\phi(n)),$$\nnår $n$ er på en av de fire formene der de finnes.\n\n**For primtallsmodulus:** $\\phi(\\phi(p))=\\phi(p-1)$.\n\n**Tabell verdt å regne gjennom en gang:**\n\n| $p$ | $\\phi(p)=p-1$ | $\\phi(p-1)$ | antall primitive røtter |\n|---|---|---|---|\n| $11$ | $10=2\\cdot 5$ | $4$ | $4$ |\n| $13$ | $12=2^2\\cdot 3$ | $4$ | $4$ |\n| $23$ | $22=2\\cdot 11$ | $10$ | $10$ |\n| $29$ | $28=2^2\\cdot 7$ | $12$ | $12$ |\n| $31$ | $30=2\\cdot 3\\cdot 5$ | $8$ | $8$ |\n| $41$ | $40=2^3\\cdot 5$ | $16$ | $16$ |\n\n**Legg merke til mønsteret:** antallet er typisk en anselig **brøkdel** av alle restene — rundt en tredjedel til halvparten. Primitive røtter er altså ikke sjeldne, og derfor finner du en ved å prøve $2$, $3$, $5$, … fra bunnen; sjelden må du forbi $7$.\n\n**Kontrollen:** antallet skal dele $\\phi(n)$ — det gjør $\\phi(\\phi(n))$ alltid, siden det teller elementer i en mengde med $\\phi(n)$ elementer. Og for $p>3$ er antallet et **partall**, siden $\\phi(m)$ er partall for $m>2$.\n\n**Vanlig felle:** å svare $\\phi(n)$ i stedet for $\\phi(\\phi(n))$. For $p=29$ er svaret $12$, ikke $28$ — de $28$ er **alle** restene, ikke de primitive røttene."
+    },
+    {
+      "id": "ma1301-5-2-e3",
+      "type": "example",
+      "title": "Alle primitive røtter modulo 11",
+      "problem": "**a)** Hvor mange primitive røtter finnes modulo $11$?\n**b)** Finn dem alle, gitt at $2$ er en primitiv rot (vist i oppgave 1).",
+      "solution": "**a)** Antallet er $\\phi(\\phi(11))=\\phi(10)$. Og $10=2\\cdot 5$, så\n$$\\phi(10)=\\phi(2)\\phi(5)=1\\cdot 4=4$$\n**ved multiplikativiteten** ([kap. 2.1](/ma1301/ma1301-2-1)).\n\n**Det finnes altså $4$ primitive røtter modulo $11$.** Merk at det er $4$ av $10$ rester — en betydelig andel.\n\n**b)** Etter teoremet er de primitive røttene nøyaktig $2^k$ med $\\gcd(k,\\phi(11))=\\gcd(k,10)=1$.\n\n**De $k$-ene** i $\\{1,\\dots,10\\}$ med $\\gcd(k,10)=1$ er\n$$k=1,\\ 3,\\ 7,\\ 9$$\n— fire stykker ✓, som stemmer med a).\n\n**Regn potensene** (verdiene er hentet fra syklustabellen i oppgave 1):\n$$2^1=2,\\qquad 2^3=8,\\qquad 2^7\\equiv 7,\\qquad 2^9\\equiv 6\\pmod{11}.$$\n\n**De primitive røttene modulo $11$ er derfor**\n$$\\{2,\\ 6,\\ 7,\\ 8\\}.$$\n\n**Kontroll av én av dem, $a=6$:** $\\phi(11)=10=2\\cdot 5$, primdivisorene er $2$ og $5$. Første test: $6^5\\bmod 11$. Vi har $6^2=36\\equiv 3$, $6^4\\equiv 9$, så $6^5\\equiv 9\\cdot 6=54=4\\cdot 11+10\\equiv 10\\equiv -1\\ne 1$ ✓. Andre test: $6^2\\equiv 3\\ne 1$ ✓. Altså er $6$ en primitiv rot ✓.\n\n**Kontroll av at de andre restene ikke er det:** de seks resterende restene $3,4,5,9,10$ og $1$ må da ha orden mindre enn $10$. Rask sjekk på $3$: $3^5=243=22\\cdot 11+1\\equiv 1$, så $\\operatorname{ord}_{11}(3)=5\\ne 10$ ✓ — ikke primitiv rot, som forventet.\n\n**Sluttsvar:** a) $4$ primitive røtter; b) de er $2$, $6$, $7$ og $8$.\n\n*Legg merke til hvor lite arbeid b) krevde når a) var på plass: fire eksponenter å plukke ut og fire potenser å lese av. Hele jobben er å finne **den første** primitive roten — resten er bokføring.*"
+    },
+    {
+      "id": "ma1301-5-2-ex-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-5-2-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Det er oppgitt at $6$ er en primitiv rot modulo $41$.\n\n**a)** Verifiser det med primdivisortesten.\n**b)** Hvor mange primitive røtter finnes modulo $41$?\n**c)** Er $6^{10}$ en primitiv rot modulo $41$? Begrunn uten å regne potensen.",
+        "solution": "**a) Steg 1:** $\\gcd(6,41)=1$, siden $41$ er primtall.\n\n**Steg 2:** $\\phi(41)=40=2^3\\cdot 5$.\n\n**Steg 3: primdivisorene** er $2$ og $5$. Eksponentene å teste er $40/2=20$ og $40/5=8$.\n\n**Steg 4: regn potensene.**\n\nFørst de suksessive kvadratene, med $6^2=36\\equiv -5\\pmod{41}$ (det gjør tallene små):\n\n| potens | utregning | verdi mod $41$ |\n|---|---|---|\n| $6^2$ | $36$ | $36\\equiv -5$ |\n| $6^4$ | $(-5)^2=25$ | $25$ |\n| $6^8$ | $25^2=625=15\\cdot 41+10$ | $10$ |\n| $6^{16}$ | $10^2=100=2\\cdot 41+18$ | $18$ |\n\n*Test 1:* $6^{20}=6^{16}\\cdot 6^4\\equiv 18\\cdot 25=450=10\\cdot 41+40\\equiv 40\\equiv -1\\pmod{41}$, altså $\\ne 1$ ✓.\n\n*Test 2:* $6^8\\equiv 10\\ne 1$ ✓.\n\n**Steg 5:** begge tester bestått, så **ved primdivisortesten** er $\\operatorname{ord}_{41}(6)=40=\\phi(41)$, og $6$ er en primitiv rot modulo $41$.\n\n**b)** Antallet er\n$$\\phi(\\phi(41))=\\phi(40)=\\phi(2^3)\\phi(5)=(8-4)\\cdot 4=4\\cdot 4=16.$$\n\n**Det finnes $16$ primitive røtter modulo $41$.**\n\n**c)** Etter teoremet er $6^k$ en primitiv rot nøyaktig når $\\gcd(k,40)=1$. Her er $k=10$, og\n$$\\gcd(10,40)=10\\ne 1.$$\n\nAltså er $6^{10}$ **ikke** en primitiv rot. Vi kan til og med si presis hvilken orden den har, uten å regne potensen:\n$$\\operatorname{ord}_{41}(6^{10})=\\frac{40}{\\gcd(10,40)}=\\frac{40}{10}=4.$$\n\n**Kontroll:** $6^{10}=6^8\\cdot 6^2\\equiv 10\\cdot 36=360=8\\cdot 41+32\\equiv 32\\pmod{41}$. Og $32^2=1024=24\\cdot 41+40\\equiv -1$, så $32^4\\equiv 1$ — ordenen er $4$ ✓.\n\n**Sluttsvar:** a) verifisert; b) $16$; c) nei, $\\gcd(10,40)=10\\ne 1$, og ordenen er $4$.\n\n*Merk at del c) ble besvart **uten** en potensberegning. Det er verdien av potensformelen: den flytter spørsmål om orden over til spørsmål om gcd — og gcd-er regner du i hodet.*",
+        "hints": [
+          "$\\phi(41)=40=2^3\\cdot 5$, så to tester: eksponentene $20$ og $8$.",
+          "Bruk at $6^2=36\\equiv -5\\pmod{41}$ for å holde tallene små.",
+          "I c): $6^k$ er primitiv rot nøyaktig når $\\gcd(k,40)=1$."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-5-2-l5-intro",
+      "type": "text",
+      "content": "## Løkke 5: Elementer av gitt orden\n\n*~11 minutter.*\n\nDen siste — og den som oftest er delpunkt b) på eksamen: «finn de to elementene av orden $4$», «hvor mange har orden $5$?». Alt følger av samme potensformel."
+    },
+    {
+      "id": "ma1301-5-2-t-telling-orden",
+      "type": "theorem",
+      "title": "Antall elementer av gitt orden",
+      "content": "La $n$ være en modulus som har en primitiv rot $r$, og la $d$ være en divisor av $\\phi(n)$. Da finnes det **nøyaktig**\n\n$$\\phi(d)$$\n\nelementer av orden $d$ modulo $n$, og de er\n$$r^{k\\cdot\\phi(n)/d}\\quad\\text{for de } k \\text{ med } 1\\le k\\le d\\ \\text{og}\\ \\gcd(k,d)=1.$$\n\n**Bevis.** Hvert element som er relativt primisk til $n$, kan skrives $r^m$ for en entydig $m$ med $1\\le m\\le\\phi(n)$ (siden $r$ er en primitiv rot). **Ved potensformelen** fra [kap. 5.1](/ma1301/ma1301-5-1) er\n$$\\operatorname{ord}_n(r^m)=\\frac{\\phi(n)}{\\gcd(m,\\phi(n))},$$\nog dette er lik $d$ nøyaktig når $\\gcd(m,\\phi(n))=\\phi(n)/d$. Skriv $m=\\frac{\\phi(n)}{d}\\cdot k$; betingelsen blir da $\\gcd(k,d)=1$ med $1\\le k\\le d$. Antallet slike $k$ er $\\phi(d)$. $\\blacksquare$\n\n**Kontrollen som alltid gjelder — og som er en fin identitet i seg selv:** summerer du over alle divisorer av $\\phi(n)$, skal du få alle elementene:\n$$\\sum_{d\\mid\\phi(n)}\\phi(d)=\\phi(n).$$\n\n**Eksempel på hele fordelingen, $p=19$ med $\\phi(19)=18$:**\n\n| $d$ | $1$ | $2$ | $3$ | $6$ | $9$ | $18$ |\n|---|---|---|---|---|---|---|\n| antall $=\\phi(d)$ | $1$ | $1$ | $2$ | $2$ | $6$ | $6$ |\n\nSummen er $1+1+2+2+6+6=18=\\phi(19)$ ✓. De seks elementene av orden $18$ er de primitive røttene, og $\\phi(18)=6$ ✓ stemmer med formelen fra løkke 4.\n\n**Formelen må sitte utenat** ($\\phi(d)$ stykker), og **konstruksjonen utledes på stedet** fra potensformelen når du trenger den.\n\n**Merk vilkåret:** resultatet krever at en primitiv rot **finnes**. Modulo $15$, som ikke har noen, holder det ikke — der har fire elementer orden $4$, mens $\\phi(4)=2$."
+    },
+    {
+      "id": "ma1301-5-2-d-lage-element-orden",
+      "type": "definition",
+      "title": "Å lage et element av gitt orden",
+      "content": "Oppskriften, når du har en primitiv rot $r$ modulo $n$ og vil ha et element av orden $d$ (der $d\\mid\\phi(n)$):\n\n$$a=r^{\\phi(n)/d}.$$\n\n**Utledes på stedet, én linje:** potensformelen gir\n$$\\operatorname{ord}_n(a)=\\frac{\\phi(n)}{\\gcd(\\phi(n)/d,\\ \\phi(n))}=\\frac{\\phi(n)}{\\phi(n)/d}=d,$$\nsiden $\\phi(n)/d$ deler $\\phi(n)$.\n\n**De øvrige elementene av orden $d$** er $a^k$ med $\\gcd(k,d)=1$ — altså «de primitive røttene innenfor syklusen til $a$». Det er $\\phi(d)$ av dem.\n\n**Eksempel:** modulo $29$ er $2$ en primitiv rot og $\\phi(29)=28$. Et element av orden $4$ er\n$$2^{28/4}=2^7=128=4\\cdot 29+12\\equiv 12\\pmod{29}.$$\nKontroll: $12^2=144=5\\cdot 29-1\\equiv -1$, så $12^4\\equiv 1$ og ordenen er $4$ ✓.\n\nDet andre elementet av orden $4$ er $12^3$ (siden $\\gcd(3,4)=1$): $12^2\\equiv -1$, så $12^3\\equiv -12\\equiv 17\\pmod{29}$. Kontroll: $17\\equiv -12$, og $(-12)^2\\equiv -1$ ✓.\n\n**Altså har $12$ og $17$ orden $4$ modulo $29$**, og det er $\\phi(4)=2$ stykker ✓.\n\n**Praktisk poeng:** dette er nøyaktig hva en eksamensoppgave mener med «finn de to elementene av orden $4$». Du trenger én primitiv rot, én potensberegning og én ekstra multiplikasjon."
+    },
+    {
+      "id": "ma1301-5-2-d-primitiv-rot-ikke-QR",
+      "type": "definition",
+      "title": "Primitive røtter er aldri kvadratiske rester",
+      "content": "For et odde primtall $p$ og en primitiv rot $r$ modulo $p$:\n\n$$\\left(\\frac rp\\right)=-1.$$\n\n**Utledes på stedet, to linjer.** **Ved Eulers kriterium** ([kap. 4.1](/ma1301/ma1301-4-1)) er $\\left(\\frac rp\\right)\\equiv r^{(p-1)/2}\\pmod p$. Ordenen til $r$ er $p-1$, og $\\frac{p-1}{2}<p-1$, så $r^{(p-1)/2}\\not\\equiv 1$ — og siden verdien er $\\pm 1$, må den være $-1$. $\\blacksquare$\n\n**Praktisk verdi: en gratis utelukkelsestest.** Er $\\left(\\frac ap\\right)=1$, kan $a$ **ikke** være en primitiv rot, og du slipper primdivisortesten helt. Halvparten av restene er kvadratiske rester, så testen luker bort halvparten av kandidatene.\n\n**Eksempel:** skal du finne en primitiv rot modulo $29$, kan du hoppe over alle kvadratiske rester. Er $2$ en kandidat? $29\\equiv 5\\pmod 8$, så **ved 8-regelen** ([kap. 4.2](/ma1301/ma1301-4-2)) er $\\left(\\frac 2{29}\\right)=-1$ ✓ — $2$ er ikke utelukket, og som vi så i eksempel 2 er den faktisk en primitiv rot.\n\n**Men merk at testen ikke bekrefter.** En ikke-rest kan ha mindre orden enn $p-1$: modulo $13$ er $5$ en ikke-rest ($\\left(\\frac 5{13}\\right)=-1$ fra [kap. 4.1](/ma1301/ma1301-4-1)), men $\\operatorname{ord}_{13}(5)=4$, ikke $12$. **Testen utelukker, den bekrefter ikke.**\n\n**Presist hvorfor:** ikke-restene er de $a$ der ordenen **ikke** deler $\\frac{p-1}{2}$. Det utelukker mange små ordener, men ikke alle mindre enn $p-1$."
+    },
+    {
+      "id": "ma1301-5-2-e4",
+      "type": "example",
+      "title": "Eksamensnivå: primitiv rot, telling og elementer av gitt orden",
+      "problem": "La $p=29$, og bruk at $2$ er en primitiv rot modulo $29$ (eksempel 2).\n\n**a)** Hvor mange primitive røtter finnes modulo $29$?\n**b)** Hvor mange elementer har orden $7$, og hvor mange har orden $4$?\n**c)** Finn de to elementene av orden $4$.\n**d)** Kontrollér tellingen ved å summere over alle divisorer av $\\phi(29)$.",
+      "solution": "**a)** Antallet primitive røtter er\n$$\\phi(\\phi(29))=\\phi(28).$$\nFaktoriseringen er $28=2^2\\cdot 7$, så **ved multiplikativiteten**\n$$\\phi(28)=\\phi(4)\\phi(7)=2\\cdot 6=12.$$\n\n**Det finnes $12$ primitive røtter modulo $29$**, av $28$ rester i alt.\n\n**b)** Etter tellingsteoremet er antall elementer av orden $d$ lik $\\phi(d)$, for hver $d$ som deler $\\phi(29)=28$.\n\n- **Orden $7$:** $\\phi(7)=6$ elementer.\n- **Orden $4$:** $\\phi(4)=2$ elementer.\n\n**c)** Vi lager et element av orden $4$ som $r^{\\phi(n)/d}$ med $r=2$ og $d=4$:\n$$2^{28/4}=2^7.$$\nRegningen: $2^7=128=4\\cdot 29+12$, altså $2^7\\equiv 12\\pmod{29}$.\n\n**Kontroll av ordenen:** $12^2=144=5\\cdot 29-1$, så $12^2\\equiv -1\\pmod{29}$, og dermed $12^4\\equiv(-1)^2=1$. Ordenen er $4$ (ikke $1$ eller $2$, siden $12\\not\\equiv 1$ og $12^2\\equiv -1\\not\\equiv 1$) ✓.\n\n**Det andre elementet** er $12^k$ med $\\gcd(k,4)=1$, altså $k=3$:\n$$12^3=12^2\\cdot 12\\equiv(-1)\\cdot 12=-12\\equiv 29-12=17\\pmod{29}.$$\n\n**Kontroll:** $17\\equiv -12$, så $17^2\\equiv 144\\equiv -1$ og $17^4\\equiv 1$ ✓. Ordenen er $4$.\n\n**De to elementene av orden $4$ modulo $29$ er $12$ og $17$**, og det er $\\phi(4)=2$ stykker ✓.\n\n**d)** Divisorene av $28$ er $1,2,4,7,14,28$. Antall elementer av hver orden:\n\n| $d$ | $1$ | $2$ | $4$ | $7$ | $14$ | $28$ |\n|---|---|---|---|---|---|---|\n| $\\phi(d)$ | $1$ | $1$ | $2$ | $6$ | $6$ | $12$ |\n\nSummen er\n$$1+1+2+6+6+12=28=\\phi(29)\\ \\checkmark$$\n\nHvert av de $28$ elementene har nøyaktig én orden, og summen bekrefter at tellingen er komplett.\n\n**Sluttsvar:** a) $12$; b) $6$ av orden $7$ og $2$ av orden $4$; c) $12$ og $17$; d) summen av $\\phi(d)$ over divisorene av $28$ er $28$ ✓.\n\n*Om føringen, som er det som gir uttelling her: **(1)** hvert antall er begrunnet med formelen $\\phi(d)$, ikke bare oppgitt. **(2)** Elementene i c) er **kontrollert** ved å kvadrere — det er gratis og fanger regnefeil. **(3)** Summeringskontrollen i d) er en fullstendighetssjekk som en sensor ser etter: den viser at du forstår at ordenene partisjonerer alle restene. Instruksen på hvert eksamenssett er at alle svar skal begrunnes, og i denne sjangeren betyr det formelen bak hvert tall.*"
+    },
+    {
+      "id": "ma1301-5-2-ex-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-5-2-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Det er oppgitt at $6$ er en primitiv rot modulo $41$ (se oppgave 5).\n\n**a)** Hvor mange elementer har orden $5$ modulo $41$?\n**b)** Finn dem alle.",
+        "solution": "**a)** Ordenen $5$ deler $\\phi(41)=40$, så tellingsteoremet gjelder: antallet er\n$$\\phi(5)=4.$$\n\n**Det finnes $4$ elementer av orden $5$ modulo $41$.**\n\n**b)** Vi lager ett av dem som $r^{\\phi(n)/d}=6^{40/5}=6^8$.\n\nFra oppgave 5 har vi $6^8\\equiv 10\\pmod{41}$. Altså er $a=10$ ett element av orden $5$.\n\n**Kontroll:** $10^2=100\\equiv 18$, $10^4\\equiv 18^2=324=7\\cdot 41+37\\equiv 37$, og $10^5\\equiv 37\\cdot 10=370=9\\cdot 41+1\\equiv 1\\pmod{41}$ ✓. Ordenen er $5$ (og ikke $1$, siden $10\\not\\equiv 1$).\n\n**De øvrige** er $a^k$ med $\\gcd(k,5)=1$, altså $k=2,3,4$:\n\n$$a^2=10^2\\equiv 18,$$\n$$a^3=10^3\\equiv 18\\cdot 10=180=4\\cdot 41+16\\equiv 16,$$\n$$a^4=10^4\\equiv 37.$$\n\n**De fire elementene av orden $5$ modulo $41$ er**\n$$\\{10,\\ 16,\\ 18,\\ 37\\}.$$\n\n**Kontroll av ett av dem, $a=16$:** $16^2=256=6\\cdot 41+10\\equiv 10$, $16^4\\equiv 10^2=100\\equiv 18$, og $16^5\\equiv 18\\cdot 16=288=7\\cdot 41+1\\equiv 1$ ✓.\n\n**Sluttsvar:** a) $4$ elementer; b) $\\{10,16,18,37\\}$.\n\n*Merk strukturen: de fire elementene er nøyaktig potensene $10^1,10^2,10^3,10^4$ — altså hele syklusen til $10$ bortsett fra $10^5\\equiv 1$. Det er alltid slik: elementene av orden $d$ er de $\\phi(d)$ «generatorene» innenfor én syklus av lengde $d$.*",
+        "hints": [
+          "Antallet er $\\phi(d)$ med $d=5$.",
+          "Ett element av orden $5$ er $6^{40/5}=6^8$, som du regnet i oppgave 5.",
+          "De øvrige er potenser $a^k$ med $\\gcd(k,5)=1$."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-5-2-ex-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-5-2-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "**a)** Sett opp hele ordensfordelingen modulo $19$: for hver divisor $d$ av $\\phi(19)=18$, hvor mange elementer har orden $d$?\n**b)** Kontrollér at summen er $18$.\n**c)** Hvor mange primitive røtter finnes modulo $19$?",
+        "solution": "**a)** $\\phi(19)=18=2\\cdot 3^2$, og divisorene er\n$$1,\\ 2,\\ 3,\\ 6,\\ 9,\\ 18.$$\n\nSiden $19$ er et primtall, finnes det en primitiv rot, og tellingsteoremet gir $\\phi(d)$ elementer av orden $d$:\n\n| $d$ | $\\phi(d)$ | utregning |\n|---|---|---|\n| $1$ | $1$ | $\\phi(1)=1$ |\n| $2$ | $1$ | $\\phi(2)=1$ |\n| $3$ | $2$ | $\\phi(3)=2$ |\n| $6$ | $2$ | $\\phi(6)=\\phi(2)\\phi(3)=1\\cdot 2=2$ |\n| $9$ | $6$ | $\\phi(9)=9-3=6$ |\n| $18$ | $6$ | $\\phi(18)=\\phi(2)\\phi(9)=1\\cdot 6=6$ |\n\n**b) Summen:**\n$$1+1+2+2+6+6=18=\\phi(19)\\ \\checkmark$$\n\nKontrollen bekrefter at fordelingen er komplett: hvert av de $18$ elementene har nøyaktig én orden, og alle er telt.\n\n**c)** De primitive røttene er elementene av orden $\\phi(19)=18$, altså\n$$\\phi(18)=6$$\nstykker — samme tall som nederste rad i tabellen.\n\n**Kontroll med konkrete tall:** elementene av orden $18$ modulo $19$ er $\\{2,3,10,13,14,15\\}$ — seks stykker ✓. Rask sjekk på $2$: $\\phi(19)=18=2\\cdot 3^2$, primdivisorene er $2$ og $3$, så vi tester $2^9$ og $2^6$. Vi har $2^9=512=26\\cdot 19+18\\equiv 18\\equiv -1\\ne 1$ ✓ og $2^6=64=3\\cdot 19+7\\equiv 7\\ne 1$ ✓. Altså er $2$ en primitiv rot modulo $19$ ✓.\n\n**Sluttsvar:** a) fordelingen $1,1,2,2,6,6$ for $d=1,2,3,6,9,18$; b) summen er $18$ ✓; c) $6$ primitive røtter.\n\n*Summeringsidentiteten $\\sum_{d\\mid m}\\phi(d)=m$ er verdt å kjenne for seg selv. Den brukes som fullstendighetskontroll i denne sjangeren, og den er en «vis at»-oppgave i seg selv — beviset er nettopp å telle elementene etter orden.*",
+        "hints": [
+          "Divisorene av $18$ er $1,2,3,6,9,18$.",
+          "Antallet av orden $d$ er $\\phi(d)$ — regn hver med multiplikativiteten.",
+          "I c): primitive røtter er elementene av maksimal orden $18$."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-5-2-ex-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-5-2-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "La $p$ være et odde primtall.\n\n**a)** Vis at en primitiv rot modulo $p$ aldri er en kvadratisk rest modulo $p$.\n**b)** Er det motsatte sant — er hver kvadratisk ikke-rest en primitiv rot? Gi et moteksempel om ikke.\n**c)** Hvor mange av de $p-1$ restene er kandidater til å være primitiv rot etter at kvadratiske rester er utelukket, og hvor mange primitive røtter er det faktisk for $p=13$?",
+        "solution": "**a)** La $r$ være en primitiv rot modulo $p$, altså $\\operatorname{ord}_p(r)=p-1$.\n\n**Ved Eulers kriterium** ([kap. 4.1](/ma1301/ma1301-4-1)) er\n$$\\left(\\frac rp\\right)\\equiv r^{\\frac{p-1}{2}}\\pmod p.$$\n\nNå er $\\frac{p-1}{2}$ **strengt mindre** enn $p-1$ (siden $p>2$), og ordenen til $r$ er $p-1$. Da kan $r^{(p-1)/2}$ ikke være $\\equiv 1$ — det ville betydd at ordenen deler $\\frac{p-1}{2}$, **ved ordenslemmaet**, altså at ordenen er mindre enn $p-1$.\n\nVerdien er $\\pm 1$, så den må være $-1$:\n$$\\left(\\frac rp\\right)=-1.$$\nAltså er $r$ en kvadratisk ikke-rest. $\\blacksquare$\n\n**b) Nei.** Moteksempel: $p=13$ og $a=5$.\n\nFra [kap. 4.1](/ma1301/ma1301-4-1) er $\\left(\\frac 5{13}\\right)=-1$, så $5$ er en kvadratisk ikke-rest. Men fra [kap. 5.1](/ma1301/ma1301-5-1) er\n$$\\operatorname{ord}_{13}(5)=4\\ne 12=\\phi(13),$$\nså $5$ er **ikke** en primitiv rot.\n\n*(Kontroll: $5^2=25\\equiv 12\\equiv -1$, så $5^4\\equiv 1$ — ordenen er $4$.)*\n\n**Hvorfor det ikke går andre veien, presist:** ikke-restene er nøyaktig de $a$ der ordenen **ikke deler** $\\frac{p-1}{2}$. For $p=13$ er $\\frac{p-1}{2}=6$, og $4\\nmid 6$ ✓ — så $5$ er ikke-rest. Men ordenen $4$ er fortsatt mindre enn $12$. **Testen utelukker, den bekrefter ikke.**\n\n**c)** Etter halvparten-regelen ([kap. 4.1](/ma1301/ma1301-4-1)) er $\\frac{p-1}{2}$ av restene kvadratiske rester, og de er utelukket. Det gjenstår\n$$\\frac{p-1}{2}$$\nkandidater.\n\nFor $p=13$: $\\frac{12}{2}=6$ kandidater (ikke-restene $\\{2,5,6,7,8,11\\}$), mens antall primitive røtter er\n$$\\phi(\\phi(13))=\\phi(12)=4.$$\n\nAltså er $4$ av de $6$ kandidatene faktiske primitive røtter — de to som faller bort, er nettopp $5$ og $8$, som har orden $4$. *(Kontroll: de fire primitive røttene modulo $13$ er $\\{2,6,7,11\\}$, som vi fant i [kap. 5.1](/ma1301/ma1301-5-1), oppgave 7c.)*\n\n**Sluttsvar:** a) bevist via Eulers kriterium og ordenslemmaet; b) nei — $5$ er ikke-rest modulo $13$ med orden $4$; c) $\\frac{p-1}{2}$ kandidater, og for $p=13$ er $4$ av de $6$ kandidatene primitive røtter.\n\n*Praktisk konsekvens for eksamen: skal du **finne** en primitiv rot, hopp over de kvadratiske restene — det halverer søket gratis. Men du må fortsatt kjøre primdivisortesten på kandidaten du velger.*",
+        "hints": [
+          "I a): bruk Eulers kriterium på $r$, og se hva ordenen sier om $r^{(p-1)/2}$.",
+          "I b): let etter en ikke-rest med liten orden — prøv $p=13$.",
+          "I c): hvor mange ikke-rester er det, og hva er $\\phi(\\phi(13))$?"
+        ]
+      }
+    },
+    {
+      "id": "ma1301-5-2-ex-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-5-2-o9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**a)** Finn den minste primitive roten modulo $31$ ved å prøve kandidater fra $2$ oppover, med kvadratiske rester utelukket først.\n**b)** Hvor mange primitive røtter finnes modulo $31$?",
+        "solution": "**a)** $\\phi(31)=30=2\\cdot 3\\cdot 5$, så primdivisortesten krever **tre** tester: eksponentene\n$$\\frac{30}{2}=15,\\qquad\\frac{30}{3}=10,\\qquad\\frac{30}{5}=6.$$\n\n**Kandidat $a=2$: utelukket gratis.** $31\\equiv 7\\equiv -1\\pmod 8$, så **ved 8-regelen** ([kap. 4.2](/ma1301/ma1301-4-2)) er $\\left(\\frac 2{31}\\right)=1$. Altså er $2$ en kvadratisk rest, og etter oppgave 8a kan en kvadratisk rest ikke være primitiv rot. **$2$ er ute uten en eneste potensberegning.**\n\n**Kandidat $a=3$: kjør testen.** Vi regner de tre potensene, og bruker $3^3=27\\equiv -4\\pmod{31}$ for å holde tallene små:\n\n$$3^5=3^3\\cdot 3^2\\equiv(-4)\\cdot 9=-36\\equiv -36+62=26\\equiv -5\\pmod{31}.$$\n\n*Test 1 ($q=2$), eksponent $15$:* $3^{15}=(3^5)^3\\equiv(-5)^3=-125$. Og $-125+124=-1$, siden $124=4\\cdot 31$, så\n$$3^{15}\\equiv -1\\equiv 30\\pmod{31}\\ \\ne 1\\ \\checkmark$$\n\n*Test 2 ($q=3$), eksponent $10$:* $3^{10}=(3^5)^2\\equiv(-5)^2=25\\ne 1$ ✓\n\n*Test 3 ($q=5$), eksponent $6$:* $3^6=(3^3)^2\\equiv(-4)^2=16\\ne 1$ ✓\n\nAlle tre bestått, så **ved primdivisortesten** er $\\operatorname{ord}_{31}(3)=30=\\phi(31)$.\n\n**Den minste primitive roten modulo $31$ er $3$.**\n\n*(Merk at $a=2$ ble utelukket, ikke bare uprøvd: den **er** en kvadratisk rest, og da er saken avgjort.)*\n\n**b)** Antallet er\n$$\\phi(\\phi(31))=\\phi(30)=\\phi(2)\\phi(3)\\phi(5)=1\\cdot 2\\cdot 4=8.$$\n\n**Det finnes $8$ primitive røtter modulo $31$.** De er $3^k$ med $\\gcd(k,30)=1$, altså $k\\in\\{1,7,11,13,17,19,23,29\\}$ — åtte eksponenter ✓.\n\n**Sluttsvar:** a) $3$; b) $8$.\n\n*To lærdommer om arbeidsøkonomi. **(1)** Kvadratisk rest-testen er gratis når $a=2$ (8-regelen) og billig ellers — bruk den til å luke kandidater. **(2)** Å regne $3^5\\equiv -5$ først ga oss alle tre testene som små potenser av det tallet. Se etter en «midtpotens» som kan gjenbrukes; det halverer arbeidet i tester med tre primdivisorer.*",
+        "hints": [
+          "$\\phi(31)=30=2\\cdot 3\\cdot 5$ — tre primdivisorer, tre tester.",
+          "Sjekk først om $2$ er en kvadratisk rest modulo $31$ (8-regelen).",
+          "Regn $3^5$ først, og bygg $3^{15}$, $3^{10}$ og $3^6$ på den."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-5-2-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "De fem feilene under er dokumentert i arkivets løsningsforslag som noe fasiten advarer mot.\n\n- **Konkluderer «primitiv rot» uten å teste alle primdivisorene.** Dette er den best belagte feilen i sjangeren. Å vise at $a^{\\phi(n)/2}\\not\\equiv 1$ er **ikke** nok — du må gjøre det for **hver** primdivisor av $\\phi(n)$. **Motmiddelet:** faktoriser $\\phi(n)$ eksplisitt og skriv opp listen over eksponenter $\\phi(n)/q$ **før** du regner. Da ser du hvor mange tester du skal ha.\n\n- **Feil eksistensbetingelse.** Primitive røtter finnes bare for $n=2$, $4$, $p^k$ og $2p^k$. De to fellene er **toerpotenser over $4$** ($8$, $16$, $32$ har ingen) og **$4p$-formen** ($20=4\\cdot 5$ har ingen). Sjekk formen på $n$ **først** — det er bortkastet arbeid å lete etter noe som ikke finnes.\n\n- **Svarer $\\phi(n)$ i stedet for $\\phi(\\phi(n))$.** Antall primitive røtter modulo $29$ er $\\phi(28)=12$, ikke $28$. Tallet $\\phi(n)$ er antall **rester**, ikke antall primitive røtter.\n\n- **Teller elementer av gitt orden feil.** Antallet er $\\phi(d)$, ikke $d$. Modulo $29$ har $\\phi(7)=6$ elementer orden $7$ — ikke $7$. **Kontrollen:** summér $\\phi(d)$ over alle divisorer av $\\phi(n)$; du skal få $\\phi(n)$ eksakt.\n\n- **Bruker tellingsformelen uten at en primitiv rot finnes.** Formelen «$\\phi(d)$ elementer av orden $d$» krever at $n$ har en primitiv rot. Modulo $15$ har **fire** elementer orden $4$, mens $\\phi(4)=2$ — formelen gjelder ikke der.\n\n**Og en regnefeil-felle som er lett å gå i:** i primdivisortesten er eksponentene $\\phi(n)/q$, ikke $\\phi(n)-q$ eller $q$ selv. For $\\phi(n)=28$ og $q=7$ er eksponenten $4$, ikke $7$ og ikke $21$. Skriv brøken opp før du regner."
+    },
+    {
+      "id": "ma1301-5-2-begrepsbank-intro",
+      "type": "text",
+      "content": "### Begrepsbank\n\nDette er flashcard-stoff — hopp trygt over ved førstegangslesing; tidsanslaget på 55 minutter gjelder kjernestoffet over.\n\nUnder kode D er banken **eksamensverktøyet, ikke pynt**: det finnes ingen tabell over primitive røtter å slå opp i, og eksistenskriteriet er nettopp den typen liste man ellers ville sett opp.\n\n**Merk hvordan kortene fordeler seg:** to av dem må pugges kaldt (eksistenskriteriet og primdivisortesten), og resten **utledes** fra potensformelen i [kap. 5.1](/ma1301/ma1301-5-1). Det er en billig del av pensum å beherske — hvis du kjenner den ene formelen.\n\n**Slik pugges de:** faktakortene ved aktiv gjenkalling, testen ved å **kjøres** på nye tall. Verifiser tre nye primitive røtter med lukket bok, og du er ferdig med sjangeren."
+    },
+    {
+      "id": "ma1301-5-2-d-generator-sprak",
+      "type": "definition",
+      "title": "«Generator» og diskret logaritme",
+      "content": "Andre navn på samme sak, verdt å kjenne igjen om du leser andre kilder.\n\n**Generator.** Fordi potensene av en primitiv rot treffer **alle** restene som er relativt primiske til $n$, sier man at den **genererer** restene. I gruppeteori-språk: $\\mathbb{Z}_n^*$ er syklisk, og en primitiv rot er en generator.\n\n**Diskret logaritme.** Har du en primitiv rot $r$, kan hver rest $a$ skrives $a\\equiv r^m$ for en entydig $m$ med $1\\le m\\le\\phi(n)$. Den eksponenten $m$ kalles den **diskrete logaritmen** til $a$ med base $r$, og den oppfører seg som en logaritme:\n$$\\text{dlog}(ab)\\equiv\\text{dlog}(a)+\\text{dlog}(b)\\pmod{\\phi(n)}.$$\n\n**Hvorfor det er nyttig i teorien:** multiplikasjon modulo $n$ blir addisjon av eksponenter, og spørsmål om orden blir spørsmål om gcd — det er nettopp mekanismen i tellingsteoremet.\n\n**Hvorfor det er nyttig i praksis:** å regne $r^m$ er lett, men å finne $m$ fra $a$ er **vanskelig** for store $n$. Den asymmetrien er grunnlaget for Diffie–Hellman-nøkkelutveksling, på samme måte som faktoriseringens vanskelighet er grunnlaget for RSA (kap. 3.1).\n\n**Merk at diskret logaritme ikke er en regnesjanger i MA1301** — men begrepet forklarer hvorfor primitive røtter er verdt å studere, og det er verdt én setning om det dukker opp i en drøftingsdel."
+    },
+    {
+      "id": "ma1301-5-2-d-finne-primitiv-rot",
+      "type": "definition",
+      "title": "Å finne en primitiv rot",
+      "content": "Det finnes ingen formel som gir en primitiv rot. Metoden er **prøving fra bunnen**, og den er rask fordi primitive røtter er tette.\n\n**Oppskriften:**\n\n1. Sjekk at $n$ har den rette formen ($2$, $4$, $p^k$, $2p^k$).\n2. Regn $\\phi(n)$ og faktoriser den. Skriv opp eksponentene $\\phi(n)/q$.\n3. **Luk kandidater gratis:** for primtallsmodulus kan en kvadratisk rest ikke være primitiv rot. Er $\\left(\\frac ap\\right)=1$, hopp over $a$. Særlig $a=2$ avgjøres på ett sekund med 8-regelen ([kap. 4.2](/ma1301/ma1301-4-2)).\n4. **Kjør primdivisortesten** på første gjenstående kandidat: $2$, $3$, $5$, $6$, $7$, …\n5. Feiler den, gå til neste kandidat. Testen som feilet, gir deg gratis informasjon om ordenen.\n\n**Hvor langt må du prøve?** Sjelden forbi $7$. Antallet primitive røtter er $\\phi(\\phi(n))$, som typisk er en tredjedel til halvparten av restene — så sannsynligheten for treff er høy ved hvert forsøk.\n\n**Eksempler på minste primitive rot:** $p=13\\to 2$; $p=17\\to 3$; $p=19\\to 2$; $p=23\\to 5$; $p=29\\to 2$; $p=31\\to 3$; $p=41\\to 6$.\n\n**Merk at hopp over kvadratiske rester er en ren gevinst:** det halverer kandidatlisten, og testen $\\left(\\frac ap\\right)$ er mye billigere enn primdivisortesten."
+    },
+    {
+      "id": "ma1301-5-2-d-kort-antall-orden",
+      "type": "definition",
+      "title": "Kort: antall elementer av gitt orden",
+      "content": "$$\\#\\{a: \\operatorname{ord}_n(a)=d\\}=\\phi(d),\\qquad\\text{for hver } d\\mid\\phi(n),$$\n**forutsatt at $n$ har en primitiv rot.**\n\n**Konstruksjonen:** ett element er $r^{\\phi(n)/d}$; de øvrige er potensene av det med eksponent relativt primisk til $d$.\n\n**Fullstendighetskontrollen — bruk den hver gang:**\n$$\\sum_{d\\mid\\phi(n)}\\phi(d)=\\phi(n).$$\n\n**Eksempel, $\\phi(n)=28$:** divisorene er $1,2,4,7,14,28$ med $\\phi$-verdier $1,1,2,6,6,12$, og summen er $28$ ✓.\n\n**De to spesialtilfellene som er verdt å lese av direkte:**\n\n- $d=\\phi(n)$ gir $\\phi(\\phi(n))$ — antall primitive røtter.\n- $d=2$ gir $\\phi(2)=1$ — nøyaktig ett element av orden $2$, nemlig $-1$ (for odde primtallsmodulus).\n\n**Vilkåret er ikke kosmetisk.** Modulo $15$, som ikke har primitiv rot, har fire elementer orden $4$ mens $\\phi(4)=2$. Sjekk alltid at $n$ er på en av de fire formene før du bruker formelen."
+    },
+    {
+      "id": "ma1301-5-2-d-kort-verifikasjon",
+      "type": "definition",
+      "title": "Kort: verifikasjonstesten på 30 sekunder",
+      "content": "Den korte versjonen av primdivisortesten, slik du bruker den under tidspress:\n\n**«Faktoriser $\\phi(n)$. For hver primfaktor $q$: sjekk at $a^{\\phi(n)/q}\\ne 1$. Alle ulik $1$ ⟹ primitiv rot.»**\n\n**Eksempler på testlisten:**\n\n| $n$ | $\\phi(n)$ | eksponenter å teste |\n|---|---|---|\n| $13$ | $12=2^2\\cdot 3$ | $6$, $4$ |\n| $23$ | $22=2\\cdot 11$ | $11$, $2$ |\n| $29$ | $28=2^2\\cdot 7$ | $14$, $4$ |\n| $31$ | $30=2\\cdot 3\\cdot 5$ | $15$, $10$, $6$ |\n| $41$ | $40=2^3\\cdot 5$ | $20$, $8$ |\n\n**Ta den billigste testen først.** For $n=23$ er $a^2$ trivielt å regne, og hvis den er $1$, er du ferdig etter én linje.\n\n**Gjenbruk mellomresultater.** For $\\phi(n)=30$ er alle tre eksponentene multipler av $5$ eller $6$; regn $a^5$ eller $a^6$ først og bygg de andre på den. Se oppgave 9, der $3^5\\equiv -5$ ga alle tre testene.\n\n**Forventet mønster når svaret er ja:** testen for $q=2$ skal gi $-1$ (for primtallsmodulus), siden $a^{\\phi(n)/2}$ er en kvadratrot av $1$ som ikke er $1$. Får du noe annet der, er det regnefeil.\n\n**Kjør den nå, på $a=2$, $n=37$, uten å se på oppskriften.** *(Svar: $\\phi=36=2^2\\cdot 3^2$, eksponenter $18$ og $12$. $2^{18}\\equiv 36\\equiv -1\\ne 1$ ✓ og $2^{12}\\equiv 26\\ne 1$ ✓, altså primitiv rot. Til sammenligning er $3$ **ikke** en primitiv rot modulo $37$: $3^{18}\\equiv 1$.)*"
+    },
+    {
+      "id": "ma1301-5-2-d-kort-eksistens",
+      "type": "definition",
+      "title": "Kort: eksistenskriteriet",
+      "content": "**Primitiv rot finnes nøyaktig for**\n$$n=2,\\quad n=4,\\quad n=p^k,\\quad n=2p^k\\qquad (p\\ \\text{odde primtall}).$$\n\n**De to fellene:**\n\n- **Toerpotenser over $4$:** $8$, $16$, $32$, … har **ingen** primitiv rot.\n- **$4p$-formen:** $20=2^2\\cdot 5$ har **ingen** — det er ikke $2p^k$.\n\n**Den korteste begrunnelsen for hvorfor to ulike odde primfaktorer ødelegger:** for $n=mn'$ med $\\gcd(m,n')=1$ og begge $\\ge 3$ er både $\\phi(m)$ og $\\phi(n')$ partall, så\n$$\\operatorname{lcm}(\\phi(m),\\phi(n'))\\le\\frac{\\phi(m)\\phi(n')}{2}=\\frac{\\phi(n)}{2}<\\phi(n),$$\nog hver eksponent som gir $1$ modulo begge, gir $1$ modulo $n$. Altså er alle ordener $\\le\\phi(n)/2$.\n\n**Konkret sjekk:** modulo $15$ er største orden $4$, mens $\\phi(15)=8$.\n\n**Bruk kriteriet som første handling.** Spør oppgaven «finn en primitiv rot modulo $n$», faktoriser $n$ og sjekk formen. Er den feil, er svaret «finnes ikke», med begrunnelsen over — og det er et fullgodt delpunktssvar."
+    },
+    {
+      "id": "ma1301-5-2-d-kort-generering",
+      "type": "definition",
+      "title": "Kort: generer alle primitive røtter",
+      "content": "Har du **én** primitiv rot $r$ modulo $n$:\n\n$$\\text{alle primitive røtter}=\\{r^k:\\ 1\\le k\\le\\phi(n),\\ \\gcd(k,\\phi(n))=1\\},$$\n\nog det er $\\phi(\\phi(n))$ av dem.\n\n**Utledes på stedet, én linje:** potensformelen gir $\\operatorname{ord}_n(r^k)=\\phi(n)/\\gcd(k,\\phi(n))$, som er $\\phi(n)$ nøyaktig når gcd-en er $1$.\n\n**Oppskriften i praksis:**\n\n1. List de $k$ i $\\{1,\\dots,\\phi(n)\\}$ med $\\gcd(k,\\phi(n))=1$.\n2. Regn $r^k\\bmod n$ for hver.\n\n**Eksempel, $n=11$ med $r=2$:** $\\phi(11)=10$, og $k\\in\\{1,3,7,9\\}$ gir $2,8,7,6$. De fire primitive røttene er $\\{2,6,7,8\\}$.\n\n**Arbeidsøkonomi:** har du alt regnet syklusen til $r$ (tabellen over $r^1,\\dots,r^{\\phi(n)}$), er dette ren avlesning. Ellers er det én potensberegning per rot — og da spør oppgaven vanligvis bare om antallet, eller om noen få.\n\n**Kontroll:** antall funne røtter skal være $\\phi(\\phi(n))$ nøyaktig. Og hver av dem skal bestå primdivisortesten (sjekk gjerne én)."
+    },
+    {
+      "id": "ma1301-5-2-d-kort-utelukkelse",
+      "type": "definition",
+      "title": "Kort: gratis utelukkelse via Legendre",
+      "content": "**En kvadratisk rest kan ikke være en primitiv rot** (modulo odde primtall $p$).\n\n**Utledes på stedet, to linjer:** Eulers kriterium gir $\\left(\\frac ap\\right)\\equiv a^{(p-1)/2}$; er $a$ primitiv rot, er ordenen $p-1$, så $a^{(p-1)/2}\\not\\equiv 1$, altså er symbolet $-1$.\n\n**Bruk:** før du kjører primdivisortesten på en kandidat, sjekk Legendre-symbolet. Er det $1$, er kandidaten ute — gratis.\n\n**Særlig billig for $a=2$:** 8-regelen ([kap. 4.2](/ma1301/ma1301-4-2)) avgjør på ett sekund.\n\n| $p\\bmod 8$ | $\\left(\\frac 2p\\right)$ | kan $2$ være primitiv rot? |\n|---|---|---|\n| $1$ eller $7$ | $1$ | **nei** |\n| $3$ eller $5$ | $-1$ | ja, må testes |\n\n**Eksempler:** $31\\equiv 7\\pmod 8$, så $2$ er kvadratisk rest og **ikke** primitiv rot modulo $31$. Og $29\\equiv 5\\pmod 8$, så $2$ er ikke-rest — og den **er** en primitiv rot (eksempel 2).\n\n**Merk begrensningen:** testen **utelukker**, den bekrefter ikke. Modulo $13$ er $5$ en ikke-rest med orden bare $4$. Du må fortsatt kjøre primdivisortesten på kandidaten som slipper gjennom."
+    },
+    {
+      "id": "ma1301-5-2-d-kort-syklus-struktur",
+      "type": "definition",
+      "title": "Kort: strukturen i restene",
+      "content": "Bildet som binder Del 5 sammen. Når $n$ har en primitiv rot $r$, ser restene som er relativt primiske til $n$, slik ut:\n\n$$r^1,\\ r^2,\\ r^3,\\ \\dots,\\ r^{\\phi(n)}\\equiv 1$$\n\n— **én** syklus som treffer alle $\\phi(n)$ av dem.\n\n**Alt annet er avledet av dette:**\n\n- **Ordenen** til $r^m$ er $\\phi(n)/\\gcd(m,\\phi(n))$ — bestemt av hvor «langt» rundt du hopper.\n- **Primitive røtter** er hoppene som treffer alt: $\\gcd(m,\\phi(n))=1$.\n- **Elementer av orden $d$** er hoppene av lengde $\\phi(n)/d$ (og deres relativt primiske potenser).\n- **Kvadratiske rester** er de med **partall** eksponent $m$ — halvparten, og det er halvparten-regelen fra [kap. 4.1](/ma1301/ma1301-4-1) sett med ordensøyne.\n\n**Den siste er verdt å dvele ved:** $r^m$ er en kvadratisk rest nøyaktig når $m$ er partall, siden $r^{2j}=(r^j)^2$. Og potensene med partall eksponent er nøyaktig de $\\frac{\\phi(n)}{2}$ elementene med orden som deler $\\frac{\\phi(n)}{2}$ — samme utsagn som «ordenen deler $\\frac{p-1}{2}$» fra [kap. 5.1](/ma1301/ma1301-5-1).\n\n**Praktisk verdi:** har du regnet syklustabellen for én primitiv rot, kan du lese av **alt** — ordener, primitive røtter, kvadratiske rester, elementer av gitt orden — uten en potensberegning mer. På et eksamenssett der flere delpunkt handler om samme modulus, er det verdt de fem minuttene tabellen koster."
+    },
+    {
+      "id": "ma1301-5-2-d-kort-tid-52",
+      "type": "definition",
+      "title": "Kort: tidsbudsjettet",
+      "content": "Eksamen er 4 timer på rundt ti likt vektede delpunkt, altså **~24 minutter per delpunkt**.\n\n| Oppgavetype | Tid |\n|---|---|\n| «Vis at $a$ er primitiv rot» (2–3 tester) | ~6 min |\n| «Hvor mange primitive røtter?» | ~2 min |\n| «Finn alle primitive røtter» (liten $n$) | ~8 min |\n| «Hvor mange har orden $d$?» | ~2 min |\n| «Finn elementene av orden $d$» | ~6 min |\n| «Finn den minste primitive roten» | ~10 min |\n\n**De to raske er nesten gratis** — de er ren gjengivelse av $\\phi(\\phi(n))$ og $\\phi(d)$. Det er en av grunnene til at sjangeren er verdt å drille: tellespørsmålene tar to minutter når formelen sitter, og de er ubesvarelige når den ikke gjør det.\n\n**Hvor tiden går galt:** i potensberegningene. Bruk små representanter ($36\\equiv -5$ modulo $41$), gjenbruk mellompotenser, og ta den billigste testen først.\n\n**Hva du IKKE skal bruke tid på:** å regne hele syklusen for å verifisere en primitiv rot (bruk primdivisortesten), og å lete etter en primitiv rot modulo en $n$ som ikke har noen (sjekk formen først)."
+    },
+    {
+      "id": "ma1301-5-2-d-kort-innpakninger-52",
+      "type": "definition",
+      "title": "Kort: innpakningene i arkivet",
+      "content": "Hvordan primitiv-rot-oppgaver formuleres. Å kjenne igjen formen er halve jobben.\n\n- **«Vis at $a$ er en primitiv rot modulo $p$.»** Primdivisortesten, med faktoriseringen av $\\phi(p)$ skrevet ut.\n- **«Finn de $k$ elementene av orden $d$ modulo $p$.»** $\\phi(d)$ stykker, konstruert som $r^{\\phi(n)/d}$ og dens relativt primiske potenser.\n- **«Hvor mange primitive røtter finnes modulo $n$?»** $\\phi(\\phi(n))$, regnet ut.\n- **«Har $n$ en primitiv rot?»** Eksistenskriteriet, med begrunnelse.\n- **«Finn den minste primitive roten modulo $p$.»** Prøv fra $2$ opp, med kvadratiske rester utelukket.\n- **«Vis at en primitiv rot ikke er en kvadratisk rest.»** Bevisoppgave: Eulers kriterium + ordenslemmaet, to linjer.\n- **Todelt:** a) verifiser en primitiv rot, b) tell eller finn elementer av gitt orden. Dette er den vanligste formen — og b) er gratis når a) er gjort.\n\n**Fellesnevneren:** alle hviler på potensformelen $\\operatorname{ord}(a^k)=d/\\gcd(k,d)$ fra [kap. 5.1](/ma1301/ma1301-5-1) og på primdivisortesten. To ting, hele sjangeren."
+    },
+    {
+      "id": "ma1301-5-2-d-kort-selvdiagnose-52",
+      "type": "definition",
+      "title": "Kort: selvdiagnose for primitive røtter",
+      "content": "Sitter kapitlet? Dekk til boka, sett tre minutter, og svar:\n\n- ☐ Hva er definisjonen av en primitiv rot?\n- ☐ For hvilke $n$ finnes primitive røtter — alle fire formene?\n- ☐ Hvordan lyder primdivisortesten, og hvor mange potenser krever den?\n- ☐ Hvor mange primitive røtter finnes modulo $n$?\n- ☐ Hvordan finner du dem alle, gitt én?\n- ☐ Hvor mange elementer har orden $d$?\n- ☐ Hva er fullstendighetskontrollen på tellingen?\n- ☐ Hvorfor kan en kvadratisk rest ikke være en primitiv rot?\n\n**Åtte spørsmål. Det er hele kapitlet.**\n\n**Deretter:** verifiser en primitiv rot modulo $37$ og en modulo $43$ med lukket bok. *(Hint: prøv $2$ i det første tilfellet og $3$ i det andre.)*\n\n**Hvis noe glapp:** spørsmål 2 og 3 er de som gir uttelling i seg selv, og spørsmål 3 er den ene der en halv test gir null poeng. Prioritér dem."
+    },
+    {
+      "id": "ma1301-5-2-d-kort-alle-primdivisorer",
+      "type": "definition",
+      "title": "Kort: hvorfor ALLE primdivisorene må testes",
+      "content": "Den mest belagte feilen i sjangeren er å stoppe etter én test. Her er et konkret tilfelle der det går galt.\n\n**Modulo $13$, kandidat $a=3$.** Her er $\\phi(13)=12=2^2\\cdot 3$, så primdivisorene er $2$ og $3$, og eksponentene å teste er $6$ og $4$.\n\n- **Test for $q=3$** (eksponent $4$): $3^4=81=6\\cdot 13+3\\equiv 3\\not\\equiv 1$ ✓ — bestått.\n- **Test for $q=2$** (eksponent $6$): $3^6=729=56\\cdot 13+1\\equiv 1$ ✗ — **feilet**.\n\nHadde du bare gjort den første testen, ville du konkludert at $3$ er en primitiv rot modulo $13$. **Det er galt** — ordenen er $3$, ikke $12$.\n\n**Hvorfor én test ikke kan holde:** testen for $q$ utelukker bare de ordenene som deler $\\phi(n)/q$. En ekte divisor av $\\phi(n)$ som **ikke** deler $\\phi(n)/q$, slipper gjennom — og den finnes så snart $\\phi(n)$ har mer enn én primfaktor.\n\n**Rutinen som forhindrer feilen:** skriv opp **hele** listen over eksponenter $\\phi(n)/q$ før du regner noe. Da ser du med én gang hvor mange tester du skal ha, og du oppdager om du har hoppet over en.\n\n**Og merk gevinsten i den feilede testen:** at $3^6\\equiv 1$ forteller at ordenen deler $6$. Du har innsnevret den gratis, og de gjenstående kandidatene er $1$, $2$, $3$ og $6$."
+    },
+    {
+      "id": "ma1301-5-2-d-primtallspotens",
+      "type": "definition",
+      "title": "Primitive røtter modulo en primtallspotens",
+      "content": "Eksistenskriteriet inkluderer $n=p^k$ for odde primtall, og det er verdt å vite hvordan man kommer dit i praksis — selv om eksamensoppgavene nesten alltid har $n$ som et primtall.\n\n**Sammenhengen:** er $r$ en primitiv rot modulo $p$, er $r$ **også** en primitiv rot modulo $p^k$ for alle $k\\ge 2$, med ett teknisk unntak: hvis $r^{p-1}\\equiv 1\\pmod{p^2}$, må du bruke $r+p$ i stedet.\n\n**Eksempler der det går rett frem:**\n\n| $p$ | $r$ | $\\operatorname{ord}_p(r)$ | $\\operatorname{ord}_{p^2}(r)$ | $\\phi(p^2)$ |\n|---|---|---|---|---|\n| $3$ | $2$ | $2$ | $6$ | $6$ ✓ |\n| $5$ | $2$ | $4$ | $20$ | $20$ ✓ |\n| $7$ | $3$ | $6$ | $42$ | $42$ ✓ |\n| $11$ | $2$ | $10$ | $110$ | $110$ ✓ |\n\nI alle fire tilfellene løfter den primitive roten seg direkte, og unntakstilfellet er sjeldent.\n\n**Hva du skal kunne på eksamen:** at primitive røtter **finnes** modulo $p^k$ og $2p^k$ (eksistenskriteriet), og at du finner dem med primdivisortesten anvendt på $\\phi(p^k)=p^k-p^{k-1}$ — akkurat som for primtall. Løftesetningen er bakgrunn, ikke pensum å gjengi.\n\n**Praktisk regneeksempel:** er $2$ en primitiv rot modulo $25$? Her er $\\phi(25)=20=2^2\\cdot 5$, primdivisorene er $2$ og $5$, og eksponentene $10$ og $4$. Vi regner: $2^{10}=1024=40\\cdot 25+24\\equiv 24\\equiv -1\\ne 1$ ✓, og $2^4=16\\ne 1$ ✓. Altså er $\\operatorname{ord}_{25}(2)=20=\\phi(25)$, og $2$ er en primitiv rot modulo $25$."
+    },
+    {
+      "id": "ma1301-5-2-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "ma1301-5-2-rep-inn",
+          "type": "text",
+          "content": "Fem korte oppgaver fra [kap. 5.1](/ma1301/ma1301-5-1), [kap. 4.1](/ma1301/ma1301-4-1) og [kap. 2.1](/ma1301/ma1301-2-1). Fasit under hver.\n\n**R1.** Regn ut $\\phi(28)$, $\\phi(30)$ og $\\phi(40)$.\n\n*Fasit:* $28=2^2\\cdot 7$, så $\\phi(28)=\\phi(4)\\phi(7)=2\\cdot 6=12$. $30=2\\cdot 3\\cdot 5$, så $\\phi(30)=1\\cdot 2\\cdot 4=8$. $40=2^3\\cdot 5$, så $\\phi(40)=\\phi(8)\\phi(5)=4\\cdot 4=16$. Disse tre er nettopp antallene primitive røtter modulo $29$, $31$ og $41$.\n\n**R2.** Hva er $\\operatorname{ord}_n(a^k)$ uttrykt ved $d=\\operatorname{ord}_n(a)$?\n\n*Fasit:* $\\operatorname{ord}_n(a^k)=d/\\gcd(k,d)$ ([kap. 5.1](/ma1301/ma1301-5-1)). Hele dette kapitlet er anvendelser av den formelen.\n\n**R3.** Finn $\\operatorname{ord}_{17}(2)$, og avgjør om $2$ er en primitiv rot modulo $17$.\n\n*Fasit:* $2^4=16\\equiv -1$, så $2^8\\equiv 1$ og ordenen er $8$. Men $\\phi(17)=16$, så $2$ er **ikke** en primitiv rot modulo $17$. (Det er $3$ — se [kap. 5.1](/ma1301/ma1301-5-1), eksempel 1.)\n\n**R4.** Er $2$ en kvadratisk rest modulo $17$? Og modulo $29$?\n\n*Fasit:* $17\\equiv 1\\pmod 8$, så $\\left(\\frac 2{17}\\right)=1$ (8-regelen, [kap. 4.2](/ma1301/ma1301-4-2)) — ja. Og $29\\equiv 5\\pmod 8$, så $\\left(\\frac 2{29}\\right)=-1$ — nei. Merk konsistensen med R3: $2$ er kvadratisk rest modulo $17$, og kan derfor ikke være primitiv rot der.\n\n**R5.** List divisorene av $28$, og regn $\\phi(d)$ for hver.\n\n*Fasit:* $1,2,4,7,14,28$ med $\\phi$-verdier $1,1,2,6,6,12$. Summen er $28$ ✓ — fullstendighetskontrollen på ordensfordelingen modulo $29$."
+        }
+      ]
+    },
+    {
+      "id": "ma1301-5-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "ma1301-5-2-symbol-inn",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $\\operatorname{ord}_n(a)$ | ordenen til $a$ modulo $n$ ([kap. 5.1](/ma1301/ma1301-5-1)) |\n| $r$ | brukes gjennomgående om en primitiv rot |\n| $\\phi(n)$ | Eulers $\\phi$-funksjon — også taket for ordenen |\n| $\\phi(\\phi(n))$ | antall primitive røtter modulo $n$ |\n| $q$ | en primdivisor av $\\phi(n)$ i primdivisortesten |\n| $\\phi(n)/q$ | eksponenten som testes for primdivisoren $q$ |\n| $d$ | en divisor av $\\phi(n)$ — en mulig orden |\n| $p^k$, $2p^k$ | formene der primitive røtter finnes ($p$ odde) |\n| $\\left(\\frac ap\\right)$ | Legendre-symbolet ([kap. 4.1](/ma1301/ma1301-4-1)) |\n| $\\blacksquare$ | bevis slutt |\n\n**Formler i dette delkapitlet:**\n\n$$a\\ \\text{primitiv rot modulo } n\\iff \\operatorname{ord}_n(a)=\\phi(n)$$\nDefinisjonen. Potensene treffer da alle restene som er relativt primiske til $n$. **(må sitte utenat)**\n\n$$n=2,\\ 4,\\ p^k,\\ 2p^k\\quad (p\\ \\text{odde primtall})$$\nEksistenskriteriet — og ingen andre $n$. **(må sitte utenat — fellene er toerpotenser over $4$, og $4p$-formen)**\n\n$$a\\ \\text{primitiv rot}\\iff a^{\\phi(n)/q}\\not\\equiv 1\\pmod n\\ \\text{for hver primdivisor } q\\ \\text{av}\\ \\phi(n)$$\nPrimdivisortesten. Antall tester = antall ulike primfaktorer i $\\phi(n)$. **(må sitte utenat — og ALLE primdivisorene må testes)**\n\n$$\\#\\{\\text{primitive røtter}\\}=\\phi(\\phi(n))$$\nAntallet. For primtallsmodulus: $\\phi(p-1)$. **(må sitte utenat)**\n\n$$r^k\\ \\text{primitiv rot}\\iff\\gcd(k,\\phi(n))=1$$\nGenereringen av alle primitive røtter fra én. **(utledes på stedet — én linje ut av potensformelen $\\operatorname{ord}(r^k)=\\phi(n)/\\gcd(k,\\phi(n))$)**\n\n$$\\#\\{a:\\operatorname{ord}_n(a)=d\\}=\\phi(d)\\qquad (d\\mid\\phi(n))$$\nAntall elementer av gitt orden, når en primitiv rot finnes. **(må sitte utenat)**\n\n$$a=r^{\\phi(n)/d}\\ \\text{har orden } d$$\nKonstruksjonen av et element med ønsket orden. **(utledes på stedet — én linje via potensformelen)**\n\n$$\\sum_{d\\mid\\phi(n)}\\phi(d)=\\phi(n)$$\nFullstendighetskontrollen på ordensfordelingen. **(utledes på stedet — hvert element har nøyaktig én orden)**\n\n$$r\\ \\text{primitiv rot}\\ \\Longrightarrow\\ \\left(\\frac rp\\right)=-1$$\nEn primitiv rot er aldri en kvadratisk rest. Gratis utelukkelsestest. **(utledes på stedet — to linjer via Eulers kriterium og ordenslemmaet)**\n\n$$\\operatorname{ord}_n(a^k)=\\frac{\\operatorname{ord}_n(a)}{\\gcd(k,\\operatorname{ord}_n(a))}$$\nPotensformelen fra [kap. 5.1](/ma1301/ma1301-5-1) — motoren under alt i dette kapitlet. **(utledes på stedet, men bør sitte utenat for tempoets skyld)**\n\n**Verifikasjonsoppskriften i fem steg** — (1) $\\gcd$-sjekk, (2) $\\phi(n)$ og faktoriser den, (3) list primdivisorene, (4) regn $a^{\\phi(n)/q}$ for hver, (5) konkludér. **(må sitte utenat)**"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

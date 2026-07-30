@@ -1,0 +1,409 @@
+{
+  "id": "ma1301-3-1",
+  "courseId": "ma1301",
+  "chapterNumber": "3.1",
+  "title": "RSA: nøkkelgenerering, kryptering og dekryptering",
+  "description": "RSA-algoritmen fra ende til ende: n=pq, ϕ(n)=(p−1)(q−1), finn d fra e·d≡1 mod ϕ(n) via Euklid, krypter/dekrypter med effektiv potensopphøyning — og korrekthetsbeviset (Mᵉ)ᵈ≡M via Euler/Fermat.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "bygge et RSA-nøkkelpar fra to primtall og en krypteringseksponent",
+    "finne dekrypteringseksponenten med Euklids algoritme frem og baklengs",
+    "kryptere og dekryptere en melding for hånd med kvadrer-og-multipliser",
+    "gjøre rede for hvorfor dekrypteringen gjenoppretter meldingen, også når et av primtallene deler meldingen"
+  ],
+  "content": [
+    {
+      "id": "ma1301-3-1-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**RSA forekommer i 10 av 15 sett — 67 %**, og nesten alltid som **egen oppgave** med to eller tre delpunkt.\n\nOppgavetypen er **sjanger D — RSA og dekryptering** (sjangerbokstavene er bokas egne forkortelser, forklart i [kap. 0.1](/ma1301/ma1301-0-1)).\n\n| Variant | Hva den krever | Frekvens |\n|---|---|---|\n| Dekrypter med oppgitt $d$ | kvadrer-og-multipliser | den enkleste, forekommer ofte |\n| **Finn $d$ selv, og dekrypter** | $\\phi(n)=(p-1)(q-1)$ + Euklids algoritme | hovedvarianten |\n| Bygg et helt nøkkelpar fra $p,q,e$ | hele oppsettet | forekommer |\n| Vis at dekrypteringen gjenoppretter meldingen | korrekthetsbeviset fra Euler/Fermat | forekommer |\n\n**Fasitens grep:** $n=pq$ gir $\\phi(n)=(p-1)(q-1)$; finn $d$ fra $ed\\equiv 1\\pmod{\\phi(n)}$ **med Euklids algoritme baklengs**; dekrypter med $m\\equiv c^{d}\\pmod n$ og **vis kvadrer-og-multipliser-stegene**.\n\n**Prioritet: høyeste.** Oppgaven er nesten alltid der, den er alltid bygget på samme måte, og den bruker bare verktøy du alt har: Euklids algoritme fra [kap. 1.2](/ma1301/ma1301-1-2) og Eulers teorem fra [kap. 2.1](/ma1301/ma1301-2-1).\n\n**Det nye er ikke matematikken, men rammen.** RSA er tre kjente teknikker satt sammen i en bestemt rekkefølge — og det er rekkefølgen og navngivningen som gir uttelling."
+    },
+    {
+      "id": "ma1301-3-1-utenat",
+      "type": "tip",
+      "title": "Utenat under kode D",
+      "content": "Eksamen er hjelpemiddelkode D: ingen bok, ingen formelsamling, ingen tabeller, ingen egne notater — bare en enkel kalkulator som ikke kan faktorisere $n$ og ikke kan regne $c^{d}\\bmod n$.\n\n**Må sitte utenat:**\n\n- **oppsettet:** $n=pq$, $\\phi(n)=(p-1)(q-1)$, offentlig nøkkel $(n,e)$ med $\\gcd(e,\\phi(n))=1$, privat $d$ med $ed\\equiv 1\\pmod{\\phi(n)}$\n- **kryptering** $c\\equiv m^{e}\\pmod n$ og **dekryptering** $m\\equiv c^{d}\\pmod n$\n- **kvadrer-og-multipliser** som prosedyre\n- **Euklids algoritme frem og baklengs**, som er den ene måten å finne $d$\n\n**Utledes på stedet:**\n\n- **korrektheten** $(m^{e})^{d}\\equiv m\\pmod n$. Fra $ed=1+k\\phi(n)$ er $m^{ed}=m\\cdot\\left(m^{\\phi(n)}\\right)^{k}\\equiv m$ **fra Eulers teorem** når $\\gcd(m,n)=1$. **Tre linjer**, og hele utledningen står ført ut i løkke 4 — sammen med tilfellet der $p$ eller $q$ deler $m$.\n- **$\\phi(n)=(p-1)(q-1)$** ut av multiplikativiteten og $\\phi(p)=p-1$. Én linje.\n- **$d$ selv:** koeffisientene i Bézout-likningen finnes ikke utenat — de leses ut av substitusjonskjeden, hver gang.\n\n**Selvtest, fem minutter:** dekk til siden og skriv ned hele oppsettet med alle fire størrelsene $p,q,e,d$ og hvordan de henger sammen. Deretter: utled korrektheten i tre linjer. Klarer du begge, sitter sjanger D.\n\n**Prosedyrer pugges ved å kjøres.** Bygg tre nøkkelpar med penn og papir."
+    },
+    {
+      "id": "ma1301-3-1-forkunnskaper",
+      "type": "text",
+      "content": "### Forkunnskaper\n\nFra boka: [kap. 1.2](/ma1301/ma1301-1-2) (Euklids algoritme frem og baklengs — motoren bak $d$), [kap. 1.4](/ma1301/ma1301-1-4) (modulær invers), [kap. 2.1](/ma1301/ma1301-2-1) (Eulers teorem, $\\phi$, kvadrer-og-multipliser), [kap. 2.2](/ma1301/ma1301-2-2) (Fermats lille teorem — brukes i korrekthetsbeviset) og [kap. 2.4](/ma1301/ma1301-2-4) (CRT — brukes i beviset og i den raske dekrypteringen).\n\n**Sist du var her.** De tre resultatene RSA hviler helt på, ferdig oppfrisket:\n\n**1. Bézout og modulær invers.** Er $\\gcd(a,m)=1$, finner Euklids algoritme baklengs tall $x,y$ med\n$$ax+my=1,$$\nog lest modulo $m$ gir det $ax\\equiv 1\\pmod m$ — altså er $x$ inversen til $a$. **Dette er hele metoden for å finne $d$.**\n\n**2. $\\phi$ av et produkt av to primtall.** Ved multiplikativiteten og $\\phi(p)=p-1$:\n$$\\phi(pq)=(p-1)(q-1)\\qquad(p\\ne q\\text{ primtall}).$$\n\n**3. Eulers teorem.** Når $\\gcd(m,n)=1$:\n$$m^{\\phi(n)}\\equiv 1\\pmod n.$$\nDette er grunnen til at RSA virker i det hele tatt.\n\nFra videregående er ingenting påkrevd."
+    },
+    {
+      "id": "ma1301-3-1-motivasjon",
+      "type": "text",
+      "content": "### En hengelås alle kan låse, og bare én kan åpne\n\nDu skal sende et kortnummer til en nettbutikk. Alle som lytter på linja, kan lese det som sendes. Hvordan kan butikken få nummeret uten at lytteren får det — når du og butikken aldri har møtt hverandre og ikke har avtalt noen felles hemmelighet?\n\n**Bildet som løser det:** butikken sender ut tusenvis av **åpne hengelåser** til hvem som helst. Alle kan ta en lås, legge meldingen i en boks og klikke låsen igjen. Men **nøkkelen** til låsene har butikken beholdt selv. Lytteren har en boks han ikke får opp, og en lås han ikke får noe ut av.\n\nDet er **offentlig-nøkkel-kryptografi**: én nøkkel til å låse (offentlig), en annen til å åpne (privat). RSA er den første og mest kjente realiseringen, publisert i 1977 av Rivest, Shamir og Adleman — og den er bygget nesten utelukkende av det du har lært i Del 1 og Del 2.\n\n**Den matematiske låsen:** velg to primtall $p$ og $q$, og la $n=pq$ være offentlig. Å gange $p$ og $q$ er lett; å **faktorisere** $n$ tilbake til $p$ og $q$ er praktisk umulig når tallene er store nok. Det er hele asymmetrien.\n\n**Og nøkkelen:** den som kjenner $p$ og $q$, kan regne $\\phi(n)=(p-1)(q-1)$ og dermed finne inversen $d$ til krypteringseksponenten $e$. Den som bare kjenner $n$, kan ikke — for å regne $\\phi(n)$ måtte han faktorisert $n$.\n\n**Hva du skal kunne etter kapitlet:** bygge et nøkkelpar fra oppgitte $p,q,e$; kryptere og dekryptere for hånd; og **utlede** hvorfor dekrypteringen gjenoppretter meldingen. Det siste er en eksamensoppgave i seg selv, og det er tre linjer når du har Eulers teorem.\n\n*Tidsanslag for kapitlet: ~60 minutter lesetid, fordelt på fem løkker à 10–14 minutter. Regner du med penn underveis, som du bør her, legg til omtrent halvparten.*"
+    },
+    {
+      "id": "ma1301-3-1-l1-intro",
+      "type": "text",
+      "content": "## Løkke 1: Oppsettet — de fem størrelsene\n\n*~11 minutter.*\n\nRSA har fem tall, og hvert av dem har en rolle. Kan du rollene, kan du hele sjangeren — de fleste feilene på eksamen er rolleforvekslinger, ikke regnefeil."
+    },
+    {
+      "id": "ma1301-3-1-d-rsa-oppsettet",
+      "type": "definition",
+      "title": "RSA-oppsettet",
+      "content": "**De fem størrelsene, og hvordan de lages:**\n\n1. **To ulike primtall $p$ og $q$** — hemmelige. Disse velges først.\n2. **Modulusen $n=pq$** — **offentlig**.\n3. **$\\phi(n)=(p-1)(q-1)$** — hemmelig, fordi den avslører faktoriseringen.\n4. **Krypteringseksponenten $e$** — **offentlig**, valgt med $\\gcd(e,\\phi(n))=1$.\n5. **Dekrypteringseksponenten $d$** — hemmelig, løst fra\n$$ed\\equiv 1\\pmod{\\phi(n)}.$$\n\n**Den offentlige nøkkelen er paret $(n,e)$. Den private er $d$** (sammen med $p$ og $q$, som eieren beholder).\n\n**Hele oppsettet må sitte utenat.** Det er utgangspunktet for hvert delpunkt i sjanger D.\n\n**Merk hva som er offentlig og hva som ikke er:** $n$ og $e$ kan alle se. $p$, $q$, $\\phi(n)$ og $d$ er hemmelige — og de tre siste følger av hverandre: kjenner du én, kan du finne de andre. Det er derfor sikkerheten står og faller på at $n$ ikke kan faktoriseres.\n\n**Kravet $\\gcd(e,\\phi(n))=1$ er ikke pynt:** uten det finnes ingen invers $d$ ([kap. 1.4](/ma1301/ma1301-1-4)), og systemet kan ikke dekryptere."
+    },
+    {
+      "id": "ma1301-3-1-d-phi-av-pq",
+      "type": "definition",
+      "title": "ϕ(n) = (p−1)(q−1)",
+      "content": "For $n=pq$ med $p\\ne q$ primtall:\n$$\\phi(n)=(p-1)(q-1).$$\n\n**Dette utledes på stedet, én linje.** Siden $p\\ne q$ er $\\gcd(p,q)=1$, så **multiplikativiteten** gir $\\phi(pq)=\\phi(p)\\phi(q)$, og $\\phi(p)=p-1$ for primtall ([kap. 2.1](/ma1301/ma1301-2-1)). $\\blacksquare$\n\n**Den mest belagte feilen i sjanger D er å regne $\\phi(n)$ galt.** To varianter:\n\n- **$\\phi(n)=n-1$** — det ville betydd at $n$ var et primtall. For $n=247$ er $\\phi(n)=216$, ikke $246$.\n- **$\\phi(n)=pq-p-q$** eller lignende — gang ut riktig: $(p-1)(q-1)=pq-p-q+1=n-p-q+1$.\n\n**Kontrollen:** $\\phi(n)$ skal være et partall (for $n\\ge 3$) og en god del mindre enn $n$. For $n=pq$ med tosifrede primtall er $\\phi(n)$ typisk $80$–$90\\,\\%$ av $n$.\n\n*Eksempel:* $p=13$, $q=19$ gir $n=247$ og $\\phi(247)=12\\cdot 18=216$. Kontroll: $247-13-19+1=216$ ✓."
+    },
+    {
+      "id": "ma1301-3-1-d-hvorfor-hemmelig",
+      "type": "definition",
+      "title": "Hvorfor ϕ(n) må være hemmelig",
+      "content": "Den som kjenner $\\phi(n)$, kan regne $d$ — og da er systemet brutt. Og **den som kjenner $\\phi(n)$, kan også faktorisere $n$**.\n\n**Utledes på stedet:** har du $n=pq$ og $\\phi(n)=(p-1)(q-1)=n-p-q+1$, så kjenner du summen $s=p+q=n-\\phi(n)+1$ og produktet $n=pq$. Da er $p$ og $q$ røttene i andregradslikningen\n$$x^{2}-sx+n=0,$$\nsom du løser med formelen fra videregående.\n\n*Kontroll med tall:* $n=247$, $\\phi(n)=216$ gir $s=247-216+1=32$, og $x^2-32x+247=0$ har røttene $x=\\frac{32\\pm\\sqrt{1024-988}}{2}=\\frac{32\\pm 6}{2}$, altså $19$ og $13$ ✓.\n\n**Konklusjonen er verdt å merke seg:** «finn $\\phi(n)$» og «faktoriser $n$» er like vanskelige problemer. Derfor hviler hele sikkerheten på ett punkt — at store tall er vanskelige å faktorisere.\n\n**Og derfor er dette et yndet teoretisk delpunkt:** «forklar hvorfor det ikke er tryggere å offentliggjøre $\\phi(n)$ enn $p$ og $q$». Svaret er utledningen over."
+    },
+    {
+      "id": "ma1301-3-1-d-valg-av-e",
+      "type": "definition",
+      "title": "Valget av krypteringseksponenten e",
+      "content": "$e$ velges med **$1<e<\\phi(n)$ og $\\gcd(e,\\phi(n))=1$**.\n\n**Hvorfor kravet:** uten $\\gcd(e,\\phi(n))=1$ har $e$ ingen invers modulo $\\phi(n)$ ([kap. 1.4](/ma1301/ma1301-1-4)), så $d$ finnes ikke, og meldingen kan ikke dekrypteres entydig.\n\n**Slik sjekker du kravet for hånd:** faktoriser $\\phi(n)$ (den er $(p-1)(q-1)$, altså et produkt av to tall du kjenner), og se om $e$ har noen primfaktor felles med den. Eller kjør Euklids algoritme på $e$ og $\\phi(n)$ — du trenger den likevel for å finne $d$.\n\n*Eksempel:* $\\phi(247)=216=2^3\\cdot 3^3$. Da er $e=7$ lovlig ($\\gcd(7,216)=1$), mens $e=9$ ikke er ($\\gcd(9,216)=9$).\n\n**Merk at $e$ ofte er et lite primtall** i praksis, fordi små $e$ gjør krypteringen rask. På eksamen er $e$ typisk ensifret eller lite tosifret.\n\n**Og merk at $e$ ikke behøver være et primtall** — kravet er bare at den er relativt primisk til $\\phi(n)$. $e=25$ er lovlig hvis $\\gcd(25,\\phi(n))=1$."
+    },
+    {
+      "id": "ma1301-3-1-e1",
+      "type": "example",
+      "title": "Oppsettet i tall: p = 13, q = 19",
+      "problem": "La $p=13$ og $q=19$.\n\n**a)** Finn $n$ og $\\phi(n)$.\n**b)** Er $e=7$ et lovlig valg? Og $e=9$?\n**c)** Hva er offentlig og hva er hemmelig i dette systemet?",
+      "solution": "**a)** $$n=pq=13\\cdot 19=247.$$\nOg **ved multiplikativiteten** til $\\phi$, siden $\\gcd(13,19)=1$:\n$$\\phi(247)=\\phi(13)\\phi(19)=(13-1)(19-1)=12\\cdot 18=216.$$\n\n**Kontroll:** $\\phi(n)=n-p-q+1=247-13-19+1=216$ ✓. Og $216$ er et partall, mindre enn $247$ ✓.\n\n**b)** Kravet er $\\gcd(e,\\phi(n))=1$. Vi faktoriserer $216=8\\cdot 27=2^3\\cdot 3^3$.\n\n- $e=7$: primtallet $7$ deler verken $2$ eller $3$, så $\\gcd(7,216)=1$ ✓. **Lovlig.**\n- $e=9$: $9=3^2$, og $3\\mid 216$, så $\\gcd(9,216)=9\\ne 1$ ✗. **Ikke lovlig** — det finnes ingen invers $d$, og systemet kunne ikke dekryptere.\n\n**c)** \n\n| Størrelse | Verdi | Status |\n|---|---|---|\n| $n$ | $247$ | **offentlig** |\n| $e$ | $7$ | **offentlig** |\n| $p$, $q$ | $13$, $19$ | hemmelig |\n| $\\phi(n)$ | $216$ | hemmelig |\n| $d$ | (finnes i løkke 2) | hemmelig |\n\n**Sluttsvar:** $n=247$, $\\phi(n)=216$; $e=7$ er lovlig, $e=9$ er ikke; $(n,e)=(247,7)$ er den offentlige nøkkelen.\n\n*Merk at tallene her er små nok til at hvem som helst kan faktorisere $247$ på et halvt minutt — systemet er altså ikke trygt. Det er med vilje: eksamensoppgavene bruker tall som er regnbare for hånd. I virkelige systemer har $p$ og $q$ flere hundre siffer hver.*"
+    },
+    {
+      "id": "ma1301-3-1-ex-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-3-1-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "La $p=11$ og $q=31$.\n\n**a)** Finn $n$ og $\\phi(n)$.\n**b)** Avgjør om $e=7$ og $e=15$ er lovlige valg av krypteringseksponent.",
+        "solution": "**a)** $$n=11\\cdot 31=341.$$\nOg **ved multiplikativiteten**:\n$$\\phi(341)=(11-1)(31-1)=10\\cdot 30=300.$$\n\n**Kontroll:** $341-11-31+1=300$ ✓, og $300$ er et partall mindre enn $341$ ✓.\n\n**b)** Vi faktoriserer $\\phi(n)=300=2^2\\cdot 3\\cdot 5^2$.\n\n- $e=7$: primtallet $7$ deler ingen av primfaktorene $2,3,5$, så $\\gcd(7,300)=1$ ✓ — **lovlig**.\n- $e=15=3\\cdot 5$: både $3$ og $5$ deler $300$, så $\\gcd(15,300)=15\\ne 1$ ✗ — **ikke lovlig**. Det finnes ingen invers til $15$ modulo $300$, så $d$ ville ikke eksistert.\n\n**Sluttsvar:** $n=341$, $\\phi(n)=300$; $e=7$ er lovlig, $e=15$ er ikke.\n\n*Merk hvordan faktoriseringen av $\\phi(n)$ gjør sjekken rask: når du ser $300=2^2\\cdot 3\\cdot 5^2$, kan du avgjøre lovligheten av enhver kandidat $e$ på fem sekunder.*",
+        "hints": [
+          "$n=pq$, og $\\phi(n)=(p-1)(q-1)$.",
+          "Faktoriser $\\phi(n)$, og se om $e$ har noen primfaktor felles med den."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-3-1-l2-intro",
+      "type": "text",
+      "content": "## Løkke 2: Å finne $d$ — Euklids algoritme baklengs\n\n*~12 minutter.*\n\nDette er hovedvarianten på eksamen: du får $p$, $q$ og $e$ (eller $n$ og $e$ med $n$ lett å faktorisere), og skal finne $d$. Metoden er den samme som for modulær invers i [kap. 1.4](/ma1301/ma1301-1-4) — Euklids algoritme frem og baklengs.\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "ma1301-3-1-d-finn-d",
+      "type": "definition",
+      "title": "Å finne d — prosedyren i fire steg",
+      "content": "$d$ er inversen til $e$ modulo $\\phi(n)$, altså løsningen av\n$$ed\\equiv 1\\pmod{\\phi(n)}.$$\n\n**Prosedyren:**\n\n1. **Regn $\\phi(n)=(p-1)(q-1)$.**\n2. **Kjør Euklids algoritme frem** på $\\phi(n)$ og $e$. Sluttsvaret skal være $\\gcd=1$ — det bekrefter samtidig at $e$ var et lovlig valg.\n3. **Kjør substitusjonskjeden baklengs** til $1=\\phi(n)\\cdot y+e\\cdot x$.\n4. **Les likningen modulo $\\phi(n)$:** $ex\\equiv 1$, så $d=x$. Ligger $x$ utenfor $0<d<\\phi(n)$, legg til $\\phi(n)$.\n\n**Prosedyren må sitte utenat**, og **føringen frem OG baklengs er føringskravet** ([kap. 1.2](/ma1301/ma1301-1-2)): et $d$ oppgitt uten kjeden er et sluttall uten metode.\n\n**Koeffisientene utledes på stedet** — de finnes ikke i noen tabell, og under kode D finnes det heller ingen tabell.\n\n**Kontrollen tar tjue sekunder og bør gjøres hver gang:** regn ut $ed$ og sjekk at det gir rest $1$ ved divisjon med $\\phi(n)$. Er $e=7$, $d=31$ og $\\phi(n)=216$: $7\\cdot 31=217=216+1$ ✓."
+    },
+    {
+      "id": "ma1301-3-1-e2",
+      "type": "example",
+      "title": "Finn d når (n, e) = (247, 7)",
+      "problem": "Den offentlige nøkkelen i et RSA-system er $(n,e)=(247,7)$.\n\n**a)** Faktoriser $n$, og finn $\\phi(n)$.\n**b)** Finn dekrypteringseksponenten $d$.\n**c)** Kontrollér svaret.",
+      "solution": "**a) Faktoriser $n=247$.** Vi prøvedividerer: ikke like; siffersum $13$ (ikke delelig med $3$); ender ikke på $0$ eller $5$; $247/7\\approx 35{,}3$ og $7\\cdot 35=245$ — nei; $247/11\\approx 22{,}5$ og $11\\cdot 22=242$ — nei; $247/13=19$ ✓.\n\nAltså $247=13\\cdot 19$, og **ved multiplikativiteten**\n$$\\phi(247)=12\\cdot 18=216.$$\n\n**b) Finn $d$** som inversen til $7$ modulo $216$, med **Euklids algoritme** ([kap. 1.2](/ma1301/ma1301-1-2)):\n\n**(i) Divisjonskjeden frem.** Vi deler gjentatt med rest, **ved Euklids algoritme**, til resten blir $0$:\n\n$$216 = 30\\cdot 7 + 6$$\n$$7 = 1\\cdot 6 + 1$$\n$$6 = 6\\cdot 1 + 0$$\n\nDen siste resten som ikke er $0$, er $1$. Altså er $\\gcd(216,7)=1$. Kjeden har 3 divisjonslinjer.\n\n**(ii) Substitusjonskjeden baklengs.** Vi løser den nest siste linja for resten og substituerer oppover, linje for linje:\n\n$$1 = 7 - 1\\cdot 6$$\nSett inn $6 = 216 - 30\\cdot 7$:\n$$1 = -1\\cdot 216 + 31\\cdot 7$$\n\n**(iii) Konklusjon.** Altså er\n\n$$\\gcd(216,7) = 1 = 216\\cdot(-1) + 7\\cdot(31).$$\n\n**Kontroll ved innsetting:** $216\\cdot(-1) + 7\\cdot(31) = -216 + 217 = 1$. Stemmer.\n\nVi leser likningen **modulo $216$**. Leddet $216\\cdot(-1)$ er et multiplum av $216$ og faller bort:\n\n$$7\\cdot(31)\\equiv 1\\pmod{216}.$$\n\nAltså er $u=31$.\n\n**Kontroll:** $7\\cdot 31 = 217$, og $217 = 216\\cdot 1 + 1$, så resten er $1$. Stemmer.\n\nAltså er $d=31$.\n\n**c) Kontroll.** $ed=7\\cdot 31=217$, og $217=216+1$, så\n$$ed\\equiv 1\\pmod{216}\\ \\checkmark.$$\n\n**Sluttsvar:** $n=13\\cdot 19$, $\\phi(n)=216$, og $d=31$.\n\n**Hvor føringspoengene sitter:**\n\n- **faktoriseringen er vist**, ikke bare påstått — den er premisset for $\\phi(n)$;\n- **$\\phi(n)=(p-1)(q-1)$ er begrunnet** med multiplikativiteten;\n- **Euklids algoritme er ført frem OG baklengs**, som er føringsstandarden i emnet;\n- **kontrollen $ed\\equiv 1$ er utført** — den fanger den ene feilen du ellers ikke oppdager.\n\n*Merk at faktoriseringen var mulig fordi $n$ er lite. Med et 600-sifret $n$ ville steg a) vært umulig, og det er nettopp derfor RSA er trygt i praksis.*"
+    },
+    {
+      "id": "ma1301-3-1-ex-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-3-1-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Den offentlige nøkkelen er $(n,e)=(341,7)$.\n\n**a)** Faktoriser $n$ og finn $\\phi(n)$.\n**b)** Finn $d$ med Euklids algoritme, ført frem og baklengs.\n**c)** Kontrollér at $ed\\equiv 1\\pmod{\\phi(n)}$.",
+        "solution": "**a)** Vi prøvedividerer $341$: ikke like; siffersum $8$ (ikke delelig med $3$); ender ikke på $0$ eller $5$; $7\\cdot 48=336$, $7\\cdot 49=343$ — nei; $11\\cdot 31=341$ ✓.\n\nAltså $341=11\\cdot 31$, og\n$$\\phi(341)=(11-1)(31-1)=10\\cdot 30=300.$$\n\n**b)** Vi finner inversen til $7$ modulo $300$ med **Euklids algoritme**:\n\n**(i) Divisjonskjeden frem.** Vi deler gjentatt med rest, **ved Euklids algoritme**, til resten blir $0$:\n\n$$300 = 42\\cdot 7 + 6$$\n$$7 = 1\\cdot 6 + 1$$\n$$6 = 6\\cdot 1 + 0$$\n\nDen siste resten som ikke er $0$, er $1$. Altså er $\\gcd(300,7)=1$. Kjeden har 3 divisjonslinjer.\n\n**(ii) Substitusjonskjeden baklengs.** Vi løser den nest siste linja for resten og substituerer oppover, linje for linje:\n\n$$1 = 7 - 1\\cdot 6$$\nSett inn $6 = 300 - 42\\cdot 7$:\n$$1 = -1\\cdot 300 + 43\\cdot 7$$\n\n**(iii) Konklusjon.** Altså er\n\n$$\\gcd(300,7) = 1 = 300\\cdot(-1) + 7\\cdot(43).$$\n\n**Kontroll ved innsetting:** $300\\cdot(-1) + 7\\cdot(43) = -300 + 301 = 1$. Stemmer.\n\nVi leser likningen **modulo $300$**. Leddet $300\\cdot(-1)$ er et multiplum av $300$ og faller bort:\n\n$$7\\cdot(43)\\equiv 1\\pmod{300}.$$\n\nAltså er $u=43$.\n\n**Kontroll:** $7\\cdot 43 = 301$, og $301 = 300\\cdot 1 + 1$, så resten er $1$. Stemmer.\n\nAltså er $d=43$.\n\n**c) Kontroll:** $ed=7\\cdot 43=301=300+1$, så $ed\\equiv 1\\pmod{300}$ ✓.\n\n**Sluttsvar:** $n=11\\cdot 31$, $\\phi(n)=300$, $d=43$.\n\n*Merk at $341$ er et av tallene som ser prime ut. Prøvedivisjonen med $11$ er den som avgjør — og $11$ er verdt å prøve tidlig på tresifrede tall.*",
+        "hints": [
+          "Prøvedivider $341$ — prøv $7$, $11$ og $13$.",
+          "$\\phi(n)=(p-1)(q-1)$.",
+          "Kjør Euklids algoritme på $300$ og $7$, og les Bézout-likningen modulo $300$."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-3-1-l3-intro",
+      "type": "text",
+      "content": "## Løkke 3: Kryptering og dekryptering\n\n*~13 minutter.*\n\nNå selve operasjonene. Begge er potensberegninger modulo $n$, og begge føres med **kvadrer-og-multipliser** fra [kap. 2.1](/ma1301/ma1301-2-1) — mellomstegene skal stå."
+    },
+    {
+      "id": "ma1301-3-1-d-krypter-dekrypter",
+      "type": "definition",
+      "title": "Kryptering og dekryptering",
+      "content": "**Kryptering** (alle kan gjøre den, med den offentlige nøkkelen $(n,e)$):\n$$c\\equiv m^{e}\\pmod n.$$\n\n**Dekryptering** (bare eieren, med den private $d$):\n$$m\\equiv c^{d}\\pmod n.$$\n\n**Begge må sitte utenat**, og de er lette å forveksle. Minnekroken: **$e$ for «encrypt», $d$ for «decrypt»** — og $e$ er den offentlige, så den brukes til å låse.\n\n**Meldingen $m$ må være et tall med $0\\le m<n$.** Er meldingen tekst, kodes den først om til tall (og deles i blokker mindre enn $n$). Den omkodingen er ikke tallteori, og eksamensoppgavene gir derfor $m$ som et tall direkte.\n\n**Begge operasjonene føres med kvadrer-og-multipliser**, med binærutviklingen av eksponenten og kvadrattabellen synlig. Fasitene dokumenterer mellomstegene, og et sluttall uten dem er et svar uten metode.\n\n**Merk at eksponentene her IKKE reduseres med Eulers teorem** på samme måte som i [kap. 2.1](/ma1301/ma1301-2-1): $e$ og $d$ er alt mindre enn $\\phi(n)$. Men den raske veien via $p$ og $q$ finnes — se løkke 5."
+    },
+    {
+      "id": "ma1301-3-1-e3",
+      "type": "example",
+      "title": "Krypter en melding: m = 5 med (n, e) = (247, 7)",
+      "problem": "Bruk den offentlige nøkkelen $(n,e)=(247,7)$ til å kryptere meldingen $m=5$.",
+      "solution": "Krypteringen er $c\\equiv m^{e}\\pmod n$, altså\n$$c\\equiv 5^{7}\\pmod{247}.$$\n\nVi regner med **kvadrer-og-multipliser** ([kap. 2.1](/ma1301/ma1301-2-1)).\n\n**(v) Binærutviklingen av eksponenten og de suksessive kvadratene.** Vi skriver eksponenten som en sum av toerpotenser: $7 = 4 + 2 + 1$, altså $7$ i binær er $111$. Deretter kvadrerer vi oss oppover, og reduserer modulo $247$ etter hvert kvadrat:\n\n| Potens | Utregning | Rest modulo $247$ |\n|---|---|---|\n| $5^{1}$ | — | $5$ |\n| $5^{2}$ | $5^2=25$ | $25$ |\n| $5^{4}$ | $25^2=625$, og $625=247\\cdot 2+131$ | $131$ |\n\n**(vi) Sett sammen produktet.** Da er\n\n$$5^{7} = 5^{4} \\cdot 5^{2} \\cdot 5^{1} \\equiv 131 \\cdot 25 \\cdot 5 \\pmod{247},$$\n\nog vi multipliserer to av gangen, med reduksjon underveis: $131\\cdot 25 = 3\\,275\\equiv 64$; $64\\cdot 5 = 320\\equiv 73$.\n\n**Konklusjon.** Den krypterte meldingen er $c=\\boxed{73}$.\n\n**Kontroll av størrelsen:** $c$ skal ligge mellom $0$ og $246$ ✓.\n\n*Merk at $5^7=78\\,125$ i seg selv er lite nok til å regnes direkte her — $78\\,125=247\\cdot 316+73$ ✓, samme svar. Men det er ikke poenget: med en større eksponent renner kalkulatoren over, og kvadrer-og-multipliser er den prosedyren som alltid virker. Fasitene krever den ført, uansett hvor små tallene er.*"
+    },
+    {
+      "id": "ma1301-3-1-e4",
+      "type": "example",
+      "title": "Dekrypter meldingen tilbake: c = 73 med d = 31",
+      "problem": "I systemet med $n=247$ og $d=31$: dekrypter den mottatte meldingen $c=73$, og kontrollér mot eksempel 3.",
+      "solution": "Dekrypteringen er $m\\equiv c^{d}\\pmod n$, altså\n$$m\\equiv 73^{31}\\pmod{247}.$$\n\nVi regner med **kvadrer-og-multipliser**.\n\n**(v) Binærutviklingen av eksponenten og de suksessive kvadratene.** Vi skriver eksponenten som en sum av toerpotenser: $31 = 16 + 8 + 4 + 2 + 1$, altså $31$ i binær er $11111$. Deretter kvadrerer vi oss oppover, og reduserer modulo $247$ etter hvert kvadrat:\n\n| Potens | Utregning | Rest modulo $247$ |\n|---|---|---|\n| $73^{1}$ | — | $73$ |\n| $73^{2}$ | $73^2=5\\,329$, og $5\\,329=247\\cdot 21+142$ | $142$ |\n| $73^{4}$ | $142^2=20\\,164$, og $20\\,164=247\\cdot 81+157$ | $157$ |\n| $73^{8}$ | $157^2=24\\,649$, og $24\\,649=247\\cdot 99+196$ | $196$ |\n| $73^{16}$ | $196^2=38\\,416$, og $38\\,416=247\\cdot 155+131$ | $131$ |\n\n**(vi) Sett sammen produktet.** Da er\n\n$$73^{31} = 73^{16} \\cdot 73^{8} \\cdot 73^{4} \\cdot 73^{2} \\cdot 73^{1} \\equiv 131 \\cdot 196 \\cdot 157 \\cdot 142 \\cdot 73 \\pmod{247},$$\n\nog vi multipliserer to av gangen, med reduksjon underveis: $131\\cdot 196 = 25\\,676\\equiv 235$; $235\\cdot 157 = 36\\,895\\equiv 92$; $92\\cdot 142 = 13\\,064\\equiv 220$; $220\\cdot 73 = 16\\,060\\equiv 5$.\n\n**Konklusjon.** Den dekrypterte meldingen er $m=\\boxed{5}$ — nøyaktig meldingen vi krypterte i eksempel 3 ✓.\n\n**Antall operasjoner:** eksponenten $31=11111_2$ ga fire kvadrater og fire multiplikasjoner, altså **åtte steg**, alle med tall under $247$. Det er typisk for en RSA-dekryptering på eksamen, og det tar ~6 minutter med penn.\n\n*Ser du på binærutviklingen, forstår du hvorfor eksamensoppgavene ofte har en $d$ med få enere: $d=31$ har fem enere og krever fire multiplikasjoner, mens $d=32$ ville krevd fem kvadrater og ingen multiplikasjon. Det er den samme regningen, men færre steg å gjøre feil i.*\n\n*I løkke 5 ser vi en snarvei: dekryptering via $p$ og $q$ hver for seg, som gir mindre eksponenter. **Begge veier er fullgode.***"
+    },
+    {
+      "id": "ma1301-3-1-ex-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-3-1-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Et RSA-system har $p=7$, $q=19$ og $e=5$.\n\n**a)** Finn $n$ og $\\phi(n)$, og bekreft at $e$ er et lovlig valg.\n**b)** Krypter meldingen $m=9$.\n**c)** Dekrypteringseksponenten er $d=65$. Kontrollér at $ed\\equiv 1\\pmod{\\phi(n)}$.",
+        "solution": "**a)** $$n=7\\cdot 19=133,\\qquad \\phi(133)=(7-1)(19-1)=6\\cdot 18=108.$$\n\n$108=2^2\\cdot 3^3$, og $5$ er et primtall som ikke deler $2$ eller $3$, så $\\gcd(5,108)=1$ ✓ — **$e=5$ er lovlig**.\n\n**b)** Krypteringen er $c\\equiv m^{e}\\pmod n$:\n$$c\\equiv 9^{5}\\pmod{133}.$$\n\n**(v) Binærutviklingen av eksponenten og de suksessive kvadratene.** Vi skriver eksponenten som en sum av toerpotenser: $5 = 4 + 1$, altså $5$ i binær er $101$. Deretter kvadrerer vi oss oppover, og reduserer modulo $133$ etter hvert kvadrat:\n\n| Potens | Utregning | Rest modulo $133$ |\n|---|---|---|\n| $9^{1}$ | — | $9$ |\n| $9^{2}$ | $9^2=81$ | $81$ |\n| $9^{4}$ | $81^2=6\\,561$, og $6\\,561=133\\cdot 49+44$ | $44$ |\n\n**(vi) Sett sammen produktet.** Da er\n\n$$9^{5} = 9^{4} \\cdot 9^{1} \\equiv 44 \\cdot 9 \\pmod{133},$$\n\nog vi multipliserer to av gangen, med reduksjon underveis: $44\\cdot 9 = 396\\equiv 130$.\n\n**Den krypterte meldingen er $c=130$.**\n\n**c) Kontroll:** $ed=5\\cdot 65=325$. Og $325=108\\cdot 3+1=324+1$, så\n$$ed\\equiv 1\\pmod{108}\\ \\checkmark.$$\n\n**Sluttsvar:** a) $n=133$, $\\phi(n)=108$, $e=5$ lovlig; b) $c=130$; c) $5\\cdot 65=325=3\\cdot 108+1$ ✓.\n\n*Merk at $130\\equiv -3\\pmod{133}$. Det er en nyttig observasjon hvis du senere skal dekryptere: $(-3)^{65}=-3^{65}$, og negative rester er lettere å kvadrere. Se etter dem.*",
+        "hints": [
+          "$n=pq$ og $\\phi(n)=(p-1)(q-1)$.",
+          "Faktoriser $\\phi(n)$ for å sjekke $\\gcd(e,\\phi(n))$.",
+          "I b): kryptering bruker $e$, og føres med kvadrer-og-multipliser.",
+          "I c): regn $ed$ og del på $\\phi(n)$."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-3-1-ex-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-3-1-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "I systemet med $n=133$ og $d=65$: dekrypter den mottatte meldingen $c=130$, og kontrollér mot oppgave 3.",
+        "solution": "Dekrypteringen er $m\\equiv c^{d}\\pmod n$, altså\n$$m\\equiv 130^{65}\\pmod{133}.$$\n\n**Vi reduserer grunntallet først** — det gjør kvadratene mye lettere:\n$$130=133-3\\equiv -3\\pmod{133}.$$\nDa er, siden $65$ er et oddetall,\n$$130^{65}\\equiv(-3)^{65}=-3^{65}\\pmod{133}.$$\n\nVi regner $3^{65}\\bmod 133$ med **kvadrer-og-multipliser**:\n\n**(v) Binærutviklingen av eksponenten og de suksessive kvadratene.** Vi skriver eksponenten som en sum av toerpotenser: $65 = 64 + 1$, altså $65$ i binær er $1000001$. Deretter kvadrerer vi oss oppover, og reduserer modulo $133$ etter hvert kvadrat:\n\n| Potens | Utregning | Rest modulo $133$ |\n|---|---|---|\n| $3^{1}$ | — | $3$ |\n| $3^{2}$ | $3^2=9$ | $9$ |\n| $3^{4}$ | $9^2=81$ | $81$ |\n| $3^{8}$ | $81^2=6\\,561$, og $6\\,561=133\\cdot 49+44$ | $44$ |\n| $3^{16}$ | $44^2=1\\,936$, og $1\\,936=133\\cdot 14+74$ | $74$ |\n| $3^{32}$ | $74^2=5\\,476$, og $5\\,476=133\\cdot 41+23$ | $23$ |\n| $3^{64}$ | $23^2=529$, og $529=133\\cdot 3+130$ | $130$ |\n\n**(vi) Sett sammen produktet.** Da er\n\n$$3^{65} = 3^{64} \\cdot 3^{1} \\equiv 130 \\cdot 3 \\pmod{133},$$\n\nog vi multipliserer to av gangen, med reduksjon underveis: $130\\cdot 3 = 390\\equiv 124$.\n\nAltså er $3^{65}\\equiv 124\\pmod{133}$, og dermed\n$$m\\equiv -124\\equiv 133-124=9\\pmod{133}.$$\n\n**Den dekrypterte meldingen er $m=\\boxed{9}$** — nøyaktig meldingen som ble kryptert i oppgave 3 ✓.\n\n**Antall operasjoner:** $65=1000001_2$, altså seks kvadrater og **én** multiplikasjon — sju steg. Reduksjonen til $-3$ sparte oss for å kvadrere tresifrede tall seks ganger.\n\n*To vaner er verdt å ta med fra denne oppgaven: **reduser grunntallet først** (og se etter negative rester), og **se på binærutviklingen** før du starter. Med $d=65$ er det bare én multiplikasjon å gjøre.*",
+        "hints": [
+          "Reduser grunntallet: hva er $130$ modulo $133$, skrevet som en negativ rest?",
+          "$(-3)^{65}=-3^{65}$ fordi eksponenten er odde.",
+          "$65=64+1$, så binærutviklingen har bare to enere.",
+          "Konverter det negative svaret til intervallet $0,\\dots,132$ til slutt."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-3-1-l4-intro",
+      "type": "text",
+      "content": "## Løkke 4: Korrekthetsbeviset\n\n*~13 minutter.*\n\nHvorfor gjenoppretter dekrypteringen meldingen? Dette er et eget delpunkt i arkivet, og svaret er tre linjer med Eulers teorem — pluss et tilfelle du må behandle separat.\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "ma1301-3-1-t-korrekthet",
+      "type": "theorem",
+      "title": "RSA-korrektheten",
+      "content": "La $n=pq$ med $p\\ne q$ primtall, $\\gcd(e,\\phi(n))=1$ og $ed\\equiv 1\\pmod{\\phi(n)}$. Da er\n$$(m^{e})^{d}\\equiv m\\pmod n\\qquad\\text{for ALLE }m\\text{ med }0\\le m<n.$$\n\n**Bevis, tilfelle 1: $\\gcd(m,n)=1$.** Fra $ed\\equiv 1\\pmod{\\phi(n)}$ finnes et helt tall $k$ med\n$$ed=1+k\\phi(n).$$\nDa er\n$$(m^{e})^{d}=m^{ed}=m^{1+k\\phi(n)}=m\\cdot\\left(m^{\\phi(n)}\\right)^{k}\\equiv m\\cdot 1^{k}=m\\pmod n,$$\nder vi brukte **Eulers teorem** ([kap. 2.1](/ma1301/ma1301-2-1)) i siste skritt. $\\blacksquare$\n\n**Det var tre linjer.** Derfor står korrektheten i «utledes på stedet»-listen: du skal ikke pugge den som et faktum, du skal kunne føre den.\n\n**Bevis, tilfelle 2: $\\gcd(m,n)\\ne 1$.** Da deler $p$ eller $q$ tallet $m$ (siden $n=pq$), og Eulers teorem gjelder ikke modulo $n$. Vi viser påstanden **modulo $p$ og modulo $q$ hver for seg**, og setter sammen med det kinesiske restteoremet.\n\n*Modulo $p$, to undertilfeller:*\n\n- **$p\\mid m$:** da er $m\\equiv 0\\pmod p$, og også $m^{ed}\\equiv 0\\pmod p$. Begge sider er $\\equiv 0$, så $m^{ed}\\equiv m\\pmod p$.\n- **$p\\nmid m$:** **fra Fermats lille teorem** ([kap. 2.2](/ma1301/ma1301-2-2)) er $m^{p-1}\\equiv 1\\pmod p$. Siden $(p-1)\\mid\\phi(n)$, er $k\\phi(n)$ et multiplum av $p-1$, og dermed\n$$m^{ed}=m\\cdot\\left(m^{p-1}\\right)^{k\\phi(n)/(p-1)}\\equiv m\\cdot 1=m\\pmod p.$$\n\nAltså er $m^{ed}\\equiv m\\pmod p$ i alle tilfeller, og med samme argument $m^{ed}\\equiv m\\pmod q$.\n\n*Sett sammen:* $p$ og $q$ er ulike primtall, så $\\gcd(p,q)=1$, og **ved det kinesiske restteoremet** ([kap. 2.4](/ma1301/ma1301-2-4)) følger\n$$m^{ed}\\equiv m\\pmod{pq}=\\pmod n.\\qquad\\blacksquare$$\n\n**Merk hvorfor tilfelle 2 er verdt arbeidet:** uten det gjelder RSA bare for meldinger som er relativt primiske til $n$. Med det gjelder det for **alle** meldinger — og det er en eksamensoppgave i seg selv å se at tilfellet finnes.\n\n**Case-analysen er uttømmende:** enten er $\\gcd(m,n)=1$, eller $p\\mid m$, eller $q\\mid m$ (eller begge, som er $m=0$)."
+    },
+    {
+      "id": "ma1301-3-1-d-korrekthet-kort",
+      "type": "definition",
+      "title": "Korrekthetsbeviset i tre linjer",
+      "content": "Kortversjonen du skal kunne skrive kaldt, for tilfellet $\\gcd(m,n)=1$:\n\n1. $ed\\equiv 1\\pmod{\\phi(n)}$ betyr $ed=1+k\\phi(n)$ for et helt tall $k$.\n2. Da er $m^{ed}=m\\cdot\\left(m^{\\phi(n)}\\right)^{k}$.\n3. **Fra Eulers teorem** er $m^{\\phi(n)}\\equiv 1$, så $m^{ed}\\equiv m$.\n\n**Dette utledes på stedet** — tre linjer, under et minutt.\n\n**Hva som MÅ stå i besvarelsen:**\n\n- at $ed=1+k\\phi(n)$ (altså hva kongruensen betyr);\n- **teoremnavnet** «fra Eulers teorem»;\n- vilkåret $\\gcd(m,n)=1$, og — hvis oppgaven sier «alle $m$» — tilfellet der $p$ eller $q$ deler $m$.\n\n**Den vanligste mangelen:** å hoppe over $\\gcd(m,n)\\ne 1$-tilfellet når oppgaven ber om «alle meldinger». Da er case-analysen ikke uttømmende, og bevisstruktur teller for seg selv i dette faget.\n\n**Den nest vanligste:** å ikke navngi Eulers teorem. Det er der argumentet hviler, og et argument uten teoremnavn er en byggefeil."
+    },
+    {
+      "id": "ma1301-3-1-ex-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-3-1-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "La $n=pq$ med $p\\ne q$ primtall, og la $e,d$ oppfylle $ed\\equiv 1\\pmod{\\phi(n)}$.\n\n**a)** Vis at $(m^{e})^{d}\\equiv m\\pmod n$ for alle $m$ med $\\gcd(m,n)=1$.\n**b)** Forklar hvorfor argumentet i a) ikke dekker tilfellet der $p$ deler $m$, og vis at påstanden likevel holder da.\n**c)** Kontrollér påstanden numerisk for $n=133$, $e=5$, $d=65$ og $m=7$ (merk at $7\\mid 133$).",
+        "solution": "**a)** Kongruensen $ed\\equiv 1\\pmod{\\phi(n)}$ betyr at det finnes et helt tall $k$ med\n$$ed=1+k\\phi(n).$$\nDa er\n$$(m^{e})^{d}=m^{ed}=m^{1+k\\phi(n)}=m\\cdot\\left(m^{\\phi(n)}\\right)^{k}.$$\nSiden $\\gcd(m,n)=1$, gir **Eulers teorem** at $m^{\\phi(n)}\\equiv 1\\pmod n$, og dermed\n$$(m^{e})^{d}\\equiv m\\cdot 1^{k}=m\\pmod n.\\qquad\\blacksquare$$\n\n**b)** Argumentet i a) bruker **Eulers teorem**, som krever $\\gcd(m,n)=1$. Deler $p$ tallet $m$, er $\\gcd(m,n)\\ge p>1$, og vilkåret er brutt — teoremet gjelder ikke, og utledningen faller.\n\nVi viser påstanden i stedet **modulo $p$ og modulo $q$ hver for seg**.\n\n*Modulo $p$:* her er $p\\mid m$, så $m\\equiv 0\\pmod p$, og $m^{ed}\\equiv 0\\pmod p$ (et produkt av tall delelige med $p$ er delelig med $p$). Begge sider er $\\equiv 0$, så\n$$m^{ed}\\equiv m\\pmod p.$$\n\n*Modulo $q$:* siden $p\\ne q$ og $q$ er et primtall, deler $q$ ikke $p$; og hvis $q$ heller ikke deler $m$, gir **Fermats lille teorem** at $m^{q-1}\\equiv 1\\pmod q$. Med $ed=1+k\\phi(n)$ og $(q-1)\\mid\\phi(n)=(p-1)(q-1)$ er $k\\phi(n)$ et multiplum av $q-1$, så\n$$m^{ed}=m\\cdot\\left(m^{q-1}\\right)^{k\\phi(n)/(q-1)}\\equiv m\\cdot 1=m\\pmod q.$$\n(Og hvis $q\\mid m$ også, er begge sider $\\equiv 0\\pmod q$, så påstanden holder trivielt.)\n\n*Sett sammen:* vi har $m^{ed}\\equiv m$ både modulo $p$ og modulo $q$, og $\\gcd(p,q)=1$. **Ved det kinesiske restteoremet** følger\n$$m^{ed}\\equiv m\\pmod{pq}=\\pmod n.\\qquad\\blacksquare$$\n\n**c) Numerisk kontroll for $n=133=7\\cdot 19$, $e=5$, $d=65$, $m=7$.**\n\nHer er $\\gcd(7,133)=7\\ne 1$, så vi er i tilfelle b).\n\n*Kryptering:* $c\\equiv 7^{5}\\pmod{133}$. Vi regner: $7^2=49$, $7^4\\equiv 49^2=2\\,401$, og $2401=133\\cdot 18+7$, så $7^4\\equiv 7$. Da er\n$$7^{5}=7^{4}\\cdot 7\\equiv 7\\cdot 7=49\\pmod{133},$$\naltså $c=49$.\n\n*Dekryptering:* $m\\equiv 49^{65}\\pmod{133}$. Vi bruker at $49=7^2$, så $49^{65}=7^{130}$. Fra utregningen over er $7^{4}\\equiv 7\\pmod{133}$, altså $7^{4}\\equiv 7^{1}$, og da gjentar potensene seg med periode $3$ fra og med $7^1$: $7^{1}\\equiv 7$, $7^{2}\\equiv 49$, $7^{3}\\equiv 343\\equiv 77$, $7^{4}\\equiv 7$, …\n\nSiden $130=3\\cdot 43+1$, er $7^{130}\\equiv 7^{1}=7\\pmod{133}$.\n\n**Altså $m^{ed}\\equiv 7\\equiv m\\pmod{133}$ ✓** — påstanden holder, selv om $\\gcd(m,n)=7\\ne 1$.\n\n**Sluttsvar:** a) bevist i tre linjer fra Eulers teorem; b) argumentet krever $\\gcd(m,n)=1$, og tilfellet $p\\mid m$ håndteres modulo $p$ og $q$ hver for seg pluss CRT; c) $7\\to 49\\to 7$, kontrollen stemmer.\n\n*Punkt c) er verdt å ha regnet én gang: den viser at RSA virkelig virker for alle meldinger, ikke bare de som er relativt primiske til $n$. I praksis er dette et ikke-tema — sannsynligheten for å treffe et multiplum av $p$ eller $q$ er astronomisk liten når tallene er store — men **på eksamen er det et delpunkt**, og det prøver om du ser at Eulers teorem har et vilkår.*",
+        "hints": [
+          "I a): skriv om $ed\\equiv 1\\pmod{\\phi(n)}$ til en likning med et helt tall $k$.",
+          "I a): hvilket teorem gir $m^{\\phi(n)}\\equiv 1$, og hva krever det?",
+          "I b): vis påstanden modulo $p$ og modulo $q$ hver for seg, og sett sammen med CRT.",
+          "I c): regn $7^5$ modulo $133$ først, og se etter en periode i potensene."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-3-1-l5-intro",
+      "type": "text",
+      "content": "## Løkke 5: Eksamensnivå — bygg et helt nøkkelpar, og den raske veien\n\n*~11 minutter.*\n\nTil slutt hele oppgaven fra ende til ende, og en andre vei til dekrypteringen som er raskere for hånd når du kjenner $p$ og $q$."
+    },
+    {
+      "id": "ma1301-3-1-d-crt-dekryptering",
+      "type": "definition",
+      "title": "Dekryptering via p og q — den raske veien",
+      "content": "Kjenner du $p$ og $q$ (og det gjør eieren av nøkkelen), kan du dekryptere **uten** å regne $c^{d}$ modulo $n$:\n\n1. **Reduser eksponenten** mot hvert primtall: $d_p=d\\bmod(p-1)$ og $d_q=d\\bmod(q-1)$ — lovlig **fra Fermats lille teorem** ([kap. 2.2](/ma1301/ma1301-2-2)).\n2. **Regn to små potenser:** $m_p\\equiv c^{d_p}\\pmod p$ og $m_q\\equiv c^{d_q}\\pmod q$.\n3. **Sett sammen med CRT** ([kap. 2.4](/ma1301/ma1301-2-4)) til $m$ modulo $n$.\n\n**Hvorfor det er raskere for hånd:** eksponentene $d_p$ og $d_q$ er mindre enn $p-1$ og $q-1$, altså mye mindre enn $d$ — og tallene du kvadrerer, er mindre enn $p$ og $q$ i stedet for mindre enn $n$.\n\n**Begge veier er fullgode.** Den direkte veien ($c^{d}\\bmod n$) krever ingenting utover den offentlige nøkkelen og $d$; den raske veien krever at du kjenner faktoriseringen. Si hvilken du bruker.\n\n**Merk at dette også er en sikkerhetsobservasjon:** en angriper som bare har $(n,e)$ og $c$, kan **ikke** bruke denne veien — den forutsetter nøyaktig den hemmeligheten han ikke har.\n\n**Kravet i steg 1:** $p\\nmid c$ og $q\\nmid c$. Er ett av dem brutt, er den tilhørende resten $0$, og du regner den direkte."
+    },
+    {
+      "id": "ma1301-3-1-e5",
+      "type": "example",
+      "title": "Eksamensnivå: bygg nøkkelpar, krypter, og dekrypter på to måter",
+      "problem": "La $p=13$, $q=19$ og $e=7$.\n\n**a)** Bygg RSA-nøkkelparet: finn $n$, $\\phi(n)$ og $d$.\n**b)** Krypter meldingen $m=100$.\n**c)** Dekrypter resultatet med den direkte metoden.\n**d)** Dekrypter det på nytt via $p$ og $q$, og sammenlign metodene.",
+      "solution": "**a) Nøkkelparet.**\n\n$$n=13\\cdot 19=247,\\qquad \\phi(n)=(13-1)(19-1)=12\\cdot 18=216.$$\n\n$216=2^3\\cdot 3^3$, og $\\gcd(7,216)=1$ ✓, så $e=7$ er et lovlig valg.\n\n$d$ er inversen til $7$ modulo $216$, funnet i eksempel 2: **$d=31$**. Kontroll: $7\\cdot 31=217=216+1$ ✓.\n\n**Offentlig nøkkel:** $(n,e)=(247,7)$. **Privat nøkkel:** $d=31$ (med $p=13$, $q=19$).\n\n**b) Kryptering av $m=100$.**\n\n$$c\\equiv 100^{7}\\pmod{247}.$$\n\n**(v) Binærutviklingen av eksponenten og de suksessive kvadratene.** Vi skriver eksponenten som en sum av toerpotenser: $7 = 4 + 2 + 1$, altså $7$ i binær er $111$. Deretter kvadrerer vi oss oppover, og reduserer modulo $247$ etter hvert kvadrat:\n\n| Potens | Utregning | Rest modulo $247$ |\n|---|---|---|\n| $100^{1}$ | — | $100$ |\n| $100^{2}$ | $100^2=10\\,000$, og $10\\,000=247\\cdot 40+120$ | $120$ |\n| $100^{4}$ | $120^2=14\\,400$, og $14\\,400=247\\cdot 58+74$ | $74$ |\n\n**(vi) Sett sammen produktet.** Da er\n\n$$100^{7} = 100^{4} \\cdot 100^{2} \\cdot 100^{1} \\equiv 74 \\cdot 120 \\cdot 100 \\pmod{247},$$\n\nog vi multipliserer to av gangen, med reduksjon underveis: $74\\cdot 120 = 8\\,880\\equiv 235$; $235\\cdot 100 = 23\\,500\\equiv 35$.\n\n**Den krypterte meldingen er $c=35$.**\n\n**c) Dekryptering, direkte metode.**\n\n$$m\\equiv 35^{31}\\pmod{247}.$$\n\n**(v) Binærutviklingen av eksponenten og de suksessive kvadratene.** Vi skriver eksponenten som en sum av toerpotenser: $31 = 16 + 8 + 4 + 2 + 1$, altså $31$ i binær er $11111$. Deretter kvadrerer vi oss oppover, og reduserer modulo $247$ etter hvert kvadrat:\n\n| Potens | Utregning | Rest modulo $247$ |\n|---|---|---|\n| $35^{1}$ | — | $35$ |\n| $35^{2}$ | $35^2=1\\,225$, og $1\\,225=247\\cdot 4+237$ | $237$ |\n| $35^{4}$ | $237^2=56\\,169$, og $56\\,169=247\\cdot 227+100$ | $100$ |\n| $35^{8}$ | $100^2=10\\,000$, og $10\\,000=247\\cdot 40+120$ | $120$ |\n| $35^{16}$ | $120^2=14\\,400$, og $14\\,400=247\\cdot 58+74$ | $74$ |\n\n**(vi) Sett sammen produktet.** Da er\n\n$$35^{31} = 35^{16} \\cdot 35^{8} \\cdot 35^{4} \\cdot 35^{2} \\cdot 35^{1} \\equiv 74 \\cdot 120 \\cdot 100 \\cdot 237 \\cdot 35 \\pmod{247},$$\n\nog vi multipliserer to av gangen, med reduksjon underveis: $74\\cdot 120 = 8\\,880\\equiv 235$; $235\\cdot 100 = 23\\,500\\equiv 35$; $35\\cdot 237 = 8\\,295\\equiv 144$; $144\\cdot 35 = 5\\,040\\equiv 100$.\n\n**Vi får $m=100$** — den opprinnelige meldingen ✓.\n\n**d) Dekryptering via $p$ og $q$.**\n\n**Steg 1: reduser eksponenten mot hvert primtall.**\n$$d_p=31\\bmod 12=7,\\qquad d_q=31\\bmod 18=13.$$\n(Lovlig **fra Fermats lille teorem**, siden $13\\nmid 35$ og $19\\nmid 35$.)\n\n**Steg 2: to små potenser.**\n\n*Modulo $13$:* $35=13\\cdot 2+9$, så $35\\equiv 9\\pmod{13}$. Da er\n$$35^{31}\\equiv 9^{7}\\pmod{13}.$$\nKvadrer-og-multipliser: $9^2=81\\equiv 3$ (siden $81=13\\cdot 6+3$), $9^4\\equiv 3^2=9$, og med $7=4+2+1$:\n$$9^{7}\\equiv 9\\cdot 3\\cdot 9=243\\equiv 9\\pmod{13},$$\nsiden $243=13\\cdot 18+9$.\n\n*Modulo $19$:* $35=19+16$, så $35\\equiv 16\\equiv -3\\pmod{19}$. Da er, siden $13$ er et oddetall,\n$$35^{31}\\equiv(-3)^{13}=-3^{13}\\pmod{19}.$$\nVi regner $3^{13}$: $3^2=9$, $3^4\\equiv 81\\equiv 5$ (siden $81=19\\cdot 4+5$), $3^8\\equiv 5^2=25\\equiv 6$, og med $13=8+4+1$:\n$$3^{13}\\equiv 6\\cdot 5\\cdot 3=90\\equiv 14\\pmod{19},$$\nsiden $90=19\\cdot 4+14$. Altså\n$$35^{31}\\equiv -14\\equiv 5\\pmod{19}.$$\n\n**Steg 3: sett sammen med CRT.** Vi søker $m$ med\n$$m\\equiv 9\\pmod{13},\\qquad m\\equiv 5\\pmod{19},\\qquad 0\\le m<247.$$\n\n**Suksessiv innsetting.** Vi starter i kongruensen med **størst modulus**, fordi den gir færrest tall å prøve, og arbeider oss nedover.\n\nFra $x\\equiv 5\\pmod{19}$ skriver vi\n\n$$x = 5 + 19t,\\qquad t\\in\\mathbb{Z}.$$\n\nSetter vi dette inn i $x\\equiv 9\\pmod{13}$, får vi\n\n$$5 + 19t\\equiv 9\\pmod{13}\\quad\\Longleftrightarrow\\quad 6t\\equiv 4\\pmod{13}.$$\n\nInversen til $6$ modulo $13$ er $11$ (kontroll: $6\\cdot 11 = 66 = 13\\cdot 5+1$), så $t\\equiv 11\\cdot 4 = 44\\equiv 5\\pmod{13}$.\n\nDa er $t = 5 + 13s$, og\n\n$$x = 5 + 19(5 + 13s) = 100 + 247s,$$\n\naltså $x\\equiv 100\\pmod{247}$.\n\n**Kontroll — sett inn i ALLE kongruensene:** $100 = 13\\cdot 7 + 9$ ✓; $100 = 19\\cdot 5 + 5$ ✓. Samme svar som formelen gir.\n\n**Vi får $m=100$ — samme svar som i c)** ✓.\n\n**Sammenligning av de to veiene:**\n\n| | Direkte ($c^{d}\\bmod n$) | Via $p$ og $q$ |\n|---|---|---|\n| Krever | $d$ og $n$ | $d$, $p$ og $q$ |\n| Eksponenter | $31$ | $7$ og $13$ |\n| Tallstørrelse i tabellene | under $247$ | under $19$ |\n| Antall steg | 8 | 3 + 3 + CRT |\n| Virker for en angriper | ja (om han har $d$) | nei — krever faktoriseringen |\n\n**Begge er fullgode**, og fasitene i arkivet honorerer dem likt. Den direkte er enklest å huske; den via $p$ og $q$ er raskest når tallene vokser, fordi du regner med små tall hele veien.\n\n**Sluttsvar:** $n=247$, $\\phi(n)=216$, $d=31$; $c=35$; og dekrypteringen gir $m=100$ på begge veier."
+    },
+    {
+      "id": "ma1301-3-1-ex-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-3-1-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Et RSA-system har $p=17$, $q=31$ og $e=13$.\n\n**a)** Finn $n$, $\\phi(n)$ og $d$.\n**b)** Krypter meldingen $m=4$.\n**c)** Dekrypter resultatet, og kontrollér at du får $m$ tilbake.",
+        "solution": "**a)** $$n=17\\cdot 31=527,\\qquad\\phi(n)=(17-1)(31-1)=16\\cdot 30=480.$$\n\n$480=2^5\\cdot 3\\cdot 5$, og $13$ er et primtall som ikke deler $2$, $3$ eller $5$, så $\\gcd(13,480)=1$ ✓ — $e=13$ er lovlig.\n\n$d$ er inversen til $13$ modulo $480$:\n\n**(i) Divisjonskjeden frem.** Vi deler gjentatt med rest, **ved Euklids algoritme**, til resten blir $0$:\n\n$$480 = 36\\cdot 13 + 12$$\n$$13 = 1\\cdot 12 + 1$$\n$$12 = 12\\cdot 1 + 0$$\n\nDen siste resten som ikke er $0$, er $1$. Altså er $\\gcd(480,13)=1$. Kjeden har 3 divisjonslinjer.\n\n**(ii) Substitusjonskjeden baklengs.** Vi løser den nest siste linja for resten og substituerer oppover, linje for linje:\n\n$$1 = 13 - 1\\cdot 12$$\nSett inn $12 = 480 - 36\\cdot 13$:\n$$1 = -1\\cdot 480 + 37\\cdot 13$$\n\n**(iii) Konklusjon.** Altså er\n\n$$\\gcd(480,13) = 1 = 480\\cdot(-1) + 13\\cdot(37).$$\n\n**Kontroll ved innsetting:** $480\\cdot(-1) + 13\\cdot(37) = -480 + 481 = 1$. Stemmer.\n\nVi leser likningen **modulo $480$**. Leddet $480\\cdot(-1)$ er et multiplum av $480$ og faller bort:\n\n$$13\\cdot(37)\\equiv 1\\pmod{480}.$$\n\nAltså er $u=37$.\n\n**Kontroll:** $13\\cdot 37 = 481$, og $481 = 480\\cdot 1 + 1$, så resten er $1$. Stemmer.\n\nAltså er $d=37$.\n\n**Kontroll:** $13\\cdot 37=481=480+1$ ✓.\n\n**b) Kryptering av $m=4$.**\n\n$$c\\equiv 4^{13}\\pmod{527}.$$\n\n**(v) Binærutviklingen av eksponenten og de suksessive kvadratene.** Vi skriver eksponenten som en sum av toerpotenser: $13 = 8 + 4 + 1$, altså $13$ i binær er $1101$. Deretter kvadrerer vi oss oppover, og reduserer modulo $527$ etter hvert kvadrat:\n\n| Potens | Utregning | Rest modulo $527$ |\n|---|---|---|\n| $4^{1}$ | — | $4$ |\n| $4^{2}$ | $4^2=16$ | $16$ |\n| $4^{4}$ | $16^2=256$ | $256$ |\n| $4^{8}$ | $256^2=65\\,536$, og $65\\,536=527\\cdot 124+188$ | $188$ |\n\n**(vi) Sett sammen produktet.** Da er\n\n$$4^{13} = 4^{8} \\cdot 4^{4} \\cdot 4^{1} \\equiv 188 \\cdot 256 \\cdot 4 \\pmod{527},$$\n\nog vi multipliserer to av gangen, med reduksjon underveis: $188\\cdot 256 = 48\\,128\\equiv 171$; $171\\cdot 4 = 684\\equiv 157$.\n\n**Den krypterte meldingen er $c=157$.**\n\n**c) Dekryptering.**\n\n$$m\\equiv 157^{37}\\pmod{527}.$$\n\n**(v) Binærutviklingen av eksponenten og de suksessive kvadratene.** Vi skriver eksponenten som en sum av toerpotenser: $37 = 32 + 4 + 1$, altså $37$ i binær er $100101$. Deretter kvadrerer vi oss oppover, og reduserer modulo $527$ etter hvert kvadrat:\n\n| Potens | Utregning | Rest modulo $527$ |\n|---|---|---|\n| $157^{1}$ | — | $157$ |\n| $157^{2}$ | $157^2=24\\,649$, og $24\\,649=527\\cdot 46+407$ | $407$ |\n| $157^{4}$ | $407^2=165\\,649$, og $165\\,649=527\\cdot 314+171$ | $171$ |\n| $157^{8}$ | $171^2=29\\,241$, og $29\\,241=527\\cdot 55+256$ | $256$ |\n| $157^{16}$ | $256^2=65\\,536$, og $65\\,536=527\\cdot 124+188$ | $188$ |\n| $157^{32}$ | $188^2=35\\,344$, og $35\\,344=527\\cdot 67+35$ | $35$ |\n\n**(vi) Sett sammen produktet.** Da er\n\n$$157^{37} = 157^{32} \\cdot 157^{4} \\cdot 157^{1} \\equiv 35 \\cdot 171 \\cdot 157 \\pmod{527},$$\n\nog vi multipliserer to av gangen, med reduksjon underveis: $35\\cdot 171 = 5\\,985\\equiv 188$; $188\\cdot 157 = 29\\,516\\equiv 4$.\n\n**Vi får $m=4$** — den opprinnelige meldingen ✓.\n\n**Sluttsvar:** $n=527$, $\\phi(n)=480$, $d=37$; $c=157$; og dekrypteringen gir $4$ tilbake.\n\n*Merk arbeidsmengden i c): $37=100101_2$ ga fem kvadrater og to multiplikasjoner, med tresifrede tall. Via $p$ og $q$ ville eksponentene blitt $37\\bmod 16=5$ og $37\\bmod 30=7$, og tallene under $31$ — **begge veier er fullgode**, men den andre er merkbart lettere for hånd. Prøv den som ekstraøvelse.*",
+        "hints": [
+          "$\\phi(n)=(p-1)(q-1)=16\\cdot 30$.",
+          "Finn $d$ som inversen til $13$ modulo $480$, med Euklids algoritme.",
+          "Kryptering bruker $e$, dekryptering bruker $d$.",
+          "Kontrollér til slutt at du får den opprinnelige meldingen tilbake."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-3-1-ex-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "ma1301-3-1-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En angriper fanger opp den krypterte meldingen $c=202$ i et system med offentlig nøkkel $(n,e)=(589,23)$.\n\n**a)** Forklar hva angriperen må gjøre for å finne $d$, og hvorfor det er vanskelig når $n$ er stor.\n**b)** Gjør det for dette systemet: faktoriser $n$, finn $\\phi(n)$ og $d$.\n**c)** Dekrypter $c=202$.",
+        "solution": "**a)** For å finne $d$ må angriperen løse $ed\\equiv 1\\pmod{\\phi(n)}$, og det krever at han kjenner $\\phi(n)$. Men $\\phi(n)=(p-1)(q-1)$ forutsetter faktoriseringen $n=pq$.\n\nAltså: **å bryte systemet krever å faktorisere $n$** (eller, likeverdig, å finne $\\phi(n)$ — se kortet «Hvorfor $\\phi(n)$ må være hemmelig», der vi viste at $\\phi(n)$ gir faktoriseringen via en andregradslikning).\n\nÅ gange $p$ og $q$ er lett; å faktorisere produktet tilbake er praktisk umulig når tallene har flere hundre siffer. **Det er hele asymmetrien RSA hviler på.**\n\n**b)** Her er $n=589$ lite, så faktoriseringen er overkommelig. Vi prøvedividerer: ikke like; siffersum $22$ (ikke delelig med $3$); ender ikke på $0$ eller $5$; $7\\cdot 84=588$ — nei; $11\\cdot 53=583$, $11\\cdot 54=594$ — nei; $13\\cdot 45=585$ — nei; $17\\cdot 34=578$, $17\\cdot 35=595$ — nei; $19\\cdot 31=589$ ✓.\n\nAltså $589=19\\cdot 31$, og\n$$\\phi(589)=(19-1)(31-1)=18\\cdot 30=540.$$\n\n$d$ er inversen til $23$ modulo $540$:\n\n**(i) Divisjonskjeden frem.** Vi deler gjentatt med rest, **ved Euklids algoritme**, til resten blir $0$:\n\n$$540 = 23\\cdot 23 + 11$$\n$$23 = 2\\cdot 11 + 1$$\n$$11 = 11\\cdot 1 + 0$$\n\nDen siste resten som ikke er $0$, er $1$. Altså er $\\gcd(540,23)=1$. Kjeden har 3 divisjonslinjer.\n\n**(ii) Substitusjonskjeden baklengs.** Vi løser den nest siste linja for resten og substituerer oppover, linje for linje:\n\n$$1 = 23 - 2\\cdot 11$$\nSett inn $11 = 540 - 23\\cdot 23$:\n$$1 = -2\\cdot 540 + 47\\cdot 23$$\n\n**(iii) Konklusjon.** Altså er\n\n$$\\gcd(540,23) = 1 = 540\\cdot(-2) + 23\\cdot(47).$$\n\n**Kontroll ved innsetting:** $540\\cdot(-2) + 23\\cdot(47) = -1\\,080 + 1\\,081 = 1$. Stemmer.\n\nVi leser likningen **modulo $540$**. Leddet $540\\cdot(-2)$ er et multiplum av $540$ og faller bort:\n\n$$23\\cdot(47)\\equiv 1\\pmod{540}.$$\n\nAltså er $u=47$.\n\n**Kontroll:** $23\\cdot 47 = 1\\,081$, og $1\\,081 = 540\\cdot 2 + 1$, så resten er $1$. Stemmer.\n\nAltså er $d=47$. **Kontroll:** $23\\cdot 47=1\\,081=540\\cdot 2+1$ ✓.\n\n**c) Dekryptering.**\n\n$$m\\equiv 202^{47}\\pmod{589}.$$\n\n**(v) Binærutviklingen av eksponenten og de suksessive kvadratene.** Vi skriver eksponenten som en sum av toerpotenser: $47 = 32 + 8 + 4 + 2 + 1$, altså $47$ i binær er $101111$. Deretter kvadrerer vi oss oppover, og reduserer modulo $589$ etter hvert kvadrat:\n\n| Potens | Utregning | Rest modulo $589$ |\n|---|---|---|\n| $202^{1}$ | — | $202$ |\n| $202^{2}$ | $202^2=40\\,804$, og $40\\,804=589\\cdot 69+163$ | $163$ |\n| $202^{4}$ | $163^2=26\\,569$, og $26\\,569=589\\cdot 45+64$ | $64$ |\n| $202^{8}$ | $64^2=4\\,096$, og $4\\,096=589\\cdot 6+562$ | $562$ |\n| $202^{16}$ | $562^2=315\\,844$, og $315\\,844=589\\cdot 536+140$ | $140$ |\n| $202^{32}$ | $140^2=19\\,600$, og $19\\,600=589\\cdot 33+163$ | $163$ |\n\n**(vi) Sett sammen produktet.** Da er\n\n$$202^{47} = 202^{32} \\cdot 202^{8} \\cdot 202^{4} \\cdot 202^{2} \\cdot 202^{1} \\equiv 163 \\cdot 562 \\cdot 64 \\cdot 163 \\cdot 202 \\pmod{589},$$\n\nog vi multipliserer to av gangen, med reduksjon underveis: $163\\cdot 562 = 91\\,606\\equiv 311$; $311\\cdot 64 = 19\\,904\\equiv 467$; $467\\cdot 163 = 76\\,121\\equiv 140$; $140\\cdot 202 = 28\\,280\\equiv 8$.\n\n**Den dekrypterte meldingen er $m=\\boxed{8}$.**\n\n**Kontroll:** vi krypterer tilbake. $8^{23}\\bmod 589$ skal gi $202$:\n\n**(v) Binærutviklingen av eksponenten og de suksessive kvadratene.** Vi skriver eksponenten som en sum av toerpotenser: $23 = 16 + 4 + 2 + 1$, altså $23$ i binær er $10111$. Deretter kvadrerer vi oss oppover, og reduserer modulo $589$ etter hvert kvadrat:\n\n| Potens | Utregning | Rest modulo $589$ |\n|---|---|---|\n| $8^{1}$ | — | $8$ |\n| $8^{2}$ | $8^2=64$ | $64$ |\n| $8^{4}$ | $64^2=4\\,096$, og $4\\,096=589\\cdot 6+562$ | $562$ |\n| $8^{8}$ | $562^2=315\\,844$, og $315\\,844=589\\cdot 536+140$ | $140$ |\n| $8^{16}$ | $140^2=19\\,600$, og $19\\,600=589\\cdot 33+163$ | $163$ |\n\n**(vi) Sett sammen produktet.** Da er\n\n$$8^{23} = 8^{16} \\cdot 8^{4} \\cdot 8^{2} \\cdot 8^{1} \\equiv 163 \\cdot 562 \\cdot 64 \\cdot 8 \\pmod{589},$$\n\nog vi multipliserer to av gangen, med reduksjon underveis: $163\\cdot 562 = 91\\,606\\equiv 311$; $311\\cdot 64 = 19\\,904\\equiv 467$; $467\\cdot 8 = 3\\,736\\equiv 202$.\n\nSamme $c=202$ ✓.\n\n**Sluttsvar:** a) angriperen må faktorisere $n$, som er lett her og praktisk umulig for store $n$; b) $589=19\\cdot 31$, $\\phi(n)=540$, $d=47$; c) $m=8$.\n\n*Oppgaven er en påminnelse om hva eksamenstallene er: små nok til at **du** kan faktorisere dem på et minutt. Det er didaktisk nødvendig og sikkerhetsmessig meningsløst — og det er greit, så lenge du vet forskjellen.*",
+        "hints": [
+          "I a): hva trenger man for å regne $d$? Og hva trenger man for å regne $\\phi(n)$?",
+          "I b): prøvedivider $589$ — prøv opp til $\\sqrt{589}\\approx 24{,}3$.",
+          "I b): finn $d$ som inversen til $23$ modulo $540$ med Euklids algoritme.",
+          "I c): $47=101111_2$. Bruk kvadrer-og-multipliser."
+        ]
+      }
+    },
+    {
+      "id": "ma1301-3-1-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "Fem feil står for nesten alt som går galt i sjanger D, og de fire første er dokumentert i løsningsforslagene.\n\n- **$\\phi(n)$ regnet feil.** Å bruke $n-1$ i stedet for $(p-1)(q-1)$, eller å gange ut galt. **Kontrollen:** $(p-1)(q-1)=n-p-q+1$ — regn den på begge måter og sammenlign. For $n=247$: $12\\cdot 18=216$ og $247-13-19+1=216$ ✓.\n\n- **$d$ funnet feil (Euklid baklengs-slurv).** Den vanligste tallfeilen. **Kontrollen:** regn $ed$ og sjekk at det gir rest $1$ ved divisjon med $\\phi(n)$. Tjue sekunder, og du er sikker.\n\n- **Kvadrer-og-multipliser hoppet over.** Sluttallet uten kvadrattabell er et svar uten metode, og instruksen på hvert sett er at alle svar må begrunnes. **Kontrollen:** har besvarelsen en binærutvikling og en tabell?\n\n- **$e$ og $d$ blandet.** Å kryptere med $d$ eller dekryptere med $e$. **Kontrollen:** $e$ er offentlig og brukes til å låse; $d$ er privat og brukes til å åpne. Skriv ned hvilken du bruker, med navn.\n\n- **Euler eller Fermat ikke navngitt i korrekthetsargumentet.** Beviset hviler på teoremet, og et argument uten teoremnavn er en byggefeil. **Kontrollen:** står ordene «fra Eulers teorem» der $m^{\\phi(n)}\\equiv 1$ brukes?\n\n- **$\\gcd(m,n)\\ne 1$-tilfellet glemt** når oppgaven ber om «alle meldinger». Da er case-analysen ikke uttømmende. **Kontrollen:** står det «for alle $m$» i oppgaven? Da trengs modulo $p$ og modulo $q$ hver for seg, pluss CRT.\n\n- **Sluttsvaret utenfor intervallet.** $m$ og $c$ skal ligge mellom $0$ og $n-1$. Får du $-124$, skriv $\\equiv 9\\pmod{133}$."
+    },
+    {
+      "id": "ma1301-3-1-begrepsbank-intro",
+      "type": "text",
+      "content": "### Begrepsbank\n\nDette er flashcard-stoff — hopp trygt over ved førstegangslesing; tidsanslaget på 60 minutter gjelder kjernestoffet over.\n\nKortene dekker oppsettet, prosedyrene, sikkerhetsargumentet og føringskravene. Under kode D er de eksamensverktøy: det finnes ingen formelsamling å slå opp RSA-oppsettet i."
+    },
+    {
+      "id": "ma1301-3-1-d-offentlig-nokkel-kryptografi",
+      "type": "definition",
+      "title": "Offentlig-nøkkel-kryptografi",
+      "content": "Et krypteringssystem der **krypteringsnøkkelen er offentlig** og **dekrypteringsnøkkelen er privat**. Alle kan sende en kryptert melding til deg; bare du kan lese den.\n\n**Kontrasten er symmetrisk kryptografi**, der samme nøkkel brukes til begge, og der avsender og mottaker derfor må ha avtalt en felles hemmelighet på forhånd. Problemet det løser: du og nettbutikken har aldri møtt hverandre.\n\n**Hva som kreves matematisk:** en operasjon som er lett å gjøre og vanskelig å reversere — **med mindre** man har en ekstra opplysning. I RSA er operasjonen $m\\mapsto m^{e}\\bmod n$, og den ekstra opplysningen er faktoriseringen av $n$.\n\n**Historikk i én linje:** RSA er navngitt etter Rivest, Shamir og Adleman, som publiserte systemet i 1977. Det er fremdeles i bruk, med tall på 2048 bits eller mer.\n\n**Hvorfor det står i en tallteoribok:** hele systemet er bygget av Eulers teorem, Euklids algoritme og modulær potensopphøyning — tre resultater du kan fra Del 1 og Del 2."
+    },
+    {
+      "id": "ma1301-3-1-d-nokkelpar",
+      "type": "definition",
+      "title": "Nøkkelparet — hva som er hva",
+      "content": "| Størrelse | Navn | Status | Rolle |\n|---|---|---|---|\n| $n=pq$ | modulusen | **offentlig** | alle regninger skjer modulo $n$ |\n| $e$ | krypteringseksponenten | **offentlig** | $c\\equiv m^{e}$ |\n| $d$ | dekrypteringseksponenten | hemmelig | $m\\equiv c^{d}$ |\n| $p$, $q$ | primtallsfaktorene | hemmelig | gir $\\phi(n)$ |\n| $\\phi(n)=(p-1)(q-1)$ | — | hemmelig | modulusen for eksponentene |\n\n**Den offentlige nøkkelen er paret $(n,e)$.** Den skrives ofte slik i oppgavene: «den offentlige nøkkelen er $(n,e)=(247,7)$».\n\n**Merk to moduler i spill samtidig:** meldinger og krypterte tekster regnes modulo **$n$**; eksponentene $e$ og $d$ henger sammen modulo **$\\phi(n)$**. Å blande de to er en av de vanligste feilene — det er samme forveksling som i [kap. 2.1](/ma1301/ma1301-2-1).\n\n**Minnekroken for $e$ og $d$:** $e$ som i «encrypt», $d$ som i «decrypt». Og $e$ er den alle har."
+    },
+    {
+      "id": "ma1301-3-1-d-rsa-sikkerhet",
+      "type": "definition",
+      "title": "Hva sikkerheten hviler på",
+      "content": "RSA er trygt fordi **faktorisering er vanskelig**, ikke fordi krypteringen er hemmelig.\n\n**Kjeden av avhengigheter:**\n\n$$\\text{bryte RSA}\\ \\Longleftarrow\\ \\text{finne }d\\ \\Longleftarrow\\ \\text{finne }\\phi(n)\\ \\Longleftrightarrow\\ \\text{faktorisere }n.$$\n\nDen siste ekvivalensen viste vi i kortet «Hvorfor $\\phi(n)$ må være hemmelig»: $\\phi(n)$ gir summen $p+q$, og sammen med produktet $n$ gir det $p$ og $q$ via en andregradslikning.\n\n**Hva som IKKE er hemmelig:** algoritmen, $n$, $e$, og hele matematikken. Det er et prinsipp i moderne kryptografi — sikkerheten skal ligge i nøkkelen, ikke i at metoden er ukjent.\n\n**Hvorfor eksamenstallene ikke er trygge:** med $n=247$ tar faktoriseringen et halvt minutt for hånd. Det er nødvendig for at oppgaven skal være regnbar, og det er greit — så lenge du vet at virkelige systemer bruker tall med flere hundre siffer.\n\n**Et yndet teoretisk delpunkt:** «forklar hvorfor systemet ikke er trygt hvis $p$ og $q$ ligger nær hverandre». Svaret: da er $p\\approx\\sqrt n$, og du finner dem ved å søke oppover fra $\\sqrt n$."
+    },
+    {
+      "id": "ma1301-3-1-d-kode-d-rsa-tall",
+      "type": "definition",
+      "title": "Kode D-realisme: hva RSA-tallene ser ut som",
+      "content": "| Størrelse | Typisk verdi på eksamen |\n|---|---|\n| $p$, $q$ | tosifrede primtall, $7$–$47$ |\n| $n=pq$ | tresifret eller lite firesifret (**under $10\\,000$**) |\n| $\\phi(n)$ | to- til firesifret |\n| $e$ | ensifret eller lite tosifret, ofte et primtall |\n| $d$ | tosifret, funnet i **3–5 Euklid-linjer** |\n| meldingen $m$ | ensifret eller tosifret |\n| kvadrer-og-multipliser-steg | **5–9** ved dekryptering |\n\n**Bruk det som kontroll.** Blir Euklid-kjeden for $d$ tolv linjer, har du regnet feil. Blir $d$ tresifret, sjekk $\\phi(n)$ — den er sannsynligvis gal.\n\n**Merk at RSA-dekryptering krever flere steg enn en vanlig restberegning** (5–9 mot 2–5). Grunnen er at $d$ ikke kan reduseres ytterligere modulo $\\phi(n)$ — den er alt mindre. Vil du ha færre steg, bruk veien via $p$ og $q$.\n\n**Og bruk det når du lager egne øvingsoppgaver:** velg to tosifrede primtall, regn $\\phi(n)$, velg en liten $e$ med $\\gcd(e,\\phi(n))=1$, og regn $d$. Er $d$ tresifret, prøv en annen $e$ — eller velg $e$ og $d$ slik at $ed=k\\phi(n)+1$ med begge tosifrede."
+    },
+    {
+      "id": "ma1301-3-1-d-rsa-oppgavetyper",
+      "type": "definition",
+      "title": "De fire måtene RSA spørres om på eksamen",
+      "content": "1. **Dekrypter med oppgitt $d$.** Ren kvadrer-og-multipliser. Den enkleste varianten, og den som gir bestått.\n2. **Finn $d$ selv, og dekrypter.** Hovedvarianten: faktoriser $n$ (eller få $p,q$ oppgitt), regn $\\phi(n)$, kjør Euklids algoritme, dekrypter. Dette er midtsjiktets oppgave.\n3. **Bygg et helt nøkkelpar fra $p,q,e$**, og krypter en melding. Samme verktøy, andre rekkefølge.\n4. **Vis at dekrypteringen gjenoppretter meldingen.** Korrekthetsbeviset fra Eulers teorem, tre linjer — pluss $\\gcd(m,n)\\ne 1$-tilfellet hvis oppgaven sier «alle $m$».\n\n**Alle fire bruker samme fire ingredienser:** $\\phi(n)=(p-1)(q-1)$, Euklids algoritme, kvadrer-og-multipliser, og Eulers teorem.\n\n**Merk at type 4 er teoretisk og likevel hyppig.** Den koster tre linjer og prøver om du forstår hvorfor systemet virker — ikke bare at det gjør det."
+    },
+    {
+      "id": "ma1301-3-1-d-kontrollrutine-rsa",
+      "type": "definition",
+      "title": "Kontrollrutinen i sjanger D",
+      "content": "Fem kontroller, til sammen under to minutter. Under kode D er dette hele kvalitetssikringen din.\n\n| Etter | Kontroll | Fanger |\n|---|---|---|\n| faktoriseringen av $n$ | gang $p$ og $q$ sammen igjen | avskrivningsfeil |\n| $\\phi(n)$ | er $(p-1)(q-1)=n-p-q+1$? | utregningsfeil |\n| $d$ | er $ed$ lik $1$ mer enn et multiplum av $\\phi(n)$? | Euklid baklengs-slurv |\n| kvadrattabellen | er alle tall under $n$? | glemt reduksjon |\n| hele runden | krypter svaret tilbake og se at du får $c$ | alt |\n\n**Den siste er den sterkeste**, og den er unik for RSA: du kan alltid sjekke svaret ved å gå den andre veien. Har du dekryptert $c$ til $m$, regn $m^{e}\\bmod n$ og se at du får $c$ tilbake. Det koster like mye som krypteringen, men det er en absolutt kontroll.\n\n**Er du presset på tid**, ta i det minste $ed$-kontrollen. Den er den billigste, og $d$-feil er den vanligste."
+    },
+    {
+      "id": "ma1301-3-1-d-tidsbudsjett-rsa",
+      "type": "definition",
+      "title": "Tidsbudsjettet for en RSA-oppgave",
+      "content": "Eksamen er 4 timer på omtrent 10 likt vektede delpunkt — **~24 minutter per delpunkt**. En RSA-oppgave har typisk **to eller tre delpunkt**.\n\n| Steg | Innhold | Tid |\n|---|---|---|\n| faktorisering av $n$ | prøvedivisjon opp til $\\sqrt n$ | ~2 min |\n| $\\phi(n)$ | ett produkt, med kontroll | ~1 min |\n| $d$ | Euklids algoritme frem og baklengs | ~5 min |\n| kryptering | kvadrer-og-multipliser, liten eksponent | ~3 min |\n| dekryptering | kvadrer-og-multipliser, 5–9 steg | ~6 min |\n| korrekthetsbevis | tre linjer (pluss to for $\\gcd\\ne 1$) | ~3 min |\n\n**En full oppgave (finn $d$ + dekrypter) tar altså ~14 minutter**, godt innenfor to delpunkts budsjett.\n\n**Er du over 30 minutter,** ligger det nesten alltid i dekrypteringen — prøv veien via $p$ og $q$, som gir mindre tall, eller sjekk om du har glemt å redusere etter hvert kvadrat."
+    },
+    {
+      "id": "ma1301-3-1-d-skriveraden-rsa",
+      "type": "definition",
+      "title": "Skriveraden: hva som SKAL stå i besvarelsen",
+      "content": "En fullgod besvarelse av «finn $d$ og dekrypter $c$» inneholder **alle** disse:\n\n1. faktoriseringen $n=pq$, vist (om den ikke er oppgitt);\n2. $\\phi(n)=(p-1)(q-1)$, med tallene satt inn;\n3. at $\\gcd(e,\\phi(n))=1$, slik at $d$ finnes;\n4. **Euklids algoritme frem OG baklengs** til $1=\\phi(n)y+ex$;\n5. lesningen modulo $\\phi(n)$, som gir $d$;\n6. **kontrollen $ed\\equiv 1\\pmod{\\phi(n)}$**;\n7. dekrypteringen $m\\equiv c^{d}\\pmod n$ med binærutvikling og kvadrattabell;\n8. en konklusjonssetning med $m$ som et tall i $0,\\dots,n-1$.\n\n**Punkt 4 og 7 er der føringspoengene ligger**, og punkt 6 er den kontrollen som fanger den vanligste feilen.\n\n**Selvtesten:** kan noen som leser besvarelsen din, følge hvert steg fra $(n,e)$ til $m$ uten å regne selv? Da er føringen god nok.\n\n**Det som ikke holder:** «$d=31$, så $m=5$». To riktige tall, ingen metode — og instruksen på hvert sett er at alle svar må begrunnes."
+    },
+    {
+      "id": "ma1301-3-1-d-blokkoding",
+      "type": "definition",
+      "title": "Hvorfor meldingen må være mindre enn n",
+      "content": "Kravet er $0\\le m<n$. Grunnen er at dekrypteringen gir tilbake **resten** modulo $n$, og to meldinger som er kongruente modulo $n$, kan ikke skilles.\n\n*Eksempel:* med $n=247$ ville $m=5$ og $m=252$ gitt samme krypterte melding, siden $252\\equiv 5\\pmod{247}$. Mottakeren kan ikke vite hvilken.\n\n**Hva man gjør i praksis:** deler meldingen i **blokker** som hver er mindre enn $n$, og krypterer blokk for blokk. Tekst kodes først om til tall (for eksempel to bokstaver per blokk).\n\n**På eksamen er $m$ gitt som et tall**, og omkodingen er ikke en del av pensum — den er informatikk, ikke tallteori. Men kravet $m<n$ er verdt å kjenne, fordi et delpunkt kan spørre hvorfor det finnes.\n\n**Merk et grensetilfelle:** $m=0$ og $m=1$ krypteres til seg selv ($0^{e}=0$, $1^{e}=1$). Det er en av flere grunner til at virkelige systemer legger til tilfeldig «utfylling» før kryptering."
+    },
+    {
+      "id": "ma1301-3-1-d-rsa-vs-euler",
+      "type": "definition",
+      "title": "Hvor RSA er Eulers teorem i forkledning",
+      "content": "Hele RSA er én anvendelse av Eulers teorem, og det er verdt å se koblingen tydelig:\n\n| I RSA | I [kap. 2.1](/ma1301/ma1301-2-1) |\n|---|---|\n| $n=pq$ | modulusen $n$ |\n| $\\phi(n)=(p-1)(q-1)$ | $\\phi$ via multiplikativiteten |\n| $ed\\equiv 1\\pmod{\\phi(n)}$ | modulær invers, [kap. 1.4](/ma1301/ma1301-1-4) |\n| $(m^{e})^{d}\\equiv m$ | eksponentreduksjon: $ed\\equiv 1$ betyr at potensen «går en hel runde og ett skritt» |\n| kvadrer-og-multipliser | samme prosedyre |\n\n**Den ene setningen som binder det sammen:** *eksponenter på $m$ teller bare modulo $\\phi(n)$, så $ed\\equiv 1$ betyr at kryptering fulgt av dekryptering er det samme som eksponent $1$ — altså ingenting.*\n\n**Hvorfor det er verdt plass i bunken:** ser du RSA slik, trenger du ikke pugge korrekthetsbeviset. Det er eksponentreduksjon, brukt baklengs."
+    },
+    {
+      "id": "ma1301-3-1-d-hvorfor-to-primtall",
+      "type": "definition",
+      "title": "Hvorfor to primtall, og ikke ett eller tre?",
+      "content": "**Ett primtall ($n=p$) ville vært utrygt:** da er $\\phi(n)=p-1$, som alle kan regne ut fra det offentlige $n$. Enhver kunne funnet $d$ som inversen til $e$ modulo $p-1$, og systemet ville ikke hatt noen hemmelighet.\n\n**Tre eller flere primtall virker fint matematisk:** er $n=p_1p_2p_3$, er $\\phi(n)=(p_1-1)(p_2-1)(p_3-1)$ **ved multiplikativiteten**, og alt annet er som før. Slike varianter finnes («multi-prime RSA») og brukes fordi dekryptering via CRT blir raskere.\n\n**Hvorfor to er standard:** med flere faktorer blir hver faktor mindre for samme $n$, og små faktorer er lettere å finne. Sikkerheten bestemmes av den **minste** primfaktoren, så to like store er det beste valget for et gitt $n$.\n\n**På eksamen er det alltid to.** Men spørsmålet «hva om $n$ hadde tre primfaktorer?» er et rimelig teoretisk delpunkt, og svaret er: $\\phi(n)$ blir produktet av alle $(p_i-1)$, og resten av oppsettet er uendret."
+    },
+    {
+      "id": "ma1301-3-1-d-signering-forvarsel",
+      "type": "definition",
+      "title": "Samme maskineri baklengs: digital signatur",
+      "content": "Bruker du **din private** $d$ først og lar andre bruke **din offentlige** $e$ etterpå, får du en digital signatur:\n\n$$s\\equiv m^{d}\\pmod n\\qquad\\text{(du signerer)},$$\n$$s^{e}\\equiv m\\pmod n\\qquad\\text{(alle kan verifisere)}.$$\n\n**Hvorfor det virker:** korrektheten $(m^{e})^{d}\\equiv m$ er symmetrisk i $e$ og $d$ — begge er eksponenter med $ed\\equiv 1\\pmod{\\phi(n)}$, så rekkefølgen betyr ingenting. **Utledningen er den samme tre linjene.**\n\n**Hva det gir:** bare du kan lage $s$ (du har $d$), men alle kan sjekke at $s$ passer til $m$ (de har $e$). Altså et bevis på at meldingen kom fra deg.\n\n**Merk at dette ikke skjuler meldingen** — hvem som helst kan regne $s^{e}$ og lese $m$. Signering og kryptering er to ulike formål, og bruker nøklene i motsatt rekkefølge.\n\n*Dette er utenfor kjernepensum i sjanger D, men det er en naturlig oppfølging som viser at korrekthetsbeviset gir mer enn dekryptering. (Verifiser mot gjeldende pensumliste om digitale signaturer er eksplisitt pensum i ditt kull — arkivet har det ikke som egen oppgavetype.)*"
+    },
+    {
+      "id": "ma1301-3-1-d-rsa-samleoversikt",
+      "type": "definition",
+      "title": "Sjanger D i én oversikt",
+      "content": "| Det du får | Det du gjør | Verktøy |\n|---|---|---|\n| $p$, $q$, $e$ | $n=pq$, $\\phi(n)=(p-1)(q-1)$, $d$ via Euklid | [kap. 1.2](/ma1301/ma1301-1-2), [kap. 2.1](/ma1301/ma1301-2-1) |\n| $(n,e)$ med lite $n$ | faktoriser $n$, så som over | prøvedivisjon |\n| $m$ og $(n,e)$ | $c\\equiv m^{e}\\pmod n$ | kvadrer-og-multipliser |\n| $c$ og $d$ | $m\\equiv c^{d}\\pmod n$ | kvadrer-og-multipliser |\n| $c$, $d$, $p$, $q$ | reduser $d$ mot $p-1$ og $q-1$, regn to potenser, CRT | [kap. 2.2](/ma1301/ma1301-2-2), [kap. 2.4](/ma1301/ma1301-2-4) |\n| «vis at $m$ gjenopprettes» | $ed=1+k\\phi(n)$ og Eulers teorem | tre linjer |\n\n**Rekkefølgen er alltid den samme:** $n\\to\\phi(n)\\to d\\to$ potens. Og hvert steg har sin kontroll: $pq=n$, $(p-1)(q-1)=n-p-q+1$, $ed\\equiv 1$, og til slutt hele runden tilbake.\n\n**Neste kapittel** ([kap. 3.2](/ma1301/ma1301-3-2)) er drillen: tolv oppgaver som roterer de fire variantene, med sensor-margnotater på den gjennomregnede casen."
+    },
+    {
+      "id": "ma1301-3-1-d-faktorisering-av-n",
+      "type": "definition",
+      "title": "Å faktorisere n på eksamen",
+      "content": "Får du bare $(n,e)$ og ikke $p$ og $q$, må du faktorisere $n$ selv. På eksamen er det alltid mulig — tallene er valgt slik.\n\n**Prosedyren** ([kap. 1.1](/ma1301/ma1301-1-1)): prøvedivider med $2,3,5,7,11,13,17,19,23,\\dots$ opp til $\\sqrt n$. Går ingen opp, er $n$ et primtall — og da er oppgaven feil, for RSA krever $n=pq$.\n\n**Rask utelukking først:** er $n$ like? Ender den på $5$? Er siffersummen delelig med $3$? Tre sekunder, og du har utelukket tre primtall.\n\n**De tallene som faktisk forekommer**, og som ser prime ut: $n=247=13\\cdot 19$, $253=11\\cdot 23$, $299=13\\cdot 23$, $323=17\\cdot 19$, $341=11\\cdot 31$, $377=13\\cdot 29$, $391=17\\cdot 23$, $437=19\\cdot 23$, $527=17\\cdot 31$, $589=19\\cdot 31$. Legg merke til mønsteret: **begge faktorene er tosifrede primtall**, så du finner den minste et sted mellom $7$ og $\\sqrt n$.\n\n**Ikke pugg lista** — den er der for å vise deg hvor du skal lete. Prøvedivisjonen tar ~2 minutter og er alt du trenger.\n\n**Kontrollen:** gang $p$ og $q$ sammen igjen. Fem sekunder, og du har utelukket en avskrivningsfeil som ville veltet hele oppgaven."
+    },
+    {
+      "id": "ma1301-3-1-d-hvorfor-kvadrer-i-rsa",
+      "type": "definition",
+      "title": "Hvorfor kvadrer-og-multipliser er uunngåelig her",
+      "content": "En dekryptering er $c^{d}\\bmod n$ med $d$ tosifret. Selv med små tall er $c^{d}$ astronomisk: $35^{31}$ har 48 siffer.\n\n**Kalkulatoren under kode D gir opp.** Den regner med begrenset presisjon, og et 48-sifret tall kan den ikke representere — langt mindre dele på $247$ og gi eksakt rest.\n\n**Kvadrer-og-multipliser løser det ved å redusere underveis:** hvert mellomtall holdes under $n$, så du regner aldri med mer enn seks siffer (kvadratet av et tresifret tall).\n\n**Merk forskjellen fra [kap. 2.1](/ma1301/ma1301-2-1):** der kunne eksponenten først reduseres med Eulers teorem, og du satt igjen med noe under $32$. Her **kan** $d$ ikke reduseres modulo $\\phi(n)$ — den er alt mindre. Derfor tar RSA-dekryptering 5–9 steg, mot 2–5 for en vanlig restberegning.\n\n**Vil du ha færre steg:** bruk veien via $p$ og $q$, der eksponentene blir $d\\bmod(p-1)$ og $d\\bmod(q-1)$. **Begge veier er fullgode.**"
+    },
+    {
+      "id": "ma1301-3-1-d-rsa-i-eksamensdramaturgien",
+      "type": "definition",
+      "title": "Hvor RSA står i settet",
+      "content": "Den faste dramaturgien i arkivet ([kap. 0.1](/ma1301/ma1301-0-1)) plasserer RSA som **oppgave 3 eller 4**, etter diofant/kongruens (oppgave 1) og CRT (oppgave 2), og før kvadratiske rester.\n\n**Hva det betyr praktisk:** når du kommer til RSA-oppgaven, har du alt brukt Euklids algoritme én gang og kanskje CRT én gang. Verktøyene er varme, og oppgaven er derfor ofte den raskeste i settet.\n\n**Hva den bygger på fra tidligere oppgaver:** ingenting — hver hovedoppgave i dette emnet er selvstendig. Et tapt tema koster ett delpunkt, ikke hele settet.\n\n**Prioriteringsråd hvis tiden blir knapp:** RSA-oppgavens første delpunkt (regn $\\phi(n)$ og finn $d$) er billige poeng du bør ta før du kaster deg over resiprositet eller bevis. Dekrypteringen er den dyreste delen i tid, og den kan tas sist.\n\n**Og en påminnelse om karakterrealisme:** **C er en god og vanlig karakter**, og den nås ved å dekryptere med oppgitt $d$. Å finne $d$ selv er midtsjiktet; korrekthetsbeviset og den raske veien er toppsjiktet."
+    },
+    {
+      "id": "ma1301-3-1-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "ma1301-3-1-rep-inn",
+          "type": "text",
+          "content": "Seks korte oppgaver fra [kap. 1.2](/ma1301/ma1301-1-2), [kap. 1.4](/ma1301/ma1301-1-4) og [kap. 2.1](/ma1301/ma1301-2-1). Fasit under hver.\n\n**R1.** Faktoriser $247$, $341$ og $589$.\n\n*Fasit:* $247=13\\cdot 19$, $341=11\\cdot 31$, $589=19\\cdot 31$. (Alle tre ser prime ut — prøv $7$, $11$, $13$, $17$ og $19$.)\n\n**R2.** Regn ut $\\phi(247)$ og $\\phi(341)$.\n\n*Fasit:* $\\phi(247)=12\\cdot 18=216$ og $\\phi(341)=10\\cdot 30=300$, **ved multiplikativiteten**.\n\n**R3.** Finn inversen til $7$ modulo $216$ med Euklids algoritme.\n\n*Fasit:* $216=30\\cdot 7+6$, $7=1\\cdot 6+1$, $6=6\\cdot 1+0$, så $\\gcd=1$. Baklengs: $1=7-1\\cdot 6$ og $6=216-30\\cdot 7$, så $1=7-(216-30\\cdot 7)=31\\cdot 7-1\\cdot 216$. Lest modulo $216$: $7\\cdot 31\\equiv 1$, så inversen er $31$.\n\n**R4.** Regn $5^{7}\\bmod 247$ med kvadrer-og-multipliser.\n\n*Fasit:* $5^2=25$, $5^4=625\\equiv 131$ (siden $625=247\\cdot 2+131$). Med $7=4+2+1$: $5^7\\equiv 131\\cdot 25\\cdot 5$. Og $131\\cdot 25=3\\,275\\equiv 64$ (siden $3275=247\\cdot 13+64$), så $64\\cdot 5=320\\equiv 73$. Altså $5^7\\equiv 73\\pmod{247}$.\n\n**R5.** Hva sier Eulers teorem om $m^{216}$ modulo $247$?\n\n*Fasit:* Når $\\gcd(m,247)=1$, er $m^{216}\\equiv 1\\pmod{247}$, siden $\\phi(247)=216$. Dette er nøyaktig det RSA-korrektheten bruker.\n\n**R6.** Hvorfor er $x\\equiv 9\\pmod{13}$ og $x\\equiv 16\\pmod{19}$ nok til å bestemme $x$ modulo $247$?\n\n*Fasit:* Fordi $\\gcd(13,19)=1$ og $13\\cdot 19=247$ — det kinesiske restteoremet gir nøyaktig én løsning modulo produktet ([kap. 2.4](/ma1301/ma1301-2-4))."
+        }
+      ]
+    },
+    {
+      "id": "ma1301-3-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "ma1301-3-1-symbol-inn",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $p$, $q$ | de to hemmelige primtallene |\n| $n=pq$ | modulusen, **offentlig** |\n| $\\phi(n)=(p-1)(q-1)$ | Eulers $\\phi$ av modulusen, hemmelig |\n| $e$ | krypteringseksponenten, **offentlig** |\n| $d$ | dekrypteringseksponenten, hemmelig |\n| $(n,e)$ | den offentlige nøkkelen |\n| $m$ | meldingen, $0\\le m<n$ |\n| $c$ | den krypterte meldingen |\n| $d_p$, $d_q$ | $d$ redusert modulo $p-1$ og $q-1$ |\n| $\\blacksquare$ | bevis slutt |\n\n**Formler i dette delkapitlet:**\n\n$$n=pq,\\qquad \\phi(n)=(p-1)(q-1)$$\nRSA-oppsettet. **(må sitte utenat — men $\\phi(pq)=(p-1)(q-1)$ utledes på stedet fra multiplikativiteten og $\\phi(p)=p-1$)**\n\n$$\\gcd(e,\\phi(n))=1$$\nKravet til $e$, som er det som gjør at $d$ finnes. **(må sitte utenat)**\n\n$$ed\\equiv 1\\pmod{\\phi(n)}$$\nSammenhengen mellom de to eksponentene: $d$ er inversen til $e$ modulo $\\phi(n)$. **(må sitte utenat)**\n\n$$c\\equiv m^{e}\\pmod n,\\qquad m\\equiv c^{d}\\pmod n$$\nKryptering og dekryptering. **(må sitte utenat — $e$ for «encrypt», $d$ for «decrypt»)**\n\n$$1=\\phi(n)\\,y+e\\,x\\ \\Longrightarrow\\ d=x\\bmod\\phi(n)$$\n$d$ fra Euklids algoritme baklengs. **(utledes på stedet — koeffisientene leses ut av substitusjonskjeden, hver gang; se [kap. 1.2](/ma1301/ma1301-1-2))**\n\n$$(m^{e})^{d}=m^{1+k\\phi(n)}=m\\cdot\\left(m^{\\phi(n)}\\right)^{k}\\equiv m\\pmod n$$\n**RSA-korrektheten**, for $\\gcd(m,n)=1$. **(utledes på stedet — tre linjer fra Eulers teorem, og det skal føres, ikke pugges)**\n\n$$m^{ed}\\equiv m\\pmod p\\ \\text{ og }\\ \\pmod q\\ \\Longrightarrow\\ m^{ed}\\equiv m\\pmod n$$\nKorrektheten også når $p$ eller $q$ deler $m$. **(utledes på stedet — Fermats lille teorem mot hvert primtall, og det kinesiske restteoremet til slutt)**\n\n$$d_p=d\\bmod(p-1),\\qquad d_q=d\\bmod(q-1)$$\nDen raske dekrypteringsveien: to små potenser pluss CRT. **(utledes på stedet — Fermats lille teorem mot hvert primtall; krever at du kjenner $p$ og $q$)**\n\n$$p+q=n-\\phi(n)+1$$\nHvorfor $\\phi(n)$ er like hemmelig som faktoriseringen: sammen med $pq=n$ gir dette $p$ og $q$ som røtter i $x^2-sx+n=0$. **(utledes på stedet — gang ut $(p-1)(q-1)$)**\n\n**Prosedyren for $d$ i fire steg** — (1) $\\phi(n)=(p-1)(q-1)$, (2) Euklids algoritme frem på $\\phi(n)$ og $e$, (3) substitusjonskjeden baklengs, (4) les modulo $\\phi(n)$. **(må sitte utenat — og føringen frem OG baklengs er føringskravet)**\n\n**Kvadrer-og-multipliser** — binærutvikling av eksponenten, suksessive kvadrater, reduksjon etter hvert steg. **(må sitte utenat — kalkulatoren under kode D kan ikke gjøre dette)**"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

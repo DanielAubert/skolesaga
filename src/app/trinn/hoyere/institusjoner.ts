@@ -82,6 +82,7 @@ export const INSTITUSJONER: Institusjon[] = [
     icon: '🔬',
     color: 'from-blue-700 to-cyan-700',
     subjects: [
+      { courseId: 'ma1301', name: 'MA1301 Tallteori', icon: '🔢', color: 'from-slate-500 to-slate-700' },
       { courseId: 'tma4135', name: 'TMA4135 Matematikk 4D', icon: '∫', color: 'from-slate-500 to-slate-700' },
       { courseId: 'tdt4110', name: 'TDT4110 Informasjonsteknologi grunnkurs', icon: '🐍', color: 'from-slate-500 to-slate-700' },
       { courseId: 'tma4110', name: 'TMA4110 Lineær algebra, komplekse tall og differensiallikninger', icon: '🧮', color: 'from-slate-500 to-slate-700' },
