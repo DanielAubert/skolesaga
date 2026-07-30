@@ -38,10 +38,14 @@ Dekningen i dag: **15 av 136 emner = 11 %**. 62 % av løpene har minst ett dekke
 emne, men det tallet drives nesten alene av `EXPHIL03`, som ligger i 1. semester i
 **36 av 104 løp**.
 
-⚠ **Taket er 28 %.** Av de 121 manglende emnene har bare **23 materiale i
-arkivet**; de øvrige **98 har ingen kilder i det hele tatt**. Skriver vi alt som
-kan skrives, lander vi på 28 % emnedekning og 72 % av løpene med minst ett emne.
-Vil du forbi det, må ARKIVET utvides — ikke bøkene skrives raskere.
+⚠ **Taket var 28 % — men eksamensjakten 30. juli flyttet det til 54 %.**
+`EKSAMENSJAKT-2026-07-30.md`: **56 emner har åpent publiserte eksamener vi ikke
+har**, 48 av dem med sensorveiledning, til sammen ~290 semestersett. Lastes de
+ned, går emnedekningen til **54 %**, andelen løp med ALLE emner dekket til **49 %**
+og med minst ett til **91 %**.
+
+Arkivet må altså utvides før flere bøker skrives — men materialet finnes, det er
+åpent, og det er lovlig (åvl. § 14).
 
 **Neste emner å bygge, sortert på antall løp de dekker:** `SVEXFAC03` (5 løp),
 `STV1010` (3), deretter `FIL1005`, `PSY1250`, `PSY1200`, `SOSANT1050`, `SOS1100`,
