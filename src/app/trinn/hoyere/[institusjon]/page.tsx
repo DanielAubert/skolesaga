@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
+import { MetodePaneler } from '@/components/hoyskole/metode-paneler';
 import { notFound } from 'next/navigation';
 import { ChevronLeft } from 'lucide-react';
 import { TextbookHeader } from '@/components/textbook/textbook-header';
@@ -207,6 +208,11 @@ export default async function InstitusjonPage({ params }: PageProps) {
       {/* Subjects Grid */}
       <div className="container mx-auto px-4 py-12">
         <div className="max-w-6xl mx-auto">
+          {/* Forklaringen på hva bøkene er bygd på, og hvordan. Sto tidligere
+              på /trinn/hoyere — men etter at forsiden lenker rett hit, er den
+              siden et mellomsteg de fleste hopper over. Lukket som standard, så
+              den som bare skal finne emnet sitt ikke må scrolle forbi. */}
+          <MetodePaneler />
           <Link
             href="/trinn/hoyere"
             className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors mb-4"

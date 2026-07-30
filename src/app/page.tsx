@@ -6,6 +6,7 @@ import { TextbookHeader } from '@/components/textbook/textbook-header';
 import { DashboardBanner } from '@/components/home/dashboard-banner';
 import { mediaUrl } from '@/lib/media';
 import { pageMetadata } from '@/lib/seo';
+import { INSTITUSJONER } from './trinn/hoyere/institusjoner';
 
 const HOME_TITLE = 'Skolesaga – Interaktive lærebøker';
 const HOME_DESCRIPTION =
@@ -177,15 +178,28 @@ export default function HomePage() {
               <h2 className="text-xl font-bold text-foreground">Høyere utdanning</h2>
               <div className="h-1 w-8 bg-gradient-to-r from-amber-400 to-orange-500 rounded-full" />
             </div>
+            {/* Ett samlekort ble erstattet av de fire lærestedene 30. juli 2026:
+                leseren kommer rett til sin institusjon uten et mellomsteg. */}
             <div className="flex flex-wrap justify-center gap-6">
-              <div className="w-56">
-                <GradeCard
-                  href="/trinn/hoyere"
-                  grade="Høyskole/universitet"
-                  subtitle="Vi har lest eksamensarkivet for deg"
-                  gradient="bg-gradient-to-br from-amber-400 to-orange-500"
-                />
-              </div>
+              {INSTITUSJONER.map((inst) => (
+                <div key={inst.slug} className="w-56">
+                  <GradeCard
+                    href={`/trinn/hoyere/${inst.slug}`}
+                    grade={inst.fullName}
+                    subtitle={`${inst.subjects.length} fag`}
+                    gradient={`bg-gradient-to-br ${inst.color}`}
+                    image={inst.image}
+                  />
+                </div>
+              ))}
+            </div>
+            <div className="flex justify-center mt-5">
+              <Link
+                href="/trinn/hoyere"
+                className="text-sm text-muted-foreground hover:text-foreground underline underline-offset-4 transition-colors"
+              >
+                Se hvordan bøkene lages
+              </Link>
             </div>
           </section>
 
