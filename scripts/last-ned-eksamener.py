@@ -19,6 +19,12 @@ FALLGRUVER (funnet 30. juli 2026, alle håndtert her):
   · HIS1200-stien har «+» som må enkodes %2B.
   · Noen filnavn har dobbel endelse (…h24.pdf.pdf).
   · UiO har en skrivefeil i én sti: «tidligerer-» (SOS1004).
+  · Filnavn med MELLOMROM avvises av urllib — URL-en enkodes derfor først.
+
+⚠ BEGRENSNING: skriptet leser ÉN arkivside. Det holder for UiO, men ikke for
+NTNUs mattewiki, som sprer settene over mange undersider i samme namespace
+(MA0001 har 73). Der trengs en krypende henter — se rapporten fra
+mattewiki-agenten 30. juli 2026, som fikk 119 filer der dette skriptet fikk 0.
 
 Kjør:  python3 scripts/last-ned-eksamener.py            # alt
        python3 scripts/last-ned-eksamener.py SVEXFAC03  # ett emne
@@ -49,7 +55,11 @@ PAUSE = 1.2          # sekunder mellom forespørsler
 # skriptet lastet ned da jeg trodde det tørrkjørte. DRY er det som virker.
 TØRR = bool(os.environ.get('DRY') or os.environ.get('TORR') or os.environ.get('TØRR'))
 
-DOKUMENT = re.compile(r'\.(pdf|docx?|rtf|odt)(\?|$)', re.I)
+# ⚠ Endelsen kan stå MIDT i stien. NTNUs fysikkarkiv (Liferay) lenker slik:
+#     /documents/10422/…/E_TFY4104_251202.pdf/<uuid>?t=1768815921571
+# Et mønster som krever «.pdf» sist fant null filer der — 56 per emne, altså
+# oppgave og løsningsforslag parvis for 28 eksamener.
+DOKUMENT = re.compile(r'\.(pdf|docx?|rtf|odt)(\?|/|$)', re.I)
 # Eksamenssett som ligger som HTML-side, ikke fil. Kjennetegn: emnekode + semester
 # i filnavnet, f.eks. STV1100-2013H.html
 HTML_SETT = re.compile(r'/[A-ZÆØÅ]{2,8}\d{3,4}[-_]?\d{4}[HVhv]?\.html?$')
@@ -58,12 +68,19 @@ HTML_SETT = re.compile(r'/[A-ZÆØÅ]{2,8}\d{3,4}[-_]?\d{4}[HVhv]?\.html?$')
 def hent(url, binaer=False):
     """Hent en URL. Faller tilbake til curl ved TLS-trøbbel.
 
+    ⚠ URL-en enkodes først: filnavn med MELLOMROM (`eksamen MA0001H2007.pdf`)
+    avvises av urllib med en lite hjelpsom feil. Funnet 30. juli 2026 på NTNUs
+    mattewiki, der flere eldre filer har mellomrom i navnet.
+
     wiki.math.ntnu.no avviser Pythons OpenSSL med «TLSV1_ALERT_PROTOCOL_VERSION»,
     mens systemets curl henter samme side med 200 uten videre. Å senke
     sikkerhetsnivået i Pythons ssl-kontekst hjalp ikke; curl bruker en annen
     TLS-stack som serveren aksepterer. Fallbacken er derfor curl, ikke en svekket
     Python-tilkobling — vi slår ikke av sertifikatvalidering for å komme rundt.
     """
+    d = urllib.parse.urlsplit(url)
+    url = urllib.parse.urlunsplit(
+        (d.scheme, d.netloc, urllib.parse.quote(d.path, safe='/%:@'), d.query, ''))
     req = urllib.request.Request(url, headers={'User-Agent': UA})
     try:
         with urllib.request.urlopen(req, timeout=45) as r:
@@ -91,7 +108,15 @@ def lenker(sidehtml, base):
 
 
 def trygt_navn(url):
-    n = urllib.parse.unquote(url.rsplit('/', 1)[-1]) or 'index.html'
+    # Ligger endelsen midt i stien, er det DET segmentet som er filnavnet —
+    # siste segment er en UUID (se DOKUMENT-kommentaren).
+    sti = urllib.parse.urlparse(url).path
+    seg = [x for x in sti.split('/') if x]
+    n = ''
+    for x in seg:
+        if re.search(r'\.(pdf|docx?|rtf|odt)$', x, re.I):
+            n = x
+    n = urllib.parse.unquote(n or (seg[-1] if seg else 'index.html'))
     n = re.sub(r'[^\w.\-æøåÆØÅ() ]', '_', n)
     # dobbel endelse: …h24.pdf.pdf → …h24.pdf
     n = re.sub(r'\.(pdf|docx?)\.\1$', r'.\1', n, flags=re.I)
