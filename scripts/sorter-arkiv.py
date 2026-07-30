@@ -394,8 +394,14 @@ PERSONLIG_MAPPE = {'PROG1001', 'PROG1003'}
 # materiell i egne undermapper — «forelesningsnotater», «ovinger-og-losninger»,
 # «wiki-vedlegg». Det er ikke eksamenssett og skal ikke telles som terminer,
 # uansett hva filnavnet sier.
+#
+# ⚠ IKKE «wiki-vedlegg»/«wiki-sider». Jeg tok dem med først, og feilmerket da
+# 43 EKTE TDT4100-eksamener som internt materiale — Confluence-eksporterte
+# `.doc`-filer med både oppgavetekst og løsningsforslag. Et vedlegg på en wiki
+# er ikke undervisningsmateriell i seg selv; det avhenger av hva vedlegget ER.
+# Bare mapper som SIER at innholdet er undervisningsstoff, teller her.
 UNDERMAPPE_INTERN = re.compile(
-    r'(?i)(forelesning|ovinger|\xf8vinger|wiki-vedlegg|wiki-sider|notat|slides|pensum)')
+    r'(?i)(forelesning|ovinger|\xf8vinger|notat|slides|pensum)')
 
 
 def bruksklasse(mappe, kilde_url, typ, undermappe=''):
@@ -592,6 +598,24 @@ def main():
                     'dublett_av': dublett,
                     'kilde_url': url,
                 })
+
+    # ⚠ ÅR UTEN SESONG er ikke ingenting. 1 255 filer har et lesbart årstall,
+    # men ingen V/H/K i navnet — «TDT4100 - Eksamen 2009.doc». De falt helt ut
+    # av tellingen, som om eksamenen ikke fantes. De får sesong «U» (ukjent).
+    #
+    # MEN bare når emnet ikke ALT har en ekte termin det året: har vi 2009V fra
+    # før, er 2009U nesten sikkert samme eksamen, og to rader ville blåst opp
+    # settellingen. Regelen er konservativ med vilje — tallet skal være et
+    # gulv, ikke et tak.
+    ekte_terminer = {(r['emnekode'], r['ar']) for r in rader if r['termin']}
+    lagt_til = 0
+    for r in rader:
+        if not r['termin'] and r['ar'] and (r['emnekode'], r['ar']) not in ekte_terminer:
+            r['sesong'] = 'U'
+            r['termin'] = '%sU' % r['ar']
+            lagt_til += 1
+    if lagt_til:
+        print('  år uten sesong, ført som «U»: %d filer' % lagt_til)
 
     ut = os.path.join(ROT, 'INDEKS.csv')
     with open(ut, 'w', newline='', encoding='utf-8') as f:
