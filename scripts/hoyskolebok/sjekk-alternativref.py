@@ -64,6 +64,66 @@ def kilder(emne=None):
         m = re.match(r"^([a-z]+[a-z0-9-]*?)-\d", navn)
         if m:
             ut.setdefault(m.group(1), []).append(p)
+    # Tredje kilde: bøker som IKKE har quiz-filer, men har flervalg inne i
+    # kapitlene. De var «ukjente emner» for porten, som meldte KAN IKKE MÅLE og
+    # exit 1 — for 186 bøker. Det leste alle som støy, og blindsonen sto åpen.
+    # Filene leses av kapittelforklaringer(); her registreres bare at emnet finnes.
+    for p in glob.glob(os.path.join(DATA, "chapters", "*.json")):
+        navn = os.path.basename(p)[:-5]
+        if navn.startswith("_"):
+            continue
+        m = re.match(r"^(.+?)-\d+(?:-|$)", navn)
+        if m:
+            ut.setdefault(m.group(1), [])
+    return ut
+
+
+def kapittelforklaringer(emne):
+    """Løsningstekstene i KAPITTELINNBAKTE flervalg — `type: multiple-choice`
+    med `questions: [{options, solution}]`.
+
+    Porten leste bare `quiz-data-*.ts` og `quiz-staging/`, og var derfor blind for
+    dette formatet — som er det VGS- og ungdomsskolebøkene faktisk bruker. Den
+    meldte «KAN IKKE MÅLE: fant ingen quiz-filer» for 186 bøker, og det ble lest
+    som støy framfor som en blindsone.
+
+    Blindsonen ble konkret 30. juli 2026: fasitbalanseringen stokket om
+    alternativrekkefølgen i 67 690 slike spørsmål, og seks løsningstekster som sa
+    «det siste alternativet …» pekte etterpå på feil svar. Filteret i
+    balanseringsskriptet fanget «riktig svar: X)» og «alternativ 2», men ikke
+    «det siste alternativet». Porten kunne ikke fange det heller — den så dem ikke.
+
+    NB: disse alternativene stokkes IKKE ved kjøretid (`SequentialQuizExercise`
+    viser dem i array-rekkefølge). En posisjonsreferanse er derfor ikke gal i seg
+    selv — den blir gal så snart noen endrer rekkefølgen. Det er grunn nok til å
+    forby den: rekkefølgen ER blitt endret, korpusvidt, én gang.
+    """
+    import json as _json
+    ut = []
+    for p in sorted(glob.glob(os.path.join(DATA, "chapters", f"{emne}-*.json"))
+                    + glob.glob(os.path.join(DATA, "chapters", "nn", f"{emne}-*.json"))):
+        try:
+            d = _json.load(open(p, encoding="utf-8"))
+        except Exception:
+            continue
+        for blk in _flervalgsblokker(d):
+            for q in blk.get("questions") or []:
+                for k, v in q.items():
+                    if k != "task" and k != "question" and isinstance(v, str):
+                        ut.append((os.path.basename(p), v))
+    return ut
+
+
+def _flervalgsblokker(o, ut=None):
+    ut = ut if ut is not None else []
+    if isinstance(o, dict):
+        if o.get("type") == "multiple-choice" and isinstance(o.get("questions"), list):
+            ut.append(o)
+        for v in o.values():
+            _flervalgsblokker(v, ut)
+    elif isinstance(o, list):
+        for x in o:
+            _flervalgsblokker(x, ut)
     return ut
 
 
@@ -118,7 +178,9 @@ def main():
         s = "\n".join(open(p, encoding="utf-8", errors="replace").read()
                       for p in alle[emne])
         funn = []
-        for felt, tekst in forklaringer(s):
+        kilder_tekst = list(forklaringer(s))
+        kilder_tekst += [(f, t) for f, t in kapittelforklaringer(emne)]
+        for felt, tekst in kilder_tekst:
             for rx, navn in MONSTRE:
                 for m in re.finditer(rx, tekst):
                     i = m.start()
