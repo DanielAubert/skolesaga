@@ -366,6 +366,50 @@ def finn_sprak(navn):
     return ''
 
 
+# ── Bruksklasse ──────────────────────────────────────────────────────────
+# Hva vi HAR lov til å gjøre med filen, ikke hva den inneholder. Regelen må
+# følge dataene: et notat i en README blir ikke lest når boka faktisk skrives.
+#
+#   apen-institusjonell — eksamensmateriale fra en offentlig institusjons EGET
+#       arkiv. Prosjektets grunnlag er åndsverkloven § 14.
+#   internt-referanse   — SKAL IKKE GJENGIS. Brukes bare til å kontrollere våre
+#       egne, nyskrevne løsninger, og til å forstå hva sensor premierer.
+#
+# To ting havner i «internt-referanse»:
+#  1. Materiale fra ansattes PERSONLIGE sider (folk.*). Selve eksamensoppgaven
+#     er fortsatt en offentlig eksamensoppgave, men et løsningsforslag skrevet
+#     av foreleseren selv er vedkommendes åndsverk, og en personlig side er
+#     ikke institusjonens forpliktende publisering.
+#  2. Pensumlister, formelsamlinger og temanotater — undervisningsmateriell,
+#     ikke eksamensoppgaver. § 14 dekker dem ikke.
+#
+# ⚠ Uansett klasse: bøkenes modellbesvarelser er NYSKREVNE. Vi gjengir aldri
+# et løsningsforslag ordrett. Klassen styrer hvor forsiktige vi må være, ikke
+# om vi kan kopiere.
+PERSONLIG_VERT = re.compile(r'(?i)(^|[./])folk\.[a-z]+\.no|[a-z]+\.folk\.[a-z]+\.no')
+# Mapper der ALT stammer fra en personlig side, også når manifestraden mangler.
+PERSONLIG_MAPPE = {'PROG1001', 'PROG1003'}
+
+# ⚠ UNDERMAPPENAVNET SIER HVA FILEN ER. Nedlasterne har lagt undervisnings-
+# materiell i egne undermapper — «forelesningsnotater», «ovinger-og-losninger»,
+# «wiki-vedlegg». Det er ikke eksamenssett og skal ikke telles som terminer,
+# uansett hva filnavnet sier.
+UNDERMAPPE_INTERN = re.compile(
+    r'(?i)(forelesning|ovinger|\xf8vinger|wiki-vedlegg|wiki-sider|notat|slides|pensum)')
+
+
+def bruksklasse(mappe, kilde_url, typ, undermappe=''):
+    if typ in ('pensum', 'temanotat'):
+        return 'internt-referanse'
+    if undermappe and UNDERMAPPE_INTERN.search(undermappe):
+        return 'internt-referanse'
+    if mappe.upper() in PERSONLIG_MAPPE:
+        return 'internt-referanse'
+    if kilde_url and PERSONLIG_VERT.search(urllib.parse.urlsplit(kilde_url).netloc):
+        return 'internt-referanse'
+    return 'apen-institusjonell'
+
+
 def md5(sti):
     h = hashlib.md5()
     with open(sti, 'rb') as f:
@@ -491,52 +535,63 @@ def main():
         d = os.path.join(ROT, mappe)
         if not os.path.isdir(d):
             continue
-        for fn in sorted(os.listdir(d)):
-            sti = os.path.join(d, fn)
-            if not os.path.isfile(sti) or fn.startswith('.'):
-                continue
-            url, verifisert_type = man.get((mappe.upper(), fn), ('', ''))
-            ekte = ekte_filnavn(mappe, fn, url)
-            h = md5(sti)
-            # ⚠ DEDUPLISER PER EMNE, ikke globalt. TMA4240 og TMA4245 deler
-            # eksamensarkiv ved NTNU: 118 av 121 filer er bit-identiske. Med
-            # global deduplisering ble hele det ene emnet strøket til 3
-            # terminer, som om arkivet var tomt. Samme eksamen kan høre til to
-            # emner — det er duplikater INNAD i ett emne som ikke skal telles
-            # to ganger.
-            kode_nå = finn_kode(ekte, mappe)
-            dublett = sett_md5.get((kode_nå, h), '')
-            if not dublett:
-                sett_md5[(kode_nå, h)] = '%s/%s' % (mappe, fn)
-            # Terminen står ofte i STIEN, ikke i filnavnet: mattewikien lagrer
-            # som /_media/ma1102/2019v/eksamen.pdf, der «eksamen.pdf» er helt
-            # navnløst. Filnavnet får forrang — det er mest spesifikt — men
-            # faller det tomt, er stien neste beste kilde. Dette alene bergo
-            # flere hundre filer fra å bli stående uten termin.
-            år, ses = finn_termin(ekte)
-            if not år and url:
-                sti_tekst = urllib.parse.unquote(
-                    urllib.parse.urlsplit(url).query or urllib.parse.urlsplit(url).path)
-                sti_tekst = sti_tekst.rsplit('/', 1)[0]  # uten filnavnet selv
-                år, ses2 = finn_termin(sti_tekst)
-                ses = ses or ses2
-            rader.append({
-                'mappe': mappe,
-                'filnavn': fn,
-                'ekte_filnavn': ekte,
-                'emnekode': kode_nå,
-                'ar': år or '',
-                'sesong': ses or '',
-                'termin': ('%d%s' % (år, ses)) if år and ses else '',
-                # Verifisert mot PDF-teksten slår vår navnegjetting.
-                'type': verifisert_type or finn_type(ekte),
-                'type_kilde': 'pdf-verifisert' if verifisert_type else 'filnavn',
-                'sprak': finn_sprak(ekte),
-                'bytes': os.path.getsize(sti),
-                'md5': h,
-                'dublett_av': dublett,
-                'kilde_url': url,
-            })
+        # ⚠ GÅ REKURSIVT. Nedlasterne har lagt materiale i undermapper —
+        # «TDT4120/arkiv» (179 filer), «PROG1001/eksamen» (93) — og en
+        # os.listdir over ett nivå så ingen av dem. 653 filer var usynlige for
+        # indeksen, og PROG1001 sto med NULL rader mens mappa hadde 93 filer.
+        for rot, _, filer in os.walk(d):
+            undermappe = os.path.relpath(rot, d)
+            undermappe = '' if undermappe == '.' else undermappe
+            for fn in sorted(filer):
+                sti = os.path.join(rot, fn)
+                if not os.path.isfile(sti) or fn.startswith('.'):
+                    continue
+                url, verifisert_type = man.get((mappe.upper(), fn), ('', ''))
+                ekte = ekte_filnavn(mappe, fn, url)
+                h = md5(sti)
+                # ⚠ DEDUPLISER PER EMNE, ikke globalt. TMA4240 og TMA4245 deler
+                # eksamensarkiv ved NTNU: 118 av 121 filer er bit-identiske. Med
+                # global deduplisering ble hele det ene emnet strøket til 3
+                # terminer, som om arkivet var tomt. Samme eksamen kan høre til to
+                # emner — det er duplikater INNAD i ett emne som ikke skal telles
+                # to ganger.
+                kode_nå = finn_kode(ekte, mappe)
+                dublett = sett_md5.get((kode_nå, h), '')
+                if not dublett:
+                    sett_md5[(kode_nå, h)] = '%s/%s' % (mappe, fn)
+                # Terminen står ofte i STIEN, ikke i filnavnet: mattewikien lagrer
+                # som /_media/ma1102/2019v/eksamen.pdf, der «eksamen.pdf» er helt
+                # navnløst. Filnavnet får forrang — det er mest spesifikt — men
+                # faller det tomt, er stien neste beste kilde. Dette alene bergo
+                # flere hundre filer fra å bli stående uten termin.
+                år, ses = finn_termin(ekte)
+                if not år and url:
+                    sti_tekst = urllib.parse.unquote(
+                        urllib.parse.urlsplit(url).query or urllib.parse.urlsplit(url).path)
+                    sti_tekst = sti_tekst.rsplit('/', 1)[0]  # uten filnavnet selv
+                    år, ses2 = finn_termin(sti_tekst)
+                    ses = ses or ses2
+                rader.append({
+                    'mappe': mappe,
+                    'undermappe': undermappe,
+                    'filnavn': fn,
+                    'ekte_filnavn': ekte,
+                    'emnekode': kode_nå,
+                    'ar': år or '',
+                    'sesong': ses or '',
+                    'termin': ('%d%s' % (år, ses)) if år and ses else '',
+                    # Verifisert mot PDF-teksten slår vår navnegjetting.
+                    'type': verifisert_type or finn_type(ekte),
+                    'type_kilde': 'pdf-verifisert' if verifisert_type else 'filnavn',
+                    'bruksklasse': bruksklasse(
+                        mappe, url, verifisert_type or finn_type(ekte),
+                        undermappe),
+                    'sprak': finn_sprak(ekte),
+                    'bytes': os.path.getsize(sti),
+                    'md5': h,
+                    'dublett_av': dublett,
+                    'kilde_url': url,
+                })
 
     ut = os.path.join(ROT, 'INDEKS.csv')
     with open(ut, 'w', newline='', encoding='utf-8') as f:
