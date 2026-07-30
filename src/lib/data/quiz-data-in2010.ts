@@ -1151,7 +1151,7 @@ const quizData_in2010: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er kjøretiden til et søk i et binært søketre med $n$ noder?",
       options: ["$O(h)$, der $h$ er høyden på treet", "$O(\\log n)$, uansett formen på treet", "$O(n)$, siden hele treet må sjekkes", "$O(1)$ forventet og $O(n)$ i verste tilfelle"],
-      explanation: "Søket går ett nivå ned per sammenligning, så kostnaden er høyden. $O(\\log n)$ gjelder bare hvis treet er balansert, og et vanlig BST har ingen slik garanti — å skrive det uten forbehold er felle #10. Det siste alternativet er hashtabellens kjøretid, ikke søketreets.",
+      explanation: "Søket går ett nivå ned per sammenligning, så kostnaden er høyden. $O(\\log n)$ gjelder bare hvis treet er balansert, og et vanlig BST har ingen slik garanti — å skrive det uten forbehold er felle #10. Svaret «$O(1)$ forventet og $O(n)$ i verste tilfelle» er hashtabellens kjøretid, ikke søketreets.",
     },
     {
       question: "Du setter inn 1, 2, 3, 4 og 5 i denne rekkefølgen i et tomt BST. Hva blir høyden, målt i kanter?",
@@ -1206,7 +1206,7 @@ const quizData_in2010: Record<string, QuizQuestion[]> = {
     {
       question: "Hvor havner en ny verdi ved innsetting i et binært søketre?",
       options: ["Som en ny bladnode der søkeveien ender", "På den første ledige plassen ovenfra og fra venstre", "I rota, slik at de siste verdiene finnes raskest", "På plassen som holder treet balansert etter innsettingen"],
-      explanation: "`Insert` følger nøyaktig samme sti som et søk ville gjort, og henger noden på der stien tar slutt — ingen eksisterende node flyttes. Det andre alternativet er heapens strukturkrav, og det siste er hva et AVL-tre i kapittel 4.3 gjør i tillegg, ikke hva et vanlig BST gjør.",
+      explanation: "`Insert` følger nøyaktig samme sti som et søk ville gjort, og henger noden på der stien tar slutt — ingen eksisterende node flyttes. Å fylle «den første ledige plassen ovenfra og fra venstre» er heapens strukturkrav, og å velge «plassen som holder treet balansert» er hva et AVL-tre i kapittel 4.3 gjør i tillegg, ikke hva et vanlig BST gjør.",
     },
     {
       question: "Hva skjer når en bladnode slettes fra et binært søketre?",
@@ -1238,7 +1238,7 @@ const quizData_in2010: Record<string, QuizQuestion[]> = {
     {
       question: "Hvor lang er den lengste stien som har noden `v` som toppunkt?",
       options: ["$h_L + h_R + 2$", "$h_L + h_R + 1$", "$h_L + h_R$", "$\\max(h_L, h_R) + 1$"],
-      explanation: "Stien går ned i venstre subtre, gjennom `v`, og ned i høyre, og de to ekstra kantene er kantene fra `v` til hvert av barna. Det siste alternativet er formelen for **høyden** til noden, ikke for stien gjennom den — de to blandes lett, fordi begge regnes ut i samme kall.",
+      explanation: "Stien går ned i venstre subtre, gjennom `v`, og ned i høyre, og de to ekstra kantene er kantene fra `v` til hvert av barna. Uttrykket $\\max(h_L, h_R) + 1$ er formelen for **høyden** til noden, ikke for stien gjennom den — de to blandes lett, fordi begge regnes ut i samme kall.",
     },
     {
       question: "Hvilken høyde har et tomt subtre, i konvensjonen diameter-algoritmen bruker?",
@@ -1382,7 +1382,7 @@ const quizData_in2010: Record<string, QuizQuestion[]> = {
     {
       question: "Utfør `RemoveMin` én gang på min-heapen `2, 5, 3, 9, 8, 4`. Hva blir arrayet?",
       options: ["`3, 5, 4, 9, 8`", "`5, 4, 3, 9, 8`", "`3, 4, 5, 8, 9`", "`4, 5, 3, 9, 8`"],
-      explanation: "Det siste elementet 4 flyttes til rota, og synker deretter mot det **minste** barnet, som er 3. Alternativet `5, 4, 3, 9, 8` er resultatet av å bytte med venstre barn i stedet for det minste; det siste alternativet dropper down-heap helt.",
+      explanation: "Det siste elementet 4 flyttes til rota, og synker deretter mot det **minste** barnet, som er 3. Alternativet `5, 4, 3, 9, 8` er resultatet av å bytte med venstre barn i stedet for det minste; `4, 5, 3, 9, 8` dropper down-heap helt.",
     },
     {
       question: "Hva koster det å gjøre et vilkårlig array om til en min-heap med `BuildHeap`?",
@@ -1934,7 +1934,7 @@ const quizData_in2010: Record<string, QuizQuestion[]> = {
     {
       question: "Hvilken representasjon passer best når algoritmen skal traversere grafen?",
       options: ["Naboliste, fordi du itererer over naboene og ikke over alle noder", "Nabomatrise, fordi kantoppslag mellom to noder koster $O(1)$", "Naboliste, fordi den bruker $O(|V|^2)$ plass uansett tetthet", "Nabomatrise, fordi den bruker $O(|V| + |E|)$ plass uansett tetthet"],
-      explanation: "Med naboliste koster det $O(\\text{grad}(v))$ å gå gjennom naboene til $v$, og summen over alle noder blir $O(|V| + |E|)$. Med nabomatrise koster den samme gjennomgangen $O(|V|)$ per node, altså $O(|V|^2)$ totalt. Nabomatrisens $O(1)$-oppslag er en reell fordel, men bare når du spør om enkeltkanter — og plassangivelsene i de to siste alternativene står byttet om.",
+      explanation: "Med naboliste koster det $O(\\text{grad}(v))$ å gå gjennom naboene til $v$, og summen over alle noder blir $O(|V| + |E|)$. Med nabomatrise koster den samme gjennomgangen $O(|V|)$ per node, altså $O(|V|^2)$ totalt. Nabomatrisens $O(1)$-oppslag er en reell fordel, men bare når du spør om enkeltkanter — og de to svarene som gir nabolista $O(|V|^2)$ og nabomatrisen $O(|V| + |E|)$ har plassangivelsene byttet om.",
     },
   ],
   'in2010-6-1': [
@@ -2150,7 +2150,7 @@ const quizData_in2010: Record<string, QuizQuestion[]> = {
     {
       question: "Sant eller usant: Prim og Kruskal kan gi trær med ulik totalvekt på samme graf.",
       options: ["Usant — begge finner et minimalt tre, med samme sum", "Sant — Prim er grådig fra én node, Kruskal fra alle", "Sant — men bare når grafen ikke er sammenhengende", "Usant — de velger alltid nøyaktig de samme kantene"],
-      explanation: "Alle minimale spenntrær i en graf har per definisjon samme totalvekt. Er noen vekter like, kan de to algoritmene velge forskjellige kanter — så det siste alternativet er også galt, bare på en annen måte.",
+      explanation: "Alle minimale spenntrær i en graf har per definisjon samme totalvekt. Er noen vekter like, kan de to algoritmene velge forskjellige kanter — så «de velger alltid nøyaktig de samme kantene» er også galt, bare på en annen måte.",
     },
     {
       question: "Hvilket problem løser Dijkstras algoritme, sammenlignet med Prims?",
@@ -2331,7 +2331,7 @@ const quizData_in2010: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er invarianten som gjør en mediankø riktig?",
       options: ["Like store, eller max-heapen har ett element mer", "De to heapene har alltid nøyaktig like mange elementer", "Max-heapen er alltid minst dobbelt så stor som den andre", "De to heapene inneholder nøyaktig de samme verdiene"],
-      explanation: "Holder invarianten, ligger medianen alltid på toppen av max-heapen. Krav om nøyaktig like størrelser er umulig ved et oddetall elementer, og det siste alternativet beskriver kombinasjonsgrepet heap pluss hash-set.",
+      explanation: "Holder invarianten, ligger medianen alltid på toppen av max-heapen. Krav om nøyaktig like størrelser er umulig ved et oddetall elementer, og at «de to heapene inneholder nøyaktig de samme verdiene» beskriver kombinasjonsgrepet heap pluss hash-set.",
     },
     {
       question: "Hvor mange elementer må flyttes mellom heapene per `Insert` i en mediankø?",
@@ -2418,7 +2418,7 @@ const quizData_in2010: Record<string, QuizQuestion[]> = {
     {
       question: "En glissen graf med $\\lvert V \\rvert$ noder og $\\lvert E \\rvert$ kanter skal lagres. Hva er minnebruken til en naboliste mot en nabomatrise?",
       options: ["$O(\\lvert V \\rvert + \\lvert E \\rvert)$ mot $O(\\lvert V \\rvert^2)$", "$O(\\lvert V \\rvert \\cdot \\lvert E \\rvert)$ mot $O(\\lvert V \\rvert^2)$", "$O(\\lvert E \\rvert)$ mot $O(\\lvert V \\rvert \\cdot \\lvert E \\rvert)$", "$O(\\lvert V \\rvert^2)$ mot $O(\\lvert V \\rvert + \\lvert E \\rvert)$"],
-      explanation: "Nabolista lagrer én oppføring per node og én per kant; matrisen lagrer én celle per nodepar, uansett hvor få kanter som finnes. Siste alternativ er de samme uttrykkene med strukturene byttet om — les hvilken kolonne som gjelder hvilken struktur.",
+      explanation: "Nabolista lagrer én oppføring per node og én per kant; matrisen lagrer én celle per nodepar, uansett hvor få kanter som finnes. Svaret «$O(\\lvert V \\rvert^2)$ mot $O(\\lvert V \\rvert + \\lvert E \\rvert)$» er de samme uttrykkene med strukturene byttet om — les hvilken side av «mot» som gjelder hvilken struktur.",
     },
     {
       question: "En drøfting ender med setningen «hvilken som er best, kommer an på situasjonen». Hva mangler?",
@@ -2450,7 +2450,7 @@ const quizData_in2010: Record<string, QuizQuestion[]> = {
     {
       question: "Hva betyr det at et problem ligger i klassen $NP$?",
       options: ["At et foreslått ja-svar kan kontrolleres i polynomisk tid", "At problemet umulig kan løses i polynomisk tid i det hele tatt", "At problemet krever eksponentiell tid å løse", "At problemet er minst like vanskelig som alle andre"],
-      explanation: "$NP$ står for «ikke-deterministisk polynomisk» og handler om kontroll, ikke om løsning. Alternativene som knytter $NP$ til «ikke-polynomisk» fanger nettopp den vanligste misforståelsen, og siste alternativ beskriver NP-hardhet.",
+      explanation: "$NP$ står for «ikke-deterministisk polynomisk» og handler om kontroll, ikke om løsning. Alternativene som knytter $NP$ til «ikke-polynomisk» fanger nettopp den vanligste misforståelsen, og «minst like vanskelig som alle andre» beskriver NP-hardhet.",
     },
     {
       question: "Hvilken linje i en verifikator for Hamiltonsykel sikrer at rundturen lukker seg?",
@@ -2654,7 +2654,7 @@ const quizData_in2010: Record<string, QuizQuestion[]> = {
     {
       question: "En hashtabell med $N$ plasser bruker lineær probing. Hvilken indeks prøves etter at plass $i$ viste seg opptatt?",
       options: ["$(i + 1) \\bmod N$", "$i + 1$, uten noen omregning", "$(i \\cdot 2) \\bmod N$", "$(i + N) \\bmod N$"],
-      explanation: "Uten `mod N` løper indeksen utenfor tabellen når klyngen når siste plass, og det er et eksplisitt trekkpunkt. Dobling er dobbel hashing, som ikke er lineær probing. Det siste alternativet gir alltid $i$ tilbake og flytter ingenting.",
+      explanation: "Uten `mod N` løper indeksen utenfor tabellen når klyngen når siste plass, og det er et eksplisitt trekkpunkt. Dobling er dobbel hashing, som ikke er lineær probing. Uttrykket $(i + N) \\bmod N$ gir alltid $i$ tilbake og flytter ingenting.",
     },
   ],
   'in2010-8-3': [
@@ -2696,7 +2696,7 @@ const quizData_in2010: Record<string, QuizQuestion[]> = {
     {
       question: "Hva gjelder om kodelengdene i et Huffman-tre?",
       options: ["et hyppigere symbol får aldri en lengre kode enn et sjeldnere", "alle symboler får kode av samme lengde som i en fastlengdekode", "et sjeldnere symbol får aldri en lengre kode enn et hyppigere", "kodelengden er alltid lik antall symboler delt på to"],
-      explanation: "Algoritmen slår alltid sammen de to minste frekvensene først, så sjeldne symboler havner dypest i treet. Det tredje alternativet er regelen snudd på hodet, og er selve poenget med komprimeringen. Fastlengdekoden er nettopp det Huffman skal slå.",
+      explanation: "Algoritmen slår alltid sammen de to minste frekvensene først, så sjeldne symboler havner dypest i treet. Påstanden om at et sjeldnere symbol aldri får lengre kode enn et hyppigere, er regelen snudd på hodet, og er selve poenget med komprimeringen. Fastlengdekoden er nettopp det Huffman skal slå.",
     },
     {
       question: "En besvarelse skriver: «Jeg bruker binærsøk, som gir indeksen til $x$ i $O(\\log n)$.» Hva mangler?",
@@ -2748,7 +2748,7 @@ const quizData_in2010: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er riktig om klassene $P$ og $NP$?",
       options: ["$P \\subseteq NP$, og det er ikke avgjort om de er like", "$P$ og $NP$ er beviselig forskjellige klasser", "$P$ og $NP$ er beviselig den samme klassen", "$NP$ består av problemene som ikke ligger i $P$"],
-      explanation: "Et problem du kan løse i polynomisk tid, kan også verifiseres i polynomisk tid, så inklusjonen holder — men ingen har bevist noen av retningene om likhet. Det siste alternativet er den vanligste misforståelsen: $NP$ betyr «verifiserbar i polynomisk tid», ikke «ikke i $P$».",
+      explanation: "Et problem du kan løse i polynomisk tid, kan også verifiseres i polynomisk tid, så inklusjonen holder — men ingen har bevist noen av retningene om likhet. Påstanden om at $NP$ består av problemene som ikke ligger i $P$, er den vanligste misforståelsen: $NP$ betyr «verifiserbar i polynomisk tid», ikke «ikke i $P$».",
     },
     {
       question: "Du vil vise at ditt problem $X$ er NP-hardt. Hvilken vei går reduksjonen?",
