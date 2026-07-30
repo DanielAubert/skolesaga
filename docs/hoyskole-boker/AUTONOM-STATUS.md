@@ -16,8 +16,8 @@ og undervises til høsten — belegg i valgnotatet nederst.
 | `med1100` | UiO | 63/63 | ✅ | ✅ | ✅ | ✅ |
 | `in2010` | UiO | 42/42 | ✅ | ✅ | ✅ | ✅ |
 | `tma4135` | NTNU | 44/44 | ✅ | ✅ | ✅ | ✅ |
-| `ma1301` | NTNU | 35/39 | ✅ | ⏳ | — | — |
-| `tfy4115` | NTNU | 20/48 | ✅ | ⏳ | — | — |
+| `ma1301` | NTNU | 26/40 | ✅ | ⏳ | — | — |
+| `tfy4115` | NTNU | 22/48 | ✅ | ⏳ | — | — |
 
 **Fire bøker er wiret og live: 196 kapitler, 2 479 quiz, 2 629 flashcards.**
 Alle fire har nå vært gjennom verifiseringsbølgen.
