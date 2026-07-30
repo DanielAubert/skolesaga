@@ -523,7 +523,7 @@ INNHOLDSVERIFISERTE_MANIFEST = {'MANIFEST-mattewiki.csv'}
 
 
 def manifest():
-    """(kode, filnavn) → (kilde_url, type, type_kilde, kildestatus).
+    """(kode, filnavn) → (kilde_url, type, type_kilde, kildestatus, termin).
 
     `kildestatus` er tomt for alt som ligger åpent hos institusjonen i dag, og
     «nedtatt-hentet-fra-wayback» for materiale institusjonen har fjernet.
@@ -549,10 +549,32 @@ def manifest():
                     kilde = 'manifest-uspesifisert'
                 # Flere manifester dekker samme fil. Behold den raden som
                 # faktisk bærer informasjon framfor å la den siste vinne.
+                #
+                # ⚠ OG LA IKKE FILSYSTEMET AVGJØRE HVA SOM ER SANT. Fram til
+                # 31. juli 2026 vant den SISTE raden med en type, og
+                # rekkefølgen kom fra glob() — altså katalogrekkefølgen på
+                # disk. Da klassifiser-arkiv.py la til et manifest med typer
+                # lest ut av PDF-teksten, ville en navnegjetting i et annet
+                # manifest kunne slå den, avhengig av hvilken fil glob
+                # tilfeldigvis kom til sist. En innholdsverifisert type skal
+                # vinne fordi den er verifisert, ikke fordi den kom sist.
                 status = (r.get('kildestatus') or '').strip()
-                gml = m.get(nøkkel, ('', '', '', ''))
-                m[nøkkel] = (url or gml[0], typ or gml[1],
-                             kilde if typ else gml[2], status or gml[3])
+                # ⚠ TERMIN FRA ET MANIFEST ER SISTE UTVEG. Arkivsidene merker
+                # hver lenke med terminen («V21»), og for NTNUs econ-arkiv sto
+                # 607 av 948 filer uten termin fordi filnavnet bare het
+                # «1011.pdf». Men lenketeksten er ikke alltid enig med fila:
+                # SØK1011_V23_EXAM_RESIT.pdf er lenket opp under «H23».
+                # Filnavnet er nærmere dokumentet, så det får fortsatt forrang
+                # — se bruken i main().
+                termin = (r.get('termin') or '').strip().upper()
+                gml = m.get(nøkkel, ('', '', '', '', ''))
+                bedre = typ and (not gml[1] or
+                                 (kilde == 'pdf-verifisert' and gml[2] != 'pdf-verifisert'))
+                m[nøkkel] = (url or gml[0],
+                             typ if bedre else gml[1],
+                             kilde if bedre else gml[2],
+                             status or gml[3],
+                             termin or gml[4])
     return m
 
 
@@ -661,8 +683,9 @@ def main():
                 sti = os.path.join(rot, fn)
                 if not os.path.isfile(sti) or fn.startswith('.'):
                     continue
-                url, verifisert_type, type_kilde_manifest, kildestatus = \
-                    man.get((mappe.upper(), fn), ('', '', '', ''))
+                url, verifisert_type, type_kilde_manifest, kildestatus, \
+                    manifest_termin = \
+                    man.get((mappe.upper(), fn), ('', '', '', '', ''))
                 ekte = ekte_filnavn(mappe, fn, url)
                 h = md5(sti)
                 # ⚠ DEDUPLISER PER EMNE, ikke globalt. TMA4240 og TMA4245 deler
@@ -687,6 +710,17 @@ def main():
                     sti_tekst = sti_tekst.rsplit('/', 1)[0]  # uten filnavnet selv
                     år, ses2 = finn_termin(sti_tekst)
                     ses = ses or ses2
+                # Tredje og siste kilde: terminen arkivsiden selv satte på
+                # lenka. NTNUs econ-arkiv skriver «<a …>V21</a>» til en fil som
+                # heter «1011.pdf» — 607 av 948 filer sto uten termin fordi
+                # navnet ikke bar den. Den står sist fordi lenketeksten er
+                # institusjonens ORDNING av filene, mens filnavnet er
+                # dokumentet selv: SØK1011_V23_EXAM_RESIT.pdf er lenket opp
+                # under «H23». Begge er sanne; det mest spesifikke vinner.
+                if not år and manifest_termin:
+                    m_t = re.match(r'^(\d{4})([VHK])$', manifest_termin)
+                    if m_t and ÅR_MIN <= int(m_t.group(1)) <= ÅR_MAX:
+                        år, ses = int(m_t.group(1)), m_t.group(2)
                 rader.append({
                     'mappe': mappe,
                     'undermappe': undermappe,

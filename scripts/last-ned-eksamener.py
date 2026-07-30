@@ -50,9 +50,18 @@ from datetime import date
 
 DATO = date.today().isoformat()
 ROT = os.path.expanduser('~/Desktop/Eksamner')
-MÅL = os.path.join(ROT, '_nedlastet-' + DATO)
-KATALOG = os.path.join(os.path.dirname(__file__), '..',
-                       'docs/hoyskole-boker/eksamensjakt-2026-07-30.json')
+# MAAL/KILDER/MANIFEST er ettermontert 31. juli 2026, da arkivrunden fortsatte
+# inn i et arkiv som alt lå der. Uten dem ville hver ny henterunde laget en ny
+# datomappe som sorter-arkiv.py (fast ROT) ikke ser — og hvert emne måtte inn i
+# eksamensjakt-katalogen først, selv om lista kom fra en indeksside vi nettopp
+# krøp. Standardverdiene er som før.
+MÅL = os.environ.get('MAAL') or os.path.join(ROT, '_nedlastet-' + DATO)
+KATALOG = os.environ.get('KILDER') or os.path.join(
+    os.path.dirname(__file__), '..',
+    'docs/hoyskole-boker/eksamensjakt-2026-07-30.json')
+# Eget manifest per runde. Blandes rundene i én fil, kan ikke sorter-arkiv.py
+# vite hvilke rader som er innholdsverifiserte og hvilke som bare er gjettet.
+MANIFESTNAVN = os.environ.get('MANIFEST') or 'MANIFEST.csv'
 UA = 'Skolesaga-arkivhenter/1.0 (laerebok-prosjekt; kontakt: studenthjelp@gmail.com)'
 PAUSE = 1.2          # sekunder mellom forespørsler
 # ASCII-navn er primært: `TØRR=1` med norsk tegn settes IKKE av zsh/bash, og
@@ -193,6 +202,15 @@ def trygt_navn(url):
 
 
 def emner():
+    # En CSV-kildeliste (kode,arkiv_url[,institutt]) er den korte veien fra en
+    # indeksside vi nettopp krøp til en henterunde. Formatet er med vilje det
+    # samme som manifestets tre første begreper, så lista kan leses av et
+    # menneske som lurer på hvor filene kom fra.
+    if KATALOG.lower().endswith('.csv'):
+        with open(KATALOG, encoding='utf-8') as fh:
+            return [{'kode': r['kode'], 'arkiv_url': r['arkiv_url'],
+                     'institutt': r.get('institutt', ''), '_gruppe': 'csv'}
+                    for r in csv.DictReader(fh) if r.get('arkiv_url')]
     d = json.load(open(KATALOG, encoding='utf-8'))
     ut = []
     for gruppe, v in d['kilder'].items():
@@ -211,13 +229,19 @@ def main():
                  + ', '.join(sorted(e['kode'] for e in emner())))
 
     os.makedirs(MÅL, exist_ok=True)
-    manifest = os.path.join(MÅL, 'MANIFEST.csv')
+    manifest = os.path.join(MÅL, MANIFESTNAVN)
     ny_fil = not os.path.exists(manifest)
     mf = open(manifest, 'a', newline='', encoding='utf-8')
     w = csv.writer(mf)
     if ny_fil:
+        # `type` står tom her med vilje. Skriptet vet bare om lenken pekte på et
+        # dokument eller en HTML-side — ikke om dokumentet er en oppgave, en
+        # sensorveiledning eller et løsningsforslag. Den avgjørelsen tar
+        # klassifiser-arkiv.py på PDF-teksten etterpå; en gjettet verdi her
+        # ville sett like troverdig ut som en verifisert.
         w.writerow(['emnekode', 'larested', 'filnavn', 'type', 'bytes',
-                    'kilde_url', 'arkiv_url', 'hentet'])
+                    'kilde_url', 'arkiv_url', 'hentet', 'type_kilde',
+                    'kildestatus'])
 
     print('Mål: %s' % MÅL)
     print('%d emner%s\n' % (len(liste), '  (TØRRKJØRING)' if TØRR else ''))
@@ -290,8 +314,8 @@ def main():
                       'publisert)' % navn)
                 continue
             open(sti, 'wb').write(data)
-            w.writerow([kode, e.get('institutt', ''), navn, t, len(data),
-                        u, e.get('arkiv_url', ''), DATO])
+            w.writerow([kode, e.get('institutt', ''), navn, '', len(data),
+                        u, e.get('arkiv_url', ''), DATO, '', ''])
             tot_fil += 1; tot_byte += len(data)
             time.sleep(PAUSE)
         mf.flush()
