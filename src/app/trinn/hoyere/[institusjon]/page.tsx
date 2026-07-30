@@ -96,11 +96,17 @@ function SubjectCard({ courseId, name, icon, color, image }: {
       <Link href={`/${courseId}`} className="block">
         <div className={`relative overflow-hidden rounded-2xl ${image ? '' : `bg-gradient-to-br ${color}`} h-48 transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-2xl group-hover:shadow-black/20`}>
           {image && (
-            /* eslint-disable-next-line @next/next/no-img-element */
-            <img
+            /* next/image framfor <img>: bildet er 2400 px for å være skarpt som
+               hero på fagsiden, men kortet er ~430 px bredt. Med <img> lastet
+               kortrutenettet full oppløsning — ni kort à 100 kB. Supabase
+               Storage ligger i `remotePatterns`, så Next lager mindre varianter
+               selv og `sizes` velger riktig. Én fil dekker begge bruk. */
+            <Image
               src={mediaUrl(image)}
               alt={name}
-              className="absolute inset-0 w-full h-full object-cover"
+              fill
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              className="object-cover"
             />
           )}
 

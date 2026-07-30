@@ -11,6 +11,7 @@ export const COURSE_ECON1310: TextbookCourse = {
   description: 'Eksamensrettet lærebok for ECON1310 ved UiO — kalibrert mot eksamenssettene 2015–2025: Keynes-modellen på tilvekstform, Phillips-kurven, IS-RR-PK og finanspolitikk.',
   curriculum: 'LK20',
   icon: '📈',
+  coverImage: '/images/subjects/econ1310.webp',
   sectionNames: {
     '0': 'Eksamenskartet',
     '1': 'Kortsvarfundamentet',
@@ -412,6 +413,7 @@ export const COURSE_JUS1111: TextbookCourse = {
   description: 'Eksamensrettet lærebok for JUS1111 ved UiO — kalibrert mot 30 eksamensgjennomføringer og 32 sensorveiledninger (2011–2025): praktikumsmetode, avtalerett, kjøpsrett, forbrukerkjøp og erstatningsrett.',
   curriculum: 'LK20',
   icon: '⚖️',
+  coverImage: '/images/subjects/jus1111.webp',
   sectionNames: {
     '0': 'Eksamenskart og metode',
     '1': 'Avtalerett: inngåelse og binding',
@@ -891,6 +893,7 @@ export const COURSE_STV1100: TextbookCourse = {
   description: 'Eksamensrettet lærebok for STV1100 Politisk teori (UiO): frihet (Berlin/Pettit), rettferdighet og den sosiale kontrakten (Rawls/Locke/Platon/Nussbaum/Walzer), autoritet/makt/moral (Machiavelli/Mill/Dworkin/Waldron) — bygget rundt redegjørelses- og sitattolkningshåndverket sensor faktisk belønner.',
   curriculum: 'LK20',
   icon: '🏛️',
+  coverImage: '/images/subjects/stv1100.webp',
   sectionNames: {
     '0': 'Eksamenskart, redegjørelse og sitattolkning',
     '1': 'Frihet — Berlin, Pettit og republikanismen',
@@ -1172,6 +1175,7 @@ export const COURSE_EXPHIL03: TextbookCourse = {
   description: 'Eksamensrettet lærebok for EXPHIL03 (UiO): Vite (Descartes, Sokrates, Wikforss, Kant, vitenskapsfilosofi), Være (Platon, Aristoteles, sinn/kropp, Haslanger) og Gjøre (dydsetikk, Kant, Mill, anvendt etikk) — bygget rundt drøftingshåndverket og sitattolkningen sensor faktisk belønner.',
   curriculum: 'LK20',
   icon: '🦉',
+  coverImage: '/images/subjects/exphil03.webp',
   sectionNames: {
     '0': 'Eksamenskart og drøftingshåndverk',
     '1': 'Vite — kunnskap og vitenskap',
@@ -1562,6 +1566,7 @@ export const COURSE_PSY1010: TextbookCourse = {
   description: 'Eksamensrettet lærebok for PSY1010 Innføring i metode (UiO): forskningsprosess og måling, design og validitet, deskriptiv statistikk og slutningslogikk, hypotesetesting, korrelasjon og regresjon, kvalitativ metode og forskningsetikk — bygget som drøftingsbok med innebygd tallforståelse rundt «besvar 3 av 4»-formatet og de reelle oppgavemønstrene sensor faktisk belønner.',
   curriculum: 'LK20',
   icon: '🧠',
+  coverImage: '/images/subjects/psy1010.webp',
   sectionNames: {
     '0': 'Eksamenskart og besvarelseshåndverk',
     '1': 'Forskningsprosessen, måling og utvalg',
@@ -2033,6 +2038,7 @@ export const COURSE_ECON1210: TextbookCourse = {
   description: 'Eksamensrettet lærebok for ECON1210 Mikroøkonomi 1 (UiO): markedslikevekt, elastisitet og kurveskift, velferd og overskudd, skatt/subsidie med delingsformelen, eksternaliteter og karbonprising, monopol og markedsmakt, arbeidsmarked og handel — bygget rundt figur-i-ord-håndverket og firetrinnsmetoden sensor faktisk belønner på den faste tredelte eksamen.',
   curriculum: 'LK20',
   icon: '📈',
+  coverImage: '/images/subjects/econ1210.webp',
   sectionNames: {
     '0': 'Eksamenskart',
     '1': 'Markedet: etterspørsel, tilbud og likevekt',
@@ -2501,6 +2507,7 @@ export const COURSE_MAT1100: TextbookCourse = {
   description: 'Eksamensrettet lærebok for MAT1100 Kalkulus (UiO): komplekse tall og de Moivre, grenser og ε-δ, følger og kontinuitet, derivasjon med signaturoppgaven om kontinuitet/deriverbarhet i ett punkt, integrasjonsteknikk og uegentlige integraler, omdreiningsvolum, lineær algebra med overgangsmatriser, gradient og retningsderivert, Jacobimatrise, Taylor, rekker og differensialligninger — bygget for de to komplementære eksamensformene (flervalg midtveis + begrunnet langsvar til slutteksamen), med føringsstandarden sensor faktisk belønner.',
   curriculum: 'LK20',
   icon: '∫',
+  coverImage: '/images/subjects/mat1100.webp',
   sectionNames: {
     '0': 'Eksamenskartet',
     '1': 'Komplekse tall',
@@ -2979,6 +2986,7 @@ export const COURSE_TMA4245: TextbookCourse = {
   description: 'Eksamensrettet lærebok for TMA4245 Statistikk (NTNU, felles pensum med TMA4240): sannsynlighetsregning, stokastiske variable og fordelinger, normalfordelingen og grenseteoremer, transformasjoner og ordningsvariable, punktestimering og maximum likelihood, konfidensintervall, hypotesetesting med styrke og dimensjonering, enkel lineær regresjon, og simulering/Monte Carlo i Python — bygget rundt den store kjedeoppgaven (modell → ML → egenskaper → pivotal-KI → test → styrke) og eksponensialens kjikvadrat-apparat som sensor faktisk belønner.',
   curriculum: 'LK20',
   icon: '📊',
+  coverImage: '/images/subjects/tma4245.webp',
   sectionNames: {
     '0': 'Eksamenskart',
     '1': 'Sannsynlighetsregningens grunnlag',
@@ -3483,6 +3491,7 @@ export const COURSE_MAT1110: TextbookCourse = {
   description: 'Eksamensrettet lærebok for MAT1110 Kalkulus og lineær algebra (UiO): Gauss-eliminasjon, basis/rang og invers matrise, Jacobi-matrisen med omvendt/implisitt funksjonsteorem, optimering med Hesse og Lagrange, multiple integraler i polar/sylinder/kulekoordinater, vektoranalyse med Green, Gauss\' divergensteorem og Stokes, samt beredskap i egenverdier og potensrekker — bygget rundt regimeskiftet 2025 og føringsstandarden sensor faktisk belønner på de to prøvene (midtsemester uten hjelpemidler + avsluttende langsvar).',
   curriculum: 'LK20',
   icon: '📐',
+  coverImage: '/images/subjects/mat1110.webp',
   sectionNames: {
     '0': 'Eksamenskartet',
     '1': 'Lineær algebra og radreduksjon',
@@ -3938,6 +3947,7 @@ export const COURSE_STK1110: TextbookCourse = {
   description: 'Eksamensrettet lærebok for STK1110 Statistiske metoder og dataanalyse (UiO): estimeringsteori (moment/ML med den faste kjeden L→ℓ→score→løs→bekreft maks, forventningsretthet, varians, Fisher-informasjon → Wald-KI → Cramér–Rao, litt Bayes), hypotesetesting og konfidensintervall (det komplette test-ritualet med t-test som arbeidshest, ett-/to-utvalg/parvis/andeler, styrke, dualitet, ANOVA og ikke-parametrisk alternativ) og lineær regresjon (enkel og multippel, minste kvadrater/matriseform, R²/justert R², residualdiagnostikk, prediksjon og tolkning av R-utskrift) — bygget som målrettet drill mot de tre likevektede søylene den kjededelte tredelte eksamen faktisk tester, uten kode.',
   curriculum: 'LK20',
   icon: '📊',
+  coverImage: '/images/subjects/stk1110.webp',
   sectionNames: {
     '0': 'Eksamenskart og STK1100-broen',
     '1': 'Estimeringsteori',
@@ -4262,6 +4272,7 @@ export const COURSE_STK1100: TextbookCourse = {
   description: 'Eksamensrettet lærebok for STK1100 (Universitetet i Oslo): sannsynlighet og betingning, kontinuerlige fordelinger og gamma/kjikvadrat-apparatet, simultanfordelinger og uavhengighet, transformasjoner (CDF/Jacobi/MGF), punktestimering med maximum likelihood, eksakt pivotal- og CLT-konfidensintervall, simulering og bootstrap i Python, samt binormal og enkel lineær regresjon — bygget rundt STK1100s ryggrad-kjede (fordeling → estimator → forventningsretthet/varians → transformasjon til gamma/χ² → eksakt pivotal-KI → bootstrap-SE) som sensor faktisk belønner. Uten hypotesetesting, kombinatorikk og ordningsvariable, som ligger i STK1110.',
   curriculum: 'LK20',
   icon: '📈',
+  coverImage: '/images/subjects/stk1100.webp',
   sectionNames: {
     '0': 'Eksamenskart',
     '1': 'Sannsynlighet, betingning og diskrete modeller',
@@ -4666,6 +4677,7 @@ export const COURSE_MAT1120: TextbookCourse = {
   description: 'Eksamensrettet lærebok for MAT1120 Lineær algebra (UiO): fundamentale underrom fra RREF, abstrakte vektorrom og [T]_B (signaturoppgaven), egenverdier og diagonalisering, indreprodukt og Gram–Schmidt, ortogonal projeksjon og minste kvadrater, spektralteorem og kvadratiske former, SVD og bevis — bygget rundt vedleggslesing og den fullt begrunnede føringen sensor faktisk belønner på den stabile 4-timers eksamenen med 10 deloppgaver à 10 p.',
   curriculum: 'LK20',
   icon: '🧮',
+  coverImage: '/images/subjects/mat1120.webp',
   sectionNames: {
     '0': 'Eksamenskartet og vedlegget',
     '1': 'Fundamentale underrom fra RREF',
@@ -5125,6 +5137,7 @@ export const COURSE_MAT111_UIB: TextbookCourse = {
   description: 'Eksamensrettet lærebok for MAT111 Grunnkurs i matematikk I (UiB): komplekse tall og de Moivre, grenser og ε-δ, kontinuitet og deriverbarhet i punkt, eksistens/entydighet/Newton, Taylor med restledd, integrasjonsteknikk, uegentlige integraler, omdreiningsvolum, numerisk integrasjon, differensiallikninger og uendelige rekker — bygget rundt åpen bok-føringsstandarden sensor faktisk belønner på den ene 5-timers skoleeksamen.',
   curriculum: 'LK20',
   icon: '📐',
+  coverImage: '/images/subjects/mat111-uib.webp',
   sectionNames: {
     '0': 'Eksamenskartet',
     '1': 'Komplekse tall',
@@ -5595,6 +5608,7 @@ export const COURSE_TMA4110: TextbookCourse = {
   description: 'Den klassiske «Matematikk 3»-boka for NTNU-ingeniører: lineær algebra, elementære komplekse tall og differensiallikninger samlet i ett eksamensrettet løp. Kalibrert mot ~55 eksamenssett (2004–2025) med offisielle løsningsforslag og trent mot kode E — ingen hjelpemidler.',
   curriculum: 'LK20',
   icon: '🧮',
+  coverImage: '/images/subjects/tma4110.webp',
   sectionNames: {
     '0': 'Eksamenskartet, føringsstandarden og kode E',
     '1': 'Lineære likningssystem og Gauss-eliminasjon',
@@ -6187,6 +6201,7 @@ export const COURSE_FYS1001: TextbookCourse = {
   description: 'Eksamensrettet innføringsbok i fysikk for UiO: mekanikk, energi og støt, fluidmekanikk, termofysikk, elektrisitet og magnetisme, bølger og optikk, atom- og kjernefysikk. Kalibrert mot 49 eksamenssett med løsningsforslag (2003–2024) og trent mot eksamensformen: 4 timer, ~20–24 deloppgaver à 4 poeng, utdelt formelark og tabellverk.',
   curriculum: 'LK20',
   icon: '⚛️',
+  coverImage: '/images/subjects/fys1001.webp',
   sectionNames: {
     '0': 'Eksamenskart',
     '1': 'Mekanikk I: bevegelse, krefter og likevekt',
@@ -6664,6 +6679,7 @@ export const COURSE_ECON2220: TextbookCourse = {
   description: 'Eksamensrettet lærebok for ECON2220 Mikroøkonomi 2 (UiO): Lagrange-håndverket, konsumentens optimering med Cobb-Douglas og Slutsky, beholdningsøkonomi og intertemporale valg, bytteøkonomi med Edgeworth-boks og velferdsteoremene, produsentteori fra kostnadsminimering til nullprofitt, MTB = MSB med eksternaliteter og en beredskapsdel i spillteori — kalibrert mot den faste tre-oppgavers-malen og sensorkravet om utledning OG tolkning i økonomiske enheter.',
   curriculum: 'LK20',
   icon: '⚖️',
+  coverImage: '/images/subjects/econ2220.webp',
   sectionNames: {
     '0': 'Eksamenskart',
     '1': 'Grunnmuren: fra ECON1210 til Lagrange',
@@ -7135,6 +7151,7 @@ export const COURSE_ECON2310: TextbookCourse = {
   description: 'Eksamensrettet lærebok for ECON2310 Makroøkonomi 2 (UiO), oppfølgeren til ECON1310: Solow-modellen med golden rule og fattigdomsfeller, åpen IS-RR-PK med flytende kurs og endogene priser, udekket renteparitet, hovedkursmodellen og kontrasten tilbudsdrevet vs. etterspørselsdrevet produksjon — bygget rundt håndverket eksamen faktisk belønner: forklare relasjonene, tegne figurene, åpne panseret og flagge det som ikke kan signeres.',
   curriculum: 'LK20',
   icon: '🌍',
+  coverImage: '/images/subjects/econ2310.webp',
   sectionNames: {
     '0': 'Eksamenskart',
     '1': 'Vekst: Solow-modellen',
@@ -7537,6 +7554,7 @@ export const COURSE_IN1900: TextbookCourse = {
   description: 'Eksamensrettet lærebok for IN1900 (UiO): Python-grunnlaget og kodesporing, feilhåndtering, rekker med testfunksjon, NumPy og plotting, klasser med spesialmetoder, differenslikninger, ODE-løsere og det utleverte ODESolver-hierarkiet, og fillesing til nøstede dictionaries — bygget rundt de fem kodemønstrene som går igjen i hvert nyere eksamenssett, med all kode kjørt og utskriften gjengitt slik terminalen faktisk skriver den.',
   curriculum: 'LK20',
   icon: '🐍',
+  coverImage: '/images/subjects/in1900.webp',
   sectionNames: {
     '0': 'Eksamenskart',
     '1': 'Python-grunnlaget og kodesporing',
@@ -8030,6 +8048,7 @@ export const COURSE_ECON1100: TextbookCourse = {
   description: 'Eksamensrettet lærebok for ECON1100 Matematikk I for økonomer (UiO): partiellderivasjon og logaritmisk derivasjon, elastisitet, differensial og lineær approksimasjon, endimensjonal funksjonsdrøfting med hjørneløsninger, nivåkurver og implisitt derivasjon, fri optimering med Hesse-determinanten, homogenitet og Eulers relasjon, Lagrange med omhyllingsteoremet, produsentteori med Cobb-Douglas og CES — bygget mot den faste 5-oppgavers dramaturgien der Oppgave 1 alltid er partiellderivasjon og Oppgave 2 alltid er «sant eller usant? begrunn», og der begrunnelsen er hele poenget.',
   curriculum: 'LK20',
   icon: '∂',
+  coverImage: '/images/subjects/econ1100.webp',
   sectionNames: {
     '0': 'Eksamenskart',
     '1': 'Derivasjon og partiellderivasjon',
@@ -8568,6 +8587,7 @@ export const COURSE_IN1020: TextbookCourse = {
   description: 'Eksamensrettet lærebok for IN1020 (UiO): tallsystemer og to-er komplement, LMC-assembly og maskinkode, logiske porter og kretsanalyse, arkitektur og cache, datasikkerhet med mål/tiltak og nøkkelretning, og datanettverk med subnetting og overføringstid — bygd for eksamensformen faget faktisk har: fire seksjoner à 25 poeng som hver må bestås, utelukkende flervalg med negativ poenggiving, der hvert løsningsforslag begrunner både hvorfor det riktige er riktig og hvorfor hvert gale alternativ er galt.',
   curriculum: 'LK20',
   icon: '🖥️',
+  coverImage: '/images/subjects/in1020.webp',
   sectionNames: {
     '0': 'Eksamenskart',
     '1': 'Digital representasjon og assemblerkode',
@@ -8976,6 +8996,7 @@ export const COURSE_IN1000: TextbookCourse = {
   description: 'Eksamensrettet lærebok for IN1000 (UiO): Python-grunnlaget med variabler, betingelser og løkker, funksjoner og scope, lister, ordbøker og strenger, kodesporing, klasser og referansesemantikk, den store klassemodelleringen som alene er nesten halve eksamen, filinnlesing og nøstede strukturer — bygget rundt den faste 5-oppgave-strukturen som gjentas nesten identisk hvert år, med all kode kjørt og utskriften gjengitt slik terminalen faktisk skriver den.',
   curriculum: 'LK20',
   icon: '🧩',
+  coverImage: '/images/subjects/in1000.webp',
   sectionNames: {
     '0': 'Eksamenskart',
     '1': 'Python-grunnlaget: variabler, betingelser og løkker',
@@ -9403,6 +9424,7 @@ export const COURSE_FIL1001: TextbookCourse = {
   description: 'Eksamensrettet lærebok for FIL1001 (UiO): metafysikkens fem søyler — Aristoteles\' substans og universaliestriden, gudsbevis og det ondes problem, Newton mot Leibniz om rommet, McTaggarts tid og Theseus\' skip, Hume mot Lewis om kausalitet, modalitet og fri vilje — og bevissthetsfilosofiens fem: Descartes\' og Kripkes dualisme, identitetsteorien og Kims minimale fysikalisme, mental kausalitet og eksklusjonsargumentet, funksjonalisme mot behaviorisme med kinesisk rom og Chinese Nation, og qualia-komplekset med Mary, flaggermusen og zombiene — bygget mot fireoppgavers-essayeksamenen der hver enkelt oppgave må bestås for seg, slik at temabredde slår spisskompetanse.',
   curriculum: 'LK20',
   icon: '🧠',
+  coverImage: '/images/subjects/fil1001.webp',
   sectionNames: {
     '0': 'Eksamenskart og essayhåndverk',
     '1': 'Metafysikk I: Væren — substans, universalier og Gud',
@@ -9829,6 +9851,7 @@ export const COURSE_FYS1100: TextbookCourse = {
   description: 'Eksamensrettet lærebok for FYS1100 (UiO): modelleringsverktøyene dimensjonsanalyse, Taylor-linearisering og Fermi-estimering, kinematikk og skrått kast, Newtons lover med frilegemediagram og kraftmodeller, sirkelbevegelse, arbeid/energi/bevegelsesmengde med bevaringsbegrunnelser, rotasjon og stive legemer, differensiallikninger og svingninger, numerisk modellering i Python med Euler–Cromer, gravitasjon og spesiell relativitet — bygd for eksamensformen faget faktisk har: fire timers skoleeksamen med Rottmann, kalkulator og utdelt formelark, fire–sju flertrinnsoppgaver à 0–5 poeng per deloppgave der alle deloppgaver teller likt, og der alle svar må begrunnes, frilegemediagrammet gir poeng i seg selv og hver differensiallikning ender i en håndskrevet integrasjonsløkke.',
   curriculum: 'LK20',
   icon: '🪐',
+  coverImage: '/images/subjects/fys1100.webp',
   sectionNames: {
     '0': 'Eksamenskart',
     '1': 'Modelleringsverktøy: dimensjonsanalyse, Taylor og Fermi',
@@ -10322,6 +10345,7 @@ export const COURSE_SOSANT1000: TextbookCourse = {
   description: 'Eksamensrettet lærebok for SOSANT1000 (UiO): fagets kjernelogikk og feltarbeidet, Mauss\' gaveteori med kula, potlatch og de tre pliktene, slektskap fra avstamning og allianse til relatedness og kinning, overgangsritualene til van Gennep og Turner med liminalitet og communitas, Eriksens åtte globaliseringsnøkkelord, natur/kultur-dikotomien og sacrifice zones, politisk antropologi med dispossession og strukturell vold, og årets monografi som tverrgående eksempellager — bygget mot den todelte skoleeksamenen der begge deler må bestås, og kalibrert mot elleve eksamenssett og ti sensorveiledninger, slik at etnografisk forankring og tre koblede pensumtekster er det du trener.',
   curriculum: 'LK20',
   icon: '🌍',
+  coverImage: '/images/subjects/sosant1000.webp',
   sectionNames: {
     '0': 'Eksamenskart, kortsvar og langsvar',
     '1': 'Fagets kjernelogikk og feltarbeid',
@@ -10761,6 +10785,7 @@ export const COURSE_LING1100: TextbookCourse = {
   description: 'Eksamensrettet lærebok for LING1100 (UiO): semantikkens formelle kjerne — setning/ytring/proposisjon, teorier om mening og Freges sense mot reference, meningsrelasjonene og antonymi i fem typer, sannhetstabeller og sannhetsbetingelser, entailment mot presupposisjon mot implikatur med negasjons- og kansellerbarhetstesten, predikatlogikk med kvantorer, scope og modellteoretisk evaluering mot en gitt tolkningsfunksjon, situasjonstyper og Vendler/Dowty-klassene, tematiske roller med agens mot actor og Dowtys proto-roller, kompositsjonalitet og Jackendoffs konseptuelle tre-diagram — og pragmatikkens redegjørende kjerne: Grices samarbeidsprinsipp og de fire maksimene, Huangs sju implikatur-egenskaper og Horns Q- og R-prinsipp, Austins tredeling og Searles fem talehandlingstyper, deiksis med Kaplans character mot content, modalitet, høflighet og relevansteori — bygd for eksamensformen faget faktisk har: fire timers skoleeksamen uten hjelpemidler der rundt 55–60 prosent av oppgavene har objektivt riktig fasit som ikke tåler slark, resten krever presise begreper og egne eksempler, og det nyeste settet er organisert i fem temablokker med valg av to av tre spørsmål, gitt på engelsk med egen symbolliste.',
   curriculum: 'LK20',
   icon: '💬',
+  coverImage: '/images/subjects/ling1100.webp',
   sectionNames: {
     '0': 'Eksamenskart og det doble håndverket',
     '1': 'Semantikk: mening, referanse og de tre nivåene',
@@ -11362,6 +11387,7 @@ export const COURSE_TDT4110: TextbookCourse = {
   description: 'Eksamensrettet lærebok for TDT4110 Informasjonsteknologi grunnkurs (NTNU): Python fra variabler, betingelser og løkker via funksjoner, lister, 2D-lister, ordbøker, tupler og strenger til filbehandling og robust feilhåndtering, kodesporing og rekursjon, binærsøk, sortering og kompleksitet, den fullstendige programmeringskjeden fra innlesing til utskrift, og IT-teoridelen om maskinvare, tallrepresentasjon, nettverk, sikkerhet, komprimering og systemutvikling — bygd for eksamensformen faget faktisk har: én fire timers skriftlig skoleeksamen som teller alt, hjelpemiddelkode D med bare enkel kalkulator, og et sett som har vært fast tredelt hvert år siden 2014 med teori og flervalg på rundt en firedel, kodeforståelse på 15–20 prosent og én til to programmeringsoppgaver som bygger en liten applikasjon på drøyt halvparten av poengene. Dekker også søsterkoden TDT4109 med identisk innhold.',
   curriculum: 'LK20',
   icon: '🐍',
+  coverImage: '/images/subjects/tdt4110.webp',
   sectionNames: {
     '0': 'Eksamenskart',
     '1': 'Python-grunnlaget: variabler, betingelser og løkker',
@@ -11895,6 +11921,7 @@ export const COURSE_MED1100: TextbookCourse = {
   description: 'Eksamensrettet lærebok for MED1100 Medisinstudiet modul 1 (UiO): humanbiologi og oversiktsfysiologi, atferdsfagenes modeller og kommunikasjon, samfunnsmedisin og epidemiologi og medisinsk statistikk med regning i blokk 1; histologi og vevstolkning, metabolisme og biokjemi, molekylærbiologi og genetikk, cellesignalering, cellesyklus og celledød, membran, proteinsortering og embryologi i blokk 2; immunologi, mikrobiologi, blod og hematologi og thoraksanatomi med latinsk nomenklatur i blokk 3 — bygd for vurderingsformen faget faktisk har: modulen avsluttes ikke med én samlet eksamen, men med tre separate blokkeksamener som alle må bestås, med helt forskjellig format og svarlogikk. Blokk 1 er digital på rundt fem timer med kalkulator, statistiske tabeller og utdelt formelsamling, blokk 2 er seks timer skriftlig med 9–12 hovedoppgaver merket A–I med oppgitte vekttall, og blokk 3 krever presis latinsk nomenklatur.',
   curriculum: 'LK20',
   icon: '🩺',
+  coverImage: '/images/subjects/med1100.webp',
   sectionNames: {
     '0': 'Eksamenskart: tre blokker, tre eksamener',
     '1': 'Humanbiologi: celle, kropp og oversiktsfysiologi',
@@ -12615,6 +12642,7 @@ export const COURSE_IN2010: TextbookCourse = {
   description: 'Eksamensrettet lærebok for IN2010 Algoritmer og datastrukturer (UiO): asymptotisk analyse og kjøretidsfakta, sorteringsalgoritmer og stabilitet, hashing med linear probing og søk, søketrær, AVL-balansering og heap, grafrepresentasjon, traversering og komponenter, korteste vei med Dijkstra og BFS, minimale spenntrær, grådige algoritmer og Huffman-koding, datastruktur-design og NP-teori — bygd for eksamensformen faget faktisk har: fire timers hjelpemiddelfri digital eksamen i Inspera, med håndkjøring av algoritmer steg for steg som en egen ferdighet ved siden av pseudokodeskriving. Boka bruker UiOs egen pseudokodekonvensjon med Procedure-hoder og array-indeksering fra 0, ikke CLRS-notasjonen som brukes ved NTNU.',
   curriculum: 'LK20',
   icon: '🌳',
+  coverImage: '/images/subjects/in2010.webp',
   sectionNames: {
     '0': 'Eksamenskart',
     '1': 'Asymptotisk analyse og kjøretidsfakta',
@@ -13097,6 +13125,7 @@ export const COURSE_TMA4135: TextbookCourse = {
   description: 'Eksamensrettet lærebok for TMA4135 Matematikk 4D (NTNU): komplekse tall og funksjoner som forutsetning, Laplace-transform med konvolusjon og deltafunksjon, Fourier-rekker og halvintervallutvidelser, Fourier-transform og diskret Fourier-transform, partielle differensiallikninger løst med separasjon av variable og d\'Alembert, numerisk interpolasjon, integrasjon og rotsøking, numeriske metoder for ordinære differensiallikninger med Runge–Kutta og Butcher-tabeller, og differansemetoder for partielle differensiallikninger og randverdiproblemer — bygd for eksamensformen faget faktisk har: fire timers skriftlig skoleeksamen 4. januar 2027, hjelpemiddelkode C med formelark og enkel kalkulator. Fordi formelarket alltid er tilgjengelig, driller boka metodevalg og føring framfor pugging, og har et eget verksted for å bygge ditt eget A5-ark. NB: NTNU tilbyr samtidig TMA4432 Matematikk 4C med kode D uten hjelpemidler — sjekk emnekoden din før du bruker denne boka.',
   curriculum: 'LK20',
   icon: '∫',
+  coverImage: '/images/subjects/tma4135.webp',
   sectionNames: {
     '0': 'Eksamenskart og formelark-strategi',
     '1': 'Komplekse tall og funksjoner',
@@ -13568,6 +13597,7 @@ export const COURSE_MA1301: TextbookCourse = {
   description: 'Eksamensrettet lærebok for MA1301 Tallteori (NTNU): delelighet, Euklids algoritme og diofantiske likninger, kongruenser og de fire store teoremene, RSA og offentlig-nøkkel-kryptografi, kvadratiske rester og resiprositetsloven, orden, primitive røtter og tallteoretiske funksjoner, bevisføring med induksjon, og spesialtemaene kjedebrøk, Pells likning og pytagoreiske tripler — bygd for eksamensformen faget faktisk har: fire timers skriftlig skoleeksamen 24. november 2026, hjelpemiddelkode D med bare en bestemt enkel kalkulator. Ingen bok, ingen formelsamling, ingen tabeller og ingen egne notater. Derfor skiller boka skarpt mellom det som må sitte utenat og det som kan utledes på stedet — og skriver utledningen ut hver gang den påstår at noe kan utledes. Oppgavesettet for høsten 2024 var felles med MA6301.',
   curriculum: 'LK20',
   icon: '🔢',
+  coverImage: '/images/subjects/ma1301.webp',
   sectionNames: {
     '0': 'Eksamenskartet',
     '1': 'Delelighet, Euklids algoritme og diofantiske likninger',

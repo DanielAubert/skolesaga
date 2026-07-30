@@ -21,16 +21,18 @@ mkdir -p "$MASTER" "$UT"
 [ -f "$PROMPTER" ] || { echo "Fant ikke $PROMPTER"; exit 1; }
 
 VALGT="${1:-}"
-mapfile -t SLUGS < <(python3 -c "
-import json,sys
+# NB: `mapfile` finnes ikke i macOS' bash 3.2. Bruk en enkel ordliste i stedet —
+# slugene er ASCII uten mellomrom, så ordsplitting er trygt her.
+SLUGS=$(python3 -c "
+import json
 d=json.load(open('$PROMPTER',encoding='utf-8'))
 valgt='$VALGT'
 for b in d['bilder']:
     if not valgt or b['slug']==valgt: print(b['slug'])
 ")
 
-echo "${#SLUGS[@]} fag i kø"
-for slug in "${SLUGS[@]}"; do
+echo "$(echo "$SLUGS" | wc -w | tr -d ' ') fag i kø"
+for slug in $SLUGS; do
   if [ -f "$UT/$slug.webp" ] && [ -z "${FORCE:-}" ]; then
     echo "  $slug — finnes, hoppet over"
     continue

@@ -7339,6 +7339,7 @@ export const COURSE_BI_OKONOMI: TextbookCourse = {
   description: 'Matematikk for økonomi- og finansstudenter på BI',
   curriculum: 'LK20',
   icon: '💰',
+  coverImage: '/images/subjects/bi-okonomi.webp',
   chapters: [
     // Seksjon 1: Algebra
     {
