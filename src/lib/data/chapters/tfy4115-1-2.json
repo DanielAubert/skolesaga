@@ -1,0 +1,390 @@
+{
+  "id": "tfy4115-1-2",
+  "courseId": "tfy4115",
+  "chapterNumber": "1.2",
+  "title": "Krumning og normalkraft — $1/\\rho=|y''|$ i topp- og bunnpunkt",
+  "description": "Krumningsradiusen $\\rho=1/|y''|$ i et topp-/bunnpunkt og normalkraften den gir, pluss banevinkelen $\\tan\\beta=dy/dx$.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "finne krumningsradien til en oppgitt bane, både med den generelle formelen og med forenklingen som gjelder i topp- og bunnpunkt",
+    "sette opp Newtons 2. lov inn mot krumningssenteret og regne ut normalkraften med riktig fortegn i både toppunkt og bunnpunkt",
+    "finne farten der et legeme mister kontakten med underlaget, og forklare hvorfor massen faller ut av det svaret",
+    "kombinere energibevaring for et glidende legeme med krumningsregningen for å komme fra en oppgitt høyde til en kraft"
+  ],
+  "content": [
+    {
+      "id": "tfy4115-1-2-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Sjanger M11 — krumning og normalkraft, altså «her er en bane $y(x)$, finn normalkraften i toppen eller i bunnen» — dukker opp i rundt 6 av 10 sett (~60 %).** Den hører til **mekanikkhalvdelen, spørsmål 1–20**. Prioritet: **bør sitte**. Sjangeren er ikke blant de aller hyppigste, men den er høyfrekvent nok til å prioriteres, og den er billig: to oppslag og tre regnelinjer.\n\nSignaturen er alltid den samme. Du får en bane oppgitt som en funksjon $y(x)$ — en bakketopp, en dal, en rutsjebane — og skal finne kraften mellom legemet og underlaget i et topp- eller bunnpunkt. Noen ganger spør oppgaven i stedet ved hvilken fart legemet mister kontakten med underlaget, som er samme regning satt til null.\n\nNøkkelen som gjør sjangeren rask, er en forenkling: i et topp- eller bunnpunkt er $y' = 0$, og da kollapser den generelle krumningsformelen til $\\rho = 1/\\lvert y''\\rvert$. Den som setter inn hele uttrykket, taper et halvt minutt og risikerer en regnefeil."
+    },
+    {
+      "id": "tfy4115-1-2-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet bygger på [kap. 1.1](/tfy4115/tfy4115-1-1), der du deriverte og integrerte fartsfunksjoner. Nå deriverer vi i stedet en **banekurve** — samme regneteknikk, ny betydning. Fra matematikken trenger du [Repetisjon av derivasjon](/r2/r2-2-1) (både $y'$ og $y''$), og fra fysikken gir [Sirkelbevegelse og sentripetalkraft](/fysikk2/fysikk2-1-4) grunnlaget for at en krum bane krever en akselerasjon inn mot krumningssenteret.\n\n**De tre relasjonene du trenger ferdig oppfrisket:**\n\n$$a = \\frac{v^2}{\\rho}$$\nSentripetalakselerasjonen: et legeme som følger en krum bane med farten $v$ og krumningsradien $\\rho$, har en akselerasjon rettet **inn mot krumningssenteret** av denne størrelsen. Symbolet $\\rho$ er den greske bokstaven rho, og den betyr her en radius i meter (ikke en tetthet, som den betyr i andre sammenhenger).\n\n$$K = \\tfrac12 mv^2, \\qquad U = mgh$$\nKinetisk og potensiell energi for en punktmasse. Begge **står på det utdelte formelarket**. Vi bruker dem til å finne farten i et punkt når legemet har glidd ned en kjent høyde.\n\n$$g = 9{,}81\\,\\text{m/s}^2$$\nTyngdeakselerasjonen, som boka bruker gjennomgående.\n\n**Fra kap. 1.1** tar vi med selve arbeidsvanen: derivér, og hold orden på hva den deriverte betyr. Der var $dv/dt$ en akselerasjon; her er $dy/dx$ en **stigning**, og $d^2y/dx^2$ er et mål på hvor raskt stigningen endrer seg — altså på krumning.\n\n**Symbolmerknad.** I dette kapitlet betyr $\\rho$ **krumningsradius** i meter og $\\tau$ opptrer ikke. Symbolet $N$ er **normalkraften** i newton. Se symbol- og formellisten nederst.\n\n**Én avgrensning å være klar over.** Alle legemer i dette kapitlet **glir** langs underlaget uten friksjon; de ruller ikke. Et rullende legeme har en ekstra energibrøk bundet i rotasjonen, og da blir farten lavere ved samme høydefall. Det behandles i Del 2, og du skal ikke bruke rulling her."
+    },
+    {
+      "id": "tfy4115-1-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — banevinkel, krumning og krumningsradius (~14 min)\n\nKjør over en bratt bakketopp i litt for høy fart, og du kjenner det i magen: et øyeblikk er du nesten vektløs. Kjør ned i en dyp dal i samme fart, og du kjenner det motsatte — setet presser hardt oppover. Begge følelsene handler om samme størrelse: **normalkraften** mellom deg og setet. Og den avhenger av to ting du kan lese rett ut av banens ligning: hvor bratt banen er, og hvor krum den er.\n\nVi trenger derfor to størrelser fra funksjonen $y(x)$: den **første** deriverte, som gir brattheten, og den **andre**, som gir krumningen."
+    },
+    {
+      "id": "tfy4115-1-2-def-banekurve",
+      "type": "definition",
+      "title": "Banekurve",
+      "content": "Formen på veien et legeme følger, skrevet som en funksjon $y(x)$ der $x$ er den vannrette posisjonen og $y$ høyden. En banekurve er ikke det samme som en beskrivelse av bevegelsen i tid: $y(x)$ sier hvor banen går, ikke når legemet er hvor. I denne sjangeren er banen nesten alltid gitt som en parabel, for eksempel $y = h - ax^2$ for en bakketopp eller $y = bx^2$ for en dal, fordi parabelen har den behagelige egenskapen at den andrederiverte er konstant."
+    },
+    {
+      "id": "tfy4115-1-2-def-banevinkel",
+      "type": "definition",
+      "title": "Banevinkel",
+      "content": "Vinkelen $\\beta$ mellom banens tangent og vannrett i et gitt punkt. Den finnes direkte av den første deriverte:\n$$\\tan\\beta = \\frac{dy}{dx}.$$\nEt positivt $y'$ betyr at banen stiger, negativt at den faller, og størrelsen på $\\lvert y'\\rvert$ sier hvor bratt. I et topp- eller bunnpunkt er $y' = 0$ og dermed $\\beta = 0$ — banen er vannrett der. Banevinkelen er nyttig fordi tyngden må dekomponeres langs og normalt på banen: komponenten normalt på banen er $mg\\cos\\beta$, og det er den som konkurrerer med normalkraften."
+    },
+    {
+      "id": "tfy4115-1-2-def-andrederivert",
+      "type": "definition",
+      "title": "Den andrederiverte som mål på krumning",
+      "content": "Størrelsen $y'' = d^2y/dx^2$, altså den deriverte av stigningen. Den sier hvor raskt banen bøyer seg: en stor $\\lvert y''\\rvert$ betyr en skarp sving, en liten betyr en slak. Fortegnet forteller retningen — $y'' < 0$ er en kurve som bøyer nedover (en bakketopp), $y'' > 0$ en som bøyer oppover (en dal). For en parabel $y = h - ax^2$ er $y'' = -2a$, altså **konstant**: parabelen krummer like mye overalt målt på denne måten. Merk faktoren 2 — å glemme den er en av de vanligste feilene i sjangeren."
+    },
+    {
+      "id": "tfy4115-1-2-def-krumning",
+      "type": "definition",
+      "title": "Krumning",
+      "content": "Målet på hvor skarpt en kurve bøyer seg i et punkt, definert som den inverse av krumningsradien, $1/\\rho$. En rett linje har krumning null og uendelig krumningsradius; en skarp sving har stor krumning og liten radius. Generelt er\n$$\\frac{1}{\\rho} = \\frac{\\lvert y''\\rvert}{\\left(1 + y'^2\\right)^{3/2}}.$$\nLegg merke til at krumningen ikke er den samme som $\\lvert y''\\rvert$ alene: nevneren korrigerer for at kurven er skrå. Bare der banen er vannrett, altså $y' = 0$, faller nevneren bort og krumningen blir rett og slett $\\lvert y''\\rvert$."
+    },
+    {
+      "id": "tfy4115-1-2-def-krumningsradius",
+      "type": "definition",
+      "title": "Krumningsradius",
+      "content": "Radien $\\rho$ til den sirkelen som ligger tettest inntil banen i et gitt punkt:\n$$\\rho = \\frac{\\left(1 + y'^2\\right)^{3/2}}{\\lvert y''\\rvert}.$$\nEnheten er meter. Poenget med størrelsen er at et legeme som passerer punktet, i det øyeblikket beveger seg som om det gikk i en sirkel med denne radien — og derfor har sentripetalakselerasjonen $v^2/\\rho$. I et **topp- eller bunnpunkt** er $y' = 0$, og uttrykket forenkles til\n$$\\rho = \\frac{1}{\\lvert y''\\rvert}.$$\nDet er denne forenklingen som gjør sjangeren rask."
+    },
+    {
+      "id": "tfy4115-1-2-def-krumningssirkel",
+      "type": "definition",
+      "title": "Krumningssirkel",
+      "content": "Sirkelen som i et punkt har både samme tangent og samme krumning som banen — også kalt oskulasjonssirkelen, fra latin for «å kysse». Sentrum ligger på normalen til banen, i avstanden $\\rho$ på den siden banen bøyer seg mot. For en bakketopp ligger sentrum **under** banen, for en dal **over**. Krumningssirkelen er ikke en hjelpekonstruksjon, men den fysiske begrunnelsen for hele sjangeren: så lenge legemet er i punktet, kan sirkelbevegelsens formler brukes med $\\rho$ som radius."
+    },
+    {
+      "id": "tfy4115-1-2-def-toppunkt",
+      "type": "definition",
+      "title": "Toppunkt på en bane",
+      "content": "Et punkt der banen er vannrett og bøyer nedover: $y' = 0$ og $y'' < 0$. Fysisk er det en bakketopp. Her ligger krumningssenteret **under** banen, så sentripetalakselerasjonen peker **nedover**, i samme retning som tyngden. Følgen er at normalkraften blir **mindre** enn tyngden: en del av tyngden brukes til å bøye banen. Ved tilstrekkelig stor fart går normalkraften mot null, og legemet mister kontakten med underlaget."
+    },
+    {
+      "id": "tfy4115-1-2-def-bunnpunkt",
+      "type": "definition",
+      "title": "Bunnpunkt på en bane",
+      "content": "Et punkt der banen er vannrett og bøyer oppover: $y' = 0$ og $y'' > 0$. Fysisk er det en dal eller bunnen av en rutsjebane. Her ligger krumningssenteret **over** banen, så sentripetalakselerasjonen peker **oppover**, motsatt tyngden. Følgen er at normalkraften blir **større** enn tyngden — underlaget må både holde legemet oppe og bøye banen. Det er derfor det kjennes tungt i kroppen i bunnen av en dal, og hvorfor det ikke finnes noen kritisk fart her: legemet slipper aldri underlaget i et bunnpunkt."
+    },
+    {
+      "id": "tfy4115-1-2-fig-1",
+      "type": "image",
+      "src": "/images/textbook/tfy4115/tfy4115-1-2-krumningssirkel.svg",
+      "alt": "En blaa parabelformet bane med toppunkt. En stiplet groenn sirkel ligger inntil banen i toppunktet, med sentrum rett under toppunktet og en pil som viser avstanden ned til sentrum. Lenger ned paa hoeyre side av banen er det tegnet en tangentlinje i et punkt, med en stiplet vannrett referanselinje og en bue som markerer vinkelen mellom dem.",
+      "caption": "Krumningssirkelen i toppunktet har radius $\\rho = 1/\\lvert y''\\rvert$, fordi $y' = 0$ der. Lenger ned på banen er banevinkelen $\\beta$ ikke null, og da må hele uttrykket $\\rho = (1+y'^2)^{3/2}/\\lvert y''\\rvert$ brukes."
+    },
+    {
+      "id": "tfy4115-1-2-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: krumningsradien i toppen av en bakke",
+      "problem": "En glatt bakke har profilen\n$$y(x) = h - ax^2, \\qquad h = 4{,}00\\,\\text{m},\\quad a = 0{,}0500\\,\\text{m}^{-1},$$\nmed $x$ og $y$ i meter. Toppunktet ligger i $x = 0$.\n\n**a)** Finn krumningsradien i toppunktet.\n**b)** Hvor stor er krumningsradien 6,00 m til siden for toppen?",
+      "solution": "**a)** Derivér to ganger:\n$$y' = -2ax, \\qquad y'' = -2a = -0{,}100\\,\\text{m}^{-1}.$$\nI toppunktet er $x = 0$, altså $y' = 0$, og da forenkles krumningsradien til\n$$\\rho = \\frac{1}{\\lvert y''\\rvert} = \\frac{1}{0{,}100\\,\\text{m}^{-1}} = 10{,}0\\,\\text{m}.$$\nBenevningskontroll: én dividert på $\\text{m}^{-1}$ gir meter. Det stemmer.\n\n**b)** Ved $x = 6{,}00\\,\\text{m}$ er $y' = -0{,}100 \\cdot 6{,}00 = -0{,}600$, altså $y'^2 = 0{,}360$. Nå må hele uttrykket brukes:\n$$\\rho = \\frac{\\left(1 + 0{,}360\\right)^{3/2}}{0{,}100\\,\\text{m}^{-1}} = \\frac{1{,}360^{3/2}}{0{,}100\\,\\text{m}^{-1}} = \\frac{1{,}5862}{0{,}100\\,\\text{m}^{-1}} = 15{,}86\\,\\text{m} \\approx 15{,}9\\,\\text{m}.$$\n\nLegg merke til hva som skjedde: banen er **mindre krum** — større radius — der den er brattest, selv om $y''$ er den samme overalt. Det er nettopp den effekten nevneren $(1 + y'^2)^{3/2}$ fanger opp, og derfor $\\lvert y''\\rvert$ alene ikke er krumningen.\n\nOg legg merke til den praktiske konsekvensen: **i toppunktet slipper du hele parentesen.** Setter du inn $(1 + 0)^{3/2} = 1$ er det ikke feil, bare bortkastet tid — og en anledning til å tape et siffer."
+    },
+    {
+      "id": "tfy4115-1-2-o-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-1-2-oppg-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — les krumningen ut av ligningen.)\n\n**a)** En bakketopp har profilen $y = 3{,}00 - 0{,}125x^2$ (meter). Finn $y''$ og krumningsradien i toppunktet.\n\n**b)** En sving på en bane er en sirkelbue med radius 12,0 m. Hva er krumningsradien der, og hva er krumningen?",
+        "solution": "**a)** Deriverer vi to ganger, får vi $y' = -0{,}250x$ og $y'' = -0{,}250\\,\\text{m}^{-1}$. I toppunktet er $y' = 0$, så\n$$\\rho = \\frac{1}{0{,}250\\,\\text{m}^{-1}} = 4{,}00\\,\\text{m}.$$\nMerk faktoren 2 i derivasjonen: koeffisienten i ligningen er 0,125, men $y''$ er 0,250. Bruker du 0,125 direkte, får du $\\rho = 8{,}00\\,\\text{m}$ — dobbelt så mye, og et ferdig distraktoralternativ.\n\n**b)** For en sirkel er krumningsradien rett og slett radien: $\\rho = 12{,}0\\,\\text{m}$. Krumningen er den inverse:\n$$\\frac{1}{\\rho} = \\frac{1}{12{,}0\\,\\text{m}} = 0{,}0833\\,\\text{m}^{-1}.$$\nEn sirkel er den ene kurven som har samme krumning i alle punkter, og det er derfor krumningssirkelen er et fornuftig sammenligningsgrunnlag for andre baner.",
+        "hints": [
+          "Derivér to ganger, og pass på faktoren 2 fra $x^2$.",
+          "For en sirkel er krumningssirkelen sirkelen selv."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-1-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — normalkraften i et toppunkt (~14 min)\n\nNå til kraften. Vi isolerer legemet — en liten kloss eller en kule som glir — i det øyeblikket det passerer toppunktet, og spør: hvilke krefter virker **på** det?\n\nBare to. **Tyngden** $m\\mathbf{g}$, som peker rett ned. Og **normalkraften** $\\mathbf{N}$ fra underlaget, som står vinkelrett på flaten og peker vekk fra den — altså rett opp i et toppunkt. Det er alt. Underlaget er glatt, så det er ingen friksjon, og det finnes ingen tredje, utoverrettet kraft å tegne inn.\n\nDet siste er verdt å dvele ved, for det er den vanligste tankefeilen i hele sjangeren. Sentripetalakselerasjonen er **ikke** en kraft. Den er en akselerasjon — en virkning — og den må produseres av de virkelige kreftene som faktisk virker. I et toppunkt er det tyngden som er stor nok, og normalkraften som trekker fra.\n\nSett opp Newtons 2. lov langs den loddrette retningen, og velg **nedover som positiv retning**, siden det er den veien akselerasjonen peker (mot krumningssenteret, som ligger under banen):\n\n$$mg - N = \\frac{mv^2}{\\rho}.$$\n\nLøst for normalkraften:\n\n$$N = m\\left(g - \\frac{v^2}{\\rho}\\right).$$\n\n*Intuisjon:* uten fart ($v = 0$) står legemet stille på toppen, og $N = mg$ som vanlig. Med økende fart må mer og mer av tyngden «brukes» til å bøye banen nedover, og det er mindre igjen til å presse mot underlaget. Normalkraften synker.\n\nMassen faller **ikke** ut her, siden vi spør etter en kraft. Men den faller ut i det øyeblikket vi spør etter en fart — se Løkke 3."
+    },
+    {
+      "id": "tfy4115-1-2-def-sentripetalakselerasjon",
+      "type": "definition",
+      "title": "Sentripetalakselerasjon",
+      "content": "Akselerasjonen et legeme har fordi banen krummer, rettet **inn mot krumningssenteret**:\n$$a_\\text{sentripetal} = \\frac{v^2}{\\rho}.$$\nDen finnes selv når farten er helt konstant, fordi en akselerasjon er en endring i **fartsvektoren** — og retningen endrer seg selv om størrelsen ikke gjør det. Ordet «sentripetal» betyr «sentrumsøkende» og beskriver retningen, ikke en årsak. Dette er den viktigste presiseringen i kapitlet: sentripetalakselerasjonen er en virkning som må skapes av virkelige krefter, ikke en kraft du kan tegne inn i en kraftskisse."
+    },
+    {
+      "id": "tfy4115-1-2-def-normalkraft",
+      "type": "definition",
+      "title": "Normalkraft",
+      "content": "Kraften $\\mathbf{N}$ et underlag utøver på et legeme som ligger mot det. Den står alltid **vinkelrett på flaten** (derav navnet) og peker **vekk fra flaten**, altså inn i legemet. Enheten er newton. Normalkraften er en kontaktkraft: den er ikke en fast størrelse, men akkurat så stor som den må være for at legemet ikke skal synke inn i underlaget — og den kan derfor ikke bli negativ. På et vannrett underlag i ro er $N = mg$, men på en krum bane er den mindre i et toppunkt og større i et bunnpunkt."
+    },
+    {
+      "id": "tfy4115-1-2-def-kraftskisse",
+      "type": "definition",
+      "title": "Frilegemediagram (kraftskisse)",
+      "content": "En figur der du isolerer **ett** legeme og tegner inn **alle** kreftene som virker på det, hver med sitt navngitte symbol og sin riktige retning. Tre regler gjør den til et arbeidsverktøy og ikke en tegning: normalkraften står vinkelrett på flaten og peker vekk fra den; tyngden peker rett ned uansett hvordan flaten ligger; og du tegner aldri inn en akselerasjon som om den var en kraft. I dette kapitlet inneholder diagrammet bare to krefter, siden underlaget er glatt. Fra Del 2 kommer friksjonen i tillegg, og diagrammet blir det viktigste enkeltverktøyet i mekanikkhalvdelen."
+    },
+    {
+      "id": "tfy4115-1-2-def-resultant-inn",
+      "type": "definition",
+      "title": "Sentripetalkraften som resultant",
+      "content": "Uttrykket «sentripetalkraften» betegner ikke en egen kraft, men **resultanten av de virkelige kreftene** i retning inn mot krumningssenteret. I et toppunkt er den $mg - N$; i et bunnpunkt er den $N - mg$; i en konisk pendel er den den vannrette komponenten av taustrekket. Å behandle den som en tilleggskraft i frilegemediagrammet gir feil ligning, fordi da tas den samme fysikken med to ganger. Regelen som holder overalt: skriv $\\sum F_\\text{inn mot sentrum} = mv^2/\\rho$, og la venstre side inneholde bare krefter som virkelig finnes."
+    },
+    {
+      "id": "tfy4115-1-2-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: klossen over bakketoppen",
+      "problem": "En liten kloss med masse $m = 0{,}80\\,\\text{kg}$ glir uten friksjon over toppen av bakken fra eksempel 1, der krumningsradien er $\\rho = 10{,}0\\,\\text{m}$. I toppunktet har den farten $v = 6{,}00\\,\\text{m/s}$.\n\n**a)** Finn normalkraften i toppunktet.\n**b)** Hvor stor andel av tyngden er dette?",
+      "solution": "**a)** Newtons 2. lov i loddrett retning, med nedover som positiv:\n$$mg - N = \\frac{mv^2}{\\rho} \\quad\\Longrightarrow\\quad N = m\\left(g - \\frac{v^2}{\\rho}\\right).$$\nRegn først ut sentripetalleddet:\n$$\\frac{v^2}{\\rho} = \\frac{\\left(6{,}00\\,\\text{m/s}\\right)^2}{10{,}0\\,\\text{m}} = \\frac{36{,}0\\,\\text{m}^2/\\text{s}^2}{10{,}0\\,\\text{m}} = 3{,}600\\,\\text{m/s}^2.$$\nSett inn:\n$$N = 0{,}80\\,\\text{kg}\\left(9{,}81 - 3{,}600\\right)\\text{m/s}^2 = 0{,}80 \\cdot 6{,}210\\,\\text{N} = 4{,}968\\,\\text{N} \\approx 4{,}97\\,\\text{N}.$$\n\n**b)** Tyngden er $mg = 0{,}80 \\cdot 9{,}81\\,\\text{N} = 7{,}848\\,\\text{N}$, så\n$$\\frac{N}{mg} = \\frac{4{,}968}{7{,}848} = 0{,}6330 \\approx 63\\ \\%.$$\n\n**Sluttsjekk.** Enheten er newton. Normalkraften er **mindre** enn tyngden, som den skal være i et toppunkt. Og størrelsesordenen er rimelig: en kloss på 0,8 kg presser med et par–tre newton. Hadde du fått et svar **over** 7,85 N, ville fortegnet på sentripetalleddet vært galt — og det tallet, $0{,}80(9{,}81 + 3{,}600) = 10{,}7\\,\\text{N}$, ligger nesten alltid som et alternativ."
+    },
+    {
+      "id": "tfy4115-1-2-o-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-1-2-oppg-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger M11 — krumning og normalkraft.) En kule med masse $0{,}500\\,\\text{kg}$ glir gjennom bunnen av en dal der krumningsradien er $1{,}50\\,\\text{m}$. Farten der er $3{,}00\\,\\text{m/s}$.\n\nFinn normalkraften.",
+        "solution": "I et bunnpunkt peker akselerasjonen **oppover**, mot krumningssenteret. Velger vi oppover som positiv retning:\n$$N - mg = \\frac{mv^2}{\\rho} \\quad\\Longrightarrow\\quad N = m\\left(g + \\frac{v^2}{\\rho}\\right).$$\nSentripetalleddet:\n$$\\frac{v^2}{\\rho} = \\frac{9{,}00\\,\\text{m}^2/\\text{s}^2}{1{,}50\\,\\text{m}} = 6{,}00\\,\\text{m/s}^2.$$\n$$N = 0{,}500\\,\\text{kg}\\left(9{,}81 + 6{,}00\\right)\\text{m/s}^2 = 0{,}500 \\cdot 15{,}81\\,\\text{N} = 7{,}905\\,\\text{N} \\approx 7{,}91\\,\\text{N}.$$\nTyngden er $4{,}905\\,\\text{N}$, så normalkraften er 1,61 ganger tyngden. At den er **større** enn tyngden, er kontrollen på at du har brukt riktig fortegn.",
+        "hints": [
+          "Hvilken vei peker akselerasjonen i et bunnpunkt — mot krumningssenteret, som ligger over banen.",
+          "Sett opp Newtons 2. lov med den retningen som positiv, og løs for $N$."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-1-2-o-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-1-2-oppg-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M11.) En pulk med masse $22{,}0\\,\\text{kg}$ glir over en bakketopp med profilen $y = 5{,}00 - 0{,}0400x^2$ (meter). I toppunktet er farten $4{,}50\\,\\text{m/s}$.\n\n**a)** Finn krumningsradien og normalkraften i toppunktet.\n**b)** Hvor mye større ville normalkraften vært om pulken sto stille på toppen?",
+        "solution": "**a)** $y'' = -2 \\cdot 0{,}0400 = -0{,}0800\\,\\text{m}^{-1}$, og siden $y' = 0$ i toppunktet:\n$$\\rho = \\frac{1}{0{,}0800\\,\\text{m}^{-1}} = 12{,}5\\,\\text{m}.$$\nSentripetalleddet:\n$$\\frac{v^2}{\\rho} = \\frac{\\left(4{,}50\\,\\text{m/s}\\right)^2}{12{,}5\\,\\text{m}} = \\frac{20{,}25}{12{,}5}\\,\\text{m/s}^2 = 1{,}620\\,\\text{m/s}^2.$$\n$$N = 22{,}0\\,\\text{kg}\\left(9{,}81 - 1{,}620\\right)\\text{m/s}^2 = 22{,}0 \\cdot 8{,}190\\,\\text{N} = 180{,}2\\,\\text{N} \\approx 180\\,\\text{N}.$$\n\n**b)** I ro er $N = mg = 22{,}0 \\cdot 9{,}81\\,\\text{N} = 215{,}8\\,\\text{N} \\approx 216\\,\\text{N}$. Differansen er\n$$215{,}8 - 180{,}2 = 35{,}6\\,\\text{N},$$\nsom er nøyaktig $m v^2/\\rho = 22{,}0 \\cdot 1{,}620\\,\\text{N} = 35{,}64\\,\\text{N}$. Det er ingen tilfeldighet: sentripetalleddet **er** differansen mellom normalkraften i ro og i bevegelse.",
+        "hints": [
+          "Deriver profilen to ganger — husk faktoren 2.",
+          "I toppunktet trekker sentripetalleddet fra tyngdeleddet."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-1-2-lokke3",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\n## Løkke 3 — bunnpunkt, kontaktbetingelse og kritisk fart (~14 min)\n\nI et **bunnpunkt** ligger krumningssenteret over banen, så akselerasjonen peker oppover. Velger vi oppover som positiv retning, blir Newtons 2. lov\n\n$$N - mg = \\frac{mv^2}{\\rho} \\quad\\Longrightarrow\\quad N = m\\left(g + \\frac{v^2}{\\rho}\\right).$$\n\n*Intuisjon:* underlaget har nå to jobber — det skal både holde legemet oppe mot tyngden og bøye banen oppover. Derfor blir normalkraften større enn tyngden, og den vokser med kvadratet av farten. Det er hele forklaringen på at det kjennes tungt i bunnen av en dal.\n\n**Fortegnsregelen i én linje**, verdt å pugge fordi den er den vanligste feilen i sjangeren:\n\n$$N = m\\left(g \\mp \\frac{v^2}{\\rho}\\right): \\quad \\textbf{minus i toppunkt},\\ \\textbf{pluss i bunnpunkt}.$$\n\n**Kontaktbetingelsen og den kritiske farten.** Normalkraften kan ikke bli negativ — et underlag kan skyve, men ikke suge. Betingelsen for at legemet fortsatt berører banen, er altså $N \\ge 0$. I et toppunkt gir det\n\n$$g - \\frac{v^2}{\\rho} \\ge 0 \\quad\\Longleftrightarrow\\quad v \\le \\sqrt{g\\rho}.$$\n\nFarten $v_\\text{krit} = \\sqrt{g\\rho}$ er der normalkraften blir null. Går legemet fortere, kan banen ikke bøye det raskt nok ned, og det forlater underlaget og går i fritt fall. Legg merke til at **massen har falt ut**: en lastebil og en tennisball mister kontakten ved nøyaktig samme fart. Det er en fin kontroll — er massen med i svaret ditt på et spørsmål om kritisk fart, har du gjort en feil.\n\nI et bunnpunkt finnes det ingen kritisk fart: der er $N = m(g + v^2/\\rho)$ alltid positiv.\n\n**Farten får du ofte fra energibevaring.** Oppgaven oppgir sjelden farten direkte; den oppgir en høyde. Glir legemet uten friksjon fra ro og faller høyden $\\Delta y$, går all potensiell energi over til kinetisk:\n\n$$mg\\,\\Delta y = \\tfrac12 mv^2 \\quad\\Longrightarrow\\quad v^2 = 2g\\,\\Delta y.$$\n\nMassen faller ut også her. Merk at det er $v^2$ du trenger — ikke $v$ — så du sparer en kvadratrot ved å stoppe der."
+    },
+    {
+      "id": "tfy4115-1-2-def-kontaktbetingelse",
+      "type": "definition",
+      "title": "Kontaktbetingelsen",
+      "content": "Kravet $N \\ge 0$: en normalkraft kan skyve, men ikke trekke. Et underlag kan presse et legeme vekk fra seg, men ikke holde det fast. Betingelsen er hele grunnlaget for spørsmål av typen «ved hvilken fart mister legemet kontakten med banen?» — du setter $N = 0$ og løser for farten. I et toppunkt gir det en øvre fartsgrense; i et bunnpunkt er betingelsen alltid oppfylt, og legemet slipper aldri. Blir svaret ditt en negativ normalkraft, er det ikke et gyldig fysisk resultat, men et signal om at legemet allerede har forlatt banen."
+    },
+    {
+      "id": "tfy4115-1-2-def-kritisk-fart",
+      "type": "definition",
+      "title": "Kritisk fart",
+      "content": "Farten der normalkraften i et toppunkt blir null, altså der legemet så vidt mister kontakten med underlaget:\n$$v_\\text{krit} = \\sqrt{g\\rho}.$$\nMassen faller ut, så grensen er den samme for alle legemer. Fysisk betyr farten at banens krumning er nøyaktig så stor at tyngden alene klarer å bøye bevegelsen ned langs banen — går legemet fortere, blir banen for slak, og legemet fortsetter i en kastebane. Merk at $\\rho$ her er krumningsradien i toppunktet, ikke en annen radius i oppgaven."
+    },
+    {
+      "id": "tfy4115-1-2-def-energibevaring",
+      "type": "definition",
+      "title": "Mekanisk energibevaring for et glidende legeme",
+      "content": "Regelen om at summen av kinetisk og potensiell energi er konstant når det ikke virker friksjon eller luftmotstand:\n$$\\tfrac12 mv_1^2 + mgh_1 = \\tfrac12 mv_2^2 + mgh_2.$$\nBegge leddene **står på det utdelte formelarket**. Faller legemet fra ro gjennom høyden $\\Delta y$, gir dette $v^2 = 2g\\,\\Delta y$, og massen faller ut. To forbehold er viktige: relasjonen forutsetter at underlaget er glatt, og den forutsetter at legemet **glir** — et rullende legeme har en del av energien bundet i rotasjonen og får derfor lavere fart ved samme fall. Rullingen behandles i Del 2."
+    },
+    {
+      "id": "tfy4115-1-2-def-tilsynelatende-tyngde",
+      "type": "definition",
+      "title": "Opplevd tyngde",
+      "content": "Størrelsen $N/m$, altså normalkraften per masseenhet, som er det en passasjer faktisk kjenner. På et vannrett underlag i ro er den $g$. I et bunnpunkt er den $g + v^2/\\rho$ og altså større enn $g$ — det er dette som oppgis som «g-krefter» i berg-og-dal-baner. I et toppunkt er den $g - v^2/\\rho$ og mindre enn $g$, og ved den kritiske farten er den null: en tilstand av vektløshet. Størrelsen er nyttig fordi den viser at opplevelsen ikke avhenger av massen, bare av fart og krumning."
+    },
+    {
+      "id": "tfy4115-1-2-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: kjelken i dalbunnen — fart fra høyde",
+      "problem": "En kjelke med rytter, til sammen $m = 78{,}0\\,\\text{kg}$, slippes fra ro og glir uten friksjon ned i en dal med profilen\n$$y(x) = bx^2, \\qquad b = 0{,}0200\\,\\text{m}^{-1},$$\nder bunnpunktet ligger i $x = 0$. Starthøyden er $\\Delta y = 3{,}00\\,\\text{m}$ over bunnen.\n\n**a)** Finn krumningsradien i bunnpunktet.\n**b)** Finn farten og normalkraften i bunnpunktet.\n**c)** Hvor mange ganger tyngden er normalkraften?",
+      "solution": "**a)** $y' = 2bx$ og $y'' = 2b = 0{,}0400\\,\\text{m}^{-1}$. I bunnpunktet er $y' = 0$, altså\n$$\\rho = \\frac{1}{0{,}0400\\,\\text{m}^{-1}} = 25{,}0\\,\\text{m}.$$\n\n**b)** Energibevaring fra ro gir\n$$v^2 = 2g\\,\\Delta y = 2 \\cdot 9{,}81\\,\\text{m/s}^2 \\cdot 3{,}00\\,\\text{m} = 58{,}86\\,\\text{m}^2/\\text{s}^2,$$\naltså $v = 7{,}672\\,\\text{m/s} \\approx 7{,}67\\,\\text{m/s}$. Legg merke til at vi **ikke** trenger $v$ selv for å finne normalkraften — bare $v^2$:\n$$\\frac{v^2}{\\rho} = \\frac{58{,}86\\,\\text{m}^2/\\text{s}^2}{25{,}0\\,\\text{m}} = 2{,}3544\\,\\text{m/s}^2.$$\n$$N = m\\left(g + \\frac{v^2}{\\rho}\\right) = 78{,}0\\,\\text{kg}\\left(9{,}81 + 2{,}3544\\right)\\text{m/s}^2 = 78{,}0 \\cdot 12{,}164\\,\\text{N}.$$\n$$N = 948{,}8\\,\\text{N} \\approx 949\\,\\text{N}.$$\n\n**c)** Tyngden er $mg = 78{,}0 \\cdot 9{,}81\\,\\text{N} = 765{,}2\\,\\text{N}$, så\n$$\\frac{N}{mg} = \\frac{12{,}164}{9{,}81} = 1{,}2400.$$\nKjelken kjenner altså **1,24 ganger** sin egen tyngde i bunnen — merkbart, men langt fra dramatisk.\n\n**Tre kontroller.** Enheten er newton. Normalkraften er større enn tyngden, som den skal være i et bunnpunkt. Og forholdet 1,24 er rimelig: en dal på 25 m radius er slak, så vi forventer ikke store g-krefter. Hadde du fått 0,76 ganger tyngden, hadde du brukt minus i stedet for pluss — og $78{,}0(9{,}81 - 2{,}3544) = 581\\,\\text{N}$ ligger som et ferdig alternativ i en slik oppgave.\n\n**Merk hvorfor kjelken glir og ikke ruller.** Kjelkens sålene sklir langs snøen, så all energi går til translasjon. Skulle vi regnet på et rullende hjul eller en kule, ville en del av energien vært bundet i rotasjonen og farten blitt lavere. Det behandles i Del 2, og du skal ikke bruke det her."
+    },
+    {
+      "id": "tfy4115-1-2-o-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-1-2-oppg-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M11.) En kloss glir uten friksjon og passerer et toppunkt der krumningsradien er $8{,}00\\,\\text{m}$.\n\n**a)** Ved hvilken fart mister klossen kontakten med underlaget?\n**b)** Klossen starter fra ro i en høyde $1{,}50\\,\\text{m}$ over toppunktet og glir ned til toppunktet. Har den mistet kontakten når den kommer dit? Hvis ikke, hvor stor er normalkraften, gitt at massen er $2{,}00\\,\\text{kg}$?",
+        "solution": "**a)** Sett $N = 0$ i toppunktsuttrykket:\n$$v_\\text{krit} = \\sqrt{g\\rho} = \\sqrt{9{,}81\\,\\text{m/s}^2 \\cdot 8{,}00\\,\\text{m}} = \\sqrt{78{,}48\\,\\text{m}^2/\\text{s}^2} = 8{,}859\\,\\text{m/s} \\approx 8{,}86\\,\\text{m/s}.$$\nMassen er ikke med, og skal ikke være det.\n\n**b)** Energibevaring fra ro over høyden 1,50 m:\n$$v^2 = 2g\\,\\Delta y = 2 \\cdot 9{,}81 \\cdot 1{,}50\\,\\text{m}^2/\\text{s}^2 = 29{,}43\\,\\text{m}^2/\\text{s}^2,$$\naltså $v = 5{,}425\\,\\text{m/s}$. Det er godt under 8,86 m/s, så klossen er fortsatt i kontakt. Normalkraften:\n$$\\frac{v^2}{\\rho} = \\frac{29{,}43}{8{,}00}\\,\\text{m/s}^2 = 3{,}679\\,\\text{m/s}^2,$$\n$$N = 2{,}00\\,\\text{kg}\\left(9{,}81 - 3{,}679\\right)\\text{m/s}^2 = 2{,}00 \\cdot 6{,}131\\,\\text{N} = 12{,}26\\,\\text{N} \\approx 12{,}3\\,\\text{N}.$$\nTyngden er $19{,}62\\,\\text{N}$, så normalkraften er 62 prosent av den.\n\n**En snarvei det er verdt å se.** Kombinerer vi de to uttrykkene, blir betingelsen for å holde kontakten\n$$2g\\,\\Delta y \\le g\\rho \\quad\\Longleftrightarrow\\quad \\Delta y \\le \\frac{\\rho}{2} = 4{,}00\\,\\text{m}.$$\nStartet klossen mer enn halve krumningsradien over toppunktet, ville den sluppet. Det er en pen kontroll å ha i hodet — den kobler en høyde direkte til en radius, uten tall.",
+        "hints": [
+          "Kritisk fart følger av $N = 0$ i toppunktsuttrykket.",
+          "Du trenger bare $v^2$, ikke $v$, for å regne ut normalkraften.",
+          "Sammenlign farten fra energibevaring med den kritiske farten før du regner ut $N$."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-1-2-o-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-1-2-oppg-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M11, A–F-format — kun bokstavsvaret.) En sykkel med rytter, til sammen $65{,}0\\,\\text{kg}$, kjører gjennom bunnen av en underganghelling med profilen $y = 0{,}0125x^2$ (meter). Farten i bunnpunktet er $12{,}0\\,\\text{m/s}$.\n\nHvor stor er normalkraften fra veien i bunnpunktet?\n\n**A** $404\\,\\text{N}$ · **B** $657\\,\\text{N}$ · **C** $1\\,106\\,\\text{N}$ · **D** $755\\,\\text{N}$ · **E** $872\\,\\text{N}$ · **F** $638\\,\\text{N}$",
+        "solution": "**Svar: E.**\n\n$y'' = 2 \\cdot 0{,}0125 = 0{,}0250\\,\\text{m}^{-1}$, og siden $y' = 0$ i bunnpunktet:\n$$\\rho = \\frac{1}{0{,}0250\\,\\text{m}^{-1}} = 40{,}0\\,\\text{m}.$$\n$$\\frac{v^2}{\\rho} = \\frac{144\\,\\text{m}^2/\\text{s}^2}{40{,}0\\,\\text{m}} = 3{,}600\\,\\text{m/s}^2,$$\n$$N = 65{,}0\\,\\text{kg}\\left(9{,}81 + 3{,}600\\right)\\text{m/s}^2 = 65{,}0 \\cdot 13{,}41\\,\\text{N} = 871{,}65\\,\\text{N} \\approx 872\\,\\text{N}.$$\n\nHvert galt alternativ er regnet fram fra én konkret feil:\n\n**A ($404\\,\\text{N}$)** er minus i stedet for pluss: $65{,}0(9{,}81 - 3{,}600) = 403{,}65\\,\\text{N}$. Dette er toppunktsformelen brukt i et bunnpunkt — fortegnsfellen i sjangeren.\n\n**F ($638\\,\\text{N}$)** er bare tyngden, $65{,}0 \\cdot 9{,}81 = 637{,}65\\,\\text{N}$: sentripetalleddet er glemt helt.\n\n**D ($755\\,\\text{N}$)** kommer av å glemme faktoren 2 i $y''$ og bruke $\\rho = 1/0{,}0125 = 80{,}0\\,\\text{m}$: $65{,}0(9{,}81 + 1{,}800) = 754{,}65\\,\\text{N}$.\n\n**C ($1\\,106\\,\\text{N}$)** kommer av $\\rho = 20{,}0\\,\\text{m}$, altså å dividere med 2 der man skulle multiplisert: $65{,}0(9{,}81 + 7{,}200) = 1\\,105{,}65\\,\\text{N}$.\n\n**B ($657\\,\\text{N}$)** kommer av å glemme kvadratet på farten: $65{,}0(9{,}81 + 12{,}0/40{,}0) = 657{,}15\\,\\text{N}$.\n\n**Sluttsjekk som ville fanget fire av fem.** Svaret må være **større** enn tyngden $638\\,\\text{N}$, siden dette er et bunnpunkt. Det stryker A og F med en gang. Og forholdet $N/mg$ bør være noen få titalls prosent over 1 for en så slak helling: 872/638 = 1,37, mens 1 106/638 = 1,73 ville krevd en mye skarpere sving.",
+        "hints": [
+          "Finn $y''$ først, og pass på faktoren 2.",
+          "Bunnpunkt betyr pluss foran sentripetalleddet.",
+          "Kontrollér til slutt at svaret er større enn tyngden."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-1-2-th-rask-vei",
+      "type": "theorem",
+      "title": "Rask vei til tall (MC-oppskrift)",
+      "content": "Fra oppgitt bane til bokstavsvar i fem trinn.\n\n**1. Hvilken lov?** Newtons 2. lov i retning **inn mot krumningssenteret**:\n$$\\sum F_\\text{inn} = \\frac{mv^2}{\\rho}.$$\nAlt annet i sjangeren er bokføring rundt denne ene ligningen.\n\n**2. Hvilken ene regnelinje?** Avgjør først om punktet er et toppunkt eller et bunnpunkt, så bruker du\n$$N = m\\left(g \\mp \\frac{v^2}{\\rho}\\right): \\quad \\textbf{minus i topp},\\ \\textbf{pluss i bunn}.$$\nSpør oppgaven om kritisk fart, setter du $N = 0$ og får $v_\\text{krit} = \\sqrt{g\\rho}$.\n\n**3. Rekkefølgen på oppslagene.** Tre raske trinn før innsettingen:\n- $y''$ fra banen. For $y = h - ax^2$ eller $y = bx^2$ er $\\lvert y''\\rvert = 2a$ eller $2b$ — **husk faktoren 2**.\n- $\\rho = 1/\\lvert y''\\rvert$, siden $y' = 0$ i et topp- eller bunnpunkt. Er punktet **ikke** et topp- eller bunnpunkt, må hele uttrykket $(1+y'^2)^{3/2}/\\lvert y''\\rvert$ brukes.\n- $v^2$, ofte fra energibevaring: $v^2 = 2g\\,\\Delta y$ ved fall fra ro. Stopp ved $v^2$ — du trenger ikke $v$.\n\nFra det utdelte arket henter du $g$, $K = \\tfrac12mv^2$ og $U = mgh$. Krumningsformelen og fortegnsregelen må du kunne selv.\n\n**4. Hvor mange siffer?** Tre til fire gjennom kjeden. Sentripetalleddet $v^2/\\rho$ er den mest utsatte mellomverdien, siden det ofte trekkes fra et tall av samme størrelsesorden som $g$ — der spiser en avrunding raskt et helt siffer i differansen.\n\n**5. Sjekk før du krysser av.** Fire kontroller på ti sekunder:\n- **Enhet:** kraft i newton, fart i m/s, krumningsradius i meter.\n- **Fortegn og størrelse:** $N < mg$ i toppunkt, $N > mg$ i bunnpunkt. Denne ene sjekken stryker typisk to av seks alternativer.\n- **Massen:** spør oppgaven om en **fart** (kritisk fart, fart i bunnen), skal massen ikke være med i svaret. Spør den om en **kraft**, skal den være med.\n- **Rimelighet:** opplevd tyngde $N/mg$ ligger i praksis mellom 0 og 3 i slike oppgaver. Får du 15, er noe galt med krumningsradien."
+    },
+    {
+      "id": "tfy4115-1-2-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — når punktet ikke er et topp- eller bunnpunkt (~13 min)\n\nSpør oppgaven om et punkt der banen er skrå, må to ting endres. Begge er enkle, men de må gjøres samtidig.\n\n**Krumningsradien** krever hele uttrykket, siden $y' \\ne 0$:\n\n$$\\rho = \\frac{\\left(1 + y'^2\\right)^{3/2}}{\\lvert y''\\rvert}.$$\n\n**Tyngden må dekomponeres.** Normalkraften står vinkelrett på banen, ikke loddrett, og det er bare komponenten av tyngden **langs normalretningen** som konkurrerer med den. Er banevinkelen $\\beta$, er den komponenten $mg\\cos\\beta$. Newtons 2. lov i normalretningen på en konveks bane (en bakke som bøyer nedover) blir da\n\n$$mg\\cos\\beta - N = \\frac{mv^2}{\\rho} \\quad\\Longrightarrow\\quad N = m\\left(g\\cos\\beta - \\frac{v^2}{\\rho}\\right).$$\n\n*Intuisjon:* i et toppunkt er $\\beta = 0$ og $\\cos\\beta = 1$, og vi får tilbake uttrykket fra Løkke 2 — en god kontroll på at dekomponeringen er riktig vei. Er banen brattere, presses legemet mindre mot underlaget av tyngden, og normalkraften synker.\n\nEn praktisk snarvei: siden $\\tan\\beta = y'$, er\n\n$$\\cos\\beta = \\frac{1}{\\sqrt{1 + y'^2}}.$$\n\nDu slipper altså å regne ut vinkelen i grader i det hele tatt — sett $y'$ direkte inn. Det sparer et tastetrykk og en avrundingsfelle.\n\nDet er også verdt å merke seg hvorfor den *tangentielle* akselerasjonen ikke forstyrrer regnestykket: den ligger **langs** banen og har ingen komponent i normalretningen. Derfor kan du regne normalkraften uten å vite noe om hvor mye legemet akselererer framover."
+    },
+    {
+      "id": "tfy4115-1-2-def-tangent-normal",
+      "type": "definition",
+      "title": "Tangent og normal til en bane",
+      "content": "To retninger som følger banen i hvert punkt: **tangenten** peker langs bevegelsesretningen, og **normalen** står vinkelrett på den, mot krumningssenteret. Å dekomponere krefter i disse to retningene i stedet for i vannrett og loddrett er standardgrepet i krumme baner, fordi hele sentripetalakselerasjonen ligger i normalretningen og hele fartsendringen i tangentretningen. Tyngden får da komponenten $mg\\cos\\beta$ langs normalen og $mg\\sin\\beta$ langs tangenten, der $\\beta$ er banevinkelen."
+    },
+    {
+      "id": "tfy4115-1-2-def-parabelbane",
+      "type": "definition",
+      "title": "Parabelbane",
+      "content": "En bane på formen $y = h - ax^2$ (en bakketopp) eller $y = bx^2$ (en dal), som er standardinnpakningen i denne sjangeren. Fordelen for regningen er at $y'' = \\mp 2a$ er **konstant**, så krumningsradien i topp- eller bunnpunktet er $1/(2a)$ uansett hvor stor $h$ er. Fordelen fysisk er at parabelen er nettopp den formen en kastebane har, og derfor grensetilfellet der et legeme så vidt følger banen. Vær oppmerksom på faktoren 2: koeffisienten i ligningen er ikke krumningen."
+    },
+    {
+      "id": "tfy4115-1-2-def-sjanger-m11",
+      "type": "definition",
+      "title": "Sjanger M11 — krumning og normalkraft",
+      "content": "Bokas navn på oppgaveformen der en bane $y(x)$ er oppgitt og du skal finne normalkraften i et topp- eller bunnpunkt, eller farten der kontakten brytes. Den forekommer i rundt 6 av 10 eksamenssett (~60 %) og hører til **mekanikkhalvdelen, spørsmål 1–20**. Kjeden er kort og fast: $y''$ fra banen, $\\rho = 1/\\lvert y''\\rvert$, $v^2$ fra energibevaring, og til slutt $N = m(g \\mp v^2/\\rho)$ med riktig fortegn. To feil bærer nesten alle distraktorene: galt fortegn og glemt faktor 2 i $y''$."
+    },
+    {
+      "id": "tfy4115-1-2-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: skiløperen på den skrå delen av bakken (eksamensnivå)",
+      "problem": "En skiløper med masse $70{,}0\\,\\text{kg}$ følger en glatt bakke med profilen\n$$y(x) = x - 0{,}0500x^2,$$\nmed $x$ og $y$ i meter. I punktet $x = 2{,}00\\,\\text{m}$ har hun farten $9{,}00\\,\\text{m/s}$.\n\n**a)** Finn banevinkelen i punktet.\n**b)** Finn krumningsradien der.\n**c)** Finn normalkraften fra underlaget.",
+      "solution": "**a)** Derivér: $y' = 1 - 0{,}100x$, så\n$$y'(2{,}00) = 1 - 0{,}100 \\cdot 2{,}00 = 0{,}800.$$\n$$\\tan\\beta = 0{,}800 \\quad\\Longrightarrow\\quad \\beta = \\arctan 0{,}800 = 38{,}66^\\circ \\approx 38{,}7^\\circ.$$\nPositivt fortegn betyr at bakken stiger i dette punktet.\n\n**b)** Den andrederiverte er $y'' = -0{,}100\\,\\text{m}^{-1}$, konstant. Her er $y' \\ne 0$, så hele uttrykket må brukes:\n$$\\rho = \\frac{\\left(1 + 0{,}800^2\\right)^{3/2}}{0{,}100\\,\\text{m}^{-1}} = \\frac{1{,}640^{3/2}}{0{,}100\\,\\text{m}^{-1}} = \\frac{2{,}1002}{0{,}100\\,\\text{m}^{-1}} = 21{,}00\\,\\text{m}.$$\nSammenlign med krumningsradien i toppunktet, der $y' = 0$: der er $\\rho = 1/0{,}100 = 10{,}0\\,\\text{m}$. Banen er altså dobbelt så «slak» i dette skrå punktet.\n\n**c)** Bruk snarveien for cosinus i stedet for å gå via grader:\n$$\\cos\\beta = \\frac{1}{\\sqrt{1 + 0{,}800^2}} = \\frac{1}{\\sqrt{1{,}640}} = \\frac{1}{1{,}2806} = 0{,}78087.$$\nNormalkomponenten av tyngdeakselerasjonen:\n$$g\\cos\\beta = 9{,}81 \\cdot 0{,}78087\\,\\text{m/s}^2 = 7{,}6603\\,\\text{m/s}^2.$$\nSentripetalleddet:\n$$\\frac{v^2}{\\rho} = \\frac{81{,}00\\,\\text{m}^2/\\text{s}^2}{21{,}00\\,\\text{m}} = 3{,}8567\\,\\text{m/s}^2.$$\n$$N = 70{,}0\\,\\text{kg}\\left(7{,}6603 - 3{,}8567\\right)\\text{m/s}^2 = 70{,}0 \\cdot 3{,}8036\\,\\text{N} = 266{,}3\\,\\text{N} \\approx 266\\,\\text{N}.$$\n\n**Sluttsjekk.** Tyngden er $687\\,\\text{N}$, og normalkomponenten av den er $70{,}0 \\cdot 7{,}6603 = 536\\,\\text{N}$. Normalkraften på 266 N er mindre enn den, som den skal være på en konveks bane med fart. Enheten er newton.\n\n**Og hva om vi hadde glemt dekomponeringen?** Da ville vi fått $70{,}0(9{,}81 - 3{,}8567) = 417\\,\\text{N}$ — over halvparten for mye, og et tall som ser fullstendig plausibelt ut. Det er en av grunnene til at oppgaver på skrå punkter er merkbart vanskeligere enn på topp- og bunnpunkter, og at eksamen derfor holder seg mest til de siste."
+    },
+    {
+      "id": "tfy4115-1-2-o-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-1-2-oppg-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M11.) En bane har profilen $y = 0{,}400x - 0{,}0250x^2$ (meter).\n\n**a)** Finn banevinkelen i punktet $x = 4{,}00\\,\\text{m}$.\n**b)** Finn krumningsradien i det samme punktet, og sammenlign med krumningsradien i banens toppunkt.",
+        "solution": "**a)** $y' = 0{,}400 - 0{,}0500x$, så\n$$y'(4{,}00) = 0{,}400 - 0{,}0500 \\cdot 4{,}00 = 0{,}200.$$\n$$\\beta = \\arctan 0{,}200 = 11{,}31^\\circ \\approx 11{,}3^\\circ.$$\n\n**b)** $y'' = -0{,}0500\\,\\text{m}^{-1}$. Med $y'^2 = 0{,}0400$:\n$$\\rho = \\frac{\\left(1{,}0400\\right)^{3/2}}{0{,}0500\\,\\text{m}^{-1}} = \\frac{1{,}06066}{0{,}0500\\,\\text{m}^{-1}} = 21{,}21\\,\\text{m} \\approx 21{,}2\\,\\text{m}.$$\nToppunktet ligger der $y' = 0$, altså ved $x = 0{,}400/0{,}0500 = 8{,}00\\,\\text{m}$, og der er\n$$\\rho = \\frac{1}{0{,}0500\\,\\text{m}^{-1}} = 20{,}0\\,\\text{m}.$$\nForskjellen er bare 6 prosent, fordi banevinkelen på 11,3 grader er liten og $(1 + y'^2)^{3/2} = 1{,}06$ ligger nær 1. **Det er verdt å legge merke til:** for slake baner er forenklingen $\\rho \\approx 1/\\lvert y''\\rvert$ en god tilnærming også utenfor toppunktet — men på eksamen skal du bruke den eksakte formelen når $y' \\ne 0$, siden alternativene ligger tett nok til å skille de to.",
+        "hints": [
+          "Banevinkelen følger av $\\tan\\beta = y'$.",
+          "Her er $y' \\ne 0$, så hele krumningsuttrykket må brukes — toppunktet ligger et annet sted."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-1-2-o-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-1-2-oppg-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Kvalitativ oppgave — sjanger M11.) Svar i to til fire setninger på hvert punkt.\n\n**a)** Forklar hvorfor normalkraften er mindre enn tyngden i et toppunkt og større i et bunnpunkt, uten å bruke formler.\n\n**b)** En medstudent tegner et frilegemediagram av en kloss på toppen av en bakke og setter inn tre piler: tyngden nedover, normalkraften oppover, og en tredje pil utover fra krumningssenteret som han kaller «kraften som prøver å kaste klossen av banen». Hva er galt, og hva blir konsekvensen for ligningen hans?\n\n**c)** Hvorfor finnes det en kritisk fart i et toppunkt, men ikke i et bunnpunkt?",
+        "solution": "**a)** I begge tilfeller må banens krumning gi legemet en akselerasjon inn mot krumningssenteret. I et toppunkt ligger senteret **under** banen, altså i samme retning som tyngden peker. Tyngden gjør da hele jobben og litt mer, og underlaget trenger bare å presse med det som er «til overs» — derfor blir normalkraften liten. I et bunnpunkt ligger senteret **over** banen, motsatt tyngden. Nå må underlaget både bære legemet og i tillegg dra det oppover i svingen, altså gjøre to jobber, og normalkraften blir større enn tyngden.\n\n**b)** Den tredje pilen finnes ikke. Sentripetalakselerasjonen er en **virkning** av de virkelige kreftene, ikke en ekstra kraft som virker på legemet, og i et inertialsystem er det bare to krefter på klossen: tyngden og normalkraften. Konsekvensen for ligningen er at han tar samme fysikk med to ganger. Setter han $mg - N - mv^2/\\rho = 0$ og samtidig mener at høyresiden skal være $mv^2/\\rho$, ender han opp med et sentripetalledd som er dobbelt så stort, altså $N = m(g - 2v^2/\\rho)$. Det gir en normalkraft som er for liten, og en kritisk fart som er for lav med en faktor $\\sqrt{2}$.\n\n**c)** Fordi normalkraften ikke kan bli negativ. I et toppunkt er $N = m(g - v^2/\\rho)$, som **synker** med økende fart og blir null ved $v = \\sqrt{g\\rho}$ — over den farten kan underlaget ikke bøye banen raskt nok, og legemet fortsetter i en kastebane. I et bunnpunkt er $N = m(g + v^2/\\rho)$, som **vokser** med farten og aldri kan bli null. Fysisk: i bunnen presser farten legemet **mot** underlaget, i toppen bort fra det.",
+        "hints": [
+          "Tenk på hvilken vei krumningssenteret ligger i de to tilfellene, og hvilken retning tyngden peker.",
+          "Hvor mange krefter virker faktisk på klossen når underlaget er glatt?",
+          "Se på hva som skjer med fortegnet i $N = m(g \\mp v^2/\\rho)$ når farten øker."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-1-2-o-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-1-2-oppg-8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger M11, eksamensnivå.) En kloss slippes fra ro i toppunktet av en glatt parabelbane\n$$y(x) = h - ax^2,$$\nog glir nedover langs banen. Massen er $m$, og $a > 0$.\n\n**a)** Vis at klossen **aldri** mister kontakten med banen, uansett hvor stor $a$ er. Bruk at farten i posisjonen $x$ følger av energibevaring, og at kontakten brytes når $N = 0$.\n\n**b)** Hva skjer med normalkraften når $x$ blir stor? Tolk resultatet.",
+        "solution": "**a)** Vi trenger tre ting: farten, krumningsradien og normalkomponenten av tyngden i posisjonen $x$.\n\n**Farten.** Klossen har falt høyden $h - y = ax^2$, så energibevaring fra ro gir\n$$v^2 = 2g\\left(h - y\\right) = 2gax^2.$$\n\n**Geometrien.** $y' = -2ax$, altså $y'^2 = 4a^2x^2$. Vi setter $S = 1 + 4a^2x^2$ for å korte ned. Da er\n$$\\rho = \\frac{S^{3/2}}{2a}, \\qquad \\cos\\beta = \\frac{1}{\\sqrt{S}}.$$\n\n**Kontaktbetingelsen.** På en konveks bane er $N = m\\left(g\\cos\\beta - v^2/\\rho\\right)$, og kontakten brytes der parentesen er null:\n$$g\\cos\\beta = \\frac{v^2}{\\rho} \\quad\\Longleftrightarrow\\quad \\frac{g}{\\sqrt{S}} = \\frac{2gax^2 \\cdot 2a}{S^{3/2}} = \\frac{4ga^2x^2}{S^{3/2}}.$$\nMultiplisér begge sider med $S^{3/2}/g$:\n$$S = 4a^2x^2.$$\nMen per definisjon er $S = 1 + 4a^2x^2$. Ligningen sier altså\n$$1 + 4a^2x^2 = 4a^2x^2 \\quad\\Longleftrightarrow\\quad 1 = 0,$$\nsom er umulig. **Det finnes altså ingen posisjon der normalkraften blir null**, uansett verdi av $a$, $m$ og $h$. Klossen holder kontakten hele veien.\n\n**b)** Skriv opp normalkraften eksplisitt:\n$$N = m\\left(\\frac{g}{\\sqrt{S}} - \\frac{4ga^2x^2}{S^{3/2}}\\right) = \\frac{mg}{S^{3/2}}\\left(S - 4a^2x^2\\right) = \\frac{mg}{S^{3/2}} = \\frac{mg}{\\left(1 + 4a^2x^2\\right)^{3/2}}.$$\nNormalkraften er altså **alltid positiv**, men den avtar mot null når $x$ vokser. Klossen nærmer seg å slippe uten noen gang å gjøre det.\n\n**Tolkningen er verdt å ta med seg.** Et legeme i fritt fall med en vannrett startfart følger nettopp en parabel. Parabelbanen er derfor grensetilfellet: en kloss som glir langs en parabel fra ro i toppunktet, er akkurat på grensen av å være i fritt fall, og den nærmer seg denne grensen asymptotisk. Er banen **slakere** enn parabelen der klossen befinner seg, holder den kontakten med god margin; er den skarpere, slipper den. En rask numerisk kontroll med $a = 0{,}0500\\,\\text{m}^{-1}$: ved $x = 10{,}0\\,\\text{m}$ er $4a^2x^2 = 1{,}00$, altså $S = 2{,}00$, og\n$$\\frac{N}{mg} = \\frac{1}{2{,}00^{3/2}} = 0{,}354,$$\naltså 35 prosent av tyngden. Ved $x = 30{,}0\\,\\text{m}$ er $S = 10{,}0$ og forholdet nede på $10{,}0^{-3/2} = 0{,}0316$ — nesten vektløst, men strengt positivt.",
+        "hints": [
+          "Skriv opp $v^2$ fra energibevaring i en vilkårlig posisjon $x$, ikke bare i toppunktet.",
+          "Innfør $S = 1 + y'^2$ som forkortelse — da blir både $\\rho$ og $\\cos\\beta$ enkle uttrykk i $S$.",
+          "Sett $N = 0$ og se hva ligningen faktisk sier om $S$."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-1-2-war-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil — og avrundingsfellen i differansen",
+      "content": "**Feil fortegn på sentripetalleddet** (felle #5 — feil fortegn eller retning på en kraft- eller akselerasjonskomponent). Dette er sjangerens hovedfelle, og den er verdt en egen huskeregel: **minus i toppunkt, pluss i bunnpunkt.** Begrunnelsen er retningen til krumningssenteret, og den er verdt å tenke gjennom hver gang i stedet for å pugge: peker senteret samme vei som tyngden, trekker sentripetalleddet fra. Sjekken etterpå er enda raskere — er svaret ditt større eller mindre enn $mg$, og stemmer det med hvilket punkt du er i?\n\n**Å glemme faktoren 2 i den andrederiverte.** For $y = h - ax^2$ er $\\lvert y''\\rvert = 2a$, ikke $a$. Bruker du $a$, blir krumningsradien dobbelt så stor og sentripetalleddet halvparten. Feilen gir aldri et urimelig svar, bare et galt — og tallet ligger som et ferdig alternativ.\n\n**Å bruke hele krumningsformelen der $y' = 0$.** Det er ikke galt, men det er sløsing: du bruker et halvt minutt på $(1 + 0)^{3/2} = 1$ og risikerer en tastefeil. Motsatt, og verre: **å bruke forenklingen $\\rho = 1/\\lvert y''\\rvert$ i et punkt der banen ikke er vannrett.** Da mangler nevneren $(1 + y'^2)^{3/2}$, og du kan lett være 20–100 prosent feil.\n\n**Å glemme å dekomponere tyngden på skrå punkter.** Er $\\beta \\ne 0$, er normalkomponenten $mg\\cos\\beta$, ikke $mg$. I eksempel 4 var forskjellen mellom 266 N og 417 N.\n\n**Å regne med konstant akselerasjon på en krum bane.** Farten i et punkt får du fra **energibevaring**, ikke fra $v^2 - v_0^2 = 2as$ med $a = g$ — for på en krum bane er akselerasjonen langs banen ikke konstant. Dette er felle #3 (bruke konstant-akselerasjonsformler når akselerasjonen ikke er konstant) i denne sjangerens utgave.\n\n**Og avrundingsfellen som er spesiell for dette kapitlet** (felle #16 — avrundingsfeil som lander på nabo-alternativet). Svaret er en **differanse** mellom to tall av samme størrelsesorden: $g$ og $v^2/\\rho$. Runder du sentripetalleddet fra 3,857 til 3,9, endrer differansen $9{,}81 - 3{,}857 = 5{,}953$ seg til 5,91 — en feil på 0,7 prosent i leddet, men den ganges opp med massen og kan lett flytte deg et alternativ. Regel: **behold fire siffer i $v^2/\\rho$, aldri to.** Er de to tallene nesten like store, som når normalkraften nærmer seg null, blir presisjonskravet enda strengere."
+    },
+    {
+      "id": "tfy4115-1-2-begrepsbank-notis",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "tfy4115-1-2-bb-sirkelkrumning",
+      "type": "definition",
+      "title": "Krumningsradius for en sirkel",
+      "content": "For en sirkel med radius $R$ er krumningsradien overalt lik $R$, og krumningen $1/R$. Sirkelen er den eneste kurven med samme krumning i alle punkter, og det er nettopp derfor krumningssirkelen er en meningsfull sammenligning for andre baner: i ett punkt oppfører banen seg som denne sirkelen. Praktisk konsekvens i denne sjangeren: er banen oppgitt som en sirkelbue, trenger du ikke derivere i det hele tatt — sett $\\rho = R$ og gå rett til Newtons 2. lov."
+    },
+    {
+      "id": "tfy4115-1-2-bb-fortegnsregel",
+      "type": "definition",
+      "title": "Fortegnsregelen for normalkraften",
+      "content": "Den ene linjen sjangeren hviler på:\n$$N = m\\left(g \\mp \\frac{v^2}{\\rho}\\right), \\qquad \\textbf{minus i toppunkt, pluss i bunnpunkt}.$$\nBegrunnelsen er retningen til krumningssenteret: ligger det på samme side som tyngden peker (toppunkt), hjelper tyngden til med å bøye banen, og normalkraften blir mindre; ligger det motsatt (bunnpunkt), må underlaget gjøre begge jobbene. Sjekken etterpå er å sammenligne svaret med $mg$. På et skrått punkt erstattes $g$ med $g\\cos\\beta$."
+    },
+    {
+      "id": "tfy4115-1-2-bb-massen-faller-ut",
+      "type": "definition",
+      "title": "Når massen faller ut av svaret",
+      "content": "En rask kontroll som fanger mange feil: i denne sjangeren faller massen ut av alle spørsmål om en **fart** og står igjen i alle spørsmål om en **kraft**. Kritisk fart er $\\sqrt{g\\rho}$ — ingen masse. Fart fra fall er $\\sqrt{2g\\Delta y}$ — ingen masse. Normalkraft er $m(g \\mp v^2/\\rho)$ — massen er med som en enkel faktor. Står massen i et fartssvar, eller mangler den i et kraftsvar, har du gjort en feil før du i det hele tatt sjekker tallene."
+    },
+    {
+      "id": "tfy4115-1-2-coll-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tfy4115-1-2-coll-symbolliste-inn",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n**Kolliderende symboler i dette delkapitlet.** Her betyr $\\rho$ **krumningsradius** i meter, ikke en tetthet. Symbolet $\\tau$ opptrer ikke (det var en tidskonstant i [kap. 1.1](/tfy4115/tfy4115-1-1) og er et kraftmoment i Del 4). Symbolet $T$ brukes ikke, verken som svingetid eller temperatur, og $S$ er ikke i bruk som taustrekk eller entropi — her er $S$ bare en midlertidig forkortelse for $1 + y'^2$ i oppgave 8. Radien til en sirkel skrives $R$, og betyr **radius**, ikke gasskonstant.\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $y(x)$ | Banekurven, høyden som funksjon av vannrett posisjon | m |\n| $y'$ | Stigningen $dy/dx$; $\\tan\\beta = y'$ | — |\n| $y''$ | Den andrederiverte $d^2y/dx^2$ | $\\text{m}^{-1}$ |\n| $\\beta$ | Banevinkelen, mellom tangenten og vannrett | grader eller rad |\n| $\\rho$ | Krumningsradius (**ikke** tetthet i dette kapitlet) | m |\n| $1/\\rho$ | Krumning | $\\text{m}^{-1}$ |\n| $R$ | Radius i en sirkelbue | m |\n| $v$ | Farten langs banen | m/s |\n| $a$, $b$ | Koeffisienter i parabelprofilene $h - ax^2$ og $bx^2$ | $\\text{m}^{-1}$ |\n| $m$ | Masse | kg |\n| $g$ | Tyngdeakselerasjonen, $9{,}81\\,\\text{m/s}^2$ | $\\text{m/s}^2$ |\n| $N$ | Normalkraften fra underlaget | N |\n| $v_\\text{krit}$ | Kritisk fart, der $N = 0$ i et toppunkt | m/s |\n| $\\Delta y$ | Høydefall brukt i energibevaring | m |\n| $K$, $U$ | Kinetisk og potensiell energi | J |\n| $h$ | Høyden i toppunktet av parabelprofilen | m |\n\n**Formler i dette delkapitlet:**\n\n$$\\tan\\beta = \\frac{dy}{dx}, \\qquad \\cos\\beta = \\frac{1}{\\sqrt{1 + y'^2}}$$\nBanevinkelen og den cosinusverdien du faktisk trenger [må kunne brukes eller utledes aktivt].\n\n$$\\rho = \\frac{\\left(1 + y'^2\\right)^{3/2}}{\\lvert y''\\rvert}$$\nKrumningsradien i et vilkårlig punkt [må kunne brukes eller utledes aktivt].\n\n$$\\rho = \\frac{1}{\\lvert y''\\rvert} \\quad (\\text{når } y' = 0)$$\nForenklingen i topp- og bunnpunkt — sjangerens snarvei [må kunne brukes eller utledes aktivt].\n\n$$a_\\text{sentripetal} = \\frac{v^2}{\\rho}$$\nSentripetalakselerasjonen, rettet inn mot krumningssenteret [står på det utdelte arket].\n\n$$mg - N = \\frac{mv^2}{\\rho} \\quad\\Longrightarrow\\quad N = m\\left(g - \\frac{v^2}{\\rho}\\right)$$\nNewtons 2. lov og normalkraften i et **toppunkt** [må kunne brukes eller utledes aktivt].\n\n$$N - mg = \\frac{mv^2}{\\rho} \\quad\\Longrightarrow\\quad N = m\\left(g + \\frac{v^2}{\\rho}\\right)$$\nDet samme i et **bunnpunkt** [må kunne brukes eller utledes aktivt].\n\n$$N = m\\left(g\\cos\\beta - \\frac{v^2}{\\rho}\\right)$$\nNormalkraften i et skrått punkt på en konveks bane [må kunne brukes eller utledes aktivt].\n\n$$v_\\text{krit} = \\sqrt{g\\rho}$$\nFarten der kontakten brytes i et toppunkt — massen faller ut [må kunne brukes eller utledes aktivt].\n\n$$\\tfrac12 mv_1^2 + mgh_1 = \\tfrac12 mv_2^2 + mgh_2 \\quad\\Longrightarrow\\quad v^2 = 2g\\,\\Delta y \\ \\ (\\text{fra ro})$$\nMekanisk energibevaring for et glidende legeme. Energileddene [står på det utdelte arket]; oppsettet [må kunne brukes eller utledes aktivt].\n\n$$\\frac{N}{m} = g \\mp \\frac{v^2}{\\rho}$$\nOpplevd tyngde per masseenhet, det passasjeren kjenner [må kunne brukes eller utledes aktivt].\n\nTrenger du å derivere eller kvadratrote noe underveis, står regnereglene i **Rottmann**."
+        }
+      ]
+    },
+    {
+      "id": "tfy4115-1-2-coll-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tfy4115-1-2-coll-rep-inn",
+          "type": "text",
+          "content": "Fem korte oppgaver på det dette kapitlet bygger på — derivasjon fra [kap. 1.1](/tfy4115/tfy4115-1-1) og sirkelbevegelse fra videregående. Regn med to til tre minutter hver.\n\n**R1.** Finn $y'$ og $y''$ for $y = 6{,}00 - 0{,}0800x^2$, og krumningsradien i toppunktet.\n\n*Svar:* $y' = -0{,}160x$, $y'' = -0{,}160\\,\\text{m}^{-1}$, og $\\rho = 1/0{,}160 = 6{,}25\\,\\text{m}$.\n\n**R2.** Et legeme går i en sirkel med radius $2{,}50\\,\\text{m}$ og fart $7{,}00\\,\\text{m/s}$. Hvor stor er sentripetalakselerasjonen, og hvor mange ganger $g$ er det?\n\n*Svar:* $a = v^2/\\rho = 49{,}0/2{,}50\\,\\text{m/s}^2 = 19{,}60\\,\\text{m/s}^2$, altså $19{,}60/9{,}81 = 2{,}00$ ganger $g$.\n\n**R3.** En kloss glir uten friksjon fra ro og faller $2{,}40\\,\\text{m}$. Hvor stor er $v^2$, og hvor stor er farten?\n\n*Svar:* $v^2 = 2g\\,\\Delta y = 2 \\cdot 9{,}81 \\cdot 2{,}40\\,\\text{m}^2/\\text{s}^2 = 47{,}09\\,\\text{m}^2/\\text{s}^2$, og $v = 6{,}862\\,\\text{m/s} \\approx 6{,}86\\,\\text{m/s}$. Merk at massen ikke trengs.\n\n**R4.** For hvilken banevinkel er $\\cos\\beta = 0{,}900$, og hva er $y'$ i det punktet?\n\n*Svar:* $\\beta = \\arccos 0{,}900 = 25{,}84^\\circ$. Fra $\\cos\\beta = 1/\\sqrt{1 + y'^2}$ følger $1 + y'^2 = 1/0{,}810 = 1{,}2346$, altså $y'^2 = 0{,}2346$ og $\\lvert y'\\rvert = 0{,}4843$. Kontroll: $\\tan 25{,}84^\\circ = 0{,}4843$.\n\n**R5.** En kloss på $1{,}20\\,\\text{kg}$ passerer et toppunkt med $\\rho = 5{,}00\\,\\text{m}$. Ved hvilken fart blir normalkraften halvparten av tyngden?\n\n*Svar:* Krev $g - v^2/\\rho = g/2$, altså $v^2 = g\\rho/2 = 9{,}81 \\cdot 5{,}00/2\\,\\text{m}^2/\\text{s}^2 = 24{,}53\\,\\text{m}^2/\\text{s}^2$ og $v = 4{,}952\\,\\text{m/s} \\approx 4{,}95\\,\\text{m/s}$. Massen falt ut igjen — den var bare oppgitt for å se om du lot deg lure."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

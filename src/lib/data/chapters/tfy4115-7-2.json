@@ -1,0 +1,452 @@
+{
+  "id": "tfy4115-7-2",
+  "courseId": "tfy4115",
+  "chapterNumber": "7.2",
+  "title": "Entropi og andre hovedsetning",
+  "description": "Entropi som tilstandsfunksjon, $\\Delta S=\\int dQ_\\text{rev}/T$, entropiendring for ideell gass, og 2. hovedsetning som fortegnsanalyse (universets entropi øker).",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "kunne regne entropiendringen for en ideell gass, et varmereservoar og et stoff med konstant varmekapasitet, med alle temperaturer i kelvin",
+    "kunne konstruere en reversibel omvei for en irreversibel prosess, og forklare hvorfor svaret gjelder for den faktiske prosessen",
+    "kunne skille systemets entropiendring fra universets, og bruke andre hovedsetning til å avgjøre om en foreslått prosess er mulig",
+    "kunne forklare hvorfor en reversibel adiabat har uendret entropi, mens en fri ekspansjon øker den selv om ingen varme utveksles"
+  ],
+  "content": [
+    {
+      "id": "tfy4115-7-2-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Entropi er termohalvdelens mest fryktede tema og samtidig et av de mest\nregelmessige.** Sjanger T7 — entropioppgaven — forekommer i **praktisk talt alle\nsett (~100 %)**, og sjanger T8 (hovedsetningene som fortegnsanalyse) gjør det\nsamme. Begge hører i **termohalvdelen, spørsmål 21–40**. Prioritet: **høyeste —\ndette må sitte.**\n\nGrunnen til at temaet er regelmessig, er at det bare finnes fem oppgaveformer, og\nalle fem er korte:\n\n1. **Isoterm prosess:** $\\Delta S = nR\\ln(V_2/V_1)$.\n2. **Oppvarming eller avkjøling:** $\\Delta S = nC\\ln(T_2/T_1)$ med riktig $C$.\n3. **Fri ekspansjon:** samme som isoterm, selv om prosessen er irreversibel.\n4. **Varmeoverføring mellom to reservoarer:**\n   $\\Delta S_\\text{univers} = Q(1/T_\\text{kald} - 1/T_\\text{varm})$.\n5. **Konseptspørsmål:** hvilken prosess er umulig etter andre hovedsetning, eller\n   ranger $T$, $S$ og $\\Delta U$ i hjørnene av en syklus.\n\n**Den ene feilen som koster mest, er å tro at man ikke kan regne $\\Delta S$ for en\nirreversibel prosess** (felle #14 — å glemme at entropi er en tilstandsfunksjon).\nMan kan alltid: man konstruerer en **reversibel omvei** mellom de samme to\ntilstandene og regner langs den. Det er kapitlets sentrale teknikk, og halve\nsjangeren består i å bruke den.\n\nDen nest dyreste feilen er **celsius i logaritmen** (felle #11): $\\ln(T_2/T_1)$\nkrever kelvin, og et forhold mellom celsiustall er noe helt annet enn et forhold\nmellom kelvinverdier."
+    },
+    {
+      "id": "tfy4115-7-2-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet bygger direkte på [kap. 7.1](/tfy4115/tfy4115-7-1), og du trenger\nfire ting derfra. De står ferdig oppfrisket her:\n\n$$\\Delta U = Q - W, \\qquad W = \\int_{V_1}^{V_2} p\\,dV$$\nFørste hovedsetning og arbeidsintegralet, med denne bokas fortegnskonvensjon:\n$Q > 0$ er varme **inn**, $W > 0$ er arbeid gjort **av** gassen.\n\n$$\\Delta U = nC_V\\,\\Delta T \\qquad (\\text{uansett prosess})$$\nIndre energi for en ideell gass. Denne brukes i selve utledningen av\nentropiuttrykket.\n\n$$\\text{isokor}: W = 0 \\quad\\text{—}\\quad \\text{isobar}: W = p\\Delta V\n\\quad\\text{—}\\quad \\text{isoterm}: \\Delta U = 0 \\quad\\text{—}\\quad\n\\text{adiabat}: Q = 0$$\nProsesstabellen. Du trenger den fordi entropiuttrykket ser ulikt ut for hver av\ndem.\n\n$$C_V = \\frac{f}{2}R, \\qquad C_P = C_V + R$$\nFra [kap. 6.2](/tfy4115/tfy4115-6-2). **Enatomig:** $C_V = 12{,}471$,\n$C_P = 20{,}785$. **Toatomig ved romtemperatur:** $C_V = 20{,}785$, $C_P = 29{,}099$\n(i $\\text{J/(mol}\\cdot\\text{K)}$). Valget mellom dem avgjør entropisvaret.\n\n**Fra matematikken:** [Bestemt integral som grenseverdi](/r2/r2-2-4) trenger du\ntil $\\int dQ/T$, og logaritmen er kapitlets viktigste funksjon:\n$$\\int_{T_1}^{T_2}\\frac{dT}{T} = \\ln\\frac{T_2}{T_1}, \\qquad\n\\ln 2 = 0{,}69315, \\qquad \\ln 3 = 1{,}0986, \\qquad \\ln\\frac{1}{x} = -\\ln x.$$\nDen siste er verdt å merke seg nå: **logaritmen av et tall under 1 er negativ**,\nog det er nettopp det som gir riktig fortegn på $\\Delta S$ ved kompresjon og\navkjøling.\n\n**⚠ Symbolvarsel — $S$ er nytt, og det kolliderer.** Fra og med dette kapitlet er\n$S$ **entropi**, med enheten J/K. I [kap. 5.1](/tfy4115/tfy4115-5-1) var $S$\n**taustrekket** i en konisk pendel, målt i newton. De to har ingenting med\nhverandre å gjøre, og enheten skiller dem umiddelbart. Ellers gjelder de samme\nsom før: $Q$ er varme (ikke kvalitetsfaktor), $T$ er kelvin (ikke periode), $p$\ner trykk (ikke bevegelsesmengde), $R$ er gasskonstanten (ikke radius)."
+    },
+    {
+      "id": "tfy4115-7-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — hva entropi er, og hvorfor den trengs (~14 min)\n\nSett en kopp varm kaffe på bordet. Den blir kald. Aldri, ikke én gang i\nverdenshistorien, har en kald kopp kaffe på et romtemperert bord blitt varm av seg\nselv — selv om **energibevaring ikke ville hatt noe å innvende**. Varmen kunne\nstrømmet fra bordet til kaffen, og regnskapet i første hovedsetning ville stemt\nperfekt.\n\nSlipp en dråpe blekk i et glass vann. Det blander seg. Det ublander seg ikke.\nKnus et egg. Det blir ikke helt igjen.\n\nFørste hovedsetning sier ingenting om **retning**. Den tillater alle disse\nprosessene baklengs. Vi trenger en størrelse som forteller hvilken vei naturen\nfaktisk går, og den størrelsen er **entropi**."
+    },
+    {
+      "id": "tfy4115-7-2-def-reversibel",
+      "type": "definition",
+      "title": "Reversibel prosess",
+      "content": "En prosess som kan kjøres baklengs gjennom nøyaktig de samme tilstandene, slik at\nbåde systemet og omgivelsene ender der de startet. Det krever at prosessen er\n**kvasistatisk** (går så langsomt at likevekt holdes hele veien) og at det ikke\nfinnes friksjon eller endelige temperaturforskjeller.\n\nEn reversibel prosess er en **idealisering** — ingen virkelig prosess er helt\nreversibel. Men den er en uunnværlig idealisering, av to grunner: den er\ngrensetilfellet som gir best mulig ytelse (det ser du i Carnot-syklusen i Del 8),\nog den er den eneste veien man kan **regne** entropi langs.\n\nKjennetegnet i en oppgavetekst: «svært langsomt», «reversibelt», «kvasistatisk»."
+    },
+    {
+      "id": "tfy4115-7-2-def-irreversibel",
+      "type": "definition",
+      "title": "Irreversibel prosess",
+      "content": "En prosess som ikke kan kjøres baklengs uten at noe annet endres. Alle virkelige\nprosesser er irreversible; de fire typiske kildene er:\n\n1. **Endelig temperaturforskjell** — varme som strømmer fra varmt til kaldt.\n2. **Fri ekspansjon** — en gass som strømmer inn i et tomt rom.\n3. **Friksjon** eller annen mekanisk dissipasjon.\n4. **Blanding** av stoffer eller av ulike temperaturer.\n\n**Det avgjørende for regningen:** en irreversibel prosess har **ingen definert vei**\ni $pV$-diagrammet, fordi gassen ikke er i likevekt underveis. Derfor kan du\nverken tegne den eller integrere langs den. Løsningen er ikke å gi opp, men å\nregne langs en **reversibel omvei** mellom samme to tilstander — se\ntheoremet nedenfor."
+    },
+    {
+      "id": "tfy4115-7-2-def-entropi",
+      "type": "definition",
+      "title": "Entropi $S$",
+      "content": "En tilstandsstørrelse som måler hvor mange mikroskopiske måter systemet kan\nrealisere sin makroskopiske tilstand på — populært: hvor «spredt» energien er.\nEnheten er **joule per kelvin** (J/K).\n\nDen termodynamiske definisjonen er en **endring**, ikke en absoluttverdi:\n$$dS = \\frac{dQ_\\text{rev}}{T} \\quad\\Longrightarrow\\quad\n\\Delta S = \\int_1^2 \\frac{dQ_\\text{rev}}{T},$$\nder integralet tas langs en **reversibel** vei. Uttrykket **står på det utdelte\narket**.\n\n*Intuisjon for hvorfor $T$ står i nevneren:* den samme energiporsjonen «betyr\nmer» i et kaldt system enn i et varmt. Tilfører du et joule til noe som er\n$300\\,\\text{K}$, endrer du uorden mer enn om du tilfører det til noe som er\n$1000\\,\\text{K}$, der det allerede er mye tilfeldig bevegelse. Det er nettopp\ndenne asymmetrien som gjør at varme spontant går fra varmt til kaldt: universets\nentropi øker på det.\n\n⚠ **Symbolkollisjon:** $S$ var **taustrekk** i newton i\n[kap. 5.1](/tfy4115/tfy4115-5-1). Enheten J/K skiller dem entydig."
+    },
+    {
+      "id": "tfy4115-7-2-thm-tilstandsfunksjon",
+      "type": "theorem",
+      "title": "Entropi er en tilstandsfunksjon — og den reversible omveien",
+      "content": "$\\Delta S$ avhenger **bare** av start- og sluttilstanden, ikke av veien mellom\ndem. Det gjelder selv om integralet $\\int dQ_\\text{rev}/T$ *ser ut* som noe\nveiavhengig.\n\n**Konsekvensen er kapitlets viktigste metode.** Skal du finne $\\Delta S$ for en\n**irreversibel** prosess:\n\n1. Bestem start- og slutt-tilstand fullstendig ($p$, $V$, $T$ for begge).\n2. **Konstruer en reversibel vei** mellom nøyaktig de samme to tilstandene — du\n   velger den selv, og du velger den enkleste.\n3. Regn $\\int dQ_\\text{rev}/T$ langs **den** veien.\n4. Svaret gjelder for den opprinnelige prosessen også.\n\nMerk hva som ikke gjelder: **$Q$ i den faktiske prosessen kan ikke brukes**. I en\nfri ekspansjon er $Q = 0$, men $\\Delta S > 0$ — det er ingen selvmotsigelse,\nfordi $dS = dQ_\\text{rev}/T$ krever den **reversible** varmen, ikke den faktiske.\n\n**Å hoppe over omveien er felle #14, og den finnes i to varianter:** å nekte å\nregne $\\Delta S$ fordi prosessen er irreversibel, og å sette den faktiske\n$Q = 0$ inn og konkludere $\\Delta S = 0$. Begge gir feil svar, og begge står\ntypisk som alternativer."
+    },
+    {
+      "id": "tfy4115-7-2-utledning",
+      "type": "text",
+      "content": "### Utledningen som kreves aktivt: $\\Delta S$ for en ideell gass\n\nDette er den ene utledningen i kapitlet du bør kunne gjøre fra bunnen. Den er\nfire linjer, og den gir uttrykket du bruker i nesten hver entropioppgave.\n\nStart med første hovedsetning for en reversibel, infinitesimal prosess:\n$$dQ_\\text{rev} = dU + dW = nC_V\\,dT + p\\,dV.$$\n\nDel på $T$, og sett inn $p = nRT/V$ fra gassloven:\n$$dS = \\frac{dQ_\\text{rev}}{T} = nC_V\\frac{dT}{T} + \\frac{p}{T}\\,dV\n= nC_V\\frac{dT}{T} + nR\\frac{dV}{V}.$$\n\n*Intuisjon:* de to leddene er de to måtene entropien kan øke. Det første er\n**oppvarming** — mer termisk bevegelse, flere mikrotilstander. Det andre er\n**ekspansjon** — mer rom å være i, flere mikrotilstander. Legg merke til at $T$\nforsvant helt ut av det andre leddet: $p/T = nR/V$ fra gassloven. Det er derfor\ndet isoterme leddet er så enkelt.\n\nIntegrér fra tilstand 1 til tilstand 2:\n$$\\boxed{\\ \\Delta S = nC_V\\ln\\frac{T_2}{T_1} + nR\\ln\\frac{V_2}{V_1}\\ }$$\nUttrykket **står på det utdelte arket**.\n\n**Og formen i $T$ og $p$**, som du får ved å sette $V = nRT/p$ inn og bruke\n$C_P = C_V + R$:\n$$\\Delta S = nC_P\\ln\\frac{T_2}{T_1} - nR\\ln\\frac{p_2}{p_1}.$$\nMerk **minustegnet** foran trykkleddet: øker du trykket ved fast temperatur,\npresses gassen sammen, og entropien **faller**. Også denne formen står på arket.\n\n**De fire spesialtilfellene faller rett ut, og det er dem du bruker:**\n\n| Prosess | $\\Delta S$ |\n|---|---|\n| **isoterm** ($T_2 = T_1$) | $nR\\ln\\dfrac{V_2}{V_1}$ |\n| **isokor** ($V_2 = V_1$) | $nC_V\\ln\\dfrac{T_2}{T_1}$ |\n| **isobar** ($p_2 = p_1$) | $nC_P\\ln\\dfrac{T_2}{T_1}$ |\n| **reversibel adiabat** | $0$ |\n\nDen siste er verdt å regne etter. Langs en reversibel adiabat er\n$T_2/T_1 = (V_1/V_2)^{\\gamma-1}$, og da blir\n$$\\Delta S = nC_V(\\gamma-1)\\ln\\frac{V_1}{V_2} + nR\\ln\\frac{V_2}{V_1}\n= nR\\ln\\frac{V_1}{V_2} + nR\\ln\\frac{V_2}{V_1} = 0,$$\nder vi brukte $C_V(\\gamma-1) = R$ fra [kap. 6.2](/tfy4115/tfy4115-6-2). De to\nleddene kansellerer nøyaktig. **En reversibel adiabat er derfor en prosess med\nkonstant entropi**, og den kalles derfor **isentrop**.\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "tfy4115-7-2-def-dS-gass",
+      "type": "definition",
+      "title": "Entropiendring for en ideell gass",
+      "content": "De to ekvivalente formene, som **begge står på det utdelte arket**:\n$$\\Delta S = nC_V\\ln\\frac{T_2}{T_1} + nR\\ln\\frac{V_2}{V_1}\n= nC_P\\ln\\frac{T_2}{T_1} - nR\\ln\\frac{p_2}{p_1}.$$\n\n**Velg formen etter hvilke størrelser oppgaven gir deg.** Har du temperatur og\nvolum, bruk den første; temperatur og trykk, bruk den andre. Har du bare trykk og\nvolum, finn temperaturene fra gassloven først.\n\nTo ting å passe på hver gang:\n\n1. **$C_V$ i den første formen, $C_P$ i den andre.** Å bytte om er felle #8, og\n   feilen er nøyaktig $nR\\ln(T_2/T_1)$.\n2. **Minustegnet foran trykkleddet** i den andre formen, mens volumleddet i den\n   første er positivt. Grunnen er at høyere trykk betyr mindre volum — de peker\n   motsatt vei.\n\n**Kelvin, alltid.** Logaritmen av et forhold mellom celsiustall er en helt annen\nstørrelse enn logaritmen av forholdet mellom kelvinverdier — og forskjellen er\nstor, ikke liten."
+    },
+    {
+      "id": "tfy4115-7-2-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: fri ekspansjon — der omveien er alt",
+      "problem": "$1{,}00\\,\\text{mol}$ ideell gass befinner seg i den ene halvdelen av en **isolert**\nbeholder ved $300\\,\\text{K}$. Den andre halvdelen er tom. En skillevegg fjernes,\nog gassen strømmer fritt ut i hele beholderen, slik at volumet dobles.\n\n**a)** Hva er $Q$, $W$ og $\\Delta U$ for prosessen?\n\n**b)** Hva blir slutt-temperaturen?\n\n**c)** Finn gassens entropiendring.\n\n**d)** Finn universets entropiendring, og forklar hva den forteller.\n\n**e)** Vis at omveien gir samme svar som i c), regnet fra $\\int dQ_\\text{rev}/T$.",
+      "solution": "**a)** Tre nuller, og hver av dem har sin egen grunn:\n\n- **$Q = 0$:** beholderen er isolert, så ingen varme kan krysse grensen.\n- **$W = 0$:** gassen skyver ikke mot **noe**. Den strømmer inn i vakuum, og det\n  finnes ingen mottrykk å arbeide mot. Dette er den delen som overrasker — merk at\n  volumet endres, men arbeidet er likevel null, fordi $p_\\text{ytre} = 0$.\n- **$\\Delta U = Q - W = 0$.**\n\n**b)** For en ideell gass er $\\Delta U = nC_V\\Delta T$, og $\\Delta U = 0$ gir\n$$\\Delta T = 0, \\qquad T_2 = T_1 = 300\\,\\text{K}.$$\n**Temperaturen er uendret** — gassen blir ikke kaldere av å utvide seg fritt,\nfordi den ikke gjorde noe arbeid. (Sammenlign med en adiabatisk ekspansjon i\n[kap. 7.1](/tfy4115/tfy4115-7-1), der gassen **gjorde** arbeid mot et stempel og\nderfor ble kaldere.)\n\n**c) Symbolsk.** Nå kommer det som skiller sjangeren fra resten: prosessen er\n**irreversibel**, så vi kan ikke integrere langs den. Men entropi er en\n**tilstandsfunksjon**, så vi bruker uttrykket for en ideell gass med de faktiske\nstart- og slutt-tilstandene. Med $T_2 = T_1$ faller temperaturleddet bort:\n$$\\Delta S = nC_V\\ln\\frac{T_2}{T_1} + nR\\ln\\frac{V_2}{V_1}\n= 0 + nR\\ln 2.$$\n\n**Rask vei til tall.**\n$$\\Delta S = 1{,}00 \\cdot 8{,}314 \\cdot 0{,}69315\\,\\text{J/K} = 5{,}7628\\,\\text{J/K}.$$\nPositiv — entropien **øker**, som den må for en irreversibel prosess i et isolert\nsystem.\n\n**⚠ Her ligger felle #14.** Prosessen har $Q = 0$, og det er fristende å\nkonkludere at $\\Delta S = Q/T = 0$. **Det er galt.** Definisjonen er\n$dS = dQ_\\text{rev}/T$ — den **reversible** varmen, ikke den faktiske. En\nirreversibel prosess kan godt ha $Q = 0$ og $\\Delta S > 0$ samtidig.\n\n**d)** Omgivelsene ble ikke berørt i det hele tatt: beholderen er isolert, og\ningen varme eller arbeid krysset grensen. Altså\n$$\\Delta S_\\text{omgivelser} = 0, \\qquad\n\\Delta S_\\text{univers} = 5{,}7628 + 0 = 5{,}7628\\,\\text{J/K} > 0.$$\n\n**Hva det forteller:** at prosessen er **irreversibel**, og at den motsatte\nprosessen er umulig. Gassen kommer ikke tilbake i den ene halvdelen av seg selv —\ndet ville krevd $\\Delta S_\\text{univers} < 0$, som andre hovedsetning forbyr.\nMerk at første hovedsetning ikke ville hatt noe å innvende: energien er den samme\ni begge tilfeller.\n\n**e)** Konstruér omveien: en **reversibel isoterm ekspansjon** ved\n$300\\,\\text{K}$ fra $V$ til $2V$. Den har samme start- og slutt-tilstand som den\nfrie ekspansjonen (samme $T$, samme volumendring), og den kan regnes.\n\nLangs den isoterme er $\\Delta U = 0$, altså $Q_\\text{rev} = W$:\n$$Q_\\text{rev} = nRT\\ln 2 = 1{,}00 \\cdot 8{,}314 \\cdot 300 \\cdot 0{,}69315\\,\\text{J}\n= 1728{,}8\\,\\text{J}.$$\nOg siden temperaturen er konstant langs omveien, kan $T$ settes utenfor\nintegralet:\n$$\\Delta S = \\int\\frac{dQ_\\text{rev}}{T} = \\frac{Q_\\text{rev}}{T}\n= \\frac{1728{,}8}{300}\\,\\text{J/K} = 5{,}7628\\,\\text{J/K} \\ \\checkmark$$\n\nSamme svar som i c). **Legg merke til hva som skjedde:** den faktiske prosessen\nhadde $Q = 0$ og $W = 0$; omveien har $Q_\\text{rev} = 1728{,}8\\,\\text{J}$ og\n$W = 1728{,}8\\,\\text{J}$. Helt ulike varme- og arbeidstall, **samme\nentropiendring** — fordi $\\Delta S$ bare avhenger av endepunktene."
+    },
+    {
+      "id": "tfy4115-7-2-fig-omvei",
+      "type": "image",
+      "src": "/images/textbook/tfy4115/tfy4115-7-2-reversibel-omvei.svg",
+      "alt": "pV-diagram med to punkter merket 1 og 2 paa samme isoterm. Mellom dem er tegnet en stiplet sikksakk-linje merket irreversibel fri ekspansjon uten definert vei, og en heltrukket kurve langs isotermen merket reversibel isoterm omvei som entropien regnes langs.",
+      "caption": "Fri ekspansjon fra tilstand 1 til tilstand 2. Den faktiske prosessen (stiplet) har **ingen definert vei** — gassen er ikke i likevekt underveis, så den har hverken veldefinert trykk eller temperatur. Den heltrukne isotermen er **omveien vi regner langs**, og siden begge har samme endepunkter, er $\\Delta S$ den samme: $nR\\ln(V_2/V_1)$."
+    },
+    {
+      "id": "tfy4115-7-2-o-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-7-2-o-1-e",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — enhet, fortegn og begrep. Ingen omvei ennå.)\n\n**a)** Hva er SI-enheten for entropi?\n\n**b)** Blir $\\Delta S$ positiv eller negativ når en gass **avkjøles** ved fast\nvolum? Begrunn ut fra formelen.\n\n**c)** Blir $\\Delta S$ positiv eller negativ når en gass **komprimeres** ved fast\ntemperatur?\n\n**d)** En medstudent sier: «prosessen er isolert, så $Q = 0$, og dermed er\n$\\Delta S = 0$». Hva er galt?",
+        "solution": "**a)** Joule per kelvin, $\\text{J/K}$. Det følger direkte av\n$dS = dQ_\\text{rev}/T$: en energi delt på en temperatur. Merk at **molar** entropi\nhar enheten $\\text{J/(mol}\\cdot\\text{K)}$ — samme enhet som en varmekapasitet, og\ndet er ikke tilfeldig, siden $\\Delta S = nC\\ln(T_2/T_1)$.\n\n**b) Negativ.** $\\Delta S = nC_V\\ln(T_2/T_1)$, og ved avkjøling er $T_2 < T_1$,\naltså er forholdet under 1 og logaritmen **negativ**. Gassen blir mer ordnet: mindre\ntermisk bevegelse, færre mikrotilstander.\n\nMerk at dette ikke bryter andre hovedsetning: **systemets** entropi kan godt falle,\nså lenge omgivelsenes øker mer. Varmen som ble fjernet, havnet et sted.\n\n**c) Negativ.** $\\Delta S = nR\\ln(V_2/V_1)$ med $V_2 < V_1$ gir negativ logaritme.\nGassen har mindre rom å være i, altså færre mulige plasseringer for hvert molekyl.\n\n**d) Feilen er å bruke den faktiske $Q$ i stedet for den reversible.**\nDefinisjonen er $dS = dQ_\\text{rev}/T$, altså varmen langs en **reversibel** vei\nmellom samme to tilstander — ikke varmen i den faktiske prosessen.\n\nEn fri ekspansjon i en isolert beholder har $Q = 0$ og likevel $\\Delta S > 0$:\ngassen har endt i en tilstand med større volum, altså flere mikrotilstander. Det\ner nettopp derfor omveien må konstrueres. **Dette er felle #14**, og den er den\nvanligste enkeltfeilen i hele sjangeren.",
+        "hints": [
+          "Se på definisjonen $dS=dQ_\\text{rev}/T$ og hvilke enheter de to har.",
+          "Hva er fortegnet på $\\ln x$ når $x<1$?",
+          "I d): står det «rev» i definisjonen, og hva betyr det?"
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-7-2-o-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-7-2-o-2-e",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger T7 — entropioppgaven.) $1{,}50\\,\\text{mol}$ ideell gass utvider seg\n**isotermt og reversibelt** til dobbelt volum.\n\n**a)** Finn gassens entropiendring.\n\n**b)** Finn omgivelsenes entropiendring, og universets.\n\n**c)** Sammenlign med en **fri** ekspansjon til samme sluttvolum. Hva er likt, og\nhva er ulikt?",
+        "solution": "**a)** Isoterm betyr at temperaturleddet faller bort:\n$$\\Delta S_\\text{gass} = nR\\ln\\frac{V_2}{V_1} = 1{,}50 \\cdot 8{,}314 \\cdot 0{,}69315\n\\,\\text{J/K} = 8{,}6442\\,\\text{J/K}.$$\n\n**b)** Gassen mottok varmen $Q = nRT\\ln 2$ fra reservoaret ved temperaturen $T$.\nReservoaret **mistet** nøyaktig den varmen ved samme temperatur, så\n$$\\Delta S_\\text{omgivelser} = \\frac{-Q}{T} = -\\frac{nRT\\ln 2}{T} = -nR\\ln 2\n= -8{,}6442\\,\\text{J/K},$$\nog dermed\n$$\\Delta S_\\text{univers} = 8{,}6442 + (-8{,}6442) = 0.$$\n**Null — som det skal være for en reversibel prosess.** Det er nettopp\nkjennetegnet: reversibel betyr $\\Delta S_\\text{univers} = 0$.\n\n**c) Likt:** gassens $\\Delta S$ er **den samme**, $8{,}6442\\,\\text{J/K}$, fordi\nstart- og slutt-tilstanden er de samme og entropi er en tilstandsfunksjon.\n\n**Ulikt:** omgivelsene. I den frie ekspansjonen er beholderen isolert, så\n$\\Delta S_\\text{omgivelser} = 0$, og universets entropi **øker** med\n$8{,}6442\\,\\text{J/K}$. I den reversible går omgivelsenes entropi ned like mye som\ngassens går opp, og universets endres ikke.\n\n**Lærdommen:** det er **universets** entropiendring som skiller reversibelt fra\nirreversibelt, ikke systemets. Et system kan gå gjennom samme tilstandsendring på\nen reversibel og en irreversibel måte, med identisk $\\Delta S_\\text{system}$.",
+        "hints": [
+          "Isoterm betyr at ett av de to leddene i entropiuttrykket forsvinner.",
+          "Reservoaret mister den varmen gassen mottar, ved samme temperatur.",
+          "Hvilken av de to entropiendringene avhenger av hvordan prosessen ble gjennomført?"
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-7-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — andre hovedsetning og universets entropi (~16 min)\n\nNå har vi størrelsen. Loven som bruker den, er kort — og den er den eneste loven i\nfysikken som forteller om **retning** i tid."
+    },
+    {
+      "id": "tfy4115-7-2-thm-andre",
+      "type": "theorem",
+      "title": "Andre hovedsetning",
+      "content": "For enhver prosess gjelder\n$$\\boxed{\\ \\Delta S_\\text{univers} = \\Delta S_\\text{system}\n+ \\Delta S_\\text{omgivelser} \\ge 0\\ }$$\nmed **likhet bare for en reversibel prosess** og **skarp ulikhet for enhver\nvirkelig (irreversibel) prosess**. Loven **står på det utdelte arket**.\n\n**Tre presiseringer som avgjør flest oppgaver:**\n\n1. **Det er universets entropi som ikke kan falle** — ikke systemets. Et\n   kjøleskap senker entropien inne i skapet; det er tillatt, fordi entropien i\n   kjøkkenet øker mer.\n2. **Reversibel betyr $\\Delta S_\\text{univers} = 0$, ikke\n   $\\Delta S_\\text{system} = 0$.** De to er helt ulike utsagn.\n3. **En prosess med $\\Delta S_\\text{univers} < 0$ er umulig.** Det er den\n   fullstendige testen på om en foreslått prosess kan skje — og det er nettopp\n   den testen konseptspørsmålene i sjangeren ber om.\n\n*Intuisjon:* det finnes overveldende flere mikroskopiske måter å realisere en\n«blandet» tilstand på enn en «sortert» tilstand. Naturen går ikke mot uorden fordi\nden foretrekker det, men fordi det er så mange flere måter å være uordnet på.\nBlekkdråpen i vannglasset kunne i prinsippet samle seg igjen — sannsynligheten er\nbare uendelig liten."
+    },
+    {
+      "id": "tfy4115-7-2-def-reservoar",
+      "type": "definition",
+      "title": "Entropiendring i et varmereservoar",
+      "content": "Et **reservoar** er så stort at temperaturen ikke endres målbart av den varmen som\ntas ut eller settes inn. Da er $T$ konstant i integralet, og\n$$\\Delta S_\\text{reservoar} = \\frac{Q}{T},$$\nder $Q$ er varmen **inn i** reservoaret (positiv) eller **ut av** det (negativ).\n\nDette er den enkleste entropiregningen som finnes — ingen logaritme, bare en\ndivisjon — og den er halvparten av arbeidet i alle\nvarmeoverføringsoppgaver.\n\n**Fortegnsregelen, som må skrives ut hver gang:** det **varme** reservoaret gir\nfra seg varme og får negativ $\\Delta S$; det **kalde** mottar og får positiv. Og\nfordi den kalde temperaturen står i nevneren, er den positive endringen alltid\nstørst i tallverdi."
+    },
+    {
+      "id": "tfy4115-7-2-thm-varmeoverforing",
+      "type": "theorem",
+      "title": "Varmeoverføring mellom to reservoarer",
+      "content": "Går varmen $Q$ fra et reservoar ved $T_\\text{varm}$ til ett ved $T_\\text{kald}$,\ner\n$$\\Delta S_\\text{univers} = -\\frac{Q}{T_\\text{varm}} + \\frac{Q}{T_\\text{kald}}\n= Q\\left(\\frac{1}{T_\\text{kald}} - \\frac{1}{T_\\text{varm}}\\right) > 0$$\nså lenge $T_\\text{varm} > T_\\text{kald}$.\n\n**Dette er andre hovedsetning i tall.** Ulikheten er strengt positiv nettopp fordi\nden kalde temperaturen er den minste, og den minste temperaturen gir den største\nbrøken. Varme kan derfor gå spontant fra varmt til kaldt, men **aldri** motsatt:\nden motsatte prosessen ville gitt et negativt tall.\n\n**Grensetilfellet er lærerikt:** går $T_\\text{varm} \\to T_\\text{kald}$, går\n$\\Delta S_\\text{univers} \\to 0$. Varmeoverføring over en **forsvinnende liten**\ntemperaturforskjell er altså (nesten) reversibel — den tar bare uendelig lang\ntid. Det er nettopp dette Carnot-syklusen i Del 8 utnytter.\n\n**Merk hva som IKKE inngår:** hva som skjedde mellom reservoarene. Gikk varmen\ngjennom en kobberstang, en luftspalte eller en dårlig isolert vegg, er\nentropiøkningen den samme — den avhenger bare av $Q$ og de to temperaturene."
+    },
+    {
+      "id": "tfy4115-7-2-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: oppvarming — og hvilken $C$ som hører hvor",
+      "problem": "$2{,}00\\,\\text{mol}$ toatomig ideell gass varmes fra $300\\,\\text{K}$ til\n$450\\,\\text{K}$.\n\n**a)** Finn entropiendringen når oppvarmingen skjer ved **fast volum**.\n\n**b)** Finn den når oppvarmingen skjer ved **fast trykk**.\n\n**c)** Hvorfor er svaret i b) størst, og hvor stor er differansen?\n\n**d)** Hva ville du fått hvis du satte inn celsiustall i logaritmen?",
+      "solution": "**a) Symbolsk.** Fast volum betyr at volumleddet faller bort:\n$$\\Delta S = nC_V\\ln\\frac{T_2}{T_1}.$$\n\n**Rask vei til tall.** Regn logaritmen som eget mellomresultat:\n$$\\frac{T_2}{T_1} = \\frac{450}{300} = 1{,}500, \\qquad\n\\ln 1{,}500 = 0{,}405465,$$\n$$\\Delta S = 2{,}00 \\cdot 20{,}785 \\cdot 0{,}405465\\,\\text{J/K} = 16{,}855\\,\\text{J/K}.$$\n\n**b)** Fast trykk gir $C_P$ i stedet:\n$$\\Delta S = nC_P\\ln\\frac{T_2}{T_1} = 2{,}00 \\cdot 29{,}099 \\cdot 0{,}405465\\,\\text{J/K}\n= 23{,}597\\,\\text{J/K}.$$\n\n**c)** Fordi gassen i det isobare tilfellet **også utvider seg** mens den varmes,\nog ekspansjonen bidrar med sin egen entropiøkning. Differansen er\n$$23{,}597 - 16{,}855 = 6{,}7421\\,\\text{J/K},$$\nog den skal være nøyaktig $nR\\ln(T_2/T_1)$:\n$$nR\\ln\\frac{T_2}{T_1} = 2{,}00 \\cdot 8{,}314 \\cdot 0{,}405465\\,\\text{J/K}\n= 6{,}7421\\,\\text{J/K} \\ \\checkmark$$\n\nDet følger direkte av $C_P = C_V + R$, og du kan bruke det som kontroll: **de to\nentropisvarene skal alltid skille seg med $nR\\ln(T_2/T_1)$.**\n\nAt det isobare svaret er størst, kan du også se fra volumleddet: ved fast trykk er\n$V_2/V_1 = T_2/T_1 = 1{,}500$, så\n$$\\Delta S = nC_V\\ln 1{,}500 + nR\\ln 1{,}500 = n(C_V+R)\\ln 1{,}500\n= nC_P\\ln 1{,}500 \\ \\checkmark$$\n— samme svar, regnet fra grunnformelen med begge ledd.\n\n**d) Kelvin-fella i tall.** Med celsiusverdiene\n$26{,}85\\,^\\circ\\text{C}$ og $176{,}85\\,^\\circ\\text{C}$ ville forholdet blitt\n$6{,}5866$ i stedet for $1{,}500$, og svaret\n$$\\Delta S^\\text{galt} = 2{,}00 \\cdot 20{,}785 \\cdot \\ln 6{,}5866\\,\\text{J/K}\n= 78{,}361\\,\\text{J/K},$$\naltså nesten fire ganger for stort. **Merk hvorfor fella er så farlig i entropi\nspesielt:** logaritmen forsterker den relative feilen i forholdet. Et\nkelvinforhold på $1{,}500$ og et celsiusforhold på $6{,}5866$ ligger langt fra\nhverandre, og logaritmen gjør avstanden verre, ikke bedre."
+    },
+    {
+      "id": "tfy4115-7-2-o-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-7-2-o-3-e",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger T7.) $3{,}00\\,\\text{mol}$ argon (enatomig) varmes fra $280\\,\\text{K}$\ntil $420\\,\\text{K}$.\n\n**a)** Finn entropiendringen ved fast volum.\n\n**b)** Finn den ved fast trykk.\n\n**c)** Kontroller at differansen er $nR\\ln(T_2/T_1)$.",
+        "solution": "**a)** Argon er enatomig, $C_V = \\tfrac32R = 12{,}471$:\n$$\\frac{T_2}{T_1} = 1{,}500, \\qquad \\ln 1{,}500 = 0{,}405465,$$\n$$\\Delta S = nC_V\\ln\\frac{T_2}{T_1} = 3{,}00 \\cdot 12{,}471 \\cdot 0{,}405465\\,\\text{J/K}\n= 15{,}170\\,\\text{J/K}.$$\n\n**b)** $C_P = \\tfrac52R = 20{,}785$:\n$$\\Delta S = 3{,}00 \\cdot 20{,}785 \\cdot 0{,}405465\\,\\text{J/K} = 25{,}283\\,\\text{J/K}.$$\n\n**c)**\n$$25{,}283 - 15{,}170 = 10{,}113\\,\\text{J/K}, \\qquad\nnR\\ln\\frac{T_2}{T_1} = 3{,}00 \\cdot 8{,}314 \\cdot 0{,}405465 = 10{,}113\\,\\text{J/K}\n\\ \\checkmark$$\n\nMerk forholdet mellom de to svarene:\n$$\\frac{\\Delta S_p}{\\Delta S_V} = \\frac{C_P}{C_V} = \\gamma = 1{,}6667.$$\n**For en ren oppvarming er entropiforholdet mellom isobar og isokor\nnøyaktig $\\gamma$** — en pen kontroll, og en påminnelse om hvor mange steder\n$\\gamma$ dukker opp.",
+        "hints": [
+          "Fast volum gir bare temperaturleddet; hvilken $C$ hører da?",
+          "Regn logaritmen som eget mellomresultat med seks siffer.",
+          "$C_P-C_V=R$ — hva blir da differansen mellom de to entropisvarene?"
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-7-2-o-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-7-2-o-4-e",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger T7, fri ekspansjon.) $2{,}00\\,\\text{mol}$ ideell gass ekspanderer fritt i\nen isolert beholder til **tre ganger** volumet.\n\n**a)** Finn $Q$, $W$, $\\Delta U$ og $\\Delta T$.\n\n**b)** Finn gassens entropiendring.\n\n**c)** Finn universets entropiendring, og avgjør om den motsatte prosessen er\nmulig.\n\n**d)** Beskriv den reversible omveien du ville brukt, og hvorfor den gir samme\nsvar.",
+        "solution": "**a)** Isolert gir $Q = 0$; ekspansjon mot vakuum gir $W = 0$ (det er ikke noe\nmottrykk å arbeide mot); dermed $\\Delta U = 0$ og — for en ideell gass, der $U$\nbare avhenger av $T$ — også $\\Delta T = 0$. **Temperaturen er uendret.**\n\n**b)** Med $T_2 = T_1$ faller temperaturleddet bort:\n$$\\Delta S = nR\\ln 3 = 2{,}00 \\cdot 8{,}314 \\cdot 1{,}0986\\,\\text{J/K}\n= 18{,}268\\,\\text{J/K}.$$\n\n**c)** Omgivelsene er ikke berørt, så\n$$\\Delta S_\\text{univers} = 18{,}268\\,\\text{J/K} > 0.$$\nDen **motsatte** prosessen — at gassen samler seg spontant i en tredjedel av\nbeholderen — ville hatt $\\Delta S_\\text{univers} = -18{,}268\\,\\text{J/K} < 0$, og\ner derfor **umulig** etter andre hovedsetning. Merk at første hovedsetning ikke\nville protestert: energien er identisk i de to tilstandene.\n\n**d)** Jeg ville brukt en **reversibel isoterm ekspansjon** ved den samme\ntemperaturen, fra $V$ til $3V$, med gassen i termisk kontakt med et reservoar.\nDen har nøyaktig samme start- og slutt-tilstand (samme $T$, samme volumendring),\nog siden entropi er en **tilstandsfunksjon**, er $\\Delta S$ derfor identisk.\n\nLangs omveien er $Q_\\text{rev} = nRT\\ln 3$ og $T$ konstant, så\n$\\Delta S = Q_\\text{rev}/T = nR\\ln 3$ — samme svar. Merk at omveien har helt\nandre $Q$- og $W$-verdier enn den faktiske prosessen; det er bare\nentropiendringen som er felles.",
+        "hints": [
+          "Hva skyver gassen mot når den strømmer inn i vakuum?",
+          "Hvis $\\Delta U=0$ for en ideell gass, hva skjer med temperaturen?",
+          "Velg en omvei som har samme endepunkter og som kan regnes."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-7-2-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: irreversibel varmeoverføring (eksamensnivå)",
+      "problem": "Varmen $2500\\,\\text{J}$ strømmer gjennom en dårlig isolert vegg fra et rom ved\n$500\\,\\text{K}$ til uteluften ved $300\\,\\text{K}$. Begge er store nok til å\nregnes som reservoarer.\n\n**a)** Finn entropiendringen for hvert av de to reservoarene.\n\n**b)** Finn universets entropiendring.\n\n**c)** Kontroller svaret med den generelle formelen.\n\n**d)** Hvor mye arbeid kunne man i beste fall fått ut av denne varmen i stedet for\nå sløse den bort? (Se framover mot Del 8.)",
+      "solution": "**a) Symbolsk.** Et reservoar har konstant temperatur, så\n$\\Delta S = Q_\\text{reservoar}/T$ — ingen logaritme.\n\n**Rask vei til tall.** Det varme rommet **mister** varmen:\n$$\\Delta S_\\text{varm} = \\frac{-2500}{500}\\,\\text{J/K} = -5{,}0000\\,\\text{J/K}\n\\quad (\\text{negativ — entropien der faller}).$$\nUteluften **mottar** den:\n$$\\Delta S_\\text{kald} = \\frac{+2500}{300}\\,\\text{J/K} = 8{,}3333\\,\\text{J/K}\n\\quad (\\text{positiv}).$$\n\n**b)**\n$$\\Delta S_\\text{univers} = -5{,}0000 + 8{,}3333 = 3{,}3333\\,\\text{J/K} > 0.$$\nPositiv, som den må være for en irreversibel prosess.\n\n**Legg merke til hvorfor den positive vinner:** samme energiporsjon $Q$ deles på\nden **minste** temperaturen i det ene tilfellet og på den største i det andre. Den\nminste nevneren gir den største brøken. Det er hele mekanismen i andre\nhovedsetning, uttrykt i én setning.\n\n**c) Kontroll med formelen:**\n$$\\Delta S_\\text{univers} = Q\\left(\\frac{1}{T_\\text{kald}}\n- \\frac{1}{T_\\text{varm}}\\right)\n= 2500\\left(\\frac{1}{300} - \\frac{1}{500}\\right)\\,\\text{J/K}$$\n$$= 2500 \\cdot (0{,}0033333 - 0{,}0020000)\\,\\text{J/K}\n= 2500 \\cdot 0{,}0013333\\,\\text{J/K} = 3{,}3333\\,\\text{J/K} \\ \\checkmark$$\n\n**d)** Dette er et forvarsel om Del 8, men det er verdt å se nå. Den maksimale\narbeidsmengden man kan hente ut av varmen $Q$ tatt fra et reservoar ved\n$T_\\text{varm}$ når omgivelsene er ved $T_\\text{kald}$, er\n$$W_\\text{maks} = Q\\left(1 - \\frac{T_\\text{kald}}{T_\\text{varm}}\\right)\n= 2500\\left(1 - \\frac{300}{500}\\right)\\,\\text{J} = 1000\\,\\text{J}.$$\nAltså kunne $1000\\,\\text{J}$ — $40{,}0$ prosent av varmen — vært\ngjort til arbeid av en ideell maskin. Ved å la varmen bare **lekke** gjennom\nveggen, kastet vi hele denne muligheten. **Det er den fysiske betydningen av\nentropiproduksjon: tapt arbeidspotensial.**\n\nSammenhengen er direkte: $W_\\text{maks} = Q - T_\\text{kald}\\Delta S_\\text{univers}$\nville gitt $2500 - 300 \\cdot 3{,}3333 = 1500\\,\\text{J}$ hvis\nentropiproduksjonen hadde vært null. Det er samme regnskap sett fra andre siden."
+    },
+    {
+      "id": "tfy4115-7-2-o-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-7-2-o-5-e",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger T7 og T8.) Varmen $1800\\,\\text{J}$ strømmer fra et reservoar ved\n$450\\,\\text{K}$ til ett ved $290\\,\\text{K}$.\n\n**a)** Finn entropiendringen for hvert reservoar og for universet.\n\n**b)** Hvor mye måtte temperaturforskjellen minkes for at\n$\\Delta S_\\text{univers}$ skulle bli halvert, med samme $Q$ og samme kalde\nreservoar?\n\n**c)** Kan varmen strømme motsatt vei av seg selv? Begrunn med et tall.",
+        "solution": "**a)**\n$$\\Delta S_\\text{varm} = \\frac{-1800}{450} = -4{,}0000\\,\\text{J/K}, \\qquad\n\\Delta S_\\text{kald} = \\frac{1800}{290} = 6{,}2069\\,\\text{J/K},$$\n$$\\Delta S_\\text{univers} = 2{,}2069\\,\\text{J/K} > 0.$$\n**Kontroll med formelen:**\n$$Q\\left(\\frac{1}{T_\\text{kald}} - \\frac{1}{T_\\text{varm}}\\right) = 1800 \\cdot 0{,}0012261\\,\\text{J/K} = 2{,}2069\\,\\text{J/K} \\ \\checkmark$$\n\n**b)** Krav: $Q(1/T_\\text{kald} - 1/T_\\text{varm}') = \\tfrac12 \\cdot 2{,}2069$.\nLøs for det nye varme reservoaret:\n$$\\frac{1}{T_\\text{varm}'} = \\frac{1}{290} - \\frac{1{,}1034}{1800}\n= 0{,}00283525 \\quad\\Longrightarrow\\quad T_\\text{varm}' = 352{,}70\\,\\text{K}.$$\nAltså måtte det varme reservoaret senkes fra $450$ til $352{,}70\\,\\text{K}$ —\nen senkning på $97{,}30\\,\\text{K}$. **Merk at sammenhengen ikke er lineær:** det\ner de **inverse** temperaturene som inngår, så en halvering av entropiproduksjonen\nkrever langt mindre enn en halvering av temperaturforskjellen.\n\n**c) Nei.** Motsatt vei ville gitt\n$$\\Delta S_\\text{univers} = 1800\\left(\\frac{1}{450} - \\frac{1}{290}\\right)\n= -2{,}2069\\,\\text{J/K} < 0,$$\nog en prosess med negativ entropiproduksjon er forbudt av andre hovedsetning. Man\n**kan** flytte varme fra kaldt til varmt — det er nettopp det et kjøleskap gjør —\nmen bare ved å tilføre arbeid, som selv produserer nok entropi til at totalen blir\npositiv. Det er tema i Del 8.",
+        "hints": [
+          "Et reservoar har konstant temperatur, så $\\Delta S=Q/T$ uten logaritme.",
+          "Pass på fortegnet: det varme reservoaret mister varme.",
+          "I b): løs formelen for $1/T_\\text{varm}$, ikke for $T_\\text{varm}$ direkte."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-7-2-def-isentrop",
+      "type": "definition",
+      "title": "Isentrop prosess (reversibel adiabat)",
+      "content": "En prosess med **konstant entropi**, $\\Delta S = 0$. For en ideell gass er en\n**reversibel adiabat** nøyaktig dette, og det følger av at de to leddene i\nentropiuttrykket kansellerer:\n$$\\Delta S = nC_V\\ln\\frac{T_2}{T_1} + nR\\ln\\frac{V_2}{V_1} = 0\n\\quad \\text{når} \\quad TV^{\\gamma-1} = \\text{konstant}.$$\n\n**Men merk presiseringen:** det er den **reversible** adiabaten som er isentrop.\nEn **irreversibel** adiabat — som en fri ekspansjon, der $Q = 0$ men prosessen er\nvoldsom — har $\\Delta S > 0$. At $Q = 0$ er altså **ikke nok** til å gi\n$\\Delta S = 0$; prosessen må i tillegg være reversibel.\n\nDette er den mest presise formen av felle #14, og skillet er nettopp det et\nkonseptspørsmål kan spørre om: «har en adiabatisk prosess alltid\n$\\Delta S = 0$?» Svaret er nei."
+    },
+    {
+      "id": "tfy4115-7-2-def-TS",
+      "type": "definition",
+      "title": "$T$–$S$-diagram",
+      "content": "Et diagram med entropi på den vannrette aksen og absolutt temperatur på den\nloddrette. Det er et nyttig supplement til $pV$-diagrammet, fordi det gjør varmen\ntil et areal:\n$$Q_\\text{rev} = \\int T\\,dS = \\text{arealet under prosessveien}.$$\n\nFire lesbare egenskaper:\n\n1. **En isoterm er vannrett** (fast $T$), og arealet under er $T\\,\\Delta S$.\n2. **En reversibel adiabat er loddrett** (fast $S$), og arealet under er null —\n   som det skal, siden $Q = 0$.\n3. **Oppvarming** går mot høyre og oppover; arealet under er den tilførte varmen.\n4. **En Carnot-syklus blir et rektangel** — to isotermer og to adiabater. Det er\n   grunnen til at Del 8 bruker dette diagrammet.\n\nMerk parallellen: i $pV$-diagrammet er **arbeidet** et areal; i\n$T$–$S$-diagrammet er **varmen** et areal. To diagrammer, to av de tre\nstørrelsene i første hovedsetning."
+    },
+    {
+      "id": "tfy4115-7-2-fig-ts",
+      "type": "image",
+      "src": "/images/textbook/tfy4115/tfy4115-7-2-ts-diagram.svg",
+      "alt": "T-S-diagram med entropi vannrett og temperatur loddrett. En vannrett pil mot hoyre viser en isoterm med skyggelagt rektangel under, merket varmen T ganger delta S. En loddrett pil nedover viser en reversibel adiabat merket isentrop med delta S lik null. En stigende kurve til hoyre viser oppvarming med skyggelagt areal under merket som varmen.",
+      "caption": "$T$–$S$-diagrammet gjør varmen til et areal, slik $pV$-diagrammet gjør arbeidet til et areal. En isoterm er vannrett, og arealet under den er $T\\,\\Delta S$. En reversibel adiabat er loddrett, og arealet under er null — nettopp fordi $Q=0$."
+    },
+    {
+      "id": "tfy4115-7-2-o-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-7-2-o-6-e",
+        "number": 6,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Kvalitativ oppgave — konseptspørsmål av typen som forekommer i hvert sett.)\nAvgjør om hver påstand er sann eller falsk, med én setnings begrunnelse.\n\n**a)** «Enhver adiabatisk prosess har $\\Delta S = 0$.»\n\n**b)** «Systemets entropi kan aldri synke.»\n\n**c)** «En reversibel prosess har $\\Delta S_\\text{system} = 0$.»\n\n**d)** «Over en full kretsprosess er gassens entropiendring null.»\n\n**e)** «En prosess med $\\Delta S_\\text{univers} = 0$ er umulig.»",
+        "solution": "**a) Falsk.** Bare den **reversible** adiabaten er isentrop. En fri ekspansjon i\nen isolert beholder har $Q = 0$ og likevel $\\Delta S > 0$, fordi prosessen er\nirreversibel. Definisjonen krever $dQ_\\text{rev}$, ikke den faktiske $Q$.\n\n**b) Falsk.** Det er **universets** entropi som ikke kan synke. Systemets kan godt\nsynke — en gass som avkjøles, får negativ $\\Delta S$ — så lenge omgivelsenes øker\nmer.\n\n**c) Falsk.** En reversibel prosess har $\\Delta S_\\text{univers} = 0$, ikke\n$\\Delta S_\\text{system} = 0$. En reversibel isoterm ekspansjon har\n$\\Delta S_\\text{system} = nR\\ln(V_2/V_1) > 0$, men omgivelsenes entropi faller\nlike mye.\n\n**d) Sann.** Entropi er en tilstandsfunksjon, og gassen ender i utgangstilstanden.\nMerk likevel felle #14s andre halvdel: **universets** entropi er som regel\npositiv over samme syklus, siden en virkelig maskin er irreversibel.\n\n**e) Falsk.** $\\Delta S_\\text{univers} = 0$ er grensetilfellet, en **reversibel**\nprosess. Den er en idealisering man ikke helt kan nå, men den er ikke forbudt —\ndet er $\\Delta S_\\text{univers} < 0$ som er umulig.\n\n**Mønsteret i alle fem:** hver av dem forveksler **system** med **univers**, eller\n**reversibel** med **adiabatisk**. Det er de to skillene sjangeren tester.",
+        "hints": [
+          "Står det «rev» i definisjonen av entropi? Hva betyr det for en irreversibel adiabat?",
+          "Skiller påstanden mellom systemets og universets entropi?",
+          "Hva er det presise kjennetegnet på en reversibel prosess?"
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-7-2-rask-vei",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\n## Rask vei til tall (MC-oppskrift)\n\n1. **Hvilken lov?** Fem former dekker praktisk talt alle spørsmålene. **Er det en\n   gass som endrer tilstand?** → $\\Delta S = nC_V\\ln(T_2/T_1) + nR\\ln(V_2/V_1)$,\n   eller $T$–$p$-formen. **Er det et reservoar?** → $\\Delta S = Q/T$, ingen\n   logaritme. **Er det fri ekspansjon?** → behandl som isoterm,\n   $\\Delta S = nR\\ln(V_2/V_1)$. **Er det varme mellom to reservoarer?** →\n   $Q(1/T_\\text{kald} - 1/T_\\text{varm})$. **Spørres det om mulighet?** → regn\n   $\\Delta S_\\text{univers}$ og se om den er negativ.\n2. **Hvilken ene regnelinje?** Skriv **logaritmens argument som eget\n   mellomresultat** — $T_2/T_1$ eller $V_2/V_1$ — og deretter logaritmen av det.\n   Da ser du fortegnet med én gang: forhold under 1 gir negativ $\\Delta S$.\n   Prosessen er som regel én av de fire, så **ett av de to leddene faller bort**.\n3. **Hva hentes hvor?** $dS = dQ_\\text{rev}/T$, andre hovedsetning\n   $\\Delta S_\\text{univers} \\ge 0$, og begge formene av entropiuttrykket for en\n   ideell gass **står på det utdelte arket**, sammen med $C_V$- og\n   $C_P$-verdiene. Logaritmer regner du på kalkulatoren, og\n   $\\int dT/T = \\ln T$ kan slås opp i **Rottmann**. Det som **må kunne utledes\n   aktivt**, er (i) selve entropiuttrykket fra $dQ_\\text{rev} = nC_V dT + p\\,dV$,\n   (ii) at en reversibel adiabat er isentrop, og (iii) **konstruksjonen av den\n   reversible omveien**.\n4. **Hvor mange siffer?** Fire gjennom kjeden. Logaritmen er **snill** mot\n   avrunding i argumentet (den demper relative feil), men **nådeløs** mot\n   celsius-mot-kelvin, som endrer argumentet dramatisk. Bruk\n   $\\ln 2 = 0{,}69315$ og $\\ln 3 = 1{,}0986$ med fem siffer.\n5. **Hva sjekker du før du krysser av?** (i) Er alle temperaturer i **kelvin**\n   inne i logaritmen? (ii) Spørres det om **systemets** eller **universets**\n   entropi? (iii) Er fortegnet rimelig — ekspansjon og oppvarming gir positiv,\n   kompresjon og avkjøling negativ? (iv) Har jeg brukt $C_V$ med volumleddet og\n   $C_P$ med trykkleddet? (v) Er $\\Delta S_\\text{univers} \\ge 0$? Er den negativ,\n   har jeg regnet feil — eller prosessen er umulig, og det er svaret. (vi) Er\n   enheten J/K?"
+    },
+    {
+      "id": "tfy4115-7-2-o-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-7-2-o-7-e",
+        "number": 7,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger T7, flervalg i eksamensformat med seks alternativer A–F.)\n$2{,}00\\,\\text{mol}$ toatomig ideell gass går fra $T_1 = 300\\,\\text{K}$,\n$V_1 = 20{,}0\\,\\text{L}$ til $T_2 = 400\\,\\text{K}$, $V_2 = 50{,}0\\,\\text{L}$.\nHva er gassens entropiendring?\n\n**A** $15{,}236\\,\\text{J/K}$ · **B** $79{,}783\\,\\text{J/K}$ · **C** $31{,}979\\,\\text{J/K}$ · **D** $-3{,}2771\\,\\text{J/K}$ ·\n**E** $27{,}195\\,\\text{J/K}$ · **F** $11{,}959\\,\\text{J/K}$\n\nOppgi bare bokstavsvaret.",
+        "solution": "**Svar: E.**\n\nBegge ledd bidrar her, siden både temperatur og volum endres:\n$$\\Delta S = nC_V\\ln\\frac{T_2}{T_1} + nR\\ln\\frac{V_2}{V_1}.$$\nRegn de to logaritmene som egne mellomresultater:\n$$\\ln\\frac{400}{300} = \\ln 1{,}3333 = 0{,}287682, \\qquad\n\\ln\\frac{50{,}0}{20{,}0} = \\ln 2{,}50 = 0{,}916291,$$\n$$\\Delta S = 2{,}00 \\cdot 20{,}785 \\cdot 0{,}287682 + 2{,}00 \\cdot 8{,}314 \\cdot 0{,}916291\n= 11{,}959 + 15{,}236 = 27{,}195\\,\\text{J/K}.$$\n\n**Hva hvert galt alternativ er regnet fram fra:**\n\n- $15{,}236\\,\\text{J/K}$: bare **volumleddet** — altså glemt at temperaturen også endret seg.\n- $11{,}959\\,\\text{J/K}$: bare **temperaturleddet** — glemt volumendringen. Disse to er de\n  nærmeste distraktorene, og de er nær-sanne i den forstand at hver av dem er et\n  ekte ledd i det riktige svaret. Men prosessen er hverken isoterm eller isokor.\n- $31{,}979\\,\\text{J/K}$: $C_P$ brukt i temperaturleddet **sammen med** volumleddet. Det er\n  dobbelttelling: $C_P$-formen hører sammen med **trykk**leddet, ikke\n  volumleddet, og differansen er nettopp $nR\\ln(T_2/T_1)$.\n- $-3{,}2771\\,\\text{J/K}$: minus mellom de to leddene i stedet for pluss. Merk at svaret blir\n  **negativt** selv om både oppvarming og ekspansjon øker entropien — det alene\n  bør vekke mistanke.\n- $79{,}783\\,\\text{J/K}$: celsiustall i temperaturlogaritmen. Forholdet blir\n  $4{,}7244$ i stedet for $1{,}3333$, og logaritmen mer enn femdobles.\n\n**Elimineringen:** både oppvarming og ekspansjon øker entropien, så svaret **må**\nvære positivt og **større** enn hvert av de to leddene hver for seg. Det stryker\ntre av de seks uten regning.",
+        "hints": [
+          "Endres både temperatur og volum? Da bidrar begge ledd.",
+          "Regn hver logaritme som eget mellomresultat, med kelvin.",
+          "Må svaret være større eller mindre enn hvert enkelt ledd? Bruk det til å stryke alternativer."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-7-2-o-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-7-2-o-8-e",
+        "number": 8,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger T7 — blanding.) $2{,}00\\,\\text{kg}$ vann ved\n$80{,}0\\,^\\circ\\text{C}$ blandes med $2{,}00\\,\\text{kg}$ vann ved\n$20{,}0\\,^\\circ\\text{C}$ i et isolert kar. Vannets spesifikke varmekapasitet er\n$4190\\,\\text{J/(kg}\\cdot\\text{K)}$.\n\n**a)** Finn slutt-temperaturen.\n\n**b)** Finn entropiendringen for hver av de to vannmengdene.\n\n**c)** Finn universets entropiendring, og avgjør om prosessen er reversibel.\n\n**d)** Forklar hvorfor de to endringene i b) ikke er like store i tallverdi, når\nden samme varmemengden ble flyttet.",
+        "solution": "**a)** Isolert kar og like masser gir at varmen den varme mister, er den kalde\nmottar:\n$$mc(t_1 - t_f) = mc(t_f - t_2) \\quad\\Longrightarrow\\quad\nt_f = \\frac{t_1+t_2}{2} = 50{,}0\\,^\\circ\\text{C} = 323{,}15\\,\\text{K}.$$\nMassene og varmekapasiteten faller ut fordi de er like.\n\n**b) Symbolsk.** For et stoff med konstant varmekapasitet er\n$dQ_\\text{rev} = mc\\,dT$, altså\n$$\\Delta S = \\int_{T_i}^{T_f}\\frac{mc\\,dT}{T} = mc\\ln\\frac{T_f}{T_i}.$$\nMerk at dette **er** en reversibel omvei: vi tenker oss hver vannmengde varmet\neller kjølt langsomt gjennom en rekke reservoarer med bare infinitesimalt ulik\ntemperatur.\n\n**Rask vei til tall.** Kelvin, alltid:\n$$T_1 = 353{,}15\\,\\text{K}, \\qquad T_2 = 293{,}15\\,\\text{K}, \\qquad\nT_f = 323{,}15\\,\\text{K}, \\qquad mc = 8380{,}0\\,\\text{J/K}.$$\n$$\\Delta S_\\text{varm} = 8380{,}0 \\cdot \\ln\\frac{323{,}15}{353{,}15}\n= 8380{,}0 \\cdot (-0{,}0887763)\\,\\text{J/K} = -743{,}95\\,\\text{J/K},$$\n$$\\Delta S_\\text{kald} = 8380{,}0 \\cdot \\ln\\frac{323{,}15}{293{,}15}\n= 8380{,}0 \\cdot 0{,}0974322\\,\\text{J/K} = 816{,}48\\,\\text{J/K}.$$\n\n**c)**\n$$\\Delta S_\\text{univers} = -743{,}95 + 816{,}48 = 72{,}536\\,\\text{J/K} > 0.$$\nPositiv, altså **irreversibel** — som forventet: varme strømmet over en endelig\ntemperaturforskjell på $60{,}0$ grader. Blandingen skiller seg ikke igjen av seg\nselv.\n\n**d)** Fordi entropiendringen går som **logaritmen** av temperaturforholdet, ikke\nsom varmemengden delt på en temperatur. De to logaritmene er\n$$\\ln\\frac{323{,}15}{353{,}15} = -0{,}0887763 \\quad\\text{og}\\quad\n\\ln\\frac{323{,}15}{293{,}15} = 0{,}0974322,$$\nog den kalde vannmengden får det største tallet i tallverdi. Grunnen er at den\n**startet kaldere**: den samme energiporsjonen betyr mer der temperaturen er\nlavere, siden $T$ står i nevneren i $dQ/T$.\n\nDet er samme mekanisme som i varmeoverføring mellom to reservoarer, bare med en\nlogaritme fordi temperaturene her **endrer seg** underveis i stedet for å være\nfaste. **Og det er alltid denne asymmetrien som gjør summen positiv.**",
+        "hints": [
+          "Like masser og samme varmekapasitet gir sluttemperaturen som gjennomsnittet.",
+          "For et stoff med konstant $c$ er $\\Delta S=mc\\ln(T_f/T_i)$ — og temperaturene i kelvin.",
+          "I d): sammenlign de to logaritmene, ikke de to varmemengdene."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-7-2-o-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-7-2-o-9-e",
+        "number": 9,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Kvalitativ oppgave — «hvilken prosess er umulig», en gjenganger i sjangeren.)\nFor hver av de foreslåtte prosessene: er den mulig? Begrunn med andre\nhovedsetning.\n\n**a)** Varme strømmer spontant fra et legeme ved $400\\,\\text{K}$ til ett ved\n$500\\,\\text{K}$.\n\n**b)** En gass komprimeres, og dens entropi faller.\n\n**c)** En maskin tar $1000\\,\\text{J}$ varme fra et reservoar og gjør\n$1000\\,\\text{J}$ arbeid, uten annen virkning.\n\n**d)** En gass i en isolert beholder ekspanderer fritt og blir kaldere.",
+        "solution": "**a) Umulig.** Varmen ville gått fra kaldt til varmt, og\n$$\\Delta S_\\text{univers} = Q\\left(\\frac{1}{500} - \\frac{1}{400}\\right)\n= Q \\cdot (-0{,}00050000)\\,\\text{J/K} < 0$$\nfor enhver positiv $Q$. Merk at første hovedsetning ikke ville protestert —\nenergien er bevart. Det er andre hovedsetning som forbyr det, og den forbyr det\n**spontant**: med tilført arbeid (en varmepumpe) er det fullt mulig.\n\n**b) Mulig.** $\\Delta S_\\text{gass} = nR\\ln(V_2/V_1) < 0$ ved kompresjon, og det\ner tillatt: det er **universets** entropi som ikke kan falle. Arbeidet du gjør på\ngassen, ender som varme i omgivelsene, og deres entropi øker minst like mye.\n\n**c) Umulig.** Med $\\Delta U = 0$ over en syklus ville $Q = W$ stemme i første\nhovedsetning, men reservoaret ville tapt entropi $Q/T$ uten at noe annet vant\nnoe, altså $\\Delta S_\\text{univers} = -Q/T < 0$. **Dette er andre hovedsetning i\nKelvins form:** ingen maskin kan gjøre varme fullstendig om til arbeid i en\nsyklus. Noe varme må alltid ut til et kaldere reservoar — det er grunnlaget for\nvirkningsgraden i Del 8.\n\n**d) Umulig som beskrevet.** En fri ekspansjon har $Q = 0$ og $W = 0$ (det er\nikke noe mottrykk å arbeide mot), altså $\\Delta U = 0$, og for en ideell gass\nbetyr det $\\Delta T = 0$. Temperaturen er **uendret**, ikke lavere. (For en reell\ngass med tiltrekningskrefter mellom molekylene faller temperaturen litt — men det\ner van der Waals-fysikk fra Del 10, ikke ideell-gass-oppførsel.)\n\n**Merk mønsteret:** i a) og c) er det $\\Delta S_\\text{univers} < 0$ som er\nproblemet, i d) er det energiregnskapet, og i b) er det ikke noe problem i det hele\ntatt. Å sortere mellom disse tre er nettopp det sjangeren tester.",
+        "hints": [
+          "Regn $\\Delta S_\\text{univers}$ og se på fortegnet.",
+          "Skiller påstanden mellom systemets og universets entropi?",
+          "I d): hva er $W$ når en gass strømmer inn i vakuum?"
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-7-2-o-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-7-2-o-10-e",
+        "number": 10,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå — felle #14 i sin fulle form.) $1{,}00\\,\\text{mol}$ ideell gass ved\n$320\\,\\text{K}$ gjennomgår **to** trinn:\n\n**Trinn 1:** fri ekspansjon i en isolert beholder til dobbelt volum.\n\n**Trinn 2:** reversibel isoterm kompresjon tilbake til utgangsvolumet, i termisk\nkontakt med et reservoar ved $320\\,\\text{K}$.\n\n**a)** Finn gassens entropiendring i hvert trinn, og totalt.\n\n**b)** Finn universets entropiendring i hvert trinn, og totalt.\n\n**c)** Forklar hvordan gassens totale entropiendring kan være null mens universets\ner positiv.\n\n**d)** Hvor mye arbeid måtte tilføres i trinn 2, og hvor ble den energien av?",
+        "solution": "**a) Trinn 1** (fri ekspansjon, $V \\to 2V$, uendret $T$):\n$$\\Delta S_\\text{gass} = nR\\ln 2 = 1{,}00 \\cdot 8{,}314 \\cdot 0{,}69315\\,\\text{J/K}\n= 5{,}7628\\,\\text{J/K}.$$\n\n**Trinn 2** (isoterm kompresjon, $2V \\to V$, samme $T$):\n$$\\Delta S_\\text{gass} = nR\\ln\\tfrac12 = -nR\\ln 2 = -5{,}7628\\,\\text{J/K}.$$\n\n**Totalt:**\n$$\\Delta S_\\text{gass} = 5{,}7628 + (-5{,}7628) = 0.$$\nSom det **må** være: gassen ender i nøyaktig utgangstilstanden, og entropi er en\ntilstandsfunksjon.\n\n**b) Trinn 1:** beholderen er isolert, så omgivelsene er uberørt:\n$$\\Delta S_\\text{omg} = 0, \\qquad \\Delta S_\\text{univers} = 5{,}7628\\,\\text{J/K}.$$\n\n**Trinn 2:** kompresjonen er isoterm, så $\\Delta U = 0$ og\n$Q = W = -nRT\\ln 2 = -1844{,}1\\,\\text{J}$ — altså $1844{,}1\\,\\text{J}$ varme **ut**\nav gassen og inn i reservoaret. Reservoaret har konstant temperatur, så\n$$\\Delta S_\\text{omg} = \\frac{+1844{,}1}{320} = 5{,}7628\\,\\text{J/K},$$\n$$\\Delta S_\\text{univers} = -5{,}7628 + 5{,}7628 = 0.$$\nNull — trinn 2 er **reversibelt**, og det er nettopp kjennetegnet.\n\n**Totalt over begge trinn:**\n$$\\Delta S_\\text{univers} = 5{,}7628 + 0 = 5{,}7628\\,\\text{J/K} > 0.$$\n\n**c) Dette er hele poenget med felle #14.** Gassen er en tilstandsfunksjons-størrelse:\nden ender der den startet, og dens entropiendring **må** være null. Universets\nentropi er derimot en **sum over alt som ble berørt**, og den frie ekspansjonen i\ntrinn 1 produserte entropi som ikke ble «tatt tilbake» av trinn 2 — den ble bare\nflyttet til reservoaret.\n\nKonkret: entropien som ble skapt i trinn 1 ($5{,}7628\\,\\text{J/K}$), ligger nå i\nreservoaret. Gassen er tilbake i sin gamle tilstand, men **universet er ikke** —\ndet er varmere et sted, og fattigere på arbeidspotensial.\n\n**Konsekvensen for oppgaveregning:** når et flervalgsspørsmål ber om «entropiendringen\nover en full syklus», må du lese om det er **gassens** (alltid null) eller\n**universets** (positiv for en virkelig maskin). Begge tallene står typisk på\nalternativlista.\n\n**d)** I trinn 2 er $W = -1844{,}1\\,\\text{J}$, altså må $1844{,}1\\,\\text{J}$ arbeid\ntilføres **på** gassen. Siden $\\Delta U = 0$, gikk hele denne energien ut som\nvarme til reservoaret.\n\n**Regnskapet i klartekst:** vi brukte $1844{,}1\\,\\text{J}$ arbeid for å komme\ntilbake til start, og fikk **ingenting** igjen — trinn 1 ga ikke noe arbeid, siden\ngassen ekspanderte fritt mot vakuum. Hele arbeidet endte som varme i reservoaret.\nDet er den prisen den frie ekspansjonen kostet, og den er nøyaktig\n$T\\,\\Delta S_\\text{univers} = 320 \\cdot 5{,}7628 = 1844{,}1\\,\\text{J}$.\n**Entropiproduksjon er tapt arbeid, og her kan du sette et tall på det.**",
+        "hints": [
+          "Regn gassens $\\Delta S$ for hvert trinn hver for seg, med fortegn.",
+          "I trinn 2: hvor havner varmen som går ut av gassen, og ved hvilken temperatur?",
+          "Skill hele veien mellom gassens entropi og universets."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-7-2-war-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil — og kelvin-fella som logaritmen forstørrer",
+      "content": "**Å tro at $\\Delta S$ ikke kan regnes for en irreversibel prosess** (felle #14 —\nå glemme at entropi er en tilstandsfunksjon). Man kan alltid: konstruér en\n**reversibel omvei** mellom samme to tilstander, og regn langs den. Dette er\nkapitlets sentrale teknikk, og å hoppe over den er den vanligste enkeltfeilen.\n\n**Å sette den faktiske $Q$ inn i $\\Delta S = Q/T$.** Definisjonen krever\n$dQ_\\text{rev}$. En fri ekspansjon har $Q = 0$ og $\\Delta S > 0$ samtidig, og det\ner ingen selvmotsigelse. Formen $\\Delta S = Q/T$ er **bare** riktig for et\nreservoar (der prosessen er reversibel fordi temperaturen ikke endres) eller for en\nfaktisk reversibel isoterm prosess.\n\n**Å forveksle systemets og universets entropi** (felle #14s andre halvdel).\nSystemets kan falle; universets kan ikke. Over en syklus er systemets **alltid**\nnull, mens universets er positiv for en virkelig maskin. Les hva som spørres om.\n\n**Å tro at «adiabatisk» betyr «isentrop».** Bare den **reversible** adiabaten har\n$\\Delta S = 0$. En irreversibel adiabat produserer entropi selv med $Q = 0$.\n\n**Å bruke $C_P$ sammen med volumleddet.** De to formene av entropiuttrykket er\n$nC_V\\ln(T_2/T_1) + nR\\ln(V_2/V_1)$ **eller**\n$nC_P\\ln(T_2/T_1) - nR\\ln(p_2/p_1)$ — ikke en blanding. Blander du dem,\ndobbelteller du $nR\\ln(T_2/T_1)$.\n\n**Å glemme minustegnet foran trykkleddet.** Høyere trykk betyr mindre volum, altså\nlavere entropi. Volumleddet er positivt, trykkleddet negativt.\n\n**Å glemme fortegnet på $\\Delta S$ for et reservoar som gir fra seg varme.** Det\n**varme** reservoaret har negativ $\\Delta S$. Skriv fortegnene ned som egne linjer\nfør du summerer.\n\n**Og kelvin-fella** (felle #11), som er dyrere i entropi enn noe annet sted i\nboka. Logaritmen tar forholdet mellom to temperaturer, og et **celsiusforhold** er\nikke bare litt galt — det er en helt annen størrelse. Et eksempel fra dette\nkapitlet: oppvarming fra $300$ til $450\\,\\text{K}$ gir forholdet\n$1{,}5000$ og logaritmen $0{,}405465$. Med celsiustallene $26{,}85$ og $176{,}85$ blir\nforholdet $6{,}5866$ og logaritmen $1{,}88504$ — nesten fire ganger større.\n\nMerk kontrasten til vanlig avrundingsfeil: **logaritmen er snill mot små feil i\nargumentet** (den demper dem), men **nådeløs mot en flyttet nullpunkt**. Derfor er\nsifferdisiplinen i entropi mindre kritisk enn i adiabatregningen, mens\nkelvin-disiplinen er mer kritisk. Skriv kelvinverdiene som egen linje, og regn\nlogaritmen med fem siffer."
+    },
+    {
+      "id": "tfy4115-7-2-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har\nlest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder\nkjernestoffet."
+    },
+    {
+      "id": "tfy4115-7-2-bb-omvei",
+      "type": "definition",
+      "title": "Den reversible omveien — kapitlets viktigste metode",
+      "content": "Oppskriften for å finne $\\Delta S$ når prosessen er irreversibel:\n\n1. **Bestem de to tilstandene fullstendig** ($p$, $V$, $T$ i start og slutt).\n   Bruk gassloven og første hovedsetning der det trengs.\n2. **Velg en reversibel vei** mellom dem — du står helt fritt, så velg den\n   enkleste. En isoterm og en isokor i serie dekker nesten alt.\n3. **Regn $\\int dQ_\\text{rev}/T$ langs den**, eller bruk uttrykket for ideell gass\n   direkte (som allerede er integrert opp langs en reversibel vei).\n4. **Svaret gjelder den opprinnelige prosessen.**\n\n**Hvorfor det virker:** entropi er en tilstandsfunksjon, så $\\Delta S$ avhenger\nikke av veien. Metoden er ikke en tilnærming — den er eksakt.\n\n**Klassisk anvendelse:** fri ekspansjon. Den faktiske prosessen har $Q = 0$ og\n$W = 0$; omveien (reversibel isoterm) har $Q_\\text{rev} = nRT\\ln(V_2/V_1)$. Helt\nulike varme- og arbeidstall, samme $\\Delta S$."
+    },
+    {
+      "id": "tfy4115-7-2-bb-fri-eksp",
+      "type": "definition",
+      "title": "Fri (Joule-)ekspansjon",
+      "content": "En gass strømmer inn i et tomt rom i en isolert beholder. De fire\nkarakteristiske størrelsene:\n$$Q = 0 \\ (\\text{isolert}), \\qquad W = 0 \\ (\\text{ingen mottrykk}), \\qquad\n\\Delta U = 0, \\qquad \\Delta T = 0 \\ (\\text{ideell gass}),$$\n$$\\Delta S_\\text{gass} = \\Delta S_\\text{univers} = nR\\ln\\frac{V_2}{V_1} > 0.$$\n\n**De to som overrasker, og hvorfor:**\n\n- **$W = 0$ selv om volumet endres.** Gassen skyver ikke mot noe; ytre trykk er\n  null. Arbeid krever en motkraft.\n- **$\\Delta T = 0$ selv om gassen utvider seg.** Kontrast med en adiabatisk\n  ekspansjon mot et stempel, der gassen **gjør** arbeid og derfor kjøles.\n\nProsessen er den reneste illustrasjonen av felle #14: $Q = 0$ men $\\Delta S > 0$.\nSammenlign gjerne med den reversible isotermen, som har samme $\\Delta S_\\text{gass}$\nmen $\\Delta S_\\text{univers} = 0$."
+    },
+    {
+      "id": "tfy4115-7-2-bb-fire-former",
+      "type": "definition",
+      "title": "De fire entropiformene du trenger",
+      "content": "| Situasjon | $\\Delta S$ |\n|---|---|\n| ideell gass, generelt | $nC_V\\ln\\dfrac{T_2}{T_1} + nR\\ln\\dfrac{V_2}{V_1}$ |\n| ideell gass, i $T$ og $p$ | $nC_P\\ln\\dfrac{T_2}{T_1} - nR\\ln\\dfrac{p_2}{p_1}$ |\n| reservoar (fast $T$) | $\\dfrac{Q}{T}$ |\n| stoff med konstant $c$ | $mc\\ln\\dfrac{T_f}{T_i}$ |\n\nOg de fire spesialtilfellene av den første: **isoterm** $nR\\ln(V_2/V_1)$,\n**isokor** $nC_V\\ln(T_2/T_1)$, **isobar** $nC_P\\ln(T_2/T_1)$, **reversibel\nadiabat** $0$.\n\n**Velg etter hva oppgaven gir deg**, og merk at reservoarformen er den ene uten\nlogaritme — fordi temperaturen der ikke endres."
+    },
+    {
+      "id": "tfy4115-7-2-bb-univers",
+      "type": "definition",
+      "title": "Universets entropi",
+      "content": "$$\\Delta S_\\text{univers} = \\Delta S_\\text{system} + \\Delta S_\\text{omgivelser}\n\\ \\ge 0$$\n\nTre regler som følger, og som avgjør konseptspørsmålene:\n\n- **$= 0$** ⟺ prosessen er **reversibel** (en idealisering).\n- **$> 0$** ⟺ prosessen er **irreversibel** (alle virkelige prosesser).\n- **$< 0$** ⟺ prosessen er **umulig**.\n\n**Merk hva som IKKE er en regel:** at systemets entropi må øke. Den kan godt\nfalle. Et kjøleskap, en gass som avkjøles, en gass som komprimeres — alle har\nnegativ $\\Delta S_\\text{system}$, og alle er fullt lovlige.\n\nÅ regne $\\Delta S_\\text{univers}$ er derfor **den fullstendige testen** på om en\nforeslått prosess kan skje, og det er nettopp den testen «hvilken prosess er\numulig»-spørsmålene ber om."
+    },
+    {
+      "id": "tfy4115-7-2-bb-reservoarpar",
+      "type": "definition",
+      "title": "Varme mellom to reservoarer — tallkort",
+      "content": "$$\\Delta S_\\text{univers} = Q\\left(\\frac{1}{T_\\text{kald}}\n- \\frac{1}{T_\\text{varm}}\\right) > 0 \\quad \\text{når } T_\\text{varm}\n> T_\\text{kald}.$$\n\nRegningen i tre skritt: (1) det varme reservoaret får $-Q/T_\\text{varm}$;\n(2) det kalde får $+Q/T_\\text{kald}$; (3) summer.\n\n**Hvorfor summen alltid er positiv:** samme energiporsjon delt på den **minste**\ntemperaturen gir den **største** brøken. Det er andre hovedsetning i én setning.\n\n**Grensetilfellet:** $T_\\text{varm} \\to T_\\text{kald}$ gir\n$\\Delta S_\\text{univers} \\to 0$. Varmeoverføring over en forsvinnende liten\ntemperaturforskjell er nesten reversibel — den tar bare uendelig lang tid. Det er\nnettopp dette Carnot-syklusen i Del 8 bygger på.\n\n**Og hva som ikke inngår:** hva som skjedde mellom reservoarene. Vegg, stang eller\nluftspalte — entropiøkningen er den samme."
+    },
+    {
+      "id": "tfy4115-7-2-bb-syklus",
+      "type": "definition",
+      "title": "Entropi over en kretsprosess",
+      "content": "Over en **full** syklus, der gassen ender i utgangstilstanden:\n$$\\Delta S_\\text{gass} = 0 \\quad (\\textbf{alltid}), \\qquad\n\\Delta S_\\text{univers} \\ge 0.$$\n\nDen første fordi entropi er en tilstandsfunksjon; den andre fordi en virkelig\nmaskin har friksjon og endelige temperaturforskjeller.\n\n**Dette er felle #14 i sin mest eksamensnære form.** Et flervalgsspørsmål som\nspør om «entropiendringen over syklusen» har typisk **både** null og et positivt\ntall på alternativlista, og hele oppgaven består i å lese om det er gassens eller\nuniversets entropi som etterspørres.\n\nKonsekvensen for Del 8: en Carnot-syklus har $\\Delta S_\\text{univers} = 0$ (den er\nreversibel), og det er nettopp derfor den har den høyest mulige virkningsgraden.\nEnhver virkelig syklus produserer entropi og gjør dermed mindre arbeid."
+    },
+    {
+      "id": "tfy4115-7-2-bb-statistisk",
+      "type": "definition",
+      "title": "Entropi og antall mikrotilstander (kjenne til)",
+      "content": "Boltzmanns statistiske definisjon:\n$$S = k_B\\ln\\Omega,$$\nder $\\Omega$ er antall mikroskopiske måter systemet kan realisere sin\nmakroskopiske tilstand på.\n\nDette er **kjenne-til-stoff** i denne boka: du skal forstå intuisjonen, ikke\nregne på $\\Omega$. Men intuisjonen er verdt å ha, fordi den forklarer alle\nfortegnene:\n\n- **Større volum** → flere mulige plasseringer per molekyl → større $\\Omega$ →\n  høyere entropi. Det er derfor volumleddet er positivt.\n- **Høyere temperatur** → flere mulige fartsfordelinger → større $\\Omega$ →\n  høyere entropi.\n- **Blanding** → flere mulige arrangementer → høyere entropi.\n\nOg den forklarer hvorfor andre hovedsetning er så robust: den er ikke en absolutt\nforbudslov, men en utsagn om overveldende sannsynlighet. Blekkdråpen **kan** samle\nseg igjen — det er bare $\\Omega$ ganger mer sannsynlig at den ikke gjør det."
+    },
+    {
+      "id": "tfy4115-7-2-bb-T7",
+      "type": "definition",
+      "title": "Sjanger T7 — entropioppgaven",
+      "content": "Bokas navn på oppgaveformen der du skal regne en entropiendring — for en gass, for\net reservoar, eller for universet. Den forekommer i **praktisk talt alle sett\n(~100 %)** og hører til **termohalvdelen, spørsmål 21–40**. Prioritet:\n**høyeste**.\n\nOppskriften: (1) bestem de to tilstandene; (2) er prosessen irreversibel,\nkonstruér en reversibel omvei; (3) velg formen som passer (gass, reservoar eller\nstoff med konstant $c$); (4) regn logaritmens argument som eget mellomresultat,\nmed **kelvin**; (5) spørres det om universet, summer system og omgivelser med\nfortegn; (6) sjekk at $\\Delta S_\\text{univers} \\ge 0$.\n\nDe fem variantene: isoterm, oppvarming, fri ekspansjon, varme mellom reservoarer,\nog konseptspørsmål om mulighet."
+    },
+    {
+      "id": "tfy4115-7-2-bb-felle14",
+      "type": "definition",
+      "title": "Felle #14 — entropi som tilstandsfunksjon",
+      "content": "Fellens fire konkrete varianter, i den rekkefølgen de forekommer:\n\n1. **Å nekte å regne** $\\Delta S$ fordi prosessen er irreversibel. Konstruér\n   omveien.\n2. **Å sette den faktiske $Q$ inn** i $\\Delta S = Q/T$. Definisjonen krever\n   $dQ_\\text{rev}$. Fri ekspansjon: $Q = 0$, $\\Delta S > 0$.\n3. **Å regne en unødig omvei** når uttrykket for ideell gass gir svaret direkte\n   fra endepunktene.\n4. **Å forveksle systemets og universets entropi** over en syklus. Gassens er\n   alltid null; universets er positiv for en virkelig maskin.\n\n**Motgiften for alle fire er samme spørsmål:** *hvilke to tilstander går jeg\nmellom, og hvem sin entropi spørres det om?* Skriv svaret på begge før du regner."
+    },
+    {
+      "id": "tfy4115-7-2-bb-kelvin-log",
+      "type": "definition",
+      "title": "Kelvin i logaritmen (felle #11 i entropiform)",
+      "content": "$\\ln(T_2/T_1)$ krever **absolutt** temperatur, og fella er dyrere her enn andre\nsteder fordi et celsiusforhold er en kvalitativt annen størrelse enn et\nkelvinforhold.\n\nRegneeksempel: fra $300$ til $450\\,\\text{K}$ er forholdet $1{,}5000$ og\nlogaritmen $0{,}405465$. Med celsiustallene $26{,}85$ og $176{,}85$ blir forholdet\n$6{,}5866$ og logaritmen $1{,}88504$ — nesten **fire ganger** for stort. Ved små\ntemperaturforskjeller blir avviket enda verre i relativ forstand, siden\ncelsiusforholdet da kan bli hva som helst.\n\n**Merk kontrasten til sifferdisiplin:** logaritmen **demper** små feil i\nargumentet, så avrunding i temperaturene er relativt uskyldig. Men den demper ikke\net flyttet nullpunkt. Skriv derfor kelvinverdiene som egen linje, og bruk fem\nsiffer i logaritmen."
+    },
+    {
+      "id": "tfy4115-7-2-bb-umulig",
+      "type": "definition",
+      "title": "Hvilke prosesser er umulige",
+      "content": "Testen er alltid den samme: regn $\\Delta S_\\text{univers}$ og se om den er\nnegativ. De fire klassiske umulighetene, med sin begrunnelse:\n\n1. **Varme spontant fra kaldt til varmt**, der\n   $Q(1/T_\\text{varm} - 1/T_\\text{kald})$ er negativ. Mulig **med** tilført\n   arbeid (varmepumpe).\n2. **All varme gjort om til arbeid i en syklus.** Reservoaret taper $Q/T$ uten at\n   noe vinner. Dette er Kelvins form av andre hovedsetning, og grunnen til at\n   virkningsgraden aldri er 1.\n3. **En gass som samler seg spontant i en del av beholderen.**\n   $\\Delta S = nR\\ln(V_2/V_1) < 0$ når volumet minker uten at noe annet skjer.\n4. **En blanding som skiller seg av seg selv.** Samme resonnement.\n\n**Og de tre som ser umulige ut men ikke er det:** en gass som avkjøles (systemets\nentropi faller, omgivelsenes øker mer); et kjøleskap (arbeid tilføres); en gass\nsom komprimeres isotermt (varme går ut)."
+    },
+    {
+      "id": "tfy4115-7-2-bb-storrelsesorden",
+      "type": "definition",
+      "title": "Enheten J/K og typiske størrelsesordener",
+      "content": "Entropi måles i **joule per kelvin**. Molar entropi og varmekapasitet har samme\nenhet, $\\text{J/(mol}\\cdot\\text{K)}$ — ikke tilfeldig, siden\n$\\Delta S = nC\\ln(T_2/T_1)$.\n\nReferansetall som gir rimelighetssjekk i flervalgsoppgaver:\n\n- **Isoterm dobling av volumet, ett mol:** $R\\ln 2 = 5{,}763\\,\\text{J/K}$.\n- **Oppvarming av ett mol toatomig gass 50 prosent (fast volum):**\n  $C_V\\ln 1{,}5 = 8{,}428\\,\\text{J/K}$.\n- **Ett kilojoule varme til et reservoar ved $300\\,\\text{K}$:**\n  $3{,}333\\,\\text{J/K}$.\n- **To kilo vann varmet 10 grader fra $293\\,\\text{K}$:** om lag\n  $281{,}2\\,\\text{J/K}$.\n\nMerk mønsteret: entropiendringer for **noen mol gass** ligger på noen få til noen\ntitalls J/K, mens **kilo av væske** gir hundrevis. Et flervalgsalternativ på\n$10^{5}\\,\\text{J/K}$ for en gassoppgave er utelukket på størrelsesorden alene."
+    },
+    {
+      "id": "tfy4115-7-2-bb-blanding",
+      "type": "definition",
+      "title": "Entropiøkning ved blanding",
+      "content": "Blandes to mengder av samme stoff med ulik temperatur i et isolert kar, får hver\nav dem sin egen logaritme:\n$$\\Delta S = m_1c\\ln\\frac{T_f}{T_1} + m_2c\\ln\\frac{T_f}{T_2},$$\nder $T_f$ finnes fra energibalansen $m_1c(T_1-T_f) = m_2c(T_f-T_2)$. For **like\nmasser** blir $T_f$ gjennomsnittet.\n\n**Fortegnene:** den varme mengden får negativ $\\Delta S$ (den kjøles), den kalde\npositiv — og **summen er alltid positiv**, fordi den kalde startet ved lavere\ntemperatur og derfor får den største logaritmen i tallverdi.\n\n*Hvorfor:* samme energiporsjon betyr mer der temperaturen er lavere, siden $T$\nstår i nevneren i $dQ/T$. Det er samme mekanisme som ved varmeoverføring mellom\nto reservoarer, bare med logaritmer fordi temperaturene endrer seg underveis i\nstedet for å være faste."
+    },
+    {
+      "id": "tfy4115-7-2-bb-tapt-arbeid",
+      "type": "definition",
+      "title": "Entropiproduksjon som tapt arbeid",
+      "content": "Den mest brukbare tolkningen av entropi i praksis: **produsert entropi er tapt\narbeidspotensial.**\n\nLekker varmen $Q$ fra et reservoar ved $T_\\text{varm}$ til omgivelsene ved\n$T_\\text{kald}$, kunne den i beste fall gitt arbeidet\n$$W_\\text{maks} = Q\\left(1 - \\frac{T_\\text{kald}}{T_\\text{varm}}\\right),$$\nog ved å la den bare lekke, kastes hele denne muligheten. Sammenhengen mellom de\nto tallene er\n$$W_\\text{tapt} = T_\\text{kald}\\,\\Delta S_\\text{univers}.$$\n\nDette er grunnen til at ingeniører bryr seg om entropi i det hele tatt: den måler\nhvor mye arbeid en prosess har ødelagt. En varmeveksler med stor\ntemperaturforskjell produserer mye entropi og kaster mye arbeidspotensial, selv om\nenergien er bevart hele veien. Uttrykket for $W_\\text{maks}$ er Carnot-grensen og\nutvikles i Del 8."
+    },
+    {
+      "id": "tfy4115-7-2-bb-rangering",
+      "type": "definition",
+      "title": "Rangering av $T$, $S$ og $\\Delta U$ i hjørnene",
+      "content": "En egen oppgavetype i sjangeren: du får en syklus tegnet i et $pV$-diagram og skal\nrangere tilstandene etter temperatur, entropi eller indre energi — uten å regne.\nTre regler dekker det:\n\n1. **Temperatur:** $T = pV/(nR)$, så temperaturen følger **produktet** $pV$.\n   Hjørnet med størst $pV$ er varmest. Isotermer er hyperbler; alt over en isoterm\n   er varmere, alt under kaldere.\n2. **Indre energi:** $U = \\tfrac{f}{2}nRT$ følger temperaturen direkte. Samme\n   rangering som for $T$, alltid.\n3. **Entropi:** øker med både temperatur og volum. Går du mot **høyre** (større\n   volum) eller **oppover i temperatur**, øker $S$. En reversibel adiabat holder\n   $S$ konstant, og er derfor referanselinja: alt til høyre for en adiabat gjennom\n   et punkt har høyere entropi.\n\n**Merk at $T$ og $U$ alltid gir samme rekkefølge**, mens $S$ kan gi en annen — og\ndet er nettopp den forskjellen spørsmålet tester."
+    },
+    {
+      "id": "tfy4115-7-2-bb-faseovergang",
+      "type": "definition",
+      "title": "Entropi ved faseovergang (kjenne til)",
+      "content": "Ved smelting eller fordamping skjer varmeopptaket ved **konstant** temperatur, så\n$T$ kan settes utenfor integralet:\n$$\\Delta S = \\frac{L}{T_\\text{overgang}},$$\nder $L$ er den latente varmen (smeltevarme eller fordampningsvarme) for mengden.\nIngen logaritme — samme form som for et reservoar, og av samme grunn.\n\nFordampning gir en stor entropiøkning, fordi gassfasen har enormt mange flere\nmikrotilstander enn væskefasen: molekylene får hele beholderen å bevege seg i.\nSmelting gir en mindre, men positiv, økning.\n\nDette er **kjenne-til-stoff** i denne boka; faseoverganger behandles i Del 10, og\n$T$ og $L$ oppgis i oppgaven. Det du skal kjenne igjen, er formen: **konstant\ntemperatur under overgangen betyr $\\Delta S = Q/T$, ikke en logaritme.**"
+    },
+    {
+      "id": "tfy4115-7-2-bb-tredje",
+      "type": "definition",
+      "title": "Tredje hovedsetning (kjenne til)",
+      "content": "Når temperaturen går mot det absolutte nullpunktet, går entropien til et perfekt\nkrystallinsk stoff mot null:\n$$T \\to 0 \\quad\\Longrightarrow\\quad S \\to 0.$$\n\nStatistisk er dette rimelig: ved $T = 0$ finnes bare **én** mikrotilstand (alle\npartikler i grunntilstanden), og $S = k_B\\ln 1 = 0$.\n\nTo konsekvenser verdt å kjenne: (i) entropi har dermed et **absolutt** nullpunkt,\ni motsetning til indre energi, som bare er definert opp til en konstant; (ii) det\nabsolutte nullpunktet kan ikke nås i et endelig antall trinn — hvert\nkjøletrinn fjerner en mindre og mindre andel av det som er igjen.\n\nDette er **kjenne-til-stoff**: det inngår ikke i regneoppgavene i denne boka, men\ndet er svaret hvis et konseptspørsmål skulle spørre hva som skjer med entropien når\ntemperaturen går mot null."
+    },
+    {
+      "id": "tfy4115-7-2-coll-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tfy4115-7-2-symb",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n**Kolliderende symboler i dette delkapitlet — les nøye.**\n\n- $S$ er **entropi**, med enheten J/K. I [kap. 5.1](/tfy4115/tfy4115-5-1) var $S$\n  **taustrekket** i en konisk pendel, målt i newton. Enheten skiller dem entydig.\n- $Q$ er **varme** i joule. I [kap. 5.2](/tfy4115/tfy4115-5-2) var $Q$\n  **kvalitetsfaktoren**, dimensjonsløs.\n- $T$ er **absolutt temperatur i kelvin** — og her er kelvin ikke bare god skikk,\n  men avgjørende, siden $T$ står inne i en logaritme.\n- $C$ (stor) er **molar** varmekapasitet, $c$ (liten) er **spesifikk** (per kg).\n  Begge opptrer i dette kapitlet, i $nC\\ln(T_2/T_1)$ og $mc\\ln(T_f/T_i)$.\n- $\\Omega$ er antall mikrotilstander (kjenne-til-stoff), ikke å forveksle med noe\n  i mekanikken.\n- $p$ er trykk (ikke bevegelsesmengde), $R$ er gasskonstanten (ikke radius), og\n  $\\gamma$ er adiabateksponenten (ikke demping).\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $S$, $\\Delta S$ | Entropi og endringen i den (**ikke** taustrekk her) | J/K |\n| $Q$, $Q_\\text{rev}$ | Varme; varme langs en reversibel vei | J |\n| $W$ | Arbeid gjort **av** systemet | J |\n| $\\Delta U$ | Endring i indre energi | J |\n| $T$ | Absolutt temperatur — i kelvin, alltid | K |\n| $n$, $m$ | Stoffmengde; masse | mol, kg |\n| $C_V$, $C_P$ | Molare varmekapasiteter | $\\text{J/(mol}\\cdot\\text{K)}$ |\n| $c$ | Spesifikk varmekapasitet | $\\text{J/(kg}\\cdot\\text{K)}$ |\n| $\\Omega$ | Antall mikrotilstander (kjenne til) | — |\n| $k_B$ | Boltzmanns konstant | J/K |\n\n**Formler i dette delkapitlet:**\n\n$$dS = \\frac{dQ_\\text{rev}}{T}, \\qquad\n\\Delta S = \\int_1^2\\frac{dQ_\\text{rev}}{T}$$\nDefinisjonen av entropi. Merk «rev» — den **reversible** varmen\n[står på det utdelte arket].\n\n$$\\Delta S = nC_V\\ln\\frac{T_2}{T_1} + nR\\ln\\frac{V_2}{V_1}$$\nEntropiendring for en ideell gass, i $T$ og $V$\n[står på det utdelte arket; utledningen må kunne gjøres aktivt].\n\n$$\\Delta S = nC_P\\ln\\frac{T_2}{T_1} - nR\\ln\\frac{p_2}{p_1}$$\nSamme, i $T$ og $p$. **Merk minustegnet**\n[står på det utdelte arket].\n\n$$\\text{isoterm}: nR\\ln\\frac{V_2}{V_1}, \\quad\n\\text{isokor}: nC_V\\ln\\frac{T_2}{T_1}, \\quad\n\\text{isobar}: nC_P\\ln\\frac{T_2}{T_1}, \\quad\n\\text{rev. adiabat}: 0$$\nDe fire spesialtilfellene [må kunne brukes eller utledes aktivt].\n\n$$\\Delta S_\\text{reservoar} = \\frac{Q}{T}$$\nFor et reservoar med konstant temperatur — den ene formen uten logaritme\n[må kunne brukes eller utledes aktivt].\n\n$$\\Delta S = mc\\ln\\frac{T_f}{T_i}$$\nFor et stoff med konstant spesifikk varmekapasitet\n[må kunne brukes eller utledes aktivt].\n\n$$\\Delta S_\\text{univers} = \\Delta S_\\text{system} + \\Delta S_\\text{omgivelser}\n\\ \\ge 0$$\nAndre hovedsetning; likhet bare for en reversibel prosess\n[står på det utdelte arket].\n\n$$\\Delta S_\\text{univers} = Q\\left(\\frac{1}{T_\\text{kald}}\n- \\frac{1}{T_\\text{varm}}\\right)$$\nVarmeoverføring mellom to reservoarer\n[må kunne brukes eller utledes aktivt].\n\n$$S = k_B\\ln\\Omega$$\nBoltzmanns statistiske definisjon (kjenne til)\n[må kunne brukes eller utledes aktivt — men bare som intuisjon i denne boka].\n\n$$\\int\\frac{dT}{T} = \\ln T, \\qquad \\ln\\frac{1}{x} = -\\ln x,\n\\qquad \\ln 2 = 0{,}69315, \\qquad \\ln 3 = 1{,}0986$$\n[Rottmann]."
+        }
+      ]
+    },
+    {
+      "id": "tfy4115-7-2-coll-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tfy4115-7-2-rep",
+          "type": "text",
+          "content": "Fem korte oppgaver på det dette kapitlet hviler på. Ta dem før du går videre til\n[kap. 7.3](/tfy4115/tfy4115-7-3).\n\n**R1.** Hva er $\\Delta U$, $Q$ og $W$ for en isoterm prosess i en ideell gass?\n\n*Svar:* $\\Delta U = 0$, og derfor $Q = W = nRT\\ln(V_2/V_1)$. Ved ekspansjon er\nbegge positive, ved kompresjon begge negative.\n\n**R2.** $1{,}00\\,\\text{mol}$ toatomig gass varmes fra $300\\,\\text{K}$ til\n$600\\,\\text{K}$ ved fast volum. Hva er $\\Delta S$?\n\n*Svar:*\n$$\\Delta S = nC_V\\ln\\frac{T_2}{T_1} = 1{,}00 \\cdot 20{,}785 \\cdot \\ln 2\\,\\text{J/K}\n= 14{,}407\\,\\text{J/K}.$$\n\n**R3.** Hva er $\\Delta S$ for en reversibel adiabat, og hvorfor?\n\n*Svar:* Null. De to leddene i entropiuttrykket kansellerer, fordi\n$TV^{\\gamma-1} = \\text{konstant}$ og $C_V(\\gamma-1) = R$. Derfor kalles den\n**isentrop**. Merk at en **irreversibel** adiabat har $\\Delta S > 0$.\n\n**R4.** Et reservoar ved $280\\,\\text{K}$ mottar $4200\\,\\text{J}$ varme.\nHva er dets entropiendring?\n\n*Svar:* $\\Delta S = Q/T = 4200/280 = 15{,}000\\,\\text{J/K}$, positiv\nsiden varmen går inn. Ingen logaritme — temperaturen endres ikke.\n\n**R5.** Hvorfor må temperaturen i $\\ln(T_2/T_1)$ være i kelvin?\n\n*Svar:* Fordi forholdet mellom to temperaturer avhenger av hvor nullpunktet\nligger, og logaritmen av et celsiusforhold er en helt annen størrelse. Til\nsammenligning tåler $\\Delta T$-uttrykk (som $mc\\,\\Delta T$) begge skalaer, siden\nen differanse er skalauavhengig. **Regelen: står $T$ i en brøk eller en logaritme,\nmå den i kelvin.**"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

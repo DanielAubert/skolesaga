@@ -1,0 +1,395 @@
+{
+  "id": "tfy4115-5-3",
+  "courseId": "tfy4115",
+  "chapterNumber": "5.3",
+  "title": "Drill: svingninger og pendler (sjanger M7, M8)",
+  "description": "Sjangerdrill: egenfrekvens, fysisk/konisk pendel og dempet amplitude raskt mot tallsvar — med $\\gamma=b/2m$-disiplin.",
+  "estimatedMinutes": 85,
+  "competenceGoals": [
+    "kjenne igjen hvilket svingesystem en oppgave beskriver, og velge formel på få sekunder",
+    "gjennomføre hele regnekjeden til et bokstavsvar i eksamenstempo, med faktoren $2\\pi$ og faktoren 2 i dempingen på riktig plass",
+    "bruke Steiners sats rutinemessig i pendeloppgaver, og kontrollere svaret med effektiv pendellengde",
+    "kjenne igjen hvilken konkret feil hvert galt svaralternativ er bygget på, og bruke fysiske grenser til å stryke alternativer"
+  ],
+  "content": [
+    {
+      "id": "tfy4115-5-3-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er et treningskapittel, ikke et teorikapittel.** Her drilles de to sjangrene fra Del 5 i eksamenstempo:\n\n**Sjanger M7 — svingninger** («finn egenfrekvens, fjærstivhet, dempingstid eller $Q$») i om lag 9 av 10 sett (~90 %), **høyeste prioritet — dette må sitte**.\n\n**Sjanger M8 — pendler** («finn svingetiden til dette legemet, eller perioden i denne sirkelbanen») i rundt halvparten av settene (~50 %), prioritet **bør sitte**.\n\nBegge hører til **mekanikkhalvdelen, spørsmål 1–20**.\n\n**To feil avgjør nesten alle poengene i denne delen, og de drilles derfor i hver eneste oppgave her.** Den ene er **faktoren $2\\pi$** mellom $\\omega$, $f$ og $T$. Den andre er **faktoren 2 i $\\gamma = b/2m$** — og dens søsken, at energien går med $2\\gamma$ mens amplituden går med $\\gamma$. I tillegg kommer **Steiner-refleksen** i pendeloppgavene: treghetsmomentet skal være om opphengspunktet.\n\n**Om tidsbruken.** Kapitlet er anslått til 85 minutter og er lagt opp som fire økter du trygt kan dele over flere kvelder: løsningsoppskriften og det gjennomregnede caset (~20 min), fjær- og egenfrekvensoppgavene 1–5 (~22 min), pendeloppgavene 6–10 (~22 min), og dempings- og resonansoppgavene 11–15 (~21 min). Fem av de femten oppgavene er i **A–F-format** med seks ferdige alternativer, akkurat som eksamen; resten er i åpen form.\n\n**Symbolvarsel.** $T$ er **periode** i sekunder her, ikke temperatur. $\\gamma$ er **dempingskoeffisient** i $\\text{s}^{-1}$, ikke adiabateksponent. $S$ er **taustrekk** i newton, ikke entropi. $Q$ er **kvalitetsfaktor** (dimensjonsløs), ikke varme. Alle fire betyr noe annet fra Del 6 og utover."
+    },
+    {
+      "id": "tfy4115-5-3-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nAlt du trenger står i [kap. 5.1](/tfy4115/tfy4115-5-1) og [kap. 5.2](/tfy4115/tfy4115-5-2), med treghetsmomentene fra [kap. 4.1](/tfy4115/tfy4115-4-1). Her er verktøykassa samlet på én skjerm, slik at du kan lukke den og prøve deg først:\n\n$$\\omega_0 = \\sqrt{\\frac{k}{m}}, \\qquad f = \\frac{\\omega_0}{2\\pi}, \\qquad T = \\frac{1}{f} = \\frac{2\\pi}{\\omega_0}, \\qquad k = m\\omega_0^2 = m(2\\pi f)^2$$\n\n$$\\frac{1}{k} = \\frac{1}{k_1}+\\frac{1}{k_2} \\ (\\text{serie}), \\qquad k = k_1+k_2 \\ (\\text{parallell})$$\n\n$$T = 2\\pi\\sqrt{\\frac{I_A}{Mgd}}, \\qquad I_A = I_\\text{CM}+Md^2, \\qquad L_\\text{ekv} = \\frac{I_A}{Md}$$\n\n$$T_\\text{stang, ende} = 2\\pi\\sqrt{\\frac{2L}{3g}}, \\qquad T_\\text{skive, rand} = 2\\pi\\sqrt{\\frac{3R}{2g}}, \\qquad T_\\text{mat} = 2\\pi\\sqrt{\\frac{L}{g}}$$\n\n$$S\\cos\\theta = mg, \\qquad S\\sin\\theta = \\frac{mv^2}{R}, \\qquad T = 2\\pi\\sqrt{\\frac{L\\cos\\theta}{g}}, \\qquad R = L\\sin\\theta$$\n\n$$\\gamma = \\frac{b}{2m}, \\qquad \\omega' = \\sqrt{\\omega_0^2-\\gamma^2}, \\qquad A(t) = A_0e^{-\\gamma t}, \\qquad E(t) = E_0e^{-2\\gamma t}$$\n\n$$t = \\frac{\\ln(1/f_\\text{brøk})}{\\gamma}, \\qquad Q = \\frac{\\omega_0}{2\\gamma} = \\frac{\\sqrt{km}}{b}, \\qquad b_\\text{krit} = 2m\\omega_0 = 2\\sqrt{km}$$\n\n$$A(\\omega_0) = \\frac{F_0}{b\\omega_0} = Q\\cdot\\frac{F_0}{k}$$\n\nBoka bruker $g = 9{,}81\\,\\text{m/s}^2$, $2\\pi = 6{,}28319$, $\\ln2 = 0{,}69315$ og $\\ln4 = 1{,}38629$. **Behold fire gjeldende siffer gjennom hele regnekjeden.**"
+    },
+    {
+      "id": "tfy4115-5-3-th-oppskrift",
+      "type": "theorem",
+      "title": "Løsningsoppskrift — rask vei til tall (MC-oppskrift) i fem trinn",
+      "content": "Dette er algoritmen du skal kjøre uten å tenke, fra oppgitte tall til bokstavsvar.\n\n**1. Hvilket system?** Fire muligheter, og du skal kjenne dem igjen på tre sekunder:\n- **masse i fjær** → $\\omega_0 = \\sqrt{k/m}$ (finn samlet $k$ først hvis det er to fjærer);\n- **utstrakt legeme hengt opp i et punkt** → fysisk pendel, $T = 2\\pi\\sqrt{I_A/(Mgd)}$;\n- **masse i vannrett sirkelbane i en snor** → konisk pendel, $T = 2\\pi\\sqrt{L\\cos\\theta/g}$;\n- **demping oppgitt ($b$ eller $\\gamma$)** → dempet svingning, $\\gamma = b/2m$ først.\n\n**2. Regn den ene grunnstørrelsen først.** Innholdet **under rottegnet**: $k/m$, $I_A/(Mgd)$, $L\\cos\\theta/g$. Eller, for dempingsoppgaver, $\\gamma = b/2m$. Da er resten én rotutdragning eller én logaritme.\n\n**3. Steiner-refleksen i pendeloppgaver.** Går aksen gjennom massesenteret? Nei — den gjør den aldri i en pendel. Skriv $I_A = I_\\text{CM}+Md^2$ **før** du slår opp $I_\\text{CM}$. Og bruk avstanden til det **felles** massesenteret i $d$ når legemet er sammensatt.\n\n**4. Les hva som spørres om.** $\\omega$ (rad/s), $f$ (Hz) eller $T$ (s)? Amplitude eller energi? **Hele** svingninger eller et desimaltall? Dette ene trinnet er verdt flere poeng enn all regningen i sjangeren.\n\n**5. Sluttsjekk før du krysser av.** (i) Enhet. (ii) Faktoren $2\\pi$ på riktig plass. (iii) Er $\\gamma$ regnet med $2m$? (iv) Er $L_\\text{ekv} = I_A/(Md)$ av samme størrelsesorden som legemet? (v) Er $S > mg$ i en konisk pendel? (vi) Er $Q$ dimensjonsløs? (vii) Faller massen ut der den skal (homogen pendel) og står den der den skal (masse i fjær)?"
+    },
+    {
+      "id": "tfy4115-5-3-fig-1",
+      "type": "image",
+      "src": "/images/textbook/tfy4115/tfy4115-5-1-svingesystemer.svg",
+      "alt": "Tre paneler. Panel A viser en masse festet til en fjaer mot en vegg, med utslaget x maalt fra likevektsstillingen. Panel B viser en skive hengt opp i et punkt paa randen, dreid ut vinkelen theta, med avstanden d fra opphengspunktet til massesenteret. Panel C viser en konisk pendel med snorlengde L, sirkelradius R, snorkraften S og tyngden mg, der S er dekomponert i en loddrett og en vannrett del.",
+      "caption": "Trinn 1 i oppskriften i bilder: kjenn igjen hvilket av de tre systemene oppgaven beskriver, så vet du hvilken formel som gjelder. Panel A gir $\\omega_0=\\sqrt{k/m}$, panel B $T=2\\pi\\sqrt{I_A/(Mgd)}$ og panel C $T=2\\pi\\sqrt{L\\cos\\theta/g}$."
+    },
+    {
+      "id": "tfy4115-5-3-ex-mc-case",
+      "type": "example",
+      "title": "Gjennomregnet MC-case: svingninger i eksamenstempo — med margnotater",
+      "problem": "To komplette flervalgsspørsmål av den typen som kommer på eksamen, regnet gjennom i MC-tempo med margnotater om hvor poengene faktisk faller.\n\n**Spørsmål 1.** En masse på $0{,}640\\,\\text{kg}$ henger i en fjær med stivhet $250{,}0\\,\\text{N/m}$. Hva er **frekvensen**?\n\n**A** $0{,}0081\\,\\text{Hz}$ · **B** $0{,}3179\\,\\text{Hz}$ · **C** $3{,}1456\\,\\text{Hz}$ · **D** $19{,}7642\\,\\text{Hz}$ · **E** $62{,}1699\\,\\text{Hz}$ · **F** $124{,}1824\\,\\text{Hz}$\n\n**Spørsmål 2.** Samme system får en dempingskonstant $b = 0{,}256\\,\\text{kg/s}$. Hvor lang tid går det før amplituden er redusert til en **fjerdedel**?\n\n**A** $1{,}7329\\,\\text{s}$ · **B** $3{,}4657\\,\\text{s}$ · **C** $5{,}0000\\,\\text{s}$ · **D** $6{,}9315\\,\\text{s}$ · **E** $10{,}0000\\,\\text{s}$ · **F** $20{,}0000\\,\\text{s}$",
+      "solution": "**Spørsmål 1: svar C.**\n\n*Margnotat — hvilket system, og hvilken lov?* Masse i fjær. Én formel: $\\omega_0 = \\sqrt{k/m}$. Tre sekunder.\n\n*Margnotat — trinn 2: regn innholdet under rottegnet først.*\n$$\\frac{k}{m} = \\frac{250{,}0}{0{,}640}\\,\\text{s}^{-2} = 390{,}625\\,\\text{s}^{-2}, \\qquad \\omega_0 = 19{,}76424\\,\\text{rad/s}.$$\nÉn divisjon, én rot. Femten sekunder.\n\n*Margnotat — trinn 4, og det som avgjør oppgaven.* **Spørsmålet ber om frekvensen**, ikke vinkelfrekvensen:\n$$f = \\frac{\\omega_0}{2\\pi} = \\frac{19{,}76424}{6{,}28319}\\,\\text{Hz} = 3{,}14558\\,\\text{Hz}.$$\nHer er hele oppgaven. Regningen tar tjue sekunder; lesingen av spørsmålet avgjør poenget.\n\n*Margnotat — hva hentes hvor?* $\\omega_0=\\sqrt{k/m}$ og $f=\\omega_0/2\\pi$ **står på det utdelte arket**. Ingenting her krever mer enn en enkel kalkulator.\n\n*Margnotat — hvor mange siffer?* Tre er nok her, siden alternativene ligger langt fra hverandre, men skriv fire i kladden: $19{,}76424$, ikke $19{,}8$.\n\n*Margnotat — hvilket alternativ lander du på hvis du slurver?* **D** er vinkelfrekvensen $\\omega_0$ i rad/s — riktig regning, feil størrelse, og det mest valgte gale svaret i hele sjangeren. **F** har multiplisert med $2\\pi$ i stedet for å dividere. **B** er perioden $T = 1/f$. **A** er $\\sqrt{m/k}/(2\\pi)$, altså brøken snudd under rottegnet. **E** er $(k/m)/(2\\pi)$ uten kvadratrot.\n\n*Margnotat — sluttsjekken, ti sekunder.* En laboratoriefjær med noen hundre gram gir en frekvens på **noen få hertz** og en vinkelfrekvens på **noen titalls rad/s**. Det stryker alle alternativene over 10 og under 0,1 umiddelbart.\n\n— naturlig pausepunkt —\n\n**Spørsmål 2: svar D.**\n\n*Margnotat — hvilken lov?* Dempet amplitude: $A(t) = A_0e^{-\\gamma t}$. Sett $A/A_0 = \\tfrac14$ og løs for $t$.\n\n*Margnotat — trinn 2, og det som avgjør oppgaven.* **Regn $\\gamma$ først, med faktoren 2:**\n$$\\gamma = \\frac{b}{2m} = \\frac{0{,}256}{2 \\cdot 0{,}640}\\,\\text{s}^{-1} = \\frac{0{,}256}{1{,}280}\\,\\text{s}^{-1} = 0{,}2000\\,\\text{s}^{-1}.$$\nUten faktoren 2 ville du fått $0{,}4000\\,\\text{s}^{-1}$ og halvert alle tider som følger.\n\n*Margnotat — hvilken ene regnelinje?*\n$$t = \\frac{\\ln 4}{\\gamma} = \\frac{1{,}38629}{0{,}2000}\\,\\text{s} = 6{,}93147\\,\\text{s}.$$\nMerk at $\\ln 4 = 2\\ln 2$: dette er nøyaktig to halveringstider.\n\n*Margnotat — hvor mange siffer?* Bruk $\\ln4 = 1{,}38629$, ikke 1,39. Og fire siffer i $\\gamma$.\n\n*Margnotat — fellene.* **B** er $\\ln2/\\gamma$, altså tiden til **halv** amplitude. **C** er $1/\\gamma$, relaksasjonstiden ($1/e$). **E** er $2/\\gamma$, med logaritmen erstattet av tallet 2. **F** er $4/\\gamma$, med brøken satt rett inn — den mest utbredte varianten. **A** er $\\ln4/(4\\gamma)$.\n\n*Margnotat — sluttsjekken.* Svaret må være **nøyaktig dobbelt** så stort som tiden til halv amplitude ($3{,}4657\\,\\text{s}$) ✔. Og hadde spørsmålet gjeldt **energien**, ville svaret vært halvparten, $3{,}4657\\,\\text{s}$. **Les alltid hvilken størrelse som er redusert.**"
+    },
+    {
+      "id": "tfy4115-5-3-okt2",
+      "type": "text",
+      "content": "## Økt 2 — M7: egenfrekvens og fjærkoblinger (~22 min)\n\nFem oppgaver. Oppgave 1 er i A–F-format. **Les hver gang om det spørres om $\\omega$, $f$ eller $T$** — det er trinn 4 i oppskriften, og det er der poengene faller."
+    },
+    {
+      "id": "tfy4115-5-3-o-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-5-3-oppg-1",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger M7 — svingninger, A–F-format.) En masse på $0{,}250\\,\\text{kg}$ svinger i en fjær med stivhet $90{,}0\\,\\text{N/m}$. Hva er **frekvensen**?\n\n**A** $0{,}0527\\,\\text{Hz}$ · **B** $0{,}3312\\,\\text{Hz}$ · **C** $3{,}0198\\,\\text{Hz}$ · **D** $6{,}0395\\,\\text{Hz}$ · **E** $18{,}9737\\,\\text{Hz}$ · **F** $57{,}2958\\,\\text{Hz}$",
+        "solution": "**Svar: C.**\n\n$$\\omega_0 = \\sqrt{\\frac{90{,}0}{0{,}250}}\\,\\text{rad/s} = \\sqrt{360{,}0}\\,\\text{rad/s} = 18{,}97367\\,\\text{rad/s}, \\qquad f = \\frac{\\omega_0}{2\\pi} = 3{,}0198\\,\\text{Hz}.$$\n\n*Fellene:* **E** er vinkelfrekvensen i rad/s. **D** er $\\omega_0/\\pi$, altså delt på $\\pi$ i stedet for $2\\pi$ — bare dobbelt fasiten, og derfor det farligste alternativet. **B** er perioden. **A** er $\\sqrt{m/k}$, brøken snudd. **F** er $(k/m)/(2\\pi)$ uten kvadratrot.\n\n*Sluttsjekk:* en frekvens i hertz for en laboratoriefjær ligger typisk mellom 1 og 10, en vinkelfrekvens mellom 10 og 100. Det stryker tre alternativer på fem sekunder.",
+        "hints": [
+          "Regn $k/m$ først, så rota, så del på $2\\pi$.",
+          "Sjekk hva spørsmålet ber om: rad/s eller hertz?"
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-5-3-o-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-5-3-oppg-2",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M7.) To fjærer med stivhet $200{,}0\\,\\text{N/m}$ og $300{,}0\\,\\text{N/m}$ kobles i serie og bærer en masse på $0{,}750\\,\\text{kg}$.\n\n**a)** Finn egenfrekvensen og frekvensen.\n\n**b)** Hvor mange ganger raskere ville systemet svingt med fjærene i parallell?",
+        "solution": "**a)** Serie først:\n$$k = \\frac{k_1k_2}{k_1+k_2} = \\frac{200{,}0 \\cdot 300{,}0}{500{,}0}\\,\\text{N/m} = 120{,}0\\,\\text{N/m}.$$\nKontroll: $120{,}0$ er mindre enn den minste stivheten $200{,}0$ ✔.\n$$\\omega_0 = \\sqrt{\\frac{120{,}0}{0{,}750}}\\,\\text{rad/s} = 12{,}64911\\,\\text{rad/s}, \\qquad f = 2{,}0132\\,\\text{Hz}.$$\n\n**b)** Parallell gir $k = 500{,}0\\,\\text{N/m}$, altså\n$$\\frac{\\omega_\\text{par}}{\\omega_\\text{ser}} = \\sqrt{\\frac{500{,}0}{120{,}0}} = 2{,}0412.$$\nOm lag dobbelt så raskt. Legg merke til at stivheten skiller seg med en faktor 4{,}1667, men frekvensen bare med kvadratroten av det.",
+        "hints": [
+          "Serie: legg sammen de inverse stivhetene.",
+          "Kontroller at seriekoblingen gir mindre stivhet enn den minste fjæra."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-5-3-o-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-5-3-oppg-3",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M7.) En masse på $0{,}600\\,\\text{kg}$ svinger i en fjær med perioden $0{,}400\\,\\text{s}$.\n\n**a)** Finn fjærstivheten.\n\n**b)** Hva blir perioden hvis massen dobles?",
+        "solution": "**a)** Fra $T = 2\\pi\\sqrt{m/k}$ følger\n$$k = m\\left(\\frac{2\\pi}{T}\\right)^2 = 0{,}600 \\cdot \\left(\\frac{6{,}28319}{0{,}400}\\right)^2\\,\\text{N/m} = 0{,}600 \\cdot 15{,}70796^2 = 0{,}600 \\cdot 246{,}740\\,\\text{N/m} = 148{,}0441\\,\\text{N/m}.$$\nRegn $2\\pi/T$ som eget mellomresultat — det er vinkelfrekvensen, $15{,}70796\\,\\text{rad/s}$.\n\n**b)** Perioden går som kvadratroten av massen:\n$$T \\propto \\sqrt m \\quad\\Longrightarrow\\quad T_\\text{ny} = 0{,}400 \\cdot \\sqrt2\\,\\text{s} = 0{,}5657\\,\\text{s}.$$\nDobling av massen gir altså bare 41 prosent lengre periode — kvadratroten demper effekten. For å **dobble** perioden må massen firedobles.\n\n**Sluttsjekk:** kontroller baklengs: $2\\pi\\sqrt{0{,}600/148{,}0441} = 0{,}4000\\,\\text{s}$ ✔. Og hadde du glemt kvadreringen av $2\\pi/T$, ville du fått $9{,}4248\\,\\text{N/m}$ — en helt annen størrelsesorden.",
+        "hints": [
+          "Løs periodeuttrykket for $k$.",
+          "Regn $2\\pi/T$ som eget mellomresultat — det er vinkelfrekvensen.",
+          "I b): hvordan avhenger perioden av massen?"
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-5-3-o-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-5-3-oppg-4",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M7.) En fjær med stivhet $180{,}0\\,\\text{N/m}$ bærer en masse på $1{,}10\\,\\text{kg}$.\n\n**a)** Finn egenfrekvensen.\n\n**b)** Finn egenfrekvensen når to slike fjærer bærer massen i parallell, og når de bærer den i serie.\n\n**c)** Hvor stort er forholdet mellom de to i b)?",
+        "solution": "**a)**\n$$\\omega_0 = \\sqrt{\\frac{180{,}0}{1{,}10}}\\,\\text{rad/s} = 12{,}79204\\,\\text{rad/s}.$$\n\n**b)** Parallell: $k = 2 \\cdot 180{,}0 = 360{,}0\\,\\text{N/m}$, altså\n$$\\omega_\\text{par} = \\sqrt{\\frac{360{,}0}{1{,}10}}\\,\\text{rad/s} = 18{,}09068\\,\\text{rad/s}.$$\nSerie: $k = 180{,}0/2 = 90{,}0\\,\\text{N/m}$, altså\n$$\\omega_\\text{ser} = \\sqrt{\\frac{90{,}0}{1{,}10}}\\,\\text{rad/s} = 9{,}04534\\,\\text{rad/s}.$$\n\n**c)**\n$$\\frac{\\omega_\\text{par}}{\\omega_\\text{ser}} = \\sqrt{\\frac{2k}{k/2}} = \\sqrt4 = 2{,}000.$$\nNøyaktig 2, uansett hva $k$ og $m$ er. **To like fjærer gir en faktor 4 i stivhet mellom parallell og serie, og dermed en faktor 2 i frekvens** — verdt å kjenne igjen som et raskt kontrolltilfelle.\n\n**Sluttsjekk:** frekvensen med én fjær ($12{,}79204$) skal ligge **mellom** de to andre, og gjør det ✔.",
+        "hints": [
+          "To like fjærer i parallell gir $2k$, i serie $k/2$.",
+          "Forholdet mellom de to frekvensene er kvadratroten av forholdet mellom stivhetene."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-5-3-o-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-5-3-oppg-5",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Kvalitativ oppgave — hva avhenger av hva.)\n\n**a)** Hva skjer med frekvensen til en masse i en fjær hvis du dobler amplituden?\n\n**b)** Hva skjer med frekvensen hvis du henger systemet loddrett i stedet for å legge det vannrett på et friksjonsfritt bord?\n\n**c)** Hva skjer med svingetiden til en homogen fysisk pendel hvis du bytter legemet med et dobbelt så tungt av samme form og størrelse?",
+        "solution": "**a) Ingenting.** Frekvensen til en harmonisk svingning er uavhengig av amplituden — $\\omega_0=\\sqrt{k/m}$ inneholder ikke $A$. Det som dobles, er maksimalfarten $A\\omega_0$ og maksimalakselerasjonen $A\\omega_0^2$; energien $\\tfrac12kA^2$ **firedobles**.\n\n**b) Ingenting.** Tyngden flytter likevektsstillingen ned med $x_0 = mg/k$, men den endrer ikke stigningstallet i kraft–utslag-sammenhengen. Svingningen om den nye likevektsstillingen har nøyaktig samme $\\omega_0=\\sqrt{k/m}$. Praktisk konsekvens: **$g$ skal aldri stå i svaret på en masse-fjær-oppgave.**\n\n**c) Ingenting.** For en homogen fysisk pendel faller massen ut: både $I_A$ og $Mgd$ er proporsjonale med $M$, så brøken $I_A/(Mgd)$ er uendret. Det er samme mekanisme som gjør at alle legemer faller like fort.\n\n**Merk kontrasten mellom a)–c) og masse-fjær-systemet:** i en fjær er massen halve svaret ($\\omega_0=\\sqrt{k/m}$), i en homogen pendel faller den ut. Står det en masse i et pendelsvar der legemet er homogent, har du sannsynligvis brukt fjærformelen. Og står det en $g$ i et fjærsvar, har du regnet utslaget fra fjærens ulastede lengde i stedet for fra likevektsstillingen.",
+        "hints": [
+          "Står amplituden i uttrykket for $\\omega_0$?",
+          "Hva gjør en konstant kraft med likevektsstillingen, og hva gjør den med stigningstallet?",
+          "Sjekk om $M$ forkortes bort i brøken $I_A/(Mgd)$."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-5-3-okt3",
+      "type": "text",
+      "content": "## Økt 3 — M8: pendler (~22 min)\n\nFem oppgaver på fysisk, matematisk og konisk pendel. Oppgave 6 er i A–F-format. **Kjør Steiner-refleksen hver gang:** treghetsmomentet skal være om opphengspunktet, og $d$ er avstanden til det felles massesenteret."
+    },
+    {
+      "id": "tfy4115-5-3-o-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-5-3-oppg-6",
+        "number": 6,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M8 — pendler, A–F-format.) En homogen skive med radius $0{,}200\\,\\text{m}$ henges opp i et punkt på randen og svinger med små utslag. Hva er svingetiden?\n\n**A** $0{,}1749\\,\\text{s}$ · **B** $0{,}6344\\,\\text{s}$ · **C** $0{,}7325\\,\\text{s}$ · **D** $0{,}8971\\,\\text{s}$ · **E** $1{,}0988\\,\\text{s}$ · **F** $1{,}2687\\,\\text{s}$",
+        "solution": "**Svar: E.**\n\n$$I_A = \\tfrac12MR^2+MR^2 = \\tfrac32MR^2, \\qquad d = R \\quad\\Longrightarrow\\quad T = 2\\pi\\sqrt{\\frac{3R}{2g}} = 6{,}28319\\sqrt{0{,}030581}\\,\\text{s} = 1{,}0988\\,\\text{s}.$$\nMassen faller ut og er derfor ikke oppgitt — det er en del av oppgaven å se at den ikke trengs.\n\n*Fellene:* **B** er $2\\pi\\sqrt{R/(2g)}$, altså Steiner-leddet glemt. **D** er $2\\pi\\sqrt{R/g}$, skiva som punktmasse. **F** er $2\\pi\\sqrt{2R/g}$, effektiv lengde $2R$. **C** er $2\\pi\\sqrt{2R/(3g)}$, altså stangformelen brukt på en skive. **A** mangler faktoren $2\\pi$ helt.\n\n*Sluttsjekk:* effektiv pendellengde er $\\tfrac32R = 0{,}300\\,\\text{m}$, og en pendel på 30 cm har en periode i overkant av ett sekund. Alternativet uten $2\\pi$ er på 0{,}1749 s — altfor kort for noe som svinger synlig.",
+        "hints": [
+          "Trinn 3: går aksen gjennom massesenteret?",
+          "Regn den effektive pendellengden $I_A/(Md)$ som kontroll."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-5-3-o-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-5-3-oppg-7",
+        "number": 7,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M8.) En homogen stang med lengde $0{,}850\\,\\text{m}$ henges opp i den ene enden.\n\n**a)** Finn svingetiden for små utslag.\n\n**b)** Finn den effektive pendellengden, og sammenlign med en matematisk pendel med lengde $0{,}850\\,\\text{m}$.",
+        "solution": "**a)** $I_A = \\tfrac13ML^2$ og $d = L/2$:\n$$T = 2\\pi\\sqrt{\\frac{\\tfrac13ML^2}{Mg\\cdot L/2}} = 2\\pi\\sqrt{\\frac{2L}{3g}} = 6{,}28319\\sqrt{0{,}057764}\\,\\text{s} = 1{,}5101\\,\\text{s}.$$\n\n**b)**\n$$L_\\text{ekv} = \\frac{I_A}{Md} = \\frac{\\tfrac13ML^2}{M\\cdot L/2} = \\tfrac23L = 0{,}5667\\,\\text{m}.$$\nEn matematisk pendel med lengde $0{,}850\\,\\text{m}$ har perioden $2\\pi\\sqrt{L/g} = 1{,}8495\\,\\text{s}$, altså **lengre** enn stangas. Forholdet er $\\sqrt{2/3} = 0{,}8165$: stanga svinger om lag 18 prosent raskere.\n\n*Hvorfor?* Halve stangens masse ligger nærmere aksen enn $L$. Masse nær aksen bidrar lite til tregheten, men fullt ut til tyngden — og det gjør pendelen «lettere å drive».",
+        "hints": [
+          "Finn $I_A$ og $d$ for en stang hengt opp i enden.",
+          "Effektiv pendellengde er $I_A/(Md)$."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-5-3-o-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-5-3-oppg-8",
+        "number": 8,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M8, konisk pendel.) En kule med masse $0{,}350\\,\\text{kg}$ går i en vannrett sirkel i enden av en snor med lengde $0{,}950\\,\\text{m}$. Snora danner $30^\\circ$ med loddlinja.\n\n**a)** Finn sirkelradien og omløpstiden.\n\n**b)** Finn banefarten og snorstrekket.",
+        "solution": "**a)**\n$$R = L\\sin\\theta = 0{,}950 \\cdot 0{,}50000\\,\\text{m} = 0{,}4750\\,\\text{m}, \\qquad T = 2\\pi\\sqrt{\\frac{L\\cos\\theta}{g}} = 6{,}28319\\sqrt{0{,}083866}\\,\\text{s} = 1{,}8196\\,\\text{s}.$$\n\n**b)**\n$$v = \\sqrt{gR\\tan\\theta} = \\sqrt{9{,}81 \\cdot 0{,}4750 \\cdot 0{,}57735}\\,\\text{m/s} = 1{,}6402\\,\\text{m/s},$$\nog kontroll den andre veien: $v = 2\\pi R/T = 1{,}6402\\,\\text{m/s}$ ✔.\n$$S = \\frac{mg}{\\cos\\theta} = \\frac{3{,}4335}{0{,}86603}\\,\\text{N} = 3{,}9647\\,\\text{N}.$$\n\n**Sluttsjekk:** $S = 3{,}9647\\,\\text{N}$ er større enn tyngden $mg = 3{,}4335\\,\\text{N}$, som det alltid må være i en konisk pendel ✔. Forholdet er $1/\\cos 30^\\circ = 1{,}1547$.",
+        "hints": [
+          "Radien er $L\\sin\\theta$, ikke snorlengden.",
+          "Regn farten på to måter som kontroll.",
+          "Sjekk at strekket er større enn tyngden."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-5-3-o-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-5-3-oppg-9",
+        "number": 9,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger M8.) En pendel består av en homogen stang med masse $0{,}600\\,\\text{kg}$ og lengde $0{,}500\\,\\text{m}$, hengslet i den øvre enden, med en punktmasse på $0{,}900\\,\\text{kg}$ festet i den nedre enden.\n\n**a)** Finn treghetsmomentet om opphengspunktet og avstanden til systemets massesenter.\n\n**b)** Finn svingetiden for små utslag.\n\n**c)** Hva ville du fått hvis du feilaktig brukte punktmassens avstand $L$ som $d$?",
+        "solution": "**a)**\n$$I_A = \\tfrac13M_sL^2 + m_pL^2 = 0{,}05000 + 0{,}22500 = 0{,}27500\\,\\text{kg}\\cdot\\text{m}^2.$$\n$$d = \\frac{M_s\\cdot L/2 + m_pL}{M_s+m_p} = \\frac{0{,}1500+0{,}4500}{1{,}50}\\,\\text{m} = \\frac{0{,}6000}{1{,}50}\\,\\text{m} = 0{,}4000\\,\\text{m}.$$\nPunktet ligger mellom stangens midtpunkt ($0{,}250\\,\\text{m}$) og punktmassen ($0{,}500\\,\\text{m}$), nærmest punktmassen fordi den er tyngst ✔.\n\n**b)**\n$$T = 2\\pi\\sqrt{\\frac{I_A}{(M_s+m_p)g\\,d}} = 6{,}28319\\sqrt{\\frac{0{,}27500}{1{,}50 \\cdot 9{,}81 \\cdot 0{,}4000}}\\,\\text{s} = 6{,}28319\\sqrt{0{,}046721}\\,\\text{s} = 1{,}3581\\,\\text{s}.$$\nEffektiv pendellengde: $I_A/(Md) = 0{,}4583\\,\\text{m}$, altså litt kortere enn hele pendelen — som forventet når massen er fordelt langs lengden.\n\n**c)** Med $d = L = 0{,}500\\,\\text{m}$ ville du fått\n$$T = 6{,}28319\\sqrt{\\frac{0{,}27500}{1{,}50 \\cdot 9{,}81 \\cdot 0{,}500}}\\,\\text{s} = 1{,}2147\\,\\text{s},$$\naltså 11 prosent for kort. Feilen er lett å gjøre, fordi punktmassen dominerer massen — men **$d$ er alltid avstanden til systemets FELLES massesenter**, og stangens masse trekker det innover.",
+        "hints": [
+          "Stangens $\\tfrac13M_sL^2$ er allerede om enden; punktmassen bidrar med $m_pL^2$.",
+          "Massesenteret er det massevektede gjennomsnittet av delenes massesentre.",
+          "I pendelformelen er $M$ hele massen og $d$ avstanden til det felles massesenteret."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-5-3-o-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-5-3-oppg-10",
+        "number": 10,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Kvalitativ oppgave — pendler.)\n\n**a)** Hvorfor svinger en stang hengt opp i enden raskere enn en punktmasse i samme avstand?\n\n**b)** Hva skjer med svingetiden til en fysisk pendel når opphengspunktet flyttes helt inn til massesenteret?\n\n**c)** Hvorfor er alle pendelformlene i boka merket «for små utslag»?",
+        "solution": "**a)** Fordi stangens masse i gjennomsnitt ligger **nærmere** aksen. Effektiv pendellengde er $I_A/(Md)$: for stanga $\\tfrac23L$, for punktmassen $L$. Masse nær aksen bidrar lite til treghetsmomentet (som går med avstanden i annen), men fullt ut til tyngdemomentet (som går lineært med avstanden til massesenteret). Netto blir pendelen «lettere å drive» og svinger raskere — forholdet er $\\sqrt{2/3} = 0{,}816$.\n\n**b)** Svingetiden går mot **uendelig**. I\n$$T = 2\\pi\\sqrt{\\frac{I_\\text{CM}+Md^2}{Mgd}}$$\ngår telleren mot den faste verdien $I_\\text{CM}$ mens nevneren går mot null. Fysisk: en pendel hengt opp nøyaktig i massesenteret har ingen momentarm for tyngden, og den blir stående i den stillingen du slipper den i — den svinger ikke i det hele tatt. Perioden har derfor et **minimum** for en mellomliggende $d$, og den vokser både når opphengspunktet flyttes innover og når det flyttes langt utover.\n\n**c)** Fordi tyngdens moment er $-Mgd\\sin\\theta$, ikke $-Mgd\\theta$. Bare med tilnærmingen $\\sin\\theta\\approx\\theta$ blir likningen den harmoniske $\\ddot\\theta+(Mgd/I_A)\\theta=0$ med en amplitudeuavhengig periode. Uten tilnærmingen vokser perioden med amplituden: om lag 1,7 prosent lengre ved $30^\\circ$ utslag og 7 prosent ved $60^\\circ$. Ved $10^\\circ$ er feilen 0,2 prosent, og det er derfor tilnærmingen er så brukbar i praksis.",
+        "hints": [
+          "Regn ut effektiv pendellengde $I_A/(Md)$ for begge systemene.",
+          "Hva skjer med telleren og nevneren i pendelformelen når $d\\to0$?",
+          "Hvilket ledd i tyngdens moment er det tilnærmingen forenkler?"
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-5-3-okt4",
+      "type": "text",
+      "content": "## Økt 4 — M7: demping, $Q$ og resonans (~21 min)\n\nFem oppgaver på dempet og drevet svingning. Oppgave 11 og 14 er i A–F-format. **Regn $\\gamma = b/2m$ først, hver gang** — og les om oppgaven spør om amplitude eller energi."
+    },
+    {
+      "id": "tfy4115-5-3-o-11",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-5-3-oppg-11",
+        "number": 11,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger M7, A–F-format.) Et dempet system har $\\gamma = 0{,}320\\,\\text{s}^{-1}$. Hvor lang tid tar det før amplituden er **halvert**?\n\n**A** $0{,}5415\\,\\text{s}$ · **B** $1{,}0830\\,\\text{s}$ · **C** $2{,}1661\\,\\text{s}$ · **D** $3{,}1250\\,\\text{s}$ · **E** $4{,}3322\\,\\text{s}$ · **F** $6{,}2500\\,\\text{s}$",
+        "solution": "**Svar: C.**\n\n$$A_0e^{-\\gamma t} = \\tfrac12A_0 \\quad\\Longrightarrow\\quad t = \\frac{\\ln 2}{\\gamma} = \\frac{0{,}69315}{0{,}320}\\,\\text{s} = 2{,}1661\\,\\text{s}.$$\n\n*Fellene:* **B** er $\\ln2/(2\\gamma)$, altså tiden til halv **energi**. **D** er $1/\\gamma$, relaksasjonstiden ($1/e$). **F** er $2/\\gamma$, med logaritmen erstattet av tallet 2. **E** er $\\ln4/\\gamma$, tiden til en **fjerdedel**. **A** er $\\ln2/(4\\gamma)$.\n\n*Sluttsjekk:* svaret må ligge **mellom** tiden til halv energi og relaksasjonstiden, siden $\\ln2 = 0{,}693$ ligger mellom $0{,}347$ og $1$. Det stryker tre alternativer med én sammenligning.",
+        "hints": [
+          "Sett $A/A_0=\\tfrac12$ og ta logaritmen.",
+          "Sjekk om oppgaven spør om amplitude eller energi."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-5-3-o-12",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-5-3-oppg-12",
+        "number": 12,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M7.) Et system har $m = 0{,}500\\,\\text{kg}$, $k = 50{,}0\\,\\text{N/m}$ og $b = 0{,}200\\,\\text{kg/s}$.\n\n**a)** Finn $\\omega_0$, $\\gamma$ og $\\omega'$.\n\n**b)** Hvor mange **hele** svingninger gjør systemet før amplituden er halvert?\n\n**c)** Hva ville svaret i b) blitt med $\\gamma = b/m$?",
+        "solution": "**a)**\n$$\\omega_0 = \\sqrt{\\frac{50{,}0}{0{,}500}}\\,\\text{rad/s} = 10{,}0000\\,\\text{rad/s}, \\qquad \\gamma = \\frac{0{,}200}{2 \\cdot 0{,}500}\\,\\text{s}^{-1} = 0{,}2000\\,\\text{s}^{-1},$$\n$$\\omega' = \\sqrt{100{,}00-0{,}0400}\\,\\text{rad/s} = 9{,}998000\\,\\text{rad/s}.$$\n\n**b)**\n$$t = \\frac{\\ln2}{\\gamma} = 3{,}46574\\,\\text{s}, \\qquad T' = \\frac{2\\pi}{\\omega'} = 0{,}62844\\,\\text{s}, \\qquad n = \\frac{3{,}46574}{0{,}62844} = 5{,}5148,$$\naltså **5 hele** svingninger.\n\n**c)** Med $\\gamma = b/m = 0{,}4000\\,\\text{s}^{-1}$ ville tiden blitt halvert, og antallet svingninger\n$$n = 2{,}7574 \\quad\\Longrightarrow\\quad 2 \\text{ hele svingninger}.$$\nAltså nøyaktig halvparten. **Begge tall står typisk på alternativlista** — og det er faktoren 2 i $\\gamma = b/2m$ som skiller dem.\n\n**Sluttsjekk:** $\\omega'$ skal være så vidt under $\\omega_0$ (her 0,020 prosent), og antall svingninger skal være et heltall når spørsmålet ber om **hele** svingninger.",
+        "hints": [
+          "Regn $\\gamma=b/2m$ først, med faktoren 2.",
+          "Del tiden på $T'=2\\pi/\\omega'$ og ta heltallsdelen."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-5-3-o-13",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-5-3-oppg-13",
+        "number": 13,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M7 — resonansvarianten.) Et system har $\\omega_0 = 20{,}0\\,\\text{rad/s}$, $\\gamma = 0{,}400\\,\\text{s}^{-1}$ og fjærstivhet $200{,}0\\,\\text{N/m}$. Det drives av en kraft med amplitude $0{,}500\\,\\text{N}$.\n\n**a)** Finn kvalitetsfaktoren.\n\n**b)** Finn det statiske utslaget og amplituden på resonans.\n\n**c)** Om lag hvor mange hele svingninger tar det før en fri svingning i systemet har falt til $1/e$?",
+        "solution": "**a)**\n$$Q = \\frac{\\omega_0}{2\\gamma} = \\frac{20{,}0}{2 \\cdot 0{,}400} = 25{,}000.$$\n\n**b)**\n$$A_\\text{stat} = \\frac{F_0}{k} = \\frac{0{,}500}{200{,}0}\\,\\text{m} = 0{,}00250\\,\\text{m}, \\qquad A(\\omega_0) = Q\\,A_\\text{stat} = 25{,}000 \\cdot 0{,}00250\\,\\text{m} = 0{,}06250\\,\\text{m}.$$\nMed samme kraft gir resonans altså et 25{,}000 ganger større utslag enn en konstant kraft ville gitt.\n\n**c)** Tommelregelen: $Q/\\pi = 7{,}9577$, altså om lag 8{,}0 hele svingninger. (Eksakt: relaksasjonstiden er $1/\\gamma = 2{,}5000\\,\\text{s}$ og perioden $2\\pi/\\omega' \\approx 0{,}31422\\,\\text{s}$, som gir 7{,}956.)\n\n**Sluttsjekk:** $Q$ er dimensjonsløs ✔, og resonansamplituden er mye større enn det statiske utslaget når $Q \\gg 1$ ✔.",
+        "hints": [
+          "$Q=\\omega_0/(2\\gamma)$.",
+          "Forsterkningen på resonans er nøyaktig $Q$ ganger det statiske utslaget $F_0/k$.",
+          "Antall svingninger til $1/e$ er om lag $Q/\\pi$."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-5-3-o-14",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-5-3-oppg-14",
+        "number": 14,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M7, A–F-format.) Et system har $m = 0{,}800\\,\\text{kg}$ og $k = 200{,}0\\,\\text{N/m}$. Hvor stor må dempingskonstanten være for **kritisk** demping?\n\n**A** $12{,}6491\\,\\text{kg/s}$ · **B** $15{,}8114\\,\\text{kg/s}$ · **C** $25{,}2982\\,\\text{kg/s}$ · **D** $31{,}6228\\,\\text{kg/s}$ · **E** $50{,}5964\\,\\text{kg/s}$ · **F** $320{,}0000\\,\\text{kg/s}$",
+        "solution": "**Svar: C.**\n\nKritisk demping betyr $\\gamma = \\omega_0$, altså $b/(2m) = \\sqrt{k/m}$:\n$$b_\\text{krit} = 2m\\omega_0 = 2\\sqrt{km} = 2\\sqrt{200{,}0 \\cdot 0{,}800}\\,\\text{kg/s} = 2\\sqrt{160{,}0}\\,\\text{kg/s} = 25{,}2982\\,\\text{kg/s}.$$\nKontroll: $\\omega_0 = \\sqrt{200{,}0/0{,}800} = 15{,}81139\\,\\text{rad/s}$, og $2m\\omega_0 = 25{,}2982\\,\\text{kg/s}$ ✔.\n\n*Fellene:* **A** er $\\sqrt{km}$, med faktoren 2 glemt — merk at dette tallet også er lik $m\\omega_0$, siden $m\\sqrt{k/m}=\\sqrt{km}$. **E** er $4\\sqrt{km}$, med faktoren 2 brukt to ganger. **B** er egenfrekvensen $\\omega_0$ selv, som er en frekvens og ikke en dempingskonstant. **F** er $2km$, som ikke har riktig enhet — enhetssjekken alene stryker det. **D** er $2\\sqrt{k/m}=2\\omega_0$, også en frekvens.\n\n*Sluttsjekk:* enheten skal være kg/s. Det stryker to alternativer umiddelbart, og størrelsesordenen (noen titalls for et laboratoriesystem) stryker et tredje.",
+        "hints": [
+          "Kritisk demping betyr $\\gamma=\\omega_0$.",
+          "Bruk enhetssjekken: svaret skal ha enhet kg/s."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-5-3-o-15",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-5-3-oppg-15",
+        "number": 15,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Blandet — dempet fysisk pendel.) En homogen skive med radius $0{,}180\\,\\text{m}$ henges opp i randen og svinger som en fysisk pendel. Bevegelsen er svakt dempet med $\\gamma = 0{,}150\\,\\text{s}^{-1}$.\n\n**a)** Finn den udempede svingetiden og den tilhørende $\\omega_0$.\n\n**b)** Finn kvalitetsfaktoren.\n\n**c)** Om lag hvor mange hele svingninger tar det før amplituden er falt til $1/e$? Regn både med tommelregelen $Q/\\pi$ og eksakt.",
+        "solution": "**a)** Skiva hengt opp i randen har $I_A = \\tfrac32MR^2$ og $d = R$:\n$$T = 2\\pi\\sqrt{\\frac{3R}{2g}} = 6{,}28319\\sqrt{0{,}027523}\\,\\text{s} = 1{,}04238\\,\\text{s}, \\qquad \\omega_0 = \\frac{2\\pi}{T} = 6{,}02771\\,\\text{rad/s}.$$\nMerk at vi bruker pendelens egen $\\omega_0$ her — det finnes ingen fjær og ingen $k$ i dette systemet, men dempingsteorien gjelder likevel, fordi likningen har samme form.\n\n**b)**\n$$Q = \\frac{\\omega_0}{2\\gamma} = \\frac{6{,}02771}{2 \\cdot 0{,}150} = 20{,}0924.$$\n\n**c)** Tommelregelen: $Q/\\pi = 6{,}3956$, altså om lag 6{,}4 hele svingninger.\n\nEksakt: den dempede vinkelfrekvensen er\n$$\\omega' = \\sqrt{\\omega_0^2-\\gamma^2} = \\sqrt{36{,}3333-0{,}02250}\\,\\text{rad/s} = 6{,}025847\\,\\text{rad/s},$$\nså $T' = 2\\pi/\\omega' = 1{,}04271\\,\\text{s}$, og relaksasjonstiden er $1/\\gamma = 6{,}6667\\,\\text{s}$:\n$$n = \\frac{6{,}6667}{1{,}04271} = 6{,}3936.$$\nDe to svarene er praktisk talt like (6{,}3956 mot 6{,}3936) — som de skal være for svak demping, siden $\\omega'\\approx\\omega_0$.\n\n**Sluttsjekk:** $Q$ dimensjonsløs ✔, $\\omega' < \\omega_0$ men bare 0,031 prosent lavere ✔, og en pendel med $Q \\approx 20$ skal svinge synlig i noen få sekunder før den dør ut — det stemmer med 6{,}3936 svingninger à $1{,}04271\\,\\text{s}$, altså om lag 6{,}7 sekunder.",
+        "hints": [
+          "Finn pendelens $\\omega_0$ fra svingetiden — det er den samme $\\omega_0$ som i dempingsteorien.",
+          "$Q=\\omega_0/(2\\gamma)$ gjelder uansett hva som gir svingningen.",
+          "Antall svingninger til $1/e$ er relaksasjonstiden delt på perioden."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-5-3-war-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil — hele M7- og M8-repertoaret, og de to faktorfellene",
+      "content": "**Faktoren $2\\pi$ mellom $\\omega$, $f$ og $T$.** Sjangerens dyreste feil, og den er ren lesefeil. Understrek hva oppgaven ber om **før** du regner. Rimelighetssjekk: en laboratoriefjær gir noen få hertz og noen titalls rad/s.\n\n**Faktoren 2 i $\\gamma = b/2m$.** Uten den blir alle tider halvert, alle antall svingninger halvert og $Q$ halvert — og det gale svaret er eksakt halvparten av det riktige, altså alltid på lista. **Skriv $\\gamma$ som første regnelinje.**\n\n**Amplitude mot energi.** Amplituden går med $\\gamma$, energien med $2\\gamma$. Igjen skiller de to seg med en faktor 2.\n\n**Brøken satt rett inn i stedet for logaritmen.** «Tid til en fjerdedel» er $\\ln4/\\gamma$, ikke $4/\\gamma$.\n\n**Steiner glemt i en fysisk pendel.** $I$ skal være om **opphengspunktet**. For en skive i randen er $I_A = \\tfrac32MR^2$; med $\\tfrac12MR^2$ får du en periode som er $\\sqrt{1/3} = 0{,}577$ ganger den riktige.\n\n**Feil $d$ i en sammensatt pendel.** $d$ er avstanden til systemets **felles** massesenter, og $M$ er hele massen — ikke én dels verdier.\n\n**Serie og parallell forbyttet.** Serie gir samlet stivhet **mindre enn den minste**, parallell **større enn den største**. Kontrollen tar to sekunder.\n\n**$S\\cos\\theta$ og $S\\sin\\theta$ forbyttet i konisk pendel.** Den **loddrette** likningen er $S\\cos\\theta = mg$. Sjekken «er $S > mg$?» avslører feilen umiddelbart.\n\n**Desimaltall der oppgaven ber om HELE svingninger.** Svaret er heltallsdelen, rundet nedover.\n\n**Periode regnet for et overkritisk dempet system.** Er $\\gamma > \\omega_0$, finnes ingen periode. Sammenlign de to før du regner.\n\n**Og faktorfellen som lander på nabo-alternativet** (felle #16): denne delen er bygget av kvadratrøtter og faktorer 2, og begge skjuler feil. En kvadratrot halverer den relative feilen, så en 50 prosents feil i $k$ eller $I$ gir bare 22 prosent i perioden — akkurat nok til å treffe nabo-alternativet. **Regn alltid innholdet under rottegnet som eget mellomresultat med fire siffer**, bruk $2\\pi = 6{,}28319$, $\\ln2 = 0{,}69315$ og $\\ln4 = 1{,}38629$, og gjør sluttsjekken på enhet og størrelsesorden før du krysser av."
+    },
+    {
+      "id": "tfy4115-5-3-begrepsbank-notis",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder oppgavene."
+    },
+    {
+      "id": "tfy4115-5-3-bb-m7-drill",
+      "type": "definition",
+      "title": "Sjanger M7 i MC-tempo",
+      "content": "Svingninger, i om lag 9 av 10 sett (~90 %), **mekanikkhalvdelen, spørsmål 1–20**. Fire varianter: egenfrekvens fra $k$ og $m$ (eller motsatt); to fjærer i serie eller parallell; dempet amplitude (tid, antall svingninger, $Q$); og drevet svingning på resonans. Tidsbudsjett: under to minutter per oppgave. De to trinnene som avgjør: **regn den ene grunnstørrelsen først** ($k/m$ eller $\\gamma=b/2m$), og **les om det spørres om $\\omega$, $f$ eller $T$, amplitude eller energi**."
+    },
+    {
+      "id": "tfy4115-5-3-bb-m8-drill",
+      "type": "definition",
+      "title": "Sjanger M8 i MC-tempo",
+      "content": "Pendler, i rundt halvparten av settene (~50 %), **mekanikkhalvdelen**. Tre varianter: fysisk pendel ($T = 2\\pi\\sqrt{I_A/(Mgd)}$ med Steiner), matematisk pendel ($2\\pi\\sqrt{L/g}$) og konisk pendel ($2\\pi\\sqrt{L\\cos\\theta/g}$). Tidsbudsjett: to–tre minutter. Det som avgjør: **Steiner-refleksen** ($I_A$ om opphengspunktet) og **riktig $d$** (til det felles massesenteret). Kontrollen som fanger de fleste feil: regn effektiv pendellengde $I_A/(Md)$ og se om den er av samme størrelsesorden som legemet."
+    },
+    {
+      "id": "tfy4115-5-3-bb-2pi-disiplin",
+      "type": "definition",
+      "title": "$2\\pi$-disiplinen",
+      "content": "De tre størrelsene henger sammen som $\\omega = 2\\pi f = 2\\pi/T$. Arbeidsvanen som fjerner feilen: **understrek i oppgaveteksten hva som spørres om før du regner**, og gjør en størrelsesordensjekk til slutt. For et laboratoriesystem: $T$ rundt ett sekund, $f$ noen få hertz, $\\omega$ noen titalls rad/s. Bruk $2\\pi = 6{,}28319$, ikke 6,28 — i rundetellings- og heltallsoppgaver er den forskjellen nok til å bytte alternativ."
+    },
+    {
+      "id": "tfy4115-5-3-bb-gamma-disiplin",
+      "type": "definition",
+      "title": "$\\gamma = b/2m$-disiplinen",
+      "content": "Fire steder i Del 5.2 står det en faktor 2, og hver kan gjøres feil for seg: $\\gamma = b/2m$; energien går med $2\\gamma$; $Q = \\omega_0/(2\\gamma)$; $b_\\text{krit} = 2m\\omega_0$. Hver feil gir et svar som er dobbelt eller halvparten av det riktige, og alle står derfor systematisk på alternativlista. Arbeidsvanen: **skriv ned $\\omega_0$, $\\gamma$ og forholdet $\\gamma/\\omega_0$ først** — da har du både faktorene og dempingsregimet på plass i én operasjon."
+    },
+    {
+      "id": "tfy4115-5-3-bb-steiner-pendel",
+      "type": "definition",
+      "title": "Steiner-refleksen i pendeloppgaver",
+      "content": "En pendel svinger alltid om et punkt **utenfor** massesenteret — ellers ville tyngden ikke hatt momentarm. Derfor trengs Steiners sats i **hver** fysisk pendeloppgave: $I_A = I_\\text{CM} + Md^2$. Rekkefølgen: (1) finn $d$ (avstanden opphengspunkt–massesenter, for sammensatte legemer det **felles** massesenteret); (2) slå opp $I_\\text{CM}$; (3) legg til $Md^2$; (4) sett inn i $T = 2\\pi\\sqrt{I_A/(Mgd)}$; (5) kontroller at $L_\\text{ekv} = I_A/(Md)$ er rimelig. Glemt Steiner gir alltid en for **kort** periode."
+    },
+    {
+      "id": "tfy4115-5-3-bb-amplitude-energi-drill",
+      "type": "definition",
+      "title": "Amplitude eller energi?",
+      "content": "$A(t) = A_0e^{-\\gamma t}$, men $E(t) = E_0e^{-2\\gamma t}$. Praktiske konsekvenser: tid til halv amplitude er $\\ln2/\\gamma$, tid til halv energi $\\ln2/(2\\gamma)$; når amplituden er halvert, er energien nede på en **fjerdedel**; og relaksasjonstiden for amplituden ($1/\\gamma$) er dobbelt så lang som for energien ($1/(2\\gamma)$). Fordi de to svarene alltid skiller seg med akkurat en faktor 2, står begge på alternativlista — les hvilken størrelse oppgaven spør om."
+    },
+    {
+      "id": "tfy4115-5-3-bb-mc-tempo-5",
+      "type": "definition",
+      "title": "MC-tempo i svingningsoppgaver",
+      "content": "Fire timer på ~40 spørsmål gir om lag seks minutter per spørsmål, men svingningsoppgavene er blant de raskeste i mekanikkhalvdelen: en ren egenfrekvensoppgave tar under ett minutt, en dempingsoppgave halvannet, en pendeloppgave to–tre (mest til Steiner og $d$). Regel for tempo: **regn innholdet under rottegnet, eller $\\gamma$, som eget mellomresultat, og bruk kalkulatoren én gang** — flere separate innslag er der avrundings- og tastefeilene kommer inn."
+    },
+    {
+      "id": "tfy4115-5-3-bb-eliminasjon-5",
+      "type": "definition",
+      "title": "Eliminasjon ved grenser i svingningsoppgaver",
+      "content": "Denne sjangeren har uvanlig gode strykemuligheter. Harde grenser: $\\omega' < \\omega_0$, men bare litt; $L_\\text{ekv} = I_A/(Md)$ må være av samme størrelsesorden som legemet; $S > mg$ i en konisk pendel; $Q$ er dimensjonsløs; en konisk pendel kan aldri ha lengre periode enn $2\\pi\\sqrt{L/g}$; seriekobling gir samlet stivhet mindre enn den minste fjæra; tid til halv amplitude ligger mellom tid til halv energi og relaksasjonstiden. **Bruk tjue sekunder på grensene før du regner** — ofte står du igjen med to alternativer."
+    },
+    {
+      "id": "tfy4115-5-3-coll-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tfy4115-5-3-symb-1",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares i [kap. 5.1](/tfy4115/tfy4115-5-1) og [kap. 5.2](/tfy4115/tfy4115-5-2).\n\n**Kolliderende symboler i dette delkapitlet.** $T$ er **periode** i sekunder (i Del 6–10: absolutt temperatur i kelvin). $\\gamma$ er **dempingskoeffisient** i $\\text{s}^{-1}$ (i Del 6–10: adiabateksponent $C_P/C_V$, dimensjonsløs — enheten skiller dem). $S$ er **taustrekk** i newton (i Del 7: entropi i J/K). $Q$ er **kvalitetsfaktor**, dimensjonsløs (i termodelen: varme i joule). $k$ er **fjærstivhet** i N/m (Boltzmanns konstant skrives $k_B$). $R$ er en **radius** (i termodelen: gasskonstanten).\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $\\omega_0$, $\\omega'$, $\\omega$ | Egenfrekvens; dempet vinkelfrekvens; drivfrekvens | rad/s |\n| $f$, $T$ | Frekvens; periode (**ikke** temperatur) | Hz; s |\n| $k$, $k_1$, $k_2$ | Fjærstivhet (**ikke** Boltzmanns konstant) | N/m |\n| $m$, $M$ | Masse | kg |\n| $A_0$, $A$ | Startamplitude; amplitude | m |\n| $\\gamma$ | Dempingskoeffisient, $b/2m$ (**ikke** adiabateksponent) | $\\text{s}^{-1}$ |\n| $b$, $b_\\text{krit}$ | Dempingskonstant; kritisk verdi | kg/s |\n| $Q$ | Kvalitetsfaktor (**ikke** varme) | — |\n| $F_0$ | Amplituden til drivkraften | N |\n| $I_A$, $d$ | Treghetsmoment om opphengspunktet; avstand oppheng–CM | $\\text{kg}\\cdot\\text{m}^2$; m |\n| $L$, $L_\\text{ekv}$ | Lengde; effektiv pendellengde | m |\n| $\\theta$ | Utslagsvinkel; snorvinkel i konisk pendel | rad/grader |\n| $S$ | Taustrekk (**ikke** entropi) | N |\n\n**Formler i dette delkapitlet:**\n\n$$\\omega_0 = \\sqrt{\\frac{k}{m}}, \\qquad f = \\frac{\\omega_0}{2\\pi}, \\qquad T = \\frac{2\\pi}{\\omega_0}, \\qquad k = m(2\\pi f)^2$$\nEgenfrekvens og omregninger [står på det utdelte arket].\n\n$$\\frac{1}{k} = \\frac{1}{k_1}+\\frac{1}{k_2}, \\qquad k = k_1+k_2$$\nSerie og parallell [må kunne brukes eller utledes aktivt].\n\n$$T = 2\\pi\\sqrt{\\frac{I_A}{Mgd}}, \\qquad I_A = I_\\text{CM}+Md^2, \\qquad L_\\text{ekv} = \\frac{I_A}{Md}$$\nFysisk pendel med Steiner [står på det utdelte arket; valget av $I_A$ og $d$ må kunne gjøres aktivt].\n\n$$T_\\text{stang} = 2\\pi\\sqrt{\\frac{2L}{3g}}, \\qquad T_\\text{skive} = 2\\pi\\sqrt{\\frac{3R}{2g}}, \\qquad T_\\text{mat} = 2\\pi\\sqrt{\\frac{L}{g}}$$\nDe tre standardpendlene [må kunne brukes eller utledes aktivt].\n\n$$S\\cos\\theta = mg, \\qquad S\\sin\\theta = \\frac{mv^2}{R}, \\qquad T = 2\\pi\\sqrt{\\frac{L\\cos\\theta}{g}}, \\qquad R = L\\sin\\theta$$\nKonisk pendel [kraftlikningene står på arket; periodeuttrykket må kunne utledes].\n\n$$\\gamma = \\frac{b}{2m}, \\qquad \\omega' = \\sqrt{\\omega_0^2-\\gamma^2}, \\qquad A(t) = A_0e^{-\\gamma t}, \\qquad E(t) = E_0e^{-2\\gamma t}$$\nDemping — merk faktoren 2 begge steder [står på det utdelte arket].\n\n$$t = \\frac{\\ln(1/f_\\text{brøk})}{\\gamma}, \\qquad n = \\frac{t}{T'}, \\qquad T' = \\frac{2\\pi}{\\omega'}$$\nTid til en gitt brøk, og antall svingninger [må kunne brukes eller utledes aktivt].\n\n$$Q = \\frac{\\omega_0}{2\\gamma} = \\frac{\\sqrt{km}}{b}, \\qquad b_\\text{krit} = 2m\\omega_0 = 2\\sqrt{km}$$\nKvalitetsfaktor og kritisk demping [står på det utdelte arket].\n\n$$A(\\omega_0) = \\frac{F_0}{b\\omega_0} = Q\\cdot\\frac{F_0}{k}, \\qquad A(\\omega) = \\frac{F_0/m}{\\sqrt{(\\omega_0^2-\\omega^2)^2+4\\gamma^2\\omega^2}}$$\nResonans og full amplituderespons [står på det utdelte arket].\n\n$$\\ln 2 = 0{,}69315, \\qquad \\ln 4 = 1{,}38629, \\qquad 2\\pi = 6{,}28319, \\qquad e^{-1} = 0{,}36788$$\nTallverdiene du bruker i hver oppgave [Rottmann]."
+        }
+      ]
+    },
+    {
+      "id": "tfy4115-5-3-coll-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tfy4115-5-3-rep-1",
+          "type": "text",
+          "content": "Fem korte oppgaver til oppvarming før prøvene i Del 5. De tar to minutter hver.\n\n**R1.** Et system har $\\omega_0 = 24{,}0\\,\\text{rad/s}$. Finn $f$ og $T$.\n\n*Svar:* $f = 24{,}0/6{,}28319 = 3{,}8197\\,\\text{Hz} \\approx 3{,}82\\,\\text{Hz}$, og $T = 1/f = 0{,}2618\\,\\text{s}$.\n\n**R2.** To fjærer på $400\\,\\text{N/m}$ og $600\\,\\text{N/m}$ i serie. Samlet stivhet?\n\n*Svar:* $k = 400\\cdot600/1000 = 240\\,\\text{N/m}$ — mindre enn den minste ✔.\n\n**R3.** En skive med radius $0{,}250\\,\\text{m}$ henges opp i randen. Finn svingetiden.\n\n*Svar:* $T = 2\\pi\\sqrt{3\\cdot0{,}250/(2\\cdot9{,}81)} = 2\\pi\\sqrt{0{,}038226} = 2\\pi\\cdot0{,}195515 = 1{,}2285\\,\\text{s} \\approx 1{,}23\\,\\text{s}$.\n\n**R4.** Et dempet system har $b = 0{,}500\\,\\text{kg/s}$ og $m = 1{,}25\\,\\text{kg}$. Finn $\\gamma$ og tiden til halv amplitude.\n\n*Svar:* $\\gamma = 0{,}500/2{,}50 = 0{,}200\\,\\text{s}^{-1}$, og $t = 0{,}69315/0{,}200 = 3{,}466\\,\\text{s}$.\n\n**R5.** En konisk pendel har snorlengde $0{,}800\\,\\text{m}$ og vinkel $45{,}0^\\circ$. Finn perioden og forholdet mellom snorstrekk og tyngde.\n\n*Svar:* $T = 2\\pi\\sqrt{0{,}800\\cdot0{,}70711/9{,}81} = 2\\pi\\sqrt{0{,}057665} = 1{,}5093\\,\\text{s} \\approx 1{,}51\\,\\text{s}$. Og $S/mg = 1/\\cos45{,}0^\\circ = 1{,}4142$ — snorstrekket er drøyt 41 prosent større enn tyngden."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

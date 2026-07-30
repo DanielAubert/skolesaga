@@ -1,0 +1,409 @@
+{
+ "id": "tfy4115-9-2",
+ "courseId": "tfy4115",
+ "chapterNumber": "9.2",
+ "title": "Varmestråling — Stefan–Boltzmann, platebalanse og Wien",
+ "description": "Stefan–Boltzmann $j=\\sigma T^4$, stasjonær strålingsbalanse mellom plater, Wiens forskyvningslov og Plancks lov (som munner ut i numerikk-kapitlet).",
+ "estimatedMinutes": 60,
+ "competenceGoals": [
+  "regne utstrålt og netto strålingseffekt fra en flate, med emissivitet og alle temperaturer i kelvin",
+  "utlede og bruke platebalansen for en tynn plate mellom to reservoarer, og vite at det er fjerdepotensene som midles",
+  "finne bølgelengden med største utstråling fra en temperatur og omvendt, og kjenne retningen i Wiens lov",
+  "sette opp en stasjonær strålingsbalanse for et legeme som mottar stråling utenfra, og se hvilke størrelser som faller ut"
+ ],
+ "content": [
+  {
+   "id": "tfy4115-9-2-tip-eksamensvinkel",
+   "type": "tip",
+   "title": "Eksamensvinkel",
+   "content": "**Sjanger T10 — strålingsoppgaven, altså utstrålt effekt, netto stråling mot omgivelsene, en stasjonær platebalanse eller Wiens forskyvningslov — dukker opp i om lag 7 av 10 sett (~70 %).** Den hører til **termofysikkhalvdelen, spørsmål 21–40**, og den er **unik mot søsteremnet TFY4125**: der er varmestråling ikke pensum. I TFY4115 er den det, og den kommer igjen og igjen. Prioritet: **høyeste — dette må sitte.**\n\nTre varianter går igjen. **(1) Utstrålt eller netto effekt:** en flate med gitt areal, temperatur og emissivitet, i omgivelser med en annen temperatur. **(2) Platebalanse:** en tynn plate hengende mellom to reservoarer, finn dens stasjonære temperatur. **(3) Wien:** ved hvilken bølgelengde stråler flaten mest?\n\n**Ordforklaringer først.** **Varmestråling** er energi som forlater en flate som elektromagnetiske bølger — den trenger **ikke** noe medium, og virker derfor også i vakuum. **Emissiviteten** $e$ er et tall mellom 0 og 1 som forteller hvor nær flaten er et perfekt svart legeme. Et **svart legeme** er en idealisert flate som absorberer all stråling som treffer den, og som derfor også stråler mest mulig. **Stefan–Boltzmanns konstant** $\\sigma$ binder temperatur til utstrålt effekt. **Wiens forskyvningslov** forteller hvor i spekteret utstrålingen er størst.\n\n**Den ene tingen som gjør denne sjangeren farlig: effekten går som $T^4$.** Alt annet i termofysikken er lineært i temperatur eller i temperaturdifferansen. Her er det fjerde potens av den **absolutte** temperaturen, og det har tre konsekvenser du må ha i fingrene:\n\n1. **Celsius er katastrofalt.** Ikke litt galt — helt galt. I eksempelet under gir celsius $26{,}9\\,\\text{W}$ der svaret er $1373\\,\\text{W}$, altså en faktor $51$ feil.\n2. **Netto stråling krever $T^4 - T_\\text{omg}^4$, ikke $(T - T_\\text{omg})^4$.** Det er felle #12, og den er ikke subtil: i eksempelet gir den gale formen $15{,}0\\,\\text{W}$ mot $1373\\,\\text{W}$ — **$91$ ganger for lite.**\n3. **Små temperaturendringer gir store effektendringer.** Dobler du den absolutte temperaturen, øker utstrålingen $16$ ganger.\n\n**Og i platebalansen: du midler $T^4$, ikke $T$.** Mellom $600$ og $300\\,\\text{K}$ blir midtplaten $512{,}2\\,\\text{K}$, ikke $450\\,\\text{K}$ — $62\\,\\text{K}$ over det aritmetiske snittet.\n\n## ⚠ Symbolvarsel\n\n$T$ er **absolutt temperatur i kelvin**, uten unntak i dette kapitlet. Der [kap. 9.1](/tfy4115/tfy4115-9-1) kunne regnes i celsius fordi bare differanser inngikk, er celsius her **livsfarlig**: $T^4$ er en absolutt størrelse. $e$ er **emissiviteten**, dimensjonsløs og **mindre enn 1** — den skal ikke forveksles med effektfaktoren $\\varepsilon$ fra [kap. 8.2](/tfy4115/tfy4115-8-2), som er **større** enn 1. $\\sigma$ (sigma) er Stefan–Boltzmanns konstant, ikke et standardavvik. $b$ er Wien-konstanten i $\\text{m}\\cdot\\text{K}$, ikke dempingskonstanten fra [kap. 5.2](/tfy4115/tfy4115-5-2). $\\lambda$ (lambda) er **bølgelengde** i meter."
+  },
+  {
+   "id": "tfy4115-9-2-forkunnskaper",
+   "type": "text",
+   "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet bygger på [kap. 9.1](/tfy4115/tfy4115-9-1). Du trenger tre ting derfra, og de står her:\n\n$$P = jA, \\qquad j \\ \\text{i}\\ \\text{W/m}^2$$\n**Fluks og effekt.** Samme skille som i varmeledning: leser oppgaven «per kvadratmeter», er det $j$; ellers $P$.\n\n$$\\text{stasjonær tilstand: like mye energi inn som ut av hvert legeme}$$\n**Stasjonaritetsbetingelsen.** Den er hele grunnlaget for platebalansen: en plate som får like mye inn som ut, holder en fast temperatur.\n\n$$\\text{ledning, konveksjon og stråling er tre ulike mekanismer}$$\n**De tre transportveiene.** Stråling er den ene som ikke trenger et medium — den virker i vakuum, og det er derfor romfartøy og termosflasker må håndtere den særskilt.\n\n**Nytt i dette kapitlet, og verdt å merke seg:** her forlater vi den lineære verdenen. I varmeledning var $P \\propto \\Delta T$; i stråling er $P \\propto T^4$. Det endrer både regningen og hvilke feil som er farlige.\n\n**Konstanter du trenger** (de står på det utdelte arket):\n\n$$\\sigma = 5{,}670\\cdot10^{-8}\\,\\text{W/(m}^2\\cdot\\text{K}^4) \\qquad\\text{(Stefan–Boltzmanns konstant)}$$\n$$b = 2{,}898\\cdot10^{-3}\\,\\text{m}\\cdot\\text{K} \\qquad\\text{(Wien-konstanten)}$$\n\n**Fra matematikken:** du må kunne ta fjerde potens og fjerderot på kalkulatoren. Fjerderota er $x^{0{,}25}$, eller to kvadratrøtter etter hverandre — den siste veien er verdt å kjenne, siden alle kalkulatorer har kvadratrot.\n\n**Behold fire gjeldende siffer gjennom hele regnekjeden.** Det er ekstra viktig her: fjerde potens forsterker avrundingsfeil fire ganger."
+  },
+  {
+   "id": "tfy4115-9-2-lokke1",
+   "type": "text",
+   "content": "## Løkke 1 — Stefan–Boltzmann og den fjerde potensen (~15 min)\n\nHold hånda mot en varm vedovn uten å ta på den. Du kjenner varmen — og det er ikke luften som frakter den, for du kjenner den umiddelbart og den kommer i rett linje. Skygger du med den andre hånda, forsvinner den. Det er **stråling**.\n\n*Hverdagsanker:* stråling er den ene varmetransporten som virker i vakuum. Derfor holder en termosflaske drikken varm selv om den er lufttom mellom veggene — og derfor må satellitter kvitte seg med all overskuddsvarmen sin ved å stråle den ut.\n\nAlle flater over det absolutte nullpunktet stråler. Hvor mye, sier **Stefan–Boltzmanns lov**:\n\n$$j = \\sigma T^4 \\quad\\text{(svart legeme)}, \\qquad j = e\\sigma T^4 \\quad\\text{(grå flate)},$$\n\nmed $\\sigma = 5{,}670\\cdot10^{-8}\\,\\text{W/(m}^2\\cdot\\text{K}^4)$ og $T$ i **kelvin**.\n\n*Intuisjon for fjerde potens:* varmere flate stråler både **mer** i alle bølgelengder og **kortere** bølgelengder (som bærer mer energi per foton). De to effektene ganger seg sammen, og resultatet er fjerde potens. Konsekvensen er dramatisk: en flate på $600\\,\\text{K}$ stråler $16$ ganger så mye som en på $300\\,\\text{K}$ — ikke dobbelt."
+  },
+  {
+   "id": "tfy4115-9-2-def-varmestraaling",
+   "type": "definition",
+   "title": "Varmestråling",
+   "content": "Energi som forlater en flate som **elektromagnetiske bølger**, utelukkende fordi flaten har en temperatur over det absolutte nullpunktet. Den trenger **ikke noe medium** og virker derfor også i vakuum — det er hovedforskjellen fra ledning og konveksjon.\n\nAlle flater stråler, hele tiden, i alle retninger. En flate i romtemperatur stråler i det infrarøde området; en glødende flate stråler også synlig lys. Betingelsen for at formlene her gjelder, er at flaten er «grå», altså at emissiviteten er den samme for alle bølgelengder — en tilnærming som er god nok for de fleste tekniske overflater.\n\nMerk at en flate samtidig **absorberer** stråling fra omgivelsene. Det er differansen mellom utstrålt og absorbert som er nettotapet, og det er nesten alltid nettotapet oppgavene spør om."
+  },
+  {
+   "id": "tfy4115-9-2-def-svart",
+   "type": "definition",
+   "title": "Svart legeme",
+   "content": "En idealisert flate som **absorberer all stråling** som treffer den, uansett bølgelengde og retning. Av samme grunn er den også den best mulige **utstråleren**: den har $e = 1$ og stråler\n$$j = \\sigma T^4.$$\n\nBetingelsen er en idealisering, men en god en for mange flater i det infrarøde: matt svart maling har $e \\approx 0{,}95$, menneskehud $e \\approx 0{,}97$, murpuss $e \\approx 0{,}90$. Blankpolerte metaller er langt fra: aluminium $e \\approx 0{,}05$.\n\n⚠ **Merk at «svart» handler om det infrarøde, ikke om farge i synlig lys.** Hvit maling er nesten like god IR-utstråler som svart, fordi den ser «svart» ut i det infrarøde. Det er derfor en hvitmalt radiator stråler like godt som en svartmalt."
+  },
+  {
+   "id": "tfy4115-9-2-def-emissivitet",
+   "type": "definition",
+   "title": "Emissivitet $e$",
+   "content": "Et dimensjonsløst tall mellom 0 og 1 som forteller hvor stor brøkdel av et svart legemes utstråling en virkelig flate gir:\n$$j = e\\sigma T^4.$$\nVerdier: matt svart maling $0{,}95$, hud $0{,}97$, murpuss $0{,}90$, oksidert stål $0{,}80$, blank aluminium $0{,}05$.\n\n**Kirchhoffs lov:** en flate absorberer like godt som den utstråler, altså er absorpsjonsevnen lik $e$. Det er derfor det er $e$ som står i BÅDE leddene i nettouttrykket $P = e\\sigma A(T^4 - T_\\text{omg}^4)$ — og det er grunnen til at emissiviteten ikke forsvinner når du regner netto.\n\n⚠ **Nær-kollisjon:** $e$ er **mindre** enn 1. Effektfaktoren $\\varepsilon$ fra [kap. 8.2](/tfy4115/tfy4115-8-2) er **større** enn 1. Begge er dimensjonsløse, og begge kalles «faktor» — men de hører i helt ulike formler, og størrelsen skiller dem. [står på det utdelte arket]"
+  },
+  {
+   "id": "tfy4115-9-2-th-sb",
+   "type": "theorem",
+   "title": "Stefan–Boltzmanns lov og netto stråling",
+   "content": "**Utstrålt effekt** fra en flate med areal $A$, emissivitet $e$ og absolutt temperatur $T$:\n$$P_\\text{ut} = e\\sigma A T^4.$$\n\n**Absorbert effekt** fra omgivelser med temperatur $T_\\text{omg}$, etter Kirchhoffs lov (absorpsjonsevnen er lik $e$):\n$$P_\\text{inn} = e\\sigma A T_\\text{omg}^4.$$\n\n**Netto** blir differansen:\n$$\\boxed{P_\\text{netto} = e\\sigma A\\left(T^4 - T_\\text{omg}^4\\right)}$$\n\n⚠ **Merk formen nøye: det er $T^4 - T_\\text{omg}^4$, ALDRI $(T - T_\\text{omg})^4$.** De to er ikke bare litt forskjellige. Med $T = 420\\,\\text{K}$ og $T_\\text{omg} = 293\\,\\text{K}$:\n$$T^4 - T_\\text{omg}^4 = 3{,}1117\\cdot10^{10} - 0{,}7370\\cdot10^{10} = 2{,}3747\\cdot10^{10}\\,\\text{K}^4,$$\n$$(T - T_\\text{omg})^4 = 127^4 = 2{,}6014\\cdot10^{8}\\,\\text{K}^4.$$\nDen gale formen er **$91$ ganger for liten.** Dette er felle #12, og den er den enkeltfeilen som oftest gir helt urimelige strålingssvar.\n\n**Grensetilfeller:**\n- $T = T_\\text{omg}$ gir $P_\\text{netto} = 0$. En flate i likevekt med omgivelsene taper ingenting netto — den stråler fortsatt, men absorberer like mye.\n- $T < T_\\text{omg}$ gir $P_\\text{netto} < 0$: flaten varmes opp. Det er en kald gjenstand i et varmt rom.\n- $T_\\text{omg} \\to 0$ gir $P_\\text{netto} \\to e\\sigma AT^4$: i det ytre rom absorberer man nesten ingenting. [står på det utdelte arket]"
+  },
+  {
+   "id": "tfy4115-9-2-fig-wien",
+   "type": "image",
+   "src": "/images/textbook/tfy4115/tfy4115-9-2-wien.svg",
+   "alt": "En graf med boelgelengde i mikrometer langs den vannrette aksen fra 0 til 6 og utstraaling langs den loddrette. Tre kurver, alle skalert til samme hoeyde: en blaa for 1000 kelvin med topp ved 2 komma 90 mikrometer, en groenn for 2000 kelvin med topp ved 1 komma 45 mikrometer, og en roed for 4000 kelvin med topp ved 0 komma 72 mikrometer. Stiplede loddrette linjer markerer hver topp.",
+   "caption": "Utstrålingen fordelt over bølgelengde ved tre temperaturer. Kurvene er skalert til samme høyde for at forskyvningen skal bli synlig: hver dobling av temperaturen halverer $\\lambda_\\text{maks}$. I virkeligheten vokser arealet under kurven som $T^4$, så den varmeste kurven ville dominert fullstendig."
+  },
+  {
+   "id": "tfy4115-9-2-o-1",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-9-2-oppg-1",
+    "number": 1,
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Innstegsoppgave — enheter og fjerde potens.)\n\n**a)** En svart flate på $0{,}500\\,\\text{m}^2$ har temperaturen $350\\,\\text{K}$. Finn den utstrålte effekten.\n\n**b)** Vis at enheten til $\\sigma AT^4$ blir watt.\n\n**c)** Hvor mange ganger mer stråler en flate ved $700\\,\\text{K}$ enn ved $350\\,\\text{K}$?",
+    "solution": "**a)**\n$$P = \\sigma AT^4 = 5{,}670\\cdot10^{-8} \\cdot 0{,}500 \\cdot 350^4\\,\\text{W}.$$\nRegn potensen først, som eget mellomresultat: $350^4 = 1{,}50063\\cdot10^{10}\\,\\text{K}^4$. Da blir\n$$P = 5{,}670\\cdot10^{-8} \\cdot 0{,}500 \\cdot 1{,}50063\\cdot10^{10}\\,\\text{W} = 425{,}427\\,\\text{W}.$$\n\n**b)**\n$$[\\sigma AT^4] = \\frac{\\text{W}}{\\text{m}^2\\cdot\\text{K}^4} \\cdot \\text{m}^2 \\cdot \\text{K}^4 = \\text{W}. \\checkmark$$\nKonstanten $\\sigma$ har nettopp de enhetene som gjør at $A$ og $T^4$ forkortes bort.\n\n**c)** Forholdet er\n$$\\left(\\frac{700}{350}\\right)^4 = 2^4 = 16.$$\n**Seksten ganger** — ved en fordobling av den absolutte temperaturen. Det er hele poenget med fjerde potens, og det er grunnen til at glødende ting stråler så voldsomt mer enn lunkne.\n\nMerk at spørsmålet krever **kelvin**: hadde temperaturene vært $700$ og $350$ celsiusgrader, ville forholdet vært $((973{,}15)/(623{,}15))^4 = 5{,}948$ — et helt annet tall.",
+    "hints": [
+     "Regn $T^4$ som eget mellomresultat før du multipliserer.",
+     "Sett inn enhetene til $\\sigma$ og forkort.",
+     "Forholdet mellom to utstrålinger er forholdet mellom temperaturene opphøyd i fjerde."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-9-2-ex-1",
+   "type": "example",
+   "title": "Eksempel 1: netto stråling fra en ovn (eksamensnivå)",
+   "problem": "En vedovn har overflateareal $1{,}20\\,\\text{m}^2$, overflatetemperatur $420\\,\\text{K}$ og emissivitet $e = 0{,}85$. Rommet rundt har $293\\,\\text{K}$.\n\n**a)** Finn utstrålt og absorbert effekt hver for seg.\n\n**b)** Finn netto utstrålt effekt.\n\n**c)** Hva ville du fått med den gale formen $(T - T_\\text{omg})^4$, og hvor stor er feilen?\n\n**d)** Ved hvilken bølgelengde stråler ovnen mest, og er det synlig lys?",
+   "solution": "**a) Symbolsk.** $P_\\text{ut} = e\\sigma AT^4$ og $P_\\text{inn} = e\\sigma AT_\\text{omg}^4$.\n\n**Rask vei til tall.** Regn først faktoren $e\\sigma A$, som er felles:\n$$e\\sigma A = 0{,}85 \\cdot 5{,}670\\cdot10^{-8} \\cdot 1{,}20 = 5{,}7834\\cdot10^{-8}\\,\\text{W/K}^4.$$\nDeretter de to fjerdepotensene:\n$$T^4 = 420^4 = 3{,}1117\\cdot10^{10}\\,\\text{K}^4, \\qquad T_\\text{omg}^4 = 293^4 = 0{,}7370\\cdot10^{10}\\,\\text{K}^4.$$\n$$P_\\text{ut} = 1799{,}6\\,\\text{W}, \\qquad P_\\text{inn} = 426{,}2\\,\\text{W}.$$\n\n**b)**\n$$P_\\text{netto} = e\\sigma A(T^4 - T_\\text{omg}^4) = 5{,}7834\\cdot10^{-8} \\cdot 2{,}3747\\cdot10^{10}\\,\\text{W} = 1373{,}4\\,\\text{W}.$$\nKontroll: $1799{,}6 - 426{,}2 = 1373{,}4\\,\\text{W}$ ✔.\n\nLegg merke til at ovnen absorberer $426\\,\\text{W}$ fra rommet — nesten en fjerdedel av det den stråler ut. **Å glemme absorpsjonsleddet gir $1800\\,\\text{W}$ i stedet for $1373\\,\\text{W}$**, altså $31$ prosent for høyt.\n\n**c)** Den gale formen:\n$$e\\sigma A(T - T_\\text{omg})^4 = 5{,}7834\\cdot10^{-8} \\cdot 127^4 = 5{,}7834\\cdot10^{-8} \\cdot 2{,}6014\\cdot10^{8}\\,\\text{W} = 15{,}05\\,\\text{W}.$$\nFeilen er en faktor\n$$\\frac{1373{,}4}{15{,}05} = 91{,}3,$$\naltså **$91$ ganger for lite** (felle #12 — glemme fjerde potens riktig). Og legg merke til hvor lett feilen er å oppdage om du tenker over størrelsesordenen: $15\\,\\text{W}$ fra en vedovn er absurd lite — det er mindre enn en lyspære.\n\nFor fullstendighetens skyld, to andre feller med samme tall: **celsius** i stedet for kelvin ($(147)^4 - (20)^4$) gir $26{,}9\\,\\text{W}$, altså $51$ ganger for lite. Og **lineært i temperatur** ($T - T_\\text{omg}$ uten potens) gir $7{,}3\\cdot10^{-6}\\,\\text{W}$, altså praktisk talt null.\n\n**d)** Wiens forskyvningslov:\n$$\\lambda_\\text{maks} = \\frac{b}{T} = \\frac{2{,}898\\cdot10^{-3}\\,\\text{m}\\cdot\\text{K}}{420\\,\\text{K}} = 6{,}900\\cdot10^{-6}\\,\\text{m} = 6{,}90\\,\\mu\\text{m}.$$\nSynlig lys ligger mellom $0{,}40$ og $0{,}70\\,\\mu\\text{m}$, så $6{,}9\\,\\mu\\text{m}$ er godt inne i det **infrarøde** — ovnen gløder ikke, den bare varmer. For å gløde synlig rødt må temperaturen opp mot $900\\,\\text{K}$.\n\n**Sluttsjekk, fire ledd.** (i) Begge temperaturer i **kelvin** ✔. (ii) Formen er $T^4 - T_\\text{omg}^4$, ikke $(T-T_\\text{omg})^4$ ✔. (iii) $P_\\text{netto} < P_\\text{ut}$ ✔, og differansen er absorpsjonen. (iv) Størrelsesorden: en vedovn avgir typisk noen kilowatt totalt, og $1{,}4\\,\\text{kW}$ fra stråling alene er rimelig — resten går til konveksjon ✔."
+  },
+  {
+   "id": "tfy4115-9-2-o-2",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-9-2-oppg-2",
+    "number": 2,
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger T10 — strålingsoppgaven.) En metallflate på $2{,}40\\,\\text{m}^2$ har temperaturen $480\\,\\text{K}$ og emissivitet $e = 0{,}65$, i omgivelser på $300\\,\\text{K}$.\n\n**a)** Finn netto utstrålt effekt.\n\n**b)** Hva ville du fått hvis du glemte emissiviteten?\n\n**c)** Hva ville du fått med formen $(T - T_\\text{omg})^4$?",
+    "solution": "**a) Rask vei til tall.** Faktoren først:\n$$e\\sigma A = 0{,}65 \\cdot 5{,}670\\cdot10^{-8} \\cdot 2{,}40 = 8{,}8452\\cdot10^{-8}\\,\\text{W/K}^4.$$\nPotensene:\n$$T^4 = 5{,}3084\\cdot10^{10}, \\qquad T_\\text{omg}^4 = 0{,}8100\\cdot10^{10}, \\qquad \\text{differanse} = 4{,}4984\\cdot10^{10}\\,\\text{K}^4.$$\n$$P_\\text{netto} = 3978{,}9\\,\\text{W} = 3{,}979\\,\\text{kW}.$$\n\n**b)** Uten emissiviteten:\n$$\\sigma A(T^4 - T_\\text{omg}^4) = 6121{,}4\\,\\text{W},$$\naltså en faktor $1/0{,}65 = 1{,}538$ for stort. Merk at emissiviteten **ikke forsvinner** når du regner netto: den står i begge ledd (Kirchhoffs lov), så den kan faktoriseres ut, men den må være der.\n\n**c)** Med den gale formen:\n$$e\\sigma A(T - T_\\text{omg})^4 = 8{,}8452\\cdot10^{-8} \\cdot 180^4 = 92{,}85\\,\\text{W},$$\naltså $42{,}9$ ganger for lite. Den gale formen gir alltid **for lite**, fordi $(T-T_\\text{omg})^4 < T^4 - T_\\text{omg}^4$ for alle $T > T_\\text{omg} > 0$.\n\n**Sluttsjekk, tre ledd.** (i) Kelvin ✔. (ii) $P_\\text{netto} < P_\\text{ut} = 4695\\,\\text{W}$ ✔. (iii) Størrelsesorden: en flate på nesten $500\\,\\text{K}$ over et par kvadratmeter stråler kilowatt, ikke watt ✔ — og det stryker den gale formen umiddelbart.",
+    "hints": [
+     "Regn faktoren $e\\sigma A$ først, så de to fjerdepotensene.",
+     "Emissiviteten står i BEGGE ledd — hvorfor?",
+     "Sammenlign de to differansene $T^4 - T_\\text{omg}^4$ og $(T-T_\\text{omg})^4$ tallmessig."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-9-2-lokke2",
+   "type": "text",
+   "content": "## Løkke 2 — platebalansen: å midle $T^4$, ikke $T$ (~15 min)\n\nHeng en tynn metallplate i vakuum mellom to store plater, en varm og en kald. Hvilken temperatur får den?\n\n*Hverdagsanker:* dette er nøyaktig hva et **strålingsskjold** i en termos, en romsonde eller et vindusglass gjør — det legger seg på en mellomtemperatur og halverer varmestrømmen mellom de to sidene.\n\nFremgangsmåten er stasjonaritetsbetingelsen: **like mye energi inn som ut.** Platen mottar netto stråling fra den varme siden og gir netto stråling til den kalde. Er den tynn og godt varmeledende, har den én temperatur $T_2$, og\n\n$$\\underbrace{\\sigma(T_1^4 - T_2^4)}_{\\text{netto inn fra varm side}} = \\underbrace{\\sigma(T_2^4 - T_3^4)}_{\\text{netto ut til kald side}}.$$\n\n*Intuisjon:* platen kan ikke lagre energi i det uendelige. Får den mer inn enn ut, stiger temperaturen — og siden utstrålingen vokser som $T^4$, stiger den bare til balansen inntreffer. Det gjør den alltid, og bare ved én temperatur.\n\nLøs likningen: $T_1^4 - T_2^4 = T_2^4 - T_3^4$ gir $2T_2^4 = T_1^4 + T_3^4$, altså\n\n$$\\boxed{T_2 = \\left(\\frac{T_1^4 + T_3^4}{2}\\right)^{1/4}}$$\n\n**Merk hva som midles: $T^4$, ikke $T$.** Det er felle #12 i sin andre form, og resultatet er systematisk: midtplaten blir alltid **varmere** enn det aritmetiske snittet."
+  },
+  {
+   "id": "tfy4115-9-2-def-platebalanse",
+   "type": "definition",
+   "title": "Stasjonær platebalanse",
+   "content": "En tynn plate mellom to store, parallelle flater med temperaturene $T_1$ og $T_3$ finner en stasjonær temperatur der like mye netto stråling kommer inn som går ut. For svarte flater blir den\n$$T_2 = \\left(\\frac{T_1^4 + T_3^4}{2}\\right)^{1/4}.$$\n\nBetingelsene som ligger under: (i) platene er store nok til at all stråling treffer nabo­flaten, (ii) midtplaten er tynn og godt varmeledende, så den har én temperatur på begge sider, (iii) det er vakuum mellom dem, så ingen ledning eller konveksjon, og (iv) alle flater er svarte. Er de grå med samme emissivitet, faller emissiviteten ut av likningen og svaret er det samme.\n\n**Kontrollen som alltid gjelder:** $T_2$ ligger **mellom** $T_1$ og $T_3$, og **over** det aritmetiske snittet $(T_1+T_3)/2$. [må kunne brukes eller utledes aktivt]"
+  },
+  {
+   "id": "tfy4115-9-2-def-skjold",
+   "type": "definition",
+   "title": "Strålingsskjold",
+   "content": "En tynn plate satt inn mellom to flater for å **redusere** strålingsvarmestrømmen mellom dem. Med én plate faller nettofluksen til nøyaktig **halvparten**; med $n$ plater til\n$$j_n = \\frac{j_0}{n+1},$$\nder $j_0 = \\sigma(T_1^4 - T_3^4)$ er fluksen uten skjold.\n\n*Hvorfor halvparten:* skjoldet legger seg på mellomtemperaturen, og da er hvert av de to «gapene» drevet av bare halvparten av den opprinnelige $T^4$-differansen.\n\nDette er den fysiske grunnen til at termosflasker har forsølvede vegger og vakuum, at romsonder pakkes i mange lag tynn metallisert folie (såkalt superisolasjon, gjerne 10–20 lag), og at et ekstra glass i et vindu hjelper. Betingelsen er at skjoldet ikke leder varme mellom sidene — derfor må det være tynt og termisk isolert fra rammen."
+  },
+  {
+   "id": "tfy4115-9-2-fig-plate",
+   "type": "image",
+   "src": "/images/textbook/tfy4115/tfy4115-9-2-platebalanse.svg",
+   "alt": "Tre loddrette plater i vakuum. Plate 1 til venstre er roed og merket T 1 lik 600 kelvin. Midtplaten er tynn og gul, merket T 2 lik 512 komma 2 kelvin. Plate 3 til hoeyre er blaa og merket T 3 lik 300 kelvin. Fire roede piler peker fra plate 1 mot midtplaten, merket netto 3 komma 44 kilowatt per kvadratmeter. Fire gule piler peker fra midtplaten mot plate 3, merket med samme nettofluks. Under staar likningen sigma ganger T 1 i fjerde minus T 2 i fjerde lik sigma ganger T 2 i fjerde minus T 3 i fjerde, som gir T 2 lik fjerderota av gjennomsnittet av T 1 i fjerde og T 3 i fjerde.",
+   "caption": "Platebalansen i eksempelet under. De to nettostrømmene er like store fordi midtplaten er stasjonær — og midtplatens temperatur ${L(Tb,1)}\\,\\text{K}$ ligger mellom reservoarene, men **over** det aritmetiske snittet på ${L(snitt2,0)}$ K."
+  },
+  {
+   "id": "tfy4115-9-2-ex-2",
+   "type": "example",
+   "title": "Eksempel 2: platebalanse og strålingsskjold",
+   "problem": "En tynn svart plate henger i vakuum mellom to store svarte plater med temperaturene $T_1 = 600\\,\\text{K}$ og $T_3 = 300\\,\\text{K}$.\n\n**a)** Finn midtplatens stasjonære temperatur.\n\n**b)** Sammenlign med det aritmetiske snittet, og forklar avviket.\n\n**c)** Finn nettofluksen mellom platene med og uten midtplaten.\n\n**d)** Ved hvilken bølgelengde stråler midtplaten mest?",
+   "solution": "**a) Symbolsk.** Stasjonaritet krever like mye netto inn som ut:\n$$\\sigma(T_1^4 - T_2^4) = \\sigma(T_2^4 - T_3^4) \\quad\\Longrightarrow\\quad 2T_2^4 = T_1^4 + T_3^4 \\quad\\Longrightarrow\\quad T_2 = \\left(\\frac{T_1^4+T_3^4}{2}\\right)^{1/4}.$$\n\n**Rask vei til tall.** Regn de to fjerdepotensene først:\n$$T_1^4 = 600^4 = 1{,}2960\\cdot10^{11}, \\qquad T_3^4 = 300^4 = 8{,}100\\cdot10^{9}\\,\\text{K}^4,$$\n$$\\frac{T_1^4+T_3^4}{2} = \\frac{1{,}3770\\cdot10^{11}}{2} = 6{,}8850\\cdot10^{10}\\,\\text{K}^4,$$\n$$T_2 = \\left(6{,}8850\\cdot10^{10}\\right)^{1/4} = 512{,}24\\,\\text{K}.$$\n**Fjerderota på kalkulator:** ta kvadratrota to ganger. $\\sqrt{68850000000} = 262392{,}8$, og $\\sqrt{262392{,}8} = 512{,}24$ ✔.\n\n**b)** Det aritmetiske snittet er\n$$\\frac{600 + 300}{2} = 450{,}0\\,\\text{K},$$\naltså **$62{,}2\\,\\text{K}$ lavere** enn det riktige svaret.\n\nAvviket har en presis årsak: fjerde potens **vekter den varme siden mye tyngre**. Plate 1 stråler $\\left(600/300\\right)^4 = 16$ ganger så mye som plate 3, så midtplaten trekkes langt nærmere den varme. Å midle temperaturene i stedet for fjerdepotensene undervurderer derfor alltid $T_2$.\n\n**c)** Uten midtplaten:\n$$j_0 = \\sigma(T_1^4 - T_3^4) = 5{,}670\\cdot10^{-8} \\cdot 1{,}2150\\cdot10^{11}\\,\\text{W/m}^2 = 6889{,}1\\,\\text{W/m}^2.$$\nMed midtplaten:\n$$j = \\sigma(T_1^4 - T_2^4) = 3444{,}5\\,\\text{W/m}^2,$$\nog kontroll på den andre siden: $\\sigma(T_2^4 - T_3^4) = 3444{,}5\\,\\text{W/m}^2$ ✔ — like store, som stasjonaritet krever.\n\n$$3444{,}5 = \\frac{6889{,}1}{2}$$\n**Nøyaktig halvparten.** Det er ikke et sammentreff: setter du $2T_2^4 = T_1^4+T_3^4$ inn, får du $T_1^4 - T_2^4 = \\tfrac12(T_1^4 - T_3^4)$ identisk. **Én plate halverer strålingsvarmestrømmen**, og $n$ plater deler den på $n+1$.\n\n**d)**\n$$\\lambda_\\text{maks} = \\frac{b}{T_2} = \\frac{2{,}898\\cdot10^{-3}}{512{,}24}\\,\\text{m} = 5{,}657\\,\\mu\\text{m},$$\naltså i det infrarøde.\n\n**Sluttsjekk, fire ledd.** (i) $T_2 = 512{,}2\\,\\text{K}$ ligger MELLOM $300$ og $600\\,\\text{K}$ ✔. (ii) Den ligger OVER det aritmetiske snittet ✔ — som den alltid skal. (iii) De to nettofluksene er like ✔. (iv) Fluksen med plate er nøyaktig halvparten av uten ✔."
+  },
+  {
+   "id": "tfy4115-9-2-o-3",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-9-2-oppg-3",
+    "number": 3,
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger T10.) En tynn svart plate henger i vakuum mellom to store svarte plater på $750\\,\\text{K}$ og $350\\,\\text{K}$.\n\n**a)** Finn midtplatens stasjonære temperatur.\n\n**b)** Hvor mye avviker den fra det aritmetiske snittet?\n\n**c)** Ved hvilken bølgelengde stråler midtplaten mest?",
+    "solution": "**a)**\n$$T_1^4 = 3{,}1641\\cdot10^{11}, \\qquad T_3^4 = 1{,}5006\\cdot10^{10}, \\qquad \\frac{T_1^4+T_3^4}{2} = 1{,}6571\\cdot10^{11}\\,\\text{K}^4,$$\n$$T_2 = \\left(1{,}6571\\cdot10^{11}\\right)^{1/4} = 638{,}02\\,\\text{K}.$$\nKontroll med to kvadratrøtter: $\\sqrt{165706250000} = 407070{,}3$, og $\\sqrt{\\cdot} = 638{,}02$ ✔.\n\n**b)** Snittet er $550{,}0\\,\\text{K}$, altså $88{,}02\\,\\text{K}$ under det riktige svaret. Avviket er **større** her enn i eksempelet over, og det er ikke tilfeldig: temperaturforholdet er større ($2{,}143$ mot $2{,}000$), og da vekter fjerde potens den varme siden enda tyngre.\n\n**c)**\n$$\\lambda_\\text{maks} = \\frac{2{,}898\\cdot10^{-3}}{638{,}02}\\,\\text{m} = 4{,}542\\,\\mu\\text{m}.$$\n\n**Sluttsjekk:** $T_2$ ligger mellom $350$ og $750\\,\\text{K}$ ✔ og over snittet ✔. Og kontroll av balansen: $\\sigma(T_1^4-T_2^4) = 8544{,}7\\,\\text{W/m}^2$ mot $\\sigma(T_2^4-T_3^4) = 8544{,}7\\,\\text{W/m}^2$ ✔.",
+    "hints": [
+     "Midle FJERDEPOTENSENE, ikke temperaturene.",
+     "Fjerderota er to kvadratrøtter etter hverandre på kalkulatoren.",
+     "Kontroller at svaret ligger mellom de to reservoartemperaturene og over snittet."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-9-2-o-4",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-9-2-oppg-4",
+    "number": 4,
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger T10.) Mellom to store svarte plater på $800\\,\\text{K}$ og $300\\,\\text{K}$ settes det inn $2$ tynne svarte skjermer.\n\n**a)** Finn nettofluksen uten skjermer.\n\n**b)** Finn nettofluksen med $2$ skjermer.\n\n**c)** Hvor mange skjermer trengs for å komme under $2000\\,\\text{W/m}^2$?",
+    "solution": "**a)**\n$$j_0 = \\sigma(T_1^4 - T_3^4) = 5{,}670\\cdot10^{-8}(4{,}0960\\cdot10^{11} - 8{,}100\\cdot10^{9})\\,\\text{W/m}^2 = 22765{,}0\\,\\text{W/m}^2.$$\n\n**b)** Med $n$ skjermer deles fluksen på $n+1$:\n$$j_n = \\frac{j_0}{n+1} = \\frac{22765{,}0}{3} = 7588{,}3\\,\\text{W/m}^2.$$\n\n**c)** Krev $j_0/(n+1) < 2000$:\n$$n + 1 > \\frac{22765{,}0}{2000} = 11{,}3825 \\quad\\Longrightarrow\\quad n > 10{,}3825,$$\naltså $n = 11$ skjermer. Kontroll: med $11$ skjermer blir $j = 1897{,}1\\,\\text{W/m}^2 < 2000$ ✔, mens $10$ skjermer gir $2069{,}5\\,\\text{W/m}^2$, altså for mye ✔.\n\n**Sluttsjekk:** svaret må være et **heltall**, og rundes **oppover** — én skjerm for lite gir for stor fluks. Det er samme type heltallsdisiplin som i rundetellingen i [kap. 1.1](/tfy4115/tfy4115-1-1), og en av de få stedene i termofysikken der svaret er et heltall.\n\n**Og hvorfor dette er praktisk viktig:** superisolasjonen på romsonder består av 10–20 lag metallisert folie, nettopp fordi $n+1$-regelen gjør at få lag gir mye. De første lagene hjelper mest — fra 0 til 1 halveres fluksen, fra 10 til 11 faller den bare $8,3$ prosent.",
+    "hints": [
+     "Regn $j_0 = \\sigma(T_1^4 - T_3^4)$ først.",
+     "$n$ skjermer deler fluksen på $n+1$.",
+     "Svaret må være et heltall — rund oppover, og kontroller begge naboverdier."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-9-2-lokke3",
+   "type": "text",
+   "content": "## Løkke 3 — Wiens forskyvningslov (~13 min)\n\nEn kokeplate som varmes opp gløder først ikke i det hele tatt, så mørkerødt, så oransje, så nesten hvitt. Fargen forteller temperaturen — og det er ikke tilfeldig.\n\n*Hverdagsanker:* en glødelampe med glødetråd på $2800\\,\\text{K}$ er gulaktig; solen med overflate på $5778\\,\\text{K}$ er hvit; en kald stjerne er rød og en het er blå. Alt følger én formel.\n\n**Wiens forskyvningslov** gir bølgelengden der utstrålingen er størst:\n\n$$\\lambda_\\text{maks} = \\frac{b}{T}, \\qquad b = 2{,}898\\cdot10^{-3}\\,\\text{m}\\cdot\\text{K}.$$\n\n*Intuisjon:* dobler du den absolutte temperaturen, **halveres** bølgelengden — toppen flytter seg mot kortere bølgelengder, altså mot blått. Merk at loven ikke sier noe om HVOR MYE som stråles; det er Stefan–Boltzmann. Wien sier bare HVOR i spekteret.\n\nTre tall verdt å kjenne:\n\n| Kilde | $T$ | $\\lambda_\\text{maks}$ |\n|---|---|---|\n| Menneskekropp | $310\\,\\text{K}$ | $9{,}35\\,\\mu\\text{m}$ (fjern infrarød) |\n| Vedovn | $420\\,\\text{K}$ | $6{,}90\\,\\mu\\text{m}$ (infrarød) |\n| Solens overflate | $5778\\,\\text{K}$ | $502\\,\\text{nm}$ (grønt, midt i det synlige) |\n\nAt solens topp ligger midt i det synlige området, er grunnen til at øyet vårt er følsomt nettopp der."
+  },
+  {
+   "id": "tfy4115-9-2-def-wien",
+   "type": "definition",
+   "title": "Wiens forskyvningslov",
+   "content": "Bølgelengden der en flates utstråling er størst, er omvendt proporsjonal med den absolutte temperaturen:\n$$\\lambda_\\text{maks} = \\frac{b}{T}, \\qquad b = 2{,}898\\cdot10^{-3}\\,\\text{m}\\cdot\\text{K}.$$\n\n**Retningen er det som huskes feil:** høyere temperatur gir **kortere** bølgelengde. Toppen forskyves mot blått, ikke mot rødt. Kontrollen er formen på formelen — $T$ står i nevneren.\n\nBetingelsen er at flaten stråler som et svart legeme (eller grått med bølgelengdeuavhengig $e$). Loven følger av Plancks strålingslov ved å derivere den med hensyn på $\\lambda$ og sette den deriverte lik null; Plancks lov selv brukes kvalitativt her og numerisk i kap. 11.1.\n\nPraktisk bruk: **pyrometri** — å måle en flates temperatur på avstand ved å se hvilken farge eller hvilket IR-spekter den har. Det er slik man måler temperaturen i en smelteovn eller på en stjerne. [står på det utdelte arket]"
+  },
+  {
+   "id": "tfy4115-9-2-def-planck",
+   "type": "definition",
+   "title": "Plancks strålingslov",
+   "content": "Uttrykket for hvor mye en svart flate stråler ved **hver enkelt** bølgelengde:\n$$I(\\lambda, T) = \\frac{2\\pi hc^2}{\\lambda^5}\\cdot\\frac{1}{e^{hc/(\\lambda k_BT)} - 1}.$$\n\nLoven forener de to andre: **integrerer** du den over alle bølgelengder, får du Stefan–Boltzmanns $\\sigma T^4$; **deriverer** du den og setter den lik null, får du Wiens $\\lambda_\\text{maks} = b/T$.\n\nI dette kapitlet brukes den **kvalitativt**: den forklarer formen på kurvene i figuren over, og hvorfor toppen finnes i det hele tatt. Formen hentes fra det utdelte arket når den trengs. Den **numeriske** behandlingen — å finne maksimum ved fikspunktiterasjon — hører i kap. 11.1, og der er nettopp Plancks lov utgangspunktet for iterasjonslikningen med roten $x \\approx 4{,}965$.\n\nHistorisk merknad: det var denne loven Planck fant i 1900, og for å få den til å stemme måtte han anta at energien kom i kvanter. Det var starten på kvantefysikken. [står på det utdelte arket]"
+  },
+  {
+   "id": "tfy4115-9-2-o-5",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-9-2-oppg-5",
+    "number": 5,
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger T10.)\n\n**a)** En glødetråd har temperaturen $2800\\,\\text{K}$. Ved hvilken bølgelengde stråler den mest, og er det synlig lys?\n\n**b)** En flate stråler mest ved $6{,}50\\,\\mu\\text{m}$. Hvilken temperatur har den?\n\n**c)** Solens overflate er $5778\\,\\text{K}$. Finn $\\lambda_\\text{maks}$ og kommenter.",
+    "solution": "**a)**\n$$\\lambda_\\text{maks} = \\frac{b}{T} = \\frac{2{,}898\\cdot10^{-3}}{2800}\\,\\text{m} = 1{,}0350\\cdot10^{-6}\\,\\text{m} = 1{,}035\\,\\mu\\text{m}.$$\nSynlig lys ligger mellom $0{,}40$ og $0{,}70\\,\\mu\\text{m}$, så $1{,}04\\,\\mu\\text{m}$ ligger **like utenfor**, i det nære infrarøde. Det er nettopp derfor en glødelampe er så lite effektiv som lyskilde: **toppen av utstrålingen er varme, ikke lys.** Bare den lille halen inn i det synlige gir belysning — om lag 5 prosent av effekten.\n\n**b)** Snu formelen:\n$$T = \\frac{b}{\\lambda_\\text{maks}} = \\frac{2{,}898\\cdot10^{-3}}{6{,}50\\cdot10^{-6}}\\,\\text{K} = 445{,}8\\,\\text{K}.$$\nDet er $172{,}7\\,^\\circ\\text{C}$, altså omtrent temperaturen i en varm stekepanne.\n\n**c)**\n$$\\lambda_\\text{maks} = \\frac{2{,}898\\cdot10^{-3}}{5778}\\,\\text{m} = 501{,}6\\cdot10^{-9}\\,\\text{m} = 502\\,\\text{nm}.$$\nDet er **grønt**, altså midt i det synlige spekteret. At øyet vårt er mest følsomt nettopp rundt $550\\,\\text{nm}$, er ingen tilfeldighet — synet har utviklet seg der solen stråler mest.\n\n**Sluttsjekk, tre ledd.** (i) Enhetskontroll: $\\text{m}\\cdot\\text{K}$ delt på $\\text{K}$ gir meter ✔. (ii) Høyere temperatur gir kortere bølgelengde: $5778\\,\\text{K}$ gir $0{,}502\\,\\mu\\text{m}$, $2800\\,\\text{K}$ gir $1{,}04\\,\\mu\\text{m}$ ✔. (iii) Alle svar i kelvin, ikke celsius ✔.",
+    "hints": [
+     "$\\lambda_\\text{maks} = b/T$ med $T$ i kelvin — sjekk enheten på svaret.",
+     "For b): snu formelen og pass på tierpotensen i mikrometer.",
+     "Synlig lys ligger mellom $0{,}40$ og $0{,}70\\,\\mu\\text{m}$."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-9-2-o-6",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-9-2-oppg-6",
+    "number": 6,
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger T10.) En person har hudareal $1{,}80\\,\\text{m}^2$, hudtemperatur $306\\,\\text{K}$ og emissivitet $e = 0{,}97$, i et rom på $293\\,\\text{K}$.\n\n**a)** Finn netto utstrålt effekt.\n\n**b)** Sammenlign med kroppens hvilestoffskifte på om lag $100\\,\\text{W}$. Kommenter.\n\n**c)** Ved hvilken bølgelengde stråler huden mest?\n\n**d)** Hva ville du fått med den gale formen $(T - T_\\text{omg})^4$?",
+    "solution": "**a)**\n$$e\\sigma A = 0{,}97 \\cdot 5{,}670\\cdot10^{-8} \\cdot 1{,}80 = 9{,}8998\\cdot10^{-8}\\,\\text{W/K}^4,$$\n$$T^4 - T_\\text{omg}^4 = 8{,}7677\\cdot10^{9} - 7{,}3701\\cdot10^{9} = 1{,}3976\\cdot10^{9}\\,\\text{K}^4,$$\n$$P_\\text{netto} = 138{,}4\\,\\text{W}.$$\n\n**b)** $138\\,\\text{W}$ er **over hele hvilestoffskiftet** på $100\\,\\text{W}$. Strålingen alene ville altså kjølt kroppen ned raskere enn den produserer varme, hvis den var det eneste som skjedde.\n\nDerfor kler vi oss: klærne legger seg på en mellomtemperatur, akkurat som et strålingsskjold, og senker den effektive utstrålingsflatens temperatur. Og derfor føles et rom med kalde vegger kaldt selv om lufttemperaturen er behagelig — det er **strålingstemperaturen** som avgjør, ikke bare lufttemperaturen.\n\n**c)**\n$$\\lambda_\\text{maks} = \\frac{2{,}898\\cdot10^{-3}}{306}\\,\\text{m} = 9{,}471\\,\\mu\\text{m},$$\naltså i det **fjerne infrarøde**. Det er nettopp dette båndet varmekameraer måler i, og derfor de kan se mennesker i mørket.\n\n**d)**\n$$e\\sigma A(T - T_\\text{omg})^4 = 9{,}8998\\cdot10^{-8} \\cdot 13^4 = 2{,}83\\cdot10^{-3}\\,\\text{W},$$\naltså **under tre milliwatt** — en faktor $48936$ for lite. Her er feilen så grov at den er lett å se: en person kan ikke tape millivatt ved stråling.\n\nGrunnen til at feilen er så mye grovere her enn i ovnseksempelet, er at temperaturDIFFERANSEN er liten ($13\\,\\text{K}$) mens de absolutte temperaturene er store. **Jo mindre differansen er i forhold til de absolutte temperaturene, jo verre blir fella.**\n\n**Sluttsjekk:** $138\\,\\text{W}$ er i riktig størrelsesorden for en person i et rom ✔, og formen $T^4 - T_\\text{omg}^4$ er brukt ✔.",
+    "hints": [
+     "Regn $e\\sigma A$ først, så de to fjerdepotensene hver for seg.",
+     "Sammenlign svaret med de $100\\,\\text{W}$ oppgaven nevner.",
+     "For d): regn $(T-T_\\text{omg})^4$ og se hvor stor faktoren blir."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-9-2-rask-vei",
+   "type": "text",
+   "content": "## Rask vei til tall (MC-oppskrift)\n\n1. **Hvilken lov?** Tre spørsmålstyper, gjenkjennelige på tre sekunder. **«Hvor mye stråler den?»** → $P = e\\sigma A T^4$ (utstrålt) eller $e\\sigma A(T^4 - T_\\text{omg}^4)$ (netto — les nøye hvilken). **«Hvilken temperatur får plata?»** → platebalansen, midle $T^4$. **«Ved hvilken bølgelengde?»** → Wien, $\\lambda_\\text{maks} = b/T$.\n\n2. **Hvilken ene regnelinje?** Regn **faktoren $e\\sigma A$ først** som eget mellomresultat, og deretter **hver fjerdepotens hver for seg**. Da er resten én multiplikasjon. For platebalansen: legg sammen de to fjerdepotensene, del på 2, ta kvadratrota to ganger.\n\n3. **Hva hentes hvor?** $\\sigma = 5{,}670\\cdot10^{-8}$, $b = 2{,}898\\cdot10^{-3}$, Stefan–Boltzmanns lov, netto­uttrykket, Wiens lov og Plancks lov **står alle på det utdelte arket**. Det som **må kunne utledes aktivt**, er platebalansen $T_2 = ((T_1^4+T_3^4)/2)^{1/4}$ fra stasjonaritet, og at $n$ skjermer gir $j_0/(n+1)$.\n\n4. **Hvor mange siffer?** Fire gjennom kjeden — og her er det ekstra viktig, fordi **fjerde potens forsterker avrundingsfeil fire ganger**. Runder du $420$ til $420$ er det greit, men runder du $T^4 = 3{,}1117\\cdot10^{10}$ til $3{,}1\\cdot10^{10}$, flytter du tredje siffer i svaret.\n\n5. **Hva sjekker du før du krysser av?** (i) Er ALLE temperaturer i **kelvin**? (Dette er ikke [kap. 9.1](/tfy4115/tfy4115-9-1) — her er celsius katastrofalt.) (ii) Er formen $T^4 - T_\\text{omg}^4$ og ikke $(T-T_\\text{omg})^4$? (iii) Er emissiviteten med, og er den under 1? (iv) I platebalansen: ligger svaret mellom reservoarene og over det aritmetiske snittet? (v) Ba oppgaven om utstrålt eller netto effekt? (vi) Gir Wien kortere bølgelengde ved høyere temperatur?\n\n— naturlig pausepunkt —"
+  },
+  {
+   "id": "tfy4115-9-2-o-7",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-9-2-oppg-7",
+    "number": 7,
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Sjanger T10, A–F-format.) En flate med areal $0{,}800\\,\\text{m}^2$, emissivitet $0{,}90$ og temperatur $500\\,\\text{K}$ stråler i vakuum. Hvor stor er den utstrålte effekten?\n\n**A** $2835{,}0\\,\\text{W}$ · **B** $0{,}000020\\,\\text{W}$ · **C** $2551{,}5\\,\\text{W}$ · **D** $108{,}11\\,\\text{W}$ · **E** $0{,}010\\,\\text{W}$ · **F** $3189{,}4\\,\\text{W}$",
+    "solution": "**Svar: C.**\n\n$$e\\sigma A = 0{,}90 \\cdot 5{,}670\\cdot10^{-8} \\cdot 0{,}800 = 4{,}0824\\cdot10^{-8}, \\qquad T^4 = 6{,}2500\\cdot10^{10},$$\n$$P = 2551{,}5\\,\\text{W}.$$\n\n*Fellene, hver regnet fram fra sin feil:* **A** har glemt emissiviteten, altså regnet flaten som svart. **D** har brukt celsius ($226{,}85\\,^\\circ\\text{C}$) i stedet for kelvin — feilen gir $23{,}6$ ganger for lite. **E** har brukt $T^2$ i stedet for $T^4$. **B** har brukt $T$ i første potens. **F** er fluksen i $\\text{W/m}^2$, altså arealet glemt.\n\n*Sluttsjekk:* en flate på $500\\,\\text{K}$ (over $227\\,^\\circ\\text{C}$) over nesten en kvadratmeter stråler i kilowatt-området. Det stryker **B**, **D** og **E** på fem sekunder.",
+    "hints": [
+     "Regn faktoren $e\\sigma A$ først, så $T^4$.",
+     "Sjekk at temperaturen er i kelvin, og at potensen er fjerde."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-9-2-o-8",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-9-2-oppg-8",
+    "number": 8,
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Kvalitativ oppgave — konsept og rangering.)\n\n**a)** To flater har samme areal og temperatur, men en har $e = 0{,}95$ og den andre $e = 0{,}20$. Hvilken taper mest varme netto, og hvorfor står emissiviteten i BEGGE ledd i nettouttrykket?\n\n**b)** Ranger disse fire etter $\\lambda_\\text{maks}$, korteste først: en menneskekropp ($310\\,\\text{K}$), en vedovn ($420\\,\\text{K}$), en glødetråd ($2800\\,\\text{K}$), solens overflate ($5778\\,\\text{K}$).\n\n**c)** En termos har vakuum mellom veggene. Hvorfor holder den likevel ikke drikken varm i det uendelige, og hva gjør forsølvingen?",
+    "solution": "**a)** Flaten med $e = 0{,}95$ taper mest — netto tap er rett proporsjonalt med $e$, så den taper $0{,}95/0{,}20 = 4{,}75$ ganger mer.\n\nEmissiviteten står i begge ledd på grunn av **Kirchhoffs lov**: en flate absorberer like godt som den utstråler. En dårlig utstråler er også en dårlig absorbator, og de to effektene skalerer likt. Derfor kan $e$ faktoriseres ut:\n$$P_\\text{netto} = e\\sigma A T^4 - e\\sigma A T_\\text{omg}^4 = e\\sigma A(T^4 - T_\\text{omg}^4).$$\n\nHadde emissiviteten bare stått i utstrålingsleddet, ville en flate med lav $e$ absorbert mer enn den strålte og blitt varmere enn omgivelsene av seg selv — det ville brutt andre hovedsetning.\n\n**b)** Rangeringen følger $\\lambda_\\text{maks} = b/T$, altså **omvendt** temperaturrekkefølge. Korteste bølgelengde først:\n\n1. **solen**, $5778\\,\\text{K}$ → $0{,}50\\,\\mu\\text{m}$ (grønt);\n2. **glødetråden**, $2800\\,\\text{K}$ → $1{,}04\\,\\mu\\text{m}$ (nær infrarød);\n3. **vedovnen**, $420\\,\\text{K}$ → $6{,}90\\,\\mu\\text{m}$ (infrarød);\n4. **kroppen**, $310\\,\\text{K}$ → $9{,}35\\,\\mu\\text{m}$ (fjern infrarød).\n\nMerk at bare solen har toppen i det synlige. Alt annet på lista stråler hovedsakelig varme, ikke lys.\n\n**c)** Vakuumet stopper **ledning og konveksjon**, men ikke **stråling** — den trenger ikke noe medium. Drikken stråler derfor varme ut mot den ytre veggen uansett hvor godt vakuumet er.\n\n**Forsølvingen senker emissiviteten** til om lag $0{,}05$ i stedet for $0{,}9$, altså reduserer strålingstapet med en faktor rundt 18. I tillegg virker de to blanke flatene som strålingsskjold mot hverandre.\n\nDet som gjenstår, er varmeledning gjennom korken og gjennom glasset i halsen, der de to veggene møtes. Det er der en termos taper mest — derfor er korken tykk, og derfor blir en termos med sprukken innervegg (vakuumet borte) plutselig ubrukelig.",
+    "hints": [
+     "Se på hvor $e$ står i nettouttrykket, og hva Kirchhoffs lov sier.",
+     "$\\lambda_\\text{maks} = b/T$ — hvilken temperatur gir kortest bølgelengde?",
+     "Hvilke av de tre varmetransportmekanismene stopper vakuum, og hvilken gjør det ikke?"
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-9-2-o-9",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-9-2-oppg-9",
+    "number": 9,
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger T10.) En kuleformet satellitt med radius $0{,}600\\,\\text{m}$ går i bane om jorda, der solstrålingen er $1361\\,\\text{W/m}^2$. Se bort fra jordas stråling.\n\n**a)** Hvilket areal fanger opp solstråling, og hvilket areal stråler ut? Forklar forskjellen.\n\n**b)** Finn den stasjonære temperaturen når satellitten er svart ($e = 1$ og absorpsjonsevne 1).\n\n**c)** Satellitten males med et belegg som absorberer bare $0{,}30$ av solstrålingen, men har emissivitet $0{,}90$ i det infrarøde. Finn den nye temperaturen.\n\n**d)** Kommenter hvorfor et slikt belegg er nyttig.",
+    "solution": "**a)** Solstrålingen kommer som en **parallell stråle**, så det er kulens **tverrsnitt** som fanger den opp:\n$$A_\\text{fanget} = \\pi R^2 = \\pi \\cdot 0{,}600^2\\,\\text{m}^2 = 1{,}1310\\,\\text{m}^2.$$\nUtstrålingen skjer derimot fra **hele overflaten**, i alle retninger:\n$$A_\\text{utstrålt} = 4\\pi R^2 = 4{,}5239\\,\\text{m}^2.$$\nForholdet er $4$, uansett radius — og det er nettopp poenget: **en kule stråler ut over fire ganger så stort areal som den fanger inn over.**\n\n**b) Symbolsk.** Stasjonær balanse: inn = ut.\n$$S\\pi R^2 = \\sigma \\cdot 4\\pi R^2 \\cdot T^4 \\quad\\Longrightarrow\\quad T = \\left(\\frac{S}{4\\sigma}\\right)^{1/4}.$$\nRadiusen faller ut — temperaturen er **uavhengig av kulens størrelse**.\n\n**Rask vei til tall.**\n$$T = \\left(\\frac{1361}{4 \\cdot 5{,}670\\cdot10^{-8}}\\right)^{1/4} = \\left(6{,}0009\\cdot10^{9}\\right)^{1/4} = 278{,}3\\,\\text{K} = 5{,}2\\,^\\circ\\text{C}.$$\n\n**c)** Nå er absorpsjonsevnen i det synlige ($\\alpha = 0{,}30$) og emissiviteten i det infrarøde ($e = 0{,}90$) forskjellige:\n$$\\alpha S\\pi R^2 = e\\sigma \\cdot 4\\pi R^2 \\cdot T^4 \\quad\\Longrightarrow\\quad T = \\left(\\frac{\\alpha S}{4e\\sigma}\\right)^{1/4},$$\n$$T = \\left(\\frac{0{,}30 \\cdot 1361}{4 \\cdot 0{,}90 \\cdot 5{,}670\\cdot10^{-8}}\\right)^{1/4} = 211{,}5\\,\\text{K} = -61{,}7\\,^\\circ\\text{C}.$$\nKontroll: forholdet mellom de to temperaturene skal være $(\\alpha/e)^{1/4} = (0{,}3333)^{1/4} = 0{,}7598$, og $211{,}5/278{,}3 = 0{,}7598$ ✔.\n\n**d)** Belegget senker temperaturen med $66{,}8\\,\\text{K}$ — fra $5$ til $-62\\,^\\circ\\text{C}$. Mekanismen er at det er **selektivt**: det reflekterer det synlige sollyset (lav $\\alpha$) men stråler godt i det infrarøde (høy $e$).\n\nDette er en helt reell ingeniørdisiplin. Termisk kontroll av romfartøy handler nettopp om å velge forholdet $\\alpha/e$ for hver flate, siden strålingsbalansen er det ENESTE som bestemmer temperaturen i vakuum — det finnes ingen luft å kjøle med. Hvite malinger har $\\alpha/e$ ned mot $0{,}2$; blank aluminium har det over 3 og brukes der man vil holde varmen.\n\n**Sluttsjekk, fire ledd.** (i) Radiusen falt ut i begge tilfeller ✔ — svaret skal ikke avhenge av størrelsen. (ii) Faktoren 4 mellom de to arealene ✔. (iii) Temperaturen $278\\,\\text{K}$ er nær jordas gjennomsnittstemperatur, som den skal være for en svart kule i jordbane ✔. (iv) Belegget med $\\alpha < e$ gir lavere temperatur ✔ — retningen stemmer med at det reflekterer mer enn det holder tilbake.",
+    "hints": [
+     "Solstrålingen kommer som en parallell stråle — hvilket areal fanger den?",
+     "Sett inn = ut og se hva som faller ut av likningen.",
+     "I c) er absorpsjonsevnen i det synlige og emissiviteten i det infrarøde ulike — de står på hver sin side."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-9-2-war-typiske-feil",
+   "type": "warning",
+   "title": "Typiske feil — og fjerde potensen som forstørrer alt",
+   "content": "**Celsius i stedet for kelvin** (felle #11 — kelvin-slurv). Her er det ikke en liten feil: i eksempel 1 gir celsius $26{,}9\\,\\text{W}$ der svaret er $1373\\,\\text{W}$, altså **$51$ ganger for lite**. Grunnen er at $T^4$ er en absolutt størrelse og celsius har vilkårlig nullpunkt. Merk kontrasten til [kap. 9.1](/tfy4115/tfy4115-9-1), der celsius var trygt fordi bare differanser inngikk — **skifter du kapittel, skifter regelen.**\n\n**$(T - T_\\text{omg})^4$ i stedet for $T^4 - T_\\text{omg}^4$** (felle #12 — glemme fjerde potens riktig). Dette er kapitlets signaturfeil. I eksempel 1: $15{,}0\\,\\text{W}$ mot $1373\\,\\text{W}$, en faktor $91$. I oppgave 6, der differansen er liten mot de absolutte temperaturene, blir feilen en faktor $48936$. **Jo mindre temperaturdifferansen er i forhold til de absolutte temperaturene, jo verre blir fella** — og den gir alltid for LITE.\n\n**Å midle $T$ i stedet for $T^4$ i platebalansen** (felle #12 i sin andre form). Mellom $600$ og $300\\,\\text{K}$ er svaret $512{,}2\\,\\text{K}$, ikke $450\\,\\text{K}$ — $62\\,\\text{K}$ feil. **Kontrollen: midtplaten ligger alltid OVER det aritmetiske snittet**, fordi fjerde potens vekter den varme siden tyngre.\n\n**Å glemme emissiviteten.** Den står i BEGGE ledd (Kirchhoffs lov) og kan faktoriseres ut, men den må være der. Glemmer du den, blir svaret en faktor $1/e$ for stort — i oppgave 2 $1{,}54$ ganger.\n\n**Å blande utstrålt og netto effekt.** $P_\\text{ut} = e\\sigma AT^4$ er alt flaten stråler; $P_\\text{netto} = e\\sigma A(T^4 - T_\\text{omg}^4)$ er det den taper. Les nøye: «hvor mye stråler den ut» er det første, «hvor mye varme taper den» det andre. I eksempel 1 skiller de seg med $31$ prosent.\n\n**Å snu Wien.** Høyere temperatur gir **kortere** bølgelengde. $T$ står i **nevneren** — det er hele kontrollen. En figur eller et svar der toppen flytter mot rødt når det blir varmere, underviser fellen.\n\n**Å blande $e$ og $\\varepsilon$.** Emissiviteten $e$ er **under** 1; effektfaktoren $\\varepsilon$ fra [kap. 8.2](/tfy4115/tfy4115-8-2) er **over** 1. Begge er dimensjonsløse «faktorer», men de hører i helt ulike formler.\n\n**Og avrundingsfellen** (felle #16): fjerde potens **forsterker relative feil fire ganger**. Runder du en temperatur med 1 prosent feil, får du 4 prosent feil i effekten. Behold fire siffer i temperaturen, og skriv $T^4$ ned som eget mellomresultat i stedet for å kjede regningen — særlig i platebalansen, der du deretter skal ta fjerderota og dermed dele feilen på fire igjen, men bare hvis mellomresultatet var riktig."
+  },
+  {
+   "id": "tfy4115-9-2-begrepsbank-notis",
+   "type": "text",
+   "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+  },
+  {
+   "id": "tfy4115-9-2-bb-tre-lover",
+   "type": "definition",
+   "title": "De tre strålingslovene på ett kort",
+   "content": "| Lov | Uttrykk | Hva den sier |\n|---|---|---|\n| **Stefan–Boltzmann** | $j = e\\sigma T^4$ | hvor MYE flaten stråler i alt |\n| **Wien** | $\\lambda_\\text{maks} = b/T$ | HVOR i spekteret toppen ligger |\n| **Planck** | $I(\\lambda,T)$ | hvor mye ved HVER bølgelengde |\n\nPlanck er den grunnleggende; de to andre følger av den ved å integrere (Stefan–Boltzmann) eller derivere (Wien). I oppgaver bruker du nesten alltid en av de to første.\n\nKonstantene: $\\sigma = 5{,}670\\cdot10^{-8}\\,\\text{W/(m}^2\\cdot\\text{K}^4)$ og $b = 2{,}898\\cdot10^{-3}\\,\\text{m}\\cdot\\text{K}$. Begge står på det utdelte arket."
+  },
+  {
+   "id": "tfy4115-9-2-bb-netto-form",
+   "type": "definition",
+   "title": "Netto stråling: den ene formen du må ha riktig",
+   "content": "$$P_\\text{netto} = e\\sigma A\\left(T^4 - T_\\text{omg}^4\\right)$$\n\n**ALDRI** $e\\sigma A(T - T_\\text{omg})^4$. De to er ikke nær hverandre: den gale formen er alltid for liten, og typisk med en faktor mellom 10 og 10 000, avhengig av hvor liten temperaturdifferansen er i forhold til de absolutte temperaturene.\n\nGrunnen til at formen er som den er: flaten stråler $e\\sigma AT^4$ og absorberer $e\\sigma AT_\\text{omg}^4$ (Kirchhoffs lov gir samme $e$ i begge). Netto er differansen mellom de to **effektene**, ikke effekten av differansen mellom temperaturene.\n\n**Kontrollen:** regn $T^4$ og $T_\\text{omg}^4$ som to separate mellomresultater. Da kan du ikke gjøre feilen."
+  },
+  {
+   "id": "tfy4115-9-2-bb-kelvin-absolutt",
+   "type": "definition",
+   "title": "Hvorfor celsius er katastrofalt her",
+   "content": "$T^4$ er en **absolutt** størrelse: den avhenger av hvor langt over det absolutte nullpunktet flaten er. Celsius har et vilkårlig nullpunkt, og $(T_\\text{C})^4 \\neq (T_\\text{K})^4 - \\text{noe}$ — det finnes ingen enkel korreksjon.\n\nSe hvor stor feilen blir: en flate på $420\\,\\text{K}$ har $T^4 = 3{,}11\\cdot10^{10}$, mens $147^4 = 4{,}67\\cdot10^{8}$ — en faktor $67$. Og feilen vokser jo nærmere romtemperatur flaten er.\n\n**Kontrasten til [kap. 9.1](/tfy4115/tfy4115-9-1):** der var celsius trygt, fordi bare temperaturDIFFERANSER inngikk. Her er ingen størrelse en differanse — verken $T^4$, $T_\\text{omg}^4$ eller $b/T$. **Regelen skifter med kapitlet, og det er derfor det er verdt å skrive om til kelvin uansett.**"
+  },
+  {
+   "id": "tfy4115-9-2-bb-platebalanse-kort",
+   "type": "definition",
+   "title": "Platebalansen: utledning på fire linjer",
+   "content": "1. **Stasjonaritet:** netto inn = netto ut.\n2. $\\sigma(T_1^4 - T_2^4) = \\sigma(T_2^4 - T_3^4)$.\n3. $2T_2^4 = T_1^4 + T_3^4$.\n4. $T_2 = ((T_1^4+T_3^4)/2)^{1/4}$.\n\n**Tre kontroller:** $T_2$ ligger mellom $T_1$ og $T_3$; $T_2$ ligger over det aritmetiske snittet; de to nettofluksene er like store.\n\n**Og bonusen:** setter du løsningen inn, får du $T_1^4 - T_2^4 = \\tfrac12(T_1^4-T_3^4)$, altså at plata **halverer** varmestrømmen. Det generaliserer til $j_0/(n+1)$ for $n$ plater."
+  },
+  {
+   "id": "tfy4115-9-2-bb-n-skjermer",
+   "type": "definition",
+   "title": "$n$ skjermer deler fluksen på $n+1$",
+   "content": "$$j_n = \\frac{j_0}{n+1}, \\qquad j_0 = \\sigma(T_1^4 - T_3^4).$$\n\nBetingelsen er at alle flatene er svarte (eller har samme emissivitet), at skjermene er tynne og ikke leder varme mellom sidene, og at det er vakuum.\n\n**Legg merke til den avtakende nytten:** fra 0 til 1 skjerm halveres fluksen; fra 1 til 2 faller den bare $17$ prosent videre; fra 10 til 11 bare $8$ prosent. De første lagene gjør nesten hele jobben.\n\nPraktisk: superisolasjon på romfartøy har typisk 10–20 lag metallisert folie, og termosflasker bruker forsølvede vegger. Er skjermene grå med emissivitet $e$ på begge sider, blir reduksjonen større enn $1/(n+1)$ — lav emissivitet hjelper i tillegg."
+  },
+  {
+   "id": "tfy4115-9-2-bb-kirchhoff",
+   "type": "definition",
+   "title": "Kirchhoffs lov: absorpsjon = emisjon",
+   "content": "En flate absorberer like stor brøkdel av innkommende stråling som den utstråler i forhold til et svart legeme: **absorpsjonsevnen er lik emissiviteten $e$**, ved samme bølgelengde.\n\nKonsekvensen i regningen er at $e$ står i begge ledd og kan faktoriseres ut:\n$$P_\\text{netto} = e\\sigma A(T^4 - T_\\text{omg}^4).$$\n\nHvorfor loven MÅ gjelde: hadde en flate absorbert bedre enn den strålte, ville den blitt varmere enn omgivelsene av seg selv, og det bryter andre hovedsetning.\n\n**Presiseringen som betyr noe i praksis:** loven gjelder ved **samme bølgelengde**. En flate kan godt ha lav absorpsjonsevne i det synlige og høy emissivitet i det infrarøde — det er nettopp slike **selektive** flater som brukes i solfangere (høy $\\alpha$, lav $e$) og på romfartøy (lav $\\alpha$, høy $e$)."
+  },
+  {
+   "id": "tfy4115-9-2-bb-esymbol",
+   "type": "definition",
+   "title": "$e$ mot $\\varepsilon$ — emissivitet mot effektfaktor",
+   "content": "| Symbol | Betydning | Verdier | Kapittel |\n|---|---|---|---|\n| $e$ | emissivitet | $0 < e \\le 1$ | 9.2 |\n| $\\varepsilon_V$, $\\varepsilon_K$ | effektfaktor | $\\varepsilon_V > 1$ | [8.2](/tfy4115/tfy4115-8-2) |\n\nBegge er dimensjonsløse, begge kalles «faktor» eller «coefficient» i litteraturen — og de hører i helt ulike formler. **Størrelsen skiller dem entydig:** emissiviteten er under 1, effektfaktoren for oppvarming over 1.\n\nEmissiviteten skrives også $\\epsilon$ i mange bøker, og det er der forvekslingen kommer fra. I denne boka bruker vi $e$ for emissivitet nettopp for å holde dem adskilt."
+  },
+  {
+   "id": "tfy4115-9-2-bb-typiske-e",
+   "type": "definition",
+   "title": "Emissiviteter verdt å kjenne",
+   "content": "| Flate | $e$ (infrarødt) |\n|---|---|\n| Matt svart maling | $0{,}95$ |\n| Menneskehud | $0{,}97$ |\n| Murpuss, betong, tre | $0{,}90$ |\n| Glass | $0{,}90$ |\n| Hvit maling | $0{,}90$ |\n| Oksidert stål | $0{,}80$ |\n| Blank aluminium | $0{,}05$ |\n\n**Det overraskende punktet:** hvit maling har nesten samme emissivitet som svart. «Svart» i strålingssammenheng handler om det **infrarøde**, og der ser de fleste malinger like «svarte» ut. Fargen i synlig lys sier bare noe om hvordan flaten oppfører seg mot sollys.\n\n**Metaller er unntaket:** blanke metallflater har svært lav emissivitet, og det er derfor de brukes som strålingsskjerm. En blank aluminiumfolie stråler bare $5$ prosent av det en svart flate ved samme temperatur gjør."
+  },
+  {
+   "id": "tfy4115-9-2-bb-wien-retning",
+   "type": "definition",
+   "title": "Wien: retningen som huskes feil",
+   "content": "$$\\lambda_\\text{maks} = \\frac{b}{T}$$\n\n**Høyere temperatur gir KORTERE bølgelengde.** Toppen flytter mot blått, ikke mot rødt. Kontrollen er formelen selv: $T$ står i nevneren.\n\nHuskehjelp fra hverdagen: en glødende gjenstand går fra mørkerød (kjøligst) gjennom oransje og gul til hvitglødende og blåhvit (varmest). Det er nettopp Wien, sett med øyet. Sveiselys er blåhvitt fordi buen er over $10^4\\,\\text{K}$.\n\n**Merk hva loven IKKE sier:** ingenting om hvor mye som stråles. Det er Stefan–Boltzmann. En kald flate stråler ved lang bølgelengde OG med liten effekt; de to lovene sier hver sin ting."
+  },
+  {
+   "id": "tfy4115-9-2-bb-synlig",
+   "type": "definition",
+   "title": "Det synlige spekteret som referanse",
+   "content": "| Område | Bølgelengde |\n|---|---|\n| Ultrafiolett | under $0{,}40\\,\\mu\\text{m}$ |\n| Synlig lys | $0{,}40$–$0{,}70\\,\\mu\\text{m}$ |\n| Nær infrarød | $0{,}70$–$3\\,\\mu\\text{m}$ |\n| Midlere infrarød | $3$–$8\\,\\mu\\text{m}$ |\n| Fjern infrarød | over $8\\,\\mu\\text{m}$ |\n\nNyttig som størrelsesordenkontroll etter en Wien-regning: en flate under $1000\\,\\text{K}$ har $\\lambda_\\text{maks}$ over $2{,}9\\,\\mu\\text{m}$ og gløder ikke synlig. Først rundt $900$–$1000\\,\\text{K}$ begynner halen av spekteret å nå inn i det røde.\n\nGrensen for hva som gløder synlig, er derfor **ikke** der $\\lambda_\\text{maks}$ kommer inn i det synlige (det krever over $4000\\,\\text{K}$) — det er nok at halen rekker inn."
+  },
+  {
+   "id": "tfy4115-9-2-bb-kule-faktor4",
+   "type": "definition",
+   "title": "Kula som fanger over tverrsnittet og stråler over hele flaten",
+   "content": "En kule i en parallell stråle (sollys) fanger opp over **tverrsnittet** $\\pi R^2$, men stråler ut fra **hele overflaten** $4\\pi R^2$. Forholdet er $4$, uavhengig av radius.\n\nBalansen $\\alpha S\\pi R^2 = e\\sigma\\,4\\pi R^2 T^4$ gir\n$$T = \\left(\\frac{\\alpha S}{4e\\sigma}\\right)^{1/4},$$\nog **radiusen faller ut** — temperaturen er uavhengig av størrelsen. Det er derfor både en satellitt og en planet i samme avstand fra solen får samme likevektstemperatur (bortsett fra atmosfæreeffekter).\n\nMed $S = 1361\\,\\text{W/m}^2$ og $\\alpha = e = 1$ blir $T = 278{,}3\\,\\text{K}$, altså $5{,}2\\,^\\circ\\text{C}$ — nær jordas faktiske gjennomsnittstemperatur."
+  },
+  {
+   "id": "tfy4115-9-2-bb-faktor-t4",
+   "type": "definition",
+   "title": "Hva fjerde potens gjør med tallene",
+   "content": "| Temperaturøkning | Effektøkning |\n|---|---|\n| $\\times 1{,}1$ | $\\times 1{,}46$ |\n| $\\times 1{,}5$ | $\\times 5{,}06$ |\n| $\\times 2$ | $\\times 16$ |\n| $\\times 3$ | $\\times 81$ |\n| $\\times 10$ | $\\times 10\\,000$ |\n\n**Og motsatt, om avrunding:** 1 prosent feil i temperaturen gir 4 prosent feil i effekten. Derfor er sifferdisiplinen strengere her enn ellers i termodelen.\n\nPraktisk konsekvens: strålingstap er nesten ubetydelig ved romtemperatur sammenlignet med ledning, men dominerer fullstendig over noen hundre grader. Det er derfor en ovn på $600\\,^\\circ\\text{C}$ må skjermes, mens en radiator på $60\\,^\\circ\\text{C}$ stort sett varmer ved konveksjon."
+  },
+  {
+   "id": "tfy4115-9-2-bb-straaling-vs-ledning",
+   "type": "definition",
+   "title": "Når stråling dominerer over ledning",
+   "content": "De to mekanismene skalerer helt ulikt:\n$$P_\\text{ledning} \\propto \\Delta T, \\qquad P_\\text{stråling} \\propto T^4 - T_\\text{omg}^4.$$\n\nVed små temperaturdifferanser nær romtemperatur er de sammenlignbare — det er derfor tabellverdiene for varmeovergangskoeffisienten $h$ i [kap. 9.1](/tfy4115/tfy4115-9-1) i praksis inkluderer et strålingsbidrag.\n\nVed store temperaturer dominerer strålingen fullstendig. En glødende flate på $1200\\,\\text{K}$ i et rom på $300\\,\\text{K}$ stråler $\\sigma(1200^4-300^4) \\approx 117\\,\\text{kW/m}^2$; ingen realistisk luftstrøm frakter bort noe i nærheten av det.\n\n**Og i vakuum finnes bare stråling.** Det er derfor termisk kontroll av romfartøy er ren strålingsfysikk."
+  },
+  {
+   "id": "tfy4115-9-2-bb-sjangert10",
+   "type": "definition",
+   "title": "Sjanger T10 — strålingsoppgaven",
+   "content": "Signaturen: en flate med areal, temperatur og eventuelt emissivitet, i omgivelser med en annen temperatur. Fire varianter går igjen:\n\n1. **utstrålt eller netto effekt** — les nøye hvilken;\n2. **platebalanse** — én eller flere skjermer mellom to reservoarer;\n3. **Wien** — bølgelengde fra temperatur, eller omvendt;\n4. **strålingslikevekt** — en kule i sollys, eller en flate som varmes til balanse.\n\nSjangeren er **unik mot TFY4125**, der stråling ikke er pensum. Det gjør den til et sted der TFY4115-studenter ikke kan låne øvingsoppgaver fra søsteremnet — og det er en grunn til å ta den ekstra alvorlig."
+  },
+  {
+   "id": "tfy4115-9-2-bb-mc-tempo",
+   "type": "definition",
+   "title": "MC-tempo i strålingsoppgaver",
+   "content": "Tidsbudsjett per spørsmål:\n\n- **tjue sekunder** på å skrive om alle temperaturer til kelvin og lese om det er utstrålt eller netto;\n- **tjue sekunder** på faktoren $e\\sigma A$;\n- **tretti sekunder** på fjerdepotensene, hver som eget mellomresultat;\n- **tjue sekunder** på kontrollene.\n\nFor platebalansen: legg sammen de to fjerdepotensene, del på 2, ta kvadratrota **to ganger** — det er raskere og sikrere enn å slå inn en eksponent på $0{,}25$.\n\n**Halvparten av tiden går til bokføring**, akkurat som i varmeledning. Og det er riktig: i denne sjangeren er nesten alle feil formfeil, ikke regnefeil."
+  },
+  {
+   "id": "tfy4115-9-2-bb-eliminasjon",
+   "type": "definition",
+   "title": "Eliminasjon ved størrelsesorden i strålingsoppgaver",
+   "content": "Fem grenser stryker alternativer uten regning:\n\n1. **$P_\\text{netto} < P_\\text{ut}$** alltid — differansen er absorpsjonen.\n2. **$e \\le 1$**, så et svar som er større enn det svarte legemets, er umulig.\n3. **Platebalansen ligger mellom reservoarene og over det aritmetiske snittet.**\n4. **$\\lambda_\\text{maks}$ er kortere ved høyere temperatur.**\n5. **Størrelsesorden:** en flate på noen hundre kelvin over en kvadratmeter stråler hundrevis til tusenvis av watt. Milliwatt-svar er $(T-T_\\text{omg})^4$-fella; svar på $10^{-6}\\,\\text{W}$ er lineær-i-$T$-fella.\n\nPunkt 5 alene stryker som regel to av seks alternativer, fordi begge de klassiske formfeilene gir absurd små tall."
+  },
+  {
+   "id": "tfy4115-9-2-coll-symbolliste",
+   "type": "collapsible",
+   "title": "Symbol- og formelliste",
+   "buttonText": "Vis symboler og formler",
+   "content": [
+    {
+     "id": "tfy4115-9-2-symb-1",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n**Kolliderende symboler i dette delkapitlet — les nøye.**\n\n- $T$ er **absolutt temperatur i kelvin**, uten unntak. I [kap. 9.1](/tfy4115/tfy4115-9-1) kunne celsius brukes fordi bare differanser inngikk; her er $T^4$ absolutt, og celsius gir svar som er titalls til tusenvis av ganger galt.\n- $e$ er **emissiviteten**, dimensjonsløs og **under 1**. Effektfaktoren $\\varepsilon$ i [kap. 8.2](/tfy4115/tfy4115-8-2) er **over 1**.\n- $\\sigma$ er **Stefan–Boltzmanns konstant**, ikke et standardavvik.\n- $b$ er **Wien-konstanten** i $\\text{m}\\cdot\\text{K}$, ikke dempingskonstanten i kg/s fra [kap. 5.2](/tfy4115/tfy4115-5-2).\n- $\\lambda$ er **bølgelengde** i meter. (I annen litteratur brukes $\\lambda$ også om varmeledningsevne; vi bruker $\\kappa$ til det, se [kap. 9.1](/tfy4115/tfy4115-9-1).)\n- $R$ opptrer ikke i dette kapitlet; radius skrives $R$ i satellittoppgaven, og der er det entydig fra sammenhengen.\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $j$ | Utstrålt fluks | $\\text{W/m}^2$ |\n| $P$ | Utstrålt effekt | W |\n| $\\sigma$ | Stefan–Boltzmanns konstant, $5{,}670\\cdot10^{-8}$ | $\\text{W/(m}^2\\cdot\\text{K}^4)$ |\n| $e$ | Emissivitet, $0 < e \\le 1$ (ikke effektfaktor) | — |\n| $\\alpha$ | Absorpsjonsevne (lik $e$ ved samme bølgelengde) | — |\n| $T$ | Absolutt temperatur — **alltid kelvin** | K |\n| $T_\\text{omg}$ | Omgivelsenes temperatur | K |\n| $A$ | Areal | $\\text{m}^2$ |\n| $\\lambda_\\text{maks}$ | Bølgelengde med største utstråling | m |\n| $b$ | Wien-konstanten, $2{,}898\\cdot10^{-3}$ | $\\text{m}\\cdot\\text{K}$ |\n| $n$ | Antall strålingsskjermer | — |\n| $S$ | Solkonstanten, $1361$ | $\\text{W/m}^2$ |\n| $h$ | Plancks konstant (i Plancks lov) | $\\text{J}\\cdot\\text{s}$ |\n| $k_B$ | Boltzmanns konstant | J/K |\n\n**Formler i dette delkapitlet:**\n\n$$j = \\sigma T^4 \\ \\text{(svart)}, \\qquad j = e\\sigma T^4 \\ \\text{(grå)}, \\qquad P = e\\sigma A T^4$$\nStefan–Boltzmanns lov [står på det utdelte arket].\n\n$$P_\\text{netto} = e\\sigma A\\left(T^4 - T_\\text{omg}^4\\right)$$\nNetto stråling — **ALDRI** $(T-T_\\text{omg})^4$ [står på det utdelte arket].\n\n$$T_2 = \\left(\\frac{T_1^4+T_3^4}{2}\\right)^{1/4}$$\nStasjonær platebalanse; midle $T^4$, ikke $T$ [må kunne brukes eller utledes aktivt].\n\n$$j_n = \\frac{j_0}{n+1}, \\qquad j_0 = \\sigma(T_1^4-T_3^4)$$\n$n$ strålingsskjermer [må kunne brukes eller utledes aktivt].\n\n$$\\lambda_\\text{maks} = \\frac{b}{T}, \\qquad b = 2{,}898\\cdot10^{-3}\\,\\text{m}\\cdot\\text{K}$$\nWiens forskyvningslov; høyere $T$ gir kortere $\\lambda$ [står på det utdelte arket].\n\n$$I(\\lambda,T) = \\frac{2\\pi hc^2}{\\lambda^5}\\cdot\\frac{1}{e^{hc/(\\lambda k_BT)}-1}$$\nPlancks strålingslov; brukes kvalitativt her, numerisk i kap. 11.1 [står på det utdelte arket].\n\n$$\\alpha = e \\ \\text{(ved samme bølgelengde)}$$\nKirchhoffs lov — derfor står $e$ i begge ledd i nettouttrykket [må kunne brukes eller utledes aktivt].\n\n$$T = \\left(\\frac{\\alpha S}{4e\\sigma}\\right)^{1/4}$$\nLikevektstemperatur for en kule i en parallell stråle; radiusen faller ut [må kunne brukes eller utledes aktivt].\n\n$$x^{1/4} = \\sqrt{\\sqrt{x}}$$\nFjerderota som to kvadratrøtter — raskest på en enkel kalkulator [Rottmann]."
+    }
+   ]
+  },
+  {
+   "id": "tfy4115-9-2-coll-repetisjon",
+   "type": "collapsible",
+   "title": "Repetisjonsoppgaver",
+   "buttonText": "Vis repetisjonsoppgaver",
+   "content": [
+    {
+     "id": "tfy4115-9-2-rep-1",
+     "type": "text",
+     "content": "Seks korte oppgaver på det dette kapitlet hviler på. Ta dem før du går videre til [kap. 9.3](/tfy4115/tfy4115-9-3).\n\n**R1.** En svart flate på $0{,}250\\,\\text{m}^2$ har $400\\,\\text{K}$. Finn utstrålt effekt.\n\n*Svar:* $400^4 = 2{,}560\\cdot10^{10}$, så $P = 5{,}670\\cdot10^{-8} \\cdot 0{,}250 \\cdot 2{,}560\\cdot10^{10} = 362{,}9\\,\\text{W}$.\n\n**R2.** Samme flate i omgivelser på $300\\,\\text{K}$. Finn netto effekt.\n\n*Svar:* $300^4 = 8{,}100\\cdot10^{9}$, differansen $1{,}750\\cdot10^{10}$, så $P_\\text{netto} = 5{,}670\\cdot10^{-8} \\cdot 0{,}250 \\cdot 1{,}750\\cdot10^{10} = 248{,}1\\,\\text{W}$. Til sammenligning gir $(400-300)^4 = 10^8$ bare $1{,}418\\,\\text{W}$ — en faktor $175$ feil.\n\n**R3.** Hvor mange ganger mer stråler en flate ved $900\\,\\text{K}$ enn ved $300\\,\\text{K}$?\n\n*Svar:* $3^4 = 81$ ganger.\n\n**R4.** Finn $\\lambda_\\text{maks}$ for en flate på $500\\,\\text{K}$.\n\n*Svar:* $\\lambda = 2{,}898\\cdot10^{-3}/500 = 5{,}796\\cdot10^{-6}\\,\\text{m} = 5{,}80\\,\\mu\\text{m}$, altså infrarødt.\n\n**R5.** En tynn svart plate henger mellom flater på $400\\,\\text{K}$ og $200\\,\\text{K}$. Finn platens temperatur.\n\n*Svar:* $(400^4+200^4)/2 = (2{,}560\\cdot10^{10}+1{,}600\\cdot10^{9})/2 = 1{,}360\\cdot10^{10}$, og fjerderota gir $341{,}5\\,\\text{K}$. Kontroll: mellom $200$ og $400$ ✔, og over snittet $300\\,\\text{K}$ ✔.\n\n**R6.** Hvor stor blir nettofluksen mellom de to platene i R5 med og uten midtplaten?\n\n*Svar:* Uten: $\\sigma(400^4-200^4) = 5{,}670\\cdot10^{-8} \\cdot 2{,}400\\cdot10^{10} = 1361\\,\\text{W/m}^2$. Med: halvparten, $680{,}4\\,\\text{W/m}^2$. Kontroll: $\\sigma(400^4-341{,}5^4) = 680{,}4\\,\\text{W/m}^2$ ✔."
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}

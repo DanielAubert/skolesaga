@@ -1,0 +1,461 @@
+{
+  "id": "tfy4115-6-2",
+  "courseId": "tfy4115",
+  "chapterNumber": "6.2",
+  "title": "Ekvipartisjon, frihetsgrader og varmekapasitet ($C_V$, $C_P$, $\\gamma$)",
+  "description": "Ekvipartisjonsprinsippet, telling av kvadratiske frihetsgrader, $C_V=\\tfrac{f}{2}R$, $C_P=C_V+R$, $\\gamma=C_P/C_V$, og kvante-«innfrysing» av frihetsgrader.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "kunne telle antall kvadratiske frihetsgrader for et gassmolekyl ut fra om det er enatomig, lineært eller bøyd, og om vibrasjonen er aktiv",
+    "kunne regne indre energi og begge molare varmekapasiteter fra antall frihetsgrader, og forklare hvorfor $C_P$ er større enn $C_V$",
+    "kunne utlede at $C_P=C_V+R$ fra energiregnskapet ved konstant trykk, og bruke $\\gamma=(f+2)/f$",
+    "kunne gå baklengs fra en målt varmekapasitet eller et målt $\\gamma$ til antall frihetsgrader, og forklare hvorfor varmekapasiteten stiger i trinn med temperaturen"
+  ],
+  "content": [
+    {
+      "id": "tfy4115-6-2-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Sjanger T3 — ekvipartisjon og frihetsgrader** (bokas navn på oppgaveformen der\ndu skal telle hvor mange måter et molekyl kan lagre energi på, og derfra finne\nvarmekapasitetene $C_V$ og $C_P$ og forholdet $\\gamma$ mellom dem) forekommer i\n**om lag 9 av 10 sett (~90 %)**, i **termohalvdelen, spørsmål 21–40**. Prioritet:\n**høyeste — dette må sitte.**\n\nSjangeren opptrer i tre former, og alle tre er korte:\n\n1. **Framlengs:** gassen er oppgitt (enatomig, toatomig, lineær treatomig) → tell\n   frihetsgrader → regn $C_V$, $C_P$, $\\gamma$.\n2. **Baklengs:** $C_V$ eller $\\gamma$ er **målt** og oppgitt → finn antall\n   frihetsgrader → si hva slags molekyl det er.\n3. **Kvalitativt:** hva skjer med $C_V$ når temperaturen heves så\n   vibrasjonsbevegelsen «vekkes»?\n\n**Dette kapitlet er også en flaskehals for resten av boka.** Adiabatregningen i\n[kap. 7.1](/tfy4115/tfy4115-7-1), hele kretsprosessen i Del 8 og entropien i\n[kap. 7.2](/tfy4115/tfy4115-7-2) bruker $C_V$, $C_P$ og $\\gamma$ i hver eneste\nregnelinje. Har du feil $\\gamma$, velter alt som følger — og de to gale\nalternativene ligger alltid på lista, siden $\\tfrac53$ og $\\tfrac75$ er de to\nverdiene som forekommer oftest.\n\n**To feller å kjenne nå.** Felle #8 er å **forbytte $C_V$ og $C_P$**, eller bruke\n$\\gamma = \\tfrac53$ der $\\tfrac75$ hører. Felle #9 er **feil telling av\nfrihetsgrader** — særlig å glemme at hver vibrasjonsmode gir **to** bidrag, og at\nvibrasjon er «frosset ut» ved romtemperatur."
+    },
+    {
+      "id": "tfy4115-6-2-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet bygger direkte på [kap. 6.1](/tfy4115/tfy4115-6-1). Du trenger\nfire ting derfra, og de står her ferdig oppfrisket:\n\n$$pV = nRT, \\qquad R = 8{,}314\\ \\text{J/(mol}\\cdot\\text{K)},\n\\qquad k_B = \\frac{R}{N_A} = 1{,}381\\cdot10^{-23}\\ \\text{J/K}$$\nGassloven og de to konstantene. Regelen for hvilken du bruker: **per mol → $R$,\nper molekyl → $k_B$.** Dette kapitlet arbeider nesten utelukkende **per mol**.\n\n$$\\langle E_k\\rangle = \\tfrac32k_BT$$\nMidlere kinetisk energi per molekyl, fra kinetisk gassteori. Legg merke til\nstrukturen i tallet: **tre** romretninger, og **$\\tfrac12k_BT$ på hver**. Det er\nnettopp dette mønsteret som generaliseres i dette kapitlet.\n\n$$U = \\tfrac32nRT \\quad (\\text{enatomig ideell gass})$$\nIndre energi. Her skal $\\tfrac32$ erstattes av $\\tfrac{f}{2}$, der $f$ er antall\nfrihetsgrader — og det er hele kapitlet i én setning.\n\n**Fra videregående:** begrepet varmekapasitet («hvor mye energi trengs for å\nvarme noe én grad») kan du ha møtt i Fysikk 1 eller Kjemi 1. Vi bygger det opp\nfra grunnen her, men i gassform, der det finnes **to** varmekapasiteter og ikke\nén.\n\n**⚠ Symbolvarsel — $\\gamma$ skifter betydning i dette kapitlet.** I\n[kap. 5.2](/tfy4115/tfy4115-5-2) var $\\gamma = b/2m$ **dempingskoeffisienten**,\nmed enheten $\\text{s}^{-1}$ og typiske verdier 0,1–1. Fra nå av er\n$\\gamma = C_P/C_V$ **adiabateksponenten**: helt **dimensjonsløs**, og alltid\nmellom 1 og $\\tfrac53$. Kjennetegnet som skiller dem hver gang: **har størrelsen enhet, er\ndet dempingskoeffisienten.** De to opptrer aldri i samme oppgave.\n\nOg som i [kap. 6.1](/tfy4115/tfy4115-6-1): $T$ er **temperatur i kelvin** (ikke\nperiode), $p$ er **trykk** (ikke bevegelsesmengde), og $R$ er **gasskonstanten**\n(ikke radius)."
+    },
+    {
+      "id": "tfy4115-6-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — ekvipartisjonsprinsippet og hva en frihetsgrad er (~14 min)\n\nSett to like store gassflasker på samme kokeplate, den ene med helium og den\nandre med karbondioksid. Begge inneholder like mange mol. Etter fem minutter er\nheliumflasken **varmere**. Hvorfor?\n\nFordi molekylene i de to gassene har ulikt mange **steder å legge energien**.\nHeliumatomet kan bare fly gjennom rommet — energien du tilfører, går rett til\ntranslasjon, og temperaturen stiger raskt. Karbondioksidmolekylet kan i tillegg\n**rotere**, og noe av energien går dit. Den energien merkes ikke på termometeret,\nfor temperaturen måler bare translasjonsbevegelsen. Du må derfor tilføre mer\nenergi for å heve temperaturen like mye.\n\nDet er hele kapitlet i én observasjon. Nå skal vi gjøre den presis, og det krever\nett nytt begrep."
+    },
+    {
+      "id": "tfy4115-6-2-def-frihetsgrad",
+      "type": "definition",
+      "title": "Frihetsgrad",
+      "content": "En uavhengig måte et molekyl kan lagre energi på. Tenk på det som en «lomme» for\nenergi: hver lomme fylles i gjennomsnitt like mye.\n\nEt enkelt atom har **tre** lommer — bevegelse langs $x$, $y$ og $z$. Et molekyl\nmed to eller flere atomer har i tillegg lommer for **rotasjon** om ulike akser,\nog for **vibrasjon** i bindingene mellom atomene.\n\nAntall frihetsgrader kalles $f$, og det er det ene tallet du trenger for å regne\nut indre energi, begge varmekapasiteter og $\\gamma$ for gassen. Derfor er\ntellingen av $f$ selve ferdigheten i dette kapitlet — og den vanligste feilkilden\n(felle #9 — feil telling av frihetsgrader)."
+    },
+    {
+      "id": "tfy4115-6-2-thm-ekvipartisjon",
+      "type": "theorem",
+      "title": "Ekvipartisjonsprinsippet",
+      "content": "I en gass i termisk likevekt bærer **hver kvadratiske frihetsgrad** i gjennomsnitt\nenergien\n$$\\tfrac12 k_BT \\ \\text{per molekyl}, \\qquad \\text{altså} \\qquad\n\\tfrac12 RT \\ \\text{per mol}.$$\nPrinsippet **står på det utdelte arket** i formen «$\\tfrac12k_BT$ per\nfrihetsgrad».\n\nNavnet betyr «likedeling»: energien fordeler seg jevnt utover alle tilgjengelige\nlommer. Vi har alt sett spesialtilfellet i\n[kap. 6.1](/tfy4115/tfy4115-6-1) — der fant vi\n$\\langle E_k\\rangle = \\tfrac32k_BT$ for et atom, og det er nettopp\n$3 \\times \\tfrac12k_BT$: tre romretninger, halve $k_BT$ på hver.\n\n*Intuisjon:* molekylene kolliderer milliarder av ganger i sekundet, og hver\nkollisjon flytter litt energi mellom bevegelsesformene. Etter kort tid er\nenergien statistisk jevnt fordelt — akkurat som varme fordeler seg jevnt i en\nmetallstang. Ingen lomme er «favorisert»."
+    },
+    {
+      "id": "tfy4115-6-2-def-kvadratisk",
+      "type": "definition",
+      "title": "Kvadratisk frihetsgrad — og hvorfor ordet står der",
+      "content": "En frihetsgrad er **kvadratisk** når energien i den er proporsjonal med\nkvadratet av en koordinat eller en fart. De tre typene:\n\n- **translasjon:** $\\tfrac12mv_x^2$ — kvadratisk i farten,\n- **rotasjon:** $\\tfrac12I\\omega^2$ — kvadratisk i vinkelfarten,\n- **vibrasjon:** $\\tfrac12mv^2$ **og** $\\tfrac12kx^2$ — kvadratisk i **både**\n  fart og utslag.\n\nOrdet «kvadratisk» er ikke pynt: det er nettopp de kvadratiske leddene som får\n$\\tfrac12k_BT$ hver, og det er grunnen til at **én vibrasjonsmode gir to\nfrihetsgrader**. En vibrerende binding er en harmonisk oscillator (som i\n[kap. 5.1](/tfy4115/tfy4115-5-1)), og den lagrer energi i to former samtidig:\nkinetisk i bevegelsen og potensiell i «fjæra». Begge er kvadratiske, og begge\nteller.\n\n**Dette er felle #9 i en setning.** Studenten som teller «én vibrasjon = én\nfrihetsgrad», får $f$ for lav og dermed feil $C_V$ og feil $\\gamma$."
+    },
+    {
+      "id": "tfy4115-6-2-telling",
+      "type": "text",
+      "content": "### Tellingen, i den rekkefølgen du skal gjøre den\n\n**1. Translasjon: alltid 3.** Enhver gasspartikkel kan bevege seg i tre\nuavhengige retninger. Dette leddet er aldri frosset ut ved temperaturer der\nstoffet er en gass.\n\n**2. Rotasjon: 2 eller 3.**\n\n- **Enatomig** gass (He, Ne, Ar): **0**. Et punktformig atom har ikke noe\n  meningsfullt treghetsmoment å rotere med.\n- **Lineært molekyl** (H₂, N₂, O₂, CO, og også CO₂, som er rett): **2**.\n  Molekylet kan rotere om to akser på tvers av bindingsaksen — men rotasjon\n  **om** bindingsaksen teller ikke, for treghetsmomentet om den aksen er\n  forsvinnende lite.\n- **Ikke-lineært molekyl** (H₂O, CH₄, NH₃): **3**. Alle tre akser har et reelt\n  treghetsmoment.\n\n*Intuisjon for hvorfor den tredje aksen faller ut for et lineært molekyl:*\ntreghetsmomentet er $\\sum m_ir_i^2$, som du kjenner fra\n[kap. 4.1](/tfy4115/tfy4115-4-1). Ligger alle atomkjernene **på** aksen, er alle\n$r_i$ praktisk talt null, og aksen «finnes ikke» som rotasjonsakse.\n\n**3. Vibrasjon: 2 per mode — men vanligvis frosset ut.** Hver\nvibrasjonsbevegelse i molekylet gir **to** kvadratiske frihetsgrader (kinetisk\npluss potensiell). **Ved romtemperatur er vibrasjon nesten alltid inaktiv**, og\nskal ikke telles med med mindre oppgaven sier at temperaturen er høy nok. Vi\nkommer tilbake til hvorfor i løkke 3.\n\n**Oppsummeringen du skal ha i fingrene:**\n\n| Molekyltype | Translasjon | Rotasjon | Vibrasjon (romtemp.) | $f$ |\n|---|---|---|---|---|\n| enatomig (He, Ar) | 3 | 0 | 0 | **3** |\n| toatomig / lineært (N₂, O₂, CO₂) | 3 | 2 | 0 | **5** |\n| ikke-lineært (H₂O, CH₄) | 3 | 3 | 0 | **6** |\n| toatomig ved høy temperatur | 3 | 2 | 2 | **7** |\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "tfy4115-6-2-def-telling",
+      "type": "definition",
+      "title": "Frihetsgradtelling — oppskriften",
+      "content": "Fire spørsmål, i denne rekkefølgen, og du er ferdig på tjue sekunder:\n\n1. **Er gassen enatomig?** Da er $f = 3$, og du er ferdig.\n2. **Er molekylet lineært?** (Alle toatomige er det, og CO₂ er det.) Legg til 2\n   for rotasjon: $f = 5$.\n3. **Er det ikke-lineært?** (H₂O, CH₄, NH₃.) Legg til 3: $f = 6$.\n4. **Sier oppgaven at temperaturen er så høy at vibrasjon er aktiv?** Legg til 2\n   **per mode**. For et toatomig molekyl er det én mode, altså $f = 7$.\n\nMerk hva som **ikke** står i lista: antall atomer i molekylet er ikke i seg selv\nsvaret. CO₂ har tre atomer men $f = 5$ som en toatomig gass, fordi det er\n**rett**. H₂O har også tre atomer, men $f = 6$, fordi det er **bøyd**. Formen\navgjør, ikke antallet."
+    },
+    {
+      "id": "tfy4115-6-2-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: tell frihetsgradene",
+      "problem": "Finn antall frihetsgrader ved romtemperatur for hver av disse gassene, og\nbegrunn hvert svar med ett ord:\n\n**a)** argon (Ar)\n\n**b)** oksygengass (O₂)\n\n**c)** karbondioksid (CO₂)\n\n**d)** vanndamp (H₂O)\n\n**e)** oksygengass ved $3000\\,\\text{K}$, der vibrasjonsmoden er aktiv",
+      "solution": "**a) $f = 3$** — enatomig. Bare translasjon; et enkelt atom har ikke noe\ntreghetsmoment å tale om.\n\n**b) $f = 5$** — toatomig, altså lineært. Tre translasjoner pluss to rotasjoner\n(om de to aksene på tvers av bindingen). Vibrasjonen er frosset ut ved\nromtemperatur.\n\n**c) $f = 5$** — lineært. Dette er det svaret som overrasker: CO₂ har **tre**\natomer, men de ligger på en rett linje (O=C=O), så rotasjonsbildet er det samme\nsom for et toatomig molekyl. Antall atomer er ikke svaret; **formen** er.\n\n**d) $f = 6$** — ikke-lineært. Vannmolekylet er bøyd, med en vinkel på om lag\n$104^\\circ$ mellom bindingene, så alle tre rotasjonsakser har et reelt\ntreghetsmoment. Tre translasjoner pluss tre rotasjoner.\n\n**e) $f = 7$** — toatomig med aktiv vibrasjon. Tre translasjoner, to rotasjoner\nog **to** for vibrasjonen: én for den kinetiske energien i svingningen og én for\nden potensielle i bindingen.\n\n**Kontrollen som avslører feiltellingen din:** regn $\\gamma = (f+2)/f$ for hvert\nsvar og se om tallet er kjent. Du skal få\n$\\gamma = 1{,}667$, $1{,}400$, $1{,}400$, $1{,}333$ og $1{,}286$ for de fem. De to\nførste er de klassiske $\\tfrac53$ og $\\tfrac75$; får du noe helt annet, har du\nsannsynligvis telt feil."
+    },
+    {
+      "id": "tfy4115-6-2-o-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-6-2-o-1-e",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — ren telling, ingen regning.) Oppgi antall frihetsgrader ved\nromtemperatur, og si i hvert tilfelle hvor mange som kommer fra translasjon og\nhvor mange fra rotasjon.\n\n**a)** helium (He)\n\n**b)** nitrogengass (N₂)\n\n**c)** metan (CH₄, som er en tetraeder og altså ikke-lineært)\n\n**d)** karbonmonoksid (CO)",
+        "solution": "**a)** $f = 3$: tre translasjoner, ingen rotasjon. Enatomig.\n\n**b)** $f = 5$: tre translasjoner, to rotasjoner. Lineært (toatomig), og\nvibrasjonen er frosset ut ved romtemperatur.\n\n**c)** $f = 6$: tre translasjoner, tre rotasjoner. Ikke-lineært, så alle tre\nakser teller.\n\n**d)** $f = 5$: tre translasjoner, to rotasjoner. Toatomig, altså lineært —\nakkurat som N₂, selv om atomene er ulike. **Det er formen som bestemmer, ikke\nhvilke atomer det er.**\n\nMerk at ingen av svarene inneholder vibrasjon. Ved romtemperatur er\nvibrasjonsmodene «frosset ut» i alle disse gassene, og det er derfor\noppgaveteksten sier «ved romtemperatur». Sier en oppgave i stedet at temperaturen\ner noen tusen kelvin, må du legge til 2 per mode.",
+        "hints": [
+          "Start alltid med 3 for translasjon.",
+          "Er molekylet rett eller bøyd? Det avgjør om rotasjon gir 2 eller 3.",
+          "Vibrasjon telles bare når oppgaven sier at temperaturen er høy nok."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-6-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — fra frihetsgrader til $U$, $C_V$, $C_P$ og $\\gamma$ (~16 min)\n\nNå har vi tallet $f$. Fra det følger alt annet i tre skritt, og hvert skritt er\nén linje."
+    },
+    {
+      "id": "tfy4115-6-2-def-U",
+      "type": "definition",
+      "title": "Indre energi som funksjon av frihetsgrader",
+      "content": "Hver av de $f$ frihetsgradene bærer $\\tfrac12RT$ per mol, så\n$$U = \\frac{f}{2}nRT.$$\n\nTre konsekvenser som avgjør oppgaver:\n\n- **$U$ avhenger bare av temperaturen** (og av $n$ og $f$) — ikke av trykk eller\n  volum. Det gjaldt også i [kap. 6.1](/tfy4115/tfy4115-6-1); nå ser du hvorfor:\n  energien sitter i molekylenes egen bevegelse, ikke i hvor tett de står.\n- **Endringen** er derfor alltid\n  $$\\Delta U = \\frac{f}{2}nR\\,\\Delta T = nC_V\\,\\Delta T,$$\n  **uansett hvilken prosess** gassen gikk gjennom. Dette er kanskje den mest\n  brukte enkeltrelasjonen i hele Del 7 og Del 8.\n- For enatomig gass ($f=3$) blir $U = \\tfrac32nRT$, for toatomig ved\n  romtemperatur ($f=5$) blir $U = \\tfrac52nRT$. Bruker du $\\tfrac32$ på en\n  toatomig gass, blir svaret 40 prosent for lavt."
+    },
+    {
+      "id": "tfy4115-6-2-def-varmekapasitet",
+      "type": "definition",
+      "title": "Varmekapasitet — og hvorfor gasser har to",
+      "content": "Varmekapasitet er energien som må tilføres for å heve temperaturen med én kelvin.\n**Molar** varmekapasitet er per mol (enhet $\\text{J/(mol}\\cdot\\text{K)}$),\n**spesifikk** varmekapasitet er per kilogram (enhet\n$\\text{J/(kg}\\cdot\\text{K)}$).\n\nFor en gass er ikke tallet entydig, og det er hele poenget: **det avhenger av om\ngassen får utvide seg eller ikke.**\n\n- Holder du **volumet** fast, går all tilført varme til indre energi.\n- Holder du **trykket** fast, må gassen utvide seg mens den varmes, og da bruker\n  den en del av varmen på å gjøre arbeid mot omgivelsene. Da trengs det **mer**\n  varme for samme temperaturøkning.\n\nDerfor er $C_P > C_V$ alltid, for enhver gass. En fast metallblokk har praktisk\ntalt ingen slik forskjell, fordi den nesten ikke utvider seg — det er derfor du\nbare hørte om **én** varmekapasitet på videregående."
+    },
+    {
+      "id": "tfy4115-6-2-thm-CV",
+      "type": "theorem",
+      "title": "Molar varmekapasitet ved konstant volum",
+      "content": "Ved fast volum kan gassen ikke gjøre arbeid, så all tilført varme går til indre\nenergi:\n$$Q = \\Delta U = nC_V\\,\\Delta T \\quad\\Longrightarrow\\quad\n\\boxed{\\,C_V = \\frac{f}{2}R\\,}$$\nVerdiene for en- og toatomig gass **står på det utdelte arket**; den generelle\nformen $\\tfrac{f}{2}R$ **må du kunne bruke aktivt**, for du må selv finne $f$.\n\nTallene, med $R = 8{,}314\\ \\text{J/(mol}\\cdot\\text{K)}$:\n\n| $f$ | $C_V$ | tallverdi |\n|---|---|---|\n| 3 | $\\tfrac32R$ | $12{,}47\\ \\text{J/(mol}\\cdot\\text{K)}$ |\n| 5 | $\\tfrac52R$ | $20{,}79\\ \\text{J/(mol}\\cdot\\text{K)}$ |\n| 6 | $3R$ | $24{,}94\\ \\text{J/(mol}\\cdot\\text{K)}$ |\n| 7 | $\\tfrac72R$ | $29{,}10\\ \\text{J/(mol}\\cdot\\text{K)}$ |\n\nLegg tallene på minnet som **størrelsesordener**, ikke som pugg: en molar\nvarmekapasitet i et flervalgsalternativ som ligger på $12$, $21$, $25$ eller\n$29\\ \\text{J/(mol}\\cdot\\text{K)}$ er kandidat; ligger den på $8$ eller $50$, er\nden det ikke."
+    },
+    {
+      "id": "tfy4115-6-2-utledning-CP",
+      "type": "text",
+      "content": "### Utledningen som kreves aktivt: $C_P = C_V + R$\n\nTil dette trenger vi ett energiregnskap, som får sin fulle behandling i\n[kap. 7.1](/tfy4115/tfy4115-7-1). Innholdet er enkelt og allerede kjent fra\nmekanikken: **tilført varme går til to ting** — å øke gassens indre energi, og å\nutføre arbeid mot omgivelsene når gassen utvider seg. Skrevet med den\nfortegnskonvensjonen denne boka bruker hele veien:\n$$\\Delta U = Q - W, \\qquad\nW = \\text{arbeidet gassen gjør } \\textbf{PÅ } \\text{omgivelsene}.$$\nUtvider gassen seg, er $W$ positiv; komprimeres den, er $W$ negativ.\n\nNå fører vi den samme gassen fra $T$ til $T + \\Delta T$ på to måter.\n\n**Fast volum.** Gassen kan ikke utvide seg, så $W = 0$ og\n$$Q_V = \\Delta U = nC_V\\,\\Delta T.$$\n\n**Fast trykk.** Nå utvider gassen seg. Arbeidet er kraft ganger vei, altså trykk\nganger volumendring:\n$$W = p\\,\\Delta V.$$\nMen fra gassloven ved fast trykk er $p\\,\\Delta V = nR\\,\\Delta T$. Og $\\Delta U$\ner den **samme** som før, fordi indre energi bare avhenger av temperaturen:\n$$Q_p = \\Delta U + W = nC_V\\,\\Delta T + nR\\,\\Delta T = n(C_V + R)\\Delta T.$$\n\nDefinisjonen av $C_P$ er $Q_p = nC_P\\,\\Delta T$, og dermed\n$$\\boxed{\\,C_P = C_V + R\\,}$$\n\n*Intuisjon:* forskjellen mellom de to varmekapasitetene er **nøyaktig arbeidet\ngassen gjør når den får utvide seg** — hverken mer eller mindre. Og for én mol og\nén kelvin er det arbeidet $R$. Det er den fysiske betydningen av gasskonstanten:\n**$R$ er utvidelsesarbeidet per mol per kelvin ved konstant trykk.**\n\nLegg merke til hvor lite som trengs: gassloven, energiregnskapet og at $U$ bare\navhenger av $T$. Denne utledningen **må du kunne gjøre aktivt** — den er kort nok\ntil å skrives på tre linjer under tidspress, og den forklarer hvorfor\n$\\gamma$-formelen ser ut som den gjør."
+    },
+    {
+      "id": "tfy4115-6-2-thm-gamma",
+      "type": "theorem",
+      "title": "Adiabateksponenten $\\gamma = (f+2)/f$",
+      "content": "Sett $C_V = \\tfrac{f}{2}R$ og $C_P = C_V + R = \\tfrac{f+2}{2}R$ inn i forholdet:\n$$\\gamma = \\frac{C_P}{C_V} = \\frac{\\tfrac{f+2}{2}R}{\\tfrac{f}{2}R}\n= \\frac{f+2}{f} = 1 + \\frac{2}{f}.$$\nBåde $\\gamma = C_P/C_V$ og verdiene for en- og toatomig gass **står på arket**;\nformen $(f+2)/f$ **må kunne brukes aktivt**.\n\nDe fire verdiene du møter, i tabellform:\n\n| $f$ | $C_V$ | $C_P$ | $\\gamma$ | brøk | typisk gass |\n|---|---|---|---|---|---|\n| 3 | $12{,}47$ | $20{,}79$ | $1{,}667$ | $\\tfrac53$ | He, Ar, Ne |\n| 5 | $20{,}79$ | $29{,}10$ | $1{,}400$ | $\\tfrac75$ | N₂, O₂, CO₂, luft |\n| 6 | $24{,}94$ | $33{,}26$ | $1{,}333$ | $\\tfrac43$ | H₂O-damp, CH₄ |\n| 7 | $29{,}10$ | $37{,}41$ | $1{,}286$ | $\\tfrac97$ | N₂ ved høy temperatur |\n\n(Varmekapasitetene i $\\text{J/(mol}\\cdot\\text{K)}$.)\n\n**To ting å merke seg, og de er begge sjekker du kan bruke:**\n\n1. **$\\gamma$ er alltid større enn 1**, siden $C_P > C_V$. Et alternativ med\n   $\\gamma < 1$ er utelukket uten regning.\n2. **$\\gamma$ **faller** når $f$ vokser**, og nærmer seg 1 for store $f$. Flere\n   frihetsgrader betyr at utvidelsesarbeidet $R$ blir en mindre del av\n   totalregnskapet. Den **største** mulige verdien er derfor\n   $\\gamma = \\tfrac53 \\approx 1{,}67$ for en enatomig gass."
+    },
+    {
+      "id": "tfy4115-6-2-def-gamma",
+      "type": "definition",
+      "title": "Adiabateksponenten $\\gamma$",
+      "content": "Forholdet mellom de to molare varmekapasitetene:\n$$\\gamma = \\frac{C_P}{C_V} = \\frac{f+2}{f} = 1 + \\frac{2}{f}.$$\nStørrelsen er **dimensjonsløs** og ligger alltid mellom 1 og $\\tfrac53$.\n\nNavnet kommer av at $\\gamma$ er eksponenten i adiabatrelasjonen\n$pV^\\gamma = \\text{konstant}$, som du møter i\n[kap. 7.1](/tfy4115/tfy4115-7-1) — en prosess der gassen ikke utveksler varme med\nomgivelsene. Den samme eksponenten styrer hele kretsprosessregningen i Del 8.\n\n⚠ **Symbolkollisjon, gjentatt fordi den er bokas farligste:** i\n[kap. 5.2](/tfy4115/tfy4115-5-2) er $\\gamma = b/2m$ **dempingskoeffisienten**, med\nenheten $\\text{s}^{-1}$. Begge står i eksponenter — $e^{-\\gamma t}$ der,\n$pV^\\gamma$ her — og det er nettopp derfor kollisjonen er farlig. **Enheten\navgjør: har $\\gamma$ enhet, er det demping.** Har den ingen, og ligger mellom 1\nog 1,67, er det adiabateksponenten."
+    },
+    {
+      "id": "tfy4115-6-2-def-CV-CP",
+      "type": "definition",
+      "title": "$C_V$ eller $C_P$ — hvilken hører hvor",
+      "content": "De to molare varmekapasitetene brukes ikke om hverandre, og valget følger av\nprosessen:\n\n$$Q = nC_V\\Delta T \\quad (\\text{fast volum}), \\qquad\nQ = nC_P\\Delta T \\quad (\\text{fast trykk}),$$\n$$\\Delta U = nC_V\\Delta T \\quad (\\textbf{alltid, uansett prosess}).$$\n\nDen siste linja er det viktigste å ta med seg, og den overraskende: **indre\nenergi regnes ALLTID med $C_V$**, også i en isobar prosess, også i en adiabat,\nogså langs en kretsprosess. Grunnen er at $U$ er en tilstandsfunksjon som bare\navhenger av $T$ — den «vet» ikke hvilken prosess du valgte.\n\n$C_P$ hører bare der du regner **varme ved konstant trykk**. Å bruke $C_P$ i et\n$\\Delta U$-regnestykke er felle #8 i sin reneste form, og forskjellen er\n$nR\\Delta T$ — nøyaktig arbeidet du feilaktig har tatt med."
+    },
+    {
+      "id": "tfy4115-6-2-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: to varmekapasiteter på samme gass",
+      "problem": "En beholder inneholder $2{,}50\\,\\text{mol}$ nitrogengass ved\n$310\\,\\text{K}$. Regn med romtemperaturoppførsel.\n\n**a)** Finn $f$, $C_V$, $C_P$ og $\\gamma$.\n\n**b)** Finn den indre energien.\n\n**c)** Gassen varmes $60\\,\\text{K}$ ved **fast volum**. Hvor mye varme\ntrengs, og hvor mye øker den indre energien?\n\n**d)** Samme oppvarming, men nå ved **fast trykk**. Hvor mye varme trengs? Hva\ner differansen mot c), og hva er den fysisk?",
+      "solution": "**a)** Nitrogen er toatomig, altså lineært: tre translasjoner pluss to\nrotasjoner, vibrasjonen frosset ut. **$f = 5$.**\n$$C_V = \\tfrac52R = 20{,}785\\ \\text{J/(mol}\\cdot\\text{K)}, \\qquad\nC_P = C_V + R = 29{,}099\\ \\text{J/(mol}\\cdot\\text{K)},$$\n$$\\gamma = \\frac{29{,}099}{20{,}785} = 1{,}4000 = \\tfrac75. \\ \\checkmark$$\n\n**b)**\n$$U = \\frac{f}{2}nRT = \\tfrac52 \\cdot 2{,}50 \\cdot 8{,}314 \\cdot 310\\,\\text{J}\n= 16108{,}4\\,\\text{J} \\approx 16{,}1\\,\\text{kJ}.$$\n**Kontroll med den andre veien:**\n$$U = nC_VT = 2{,}50 \\cdot 20{,}785 \\cdot 310\\,\\text{J} = 16108{,}4\\,\\text{J} \\ \\checkmark$$\nSamme tall, som det må være siden $C_V = \\tfrac{f}{2}R$.\n\nHadde du brukt $\\tfrac32$ (enatomig), ville du fått $9665{,}03\\,\\text{J}$, altså\n40 prosent for lite. Det er felle #9 i tall.\n\n**c)** Fast volum betyr $W = 0$:\n$$Q_V = nC_V\\Delta T = 2{,}50 \\cdot 20{,}785 \\cdot 60\\,\\text{J} = 3117{,}75\\,\\text{J},$$\nog hele denne varmen går til indre energi:\n$$\\Delta U = 3117{,}75\\,\\text{J}.$$\n\n**d)** Fast trykk:\n$$Q_p = nC_P\\Delta T = 2{,}50 \\cdot 29{,}099 \\cdot 60\\,\\text{J} = 4364{,}85\\,\\text{J}.$$\nDifferansen er\n$$Q_p - Q_V = 4364{,}85 - 3117{,}75 = 1247{,}10\\,\\text{J},$$\nog den skal være **nøyaktig** $nR\\Delta T$:\n$$nR\\Delta T = 2{,}50 \\cdot 8{,}314 \\cdot 60\\,\\text{J} = 1247{,}10\\,\\text{J}\n\\ \\checkmark$$\n\n**Hva differansen er fysisk:** det er **arbeidet gassen gjør på omgivelsene** når\nden får utvide seg mens den varmes. Legg merke til at $\\Delta U$ er den **samme**\ni c) og d) — $3117{,}75\\,\\text{J}$ i begge tilfeller — fordi temperaturøkningen er\nden samme og indre energi bare avhenger av temperaturen. Det er varmen som er\nulik, ikke energiendringen.\n\n**Benevningskontroll:**\n$$\\text{mol} \\cdot \\text{J/(mol}\\cdot\\text{K)} \\cdot \\text{K} = \\text{J} \\ \\checkmark$$"
+    },
+    {
+      "id": "tfy4115-6-2-o-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-6-2-o-2-e",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger T3 — ekvipartisjon og frihetsgrader.) Regn ut $C_V$, $C_P$ og $\\gamma$\nmed tallverdier for\n\n**a)** en enatomig ideell gass,\n\n**b)** en toatomig ideell gass ved romtemperatur.\n\n**c)** Hvor mange prosent større er $C_P$ enn $C_V$ i hvert av de to tilfellene,\nog hvorfor er prosenten ulik når differansen er den samme?",
+        "solution": "**a)** $f = 3$:\n$$C_V = \\tfrac32R = 12{,}471, \\qquad C_P = C_V + R = 20{,}785, \\qquad\n\\gamma = 1{,}6667 = \\tfrac53.$$\n\n**b)** $f = 5$:\n$$C_V = \\tfrac52R = 20{,}785, \\qquad C_P = 29{,}099, \\qquad \\gamma = 1{,}4000 = \\tfrac75.$$\n(Alle varmekapasiteter i $\\text{J/(mol}\\cdot\\text{K)}$.)\n\n**c)** Differansen er $R = 8{,}314$ i **begge** tilfeller — det er nettopp\ninnholdet i $C_P = C_V + R$. Men prosenten er ulik, fordi den måles mot ulike\nutgangspunkt:\n$$\\text{enatomig: } \\frac{R}{\\tfrac32R} = \\frac{2}{3}, \\qquad\n\\text{toatomig: } \\frac{R}{\\tfrac52R} = \\frac{2}{5},$$\naltså $66{,}67$ prosent og $40{,}0$ prosent.\nOg disse tallene er nettopp $\\gamma - 1 = 2/f$. **Det er en nyttig omskrivning:**\n$\\gamma - 1 = 2/f$, så $\\gamma$ ligger nærmere 1 jo flere frihetsgrader gassen\nhar. Utvidelsesarbeidet er det samme, men det utgjør en mindre del av et større\nregnskap.",
+        "hints": [
+          "$C_V=\\tfrac{f}{2}R$ — begynn med å bestemme $f$.",
+          "$C_P$ er alltid $C_V$ pluss gasskonstanten.",
+          "I c): hva er $\\gamma-1$ uttrykt ved $f$?"
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-6-2-o-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-6-2-o-3-e",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger T3.) $4{,}00\\,\\text{mol}$ argon (enatomig) varmes fra\n$295\\,\\text{K}$ til $365\\,\\text{K}$.\n\n**a)** Finn den indre energien før og etter.\n\n**b)** Finn $\\Delta U$, og kontroller svaret med $\\Delta U = nC_V\\Delta T$.\n\n**c)** Hvor mye varme trengs hvis oppvarmingen skjer ved fast volum? Og ved fast\ntrykk?",
+        "solution": "**a)** Argon er enatomig, $f = 3$:\n$$U_1 = \\tfrac32nRT_1 = 1{,}5 \\cdot 4{,}00 \\cdot 8{,}314 \\cdot 295\\,\\text{J}\n= 14715{,}8\\,\\text{J},$$\n$$U_2 = 1{,}5 \\cdot 4{,}00 \\cdot 8{,}314 \\cdot 365\\,\\text{J} = 18207{,}7\\,\\text{J}.$$\n\n**b)**\n$$\\Delta U = 18207{,}7 - 14715{,}8 = 3491{,}9\\,\\text{J}.$$\nKontroll:\n$$\\Delta U = nC_V\\Delta T = 4{,}00 \\cdot 12{,}471 \\cdot 70{,}0\\,\\text{J} = 3491{,}9\\,\\text{J} \\ \\checkmark$$\nSamme tall, som det skal være.\n\n**c)** Fast volum: $Q_V = \\Delta U = 3491{,}9\\,\\text{J}$ (alt går til indre\nenergi). Fast trykk:\n$$Q_p = nC_P\\Delta T = 4{,}00 \\cdot 20{,}785 \\cdot 70{,}0\\,\\text{J} = 5819{,}80\\,\\text{J},$$\naltså $2327{,}9\\,\\text{J}$ mer — som er nettopp $nR\\Delta T$, arbeidet gassen\ngjør når den utvider seg.\n\n**Merk at $\\Delta U$ er det samme i begge tilfeller i c).** Det er den ene\nsetningen som gjør Del 7 og Del 8 håndterlige: indre energi regnes alltid med\n$C_V$, uansett hvordan gassen kom fra den ene temperaturen til den andre.",
+        "hints": [
+          "Enatomig gass har $f=3$, altså $U=\\tfrac32nRT$.",
+          "$\\Delta U$ kan regnes både som differansen mellom to $U$-verdier og direkte fra $nC_V\\Delta T$.",
+          "Ved fast volum gjør gassen ikke arbeid."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-6-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — baklengs, og hvorfor vibrasjon er «frosset ut» (~16 min)\n\nHalvparten av eksamensspørsmålene i denne sjangeren går **motsatt vei**: du får\nen **målt** $C_V$ eller en målt $\\gamma$, og skal finne ut hva slags molekyl\ngassen består av. Det er en to-linjers øvelse, men den krever at du kan snu\nformlene."
+    },
+    {
+      "id": "tfy4115-6-2-thm-baklengs",
+      "type": "theorem",
+      "title": "Baklengs: fra målt $C_V$ eller $\\gamma$ til $f$",
+      "content": "Snu de to relasjonene:\n$$C_V = \\frac{f}{2}R \\quad\\Longrightarrow\\quad \\boxed{\\,f = \\frac{2C_V}{R}\\,}$$\n$$\\gamma = 1 + \\frac{2}{f} \\quad\\Longrightarrow\\quad\n\\boxed{\\,f = \\frac{2}{\\gamma - 1}\\,}$$\nBegge **må kunne brukes aktivt** — de står ikke ferdig snudd på arket.\n\n**Slik bruker du dem under tidspress.** Svaret skal bli et **heltall** (3, 5, 6\neller 7). Får du $5{,}004$, er svaret 5, og desimalene er måleusikkerhet eller\navrunding i den oppgitte verdien. Får du derimot $4{,}2$, har du sannsynligvis\nregnet feil — eller gassen er ikke ideell.\n\n**Kontrollen som fanger regnefeil:** de fire mulige svarene svarer til\n$C_V/R = 1{,}5$, $2{,}5$, $3{,}0$ og $3{,}5$, altså $C_V \\approx 12{,}47$,\n$20{,}79$, $24{,}94$ og $29{,}10\\ \\text{J/(mol}\\cdot\\text{K)}$. Ligger den oppgitte\nverdien mellom to av dem, er det et fingerpek om at vibrasjonsmoder er **delvis**\naktive — se advarselen om reelle gasser lenger ned."
+    },
+    {
+      "id": "tfy4115-6-2-fig-cv",
+      "type": "image",
+      "src": "/images/textbook/tfy4115/tfy4115-6-2-cv-trappe.svg",
+      "alt": "Graf av molar varmekapasitet C_V for hydrogengass mot temperatur pa logaritmisk akse fra 20 til 20 000 kelvin. Kurven ligger flatt pa tre halve R ved lave temperaturer, stiger til fem halve R rundt hundre kelvin, ligger flatt gjennom romtemperatur, og stiger videre til sju halve R ved noen tusen kelvin. Romtemperatur er markert med et punkt pa det midtre plataet.",
+      "caption": "Trappekurven for hydrogengass. Ved svært lave temperaturer er bare translasjon aktiv ($f=3$), rundt hundre kelvin vekkes rotasjonen ($f=5$), og først ved noen tusen kelvin vekkes vibrasjonen ($f=7$). Romtemperatur ligger midt på det midtre platået — og det er derfor $\\gamma=\\tfrac75$ for luft."
+    },
+    {
+      "id": "tfy4115-6-2-def-innfrysing",
+      "type": "definition",
+      "title": "Kvante-innfrysing av frihetsgrader",
+      "content": "Grunnen til at trappekurven finnes: energien i rotasjon og vibrasjon er\n**kvantisert**, altså bare tilgjengelig i bestemte porsjoner. En frihetsgrad kan\nførst bære energi når den typiske termiske energiporsjonen $k_BT$ er stor nok til\nå løfte molekylet opp til neste tilgjengelige nivå.\n\n$$k_BT \\gtrsim \\Delta E_\\text{niva} \\quad\\Longrightarrow\\quad\n\\text{moden er aktiv og bidrar med sine } \\tfrac12k_BT\\text{-porsjoner}$$\n$$k_BT \\ll \\Delta E_\\text{niva} \\quad\\Longrightarrow\\quad\n\\text{moden er frosset ut og bidrar ikke}$$\n\n(Her betyr $\\gtrsim$ «er av samme størrelsesorden som eller større enn», og\n$\\Delta E_\\text{niva}$ avstanden mellom to nabo-energinivåer i moden.)\n\nRekkefølgen følger av at nivåavstandene er ulike: **rotasjon** har små\nnivåavstander og vekkes ved lave temperaturer (for hydrogen rundt hundre kelvin),\nmens **vibrasjon** har store nivåavstander og krever noen tusen kelvin. Derfor\nligger romtemperatur på det midtre platået for praktisk talt alle toatomige\ngasser, og derfor er $f = 5$ standardsvaret.\n\nDu skal **kjenne intuisjonen**, ikke regne på kvantenivåene. Det som kan spørres\nom, er retningen: **$C_V$ stiger med temperaturen, aldri motsatt**, og\ntrappetrinnene kommer i rekkefølgen translasjon → rotasjon → vibrasjon."
+    },
+    {
+      "id": "tfy4115-6-2-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: baklengs fra en måling (eksamensnivå)",
+      "problem": "En ukjent ideell gass har målt molar varmekapasitet\n$C_V = 20{,}8\\ \\text{J/(mol}\\cdot\\text{K)}$ ved romtemperatur.\n\n**a)** Hvor mange aktive frihetsgrader har molekylet, og hva slags molekyl er det\nsannsynligvis?\n\n**b)** Finn $C_P$ og $\\gamma$.\n\n**c)** Temperaturen heves til noen tusen kelvin, slik at vibrasjonsmoden vekkes.\nHva blir de nye verdiene for $C_V$, $C_P$ og $\\gamma$?\n\n**d)** En annen gass har målt $\\gamma = 1{,}29$. Hvor mange frihetsgrader har\nden?",
+      "solution": "**a) Symbolsk.** $f = 2C_V/R$.\n\n**Rask vei til tall.**\n$$f = \\frac{2 \\cdot 20{,}8}{8{,}314} = \\frac{41{,}6}{8{,}314} = 5{,}0036\n\\approx 5.$$\nFem frihetsgrader ved romtemperatur betyr tre translasjoner og to rotasjoner,\naltså et **lineært** molekyl — en toatomig gass som N₂ eller O₂, eller et rett\ntreatomig som CO₂. Desimalene er avrunding i den oppgitte verdien; svaret skal\nvære et heltall.\n\n**b)**\n$$C_P = C_V + R = 20{,}8 + 8{,}314 = 29{,}114\\ \\text{J/(mol}\\cdot\\text{K)},$$\n$$\\gamma = \\frac{29{,}114}{20{,}8} = 1{,}3997 \\approx \\tfrac75.$$\n**Kontroll fra $f$:** $\\gamma = (f+2)/f = 7/5 = 1{,}4000$ ✔ — de to veiene stemmer,\nog at de gjør det, bekrefter at tellingen i a) var riktig.\n\n**c)** Vibrasjonsmoden gir **to** frihetsgrader (kinetisk og potensiell), så\n$f$ går fra 5 til **7**:\n$$C_V = \\tfrac72R = 29{,}099, \\qquad C_P = 37{,}413, \\qquad\n\\gamma = \\tfrac97 = 1{,}2857.$$\nVarmekapasiteten stiger med 40 prosent, mens $\\gamma$ **faller** fra $1{,}4000$\ntil $1{,}2857$ — altså $8{,}16$ prosent lavere.\n\n*Hvorfor faller $\\gamma$ når varmekapasiteten stiger?* Fordi differansen\n$C_P - C_V = R$ er uendret, mens begge tallene blir større. Forholdet mellom to\ntall som vokser med samme differanse, nærmer seg 1.\n\n**d)** Snu $\\gamma$-formelen:\n$$f = \\frac{2}{\\gamma - 1} = \\frac{2}{1{,}29 - 1} = \\frac{2}{0{,}290} = 6{,}8966\n\\approx 7.$$\nSju frihetsgrader — altså en toatomig gass med aktiv vibrasjon, eller et større\nmolekyl. **Merk hvor følsom denne regningen er:** hadde du rundet $\\gamma$ til\n$1{,}3$, ville du fått $f = 6{,}67$, og til $1{,}28$ ville du fått $f = 7{,}14$.\nNevneren er en liten differanse mellom to tall nær hverandre, og der forsvinner\nsifrene fort. **Behold alle sifrene i $\\gamma$ helt fram til slutt** — dette er\net av stedene i boka der avrundingsdisiplinen faktisk avgjør svaret."
+    },
+    {
+      "id": "tfy4115-6-2-o-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-6-2-o-4-e",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger T3, baklengs.) En ideell gass har målt molar varmekapasitet\n$C_V = 29{,}1\\ \\text{J/(mol}\\cdot\\text{K)}$.\n\n**a)** Finn antall frihetsgrader.\n\n**b)** Finn $C_P$ og $\\gamma$.\n\n**c)** Hva slags gass kan dette være, og hva sier svaret om temperaturen?",
+        "solution": "**a)**\n$$f = \\frac{2C_V}{R} = \\frac{2 \\cdot 29{,}1}{8{,}314} = 7{,}0002 \\approx 7.$$\n\n**b)**\n$$C_P = 29{,}1 + 8{,}314 = 37{,}414\\ \\text{J/(mol}\\cdot\\text{K)}, \\qquad\n\\gamma = \\frac{37{,}414}{29{,}1} = 1{,}2857.$$\nKontroll: $(f+2)/f = 9/7 = 1{,}2857$ ✔\n\n**c)** Sju frihetsgrader passer med en **toatomig gass der vibrasjonsmoden er\naktiv**: tre translasjoner, to rotasjoner og to for vibrasjonen. Det betyr at\ntemperaturen må være **høy** — for de vanlige toatomige gassene noen tusen\nkelvin. Ved romtemperatur ville samme gass hatt $C_V = 20{,}785$ og\n$\\gamma = 1{,}4000$.\n\n(En alternativ tolkning er et større, ikke-lineært molekyl med én aktiv\nvibrasjonsmode. Oppgaven gir ikke nok informasjon til å skille de to, og et\nflervalgsalternativ vil normalt spørre om **antallet** frihetsgrader, ikke om\nmolekylets identitet.)",
+        "hints": [
+          "Snu $C_V=\\tfrac{f}{2}R$.",
+          "Svaret på $f$ skal være et heltall — 3, 5, 6 eller 7.",
+          "Hvilke bidrag må være aktive for å komme opp i sju?"
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-6-2-o-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-6-2-o-5-e",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger T3, baklengs fra $\\gamma$.) En gass har målt $\\gamma = 1{,}667$.\n\n**a)** Finn antall frihetsgrader.\n\n**b)** Finn $C_V$ og $C_P$.\n\n**c)** En medstudent runder $\\gamma$ til $1{,}7$ før hun regner. Hvor mye endrer\ndet svaret i a), og hva er lærdommen?",
+        "solution": "**a)**\n$$f = \\frac{2}{\\gamma - 1} = \\frac{2}{1{,}667 - 1} = \\frac{2}{0{,}667} = 2{,}9985\n\\approx 3.$$\nTre frihetsgrader — en **enatomig** gass, som helium eller argon.\n\n**b)**\n$$C_V = \\tfrac32R = 12{,}471\\ \\text{J/(mol}\\cdot\\text{K)}, \\qquad\nC_P = C_V + R = 20{,}785\\ \\text{J/(mol}\\cdot\\text{K)}.$$\nKontroll: $C_P/C_V = 1{,}6667$, som er $\\tfrac53$ ✔\n\n**c)** Med $\\gamma = 1{,}7$ blir\n$$f = \\frac{2}{0{,}7} = 2{,}857,$$\naltså nesten en halv frihetsgrad for lite. Det er ikke nok til å velge feil\nheltall her, men det viser hvor **følsom** nevneren er: du deler på en liten\ndifferanse, så en avrunding i tredje siffer i $\\gamma$ blir en avrunding i første\nsiffer i $f$.\n\n**Lærdommen:** når nevneren er en differanse mellom to tall som ligger nær\nhverandre, mister du gjeldende siffer. Behold derfor alle sifrene i $\\gamma$\ngjennom hele regningen, og rund først når svaret skal skrives ned. Dette er felle\n#16 (avrundingsfeil som lander på nabo-alternativet) i sin mest konkrete form.",
+        "hints": [
+          "Snu $\\gamma=1+2/f$.",
+          "Nevneren er $\\gamma-1$ — en liten differanse, så pass på sifrene.",
+          "Hvilken $f$-verdi gir eksakt $\\gamma=\\tfrac53$?"
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-6-2-o-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-6-2-o-6-e",
+        "number": 6,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger T3.) $1{,}80\\,\\text{mol}$ oksygengass varmes $45{,}0\\,\\text{K}$.\n\n**a)** Hvor mye varme trengs ved fast volum?\n\n**b)** Hvor mye trengs ved fast trykk?\n\n**c)** Vis at differansen er lik arbeidet gassen gjør i b), uten å regne\narbeidet fra $p\\,\\Delta V$.\n\n**d)** Hva er $\\Delta U$ i hvert av de to tilfellene?",
+        "solution": "**a)** Oksygengass er toatomig, $f = 5$, altså $C_V = 20{,}785$:\n$$Q_V = nC_V\\Delta T = 1{,}80 \\cdot 20{,}785 \\cdot 45{,}0\\,\\text{J} = 1683{,}59\\,\\text{J}.$$\n\n**b)** $C_P = 29{,}099$:\n$$Q_p = nC_P\\Delta T = 1{,}80 \\cdot 29{,}099 \\cdot 45{,}0\\,\\text{J} = 2357{,}02\\,\\text{J}.$$\n\n**c)**\n$$Q_p - Q_V = n(C_P - C_V)\\Delta T = nR\\Delta T\n= 1{,}80 \\cdot 8{,}314 \\cdot 45{,}0\\,\\text{J} = 673{,}43\\,\\text{J}.$$\nOg fra gassloven ved fast trykk er nettopp $p\\,\\Delta V = nR\\,\\Delta T$, som er\narbeidet. Poenget er at du **ikke trenger** trykket eller volumet i det hele tatt\n— $nR\\Delta T$ er arbeidet, uansett hvilket trykk gassen står ved. Det er den\nsnarveien som gjør sjangeren rask.\n\n**d)** $\\Delta U = nC_V\\Delta T = 1683{,}59\\,\\text{J}$ i **begge** tilfeller.\nTemperaturøkningen er den samme, og indre energi avhenger bare av temperaturen.\nDet er derfor $C_V$ står i $\\Delta U$-uttrykket selv i den isobare prosessen.",
+        "hints": [
+          "Hvor mange frihetsgrader har oksygengass ved vanlige temperaturer?",
+          "$C_P-C_V=R$ — hva blir da $Q_p-Q_V$?",
+          "Hvilken varmekapasitet står i $\\Delta U$, uansett prosess?"
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-6-2-rask-vei",
+      "type": "text",
+      "content": "## Rask vei til tall (MC-oppskrift)\n\n1. **Hvilken lov?** Hele kapitlet henger på ett tall: $f$. Er gassen oppgitt →\n   tell $f$ (3 enatomig, 5 lineært, 6 ikke-lineært, +2 per aktiv\n   vibrasjonsmode). Er $C_V$ oppgitt → $f = 2C_V/R$. Er $\\gamma$ oppgitt →\n   $f = 2/(\\gamma-1)$.\n2. **Hvilken ene regnelinje?** Skriv **$f$ ned som eget mellomresultat**, og les\n   resten rett av: $C_V = \\tfrac{f}{2}R$, $C_P = C_V + R$,\n   $\\gamma = (f+2)/f$, $U = \\tfrac{f}{2}nRT$, $\\Delta U = nC_V\\Delta T$. Fem\n   uttrykk, ett tall inn.\n3. **Hva hentes hvor?** $C_V$ og $C_P$ for en- og toatomig gass, $C_P = C_V + R$,\n   $\\gamma = C_P/C_V$ og «$\\tfrac12k_BT$ per frihetsgrad» **står på det utdelte\n   arket**. Det som **må kunne brukes eller utledes aktivt**, er (i) tellingen av\n   $f$ for et gitt molekyl, (ii) de snudde formene $f = 2C_V/R$ og\n   $f = 2/(\\gamma-1)$, og (iii) utledningen av $C_P = C_V + R$ fra\n   energiregnskapet. **Rottmann** trenger du ikke her.\n4. **Hvor mange siffer?** Fire gjennom kjeden. Med ett unntak som er verdt å\n   framheve: i $f = 2/(\\gamma-1)$ deler du på en **liten differanse**, og der\n   trenger du alle sifrene $\\gamma$ har. Rund aldri $\\gamma$ før du er ferdig.\n5. **Hva sjekker du før du krysser av?** (i) Er $f$ et **heltall** (3, 5, 6, 7)?\n   (ii) Er $C_P > C_V$, og er differansen nøyaktig $8{,}314$? (iii) Ligger\n   $\\gamma$ mellom 1 og $\\tfrac53$? (iv) Ba oppgaven om $\\Delta U$? Da er det\n   $C_V$ som gjelder, uansett prosess. (v) Ligger $C_V$-verdien i nærheten av\n   $12{,}47$, $20{,}79$, $24{,}94$ eller $29{,}10\\ \\text{J/(mol}\\cdot\\text{K)}$?"
+    },
+    {
+      "id": "tfy4115-6-2-o-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-6-2-o-7-e",
+        "number": 7,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger T3, flervalg i eksamensformat med seks alternativer A–F.) En ideell gass\nhar $C_V = 29{,}099\\ \\text{J/(mol}\\cdot\\text{K)}$. Hva er $\\gamma$ for gassen?\n\n**A** $1{,}667$ · **B** $0{,}7778$ · **C** $1{,}286$ · **D** $1{,}400$ ·\n**E** $1{,}800$ · **F** $0{,}7143$\n\nOppgi bare bokstavsvaret.",
+        "solution": "**Svar: C.**\n\n**Rask vei til tall.** $C_P = C_V + R = 29{,}099 + 8{,}314 = 37{,}413$, og\n$$\\gamma = \\frac{37{,}413}{29{,}099} = 1{,}2857.$$\nKontroll via frihetsgrader: $f = 2C_V/R = 7{,}0000$, altså $f = 7$, og\n$\\gamma = 9/7 = 1{,}2857$ ✔\n\n**Hva hvert galt alternativ er regnet fram fra:**\n\n- $1{,}667$: verdien $\\tfrac53$ for en **enatomig** gass — riktig tall, feil gass.\n  Dette er felle #8: å gripe den $\\gamma$-verdien man husker best.\n- $0{,}7778$: forholdet snudd, $C_V/C_P$ i stedet for $C_P/C_V$. Merk at svaret er\n  **under 1**, og at det derfor kan strykes uten regning — $\\gamma$ er alltid\n  større enn 1.\n- $1{,}400$: verdien $\\tfrac75$ for en toatomig gass ved **romtemperatur**, altså\n  $f = 5$. Her er vibrasjonen aktiv, så $f = 7$.\n- $1{,}800$: $\\tfrac95$ — riktig teller, feil nevner. Kommer av å skrive\n  $\\gamma = (f+2)/(f-2)$ i stedet for $(f+2)/f$.\n- $0{,}7143$: $(C_V - R)/C_V$, altså minus der det skal være pluss. Også dette\n  ligger under 1 og kan strykes på formen alene.\n\n**Elimineringen som sparer tid:** to av de seks alternativene er under 1 og kan\nstrykes umiddelbart, siden $C_P > C_V$ alltid. Da står du igjen med fire, og\ntellingen av $f$ avgjør resten. Med seks alternativer og ingen minuspoeng er\ndette den viktigste enkeltferdigheten i sjangeren.",
+        "hints": [
+          "Finn $C_P$ først, som $C_V$ pluss gasskonstanten.",
+          "Kan $\\gamma$ være mindre enn 1? Bruk det til å stryke alternativer.",
+          "Kontroller svaret med $f=2C_V/R$ og $\\gamma=(f+2)/f$."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-6-2-o-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-6-2-o-8-e",
+        "number": 8,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Kvalitativ oppgave — figurlesing.) Se på trappekurven for $C_V(T)$ tidligere i\nkapitlet.\n\n**a)** Hvorfor stiger kurven i trinn og ikke jevnt?\n\n**b)** Hvorfor kommer rotasjonstrinnet før vibrasjonstrinnet?\n\n**c)** Kan kurven noen gang gå **ned** når temperaturen stiger? Begrunn.",
+        "solution": "**a)** Fordi energien i rotasjon og vibrasjon er **kvantisert** — den kommer bare\ni bestemte porsjoner. En mode kan ikke bære «litt» energi: den er praktisk talt\ninaktiv til den termiske energiporsjonen $k_BT$ er stor nok til å nå det neste\ntilgjengelige nivået, og deretter bidrar den med sine fulle\n$\\tfrac12k_BT$-porsjoner. Overgangen skjer over et temperaturområde og er derfor\nmyk, men den er tydelig avgrenset.\n\n**b)** Fordi nivåavstandene er **små** for rotasjon og **store** for vibrasjon.\nRotasjonsnivåene ligger så tett at romtemperatur er mer enn nok (for hydrogen\nholder det med om lag hundre kelvin), mens vibrasjonsnivåene krever noen tusen\nkelvin. Bindingen mellom atomene er stiv, og en stiv fjær krever mye energi for\nå svinge.\n\n**c)** Nei. Antall aktive frihetsgrader kan bare øke når temperaturen stiger — en\nmode som er vekket, blir ikke frosset igjen av mer energi. Derfor er $C_V(T)$\n**monotont stigende** for en ideell gass, og et flervalgsalternativ med en kurve\nsom synker, kan strykes uten videre. (Ved svært høye temperaturer begynner\nmolekylene å dissosiere, men da er det ikke lenger samme gass, og\nekvipartisjonsmodellen gjelder ikke.)",
+        "hints": [
+          "Hva betyr det at energien er kvantisert?",
+          "Sammenlign hvor mye energi som kreves for å sette en rotasjon i gang og en binding i svingning.",
+          "Kan en frihetsgrad slutte å være aktiv når temperaturen stiger?"
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-6-2-o-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-6-2-o-9-e",
+        "number": 9,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Kvalitativ oppgave.) Målinger på karbondioksid ved romtemperatur gir\n$C_V \\approx 28{,}5\\ \\text{J/(mol}\\cdot\\text{K)}$, mens\nekvipartisjonsmodellen med $f = 5$ forutsier $20{,}79$.\n\n**a)** Hvor stort er avviket i prosent?\n\n**b)** Hva er den fysiske forklaringen?\n\n**c)** Hva forteller dette om hvordan du skal svare på et\neksamensspørsmål om $C_V$ for karbondioksid?",
+        "solution": "**a)**\n$$\\frac{28{,}5 - 20{,}79}{20{,}79} = 0{,}3712,$$\naltså om lag $37{,}1$ prosent for høyt sammenlignet med modellen.\n\n**b)** Karbondioksid er et rett molekyl med tre atomer, og det har fire\nvibrasjonsmoder — blant dem en **bøyemode** der molekylet knekker i midten. Den\nmoden har uvanlig lav nivåavstand, og er derfor **delvis** vekket alt ved\nromtemperatur. Delvis vekket betyr et delvis bidrag: ikke de fulle to\nfrihetsgradene, men mer enn null. Derfor havner den målte verdien mellom\n$\\tfrac52R = 20{,}79$ og $\\tfrac72R = 29{,}10$.\n\n**c)** Svar med **modellen**, altså $f = 5$ og $C_V = \\tfrac52R$, med mindre\noppgaven eksplisitt oppgir en målt verdi eller sier at vibrasjon er aktiv. Det er\nekvipartisjonstellingen som testes, og alternativene er bygget rundt de\nheltallige $f$-verdiene. Men det er verdt å vite at modellen er en **tilnærming**:\nen oppgave som oppgir en $C_V$-verdi mellom to platåer, forteller deg nettopp at\nen mode er delvis aktiv — og da er det målingen som gjelder, ikke tellingen.",
+        "hints": [
+          "Regn det relative avviket mellom målingen og modellverdien.",
+          "Hvor mange vibrasjonsmoder har et rett treatomig molekyl, og er alle like stive?",
+          "Hva testes egentlig i et eksamensspørsmål om frihetsgrader?"
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-6-2-o-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-6-2-o-10-e",
+        "number": 10,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger T3 i en sammensatt variant.) En beholder inneholder\n$1{,}00\\,\\text{mol}$ helium og $2{,}00\\,\\text{mol}$ nitrogengass, i termisk\nlikevekt ved romtemperatur.\n\n**a)** Finn den effektive molare varmekapasiteten $C_V$ for blandingen, altså\nvarmekapasiteten per mol gass i beholderen.\n\n**b)** Finn $C_P$ og $\\gamma$ for blandingen.\n\n**c)** Kontroller $\\gamma$ med en uavhengig regnemåte.\n\n**d)** Ligger $\\gamma$ der du forventer? Begrunn med en grense-betraktning.",
+        "solution": "**a) Symbolsk.** Varmekapasitet er en **ekstensiv** størrelse: den totale\nvarmekapasiteten er summen av bidragene. Per mol blir det et molveid gjennomsnitt:\n$$C_V = \\frac{n_1C_{V,1} + n_2C_{V,2}}{n_1 + n_2}.$$\n\n**Rask vei til tall.** Helium er enatomig ($C_{V} = \\tfrac32R = 12{,}471$),\nnitrogen toatomig ($\\tfrac52R = 20{,}785$):\n$$C_V = \\frac{1{,}00 \\cdot 12{,}471 + 2{,}00 \\cdot 20{,}785}{3{,}00}\n= \\frac{54{,}0410}{3{,}00} = 18{,}014\\ \\text{J/(mol}\\cdot\\text{K)}.$$\n\n**b)**\n$$C_P = C_V + R = 26{,}328\\ \\text{J/(mol}\\cdot\\text{K)}, \\qquad\n\\gamma = \\frac{26{,}328}{18{,}014} = 1{,}4615.$$\nMerk at $C_P = C_V + R$ fortsatt holder for blandingen. Det er ikke tilfeldig:\nutledningen brukte bare gassloven, som gjelder for hele gassmengden samlet.\n\n**c) Uavhengig kontroll.** Regn de to totale varmekapasitetene hver for seg og\ndel:\n$$\\gamma = \\frac{n_1C_{P,1} + n_2C_{P,2}}{n_1C_{V,1} + n_2C_{V,2}}\n= \\frac{1{,}00 \\cdot 20{,}785 + 2{,}00 \\cdot 29{,}099}{1{,}00 \\cdot 12{,}471 +\n2{,}00 \\cdot 20{,}785} = 1{,}4615 \\ \\checkmark$$\nSamme svar fra en helt annen oppstilling.\n\n**d)** Ja. Blandingen må ha en $\\gamma$ som ligger **mellom** de to renes\nverdier, $1{,}4000$ (nitrogen) og $1{,}6667$ (helium), og\n$1{,}4615$ gjør det. Grensesjekken: hadde beholderen inneholdt bare helium, ville\n$\\gamma$ vært $1{,}6667$; bare nitrogen, $1{,}4000$. Med dobbelt så mye nitrogen som\nhelium ligger svaret nærmest nitrogen — som det skal.\n\nEn ekvivalent måte å se det: den effektive frihetsgraden er\n$f = 2C_V/R = 4{,}3333$, altså mellom 3 og 5, og nærmere 5. Det er ikke et\nheltall, og det **skal** det ikke være — en blanding har ingen enkelt\nmolekyltype.",
+        "hints": [
+          "Varmekapasitet er ekstensiv — legg sammen bidragene og del på totalt antall mol.",
+          "Gjelder $C_P=C_V+R$ fremdeles for en blanding? Se på hva utledningen faktisk brukte.",
+          "Sjekk at svaret ligger mellom verdiene for de to rene gassene."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-6-2-war-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil — og avrundingen som lander på nabo-alternativet",
+      "content": "**Å forbytte $C_V$ og $C_P$** (felle #8 — forbyttede varmekapasiteter eller feil\n$\\gamma$). Regelen er kort: **$\\Delta U$ bruker ALLTID $C_V$**, uansett prosess.\n$C_P$ hører bare der du regner varme ved **konstant trykk**. Bruker du $C_P$ i et\n$\\Delta U$-regnestykke, er svaret feil med nøyaktig $nR\\Delta T$ — altså med\narbeidet du feilaktig har regnet med.\n\n**Å bruke feil $\\gamma$.** $\\tfrac53 = 1{,}667$ hører til **enatomig** gass,\n$\\tfrac75 = 1{,}400$ til toatomig ved romtemperatur. Dette er den enkeltfeilen som\nvelter flest oppgaver i Del 7 og Del 8, fordi $\\gamma$ står i en **eksponent** i\nadiabatrelasjonen: en liten feil i $\\gamma$ blir en stor feil i svaret. **Skriv\nalltid ned hvilken gass det er, og hvilken $f$ du har telt, før du bruker\n$\\gamma$.**\n\n**Å telle vibrasjon som én frihetsgrad** (felle #9 — feil frihetsgradstelling).\nÉn vibrasjonsmode gir **to**: kinetisk energi i bevegelsen og potensiell energi i\nbindingen, og begge er kvadratiske. Feilen gir $f = 6$ i stedet for 7, og dermed\n$\\gamma = \\tfrac43$ i stedet for $\\tfrac97$.\n\n**Å telle vibrasjon med ved romtemperatur.** Ved vanlige temperaturer er\nvibrasjonen frosset ut. Standardsvaret for en toatomig gass er $f = 5$, ikke 7 —\nmed mindre oppgaven eksplisitt sier at temperaturen er høy.\n\n**Å telle atomer i stedet for å se på formen.** CO₂ har tre atomer men $f = 5$,\nfordi molekylet er rett. H₂O har tre atomer og $f = 6$, fordi det er bøyd. Det er\n**geometrien** som avgjør hvor mange rotasjonsakser som finnes.\n\n**Å regne per molekyl der oppgaven spør per mol.** $\\tfrac12k_BT$ per\nfrihetsgrad per **molekyl**, $\\tfrac12RT$ per frihetsgrad per **mol**. Feilen\ngir en faktor $6\\cdot10^{23}$, og avsløres av tierpotensen.\n\n**Og avrundingsfellen** (felle #16). Dette kapitlet har ett sted der avrunding\nfaktisk avgjør svaret: **$f = 2/(\\gamma-1)$**, der nevneren er en liten differanse\nmellom to tall nær hverandre. Runder du $\\gamma = 1{,}29$ til $1{,}3$, går $f$\nfra $6{,}897$ til $6{,}667$ — nok til å velge feil heltall. Regelen: **rund aldri\n$\\gamma$ før sluttsvaret.** Det samme gjelder når du går motsatt vei og\n$\\gamma$-verdien skal brukes i en eksponent i Del 7: bruk $1{,}4000$, ikke\n$1{,}4$, hvis oppgavens alternativer ligger tett."
+    },
+    {
+      "id": "tfy4115-6-2-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har\nlest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder\nkjernestoffet."
+    },
+    {
+      "id": "tfy4115-6-2-bb-enatomig",
+      "type": "definition",
+      "title": "Enatomig gass — talloversikt",
+      "content": "Helium, neon, argon og de andre edelgassene. Bare translasjon er tilgjengelig:\n$$f = 3, \\quad C_V = \\tfrac32R = 12{,}471, \\quad C_P = \\tfrac52R = 20{,}785, \\quad\n\\gamma = \\tfrac53 = 1{,}6667,$$\nmed varmekapasitetene i $\\text{J/(mol}\\cdot\\text{K)}$, og indre energi\n$U = \\tfrac32nRT$.\n\nDette er den **største** $\\gamma$-verdien som finnes for en ideell gass, og et\nnyttig ytterpunkt: får du $\\gamma > \\tfrac53$ i en oppgave, har du regnet feil.\nEnatomige gasser er også de som best oppfyller ideell-gass-antakelsene, siden\nedelgassatomer nesten ikke tiltrekker hverandre."
+    },
+    {
+      "id": "tfy4115-6-2-bb-toatomig",
+      "type": "definition",
+      "title": "Toatomig gass ved romtemperatur — talloversikt",
+      "content": "Nitrogen, oksygen, hydrogen, karbonmonoksid — og luft, som i praksis er en\nblanding av de to første. Translasjon pluss to rotasjoner:\n$$f = 5, \\quad C_V = \\tfrac52R = 20{,}785, \\quad C_P = \\tfrac72R = 29{,}099, \\quad\n\\gamma = \\tfrac75 = 1{,}4000,$$\nog $U = \\tfrac52nRT$.\n\n**Dette er standardtilfellet i eksamensoppgaver**, og verdien\n$\\gamma = 1{,}4000$ er den du kommer til å bruke oftest i Del 7 og Del 8. Merk at\nogså rette treatomige molekyler som CO₂ havner her i modellen, siden\nrotasjonsbildet er det samme."
+    },
+    {
+      "id": "tfy4115-6-2-bb-hoytemp",
+      "type": "definition",
+      "title": "Toatomig gass ved høy temperatur — talloversikt",
+      "content": "Når temperaturen er høy nok (noen tusen kelvin for de vanlige gassene), vekkes\nvibrasjonsmoden og gir **to** ekstra frihetsgrader:\n$$f = 7, \\quad C_V = \\tfrac72R = 29{,}099, \\quad C_P = \\tfrac92R = 37{,}413, \\quad\n\\gamma = \\tfrac97 = 1{,}2857.$$\n\nLegg merke til retningen: $C_V$ og $C_P$ **stiger**, mens $\\gamma$ **faller** mot\n1. Grunnen er at differansen $C_P - C_V = R$ er den samme, mens begge tallene\nblir større — forholdet mellom to voksende tall med fast differanse nærmer seg 1.\nDette er en yndet kvalitativ variant av sjangeren: «hva skjer med $\\gamma$ når\nvibrasjonen vekkes?»"
+    },
+    {
+      "id": "tfy4115-6-2-bb-lineaer",
+      "type": "definition",
+      "title": "Lineært mot ikke-lineært molekyl",
+      "content": "Skillet som bestemmer om rotasjon gir 2 eller 3 frihetsgrader:\n\n- **Lineært** (alle atomkjerner på én rett linje): H₂, N₂, O₂, CO, **og CO₂**.\n  Rotasjon om bindingsaksen har forsvinnende treghetsmoment og teller ikke, så\n  rotasjon gir **2**. Med translasjon blir $f = 5$.\n- **Ikke-lineært** (bøyd eller romlig): H₂O (bøyd, om lag $104^\\circ$), CH₄\n  (tetraeder), NH₃ (pyramide). Alle tre akser har reelt treghetsmoment, så\n  rotasjon gir **3**, og $f = 6$.\n\nBegrunnelsen ligger i treghetsmomentet $I = \\sum m_ir_i^2$ fra\n[kap. 4.1](/tfy4115/tfy4115-4-1): ligger alle massene **på** aksen, er alle\navstandene null, og aksen finnes ikke som rotasjonsakse. **Antall atomer er ikke\nkriteriet — formen er.**"
+    },
+    {
+      "id": "tfy4115-6-2-bb-baklengs",
+      "type": "definition",
+      "title": "Baklengs-formlene",
+      "content": "De to snudde formene, som utgjør halvparten av sjangeren:\n$$f = \\frac{2C_V}{R} \\qquad \\text{og} \\qquad f = \\frac{2}{\\gamma - 1}.$$\nBegge **må kunne brukes aktivt** — de står ikke ferdig snudd på formelarket.\n\nSvaret skal være et **heltall** (3, 5, 6 eller 7); desimaler er måleusikkerhet\neller avrunding. Den andre formelen er den følsomme: nevneren er en liten\ndifferanse, så en avrunding i $\\gamma$s tredje siffer flytter $f$ i første\nsiffer. Med $\\gamma = 1{,}400$ får du eksakt 5; med $1{,}40$ også; men med\n$\\gamma = 1{,}29$ mot $1{,}30$ går $f$ fra $6{,}897$ til $6{,}667$."
+    },
+    {
+      "id": "tfy4115-6-2-bb-per-mol",
+      "type": "definition",
+      "title": "Per mol eller per molekyl — ekvipartisjon i to former",
+      "content": "Ekvipartisjonsprinsippet finnes i to skalaer, og de skiller seg med Avogadros\ntall:\n\n$$\\tfrac12k_BT \\ \\text{per frihetsgrad per } \\textbf{molekyl}, \\qquad\n\\tfrac12RT \\ \\text{per frihetsgrad per } \\textbf{mol}.$$\n\nFølgene, satt opp parvis:\n$$U = \\frac{f}{2}nRT \\ (\\text{hele gassmengden}), \\qquad\n\\langle E\\rangle = \\frac{f}{2}k_BT \\ (\\text{ett molekyl}),$$\n$$C_V = \\frac{f}{2}R \\ (\\text{molar}), \\qquad\nc_V = \\frac{f}{2}\\frac{R}{M} \\ (\\text{spesifikk, per kg}).$$\n\nVelg etter hva oppgaven spør om. En molar varmekapasitet ligger på\n$10$–$30\\ \\text{J/(mol}\\cdot\\text{K)}$; en spesifikk ligger på hundrevis eller\ntusenvis av $\\text{J/(kg}\\cdot\\text{K)}$. Tierpotensen avslører feilvalget."
+    },
+    {
+      "id": "tfy4115-6-2-bb-spesifikk",
+      "type": "definition",
+      "title": "Spesifikk varmekapasitet",
+      "content": "Varmekapasitet per kilogram i stedet for per mol:\n$$c = \\frac{C}{M}, \\qquad Q = mc\\,\\Delta T,$$\nmed enheten $\\text{J/(kg}\\cdot\\text{K)}$. Omregningen går via den molare massen.\n\nFor luft (i praksis toatomig, $M \\approx 0{,}0290\\ \\text{kg/mol}$) blir\n$$c_p = \\frac{C_P}{M} = \\frac{29{,}099}{0{,}0290} \\approx 1003\n\\ \\text{J/(kg}\\cdot\\text{K)},$$\net tall som brukes i varmetransportregning i Del 9. Merk at $Q = mc\\Delta T$ er\nden formen du kanskje kjenner fra videregående, der skillet mellom $c_V$ og $c_p$\nsjelden ble nevnt — for væsker og faste stoff er forskjellen liten, for gasser er\nden stor."
+    },
+    {
+      "id": "tfy4115-6-2-bb-karakteristisk",
+      "type": "definition",
+      "title": "Karakteristiske temperaturer (kjenne til)",
+      "content": "Temperaturen der en frihetsgrad begynner å bidra, altså der\n$k_BT \\approx \\Delta E_\\text{nivå}$. Størrelsesordener for hydrogengass:\n\n- **rotasjon:** noen titalls til om lag hundre kelvin,\n- **vibrasjon:** noen tusen kelvin.\n\nDette er **kjenne-til-stoff** i denne boka: du skal vite at rekkefølgen er\ntranslasjon → rotasjon → vibrasjon, og hvorfor. Du skal ikke regne på\nnivåavstandene, og eksamensspørsmålene gjør det heller ikke — de spør om\nretningen: hva skjer med $C_V$ og med $\\gamma$ når temperaturen heves.\n\nGrunnen til at rekkefølgen er som den er: rotasjonsnivåene ligger tett fordi\ntreghetsmomentet er relativt stort, mens vibrasjonsnivåene ligger langt fra\nhverandre fordi bindingen er stiv. En stiv fjær har høy egenfrekvens — samme\nsammenheng som i [kap. 5.1](/tfy4115/tfy4115-5-1)."
+    },
+    {
+      "id": "tfy4115-6-2-bb-T3",
+      "type": "definition",
+      "title": "Sjanger T3 — ekvipartisjonsoppgaven",
+      "content": "Bokas navn på oppgaveformen der du skal telle frihetsgrader og derfra finne\n$C_V$, $C_P$ og $\\gamma$ — eller gå baklengs fra en målt verdi. Den forekommer i\n**om lag 9 av 10 sett (~90 %)** og hører til **termohalvdelen, spørsmål 21–40**.\nPrioritet: **høyeste**.\n\nOppskriften er alltid: (1) tell $f$ — 3 for enatomig, 5 for lineært, 6 for\nikke-lineært, pluss 2 per aktiv vibrasjonsmode; (2) les av\n$C_V = \\tfrac{f}{2}R$, $C_P = C_V+R$, $\\gamma = (f+2)/f$; (3) er en verdi\noppgitt, snu med $f = 2C_V/R$ eller $f = 2/(\\gamma-1)$; (4) sjekk at $f$ er et\nheltall, at $C_P - C_V = R$, og at $\\gamma$ ligger mellom 1 og $\\tfrac53$."
+    },
+    {
+      "id": "tfy4115-6-2-bb-felle8",
+      "type": "definition",
+      "title": "Felle #8 — forbyttede varmekapasiteter og feil $\\gamma$",
+      "content": "To beslektede feil som velter mest i Del 7 og Del 8:\n\n1. **$C_P$ der $C_V$ hører.** Regelen: $\\Delta U = nC_V\\Delta T$ **alltid**,\n   uansett prosess, fordi indre energi bare avhenger av temperaturen. $C_P$ hører\n   bare i varme ved konstant trykk. Feilen gir et avvik på nøyaktig $nR\\Delta T$.\n2. **$\\gamma = \\tfrac53$ der $\\tfrac75$ hører** (eller omvendt). Fordi $\\gamma$\n   står i en **eksponent** i adiabatrelasjonen $pV^\\gamma = \\text{konstant}$,\n   forsterkes feilen: en gass komprimert til halve volumet får\n   $2^{1{,}4} = 2{,}6390$ ganger trykket med riktig $\\gamma$, men\n   $2^{1{,}667} = 3{,}1748$ ganger med feil. Det er 26 prosent forskjell, og begge\n   tall står typisk på alternativlista.\n\nMotgiften er en vane: skriv **gassen, $f$ og $\\gamma$** ned som tre korte ord før\ndu begynner å regne."
+    },
+    {
+      "id": "tfy4115-6-2-bb-felle9",
+      "type": "definition",
+      "title": "Felle #9 — feil telling av frihetsgrader",
+      "content": "De tre variantene, i den rekkefølgen de forekommer:\n\n1. **Vibrasjon telt som én i stedet for to.** Hver mode gir to kvadratiske\n   frihetsgrader — kinetisk **og** potensiell.\n2. **Vibrasjon telt med ved romtemperatur.** Den er frosset ut. Standardsvaret\n   for en toatomig gass er $f = 5$.\n3. **Atomer telt i stedet for form.** CO₂ har tre atomer men er rett, altså\n   $f = 5$; H₂O har tre atomer og er bøyd, altså $f = 6$.\n\nSjekken som fanger alle tre: regn $\\gamma = (f+2)/f$ og se om tallet er kjent\n($1{,}667$, $1{,}400$, $1{,}333$ eller $1{,}286$). Får du noe annet, tell om."
+    },
+    {
+      "id": "tfy4115-6-2-bb-gamma-kollisjon",
+      "type": "definition",
+      "title": "$\\gamma$: adiabateksponent eller dempingskoeffisient?",
+      "content": "Bokas farligste symbolkollisjon, fordi begge betydningene står i eksponenter.\n\n**I Del 6–10** er $\\gamma = C_P/C_V = (f+2)/f$ **adiabateksponenten**: helt\ndimensjonsløs, alltid mellom 1 og $\\tfrac53$, og den står i\n$pV^\\gamma = \\text{konstant}$ og $TV^{\\gamma-1} = \\text{konstant}$.\n\n**I Del 5** er $\\gamma = b/2m$ **dempingskoeffisienten**: enheten er\n$\\text{s}^{-1}$, typiske verdier 0,1–1, og den står i $e^{-\\gamma t}$.\n\n**Skilleregelen, som alltid virker: har størrelsen enhet, er det\ndempingskoeffisienten.** Er den et rent tallforhold mellom 1 og 1,67, er det\nadiabateksponenten. De opptrer aldri i samme oppgave — mekanikk og termofysikk\ner ulike halvdeler av settet."
+    },
+    {
+      "id": "tfy4115-6-2-bb-reelle",
+      "type": "definition",
+      "title": "Når ekvipartisjonsmodellen ikke stemmer",
+      "content": "Ekvipartisjon er en **modell**, og den har tre kjente avvik du bør kunne\ngjenkjenne:\n\n1. **Delvis vekte moder.** Karbondioksid har en bøyemode med uvanlig liten\n   nivåavstand, og målt $C_V \\approx 28{,}5\\ \\text{J/(mol}\\cdot\\text{K)}$ ved\n   romtemperatur ligger derfor mellom $\\tfrac52R = 20{,}79$ og\n   $\\tfrac72R = 29{,}10$. Modellen forutsier $\\tfrac52R$.\n2. **Reelle gasser ved høyt trykk.** Da bidrar tiltrekningskreftene mellom\n   molekylene til den indre energien, og $U$ avhenger ikke lenger bare av $T$.\n   Dette er van der Waals-modellens område (Del 10).\n3. **Faste stoff og væsker.** Der gjelder andre modeller; ekvipartisjon i denne\n   formen er en gassmodell.\n\n**Hva du gjør på eksamen:** svar med modellen, med mindre oppgaven oppgir en\nmålt verdi. Oppgir den en målt verdi som ikke passer med noe heltallig $f$, er\ndet et signal om at en mode er delvis aktiv — og da regner du videre med\nmålingen."
+    },
+    {
+      "id": "tfy4115-6-2-bb-tabellen",
+      "type": "definition",
+      "title": "Tabellen du bør ha i hodet",
+      "content": "Fire rader, og de dekker praktisk talt alle oppgavene:\n\n| $f$ | $C_V$ | $C_P$ | $\\gamma$ | Gass |\n|---|---|---|---|---|\n| 3 | $12{,}47$ | $20{,}79$ | $1{,}667$ | He, Ar, Ne |\n| 5 | $20{,}79$ | $29{,}10$ | $1{,}400$ | N₂, O₂, CO₂, luft |\n| 6 | $24{,}94$ | $33{,}26$ | $1{,}333$ | H₂O-damp, CH₄ |\n| 7 | $29{,}10$ | $37{,}41$ | $1{,}286$ | toatomig, høy temperatur |\n\n(Varmekapasiteter i $\\text{J/(mol}\\cdot\\text{K)}$.)\n\nVerdiene **står på formelarket** for de to første radene, så dette er ikke\npuggestoff — men det er verdt å kjenne **størrelsesordenen**, slik at du kan\nstryke urimelige flervalgsalternativer på ett blikk. To sjekker som følger av\ntabellen: $C_P - C_V$ er alltid $8{,}314$, og $\\gamma$ **faller** når $f$ vokser."
+    },
+    {
+      "id": "tfy4115-6-2-bb-ekstensiv",
+      "type": "definition",
+      "title": "Ekstensiv og intensiv størrelse",
+      "content": "En **ekstensiv** størrelse vokser med mengden stoff: indre energi $U$, volum $V$,\nstoffmengde $n$, total varmekapasitet. En **intensiv** størrelse gjør ikke det:\ntrykk $p$, temperatur $T$, molar varmekapasitet $C_V$, adiabateksponent $\\gamma$.\n\nSkillet er nyttig av to grunner. For det første **legger ekstensive størrelser\nseg sammen** i en blanding: total varmekapasitet er $n_1C_{V,1} + n_2C_{V,2}$, og\nmolarverdien for blandingen finnes ved å dele på $n_1 + n_2$. Intensive\nstørrelser kan ikke summeres — du kan ikke legge sammen to temperaturer.\n\nFor det andre er det en **enhetssjekk**: står «mol» i nevneren av enheten, er\nstørrelsen intensiv (per mol), og da må du gange med stoffmengden før du\nsammenligner med en energi i joule."
+    },
+    {
+      "id": "tfy4115-6-2-bb-luft",
+      "type": "definition",
+      "title": "Luft — bokas standardgass",
+      "content": "Luft er en blanding, hovedsakelig nitrogen (om lag 78 prosent) og oksygen (om lag\n21 prosent), og **begge er toatomige**. Derfor oppfører luft seg som en toatomig\nideell gass ved vanlige temperaturer:\n$$f = 5, \\quad C_V = 20{,}785, \\quad C_P = 29{,}099, \\quad \\gamma = 1{,}4000 = \\tfrac75,$$\nmed varmekapasitetene i $\\text{J/(mol}\\cdot\\text{K)}$, og med effektiv molar\nmasse $M \\approx 0{,}0290\\ \\text{kg/mol}$.\n\nDette er verdt å ha klart, fordi luft er innpakningen i svært mange oppgaver —\nen sykkelpumpe, en dieselmotor, en yttervegg, en varmepumpe. **Når en oppgave\nsier «luft» uten mer, er $\\gamma = \\tfrac75$ svaret.** At blandingen består av\nto ulike gasser, endrer ingenting her, siden begge har samme $f$."
+    },
+    {
+      "id": "tfy4115-6-2-coll-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tfy4115-6-2-symb",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n**Kolliderende symboler i dette delkapitlet — les nøye.**\n\n- $\\gamma$ er **adiabateksponenten** $C_P/C_V$, **dimensjonsløs**, mellom 1 og\n  $\\tfrac53$. I [kap. 5.2](/tfy4115/tfy4115-5-2) var $\\gamma = b/2m$\n  **dempingskoeffisienten** med enheten $\\text{s}^{-1}$. **Har størrelsen enhet,\n  er det demping.**\n- $T$ er **absolutt temperatur i kelvin**, ikke periode.\n- $R$ er **gasskonstanten** $8{,}314\\ \\text{J/(mol}\\cdot\\text{K)}$, ikke radius.\n- $C$ (stor) er **molar** varmekapasitet, $c$ (liten) er **spesifikk** (per kg).\n  De skiller seg med den molare massen.\n- $f$ er **antall frihetsgrader** (et heltall). I Del 5 var $f$ **frekvens** i\n  hertz. Her opptrer ingen frekvens.\n- $k_B$ er Boltzmanns konstant; $k$ alene var fjærstivhet i Del 5.\n- $U$ er **indre energi**. I Del 2 var $U$ potensiell energi — begge er energier\n  i joule, men de er ulike størrelser.\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $f$ | Antall kvadratiske frihetsgrader (heltall) | — |\n| $C_V$ | Molar varmekapasitet ved konstant volum | $\\text{J/(mol}\\cdot\\text{K)}$ |\n| $C_P$ | Molar varmekapasitet ved konstant trykk | $\\text{J/(mol}\\cdot\\text{K)}$ |\n| $c$ | Spesifikk varmekapasitet (per kg) | $\\text{J/(kg}\\cdot\\text{K)}$ |\n| $\\gamma$ | Adiabateksponent $C_P/C_V$ (**ikke** demping her) | — |\n| $U$ | Indre energi | J |\n| $\\Delta U$ | Endring i indre energi, $nC_V\\Delta T$ | J |\n| $Q$ | Tilført varme (**ikke** kvalitetsfaktor her) | J |\n| $W$ | Arbeid gassen gjør på omgivelsene | J |\n| $n$ | Stoffmengde | mol |\n| $T$ | Absolutt temperatur | K |\n| $R$ | Gasskonstanten, $8{,}314$ | $\\text{J/(mol}\\cdot\\text{K)}$ |\n| $k_B$ | Boltzmanns konstant, $1{,}381\\cdot10^{-23}$ | J/K |\n| $M$ | Molar masse | kg/mol |\n\n**Formler i dette delkapitlet:**\n\n$$\\tfrac12k_BT \\ \\text{per frihetsgrad per molekyl}, \\qquad\n\\tfrac12RT \\ \\text{per frihetsgrad per mol}$$\nEkvipartisjonsprinsippet [står på det utdelte arket].\n\n$$U = \\frac{f}{2}nRT, \\qquad \\Delta U = nC_V\\,\\Delta T$$\nIndre energi og endringen i den. Den andre gjelder **uansett prosess**\n[må kunne brukes eller utledes aktivt].\n\n$$C_V = \\frac{f}{2}R$$\nMolar varmekapasitet ved konstant volum. Verdiene for en- og toatomig gass\n[står på det utdelte arket]; den generelle formen\n[må kunne brukes eller utledes aktivt].\n\n$$C_P = C_V + R$$\nUtledes fra $\\Delta U = Q - W$ med $W = p\\Delta V = nR\\Delta T$ ved konstant\ntrykk [står på det utdelte arket, men utledningen må kunne gjøres aktivt].\n\n$$\\gamma = \\frac{C_P}{C_V} = \\frac{f+2}{f} = 1 + \\frac{2}{f}$$\nAdiabateksponenten. Alltid mellom 1 og $\\tfrac53$\n[står på det utdelte arket i formen $C_P/C_V$].\n\n$$f = \\frac{2C_V}{R}, \\qquad f = \\frac{2}{\\gamma - 1}$$\nBaklengs-formene. Svaret skal være et heltall\n[må kunne brukes eller utledes aktivt].\n\n$$Q = nC_V\\Delta T \\ (\\text{fast } V), \\qquad\nQ = nC_P\\Delta T \\ (\\text{fast } p)$$\nVarme i de to enkleste prosessene\n[må kunne brukes eller utledes aktivt].\n\n$$c = \\frac{C}{M}, \\qquad Q = mc\\,\\Delta T$$\nOvergangen til spesifikk varmekapasitet, brukt i Del 9\n[må kunne brukes eller utledes aktivt]."
+        }
+      ]
+    },
+    {
+      "id": "tfy4115-6-2-coll-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tfy4115-6-2-rep",
+          "type": "text",
+          "content": "Fem korte oppgaver på det dette kapitlet hviler på — gassloven og\nenergibegrepene fra [kap. 6.1](/tfy4115/tfy4115-6-1), pluss den nye tellingen.\nTa dem før du går videre til [kap. 6.3](/tfy4115/tfy4115-6-3).\n\n**R1.** Finn den indre energien i $0{,}500\\,\\text{mol}$ nitrogengass ved\n$288\\,\\text{K}$.\n\n*Svar:* Toatomig, $f = 5$, så\n$$U = \\tfrac52nRT = 2{,}5 \\cdot 0{,}500 \\cdot 8{,}314 \\cdot 288\\,\\text{J} = 2993{,}04\\,\\text{J}.$$\nHadde du brukt $\\tfrac32$, ville svaret vært 40 prosent for lavt.\n\n**R2.** En gass har $\\gamma = 1{,}400$. Er den enatomig eller toatomig?\n\n*Svar:* $f = 2/(\\gamma-1) = 2/0{,}4000 = 5{,}0000$, altså $f = 5$ — **toatomig** (eller\net rett treatomig molekyl). Enatomig ville gitt $\\gamma = 1{,}6667$.\n\n**R3.** En gass har $C_V = 12{,}5\\ \\text{J/(mol}\\cdot\\text{K)}$. Finn $f$ og\n$\\gamma$.\n\n*Svar:* $f = 2C_V/R = 2 \\cdot 12{,}5/8{,}314 = 3{,}0070 \\approx 3$, altså enatomig,\nog $\\gamma = \\tfrac53 = 1{,}6667$.\n\n**R4.** Hvor mange frihetsgrader har vanndamp (H₂O) ved romtemperatur, og hvorfor\ner svaret annerledes enn for karbondioksid?\n\n*Svar:* $f = 6$ for vanndamp mot $f = 5$ for karbondioksid. Begge har tre atomer,\nmen vannmolekylet er **bøyd** og har derfor tre rotasjonsakser med reelt\ntreghetsmoment, mens karbondioksid er **rett** og bare har to. Formen avgjør,\nikke antall atomer.\n\n**R5.** Hvor mye varme trengs for å varme $3{,}00\\,\\text{mol}$ luft (regn den som\ntoatomig) $25{,}0\\,\\text{K}$ ved konstant trykk?\n\n*Svar:* $Q = nC_P\\Delta T = 3{,}00 \\cdot 29{,}099 \\cdot 25{,}0 = 2182{,}42\\,\\text{J}$.\nVed konstant **volum** ville det trengt $1558{,}88\\,\\text{J}$ — differansen\n$623{,}55\\,\\text{J}$ er arbeidet luften gjør når den utvider seg."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

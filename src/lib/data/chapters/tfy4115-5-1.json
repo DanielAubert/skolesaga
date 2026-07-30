@@ -1,0 +1,462 @@
+{
+  "id": "tfy4115-5-1",
+  "courseId": "tfy4115",
+  "chapterNumber": "5.1",
+  "title": "Harmoniske svingninger, egenfrekvens, fysisk og konisk pendel",
+  "description": "Den harmoniske svingelikningen, egenfrekvens $\\omega_0=\\sqrt{k/m}$, seriekoblede fjærer, fysisk pendel $T=2\\pi\\sqrt{I_A/Mgd}$ og konisk pendel.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "kjenne igjen svingelikningen i et konkret system og lese av egenfrekvensen, og regne trygt mellom vinkelfrekvens, frekvens og periode",
+    "finne samlet fjærstivhet for fjærer i serie og parallell, og forklare hvorfor serie gir en mykere kobling",
+    "regne ut svingetiden til en fysisk pendel med treghetsmomentet om opphengspunktet og avstanden til massesenteret",
+    "sette opp de to kraftlikningene for en konisk pendel og finne periode, fart og snorstrekk"
+  ],
+  "content": [
+    {
+      "id": "tfy4115-5-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Sjanger M7 — svingninger, altså «finn egenfrekvensen, fjærstivheten eller svingetiden» — dukker opp i om lag 9 av 10 sett (~90 %).** Temaet hører til **mekanikkhalvdelen, spørsmål 1–20**, og har **høyeste prioritet — dette må sitte.**\n\n**Sjanger M8 — pendler**, altså den fysiske pendelen (et utstrakt legeme som svinger om et opphengspunkt) og den koniske pendelen (en kule i vannrett sirkelbane i enden av en snor), er med i rundt halvparten av settene (~50 %) og har prioritet **bør sitte**.\n\nSignaturene er kortfattede: du får masse og fjærstivhet og skal finne frekvens, eller motsatt; du får to fjærer i serie eller parallell og skal finne den samlede stivheten først; du får et legeme hengt opp i et punkt og skal finne svingetiden; eller du får en snor i en vinkel og skal finne perioden i sirkelbanen.\n\n**To ting koster poeng her, og ingen av dem er vanskelig fysikk.** Det første er **faktoren $2\\pi$**: oppgaven spør om $f$ i hertz, men du regner ut $\\omega_0$ i rad/s, og de skiller seg med $2\\pi \\approx 6{,}283$. Det gale svaret ligger alltid på lista. Det andre er **Steiner i den fysiske pendelen**: treghetsmomentet skal være om **opphengspunktet**, ikke om massesenteret, og glemmer du Steiner-leddet, får du en for kort periode.\n\n**Symbolvarsel.** I dette kapitlet er $T$ en **periode** målt i sekunder, ikke en temperatur — det er i termodelen fra Del 6 at $T$ blir kelvin. Og $S$ er et **taustrekk** i newton, ikke entropi."
+    },
+    {
+      "id": "tfy4115-5-1-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet bygger på treghetsmomentet fra [kap. 4.1](/tfy4115/tfy4115-4-1) og på kraftmomentet fra [kap. 4.2](/tfy4115/tfy4115-4-2). Du trenger tre ting derfra, og de står her:\n\n$$I = I_\\text{CM} + Md^2$$\nSteiners sats. **Dette er den formelen som avgjør flest pendeloppgaver.** Treghetsmomentet i en fysisk pendel skal alltid være om **opphengspunktet**, og opphengspunktet ligger per definisjon utenfor massesenteret — ellers ville pendelen ikke svingt. For en skive hengt opp i randen er $I_A = \\tfrac12MR^2 + MR^2 = \\tfrac32MR^2$.\n\n$$I_\\text{stang, ende} = \\tfrac13ML^2, \\qquad I_\\text{skive} = \\tfrac12MR^2, \\qquad I_\\text{kule} = \\tfrac25MR^2$$\nDe tre standardtreghetsmomentene som brukes mest her. Alle **står på det utdelte arket**.\n\n$$\\sum\\tau = I\\alpha, \\qquad \\tau = dF\\ \\text{(med vinkelrett momentarm)}$$\nNewtons 2. lov for rotasjon. Hele den fysiske pendelen kommer ut av denne ene loven, anvendt på tyngdens moment om opphengspunktet.\n\n**Fra matematikken:** [Repetisjon av derivasjon](/r2/r2-2-1) trenger du til svingelikningen — du skal kjenne igjen at $x = A\\cos(\\omega_0t+\\phi)$ deriverer to ganger til $-\\omega_0^2x$. **Fra fysikken:** [Sirkelbevegelse og sentripetalkraft](/fysikk2/fysikk2-1-4) er grunnlaget for den koniske pendelen, der resultanten av kreftene peker inn mot sirkelsentret.\n\n**To relasjoner fra matematikken, ferdig oppfrisket:**\n\n$$\\frac{d^2}{dt^2}\\cos(\\omega t) = -\\omega^2\\cos(\\omega t)$$\nGrunnen til at cosinus løser svingelikningen: to derivasjoner gir funksjonen tilbake, ganget med $-\\omega^2$.\n\n$$\\sin\\theta \\approx \\theta \\quad \\text{for små } \\theta \\text{ (i radianer)}$$\nSmåvinkeltilnærmingen. Ved $\\theta = 10^\\circ = 0{,}1745\\,\\text{rad}$ er $\\sin\\theta = 0{,}1736$ — en forskjell på 0,5 prosent. Det er denne tilnærmingen som gjør en pendel harmonisk, og den er grunnen til at alle pendelformler har forbeholdet «for små utslag».\n\n**Symbolmerknad.** $T$ er **periode** i sekunder (i Del 6–10: absolutt temperatur i kelvin). $S$ er **taustrekk** i newton (i Del 7: entropi i J/K). $k$ er **fjærstivhet** i N/m (ikke Boltzmanns konstant, som er $k_B$ i termodelen). $\\omega$ er en vinkelfrekvens i rad/s. Symbolet $\\gamma$ opptrer **ikke** i dette kapitlet — det kommer i [kap. 5.2](/tfy4115/tfy4115-5-2) som dempingskoeffisient, og i termodelen som noe helt annet."
+    },
+    {
+      "id": "tfy4115-5-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — svingelikningen og egenfrekvensen (~14 min)\n\nHeng en kasse i en fjær, dra den litt ned og slipp. Den svinger opp og ned, og den gjør det med **samme takt** hele veien — like mange svingninger per sekund om du dro den 2 cm eller 10 cm. Det er den mest bemerkelsesverdige egenskapen ved en harmonisk svingning, og den er hele grunnen til at et pendelur går riktig.\n\nHvorfor er det slik? Fordi kraften som drar massen tilbake, er **proporsjonal med utslaget**. Dobler du utslaget, dobler du kraften, og massen får dobbelt så stor akselerasjon — den rekker like langt i like lang tid."
+    },
+    {
+      "id": "tfy4115-5-1-def-harmonisk",
+      "type": "definition",
+      "title": "Harmonisk svingning",
+      "content": "En bevegelse der utslaget varierer som en sinus- eller cosinusfunksjon av tiden:\n$$x(t) = A\\cos(\\omega_0 t + \\phi).$$\nKjennetegnet er at den tilbakedrivende kraften er **proporsjonal med utslaget og motsatt rettet**, $F = -kx$. Konsekvensen, som er sjangerens viktigste enkeltpoeng: **perioden er uavhengig av amplituden.** En stor og en liten svingning tar like lang tid. Dette gjelder eksakt for en masse på en fjær, og tilnærmet for en pendel så lenge utslaget er lite nok til at $\\sin\\theta\\approx\\theta$."
+    },
+    {
+      "id": "tfy4115-5-1-def-svingelikningen",
+      "type": "definition",
+      "title": "Svingelikningen",
+      "content": "Differensiallikningen som all harmonisk svingning oppfyller:\n$$\\ddot{x} + \\omega_0^2 x = 0.$$\nDen sier at akselerasjonen er proporsjonal med utslaget og peker motsatt vei. Løsningen er $x(t)=A\\cos(\\omega_0t+\\phi)$ med to fri konstanter, $A$ og $\\phi$, som bestemmes av startbetingelsene (hvor massen var og hvor fort den gikk ved $t=0$). Likningen **står på det utdelte arket** sammen med løsningen, men å **kjenne den igjen** i et konkret system er den aktive ferdigheten: får du en likning på formen $\\ddot{x}+(\\text{noe positivt})\\cdot x = 0$, er «noe positivt» nettopp $\\omega_0^2$, og du kan lese egenfrekvensen direkte."
+    },
+    {
+      "id": "tfy4115-5-1-def-egenfrekvens",
+      "type": "definition",
+      "title": "Egenfrekvens (vinkelfrekvens)",
+      "content": "Den vinkelfrekvensen systemet svinger med når det får svinge fritt, med symbolet $\\omega_0$ og enheten rad/s. For en masse på en fjær er\n$$\\omega_0 = \\sqrt{\\frac{k}{m}}.$$\nUttrykket **står på det utdelte arket**. Legg merke til hva det sier: stivere fjær gir raskere svingning, større masse gir langsommere — og fordi det står en kvadratrot der, må du **firedoble** massen for å halvere frekvensen. Ordet «egen» betyr at frekvensen er systemets egen, bestemt av $k$ og $m$ alene, uten noe ytre som driver den."
+    },
+    {
+      "id": "tfy4115-5-1-def-frekvens",
+      "type": "definition",
+      "title": "Frekvens",
+      "content": "Antall hele svingninger per sekund, med symbolet $f$ og enheten hertz ($1\\,\\text{Hz} = 1\\,\\text{s}^{-1}$). Sammenhengen med vinkelfrekvensen er\n$$f = \\frac{\\omega_0}{2\\pi},$$\nfordi én hel svingning tilsvarer $2\\pi$ radianer i fasen. **Denne faktoren $2\\pi$ er den vanligste enkeltfeilen i sjangeren:** oppgaven spør om $f$, du regner ut $\\omega_0$, og de to skiller seg med 6,283. Kontrollen tar to sekunder: en frekvens i hertz for et laboratoriesystem er typisk noen få, mens vinkelfrekvensen er noen titalls."
+    },
+    {
+      "id": "tfy4115-5-1-def-periode",
+      "type": "definition",
+      "title": "Periode",
+      "content": "Tiden én hel svingning tar, med symbolet $T$ og enheten sekund:\n$$T = \\frac{1}{f} = \\frac{2\\pi}{\\omega_0}.$$\nFor en masse på en fjær er $T = 2\\pi\\sqrt{m/k}$. **Symbolvarsel:** $T$ betyr periode i hele Del 5, men **absolutt temperatur i kelvin** fra Del 6 og utover. De to kan ikke forveksles i praksis fordi enhetene er ulike, men i en formel uten enheter må du vite hvilken del av boka du er i. Trenger en oppgave begge, skrives perioden $T_p$."
+    },
+    {
+      "id": "tfy4115-5-1-def-fjaerstivhet",
+      "type": "definition",
+      "title": "Fjærstivhet",
+      "content": "Hvor mye kraft som skal til per meter forlengelse av en fjær, med symbolet $k$ og enheten N/m. Den defineres av **Hookes lov** $F = -kx$, der minustegnet sier at kraften peker mot likevektsstillingen. Fra $\\omega_0=\\sqrt{k/m}$ følger den mest brukte omformingen i sjangeren:\n$$k = m\\omega_0^2 = m(2\\pi f)^2.$$\nMerk at $k$ her er en fjærstivhet, ikke Boltzmanns konstant — den skrives $k_B$ i termodelen. En typisk laboratoriefjær har $k$ mellom 10 og 500 N/m; får du et svar på $10^6\\,\\text{N/m}$, har du sannsynligvis glemt kvadratroten eller faktoren $2\\pi$."
+    },
+    {
+      "id": "tfy4115-5-1-def-amplitude",
+      "type": "definition",
+      "title": "Amplitude",
+      "content": "Det største utslaget fra likevektsstillingen, med symbolet $A$ og samme enhet som utslaget (meter for en fjær, radianer for en pendel). Amplituden bestemmes av **hvordan svingningen ble startet**, ikke av systemet: den samme fjæren kan svinge med hvilken som helst amplitude, men alltid med samme frekvens. Tre nyttige følger: maksimal fart er $v_\\text{maks}=A\\omega_0$ (i likevektsstillingen), maksimal akselerasjon er $a_\\text{maks}=A\\omega_0^2$ (i ytterstillingene), og den totale energien er $E=\\tfrac12kA^2$ — proporsjonal med amplituden i **annen**."
+    },
+    {
+      "id": "tfy4115-5-1-def-fase",
+      "type": "definition",
+      "title": "Fase og fasekonstant",
+      "content": "Argumentet $\\omega_0t+\\phi$ i $x(t)=A\\cos(\\omega_0t+\\phi)$ kalles **fasen** og måles i radianer; konstanten $\\phi$ er **fasekonstanten** og sier hvor i svingningen bevegelsen startet. Med $\\phi=0$ starter massen i sitt maksimale utslag med farten null; med $\\phi=-\\pi/2$ starter den i likevektsstillingen med maksimal fart. Fasekonstanten påvirker **ikke** frekvensen eller perioden — bare hvor i syklusen vi begynner å måle tiden. På eksamen spørres det sjelden om $\\phi$ direkte, men den er nødvendig for å kunne skrive ned en fullstendig løsning."
+    },
+    {
+      "id": "tfy4115-5-1-def-likevektsstilling",
+      "type": "definition",
+      "title": "Likevektsstilling",
+      "content": "Den posisjonen der summen av kreftene er null, og som utslaget $x$ måles fra. For en loddrett fjær er dette **ikke** fjærens ulastede lengde: massen strekker fjæren $x_0 = mg/k$ før den kommer til ro. Det avgjørende poenget er at svingningen om den nye likevektsstillingen har **nøyaktig samme** egenfrekvens $\\sqrt{k/m}$ som en vannrett fjær — tyngden flytter likevektspunktet, men endrer ikke frekvensen. Det er derfor du kan se helt bort fra $g$ i alle masse-fjær-oppgaver, også de loddrette."
+    },
+    {
+      "id": "tfy4115-5-1-th-utledning-fjaer",
+      "type": "theorem",
+      "title": "Egenfrekvensen til en masse på en fjær",
+      "content": "Newtons 2. lov for massen, med $x$ målt fra likevektsstillingen og Hookes lov $F=-kx$:\n$$m\\ddot{x} = -kx \\quad\\Longrightarrow\\quad \\ddot{x} + \\frac{k}{m}x = 0.$$\nSammenlign med svingelikningen $\\ddot{x}+\\omega_0^2x=0$, og les av:\n$$\\omega_0 = \\sqrt{\\frac{k}{m}}, \\qquad f = \\frac{\\omega_0}{2\\pi} = \\frac{1}{2\\pi}\\sqrt{\\frac{k}{m}}, \\qquad T = \\frac{2\\pi}{\\omega_0} = 2\\pi\\sqrt{\\frac{m}{k}}.$$\nAlle tre **står på det utdelte arket**, men **utledningen kreves aktivt**: du skal kunne gå fra «her er et system» til «her er $\\omega_0$» ved å sette opp N2 og kjenne igjen formen. Det er nettopp den ferdigheten som gjør at du også klarer pendelen, der oppsettet er et annet men formen den samme."
+    },
+    {
+      "id": "tfy4115-5-1-fig-1",
+      "type": "image",
+      "src": "/images/textbook/tfy4115/tfy4115-5-1-svingesystemer.svg",
+      "alt": "Tre paneler. Panel A viser en masse festet til en fjaer mot en vegg, med utslaget x maalt fra likevektsstillingen. Panel B viser en skive hengt opp i et punkt A paa randen, dreid ut vinkelen theta fra loddlinja, med avstanden d fra opphengspunktet til massesenteret og tyngden Mg tegnet i massesenteret. Panel C viser en konisk pendel: en snor med lengde L fra et festepunkt ned til en kule som gaar i en vannrett sirkel med radius R, med snorkraften S langs snora og tyngden mg nedover, og S dekomponert i S cosinus theta oppover og S sinus theta innover.",
+      "caption": "De tre systemene i kapitlet: masse på fjær (perioden settes av $k$ og $m$), fysisk pendel (perioden settes av $I_A$ og $Mgd$) og konisk pendel (perioden settes av snorlengden og vinkelen)."
+    },
+    {
+      "id": "tfy4115-5-1-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: kassen i fjæra",
+      "problem": "En kasse med masse $m = 0{,}350\\,\\text{kg}$ henger i en fjær med stivhet $k = 85{,}0\\,\\text{N/m}$. Kassen trekkes $0{,}0400\\,\\text{m}$ ned fra likevektsstillingen og slippes.\n\n**a)** Finn egenfrekvensen, frekvensen og perioden.\n**b)** Finn den største farten og den største akselerasjonen.\n**c)** Hvor mye endres perioden hvis amplituden dobles?",
+      "solution": "**a) Symbolsk.** Sett opp N2 med $x$ målt fra likevektsstillingen: $m\\ddot{x}=-kx$, altså $\\omega_0=\\sqrt{k/m}$.\n\n**Rask vei til tall.** Regn forholdet $k/m$ først:\n$$\\frac{k}{m} = \\frac{85{,}0}{0{,}350}\\,\\text{s}^{-2} = 242{,}8571\\,\\text{s}^{-2}, \\qquad \\omega_0 = \\sqrt{242{,}8571}\\,\\text{rad/s} = 15{,}58387\\,\\text{rad/s}.$$\n$$f = \\frac{\\omega_0}{2\\pi} = \\frac{15{,}58387}{6{,}28319}\\,\\text{Hz} = 2{,}48025\\,\\text{Hz}, \\qquad T = \\frac{1}{f} = 0{,}40319\\,\\text{s}.$$\nMerk forskjellen mellom $\\omega_0 = 15{,}584\\,\\text{rad/s}$ og $f = 2{,}480\\,\\text{Hz}$: en faktor 6,283. **Les alltid hva oppgaven ber om.**\n\n**b)** Maksimal fart er i likevektsstillingen, maksimal akselerasjon i ytterstillingene:\n$$v_\\text{maks} = A\\omega_0 = 0{,}0400 \\cdot 15{,}58387\\,\\text{m/s} = 0{,}62335\\,\\text{m/s}, \\qquad a_\\text{maks} = A\\omega_0^2 = 0{,}0400 \\cdot 242{,}8571\\,\\text{m/s}^2 = 9{,}71429\\,\\text{m/s}^2.$$\nLegg merke til at $a_\\text{maks} = 9{,}714\\,\\text{m/s}^2$ er nesten $g$ — kassen opplever i ytterstillingene en akselerasjon i samme størrelsesorden som fritt fall.\n\n**c) Ingenting.** Perioden til en harmonisk svingning er uavhengig av amplituden: den avhenger bare av $k$ og $m$. Det som dobles, er farten ($v_\\text{maks}=A\\omega_0$) og akselerasjonen, og energien **firedobles**, siden $E=\\tfrac12kA^2 = 0{,}06800\\,\\text{J}$ ved den opprinnelige amplituden.\n\n**Sluttsjekk:** benevningskontroll på $\\omega_0$: $\\sqrt{(\\text{N/m})/\\text{kg}} = \\sqrt{\\text{kg}\\cdot\\text{m}\\text{s}^{-2}/(\\text{m}\\cdot\\text{kg})} = \\sqrt{\\text{s}^{-2}} = \\text{s}^{-1}$ ✔. Og en laboratoriefjær med en kasse på noen hundre gram skal gi en frekvens på noen få hertz — $2{,}480\\,\\text{Hz}$ er rimelig."
+    },
+    {
+      "id": "tfy4115-5-1-o-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-5-1-oppg-1",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — begreper og omregning.)\n\n**a)** Et system svinger med vinkelfrekvensen $18{,}0\\,\\text{rad/s}$. Finn frekvensen i hertz og perioden i sekunder.\n\n**b)** Et annet system har perioden $0{,}250\\,\\text{s}$. Finn frekvensen og vinkelfrekvensen.\n\n**c)** Forklar med egne ord hvorfor perioden til en masse på en fjær ikke endres når du drar massen dobbelt så langt ut.",
+        "solution": "**a)** $f = \\omega_0/(2\\pi) = 18{,}0/6{,}28319\\,\\text{Hz} = 2{,}8648\\,\\text{Hz}$, og $T = 1/f = 0{,}3491\\,\\text{s}$ (som også er $2\\pi/\\omega_0$).\n\n**b)** $f = 1/T = 1/0{,}250\\,\\text{Hz} = 4{,}00\\,\\text{Hz}$, og $\\omega_0 = 2\\pi f = 6{,}28319 \\cdot 4{,}00\\,\\text{rad/s} = 25{,}1327\\,\\text{rad/s}$.\n\n**c)** Fordi kraften som drar massen tilbake, vokser i takt med utslaget: $F=-kx$. Drar du dobbelt så langt, blir den tilbakedrivende kraften dobbelt så stor, og akselerasjonen dobbelt så stor. Massen har dobbelt så langt å gå, men beveger seg i gjennomsnitt dobbelt så fort — og tiden blir den samme. Matematisk ser du det i at $\\omega_0=\\sqrt{k/m}$ ikke inneholder amplituden i det hele tatt.\n\n**Merk faktoren $2\\pi$.** I a) er $18{,}0\\,\\text{rad/s}$ og $2{,}8648\\,\\text{Hz}$ **samme** svingning uttrykt på to måter. Blander du dem, blir svaret 6,283 ganger for stort eller for lite — og begge tall står typisk på alternativlista.",
+        "hints": [
+          "Én hel svingning svarer til $2\\pi$ radianer i fasen.",
+          "Se om amplituden i det hele tatt står i uttrykket for $\\omega_0$."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-5-1-o-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-5-1-oppg-2",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M7 — svingninger.) En masse på $0{,}250\\,\\text{kg}$ henger i en fjær og svinger med frekvensen $3{,}20\\,\\text{Hz}$.\n\n**a)** Finn fjærstivheten.\n\n**b)** Hva blir frekvensen hvis massen firedobles?",
+        "solution": "**a) Symbolsk.** Fra $f = \\tfrac{1}{2\\pi}\\sqrt{k/m}$ følger\n$$k = m(2\\pi f)^2.$$\n\n**Rask vei til tall.** Regn $2\\pi f$ først, så slipper du å rote med kvadreringen:\n$$2\\pi f = 6{,}28319 \\cdot 3{,}20\\,\\text{rad/s} = 20{,}10619\\,\\text{rad/s},$$\n$$k = 0{,}250 \\cdot 20{,}10619^2\\,\\text{N/m} = 0{,}250 \\cdot 404{,}2590\\,\\text{N/m} = 101{,}06475\\,\\text{N/m} \\approx 101{,}0647\\,\\text{N/m}.$$\n\n**b)** Frekvensen er omvendt proporsjonal med kvadratroten av massen:\n$$f \\propto \\frac{1}{\\sqrt m} \\quad\\Longrightarrow\\quad f_\\text{ny} = \\frac{f}{\\sqrt4} = \\frac{3{,}20}{2}\\,\\text{Hz} = 1{,}600\\,\\text{Hz}.$$\nFiredobling av massen **halverer** frekvensen. Det er kvadratroten som gjør det, og den er verdt å kjenne igjen: for å halvere en frekvens må du firedoble massen, eller dele stivheten på fire.\n\n**Sluttsjekk:** $101{,}0647\\,\\text{N/m}$ er en helt vanlig laboratoriefjær. Hadde du glemt faktoren $2\\pi$ og regnet $k = mf^2$, ville du fått $2{,}5600\\,\\text{N/m}$ — nesten førti ganger for lite, siden $(2\\pi)^2 = 39{,}48$.",
+        "hints": [
+          "Løs $f=\\tfrac{1}{2\\pi}\\sqrt{k/m}$ for $k$.",
+          "Regn ut $2\\pi f$ som eget mellomresultat før du kvadrerer.",
+          "I b): hvordan avhenger $f$ av $m$ — lineært eller med en kvadratrot?"
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-5-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — fjærer i serie og parallell (~10 min)\n\nTo fjærer kan settes sammen på to måter, og de gir motsatt effekt. Det er lett å blande dem, og oppgavene utnytter det.\n\n**I serie**, altså etter hverandre, må **hver** fjær strekkes for at massen skal flytte seg — de to strekkene legges sammen, og systemet blir **mykere** enn hver enkelt fjær:\n$$\\frac{1}{k} = \\frac{1}{k_1} + \\frac{1}{k_2}.$$\n\n**I parallell**, altså side om side, strekkes begge like mye, og de to kreftene legges sammen — systemet blir **stivere**:\n$$k = k_1 + k_2.$$\n\n*Intuisjon som gjør at du ikke blander dem:* to fjærer etter hverandre er som en dobbelt så lang fjær, og en lang fjær er myk. To fjærer side om side er som en dobbelt så tykk fjær, og en tykk fjær er stiv. **Serie gir mykere, parallell gir stivere** — og en samlet stivhet i serie er alltid **mindre enn den minste** av de to."
+    },
+    {
+      "id": "tfy4115-5-1-def-serie",
+      "type": "definition",
+      "title": "Seriekobling av fjærer",
+      "content": "To fjærer etter hverandre, der den samme kraften går gjennom begge. Strekkene legges sammen, og den samlede stivheten følger\n$$\\frac{1}{k} = \\frac{1}{k_1}+\\frac{1}{k_2}, \\qquad\\text{altså}\\qquad k = \\frac{k_1k_2}{k_1+k_2}.$$\nResultatet er alltid **mindre enn den minste** av de to stivhetene — seriekobling gjør systemet mykere og svingningen langsommere. To like fjærer i serie gir $k/2$. Kontrollen som fanger forbytningen: regn ut svaret og sjekk at det er mindre enn begge $k$-ene; er det større, har du brukt parallellformelen."
+    },
+    {
+      "id": "tfy4115-5-1-def-parallell",
+      "type": "definition",
+      "title": "Parallellkobling av fjærer",
+      "content": "To fjærer side om side, som strekkes like mye og deler lasten. Kreftene legges sammen:\n$$k = k_1 + k_2.$$\nResultatet er alltid **større enn den største** av de to — parallellkobling gjør systemet stivere og svingningen raskere. To like fjærer i parallell gir $2k$, altså en frekvens som er $\\sqrt2 \\approx 1{,}41$ ganger den ene fjærens. Merk at forholdet mellom serie- og parallellkobling av **to like** fjærer er en faktor 4 i stivhet og dermed en faktor 2 i frekvens."
+    },
+    {
+      "id": "tfy4115-5-1-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: to fjærer, to koblinger",
+      "problem": "To fjærer har stivhetene $k_1 = 240{,}0\\,\\text{N/m}$ og $k_2 = 160{,}0\\,\\text{N/m}$. En masse på $0{,}600\\,\\text{kg}$ henges i dem.\n\n**a)** Finn den samlede stivheten og frekvensen når fjærene står i serie.\n**b)** Finn det samme når de står i parallell.\n**c)** Hvor mange ganger raskere svinger parallellsystemet?",
+      "solution": "**a)** Serie:\n$$\\frac{1}{k} = \\frac{1}{240{,}0}+\\frac{1}{160{,}0} = 0{,}004167 + 0{,}006250 = 0{,}010417 \\quad\\Longrightarrow\\quad k = 96{,}000\\,\\text{N/m}.$$\nKontroll: $96{,}000 < 160{,}0$, altså mindre enn den minste av de to ✔.\n$$\\omega_0 = \\sqrt{\\frac{96{,}000}{0{,}600}}\\,\\text{rad/s} = \\sqrt{160{,}0000}\\,\\text{rad/s} = 12{,}64911\\,\\text{rad/s}, \\qquad f = 2{,}0132\\,\\text{Hz}, \\qquad T = 0{,}4967\\,\\text{s}.$$\n\n**b)** Parallell:\n$$k = 240{,}0+160{,}0 = 400{,}0\\,\\text{N/m}, \\qquad \\omega_0 = \\sqrt{\\frac{400{,}0}{0{,}600}}\\,\\text{rad/s} = 25{,}81989\\,\\text{rad/s}, \\qquad f = 4{,}1094\\,\\text{Hz}.$$\nKontroll: $400{,}0 > 240{,}0$, altså større enn den største ✔.\n\n**c)**\n$$\\frac{\\omega_\\text{par}}{\\omega_\\text{ser}} = \\sqrt{\\frac{400{,}0}{96{,}000}} = \\sqrt{4{,}1667} = 2{,}0412.$$\nParallellsystemet svinger altså litt over dobbelt så fort. Legg merke til at **stivheten** skiller seg med en faktor $4{,}1667$, mens **frekvensen** bare skiller seg med kvadratroten av det. Kvadratroten demper alltid effekten av en endring i $k$ eller $m$ — det er verdt å ha i fingrene når du skal vurdere om et svar er rimelig.\n\n**Vanlig felle her:** å bruke $k = k_1+k_2$ for serie. Det ville gitt $400{,}0\\,\\text{N/m}$ i deloppgave a), altså en frekvens på $4{,}1094\\,\\text{Hz}$ i stedet for $2{,}0132\\,\\text{Hz}$ — og begge tall står typisk på alternativlista."
+    },
+    {
+      "id": "tfy4115-5-1-o-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-5-1-oppg-3",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M7.) To fjærer med stivhetene $320{,}0\\,\\text{N/m}$ og $480{,}0\\,\\text{N/m}$ bærer en masse på $1{,}20\\,\\text{kg}$.\n\n**a)** Finn egenfrekvensen og frekvensen i hertz når fjærene er koblet i serie.\n\n**b)** Finn det samme for parallellkobling.\n\n**c)** En medstudent bruker $k = k_1+k_2$ for seriekoblingen. Hvor mange prosent for høy blir frekvensen hans?",
+        "solution": "**a)** Serie:\n$$k = \\frac{k_1k_2}{k_1+k_2} = \\frac{320{,}0 \\cdot 480{,}0}{800{,}0}\\,\\text{N/m} = \\frac{153600{,}0}{800{,}0}\\,\\text{N/m} = 192{,}0\\,\\text{N/m}.$$\n$$\\omega_0 = \\sqrt{\\frac{192{,}0}{1{,}20}}\\,\\text{rad/s} = 12{,}64911\\,\\text{rad/s}, \\qquad f = \\frac{12{,}64911}{6{,}28319}\\,\\text{Hz} = 2{,}0132\\,\\text{Hz}.$$\nKontroll: $192{,}0$ er mindre enn den minste stivheten $320{,}0$ ✔.\n\n**b)** Parallell: $k = 800{,}0\\,\\text{N/m}$, altså\n$$\\omega_0 = 25{,}81989\\,\\text{rad/s}, \\qquad f = 4{,}1094\\,\\text{Hz}.$$\n\n**c)** Han bruker parallellstivheten på et seriesystem, altså $800{,}0$ i stedet for $192{,}0$. Frekvensen blir da $4{,}1094\\,\\text{Hz}$ i stedet for $2{,}0132\\,\\text{Hz}$, en faktor\n$$\\sqrt{\\frac{800{,}0}{192{,}0}} = 2{,}0412,$$\naltså **104 prosent for høy**. Merk at forholdet er $\\sqrt{k_\\text{par}/k_\\text{ser}}$ og ikke forholdet mellom stivhetene selv — kvadratroten halverer den relative feilen, men den er fortsatt stor nok til å treffe et annet alternativ.",
+        "hints": [
+          "Serie: legg sammen de INVERSE stivhetene. Parallell: legg sammen stivhetene.",
+          "Kontroller at seriekoblingen gir en stivhet mindre enn den minste av de to.",
+          "Husk faktoren $2\\pi$ når du går fra rad/s til hertz."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-5-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — den fysiske pendelen (~20 min)\n\n— naturlig pausepunkt —\n\nHeng en sykkelfelg på en spiker i veggen og dytt den litt til siden. Den svinger. Det er ikke en punktmasse i enden av en tråd — det er et **utstrakt legeme** som svinger om et punkt, og det heter en **fysisk pendel**.\n\nUtledningen bruker akkurat den samme oppskriften som fjæra, bare med rotasjonsstørrelser. Tyngden virker i massesenteret, i avstanden $d$ fra opphengspunktet $A$. Når pendelen er dreid ut vinkelen $\\theta$, er tyngdens momentarm $d\\sin\\theta$, og momentet drar pendelen tilbake:\n\n$$\\tau = -Mgd\\sin\\theta.$$\n\nNewtons 2. lov for rotasjon om $A$ gir\n\n$$I_A\\ddot{\\theta} = -Mgd\\sin\\theta.$$\n\nDette er **ikke** svingelikningen — det står $\\sin\\theta$ og ikke $\\theta$. Men for **små utslag** er $\\sin\\theta \\approx \\theta$, og da får vi\n\n$$\\ddot{\\theta} + \\frac{Mgd}{I_A}\\theta = 0.$$\n\n*Intuisjon:* formen er identisk med fjæras $\\ddot{x}+(k/m)x=0$. Vi kan lese av egenfrekvensen direkte ved å sammenligne:\n\n$$\\omega_0 = \\sqrt{\\frac{Mgd}{I_A}}, \\qquad T = 2\\pi\\sqrt{\\frac{I_A}{Mgd}}.$$\n\n**Her ligger hele oppgavesjangeren, og her ligger fella.** Treghetsmomentet $I_A$ skal være om **opphengspunktet**, ikke om massesenteret. Og siden pendelen bare kan svinge når opphengspunktet ligger utenfor massesenteret, må du **alltid** bruke Steiners sats:\n\n$$I_A = I_\\text{CM} + Md^2.$$\n\nGlemmer du Steiner-leddet, blir $I_A$ for liten, og perioden for kort."
+    },
+    {
+      "id": "tfy4115-5-1-def-fysisk-pendel",
+      "type": "definition",
+      "title": "Fysisk pendel",
+      "content": "Et utstrakt, stivt legeme som svinger om en fast, vannrett akse gjennom et punkt $A$ utenfor massesenteret. Svingetiden for **små** utslag er\n$$T = 2\\pi\\sqrt{\\frac{I_A}{Mgd}},$$\nder $I_A$ er treghetsmomentet **om opphengspunktet** (finn det med Steiners sats), $M$ hele massen og $d$ avstanden fra opphengspunktet til massesenteret. Formelen **står på det utdelte arket** i formen $\\omega_0=\\sqrt{Mgd/I_A}$, men de to størrelsene $I_A$ og $d$ må du finne selv — og det er der oppgaven ligger. Merk at perioden **ikke** avhenger av massen for et homogent legeme: både $I_A$ og $Mgd$ er proporsjonale med $M$, så massen faller ut."
+    },
+    {
+      "id": "tfy4115-5-1-def-matematisk-pendel",
+      "type": "definition",
+      "title": "Matematisk pendel",
+      "content": "Grensetilfellet der hele massen kan regnes som en punktmasse i avstanden $L$ fra opphengspunktet — en liten, tung kule i enden av en lett tråd. Da er $I_A = mL^2$ og $d = L$, og den fysiske pendelens formel forenkles:\n$$T = 2\\pi\\sqrt{\\frac{mL^2}{mgL}} = 2\\pi\\sqrt{\\frac{L}{g}}.$$\nBåde massen og alt annet enn lengden faller ut. Formelen **står på det utdelte arket**, og den er verdt å kjenne som kontrolltilfelle: enhver fysisk pendel må ha en periode som svarer til en matematisk pendel med en eller annen lengde — den **effektive pendellengden**."
+    },
+    {
+      "id": "tfy4115-5-1-def-effektiv-lengde",
+      "type": "definition",
+      "title": "Effektiv pendellengde",
+      "content": "Lengden $L_\\text{ekv}$ til den matematiske pendelen som har samme svingetid som en gitt fysisk pendel:\n$$L_\\text{ekv} = \\frac{I_A}{Md}, \\qquad T = 2\\pi\\sqrt{\\frac{L_\\text{ekv}}{g}}.$$\nFor en skive hengt opp i randen er $I_A=\\tfrac32MR^2$ og $d=R$, altså $L_\\text{ekv} = \\tfrac32R$: skiva svinger som en tråd-pendel som er halvannen radius lang. For en stang hengt opp i enden er $L_\\text{ekv} = \\tfrac23L$. Størrelsen er et raskt kontrollverktøy: regn den ut, og se om den er av samme størrelsesorden som legemet. Får du en effektiv lengde som er mye større enn legemet selv, har du sannsynligvis feil $I_A$ eller feil $d$."
+    },
+    {
+      "id": "tfy4115-5-1-def-smaavinkel",
+      "type": "definition",
+      "title": "Småvinkeltilnærmingen",
+      "content": "Tilnærmingen $\\sin\\theta \\approx \\theta$ (med $\\theta$ i **radianer**), som er betingelsen for at en pendel svinger harmonisk. Ved $\\theta = 5^\\circ$ er feilen 0,13 prosent, ved $10^\\circ$ 0,5 prosent, ved $30^\\circ$ 4,5 prosent. Uten tilnærmingen er pendellikningen $\\ddot\\theta + (Mgd/I_A)\\sin\\theta = 0$, som **ikke** er harmonisk: perioden vokser med amplituden, og likningen har ingen enkel løsning. Alle pendelformler i boka har derfor forbeholdet «for små utslag», og det er ikke en formalitet — en pendel med 60 graders utslag har en periode som er om lag 7 prosent lengre enn formelen sier."
+    },
+    {
+      "id": "tfy4115-5-1-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: skiva som henger på en spiker",
+      "problem": "En homogen skive med masse $M = 1{,}40\\,\\text{kg}$ og radius $R = 0{,}180\\,\\text{m}$ henges opp i et punkt på randen og svinger som en fysisk pendel med små utslag.\n\n**a)** Finn treghetsmomentet om opphengspunktet.\n**b)** Finn svingetiden.\n**c)** Finn den effektive pendellengden, og sammenlign med en matematisk pendel med lengde $R$.\n**d)** Hva blir svaret hvis du glemmer Steiner-leddet?",
+      "solution": "**a)** Opphengspunktet ligger i randen, altså $d = R$ fra massesenteret. Steiners sats:\n$$I_A = \\tfrac12MR^2 + MR^2 = \\tfrac32MR^2 = 1{,}500 \\cdot 1{,}40 \\cdot 0{,}03240\\,\\text{kg}\\cdot\\text{m}^2 = 0{,}06804\\,\\text{kg}\\cdot\\text{m}^2.$$\n\n**b) Symbolsk.** Sett inn i pendelformelen med $d = R$:\n$$T = 2\\pi\\sqrt{\\frac{I_A}{MgR}} = 2\\pi\\sqrt{\\frac{\\tfrac32MR^2}{MgR}} = 2\\pi\\sqrt{\\frac{3R}{2g}}.$$\n**Massen faller ut** — en tung og en lett skive med samme radius svinger like fort.\n\n**Rask vei til tall.** Regn brøken under rottegnet først:\n$$\\frac{3R}{2g} = \\frac{3 \\cdot 0{,}180}{2 \\cdot 9{,}81}\\,\\text{s}^2 = \\frac{0{,}540}{19{,}620}\\,\\text{s}^2 = 0{,}027523\\,\\text{s}^2,$$\n$$T = 6{,}28319 \\cdot \\sqrt{0{,}027523}\\,\\text{s} = 6{,}28319 \\cdot 0{,}165900\\,\\text{s} = 1{,}04238\\,\\text{s} \\approx 1{,}0424\\,\\text{s}.$$\n\n**c)** Den effektive pendellengden:\n$$L_\\text{ekv} = \\frac{I_A}{Md} = \\frac{0{,}06804}{1{,}40 \\cdot 0{,}180}\\,\\text{m} = 0{,}2700\\,\\text{m} = \\tfrac32R.$$\nSkiva svinger altså som en tråd-pendel på $0{,}2700\\,\\text{m}$. En matematisk pendel med lengde $R = 0{,}180\\,\\text{m}$ ville hatt perioden\n$$T = 2\\pi\\sqrt{\\frac{0{,}180}{9{,}81}}\\,\\text{s} = 0{,}8511\\,\\text{s},$$\naltså merkbart kortere. Skiva er «tregere» enn en punktmasse i samme avstand, fordi massen ligger fordelt både nærmere og lenger fra aksen — og bidraget fra det som ligger langt unna, veier tyngst.\n\n**d)** Uten Steiner-leddet ville du brukt $I = \\tfrac12MR^2$ og fått\n$$T = 2\\pi\\sqrt{\\frac{\\tfrac12MR^2}{MgR}} = 2\\pi\\sqrt{\\frac{R}{2g}} = 0{,}6018\\,\\text{s},$$\naltså 42 prosent for kort. Det gale tallet ligger som et ferdig alternativ i hvert sett som har denne sjangeren.\n\n**Sluttsjekk, tre ledd.** (i) Enheten: $\\sqrt{\\text{m}/(\\text{m/s}^2)} = \\sqrt{\\text{s}^2} = \\text{s}$ ✔. (ii) Perioden må være **lengre** enn for en matematisk pendel med lengde $d$, siden $L_\\text{ekv} > d$ ✔. (iii) En pendel på noen titalls centimeter skal ha en periode rundt ett sekund — $1{,}0424\\,\\text{s}$ er rimelig."
+    },
+    {
+      "id": "tfy4115-5-1-o-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-5-1-oppg-4",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M8 — pendler.) En homogen skive med masse $2{,}20\\,\\text{kg}$ og radius $0{,}240\\,\\text{m}$ henges opp i et punkt halvveis mellom sentrum og randen, og svinger med små utslag om en vannrett akse gjennom dette punktet.\n\n**a)** Finn treghetsmomentet om opphengspunktet.\n\n**b)** Finn svingetiden.\n\n**c)** Finn den effektive pendellengden.",
+        "solution": "**a)** Avstanden fra massesenteret til opphengspunktet er $d = R/2 = 0{,}120\\,\\text{m}$. Steiners sats:\n$$I_A = \\tfrac12MR^2 + M\\left(\\frac{R}{2}\\right)^2 = \\tfrac34MR^2 = 0{,}7500 \\cdot 2{,}20 \\cdot 0{,}05760\\,\\text{kg}\\cdot\\text{m}^2 = 0{,}09504\\,\\text{kg}\\cdot\\text{m}^2.$$\n\n**b)**\n$$T = 2\\pi\\sqrt{\\frac{I_A}{Mgd}} = 6{,}28319\\sqrt{\\frac{0{,}09504}{2{,}20 \\cdot 9{,}81 \\cdot 0{,}120}}\\,\\text{s} = 6{,}28319\\sqrt{\\frac{0{,}09504}{2{,}5898}}\\,\\text{s} = 6{,}28319 \\cdot 0{,}191565\\,\\text{s} = 1{,}2036\\,\\text{s}.$$\nSymbolsk er dette $T = 2\\pi\\sqrt{\\tfrac34MR^2/(MgR/2)} = 2\\pi\\sqrt{3R/(2g)}$ — samme uttrykk som for oppheng i randen! Det er ingen tilfeldighet: både $I_A$ og $d$ endret seg, og endringene kansellerte hverandre nøyaktig for dette ene punktet.\n\n**c)**\n$$L_\\text{ekv} = \\frac{I_A}{Md} = \\frac{0{,}09504}{2{,}20 \\cdot 0{,}120}\\,\\text{m} = 0{,}3600\\,\\text{m},$$\naltså $\\tfrac32R$ — det samme som for oppheng i randen, i samsvar med at periodene er like.\n\n**Merk poenget:** at to forskjellige opphengspunkter kan gi samme periode, er en kjent egenskap ved fysiske pendler, og den utnyttes i presisjonsmålinger av $g$ (Katers pendel). Glemmer du Steiner-leddet her, får du $T = 0{,}9828\\,\\text{s}$ i stedet — 18 prosent for **kort**. Retningen på feilen er alltid den samme, og det er verdt å merke seg: Steiner-leddet gjør $I_A$ større, større $I_A$ gir lengre periode, så en glemt Steiner gir alltid et for lite tall.",
+        "hints": [
+          "Hvor langt er det fra massesenteret til opphengspunktet?",
+          "Bruk Steiners sats til å finne $I$ om opphengspunktet, ikke om sentrum.",
+          "Sett både $I_A$ og $d$ inn i $T=2\\pi\\sqrt{I_A/(Mgd)}$ — det er samme $d$ i begge."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-5-1-o-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-5-1-oppg-5",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Kvalitativ oppgave — konseptrangering.)\n\n**a)** To pendeluler har samme lengde, men det ene har et lodd som er dobbelt så tungt. Går de like fort? Begrunn.\n\n**b)** En stang hengt opp i den ene enden og en punktmasse i enden av en tråd har samme lengde $L$. Hvilken svinger raskest, og hvorfor?\n\n**c)** Hva skjer med svingetiden til en fysisk pendel hvis opphengspunktet flyttes nærmere massesenteret?",
+        "solution": "**a)** Ja, de går like fort. For en matematisk pendel er $T=2\\pi\\sqrt{L/g}$ — massen står ikke i uttrykket. Grunnen er at massen inngår **både** i tregheten (som motvirker bevegelsen) og i tyngdekraften (som driver den), og de to virkningene kansellerer nøyaktig. Det er samme grunn som til at alle legemer faller like fort i vakuum.\n\n**b)** Stanga svinger **raskere**. For stanga er $I_A = \\tfrac13ML^2$ og $d = L/2$, som gir\n$$T = 2\\pi\\sqrt{\\frac{\\tfrac13ML^2}{MgL/2}} = 2\\pi\\sqrt{\\frac{2L}{3g}},$$\naltså en effektiv lengde $\\tfrac23L$. Punktmassen har effektiv lengde $L$. Forholdet mellom periodene er $\\sqrt{2/3} = 0{,}816$, så stanga svinger om lag 18 prosent raskere. Fysisk: halve stangens masse ligger nærmere aksen enn $L$, og masse nær aksen gir liten treghet men fortsatt tyngde — det gjør pendelen «lettere å drive».\n\n**c)** Da avtar $d$, og både $I_A$ og $Mgd$ minker — men **ikke** i samme takt. Uttrykket\n$$T = 2\\pi\\sqrt{\\frac{I_\\text{CM}+Md^2}{Mgd}}$$\ngår mot **uendelig** når $d \\to 0$, fordi telleren nærmer seg den faste verdien $I_\\text{CM}$ mens nevneren går mot null. Fysisk: en pendel hengt opp nøyaktig i massesenteret svinger ikke i det hele tatt — tyngden har ingen momentarm, og legemet blir stående i den stillingen du slipper det i. Perioden har derfor et **minimum** for en mellomliggende $d$, og den vokser både når opphengspunktet flyttes inn mot massesenteret og når det flyttes langt ut.",
+        "hints": [
+          "Står massen i uttrykket for perioden til en matematisk pendel?",
+          "Regn ut den effektive pendellengden $I_A/(Md)$ for begge systemene i b).",
+          "Se hva som skjer med telleren og nevneren i pendelformelen når $d\\to0$."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-5-1-o-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-5-1-oppg-6",
+        "number": 6,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger M8.) En homogen stang skal brukes som pendel og henges opp i den ene enden. Hvor lang må stanga være for at svingetiden skal bli nøyaktig $1{,}00\\,\\text{s}$?\n\nVis utledningen, og kommentér hvorfor svaret er kortere enn for en matematisk pendel med samme periode.",
+        "solution": "**Symbolsk.** For en stang hengt opp i enden er $I_A = \\tfrac13ML^2$ og $d = L/2$:\n$$T = 2\\pi\\sqrt{\\frac{\\tfrac13ML^2}{Mg\\cdot L/2}} = 2\\pi\\sqrt{\\frac{2L}{3g}}.$$\nMassen faller ut. Løs for $L$:\n$$\\left(\\frac{T}{2\\pi}\\right)^2 = \\frac{2L}{3g} \\quad\\Longrightarrow\\quad L = \\frac{3g}{2}\\left(\\frac{T}{2\\pi}\\right)^2.$$\n\n**Rask vei til tall.**\n$$\\frac{T}{2\\pi} = \\frac{1{,}00}{6{,}28319}\\,\\text{s} = 0{,}159155\\,\\text{s}, \\qquad \\left(\\frac{T}{2\\pi}\\right)^2 = 0{,}0253303\\,\\text{s}^2,$$\n$$L = \\frac{3 \\cdot 9{,}81}{2} \\cdot 0{,}0253303\\,\\text{m} = 14{,}7150 \\cdot 0{,}0253303\\,\\text{m} = 0{,}37274\\,\\text{m} \\approx 0{,}3727\\,\\text{m}.$$\n\n**Kontroll:** sett inn baklengs: $2\\pi\\sqrt{2 \\cdot 0{,}37274/(3 \\cdot 9{,}81)} = 1{,}0000\\,\\text{s}$ ✔.\n\n**Hvorfor kortere enn en matematisk pendel?** En matematisk pendel med periode $1{,}00\\,\\text{s}$ må ha lengden\n$$L_\\text{mat} = g\\left(\\frac{T}{2\\pi}\\right)^2 = 0{,}24849\\,\\text{m}.$$\nStanga har effektiv pendellengde $\\tfrac23L$, så for å nå samme effektive lengde må den være $\\tfrac32$ ganger så lang som... nei, motsatt: stanga må være **lengre** enn den effektive lengden, men **kortere** enn den matematiske pendelen? Regn etter: $\\tfrac23L = L_\\text{mat}$ gir $L = \\tfrac32L_\\text{mat} = 0{,}37274\\,\\text{m}$ — og det er nettopp svaret vårt. Stanga er altså **halvannen gang så lang** som den matematiske pendelen med samme periode. Fysisk: stangens masse ligger i gjennomsnitt nærmere aksen, så den må være lengre for å svinge like langsomt.\n\n**Merk den vanligste feilen her:** å bruke $T = 2\\pi\\sqrt{L/g}$ (matematisk pendel) på en stang. Det gir $0{,}24849\\,\\text{m}$, altså 33 prosent for kort.",
+        "hints": [
+          "Finn $I_A$ og $d$ for en stang hengt opp i enden, og sett inn i pendelformelen.",
+          "Massen skal falle ut av uttrykket — sjekk at den gjør det før du løser for $L$.",
+          "Regn $T/(2\\pi)$ som eget mellomresultat før du kvadrerer."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-5-1-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — den koniske pendelen (~14 min)\n\nEn kule i enden av en snor svinges rundt i en **vannrett sirkel**, slik at snora sveiper ut en kjegle. Dette er en **konisk pendel**, og den er ikke en svingning i det hele tatt — det er en sirkelbevegelse. Men den har en periode, og den regnes ut med samme type oppsett.\n\nTo krefter virker på kula: snordraget $S$ langs snora, og tyngden $mg$ rett ned. Kula går i sirkel, så resultanten må peke **vannrett inn mot sirkelsentret** — det er sentripetalakselerasjonen. Dekomponér snordraget:\n\n$$\\text{loddrett:} \\quad S\\cos\\theta = mg, \\qquad \\text{vannrett:} \\quad S\\sin\\theta = \\frac{mv^2}{R}.$$\n\n*Intuisjon:* den loddrette komponenten bærer vekten, den vannrette holder kula i sirkel. Det er ingen tredje kraft: **det finnes ingen utoverrettet kraft på kula.** Resultanten av de to virkelige kreftene ER det som krummer banen.\n\n**Del de to likningene** for å eliminere $S$:\n\n$$\\tan\\theta = \\frac{v^2}{gR}.$$\n\nMed $R = L\\sin\\theta$ og $v = 2\\pi R/T$ gir dette\n\n$$T = 2\\pi\\sqrt{\\frac{R}{g\\tan\\theta}} = 2\\pi\\sqrt{\\frac{L\\cos\\theta}{g}}.$$\n\n*Intuisjon i den siste formen:* $L\\cos\\theta$ er den **loddrette høyden** fra festepunktet ned til kulas plan. Den koniske pendelen har altså samme periode som en matematisk pendel med lengde lik denne høyden — et pent resultat som er verdt å kjenne som kontroll.\n\n**Merk at snordraget alltid er større enn tyngden:** $S = mg/\\cos\\theta > mg$, og det vokser raskt når vinkelen øker. Ved $60^\\circ$ er $S = 2mg$; ved $80^\\circ$ nesten $6mg$. Det er grunnen til at en snor knekker når du svinger for fort."
+    },
+    {
+      "id": "tfy4115-5-1-def-konisk",
+      "type": "definition",
+      "title": "Konisk pendel",
+      "content": "En masse i enden av en snor som går i en **vannrett sirkelbane**, slik at snora former en kjegle med toppvinkel $2\\theta$. De to likevektslikningene er\n$$S\\cos\\theta = mg \\qquad\\text{(loddrett)}, \\qquad S\\sin\\theta = \\frac{mv^2}{R} \\qquad\\text{(inn mot sentrum)},$$\nog perioden er\n$$T = 2\\pi\\sqrt{\\frac{L\\cos\\theta}{g}},$$\nder $L$ er snorlengden og $R = L\\sin\\theta$ sirkelradien. Legg merke til tre ting: massen faller ut av perioden; snordraget $S = mg/\\cos\\theta$ er alltid **større** enn tyngden; og perioden avtar når vinkelen øker — jo raskere du svinger, jo mer vannrett blir snora, men den blir aldri helt vannrett, for det ville krevd uendelig strekk."
+    },
+    {
+      "id": "tfy4115-5-1-def-taustrekk-51",
+      "type": "definition",
+      "title": "Taustrekk i en konisk pendel",
+      "content": "Kraften i den stramme snora, med symbolet $S$ og enheten newton, rettet **langs snora fra kula mot festepunktet**. Fra den loddrette likningen følger\n$$S = \\frac{mg}{\\cos\\theta},$$\nsom viser at strekket alltid overstiger tyngden og vokser uten grense når $\\theta \\to 90^\\circ$. Merk symbolkollisjonen: $S$ betyr **entropi** i termodelen fra Del 7, med enhet J/K — her er det alltid en kraft i newton. Merk også at snordraget ikke er «sentripetalkraften»: sentripetalkraften er *resultanten* av snordraget og tyngden, og den er $S\\sin\\theta$."
+    },
+    {
+      "id": "tfy4115-5-1-def-sentripetal-51",
+      "type": "definition",
+      "title": "Sentripetalakselerasjon",
+      "content": "Akselerasjonen som krummer banen til et legeme i sirkelbevegelse, rettet **inn mot sentrum** av sirkelen:\n$$a = \\frac{v^2}{R} = \\omega^2R.$$\nUttrykket **står på det utdelte arket**. Det viktigste å holde fast ved: sentripetalakselerasjonen er en akselerasjon, ikke en kraft, og den skapes av resultanten av de **virkelige** kreftene. I en konisk pendel er det $S\\sin\\theta$; i en bakketopp er det $mg-N$; i en satellittbane er det gravitasjonen. Det skal **aldri** tegnes en utoverrettet kraft inn i et frilegemediagram for et legeme i sirkelbane — det er en av de mest utbredte feilene i mekanikken."
+    },
+    {
+      "id": "tfy4115-5-1-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: den koniske pendelen (eksamensnivå)",
+      "problem": "En kule med masse $m = 0{,}250\\,\\text{kg}$ henger i en snor med lengde $L = 1{,}10\\,\\text{m}$ og svinges rundt i en vannrett sirkel slik at snora danner vinkelen $\\theta = 25^\\circ$ med loddlinja.\n\n**a)** Finn sirkelradien.\n**b)** Finn omløpstiden.\n**c)** Finn banefarten, og kontrollér den på en annen måte.\n**d)** Finn strekket i snora, og sammenlign med tyngden.",
+      "solution": "**a)**\n$$R = L\\sin\\theta = 1{,}10 \\cdot \\sin 25^\\circ\\,\\text{m} = 1{,}10 \\cdot 0{,}42262\\,\\text{m} = 0{,}46488\\,\\text{m}.$$\n\n**b) Symbolsk.** Del de to likevektslikningene: $\\tan\\theta = v^2/(gR)$. Med $v = 2\\pi R/T$ og $R = L\\sin\\theta$ følger\n$$T = 2\\pi\\sqrt{\\frac{L\\cos\\theta}{g}}.$$\n\n**Rask vei til tall.** Regn $L\\cos\\theta$ først — det er den loddrette høyden fra festepunktet ned til kulas plan:\n$$L\\cos\\theta = 1{,}10 \\cdot 0{,}90631\\,\\text{m} = 0{,}99694\\,\\text{m}, \\qquad \\frac{L\\cos\\theta}{g} = 0{,}101625\\,\\text{s}^2,$$\n$$T = 6{,}28319 \\cdot \\sqrt{0{,}101625}\\,\\text{s} = 6{,}28319 \\cdot 0{,}318786\\,\\text{s} = 2{,}00299\\,\\text{s} \\approx 2{,}0030\\,\\text{s}.$$\n\n**c)** Fra $\\tan\\theta = v^2/(gR)$:\n$$v = \\sqrt{gR\\tan\\theta} = \\sqrt{9{,}81 \\cdot 0{,}46488 \\cdot 0{,}46631}\\,\\text{m/s} = \\sqrt{2{,}12658}\\,\\text{m/s} = 1{,}45828\\,\\text{m/s}.$$\n**Uavhengig kontroll:** kula går én omkrets per periode, så\n$$v = \\frac{2\\pi R}{T} = \\frac{6{,}28319 \\cdot 0{,}46488}{2{,}00299}\\,\\text{m/s} = 1{,}45828\\,\\text{m/s}. \\checkmark$$\nDe to regnestykkene bruker helt forskjellige veier og gir samme svar — det er den beste sluttsjekken i denne sjangeren.\n\n**d)** Fra den loddrette likningen:\n$$S = \\frac{mg}{\\cos\\theta} = \\frac{0{,}250 \\cdot 9{,}81}{0{,}90631}\\,\\text{N} = \\frac{2{,}45250}{0{,}90631}\\,\\text{N} = 2{,}70603\\,\\text{N}.$$\nTyngden er $mg = 2{,}45250\\,\\text{N}$, så strekket er 1{,}1034 ganger tyngden. Det stemmer med $1/\\cos 25^\\circ = 1{,}1034$.\n\n**Sluttsjekk, tre ledd.** (i) $S > mg$ **alltid** i en konisk pendel — snora må både bære vekten og krumme banen ✔. (ii) Perioden må være kortere enn for en matematisk pendel med lengde $L$ ($2\\pi\\sqrt{L/g} = 2{,}1040\\,\\text{s}$), siden det er $L\\cos\\theta$ og ikke $L$ som teller ✔. (iii) De to måtene å regne $v$ gir samme svar ✔.\n\n**Den vanligste feilen i denne sjangeren** er å forveksle $S\\cos\\theta$ og $S\\sin\\theta$ — altså å sette $S\\sin\\theta = mg$. Det ville gitt $S = 5{,}8031\\,\\text{N}$, altså langt mindre enn tyngden, og det er fysisk umulig. Sjekken «er strekket større enn tyngden?» fanger feilen umiddelbart."
+    },
+    {
+      "id": "tfy4115-5-1-o-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-5-1-oppg-7",
+        "number": 7,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M8.) En kule med masse $0{,}400\\,\\text{kg}$ svinges i en vannrett sirkel i enden av en snor med lengde $0{,}750\\,\\text{m}$. Snora danner $35^\\circ$ med loddlinja.\n\n**a)** Finn sirkelradien og omløpstiden.\n\n**b)** Finn banefarten og strekket i snora.",
+        "solution": "**a)**\n$$R = L\\sin\\theta = 0{,}750 \\cdot 0{,}57358\\,\\text{m} = 0{,}43018\\,\\text{m}.$$\n$$T = 2\\pi\\sqrt{\\frac{L\\cos\\theta}{g}} = 6{,}28319\\sqrt{\\frac{0{,}750 \\cdot 0{,}81915}{9{,}81}}\\,\\text{s} = 6{,}28319\\sqrt{0{,}062626}\\,\\text{s} = 1{,}5724\\,\\text{s}.$$\n\n**b)**\n$$v = \\sqrt{gR\\tan\\theta} = \\sqrt{9{,}81 \\cdot 0{,}43018 \\cdot 0{,}70021}\\,\\text{m/s} = 1{,}7190\\,\\text{m/s}.$$\nKontroll: $v = 2\\pi R/T = 1{,}7190\\,\\text{m/s}$ ✔.\n$$S = \\frac{mg}{\\cos\\theta} = \\frac{3{,}9240}{0{,}81915}\\,\\text{N} = 4{,}7903\\,\\text{N}.$$\n\n**Sluttsjekk:** $S = 4{,}7903\\,\\text{N}$ er større enn tyngden $mg = 3{,}9240\\,\\text{N}$, som det må være ✔. Forholdet er $1/\\cos 35^\\circ = 1{,}2208$.",
+        "hints": [
+          "Radien er ikke snorlengden — den er snorlengden ganger sinus til vinkelen.",
+          "Bruk $T=2\\pi\\sqrt{L\\cos\\theta/g}$, der $L\\cos\\theta$ er den loddrette høyden.",
+          "Kontroller farten på to måter: fra $\\tan\\theta=v^2/(gR)$ og fra $v=2\\pi R/T$."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-5-1-o-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-5-1-oppg-8",
+        "number": 8,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger M8.) En konisk pendel har snorlengde $0{,}900\\,\\text{m}$ og masse $0{,}600\\,\\text{kg}$, og omløpstiden er målt til $1{,}80\\,\\text{s}$.\n\n**a)** Finn vinkelen snora danner med loddlinja.\n\n**b)** Finn sirkelradien, banefarten og strekket i snora.\n\n**c)** Hva er den lengste omløpstiden dette systemet kan ha, og hva skjer fysisk i den grensen?",
+        "solution": "**a) Symbolsk.** Løs $T = 2\\pi\\sqrt{L\\cos\\theta/g}$ for $\\cos\\theta$:\n$$\\left(\\frac{T}{2\\pi}\\right)^2 = \\frac{L\\cos\\theta}{g} \\quad\\Longrightarrow\\quad \\cos\\theta = \\frac{gT^2}{4\\pi^2L}.$$\n\n**Rask vei til tall.**\n$$\\cos\\theta = \\frac{9{,}81 \\cdot 3{,}2400}{4\\pi^2 \\cdot 0{,}900} = \\frac{31{,}7844}{35{,}5306} = 0{,}894565 \\quad\\Longrightarrow\\quad \\theta = \\arccos 0{,}894565 = 26{,}55^\\circ.$$\n\n**b)**\n$$R = L\\sin\\theta = 0{,}900 \\cdot 0{,}44694\\,\\text{m} = 0{,}40224\\,\\text{m}, \\qquad v = \\frac{2\\pi R}{T} = 1{,}4041\\,\\text{m/s},$$\n$$S = \\frac{mg}{\\cos\\theta} = \\frac{5{,}8860}{0{,}894565}\\,\\text{N} = 6{,}5797\\,\\text{N}.$$\nKontroll av farten den andre veien: $\\sqrt{gR\\tan\\theta} = 1{,}4041\\,\\text{m/s}$ ✔. Og $S = 6{,}5797\\,\\text{N}$ er større enn $mg = 5{,}8860\\,\\text{N}$ ✔.\n\n**c)** Perioden er lengst når $\\cos\\theta$ er størst, altså når $\\theta \\to 0$:\n$$T_\\text{maks} = 2\\pi\\sqrt{\\frac{L}{g}} = 1{,}9031\\,\\text{s}.$$\nI den grensen svinger ikke kula i sirkel i det hele tatt — den henger rett ned og står stille, og systemet er en vanlig matematisk pendel som får svinge i et plan. **Den koniske pendelen kan altså aldri ha lengre periode enn den matematiske pendelen med samme snorlengde**, og det er en god sluttsjekk: får du en periode over $1{,}9031\\,\\text{s}$ i denne oppgaven, har du regnet feil. Motsatt vei finnes ingen grense: når vinkelen nærmer seg $90^\\circ$, går perioden mot null og strekket mot uendelig.",
+        "hints": [
+          "Løs periodeuttrykket for $\\cos\\theta$ før du setter inn tall.",
+          "Regn $T/(2\\pi)$ eller $T^2$ som eget mellomresultat.",
+          "I c): hvilken verdi av $\\cos\\theta$ gir den største perioden?"
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-5-1-rask-vei",
+      "type": "text",
+      "content": "## Rask vei til tall (MC-oppskrift)\n\nDette er den korteste feilfrie veien fra oppgitte tall til bokstavsvaret i svingnings- og pendelsjangeren.\n\n1. **Hvilken lov?** Identifiser systemet på tre sekunder: **masse på fjær** → $\\omega_0=\\sqrt{k/m}$. **To fjærer** → finn samlet $k$ først (serie: invers sum; parallell: sum). **Utstrakt legeme hengt opp i et punkt** → fysisk pendel, $T=2\\pi\\sqrt{I_A/(Mgd)}$. **Punktmasse i tråd** → $T=2\\pi\\sqrt{L/g}$. **Vannrett sirkelbane i snor** → konisk pendel, $T=2\\pi\\sqrt{L\\cos\\theta/g}$.\n2. **Hvilken ene regnelinje?** Regn alltid **innholdet under rottegnet** som eget mellomresultat: $k/m$, $I_A/(Mgd)$, $L\\cos\\theta/g$. Da har du bare én rotutdragning og én multiplikasjon med $2\\pi$ igjen.\n3. **Hva hentes hvor?** $\\omega_0=\\sqrt{k/m}$, $T=2\\pi/\\omega$, $f=1/T$, pendelformlene og alle treghetsmomentene **står på det utdelte arket**. Steiners sats gjør det også. Det som **må kunne utledes aktivt**, er selve oppsettet: hvilken $I_A$, hvilken $d$, og at $\\sin\\theta\\approx\\theta$ er forutsetningen.\n4. **Hvor mange siffer?** Fire gjennom kjeden. To grunner: en kvadratrot halverer den relative feilen, så du trenger flere siffer inn enn ut for å treffe tre siffer i svaret; og alternativene i denne sjangeren skiller seg ofte med bare faktoren $\\sqrt{2/3} = 0{,}816$ eller $\\sqrt{3/2} = 1{,}22$.\n5. **Hva sjekker du før du krysser av?** (i) **Ber oppgaven om $\\omega$, $f$ eller $T$?** Faktoren $2\\pi$ er sjangerens dyreste feil. (ii) Enhet: rad/s, Hz eller s. (iii) Er Steiner-leddet med i $I_A$? (iv) Er den effektive pendellengden $I_A/(Md)$ av samme størrelsesorden som legemet? (v) I konisk pendel: er $S > mg$? (vi) Er svaret rimelig — en laboratoriependel har en periode rundt ett sekund, en fjær med noen hundre gram noen få hertz."
+    },
+    {
+      "id": "tfy4115-5-1-o-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-5-1-oppg-9",
+        "number": 9,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M8, A–F-format.) En homogen skive med masse $1{,}80\\,\\text{kg}$ og radius $0{,}150\\,\\text{m}$ henges opp i et punkt på randen og svinger med små utslag. Hvor lang er svingetiden?\n\n**A** $0{,}1514\\,\\text{s}$ · **B** $0{,}5494\\,\\text{s}$ · **C** $0{,}7769\\,\\text{s}$ · **D** $0{,}9193\\,\\text{s}$ · **E** $0{,}9516\\,\\text{s}$ · **F** $1{,}0988\\,\\text{s}$",
+        "solution": "**Svar: E.**\n\n$$I_A = \\tfrac12MR^2 + MR^2 = \\tfrac32MR^2, \\qquad d = R,$$\n$$T = 2\\pi\\sqrt{\\frac{\\tfrac32MR^2}{MgR}} = 2\\pi\\sqrt{\\frac{3R}{2g}} = 6{,}28319\\sqrt{0{,}022936}\\,\\text{s} = 0{,}9516\\,\\text{s}.$$\nMassen faller ut, og den er derfor bare oppgitt som distraksjon.\n\n*Fellene:*\n\n- **B** er $2\\pi\\sqrt{R/(2g)}$, altså Steiner-leddet glemt — det gir en for kort periode, og det er den vanligste feilen i sjangeren.\n- **C** er $2\\pi\\sqrt{R/g}$, altså skiva behandlet som en punktmasse i avstanden $R$ (matematisk pendel).\n- **F** er $2\\pi\\sqrt{2R/g}$, som svarer til en effektiv lengde $2R$ i stedet for $\\tfrac32R$.\n- **D** bruker kule-formelen $\\tfrac25MR^2$ i stedet for skiveformelen før Steiner legges til.\n- **A** er svaret uten faktoren $2\\pi$, altså $\\sqrt{L_\\text{ekv}/g}$ — sjangerens andre klassiske felle, og det alternativet som ligger lengst unna.\n\n*Sluttsjekk:* den effektive pendellengden er $I_A/(Md) = \\tfrac32R = 0{,}2250\\,\\text{m}$, og en pendel på 22 centimeter skal ha en periode i underkant av ett sekund. Alternativet uten $2\\pi$ er på 0{,}1514 sekunder — altfor kort for noe som svinger synlig.",
+        "hints": [
+          "Skal $I$ være om massesenteret eller om opphengspunktet?",
+          "Sjekk at massen faller ut av uttrykket ditt.",
+          "Regn den effektive pendellengden $I_A/(Md)$ som kontroll før du krysser av."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-5-1-o-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-5-1-oppg-10",
+        "number": 10,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger M8, den tyngste varianten.) En pendel består av en homogen stang med masse $0{,}900\\,\\text{kg}$ og lengde $0{,}700\\,\\text{m}$, hengslet i den øvre enden, med en kompakt kule med masse $1{,}50\\,\\text{kg}$ og radius $0{,}0800\\,\\text{m}$ festet i den nedre enden. Kulesentret ligger $0{,}780\\,\\text{m}$ fra opphengspunktet.\n\n**a)** Finn treghetsmomentet om opphengspunktet.\n\n**b)** Finn systemets massesenter, målt fra opphengspunktet.\n\n**c)** Finn svingetiden for små utslag.",
+        "solution": "**a)** To deler, begge om opphengsaksen. Stanga bidrar med $\\tfrac13M_sL^2$ (allerede om enden), kula med sitt eget $\\tfrac25M_kR^2$ pluss Steiner-leddet $M_k(L+R)^2$:\n$$I_A = \\tfrac13 \\cdot 0{,}900 \\cdot 0{,}4900 + \\left(\\tfrac25 \\cdot 1{,}50 \\cdot 0{,}006400 + 1{,}50 \\cdot 0{,}60840\\right)\\,\\text{kg}\\cdot\\text{m}^2$$\n$$I_A = 0{,}14700 + \\left(0{,}003840 + 0{,}91260\\right) = 0{,}14700 + 0{,}91644 = 1{,}06344\\,\\text{kg}\\cdot\\text{m}^2.$$\n\n**b)** Massesenteret er det massevektede gjennomsnittet av delenes massesentre — stangens midt på seg, kulas i sitt sentrum:\n$$d_\\text{CM} = \\frac{M_s\\cdot L/2 + M_k(L+R)}{M_s+M_k} = \\frac{0{,}3150 + 1{,}1700}{2{,}40}\\,\\text{m} = \\frac{1{,}4850}{2{,}40}\\,\\text{m} = 0{,}61875\\,\\text{m}.$$\nPunktet ligger mellom stangens midtpunkt ($0{,}350\\,\\text{m}$) og kulesentret ($0{,}780\\,\\text{m}$), nærmest kula fordi den er tyngst ✔.\n\n**c)** Nå settes alt inn i pendelformelen, med **hele** massen og avstanden til det **felles** massesenteret:\n$$T = 2\\pi\\sqrt{\\frac{I_A}{(M_s+M_k)g\\,d_\\text{CM}}} = 6{,}28319\\sqrt{\\frac{1{,}06344}{2{,}40 \\cdot 9{,}81 \\cdot 0{,}61875}}\\,\\text{s} = 6{,}28319\\sqrt{\\frac{1{,}06344}{14{,}5678}}\\,\\text{s} = 1{,}69761\\,\\text{s}.$$\n\n**Merk de tre fellene i denne oppgaven.** (i) Å bruke kulas avstand $L+R$ som $d$ i stedet for det felles massesenteret — det ville gitt en for kort periode. (ii) Å glemme kulas eget $\\tfrac25M_kR^2$; her er det lite ($0{,}003840$ mot $0{,}91260$), men det hører med. (iii) Å legge til et Steiner-ledd for stanga også — $\\tfrac13M_sL^2$ er allerede om enden.\n\n**Sluttsjekk:** effektiv pendellengde $L_\\text{ekv} = I_A/(Mg\\,d_\\text{CM})\\cdot g = I_A/(M d_\\text{CM}) = 0{,}7161\\,\\text{m}$, altså litt kortere enn hele pendelen på $0{,}860\\,\\text{m}$ — helt som forventet for et legeme der massen er fordelt langs lengden. Og perioden på $1{,}6976\\,\\text{s}$ svarer til en tråd-pendel på 72 centimeter, som er rimelig.",
+        "hints": [
+          "Del pendelen i to og finn hver dels treghetsmoment om OPPHENGSAKSEN.",
+          "Avstanden $d$ i pendelformelen er til det FELLES massesenteret, ikke til kula.",
+          "Stangens $\\tfrac13M_sL^2$ er allerede om enden — bare kula trenger Steiner."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-5-1-war-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil — og faktoren $2\\pi$ som lander på nabo-alternativet",
+      "content": "**Å blande $\\omega_0$, $f$ og $T$.** Dette er sjangerens dyreste feil, og den er ren lesefeil: oppgaven spør om frekvensen i hertz, du regner ut vinkelfrekvensen i rad/s, og de skiller seg med $2\\pi = 6{,}283$. Begge tall står på alternativlista. **Understrek hva som spørres om før du regner**, og gjør en rimelighetssjekk til slutt: en laboratoriefjær gir noen få hertz, men noen titalls rad/s.\n\n**Å glemme Steiner-leddet i en fysisk pendel** (felle #4 — glemt Steiner-ledd). Treghetsmomentet skal være om **opphengspunktet**. For en skive i randen er $I_A = \\tfrac32MR^2$, ikke $\\tfrac12MR^2$. Feilen gir en periode som er $\\sqrt{1/3} = 0{,}577$ ganger den riktige, altså 42 prosent for kort.\n\n**Å bruke kulas eller legemets avstand som $d$ i et sammensatt system.** I pendelformelen er $d$ avstanden til **systemets felles massesenter**, og $M$ er **hele** massen. Blander du disse med én dels verdier, blir svaret galt selv med riktig $I_A$.\n\n**Å blande serie og parallell for fjærer.** Serie gir **mykere** (samlet $k$ mindre enn den minste), parallell gir **stivere** (større enn den største). Kontrollen tar to sekunder, og den fanger feilen hver gang.\n\n**Å forveksle $S\\cos\\theta$ og $S\\sin\\theta$ i den koniske pendelen.** Den **loddrette** likningen er $S\\cos\\theta = mg$, den **vannrette** er $S\\sin\\theta = mv^2/R$. Bytter du dem, får du et strekk som er mindre enn tyngden — fysisk umulig. Sjekken «er $S > mg$?» avslører feilen umiddelbart.\n\n**Å tegne en utoverrettet kraft på massen i sirkelbanen.** Det finnes ingen slik kraft. Sentripetalakselerasjonen er resultatet av snordraget og tyngden, ikke en egen kraft. En figur med en utoverrettet pil er en faglig feil, ikke en tegnefeil.\n\n**Å bruke pendelformlene ved store utslag.** Alle uttrykkene forutsetter $\\sin\\theta\\approx\\theta$. Ved 30 graders utslag er den virkelige perioden om lag 1,7 prosent lengre, ved 60 grader 7 prosent — nok til å bomme i et tett sett hvis oppgaven eksplisitt spør om et stort utslag.\n\n**Og faktorfellen som lander på nabo-alternativet** (felle #16): denne sjangeren er full av kvadratrøtter, og de skjuler feil. En feil på 50 prosent i $k$ eller $I$ gir bare 22 prosent feil i perioden — akkurat nok til å treffe nabo-alternativet i stedet for å se åpenbart galt ut. **Behold fire siffer i innholdet under rottegnet**, og bruk $2\\pi = 6{,}28319$, ikke 6,28. Regn dessuten alltid ut brøken under rottegnet som eget mellomresultat: da har du bare én rotutdragning å gjøre feil i, og du kan lese av størrelsesordenen før du trekker rota."
+    },
+    {
+      "id": "tfy4115-5-1-begrepsbank-notis",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "tfy4115-5-1-bb-hooke",
+      "type": "definition",
+      "title": "Hookes lov",
+      "content": "Sammenhengen mellom kraft og utslag for en ideell fjær:\n$$F = -kx,$$\nder $x$ måles fra likevektsstillingen og minustegnet sier at kraften alltid peker **mot** likevekt. Loven **står på det utdelte arket**. Den er en tilnærmning som holder for små utslag i praktisk talt alle elastiske systemer — en fjær, en bjelke som bøyes, en atombinding — og det er derfor harmonisk svingning er så utbredt i fysikken. Det er nettopp proporsjonaliteten mellom kraft og utslag som gjør at perioden blir uavhengig av amplituden."
+    },
+    {
+      "id": "tfy4115-5-1-bb-energi-svingning",
+      "type": "definition",
+      "title": "Energien i en harmonisk svingning",
+      "content": "Den totale mekaniske energien er konstant og gitt av amplituden alene:\n$$E = \\tfrac12kA^2 = \\tfrac12m\\omega_0^2A^2 = \\tfrac12mv_\\text{maks}^2.$$\nEnergien veksler mellom ren potensiell (i ytterstillingene, der farten er null) og ren kinetisk (i likevektsstillingen, der utslaget er null). Legg merke til at energien vokser med amplituden i **annen**: dobler du utslaget, firedobler du energien — mens perioden ikke endres i det hele tatt. Uttrykket er nyttig når en oppgave oppgir energi og spør om amplitude, eller motsatt."
+    },
+    {
+      "id": "tfy4115-5-1-bb-loddrett-fjaer",
+      "type": "definition",
+      "title": "Loddrett fjær: tyngden endrer ikke frekvensen",
+      "content": "En masse i en loddrett fjær strekker den $x_0 = mg/k$ før den kommer til ro. Svingningen skjer om denne **nye** likevektsstillingen, og egenfrekvensen er nøyaktig den samme som for en vannrett fjær:\n$$\\omega_0 = \\sqrt{\\frac{k}{m}}.$$\nGrunnen er at tyngden er en **konstant** kraft: den flytter likevektspunktet, men endrer ikke stigningstallet i kraft–utslag-sammenhengen. Praktisk konsekvens: du skal aldri ha $g$ i svaret på en masse-fjær-oppgave. Dukker $g$ opp, har du sannsynligvis regnet utslaget fra fjærens ulastede lengde i stedet for fra likevektsstillingen."
+    },
+    {
+      "id": "tfy4115-5-1-bb-stangpendel",
+      "type": "definition",
+      "title": "Stangen som fysisk pendel",
+      "content": "En homogen stang med lengde $L$, hengt opp i den ene enden, har $I_A = \\tfrac13ML^2$ og $d = L/2$, som gir\n$$T = 2\\pi\\sqrt{\\frac{\\tfrac13ML^2}{MgL/2}} = 2\\pi\\sqrt{\\frac{2L}{3g}}, \\qquad L_\\text{ekv} = \\tfrac23L.$$\nMassen faller ut. Stanga svinger altså raskere enn en matematisk pendel med samme lengde — forholdet er $\\sqrt{2/3} = 0{,}816$. Uttrykket [må kunne brukes eller utledes aktivt]; det er ikke på arket, men både $\\tfrac13ML^2$ og pendelformelen er. Merk at stanga hengt opp i **midten** ikke svinger i det hele tatt, siden $d=0$."
+    },
+    {
+      "id": "tfy4115-5-1-bb-skivependel",
+      "type": "definition",
+      "title": "Skiva som fysisk pendel",
+      "content": "En homogen skive med radius $R$, hengt opp i randen, har $I_A = \\tfrac32MR^2$ og $d = R$:\n$$T = 2\\pi\\sqrt{\\frac{3R}{2g}}, \\qquad L_\\text{ekv} = \\tfrac32R.$$\nMassen faller ut. Merk et pent resultat: en skive hengt opp i punktet **halvveis** mellom sentrum og rand får $I_A = \\tfrac34MR^2$ og $d = R/2$, altså nøyaktig samme periode. To ulike opphengspunkter kan gi samme svingetid, og det er denne egenskapen presisjonsmålinger av $g$ utnytter (Katers pendel)."
+    },
+    {
+      "id": "tfy4115-5-1-bb-sjanger-m7",
+      "type": "definition",
+      "title": "Sjanger M7 — svingninger",
+      "content": "Bokas navn på oppgaveformen der du skal finne egenfrekvens, frekvens, periode eller fjærstivhet for et svingende system. Den forekommer i om lag 9 av 10 eksamenssett (~90 %) og hører til **mekanikkhalvdelen, spørsmål 1–20**. Prioritet: **høyeste — dette må sitte**. Variantene: masse på én fjær; to fjærer i serie eller parallell; finn $k$ fra en målt frekvens; og — i [kap. 5.2](/tfy4115/tfy4115-5-2) — dempet svingning og resonans. Den ene tingen som avgjør flest av dem, er om du leverer $\\omega$, $f$ eller $T$."
+    },
+    {
+      "id": "tfy4115-5-1-bb-sjanger-m8",
+      "type": "definition",
+      "title": "Sjanger M8 — pendler",
+      "content": "Bokas navn på oppgaveformen med fysisk pendel, matematisk pendel eller konisk pendel. Den forekommer i rundt halvparten av settene (~50 %), hører til **mekanikkhalvdelen** og har prioritet **bør sitte**. Nøkkelen i den fysiske pendelen er Steiners sats (treghetsmomentet om **opphengspunktet**) og avstanden $d$ til det **felles** massesenteret. Nøkkelen i den koniske pendelen er å dele de to kraftlikningene for å eliminere strekket. I begge tilfeller faller massen ut av perioden når legemet er homogent."
+    },
+    {
+      "id": "tfy4115-5-1-bb-felle-2pi",
+      "type": "definition",
+      "title": "$2\\pi$-fella",
+      "content": "Bokas kortnavn på forvekslingen av vinkelfrekvens ($\\omega$, rad/s), frekvens ($f$, Hz) og periode ($T$, s). De tre henger sammen som\n$$\\omega = 2\\pi f = \\frac{2\\pi}{T},$$\nog faktoren $2\\pi = 6{,}283$ er stor nok til at det gale svaret nesten alltid ligger på alternativlista. Motgiften er å understreke hva oppgaven ber om, og å ha en størrelsesordensfølelse: en pendel eller fjær i et laboratorium har $T$ rundt ett sekund, $f$ rundt én hertz og $\\omega$ rundt seks rad/s. Bruk $2\\pi = 6{,}28319$ i regningen, ikke 6,28."
+    },
+    {
+      "id": "tfy4115-5-1-bb-uavhengig-masse",
+      "type": "definition",
+      "title": "Når massen faller ut",
+      "content": "For en **homogen** fysisk pendel, en matematisk pendel og en konisk pendel faller massen ut av perioden, fordi den inngår like sterkt i tregheten som i drivkraften. For en **masse på fjær** gjør den det ikke: der er $\\omega_0=\\sqrt{k/m}$, og massen er halve svaret. Dette er en rask kontroll på at du har valgt riktig formel: står det en masse i et pendelsvar der legemet er homogent, har du sannsynligvis brukt fjærformelen eller glemt å forkorte. Merk unntaket: i et **sammensatt** system (stang pluss kule) faller ikke massene ut, fordi massefordelingen selv avgjør både $I_A$ og $d$."
+    },
+    {
+      "id": "tfy4115-5-1-coll-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tfy4115-5-1-symb-1",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n**Kolliderende symboler i dette delkapitlet.** $T$ er **periode** i sekunder; i termodelen (Del 6–10) betyr $T$ **absolutt temperatur i kelvin**. $S$ er **taustrekk** i newton; i Del 7 og utover er $S$ **entropi** med enhet J/K. $k$ er **fjærstivhet** i N/m; Boltzmanns konstant skrives $k_B$ i termodelen. $R$ er en **radius**; i termodelen er $R$ gasskonstanten. Og symbolet $\\gamma$ opptrer **ikke** her: det kommer i [kap. 5.2](/tfy4115/tfy4115-5-2) som **dempingskoeffisient** i $\\text{s}^{-1}$, og i Del 6–10 som **adiabateksponent** (dimensjonsløs) — to helt ulike størrelser med samme bokstav.\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $x(t)$, $A$ | Utslag fra likevektsstillingen; amplitude | m |\n| $\\omega_0$ | Egenfrekvens (vinkelfrekvens) | rad/s |\n| $f$ | Frekvens, antall svingninger per sekund | Hz |\n| $T$ | Periode, tiden for én svingning (**ikke** temperatur her) | s |\n| $\\phi$ | Fasekonstant | rad |\n| $k$, $k_1$, $k_2$ | Fjærstivhet (**ikke** Boltzmanns konstant) | N/m |\n| $m$, $M$ | Masse | kg |\n| $\\theta$ | Utslagsvinkel for en pendel; snorvinkel i konisk pendel | rad eller grader |\n| $I_A$ | Treghetsmoment om **opphengspunktet** | $\\text{kg}\\cdot\\text{m}^2$ |\n| $d$ | Avstand fra opphengspunkt til massesenter | m |\n| $L$ | Snorlengde eller stanglengde | m |\n| $L_\\text{ekv}$ | Effektiv pendellengde, $I_A/(Md)$ | m |\n| $S$ | Taustrekk (**ikke** entropi her) | N |\n| $R$ | Sirkelradius eller legemets radius (**ikke** gasskonstant) | m |\n| $v$ | Banefart | m/s |\n| $E$ | Total mekanisk energi i svingningen | J |\n\n**Formler i dette delkapitlet:**\n\n$$F = -kx, \\qquad \\ddot{x}+\\omega_0^2x = 0, \\qquad x(t) = A\\cos(\\omega_0t+\\phi)$$\nHookes lov, svingelikningen og løsningen [står på det utdelte arket].\n\n$$\\omega_0 = \\sqrt{\\frac{k}{m}}, \\qquad f = \\frac{\\omega_0}{2\\pi}, \\qquad T = \\frac{1}{f} = \\frac{2\\pi}{\\omega_0}, \\qquad k = m\\omega_0^2$$\nEgenfrekvens og omregningene mellom $\\omega$, $f$ og $T$ [står på det utdelte arket].\n\n$$\\frac{1}{k} = \\frac{1}{k_1}+\\frac{1}{k_2} \\quad (\\text{serie}), \\qquad k = k_1+k_2 \\quad (\\text{parallell})$$\nFjærkoblinger — serie gir mykere, parallell stivere [må kunne brukes eller utledes aktivt].\n\n$$v_\\text{maks} = A\\omega_0, \\qquad a_\\text{maks} = A\\omega_0^2, \\qquad E = \\tfrac12kA^2$$\nMaksimalverdier og energi i en harmonisk svingning [må kunne brukes eller utledes aktivt].\n\n$$T = 2\\pi\\sqrt{\\frac{I_A}{Mgd}}, \\qquad \\omega_0 = \\sqrt{\\frac{Mgd}{I_A}}, \\qquad I_A = I_\\text{CM}+Md^2$$\nFysisk pendel, med treghetsmomentet om opphengspunktet [står på det utdelte arket] — men valget av $I_A$ og $d$ [må kunne brukes eller utledes aktivt].\n\n$$T = 2\\pi\\sqrt{\\frac{L}{g}}, \\qquad L_\\text{ekv} = \\frac{I_A}{Md}$$\nMatematisk pendel og effektiv pendellengde [står på det utdelte arket / må kunne brukes aktivt].\n\n$$T_\\text{stang, ende} = 2\\pi\\sqrt{\\frac{2L}{3g}}, \\qquad T_\\text{skive, rand} = 2\\pi\\sqrt{\\frac{3R}{2g}}$$\nDe to standardpendlene, ferdig utledet [må kunne brukes eller utledes aktivt].\n\n$$S\\cos\\theta = mg, \\qquad S\\sin\\theta = \\frac{mv^2}{R}, \\qquad \\tan\\theta = \\frac{v^2}{gR}$$\n$$T = 2\\pi\\sqrt{\\frac{L\\cos\\theta}{g}}, \\qquad R = L\\sin\\theta, \\qquad S = \\frac{mg}{\\cos\\theta}$$\nKonisk pendel [står på det utdelte arket for kraftlikningene; periodeuttrykket må kunne utledes aktivt].\n\n$$a = \\frac{v^2}{R} = \\omega^2R$$\nSentripetalakselerasjon [står på det utdelte arket].\n\n$$\\sin\\theta \\approx \\theta \\ (\\theta \\text{ i radianer}), \\qquad \\frac{d^2}{dt^2}\\cos\\omega t = -\\omega^2\\cos\\omega t$$\nSmåvinkeltilnærmingen og derivasjonsregelen som gjør cosinus til løsning [Rottmann]."
+        }
+      ]
+    },
+    {
+      "id": "tfy4115-5-1-coll-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tfy4115-5-1-rep-1",
+          "type": "text",
+          "content": "Fem korte oppgaver på det dette kapitlet hviler på — særlig Steiners sats fra [kap. 4.1](/tfy4115/tfy4115-4-1). Ta dem før du går videre til [kap. 5.2](/tfy4115/tfy4115-5-2).\n\n**R1.** En skive med $M = 2{,}00\\,\\text{kg}$ og $R = 0{,}250\\,\\text{m}$ henges opp i randen. Finn $I_A$ og den effektive pendellengden.\n\n*Svar:* $I_A = \\tfrac32MR^2 = 1{,}500 \\cdot 2{,}00 \\cdot 0{,}0625 = 0{,}1875\\,\\text{kg}\\cdot\\text{m}^2$. Effektiv lengde: $I_A/(Md) = 0{,}1875/(2{,}00\\cdot0{,}250) = 0{,}375\\,\\text{m} = \\tfrac32R$.\n\n**R2.** Et system svinger med $T = 0{,}640\\,\\text{s}$. Finn $f$ og $\\omega_0$.\n\n*Svar:* $f = 1/0{,}640 = 1{,}5625\\,\\text{Hz} \\approx 1{,}56\\,\\text{Hz}$, og $\\omega_0 = 2\\pi f = 6{,}28319 \\cdot 1{,}5625 = 9{,}817\\,\\text{rad/s}$.\n\n**R3.** To fjærer på $150\\,\\text{N/m}$ og $300\\,\\text{N/m}$ kobles i serie. Hva er den samlede stivheten? Og i parallell?\n\n*Svar:* Serie: $1/k = 1/150+1/300 = 0{,}010000$, altså $k = 100\\,\\text{N/m}$ — mindre enn den minste ✔. Parallell: $450\\,\\text{N/m}$ — større enn den største ✔.\n\n**R4.** Hvor mye er $\\sin 12{,}0^\\circ$, og hvor mye er $12{,}0^\\circ$ i radianer? Hvor stor er den relative forskjellen?\n\n*Svar:* $12{,}0^\\circ = 0{,}20944\\,\\text{rad}$ og $\\sin 12{,}0^\\circ = 0{,}20791$. Forskjellen er $0{,}73$ prosent — småvinkeltilnærmingen holder godt her.\n\n**R5.** En konisk pendel har snorlengde $1{,}20\\,\\text{m}$ og vinkel $40{,}0^\\circ$ med loddlinja. Finn radien og perioden.\n\n*Svar:* $R = 1{,}20 \\cdot \\sin 40{,}0^\\circ = 1{,}20 \\cdot 0{,}64279 = 0{,}7713\\,\\text{m}$. $T = 2\\pi\\sqrt{1{,}20 \\cdot 0{,}76604/9{,}81} = 2\\pi\\sqrt{0{,}093708} = 2\\pi \\cdot 0{,}30612 = 1{,}9234\\,\\text{s} \\approx 1{,}92\\,\\text{s}$."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

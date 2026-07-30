@@ -1,0 +1,491 @@
+{
+ "id": "tfy4115-2-2",
+ "courseId": "tfy4115",
+ "chapterNumber": "2.2",
+ "title": "Arbeid, energibevaring og rullende legeme ($K=\\tfrac{7}{10}mv^2$)",
+ "description": "Energibevaring for et legeme som ruller uten å gli — med rotasjonsenergien inkludert — pluss arbeid, effekt og terminalfart som kompakt tilleggsstoff.",
+ "estimatedMinutes": 60,
+ "competenceGoals": [
+  "regne arbeidet en kraft gjør som areal under kraft–vei-grafen, og bruke arbeid–energisetningen til å finne en fart",
+  "sette opp den totale kinetiske energien for et legeme som ruller uten å gli, med rullebetingelsen og treghetsmomentet fra formelarket",
+  "regne ut sluttfarten etter et høydefall for kule, sylinder, kuleskall og glidende kloss, og forklare rekkefølgen ut fra hvor massen ligger",
+  "finne effekten mot en luftmotstand som vokser med fartskvadratet, og regne ut terminalfarten til et fallende legeme"
+ ],
+ "content": [
+  {
+   "id": "tfy4115-2-2-tip-eksamensvinkel",
+   "type": "tip",
+   "title": "Eksamensvinkel",
+   "content": "**Dette kapitlet dekker to sjangre som begge er blant fagets aller hyppigste.**\n\n**Sjanger M2 — arbeid, energi og effekt**, altså «finn farten, arbeidet eller energien ved å sette opp et energiregnskap» — i praktisk talt alle sett (~100 %). **Sjanger M3 — rullende legeme med energibevaring**, altså «en kule eller sylinder ruller uten å gli ned en bakke, finn farten i bunnen» — også i praktisk talt alle sett (~100 %). Begge hører til **mekanikkhalvdelen, spørsmål 1–20**, og begge har **høyeste prioritet — dette må sitte.**\n\nI tillegg tar kapitlet to mindre temaer som er «bør sitte»-stoff: **effekt** $P = Fv$ i rundt tre av ti sett (~30 %) og **terminalfart** ved luftmotstand i rundt fire av ti (~40 %). De ligger i Løkke 4 og er merket.\n\n**Én felle bærer flere distraktorer enn noen annen i hele mekanikkdelen.** Det er å glemme rotasjonsenergien for et legeme som ruller — å skrive $\\tfrac12mv^2$ der det skulle stått $\\tfrac12(1+c)mv^2$. Feilen gir alltid **for høy** fart, og tallet ligger som et ferdig svaralternativ. Løsningsforslagene viser at nettopp dette er den innebygde fella i sjangeren, og hele Løkke 2 og 3 er bygget for å gjøre den umulig for deg.\n\n**Merk hva dette kapitlet innfrir.** I [kap. 1.2](/tfy4115/tfy4115-1-2) gled alle legemene, og der sto det at et rullende legeme kommer saktere ned — og at forklaringen kom i Del 2. Her er den, med tall: en kompakt kule som ruller ned et fall på $2{,}50\\,\\text{m}$, ender på $5{,}92\\,\\text{m/s}$ mot klossens $7{,}00\\,\\text{m/s}$. Femten og en halv prosent lavere, og hele forskjellen ligger i én brøk.\n\n**Om tidsbruken.** Kapitlet er anslått til 60 minutter, delt i fire løkker med tidsanslag og ett pausepunkt."
+  },
+  {
+   "id": "tfy4115-2-2-forkunnskaper",
+   "type": "text",
+   "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet bygger på [kap. 2.1](/tfy4115/tfy4115-2-1), der du satte opp Newtons 2. lov med friksjon, og på [kap. 1.2](/tfy4115/tfy4115-1-2), der du brukte mekanisk energibevaring for et legeme som **glir**. Fra videregående er [Bevegelse i to dimensjoner](/fysikk2/fysikk2-1-2) nyttig bakgrunn. Skal du regne arbeid som et integral, står teknikken i [Bestemt integral som grenseverdi](/r2/r2-2-4).\n\n**De tre relasjonene du trenger ferdig oppfrisket:**\n\n$$K = \\tfrac12 mv^2, \\qquad U = mgh$$\nKinetisk og potensiell energi for et legeme som beveger seg rettlinjet. Begge **står på det utdelte formelarket**. Enheten for begge er joule: $1\\,\\text{J} = 1\\,\\text{N}\\cdot\\text{m} = 1\\,\\text{kg}\\cdot\\text{m}^2/\\text{s}^2$.\n\n$$\\tfrac12 mv_1^2 + mgh_1 = \\tfrac12 mv_2^2 + mgh_2$$\nMekanisk energibevaring, slik du brukte den i [kap. 1.2](/tfy4115/tfy4115-1-2). Fra ro gir den $v^2 = 2g\\,\\Delta y$ — men **bare** for et legeme som glir uten friksjon. Nettopp den begrensningen er det dette kapitlet løfter.\n\n$$\\sum \\mathbf{F} = m\\mathbf{a}$$\nNewtons 2. lov fra [kap. 2.1](/tfy4115/tfy4115-2-1), som vi trenger når vi skal begrunne rullebetingelsen og terminalfarten.\n\n**Én ny størrelse blir innført her, og du trenger den bare i den formen kapitlet gir den.** Treghetsmomentet $I$ er et mål på hvor vanskelig et legeme er å få i rotasjon. Verdiene for de standardformene eksamen bruker — kompakt kule, massiv sylinder, kuleskall — **står på det utdelte formelarket**, og du skal her bare hente dem og sette dem inn. Hvordan de utledes med integralet $\\int r^2\\,dm$, og hvordan Steiners sats flytter aksen, hører til Del 4.\n\n**Symbolmerknad.** I dette kapitlet er $W$ **arbeid** i joule, $K$ **kinetisk energi**, $U$ **potensiell energi**, $I$ **treghetsmoment** i $\\text{kg}\\cdot\\text{m}^2$, $\\omega$ **vinkelfart** i rad/s, $R$ en **radius** i meter, $c$ **treghetsmomentfaktoren** $I/(mR^2)$ og $P$ **effekt** i watt. Merk to av bokas symbolkollisjoner: $R$ betyr **radius** her, ikke gasskonstanten eller en termisk motstand (som i Del 6–11), og $T$ brukes ikke — hverken som svingetid eller temperatur. Symbolet $c$ er en dimensjonsløs formfaktor, ikke en lysfart og ikke en spesifikk varmekapasitet."
+  },
+  {
+   "id": "tfy4115-2-2-lokke1",
+   "type": "text",
+   "content": "## Løkke 1 — arbeid og arbeid–energisetningen (~13 min)\n\nSkyv en handlevogn over et gulv. Du kjenner at det koster noe, og at det koster mer jo lenger du skyver og jo hardere du må dytte. Det er nettopp det arbeidet måler: kraft ganget med vei.\n\nOg arbeidet du gjør, forsvinner ikke. Det havner et sted — som fart i vogna, som varme i hjullagrene, eller som høyde hvis gulvet skråner. Regnskapet over hvor det havner, er det mektigste verktøyet i hele mekanikkdelen, fordi det ofte gir svaret uten at du trenger å vite noe om hvor lang tid det tok eller hvordan kraften varierte underveis."
+  },
+  {
+   "id": "tfy4115-2-2-def-arbeid",
+   "type": "definition",
+   "title": "Arbeid",
+   "content": "Energien en kraft overfører til et legeme mens legemet flytter seg. For en kraft som virker langs bevegelsen, er arbeidet kraften ganget med strekningen; varierer kraften, må du integrere:\n$$W = \\int \\mathbf{F}\\cdot d\\mathbf{s}.$$\nEnheten er joule. Tre presiseringer avgjør om du bruker begrepet riktig. Bare kraftkomponenten **langs** bevegelsen gjør arbeid — en kraft vinkelrett på bevegelsen gjør null arbeid, og det er derfor normalkraften aldri gjør arbeid på et legeme som følger en flate. Arbeidet har **fortegn**: positivt når kraften peker med bevegelsen, negativt når den peker mot. Og arbeidet avhenger ikke av tiden: den samme kraften over den samme strekningen gir det samme arbeidet enten det tar ett sekund eller en time."
+  },
+  {
+   "id": "tfy4115-2-2-def-arbeid-areal",
+   "type": "definition",
+   "title": "Arbeid som areal under kraft–vei-grafen",
+   "content": "Den praktiske lesningen av integralet $W = \\int F\\,dx$: arbeidet er **arealet** mellom $F(x)$-kurven og $x$-aksen. Det gjør oppgaven regnbar uten integrasjon når grafen er satt sammen av rette linjer, som den nesten alltid er på eksamen. Et rektangel gir $F\\Delta x$, en trekant gir $\\tfrac12F\\Delta x$, og et trapes gir høyden ganget med gjennomsnittet av de to parallelle sidene. Areal **under** aksen teller negativt — det er en kraft som bremser. Denne lesningen er verdt å ha i fingrene, for den gjør en oppgave som ser ut som et integrasjonsproblem, til en halv­minutts geometrioppgave."
+  },
+  {
+   "id": "tfy4115-2-2-th-arbeid-energi",
+   "type": "theorem",
+   "title": "Arbeid–energisetningen",
+   "content": "Det **totale** arbeidet fra alle krefter på et legeme er lik endringen i legemets kinetiske energi:\n\n$$W_\\text{tot} = \\Delta K = \\tfrac12mv_2^2 - \\tfrac12mv_1^2.$$\n\nSetningen **står på det utdelte formelarket**, og den er verdt å forstå framfor å pugge, for den følger direkte av Newtons 2. lov. Skriv $F = ma = m\\,dv/dt$ og bruk kjerneregelen baklengs:\n\n$$W = \\int F\\,dx = \\int m\\frac{dv}{dt}\\,dx = \\int m\\frac{dv}{dt}\\cdot\\frac{dx}{dt}\\,dt = \\int mv\\,\\frac{dv}{dt}\\,dt = \\int_{v_1}^{v_2} mv\\,dv = \\tfrac12mv_2^2 - \\tfrac12mv_1^2.$$\n\n*Intuisjon:* kinetisk energi er ikke en egen, ny idé. Den er navnet på det arbeidet du må gjøre for å få et legeme opp i fart — og det arbeidet du kan få tilbake når du bremser det ned.\n\n**Tre grep dette gir deg:**\n\n**Tiden faller ut.** Du trenger ikke vite hvor lang tid noe tok, bare hvor langt det gikk. Det er derfor energiregnskap slår kinematikk på krumme baner og på varierende krefter.\n\n**Krefter som ikke gjør arbeid, kan ignoreres.** Normalkraften på en flate står vinkelrett på bevegelsen og gjør null arbeid. Det samme gjør — og dette er nøkkelen i Løkke 2 — friksjonen i kontaktpunktet på et legeme som ruller uten å gli.\n\n**«Totalt» betyr totalt.** Glemmer du friksjonen i regnskapet, får du for høy fart. Glemmer du rotasjonen, får du også for høy fart. Begge feilene er innebygd i eksamens svaralternativer."
+  },
+  {
+   "id": "tfy4115-2-2-def-kinetisk-energi",
+   "type": "definition",
+   "title": "Kinetisk energi",
+   "content": "Energien et legeme har fordi det er i bevegelse. For rettlinjet bevegelse:\n$$K = \\tfrac12mv^2.$$\nEnheten er joule, og størrelsen er en **skalar** — den har ingen retning, og to legemer som beveger seg mot hverandre, har til sammen positiv kinetisk energi. At farten inngår kvadratisk, har en konsekvens verdt å merke seg: dobbel fart gir fire ganger så mye energi, og derfor fire ganger så lang bremselengde ved samme bremsekraft. Uttrykket **står på det utdelte arket**. Merk at det gjelder translasjon alene — et roterende legeme har i tillegg rotasjonsenergi, og det er hele poenget i Løkke 2."
+  },
+  {
+   "id": "tfy4115-2-2-def-potensiell-energi",
+   "type": "definition",
+   "title": "Potensiell energi i tyngdefeltet",
+   "content": "Energien et legeme har i kraft av sin høyde:\n$$U = mgh.$$\nEnheten er joule. Størrelsen er alltid målt **relativt til et valgt nullnivå**, og valget er fritt — det er bare **differansen** $\\Delta U = mg\\,\\Delta h$ som har fysisk betydning. Det er derfor du kan legge nullnivået der det er mest praktisk, som regel i det laveste punktet i oppgaven. Uttrykket **står på det utdelte arket**, og det forutsetter at $g$ er konstant, altså at høydeforskjellen er liten sammenlignet med jordas radius. For satellitthøyder holder det ikke, og da trengs det fulle gravitasjonspotensialet fra [kap. 3.2](/tfy4115/tfy4115-3-2)."
+  },
+  {
+   "id": "tfy4115-2-2-def-konservativ-kraft",
+   "type": "definition",
+   "title": "Konservativ kraft",
+   "content": "En kraft der arbeidet bare avhenger av start- og sluttpunkt, ikke av veien mellom dem. Tyngden er konservativ: løfter du et legeme $2\\,\\text{m}$, er arbeidet mot tyngden $2mg$ uansett om du går rett opp eller i sikksakk, og du får hele arbeidet tilbake når legemet kommer ned igjen. Derfor kan tyngden beskrives med en potensiell energi $U = mgh$. **Friksjon er ikke konservativ**: den peker alltid mot bevegelsen, så arbeidet er negativt uansett hvilken vei du går, og en rundtur gir netto tap. Det er nettopp derfor en kloss som sendes opp et skråplan med friksjon, kommer tilbake med lavere fart ([kap. 2.1](/tfy4115/tfy4115-2-1)) — og derfor det ikke finnes noen «friksjonspotensiell energi»."
+  },
+  {
+   "id": "tfy4115-2-2-def-mekanisk-energibevaring",
+   "type": "definition",
+   "title": "Mekanisk energibevaring",
+   "content": "Regelen om at summen av kinetisk og potensiell energi er konstant når bare konservative krefter gjør arbeid:\n$$\\tfrac12mv_1^2 + mgh_1 = \\tfrac12mv_2^2 + mgh_2.$$\nBetingelsen er avgjørende og bør sies høyt hver gang: ingen friksjon som glir, ingen luftmotstand, ingen deformasjon. Er de oppfylt, er dette det mest effektive verktøyet i mekanikken, fordi du kan hoppe direkte fra en høyde til en fart uten å vite noe om banens form. Merk at relasjonen ikke er begrenset til translasjon: for et legeme som **ruller**, må den kinetiske energien inneholde rotasjonsleddet også — og da blir energibevaringen $mg\\,\\Delta y = \\tfrac12(1+c)mv^2$."
+  },
+  {
+   "id": "tfy4115-2-2-ex-1",
+   "type": "example",
+   "title": "Eksempel 1: arbeidet som areal, og farten det gir",
+   "problem": "En vogn med masse $5{,}00\\,\\text{kg}$ står i ro på et friksjonsfritt, vannrett underlag. En kraft langs bevegelsesretningen virker slik: den er konstant $40{,}0\\,\\text{N}$ fra $x = 0$ til $x = 2{,}00\\,\\text{m}$, og avtar deretter rettlinjet til null ved $x = 5{,}00\\,\\text{m}$.\n\n**a)** Finn arbeidet kraften gjør over de $5{,}00$ meterne.\n**b)** Finn vognas fart ved $x = 5{,}00\\,\\text{m}$.\n**c)** Hvor stor konstant kraft over hele strekningen ville gitt det samme arbeidet?",
+   "solution": "**a)** Arbeidet er arealet under $F(x)$-grafen, som her er et rektangel pluss en trekant:\n$$W_\\text{rektangel} = 40{,}0\\,\\text{N} \\cdot 2{,}00\\,\\text{m} = 80{,}0\\,\\text{J},$$\n$$W_\\text{trekant} = \\tfrac12 \\cdot 40{,}0\\,\\text{N} \\cdot 3{,}00\\,\\text{m} = 60{,}0\\,\\text{J},$$\n$$W = 80{,}0 + 60{,}0\\,\\text{J} = 140\\,\\text{J}.$$\n\n**b)** Underlaget er friksjonsfritt og vannrett, så den påførte kraften er den eneste som gjør arbeid. Arbeid–energisetningen fra ro gir\n$$W = \\tfrac12mv^2 \\quad\\Longrightarrow\\quad v = \\sqrt{\\frac{2W}{m}} = \\sqrt{\\frac{2 \\cdot 140\\,\\text{J}}{5{,}00\\,\\text{kg}}} = \\sqrt{56{,}0}\\,\\text{m/s} = 7{,}4833\\,\\text{m/s} \\approx 7{,}48\\,\\text{m/s}.$$\n\n**Benevningskontroll:** $\\text{J/kg} = (\\text{kg}\\cdot\\text{m}^2/\\text{s}^2)/\\text{kg} = \\text{m}^2/\\text{s}^2$, og kvadratrota av det er m/s. Det stemmer.\n\n**c)** Middelkraften er arbeidet delt på strekningen:\n$$\\bar{F} = \\frac{140\\,\\text{J}}{5{,}00\\,\\text{m}} = 28{,}0\\,\\text{N}.$$\n\n**Den vanligste feilen her.** Å lese grafen som om kraften var $40{,}0\\,\\text{N}$ hele veien gir $W = 200\\,\\text{J}$ og $v = 8{,}94\\,\\text{m/s}$ — altså 20 prosent for høy fart. Trekantarealet er halvparten av rektangelet, ikke like stort, og det er verdt å regne de to bidragene hver for seg i stedet for i hodet."
+  },
+  {
+   "id": "tfy4115-2-2-o-1",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-2-2-oppg-1",
+    "number": "1",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Innstegsoppgave — les arbeidet av en graf, og regn energi.)\n\n**a)** En konstant kraft på $25{,}0\\,\\text{N}$ virker langs bevegelsen over $4{,}00\\,\\text{m}$. Hvor stort er arbeidet?\n\n**b)** En kraft avtar rettlinjet fra $60{,}0\\,\\text{N}$ ved $x = 0$ til null ved $x = 3{,}00\\,\\text{m}$. Hvor stort er arbeidet?\n\n**c)** Hvor stor kinetisk energi har et legeme med masse $2{,}50\\,\\text{kg}$ og fart $6{,}00\\,\\text{m/s}$?",
+    "solution": "**a)** Rektangel:\n$$W = 25{,}0\\,\\text{N} \\cdot 4{,}00\\,\\text{m} = 100\\,\\text{J}.$$\n\n**b)** Trekant med grunnlinje $3{,}00\\,\\text{m}$ og høyde $60{,}0\\,\\text{N}$:\n$$W = \\tfrac12 \\cdot 60{,}0\\,\\text{N} \\cdot 3{,}00\\,\\text{m} = 90{,}0\\,\\text{J}.$$\nMerk faktoren $\\tfrac12$ — uten den får du $180\\,\\text{J}$, som er middelkraften lest feil.\n\n**c)**\n$$K = \\tfrac12mv^2 = \\tfrac12 \\cdot 2{,}50\\,\\text{kg} \\cdot \\left(6{,}00\\,\\text{m/s}\\right)^2 = \\tfrac12 \\cdot 2{,}50 \\cdot 36{,}0\\,\\text{J} = 45{,}0\\,\\text{J}.$$",
+    "hints": [
+     "Arbeidet er arealet under $F(x)$-grafen: rektangel, trekant eller trapes.",
+     "En trekant har arealet $\\tfrac12 \\cdot \\text{grunnlinje} \\cdot \\text{høyde}$.",
+     "Kinetisk energi er $\\tfrac12mv^2$, med farten i annen potens."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-2-2-o-2",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-2-2-oppg-2",
+    "number": "2",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger M2 — arbeid, energi og effekt.) En kasse med masse $18{,}0\\,\\text{kg}$ skyves $6{,}00\\,\\text{m}$ over et vannrett gulv med en konstant kraft på $75{,}0\\,\\text{N}$ langs bevegelsen. Friksjonskoeffisienten er $0{,}250$.\n\n**a)** Finn arbeidet den påførte kraften gjør, og arbeidet friksjonen gjør.\n**b)** Finn kassens fart etter de $6{,}00$ meterne, når den startet fra ro.\n**c)** Hvor mye lenger ville kassen kommet på et friksjonsfritt gulv med samme arbeid tilført?",
+    "solution": "**a)** Den påførte kraften:\n$$W_F = 75{,}0\\,\\text{N} \\cdot 6{,}00\\,\\text{m} = 450\\,\\text{J}.$$\nFriksjonen er $f = \\mu mg = 0{,}250 \\cdot 18{,}0 \\cdot 9{,}81\\,\\text{N} = 44{,}145\\,\\text{N}$, og den peker **mot** bevegelsen, så arbeidet er negativt:\n$$W_f = -44{,}145\\,\\text{N} \\cdot 6{,}00\\,\\text{m} = -264{,}87\\,\\text{J} \\approx -265\\,\\text{J}.$$\n\n**b)** Arbeid–energisetningen krever det **totale** arbeidet:\n$$W_\\text{tot} = 450 - 264{,}87\\,\\text{J} = 185{,}13\\,\\text{J},$$\n$$v = \\sqrt{\\frac{2W_\\text{tot}}{m}} = \\sqrt{\\frac{2 \\cdot 185{,}13}{18{,}0}}\\,\\text{m/s} = \\sqrt{20{,}570}\\,\\text{m/s} = 4{,}5354\\,\\text{m/s} \\approx 4{,}54\\,\\text{m/s}.$$\n\nLegg merke til at normalkraften og tyngden ikke er med i regnskapet. Begge står vinkelrett på bevegelsen og gjør null arbeid.\n\n**c)** Uten friksjon ville hele $450\\,\\text{J}$ gått til kinetisk energi, og farten blitt\n$$v = \\sqrt{\\frac{2 \\cdot 450}{18{,}0}}\\,\\text{m/s} = \\sqrt{50{,}0}\\,\\text{m/s} = 7{,}0711\\,\\text{m/s} \\approx 7{,}07\\,\\text{m/s}.$$\nSpørsmålet om «hvor mye lenger» krever et valg av hva som holdes fast. Holder vi den **tilførte** energien fast og spør hvor langt kassen glir før den stopper etter at kraften slutter, glir den friksjonsfritt i det uendelige — friksjonsfritt er det ingenting som stopper den. Det er verdt å merke seg som en kontroll på at spørsmålet må stilles presist: uten friksjon finnes det ingen bremselengde.",
+    "hints": [
+     "Regn arbeidet fra hver kraft for seg, med fortegn.",
+     "Friksjonen på et vannrett gulv er $f = \\mu mg$, og arbeidet er negativt.",
+     "Arbeid–energisetningen bruker SUMMEN av alle arbeid."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-2-2-lokke2",
+   "type": "text",
+   "content": "— naturlig pausepunkt —\n\n## Løkke 2 — rulling: $v = \\omega R$ og rotasjonsenergien (~17 min)\n\nSlipp en kule og en kloss samtidig fra toppen av samme bakke, slik at kula ruller og klossen glir. Kula kommer sist. Det er ikke fordi den taper energi — begge ruller og glir uten tap i idealiseringen vår — men fordi kula må **fordele** energien sin på to konti.\n\nDette er kapitlets kjerne, og det er verdt å bruke tid på.\n\n**Rullebetingelsen.** Et legeme som ruller uten å gli, har en fast kobling mellom hvor fort sentrum flytter seg og hvor fort legemet spinner. Ruller et hjul med radius $R$ én omdreining, har det flyttet seg $2\\pi R$ langs underlaget. Deriverer vi den sammenhengen, får vi\n\n$$v = \\omega R.$$\n\n*Intuisjon:* koblingen finnes fordi kontaktpunktet **ikke sklir**. Der berører legemet underlaget uten relativ bevegelse, og det betyr at kontaktpunktet i det øyeblikket står helt stille. Da må resten av legemet rotere rundt det punktet — og sentrum, som ligger $R$ unna, får farten $\\omega R$. Toppunktet, som ligger $2R$ unna, får farten $2\\omega R = 2v$. Det er derfor eikene på et sykkelhjul er skarpe nederst og utsmurte øverst på et fotografi.\n\n**Rotasjonsenergien.** Et legeme som spinner, har kinetisk energi selv om massesenteret står stille. Uttrykket er\n\n$$K_\\text{rot} = \\tfrac12 I\\omega^2,$$\n\nder $I$ er treghetsmomentet — et mål på hvor langt massen ligger fra rotasjonsaksen. Uttrykket er nøyaktig parallelt til $\\tfrac12mv^2$, med $I$ i massens rolle og $\\omega$ i fartens.\n\n**Og nå kobler vi de to.** Sett $\\omega = v/R$ inn i rotasjonsenergien:\n\n$$K_\\text{rot} = \\tfrac12 I\\left(\\frac{v}{R}\\right)^2 = \\tfrac12 \\frac{I}{R^2}v^2 = \\tfrac12\\left(\\frac{I}{mR^2}\\right)mv^2 = \\tfrac12\\,c\\,mv^2,$$\n\nder vi har innført den dimensjonsløse **formfaktoren**\n\n$$c = \\frac{I}{mR^2}.$$\n\nDette er hele trikset. Rotasjonsenergien er en fast brøkdel $c$ av translasjonsenergien, og brøkdelen avhenger bare av **formen** på legemet — ikke av massen, ikke av radien, ikke av farten."
+  },
+  {
+   "id": "tfy4115-2-2-def-rulling-uten-gliing",
+   "type": "definition",
+   "title": "Rulling uten å gli (ren rulling)",
+   "content": "Bevegelsen der et legeme ruller langs et underlag uten at kontaktpunktet sklir. Den kjennes igjen på at legemet legger igjen et ubrutt spor: buelengden det har rullet, er nøyaktig lik strekningen det har flyttet seg. Betingelsen krever friksjon — uten friksjon ville legemet bare glidd — men den friksjonen er **statisk**, ikke kinetisk, siden det ikke er noen relativ bevegelse i kontaktpunktet. Det har en konsekvens som overrasker mange: **friksjonen gjør ikke arbeid ved ren rulling**, og energien er bevart. Sklir legemet, gjelder ikke $v = \\omega R$, og energiregnskapet må settes opp på nytt med kinetisk friksjon — det tilfellet hører til Del 4."
+  },
+  {
+   "id": "tfy4115-2-2-def-rullebetingelsen",
+   "type": "definition",
+   "title": "Rullebetingelsen $v = \\omega R$",
+   "content": "Koblingen mellom massesenterets fart og vinkelfarten for et legeme som ruller uten å gli:\n$$v = \\omega R, \\qquad a = \\alpha R.$$\nDen følger av at kontaktpunktet står stille: én omdreining flytter legemet $2\\pi R$ langs underlaget, og derivert gir det $v = \\omega R$. Enhetene stemmer fordi radianer er dimensjonsløse: $\\text{rad/s} \\cdot \\text{m} = \\text{m/s}$. Betingelsen er det som gjør rulling regnbar, for den lar deg uttrykke rotasjonsenergien ved den **samme** variabelen som translasjonsenergien. Merk at $R$ er radien til den flaten som ruller, ikke til noe annet i figuren — for et hjul med nav er det hjulradien, ikke navradien."
+  },
+  {
+   "id": "tfy4115-2-2-def-rotasjonsenergi",
+   "type": "definition",
+   "title": "Rotasjonsenergi",
+   "content": "Den kinetiske energien et legeme har fordi det roterer:\n$$K_\\text{rot} = \\tfrac12 I\\omega^2.$$\nEnheten er joule. Uttrykket er nøyaktig parallelt til $\\tfrac12mv^2$: treghetsmomentet $I$ spiller massens rolle, og vinkelfarten $\\omega$ spiller fartens. For et legeme som både flytter seg og roterer, er den **totale** kinetiske energien summen av de to:\n$$K = \\tfrac12mv^2 + \\tfrac12 I\\omega^2.$$\nDet er verdt å si tydelig at dette er en **sum**, ikke et valg: du skal ikke velge det ene uttrykket framfor det andre. Å bruke bare translasjonsleddet er felle #1 i feilkatalogen og gir for høy fart; å legge translasjonsleddet til for et legeme som **bare** roterer om en fast akse, er felle #2 og gir for lav fart. Uttrykket $K_\\text{rot} = \\tfrac12I\\omega^2$ **står på det utdelte arket**."
+  },
+  {
+   "id": "tfy4115-2-2-def-treghetsmoment",
+   "type": "definition",
+   "title": "Treghetsmoment (slik det brukes her)",
+   "content": "Størrelsen $I$ som måler hvor vanskelig et legeme er å få i rotasjon om en gitt akse. Den avhenger av hvordan massen er fordelt: masse langt fra aksen teller mye mer enn masse nær aksen. Enheten er $\\text{kg}\\cdot\\text{m}^2$. For de standardformene eksamen bruker, **står verdiene på det utdelte formelarket**, og i dette kapitlet skal du bare hente dem:\n$$I_\\text{kompakt kule} = \\tfrac25mR^2, \\qquad I_\\text{massiv sylinder} = \\tfrac12mR^2, \\qquad I_\\text{kuleskall} = \\tfrac23mR^2.$$\nLegg merke til mønsteret: kuleskallet har all massen ytterst og størst $I$; den kompakte kula har mye masse nær sentrum og minst. Hvordan verdiene utledes med integralet $\\int r^2\\,dm$, og hvordan Steiners sats håndterer en akse utenfor massesenteret, hører til Del 4 — her trenger du bare å kjenne dem igjen og velge riktig."
+  },
+  {
+   "id": "tfy4115-2-2-def-c-faktor",
+   "type": "definition",
+   "title": "Treghetsmomentfaktoren $c = I/(mR^2)$",
+   "content": "Det dimensjonsløse tallet som sier hvor stor brøkdel av translasjonsenergien som ligger i rotasjonen for et legeme som ruller:\n$$c = \\frac{I}{mR^2}, \\qquad K = \\tfrac12(1+c)mv^2.$$\nFaktoren avhenger **bare av formen**, ikke av masse, radius eller fart — det er hele grunnen til at rullingsoppgaver har så rene svar. Verdiene du trenger:\n$$c = 0 \\ (\\text{punktmasse eller glidende kloss}), \\quad \\tfrac25 \\ (\\text{kompakt kule}), \\quad \\tfrac12 \\ (\\text{massiv sylinder}), \\quad \\tfrac23 \\ (\\text{kuleskall}), \\quad 1 \\ (\\text{tynn ring}).$$\nRekkefølgen er verdt å huske som en logikk, ikke som en liste: jo mer av massen som ligger langt fra aksen, jo større $c$, jo mer energi bundet i rotasjonen, og jo lavere sluttfart. Ringen, med all massen i randen, har $c = 1$ og deler energien i to like halvdeler."
+  },
+  {
+   "id": "tfy4115-2-2-fig-1",
+   "type": "image",
+   "src": "/images/textbook/tfy4115/tfy4115-2-2-rullebetingelse.svg",
+   "alt": "Et hjul som ruller mot høyre langs et vannrett underlag. En bue med pil inne i hjulet viser at hjulet roterer medklokke. Fra hjulets sentrum peker en vannrett pil merket v er lik omega R mot høyre, og fra hjulets toppunkt peker en dobbelt så lang pil merket 2 v. Kontaktpunktet mot underlaget er markert med et rødt punkt og teksten kontaktpunkt: fart 0. En stiplet linje fra sentrum ned til kontaktpunktet er merket R.",
+   "caption": "Kontaktpunktet står stille, sentrum har farten $v = \\omega R$, og toppunktet har $2v$. Det er denne koblingen som lar rotasjonsenergien $\\tfrac12I\\omega^2$ skrives som $\\tfrac12 c\\,mv^2$ med samme variabel $v$."
+  },
+  {
+   "id": "tfy4115-2-2-th-rulleenergi",
+   "type": "theorem",
+   "title": "Kinetisk energi for et rullende legeme: $K = \\tfrac12(1+c)mv^2$",
+   "content": "Sett rullebetingelsen $\\omega = v/R$ inn i den totale kinetiske energien:\n\n$$K = \\tfrac12mv^2 + \\tfrac12 I\\omega^2 = \\tfrac12mv^2 + \\tfrac12\\frac{I}{R^2}v^2 = \\tfrac12\\left(1 + \\frac{I}{mR^2}\\right)mv^2 = \\tfrac12(1+c)mv^2.$$\n\nMed verdiene fra formelarket blir det fire faste resultater som er verdt å ha klare:\n\n| Legeme | $I$ | $c = I/(mR^2)$ | $K$ | Rotasjonsandel |\n|---|---|---|---|---|\n| kloss som glir, eller punktmasse | — | $0$ | $\\tfrac12mv^2$ | $0\\ \\%$ |\n| kompakt kule | $\\tfrac25mR^2$ | $\\tfrac25$ | $\\tfrac{7}{10}mv^2$ | $28{,}6\\ \\%$ |\n| massiv sylinder | $\\tfrac12mR^2$ | $\\tfrac12$ | $\\tfrac34mv^2$ | $33{,}3\\ \\%$ |\n| kuleskall | $\\tfrac23mR^2$ | $\\tfrac23$ | $\\tfrac56mv^2$ | $40{,}0\\ \\%$ |\n\n**Utledningen av $\\tfrac{7}{10}$-leddet er den du oftest trenger**, og den er tre linjer. For en kompakt kule er $I = \\tfrac25mR^2$, så\n\n$$K = \\tfrac12mv^2 + \\tfrac12 \\cdot \\tfrac25mR^2 \\cdot \\frac{v^2}{R^2} = \\tfrac12mv^2 + \\tfrac15mv^2 = \\left(\\tfrac{5}{10} + \\tfrac{2}{10}\\right)mv^2 = \\tfrac{7}{10}mv^2.$$\n\nLegg merke til at $R$ forkortes bort. Kulas størrelse spiller ingen rolle — en kanonkule og en kulelagerkule ruller ned den samme bakken med den samme sluttfarten.\n\n**Rotasjonsandelen** er $c/(1+c)$, og for kula er den $(2/5)/(7/5) = 2/7 = 28{,}6\\ \\%$. Translasjonsandelen er $1/(1+c) = 5/7 = 71{,}4\\ \\%$. De to andelene er faste for en gitt form, uansett hvor fort legemet går.\n\nResultatene $\\tfrac{7}{10}mv^2$, $\\tfrac34mv^2$ og $\\tfrac56mv^2$ står **ikke** ferdig på formelarket. Treghetsmomentene gjør, og resten [må kunne brukes eller utledes aktivt] — det er nettopp derfor sjangeren fungerer som eksamensoppgave."
+  },
+  {
+   "id": "tfy4115-2-2-ex-2",
+   "type": "example",
+   "title": "Eksempel 2: kula som ruller ned — hele energiregnskapet",
+   "problem": "En kompakt kule med masse $0{,}450\\,\\text{kg}$ og radius $5{,}00\\,\\text{cm}$ slippes fra ro og ruller uten å gli ned et fall på $\\Delta y = 1{,}80\\,\\text{m}$.\n\n**a)** Finn treghetsmomentet.\n**b)** Finn farten og vinkelfarten i bunnen.\n**c)** Sett opp hele energiregnskapet: hvor mye ligger i translasjon og hvor mye i rotasjon?\n**d)** Hvilken fart ville du fått hvis du glemte rotasjonsleddet?",
+   "solution": "**a)** Fra formelarket, kompakt kule om egen akse:\n$$I = \\tfrac25mR^2 = 0{,}400 \\cdot 0{,}450\\,\\text{kg} \\cdot \\left(0{,}0500\\,\\text{m}\\right)^2 = 0{,}400 \\cdot 0{,}450 \\cdot 2{,}50 \\cdot 10^{-3}\\,\\text{kg}\\cdot\\text{m}^2,$$\n$$I = 4{,}50 \\cdot 10^{-4}\\,\\text{kg}\\cdot\\text{m}^2.$$\n\n**b) Symbolsk utledning.** All potensiell energi går til kinetisk energi, og den kinetiske energien har to ledd:\n$$mg\\,\\Delta y = \\tfrac12(1+c)mv^2 \\quad\\Longrightarrow\\quad v = \\sqrt{\\frac{2g\\,\\Delta y}{1+c}}.$$\nMassen faller ut, og radien gjorde det allerede da vi innførte $c$.\n\n**Rask vei til tall.** Kompakt kule gir $c = 2/5$, altså $1 + c = 1{,}4$:\n$$2g\\,\\Delta y = 2 \\cdot 9{,}81 \\cdot 1{,}80\\,\\text{m}^2/\\text{s}^2 = 35{,}316\\,\\text{m}^2/\\text{s}^2,$$\n$$v^2 = \\frac{35{,}316}{1{,}4}\\,\\text{m}^2/\\text{s}^2 = 25{,}226\\,\\text{m}^2/\\text{s}^2, \\qquad v = 5{,}0225\\,\\text{m/s} \\approx 5{,}02\\,\\text{m/s}.$$\nVinkelfarten følger av rullebetingelsen:\n$$\\omega = \\frac{v}{R} = \\frac{5{,}0225\\,\\text{m/s}}{0{,}0500\\,\\text{m}} = 100{,}45\\,\\text{rad/s} \\approx 100\\,\\text{rad/s}.$$\n\n**c)** Den totale energien er den potensielle energien kula startet med:\n$$K_\\text{tot} = mg\\,\\Delta y = 0{,}450 \\cdot 9{,}81 \\cdot 1{,}80\\,\\text{J} = 7{,}9461\\,\\text{J} \\approx 7{,}95\\,\\text{J}.$$\nTranslasjonsdelen:\n$$K_\\text{transl} = \\tfrac12mv^2 = 0{,}500 \\cdot 0{,}450 \\cdot 25{,}226\\,\\text{J} = 5{,}6758\\,\\text{J} \\approx 5{,}68\\,\\text{J}.$$\nRotasjonsdelen, regnet uavhengig som en kontroll:\n$$K_\\text{rot} = \\tfrac12 I\\omega^2 = 0{,}500 \\cdot 4{,}50 \\cdot 10^{-4} \\cdot \\left(100{,}45\\right)^2\\,\\text{J} = 0{,}500 \\cdot 4{,}50 \\cdot 10^{-4} \\cdot 1{,}0090 \\cdot 10^{4}\\,\\text{J} = 2{,}2703\\,\\text{J}.$$\n\n**Kontrollen som må stemme:**\n$$5{,}6758 + 2{,}2703\\,\\text{J} = 7{,}9461\\,\\text{J} = mg\\,\\Delta y. \\quad \\checkmark$$\n\nAndelene er\n$$\\frac{K_\\text{transl}}{K_\\text{tot}} = \\frac{5{,}6758}{7{,}9461} = 0{,}71429 = \\frac57, \\qquad \\frac{K_\\text{rot}}{K_\\text{tot}} = \\frac{2{,}2703}{7{,}9461} = 0{,}28571 = \\frac27.$$\nNøyaktig $5/7$ og $2/7$, som teoremet lovet — og helt uavhengig av massen, radien og høyden.\n\n**d)** Den som glemmer rotasjonsleddet, regner $v = \\sqrt{2g\\,\\Delta y}$:\n$$v_\\text{feil} = \\sqrt{35{,}316}\\,\\text{m/s} = 5{,}9427\\,\\text{m/s} \\approx 5{,}94\\,\\text{m/s}.$$\nDet er 18,3 prosent for høyt. **Dette er felle #1** — å glemme rotasjonsenergien for et rullende legeme — og $5{,}94\\,\\text{m/s}$ er et fullstendig plausibelt tall som ligger som et ferdig svaralternativ. Ingenting i selve tallet avslører feilen; bare disiplinen med å spørre «ruller dette legemet?» gjør det.\n\n**Sluttsjekk.** Enhetene er m/s, rad/s, $\\text{kg}\\cdot\\text{m}^2$ og J. Farten er lavere enn den friksjonsfrie glidefarten, som den skal være. Og de to energiene summerer til den potensielle energien vi startet med — ingen energi har forsvunnet, den er bare fordelt."
+  },
+  {
+   "id": "tfy4115-2-2-o-3",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-2-2-oppg-3",
+    "number": "3",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Innstegsoppgave — bruk $\\tfrac{7}{10}$-leddet og rullebetingelsen.)\n\n**a)** En kompakt kule med masse $1{,}20\\,\\text{kg}$ ruller uten å gli med farten $3{,}00\\,\\text{m/s}$. Hvor stor er den totale kinetiske energien, og hvor mye av den ligger i rotasjonen?\n\n**b)** Et hjul med radius $0{,}350\\,\\text{m}$ ruller uten å gli med vinkelfart $42{,}0\\,\\text{rad/s}$. Hvor fort flytter navet seg?",
+    "solution": "**a)** For en kompakt kule er $K = \\tfrac{7}{10}mv^2$:\n$$K = 0{,}700 \\cdot 1{,}20\\,\\text{kg} \\cdot \\left(3{,}00\\,\\text{m/s}\\right)^2 = 0{,}700 \\cdot 1{,}20 \\cdot 9{,}00\\,\\text{J} = 7{,}56\\,\\text{J}.$$\nTranslasjonsdelen er $\\tfrac12mv^2 = 0{,}500 \\cdot 1{,}20 \\cdot 9{,}00\\,\\text{J} = 5{,}40\\,\\text{J}$, så rotasjonsdelen er\n$$7{,}56 - 5{,}40\\,\\text{J} = 2{,}16\\,\\text{J}.$$\nAndelen er $2{,}16/7{,}56 = 0{,}2857 = 2/7 = 28{,}6\\ \\%$, som den skal være for en kule.\n\n**b)** Rullebetingelsen:\n$$v = \\omega R = 42{,}0\\,\\text{rad/s} \\cdot 0{,}350\\,\\text{m} = 14{,}7\\,\\text{m/s}.$$\nEnhetskontroll: radianer er dimensjonsløse, så $\\text{rad/s} \\cdot \\text{m}$ blir m/s.",
+    "hints": [
+     "For en kompakt kule er den totale kinetiske energien $\\tfrac{7}{10}mv^2$.",
+     "Rotasjonsdelen er differansen mellom totalen og $\\tfrac12mv^2$.",
+     "Rullebetingelsen er $v = \\omega R$."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-2-2-o-4",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-2-2-oppg-4",
+    "number": "4",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger M3 — rullende legeme med energibevaring.) En massiv sylinder med masse $2{,}40\\,\\text{kg}$ og radius $8{,}00\\,\\text{cm}$ ruller uten å gli fra ro ned et fall på $2{,}20\\,\\text{m}$.\n\n**a)** Finn farten i bunnen.\n**b)** Finn vinkelfarten der.\n**c)** Hvor mange joule ligger i rotasjonen?",
+    "solution": "**a)** For en massiv sylinder er $c = 1/2$, altså $1 + c = 1{,}5$:\n$$2g\\,\\Delta y = 2 \\cdot 9{,}81 \\cdot 2{,}20\\,\\text{m}^2/\\text{s}^2 = 43{,}164\\,\\text{m}^2/\\text{s}^2,$$\n$$v = \\sqrt{\\frac{43{,}164}{1{,}5}}\\,\\text{m/s} = \\sqrt{28{,}776}\\,\\text{m/s} = 5{,}3643\\,\\text{m/s} \\approx 5{,}36\\,\\text{m/s}.$$\n\n**b)**\n$$\\omega = \\frac{v}{R} = \\frac{5{,}3643}{0{,}0800}\\,\\text{rad/s} = 67{,}054\\,\\text{rad/s} \\approx 67{,}1\\,\\text{rad/s}.$$\n\n**c)** Den totale energien er\n$$K_\\text{tot} = mg\\,\\Delta y = 2{,}40 \\cdot 9{,}81 \\cdot 2{,}20\\,\\text{J} = 51{,}797\\,\\text{J},$$\nog rotasjonsandelen for en sylinder er $c/(1+c) = (1/2)/(3/2) = 1/3$:\n$$K_\\text{rot} = \\tfrac13 \\cdot 51{,}797\\,\\text{J} = 17{,}266\\,\\text{J} \\approx 17{,}3\\,\\text{J}.$$\n\n**Kontroll med den andre veien:** $I = \\tfrac12mR^2 = 0{,}500 \\cdot 2{,}40 \\cdot 6{,}40 \\cdot 10^{-3} = 7{,}680 \\cdot 10^{-3}\\,\\text{kg}\\cdot\\text{m}^2$, og\n$$\\tfrac12I\\omega^2 = 0{,}500 \\cdot 7{,}680 \\cdot 10^{-3} \\cdot \\left(67{,}054\\right)^2\\,\\text{J} = 0{,}500 \\cdot 7{,}680 \\cdot 10^{-3} \\cdot 4\\,496{,}2\\,\\text{J} = 17{,}265\\,\\text{J}. \\quad \\checkmark$$\n\nLegg merke til at radien var **unødvendig** for å finne farten — den trengtes bare for vinkelfarten. Det er en god kontroll: står radien i svaret ditt på en fart, har du gjort en feil.",
+    "hints": [
+     "Finn $c$ for en massiv sylinder, og bruk $v = \\sqrt{2g\\Delta y/(1+c)}$.",
+     "Vinkelfarten følger av rullebetingelsen $\\omega = v/R$.",
+     "Rotasjonsandelen av den totale energien er $c/(1+c)$."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-2-2-lokke3",
+   "type": "text",
+   "content": "## Løkke 3 — hvorfor kula kommer saktere ned enn klossen (~15 min)\n\nNå kan vi svare på spørsmålet [kap. 1.2](/tfy4115/tfy4115-1-2) utsatte. Der gled alle legemene, og det sto at et rullende legeme kommer saktere ned. Her er begrunnelsen, og den er én linje.\n\nSett den totale kinetiske energien lik den potensielle energien legemet startet med:\n\n$$mg\\,\\Delta y = \\tfrac12(1+c)mv^2 \\quad\\Longrightarrow\\quad v = \\sqrt{\\frac{2g\\,\\Delta y}{1+c}}.$$\n\nSammenlign med den glidende klossen, som har $c = 0$ og altså $v = \\sqrt{2g\\,\\Delta y}$. Forholdet mellom de to fartene er\n\n$$\\frac{v_\\text{rullende}}{v_\\text{glidende}} = \\frac{1}{\\sqrt{1+c}},$$\n\nog det avhenger **bare av formen**. Ikke av høyden, ikke av massen, ikke av radien, ikke av hvor bratt bakken er.\n\n*Intuisjon:* legemet får en fast mengde energi fra fallet — $mg\\,\\Delta y$, og den er den samme for kloss og kule. Men kula må bruke en del av den på å komme i spinn, og bare resten blir framdrift. Klossen har ingen spinnkonto å fylle, så alt går til fart.\n\n**Og her er tallene**, for et fall på $\\Delta y = 2{,}50\\,\\text{m}$ fra ro:\n\n| Legeme | $c$ | $1/\\sqrt{1+c}$ | Sluttfart |\n|---|---|---|---|\n| kloss som glir | $0$ | $1{,}000$ | $7{,}00\\,\\text{m/s}$ |\n| kompakt kule | $\\tfrac25$ | $0{,}845$ | $5{,}92\\,\\text{m/s}$ |\n| massiv sylinder | $\\tfrac12$ | $0{,}816$ | $5{,}72\\,\\text{m/s}$ |\n| kuleskall | $\\tfrac23$ | $0{,}775$ | $5{,}42\\,\\text{m/s}$ |\n| tynn ring | $1$ | $0{,}707$ | $4{,}95\\,\\text{m/s}$ |\n\nKula kommer altså ned med **15,5 prosent lavere** fart enn klossen. Det er ikke en marginal effekt, og den er umulig å se hvis du bare regner $\\sqrt{2g\\Delta y}$.\n\n**Rekkefølgen er verdt å lære som en logikk, ikke som en tabell.** Jo mer av massen som ligger langt fra aksen, jo tyngre er legemet å få i spinn, jo mer energi bindes i rotasjonen, og jo lavere blir sluttfarten. Kuleskallet har all massen ytterst blant de tre og taper mest. Den kompakte kula har mye masse nær sentrum og taper minst. Klossen, som ikke spinner i det hele tatt, vinner alltid.\n\n**Én ting som IKKE spiller inn.** Bakkens form. Uttrykket inneholder bare høydeforskjellen $\\Delta y$, ikke lengden, vinkelen eller krumningen. En bratt bakke og en slak bakke med samme høydefall gir samme sluttfart — de bruker bare ulik tid på det."
+  },
+  {
+   "id": "tfy4115-2-2-th-sluttfart",
+   "type": "theorem",
+   "title": "Sluttfart for et rullende legeme: $v = \\sqrt{2g\\,\\Delta y/(1+c)}$",
+   "content": "Energibevaring for et legeme som ruller uten å gli, fra ro gjennom høydefallet $\\Delta y$:\n\n$$mg\\,\\Delta y = \\tfrac12(1+c)mv^2 \\quad\\Longrightarrow\\quad \\boxed{v = \\sqrt{\\frac{2g\\,\\Delta y}{1+c}}}$$\n\n**Betingelsene, som må sies hver gang:** legemet må rulle uten å gli (ellers gjelder ikke $v = \\omega R$), og det må ikke være luftmotstand eller glidende friksjon (ellers er energien ikke bevart). Rullingen krever friksjon, men den friksjonen er statisk og gjør ikke arbeid — den bare formidler dreiemomentet.\n\n**Fire konsekvenser å ta med til eksamen:**\n\n**Massen faller ut, og radien faller ut.** Alt som avgjør, er høydefallet og formfaktoren. To kuler av samme form men helt ulik størrelse og masse ruller ned med samme sluttfart.\n\n**Bare høydeforskjellen teller.** Ikke banens lengde, ikke vinkelen, ikke om den er rett eller krum. Er banen et skråplan med lengde $L$ og vinkel $\\theta$, er $\\Delta y = L\\sin\\theta$ — og det er den du skal sette inn, ikke $L$.\n\n**Snupunktet ligger i samme høyde som starten.** Ruller legemet oppover, gjelder samme ligning baklengs: $\\Delta y = (1+c)v_0^2/(2g)$. Merk at et **rullende** legeme kommer **høyere** enn en glidende kloss med samme fart, siden det har mer energi ved samme fart.\n\n**Akselerasjonen langs et skråplan** blir $a = g\\sin\\theta/(1+c)$, som er den samme brøken igjen. Den kan du bruke hvis oppgaven spør om tid — men trenger du bare farten, går energiveien raskere."
+  },
+  {
+   "id": "tfy4115-2-2-fig-2",
+   "type": "image",
+   "src": "/images/textbook/tfy4115/tfy4115-2-2-energiprofil.svg",
+   "alt": "Til venstre en fallende høydeprofil med en kule i startpunktet øverst merket start: v er null, og en kule i sluttpunktet nederst merket slutt: fart v. En loddrett pil viser høydefallet delta y. Til høyre to energisøyler av samme totalhøyde. Den venstre er merket FØR og m g delta y. Den høyre er merket ETTER og delt i to: en øvre del på 28,6 prosent merket en halv I omega i annen, og en nedre del på 71,4 prosent merket en halv m v i annen.",
+   "caption": "Energien fordeles, den forsvinner ikke: søylene har samme totalhøyde. For en kompakt kule ligger $71{,}4\\ \\%$ i translasjon og $28{,}6\\ \\%$ i rotasjon, altså $5/7$ og $2/7$."
+  },
+  {
+   "id": "tfy4115-2-2-ex-3",
+   "type": "example",
+   "title": "Eksempel 3: kappløpet ned bakken (eksamensnivå)",
+   "problem": "Fire legemer slippes samtidig fra ro fra toppen av samme bakke og går ned et høydefall på $\\Delta y = 2{,}50\\,\\text{m}$: en kloss som glir friksjonsfritt, en kompakt kule, en massiv sylinder og et kuleskall. De tre siste ruller uten å gli.\n\n**a)** Finn sluttfarten til hver av dem.\n**b)** Hvor mange prosent lavere er kulas fart enn klossens?\n**c)** Rangér dem, og forklar rekkefølgen ut fra hvor massen ligger.\n**d)** Endres rekkefølgen hvis kula er ti ganger så tung, eller hvis bakken gjøres dobbelt så bratt?",
+   "solution": "**a)** Alle fire har det samme $2g\\,\\Delta y$:\n$$2g\\,\\Delta y = 2 \\cdot 9{,}81 \\cdot 2{,}50\\,\\text{m}^2/\\text{s}^2 = 49{,}05\\,\\text{m}^2/\\text{s}^2.$$\nSå er det bare å dele på $(1+c)$ og ta kvadratrota:\n\n$$v_\\text{kloss} = \\sqrt{\\frac{49{,}05}{1{,}000}}\\,\\text{m/s} = \\sqrt{49{,}05}\\,\\text{m/s} = 7{,}0036\\,\\text{m/s} \\approx 7{,}00\\,\\text{m/s},$$\n$$v_\\text{kule} = \\sqrt{\\frac{49{,}05}{1{,}400}}\\,\\text{m/s} = \\sqrt{35{,}036}\\,\\text{m/s} = 5{,}9191\\,\\text{m/s} \\approx 5{,}92\\,\\text{m/s},$$\n$$v_\\text{sylinder} = \\sqrt{\\frac{49{,}05}{1{,}500}}\\,\\text{m/s} = \\sqrt{32{,}700}\\,\\text{m/s} = 5{,}7184\\,\\text{m/s} \\approx 5{,}72\\,\\text{m/s},$$\n$$v_\\text{skall} = \\sqrt{\\frac{49{,}05}{1{,}6667}}\\,\\text{m/s} = \\sqrt{29{,}430}\\,\\text{m/s} = 5{,}4249\\,\\text{m/s} \\approx 5{,}42\\,\\text{m/s}.$$\n\n**b)**\n$$\\frac{v_\\text{kule}}{v_\\text{kloss}} = \\frac{5{,}9191}{7{,}0036} = 0{,}84515 = \\frac{1}{\\sqrt{1{,}4}},$$\naltså **15,5 prosent lavere**. Kontrollen $1/\\sqrt{1{,}4} = 0{,}84515$ bekrefter at forholdet bare avhenger av formfaktoren.\n\n**c)** Rekkefølgen er kloss, kule, sylinder, kuleskall — fra raskest til langsomst. Forklaringen ligger i hvor massen sitter i forhold til rotasjonsaksen. Klossen roterer ikke i det hele tatt og bruker all energien på fart. Den kompakte kula har mye av massen samlet nær sentrum, der den er billig å få i spinn, så bare $2/7$ av energien bindes. Sylinderen har massen jevnt fordelt utover i tverrsnittet og binder $1/3$. Kuleskallet har **all** massen ytterst, der den er dyrest å få i spinn, og binder $2/5$ av energien. Hadde vi hatt en tynn ring med, ville den vært sist av alle med $c = 1$ og en halvpart av energien i rotasjonen.\n\n**d) Nei, ingen av delene.** Sluttfarten er\n$$v = \\sqrt{\\frac{2g\\,\\Delta y}{1+c}},$$\nog masse, radius, bakkevinkel og banelengde står ikke i uttrykket. En tiganger tyngre kule har tiganger så mye potensiell energi å bruke, men også tiganger så mye masse å akselerere, og de to effektene forkortes. En brattere bakke gir større akselerasjon, men kortere vei, og de to effektene forkortes også — det er derfor bare høydefallet $\\Delta y$ overlever i uttrykket. **Det eneste som kan endre rekkefølgen, er å endre formen på legemene.**\n\n**Sluttsjekk.** Alle fartene er lavere enn klossens $7{,}00\\,\\text{m/s}$, og de faller monotont med økende $c$ — som de må. Alle er i m/s. Og forholdene $1/\\sqrt{1+c}$ stemmer med tabellen i Løkke 3 til fire siffer."
+  },
+  {
+   "id": "tfy4115-2-2-fig-3",
+   "type": "image",
+   "src": "/images/textbook/tfy4115/tfy4115-2-3-sluttfart.svg",
+   "alt": "Et søylediagram med fem søyler som viser sluttfart i meter per sekund etter samme høydefall på 2,50 meter. Søylene er merket kloss med c er null og verdien 7,00, kompakt kule med c er to femdeler og verdien 5,92, massiv sylinder med c er en halv og verdien 5,72, kuleskall med c er to tredjedeler og verdien 5,42, og tynn ring med c er én og verdien 4,95. Søylene avtar monotont fra venstre mot høyre.",
+   "caption": "Sluttfarten faller monotont med formfaktoren $c$. Klossen ($c = 0$) vinner alltid; ringen ($c = 1$) taper alltid. Verdiene gjelder $\\Delta y = 2{,}50\\,\\text{m}$, men **forholdene** mellom dem gjelder for hvilket som helst høydefall."
+  },
+  {
+   "id": "tfy4115-2-2-def-snupunkt",
+   "type": "definition",
+   "title": "Snupunkt ved rulling",
+   "content": "Punktet der et legeme som ruller oppover, har farten null. For ren rulling uten luftmotstand er energien bevart, så snupunktet ligger i den høyden der all kinetisk energi er blitt potensiell:\n$$\\Delta y = \\frac{(1+c)v_0^2}{2g}.$$\nHer ligger en detalj som overrasker: et **rullende** legeme kommer **høyere** enn en glidende kloss med samme starthastighet, med faktoren $(1+c)$. Grunnen er at det rullende legemet har mer kinetisk energi ved samme fart — rotasjonsenergien kommer i tillegg — og all den energien kan omsettes i høyde. En kompakt kule med $v_0 = 4{,}00\\,\\text{m/s}$ kommer $1{,}14\\,\\text{m}$ opp, mot klossens $0{,}816\\,\\text{m}$. Merk at legemet må rulle hele veien: begynner det å gli, gjelder ikke regnestykket."
+  },
+  {
+   "id": "tfy4115-2-2-def-friksjon-ingen-arbeid",
+   "type": "definition",
+   "title": "Hvorfor friksjonen ikke gjør arbeid ved ren rulling",
+   "content": "Ved rulling uten gliing er kontaktpunktet i ro i forhold til underlaget. Friksjonen der er **statisk**, og arbeidet en kraft gjør, er kraften ganget med forflytningen av **angrepspunktet** — som er null. Derfor er den mekaniske energien bevart selv om det virker en friksjonskraft, og derfor kan du bruke energibevaring uten et tapsledd. Friksjonen er likevel helt nødvendig: uten den ville legemet glidd i stedet for å rulle, og koblingen $v = \\omega R$ ville falt bort. Friksjonens rolle er å formidle det dreiemomentet som setter legemet i spinn, ikke å ta energi. Sklir legemet, er friksjonen kinetisk, kontaktpunktet flytter seg, og da gjør friksjonen negativt arbeid som i [kap. 2.1](/tfy4115/tfy4115-2-1)."
+  },
+  {
+   "id": "tfy4115-2-2-o-5",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-2-2-oppg-5",
+    "number": "5",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger M3, A–F-format — kun bokstavsvaret.) En massiv sylinder ruller uten å gli fra ro ned et høydefall på $3{,}20\\,\\text{m}$.\n\nHvor stor er farten i bunnen?\n\n**A** $7{,}92\\,\\text{m/s}$ · **B** $6{,}70\\,\\text{m/s}$ · **C** $6{,}14\\,\\text{m/s}$ · **D** $6{,}47\\,\\text{m/s}$ · **E** $5{,}60\\,\\text{m/s}$ · **F** $5{,}28\\,\\text{m/s}$",
+    "solution": "**Svar: D.**\n\nFor en massiv sylinder er $c = I/(mR^2) = 1/2$, altså $1 + c = 1{,}5$:\n$$2g\\,\\Delta y = 2 \\cdot 9{,}81 \\cdot 3{,}20\\,\\text{m}^2/\\text{s}^2 = 62{,}784\\,\\text{m}^2/\\text{s}^2,$$\n$$v = \\sqrt{\\frac{62{,}784}{1{,}5}}\\,\\text{m/s} = \\sqrt{41{,}856}\\,\\text{m/s} = 6{,}4696\\,\\text{m/s} \\approx 6{,}47\\,\\text{m/s}.$$\n\nHvert galt alternativ er regnet fram fra én konkret feil.\n\n*Fellene:* **A** ($7{,}92\\,\\text{m/s}$) er **felle #1**: rotasjonsleddet glemt, altså $v = \\sqrt{2g\\Delta y}$. **B** ($6{,}70\\,\\text{m/s}$) bruker $c = 2/5$, altså treghetsmomentet til en kompakt kule i stedet for en sylinder. **C** ($6{,}14\\,\\text{m/s}$) bruker $c = 2/3$, altså et kuleskall. **E** ($5{,}60\\,\\text{m/s}$) bruker $c = 1$, altså en tynn ring med all massen i randen. **F** ($5{,}28\\,\\text{m/s}$) deler på $(1 + c)$ to ganger, altså på $1{,}5^2$.\n\n**Sluttsjekken som stryker det farligste alternativet.** Svaret **må** være lavere enn glidefarten $\\sqrt{2g\\Delta y} = 7{,}92\\,\\text{m/s}$, siden en del av energien ligger i rotasjonen. Det stryker det største alternativet umiddelbart — og det er nettopp det du ville valgt hvis du glemte rotasjonsleddet.",
+    "hints": [
+     "Finn formfaktoren $c = I/(mR^2)$ for en massiv sylinder.",
+     "Bruk $v = \\sqrt{2g\\Delta y/(1+c)}$ — masse og radius faller ut.",
+     "Kontrollér at svaret er lavere enn den friksjonsfrie glidefarten."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-2-2-o-6",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-2-2-oppg-6",
+    "number": "6",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger M3.) Tre legemer slippes fra ro fra samme høyde og går ned det samme høydefallet: en kompakt kule som ruller, et kuleskall som ruller, og en kloss som glir friksjonsfritt.\n\n**a)** Rangér sluttfartene uten å regne ut tallene, og begrunn rangeringen.\n**b)** Finn forholdet mellom kuleskallets og den kompakte kulas sluttfart, som et eksakt uttrykk og som et desimaltall.\n**c)** Høydefallet er $4{,}00\\,\\text{m}$. Finn alle tre sluttfartene.",
+    "solution": "**a)** Sluttfarten er $v = \\sqrt{2g\\Delta y/(1+c)}$, som avtar når $c$ vokser. Formfaktorene er $c = 0$ for klossen, $c = 2/5$ for den kompakte kula og $c = 2/3$ for kuleskallet. Rangeringen blir derfor\n$$v_\\text{kloss} > v_\\text{kule} > v_\\text{skall}.$$\nBegrunnelsen i ord: kuleskallet har all massen ytterst, lengst fra aksen, og binder mest energi i rotasjonen. Klossen roterer ikke og binder ingenting.\n\n**b)**\n$$\\frac{v_\\text{skall}}{v_\\text{kule}} = \\sqrt{\\frac{1 + 2/5}{1 + 2/3}} = \\sqrt{\\frac{7/5}{5/3}} = \\sqrt{\\frac{21}{25}} = \\frac{\\sqrt{21}}{5} = 0{,}91652.$$\nKuleskallet ender altså på 91,7 prosent av kulas fart — omtrent åtte prosent lavere. Merk at hverken $g$, $\\Delta y$, masse eller radius er med i forholdet.\n\n**c)** Med $2g\\Delta y = 2 \\cdot 9{,}81 \\cdot 4{,}00 = 78{,}48\\,\\text{m}^2/\\text{s}^2$:\n$$v_\\text{kloss} = \\sqrt{78{,}48}\\,\\text{m/s} = 8{,}8589\\,\\text{m/s} \\approx 8{,}86\\,\\text{m/s},$$\n$$v_\\text{kule} = \\sqrt{\\frac{78{,}48}{1{,}4}}\\,\\text{m/s} = \\sqrt{56{,}057}\\,\\text{m/s} = 7{,}4871\\,\\text{m/s} \\approx 7{,}49\\,\\text{m/s},$$\n$$v_\\text{skall} = \\sqrt{\\frac{78{,}48}{5/3}}\\,\\text{m/s} = \\sqrt{47{,}088}\\,\\text{m/s} = 6{,}8621\\,\\text{m/s} \\approx 6{,}86\\,\\text{m/s}.$$\n\n**Kontroll mot b):** $6{,}8621/7{,}4871 = 0{,}91653$. Stemmer med det eksakte uttrykket til fem siffer.",
+    "hints": [
+     "Sluttfarten avtar når formfaktoren $c$ vokser — finn $c$ for hver form.",
+     "I b) forkortes alt unntatt $(1+c)$-brøkene bort.",
+     "Regn $2g\\Delta y$ én gang, og del deretter på de tre verdiene av $(1+c)$."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-2-2-th-rask-vei",
+   "type": "theorem",
+   "title": "Rask vei til tall (MC-oppskrift)",
+   "content": "Fra oppgitt høydefall til bokstavsvar i fem trinn.\n\n**1. Hvilken lov?** Energibevaring, med den totale kinetiske energien:\n$$mg\\,\\Delta y = \\tfrac12(1+c)mv^2.$$\nEr det friksjon som glir, eller luftmotstand, gjelder den ikke — da må du trekke fra arbeidet mot friksjonen.\n\n**2. Hvilken ene regnelinje?**\n$$v = \\sqrt{\\frac{2g\\,\\Delta y}{1+c}}.$$\nMen **først** det avgjørende spørsmålet, som tar tre sekunder og er verdt flere poeng enn resten av regningen: **ruller legemet, eller glir det?** Ruller det, hvilken form har det?\n$$c = 0 \\ (\\text{glir}), \\quad \\tfrac25 \\ (\\text{kompakt kule}), \\quad \\tfrac12 \\ (\\text{massiv sylinder}), \\quad \\tfrac23 \\ (\\text{kuleskall}), \\quad 1 \\ (\\text{ring}).$$\n\n**3. Rekkefølgen på oppslagene.** Fra det utdelte arket henter du $g$, $K = \\tfrac12mv^2$, $K_\\text{rot} = \\tfrac12I\\omega^2$, $v = \\omega r$ og **treghetsmomentene for standardlegemene**. Sammensetningen til $(1+c)$ [må kunne brukes eller utledes aktivt]. Er høydefallet oppgitt som en banelengde $L$ og en vinkel, må du regne $\\Delta y = L\\sin\\theta$ først — det er et eget lite trinn som er lett å hoppe over.\n\n**4. Hvor mange siffer?** Regn $2g\\,\\Delta y$ ferdig med fire siffer, del deretter på $(1+c)$ som en **eksakt brøk** ($1{,}4$, $1{,}5$, $5/3$), og ta kvadratrota til slutt. Fordi svaret går gjennom en kvadratrot, halveres relativfeilen — det gjør sjangeren litt mer tilgivende enn skråplansjangeren, men alternativene ligger til gjengjeld tettere.\n\n**5. Sjekk før du krysser av.** Fire kontroller på ti sekunder:\n- **Er svaret lavere enn $\\sqrt{2g\\,\\Delta y}$?** Det må det være for et rullende legeme. Denne ene sjekken stryker typisk ett eller to alternativer, og den fanger felle #1.\n- **Massen og radien:** de skal **ikke** være i et fartssvar. Er de der, har du gjort en feil.\n- **Riktig form?** Kule, sylinder og skall gir tre ulike svar som ligger tett. Les oppgaveteksten en gang til: «kompakt», «massiv», «tynt skall» og «hult» er ikke pynteord.\n- **Enhet:** m/s for fart, rad/s for vinkelfart, J for energi."
+  },
+  {
+   "id": "tfy4115-2-2-lokke4",
+   "type": "text",
+   "content": "## Løkke 4 — effekt og terminalfart (~14 min)\n\nDe to siste temaene i kapitlet er «bør sitte»-stoff: **effekt** i rundt tre av ti sett (~30 %) og **terminalfart** i rundt fire av ti (~40 %). De er begge korte, og de henger sammen gjennom luftmotstanden.\n\n**Effekt** er arbeid per tid. Skyver du med kraften $F$ mens legemet beveger seg med farten $v$, er effekten\n\n$$P = \\frac{dW}{dt} = F\\frac{dx}{dt} = Fv.$$\n\n*Intuisjon:* det er forskjell på å gjøre et arbeid og å gjøre det raskt. En heis som løfter et tonn tjue meter, gjør det samme arbeidet enten den bruker fem sekunder eller fem minutter — men den trenger seksti ganger så stor motor i det første tilfellet.\n\n**Luftmotstand og den tredje potensen.** For farter over noen få meter i sekundet er luftmotstanden omtrent proporsjonal med kvadratet av farten, $F_\\text{luft} = bv^2$. Effekten som må til for å holde farten mot den, blir da\n\n$$P = F_\\text{luft}v = bv^3.$$\n\nDen tredje potensen er dramatisk, og den forklarer noe alle syklister vet: å øke farten fra 24 til 32 km/t koster ikke en tredjedel mer, men to tredjedeler mer. Dobler du farten, må du åtte­doble effekten.\n\n**Terminalfart** er farten der luftmotstanden er blitt like stor som tyngden, slik at akselerasjonen er null og farten ikke øker mer. Med den vanlige modellen for luftmotstand,\n\n$$F_\\text{luft} = \\tfrac12\\rho A C_d v^2,$$\n\nder $\\rho$ er luftens tetthet, $A$ tverrsnittsarealet og $C_d$ en formavhengig motstandskoeffisient, gir kraftbalansen\n\n$$\\tfrac12\\rho A C_d v_t^2 = mg \\quad\\Longrightarrow\\quad v_t = \\sqrt{\\frac{2mg}{\\rho A C_d}}.$$\n\n**Symbolmerknad:** her betyr $\\rho$ **luftens tetthet** i $\\text{kg/m}^3$ — ikke en krumningsradius, som i [kap. 1.2](/tfy4115/tfy4115-1-2). Det er den samme greske bokstaven med to helt ulike betydninger, og sammenhengen må avgjøre.\n\n**En pen skaleringslov følger.** For kompakte legemer av samme materiale og form vokser massen med diameteren i tredje potens ($m \\propto d^3$), mens tverrsnittsarealet vokser i andre ($A \\propto d^2$). Da blir\n\n$$v_t \\propto \\sqrt{\\frac{d^3}{d^2}} = \\sqrt{d}.$$\n\nEt haglkorn med fire ganger så stor diameter faller altså dobbelt så fort. Det er derfor små dråper daler og store dråper slår."
+  },
+  {
+   "id": "tfy4115-2-2-def-effekt",
+   "type": "definition",
+   "title": "Effekt",
+   "content": "Arbeid per tidsenhet, altså hvor raskt energi overføres:\n$$P = \\frac{dW}{dt} = Fv \\quad (\\text{kraft langs bevegelsen}).$$\nEnheten er watt: $1\\,\\text{W} = 1\\,\\text{J/s}$. To presiseringer er verdt å ha med. Effekten avhenger av **farten**, ikke bare av kraften — den samme kraften gir dobbel effekt ved dobbel fart, og null effekt når legemet står stille. Og effekten har fortegn, som arbeidet: en bremsekraft gir negativ effekt, altså energi som tas ut av bevegelsen. Uttrykket $P = Fv$ **står på det utdelte arket**. En vanlig anvendelse er å finne den farten en gitt motoreffekt kan holde mot en gitt motstand, som er en ligning i $v$."
+  },
+  {
+   "id": "tfy4115-2-2-def-effekt-luftmotstand",
+   "type": "definition",
+   "title": "Effekt mot luftmotstand: $P = bv^3$",
+   "content": "Den effekten som må til for å holde konstant fart mot en luftmotstand som er proporsjonal med fartskvadratet. Er motstanden $F = bv^2$, blir effekten\n$$P = Fv = bv^3.$$\nDen tredje potensen er den viktigste kvalitative innsikten i temaet: **effektbehovet vokser med kubikken av farten**. Dobler du farten, åttedobler du effekten; øker du farten med 10 prosent, øker effektbehovet med 33 prosent. Det forklarer hvorfor toppfarten til en sykkel, en bil eller en båt vokser så lite når motoren blir kraftigere — toppfarten går som $P^{1/3}$. Konstanten $b$ har enheten kg/m og samler tetthet, areal og form i ett tall."
+  },
+  {
+   "id": "tfy4115-2-2-def-terminalfart",
+   "type": "definition",
+   "title": "Terminalfart",
+   "content": "Den konstante farten et fallende legeme nærmer seg når luftmotstanden er blitt like stor som tyngden:\n$$\\tfrac12\\rho A C_d v_t^2 = mg \\quad\\Longrightarrow\\quad v_t = \\sqrt{\\frac{2mg}{\\rho A C_d}}.$$\nHer er $\\rho$ **luftens tetthet** (omtrent $1{,}2\\,\\text{kg/m}^3$ ved havnivå), $A$ legemets tverrsnittsareal og $C_d$ en dimensjonsløs motstandskoeffisient som avhenger av formen (rundt $0{,}5$ for en kule, rundt $1{,}0$–$1{,}4$ for et flatt eller foldet legeme). Farten er en **grenseverdi**, ikke en fart legemet oppnår i et bestemt øyeblikk — akselerasjonen avtar mot null, og farten nærmer seg $v_t$ asymptotisk. Merk at et **tungt** legeme har høyere terminalfart enn et lett av samme form, og at et **stort** areal senker den. Det er hele prinsippet bak en fallskjerm."
+  },
+  {
+   "id": "tfy4115-2-2-def-terminalfart-skalering",
+   "type": "definition",
+   "title": "Skaleringen $v_t \\propto \\sqrt{d}$",
+   "content": "For kompakte legemer av samme form og samme materiale vokser massen som $d^3$ og tverrsnittsarealet som $d^2$, der $d$ er diameteren. Terminalfarten blir da\n$$v_t = \\sqrt{\\frac{2mg}{\\rho A C_d}} \\propto \\sqrt{\\frac{d^3}{d^2}} = \\sqrt{d}.$$\nStore legemer faller altså fortere enn små, men bare med kvadratrota av størrelsen: fire ganger så stor diameter gir dobbelt så høy terminalfart. Sammenhengen forklarer en rekke hverdagsobservasjoner — at tåkedråper svever mens regndråper faller, at små insekter kan falle fra vilkårlig høyde uten skade, og at hagl må være stort for å gjøre skade. Merk at loven forutsetter **samme form og samme tetthet**; en fallskjerm bryter den fordi arealet vokser uavhengig av massen."
+  },
+  {
+   "id": "tfy4115-2-2-ex-4",
+   "type": "example",
+   "title": "Eksempel 4: fallskjermhopperen og syklisten",
+   "problem": "**Del 1.** En fallskjermhopper har samlet masse $85{,}0\\,\\text{kg}$. I fritt fall med kroppen strukket ut er tverrsnittsarealet $0{,}700\\,\\text{m}^2$ og motstandskoeffisienten $C_d = 1{,}00$. Luftens tetthet er $1{,}20\\,\\text{kg/m}^3$. Med åpen skjerm er arealet $25{,}0\\,\\text{m}^2$ og $C_d = 1{,}40$.\n\n**a)** Finn terminalfarten før og etter at skjermen åpnes.\n**b)** Hvor mange ganger lavere er farten med skjerm?\n\n**Del 2.** En syklist møter en luftmotstand $F = bv^2$ med $b = 0{,}250\\,\\text{kg/m}$.\n\n**c)** Hvor stor effekt må til for å holde $8{,}00\\,\\text{m/s}$, og hvor stor for å holde $16{,}0\\,\\text{m/s}$?\n**d)** Hvilken fart kan syklisten holde med $250\\,\\text{W}$?",
+   "solution": "**a) Symbolsk utledning.** Ved terminalfart er akselerasjonen null, så luftmotstanden balanserer tyngden:\n$$\\tfrac12\\rho A C_d v_t^2 = mg \\quad\\Longrightarrow\\quad v_t = \\sqrt{\\frac{2mg}{\\rho A C_d}}.$$\n\n**Rask vei til tall.** Telleren er den samme i begge tilfellene:\n$$2mg = 2 \\cdot 85{,}0 \\cdot 9{,}81\\,\\text{N} = 1\\,667{,}7\\,\\text{N}.$$\nUten skjerm er $\\rho A C_d = 1{,}20 \\cdot 0{,}700 \\cdot 1{,}00 = 0{,}8400\\,\\text{kg/m}$:\n$$v_t = \\sqrt{\\frac{1\\,667{,}7}{0{,}8400}}\\,\\text{m/s} = \\sqrt{1\\,985{,}4}\\,\\text{m/s} = 44{,}557\\,\\text{m/s} \\approx 44{,}6\\,\\text{m/s}.$$\nDet er $160\\,\\text{km/t}$ — en realistisk verdi for fritt fall.\n\nMed skjerm er $\\rho A C_d = 1{,}20 \\cdot 25{,}0 \\cdot 1{,}40 = 42{,}00\\,\\text{kg/m}$:\n$$v_t = \\sqrt{\\frac{1\\,667{,}7}{42{,}00}}\\,\\text{m/s} = \\sqrt{39{,}707}\\,\\text{m/s} = 6{,}3014\\,\\text{m/s} \\approx 6{,}30\\,\\text{m/s}.$$\nDet er $22{,}7\\,\\text{km/t}$ — omtrent som å hoppe ned fra to meter, som er hele poenget med en fallskjerm.\n\n**Benevningskontroll:** $\\text{N}/(\\text{kg/m}) = (\\text{kg}\\cdot\\text{m/s}^2)\\cdot\\text{m}/\\text{kg} = \\text{m}^2/\\text{s}^2$, og kvadratrota er m/s. Det stemmer.\n\n**b)**\n$$\\frac{44{,}557}{6{,}3014} = 7{,}0710.$$\nSju ganger lavere. Legg merke til at forholdet er $\\sqrt{42{,}00/0{,}8400} = \\sqrt{50{,}00} = 7{,}0711$: massen faller ut, og bare forholdet mellom $\\rho A C_d$-verdiene avgjør. Skjermen øker $A C_d$ med en faktor 50, og farten synker med kvadratrota av det.\n\n**c)** Effekten er $P = Fv = bv^3$:\n$$P(8{,}00) = 0{,}250 \\cdot \\left(8{,}00\\right)^3\\,\\text{W} = 0{,}250 \\cdot 512\\,\\text{W} = 128\\,\\text{W},$$\n$$P(16{,}0) = 0{,}250 \\cdot \\left(16{,}0\\right)^3\\,\\text{W} = 0{,}250 \\cdot 4\\,096\\,\\text{W} = 1\\,024\\,\\text{W}.$$\nForholdet er $1\\,024/128 = 8{,}00$ — nøyaktig $2^3$, som den tredje potensen krever. Dobbel fart, åtte ganger effekten.\n\n**d)** Løs $P = bv^3$ for farten:\n$$v = \\left(\\frac{P}{b}\\right)^{1/3} = \\left(\\frac{250}{0{,}250}\\right)^{1/3}\\,\\text{m/s} = \\left(1\\,000\\right)^{1/3}\\,\\text{m/s} = 10{,}0\\,\\text{m/s}.$$\nAltså $36\\,\\text{km/t}$ med $250\\,\\text{W}$, som er en realistisk verdi for en trent syklist på flat vei.\n\n**Og en lesning verdt å ta med.** Skal syklisten opp til $12{,}0\\,\\text{m/s}$, kreves $0{,}250 \\cdot 1\\,728 = 432\\,\\text{W}$ — altså 73 prosent mer effekt for 20 prosent mer fart. Toppfarten går som $P^{1/3}$, og det er derfor sykkelritt avgjøres av små marginer."
+  },
+  {
+   "id": "tfy4115-2-2-o-7",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-2-2-oppg-7",
+    "number": "7",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger M2 — arbeid, energi og effekt. Kjenne til-stoff.) En båt møter en vannmotstand $F = bv^2$ og trenger $18{,}0\\,\\text{kW}$ for å holde farten $6{,}00\\,\\text{m/s}$.\n\n**a)** Finn konstanten $b$.\n**b)** Hvor stor effekt trengs for å holde $9{,}00\\,\\text{m/s}$?\n**c)** Hvor stor fart kan motoren holde hvis effekten dobles til $36{,}0\\,\\text{kW}$?",
+    "solution": "**a)** Effekten mot en kvadratisk motstand er $P = bv^3$, så\n$$b = \\frac{P}{v^3} = \\frac{18{,}0 \\cdot 10^3\\,\\text{W}}{\\left(6{,}00\\,\\text{m/s}\\right)^3} = \\frac{18{,}0 \\cdot 10^3}{216}\\,\\text{kg/m} = 83{,}333\\,\\text{kg/m} \\approx 83{,}3\\,\\text{kg/m}.$$\nBenevningskontroll: $\\text{W}/(\\text{m/s})^3 = (\\text{J/s})\\cdot\\text{s}^3/\\text{m}^3 = \\text{kg}\\cdot\\text{m}^2/\\text{s}^2 \\cdot \\text{s}^2/\\text{m}^3 = \\text{kg/m}$. Det stemmer.\n\n**b)**\n$$P = bv^3 = 83{,}333 \\cdot \\left(9{,}00\\right)^3\\,\\text{W} = 83{,}333 \\cdot 729\\,\\text{W} = 60{,}750 \\cdot 10^3\\,\\text{W} = 60{,}8\\,\\text{kW}.$$\nKontroll uten å bruke $b$: $P$ vokser som $v^3$, så $18{,}0 \\cdot (9/6)^3 = 18{,}0 \\cdot 3{,}375 = 60{,}75\\,\\text{kW}$. Samme svar, og en raskere vei.\n\n**c)** Toppfarten går som $P^{1/3}$:\n$$v = 6{,}00 \\cdot 2^{1/3}\\,\\text{m/s} = 6{,}00 \\cdot 1{,}2599\\,\\text{m/s} = 7{,}5595\\,\\text{m/s} \\approx 7{,}56\\,\\text{m/s}.$$\nDobbel effekt gir altså bare 26 prosent mer fart. Det er den tredje potensens pris, og den er grunnen til at store skip går sakte.",
+    "hints": [
+     "Effekten mot en motstand $F = bv^2$ er $P = Fv = bv^3$.",
+     "I b) og c) kan du bruke forholdstall i stedet for å regne med $b$.",
+     "Farten går som $P^{1/3}$ når motstanden er kvadratisk."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-2-2-o-8",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-2-2-oppg-8",
+    "number": "8",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Kvalitativ oppgave — sjanger M3.) Svar i to til fire setninger på hvert punkt.\n\n**a)** Forklar hvorfor en kompakt kule som ruller ned en bakke, kommer saktere ned enn en kloss som glir friksjonsfritt ned den samme bakken — uten å bruke formler.\n\n**b)** Kula ruller fordi det er friksjon mellom kula og underlaget. Hvorfor kan vi da bruke energibevaring, som forutsetter at ingen krefter tar energi ut av systemet?\n\n**c)** To kuler av samme materiale, den ene med dobbelt så stor radius som den andre, ruller ned samme bakke. Hvilken kommer først ned, og hva er begrunnelsen?",
+    "solution": "**a)** Begge legemene får den samme energien fra fallet, siden høydeforskjellen og tyngden er de samme. Klossen kan bruke alt på å bevege seg framover. Kula må i tillegg komme i spinn, og spinnet bærer energi — for en kompakt kule tar det $2/7$ av totalen. Da er det bare $5/7$ igjen til framdrift, og siden energien går som fartskvadratet, blir farten $\\sqrt{5/7} = 0{,}845$ ganger klossens.\n\n**b)** Fordi friksjonen i kontaktpunktet er **statisk**, ikke glidende. Ved ren rulling sklir ikke kula mot underlaget, så angrepspunktet for friksjonskraften flytter seg ikke i forhold til underlaget — og en kraft som virker i et punkt som ikke flytter seg, gjør ikke arbeid. Friksjonen er likevel nødvendig: den formidler dreiemomentet som setter kula i spinn. Den flytter altså energi fra translasjon til rotasjon **inne i** systemet, uten å ta energi ut av det.\n\n**c)** De kommer ned samtidig. Sluttfarten er $v = \\sqrt{2g\\Delta y/(1+c)}$, og formfaktoren $c = I/(mR^2)$ er $2/5$ for **enhver** kompakt kule, uansett radius og masse. Radien forkortes bort når treghetsmomentet $\\tfrac25mR^2$ divideres med $mR^2$. Den store kula har mer treghetsmoment, men også mer masse å trekke den nedover, og de to effektene opphever hverandre eksakt. Det eneste som kunne endret svaret, er å endre **formen** — for eksempel gjøre den ene hul.",
+    "hints": [
+     "Tenk på energien fra fallet som et budsjett som skal fordeles.",
+     "I b): flytter kontaktpunktet seg i forhold til underlaget ved ren rulling?",
+     "I c): hva skjer med $R$ når du regner $c = I/(mR^2)$ for en kompakt kule?"
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-2-2-o-9",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-2-2-oppg-9",
+    "number": "9",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Sjanger M3, eksamensnivå.) En kompakt kule ruller uten å gli oppover et skråplan med helning $22{,}0^\\circ$ og startfart $5{,}60\\,\\text{m/s}$.\n\n**a)** Hvor høyt kommer kula, målt loddrett, og hvor langt kommer den langs planet?\n**b)** En kloss glir friksjonsfritt oppover det samme planet med samme startfart. Hvor høyt kommer den, og hvorfor kommer den ikke like høyt som kula?\n**c)** Finn kulas akselerasjon langs planet, og bruk den til å regne ut hvor lang tid kula bruker opp. Kontrollér svaret mot strekningen.\n**d)** Hvor stor må den statiske friksjonskoeffisienten minst være for at kula skal rulle uten å gli? Uttrykket er $\\mu_s \\ge \\tan\\theta \\cdot c/(1+c)$.",
+    "solution": "**a)** Energibevaring for et rullende legeme, fra fart til høyde:\n$$\\tfrac12(1+c)mv_0^2 = mg\\,\\Delta y \\quad\\Longrightarrow\\quad \\Delta y = \\frac{(1+c)v_0^2}{2g}.$$\nMed $c = 2/5$ og $v_0 = 5{,}60\\,\\text{m/s}$:\n$$\\Delta y = \\frac{1{,}4 \\cdot 31{,}36}{2 \\cdot 9{,}81}\\,\\text{m} = \\frac{43{,}904}{19{,}62}\\,\\text{m} = 2{,}2377\\,\\text{m} \\approx 2{,}24\\,\\text{m}.$$\nStrekningen langs planet følger av $\\Delta y = L\\sin\\theta$, med $\\sin 22{,}0^\\circ = 0{,}37461$:\n$$L = \\frac{2{,}2377}{0{,}37461}\\,\\text{m} = 5{,}9734\\,\\text{m} \\approx 5{,}97\\,\\text{m}.$$\n\n**b)** For klossen er $c = 0$:\n$$\\Delta y = \\frac{v_0^2}{2g} = \\frac{31{,}36}{19{,}62}\\,\\text{m} = 1{,}5984\\,\\text{m} \\approx 1{,}60\\,\\text{m}.$$\nKula kommer altså **høyere**, med faktoren $1 + c = 1{,}4$. Det kan virke bakvendt etter Løkke 3, men det er helt konsistent: der sammenlignet vi legemer som startet fra samme **høyde** og spurte om farten, og da tapte kula. Her sammenligner vi legemer som starter med samme **fart** og spør om høyden — og da har kula mer energi å omsette, fordi rotasjonsenergien kommer i tillegg til translasjonsenergien. Poenget å ta med seg: $(1+c)$ står alltid på fartssiden av energiligningen, og hvilken vei det slår, avhenger av hva som er gitt.\n\n**c)** Akselerasjonen langs planet for et rullende legeme er\n$$a = \\frac{g\\sin\\theta}{1+c} = \\frac{9{,}81 \\cdot 0{,}37461}{1{,}4}\\,\\text{m/s}^2 = \\frac{3{,}6749}{1{,}4}\\,\\text{m/s}^2 = 2{,}6249\\,\\text{m/s}^2.$$\nTiden opp, fra $v = v_0 - at$ med $v = 0$:\n$$t = \\frac{v_0}{a} = \\frac{5{,}60}{2{,}6249}\\,\\text{s} = 2{,}1334\\,\\text{s} \\approx 2{,}13\\,\\text{s}.$$\n**Kontroll mot strekningen:** middelfarten er $5{,}60/2 = 2{,}80\\,\\text{m/s}$, og\n$$2{,}80 \\cdot 2{,}1334\\,\\text{m} = 5{,}9735\\,\\text{m}.$$\nSamme $L$ som i a), til fem siffer. De to helt uavhengige veiene — energi og kinematikk — møtes, og det er den beste kontrollen du kan gjøre på en slik oppgave.\n\n**d)** Med $c = 2/5$ og $\\tan 22{,}0^\\circ = 0{,}40403$:\n$$\\mu_s \\ge 0{,}40403 \\cdot \\frac{2/5}{7/5} = 0{,}40403 \\cdot \\frac{2}{7} = 0{,}11544.$$\nAltså $\\mu_s \\ge 0{,}115$. Det er et beskjedent krav — de fleste virkelige materialpar oppfyller det med god margin, og det er grunnen til at rullingsoppgaver kan anta ren rulling uten å oppgi noen friksjonskoeffisient i det hele tatt. Merk at kravet vokser med brattheten: ved $45^\\circ$ er $\\tan\\theta = 1$ og kravet $2/7 = 0{,}286$.",
+    "hints": [
+     "Energibevaring gir $\\Delta y = (1+c)v_0^2/(2g)$ når legemet ruller.",
+     "I b): tenk over hva som er gitt — samme fart, ikke samme høyde.",
+     "Akselerasjonen langs planet for et rullende legeme er $g\\sin\\theta/(1+c)$.",
+     "Kontrollér tiden mot strekningen med middelfarten."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-2-2-o-10",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-2-2-oppg-10",
+    "number": "10",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Sjanger M3, A–F-format — kun bokstavsvaret.) En massiv sylinder ruller uten å gli fra ro ned et skråplan. Planet har helning $15{,}0^\\circ$, og sylinderen ruller $6{,}00\\,\\text{m}$ langs planet.\n\nHvor stor er farten i bunnen?\n\n**A** $5{,}52\\,\\text{m/s}$ · **B** $4{,}51\\,\\text{m/s}$ · **C** $4{,}67\\,\\text{m/s}$ · **D** $4{,}28\\,\\text{m/s}$ · **E** $8{,}86\\,\\text{m/s}$ · **F** $3{,}19\\,\\text{m/s}$",
+    "solution": "**Svar: B.**\n\n**Det avgjørende trinnet kommer først:** oppgaven oppgir **lengden langs planet**, ikke høydefallet. Med $\\sin 15{,}0^\\circ = 0{,}25882$:\n$$\\Delta y = L\\sin\\theta = 6{,}00 \\cdot 0{,}25882\\,\\text{m} = 1{,}5529\\,\\text{m}.$$\nDeretter energibevaring med $c = 1/2$ for en massiv sylinder:\n$$2g\\,\\Delta y = 2 \\cdot 9{,}81 \\cdot 1{,}5529\\,\\text{m}^2/\\text{s}^2 = 30{,}468\\,\\text{m}^2/\\text{s}^2,$$\n$$v = \\sqrt{\\frac{30{,}468}{1{,}5}}\\,\\text{m/s} = \\sqrt{20{,}312}\\,\\text{m/s} = 4{,}5069\\,\\text{m/s} \\approx 4{,}51\\,\\text{m/s}.$$\n\nHvert galt alternativ er regnet fram fra én konkret feil.\n\n*Fellene:* **A** ($5{,}52\\,\\text{m/s}$) er **felle #1**: rotasjonsleddet glemt. **C** ($4{,}67\\,\\text{m/s}$) bruker $c = 2/5$ (kompakt kule) i stedet for $c = 1/2$. **D** ($4{,}28\\,\\text{m/s}$) bruker $c = 2/3$ (kuleskall). **E** ($8{,}86\\,\\text{m/s}$) setter $\\Delta y = L$, altså bruker lengden langs planet som høydefall. **F** ($3{,}19\\,\\text{m/s}$) glemmer faktoren 2 i $2g\\Delta y$.\n\n**To sluttsjekker på ti sekunder.** Svaret må være lavere enn glidefarten $\\sqrt{2g\\Delta y} = 5{,}52\\,\\text{m/s}$, siden en tredjedel av energien ligger i rotasjonen. Og det må være **mye** lavere enn $\\sqrt{2gL} = 8{,}86\\,\\text{m/s}$, som er det du får hvis du forveksler banelengden med høydefallet — den feilen alene er verdt et alternativ, og den er lett å gjøre under tidspress.",
+    "hints": [
+     "Oppgaven oppgir lengden langs planet — regn om til høydefall først.",
+     "$\\Delta y = L\\sin\\theta$, og deretter $v = \\sqrt{2g\\Delta y/(1+c)}$.",
+     "Formfaktoren for en massiv sylinder er $c = 1/2$."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-2-2-war-typiske-feil",
+   "type": "warning",
+   "title": "Typiske feil — og hvorfor rotasjonsleddet er fagets dyreste glemsel",
+   "content": "**Å glemme rotasjonsenergien** (felle #1 — å bruke $\\tfrac12mv^2$ der det skulle stått $\\tfrac12(1+c)mv^2$ for et rullende legeme). Dette er den hyppigst innebygde fella i hele mekanikkdelen, og løsningsforslagene viser at den er lagt inn med vilje i alternativlistene. Feilen gir **alltid for høy fart** — 18,3 prosent for høy for en kompakt kule, 22,5 prosent for en massiv sylinder. Motmiddelet er én vane: **spør «ruller dette legemet?» før du skriver den første ligningen.** Ordene i oppgaveteksten som utløser spørsmålet, er «ruller», «uten å gli», «kule», «sylinder», «hjul» og «skall».\n\n**Å bruke feil treghetsmoment.** Kule, sylinder og skall gir tre svar som ligger tett — for $\\Delta y = 2{,}50\\,\\text{m}$ er de $5{,}92$, $5{,}72$ og $5{,}42\\,\\text{m/s}$ — og alle tre står som regel i alternativlista samtidig. Les oppgaveteksten nøye: «kompakt», «massiv», «homogen», «tynt skall» og «hul» er ikke pynteord, de er tallet du skal bruke.\n\n**Å forveksle banelengden med høydefallet.** Uttrykket inneholder $\\Delta y$, den **loddrette** høydeforskjellen. Er banen et skråplan med lengde $L$, må du regne $\\Delta y = L\\sin\\theta$ først. Hopper du over det trinnet, får du et svar som er $1/\\sqrt{\\sin\\theta}$ ganger for stort — ved $15^\\circ$ nesten dobbelt.\n\n**Å ta med masse eller radius i et fartssvar.** Begge faller ut. Står de i svaret ditt på en fart, har du gjort en feil et sted, ikke bare skrevet noe unødvendig.\n\n**Å bruke energibevaring når det glir.** Ren rulling bevarer energien fordi friksjonen er statisk. Sklir legemet, gjør den kinetiske friksjonen negativt arbeid, og energiregnskapet må ha et tapsledd. Sier oppgaven «glir» eller oppgir en kinetisk friksjonskoeffisient, er du tilbake i [kap. 2.1](/tfy4115/tfy4115-2-1)s verden.\n\n**Å dobbelttelle den kinetiske energien** (felle #2 — å legge $\\tfrac12mv^2$ til $\\tfrac12I\\omega^2$ for et legeme som **bare** roterer om en fast akse). Et hjul på en fast aksel har ingen translasjon, og da er $K = \\tfrac12I\\omega^2$ alene. Feilen er den motsatte av felle #1 og gir for lav fart. Skillet er enkelt: flytter massesenteret seg? Da er begge leddene med. Står det stille? Da er bare rotasjonsleddet med.\n\n**Å bruke kinematikk med konstant $a$ på en krum bane.** Energibevaring gjelder uansett banens form; konstant-akselerasjonsformlene gjør ikke. Dette er felle #3 i denne sjangerens utgave, og den er lett å gjøre når oppgaven ser ut som en kinematikkoppgave.\n\n**Og avrundingsfellen i dette kapitlet** (felle #16 — avrundingsfeil som lander på nabo-alternativet). Her er den mildere enn i skråplansjangeren, fordi svaret går gjennom en **kvadratrot** som halverer relativfeilen. Men den finnes: $(1+c)$ skal behandles som en **eksakt brøk** — $1{,}4$, $1{,}5$, $5/3$ — og ikke som en avrundet desimal. Skriver du $5/3 \\approx 1{,}67$ i stedet for $1{,}6667$, endres $v$ i tredje siffer, og alternativene for kule, sylinder og skall ligger nettopp så tett. Regel: **rund $(1+c)$ aldri, og ta kvadratrota helt til slutt.**"
+  },
+  {
+   "id": "tfy4115-2-2-begrepsbank-notis",
+   "type": "text",
+   "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+  },
+  {
+   "id": "tfy4115-2-2-def-bb-syvtiendedeler",
+   "type": "definition",
+   "title": "Kompakt kule: $K = \\tfrac{7}{10}mv^2$",
+   "content": "Det enkeltresultatet du oftest trenger i sjangeren. For en kompakt kule er $I = \\tfrac25mR^2$, altså $c = 2/5$, og med rullebetingelsen $v = \\omega R$:\n$$K = \\tfrac12mv^2 + \\tfrac12 \\cdot \\tfrac25mR^2 \\cdot \\frac{v^2}{R^2} = \\tfrac12mv^2 + \\tfrac15mv^2 = \\tfrac{7}{10}mv^2.$$\nUtledningen er tre linjer og bør kunne gjøres i margen — treghetsmomentet **står på det utdelte arket**, men sammensetningen [må kunne brukes eller utledes aktivt]. Fordelingen er $5/7$ translasjon og $2/7$ rotasjon, altså $71{,}4\\ \\%$ og $28{,}6\\ \\%$. Radien forkortes bort, så resultatet gjelder for en kanonkule og en kulelagerkule like godt."
+  },
+  {
+   "id": "tfy4115-2-2-def-bb-trekvart",
+   "type": "definition",
+   "title": "Massiv sylinder: $K = \\tfrac34mv^2$",
+   "content": "For en massiv sylinder (eller et homogent hjul) om egen akse er $I = \\tfrac12mR^2$, altså $c = 1/2$:\n$$K = \\tfrac12mv^2 + \\tfrac14mv^2 = \\tfrac34mv^2.$$\nFordelingen er $2/3$ translasjon og $1/3$ rotasjon, altså $66{,}7\\ \\%$ og $33{,}3\\ \\%$. Sluttfarten etter et fall $\\Delta y$ er $\\sqrt{2g\\Delta y/1{,}5} = 0{,}8165\\sqrt{2g\\Delta y}$, altså 18,4 prosent lavere enn en glidende kloss. Sylinderen ligger mellom den kompakte kula og kuleskallet, fordi massen er jevnt fordelt utover tverrsnittet i stedet for å være samlet nær sentrum eller helt ytterst."
+  },
+  {
+   "id": "tfy4115-2-2-def-bb-femseksdeler",
+   "type": "definition",
+   "title": "Kuleskall: $K = \\tfrac56mv^2$",
+   "content": "For et tynt kuleskall er $I = \\tfrac23mR^2$, altså $c = 2/3$:\n$$K = \\tfrac12mv^2 + \\tfrac13mv^2 = \\tfrac56mv^2.$$\nFordelingen er $3/5$ translasjon og $2/5$ rotasjon, altså $60{,}0\\ \\%$ og $40{,}0\\ \\%$. Skallet er det langsomste av de tre standardformene, fordi **all** massen ligger i maksimal avstand fra aksen og derfor er dyrest å få i spinn. Sluttfarten er $0{,}7746\\sqrt{2g\\Delta y}$, altså 22,5 prosent lavere enn en glidende kloss. Merk forskjellen fra en tynn **ring**, der $c = 1$ og halve energien går til rotasjon — skallet er en kuleflate, ringen er en sirkellinje."
+  },
+  {
+   "id": "tfy4115-2-2-def-bb-energifordeling",
+   "type": "definition",
+   "title": "Energifordelingen mellom translasjon og rotasjon",
+   "content": "For et legeme som ruller uten å gli, er andelene faste og avhenger bare av formen:\n$$\\frac{K_\\text{transl}}{K} = \\frac{1}{1+c}, \\qquad \\frac{K_\\text{rot}}{K} = \\frac{c}{1+c}.$$\nKompakt kule: $5/7$ og $2/7$. Massiv sylinder: $2/3$ og $1/3$. Kuleskall: $3/5$ og $2/5$. Tynn ring: $1/2$ og $1/2$. Andelene er uavhengige av fart, masse, radius og høyde — de er en egenskap ved formen alene. Det gjør dem til en rask kontroll: har du regnet ut de to energiene hver for seg og andelene ikke stemmer med tabellen, er det en regnefeil et sted, ikke en fysisk oppdagelse."
+  },
+  {
+   "id": "tfy4115-2-2-def-bb-felle-1",
+   "type": "definition",
+   "title": "Felle #1 — det glemte rotasjonsleddet",
+   "content": "Feilen som består i å skrive $\\tfrac12mv^2$ der et rullende legeme krever $\\tfrac12(1+c)mv^2$. Den gir **alltid for høy fart**, med faktoren $\\sqrt{1+c}$: 18,3 prosent for en kompakt kule, 22,5 prosent for en massiv sylinder, 29,1 prosent for et kuleskall. Feilen er den hyppigst innebygde i mekanikkdelens svaralternativer, og den er farlig fordi resultatet aldri ser urimelig ut. Motmiddelet er ett spørsmål stilt før den første ligningen: **ruller dette legemet, eller glir det?** Og én sluttkontroll: er svaret ditt lavere enn $\\sqrt{2g\\Delta y}$? For et rullende legeme må det være det."
+  },
+  {
+   "id": "tfy4115-2-2-def-bb-sjanger-m3",
+   "type": "definition",
+   "title": "Sjanger M3 — rullende legeme med energibevaring",
+   "content": "Bokas navn på oppgaveformen der et legeme ruller uten å gli opp eller ned en høydeforskjell, og du skal finne farten, høyden eller energifordelingen. Den forekommer i praktisk talt alle eksamenssett (~100 %) og hører til **mekanikkhalvdelen, spørsmål 1–20**. Kjeden er kort: avgjør om legemet ruller, finn formfaktoren $c$, regn $\\Delta y$ (eventuelt fra $L\\sin\\theta$), og sett inn i $v = \\sqrt{2g\\Delta y/(1+c)}$. Tre feil bærer nesten alle distraktorene: glemt rotasjonsledd, feil form (kule mot sylinder mot skall), og banelengde forvekslet med høydefall."
+  },
+  {
+   "id": "tfy4115-2-2-def-bb-sjanger-m2",
+   "type": "definition",
+   "title": "Sjanger M2 — arbeid, energi og effekt",
+   "content": "Bokas navn på oppgaveformen der du skal sette opp et energiregnskap: finne arbeidet en kraft gjør (ofte som areal under en $F(x)$-graf), bruke arbeid–energisetningen til å finne en fart, eller finne effekten $P = Fv$. Den forekommer i praktisk talt alle eksamenssett (~100 %) og hører til **mekanikkhalvdelen, spørsmål 1–20**. Sjangeren har også en rangeringsvariant som er verdt å kjenne: gitt at to legemer får det samme **kraftstøtet** $F\\Delta t$, får de samme endring i bevegelsesmengde ([kap. 3.1](/tfy4115/tfy4115-3-1)); gitt at de får det samme **arbeidet** $F\\Delta x$, får de samme endring i kinetisk energi. De to er ikke det samme, og å forveksle dem er en av de billigste feilene å unngå."
+  },
+  {
+   "id": "tfy4115-2-2-def-bb-rullemotstand",
+   "type": "definition",
+   "title": "Ren rulling mot rullemotstand",
+   "content": "To ting som lyder like og oppfører seg helt ulikt. **Ren rulling** er idealiseringen dette kapitlet bruker: kontaktpunktet står stille, friksjonen er statisk, ingen energi tapes, og $v = \\omega R$ gjelder. **Rullemotstand** er den virkelige verdens lille tap, som skyldes at hjulet og underlaget deformeres og retter seg ut igjen — det er typisk en faktor 10–100 mindre enn glidefriksjon og ignoreres i alle oppgaver i denne boka med mindre den er eksplisitt oppgitt. Skillet er verdt å ha klart fordi det forklarer hvorfor idealiseringen «energien er bevart ved rulling» er god nok i praksis: et sykkelhjul mister omtrent én prosent av energien per rulling, ikke tretti."
+  },
+  {
+   "id": "tfy4115-2-2-def-bb-akselerasjon-rulling",
+   "type": "definition",
+   "title": "Akselerasjonen langs planet: $a = g\\sin\\theta/(1+c)$",
+   "content": "Akselerasjonen til et legeme som ruller uten å gli ned et skråplan. Den følger av å kombinere Newtons 2. lov for translasjon og rotasjon, men den kan også leses direkte ut av energiuttrykket: siden $v^2 = 2g\\Delta y/(1+c)$ og $\\Delta y = L\\sin\\theta$, gir sammenligning med $v^2 = 2aL$ at\n$$a = \\frac{g\\sin\\theta}{1+c}.$$\nUttrykket er nyttig når oppgaven spør om **tid**, som energibevaring ikke kan svare på. For en kompakt kule er $a = 0{,}714\\,g\\sin\\theta$, for en sylinder $0{,}667\\,g\\sin\\theta$, for et skall $0{,}600\\,g\\sin\\theta$. Merk at akselerasjonen er konstant, så konstant-$a$-formlene gjelder på et rett skråplan — men ikke på en krum bane, der vinkelen endrer seg."
+  },
+  {
+   "id": "tfy4115-2-2-def-bb-rullebetingelse-friksjon",
+   "type": "definition",
+   "title": "Friksjonskravet for ren rulling",
+   "content": "Den minste statiske friksjonskoeffisienten som trengs for at et legeme skal rulle uten å gli ned et skråplan:\n$$\\mu_s \\ge \\tan\\theta \\cdot \\frac{c}{1+c}.$$\nFor en kompakt kule er faktoren $c/(1+c) = 2/7 = 0{,}286$, for en sylinder $1/3$, for et skall $2/5$. Kravet vokser med brattheten: ved $22^\\circ$ trenger en kule bare $\\mu_s \\ge 0{,}115$, ved $45^\\circ$ trenger den $0{,}286$. Fordi kravet er så beskjedent for vanlige vinkler, kan eksamensoppgaver trygt anta ren rulling uten å oppgi noen friksjonskoeffisient. Er planet svært bratt eller underlaget svært glatt, brytes betingelsen, og legemet begynner å gli — overgangen fra gliing til ren rulling hører til Del 4."
+  },
+  {
+   "id": "tfy4115-2-2-coll-symbolliste",
+   "type": "collapsible",
+   "title": "Symbol- og formelliste",
+   "buttonText": "Vis symboler og formler",
+   "content": [
+    {
+     "id": "tfy4115-2-2-coll-symbolliste-inn",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n**Kolliderende symboler i dette delkapitlet.** Symbolet $R$ betyr **radius** i meter her — ikke gasskonstanten og ikke en termisk motstand, som det gjør i termodelen Del 6–11. Symbolet $\\rho$ betyr **luftens tetthet** i $\\text{kg/m}^3$ i Løkke 4 — ikke krumningsradius, som i [kap. 1.2](/tfy4115/tfy4115-1-2). Symbolet $c$ er **treghetsmomentfaktoren** $I/(mR^2)$, et dimensjonsløst formtall — ikke en lysfart og ikke en spesifikk varmekapasitet. Symbolet $P$ er **effekt** i watt, ikke et trykk. Symbolet $T$ brukes ikke, verken som svingetid eller temperatur, og $p$ (bevegelsesmengde i [kap. 3.1](/tfy4115/tfy4115-3-1), trykk i Del 6–11) opptrer ikke her.\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $W$ | Arbeid | J |\n| $K$ | Kinetisk energi (total, inkludert rotasjon) | J |\n| $U$ | Potensiell energi i tyngdefeltet | J |\n| $m$ | Masse | kg |\n| $v$ | Farten til massesenteret | m/s |\n| $\\omega$ | Vinkelfart | rad/s |\n| $R$ | Radius (til den flaten som ruller) | m |\n| $I$ | Treghetsmoment om egen akse | $\\text{kg}\\cdot\\text{m}^2$ |\n| $c$ | Treghetsmomentfaktoren $I/(mR^2)$ | — |\n| $\\Delta y$ | Loddrett høydeforskjell | m |\n| $L$ | Lengde langs et skråplan | m |\n| $\\theta$ | Skråplanets helningsvinkel | grader |\n| $g$ | Tyngdeakselerasjonen, $9{,}81\\,\\text{m/s}^2$ | $\\text{m/s}^2$ |\n| $P$ | Effekt | W |\n| $F$ | Kraft | N |\n| $b$ | Luftmotstandskonstant i $F = bv^2$ | kg/m |\n| $\\rho$ | Luftens tetthet (Løkke 4) | $\\text{kg/m}^3$ |\n| $A$ | Tverrsnittsareal | $\\text{m}^2$ |\n| $C_d$ | Motstandskoeffisient (dimensjonsløs) | — |\n| $v_t$ | Terminalfart | m/s |\n| $\\mu_s$ | Statisk friksjonskoeffisient | — |\n\n**Formler i dette delkapitlet:**\n\n$$W = \\int \\mathbf{F}\\cdot d\\mathbf{s} = \\text{areal under } F(x)$$\nArbeid [står på det utdelte arket].\n\n$$W_\\text{tot} = \\Delta K$$\nArbeid–energisetningen [står på det utdelte arket].\n\n$$K = \\tfrac12mv^2, \\qquad U = mgh, \\qquad K_\\text{rot} = \\tfrac12I\\omega^2$$\nDe tre energiformene [står på det utdelte arket].\n\n$$v = \\omega R$$\nRullebetingelsen for rulling uten gliing [står på det utdelte arket].\n\n$$I_\\text{kule} = \\tfrac25mR^2, \\qquad I_\\text{sylinder} = \\tfrac12mR^2, \\qquad I_\\text{skall} = \\tfrac23mR^2$$\nTreghetsmomentene for standardformene [står på det utdelte arket].\n\n$$c = \\frac{I}{mR^2}, \\qquad K = \\tfrac12(1+c)mv^2$$\nFormfaktoren og den samlede kinetiske energien [må kunne brukes eller utledes aktivt].\n\n$$K_\\text{kule} = \\tfrac{7}{10}mv^2, \\qquad K_\\text{sylinder} = \\tfrac34mv^2, \\qquad K_\\text{skall} = \\tfrac56mv^2$$\nDe tre standardresultatene [må kunne brukes eller utledes aktivt].\n\n$$v = \\sqrt{\\frac{2g\\,\\Delta y}{1+c}}$$\nSluttfart for et rullende legeme fra ro [må kunne brukes eller utledes aktivt].\n\n$$\\Delta y = \\frac{(1+c)v_0^2}{2g}$$\nSnupunktet ved rulling oppover [må kunne brukes eller utledes aktivt].\n\n$$a = \\frac{g\\sin\\theta}{1+c}$$\nAkselerasjonen langs et skråplan ved ren rulling [må kunne brukes eller utledes aktivt].\n\n$$\\mu_s \\ge \\tan\\theta \\cdot \\frac{c}{1+c}$$\nFriksjonskravet for at legemet skal rulle uten å gli [må kunne brukes eller utledes aktivt].\n\n$$P = Fv, \\qquad P = bv^3 \\ (\\text{mot } F = bv^2)$$\nEffekt. $P = Fv$ [står på det utdelte arket]; kubikkformen [må kunne brukes eller utledes aktivt].\n\n$$v_t = \\sqrt{\\frac{2mg}{\\rho A C_d}}, \\qquad v_t \\propto \\sqrt{d}$$\nTerminalfart og skaleringen med diameteren [må kunne brukes eller utledes aktivt].\n\nTrenger du å integrere, ta en kubikkrot eller regne med potenser underveis, står regnereglene i **Rottmann**."
+    }
+   ]
+  },
+  {
+   "id": "tfy4115-2-2-coll-repetisjon",
+   "type": "collapsible",
+   "title": "Repetisjonsoppgaver",
+   "buttonText": "Vis repetisjonsoppgaver",
+   "content": [
+    {
+     "id": "tfy4115-2-2-coll-rep-inn",
+     "type": "text",
+     "content": "Fem korte oppgaver på det dette kapitlet bygger på — energibevaring fra [kap. 1.2](/tfy4115/tfy4115-1-2), friksjon og skråplan fra [kap. 2.1](/tfy4115/tfy4115-2-1). Regn med to til tre minutter hver.\n\n**R1.** En kloss glir friksjonsfritt fra ro ned et fall på $1{,}60\\,\\text{m}$. Hvor stor er farten i bunnen?\n\n*Svar:* $v = \\sqrt{2g\\Delta y} = \\sqrt{2 \\cdot 9{,}81 \\cdot 1{,}60}\\,\\text{m/s} = \\sqrt{31{,}392}\\,\\text{m/s} = 5{,}6029\\,\\text{m/s} \\approx 5{,}60\\,\\text{m/s}$. Massen falt ut.\n\n**R2.** Hvor stor potensiell energi har en kropp på $70{,}0\\,\\text{kg}$ i høyden $3{,}00\\,\\text{m}$ over gulvet, og hvor stor fart svarer det til om all energien blir kinetisk?\n\n*Svar:* $U = mgh = 70{,}0 \\cdot 9{,}81 \\cdot 3{,}00\\,\\text{J} = 2\\,060{,}1\\,\\text{J} \\approx 2{,}06\\,\\text{kJ}$, og $v = \\sqrt{2gh} = \\sqrt{58{,}86}\\,\\text{m/s} = 7{,}6720\\,\\text{m/s} \\approx 7{,}67\\,\\text{m/s}$.\n\n**R3.** En kloss sendes oppover et skråplan med helning $20{,}0^\\circ$ og startfart $6{,}00\\,\\text{m/s}$, med friksjonskoeffisient $0{,}250$. Hvor langt opp langs planet kommer den? (Fra [kap. 2.1](/tfy4115/tfy4115-2-1).)\n\n*Svar:* $a = g(\\sin\\theta + \\mu\\cos\\theta) = 9{,}81(0{,}34202 + 0{,}23492)\\,\\text{m/s}^2 = 5{,}6598\\,\\text{m/s}^2$, og $x = v_0^2/(2a) = 36{,}00/11{,}320\\,\\text{m} = 3{,}1803\\,\\text{m} \\approx 3{,}18\\,\\text{m}$.\n\n**R4.** Hvorfor gjør ikke normalkraften arbeid på en kloss som glir langs en flate?\n\n*Svar:* Fordi arbeidet bare regner med kraftkomponenten **langs** bevegelsen, og normalkraften står per definisjon vinkelrett på flaten — altså vinkelrett på bevegelsen. Skalarproduktet $\\mathbf{N}\\cdot d\\mathbf{s}$ er null i hvert punkt. Det gjelder også på en krum bane, der både retningen til $\\mathbf{N}$ og til bevegelsen endrer seg, men vinkelen mellom dem forblir $90^\\circ$.\n\n**R5.** En kloss på $3{,}00\\,\\text{kg}$ har farten $4{,}00\\,\\text{m/s}$. Hvor stort arbeid må gjøres for å bringe den til $8{,}00\\,\\text{m/s}$, og hvorfor er det mer enn arbeidet som brakte den fra ro til $4{,}00\\,\\text{m/s}$?\n\n*Svar:* $W = \\tfrac12m(v_2^2 - v_1^2) = 0{,}500 \\cdot 3{,}00 \\cdot (64{,}0 - 16{,}0)\\,\\text{J} = 1{,}50 \\cdot 48{,}0\\,\\text{J} = 72{,}0\\,\\text{J}$, mot $\\tfrac12 \\cdot 3{,}00 \\cdot 16{,}0 = 24{,}0\\,\\text{J}$ for det første trinnet. Altså tre ganger så mye. Grunnen er at kinetisk energi går som **kvadratet** av farten: å gå fra 4 til 8 m/s krever en energiøkning på $64 - 16 = 48$ enheter, mens 0 til 4 bare krever 16. Det er samme innsikt som ligger bak at bremselengden firedobles ved dobbel fart."
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}

@@ -1,0 +1,558 @@
+{
+ "id": "tfy4115-8-1",
+ "courseId": "tfy4115",
+ "chapterNumber": "8.1",
+ "title": "Kretsprosesser og virkningsgrad (Carnot, Otto, Stirling)",
+ "description": "Full syklus: finn $T$ i hjørnene, klassifiser $Q$ og $W$ langs hvert trinn, regn arbeid og virkningsgrad, og sammenlign med Carnot-grensen.",
+ "estimatedMinutes": 65,
+ "competenceGoals": [
+  "sette opp en hjørnetabell for en kretsprosess og finne trykk, volum og temperatur i hvert hjørne",
+  "klassifisere varme og arbeid med riktig fortegn på hvert trinn, og finne netto arbeid som det omsluttede arealet",
+  "regne virkningsgraden til en syklus og sammenligne den med Carnot-grensen, med alle temperaturer i kelvin",
+  "kjenne igjen Carnot-, Otto-, Stirling- og Diesel-syklusen i et pV-diagram og bruke virkningsgradsuttrykket som hører til hver"
+ ],
+ "content": [
+  {
+   "id": "tfy4115-8-1-tip-eksamensvinkel",
+   "type": "tip",
+   "title": "Eksamensvinkel",
+   "content": "**Sjanger T5 — kretsprosessoppgaven, altså en gass som føres rundt en lukket sløyfe og der du skal finne arbeid, varme og virkningsgrad — dukker opp i praktisk talt alle sett (~100 %).** Den hører til **termofysikkhalvdelen, spørsmål 21–40**. Prioritet: **høyeste — dette må sitte.**\n\nDette er termofysikkens signatursjanger. I de eldre, åpne settene kom den som en hel oppgave: her er en syklus, finn temperaturen i hvert hjørne, finn arbeidet, finn virkningsgraden. I dagens flervalgssett kommer den som en **klynge på tre til fire koblede spørsmål** — først et hjørne, så en varmemengde, så virkningsgraden, kanskje til slutt en sammenligning med Carnot-grensen. Er du trygg på oppskriften, høster du fire poeng på under ti minutter. Bommer du på det første hjørnet, ryker hele klyngen.\n\n**Ordforklaringer, siden dette kapitlet er fullt av dem.** En **kretsprosess** (eller *syklus*) er en serie prosesser som fører gassen tilbake til utgangspunktet. En **varmekraftmaskin** er en maskin som gjør netto arbeid ved å ta imot varme fra noe varmt og gi fra seg mindre varme til noe kaldt. **Virkningsgraden** forteller hvor stor del av den tilførte varmen som faktisk kom ut som arbeid. **Carnot-syklusen** er den beste syklusen som i det hele tatt er fysisk mulig mellom to gitte temperaturer, og **Otto**, **Stirling** og **Diesel** er tre virkelige maskiner du kjenner igjen fra bensinmotoren, varmemaskinen med regenerator og dieselmotoren.\n\n**Tre feil koster nesten alle poengene her.** Den første er å regne Carnot-grensen med **celsius i stedet for kelvin** — i eksempelet under gir det $0{,}918$ der svaret er $0{,}500$. Den andre er å ta **feil trinn med i $Q_\\text{inn}$**: bare trinnene der varme går INN skal i nevneren. Den tredje er å bruke **feil $\\gamma$** — $7/5$ for en toatomig gass, $5/3$ for en enatomig.\n\n## ⚠ Symbolvarsel: du er nå i termodelen\n\nFra og med Del 6 betyr $T$ **absolutt temperatur i kelvin**, ikke periode. $\\gamma$ er **adiabateksponenten** $C_P/C_V$, et dimensjonsløst tall mellom 1 og $5/3$ — ikke dempingskoeffisienten $b/2m$ fra [kap. 5.2](/tfy4115/tfy4115-5-2), som hadde enheten $\\text{s}^{-1}$. $Q$ er **varme i joule**, ikke kvalitetsfaktoren fra svingningene. $S$ er **entropi**, ikke taustrekk. $p$ er **trykk**, ikke bevegelsesmengde. $R$ er **gasskonstanten** $8{,}314\\,\\text{J/(mol}\\cdot\\text{K)}$, ikke en radius. Symbol- og formellisten nederst sier hvilken betydning som gjelder i nettopp dette kapitlet."
+  },
+  {
+   "id": "tfy4115-8-1-forkunnskaper",
+   "type": "text",
+   "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet bygger på kap. 7.1 (første hovedsetning og de fire prosessene) og kap. 6.2 (varmekapasitetene). Du trenger fem ting derfra, og de står her ferdig oppfrisket, slik at du ikke må bla:\n\n$$\\Delta U = Q - W$$\n**Første hovedsetning.** $Q$ er varme TILFØRT systemet (positiv når varme går inn), og $W$ er arbeid gassen gjør PÅ omgivelsene (positiv når gassen utvider seg). Denne fortegnskonvensjonen holdes gjennom hele boka, og den er den vanligste kilden til fortegnsfeil i sjangeren.\n\n$$W = \\int p\\,dV \\quad\\text{= arealet under prosessen i et } pV\\text{-diagram}$$\n**Arbeidet.** For en isobar (konstant trykk) blir det $W = p\\,\\Delta V$; for en isokor (konstant volum) blir det $W = 0$; for en isoterm blir det $W = nRT\\ln(V_2/V_1)$.\n\n$$\\Delta U = nC_V\\Delta T \\quad\\text{(gjelder ALLTID for en ideell gass, uansett prosess)}$$\n**Indre energi.** Merk «uansett prosess» — dette er den ene relasjonen som ikke bryr seg om veien.\n\n$$pV = nRT, \\qquad R = 8{,}314\\,\\text{J/(mol}\\cdot\\text{K)}$$\n**Ideell gasslov.** Den binder de tre tilstandsvariablene sammen, og den er verktøyet du bruker til å fylle ut hjørnetabellen.\n\n$$C_V = \\tfrac32R = 12{,}47\\,\\text{J/(mol}\\cdot\\text{K)}\\ \\text{(enatomig)}, \\qquad C_V = \\tfrac52R = 20{,}79\\,\\text{J/(mol}\\cdot\\text{K)}\\ \\text{(toatomig)}$$\n$$C_P = C_V + R, \\qquad \\gamma = \\frac{C_P}{C_V} = \\tfrac53 \\approx 1{,}67\\ \\text{(enatomig)}, \\qquad \\gamma = \\tfrac75 = 1{,}40\\ \\text{(toatomig)}$$\n**Varmekapasitetene og adiabateksponenten.** Å blande $C_V$ og $C_P$, eller de to $\\gamma$-verdiene, er felle nummer én i hele termodelen.\n\n$$pV^{\\gamma} = \\text{konstant}, \\qquad TV^{\\gamma-1} = \\text{konstant} \\qquad\\text{(adiabat)}$$\n**Adiabatrelasjonene.** En adiabat er en prosess uten varmeutveksling, $Q = 0$. Du kommer til å bruke $TV^{\\gamma-1}$ i praktisk talt hver Otto- og Carnot-oppgave.\n\n**Fra matematikken:** [Bestemt integral som grenseverdi](/r2/r2-2-4) ligger under $W = \\int p\\,dV$, og [Repetisjon av derivasjon](/r2/r2-2-1) trengs når du skal se hvorfor adiabaten er brattere enn isotermen. Har du hatt Fysikk 1 eller Kjemi 1 på videregående, har du møtt gasslov og temperatur der.\n\nBoka bruker $R = 8{,}314\\,\\text{J/(mol}\\cdot\\text{K)}$ og **behold fire gjeldende siffer gjennom hele regnekjeden** — alternativene i denne sjangeren ligger tett."
+  },
+  {
+   "id": "tfy4115-8-1-lokke1",
+   "type": "text",
+   "content": "## Løkke 1 — hva en syklus er, og hvorfor arealet er arbeidet (~14 min)\n\nEn bensinmotor gjør det samme igjen og igjen. Stempelet komprimerer en gassblanding, bensinen brenner, gassen presser stempelet ned, avgassen slippes ut, og så begynner alt på nytt. Etter én runde er motoren tilbake i samme tilstand som den startet i — men bilen har flyttet seg. Noe arbeid er kommet ut, og noe varme er gått inn.\n\nDet er nøyaktig dette en **kretsprosess** er, og det er den ene ideen hele Del 8 hviler på: hvis gassen kommer tilbake til utgangspunktet, er **den indre energien uendret**. Alle tilstandsvariabler — $p$, $V$, $T$, $U$ og senere $S$ — er tilbake der de startet.\n\n*Intuisjon:* indre energi er som høyden i et fjellandskap. Går du en rundtur og ender der du startet, er høydeforskjellen null, uansett hvor mye du klatret underveis. Men du har brukt energi, og du har gitt fra deg varme. Regnskapet er ikke null — bare høydeforskjellen er.\n\nSetter vi $\\Delta U = 0$ inn i første hovedsetning $\\Delta U = Q - W$, får vi den mest brukte likningen i hele denne delen:\n\n$$\\Delta U_\\text{syklus} = 0 \\quad\\Longrightarrow\\quad W_\\text{netto} = Q_\\text{netto} = Q_\\text{inn} - |Q_\\text{ut}|.$$\n\n*Intuisjon:* alt arbeidet maskinen gjør, må komme fra varme. Den kan ikke lage energi. Og den kan ikke bruke ALL varmen, for da måtte $|Q_\\text{ut}|$ vært null — og det viser vi om litt at er umulig."
+  },
+  {
+   "id": "tfy4115-8-1-def-kretsprosess",
+   "type": "definition",
+   "title": "Kretsprosess (syklus)",
+   "content": "En kretsprosess er en serie prosesser som til slutt fører gassen **tilbake til den tilstanden den startet i** — samme $p$, samme $V$, samme $T$. Vi tegner den som en **lukket sløyfe** i et $pV$-diagram. Konsekvensen er den viktigste enkeltopplysningen i hele Del 8:\n$$\\Delta U_\\text{syklus} = 0, \\qquad \\Delta S_\\text{gass, syklus} = 0, \\qquad W_\\text{netto} = Q_\\text{netto}.$$\nBetingelsen er bare at sløyfa faktisk lukkes. Går prosessen fra én tilstand til en annen uten å komme tilbake, er dette IKKE en kretsprosess, og da er $\\Delta U \\neq 0$. Ordet «syklus» brukes om det samme."
+  },
+  {
+   "id": "tfy4115-8-1-def-varmekraftmaskin",
+   "type": "definition",
+   "title": "Varmekraftmaskin",
+   "content": "En maskin som gjentar en kretsprosess og gjør **netto arbeid ut** ved å ta imot varme $Q_\\text{inn}$ fra et varmt sted og gi fra seg en mindre varme $|Q_\\text{ut}|$ til et kaldt sted. Energiregnskapet per syklus er\n$$W_\\text{netto} = Q_\\text{inn} - |Q_\\text{ut}| > 0.$$\nBilmotoren, dampturbinen i et kraftverk og gassturbinen i et fly er alle varmekraftmaskiner. Betingelsen for at det skal virke, er at det finnes **to steder med ulik temperatur** — uten et kaldt sted å dumpe $|Q_\\text{ut}|$ finnes ingen maskin. Det er andre hovedsetning i praksis, og vi kommer tilbake til hvorfor i kap. 7.2."
+  },
+  {
+   "id": "tfy4115-8-1-def-reservoar",
+   "type": "definition",
+   "title": "Termisk reservoar (varmebad)",
+   "content": "Et legeme som er så stort at det kan gi fra seg eller ta imot varme **uten at temperaturen endrer seg merkbart**. I oppgavene er det gjerne «et varmebad ved $T_v$», «uteluften», «kjølevannet i elva» eller «rommet». Symbolene er $T_v$ for det varme og $T_k$ for det kalde, alltid i **kelvin**.\n\nPoenget med idealiseringen er at temperaturen blir en konstant du kan sette rett inn i formlene. Betingelsen for at den holder, er at varmemengden som utveksles, er liten mot reservoarets varmekapasitet. Er den ikke det — for eksempel når du varmer opp en bøtte vann — må du regne med at temperaturen kryper oppover, og da må du integrere."
+  },
+  {
+   "id": "tfy4115-8-1-th-areal",
+   "type": "theorem",
+   "title": "Netto arbeid = omsluttet areal",
+   "content": "Arbeidet gassen gjør på et trinn er $W = \\int p\\,dV$, altså arealet under trinnet i $pV$-diagrammet. Går du hele sløyfa rundt, blir summen\n\n$$W_\\text{netto} = \\oint p\\,dV = \\pm(\\text{arealet inne i sløyfa}).$$\n\nFortegnet bestemmes av **omløpsretningen**, og utledningen er kort: på den øvre delen av sløyfa beveger gassen seg mot større volum ved høyt trykk (stort positivt arbeid), på den nedre delen tilbake mot mindre volum ved lavt trykk (mindre negativt arbeid). Differansen er nettopp arealet mellom kurvene.\n\n*Intuisjon:* du blir betalt godt for å skyve ut når trykket er høyt, og du betaler lite for å skyve inn igjen når trykket er lavt. Overskuddet er arealet imellom. [må kunne brukes eller utledes aktivt]"
+  },
+  {
+   "id": "tfy4115-8-1-def-omlop",
+   "type": "definition",
+   "title": "Omløpsretning i pV-diagrammet",
+   "content": "Med volum langs den vannrette aksen og trykk langs den loddrette gjelder:\n\n- **medklokke rundt sløyfa** ⟹ $W_\\text{netto} > 0$ ⟹ **varmekraftmaskin** (arbeid ut);\n- **motklokke rundt sløyfa** ⟹ $W_\\text{netto} < 0$ ⟹ **varmepumpe eller kjøleskap** (arbeid inn).\n\nDette er det raskeste enkeltgrepet i hele sjangeren: **les retningen først**, før du regner noe som helst. Da vet du om du skal finne en virkningsgrad (maskin) eller en effektfaktor (pumpe), og du har alt strøket halvparten av alternativene. Betingelsen er at aksene står som beskrevet — er de byttet, snus konklusjonen."
+  },
+  {
+   "id": "tfy4115-8-1-fig-carnot",
+   "type": "image",
+   "src": "/images/textbook/tfy4115/tfy4115-8-1-carnot-pv.svg",
+   "alt": "Et pV-diagram med volum langs den vannrette aksen og trykk langs den loddrette. En lukket sloeyfe med fire hjoerner merket 1, 2, 3 og 4. Fra 1 til 2 en roed kurve merket isoterm ved T v med Q inn og W ut. Fra 2 til 3 en lilla kurve merket adiabat med Q lik null. Fra 3 til 4 en blaa kurve merket isoterm ved T k med Q ut og W inn. Fra 4 til 1 en lilla adiabat. En stiplet roed kurve viser den samme isotermen forlenget forbi punkt 2, og den ligger over den lilla adiabaten. En buet pil inne i sloeyfa peker medklokke.",
+   "caption": "Carnot-syklusen: to isotermer og to adiabater. Legg merke til at den stiplede isotermen gjennom punkt 2 ligger **over** adiabaten videre — adiabaten er brattere, og forholdet mellom stigningstallene er nøyaktig $\\gamma$. Omløpsretningen er medklokke, så dette er en varmekraftmaskin."
+  },
+  {
+   "id": "tfy4115-8-1-o-1",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-8-1-oppg-1",
+    "number": 1,
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Innstegsoppgave — les diagrammet før du regner.)\n\n**a)** En syklus i et $pV$-diagram går medklokke. Er dette en varmekraftmaskin eller en varmepumpe, og er $W_\\text{netto}$ positiv eller negativ?\n\n**b)** Hva er $\\Delta U$ for gassen over én hel syklus, og hvorfor?\n\n**c)** En syklus tar opp $18{,}0\\,\\text{kJ}$ varme og gir fra seg $13{,}5\\,\\text{kJ}$. Hvor stort er netto arbeid?",
+    "solution": "**a)** Medklokke betyr **varmekraftmaskin**, og $W_\\text{netto} > 0$: maskinen gjør netto arbeid på omgivelsene. Den raske begrunnelsen: den øvre delen av sløyfa gjennomløpes mot større volum, altså ved høyt trykk, og den nedre tilbake ved lavt trykk. Arbeidet ut på veien til høyre er dermed større enn arbeidet inn på veien tilbake.\n\n**b)** $\\Delta U = 0$. Indre energi er en **tilstandsfunksjon**: den avhenger bare av hvor gassen ER, ikke av hvordan den kom dit. Når sluttilstanden er identisk med starttilstanden, er endringen null. (Det betyr IKKE at $Q$ og $W$ er null — bare at de er like store.)\n\n**c)** Fra $\\Delta U = 0$ følger $W_\\text{netto} = Q_\\text{inn} - |Q_\\text{ut}|$:\n$$W_\\text{netto} = 18{,}0\\,\\text{kJ} - 13{,}5\\,\\text{kJ} = 4{,}50\\,\\text{kJ}.$$\nEnhetskontroll: kJ minus kJ blir kJ ✔. Og svaret er positivt, som det skal være for en maskin ✔.",
+    "hints": [
+     "Omløpsretningen avgjør fortegnet på nettoarbeidet — se definisjonen over.",
+     "Er indre energi en tilstandsfunksjon eller en veiavhengig størrelse?",
+     "Bruk $\\Delta U = Q - W$ med $\\Delta U = 0$."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-8-1-o-2",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-8-1-oppg-2",
+    "number": 2,
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger T5 — kretsprosessoppgaven.) Én mol enatomig ideell gass føres rundt en firkant-syklus: fra hjørne 1 $(p_1 = 1{,}00\\,\\text{bar},\\ V_1 = 20{,}0\\,\\text{L})$ isokort opp til hjørne 2 $(p_2 = 3{,}00\\,\\text{bar})$, isobart ut til hjørne 3 $(V_2 = 60{,}0\\,\\text{L})$, isokort ned til hjørne 4, og isobart tilbake til 1.\n\n**a)** Finn netto arbeid over syklusen på to måter: som omsluttet areal, og som summen av trinnarbeidene.\n\n**b)** Går syklusen medklokke eller motklokke?",
+    "solution": "**a) Symbolsk.** De to isokorene gir $W = 0$. De to isobarene gir $W = p\\,\\Delta V$ med motsatt fortegn på volumendringen, så\n\n$$W_\\text{netto} = p_2(V_2 - V_1) + p_1(V_1 - V_2) = (p_2 - p_1)(V_2 - V_1).$$\n\nDet er nettopp arealet av rektangelet — som det skal være, siden sløyfa ER et rektangel.\n\n**Rask vei til tall.**\n$$W_\\text{netto} = (2{,}00\\cdot 10^5\\,\\text{Pa})(40{,}0\\cdot 10^{-3}\\,\\text{m}^3) = 8{,}00\\,\\text{kJ}.$$\n\nTrinn for trinn, som kontroll:\n$$W_{1\\to2} = 0, \\qquad W_{2\\to3} = p_2\\,\\Delta V = 12{,}00\\,\\text{kJ}, \\qquad W_{3\\to4} = 0, \\qquad W_{4\\to1} = p_1\\,\\Delta V = -4{,}00\\,\\text{kJ}.$$\nSummen er $12{,}00 - 4{,}00 = 8{,}00\\,\\text{kJ}$ ✔ — samme svar begge veier.\n\n**Enhetskontroll:** $\\text{Pa}\\cdot\\text{m}^3 = (\\text{N/m}^2)\\cdot\\text{m}^3 = \\text{N}\\cdot\\text{m} = \\text{J}$ ✔.\n\n**b)** Fra 1 til 2 går trykket opp, fra 2 til 3 går volumet opp. I et diagram med volum til høyre og trykk oppover betyr det: først opp, så til høyre, så ned, så til venstre — altså **medklokke**. Det stemmer med at $W_\\text{netto}$ ble positiv.",
+    "hints": [
+     "De to isokorene bidrar ingenting til arbeidet. Hvorfor?",
+     "For en isobar er $W = p\\,\\Delta V$ — og husk fortegnet på $\\Delta V$ på returen.",
+     "Regn om liter til kubikkmeter og bar til pascal FØR du multipliserer."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-8-1-lokke2",
+   "type": "text",
+   "content": "## Løkke 2 — hjørnetabellen: metoden som løser hele sjangeren (~14 min)\n\nAlle kretsprosessoppgaver løses med den samme lille tabellen. Du fyller ut $p$, $V$ og $T$ i hvert hjørne, og deretter er resten mekanisk. Poenget er at du **ikke skal improvisere**: sett opp tabellen, fyll den ut, og regn så trinn for trinn.\n\n*Intuisjon:* et hjørne er en tilstand, og en tilstand er fullstendig bestemt av to av de tre størrelsene $p$, $V$, $T$ — gasslova gir den tredje. Så hvert hjørne krever egentlig bare to opplysninger, og prosessen inn til hjørnet gir deg den ene av dem gratis (en isokor gir samme $V$, en isobar samme $p$, en isoterm samme $T$, en adiabat gir $TV^{\\gamma-1}$ konstant).\n\nNår tabellen er full, går du trinn for trinn med den relasjonen prosesstypen krever:\n\n| Prosess | Hva er konstant | $W$ | $Q$ | $\\Delta U$ |\n|---|---|---|---|---|\n| isokor | $V$ | $0$ | $nC_V\\Delta T$ | $nC_V\\Delta T$ |\n| isobar | $p$ | $p\\,\\Delta V$ | $nC_P\\Delta T$ | $nC_V\\Delta T$ |\n| isoterm | $T$ | $nRT\\ln(V_2/V_1)$ | samme som $W$ | $0$ |\n| adiabat | — ($Q=0$) | $-nC_V\\Delta T$ | $0$ | $nC_V\\Delta T$ |\n\nLegg merke til at kolonnen for $\\Delta U$ er den samme overalt: $nC_V\\Delta T$. Det er den ene relasjonen du aldri behøver å tenke over."
+  },
+  {
+   "id": "tfy4115-8-1-th-hjornetabell",
+   "type": "theorem",
+   "title": "Hjørnetabellen — metoden i fem trinn",
+   "content": "Dette er algoritmen du skal kjøre uten å tenke, hver gang du ser en lukket sløyfe.\n\n**1. Les omløpsretningen.** Medklokke = maskin (finn $\\eta$), motklokke = pumpe (finn $\\varepsilon$). Skriv ned hvilken det er, før du regner.\n\n**2. Sett opp tabellen** med én rad per hjørne og kolonnene $p$, $V$, $T$. Fyll inn det oppgaven gir. Bruk **gasslova** $pV = nRT$ til å finne den tredje størrelsen i hvert hjørne, og prosessrelasjonen til å komme fra ett hjørne til det neste: samme $V$ over en isokor, samme $p$ over en isobar, samme $T$ over en isoterm, $TV^{\\gamma-1} = \\text{konstant}$ over en adiabat.\n\n**3. Regn $Q$ og $W$ på hvert trinn** med relasjonen fra prosesstabellen, med fortegn: $Q > 0$ når varme går INN i gassen, $W > 0$ når gassen utvider seg.\n\n**4. Summer.** $Q_\\text{inn}$ er summen av de trinnene der $Q > 0$ — bare dem. $W_\\text{netto}$ er summen av alle trinnarbeidene, og skal stemme med det omsluttede arealet. Kontroll: $\\sum Q = \\sum W$, siden $\\Delta U = 0$.\n\n**5. Finn tallet som spørres om, og sjekk det mot Carnot-grensen** for de to ytterste temperaturene i tabellen. Ligger virkningsgraden over grensen, har du regnet feil. [må kunne brukes eller utledes aktivt]"
+  },
+  {
+   "id": "tfy4115-8-1-ex-1",
+   "type": "example",
+   "title": "Eksempel 1: Carnot-syklusen hjørne for hjørne",
+   "problem": "Én mol enatomig ideell gass ($\\gamma = 5/3$) kjører en Carnot-syklus mellom et varmt reservoar på $T_v = 600\\,\\text{K}$ og et kaldt på $T_k = 300\\,\\text{K}$. Hjørne 1 har $V_1 = 25{,}0\\,\\text{L}$, og den isoterme ekspansjonen $1 \\to 2$ tredobler volumet.\n\n**a)** Fyll ut hjørnetabellen med $p$, $V$ og $T$ i alle fire hjørner.\n\n**b)** Finn varmen tilført på $1 \\to 2$ og varmen avgitt på $3 \\to 4$.\n\n**c)** Finn netto arbeid og virkningsgraden.\n\n**d)** Sjekk entropiregnskapet: hva er gassens $\\Delta S$ over hele syklusen?",
+   "solution": "**a) Symbolsk.** De to isotermene gir $T$ direkte. Adiabatene gir volumene fra $TV^{\\gamma-1} = \\text{konstant}$:\n$$\\frac{V_3}{V_2} = \\frac{V_4}{V_1} = \\left(\\frac{T_v}{T_k}\\right)^{1/(\\gamma-1)}.$$\nMerk at **det samme forholdet gjelder på begge adiabatene** — det er derfor $V_3/V_4 = V_2/V_1$, og det er nøkkelen til hele Carnot-utledningen.\n\n**Rask vei til tall.** Med $\\gamma - 1 = 2/3$ blir eksponenten $3/2$:\n$$\\frac{V_3}{V_2} = \\left(\\frac{600}{300}\\right)^{3/2} = 2^{3/2} = 2{,}8284.$$\nTrykkene kommer fra $p = nRT/V$:\n\n| Hjørne | $T$ (K) | $V$ (L) | $p$ ($10^5$ Pa) |\n|---|---|---|---|\n| 1 | $600$ | $25{,}0$ | $1{,}9954$ |\n| 2 | $600$ | $75{,}0$ | $0{,}6651$ |\n| 3 | $300$ | $212{,}13$ | $0{,}11758$ |\n| 4 | $300$ | $70{,}71$ | $0{,}35273$ |\n\nKontroll: $V_3/V_4 = 212{,}13/70{,}71 = 3{,}0000$, altså nøyaktig $3{,}00$ ✔ — samme forhold som på $1 \\to 2$.\n\n**b) Symbolsk.** En isoterm har $\\Delta U = 0$, altså $Q = W = nRT\\ln(V_2/V_1)$.\n\n**Rask vei til tall.**\n$$Q_v = nRT_v\\ln\\frac{V_2}{V_1} = 1{,}00 \\cdot 8{,}314 \\cdot 600 \\cdot \\ln 3 = 4988{,}4 \\cdot 1{,}09861\\,\\text{J} = 5480{,}3\\,\\text{J}.$$\n$$|Q_k| = nRT_k\\ln\\frac{V_3}{V_4} = 1{,}00 \\cdot 8{,}314 \\cdot 300 \\cdot \\ln 3 = 2740{,}2\\,\\text{J}.$$\nLegg merke til at **den samme logaritmen står i begge** — bare temperaturen skiller dem. Forholdet er derfor $|Q_k|/Q_v = T_k/T_v$ helt eksakt.\n\n**c)**\n$$W_\\text{netto} = Q_v - |Q_k| = 5480{,}3 - 2740{,}2 = 2740{,}2\\,\\text{J},$$\n$$\\eta = \\frac{W_\\text{netto}}{Q_v} = \\frac{2740{,}2}{5480{,}3} = 0{,}5000.$$\nKontroll mot Carnot-uttrykket: $1 - T_k/T_v = 1 - 300/600 = 0{,}5000$ ✔.\n\n**d)** Adiabatene har $Q = 0$ og dermed $\\Delta S = 0$. Isotermene gir\n$$\\Delta S_{1\\to2} = \\frac{Q_v}{T_v} = \\frac{5480{,}3}{600} = +9{,}1339\\,\\text{J/K}, \\qquad \\Delta S_{3\\to4} = \\frac{-|Q_k|}{T_k} = -9{,}1339\\,\\text{J/K}.$$\nSummen er **null** ✔ — som den må være, siden entropi er en tilstandsfunksjon og gassen er tilbake der den startet.\n\n**Sluttsjekk, tre ledd.** (i) Alle temperaturer i kelvin ✔. (ii) $\\eta = 0{,}500 < 1$ ✔. (iii) $\\sum Q = 2740{,}2\\,\\text{J} = W_\\text{netto}$ ✔."
+  },
+  {
+   "id": "tfy4115-8-1-o-3",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-8-1-oppg-3",
+    "number": 3,
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger T5.) En Carnot-maskin arbeider mellom $T_v = 520\\,\\text{K}$ og $T_k = 290\\,\\text{K}$ og tar opp $Q_v = 6{,}00\\,\\text{kJ}$ per syklus.\n\n**a)** Finn virkningsgraden.\n\n**b)** Finn netto arbeid og varmen som avgis til det kalde reservoaret.\n\n**c)** Finn gassens entropiendring på det varme trinnet, og vis at den er like stor med motsatt fortegn på det kalde.",
+    "solution": "**a) Symbolsk.** For en Carnot-syklus er $\\eta = 1 - T_k/T_v$, med begge temperaturer i **kelvin**.\n\n**Rask vei til tall.**\n$$\\eta = 1 - \\frac{290}{520} = 1 - 0{,}55769 = 0{,}4423.$$\n\n**b)**\n$$W_\\text{netto} = \\eta Q_v = 0{,}4423 \\cdot 6{,}00\\,\\text{kJ} = 2{,}6538\\,\\text{kJ},$$\n$$|Q_k| = Q_v - W_\\text{netto} = 6{,}00 - 2{,}6538 = 3{,}3462\\,\\text{kJ}.$$\nKontroll: $|Q_k|/Q_v = 0{,}5577$, og $T_k/T_v = 0{,}5577$ ✔ — de skal være identiske for en Carnot-syklus.\n\n**c)**\n$$\\Delta S_\\text{varm} = \\frac{Q_v}{T_v} = \\frac{6000\\,\\text{J}}{520\\,\\text{K}} = +11{,}5385\\,\\text{J/K},$$\n$$\\Delta S_\\text{kald} = \\frac{-|Q_k|}{T_k} = \\frac{-3346{,}2}{290} = -11{,}5385\\,\\text{J/K}.$$\nDe er like store med motsatt fortegn, så $\\Delta S_\\text{gass} = 0$ over syklusen. Det er ikke tilfeldig: **det er nettopp betingelsen som gjør Carnot-syklusen den best mulige.** Alle andre sykluser mellom samme to temperaturer produserer entropi underveis, og taper virkningsgrad på det.\n\n**Sluttsjekk:** antallet mol var oppgitt, men ble aldri brukt. Det er riktig — Carnot-virkningsgraden avhenger BARE av de to temperaturene. En oppgitt størrelse du ikke trenger, er ofte et hint om at et alternativ er bygget på at du bruker den likevel.",
+    "hints": [
+     "Carnot-virkningsgraden avhenger bare av de to reservoartemperaturene.",
+     "$W = \\eta Q_v$, og resten av varmen må gå ut.",
+     "$\\Delta S = Q/T$ for en isoterm varmeoverføring — regn hver for seg og legg sammen."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-8-1-lokke3",
+   "type": "text",
+   "content": "## Løkke 3 — virkningsgrad og Carnot-grensen (~14 min)\n\nEn maskin koster penger å fyre. Spørsmålet er hvor mye av varmen du kjøpte, som faktisk kom ut som arbeid. Det er alt virkningsgraden er: **utbytte delt på kostnad**.\n\n*Intuisjon:* du betaler for $Q_\\text{inn}$ og får $W_\\text{netto}$. Resten, $|Q_\\text{ut}|$, forsvinner ut i eksosen eller kjølevannet. Den kan du ikke unngå — og at du ikke kan unngå den, er hele grunnen til at virkningsgraden aldri kan bli 1."
+  },
+  {
+   "id": "tfy4115-8-1-def-virkningsgrad",
+   "type": "definition",
+   "title": "Virkningsgrad",
+   "content": "Virkningsgraden til en varmekraftmaskin er den brøkdelen av den tilførte varmen som kommer ut som arbeid:\n$$\\eta = \\frac{W_\\text{netto}}{Q_\\text{inn}} = \\frac{Q_\\text{inn} - |Q_\\text{ut}|}{Q_\\text{inn}} = 1 - \\frac{|Q_\\text{ut}|}{Q_\\text{inn}}.$$\nDen er **dimensjonsløs** og oppgis som et desimaltall eller i prosent. **Betingelsen er $0 < \\eta < 1$ alltid** — en virkningsgrad over 1 ville betydd at maskinen laget energi. Får du $\\eta > 1$, har du regnet feil, og den vanligste årsaken er at du har brukt formelen for en varmepumpe.\n\n⚠ Merk nevneren: **bare de trinnene der varme går INN** hører i $Q_\\text{inn}$. Å ta med et trinn der $Q < 0$ er en av de dyreste feilene i sjangeren. [står på det utdelte arket]"
+  },
+  {
+   "id": "tfy4115-8-1-def-carnotsyklus",
+   "type": "definition",
+   "title": "Carnot-syklus",
+   "content": "Den syklusen som består av **nøyaktig to isotermer og to adiabater**, alle reversible: isoterm ekspansjon ved $T_v$ (varme inn), adiabatisk ekspansjon ned til $T_k$, isoterm kompresjon ved $T_k$ (varme ut), og adiabatisk kompresjon tilbake til $T_v$.\n\nBetydningen er at den er **den mest effektive syklusen som er fysisk mulig** mellom to gitte temperaturer:\n$$\\eta_\\text{Carnot} = 1 - \\frac{T_k}{T_v} \\qquad (T \\text{ i kelvin}).$$\nBetingelsen for at grensen gjelder, er bare at maskinen arbeider mellom to reservoarer med temperaturene $T_v$ og $T_k$ — den gjelder for ALLE sykluser, ikke bare for Carnots egen. Derfor er den en **grense å måle seg mot**, ikke en konstruksjonsanvisning. [står på det utdelte arket]"
+  },
+  {
+   "id": "tfy4115-8-1-th-carnot",
+   "type": "theorem",
+   "title": "Carnot-grensen, utledet fra entropiregnskapet",
+   "content": "**Påstand:** ingen syklus som arbeider mellom to reservoarer ved $T_v$ og $T_k$ kan ha høyere virkningsgrad enn $1 - T_k/T_v$.\n\n**Utledning.** Gassen er tilbake der den startet etter én syklus, så entropien — som er en tilstandsfunksjon — er uendret:\n$$\\Delta S_\\text{gass} = 0.$$\nVarmen tas opp ved $T_v$ og gis fra seg ved $T_k$. For en **reversibel** syklus er all entropiutveksling knyttet til varmen, så\n$$\\frac{Q_v}{T_v} - \\frac{|Q_k|}{T_k} = 0 \\quad\\Longrightarrow\\quad \\frac{|Q_k|}{Q_v} = \\frac{T_k}{T_v}.$$\nSett det inn i definisjonen av virkningsgrad:\n$$\\eta = 1 - \\frac{|Q_k|}{Q_v} = 1 - \\frac{T_k}{T_v}.$$\n*Intuisjon:* varmeforholdet er låst til temperaturforholdet. Du kan ikke dumpe mindre varme enn entropiregnskapet krever, og derfor kan du ikke få mer arbeid.\n\nFor en **irreversibel** syklus produseres det entropi underveis, og da blir venstresiden negativ i stedet for null: $Q_v/T_v - |Q_k|/T_k < 0$, altså $|Q_k|/Q_v > T_k/T_v$, og $\\eta$ blir mindre. Derav ulikheten.\n\n**Tre grensetilfeller å kjenne igjen:**\n- $T_k \\to 0$ gir $\\eta \\to 1$. Perfekt virkningsgrad krever et kaldt reservoar ved absolutt null, og det finnes ikke.\n- $T_k \\to T_v$ gir $\\eta \\to 0$. Uten temperaturforskjell finnes ingen maskin.\n- $T_v \\to \\infty$ gir $\\eta \\to 1$. Derfor jager kraftverk høyest mulig damptemperatur.\n\nMed tallene i eksempelet over: $1 - 300/600 = 0{,}500$, altså halvparten av varmen ut som arbeid. [må kunne brukes eller utledes aktivt]"
+  },
+  {
+   "id": "tfy4115-8-1-fig-carnotts",
+   "type": "image",
+   "src": "/images/textbook/tfy4115/tfy4115-8-1-carnot-ts.svg",
+   "alt": "Et diagram med entropi langs den vannrette aksen og temperatur langs den loddrette. Carnot-syklusen danner et rektangel med fire hjoerner merket 1, 2, 3 og 4. De to isotermene er vannrette linjer ved 600 kelvin og 300 kelvin. De to adiabatene er loddrette linjer. Rektangelet inne i sloeyfa er merket W netto, og omraadet under den nedre isotermen er merket Q ut.",
+   "caption": "Den samme Carnot-syklusen i et $T$–$S$-diagram. Isotermene blir vannrette og adiabatene loddrette, så sløyfa blir et rektangel — og da kan $\\eta = 1 - T_k/T_v$ leses av som forholdet mellom to rektangler med samme bredde $\\Delta S$."
+  },
+  {
+   "id": "tfy4115-8-1-war-kelvin",
+   "type": "warning",
+   "title": "Celsius i Carnot-grensen — fagets dyreste enkeltfeil",
+   "content": "**Regn ALDRI $\\eta_\\text{Carnot}$ med celsius.** Formelen $1 - T_k/T_v$ er et forhold mellom absolutte temperaturer, og celsius har et vilkårlig nullpunkt. Feilen er ikke liten, og den er ikke tilfeldig — den gir systematisk **for høy** virkningsgrad.\n\nSe hva det gjør med eksempelet over. Riktig, i kelvin:\n$$\\eta = 1 - \\frac{300\\,\\text{K}}{600\\,\\text{K}} = 0{,}5000.$$\nGalt, i celsius ($26{,}85\\,^\\circ\\text{C}$ og $326{,}85\\,^\\circ\\text{C}$):\n$$1 - \\frac{26{,}85}{326{,}85} = 0{,}9179.$$\nNesten dobbelt så stort — og $0{,}918$ er en helt urealistisk virkningsgrad for en varmemaskin. **Det er derfor det alltid står et alternativ i den størrelsesorden på lista.** (Felle #11 — kelvin- og enhetsslurv, og felle #16 — feil som lander på nabo-alternativet.)\n\nTo grep som fjerner fella helt: (i) skriv om ALLE temperaturer til kelvin i det du leser oppgaveteksten, før du gjør noe annet; (ii sjekk om svaret er fysisk rimelig — en virkelig varmemaskin ligger typisk på $0{,}2$ til $0{,}45$, og et moderne gasskraftverk på rundt $0{,}6$. Får du $0{,}92$, har du enten funnet på en ny fysikk eller glemt kelvin.\n\n**Og den ene plassen der celsius ER trygt:** i en temperaturDIFFERANSE. $\\Delta T = T_2 - T_1$ er den samme i kelvin og celsius, fordi de to skalaene har samme gradstørrelse. Derfor kan du regne $nC_V\\Delta T$ med celsius-differanser — men ALDRI et forhold som $T_k/T_v$."
+  },
+  {
+   "id": "tfy4115-8-1-o-4",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-8-1-oppg-4",
+    "number": 4,
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger T5.) Et damkraftverk får damp ved $T_v = 745\\,\\text{K}$ og kjøler mot en elv ved $T_k = 298\\,\\text{K}$. Anlegget leverer $W = 240\\,\\text{MW}$ elektrisk effekt og har en virkelig virkningsgrad på $0{,}420$.\n\n**a)** Finn Carnot-grensen for anlegget.\n\n**b)** Hvor stor del av grensen utnytter anlegget?\n\n**c)** Hvor stor varmeeffekt må tilføres, og hvor stor varmeeffekt går ut i elva?",
+    "solution": "**a)**\n$$\\eta_\\text{Carnot} = 1 - \\frac{298}{745} = 1 - 0{,}4000 = 0{,}6000.$$\n\n**b)**\n$$\\frac{0{,}420}{0{,}6000} = 0{,}7000, \\qquad\\text{altså om lag } 70,0\\ \\text{prosent av det teoretisk mulige}.$$\nDet er et helt normalt tall for et virkelig termisk kraftverk. Grensen er ikke en oppskrift man nesten når — den er et tak.\n\n**c)** Fra $\\eta = W/Q_\\text{inn}$:\n$$\\dot Q_\\text{inn} = \\frac{W}{\\eta} = \\frac{240\\,\\text{MW}}{0{,}420} = 571{,}4\\,\\text{MW},$$\n$$|\\dot Q_\\text{ut}| = \\dot Q_\\text{inn} - W = 571{,}4 - 240 = 331{,}4\\,\\text{MW}.$$\n\n**Sluttsjekk:** varmen ut i elva er større enn den elektriske effekten — det er normalt for en maskin med $\\eta < 0{,}5$, og det er derfor slike anlegg trenger enormt med kjølevann. Hadde du fått $|\\dot Q_\\text{ut}|$ mindre enn $W$, ville $\\eta$ vært over $0{,}5$, og det stemmer ikke med de oppgitte $0{,}420$.",
+    "hints": [
+     "Carnot-grensen krever kelvin — begge temperaturene er alt oppgitt slik her.",
+     "$\\eta = W/Q_\\text{inn}$ kan snus for å finne varmen som må tilføres.",
+     "Resten av varmen må ut: $|Q_\\text{ut}| = Q_\\text{inn} - W$."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-8-1-o-5",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-8-1-oppg-5",
+    "number": 5,
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger T5, A–F-format.) En Carnot-maskin arbeider mellom $745\\,\\text{K}$ og $298\\,\\text{K}$. Hva er virkningsgraden?\n\n**A** $0{,}947$ · **B** $0{,}333$ · **C** $0{,}600$ · **D** $0{,}400$ · **E** $1{,}500$ · **F** $1{,}667$",
+    "solution": "**Svar: C.**\n\n$$\\eta = 1 - \\frac{T_k}{T_v} = 1 - \\frac{298}{745} = 1 - 0{,}4000 = 0{,}6000.$$\n\n*Fellene, hver regnet fram fra sin feil:* **A** er celsius i stedet for kelvin, $1 - 24{,}85/471{,}85$ — den mest utbredte enkeltfeilen i sjangeren, og den gir alltid for høyt svar. **D** er $T_k/T_v$, altså «$1 - $» glemt. **F** er $T_v/(T_v - T_k)$, som er **effektfaktoren** til en varmepumpe mellom samme temperaturer, ikke en virkningsgrad. **E** er $(T_v - T_k)/T_k$, med det kalde reservoaret i nevneren. **B** er $1 - T_k/(T_v - T_k)$, med differansen forvekslet med den varme temperaturen.\n\n*Sluttsjekk på fem sekunder:* en virkningsgrad **må** ligge mellom 0 og 1. Det stryker **E** og **F** umiddelbart. Og temperaturforholdet er $298/745 = 0{,}4$ helt nøyaktig, så svaret må være $1 - 0{,}4$.",
+    "hints": [
+     "Skriv om til kelvin først — her er begge alt i kelvin, så det er gratis.",
+     "En virkningsgrad ligger alltid mellom 0 og 1. Hvilke alternativer kan du stryke straks?"
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-8-1-lokke4",
+   "type": "text",
+   "content": "## Løkke 4 — Otto-syklusen: bensinmotoren (~13 min)\n\nOtto-syklusen er den idealiserte bensinmotoren, og den er den vanligste navngitte syklusen på eksamen etter Carnot. Fire trinn: **adiabatisk kompresjon** (stempelet presser blandingen sammen), **isokor oppvarming** (tennpluggen antenner den, så raskt at volumet ikke rekker å endre seg), **adiabatisk ekspansjon** (arbeidsslaget), og **isokor avkjøling** (avgassen slippes ut og erstattes av kald blanding).\n\n*Intuisjon:* varmen tilføres ved konstant volum, fordi forbrenningen går mye raskere enn stempelet flytter seg. Det er hele forskjellen fra Diesel-syklusen, der drivstoffet sprøytes inn gradvis og varmen tilføres ved konstant trykk.\n\nDet bemerkelsesverdige med Otto er at virkningsgraden avhenger av **bare to tall**: kompresjonsforholdet $r$ og adiabateksponenten $\\gamma$. Ikke av temperaturene, ikke av gassmengden, ikke av hvor mye drivstoff du brenner."
+  },
+  {
+   "id": "tfy4115-8-1-def-kompresjonsforhold",
+   "type": "definition",
+   "title": "Kompresjonsforhold",
+   "content": "Forholdet mellom det største og det minste volumet i en syklus med stempel:\n$$r = \\frac{V_\\text{maks}}{V_\\text{min}} = \\frac{V_1}{V_2}.$$\nDet er **dimensjonsløst** og alltid større enn 1. En bensinmotor ligger typisk på $r = 8$ til $12$; høyere gir bedre virkningsgrad, men også fare for at blandingen selvantenner før tennpluggen fyrer (banking). En dieselmotor har ikke det problemet og ligger på $r = 15$ til $22$.\n\nBetingelsen for at $r$ er meningsfullt, er at syklusen har to isokorer eller på annen måte et veldefinert største og minste volum."
+  },
+  {
+   "id": "tfy4115-8-1-def-ottosyklus",
+   "type": "definition",
+   "title": "Otto-syklus",
+   "content": "Syklusen som består av **to adiabater og to isokorer**: adiabatisk kompresjon $1 \\to 2$, isokor varmetilførsel $2 \\to 3$, adiabatisk ekspansjon $3 \\to 4$, isokor varmeavgivelse $4 \\to 1$. Den er den idealiserte modellen av en bensinmotor.\n\nVirkningsgraden er\n$$\\eta_\\text{Otto} = 1 - r^{1-\\gamma} = 1 - \\frac{1}{r^{\\gamma-1}},$$\nog betingelsen er at gassen er ideell med konstant $\\gamma$, og at begge adiabatene har **samme** volumforhold $r$ (som de har, siden isokorene ligger ved $V_2$ og $V_1$). Med $r = 8{,}50$ og $\\gamma = 1{,}40$ blir $\\eta = 0{,}5752$. [må kunne brukes eller utledes aktivt]"
+  },
+  {
+   "id": "tfy4115-8-1-th-otto",
+   "type": "theorem",
+   "title": "Otto-virkningsgraden, utledet fra adiabatrelasjonene",
+   "content": "**Påstand:** $\\eta_\\text{Otto} = 1 - r^{1-\\gamma}$.\n\n**Utledning.** De to isokorene gir varmen, med $W = 0$ og $Q = nC_V\\Delta T$:\n$$Q_\\text{inn} = nC_V(T_3 - T_2), \\qquad |Q_\\text{ut}| = nC_V(T_4 - T_1).$$\nDe to adiabatene binder temperaturene sammen gjennom $TV^{\\gamma-1} = \\text{konstant}$. Kompresjonen går fra $V_1$ til $V_2$, ekspansjonen tilbake fra $V_2$ til $V_1$ — **samme volumforhold**, altså\n$$T_2 = T_1r^{\\gamma-1}, \\qquad T_3 = T_4r^{\\gamma-1}.$$\nSett inn:\n$$\\eta = 1 - \\frac{T_4 - T_1}{T_3 - T_2} = 1 - \\frac{T_4 - T_1}{r^{\\gamma-1}(T_4 - T_1)} = 1 - \\frac{1}{r^{\\gamma-1}} = 1 - r^{1-\\gamma}.$$\n*Intuisjon:* differansen $T_4 - T_1$ er felles i teller og nevner, og forsvinner. Det er derfor virkningsgraden ikke bryr seg om hvor varm forbrenningen blir — bare om hvor mye du klemte gassen sammen først.\n\n**Grensetilfeller:** $r \\to 1$ gir $\\eta \\to 0$ (ingen kompresjon, ingen maskin). $\\gamma \\to 1$ gir $\\eta \\to 0$ (en gass med uendelig mange frihetsgrader kan ikke drive en Otto-motor). Store $r$ gir $\\eta \\to 1$, men langsomt: $\\eta$ vokser bare som $1 - r^{-0{,}4}$ for luft.\n\n**Merk:** $\\eta_\\text{Otto}$ er ALLTID mindre enn Carnot-grensen mellom laveste og høyeste temperatur i syklusen. Med tallene i eksempelet under: $0{,}575$ mot $0{,}822$. Årsaken er at Otto-syklusen tar imot varme over et helt temperaturintervall, ikke ved én fast temperatur. [må kunne brukes eller utledes aktivt]"
+  },
+  {
+   "id": "tfy4115-8-1-fig-otto",
+   "type": "image",
+   "src": "/images/textbook/tfy4115/tfy4115-8-1-otto-pv.svg",
+   "alt": "Et pV-diagram med en lukket sloeyfe med fire hjoerner merket 1, 2, 3 og 4. Fra 1 til 2 en lilla kurve merket adiabat kompresjon. Fra 2 til 3 en loddrett roed linje merket isokor med Q inn og W lik null. Fra 3 til 4 en lilla kurve merket adiabat ekspansjon. Fra 4 til 1 en kort loddrett blaa linje merket isokor med Q ut. Under diagrammet er avstanden mellom de to volumene merket som kompresjonsforhold r lik V 1 delt paa V 2.",
+   "caption": "Otto-syklusen: varmen går inn ved konstant volum på trinn $2 \\to 3$ og ut ved konstant volum på $4 \\to 1$. Legg merke til hvor kort trinnet $4 \\to 1$ er sammenlignet med $2 \\to 3$ — det er nettopp forholdet $r^{\\gamma-1}$ mellom de to temperaturdifferansene."
+  },
+  {
+   "id": "tfy4115-8-1-ex-2",
+   "type": "example",
+   "title": "Eksempel 2: Otto-syklusen med tall (eksamensnivå)",
+   "problem": "Én mol luft, regnet som toatomig ideell gass med $\\gamma = 1{,}40$ og $C_V = \\tfrac52R$, kjører en Otto-syklus med kompresjonsforhold $r = 8{,}50$. Før kompresjonen er temperaturen $T_1 = 320\\,\\text{K}$, og etter forbrenningen er den $T_3 = 1800\\,\\text{K}$.\n\n**a)** Finn temperaturen i de to andre hjørnene.\n\n**b)** Finn tilført og avgitt varme per syklus, og netto arbeid.\n\n**c)** Finn virkningsgraden på to måter, og sammenlign med Carnot-grensen.",
+   "solution": "**a) Symbolsk.** Adiabatrelasjonen $TV^{\\gamma-1} = \\text{konstant}$ gir $T_2 = T_1r^{\\gamma-1}$ og $T_4 = T_3r^{1-\\gamma}$.\n\n**Rask vei til tall.** Regn $r^{\\gamma-1}$ **først, som eget mellomresultat** — du bruker det tre ganger:\n$$r^{\\gamma-1} = 8{,}50^{0{,}400} = 2{,}3538.$$\n$$T_2 = 320 \\cdot 2{,}3538\\,\\text{K} = 753{,}21\\,\\text{K}, \\qquad T_4 = \\frac{1800}{2{,}3538}\\,\\text{K} = 764{,}72\\,\\text{K}.$$\n\n**b) Symbolsk.** Isokorene har $W = 0$, så $Q = \\Delta U = nC_V\\Delta T$.\n\n**Rask vei til tall.** Med $C_V = \\tfrac52 \\cdot 8{,}314 = 20{,}7850\\,\\text{J/(mol}\\cdot\\text{K)}$:\n$$Q_\\text{inn} = nC_V(T_3 - T_2) = 20{,}7850 \\cdot (1800 - 753{,}21)\\,\\text{J} = 20{,}7850 \\cdot 1046{,}79\\,\\text{J} = 21757{,}5\\,\\text{J},$$\n$$|Q_\\text{ut}| = nC_V(T_4 - T_1) = 20{,}7850 \\cdot 444{,}72\\,\\text{J} = 9243{,}6\\,\\text{J},$$\n$$W_\\text{netto} = 21757{,}5 - 9243{,}6 = 12513{,}9\\,\\text{J} = 12{,}51\\,\\text{kJ}.$$\n\n**c)** Direkte fra definisjonen:\n$$\\eta = \\frac{W_\\text{netto}}{Q_\\text{inn}} = \\frac{12513{,}9}{21757{,}5} = 0{,}5752.$$\nMed formelen:\n$$\\eta = 1 - r^{1-\\gamma} = 1 - \\frac{1}{2{,}3538} = 1 - 0{,}4248 = 0{,}5752.$$\nSamme svar ✔ — og den andre veien tok fem sekunder. **Det er den du bruker på eksamen når spørsmålet bare er virkningsgraden.**\n\nCarnot-grensen mellom de samme ytterste temperaturene:\n$$\\eta_\\text{Carnot} = 1 - \\frac{320}{1800} = 0{,}8222.$$\nOtto ligger godt under ✔ — som den må.\n\n**Sluttsjekk, fire ledd.** (i) Alle temperaturer i kelvin ✔. (ii) $T_4 = 764{,}7\\,\\text{K} > T_1 = 320\\,\\text{K}$ ✔ — avgassen er varmere enn den friske blandingen, som den må være. (iii) $\\eta = 0{,}575 < \\eta_\\text{Carnot} = 0{,}822$ ✔. (iv) $\\sum Q = 12513{,}9\\,\\text{J} = W_\\text{netto}$ ✔.\n\n**Og fellen som ligger på lur:** hadde du brukt $\\gamma = 5/3$ i stedet for $7/5$ — altså regnet luft som enatomig — ville du fått $\\eta = 0{,}7599$. Det er et helt plausibelt tall, og det står nesten alltid på alternativlista. Hadde du satt $Q_\\text{inn} = nC_V(T_3 - T_1)$ og glemt at kompresjonen alt hadde hevet temperaturen til $T_2$, ville du fått $\\eta = 0{,}4068$."
+  },
+  {
+   "id": "tfy4115-8-1-o-6",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-8-1-oppg-6",
+    "number": 6,
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger T5.) En Otto-syklus har kompresjonsforhold $r = 11{,}0$ og bruker $0{,}400$ mol toatomig ideell gass ($\\gamma = 1{,}40$, $C_V = \\tfrac52R$). Temperaturen før kompresjonen er $T_1 = 300\\,\\text{K}$, og etter forbrenningen $T_3 = 1650\\,\\text{K}$.\n\n**a)** Finn $T_2$ og $T_4$.\n\n**b)** Finn virkningsgraden med formelen, og kontroller den mot varmemengdene.\n\n**c)** Finn netto arbeid per syklus.",
+    "solution": "**a) Rask vei til tall.** Regn $r^{\\gamma-1}$ først:\n$$r^{\\gamma-1} = 11{,}0^{0{,}400} = 2{,}6095,$$\n$$T_2 = 300 \\cdot 2{,}6095\\,\\text{K} = 782{,}85\\,\\text{K}, \\qquad T_4 = \\frac{1650}{2{,}6095}\\,\\text{K} = 632{,}31\\,\\text{K}.$$\n\n**b)**\n$$\\eta = 1 - r^{1-\\gamma} = 1 - \\frac{1}{2{,}6095} = 0{,}6168.$$\nKontroll via varmemengdene, med $C_V = 20{,}7850\\,\\text{J/(mol}\\cdot\\text{K)}$:\n$$Q_\\text{inn} = 0{,}400 \\cdot 20{,}7850 \\cdot 867{,}15\\,\\text{J} = 7209{,}5\\,\\text{J}, \\qquad |Q_\\text{ut}| = 0{,}400 \\cdot 20{,}7850 \\cdot 332{,}31\\,\\text{J} = 2762{,}8\\,\\text{J},$$\n$$\\eta = 1 - \\frac{2762{,}8}{7209{,}5} = 0{,}6168\\ \\checkmark$$\n\n**c)**\n$$W_\\text{netto} = Q_\\text{inn} - |Q_\\text{ut}| = 7209{,}5 - 2762{,}8 = 4446{,}7\\,\\text{J} = 4{,}447\\,\\text{kJ}.$$\nKontroll: $\\eta Q_\\text{inn} = 0{,}6168 \\cdot 7209{,}5 = 4446{,}7\\,\\text{J}$ ✔.\n\n**Sluttsjekk:** Carnot-grensen er $1 - 300/1650 = 0{,}8182$, og $0{,}617 < 0{,}818$ ✔. Legg også merke til at virkningsgraden er høyere her enn i eksempelet over, selv om forbrenningstemperaturen er LAVERE — det er kompresjonsforholdet som styrer, ikke temperaturen.",
+    "hints": [
+     "$T_2 = T_1r^{\\gamma-1}$ og $T_4 = T_3r^{1-\\gamma}$ — regn potensen som eget mellomresultat.",
+     "Virkningsgraden for Otto trenger bare $r$ og $\\gamma$.",
+     "Kontroller alltid formelsvaret mot $1 - |Q_\\text{ut}|/Q_\\text{inn}$."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-8-1-o-7",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-8-1-oppg-7",
+    "number": 7,
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger T5.) En ingeniør vil øke virkningsgraden til Otto-motoren i oppgave 6 fra $0{,}617$ til $0{,}680$ ved å øke kompresjonsforholdet.\n\n**a)** Hvilket kompresjonsforhold kreves?\n\n**b)** Hvor høy blir temperaturen etter kompresjonen da, hvis $T_1$ fortsatt er $300\\,\\text{K}$?\n\n**c)** Bensin selvantenner rundt $560\\,\\text{K}$. Kommenter forslaget.",
+    "solution": "**a) Symbolsk.** Løs $\\eta = 1 - r^{1-\\gamma}$ for $r$:\n$$r^{1-\\gamma} = 1 - \\eta \\quad\\Longrightarrow\\quad r = (1-\\eta)^{1/(1-\\gamma)} = (1-\\eta)^{-1/(\\gamma-1)}.$$\nMed $\\gamma - 1 = 0{,}400$ blir eksponenten $-2{,}50$.\n\n**Rask vei til tall.**\n$$r = (1 - 0{,}680)^{-2{,}50} = 0{,}320^{-2{,}50} = 17{,}263.$$\nKontroll baklengs: $1 - 17{,}263^{-0{,}400} = 0{,}6800$ ✔.\n\n**b)**\n$$T_2 = T_1r^{\\gamma-1} = 300 \\cdot 17{,}263^{0{,}400}\\,\\text{K} = 300 \\cdot 3{,}1250\\,\\text{K} = 937{,}5\\,\\text{K}.$$\nEt raskere grep: fra $\\eta = 1 - T_1/T_2$ for de to adiabatiske endepunktene følger $T_2 = T_1/(1-\\eta) = 300/0{,}320 = 937{,}5\\,\\text{K}$ ✔ — samme svar, én regnelinje.\n\n**c)** $938\\,\\text{K}$ ligger langt over selvantennelsestemperaturen på $560\\,\\text{K}$. Blandingen vil tenne av seg selv under kompresjonen, før tennpluggen fyrer — det er motorbanking, og det ødelegger motoren. **Forslaget er teoretisk riktig og praktisk ubrukelig for bensin.**\n\nDette er nettopp grunnen til at dieselmotoren finnes: der komprimeres bare LUFT, som ikke kan selvantenne, og drivstoffet sprøytes inn etterpå. Da kan $r$ settes til 18 eller mer, og virkningsgraden blir høyere selv om Diesel-syklusen er dårligere enn Otto ved samme $r$.\n\n**Sluttsjekk:** Carnot-grensen mellom $300\\,\\text{K}$ og $1650\\,\\text{K}$ er $0{,}818$, og $0{,}680 < 0{,}818$ ✔ — forslaget bryter ikke andre hovedsetning. Det er bare materialteknisk umulig.",
+    "hints": [
+     "Snu $\\eta = 1 - r^{1-\\gamma}$ og løs for $r$. Pass på fortegnet i eksponenten.",
+     "Det finnes en snarvei: $1 - \\eta = T_1/T_2$ for de adiabatiske endepunktene.",
+     "Sammenlign svaret i b) med de $560\\,\\text{K}$ oppgaven nevner."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-8-1-lokke5",
+   "type": "text",
+   "content": "## Løkke 5 — Stirling og Diesel (~12 min)\n\nTo sykluser til er verdt å kjenne, og de illustrerer hvert sitt poeng.\n\n**Stirling-syklusen** har to isotermer og to isokorer. Den er den ene virkelige syklusen som kan nå Carnot-grensen — men bare hvis den har en **regenerator**, en varmelagrende masse som tar imot varmen fra det kjølende trinnet og gir den tilbake til det varmende. Uten regenerator faller virkningsgraden dramatisk. Stirling-motorer brukes der stillhet eller vilkårlig varmekilde er viktigere enn effekttetthet: i ubåter, i solkraftanlegg og i kryokjølere.\n\n**Diesel-syklusen** har adiabat, isobar, adiabat og isokor. Varmen tilføres ved konstant TRYKK, fordi drivstoffet sprøytes gradvis inn i luft som alt er varm nok til å antenne det. Ved samme kompresjonsforhold er Diesel **dårligere** enn Otto — men fordi bare luft komprimeres, tåler den et mye høyere $r$, og det er derfor dieselmotorer i praksis er mer effektive. Diesel er «kjenne til»-stoff: du skal gjenkjenne formen i et $pV$-diagram og vite hva som skiller den fra Otto, men du blir sjelden bedt om å regne virkningsgraden fra formelen."
+  },
+  {
+   "id": "tfy4115-8-1-def-stirling",
+   "type": "definition",
+   "title": "Stirling-syklus",
+   "content": "Syklusen med **to isotermer og to isokorer**: isoterm ekspansjon ved $T_v$ (varme inn), isokor avkjøling til $T_k$, isoterm kompresjon ved $T_k$ (varme ut), isokor oppvarming tilbake til $T_v$.\n\nArbeidet kommer bare fra isotermene, siden isokorene har $W = 0$:\n$$W_\\text{netto} = nR(T_v - T_k)\\ln\\frac{V_2}{V_1}.$$\nBetingelsen for at virkningsgraden når Carnot-grensen, er at de to isokorene utveksler varme **internt** gjennom en regenerator. Uten regenerator må den isokore varmen kjøpes utenfra, og den havner i nevneren. Med tallene i eksempelet under: $0{,}500$ med regenerator, $0{,}275$ uten."
+  },
+  {
+   "id": "tfy4115-8-1-def-regenerator",
+   "type": "definition",
+   "title": "Regenerator",
+   "content": "En varmelagrende masse — typisk et finmasket metallnett eller en pakke tynne plater — som gassen strømmer gjennom i begge retninger. På det avkjølende trinnet lagrer den varmen gassen gir fra seg; på det oppvarmende trinnet gir den den samme varmen tilbake.\n\nPoenget er at denne varmen **aldri forlater maskinen**. Den skal derfor ikke regnes som tilført varme, og faller ut av nevneren i $\\eta = W_\\text{netto}/Q_\\text{inn}$. Betingelsen for en ideell regenerator er at den utveksler varmen uten temperaturforskjell og uten tap — det er en idealisering, men en god en: virkelige Stirling-regeneratorer gjenvinner over 90 prosent."
+  },
+  {
+   "id": "tfy4115-8-1-def-diesel",
+   "type": "definition",
+   "title": "Diesel-syklus",
+   "content": "Syklusen med **adiabat, isobar, adiabat og isokor**: adiabatisk kompresjon av ren luft $1 \\to 2$, isobar varmetilførsel mens drivstoffet sprøytes inn $2 \\to 3$, adiabatisk ekspansjon $3 \\to 4$, isokor varmeavgivelse $4 \\to 1$.\n\nVirkningsgraden er\n$$\\eta_\\text{Diesel} = 1 - \\frac{1}{\\gamma}\\cdot\\frac{\\alpha^{\\gamma} - 1}{r^{\\gamma-1}(\\alpha - 1)},$$\nder $\\alpha = V_3/V_2$ er **innsprøytningsforholdet**. Betingelsen $\\alpha \\to 1$ gir tilbake Otto-uttrykket $1 - r^{1-\\gamma}$, som det skal. Ved samme $r$ er Diesel alltid dårligere enn Otto — med $r = 18{,}0$ og $\\alpha = 2{,}00$: $0{,}632$ mot $0{,}685$. Dette er **kjenne til**-stoff: gjenkjenn formen, kjenn forskjellen fra Otto. [står på det utdelte arket]"
+  },
+  {
+   "id": "tfy4115-8-1-fig-stirling",
+   "type": "image",
+   "src": "/images/textbook/tfy4115/tfy4115-8-1-stirling-pv.svg",
+   "alt": "Et pV-diagram med en lukket sloeyfe med fire hjoerner merket 1, 2, 3 og 4. Fra 1 til 2 en roed hyperbel merket isoterm ved 700 kelvin med Q inn. Fra 2 til 3 en kort loddrett groenn linje merket isokor avkjoeling. Fra 3 til 4 en blaa hyperbel merket isoterm ved 350 kelvin med Q ut. Fra 4 til 1 en loddrett groenn linje merket isokor oppvarming. En buet pil inne i sloeyfa peker medklokke.",
+   "caption": "Stirling-syklusen: to isotermer og to isokorer. De grønne isokorene bytter like store varmemengder med motsatt fortegn, og det er nettopp den varmen en regenerator flytter internt i stedet for å kjøpe utenfra."
+  },
+  {
+   "id": "tfy4115-8-1-fig-diesel",
+   "type": "image",
+   "src": "/images/textbook/tfy4115/tfy4115-8-1-diesel-pv.svg",
+   "alt": "Et pV-diagram med en lukket sloeyfe med fire hjoerner merket 1, 2, 3 og 4. Fra 1 til 2 en lilla adiabat oppover mot mindre volum. Fra 2 til 3 en vannrett roed linje merket isobar med Q inn. Fra 3 til 4 en lilla adiabat nedover mot stoerre volum. Fra 4 til 1 en kort loddrett blaa linje merket isokor med Q ut.",
+   "caption": "Diesel-syklusen. Sammenlign trinn $2 \\to 3$ med Otto-figuren: her er det vannrett (konstant trykk), der var det loddrett (konstant volum). Det er hele forskjellen mellom de to motorene."
+  },
+  {
+   "id": "tfy4115-8-1-ex-3",
+   "type": "example",
+   "title": "Eksempel 3: Stirling med og uten regenerator",
+   "problem": "$0,500$ mol enatomig ideell gass ($C_V = \\tfrac32R$) kjører en Stirling-syklus mellom $T_v = 700\\,\\text{K}$ og $T_k = 350\\,\\text{K}$. Den isoterme ekspansjonen øker volumet med faktoren $2{,}50$.\n\n**a)** Finn varmen på hvert av de fire trinnene.\n\n**b)** Finn netto arbeid.\n\n**c)** Finn virkningsgraden med en ideell regenerator, og uten.",
+   "solution": "**a) Symbolsk.** Isotermene: $Q = W = nRT\\ln(V_2/V_1)$. Isokorene: $Q = nC_V\\Delta T$, $W = 0$.\n\n**Rask vei til tall.** Med $\\ln 2{,}50 = 0{,}91629$:\n$$Q_{1\\to2} = nRT_v\\ln\\frac{V_2}{V_1} = 0,500 \\cdot 8{,}314 \\cdot 700 \\cdot 0{,}91629\\,\\text{J} = +2666{,}3\\,\\text{J},$$\n$$Q_{2\\to3} = nC_V(T_k - T_v) = 0,500 \\cdot 12{,}4710 \\cdot (-350)\\,\\text{J} = -2182{,}4\\,\\text{J},$$\n$$Q_{3\\to4} = nRT_k\\ln\\frac{V_1}{V_2} = -1333{,}2\\,\\text{J}, \\qquad Q_{4\\to1} = nC_V(T_v - T_k) = +2182{,}4\\,\\text{J}.$$\nLegg merke til at de to isokorene er **like store med motsatt fortegn**. Det er hele grunnlaget for regeneratoren.\n\n**b)** Bare isotermene gir arbeid:\n$$W_\\text{netto} = 2666{,}3 - 1333{,}2 = 1333{,}2\\,\\text{J}.$$\nKontroll mot summen av alle fire varmemengdene: $+2666{,}3 - 2182{,}4 - 1333{,}2 + 2182{,}4 = 1333{,}2\\,\\text{J}$ ✔ — isokorene kanselleres, som de skal.\n\n**c) Med ideell regenerator.** Den isokore varmen sirkulerer internt og skal ikke i nevneren:\n$$\\eta = \\frac{W_\\text{netto}}{Q_{1\\to2}} = \\frac{1333{,}2}{2666{,}3} = 0{,}5000.$$\nSammenlign med Carnot: $1 - 350/700 = 0{,}5000$. **Nøyaktig grensen** ✔ — Stirling med ideell regenerator er termodynamisk likeverdig med Carnot.\n\n**Uten regenerator.** Da må også $Q_{4\\to1}$ kjøpes utenfra:\n$$\\eta = \\frac{W_\\text{netto}}{Q_{1\\to2} + Q_{4\\to1}} = \\frac{1333{,}2}{2666{,}3 + 2182{,}4} = \\frac{1333{,}2}{4848{,}7} = 0{,}2749.$$\n\n**Sluttsjekk, tre ledd.** (i) Begge virkningsgrader ligger under eller på Carnot-grensen ✔. (ii) Regenerator-varianten er større enn den uten ✔ — regenerering kan bare hjelpe. (iii) Legg merke til at **arbeidet er det samme i begge tilfeller**; det er bare nevneren som endrer seg. Regeneratoren gjør ikke maskinen sterkere, den gjør den billigere å drive.\n\n**Og hvorfor dette er lærerikt:** virkningsgrad er ikke en egenskap ved sløyfa alene. Den avhenger av hva du regner som tilført varme — og det avhenger av hvordan maskinen er bygget."
+  },
+  {
+   "id": "tfy4115-8-1-o-8",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-8-1-oppg-8",
+    "number": 8,
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger T5.) $1,20$ mol toatomig ideell gass ($C_V = \\tfrac52R$) kjører en Stirling-syklus mellom $560\\,\\text{K}$ og $320\\,\\text{K}$, med volumforhold $3{,}00$ på isotermene.\n\n**a)** Finn netto arbeid per syklus.\n\n**b)** Finn virkningsgraden med og uten ideell regenerator.\n\n**c)** Hvor mange prosent av virkningsgraden går tapt hvis regeneratoren fjernes?",
+    "solution": "**a)** Med $\\ln 3{,}00 = 1{,}09861$:\n$$W_\\text{netto} = nR(T_v - T_k)\\ln\\frac{V_2}{V_1} = 1,20 \\cdot 8{,}314 \\cdot 240 \\cdot 1{,}09861\\,\\text{J} = 2630{,}6\\,\\text{J}.$$\n\n**b)** Varmen inn på den varme isotermen:\n$$Q_v = nRT_v\\ln\\frac{V_2}{V_1} = 6138{,}0\\,\\text{J}.$$\nMed regenerator:\n$$\\eta = \\frac{2630{,}6}{6138{,}0} = 0{,}4286 = 1 - \\frac{320}{560}\\ \\checkmark$$\nUten regenerator må også den isokore oppvarmingen kjøpes:\n$$Q_\\text{isokor} = nC_V(T_v - T_k) = 1,20 \\cdot 20{,}7850 \\cdot 240\\,\\text{J} = 5986{,}1\\,\\text{J},$$\n$$\\eta = \\frac{2630{,}6}{6138{,}0 + 5986{,}1} = \\frac{2630{,}6}{12124{,}0} = 0{,}2170.$$\n\n**c)**\n$$\\frac{0{,}4286 - 0{,}2170}{0{,}4286} = 0{,}4937, \\qquad\\text{altså om lag } 49\\ \\text{prosent av virkningsgraden}.$$\n\n**Sluttsjekk:** merk at tapet er STØRRE her enn i eksempelet med enatomig gass (der falt $\\eta$ fra $0{,}500$ til $0{,}275$, altså om lag $45$ prosent). Årsaken er at en toatomig gass har større $C_V$, og dermed større isokor varme å gjenvinne. **Regeneratoren betyr mest for gasser med mange frihetsgrader.**",
+    "hints": [
+     "Bare isotermene gir arbeid i en Stirling-syklus.",
+     "Med ideell regenerator er nevneren bare den varme isotermens $Q$; uten regenerator kommer den isokore varmen i tillegg.",
+     "$C_V = \\tfrac52R$ for en toatomig gass — sjekk hvilken verdi oppgaven ber om."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-8-1-o-9",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-8-1-oppg-9",
+    "number": 9,
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Kvalitativ oppgave — konsept og rangering.)\n\n**a)** To maskiner arbeider mellom de samme to reservoarene. Maskin A er en Carnot-syklus, maskin B en Otto-syklus. Hvilken har høyest virkningsgrad, og hvorfor?\n\n**b)** Ranger de fire hjørnene i en Otto-syklus etter temperatur, høyest først, og begrunn rangeringen.\n\n**c)** En kollega foreslår å øke virkningsgraden til en Otto-motor ved å brenne mer drivstoff per syklus, slik at $T_3$ blir høyere. Virker det? Svar i to til fire setninger.",
+    "solution": "**a)** **Carnot** har høyest virkningsgrad, og forskjellen har en presis årsak: Carnot-syklusen tar imot ALL varmen ved den høyeste temperaturen $T_v$ og gir ALL varmen fra seg ved den laveste $T_k$. Otto-syklusen tar imot varme over hele intervallet fra $T_2$ til $T_3$ og gir fra seg varme over hele intervallet fra $T_4$ til $T_1$. Varme mottatt ved en lavere temperatur enn $T_v$ er «dårligere» varme — den bærer mer entropi per joule — og derfor blir utbyttet mindre. Carnot-grensen er et tak ingen syklus kan nå unntatt Carnot selv (og Stirling med ideell regenerator).\n\n**b)** Rangeringen er $T_3 > T_4 > T_2 > T_1$ — eller $T_3 > T_2 > T_4 > T_1$, avhengig av tallene. Det som er sikkert:\n- $T_3$ er høyest: det er rett etter forbrenningen.\n- $T_1$ er lavest: det er den friske, kalde blandingen.\n- $T_2 = T_1r^{\\gamma-1}$ og $T_4 = T_3r^{1-\\gamma}$, altså begge mellom ytterpunktene.\n- Hvilken av $T_2$ og $T_4$ som er størst, avgjøres av om $T_3/T_1$ er større eller mindre enn $r^{2(\\gamma-1)}$.\n\nMed tallene i eksempel 2 ligger de svært nær hverandre ($T_2 = 753\\,\\text{K}$ og $T_4 = 765\\,\\text{K}$), og det er nettopp derfor et flervalgsalternativ kan skille dem.\n\n**c)** Nei — ikke virkningsgraden. Otto-virkningsgraden er $1 - r^{1-\\gamma}$, som ikke inneholder $T_3$ i det hele tatt. Mer drivstoff gir mer varme inn OG proporsjonalt mer varme ut, så brøken er uendret. Det kollegaen får, er mer **effekt** — motoren gjør mer arbeid per syklus — men ikke bedre utnyttelse av drivstoffet. Vil man ha bedre virkningsgrad, må man øke $r$ (eller bytte til en gass med høyere $\\gamma$).",
+    "hints": [
+     "Ved hvilken temperatur tar hver av de to syklusene imot varmen sin?",
+     "Skriv $T_2$ og $T_4$ ved hjelp av $T_1$, $T_3$ og $r^{\\gamma-1}$ før du rangerer.",
+     "Se på hvilke størrelser som faktisk står i uttrykket for $\\eta_\\text{Otto}$."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-8-1-rask-vei",
+   "type": "text",
+   "content": "## Rask vei til tall (MC-oppskrift)\n\n1. **Hvilken lov?** Les først **omløpsretningen**: medklokke = maskin, du skal finne $\\eta$; motklokke = pumpe, du skal finne $\\varepsilon$ (kap. 8.2). Er syklusen navngitt, hopp rett til formelen: **Carnot** $\\to \\eta = 1 - T_k/T_v$; **Otto** $\\to \\eta = 1 - r^{1-\\gamma}$; **Stirling med regenerator** $\\to$ samme som Carnot. Er den ikke navngitt, sett opp hjørnetabellen.\n\n2. **Hvilken ene regnelinje?** For Carnot: én divisjon. For Otto: regn $r^{\\gamma-1}$ **først som eget mellomresultat**, så er resten $1 - 1/r^{\\gamma-1}$. For en generell sløyfe: $W_\\text{netto} = $ omsluttet areal, og $Q_\\text{inn} = $ summen av trinnene med $Q > 0$.\n\n3. **Hva hentes hvor?** $\\eta = W/Q_H$, $\\eta_\\text{Carnot} = 1 - T_k/T_v$, $pV = nRT$, $pV^\\gamma$ og $TV^{\\gamma-1}$ konstant, $C_V$ og $C_P$ for en- og toatomig gass, $C_P = C_V + R$, og alle konstantene **står på det utdelte arket**. Logaritmer og potenser slår du opp i **Rottmann** eller regner på kalkulatoren. Det som **må kunne utledes aktivt**, er $\\eta_\\text{Carnot}$ fra entropiregnskapet, Otto-uttrykket fra adiabatrelasjonene, og hjørnetabellen som metode.\n\n4. **Hvor mange siffer?** Fire gjennom kjeden. Særlig i $r^{\\gamma-1}$: med $8{,}50^{0{,}4} = 2{,}3538$ blir $\\eta = 0{,}5752$; runder du til $2{,}35$, får du $0{,}5745$, og runder du til $2{,}4$, får du $0{,}5833$. Det siste kan lande på et nabo-alternativ.\n\n5. **Hva sjekker du før du krysser av?** (i) Er ALLE temperaturer i **kelvin**? (ii) Ligger $\\eta$ mellom 0 og 1? (iii) Ligger $\\eta$ **under** Carnot-grensen for de to ytterste temperaturene? (iv) Brukte du riktig $\\gamma$ — $7/5$ for toatomig, $5/3$ for enatomig? (v) Er bare trinnene med $Q > 0$ med i $Q_\\text{inn}$? (vi) Stemmer $\\sum Q = \\sum W$ over sløyfa?\n\n— naturlig pausepunkt —"
+  },
+  {
+   "id": "tfy4115-8-1-o-10",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-8-1-oppg-10",
+    "number": 10,
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Sjanger T5, A–F-format.) En Otto-syklus bruker toatomig gass ($\\gamma = 1{,}40$) og har kompresjonsforhold $r = 6{,}50$. Hva er virkningsgraden?\n\n**A** $0{,}473$ · **B** $0{,}414$ · **C** $0{,}846$ · **D** $0{,}713$ · **E** $0{,}527$ · **F** $1{,}114$",
+    "solution": "**Svar: E.**\n\n$$r^{\\gamma-1} = 6{,}50^{0{,}400} = 2{,}1143, \\qquad \\eta = 1 - \\frac{1}{2{,}1143} = 0{,}5270.$$\n\n*Fellene, hver regnet fram:* **D** bruker $\\gamma = 5/3$, altså enatomig gass i stedet for toatomig — den vanligste feilen her, og den gir alltid for høyt svar. **A** er $r^{1-\\gamma}$, altså «$1 - $» glemt; legg merke til at **A** og **E** til sammen blir 1. **C** er $1 - 1/r$, med eksponenten $\\gamma - 1$ glemt helt. **B** bruker $\\gamma = 9/7$, verdien for en flerledded gass med vibrasjon. **F** er $r^{\\gamma-1} - 1$, med brøken snudd.\n\n*Sluttsjekk:* en virkningsgrad ligger mellom 0 og 1, så **F** ryker straks. Og en bensinmotor med $r$ rundt 6–7 har en teoretisk virkningsgrad rundt $0{,}5$ — det stryker **C**, som er urealistisk høyt for et så lavt kompresjonsforhold.",
+    "hints": [
+     "Regn $r^{\\gamma-1}$ som eget mellomresultat før du gjør noe annet.",
+     "Hvilken $\\gamma$ hører til en toatomig gass?"
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-8-1-o-11",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-8-1-oppg-11",
+    "number": 11,
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger T5 — vurderingsoppgave.) En oppfinner hevder å ha bygget en maskin som arbeider mellom $800\\,\\text{K}$ og $350\\,\\text{K}$, tar imot $50{,}0\\,\\text{kJ}$ varme per syklus og leverer $31{,}0\\,\\text{kJ}$ arbeid.\n\n**a)** Hvilken virkningsgrad påstår oppfinneren?\n\n**b)** Er påstanden forenlig med andre hovedsetning?\n\n**c)** Hvor mye arbeid er det største en maskin mellom disse reservoarene kan levere med den samme varmen inn, og hvor mye varme må minst gå ut?\n\n**d)** Regn universets entropiendring per syklus for oppfinnerens maskin, og kommenter.",
+    "solution": "**a)**\n$$\\eta = \\frac{31{,}0\\,\\text{kJ}}{50{,}0\\,\\text{kJ}} = 0{,}6200.$$\n\n**b)** Carnot-grensen er\n$$\\eta_\\text{Carnot} = 1 - \\frac{350}{800} = 0{,}5625.$$\nPåstanden $0{,}620$ ligger **over** grensen $0{,}5625$. Maskinen er derfor **umulig**: den bryter andre hovedsetning. Merk at den ikke bryter FØRSTE hovedsetning — energiregnskapet går opp, siden $|Q_\\text{ut}| = 19{,}0\\,\\text{kJ}$. Det er entropiregnskapet som ikke går opp, og det er nettopp forskjellen mellom de to hovedsetningene.\n\n**c)**\n$$W_\\text{maks} = \\eta_\\text{Carnot}Q_\\text{inn} = 0{,}5625 \\cdot 50{,}0\\,\\text{kJ} = 28{,}125\\,\\text{kJ},$$\n$$|Q_\\text{ut, min}| = 50{,}0 - 28{,}125 = 21{,}875\\,\\text{kJ}.$$\nOppfinneren måtte altså ha dumpet minst $21{,}88\\,\\text{kJ}$, men oppgir bare $19{,}0\\,\\text{kJ}$.\n\n**d)** Reservoarene endrer entropi, gassen ikke (den er tilbake der den startet):\n$$\\Delta S_\\text{varm} = -\\frac{50000\\,\\text{J}}{800\\,\\text{K}} = -62{,}5000\\,\\text{J/K}, \\qquad \\Delta S_\\text{kald} = +\\frac{19000\\,\\text{J}}{350\\,\\text{K}} = +54{,}2857\\,\\text{J/K},$$\n$$\\Delta S_\\text{univers} = -62{,}5000 + 54{,}2857 = -8{,}2143\\,\\text{J/K}.$$\nSummen er **negativ**, og det er selve beviset: andre hovedsetning krever $\\Delta S_\\text{univers} \\ge 0$. En maskin som får universets entropi til å synke, finnes ikke.\n\nTil sammenligning, med det minste tillatte $|Q_\\text{ut}| = 21{,}875\\,\\text{kJ}$:\n$$\\Delta S_\\text{univers} = -62{,}5000 + \\frac{21875}{350} = 0{,}0000\\,\\text{J/K},$$\naltså **nøyaktig null** — grensetilfellet er den reversible maskinen. Det er ikke tilfeldig: **Carnot-grensen ER betingelsen $\\Delta S_\\text{univers} = 0$, skrevet om.**\n\n**Sluttsjekk:** to uavhengige argumenter ga samme konklusjon — virkningsgraden over Carnot-grensen, og negativ entropiproduksjon. Det er den kontrollen du skal gjøre hver gang en oppgave ber deg vurdere en påstand.",
+    "hints": [
+     "Regn først den påståtte virkningsgraden, så Carnot-grensen for de to temperaturene.",
+     "Første hovedsetning kan godt være oppfylt selv om maskinen er umulig — hvilken lov er det som brytes?",
+     "For universets entropi: reservoarene endrer $S$ med $\\mp Q/T$, gassen med null over en syklus."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-8-1-war-typiske-feil",
+   "type": "warning",
+   "title": "Typiske feil — og faktoren som lander på nabo-alternativet",
+   "content": "**Å regne Carnot-grensen med celsius** (felle #11 — kelvin- og enhetsslurv). Behandlet i sin egen boks over. Kort: skriv om ALT til kelvin i det du leser oppgaven.\n\n**Å ta med et trinn med $Q < 0$ i $Q_\\text{inn}$.** Nevneren i $\\eta = W_\\text{netto}/Q_\\text{inn}$ skal bare inneholde de trinnene der varme går INN i gassen. I firkant-syklusen i oppgave 2 er det de to første trinnene ($Q_\\text{inn} = 36{,}0\\,\\text{kJ}$); tar du alle fire med, får du $8{,}00\\,\\text{kJ}$ — som er netto arbeid, ikke tilført varme, og gir $\\eta = 1$.\n\n**Å bruke feil $\\gamma$** (felle #8 — forbytte $C_V$ og $C_P$ eller bruke feil $\\gamma$). $5/3 \\approx 1{,}67$ for enatomig (helium, argon), $7/5 = 1{,}40$ for toatomig (luft, nitrogen, oksygen). Med $r = 8{,}50$ gir de to $0{,}575$ og $0{,}760$ — begge plausible, og begge på alternativlista. **Les hvilken gass oppgaven oppgir**, og hvis den bare sier «luft», er den toatomig.\n\n**Å blande virkningsgrad og effektfaktor** (felle #13). $\\eta \\le 1$ alltid; effektfaktoren $\\varepsilon$ til en varmepumpe er større enn 1. Får du et tall over 1 der du skulle hatt en virkningsgrad, har du brukt pumpeformelen — se kap. 8.2.\n\n**Å glemme at Otto-virkningsgraden ikke inneholder temperaturene.** $\\eta_\\text{Otto} = 1 - r^{1-\\gamma}$. Mer drivstoff gir mer effekt, ikke bedre virkningsgrad. En oppgave som oppgir $T_3$ og spør om $\\eta$, gir deg et tall du ikke trenger — og det er ofte med vilje.\n\n**Å regne $\\eta$ over Carnot-grensen uten å merke det.** Gjør sjekken hver gang: finn den laveste og høyeste temperaturen i tabellen, regn $1 - T_\\text{min}/T_\\text{maks}$, og kontroller at svaret ditt ligger under. Det tar fem sekunder og fanger nesten alle regnefeil i sjangeren.\n\n**Og avrundingsfellen** (felle #16): denne sjangeren er bygget av potenser og logaritmer, og de tåler ikke tidlig avrunding. $8{,}50^{0{,}4} = 2{,}35379$; med tre siffer ($2{,}35$) blir $\\eta = 0{,}5745$ i stedet for $0{,}5752$. **Behold fire siffer helt til slutt**, og skriv potensen ned som eget mellomresultat i stedet for å kjede regningen på kalkulatoren."
+  },
+  {
+   "id": "tfy4115-8-1-begrepsbank-notis",
+   "type": "text",
+   "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+  },
+  {
+   "id": "tfy4115-8-1-bb-fortegn",
+   "type": "definition",
+   "title": "Fortegnskonvensjonen for $Q$ og $W$",
+   "content": "Boka bruker gjennomgående $\\Delta U = Q - W$, der **$Q$ er varme TILFØRT systemet** og **$W$ er arbeid gassen gjør PÅ omgivelsene**. Konsekvensene du må ha i fingrene:\n\n- gassen utvider seg $\\Rightarrow W > 0$; gassen komprimeres $\\Rightarrow W < 0$;\n- varme går inn $\\Rightarrow Q > 0$; varme går ut $\\Rightarrow Q < 0$;\n- adiabat: $Q = 0$, altså $\\Delta U = -W$;\n- isoterm for ideell gass: $\\Delta U = 0$, altså $Q = W$.\n\nDen andre konvensjonen som finnes i litteraturen, $\\Delta U = Q + W$ med $W$ som arbeid gjort PÅ gassen, gir samme fysikk men motsatt fortegn på $W$. Blander du dem, snus alle arbeidsfortegn i regnskapet."
+  },
+  {
+   "id": "tfy4115-8-1-bb-qinn",
+   "type": "definition",
+   "title": "$Q_\\text{inn}$ mot $Q_\\text{netto}$",
+   "content": "To størrelser som er lette å blande, og som gir helt ulike virkningsgrader:\n\n- $Q_\\text{inn}$ = summen av varmen på **bare** de trinnene der $Q > 0$. Dette er nevneren i $\\eta$.\n- $Q_\\text{netto}$ = summen over ALLE trinn $= Q_\\text{inn} - |Q_\\text{ut}| = W_\\text{netto}$.\n\nBruker du $Q_\\text{netto}$ som nevner, får du alltid $\\eta = 1$, og det er umulig. Kontrollen er enkel: nevneren skal være **større** enn telleren."
+  },
+  {
+   "id": "tfy4115-8-1-bb-carnotgrense",
+   "type": "definition",
+   "title": "Carnot-grensen som tak, ikke som oppskrift",
+   "content": "$\\eta_\\text{Carnot} = 1 - T_k/T_v$ er ikke virkningsgraden til en virkelig maskin. Den er den **øvre grensen** enhver maskin mellom de to temperaturene må ligge under. Virkelige tall for sammenligning: en bilmotor $0{,}25$–$0{,}35$, et kullkraftverk $0{,}35$–$0{,}45$, et moderne kombikraftverk opp mot $0{,}60$ — og alle med en Carnot-grense godt over det.\n\nGrunnen til at grensen ikke nås, er dobbel: ekte prosesser er irreversible (friksjon, turbulens, varmeledning over en endelig temperaturforskjell), og de fleste sykluser tar imot varme over et **intervall** av temperaturer i stedet for ved én. Bruk grensen som kontrollverktøy — får du en virkningsgrad over den, har du regnet feil."
+  },
+  {
+   "id": "tfy4115-8-1-bb-tilstandsfunksjon",
+   "type": "definition",
+   "title": "Tilstandsfunksjon mot veiavhengig størrelse",
+   "content": "$p$, $V$, $T$, $U$ og $S$ er **tilstandsfunksjoner**: de har en bestemt verdi i hver tilstand, uavhengig av hvordan gassen kom dit. Over en lukket sløyfe er endringen deres derfor null.\n\n$Q$ og $W$ er **veiavhengige**: de avhenger av hvilken vei gassen gikk. Over en lukket sløyfe er de generelt IKKE null — og det er nettopp derfor en maskin kan fungere.\n\nDette skillet er hele grunnen til at $\\Delta U_\\text{syklus} = 0$ og $\\Delta S_\\text{gass, syklus} = 0$, mens $W_\\text{netto} \\neq 0$."
+  },
+  {
+   "id": "tfy4115-8-1-bb-sjangert5",
+   "type": "definition",
+   "title": "Sjanger T5 — kretsprosessoppgaven",
+   "content": "Signaturen: en gass føres rundt en lukket sløyfe, og du skal finne temperaturer i hjørnene, varme og arbeid per trinn, netto arbeid og virkningsgrad. I flervalgssettene kommer den som en **klynge på tre til fire koblede spørsmål**, ofte i denne rekkefølgen: (1) en hjørnetemperatur eller et hjørnetrykk, (2) varmen på ett trinn, (3) netto arbeid eller virkningsgraden, (4) sammenligning med Carnot-grensen.\n\nFordi spørsmålene er koblet, er det første svaret verdt mer enn ett poeng. **Bruk ekstra tid på hjørnetabellen**, og kontroller den mot gasslova i hvert hjørne før du går videre."
+  },
+  {
+   "id": "tfy4115-8-1-bb-gamma",
+   "type": "definition",
+   "title": "$\\gamma$ i Del 8: adiabateksponent, ikke demping",
+   "content": "I termodelen er $\\gamma = C_P/C_V$ **adiabateksponenten**: dimensjonsløs, alltid større enn 1, med verdiene $\\tfrac53 \\approx 1{,}67$ (enatomig), $\\tfrac75 = 1{,}40$ (toatomig) og $\\tfrac97 \\approx 1{,}29$ (toatomig med vibrasjon, eller flerledded). Den står i $pV^\\gamma = \\text{konstant}$ og i $\\eta_\\text{Otto} = 1 - r^{1-\\gamma}$.\n\n⚠ **Symbolkollisjon:** i [kap. 5.2](/tfy4115/tfy4115-5-2) var $\\gamma = b/2m$ **dempingskoeffisienten**, med enheten $\\text{s}^{-1}$ og typisk verdi mellom 0,1 og 1. Kjennetegnet som alltid skiller dem: **har størrelsen enhet, er det demping; er den et rent tallforhold mellom 1 og 5/3, er det adiabateksponenten.** De opptrer aldri i samme oppgave."
+  },
+  {
+   "id": "tfy4115-8-1-bb-Tsymbol",
+   "type": "definition",
+   "title": "$T$ i Del 8: temperatur i kelvin, ikke periode",
+   "content": "I hele termodelen er $T$ **absolutt temperatur i kelvin**. Den står i $pV = nRT$, i $TV^{\\gamma-1} = \\text{konstant}$, i $\\eta_\\text{Carnot} = 1 - T_k/T_v$ og i alle entropiuttrykk.\n\n⚠ **Symbolkollisjon:** i Del 5 var $T$ **perioden** til en svingning, målt i sekunder, og $T = 2\\pi/\\omega$. Skulle et kapittel trenge begge, skrives perioden $T_p$. Den praktiske regelen i Del 8: **ser du en temperatur uten enhet, spør om det er kelvin — og hvis den er under 273, er det sannsynligvis celsius og må regnes om.**"
+  },
+  {
+   "id": "tfy4115-8-1-bb-Qsymbol",
+   "type": "definition",
+   "title": "$Q$ i Del 8: varme i joule, ikke kvalitetsfaktor",
+   "content": "I termodelen er $Q$ **varme**, målt i joule, med fortegn: positiv inn i systemet. Vi bruker $Q_v$ eller $Q_H$ om varmen fra det varme reservoaret, $Q_k$ eller $Q_L$ om varmen til det kalde, og $Q_\\text{inn}$ om summen av de positive bidragene.\n\n⚠ **Symbolkollisjon:** i [kap. 5.2](/tfy4115/tfy4115-5-2) var $Q = \\omega_0/(2\\gamma)$ **kvalitetsfaktoren** til en dempet svingning, dimensjonsløs. Enheten skiller dem: **varme har enhet joule, kvalitetsfaktoren har ingen.**"
+  },
+  {
+   "id": "tfy4115-8-1-bb-Ssymbol",
+   "type": "definition",
+   "title": "$S$ i Del 8: entropi, ikke taustrekk",
+   "content": "I termodelen er $S$ **entropi**, med enheten $\\text{J/K}$. For en isoterm varmeoverføring er $\\Delta S = Q/T$, og over en lukket syklus er gassens $\\Delta S = 0$ fordi entropi er en tilstandsfunksjon. Andre hovedsetning krever $\\Delta S_\\text{univers} \\ge 0$.\n\n⚠ **Symbolkollisjon:** i [kap. 5.1](/tfy4115/tfy4115-5-1) var $S$ **taustrekket** i en konisk pendel, målt i newton. Enheten skiller dem klart: $\\text{J/K}$ mot $\\text{N}$. Entropien er dessuten en skalar tilstandsfunksjon, mens taustrekket er en kraft med retning."
+  },
+  {
+   "id": "tfy4115-8-1-bb-Rsymbol",
+   "type": "definition",
+   "title": "$R$ i Del 8: gasskonstanten, ikke radius",
+   "content": "I Del 8 er $R = 8{,}314\\,\\text{J/(mol}\\cdot\\text{K)}$ den **universelle gasskonstanten**. Den står i $pV = nRT$, i $C_P = C_V + R$ og i isotermarbeidet $nRT\\ln(V_2/V_1)$. Sammenhengen med Boltzmanns konstant er $R = N_Ak_B$.\n\n⚠ **Symbolkollisjon:** $R$ var en **radius** i Del 1–5 (og blir en **termisk motstand** $R_\\text{term}$ i [kap. 9.1](/tfy4115/tfy4115-9-1), med enheten $\\text{K/W}$). Tre helt ulike størrelser, samme bokstav. Enheten avgjør hver gang: $\\text{J/(mol}\\cdot\\text{K)}$, meter, eller $\\text{K/W}$. Og merk at Boltzmanns konstant skrives $k_B$ nettopp for å skilles fra fjærstivheten $k$."
+  },
+  {
+   "id": "tfy4115-8-1-bb-isoterm-arbeid",
+   "type": "definition",
+   "title": "Isotermarbeidet og logaritmen",
+   "content": "For en isoterm prosess i en ideell gass er $\\Delta U = 0$, og dermed\n$$Q = W = nRT\\ln\\frac{V_2}{V_1}.$$\nFortegnet følger av logaritmen: ekspansjon ($V_2 > V_1$) gir positiv logaritme, altså arbeid ut og varme inn. Kompresjon gir negativ.\n\nBetingelsen er at gassen er ideell OG at prosessen er isoterm — for en adiabat er arbeidet i stedet $-nC_V\\Delta T$. Nyttige logaritmeverdier: $\\ln 2 = 0{,}69315$, $\\ln 2{,}5 = 0{,}91629$, $\\ln 3 = 1{,}09861$."
+  },
+  {
+   "id": "tfy4115-8-1-bb-hvorfor-qut",
+   "type": "definition",
+   "title": "Hvorfor $|Q_\\text{ut}|$ ikke kan settes til null",
+   "content": "Spørsmålet dukker opp hver gang: hvorfor kan ikke en maskin bare bruke ALL varmen til arbeid? Første hovedsetning forbyr det ikke — $\\Delta U = 0$ og $W = Q_\\text{inn}$ går fint opp energimessig.\n\nSvaret ligger i entropien. Varmen $Q_\\text{inn}$ som tas opp ved $T_v$, bærer med seg entropien $Q_\\text{inn}/T_v$. Gassen kan ikke beholde den, siden $\\Delta S_\\text{gass} = 0$ over syklusen. Arbeid bærer ingen entropi. **Derfor må entropien ut med varme**, og den minste varmen som kan bære den ut ved temperaturen $T_k$, er $|Q_\\text{ut}| = T_k \\cdot Q_\\text{inn}/T_v$. Det er hele Carnot-grensen, sett fra entropisiden."
+  },
+  {
+   "id": "tfy4115-8-1-bb-navngitte",
+   "type": "definition",
+   "title": "De fire navngitte syklusene på ett kort",
+   "content": "| Syklus | Trinn | Virkningsgrad |\n|---|---|---|\n| **Carnot** | 2 isotermer + 2 adiabater | $1 - T_k/T_v$ (grensen) |\n| **Otto** | 2 adiabater + 2 isokorer | $1 - r^{1-\\gamma}$ |\n| **Diesel** | adiabat, isobar, adiabat, isokor | $1 - \\frac{1}{\\gamma}\\frac{\\alpha^\\gamma-1}{r^{\\gamma-1}(\\alpha-1)}$ |\n| **Stirling** | 2 isotermer + 2 isokorer | $1 - T_k/T_v$ med ideell regenerator |\n\nKjenn dem igjen på formen i $pV$-diagrammet: to hyperbler og to brattere kurver er Carnot; to brattere kurver og to loddrette linjer er Otto; en vannrett topp er Diesel; to hyperbler og to loddrette linjer er Stirling."
+  },
+  {
+   "id": "tfy4115-8-1-bb-areal-som-arbeid",
+   "type": "definition",
+   "title": "Arealet som arbeid — og fellen ved lukkede sløyfer",
+   "content": "For ett trinn er $W = \\int p\\,dV$ arealet under kurven, målt ned til $V$-aksen. For en lukket sløyfe er $W_\\text{netto}$ arealet INNE i sløyfa — ikke arealet under den.\n\nFellen er å regne arealet under den øvre delen og glemme å trekke fra arealet under den nedre. Kontrollen: for en firkant-syklus skal $W_\\text{netto} = (p_2-p_1)(V_2-V_1)$, altså produktet av de to differansene, ikke $p_2(V_2-V_1)$ alene."
+  },
+  {
+   "id": "tfy4115-8-1-bb-effekt-vs-virkningsgrad",
+   "type": "definition",
+   "title": "Effekt mot virkningsgrad",
+   "content": "To ting studenter blander, og som oppgavene utnytter:\n\n- **Virkningsgrad** $\\eta$ er dimensjonsløs og sier hvor stor DEL av varmen som blir arbeid.\n- **Effekt** $P = W_\\text{netto}f$ måles i watt og sier hvor mye arbeid maskinen gjør per sekund, der $f$ er antall sykluser per sekund.\n\nEn stor motor har høy effekt og kanskje middels virkningsgrad; en liten Stirling-motor kan ha høy virkningsgrad og nesten ingen effekt. Spør oppgaven om «hvor mye arbeid per sekund», er det effekt, og da trenger du turtallet."
+  },
+  {
+   "id": "tfy4115-8-1-bb-sykluser-per-sekund",
+   "type": "definition",
+   "title": "Fra syklus til turtall",
+   "content": "Oppgaver som oppgir et turtall, vil at du skal gå fra arbeid per syklus til effekt. Sammenhengen er\n$$P = W_\\text{netto} \\cdot f,$$\nder $f$ er antall arbeidssykluser per sekund. **Fellen:** en firetakts bensinmotor gjør bare ÉN arbeidssyklus per TO omdreininger, så $f = n/2$ når $n$ er omdreininger per sekund. Oppgir oppgaven turtall i omdreininger per minutt, må du også dele på 60.\n\nMed $3000$ omdreininger per minutt blir $f = 3000/(60 \\cdot 2) = 25{,}0$ arbeidssykluser per sekund for en firetakter."
+  },
+  {
+   "id": "tfy4115-8-1-bb-irreversibel",
+   "type": "definition",
+   "title": "Reversibel og irreversibel — i denne sammenhengen",
+   "content": "En **reversibel** prosess kan kjøres baklengs uten å etterlate noe spor i omgivelsene. Den krever at systemet er i likevekt hele veien: uendelig langsom, uten friksjon, og med varmeoverføring bare over uendelig små temperaturforskjeller. Det er en idealisering.\n\nBetydningen i Del 8: **bare reversible sykluser når Carnot-grensen.** Alle virkelige sykluser produserer entropi — gjennom friksjon, gjennom turbulens, og gjennom varmeoverføring over en endelig temperaturforskjell — og taper virkningsgrad på det. Begrepet behandles i sin fulle bredde i kap. 7.2 sammen med entropien."
+  },
+  {
+   "id": "tfy4115-8-1-bb-adiabat-bratt",
+   "type": "definition",
+   "title": "Hvorfor adiabaten er brattere enn isotermen",
+   "content": "Deriver de to kurvene i samme punkt $(p, V)$:\n$$\\text{isoterm: } pV = \\text{konst} \\Rightarrow \\frac{dp}{dV} = -\\frac{p}{V}, \\qquad \\text{adiabat: } pV^\\gamma = \\text{konst} \\Rightarrow \\frac{dp}{dV} = -\\gamma\\frac{p}{V}.$$\nForholdet mellom stigningstallene er nøyaktig $\\gamma$, og siden $\\gamma = C_P/C_V > 1$ alltid, er **adiabaten alltid brattere**. Dette gjelder i hvert punkt, ikke bare i gjennomsnitt.\n\n*Intuisjon:* langs en adiabat kjøles gassen ned mens den utvider seg, siden den ikke får varme utenfra. Lavere temperatur betyr lavere trykk, så trykket faller raskere enn ved konstant temperatur. En figur der de to krysser med motsatt bratthet, underviser fellen."
+  },
+  {
+   "id": "tfy4115-8-1-bb-kelvindisiplin",
+   "type": "definition",
+   "title": "Kelvin-disiplinen: hvor celsius er trygt og hvor det ikke er",
+   "content": "**Aldri celsius** i noe som er et FORHOLD eller en POTENS av temperatur: $T_k/T_v$ i Carnot-grensen, $TV^{\\gamma-1}$ i adiabatrelasjonen, $pV = nRT$, $\\ln(T_2/T_1)$ i entropi, og $T^4$ i stråling.\n\n**Celsius er trygt** når bare en temperaturDIFFERANSE inngår, fordi de to skalaene har samme gradstørrelse: $\\Delta T = 40\\,^\\circ\\text{C} - 15\\,^\\circ\\text{C} = 25\\,\\text{K}$. Det gjelder $nC_V\\Delta T$, $nC_P\\Delta T$ og varmeledning.\n\nDen sikre rutinen: **skriv om alt til kelvin i det du leser oppgaven.** Da kan du aldri ta feil, og du taper ingenting."
+  },
+  {
+   "id": "tfy4115-8-1-bb-mc-tempo",
+   "type": "definition",
+   "title": "MC-tempo i kretsprosessoppgaver",
+   "content": "Klyngen på tre til fire koblede spørsmål er verdt om lag ti minutter av de fire timene. Fordelingen som fungerer:\n\n- **tre minutter** på hjørnetabellen, med gasslov-kontroll i hvert hjørne;\n- **ett minutt** per varmemengde;\n- **tretti sekunder** på virkningsgraden;\n- **tretti sekunder** på Carnot-kontrollen.\n\nEr det første hjørnet feil, er hele klyngen feil — så det er der tiden skal ligge. Og fordi det ikke finnes delpoeng, er en kontrollert tabell verdt mer enn en rask."
+  },
+  {
+   "id": "tfy4115-8-1-bb-eliminasjon",
+   "type": "definition",
+   "title": "Eliminasjon ved fysiske grenser",
+   "content": "Fire grenser stryker alternativer på sekunder, uten at du regner:\n\n1. **$0 < \\eta < 1$** alltid. Alt utenfor ryker.\n2. **$\\eta < \\eta_\\text{Carnot}$** for de to ytterste temperaturene. Regn grensen først — det er én divisjon.\n3. **$|Q_\\text{ut}| < Q_\\text{inn}$** alltid, og differansen er $W_\\text{netto}$.\n4. **Størrelsesorden:** en virkelig maskin ligger på $0{,}2$–$0{,}6$. Alternativer over $0{,}9$ er nesten alltid celsius-fella.\n\nI et sett med seks alternativer er dette ofte nok til å komme ned til to."
+  },
+  {
+   "id": "tfy4115-8-1-coll-symbolliste",
+   "type": "collapsible",
+   "title": "Symbol- og formelliste",
+   "buttonText": "Vis symboler og formler",
+   "content": [
+    {
+     "id": "tfy4115-8-1-symb-1",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n**Kolliderende symboler i dette delkapitlet — les nøye.**\n\n- $\\gamma$ er **adiabateksponenten** $C_P/C_V$, dimensjonsløs, mellom 1 og $\\tfrac53$. I [kap. 5.2](/tfy4115/tfy4115-5-2) var $\\gamma = b/2m$ **dempingskoeffisienten** med enheten $\\text{s}^{-1}$. **Enheten avgjør:** har $\\gamma$ enhet, er det demping.\n- $T$ er **absolutt temperatur i kelvin**. I Del 1–5 var $T$ **perioden** i sekunder.\n- $Q$ er **varme i joule**. I Del 5 var $Q$ **kvalitetsfaktoren**, dimensjonsløs.\n- $S$ er **entropi** i $\\text{J/K}$. I [kap. 5.1](/tfy4115/tfy4115-5-1) var $S$ **taustrekket** i newton.\n- $p$ er **trykk** i pascal, en skalar. I [kap. 3.1](/tfy4115/tfy4115-3-1) var $\\mathbf{p} = m\\mathbf{v}$ **bevegelsesmengde**, en vektor.\n- $R$ er **gasskonstanten** $8{,}314\\,\\text{J/(mol}\\cdot\\text{K)}$. I Del 1–5 var $R$ en **radius**; i [kap. 9.1](/tfy4115/tfy4115-9-1) blir $R_\\text{term}$ en **termisk motstand** i $\\text{K/W}$.\n- $k$ brukes ikke i dette kapitlet. Boltzmanns konstant skrives $k_B$, og fjærstivheten fra Del 5 het $k$.\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $p$ | Trykk (skalar, ikke bevegelsesmengde her) | Pa |\n| $V$ | Volum | $\\text{m}^3$ |\n| $T$ | Absolutt temperatur (**alltid kelvin**) | K |\n| $T_v$, $T_k$ | Temperatur i varmt og kaldt reservoar | K |\n| $n$ | Stoffmengde | mol |\n| $R$ | Universelle gasskonstanten, $8{,}314$ | $\\text{J/(mol}\\cdot\\text{K)}$ |\n| $U$ | Indre energi | J |\n| $Q$ | Varme, positiv inn i gassen (ikke kvalitetsfaktor her) | J |\n| $Q_\\text{inn}$ | Sum av varme på trinn med $Q>0$ | J |\n| $Q_\\text{ut}$ | Varme avgitt til det kalde reservoaret | J |\n| $W$ | Arbeid gassen gjør PÅ omgivelsene | J |\n| $W_\\text{netto}$ | Arbeid per syklus = omsluttet areal | J |\n| $C_V$, $C_P$ | Molar varmekapasitet ved konstant $V$ og $p$ | $\\text{J/(mol}\\cdot\\text{K)}$ |\n| $\\gamma$ | Adiabateksponent $C_P/C_V$ (ikke demping her) | — |\n| $\\eta$ | Virkningsgrad | — |\n| $r$ | Kompresjonsforhold $V_\\text{maks}/V_\\text{min}$ | — |\n| $\\alpha$ | Innsprøytningsforhold $V_3/V_2$ (Diesel) | — |\n| $S$ | Entropi (ikke taustrekk her) | J/K |\n| $f$ | Antall arbeidssykluser per sekund | $\\text{s}^{-1}$ |\n| $P$ | Effekt, $W_\\text{netto}f$ | W |\n\n**Formler i dette delkapitlet:**\n\n$$\\Delta U = Q - W, \\qquad \\Delta U_\\text{syklus} = 0 \\Rightarrow W_\\text{netto} = Q_\\text{inn} - |Q_\\text{ut}|$$\nFørste hovedsetning, og den formen den tar over en lukket sløyfe [står på det utdelte arket].\n\n$$pV = nRT$$\nIdeell gasslov — verktøyet i hjørnetabellen [står på det utdelte arket].\n\n$$W = \\int p\\,dV, \\qquad W_\\text{netto} = \\oint p\\,dV = \\pm(\\text{omsluttet areal})$$\nArbeid som areal; fortegnet fra omløpsretningen [må kunne brukes eller utledes aktivt].\n\n$$\\Delta U = nC_V\\Delta T \\quad\\text{(alltid)}, \\qquad C_P = C_V + R, \\qquad \\gamma = \\frac{C_P}{C_V}$$\nIndre energi og varmekapasitetene [står på det utdelte arket].\n\n$$W_\\text{isoterm} = Q_\\text{isoterm} = nRT\\ln\\frac{V_2}{V_1}$$\nIsotermarbeidet [må kunne brukes eller utledes aktivt].\n\n$$pV^{\\gamma} = \\text{konstant}, \\qquad TV^{\\gamma-1} = \\text{konstant}, \\qquad \\frac{T^{\\gamma}}{p^{\\gamma-1}} = \\text{konstant}$$\nAdiabatrelasjonene [står på det utdelte arket].\n\n$$\\eta = \\frac{W_\\text{netto}}{Q_\\text{inn}} = 1 - \\frac{|Q_\\text{ut}|}{Q_\\text{inn}}$$\nVirkningsgrad [står på det utdelte arket].\n\n$$\\eta_\\text{Carnot} = 1 - \\frac{T_k}{T_v} \\qquad (T\\ \\text{i kelvin})$$\nCarnot-grensen — øvre grense for ALLE sykluser mellom to reservoarer [står på det utdelte arket; **må også kunne utledes aktivt** fra entropiregnskapet].\n\n$$\\eta_\\text{Otto} = 1 - r^{1-\\gamma} = 1 - \\frac{1}{r^{\\gamma-1}}$$\nOtto-syklusen [må kunne brukes eller utledes aktivt].\n\n$$\\eta_\\text{Diesel} = 1 - \\frac{1}{\\gamma}\\cdot\\frac{\\alpha^{\\gamma} - 1}{r^{\\gamma-1}(\\alpha-1)}$$\nDiesel-syklusen; $\\alpha \\to 1$ gir Otto tilbake [står på det utdelte arket].\n\n$$W_\\text{Stirling} = nR(T_v - T_k)\\ln\\frac{V_2}{V_1}, \\qquad \\eta_\\text{Stirling, regenerert} = 1 - \\frac{T_k}{T_v}$$\nStirling-syklusen [må kunne brukes eller utledes aktivt].\n\n$$\\Delta S = \\frac{Q}{T} \\quad\\text{(isoterm)}, \\qquad \\Delta S_\\text{univers} \\ge 0$$\nEntropi og andre hovedsetning; behandles fullt ut i kap. 7.2 [står på det utdelte arket].\n\n$$\\frac{dp}{dV}\\bigg|_\\text{adiabat} = \\gamma\\,\\frac{dp}{dV}\\bigg|_\\text{isoterm}$$\nHvorfor adiabaten er brattere [må kunne brukes eller utledes aktivt].\n\n$$\\ln 2 = 0{,}69315, \\qquad \\ln 2{,}5 = 0{,}91629, \\qquad \\ln 3 = 1{,}09861$$\nLogaritmeverdiene du trenger oftest [Rottmann]."
+    }
+   ]
+  },
+  {
+   "id": "tfy4115-8-1-coll-repetisjon",
+   "type": "collapsible",
+   "title": "Repetisjonsoppgaver",
+   "buttonText": "Vis repetisjonsoppgaver",
+   "content": [
+    {
+     "id": "tfy4115-8-1-rep-1",
+     "type": "text",
+     "content": "Seks korte oppgaver på det dette kapitlet hviler på. Ta dem før du går videre til [kap. 8.2](/tfy4115/tfy4115-8-2).\n\n**R1.** En ideell gass går isokort fra $300\\,\\text{K}$ til $450\\,\\text{K}$. Hva er $W$, og hva er $Q$ hvis gassen er én mol enatomig?\n\n*Svar:* $W = 0$ (konstant volum). $Q = \\Delta U = nC_V\\Delta T = 1{,}00 \\cdot 12{,}471 \\cdot 150\\,\\text{J} = 1871\\,\\text{J}$. Merk at $\\Delta T = 150\\,\\text{K}$ er en differanse, så celsius ville gitt samme tall her.\n\n**R2.** Samme gass går isobart fra $300\\,\\text{K}$ til $450\\,\\text{K}$ ved $1{,}00\\cdot10^5\\,\\text{Pa}$. Finn $Q$, $W$ og $\\Delta U$.\n\n*Svar:* $Q = nC_P\\Delta T = 1{,}00 \\cdot 20{,}785 \\cdot 150\\,\\text{J} = 3118\\,\\text{J}$. $\\Delta U = nC_V\\Delta T = 1871\\,\\text{J}$ (samme som R1 — indre energi bryr seg ikke om veien). $W = Q - \\Delta U = 1247\\,\\text{J}$. Kontroll: $W = nR\\Delta T = 8{,}314 \\cdot 150 = 1247\\,\\text{J}$ ✔.\n\n**R3.** Én mol toatomig gass komprimeres adiabatisk fra $V_1$ til $V_1/4$. Hvor mye stiger temperaturen fra $290\\,\\text{K}$?\n\n*Svar:* $T_2 = T_1(V_1/V_2)^{\\gamma-1} = 290 \\cdot 4^{0{,}400}\\,\\text{K} = 290 \\cdot 1{,}74110\\,\\text{K} = 504{,}9\\,\\text{K}$. Kontroll: temperaturen skal STIGE ved kompresjon ✔.\n\n**R4.** Hva er $\\gamma$ for en enatomig og en toatomig ideell gass, og hvilket $C_V$ hører til hver?\n\n*Svar:* Enatomig: $C_V = \\tfrac32R = 12{,}471$, $C_P = \\tfrac52R = 20{,}785$, $\\gamma = 5/3 \\approx 1{,}667$. Toatomig: $C_V = \\tfrac52R = 20{,}785$, $C_P = \\tfrac72R = 29{,}099$, $\\gamma = 7/5 = 1{,}400$. Kontroll: $C_P - C_V = R = 8{,}314$ i begge ✔.\n\n**R5.** En isoterm ekspansjon ved $400\\,\\text{K}$ dobler volumet til $0{,}750$ mol gass. Finn $Q$ og $W$.\n\n*Svar:* $\\Delta U = 0$, så $Q = W = nRT\\ln 2 = 0{,}750 \\cdot 8{,}314 \\cdot 400 \\cdot 0{,}69315\\,\\text{J} = 1728{,}7\\,\\text{J}$. Begge positive: gassen utvider seg og tar imot varme.\n\n**R6.** Hvorfor er $\\Delta U = nC_V\\Delta T$ gyldig også for en isobar prosess, der volumet endrer seg?\n\n*Svar:* Fordi indre energi i en ideell gass bare avhenger av temperaturen, ikke av volumet. Molekylene har ingen potensiell energi seg imellom (det er hele idealiseringen), så all indre energi er kinetisk, og den er en funksjon av $T$ alene. Derfor gjelder $\\Delta U = nC_V\\Delta T$ uansett vei — mens $Q$ og $W$ er veiavhengige."
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}

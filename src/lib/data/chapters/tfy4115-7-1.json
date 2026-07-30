@@ -1,0 +1,445 @@
+{
+  "id": "tfy4115-7-1",
+  "courseId": "tfy4115",
+  "chapterNumber": "7.1",
+  "title": "Første hovedsetning og termodynamiske prosesser",
+  "description": "$\\Delta U=Q-W$, arbeid $W=\\int p\\,dV$, og de fire prosessene (isoterm, isobar, isokor, adiabat $pV^\\gamma=\\text{konst}$) med riktig $(Q,W,\\Delta U)$-relasjon.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "kunne bruke første hovedsetning med riktig fortegn, og lese hvert fortegn ut i klartekst som varme inn eller ut og arbeid på eller av gassen",
+    "kunne kjenne igjen prosesstypen fra oppgaveteksten og bruke den relasjonen som gjelder for nettopp den prosessen",
+    "kunne utlede adiabatrelasjonene fra første hovedsetning og velge den formen som passer de oppgitte størrelsene",
+    "kunne begrunne hvorfor adiabaten er brattere enn isotermen, og bruke det til å kontrollere svar og stryke urimelige alternativer"
+  ],
+  "content": [
+    {
+      "id": "tfy4115-7-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er termohalvdelens mest brukte kapittel.** Alt som følger — hele\nkretsprosessdelen i Del 8, entropien i [kap. 7.2](/tfy4115/tfy4115-7-2) og\nvarmepumpene — hviler på de fire prosessene og på ett energiregnskap.\n\n**Sjanger T8 — hovedsetningene som fortegnsanalyse** (bokas navn på\noppgaveformen der du får to av størrelsene varme, arbeid og indre energi og skal\nfinne den tredje, med riktig fortegn) forekommer i **praktisk talt alle sett\n(~100 %)**. **Sjanger T4 — adiabatoppgaven** (en prosess uten varmeutveksling,\nder du skal finne nytt trykk, ny temperatur eller arbeidet) forekommer i **om lag\n9 av 10 sett (~90 %)**. Begge hører i **termohalvdelen, spørsmål 21–40**.\nPrioritet: **høyeste — dette må sitte.**\n\nSignaturen er alltid den samme: **kjenn igjen prosesstypen, og bruk dens\nrelasjon.** Er volumet fast, er arbeidet null. Er trykket fast, er arbeidet\n$p\\,\\Delta V$. Er temperaturen fast, er $\\Delta U$ null. Er det ingen\nvarmeutveksling, er $Q$ null. Fire setninger, og halve termohalvdelen er dekket.\n\n**Den ene feilen som koster mest her, er å bruke feil prosessrelasjon** (felle\n#10 — å behandle isokor, isobar, isoterm og adiabat om hverandre). Den nest\ndyreste er **feil fortegn** i energiregnskapet, og den tredje er **feil\n$\\gamma$** i adiabatrelasjonen (felle #8), som er ekstra dyr fordi $\\gamma$ står\ni en eksponent."
+    },
+    {
+      "id": "tfy4115-7-1-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet bygger på [kap. 6.2](/tfy4115/tfy4115-6-2), og du trenger tre ting\nderfra. De står ferdig oppfrisket her:\n\n$$C_V = \\frac{f}{2}R, \\qquad C_P = C_V + R, \\qquad\n\\gamma = \\frac{C_P}{C_V} = \\frac{f+2}{f}$$\nDe tre størrelsene hele kapitlet regner med. **Enatomig gass:**\n$C_V = 12{,}471$, $C_P = 20{,}785$, $\\gamma = 1{,}6667$. **Toatomig ved\nromtemperatur:** $C_V = 20{,}785$, $C_P = 29{,}099$, $\\gamma = 1{,}4000$\n(varmekapasiteter i $\\text{J/(mol}\\cdot\\text{K)}$).\n\n$$\\Delta U = nC_V\\,\\Delta T \\qquad (\\textbf{uansett prosess})$$\nEndringen i indre energi. Merk «uansett prosess» — det er $C_V$ som står her selv\ni en isobar prosess, fordi indre energi bare avhenger av temperaturen. Dette er\nden enkeltrelasjonen du kommer til å bruke oftest i resten av boka.\n\n$$pV = nRT$$\nGassloven fra [kap. 6.1](/tfy4115/tfy4115-6-1), som binder de tre\ntilstandsstørrelsene sammen. Du bruker den i praktisk talt hver deloppgave, ofte\nfor å finne den temperaturen oppgaven ikke oppgir.\n\n**Fra matematikken:** [Bestemt integral som grenseverdi](/r2/r2-2-4) trenger du\ntil $W = \\int p\\,dV$ — arbeidet er arealet under prosessveien i et\n$pV$-diagram. Og logaritmen dukker opp i det isoterme arbeidet:\n$$\\int_{V_1}^{V_2}\\frac{dV}{V} = \\ln\\frac{V_2}{V_1}, \\qquad\n\\ln 2 = 0{,}69315, \\qquad \\ln 3 = 1{,}09861, \\qquad \\ln 4 = 1{,}38629.$$\n\n**Fra mekanikken:** energibegrepet fra [kap. 2.2](/tfy4115/tfy4115-2-2). Arbeid\ner kraft ganger vei der; her er det trykk ganger volumendring, men det er samme\nregnskap. Og energibevaring gjelder like fullt — den blir bare utvidet med\nvarme.\n\n**⚠ Symbolvarsel.** Fra og med dette kapitlet er $Q$ **varme i joule**; i\n[kap. 5.2](/tfy4115/tfy4115-5-2) var $Q$ kvalitetsfaktoren, som er\ndimensjonsløs. $W$ er **arbeid i joule** — samme størrelse som i mekanikken, men\nher regnet på gassen. $\\gamma$ er **adiabateksponenten**, dimensjonsløs mellom 1\nog $\\tfrac53$, ikke dempingskoeffisienten. Og $T$ er **kelvin**, alltid."
+    },
+    {
+      "id": "tfy4115-7-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — energiregnskapet og fortegnene (~14 min)\n\nTrykk stempelet ned i en sykkelpumpe med tommelen over ventilen. Pumpen blir\nvarm. Du har ikke tilført varme — du har gjort **arbeid** på luften, og\nenergien måtte ta veien inn i gassen.\n\nSlipp så luften ut av et fullt sykkeldekk mot håndbaken. Luftstrømmen er\n**kald**. Gassen har utvidet seg og gjort arbeid mot omgivelsene, og energien\nmåtte komme fra et sted — nemlig fra gassens egen indre energi, altså fra\nmolekylenes bevegelse. Derfor faller temperaturen.\n\nTo hverdagslige observasjoner, og de er de to fortegnene i første hovedsetning."
+    },
+    {
+      "id": "tfy4115-7-1-def-prosess",
+      "type": "definition",
+      "title": "Termodynamisk prosess",
+      "content": "En endring der et system går fra én likevektstilstand til en annen. Prosessen\nbeskrives ved **veien** systemet tar — for en gass: kurven fra startpunktet til\nsluttpunktet i et $pV$-diagram.\n\nMerk skillet som hele kapitlet hviler på: **tilstanden** er et punkt (gitt ved\n$p$, $V$, $T$), mens **prosessen** er en kurve. To ulike kurver mellom de samme\nto punktene har samme $\\Delta U$, men ulik $Q$ og ulikt $W$. Det er derfor\noppgaven alltid må si *hvilken* prosess det er — og derfor det første du gjør, er\nå finne ut hvilken."
+    },
+    {
+      "id": "tfy4115-7-1-def-kvasistatisk",
+      "type": "definition",
+      "title": "Kvasistatisk prosess",
+      "content": "En prosess som går så langsomt at gassen hele tiden er i (praktisk talt) termisk\nlikevekt, slik at den har et veldefinert trykk og en veldefinert temperatur i\nhvert øyeblikk. Bare da kan prosessen tegnes som en **kurve** i et\n$pV$-diagram, og bare da er $W = \\int p\\,dV$ meningsfull.\n\nAlle de fire prosessene i dette kapitlet forutsetter dette. Ordet **reversibel**\nbrukes ofte om det samme: en prosess som kan kjøres baklengs gjennom de samme\ntilstandene. En rask, voldsom prosess — en gass som strømmer fritt inn i et tomt\nrom — er **ikke** kvasistatisk, har ingen definert vei, og krever et eget grep.\nDet grepet er tema i [kap. 7.2](/tfy4115/tfy4115-7-2)."
+    },
+    {
+      "id": "tfy4115-7-1-def-varme",
+      "type": "definition",
+      "title": "Varme $Q$",
+      "content": "Energi som overføres mellom systemet og omgivelsene **på grunn av en\ntemperaturforskjell**, med enheten joule.\n\nVarme er ikke noe et system *har* — det er noe som *overføres*. Du kan spørre\n«hvor mye indre energi har gassen?», men ikke «hvor mye varme har den?». Varme og\narbeid er de to måtene energi kan krysse systemgrensen, og begge avhenger av\n**hvilken vei** prosessen gikk.\n\n**Fortegnet:** $Q > 0$ betyr varme **inn i** systemet, $Q < 0$ betyr varme\n**ut**. Skriv alltid retningen i klartekst ved siden av tallet — for eksempel\n«$Q = -1{,}75\\,\\text{kJ}$, altså $1{,}75$ kilojoule **ut** av gassen». Det er den\nvanen som fanger fortegnsfeil før de blir bokstavsvar.\n\n⚠ **Symbolkollisjon:** $Q$ var **kvalitetsfaktoren** i\n[kap. 5.2](/tfy4115/tfy4115-5-2), en dimensjonsløs størrelse. Her er $Q$ varme i\njoule. Enheten skiller dem."
+    },
+    {
+      "id": "tfy4115-7-1-def-arbeid",
+      "type": "definition",
+      "title": "Arbeid $W$ i termofysikken",
+      "content": "Energi som overføres ved at systemet flytter en grense mot en kraft. For en gass\ni en sylinder med stempel: kraften på stempelet er $pA$, og flytter stempelet seg\n$dx$, er arbeidet\n$$dW = pA\\,dx = p\\,dV \\quad\\Longrightarrow\\quad\nW = \\int_{V_1}^{V_2} p\\,dV.$$\nUttrykket **står på det utdelte arket**.\n\nLegg merke til at dette er **samme** arbeidsbegrep som i mekanikken (kraft ganger\nvei, fra [kap. 2.2](/tfy4115/tfy4115-2-2)) — bare skrevet om til de variablene en\ngass beskrives med.\n\n**Fortegnet følger av retningen:** utvider gassen seg ($dV > 0$), er $W > 0$ og\ngassen gjør arbeid **på omgivelsene**. Komprimeres den ($dV < 0$), er $W < 0$, og\nomgivelsene gjør arbeid **på gassen**. En negativ $W$ skal derfor alltid leses ut\ni klartekst: «$W = -1{,}99\\,\\text{kJ}$, altså $1{,}99\\,\\text{kJ}$ arbeid **gjort\npå** gassen»."
+    },
+    {
+      "id": "tfy4115-7-1-thm-forste",
+      "type": "theorem",
+      "title": "Første hovedsetning",
+      "content": "Energien i universet er bevart. For et system som mottar varmen $Q$ og gjør\narbeidet $W$ på omgivelsene:\n$$\\boxed{\\ \\Delta U = Q - W\\ }$$\nLoven **står på det utdelte arket** i nettopp denne formen.\n\n**Fortegnskonvensjonen denne boka bruker overalt — les den én gang, og hold\nden:**\n\n- $Q > 0$: varme **inn i** systemet.\n- $W > 0$: arbeid gjort **av** systemet **på** omgivelsene (gassen utvider seg).\n- $\\Delta U > 0$: den indre energien **øker**, altså stiger temperaturen (for en\n  ideell gass).\n\n*Intuisjon:* les den som en bankkonto. $Q$ er innskudd, $W$ er uttak, og\n$\\Delta U$ er endringen i saldo. Varmer du gassen og lar den utvide seg samtidig,\ner noe satt inn og noe tatt ut — og saldoen endres bare med differansen.\n\n**Tre spesialtilfeller som gir halve poengene i sjangeren:**\n\n- Ingen volumendring ⇒ $W = 0$ ⇒ $\\Delta U = Q$.\n- Ingen varmeutveksling ⇒ $Q = 0$ ⇒ $\\Delta U = -W$.\n- Ingen temperaturendring (ideell gass) ⇒ $\\Delta U = 0$ ⇒ $Q = W$.\n\nOg for en ideell gass gjelder alltid, uansett prosess:\n$$\\Delta U = nC_V\\,\\Delta T.$$"
+    },
+    {
+      "id": "tfy4115-7-1-tip-konvensjon",
+      "type": "tip",
+      "title": "Andre bøker skriver $\\Delta U = Q + W$ — slik ser du forskjellen",
+      "content": "Du kommer til å møte begge formene, og de er **ikke** uenige om fysikken. De\ndefinerer $W$ ulikt:\n\n| Form | Hva $W$ betyr | Positiv $W$ betyr |\n|---|---|---|\n| $\\Delta U = Q - W$ (**denne boka**, og TFY4115s formelark) | arbeidet **gassen gjør på** omgivelsene | gassen utvider seg |\n| $\\Delta U = Q + W$ (mange kjemibøker og en del engelske fysikkbøker) | arbeidet **omgivelsene gjør på** gassen | gassen komprimeres |\n\nDe to $W$-ene er hverandres motsatte, så begge likningene sier det samme.\n\n**Slik kjenner du igjen hvilken en tekst bruker, på fem sekunder:** finn\nuttrykket for **isotermt arbeid** eller for en **ekspansjon**.\n\n- Står det $W = nRT\\ln(V_2/V_1)$ og teksten sier at $W$ er **positiv** når gassen\n  utvider seg, er konvensjonen $\\Delta U = Q - W$.\n- Står det $W = -nRT\\ln(V_2/V_1)$, eller sier teksten at $W$ er **negativ** ved\n  ekspansjon, er konvensjonen $\\Delta U = Q + W$.\n\nEn annen sikker markør: i en **adiabatisk kompresjon** stiger temperaturen. Med\n$\\Delta U = Q - W$ må da $W$ være negativ; med $\\Delta U = Q + W$ må $W$ være\npositiv.\n\n**Rådet er enkelt: bruk denne bokas konvensjon konsekvent, og skriv den ned\nøverst på kladden.** Blander du de to midt i en kretsprosess i Del 8, forplanter\nfortegnsfeilen seg gjennom hele syklusen, og virkningsgraden blir feil. Det som\nuansett **ikke** kan feiltolkes, er retningen i klartekst: skriv «$1{,}99\\,\\text{kJ}$\narbeid gjort **på** gassen» ved siden av tallet, hver gang."
+    },
+    {
+      "id": "tfy4115-7-1-def-areal",
+      "type": "definition",
+      "title": "Arbeid som areal under $pV$-kurven",
+      "content": "Siden $W = \\int p\\,dV$, er arbeidet **arealet under prosessveien** i et\n$pV$-diagram, med volumet på den vannrette aksen.\n\nFire konsekvenser du kan lese direkte av en figur, uten å regne:\n\n1. **En loddrett vei (isokor) har ingen bredde**, altså $W = 0$.\n2. **En vannrett vei (isobar) gir et rektangel**, $W = p\\,\\Delta V$.\n3. **Går veien mot høyre** (ekspansjon), er $W > 0$; **mot venstre**\n   (kompresjon), er $W < 0$.\n4. **To ulike veier mellom samme to punkter gir ulikt areal** — og det er den\n   geometriske grunnen til at arbeid ikke er en tilstandsstørrelse.\n\nDen siste er verdt å feste: derfor kan en gass føres fra tilstand 1 til tilstand\n2 med mye arbeid eller lite arbeid, og $\\Delta U$ er den samme uansett."
+    },
+    {
+      "id": "tfy4115-7-1-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: isobar oppvarming, med fullt energiregnskap",
+      "problem": "$1{,}20\\,\\text{mol}$ nitrogengass (toatomig) holdes ved konstant trykk\n$1{,}50\\cdot10^{5}\\,\\text{Pa}$ mens volumet vokser fra $20{,}0\\,\\text{L}$ til\n$30{,}0\\,\\text{L}$.\n\n**a)** Finn temperaturen før og etter.\n\n**b)** Finn arbeidet gassen gjør.\n\n**c)** Finn endringen i indre energi.\n\n**d)** Finn den tilførte varmen, på to uavhengige måter.",
+      "solution": "**a) Symbolsk.** Gassloven løst for temperaturen: $T = pV/(nR)$.\n\n**Rask vei til tall.** Regn $nR$ én gang og gjenbruk det:\n$$nR = 1{,}20 \\cdot 8{,}314 = 9{,}9768\\,\\text{J/K},$$\n$$T_1 = \\frac{1{,}50\\cdot10^{5} \\cdot 0{,}0200}{9{,}9768}\\,\\text{K} = 300{,}70\\,\\text{K}, \\qquad\nT_2 = \\frac{1{,}50\\cdot10^{5} \\cdot 0{,}0300}{9{,}9768}\\,\\text{K} = 451{,}05\\,\\text{K},$$\naltså $\\Delta T = 150{,}35\\,\\text{K}$.\n\n**b) Symbolsk.** Konstant trykk gir $W = \\int p\\,dV = p\\,\\Delta V$ — trykket kan\nsettes utenfor integralet.\n\n**Rask vei til tall.**\n$$W = 1{,}50\\cdot10^{5} \\cdot (0{,}0300 - 0{,}0200)\\,\\text{J} = 1{,}50\\cdot10^{5} \\cdot 0{,}0100\\,\\text{J}\n= 1500{,}0\\,\\text{J}.$$\n**Fortegnet i klartekst:** positivt, altså $1500{,}0\\,\\text{J}$ arbeid gjort **av**\ngassen på omgivelsene. Gassen skyver stempelet utover.\n\n**c) Symbolsk.** $\\Delta U = nC_V\\Delta T$ med $C_V = \\tfrac52R$ for en toatomig\ngass — merk at det er $C_V$ og ikke $C_P$, selv om prosessen er isobar.\n\n**Rask vei til tall.**\n$$\\Delta U = 1{,}20 \\cdot 20{,}785 \\cdot 150{,}35\\,\\text{J} = 3750{,}0\\,\\text{J}.$$\n\n**Elegant kontroll:** for en isobar prosess er $nR\\Delta T = p\\Delta V = W$, så\n$$\\Delta U = nC_V\\Delta T = \\frac{C_V}{R}\\,nR\\Delta T = \\tfrac52 W\n= 2{,}5 \\cdot 1500{,}0\\,\\text{J} = 3750{,}0\\,\\text{J} \\ \\checkmark$$\nDen snarveien er verdt å kjenne: **i en isobar prosess er $\\Delta U$ nøyaktig\n$\\tfrac{f}{2}$ ganger arbeidet.**\n\n**d) Første måte — første hovedsetning:**\n$$Q = \\Delta U + W = 3750{,}0 + 1500{,}0\\,\\text{J} = 5250{,}0\\,\\text{J}.$$\n\n**Andre måte — direkte med $C_P$:**\n$$Q = nC_P\\Delta T = 1{,}20 \\cdot 29{,}099 \\cdot 150{,}35\\,\\text{J} = 5250{,}0\\,\\text{J}\n\\ \\checkmark$$\nSamme svar fra to helt ulike veier. Dette er også **utledningen av\n$C_P = C_V + R$ i tall**: av de $5250{,}0\\,\\text{J}$ som ble tilført, gikk\n$3750{,}0\\,\\text{J}$ til molekylenes egen bevegelse og $1500{,}0\\,\\text{J}$ til å skyve\nomgivelsene unna.\n\n**Fella her:** hadde du brukt $C_P$ i $\\Delta U$, ville du fått\n$5250{,}0\\,\\text{J}$ i stedet for $3750{,}0\\,\\text{J}$ — og differansen er\nnøyaktig arbeidet, som du da har telt to ganger. Det er felle #8 i sin reneste\nform."
+    },
+    {
+      "id": "tfy4115-7-1-o-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-7-1-o-1-e",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — bare fortegn og energiregnskap, ingen gasslov.)\n\n**a)** En gass mottar $1200\\,\\text{J}$ varme og gjør $450\\,\\text{J}$ arbeid på\nomgivelsene. Hvor mye endrer den indre energien seg?\n\n**b)** Stiger eller synker temperaturen?\n\n**c)** En annen gass komprimeres, slik at omgivelsene gjør $600\\,\\text{J}$\narbeid på den, mens $250\\,\\text{J}$ varme strømmer **ut**. Skriv opp $Q$ og\n$W$ med riktig fortegn i denne bokas konvensjon, og finn $\\Delta U$.",
+        "solution": "**a)** Med $\\Delta U = Q - W$, der $Q > 0$ er varme inn og $W > 0$ er arbeid gjort\nav gassen:\n$$\\Delta U = 1200 - 450\\,\\text{J} = 750\\,\\text{J}.$$\n\n**b)** For en ideell gass er $\\Delta U = nC_V\\Delta T$, og siden $\\Delta U > 0$,\n**stiger** temperaturen. Merk at det ikke er selvsagt av seg selv: en gass kan\nmotta varme og likevel bli **kaldere**, hvis den samtidig gjør mer arbeid enn\nvarmen som kommer inn.\n\n**c)** Fortegnene i denne bokas konvensjon:\n$$Q = -250\\,\\text{J} \\quad (\\text{varme } \\textbf{ut}), \\qquad\nW = -600\\,\\text{J} \\quad (\\text{arbeid gjort } \\textbf{på} \\text{ gassen}).$$\n$$\\Delta U = Q - W = -250 - (-600)\\,\\text{J} = 350\\,\\text{J}.$$\nDen indre energien **øker** med $350\\,\\text{J}$, altså stiger temperaturen —\nselv om det strømmer varme ut. Det er nettopp sykkelpumpen: kompresjonsarbeidet\ner større enn varmetapet.\n\n**Merk hvor lett minusparentesen glipper.** $-(-600) = +600$. Skriv alltid\nopp $Q$ og $W$ som to egne linjer med fortegn **før** du setter dem inn — det er\nden vanen som fanger fortegnsfeilen.",
+        "hints": [
+          "Skriv opp $\\Delta U=Q-W$ og fyll inn med fortegn.",
+          "Varme ut betyr negativ $Q$; arbeid gjort PÅ gassen betyr negativ $W$.",
+          "Pass på minusparentesen i $Q-W$ når $W$ selv er negativ."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-7-1-o-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-7-1-o-2-e",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger T8 — hovedsetningene som fortegnsanalyse.) $2{,}50\\,\\text{mol}$ argon\n(enatomig) varmes fra $295\\,\\text{K}$ til $375\\,\\text{K}$ i en **stiv**\nbeholder.\n\n**a)** Hvor mye arbeid gjør gassen?\n\n**b)** Finn $\\Delta U$.\n\n**c)** Finn den tilførte varmen.",
+        "solution": "**a)** «Stiv» betyr fast volum, altså **isokor**. Da er $\\Delta V = 0$ og\n$$W = \\int p\\,dV = 0.$$\nGeometrisk: veien er loddrett i $pV$-diagrammet og har ingen bredde.\n\n**b)** Argon er enatomig, $C_V = \\tfrac32R = 12{,}471$:\n$$\\Delta U = nC_V\\Delta T = 2{,}50 \\cdot 12{,}471 \\cdot 80{,}0\\,\\text{J}\n= 2494{,}2\\,\\text{J}.$$\n\n**c)** Fra første hovedsetning med $W = 0$:\n$$Q = \\Delta U + W = 2494{,}2\\,\\text{J}.$$\nAltså går **all** tilført varme til indre energi. Det er nettopp definisjonen av\n$C_V$, og det er derfor $C_V$ er den «rene» varmekapasiteten: den måles ved fast\nvolum, der ingen energi lekker ut som arbeid.",
+        "hints": [
+          "Hva er $\\Delta V$ i en stiv beholder?",
+          "$\\Delta U=nC_V\\Delta T$ — argon er enatomig.",
+          "Sett $W=0$ inn i $\\Delta U=Q-W$."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-7-1-o-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-7-1-o-3-e",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger T8.) $0{,}800\\,\\text{mol}$ toatomig gass utvider seg ved konstant trykk\n$2{,}40\\cdot10^{5}\\,\\text{Pa}$, og volumet øker med $12{,}0\\,\\text{L}$.\n\n**a)** Finn arbeidet gassen gjør.\n\n**b)** Finn temperaturendringen.\n\n**c)** Finn $\\Delta U$ og den tilførte varmen.\n\n**d)** Hvor stor andel av den tilførte varmen gikk til arbeid?",
+        "solution": "**a)**\n$$W = p\\,\\Delta V = 2{,}40\\cdot10^{5} \\cdot 0{,}0120\\,\\text{J} = 2880{,}0\\,\\text{J},$$\npositivt, altså arbeid gjort **av** gassen.\n\n**b)** Ved konstant trykk er $p\\,\\Delta V = nR\\,\\Delta T$, så\n$$\\Delta T = \\frac{p\\,\\Delta V}{nR} = \\frac{2880{,}0}{6{,}6512}\\,\\text{K}\n= 433{,}00\\,\\text{K}.$$\nMerk at du får temperaturendringen **uten** å kjenne selve temperaturene.\n\n**c)**\n$$\\Delta U = nC_V\\Delta T = 0{,}800 \\cdot 20{,}785 \\cdot 433{,}00\\,\\text{J}\n= 7200{,}0\\,\\text{J},$$\n$$Q = \\Delta U + W = 7200{,}0 + 2880{,}0\\,\\text{J} = 10080\\,\\text{J}.$$\n**Kontroll:**\n$$Q = nC_P\\Delta T = 0{,}800 \\cdot 29{,}099 \\cdot 433{,}00\\,\\text{J} = 10080\\,\\text{J} \\ \\checkmark$$\n\n**d)**\n$$\\frac{W}{Q} = \\frac{2880{,}0}{10080} = 0{,}28571,$$\naltså $28{,}57$ prosent. Og det er ikke et tilfeldig tall: forholdet er\n$$\\frac{W}{Q} = \\frac{nR\\Delta T}{nC_P\\Delta T} = \\frac{R}{C_P}\n= \\frac{R}{\\tfrac{f+2}{2}R} = \\frac{2}{f+2} = \\frac{2}{7} = 0{,}28571.$$\n**For enhver isobar prosess i en toatomig gass går altså to sjuendedeler av\nvarmen til arbeid**, uansett hvor mye eller lite gassen varmes. For en enatomig\ngass er andelen $2/5 = 0{,}40000$.",
+        "hints": [
+          "Ved konstant trykk kan trykket settes utenfor integralet.",
+          "Bruk gassloven i differanseform: $p\\Delta V=nR\\Delta T$.",
+          "I d): skriv $W/Q$ som $R/C_P$ og forkort."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-7-1-lokke2",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\n## Løkke 2 — de fire prosessene (~16 min)\n\nNå skal vi gå gjennom de fire veiene en gass kan føres langs, én for én. Alle\nfire er navngitt etter **hva som holdes fast**, og navnet er hele oppskriften:\nkjenner du prosesstypen, kjenner du relasjonen."
+    },
+    {
+      "id": "tfy4115-7-1-def-isokor",
+      "type": "definition",
+      "title": "Isokor prosess (fast volum)",
+      "content": "En prosess der volumet ikke endres, $\\Delta V = 0$. Da kan gassen ikke gjøre\narbeid:\n$$W = 0, \\qquad Q = \\Delta U = nC_V\\,\\Delta T.$$\nBetingelsen er en stiv, lukket beholder — en stålflaske, en autoklav, en\nbilmotors tennfase.\n\nI $pV$-diagrammet er veien **loddrett**. Trykket følger temperaturen:\n$p_2/p_1 = T_2/T_1$.\n\nDette er den enkleste av de fire, og den brukes flittig som et ledd i en\nkretsprosess (Del 8), nettopp fordi $W = 0$ gjør regnskapet kort."
+    },
+    {
+      "id": "tfy4115-7-1-def-isobar",
+      "type": "definition",
+      "title": "Isobar prosess (fast trykk)",
+      "content": "En prosess der trykket holdes konstant. Da kan trykket settes utenfor integralet:\n$$W = p\\,\\Delta V = nR\\,\\Delta T, \\qquad Q = nC_P\\,\\Delta T, \\qquad\n\\Delta U = nC_V\\,\\Delta T.$$\nBetingelsen er et fritt stempel, en ballong eller en åpen beholder — noe som lar\nvolumet gi etter mens trykket holdes av omgivelsene.\n\nI $pV$-diagrammet er veien **vannrett**, og arbeidet er et rektangel med areal\n$p\\,\\Delta V$. Volumet følger temperaturen: $V_2/V_1 = T_2/T_1$.\n\nMerk de to ulike varmekapasitetene i samme prosess: **$C_P$ i varmen, $C_V$ i\n$\\Delta U$.** Det er her felle #8 slår oftest til."
+    },
+    {
+      "id": "tfy4115-7-1-def-isoterm",
+      "type": "definition",
+      "title": "Isoterm prosess (fast temperatur)",
+      "content": "En prosess der temperaturen holdes konstant. For en ideell gass avhenger den\nindre energien bare av temperaturen, så\n$$\\Delta U = 0, \\qquad Q = W = nRT\\ln\\frac{V_2}{V_1}.$$\nUttrykket **står på det utdelte arket**.\n\nBetingelsen er god varmekontakt med et stort reservoar, og at prosessen går\nlangsomt nok til at temperaturen rekker å jevne seg ut. I $pV$-diagrammet er\nveien en **hyperbel**, $pV = \\text{konstant}$ — Boyles lov.\n\n**Den fysiske lesningen er verdt å feste:** ved isoterm ekspansjon går **all**\ntilført varme rett ut igjen som arbeid, uten å endre den indre energien i det hele\ntatt. Gassen er en ren energiformidler. Ved isoterm kompresjon går det motsatt vei:\nalt arbeidet du gjør på gassen, må ut som varme."
+    },
+    {
+      "id": "tfy4115-7-1-def-adiabat",
+      "type": "definition",
+      "title": "Adiabatisk prosess (ingen varmeutveksling)",
+      "content": "En prosess der systemet ikke utveksler varme med omgivelsene, $Q = 0$. Da går all\nenergi via arbeid:\n$$\\Delta U = -W, \\qquad W = -nC_V\\,\\Delta T.$$\n\nBetingelsen er at prosessen skjer så **raskt** at varmestrømmen ikke rekker å bli\nnoe av, eller at systemet er så godt **isolert** at den ikke kan. Begge er\nrealistiske: en sykkelpumpe du trykker fort, en dieselmotors kompresjonsslag, en\nluftmasse som stiger og utvider seg i atmosfæren.\n\nFor en ideell gass gjelder i tillegg\n$$pV^{\\gamma} = \\text{konstant}, \\qquad TV^{\\gamma-1} = \\text{konstant}, \\qquad\n\\frac{T^{\\gamma}}{p^{\\gamma-1}} = \\text{konstant}.$$\n\n**Merk fortegnene:** komprimerer du adiabatisk, er $W < 0$ (arbeid inn) og\n$\\Delta U > 0$, altså **stiger** temperaturen. Utvider gassen seg adiabatisk, er\n$W > 0$ og temperaturen **faller**. Det er sykkelpumpen og den kalde\nluftstrømmen fra dekket, i to formler."
+    },
+    {
+      "id": "tfy4115-7-1-utledning-adiabat",
+      "type": "text",
+      "content": "### Utledningen som kreves aktivt: adiabatrelasjonene\n\nDette er den ene utledningen i kapitlet du bør kunne gjøre fra bunnen, fordi den\nforklarer hvor eksponenten $\\gamma$ kommer fra.\n\nStart med første hovedsetning for en infinitesimal, adiabatisk ($Q = 0$)\nprosess:\n$$dU = -dW \\quad\\Longrightarrow\\quad nC_V\\,dT = -p\\,dV.$$\n\n*Intuisjon:* den lille energien gassen taper ved å skyve, må komme fra dens egen\nindre energi — det finnes ingen annen kilde når $Q = 0$.\n\nSett inn $p = nRT/V$ fra gassloven, og $n$ faller ut:\n$$C_V\\,dT = -\\frac{RT}{V}\\,dV \\quad\\Longrightarrow\\quad\n\\frac{dT}{T} = -\\frac{R}{C_V}\\cdot\\frac{dV}{V}.$$\n\nIntegrér begge sider fra tilstand 1 til tilstand 2:\n$$\\ln\\frac{T_2}{T_1} = -\\frac{R}{C_V}\\ln\\frac{V_2}{V_1}\n= \\frac{R}{C_V}\\ln\\frac{V_1}{V_2}.$$\n\nNå brukes koblingen til $\\gamma$ fra [kap. 6.2](/tfy4115/tfy4115-6-2):\n$$\\gamma = \\frac{C_P}{C_V} = \\frac{C_V+R}{C_V} = 1 + \\frac{R}{C_V}\n\\quad\\Longrightarrow\\quad \\frac{R}{C_V} = \\gamma - 1.$$\n\nDermed:\n$$\\ln\\frac{T_2}{T_1} = (\\gamma-1)\\ln\\frac{V_1}{V_2} \\quad\\Longrightarrow\\quad\n\\frac{T_2}{T_1} = \\left(\\frac{V_1}{V_2}\\right)^{\\gamma-1}\n\\quad\\Longrightarrow\\quad TV^{\\gamma-1} = \\text{konstant}.$$\n\n**Og derfra de to andre formene, med gassloven:** setter du\n$T = pV/(nR)$ inn i $TV^{\\gamma-1} = \\text{konstant}$, får du\n$pV\\cdot V^{\\gamma-1} = pV^{\\gamma} = \\text{konstant}$. Setter du i stedet\n$V = nRT/p$ inn, får du $T^{\\gamma}/p^{\\gamma-1} = \\text{konstant}$. **De tre\nformene er samme relasjon** — velg den som inneholder de to størrelsene oppgaven\ngir deg.\n\n**Arbeidet langs en adiabat** følger nå av $\\Delta U = -W$:\n$$W = -nC_V(T_2-T_1) = nC_V(T_1-T_2)\n= \\frac{p_1V_1 - p_2V_2}{\\gamma-1},$$\nder den siste formen fås ved å bruke $nC_V = nR/(\\gamma-1)$ og gassloven. Den er\nnyttig når oppgaven oppgir trykk og volum men ikke temperaturer.\n\n*Intuisjon for hvorfor $\\gamma$ og ikke 1:* langs en isoterm holdes temperaturen\noppe av varme utenfra, så trykket faller bare fordi volumet vokser. Langs en\nadiabat får gassen ingen varme, så temperaturen faller **også** — og trykket\nfaller derfor av to grunner samtidig. Det er derfor adiabaten er brattere, og\neksponenten forteller hvor mye."
+    },
+    {
+      "id": "tfy4115-7-1-thm-brattere",
+      "type": "theorem",
+      "title": "Adiabaten er alltid brattere enn isotermen",
+      "content": "I et punkt $(V, p)$ som de deler er helningene\n$$\\left(\\frac{dp}{dV}\\right)_\\text{isoterm} = -\\frac{p}{V}, \\qquad\n\\left(\\frac{dp}{dV}\\right)_\\text{adiabat} = -\\gamma\\frac{p}{V}.$$\nForholdet er nøyaktig $\\gamma$, og siden $\\gamma > 1$ **alltid** (fordi\n$C_P > C_V$), er adiabaten alltid den bratteste — uansett gass, uansett trykk,\nuansett volum.\n\nFølgene, som er direkte lesbare i figuren under:\n\n- **Ved ekspansjon** ($V$ øker) faller adiabaten **under** isotermen: trykket\n  faller mer, fordi temperaturen faller i tillegg.\n- **Ved kompresjon** ($V$ minker) stiger adiabaten **over** isotermen: trykket\n  stiger mer, fordi temperaturen stiger i tillegg.\n- **Adiabatisk arbeid ved ekspansjon er mindre** enn isotermt arbeid mellom\n  samme volumer, siden arealet under er mindre.\n\nEn figur der de to krysser med motsatt bratthet, underviser fellen. Har du et\nflervalgsspørsmål med grafer, er brattheten det første du sjekker."
+    },
+    {
+      "id": "tfy4115-7-1-fig-prosesser",
+      "type": "image",
+      "src": "/images/textbook/tfy4115/tfy4115-7-1-fire-prosesser.svg",
+      "alt": "pV-diagram der fire prosessveier starter i samme punkt. En vannrett linje mot hoyre er isobar, en loddrett linje er isokor, en hyperbel er isoterm, og en brattere fallende kurve er adiabat. Adiabaten ligger under isotermen ved storre volum og over den ved mindre volum. Arealet under isotermen fra startpunktet er skyggelagt og merket som arbeidet.",
+      "caption": "De fire prosessene ut fra samme tilstand. **Adiabaten er brattere enn isotermen** — helningen er nøyaktig $\\gamma$ ganger så stor, og derfor ligger den under ved ekspansjon og over ved kompresjon. Arealet under veien er arbeidet: isokoren har ingen bredde og derfor $W=0$, mens isobaren gir et rektangel $p\\,\\Delta V$."
+    },
+    {
+      "id": "tfy4115-7-1-def-prosesstabell",
+      "type": "definition",
+      "title": "Prosesstabellen — de fire på én linje hver",
+      "content": "| Prosess | Fast | $W$ | $Q$ | $\\Delta U$ | Vei i $pV$ |\n|---|---|---|---|---|---|\n| **isokor** | $V$ | $0$ | $nC_V\\Delta T$ | $nC_V\\Delta T$ | loddrett |\n| **isobar** | $p$ | $p\\Delta V = nR\\Delta T$ | $nC_P\\Delta T$ | $nC_V\\Delta T$ | vannrett |\n| **isoterm** | $T$ | $nRT\\ln\\frac{V_2}{V_1}$ | samme som $W$ | $0$ | hyperbel |\n| **adiabat** | — ($Q=0$) | $-nC_V\\Delta T$ | $0$ | $nC_V\\Delta T$ | brattere hyperbel |\n\n**Legg merke til den ene kolonnen som er lik overalt:** $\\Delta U = nC_V\\Delta T$\ni alle fire. Det er indre energis natur som tilstandsfunksjon, og den kolonnen er\ngrunnen til at du alltid kan regne $\\Delta U$ selv om du er usikker på resten.\n\n**Og legg merke til nullene:** hver prosess har nøyaktig én null (bortsett fra\nisobaren, som ikke har noen). Å plassere nullen feil er felle #10 — å behandle\nprosessene om hverandre."
+    },
+    {
+      "id": "tfy4115-7-1-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: adiabatisk kompresjon",
+      "problem": "$1{,}00\\,\\text{mol}$ nitrogengass (toatomig, $\\gamma = 1{,}4000$) komprimeres\n**adiabatisk** fra $25{,}0\\,\\text{L}$ til halve volumet. Starttemperaturen er\n$300{,}0\\,\\text{K}$.\n\n**a)** Finn starttrykket.\n\n**b)** Finn slutt-temperaturen.\n\n**c)** Finn slutt-trykket, og kontroller svaret med gassloven.\n\n**d)** Finn arbeidet, og si tydelig hvilken vei det går.\n\n**e)** Hvor stort ville slutt-trykket blitt om prosessen i stedet var isoterm?",
+      "solution": "**a)**\n$$p_1 = \\frac{nRT_1}{V_1} = \\frac{1{,}00 \\cdot 8{,}314 \\cdot 300{,}0}{0{,}0250}\n\\,\\text{Pa} = 9{,}9768\\cdot10^{4}\\,\\text{Pa}.$$\n\n**b) Symbolsk.** Adiabatrelasjonen i temperatur-volum-form,\n$TV^{\\gamma-1} = \\text{konstant}$, gir\n$$T_2 = T_1\\left(\\frac{V_1}{V_2}\\right)^{\\gamma-1}.$$\nVelg denne formen fordi oppgaven gir deg temperatur og volum.\n\n**Rask vei til tall.** Med $V_1/V_2 = 2$ og $\\gamma - 1 = 0{,}40000$:\n$$T_2 = 300{,}0 \\cdot 2^{0{,}40000}\\,\\text{K} = 300{,}0 \\cdot 1{,}31951\\,\\text{K}\n= 395{,}85\\,\\text{K}.$$\nTemperaturen **steg** med $95{,}852\\,\\text{K}$, altså $31{,}95$ prosent — helt\nuten at vi tilførte varme. Det er sykkelpumpen.\n\n**c) Symbolsk.** $pV^{\\gamma} = \\text{konstant}$ gir\n$p_2 = p_1(V_1/V_2)^{\\gamma}$.\n\n**Rask vei til tall.**\n$$p_2 = 9{,}9768\\cdot10^{4} \\cdot 2^{1{,}4000}\\,\\text{Pa} = 9{,}9768\\cdot10^{4} \\cdot 2{,}63902\\,\\text{Pa}\n= 2{,}6329\\cdot10^{5}\\,\\text{Pa}.$$\n\n**Uavhengig kontroll med gassloven:**\n$$p_2 = \\frac{nRT_2}{V_2} = \\frac{1{,}00 \\cdot 8{,}314 \\cdot 395{,}85}{0{,}01250}\n\\,\\text{Pa} = 2{,}6329\\cdot10^{5}\\,\\text{Pa} \\ \\checkmark$$\nTo helt ulike veier, samme svar. **Denne kontrollen bør du gjøre hver gang** — den\nfanger både feil eksponent og feil avrunding.\n\n**d) Symbolsk.** $Q = 0$ gir $\\Delta U = -W$, altså $W = -nC_V\\Delta T$.\n\n**Rask vei til tall.**\n$$\\Delta U = nC_V\\Delta T = 1{,}00 \\cdot 20{,}785 \\cdot 95{,}852\\,\\text{J}\n= 1992{,}3\\,\\text{J}, \\qquad W = -1992{,}3\\,\\text{J} = -1992{,}3\\,\\text{J}.$$\n**Fortegnet i klartekst:** $W$ er negativ, altså gjør **omgivelsene**\n$1992{,}3\\,\\text{J}$ arbeid **på** gassen. All denne energien blir indre energi,\nog det er derfor temperaturen stiger.\n\n**Kontroll med den andre formen for adiabatarbeid:**\n$$W = \\frac{p_1V_1 - p_2V_2}{\\gamma-1}\n= \\frac{2494{,}20 - 3291{,}12}{0{,}40000}\\,\\text{J} = -1992{,}3\\,\\text{J} \\ \\checkmark$$\n\n**e)** Isotermt ville $pV$ vært konstant, altså\n$$p_2^\\text{isoterm} = p_1 \\cdot 2 = 1{,}9954\\cdot10^{5}\\,\\text{Pa},$$\nsom er **mindre** enn de $2{,}6329\\cdot10^{5}\\,\\text{Pa}$ adiabaten gir. Det stemmer med at\nadiabaten er brattere: ved kompresjon stiger den mer, fordi temperaturen stiger\ni tillegg. Forholdet er $1{,}3195$.\n\n**Fella i denne oppgaven** er å bruke $\\gamma = \\tfrac53$ (enatomig) i stedet for\n$\\tfrac75$. Da ville du fått $T_2 = 476{,}22\\,\\text{K}$ og\n$p_2 = 3{,}1674\\cdot10^{5}\\,\\text{Pa}$ — henholdsvis $20{,}3$ og\n$20{,}3$ prosent for høyt. Fordi $\\gamma$ står i en **eksponent**, blir en\nliten feil i $\\gamma$ en stor feil i svaret, og begge tallene står typisk på\nalternativlista."
+    },
+    {
+      "id": "tfy4115-7-1-o-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-7-1-o-4-e",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger T4 — adiabatoppgaven.) $0{,}500\\,\\text{mol}$ toatomig gass utvider seg\n**adiabatisk** fra $10{,}0\\,\\text{L}$ til $40{,}0\\,\\text{L}$. Starttemperaturen\ner $290\\,\\text{K}$.\n\n**a)** Finn slutt-temperaturen.\n\n**b)** Finn $\\Delta U$ og arbeidet, med fortegn og retning i klartekst.\n\n**c)** Finn start- og slutt-trykket.\n\n**d)** Forklar i to setninger hvorfor gassen blir kaldere når ingen varme fjernes.",
+        "solution": "**a)** Volumet **øker** med en faktor $4{,}00$, så $V_1/V_2 = 0{,}250$. Med\n$TV^{\\gamma-1} = \\text{konstant}$:\n$$T_2 = T_1\\left(\\frac{V_1}{V_2}\\right)^{\\gamma-1}\n= 290 \\cdot 0{,}250^{0{,}40000}\\,\\text{K} = 290 \\cdot 0{,}574349\\,\\text{K}\n= 166{,}56\\,\\text{K}.$$\nMerk at basen er $V_1/V_2 = 0{,}250$ og **ikke** $4{,}00$ — ved ekspansjon er\nforholdet mindre enn 1, og derfor **faller** temperaturen.\nTemperaturen **falt** med $123{,}44\\,\\text{K}$.\n\n**b)**\n$$\\Delta U = nC_V\\Delta T = 0{,}500 \\cdot 20{,}785 \\cdot (-123{,}44)\\,\\text{J}\n= -1282{,}8\\,\\text{J},$$\naltså en **nedgang** i indre energi på $1282{,}8\\,\\text{J}$. Med $Q = 0$:\n$$W = -\\Delta U = 1282{,}8\\,\\text{J},$$\npositivt, altså $1282{,}8\\,\\text{J}$ arbeid gjort **av** gassen på omgivelsene.\n\n**c)**\n$$p_1 = \\frac{nRT_1}{V_1} = 1{,}2055\\cdot10^{5}\\,\\text{Pa}, \\qquad\np_2 = p_1\\left(\\frac{V_1}{V_2}\\right)^{\\gamma} = 1{,}2055\\cdot10^{5} \\cdot 0{,}143587\n\\,\\text{Pa} = 1{,}7310\\cdot10^{4}\\,\\text{Pa}.$$\n**Kontroll:** $p_2 = nRT_2/V_2 = 1{,}7310\\cdot10^{4}\\,\\text{Pa}$ ✔\n\nMerk at trykket falt med en faktor $6{,}964$, mens volumet bare økte med en\nfaktor $4{,}00$. Isotermt ville trykket falt med nøyaktig faktoren $4{,}00$ —\nadiabaten gir større trykkfall, fordi temperaturen faller i tillegg.\n\n**d)** Gassen gjør arbeid når den skyver omgivelsene unna, og med $Q = 0$ finnes\ndet ingen annen kilde til den energien enn gassens egen indre energi. Indre\nenergi er for en ideell gass det samme som molekylenes bevegelsesenergi, så når\nden avtar, avtar temperaturen — dette er nettopp den kalde luftstrømmen fra et\nsykkeldekk som slippes ut.",
+        "hints": [
+          "Bruk $TV^{\\gamma-1}=\\text{konstant}$ — du har temperatur og volum.",
+          "Merk at $V_1/V_2$ er mindre enn 1 her, siden gassen utvider seg.",
+          "Med $Q=0$ er $W=-\\Delta U$. Hvilket fortegn får $W$ ved ekspansjon?"
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-7-1-o-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-7-1-o-5-e",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger T4, trykk-temperatur-formen.) Luft (regn den som toatomig) komprimeres\nadiabatisk fra $1{,}00\\cdot10^{5}\\,\\text{Pa}$ til $8{,}00\\cdot10^{5}\\,\\text{Pa}$. Starttemperaturen er\n$300\\,\\text{K}$.\n\n**a)** Finn slutt-temperaturen.\n\n**b)** Hva ville svaret blitt for en enatomig gass, og hvorfor er det høyere?\n\n**c)** En dieselmotor tenner drivstoffet ved kompresjonsvarmen alene. Hva sier\nsvaret i a) om hvorfor det er mulig?",
+        "solution": "**a) Symbolsk.** Oppgaven gir trykk og temperatur, så velg formen\n$T^{\\gamma}/p^{\\gamma-1} = \\text{konstant}$, som omskrevet blir\n$$T_2 = T_1\\left(\\frac{p_2}{p_1}\\right)^{(\\gamma-1)/\\gamma}.$$\n\n**Rask vei til tall.** Regn eksponenten først, som eget mellomresultat:\n$$\\frac{\\gamma-1}{\\gamma} = \\frac{0{,}40000}{1{,}4000} = 0{,}28571, \\qquad\n\\frac{p_2}{p_1} = 8{,}00,$$\n$$T_2 = 300 \\cdot 8{,}00^{0{,}28571}\\,\\text{K}\n= 300 \\cdot 1{,}81145\\,\\text{K} = 543{,}43\\,\\text{K}.$$\nAltså $270{,}3\\,^\\circ\\text{C}$ — en oppvarming på $243{,}4$ grader, utelukkende\nfra kompresjonsarbeidet.\n\n**b)** For en enatomig gass er $\\gamma = \\tfrac53$ og eksponenten\n$(\\gamma-1)/\\gamma = 0{,}40000$:\n$$T_2 = 300 \\cdot 8{,}00^{0{,}40000}\\,\\text{K} = 689{,}22\\,\\text{K},$$\naltså $26{,}8$ prosent høyere. Grunnen er at en enatomig gass har **færre\nfrihetsgrader** å fordele energien på: hele kompresjonsarbeidet går til\ntranslasjon, som er nettopp det termometeret måler. En toatomig gass gjemmer noe\nav energien i rotasjon, og blir derfor mindre varm av samme kompresjon.\n\n**c)** Fordi kompresjon alene kan bringe luften langt over drivstoffets\nselvtennings­temperatur. Med $8{,}00$ ganger trykket kom vi til\n$270{,}3\\,^\\circ\\text{C}$; en virkelig dieselmotor komprimerer 15–20 ganger i\nvolum og kommer godt over $500\\,^\\circ\\text{C}$. Poenget er at adiabatisk\nkompresjon **er** en oppvarmingsmekanisme, ikke bare en trykkøkning — og at\n$Q = 0$ ikke betyr «ingen temperaturendring».",
+        "hints": [
+          "Hvilken av de tre adiabatformene inneholder trykk og temperatur?",
+          "Regn eksponenten $(\\gamma-1)/\\gamma$ som eget mellomresultat først.",
+          "I b): hvordan endres eksponenten når $\\gamma$ blir større?"
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-7-1-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: isoterm ekspansjon (eksamensnivå)",
+      "problem": "$2{,}00\\,\\text{mol}$ ideell gass utvider seg **isotermt** ved $350\\,\\text{K}$\nfra $15{,}0\\,\\text{L}$ til $45{,}0\\,\\text{L}$.\n\n**a)** Finn arbeidet gassen gjør.\n\n**b)** Finn $\\Delta U$ og den tilførte varmen.\n\n**c)** Finn start- og slutt-trykket.\n\n**d)** Sammenlign arbeidet med det du ville fått ved feilaktig å regne\n$W = p_1\\,\\Delta V$, og forklar hvorfor den feilen alltid går samme vei.",
+      "solution": "**a) Symbolsk.** Trykket er ikke konstant, så det må stå inne i integralet. Med\n$p = nRT/V$ og $T$ konstant:\n$$W = \\int_{V_1}^{V_2}\\frac{nRT}{V}\\,dV = nRT\\int_{V_1}^{V_2}\\frac{dV}{V}\n= nRT\\ln\\frac{V_2}{V_1}.$$\n\n**Rask vei til tall.** Regn $nRT$ én gang:\n$$nRT = 2{,}00 \\cdot 8{,}314 \\cdot 350\\,\\text{J} = 5819{,}80\\,\\text{J},\n\\qquad \\ln\\frac{V_2}{V_1} = \\ln 3{,}00 = 1{,}09861,$$\n$$W = 5819{,}80 \\cdot 1{,}09861\\,\\text{J} = 6393{,}70\\,\\text{J} \\approx 6{,}394\\,\\text{kJ}.$$\nPositivt, altså arbeid gjort **av** gassen.\n\n**b)** Isoterm prosess i en ideell gass betyr uendret temperatur, altså\n$$\\Delta U = nC_V\\Delta T = 0,$$\nog da gir første hovedsetning\n$$Q = \\Delta U + W = W = 6393{,}70\\,\\text{J}.$$\n**All** den tilførte varmen gikk rett ut igjen som arbeid. Gassen er her en ren\nenergiformidler — den endte i samme tilstand energimessig som den startet.\n\n**c)**\n$$p_1 = \\frac{nRT}{V_1} = \\frac{5819{,}80}{0{,}0150}\\,\\text{Pa} = 3{,}8799\\cdot10^{5}\\,\\text{Pa},\n\\qquad p_2 = \\frac{5819{,}80}{0{,}0450}\\,\\text{Pa} = 1{,}2933\\cdot10^{5}\\,\\text{Pa}.$$\n**Kontroll:** $p_1V_1 = p_2V_2 = 5819{,}80\\,\\text{J}$ ✔ — som det må være langs en\nisoterm.\n\n**d)** Med starttrykket satt konstant ville du fått\n$$W^\\text{galt} = p_1\\,\\Delta V = 3{,}8799\\cdot10^{5} \\cdot 0{,}0300\\,\\text{J}\n= 11639{,}6\\,\\text{J},$$\naltså $82{,}0$ prosent for mye.\n\n**Hvorfor feilen alltid overdriver:** trykket **faller** underveis i en\nekspansjon, så starttrykket er det høyeste trykket i hele prosessen. Å bruke det\nhele veien er som å regne arealet under kurven som et rektangel med kurvens\n**høyeste** punkt som høyde. Den geometriske lesningen gjør fella lett å huske —\nog lett å oppdage, siden det gale svaret alltid er større.\n\n(Bruker du i stedet **gjennomsnittet** av start- og sluttrykket, får du\n$7759{,}73\\,\\text{J}$, altså bare $21{,}4$ prosent for mye. Det er en bedre\ntilnærming, men fremdeles en tilnærming: hyperbelen er krum, og logaritmen er det\neksakte svaret.)"
+    },
+    {
+      "id": "tfy4115-7-1-o-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-7-1-o-6-e",
+        "number": 6,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger T8, isoterm.) $1{,}50\\,\\text{mol}$ ideell gass utvider seg isotermt ved\n$320\\,\\text{K}$ til fire ganger volumet.\n\n**a)** Finn arbeidet og den tilførte varmen.\n\n**b)** Hvor mye endrer den indre energien seg?\n\n**c)** Hvor mye varme hadde gått til arbeid om ekspansjonen i stedet var\nadiabatisk?",
+        "solution": "**a)**\n$$nRT = 1{,}50 \\cdot 8{,}314 \\cdot 320\\,\\text{J} = 3990{,}72\\,\\text{J},\n\\qquad \\ln 4 = 1{,}38629,$$\n$$W = nRT\\ln\\frac{V_2}{V_1} = 3990{,}72 \\cdot 1{,}38629\\,\\text{J} = 5532{,}31\\,\\text{J},$$\nog siden $\\Delta U = 0$ er $Q = W = 5532{,}31\\,\\text{J}$, altså varme **inn**.\n\n**b)** $\\Delta U = 0$ — temperaturen er uendret, og for en ideell gass avhenger\nindre energi bare av temperaturen.\n\n**c) Ingen varme i det hele tatt:** en adiabatisk prosess har $Q = 0$ per\ndefinisjon. Da ville arbeidet kommet fra gassens indre energi i stedet\n($W = -\\Delta U$), og gassen ville blitt **kaldere**. Merk kontrasten: samme\nvolumendring, men i det isoterme tilfellet holdes temperaturen oppe av varme\nutenfra, mens i det adiabatiske betales arbeidet av gassen selv.\n\nArbeidet blir også **mindre** i det adiabatiske tilfellet, fordi trykket faller\nraskere når temperaturen faller med — adiabaten ligger under isotermen ved\nekspansjon, og arealet under den er derfor mindre.",
+        "hints": [
+          "Regn $nRT$ først, og bruk $\\ln 4=1{,}38629$.",
+          "Hva er $\\Delta T$ i en isoterm prosess?",
+          "Hva er $Q$ i en adiabatisk prosess, per definisjon?"
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-7-1-o-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-7-1-o-7-e",
+        "number": 7,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger T8, isoterm kompresjon — pass på fortegnene.) $3{,}00\\,\\text{mol}$ ideell\ngass komprimeres isotermt ved $400\\,\\text{K}$ fra $50{,}0\\,\\text{L}$ til\n$20{,}0\\,\\text{L}$.\n\n**a)** Finn arbeidet, og si tydelig hvilken vei det går.\n\n**b)** Finn varmen, med retning i klartekst.\n\n**c)** Forklar hvorfor svarene i a) og b) har samme fortegn her, når de hadde\nmotsatt betydning i en ekspansjon.",
+        "solution": "**a)**\n$$nRT = 9976{,}80\\,\\text{J}, \\qquad\n\\ln\\frac{V_2}{V_1} = \\ln\\frac{0{,}0200}{0{,}0500} = \\ln 0{,}400 = -0{,}916291,$$\n$$W = 9976{,}80 \\cdot (-0{,}916291)\\,\\text{J} = -9141{,}65\\,\\text{J}.$$\nLogaritmen er **negativ** fordi volumet minker, og derfor er $W$ negativ:\n$9141{,}65\\,\\text{J}$ arbeid gjort **på** gassen av omgivelsene.\n\n**b)** Isoterm betyr $\\Delta U = 0$, så\n$$Q = W = -9141{,}65\\,\\text{J},$$\naltså $9141{,}65\\,\\text{J}$ varme **ut** av gassen.\n\n**c)** Fordi $\\Delta U = 0$ tvinger $Q = W$ — de må være like, også i fortegn.\nFysisk: alt arbeidet du gjør på gassen når du presser den sammen, må ut som varme\nigjen, ellers ville temperaturen steget. Det er nettopp derfor en kompressor må\nkjøles: skal kompresjonen være isoterm, må varmen bortledes like fort som\narbeidet gjøres.\n\nI en ekspansjon er begge positive i stedet: varme inn, arbeid ut. **Fortegnet\nendres, men likheten $Q = W$ står** — så lenge temperaturen er konstant.",
+        "hints": [
+          "Hva blir fortegnet på $\\ln(V_2/V_1)$ når volumet minker?",
+          "Isoterm betyr $\\Delta U=0$ — hva følger for forholdet mellom $Q$ og $W$?",
+          "Les fortegnene ut i klartekst: inn eller ut, på eller av gassen."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-7-1-rask-vei",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\n## Rask vei til tall (MC-oppskrift)\n\n1. **Hvilken lov?** Alt i dette kapitlet er **én** lov, $\\Delta U = Q - W$, pluss\n   **én** identifikasjon: hvilken prosess er det? Let etter signalordene i\n   oppgaveteksten. «Stiv beholder», «fast volum» → **isokor**, $W = 0$. «Fritt\n   stempel», «konstant trykk», «åpen mot atmosfæren» → **isobar**,\n   $W = p\\Delta V$. «Konstant temperatur», «i termisk kontakt med et reservoar»,\n   «langsomt» → **isoterm**, $\\Delta U = 0$. «Isolert», «raskt», «ingen\n   varmeutveksling» → **adiabat**, $Q = 0$.\n2. **Hvilken ene regnelinje?** Skriv **prosesstypen ned som ord** først, og\n   deretter dens ene relasjon. Isokor: $Q = nC_V\\Delta T$. Isobar:\n   $W = p\\Delta V = nR\\Delta T$ og $Q = nC_P\\Delta T$. Isoterm:\n   $Q = W = nRT\\ln(V_2/V_1)$. Adiabat: $T_2 = T_1(V_1/V_2)^{\\gamma-1}$ og\n   $W = -nC_V\\Delta T$. Regn $\\Delta U = nC_V\\Delta T$ til slutt som kontroll —\n   den gjelder alltid.\n3. **Hva hentes hvor?** $\\Delta U = Q - W$, $W = \\int p\\,dV$, alle fire\n   prosessrelasjonene, $pV^\\gamma$-, $TV^{\\gamma-1}$- og\n   $T^\\gamma/p^{\\gamma-1}$-formene, og $C_V$/$C_P$-verdiene **står på det utdelte\n   arket**. Logaritmer og potenser regner du på kalkulatoren; integralet\n   $\\int dV/V = \\ln V$ kan du slå opp i **Rottmann**. Det som **må kunne utledes\n   aktivt**, er (i) det isoterme arbeidet $nRT\\ln(V_2/V_1)$ fra integralet, (ii)\n   adiabatrelasjonen fra $nC_V\\,dT = -p\\,dV$, og (iii) hele fortegnsanalysen.\n4. **Hvor mange siffer?** Fire gjennom kjeden. **Ett sted krever spesiell\n   omhu: eksponentene i adiabatrelasjonen.** Bruk $\\gamma - 1 = 0{,}40000$ og\n   $(\\gamma-1)/\\gamma = 0{,}28571$ med alle sifrene, ikke $0{,}4$ og $0{,}29$. En\n   avrunding i eksponenten forstørres når du opphøyer, og med et\n   volumforhold på 10 blir $10^{0{,}4}$ mot $10^{0{,}40}$ en forskjell du ser i\n   tredje siffer.\n5. **Hva sjekker du før du krysser av?** (i) Er prosesstypen riktig identifisert,\n   og har jeg brukt **dens** relasjon? (ii) Er alle temperaturer i kelvin? (iii)\n   Er fortegnene skrevet ut i klartekst — «inn», «ut», «på gassen», «av gassen»?\n   (iv) Stemmer $\\Delta U = Q - W$ numerisk med de tre tallene mine? (v) Ga\n   adiabatregningen samme trykk fra $pV^\\gamma$ og fra gassloven? (vi) Brukte jeg\n   riktig $\\gamma$ for **denne** gassen?"
+    },
+    {
+      "id": "tfy4115-7-1-o-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-7-1-o-8-e",
+        "number": 8,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger T4, flervalg i eksamensformat med seks alternativer A–F.) En **enatomig**\nideell gass komprimeres adiabatisk til en fjerdedel av volumet. Hvor mange ganger\nstørre blir trykket?\n\n**A** $2{,}5198$ · **B** $4{,}000$ · **C** $10{,}079$ · **D** $6{,}9644$ ·\n**E** $2{,}2974$ · **F** $40{,}317$\n\nOppgi bare bokstavsvaret.",
+        "solution": "**Svar: C.**\n\nAdiabatrelasjonen $pV^\\gamma = \\text{konstant}$ gir\n$p_2/p_1 = (V_1/V_2)^\\gamma$. Enatomig gass har $\\gamma = \\tfrac53 = 1{,}6667$:\n$$\\frac{p_2}{p_1} = 4^{1{,}6667} = 10{,}079.$$\n\n**Hva hvert galt alternativ er regnet fram fra:**\n\n- $2{,}5198$: eksponenten $\\gamma - 1$ i stedet for $\\gamma$ — altså\n  **temperatur**forholdet, ikke trykkforholdet. Dette er den nærmeste\n  distraktoren, og den er nær-sann i den forstand at $4^{\\gamma-1}$ er et\n  fullstendig meningsfullt tall i denne oppgaven: det er nettopp\n  $T_2/T_1$. Men spørsmålet gjelder trykket.\n- $4{,}000$: eksponent 1, altså $pV = \\text{konstant}$ — det isoterme svaret.\n  Merk at det alltid er **mindre** enn det adiabatiske, siden adiabaten er\n  brattere.\n- $6{,}9644$: $\\gamma = \\tfrac75$ brukt, altså en **toatomig** gass. Felle #8.\n- $2{,}2974$: eksponenten $1/\\gamma$ i stedet for $\\gamma$, altså brøken snudd.\n- $40{,}317$: eksponenten $\\gamma + 1$.\n\n**Elimineringen:** trykket må øke **mer** enn faktoren 4 (som er det isoterme\nsvaret), siden adiabaten er brattere. Det stryker alle alternativer på 4 eller\nunder, og det gjør tre av de seks. Deretter avgjør riktig $\\gamma$ resten.",
+        "hints": [
+          "Hvilken av de tre adiabatformene inneholder trykk og volum?",
+          "Hvilken $\\gamma$ hører til en enatomig gass?",
+          "Må trykkøkningen være større eller mindre enn den isoterme? Bruk det til å stryke alternativer."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-7-1-o-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-7-1-o-9-e",
+        "number": 9,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Kvalitativ oppgave — prosessidentifikasjon. Denne typen har sin egen andel av\neksamenssettet.) For hver av situasjonene under: hvilken prosesstype er det, og\nhvilken av $Q$, $W$ og $\\Delta U$ er null?\n\n**a)** En gass i en stiv stålflaske varmes med en varmekabel.\n\n**b)** En luftmasse stiger raskt i atmosfæren og utvider seg.\n\n**c)** En gass i en sylinder med fritt stempel varmes langsomt, mens\natmosfæretrykket virker på stempelet.\n\n**d)** En gass komprimeres svært langsomt i en sylinder som står i et stort\nvannbad med fast temperatur.",
+        "solution": "**a) Isokor.** Stiv beholder betyr fast volum, altså $W = 0$. All varmen går til\nindre energi: $Q = \\Delta U$.\n\n**b) Adiabat.** «Raskt» er signalordet: varmestrømmen rekker ikke å bli noe av,\naltså $Q = 0$. Gassen gjør arbeid ($W > 0$) på bekostning av sin egen indre\nenergi, så $\\Delta U < 0$ og luftmassen **kjøles**. Dette er grunnen til at\ntemperaturen faller med høyden i atmosfæren.\n\n**c) Isobar.** Fritt stempel med atmosfæretrykket over betyr konstant trykk.\n**Ingen** av de tre er null her: varme inn ($Q > 0$), arbeid ut ($W > 0$) og\nøkt indre energi ($\\Delta U > 0$), med $Q = \\Delta U + W$.\n\n**d) Isoterm.** «Svært langsomt» og «stort vannbad med fast temperatur» betyr at\ntemperaturen holdes konstant, altså $\\Delta U = 0$. Da er $Q = W$, og siden det er\nen kompresjon er begge negative: arbeid inn på gassen, varme ut til vannbadet.\n\n**Signalordene å lese etter, samlet:** «stiv» og «fast volum» → isokor. «Fritt\nstempel», «åpen», «mot atmosfæren» → isobar. «Langsomt», «vannbad», «termisk\nkontakt», «konstant temperatur» → isoterm. «Raskt», «isolert», «ingen varme» →\nadiabat. **Å finne dette ordet er halve oppgaven i sjangeren.**",
+        "hints": [
+          "Se etter hva som holdes fast i beskrivelsen.",
+          "«Raskt» og «isolert» peker på samme prosesstype.",
+          "Kan en prosess ha ingen nuller i det hele tatt?"
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-7-1-o-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-7-1-o-10-e",
+        "number": 10,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå — to prosesser i serie, slik en kretsprosess i Del 8 er bygget.)\n$2{,}00\\,\\text{mol}$ toatomig gass starter i tilstand 1 med $V_1 = 40{,}0\\,\\text{L}$\nog $T_1 = 300\\,\\text{K}$. Den føres først **isokort** til\n$T_2 = 450\\,\\text{K}$, deretter **isobart** til $V_3 = 60{,}0\\,\\text{L}$.\n\n**a)** Finn $p_1$, $p_2$ og $T_3$.\n\n**b)** Finn $Q$, $W$ og $\\Delta U$ for hvert av de to trinnene.\n\n**c)** Finn totalene, og kontroller at $\\Delta U_\\text{tot}$ stemmer med\n$nC_V(T_3-T_1)$.\n\n**d)** Hvorfor er det siste en gyldig kontroll, når $Q$ og $W$ måtte regnes trinn\nfor trinn?",
+        "solution": "**a)**\n$$p_1 = \\frac{nRT_1}{V_1} = \\frac{2{,}00 \\cdot 8{,}314 \\cdot 300}{0{,}0400}\n\\,\\text{Pa} = 1{,}2471\\cdot10^{5}\\,\\text{Pa}.$$\nIsokor til $T_2$ gir $p_2/p_1 = T_2/T_1$:\n$$p_2 = 1{,}2471\\cdot10^{5} \\cdot \\frac{450}{300}\\,\\text{Pa} = 1{,}8706\\cdot10^{5}\\,\\text{Pa}.$$\nIsobar fra $V_1$ til $V_3$ gir $T_3/T_2 = V_3/V_1$:\n$$T_3 = 450 \\cdot \\frac{0{,}0600}{0{,}0400}\\,\\text{K} = 675{,}00\\,\\text{K}.$$\n\n**b) Trinn 1 (isokor, $1 \\to 2$):**\n$$W_1 = 0, \\qquad\n\\Delta U_1 = nC_V(T_2-T_1) = 2{,}00 \\cdot 20{,}785 \\cdot 150\\,\\text{J}\n= 6235{,}5\\,\\text{J}, \\qquad Q_1 = 6235{,}5\\,\\text{J}.$$\nVarme **inn**, ingen arbeid.\n\n**Trinn 2 (isobar, $2 \\to 3$):**\n$$W_2 = p_2(V_3-V_1) = 1{,}8706\\cdot10^{5} \\cdot 0{,}0200\\,\\text{J} = 3741{,}3\\,\\text{J},$$\n$$\\Delta U_2 = nC_V(T_3-T_2) = 2{,}00 \\cdot 20{,}785 \\cdot 225{,}00\\,\\text{J}\n= 9353{,}2\\,\\text{J},$$\n$$Q_2 = \\Delta U_2 + W_2 = 13095\\,\\text{J}.$$\n**Kontroll:**\n$$Q_2 = nC_P(T_3-T_2) = 2{,}00 \\cdot 29{,}099 \\cdot 225{,}00\\,\\text{J} = 13095\\,\\text{J} \\ \\checkmark$$\n\nAlle tre positive: varme inn, arbeid ut, indre energi opp.\n\n**c)**\n$$\\Delta U_\\text{tot} = 6235{,}5 + 9353{,}2 = 15589\\,\\text{J}, \\qquad\nW_\\text{tot} = 0 + 3741{,}3 = 3741{,}3\\,\\text{J},$$\n$$Q_\\text{tot} = 6235{,}5 + 13095 = 19330\\,\\text{J}.$$\n**Energiregnskapet:**\n$$Q_\\text{tot} - W_\\text{tot} = 19330 - 3741{,}3 = 15589\\,\\text{J} = \\Delta U_\\text{tot} \\ \\checkmark$$\n\n**Kontrollen fra start- og sluttilstand alene:**\n$$nC_V(T_3-T_1) = 2{,}00 \\cdot 20{,}785 \\cdot 375{,}00\\,\\text{J} = 15589\\,\\text{J}\n\\ \\checkmark$$\n\n**d)** Fordi **indre energi er en tilstandsfunksjon**: den avhenger bare av hvor\ngassen er nå, ikke av hvordan den kom dit. Derfor kan $\\Delta U$ regnes rett fra\n$T_1$ til $T_3$, uten å bry seg om at veien gikk via tilstand 2.\n\n$Q$ og $W$ er derimot **veifunksjoner** — de avhenger av kurven. Hadde gassen gått\nfra 1 til 3 langs en annen vei (for eksempel isobart først og isokort etterpå),\nville $\\Delta U$ vært identisk, men $W$ og $Q$ helt andre. Det er nettopp denne\nasymmetrien som gjør en kretsprosess mulig: over en full sløyfe er\n$\\Delta U = 0$, mens netto arbeid og netto varme ikke er null — og det er\ngrunnlaget for hele Del 8.",
+        "hints": [
+          "Regn tilstandene 1, 2 og 3 fullstendig først — alle tre av $p$, $V$, $T$.",
+          "Isokor har $W=0$; isobar har $W=p\\Delta V$ med det trykket som gjelder DER.",
+          "I d): hvilke av de tre størrelsene avhenger av veien, og hvilken gjør ikke?"
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-7-1-war-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil — og avrundingen i eksponenten som lander på nabo-alternativet",
+      "content": "**Å bruke feil prosessrelasjon** (felle #10 — å behandle isokor, isobar, isoterm\nog adiabat om hverandre). Dette er kapitlets dyreste feil, og den er nesten alltid\nen av disse fire: $W \\ne 0$ i en isokor, $\\Delta U \\ne 0$ i en isoterm,\n$Q \\ne 0$ i en adiabat, eller $W = p\\Delta V$ brukt i en prosess der trykket\nikke er konstant. **Motgiften er å skrive prosesstypen ned som ord** øverst, før\nnoe regnes.\n\n**Å bruke $C_P$ der $C_V$ hører** (felle #8). $\\Delta U = nC_V\\Delta T$ **alltid**,\nuansett prosess. $C_P$ hører bare i varmen ved konstant trykk. Feilen er nøyaktig\n$nR\\Delta T$ — altså arbeidet, telt to ganger.\n\n**Feil fortegn i $\\Delta U = Q - W$.** To varianter: å glemme minusen (og skrive\n$\\Delta U = Q + W$ med denne bokas $W$), og å rote i minusparentesen når $W$ selv\ner negativ. Skriv opp $Q$ og $W$ som to egne linjer **med fortegn og med retning i\nord** før du setter inn.\n\n**Å bruke feil $\\gamma$** (felle #8 igjen, i sin dyreste form). Enatomig\n$\\tfrac53 = 1{,}6667$, toatomig $\\tfrac75 = 1{,}4000$. Fordi $\\gamma$ står i en\n**eksponent**, forstørres feilen: en firedobling av trykket gir\n$4^{1{,}4000} = 6{,}9644$ ganger med riktig $\\gamma$ og $4^{1{,}6667} = 10{,}079$ ganger\nmed feil — en forskjell på $44{,}7$ prosent.\n\n**Å blande de tre adiabatformene.** $pV^\\gamma$ knytter trykk og volum,\n$TV^{\\gamma-1}$ knytter temperatur og volum, og $T^\\gamma/p^{\\gamma-1}$ knytter\ntemperatur og trykk. **Velg den formen som inneholder de to størrelsene oppgaven\ngir deg.** Bruker du $pV^\\gamma$ der $TV^{\\gamma-1}$ hører, får du et svar med\neksponenten $\\gamma$ i stedet for $\\gamma-1$ — og begge tallene ligger på\nalternativlista, siden det ene er $T$-forholdet og det andre $p$-forholdet.\n\n**Å regne isotermt arbeid som $p\\,\\Delta V$.** Trykket er ikke konstant langs en\nisoterm; svaret er $nRT\\ln(V_2/V_1)$. Fella overdriver alltid ved ekspansjon,\nsiden starttrykket er det høyeste i hele prosessen.\n\n**Celsius i adiabatrelasjonen** (felle #11). $TV^{\\gamma-1}$ er en\nproporsjonalitet i **absolutt** temperatur. Med celsius blir eksponenten anvendt\npå et vilkårlig nullpunkt, og svaret er meningsløst — men det ser ikke slik ut.\n\n**Og avrundingsfellen** (felle #16), som i dette kapitlet bor i **eksponenten**.\nBruk $\\gamma - 1 = 0{,}40000$ og $(\\gamma-1)/\\gamma = 0{,}28571$ med alle sifrene.\nMed et trykkforhold på 20 gir eksponenten $0{,}28571$ faktoren $2{,}35355$, mens\n$0{,}29$ gir $2{,}38396$ — en forskjell i tredje siffer, og nok til å velge naboen\nnår alternativene ligger tett. **En avrunding i en eksponent forstørres når du\nopphøyer; en avrunding i en faktor gjør det ikke.** Det er forskjellen som gjør\nadiabatoppgaven mer sifferkrevende enn resten av kapitlet."
+    },
+    {
+      "id": "tfy4115-7-1-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har\nlest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder\nkjernestoffet."
+    },
+    {
+      "id": "tfy4115-7-1-bb-konvensjon",
+      "type": "definition",
+      "title": "Fortegnskonvensjonen i denne boka",
+      "content": "$$\\Delta U = Q - W, \\qquad\n\\begin{cases}\nQ > 0: & \\text{varme } \\textbf{inn i} \\text{ systemet} \\\\\nW > 0: & \\text{arbeid gjort } \\textbf{av} \\text{ systemet på omgivelsene} \\\\\n\\Delta U > 0: & \\text{indre energi (og temperatur) } \\textbf{øker}\n\\end{cases}$$\n\nDette er konvensjonen på TFY4115s formelark, og den brukes overalt i boka — også\ni Del 8, der en fortegnsfeil i én prosess ødelegger virkningsgraden for hele\nsyklusen.\n\nAndre bøker skriver $\\Delta U = Q + W$ og mener med $W$ arbeidet omgivelsene gjør\n**på** gassen. De to formene sier det samme; bare definisjonen av $W$ er snudd.\n**Kjennetegnet:** står det $W = nRT\\ln(V_2/V_1)$ som **positivt** ved ekspansjon,\ner konvensjonen $\\Delta U = Q - W$.\n\nRegelen som gjør deg immun: skriv **retningen i ord** ved hvert tall — «inn»,\n«ut», «på gassen», «av gassen»."
+    },
+    {
+      "id": "tfy4115-7-1-bb-isokor",
+      "type": "definition",
+      "title": "Isokor — tallkort",
+      "content": "Fast volum. Signalord i oppgaveteksten: «stiv beholder», «lukket stålflaske»,\n«volumet holdes konstant».\n\n$$W = 0, \\qquad Q = \\Delta U = nC_V\\,\\Delta T, \\qquad\n\\frac{p_2}{p_1} = \\frac{T_2}{T_1}$$\n\nVei i $pV$-diagrammet: **loddrett**, ingen bredde, derfor ingen arbeid.\n\nDette er den korteste av de fire å regne, og den brukes ofte som ledd i en\nkretsprosess. Merk at trykket **endres** selv om volumet ikke gjør det — det er\ntemperaturen som driver det."
+    },
+    {
+      "id": "tfy4115-7-1-bb-isobar",
+      "type": "definition",
+      "title": "Isobar — tallkort",
+      "content": "Fast trykk. Signalord: «fritt stempel», «åpen mot atmosfæren», «trykket holdes\nkonstant».\n\n$$W = p\\,\\Delta V = nR\\,\\Delta T, \\qquad Q = nC_P\\,\\Delta T, \\qquad\n\\Delta U = nC_V\\,\\Delta T, \\qquad \\frac{V_2}{V_1} = \\frac{T_2}{T_1}$$\n\nVei: **vannrett**. Arbeidet er et rektangel.\n\nTo ting å merke: **begge** varmekapasitetene opptrer i samme prosess ($C_P$ i\nvarmen, $C_V$ i $\\Delta U$), og andelen av varmen som går til arbeid er\n$W/Q = R/C_P = 2/(f+2)$ — altså $2/5$ for enatomig og $2/7$ for toatomig gass,\nuansett hvor mye den varmes."
+    },
+    {
+      "id": "tfy4115-7-1-bb-isoterm",
+      "type": "definition",
+      "title": "Isoterm — tallkort",
+      "content": "Fast temperatur. Signalord: «langsomt», «i termisk kontakt med et stort\nreservoar», «vannbad», «konstant temperatur».\n\n$$\\Delta U = 0, \\qquad Q = W = nRT\\ln\\frac{V_2}{V_1}, \\qquad p_1V_1 = p_2V_2$$\n\nVei: **hyperbel** ($pV = \\text{konstant}$).\n\n**Fortegnene henger sammen:** ved ekspansjon er logaritmen positiv, altså varme\ninn og arbeid ut. Ved kompresjon er den negativ, altså arbeid inn og varme ut.\nSiden $\\Delta U = 0$ er $Q$ og $W$ **alltid like, også i fortegn**.\n\nLogaritmeverdiene du bruker oftest: $\\ln 2 = 0{,}69315$, $\\ln 3 = 1{,}09861$,\n$\\ln 4 = 1{,}38629$, $\\ln 10 = 2{,}30259$."
+    },
+    {
+      "id": "tfy4115-7-1-bb-adiabat",
+      "type": "definition",
+      "title": "Adiabat — tallkort",
+      "content": "Ingen varmeutveksling, $Q = 0$. Signalord: «isolert», «raskt», «ingen varme\nutveksles».\n\n$$\\Delta U = -W, \\qquad W = -nC_V\\,\\Delta T = \\frac{p_1V_1-p_2V_2}{\\gamma-1}$$\n$$pV^{\\gamma} = \\text{konst}, \\qquad TV^{\\gamma-1} = \\text{konst}, \\qquad\n\\frac{T^{\\gamma}}{p^{\\gamma-1}} = \\text{konst}$$\n\nVei: **brattere hyperbel** enn isotermen — helningen er $\\gamma$ ganger så stor.\n\n**Fortegnene:** kompresjon gir $W < 0$ og stigende temperatur (sykkelpumpen);\nekspansjon gir $W > 0$ og fallende temperatur (luften ut av dekket).\n\n**Velg riktig form:** den som inneholder de to størrelsene oppgaven gir deg.\nTrykk og volum → $pV^\\gamma$. Temperatur og volum → $TV^{\\gamma-1}$. Temperatur\nog trykk → $T^\\gamma/p^{\\gamma-1}$, som omskrevet blir\n$T_2 = T_1(p_2/p_1)^{(\\gamma-1)/\\gamma}$."
+    },
+    {
+      "id": "tfy4115-7-1-bb-eksponenter",
+      "type": "definition",
+      "title": "De tre eksponentene i adiabatregningen",
+      "content": "Tre eksponenter, og de forveksles lett. For en toatomig gass ($\\gamma = 1{,}4000$):\n\n$$\\gamma = 1{,}4000 \\quad (\\text{i } pV^\\gamma), \\qquad\n\\gamma - 1 = 0{,}40000 \\quad (\\text{i } TV^{\\gamma-1}), \\qquad\n\\frac{\\gamma-1}{\\gamma} = 0{,}28571 \\quad (\\text{i } T \\text{ mot } p).$$\n\nFor en enatomig gass ($\\gamma = 1{,}6667$): $1{,}6667$, $0{,}66667$ og $0{,}40000$.\n\n**Bruk alle sifrene.** En avrunding i en eksponent forstørres når du opphøyer:\nmed et forhold på 20 gir $0{,}28571$ faktoren $2{,}35355$, mens $0{,}29$ gir\n$2{,}38396$. Det er en forskjell i tredje siffer, og nok til å treffe et\nnabo-alternativ.\n\n**Og legg merke til hvilken som gir hva:** eksponenten $\\gamma$ gir\n**trykk**forholdet, $\\gamma-1$ gir **temperatur**forholdet fra volum. Å bytte om\nde to er den vanligste enkeltfeilen i sjanger T4 — og begge tallene står på\nalternativlista."
+    },
+    {
+      "id": "tfy4115-7-1-bb-brattere",
+      "type": "definition",
+      "title": "Hvorfor adiabaten er brattere",
+      "content": "I et delt punkt er helningene $-p/V$ (isoterm) og $-\\gamma p/V$ (adiabat), så\nforholdet er $\\gamma$, og $\\gamma > 1$ alltid.\n\n**Den fysiske grunnen, i én setning:** langs en isoterm holdes temperaturen oppe\nav varme utenfra, så trykket faller bare fordi volumet vokser — mens langs en\nadiabat får gassen ingen varme, så temperaturen faller i tillegg, og trykket\nfaller derfor av **to** grunner samtidig.\n\nTre lesbare følger:\n\n- Ved **ekspansjon** ligger adiabaten **under** isotermen; adiabatisk arbeid er\n  mindre.\n- Ved **kompresjon** ligger adiabaten **over**; adiabatisk trykkøkning er større.\n- I en graf-oppgave er brattheten det første du sjekker: en figur der de to\n  krysser med motsatt bratthet, er gal."
+    },
+    {
+      "id": "tfy4115-7-1-bb-tilstand-vei",
+      "type": "definition",
+      "title": "Tilstandsfunksjon mot veifunksjon",
+      "content": "$$\\Delta U: \\ \\text{tilstandsfunksjon} \\quad \\text{—} \\quad\nQ, W: \\ \\text{veifunksjoner}$$\n\n$\\Delta U$ avhenger bare av start- og sluttilstand, og for en ideell gass bare av\ntemperaturene: $\\Delta U = nC_V(T_2-T_1)$, uansett hvilken vei gassen tok.\n$Q$ og $W$ avhenger av **kurven** mellom de to punktene.\n\n**Konsekvensen du bruker hele tiden:** du kan alltid regne $\\Delta U$ selv om du\ner usikker på resten, og deretter finne den tredje størrelsen fra\n$\\Delta U = Q - W$.\n\n**Og konsekvensen som bærer hele Del 8:** over en lukket sløyfe er\n$\\Delta U = 0$, mens netto arbeid og netto varme **ikke** er null. Det er nettopp\ndenne asymmetrien som gjør en varmekraftmaskin mulig."
+    },
+    {
+      "id": "tfy4115-7-1-bb-syklus",
+      "type": "definition",
+      "title": "Arbeid over en lukket sløyfe (forvarsel til Del 8)",
+      "content": "Fører du en gass rundt en **lukket** vei i $pV$-diagrammet, tilbake til\nstarttilstanden, er\n$$\\Delta U_\\text{sløyfe} = 0 \\quad\\Longrightarrow\\quad\nQ_\\text{netto} = W_\\text{netto}.$$\nOg $W_\\text{netto}$ er **arealet inne i sløyfa**.\n\nOmløpsretningen bestemmer fortegnet, med volum til høyre og trykk oppover:\n**medklokka gir netto arbeid ut** (varmekraftmaskin), **motklokka gir netto\narbeid inn** (varmepumpe eller kjøleskap).\n\nDette er alt Del 8 trenger fra dette kapitlet, og det er verdt å se nå: en\nkretsprosess er ikke et nytt fenomen, bare fire kjente prosesser satt etter\nhverandre — hver med sin relasjon fra prosesstabellen."
+    },
+    {
+      "id": "tfy4115-7-1-bb-T8",
+      "type": "definition",
+      "title": "Sjanger T8 — hovedsetningene som fortegnsanalyse",
+      "content": "Bokas navn på oppgaveformen der du får to av størrelsene $Q$, $W$ og $\\Delta U$\n(eller nok informasjon til å finne dem) og skal finne den tredje med riktig\nfortegn. Den forekommer i **praktisk talt alle sett (~100 %)** og hører til\n**termohalvdelen, spørsmål 21–40**. Prioritet: **høyeste**.\n\nOppskriften: (1) identifiser prosesstypen fra signalordene; (2) skriv ned dens\nnull ($W = 0$, $Q = 0$ eller $\\Delta U = 0$); (3) regn\n$\\Delta U = nC_V\\Delta T$; (4) finn resten fra $\\Delta U = Q - W$; (5) les hvert\nfortegn ut i klartekst.\n\nMange varianter i sjangeren er **rene konseptspørsmål**: «hvilken prosess har\n$W = 0$», «kan en gass motta varme og bli kaldere», «hvilken av de tre er null\nher». De krever ingen regning, bare at prosesstabellen sitter."
+    },
+    {
+      "id": "tfy4115-7-1-bb-T4",
+      "type": "definition",
+      "title": "Sjanger T4 — adiabatoppgaven",
+      "content": "Oppgaveformen der en gass komprimeres eller utvider seg uten varmeutveksling, og\ndu skal finne nytt trykk, ny temperatur eller arbeidet. Den forekommer i **om lag\n9 av 10 sett (~90 %)**.\n\nOppskriften: (1) finn $\\gamma$ fra gassen (tell frihetsgrader hvis nødvendig);\n(2) velg den adiabatformen som inneholder de to oppgitte størrelsene; (3) regn\neksponenten som eget mellomresultat, med alle sifrene; (4) finn arbeidet fra\n$W = -nC_V\\Delta T$; (5) **kontroller det nye trykket med gassloven** — to\nuavhengige veier til samme tall.\n\nDe tre fellene, i rekkefølge: feil $\\gamma$, feil eksponent ($\\gamma$ mot\n$\\gamma-1$), og avrunding i eksponenten."
+    },
+    {
+      "id": "tfy4115-7-1-bb-signalord",
+      "type": "definition",
+      "title": "Signalordene som avslører prosesstypen",
+      "content": "Halve sjanger T8 er å lese ett ord riktig:\n\n| Står det i oppgaven | Prosess | Null |\n|---|---|---|\n| «stiv beholder», «fast volum», «lukket stålflaske» | isokor | $W = 0$ |\n| «fritt stempel», «åpen mot atmosfæren», «konstant trykk» | isobar | ingen |\n| «langsomt», «vannbad», «termisk kontakt», «konstant temperatur» | isoterm | $\\Delta U = 0$ |\n| «isolert», «raskt», «ingen varmeutveksling», «adiabatisk» | adiabat | $Q = 0$ |\n\n**Merk at «raskt» og «langsomt» peker motsatt vei**, og at det ikke er\ntilfeldig: en rask prosess rekker ikke å utveksle varme (adiabat), mens en\nlangsom rekker å jevne ut temperaturen (isoterm). Dette er den ene\nordparet som oftest leses feil under tidspress."
+    },
+    {
+      "id": "tfy4115-7-1-bb-felle10",
+      "type": "definition",
+      "title": "Felle #10 — prosessforveksling",
+      "content": "Å bruke én prosess' relasjon på en annen. De fire konkrete variantene:\n\n1. **$W \\ne 0$ i en isokor** — men veien er loddrett og har ingen bredde.\n2. **$\\Delta U \\ne 0$ i en isoterm** — men for en ideell gass avhenger $U$ bare\n   av $T$.\n3. **$Q \\ne 0$ i en adiabat** — men $Q = 0$ er definisjonen.\n4. **$W = p\\,\\Delta V$ i en isoterm eller adiabat** — men trykket er ikke\n   konstant der. Fella overdriver alltid arbeidet ved ekspansjon.\n\nMotgiften er en vane som tar fem sekunder: **skriv prosesstypen ned som ord**\nøverst på kladden, og skriv dens null ved siden av. Da kan du ikke gripe feil\nrelasjon."
+    },
+    {
+      "id": "tfy4115-7-1-bb-enheter",
+      "type": "definition",
+      "title": "Enhetsdisiplinen i varme og arbeid",
+      "content": "Varme, arbeid og indre energi er alle **energier** med enheten joule. Tre\npraktiske konsekvenser:\n\n- **kilojoule er vanlig i oppgavetekster.** $1\\,\\text{kJ} = 10^{3}\\,\\text{J}$.\n  Blander du kJ og J i samme regnskap, blir energibalansen tusen ganger skjev —\n  og det avsløres av at $\\Delta U = Q - W$ ikke stemmer.\n- **$p\\,\\Delta V$ har enheten joule**, siden\n  $\\text{Pa}\\cdot\\text{m}^3 = \\text{N}\\cdot\\text{m} = \\text{J}$. Dette er en\n  god benevningskontroll, og den fanger liter-mot-kubikkmeter direkte: står\n  volumet i liter, kommer arbeidet ut tusen ganger for lite.\n- **$nC_V\\Delta T$ har enheten joule**:\n  $\\text{mol}\\cdot\\text{J/(mol}\\cdot\\text{K)}\\cdot\\text{K} = \\text{J}$.\n\n**Sluttsjekken som fanger nesten alt:** sett dine tre tall inn i\n$\\Delta U = Q - W$ og se om det stemmer. Gjør det ikke det, er det en enhet, et\nfortegn eller en prosessrelasjon som er gal."
+    },
+    {
+      "id": "tfy4115-7-1-coll-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tfy4115-7-1-symb",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n**Kolliderende symboler i dette delkapitlet — les nøye.**\n\n- $Q$ er **varme** i joule. I [kap. 5.2](/tfy4115/tfy4115-5-2) var $Q$\n  **kvalitetsfaktoren**, dimensjonsløs. Enheten skiller dem.\n- $W$ er **arbeid** i joule — samme størrelse som i mekanikken, men her regnet på\n  gassen. Fortegnet: positiv $W$ betyr arbeid gjort **av** gassen.\n- $\\gamma$ er **adiabateksponenten** $C_P/C_V$, **dimensjonsløs** mellom 1 og\n  $\\tfrac53$. I Del 5 var $\\gamma$ **dempingskoeffisienten** med enheten\n  $\\text{s}^{-1}$. **Har størrelsen enhet, er det demping.**\n- $T$ er **absolutt temperatur i kelvin**, ikke periode.\n- $p$ er **trykk** i pascal, ikke bevegelsesmengde.\n- $R$ er **gasskonstanten**, ikke radius.\n- $U$ er **indre energi**. I Del 2 var $U$ potensiell energi — begge er energier,\n  men ulike størrelser.\n- $S$ opptrer **ikke** i dette kapitlet, men betyr **entropi** fra\n  [kap. 7.2](/tfy4115/tfy4115-7-2) (og betydde taustrekk i Del 5).\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $Q$ | Varme; positiv inn i systemet (**ikke** kvalitetsfaktor her) | J |\n| $W$ | Arbeid; positiv gjort **av** systemet | J |\n| $U$, $\\Delta U$ | Indre energi og endringen i den | J |\n| $p$, $V$, $T$ | Trykk, volum, absolutt temperatur | Pa, $\\text{m}^3$, K |\n| $n$ | Stoffmengde | mol |\n| $C_V$, $C_P$ | Molare varmekapasiteter | $\\text{J/(mol}\\cdot\\text{K)}$ |\n| $\\gamma$ | Adiabateksponent (**ikke** demping her) | — |\n| $f$ | Antall frihetsgrader | — |\n| $R$ | Gasskonstanten, $8{,}314$ | $\\text{J/(mol}\\cdot\\text{K)}$ |\n\n**Formler i dette delkapitlet:**\n\n$$\\Delta U = Q - W$$\nFørste hovedsetning, med $W$ = arbeidet gassen gjør **på** omgivelsene\n[står på det utdelte arket].\n\n$$W = \\int_{V_1}^{V_2} p\\,dV$$\nArbeidet som areal under prosessveien [står på det utdelte arket].\n\n$$\\Delta U = nC_V\\,\\Delta T \\qquad (\\textbf{uansett prosess})$$\nIndre energi for en ideell gass\n[må kunne brukes eller utledes aktivt].\n\n$$\\text{isokor}: \\ W = 0, \\quad Q = \\Delta U = nC_V\\Delta T$$\n[må kunne brukes eller utledes aktivt].\n\n$$\\text{isobar}: \\ W = p\\,\\Delta V = nR\\,\\Delta T, \\quad Q = nC_P\\,\\Delta T$$\n[må kunne brukes eller utledes aktivt].\n\n$$\\text{isoterm}: \\ \\Delta U = 0, \\quad Q = W = nRT\\ln\\frac{V_2}{V_1}$$\n[står på det utdelte arket; integralet slås opp i **Rottmann**].\n\n$$\\text{adiabat}: \\ Q = 0, \\quad \\Delta U = -W, \\quad W = -nC_V\\,\\Delta T\n= \\frac{p_1V_1-p_2V_2}{\\gamma-1}$$\n[står på det utdelte arket i de to første formene].\n\n$$pV^{\\gamma} = \\text{konst}, \\qquad TV^{\\gamma-1} = \\text{konst}, \\qquad\n\\frac{T^{\\gamma}}{p^{\\gamma-1}} = \\text{konst}$$\nDe tre adiabatrelasjonene — samme relasjon, ulike variabelpar\n[står på det utdelte arket].\n\n$$T_2 = T_1\\left(\\frac{V_1}{V_2}\\right)^{\\gamma-1}, \\qquad\nT_2 = T_1\\left(\\frac{p_2}{p_1}\\right)^{(\\gamma-1)/\\gamma}$$\nDe to omskrevne formene du bruker oftest\n[må kunne brukes eller utledes aktivt].\n\n$$\\left(\\frac{dp}{dV}\\right)_\\text{adiabat}\n= \\gamma\\left(\\frac{dp}{dV}\\right)_\\text{isoterm}$$\nAdiabaten er $\\gamma$ ganger brattere\n[må kunne brukes eller utledes aktivt].\n\n$$\\int_{V_1}^{V_2}\\frac{dV}{V} = \\ln\\frac{V_2}{V_1}$$\n[Rottmann]."
+        }
+      ]
+    },
+    {
+      "id": "tfy4115-7-1-coll-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tfy4115-7-1-rep",
+          "type": "text",
+          "content": "Fem korte oppgaver på det dette kapitlet hviler på. Ta dem før du går videre til\n[kap. 7.2](/tfy4115/tfy4115-7-2).\n\n**R1.** Hva er $C_V$, $C_P$ og $\\gamma$ for en toatomig gass ved romtemperatur?\n\n*Svar:* $f = 5$, så $C_V = \\tfrac52R = 20{,}785$, $C_P = \\tfrac72R = 29{,}099$ og\n$\\gamma = \\tfrac75 = 1{,}4000$ (varmekapasiteter i\n$\\text{J/(mol}\\cdot\\text{K)}$).\n\n**R2.** $1{,}20\\,\\text{mol}$ toatomig gass varmes $40{,}0\\,\\text{K}$. Hvor mye\nendrer den indre energien seg?\n\n*Svar:*\n$$\\Delta U = nC_V\\Delta T = 1{,}20 \\cdot 20{,}785 \\cdot 40{,}0\\,\\text{J} = 997{,}68\\,\\text{J}.$$\nSvaret er det samme uansett hvilken prosess som ble brukt.\n\n**R3.** En gass i en stiv beholder mottar $1850\\,\\text{J}$ varme. Hva er $W$ og\n$\\Delta U$?\n\n*Svar:* Stiv beholder betyr $W = 0$, altså $\\Delta U = Q = 1850\\,\\text{J}$.\n\n**R4.** Hvorfor er $\\Delta U = 0$ i en isoterm prosess med en ideell gass?\n\n*Svar:* Fordi $U = \\tfrac{f}{2}nRT$ bare avhenger av temperaturen, og\ntemperaturen er uendret. Merk at det **ikke** betyr at ingenting skjer — både\n$Q$ og $W$ er forskjellige fra null, og de er like store.\n\n**R5.** Hva er $\\ln 2$, $\\ln 3$ og $\\ln 4$, og hvor bruker du dem i dette\nkapitlet?\n\n*Svar:* $0{,}69315$, $1{,}09861$ og $1{,}38629$. Du bruker dem i det isoterme\narbeidet $nRT\\ln(V_2/V_1)$, som er den ene prosessen der arbeidet ikke er et\nenkelt produkt. Merk at $\\ln 4 = 2\\ln 2$ — en dobling to ganger."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

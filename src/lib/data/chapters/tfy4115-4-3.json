@@ -1,0 +1,432 @@
+{
+  "id": "tfy4115-4-3",
+  "courseId": "tfy4115",
+  "chapterNumber": "4.3",
+  "title": "Statikk og momentbalanse",
+  "description": "Likevekt for stive legemer: $\\sum\\mathbf{F}=0$ og $\\sum\\tau=0$ om et klokt valgt punkt — bjelke, stupebrett, plate mot vegg, talje.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "sette opp et frilegemediagram med alle krefter navngitt, og definere positiv rotasjonsretning før den første momentlikningen",
+    "velge momentpunkt slik at ukjente krefter faller ut, og løse for taustrekk, opplagerkrefter og hengselkrefter",
+    "tolke en negativ opplagerkraft som en kraft i motsatt retning, og kontrollere svaret med et annet momentpunkt",
+    "behandle friksjon som en ulikhet i statikk, og regne på stige mot glatt vegg, talje og kantring"
+  ],
+  "content": [
+    {
+      "id": "tfy4115-4-3-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Sjanger M9 — statikk og momentbalanse, altså «her er en konstruksjon som står stille, finn kreftene i den» — dukker opp i om lag 7 av 10 sett (~70 %).** Temaet hører til **mekanikkhalvdelen, spørsmål 1–20**, og har prioritet **bør sitte**.\n\nSignaturene er få og faste: en **bjelke** festet i et hengsel i veggen og holdt vannrett av en snor; et **stupebrett** som ligger på to opplagringspunkter med en person ute i enden; en **stige** eller plate som står mot en vegg og holdes av friksjon i gulvet; og et **taljesystem** der du skal finne hvor mye kraften reduseres.\n\n**Her taper studenter poeng på fortegn, ikke på fysikk.** Likevektsbetingelsene er enkle å skrive ned. Det som går galt, er at et moment får feil fortegn, eller at en opplagerkraft som faktisk peker **nedover** blir regnet som om den peker oppover. Derfor har dette kapitlet én ufravikelig arbeidsvane: **definer positiv rotasjonsretning eksplisitt i hver eneste oppgave, før du skriver den første momentlikningen.** Det tar fem sekunder og fjerner den hyppigste feilen i sjangeren.\n\nDet andre poenget er **valget av momentpunkt**. Det er ikke gitt av oppgaven — det velger du, og et klokt valg kan gjøre en oppgave med tre ukjente til én likning med én ukjent."
+    },
+    {
+      "id": "tfy4115-4-3-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet bygger på [kap. 4.1](/tfy4115/tfy4115-4-1) og på kraftmomentet fra [kap. 4.2](/tfy4115/tfy4115-4-2). Du trenger tre ting, og de står her:\n\n$$\\tau = rF\\sin\\phi = dF$$\nKraftmomentet om et punkt, der $d = r\\sin\\phi$ er den **vinkelrette** avstanden fra punktet til kraftens virkelinje. Enheten er $\\text{N}\\cdot\\text{m}$. En kraft som peker rett mot punktet, har momentarm null og gir ingen rotasjon.\n\n$$x_\\text{CM} = \\frac{\\sum m_ix_i}{\\sum m_i}$$\nMassesenteret, som er det punktet der tyngden kan tegnes som én kraft. For en homogen bjelke er det midt på bjelken — det er hele grunnen til at $Mg$ får momentarmen $L/2$.\n\n$$\\sum \\tau = I\\alpha$$\nNewtons 2. lov for rotasjon. I dette kapitlet er $\\alpha = 0$, fordi alt står stille — og da blir loven $\\sum\\tau = 0$. Statikk er altså ikke et nytt kapittel i fysikken; det er rotasjonsdynamikk med null på høyre side.\n\n**Fra fysikken på videregående:** [Vektorer og komponenter](/fysikk2/fysikk2-1-1) er verktøyet for å dekomponere en snorkraft i en vannrett og en loddrett del. Det gjør vi i hver eneste oppgave her.\n\n**Symbolmerknad.** I dette kapitlet er $S$ et **taustrekk** i newton — i termodelen (Del 7) betyr samme bokstav **entropi** i J/K. $R$ er en radius eller en reaksjonskraft, aldri gasskonstanten. $N$ er en normalkraft, $f$ en friksjonskraft, og $\\mu_s$ koeffisienten for statisk friksjon."
+    },
+    {
+      "id": "tfy4115-4-3-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — de to likevektsbetingelsene (~12 min)\n\nSe på en balkong. Den henger ut fra veggen med en person og et bord på seg, og den beveger seg ikke. To ting må da være sant samtidig: **den flytter seg ikke**, og **den dreier seg ikke**. Det er de to likevektsbetingelsene, og de gir tilsammen tre likninger i planet.\n\nGrunnen til at det er to betingelser og ikke én, er at et **stivt legeme** kan gjøre to slags bevegelser. En punktmasse kan bare flytte seg; en bjelke kan i tillegg vippe. Derfor er $\\sum\\mathbf{F}=0$ alene ikke nok for en bjelke — en vippe med et barn på hver side kan godt ha kraftbalanse og likevel begynne å dreie."
+    },
+    {
+      "id": "tfy4115-4-3-def-statisk-likevekt",
+      "type": "definition",
+      "title": "Statisk likevekt",
+      "content": "Tilstanden der et legeme verken har translasjons- eller rotasjonsakselerasjon: det står i ro, eller beveger seg med konstant hastighet uten å endre rotasjon. Betingelsene er\n$$\\sum F_x = 0, \\qquad \\sum F_y = 0, \\qquad \\sum \\tau = 0.$$\nDe tre likningene er alt statikken består av i planet, og de kan derfor bestemme høyst **tre** ukjente størrelser. Legg merke til at $\\sum\\tau=0$ må gjelde om **hvilket som helst** punkt når de to kraftbetingelsene er oppfylt — det er nettopp denne friheten som gjør valget av momentpunkt til et verktøy og ikke en tvangstrøye."
+    },
+    {
+      "id": "tfy4115-4-3-def-frilegemediagram",
+      "type": "definition",
+      "title": "Frilegemediagram",
+      "content": "En skisse der **ett** legeme er isolert fra omgivelsene, og der **alle** krefter som virker på det er tegnet inn som navngitte piler i sine riktige angrepspunkter. Reglene som gjør diagrammet riktig: tyngden $M\\mathbf{g}$ tegnes i massesenteret og peker rett ned; normalkraften står **vinkelrett på flaten og peker vekk fra den**; snordrag peker **langs snora, vekk fra legemet**; friksjonen peker **mot den retningen legemet ville glidd**. Og: ingen fiktive krefter tegnes inn. En kraft som «holder legemet i balanse» finnes ikke som egen kraft — balansen er resultatet av de virkelige kreftene."
+    },
+    {
+      "id": "tfy4115-4-3-def-positiv-retning",
+      "type": "definition",
+      "title": "Positiv rotasjonsretning",
+      "content": "Den retningen du selv velger å regne som positiv når du summerer momenter — vanligvis **mot klokka**, men valget er fritt så lenge du holder det. Konvensjonen må skrives ned **før** den første momentlikningen, for hvert eneste moment får sitt fortegn av den: en kraft som ville dreid legemet den valgte veien, gir positivt moment, en som ville dreid det motsatt, gir negativt. Dette er kapitlets viktigste arbeidsvane. Uten en nedskrevet konvensjon blir fortegnene gjetning, og en fortegnsfeil i én av tre likninger ødelegger hele svaret — også når hver enkelt kraft er riktig regnet ut."
+    },
+    {
+      "id": "tfy4115-4-3-th-likevekt",
+      "type": "theorem",
+      "title": "Likevektsbetingelsene for et stivt legeme",
+      "content": "Et stivt legeme i planet er i likevekt når og bare når\n$$\\sum F_x = 0, \\qquad \\sum F_y = 0, \\qquad \\sum \\tau_P = 0$$\nfor et vilkårlig valgt punkt $P$. Betingelsene **står på det utdelte arket** i formen $\\sum F = ma$ og $\\sum\\tau=I\\alpha$ med null på høyre side, men **oppsettet** — hvilke krefter som finnes, hvor de virker, og hvilket punkt du velger — [må kunne brukes eller utledes aktivt].\n\nTre presiseringer som avgjør oppgaver:\n\n1. **Momentbetingelsen om ett punkt er nok**, forutsatt at kraftbetingelsene også brukes. Du får ikke flere uavhengige likninger ved å velge et annet punkt i tillegg — men du kan bruke et annet punkt som **kontroll**.\n2. **Tyngden virker i massesenteret.** For en homogen bjelke med lengde $L$ betyr det momentarmen $L/2$ fra hver ende.\n3. **En ukjent kraft du har tegnet i gal retning, kommer ut negativ.** Det er ikke en feil — det er svaret som forteller deg at kraften peker motsatt vei. Behold fortegnet, og skriv i klartekst hva det betyr."
+    },
+    {
+      "id": "tfy4115-4-3-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: vippa som skal balansere",
+      "problem": "Et vippebrett med lengde $4{,}00\\,\\text{m}$ er opplagret i midten. Et barn med masse $24{,}0\\,\\text{kg}$ sitter $1{,}800\\,\\text{m}$ fra opplagringspunktet på den ene siden.\n\n**a)** Hvor langt fra midten må et barn på $32{,}0\\,\\text{kg}$ sitte for at vippa skal balansere?\n**b)** Hvor stor er kraften fra opplagringspunktet, når brettets egen masse er så liten at vi ser bort fra den?",
+      "solution": "**Frilegemediagram.** Isoler brettet med barna. Tre krefter virker på det: de to tyngdene $m_1g$ og $m_2g$ rett ned, og normalkraften $N$ rett opp fra opplagringspunktet.\n\n**Positiv rotasjonsretning: mot klokka.** Det første barnet sitter til venstre og dreier brettet mot klokka (positivt), det andre til høyre og dreier med klokka (negativt).\n\n**a)** Legg momentpunktet i opplagringspunktet. Da faller $N$ ut, siden den har momentarm null der:\n$$\\sum\\tau = m_1g\\,x_1 - m_2g\\,x_2 = 0 \\quad\\Longrightarrow\\quad x_2 = \\frac{m_1}{m_2}x_1.$$\nLegg merke til at $g$ faller ut på begge sider — svaret er uavhengig av tyngdeakselerasjonen, og vippa ville balansert likt på Månen.\n$$x_2 = \\frac{24{,}0}{32{,}0} \\cdot 1{,}800\\,\\text{m} = 1{,}350\\,\\text{m}.$$\n\n**b)** Kraftbetingelsen loddrett:\n$$N = (m_1+m_2)g = 56{,}0 \\cdot 9{,}81\\,\\text{N} = 549{,}360\\,\\text{N} \\approx 549{,}360\\,\\text{N}.$$\n\n**Sluttsjekk, to ledd.** (i) Det tyngste barnet må sitte **nærmest** midten, og $1{,}350 < 1{,}800$ ✔. (ii) Kontroller momentlikningen om et annet punkt, for eksempel det første barnets plass: $N\\cdot x_1 - m_2g(x_1+x_2) = 549{,}360 \\cdot 1{,}800 - 313{,}92 \\cdot 3{,}150 = -0{,}000\\,\\text{N}\\cdot\\text{m} \\approx 0$ ✔. At regnestykket går opp om et annet punkt, er den sterkeste kontrollen statikken har."
+    },
+    {
+      "id": "tfy4115-4-3-o-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-4-3-oppg-1",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — begreper.)\n\n**a)** Hvorfor er det ikke nok at summen av kreftene er null for at en bjelke skal stå stille? Gi et konkret eksempel.\n\n**b)** En kraft på $150{,}0\\,\\text{N}$ virker loddrett nedover i avstanden $0{,}600\\,\\text{m}$ fra et momentpunkt. Hvor stort er momentet, og hvilken vei dreier det legemet?",
+        "solution": "**a)** Fordi et stivt legeme kan gjøre to slags bevegelser: flytte seg og dreie seg. Kraftbetingelsen $\\sum\\mathbf{F}=0$ hindrer bare den første. Konkret eksempel: to like store krefter på $100\\,\\text{N}$ virker på en bjelke, den ene oppover i venstre ende og den andre nedover i høyre ende. Summen av kreftene er null, så massesenteret står stille — men bjelken begynner å rotere, fordi de to momentene om massesenteret peker samme vei og summerer seg. Det er nettopp derfor $\\sum\\tau=0$ er en egen betingelse.\n\n**b)** Kraften virker loddrett og avstanden måles vannrett, så de står vinkelrett på hverandre og hele avstanden er momentarm:\n$$\\tau = dF = 0{,}600 \\cdot 150{,}0\\,\\text{N}\\cdot\\text{m} = 90{,}0\\,\\text{N}\\cdot\\text{m}.$$\nRetningen avhenger av hvilken side av momentpunktet kraften virker på: virker den til høyre for punktet, dreier den legemet **med klokka**; virker den til venstre, **mot klokka**. Med mot klokka valgt som positiv retning, er momentet altså $-90{,}0\\,\\text{N}\\cdot\\text{m}$ i det første tilfellet og $+90{,}0\\,\\text{N}\\cdot\\text{m}$ i det andre. **Å oppgi et moment uten å si hvilken vei det dreier, er et halvt svar.**",
+        "hints": [
+          "Tenk på hva et stivt legeme kan gjøre som en punktmasse ikke kan.",
+          "Momentets fortegn følger av hvilken vei kraften ville dreid legemet om punktet."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-4-3-o-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-4-3-oppg-2",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M9 — statikk og momentbalanse.) Et vippebrett er opplagret $1{,}200\\,\\text{m}$ fra den ene enden og har total lengde $4{,}00\\,\\text{m}$. Brettet er homogent med masse $20{,}0\\,\\text{kg}$. Et barn med masse $35{,}0\\,\\text{kg}$ setter seg helt ute på den korte enden.\n\n**a)** Hvor stort moment gir brettets egen tyngde om opplagringspunktet, og hvilken vei dreier det?\n\n**b)** Må noe holde den lange enden nede, eller balanserer brettet av seg selv? Begrunn med tall.",
+        "solution": "**Positiv rotasjonsretning: mot klokka.** La den korte enden være til venstre, opplagringspunktet i origo.\n\n**a)** Brettet er homogent, så tyngden virker i midten, altså $4{,}00/2 = 2{,}00\\,\\text{m}$ fra venstre ende — det er $0{,}800\\,\\text{m}$ til **høyre** for opplagringspunktet:\n$$\\tau_\\text{brett} = -M_pg \\cdot 0{,}800 = -20{,}0 \\cdot 9{,}81 \\cdot 0{,}800\\,\\text{N}\\cdot\\text{m} = -156{,}96\\,\\text{N}\\cdot\\text{m},$$\naltså **med klokka**: brettets egen tyngde forsøker å tippe den lange enden ned.\n\n**b)** Barnet sitter $1{,}200\\,\\text{m}$ til venstre for opplagringspunktet og gir momentet\n$$\\tau_\\text{barn} = +m_bg \\cdot 1{,}200 = 35{,}0 \\cdot 9{,}81 \\cdot 1{,}200\\,\\text{N}\\cdot\\text{m} = +412{,}02\\,\\text{N}\\cdot\\text{m}.$$\nSummen er\n$$\\sum\\tau = 412{,}02 - 156{,}96 = 255{,}06\\,\\text{N}\\cdot\\text{m},$$\naltså **positiv**: barnets moment er størst, og brettet vil tippe mot klokka — den korte enden går ned og den lange opp. Noe må derfor holde den lange enden nede (eller barnet må flytte seg innover), ellers er systemet ikke i likevekt.\n\n**Sluttsjekk:** fortegnet på summen forteller retningen direkte. Hadde svaret vært negativt, ville den lange enden gått ned. Hadde det vært null, ville brettet balansert. Det er derfor du aldri skal kaste fortegnet.",
+        "hints": [
+          "Tegn frilegemediagram og skriv ned hvilken retning som er positiv før du regner.",
+          "Brettets tyngde virker i brettets massesenter — hvor ligger det i forhold til opplagringspunktet?",
+          "Sammenlign de to momentene i tallverdi, og les retningen ut av fortegnet på summen."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-4-3-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — det kloke momentpunktet (~14 min)\n\nNå kommer det som gjør statikk raskt. Momentbetingelsen gjelder om **hvilket som helst** punkt. Det betyr at du kan velge punktet slik at de ukjente du **ikke** er interessert i, forsvinner av seg selv — for en kraft som virker gjennom momentpunktet, har momentarm null.\n\nRegelen er derfor kort: **legg momentpunktet der en ukjent kraft virker.** I en bjelke festet med hengsel finnes det to ukjente hengselkrefter, og legger du punktet i hengselet, faller begge ut samtidig. Da står du igjen med én likning og én ukjent — snorstrekket — og den kan du løse direkte."
+    },
+    {
+      "id": "tfy4115-4-3-def-momentpunkt",
+      "type": "definition",
+      "title": "Momentpunkt",
+      "content": "Det punktet du velger å regne momenter om. Valget er fritt (så lenge legemet er i likevekt), og det er et **regneverktøy**: hver kraft som virker gjennom punktet, faller ut av momentlikningen, fordi momentarmen er null. Strategien er derfor å legge punktet der de ukjente kreftene du ikke spør etter virker — typisk i et hengsel, et opplagringspunkt eller foten av en stige. Et dårlig valgt punkt gir en likning med tre ukjente og tvinger deg til å løse et likningssystem; et klokt valgt punkt gir svaret i én linje. Et annet punkt kan i tillegg brukes som **uavhengig kontroll** til slutt."
+    },
+    {
+      "id": "tfy4115-4-3-def-hengselkraft",
+      "type": "definition",
+      "title": "Hengselkraft",
+      "content": "Kraften et hengsel (eller et ledd, en bolt, et lager) utøver på legemet det holder. Den har som regel både en vannrett og en loddrett komponent, $H_x$ og $H_y$, og retningen er **ikke** kjent på forhånd — derfor tegnes komponentene i en valgt retning, og fortegnet på svaret forteller om gjetningen var riktig. Et hengsel kan ikke utøve noe **moment** om sin egen akse (det er hele forskjellen fra en fast innspenning), og det er derfor det er så lønnsomt å legge momentpunktet nettopp der: begge de ukjente komponentene faller ut samtidig."
+    },
+    {
+      "id": "tfy4115-4-3-def-taustrekk",
+      "type": "definition",
+      "title": "Taustrekk",
+      "content": "Kraften i en stram snor, et tau eller et stag, med symbolet $S$ og enheten newton. Tre egenskaper som brukes hele tiden: strekket virker **langs** snora; det peker **vekk fra** legemet snora er festet i (en snor kan trekke, aldri skyve); og i en ideell, masseløs snor over en friksjonsfri trinse er strekket **det samme** i hele snora. Merk symbolkollisjonen: $S$ er entropi i termodelen (Del 7), men her alltid et strekk i newton. I oppgaver med en snor i vinkel må strekket dekomponeres, og det er da $S\\sin\\phi$ og $S\\cos\\phi$ dukker opp."
+    },
+    {
+      "id": "tfy4115-4-3-fig-1",
+      "type": "image",
+      "src": "/images/textbook/tfy4115/tfy4115-4-3-bjelke-frilegeme.svg",
+      "alt": "Frilegemediagram av en vannrett bjelke festet i en vegg med et hengsel til venstre. En stiplet linje viser snora fra bjelkens ytterende opp til veggen, i vinkelen fi med bjelken. En roed pil rett ned fra bjelkens midtpunkt er merket Mg. En gul pil langs snora fra ytterenden er merket S. To blaa piler fra hengselet peker mot hoeyre og oppover og er merket H x og H y. To groenne maallinjer viser momentarmen L halve for tyngden og momentarmen L for snorkraftens loddrette komponent.",
+      "caption": "Frilegemediagram for bjelken i eksempel 2. Momentpunktet legges i hengselet, slik at $H_x$ og $H_y$ faller ut av momentlikningen. Positiv rotasjonsretning er valgt mot klokka: snordraget gir positivt moment, tyngden negativt."
+    },
+    {
+      "id": "tfy4115-4-3-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: bjelken i hengsel, holdt av en snor",
+      "problem": "En homogen bjelke med masse $M = 40{,}0\\,\\text{kg}$ og lengde $L = 3{,}00\\,\\text{m}$ er festet til en vegg med et hengsel og holdes vannrett av en snor som går fra bjelkens ytterende opp til veggen. Snora danner vinkelen $\\phi = 35^\\circ$ med bjelken.\n\n**a)** Finn strekket i snora.\n**b)** Finn de to komponentene av hengselkraften, og kraftens tallverdi og retning.\n**c)** Kontroller svaret ved å regne momentet om et annet punkt.",
+      "solution": "**Frilegemediagram** (se figuren over). Fire krefter virker på bjelken: tyngden $Mg$ rett ned i midten, strekket $S$ langs snora fra ytterenden, og hengselkreftene $H_x$ og $H_y$. Vi tegner $H_x$ mot høyre og $H_y$ oppover, og lar fortegnene korrigere oss om vi tok feil.\n\n**Positiv rotasjonsretning: mot klokka.**\n\n**a) Symbolsk.** Legg momentpunktet i **hengselet**. Da faller både $H_x$ og $H_y$ ut. Tyngden har momentarmen $L/2$ og dreier bjelken med klokka (negativt). Snorkraftens komponent vinkelrett på bjelken er $S\\sin\\phi$, med momentarm $L$, og den dreier mot klokka (positivt):\n$$\\sum\\tau = S\\sin\\phi \\cdot L - Mg\\cdot\\frac{L}{2} = 0 \\quad\\Longrightarrow\\quad S = \\frac{Mg}{2\\sin\\phi}.$$\nLegg merke til at $L$ faller ut. **Strekket er uavhengig av bjelkens lengde** — bare av massen og vinkelen.\n\n**Rask vei til tall.**\n$$S = \\frac{40{,}0 \\cdot 9{,}81}{2 \\cdot \\sin 35^\\circ}\\,\\text{N} = \\frac{392{,}40}{2 \\cdot 0{,}57358}\\,\\text{N} = \\frac{392{,}40}{1{,}14715}\\,\\text{N} = 342{,}0643\\,\\text{N} \\approx 342{,}064\\,\\text{N}.$$\n\n**b)** Kraftbetingelsene. Snorkraften peker opp og **inn mot veggen**, så dens vannrette komponent er $-S\\cos\\phi$:\n$$\\sum F_x = H_x - S\\cos\\phi = 0 \\quad\\Longrightarrow\\quad H_x = S\\cos\\phi = 342{,}0643 \\cdot 0{,}81915\\,\\text{N} = 280{,}2026\\,\\text{N},$$\n$$\\sum F_y = H_y + S\\sin\\phi - Mg = 0 \\quad\\Longrightarrow\\quad H_y = Mg - S\\sin\\phi = 392{,}40 - 196{,}200\\,\\text{N} = 196{,}2000\\,\\text{N}.$$\nBegge er positive, så vi tegnet dem riktig vei: hengselet skyver bjelken **utover** og **oppover**.\n\nTallverdien:\n$$H = \\sqrt{H_x^2+H_y^2} = \\sqrt{78513{,}5 + 38494{,}4}\\,\\text{N} = 342{,}0643\\,\\text{N},$$\nmed retningen\n$$\\arctan\\frac{H_y}{H_x} = \\arctan 0{,}70021 = 35{,}0^\\circ \\text{ over vannrett}.$$\n\n**Legg merke til et pent resultat:** $H_y = Mg - S\\sin\\phi = 2S\\sin\\phi - S\\sin\\phi = S\\sin\\phi$, siden $Mg = 2S\\sin\\phi$. Da er $H_x = S\\cos\\phi$ og $H_y = S\\sin\\phi$, altså $H = S$ og vinkelen nøyaktig $\\phi$. **Hengselkraften er like stor som snorstrekket, speilvendt om bjelken** — i dette oppsettet, med tyngden i midten og snora i ytterenden. Det er en god sluttsjekk å kjenne.\n\n**c) Kontroll med et annet momentpunkt.** Velg bjelkens ytterende, der snora er festet. Nå faller $S$ ut, og momentet fra $H_y$ (momentarm $L$, dreier med klokka) må balansere tyngdens (momentarm $L/2$, dreier mot klokka):\n$$-H_y\\cdot L + Mg\\cdot\\frac{L}{2} = -196{,}2000 \\cdot 3{,}00 + 392{,}40 \\cdot 1{,}50 = 0{,}0000\\,\\text{N}\\cdot\\text{m} \\approx 0. \\checkmark$$\n\n**Vanlige feil i denne oppgaven, med tall.** Glemmer du faktoren $\\tfrac12$ i tyngdens momentarm (altså plasserer tyngden i ytterenden), får du $S = 684{,}1285\\,\\text{N}$ — dobbelt så mye. Bruker du $\\cos\\phi$ i stedet for $\\sin\\phi$ i momentlikningen, får du $239{,}5160\\,\\text{N}$. Begge tallene ligger som ferdige svaralternativer."
+    },
+    {
+      "id": "tfy4115-4-3-o-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-4-3-oppg-3",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M9.) En homogen bjelke med masse $25{,}0\\,\\text{kg}$ og lengde $2{,}40\\,\\text{m}$ er festet i veggen med et hengsel og holdes vannrett av en snor fra ytterenden, i vinkelen $40^\\circ$ med bjelken. En last på $15{,}0\\,\\text{kg}$ henger $1{,}800\\,\\text{m}$ fra hengselet.\n\n**a)** Finn strekket i snora.\n\n**b)** Finn hengselkraftens komponenter og tallverdi.",
+        "solution": "**Positiv rotasjonsretning: mot klokka.** Momentpunkt: hengselet, slik at begge hengselkomponentene faller ut.\n\n**a)** Tyngden av bjelken virker i midten ($1{,}20\\,\\text{m}$ fra hengselet), lasten i $1{,}800\\,\\text{m}$, og snorkraftens vinkelrette komponent $S\\sin\\phi$ i $2{,}40\\,\\text{m}$:\n$$S\\sin\\phi \\cdot L = Mg\\cdot\\frac{L}{2} + mg\\cdot x$$\n$$S = \\frac{Mg\\,L/2 + mg\\,x}{L\\sin\\phi} = \\frac{294{,}300 + 264{,}870}{2{,}40 \\cdot 0{,}64279}\\,\\text{N} = \\frac{559{,}170}{1{,}54269}\\,\\text{N} = 362{,}4642\\,\\text{N} \\approx 362{,}464\\,\\text{N}.$$\n\n**b)**\n$$H_x = S\\cos\\phi = 362{,}4642 \\cdot 0{,}76604\\,\\text{N} = 277{,}6637\\,\\text{N},$$\n$$H_y = (M+m)g - S\\sin\\phi = 392{,}400 - 232{,}988\\,\\text{N} = 159{,}4125\\,\\text{N},$$\n$$H = \\sqrt{H_x^2+H_y^2} = 320{,}1710\\,\\text{N}.$$\nBegge komponentene er positive, så hengselet skyver bjelken utover og oppover.\n\n**Sluttsjekk med et annet momentpunkt (ytterenden):** $H_y \\cdot L$ skal balansere $Mg\\cdot L/2 + mg(L-x)$ regnet den andre veien — sett inn og se at det stemmer. Merk også at strekket nå er **større** enn uten lasten, som det må være.",
+        "hints": [
+          "Legg momentpunktet i hengselet — da forsvinner begge de ukjente hengselkomponentene.",
+          "Bjelkens egen tyngde virker i midten; lasten der den henger.",
+          "Bare snorkraftens komponent VINKELRETT på bjelken gir moment om hengselet."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-4-3-o-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-4-3-oppg-4",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Kvalitativ oppgave — strategi og fortegn.)\n\n**a)** Hvorfor er det lurt å legge momentpunktet i hengselet når du skal finne snorstrekket i en bjelke?\n\n**b)** En medstudent legger momentpunktet midt på bjelken i stedet. Får hun feil svar? Hva blir forskjellen i arbeidsmengde?\n\n**c)** Hva betyr det fysisk hvis du løser for en opplagerkraft og får et negativt tall?",
+        "solution": "**a)** Fordi de to hengselkomponentene $H_x$ og $H_y$ virker **gjennom** hengselet og derfor har momentarm null om det punktet. Begge faller ut av momentlikningen samtidig, og du står igjen med én likning med én ukjent — snorstrekket — som kan løses direkte. Uten dette valget måtte du løst tre likninger med tre ukjente.\n\n**b)** Nei, hun får **ikke** feil svar. Momentbetingelsen gjelder om hvilket som helst punkt for et legeme i likevekt. Men momentlikningen hennes inneholder nå både $S$, $H_x$ og $H_y$ (hengselet ligger $L/2$ fra punktet, så $H_y$ har momentarm), og hun må kombinere den med de to kraftlikningene for å komme fram. Det er tre likninger og tre ukjente i stedet for én og én. Svaret blir det samme; veien er tre–fire ganger så lang. **Under tidspress er det forskjellen mellom et poeng og et tomt felt.**\n\n**c)** Det betyr at kraften peker **motsatt vei** av det du tegnet inn. Regningen har korrigert gjetningen din. Det vanligste tilfellet er stupebrettet: den innerste opplagringen må trekke brettet **ned**, ikke skyve det opp, og tegner du den oppover, kommer den ut negativ. Svaret skal da rapporteres i klartekst: «kraften er $1{,}28\\,\\text{kN}$ **nedover**». Å kaste minustegnet fordi «krefter er positive» er en av de dyreste feilene i sjangeren.",
+        "hints": [
+          "Hvilke krefter faller ut av momentlikningen når punktet legges der de virker?",
+          "Er momentbetingelsen gyldig om ett bestemt punkt, eller om alle punkter?",
+          "Hva forteller et negativt svar om retningen du tegnet kraften i?"
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-4-3-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — når en kraft peker den andre veien (~12 min)\n\n— naturlig pausepunkt —\n\nEt stupebrett ligger på to opplagringspunkter nær innerenden, og stuperen står ute i den frie enden. Hva gjør den **innerste** opplagringen? Den skyver ikke brettet opp — den **holder det ned**. Ellers ville brettet vippet om det ytterste punktet som en gigantisk vippe.\n\nDette er sjangerens klassiske fortegnsfelle, og den er lett å håndtere når du kjenner den: tegn kraften i den retningen du tror, regn, og les retningen ut av fortegnet."
+    },
+    {
+      "id": "tfy4115-4-3-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: stupebrettet der en kraft blir negativ",
+      "problem": "Et homogent stupebrett med lengde $4{,}40\\,\\text{m}$ og masse $30{,}0\\,\\text{kg}$ ligger på to opplagringspunkter: $A$ helt i innerenden ($x=0$) og $B$ i $x = 1{,}500\\,\\text{m}$. En stuper med masse $60{,}0\\,\\text{kg}$ står helt ute i den frie enden.\n\n**a)** Finn kreftene fra de to opplagringspunktene.\n**b)** Tolk fortegnene fysisk.",
+      "solution": "**Frilegemediagram.** Fire krefter: $N_A$ og $N_B$ fra opplagringene (vi tegner **begge oppover**), brettets tyngde $M_pg$ i midten ($x=2{,}20\\,\\text{m}$), og stuperens tyngde $m_dg$ i $x=4{,}40\\,\\text{m}$.\n\n**Positiv rotasjonsretning: mot klokka.**\n\n**a)** Legg momentpunktet i $A$, så faller $N_A$ ut:\n$$N_B\\cdot 1{,}500 = M_pg\\cdot 2{,}20 + m_dg\\cdot 4{,}40$$\n$$N_B = \\frac{647{,}46 + 2589{,}84}{1{,}500}\\,\\text{N} = \\frac{3237{,}30}{1{,}500}\\,\\text{N} = 2158{,}2000\\,\\text{N} \\approx 2158{,}2000\\,\\text{N}.$$\n\nKraftbetingelsen loddrett gir $N_A$:\n$$N_A = (M_p+m_d)g - N_B = 882{,}900 - 2158{,}2000\\,\\text{N} = -1275{,}3000\\,\\text{N}.$$\n\n**b)** $N_A$ kom ut **negativ**. Det betyr at kraften peker motsatt vei av det vi tegnet: opplagringen i $A$ må **trekke brettet ned** med $1275{,}3000\\,\\text{N}$, ikke skyve det opp. Fysisk er det rimelig — brettet er festet i innerenden, og stuperens vekt ute i enden vil ellers vippe hele brettet om punktet $B$. Et stupebrett er derfor boltet fast innerst; det ligger ikke bare løst oppå.\n\nLegg også merke til at $N_B = 2158{,}2000\\,\\text{N}$ er **større** enn den samlede tyngden på $882{,}900\\,\\text{N}$. Det er ikke en feil: den ekstra kraften er nødvendig for å balansere nedholdet i $A$. Summen er fortsatt riktig: $-1275{,}3000 + 2158{,}2000 = 882{,}900\\,\\text{N}$ ✔.\n\n**Kontroll med et annet momentpunkt.** Velg $B$. Nå faller $N_B$ ut, og $N_A$ har momentarm $1{,}500\\,\\text{m}$:\n$$N_A = \\frac{M_pg(1{,}500-2{,}20) + m_dg(1{,}500-4{,}40)}{1{,}500} = -1275{,}3000\\,\\text{N}. \\checkmark$$\nSamme tall, samme fortegn, helt uavhengig regning. Det er den kontrollen som er verdt tjue sekunder på en eksamen.\n\n**Sluttsjekk:** (i) $N_A + N_B$ må være lik den samlede tyngden ✔. (ii) Er stuperen på **utsiden** av det ytterste opplagringspunktet, må den innerste kraften være negativ — det er en regel du kan bruke som forhåndssjekk."
+    },
+    {
+      "id": "tfy4115-4-3-o-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-4-3-oppg-5",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M9.) Et homogent stupebrett med lengde $4{,}00\\,\\text{m}$ og masse $25{,}0\\,\\text{kg}$ ligger på to opplagringer: $A$ i $x=0$ og $B$ i $x = 1{,}200\\,\\text{m}$. En person med masse $55{,}0\\,\\text{kg}$ står i den frie enden.\n\n**a)** Finn de to opplagerkreftene.\n\n**b)** Hvor langt ute må personen minst stå for at kraften i $A$ skal bli negativ?",
+        "solution": "**Positiv rotasjonsretning: mot klokka.** Begge opplagerkrefter tegnes oppover.\n\n**a)** Momentpunkt i $A$:\n$$N_B = \\frac{M_pg \\cdot 2{,}00 + m_dg \\cdot 4{,}00}{1{,}200} = \\frac{490{,}50 + 2158{,}20}{1{,}200}\\,\\text{N} = 2207{,}2500\\,\\text{N}.$$\n$$N_A = (M_p+m_d)g - N_B = 784{,}800 - 2207{,}2500\\,\\text{N} = -1422{,}4500\\,\\text{N},$$\naltså $1422{,}4500\\,\\text{N}$ **nedover**.\n\n**b)** Sett $N_A = 0$ og la personen stå i $x$. Med momentpunkt i $B$ krever likevekt at brettets egen tyngde balanserer personens:\n$$M_pg\\left(1{,}200 - 2{,}00\\right) = m_dg\\left(x - 1{,}200\\right) \\quad\\Longrightarrow\\quad x = 1{,}200 + \\frac{M_p\\left(1{,}200-2{,}00\\right)}{m_d}.$$\nMerk at $1{,}200 - 2{,}00$ er **negativ** ($-0{,}800\\,\\text{m}$), siden brettets massesenter ligger utenfor $B$. Da blir\n$$x = 1{,}200 -0{,}800\\,\\text{m} = 0{,}836\\,\\text{m}.$$\nPersonen behøver altså bare komme forbi $x = 0{,}836\\,\\text{m}$ — som ligger innenfor $B$s posisjon pluss litt — før nedholdet i $A$ må virke. Med andre ord: så snart personen står utenfor det punktet, må $A$ trekke nedover. I denne oppgaven står hun i $4{,}00\\,\\text{m}$, altså langt utenfor.\n\n**Sluttsjekk:** $N_A + N_B = -1422{,}4500 + 2207{,}2500 = 784{,}800\\,\\text{N}$ ✔, og $N_B$ er større enn totalvekten fordi den også må balansere nedholdet.",
+        "hints": [
+          "Tegn begge opplagerkreftene oppover, og la fortegnet i svaret korrigere deg.",
+          "Legg momentpunktet i A for å finne $N_B$, og bruk deretter kraftbetingelsen loddrett.",
+          "I b): sett $N_A=0$ og finn den posisjonen som gir likevekt om punktet B."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-4-3-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — friksjon, talje og kantring (~15 min)\n\nDe siste tre variantene av sjangeren har hver sin lille nøkkel.\n\n**Stigen mot veggen** løses av at veggen er glatt: da kan veggen bare gi en **vannrett** kraft, og hele tyngden må bæres av gulvet. Friksjonen i gulvet er det eneste som hindrer at foten glir ut.\n\n**Taljen** løses ved å telle hvor mange tau som faktisk bærer lasten.\n\n**Kantring** løses ved å spørre hvor tyngdens virkelinje treffer bakken i forhold til vippekanten."
+    },
+    {
+      "id": "tfy4115-4-3-def-statisk-friksjon",
+      "type": "definition",
+      "title": "Statisk friksjon og friksjonsgrensen",
+      "content": "Kraften som hindrer to flater i kontakt fra å begynne å gli. I motsetning til glidefriksjon er den statiske friksjonen **ikke** en fast verdi — den er akkurat så stor som likevekten krever, opp til en grense:\n$$f \\le \\mu_s N,$$\nder $N$ er normalkraften og $\\mu_s$ koeffisienten for statisk friksjon. Ulikhetstegnet er hele poenget: i en statikkoppgave regner du først ut hvor stor friksjonen **må** være, og sammenligner deretter med grensen $\\mu_s N$. Er den nødvendige friksjonen mindre enn grensen, står legemet; er den større, glir det. Å sette $f = \\mu_s N$ med én gang er riktig **bare** når oppgaven spør om grensetilfellet — «hvor bratt kan stigen minst stå?»."
+    },
+    {
+      "id": "tfy4115-4-3-def-normalkraft-statikk",
+      "type": "definition",
+      "title": "Normalkraft",
+      "content": "Kraften en flate utøver på et legeme som ligger mot den, med symbolet $N$. Den står alltid **vinkelrett på flaten** og peker **vekk fra** den — en flate kan skyve, aldri trekke. To konsekvenser som avgjør stigeoppgaver: en **glatt** (friksjonsfri) vegg kan bare gi en kraft vinkelrett på veggen, altså vannrett, og kan derfor ikke bære noe av tyngden; og normalkraften fra gulvet er lik den samlede tyngden bare når ingen andre loddrette krefter virker. Har en ytre kraft en loddrett komponent, endres $N$ — og dermed også friksjonsgrensen $\\mu_sN$."
+    },
+    {
+      "id": "tfy4115-4-3-def-talje",
+      "type": "definition",
+      "title": "Talje og trinsesystem",
+      "content": "Et system av trinser der samme snor går flere ganger mellom last og oppheng. Fordi strekket er det **samme** i hele snora, deles lasten på antall **bærende** tau $n$:\n$$F = \\frac{Mg}{n}.$$\nPrisen er strekklengden: for å løfte lasten en høyde $h$ må du trekke $nh$ meter snor. Arbeidet er det samme ($Fnh = Mgh$), og det er nettopp derfor taljen ikke er «gratis kraft» — den bytter kraft mot vei. Det praktiske grepet i en oppgave er å **telle tauene som går ned til den bevegelige trinsa**; det tallet er $n$. En fast trinse alene ($n=1$) endrer bare retningen på kraften."
+    },
+    {
+      "id": "tfy4115-4-3-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: stigen mot den glatte veggen (eksamensnivå)",
+      "problem": "En homogen stige med lengde $5{,}00\\,\\text{m}$ og masse $18{,}0\\,\\text{kg}$ står mot en glatt (friksjonsfri) vegg og danner vinkelen $\\theta = 62^\\circ$ med gulvet.\n\n**a)** Finn normalkraften fra gulvet.\n**b)** Finn kraften fra veggen.\n**c)** Hvor stor må friksjonskoeffisienten mellom stigen og gulvet minst være for at stigen ikke skal skli?",
+      "solution": "**Frilegemediagram.** Fire krefter virker på stigen: tyngden $Mg$ i midten, normalkraften $N_\\text{gulv}$ rett opp fra gulvet, friksjonen $f$ fra gulvet — rettet **mot veggen**, siden foten ville glidd **fra** veggen — og normalkraften $N_\\text{vegg}$ fra veggen, som står vinkelrett på veggen og altså er **vannrett**, rettet bort fra veggen.\n\n**Positiv rotasjonsretning: mot klokka.**\n\n**a)** Loddrett kraftbalanse. Veggen er glatt og gir ingen loddrett kraft:\n$$N_\\text{gulv} = Mg = 18{,}0 \\cdot 9{,}81\\,\\text{N} = 176{,}580\\,\\text{N}.$$\nDet er det første poenget i oppgaven: **hele** tyngden bæres av gulvet.\n\n**b) Symbolsk.** Legg momentpunktet i **foten** av stigen. Da faller både $N_\\text{gulv}$ og $f$ ut, siden begge virker der. Tyngden har momentarmen $\\tfrac{L}{2}\\cos\\theta$ (vannrett avstand fra foten til massesenteret), og veggkraften har momentarmen $L\\sin\\theta$ (loddrett avstand fra foten til toppen):\n$$N_\\text{vegg}\\cdot L\\sin\\theta = Mg\\cdot\\frac{L}{2}\\cos\\theta \\quad\\Longrightarrow\\quad N_\\text{vegg} = \\frac{Mg}{2\\tan\\theta}.$$\nLengden $L$ faller ut igjen.\n\n**Rask vei til tall.** $\\tan 62^\\circ = 1{,}88073$:\n$$N_\\text{vegg} = \\frac{176{,}580}{2 \\cdot 1{,}88073}\\,\\text{N} = \\frac{176{,}580}{3{,}76145}\\,\\text{N} = 46{,}9446\\,\\text{N} \\approx 46{,}945\\,\\text{N}.$$\n\n**c)** Vannrett kraftbalanse gir at friksjonen må være like stor som veggkraften:\n$$f = N_\\text{vegg} = 46{,}9446\\,\\text{N}.$$\nFriksjonsgrensen er $f \\le \\mu_sN_\\text{gulv}$, altså\n$$\\mu_s \\ge \\frac{f}{N_\\text{gulv}} = \\frac{46{,}9446}{176{,}580} = 0{,}26585 \\approx 0{,}266.$$\nSymbolsk er dette\n$$\\mu_s \\ge \\frac{1}{2\\tan\\theta},$$\nog det er verdt å legge på minnet: **kravet avhenger bare av vinkelen**, ikke av massen eller lengden. En brattere stige (større $\\theta$) krever mindre friksjon — derfor setter man stigen bratt.\n\n**Sluttsjekk, tre ledd.** (i) Enhetene: $N_\\text{vegg}$ i newton, $\\mu_s$ dimensjonsløs ✔. (ii) $N_\\text{vegg}$ må være **mindre** enn $Mg$ for en rimelig bratt stige, og $46{,}945 < 176{,}580$ ✔. (iii) Friksjonskoeffisienten skal være et tall i størrelsesorden $0{,}2$–$0{,}8$ for vanlige materialer; $0{,}266$ er helt rimelig. Får du $\\mu_s > 1$, har du sannsynligvis byttet om sinus og kosinus."
+    },
+    {
+      "id": "tfy4115-4-3-o-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-4-3-oppg-6",
+        "number": 6,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger M9.) En homogen stige med lengde $4{,}500\\,\\text{m}$ og masse $15{,}0\\,\\text{kg}$ står mot en glatt vegg i vinkelen $58^\\circ$ med gulvet. En person med masse $70{,}0\\,\\text{kg}$ står $3{,}200\\,\\text{m}$ opp langs stigen, målt fra foten.\n\n**a)** Finn kraften fra veggen.\n\n**b)** Finn den minste friksjonskoeffisienten gulvet må ha.\n\n**c)** Blir kravet til friksjon større eller mindre når personen klatrer høyere? Begrunn ut fra uttrykket.",
+        "solution": "**Positiv rotasjonsretning: mot klokka.** Momentpunkt: stigens fot, slik at $N_\\text{gulv}$ og $f$ faller ut.\n\n**a)** Stigens tyngde har den vannrette momentarmen $\\tfrac{L}{2}\\cos\\theta$, personens $x\\cos\\theta$, og veggkraften den loddrette $L\\sin\\theta$:\n$$N_\\text{vegg}\\,L\\sin\\theta = Mg\\,\\frac{L}{2}\\cos\\theta + mg\\,x\\cos\\theta$$\n$$N_\\text{vegg} = \\frac{Mg\\,L/2 + mg\\,x}{L\\tan\\theta} = \\frac{331{,}088 + 2197{,}440}{4{,}500 \\cdot 1{,}60033}\\,\\text{N} = \\frac{2528{,}528}{7{,}20151}\\,\\text{N} = 351{,}1110\\,\\text{N}.$$\n\n**b)** Gulvet bærer hele tyngden, siden veggen er glatt:\n$$N_\\text{gulv} = (M+m)g = 833{,}8500\\,\\text{N}.$$\nVannrett balanse gir $f = N_\\text{vegg}$, så\n$$\\mu_s \\ge \\frac{351{,}1110}{833{,}8500} = 0{,}42107 \\approx 0{,}421.$$\nDet er et krevende krav — tre for tre gir typisk $\\mu_s \\approx 0{,}4$–$0{,}5$, så stigen er på grensen.\n\n**c)** Større. I uttrykket\n$$\\mu_s \\ge \\frac{Mg\\,L/2 + mg\\,x}{(M+m)g\\,L\\tan\\theta}$$\nstår $x$ bare i telleren, så en større $x$ gir et større krav. Fysisk: jo høyere personen kommer, jo større moment gir hennes tyngde om stigens fot, jo hardere presser toppen mot veggen, og jo mer friksjon må gulvet gi. Det er derfor en stige er farligst når du er nesten på toppen — og hvorfor rådet er å sette den bratt: $\\tan\\theta$ står i nevneren.\n\n**Sluttsjekk:** $N_\\text{vegg}$ må være mindre enn $N_\\text{gulv}$ for en bratt stige ✔, og kravet $\\mu_s$ må være dimensjonsløst og av størrelsesorden noen tideler ✔.",
+        "hints": [
+          "Legg momentpunktet i stigens fot, der to av kreftene virker.",
+          "Den glatte veggen kan bare gi en vannrett kraft — hva betyr det for normalkraften fra gulvet?",
+          "Momentarmene er vannrette avstander for tyngdene og loddrett avstand for veggkraften."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-4-3-o-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-4-3-oppg-7",
+        "number": 7,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M9, taljevarianten.) En last på $120{,}0\\,\\text{kg}$ skal løftes med en talje der **fire** tau går ned til den bevegelige trinsa.\n\n**a)** Hvor stor kraft må du trekke med?\n\n**b)** Hvor mange meter tau må du trekke inn for å løfte lasten $0{,}500\\,\\text{m}$?\n\n**c)** Sammenlign arbeidet du gjør med arbeidet mot tyngden, og kommentér.",
+        "solution": "**a)** Strekket er det samme i hele snora, og fire tau bærer lasten:\n$$F = \\frac{Mg}{n} = \\frac{120{,}0 \\cdot 9{,}81}{4}\\,\\text{N} = \\frac{1177{,}200}{4}\\,\\text{N} = 294{,}3000\\,\\text{N}.$$\nTil sammenligning måtte du trukket $1177{,}200\\,\\text{N}$ uten talje — over en kilonewton.\n\n**b)** Med fire bærende tau må hvert av dem kortes inn $0{,}500\\,\\text{m}$ for at lasten skal heves $0{,}500\\,\\text{m}$:\n$$\\ell = n\\,h = 4 \\cdot 0{,}500\\,\\text{m} = 2{,}000\\,\\text{m}.$$\n\n**c)** Arbeidet du gjør:\n$$W = F\\ell = 294{,}3000 \\cdot 2{,}000\\,\\text{J} = 588{,}600\\,\\text{J}.$$\nArbeidet mot tyngden:\n$$W_\\text{tyngde} = Mgh = 1177{,}200 \\cdot 0{,}500\\,\\text{J} = 588{,}600\\,\\text{J}.$$\nDe er **like**. Taljen gir ingen gratis energi — den bytter kraft mot vei. Du trekker fire ganger så langt med en fjerdedel av kraften, og produktet er uendret. (I en virkelig talje er arbeidet ditt litt større, fordi friksjon i trinsene tar en del.)\n\n**Sluttsjekk:** kraften må være mindre enn tyngden, og produktet kraft ganger vei må være uendret. Begge stemmer.",
+        "hints": [
+          "Tell hvor mange tau som faktisk bærer den bevegelige trinsa.",
+          "Strekket er det samme i hele snora.",
+          "Sammenlign kraft ganger vei i de to regnestykkene i c)."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-4-3-o-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-4-3-oppg-8",
+        "number": 8,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger M9, kantringsvarianten.) Et skap med masse $45{,}0\\,\\text{kg}$ har bredden $0{,}800\\,\\text{m}$ og høyden $1{,}60\\,\\text{m}$, og massen kan regnes jevnt fordelt. Det står på et vannrett gulv, og du skyver vannrett i toppkanten.\n\n**a)** Hvor stor må kraften være for at skapet skal begynne å tippe om den fremre nedre kanten?\n\n**b)** Hvor stor må friksjonskoeffisienten minst være for at skapet tipper i stedet for å skli?\n\n**c)** Skapet står på et gulv med $\\mu_s = 0{,}350$. Hva skjer når du øker kraften: tipper det, eller sklir det?",
+        "solution": "**Positiv rotasjonsretning: mot klokka.** Legg momentpunktet i den fremre nedre kanten — vippekanten. I det øyeblikket skapet begynner å tippe, er hele normalkraften samlet der, så både $N$ og $f$ faller ut av momentlikningen.\n\n**a)** Kraften $F$ virker i høyden $1{,}60\\,\\text{m}$ og dreier skapet om kanten. Tyngden virker i massesenteret, som ligger $0{,}400\\,\\text{m}$ fra kanten vannrett, og motvirker:\n$$F\\,h = mg\\,\\frac{w}{2} \\quad\\Longrightarrow\\quad F = \\frac{mgw}{2h} = \\frac{441{,}450 \\cdot 0{,}800}{2 \\cdot 1{,}60}\\,\\text{N} = 110{,}3625\\,\\text{N} \\approx 110{,}363\\,\\text{N}.$$\n\n**b)** Skapet sklir når $F > \\mu_smg$ og tipper når $F > mgw/(2h)$. Hvilken som skjer først, avgjøres av hvilken grense som er lavest. Tipping kommer først når\n$$\\frac{mgw}{2h} < \\mu_s mg \\quad\\Longrightarrow\\quad \\mu_s > \\frac{w}{2h} = \\frac{0{,}800}{2 \\cdot 1{,}60} = 0{,}250.$$\nMassen faller ut: **grensen er ren geometri.** Et høyt og smalt skap ($w/2h$ liten) tipper lett; et lavt og bredt sklir.\n\n**c)** Med $\\mu_s = 0{,}350 > 0{,}250$ er glidegrensen $\\mu_smg = 154{,}5075\\,\\text{N}$, altså **høyere** enn tippekraften $110{,}363\\,\\text{N}$. Skapet **tipper** før det sklir. Vil du flytte det uten å velte det, må du skyve lavere: skyver du i høyden $h'$, blir tippekraften $mgw/(2h')$, og den vokser når $h'$ minker.\n\n**Sluttsjekk:** begge kreftene er i størrelsesorden hundre newton for et skap på $45{,}0\\,\\text{kg}$, og grensen $w/2h$ er dimensjonsløs ✔. Merk at svaret i b) er uavhengig av massen — det er et resultat verdt å kjenne igjen på et flervalgsspørsmål.",
+        "hints": [
+          "Legg momentpunktet i den kanten skapet ville tippe om.",
+          "I det øyeblikket det begynner å tippe, virker normalkraften bare i den kanten.",
+          "Sammenlign de to grensekreftene: hvilken av dem nås først når du øker $F$?"
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-4-3-rask-vei",
+      "type": "text",
+      "content": "## Rask vei til tall (MC-oppskrift)\n\nDette er den korteste feilfrie veien fra oppgitte tall til bokstavsvaret i statikk-sjangeren.\n\n1. **Hvilken lov?** Alltid de samme tre: $\\sum F_x = 0$, $\\sum F_y = 0$, $\\sum\\tau_P = 0$.\n2. **Hvilken ene regnelinje?** Momentlikningen om det **kloke punktet**. Legg $P$ der en ukjent kraft virker — hengselet, opplagringen, stigens fot, vippekanten — så faller den ut, og du får svaret i én linje. Bjelke med snor: $S = Mg/(2\\sin\\phi)$. Stige mot glatt vegg: $N_\\text{vegg} = Mg/(2\\tan\\theta)$ og $\\mu_s \\ge 1/(2\\tan\\theta)$. Talje: $F = Mg/n$. Kantring: $F = mgw/(2h)$.\n3. **Hva hentes hvor?** Likevektsbetingelsene og $\\tau = dF$ **står på det utdelte arket**, sammen med $g$. Trigonometriske identiteter slår du opp i **Rottmann**. Oppsettet, momentpunktet og momentarmene [må kunne brukes eller utledes aktivt] — det er der alle poengene ligger.\n4. **Hvor mange siffer?** Fire gjennom kjeden. Sinus- og tangensverdier har fire siffer på kalkulatoren; runder du $\\sin 35^\\circ$ til $0{,}57$, endrer svaret seg i tredje siffer, og alternativene i statikkspørsmål ligger typisk 10–20 prosent fra hverandre.\n5. **Hva sjekker du før du krysser av?** (i) Enhet newton (eller $\\text{N}\\cdot\\text{m}$ for moment) på hvert svar. (ii) **Retning oppgitt i ord** for hver kraft — «nedover», «utover fra veggen». (iii) Summerer kreftene til null? (iv) Ga et **annet momentpunkt** samme svar? (v) Er en opplagerkraft negativ, har du husket å tolke det som motsatt retning?"
+    },
+    {
+      "id": "tfy4115-4-3-o-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-4-3-oppg-9",
+        "number": 9,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Kvalitativ oppgave.)\n\n**a)** En stige står mot en glatt vegg. Hvorfor er normalkraften fra gulvet lik hele tyngden, mens veggen ikke bærer noe av den?\n\n**b)** Hvorfor blir kravet til friksjon mindre når stigen settes brattere?\n\n**c)** En medstudent setter $f = \\mu_sN$ med én gang i alle statikkoppgaver med friksjon. Når er det riktig, og når er det galt?",
+        "solution": "**a)** Fordi en **glatt** vegg per definisjon ikke har friksjon, og en friksjonsfri flate kan bare gi en kraft **vinkelrett på seg selv**. En loddrett vegg gir derfor bare en vannrett kraft. I den loddrette kraftbalansen står da bare tyngden og normalkraften fra gulvet, og de må balansere hver for seg: $N_\\text{gulv} = Mg$. Hadde veggen hatt friksjon, kunne den båret en del av tyngden, og regnestykket ville hatt fire ukjente i stedet for tre.\n\n**b)** Kravet er $\\mu_s \\ge 1/(2\\tan\\theta)$, og $\\tan\\theta$ vokser når stigen blir brattere. En brattere stige gir kortere vannrett momentarm for tyngden om foten, og derfor mindre kraft mot veggen — og siden friksjonen bare skal balansere veggkraften, trengs mindre friksjon. Ved $\\theta = 45^\\circ$ kreves $\\mu_s \\ge 0{,}5$; ved $\\theta = 75^\\circ$ bare $\\mu_s \\ge 0{,}134$.\n\n**c)** Det er riktig **bare** i grensetilfellet — når oppgaven spør «hvor bratt må stigen minst stå», «hva er den minste friksjonskoeffisienten», «hvor stor kraft trengs før det sklir». Da er systemet på vippen til å gli, og friksjonen har nådd sin maksimalverdi. I alle andre tilfeller er den statiske friksjonen **akkurat så stor som likevekten krever**, og den kan godt være mye mindre enn $\\mu_sN$. Setter man $f = \\mu_sN$ i en oppgave der legemet står trygt, får man for stor friksjonskraft og dermed et system som ikke er i likevekt — likningene blir motstridende. Riktig rekkefølge er: regn ut hvor stor friksjonen **må** være, og sammenlign så med grensen.",
+        "hints": [
+          "Hva slags kraft kan en friksjonsfri flate gi?",
+          "Se på hvor $\\tan\\theta$ står i uttrykket for friksjonskravet.",
+          "Er $f\\le\\mu_sN$ en likhet eller en ulikhet, og når gjelder likhetstegnet?"
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-4-3-o-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-4-3-oppg-10",
+        "number": 10,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger M9, A–F-format.) En homogen bjelke med masse $30{,}0\\,\\text{kg}$ og lengde $2{,}00\\,\\text{m}$ er festet i veggen med et hengsel og holdes vannrett av en snor fra ytterenden, i vinkelen $50^\\circ$ med bjelken.\n\nHvor stor er tallverdien av kraften hengselet utøver på bjelken?\n\n**A** $123{,}4735\\,\\text{N}$ · **B** $147{,}1500\\,\\text{N}$ · **C** $192{,}0907\\,\\text{N}$ · **D** $228{,}9248\\,\\text{N}$ · **E** $294{,}3000\\,\\text{N}$ · **F** $319{,}1523\\,\\text{N}$",
+        "solution": "**Svar: C.**\n\n**Momentpunkt i hengselet** gir strekket først:\n$$S = \\frac{Mg}{2\\sin\\phi} = \\frac{294{,}300}{2 \\cdot 0{,}76604}\\,\\text{N} = 192{,}0907\\,\\text{N}.$$\nDeretter kraftbetingelsene:\n$$H_x = S\\cos\\phi = 123{,}4735\\,\\text{N}, \\qquad H_y = Mg - S\\sin\\phi = 294{,}300 - 147{,}150 = 147{,}1500\\,\\text{N},$$\n$$H = \\sqrt{H_x^2+H_y^2} = 192{,}0907\\,\\text{N}.$$\n\nLegg merke til at $H_y = Mg/2$ nøyaktig, fordi $S\\sin\\phi = Mg/2$ fra momentlikningen. Da blir $H = S$ — hengselkraften er like stor som snorstrekket i dette oppsettet.\n\n*Fellene:*\n\n- **E** er hele tyngden $Mg$, altså antakelsen om at hengselet bærer alt loddrett og ingenting vannrett.\n- **B** er $Mg/2$, altså bare den loddrette komponenten $H_y$, med den vannrette glemt.\n- **A** er bare den vannrette komponenten $H_x$, med den loddrette glemt.\n- **D** kommer av å bruke $\\cos\\phi$ i stedet for $\\sin\\phi$ i momentlikningen, altså å forveksle komponenten langs bjelken med den vinkelrette.\n- **F** kommer av å sette $H_y = Mg$ (tyngden ikke redusert med snorkraftens loddrette del) og deretter bruke Pytagoras med riktig $H_x$.\n\n*Sluttsjekk som stryker to alternativer:* hengselkraften kan ikke være mindre enn hver av sine egne komponenter, så alt under $123{,}4735\\,\\text{N}$ er umulig. Og siden $H_y = Mg/2$ er halvparten av tyngden, må $H$ ligge mellom $123{,}4735$ og $294{,}300$.",
+        "hints": [
+          "Finn snorstrekket først, med momentpunktet i hengselet.",
+          "Hengselkraften har to komponenter — begge må med i Pytagoras.",
+          "Bruk kraftbetingelsene $\\sum F_x=0$ og $\\sum F_y=0$ til å finne komponentene."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-4-3-war-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil — og fortegnsfellen som avgjør statikkspørsmålet",
+      "content": "**Å ikke definere positiv rotasjonsretning.** Dette er kapitlets hovedfelle, og den er ren disiplin. Uten en nedskrevet konvensjon blir fortegnene gjetning, og en enkelt fortegnsfeil i momentlikningen gir et svar som ofte ligger på alternativlista (typisk fordi to momenter da legges sammen i stedet for å trekkes fra hverandre). **Skriv «positiv rotasjonsretning: mot klokka» på arket først, hver gang.**\n\n**Å bruke $r$ i stedet for momentarmen $d = r\\sin\\phi$.** For bjelken med snor i vinkelen $\\phi$ er det bare komponenten $S\\sin\\phi$ som gir moment om hengselet. Bruker du hele $S$, får du et strekk som er $\\sin\\phi$ ganger for lite — for $\\phi = 35^\\circ$ betyr det 43 prosent feil.\n\n**Å forveksle $\\sin\\phi$ og $\\cos\\phi$.** Regelen som holder: bruk den komponenten som står **vinkelrett på linja fra momentpunktet til angrepspunktet**. For snora som danner vinkelen $\\phi$ med bjelken, er det $S\\sin\\phi$. For stigens tyngde, der momentarmen er den **vannrette** avstanden fra foten, er det $\\tfrac{L}{2}\\cos\\theta$. Tegn figuren og les av — ikke gjett.\n\n**Å kaste minustegnet på en opplagerkraft.** Får du $N_A = -1{,}28\\,\\text{kN}$, er svaret at kraften er $1{,}28\\,\\text{kN}$ **nedover**. Det er informasjon, ikke en feil. Setter du inn tallverdien med positivt fortegn videre i regningen, bryter kraftbalansen sammen.\n\n**Å sette $N = mg$ når en ytre kraft har loddrett komponent** (felle #6 — endret normalkraft gir endret friksjon). I stigeoppgaven er $N_\\text{gulv} = Mg$ nettopp fordi veggen er glatt. Har veggen friksjon, eller trekker noen i en snor på skrå, endres $N$ — og siden friksjonsgrensen er $\\mu_sN$, endres den også.\n\n**Å sette $f = \\mu_sN$ i en oppgave som ikke handler om grensetilfellet.** Statisk friksjon er en ulikhet. Regn ut hvor stor friksjonen **må** være, og sammenlign så med grensen.\n\n**Og fortegns-/avrundingsfellen som lander på nabo-alternativet** (felle #16): statikkoppgaver har korte regnekjeder, men de går gjennom en trigonometrisk funksjon, og der ligger presisjonen. **Behold fire siffer i $\\sin\\phi$, $\\cos\\phi$ og $\\tan\\theta$.** Runder du $\\tan 62^\\circ = 1{,}881$ til $1{,}9$, endres friksjonskravet fra $0{,}266$ til $0{,}263$ — som regel harmløst, men i et spørsmål der alternativene er $0{,}25$ og $0{,}27$, er det nettopp forskjellen. Den farligere varianten er å bruke grader der kalkulatoren står i radianer: da får du et svar som er helt galt, men som ser ut som et tall. **Sjekk kalkulatorens vinkelmodus før første trigonometriske utregning.**"
+    },
+    {
+      "id": "tfy4115-4-3-begrepsbank-notis",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "tfy4115-4-3-bb-momentarm",
+      "type": "definition",
+      "title": "Momentarm i statikk",
+      "content": "Den vinkelrette avstanden fra momentpunktet til kraftens virkelinje, altså den lengden som skal ganges med kraften i $\\tau = dF$. De tre tilfellene du møter i statikk: en **loddrett** kraft (tyngde) om et punkt på samme høyde har momentarm lik den **vannrette** avstanden; en kraft i vinkelen $\\phi$ med legemet har momentarmen $r\\sin\\phi$; og en kraft som virker gjennom momentpunktet har momentarm null. Å bruke $r$ der $d$ skulle stått, gjør momentet for stort med faktoren $1/\\sin\\phi$."
+    },
+    {
+      "id": "tfy4115-4-3-bb-tyngdepunkt",
+      "type": "definition",
+      "title": "Tyngden virker i massesenteret",
+      "content": "For et legeme i et jevnt tyngdefelt kan hele tyngden erstattes med én kraft $M\\mathbf{g}$ i massesenteret. Det er dette som gjør statikk regnbart: i stedet for uendelig mange små tyngdekrefter tegner du én pil. For en **homogen** bjelke med lengde $L$ ligger punktet midt på, og tyngden får momentarmen $L/2$ fra hver ende. For et sammensatt legeme må du finne massesenteret først, eller — ofte enklere — behandle hver del med sin egen tyngde i sitt eget massesenter og summere momentene."
+    },
+    {
+      "id": "tfy4115-4-3-bb-statisk-bestemt",
+      "type": "definition",
+      "title": "Statisk bestemt problem",
+      "content": "Et problem der antallet ukjente ikke overstiger antallet uavhengige likevektslikninger — i planet tre: $\\sum F_x=0$, $\\sum F_y=0$, $\\sum\\tau=0$. En bjelke med et hengsel (to ukjente komponenter) og en snor (én ukjent) har nøyaktig tre ukjente og er statisk bestemt. Legger du til en tredje støtte, får du fire ukjente og tre likninger — problemet blir **statisk ubestemt** og kan ikke løses med statikk alene (man må da regne på hvor mye materialet gir seg). Eksamensoppgaver i TFY4115 er alltid statisk bestemte; er de ikke det, har du sannsynligvis tegnet inn en kraft som ikke finnes."
+    },
+    {
+      "id": "tfy4115-4-3-bb-negativ-kraft",
+      "type": "definition",
+      "title": "Negativ løsning for en ukjent kraft",
+      "content": "Når en kraft du har tegnet i en valgt retning kommer ut med negativt fortegn, betyr det at kraften i virkeligheten peker **motsatt vei**. Det er ikke en regnefeil, men svaret. Standardtilfellet er stupebrettet: den innerste opplagringen må **holde brettet ned**, og tegner du den oppover, blir den negativ. Riktig håndtering er å beholde fortegnet gjennom resten av regningen og rapportere retningen i ord: «$1{,}28\\,\\text{kN}$ nedover». Å ta tallverdien og «snu den selv» underveis er det som bryter kraftbalansen."
+    },
+    {
+      "id": "tfy4115-4-3-bb-uavhengig-kontroll",
+      "type": "definition",
+      "title": "Kontroll med et annet momentpunkt",
+      "content": "Fordi $\\sum\\tau=0$ gjelder om **hvilket som helst** punkt for et legeme i likevekt, kan du kontrollere hele regningen ved å sette opp momentlikningen om et nytt punkt og se om den stemmer med tallene du fant. Kontrollen er sterk fordi den er nesten uavhengig: den bruker de samme kreftene, men helt andre momentarmer, og den fanger både fortegnsfeil og feil momentarm. Den koster tjue sekunder og er den mest lønnsomme sluttsjekken i statikk. Merk at kontrollen ikke gir en ny **likning** å løse — den gir en test av svaret du allerede har."
+    },
+    {
+      "id": "tfy4115-4-3-bb-glatt-vegg",
+      "type": "definition",
+      "title": "Glatt flate: bare normalkraft",
+      "content": "En friksjonsfri («glatt») flate kan bare utøve en kraft **vinkelrett på seg selv**. For en loddrett vegg betyr det at kraften er vannrett, og at veggen ikke kan bære noe av tyngden — hele tyngden må da bæres av gulvet, slik at $N_\\text{gulv} = Mg$. Dette er nøkkelen i stigeoppgaven, og det er grunnen til at problemet har tre ukjente ($N_\\text{gulv}$, $N_\\text{vegg}$, $f$) og ikke fire. Sier oppgaven at også veggen har friksjon, blir problemet statisk ubestemt uten en tilleggsopplysning."
+    },
+    {
+      "id": "tfy4115-4-3-bb-stigeformel",
+      "type": "definition",
+      "title": "Stigen mot glatt vegg (prosedyrekort)",
+      "content": "For en homogen stige med masse $M$ som står i vinkelen $\\theta$ med gulvet mot en glatt vegg:\n$$N_\\text{gulv} = Mg, \\qquad N_\\text{vegg} = \\frac{Mg}{2\\tan\\theta}, \\qquad \\mu_s \\ge \\frac{1}{2\\tan\\theta}.$$\nBåde lengden og massen faller ut av friksjonskravet — det avhenger **bare av vinkelen**. Ved $45^\\circ$ kreves $\\mu_s\\ge0{,}500$, ved $60^\\circ$ $\\mu_s\\ge0{,}289$, ved $75^\\circ$ $\\mu_s\\ge0{,}134$. Står det en person i avstanden $x$ opp langs stigen, kommer et ledd $mgx\\cos\\theta$ til i momentlikningen, og kravet vokser med $x$. Uttrykkene [må kunne brukes eller utledes aktivt]."
+    },
+    {
+      "id": "tfy4115-4-3-bb-kantring",
+      "type": "definition",
+      "title": "Kantring",
+      "content": "Et legeme tipper når tyngdens virkelinje faller **utenfor** understøttelsesflaten, eller likeverdig: når det ytre momentet om vippekanten overstiger tyngdens motmoment. For et skap med bredde $w$ og høyde $h$, skjøvet vannrett i toppen, er tippekraften\n$$F = \\frac{mgw}{2h},$$\nog legemet tipper **før** det sklir dersom $\\mu_s > w/(2h)$. Legg merke til at grensen er ren geometri — massen faller ut. Det er derfor et høyt, smalt legeme velter lett uansett hvor tungt det er, og derfor du skal skyve lavt når du vil flytte noe uten å velte det."
+    },
+    {
+      "id": "tfy4115-4-3-bb-felle-6-statikk",
+      "type": "definition",
+      "title": "Felle #6 — endret normalkraft gir endret friksjon",
+      "content": "Bokas kortnavn på feilen der man setter $N = mg$ selv om en ytre kraft har en loddrett komponent. Trekker du i en snor på skrå oppover, blir $N$ **mindre** enn $mg$, og friksjonsgrensen $\\mu_sN$ synker tilsvarende; presser du nedover, øker begge. Feilen er farlig fordi den ikke gir noe urimelig tall — bare et galt et. Rutinen som fanger den: skriv alltid opp $\\sum F_y = 0$ eksplisitt og les $N$ ut av den, i stedet for å «vite» at $N = mg$."
+    },
+    {
+      "id": "tfy4115-4-3-bb-sjanger-m9",
+      "type": "definition",
+      "title": "Sjanger M9 — statikk og momentbalanse",
+      "content": "Bokas navn på oppgaveformen der en konstruksjon står i ro og du skal finne kreftene i den. Den forekommer i om lag 7 av 10 eksamenssett (~70 %) og hører til **mekanikkhalvdelen, spørsmål 1–20**. Prioritet: **bør sitte**. De fire faste variantene: bjelke i hengsel med snor; stupebrett på to opplagringer (med negativ kraft i den innerste); stige eller plate mot glatt vegg med friksjon i gulvet; og talje. Alle fire løses av samme tre likninger — det som skiller dem, er valget av momentpunkt og hvilke krefter som finnes."
+    },
+    {
+      "id": "tfy4115-4-3-bb-arbeid-talje",
+      "type": "definition",
+      "title": "Taljen bytter kraft mot vei",
+      "content": "En talje med $n$ bærende tau reduserer kraften til $F = Mg/n$, men krever at du trekker $n$ ganger så mye snor: $\\ell = nh$ for å løfte lasten høyden $h$. Arbeidet er uendret, $W = F\\ell = Mgh$ — energien kan ikke reduseres av en mekanisme. Dette er samme prinsipp som for et skråplan, en vektstang og en hydraulisk presse, og det er grunnen til at «kraftforsterkere» aldri gir gratis energi. I en virkelig talje er arbeidet ditt litt større enn $Mgh$, fordi friksjon i trinsene tar sin del."
+    },
+    {
+      "id": "tfy4115-4-3-bb-vektstang",
+      "type": "definition",
+      "title": "Vektstangprinsippet",
+      "content": "Spesialtilfellet av momentbalansen der to krefter virker på hver sin side av et opplagringspunkt:\n$$F_1d_1 = F_2d_2.$$\nFordi $g$ faller ut når begge kreftene er tyngder, blir balansen $m_1x_1 = m_2x_2$ — uavhengig av tyngdeakselerasjonen, og derfor den samme på Månen. Prinsippet er grunnlaget for vippa, brekkjernet, tanga og skålvekten, og det er det raskeste sjekkpunktet i en statikkoppgave: den tyngste massen må sitte **nærmest** opplagringspunktet."
+    },
+    {
+      "id": "tfy4115-4-3-bb-tre-krefter",
+      "type": "definition",
+      "title": "Tre-kraft-regelen",
+      "content": "Er et stivt legeme i likevekt under **nøyaktig tre** krefter som ikke er parallelle, må de tres virkelinjer skjære hverandre i **ett** punkt. Grunnen er enkel: legger du momentpunktet i skjæringspunktet mellom to av dem, gir de null moment, og da må den tredje også gi null moment — altså gå gjennom samme punkt. Regelen er en rask geometrisk kontroll av et frilegemediagram: skjærer ikke de tre linjene i ett punkt, har du tegnet noe galt. Den gjelder ikke når det er fire krefter (som i stigeoppgaven), men da kan du slå to av dem sammen til én resultant og bruke regelen likevel."
+    },
+    {
+      "id": "tfy4115-4-3-coll-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tfy4115-4-3-symb-1",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n**Kolliderende symboler i dette delkapitlet.** $S$ er **taustrekk** i newton; i termodelen (Del 7 og utover) betyr $S$ **entropi** med enheten J/K. $R$ brukes ikke om gasskonstanten her. $N$ er en **normalkraft** i newton, ikke et antall. $\\tau$ er kraftmoment i $\\text{N}\\cdot\\text{m}$, ikke en tidskonstant.\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $M$, $m$ | Masse av konstruksjonsdel; masse av last eller person | kg |\n| $g$ | Tyngdeakselerasjonen, $9{,}81\\,\\text{m/s}^2$ | $\\text{m/s}^2$ |\n| $\\tau$ | Kraftmoment om et valgt punkt | $\\text{N}\\cdot\\text{m}$ |\n| $d$ | Momentarm: vinkelrett avstand fra momentpunkt til virkelinje | m |\n| $S$ | Taustrekk (**ikke** entropi her) | N |\n| $N$, $N_\\text{gulv}$, $N_\\text{vegg}$ | Normalkraft, vinkelrett på flaten | N |\n| $f$ | Friksjonskraft | N |\n| $\\mu_s$ | Koeffisient for statisk friksjon | — |\n| $H_x$, $H_y$ | Komponenter av hengselkraften | N |\n| $\\phi$ | Vinkel mellom snor og bjelke | grader |\n| $\\theta$ | Vinkel mellom stige og gulv | grader |\n| $L$ | Lengde av bjelke eller stige | m |\n| $x$ | Posisjon langs bjelken eller stigen | m |\n| $n$ | Antall bærende tau i en talje | — |\n| $w$, $h$ | Bredde og høyde ved kantring | m |\n\n**Formler i dette delkapitlet:**\n\n$$\\sum F_x = 0, \\qquad \\sum F_y = 0, \\qquad \\sum \\tau_P = 0$$\nLikevektsbetingelsene for et stivt legeme i planet [står på det utdelte arket, som $\\sum F = ma$ og $\\sum\\tau=I\\alpha$ med $a=\\alpha=0$].\n\n$$\\tau = rF\\sin\\phi = dF$$\nKraftmoment og momentarm [står på det utdelte arket].\n\n$$f \\le \\mu_s N$$\nFriksjonsgrensen for statisk friksjon — merk ulikhetstegnet [står på det utdelte arket].\n\n$$m_1x_1 = m_2x_2$$\nVektstangprinsippet for en vippe med opplagring i midten [må kunne brukes eller utledes aktivt].\n\n$$S = \\frac{Mg}{2\\sin\\phi}$$\nSnorstrekket for en homogen bjelke i hengsel, med snora i vinkelen $\\phi$ i ytterenden — lengden faller ut [må kunne brukes eller utledes aktivt].\n\n$$N_\\text{gulv} = Mg, \\qquad N_\\text{vegg} = \\frac{Mg}{2\\tan\\theta}, \\qquad \\mu_s \\ge \\frac{1}{2\\tan\\theta}$$\nStigen mot en glatt vegg [må kunne brukes eller utledes aktivt].\n\n$$F = \\frac{Mg}{n}, \\qquad \\ell = nh$$\nTalje med $n$ bærende tau: kraft ned, veilengde opp, arbeid uendret [må kunne brukes eller utledes aktivt].\n\n$$F = \\frac{mgw}{2h}, \\qquad \\text{tipper før den sklir når } \\mu_s > \\frac{w}{2h}$$\nKantring av et legeme som skyves i toppen [må kunne brukes eller utledes aktivt].\n\n$$\\sin^2\\phi + \\cos^2\\phi = 1, \\qquad \\tan\\phi = \\frac{\\sin\\phi}{\\cos\\phi}$$\nDe trigonometriske identitetene du trenger til dekomponeringen [Rottmann]."
+        }
+      ]
+    },
+    {
+      "id": "tfy4115-4-3-coll-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tfy4115-4-3-rep-1",
+          "type": "text",
+          "content": "Fem korte oppgaver på det dette kapitlet hviler på — momentbegrepet fra [kap. 4.2](/tfy4115/tfy4115-4-2) og massesenteret fra [kap. 4.1](/tfy4115/tfy4115-4-1). Ta dem før du går videre til [kap. 4.4](/tfy4115/tfy4115-4-4).\n\n**R1.** En kraft på $80{,}0\\,\\text{N}$ virker i avstanden $0{,}350\\,\\text{m}$ fra et momentpunkt, i vinkelen $50{,}0^\\circ$ med linja fra punktet. Hvor stort er momentet?\n\n*Svar:* $\\tau = 0{,}350 \\cdot 80{,}0 \\cdot \\sin 50{,}0^\\circ = 28{,}0 \\cdot 0{,}76604 = 21{,}4\\,\\text{N}\\cdot\\text{m}$. Momentarmen er $0{,}350 \\cdot 0{,}76604 = 0{,}268\\,\\text{m}$.\n\n**R2.** Hvor ligger massesenteret til en homogen bjelke med lengde $3{,}60\\,\\text{m}$, og hvilken momentarm har tyngden om det ene endepunktet?\n\n*Svar:* Midt på, i $1{,}80\\,\\text{m}$. Momentarmen om endepunktet er $1{,}80\\,\\text{m}$, altså $L/2$.\n\n**R3.** Dekomponér en snorkraft på $250\\,\\text{N}$ som danner $28{,}0^\\circ$ med en vannrett bjelke, i en komponent langs bjelken og en vinkelrett på den.\n\n*Svar:* Langs bjelken: $250\\cos 28{,}0^\\circ = 250 \\cdot 0{,}88295 = 221\\,\\text{N}$. Vinkelrett: $250\\sin 28{,}0^\\circ = 250 \\cdot 0{,}46947 = 117\\,\\text{N}$. Bare den vinkelrette komponenten gir moment om bjelkens innerende.\n\n**R4.** En kloss på $12{,}0\\,\\text{kg}$ ligger på et vannrett gulv med $\\mu_s = 0{,}40$. Hvor stor vannrett kraft trengs for å sette den i bevegelse? Og hvor stor er friksjonskraften hvis du skyver med bare $20{,}0\\,\\text{N}$?\n\n*Svar:* Grensen er $\\mu_sN = 0{,}40 \\cdot 12{,}0 \\cdot 9{,}81 = 47{,}1\\,\\text{N}$. Skyver du med $20{,}0\\,\\text{N}$, er friksjonen nøyaktig $20{,}0\\,\\text{N}$ — akkurat nok til likevekt, og godt under grensen. Det er innholdet i ulikhetstegnet.\n\n**R5.** To krefter på $60{,}0\\,\\text{N}$ og $90{,}0\\,\\text{N}$ virker loddrett nedover på en bjelke, i avstandene $0{,}500\\,\\text{m}$ og $1{,}20\\,\\text{m}$ fra venstre ende. Hvor må en enkelt opplagring stå for at bjelken (uten egenvekt) skal balansere?\n\n*Svar:* Momentbalanse om opplagringen i $x$: $60{,}0(x-0{,}500) = 90{,}0(1{,}20-x)$, altså $60{,}0x - 30{,}0 = 108 - 90{,}0x$, som gir $150x = 138$ og $x = 0{,}920\\,\\text{m}$. Kontroll: punktet ligger mellom de to kreftene og nærmest den største — som det skal."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

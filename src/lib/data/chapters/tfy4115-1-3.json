@@ -1,0 +1,394 @@
+{
+  "id": "tfy4115-1-3",
+  "courseId": "tfy4115",
+  "chapterNumber": "1.3",
+  "title": "Drill: kinematikk-kjeden (sjanger M10–M11, MC-tempo)",
+  "description": "Sjangerdrill i MC-tempo: fra gitt $v(t)/\\omega(t)$ til tallsvaret på maks-akselerasjon, strekning/vinkel, rundetelling — og normalkraft via krumning.",
+  "estimatedMinutes": 85,
+  "competenceGoals": [
+    "velge riktig verktøy på få sekunder ut fra hva spørsmålet ber om: derivasjon, integrasjon, rundetelling eller krumning med Newtons 2. lov",
+    "gjennomføre hele regnekjeden fra oppgitt fartsmodell eller bane til et bokstavsvar innenfor eksamenstempo",
+    "gjenkjenne hvilken konkret regnefeil hvert galt svaralternativ er bygget på, og bruke størrelsesorden til å stryke alternativer",
+    "holde fire gjeldende siffer gjennom kjeden og forklare hvorfor avrunding kan flytte svaret et helt alternativ i rundetelling og i normalkraftregning"
+  ],
+  "content": [
+    {
+      "id": "tfy4115-1-3-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er et treningskapittel, ikke et teorikapittel.** Her drilles de to sjangrene fra Del 1 i eksamenstempo:\n\n**Sjanger M10 — kinematikk fra gitt fartsfunksjon** («her er $v(t)$ eller $\\omega(t)$, finn akselerasjon, strekning eller antall runder») i om lag 8 av 10 sett (~80 %), **høyeste prioritet — dette må sitte**.\n\n**Sjanger M11 — krumning og normalkraft** («her er en bane $y(x)$, finn normalkraften i toppen eller bunnen») i rundt 6 av 10 sett (~60 %), prioritet **bør sitte**.\n\nBegge hører til **mekanikkhalvdelen, spørsmål 1–20**.\n\n**Om tidsbruken.** Kapitlet er anslått til 85 minutter, og det er lagt opp som fire økter du trygt kan dele over flere kvelder: løsningsoppskriften og den gjennomregnede caset (~20 min), M10-oppgavene 1–7 (~25 min), M11-oppgavene 8–12 (~20 min), og de sammensatte oppgavene 13–15 (~20 min). Sju av de femten oppgavene er i **A–F-format** med seks ferdige alternativer, akkurat som eksamen; resten er i åpen form, slik at du trener både metoden og bokstavsvaret.\n\n**Målet er tempo med presisjon.** På eksamen har du rundt seks minutter per spørsmål. Oppgavene her skal du klare på tre til fem — og fortsatt med fire gjeldende siffer gjennom kjeden."
+    },
+    {
+      "id": "tfy4115-1-3-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet trener stoffet fra [kap. 1.1](/tfy4115/tfy4115-1-1) og [kap. 1.2](/tfy4115/tfy4115-1-2), og innfører ingenting nytt. Her er de fem relasjonene du kommer til å bruke, ferdig oppfrisket:\n\n$$a(t) = \\frac{dv}{dt}, \\qquad \\alpha(t) = \\frac{d\\omega}{dt}$$\nAkselerasjon og vinkelakselerasjon som deriverte. For den mettende modellen $v = v_0(1 - e^{-t/\\tau})$ er $a(t) = (v_0/\\tau)e^{-t/\\tau}$, med maksimum i $t = 0$.\n\n$$s(t) = v_0\\left[t - \\tau\\left(1 - e^{-t/\\tau}\\right)\\right]$$\nStrekningen for den mettende modellen. Den asymptotiske formen er $v_0(t - \\tau)$.\n\n$$\\varphi_\\text{tot} = \\omega_0\\tau \\ \\ \\text{for}\\ \\omega_0e^{-t/\\tau} \\ \\text{og}\\ \\omega_0\\tfrac{t}{\\tau}e^{-t/\\tau}, \\qquad \\varphi_\\text{tot} = 2\\omega_0\\tau \\ \\ \\text{for}\\ \\omega_0\\left(\\tfrac{t}{\\tau}\\right)^2e^{-t/\\tau}$$\nTotalvinklene for de tre standardmodellene, alle fra $\\int_0^\\infty u^ne^{-u}du = n!$.\n\n$$n = \\left\\lfloor \\frac{\\varphi_\\text{tot}}{2\\pi} \\right\\rfloor$$\nAntall **hele** omdreininger — heltallsdelen, aldri desimaltallet.\n\n$$\\rho = \\frac{1}{\\lvert y''\\rvert} \\ (\\text{i topp-/bunnpunkt}), \\qquad N = m\\left(g \\mp \\frac{v^2}{\\rho}\\right)$$\nKrumningsradien og normalkraften: **minus i toppunkt, pluss i bunnpunkt**. Farten får du fra energibevaring, $v^2 = 2g\\,\\Delta y$ ved fall fra ro.\n\n**Symbolmerknad.** I dette kapitlet er $\\tau$ en **tidskonstant** i sekunder, $\\rho$ en **krumningsradius** i meter, og $N$ en **normalkraft** i newton. Verken $T$, $p$, $R$ eller $S$ opptrer, så ingen av bokas symbolkollisjoner er aktive her."
+    },
+    {
+      "id": "tfy4115-1-3-th-oppskrift",
+      "type": "theorem",
+      "title": "Løsningsoppskrift — rask vei til tall (MC-oppskrift) i fem trinn",
+      "content": "Dette er **rask vei til tall** for hele kinematikk-kjeden: algoritmen du skal kjøre uten å tenke, fra oppgitte tall til bokstavsvar. Den dekker begge sjangrene, og trinn 1 avgjør hvilken vei du går.\n\n**1. Hva spørres det om?** Fire muligheter, og du skal kunne kjenne dem igjen på tre sekunder:\n- **akselerasjon eller vinkelakselerasjon** → derivér;\n- **strekning eller total vinkel** → integrér;\n- **antall hele omdreininger** → integrér, del på $2\\pi$, ta heltallsdelen;\n- **normalkraft eller kritisk fart** → krumning, deretter Newtons 2. lov inn mot krumningssenteret.\n\n**2. Maksimal akselerasjon: prøv $t = 0$ først — men sjekk.** For de mettende og de rent avtakende modellene ligger maksimum i randpunktet $t = 0$, og du kan sette inn direkte. For potensmodellene $\\omega_0(t/\\tau)^ke^{-t/\\tau}$ må du derivere og sette lik null. Kontrollen som avgjør: er den deriverte negativ for alle $t$? Da er $t = 0$ riktig.\n\n**3. Total vinkel: integrér til $t \\to \\infty$, eller til det oppgitte tidspunktet.** Spørres det om totalen «før den stopper», bruk $\\varphi_\\text{tot}$ fra tabellen over. Spørres det om et **endelig** tidspunkt, må du bruke $\\varphi(t) = \\omega_0\\tau(1 - e^{-t/\\tau})$ for den avtakende modellen. Å forveksle de to er den nest vanligste feilen i sjangeren.\n\n**4. Rundetelling: $\\lfloor\\varphi_\\text{tot}/2\\pi\\rfloor$, med fire siffer.** Bruk $2\\pi = 6{,}28319$. Behold fire gjeldende siffer i totalvinkelen **før** du deler. Dette er ikke pedanteri — se margnotatene i det gjennomregnede caset under.\n\n**5. Normalkraft: fire raske trinn.** $y''$ fra banen (husk faktoren 2 for et kvadratledd) → $\\rho = 1/\\lvert y''\\rvert$ dersom $y' = 0$, ellers hele uttrykket → $v^2$ fra energibevaring, og stopp ved $v^2$ → $N = m(g \\mp v^2/\\rho)$ med minus i topp og pluss i bunn.\n\n**Sluttsjekk, uansett vei:** enhet, tierpotens, fortegn — og for rundetelling: er svaret et heltall?"
+    },
+    {
+      "id": "tfy4115-1-3-fig-1",
+      "type": "image",
+      "src": "/images/textbook/tfy4115/tfy4115-1-3-areal-vinkel.svg",
+      "alt": "En graf som viser vinkelfarten omega som avtar eksponentielt fra en startverdi mot null. Omraadet mellom kurven og tidsaksen er skyggelagt, og en tekst forklarer at arealet er lik totalvinkelen. Tidsaksen er merket med null, tau, 2 tau, 3 tau, 4 tau og 5 tau.",
+      "caption": "Totalvinkelen $\\varphi_\\text{tot}$ er arealet under $\\omega(t)$-kurven. For $\\omega = \\omega_0e^{-t/\\tau}$ er arealet endelig og lik $\\omega_0\\tau$, selv om kurven aldri treffer aksen — og antall hele omdreininger er heltallsdelen av $\\varphi_\\text{tot}/2\\pi$."
+    },
+    {
+      "id": "tfy4115-1-3-ex-mc-case",
+      "type": "example",
+      "title": "Gjennomregnet MC-case: turbinen som ruller ut — med margnotater",
+      "problem": "Dette er et komplett flervalgsspørsmål av den typen som kommer på eksamen, regnet gjennom i MC-tempo med margnotater om hvor poengene faktisk faller.\n\nEn turbin kobles fra og bremses ned etter\n$$\\omega(t) = \\omega_0 e^{-t/\\tau}, \\qquad \\omega_0 = 63{,}0\\,\\text{rad/s},\\quad \\tau = 1{,}60\\,\\text{s}.$$\n\n**Spørsmål 1.** Hvor stor er vinkelakselerasjonen i det øyeblikket turbinen kobles fra?\n**A** $-39{,}4\\,\\text{rad/s}^2$ · **B** $-101\\,\\text{rad/s}^2$ · **C** $-24{,}6\\,\\text{rad/s}^2$ · **D** $-63{,}0\\,\\text{rad/s}^2$ · **E** $-14{,}5\\,\\text{rad/s}^2$ · **F** $-1{,}60\\,\\text{rad/s}^2$\n\n**Spørsmål 2.** Hvor mange **hele** omdreininger gjør turbinen før den står stille?\n**A** 15 · **B** 101 · **C** 17 · **D** 32 · **E** 16 · **F** 10",
+      "solution": "**Spørsmål 1: svar A.**\n\n*Margnotat — hvilken lov?* Vinkelakselerasjonen er den deriverte av vinkelfarten. Ingen annen lov er i spill. Tre sekunder.\n\n*Margnotat — hvilken ene regnelinje?* Derivér den avtakende eksponentialen. Den indre deriverte er $-1/\\tau$:\n$$\\alpha(t) = -\\frac{\\omega_0}{\\tau}e^{-t/\\tau} \\quad\\Longrightarrow\\quad \\alpha(0) = -\\frac{63{,}0\\,\\text{rad/s}}{1{,}60\\,\\text{s}} = -39{,}375\\,\\text{rad/s}^2 \\approx -39{,}4\\,\\text{rad/s}^2.$$\nÉn divisjon. Tjue sekunder.\n\n*Margnotat — hva hentes hvor?* Relasjonen $\\alpha = d\\omega/dt$ **står på det utdelte arket**. Den deriverte av eksponentialfunksjonen slår du opp i **Rottmann** hvis du er usikker. Selve derivasjonen av den konkrete modellen må du gjøre selv.\n\n*Margnotat — hvor mange siffer?* Her holder tre, siden svaret ikke er et heltall og alternativene ligger langt fra hverandre. Men skriv $-39{,}375$ i kladden og rund til slutt.\n\n*Margnotat — hvilket nabo-alternativ lander du på hvis du slurver?* **F ($-1{,}60$)** er å forveksle $\\tau$ med svaret. **D ($-63{,}0$)** er å oppgi $\\omega_0$ i stedet for $\\alpha$ — samme tall, feil størrelse og feil enhet. **B ($-101$)** er å **multiplisere** i stedet for å dividere: $63{,}0 \\cdot 1{,}60 = 100{,}8$. **C ($-24{,}6$)** er $\\omega_0/\\tau$ evaluert ved $t = \\tau$, altså $-39{,}375 \\cdot e^{-1} \\cdot ...$ nei — det er $-39{,}375$ ganget med $0{,}625 = 1/1{,}60$, altså å dele på tidskonstanten **to ganger**. **E ($-14{,}5$)** er $\\alpha(\\tau) = -39{,}375e^{-1} = -14{,}49$, altså riktig regning på feil tidspunkt. Merk at fire av de fem gale svarene er samme fysikk med ett bomskudd i bokføringen.\n\n**Spørsmål 2: svar E.**\n\n*Margnotat — hvilken lov?* Antall runder krever totalvinkelen, altså integralet av vinkelfarten over hele nedbremsingen.\n\n*Margnotat — hvilken ene regnelinje?* For den avtakende modellen er totalvinkelen ferdig utregnet en gang for alle:\n$$\\varphi_\\text{tot} = \\omega_0\\tau = 63{,}0\\,\\text{rad/s} \\cdot 1{,}60\\,\\text{s} = 100{,}80\\,\\text{rad}.$$\nDeretter én divisjon og en heltallsdel:\n$$\\frac{100{,}80}{6{,}28319} = 16{,}0428 \\quad\\Longrightarrow\\quad \\textbf{16 hele omdreininger}.$$\n\n*Margnotat — hvor mange siffer, og hvorfor det avgjør alt her.* **Dette er kapitlets viktigste enkeltpoeng.** Svaret 16,0428 ligger så vidt over 16. Runder du totalvinkelen til to gjeldende siffer først — til $100\\,\\text{rad}$, som ser helt uskyldig ut — får du\n$$\\frac{100}{6{,}28319} = 15{,}9155 \\quad\\Longrightarrow\\quad 15 \\text{ hele omdreininger}.$$\nEn avrunding på **0,8 prosent** flyttet svaret til alternativ A. Og bruker du $2\\pi \\approx 6{,}28$ i stedet for 6,28319, får du $100{,}80/6{,}28 = 16{,}051$ — heldigvis fortsatt 16, men marginen er 0,05. **Behold fire siffer i totalvinkelen, og bruk 6,28319.**\n\n*Margnotat — de andre fellene.* **C (17)** er vanlig avrunding av 16,04 oppover. **B (101)** er totalvinkelen i radianer, uten omregning. **D (32)** er å dele på $\\pi$ i stedet for $2\\pi$. **F (10)** er å bruke $\\omega_0$ alene som totalvinkel: $63{,}0/6{,}28319 = 10{,}03$.\n\n*Margnotat — sluttsjekken, ti sekunder.* Spørsmålet spør om **hele** omdreininger, så svaret må være et heltall — det stryker ingenting her, men det ville strøket et desimaltall om det hadde stått i lista. Turbinen starter på 63 rad/s, altså ti omdreininger i sekundet, og bremser ned over noen sekunder: et par titalls runder er rimelig. Det stryker B (101) med en gang. Da står du igjen med 10, 15, 16, 17 og 32 — og fysikken må avgjøre mellom 15, 16 og 17."
+    },
+    {
+      "id": "tfy4115-1-3-okt2",
+      "type": "text",
+      "content": "## Økt 2 — M10: derivér, integrér, tell runder (~25 min)\n\nSju oppgaver på kinematikk-kjeden. Oppgave 1, 4 og 6 er i A–F-format med seks alternativer; de øvrige er i åpen form. Regn med tre til fem minutter per oppgave, og hold fire siffer gjennom kjeden."
+    },
+    {
+      "id": "tfy4115-1-3-o-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-1-3-oppg-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger M10, A–F-format.) En ferge starter fra ro og får farten\n$$v(t) = v_0\\left(1 - e^{-t/\\tau}\\right), \\qquad v_0 = 45{,}0\\,\\text{m/s},\\quad \\tau = 9{,}00\\,\\text{s}.$$\nHvor stor er den største akselerasjonen?\n\n**A** $1{,}84\\,\\text{m/s}^2$ · **B** $405\\,\\text{m/s}^2$ · **C** $5{,}00\\,\\text{m/s}^2$ · **D** $0{,}200\\,\\text{m/s}^2$ · **E** $2{,}50\\,\\text{m/s}^2$ · **F** $0{,}556\\,\\text{m/s}^2$",
+        "solution": "**Svar: C.**\n\n$a(t) = (v_0/\\tau)e^{-t/\\tau}$ avtar monotont, så maksimum ligger i $t = 0$:\n$$a_\\text{maks} = \\frac{45{,}0\\,\\text{m/s}}{9{,}00\\,\\text{s}} = 5{,}00\\,\\text{m/s}^2.$$\n\nDe gale alternativene: **D ($0{,}200$)** er det inverse forholdet $\\tau/v_0$. **B ($405$)** er $v_0\\tau$, altså multiplikasjon i stedet for divisjon. **A ($1{,}84$)** er $a(\\tau) = 5{,}00e^{-1} = 1{,}839$ — riktig regning på feil tidspunkt. **E ($2{,}50$)** er $v_0/(2\\tau)$, en faktor 2 for mye i nevneren. **F ($0{,}556$)** er $v_0/\\tau^2 = 45{,}0/81{,}0$, altså en tidskonstant for mye i nevneren.\n\n**Sluttsjekk:** en ferge som skal opp i 45 m/s med tidskonstant 9 s, må ha en akselerasjon i størrelsesorden noen få $\\text{m/s}^2$. Det stryker B, D og F på fem sekunder.",
+        "hints": [
+          "Akselerasjonen er den deriverte; se hvor uttrykket er størst.",
+          "Sjekk enheten på svaret ditt: $\\text{(m/s)/s}$."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-1-3-o-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-1-3-oppg-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M10.) Samme ferge som i oppgave 1: $v_0 = 45{,}0\\,\\text{m/s}$ og $\\tau = 9{,}00\\,\\text{s}$.\n\n**a)** Hvor langt har fergen kommet etter én tidskonstant, altså etter $9{,}00\\,\\text{s}$?\n**b)** Hvor langt hadde den kommet om den hadde holdt $v_0$ hele veien, og hva er etterslepet?",
+        "solution": "**a)** Sett $t = \\tau$ i strekningsuttrykket. Da er $t/\\tau = 1$, og\n$$s(\\tau) = v_0\\left[\\tau - \\tau\\left(1 - e^{-1}\\right)\\right] = v_0\\tau e^{-1}.$$\nUttrykket er verdt å legge merke til — etter én tidskonstant er strekningen nøyaktig $v_0\\tau/e$:\n$$s = \\frac{45{,}0\\,\\text{m/s} \\cdot 9{,}00\\,\\text{s}}{2{,}71828} = \\frac{405{,}0\\,\\text{m}}{2{,}71828} = 148{,}99\\,\\text{m} \\approx 149\\,\\text{m}.$$\n\n**b)** Med $v_0$ hele veien: $45{,}0\\,\\text{m/s} \\cdot 9{,}00\\,\\text{s} = 405{,}0\\,\\text{m}$. Etterslepet er\n$$405{,}0 - 148{,}99 = 256{,}0\\,\\text{m} \\approx 256\\,\\text{m}.$$\nSammenlign med den asymptotiske formen $s \\approx v_0(t - \\tau)$: den sier at etterslepet på lang sikt stabiliserer seg på $v_0\\tau = 405\\,\\text{m}$. Etter bare én tidskonstant er etterslepet altså 256 m, altså 63 prosent av den endelige verdien — det bygges opp gradvis mens fergen kommer opp i grensefart, og slutter å vokse når den er framme.",
+        "hints": [
+          "Sett $t = \\tau$ inn i $s(t) = v_0[t - \\tau(1 - e^{-t/\\tau})]$ og forenkle.",
+          "Det asymptotiske etterslepet er $v_0\\tau$ — sjekk om ditt tall ligger under."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-1-3-o-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-1-3-oppg-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M10.) En sentrifuge bremses ned etter\n$$\\omega(t) = \\omega_0 e^{-t/\\tau}, \\qquad \\omega_0 = 120\\,\\text{rad/s},\\quad \\tau = 3{,}20\\,\\text{s}.$$\n\n**a)** Finn totalvinkelen rotoren dreier seg.\n**b)** Hvor mange hele omdreininger blir det?",
+        "solution": "**a)** $$\\varphi_\\text{tot} = \\omega_0\\tau = 120\\,\\text{rad/s} \\cdot 3{,}20\\,\\text{s} = 384{,}0\\,\\text{rad}.$$\n\n**b)** $$\\frac{384{,}0}{6{,}28319} = 61{,}1155 \\quad\\Longrightarrow\\quad \\textbf{61 hele omdreininger}.$$\n\nHer er marginen romslig — 61,12 ligger langt fra begge nabotallene — så avrundingen er ikke kritisk denne gangen. Det er verdt å merke seg forskjellen fra det gjennomregnede caset over: **du kan ikke vite på forhånd om marginen er romslig eller knapp.** Derfor holder du fire siffer uansett, og slipper å vurdere det.",
+        "hints": [
+          "Totalvinkelen for den avtakende modellen er $\\omega_0\\tau$.",
+          "Del på $2\\pi = 6{,}28319$ og ta heltallsdelen."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-1-3-o-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-1-3-oppg-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M10, A–F-format.) Et hjul settes i bevegelse og løper ut etter\n$$\\omega(t) = \\omega_0\\,\\frac{t}{\\tau}\\,e^{-t/\\tau}, \\qquad \\omega_0 = 54{,}0\\,\\text{rad/s},\\quad \\tau = 2{,}50\\,\\text{s}.$$\nHvor stor er den **største vinkelfarten**?\n\n**A** $19{,}9\\,\\text{rad/s}$ · **B** $54{,}0\\,\\text{rad/s}$ · **C** $27{,}0\\,\\text{rad/s}$ · **D** $135\\,\\text{rad/s}$ · **E** $7{,}31\\,\\text{rad/s}$ · **F** $21{,}6\\,\\text{rad/s}$",
+        "solution": "**Svar: A.**\n\nDerivér med produktregelen:\n$$\\alpha(t) = \\frac{\\omega_0}{\\tau}\\left(1 - \\frac{t}{\\tau}\\right)e^{-t/\\tau}.$$\nEksponentialleddet er aldri null, så $\\alpha = 0$ krever $t = \\tau$. Sett inn:\n$$\\omega_\\text{maks} = \\omega_0 \\cdot 1 \\cdot e^{-1} = \\frac{54{,}0\\,\\text{rad/s}}{2{,}71828} = 19{,}865\\,\\text{rad/s} \\approx 19{,}9\\,\\text{rad/s}.$$\n\nDe gale alternativene: **B ($54{,}0$)** er å lese $\\omega_0$ som toppfarten — den vanligste feilen i denne modellen, siden konstanten bare er en skaleringsfaktor. **F ($21{,}6$)** er $\\alpha(0) = \\omega_0/\\tau = 21{,}6$, altså riktig regning på feil spørsmål (og feil enhet). **D ($135$)** er totalvinkelen $\\omega_0\\tau$, som er et helt annet spørsmål. **C ($27{,}0$)** er $\\omega_0/2$. **E ($7{,}31$)** er $\\omega_0e^{-2} = 7{,}309$, altså maksimum lett på feil sted, ved $t = 2\\tau$.\n\n**Sluttsjekk:** for denne modellen er $\\omega_\\text{maks} = \\omega_0/e = 0{,}368\\,\\omega_0$, alltid. Faller svaret ditt utenfor intervallet $0$ til $\\omega_0$, er noe galt.",
+        "hints": [
+          "Sett den deriverte lik null — hvilken faktor kan bli null?",
+          "Husk at $e^{-1}$ skal med når du setter tidspunktet inn i uttrykket for $\\omega$."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-1-3-o-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-1-3-oppg-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M10.) En turbin følger\n$$\\omega(t) = \\omega_0\\left(\\frac{t}{\\tau}\\right)^2 e^{-t/\\tau}, \\qquad \\omega_0 = 18{,}0\\,\\text{rad/s},\\quad \\tau = 4{,}00\\,\\text{s}.$$\n\n**a)** Hvor mange hele omdreininger gjør turbinen i alt?\n**b)** Finn den største vinkelfarten og når den inntreffer.",
+        "solution": "**a)** Substituér $u = t/\\tau$, som gir $dt = \\tau\\,du$:\n$$\\varphi_\\text{tot} = \\omega_0\\tau\\int_0^\\infty u^2e^{-u}\\,du = \\omega_0\\tau \\cdot 2! = 2\\omega_0\\tau.$$\n$$\\varphi_\\text{tot} = 2 \\cdot 18{,}0\\,\\text{rad/s} \\cdot 4{,}00\\,\\text{s} = 144{,}0\\,\\text{rad},$$\n$$\\frac{144{,}0}{6{,}28319} = 22{,}9183 \\quad\\Longrightarrow\\quad \\textbf{22 hele omdreininger}.$$\n\n**b)** Derivér: med $u = t/\\tau$ er $\\omega = \\omega_0u^2e^{-u}$, og\n$$\\alpha = \\frac{\\omega_0}{\\tau}\\left(2u - u^2\\right)e^{-u} = \\frac{\\omega_0}{\\tau}u\\left(2 - u\\right)e^{-u}.$$\nUttrykket er null ved $u = 0$ og $u = 2$. Ved $u = 0$ starter turbinen fra ro (et minimum), så maksimum ligger ved $u = 2$, altså\n$$t_\\text{maks} = 2\\tau = 8{,}00\\,\\text{s}, \\qquad \\omega_\\text{maks} = \\omega_0 \\cdot 4 \\cdot e^{-2} = 18{,}0 \\cdot 4 \\cdot 0{,}135335\\,\\text{rad/s} = 9{,}744\\,\\text{rad/s}.$$\nAltså $\\approx 9{,}74\\,\\text{rad/s}$.\n\n**To ting å legge merke til.** For denne modellen er $\\alpha(0) = 0$, ikke $\\omega_0/\\tau$ — vanen «maksimal akselerasjon ligger i $t = 0$» er direkte feil her. Og turbinen rekker nesten 23 runder til tross for at den aldri kommer over 9,74 rad/s, fordi den holder seg i gang lenge.",
+        "hints": [
+          "Substituer $u = t/\\tau$ og bruk at $\\int_0^\\infty u^ne^{-u}du = n!$.",
+          "Derivér $u^2e^{-u}$ og faktorisér — det gir to nullpunkter, og du må avgjøre hvilket som er maksimum."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-1-3-o-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-1-3-oppg-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger M10, A–F-format, eksamensnivå.) En blander kobles fra og bremses ned etter\n$$\\omega(t) = \\omega_0 e^{-t/\\tau}, \\qquad \\omega_0 = 44{,}0\\,\\text{rad/s},\\quad \\tau = 2{,}30\\,\\text{s}.$$\nHvor mange **hele** omdreininger gjør rotoren før den står stille?\n\n**A** 17 · **B** 101 · **C** 15 · **D** 16 · **E** 7 · **F** 32",
+        "solution": "**Svar: D.**\n\n$$\\varphi_\\text{tot} = \\omega_0\\tau = 44{,}0\\,\\text{rad/s} \\cdot 2{,}30\\,\\text{s} = 101{,}20\\,\\text{rad},$$\n$$\\frac{101{,}20}{6{,}28319} = 16{,}1065 \\quad\\Longrightarrow\\quad \\textbf{16 hele omdreininger}.$$\n\nDe gale alternativene, hvert fra sin feil: **A (17)** er vanlig avrunding av 16,11 oppover. **C (15)** er å runde totalvinkelen til to gjeldende siffer først: $100/6{,}28319 = 15{,}92$, heltallsdel 15. **B (101)** er totalvinkelen i radianer. **F (32)** er å dele på $\\pi$ i stedet for på $2\\pi$. **E (7)** er å bruke $\\omega_0$ alene som totalvinkel: $44{,}0/6{,}28319 = 7{,}00$.\n\n**Merk hvor knapp marginen er.** 16,1065 ligger 0,11 over 16 — altså trenger du bare 0,7 prosent feil i totalvinkelen for å havne på 15. Nettopp derfor står C i lista: den er ikke en tullefeil, men resultatet av en helt vanlig avrunding. Fire siffer i totalvinkelen, alltid.",
+        "hints": [
+          "Regn ut totalvinkelen med fire gjeldende siffer før du deler.",
+          "Bruk $2\\pi = 6{,}28319$, ikke 6,28.",
+          "Svaret er heltallsdelen, ikke den nærmeste avrundingen."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-1-3-o-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-1-3-oppg-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M10.) En kajakk får farten\n$$v(t) = v_0 - bt^2, \\qquad v_0 = 27{,}0\\,\\text{m/s},\\quad b = 3{,}00\\,\\text{m/s}^3.$$\n\n**a)** Er akselerasjonen konstant? Finn $a(t)$.\n**b)** Når snur kajakken, hvor langt har den kommet da, og hvor stor er akselerasjonen i det øyeblikket?",
+        "solution": "**a)** Derivér:\n$$a(t) = \\frac{dv}{dt} = -2bt = -6{,}00\\,\\text{m/s}^3 \\cdot t.$$\nAkselerasjonen er **ikke** konstant — den er proporsjonal med tiden. Konstant-akselerasjonsformlene er dermed ubrukelige her (felle #3 — bruke konstant-akselerasjonsformler når akselerasjonen ikke er konstant).\n\n**b)** Snupunktet er der $v = 0$:\n$$t = \\sqrt{\\frac{v_0}{b}} = \\sqrt{\\frac{27{,}0}{3{,}00}}\\,\\text{s} = \\sqrt{9{,}00}\\,\\text{s} = 3{,}00\\,\\text{s}.$$\nStrekningen:\n$$s = \\int_0^{3{,}00}\\left(27{,}0 - 3{,}00u^2\\right)du = \\left[27{,}0u - u^3\\right]_0^{3{,}00}\\text{m} = 81{,}0 - 27{,}0\\,\\text{m} = 54{,}0\\,\\text{m}.$$\nAkselerasjonen i snupunktet:\n$$a(3{,}00\\,\\text{s}) = -6{,}00 \\cdot 3{,}00\\,\\text{m/s}^2 = -18{,}0\\,\\text{m/s}^2.$$\n\n**Kontroll som avslører fella.** Hadde akselerasjonen vært konstant lik $-18{,}0\\,\\text{m/s}^2$, ville strekningen vært $v_0^2/(2\\lvert a\\rvert) = 729/36{,}0\\,\\text{m} = 20{,}25\\,\\text{m}$ — bare 38 prosent av det riktige svaret. Grunnen er at kajakken bremser svakt i starten og hardt til slutt, og derfor holder høy fart lenger enn en jevn bremsing ville gitt.",
+        "hints": [
+          "Derivér og se om resultatet inneholder $t$.",
+          "Snupunktet finner du fra $v(t) = 0$; strekningen ved å integrere farten fram til det tidspunktet."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-1-3-okt3",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\n## Økt 3 — M11: krumning og normalkraft (~20 min)\n\nFem oppgaver på krumningskjeden. Oppgave 8, 10 og 12 er i A–F-format. Huskeregelen du skal ha framme hele tiden: **minus i toppunkt, pluss i bunnpunkt** — og faktoren 2 når du deriverer et kvadratledd."
+    },
+    {
+      "id": "tfy4115-1-3-o-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-1-3-oppg-8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger M11, A–F-format.) En kloss med masse $1{,}20\\,\\text{kg}$ glir uten friksjon over en bakketopp med profilen $y = 4{,}50 - 0{,}0800x^2$ (meter). I toppunktet er farten $5{,}00\\,\\text{m/s}$.\n\nHvor stor er normalkraften i toppunktet?\n\n**A** $11{,}8\\,\\text{N}$ · **B** $9{,}37\\,\\text{N}$ · **C** $16{,}6\\,\\text{N}$ · **D** $2{,}17\\,\\text{N}$ · **E** $10{,}8\\,\\text{N}$ · **F** $6{,}97\\,\\text{N}$",
+        "solution": "**Svar: F.**\n\n$y'' = -2 \\cdot 0{,}0800 = -0{,}160\\,\\text{m}^{-1}$, og siden $y' = 0$ i toppunktet:\n$$\\rho = \\frac{1}{0{,}160\\,\\text{m}^{-1}} = 6{,}250\\,\\text{m}, \\qquad \\frac{v^2}{\\rho} = \\frac{25{,}00}{6{,}250}\\,\\text{m/s}^2 = 4{,}000\\,\\text{m/s}^2.$$\n$$N = 1{,}20\\,\\text{kg}\\left(9{,}81 - 4{,}000\\right)\\text{m/s}^2 = 1{,}20 \\cdot 5{,}810\\,\\text{N} = 6{,}972\\,\\text{N} \\approx 6{,}97\\,\\text{N}.$$\n\nDe gale alternativene: **C ($16{,}6$)** er pluss i stedet for minus, altså bunnpunktsformelen brukt i et toppunkt. **A ($11{,}8$)** er bare tyngden $mg$, med sentripetalleddet glemt. **B ($9{,}37$)** kommer av å glemme faktoren 2 og bruke $\\rho = 12{,}50\\,\\text{m}$. **D ($2{,}17$)** kommer av $\\rho = 3{,}125\\,\\text{m}$, altså å dividere med 2 der man skulle multiplisert. **E ($10{,}8$)** kommer av å glemme kvadratet på farten: $1{,}20(9{,}81 - 5{,}00/6{,}250) = 10{,}81\\,\\text{N}$.\n\n**Sluttsjekk:** dette er et toppunkt, så svaret må være **mindre** enn $mg = 11{,}8\\,\\text{N}$. Det stryker A, C og E umiddelbart.",
+        "hints": [
+          "Finn $y''$ først — pass på faktoren 2 fra kvadratleddet.",
+          "Toppunkt betyr minus foran sentripetalleddet.",
+          "Sammenlign svaret med tyngden før du krysser av."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-1-3-o-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-1-3-oppg-9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M11.) Bruk samme bakke som i oppgave 8, der krumningsradien i toppunktet er $6{,}250\\,\\text{m}$.\n\n**a)** Ved hvilken fart mister klossen kontakten med underlaget i toppunktet?\n**b)** Fra hvilken høyde over toppunktet må klossen slippes fra ro for at den så vidt slipper underlaget når den kommer dit?",
+        "solution": "**a)** Sett $N = 0$:\n$$v_\\text{krit} = \\sqrt{g\\rho} = \\sqrt{9{,}81\\,\\text{m/s}^2 \\cdot 6{,}250\\,\\text{m}} = \\sqrt{61{,}31\\,\\text{m}^2/\\text{s}^2} = 7{,}830\\,\\text{m/s} \\approx 7{,}83\\,\\text{m/s}.$$\nMassen faller ut — som den skal, siden dette er et spørsmål om en fart.\n\n**b)** Energibevaring fra ro gir $v^2 = 2g\\,\\Delta y$. Kravet er $v^2 = g\\rho$, altså\n$$2g\\,\\Delta y = g\\rho \\quad\\Longrightarrow\\quad \\Delta y = \\frac{\\rho}{2} = \\frac{6{,}250\\,\\text{m}}{2} = 3{,}125\\,\\text{m} \\approx 3{,}13\\,\\text{m}.$$\nBåde $g$ og massen falt ut. Resultatet $\\Delta y = \\rho/2$ er generelt for glidende legemer og verdt å ha i hodet: **et legeme som glir fra ro fra mer enn halve krumningsradien over et toppunkt, slipper underlaget der.**",
+        "hints": [
+          "Kritisk fart følger av å sette normalkraften lik null.",
+          "Kombiner $v^2 = 2g\\Delta y$ med kravet $v^2 = g\\rho$ — se hva som faller ut."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-1-3-o-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-1-3-oppg-10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M11, A–F-format.) En syklist med sykkel, til sammen $72{,}0\\,\\text{kg}$, kjører gjennom bunnen av en undergang med profilen $y = 0{,}0100x^2$ (meter). Farten i bunnpunktet er $11{,}0\\,\\text{m/s}$.\n\nHvor stor er normalkraften fra veien?\n\n**A** $532\\,\\text{N}$ · **B** $706\\,\\text{N}$ · **C** $722\\,\\text{N}$ · **D** $793\\,\\text{N}$ · **E** $881\\,\\text{N}$ · **F** $1\\,055\\,\\text{N}$",
+        "solution": "**Svar: E.**\n\n$y'' = 2 \\cdot 0{,}0100 = 0{,}0200\\,\\text{m}^{-1}$, altså $\\rho = 50{,}00\\,\\text{m}$.\n$$\\frac{v^2}{\\rho} = \\frac{121{,}0}{50{,}00}\\,\\text{m/s}^2 = 2{,}420\\,\\text{m/s}^2,$$\n$$N = 72{,}0\\,\\text{kg}\\left(9{,}81 + 2{,}420\\right)\\text{m/s}^2 = 72{,}0 \\cdot 12{,}23\\,\\text{N} = 880{,}56\\,\\text{N} \\approx 881\\,\\text{N}.$$\n\nDe gale alternativene: **A ($532\\,\\text{N}$)** er minus i stedet for pluss. **B ($706\\,\\text{N}$)** er bare tyngden. **D ($793\\,\\text{N}$)** kommer av å glemme faktoren 2 og bruke $\\rho = 100{,}0\\,\\text{m}$. **F ($1\\,055\\,\\text{N}$)** kommer av $\\rho = 25{,}00\\,\\text{m}$. **C ($722\\,\\text{N}$)** kommer av å glemme kvadratet på farten.\n\n**Sluttsjekk:** bunnpunkt betyr $N > mg = 706\\,\\text{N}$, så A og B faller bort. Og forholdet $N/mg = 1{,}25$ er rimelig for en så slak undergang; $1\\,055/706 = 1{,}49$ ville krevd en betydelig skarpere kurve.",
+        "hints": [
+          "Deriver profilen to ganger og finn $\\rho$.",
+          "Bunnpunkt betyr pluss — og svaret skal være større enn tyngden."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-1-3-o-11",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-1-3-oppg-11",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M11.) En bane har profilen $y = 0{,}500x - 0{,}0400x^2$ (meter).\n\n**a)** Finn banevinkelen i punktet $x = 3{,}00\\,\\text{m}$.\n**b)** Finn krumningsradien i det samme punktet.\n**c)** Hvor ligger banens toppunkt, og hva er krumningsradien der?",
+        "solution": "**a)** $y' = 0{,}500 - 0{,}0800x$, altså\n$$y'(3{,}00) = 0{,}500 - 0{,}0800 \\cdot 3{,}00 = 0{,}2600, \\qquad \\beta = \\arctan 0{,}2600 = 14{,}574^\\circ \\approx 14{,}6^\\circ.$$\n\n**b)** $y'' = -0{,}0800\\,\\text{m}^{-1}$, og $y'^2 = 0{,}06760$:\n$$\\rho = \\frac{\\left(1{,}06760\\right)^{3/2}}{0{,}0800\\,\\text{m}^{-1}} = \\frac{1{,}10310}{0{,}0800\\,\\text{m}^{-1}} = 13{,}789\\,\\text{m} \\approx 13{,}8\\,\\text{m}.$$\n\n**c)** Toppunktet ligger der $y' = 0$:\n$$x = \\frac{0{,}500}{0{,}0800} = 6{,}250\\,\\text{m}, \\qquad \\rho = \\frac{1}{0{,}0800\\,\\text{m}^{-1}} = 12{,}50\\,\\text{m}.$$\n\nBanen er altså litt slakere (større $\\rho$) i det skrå punktet enn i toppunktet — 13,8 mot 12,5 m, en forskjell på 10 prosent. Bruker du forenklingen $\\rho = 1/\\lvert y''\\rvert$ i det skrå punktet, tar du feil med nøyaktig de 10 prosentene, og på eksamen er alternativene tette nok til å fange det.",
+        "hints": [
+          "Banevinkelen følger av $\\tan\\beta = y'$.",
+          "Når $y' \\ne 0$, må hele uttrykket $(1+y'^2)^{3/2}/|y''|$ brukes.",
+          "Toppunktet er der den første deriverte er null."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-1-3-o-12",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-1-3-oppg-12",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M11, A–F-format.) En kloss med masse $3{,}00\\,\\text{kg}$ slippes fra ro i en høyde $2{,}00\\,\\text{m}$ over et toppunkt på en glatt bane og glir ned til toppunktet, der krumningsradien er $12{,}0\\,\\text{m}$.\n\nHvor stor er normalkraften i toppunktet?\n\n**A** $9{,}81\\,\\text{N}$ · **B** $19{,}6\\,\\text{N}$ · **C** $24{,}5\\,\\text{N}$ · **D** $27{,}9\\,\\text{N}$ · **E** $29{,}4\\,\\text{N}$ · **F** $39{,}2\\,\\text{N}$",
+        "solution": "**Svar: B.**\n\nEnergibevaring fra ro:\n$$v^2 = 2g\\,\\Delta y = 2 \\cdot 9{,}81 \\cdot 2{,}00\\,\\text{m}^2/\\text{s}^2 = 39{,}24\\,\\text{m}^2/\\text{s}^2.$$\n$$\\frac{v^2}{\\rho} = \\frac{39{,}24}{12{,}0}\\,\\text{m/s}^2 = 3{,}270\\,\\text{m/s}^2,$$\n$$N = 3{,}00\\,\\text{kg}\\left(9{,}81 - 3{,}270\\right)\\text{m/s}^2 = 3{,}00 \\cdot 6{,}540\\,\\text{N} = 19{,}62\\,\\text{N} \\approx 19{,}6\\,\\text{N}.$$\n\nDe gale alternativene: **F ($39{,}2\\,\\text{N}$)** er pluss i stedet for minus. **E ($29{,}4\\,\\text{N}$)** er bare tyngden $mg$. **C ($24{,}5\\,\\text{N}$)** kommer av å glemme faktoren 2 i energibevaringen og bruke $v^2 = g\\Delta y$. **A ($9{,}81\\,\\text{N}$)** kommer av å bruke $v^2 = 4g\\Delta y$, altså faktor 2 for mye. **D ($27{,}9\\,\\text{N}$)** kommer av å regne $v$ først og så glemme å kvadrere den i sentripetalleddet.\n\n**Sluttsjekk:** toppunkt betyr $N < mg = 29{,}4\\,\\text{N}$, som stryker E og F. Og fallhøyden 2,00 m er godt under $\\rho/2 = 6{,}00\\,\\text{m}$, så klossen skal fortsatt være i kontakt — normalkraften må være positiv og et godt stykke fra null.",
+        "hints": [
+          "Finn $v^2$ fra energibevaring — du trenger ikke $v$ selv.",
+          "Toppunkt betyr minus, og svaret skal være mindre enn tyngden.",
+          "Sjekk om fallhøyden er under $\\rho/2$; hvis ikke, har klossen alt sluppet."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-1-3-okt4",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\n## Økt 4 — sammensatte oppgaver (~20 min)\n\nDe tre siste oppgavene blander sjangrene og krever at du velger verktøy selv. Oppgave 14 er i A–F-format."
+    },
+    {
+      "id": "tfy4115-1-3-o-13",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-1-3-oppg-13",
+        "number": "13",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Kvalitativ oppgave — verktøyvalg.) For hvert av de fire spørsmålene under: si hvilket verktøy du ville brukt (derivere, integrere, integrere og ta heltallsdelen, eller krumning pluss Newtons 2. lov), og hvorfor. Du skal **ikke** regne ut noe.\n\n**a)** «Vinkelfarten til et hjul er $\\omega(t) = \\omega_0(t/\\tau)e^{-t/\\tau}$. Hvor stor er vinkelakselerasjonen ved $t = 0$?»\n\n**b)** «En bane har profilen $y = h - ax^2$. Ved hvilken fart mister en kloss kontakten i toppunktet?»\n\n**c)** «En turbin bremses ned etter $\\omega = \\omega_0e^{-t/\\tau}$. Hvor mange ganger passerer et fast merke på rotoren et fast merke på huset?»\n\n**d)** «En båt får farten $v = v_0(1 - e^{-t/\\tau})$. Hvor langt har den kommet etter $4\\tau$?»",
+        "solution": "**a) Derivér.** Spørsmålet handler om en vinkelakselerasjon, og den er per definisjon $d\\omega/dt$. Merk at du **ikke** kan bare sette $t = 0$ inn i $\\omega$ — det gir vinkelfarten (som her er null), ikke vinkelakselerasjonen. Derivér først, sett inn etterpå.\n\n**b) Krumning pluss Newtons 2. lov.** Kjeden er $y'' \\to \\rho = 1/\\lvert y''\\rvert \\to N = 0 \\to v_\\text{krit} = \\sqrt{g\\rho}$. Ingen integrasjon inngår, og massen faller ut.\n\n**c) Integrér og ta heltallsdelen.** Spørsmålet er «antall hele omdreininger» i forkledning: et merke på rotoren passerer et merke på huset én gang per full runde. Kjeden er $\\varphi_\\text{tot} = \\omega_0\\tau$, del på $2\\pi$, ta heltallsdelen. Dette er verdt å kjenne igjen, for eksamensoppgaver formulerer rundetellingen på flere måter — «hvor mange runder», «hvor mange ganger passerer», «hvor mange fulle omdreininger».\n\n**d) Integrér.** Spørsmålet handler om strekning, altså $s = \\int_0^{4\\tau} v\\,dt$. Her er tidspunktet **endelig**, så du kan ikke bruke en asymptotisk formel: sett $t = 4\\tau$ inn i $s(t) = v_0[t - \\tau(1 - e^{-t/\\tau})]$. Det gir $s = v_0\\tau[4 - (1 - e^{-4})] = v_0\\tau \\cdot 3{,}0183$.\n\n**Poenget med oppgaven:** trinn 1 i løsningsoppskriften er det billigste trinnet og det som oftest går galt. Velger du verktøy på tre sekunder og riktig, har du allerede halve poenget.",
+        "hints": [
+          "Se etter nøkkelordene: «akselerasjon», «strekning», «hvor mange runder», «normalkraft» eller «mister kontakten».",
+          "I c) er spørsmålet omformulert — hva skjer fysisk én gang per omdreining?"
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-1-3-o-14",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-1-3-oppg-14",
+        "number": "14",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger M10, A–F-format, eksamensnivå.) Turbinen fra det gjennomregnede caset bremses ned etter\n$$\\omega(t) = \\omega_0 e^{-t/\\tau}, \\qquad \\omega_0 = 63{,}0\\,\\text{rad/s},\\quad \\tau = 1{,}60\\,\\text{s}.$$\nHvor mange hele omdreininger har turbinen gjort etter $t = 2\\tau$?\n\n**A** 16 · **B** 87 · **C** 2 · **D** 27 · **E** 13 · **F** 14",
+        "solution": "**Svar: E.**\n\nHer er tidspunktet **endelig**, så totalvinkelen $\\omega_0\\tau$ er feil verktøy. Integrér fra 0 til $2\\tau$:\n$$\\varphi(t) = \\int_0^t \\omega_0e^{-u/\\tau}\\,du = \\omega_0\\tau\\left(1 - e^{-t/\\tau}\\right).$$\nVed $t = 2\\tau$ er $e^{-2} = 0{,}135335$:\n$$\\varphi(2\\tau) = 63{,}0 \\cdot 1{,}60\\left(1 - 0{,}135335\\right)\\text{rad} = 100{,}80 \\cdot 0{,}864665\\,\\text{rad} = 87{,}158\\,\\text{rad}.$$\n$$\\frac{87{,}158}{6{,}28319} = 13{,}8717 \\quad\\Longrightarrow\\quad \\textbf{13 hele omdreininger}.$$\n\nDe gale alternativene: **A (16)** er totalvinkelen brukt i stedet for vinkelen etter endelig tid — altså svaret på et annet spørsmål, og den vanligste feilen her. **F (14)** er vanlig avrunding av 13,87 oppover. **B (87)** er vinkelen i radianer. **D (27)** er å dele på $\\pi$. **C (2)** kommer av å bruke $e^{-2}$ som faktor i stedet for $(1 - e^{-2})$: $100{,}80 \\cdot 0{,}135335/6{,}28319 = 2{,}17$.\n\n**Kontroll som gir mening.** Etter to tidskonstanter skal 86,5 prosent av totalvinkelen være gjennomført, siden $1 - e^{-2} = 0{,}8647$. Og $0{,}8647 \\cdot 16{,}04 = 13{,}87$ — som stemmer. De fem siste av de seksten rundene tar altså «resten av tiden».",
+        "hints": [
+          "Er tidspunktet endelig eller uendelig? Det avgjør hvilket uttrykk du skal bruke.",
+          "Integrér $\\omega_0e^{-t/\\tau}$ fra 0 til $2\\tau$ og se hvilken faktor du får.",
+          "Kontrollér at svaret er en fornuftig andel av totalen."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-1-3-o-15",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-1-3-oppg-15",
+        "number": "15",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger M10, eksamensnivå — omvendt oppgave.) En rotor bremses ned etter $\\omega(t) = \\omega_0e^{-t/\\tau}$. Du får oppgitt to opplysninger: vinkelakselerasjonen i det øyeblikket bremsingen starter, er $\\alpha(0) = -35{,}0\\,\\text{rad/s}^2$, og den totale dreievinkelen fram til stillstand er $140\\,\\text{rad}$.\n\n**a)** Finn $\\omega_0$ og $\\tau$.\n**b)** Hvor mange hele omdreininger gjør rotoren?\n**c)** Hvor lang tid går det før halvparten av totalvinkelen er tilbakelagt?",
+        "solution": "**a)** De to opplysningene gir to ligninger:\n$$\\lvert\\alpha(0)\\rvert = \\frac{\\omega_0}{\\tau} = 35{,}0\\,\\text{rad/s}^2, \\qquad \\varphi_\\text{tot} = \\omega_0\\tau = 140\\,\\text{rad}.$$\nMultiplisér dem sammen — da forsvinner $\\tau$:\n$$\\frac{\\omega_0}{\\tau}\\cdot\\omega_0\\tau = \\omega_0^2 = 35{,}0 \\cdot 140 = 4\\,900 \\quad\\Longrightarrow\\quad \\omega_0 = 70{,}0\\,\\text{rad/s}.$$\nDivider dem i stedet, og $\\omega_0$ forsvinner:\n$$\\tau^2 = \\frac{140}{35{,}0} = 4{,}00 \\quad\\Longrightarrow\\quad \\tau = 2{,}00\\,\\text{s}.$$\nKontroll: $70{,}0/2{,}00 = 35{,}0$ ✔ og $70{,}0 \\cdot 2{,}00 = 140$ ✔.\n\n**b)** $$\\frac{140{,}0}{6{,}28319} = 22{,}2817 \\quad\\Longrightarrow\\quad \\textbf{22 hele omdreininger}.$$\n\n**c)** Kravet er $\\varphi(t) = \\tfrac12\\varphi_\\text{tot}$, altså\n$$\\omega_0\\tau\\left(1 - e^{-t/\\tau}\\right) = \\tfrac12\\,\\omega_0\\tau \\quad\\Longleftrightarrow\\quad e^{-t/\\tau} = \\tfrac12 \\quad\\Longleftrightarrow\\quad t = \\tau\\ln 2.$$\n$$t = 2{,}00\\,\\text{s} \\cdot 0{,}69315 = 1{,}3863\\,\\text{s} \\approx 1{,}39\\,\\text{s}.$$\n\n**Legg merke til hva som skjedde i c).** Både $\\omega_0$ og $\\tau$ falt ut av selve betingelsen: halve totalvinkelen er alltid tilbakelagt etter én halveringstid, $\\tau\\ln 2$, uansett hvor fort rotoren gikk. Det er et resultat verdt å kjenne — og en påminnelse om at det ofte er raskere å sette opp betingelsen symbolsk enn å tallregne seg fram.\n\n**Og legg merke til grepet i a).** Å multiplisere og dividere de to ligningene, i stedet for å løse den ene for $\\tau$ og sette inn, er en av de billigste snarveiene i dette faget: to symmetriske uttrykk gir de to ukjente på én linje hver.",
+        "hints": [
+          "Skriv opp begge opplysningene som ligninger i $\\omega_0$ og $\\tau$.",
+          "Prøv å multiplisere de to ligningene med hverandre — hva forsvinner?",
+          "I c) trenger du uttrykket for vinkelen etter endelig tid, og du kan sette opp betingelsen symbolsk før du regner."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-1-3-war-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil — hele M10- og M11-repertoaret, og avrundingsfellen",
+      "content": "Alle fellene under er hentet fra oppgavene du nettopp har gjort, og hver av dem svarte til et konkret alternativ.\n\n**Å bruke konstant-akselerasjonsformlene når akselerasjonen ikke er konstant** (felle #3). Sjekken er tre sekunder: står det en $t$ i uttrykket for $a$? I oppgave 7 ga fella 20,3 m i stedet for 54,0 m.\n\n**Å lete etter maksimum ved feil tidspunkt.** For de mettende og de rent avtakende modellene ligger maksimal akselerasjon i $t = 0$. For potensmodellene gjør den ikke det — i oppgave 5 var $\\alpha(0) = 0$. Derivér, sett lik null, og hvis ligningen ikke har løsning, ligger maksimum i randen.\n\n**Å lese konstanten $\\omega_0$ som toppfarten.** I potensmodellene er $\\omega_\\text{maks} = \\omega_0/e$ eller $4\\omega_0e^{-2}$, ikke $\\omega_0$. Alternativet «$\\omega_0$» ligger nesten alltid i lista (oppgave 4, alternativ B).\n\n**Å bruke totalvinkelen når spørsmålet gjelder et endelig tidspunkt** — eller omvendt. Totalvinkelen er $\\omega_0\\tau$; vinkelen etter tiden $t$ er $\\omega_0\\tau(1 - e^{-t/\\tau})$. Dette var alternativ A i oppgave 14, og det er en feil som gir et helt plausibelt tall.\n\n**Å oppgi desimaltallet i stedet for heltallet** ved rundetelling, eller å runde av i stedet for å ta heltallsdelen. 16,11 hele runder er 16, ikke 17.\n\n**Å glemme faktoren 2 i den andrederiverte.** For $y = h - ax^2$ er $\\lvert y''\\rvert = 2a$. Fella ga 9,37 N i stedet for 6,97 N i oppgave 8.\n\n**Feil fortegn på sentripetalleddet** (felle #5). **Minus i toppunkt, pluss i bunnpunkt.** Sluttsjekken er å sammenligne med $mg$: mindre i topp, større i bunn. Den ene sjekken strøk to eller tre alternativer i hver av oppgavene 8, 10 og 12.\n\n**Og avrundingsfellen som avgjør denne sjangeren** (felle #16 — avrundingsfeil som lander på nabo-alternativet). Rundetellingen er den ene plassen i hele emnet der svaret er et **heltall**, og der en helt normal avrunding derfor gir et helt annet svar. To konkrete tilfeller fra dette kapitlet:\n\n- Det gjennomregnede caset: $100{,}80\\,\\text{rad}$ gir 16 runder, $100\\,\\text{rad}$ gir 15. Feil i totalvinkelen: 0,8 prosent.\n- Oppgave 6: $101{,}20\\,\\text{rad}$ gir 16 runder, $100\\,\\text{rad}$ gir 15. Feil: 1,2 prosent.\n\nI krumningsoppgavene er mekanismen en annen, men konsekvensen den samme: svaret er en **differanse** mellom $g$ og $v^2/\\rho$, to tall av samme størrelsesorden. Runder du sentripetalleddet til to siffer, kan differansen bli et par prosent feil — nok til å bytte alternativ når de ligger tett.\n\n**Regelen for hele kapitlet: fire gjeldende siffer i alle mellomresultater, og $2\\pi = 6{,}28319$.**"
+    },
+    {
+      "id": "tfy4115-1-3-begrepsbank-notis",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "tfy4115-1-3-bb-m10",
+      "type": "definition",
+      "title": "Sjanger M10 — kinematikk fra gitt fartsfunksjon",
+      "content": "Oppgaveformen der $v(t)$ eller $\\omega(t)$ er oppgitt og du skal finne akselerasjon, strekning, total vinkel eller antall hele omdreininger. Den forekommer i om lag 8 av 10 eksamenssett (~80 %) og hører til **mekanikkhalvdelen, spørsmål 1–20**. Verktøyvalget er hele oppgaven: derivér for akselerasjon, integrér for strekning eller vinkel, og integrér pluss ta heltallsdelen for antall runder. Sjangeren har den korteste regnekjeden i mekanikkhalvdelen og den skarpeste avrundingsfellen."
+    },
+    {
+      "id": "tfy4115-1-3-bb-m11",
+      "type": "definition",
+      "title": "Sjanger M11 — krumning og normalkraft",
+      "content": "Oppgaveformen der en bane $y(x)$ er oppgitt og du skal finne normalkraften i et topp- eller bunnpunkt, eller farten der kontakten brytes. Den forekommer i rundt 6 av 10 sett (~60 %) og hører til **mekanikkhalvdelen, spørsmål 1–20**. Kjeden er fast: $y''$ (med faktoren 2), $\\rho = 1/\\lvert y''\\rvert$, $v^2$ fra energibevaring, og til slutt $N = m(g \\mp v^2/\\rho)$ med minus i topp og pluss i bunn."
+    },
+    {
+      "id": "tfy4115-1-3-bb-mc-tempo",
+      "type": "definition",
+      "title": "MC-tempo",
+      "content": "Arbeidstempoet en ren flervalgseksamen krever: rundt seks minutter per spørsmål på 40 spørsmål i fire timer, medregnet lesing, kladd og avkryssing. I praksis betyr det to til fire minutter på en sjanger du har drillet, og åtte til tolv på en koblet klynge — ikke seks minutter jevnt fordelt. Tempoet oppnås ikke ved å regne fortere, men ved å **kjenne igjen sjangeren** og kjøre en ferdig oppskrift. Det er hele grunnen til at drillkapitler finnes."
+    },
+    {
+      "id": "tfy4115-1-3-bb-nabo-alternativ",
+      "type": "definition",
+      "title": "Nabo-alternativ i kinematikk-kjeden",
+      "content": "Det gale svaret som ligger tettest på det riktige, og som du havner på ved én liten slurvefeil. I denne kjeden har det tre typiske former: heltallet over eller under det riktige antallet omdreininger (fra avrunding eller fra å runde av i stedet for å ta heltallsdelen), normalkraften med motsatt fortegn på sentripetalleddet, og svaret fra en krumningsradius som er dobbelt eller halvparten så stor på grunn av faktoren 2 i $y''$. Alle tre fanges av en sluttsjekk på ti sekunder."
+    },
+    {
+      "id": "tfy4115-1-3-bb-eliminasjon",
+      "type": "definition",
+      "title": "Eliminasjon ved størrelsesorden",
+      "content": "Grepet der du stryker svaralternativer ved å vurdere hva svaret **må** ligge i nærheten av, før du regner nøyaktig. I dette kapitlet fungerer det slik: et antall omdreininger er alltid et par titalls til et par hundre for en rotor som går i noen sekunder, så alternativet som er totalvinkelen i radianer stryker seg selv; en normalkraft i et toppunkt må være mindre enn $mg$, og i et bunnpunkt større. Eliminasjon er verdt mer enn gjetting: å stryke fire av seks alternativer løfter et gjett fra 17 til 50 prosent."
+    },
+    {
+      "id": "tfy4115-1-3-bb-sifferbudsjett",
+      "type": "definition",
+      "title": "Sifferbudsjett i en regnekjede",
+      "content": "Praksisen med å bestemme på forhånd hvor mange siffer hvert mellomresultat skal bæres med — i denne boka **fire** — og først runde i sluttsvaret, som oppgis med to til tre. Budsjettet er strengere enn i mange andre fag av to grunner: alternativene ligger tett og systematisk, og to av kapitlets svartyper er ekstra ømme. Antall omdreininger er et **heltall**, der en prosents feil kan tippe svaret; og normalkraften er en **differanse** mellom to tall av samme størrelsesorden, der en avrunding spiser et helt siffer i differansen."
+    },
+    {
+      "id": "tfy4115-1-3-bb-endelig-vs-total",
+      "type": "definition",
+      "title": "Endelig tid eller total utrulling",
+      "content": "Det ene spørsmålet du må stille før du regner en dreievinkel: gjelder spørsmålet et **oppgitt tidspunkt** eller **hele nedbremsingen**? For $\\omega = \\omega_0e^{-t/\\tau}$ er svaret\n$$\\varphi(t) = \\omega_0\\tau\\left(1 - e^{-t/\\tau}\\right) \\quad\\text{mot}\\quad \\varphi_\\text{tot} = \\omega_0\\tau.$$\nDe to skiller seg med faktoren $(1 - e^{-t/\\tau})$, som er 0,632 etter én tidskonstant, 0,865 etter to og 0,950 etter tre. Å bruke totalvinkelen der et endelig tidspunkt var oppgitt, gir et helt plausibelt tall — og er derfor et fast distraktoralternativ."
+    },
+    {
+      "id": "tfy4115-1-3-bb-verktoyvalg",
+      "type": "definition",
+      "title": "Verktøyvalget i trinn 1",
+      "content": "Det første og billigste trinnet i løsningsoppskriften: å avgjøre på tre sekunder om spørsmålet krever derivasjon, integrasjon, integrasjon pluss heltallsdel, eller krumning pluss Newtons 2. lov. Nøkkelordene er pålitelige: «akselerasjon» betyr derivér, «hvor langt» eller «hvor stor vinkel» betyr integrér, «hvor mange runder» eller «hvor mange ganger passerer» betyr integrér og ta heltallsdelen, og «normalkraft», «trykker mot» eller «mister kontakten» betyr krumning. Feil verktøyvalg koster hele poenget, uansett hvor riktig regningen etterpå er."
+    },
+    {
+      "id": "tfy4115-1-3-coll-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tfy4115-1-3-coll-symbolliste-inn",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n**Kolliderende symboler i dette delkapitlet.** $\\tau$ er en **tidskonstant** i sekunder (ikke et kraftmoment), $\\rho$ er en **krumningsradius** i meter (ikke en tetthet), og $N$ er en **normalkraft** i newton (ikke et antall molekyler). Symbolene $T$, $p$, $R$ og $S$ opptrer ikke i dette kapitlet.\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $v(t)$, $v_0$ | Fart; grensefart i den mettende modellen | m/s |\n| $a(t)$ | Akselerasjon | $\\text{m/s}^2$ |\n| $s(t)$ | Strekning | m |\n| $\\omega(t)$, $\\omega_0$ | Vinkelfart; konstanten i modellen | rad/s |\n| $\\alpha(t)$ | Vinkelakselerasjon | $\\text{rad/s}^2$ |\n| $\\varphi(t)$, $\\varphi_\\text{tot}$ | Dreievinkel; totalvinkel over hele bevegelsen | rad |\n| $\\tau$ | Tidskonstant | s |\n| $n$ | Antall hele omdreininger | — |\n| $\\lfloor x\\rfloor$ | Heltallsdelen av $x$ | — |\n| $y(x)$, $y'$, $y''$ | Banekurven og dens deriverte | m, —, $\\text{m}^{-1}$ |\n| $\\beta$ | Banevinkel | grader |\n| $\\rho$ | Krumningsradius | m |\n| $N$ | Normalkraft | N |\n| $m$ | Masse | kg |\n| $g$ | Tyngdeakselerasjonen, $9{,}81\\,\\text{m/s}^2$ | $\\text{m/s}^2$ |\n| $\\Delta y$ | Høydefall i energibevaringen | m |\n| $v_\\text{krit}$ | Kritisk fart, der $N = 0$ i et toppunkt | m/s |\n| $b$ | Koeffisient i fartsmodellen $v_0 - bt^2$ | $\\text{m/s}^3$ |\n\n**Formler i dette delkapitlet:**\n\n$$a = \\frac{dv}{dt}, \\qquad \\alpha = \\frac{d\\omega}{dt}, \\qquad s = \\int v\\,dt, \\qquad \\varphi = \\int \\omega\\,dt$$\nKinematikkens fire grunnrelasjoner [står på det utdelte arket].\n\n$$a_\\text{maks} = \\frac{v_0}{\\tau} \\ \\ \\text{(mettende modell, ved } t = 0)$$\n[må kunne brukes eller utledes aktivt].\n\n$$s(t) = v_0\\left[t - \\tau\\left(1 - e^{-t/\\tau}\\right)\\right]$$\nStrekningen for den mettende modellen [må kunne brukes eller utledes aktivt].\n\n$$\\varphi(t) = \\omega_0\\tau\\left(1 - e^{-t/\\tau}\\right), \\qquad \\varphi_\\text{tot} = \\omega_0\\tau$$\nVinkelen etter endelig tid, og totalvinkelen [må kunne brukes eller utledes aktivt].\n\n$$\\int_0^\\infty u^ne^{-u}\\,du = n!$$\nStandardintegralet bak totalvinklene for potensmodellene [Rottmann].\n\n$$\\omega_\\text{maks} = \\frac{\\omega_0}{e} \\ (\\text{ved } t = \\tau), \\qquad \\omega_\\text{maks} = \\frac{4\\omega_0}{e^2} \\ (\\text{ved } t = 2\\tau)$$\nMaksimal vinkelfart for potensmodellene med $n = 1$ og $n = 2$ [må kunne brukes eller utledes aktivt].\n\n$$n = \\left\\lfloor \\frac{\\varphi_\\text{tot}}{2\\pi} \\right\\rfloor, \\qquad 2\\pi = 6{,}28319$$\nRundetellingen [må kunne brukes eller utledes aktivt].\n\n$$\\rho = \\frac{1}{\\lvert y''\\rvert} \\ (\\text{når } y' = 0), \\qquad \\rho = \\frac{\\left(1+y'^2\\right)^{3/2}}{\\lvert y''\\rvert} \\ (\\text{ellers})$$\nKrumningsradien [må kunne brukes eller utledes aktivt].\n\n$$N = m\\left(g \\mp \\frac{v^2}{\\rho}\\right), \\qquad v_\\text{krit} = \\sqrt{g\\rho}$$\nNormalkraften — minus i topp, pluss i bunn — og den kritiske farten [må kunne brukes eller utledes aktivt].\n\n$$v^2 = 2g\\,\\Delta y \\ \\ (\\text{fall fra ro, glidende legeme})$$\nEnergibevaring. Energileddene [står på det utdelte arket]; oppsettet [må kunne brukes eller utledes aktivt].\n\n$$e^{-1} = 0{,}36788, \\quad e^{-2} = 0{,}13534, \\quad e^{-3} = 0{,}049787, \\quad \\ln 2 = 0{,}69315$$\nTallverdier du bruker i nesten hver oppgave [Rottmann eller kalkulator]."
+        }
+      ]
+    },
+    {
+      "id": "tfy4115-1-3-coll-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tfy4115-1-3-coll-rep-inn",
+          "type": "text",
+          "content": "Fire korte oppgaver til oppvarming eller etterkontroll. De tar to minutter hver og treffer nøyaktig de fire trinnene der oppgavene over pleier å gå galt.\n\n**R1.** Hva er $\\lfloor 22{,}999\\rfloor$, $\\lfloor 23{,}001\\rfloor$ og $\\lfloor 22{,}5\\rfloor$?\n\n*Svar:* 22, 23 og 22. Heltallsdelen runder alltid **nedover**, uansett hvor nær neste heltall du er. Dette er forskjellen fra vanlig avrunding, og den er verdt to sekunders ettertanke hver gang.\n\n**R2.** En rotor har $\\varphi_\\text{tot} = 62{,}90\\,\\text{rad}$. Hvor mange hele omdreininger? Og hva blir svaret hvis du bruker $2\\pi \\approx 6{,}3$?\n\n*Svar:* $62{,}90/6{,}28319 = 10{,}0108$, altså **10** runder. Med 6,3: $62{,}90/6{,}3 = 9{,}9841$, altså **9** runder. En avrunding av $2\\pi$ i tredje siffer flyttet svaret ett helt alternativ — dette er derfor du skal bruke 6,28319.\n\n**R3.** For $y = 7{,}00 - 0{,}250x^2$: hva er $\\lvert y''\\rvert$, og hva er krumningsradien i toppunktet?\n\n*Svar:* $y' = -0{,}500x$ og $y'' = -0{,}500\\,\\text{m}^{-1}$, altså $\\rho = 1/0{,}500 = 2{,}00\\,\\text{m}$. Bruker du koeffisienten 0,250 direkte, får du 4,00 m — dobbelt så mye.\n\n**R4.** En kloss glir over et toppunkt med $\\rho = 4{,}00\\,\\text{m}$ og fart $5{,}00\\,\\text{m/s}$. Er den fortsatt i kontakt med underlaget?\n\n*Svar:* Ja. Den kritiske farten er $\\sqrt{9{,}81 \\cdot 4{,}00}\\,\\text{m/s} = 6{,}264\\,\\text{m/s}$, og $5{,}00\\,\\text{m/s}$ ligger **under** den grensen. Normalkraften er $m(9{,}81 - 25{,}00/4{,}00) = m \\cdot 3{,}560\\,\\text{m/s}^2$, altså positiv, men bare 36 prosent av tyngden — klossen er nær ved å slippe, men gjør det ikke. Merk retningen på ulikheten: det er farter **over** den kritiske som bryter kontakten."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

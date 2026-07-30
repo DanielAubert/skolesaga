@@ -1,0 +1,408 @@
+{
+ "id": "tfy4115-9-1",
+ "courseId": "tfy4115",
+ "chapterNumber": "9.1",
+ "title": "Varmeledning i sjikt — Fouriers lov og termisk motstand",
+ "description": "Fouriers lov $j=\\kappa\\Delta T/\\ell$, sjikt i serie som termiske motstander, temperaturprofil og varmeovergangskoeffisienter.",
+ "estimatedMinutes": 55,
+ "competenceGoals": [
+  "regne varmestrøm og varmefluks gjennom en sammensatt vegg ved å summere de termiske motstandene",
+  "finne temperaturen i en grenseflate og på en overflate, og kontrollere svaret fra motsatt side",
+  "skille varmeledning fra varmeovergang, og legge filmmotstander riktig inn i serieregningen",
+  "avgjøre om felt ligger i serie eller parallell, og regne U-verdi og samlet varmetap for en vegg med vindu"
+ ],
+ "content": [
+  {
+   "id": "tfy4115-9-1-tip-eksamensvinkel",
+   "type": "tip",
+   "title": "Eksamensvinkel",
+   "content": "**Sjanger T9 — varmeledningsoppgaven, altså varmestrøm gjennom en sammensatt vegg der du skal finne effekten eller en grenseflatetemperatur — dukker opp i om lag 8 av 10 sett (~80 %).** Den hører til **termofysikkhalvdelen, spørsmål 21–40**. Prioritet: **høyeste — dette må sitte.**\n\nSignaturen er alltid den samme: en vegg av to eller tre sjikt med oppgitte tykkelser og varmeledningsevner, en innetemperatur og en utetemperatur. Finn varmestrømmen per kvadratmeter, eller finn temperaturen i en grenseflate. Noen ganger legges det på **varmeovergangskoeffisienter** $h_i$ og $h_u$ for luftsjiktene inntil veggen.\n\n**Ordforklaringer, siden dette kapitlet innfører flere nye begreper.** **Varmeledning** er varmetransport gjennom et fast stoff, der energien vandrer fra molekyl til molekyl uten at stoffet flytter seg. **Varmefluks** $j$ er varmestrøm per areal, målt i watt per kvadratmeter. **Varmeledningsevnen** $\\kappa$ (kappa) forteller hvor godt et materiale leder varme. **Termisk motstand** $R_\\text{term}$ er den motsatte størrelsen: hvor godt et sjikt STOPPER varmen. **Varmeovergang** er den ekstra motstanden i det tynne luftsjiktet inntil en overflate. Og **U-verdi** er den inverse totale motstanden, tallet byggebransjen bruker.\n\n**Den store ideen i kapitlet er en analogi:** sjikt i en vegg oppfører seg **nøyaktig som elektriske motstander i serie**. Samme varmestrøm går gjennom alle, temperaturfallene summeres, og motstandene legges sammen. Har du regnet med seriemotstander før, kan du dette alt — du må bare oversette symbolene.\n\n**To feil koster nesten alle poengene her.** Den første er å **blande varmeledning ($\\kappa$) og varmeovergang ($h$)**: den ene gir motstanden $\\ell/\\kappa$, den andre $1/h$, og de har ulik struktur. Den andre er **enhetsslurv** — millimeter mot meter er en faktor 1000, og den slår rett inn i svaret.\n\n## ⚠ Symbolvarsel\n\n$R_\\text{term}$ er **termisk motstand**, med enheten $\\text{K/W}$ (eller $\\text{K}\\cdot\\text{m}^2/\\text{W}$ per kvadratmeter). Det er **ikke** gasskonstanten $R = 8{,}314\\,\\text{J/(mol}\\cdot\\text{K)}$ fra [kap. 8.1](/tfy4115/tfy4115-8-1), og **ikke** en radius som i mekanikken. Alle tre skrives med bokstaven $R$ — enheten avgjør hver gang. $T$ er **temperatur**; her er celsius trygt fordi bare differanser inngår, men det skriver vi ut hver gang. $j$ er **varmefluks** i $\\text{W/m}^2$, ikke en indeks."
+  },
+  {
+   "id": "tfy4115-9-1-forkunnskaper",
+   "type": "text",
+   "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet bygger på kap. 6.1 (temperatur og indre energi). Du trenger to ting derfra, og de står her:\n\n$$Q = mc\\,\\Delta T \\quad\\text{(spesifikk varmekapasitet, per kilogram)}, \\qquad Q = nC\\,\\Delta T \\quad\\text{(molar, per mol)}$$\n**Varme og temperaturendring.** Vi bruker dem her når en oppgave spør hvor lang tid en oppvarming tar.\n\n$$P = \\frac{Q}{\\Delta t} \\quad\\text{målt i watt}$$\n**Effekt som energi per tid.** Alt i dette kapitlet handler om effekt, ikke om energimengder — det er varmestrømmen gjennom veggen akkurat nå.\n\n**Nytt i dette kapitlet:** hele apparatet med varmeledningsevne, termisk motstand og serie- og parallellkobling. **Analogien til elektriske seriemotstander introduseres her fra grunnen av** — du behøver ikke ha regnet kretser før, men har du gjort det, går det raskere.\n\n**Fra matematikken:** ingenting utover å legge sammen brøker og løse en lineær likning. [Repetisjon av derivasjon](/r2/r2-2-1) ligger under den generelle formen av Fouriers lov, $j = -\\kappa\\,dT/dx$, men i oppgavene bruker vi alltid den enkle formen med $\\Delta T/\\ell$.\n\n**Verdier du kommer til å bruke** (de står på det utdelte arket, men er verdt å kjenne størrelsesordenen på):\n\n| Materiale | $\\kappa$ i $\\text{W/(m}\\cdot\\text{K)}$ |\n|---|---|\n| Mineralull, glava | $0{,}035$–$0{,}045$ |\n| Trepanel | $0{,}12$–$0{,}14$ |\n| Gipsplate | $0{,}22$ |\n| Betong | $1{,}4$–$1{,}7$ |\n| Glass | $0{,}80$ |\n| Stål | $45$ |\n| Kobber | $400$ |\n\nLegg merke til spennet: kobber leder varme om lag **ti tusen ganger** bedre enn mineralull. Det er hele grunnen til at isolasjon virker.\n\n**Behold fire gjeldende siffer gjennom hele regnekjeden**, og rund først i sluttsvaret."
+  },
+  {
+   "id": "tfy4115-9-1-lokke1",
+   "type": "text",
+   "content": "## Løkke 1 — Fouriers lov og den termiske motstanden (~14 min)\n\nTa på en yttervegg om vinteren. Den er kald på utsiden og lun på innsiden, og mellom de to flatene strømmer det varme ut. Hvor mye?\n\n*Hverdagsanker:* to ting bestemmer det. **Hvor stor temperaturforskjellen er** — dobler du den, dobler du varmestrømmen. Og **hvor godt veggen stopper varmen** — det er derfor du legger inn tjue centimeter glava og ikke to.\n\nSett sammen, blir det Fouriers lov:\n\n$$j = \\kappa\\,\\frac{\\Delta T}{\\ell},$$\n\nder $j$ er varmestrøm per kvadratmeter, $\\kappa$ er materialets varmeledningsevne, $\\Delta T$ temperaturforskjellen over sjiktet og $\\ell$ tykkelsen.\n\n*Intuisjon:* tykkere sjikt gir mindre varmestrøm (derav $\\ell$ i nevneren), bedre leder gir mer (derav $\\kappa$ i telleren). Og legg merke til at $\\Delta T$ er en **differanse** — derfor er celsius trygt her, selv om resten av termofysikken krever kelvin.\n\nMen i praksis er det mye greiere å snu det hele. Gang med arealet og samle alt materialavhengig i én størrelse:\n\n$$P = jA = \\frac{\\Delta T}{R_\\text{term}}, \\qquad R_\\text{term} = \\frac{\\ell}{\\kappa A}.$$\n\n**Nå ser det ut som Ohms lov** — og det er nettopp poenget. $\\Delta T$ er drivspenningen, $P$ er strømmen, $R_\\text{term}$ er motstanden. Alt du kan om seriekoblede motstander, gjelder her."
+  },
+  {
+   "id": "tfy4115-9-1-def-varmeledning",
+   "type": "definition",
+   "title": "Varmeledning",
+   "content": "Varmetransport gjennom et stoff der energien vandrer fra molekyl til molekyl **uten at stoffet selv flytter seg**. Molekylene ved den varme siden svinger kraftigere, dunker i naboene, og energien forplanter seg innover.\n\nDette er den ene av tre måter varme kan flytte seg. De to andre er **konveksjon** (varmen fraktes med et strømmende medium — luft eller vann som beveger seg) og **stråling** (energien går som elektromagnetiske bølger og trenger ikke noe medium i det hele tatt; behandles i [kap. 9.2](/tfy4115/tfy4115-9-2)).\n\nBetingelsen for at formlene i dette kapitlet gjelder, er at tilstanden er **stasjonær**: temperaturene har lagt seg til ro, og like mye varme går inn som ut av hvert sjikt. Er den ikke det — for eksempel rett etter at du har skrudd på ovnen — trengs en tidsavhengig behandling som ligger utenfor pensum her."
+  },
+  {
+   "id": "tfy4115-9-1-def-kappa",
+   "type": "definition",
+   "title": "Varmeledningsevne $\\kappa$",
+   "content": "Materialkonstanten som forteller hvor godt et stoff leder varme, med enheten $\\text{W/(m}\\cdot\\text{K)}$. Store $\\kappa$ betyr god leder (metaller), liten $\\kappa$ betyr isolator (mineralull, luft, tre).\n\n$$j = \\kappa\\,\\frac{\\Delta T}{\\ell}$$\n\nTallverdier å ha størrelsesordenen på: mineralull $0{,}037$, tre $0{,}13$, gips $0{,}22$, glass $0{,}80$, betong $1{,}4$, stål $45$, kobber $400$ — alt i $\\text{W/(m}\\cdot\\text{K)}$.\n\nBetingelsen for at $\\kappa$ er en konstant, er at temperaturen ikke varierer for mye; i praksis er den svakt temperaturavhengig, men i oppgavene regnes den som konstant. Symbolet skrives også $k$ eller $\\lambda$ i litteraturen; vi bruker $\\kappa$ for å holde $k$ fri til fjærstivhet og $k_B$ til Boltzmanns konstant. [står på det utdelte arket]"
+  },
+  {
+   "id": "tfy4115-9-1-def-fluks",
+   "type": "definition",
+   "title": "Varmefluks $j$",
+   "content": "Varmestrøm per areal, altså effekt per kvadratmeter, med enheten $\\text{W/m}^2$:\n$$j = \\frac{P}{A}.$$\nDen er praktisk fordi den er uavhengig av hvor stor veggen er: en yttervegg med $j = 5{,}31\\,\\text{W/m}^2$ taper $5{,}31$ watt for hver kvadratmeter, uansett om veggen er $10$ eller $100\\,\\text{m}^2$.\n\nMerk at fluksen er den **samme gjennom alle sjikt** i en vegg (stasjonært) — det er hele grunnlaget for serieregningen. Enheten skiller den fra effekten $P$ i watt, og i oppgaver må du lese nøye om spørsmålet ber om «per kvadratmeter» eller om totaleffekten."
+  },
+  {
+   "id": "tfy4115-9-1-def-Rterm",
+   "type": "definition",
+   "title": "Termisk motstand $R_\\text{term}$",
+   "content": "Størrelsen som forteller hvor godt et sjikt **stopper** varmen — den inverse av å lede den:\n$$R_\\text{term} = \\frac{\\ell}{\\kappa A} \\quad [\\text{K/W}], \\qquad\\text{eller per kvadratmeter}\\quad R = \\frac{\\ell}{\\kappa} \\quad [\\text{K}\\cdot\\text{m}^2/\\text{W}].$$\nMed den blir varmestrømmen\n$$P = \\frac{\\Delta T}{R_\\text{term}},$$\naltså **nøyaktig Ohms lov** med $\\Delta T$ som spenning og $P$ som strøm.\n\n⚠ **Symbolkollisjon:** dette $R$ er **ikke** gasskonstanten $8{,}314\\,\\text{J/(mol}\\cdot\\text{K)}$ og **ikke** en radius. Enheten avgjør: $\\text{K/W}$ er termisk motstand, $\\text{J/(mol}\\cdot\\text{K)}$ er gasskonstanten, meter er en radius. I byggebransjen kalles den per-kvadratmeter-varianten «R-verdi», og det er den samme størrelsen. [må kunne brukes eller utledes aktivt]"
+  },
+  {
+   "id": "tfy4115-9-1-th-serie",
+   "type": "theorem",
+   "title": "Termiske motstander i serie",
+   "content": "**Påstand:** for sjikt lagt etter hverandre i varmestrømmens retning summeres de termiske motstandene:\n$$R_\\text{term} = \\sum_j \\frac{\\ell_j}{\\kappa_j A}.$$\n\n**Utledning.** Stasjonært går **den samme** varmestrømmen $P$ gjennom alle sjikt — ellers ville energi hopet seg opp et sted, og temperaturen der ville steget. For hvert sjikt gjelder\n$$\\Delta T_j = P R_j.$$\nLegg sammen over alle sjikt. Temperaturfallene summeres til det totale fallet:\n$$\\Delta T_\\text{total} = \\sum_j \\Delta T_j = P\\sum_j R_j,$$\naltså $P = \\Delta T_\\text{total}/\\sum R_j$, som er det samme som å si at motstandene ligger i serie.\n\n*Intuisjon:* varmen må gjennom alle sjiktene etter hverandre, som vann gjennom flere trakter i rekke. Den tregeste trakta bestemmer nesten hele strømmen.\n\n**To konsekvenser du bruker hele tiden:**\n\n1. **Temperaturfallet fordeler seg som motstandene:**\n$$\\frac{\\Delta T_j}{\\Delta T_\\text{total}} = \\frac{R_j}{R_\\text{term}}.$$\nSjiktet med størst motstand tar størst temperaturfall — altså **faller temperaturen brattest i den dårligste lederen**.\n\n2. **Grenseflatetemperaturer** finner du ved å gå innover fra en kjent side: $T = T_\\text{inne} - P\\cdot R_\\text{delvis}$, der $R_\\text{delvis}$ er summen av motstandene du har passert. [må kunne brukes eller utledes aktivt]"
+  },
+  {
+   "id": "tfy4115-9-1-fig-sjiktvegg",
+   "type": "image",
+   "src": "/images/textbook/tfy4115/tfy4115-9-1-sjiktvegg.svg",
+   "alt": "Oeverst en tverrsnittsskisse av en vegg med et tynt gipssjikt paa 13 millimeter til venstre og et tykt mineralullsjikt paa 200 millimeter til hoeyre. Inne er 21 komma 0 grader celsius, ute er minus 8 komma 0. En bred roed pil gaar gjennom veggen merket P lik 5 komma 31 watt per kvadratmeter, med teksten samme P gjennom begge sjikt. Nederst til venstre en graf med temperatur mot posisjon: en nesten vannrett kort linje gjennom gipsen ned til 20 komma 7 grader, deretter en bratt rett linje gjennom mineralullen ned til minus 8 grader, merket brattest fall i den daarligste lederen. Nederst til hoeyre et kretsdiagram med to motstander i serie merket R 1 lik 0 komma 059 og R 2 lik 5 komma 405, med samlet R lik 5 komma 464 kvadratmeterkelvin per watt.",
+   "caption": "Den sammensatte veggen i eksempelet under, med temperaturprofilen og analogien til seriekoblede motstander. Legg merke til at temperaturen knekker i grenseflaten, og at nesten hele fallet ligger i mineralullen — den har ${L(forhold_R,0)}$ ganger så stor termisk motstand som gipsplata."
+  },
+  {
+   "id": "tfy4115-9-1-o-1",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-9-1-oppg-1",
+    "number": 1,
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Innstegsoppgave — enheter og størrelsesorden.)\n\n**a)** Et mineralullsjikt er $200\\,\\text{mm}$ tykt og har $\\kappa = 0{,}037\\,\\text{W/(m}\\cdot\\text{K)}$. Finn den termiske motstanden per kvadratmeter.\n\n**b)** Vis at enheten til $\\ell/\\kappa$ blir $\\text{K}\\cdot\\text{m}^2/\\text{W}$.\n\n**c)** Hvor mange ganger større er den termiske motstanden til dette sjiktet enn til en $13\\,\\text{mm}$ gipsplate med $\\kappa = 0{,}220\\,\\text{W/(m}\\cdot\\text{K)}$?",
+    "solution": "**a)** Husk å gjøre om millimeter til meter FØRST:\n$$\\ell = 200\\,\\text{mm} = 0{,}200\\,\\text{m}, \\qquad R = \\frac{\\ell}{\\kappa} = \\frac{0{,}200}{0{,}037}\\,\\text{K}\\cdot\\text{m}^2/\\text{W} = 5{,}4054\\,\\text{K}\\cdot\\text{m}^2/\\text{W}.$$\nHadde du satt inn $200$ i stedet for $0{,}200$, ville du fått $5405{,}4$ — feil med en faktor 1000, og et helt urimelig tall.\n\n**b)**\n$$\\left[\\frac{\\ell}{\\kappa}\\right] = \\frac{\\text{m}}{\\text{W/(m}\\cdot\\text{K)}} = \\text{m} \\cdot \\frac{\\text{m}\\cdot\\text{K}}{\\text{W}} = \\frac{\\text{K}\\cdot\\text{m}^2}{\\text{W}}. \\checkmark$$\nOg da blir $\\Delta T/R$ riktig: $\\text{K}$ delt på $\\text{K}\\cdot\\text{m}^2/\\text{W}$ gir $\\text{W/m}^2$, altså en fluks ✔.\n\n**c)**\n$$R_\\text{gips} = \\frac{0{,}0130}{0{,}220} = 0{,}05909\\,\\text{K}\\cdot\\text{m}^2/\\text{W}, \\qquad \\frac{R_\\text{ull}}{R_\\text{gips}} = \\frac{5{,}4054}{0{,}05909} = 91{,}5.$$\nMineralullen har altså om lag **$91$ ganger** så stor termisk motstand. Det er både fordi den er tykkere og fordi den leder dårligere — og det er nettopp derfor gipsplata knapt bidrar til isolasjonen.",
+    "hints": [
+     "Gjør om millimeter til meter FØR du regner.",
+     "Sett inn enhetene i $\\ell/\\kappa$ og forkort.",
+     "Regn de to motstandene hver for seg, og ta forholdet."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-9-1-ex-1",
+   "type": "example",
+   "title": "Eksempel 1: yttervegg av gips og mineralull",
+   "problem": "En yttervegg består av $13\\,\\text{mm}$ gipsplate ($\\kappa_1 = 0{,}220\\,\\text{W/(m}\\cdot\\text{K)}$) og $200\\,\\text{mm}$ mineralull ($\\kappa_2 = 0{,}037\\,\\text{W/(m}\\cdot\\text{K)}$). Innetemperaturen er $21{,}0\\,^\\circ\\text{C}$ og utetemperaturen $-8{,}0\\,^\\circ\\text{C}$.\n\n**a)** Finn den samlede termiske motstanden per kvadratmeter, og U-verdien.\n\n**b)** Finn varmestrømmen per kvadratmeter.\n\n**c)** Finn temperaturen i grenseflaten mellom gips og mineralull.\n\n**d)** Hvor stor del av temperaturfallet ligger i hvert sjikt?",
+   "solution": "**a) Symbolsk.** Sjiktene ligger i serie, så motstandene summeres:\n$$R = \\frac{\\ell_1}{\\kappa_1} + \\frac{\\ell_2}{\\kappa_2}, \\qquad U = \\frac{1}{R}.$$\n\n**Rask vei til tall.** Regn hver motstand for seg, med tykkelsene i meter:\n$$R_1 = \\frac{0{,}0130}{0{,}220} = 0{,}05909, \\qquad R_2 = \\frac{0{,}200}{0{,}037} = 5{,}4054, \\qquad R = 5{,}4645\\,\\text{K}\\cdot\\text{m}^2/\\text{W}.$$\n$$U = \\frac{1}{5{,}4645} = 0{,}1830\\,\\text{W/(m}^2\\cdot\\text{K)}.$$\nEn U-verdi på $0{,}183$ er omtrent kravet til en moderne yttervegg — det er en nyttig størrelsesordenkontroll.\n\n**b)**\n$$\\Delta T = 21{,}0 - (-8{,}0) = 29{,}0\\,\\text{K}, \\qquad j = \\frac{\\Delta T}{R} = \\frac{29{,}0}{5{,}4645} = 5{,}3070\\,\\text{W/m}^2.$$\nMerk at $\\Delta T$ er en **differanse**, så celsius er trygt her — $29{,}0\\,\\text{K}$ og $29{,}0$ celsiusgrader forskjell er samme tall. (Kontroll: i kelvin blir det $294{,}15 - 265{,}15 = 29{,}0\\,\\text{K}$ ✔.)\n\n**c) Symbolsk.** Gå innover fra innsiden: temperaturfallet over gipsplata er $\\Delta T_1 = jR_1$.\n\n**Rask vei til tall.**\n$$\\Delta T_1 = 5{,}3070 \\cdot 0{,}05909 = 0{,}31359\\,\\text{K}, \\qquad T_\\text{grenseflate} = 21{,}0 - 0{,}31359 = 20{,}6864\\,^\\circ\\text{C}.$$\n\n**d)**\n$$\\frac{\\Delta T_1}{\\Delta T} = \\frac{R_1}{R} = \\frac{0{,}05909}{5{,}4645} = 0{,}01081, \\qquad \\frac{\\Delta T_2}{\\Delta T} = 0{,}98919.$$\nAltså **$1,1$ prosent** av fallet i gipsen og **$98,9$ prosent** i mineralullen.\n\n**Sluttsjekk, fire ledd.** (i) $\\Delta T_1 + \\Delta T_2 = 0{,}3136 + 28{,}6864 = 29{,}0\\,\\text{K}$ ✔. (ii) Enhetskontroll: $\\text{K}$ delt på $\\text{K}\\cdot\\text{m}^2/\\text{W}$ gir $\\text{W/m}^2$ ✔. (iii) Grenseflatetemperaturen ligger MELLOM $-8{,}0$ og $21{,}0$ ✔, og helt nær innetemperaturen — som den skal, siden gipsen nesten ikke isolerer. (iv) U-verdien er i riktig størrelsesorden for en moderne vegg ✔.\n\n**Og hva svaret forteller:** hadde du glemt gipsplata helt, ville du fått $j = 29{,}0/5{,}4054 = 5{,}3650\\,\\text{W/m}^2$ — bare $1,1$ prosent for høyt. **Gipsen betyr nesten ingenting for isolasjonen.** Men den betyr alt for overflatetemperaturen inne, og det kommer vi tilbake til."
+  },
+  {
+   "id": "tfy4115-9-1-o-2",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-9-1-oppg-2",
+    "number": 2,
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger T9 — varmeledningsoppgaven.) En yttervegg består av $25{,}0\\,\\text{mm}$ trepanel ($\\kappa = 0{,}130\\,\\text{W/(m}\\cdot\\text{K)}$) og $150\\,\\text{mm}$ isolasjon ($\\kappa = 0{,}045\\,\\text{W/(m}\\cdot\\text{K)}$). Inne er $20{,}0\\,^\\circ\\text{C}$, ute $-15{,}0\\,^\\circ\\text{C}$.\n\n**a)** Finn samlet termisk motstand per kvadratmeter og U-verdien.\n\n**b)** Finn varmestrømmen per kvadratmeter.\n\n**c)** Finn temperaturen i grenseflaten mellom panel og isolasjon.",
+    "solution": "**a)**\n$$R_a = \\frac{0{,}0250}{0{,}130} = 0{,}19231, \\qquad R_b = \\frac{0{,}150}{0{,}045} = 3{,}33333, \\qquad R = 3{,}52564\\,\\text{K}\\cdot\\text{m}^2/\\text{W},$$\n$$U = \\frac{1}{3{,}52564} = 0{,}2836\\,\\text{W/(m}^2\\cdot\\text{K)}.$$\n\n**b)**\n$$\\Delta T = 20{,}0 - (-15{,}0) = 35{,}0\\,\\text{K}, \\qquad j = \\frac{35{,}0}{3{,}52564} = 9{,}9273\\,\\text{W/m}^2.$$\n\n**c)**\n$$\\Delta T_a = jR_a = 9{,}9273 \\cdot 0{,}19231 = 1{,}9091\\,\\text{K}, \\qquad T_\\text{grenseflate} = 20{,}0 - 1{,}9091 = 18{,}091\\,^\\circ\\text{C}.$$\n\n**Sluttsjekk:** $\\Delta T_a + \\Delta T_b = 1{,}909 + 33{,}091 = 35{,}0\\,\\text{K}$ ✔. Grenseflatetemperaturen ligger mellom yttergrensene ✔. Og legg merke til at U-verdien $0{,}284$ er dårligere enn i eksempelet over ($0{,}183$) — veggen har mindre isolasjon, $150$ mot $200$ millimeter, og det slår rett gjennom.\n\nPanelet tar $5,5$ prosent av temperaturfallet, isolasjonen $94,5$ prosent — samme mønster som før: **nesten hele fallet i det dårligste ledende sjiktet.**",
+    "hints": [
+     "Millimeter til meter først, i begge sjikt.",
+     "$R = \\ell/\\kappa$ per kvadratmeter, og motstandene summeres.",
+     "Grenseflatetemperaturen: start på innsiden og trekk fra $jR$ for det sjiktet du har passert."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-9-1-lokke2",
+   "type": "text",
+   "content": "## Løkke 2 — varmeovergang: motstanden i luften inntil flaten (~13 min)\n\nLegg hånda mot innerveggen. Den er kaldere enn romluften — men ikke så kald som selve veggen inne i konstruksjonen. Grunnen er at det ligger et **tynt, nesten stillestående luftsjikt** inntil overflaten, og det luftsjiktet er også en motstand.\n\n*Intuisjon:* luft er en utmerket isolator så lenge den ikke rører seg. Rett inntil en flate holder friksjonen luften nesten i ro, og der må varmen ledes gjennom. Blåser det, blir sjiktet tynnere, og motstanden faller — det er derfor det føles kaldere i vind.\n\nDenne motstanden beskrives ikke med en tykkelse og en $\\kappa$, men med en **varmeovergangskoeffisient** $h$:\n\n$$R_\\text{film} = \\frac{1}{hA}, \\qquad\\text{eller per kvadratmeter}\\quad R = \\frac{1}{h}.$$\n\n**Merk strukturen:** $1/h$, ikke $\\ell/\\kappa$. Det er nettopp forskjellen som forveksles, og den forvekslingen er felle #15 i denne boka. Filmmotstanden legges i serie med de andre, akkurat som et sjikt til."
+  },
+  {
+   "id": "tfy4115-9-1-def-varmeovergang",
+   "type": "definition",
+   "title": "Varmeovergang og varmeovergangskoeffisient $h$",
+   "content": "Den ekstra motstanden i det tynne luftsjiktet inntil en overflate, beskrevet ved\n$$R_\\text{film} = \\frac{1}{hA} \\quad [\\text{K/W}], \\qquad\\text{per kvadratmeter}\\quad R = \\frac{1}{h} \\quad [\\text{K}\\cdot\\text{m}^2/\\text{W}],$$\nder $h$ har enheten $\\text{W/(m}^2\\cdot\\text{K)}$.\n\nTypiske verdier: innendørs $h_i \\approx 8\\,\\text{W/(m}^2\\cdot\\text{K)}$ (stillestående luft), utendørs $h_u \\approx 25\\,\\text{W/(m}^2\\cdot\\text{K)}$ (vind rører luften og senker motstanden). Merk at **stor $h$ betyr LITEN motstand** — motsatt av hvordan $\\kappa$ virker sammen med en tykkelse.\n\n⚠ **Fellen (felle #15 — blande varmeledning og varmeovergang):** motstanden er $1/h$, IKKE $\\ell/h$ eller $h/\\ell$. Det finnes ingen tykkelse i uttrykket, fordi luftsjiktet ikke har en veldefinert tykkelse. Betingelsen for at $h$ er en brukbar konstant, er at strømningsforholdene er stabile. [står på det utdelte arket]"
+  },
+  {
+   "id": "tfy4115-9-1-def-Uverdi",
+   "type": "definition",
+   "title": "U-verdi",
+   "content": "Byggebransjens mål på hvor godt en konstruksjon isolerer: den inverse av den samlede termiske motstanden per kvadratmeter,\n$$U = \\frac{1}{R_\\text{total}} \\quad [\\text{W/(m}^2\\cdot\\text{K)}], \\qquad P = UA\\,\\Delta T.$$\n**Lav U-verdi er bra.** Størrelsesordener: moderne yttervegg $0{,}15$–$0{,}22$, treglassvindu $0{,}8$–$1{,}2$, gammelt enkeltglassvindu $5$–$6$.\n\nBetingelsen er at ALLE motstandene er med i $R_\\text{total}$ — inkludert filmmotstandene, hvis oppgaven oppgir dem. En U-verdi regnet uten filmene blir litt for høy (altså litt for pessimistisk), og differansen er det du regner i eksempelet under.\n\nU-verdien er praktisk i parallellregning: en vegg med vindu har $P = (U_1A_1 + U_2A_2)\\Delta T$, der du legger sammen $UA$-produktene. [må kunne brukes eller utledes aktivt]"
+  },
+  {
+   "id": "tfy4115-9-1-ex-2",
+   "type": "example",
+   "title": "Eksempel 2: den samme veggen med filmmotstander",
+   "problem": "Legg til varmeovergang på begge sider av veggen i eksempel 1: $h_i = 8{,}00\\,\\text{W/(m}^2\\cdot\\text{K)}$ innvendig og $h_u = 25{,}0\\,\\text{W/(m}^2\\cdot\\text{K)}$ utvendig.\n\n**a)** Finn den nye samlede motstanden og varmestrømmen per kvadratmeter.\n\n**b)** Hvor mye reduseres varmestrømmen av filmmotstandene?\n\n**c)** Finn overflatetemperaturen på innerveggen, temperaturen i grenseflaten og overflatetemperaturen ute.\n\n**d)** Duggpunktet i romluften er $12{,}0\\,^\\circ\\text{C}$. Blir det kondens på innerveggen?",
+   "solution": "**a) Symbolsk.** Filmmotstandene legges i serie som to sjikt til:\n$$R = \\frac{1}{h_i} + \\frac{\\ell_1}{\\kappa_1} + \\frac{\\ell_2}{\\kappa_2} + \\frac{1}{h_u}.$$\n**Merk strukturen:** $1/h$ for filmene, $\\ell/\\kappa$ for sjiktene. Fire ledd, fire ulike uttrykk.\n\n**Rask vei til tall.**\n$$R_{f,i} = \\frac{1}{8{,}00} = 0{,}1250, \\qquad R_{f,u} = \\frac{1}{25{,}0} = 0{,}0400,$$\n$$R = 0{,}1250 + 0{,}05909 + 5{,}4054 + 0{,}0400 = 5{,}6295\\,\\text{K}\\cdot\\text{m}^2/\\text{W},$$\n$$j = \\frac{29{,}0}{5{,}6295} = 5{,}1514\\,\\text{W/m}^2.$$\n\n**b)**\n$$1 - \\frac{5{,}1514}{5{,}3070} = 0{,}02931, \\qquad\\text{altså } 2,9\\ \\text{prosent.}$$\nFilmene bidrar altså **lite til isolasjonen** — de to til sammen er $2{,}9$ prosent av motstanden. Men de gjør noe annet, og det er punkt c).\n\n**c)** Gå innover fra innsiden og trekk fra $jR$ for hvert lag du passerer:\n$$T_\\text{innerflate} = 21{,}0 - 5{,}1514 \\cdot 0{,}1250 = 21{,}0 - 0{,}6439 = 20{,}356\\,^\\circ\\text{C},$$\n$$T_\\text{grenseflate} = 20{,}356 - 5{,}1514 \\cdot 0{,}05909 = 20{,}052\\,^\\circ\\text{C},$$\n$$T_\\text{ytterflate} = 20{,}052 - 5{,}1514 \\cdot 5{,}4054 = -7{,}794\\,^\\circ\\text{C}.$$\nKontroll fra den andre siden: $T_\\text{ytterflate} = T_u + jR_{f,u} = -8{,}0 + 0{,}2061 = -7{,}794\\,^\\circ\\text{C}$ ✔ — samme svar, regnet motsatt vei. **Det er den kontrollen du skal gjøre hver gang.**\n\n**d)** Innerflaten er $20{,}36\\,^\\circ\\text{C}$, altså $8{,}36\\,\\text{K}$ over duggpunktet på $12{,}0\\,^\\circ\\text{C}$. **Ingen kondens** ✔.\n\nOg her er hvorfor filmmotstanden betyr noe likevel: uten den innvendige filmen ville «innerflaten» per definisjon vært $21{,}0\\,^\\circ\\text{C}$, og spørsmålet meningsløst. Det er nettopp filmmotstanden som skaper temperaturspranget mellom romluften og veggflaten — og det er det spranget som avgjør om det blir kondens, mugg og fuktskader. **Filmen betyr lite for energiregnskapet og mye for bygningsfysikken.**\n\n**Sluttsjekk, tre ledd.** (i) Alle fire temperaturfall summerer til $29{,}0\\,\\text{K}$: $0{,}644 + 0{,}304 + 27{,}846 + 0{,}206 = 29{,}0$ ✔. (ii) Den nye motstanden er STØRRE enn den gamle, og fluksen dermed mindre ✔. (iii) Alle temperaturer ligger mellom $-8{,}0$ og $21{,}0\\,^\\circ\\text{C}$, monotont avtakende utover ✔."
+  },
+  {
+   "id": "tfy4115-9-1-o-3",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-9-1-oppg-3",
+    "number": 3,
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger T9.) En vegg har tre sjikt: $12{,}0\\,\\text{mm}$ betong ($\\kappa = 1{,}40$), $100\\,\\text{mm}$ isolasjon ($\\kappa = 0{,}040$) og $80{,}0\\,\\text{mm}$ mur ($\\kappa = 0{,}720$), alle i $\\text{W/(m}\\cdot\\text{K)}$. Inne er $22{,}0\\,^\\circ\\text{C}$, ute $-5{,}0\\,^\\circ\\text{C}$. Se bort fra varmeovergang.\n\n**a)** Finn de tre motstandene og den samlede.\n\n**b)** Finn varmestrømmen per kvadratmeter.\n\n**c)** Finn temperaturene i de to grenseflatene.\n\n**d)** Hvor stor del av temperaturfallet ligger i hvert sjikt? Kommenter.",
+    "solution": "**a)**\n$$R_1 = \\frac{0{,}0120}{1{,}40} = 0{,}00857, \\qquad R_2 = \\frac{0{,}100}{0{,}040} = 2{,}50000, \\qquad R_3 = \\frac{0{,}080}{0{,}720} = 0{,}11111,$$\n$$R = 2{,}61968\\,\\text{K}\\cdot\\text{m}^2/\\text{W}.$$\n\n**b)**\n$$\\Delta T = 27{,}0\\,\\text{K}, \\qquad j = \\frac{27{,}0}{2{,}61968} = 10{,}3066\\,\\text{W/m}^2.$$\n\n**c)** Gå innover fra innsiden:\n$$T_\\text{etter betong} = 22{,}0 - 10{,}3066 \\cdot 0{,}00857 = 21{,}912\\,^\\circ\\text{C},$$\n$$T_\\text{etter isolasjon} = 21{,}912 - 10{,}3066 \\cdot 2{,}50000 = -3{,}855\\,^\\circ\\text{C}.$$\nKontroll: $T_\\text{etter isolasjon} - jR_3 = -3{,}855 - 1{,}1452 = -5{,}00\\,^\\circ\\text{C}$, altså utetemperaturen ✔.\n\n**d)**\n$$\\frac{R_1}{R} = 0{,}00327, \\qquad \\frac{R_2}{R} = 0{,}95431, \\qquad \\frac{R_3}{R} = 0{,}04241,$$\naltså $0,33$, $95,43$ og $4,24$ prosent.\n\n**Kommentar:** isolasjonen tar over $95$ prosent av temperaturfallet, mens betongen tar under en halv prosent — selv om betongsjiktet er nesten like tykt som mursjiktet. Grunnen er at betong leder varme $35$ ganger bedre enn isolasjonen. **Det er bare det dårligst ledende sjiktet som isolerer; de andre er der av andre grunner** (bæreevne, tetthet, utseende).\n\nLegg merke til den praktiske konsekvensen: temperaturen inne i konstruksjonen faller nesten alt over isolasjonen. Derfor er betongen nesten like varm som romluften, og mursjiktet nesten like kaldt som uteluften — og derfor bygger man med isolasjonen på **utsiden** av bæringen når man vil unngå kuldebroer.\n\n**Sluttsjekk:** de tre fallene summerer til $27{,}0\\,\\text{K}$ ✔, og begge grenseflatetemperaturene ligger mellom yttergrensene og faller monotont utover ✔.",
+    "hints": [
+     "Regn hver motstand for seg, og pass på tykkelsen i meter.",
+     "Grenseflatetemperaturene finnes ved å trekke $jR$ fra i tur og orden.",
+     "Kontroller til slutt at du treffer utetemperaturen når du har passert alle tre sjiktene."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-9-1-lokke3",
+   "type": "text",
+   "content": "## Løkke 3 — parallelle veier: vegg med vindu (~12 min)\n\nEn yttervegg har vindu. Varmen kan gå gjennom veggen **eller** gjennom vinduet — to **parallelle** veier, ikke to sjikt etter hverandre.\n\n*Intuisjon:* to sjikt i serie tvinger all varmen gjennom begge. To felt i parallell gir varmen et valg, og den tar begge veier samtidig. Da summeres ikke motstandene — da summeres **strømmene**.\n\nRegnereglen følger direkte fra at effektene legges sammen:\n\n$$P = U_1A_1\\Delta T + U_2A_2\\Delta T = (U_1A_1 + U_2A_2)\\,\\Delta T.$$\n\n**Legg sammen $UA$-produktene**, altså. For motstander betyr det $1/R = \\sum 1/R_j$, som i en parallellkobling — men i praksis er $UA$-formen mye greiere, og det er den byggebransjen bruker.\n\n⚠ **Fellen** er å legge motstandene i serie også her. Det gir et helt annet og alltid **for lite** varmetap: i eksempelet under blir svaret $40{,}0\\,\\text{W}$ i stedet for $215\\,\\text{W}$. Kontrollen som avslører feilen på fem sekunder: **to parallelle veier gir alltid MER varmetap enn den dårligste av dem alene.**"
+  },
+  {
+   "id": "tfy4115-9-1-def-parallell",
+   "type": "definition",
+   "title": "Parallelle felt i en vegg",
+   "content": "Når varmen kan gå gjennom flere felt ved siden av hverandre — vegg og vindu, tak og takluke, gulv og luke — summeres **varmestrømmene**, ikke motstandene:\n$$P = \\left(\\sum_j U_jA_j\\right)\\Delta T, \\qquad\\text{eller}\\qquad \\frac{1}{R_\\text{term}} = \\sum_j \\frac{1}{R_j}.$$\n\nBetingelsen er at feltene har **samme temperaturdifferanse** over seg — det har de når begge går fra samme innetemperatur til samme utetemperatur.\n\n**Kontrollen som avslører serie-fella:** den samlede $UA$ er alltid større enn den største enkelt-$UA$, og den samlede motstanden er alltid mindre enn den minste enkelt-motstanden. Får du et samlet varmetap som er lavere enn det ett av feltene gir alene, har du regnet i serie."
+  },
+  {
+   "id": "tfy4115-9-1-ex-3",
+   "type": "example",
+   "title": "Eksempel 3: veggen med vindu — hvor tapet faktisk ligger",
+   "problem": "Veggen fra eksempel 1 (uten filmmotstander, $U = 0{,}1830\\,\\text{W/(m}^2\\cdot\\text{K)}$) har et samlet areal på $12{,}0\\,\\text{m}^2$, hvorav $2{,}00\\,\\text{m}^2$ er vindu med $U_\\text{vindu} = 2{,}80\\,\\text{W/(m}^2\\cdot\\text{K)}$. Inne $21{,}0\\,^\\circ\\text{C}$, ute $-8{,}0\\,^\\circ\\text{C}$.\n\n**a)** Finn varmetapet gjennom veggen og gjennom vinduet.\n\n**b)** Finn det samlede varmetapet.\n\n**c)** Hvor stor del av arealet er vindu, og hvor stor del av tapet?\n\n**d)** Hva ville du fått hvis du feilaktig la de to feltene i serie?",
+   "solution": "**a) Symbolsk.** $P = UA\\Delta T$ for hvert felt.\n\n**Rask vei til tall.** Med $\\Delta T = 29{,}0\\,\\text{K}$:\n$$P_\\text{vegg} = 0{,}1830 \\cdot 10{,}0 \\cdot 29{,}0\\,\\text{W} = 53{,}070\\,\\text{W},$$\n$$P_\\text{vindu} = 2{,}80 \\cdot 2{,}00 \\cdot 29{,}0\\,\\text{W} = 162{,}40\\,\\text{W}.$$\n\n**b)**\n$$P = 53{,}070 + 162{,}40 = 215{,}47\\,\\text{W}.$$\nEller i én linje: $P = (U_\\text{vegg}A_\\text{vegg} + U_\\text{vindu}A_\\text{vindu})\\Delta T = (1{,}8300 + 5{,}600) \\cdot 29{,}0 = 215{,}47\\,\\text{W}$ ✔.\n\n**c)**\n$$\\frac{A_\\text{vindu}}{A_\\text{total}} = \\frac{2{,}00}{12{,}0} = 0{,}1667, \\qquad \\frac{P_\\text{vindu}}{P} = \\frac{162{,}40}{215{,}47} = 0{,}7537.$$\nVinduet er **$16,7$ prosent av arealet og $75,4$ prosent av varmetapet.**\n\nDet er hovedbudskapet i hele oppgaven: når ett felt har $15$ ganger så høy U-verdi som resten, dominerer det tapet fullstendig, selv om det er lite. **Det lønner seg mer å bytte vinduet enn å legge ti centimeter mer isolasjon i veggen.**\n\n**d)** Serie-fella:\n$$R_\\text{serie, feil} = \\frac{1}{U_\\text{vegg}A_\\text{vegg}} + \\frac{1}{U_\\text{vindu}A_\\text{vindu}} = 0{,}5464 + 0{,}1786 = 0{,}7250\\,\\text{K/W},$$\n$$P_\\text{feil} = \\frac{29{,}0}{0{,}7250} = 39{,}999\\,\\text{W}.$$\nDet er **under en femtedel** av det riktige svaret — og, det avgjørende: **lavere enn veggen alene gir** ($53{,}1\\,\\text{W}$). Det er fysisk umulig: å lage et hull i veggen og sette inn et dårligere vindu kan ikke redusere varmetapet.\n\n**Sluttsjekk, tre ledd.** (i) Summen av de to feltene ✔. (ii) Det samlede tapet er større enn det største enkeltbidraget ✔. (iii) $UA$-summen $7{,}430\\,\\text{W/K}$ ganget med $29{,}0\\,\\text{K}$ gir $215{,}5\\,\\text{W}$ ✔."
+  },
+  {
+   "id": "tfy4115-9-1-o-4",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-9-1-oppg-4",
+    "number": 4,
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger T9.) En yttervegg på $18{,}0\\,\\text{m}^2$ med $U = 0{,}1830\\,\\text{W/(m}^2\\cdot\\text{K)}$ har en ytterdør på $2{,}20\\,\\text{m}^2$ med $U_\\text{dør} = 1{,}60\\,\\text{W/(m}^2\\cdot\\text{K)}$. Inne $21{,}0\\,^\\circ\\text{C}$, ute $-8{,}0\\,^\\circ\\text{C}$.\n\n**a)** Finn det samlede varmetapet.\n\n**b)** Hvor stor del av tapet går gjennom døra?\n\n**c)** Hvor mye ville tapet falt hvis døra ble byttet til én med $U = 0{,}90\\,\\text{W/(m}^2\\cdot\\text{K)}$?",
+    "solution": "**a)**\n$$P = (U_\\text{vegg}A_\\text{vegg} + U_\\text{dør}A_\\text{dør})\\Delta T = (0{,}1830 \\cdot 18{,}0 + 1{,}60 \\cdot 2{,}20) \\cdot 29{,}0\\,\\text{W}$$\n$$= (3{,}2940 + 3{,}5200) \\cdot 29{,}0 = 197{,}606\\,\\text{W}.$$\n\n**b)**\n$$\\frac{102{,}080}{197{,}606} = 0{,}5166, \\qquad\\text{altså } 51,7\\ \\text{prosent.}$$\nDøra er $10,9$ prosent av arealet og over halve varmetapet.\n\n**c)** Ny $UA$-sum:\n$$U_\\text{vegg}A_\\text{vegg} + 0{,}90 \\cdot 2{,}20 = 3{,}2940 + 1{,}9800 = 5{,}2740\\,\\text{W/K},$$\n$$P_\\text{ny} = 152{,}946\\,\\text{W}, \\qquad \\text{reduksjon} = 1 - \\frac{152{,}946}{197{,}606} = 0{,}2260,$$\naltså om lag $23$ prosent mindre varmetap fra hele veggen — ved å bytte $11$ prosent av arealet.\n\n**Sluttsjekk:** det samlede tapet er større enn hvert enkeltbidrag ✔. Og legg merke til den generelle lærdommen: **tiltak lønner seg der U-verdien er høyest, ikke der arealet er størst.**",
+    "hints": [
+     "Parallelle felt: legg sammen $UA$-produktene, ikke motstandene.",
+     "Hvert felt har samme $\\Delta T$ over seg.",
+     "For c): regn den nye $UA$-summen og sammenlign med den gamle."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-9-1-lokke4",
+   "type": "text",
+   "content": "## Løkke 4 — å regne baklengs: hvor tykk isolasjon trengs? (~10 min)\n\nDen siste varianten i sjangeren er å snu regnestykket. I stedet for «finn varmestrømmen» spør oppgaven «hvor tykk må isolasjonen være for å nå en gitt U-verdi?», eller «hvilken $\\kappa$ har materialet, når vi har målt motstanden?».\n\n*Intuisjon:* det er samme likning, løst for en annen ukjent. Fremgangsmåten er alltid: (1) finn den motstanden du trenger totalt, $R_\\text{mål} = 1/U_\\text{mål}$; (2) trekk fra motstandene du alt har; (3) det som står igjen, må isolasjonen levere, og $\\ell = \\kappa R$.\n\nDenne varianten er verdt å øve på, fordi den avslører om du har forstått at motstandene **summeres** — og fordi den er et yndet flervalgsspørsmål der distraktorene er de andre måtene å kombinere de samme tallene."
+  },
+  {
+   "id": "tfy4115-9-1-o-5",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-9-1-oppg-5",
+    "number": 5,
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger T9.) En vegg skal ha U-verdi $0{,}180\\,\\text{W/(m}^2\\cdot\\text{K)}$. Den har alt $13\\,\\text{mm}$ gips ($\\kappa = 0{,}220$) og filmmotstander $h_i = 8{,}00$ og $h_u = 25{,}0\\,\\text{W/(m}^2\\cdot\\text{K)}$.\n\n**a)** Hvilken samlet termisk motstand kreves?\n\n**b)** Hvor mye av den er alt dekket?\n\n**c)** Hvor tykt mineralullsjikt ($\\kappa = 0{,}037$) trengs?",
+    "solution": "**a)**\n$$R_\\text{mål} = \\frac{1}{U} = \\frac{1}{0{,}180} = 5{,}5556\\,\\text{K}\\cdot\\text{m}^2/\\text{W}.$$\n\n**b)**\n$$R_\\text{dekket} = \\frac{1}{h_i} + \\frac{\\ell_1}{\\kappa_1} + \\frac{1}{h_u} = 0{,}1250 + 0{,}05909 + 0{,}0400 = 0{,}22409\\,\\text{K}\\cdot\\text{m}^2/\\text{W}.$$\nAltså bare $4,0$ prosent av det som kreves.\n\n**c)**\n$$R_\\text{ull} = 5{,}5556 - 0{,}22409 = 5{,}3315\\,\\text{K}\\cdot\\text{m}^2/\\text{W},$$\n$$\\ell = \\kappa R_\\text{ull} = 0{,}037 \\cdot 5{,}3315\\,\\text{m} = 0{,}19726\\,\\text{m} = 197{,}3\\,\\text{mm}.$$\nI praksis velger man en standardtykkelse, altså $200\\,\\text{mm}$.\n\n**Sluttsjekk, tre ledd.** (i) Kontroll baklengs: med $\\ell = 197{,}3\\,\\text{mm}$ blir $R = 0{,}2241 + 5{,}3315 = 5{,}5556$, og $U = 0{,}1800$ ✔. (ii) Svaret er i samme størrelsesorden som virkelige vegger, $200\\,\\text{mm}$ ✔. (iii) Enhetskontroll: $\\text{W/(m}\\cdot\\text{K)} \\cdot \\text{K}\\cdot\\text{m}^2/\\text{W} = \\text{m}$ ✔.\n\n**Fellen her:** å regne $\\ell = \\kappa/R$ i stedet for $\\kappa R$. Enhetskontrollen fanger den umiddelbart — $\\kappa/R$ gir $\\text{W}^2/(\\text{m}^3\\cdot\\text{K}^2)$, som ikke er en lengde.",
+    "hints": [
+     "Start med $R = 1/U$ for den motstanden du trenger totalt.",
+     "Trekk fra de motstandene som alt finnes — husk at filmene er $1/h$, ikke $\\ell/h$.",
+     "Snu $R = \\ell/\\kappa$ for å finne tykkelsen. Sjekk enheten."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-9-1-o-6",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-9-1-oppg-6",
+    "number": 6,
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger T9.) Et $15{,}0\\,\\text{mm}$ tykt materialsjikt måles til å ha termisk motstand $0{,}0500\\,\\text{K}\\cdot\\text{m}^2/\\text{W}$ per kvadratmeter.\n\n**a)** Finn varmeledningsevnen $\\kappa$.\n\n**b)** Er dette et isolasjonsmateriale eller en leder? Sammenlign med tabellen i forkunnskapene.\n\n**c)** En vegg på $24{,}0\\,\\text{m}^2$ med U-verdi $0{,}1830\\,\\text{W/(m}^2\\cdot\\text{K)}$ har $\\Delta T = 29{,}0\\,\\text{K}$. Finn effekttapet og energitapet per døgn i kilowattimer.",
+    "solution": "**a)** Snu $R = \\ell/\\kappa$:\n$$\\kappa = \\frac{\\ell}{R} = \\frac{0{,}0150\\,\\text{m}}{0{,}0500\\,\\text{K}\\cdot\\text{m}^2/\\text{W}} = 0{,}3000\\,\\text{W/(m}\\cdot\\text{K)}.$$\nEnhetskontroll: $\\text{m}$ delt på $\\text{K}\\cdot\\text{m}^2/\\text{W}$ gir $\\text{W/(m}\\cdot\\text{K)}$ ✔.\n\n**b)** $0{,}300\\,\\text{W/(m}\\cdot\\text{K)}$ ligger mellom trepanel ($0{,}13$) og glass ($0{,}80$). Det er altså **ikke** et isolasjonsmateriale — mineralull ligger på $0{,}037$, altså om lag $8$ ganger dårligere leder. Materialet kan for eksempel være en tett trefiberplate eller en lett betong.\n\n**c)**\n$$P = UA\\Delta T = 0{,}1830 \\cdot 24{,}0 \\cdot 29{,}0\\,\\text{W} = 127{,}37\\,\\text{W},$$\n$$E = P\\,\\Delta t = 127{,}37\\,\\text{W} \\cdot 24 \\cdot 3600\\,\\text{s} = 11{,}0046\\,\\text{MJ} = 3{,}0568\\,\\text{kWh}.$$\nOmregningen: $1\\,\\text{kWh} = 3{,}6\\cdot10^6\\,\\text{J}$.\n\n**Sluttsjekk:** $3{,}06\\,\\text{kWh}$ per døgn for én vegg på $24\\,\\text{m}^2$ er et rimelig tall — et helt hus taper typisk $30$–$80\\,\\text{kWh}$ per døgn på en kald vinterdag, fordelt på fire vegger, tak, gulv og vinduer.",
+    "hints": [
+     "Snu $R = \\ell/\\kappa$ og sjekk enheten på svaret.",
+     "Sammenlign med tabellen: hvor i spennet fra mineralull til kobber ligger tallet?",
+     "$1\\,\\text{kWh} = 3{,}6\\cdot10^6\\,\\text{J}$ — regn effekt ganger tid først, i joule."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-9-1-o-7",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-9-1-oppg-7",
+    "number": 7,
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Kvalitativ oppgave — konsept.)\n\n**a)** Hvorfor faller temperaturen brattest i det dårligste ledende sjiktet? Svar med henvisning til at varmestrømmen er den samme gjennom alle sjikt.\n\n**b)** En kollega hevder at det er meningsløst å legge et tynt gipssjikt inn i en vegg, siden det «nesten ikke isolerer». Er påstanden riktig? Hva overser den?\n\n**c)** Hvorfor er den utvendige varmeovergangskoeffisienten $h_u$ typisk tre ganger større enn den innvendige $h_i$, og hva betyr det for motstandene?",
+    "solution": "**a)** Fordi $\\Delta T_j = PR_j$ og $P$ er den samme gjennom alle sjikt: temperaturfallet over et sjikt er rett proporsjonalt med sjiktets termiske motstand. Sjiktet med størst $R_j = \\ell_j/\\kappa_j$ tar dermed størst fall.\n\nFormulert med gradienten blir det enda tydeligere: Fouriers lov gir $j = \\kappa\\,\\Delta T/\\ell$, altså $\\Delta T/\\ell = j/\\kappa$. Fluksen $j$ er felles, så **temperaturgradienten er omvendt proporsjonal med $\\kappa$**. Dårlig leder $\\Rightarrow$ bratt gradient.\n\n**b)** Påstanden er **riktig om isolasjonen** og **feil om alt annet**. Gipsplata i eksempel 1 bidrar med ${1{,}1}$ prosent av den termiske motstanden — å fjerne den ville økt varmetapet med bare om lag én prosent.\n\nMen gipsen er der ikke for å isolere. Den er der for (i) mekanisk styrke og overflate, (ii) brannmotstand, (iii) lufttetthet, og (iv) — mest relevant her — den flytter **overflatetemperaturen inne**, og dermed avstanden til duggpunktet. Kondens på innerveggen gir mugg og fuktskade, og det avgjøres av overflatetemperaturen, ikke av U-verdien.\n\nGenerelt: **de fleste sjiktene i en konstruksjon er der av andre grunner enn varmeisolasjon.**\n\n**c)** Fordi $h$ måler hvor godt varmen kommer OVER fra luft til flate, og det avhenger av hvor mye luften rører seg. Utendørs blåser det, og den bevegelige luften bryter opp det stillestående grensesjiktet, så varmen kommer lettere over: stor $h$.\n\nKonsekvensen for motstandene er at $R = 1/h$ blir **liten** når $h$ er stor: $R_u = 1/25 = 0{,}040$ mot $R_i = 1/8 = 0{,}125\\ \\text{K}\\cdot\\text{m}^2/\\text{W}$. Den innvendige filmen er altså den største av de to — og det er en påminnelse om at stor $h$ betyr liten motstand, motsatt av hvordan $\\kappa$ virker.\n\nPraktisk følge: en vindfull dag øker $h_u$ ytterligere, senker den totale motstanden litt, og senker overflatetemperaturen ute. Effekten på varmetapet er liten (filmene er en liten del av motstanden), men effekten på hvor kaldt det FØLES for en person som står der, er stor — det er samme mekanisme som vindavkjøling.",
+    "hints": [
+     "Bruk at $\\Delta T_j = PR_j$ med samme $P$ i alle sjikt.",
+     "Hvilke andre funksjoner enn isolasjon har sjiktene i en vegg?",
+     "Husk at $R = 1/h$ — stor $h$ gir liten motstand."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-9-1-rask-vei",
+   "type": "text",
+   "content": "## Rask vei til tall (MC-oppskrift)\n\n1. **Hvilken lov?** Tre spørsmålstyper, gjenkjennelige på tre sekunder. **Varmestrøm eller effekt** → summer motstandene og bruk $P = \\Delta T/R$. **Grenseflatetemperatur** → regn $j$ først, gå så innover fra en kjent side. **Tykkelse eller $\\kappa$** → snu $R = \\ell/\\kappa$. Er feltene ved siden av hverandre i stedet for etter hverandre, summer $UA$ i stedet.\n\n2. **Hvilken ene regnelinje?** Skriv opp **hver motstand som eget mellomresultat** — det er nøkkelen i denne sjangeren. Sjikt: $\\ell/\\kappa$. Film: $1/h$. Summer. Deretter er resten én divisjon.\n\n3. **Hva hentes hvor?** Fouriers lov $j = \\kappa\\Delta T/\\ell$, $R_\\text{term} = \\ell/(\\kappa A)$, $R_\\text{film} = 1/(hA)$, $P = \\Delta T/R_\\text{term}$ og materialverdiene for $\\kappa$ **står på det utdelte arket**. Det som **må kunne utledes aktivt**, er at motstandene legges i serie (samme $P$, $\\Delta T$ summeres), og at $\\Delta T_j/\\Delta T = R_j/R$.\n\n4. **Hvor mange siffer?** Fire gjennom kjeden. Her er faren ikke avrunding men **enheter**: millimeter mot meter er en faktor 1000, og den slår rett gjennom. Skriv alle tykkelser i meter i det du leser oppgaven.\n\n5. **Hva sjekker du før du krysser av?** (i) Er alle tykkelser i **meter**? (ii) Summerer temperaturfallene til det totale? (iii) Ligger hver grenseflatetemperatur MELLOM inne og ute, og faller de monotont utover? (iv) Brukte du $1/h$ for filmene og $\\ell/\\kappa$ for sjiktene? (v) Ba oppgaven om fluks ($\\text{W/m}^2$) eller effekt (W)? (vi) Er feltene i serie eller parallell? (vii) Er U-verdien i rimelig størrelsesorden ($0{,}15$–$0{,}25$ for en moderne vegg)?\n\n— naturlig pausepunkt —"
+  },
+  {
+   "id": "tfy4115-9-1-o-8",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-9-1-oppg-8",
+    "number": 8,
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Sjanger T9, A–F-format.) En vegg består av $10{,}0\\,\\text{mm}$ gips ($\\kappa = 0{,}170$) og $250\\,\\text{mm}$ mineralull ($\\kappa = 0{,}036$), begge i $\\text{W/(m}\\cdot\\text{K)}$. Hva er U-verdien?\n\n**A** $0{,}1440$ · **B** $0{,}1428$ · **C** $7{,}0033$ · **D** $17{,}0000$ · **E** $0{,}000143$ · **F** $17{,}14$",
+    "solution": "**Svar: B.**\n\n$$R = \\frac{0{,}010}{0{,}170} + \\frac{0{,}250}{0{,}036} = 0{,}05882 + 6{,}9444 = 7{,}0033\\,\\text{K}\\cdot\\text{m}^2/\\text{W}, \\qquad U = \\frac{1}{7{,}0033} = 0{,}1428.$$\n\n*Fellene, hver regnet fram fra sin feil:* **A** har glemt gipsen helt og bare brukt ullen. **C** er den termiske MOTSTANDEN, ikke U-verdien — de to har ulik enhet, og forveksles ofte. **D** har bare brukt gipsen. **E** har regnet med tykkelsene i millimeter, altså en faktor 1000 for stor motstand. **F** har lagt sammen $\\kappa/\\ell$ i stedet for $\\ell/\\kappa$, altså «U-verdiene» for hvert sjikt — det er parallellformelen brukt på sjikt som ligger i serie.\n\n*Sluttsjekk:* en moderne yttervegg har U-verdi rundt $0{,}15$–$0{,}25\\,\\text{W/(m}^2\\cdot\\text{K)}$. Det stryker **A**, **C**, **E** og **F** på fem sekunder — bare **B** og **D** er i riktig område, og **D** mangler isolasjonen.",
+    "hints": [
+     "Regn hver motstand $\\ell/\\kappa$ som eget mellomresultat, med tykkelsen i meter.",
+     "U-verdien er den INVERSE av den samlede motstanden."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-9-1-o-9",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-9-1-oppg-9",
+    "number": 9,
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger T9.) Veggen fra eksempel 2 (med filmmotstander, $R = 5{,}6295\\,\\text{K}\\cdot\\text{m}^2/\\text{W}$) står i et rom der duggpunktet er $12{,}0\\,^\\circ\\text{C}$ og innetemperaturen $21{,}0\\,^\\circ\\text{C}$.\n\n**a)** Hvor kaldt kan det bli ute før det begynner å kondensere på innerveggen?\n\n**b)** Bak et skap er luftsirkulasjonen dårlig, slik at $h_i$ faller fra $8{,}00$ til $3{,}00\\,\\text{W/(m}^2\\cdot\\text{K)}$. Hvor kaldt kan det bli ute nå?\n\n**c)** Kommenter resultatet.",
+    "solution": "**a) Symbolsk.** Overflatetemperaturen inne er\n$$T_s = T_i - jR_{f,i} = T_i - \\frac{\\Delta T}{R}\\cdot\\frac{1}{h_i}.$$\nKondens starter når $T_s = T_\\text{dugg}$, altså når\n$$T_i - T_\\text{dugg} = \\frac{\\Delta T}{R h_i} \\quad\\Longrightarrow\\quad \\Delta T_\\text{maks} = (T_i - T_\\text{dugg})\\,R h_i.$$\n\n**Rask vei til tall.**\n$$\\Delta T_\\text{maks} = (21{,}0 - 12{,}0) \\cdot 5{,}6295 \\cdot 8{,}00 = 9{,}0 \\cdot 45{,}0360 = 405{,}32\\,\\text{K},$$\n$$T_u = 21{,}0 - 405{,}32 = -384{,}32\\,^\\circ\\text{C}.$$\nMed denne veggen blir det altså aldri kondens i praksis — $-384\\,^\\circ\\text{C}$ forekommer ikke i Norge.\n\nKontroll med tallene fra eksempel 2: der var $\\Delta T = 29{,}0\\,\\text{K}$ og $T_s = 20{,}36\\,^\\circ\\text{C}$, altså $8{,}4\\,\\text{K}$ over duggpunktet ✔ — helt i tråd med at grensen ligger langt kaldere.\n\n**b)** Nå endres BÅDE $R$ og filmmotstanden. Ny samlet motstand:\n$$R' = \\frac{1}{3{,}00} + 0{,}05909 + 5{,}4054 + 0{,}0400 = 0{,}3333 + 5{,}5045 = 5{,}8378\\,\\text{K}\\cdot\\text{m}^2/\\text{W},$$\n$$\\Delta T_\\text{maks} = 9{,}0 \\cdot 5{,}8378 \\cdot 3{,}00 = 157{,}62\\,\\text{K},$$\n$$T_u = 21{,}0 - 157{,}62 = -136{,}62\\,^\\circ\\text{C}.$$\n\n**c)** Grensen har flyttet seg fra $-384\\,^\\circ\\text{C}$ til $-136{,}6\\,^\\circ\\text{C}$ — altså **fra det umulige til det helt vanlige**. En norsk vinterdag på $-25\\,^\\circ\\text{C}$ gir kondens bak skapet, men ikke på den frie veggen.\n\nDette er hele forklaringen på et velkjent byggfenomen: **mugg oppstår bak skap, i hjørner og bak gardiner** — steder der luftsirkulasjonen er dårlig og $h_i$ derfor lav. Veggen er den samme; det er filmmotstanden som er endret.\n\n**Sluttsjekk, tre ledd.** (i) Lavere $h_i$ gir større filmmotstand og dermed kaldere overflate ✔ — det er retningen vi forventer. (ii) Uttrykket $\\Delta T_\\text{maks} = (T_i - T_\\text{dugg})Rh_i$ har riktig enhet: $\\text{K} \\cdot \\text{K}\\cdot\\text{m}^2/\\text{W} \\cdot \\text{W/(m}^2\\cdot\\text{K)} = \\text{K}$ ✔. (iii) Legg merke til at $R$ og $h_i$ trekker i motsatt retning i produktet $Rh_i$ — lavere $h_i$ øker $R$ litt, men senker $h_i$-faktoren mye mer, og netto blir grensen mildere. Det er verdt å regne, ikke gjette.",
+    "hints": [
+     "Overflatetemperaturen inne er $T_i - jR_{f,i}$, med $j = \\Delta T/R$.",
+     "Sett $T_s$ lik duggpunktet og løs for $\\Delta T$.",
+     "I b) må du regne den samlede motstanden på nytt — filmmotstanden er en del av den."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-9-1-war-typiske-feil",
+   "type": "warning",
+   "title": "Typiske feil — og enhetsfellen som lander på nabo-alternativet",
+   "content": "**Å blande varmeledning og varmeovergang** (felle #15). Sjikt: $R = \\ell/\\kappa$. Film: $R = 1/h$. Det finnes **ingen tykkelse** i filmuttrykket. Skriver du $\\ell/h$ eller $h/\\ell$, får du et tall med feil enhet — og enhetskontrollen fanger det: $1/h$ har enhet $\\text{K}\\cdot\\text{m}^2/\\text{W}$, akkurat som $\\ell/\\kappa$, mens $\\ell/h$ har $\\text{K}\\cdot\\text{m}^3/\\text{W}$.\n\n**Millimeter i stedet for meter.** $200\\,\\text{mm}$ isolasjon gir $R = 5{,}405$; sett inn $200$ og du får $5405$ — en faktor 1000 feil, og et komplett urimelig tall. **Skriv alle tykkelser om til meter i det du leser oppgaven.** Dette er felle #16 i sin verste form: feilen gir en pen tierpotens, og pene tierpotenser står gjerne på alternativlista.\n\n**Å legge parallelle felt i serie.** Vegg og vindu er PARALLELLE veier: summer $UA$-produktene. I eksempel 3 gir serieregning $40{,}0\\,\\text{W}$ i stedet for $215\\,\\text{W}$ — under en femtedel. **Kontrollen som avslører det på fem sekunder:** to parallelle veier gir ALLTID mer varmetap enn den dårligste av dem alene. Er summen mindre enn ett av bidragene, har du regnet i serie.\n\n**Å forveksle U-verdi og R-verdi.** De er inverse av hverandre, med ulik enhet: $U$ i $\\text{W/(m}^2\\cdot\\text{K)}$, $R$ i $\\text{K}\\cdot\\text{m}^2/\\text{W}$. **Lav U er bra, høy R er bra.** En moderne vegg har $U \\approx 0{,}18$ og $R \\approx 5{,}5$ — to helt ulike tall for samme vegg, og begge står gjerne på alternativlista.\n\n**Å blande fluks og effekt.** $j$ er $\\text{W/m}^2$, $P$ er watt. Les nøye om spørsmålet sier «per kvadratmeter». Med en vegg på $24\\,\\text{m}^2$ skiller de to seg med en faktor $24$.\n\n**Å glemme at $\\Delta T$ er en differanse.** Her — og bare her i termodelen — er celsius trygt, fordi bare temperaturDIFFERANSER inngår: $29{,}0\\,\\text{K}$ og $29{,}0$ celsiusgrader forskjell er samme tall. Men **grenseflatetemperaturer** som du regner ut, kommer i den skalaen du startet i, og skal oppgis der. Blander du, får du svar som ligger $273{,}15$ feil.\n\n**Å regne feil vei ved grenseflatetemperaturer.** Start i en KJENT temperatur og trekk fra $jR$ for hvert lag du passerer. Kontrollen: regn den samme temperaturen fra begge sider og se at du får samme svar. I eksempel 2 ga det $-7{,}79$ og $-7{,}79\\,^\\circ\\text{C}$ ✔.\n\n**Og størrelsesordenkontrollen som er verdt fem sekunder:** en moderne yttervegg har $U$ mellom $0{,}15$ og $0{,}25$, og et varmetap på $4$–$7\\,\\text{W/m}^2$ ved $29\\,\\text{K}$ temperaturforskjell. Får du $0{,}0002$ eller $50$, har du en enhetsfeil."
+  },
+  {
+   "id": "tfy4115-9-1-begrepsbank-notis",
+   "type": "text",
+   "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+  },
+  {
+   "id": "tfy4115-9-1-bb-tre-mekanismer",
+   "type": "definition",
+   "title": "De tre måtene varme flytter seg",
+   "content": "| Mekanisme | Hva som skjer | Trenger medium? |\n|---|---|---|\n| **Ledning** | energi fra molekyl til molekyl, stoffet står stille | ja |\n| **Konveksjon** | varmen fraktes med et strømmende medium | ja, og det må bevege seg |\n| **Stråling** | elektromagnetiske bølger fra en varm flate | nei |\n\nDette kapitlet handler om **ledning**. Stråling behandles i [kap. 9.2](/tfy4115/tfy4115-9-2), og der er hovedforskjellen at effekten går som $T^4$ i stedet for som $\\Delta T$.\n\n**Konveksjon** er «kjenne til»-stoff i denne boka: den dukker opp indirekte gjennom varmeovergangskoeffisienten $h$, som nettopp beskriver hvordan luft inntil en flate frakter varme bort. En full behandling av konveksjon krever strømningsmekanikk og er utenfor pensum."
+  },
+  {
+   "id": "tfy4115-9-1-bb-ohm-analogi",
+   "type": "definition",
+   "title": "Analogien til Ohms lov",
+   "content": "| Varmeledning | Elektrisk krets |\n|---|---|\n| $\\Delta T$ (temperaturdifferanse) | $\\Delta V$ (spenning) |\n| $P$ (varmestrøm, watt) | $I$ (strøm, ampere) |\n| $R_\\text{term} = \\ell/(\\kappa A)$ | $R = \\rho\\ell/A$ |\n| $P = \\Delta T/R_\\text{term}$ | $I = \\Delta V/R$ |\n| sjikt etter hverandre: serie | motstander i serie |\n| felt ved siden av hverandre: parallell | motstander i parallell |\n\nAnalogien er **eksakt** for stasjonær varmeledning, og den er verdt å bruke: alt du kan om serie- og parallellkobling, gjelder direkte. Merk likevel én forskjell i praksis: varmeledning har ingen «kortslutning» — det finnes ikke et materiale med $\\kappa = \\infty$."
+  },
+  {
+   "id": "tfy4115-9-1-bb-serie-parallell",
+   "type": "definition",
+   "title": "Serie eller parallell — hvordan du ser forskjellen",
+   "content": "**Serie** er sjikt som ligger ETTER hverandre i varmestrømmens retning: gips, så isolasjon, så kledning. All varmen må gjennom alle. Motstandene summeres:\n$$R = \\sum_j R_j.$$\n\n**Parallell** er felt som ligger VED SIDEN AV hverandre: vegg og vindu, tak og takluke. Varmen fordeler seg mellom dem. $UA$-produktene summeres:\n$$P = \\left(\\sum_j U_jA_j\\right)\\Delta T.$$\n\n**Kontrollen:** i serie er den samlede motstanden STØRRE enn den største enkeltmotstanden. I parallell er den MINDRE enn den minste. Får du et samlet varmetap som er lavere enn ett av feltene gir alene, har du forvekslet de to."
+  },
+  {
+   "id": "tfy4115-9-1-bb-brattest",
+   "type": "definition",
+   "title": "Hvorfor temperaturen faller brattest i den dårligste lederen",
+   "content": "Fordi varmestrømmen er den **samme** gjennom alle sjikt (stasjonært), og\n$$\\Delta T_j = P R_j \\quad\\Longrightarrow\\quad \\frac{\\Delta T_j}{\\Delta T_\\text{total}} = \\frac{R_j}{R_\\text{term}}.$$\nStørst motstand gir størst fall. Og siden $R_j = \\ell_j/\\kappa_j$, betyr det at et tykt sjikt med liten $\\kappa$ tar nesten alt.\n\nFormulert med gradienten: $j = \\kappa\\,\\Delta T/\\ell$ gir $\\Delta T/\\ell = j/\\kappa$, altså **gradienten er omvendt proporsjonal med $\\kappa$**. En figur der temperaturen faller brattest i den BESTE lederen, underviser fellen."
+  },
+  {
+   "id": "tfy4115-9-1-bb-typiske-kappa",
+   "type": "definition",
+   "title": "Størrelsesordener for $\\kappa$",
+   "content": "| Materiale | $\\kappa$ i $\\text{W/(m}\\cdot\\text{K)}$ |\n|---|---|\n| Luft (stillestående) | $0{,}026$ |\n| Mineralull, glava | $0{,}035$–$0{,}045$ |\n| Trepanel | $0{,}12$–$0{,}14$ |\n| Gipsplate | $0{,}22$ |\n| Glass | $0{,}80$ |\n| Betong | $1{,}4$–$1{,}7$ |\n| Stål | $45$ |\n| Kobber | $400$ |\n\nSpennet er fire tierpotenser. To ting er verdt å merke seg: **stillestående luft er den beste isolatoren på lista** — det er derfor isolasjonsmaterialer i praksis er porøse strukturer som holder luft i ro. Og **metaller er tusenvis av ganger bedre ledere** — det er derfor en stålbjelke gjennom en vegg er en kuldebro."
+  },
+  {
+   "id": "tfy4115-9-1-bb-Uverdier",
+   "type": "definition",
+   "title": "Størrelsesordener for U-verdier",
+   "content": "| Konstruksjon | $U$ i $\\text{W/(m}^2\\cdot\\text{K)}$ |\n|---|---|\n| Moderne yttervegg (200 mm isolasjon) | $0{,}15$–$0{,}22$ |\n| Moderne tak | $0{,}10$–$0{,}15$ |\n| Treglassvindu | $0{,}8$–$1{,}2$ |\n| Toglassvindu | $2{,}5$–$3{,}0$ |\n| Enkeltglass | $5$–$6$ |\n\nNytten er som størrelsesordenkontroll: får du en U-verdi på $0{,}002$ eller $50$ for en vegg, har du en enhetsfeil.\n\nLegg også merke til hvorfor vinduer dominerer varmetapet: et treglassvindu har fem ganger høyere U-verdi enn veggen rundt, et enkeltglass tretti ganger."
+  },
+  {
+   "id": "tfy4115-9-1-bb-Rsymbol",
+   "type": "definition",
+   "title": "$R$ i Del 9: termisk motstand, ikke gasskonstant",
+   "content": "Tre helt ulike størrelser med samme bokstav, og enheten avgjør hver gang:\n\n| Skrivemåte | Betydning | Enhet |\n|---|---|---|\n| $R_\\text{term}$ | termisk motstand | $\\text{K/W}$ |\n| $R$ (per $\\text{m}^2$) | R-verdi | $\\text{K}\\cdot\\text{m}^2/\\text{W}$ |\n| $R$ | gasskonstanten, $8{,}314$ | $\\text{J/(mol}\\cdot\\text{K)}$ |\n| $R$ | radius (Del 1–5) | m |\n\nI dette kapitlet betyr $R$ **alltid** termisk motstand. Trenger et regnestykke gasskonstanten samtidig, skriver vi den ut som $8{,}314\\,\\text{J/(mol}\\cdot\\text{K)}$ for å unngå tvil."
+  },
+  {
+   "id": "tfy4115-9-1-bb-celsius-trygt",
+   "type": "definition",
+   "title": "Den ene plassen celsius er trygt",
+   "content": "I varmeledning inngår temperaturen **bare som differanse**: $\\Delta T = T_i - T_u$ i Fouriers lov, og $\\Delta T_j = PR_j$ over hvert sjikt. Fordi kelvin og celsius har samme gradstørrelse, er differansen det samme tallet i begge skalaer: $21{,}0\\,^\\circ\\text{C} - (-8{,}0\\,^\\circ\\text{C}) = 29{,}0\\,\\text{K}$.\n\n**Derfor kan du regne hele dette kapitlet i celsius.** Det er unntaket i termodelen.\n\nMen to presiseringer: (i) **grenseflatetemperaturer** du regner ut, kommer ut i den skalaen du startet i — blander du, blir svaret $273{,}15$ feil; (ii) i [kap. 9.2](/tfy4115/tfy4115-9-2) er celsius **livsfarlig**, fordi strålingen går som $T^4$ og krever absolutt temperatur. Skifter du kapittel, skifter regelen."
+  },
+  {
+   "id": "tfy4115-9-1-bb-grenseflate",
+   "type": "definition",
+   "title": "Prosedyren for grenseflatetemperaturer",
+   "content": "1. Regn den samlede motstanden $R$ og fluksen $j = \\Delta T/R$.\n2. Start i en **kjent** temperatur (inne eller ute).\n3. Trekk fra (eller legg til, hvis du går innover fra utsiden) $jR_\\text{delvis}$ for hvert lag du passerer.\n4. **Kontroller ved å regne den samme temperaturen fra motsatt side.**\n\nPunkt 4 er den ene kontrollen som fanger nesten alle feil i denne varianten. Regner du ytterflatetemperaturen både som $T_i - j(R_{f,i}+R_1+R_2)$ og som $T_u + jR_{f,u}$, må du få samme svar."
+  },
+  {
+   "id": "tfy4115-9-1-bb-kuldebro",
+   "type": "definition",
+   "title": "Kuldebro",
+   "content": "Et sted i konstruksjonen der varmen finner en vei med mye lavere motstand: en stålbjelke gjennom isolasjonen, et betongdekke som stikker ut, et hjørne der isolasjonen er tynnere.\n\nFysikken er en **parallellkobling** der ett felt har mye lavere motstand, og derfor tar en uforholdsmessig stor del av varmestrømmen — akkurat som vinduet i eksempel 3. En stålbjelke har $\\kappa$ om lag tusen ganger større enn mineralull.\n\nKuldebroer er også der overflatetemperaturen inne blir lavest, og derfor der kondens og mugg oppstår først. **Kjenne til**-stoff i denne boka: du skal se sammenhengen med parallellkobling, men ikke regne detaljerte kuldebroverdier."
+  },
+  {
+   "id": "tfy4115-9-1-bb-kondens",
+   "type": "definition",
+   "title": "Overflatetemperatur og duggpunkt",
+   "content": "Kondens oppstår når en flate er **kaldere enn luftens duggpunkt** — den temperaturen der luftfuktigheten begynner å felles ut. Innendørs ligger duggpunktet typisk på $8$–$14\\,^\\circ\\text{C}$, avhengig av fuktighet.\n\nOverflatetemperaturen inne er\n$$T_s = T_i - jR_{f,i} = T_i - \\frac{\\Delta T}{R}\\cdot\\frac{1}{h_i}.$$\nDen avhenger altså av **både** den totale motstanden og av $h_i$. Derfor oppstår mugg bak skap og i hjørner: der er luftsirkulasjonen dårlig, $h_i$ lav, filmmotstanden stor, og overflaten kaldere — selv om veggen er den samme.\n\nDette er den viktigste grunnen til at tynne sjikt som gips ikke er «meningsløse» selv om de nesten ikke isolerer."
+  },
+  {
+   "id": "tfy4115-9-1-bb-stasjonar",
+   "type": "definition",
+   "title": "Hva «stasjonær» betyr",
+   "content": "Alle formlene i dette kapitlet forutsetter **stasjonær** tilstand: temperaturene har lagt seg til ro, og like mye varme går inn i hvert sjikt som ut av det. Da er varmestrømmen den samme overalt, og temperaturprofilen en fast, knekt linje.\n\nEr tilstanden IKKE stasjonær — rett etter at du har skrudd på ovnen, eller etter et raskt temperaturfall ute — hoper varme seg opp i materialene, og temperaturprofilen endrer seg med tiden. Da trengs varmeledningslikningen, en partiell differensiallikning som ligger utenfor pensum her.\n\nPraktisk: en yttervegg bruker timer på å bli stasjonær. Oppgaver som oppgir «etter lang tid» eller «i likevekt» ber deg bruke de stasjonære formlene."
+  },
+  {
+   "id": "tfy4115-9-1-bb-sjangert9",
+   "type": "definition",
+   "title": "Sjanger T9 — varmeledningsoppgaven",
+   "content": "Signaturen: en sammensatt vegg med oppgitte tykkelser og $\\kappa$-verdier, en innetemperatur og en utetemperatur. Fire varianter går igjen:\n\n1. **finn varmestrømmen** per kvadratmeter eller totalt;\n2. **finn en grenseflatetemperatur**;\n3. **legg på varmeovergang** $h_i$ og $h_u$ og regn på nytt;\n4. **regn baklengs**: hvor tykk isolasjon, eller hvilken $\\kappa$?\n\nAv og til med en parallell-vending (vegg med vindu). Oppgaven er blant de raskeste i termohalvdelen når du har rutinen: to til tre minutter, hvorav mesteparten går til å skrive motstandene ned."
+  },
+  {
+   "id": "tfy4115-9-1-bb-mc-tempo",
+   "type": "definition",
+   "title": "MC-tempo i varmeledningsoppgaver",
+   "content": "Tidsbudsjett per spørsmål:\n\n- **tjue sekunder** på å skrive alle tykkelser om til meter og identifisere hvilke motstander som finnes;\n- **tretti sekunder** på å regne hver motstand som eget mellomresultat og summere;\n- **tjue sekunder** på selve divisjonen;\n- **tjue sekunder** på kontrollene (summerer fallene? rimelig U-verdi? fluks eller effekt?).\n\nHalvparten av tiden går til bokføring, og det er riktig: i denne sjangeren er nesten alle feil bokføringsfeil, ikke regnefeil."
+  },
+  {
+   "id": "tfy4115-9-1-bb-eliminasjon",
+   "type": "definition",
+   "title": "Eliminasjon ved størrelsesorden",
+   "content": "Fire grenser stryker alternativer uten regning:\n\n1. **U-verdi for en vegg** ligger mellom $0{,}10$ og $0{,}30$. Alt utenfor er enhetsfeil eller R-verdi.\n2. **Varmefluks gjennom en vegg** ved $25$–$30\\,\\text{K}$ forskjell ligger på $4$–$8\\,\\text{W/m}^2$.\n3. **Grenseflatetemperaturer** ligger MELLOM inne og ute, og faller monotont utover.\n4. **Samlet varmetap i parallell** er større enn hvert enkeltbidrag.\n\nPunkt 1 og 2 alene stryker som regel tre av seks alternativer — de er nesten alltid en faktor 1000 eller den inverse verdien."
+  },
+  {
+   "id": "tfy4115-9-1-coll-symbolliste",
+   "type": "collapsible",
+   "title": "Symbol- og formelliste",
+   "buttonText": "Vis symboler og formler",
+   "content": [
+    {
+     "id": "tfy4115-9-1-symb-1",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n**Kolliderende symboler i dette delkapitlet — les nøye.**\n\n- $R_\\text{term}$ er **termisk motstand** i $\\text{K/W}$ (eller $\\text{K}\\cdot\\text{m}^2/\\text{W}$ per kvadratmeter). Det er **ikke** gasskonstanten $R = 8{,}314\\,\\text{J/(mol}\\cdot\\text{K)}$ fra [kap. 8.1](/tfy4115/tfy4115-8-1), og **ikke** radiusen fra mekanikken. Enheten avgjør.\n- $T$ er **temperatur**; i dette kapitlet er celsius trygt, fordi bare differanser inngår. I [kap. 9.2](/tfy4115/tfy4115-9-2) kreves kelvin, fordi strålingen går som $T^4$.\n- $\\kappa$ (kappa) er **varmeledningsevne**; symbolet skrives $k$ eller $\\lambda$ i annen litteratur, men vi holder $k$ fri til fjærstivheten fra Del 5 og $k_B$ til Boltzmanns konstant.\n- $h$ er **varmeovergangskoeffisient** i $\\text{W/(m}^2\\cdot\\text{K)}$; i mekanikken var $h$ en høyde i meter.\n- $j$ er **varmefluks** i $\\text{W/m}^2$, ikke en indeks.\n- $\\ell$ er **tykkelse** i meter; $L$ i [kap. 8.2](/tfy4115/tfy4115-8-2) var spesifikk faseovergangsvarme, og $\\mathbf{L}$ i Del 4 dreieimpuls.\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $j$ | Varmefluks, varmestrøm per areal | $\\text{W/m}^2$ |\n| $P$ | Varmestrøm (effekt) | W |\n| $\\kappa$ | Varmeledningsevne | $\\text{W/(m}\\cdot\\text{K)}$ |\n| $\\ell$ | Tykkelse av et sjikt | m |\n| $A$ | Areal | $\\text{m}^2$ |\n| $\\Delta T$ | Temperaturdifferanse (celsius trygt) | K |\n| $R_\\text{term}$ | Termisk motstand (ikke gasskonstant) | K/W |\n| $R$ | R-verdi, motstand per $\\text{m}^2$ | $\\text{K}\\cdot\\text{m}^2/\\text{W}$ |\n| $U$ | U-verdi, $1/R$ | $\\text{W/(m}^2\\cdot\\text{K)}$ |\n| $h_i$, $h_u$ | Varmeovergangskoeffisient inne, ute | $\\text{W/(m}^2\\cdot\\text{K)}$ |\n| $T_s$ | Overflatetemperatur | $^\\circ\\text{C}$ eller K |\n| $T_\\text{dugg}$ | Duggpunkt | $^\\circ\\text{C}$ |\n| $c$ | Spesifikk varmekapasitet | $\\text{J/(kg}\\cdot\\text{K)}$ |\n\n**Formler i dette delkapitlet:**\n\n$$j = \\kappa\\,\\frac{\\Delta T}{\\ell}, \\qquad P = jA$$\nFouriers lov [står på det utdelte arket].\n\n$$R_\\text{term} = \\frac{\\ell}{\\kappa A}, \\qquad P = \\frac{\\Delta T}{R_\\text{term}}$$\nTermisk motstand — analogien til Ohms lov [må kunne brukes eller utledes aktivt].\n\n$$R_\\text{term} = \\sum_j \\frac{\\ell_j}{\\kappa_j A} \\quad\\text{(serie)}$$\nSjikt etter hverandre: motstandene summeres [må kunne brukes eller utledes aktivt].\n\n$$R_\\text{film} = \\frac{1}{hA}$$\nVarmeovergang — merk at det ikke finnes noen tykkelse i uttrykket [står på det utdelte arket].\n\n$$\\frac{\\Delta T_j}{\\Delta T_\\text{total}} = \\frac{R_j}{R_\\text{term}}, \\qquad T = T_\\text{inne} - P\\,R_\\text{delvis}$$\nTemperaturfordeling og grenseflatetemperaturer [må kunne brukes eller utledes aktivt].\n\n$$U = \\frac{1}{R_\\text{total}}, \\qquad P = UA\\,\\Delta T$$\nU-verdien [må kunne brukes eller utledes aktivt].\n\n$$P = \\left(\\sum_j U_jA_j\\right)\\Delta T, \\qquad \\frac{1}{R_\\text{term}} = \\sum_j \\frac{1}{R_j} \\quad\\text{(parallell)}$$\nFelt ved siden av hverandre [må kunne brukes eller utledes aktivt].\n\n$$\\ell = \\kappa R, \\qquad \\kappa = \\frac{\\ell}{R}$$\nBaklengs-variantene [må kunne brukes eller utledes aktivt].\n\n$$T_s = T_i - \\frac{\\Delta T}{R}\\cdot\\frac{1}{h_i}$$\nOverflatetemperaturen inne, som avgjør kondens [må kunne brukes eller utledes aktivt].\n\n$$1\\,\\text{kWh} = 3{,}6\\cdot10^6\\,\\text{J}, \\qquad 1\\,\\text{mm} = 10^{-3}\\,\\text{m}$$\nOmregningene som faktisk feller folk [Rottmann]."
+    }
+   ]
+  },
+  {
+   "id": "tfy4115-9-1-coll-repetisjon",
+   "type": "collapsible",
+   "title": "Repetisjonsoppgaver",
+   "buttonText": "Vis repetisjonsoppgaver",
+   "content": [
+    {
+     "id": "tfy4115-9-1-rep-1",
+     "type": "text",
+     "content": "Seks korte oppgaver på det dette kapitlet hviler på. Ta dem før du går videre til [kap. 9.2](/tfy4115/tfy4115-9-2).\n\n**R1.** Finn den termiske motstanden per kvadratmeter til $150\\,\\text{mm}$ mineralull med $\\kappa = 0{,}040\\,\\text{W/(m}\\cdot\\text{K)}$.\n\n*Svar:* $R = 0{,}150/0{,}040 = 3{,}750\\ \\text{K}\\cdot\\text{m}^2/\\text{W}$. Merk millimeter til meter først.\n\n**R2.** Hva er U-verdien til det samme sjiktet alene?\n\n*Svar:* $U = 1/3{,}750 = 0{,}2667\\,\\text{W/(m}^2\\cdot\\text{K)}$.\n\n**R3.** En vegg har $R = 4{,}50\\ \\text{K}\\cdot\\text{m}^2/\\text{W}$, inne $20{,}0\\,^\\circ\\text{C}$ og ute $-10{,}0\\,^\\circ\\text{C}$. Finn varmefluksen.\n\n*Svar:* $j = 30{,}0/4{,}50 = 6{,}667\\,\\text{W/m}^2$.\n\n**R4.** Samme vegg, areal $15{,}0\\,\\text{m}^2$. Finn effekttapet.\n\n*Svar:* $P = jA = 6{,}667 \\cdot 15{,}0 = 100{,}0\\,\\text{W}$. Merk forskjellen fra R3: fluks mot effekt.\n\n**R5.** Et luftsjikt har $h = 10{,}0\\,\\text{W/(m}^2\\cdot\\text{K)}$. Finn motstanden per kvadratmeter.\n\n*Svar:* $R = 1/h = 0{,}100\\ \\text{K}\\cdot\\text{m}^2/\\text{W}$. Ingen tykkelse i uttrykket.\n\n**R6.** En vegg på $12{,}0\\,\\text{m}^2$ har $U = 0{,}20$, og et vindu på $3{,}00\\,\\text{m}^2$ har $U = 1{,}00\\,\\text{W/(m}^2\\cdot\\text{K)}$. Finn samlet $UA$ og varmetapet ved $\\Delta T = 25{,}0\\,\\text{K}$.\n\n*Svar:* $UA = 0{,}20 \\cdot 12{,}0 + 1{,}00 \\cdot 3{,}00 = 2{,}40 + 3{,}00 = 5{,}40\\,\\text{W/K}$, og $P = 5{,}40 \\cdot 25{,}0 = 135{,}0\\,\\text{W}$. Vinduet er $20$ prosent av arealet og $55{,}6$ prosent av tapet."
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}

@@ -1,0 +1,452 @@
+{
+ "id": "tfy4115-10-1",
+ "courseId": "tfy4115",
+ "chapterNumber": "10.1",
+ "title": "van der Waals, kritisk punkt og fasediagram",
+ "description": "van der Waals' tilstandsligning, det kritiske punktet, og fasediagrammet i $p$–$T$ med trippelpunkt og kritisk punkt.",
+ "estimatedMinutes": 55,
+ "competenceGoals": [
+  "bruke van der Waals' tilstandsligning til å finne trykk, volum eller temperatur for en tett gass, og se når den går over i den ideelle gassloven",
+  "utlede og bruke uttrykkene for kritisk volum, kritisk trykk og kritisk temperatur ut fra de to konstantene i ligningen",
+  "lese et fasediagram: plassere et punkt i riktig fase, og skille trippelpunktet fra det kritiske punktet",
+  "forklare hvorfor det ikke finnes flytende fase under trippeltrykket, og hva som skjer over den kritiske temperaturen"
+ ],
+ "content": [
+  {
+   "id": "tfy4115-10-1-tip-eksamensvinkel",
+   "type": "tip",
+   "title": "Eksamensvinkel",
+   "content": "**Sjanger T11 — van der Waals- og fasediagramoppgaven, altså en gass som er så tett at den ikke lenger oppfører seg ideelt, og et diagram der du skal lese av hvilken fase et stoff har.** Fasediagram-varianten dukker opp i rundt seks av ti sett (~60 %), van der Waals-varianten i om lag halvparten (~50 %). Begge hører til **termofysikkhalvdelen, spørsmål 21–40**. Prioritet: **bør sitte** — Del 6 til 9 er tyngre, men dette er gratispoeng når det kommer, og det kommer ofte nok.\n\nTre varianter går igjen.\n\n1. **Kritisk punkt fra $a$ og $b$.** Du får de to van der Waals-konstantene for en gass og skal finne kritisk volum, kritisk trykk og kritisk temperatur. Ren innsetting i tre formler som står på det utdelte arket — men det er lett å bytte om på dem.\n2. **Fasediagram-avlesning.** Et punkt er markert i et $p$–$T$-diagram, og du skal si hvilken fase stoffet har, eller hva som skjer hvis du varmer opp ved fast trykk.\n3. **Korreksjon mot ideell gass.** Regn trykket to ganger — én gang med $pV=nRT$, én gang med van der Waals — og si hvor mye de skiller seg.\n\n**Ordforklaringer først, før noen formel.** En **reell gass** er en virkelig gass, i motsetning til den idealiserte modellen der molekylene verken tar plass eller tiltrekker hverandre. En **fase** er en av de tre tilstandsformene fast, flytende eller gass. Et **fasediagram** er et kart som viser hvilken fase stoffet har ved hvert trykk og hver temperatur. **Trippelpunktet** er det ene punktet der alle tre fasene kan finnes samtidig. Det **kritiske punktet** er der forskjellen mellom væske og gass forsvinner helt. **Sublimasjon** er overgangen rett fra fast stoff til gass, uten å innom væske — det tørris gjør.\n\n**Den ene tingen som gjør sjangeren farlig:** de to konstantene $a$ og $b$ retter opp hver sin svakhet ved den ideelle gassloven, og de brukes ulikt. $a$ korrigerer **trykket**, $b$ korrigerer **volumet**. Bytter du om, får du et tall som ser rimelig ut og er galt.\n\n## ⚠ Symbolvarsel\n\n$T$ er **absolutt temperatur i kelvin**, uten unntak i dette kapitlet — gasslov, kritisk temperatur og fasediagram krever alle kelvin. $p$ er **trykk** (en skalar), ikke bevegelsesmengde slik $p$ betyr i mekanikkhalvdelen. $R$ er **gasskonstanten** $8{,}314\\,\\text{J/(mol}\\cdot\\text{K)}$, ikke en radius og ikke en termisk motstand. $V$ er volum; $V_c$ er det kritiske volumet. Konstantene $a$ og $b$ er van der Waals-konstanter for ett bestemt stoff, ikke akselerasjon og ikke dempingskonstant."
+  },
+  {
+   "id": "tfy4115-10-1-forkunnskaper",
+   "type": "text",
+   "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet bygger på [kap. 6.1](/tfy4115/tfy4115-6-1). Du trenger tre ting derfra, og de står her:\n\n$$pV = nRT, \\qquad R = 8{,}314\\,\\text{J/(mol}\\cdot\\text{K)}$$\n**Den ideelle gassloven.** $p$ i pascal, $V$ i kubikkmeter, $n$ i mol og $T$ i **kelvin**. Hele dette kapitlet handler om hva som skjer når den ikke lenger stemmer.\n\n$$n = \\frac{m}{M} = \\frac{N}{N_A}, \\qquad N_A = 6{,}022\\cdot10^{23}\\,\\text{mol}^{-1}$$\n**Stoffmengden.** Antall mol fra masse og molar masse, eller fra antall molekyler.\n\n$$\\text{ideell gass: molekylene har ikke volum og tiltrekker ikke hverandre}$$\n**De to antakelsene modellen hviler på.** Det er nettopp de to van der Waals reparerer, én konstant på hver.\n\n**Nytt i dette kapitlet:** vi forlater den ideelle gassen. Når en gass presses tett nok sammen, eller kjøles nok ned, begynner molekylenes eget volum og deres innbyrdes tiltrekning å bety noe — og til slutt kondenserer gassen til væske. Det er det siste den ideelle gassloven aldri kan beskrive: en ideell gass blir aldri flytende, uansett hvor hardt du klemmer.\n\n**Du kan ha møtt fasediagram og faseoverganger i Fysikk 1 eller Kjemi 1 på videregående.** Vi bygger her videre på den samme figuren, men med tall og med van der Waals-ligningen bak.\n\n**Behold fire gjeldende siffer gjennom hele regnekjeden.** Formlene for det kritiske punktet inneholder $b^2$ og $b^3$, og en avrunding tidlig i kjeden forsterkes."
+  },
+  {
+   "id": "tfy4115-10-1-lokke1",
+   "type": "text",
+   "content": "## Løkke 1 — hvorfor en ekte gass ikke er ideell (~14 min)\n\nTa en fylt propanflaske i hånda og rist den. Det klukker. Inni er det **væske**, ikke gass — og likevel er propan en gass ved vanlig trykk og temperatur. Presser du en gass hardt nok sammen, blir den flytende. Den ideelle gassloven $pV=nRT$ kan aldri fortelle deg det: setter du inn et lite volum, spytter den bare ut et stort trykk, i det uendelige.\n\n*Hverdagsanker:* en engangs-CO$_2$-patron til en sykkelpumpe veier omtrent $16\\,\\text{g}$ og er på størrelse med en tommel. Regner du det som ideell gass ved romtemperatur, får du et trykk på flere hundre bar. I virkeligheten er innholdet **flytende** karbondioksid ved rundt $57$ bar. Modellen bommer ikke litt — den beskriver feil tilstandsform.\n\nDen ideelle gassloven hviler på to antakelser, og begge svikter ved høy tetthet:\n\n1. **Molekylene tar ikke plass.** Men de gjør det. Når gassen presses sammen, er ikke hele beholdervolumet tilgjengelig for bevegelse — en del er opptatt av molekylene selv.\n2. **Molekylene tiltrekker ikke hverandre.** Men de gjør det. Et molekyl på vei mot veggen blir trukket bakover av naboene sine, og treffer veggen litt saktere. Trykket blir derfor **lavere** enn det ideelle.\n\nJohannes Diderik van der Waals la i 1873 inn én korreksjon for hver av de to. Det er hele ligningen."
+  },
+  {
+   "id": "tfy4115-10-1-def-reell-gass",
+   "type": "definition",
+   "title": "Reell gass",
+   "content": "En virkelig gass, der molekylene **har et eget volum** og **tiltrekker hverandre**. Motsatsen er den ideelle gassen, som er en modell der begge deler er satt til null.\n\nAlle gasser er reelle. Spørsmålet er bare når forskjellen betyr noe:\n\n- **Lav tetthet** (lavt trykk, høy temperatur): molekylene er langt fra hverandre, begge korreksjonene er små, og $pV=nRT$ er utmerket. Luft ved romtemperatur og én atmosfære bommer under én promille.\n- **Høy tetthet** (høyt trykk, lav temperatur): korreksjonene tar over, og avviket kan bli titalls prosent.\n- **Nær faseovergangen**: den ideelle gassloven er ikke bare unøyaktig, den er kvalitativt feil — den kjenner ikke til væskefasen i det hele tatt.\n\nGyldighetsbetingelsen kan sies med ett tall: så lenge molarvolumet $V/n$ er mange ganger større enn egenvolumet $b$, er gassen praktisk talt ideell."
+  },
+  {
+   "id": "tfy4115-10-1-def-vdw",
+   "type": "definition",
+   "title": "van der Waals' tilstandsligning",
+   "content": "Tilstandsligningen for en reell gass, altså sammenhengen mellom trykk, volum, stoffmengde og temperatur når molekylenes eget volum og innbyrdes tiltrekning tas med:\n$$\\left(p + \\frac{an^2}{V^2}\\right)(V - nb) = nRT.$$\n\nLøst for trykket — den formen du regner med i praksis:\n$$p = \\frac{nRT}{V - nb} - \\frac{an^2}{V^2}.$$\n\n**$a$** måler tiltrekningen mellom molekylene og har enheten $\\text{Pa}\\cdot\\text{m}^6/\\text{mol}^2$. **$b$** er egenvolumet per mol, i $\\text{m}^3/\\text{mol}$. Begge er **stoffavhengige** og oppgis i oppgaven eller på det utdelte arket.\n\nGyldighetsbetingelsen: ligningen er en forbedret modell, ikke en eksakt lov. Den treffer godt for gasser og rimelig nær det kritiske punktet, men den er unøyaktig for tette væsker. Setter du $a=0$ og $b=0$, faller den tilbake til $pV=nRT$ — det er den beste kontrollen på at du har skrevet den riktig. [står på det utdelte arket]"
+  },
+  {
+   "id": "tfy4115-10-1-def-b",
+   "type": "definition",
+   "title": "Egenvolumet $b$ (kovolumet)",
+   "content": "Volumet per mol som molekylene selv opptar, og som derfor **ikke** er tilgjengelig for bevegelse. Det trekkes fra beholdervolumet:\n$$V \\ \\longrightarrow \\ V - nb.$$\n\nFordi nevneren blir mindre, gjør $b$ trykket **høyere** enn den ideelle gassloven forutsier. Intuisjonen er at gassen har mindre plass å boltre seg på enn du trodde, så molekylene treffer veggen oftere.\n\nStørrelsesorden: for karbondioksid er $b = 4{,}267\\cdot10^{-5}\\,\\text{m}^3/\\text{mol} = 42{,}67\\,\\text{cm}^3/\\text{mol}$. Til sammenligning er molarvolumet til en ideell gass ved romtemperatur og én atmosfære $24{,}5\\,\\text{L/mol} = 24\\,500\\,\\text{cm}^3/\\text{mol}$. Egenvolumet er altså under to promille av volumet under normale forhold — og det er derfor korreksjonen er usynlig der.\n\n$b$ setter også en **hard grense**: volumet kan aldri komme under $nb$, for da blir nevneren null og trykket uendelig. Det er modellens måte å si at et stoff ikke kan komprimeres i det uendelige."
+  },
+  {
+   "id": "tfy4115-10-1-def-a",
+   "type": "definition",
+   "title": "Tiltrekningsleddet $a$",
+   "content": "Målet på hvor sterkt molekylene trekker på hverandre. Det trekkes fra trykket:\n$$p \\ \\longrightarrow \\ p + \\frac{an^2}{V^2}, \\qquad \\text{altså} \\qquad p = \\frac{nRT}{V-nb} - \\frac{an^2}{V^2}.$$\n\nFordi leddet subtraheres i trykkuttrykket, gjør $a$ trykket **lavere** enn den ideelle gassloven forutsier. Intuisjonen er at et molekyl på vei mot veggen blir trukket bakover av naboene og dermed dunker svakere i den.\n\nHvorfor $n^2/V^2$? Tiltrekningen krever **to** molekyler, og sannsynligheten for at to molekyler er nær hverandre går som kvadratet av tettheten $n/V$. Derfor kvadratet, ikke første potens.\n\n$a$ er stort for molekyler som henger godt sammen: vann har $a = 0{,}5536$, karbondioksid $0{,}3640$, nitrogen $0{,}1370$ og helium bare $0{,}00346$, alle i $\\text{Pa}\\cdot\\text{m}^6/\\text{mol}^2$. Rekkefølgen er den samme som rekkefølgen på kokepunktene, og det er ikke tilfeldig: sterk tiltrekning gir høyt kokepunkt."
+  },
+  {
+   "id": "tfy4115-10-1-th-vdw",
+   "type": "theorem",
+   "title": "van der Waals-ligningen og de to korreksjonene",
+   "content": "$$\\boxed{\\left(p + \\frac{an^2}{V^2}\\right)(V - nb) = nRT}$$\n\nDe to korreksjonene trekker i **hver sin retning**, og det er kjernen i hele modellen:\n\n| Ledd | Korrigerer | Retning på trykket | Dominerer når |\n|---|---|---|---|\n| $-nb$ i volumet | at molekylene tar plass | **opp** | volumet er lite (sterk kompresjon) |\n| $-an^2/V^2$ i trykket | at molekylene tiltrekker hverandre | **ned** | temperaturen er lav |\n\n**Grensen mot ideell gass.** Sett $a=0$ og $b=0$:\n$$\\left(p + 0\\right)(V - 0) = nRT \\quad\\Longrightarrow\\quad pV = nRT.$$\n\nDet stemmer ✔ — den ideelle gassloven er van der Waals-ligningen for molekyler uten volum og uten tiltrekning.\n\nSamme grense nås når volumet blir stort: da går $an^2/V^2 \\to 0$ og $nb/V \\to 0$, og de to leddene forsvinner av seg selv. **Dette er kontrollen du alltid skal gjøre** — får du et vdW-trykk som er vilt forskjellig fra det ideelle for en tynn gass, har du regnefeil.\n\n**Hvilket ledd vinner?** Ved lav temperatur og moderat kompresjon vinner tiltrekningen, og vdW-trykket ligger **under** det ideelle. Ved svært sterk kompresjon vinner egenvolumet, og vdW-trykket skyter **over** det ideelle. Overgangen skjer der de to bidragene er like store. [står på det utdelte arket]"
+  },
+  {
+   "id": "tfy4115-10-1-ex-1",
+   "type": "example",
+   "title": "Eksempel 1: karbondioksid — hvor mye bommer den ideelle gassloven?",
+   "problem": "Ett mol karbondioksid holdes i et volum på $1{,}00\\,\\text{L}$ ved $300\\,\\text{K}$. For CO$_2$ er $a = 0{,}3640\\,\\text{Pa}\\cdot\\text{m}^6/\\text{mol}^2$ og $b = 4{,}267\\cdot10^{-5}\\,\\text{m}^3/\\text{mol}$.\n\n**a)** Finn trykket med den ideelle gassloven.\n\n**b)** Finn trykket med van der Waals' ligning, og oppgi hvor stort hvert av de to leddene er.\n\n**c)** Hvor mange prosent bommer den ideelle gassloven?\n\n**d)** Samme gass komprimeres til $0{,}200\\,\\text{L}$ ved $350\\,\\text{K}$. Gjenta sammenligningen, og forklar hvorfor avviket vokser.",
+   "solution": "**a) Symbolsk.** $p_\\text{id} = nRT/V$.\n\n**Rask vei til tall.** Volumet i **kubikkmeter** først: $1{,}00\\,\\text{L} = 1{,}00\\cdot10^{-3}\\,\\text{m}^3$.\n$$p_\\text{id} = \\frac{1{,}00 \\cdot 8{,}314 \\cdot 300}{1{,}00\\cdot10^{-3}}\\,\\text{Pa} = 2{,}4942\\cdot10^{6}\\,\\text{Pa} = 2{,}494\\,\\text{MPa}.$$\n\n**b) Symbolsk.** $p = \\dfrac{nRT}{V-nb} - \\dfrac{an^2}{V^2}$.\n\n**Rask vei til tall.** Regn de to leddene hver for seg, som egne mellomresultater:\n$$V - nb = 1{,}00\\cdot10^{-3} - 4{,}267\\cdot10^{-5} = 9{,}5733\\cdot10^{-4}\\,\\text{m}^3,$$\n$$\\text{ledd 1} = \\frac{2494{,}2}{9{,}5733\\cdot10^{-4}}\\,\\text{Pa} = 2{,}6054\\cdot10^{6}\\,\\text{Pa},$$\n$$\\text{ledd 2} = \\frac{0{,}3640}{\\left(1{,}00\\cdot10^{-3}\\right)^2}\\,\\text{Pa} = 3{,}6400\\cdot10^{5}\\,\\text{Pa}.$$\n$$p = 2{,}6054\\cdot10^{6} - 0{,}3640\\cdot10^{6} = 2{,}2414\\cdot10^{6}\\,\\text{Pa} = 2{,}241\\,\\text{MPa}.$$\n\nLegg merke til retningene: egenvolumet løftet trykket med $0{,}111\\,\\text{MPa}$, tiltrekningen dro det ned med $0{,}364\\,\\text{MPa}$. **Tiltrekningen vant**, og nettoresultatet ble et lavere trykk enn det ideelle.\n\n**c)**\n$$\\frac{2{,}2414 - 2{,}4942}{2{,}4942} = -0{,}1014,$$\naltså **$10{,}1$ prosent for høyt** med den ideelle gassloven. Det er langt utenfor det du kan avfeie som avrunding.\n\n**d)** Med $V = 0{,}200\\,\\text{L} = 2{,}00\\cdot10^{-4}\\,\\text{m}^3$ og $T = 350\\,\\text{K}$:\n$$p_\\text{id} = \\frac{8{,}314 \\cdot 350}{2{,}00\\cdot10^{-4}}\\,\\text{Pa} = 1{,}4550\\cdot10^{7}\\,\\text{Pa} = 14{,}55\\,\\text{MPa},$$\n$$V - nb = 2{,}00\\cdot10^{-4} - 4{,}267\\cdot10^{-5} = 1{,}5733\\cdot10^{-4}\\,\\text{m}^3,$$\n$$\\text{ledd 1} = \\frac{2909{,}9}{1{,}5733\\cdot10^{-4}} = 1{,}8496\\cdot10^{7}\\,\\text{Pa}, \\qquad \\text{ledd 2} = \\frac{0{,}3640}{4{,}00\\cdot10^{-8}} = 9{,}1000\\cdot10^{6}\\,\\text{Pa},$$\n$$p = 1{,}8496\\cdot10^{7} - 9{,}100\\cdot10^{6} = 9{,}396\\cdot10^{6}\\,\\text{Pa} = 9{,}396\\,\\text{MPa},$$\naltså **$35{,}4$ prosent** under det ideelle.\n\n**Hvorfor vokser avviket?** Begge korreksjonene skalerer med tettheten. Femdobler du tettheten, blir tiltrekningsleddet $25$ ganger større ($\\propto 1/V^2$), mens egenvolumets andel av volumet femdobles. Korreksjonene er små bare så lenge gassen er tynn.\n\n**Sluttsjekk, fire ledd.** (i) Volumet i $\\text{m}^3$, ikke liter. (ii) Temperaturen i **kelvin**. (iii) De to leddene har motsatt fortegn og er regnet hver for seg. (iv) Størrelsesorden: en gass komprimert til $1\\,\\text{L/mol}$ ligger i megapascal-området, ikke i kilopascal — det er $25$ ganger tettere enn romluft."
+  },
+  {
+   "id": "tfy4115-10-1-o-1",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-10-1-ex-1",
+    "number": 1,
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Innstegsoppgave — enheter og grensen mot ideell gass.)\n\n**a)** Vis at $b$ må ha enheten $\\text{m}^3/\\text{mol}$ og $a$ enheten $\\text{Pa}\\cdot\\text{m}^6/\\text{mol}^2$, ut fra at hvert ledd i van der Waals-ligningen må ha samme enhet som leddet det står sammen med.\n\n**b)** Hva blir van der Waals-ligningen hvis du setter $a = 0$ og $b = 0$?\n\n**c)** Ett mol nitrogen har $b = 3{,}870\\cdot10^{-5}\\,\\text{m}^3/\\text{mol}$. Hvor stor brøkdel av volumet er opptatt av molekylene selv når gassen fyller $24{,}5\\,\\text{L}$?",
+    "solution": "**a)** I ligningen $\\left(p + an^2/V^2\\right)(V-nb) = nRT$ må $an^2/V^2$ ha enheten til **trykk**, altså pascal:\n$$[a]\\cdot\\frac{\\text{mol}^2}{\\text{m}^6} = \\text{Pa} \\quad\\Longrightarrow\\quad [a] = \\text{Pa}\\cdot\\text{m}^6/\\text{mol}^2.$$\nOg $nb$ må ha enheten til **volum**:\n$$\\text{mol}\\cdot[b] = \\text{m}^3 \\quad\\Longrightarrow\\quad [b] = \\text{m}^3/\\text{mol}.$$\n\n**b)** Da forsvinner begge korreksjonene:\n$$(p + 0)(V - 0) = nRT \\quad\\Longrightarrow\\quad pV = nRT.$$\nDen ideelle gassloven er altså van der Waals-ligningen for molekyler uten volum og uten tiltrekning. Det er også den raskeste kontrollen på at du har skrevet ligningen riktig.\n\n**c)**\n$$\\frac{nb}{V} = \\frac{1{,}00 \\cdot 3{,}870\\cdot10^{-5}}{24{,}5\\cdot10^{-3}} = 1{,}580\\cdot10^{-3},$$\naltså **$0{,}158$ prosent** — under to promille. Det er derfor luft ved romtemperatur og vanlig trykk kan regnes som ideell gass uten videre.",
+    "hints": [
+     "Hvert ledd i en sum må ha samme enhet som det det legges til.",
+     "Sett de to konstantene til null i ligningen, ledd for ledd.",
+     "Brøkdelen er $nb$ delt på det totale volumet — pass på at begge er i $\\text{m}^3$."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-10-1-o-2",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-10-1-ex-2",
+    "number": 2,
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger T11 — van der Waals-oppgaven.) Tre mol nitrogen holdes i $2{,}00\\,\\text{L}$ ved $250\\,\\text{K}$. For N$_2$ er $a = 0{,}1370\\,\\text{Pa}\\cdot\\text{m}^6/\\text{mol}^2$ og $b = 3{,}870\\cdot10^{-5}\\,\\text{m}^3/\\text{mol}$.\n\n**a)** Finn trykket med den ideelle gassloven.\n\n**b)** Finn trykket med van der Waals' ligning.\n\n**c)** Hvilket av de to korreksjonsleddene dominerer her, og hva forteller det deg om tettheten?",
+    "solution": "**a)**\n$$p_\\text{id} = \\frac{nRT}{V} = \\frac{3{,}00 \\cdot 8{,}314 \\cdot 250}{2{,}00\\cdot10^{-3}}\\,\\text{Pa} = 3{,}1178\\cdot10^{6}\\,\\text{Pa} = 3118\\,\\text{kPa}.$$\n\n**b) Rask vei til tall.** To ledd, hvert for seg:\n$$V - nb = 2{,}00\\cdot10^{-3} - 3{,}00 \\cdot 3{,}870\\cdot10^{-5} = 2{,}00\\cdot10^{-3} - 1{,}1610\\cdot10^{-4} = 1{,}8839\\cdot10^{-3}\\,\\text{m}^3,$$\n$$\\text{ledd 1} = \\frac{6235{,}5}{1{,}8839\\cdot10^{-3}} = 3{,}3099\\cdot10^{6}\\,\\text{Pa}, \\qquad \\text{ledd 2} = \\frac{0{,}1370 \\cdot 9{,}00}{4{,}00\\cdot10^{-6}} = 3{,}0825\\cdot10^{5}\\,\\text{Pa},$$\n$$p = 3{,}3099\\cdot10^{6} - 3{,}0825\\cdot10^{5} = 3{,}0016\\cdot10^{6}\\,\\text{Pa} = 3002\\,\\text{kPa}.$$\n\nAvviket er $-3{,}72$ prosent.\n\n**c)** Egenvolumet løftet trykket med $0{,}1921\\,\\text{MPa}$, tiltrekningen dro det ned med $0{,}3083\\,\\text{MPa}$ — **tiltrekningen dominerer**, men bare med en faktor $1{,}6$. Gassen er altså i et mellomområde: tett nok til at korreksjonene er målbare, men langt fra så tett at egenvolumet tar over. Molarvolumet er $0{,}667\\,\\text{L/mol}$, som er $17$ ganger egenvolumet $b$ — det er nok til et avvik på noen prosent, men ikke til titalls.\n\n**Sluttsjekk:** (i) begge ledd regnet med $n=3{,}00$, ikke med $n=1$ — det er den vanligste slurvefeilen når $n\\neq1$; merk at $a$-leddet går med $n^2 = 9{,}00$. (ii) Volum i $\\text{m}^3$. (iii) Kelvin. (iv) vdW-trykket ligger under det ideelle, som forventet ved moderat tetthet.",
+    "hints": [
+     "Regn $nb$ og $an^2$ som egne mellomresultater — begge inneholder $n$, og $a$-leddet inneholder $n^2$.",
+     "Ledd 1 er $nRT/(V-nb)$, ledd 2 er $an^2/V^2$. De trekker i hver sin retning.",
+     "Sammenlign de to leddene tallmessig og se hvilket som er størst."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-10-1-lokke2",
+   "type": "text",
+   "content": "## Løkke 2 — det kritiske punktet (~18 min)\n\n— naturlig pausepunkt —\n\nFyll en gjennomsiktig trykkbeholder med karbondioksid, hold trykket høyt og varm den langsomt. Du ser en tydelig væskeflate nederst med damp over. Passerer du $304\\,\\text{K}$ — bare $31$ grader celsius — **forsvinner flaten**. Ikke fordi væsken koker bort, men fordi væske og damp blir umulige å skille. Væsken har samme tetthet som dampen, og all forskjell er borte.\n\nDen temperaturen heter den **kritiske temperaturen** $T_c$. Over den finnes ingen væskefase i det hele tatt, uansett hvor hardt du klemmer. Det er derfor du kan kjøpe flytende propan i en flaske ($T_c = 370\\,\\text{K}$), men aldri flytende oksygen i en flaske i romtemperatur ($T_c = 155\\,\\text{K}$).\n\n*Intuisjon:* over $T_c$ har molekylene så mye termisk energi at tiltrekningen mellom dem ikke lenger klarer å holde dem sammen i en tett fase. Tiltrekningen er der fremdeles — den er bare for svak til å vinne.\n\nDet bemerkelsesverdige er at van der Waals-ligningen **forutsier** dette punktet, og at trykk, volum og temperatur der bare avhenger av $a$ og $b$."
+  },
+  {
+   "id": "tfy4115-10-1-def-kritisk-punkt",
+   "type": "definition",
+   "title": "Kritisk punkt",
+   "content": "Det ene punktet $(T_c, p_c, V_c)$ der **forskjellen mellom væske og gass forsvinner**. Over den kritiske temperaturen finnes ingen skarp faseovergang: uansett hvor mye du komprimerer, blir stoffet gradvis tettere uten at det noen gang dannes en væskeflate.\n\nI $pV$-diagrammet kjennes punktet igjen på formen til isotermen: den kritiske isotermen har et **vendepunkt med vannrett tangent**. Under $T_c$ har isotermen en bølge med et lokalt maksimum og et lokalt minimum; over $T_c$ faller den monotont. Ved $T_c$ smelter maksimum og minimum sammen til ett punkt.\n\nMatematisk er det nettopp den betingelsen:\n$$\\left(\\frac{\\partial p}{\\partial V}\\right)_T = 0 \\qquad\\text{og}\\qquad \\left(\\frac{\\partial^2 p}{\\partial V^2}\\right)_T = 0 \\ \\text{i samme punkt}.$$\n\nI fasediagrammet er det kritiske punktet der **damptrykkslinjen slutter**. Linjen fortsetter ikke — den tar bare slutt, og det er hele poenget."
+  },
+  {
+   "id": "tfy4115-10-1-th-kritisk",
+   "type": "theorem",
+   "title": "Det kritiske punktet fra $a$ og $b$",
+   "content": "$$\\boxed{V_c = 3nb, \\qquad p_c = \\frac{a}{27b^2}, \\qquad T_c = \\frac{8a}{27Rb}}$$\n\n**Merk at bare $V_c$ inneholder $n$.** Trykk og temperatur er egenskaper ved stoffet og avhenger ikke av hvor mye du har av det; volumet gjør det. Skriver du $V_c$ per mol, står det $V_c = 3b$.\n\n**Rekkefølgen å regne dem i:** $V_c$ først (én multiplikasjon), så $p_c$ (husk $b^2$), så $T_c$. Med fire siffer i $b$ hele veien.\n\n**Kontrollen som avslører alle tre samtidig.** Sett de tre inn i den dimensjonsløse kombinasjonen\n$$Z_c = \\frac{p_cV_c}{nRT_c} = \\frac{\\dfrac{a}{27b^2}\\cdot 3b}{R\\cdot\\dfrac{8a}{27Rb}} = \\frac{\\dfrac{a}{9b}}{\\dfrac{8a}{27b}} = \\frac{27}{72} = \\frac{3}{8} = 0{,}375.$$\nAlle van der Waals-gasser gir **nøyaktig** $3/8$. Får du noe annet, har du bommet på minst én av de tre formlene. (Virkelige gasser ligger på $0{,}23$–$0{,}29$ — modellen treffer størrelsesordenen, ikke tallet. Det er en ærlig grense ved modellen, ikke en regnefeil.)\n\n**Veien baklengs**, som oppgaver også spør om: er $T_c$ og $p_c$ oppgitt i stedet for $a$ og $b$, gir de to formlene\n$$b = \\frac{RT_c}{8p_c}, \\qquad a = 27b^2p_c.$$ [står på det utdelte arket]"
+  },
+  {
+   "id": "tfy4115-10-1-utl-kritisk",
+   "type": "text",
+   "content": "## Utledningen: hvor $3b$, $a/27b^2$ og $8a/27Rb$ kommer fra\n\nDette er utledningen som kreves aktivt — resultatet står på arket, men veien dit skal du kunne skissere.\n\nRegn per mol, altså med $n=1$, så uttrykkene blir rene:\n$$p(V) = \\frac{RT}{V-b} - \\frac{a}{V^2}.$$\n\n**Steg 1 — de to betingelsene.** Ved det kritiske punktet er isotermens vendepunkt vannrett. Det gir to krav samtidig:\n$$\\frac{\\partial p}{\\partial V} = -\\frac{RT}{(V-b)^2} + \\frac{2a}{V^3} = 0, \\qquad \\frac{\\partial^2 p}{\\partial V^2} = \\frac{2RT}{(V-b)^3} - \\frac{6a}{V^4} = 0.$$\n\n*Intuisjon:* første krav sier at tangenten er vannrett, andre at kurven vender akkurat der. Sammen fanger de det punktet der bølgen på isotermen er i ferd med å forsvinne.\n\n**Steg 2 — del den ene på den andre.** Skriv om begge til likheter:\n$$\\frac{RT}{(V-b)^2} = \\frac{2a}{V^3}, \\qquad \\frac{RT}{(V-b)^3} = \\frac{3a}{V^4}.$$\nDeler du den første på den andre, forsvinner både $R$, $T$ og $a$:\n$$V - b = \\frac{2a}{V^3}\\cdot\\frac{V^4}{3a} = \\frac{2V}{3}.$$\n\n*Intuisjon:* dette er hele trikset. To ligninger med tre ukjente ser håpløst ut, men forholdet mellom dem inneholder bare $V$ og $b$.\n\n**Steg 3 — løs for $V$.**\n$$V - b = \\frac{2V}{3} \\quad\\Longrightarrow\\quad \\frac{V}{3} = b \\quad\\Longrightarrow\\quad \\boxed{V_c = 3b}.$$\n\n**Steg 4 — sett inn i det første kravet.** Med $V_c - b = 2b$:\n$$\\frac{RT_c}{(2b)^2} = \\frac{2a}{(3b)^3} \\quad\\Longrightarrow\\quad \\frac{RT_c}{4b^2} = \\frac{2a}{27b^3} \\quad\\Longrightarrow\\quad RT_c = \\frac{8a}{27b} \\quad\\Longrightarrow\\quad \\boxed{T_c = \\frac{8a}{27Rb}}.$$\n\n**Steg 5 — sett begge inn i selve ligningen.**\n$$p_c = \\frac{RT_c}{V_c-b} - \\frac{a}{V_c^2} = \\frac{8a/(27b)}{2b} - \\frac{a}{9b^2} = \\frac{4a}{27b^2} - \\frac{3a}{27b^2} = \\boxed{\\frac{a}{27b^2}}.$$\n\nLegg merke til hvor knapt det siste steget er: $4/27$ minus $3/27$. Én slurvefeil i brøkene, og du får $7a/27b^2$ i stedet.\n\n**Kontroll av grensene.** Går $a \\to 0$ (ingen tiltrekning), går både $p_c$ og $T_c$ mot null: uten tiltrekning finnes ingen kondensasjon, og ingen kritisk temperatur. Går $b \\to 0$ (punktmolekyler), går $p_c$ og $T_c$ mot uendelig og $V_c$ mot null — modellen kollapser tilbake til en ideell gass, som aldri blir flytende. **Begge grensene peker samme vei: det kritiske punktet finnes bare fordi begge korreksjonene finnes.**"
+  },
+  {
+   "id": "tfy4115-10-1-fig-isotermer",
+   "type": "image",
+   "src": "/images/textbook/tfy4115/tfy4115-10-1-vdw-isotermer.svg",
+   "alt": "Et pV-diagram med volum langs den vannrette aksen og trykk langs den loddrette. Tre van der Waals-isotermer for karbondioksid er tegnet: en blaa kurve ved 260 kelvin med en tydelig boelge, en lilla kurve ved 304 kelvin med et vendepunkt med vannrett tangent, og en oransje kurve ved 340 kelvin som faller jevnt. Et roedt punkt markerer det kritiske punktet ved 128 kubikkcentimeter per mol og 7 komma 40 megapascal, med en stiplet vannrett tangent gjennom seg. En stiplet blaa vannrett linje markerer koeksistensplataaet under 260-kelvin-kurvens boelge.",
+   "caption": "van der Waals-isotermer for CO$_2$. Under $T_c$ (blå kurve) har kurven en bølge med lokalt maksimum og minimum — den delen der trykket **stiger** når volumet øker, er fysisk umulig, og det virkelige systemet følger i stedet det vannrette platået der væske og damp sameksisterer. Ved $T_c$ (lilla) er bølgen krympet til ett vendepunkt med vannrett tangent; det er nettopp de to betingelsene i utledningen. Over $T_c$ (oransje) faller trykket monotont, og det finnes ingen faseovergang å snakke om."
+  },
+  {
+   "id": "tfy4115-10-1-ex-2",
+   "type": "example",
+   "title": "Eksempel 2: det kritiske punktet til karbondioksid (eksamensnivå)",
+   "problem": "For karbondioksid er $a = 0{,}3640\\,\\text{Pa}\\cdot\\text{m}^6/\\text{mol}^2$ og $b = 4{,}267\\cdot10^{-5}\\,\\text{m}^3/\\text{mol}$.\n\n**a)** Finn kritisk molarvolum, kritisk trykk og kritisk temperatur.\n\n**b)** Kontroller svaret med $Z_c$.\n\n**c)** De målte verdiene for CO$_2$ er $T_c = 304{,}1\\,\\text{K}$, $p_c = 7{,}38\\,\\text{MPa}$ og $V_c = 94\\,\\text{cm}^3/\\text{mol}$. Hvor godt treffer modellen?\n\n**d)** Kan du gjøre CO$_2$ flytende ved $310\\,\\text{K}$ ved å presse hardt nok?",
+   "solution": "**a) Rask vei til tall.** Tre innsettinger, i rekkefølge, med fire siffer i $b$:\n$$V_c = 3b = 3 \\cdot 4{,}267\\cdot10^{-5} = 1{,}2801\\cdot10^{-4}\\,\\text{m}^3/\\text{mol} = 128{,}0\\,\\text{cm}^3/\\text{mol},$$\n$$b^2 = 1{,}8207\\cdot10^{-9}\\,\\text{m}^6/\\text{mol}^2, \\qquad p_c = \\frac{0{,}3640}{27 \\cdot 1{,}8207\\cdot10^{-9}} = \\frac{0{,}3640}{4{,}9159\\cdot10^{-8}} = 7{,}404\\cdot10^{6}\\,\\text{Pa} = 7{,}404\\,\\text{MPa},$$\n$$T_c = \\frac{8 \\cdot 0{,}3640}{27 \\cdot 8{,}314 \\cdot 4{,}267\\cdot10^{-5}} = \\frac{2{,}9120}{9{,}5779\\cdot10^{-3}} = 304{,}0\\,\\text{K}.$$\n\n**b) Kontroll.**\n$$Z_c = \\frac{p_cV_c}{RT_c} = \\frac{7{,}404\\cdot10^{6} \\cdot 1{,}2801\\cdot10^{-4}}{8{,}314 \\cdot 304{,}0} = \\frac{947{,}9}{2527{,}5} = 0{,}3750.$$\n\nDet stemmer ✔ — nøyaktig $3/8$, slik det skal. Hadde du forvekslet $p_c$ og $T_c$-formelen, ville dette tallet vært langt unna.\n\n**c)** Temperaturen treffer på tre siffer ($304{,}0$ mot $304{,}1\\,\\text{K}$) og trykket på tre prosent ($7{,}404$ mot $7{,}38\\,\\text{MPa}$). Volumet bommer med $36$ prosent ($128$ mot $94\\,\\text{cm}^3/\\text{mol}$) — det er nettopp det faste avviket $Z_c = 0{,}375$ mot målt $0{,}274$ forteller. **Modellen er god på temperatur og trykk, svak på volum.** Det er en kjent egenskap ved van der Waals-ligningen, og det er en av grunnene til at oppgavene sjelden spør om $V_c$ alene.\n\n**d)** Nei. $310\\,\\text{K}$ ligger **over** $T_c = 304\\,\\text{K}$, og over den kritiske temperaturen finnes ingen væskefase uansett trykk. Du får en stadig tettere overkritisk gass, men aldri en væskeflate. Vil du gjøre CO$_2$ flytende, må du først kjøle den under $31\\,^\\circ\\text{C}$.\n\n**Sluttsjekk, fire ledd.** (i) $b^2$ regnet som eget mellomresultat før divisjonen. (ii) $Z_c = 0{,}375$ ✔ — den eneste kontrollen som tester alle tre formlene på én gang. (iii) $T_c$ i **kelvin**. (iv) Størrelsesorden: kritisk trykk for vanlige gasser ligger i området noen få til noen titalls megapascal, altså titalls til hundrevis av bar."
+  },
+  {
+   "id": "tfy4115-10-1-o-3",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-10-1-ex-3",
+    "number": 3,
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger T11.) For argon er $a = 0{,}1355\\,\\text{Pa}\\cdot\\text{m}^6/\\text{mol}^2$ og $b = 3{,}201\\cdot10^{-5}\\,\\text{m}^3/\\text{mol}$.\n\n**a)** Finn $V_c$, $p_c$ og $T_c$.\n\n**b)** Kontroller med $Z_c$.\n\n**c)** Argon leveres på flasker ved romtemperatur. Er innholdet flytende eller gassformig?",
+    "solution": "**a)**\n$$V_c = 3b = 9{,}603\\cdot10^{-5}\\,\\text{m}^3/\\text{mol} = 96{,}03\\,\\text{cm}^3/\\text{mol},$$\n$$b^2 = 1{,}0246\\cdot10^{-9}, \\qquad p_c = \\frac{0{,}1355}{27 \\cdot 1{,}0246\\cdot10^{-9}} = 4{,}898\\cdot10^{6}\\,\\text{Pa} = 4{,}898\\,\\text{MPa},$$\n$$T_c = \\frac{8 \\cdot 0{,}1355}{27 \\cdot 8{,}314 \\cdot 3{,}201\\cdot10^{-5}} = \\frac{1{,}0840}{7{,}1848\\cdot10^{-3}} = 150{,}9\\,\\text{K}.$$\n\n**b)**\n$$Z_c = \\frac{4{,}898\\cdot10^{6} \\cdot 9{,}603\\cdot10^{-5}}{8{,}314 \\cdot 150{,}9} = \\frac{470{,}4}{1254{,}6} = 0{,}3750.$$\n\nDet stemmer ✔\n\n**c)** Gassformig. Romtemperatur er omtrent $293\\,\\text{K}$, altså nesten dobbelt så høyt som $T_c = 150{,}9\\,\\text{K}$. Argon kan derfor ikke være flytende på en flaske i romtemperatur, uansett trykk — det er komprimert gass. Flytende argon krever kjøling under $-122\\,^\\circ\\text{C}$.\n\nSammenlign med propan, der $T_c = 370\\,\\text{K}$ ligger godt over romtemperatur: propan **kan** være flytende på flaske, og er det.",
+    "hints": [
+     "Ta $V_c$ først, så $b^2$ som eget mellomresultat, så $p_c$ og $T_c$.",
+     "$Z_c = p_cV_c/(RT_c)$ skal bli $3/8$ for enhver van der Waals-gass.",
+     "Sammenlign $T_c$ med romtemperatur — over $T_c$ finnes ingen væskefase."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-10-1-o-4",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-10-1-ex-4",
+    "number": 4,
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Sjanger T11, A–F-format.) For metan er $a = 0{,}2283\\,\\text{Pa}\\cdot\\text{m}^6/\\text{mol}^2$ og $b = 4{,}278\\cdot10^{-5}\\,\\text{m}^3/\\text{mol}$. Hva er den kritiske temperaturen?\n\n**A** $23{,}77\\,\\text{K}$ · **B** $71{,}32\\,\\text{K}$ · **C** $128{,}3\\,\\text{K}$ · **D** $189{,}2\\,\\text{K}$ · **E** $190{,}2\\,\\text{K}$ · **F** $1581\\,\\text{K}$",
+    "solution": "**Svar: E.**\n\n$$T_c = \\frac{8a}{27Rb} = \\frac{8 \\cdot 0{,}2283}{27 \\cdot 8{,}314 \\cdot 4{,}278\\cdot10^{-5}} = \\frac{1{,}8264}{9{,}6027\\cdot10^{-3}} = 190{,}2\\,\\text{K}.$$\n\n*Fellene, hver regnet fram fra sin feil:* $23{,}77\\,\\text{K}$ er $a/(27Rb)$, altså faktoren $8$ glemt helt. $71{,}32\\,\\text{K}$ er $3a/(27Rb)$ — faktoren $3$ hører til $V_c$, ikke til $T_c$. $128{,}3\\,\\text{K}$ er tallverdien til $V_c = 3b$ oppgitt i $\\text{cm}^3/\\text{mol}$, altså riktig regning på feil størrelse. $1581\\,\\text{K}$ har glemt $R$ i nevneren. **Og den tetteste:** $189{,}2\\,\\text{K}$ er hva du får hvis du runder $b$ av til $4{,}3\\cdot10^{-5}$ før divisjonen — en halv prosent, og nok til å bomme (felle #16 — for få gjeldende siffer gjennom regnekjeden).\n\n*Sluttsjekk:* metan koker ved $-162\\,^\\circ\\text{C} = 111\\,\\text{K}$, og den kritiske temperaturen ligger alltid **over** kokepunktet ved én atmosfære. Det stryker $23{,}77$ og $71{,}32\\,\\text{K}$ umiddelbart, og $1581\\,\\text{K}$ er absurd for et så lett molekyl. Igjen står tre tall — og da må du faktisk regne, med fire siffer hele veien.",
+    "hints": [
+     "$T_c = 8a/(27Rb)$ — teller og nevner hver for seg først.",
+     "Kontroller at $R$ og faktoren $27$ begge står i nevneren.",
+     "Metan koker ved $111\\,\\text{K}$ ved én atmosfære; $T_c$ må ligge over det."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-10-1-o-5",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-10-1-ex-5",
+    "number": 5,
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger T11.) For ammoniakk er den kritiske temperaturen $405{,}5\\,\\text{K}$ og det kritiske trykket $11{,}35\\,\\text{MPa}$.\n\n**a)** Finn van der Waals-konstantene $a$ og $b$.\n\n**b)** Finn det kritiske molarvolumet.\n\n**c)** Ammoniakk brukes som arbeidsmedium i store varmepumper. Hva forteller $T_c = 405{,}5\\,\\text{K}$ deg om hvilke temperaturer anlegget kan arbeide mellom?",
+    "solution": "**a) Symbolsk.** De to formlene $T_c = 8a/(27Rb)$ og $p_c = a/(27b^2)$ løses baklengs. Deler du dem på hverandre, faller $a$ ut:\n$$\\frac{T_c}{p_c} = \\frac{8a}{27Rb}\\cdot\\frac{27b^2}{a} = \\frac{8b}{R} \\quad\\Longrightarrow\\quad b = \\frac{RT_c}{8p_c}, \\qquad a = 27b^2p_c.$$\n\n**Rask vei til tall.**\n$$b = \\frac{8{,}314 \\cdot 405{,}5}{8 \\cdot 11{,}35\\cdot10^{6}} = \\frac{3371{,}3}{9{,}0800\\cdot10^{7}} = 3{,}7129\\cdot10^{-5}\\,\\text{m}^3/\\text{mol},$$\n$$b^2 = 1{,}3786\\cdot10^{-9}, \\qquad a = 27 \\cdot 1{,}3786\\cdot10^{-9} \\cdot 11{,}35\\cdot10^{6} = 0{,}4225\\,\\text{Pa}\\cdot\\text{m}^6/\\text{mol}^2.$$\n\n**b)**\n$$V_c = 3b = 1{,}1139\\cdot10^{-4}\\,\\text{m}^3/\\text{mol} = 111{,}4\\,\\text{cm}^3/\\text{mol}.$$\n\nKontroll: $Z_c = (11{,}35\\cdot10^{6} \\cdot 1{,}1139\\cdot10^{-4})/(8{,}314 \\cdot 405{,}5) = 1264{,}3/3371{,}3 = 0{,}3750$ ✔.\n\n**c)** Den varme siden av en varmepumpe må holde seg **under** $T_c$, ellers kan ikke arbeidsmediet kondensere — og kondensasjonen er selve mekanismen som avgir varme. Med $T_c = 405{,}5\\,\\text{K} = 132\\,^\\circ\\text{C}$ har ammoniakk god margin for vanlige varmepumpetemperaturer på $40$–$80\\,^\\circ\\text{C}$. Sammenlign med karbondioksid, der $T_c = 31\\,^\\circ\\text{C}$ ligger så lavt at CO$_2$-varmepumper må arbeide **over** det kritiske punktet på varm side, med en helt annen syklusform. Se [kap. 8.2](/tfy4115/tfy4115-8-2) for effektfaktoren til selve syklusen.",
+    "hints": [
+     "Del $T_c$ på $p_c$ og se hva som faller ut.",
+     "$b$ først, deretter $b^2$ som eget mellomresultat, deretter $a$.",
+     "Et arbeidsmedium må kunne kondensere på varm side — hva krever det av $T_c$?"
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-10-1-lokke3",
+   "type": "text",
+   "content": "## Løkke 3 — fasediagrammet (~15 min)\n\n— naturlig pausepunkt —\n\nLegg en bit tørris på bordet. Den blir ikke våt. Den bare krymper, og det ryker kaldt av den. Tørris er fast karbondioksid, og ved atmosfæretrykk går CO$_2$ **rett fra fast stoff til gass** — det kalles sublimasjon. Vil du ha flytende CO$_2$, må du opp i trykk: over $5{,}2$ atmosfærer.\n\nHvorfor? Fordi trippelpunktet til CO$_2$ ligger ved $5{,}2$ atmosfærer. Under det trykket finnes ingen væskefase i det hele tatt.\n\nDet er akkurat den typen spørsmål fasediagrammet svarer på med ett blikk. Diagrammet er et kart med **temperatur langs den vannrette aksen og trykk langs den loddrette**, og det er delt i tre områder av tre linjer."
+  },
+  {
+   "id": "tfy4115-10-1-def-fasediagram",
+   "type": "definition",
+   "title": "Fasediagram",
+   "content": "Et kart i $p$–$T$-planet som viser hvilken **fase** — fast, flytende eller gass — et rent stoff har ved hver kombinasjon av trykk og temperatur.\n\nKartet har tre områder og tre grenselinjer:\n\n| Linje | Skiller | Kalles |\n|---|---|---|\n| fra trippelpunktet og oppover | fast fra flytende | **smeltelinjen** |\n| fra trippelpunktet og oppover mot høyre | flytende fra gass | **damptrykkslinjen** |\n| fra trippelpunktet og nedover mot venstre | fast fra gass | **sublimasjonslinjen** |\n\n**Leseregelen:** høyt trykk og lav temperatur gir fast stoff (nede til venstre er gass, oppe til venstre er fast). Høy temperatur gir gass. Væskeområdet ligger i midten, avgrenset oppad av smeltelinjen og til høyre av damptrykkslinjen.\n\nÅ «lese av fasen» er å plassere punktet $(T, p)$ i diagrammet og se hvilket område det havner i. Ligger punktet **på** en linje, sameksisterer de to fasene linjen skiller — det er der koking, smelting og sublimasjon foregår."
+  },
+  {
+   "id": "tfy4115-10-1-def-koeksistenslinje",
+   "type": "definition",
+   "title": "Koeksistenslinje",
+   "content": "En av de tre grenselinjene i fasediagrammet: mengden av $(T,p)$-punkter der **to faser er i likevekt samtidig**.\n\nAt to faser er i likevekt betyr at det ikke er noen netto omdanning fra den ene til den andre — like mange molekyler går hver vei. Damptrykkslinjen er derfor «kokepunktet som funksjon av trykk»: leser du av linjen ved $101{,}3\\,\\text{kPa}$ for vann, finner du $373{,}15\\,\\text{K}$.\n\n**Konsekvensen som overrasker:** kokepunktet er ikke en egenskap ved stoffet alene, men ved stoffet **og trykket**. På toppen av et fjell koker vann under $100\\,^\\circ\\text{C}$, i en trykkoker over. Hvordan linjen krummer, regner vi ut i [kap. 10.2](/tfy4115/tfy4115-10-2).\n\nLangs en koeksistenslinje er temperaturen **konstant mens faseovergangen pågår**, selv om du fortsetter å tilføre varme. Energien går til å bryte bindinger, ikke til å øke temperaturen."
+  },
+  {
+   "id": "tfy4115-10-1-def-trippelpunkt",
+   "type": "definition",
+   "title": "Trippelpunkt",
+   "content": "Det ene punktet $(T_t, p_t)$ der **alle tre fasene er i likevekt samtidig** — fast, flytende og gass side om side. Det er der de tre koeksistenslinjene møtes.\n\nFor vann ligger trippelpunktet ved $273{,}16\\,\\text{K}$ og $611{,}7\\,\\text{Pa}$, altså ved bare $0{,}6$ prosent av atmosfæretrykket. Det er så presist reproduserbart at det tidligere definerte kelvinskalaen.\n\n**Den viktigste konsekvensen, og den oppgavene spør om:** under trippeltrykket finnes **ingen væskefase**. Varmer du et fast stoff ved et trykk under $p_t$, går det rett over i gass — det sublimerer. Det er derfor tørris ryker i stedet for å smelte: trippelpunktet til CO$_2$ ligger ved $5{,}18$ atmosfærer, langt over lufttrykket.\n\n⚠ Trippelpunktet er **ikke** det kritiske punktet. Trippelpunktet er der tre linjer møtes, nederst i diagrammet; det kritiske punktet er der én linje slutter, øverst til høyre."
+  },
+  {
+   "id": "tfy4115-10-1-def-sublimasjon",
+   "type": "definition",
+   "title": "Sublimasjon",
+   "content": "Overgangen **direkte fra fast stoff til gass**, uten å innom væskefasen. Den motsatte veien, gass rett til fast stoff, kalles deposisjon eller rimdannelse.\n\nSublimasjon skjer langs sublimasjonslinjen, altså ved trykk **under trippeltrykket**. Betingelsen er derfor enkel å sjekke: er trykket lavere enn $p_t$, kan stoffet ikke være flytende, og oppvarming må gi sublimasjon.\n\nEksempler du har sett: tørris ($p_t = 5{,}18\\,\\text{atm}$, så sublimasjon ved alt vanlig lufttrykk), frostrøyk og snø som forsvinner en kald, solrik dag uten å bli våt (vanndamptrykket i luften ligger under vannets trippeltrykk lokalt), og frysetørking av mat, som er sublimasjon satt i system: fryse først, så pumpe ned trykket under $611\\,\\text{Pa}$."
+  },
+  {
+   "id": "tfy4115-10-1-def-overkritisk",
+   "type": "definition",
+   "title": "Overkritisk fluid",
+   "content": "Tilstanden over den kritiske temperaturen **og** over det kritiske trykket, der stoffet verken er væske eller gass i vanlig forstand — det finnes ingen flate mellom dem, og ingen skarp overgang å passere.\n\nEt overkritisk fluid har tetthet som en væske og strømmer som en gass. Det er derfor overkritisk CO$_2$ brukes som løsemiddel, blant annet til å trekke koffein ut av kaffebønner: det trenger inn som en gass og løser som en væske, og fordamper deretter sporløst når trykket senkes.\n\n**I fasediagrammet:** området oppe til høyre for det kritiske punktet, der ingen linje går. Du kan gå fra ren væske til ren gass **rundt** det kritiske punktet, uten noen gang å krysse en koeksistenslinje og uten at det finnes et øyeblikk der du kan si at faseovergangen skjedde. Det er den skarpeste måten å si at væske og gass ikke er kvalitativt forskjellige tilstander — bare kvantitativt."
+  },
+  {
+   "id": "tfy4115-10-1-fig-fasediagram",
+   "type": "image",
+   "src": "/images/textbook/tfy4115/tfy4115-10-1-fasediagram.svg",
+   "alt": "Et fasediagram for vann med temperatur langs den vannrette aksen og trykk langs den loddrette. Tre fargede omraader: et blaatt for fast fase oppe til venstre, et groent for vaeske i midten og et oransje for gass til hoeyre og nede. En blaa smeltelinje gaar fra trippelpunktet oppover og litt til venstre. En groenn damptrykkslinje gaar fra trippelpunktet opp mot hoeyre og slutter i en aapen ring ved det kritiske punktet. En oransje sublimasjonslinje gaar fra nede til venstre opp til trippelpunktet. Trippelpunktet er merket med 273 komma 16 kelvin og 611 komma 7 pascal, det kritiske punktet med 647 komma 1 kelvin og 22 komma 06 megapascal. En stiplet vannrett linje gjennom trippelpunktet er merket med at det ikke finnes vaeskefase under trippeltrykket.",
+   "caption": "Fasediagram for vann. Legg merke til tre ting: (i) damptrykkslinjen **slutter** i det kritiske punktet — den fortsetter ikke, og over $T_c$ finnes ingen skarp overgang mellom væske og gass; (ii) trippelpunktet er der alle tre linjene møtes, og under trippeltrykket $611{,}7\\,\\text{Pa}$ finnes ingen væskefase i det hele tatt; (iii) smeltelinjen heller **bakover** — det er vannets berømte unntak, og skyldes at is er mindre tett enn vann. For nesten alle andre stoffer heller smeltelinjen forover."
+  },
+  {
+   "id": "tfy4115-10-1-ex-3",
+   "type": "example",
+   "title": "Eksempel 3: å lese fasediagrammet (eksamensnivå)",
+   "problem": "Bruk fasediagrammet for vann over. Trippelpunktet ligger ved $273{,}16\\,\\text{K}$ og $611{,}7\\,\\text{Pa}$, det kritiske punktet ved $647{,}1\\,\\text{K}$ og $22{,}06\\,\\text{MPa}$.\n\n**a)** En prøve holder $250\\,\\text{K}$ ved $400\\,\\text{Pa}$. Hvilken fase har den?\n\n**b)** Prøven varmes langsomt opp ved konstant trykk $400\\,\\text{Pa}$. Beskriv hva som skjer.\n\n**c)** En annen prøve holder $700\\,\\text{K}$ ved $30\\,\\text{MPa}$. Hvilken fase har den, og hva skjer hvis den kjøles til $500\\,\\text{K}$ ved konstant trykk?\n\n**d)** Hvorfor kan du ikke få flytende vann ved $400\\,\\text{Pa}$, uansett temperatur?",
+   "solution": "**a)** Temperaturen er under trippelpunktets $273{,}16\\,\\text{K}$ og trykket under trippeltrykket $611{,}7\\,\\text{Pa}$. Punktet ligger altså nede til venstre for trippelpunktet, i **fast fase — is**.\n\n**b)** Vi beveger oss vannrett mot høyre i diagrammet, ved $400\\,\\text{Pa}$. Den linjen ligger **under** trippeltrykket, så den krysser aldri smeltelinjen eller damptrykkslinjen. Den krysser bare **sublimasjonslinjen**. Isen går derfor direkte over i vanndamp uten å bli flytende. Under overgangen holder temperaturen seg konstant til all isen er borte, selv om varme tilføres hele tiden.\n\n**c)** $700\\,\\text{K}$ er over $T_c = 647{,}1\\,\\text{K}$ og $30\\,\\text{MPa}$ er over $p_c = 22{,}06\\,\\text{MPa}$: prøven er et **overkritisk fluid**. Kjøler du til $500\\,\\text{K}$ ved konstant $30\\,\\text{MPa}$, går du loddrett nedover langs et trykk som ligger **over** det kritiske. Da passerer du ikke damptrykkslinjen — den finnes ikke der oppe, den sluttet i det kritiske punktet. Stoffet blir gradvis tettere og ender som **væske ved $500\\,\\text{K}$**, uten at det på noe tidspunkt fantes en væskeflate. Det er den kontinuerlige veien rundt det kritiske punktet.\n\n**d)** Fordi $400\\,\\text{Pa}$ ligger under trippeltrykket $611{,}7\\,\\text{Pa}$. Væskeområdet i diagrammet begynner først ved trippelpunktet og strekker seg oppover; det finnes ingen del av væskeområdet under $p_t$. Uansett hvilken temperatur du velger ved $400\\,\\text{Pa}$, treffer du enten fast fase eller gass.\n\n**Sluttsjekk, tre ledd.** (i) Er trykket over eller under $p_t$? Det avgjør alene om væske er mulig. (ii) Er temperaturen over eller under $T_c$? Det avgjør om «væske» og «gass» i det hele tatt er atskilte begreper. (iii) En vannrett ferd i diagrammet er oppvarming ved konstant trykk; en loddrett er trykkendring ved konstant temperatur."
+  },
+  {
+   "id": "tfy4115-10-1-o-6",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-10-1-ex-6",
+    "number": 6,
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Kvalitativ oppgave — konsept og avlesning.)\n\n**a)** Forklar med to setninger forskjellen på trippelpunktet og det kritiske punktet.\n\n**b)** Karbondioksid har trippelpunkt ved $216{,}6\\,\\text{K}$ og $5{,}18\\,\\text{atm}$. Forklar ut fra det hvorfor tørris sublimerer i stedet for å smelte.\n\n**c)** Damptrykkslinjen slutter i det kritiske punktet, mens smeltelinjen ikke ser ut til å slutte noe sted. Hva forteller det om forskjellen mellom faseovergangen væske–gass og faseovergangen fast–væske?",
+    "solution": "**a)** Trippelpunktet er det ene punktet der **alle tre fasene** er i likevekt samtidig — det er der de tre koeksistenslinjene møtes, nederst i diagrammet. Det kritiske punktet er der **damptrykkslinjen slutter**, øverst til høyre: over det finnes ingen skarp forskjell mellom væske og gass.\n\n**b)** Atmosfæretrykket er $1\\,\\text{atm}$, altså langt under CO$_2$-trippelpunktets $5{,}18\\,\\text{atm}$. Under trippeltrykket finnes ingen væskefase, så når fast CO$_2$ varmes opp i vanlig luft, må den gå rett over i gass. Skal du få flytende CO$_2$, må du opp over $5{,}18\\,\\text{atm}$ — og det er nettopp derfor CO$_2$ i brannslokkere og sykkelpatroner er på trykkbeholder.\n\n**c)** Væske og gass skiller seg bare **kvantitativt**: begge er uordnede, og forskjellen er tetthet. Den forskjellen kan krympe til null, og det gjør den i det kritiske punktet. Fast stoff har derimot en **kvalitativt** annen struktur — molekylene sitter i et ordnet gitter. Et gitter er enten der eller ikke; det finnes ingen kontinuerlig vei fra ordnet til uordnet. Derfor kan smeltelinjen ikke slutte i et kritisk punkt, og så langt som noen har målt, gjør den ikke det.",
+    "hints": [
+     "Tell antall linjer som møtes i hvert av de to punktene.",
+     "Sammenlign atmosfæretrykket med CO$_2$-trippelpunktets trykk.",
+     "Tenk på hva som skiller de to fasene i hvert tilfelle: tetthet eller orden?"
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-10-1-o-7",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-10-1-ex-7",
+    "number": 7,
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger T11.) Et laboratorium skal frysetørke en biologisk prøve. Vann har trippelpunkt ved $273{,}16\\,\\text{K}$ og $611{,}7\\,\\text{Pa}$.\n\n**a)** Prøven fryses først til $250\\,\\text{K}$. Hvilket trykk må kammeret pumpes ned til for at isen skal sublimere i stedet for å smelte?\n\n**b)** Prøven varmes deretter forsiktig til $265\\,\\text{K}$ mens trykket holdes på $200\\,\\text{Pa}$. Er den fremdeles fast, eller har den sublimert?\n\n**c)** Hva ville skjedd om trykket i stedet var $50\\,\\text{kPa}$?",
+    "solution": "**a)** Betingelsen for at væskefasen skal være utelukket er at trykket ligger **under trippeltrykket**:\n$$p < p_t = 611{,}7\\,\\text{Pa}.$$\nI praksis pumper man godt under, typisk til noen titalls pascal, både for å ha margin og for å få sublimasjonen til å gå fort nok. Merk at det er trykket som avgjør, ikke temperaturen: så lenge $p < p_t$ er væske umulig ved enhver temperatur.\n\n**b)** Det avhenger av hvor sublimasjonslinjen ligger ved $265\\,\\text{K}$. Ved $200\\,\\text{Pa}$ og $265\\,\\text{K}$ er vi under trippeltrykket, så de eneste mulige fasene er fast og gass. Sublimasjonslinjen stiger mot trippelpunktet $(273{,}16\\,\\text{K}, 611{,}7\\,\\text{Pa})$, og ved $265\\,\\text{K}$ ligger den lavere enn $611{,}7\\,\\text{Pa}$. Er punktet $(265\\,\\text{K}, 200\\,\\text{Pa})$ **over** linjen, er stoffet fast; er det **under**, er alt gått over i damp. For vann ligger sublimasjonslinjen ved $265\\,\\text{K}$ rundt $300\\,\\text{Pa}$, så $200\\,\\text{Pa}$ er under den: prøven har **sublimert**, og det er nettopp poenget med frysetørking — hele isinnholdet skal fjernes som damp.\n\n**c)** Ved $50\\,\\text{kPa}$ er trykket langt **over** trippeltrykket. Da er væskefasen tilgjengelig, og oppvarming fra $250\\,\\text{K}$ ville gitt smelting rundt $273\\,\\text{K}$ i stedet for sublimasjon. Prøven ville blitt våt — og for en biologisk prøve er det nettopp det frysetørking skal unngå, siden væskefasens overflatespenning ødelegger cellestrukturen.",
+    "hints": [
+     "Væskefasen er utelukket når trykket ligger under trippeltrykket. Skriv ulikheten.",
+     "Plasser punktet i forhold til sublimasjonslinjen, som stiger mot trippelpunktet.",
+     "Over trippeltrykket blir smelting mulig igjen — hva betyr det for prøven?"
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-10-1-rask-vei",
+   "type": "text",
+   "content": "## Rask vei til tall (MC-oppskrift)\n\nDette er den korteste feilfrie kjeden fra oppgitte tall til bokstavsvaret.\n\n1. **Hvilken lov?** Spør oppgaven om **trykk, volum eller temperatur for en tett gass**, er det van der Waals. Spør den om **kritisk punkt**, er det de tre formlene. Spør den om **hvilken fase**, er det fasediagrammet, og da regner du ikke i det hele tatt — du plasserer et punkt.\n2. **Den ene regnelinjen.**\n   - vdW-trykk: $p = \\dfrac{nRT}{V-nb} - \\dfrac{an^2}{V^2}$ — **to ledd, hvert som eget mellomresultat.**\n   - kritisk punkt: $V_c = 3nb$, $p_c = \\dfrac{a}{27b^2}$, $T_c = \\dfrac{8a}{27Rb}$ — **$b^2$ som eget mellomresultat.**\n   - baklengs: $b = \\dfrac{RT_c}{8p_c}$, $a = 27b^2p_c$.\n3. **Fra arket:** $R = 8{,}314\\,\\text{J/(mol}\\cdot\\text{K)}$, van der Waals-formen og de tre kritiske uttrykkene. Konstantene $a$ og $b$ oppgis alltid i oppgaveteksten — de er stoffavhengige og kan ikke stå på et generelt ark.\n4. **Siffer:** fire gjennom kjeden, to eller tre i svaret. Ekstra viktig her fordi $b$ inngår i tredje potens i $T_c$-utledningen og i andre potens i $p_c$.\n5. **Sjekk før du krysser av:**\n   - Volumet i $\\text{m}^3$, ikke liter eller $\\text{cm}^3$?\n   - Temperaturen i **kelvin**?\n   - Har $a$-leddet fått $n^2$ og $b$-leddet $n$?\n   - Er $Z_c = p_cV_c/(nRT_c) = 0{,}375$? Den ene kontrollen tester alle tre kritiske formlene samtidig.\n   - Ligger vdW-trykket **nær** det ideelle for en tynn gass, og **under** det ideelle ved moderat tetthet?\n\n**Tidsbudsjett:** et kritisk-punkt-spørsmål skal ta under to minutter. Et fasediagram-spørsmål under ett — det er ren avlesning, og de er blant settets billigste poeng."
+  },
+  {
+   "id": "tfy4115-10-1-o-8",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-10-1-ex-8",
+    "number": 8,
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger T11, A–F-format.) Ett mol av en gass med $a = 0{,}5536\\,\\text{Pa}\\cdot\\text{m}^6/\\text{mol}^2$ og $b = 3{,}049\\cdot10^{-5}\\,\\text{m}^3/\\text{mol}$ har kritisk trykk lik hva?\n\n**A** $2{,}451\\,\\text{MPa}$ · **B** $22{,}06\\,\\text{MPa}$ · **C** $22{,}78\\,\\text{MPa}$ · **D** $66{,}17\\,\\text{MPa}$ · **E** $176{,}4\\,\\text{MPa}$ · **F** $595{,}5\\,\\text{MPa}$",
+    "solution": "**Svar: B.**\n\n$$b^2 = 9{,}2964\\cdot10^{-10}\\,\\text{m}^6/\\text{mol}^2, \\qquad p_c = \\frac{a}{27b^2} = \\frac{0{,}5536}{2{,}5100\\cdot10^{-8}} = 2{,}206\\cdot10^{7}\\,\\text{Pa} = 22{,}06\\,\\text{MPa}.$$\n\n(Konstantene er vannets, og $22{,}06\\,\\text{MPa}$ er nettopp vannets målte kritiske trykk.)\n\n*Fellene, hver regnet fram fra sin feil:* $2{,}451\\,\\text{MPa}$ har satt det kritiske volumet $3b$ inn i kvadratet i stedet for $b$, altså regnet $a/(27(3b)^2)$ — en faktor $9$ for lite. $66{,}17\\,\\text{MPa}$ har brukt $9$ i stedet for $27$ i nevneren, en faktor $3$ for stort. $176{,}4\\,\\text{MPa}$ har tatt med faktoren $8$, som hører til $T_c$ og ikke til $p_c$. $595{,}5\\,\\text{MPa}$ har glemt faktoren $27$ helt. **Og den tetteste:** $22{,}78\\,\\text{MPa}$ er hva du får hvis du runder $b$ av til $3{,}0\\cdot10^{-5}$ før du kvadrerer — tre prosent, fordi kvadreringen dobler den relative feilen (felle #16).\n\n*Sluttsjekk:* kritiske trykk for vanlige stoffer ligger fra noen få til noen titalls megapascal. Det stryker $595{,}5$ og $176{,}4\\,\\text{MPa}$ direkte. Og $2{,}451\\,\\text{MPa}$ er mistenkelig lavt for en så stor $a$-verdi — sterk tiltrekning gir høyt kritisk trykk. Igjen står to tall som skiller seg med tre prosent, og der avgjør sifrene.",
+    "hints": [
+     "Regn $b^2$ som eget mellomresultat før du deler.",
+     "Kontroller at faktoren $27$ står i nevneren og faktoren $8$ IKKE er med.",
+     "Kritiske trykk ligger typisk mellom $2$ og $25\\,\\text{MPa}$."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-10-1-o-9",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-10-1-ex-9",
+    "number": 9,
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger T11 — koblet oppgave.) Ett mol karbondioksid ($a = 0{,}3640$, $b = 4{,}267\\cdot10^{-5}$, samme enheter som før) holdes ved $250\\,\\text{K}$ i et volum på $200\\,\\text{cm}^3$.\n\n**a)** Regn ut trykket med van der Waals-ligningen og med den ideelle gassloven.\n\n**b)** Finn $\\partial p/\\partial V$ i dette punktet, og forklar hva fortegnet betyr.\n\n**c)** Er van der Waals-svaret i a) fysisk troverdig? Begrunn med fasediagrammet og med isotermfiguren.\n\n**d)** Hva ville du gjort i stedet, hvis oppgaven hadde spurt om det virkelige trykket?",
+    "solution": "**a)** Med $V = 200\\,\\text{cm}^3 = 2{,}00\\cdot10^{-4}\\,\\text{m}^3$:\n$$p_\\text{id} = \\frac{8{,}314 \\cdot 250}{2{,}00\\cdot10^{-4}} = 1{,}0393\\cdot10^{7}\\,\\text{Pa} = 10{,}39\\,\\text{MPa},$$\n$$V - b = 1{,}5733\\cdot10^{-4}\\,\\text{m}^3, \\qquad \\text{ledd 1} = \\frac{2078{,}5}{1{,}5733\\cdot10^{-4}} = 1{,}3211\\cdot10^{7}\\,\\text{Pa}, \\qquad \\text{ledd 2} = \\frac{0{,}3640}{4{,}00\\cdot10^{-8}} = 9{,}1000\\cdot10^{6}\\,\\text{Pa},$$\n$$p_\\text{vdW} = 1{,}3211\\cdot10^{7} - 9{,}100\\cdot10^{6} = 4{,}111\\cdot10^{6}\\,\\text{Pa} = 4{,}111\\,\\text{MPa}.$$\n\n**b)** Deriver uttrykket med hensyn på $V$:\n$$\\frac{\\partial p}{\\partial V} = -\\frac{RT}{(V-b)^2} + \\frac{2a}{V^3} = -\\frac{2078{,}5}{\\left(1{,}5733\\cdot10^{-4}\\right)^2} + \\frac{2 \\cdot 0{,}3640}{\\left(2{,}00\\cdot10^{-4}\\right)^3}.$$\n$$= -\\frac{2078{,}5}{2{,}4753\\cdot10^{-8}} + \\frac{0{,}7280}{8{,}00\\cdot10^{-12}} = -8{,}397\\cdot10^{10} + 9{,}100\\cdot10^{10} = +7{,}03\\cdot10^{9}\\,\\text{Pa/m}^3.$$\n\nFortegnet er **positivt**. Det betyr at trykket **stiger når volumet øker** — og det er mekanisk umulig. Et slikt system er ustabilt: den minste utvidelse ville økt trykket, som ville drevet en enda større utvidelse. Ingen virkelig gass oppfører seg slik.\n\n**c)** Nei, svaret er ikke fysisk troverdig. To argumenter, og de peker samme vei:\n\n- **Fra isotermfiguren:** $250\\,\\text{K}$ ligger under $T_c = 304{,}0\\,\\text{K}$, så isotermen har den karakteristiske bølgen. Punktet $V = 200\\,\\text{cm}^3$ ligger på den **stigende** delen av bølgen, mellom det lokale minimumet og det lokale maksimumet. Det er nettopp den delen av kurven som ikke svarer til noen virkelig tilstand.\n- **Fra fasediagrammet:** ved $250\\,\\text{K}$ er CO$_2$ under den kritiske temperaturen, og et molarvolum på $200\\,\\text{cm}^3$ ligger mellom det væsken har (rundt $50$–$60\\,\\text{cm}^3$) og det dampen har (flere tusen $\\text{cm}^3$). Prøven er derfor ikke én fase i det hele tatt — den er en **blanding av væske og damp**.\n\n**d)** Da måtte man lest av det virkelige damptrykket ved $250\\,\\text{K}$ i stedet. I en tofaseblanding er trykket lik damptrykket ved den temperaturen, uavhengig av hvordan volumet fordeles mellom væske og damp — det er det vannrette platået i isotermfiguren. Hvordan damptrykket varierer med temperaturen, er tema i [kap. 10.2](/tfy4115/tfy4115-10-2).\n\n**Poenget å ta med seg:** van der Waals-ligningen gir alltid **et** tall. At den gir et tall, betyr ikke at tilstanden finnes. Sjekk alltid om temperaturen ligger under $T_c$ og om volumet ligger i tofaseområdet, før du stoler på svaret.",
+    "hints": [
+     "Regn de to leddene i vdW-uttrykket hver for seg, som i eksemplene.",
+     "Deriver $p(V) = RT/(V-b) - a/V^2$ ledd for ledd, og se på fortegnet til summen.",
+     "Sammenlign $250\\,\\text{K}$ med den kritiske temperaturen du fant i eksempel 2."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-10-1-warn-typiske-feil",
+   "type": "warning",
+   "title": "Typiske feil — og de fire som lander på nabo-alternativet",
+   "content": "**Å bytte om $a$ og $b$** (felle #11 i denne bokas nummerering av kelvin- og enhetsslurv, her i sin faseoverganger-variant). $a$ retter **trykket** og har enheten $\\text{Pa}\\cdot\\text{m}^6/\\text{mol}^2$; $b$ retter **volumet** og har enheten $\\text{m}^3/\\text{mol}$. Enhetene skiller dem entydig — sjekk dem hvis du er i tvil et halvt sekund. Bytter du om, får du et tall som ser plausibelt ut.\n\n**Å blande de tre kritiske formlene.** $V_c = 3nb$, $p_c = a/27b^2$, $T_c = 8a/27Rb$. Faktoren $8$ hører til temperaturen, faktoren $3$ til volumet, og $R$ står bare i temperaturuttrykket. Den ene kontrollen som avslører alle tre samtidig er $Z_c = p_cV_c/(nRT_c) = 3/8 = 0{,}375$. **Gjør den hver gang.**\n\n**Å forveksle trippelpunkt og kritisk punkt.** Trippelpunktet ligger nederst til venstre, der tre linjer møtes, ved lavt trykk. Det kritiske punktet ligger øverst til høyre, der én linje slutter, ved høyt trykk. Blander du dem, svarer du på feil spørsmål — og fordi alternativene ofte inneholder begge stoffets punkter, treffer du et nabo-alternativ.\n\n**Å tro at det finnes væske under trippeltrykket.** Det gjør det ikke, ved noen temperatur. Under $p_t$ går fast stoff rett til gass. Er trykket i oppgaven under trippeltrykket, kan du stryke alle alternativer som snakker om smelting eller koking.\n\n**Å glemme $n$ og $n^2$.** For $n \\neq 1$: volumkorreksjonen er $nb$ og trykkorreksjonen $an^2/V^2$. Bruker du $n$ begge steder, blir tiltrekningsleddet for lite med en faktor $n$.\n\n**⚠ Avrundingsfellen som lander deg på nabo-alternativet:** $b^2$ og $b^3$ i de kritiske uttrykkene forsterker enhver avrunding. Runder du $b = 4{,}267\\cdot10^{-5}$ til $4{,}3\\cdot10^{-5}$ før du kvadrerer, får du $p_c = 7{,}29\\,\\text{MPa}$ i stedet for $7{,}404\\,\\text{MPa}$ — halvannen prosent, og nok til å treffe feil alternativ når alternativene ligger så tett som de gjør her. **Behold fire siffer helt til slutt.**\n\n**Enhetsfellen:** volum i liter eller $\\text{cm}^3$ inn i en formel som krever $\\text{m}^3$. $1\\,\\text{L} = 10^{-3}\\,\\text{m}^3$ og $1\\,\\text{cm}^3 = 10^{-6}\\,\\text{m}^3$. Gjør omregningen **først**, før noe annet."
+  },
+  {
+   "id": "tfy4115-10-1-begrepsbank",
+   "type": "text",
+   "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+  },
+  {
+   "id": "tfy4115-10-1-bb-tre-kritiske",
+   "type": "definition",
+   "title": "De tre kritiske størrelsene på ett kort",
+   "content": "| Størrelse | Uttrykk | Merk |\n|---|---|---|\n| Kritisk volum | $V_c = 3nb$ | den eneste som inneholder $n$ |\n| Kritisk trykk | $p_c = \\dfrac{a}{27b^2}$ | $b$ i **andre** potens |\n| Kritisk temperatur | $T_c = \\dfrac{8a}{27Rb}$ | den eneste med $R$ og med faktoren $8$ |\n\n**Rekkefølge å regne i:** $V_c$, så $b^2$, så $p_c$, så $T_c$.\n\n**Kontrollen:** $Z_c = p_cV_c/(nRT_c) = 3/8 = 0{,}375$ eksakt, for enhver van der Waals-gass.\n\n**Baklengs:** $b = RT_c/(8p_c)$ og $a = 27b^2p_c$."
+  },
+  {
+   "id": "tfy4115-10-1-bb-kritisk-mot-trippel",
+   "type": "definition",
+   "title": "Kritisk punkt mot trippelpunkt — de to som forveksles",
+   "content": "| Spørsmål | Trippelpunkt | Kritisk punkt |\n|---|---|---|\n| Hva skjer der | tre faser i likevekt samtidig | væske og gass blir umulige å skille |\n| I diagrammet | tre linjer **møtes** | én linje **slutter** |\n| Plassering | nede til venstre, lavt trykk | oppe til høyre, høyt trykk |\n| Vann | $273{,}16\\,\\text{K}$, $611{,}7\\,\\text{Pa}$ | $647{,}1\\,\\text{K}$, $22{,}06\\,\\text{MPa}$ |\n| CO$_2$ | $216{,}6\\,\\text{K}$, $5{,}18\\,\\text{atm}$ | $304{,}1\\,\\text{K}$, $7{,}38\\,\\text{MPa}$ |\n| Konsekvens | ingen væske **under** trykket | ingen væske **over** temperaturen |\n\nLegg merke til at de to konsekvensene er speilbilder: trippelpunktet setter en nedre trykkgrense for væske, det kritiske punktet en øvre temperaturgrense."
+  },
+  {
+   "id": "tfy4115-10-1-bb-grensen",
+   "type": "definition",
+   "title": "Grensen mot ideell gass — hva $a\\to0$ og $b\\to0$ betyr",
+   "content": "$$\\left(p + \\frac{an^2}{V^2}\\right)(V-nb) = nRT \\quad\\xrightarrow{\\ a,b\\,\\to\\,0\\ }\\quad pV = nRT.$$\n\nGrensen nås på tre måter, og alle tre er verdt å kjenne:\n\n1. **$a \\to 0$ og $b \\to 0$:** modellen av molekylet blir en punktpartikkel uten tiltrekning.\n2. **$V \\to \\infty$:** $an^2/V^2 \\to 0$ og $nb \\ll V$. Tynn gass er praktisk talt ideell.\n3. **$T \\to \\infty$:** $nRT$ dominerer over tiltrekningsleddet. Varm gass er praktisk talt ideell.\n\n**Konsekvens for det kritiske punktet:** med $a=0$ blir $p_c = T_c = 0$ — uten tiltrekning finnes ingen kondensasjon og ingen kritisk temperatur. En ideell gass blir aldri flytende, uansett trykk. Det er den skarpeste måten å si hva modellen mangler."
+  },
+  {
+   "id": "tfy4115-10-1-bb-z",
+   "type": "definition",
+   "title": "Kompressibilitetsfaktoren $Z$",
+   "content": "Den dimensjonsløse størrelsen som måler hvor langt en gass er fra å være ideell:\n$$Z = \\frac{pV}{nRT}.$$\n\n$Z = 1$ betyr nøyaktig ideell. $Z < 1$ betyr at tiltrekningen dominerer (gassen er lettere å komprimere enn en ideell). $Z > 1$ betyr at egenvolumet dominerer (gassen er vanskeligere å komprimere).\n\n**I det kritiske punktet gir van der Waals-ligningen $Z_c = 3/8 = 0{,}375$ eksakt**, uansett stoff. Virkelige gasser ligger på $0{,}23$–$0{,}29$: modellen treffer størrelsesordenen, men ikke tallet. Det er en ærlig svakhet ved ligningen, ikke en regnefeil — og det er derfor eksamensoppgaver om det kritiske punktet oftere spør om $T_c$ og $p_c$ enn om $V_c$.\n\n**Bruk:** $Z_c = 0{,}375$ er den beste enkeltkontrollen på at du har fått alle tre kritiske formlene riktig."
+  },
+  {
+   "id": "tfy4115-10-1-bb-typiske-verdier",
+   "type": "definition",
+   "title": "Typiske $a$- og $b$-verdier, og hva de forteller",
+   "content": "| Stoff | $a$ ($\\text{Pa}\\cdot\\text{m}^6/\\text{mol}^2$) | $b$ ($10^{-5}\\,\\text{m}^3/\\text{mol}$) | $T_c$ (K) |\n|---|---|---|---|\n| Helium | $0{,}00346$ | $2{,}38$ | $5{,}2$ |\n| Nitrogen | $0{,}1370$ | $3{,}87$ | $126{,}2$ |\n| Argon | $0{,}1355$ | $3{,}20$ | $150{,}9$ |\n| Metan | $0{,}2283$ | $4{,}28$ | $190{,}2$ |\n| Karbondioksid | $0{,}3640$ | $4{,}27$ | $304{,}0$ |\n| Ammoniakk | $0{,}4225$ | $3{,}71$ | $405{,}5$ |\n| Vann | $0{,}5536$ | $3{,}05$ | $647{,}1$ |\n\n**Mønsteret:** $a$ vokser med hvor sterkt molekylene henger sammen, og $T_c$ følger $a$ nesten slavisk — nettopp fordi $T_c = 8a/(27Rb)$ og $b$ varierer lite. Helium har svakest tiltrekning av alle stoffer og lavest kritisk temperatur av alle stoffer; vann har sterk hydrogenbinding og høy $T_c$.\n\n**Bruk verdiene som rimelighetssjekk**, ikke som puggestoff: konstantene oppgis alltid i oppgaveteksten."
+  },
+  {
+   "id": "tfy4115-10-1-bb-baklengs",
+   "type": "definition",
+   "title": "Veien baklengs: $a$ og $b$ fra $T_c$ og $p_c$",
+   "content": "Oppgaven oppgir noen ganger de **målte** kritiske verdiene i stedet for konstantene. Da snus regningen:\n\n$$\\frac{T_c}{p_c} = \\frac{8a}{27Rb}\\cdot\\frac{27b^2}{a} = \\frac{8b}{R} \\quad\\Longrightarrow\\quad \\boxed{b = \\frac{RT_c}{8p_c}}, \\qquad \\boxed{a = 27b^2p_c}.$$\n\n**Trikset er å dele de to uttrykkene på hverandre**, slik at $a$ faller ut og bare $b$ blir igjen. Samme grep som i selve utledningen av det kritiske punktet.\n\n**Kontroll:** sett de utregnede $a$ og $b$ tilbake inn i $T_c = 8a/(27Rb)$ og se at du får den oppgitte temperaturen igjen. Det tar femten sekunder og fanger enhver ombytting."
+  },
+  {
+   "id": "tfy4115-10-1-bb-vann-unntaket",
+   "type": "definition",
+   "title": "Vann er unntaket: smeltelinjen heller bakover",
+   "content": "For nesten alle stoffer heller **smeltelinjen forover** i fasediagrammet: øker du trykket, må du opp i temperatur for å smelte. Grunnen er at den faste fasen er tettest, så trykk favoriserer den.\n\n**Vann er motsatt.** Is er **mindre tett** enn flytende vann — derfor flyter isfjell. Da favoriserer trykk væskefasen, og smeltelinjen heller **bakover**: øker du trykket, smelter isen ved **lavere** temperatur.\n\nSammenhengen er Clausius–Clapeyron anvendt på smeltelinjen:\n$$\\frac{dp}{dT} = \\frac{l}{T\\,\\Delta V},$$\nder $\\Delta V = V_\\text{væske} - V_\\text{fast}$. For vann er $\\Delta V < 0$, altså er $dp/dT < 0$. Vi utleder denne ligningen i [kap. 10.2](/tfy4115/tfy4115-10-2).\n\n**I en oppgave:** er figuren merket «vann» og smeltelinjen heller bakover, er det riktig. Er den merket med et annet stoff og heller bakover, er figuren gal."
+  },
+  {
+   "id": "tfy4115-10-1-bb-ferdselsarer",
+   "type": "definition",
+   "title": "De fire ferdene i fasediagrammet",
+   "content": "Nesten alle avlesningsoppgaver er én av fire bevegelser i diagrammet:\n\n| Ferd | I diagrammet | Fysisk |\n|---|---|---|\n| Oppvarming ved fast trykk | vannrett mot høyre | fast → væske → gass, eller fast → gass under $p_t$ |\n| Avkjøling ved fast trykk | vannrett mot venstre | motsatt vei |\n| Kompresjon ved fast temperatur | loddrett oppover | gass → væske (bare under $T_c$) |\n| Trykkfall ved fast temperatur | loddrett nedover | væske → gass, altså fordampning |\n\n**Framgangsmåten er alltid den samme:** plasser startpunktet, tegn ferden som en rett linje, og noter hvilke linjer den krysser og i hvilken rekkefølge. Krysser den ingen linje, skjer det ingen faseovergang — det er svaret på hvorfor du kan gå fra væske til gass rundt det kritiske punktet uten å merke noe."
+  },
+  {
+   "id": "tfy4115-10-1-bb-sjanger-t11",
+   "type": "definition",
+   "title": "Sjanger T11 — van der Waals- og fasediagramoppgaven",
+   "content": "**Gjenkjennes på:** ordene «van der Waals», «reell gass», «kritisk punkt», «trippelpunkt», «fasediagram», «sublimerer», «tørris», eller på at det oppgis to konstanter $a$ og $b$ med rare enheter.\n\n**Ferdig oppskrift:**\n\n1. Er det oppgitt $a$ og $b$ og spurt om kritisk punkt? → tre innsettinger, så $Z_c$-kontroll.\n2. Er det oppgitt $a$, $b$, $n$, $V$, $T$? → $p = nRT/(V-nb) - an^2/V^2$, to ledd hver for seg.\n3. Er det oppgitt $T_c$ og $p_c$ og spurt om $a$ og $b$? → $b = RT_c/(8p_c)$, så $a = 27b^2p_c$.\n4. Er det en figur og spurt om fase? → plasser punktet, sammenlign med $p_t$ og $T_c$, les av.\n\n**Vanligste felle i sjangeren:** ombytting av $a$ og $b$, og forveksling av trippelpunkt og kritisk punkt.\n\n**Halvdel:** termofysikk, spørsmål 21–40."
+  },
+  {
+   "id": "tfy4115-10-1-bb-mc-tempo",
+   "type": "definition",
+   "title": "MC-tempo i faseoppgaver",
+   "content": "Tidsbudsjett per spørsmål på en firetimers eksamen med førti spørsmål er omtrent seks minutter. Faseoppgaver skal ta mindre:\n\n- **tjue sekunder** på å avgjøre hvilken av de fire variantene det er (kritisk punkt, vdW-trykk, baklengs, avlesning);\n- **ti sekunder** på enhetene: volum i $\\text{m}^3$, temperatur i kelvin;\n- **ett minutt** på selve regningen, med mellomresultatene skrevet ned;\n- **tjue sekunder** på kontrollen ($Z_c = 0{,}375$, eller rimeligheten av fasen).\n\nEn ren avlesningsoppgave skal ta under ett minutt. Det er blant de billigste poengene i hele settet, og tiden du sparer der, bruker du på kretsprosess-klyngen."
+  },
+  {
+   "id": "tfy4115-10-1-bb-eliminasjon",
+   "type": "definition",
+   "title": "Eliminasjon ved størrelsesorden i faseoppgaver",
+   "content": "Fem grenser stryker alternativer uten at du regner ferdig:\n\n1. **$T_c$ ligger alltid over kokepunktet** ved én atmosfære, og typisk $1{,}3$ til $1{,}8$ ganger så høyt i kelvin.\n2. **$p_c$ for vanlige stoffer ligger mellom $0{,}2$ og $25\\,\\text{MPa}$.** Et svar i gigapascal eller i pascal er galt.\n3. **$V_c = 3b$ ligger på $70$–$130\\,\\text{cm}^3/\\text{mol}$** for de fleste småmolekyler — det er en snever boks.\n4. **vdW-trykket ligger nær det ideelle for tynne gasser**, og under det ved moderat tetthet. Et vdW-trykk som er dobbelt så stort som det ideelle, for en gass ved noen få atmosfærer, er regnefeil.\n5. **$Z_c = 0{,}375$ eksakt.** Er de tre oppgitte alternativene innbyrdes uforenlige med det, er minst ett galt."
+  },
+  {
+   "id": "tfy4115-10-1-bb-hvorfor-n2",
+   "type": "definition",
+   "title": "Hvorfor tiltrekningsleddet går som $n^2/V^2$",
+   "content": "Tiltrekningen mellom molekyler virker **parvis**: den krever to molekyler. Sannsynligheten for at et gitt molekyl har en nabo nær seg, er proporsjonal med tettheten $n/V$. Og antall molekyler som kan oppleve dette, er også proporsjonal med $n/V$.\n\nTrykkreduksjonen blir derfor proporsjonal med produktet:\n$$\\Delta p \\propto \\left(\\frac{n}{V}\\right)^2 \\quad\\Longrightarrow\\quad \\Delta p = \\frac{an^2}{V^2}.$$\n\n**Konsekvensen for regning:** dobler du tettheten, blir tiltrekningskorreksjonen **fire** ganger større, mens volumkorreksjonens andel bare dobles. Det er derfor tiltrekningen dominerer først når du komprimerer, og egenvolumet tar over til slutt.\n\n**Konsekvensen for oppgaver med $n \\neq 1$:** leddet er $an^2/V^2$, ikke $an/V^2$. Det er den vanligste enkeltfeilen i sjangeren når stoffmengden ikke er ett mol."
+  },
+  {
+   "id": "tfy4115-10-1-bb-hvorfor-vaeske",
+   "type": "definition",
+   "title": "Hvorfor en ideell gass aldri blir flytende",
+   "content": "Kondensasjon krever at molekylene **holder på hverandre**. I den ideelle gassmodellen finnes ingen tiltrekning i det hele tatt — molekylene støter bare mot hverandre og mot veggen.\n\nFormelt: setter du $a = 0$ i van der Waals-ligningen, blir $p = nRT/(V-nb)$, som er monotont avtakende i $V$ for alle temperaturer. Ingen bølge, ingen vannrett tangent, ingen kritisk temperatur. Isotermene ser like ut ved enhver temperatur, og det finnes ingen faseovergang.\n\n**Dette er den skarpeste enkeltforskjellen mellom modellen og virkeligheten**, og den er verdt å ha klar: den ideelle gassloven er ikke bare unøyaktig nær kondensasjon — den kjenner ikke fenomenet."
+  },
+  {
+   "id": "tfy4115-10-1-bb-boelgen",
+   "type": "definition",
+   "title": "Bølgen på isotermen, og hva den betyr",
+   "content": "Under $T_c$ har van der Waals-isotermen en bølge med et lokalt minimum og et lokalt maksimum. Mellom dem er $\\partial p/\\partial V > 0$: trykket **stiger** når volumet øker.\n\n**Det er mekanisk umulig.** Et slikt system er ustabilt — den minste utvidelse ville økt trykket, som ville drevet en enda større utvidelse. Ingen virkelig tilstand ligger der.\n\nDet virkelige systemet følger i stedet et **vannrett platå**: væske og damp sameksisterer, og trykket holder seg på damptrykket mens forholdet mellom de to fasene forskyves. Platåets høyde bestemmes av Maxwells arealregel, som sier at de to arealene bølgen skjærer av over og under platået skal være like store.\n\n**For deg i en oppgave:** får du et vdW-svar under $T_c$ ved et molarvolum mellom noen titalls og noen tusen $\\text{cm}^3$, sjekk fortegnet på $\\partial p/\\partial V$. Er det positivt, er tilstanden ikke fysisk, og det virkelige svaret er damptrykket."
+  },
+  {
+   "id": "tfy4115-10-1-bb-fasediagram-huskekart",
+   "type": "definition",
+   "title": "Fasediagrammets huskekart",
+   "content": "$$\\text{oppe til venstre} = \\text{FAST} \\qquad \\text{midten} = \\text{VÆSKE} \\qquad \\text{høyre og nede} = \\text{GASS}$$\n\n**Fire spørsmål som avgjør nesten enhver avlesningsoppgave:**\n\n1. Er $p$ under trippeltrykket $p_t$? → **ingen væske mulig**, bare fast og gass.\n2. Er $T$ over den kritiske $T_c$? → **ingen skarp væske–gass-grense**, stoffet er overkritisk eller gass.\n3. Er $T$ under og $p$ over begge grensepunktene? → væske er mulig; se hvilken side av linjene punktet ligger.\n4. Ligger punktet **på** en linje? → to faser sameksisterer, og temperaturen holder seg konstant mens overgangen pågår.\n\n**Aksene:** temperatur mot høyre, trykk oppover. Blander du aksene, blir alle svar speilvendte — sjekk aksenavnene før du plasserer punktet."
+  },
+  {
+   "id": "tfy4115-10-1-bb-utledningens-grep",
+   "type": "definition",
+   "title": "Utledningens ene grep",
+   "content": "Utledningen av det kritiske punktet ser tung ut, men hviler på ett triks:\n\n$$\\frac{\\partial p}{\\partial V} = 0 \\ \\Longrightarrow\\ \\frac{RT}{(V-b)^2} = \\frac{2a}{V^3}, \\qquad \\frac{\\partial^2 p}{\\partial V^2} = 0 \\ \\Longrightarrow\\ \\frac{RT}{(V-b)^3} = \\frac{3a}{V^4}.$$\n\n**Del den første på den andre.** Da faller $R$, $T$ og $a$ ut på én gang:\n$$V - b = \\frac{2V}{3} \\quad\\Longrightarrow\\quad V_c = 3b.$$\n\nResten er innsetting: $V_c$ inn i den første gir $T_c = 8a/(27Rb)$, og begge inn i selve ligningen gir $p_c = 4a/27b^2 - 3a/27b^2 = a/27b^2$.\n\n**Hvis du bare husker én ting fra utledningen, husk delingen.** Den er hele grunnen til at tre ukjente kan bestemmes av to betingelser."
+  },
+  {
+   "id": "tfy4115-10-1-bb-arket-her",
+   "type": "definition",
+   "title": "Hva arket gir deg i denne sjangeren",
+   "content": "Det utdelte formelarket gir deg **van der Waals-formen** og de **tre kritiske uttrykkene**. Du skal derfor ikke pugge dem — du skal kjenne dem igjen, finne dem raskt og sette inn riktig.\n\nDet arket **ikke** gir deg:\n\n- **hvilke konstanter som hører til hvilket ledd** ($a$ til trykk, $b$ til volum);\n- **rekkefølgen som gir minst avrunding** ($V_c$, så $b^2$, så $p_c$, så $T_c$);\n- **$Z_c$-kontrollen**, som ikke står noe sted, men som fanger enhver ombytting;\n- **avlesningen av et fasediagram** — den er ren forståelse;\n- **vurderingen av om svaret er fysisk mulig** (bølgen, tofaseområdet, trippeltrykket).\n\nDet er der poengene ligger. Løs alltid oppgaver med formelarket og Rottmann ved siden av, slik eksamen faktisk er."
+  },
+  {
+   "id": "tfy4115-10-1-coll-symbolliste",
+   "type": "collapsible",
+   "title": "Symbol- og formelliste",
+   "buttonText": "Vis symboler og formler",
+   "content": [
+    {
+     "id": "tfy4115-10-1-symbolliste-tekst",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n**Kolliderende symboler i dette delkapitlet — les nøye.**\n\n- $p$ er **trykk**, en skalar i pascal. I mekanikkhalvdelen ([kap. 3.1](/tfy4115/tfy4115-3-1)) er $\\mathbf{p}$ bevegelsesmengde, en vektor. Her opptrer ingen bevegelsesmengde.\n- $T$ er **absolutt temperatur i kelvin**, aldri en svingetid. Alle tre kritiske uttrykk og hele fasediagrammet krever kelvin.\n- $R$ er **gasskonstanten** $8{,}314\\,\\text{J/(mol}\\cdot\\text{K)}$ — ikke en radius, og ikke den termiske motstanden $R_\\text{term}$ fra [kap. 9.1](/tfy4115/tfy4115-9-1).\n- $a$ er **tiltrekningskonstanten** i $\\text{Pa}\\cdot\\text{m}^6/\\text{mol}^2$, ikke en akselerasjon. $b$ er **egenvolumet** i $\\text{m}^3/\\text{mol}$, ikke Wien-konstanten fra [kap. 9.2](/tfy4115/tfy4115-9-2) og ikke dempingskonstanten fra [kap. 5.2](/tfy4115/tfy4115-5-2). Skilleregelen er enheten.\n- $V$ er **volum** i $\\text{m}^3$, ikke en fart.\n- $S$ og $\\gamma$ opptrer ikke i dette delkapitlet.\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $p$ | Trykk | Pa |\n| $V$ | Volum | $\\text{m}^3$ |\n| $n$ | Stoffmengde | mol |\n| $T$ | Absolutt temperatur — **alltid kelvin** | K |\n| $R$ | Gasskonstanten, $8{,}314$ | $\\text{J/(mol}\\cdot\\text{K)}$ |\n| $a$ | van der Waals' tiltrekningskonstant | $\\text{Pa}\\cdot\\text{m}^6/\\text{mol}^2$ |\n| $b$ | van der Waals' egenvolum (kovolum) per mol | $\\text{m}^3/\\text{mol}$ |\n| $V_c$ | Kritisk volum | $\\text{m}^3$ (eller $\\text{m}^3/\\text{mol}$) |\n| $p_c$ | Kritisk trykk | Pa |\n| $T_c$ | Kritisk temperatur | K |\n| $T_t$, $p_t$ | Trippelpunktets temperatur og trykk | K, Pa |\n| $Z$ | Kompressibilitetsfaktor, $pV/(nRT)$ | — |\n| $N_A$ | Avogadros tall, $6{,}022\\cdot10^{23}$ | $\\text{mol}^{-1}$ |\n\n**Formler i dette delkapitlet:**\n\n$$\\left(p + \\frac{an^2}{V^2}\\right)(V-nb) = nRT, \\qquad p = \\frac{nRT}{V-nb} - \\frac{an^2}{V^2}$$\nvan der Waals' tilstandsligning; $a$ retter trykket, $b$ retter volumet [står på det utdelte arket].\n\n$$V_c = 3nb, \\qquad p_c = \\frac{a}{27b^2}, \\qquad T_c = \\frac{8a}{27Rb}$$\nDet kritiske punktet fra de to konstantene [står på det utdelte arket].\n\n$$\\left(\\frac{\\partial p}{\\partial V}\\right)_{T_c} = 0, \\qquad \\left(\\frac{\\partial^2 p}{\\partial V^2}\\right)_{T_c} = 0$$\nBetingelsene som definerer det kritiske punktet; herfra utledes de tre uttrykkene [må kunne brukes eller utledes aktivt].\n\n$$Z_c = \\frac{p_cV_c}{nRT_c} = \\frac{3}{8} = 0{,}375$$\nKontrollen som tester alle tre kritiske uttrykk samtidig [må kunne brukes eller utledes aktivt].\n\n$$b = \\frac{RT_c}{8p_c}, \\qquad a = 27b^2p_c$$\nVeien baklengs, fra målte kritiske verdier til konstantene [må kunne brukes eller utledes aktivt].\n\n$$pV = nRT$$\nDen ideelle gassloven — grensen når $a,b \\to 0$ eller $V \\to \\infty$ [står på det utdelte arket].\n\n$$\\frac{d}{dx}\\left(\\frac{1}{(x-b)^n}\\right) = \\frac{-n}{(x-b)^{n+1}}$$\nDerivasjonsregelen utledningen hviler på [Rottmann]."
+    }
+   ]
+  },
+  {
+   "id": "tfy4115-10-1-coll-repetisjon",
+   "type": "collapsible",
+   "title": "Repetisjonsoppgaver",
+   "buttonText": "Vis repetisjonsoppgaver",
+   "content": [
+    {
+     "id": "tfy4115-10-1-repetisjon-tekst",
+     "type": "text",
+     "content": "Seks korte oppgaver på det dette kapitlet hviler på. Ta dem før du går videre til [kap. 10.2](/tfy4115/tfy4115-10-2).\n\n**R1.** Ett mol gass fyller $10{,}0\\,\\text{L}$ ved $300\\,\\text{K}$. Finn trykket med den ideelle gassloven.\n\n*Svar:* $p = 8{,}314 \\cdot 300/(1{,}00\\cdot10^{-2}) = 2{,}494\\cdot10^{5}\\,\\text{Pa} = 249{,}4\\,\\text{kPa}$.\n\n**R2.** Samme gass har $a = 0{,}1370$ og $b = 3{,}870\\cdot10^{-5}$. Finn vdW-trykket, og si hvor mye korreksjonene betyr.\n\n*Svar:* $V-b = 9{,}9613\\cdot10^{-3}$, ledd 1 $= \\frac{2494{,}2}{9{,}9613\\cdot10^{-3}} = 2{,}5039\\cdot10^{5}$, ledd 2 $= \\frac{0{,}1370}{1{,}00\\cdot10^{-4}} = 1{,}370\\cdot10^{3}$. Da er $p = 2{,}4902\\cdot10^{5}\\,\\text{Pa}$, altså $0{,}16$ prosent under det ideelle. Ved denne tettheten er gassen praktisk talt ideell.\n\n**R3.** Hvilken enhet må $a$ ha, og hvilken må $b$ ha?\n\n*Svar:* $a$ i $\\text{Pa}\\cdot\\text{m}^6/\\text{mol}^2$ (fordi $an^2/V^2$ skal bli pascal), $b$ i $\\text{m}^3/\\text{mol}$ (fordi $nb$ skal bli $\\text{m}^3$).\n\n**R4.** For en gass er $a = 0{,}1382$ og $b = 3{,}186\\cdot10^{-5}$. Finn $T_c$ og kontroller med $Z_c$.\n\n*Svar:* $T_c = 8 \\cdot 0{,}1382/(27 \\cdot 8{,}314 \\cdot 3{,}186\\cdot10^{-5}) = \\frac{1{,}1056}{7{,}1518\\cdot10^{-3}} = 154{,}6\\,\\text{K}$. Videre er $V_c = 9{,}558\\cdot10^{-5}$ og $p_c = 0{,}1382/(27 \\cdot 1{,}0151\\cdot10^{-9}) = 5{,}043\\cdot10^{6}\\,\\text{Pa}$, og $Z_c = 5{,}043\\cdot10^{6} \\cdot 9{,}558\\cdot10^{-5}/(8{,}314 \\cdot 154{,}6) = 482{,}0/1285{,}3 = 0{,}3750$ ✔. (Konstantene er oksygenets.)\n\n**R5.** Et stoff har trippelpunkt ved $216{,}6\\,\\text{K}$ og $5{,}18\\,\\text{atm}$. Hva skjer når det faste stoffet varmes ved $1\\,\\text{atm}$?\n\n*Svar:* $1\\,\\text{atm}$ er under trippeltrykket, så væskefasen er utelukket. Stoffet sublimerer — det går rett over i gass. (Stoffet er karbondioksid, og dette er tørris.)\n\n**R6.** Et stoff har $T_c = 150{,}9\\,\\text{K}$. Kan det være flytende i en flaske i romtemperatur?\n\n*Svar:* Nei. Romtemperatur er rundt $293\\,\\text{K}$, godt over $T_c$. Over den kritiske temperaturen finnes ingen væskefase ved noe trykk, så flasken inneholder komprimert gass."
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}

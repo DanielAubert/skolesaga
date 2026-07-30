@@ -1,0 +1,458 @@
+{
+  "id": "tfy4115-4-1",
+  "courseId": "tfy4115",
+  "chapterNumber": "4.1",
+  "title": "Massesenter, treghetsmoment og Steiners sats",
+  "description": "Massesenter for punktmasser og legemer, treghetsmoment ved $\\int r^2\\,dm$ og $\\sum m_i r_i^2$, og Steiners sats for akse utenfor massesenteret.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "finne massesenteret til et system av punktmasser og til et sammensatt legeme, komponent for komponent",
+    "regne ut treghetsmomentet for punktmasser med riktig vinkelrett avstand til aksen, og for et legeme der massen ikke er jevnt fordelt, ved å integrere",
+    "bruke Steiners sats til å flytte treghetsmomentet fra massesenteret til en parallell akse, og kontrollere at svaret er større enn utgangspunktet",
+    "velge riktig standardtreghetsmoment for stang, kule, kuleskall, sylinder, ring og plate, og kjenne igjen når oppslaget på formelarket ikke er nok"
+  ],
+  "content": [
+    {
+      "id": "tfy4115-4-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Sjanger M4 — treghetsmoment og Steiners sats, altså «finn treghetsmomentet til dette legemet om denne aksen» — dukker opp i praktisk talt alle sett (~100 %).** Temaet hører til **mekanikkhalvdelen, spørsmål 1–20**, og har **høyeste prioritet — dette må sitte.**\n\nGrunnen er at treghetsmomentet er inngangsdøra til alt annet i rotasjonsfysikken. Uten riktig $I$ blir rotasjonsenergien feil, vinkelakselerasjonen feil, dreieimpulsen feil og svingetiden til en pendel feil. Fire–fem spørsmål i et typisk sett hviler på at du fikk $I$ riktig i første regnelinje.\n\nDen gode nyheten: **treghetsmomentene for standardlegemene står på det utdelte formelarket**, og det gjør Steiners sats også. Du skal ikke pugge dem. Det du må kunne aktivt, er tre ting: å **velge riktig akse**, å måle avstandene **vinkelrett på aksen**, og å se **når oppslaget alene ikke er nok** — for arket gir deg $I$ om en akse gjennom massesenteret, mens oppgaven nesten alltid spør om en annen akse.\n\nSignaturene du vil kjenne igjen: punktmasser i hjørnene av en trekant eller et kvadrat; en stang der massen ikke er jevnt fordelt, så du må integrere; et sammensatt legeme av to deler; og en akse som ligger utenfor massesenteret, slik at Steiner-leddet må med."
+    },
+    {
+      "id": "tfy4115-4-1-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet bygger på rotasjonsstoffet fra Del 2, og på integrasjonsteknikk fra matematikken. Alt du trenger, står oppfrisket her — du skal ikke måtte bla tilbake for å komme i gang.\n\n**Fra matematikken:** [Bestemt integral som grenseverdi](/r2/r2-2-4) er grunnlaget for at en sum av mange små bidrag blir et integral, og [Variabelskifte (substitusjon)](/r2/r2-3-1) trenger du når integrasjonsvariabelen ikke er den samme som lengden langs legemet. [Vektorkoordinater og regning](/r2/r2-5-2) er verktøyet for å regne massesenteret komponent for komponent.\n\n**Fra Del 2 av denne boka** har du møtt rotasjonsenergien og sammenhengen mellom banefart og vinkelfart. De to relasjonene er de eneste du trenger herfra, og her er de:\n\n$$K_\\text{rot} = \\tfrac12 I\\omega^2$$\nDen kinetiske energien til et legeme som roterer med vinkelfart $\\omega$ om en fast akse. Størrelsen $I$ er nettopp treghetsmomentet dette kapitlet handler om. Legg merke til hvor lik den er $\\tfrac12 mv^2$: massen er byttet med treghetsmomentet, og farten med vinkelfarten.\n\n$$v = \\omega r$$\nBanefarten til et punkt som ligger i avstanden $r$ fra rotasjonsaksen. Den forutsetter at $\\omega$ er i radianer per sekund, og den er grunnen til at punkter langt fra aksen bidrar mye mer til energien enn punkter nær aksen.\n\n**Et begrep før vi begynner.** Et **stivt legeme** er et legeme der avstanden mellom to punkter i legemet ikke endrer seg — en stang, en skive, en kule. Hele dette kapitlet handler om stive legemer. En vannstråle eller en gummistrikk er ikke stive legemer, og de behandles ikke her.\n\n**Symbolmerknad.** I dette kapitlet er $R$ en **radius** (ikke gasskonstanten, som er betydningen i termodelen), $\\rho$ er en **volumtetthet** (i kap. 1.2 var samme bokstav en krumningsradius), og $I$ er alltid et **treghetsmoment** — en skalar, aldri en vektor. Se symbol- og formellisten nederst."
+    },
+    {
+      "id": "tfy4115-4-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — massesenteret (~12 min)\n\nLegg en hammer på pekefingeren og prøv å få den til å balansere. Det går bare i ett eneste punkt, og det punktet ligger ikke midt på skaftet — det ligger tett inntil hodet. Punktet du fant, er hammerens **massesenter**.\n\nMassesenteret er ikke et geometrisk sentrum. Det er et vektet gjennomsnitt, der hver del av legemet teller med sin egen masse. Er halvparten av massen samlet i den ene enden, trekker den enden punktet mot seg.\n\nVi trenger massesenteret av to grunner i dette kapitlet. Den første er praktisk: tyngden på et legeme kan alltid regnes som om den virket i massesenteret, og det er dette som gjør statikk i kap. 4.3 mulig. Den andre er at Steiners sats — kapitlets viktigste verktøy — måler avstander nettopp **fra** massesenteret."
+    },
+    {
+      "id": "tfy4115-4-1-def-massesenter",
+      "type": "definition",
+      "title": "Massesenter",
+      "content": "Det punktet i et legeme eller et system der massen kan regnes som samlet når vi ser på legemet utenfra. For to punktmasser ligger det på linja mellom dem, nærmest den tyngste; for et homogent, symmetrisk legeme ligger det i symmetrisenteret. Massesenteret er det punktet der tyngden kan tegnes som én kraft $M\\mathbf{g}$ i et frilegemediagram, og det punktet et fritt legeme roterer om når det kastes. Forkortelsen CM (fra *centre of mass*) brukes gjennom hele boka. Merk at massesenteret ikke behøver ligge inne i legemet: massesenteret til en ring ligger i luften i sentrum."
+    },
+    {
+      "id": "tfy4115-4-1-def-cm-punktmasser",
+      "type": "definition",
+      "title": "Massesenter for et system av punktmasser",
+      "content": "Koordinatene til massesenteret er de massevektede gjennomsnittene av koordinatene, én komponent om gangen:\n$$x_\\text{CM} = \\frac{\\sum m_i x_i}{\\sum m_i}, \\qquad y_\\text{CM} = \\frac{\\sum m_i y_i}{\\sum m_i}.$$\nNevneren er den totale massen $M = \\sum m_i$. Regningen gjøres alltid **komponentvis** — du regner aldri massesenteret av avstander, bare av koordinater. Velger du origo i et av punktene, faller ett ledd bort og regningen blir kortere. Formelen gjelder også for et sammensatt legeme, der hver «punktmasse» er en hel del med sin masse og sitt eget massesenter."
+    },
+    {
+      "id": "tfy4115-4-1-def-homogen",
+      "type": "definition",
+      "title": "Homogent legeme",
+      "content": "Et legeme der massen er jevnt fordelt, altså der tettheten er den samme overalt. For et homogent legeme sammenfaller massesenteret med det geometriske sentrum, og standardformlene for treghetsmoment på formelarket gjelder direkte. Er legemet **ikke** homogent — en stang der tettheten vokser mot den ene enden, en skive med tyngre ytterkant — må både massesenteret og treghetsmomentet regnes ut ved integrasjon. Oppgaveteksten sier det alltid: står ordet «homogen», kan du slå opp; står det en tetthetsfunksjon, må du integrere."
+    },
+    {
+      "id": "tfy4115-4-1-lokke1-utledning",
+      "type": "text",
+      "content": "For et system av punktmasser er regningen ren bokføring. Legg origo der det er lurt, list opp masse og koordinater, og regn ut de to summene:\n\n$$x_\\text{CM} = \\frac{m_1x_1 + m_2x_2 + \\dots}{m_1 + m_2 + \\dots}.$$\n\n*Intuisjon:* dette er nøyaktig samme regning som et vektet karaktergjennomsnitt, der massene er vektene. En masse som er dobbelt så stor, trekker massesenteret dobbelt så hardt mot seg.\n\nFor et **sammensatt legeme** — en hammer, en stang med en kule i enden, en plate med et hull — gjelder den samme formelen med delene som «punktmasser». Hver del bidrar med sin masse plassert i sitt eget massesenter. Et hull håndteres som en **negativ** masse, og det er et av de få stedene i fysikken der en negativ masse er nyttig.\n\n*Intuisjon for kontrollen:* massesenteret må alltid ligge et sted mellom de ytterste delene. Får du et svar utenfor legemet for et legeme uten hull, har du gjort en regnefeil — det er en gratis sluttsjekk som tar to sekunder."
+    },
+    {
+      "id": "tfy4115-4-1-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: massesenteret til tre bolter på en lett plate",
+      "problem": "Tre bolter er skrudd fast i en tynn plate som selv har så liten masse at vi kan se bort fra den. Boltene har massene $2{,}00\\,\\text{kg}$, $3{,}00\\,\\text{kg}$ og $5{,}00\\,\\text{kg}$, og de sitter i punktene $(0,\\ 0)$, $(0{,}400\\,\\text{m},\\ 0)$ og $(0{,}400\\,\\text{m},\\ 0{,}300\\,\\text{m})$.\n\nFinn massesenteret til systemet.",
+      "solution": "Total masse først, siden den går inn i begge nevnerne:\n$$M = 2{,}00 + 3{,}00 + 5{,}00 = 10{,}00\\,\\text{kg}.$$\n\nSå komponentvis. For $x$-komponenten bidrar den første bolten ingenting, siden $x_1 = 0$:\n$$x_\\text{CM} = \\frac{3{,}00 \\cdot 0{,}400 + 5{,}00 \\cdot 0{,}400}{10{,}00}\\,\\text{m} = \\frac{1{,}200 + 2{,}000}{10{,}00}\\,\\text{m} = \\frac{3{,}200}{10{,}00}\\,\\text{m} = 0{,}320\\,\\text{m}.$$\n\nFor $y$-komponenten er det bare den tredje bolten som har en $y$-koordinat forskjellig fra null:\n$$y_\\text{CM} = \\frac{5{,}00 \\cdot 0{,}300}{10{,}00}\\,\\text{m} = \\frac{1{,}500}{10{,}00}\\,\\text{m} = 0{,}150\\,\\text{m}.$$\n\nMassesenteret ligger altså i $(0{,}320\\,\\text{m},\\ 0{,}150\\,\\text{m})$.\n\n**Sluttsjekk.** Punktet må ligge inne i trekanten boltene spenner ut, og det gjør det: $x$-verdien ligger mellom 0 og 0,400, og $y$-verdien mellom 0 og 0,300. Legg også merke til at $x_\\text{CM}$ ligger nær 0,400 m: åtte av de ti kiloene sitter der, så massesenteret trekkes dit.\n\n**Benevningskontroll:** teller har enhet $\\text{kg}\\cdot\\text{m}$, nevner $\\text{kg}$, og brøken blir meter. Det stemmer."
+    },
+    {
+      "id": "tfy4115-4-1-o-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-4-1-oppg-1",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — begreper og enheter.)\n\n**a)** Forklar med egne ord hva treghetsmomentet til et legeme forteller, og hvorfor to legemer med samme masse kan ha helt forskjellig treghetsmoment.\n\n**b)** Hvilken SI-enhet har treghetsmomentet? Vis at enheten følger av uttrykket $K_\\text{rot} = \\tfrac12 I\\omega^2$.",
+        "solution": "**a)** Treghetsmomentet forteller hvor vanskelig det er å **endre rotasjonen** til et legeme om en gitt akse — det er rotasjonens motsvarighet til massen. To legemer med samme masse kan ha helt ulikt treghetsmoment fordi treghetsmomentet ikke bare avhenger av *hvor mye* masse legemet har, men av *hvor langt fra aksen* massen ligger. Massen teller med kvadratet av avstanden. En sykkelfelg og en kompakt sylinder med samme masse er et godt bilde: felgens masse sitter helt ute ved kanten, sylinderens er fordelt inn mot midten, og felgen er derfor mye tyngre å få i gang.\n\n**b)** Rotasjonsenergien har enhet joule, og $\\omega$ har enhet $\\text{rad/s}$, altså $1/\\text{s}$ siden radianen er dimensjonsløs. Da må\n$$[I] = \\frac{[K]}{[\\omega^2]} = \\frac{\\text{J}}{1/\\text{s}^2} = \\text{J}\\cdot\\text{s}^2 = \\frac{\\text{kg}\\cdot\\text{m}^2}{\\text{s}^2}\\cdot\\text{s}^2 = \\text{kg}\\cdot\\text{m}^2.$$\nEnheten er altså $\\text{kg}\\cdot\\text{m}^2$, som også er den du leser rett ut av $I = \\sum m_ir_i^2$: masse ganger avstand i annen.",
+        "hints": [
+          "Tenk på hva som gjør en dør tung å få i gang, og hvor på døra håndtaket sitter.",
+          "Sett inn enhetene i uttrykket for rotasjonsenergien og løs for enheten til $I$."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-4-1-o-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-4-1-oppg-2",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M4 — treghetsmoment og Steiners sats. Her trenes massesenter-delen.) En hammer består av et homogent skaft med masse $0{,}300\\,\\text{kg}$ og lengde $0{,}320\\,\\text{m}$, og et hode med masse $0{,}720\\,\\text{kg}$ som kan regnes som en punktmasse i avstanden $0{,}340\\,\\text{m}$ fra den frie enden av skaftet.\n\n**a)** Finn massesenterets avstand fra den frie enden av skaftet.\n\n**b)** Hvor mange prosent av skaftlengden fra den frie enden ligger massesenteret?",
+        "solution": "**a)** Skaftet er homogent, så dets eget massesenter ligger midt på det, i $0{,}160\\,\\text{m}$. Totalmassen er $0{,}300 + 0{,}720 = 1{,}020\\,\\text{kg}$. Behandle de to delene som punktmasser i sine egne massesentre:\n$$x_\\text{CM} = \\frac{0{,}300 \\cdot 0{,}160 + 0{,}720 \\cdot 0{,}340}{1{,}020}\\,\\text{m} = \\frac{0{,}0480 + 0{,}2448}{1{,}020}\\,\\text{m} = \\frac{0{,}2928}{1{,}020}\\,\\text{m} = 0{,}2871\\,\\text{m} \\approx 0{,}287\\,\\text{m}.$$\n\n**b)** Andelen er\n$$\\frac{0{,}287}{0{,}320} = 0{,}897,$$\naltså om lag 90 prosent av skaftlengden. Massesenteret ligger godt utenfor midten, nær hodet — akkurat der du kjenner at hammeren balanserer.\n\n**Sluttsjekk:** svaret må ligge mellom $0{,}160\\,\\text{m}$ (skaftets eget massesenter) og $0{,}340\\,\\text{m}$ (hodets), og det gjør det. Hodet er mer enn dobbelt så tungt som skaftet, så punktet skal ligge nærmest hodet — det gjør det også.",
+        "hints": [
+          "Del hammeren i to deler, og gi hver del sin egen masse plassert i sitt eget massesenter.",
+          "Et homogent skaft har massesenteret midt på seg — det er den ene av de to «punktmassene».",
+          "Kontroller til slutt at svaret ligger mellom de to delmassesentrene."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-4-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — treghetsmoment for punktmasser (~14 min)\n\nPrøv å svinge en hammer to ganger: først med hånden rundt skaftet nær hodet, så med hånden helt ute i enden av skaftet. Samme hammer, samme masse — men den andre gangen er den mye tyngre å få i gang og mye tyngre å stoppe. Det du kjenner, er at **treghetsmomentet har endret seg fordi aksen flyttet seg.**\n\nDette er den viktigste enkeltinnsikten i hele Del 4: treghetsmoment er ikke en egenskap ved legemet alene. Det er en egenskap ved **legemet og aksen sammen**. Spør noen «hva er treghetsmomentet til denne stanga?», er spørsmålet ufullstendig til de har sagt hvilken akse."
+    },
+    {
+      "id": "tfy4115-4-1-def-treghetsmoment",
+      "type": "definition",
+      "title": "Treghetsmoment",
+      "content": "Motstanden et legeme har mot å endre rotasjonen sin om en bestemt akse, med symbolet $I$ og enheten $\\text{kg}\\cdot\\text{m}^2$. Den er rotasjonens motsvarighet til massen: der massen sier hvor tungt noe er å få i fart langs en linje, sier treghetsmomentet hvor tungt det er å få i fart rundt en akse. Treghetsmomentet er en **skalar** — det har ingen retning og skal aldri skrives med vektorpil. Den avgjørende forskjellen fra massen er at treghetsmomentet **avhenger av hvilken akse** vi velger: samme legeme har mange forskjellige treghetsmomenter, ett for hver akse."
+    },
+    {
+      "id": "tfy4115-4-1-def-vinkelrett-avstand",
+      "type": "definition",
+      "title": "Vinkelrett avstand til aksen",
+      "content": "Den korteste avstanden fra et masseelement til rotasjonsaksen, målt **vinkelrett på aksen**. Det er nettopp denne avstanden som står i $I = \\sum m_i r_i^2$, og forveksling med andre avstander er kapitlets vanligste enkeltfeil. Ligger en punktmasse rett ved siden av aksen, men langt unna langs aksen, er den vinkelrette avstanden liten og bidraget lite. Praktisk oppskrift: se ned langs aksen, slik at den blir et punkt, og mål avstanden i det bildet. For en akse gjennom et hjørne i en likesidet trekant, vinkelrett på trekantplanet, er de vinkelrette avstandene til de to andre hjørnene sidekanten $a$ — ikke høyden i trekanten."
+    },
+    {
+      "id": "tfy4115-4-1-th-punktmasser",
+      "type": "theorem",
+      "title": "Treghetsmoment for et system av punktmasser",
+      "content": "For punktmasser $m_i$ i vinkelrette avstander $r_i$ fra aksen er\n$$I = \\sum_i m_i r_i^2.$$\nUttrykket følger direkte fra rotasjonsenergien: hvert punkt har farten $v_i = \\omega r_i$, så den totale kinetiske energien er\n$$K = \\sum_i \\tfrac12 m_i v_i^2 = \\sum_i \\tfrac12 m_i \\omega^2 r_i^2 = \\tfrac12\\left(\\sum_i m_i r_i^2\\right)\\omega^2 = \\tfrac12 I\\omega^2.$$\nVinkelfarten $\\omega$ er den samme for alle punktene i et stivt legeme, og det er derfor den kan settes utenfor summen. Uttrykket **står på det utdelte arket**, men å velge de riktige $r_i$-ene må du gjøre selv."
+    },
+    {
+      "id": "tfy4115-4-1-fig-1",
+      "type": "image",
+      "src": "/images/textbook/tfy4115/tfy4115-4-1-treghetsmoment-akser.svg",
+      "alt": "To paneler. Panel A viser en likesidet trekant med tre like punktmasser i hjoernene og en akse gjennom det nederste venstre hjoernet, tegnet som en sirkel med kryss fordi aksen staar vinkelrett paa papirplanet. De to vinkelrette avstandene til de andre hjoernene er merket r er lik a. Panel B viser en skive med en akse gjennom massesenteret og en parallell akse i randen, med avstanden d er lik R markert mellom dem.",
+      "caption": "Til venstre: de vinkelrette avstandene i $I=\\sum m_ir_i^2$ for tre punktmasser, med aksen gjennom ett hjørne. Til høyre: Steiners sats flytter treghetsmomentet fra massesenter-aksen til en parallell akse i randen, og legger alltid $Md^2$ til."
+    },
+    {
+      "id": "tfy4115-4-1-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: tre like masser i en likesidet trekant",
+      "problem": "Tre like punktmasser $m = 0{,}500\\,\\text{kg}$ sitter i hjørnene av en likesidet trekant med sidekant $a = 0{,}600\\,\\text{m}$. Massene er festet til hverandre med lette staver.\n\n**a)** Finn treghetsmomentet om en akse gjennom ett av hjørnene, vinkelrett på trekantplanet.\n**b)** Finn treghetsmomentet om en akse gjennom massesenteret, vinkelrett på trekantplanet.\n**c)** Kontroller at de to svarene henger sammen slik Steiners sats krever.",
+      "solution": "**a) Symbolsk.** Sett aksen i hjørnet $A$. Massen i $A$ har $r = 0$ og bidrar ingenting. De to andre hjørnene ligger i den vinkelrette avstanden $a$ fra aksen, siden trekanten er likesidet og aksen står vinkelrett på planet:\n$$I_A = m\\cdot 0^2 + m a^2 + m a^2 = 2ma^2.$$\n\n**Rask vei til tall.**\n$$I_A = 2 \\cdot 0{,}500\\,\\text{kg} \\cdot (0{,}600\\,\\text{m})^2 = 2 \\cdot 0{,}500 \\cdot 0{,}360\\,\\text{kg}\\cdot\\text{m}^2 = 0{,}360\\,\\text{kg}\\cdot\\text{m}^2.$$\n\n**b)** Massesenteret til tre like masser ligger i trekantens geometriske sentrum, og avstanden fra sentrum til hvert hjørne i en likesidet trekant er $a/\\sqrt{3}$. Alle tre massene ligger i den samme vinkelrette avstanden:\n$$I_\\text{CM} = 3m\\left(\\frac{a}{\\sqrt3}\\right)^2 = 3m\\cdot\\frac{a^2}{3} = ma^2 = 0{,}180\\,\\text{kg}\\cdot\\text{m}^2.$$\n\n**c)** Steiners sats sier at treghetsmomentet om en akse i avstanden $d$ fra en parallell akse gjennom massesenteret er $I = I_\\text{CM} + Md^2$. Her er $M = 3m = 1{,}500\\,\\text{kg}$ og $d = a/\\sqrt3 = 0{,}3464\\,\\text{m}$:\n$$I_\\text{CM} + Md^2 = ma^2 + 3m\\cdot\\frac{a^2}{3} = ma^2 + ma^2 = 2ma^2 = I_A. \\checkmark$$\nMed tall: $0{,}180 + 1{,}500 \\cdot 0{,}3464^2 = 0{,}180 + 0{,}180 = 0{,}360\\,\\text{kg}\\cdot\\text{m}^2$.\n\n**Legg merke til hva dette betyr.** Treghetsmomentet om hjørnet er **dobbelt** så stort som om massesenteret, med akkurat samme masse. Aksen alene fordoblet svaret. Og legg merke til retningen: $I_A > I_\\text{CM}$, aldri motsatt."
+    },
+    {
+      "id": "tfy4115-4-1-o-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-4-1-oppg-3",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M4.) Fire punktmasser på $0{,}300\\,\\text{kg}$ hver sitter i hjørnene av et kvadrat med sidekant $0{,}500\\,\\text{m}$, forbundet med lette staver.\n\n**a)** Finn treghetsmomentet om en akse gjennom kvadratets sentrum, vinkelrett på kvadratplanet.\n\n**b)** Finn treghetsmomentet om en akse gjennom ett av hjørnene, vinkelrett på planet.\n\n**c)** Bruk Steiners sats til å kontrollere at de to svarene er forenlige.",
+        "solution": "**a)** Avstanden fra sentrum til et hjørne er halve diagonalen, $a/\\sqrt2$. Alle fire massene ligger like langt fra aksen:\n$$I_\\text{CM} = 4m\\left(\\frac{a}{\\sqrt2}\\right)^2 = 4m\\cdot\\frac{a^2}{2} = 2ma^2 = 2 \\cdot 0{,}300 \\cdot 0{,}2500\\,\\text{kg}\\cdot\\text{m}^2 = 0{,}1500\\,\\text{kg}\\cdot\\text{m}^2.$$\n\n**b)** Legg aksen i hjørnet $A$. Da er de vinkelrette avstandene $0$ for massen i $A$, $a$ for de to nabohjørnene og $a\\sqrt2$ for det motstående hjørnet:\n$$I_A = m\\left(0 + a^2 + a^2 + 2a^2\\right) = 4ma^2 = 4 \\cdot 0{,}300 \\cdot 0{,}2500\\,\\text{kg}\\cdot\\text{m}^2 = 0{,}3000\\,\\text{kg}\\cdot\\text{m}^2.$$\n\n**c)** Avstanden mellom de to aksene er $d = a/\\sqrt2$, og total masse er $M = 4m$:\n$$I_\\text{CM} + Md^2 = 2ma^2 + 4m\\cdot\\frac{a^2}{2} = 2ma^2 + 2ma^2 = 4ma^2 = I_A. \\checkmark$$\n\n**Merk fella i b):** det motstående hjørnet ligger $a\\sqrt2$ unna, og kvadratet av det er $2a^2$ — ikke $a^2\\sqrt2$. Glemmer du kvadreringen av rot to, får du $0{,}2561\\,\\text{kg}\\cdot\\text{m}^2$ i stedet, og det ligger som et ferdig svaralternativ.",
+        "hints": [
+          "Avstanden fra sentrum til et hjørne i et kvadrat er halve diagonalen.",
+          "I b) har de fire massene tre forskjellige avstander til aksen — én av dem er null.",
+          "Husk å kvadrere diagonalavstanden: $(a\\sqrt2)^2 = 2a^2$."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-4-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — når massen er kontinuerlig fordelt: $\\int r^2\\,dm$ (~18 min)\n\nEn stang er ikke en samling punktmasser. Den er en sammenhengende masse, og summen $\\sum m_ir_i^2$ blir da et integral. Ideen er den samme som når strekningen ble integralet av farten i [kap. 1.1](/tfy4115/tfy4115-1-1): del legemet i så små biter at hver bit kan regnes som en punktmasse, og summer.\n\n$$I = \\int r^2\\,dm.$$\n\nHele håndverket ligger i å skrive $dm$ riktig. Massen til en liten bit er tettheten ganger bitens størrelse, og hvilken tetthet du bruker, avhenger av om legemet er en linje, en flate eller et volum."
+    },
+    {
+      "id": "tfy4115-4-1-def-masseelement",
+      "type": "definition",
+      "title": "Masseelement",
+      "content": "En tenkt, uendelig liten bit av et legeme, med massen $dm$. Poenget med å dele opp i masseelementer er at hvert element ligger i én bestemt avstand $r$ fra aksen og derfor kan behandles som en punktmasse med bidraget $r^2\\,dm$. Treghetsmomentet er summen av alle bidragene, altså integralet $I=\\int r^2\\,dm$. I regning uttrykkes $dm$ alltid ved en tetthet ganger et lengde-, flate- eller volumelement — det er dette skrittet som gjør integralet regnbart, og det er der de fleste feilene oppstår."
+    },
+    {
+      "id": "tfy4115-4-1-def-linjetetthet",
+      "type": "definition",
+      "title": "Linjetetthet",
+      "content": "Masse per lengde langs et tynt, langt legeme, med symbolet $\\lambda$ (den greske bokstaven lambda) og enheten $\\text{kg/m}$. Masseelementet er da $dm = \\lambda\\,dx$. For en **homogen** stang er $\\lambda = M/L$ konstant, og den kan settes utenfor integralet. Er stanga ikke homogen, er $\\lambda$ en funksjon av posisjonen, $\\lambda(x)$, og da må du (i) finne totalmassen ved $M = \\int_0^L \\lambda(x)\\,dx$ før du kan uttrykke svaret ved $M$, og (ii) la $\\lambda(x)$ bli med inne i integralet for treghetsmomentet."
+    },
+    {
+      "id": "tfy4115-4-1-def-flatetetthet",
+      "type": "definition",
+      "title": "Flatetetthet",
+      "content": "Masse per areal for et tynt legeme som en plate, en skive eller et skall, med symbolet $\\sigma$ (sigma) og enheten $\\text{kg/m}^2$. Masseelementet er $dm = \\sigma\\,dA$. For en skive er det lurt å velge $dA$ som en tynn ring med radius $r$ og bredde $dr$, altså $dA = 2\\pi r\\,dr$, fordi hele ringen ligger i samme avstand fra sentrumsaksen. Merk at samme bokstav $\\sigma$ betyr **Stefan–Boltzmanns konstant** i strålingskapitlene i Del 9 — her er den en flatetetthet, og enheten skiller dem umiddelbart."
+    },
+    {
+      "id": "tfy4115-4-1-def-volumtetthet",
+      "type": "definition",
+      "title": "Volumtetthet",
+      "content": "Masse per volum, med symbolet $\\rho$ (rho) og enheten $\\text{kg/m}^3$, slik at $dm = \\rho\\,dV$. Dette er den «vanlige» tettheten fra videregående, og den brukes for kompakte legemer som en kule eller en sylinder. Merk symbolkollisjonen: i [kap. 1.2](/tfy4115/tfy4115-1-2) var $\\rho$ en **krumningsradius** i meter. I Del 4 er $\\rho$ alltid en tetthet, og enheten avgjør hvilken betydning som gjelder."
+    },
+    {
+      "id": "tfy4115-4-1-lokke3-utledning",
+      "type": "text",
+      "content": "La oss gjøre den viktigste utledningen i kapitlet: **den homogene stanga**. Den er verdt å kunne gjennomføre, ikke fordi svaret ikke står på arket, men fordi den viser hvor stor forskjell aksevalget gjør.\n\nEn homogen stang med masse $M$ og lengde $L$ har $\\lambda = M/L$. Legg først aksen i **den ene enden**, og la $x$ måle avstanden fra aksen. Da er $r = x$, og\n\n$$I_\\text{ende} = \\int_0^L x^2\\,\\lambda\\,dx = \\frac{M}{L}\\int_0^L x^2\\,dx = \\frac{M}{L}\\cdot\\frac{L^3}{3} = \\tfrac13 ML^2.$$\n\nFlytt så aksen til **midten**. Nå går $x$ fra $-L/2$ til $+L/2$:\n\n$$I_\\text{midt} = \\frac{M}{L}\\int_{-L/2}^{L/2} x^2\\,dx = \\frac{M}{L}\\cdot\\frac{2}{3}\\left(\\frac{L}{2}\\right)^3 = \\tfrac{1}{12}ML^2.$$\n\n*Intuisjon:* de to svarene skiller seg med en faktor fire. Grunnen er kvadratet: når aksen flyttes til enden, kommer halve massen dobbelt så langt unna, og bidraget vokser med kvadratet av avstanden. **Integrasjonsgrensene er altså ikke en formalitet — de er selve aksevalget** (felle #7 i bokas feilregister: feil grenser i $\\int r^2\\,dm$).\n\n*Kontroll som er verdt å gjøre hver gang:* er svaret på formen (et tall mindre enn 1) $\\times ML^2$? Alle treghetsmomenter for et legeme med utstrekning $L$ eller $R$ har den formen, og tallet foran er alltid mindre enn 1 for en akse gjennom legemet."
+    },
+    {
+      "id": "tfy4115-4-1-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: stang der massen er tyngst i den ene enden",
+      "problem": "En stang med lengde $L = 0{,}900\\,\\text{m}$ og total masse $M = 1{,}200\\,\\text{kg}$ har linjetettheten\n$$\\lambda(x) = \\lambda_0\\left(1 + \\frac{x}{L}\\right), \\qquad 0 \\le x \\le L,$$\naltså dobbelt så tett i enden $x = L$ som i enden $x = 0$.\n\n**a)** Uttrykk $\\lambda_0$ ved $M$ og $L$.\n**b)** Finn treghetsmomentet om en akse gjennom enden $x = 0$, vinkelrett på stanga.\n**c)** Hvor ligger massesenteret?\n**d)** Sammenlign svaret i b) med en homogen stang med samme masse og lengde.",
+      "solution": "**a)** Totalmassen er integralet av linjetettheten:\n$$M = \\int_0^L \\lambda_0\\left(1 + \\frac{x}{L}\\right)dx = \\lambda_0\\left[x + \\frac{x^2}{2L}\\right]_0^L = \\lambda_0\\left(L + \\frac{L}{2}\\right) = \\frac{3\\lambda_0 L}{2}.$$\n$$\\lambda_0 = \\frac{2M}{3L} = \\frac{2 \\cdot 1{,}200}{3 \\cdot 0{,}900}\\,\\text{kg/m} = 0{,}8889\\,\\text{kg/m}.$$\n\n**b) Symbolsk.** Med aksen i $x = 0$ er $r = x$:\n$$I = \\int_0^L x^2\\lambda_0\\left(1 + \\frac{x}{L}\\right)dx = \\lambda_0\\left[\\frac{x^3}{3} + \\frac{x^4}{4L}\\right]_0^L = \\lambda_0 L^3\\left(\\frac13 + \\frac14\\right) = \\frac{7\\lambda_0 L^3}{12}.$$\nSett inn $\\lambda_0 = 2M/(3L)$:\n$$I = \\frac{7}{12}\\cdot\\frac{2M}{3L}\\cdot L^3 = \\frac{7}{18}ML^2.$$\n\n**Rask vei til tall.**\n$$I = \\frac{7}{18}\\cdot 1{,}200\\,\\text{kg}\\cdot(0{,}900\\,\\text{m})^2 = 0{,}3889 \\cdot 1{,}200 \\cdot 0{,}810\\,\\text{kg}\\cdot\\text{m}^2 = 0{,}3780\\,\\text{kg}\\cdot\\text{m}^2.$$\n\n**c)** Massesenteret er det massevektede gjennomsnittet av posisjonen:\n$$x_\\text{CM} = \\frac{1}{M}\\int_0^L x\\,\\lambda(x)\\,dx = \\frac{\\lambda_0}{M}\\left[\\frac{x^2}{2} + \\frac{x^3}{3L}\\right]_0^L = \\frac{\\lambda_0 L^2}{M}\\left(\\frac12 + \\frac13\\right) = \\frac{5\\lambda_0 L^2}{6M}.$$\nMed $\\lambda_0 = 2M/(3L)$ blir dette\n$$x_\\text{CM} = \\frac{5}{6}\\cdot\\frac{2}{3}L = \\frac{5L}{9} = 0{,}500\\,\\text{m}.$$\nPunktet ligger altså litt forbi midten, mot den tunge enden — som det skal.\n\n**d)** En homogen stang har $I_\\text{ende} = \\tfrac13 ML^2 = 0{,}3240\\,\\text{kg}\\cdot\\text{m}^2$. Forholdet er\n$$\\frac{7/18}{1/3} = \\frac{7}{6} = 1{,}1667,$$\naltså om lag 17 prosent mer. Det er rimelig: den tunge enden ligger langt fra aksen, og der teller massen med kvadratet av avstanden.\n\n**Sluttsjekk på formen:** svaret $\\tfrac{7}{18} = 0{,}3889$ ligger mellom $\\tfrac13$ (homogen om enden) og $\\tfrac12$ (all masse i den fjerne halvdelen ville gitt mer). Det er nettopp det vi forventer av en stang som er tyngst ytterst."
+    },
+    {
+      "id": "tfy4115-4-1-o-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-4-1-oppg-4",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M4.) En stang med lengde $L = 1{,}200\\,\\text{m}$ og masse $M = 0{,}900\\,\\text{kg}$ har linjetettheten\n$$\\lambda(x) = \\lambda_0\\,\\frac{x}{L}, \\qquad 0 \\le x \\le L,$$\naltså null masse helt i enden $x=0$ og tettest i $x = L$.\n\n**a)** Vis at $\\lambda_0 = 2M/L$.\n\n**b)** Finn treghetsmomentet om en akse gjennom $x = 0$, vinkelrett på stanga, uttrykt ved $M$ og $L$, og regn ut tallverdien.\n\n**c)** Finn massesenteret.",
+        "solution": "**a)** $M = \\int_0^L \\lambda_0\\frac{x}{L}dx = \\frac{\\lambda_0}{L}\\cdot\\frac{L^2}{2} = \\frac{\\lambda_0 L}{2}$, altså $\\lambda_0 = 2M/L$. Med tall: $\\lambda_0 = 2\\cdot0{,}900/1{,}200 = 1{,}500\\,\\text{kg/m}$.\n\n**b)**\n$$I = \\int_0^L x^2\\,\\lambda_0\\frac{x}{L}\\,dx = \\frac{\\lambda_0}{L}\\int_0^L x^3dx = \\frac{\\lambda_0}{L}\\cdot\\frac{L^4}{4} = \\frac{\\lambda_0 L^3}{4} = \\frac{2M}{L}\\cdot\\frac{L^3}{4} = \\tfrac12 ML^2.$$\n$$I = \\tfrac12 \\cdot 0{,}900\\,\\text{kg}\\cdot(1{,}200\\,\\text{m})^2 = 0{,}6480\\,\\text{kg}\\cdot\\text{m}^2.$$\n\n**c)**\n$$x_\\text{CM} = \\frac{1}{M}\\int_0^L x\\cdot\\lambda_0\\frac{x}{L}dx = \\frac{\\lambda_0}{ML}\\cdot\\frac{L^3}{3} = \\frac{2M}{ML}\\cdot\\frac{L^2}{3L}\\cdot L = \\frac{2L}{3} = 0{,}800\\,\\text{m}.$$\n\n**Kommentar.** Legg merke til at $\\tfrac12 ML^2$ er **større** enn både den homogene stanga om enden ($\\tfrac13ML^2$) og stanga i eksempel 3 ($\\tfrac{7}{18}ML^2 \\approx 0{,}39\\,ML^2$). Rekkefølgen er logisk: jo mer av massen som er skjøvet ut mot den fjerne enden, jo større treghetsmoment. Og massesenteret følger samme rekkefølge: $L/2$, $5L/9$, $2L/3$.",
+        "hints": [
+          "Finn totalmassen ved å integrere linjetettheten over hele stanga først.",
+          "Med aksen i $x=0$ er den vinkelrette avstanden $r=x$, så integranden blir $x^2\\lambda(x)$.",
+          "Massesenteret er $\\frac{1}{M}\\int x\\,\\lambda(x)\\,dx$ — én potens lavere enn treghetsmomentet."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-4-1-o-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-4-1-oppg-5",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Kvalitativ oppgave — konseptrangering. Denne typen kommer som rent flervalgsspørsmål på eksamen.) Fire legemer har alle samme masse $M$ og samme ytre radius $R$: en tynn ring (all masse i randen), en kompakt kule, en tynn kuleskall og en massiv sylinder. Alle roterer om en akse gjennom massesenteret.\n\n**a)** Ranger de fire treghetsmomentene fra størst til minst, og begrunn rangeringen i ett resonnement som ikke bruker tallene.\n\n**b)** Forklar hvorfor rangeringen er den samme uansett hvilke verdier $M$ og $R$ har.",
+        "solution": "**a)** Rangeringen er\n$$I_\\text{ring} = MR^2 \\;>\\; I_\\text{kuleskall} = \\tfrac23MR^2 \\;>\\; I_\\text{sylinder} = \\tfrac12MR^2 \\;>\\; I_\\text{kule} = \\tfrac25MR^2.$$\nResonnementet uten tall: treghetsmomentet vokser med **hvor langt fra aksen massen ligger**. I ringen ligger all massen i den maksimale avstanden $R$ — det er den ytterste grensen, og ringen må derfor ha det største mulige treghetsmomentet av alle legemer med radius $R$. I kuleskallet ligger all massen på overflaten, men mesteparten av overflaten ligger nærmere aksen enn $R$ (bare «ekvatorbeltet» ligger helt ute), så skallet kommer under ringen. I den massive sylinderen er massen fordelt jevnt utover hele tverrsnittet, og i den kompakte kula er den i tillegg trukket inn mot midten både i radiell retning og mot polene — derfor er kula minst.\n\n**b)** Fordi alle fire treghetsmomentene har formen (et tall) $\\times MR^2$, med tallet som eneste forskjell. Ganger du både $M$ og $R$ med hva som helst, ganges alle fire med den samme faktoren, og rekkefølgen kan ikke endre seg. Rangeringen er en egenskap ved **formen**, ikke ved størrelsen. Det er nettopp derfor et flervalgsspørsmål kan spørre om rangering uten å oppgi et enkelt tall.\n\n**Merk aksen:** for sylinderen menes aksen langs symmetriaksen, og for ringen aksen gjennom sentrum vinkelrett på ringplanet. Sier oppgaven en annen akse, endres tallene — og det er hele grunnen til at aksen alltid må oppgis.",
+        "hints": [
+          "Tenk på hvor langt fra aksen massen ligger i hvert av de fire tilfellene.",
+          "Alle fire har formen (et tall) ganger $MR^2$ — hva betyr det for rangeringen når $M$ og $R$ endres?"
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-4-1-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Steiners sats (~16 min)\n\n— naturlig pausepunkt —\n\nNå kommer verktøyet som løser eksamensproblemet. Formelarket gir deg treghetsmomentet **om en akse gjennom massesenteret**. Oppgaven spør nesten alltid om en annen akse: stanga henger i enden, kula ruller om kontaktpunktet, skiva er hengt opp i randen. Steiners sats er brua mellom de to."
+    },
+    {
+      "id": "tfy4115-4-1-th-steiner",
+      "type": "theorem",
+      "title": "Steiners sats",
+      "content": "La $I_\\text{CM}$ være treghetsmomentet om en akse gjennom massesenteret, og la den nye aksen være **parallell** med den og ligge i avstanden $d$ fra den. Da er\n$$I = I_\\text{CM} + Md^2,$$\nder $M$ er legemets totale masse. Satsen **står på det utdelte arket**, men å bruke den riktig er en aktiv ferdighet, og den har tre betingelser som alle må være oppfylt:\n\n1. de to aksene må være **parallelle** (satsen sier ingenting om aksen dreies);\n2. den ene aksen må gå gjennom **massesenteret** — du kan ikke hoppe direkte mellom to vilkårlige akser;\n3. $d$ er den **vinkelrette** avstanden mellom aksene.\n\nFordi $Md^2$ alltid er positiv, følger et resultat som er verdt å bruke som sluttsjekk hver gang: **treghetsmomentet er minst om en akse gjennom massesenteret**, og enhver parallell forskyvning gjør det større."
+    },
+    {
+      "id": "tfy4115-4-1-lokke4-utledning",
+      "type": "text",
+      "content": "Hvorfor holder satsen? Ideen er kort. Legg massesenteret i origo og la den nye aksen ligge i avstanden $d$ langs $x$-aksen. Et masseelement som ligger i $(x, y)$ har da avstanden $x^2+y^2$ til CM-aksen og $(x-d)^2 + y^2$ til den nye:\n\n$$I = \\int\\left[(x-d)^2 + y^2\\right]dm = \\int\\left(x^2+y^2\\right)dm - 2d\\int x\\,dm + d^2\\int dm.$$\n\nDet første integralet er $I_\\text{CM}$. Det siste er $Md^2$. Og det midterste er **null** — for $\\int x\\,dm = Mx_\\text{CM}$, og vi la nettopp massesenteret i origo, så $x_\\text{CM}=0$.\n\n*Intuisjon:* kryssleddet forsvinner nøyaktig fordi vi målte fra massesenteret. Det er derfor betingelse 2 ikke kan slippes: prøver du å bruke satsen mellom to akser der ingen går gjennom CM, står kryssleddet igjen, og svaret blir feil.\n\n**La oss se hva satsen gjør i praksis.** En kompakt kule har $I_\\text{CM} = \\tfrac25MR^2$. Legger vi aksen tangentielt langs overflaten, er $d = R$:\n\n$$I = \\tfrac25MR^2 + MR^2 = \\tfrac75MR^2.$$\n\nMed $M = 2{,}400\\,\\text{kg}$ og $R = 0{,}150\\,\\text{m}$ blir $I_\\text{CM} = 0{,}02160\\,\\text{kg}\\cdot\\text{m}^2$ og $I = 0{,}07560\\,\\text{kg}\\cdot\\text{m}^2$ — en faktor $3{,}5$ større. Steiner-leddet dominerer altså fullstendig, og det er nettopp derfor det å glemme det (felle #4 — glemt Steiner-ledd når aksen ligger utenfor massesenteret) gir et svar som ikke er litt feil, men grovt feil.\n\n## Rask vei til tall (MC-oppskrift)\n\nDette er den korteste feilfrie veien fra oppgitte tall til bokstavsvaret i denne sjangeren.\n\n1. **Hvilken lov?** Punktmasser: $I=\\sum m_ir_i^2$. Legeme: slå opp $I_\\text{CM}$ på arket. Ikke-homogent legeme: $I=\\int r^2dm$.\n2. **Hvilken ene regnelinje?** Spør: går aksen gjennom massesenteret? Hvis nei, skriv $I = I_\\text{CM} + Md^2$ med én gang, før du regner noe.\n3. **Hva hentes hvor?** Standardtreghetsmomentene ($\\tfrac{1}{12}ML^2$, $\\tfrac13ML^2$, $\\tfrac25MR^2$, $\\tfrac23MR^2$, $\\tfrac12MR^2$, $MR^2$) og Steiners sats **står på det utdelte arket**. Integraler av potensfunksjoner slår du opp i **Rottmann**. Aksevalget og oppsettet må du gjøre selv.\n4. **Hvor mange siffer?** Behold fire gjennom kjeden. Treghetsmomenter er små tall med potenser av 10, og en tidlig avrunding av $R^2$ flytter deg lett til nabo-alternativet.\n5. **Hva sjekker du før du krysser av?** (i) Er enheten $\\text{kg}\\cdot\\text{m}^2$? (ii) Er svaret større enn $I_\\text{CM}$ når aksen ligger utenfor massesenteret? (iii) Ligger tallet foran $MR^2$ eller $ML^2$ mellom $0$ og omtrent $2$? Er det mye større, har du sannsynligvis brukt en avstand i stedet for en avstand i annen — eller glemt en faktor."
+    },
+    {
+      "id": "tfy4115-4-1-o-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-4-1-oppg-6",
+        "number": 6,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M4.) En homogen skive med masse $M = 2{,}000\\,\\text{kg}$ og radius $R = 0{,}250\\,\\text{m}$ roterer om en akse som står vinkelrett på skiva, men som er flyttet ut til punktet midt mellom sentrum og randen.\n\n**a)** Finn treghetsmomentet om denne aksen, uttrykt ved $M$ og $R$.\n\n**b)** Regn ut tallverdien, og oppgi hvor mange prosent større den er enn om aksen gikk gjennom sentrum.",
+        "solution": "**a)** Skiva har $I_\\text{CM} = \\tfrac12MR^2$ om sentrumsaksen, og den nye aksen er parallell med den i avstanden $d = R/2$:\n$$I = \\tfrac12MR^2 + M\\left(\\frac{R}{2}\\right)^2 = \\tfrac12MR^2 + \\tfrac14MR^2 = \\tfrac34MR^2.$$\n\n**b)** Med tall:\n$$I = 0{,}75 \\cdot 2{,}000\\,\\text{kg} \\cdot (0{,}250\\,\\text{m})^2 = 0{,}75 \\cdot 2{,}000 \\cdot 0{,}0625\\,\\text{kg}\\cdot\\text{m}^2 = 0{,}09375\\,\\text{kg}\\cdot\\text{m}^2.$$\nOm sentrumsaksen er $I_\\text{CM} = \\tfrac12MR^2 = 0{,}06250\\,\\text{kg}\\cdot\\text{m}^2$, så forholdet er $\\tfrac34/\\tfrac12 = 1{,}50$ — altså **50 prosent** større.\n\n**Sluttsjekk:** svaret må være større enn $I_\\text{CM}$, siden Steiner-leddet alltid legger til. Og tallet foran $MR^2$ er $\\tfrac34$, som ligger fornuftig mellom $\\tfrac12$ (sentrum) og $\\tfrac32$ (randen).",
+        "hints": [
+          "Hvilken avstand $d$ er det mellom den nye aksen og aksen gjennom massesenteret?",
+          "Skiva har $I_\\text{CM}=\\tfrac12MR^2$ om en akse vinkelrett på skiveplanet.",
+          "Legg sammen symbolsk før du setter inn tall — brøkene blir penere."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-4-1-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: skive med påmontert klump, i flervalgsformat (eksamensnivå)",
+      "problem": "Dette er et komplett flervalgsspørsmål av den typen som kommer på eksamen: **seks alternativer A–F, og bare bokstaven teller.**\n\nEn homogen skive har masse $M = 3{,}000\\,\\text{kg}$ og radius $R = 0{,}200\\,\\text{m}$. En liten klump med masse $m = 1{,}500\\,\\text{kg}$, som kan regnes som en punktmasse, er festet på randen. Skiva roterer om en akse gjennom det **motsatte** randpunktet, vinkelrett på skiveplanet.\n\nHvor stort er treghetsmomentet om denne aksen?\n\n**A** $0{,}1800\\,\\text{kg}\\cdot\\text{m}^2$ · **B** $0{,}2400\\,\\text{kg}\\cdot\\text{m}^2$ · **C** $0{,}3000\\,\\text{kg}\\cdot\\text{m}^2$ · **D** $0{,}4080\\,\\text{kg}\\cdot\\text{m}^2$ · **E** $0{,}4200\\,\\text{kg}\\cdot\\text{m}^2$ · **F** $0{,}4800\\,\\text{kg}\\cdot\\text{m}^2$",
+      "solution": "**Svar: E.**\n\n**Hvilken lov?** Treghetsmomentet til et sammensatt legeme er summen av delenes treghetsmomenter om **samme** akse. Her er det to deler: skiva og klumpen. Begge må flyttes til aksen i randen.\n\n**Skiva.** $I_\\text{CM} = \\tfrac12MR^2$, og aksen ligger $d = R$ unna:\n$$I_\\text{skive} = \\tfrac12MR^2 + MR^2 = \\tfrac32MR^2 = 1{,}5 \\cdot 3{,}000 \\cdot 0{,}0400\\,\\text{kg}\\cdot\\text{m}^2 = 0{,}1800\\,\\text{kg}\\cdot\\text{m}^2.$$\n\n**Klumpen.** Den sitter på randen på motsatt side av aksen, altså i avstanden $2R$ — en punktmasse trenger ikke Steiner, den har bare $mr^2$:\n$$I_\\text{klump} = m(2R)^2 = 1{,}500 \\cdot (0{,}400)^2\\,\\text{kg}\\cdot\\text{m}^2 = 0{,}2400\\,\\text{kg}\\cdot\\text{m}^2.$$\n\n**Sum:**\n$$I = 0{,}1800 + 0{,}2400 = 0{,}4200\\,\\text{kg}\\cdot\\text{m}^2.$$\n\n**Hvor mange siffer?** Alternativene skiller seg med under 10 prosent på de nærmeste, så behold fire gjennom kjeden. Her går tallene opp, men det kan du ikke regne med.\n\n**Hvilken felle er hvert galt alternativ regnet fram fra?**\n\n- Alternativet **C** ($0{,}3000$) er å glemme Steiner-leddet for skiva og bruke $\\tfrac12MR^2$ om en akse i randen — felle #4.\n- Alternativet **B** ($0{,}2400$) er å plassere klumpen i avstanden $R$ fra aksen i stedet for $2R$. Klumpen ligger på **motsatt** rand, og aksen ligger i randen — avstanden mellom to motstående randpunkter er diameteren.\n- Alternativet **D** ($0{,}4080$) er å bruke kule-formelen $\\tfrac25MR^2$ i stedet for skiveformelen $\\tfrac12MR^2$ før Steiner legges til. Det er samme oppskrift med feil oppslag på arket.\n- Alternativet **A** ($0{,}1800$) er å glemme klumpen helt, altså bare regne skiva.\n- Alternativet **F** ($0{,}4800$) er å lese ring-linja $MR^2$ på arket i stedet for skive-linja $\\tfrac12MR^2$, og deretter legge til Steiner-leddet: $MR^2 + MR^2 = 2MR^2$. Samme metode, feil linje på arket.\n\n**Sluttsjekken som stryker to alternativer på tjue sekunder.** Skiva alene om randen er $0{,}1800$, og klumpen kan bare **legge til**. Alt som er mindre enn eller lik $0{,}1800$, er derfor umulig — det stryker A direkte. Videre bidrar klumpen med $1{,}500 \\cdot 0{,}1600 = 0{,}2400$, altså mer enn skiva selv, så svaret må ligge over det dobbelte av skivas bidrag: det stryker C og B også. Da står du igjen med tre alternativer, og de skiller seg bare i hvilken linje på arket du leste."
+    },
+    {
+      "id": "tfy4115-4-1-o-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-4-1-oppg-7",
+        "number": 7,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger M4.) En homogen stang med masse $M_s = 0{,}500\\,\\text{kg}$ og lengde $L = 0{,}800\\,\\text{m}$ er hengslet i den ene enden. I den andre enden er det festet en kompakt kule med masse $M_k = 1{,}200\\,\\text{kg}$ og radius $R = 0{,}100\\,\\text{m}$, slik at kulas nærmeste punkt så vidt berører stangenden — kulesentret ligger altså i avstanden $L+R$ fra hengselet.\n\n**a)** Finn treghetsmomentet om hengselaksen.\n\n**b)** Hvor stor prosentvis feil gjør du hvis du behandler kula som en punktmasse i avstanden $L+R$?",
+        "solution": "**a)** Del legemet i to og flytt begge til hengselaksen.\n\n**Stanga** roterer om sin egen ende. Det treghetsmomentet står ferdig på arket:\n$$I_\\text{stang} = \\tfrac13M_sL^2 = \\tfrac13 \\cdot 0{,}500 \\cdot 0{,}640\\,\\text{kg}\\cdot\\text{m}^2 = 0{,}10667\\,\\text{kg}\\cdot\\text{m}^2.$$\nMerk at Steiner **ikke** skal brukes her — $\\tfrac13M_sL^2$ er allerede om enden.\n\n**Kula** har $I_\\text{CM} = \\tfrac25M_kR^2$ om sitt eget sentrum, og sentret ligger $d = L+R = 0{,}900\\,\\text{m}$ fra hengselet:\n$$I_\\text{kule} = \\tfrac25M_kR^2 + M_k(L+R)^2 = 0{,}00480 + 0{,}97200 = 0{,}97680\\,\\text{kg}\\cdot\\text{m}^2.$$\n\n**Sum:**\n$$I = 0{,}10667 + 0{,}97680 = 1{,}08347\\,\\text{kg}\\cdot\\text{m}^2 \\approx 1{,}0835\\,\\text{kg}\\cdot\\text{m}^2.$$\n\n**b)** Punktmasse-tilnærmingen dropper leddet $\\tfrac25M_kR^2 = 0{,}00480\\,\\text{kg}\\cdot\\text{m}^2$ og gir $1{,}07867\\,\\text{kg}\\cdot\\text{m}^2$. Den relative feilen er\n$$\\frac{0{,}00480}{1{,}08347} = 0{,}00443,$$\naltså om lag 0,44 prosent. Tilnærmingen er altså god her — men det er fordi $R$ er liten mot $L$. Var kula like stor som stanga er lang, ville leddet ikke vært til å se bort fra.\n\n**Sluttsjekk:** hvert av de tre leddene har enhet $\\text{kg}\\cdot\\text{m}^2$, og kulas banebidrag $M_k(L+R)^2$ er det klart største — som det skal være, siden den tyngste massen ligger lengst ute.",
+        "hints": [
+          "Del legemet i to deler og finn hver dels treghetsmoment om SAMME akse — hengselaksen.",
+          "Stangens $\\tfrac13M_sL^2$ er allerede om enden; det er bare kula som trenger Steiner.",
+          "Avstanden fra hengselet til kulesentret er $L+R$, ikke $L$."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-4-1-o-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-4-1-oppg-8",
+        "number": 8,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger M4, integrasjonsvarianten.) En tynn skive med radius $R$ har en flatetetthet som vokser lineært utover fra sentrum:\n$$\\sigma(r) = \\sigma_0\\,\\frac{r}{R}.$$\n\n**a)** Vis at den totale massen er $M = \\tfrac23\\pi\\sigma_0R^2$.\n\n**b)** Finn treghetsmomentet om symmetriaksen gjennom sentrum, uttrykt ved $M$ og $R$.\n\n**c)** En slik skive har $M = 1{,}600\\,\\text{kg}$ og $R = 0{,}300\\,\\text{m}$. Regn ut $I$, og sammenlign med en homogen skive med samme masse og radius.",
+        "solution": "**a)** Velg en tynn ring med radius $r$ og bredde $dr$ som areal-element. Hele ringen ligger i samme avstand fra aksen, og arealet er $dA = 2\\pi r\\,dr$:\n$$M = \\int_0^R \\sigma_0\\frac{r}{R}\\,2\\pi r\\,dr = \\frac{2\\pi\\sigma_0}{R}\\int_0^R r^2dr = \\frac{2\\pi\\sigma_0}{R}\\cdot\\frac{R^3}{3} = \\tfrac23\\pi\\sigma_0R^2.$$\n\n**b)** Samme oppdeling, men nå med faktoren $r^2$ fra treghetsmomentet:\n$$I = \\int_0^R r^2\\,dm = \\frac{2\\pi\\sigma_0}{R}\\int_0^R r^4dr = \\frac{2\\pi\\sigma_0}{R}\\cdot\\frac{R^5}{5} = \\tfrac25\\pi\\sigma_0R^4.$$\nDel på massen for å få $\\sigma_0$ ut:\n$$\\frac{I}{M} = \\frac{\\tfrac25\\pi\\sigma_0R^4}{\\tfrac23\\pi\\sigma_0R^2} = \\frac{2/5}{2/3}R^2 = \\tfrac35R^2 \\quad\\Longrightarrow\\quad I = \\tfrac35MR^2.$$\n\n**c)**\n$$I = 0{,}600 \\cdot 1{,}600\\,\\text{kg} \\cdot (0{,}300\\,\\text{m})^2 = 0{,}08640\\,\\text{kg}\\cdot\\text{m}^2.$$\nEn homogen skive har $\\tfrac12MR^2 = 0{,}07200\\,\\text{kg}\\cdot\\text{m}^2$, altså er denne 20 prosent større. Det er som forventet: massen er skjøvet utover, og der teller den med kvadratet av avstanden.\n\n**Sluttsjekk på formen:** tallet foran $MR^2$ er $\\tfrac35 = 0{,}600$, som ligger mellom $\\tfrac12$ (homogen skive) og $1$ (all masse i randen). Får du et tall over 1 for en skive, har du gjort en feil — det ville betydd at massen i gjennomsnitt ligger lenger ute enn randen.",
+        "hints": [
+          "Velg en tynn ring med radius $r$ og bredde $dr$ — hele ringen ligger i samme avstand fra aksen.",
+          "Arealet av ringen er $dA=2\\pi r\\,dr$, så $dm=\\sigma(r)\\,2\\pi r\\,dr$.",
+          "Regn ut $M$ og $I$ hver for seg, og del dem på hverandre for å eliminere $\\sigma_0$."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-4-1-o-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-4-1-oppg-9",
+        "number": 9,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Kvalitativ oppgave.) En medarbeider hevder at Steiners sats «noen ganger gir et mindre treghetsmoment, hvis den nye aksen ligger nærmere mesteparten av massen».\n\n**a)** Er påstanden riktig? Begrunn svaret ut fra formen på satsen.\n\n**b)** Hva er den fysiske betydningen av at treghetsmomentet er minst om en akse gjennom massesenteret?\n\n**c)** Gjelder Steiners sats mellom to akser der ingen av dem går gjennom massesenteret? Forklar.",
+        "solution": "**a)** Nei. Satsen er $I = I_\\text{CM} + Md^2$, og både $M$ og $d^2$ er positive størrelser. Leddet $Md^2$ kan derfor bare **legge til**, aldri trekke fra. Uansett hvor den nye aksen legges, så lenge den er parallell med CM-aksen, blir treghetsmomentet større. Det finnes ingen parallell akse som gir mindre treghetsmoment enn aksen gjennom massesenteret.\n\n**b)** Det betyr at et fritt legeme roterer «lettest» om massesenteret, og det er nettopp derfor et legeme som kastes gjennom luften roterer om sitt eget massesenter: det er den rotasjonen som krever minst dreieimpuls for en gitt vinkelfart. Praktisk konsekvens: en turner eller stuper som vil rotere raskt, trekker massen inn mot massesenteret for å gjøre $I$ minst mulig.\n\n**c)** Nei, ikke direkte. Satsen forutsetter at **den ene** aksen går gjennom massesenteret — det var betingelsen som gjorde at kryssleddet $-2d\\int x\\,dm$ forsvant i utledningen. Men du kan komme fra akse 1 til akse 2 i to trinn: bruk satsen baklengs for å finne $I_\\text{CM}$ fra akse 1, og deretter forlengs til akse 2. Det er en helt vanlig oppgavetype, og en av de få stedene der satsen brukes «minus»: $I_\\text{CM} = I_1 - Md_1^2$.",
+        "hints": [
+          "Se på fortegnet til leddet $Md^2$ — kan det bli negativt?",
+          "I c): hva var betingelsen som gjorde at kryssleddet forsvant i utledningen?"
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-4-1-o-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-4-1-oppg-10",
+        "number": 10,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger M4, A–F-format.) To skiver er montert på hver sin akse, men roterer om **samme** akse: en stor skive med masse $1{,}000\\,\\text{kg}$ og radius $0{,}120\\,\\text{m}$ roterer om sin egen symmetriakse, og en liten skive med masse $0{,}400\\,\\text{kg}$ og radius $0{,}060\\,\\text{m}$ er festet slik at dens sentrum ligger i avstanden $0{,}120 + 0{,}060$ fra den store skivas sentrum, med skiveplanene parallelle.\n\nHvor stort er systemets treghetsmoment om den store skivas symmetriakse?\n\n**A** $0{,}00720\\,\\text{kg}\\cdot\\text{m}^2$ · **B** $0{,}00792\\,\\text{kg}\\cdot\\text{m}^2$ · **C** $0{,}02016\\,\\text{kg}\\cdot\\text{m}^2$ · **D** $0{,}02088\\,\\text{kg}\\cdot\\text{m}^2$ · **E** $0{,}01368\\,\\text{kg}\\cdot\\text{m}^2$ · **F** $0{,}02268\\,\\text{kg}\\cdot\\text{m}^2$",
+        "solution": "**Svar: D.**\n\nBegge deler skal flyttes til den store skivas symmetriakse.\n\n**Stor skive:** aksen går gjennom dens massesenter, så ingen Steiner:\n$$I_1 = \\tfrac12 \\cdot 1{,}000 \\cdot 0{,}01440\\,\\text{kg}\\cdot\\text{m}^2 = 0{,}00720\\,\\text{kg}\\cdot\\text{m}^2.$$\n\n**Liten skive:** eget treghetsmoment $\\tfrac12M_bR_b^2$ pluss Steiner-leddet med $d = 0{,}120 + 0{,}060 = 0{,}180\\,\\text{m}$:\n$$I_2 = \\tfrac12 \\cdot 0{,}400 \\cdot 0{,}00360 + 0{,}400 \\cdot 0{,}03240 = 0{,}000720 + 0{,}012960 = 0{,}013680\\,\\text{kg}\\cdot\\text{m}^2.$$\n\n**Sum:** $I = 0{,}00720 + 0{,}013680 = 0{,}020880\\,\\text{kg}\\cdot\\text{m}^2$.\n\n*Fellene:* **A** er bare den store skiva, altså den lille glemt helt. **B** legger sammen de to egne treghetsmomentene, men glemmer Steiner-leddet — felle #4, og den vanligste her. **C** tar Steiner-leddet men glemmer den lille skivas eget $\\tfrac12M_bR_b^2$; forskjellen er liten, og det er nettopp poenget med et tett alternativ. **E** bruker $d = R_a$ i stedet for $R_a+R_b$. **F** behandler hele massen som samlet i avstanden $R_a+R_b$, altså systemet som én punktmasse.\n\n*Sluttsjekk:* svaret må være større enn A (den lille skiva kan bare legge til) og større enn C (fordi C mangler et positivt ledd). Det stryker tre alternativer på ti sekunder.",
+        "hints": [
+          "Begge skivene må flyttes til den samme aksen — den store skivas symmetriakse.",
+          "Den store skivas akse går gjennom dens eget massesenter, så bare den lille trenger Steiner.",
+          "Den lille skiva har BÅDE sitt eget $\\tfrac12M_bR_b^2$ og et Steiner-ledd $M_bd^2$."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-4-1-war-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil — og faktorfellen som lander på nabo-alternativet",
+      "content": "**Å glemme Steiner-leddet** (felle #4 — glemt Steiner-ledd når aksen ligger utenfor massesenteret). Dette er kapitlets dyreste feil, og den er lett å gjøre fordi formelarket gir deg $I_\\text{CM}$ ferdig servert. Motgiften er en vane, ikke et regnetriks: **før du slår opp noe som helst, spør du «går aksen gjennom massesenteret?»** Er svaret nei, skriv $+Md^2$ på arket med én gang.\n\n**Å bruke feil avstand i $\\sum m_ir_i^2$.** Avstanden skal måles **vinkelrett på aksen**, og for en akse ut av papirplanet er det avstanden i planet. I en likesidet trekant med akse gjennom ett hjørne er avstandene til de to andre hjørnene sidekanten $a$ — ikke høyden $a\\sqrt3/2$. Bruker du høyden, får du $2m\\cdot\\tfrac34a^2 = 1{,}5ma^2$ i stedet for $2ma^2$, altså 25 prosent for lite, og det ligger som et alternativ.\n\n**Å velge feil standard-$I$ på arket.** Arket har fem–seks linjer som ser like ut: $\\tfrac25MR^2$ (kompakt kule), $\\tfrac23MR^2$ (kuleskall), $\\tfrac12MR^2$ (massiv sylinder og skive), $MR^2$ (ring og sylinderskall), $\\tfrac{1}{12}ML^2$ (stang om midten) og $\\tfrac13ML^2$ (stang om enden). Under tidspress er kule/skall og de to stangvariantene de vanligste forbytningene. Les alltid **både** hvilket legeme og hvilken akse linja gjelder for.\n\n**Å bruke $\\tfrac13ML^2$ og så legge til Steiner.** Dette er dobbelttelling: $\\tfrac13ML^2$ **er** stanga om endepunktet, altså Steiner allerede utført. Vil du sjekke: $\\tfrac{1}{12}ML^2 + M(L/2)^2 = \\tfrac{1}{12}ML^2 + \\tfrac14ML^2 = \\tfrac13ML^2$. Legger du på et Steiner-ledd igjen, får du $\\tfrac{7}{12}ML^2$, som er et klassisk galt alternativ.\n\n**Feil integrasjonsgrenser** (felle #7 — feil grenser i $\\int r^2\\,dm$). Grensene *er* aksevalget. Fra $0$ til $L$ gir aksen i enden; fra $-L/2$ til $L/2$ gir aksen i midten. Bytter du dem om, får du en faktor fire feil.\n\n**Og faktorfellen som avgjør flervalget** (felle #16 — avrundingsfeil som lander på nabo-alternativet): treghetsmomenter er små tall der alt henger på et kvadrat. Runder du $R = 0{,}150\\,\\text{m}$ til $0{,}15$ er det harmløst, men runder du $R^2 = 0{,}0225$ til $0{,}02$, har du gjort en feil på 11 prosent — mer enn nok til å treffe nabo-alternativet. **Kvadrer alltid før du runder, og behold fire siffer gjennom kjeden.** Og hold orden på tierpotensene: går radien fra centimeter til meter, endrer $R^2$ seg med en faktor $10^4$."
+    },
+    {
+      "id": "tfy4115-4-1-begrepsbank-notis",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "tfy4115-4-1-bb-stang-midt",
+      "type": "definition",
+      "title": "Treghetsmoment: stang om midten",
+      "content": "For en homogen, tynn stang med masse $M$ og lengde $L$, om en akse gjennom midten vinkelrett på stanga:\n$$I = \\tfrac{1}{12}ML^2.$$\nFormelen **står på det utdelte arket**. Dette er stangas minste treghetsmoment, siden aksen går gjennom massesenteret. Tallet $\\tfrac{1}{12}$ er lite fordi mesteparten av massen ligger nær aksen når den står i midten. Merk at «tynn» her betyr at tverrsnittet er lite mot $L$ — er stanga tykk, kommer det et ekstra ledd som eksamen ikke krever."
+    },
+    {
+      "id": "tfy4115-4-1-bb-stang-ende",
+      "type": "definition",
+      "title": "Treghetsmoment: stang om endepunktet",
+      "content": "For samme stang, men med aksen gjennom det ene endepunktet, vinkelrett på stanga:\n$$I = \\tfrac13ML^2.$$\nFormelen **står på det utdelte arket** — og den er Steiners sats ferdig anvendt: $\\tfrac{1}{12}ML^2 + M(L/2)^2 = \\tfrac13ML^2$. Derfor skal du **ikke** legge til et Steiner-ledd én gang til når du bruker den. Faktoren fire mellom $\\tfrac{1}{12}$ og $\\tfrac13$ er den beste illustrasjonen i faget på hvor mye aksevalget betyr."
+    },
+    {
+      "id": "tfy4115-4-1-bb-kule",
+      "type": "definition",
+      "title": "Treghetsmoment: kompakt kule",
+      "content": "For en homogen, massiv kule med masse $M$ og radius $R$, om en akse gjennom sentrum:\n$$I = \\tfrac25MR^2 = 0{,}400\\,MR^2.$$\nFormelen **står på det utdelte arket**. Dette er det minste av alle standardtreghetsmomentene med samme $M$ og $R$, fordi massen er trukket inn mot sentrum i alle retninger. Kula er også hovedpersonen i rulleoppgavene: det er $\\tfrac25$ som gir det berømte resultatet $K = \\tfrac{7}{10}mv^2$ for en rullende kompakt kule."
+    },
+    {
+      "id": "tfy4115-4-1-bb-kuleskall",
+      "type": "definition",
+      "title": "Treghetsmoment: tynt kuleskall",
+      "content": "For et tynt kuleskall (all masse i overflaten) med masse $M$ og radius $R$, om en akse gjennom sentrum:\n$$I = \\tfrac23MR^2 \\approx 0{,}667\\,MR^2.$$\nFormelen **står på det utdelte arket**. Skallet har større treghetsmoment enn den kompakte kula fordi all massen ligger ute ved $R$ — men mindre enn en ring, fordi bare ekvatorbeltet ligger i full avstand $R$ fra aksen, mens massen nær polene ligger nesten inntil aksen. Forbytning av kule og kuleskall er en av de vanligste oppslagsfeilene i sjangeren."
+    },
+    {
+      "id": "tfy4115-4-1-bb-sylinder",
+      "type": "definition",
+      "title": "Treghetsmoment: massiv sylinder og skive",
+      "content": "For en homogen, massiv sylinder eller en tynn skive med masse $M$ og radius $R$, om symmetriaksen:\n$$I = \\tfrac12MR^2.$$\nFormelen **står på det utdelte arket**, og den gjelder for **enhver** lengde av sylinderen — en tynn skive og en lang valse har samme uttrykk, så lenge aksen er symmetriaksen. Det er grunnen til at samme linje på arket dekker begge. Om en annen akse (for eksempel en diameter i skiveplanet) er uttrykket et annet, og oppgaven må da si det."
+    },
+    {
+      "id": "tfy4115-4-1-bb-ring",
+      "type": "definition",
+      "title": "Treghetsmoment: ring og sylinderskall",
+      "content": "For en tynn ring eller et tynt sylinderskall der all massen ligger i avstanden $R$ fra aksen:\n$$I = MR^2.$$\nFormelen **står på det utdelte arket**. Dette er det **største** treghetsmomentet et legeme med ytre radius $R$ kan ha om symmetriaksen, siden ingen masse kan ligge lenger ute enn $R$. Får du et svar med et tall større enn 1 foran $MR^2$ for et legeme som roterer om sin egen symmetriakse, har du gjort en feil — men merk at grensen ikke gjelder når aksen ligger **utenfor** legemet: da kan Steiner-leddet løfte tallet langt over 1."
+    },
+    {
+      "id": "tfy4115-4-1-bb-plate",
+      "type": "definition",
+      "title": "Treghetsmoment: tynn rektangulær plate",
+      "content": "For en homogen, tynn plate med sidene $a$ og $b$, om en akse gjennom midten og vinkelrett på plata:\n$$I = \\tfrac{1}{12}M\\left(a^2+b^2\\right),$$\nmens aksen langs midtlinja parallell med siden $b$ gir $\\tfrac{1}{12}Ma^2$. Formene **står på det utdelte arket**. Legg merke til at bare den siden som ligger vinkelrett på aksen teller i det siste tilfellet: utstrekning **langs** aksen bidrar ikke til treghetsmomentet, fordi den vinkelrette avstanden ikke endres av den."
+    },
+    {
+      "id": "tfy4115-4-1-bb-treghetsradius",
+      "type": "definition",
+      "title": "Treghetsradius",
+      "content": "Den avstanden $k$ som gir samme treghetsmoment hvis hele massen ble samlet der:\n$$I = Mk^2 \\quad\\Longrightarrow\\quad k = \\sqrt{\\frac{I}{M}}.$$\nFor en kompakt kule er $k = \\sqrt{2/5}\\,R = 0{,}632R$, for en skive $k = R/\\sqrt2 = 0{,}707R$, og for en ring $k = R$. Treghetsradien er nyttig som overslagsverktøy: den skal alltid ligge mellom null og legemets største avstand fra aksen. Får du en treghetsradius større enn legemets ytterste punkt, er regningen feil."
+    },
+    {
+      "id": "tfy4115-4-1-bb-additivitet",
+      "type": "definition",
+      "title": "Treghetsmoment er additivt",
+      "content": "Treghetsmomentet til et sammensatt legeme om en gitt akse er summen av delenes treghetsmomenter **om samme akse**:\n$$I = I_1 + I_2 + \\dots$$\nBetingelsen «om samme akse» er hele poenget: hver del må først flyttes til den felles aksen med Steiners sats før summeringen. Additiviteten gjelder også med negative bidrag: har et legeme et hull, kan du regne det hele legemet minus hullet, der hullet får negativ masse. Dette er standardgrepet for en skive med et utboret hull."
+    },
+    {
+      "id": "tfy4115-4-1-bb-steiner-refleks",
+      "type": "definition",
+      "title": "Steiner-refleksen (arbeidsvane)",
+      "content": "Den faste rekkefølgen som gjør at du aldri glemmer Steiner-leddet: (1) **tegn aksen** før du gjør noe annet; (2) spør **«går den gjennom massesenteret?»**; (3) er svaret nei, skriv $I = I_\\text{CM} + Md^2$ **før** du slår opp $I_\\text{CM}$; (4) slå opp $I_\\text{CM}$ på arket og finn $d$ på figuren; (5) kontroller at $I > I_\\text{CM}$. Vanen tar fem sekunder og fanger den enkeltfeilen som koster flest poeng i denne sjangeren."
+    },
+    {
+      "id": "tfy4115-4-1-bb-rotasjonsenergi",
+      "type": "definition",
+      "title": "Rotasjonsenergi",
+      "content": "Den kinetiske energien til et legeme som roterer om en fast akse:\n$$K_\\text{rot} = \\tfrac12 I\\omega^2,$$\nmed $\\omega$ i $\\text{rad/s}$ og $I$ om **den aksen legemet faktisk roterer om**. Uttrykket **står på det utdelte arket**. Det er den direkte grunnen til at treghetsmomentet er så sentralt: enhver energibetraktning for et roterende legeme går gjennom $I$. En vanlig feil er å bruke $I$ om massesenteret når legemet roterer om et annet punkt — da mangler Steiner-leddet, og energien blir for liten."
+    },
+    {
+      "id": "tfy4115-4-1-bb-rotasjonsakse",
+      "type": "definition",
+      "title": "Rotasjonsakse",
+      "content": "Den rette linja alle punktene i et roterende, stivt legeme beveger seg i sirkler omkring. Aksen kan ligge inne i legemet (en skive om sentrum), i randen (en skive hengt opp i kanten) eller helt utenfor legemet. Fordi treghetsmomentet avhenger av aksen, er et spørsmål om treghetsmoment ufullstendig til aksen er oppgitt — og på eksamen er nettopp aksens plassering ofte det eneste som skiller riktig svar fra et av alternativene. Les alltid setningen som oppgir aksen to ganger."
+    },
+    {
+      "id": "tfy4115-4-1-bb-sjanger-m4",
+      "type": "definition",
+      "title": "Sjanger M4 — treghetsmoment og Steiners sats",
+      "content": "Bokas navn på oppgaveformen der du skal finne treghetsmomentet til et legeme eller et system om en oppgitt akse. Den forekommer i praktisk talt alle eksamenssett (~100 %) og hører til **mekanikkhalvdelen, spørsmål 1–20**. Formen har fire varianter: punktmasser i en figur, oppslag av et standardlegeme, integrasjon når massen ikke er jevnt fordelt, og — den klart vanligste — et standardlegeme om en akse utenfor massesenteret, der Steiners sats må med. Sjangeren er også en forutsetning for dreieimpuls i [kap. 4.2](/tfy4115/tfy4115-4-2), statikk i [kap. 4.3](/tfy4115/tfy4115-4-3) og fysisk pendel i [kap. 5.1](/tfy4115/tfy4115-5-1)."
+    },
+    {
+      "id": "tfy4115-4-1-bb-felle-4",
+      "type": "definition",
+      "title": "Felle #4 — glemt Steiner-ledd",
+      "content": "Bokas kortnavn på den feilen at man slår opp $I_\\text{CM}$ på formelarket og bruker det direkte, selv om aksen ikke går gjennom massesenteret. Feilen gir alltid et **for lite** svar, og størrelsen på feilen er $Md^2$ — som ofte er større enn $I_\\text{CM}$ selv. For en kule om en tangentakse er det riktige svaret $3{,}5$ ganger det gale. Fella er så vanlig at settene systematisk plasserer «svaret uten Steiner-leddet» som et av alternativene; kjenner du den igjen, kan du stryke det alternativet før du regner."
+    },
+    {
+      "id": "tfy4115-4-1-bb-formelarket-i",
+      "type": "definition",
+      "title": "Formelarket: treghetsmomentene",
+      "content": "Det utdelte fysikk-formelarket har en egen liten tabell med treghetsmomenter for standardlegemer (stang om midten og om enden, kompakt kule, kuleskall, sylinder, ring, plate) og med Steiners sats $I=I_0+Md^2$. Konsekvensen for hvordan du skal øve: **ikke pugg tallene — tren oppslaget.** Løs oppgaver med arket ved siden av, slik at du finner riktig linje på få sekunder og leser både legemet og aksen riktig. Det arket **ikke** gir deg, er aksevalget, avstanden $d$, oppdelingen av et sammensatt legeme og integrasjonen når massen ikke er jevnt fordelt."
+    },
+    {
+      "id": "tfy4115-4-1-coll-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tfy4115-4-1-symb-1",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n**Kolliderende symboler i dette delkapitlet.** $R$ er her en **radius** i meter; i termodelen (Del 6–10) betyr samme bokstav gasskonstanten $R = 8{,}314\\,\\text{J/(mol}\\cdot\\text{K)}$ eller en termisk motstand. $\\rho$ er her en **volumtetthet** i $\\text{kg/m}^3$; i [kap. 1.2](/tfy4115/tfy4115-1-2) var den en krumningsradius i meter. $\\sigma$ er her en **flatetetthet**; i Del 9 er den Stefan–Boltzmanns konstant. Symbolet $I$ er alltid **treghetsmoment** i denne boka, og alltid en skalar.\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $M$, $m$ | Total masse; masse av en del eller en punktmasse | kg |\n| $I$ | Treghetsmoment om en oppgitt akse (skalar) | $\\text{kg}\\cdot\\text{m}^2$ |\n| $I_\\text{CM}$ | Treghetsmoment om en akse gjennom massesenteret | $\\text{kg}\\cdot\\text{m}^2$ |\n| $r$, $r_i$ | Vinkelrett avstand fra masseelement eller punktmasse til aksen | m |\n| $d$ | Vinkelrett avstand mellom CM-aksen og den nye aksen (Steiner) | m |\n| $x_\\text{CM}$, $y_\\text{CM}$ | Massesenterets koordinater | m |\n| $L$ | Lengde av en stang | m |\n| $R$ | Radius (**ikke** gasskonstant her) | m |\n| $a$, $b$ | Sidekanter i en trekant, et kvadrat eller en plate | m |\n| $\\lambda$ | Linjetetthet, masse per lengde | kg/m |\n| $\\sigma$ | Flatetetthet, masse per areal (**ikke** Stefan–Boltzmann her) | $\\text{kg/m}^2$ |\n| $\\rho$ | Volumtetthet, masse per volum (**ikke** krumningsradius her) | $\\text{kg/m}^3$ |\n| $dm$ | Masseelement | kg |\n| $k$ | Treghetsradius, $\\sqrt{I/M}$ | m |\n| $\\omega$ | Vinkelfart | rad/s |\n| $K_\\text{rot}$ | Rotasjonsenergi | J |\n\n**Formler i dette delkapitlet:**\n\n$$x_\\text{CM} = \\frac{\\sum m_ix_i}{\\sum m_i}, \\qquad y_\\text{CM} = \\frac{\\sum m_iy_i}{\\sum m_i}$$\nMassesenteret, regnet komponentvis [må kunne brukes eller utledes aktivt].\n\n$$I = \\sum_i m_ir_i^2$$\nTreghetsmoment for punktmasser, med $r_i$ målt vinkelrett på aksen [står på det utdelte arket].\n\n$$I = \\int r^2\\,dm, \\qquad dm = \\lambda\\,dx = \\sigma\\,dA = \\rho\\,dV$$\nTreghetsmoment for kontinuerlig massefordeling [står på det utdelte arket] — men oppsettet av $dm$ og grensene [må kunne brukes eller utledes aktivt].\n\n$$I = I_\\text{CM} + Md^2$$\nSteiners sats, for **parallelle** akser der den ene går gjennom massesenteret [står på det utdelte arket].\n\n$$I_\\text{stang, midt} = \\tfrac{1}{12}ML^2, \\qquad I_\\text{stang, ende} = \\tfrac13ML^2$$\n$$I_\\text{kule} = \\tfrac25MR^2, \\qquad I_\\text{kuleskall} = \\tfrac23MR^2$$\n$$I_\\text{sylinder} = \\tfrac12MR^2, \\qquad I_\\text{ring} = MR^2$$\nStandardtreghetsmomenter om akse gjennom massesenteret [står på det utdelte arket].\n\n$$K_\\text{rot} = \\tfrac12I\\omega^2, \\qquad v = \\omega r$$\nRotasjonsenergi og banefart [står på det utdelte arket].\n\n$$\\int_0^L x^2dx = \\frac{L^3}{3}, \\qquad \\int_0^L x^3dx = \\frac{L^4}{4}, \\qquad \\int_0^R r^4dr = \\frac{R^5}{5}$$\nPotensintegralene som dukker opp i $\\int r^2dm$ [Rottmann].\n\n$$k = \\sqrt{I/M}$$\nTreghetsradius [må kunne brukes eller utledes aktivt]."
+        }
+      ]
+    },
+    {
+      "id": "tfy4115-4-1-coll-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tfy4115-4-1-rep-1",
+          "type": "text",
+          "content": "Fem korte oppgaver på det dette kapitlet hviler på. De tar to til tre minutter hver, og de er verdt å ta før du går videre til [kap. 4.2](/tfy4115/tfy4115-4-2).\n\n**R1.** Regn ut $\\int_0^{L} x^2\\,dx$ og $\\int_{-L/2}^{L/2} x^2\\,dx$, og forklar hvorfor de to svarene skiller seg med en faktor fire.\n\n*Svar:* $L^3/3$ og $2(L/2)^3/3 = L^3/12$. Forholdet er $(L^3/3)/(L^3/12) = 4$. Grunnen er kvadratet: i det første tilfellet ligger de fjerneste bidragene i avstanden $L$, i det andre bare i $L/2$, og $L^2$ mot $(L/2)^2$ er en faktor fire.\n\n**R2.** Et hjul dreier med vinkelfarten $18{,}0\\,\\text{rad/s}$ og har treghetsmomentet $0{,}250\\,\\text{kg}\\cdot\\text{m}^2$. Hvor stor er rotasjonsenergien?\n\n*Svar:* $K = \\tfrac12 \\cdot 0{,}250 \\cdot 18{,}0^2\\,\\text{J} = \\tfrac12 \\cdot 0{,}250 \\cdot 324\\,\\text{J} = 40{,}5\\,\\text{J}$. Merk at vinkelfarten kvadreres — dobbelt vinkelfart gir fire ganger energien.\n\n**R3.** To punktmasser, $1{,}50\\,\\text{kg}$ i $x=0$ og $3{,}50\\,\\text{kg}$ i $x=0{,}800\\,\\text{m}$. Hvor ligger massesenteret?\n\n*Svar:* $x_\\text{CM} = (3{,}50 \\cdot 0{,}800)/(1{,}50+3{,}50)\\,\\text{m} = 2{,}80/5{,}00\\,\\text{m} = 0{,}560\\,\\text{m}$. Punktet ligger nærmest den tyngste massen, som det skal.\n\n**R4.** Hva er den vinkelrette avstanden fra en akse gjennom ett hjørne i et kvadrat med side $a$, vinkelrett på kvadratplanet, til det motstående hjørnet? Og hva er kvadratet av den?\n\n*Svar:* Avstanden er diagonalen $a\\sqrt2 \\approx 1{,}414a$, og kvadratet er $2a^2$ — ikke $a^2\\sqrt2$. Det er kvadratet som går inn i $\\sum m_ir_i^2$.\n\n**R5.** En homogen skive har $M = 4{,}00\\,\\text{kg}$ og $R = 0{,}300\\,\\text{m}$. Finn treghetsmomentet om symmetriaksen, og om en parallell akse i randen.\n\n*Svar:* $I_\\text{CM} = \\tfrac12 \\cdot 4{,}00 \\cdot 0{,}0900\\,\\text{kg}\\cdot\\text{m}^2 = 0{,}180\\,\\text{kg}\\cdot\\text{m}^2$, og med Steiner $I = 0{,}180 + 4{,}00 \\cdot 0{,}0900\\,\\text{kg}\\cdot\\text{m}^2 = 0{,}180+0{,}360 = 0{,}540\\,\\text{kg}\\cdot\\text{m}^2$. Forholdet er 3, altså $\\tfrac32MR^2$ mot $\\tfrac12MR^2$."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

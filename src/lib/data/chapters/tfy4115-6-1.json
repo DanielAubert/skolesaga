@@ -1,0 +1,455 @@
+{
+  "id": "tfy4115-6-1",
+  "courseId": "tfy4115",
+  "chapterNumber": "6.1",
+  "title": "Ideell gasslov, molekyltall og kinetisk gassteori",
+  "description": "$pV=nRT$, antall molekyler $N=pV/k_BT$, midlere kinetisk energi $\\tfrac32 k_BT$ og $v_\\text{rms}=\\sqrt{3k_BT/m}$ — termohalvdelens åpning.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "kunne løse den ideelle gassloven for trykk, volum, temperatur eller stoffmengde, med alle enheter i SI og temperaturen i kelvin",
+    "kunne regne antall molekyler og partikkeltetthet, og vite når man bruker gasskonstanten og når man bruker Boltzmanns konstant",
+    "kunne utlede at midlere kinetisk energi per molekyl er $\\tfrac32k_BT$, og forklare hva temperatur derfor er",
+    "kunne regne og sammenligne rotmiddelkvadratfarten for ulike gasser, og skille mellom det som avhenger av massen og det som ikke gjør det"
+  ],
+  "content": [
+    {
+      "id": "tfy4115-6-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Nå begynner andre halvdel av eksamen.** Settet er delt i to like store deler:\nspørsmål 1–20 er mekanikk, **spørsmål 21–40 er termisk fysikk**. Denne halvdelen\ner ikke et tillegg og ikke et appendiks — den er halve karakteren, og den har\nvært det i hvert sett fra 2004 til 2020. Dette kapitlet er åpningen på den.\n\n**Sjanger T1 — gasslov- og molekyltalloppgaven** (bokas navn på oppgaveformen der\ndu får oppgitt tre av de fire størrelsene trykk, volum, temperatur og\nstoffmengde, og skal finne den fjerde eller antall molekyler) forekommer i\n**praktisk talt alle sett (~100 %)**, ofte som det aller første spørsmålet i\ntermohalvdelen. Prioritet: **høyeste — dette må sitte.**\n\n**Sjanger T2 — kinetisk gassteori** (oppgaveformen der du skal regne\nrotmiddelkvadratfarten $v_\\text{rms}$, eller sammenligne to gasser) forekommer i\n**om lag 8 av 10 sett (~80 %)**. Signaturen er nesten alltid den samme: hvilken\ngass har raskest molekyler ved samme temperatur, og har de like mye kinetisk\nenergi?\n\n**Én feil koster mer enn alle andre i denne halvdelen: å sette inn celsius der\nformelen krever kelvin** (felle #11 — enhets- og kelvinslurv i gasslov,\nadiabatrelasjoner og entropi). Den feilen gir alltid et tall som ser rimelig ut,\nog den lander alltid på et av de gale alternativene. Vi kommer tilbake til den\nflere ganger i kapitlet, med tall."
+    },
+    {
+      "id": "tfy4115-6-1-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\n**Dette kapitlet krever ingen tidligere kapitler i boka.** Termofysikken starter\nher, fra grunnen. Men det er verdt å bruke to minutter på hva du tar med deg fra\nmekanikken — og hva som er nytt — fordi overgangen er et kjent fall-punkt.\n\n**Det du tar med deg fra Del 1–5:**\n\n$$K = \\tfrac12mv^2$$\nKinetisk energi. Den er *nøyaktig* den samme størrelsen her: et gassmolekyl som\nflyr gjennom beholderen, har kinetisk energi etter samme formel som en\nfotball. Hele kinetisk gassteori bygger på dette ene uttrykket.\n\n$$W = \\int F\\,ds$$\nArbeid som kraft ganger vei, fra [kap. 2.2](/tfy4115/tfy4115-2-2). I termofysikken\nskriver vi det om til $W = \\int p\\,dV$ — trykk ganger volumendring — men det er\nsamme regnskap: kraft ganger forflytning.\n\n**Energibevaring.** I mekanikken skrev du $K + U = \\text{konstant}$ når ingen\nfriksjon spiste av energien. I termofysikken utvides regnskapet med varme, og da\nholder det alltid. Ingenting forsvinner.\n\n**Det som er nytt — og som er hele tenkemåten:**\n\nI mekanikken fulgte du **én** kropp langs **én** bane, og du kunne i prinsippet\nsi hvor den var til hvert tidspunkt. Her har du $10^{23}$ molekyler i tilfeldig\nbevegelse, og ingen som helst interesse for hvor ett enkelt av dem er. Du\nbeskriver gassen med noen få **tilstandsstørrelser** i stedet: trykk, volum,\ntemperatur, stoffmengde. Temperatur *er* et statistisk mål — den er et mål på\nmidlere kinetisk energi per molekyl, og et enkelt molekyl har ingen temperatur.\n\nDen andre nyheten møter du for fullt i [kap. 7.1](/tfy4115/tfy4115-7-1), men det\ner verdt å vite at den kommer: noen størrelser avhenger bare av **hvor du er**\n(trykk, volum, temperatur, indre energi), mens varme og arbeid avhenger av\n**hvilken vei du gikk dit**. To gasser i samme tilstand har samme indre energi,\nmen kan ha fått den ved helt ulike blandinger av varme og arbeid. I mekanikken\nhadde du en beslektet erfaring: den potensielle energien avhang bare av høyden,\nmens friksjonsarbeidet avhang av veien.\n\n**Fra videregående:** du kan ha møtt $pV = nRT$, molbegrepet og kelvinskalaen i\nFysikk 1 eller Kjemi 1. Alt du trenger, står likevel i dette kapitlet.\n\n**⚠ Symbolvarsel — fem symboler skifter betydning nå.** Dette er den viktigste\nenkeltbeskjeden i overgangen til termodelen:\n\n| Symbol | Betydde i Del 1–5 | Betyr fra Del 6 |\n|---|---|---|\n| $p$ | bevegelsesmengde, vektoren $\\mathbf{p}=m\\mathbf{v}$ | **trykk**, en skalar, i pascal |\n| $T$ | periode (svingetid) i sekunder | **absolutt temperatur** i kelvin |\n| $R$ | radius i meter | **gasskonstanten** $8{,}314\\,\\text{J/(mol}\\cdot\\text{K)}$ |\n| $\\gamma$ | dempingskoeffisient $b/2m$ i $\\text{s}^{-1}$ | **adiabateksponent** $C_P/C_V$, dimensjonsløs (fra [kap. 6.2](/tfy4115/tfy4115-6-2)) |\n| $S$ | taustrekk i newton | **entropi** i J/K (fra [kap. 7.2](/tfy4115/tfy4115-7-2)) |\n| $Q$ | kvalitetsfaktor, dimensjonsløs | **varme** i joule (fra [kap. 7.1](/tfy4115/tfy4115-7-1)) |\n| $k$ | fjærstivhet i N/m | Boltzmanns konstant skrives alltid $k_B$ |\n\nSkilleregelen som redder deg hver gang: **har størrelsen enhet, er $\\gamma$ en\ndempingskoeffisient.** Adiabateksponenten er et rent tallforhold mellom 1 og\n$\\tfrac53$. Og et trykk har enheten pascal, mens en bevegelsesmengde har\n$\\text{kg}\\cdot\\text{m/s}$ — de kan ikke forveksles hvis du skriver enheten."
+    },
+    {
+      "id": "tfy4115-6-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — tilstand, trykk, temperatur og gassloven (~14 min)\n\nSkru korken av en varm brusflaske, og den freser. Kjør en time på motorveien og\nkjenn på dekket etterpå: det er varmt, og trykket har steget. Sett en trykkoker\npå plata, og den bygger opp trykk til ventilen løfter seg. Tre hverdagslige ting,\nog alle tre er den samme fysikken: **når du endrer temperaturen til en innesluttet\ngass, endrer trykket seg med.**\n\nDet er dette forholdet vi skal gjøre presist. Og første skritt er å bestemme hva\nvi i det hele tatt beskriver."
+    },
+    {
+      "id": "tfy4115-6-1-def-system",
+      "type": "definition",
+      "title": "Termodynamisk system og omgivelser",
+      "content": "**Systemet** er den delen av verden du velger å regne på — gassen inne i\nsylinderen, vannet i termosen, luften i dekket. Alt utenfor er **omgivelsene**.\nGrensen mellom dem trekker du selv, og den kan være en fysisk vegg eller bare en\ntenkt flate.\n\nValget er ikke likegyldig: det avgjør hva som regnes som «inn» og «ut». Et\n**lukket** system kan utveksle energi med omgivelsene, men ikke stoff — det er\ntilfellet i nesten alle oppgavene i denne boka. Et **isolert** system utveksler\ningenting, verken energi eller stoff. Første setning i løsningen din bør derfor\nalltid være hvilket system du har valgt."
+    },
+    {
+      "id": "tfy4115-6-1-def-tilstand",
+      "type": "definition",
+      "title": "Tilstandsstørrelse",
+      "content": "En størrelse som er entydig bestemt av systemets nåværende tilstand — uavhengig\nav hvordan systemet kom dit. Trykk $p$, volum $V$, temperatur $T$, stoffmengde\n$n$ og indre energi $U$ er alle tilstandsstørrelser.\n\nSammenligningen som fester begrepet: **høyden din over havet** er en\ntilstandsstørrelse — den er den samme uansett om du gikk rett opp eller tok en\nomvei via naboraset. **Antall kilometer du gikk** er det ikke. I termofysikken er\nvarme $Q$ og arbeid $W$ av den siste typen: de avhenger av veien. Det er\nforskjellen som gjør entropi i [kap. 7.2](/tfy4115/tfy4115-7-2) mulig å regne på\ni det hele tatt."
+    },
+    {
+      "id": "tfy4115-6-1-def-trykk",
+      "type": "definition",
+      "title": "Trykk",
+      "content": "Kraft per areal, vinkelrett på flaten:\n$$p = \\frac{F_\\perp}{A},$$\nmed SI-enheten **pascal**, $1\\,\\text{Pa} = 1\\,\\text{N/m}^2$. Trykket i en gass\nkommer av at molekylene støter mot veggen og skifter retning; hvert støt gir en\nliten kraftpuls, og summen av dem oppleves som et jevnt trykk.\n\nEnhetene du må kunne veksle mellom, fordi oppgavene bruker alle tre:\n$1\\,\\text{bar} = 10^{5}\\,\\text{Pa}$, $1\\,\\text{atm} = 1{,}013\\cdot10^{5}\\,\\text{Pa}$,\nog $1\\,\\text{kPa} = 10^{3}\\,\\text{Pa}$. Merk at trykk er en **skalar** — den har\ningen retning, og skal aldri skrives med vektormarkering. Merk også at symbolet\n$p$ betydde bevegelsesmengde i Del 1–5."
+    },
+    {
+      "id": "tfy4115-6-1-def-kelvin",
+      "type": "definition",
+      "title": "Absolutt temperatur og kelvinskalaen",
+      "content": "Temperaturen målt fra det absolutte nullpunktet, med enheten **kelvin** (K):\n$$T\\,[\\text{K}] = t\\,[^\\circ\\text{C}] + 273{,}15.$$\nSkalaen har samme gradstørrelse som celsius, men nullpunktet ligger der all\ntermisk bevegelse er minst mulig. **Ingen negativ kelvinverdi finnes** — får du\nen, har du regnet feil.\n\nGrunnen til at dette ikke er en formalitet: gassloven og alt som følger av den er\n**proporsjonalitetslover i $T$**. Dobler du den absolutte temperaturen, dobles\ntrykket ved fast volum. Går du fra $10\\,^\\circ\\text{C}$ til\n$20\\,^\\circ\\text{C}$, dobles ingenting — du har gått fra $283{,}15\\,\\text{K}$ til\n$293{,}15\\,\\text{K}$, en økning på 3,5 prosent. Dette er felle #11 (kelvin- og\nenhetsslurv), og den er fagets dyreste enkeltfeil."
+    },
+    {
+      "id": "tfy4115-6-1-def-likevekt",
+      "type": "definition",
+      "title": "Termisk likevekt",
+      "content": "To systemer er i termisk likevekt når de har samme temperatur, slik at det ikke\ngår netto varme mellom dem. **Nullte hovedsetning** sier at likevekt er\noverførbar: er $A$ i likevekt med $B$, og $B$ med $C$, så er $A$ i likevekt med\n$C$. Det er dette som gjør et termometer meningsfullt — det måler sin egen\ntemperatur, og den er lik den målte kroppens fordi de er i likevekt.\n\nPraktisk konsekvens for oppgaveregning: når en oppgave sier «gassen holder\ntemperaturen $T$», forutsetter den likevekt. Underveis i en rask, voldsom prosess\ner gassen **ikke** i likevekt, og da har den strengt tatt ingen entydig\ntemperatur eller trykk. Det er nettopp det som gjør fri ekspansjon i\n[kap. 7.2](/tfy4115/tfy4115-7-2) til en spesiell øvelse."
+    },
+    {
+      "id": "tfy4115-6-1-thm-gasslov",
+      "type": "theorem",
+      "title": "Den ideelle gassloven",
+      "content": "For en ideell gass henger de fire tilstandsstørrelsene sammen slik:\n$$pV = nRT,$$\nder $p$ er trykket i pascal, $V$ volumet i kubikkmeter, $n$ stoffmengden i mol,\n$T$ den **absolutte** temperaturen i kelvin og\n$R = 8{,}314\\,\\text{J/(mol}\\cdot\\text{K)}$ den universelle gasskonstanten.\nLoven **står på det utdelte formelarket** sammen med verdien av $R$ — du skal\nikke pugge den, men gjenkjenne den og løse den for den ukjente.\n\nLøst for hver av de fire:\n$$p = \\frac{nRT}{V}, \\qquad V = \\frac{nRT}{p}, \\qquad\nn = \\frac{pV}{RT}, \\qquad T = \\frac{pV}{nR}.$$\n\n**Benevningskontroll**, som du bør gjøre minst én gang for å stole på den:\nhøyre side har enheten\n$\\text{mol}\\cdot\\text{J/(mol}\\cdot\\text{K)}\\cdot\\text{K} = \\text{J}$, og venstre\nside\n$$\\text{Pa}\\cdot\\text{m}^3 = (\\text{N/m}^2)\\cdot\\text{m}^3 = \\text{N}\\cdot\\text{m} = \\text{J}.$$\nBegge sider er en **energi** — det stemmer."
+    },
+    {
+      "id": "tfy4115-6-1-def-ideellgass",
+      "type": "definition",
+      "title": "Ideell gass",
+      "content": "En modellgass der molekylene (i) har forsvinnende lite eget volum sammenlignet\nmed beholderen, og (ii) ikke merker hverandre annet enn i selve støtene. Da er\ndet ingen tiltrekningskrefter å regne potensiell energi for, og hele den indre\nenergien er kinetisk.\n\nModellen er svært god for luft, nitrogen, oksygen, helium og argon ved\nromtemperatur og moderate trykk — det er derfor den brukes i praktisk talt alle\neksamensoppgavene. Den svikter der molekylene kommer tett på hverandre: høyt\ntrykk, lav temperatur, nær kondensasjon. Da trenger du van der Waals-modellen,\nsom er tema i Del 10. Merk hvor rimelig kravet er: ved atmosfæretrykk fyller\nmolekylene i luft under en tusendel av volumet de flyr rundt i."
+    },
+    {
+      "id": "tfy4115-6-1-def-mol",
+      "type": "definition",
+      "title": "Stoffmengde og mol",
+      "content": "**Stoffmengden** $n$ måles i **mol**, og ett mol er per definisjon\n$N_A = 6{,}022\\cdot10^{23}$ partikler. Mol er altså ikke en masse og ikke et\nvolum — det er en **telleenhet**, akkurat som «et dusin» er tolv.\n\nDe to omregningene du bruker konstant:\n$$n = \\frac{m}{M} \\quad (\\text{masse delt på molar masse}), \\qquad\nN = n N_A \\quad (\\text{antall partikler}).$$\nRegn alltid massen i **kilogram** og den molare massen i **kg/mol** når du\nsetter inn i SI-formler. Nitrogengass har\n$M = 28{,}01\\,\\text{g/mol} = 0{,}02801\\,\\text{kg/mol}$, og gram/kilogram-slurv\nher er en av de vanligste feilene i sjangeren."
+    },
+    {
+      "id": "tfy4115-6-1-utledning-gasslov",
+      "type": "text",
+      "content": "### Hvor gassloven kommer fra — og hvordan du bruker den uten å tenke\n\nHistorisk er $pV = nRT$ tre eksperimentelle lover slått sammen. Boyle fant at\n$pV$ er konstant ved fast temperatur, Charles og Gay-Lussac at $V \\propto T$ ved\nfast trykk, og Avogadro at $V \\propto n$ ved fast $p$ og $T$. Setter du sammen de\ntre proporsjonalitetene, får du $pV \\propto nT$, og målingen av\nproporsjonalitetskonstanten gir $R$.\n\n*Intuisjon:* trykket kommer av at molekylene banker på veggen. Presser du volumet\nsammen, banker like mange molekyler på et mindre areal, og trykket stiger. Varmer\ndu gassen, banker de **hardere og oftere**, og trykket stiger. Fyller du på mer\ngass, er det flere som banker. Alle tre proporsjonalitetene har den samme enkle\nforklaringen.\n\n**Enhetsdisiplinen, som avgjør flere oppgaver enn selve formelen.** Før du setter\ninn ett eneste tall, skriv om til SI:\n\n| Oppgaven sier | Du setter inn |\n|---|---|\n| liter (L) | $\\times 10^{-3}$ for $\\text{m}^3$ |\n| $\\text{cm}^3$ eller mL | $\\times 10^{-6}$ for $\\text{m}^3$ |\n| bar | $\\times 10^{5}$ for Pa |\n| atm | $\\times 1{,}013\\cdot10^{5}$ for Pa |\n| gram | $\\times 10^{-3}$ for kg |\n| celsius | $+\\,273{,}15$ for K |\n\nDette tar tolv sekunder og fjerner de fire vanligste feilene i sjangeren.\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "tfy4115-6-1-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: nitrogenflasken på laben",
+      "problem": "En stålflaske med volum $8{,}50\\,\\text{L}$ inneholder nitrogengass ($\\text{N}_2$,\nmolar masse $28{,}01\\,\\text{g/mol}$) ved trykk $145\\,\\text{bar}$ og\ntemperatur $21{,}0\\,^\\circ\\text{C}$.\n\n**a)** Finn stoffmengden i mol.\n\n**b)** Hvor mange kilo nitrogen er det i flasken?\n\n**c)** Flasken settes i et rom som varmes til $55{,}0\\,^\\circ\\text{C}$. Volumet\ner fast. Hva blir trykket?",
+      "solution": "**a) Symbolsk.** Gassloven løst for stoffmengden: $n = pV/(RT)$.\n\n**Rask vei til tall.** Først SI-omregningen, hver for seg:\n$$V = 8{,}50\\,\\text{L} = 0{,}00850\\,\\text{m}^3, \\qquad\np = 145\\,\\text{bar} = 1{,}45\\cdot10^{7}\\,\\text{Pa}, \\qquad\nT = 21{,}0 + 273{,}15 = 294{,}15\\,\\text{K}.$$\nRegn så teller og nevner hver for seg — det er den vanen som holder\nsifferdisiplinen:\n$$pV = 1{,}45\\cdot10^{7} \\cdot 0{,}00850\\,\\text{J} = 123250\\,\\text{J}, \\qquad\nRT = 8{,}314 \\cdot 294{,}15\\,\\text{J/mol} = 2445{,}56\\,\\text{J/mol},$$\n$$n = \\frac{123250}{2445{,}56}\\,\\text{mol} = 50{,}3974\\,\\text{mol} \\approx\n50{,}4\\,\\text{mol}.$$\n\n**b)**\n$$m = nM = 50{,}3974 \\cdot 0{,}02801\\,\\text{kg} = 1{,}41163\\,\\text{kg} \\approx\n1{,}41\\,\\text{kg}.$$\nRimelighetssjekk: femti mol nitrogen er halvannen kilo — det stemmer med at ett\nmol veier 28 gram.\n\n**c) Symbolsk.** Volumet og stoffmengden er faste, så $p/T$ er konstant:\n$$\\frac{p_1}{T_1} = \\frac{p_2}{T_2} \\quad\\Longrightarrow\\quad\np_2 = p_1\\frac{T_2}{T_1}.$$\n\n**Rask vei til tall.** Med $T_2 = 55{,}0 + 273{,}15 = 328{,}15\\,\\text{K}$:\n$$p_2 = 1{,}45\\cdot10^{7} \\cdot \\frac{328{,}15}{294{,}15}\\,\\text{Pa}\n= 1{,}45\\cdot10^{7} \\cdot 1{,}11559\\,\\text{Pa} = 1{,}61760\\cdot10^{7}\\,\\text{Pa}\n\\approx 161{,}8\\,\\text{bar}.$$\nTrykket steg altså med 11{,}6 prosent av en oppvarming på 34 grader.\n\n**Her bor kapitlets dyreste felle.** Hadde du satt inn celsiustallene i\nforholdet, ville du fått\n$$p_2^\\text{galt} = 1{,}45\\cdot10^{7} \\cdot \\frac{55{,}0}{21{,}0}\\,\\text{Pa}\n= 3{,}798\\cdot10^{7}\\,\\text{Pa} \\approx 379{,}8\\,\\text{bar},$$\naltså en økning på over 160 prosent i stedet for 11{,}6 prosent. Legg merke\ntil at det gale svaret ikke ser absurd ut — det ser bare ut som en flaske med\nhøyere trykk. Det er derfor fella er så effektiv, og derfor du skriver\nkelvinverdien ned som en egen linje hver gang."
+    },
+    {
+      "id": "tfy4115-6-1-o-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-6-1-o-1-e",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — enheter og kelvin. Ingen gasslov ennå.)\n\n**a)** Gjør om til kelvin: $-18{,}0\\,^\\circ\\text{C}$, $0\\,^\\circ\\text{C}$,\n$25{,}0\\,^\\circ\\text{C}$ og $1200\\,^\\circ\\text{C}$.\n\n**b)** Gjør om $2{,}50\\,\\text{L}$ til kubikkmeter, og $1{,}80\\,\\text{bar}$ til\npascal.\n\n**c)** Forklar med egne ord hvorfor $p \\propto T$ krever kelvin, mens\n$\\Delta L = \\alpha L\\,\\Delta T$ (termisk utvidelse, Del 10) tåler celsius.",
+        "solution": "**a)** Legg til $273{,}15$:\n$$-18{,}0\\,^\\circ\\text{C} = 255{,}15\\,\\text{K}, \\quad\n0\\,^\\circ\\text{C} = 273{,}15\\,\\text{K}, \\quad\n25{,}0\\,^\\circ\\text{C} = 298{,}15\\,\\text{K}, \\quad\n1200\\,^\\circ\\text{C} = 1473{,}15\\,\\text{K}.$$\n\n**b)** $2{,}50\\,\\text{L} = 0{,}00250\\,\\text{m}^3$ og\n$1{,}80\\,\\text{bar} = 1{,}80\\cdot10^{5}\\,\\text{Pa}$.\n\n**c)** Fordi de to formlene bruker temperaturen på helt ulikt vis.\n$p \\propto T$ er en **proporsjonalitet**: den sier at trykket er null når $T$ er\nnull, og det er bare sant hvis nullpunktet ligger der all termisk bevegelse\nopphører. Flytter du nullpunktet til vannets frysepunkt, ødelegger du\nproporsjonaliteten.\n\n$\\Delta L = \\alpha L\\,\\Delta T$ inneholder derimot bare en\ntemperatur**differanse**, og en differanse er den samme i de to skalaene fordi\ngradstørrelsen er lik: $30\\,^\\circ\\text{C} - 10\\,^\\circ\\text{C} = 20$ grader, og\n$303{,}15\\,\\text{K} - 283{,}15\\,\\text{K} = 20$ kelvin. Regelen å ta med seg:\n**står $T$ alene, må den være i kelvin; står den bare som $\\Delta T$, går begge\nskalaer** — men skriv kelvin uansett, så slipper du å vurdere det under\ntidspress.",
+        "hints": [
+          "Kelvin er celsius pluss 273,15 — ikke minus.",
+          "Én liter er en kubikkdesimeter; hvor mange av dem går det i en kubikkmeter?",
+          "Se på om formelen inneholder $T$ alene eller bare $\\Delta T$."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-6-1-o-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-6-1-o-2-e",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger T1 — gasslov- og molekyltalloppgaven.) Et bildekk har absolutt trykk\n$3{,}40\\cdot10^{5}\\,\\text{Pa}$ når bilen står kald ved $5{,}0\\,^\\circ\\text{C}$. Etter en\ntime på motorveien har gassen i dekket kommet opp i $38{,}0\\,^\\circ\\text{C}$.\nRegn med at volumet er uendret.\n\n**a)** Finn det nye trykket, og hvor stor økningen er i pascal.\n\n**b)** Hvor varm måtte gassen blitt for at trykket skulle nå\n$4{,}00\\cdot10^{5}\\,\\text{Pa}$?\n\n**c)** En trykkmåler på bensinstasjonen viser **overtrykk** — altså trykket over\natmosfæretrykket. Hvorfor kan du ikke sette den avlesningen rett inn i\ngassloven?",
+        "solution": "**a) Symbolsk.** Fast volum og fast stoffmengde gir $p_1/T_1 = p_2/T_2$, altså\n$p_2 = p_1 T_2/T_1$.\n\n**Rask vei til tall.** Kelvin først:\n$$T_1 = 5{,}0 + 273{,}15 = 278{,}15\\,\\text{K}, \\qquad\nT_2 = 38{,}0 + 273{,}15 = 311{,}15\\,\\text{K},$$\n$$p_2 = 3{,}40\\cdot10^{5} \\cdot \\frac{311{,}15}{278{,}15}\\,\\text{Pa}\n= 3{,}40\\cdot10^{5} \\cdot 1{,}11864\\,\\text{Pa} = 3{,}80338\\cdot10^{5}\\,\\text{Pa}.$$\nØkningen er $3{,}80338\\cdot10^{5} - 3{,}40\\cdot10^{5} = 4{,}034\\cdot10^{4}\\,\\text{Pa}$, altså om lag\n$11{,}9$ prosent.\n\n**b)** Snu forholdet:\n$$T = T_1\\frac{p}{p_1} = 278{,}15 \\cdot \\frac{4{,}00\\cdot10^{5}}{3{,}40\\cdot10^{5}}\\,\\text{K}\n= 327{,}2\\,\\text{K} = 54{,}1\\,^\\circ\\text{C}.$$\nDet er varmt, men ikke urealistisk for et dekk i hardt bruk på en varm dag.\n\n**c)** Fordi gassloven bruker det **absolutte** trykket. Måleren viser\n$p_\\text{abs} - p_\\text{atm}$, så du må legge til atmosfæretrykket\n($\\approx 1{,}013\\cdot10^{5}\\,\\text{Pa}$) før du regner. Setter du inn\novertrykket direkte, blir forholdet $p_2/p_1$ feil — og feilen går alltid samme\nvei: den overdriver den relative endringen, fordi du har delt på et for lite\ntall.\n\n**Kontroll av a) med den vanligste feilen.** Med celsiustallene i forholdet\nville du fått $3{,}40\\cdot10^{5} \\cdot 38{,}0/5{,}0 = 2{,}584\\cdot10^{6}\\,\\text{Pa}$ — over sju\nganger for høyt, og et dekk ville sprengt lenge før det. Her avslører\nstørrelsesordenen fella av seg selv, men det gjør den sjelden når\ntemperaturforskjellen er liten.",
+        "hints": [
+          "Hva er konstant her — volumet, trykket eller temperaturen?",
+          "Skriv begge temperaturene i kelvin som egen linje før du regner forholdet.",
+          "I c): hva er forskjellen mellom absolutt trykk og overtrykk?"
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-6-1-def-forholdsform",
+      "type": "definition",
+      "title": "Gassloven i forholdsform",
+      "content": "Når stoffmengden er den samme før og etter, er $pV/T$ konstant:\n$$\\frac{p_1V_1}{T_1} = \\frac{p_2V_2}{T_2}.$$\nDette er den formen du bruker i de fleste flervalgsoppgavene, fordi den lar deg\n**stryke det som ikke endrer seg** og slippe å regne ut $n$ i det hele tatt.\nSpesialtilfellene har egne navn:\n\n- **fast temperatur** (isoterm): $p_1V_1 = p_2V_2$,\n- **fast trykk** (isobar): $V_1/T_1 = V_2/T_2$,\n- **fast volum** (isokor): $p_1/T_1 = p_2/T_2$.\n\nFordelen er også praktisk: i forholdsformen kan volumet stå i liter og trykket i\nbar, så lenge du bruker samme enhet på begge sider. Men **temperaturen må\nfremdeles i kelvin** — den står ikke som en differanse."
+    },
+    {
+      "id": "tfy4115-6-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — fra mol til molekyler (~12 min)\n\nGassloven regner i mol. Men flere eksamensspørsmål ber om **antall molekyler**,\nog noen ber om energien til **ett** molekyl. Da trenger du broen mellom\nmolverdenen og molekylverdenen, og den består av to konstanter."
+    },
+    {
+      "id": "tfy4115-6-1-def-NA",
+      "type": "definition",
+      "title": "Avogadros tall",
+      "content": "Antall partikler i ett mol:\n$$N_A = 6{,}022\\cdot10^{23}\\ \\text{mol}^{-1}.$$\nVerdien **står på det utdelte formelarket** — den skal ikke pugges. Tallet er\nufattelig stort, og et bilde hjelper: ett mol sandkorn ville dekket hele Norge i\net lag flere kilometer dypt. Det er nettopp derfor vi ikke følger enkeltmolekyler\ni termofysikken.\n\nBruken er enkel: $N = nN_A$ gir antall partikler, og $m_\\text{molekyl} = M/N_A$\ngir massen til ett enkelt molekyl i kilogram. Den siste trenger du hver gang\n$v_\\text{rms}$ skal regnes per molekyl i stedet for per mol."
+    },
+    {
+      "id": "tfy4115-6-1-def-R",
+      "type": "definition",
+      "title": "Gasskonstanten $R$",
+      "content": "Den universelle gasskonstanten,\n$$R = 8{,}314\\ \\text{J/(mol}\\cdot\\text{K)},$$\nsom **står på formelarket**. Den er «universell» fordi den er den samme for alle\nideelle gasser — helium, nitrogen og karbondioksid følger samme lov med samme\nkonstant. Navnet forteller hva den gjør: den knytter en energi (joule) til\nstoffmengde (mol) og temperatur (kelvin).\n\n⚠ **Symbolkollisjon:** i Del 1–5 betydde $R$ en **radius** i meter, og i Del 9\nmøter du $R_\\text{term}$ som termisk motstand i en vegg.\nFra Del 6 betyr $R$ **uten indeks** alltid gasskonstanten. Enheten skiller dem\numiddelbart: gasskonstanten har $\\text{J/(mol}\\cdot\\text{K)}$, radien har meter."
+    },
+    {
+      "id": "tfy4115-6-1-def-kB",
+      "type": "definition",
+      "title": "Boltzmanns konstant $k_B$",
+      "content": "Gasskonstanten regnet **per molekyl** i stedet for per mol:\n$$k_B = \\frac{R}{N_A} = 1{,}381\\cdot10^{-23}\\ \\text{J/K}.$$\nOgså denne **står på formelarket**. Sammenhengen $R = N_A k_B$ er verdt å skrive\nopp én gang, for den er selve regelen for når du bruker hvilken:\n\n$$\\textbf{per mol} \\Rightarrow R, \\qquad \\textbf{per molekyl} \\Rightarrow k_B.$$\n\nKontroller den med de firesifrede verdiene:\n$6{,}022\\cdot10^{23} \\cdot 1{,}3806\\cdot10^{-23} = 8{,}314\\ \\text{J/(mol}\\cdot\\text{K)}$\n— altså $8{,}314$, som det skal. (Bruker du den avrundede\n$1{,}381\\cdot10^{-23}$, får du $8{,}316$: et halvt promilles avvik som er helt\nuskyldig i et tallsvar, men verdt å kjenne igjen når to regneveier gir svar som\nskiller seg i fjerde siffer.)\n\nÅ forveksle $R$ og $k_B$ gir en feil på faktoren $6\\cdot10^{23}$ — den\noppdager du på størrelsesordenen alene."
+    },
+    {
+      "id": "tfy4115-6-1-thm-molekyltall",
+      "type": "theorem",
+      "title": "Antall molekyler i en gassmengde",
+      "content": "Sett $n = N/N_A$ inn i gassloven og bruk $R = N_A k_B$:\n$$pV = \\frac{N}{N_A}RT = N k_B T \\quad\\Longrightarrow\\quad\n\\boxed{\\,N = \\frac{pV}{k_B T}\\,}$$\nFormen $pV = Nk_BT$ **står på formelarket** ved siden av $pV = nRT$; de er samme\nlov, skrevet per molekyl i stedet for per mol.\n\nRegelen som gjør at du aldri velger feil: **spør oppgaven om mol, bruk $R$; spør\nden om antall molekyler, bruk $k_B$.** Trenger du begge, regn den ene og gang\neller del med $N_A$.\n\nEn nyttig avledet størrelse er **partikkeltettheten** $N/V = p/(k_BT)$, altså\nantall molekyler per kubikkmeter. Den er uavhengig av hvilken gass det er — bare\nav trykk og temperatur."
+    },
+    {
+      "id": "tfy4115-6-1-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: hvor mange molekyler er det i en lyspære?",
+      "problem": "En gammeldags glødelampe har et indre volum på $6{,}00\\cdot10^{-5}\\,\\text{m}^3$ (altså\n$0{,}0600\\,\\text{mL}$) fylt med argon. Når lampen lyser, er trykket\n$8{,}00\\cdot10^{4}\\,\\text{Pa}$ og temperaturen $2500\\,\\text{K}$.\n\n**a)** Hvor mange gassmolekyler er det i lampen?\n\n**b)** Hvor mange mol er det?",
+      "solution": "**a) Symbolsk.** Oppgaven ber om antall molekyler, altså $N = pV/(k_BT)$ —\nmolekyltall betyr $k_B$.\n\n**Rask vei til tall.** Teller og nevner hver for seg:\n$$pV = 8{,}00\\cdot10^{4} \\cdot 6{,}00\\cdot10^{-5}\\,\\text{J} = 4{,}80\\,\\text{J},$$\n$$k_BT = 1{,}381\\cdot10^{-23} \\cdot 2500\\,\\text{J} = 3{,}4525\\cdot10^{-20}\\,\\text{J},$$\n$$N = \\frac{4{,}80}{3{,}4525\\cdot10^{-20}} = 1{,}3903\\cdot10^{20}.$$\n\n**b)** Del på Avogadros tall:\n$$n = \\frac{N}{N_A} = \\frac{1{,}3903\\cdot10^{20}}{6{,}022\\cdot10^{23}}\\,\\text{mol}\n= 2{,}3087\\cdot10^{-4}\\,\\text{mol}.$$\n\n**Uavhengig kontroll — og en lærdom om siffer.** Regner vi stoffmengden direkte\nfra $n = pV/(RT)$ i stedet, får vi\n$$n = \\frac{4{,}80}{8{,}314 \\cdot 2500}\\,\\text{mol} = 2{,}3094\\cdot10^{-4}\\,\\text{mol}.$$\nDe to svarene skiller seg med 0{,}29 promille. Det er **ikke** en regnefeil:\ndet er avrundingen i $k_B = 1{,}381\\cdot10^{-23}$ mot\n$R = 8{,}314$, som ikke er helt konsistente på fjerde siffer. Med\n$k_B = 1{,}3806\\cdot10^{-23}$ faller de sammen. Poenget for eksamen: et avvik i\n**fjerde** siffer mellom to regneveier er avrunding, mens et avvik i **første**\nsiffer er en feil. Lær deg å skille dem.\n\nLegg for øvrig merke til svaret: en tredjedels milliondel mol — men over\nhundre milliarder milliarder molekyler. Det er størrelsesordenen som gjør\nstatistikk til riktig verktøy."
+    },
+    {
+      "id": "tfy4115-6-1-o-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-6-1-o-3-e",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger T1.) Et vakuumkammer med volum $0{,}0200\\,\\text{m}^3$ pumpes ned til\ntrykket $1{,}00\\cdot10^{-6}\\,\\text{Pa}$ ved $295\\,\\text{K}$.\n\n**a)** Hvor mange gassmolekyler er det igjen i kammeret?\n\n**b)** Hvor mange molekyler er det per kubikkcentimeter?\n\n**c)** Kommenter svaret: er kammeret «tomt»?",
+        "solution": "**a)**\n$$N = \\frac{pV}{k_BT} = \\frac{1{,}00\\cdot10^{-6} \\cdot 0{,}0200}{1{,}381\\cdot10^{-23} \\cdot 295}\n= \\frac{2{,}00\\cdot10^{-8}}{4{,}07395\\cdot10^{-21}} = 4{,}9092\\cdot10^{12}.$$\n\n**b)** Partikkeltettheten er\n$$\\frac{N}{V} = \\frac{4{,}9092\\cdot10^{12}}{0{,}0200}\\,\\text{m}^{-3} = 2{,}4546\\cdot10^{14}\\,\\text{m}^{-3},$$\nog siden $1\\,\\text{m}^3 = 10^{6}\\,\\text{cm}^3$:\n$$2{,}4546\\cdot10^{14}\\,\\text{m}^{-3} = 2{,}4546\\cdot10^{8}\\ \\text{per cm}^3.$$\n\n**c)** Nei — og det er poenget. Selv ved et trykk en milliarddel av\natmosfæretrykket er det flere hundre millioner molekyler i hver kubikkcentimeter.\nEt «vakuum» i laboratoriet er en gass med svært lav tetthet, ikke et rom uten\ngass. Det er også grunnen til at ideell-gass-modellen er *bedre* ved lavt trykk\nenn ved høyt: molekylene er så langt fra hverandre at de praktisk talt aldri\nmerker hverandre.",
+        "hints": [
+          "Spør oppgaven om molekyler eller om mol? Det avgjør om du bruker $k_B$ eller $R$.",
+          "Én kubikkmeter er en million kubikkcentimeter.",
+          "Sammenlign med partikkeltettheten i luft ved atmosfæretrykk."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-6-1-o-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-6-1-o-4-e",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger T1.) En stålflaske med volum $40{,}0\\,\\text{L}$ inneholder\n$0{,}250\\,\\text{kg}$ helium (molar masse $4{,}003\\,\\text{g/mol}$) ved\n$295\\,\\text{K}$.\n\n**a)** Finn stoffmengden.\n\n**b)** Finn trykket i flasken, i pascal og i bar.\n\n**c)** Hvor mange heliumatomer er det i flasken?",
+        "solution": "**a)**\n$$n = \\frac{m}{M} = \\frac{0{,}250}{0{,}004003}\\,\\text{mol} = 62{,}453\\,\\text{mol}.$$\nMerk at både massen og den molare massen er i kilogram-basis — det er der\ngram/kilogram-slurvet slår til.\n\n**b)**\n$$p = \\frac{nRT}{V} = \\frac{62{,}453 \\cdot 8{,}314 \\cdot 295}{0{,}0400}\\,\\text{Pa}\n= \\frac{153174}{0{,}0400}\\,\\text{Pa} = 3{,}8294\\cdot10^{6}\\,\\text{Pa} \\approx\n38{,}3\\,\\text{bar}.$$\nDet er et realistisk trykk for en industriell gassflaske.\n\n**c)**\n$$N = nN_A = 62{,}453 \\cdot 6{,}022\\cdot10^{23} = 3{,}7609\\cdot10^{25}.$$\nHelium er en **enatomig** gass, så «molekyler» og «atomer» er det samme her —\net skille som blir viktig i [kap. 6.2](/tfy4115/tfy4115-6-2), der antall atomer i\nmolekylet bestemmer varmekapasiteten.",
+        "hints": [
+          "Stoffmengde fra masse: del på den molare massen — i kg/mol.",
+          "Gassloven løst for trykket er $p=nRT/V$; volumet må i kubikkmeter.",
+          "Antall partikler er stoffmengden ganger Avogadros tall."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-6-1-def-molarvolum",
+      "type": "definition",
+      "title": "Molart volum — tallet som gir rimelighetssjekk",
+      "content": "Volumet ett mol ideell gass fyller ved gitte $p$ og $T$:\n$$V_m = \\frac{RT}{p}.$$\nVed $0\\,^\\circ\\text{C}$ og $1\\,\\text{atm}$ blir det\n$V_m = 22{,}42\\,\\text{L/mol}$, og ved $25\\,^\\circ\\text{C}$ og samme trykk\n$24{,}47\\,\\text{L/mol}$.\n\nDette er ikke pensum å pugge, men det er en av de raskeste\n**rimelighetssjekkene** som finnes: har du regnet ut en stoffmengde, kan du sjekke\nat $V/n$ ligger i nærheten av $22$–$25$ liter per mol når trykket er omtrent én\natmosfære. Er svaret hundre ganger større eller mindre, har du sannsynligvis\nblandet liter og kubikkmeter. Merk at $V_m$ er den **samme for alle ideelle\ngasser** — det er innholdet i Avogadros lov."
+    },
+    {
+      "id": "tfy4115-6-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — kinetisk gassteori: hva temperatur egentlig er (~18 min)\n\nSå langt har $T$ vært et tall vi setter inn. Nå skal vi se hva som skjer inne i\ngassen — og svaret er den peneste broen i hele faget mellom mekanikken du kommer\nfra og termofysikken du er på vei inn i.\n\nTenk på et enkelt molekyl som treffer en vegg rett på og spretter tilbake med\nsamme fart. Bevegelsesmengden endres fra $mv_x$ til $-mv_x$, altså med\n$2mv_x$ — nøyaktig samme regnestykke som det elastiske støtet i\n[kap. 3.1](/tfy4115/tfy4115-3-1). Kraften på veggen er endringen i\nbevegelsesmengde per tid. Summer du over alle molekylene, får du trykket."
+    },
+    {
+      "id": "tfy4115-6-1-thm-kinetisk",
+      "type": "theorem",
+      "title": "Trykket fra kinetisk gassteori",
+      "content": "For en ideell gass med $N$ molekyler av masse $m$ i volumet $V$:\n$$p = \\frac{1}{3}\\frac{N}{V}m\\langle v^2\\rangle,$$\nder $\\langle v^2\\rangle$ er middelverdien av fartskvadratet.\nUttrykket **står på formelarket**.\n\n**Hvor faktoren $\\tfrac13$ kommer fra.** Bevegelsen er tilfeldig fordelt i tre\nretninger, så i gjennomsnitt går en tredjedel av «fartskvadratet» på hver akse:\n$$\\langle v^2\\rangle = \\langle v_x^2\\rangle + \\langle v_y^2\\rangle +\n\\langle v_z^2\\rangle = 3\\langle v_x^2\\rangle.$$\nBare bevegelsen langs $x$ bidrar til trykket på en vegg som står normalt på\n$x$-aksen — derfor tredjedelen. Dette er den ene tellingen du skal kunne\ngjenskape på eksamen, for den samme tredelingen dukker opp igjen i\nekvipartisjonsprinsippet i [kap. 6.2](/tfy4115/tfy4115-6-2).\n\n*Intuisjon:* $N/V$ er hvor mange som banker, $m\\langle v^2\\rangle$ er hvor hardt\nhver av dem banker. Trykket er produktet."
+    },
+    {
+      "id": "tfy4115-6-1-utledning-ek",
+      "type": "text",
+      "content": "### Utledningen som kreves aktivt: temperatur er midlere kinetisk energi\n\nNå har vi to uttrykk for det samme trykket. Fra kinetisk teori:\n$$pV = \\tfrac13 N m\\langle v^2\\rangle.$$\nFra gassloven, skrevet per molekyl:\n$$pV = Nk_BT.$$\n\nSett dem lik hverandre, og $N$ faller ut:\n$$\\tfrac13 m\\langle v^2\\rangle = k_BT \\quad\\Longrightarrow\\quad\n\\tfrac12 m\\langle v^2\\rangle = \\tfrac32 k_BT.$$\n\nVenstre side er nettopp den **midlere kinetiske energien per molekyl**. Vi har\naltså vist at\n$$\\langle E_k\\rangle = \\tfrac32 k_B T.$$\n\n*Intuisjon:* dette er svaret på hva temperatur *er*. Den er ikke «hvor mye varme\nnoe inneholder» — den er et direkte mål på hvor mye kinetisk energi hvert\nmolekyl har i gjennomsnitt. To gasser med samme temperatur har samme midlere\nkinetiske energi per molekyl, **uansett hvor tunge molekylene er**. Det er den\nsetningen sjanger T2 er bygget rundt, og den er kontraintuitiv nok til å være et\nyndet flervalgspoeng.\n\nUtledningen over er kort nok at du bør kunne gjøre den fra bunnen: to uttrykk for\n$pV$, sett dem lik, gang med $\\tfrac32$. Den **må kunne utledes aktivt** — det er\nselve koblingen mellom mekanikk og termofysikk."
+    },
+    {
+      "id": "tfy4115-6-1-def-Ek",
+      "type": "definition",
+      "title": "Midlere kinetisk energi per molekyl",
+      "content": "For en ideell gass ved absolutt temperatur $T$:\n$$\\langle E_k\\rangle = \\tfrac12 m\\langle v^2\\rangle = \\tfrac32 k_B T.$$\nPer mol blir det $\\tfrac32 RT$. Uttrykket **står på formelarket**, men det er\ntolkningen som gir poeng:\n\n**Den er uavhengig av molekylets masse.** Ved $300\\,\\text{K}$ har både et\nheliumatom og et karbondioksidmolekyl den midlere kinetiske energien\n$\\langle E_k\\rangle = 6{,}215\\cdot10^{-21}\\,\\text{J}$. Det tunge molekylet kompenserer for\nmassen med lavere fart. Dette er den mest oversette setningen i sjanger T2, og\nden er nesten alltid ett av de gale alternativene: «tyngre molekyl, mer energi»\ner galt.\n\nMerk også at dette er energien i **translasjon** — det å fly gjennom rommet. Et\nmolekyl kan i tillegg rotere og vibrere, og de bidragene kommer i\n[kap. 6.2](/tfy4115/tfy4115-6-2)."
+    },
+    {
+      "id": "tfy4115-6-1-def-U",
+      "type": "definition",
+      "title": "Indre energi i en ideell gass",
+      "content": "Summen av all energi molekylene har i sin egen bevegelse. For en **enatomig**\nideell gass finnes bare translasjon, og da er\n$$U = N\\langle E_k\\rangle = \\tfrac32 Nk_BT = \\tfrac32 nRT.$$\n\nTo ting er avgjørende. Først: **$U$ avhenger bare av temperaturen**, ikke av\nvolum eller trykk. To ideelle gassmengder med samme $n$ og samme $T$ har samme\nindre energi selv om den ene er presset sammen. Dette er grunnen til at fri\nekspansjon i [kap. 7.2](/tfy4115/tfy4115-7-2) ikke endrer temperaturen.\n\nDernest: **$U$ er en tilstandsstørrelse**, mens varme og arbeid ikke er det. Du\nkan spørre «hvor mye indre energi har gassen nå?», men ikke «hvor mye varme har\nden?». Varme er noe som *overføres*, ikke noe som *lagres*. For gasser med flere\natomer i molekylet blir faktoren $\\tfrac32$ erstattet av $\\tfrac{f}{2}$, der $f$\ner antall frihetsgrader — det er hele innholdet i neste kapittel."
+    },
+    {
+      "id": "tfy4115-6-1-def-M",
+      "type": "definition",
+      "title": "Molar masse",
+      "content": "Massen til ett mol av stoffet, med enheten kg/mol i SI (men nesten alltid\noppgitt i g/mol):\n$$M = m_\\text{molekyl} N_A, \\qquad m_\\text{molekyl} = \\frac{M}{N_A}.$$\n\nVerdiene du møter oftest i denne boka:\nhelium $4{,}003\\,\\text{g/mol}$, nitrogen $\\text{N}_2$ $28{,}01\\,\\text{g/mol}$,\noksygen $\\text{O}_2$ $32{,}00\\,\\text{g/mol}$, argon $39{,}95\\,\\text{g/mol}$,\nkarbondioksid $\\text{CO}_2$ $44{,}01\\,\\text{g/mol}$. De oppgis i oppgaven eller\nstår på formelarket — de skal ikke pugges.\n\n**Fella som er innebygd i enheten:** en molar masse på $28\\,\\text{g/mol}$ er\n$0{,}028\\,\\text{kg/mol}$, og setter du inn $28$ i en SI-formel, blir svaret feil\nmed en faktor $\\sqrt{1000} \\approx 31{,}6$ i $v_\\text{rms}$. Skriv derfor om til\nkg/mol som en egen linje."
+    },
+    {
+      "id": "tfy4115-6-1-def-vrms",
+      "type": "definition",
+      "title": "Rotmiddelkvadratfarten $v_\\text{rms}$",
+      "content": "Kvadratrota av middelverdien av fartskvadratet — den «typiske» farten i en gass:\n$$v_\\text{rms} = \\sqrt{\\langle v^2\\rangle} = \\sqrt{\\frac{3k_BT}{m}}\n= \\sqrt{\\frac{3RT}{M}}.$$\nBegge formene **står på formelarket**. Den første bruker massen til **ett**\nmolekyl, den andre den **molare** massen — velg den som passer til tallene du har\nfått, og hold enhetene rene ($m$ i kg, $M$ i kg/mol).\n\nNavnet er en beskrivelse av regnerekkefølgen: *root mean square*, altså rota av\nmiddelverdien av kvadratene. To egenskaper avgjør oppgaver:\n\n1. **$v_\\text{rms} \\propto \\sqrt{T}$.** Firedobler du den absolutte\n   temperaturen, dobles farten. Ikke fire ganger.\n2. **$v_\\text{rms} \\propto 1/\\sqrt{M}$.** Ved samme temperatur er det\n   **tyngste** molekylet det **langsomste** — men de har samme midlere kinetiske\n   energi."
+    },
+    {
+      "id": "tfy4115-6-1-fig-maxwell",
+      "type": "image",
+      "src": "/images/textbook/tfy4115/tfy4115-6-1-maxwell-boltzmann.svg",
+      "alt": "Graf med fartsfordelingen for nitrogengass ved 300 kelvin og 1200 kelvin. Den kalde kurven er hoy og smal med toppen rundt 420 meter per sekund, den varme er lavere og bredere med toppen rundt 840 meter per sekund. Rotmiddelkvadratfarten er markert med stiplet linje pa hver kurve, 517 og 1034 meter per sekund, og ligger til hoyre for toppen i begge tilfeller.",
+      "caption": "Fartsfordelingen i nitrogengass ved to temperaturer. Arealet under hver kurve er 1 — like mange molekyler — så den varme fordelingen må være lavere når den er bredere. Legg merke til at $v_\\text{rms}$ dobles fra $300\\,\\text{K}$ til $1200\\,\\text{K}$: farten går som kvadratrota av temperaturen, ikke som temperaturen."
+    },
+    {
+      "id": "tfy4115-6-1-def-maxwell",
+      "type": "definition",
+      "title": "Maxwell–Boltzmann-fordelingen",
+      "content": "Fordelingen av farter i en gass i termisk likevekt. Molekylene har ikke samme\nfart — de har en bred fordeling, med få svært langsomme, mange midt på treet og\nen lang hale av svært raske.\n\nTre egenskaper du skal kunne lese ut av figuren, og som er de eneste du behøver:\n\n1. **Høyere temperatur flytter fordelingen mot høyere fart** og gjør den\n   **bredere og lavere**. Lavere, fordi arealet under kurven alltid er det samme:\n   det er 100 prosent av molekylene.\n2. **Tyngre molekyl gir en smalere fordeling ved samme temperatur** — trykket mot\n   lavere farter.\n3. **Halen mot høye farter er lang.** Det er derfor noen molekyler alltid har nok\n   energi til å reagere kjemisk eller unnslippe fra en væskeoverflate, selv langt\n   under kokepunktet.\n\nSelve formelen for fordelingen er ikke pensum i denne boka — det er tolkningen\nsom er det."
+    },
+    {
+      "id": "tfy4115-6-1-def-tre-farter",
+      "type": "definition",
+      "title": "Tre karakteristiske farter — og hvorfor de er ulike",
+      "content": "Den samme fordelingen kan sammenfattes med tre tall, og de er ikke like:\n$$v_\\text{p} = \\sqrt{\\frac{2RT}{M}} \\ (\\text{mest sannsynlig}), \\qquad\n\\langle v\\rangle = \\sqrt{\\frac{8RT}{\\pi M}} \\ (\\text{middelfart}), \\qquad\nv_\\text{rms} = \\sqrt{\\frac{3RT}{M}}.$$\nRekkefølgen er alltid\n$v_\\text{p} < \\langle v\\rangle < v_\\text{rms}$, med forholdene\n$\\sqrt{2} : \\sqrt{8/\\pi} : \\sqrt{3} \\approx 1{,}41 : 1{,}60 : 1{,}73$.\n\n**Hvorfor $v_\\text{rms}$ er størst:** kvadreringen vektlegger de raske\nmolekylene tyngre enn de langsomme, og halen mot høye farter er lang. Det er\nogså grunnen til at $v_\\text{rms}$ er den fysisk «riktige» farten når du regner\n**energi** — energien går med kvadratet av farten, så det er\nmiddelverdien av kvadratet som hører hjemme der.\n\nI denne boka er $v_\\text{rms}$ den ene du trenger å regne. De to andre står her\nfordi et konseptspørsmål kan spørre om rekkefølgen."
+    },
+    {
+      "id": "tfy4115-6-1-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: helium mot nitrogen (eksamensnivå)",
+      "problem": "En beholder inneholder en blanding av helium ($M = 4{,}003\\,\\text{g/mol}$) og\nnitrogengass ($M = 28{,}01\\,\\text{g/mol}$) i termisk likevekt ved\n$300\\,\\text{K}$.\n\n**a)** Finn $v_\\text{rms}$ for hver av de to gassene.\n\n**b)** Hvor mange ganger raskere er heliumatomene?\n\n**c)** Hvilken av de to har størst midlere kinetisk energi per molekyl?\n\n**d)** Hva blir $v_\\text{rms}$ for helium hvis temperaturen firedobles til\n$1200\\,\\text{K}$?",
+      "solution": "**a) Symbolsk.** $v_\\text{rms} = \\sqrt{3RT/M}$, med $M$ i kg/mol.\n\n**Rask vei til tall.** Regn telleren $3RT$ **én gang** og gjenbruk den — det er\nhele tidsgevinsten i denne sjangeren:\n$$3RT = 3 \\cdot 8{,}314 \\cdot 300\\,\\text{J/mol} = 7482{,}60\\,\\text{J/mol}.$$\n$$v_\\text{rms}(\\text{He}) = \\sqrt{\\frac{7482{,}60}{0{,}004003}}\\,\\text{m/s}\n= \\sqrt{1{,}86925\\cdot10^{6}}\\,\\text{m/s} = 1367{,}20\\,\\text{m/s},$$\n$$v_\\text{rms}(\\text{N}_2) = \\sqrt{\\frac{7482{,}60}{0{,}02801}}\\,\\text{m/s}\n= \\sqrt{267140}\\,\\text{m/s} = 516{,}856\\,\\text{m/s}.$$\nRundet til tre siffer: $1367\\,\\text{m/s}$ og $517\\,\\text{m/s}$. Merk\nstørrelsesordenen: gassmolekyler ved romtemperatur beveger seg i\nhundrevis av meter per sekund — omtrent som lydfarten, som ikke er tilfeldig.\n\n**b)** Forholdet:\n$$\\frac{v_\\text{He}}{v_{\\text{N}_2}} = 2{,}64523.$$\n**Uavhengig kontroll:** forholdet skal være $\\sqrt{M_{\\text{N}_2}/M_\\text{He}}$\nfordi temperaturen er den samme:\n$$\\sqrt{\\frac{28{,}01}{4{,}003}} = \\sqrt{6{,}99725} = 2{,}64523\n\\ \\checkmark$$\nSamme svar fra to helt ulike veier.\n\n**c) Ingen av dem — de er like.**\n$$\\langle E_k\\rangle = \\tfrac32 k_BT = 1{,}5 \\cdot 1{,}381\\cdot10^{-23} \\cdot\n300\\,\\text{J} = 6{,}2145\\cdot10^{-21}\\,\\text{J}$$\nfor **begge**. Kontroller det direkte for helium: massen til ett heliumatom er\n$m = M/N_A = 6{,}6473\\cdot10^{-27}\\,\\text{kg}$, og\n$$\\tfrac12 m v_\\text{rms}^2 = 0{,}5 \\cdot 6{,}6473\\cdot10^{-27} \\cdot 1{,}86925\\cdot10^{6}\\,\\text{J}\n= 6{,}2127\\cdot10^{-21}\\,\\text{J} \\ \\checkmark$$\n(avviket i fjerde siffer er avrundingen i $k_B$, som i eksempel 2).\n\nDette er sjangerens kjernepoeng: **samme temperatur betyr samme midlere\nkinetiske energi per molekyl. Det tunge molekylet betaler med lavere fart.**\n\n**d)** Farten går som $\\sqrt{T}$, så en firedobling av den absolutte\ntemperaturen **dobler** farten:\n$$v_\\text{rms} = 1367{,}20 \\cdot \\sqrt{4}\\,\\text{m/s} = 2734{,}41\\,\\text{m/s}.$$\nRegner du på nytt fra formelen, får du samme tall. Den som svarer «fire ganger så\nfort», har lest $v \\propto T$ i stedet for $v \\propto \\sqrt{T}$ — og det gale\nsvaret ligger klart på alternativlista."
+    },
+    {
+      "id": "tfy4115-6-1-o-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-6-1-o-5-e",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger T2 — kinetisk gassteori.) Oksygengass har molar masse\n$32{,}00\\,\\text{g/mol}$.\n\n**a)** Finn $v_\\text{rms}$ ved $300\\,\\text{K}$ og ved $1200\\,\\text{K}$.\n\n**b)** Finn den midlere kinetiske energien per molekyl ved de samme to\ntemperaturene, og forklar hvorfor forholdet mellom energiene ikke er det samme\nsom forholdet mellom fartene.",
+        "solution": "**a)** Med $M = 0{,}03200\\,\\text{kg/mol}$:\n$$v_\\text{rms}(300\\,\\text{K}) = \\sqrt{\\frac{3 \\cdot 8{,}314 \\cdot 300}\n{0{,}03200}}\\,\\text{m/s} = \\sqrt{233831}\\,\\text{m/s} = 483{,}561\\,\\text{m/s},$$\n$$v_\\text{rms}(1200\\,\\text{K}) = \\sqrt{935325}\\,\\text{m/s} = 967{,}122\\,\\text{m/s}.$$\nForholdet er nøyaktig $2{,}0000$ — fordi temperaturen er firedoblet og farten går\nsom kvadratrota.\n\n**b)**\n$$\\langle E_k\\rangle(300\\,\\text{K}) = \\tfrac32k_BT = 6{,}2145\\cdot10^{-21}\\,\\text{J},\n\\qquad \\langle E_k\\rangle(1200\\,\\text{K}) = 2{,}4858\\cdot10^{-20}\\,\\text{J}.$$\nEnergiforholdet er **4**, mens fartsforholdet er **2**. Forklaringen ligger i at\nenergien går med **kvadratet** av farten: $E \\propto v^2 \\propto T$. Farten går\nmed rota av temperaturen, energien går rett proporsjonalt med den. Dette er den\nmest kompakte måten å huske hele sammenhengen: **energien er proporsjonal med\n$T$, farten med $\\sqrt{T}$.**",
+        "hints": [
+          "Regn telleren $3RT$ først, og bruk $M$ i kg/mol.",
+          "Sammenlign hvordan $v$ og $E$ avhenger av $T$ hver for seg.",
+          "Hva skjer med $v^2$ når $v$ dobles?"
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-6-1-o-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-6-1-o-6-e",
+        "number": 6,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Kvalitativ oppgave — konseptrangering. Denne typen har sin egen andel av\neksamenssettet.) En beholder inneholder helium, nitrogengass og karbondioksid i\ntermisk likevekt ved $320\\,\\text{K}$.\n\n**a)** Ranger de tre etter $v_\\text{rms}$, størst først, og begrunn i én setning.\n\n**b)** Ranger de tre etter midlere kinetisk energi per molekyl.\n\n**c)** En medstudent sier: «karbondioksid er tyngst, så den har mest energi».\nSkriv et svar på to setninger som retter dette.",
+        "solution": "**a)** $\\text{He} > \\text{N}_2 > \\text{CO}_2$.\nFordi $v_\\text{rms}$ er proporsjonal med $1/\\sqrt{M}$ ved fast temperatur, og de\nmolare massene er $4{,}003$, $28{,}01$ og $44{,}01\\,\\text{g/mol}$.\nTallene, om du vil regne dem:\n$1412$, $533{,}8$ og $425{,}9\\,\\text{m/s}$.\n\n**b)** **Alle tre er like:** $\\langle E_k\\rangle = \\tfrac32k_BT = 6{,}629\\cdot10^{-21}\\,\\text{J}$\nfor hver av dem, siden de har samme temperatur.\n\n**c)** Nei — det er nettopp det som *ikke* skjer. Termisk likevekt betyr at alle\nmolekylene i beholderen har den samme midlere **kinetiske energien**, uansett\nmasse; det er dette som gjør temperatur til en meningsfull størrelse i det hele\ntatt. Karbondioksidmolekylet er tyngre, og løser det ved å bevege seg\nlangsommere: med\n$\\tfrac12mv^2$ fast og $m$ større, må $v$ bli mindre.",
+        "hints": [
+          "Hvilken av de to størrelsene avhenger av massen, og hvilken gjør ikke?",
+          "Skriv opp $v_\\text{rms}=\\sqrt{3RT/M}$ og $\\langle E_k\\rangle=\\tfrac32k_BT$ ved siden av hverandre.",
+          "Hva er felles for alle molekyler i termisk likevekt?"
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-6-1-o-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-6-1-o-7-e",
+        "number": 7,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger T2.) I en beholder er partikkeltettheten\n$N/V = 2{,}50\\cdot10^{25}\\,\\text{m}^{-3}$, molekylene er nitrogen ($\\text{N}_2$, molar\nmasse $28{,}01\\,\\text{g/mol}$), og $v_\\text{rms} = 517\\,\\text{m/s}$.\n\n**a)** Finn massen til ett nitrogenmolekyl.\n\n**b)** Regn ut trykket i beholderen direkte fra kinetisk gassteori.\n\n**c)** Finn temperaturen, og kommenter om tallene er realistiske.",
+        "solution": "**a)**\n$$m = \\frac{M}{N_A} = \\frac{0{,}02801}{6{,}022\\cdot10^{23}}\\,\\text{kg}\n= 4{,}6513\\cdot10^{-26}\\,\\text{kg}.$$\n\n**b) Symbolsk.** $p = \\tfrac13(N/V)m\\langle v^2\\rangle$, der\n$\\langle v^2\\rangle = v_\\text{rms}^2$ per definisjon.\n\n**Rask vei til tall.** Ta faktorene i rekkefølge, og hold fire siffer:\n$$v_\\text{rms}^2 = 517^2\\,\\text{m}^2/\\text{s}^2 = 267289\\,\\text{m}^2/\\text{s}^2,$$\n$$\\tfrac13 \\cdot 2{,}50\\cdot10^{25} \\cdot 4{,}6513\\cdot10^{-26} = 0{,}38761\\ \\text{kg/m}^3,$$\n$$p = 0{,}38761 \\cdot 267289\\,\\text{Pa} = 1{,}0360\\cdot10^{5}\\,\\text{Pa}.$$\n\n**Benevningskontroll:**\n$$\\text{m}^{-3} \\cdot \\text{kg} \\cdot \\text{m}^2/\\text{s}^2 = \\text{kg/(m}\\cdot\\text{s}^2) = \\text{N/m}^2 = \\text{Pa} \\ \\checkmark$$\n\n**c)** Fra $p = (N/V)k_BT$:\n$$T = \\frac{p}{(N/V)k_B} = \\frac{1{,}0360\\cdot10^{5}}{2{,}50\\cdot10^{25} \\cdot 1{,}381\\cdot10^{-23}}\n\\,\\text{K} = 300{,}1\\,\\text{K}.$$\nBåde trykket ($1{,}02$ atmosfærer) og temperaturen (om lag romtemperatur) er\nhelt realistiske — tallene beskriver noe nær vanlig luft. Det er en god\nsluttsjekk å gjøre: når kinetisk teori gir et trykk på hundre tusen pascal og en\ntemperatur på tre hundre kelvin, har du sannsynligvis regnet riktig.\n\n**Fella her:** glemmer du faktoren $\\tfrac13$, får du\n$3{,}108\\cdot10^{5}\\,\\text{Pa}$ — tre atmosfærer, som fremdeles «ser rimelig ut». Det er\nderfor tredjedelen skal skrives ned som en egen faktor før du regner.",
+        "hints": [
+          "Massen til ett molekyl er den molare massen delt på Avogadros tall.",
+          "$\\langle v^2\\rangle$ er nettopp $v_\\text{rms}$ i annen — det er definisjonen av rms.",
+          "Til c): kombiner $p=(N/V)k_BT$ med trykket du fant."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-6-1-rask-vei",
+      "type": "text",
+      "content": "## Rask vei til tall (MC-oppskrift)\n\n1. **Hvilken lov?** Tre spørsmålstyper dekker praktisk talt alt i dette\n   kapitlet. Spør oppgaven om **trykk, volum, temperatur eller mol** → gassloven\n   $pV = nRT$. Spør den om **antall molekyler** → $N = pV/(k_BT)$. Spør den om\n   **fart** → $v_\\text{rms} = \\sqrt{3RT/M}$. Endres en tilstand til en annen med\n   samme gassmengde → forholdsformen $p_1V_1/T_1 = p_2V_2/T_2$, og stryk det som\n   er konstant.\n2. **Hvilken ene regnelinje?** Skriv **kelvinverdien først, på egen linje.**\n   Regn så teller og nevner hver for seg. I fartsoppgaver: regn $3RT$ én gang og\n   gjenbruk det for alle gassene i oppgaven.\n3. **Hva hentes hvor?** $pV=nRT$, $pV=Nk_BT$, $p=\\tfrac13(N/V)m\\langle v^2\\rangle$,\n   $\\langle E_k\\rangle=\\tfrac32k_BT$, $v_\\text{rms}=\\sqrt{3k_BT/m}=\\sqrt{3RT/M}$\n   og verdiene av $R$, $k_B$ og $N_A$ **står på det utdelte arket**. Kvadratrøtter\n   og logaritmer regner du på kalkulatoren; **Rottmann** trenger du ikke i dette\n   kapitlet. Det som **må kunne utledes aktivt**, er koblingen\n   $\\langle E_k\\rangle = \\tfrac32k_BT$ fra de to uttrykkene for $pV$ — og\n   enhetsomregningene.\n4. **Hvor mange siffer?** Fire gjennom hele kjeden, to eller tre i sluttsvaret.\n   Særlig i $v_\\text{rms}$: kvadratrota halverer den relative feilen, så en\n   avrunding som ser uskyldig ut i telleren, flytter sluttsvaret mindre enn du\n   tror — men gjør du to avrundinger etter hverandre, treffer du nabo-alternativet.\n5. **Hva sjekker du før du krysser av?** (i) **Er alle temperaturer i kelvin?**\n   (ii) Er volumet i $\\text{m}^3$ og massen i kg? (iii) Ba oppgaven om **mol**\n   eller om **molekyler** — brukte du $R$ eller $k_B$? (iv) Har svaret riktig\n   enhet og rimelig tierpotens? En gassfart skal ligge i hundrevis av m/s, et\n   romtrykk rundt $10^5\\,\\text{Pa}$, et molart volum rundt 24 L/mol ved én\n   atmosfære. (v) Ba oppgaven om **fart** eller om **energi** — går svaret som\n   $\\sqrt{T}$ eller som $T$?"
+    },
+    {
+      "id": "tfy4115-6-1-o-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-6-1-o-8-e",
+        "number": 8,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger T1, flervalg i eksamensformat med seks alternativer A–F.) Hvor mange\ngassmolekyler er det i et rom på $42{,}0\\,\\text{m}^3$ ved trykket\n$1{,}013\\cdot10^{5}\\,\\text{Pa}$ og temperaturen $21{,}0\\,^\\circ\\text{C}$?\n\n**A** $1{,}467\\cdot10^{28}$ · **B** $1{,}047\\cdot10^{30}$ · **C** $1740$ · **D** $1{,}047\\cdot10^{27}$ ·\n**E** $4{,}255\\cdot10^{6}$ · **F** $1{,}047\\cdot10^{24}$\n\nOppgi bare bokstavsvaret.",
+        "solution": "**Svar: D.**\n\n**Rask vei til tall.** Oppgaven ber om molekyler, altså $k_B$:\n$$T = 21{,}0 + 273{,}15 = 294{,}15\\,\\text{K}, \\qquad\npV = 1{,}013\\cdot10^{5} \\cdot 42{,}0\\,\\text{J} = 4{,}2546\\cdot10^{6}\\,\\text{J},$$\n$$k_BT = 1{,}381\\cdot10^{-23} \\cdot 294{,}15\\,\\text{J} = 4{,}0622\\cdot10^{-21}\\,\\text{J},\n\\qquad N = \\frac{4{,}2546\\cdot10^{6}}{4{,}0622\\cdot10^{-21}} = 1{,}0474\\cdot10^{27}.$$\n\n**Hva hvert galt alternativ er regnet fram fra:**\n\n- $1{,}467\\cdot10^{28}$: celsiustallet $21{,}0$ satt inn i stedet for kelvin — felle #11. Svaret\n  blir en faktor $14{,}01$ for stort, altså nesten fjorten ganger.\n- $1{,}047\\cdot10^{30}$: volumet regnet i liter ($42000$) i stedet for kubikkmeter.\n- $1740$: $R$ brukt der $k_B$ skulle brukes. Da får du **stoffmengden i mol**,\n  ikke antall molekyler — riktig regning, feil størrelse.\n- $4{,}255\\cdot10^{6}$: bare $pV$, uten å dele på $k_BT$ i det hele tatt. Enheten blir joule,\n  ikke et antall.\n- $1{,}047\\cdot10^{24}$: volumet delt på 1000 i stedet for ganget — samme\n  liter-mot-kubikkmeter-forvirring, motsatt vei.\n\n**Merk hvordan du kan eliminere raskt uten å regne ferdig.** Et rom med luft har\nen partikkeltetthet i størrelsesorden $10^{25}$ per kubikkmeter, så svaret må\nligge rundt $10^{26}$–$10^{27}$ for 42 kubikkmeter. Det stryker fire av de seks\nalternativene på under ti sekunder. Med seks alternativer og null minuspoeng er\nden ferdigheten verdt mer enn den ekstra regnelinja.",
+        "hints": [
+          "Ber oppgaven om molekyler eller mol? Det avgjør konstanten.",
+          "Skriv kelvinverdien ned som egen linje før du regner.",
+          "Anslå størrelsesordenen først: hvor mange molekyler er det per kubikkmeter luft?"
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-6-1-o-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-6-1-o-9-e",
+        "number": 9,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger T1 og T2 koblet.) En argonflaske ($M = 39{,}95\\,\\text{g/mol}$)\nhar volum $50{,}0\\,\\text{L}$. Full holder den trykket $1{,}80\\cdot10^{7}\\,\\text{Pa}$ ved\n$20\\,^\\circ\\text{C}$. Etter bruk er trykket falt til $4{,}50\\cdot10^{6}\\,\\text{Pa}$ ved\nsamme temperatur.\n\n**a)** Finn stoffmengden før og etter.\n\n**b)** Hvor mange kilo argon er brukt?\n\n**c)** Finn $v_\\text{rms}$ for argonatomene, og den midlere kinetiske energien\nper atom.\n\n**d)** Hvor mange atomer er det igjen i flasken?\n\n**e)** Hva ville skjedd med svaret i c) hvis flasken hadde stått i sola og blitt\n$60\\,^\\circ\\text{C}$?",
+        "solution": "**a)** Kelvin først: $T = 20 + 273{,}15 = 293{,}15\\,\\text{K}$, og\n$RT = 8{,}314 \\cdot 293{,}15 = 2437{,}25\\,\\text{J/mol}$.\n$$n_1 = \\frac{p_1V}{RT} = \\frac{1{,}80\\cdot10^{7} \\cdot 0{,}0500}{2437{,}25}\\,\\text{mol}\n= \\frac{900000}{2437{,}25}\\,\\text{mol} = 369{,}27\\,\\text{mol},$$\n$$n_2 = \\frac{225000}{2437{,}25}\\,\\text{mol} = 92{,}317\\,\\text{mol}.$$\n**Snarvei verdt å kjenne:** siden $V$ og $T$ er uendret, er\n$n_2/n_1 = p_2/p_1 = 0{,}2500$ — du kan finne $n_2$ uten å regne gassloven på\nnytt.\n\n**b)**\n$$\\Delta n = 369{,}27 - 92{,}317 = 276{,}95\\,\\text{mol}, \\qquad\n\\Delta m = \\Delta n \\cdot M = 276{,}95 \\cdot 0{,}03995\\,\\text{kg} = 11{,}064\\,\\text{kg}.$$\nTil sammenligning var det $14{,}752\\,\\text{kg}$ i flasken til å begynne med, så tre\nfjerdedeler er brukt — som det skal være når trykket har falt til en fjerdedel.\n\n**c)**\n$$v_\\text{rms} = \\sqrt{\\frac{3RT}{M}} = \\sqrt{\\frac{3 \\cdot 2437{,}25}{0{,}03995}}\n\\,\\text{m/s} = \\sqrt{183022}\\,\\text{m/s} = 427{,}811\\,\\text{m/s},$$\n$$\\langle E_k\\rangle = \\tfrac32k_BT = 6{,}0726\\cdot10^{-21}\\,\\text{J}.$$\nArgon er tungt, og farten er derfor lavere enn for nitrogen ved samme temperatur\n— men den midlere kinetiske energien er den samme.\n\n**d)**\n$$N_2 = n_2N_A = 92{,}317 \\cdot 6{,}022\\cdot10^{23} = 5{,}5593\\cdot10^{25}.$$\n\n**e)** Ved $60\\,^\\circ\\text{C} = 333{,}15\\,\\text{K}$ blir\n$$v_\\text{rms} = 427{,}811 \\cdot \\sqrt{\\frac{333{,}15}{293{,}15}}\\,\\text{m/s}\n= 427{,}811 \\cdot 1{,}06604\\,\\text{m/s} = 456{,}065\\,\\text{m/s},$$\naltså bare $6{,}60$ prosent raskere av en oppvarming på $40$ grader.\nGrunnen er kvadratrota: temperaturen steg med\n$13{,}6$ prosent, men farten bare med halvparten av det, tilnærmet. Trykket\nville derimot steget med de fulle $13{,}6$ prosentene, siden $p \\propto T$ ved\nfast volum. **Det er verdt å merke seg forskjellen: trykket følger $T$, farten\nfølger $\\sqrt{T}$.**",
+        "hints": [
+          "Kelvin først — og legg merke til at temperaturen er den samme før og etter i a).",
+          "Volumet og temperaturen er faste, så stoffmengden er proporsjonal med trykket.",
+          "I e): går farten som $T$ eller som $\\sqrt{T}$?"
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-6-1-o-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-6-1-o-10-e",
+        "number": 10,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Kvalitativ oppgave — konseptspørsmål av typen som forekommer i hvert sett.)\nAvgjør om hver påstand er sann eller falsk, og begrunn hver med én setning.\n\n**a)** «To gassmengder med samme trykk og samme volum har samme temperatur.»\n\n**b)** «Doblet du den absolutte temperaturen til en gass i en stiv beholder,\ndobles trykket.»\n\n**c)** «Ved samme temperatur har alle gasser samme $v_\\text{rms}$.»\n\n**d)** «Den indre energien til en ideell gass avhenger av volumet.»\n\n**e)** «Ett mol av en tung gass fyller større volum enn ett mol av en lett gass\nved samme trykk og temperatur.»",
+        "solution": "**a) Falsk.** Gassloven gir $T = pV/(nR)$ — temperaturen avhenger også av\n**stoffmengden**. To beholdere med samme $p$ og $V$ men ulik $n$ har ulik $T$.\nHar de i tillegg samme $n$, er påstanden sann.\n\n**b) Sann.** Stiv beholder betyr fast $V$, og med fast $n$ gir $p = nRT/V$ at\n$p \\propto T$. Merk at det bare gjelder for den **absolutte** temperaturen: en\ndobling fra $20\\,^\\circ\\text{C}$ til $40\\,^\\circ\\text{C}$ er ingen dobling av\n$T$, men en økning fra $293{,}15$ til $313{,}15\\,\\text{K}$ — knapt sju prosent.\n\n**c) Falsk.** $v_\\text{rms} = \\sqrt{3RT/M}$ avhenger av den molare massen: det\ntyngste molekylet er det langsomste. Det som **er** likt ved samme temperatur, er\nden midlere kinetiske energien $\\tfrac32k_BT$ per molekyl. Blander du de to\nsetningene, går du rett i sjanger T2s hovedfelle.\n\n**d) Falsk for en ideell gass.** $U = \\tfrac{f}{2}nRT$ avhenger bare av\ntemperaturen. Presser du gassen sammen ved fast temperatur, er $U$ uendret.\n(For en reell gass med tiltrekningskrefter mellom molekylene gjelder ikke dette\n— det er ett av poengene med van der Waals-modellen i Del 10.)\n\n**e) Falsk.** $V = nRT/p$ inneholder ingen molar masse. Ett mol av **enhver**\nideell gass fyller det samme volumet ved gitte $p$ og $T$ — om lag\n$24{,}5\\,\\text{L}$ ved $25\\,^\\circ\\text{C}$ og én atmosfære. Det som er\nforskjellig, er **massen** av det volumet, og derfor tettheten.",
+        "hints": [
+          "Skriv opp gassloven og se hvilke størrelser som faktisk står i den.",
+          "For c) og d): hvilken av $v_\\text{rms}$ og $\\langle E_k\\rangle$ inneholder massen?",
+          "For e): står den molare massen noe sted i $V=nRT/p$?"
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-6-1-war-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil — og avrundingen som lander på nabo-alternativet",
+      "content": "**Celsius i stedet for kelvin** (felle #11 — kelvin- og enhetsslurv). Dette er\nden dyreste enkeltfeilen i hele termohalvdelen, og den treffer alt: gassloven,\nforholdsformen, $v_\\text{rms}$, $\\langle E_k\\rangle$ og senere adiabatrelasjonene\nog entropien. Motgiften er mekanisk: **skriv kelvinverdien som en egen\nregnelinje før du setter inn noe som helst.** Merk at fella er ekstra farlig ved\nsmå temperaturforskjeller, fordi det gale svaret da ligger *nær* det riktige og\nikke avsløres av størrelsesordenen.\n\n**$R$ der $k_B$ skulle stått, eller omvendt.** Regelen er: per mol → $R$, per\nmolekyl → $k_B$. Feilen gir en faktor $6{,}022\\cdot10^{23}$, altså 23\ntierpotenser, og avsløres alltid av størrelsesordenen — hvis du sjekker den.\n\n**Liter mot kubikkmeter, gram mot kilogram.** Tre av fire enhetsfeil i denne\nsjangeren er en av disse to. Faktoren er 1000 i volumet og\n$\\sqrt{1000} \\approx 31{,}6$ i $v_\\text{rms}$ når molar masse settes inn i g/mol.\n\n**Å tro at tyngre molekyl betyr mer kinetisk energi.** Ved samme temperatur har\nalle molekyler samme $\\langle E_k\\rangle = \\tfrac32k_BT$. Det tunge molekylet har\n**lavere** $v_\\text{rms}$. Dette står i praktisk talt hvert sett som et av de\ngale alternativene, formulert overbevisende.\n\n**Å regne $v \\propto T$ i stedet for $v \\propto \\sqrt{T}$.** Firedobler du den\nabsolutte temperaturen, dobles farten. Energien firedobles. Blander du de to, får\ndu et svar som er dobbelt eller halvparten av det riktige — og begge tallene står\npå lista.\n\n**Å glemme faktoren $\\tfrac13$** i $p = \\tfrac13(N/V)m\\langle v^2\\rangle$. Det\ngale svaret er eksakt tre ganger for stort, og for et gasstrykk «ser tre\natmosfærer» like rimelig ut som én.\n\n**Og avrundingsfellen** (felle #16 — for få siffer gjennom kjeden). I dette\nkapitlet er faren størst i to steg: (i) i $v_\\text{rms}$ når du regner\n$3RT/M$ og runder før rota — hold fire siffer, for rota gjør at feilen halveres\nmen ikke forsvinner; (ii) i forholdsformen når temperaturforskjellen er liten, for\nda regner du et forhold nær 1, og der er den relative feilen svært følsom. Skriv\nkelvinverdiene med to desimaler ($311{,}15\\,\\text{K}$, ikke $311$), regn\nforholdet med seks siffer, og rund først i sluttsvaret. Alternativene på denne\neksamen ligger så tett at ett siffer for lite er nok til å velge naboen."
+    },
+    {
+      "id": "tfy4115-6-1-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har\nlest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder\nkjernestoffet."
+    },
+    {
+      "id": "tfy4115-6-1-bb-T1",
+      "type": "definition",
+      "title": "Sjanger T1 — gasslov- og molekyltalloppgaven",
+      "content": "Bokas navn på oppgaveformen der du får tre av størrelsene $p$, $V$, $T$, $n$ og\nskal finne den fjerde — eller antall molekyler. Den forekommer i **praktisk talt\nalle sett (~100 %)** og ligger i **termohalvdelen, spørsmål 21–40**, ofte som\nåpningsspørsmålet der. Prioritet: **høyeste**.\n\nOppskriften er alltid den samme: (1) skriv alle enheter om til SI og\ntemperaturen til kelvin; (2) velg $pV=nRT$ hvis oppgaven spør om mol og\n$pV=Nk_BT$ hvis den spør om molekyler; (3) endres tilstanden, bruk\nforholdsformen og stryk det som er konstant; (4) sjekk enhet og tierpotens."
+    },
+    {
+      "id": "tfy4115-6-1-bb-T2",
+      "type": "definition",
+      "title": "Sjanger T2 — kinetisk gassteori og $v_\\text{rms}$",
+      "content": "Oppgaveformen der du skal regne rotmiddelkvadratfarten, sammenligne to gasser\neller avgjøre hva som er likt og ulikt ved samme temperatur. Den forekommer i\n**om lag 8 av 10 sett (~80 %)** og hører til **spørsmål 21–40**.\n\nKjernen er to setninger som må holdes atskilt: **midlere kinetisk energi er\n$\\tfrac32k_BT$ og avhenger bare av temperaturen**, mens\n**$v_\\text{rms} = \\sqrt{3RT/M}$ også avhenger av massen**. Nesten hvert galt alternativ i sjangeren\ner laget ved å blande de to, eller ved å bruke $v \\propto T$ i stedet for\n$v \\propto \\sqrt{T}$."
+    },
+    {
+      "id": "tfy4115-6-1-bb-kelvin",
+      "type": "definition",
+      "title": "Kelvin-fella (felle #11)",
+      "content": "Å sette inn celsius der formelen krever absolutt temperatur. Fella rammer\ngassloven, forholdsformen, $v_\\text{rms}$, $\\langle E_k\\rangle$,\nadiabatrelasjonene i [kap. 7.1](/tfy4115/tfy4115-7-1) og entropien i\n[kap. 7.2](/tfy4115/tfy4115-7-2).\n\nSkilleregelen: **står $T$ alene i formelen, må den i kelvin. Står den bare som\n$\\Delta T$, går begge skalaer** — fordi gradstørrelsen er den samme. Det siste\ngjelder varmeledning ($\\Delta T$ over en vegg) og termisk utvidelse\n($\\Delta L = \\alpha L\\Delta T$). Men skriv kelvin uansett: da slipper du å ta\navgjørelsen under tidspress, og du kan aldri ta feil."
+    },
+    {
+      "id": "tfy4115-6-1-bb-R-kB",
+      "type": "definition",
+      "title": "$R$ eller $k_B$ — per mol eller per molekyl",
+      "content": "De to konstantene er samme størrelse i ulik målestokk:\n$$R = N_Ak_B = 8{,}314\\ \\text{J/(mol}\\cdot\\text{K)}, \\qquad\nk_B = \\frac{R}{N_A} = 1{,}381\\cdot10^{-23}\\ \\text{J/K}.$$\nValget avgjøres av **hva oppgaven spør om**, ikke av hva som er oppgitt: mol og\nmolare størrelser → $R$; antall molekyler, energi per molekyl, partikkeltetthet\n→ $k_B$.\n\nDe tre parene som følger av dette, er verdt å ha ved siden av hverandre:\n$pV=nRT$ mot $pV=Nk_BT$; $U=\\tfrac32nRT$ mot\n$\\langle E_k\\rangle=\\tfrac32k_BT$; og $v_\\text{rms}=\\sqrt{3RT/M}$ mot\n$\\sqrt{3k_BT/m}$. Bruker du feil av dem, er svaret feil med en faktor\n$6\\cdot10^{23}$ — som du ser på tierpotensen."
+    },
+    {
+      "id": "tfy4115-6-1-bb-enheter",
+      "type": "definition",
+      "title": "Enhetsomregningene som velter gasslov-regningen",
+      "content": "De seks som faktisk går galt, i den rekkefølgen de går galt:\n\n$$1\\,\\text{L} = 10^{-3}\\,\\text{m}^3, \\qquad\n1\\,\\text{cm}^3 = 1\\,\\text{mL} = 10^{-6}\\,\\text{m}^3, \\qquad\n1\\,\\text{bar} = 10^{5}\\,\\text{Pa},$$\n$$1\\,\\text{atm} = 1{,}013\\cdot10^{5}\\,\\text{Pa}, \\qquad\n1\\,\\text{g/mol} = 10^{-3}\\,\\text{kg/mol}, \\qquad\nT[\\text{K}] = t[^\\circ\\text{C}] + 273{,}15.$$\n\nVanen som fjerner dem alle: skriv en **omregningslinje** øverst i besvarelsen,\nmed alle oppgitte størrelser i SI, før du velger formel. Det tar et kvart minutt\nog redder flere poeng per time enn noen annen enkeltvane på denne eksamenen.\nHusk at forholdsformen $p_1V_1/T_1 = p_2V_2/T_2$ tåler liter og bar så lenge\nsamme enhet står på begge sider — men temperaturen må uansett i kelvin."
+    },
+    {
+      "id": "tfy4115-6-1-bb-symbolskifte",
+      "type": "definition",
+      "title": "Symbolene som skifter betydning i termodelen",
+      "content": "Fem symboler betyr noe annet fra Del 6 enn de gjorde i Del 1–5, og de er alle\nhentet fra eksamenssettenes egen notasjon:\n\n| Symbol | Del 1–5 (mekanikk) | Del 6–11 (termofysikk) |\n|---|---|---|\n| $p$ | bevegelsesmengde $\\mathbf{p}=m\\mathbf{v}$ (vektor) | trykk (skalar), Pa |\n| $T$ | periode, s | absolutt temperatur, K |\n| $R$ | radius, m | gasskonstanten (eller $R_\\text{term}$, termisk motstand) |\n| $\\gamma$ | dempingskoeffisient $b/2m$, $\\text{s}^{-1}$ | adiabateksponent $C_P/C_V$, dimensjonsløs |\n| $S$ | taustrekk, N | entropi, J/K |\n| $Q$ | kvalitetsfaktor, dimensjonsløs | varme, J |\n\nDen ene regelen som løser dem alle: **se på enheten.** En dempingskoeffisient har\nenhet, en adiabateksponent har ikke. Et trykk har pascal, en bevegelsesmengde\n$\\text{kg}\\cdot\\text{m/s}$. Skriver du enheten på hvert tall du regner, kan du\nikke gå i denne fella — og du får benevningskontrollen gratis."
+    },
+    {
+      "id": "tfy4115-6-1-coll-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tfy4115-6-1-symb",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n**Kolliderende symboler i dette delkapitlet — les nøye.**\n\n- $p$ er **trykk** (skalar, i pascal). I Del 1–5 var $p$ **bevegelsesmengde**,\n  vektoren $\\mathbf{p}=m\\mathbf{v}$ med enheten $\\text{kg}\\cdot\\text{m/s}$.\n- $T$ er **absolutt temperatur i kelvin**. I Del 1–5 var $T$ **perioden** til en\n  svingning, målt i sekunder.\n- $R$ er **den universelle gasskonstanten**. I Del 1–5 var $R$ en **radius**; i\n  Del 9 møter du $R_\\text{term}$ for termisk motstand.\n- $m$ brukes her om **massen til ett molekyl** (kg), mens $M$ er den **molare**\n  massen (kg/mol). Hold dem atskilt — de skiller seg med $N_A$.\n- $k_B$ er Boltzmanns konstant. I Del 5 var $k$ **fjærstivhet** i N/m;\n  Boltzmanns konstant skrives derfor alltid med indeks.\n- $\\gamma$, $S$ og $Q$ opptrer **ikke** i dette kapitlet, men skifter betydning\n  fra og med [kap. 6.2](/tfy4115/tfy4115-6-2) og Del 7: adiabateksponent,\n  entropi og varme.\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $p$ | Trykk (skalar — ikke bevegelsesmengde her) | Pa |\n| $V$ | Volum | $\\text{m}^3$ |\n| $T$ | Absolutt temperatur (ikke periode her) | K |\n| $n$ | Stoffmengde | mol |\n| $N$ | Antall molekyler | — |\n| $R$ | Gasskonstanten, $8{,}314$ (ikke radius her) | $\\text{J/(mol}\\cdot\\text{K)}$ |\n| $k_B$ | Boltzmanns konstant, $1{,}381\\cdot10^{-23}$ | J/K |\n| $N_A$ | Avogadros tall, $6{,}022\\cdot10^{23}$ | $\\text{mol}^{-1}$ |\n| $M$ | Molar masse | kg/mol |\n| $m$ | Masse til ett molekyl | kg |\n| $U$ | Indre energi | J |\n| $\\langle E_k\\rangle$ | Midlere kinetisk energi per molekyl | J |\n| $\\langle v^2\\rangle$ | Middelverdi av fartskvadratet | $\\text{m}^2/\\text{s}^2$ |\n| $v_\\text{rms}$ | Rotmiddelkvadratfart, $\\sqrt{\\langle v^2\\rangle}$ | m/s |\n| $v_\\text{p}$ | Mest sannsynlige fart | m/s |\n| $\\langle v\\rangle$ | Middelfart | m/s |\n| $N/V$ | Partikkeltetthet | $\\text{m}^{-3}$ |\n| $V_m$ | Molart volum, $RT/p$ | $\\text{m}^3/\\text{mol}$ |\n\n**Formler i dette delkapitlet:**\n\n$$pV = nRT$$\nDen ideelle gassloven, per mol. Temperaturen **må** i kelvin\n[står på det utdelte arket].\n\n$$pV = Nk_BT, \\qquad N = \\frac{pV}{k_BT}$$\nSamme lov skrevet per molekyl [står på det utdelte arket].\n\n$$\\frac{p_1V_1}{T_1} = \\frac{p_2V_2}{T_2}$$\nForholdsformen for fast stoffmengde — stryk det som er konstant\n[må kunne brukes eller utledes aktivt].\n\n$$n = \\frac{m}{M}, \\qquad N = nN_A, \\qquad R = N_Ak_B$$\nBroene mellom masse, mol og molekyler [står på det utdelte arket].\n\n$$p = \\frac{1}{3}\\frac{N}{V}m\\langle v^2\\rangle$$\nTrykket fra kinetisk gassteori; faktoren $\\tfrac13$ kommer av de tre\nromretningene [står på det utdelte arket].\n\n$$\\langle E_k\\rangle = \\tfrac12m\\langle v^2\\rangle = \\tfrac32k_BT$$\nMidlere kinetisk energi per molekyl — uavhengig av massen. Utledes fra de to\nuttrykkene for $pV$ [må kunne brukes eller utledes aktivt].\n\n$$v_\\text{rms} = \\sqrt{\\frac{3k_BT}{m}} = \\sqrt{\\frac{3RT}{M}}$$\nRotmiddelkvadratfarten. Går som $\\sqrt{T}$ og som $1/\\sqrt{M}$\n[står på det utdelte arket].\n\n$$U = \\tfrac32nRT \\quad (\\text{enatomig ideell gass})$$\nIndre energi — avhenger bare av temperaturen\n[må kunne brukes eller utledes aktivt].\n\n$$V_m = \\frac{RT}{p} \\approx 24{,}5\\,\\text{L/mol}\n\\ (25\\,^\\circ\\text{C},\\ 1\\,\\text{atm})$$\nMolart volum, brukt som rimelighetssjekk\n[må kunne brukes eller utledes aktivt].\n\n$$v_\\text{p} = \\sqrt{\\frac{2RT}{M}} < \\langle v\\rangle = \\sqrt{\\frac{8RT}{\\pi M}}\n< v_\\text{rms} = \\sqrt{\\frac{3RT}{M}}$$\nRekkefølgen mellom de tre karakteristiske fartene [Rottmann for tallverdien av\n$\\pi$; rekkefølgen må kunne brukes aktivt]."
+        }
+      ]
+    },
+    {
+      "id": "tfy4115-6-1-coll-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tfy4115-6-1-rep",
+          "type": "text",
+          "content": "Fem korte oppgaver på det dette kapitlet hviler på. Siden dette er termodelens\nførste kapittel, går de på selve verktøyene — ta dem før du går videre til\n[kap. 6.2](/tfy4115/tfy4115-6-2).\n\n**R1.** En beholder på $15{,}0\\,\\text{L}$ inneholder gass ved\n$2{,}00\\cdot10^{5}\\,\\text{Pa}$ og $310\\,\\text{K}$. Finn stoffmengden.\n\n*Svar:* $n = pV/(RT) = 3000{,}0/2577{,}34 = 1{,}164\\,\\text{mol}$. Rimelighetssjekk:\n$V/n = 12{,}9\\,\\text{L/mol}$, som er i nærheten av $24$ — trykket er om lag to\natmosfærer, så et halvert molart volum er nettopp det man forventer.\n\n**R2.** Finn $v_\\text{rms}$ for nitrogengass ($M = 28{,}01\\,\\text{g/mol}$) ved\n$400\\,\\text{K}$.\n\n*Svar:*\n$$v_\\text{rms} = \\sqrt{\\frac{3 \\cdot 8{,}314 \\cdot 400}{0{,}02801}} = \\sqrt{356187} = 596{,}81\\,\\text{m/s}.$$\n\n**R3.** Hvor mange molekyler er det i $2000\\,\\text{cm}^3$ gass ved\n$1{,}20\\cdot10^{5}\\,\\text{Pa}$ og $288\\,\\text{K}$?\n\n*Svar:* $V = 2{,}00\\cdot10^{-3}\\,\\text{m}^3$, og\n$$N = \\frac{pV}{k_BT} = \\frac{240{,}0}{3{,}9773\\cdot10^{-21}} = 6{,}0343\\cdot10^{22}.$$\nMerk at oppgaven ber om molekyler, så konstanten er $k_B$.\n\n**R4.** En stiv beholder med gass har trykket $1{,}05\\cdot10^{5}\\,\\text{Pa}$ ved\n$288\\,\\text{K}$. Hva blir trykket ved $348\\,\\text{K}$?\n\n*Svar:* Fast volum gir\n$$p_2 = p_1\\frac{T_2}{T_1} = 1{,}05\\cdot10^{5} \\cdot \\frac{348}{288}\\,\\text{Pa} = 1{,}2688\\cdot10^{5}\\,\\text{Pa}.$$\nKontroll: temperaturen steg 20{,}8 prosent, og trykket\ngjorde det samme — som det skal ved fast volum.\n\n**R5.** Hva er den midlere kinetiske energien per molekyl ved\n$500\\,\\text{K}$, og gjelder svaret for både helium og karbondioksid?\n\n*Svar:* $\\langle E_k\\rangle = \\tfrac32k_BT = 1{,}036\\cdot10^{-20}\\,\\text{J}$, og ja — den\ngjelder for begge, fordi $\\langle E_k\\rangle$ bare avhenger av temperaturen.\nKarbondioksid har derimot lavere $v_\\text{rms}$, siden molekylet er tyngre."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

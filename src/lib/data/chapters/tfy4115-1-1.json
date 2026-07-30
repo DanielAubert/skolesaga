@@ -1,0 +1,410 @@
+{
+  "id": "tfy4115-1-1",
+  "courseId": "tfy4115",
+  "chapterNumber": "1.1",
+  "title": "Kinematikk fra fartsfunksjon — derivér, integrér, tell runder",
+  "description": "Fra en gitt $v(t)$ eller $\\omega(t)$: maks-akselerasjon (ofte i $t=0$), strekning/vinkel ved integrasjon, og antall hele omdreininger.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "finne akselerasjonen og vinkelakselerasjonen ved å derivere en oppgitt fartsmodell, og avgjøre om maksimum ligger i startøyeblikket eller inne i intervallet",
+    "regne ut strekning og total dreievinkel ved å integrere farten, også når integrasjonen går helt ut til at bevegelsen dør ut",
+    "finne antall hele omdreininger som heltallsdelen av totalvinkelen dividert på $2\\pi$, og forklare hvorfor sifferdisiplinen avgjør svaret her",
+    "kjenne igjen når konstant-akselerasjonsformlene ikke gjelder, og velge derivasjon eller integrasjon i stedet"
+  ],
+  "content": [
+    {
+      "id": "tfy4115-1-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Sjanger M10 — kinematikkoppgaven, altså «her er en fartsfunksjon, finn akselerasjon, strekning eller antall runder» — dukker opp i om lag 8 av 10 sett (~80 %).** Den hører til **mekanikkhalvdelen, spørsmål 1–20**, og har **høyeste prioritet — dette må sitte**.\n\nSignaturen er lett å kjenne igjen. Du får oppgitt en fartsmodell, nesten alltid med et eksponentialledd: $v = v_0(1 - e^{-t/\\tau})$ for noe som setter av og nærmer seg en grensefart, $\\omega = \\omega_0 e^{-t/\\tau}$ for noe som bremses ned, eller en potens ganger et eksponentialledd for noe som først øker og så avtar. Deretter spørres det om én av tre ting: **akselerasjonen** (derivér), **strekningen eller den totale vinkelen** (integrér), eller **antall hele omdreininger** (integrér og ta heltallsdelen).\n\nSjangeren er billig i poeng per minutt: to regnelinjer og et oppslag i Rottmann. Men den har en innebygd felle som er nesten unik i emnet — den ene plassen der svaret er et **heltall**, og der en avrunding underveis flytter deg til nabotallet."
+    },
+    {
+      "id": "tfy4115-1-1-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDette er bokas første fagkapittel, så det bygger ikke på noe tidligere kapittel i TFY4115. Det du trenger, er regneteknikk fra matematikken og litt bevegelseslære fra videregående.\n\n**Fra matematikken:** [Repetisjon av derivasjon](/r2/r2-2-1) og [Bestemt integral som grenseverdi](/r2/r2-2-4) — du skal derivere og integrere en oppgitt funksjon. [Variabelskifte (substitusjon)](/r2/r2-3-1) trenger du til integralene med eksponentialledd. **Fra fysikken:** [Bevegelse i to dimensjoner](/fysikk2/fysikk2-1-2) gir grunnlaget for at akselerasjonen er den deriverte av farten.\n\n**De tre relasjonene du trenger ferdig oppfrisket:**\n\n$$\\frac{d}{dt}e^{-t/\\tau} = -\\frac{1}{\\tau}e^{-t/\\tau}$$\nDen deriverte av et eksponentialledd. Her er $\\tau$ (den greske bokstaven tau) en konstant med enhet sekund, og den indre deriverte $-1/\\tau$ er det som gir minustegnet og faktoren.\n\n$$\\int_0^{t} e^{-u/\\tau}\\,du = \\tau\\left(1 - e^{-t/\\tau}\\right)$$\nDet bestemte integralet av det samme leddet. Når $t$ vokser mot uendelig, går parentesen mot 1, og hele integralet mot $\\tau$ — det er verdt å legge på minnet.\n\n$$e^0 = 1, \\qquad e^{-1} = 0{,}3679, \\qquad e^{-2} = 0{,}1353, \\qquad e^{-3} = 0{,}04979$$\nFire verdier du kommer til å bruke gang på gang. Alle står på kalkulatoren, men det er nyttig å kjenne dem godt nok til å se om et svar er rimelig.\n\n**To begreper som brukes med en gang.** En **fartsfunksjon** er ganske enkelt farten skrevet som en funksjon av tiden, $v(t)$: den forteller hvor fort noe går på hvert tidspunkt. En **vinkelfart** $\\omega$ (den greske bokstaven omega) er den roterende motsvarigheten: hvor mange radianer et hjul dreier seg per sekund.\n\n**Symbolmerknad.** I dette kapitlet betyr $T$ ingenting og opptrer ikke; $\\tau$ er en tidskonstant, ikke et kraftmoment. Se symbol- og formellisten nederst."
+    },
+    {
+      "id": "tfy4115-1-1-lokke1-anker",
+      "type": "text",
+      "content": "## Løkke 1 — fra fart til akselerasjon (~14 min)\n\nSett deg inn i en elbil på grønt lys og trå gassen i bånn. Det første halvsekundet presses du bakover i setet: akselerasjonen er stor. Ti sekunder senere kjører du fort, men du kjenner nesten ingenting — farten har nærmet seg det motoren klarer å holde, og akselerasjonen har nesten dødd ut.\n\nDette er den vanligste fartsmodellen i sjangeren, og den sier noe viktig: **stor fart og stor akselerasjon er to helt forskjellige ting.** Akselerasjonen er ikke hvor fort du kjører, men hvor fort farten endrer seg. I eksempelet over er akselerasjonen på sitt største i det øyeblikket bilen står stille."
+    },
+    {
+      "id": "tfy4115-1-1-def-momentanakselerasjon",
+      "type": "definition",
+      "title": "Momentanakselerasjon",
+      "content": "Farten endring per tidsenhet i et enkelt øyeblikk, altså den deriverte av fartsfunksjonen:\n$$a(t) = \\frac{dv}{dt}.$$\nEnheten er $\\text{m/s}^2$. Ordet «momentan» skiller den fra gjennomsnittsakselerasjonen $\\Delta v/\\Delta t$ over et helt tidsintervall. På eksamen er det praktisk talt alltid den momentane som spørres om, og den finner du ved å derivere — ikke ved å sette inn i en formel for konstant akselerasjon. Akselerasjonen er en vektor, $\\mathbf{a}$, men i én dimensjon holder det å holde orden på fortegnet: positiv $a$ betyr at farten øker i den retningen vi har valgt som positiv."
+    },
+    {
+      "id": "tfy4115-1-1-def-vinkelfart",
+      "type": "definition",
+      "title": "Vinkelfart",
+      "content": "Hvor raskt et legeme dreier seg, målt som endring i vinkel per tid:\n$$\\omega(t) = \\frac{d\\varphi}{dt},$$\nmed enhet radianer per sekund, $\\text{rad/s}$. Symbolet er den greske bokstaven omega, og vinkelen $\\varphi$ (fi) måles i radianer. Vinkelfarten er rotasjonens motsvarighet til farten: der farten forteller hvor mange meter per sekund, forteller vinkelfarten hvor mange radianer per sekund. En vinkelfart på $2\\pi\\,\\text{rad/s}$ er nøyaktig én omdreining per sekund."
+    },
+    {
+      "id": "tfy4115-1-1-def-vinkelakselerasjon",
+      "type": "definition",
+      "title": "Vinkelakselerasjon",
+      "content": "Endringen i vinkelfart per tid, altså den deriverte av vinkelfarten:\n$$\\alpha(t) = \\frac{d\\omega}{dt},$$\nmed enhet $\\text{rad/s}^2$. Symbolet er den greske bokstaven alfa. Den er rotasjonens motsvarighet til akselerasjonen, og fortegnet betyr det samme: positiv $\\alpha$ betyr at rotasjonen går raskere, negativ at den bremses. Et hjul som bremses ned har altså negativ vinkelakselerasjon selv om det fortsatt dreier framover."
+    },
+    {
+      "id": "tfy4115-1-1-lokke1-utledning",
+      "type": "text",
+      "content": "Den vanligste modellen i sjangeren er den **mettende**: farten starter på null og nærmer seg en grenseverdi $v_0$ ovenfra og aldri helt fram,\n\n$$v(t) = v_0\\left(1 - e^{-t/\\tau}\\right).$$\n\nDeriverer vi, får vi akselerasjonen. Den indre deriverte av $-t/\\tau$ er $-1/\\tau$, og de to minustegnene opphever hverandre:\n\n$$a(t) = \\frac{dv}{dt} = v_0 \\cdot \\frac{1}{\\tau}e^{-t/\\tau} = \\frac{v_0}{\\tau}\\,e^{-t/\\tau}.$$\n\n*Intuisjon:* akselerasjonen er en ren avtakende eksponentialfunksjon. Den er aldri null, men den blir raskt liten. Bilen slutter aldri helt å akselerere i modellen — den gjør det bare så lite at det ikke merkes.\n\n**Hvor ligger maksimum?** Her er det verdt å stoppe. Skal du finne det største punktet til en funksjon, deriverer du og setter den deriverte lik null. La oss gjøre det:\n\n$$a'(t) = -\\frac{v_0}{\\tau^2}\\,e^{-t/\\tau}.$$\n\nDette uttrykket er **negativt for alle $t$** — eksponentialleddet er alltid positivt, og fortegnet foran er negativt. Ligningen $a'(t) = 0$ har altså ingen løsning. Når den deriverte er negativ overalt, avtar funksjonen overalt, og da ligger maksimum i **randpunktet**: i $t = 0$.\n\n$$a_\\text{maks} = a(0) = \\frac{v_0}{\\tau}.$$\n\n*Intuisjon:* akselerasjonen er størst i det øyeblikket farten er lengst fra grenseverdien, altså i startøyeblikket. Det stemmer med elbilen: rykket kommer med en gang.\n\nDette er verdt å ta med seg som et arbeidsvane, ikke som en regel du kan bruke blindt: **for de mettende og de rent avtakende modellene ligger maksimal akselerasjon i $t = 0$, og du kan sette inn direkte.** Men se hva som skjer i Løkke 4 med en modell som først vokser — der ligger maksimum et annet sted, og den som bruker $t = 0$ mekanisk, treffer feil alternativ."
+    },
+    {
+      "id": "tfy4115-1-1-def-tidskonstant",
+      "type": "definition",
+      "title": "Tidskonstanten",
+      "content": "Konstanten $\\tau$ i et eksponentialledd $e^{-t/\\tau}$, med enhet sekund. Den setter tempoet i prosessen: etter én tidskonstant er eksponentialleddet nede på $e^{-1} = 0{,}368$, altså 37 prosent av startverdien; etter to tidskonstanter på 13,5 prosent; etter tre på 5 prosent. En stor $\\tau$ betyr en treg prosess. Tidskonstanten er ikke det samme som halveringstiden — halveringstiden er $\\tau\\ln 2 \\approx 0{,}693\\,\\tau$, altså kortere. Merk også at symbolet $\\tau$ i andre kapitler i denne boka betyr **kraftmoment**; her er det en tid."
+    },
+    {
+      "id": "tfy4115-1-1-def-mettende",
+      "type": "definition",
+      "title": "Mettende fartsmodell",
+      "content": "En fartsmodell på formen $v(t) = v_0(1 - e^{-t/\\tau})$: farten starter i null og nærmer seg grenseverdien $v_0$ uten å nå den. Modellen dukker opp der en drivkraft er konstant mens motstanden vokser med farten — en bil som akselererer, et fallende legeme med luftmotstand, en motor som spinner opp. Akselerasjonen er $a(t) = (v_0/\\tau)e^{-t/\\tau}$ og er størst i startøyeblikket. Etter tre tidskonstanter er farten 95 prosent av grenseverdien, som i praksis regnes som «fremme»."
+    },
+    {
+      "id": "tfy4115-1-1-def-grensefart",
+      "type": "definition",
+      "title": "Grensefart",
+      "content": "Verdien farten nærmer seg når tiden vokser, i den mettende modellen konstanten $v_0$. Matematisk er den grenseverdien $\\lim_{t\\to\\infty} v(t) = v_0$, siden eksponentialleddet går mot null. Grensefarten nås formelt aldri, men forskjellen blir raskt uten praktisk betydning. Merk at symbolet $v_0$ i denne modellen betyr **grensefarten**, ikke startfarten — startfarten er null. Det er en vanlig kilde til forvirring, og oppgaveteksten sier alltid hvilken av dem som er ment."
+    },
+    {
+      "id": "tfy4115-1-1-fig-1",
+      "type": "image",
+      "src": "/images/textbook/tfy4115/tfy4115-1-1-fart-akselerasjon.svg",
+      "alt": "To grafer over samme tidsakse. Oevre panel viser farten v som stiger fra null og flater ut mot en vannrett stiplet linje merket grensefart. Nedre panel viser akselerasjonen a som starter paa sin hoeyeste verdi ved tiden null og avtar mot null. Tidsaksen er merket med null, tau, 2 tau, 3 tau, 4 tau og 5 tau.",
+      "caption": "Den mettende modellen $v(t)=v_0(1-e^{-t/\\tau})$ og akselerasjonen $a(t)=(v_0/\\tau)e^{-t/\\tau}$ tegnet over samme tidsakse. Legg merke til at akselerasjonen er størst der farten er lavest — i $t=0$."
+    },
+    {
+      "id": "tfy4115-1-1-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: elbilen som setter av",
+      "problem": "En elbil akselererer fra ro etter modellen\n$$v(t) = v_0\\left(1 - e^{-t/\\tau}\\right), \\qquad v_0 = 24{,}0\\,\\text{m/s},\\quad \\tau = 6{,}0\\,\\text{s}.$$\n\n**a)** Finn den største akselerasjonen.\n**b)** Hvor stor er akselerasjonen etter 6,0 sekunder?\n**c)** Når er akselerasjonen halvparten av den største?",
+      "solution": "**a)** Derivér modellen:\n$$a(t) = \\frac{v_0}{\\tau}\\,e^{-t/\\tau}.$$\nUttrykket avtar monotont, så maksimum ligger i randpunktet $t = 0$:\n$$a_\\text{maks} = \\frac{v_0}{\\tau} = \\frac{24{,}0\\,\\text{m/s}}{6{,}0\\,\\text{s}} = 4{,}00\\,\\text{m/s}^2.$$\nBenevningskontroll: $\\text{(m/s)/s} = \\text{m/s}^2$ — det stemmer.\n\n**b)** Ved $t = 6{,}0\\,\\text{s}$ er $t/\\tau = 1{,}00$, altså\n$$a(6{,}0\\,\\text{s}) = 4{,}00\\,\\text{m/s}^2 \\cdot e^{-1} = 4{,}00 \\cdot 0{,}36788\\,\\text{m/s}^2 = 1{,}4715\\,\\text{m/s}^2 \\approx 1{,}47\\,\\text{m/s}^2.$$\nEtter én tidskonstant er altså akselerasjonen nede på 37 prosent av startverdien. Til sammenligning er farten da $v = 24{,}0(1 - 0{,}36788)\\,\\text{m/s} = 15{,}17\\,\\text{m/s}$, altså 63 prosent av grensefarten.\n\n**c)** Vi skal ha $e^{-t/\\tau} = \\tfrac12$. Tar vi naturlig logaritme på begge sider:\n$$-\\frac{t}{\\tau} = \\ln\\tfrac12 = -\\ln 2 \\quad\\Longrightarrow\\quad t = \\tau\\ln 2 = 6{,}0\\,\\text{s} \\cdot 0{,}69315 = 4{,}159\\,\\text{s} \\approx 4{,}2\\,\\text{s}.$$\n\nMerk hvordan mellomregningen er ført med ett siffer mer enn sluttsvaret. Det er ikke pynt: hadde et flervalgsspørsmål hatt alternativene 4,1 og 4,2 sekunder, ville en avrunding av $\\ln 2$ til $0{,}7$ gitt $4{,}2$ — som her tilfeldigvis er riktig, men som i andre oppgaver lander deg på nabo-alternativet."
+    },
+    {
+      "id": "tfy4115-1-1-o-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-1-1-oppg-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — begreper og enheter.)\n\n**a)** Forklar med egne ord forskjellen mellom farten $v$ og akselerasjonen $a$, og si hvorfor et legeme kan ha stor fart og liten akselerasjon samtidig.\n\n**b)** Et hjul dreier med 1 500 omdreininger per minutt. Regn om til $\\text{rad/s}$.",
+        "solution": "**a)** Farten sier hvor langt legemet flytter seg per sekund; akselerasjonen sier hvor mye farten endrer seg per sekund. De er uavhengige størrelser fordi den ene er en verdi og den andre er en endringsrate. En bil som holder $90\\,\\text{km/t}$ jevnt på motorveien, har stor fart og akselerasjon **null**, fordi farten ikke endrer seg. Motsatt har en bil som starter fra ro, akselerasjon men fart null i det første øyeblikket. Matematisk: $a$ er den deriverte av $v$, og en funksjon kan godt være stor og ha liten stigningstall.\n\n**b)** Én omdreining er $2\\pi$ radianer, og ett minutt er 60 sekunder:\n$$\\omega = 1\\,500\\,\\frac{\\text{omdr}}{\\text{min}} \\cdot \\frac{2\\pi\\,\\text{rad}}{1\\,\\text{omdr}} \\cdot \\frac{1\\,\\text{min}}{60\\,\\text{s}} = \\frac{1\\,500 \\cdot 2\\pi}{60}\\,\\text{rad/s} = 157{,}08\\,\\text{rad/s} \\approx 157\\,\\text{rad/s}.$$\nSnarveien er å dele på 60 og gange med $2\\pi$: $1\\,500/60 = 25$ omdreininger per sekund, ganger $2\\pi$ gir $157\\,\\text{rad/s}$.",
+        "hints": [
+          "Se på hva som er en verdi og hva som er en endringsrate.",
+          "Én omdreining er $2\\pi$ radianer, og du skal fra per minutt til per sekund."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-1-1-o-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-1-1-oppg-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger M10 — kinematikk fra gitt fartsfunksjon.) En båtmotor gir farten\n$$v(t) = v_0\\left(1 - e^{-t/\\tau}\\right), \\qquad v_0 = 30{,}0\\,\\text{m/s},\\quad \\tau = 5{,}0\\,\\text{s}.$$\n\n**a)** Finn den største akselerasjonen og si når den inntreffer.\n**b)** Finn akselerasjonen og farten ved $t = 10{,}0\\,\\text{s}$.",
+        "solution": "**a)** Akselerasjonen er $a(t) = (v_0/\\tau)e^{-t/\\tau}$, som avtar monotont. Maksimum ligger derfor i $t = 0$:\n$$a_\\text{maks} = \\frac{30{,}0\\,\\text{m/s}}{5{,}0\\,\\text{s}} = 6{,}00\\,\\text{m/s}^2.$$\n\n**b)** Ved $t = 10{,}0\\,\\text{s}$ er $t/\\tau = 2{,}00$ og $e^{-2} = 0{,}13534$:\n$$a = 6{,}00\\,\\text{m/s}^2 \\cdot 0{,}13534 = 0{,}8120\\,\\text{m/s}^2 \\approx 0{,}812\\,\\text{m/s}^2,$$\n$$v = 30{,}0\\,\\text{m/s} \\cdot (1 - 0{,}13534) = 30{,}0 \\cdot 0{,}86466\\,\\text{m/s} = 25{,}94\\,\\text{m/s} \\approx 25{,}9\\,\\text{m/s}.$$\nEtter to tidskonstanter er farten altså 86 prosent av grensefarten, mens akselerasjonen er nede på under 14 prosent av startverdien.",
+        "hints": [
+          "Akselerasjonen er den deriverte av fartsuttrykket; husk den indre deriverte $-1/\\tau$.",
+          "Regn ut $t/\\tau$ først, så slipper du å rote med eksponenten."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-1-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — integrasjon: strekning og vinkel (~14 min)\n\nGår vi den andre veien — fra farten til strekningen — må vi integrere. Grunnideen er enkel: farten ganger et lite tidsintervall gir et lite stykke strekning, og summen av alle de små stykkene er integralet.\n\n$$s(t) = \\int_0^{t} v(u)\\,du.$$\n\nMerk at integrasjonsvariabelen har fått nytt navn ($u$) fordi $t$ er brukt som øvre grense. Det er ren bokføring, men det sparer deg for forvirring.\n\nFor den mettende modellen blir regningen slik. Vi deler integralet i to:\n\n$$s(t) = \\int_0^{t} v_0\\left(1 - e^{-u/\\tau}\\right)du = v_0\\int_0^{t} du - v_0\\int_0^{t} e^{-u/\\tau}\\,du.$$\n\nDet første integralet er bare $t$. Det andre står i Rottmann og er $\\tau(1 - e^{-t/\\tau})$. Til sammen:\n\n$$s(t) = v_0\\left[t - \\tau\\left(1 - e^{-t/\\tau}\\right)\\right].$$\n\n*Intuisjon:* for store $t$ går parentesen mot 1, og uttrykket nærmer seg $v_0(t - \\tau)$. Det er en rett linje med stigningstall $v_0$ — altså: når farten har nådd grensefarten, tilbakelegges strekningen jevnt, men bilen ligger permanent $v_0\\tau$ meter bak en som hadde holdt grensefarten fra første øyeblikk. Etterslepet er prisen for oppstarten, og det slutter å vokse.\n\n**Den roterende varianten** er den samme regningen med andre bokstaver. Vinkelen er integralet av vinkelfarten:\n\n$$\\varphi(t) = \\int_0^{t} \\omega(u)\\,du.$$\n\nFor nedbremsingsmodellen $\\omega(t) = \\omega_0 e^{-t/\\tau}$ blir totalvinkelen særlig ryddig. Integrerer vi helt ut, til $t \\to \\infty$:\n\n$$\\varphi_\\text{tot} = \\int_0^{\\infty} \\omega_0 e^{-u/\\tau}\\,du = \\omega_0\\tau.$$\n\n*Intuisjon:* hjulet stopper formelt aldri — vinkelfarten blir bare mindre og mindre. Likevel er den **totale** vinkelen et endelig tall, nemlig startvinkelfarten ganger tidskonstanten. Arealet under en kurve som avtar eksponentielt, er endelig selv om kurven er uendelig lang. Dette er hele grunnen til at spørsmålet «hvor mange runder gjør hjulet før det stopper?» har et fornuftig svar."
+    },
+    {
+      "id": "tfy4115-1-1-def-strekning-integral",
+      "type": "definition",
+      "title": "Strekning som integral av farten",
+      "content": "Strekningen tilbakelagt fra $t = 0$ til $t$ er arealet under fartskurven:\n$$s(t) = \\int_0^{t} v(u)\\,du.$$\nRelasjonen er den omvendte av $v = ds/dt$, og den gjelder **uansett** hvordan farten varierer — den forutsetter ikke konstant akselerasjon. Går farten både forover og bakover, gir integralet netto forflytning; skal du ha den totale veistrekningen, må du integrere $\\lvert v\\rvert$ og dermed dele opp integralet ved hvert punkt der farten skifter fortegn."
+    },
+    {
+      "id": "tfy4115-1-1-def-vinkel-integral",
+      "type": "definition",
+      "title": "Dreievinkel som integral av vinkelfarten",
+      "content": "Den totale vinkelen et legeme har dreid seg fra $t = 0$ til $t$:\n$$\\varphi(t) = \\int_0^{t} \\omega(u)\\,du,$$\nmålt i radianer. Dette er rotasjonens motsvarighet til strekningen, og relasjonen gjelder uansett hvordan vinkelfarten varierer. For en eksponentiell nedbremsing $\\omega = \\omega_0 e^{-t/\\tau}$ er den totale vinkelen over hele nedbremsingen $\\varphi_\\text{tot} = \\omega_0\\tau$ — et endelig tall, selv om rotasjonen formelt aldri stopper helt."
+    },
+    {
+      "id": "tfy4115-1-1-def-uegentlig-integral",
+      "type": "definition",
+      "title": "Uegentlig integral",
+      "content": "Et integral der én av grensene er uendelig, for eksempel $\\int_0^\\infty e^{-u/\\tau}\\,du$. Det regnes ut ved å integrere til en endelig grense $t$ og deretter la $t$ vokse: $\\int_0^t e^{-u/\\tau}du = \\tau(1 - e^{-t/\\tau}) \\to \\tau$. Verdien er **endelig** fordi funksjonen avtar raskt nok. I denne sjangeren dukker uegentlige integraler opp hver gang oppgaven spør om totalen «til legemet stopper» — og svaret er alltid et vanlig, endelig tall du kan sette inn i et alternativ."
+    },
+    {
+      "id": "tfy4115-1-1-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: hvor langt kom elbilen?",
+      "problem": "Bruk elbilen fra eksempel 1: $v_0 = 24{,}0\\,\\text{m/s}$ og $\\tau = 6{,}0\\,\\text{s}$.\n\n**a)** Hvor langt har bilen kjørt etter 12,0 sekunder?\n**b)** Hvor langt hadde den kommet om den hadde holdt grensefarten hele veien, og hva er differansen?",
+      "solution": "**a)** Sett inn i strekningsuttrykket. Først $t/\\tau = 12{,}0/6{,}0 = 2{,}00$, så $e^{-2} = 0{,}135335$ og parentesen $1 - 0{,}135335 = 0{,}864665$:\n$$s = 24{,}0\\,\\text{m/s}\\left[12{,}0\\,\\text{s} - 6{,}0\\,\\text{s}\\cdot 0{,}864665\\right] = 24{,}0\\left[12{,}0 - 5{,}18799\\right]\\text{m} = 24{,}0 \\cdot 6{,}81201\\,\\text{m}.$$\n$$s = 163{,}49\\,\\text{m} \\approx 163\\,\\text{m}.$$\n\n**b)** Med grensefarten hele veien: $24{,}0\\,\\text{m/s} \\cdot 12{,}0\\,\\text{s} = 288\\,\\text{m}$. Differansen er $288 - 163{,}49 = 124{,}5\\,\\text{m}$.\n\nSammenlign med det asymptotiske uttrykket $v_0(t - \\tau)$, som gir $24{,}0(12{,}0 - 6{,}0)\\,\\text{m} = 144\\,\\text{m}$ — altså et permanent etterslep på $v_0\\tau = 144\\,\\text{m}$. At det faktiske etterslepet er 124,5 m og ikke 144 m, skyldes at 12 sekunder bare er to tidskonstanter: bilen er ennå ikke helt framme ved grensefarten. Etter fem tidskonstanter er de to tallene praktisk talt like.\n\n**Sluttsjekk på enheter:** inne i klammen står sekunder, utenfor står m/s, og produktet blir meter. Det stemmer."
+    },
+    {
+      "id": "tfy4115-1-1-o-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-1-1-oppg-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M10.) Bruk båtmotoren fra oppgave 2: $v_0 = 30{,}0\\,\\text{m/s}$ og $\\tau = 5{,}0\\,\\text{s}$.\n\n**a)** Finn strekningen båten har tilbakelagt etter 10,0 sekunder.\n**b)** Hvor mye kortere er dette enn om båten hadde holdt grensefarten fra start?",
+        "solution": "**a)** Med $t/\\tau = 2{,}00$ og $e^{-2} = 0{,}135335$:\n$$s = 30{,}0\\,\\text{m/s}\\left[10{,}0\\,\\text{s} - 5{,}0\\,\\text{s}\\cdot 0{,}864665\\right] = 30{,}0\\left[10{,}0 - 4{,}32332\\right]\\text{m}.$$\n$$s = 30{,}0 \\cdot 5{,}67668\\,\\text{m} = 170{,}30\\,\\text{m} \\approx 170\\,\\text{m}.$$\n\n**b)** Med grensefarten hele veien: $30{,}0 \\cdot 10{,}0\\,\\text{m} = 300\\,\\text{m}$. Differansen er $300 - 170{,}30 = 129{,}7\\,\\text{m} \\approx 130\\,\\text{m}$.\n\nLegg merke til fella her: setter du bare $s = v_0 t = 300\\,\\text{m}$, har du regnet som om farten var konstant hele veien. Det tallet ligger typisk som et alternativ, og det er nesten dobbelt så stort som det riktige.",
+        "hints": [
+          "Bruk $s(t)=v_0[t-\\tau(1-e^{-t/\\tau})]$, og regn ut $t/\\tau$ først.",
+          "Grensefarten hele veien gir rett og slett $v_0 t$."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-1-1-def-snupunkt",
+      "type": "definition",
+      "title": "Snupunkt",
+      "content": "Det tidspunktet der farten er null og skifter fortegn, altså der legemet stopper og går tilbake. Du finner det ved å løse ligningen $v(t) = 0$. To ting er verdt å merke seg: i et snupunkt er **farten** null, men akselerasjonen er som regel ikke null (den er nettopp det som får legemet til å snu), og skal du finne den totale veistrekningen forbi et snupunkt, må integralet deles i to — ellers trekker den andre delen fra den første. En rent avtakende eksponentiell modell har ikke noe snupunkt, fordi $e^{-t/\\tau}$ aldri blir null."
+    },
+    {
+      "id": "tfy4115-1-1-o-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-1-1-oppg-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M10.) En kajakk får farten\n$$v(t) = v_0 - bt^2, \\qquad v_0 = 18{,}0\\,\\text{m/s},\\quad b = 2{,}00\\,\\text{m/s}^3.$$\n\n**a)** Finn akselerasjonen som funksjon av tiden, og verdien i snupunktet.\n**b)** Når snur kajakken, og hvor langt har den kommet da?",
+        "solution": "**a)** Derivér:\n$$a(t) = \\frac{dv}{dt} = -2bt = -4{,}00\\,\\text{m/s}^3 \\cdot t.$$\nAkselerasjonen er altså **ikke konstant** — den vokser i tallverdi med tiden. Snupunktet finner vi i b), ved $t = 3{,}00\\,\\text{s}$, og der er\n$$a = -4{,}00 \\cdot 3{,}00\\,\\text{m/s}^2 = -12{,}0\\,\\text{m/s}^2.$$\nMerk at akselerasjonen er på sitt største i tallverdi i snupunktet, ikke null.\n\n**b)** Snupunktet er der $v = 0$:\n$$v_0 - bt^2 = 0 \\quad\\Longrightarrow\\quad t = \\sqrt{\\frac{v_0}{b}} = \\sqrt{\\frac{18{,}0\\,\\text{m/s}}{2{,}00\\,\\text{m/s}^3}} = \\sqrt{9{,}00\\,\\text{s}^2} = 3{,}00\\,\\text{s}.$$\nStrekningen fram til snupunktet:\n$$s = \\int_0^{3{,}00} \\left(18{,}0 - 2{,}00u^2\\right)du = \\left[18{,}0u - \\frac{2{,}00}{3}u^3\\right]_0^{3{,}00}\\text{m}.$$\n$$s = 18{,}0 \\cdot 3{,}00\\,\\text{m} - \\frac{2{,}00}{3}\\cdot 27{,}0\\,\\text{m} = 54{,}0\\,\\text{m} - 18{,}0\\,\\text{m} = 36{,}0\\,\\text{m}.$$\n\nHer ligger en klassisk felle: bruker du $v^2 - v_0^2 = 2as$ med $a$ satt til verdien i snupunktet, får du $s = 18{,}0^2/(2\\cdot 12{,}0)\\,\\text{m} = 13{,}5\\,\\text{m}$ — helt feil, fordi den formelen krever **konstant** akselerasjon, og akselerasjonen her vokser fra 0 til $12{,}0\\,\\text{m/s}^2$. Dette er felle #3 (bruke konstant-akselerasjonsformler når akselerasjonen ikke er konstant).",
+        "hints": [
+          "Derivér uttrykket for å få $a(t)$ — legg merke til om resultatet er konstant.",
+          "Snupunktet finner du ved å løse $v(t)=0$; strekningen ved å integrere $v$ fra 0 til det tidspunktet."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-1-1-lokke3",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\n## Løkke 3 — rundetelling: den ene plassen svaret er et heltall (~12 min)\n\nNå kommer sjangerens signaturspørsmål. Et hjul, en turbin eller en sentrifuge bremses ned, og oppgaven spør: **hvor mange hele omdreininger gjør den før den stopper?**\n\nFramgangsmåten er to trinn du allerede kan, pluss ett nytt. Først integrerer du vinkelfarten og finner den totale vinkelen $\\varphi_\\text{tot}$ i radianer. Deretter deler du på $2\\pi$, siden én omdreining er $2\\pi$ radianer. Og til slutt — dette er det nye — tar du **heltallsdelen**.\n\n$$\\text{antall hele omdreininger} = \\left\\lfloor \\frac{\\varphi_\\text{tot}}{2\\pi} \\right\\rfloor.$$\n\nDe to hakeparentesene med bare nedre hake betyr «rund nedover til nærmeste heltall». Grunnen til at det må stå der, er fysisk og ikke matematisk: har hjulet dreid 16,04 omdreininger, har det gjort **16** hele runder. Den siste, ufullstendige runden teller ikke som en hel omdreining.\n\n*Intuisjon:* dette er den ene plassen i hele emnet der svaret er et heltall, og derfor det ene stedet der en avrunding underveis ikke gir et litt annet tall, men et helt annet svar. Regner du deg fram til $\\varphi_\\text{tot} = 100{,}8\\,\\text{rad}$ og deler på $2\\pi$, får du 16,04 og svarer 16. Men runder du $\\varphi_\\text{tot}$ til to gjeldende siffer først — til $100\\,\\text{rad}$ — får du 15,9 og svarer 15. Én avrunding, ett helt alternativ feil. Dette er felle #16 (avrundingsfeil som lander på nabo-alternativet) i sin skarpeste form."
+    },
+    {
+      "id": "tfy4115-1-1-def-radian",
+      "type": "definition",
+      "title": "Radian",
+      "content": "Vinkelmålet fysikken regner i: én radian er den vinkelen som spenner over en buelengde lik radien. Én hel omdreining er $2\\pi = 6{,}2832$ radianer, altså er $1\\,\\text{rad} = 57{,}30^\\circ$. Radianen er «enhetsløs» i den forstand at den er et forhold mellom to lengder, og det er derfor $\\text{rad/s}$ og $\\text{s}^{-1}$ er samme enhet dimensjonsmessig. Alle formler i dette emnet som blander vinkel og lengde — for eksempel $v = \\omega r$ — forutsetter radianer. Setter du inn grader, blir svaret feil med en faktor 57,3."
+    },
+    {
+      "id": "tfy4115-1-1-def-omdreining",
+      "type": "definition",
+      "title": "Omdreining",
+      "content": "En full runde, altså en vinkel på $2\\pi$ radianer. Enheten brukes i praksis om roterende maskiner, ofte som omdreininger per minutt (forkortet rpm, fra engelsk *revolutions per minute*). Omregningen til vinkelfart er\n$$\\omega\\,[\\text{rad/s}] = \\frac{2\\pi}{60}\\cdot n\\,[\\text{rpm}] = 0{,}10472\\,n.$$\nMotsatt vei: $n = 9{,}5493\\,\\omega$. Å blande de to er en enkel og dyr feil, siden faktoren er nesten 10 — svaret får feil tierpotens."
+    },
+    {
+      "id": "tfy4115-1-1-def-heltallsdel",
+      "type": "definition",
+      "title": "Heltallsdelen (gulvfunksjonen)",
+      "content": "Operasjonen som runder et tall **nedover** til nærmeste heltall, skrevet $\\lfloor x\\rfloor$: $\\lfloor 16{,}04\\rfloor = 16$, $\\lfloor 15{,}98\\rfloor = 15$, $\\lfloor 57{,}77\\rfloor = 57$. Legg merke til at den ikke er vanlig avrunding: $15{,}98$ blir 15, ikke 16. I denne sjangeren er heltallsdelen ikke en matematisk formalitet, men en fysisk påstand — en ufullstendig runde er ikke en hel runde. Dette er også grunnen til at kravet om gjeldende siffer er strengere her enn ellers: nær en heltallsgrense avgjør tredje siffer hvilket alternativ som er riktig."
+    },
+    {
+      "id": "tfy4115-1-1-def-hele-omdreininger",
+      "type": "definition",
+      "title": "Antall hele omdreininger",
+      "content": "Svaret på sjangerens signaturspørsmål, gitt som\n$$n = \\left\\lfloor \\frac{\\varphi_\\text{tot}}{2\\pi} \\right\\rfloor,$$\nder $\\varphi_\\text{tot}$ er den totale dreievinkelen i radianer. Fremgangsmåten er tre trinn: integrér vinkelfarten for å få totalvinkelen, del på $2\\pi$, ta heltallsdelen. To feil er vanlige og ligger begge som ferdige alternativer i settene: å oppgi desimaltallet i stedet for heltallet, og å avrunde totalvinkelen for tidlig så heltallsdelen tipper til nabotallet."
+    },
+    {
+      "id": "tfy4115-1-1-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: sentrifugen som ruller ut",
+      "problem": "En laboratoriesentrifuge slås av og bremses ned av friksjon i lagrene etter modellen\n$$\\omega(t) = \\omega_0 e^{-t/\\tau}, \\qquad \\omega_0 = 210\\,\\text{rad/s},\\quad \\tau = 2{,}50\\,\\text{s}.$$\n\n**a)** Finn vinkelakselerasjonen i det øyeblikket motoren slås av.\n**b)** Hvor mange hele omdreininger gjør rotoren før den står stille?\n**c)** Hvor lang tid går det før vinkelfarten er kommet ned til $1{,}0\\,\\text{rad/s}$?",
+      "solution": "**a)** Derivér:\n$$\\alpha(t) = -\\frac{\\omega_0}{\\tau}e^{-t/\\tau} \\quad\\Longrightarrow\\quad \\alpha(0) = -\\frac{210\\,\\text{rad/s}}{2{,}50\\,\\text{s}} = -84{,}0\\,\\text{rad/s}^2.$$\nMinustegnet betyr at rotasjonen bremses. Legg merke til at dette er den største vinkelakselerasjonen i tallverdi — bremsingen er kraftigst i det øyeblikket rotasjonen er raskest, fordi friksjonsmomentet i denne modellen er proporsjonalt med vinkelfarten.\n\n**b)** Totalvinkelen over hele nedbremsingen:\n$$\\varphi_\\text{tot} = \\omega_0\\tau = 210\\,\\text{rad/s} \\cdot 2{,}50\\,\\text{s} = 525\\,\\text{rad}.$$\nDel på $2\\pi = 6{,}28319$:\n$$\\frac{525}{6{,}28319} = 83{,}5563.$$\nHeltallsdelen er **83 hele omdreininger**.\n\nLegg merke til hvor viktig sifrene er: $525/6{,}3 = 83{,}33$ gir også 83, men hadde totalvinkelen vært $522\\,\\text{rad}$, ville $522/6{,}28319 = 83{,}08$ fortsatt gitt 83, mens $520/6{,}28319 = 82{,}76$ ville gitt 82. Marginen er én omdreining på under én prosent i totalvinkelen.\n\n**c)** Løs $\\omega_0 e^{-t/\\tau} = 1{,}0\\,\\text{rad/s}$ for $t$:\n$$e^{-t/\\tau} = \\frac{1{,}0}{210} \\quad\\Longrightarrow\\quad \\frac{t}{\\tau} = \\ln 210 = 5{,}3471 \\quad\\Longrightarrow\\quad t = 2{,}50\\,\\text{s} \\cdot 5{,}3471 = 13{,}37\\,\\text{s} \\approx 13{,}4\\,\\text{s}.$$\nModellen sier altså at rotoren aldri stopper helt, men etter et kvarter går den så langsomt at det ikke er målbart. Det er nettopp derfor spørsmålet i b) er stilt som «før den står stille» og ikke «etter 10 sekunder» — det er totalvinkelen som er endelig, ikke tiden."
+    },
+    {
+      "id": "tfy4115-1-1-o-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-1-1-oppg-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M10, A–F-format — kun bokstavsvaret.) En svinghjulsmotor kobles fra og bremses ned etter\n$$\\omega(t) = \\omega_0 e^{-t/\\tau}, \\qquad \\omega_0 = 150\\,\\text{rad/s},\\quad \\tau = 4{,}00\\,\\text{s}.$$\nHvor mange **hele** omdreininger gjør svinghjulet før det står stille?\n\n**A** 190 · **B** 15 · **C** 600 · **D** 95 · **E** 96 · **F** 23",
+        "solution": "**Svar: D.**\n\nTotalvinkelen over hele nedbremsingen er\n$$\\varphi_\\text{tot} = \\omega_0\\tau = 150\\,\\text{rad/s} \\cdot 4{,}00\\,\\text{s} = 600\\,\\text{rad}.$$\nDelt på $2\\pi = 6{,}28319$:\n$$\\frac{600}{6{,}28319} = 95{,}4930 \\quad\\Longrightarrow\\quad \\textbf{95 hele omdreininger}.$$\n\nHvert galt alternativ er regnet fram fra en konkret feil:\n\n**E (96)** er vanlig avrunding av 95,49 i stedet for heltallsdelen. Dette er nabo-alternativet, og det er det eneste du må skille fra fasiten med fysikk og ikke med overslag: 95,49 fullførte runder betyr at den 96. runden ble påbegynt, men aldri fullført.\n\n**C (600)** er totalvinkelen i radianer. Her er hele omregningen til omdreininger glemt.\n\n**A (190)** kommer av å dele på $\\pi$ i stedet for på $2\\pi$: $600/3{,}14159 = 190{,}99$, heltallsdel 190. En faktor 2 i nevneren.\n\n**F (23)** kommer av å bruke $\\omega_0$ alene som totalvinkel og glemme tidskonstanten: $150/6{,}28319 = 23{,}87$, heltallsdel 23.\n\n**B (15)** kommer av å dele på $2\\pi$ **to ganger**: $95{,}49/6{,}28319 = 15{,}20$, heltallsdel 15.\n\n**Slik eliminerer du raskt.** Et hjul som starter på 150 rad/s, altså rundt 24 omdreininger i sekundet, og som holder på i noen sekunder, må ende på et par titalls til et par hundre runder. Det stryker B og F på fem sekunder, og C på fem sekunder til (600 er tallet i radianer, ikke i runder). Da står du igjen med 190, 95 og 96 — og selve fysikken avgjør bare mellom de to siste.",
+        "hints": [
+          "Totalvinkelen over hele nedbremsingen er $\\int_0^\\infty \\omega_0 e^{-t/\\tau}\\,dt$.",
+          "Én omdreining er $2\\pi$ radianer — og spørsmålet er hvor mange HELE runder."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-1-1-th-rask-vei",
+      "type": "theorem",
+      "title": "Rask vei til tall (MC-oppskrift)",
+      "content": "Dette er den korteste feilfrie veien fra en oppgitt fartsfunksjon til bokstavsvaret. Fem trinn, og du skal kunne dem uten å tenke.\n\n**1. Hvilken lov?** Spørres det om akselerasjon, er loven $a = dv/dt$ (eller $\\alpha = d\\omega/dt$) — **derivér**. Spørres det om strekning, vinkel eller antall runder, er loven $s = \\int v\\,dt$ (eller $\\varphi = \\int\\omega\\,dt$) — **integrér**. Det er hele valget, og det tar to sekunder.\n\n**2. Hvilken ene regnelinje?** For de tre modellene som går igjen:\n\n| Modell | Akselerasjon | Total strekning eller vinkel |\n|---|---|---|\n| $v = v_0(1 - e^{-t/\\tau})$ | $a(0) = v_0/\\tau$ er maksimum | $s(t) = v_0[t - \\tau(1-e^{-t/\\tau})]$ |\n| $\\omega = \\omega_0 e^{-t/\\tau}$ | $\\alpha(0) = -\\omega_0/\\tau$ er maksimum i tallverdi | $\\varphi_\\text{tot} = \\omega_0\\tau$ |\n| $\\omega = \\omega_0(t/\\tau)e^{-t/\\tau}$ | $\\alpha(0) = \\omega_0/\\tau$; $\\omega$ er maksimal ved $t = \\tau$ | $\\varphi_\\text{tot} = \\omega_0\\tau$ |\n\n**3. Hva hentes fra arket, hva fra Rottmann?** Selve kinematikkrelasjonene $a = dv/dt$, $\\alpha = d\\omega/dt$ og $v = \\omega r$ **står på det utdelte arket**. Integralet av eksponentialleddet slår du opp i **Rottmann**. Det du må gjøre selv, er å derivere og integrere den konkrete modellen du har fått — arket gir deg ingen ferdig $s(t)$.\n\n**4. Hvor mange siffer?** Behold **fire** gjennom hele kjeden. I rundetelling er dette ikke valgfritt: totalvinkelen skal ha fire siffer før du deler på $2\\pi = 6{,}28319$.\n\n**5. Sjekk før du krysser av.** Fire raske kontroller:\n- **Enhet:** akselerasjon i $\\text{m/s}^2$ eller $\\text{rad/s}^2$, strekning i m, vinkel i rad, antall runder uten enhet.\n- **Heltall:** spør oppgaven om **hele** omdreininger, skal svaret være et heltall. Ser du et desimaltall blant alternativene, er det en distraktor.\n- **Fortegn:** bremsing gir negativ akselerasjon.\n- **Rimelighet:** er akselerasjonen din størst i det øyeblikket farten er lavest? For de mettende og de avtakende modellene skal den være det."
+    },
+    {
+      "id": "tfy4115-1-1-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — når maksimum ikke ligger i startøyeblikket (~14 min)\n\nTil nå har maksimal akselerasjon ligget i $t = 0$ hver gang. Det er derfor arbeidsvanen «prøv $t = 0$ først» er så nyttig. Men eksamenssettene har en variant som er laget nettopp for å straffe den som bruker vanen mekanisk, og den er verdt fire minutter.\n\nEt hjul som spinnes opp og deretter bremses ned, modelleres ofte som en potens ganger et eksponentialledd:\n\n$$\\omega(t) = \\omega_0\\,\\frac{t}{\\tau}\\,e^{-t/\\tau}.$$\n\nVed $t = 0$ er vinkelfarten **null** — hjulet står stille. Så vokser den, når en topp, og avtar mot null igjen. Vi finner toppen ved å derivere. Bruk produktregelen, med $u = t/\\tau$ som en snarvei:\n\n$$\\alpha(t) = \\frac{d\\omega}{dt} = \\frac{\\omega_0}{\\tau}\\left(1 - \\frac{t}{\\tau}\\right)e^{-t/\\tau}.$$\n\nNå er den deriverte **ikke** negativ overalt: den er positiv når $t < \\tau$, null ved $t = \\tau$, og negativ etterpå. Maksimum ligger altså i\n\n$$t_\\text{maks} = \\tau, \\qquad \\omega_\\text{maks} = \\omega_0\\cdot 1\\cdot e^{-1} = \\frac{\\omega_0}{e} = 0{,}3679\\,\\omega_0.$$\n\n*Intuisjon:* toppen kommer nøyaktig én tidskonstant etter start, og den ligger på 37 prosent av konstanten $\\omega_0$ — som altså **ikke** er den største vinkelfarten her, men bare en skaleringskonstant. Det er en felle i seg selv: alternativet «$\\omega_0$» ligger nesten alltid der.\n\n**Og vinkelakselerasjonen?** Den er størst ved $t = 0$: $\\alpha(0) = \\omega_0/\\tau$. Så for denne modellen ligger maksimal *vinkelakselerasjon* i startøyeblikket, mens maksimal *vinkelfart* ligger ved $t = \\tau$. Å blande de to spørsmålene er den vanligste feilen i varianten.\n\n**Totalvinkelen** er verdt å regne ut én gang. Substituér $u = t/\\tau$, slik at $dt = \\tau\\,du$:\n\n$$\\varphi_\\text{tot} = \\int_0^\\infty \\omega_0\\,\\frac{t}{\\tau}e^{-t/\\tau}dt = \\omega_0\\tau\\int_0^\\infty u\\,e^{-u}\\,du = \\omega_0\\tau.$$\n\nIntegralet $\\int_0^\\infty u e^{-u}du = 1$ står i Rottmann (delvis integrasjon gir det på to linjer om du må). Så totalvinkelen er **den samme** som for den rent avtakende modellen: $\\omega_0\\tau$. Det er en pen kontroll å ha i bakhodet.\n\nFår du i stedet modellen med $u^2$, altså $\\omega = \\omega_0(t/\\tau)^2e^{-t/\\tau}$, blir integralet $\\int_0^\\infty u^2e^{-u}du = 2$, og totalvinkelen $2\\omega_0\\tau$. Da ligger dessuten maksimum ved $t = 2\\tau$, og $\\alpha(0) = 0$."
+    },
+    {
+      "id": "tfy4115-1-1-def-maksimumspunkt",
+      "type": "definition",
+      "title": "Maksimumspunkt for en funksjon",
+      "content": "Punktet der en funksjon har sin største verdi i det aktuelle intervallet. Det finnes to muligheter, og på eksamen møter du begge: et **indre** maksimum, der den deriverte er null, og et **randpunkt**-maksimum, der den deriverte ikke er null men intervallet slutter. For $a(t) = (v_0/\\tau)e^{-t/\\tau}$ er den deriverte negativ overalt, og maksimum ligger i randpunktet $t = 0$. For $\\omega(t) = \\omega_0(t/\\tau)e^{-t/\\tau}$ er den deriverte null ved $t = \\tau$, og der ligger et indre maksimum. Framgangsmåten er alltid den samme: derivér, sett lik null, og sjekk randen hvis ligningen ikke har løsning."
+    },
+    {
+      "id": "tfy4115-1-1-def-halveringstid",
+      "type": "definition",
+      "title": "Halveringstid for en eksponentiell nedgang",
+      "content": "Tiden det tar før et eksponentialledd er halvert. Fra $e^{-t/\\tau} = \\tfrac12$ følger\n$$t_{1/2} = \\tau\\ln 2 = 0{,}6931\\,\\tau.$$\nHalveringstiden er altså kortere enn tidskonstanten, ikke lik den — en forveksling som gir en faktor 1,44 feil. Størrelsen er nyttig som overslag: er tidskonstanten 6 sekunder, er halveringstiden litt over 4 sekunder, og etter tre halveringstider er 87,5 prosent borte."
+    },
+    {
+      "id": "tfy4115-1-1-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: vindmøllen som spinnes opp og løper ut (eksamensnivå)",
+      "problem": "En modellrotor på et laboratorium får et kort dytt og deretter en bremsing som gjør at vinkelfarten følger\n$$\\omega(t) = \\omega_0\\,\\frac{t}{\\tau}\\,e^{-t/\\tau}, \\qquad \\omega_0 = 96{,}0\\,\\text{rad/s},\\quad \\tau = 3{,}00\\,\\text{s}.$$\n\n**a)** Finn vinkelakselerasjonen ved $t = 0$.\n**b)** Finn den største vinkelfarten og når den inntreffer.\n**c)** Hvor mange hele omdreininger gjør rotoren i alt?",
+      "solution": "**a)** Derivér med produktregelen:\n$$\\alpha(t) = \\frac{\\omega_0}{\\tau}\\left(1 - \\frac{t}{\\tau}\\right)e^{-t/\\tau} \\quad\\Longrightarrow\\quad \\alpha(0) = \\frac{96{,}0\\,\\text{rad/s}}{3{,}00\\,\\text{s}} = 32{,}0\\,\\text{rad/s}^2.$$\nPositiv, fordi rotoren settes i gang. Dette er også den største vinkelakselerasjonen, siden parentesen $(1 - t/\\tau)$ bare avtar.\n\n**b)** Sett $\\alpha(t) = 0$. Eksponentialleddet er aldri null, så parentesen må være det:\n$$1 - \\frac{t}{\\tau} = 0 \\quad\\Longrightarrow\\quad t_\\text{maks} = \\tau = 3{,}00\\,\\text{s}.$$\nSett inn:\n$$\\omega_\\text{maks} = \\omega_0 \\cdot 1 \\cdot e^{-1} = \\frac{96{,}0\\,\\text{rad/s}}{2{,}71828} = 35{,}316\\,\\text{rad/s} \\approx 35{,}3\\,\\text{rad/s}.$$\nMerk: dette er **ikke** $96{,}0\\,\\text{rad/s}$. Konstanten $\\omega_0$ er en skaleringsfaktor, ikke maksimalfarten.\n\n**c)** Totalvinkelen med substitusjonen $u = t/\\tau$:\n$$\\varphi_\\text{tot} = \\omega_0\\tau\\int_0^\\infty u e^{-u}du = \\omega_0\\tau = 96{,}0\\,\\text{rad/s} \\cdot 3{,}00\\,\\text{s} = 288{,}0\\,\\text{rad}.$$\nDel på $2\\pi$:\n$$\\frac{288{,}0}{6{,}28319} = 45{,}8366.$$\nHeltallsdelen gir **45 hele omdreininger**.\n\n**Avrundingsvarsel, konkret.** Runder du totalvinkelen til $290\\,\\text{rad}$ — som ser uskyldig ut — får du $290/6{,}28319 = 46{,}15$, altså 46 runder. Ett alternativ feil, av en avrunding på 0,7 prosent. Behold fire siffer.\n\n**Sluttsjekk.** Tre kontroller på ti sekunder: enhetene er $\\text{rad/s}^2$, $\\text{rad/s}$ og et enhetsløst heltall — riktig. Maksimalfarten er mindre enn $\\omega_0$, som den skal være siden $e^{-1} < 1$. Og totalvinkelen 288 rad tilsvarer litt over 45 runder, som er en rimelig utrulling for en rotor som topper på 35 rad/s i tre sekunder."
+    },
+    {
+      "id": "tfy4115-1-1-o-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-1-1-oppg-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M10.) Et sykkelhjul settes i bevegelse og løper ut etter\n$$\\omega(t) = \\omega_0\\,\\frac{t}{\\tau}\\,e^{-t/\\tau}, \\qquad \\omega_0 = 60{,}0\\,\\text{rad/s},\\quad \\tau = 2{,}00\\,\\text{s}.$$\n\n**a)** Finn vinkelakselerasjonen ved $t = 0$.\n**b)** Finn den største vinkelfarten.",
+        "solution": "**a)** Med $\\alpha(t) = (\\omega_0/\\tau)(1 - t/\\tau)e^{-t/\\tau}$:\n$$\\alpha(0) = \\frac{60{,}0\\,\\text{rad/s}}{2{,}00\\,\\text{s}} = 30{,}0\\,\\text{rad/s}^2.$$\n\n**b)** Maksimum ligger ved $t = \\tau = 2{,}00\\,\\text{s}$, og\n$$\\omega_\\text{maks} = \\frac{\\omega_0}{e} = \\frac{60{,}0\\,\\text{rad/s}}{2{,}71828} = 22{,}073\\,\\text{rad/s} \\approx 22{,}1\\,\\text{rad/s}.$$\nHjulet dreier altså aldri raskere enn 22,1 rad/s, selv om konstanten i uttrykket er 60,0. Faktoren $1/e = 0{,}368$ er verdt å huske for denne modellen.",
+        "hints": [
+          "Derivér med produktregelen; parentesen $(1-t/\\tau)$ er det som avgjør hvor maksimum ligger.",
+          "Sett tidspunktet for maksimum inn i uttrykket for $\\omega$ — pass på at $e^{-1}$ blir med."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-1-1-o-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-1-1-oppg-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger M10, eksamensnivå, A–F-format.) En turbin følger\n$$\\omega(t) = \\omega_0\\left(\\frac{t}{\\tau}\\right)^2 e^{-t/\\tau}, \\qquad \\omega_0 = 25{,}0\\,\\text{rad/s},\\quad \\tau = 3{,}00\\,\\text{s}.$$\nHvor mange **hele** omdreininger gjør turbinen i alt?\n\n**A** 11 · **B** 23 · **C** 24 · **D** 12 · **E** 47 · **F** 150",
+        "solution": "**Svar: B.**\n\nSubstituér $u = t/\\tau$, slik at $dt = \\tau\\,du$:\n$$\\varphi_\\text{tot} = \\int_0^\\infty \\omega_0 u^2 e^{-u}\\,\\tau\\,du = \\omega_0\\tau\\int_0^\\infty u^2e^{-u}\\,du = \\omega_0\\tau \\cdot 2 = 2\\omega_0\\tau.$$\nIntegralet $\\int_0^\\infty u^2e^{-u}du = 2$ finner du i Rottmann (eller med to runder delvis integrasjon). Dermed\n$$\\varphi_\\text{tot} = 2 \\cdot 25{,}0\\,\\text{rad/s} \\cdot 3{,}00\\,\\text{s} = 150{,}0\\,\\text{rad},$$\n$$\\frac{150{,}0}{6{,}28319} = 23{,}873 \\quad\\Longrightarrow\\quad \\textbf{23 hele omdreininger}.$$\n\nDe gale alternativene, hvert fra sin feil:\n\n**A (11)** er hva du får hvis du glemmer faktoren 2 fra integralet og bruker $\\varphi_\\text{tot} = \\omega_0\\tau = 75{,}0\\,\\text{rad}$: $75{,}0/6{,}28319 = 11{,}937$, heltallsdel 11. Dette er den vanligste feilen i varianten — å gjenbruke totalvinkelen fra den enklere modellen uten å sjekke potensen i uttrykket.\n\n**C (24)** er vanlig avrunding av 23,87 i stedet for heltallsdelen.\n\n**D (12)** er den samme glemte faktoren 2 som i A, men med avrunding oppover av 11,94 i stedet for heltallsdel.\n\n**E (47)** kommer av å bruke $\\int u^2e^{-u}du = 4$ i stedet for 2, altså et feilhusket fakultet: $4\\cdot 75/6{,}283 = 47{,}7$.\n\n**F (150)** er totalvinkelen i radianer — hele omregningen til omdreininger er glemt.\n\n**Kontroll det er verdt å gjøre:** for denne modellen er $\\alpha(0) = 0$, ikke $\\omega_0/\\tau$. Maksimum ligger ved $t = 2\\tau = 6{,}00\\,\\text{s}$, med $\\omega_\\text{maks} = 4\\omega_0e^{-2} = 13{,}5\\,\\text{rad/s}$. At turbinen bruker lang tid på lav fart, passer med at den rekker nesten 24 runder til tross for en topp på bare 13,5 rad/s.",
+        "hints": [
+          "Substituer $u=t/\\tau$ og se hvilket standardintegral du står igjen med.",
+          "$\\int_0^\\infty u^n e^{-u}\\,du = n!$ — sjekk hvilken $n$ du faktisk har.",
+          "Spørsmålet er om HELE omdreininger."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-1-1-o-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-1-1-oppg-8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Kvalitativ oppgave — sjanger M10.) To hjul følger hver sin modell med samme $\\omega_0$ og samme $\\tau$:\n$$\\text{Hjul 1: } \\omega(t) = \\omega_0 e^{-t/\\tau}, \\qquad \\text{Hjul 2: } \\omega(t) = \\omega_0\\,\\frac{t}{\\tau}\\,e^{-t/\\tau}.$$\n\n**a)** For hvilket av hjulene ligger den største vinkelfarten i $t = 0$, og hvorfor?\n**b)** Hvilket av dem gjør flest omdreininger i alt? Begrunn uten å regne ut tall.\n**c)** Et flervalgsspørsmål ber om «den maksimale vinkelfarten» for hjul 2, og ett av alternativene er $\\omega_0$. Hvorfor er det galt?",
+        "solution": "**a)** For **hjul 1**. Der er $\\omega$ en rent avtakende eksponentialfunksjon, så den er størst i randpunktet $t = 0$, med verdien $\\omega_0$. Hjul 2 starter i ro: setter du $t = 0$ inn i $\\omega_0(t/\\tau)e^{-t/\\tau}$, blir faktoren $t/\\tau$ null, og dermed hele vinkelfarten null. Hjul 2 må først spinnes opp, og maksimum ligger et stykke inne i intervallet — nærmere bestemt ved $t = \\tau$.\n\n**b)** De gjør **like mange**. Begge har totalvinkel $\\varphi_\\text{tot} = \\omega_0\\tau$. For hjul 1 følger det direkte av $\\int_0^\\infty e^{-u}du = 1$, og for hjul 2 av $\\int_0^\\infty ue^{-u}du = 1$ — de to standardintegralene har samme verdi. Fysisk er det et fint sammentreff: hjul 2 starter langsommere, men holder seg i gang lenger, og de to effektene veier nøyaktig opp for hverandre.\n\n**c)** Fordi $\\omega_0$ ikke er en vinkelfart hjul 2 noen gang har. Maksimum er\n$$\\omega_\\text{maks} = \\omega_0 e^{-1} = 0{,}368\\,\\omega_0,$$\naltså under 37 prosent av $\\omega_0$. Konstanten $\\omega_0$ er en skaleringsfaktor i uttrykket, ikke en fart hjulet oppnår. Alternativet er tatt med nettopp fordi det er lett å lese $\\omega_0$ som «starthastigheten» eller «toppfarten» ut av formen på uttrykket — men den eneste måten å vite det, er å derivere og sette inn.",
+        "hints": [
+          "Sett $t=0$ inn i begge uttrykkene og se hva som skjer med faktoren $t/\\tau$.",
+          "Totalvinkelen er integralet over hele nedbremsingen — sammenlign de to standardintegralene.",
+          "Regn ut hva $\\omega$ faktisk er i sitt maksimumspunkt for hjul 2."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-1-1-o-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-1-1-oppg-9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger M10, eksamensnivå.) En industriell blander kobles fra og bremses ned etter\n$$\\omega(t) = \\omega_0 e^{-t/\\tau}, \\qquad \\omega_0 = 88{,}0\\,\\text{rad/s},\\quad \\tau = 2{,}30\\,\\text{s}.$$\n\n**a)** Hvor mange hele omdreininger gjør rotoren i alt?\n**b)** En medstudent runder totalvinkelen til to gjeldende siffer før han deler på $2\\pi$. Hvilket svar får han, og hvor stor er den relative feilen i totalvinkelen hans?\n**c)** Hvor mange hele omdreininger er gjort etter $t = 2\\tau$?",
+        "solution": "**a)** Totalvinkelen:\n$$\\varphi_\\text{tot} = \\omega_0\\tau = 88{,}0\\,\\text{rad/s} \\cdot 2{,}30\\,\\text{s} = 202{,}4\\,\\text{rad}.$$\n$$\\frac{202{,}4}{6{,}28319} = 32{,}2130 \\quad\\Longrightarrow\\quad \\textbf{32 hele omdreininger}.$$\n\n**b)** To gjeldende siffer gir $\\varphi_\\text{tot} \\approx 2{,}0\\cdot 10^2\\,\\text{rad} = 200\\,\\text{rad}$, og\n$$\\frac{200}{6{,}28319} = 31{,}8310 \\quad\\Longrightarrow\\quad \\textbf{31 hele omdreininger}.$$\nHan lander altså på nabo-alternativet. Den relative feilen i totalvinkelen er bare\n$$\\frac{202{,}4 - 200}{202{,}4} = 0{,}0119 = 1{,}2\\ \\%.$$\n**Én prosent feil i totalvinkelen ga et helt alternativ feil i svaret.** Det er hele poenget med sifferdisiplinen i denne sjangeren, og det er felle #16 (avrundingsfeil som lander på nabo-alternativet) i sin reneste form.\n\n**c)** Vinkelen etter en endelig tid er\n$$\\varphi(t) = \\int_0^t \\omega_0e^{-u/\\tau}du = \\omega_0\\tau\\left(1 - e^{-t/\\tau}\\right).$$\nVed $t = 2\\tau$ er $e^{-2} = 0{,}135335$:\n$$\\varphi(2\\tau) = 202{,}4\\,\\text{rad} \\cdot 0{,}864665 = 175{,}01\\,\\text{rad},$$\n$$\\frac{175{,}01}{6{,}28319} = 27{,}8533 \\quad\\Longrightarrow\\quad \\textbf{27 hele omdreininger}.$$\nEtter to tidskonstanter er altså 27 av de 32 rundene gjort — 86 prosent av totalvinkelen, som stemmer med at $1 - e^{-2} = 0{,}865$. De siste fem rundene tar «resten av tiden».",
+        "hints": [
+          "Totalvinkelen er $\\omega_0\\tau$; deretter én divisjon med $2\\pi$ og heltallsdelen.",
+          "I b) skal du gjøre den samme regningen med et avrundet mellomresultat og sammenligne.",
+          "I c) trenger du vinkelen etter endelig tid, ikke totalvinkelen — integrér fra 0 til $2\\tau$."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-1-1-war-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil — og avrundingsfellen som avgjør denne sjangeren",
+      "content": "**Å bruke konstant-akselerasjonsformlene når akselerasjonen ikke er konstant** (felle #3). Formlene $v = v_0 + at$, $s = v_0t + \\tfrac12at^2$ og $v^2 - v_0^2 = 2as$ står på det utdelte arket og er derfor lette å gripe etter under tidspress. Men de gjelder **bare** når $a$ er konstant, og i denne sjangeren er den aldri det. Sjekken tar tre sekunder: er akselerasjonen din en funksjon av $t$? Da er formlene ubrukelige, og du må derivere eller integrere.\n\n**Å lete etter maksimum ved feil tidspunkt.** «Prøv $t = 0$ først» er en god vane for de mettende og de rent avtakende modellene, men den er feil for potens-ganger-eksponential-modellene. Regelen som alltid holder: derivér, sett lik null, og hvis ligningen ikke har løsning, ligger maksimum i randen. Og hold spørsmålene fra hverandre — for $\\omega = \\omega_0(t/\\tau)e^{-t/\\tau}$ ligger maksimal **vinkelakselerasjon** i $t = 0$, men maksimal **vinkelfart** ved $t = \\tau$.\n\n**Å lese $\\omega_0$ som maksimalfarten.** I den mettende modellen er $v_0$ grensefarten, i den avtakende er $\\omega_0$ startverdien, men i potensmodellene er $\\omega_0$ bare en skaleringskonstant — maksimalfarten er $\\omega_0/e$ eller $4\\omega_0/e^2$. Alternativet «$\\omega_0$» ligger nesten alltid der.\n\n**Å oppgi desimaltallet i stedet for heltallet.** Spør oppgaven om **hele** omdreininger, er $95{,}5$ ikke et svar. Er det et desimaltall blant alternativene, er det en distraktor plassert der med hensikt.\n\n**Og avrundingsfellen som er sjangerens egen** (felle #16): fordi svaret er et **heltall**, tipper det til nabo-alternativet ved en avrunding som ellers ville vært helt uskyldig. Regnet ut med fire siffer er totalvinkelen $202{,}4\\,\\text{rad}$ og svaret 32 runder. Runder du til $200\\,\\text{rad}$ — en feil på 1,2 prosent — blir svaret 31. Ingen annen sjanger i emnet er så følsom. **Behold fire gjeldende siffer i totalvinkelen, og bruk $2\\pi = 6{,}28319$, ikke 6,28.**\n\nEn siste, mindre felle: **å blande omdreininger per minutt og radianer per sekund.** Faktoren er $2\\pi/60 = 0{,}10472$, altså nær 10. Bommer du på den, får svaret feil tierpotens — og det er faktisk den enkleste feilen å oppdage i sluttsjekken."
+    },
+    {
+      "id": "tfy4115-1-1-begrepsbank-notis",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "tfy4115-1-1-bb-konstant-a",
+      "type": "definition",
+      "title": "Konstant-akselerasjonsformlene og gyldighetsbetingelsen",
+      "content": "De tre formlene $v = v_0 + at$, $s = v_0t + \\tfrac12at^2$ og $v^2 - v_0^2 = 2as$, som alle **står på det utdelte arket**. Betingelsen for at de gjelder, er at akselerasjonen er **konstant** — den står ikke i formlene, men den er absolutt. I denne sjangeren er akselerasjonen alltid en funksjon av tiden, og formlene er derfor ubrukelige. Sjekken er enkel: står det en $t$ i uttrykket for $a$, må du derivere eller integrere i stedet. Dette er felle #3 i bokas feilregister."
+    },
+    {
+      "id": "tfy4115-1-1-bb-middelfart",
+      "type": "definition",
+      "title": "Middelfart",
+      "content": "Den gjennomsnittlige farten over et tidsintervall, altså strekning delt på tid:\n$$\\bar{v} = \\frac{s(t)}{t} = \\frac{1}{t}\\int_0^t v(u)\\,du.$$\nMiddelfarten er ikke gjennomsnittet av start- og sluttfart, med mindre akselerasjonen er konstant. For elbilen i eksempel 2 er middelfarten over de første 12 sekundene $163{,}5/12{,}0 = 13{,}6\\,\\text{m/s}$, mens gjennomsnittet av start (0) og slutt (20,8 m/s) ville gitt 10,4 m/s. Forskjellen er nettopp fordi farten ikke stiger lineært."
+    },
+    {
+      "id": "tfy4115-1-1-bb-banefart",
+      "type": "definition",
+      "title": "Banefart og vinkelfart",
+      "content": "Sammenhengen mellom hvor fort et punkt på et roterende legeme flytter seg, og hvor fort legemet dreier:\n$$v = \\omega r,$$\nder $r$ er avstanden fra rotasjonsaksen. Relasjonen **står på det utdelte arket** og forutsetter at $\\omega$ er i radianer per sekund. Den er grunnen til at ytterkanten av et sykkelhjul går mye fortere enn navet selv om hele hjulet har samme vinkelfart. Tilsvarende for akselerasjonen langs banen: $a_\\text{tangentiell} = \\alpha r$."
+    },
+    {
+      "id": "tfy4115-1-1-bb-eksponentiell-nedbremsing",
+      "type": "definition",
+      "title": "Eksponentiell nedbremsing",
+      "content": "Modellen $\\omega(t) = \\omega_0 e^{-t/\\tau}$ (eller den samme med $v$), som beskriver et legeme der bremsekraften er proporsjonal med farten — typisk friksjon i et lager eller luftmotstand ved lav fart. Kjennetegnene er tre: vinkelfarten blir aldri null, vinkelakselerasjonen $\\alpha = -\\omega_0e^{-t/\\tau}/\\tau$ er størst i tallverdi ved $t = 0$, og totalvinkelen over hele nedbremsingen er endelig og lik $\\omega_0\\tau$. Det siste er hva som gjør spørsmålet «hvor mange runder før den stopper?» meningsfullt."
+    },
+    {
+      "id": "tfy4115-1-1-bb-sjanger-m10",
+      "type": "definition",
+      "title": "Sjanger M10 — kinematikk fra gitt fartsfunksjon",
+      "content": "Bokas navn på oppgaveformen der du får oppgitt $v(t)$ eller $\\omega(t)$ og skal finne akselerasjon, strekning, vinkel eller antall omdreininger. Den forekommer i om lag 8 av 10 eksamenssett (~80 %) og hører til **mekanikkhalvdelen, spørsmål 1–20**. Oppskriften er tre spørsmål: skal jeg derivere (akselerasjon), integrere (strekning eller vinkel), eller integrere og ta heltallsdelen (antall runder)? Sjangeren er blant de billigste i settet målt i poeng per minutt — og blant de mest følsomme for avrunding."
+    },
+    {
+      "id": "tfy4115-1-1-bb-avrundingsdisiplin",
+      "type": "definition",
+      "title": "Avrundingsdisiplin i en regnekjede",
+      "content": "Praksisen med å beholde **3–4 gjeldende siffer i alle mellomresultater** og runde først i sluttsvaret. I dette kapitlet har den en skarpere begrunnelse enn ellers: fordi antall hele omdreininger er et heltall, flytter en avrunding underveis ikke bare svaret litt, men til et helt annet alternativ. Konkret eksempel: $202{,}4\\,\\text{rad}$ gir 32 runder, mens $200\\,\\text{rad}$ gir 31 — en avrunding på 1,2 prosent er nok. Bruk også $2\\pi = 6{,}28319$ og ikke 6,28."
+    },
+    {
+      "id": "tfy4115-1-1-coll-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tfy4115-1-1-coll-symbolliste-inn",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n**Kolliderende symboler i dette delkapitlet.** Her betyr $\\tau$ en **tidskonstant** i sekunder, ikke et kraftmoment (som er betydningen i Del 4). Symbolet $T$ brukes ikke i dette kapitlet — verken som svingetid eller som temperatur. Symbolet $R$ opptrer ikke; radien skrives $r$. Ingen av de fem kollisjonene i boka er altså aktive her, bortsett fra $\\tau$.\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $v(t)$, $v_0$ | Fart som funksjon av tiden; grensefart eller startfart, avhengig av modell | m/s |\n| $a(t)$ | Momentanakselerasjon, $dv/dt$ | $\\text{m/s}^2$ |\n| $s(t)$ | Tilbakelagt strekning | m |\n| $\\bar{v}$ | Middelfart over et intervall | m/s |\n| $\\omega(t)$, $\\omega_0$ | Vinkelfart; konstant i modellen (ikke alltid maksimalfarten) | rad/s |\n| $\\alpha(t)$ | Vinkelakselerasjon, $d\\omega/dt$ | $\\text{rad/s}^2$ |\n| $\\varphi(t)$, $\\varphi_\\text{tot}$ | Dreievinkel; totalvinkel over hele bevegelsen | rad |\n| $\\tau$ | Tidskonstant i eksponentialleddet (**ikke** kraftmoment her) | s |\n| $t$, $u$ | Tid; integrasjonsvariabel for tid | s |\n| $r$ | Avstand fra rotasjonsaksen | m |\n| $n$ | Antall hele omdreininger | — |\n| $\\lfloor x\\rfloor$ | Heltallsdelen av $x$ (rund nedover) | — |\n| $t_{1/2}$ | Halveringstid, $\\tau\\ln 2$ | s |\n\n**Formler i dette delkapitlet:**\n\n$$a(t) = \\frac{dv}{dt}, \\qquad \\alpha(t) = \\frac{d\\omega}{dt}$$\nAkselerasjon og vinkelakselerasjon som deriverte [står på det utdelte arket].\n\n$$s(t) = \\int_0^{t} v\\,du, \\qquad \\varphi(t) = \\int_0^{t} \\omega\\,du$$\nStrekning og vinkel som integraler [står på det utdelte arket].\n\n$$v = \\omega r$$\nBanefart og vinkelfart, med $\\omega$ i rad/s [står på det utdelte arket].\n\n$$v = v_0 + at, \\qquad s = v_0t + \\tfrac12at^2, \\qquad v^2 - v_0^2 = 2as$$\nKonstant-akselerasjonsformlene [står på det utdelte arket] — men de gjelder **bare** når $a$ er konstant, og det er den aldri i denne sjangeren.\n\n$$\\frac{d}{dt}e^{-t/\\tau} = -\\frac{1}{\\tau}e^{-t/\\tau}, \\qquad \\int_0^{t} e^{-u/\\tau}du = \\tau\\left(1 - e^{-t/\\tau}\\right)$$\nDerivert og integral av eksponentialleddet [Rottmann].\n\n$$\\int_0^{\\infty} u^n e^{-u}\\,du = n!$$\nStandardintegralet som gir totalvinkelen for potensmodellene: $n = 0$ gir 1, $n = 1$ gir 1, $n = 2$ gir 2 [Rottmann].\n\n$$a(t) = \\frac{v_0}{\\tau}e^{-t/\\tau}, \\qquad s(t) = v_0\\left[t - \\tau\\left(1 - e^{-t/\\tau}\\right)\\right]$$\nAkselerasjon og strekning for den mettende modellen [må kunne brukes eller utledes aktivt].\n\n$$\\varphi_\\text{tot} = \\omega_0\\tau \\quad (\\text{for } \\omega_0e^{-t/\\tau} \\text{ og } \\omega_0(t/\\tau)e^{-t/\\tau}), \\qquad \\varphi_\\text{tot} = 2\\omega_0\\tau \\quad (\\text{for } \\omega_0(t/\\tau)^2e^{-t/\\tau})$$\nTotalvinkler for de tre standardmodellene [må kunne brukes eller utledes aktivt].\n\n$$\\omega_\\text{maks} = \\frac{\\omega_0}{e} \\text{ ved } t = \\tau$$\nMaksimal vinkelfart for potensmodellen med $n = 1$ [må kunne brukes eller utledes aktivt].\n\n$$n = \\left\\lfloor \\frac{\\varphi_\\text{tot}}{2\\pi} \\right\\rfloor$$\nAntall hele omdreininger — heltallsdelen, aldri desimaltallet [må kunne brukes eller utledes aktivt].\n\n$$t_{1/2} = \\tau\\ln 2 = 0{,}6931\\,\\tau$$\nHalveringstid for et eksponentialledd [må kunne brukes eller utledes aktivt].\n\n$$\\omega\\,[\\text{rad/s}] = \\frac{2\\pi}{60}\\,n\\,[\\text{rpm}] = 0{,}10472\\,n$$\nOmregning fra omdreininger per minutt til radianer per sekund [må kunne brukes eller utledes aktivt]."
+        }
+      ]
+    },
+    {
+      "id": "tfy4115-1-1-coll-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tfy4115-1-1-coll-rep-inn",
+          "type": "text",
+          "content": "Fem korte oppgaver på regneteknikken dette kapitlet hviler på. De tar to til tre minutter hver, og de er verdt å ta før du går videre til [kap. 1.2](/tfy4115/tfy4115-1-2).\n\n**R1.** Derivér $f(t) = 12e^{-t/4}$ med hensyn på $t$, og finn $f'(0)$.\n\n*Svar:* $f'(t) = -\\tfrac{12}{4}e^{-t/4} = -3{,}00\\,e^{-t/4}$, altså $f'(0) = -3{,}00$. Den indre deriverte $-1/4$ er hele poenget; glemmer du den, blir svaret 12 ganger for stort.\n\n**R2.** Regn ut $\\int_0^{8} e^{-u/4}\\,du$.\n\n*Svar:* $4\\left(1 - e^{-2}\\right) = 4 \\cdot 0{,}86466 = 3{,}4587 \\approx 3{,}46$. Kontroll: verdien må være mindre enn $\\tau = 4$, som er hele integralet ut til uendelig.\n\n**R3.** Hvor mange radianer er 12,0 omdreininger? Og hvor mange hele omdreininger er 45,0 radianer?\n\n*Svar:* $12{,}0 \\cdot 2\\pi = 75{,}40\\,\\text{rad}$. Og $45{,}0/6{,}28319 = 7{,}1620$, altså **7** hele omdreininger.\n\n**R4.** Et hjul dreier med 2 400 omdreininger per minutt. Hva er vinkelfarten i rad/s, og hvor fort går et punkt 0,150 m fra aksen?\n\n*Svar:* $\\omega = 2\\,400/60 \\cdot 2\\pi = 40 \\cdot 6{,}28319 = 251{,}33\\,\\text{rad/s} \\approx 251\\,\\text{rad/s}$. Banefarten er $v = \\omega r = 251{,}33 \\cdot 0{,}150\\,\\text{m/s} = 37{,}70\\,\\text{m/s} \\approx 37{,}7\\,\\text{m/s}$.\n\n**R5.** En bevegelse har $v(t) = 6{,}00 - 1{,}50t$ (SI-enheter). Er akselerasjonen konstant? Når snur legemet, og hvor langt har det kommet da?\n\n*Svar:* $a = dv/dt = -1{,}50\\,\\text{m/s}^2$, som er konstant — her *kan* du bruke konstant-akselerasjonsformlene. Snupunktet er ved $6{,}00 - 1{,}50t = 0$, altså $t = 4{,}00\\,\\text{s}$. Strekningen er $\\int_0^4 (6{,}00 - 1{,}50u)du = 24{,}0 - 12{,}0 = 12{,}0\\,\\text{m}$, som også følger av $v_0^2/(2\\lvert a\\rvert) = 36{,}0/3{,}00 = 12{,}0\\,\\text{m}$. At de to metodene gir samme svar, er kontrollen på at akselerasjonen virkelig er konstant."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

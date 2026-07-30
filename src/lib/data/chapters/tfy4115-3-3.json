@@ -1,0 +1,399 @@
+{
+ "id": "tfy4115-3-3",
+ "courseId": "tfy4115",
+ "chapterNumber": "3.3",
+ "title": "Drill: støt, impuls og baner (sjanger M6, M12)",
+ "description": "Sjangerdrill: velg riktig bevaringslov (impuls og/eller energi) og kom raskt til tallsvaret for støt, impuls og baner.",
+ "estimatedMinutes": 80,
+ "competenceGoals": [
+  "avgjøre på få sekunder hvilken bevaringslov som gjelder i hvert steg av en oppgave: bevegelsesmengden alltid i støtet, energien bare når støtet er elastisk, og energien i fasen etter støtet",
+  "gjennomføre hele regnekjeden fra oppgitte masser, farter, kraftpulser eller omløpstider til et bokstavsvar innenfor eksamenstempo",
+  "regne energitapet i et uelastisk støt som en differanse, og forklare hvorfor energibevaring alltid gir for høy fart der",
+  "sette gravitasjonen lik resultanten inn mot sentrum for en sirkelbane, holde tidsenheten ren og kontrollere svaret mot forholdet mellom omløpstid og baneradius"
+ ],
+ "content": [
+  {
+   "id": "tfy4115-3-3-tip-eksamensvinkel",
+   "type": "tip",
+   "title": "Eksamensvinkel",
+   "content": "**Dette er et treningskapittel, ikke et teorikapittel.** Her drilles de to sjangrene fra Del 3 i eksamenstempo, og ingenting nytt innføres.\n\n**Sjanger M6 — bevegelsesmengde og støt, impuls.** Oppgaveformen der to legemer treffer hverandre og du skal finne fartene etterpå, eller der en kraft virker i en kort stund og du skal finne fartsendringen den gir. Den forekommer i praktisk talt alle sett (~100 %), og er **høyeste prioritet — dette må sitte**.\n\n**Sjanger M12 — gravitasjon, baner og rakett.** Oppgaveformen der et legeme går i sirkelbane rundt jorda under gravitasjonen, eller der en rakett endrer fart ved å støte ut masse. Satellittbanen kommer i om lag 4 av 10 sett (~40 %) og raketten i om lag 2 av 10 sett (~20 %). Prioritet: **bør sitte** — kompakt, men den sikrer poeng når den dukker opp.\n\nBegge hører til **mekanikkhalvdelen, spørsmål 1–20**.\n\n**Om tidsbruken.** Kapitlet er anslått til 80 minutter og er lagt opp som tre økter du trygt kan dele over flere kvelder: løsningsoppskriften og det gjennomregnede caset (~20 min), støt- og impulsoppgavene 1–8 (~30 min), og bane- og rakettoppgavene 9–14 (~25 min). De siste fem minuttene er oppslag: begrepsbanken og symbollisten til slutt er repetisjonsstoff, ikke regnetid.\n\nSju av de fjorten oppgavene er i **A–F-format** med seks ferdige alternativer, akkurat som eksamen. De gale alternativene kalles **distraktorer**, og hver enkelt av dem er regnet fram fra en konkret feil — ikke plukket i løse luften. Resten av oppgavene er i åpen form, slik at du trener både metoden og bokstavsvaret.\n\n**Målet er tempo med presisjon.** På eksamen har du rundt seks minutter per spørsmål. Oppgavene her skal du klare på tre til fem — og fortsatt med tre til fire gjeldende siffer gjennom hele kjeden."
+  },
+  {
+   "id": "tfy4115-3-3-forkunnskaper",
+   "type": "text",
+   "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet trener stoffet fra [kap. 3.1](/tfy4115/tfy4115-3-1) og [kap. 3.2](/tfy4115/tfy4115-3-2). Her er de seks relasjonene du kommer til å bruke, ferdig oppfrisket.\n\n$$\\mathbf{p} = m\\mathbf{v}, \\qquad \\sum m\\mathbf{v} = \\sum m\\mathbf{v}' \\quad (\\text{ingen ytre kraft i støtøyeblikket})$$\nBevegelsesmengden og impulsbevarelsen. Bevegelsesmengden er en **vektor**, så fortegnet er en retning: en kule som spretter tilbake har negativ fart i det koordinatsystemet der den kom inn med positiv fart.\n\n$$v' = \\frac{m v_0}{m+M}, \\qquad \\Delta K = \\tfrac12\\,\\frac{mM}{m+M}\\,v_0^2 = \\frac{M}{m+M}\\,K_0$$\n**Fullstendig uelastisk støt** mot et legeme i ro: legemene får felles fart, og den tapte andelen av den kinetiske energien er $M/(m+M)$ — altså nesten alt når den treffende massen er liten.\n\n$$v_1' = \\frac{m-M}{m+M}\\,v_0, \\qquad v_2' = \\frac{2m}{m+M}\\,v_0$$\n**Elastisk støt** mot et legeme i ro. Merk fortegnet i telleren: når $m < M$ blir $v_1'$ **negativ**, altså spretter legeme 1 tilbake. Her er både bevegelsesmengden og den kinetiske energien bevart, og den relative farten mellom legemene beholder tallverdien sin.\n\n$$\\mathbf{J} = \\Delta\\mathbf{p} = \\int \\mathbf{F}\\,dt, \\qquad J_\\text{trekant} = \\tfrac12 F_\\text{maks}\\,\\tau, \\qquad a_\\text{maks} = \\frac{F_\\text{maks}}{m}$$\n**Impulsen** er arealet under $F(t)$-grafen. For en trekantpuls er arealet halvparten av rektangelet $F_\\text{maks}\\tau$.\n\n$$\\frac{GMm}{r^2} = \\frac{mv^2}{r} = m\\omega^2 r, \\qquad v = \\frac{2\\pi r}{T} \\quad\\Longrightarrow\\quad r = \\left(\\frac{GM\\,T^2}{4\\pi^2}\\right)^{1/3}$$\n**Sirkelbane** under gravitasjonen: gravitasjonskraften er resultanten inn mot sentrum. Massen til satellitten faller ut, og kombinasjonen med $v = 2\\pi r/T$ gir baneradien direkte fra omløpstiden.\n\n$$\\Delta v = u\\ln\\frac{m_0}{m} \\quad\\Longleftrightarrow\\quad m = m_0\\,e^{-\\Delta v/u}, \\qquad F = u\\left\\lvert\\frac{dm}{dt}\\right\\rvert$$\n**Rakettligningen** og skyvekraften. Legg merke til minustegnet i eksponenten: massen **synker** når farten øker, og en rakett som skal øke farten med én utstøtsfart, må brenne bort $1 - e^{-1} = 63{,}2$ prosent av startmassen sin.\n\n**Tallverdier du bruker i hele kapitlet.** $g = 9{,}81\\,\\text{m/s}^2$, og for jorda $GM = 3{,}986\\cdot10^{14}\\,\\text{m}^3/\\text{s}^2$ og $R_\\text{jord} = 6{,}371\\cdot10^6\\,\\text{m}$. Som kontroll: $GM/R_\\text{jord}^2 = 9{,}8202\\,\\text{m/s}^2$, som er tyngdeakselerasjonen ved overflaten — det viser at de to konstantene hører sammen.\n\n**Symbolmerknad — tre av bokas symbolkollisjoner er aktive her.** I dette kapitlet er $p$ **bevegelsesmengde** (i termodelen, Del 6–11, betyr $p$ trykk), $T$ er en **omløpstid** i sekunder (i termodelen: absolutt temperatur), og $R$ er en **radius** (i termodelen: gasskonstanten eller en termisk motstand). I tillegg er $u$ **utstøtsfarten** til rakettens drivstoff, ikke en generell fart."
+  },
+  {
+   "id": "tfy4115-3-3-th-oppskrift",
+   "type": "theorem",
+   "title": "Løsningsoppskrift — rask vei til tall (MC-oppskrift) i fire trinn",
+   "content": "Dette er **rask vei til tall** for hele Del 3: algoritmen du kjører uten å tenke, fra oppgitte tall til bokstavsvar. Trinn 1 er porten som avgjør resten, og den er hele forskjellen mellom et poeng og null poeng.\n\n**1. Er det et støt? Da er bevegelsesmengden ALLTID bevart — og energien bare noen ganger.** Les oppgaveteksten etter to ordgrupper:\n\n- «blir sittende fast», «kobles sammen», «kiler seg inn i», «henger i en snor og fanger» → **fullstendig uelastisk**. Bevegelsesmengden er bevart, den kinetiske energien er **ikke** bevart. Gå til trinn 2.\n- «elastisk støt», «spretter tilbake uten energitap», «fullstendig elastisk» → **elastisk**. Da er begge bevart, og du bruker de to ferdige fartsformlene.\n\nStår det ingenting av dette, avgjør fysikken: to legemer som fortsetter med samme fart etterpå, har hatt et uelastisk støt. Og merk retningen: bevegelsesmengden er en vektor, så du må velge en positiv retning **før** du skriver den første ligningen, og holde den hele veien.\n\n**2. Uelastisk: én divisjon, og energitapet som differanse.** Felles fart er $v' = mv_0/(m+M)$. Energitapet regner du **alltid** som differansen mellom det du hadde og det du har igjen,\n$$\\Delta K = K_0 - K' = \\tfrac12 mv_0^2 - \\tfrac12(m+M)v'^2,$$\nog andelen er $\\Delta K/K_0 = M/(m+M)$. Skal klossen svinge opp etterpå (ballistisk pendel), er det en **ny** fase med en **ny** lov: der er energien bevart, og $h = v'^2/(2g)$.\n\n**3. Er det en kraft som virker en kort stund? Da er impulsen arealet under $F(t)$.** Regn arealet geometrisk — trekant er $\\tfrac12 F_\\text{maks}\\tau$, trapes er middelhøyden ganger bredden — og bruk $J = \\Delta p = m\\,\\Delta v$. To feller å sjekke med det samme: er $\\Delta v$ en **differanse** eller en **sum**? For et legeme som spretter tilbake, er $\\Delta v = v_\\text{ut} + v_\\text{inn}$ i tallverdi, fordi fartsretningen snudde.\n\n**4. Er det en bane? Da er gravitasjonen resultanten inn mot sentrum.** Sett $GMm/r^2 = mv^2/r$ og bruk $v = 2\\pi r/T$ når omløpstiden er oppgitt. Før du regner: **gjør $T$ om til sekunder**, og bestem om spørsmålet spør om baneradien $r$ (fra jordas sentrum) eller om høyden $h = r - R_\\text{jord}$ (over bakken). Er det en rakett, er det samme bevaringslov som i trinn 1 i ny drakt: $\\Delta v = u\\ln(m_0/m)$.\n\n**Sluttsjekk, uansett vei (ti sekunder).** Enhet — tierpotens — fortegn. Og én fagspesifikk kontroll per vei: et uelastisk støt gir **alltid** lavere fart enn energibevaring ville gitt; en bane rundt jorda oppfyller **alltid** $T^2/r^3 = 4\\pi^2/GM = 9{,}90\\cdot10^{-14}\\,\\text{s}^2/\\text{m}^3$; og et rakettsvar har **alltid** mindre sluttmasse enn startmasse."
+  },
+  {
+   "id": "tfy4115-3-3-fig-ballistisk",
+   "type": "image",
+   "src": "/images/textbook/tfy4115/tfy4115-3-3-ballistisk.svg",
+   "alt": "Tre skisser ved siden av hverandre som viser en ballistisk pendel. Foerst en kule med masse m og fart v null paa vei mot en kloss med masse M som henger i ro i en snor. Deretter kula og klossen som beveger seg sammen med farten v merket, rett etter stoetet. Til sist klossen og kula i det oeverste punktet av svingen, med utslagsvinkelen alfa og hoeyden h merket. Under skissene staar det at steg en til to er et uelastisk stoet der bevegelsesmengden er bevart, og at steg to til tre er energibevaring.",
+   "caption": "Den ballistiske pendelen krever **to** bevaringslover etter hverandre: bevegelsesmengden i støtet ($v' = mv_0/(m+M)$), og energien i svingen ($h = v'^2/2g$). Bruker du energibevaring alt i steg 1, får du for høy fart; bruker du bevegelsesmengde i steg 2, får du ikke noe svar i det hele tatt, for da er snoren en ytre kraft."
+  },
+  {
+   "id": "tfy4115-3-3-ex-mc-case",
+   "type": "example",
+   "title": "Gjennomregnet MC-case: kula i klossen og satellitten på seks timer — med margnotater",
+   "problem": "Dette er to komplette flervalgsspørsmål av den typen som kommer på eksamen, regnet gjennom i MC-tempo med margnotater om hvor poengene faktisk faller. Det første er et støt, det andre en bane — og de to fellene de er bygget rundt, er de to som koster mest i Del 3.\n\n**Spørsmål 1.** En kule med masse $m = 0{,}0250\\,\\text{kg}$ og fart $v_0 = 260\\,\\text{m/s}$ treffer en trekloss med masse $M = 1{,}80\\,\\text{kg}$ som henger i ro i en snor med lengde $1{,}25\\,\\text{m}$. Kula blir sittende fast i klossen.\n\nHvor stor er farten til kloss og kule rett etter støtet?\n\n**A** $3{,}61\\,\\text{m/s}$ · **B** $7{,}12\\,\\text{m/s}$ · **C** $3{,}56\\,\\text{m/s}$ · **D** $30{,}4\\,\\text{m/s}$ · **E** $6{,}50\\,\\text{m/s}$ · **F** $1{,}78\\,\\text{m/s}$\n\n**Spørsmål 2.** En satellitt går i sirkelbane rundt jorda med omløpstid $T = 6{,}00$ timer. Bruk $GM = 3{,}986\\cdot10^{14}\\,\\text{m}^3/\\text{s}^2$ og $R_\\text{jord} = 6{,}371\\cdot10^6\\,\\text{m}$.\n\nHvor stor er **baneradien**, målt fra jordas sentrum?\n\n**A** $42\\,241\\,\\text{km}$ · **B** $71{,}366\\,\\text{km}$ · **C** $57\\,080\\,\\text{km}$ · **D** $10\\,392\\,\\text{km}$ · **E** $16\\,763\\,\\text{km}$ · **F** $23\\,134\\,\\text{km}$",
+   "solution": "**Spørsmål 1 — svar C.**\n\n*Margnotat — hvilken lov?* Ordene «blir sittende fast» avgjør alt: støtet er **fullstendig uelastisk**. Bevegelsesmengden er bevart, den kinetiske energien er det ikke. Tre sekunder, og du har valgt riktig vei.\n\n*Margnotat — hvilken ene regnelinje?* Bevegelsesmengden før støtet er kulas alene, $p_0 = mv_0 = 6{,}50\\,\\text{kg}\\cdot\\text{m/s}$, og etterpå beveger de to seg som ett legeme med massen $m+M = 1{,}825\\,\\text{kg}$:\n$$v' = \\frac{mv_0}{m+M} = \\frac{6{,}50}{1{,}825}\\,\\text{m/s} = 3{,}5616\\,\\text{m/s} \\approx 3{,}56\\,\\text{m/s}.$$\nÉn divisjon. Tjue sekunder. Snorlengden trengs ikke i dette spørsmålet i det hele tatt — den hører til neste ledd av oppgaven.\n\n*Margnotat — hva hentes hvor?* $\\mathbf{p} = m\\mathbf{v}$ og $\\mathbf{J} = \\Delta\\mathbf{p} = \\int\\mathbf{F}\\,dt$ **står på det utdelte arket**. Selve formelen $v' = mv_0/(m+M)$ står **ikke** der: den må du sette opp fra impulsbevarelsen, og det er én linje.\n\n*Margnotat — hvor mange siffer?* Bær fire i kladden ($3{,}5616$) og rund til tre i svaret. Her er marginen til nærmeste alternativ bare 1,4 prosent, så avrundingen må gjøres til slutt — ikke underveis.\n\n*Margnotat — energibevarings-fella, og hvorfor den ALLTID gir for høy fart.* Dette er sjangerens dyreste feil. Setter du opp $\\tfrac12 mv_0^2 = \\tfrac12(m+M)v'^2$, får du\n$$v'_\\text{galt} = v_0\\sqrt{\\frac{m}{m+M}} = 30{,}4\\,\\text{m/s},$$\naltså alternativ **D**. Forholdet mellom det gale og det riktige svaret er $\\sqrt{(m+M)/m} = 8{,}54$ — den gale metoden er ikke litt feil, den er en faktor åtte og en halv feil, og den er **alltid** for høy. Grunnen er fysisk: energien du later som er bevart, har i virkeligheten gått til varme og deformasjon i treet. Regn andelen og se hvor brutalt det er: $\\Delta K/K_0 = M/(m+M) = 98{,}6$ prosent av kulas kinetiske energi blir borte i støtet, altså $833{,}4$ av $845$ joule. Bare $11{,}58$ joule er igjen som bevegelse.\n\n*Margnotat — de andre nabo-alternativene, hvert fra sin feil.* **A ($3{,}61$)** er å dele på $M$ alene i stedet for på $m+M$; den ligger 1,4 prosent fra fasiten og er den farligste i lista. **B ($7{,}12$)** er den elastiske fartsformelen $2m/(m+M)\\cdot v_0$ brukt på et støt der legemene blir sittende sammen — nøyaktig dobbelt så mye som fasiten. **E ($6{,}50$)** er bevegelsesmengden $6{,}50\\,\\text{kg}\\cdot\\text{m/s}$ lest av som om den var en fart. **F ($1{,}78$)** er halvparten av fasiten, altså snittfarten mellom $0$ og $v'$ forvekslet med sluttfarten.\n\n*Margnotat — sluttsjekken, ti sekunder.* Klossen er 72 ganger tyngre enn kula, så bevegelsesmengden $6{,}50\\,\\text{kg}\\cdot\\text{m/s}$ fordelt på nesten to kilo må gi en fart av størrelsesorden noen få meter per sekund. Det stryker $30{,}4$ og $6{,}50$ umiddelbart, og etterpå står du igjen med fire alternativer der fysikken må avgjøre.\n\n**Og for ordens skyld, resten av oppgaven:** klossen svinger opp til $h = v'^2/(2g) = 0{,}647\\,\\text{m}$, altså $64{,}7$ cm, som for en snor på $1{,}25$ m svarer til en utslagsvinkel $\\alpha = \\arccos(1 - h/L) = 61{,}1^\\circ$. Merk at det er **energibevaring** som gjelder i den fasen, ikke bevegelsesmengde: snoren er en ytre kraft så snart støtet er over.\n\n— naturlig pausepunkt —\n\n**Spørsmål 2 — svar E.**\n\n*Margnotat — hvilken lov?* Gravitasjonen er den eneste kraften på satellitten, og i en sirkelbane er den resultanten inn mot sentrum:\n$$\\frac{GMm}{r^2} = \\frac{mv^2}{r}.$$\nSatellittens egen masse faller ut på begge sider — det er derfor oppgaven ikke oppgir den, og det er en god kontroll på at du har satt opp riktig.\n\n*Margnotat — hvilken ene regnelinje?* Sett inn $v = 2\\pi r/T$ og løs for $r$:\n$$r = \\left(\\frac{GM\\,T^2}{4\\pi^2}\\right)^{1/3}, \\qquad T = 6{,}00\\ \\text{timer} = 21\\,600\\,\\text{s}.$$\n$$r = \\left(\\frac{3{,}986\\cdot10^{14} \\cdot 4{,}6656\\cdot10^{8}}{39{,}4784}\\right)^{1/3}\\text{m} = \\left(4{,}7107\\cdot10^{21}\\right)^{1/3}\\text{m} = 1{,}6763\\cdot10^{7}\\,\\text{m} = 16\\,763\\,\\text{km}.$$\nÉn kubikkrot. Førti sekunder.\n\n*Margnotat — hva hentes hvor?* $GM$ (eller $G$ og jordmassen), $R_\\text{jord}$ og gravitasjonsloven $F = GmM/r^2$ **står på det utdelte arket**. Kubikkroten tar kalkulatoren. Kombinasjonen av kraftbalansen med $v = 2\\pi r/T$ **må du kunne gjøre aktivt** — den står ingen steder.\n\n*Margnotat — hvor mange siffer?* Kubikkroten er vennlig: en feil på 1 prosent i $T^2$ gir bare 0,33 prosent i $r$. Men det er en falsk trygghet, for kubikkroten demper ikke **enhetsfeil**, og det er nettopp der denne sjangeren tar folk.\n\n*Margnotat — ENHETSFELLA: timer eller sekunder?* Setter du $T = 6{,}00$ rett inn, uten å gjøre om til sekunder, får du $r = 71{,}4\\,\\text{km}$, altså alternativ **B**. Faktoren du taper er $3600^{2/3} = 234{,}9$. Legg merke til hvordan tallet selv avslører fella: en bane med radius $71{,}4$ km ligger **inne i jorda**, siden jordradien er $6\\,371$ km. Enhver baneradius som er mindre enn $6\\,371$ km, er fysisk umulig — og den kontrollen tar to sekunder.\n\n*Margnotat — de andre alternativene.* **A ($42\\,241$)** er 24-timers-refleksen: den geostasjonære baneradien, som er riktig svar på et annet spørsmål. **C ($57\\,080$)** er å glemme $4\\pi^2$ i nevneren. **D ($10\\,392$)** er **høyden over bakken**, $r - R_\\text{jord}$, i stedet for baneradien — les alltid spørsmålet en gang til på dette punktet, for eksamen bruker begge. **F ($23\\,134$)** er å legge jordradien til i stedet for å trekke den fra, altså å tro at $r$ måles fra overflaten.\n\n*Margnotat — sluttsjekken med Kepler, femten sekunder.* Enhver sirkelbane rundt jorda oppfyller\n$$\\frac{T^2}{r^3} = \\frac{4\\pi^2}{GM} = 9{,}90\\cdot10^{-14}\\,\\text{s}^2/\\text{m}^3.$$\nSett inn: $4{,}6656\\cdot10^{8}/(1{,}6763\\cdot10^{7})^3 = 9{,}90\\cdot10^{-14}\\,\\text{s}^2/\\text{m}^3$ — det stemmer. Og en enda raskere sjekk: omløpstiden er 6 timer, altså mellom en lav bane (halvannen time, radius rundt $6\\,700$ km) og den geostasjonære (24 timer, radius $42\\,241$ km), så svaret **må** ligge mellom de to. Det stryker tre av de fem gale alternativene alene."
+  },
+  {
+   "id": "tfy4115-3-3-okt2",
+   "type": "text",
+   "content": "## Økt 2 — støt og impuls (~30 min)\n\nÅtte oppgaver på sjanger M6. Oppgave 1, 3, 5 og 7 er i A–F-format med seks ferdige alternativer; de øvrige er i åpen form. Regn med tre til fem minutter per oppgave, og skriv ned den positive retningen din før du setter opp den første ligningen."
+  },
+  {
+   "id": "tfy4115-3-3-o-1",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-3-3-oppg-1",
+    "number": "1",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Sjanger M6, A–F-format.) En vogn med masse $0{,}600\\,\\text{kg}$ ruller med farten $2{,}50\\,\\text{m/s}$ mot en vogn med masse $0{,}900\\,\\text{kg}$ som står i ro på det samme sporet. Vognene kobles sammen i støtet og fortsetter som ett legeme.\n\nHvor stor er farten til de to vognene sammen etter støtet?\n\n**A** $1{,}67\\,\\text{m/s}$ · **B** $2{,}00\\,\\text{m/s}$ · **C** $1{,}58\\,\\text{m/s}$ · **D** $1{,}00\\,\\text{m/s}$ · **E** $1{,}50\\,\\text{m/s}$ · **F** $0{,}500\\,\\text{m/s}$",
+    "solution": "**Svar: D.**\n\n«Kobles sammen» betyr fullstendig uelastisk støt, altså bevegelsesmengden bevart og energien ikke:\n$$v' = \\frac{mv_0}{m+M} = \\frac{0{,}600 \\cdot 2{,}50}{1{,}500}\\,\\text{m/s} = \\frac{1{,}50}{1{,}500}\\,\\text{m/s} = 1{,}00\\,\\text{m/s}.$$\n\nDe gale alternativene: **A ($1{,}67$)** er å dele på $M$ alene i stedet for på totalmassen. **B ($2{,}00$)** er den elastiske fartsformelen $2m/(m+M)\\cdot v_0$, som gjelder når legemene ikke blir sittende sammen. **C ($1{,}58$)** er energibevaring brukt i et uelastisk støt, $v_0\\sqrt{m/(m+M)}$ — alltid for høyt. **E ($1{,}50$)** er bevegelsesmengden $1{,}50\\,\\text{kg}\\cdot\\text{m/s}$ lest av som en fart. **F ($0{,}500$)** er halve fasiten, altså snittfarten forvekslet med sluttfarten.\n\n**Sluttsjekk:** massen økte med en faktor $1{,}500/0{,}600 = 2{,}50$, så farten må synke med den samme faktoren, fra $2{,}50$ til $1{,}00\\,\\text{m/s}$. Bevegelsesmengden er den samme før og etter: $1{,}50\\,\\text{kg}\\cdot\\text{m/s}$ begge veier.",
+    "hints": [
+     "Bevegelsesmengden er bevart i støtet: sett opp $mv_0 = (m+M)v'$.",
+     "Etter støtet er massen i bevegelse hele $m+M$, ikke bare $M$."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-3-3-o-2",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-3-3-oppg-2",
+    "number": "2",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger M6.) Samme to vogner som i oppgave 1: $m = 0{,}600\\,\\text{kg}$ med farten $2{,}50\\,\\text{m/s}$ mot $M = 0{,}900\\,\\text{kg}$ i ro, koblet sammen i støtet.\n\n**a)** Hvor mye kinetisk energi går tapt i støtet?\n**b)** Hvor stor andel av den kinetiske energien er det, og hva ble energien til?\n**c)** Vis at andelen er den samme uansett hvor fort den første vognen kjørte.",
+    "solution": "**a)** Regn tapet som differansen mellom det du hadde og det du har igjen. Farten etter støtet er $v' = 1{,}00\\,\\text{m/s}$ fra oppgave 1:\n$$K_0 = \\tfrac12 mv_0^2 = \\tfrac12 \\cdot 0{,}600 \\cdot 6{,}25\\,\\text{J} = 1{,}875\\,\\text{J},$$\n$$K' = \\tfrac12(m+M)v'^2 = \\tfrac12 \\cdot 1{,}500 \\cdot 1{,}00\\,\\text{J} = 0{,}750\\,\\text{J},$$\n$$\\Delta K = K_0 - K' = 1{,}875 - 0{,}750\\,\\text{J} = 1{,}125\\,\\text{J}.$$\nKontroll med den ferdige formelen: $\\Delta K = \\tfrac12\\frac{mM}{m+M}v_0^2 = \\tfrac12 \\cdot \\frac{0{,}600 \\cdot 0{,}900}{1{,}500} \\cdot 6{,}25\\,\\text{J} = 1{,}125\\,\\text{J}$ — samme svar.\n\n**b)** Andelen er\n$$\\frac{\\Delta K}{K_0} = \\frac{1{,}125}{1{,}875} = 0{,}600 = 60{,}0\\ \\text{prosent},$$\nsom stemmer med $M/(m+M) = 0{,}900/1{,}500 = 0{,}600$. Energien er ikke forsvunnet: den er gått til deformasjon av koblingen, til friksjon i låsemekanismen og til varme og lyd. Det er nettopp derfor du **ikke** kan bruke energibevaring i støtet — regnskapet mangler et ledd du ikke kjenner.\n\n**c)** Sett inn de to uttrykkene symbolsk:\n$$\\frac{\\Delta K}{K_0} = \\frac{\\tfrac12\\frac{mM}{m+M}v_0^2}{\\tfrac12 mv_0^2} = \\frac{M}{m+M}.$$\nFarten $v_0$ forkortes bort. Andelen avhenger altså **bare** av masseforholdet — 60{,}0 prosent her, uansett om vognen kom i gangfart eller i femti kilometer i timen. Det er verdt å ha i hodet, for det gjør en hel klasse spørsmål til ren hoderegning: en lett kule i en tung kloss mister nesten all energien, to like masser mister halvparten, og en tung kloss mot en lett kule mister nesten ingenting.",
+    "hints": [
+     "Energitapet er $K_0 - K'$ — regn begge leddene, ikke prøv å gjette tapet.",
+     "Farten etter støtet har du alt fra oppgave 1.",
+     "I c) skal $v_0$ forkortes bort; sett inn uttrykkene og se."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-3-3-o-3",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-3-3-oppg-3",
+    "number": "3",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger M6, A–F-format.) En kule med masse $m = 0{,}200\\,\\text{kg}$ og fart $v_0 = 5{,}00\\,\\text{m/s}$ treffer en kule med masse $M = 0{,}500\\,\\text{kg}$ som ligger i ro. Støtet er **elastisk**, og all bevegelse skjer langs samme rette linje. Positiv retning er den kula kom fra.\n\nHvor stor er farten til den **første** kula etter støtet?\n\n**A** $2{,}14\\,\\text{m/s}$ · **B** $-2{,}14\\,\\text{m/s}$ · **C** $2{,}86\\,\\text{m/s}$ · **D** $1{,}43\\,\\text{m/s}$ · **E** $-5{,}00\\,\\text{m/s}$ · **F** $-3{,}00\\,\\text{m/s}$",
+    "solution": "**Svar: B.**\n\nBruk den ferdige fartsformelen for elastisk støt mot et legeme i ro, og pass på fortegnet i telleren:\n$$v_1' = \\frac{m-M}{m+M}\\,v_0 = \\frac{0{,}200 - 0{,}500}{0{,}700} \\cdot 5{,}00\\,\\text{m/s} = \\frac{-0{,}300}{0{,}700} \\cdot 5{,}00\\,\\text{m/s} = -2{,}14\\,\\text{m/s}.$$\nFortegnet er **negativt**, og det betyr en retning: kula spretter tilbake dit den kom fra. Det er fysisk riktig, siden den treffer noe tyngre enn seg selv.\n\nKontroll av begge bevaringslovene, som skal holde eksakt i et elastisk støt. Den andre kula får $v_2' = 2m/(m+M)\\cdot v_0 = 2{,}86\\,\\text{m/s}$, og da er\n$$p: \\quad 0{,}200 \\cdot 5{,}00 = 1{,}00 = 0{,}200 \\cdot (-2{,}14) + 0{,}500 \\cdot 2{,}86 = 1{,}00$$ ✔\n$$K: \\quad \\tfrac12 \\cdot 0{,}200 \\cdot 25{,}00 = 2{,}50\\,\\text{J} = \\tfrac12 \\cdot 0{,}200 \\cdot 4{,}592 + \\tfrac12 \\cdot 0{,}500 \\cdot 8{,}163 = 2{,}50\\,\\text{J}$$ ✔\n\nDe gale alternativene: **A ($2{,}14$)** er riktig tallverdi med **feil fortegn** (felle #5 — feil fortegn eller retning på en vektorstørrelse); det svarer til å bruke $(M-m)/(M+m)$ i stedet for $(m-M)/(m+M)$, og det er den vanligste feilen i sjangeren. **C ($2{,}86$)** er farten til den **andre** kula, altså riktig regning på feil kule. **D ($1{,}43$)** er felles fart som om støtet hadde vært uelastisk. **E ($-5{,}00$)** er å anta at kula spretter tilbake med uendret fart, som bare gjelder mot en uendelig tung vegg. **F ($-3{,}00$)** er å dele på $M$ i stedet for på $m+M$.\n\n**Sluttsjekk:** i et elastisk støt beholder den relative farten tallverdien sin. Før støtet nærmer kulene seg med $5{,}00\\,\\text{m/s}$; etterpå fjerner de seg fra hverandre med $2{,}86 - (-2{,}14) = 5{,}00\\,\\text{m/s}$. Det stemmer, og den kontrollen tar fem sekunder.",
+    "hints": [
+     "Elastisk støt mot et legeme i ro har to ferdige fartsformler — velg den som gjelder legemet som kom inn.",
+     "Se på fortegnet i telleren: er $m$ mindre enn $M$, hva blir da $m-M$?",
+     "Kontrollér til slutt at både bevegelsesmengden og den kinetiske energien er bevart."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-3-3-o-4",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-3-3-oppg-4",
+    "number": "4",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger M6.) Den samme kula som i oppgave 3 ($m = 0{,}200\\,\\text{kg}$, $v_0 = 5{,}00\\,\\text{m/s}$) treffer nå tre ulike legemer i ro, alltid i et elastisk støt langs samme linje.\n\n**a)** $M = 0{,}200\\,\\text{kg}$, altså like tungt som kula.\n**b)** $M = 2{,}00\\,\\text{kg}$, altså ti ganger tyngre.\n**c)** $M = 0{,}0500\\,\\text{kg}$, altså en firedel så tungt.\n\nFinn fartene etter støtet i hvert tilfelle, og si hvor stor andel av den kinetiske energien som blir overført til legemet som sto i ro.",
+    "solution": "Samme to formler hver gang, $v_1' = \\frac{m-M}{m+M}v_0$ og $v_2' = \\frac{2m}{m+M}v_0$.\n\n**a) Like masser.** $m - M = 0$, så\n$$v_1' = 0, \\qquad v_2' = \\frac{2m}{2m}v_0 = 5{,}00\\,\\text{m/s}.$$\nKula stopper helt, og legemet den traff overtar hele farten — og dermed **100 prosent** av energien. Dette er biljardstøtet, og det er verdt å kunne utenat: like masser i et elastisk støt bytter ganske enkelt fart.\n\n**b) Tungt legeme.** $m - M = -1{,}80\\,\\text{kg}$:\n$$v_1' = \\frac{-1{,}80}{2{,}20} \\cdot 5{,}00\\,\\text{m/s} = -4{,}09\\,\\text{m/s}, \\qquad v_2' = \\frac{0{,}400}{2{,}20} \\cdot 5{,}00\\,\\text{m/s} = 0{,}909\\,\\text{m/s}.$$\nKula spretter kraftig tilbake, nesten med samme fart som den kom, og det tunge legemet kryper i gang. Overført energiandel: $\\tfrac12 M v_2'^2 / (\\tfrac12 mv_0^2) = 33{,}1$ prosent. Grensen er en uendelig tung vegg, der $v_1' \\to -v_0$ og ingenting overføres.\n\n**c) Lett legeme.** $m - M = 0{,}150\\,\\text{kg}$:\n$$v_1' = 3{,}00\\,\\text{m/s}, \\qquad v_2' = 8{,}00\\,\\text{m/s}.$$\nKula fortsetter framover, litt saktere, og det lette legemet skytes av gårde raskere enn kula selv kom. Overført andel: $64{,}0$ prosent. Grensen her er en fjærlett kule, som får farten $2v_0$ og forsvinner — mens den tunge kula nesten ikke merker støtet.\n\n**Mønsteret du skal lese ut av dette:** fortegnet på $v_1'$ er fortegnet på $m - M$. Er den treffende massen minst, spretter den tilbake; er den størst, fortsetter den framover; er de like, stopper den. Og energioverføringen er **størst ved like masser** — det er derfor en moderator i et laboratorium bruker atomer med lav masse, og det er den fysiske kjernen i et av de vanligste konseptspørsmålene i denne sjangeren.",
+    "hints": [
+     "Bruk de to fartsformlene for elastisk støt på nytt for hver masse.",
+     "Se på fortegnet til $m-M$ før du regner — det forteller deg svaret kvalitativt.",
+     "Andelen overført energi er $\\tfrac12 Mv_2'^2$ delt på $\\tfrac12 mv_0^2$."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-3-3-fig-kraftpuls",
+   "type": "image",
+   "src": "/images/textbook/tfy4115/tfy4115-3-1-kraftpuls.svg",
+   "alt": "En graf med tid langs foerste akse og kraft langs andre akse. Kraften stiger rett fra null til 240 newton ved tiden 0,0100 sekund og faller rett tilbake til null ved 0,0200 sekund, slik at kurven danner en trekant. Arealet under trekanten er skyggelagt og merket med at det er lik en halv ganger 240 newton ganger 0,0200 sekund, altsaa 2,40 newtonsekund.",
+   "caption": "Kraftpulsen i oppgave 5. Arealet under $F(t)$ er impulsen $J = \\Delta p$, og for en trekantpuls er arealet $\\tfrac12 F_\\text{maks}\\tau$ — halvparten av rektangelet. Toppkraften gir den største akselerasjonen, $a_\\text{maks} = F_\\text{maks}/m$."
+  },
+  {
+   "id": "tfy4115-3-3-o-5",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-3-3-oppg-5",
+    "number": "5",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger M6, A–F-format.) En ball med masse $0{,}145\\,\\text{kg}$ ligger i ro og treffes av kraftpulsen i figuren over: kraften stiger rett opp til $F_\\text{maks} = 240\\,\\text{N}$ og faller rett tilbake til null, med total varighet $\\tau = 0{,}0200\\,\\text{s}$.\n\nHvor stor fart har ballen når pulsen er over?\n\n**A** $33{,}1\\,\\text{m/s}$ · **B** $8{,}28\\,\\text{m/s}$ · **C** $2{,}40\\,\\text{m/s}$ · **D** $4{,}80\\,\\text{m/s}$ · **E** $1\\,660\\,\\text{m/s}$ · **F** $16{,}6\\,\\text{m/s}$",
+    "solution": "**Svar: F.**\n\nImpulsen er arealet under $F(t)$-grafen, og arealet av en trekant er halve grunnlinjen ganger høyden:\n$$J = \\tfrac12 F_\\text{maks}\\,\\tau = \\tfrac12 \\cdot 240 \\cdot 0{,}0200\\,\\text{N}\\cdot\\text{s} = 2{,}40\\,\\text{N}\\cdot\\text{s}.$$\nBallen startet i ro, så $J = \\Delta p = m\\,\\Delta v$ gir\n$$\\Delta v = \\frac{J}{m} = \\frac{2{,}40}{0{,}145}\\,\\text{m/s} = 16{,}552\\,\\text{m/s} \\approx 16{,}6\\,\\text{m/s}.$$\n\nDe gale alternativene: **A ($33{,}1$)** er å regne arealet som hele rektangelet $F_\\text{maks}\\tau$ — dobbelt så mye, og den klart vanligste feilen her. **B ($8{,}28$)** er å lese av $\\tau$ som $0{,}0100\\,\\text{s}$, altså tiden til toppunktet i stedet for pulsens varighet. **C ($2{,}40$)** er impulsen $2{,}40\\,\\text{N}\\cdot\\text{s}$ lest av som en fart, uten divisjonen med massen. **D ($4{,}80$)** er samme feil på rektangelarealet. **E ($1\\,655{,}2$)** er den største **akselerasjonen**, $a_\\text{maks} = F_\\text{maks}/m = 1\\,655{,}2\\,\\text{m/s}^2$, som er svaret på et annet spørsmål i samme oppgavefamilie.\n\n**Nyttige kontroller.** Middelkraften over pulsen er $J/\\tau = 120\\,\\text{N}$, altså nøyaktig halve toppkraften — som det skal være for en trekant. Og $a_\\text{maks} = 2\\Delta v/\\tau$: $2 \\cdot 16{,}552/0{,}0200 = 1\\,655{,}2\\,\\text{m/s}^2$, samme tall som $F_\\text{maks}/m$. Får du ikke de to til å stemme, har du blandet trekant og rektangel et sted.",
+    "hints": [
+     "Impulsen er arealet under $F(t)$-grafen — hvilken geometrisk figur er det her?",
+     "Bruk $J = \\Delta p = m\\,\\Delta v$ med start i ro.",
+     "Sjekk til slutt at middelkraften $J/\\tau$ er halve toppkraften."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-3-3-o-6",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-3-3-oppg-6",
+    "number": "6",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger M6.) En ball med masse $0{,}0800\\,\\text{kg}$ treffer gulvet med farten $7{,}50\\,\\text{m/s}$ nedover og forlater gulvet med farten $6{,}00\\,\\text{m/s}$ oppover. Kontakten med gulvet varer $0{,}0140\\,\\text{s}$.\n\n**a)** Hvor stor er impulsen gulvet gir ballen?\n**b)** Hvor stor er middelkraften fra gulvet?\n**c)** Sammenlign middelkraften med ballens tyngde, og si hvor stor andel av den kinetiske energien ballen mistet.",
+    "solution": "**a)** Velg oppover som positiv retning. Da er farten inn $-7{,}50\\,\\text{m/s}$ og farten ut $+6{,}00\\,\\text{m/s}$, og fartsendringen er en **sum** i tallverdi, ikke en differanse:\n$$\\Delta v = 6{,}00 - (-7{,}50) = 13{,}50\\,\\text{m/s},$$\n$$J = m\\,\\Delta v = 0{,}0800 \\cdot 13{,}50\\,\\text{N}\\cdot\\text{s} = 1{,}080\\,\\text{N}\\cdot\\text{s} \\ \\text{oppover}.$$\nHer ligger fellen som koster mest i denne oppgavetypen (felle #5 — feil fortegn eller retning): regner du $7{,}50 - 6{,}00 = 1{,}50\\,\\text{m/s}$, får du en impuls og en kraft som er nesten ni ganger for liten. Fartsretningen **snudde**, og da legges tallverdiene sammen.\n\n**b)** Middelkraften er impulsen delt på kontakttiden. Merk at $J$ er nettoimpulsen, altså impulsen fra summen av gulvkraften og tyngden:\n$$\\bar{F}_\\text{netto} = \\frac{J}{\\tau} = \\frac{1{,}080}{0{,}0140}\\,\\text{N} = 77{,}1\\,\\text{N}.$$\nGulvkraften selv er litt større, siden tyngden virker nedover hele tiden:\n$$\\bar{N} = \\bar{F}_\\text{netto} + mg = 77{,}1 + 0{,}785\\,\\text{N} = 77{,}9\\,\\text{N}.$$\n\n**c)** Tyngden er $mg = 0{,}785\\,\\text{N}$, så gulvkraften er $99$ ganger tyngden. Det er derfor et sprett høres og kjennes som et slag: kraften er kortvarig, men hundre ganger større enn ballens vekt. Energien:\n$$\\frac{K'}{K_0} = \\frac{v_\\text{ut}^2}{v_\\text{inn}^2} = \\left(\\frac{6{,}00}{7{,}50}\\right)^2 = 0{,}640,$$\naltså er $36$ prosent av den kinetiske energien borte — gått til deformasjon av ballen og gulvet, og til varme og lyd. Ballen spretter derfor bare opp til $v_\\text{ut}^2/(2g) = 1{,}83\\,\\text{m}$, godt under høyden den falt fra.\n\n**Merk forskjellen fra deloppgave a).** I impulsregnskapet legger du tallverdiene sammen fordi fart er en vektor. I energiregnskapet kvadrerer du, og da forsvinner fortegnet — derfor er $36$ prosent tapt energi forenlig med en fartsendring på $13{,}50\\,\\text{m/s}$.",
+    "hints": [
+     "Velg en positiv retning og skriv begge fartene med fortegn før du regner.",
+     "Impulsen er $J = m\\,\\Delta v$ — og $\\Delta v$ er fart ut minus fart inn, med fortegn.",
+     "I b) skiller nettokraften seg fra gulvkraften med tyngden $mg$."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-3-3-o-7",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-3-3-oppg-7",
+    "number": "7",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Sjanger M6, A–F-format, eksamensnivå.) En trekloss med masse $M = 4{,}50\\,\\text{kg}$ henger i ro i en snor med lengde $L = 1{,}60\\,\\text{m}$. En kule med masse $m = 0{,}0180\\,\\text{kg}$ treffer klossen vannrett og blir sittende fast, og klossen med kula svinger ut til en maksimal vinkel $22{,}0^\\circ$ fra loddlinjen.\n\nHvor stor var kulas fart rett før støtet?\n\n**A** $379\\,\\text{m/s}$ · **B** $378\\,\\text{m/s}$ · **C** $1{,}51\\,\\text{m/s}$ · **D** $861\\,\\text{m/s}$ · **E** $268\\,\\text{m/s}$ · **F** $24{,}0\\,\\text{m/s}$",
+    "solution": "**Svar: A.**\n\nDette er den ballistiske pendelen baklengs, og den må løses i **to faser med to ulike lover** — i omvendt rekkefølge av hendelsene.\n\n**Fase 2 først (energibevaring i svingen).** Høyden klossen løftes, følger av geometrien: $h = L(1-\\cos\\alpha)$.\n$$h = 1{,}60\\left(1 - 0{,}92718\\right)\\text{m} = 0{,}11651\\,\\text{m}.$$\n$$\\tfrac12(m+M)v'^2 = (m+M)gh \\quad\\Longrightarrow\\quad v' = \\sqrt{2gh} = \\sqrt{2 \\cdot 9{,}81 \\cdot 0{,}11651}\\,\\text{m/s} = 1{,}5119\\,\\text{m/s}.$$\nMassen faller ut — som den skal, siden dette er et rent fallhøyde-regnskap.\n\n**Fase 1 deretter (bevegelsesmengden i støtet).** Kula ble sittende fast, altså fullstendig uelastisk:\n$$mv_0 = (m+M)v' \\quad\\Longrightarrow\\quad v_0 = \\frac{m+M}{m}\\,v' = \\frac{4{,}5180}{0{,}0180} \\cdot 1{,}5119\\,\\text{m/s} = 379{,}5\\,\\text{m/s}.$$\nMasseforholdet er $251{,}0$, og det er det som forstørrer en beskjeden pendelfart på halvannen meter per sekund opp til en kulefart på nesten fire hundre. Nettopp derfor er innretningen brukbar til å måle høye farter med en linjal.\n\nDe gale alternativene: **B ($378{,}0$)** er å bruke $M/m$ i stedet for $(m+M)/m$ — den ligger bare 0,4 prosent fra fasiten og er umulig å stryke ved størrelsesorden; her må oppsettet være riktig. **C ($1{,}51$)** er pendelfarten $v'$ selv, altså å glemme masseforstørringen. **D ($860{,}7$)** er å bruke $h = L\\sin\\alpha$ i stedet for $L(1-\\cos\\alpha)$; det er den geometriske fellen i sjangeren, og den gir alt for stor høyde for små vinkler. **E ($268{,}3$)** er å glemme faktoren 2 i $\\sqrt{2gh}$. **F ($24{,}0$)** er å bruke energibevaring **gjennom støtet** ($\\tfrac12 mv_0^2 = (m+M)gh$), som her gir alt for lav fart, siden metoden later som at energien i kula fortsatt er der etterpå.\n\n**Sluttsjekk:** støtet ødela $M/(m+M) = 99{,}6$ prosent av kulas kinetiske energi, så det er helt rimelig at en kule på nesten fire hundre meter per sekund bare klarer å løfte en fire og en halv kilos kloss $11{,}7$ centimeter. Og geometrisk: $1-\\cos 22{,}0^\\circ = 0{,}07282$, som er et lite tall — så $h$ skal være en liten brøkdel av snorlengden.",
+    "hints": [
+     "Del oppgaven i to faser: svingen og støtet. Hvilken bevaringslov gjelder i hver?",
+     "Start i den enden du har tall for: vinkelen gir høyden, $h = L(1-\\cos\\alpha)$.",
+     "Til slutt bruker du at bevegelsesmengden er bevart i støtet — hele massen $m+M$ er i bevegelse etterpå."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-3-3-o-8",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-3-3-oppg-8",
+    "number": "8",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Kvalitativ oppgave — valg av bevaringslov.) For hvert av de fem tilfellene under: si hvilken eller hvilke bevaringslover du kan bruke, og hvilke du **ikke** kan bruke. Du skal **ikke** regne ut noe.\n\n**a)** To skøytere skyver fra hverandre på isen og glir hver sin vei.\n\n**b)** En pil borer seg inn i en halmball som står på et glatt gulv.\n\n**c)** Halmballen med pilen i glir videre over gulvet og opp en liten rampe, der den stopper.\n\n**d)** To biljardkuler av samme masse treffer hverandre sentralt, og den ene stopper.\n\n**e)** En kloss henger i en snor. En kule blir sittende fast i klossen, og klossen svinger opp.",
+    "solution": "**a) Bevegelsesmengden er bevart, energien er ikke.** Ingen ytre vannrett kraft virker på de to skøyterne til sammen, så $\\sum m\\mathbf{v}$ er den samme før og etter — og siden de sto i ro, er summen null: de får like store og motsatt rettede bevegelsesmengder. Den kinetiske energien **øker** fra null, for muskelarbeid ble tilført. Dette er et støt baklengs, og bevegelsesmengden håndterer det uten videre.\n\n**b) Bevegelsesmengden er bevart, energien er ikke.** «Borer seg inn i» er fullstendig uelastisk. Bruk $v' = mv_0/(m+M)$. Prøver du energibevaring, får du for høy fart — og du overser at pilen skar seg gjennom halm, som koster arbeid.\n\n**c) Energien er bevart (tilnærmet), bevegelsesmengden er ikke.** Så snart støtet er over, er dette en helt vanlig energioppgave: $\\tfrac12(m+M)v'^2 = (m+M)gh$. Bevegelsesmengden er **ikke** bevart her, for rampen og tyngden er ytre krefter som bremser ballen. Dette er nøkkelen i alle to-fase-oppgaver: lovene bytter plass når fasen skifter.\n\n**d) Begge er bevart.** At den ene kula stopper helt ved sentralt støt mellom like masser, er nettopp det et elastisk støt gir: $v_1' = \\frac{m-M}{m+M}v_0 = 0$ og $v_2' = v_0$. Du kan altså regne med både $p$ og $K$ — og du kan bruke det som en kontroll: stemmer begge, har du et elastisk støt.\n\n**e) Først bevegelsesmengden, så energien.** Dette er den ballistiske pendelen: uelastisk støt (bevegelsesmengden bevart, energien ikke), deretter sving (energien bevart, bevegelsesmengden ikke, fordi snoren er en ytre kraft). Å bruke energibevaring i første fase gir for høy kulefart; å bruke bevegelsesmengde i andre fase gir ikke noe svar i det hele tatt.\n\n**Poenget med oppgaven.** Trinn 1 i løsningsoppskriften er det billigste trinnet og det som oftest går galt. Bevegelsesmengden er bevart når det ikke virker ytre krefter i retningen du ser på — og i et støt er støtøyeblikket så kort at tyngden og snordraget ikke rekker å gjøre noe. Energien er bevart bare når ingenting deformeres, skrapes eller varmes opp. De to spørsmålene er uavhengige, og du må stille dem hver for seg, i hver fase.",
+    "hints": [
+     "Spør for hver fase: virker det en ytre kraft i den retningen jeg ser på?",
+     "Spør deretter: blir noe deformert, revet, skrapet eller varmet opp?",
+     "I to-fase-oppgaver bytter lovene plass når fasen skifter — hold dem fra hverandre."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-3-3-okt3",
+   "type": "text",
+   "content": "— naturlig pausepunkt —\n\n## Økt 3 — baner, rakett og sammensatte oppgaver (~25 min)\n\nSeks oppgaver på sjanger M12, pluss en sammensatt støtoppgave til slutt. Oppgave 9, 11 og 13 er i A–F-format. Huskeregelen du skal ha framme hele tiden: **gjør omløpstiden om til sekunder først**, og les nøye om spørsmålet gjelder baneradien fra jordas sentrum eller høyden over bakken."
+  },
+  {
+   "id": "tfy4115-3-3-o-9",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-3-3-oppg-9",
+    "number": "9",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Sjanger M12, A–F-format.) En satellitt går i sirkelbane $350\\,\\text{km}$ over jordoverflaten. Bruk $GM = 3{,}986\\cdot10^{14}\\,\\text{m}^3/\\text{s}^2$ og $R_\\text{jord} = 6\\,371\\,\\text{km}$.\n\nHvor stor er banefarten?\n\n**A** $33{,}7\\,\\text{km/s}$ · **B** $10{,}9\\,\\text{km/s}$ · **C** $7{,}70\\,\\text{km/s}$ · **D** $5{,}45\\,\\text{km/s}$ · **E** $0{,}489\\,\\text{km/s}$ · **F** $244\\,\\text{km/s}$",
+    "solution": "**Svar: C.**\n\nBaneradien måles fra jordas **sentrum**, så legg høyden til jordradien først:\n$$r = R_\\text{jord} + h = 6{,}371\\cdot10^6 + 3{,}50\\cdot10^5\\,\\text{m} = 6{,}721\\cdot10^{6}\\,\\text{m}.$$\nGravitasjonen er resultanten inn mot sentrum, $GMm/r^2 = mv^2/r$, og satellittens masse faller ut:\n$$v = \\sqrt{\\frac{GM}{r}} = \\sqrt{\\frac{3{,}986\\cdot10^{14}}{6{,}721\\cdot10^{6}}}\\,\\text{m/s} = 7\\,701\\,\\text{m/s} = 7{,}70\\,\\text{km/s}.$$\n\nDe gale alternativene: **A ($33{,}7$)** er å bruke høyden $350$ km som baneradius, altså å glemme jordradien — den vanligste feilen i sjangeren. **B ($10{,}9$)** er unnslipningsfarten $\\sqrt{2GM/r}$, altså en faktor $\\sqrt2$ for mye; den er riktig svar på et annet spørsmål. **D ($5{,}45$)** er samme faktor feil vei, $\\sqrt{GM/2r}$. **E ($0{,}489$)** er å anta at satellitten bruker et døgn på runden, $2\\pi r/86\\,400\\,\\text{s}$. **F ($244$)** er å sette inn $r$ i kilometer i en formel der $GM$ er oppgitt i kubikkmeter per sekund i annen — enhetsfellen i ren form.\n\n**Sluttsjekk:** alle lave baner rundt jorda ligger nær $8\\,\\text{km/s}$, og unnslipningsfarten fra overflaten er $11{,}2\\,\\text{km/s}$. Et svar over det siste betyr at satellitten ikke ville vært i bane i det hele tatt, og et svar under $1\\,\\text{km/s}$ ville ikke holdt den oppe. To grenser, og de stryker fire alternativer.",
+    "hints": [
+     "Baneradien er jordradien pluss høyden over bakken.",
+     "Sett gravitasjonskraften lik $mv^2/r$ og løs for $v$ — massen faller ut.",
+     "Sammenlign svaret med unnslipningsfarten $11{,}2$ km/s før du krysser av."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-3-3-o-10",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-3-3-oppg-10",
+    "number": "10",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger M12.) Samme satellitt som i oppgave 9: sirkelbane $350\\,\\text{km}$ over bakken, altså baneradius $r = 6{,}721\\cdot10^{6}\\,\\text{m}$ og banefart $7\\,701\\,\\text{m/s}$.\n\n**a)** Hvor lang er omløpstiden, i minutter?\n**b)** Hvor stor er sentripetalakselerasjonen i banen, og hvordan forholder den seg til $9{,}81\\,\\text{m/s}^2$?\n**c)** Kontroller svaret med Kepler-forholdet $T^2/r^3$.",
+    "solution": "**a)** Omløpstiden er omkretsen delt på farten:\n$$T = \\frac{2\\pi r}{v} = \\frac{2\\pi \\cdot 6{,}721\\cdot10^{6}}{7\\,701}\\,\\text{s} = 5\\,484\\,\\text{s} = 91{,}4\\ \\text{minutter}.$$\nHalvannen time per runde er den typiske omløpstiden for en lav bane, og et tall verdt å kjenne som størrelsesordenkontroll.\n\n**b)** Sentripetalakselerasjonen er tyngdeakselerasjonen i den høyden:\n$$a = \\frac{GM}{r^2} = \\frac{3{,}986\\cdot10^{14}}{4{,}5172\\cdot10^{13}}\\,\\text{m/s}^2 = 8{,}824\\,\\text{m/s}^2.$$\nKontroll den andre veien: $v^2/r = \\frac{5{,}9307\\cdot10^{7}}{6{,}721\\cdot10^{6}} = 8{,}824\\,\\text{m/s}^2$ — samme tall, som det skal være.\n\nLegg merke til at dette er $90$ prosent av $9{,}81\\,\\text{m/s}^2$. Satellitten er altså **ikke** i vektløshet fordi tyngden er borte; den er i fritt fall, og faller nøyaktig så fort at banen krummer like mye som jordoverflaten. Det er en av de mest misforståtte tingene i hele sjangeren, og et yndet konseptspørsmål.\n\n**c)** $$\\frac{T^2}{r^3} = \\frac{3{,}0070\\cdot10^{7}}{3{,}0357\\cdot10^{20}} = 9{,}904\\cdot10^{-14}\\,\\text{s}^2/\\text{m}^3.$$\nDet stemmer med $4\\pi^2/GM = 9{,}904\\cdot10^{-14}\\,\\text{s}^2/\\text{m}^3$, som er den samme konstanten for **alle** baner rundt jorda — enten omløpstiden er halvannen time eller et døgn. Denne kontrollen koster femten sekunder og avslører både enhetsfeil og regnefeil, så bruk den hver gang du har både $T$ og $r$.",
+    "hints": [
+     "Omløpstiden får du fra omkretsen $2\\pi r$ og banefarten.",
+     "Sentripetalakselerasjonen kan du regne på to måter: $GM/r^2$ eller $v^2/r$ — bruk begge som kontroll.",
+     "Kepler-forholdet er $4\\pi^2/GM$ for alle baner rundt samme sentrallegeme."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-3-3-o-11",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-3-3-oppg-11",
+    "number": "11",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Sjanger M12, A–F-format, eksamensnivå.) En kommunikasjonssatellitt skal stå stille over samme punkt på ekvator. Da må omløpstiden være ett døgn, $T = 24{,}0$ timer. Bruk $GM = 3{,}986\\cdot10^{14}\\,\\text{m}^3/\\text{s}^2$ og $R_\\text{jord} = 6\\,371\\,\\text{km}$.\n\nHvor **høyt over jordoverflaten** ligger banen?\n\n**A** $42\\,241\\,\\text{km}$ · **B** $48\\,612\\,\\text{km}$ · **C** $137\\,460\\,\\text{km}$ · **D** $20\\,239\\,\\text{km}$ · **E** $35\\,870\\,\\text{km}$ · **F** $60\\,683\\,\\text{km}$",
+    "solution": "**Svar: E.**\n\nTo trinn, og det andre er det som skiller alternativene.\n\n**Trinn 1: baneradien.** $T = 24{,}0\\ \\text{timer} = 86\\,400\\,\\text{s}$, og\n$$r = \\left(\\frac{GM\\,T^2}{4\\pi^2}\\right)^{1/3} = 4{,}2241\\cdot10^{7}\\,\\text{m} = 42\\,241\\,\\text{km}.$$\n\n**Trinn 2: høyden over bakken.** Trekk fra jordradien:\n$$h = r - R_\\text{jord} = 42\\,241 - 6\\,371\\,\\text{km} = 35\\,870\\,\\text{km}.$$\n\nDe gale alternativene: **A ($42\\,241$)** er baneradien, altså trinn 2 hoppet over — den farligste fellen her, fordi tallet er helt riktig regnet og bare svarer på et annet spørsmål. **B ($48\\,612$)** er å legge jordradien til i stedet for å trekke den fra. **C ($137\\,461$)** er å glemme $4\\pi^2$ i nevneren. **D ($20\\,239$)** er å bruke $T = 12{,}0$ timer, altså å forveksle et døgn med en halv omdreining. **F ($60\\,683$)** er $T = 48{,}0$ timer.\n\n**En ærlig presisjon om tallet.** Regner du med det **sideriske** døgnet, altså jordas omdreining i forhold til stjernene, er $T = 86\\,164\\,\\text{s}$ og høyden $35\\,793\\,\\text{km}$ — det er den verdien romfartsorganisasjoner bruker, og den er strengt tatt den fysisk riktige, siden satellitten skal følge jordas rotasjon og ikke solen. Forskjellen er $0{,}18$ prosent, altså snaut 80 km. Eksamensoppgaver oppgir $T = 24$ timer, og da er $35\\,870\\,\\text{km}$ svaret som forventes. Merk deg begge tallene, og at ingen av dem er en regnefeil.\n\n**Sluttsjekk:** Kepler igjen. $86\\,400^2/(4{,}2241\\cdot10^{7})^3 = 9{,}904\\cdot10^{-14}\\,\\text{s}^2/\\text{m}^3$, som er den samme konstanten som i oppgave 10 — der omløpstiden var halvannen time. Og banefarten er $v = 2\\pi r/T = 3\\,072\\,\\text{m/s}$, altså under halvparten av farten i lav bane: en høyere bane er en **saktere** bane.",
+    "hints": [
+     "Finn baneradien fra omløpstiden først — husk å gjøre timer om til sekunder.",
+     "Les spørsmålet en gang til: spør det om radius fra sentrum, eller høyde over bakken?",
+     "Kontroller med Kepler-forholdet $T^2/r^3$ før du krysser av."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-3-3-o-12",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-3-3-oppg-12",
+    "number": "12",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger M12 — rakett.) En rakett har startmasse $m_0 = 2{,}80\\cdot10^{4}\\,\\text{kg}$ og støter ut drivstoff med farten $u = 3\\,100\\,\\text{m/s}$ relativt til raketten. Den skal øke farten med $\\Delta v = 2\\,400\\,\\text{m/s}$.\n\n**a)** Hvor stor masse har raketten når fartsøkningen er oppnådd, og hvor mye drivstoff er brent?\n**b)** Motoren støter ut $180\\,\\text{kg/s}$. Hvor stor er skyvekraften, og hvor lang tid tar brenningen?\n**c)** Hvor stor er akselerasjonen rett etter start, når tyngden regnes med?",
+    "solution": "**a)** Rakettligningen er $\\Delta v = u\\ln(m_0/m)$, som løst for massen gir $m = m_0e^{-\\Delta v/u}$. Legg merke til **minustegnet**: massen synker når farten øker.\n$$\\frac{\\Delta v}{u} = \\frac{2\\,400}{3\\,100} = 0{,}7742, \\qquad e^{-0{,}7742} = 0{,}4611,$$\n$$m = 2{,}80\\cdot10^{4} \\cdot 0{,}4611\\,\\text{kg} = 12\\,910\\,\\text{kg}.$$\nBrent drivstoff:\n$$m_0 - m = 2{,}80\\cdot10^{4} - 12\\,910\\,\\text{kg} = 15\\,090\\,\\text{kg},$$\naltså $53{,}9$ prosent av startmassen. Kontroll baklengs: $u\\ln(m_0/m) = 3\\,100 \\cdot \\ln(2{,}169) = 2\\,400\\,\\text{m/s}$ ✔\n\n**b)** Skyvekraften er utstøtsfarten ganger massestrømmen:\n$$F = u\\left\\lvert\\frac{dm}{dt}\\right\\rvert = 3\\,100 \\cdot 180\\,\\text{N} = 558\\,000\\,\\text{N} = 5{,}58\\cdot10^{5}\\,\\text{N}.$$\nBrenntiden er drivstoffet delt på massestrømmen:\n$$t = \\frac{15\\,090}{180}\\,\\text{s} = 83{,}8\\,\\text{s}.$$\n\n**c)** Rett etter start er hele startmassen i bevegelse, og tyngden trekker nedover:\n$$a_0 = \\frac{F}{m_0} - g = \\frac{558\\,000}{2{,}80\\cdot10^{4}} - 9{,}81\\,\\text{m/s}^2 = 19{,}929 - 9{,}81\\,\\text{m/s}^2 = 10{,}12\\,\\text{m/s}^2.$$\nVed slutten av brenningen er massen bare $12\\,910\\,\\text{kg}$, og med samme skyvekraft er akselerasjonen da $33{,}4\\,\\text{m/s}^2$ — mer enn tre ganger så stor. Det er derfor en rakett akselererer stadig kraftigere selv om motoren jobber helt jevnt, og det er også grunnen til at rakettligningen har en logaritme i seg: massen som skal akselereres, endrer seg underveis.\n\n**En feil å merke seg.** Skriver du eksponenten med **pluss** fortegn, får du $m = 2{,}80\\cdot10^{4} \\cdot e^{+0{,}7742} = 60\\,728\\,\\text{kg}$, altså mer masse etter brenningen enn før. Det er fysisk umulig, og kontrollen er triviell: sluttmassen skal alltid være mindre enn startmassen.",
+    "hints": [
+     "Start fra $\\Delta v = u\\ln(m_0/m)$ og løs for massen — pass på fortegnet i eksponenten.",
+     "Skyvekraften er utstøtsfarten ganget med massestrømmen $|dm/dt|$.",
+     "I c) må tyngden trekkes fra, og massen er fortsatt startmassen."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-3-3-o-13",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-3-3-oppg-13",
+    "number": "13",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger M12 — rakett, A–F-format.) En rakett støter ut drivstoff med farten $u = 3\\,100\\,\\text{m/s}$ relativt til raketten. Under en brenning synker massen til en firedel av det den var, altså $m_0/m = 4{,}00$.\n\nHvor mye øker farten?\n\n**A** $12\\,400\\,\\text{m/s}$ · **B** $4\\,298\\,\\text{m/s}$ · **C** $1\\,866\\,\\text{m/s}$ · **D** $2\\,236\\,\\text{m/s}$ · **E** $-4\\,298\\,\\text{m/s}$ · **F** $9\\,300\\,\\text{m/s}$",
+    "solution": "**Svar: B.**\n\nRett inn i rakettligningen:\n$$\\Delta v = u\\ln\\frac{m_0}{m} = 3\\,100 \\cdot \\ln 4{,}00\\,\\text{m/s} = 3\\,100 \\cdot 1{,}3863\\,\\text{m/s} = 4\\,298\\,\\text{m/s}.$$\n\nDe gale alternativene: **A ($12\\,400$)** er å gange med masseforholdet i stedet for med logaritmen av det. **C ($1\\,866$)** er å bruke tierlogaritmen $\\log_{10}4{,}00 = 0{,}6021$ i stedet for den naturlige — den gir alltid en faktor $\\ln 10 = 2{,}30$ for lite. **D ($2\\,236$)** er å dividere med logaritmen. **E ($-4\\,298$)** er $u\\ln(m/m_0)$, altså forholdet opp ned, som gir riktig tallverdi med feil fortegn — farten skal **øke** når massen synker. **F ($9\\,300$)** er $u(m_0/m - 1)$, en tilnærming som ikke gjelder her.\n\n**Kontroller og størrelsesorden.** Nyttige tall å ha i hodet: $\\ln 2 = 0{,}693$, $\\ln 4 = 1{,}386$, $\\ln 10 = 2{,}303$. Å brenne bort halve massen gir altså $0{,}693u$, og å brenne bort tre firedeler gir $1{,}386u$ — dobbelt så mye fartsøkning for fire ganger så høyt masseforhold. Fartsøkningen kan aldri bli mer enn noen få ganger $u$ i praksis, og det er hele grunnen til at raketter bygges i trinn.\n\n**Snu oppgaven, det er lærerikt:** skal $\\Delta v = u$, må $m_0/m = e = 2{,}72$, altså må $1 - e^{-1} = 63{,}2$ prosent av startmassen brennes bort. Ett eneste utstøtsfart-«steg» koster nesten to tredeler av raketten.",
+    "hints": [
+     "Rakettligningen har en naturlig logaritme av masseforholdet.",
+     "Sjekk om massen står i telleren eller nevneren — det avgjør fortegnet.",
+     "Bruk at $\\ln 4 = 2\\ln 2$ som kontroll på tallet du får."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-3-3-o-14",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-3-3-oppg-14",
+    "number": "14",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Sjanger M6, eksamensnivå — sammensatt.) En kule med masse $m = 0{,}0120\\,\\text{kg}$ og fart $v_0 = 420\\,\\text{m/s}$ skytes vannrett gjennom en trekloss med masse $M = 3{,}60\\,\\text{kg}$ som står i ro på et friksjonsfritt underlag. Kula fortsetter ut på andre siden med farten $160\\,\\text{m/s}$.\n\n**a)** Hvor stor fart får klossen?\n**b)** Hvor mye kinetisk energi gikk tapt, og hvor stor andel er det?\n**c)** Hvorfor kan du ikke bruke formelen $v' = mv_0/(m+M)$ her, og hva ville den gitt?",
+    "solution": "**a)** Bevegelsesmengden er bevart, og nå har begge legemene sin egen fart etterpå — de er ikke låst sammen. Med kulas retning som positiv:\n$$mv_0 = mv_1 + Mv_M \\quad\\Longrightarrow\\quad v_M = \\frac{m(v_0 - v_1)}{M} = \\frac{0{,}0120(420 - 160)}{3{,}60}\\,\\text{m/s} = \\frac{3{,}120}{3{,}60}\\,\\text{m/s} = 0{,}867\\,\\text{m/s}.$$\nKontroll: $p_0 = 5{,}04\\,\\text{kg}\\cdot\\text{m/s}$ og $p' = 0{,}0120 \\cdot 160 + 3{,}60 \\cdot 0{,}867 = 5{,}04\\,\\text{kg}\\cdot\\text{m/s}$ ✔\n\n**b)** $$K_0 = \\tfrac12 mv_0^2 = 1058{,}4\\,\\text{J},$$\n$$K' = \\tfrac12 mv_1^2 + \\tfrac12 Mv_M^2 = 153{,}6 + 1{,}352\\,\\text{J} = 155{,}0\\,\\text{J},$$\n$$\\Delta K = 903{,}4\\,\\text{J}, \\qquad \\frac{\\Delta K}{K_0} = 85{,}4\\ \\text{prosent}.$$\nLegg merke til fordelingen etterpå: kula bærer $153{,}6\\,\\text{J}$ og klossen bare $1{,}352\\,\\text{J}$. Nesten all den kinetiske energien som er igjen, sitter fortsatt i kula — og de $903{,}4$ joulene som er borte, gikk til å bore hullet.\n\n**c)** Formelen $v' = mv_0/(m+M)$ gjelder **bare** når legemene ender opp med **felles** fart, altså når kula blir sittende fast. Her går kula tvers gjennom, og da har du to ukjente farter i stedet for én — men du får bare **én** ligning fra bevegelsesmengden. Derfor må restfarten $160\\,\\text{m/s}$ oppgis; uten den er oppgaven uløselig med bevaringslover alene.\n\nHadde kula blitt sittende fast, ville felles fart vært\n$$v' = \\frac{mv_0}{m+M} = 1{,}395\\,\\text{m/s},$$\naltså langt mer enn de $0{,}867\\,\\text{m/s}$ klossen faktisk får. Det er rimelig: når kula tar med seg det meste av bevegelsesmengden ut på andre siden, blir det lite igjen til klossen. Og en tredje variant, å glemme restfarten helt og regne $mv_0/M = 1{,}40\\,\\text{m/s}$, gir også for mye — den later som at kula stoppet inne i klossen og at klossen likevel beholder hele bevegelsesmengden.\n\n**Det generelle poenget:** bevegelsesmengden gir deg **én** ligning per retning. Har oppgaven to ukjente farter, må den gi deg en opplysning til — enten «elastisk» (som gir energiligningen) eller «blir sittende fast» (som gir $v_1 = v_2$) eller en oppgitt restfart. Sjekk alltid at antall ligninger og antall ukjente stemmer før du regner.",
+    "hints": [
+     "Sett opp bevegelsesmengden før og etter med begge fartene som egne ledd.",
+     "Kula har fortsatt fart etter støtet — den skal med i regnskapet.",
+     "I b) må du summere den kinetiske energien til begge legemene etterpå."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-3-3-war-typiske-feil",
+   "type": "warning",
+   "title": "Typiske feil — hele støt-, impuls- og banerepertoaret, og avrundingsfellen",
+   "content": "Alle fellene under er hentet fra oppgavene du nettopp har gjort, og hver av dem svarte til et konkret svaralternativ.\n\n**Å bruke energibevaring i et uelastisk støt.** Dette er sjangerens dyreste enkeltfeil. Bevegelsesmengden er bevart i **alle** støt; den kinetiske energien er bevart **bare** i elastiske. Feilen gir alltid for høy fart, med faktoren $\\sqrt{(m+M)/m}$ — i det gjennomregnede caset var det en faktor 8,54, og i oppgave 7 ga varianten «energibevaring gjennom støtet» en kulefart på 24 m/s der svaret var nesten 400. Kontrollen er ett spørsmål: **blir noe deformert, boret, kilt fast eller varmet opp?** Da er energien ikke bevart.\n\n**Å bruke bevegelsesmengde i svingfasen.** Speilbildet av feilen over. Så snart støtet er over og klossen henger i en snor, er snordraget og tyngden ytre krefter, og bevegelsesmengden er **ikke** bevart. Der er energien bevart i stedet. To faser, to lover — og de bytter plass når fasen skifter.\n\n**Å dele på $M$ i stedet for på $m+M$.** Etter et fullstendig uelastisk støt er hele massen $m+M$ i bevegelse. Fellen ga 3,61 mot 3,56 m/s i det gjennomregnede caset og 378 mot 379 m/s i oppgave 7 — bare noen tideler unna, altså umulig å stryke ved størrelsesorden. Denne må du regne riktig, ikke sjekke deg ut av.\n\n**Feil fortegn på fart eller impuls** (felle #5 — feil fortegn eller retning på en vektorstørrelse). Bevegelsesmengden er en vektor. To konkrete tilfeller fra kapitlet: i oppgave 3 er $v_1' = \\frac{m-M}{m+M}v_0$ **negativ** når $m < M$, altså sprett tilbake; og i oppgave 6 er fartsendringen til en sprettende ball en **sum** i tallverdi, $\\Delta v = v_\\text{ut} + v_\\text{inn}$, ikke en differanse. Den siste ga 8,57 N i stedet for 77,1 N — en faktor ni. Skriv ned den positive retningen din **før** første ligning.\n\n**Å regne rektangel i stedet for trekant under $F(t)$.** Arealet av en trekantpuls er $\\tfrac12 F_\\text{maks}\\tau$. Fellen dobler impulsen (33,1 mot 16,6 m/s i oppgave 5). Kontrollen: middelkraften $J/\\tau$ skal være **halve** toppkraften for en trekant.\n\n**Å forveksle baneradius og høyde over bakken.** Baneradien måles fra jordas **sentrum**. I oppgave 11 skilte de to svarene $35\\,870$ km og $42\\,241$ km seg med nøyaktig én jordradius, og begge sto i alternativlisten. Les spørsmålet på nytt før du krysser av, og husk at ingen baneradius kan være mindre enn 6 371 km.\n\n**Å blande $v$ og $\\omega$, eller å glemme $v = 2\\pi r/T$.** I sentripetalleddet er det $mv^2/r$ **eller** $m\\omega^2r$ — aldri en blanding. Er omløpstiden oppgitt, er koblingen $v = 2\\pi r/T$ det som binder de to sammen.\n\n**Rakettligningens fortegn.** $m = m_0e^{-\\Delta v/u}$: massen **synker** når farten øker. Et svar der sluttmassen er større enn startmassen, er fysisk umulig — i oppgave 12 ga fortegnsfeilen 60 728 kg for en rakett som startet på 28 000.\n\n**Og avrundings- og enhetsfellen som avgjør denne sjangeren** (felle #16 — avrundingsfeil eller enhetsfeil som lander på nabo-alternativet). I Del 3 slår den til på to måter, og den ene er verre enn den andre:\n\n- **Enheten på omløpstiden.** $GM$ er oppgitt i $\\text{m}^3/\\text{s}^2$, så $T$ **må** inn i sekunder. Setter du 6,00 timer rett inn, taper du faktoren $3600^{2/3} = 235$, og baneradien blir 71 km — inne i jorda. Kubikkroten demper regnefeil, men ikke enhetsfeil.\n- **Siffer i tette differanser.** Masseforhold som $(m+M)/m$ mot $M/m$ skiller seg med brøkdeler av en prosent når $m \\ll M$. Bær **fire** gjeldende siffer gjennom hele kjeden og rund først i sluttsvaret, ellers kan de to alternativene bytte plass i hendene dine.\n\n**Regelen for hele kapitlet: velg bevaringslov før du regner, skriv ned den positive retningen, gjør tider om til sekunder, og bær fire siffer til siste linje.**"
+  },
+  {
+   "id": "tfy4115-3-3-begrepsbank-notis",
+   "type": "text",
+   "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+  },
+  {
+   "id": "tfy4115-3-3-bb-m6",
+   "type": "definition",
+   "title": "Sjanger M6 — bevegelsesmengde og støt, impuls",
+   "content": "Oppgaveformen der to legemer treffer hverandre, eller der en kraft virker i en kort stund, og du skal finne fartene etterpå eller fartsendringen. Den forekommer i praktisk talt alle sett (~100 %) og hører til **mekanikkhalvdelen, spørsmål 1–20**. Kjeden er fast: avgjør støttypen, sett opp $\\sum m\\mathbf{v} = \\sum m\\mathbf{v}'$ med en valgt positiv retning, og regn energitapet som differansen $K_0 - K'$ hvis det spørres om den. Sjangeren har den korteste regnekjeden i mekanikkhalvdelen — og den skarpeste fellen, siden energibevaring alltid ser ut som en farbar vei."
+  },
+  {
+   "id": "tfy4115-3-3-bb-m12",
+   "type": "definition",
+   "title": "Sjanger M12 — gravitasjon, baner og rakett",
+   "content": "Oppgaveformen der et legeme går i sirkelbane rundt jorda under gravitasjonen, eller der en rakett endrer fart ved å støte ut masse. Satellittbanen forekommer i om lag 4 av 10 sett (~40 %) og raketten i om lag 2 av 10 (~20 %); begge hører til **mekanikkhalvdelen, spørsmål 1–20**. Kjeden for banen er: gravitasjonen er resultanten inn mot sentrum, $GMm/r^2 = mv^2/r$, kombinert med $v = 2\\pi r/T$. Kjeden for raketten er $\\Delta v = u\\ln(m_0/m)$. Prioritet: **bør sitte** — kompakt stoff, men det gir sikre poeng når det kommer."
+  },
+  {
+   "id": "tfy4115-3-3-bb-uelastisk",
+   "type": "definition",
+   "title": "Fullstendig uelastisk støt",
+   "content": "Et støt der legemene ender opp med **felles** fart, fordi de blir sittende sammen. Bevegelsesmengden er bevart, den kinetiske energien er det ikke:\n$$v' = \\frac{mv_0}{m+M}, \\qquad \\Delta K = K_0 - K' = \\frac{M}{m+M}\\,K_0.$$\nBetingelsen for at formelen gjelder, er nettopp at fartene er like etterpå — går kula tvers gjennom klossen, holder den ikke. Merk hvor brutal energitap-andelen er: en lett kule i en tung kloss mister nesten alt (98{,}6 prosent i kapitlets gjennomregnede case), to like masser mister halvparten, og en tung kloss mot en lett kule mister nesten ingenting. Andelen avhenger bare av masseforholdet, aldri av farten."
+  },
+  {
+   "id": "tfy4115-3-3-bb-elastisk",
+   "type": "definition",
+   "title": "Elastisk støt mot et legeme i ro",
+   "content": "Et støt der **både** bevegelsesmengden og den kinetiske energien er bevart, fordi ingenting deformeres varig. Mot et legeme i ro gir de to bevaringslovene to ferdige fartsformler:\n$$v_1' = \\frac{m-M}{m+M}\\,v_0, \\qquad v_2' = \\frac{2m}{m+M}\\,v_0.$$\nFortegnet i telleren er en retning: er $m < M$, spretter legeme 1 tilbake. Tre grensetilfeller er verdt å ha i hodet: like masser bytter fart ($v_1' = 0$), en uendelig tung vegg gir $v_1' \\to -v_0$, og en fjærlett partikkel skytes av gårde med $2v_0$. Kontrollen som fanger regnefeil på fem sekunder: den **relative** farten mellom legemene beholder tallverdien og skifter fortegn."
+  },
+  {
+   "id": "tfy4115-3-3-bb-impuls",
+   "type": "definition",
+   "title": "Impuls som areal under kraftkurven",
+   "content": "Impulsen er den samlede virkningen av en kraft over tid, og den er lik endringen i bevegelsesmengde:\n$$\\mathbf{J} = \\int \\mathbf{F}\\,dt = \\Delta\\mathbf{p} = m\\,\\Delta\\mathbf{v}.$$\nGeometrisk er impulsen **arealet** under $F(t)$-grafen, og det er slik eksamensoppgavene stiller den: en trekantpuls har arealet $\\tfrac12 F_\\text{maks}\\tau$, en trapespuls middelhøyden ganger bredden. To relasjoner følger gratis og fungerer som kontroll: middelkraften er $\\bar{F} = J/\\tau$, og for trekantpulsen er $a_\\text{maks} = F_\\text{maks}/m = 2\\Delta v/\\tau$. Gyldighetsbetingelsen er at $F$ er den **totale** kraften i den retningen du regner; er tyngden vesentlig i tidsrommet, må den med."
+  },
+  {
+   "id": "tfy4115-3-3-bb-ballistisk",
+   "type": "definition",
+   "title": "Ballistisk pendel",
+   "content": "Innretningen der en kule skytes inn i en kloss som henger i en snor, og der utslaget forteller hvor fort kula gikk. Poenget er at den krever **to ulike bevaringslover etter hverandre**:\n$$\\text{støtet (uelastisk):}\\ v' = \\frac{mv_0}{m+M}, \\qquad \\text{svingen (energi):}\\ h = \\frac{v'^2}{2g}.$$\nBaklengs, som eksamen oftest spør: $v_0 = \\frac{m+M}{m}\\sqrt{2gh}$, med $h = L(1-\\cos\\alpha)$ når utslagsvinkelen er oppgitt. Masseforholdet $(m+M)/m$ er forstørrelsen som gjør at en beskjeden pendelfart avslører en kulefart på flere hundre meter per sekund. De to fellene er å bruke energibevaring alt i støtet (gir for høy fart), og å sette $h = L\\sin\\alpha$ i stedet for $L(1-\\cos\\alpha)$."
+  },
+  {
+   "id": "tfy4115-3-3-bb-sirkelbane",
+   "type": "definition",
+   "title": "Sirkelbanens kraftbalanse og Kepler-kontrollen",
+   "content": "En satellitt i sirkelbane har bare **én** kraft på seg, gravitasjonen, og den er resultanten inn mot sentrum:\n$$\\frac{GMm}{r^2} = \\frac{mv^2}{r} = m\\omega^2 r \\quad\\Longrightarrow\\quad v = \\sqrt{\\frac{GM}{r}}, \\qquad r = \\left(\\frac{GM\\,T^2}{4\\pi^2}\\right)^{1/3}.$$\nSatellittens masse faller alltid ut — det er en god kontroll på at oppsettet er riktig. Baneradien $r$ måles fra jordas **sentrum**, så høyden over bakken er $h = r - R_\\text{jord}$. Kontrollen som avslører både regnefeil og enhetsfeil: for **alle** baner rundt jorda er $T^2/r^3 = 4\\pi^2/GM = 9{,}90\\cdot10^{-14}\\,\\text{s}^2/\\text{m}^3$, enten omløpstiden er halvannen time eller et døgn."
+  },
+  {
+   "id": "tfy4115-3-3-bb-geostasjonaer",
+   "type": "definition",
+   "title": "Geostasjonær bane",
+   "content": "Banen der satellitten står stille over samme punkt på ekvator, fordi omløpstiden er lik jordas omdreiningstid. Med $T = 24{,}0$ timer gir kraftbalansen $r = 42\\,241\\,\\text{km}$, altså $h = 35\\,870\\,\\text{km}$ over bakken, og banefarten $v = 3\\,072\\,\\text{m/s}$. Betingelsen er streng: banen må ligge i ekvatorplanet og ha nøyaktig denne radien — én bestemt høyde, ikke et intervall. Regner du med det **sideriske** døgnet ($86\\,164\\,\\text{s}$, jordas omdreining i forhold til stjernene), blir høyden $35\\,793\\,\\text{km}$; det er den verdien som brukes i praksis, mens eksamensoppgaver regner med 24 timer. Forskjellen er snaut 80 km, og ingen av tallene er en regnefeil."
+  },
+  {
+   "id": "tfy4115-3-3-bb-rakett",
+   "type": "definition",
+   "title": "Rakettligningen og skyvekraften",
+   "content": "Sammenhengen mellom fartsøkningen til en rakett og massen den brenner bort, utledet fra impulsbevarelse i et system der massen endrer seg:\n$$\\Delta v = u\\ln\\frac{m_0}{m} \\quad\\Longleftrightarrow\\quad m = m_0\\,e^{-\\Delta v/u}, \\qquad F = u\\left\\lvert\\frac{dm}{dt}\\right\\rvert.$$\nHer er $u$ **utstøtsfarten** til drivstoffet, målt relativt til raketten. Minustegnet i eksponenten er hele fortegnskontrollen: massen synker når farten øker, så en sluttmasse større enn startmassen er umulig. Logaritmen er dyr: å øke farten med én $u$ krever at $1 - e^{-1} = 63{,}2$ prosent av startmassen brennes bort, og å øke den med to $u$ krever 86,5 prosent. Nyttige tallverdier: $\\ln 2 = 0{,}693$, $\\ln 4 = 1{,}386$, $\\ln 10 = 2{,}303$."
+  },
+  {
+   "id": "tfy4115-3-3-bb-nabo",
+   "type": "definition",
+   "title": "Nabo-alternativ i støt- og banekjeden",
+   "content": "Det gale svaret som ligger tettest på det riktige, og som du havner på ved én liten slurvefeil. I Del 3 har det fire typiske former, og alle fire sto i alternativlistene i dette kapitlet: felles fart regnet med $M$ i nevneren i stedet for $m+M$ (noen tideler unna); impuls regnet som rektangel i stedet for trekant (nøyaktig dobbelt); baneradien oppgitt der høyden over bakken var spurt (én jordradius unna); og omløpstiden satt inn i timer i stedet for sekunder (en faktor 235). De tre første må du regne riktig, men den fjerde avslører seg selv — en baneradius under 6 371 km er fysisk umulig."
+  },
+  {
+   "id": "tfy4115-3-3-coll-symbolliste",
+   "type": "collapsible",
+   "title": "Symbol- og formelliste",
+   "buttonText": "Vis symboler og formler",
+   "content": [
+    {
+     "id": "tfy4115-3-3-coll-symbolliste-inn",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n**Kolliderende symboler i dette delkapitlet.** $p$ er **bevegelsesmengde** i kilogram meter per sekund (i termodelen, Del 6–11, betyr $p$ trykk). $T$ er en **omløpstid** i sekunder (i termodelen: absolutt temperatur i kelvin). $R_\\text{jord}$ er en **radius** i meter (i termodelen er $R$ gasskonstanten eller en termisk motstand). $u$ er rakettens **utstøtsfart**, ikke en generell fart. Symbolet $S$ opptrer ikke i dette kapitlet.\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $m$, $M$ | Massen til legeme 1 og legeme 2 | kg |\n| $v_0$ | Fart før støtet | m/s |\n| $v_1'$, $v_2'$ | Fartene etter et elastisk støt | m/s |\n| $v'$ | Felles fart etter et fullstendig uelastisk støt | m/s |\n| $\\mathbf{p}$, $p$ | Bevegelsesmengde, $\\mathbf{p} = m\\mathbf{v}$ | $\\text{kg}\\cdot\\text{m/s}$ |\n| $\\mathbf{J}$, $J$ | Impuls, $\\mathbf{J} = \\Delta\\mathbf{p}$ | $\\text{N}\\cdot\\text{s}$ |\n| $F(t)$, $F_\\text{maks}$ | Kraft som funksjon av tiden; toppkraften i en puls | N |\n| $\\bar{F}$ | Middelkraft over pulsen, $J/\\tau$ | N |\n| $\\tau$ | Varigheten av en kraftpuls eller en kontakt | s |\n| $a_\\text{maks}$ | Største akselerasjon, $F_\\text{maks}/m$ | $\\text{m/s}^2$ |\n| $K_0$, $K'$ | Kinetisk energi før og etter støtet | J |\n| $\\Delta K$ | Tapt kinetisk energi, $K_0 - K'$ | J |\n| $h$ | Høyden klossen svinger opp i en ballistisk pendel | m |\n| $L$ | Snorlengde i pendelen | m |\n| $\\alpha$ | Utslagsvinkel fra loddlinjen | grader |\n| $g$ | Tyngdeakselerasjonen, $9{,}81\\,\\text{m/s}^2$ | $\\text{m/s}^2$ |\n| $G$ | Gravitasjonskonstanten, $6{,}674\\cdot10^{-11}$ | $\\text{N}\\cdot\\text{m}^2/\\text{kg}^2$ |\n| $GM$ | Produktet for jorda, $3{,}986\\cdot10^{14}$ | $\\text{m}^3/\\text{s}^2$ |\n| $R_\\text{jord}$ | Jordradien, $6{,}371\\cdot10^6\\,\\text{m}$ | m |\n| $r$ | Baneradius, målt fra jordas sentrum | m |\n| $T$ | Omløpstid | s |\n| $\\omega$ | Vinkelfart i banen, $2\\pi/T$ | rad/s |\n| $u$ | Rakettens utstøtsfart, relativt til raketten | m/s |\n| $m_0$ | Rakettens startmasse | kg |\n| $\\lvert dm/dt\\rvert$ | Massestrøm ut av motoren | kg/s |\n\n**Formler i dette delkapitlet:**\n\n$$\\mathbf{p} = m\\mathbf{v}, \\qquad \\frac{d\\mathbf{p}}{dt} = \\mathbf{F}, \\qquad \\mathbf{J} = \\Delta\\mathbf{p} = \\int \\mathbf{F}\\,dt$$\nBevegelsesmengde, Newtons 2. lov i impulsform og impulsen [står på det utdelte arket].\n\n$$\\sum m\\mathbf{v} = \\sum m\\mathbf{v}' \\quad (\\text{ingen ytre kraft i støtøyeblikket})$$\nImpulsbevarelsen — grunnlaget for hele sjanger M6 [må kunne brukes eller utledes aktivt].\n\n$$v' = \\frac{mv_0}{m+M}, \\qquad \\Delta K = \\tfrac12\\,\\frac{mM}{m+M}\\,v_0^2 = \\frac{M}{m+M}\\,K_0$$\nFullstendig uelastisk støt mot et legeme i ro, og energitapet [må kunne brukes eller utledes aktivt].\n\n$$v_1' = \\frac{m-M}{m+M}\\,v_0, \\qquad v_2' = \\frac{2m}{m+M}\\,v_0$$\nElastisk støt mot et legeme i ro [må kunne brukes eller utledes aktivt].\n\n$$J_\\text{trekant} = \\tfrac12 F_\\text{maks}\\,\\tau, \\qquad \\bar{F} = \\frac{J}{\\tau}, \\qquad a_\\text{maks} = \\frac{F_\\text{maks}}{m} = \\frac{2\\Delta v}{\\tau}$$\nTrekantpulsen: areal, middelkraft og toppakselerasjon [må kunne brukes eller utledes aktivt].\n\n$$v_0 = \\frac{m+M}{m}\\sqrt{2gh}, \\qquad h = L(1-\\cos\\alpha)$$\nDen ballistiske pendelen baklengs, og geometrien for utslaget [må kunne brukes eller utledes aktivt]. Den trigonometriske omformingen slås opp i [Rottmann].\n\n$$F = \\frac{GmM}{r^2}, \\qquad \\frac{GMm}{r^2} = \\frac{mv^2}{r} = m\\omega^2 r$$\nGravitasjonsloven og kraftbalansen i sirkelbane. Gravitasjonsloven og konstantene $G$ og $g$ [står på det utdelte arket]; kraftbalansen [må kunne brukes eller utledes aktivt].\n\n$$v = \\sqrt{\\frac{GM}{r}}, \\qquad T = \\frac{2\\pi r}{v}, \\qquad r = \\left(\\frac{GM\\,T^2}{4\\pi^2}\\right)^{1/3}$$\nBanefart, omløpstid og baneradius [må kunne brukes eller utledes aktivt].\n\n$$\\frac{T^2}{r^3} = \\frac{4\\pi^2}{GM} = 9{,}90\\cdot10^{-14}\\,\\text{s}^2/\\text{m}^3 \\quad (\\text{jorda})$$\nKepler-kontrollen for alle baner rundt jorda [må kunne brukes eller utledes aktivt].\n\n$$\\Delta v = u\\ln\\frac{m_0}{m}, \\qquad m = m_0e^{-\\Delta v/u}, \\qquad F = u\\left\\lvert\\frac{dm}{dt}\\right\\rvert$$\nRakettligningen og skyvekraften [må kunne brukes eller utledes aktivt]. Logaritmereglene [Rottmann].\n\n$$e^{-1} = 0{,}36788, \\qquad \\ln 2 = 0{,}69315, \\qquad \\ln 4 = 1{,}38629, \\qquad 3600^{2/3} = 235{,}0$$\nTallverdier du bruker i nesten hver oppgave [Rottmann eller kalkulator]."
+    }
+   ]
+  },
+  {
+   "id": "tfy4115-3-3-coll-repetisjon",
+   "type": "collapsible",
+   "title": "Repetisjonsoppgaver",
+   "buttonText": "Vis repetisjonsoppgaver",
+   "content": [
+    {
+     "id": "tfy4115-3-3-coll-rep-inn",
+     "type": "text",
+     "content": "Fem korte oppgaver til oppvarming eller etterkontroll. De tar to minutter hver og treffer nøyaktig de fem stedene oppgavene over pleier å gå galt.\n\n**R1.** En kule med masse $m$ og fart $v_0$ blir sittende fast i en kloss med masse $M = 9m$ i ro. Hvor stor andel av den kinetiske energien går tapt?\n\n*Svar:* $M/(m+M) = 9m/10m = 90$ prosent. Massen faller ut, og farten spiller ingen rolle — andelen avhenger **bare** av masseforholdet. Felles fart blir $v_0/10$.\n\n**R2.** En kule med masse $m$ treffer elastisk en kloss med masse $M = 4m$ i ro. Hva blir fortegnet på kulas fart etterpå, og hvor stor er den?\n\n*Svar:* $v_1' = \\frac{m-4m}{5m}v_0 = -0{,}600\\,v_0$ — **negativ**, altså sprett tilbake, siden kula er lettest. Klossen får $v_2' = \\frac{2m}{5m}v_0 = 0{,}400\\,v_0$. Kontroll: relativ fart etter er $0{,}400v_0 - (-0{,}600v_0) = v_0$, samme tallverdi som før. ✔\n\n**R3.** En kraftpuls har form som en trekant med toppverdi $200\\,\\text{N}$ og varighet $0{,}0300\\,\\text{s}$. Hvor stor er impulsen, og hvor stor er middelkraften?\n\n*Svar:* $J = \\tfrac12 \\cdot 200 \\cdot 0{,}0300\\,\\text{N}\\cdot\\text{s} = 3{,}00\\,\\text{N}\\cdot\\text{s}$, og $\\bar{F} = J/\\tau = 100\\,\\text{N}$, altså halve toppkraften. Regner du arealet som rektangel, får du $6{,}00\\,\\text{N}\\cdot\\text{s}$ — dobbelt så mye.\n\n**R4.** En ball treffer gulvet med $8{,}00\\,\\text{m/s}$ og forlater det med $5{,}00\\,\\text{m/s}$ oppover. Hvor stor er fartsendringen i tallverdi?\n\n*Svar:* $13{,}00\\,\\text{m/s}$, ikke $3{,}00\\,\\text{m/s}$. Fartsretningen snudde, så tallverdiene legges sammen. Dette er kapitlets billigste poeng og den feilen som koster oftest.\n\n**R5.** En satellitt har omløpstid $3{,}00$ timer. Hva er det **første** du gjør, og hva er den raskeste kontrollen på svaret ditt?\n\n*Svar:* Gjør om til sekunder: $3{,}00 \\cdot 3\\,600 = 10\\,800\\,\\text{s}$. Deretter $r = (GM\\,T^2/4\\pi^2)^{1/3} = 10\\,560\\,\\text{km}$, altså $4\\,189\\,\\text{km}$ over bakken. Kontrollen er Kepler: $T^2/r^3$ skal bli $9{,}90\\cdot10^{-14}\\,\\text{s}^2/\\text{m}^3$ — og baneradien skal ligge mellom 6 371 km (jordoverflaten) og 42 241 km (geostasjonær), siden omløpstiden er kortere enn et døgn."
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}

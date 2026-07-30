@@ -96,6 +96,7 @@ export const INSTITUSJONER: Institusjon[] = [
     image: '/images/institusjoner/ntnu.webp',
       imageHero: '/images/institusjoner/ntnu-hero.webp',
     subjects: [
+      { courseId: 'tfy4115', name: 'TFY4115 Fysikk', icon: '🌡️', color: 'from-slate-500 to-slate-700' },
       { courseId: 'ma1301', name: 'MA1301 Tallteori', icon: '🔢', color: 'from-slate-500 to-slate-700' },
       { courseId: 'tma4135', name: 'TMA4135 Matematikk 4D', icon: '∫', color: 'from-slate-500 to-slate-700' },
       { courseId: 'tdt4110', name: 'TDT4110 Informasjonsteknologi grunnkurs', icon: '🐍', color: 'from-slate-500 to-slate-700' },

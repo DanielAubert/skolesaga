@@ -1,0 +1,381 @@
+{
+ "id": "tfy4115-9-3",
+ "courseId": "tfy4115",
+ "chapterNumber": "9.3",
+ "title": "Drill: varmeledning og stråling (sjanger T9–T10)",
+ "description": "Sjangerdrill: seriekoblede termiske motstander og $\\sigma T^4$-balanse raskt mot tallsvar — med fjerde-potens- og motstands-disiplin.",
+ "estimatedMinutes": 80,
+ "competenceGoals": [
+  "avgjøre på få sekunder om en oppgave er varmeledning eller stråling, og velge formelfamilie deretter",
+  "summere termiske motstander i serie og parallell i eksamenstempo, med alle tykkelser i meter",
+  "regne netto stråling, platebalanse og Wien med alle temperaturer i kelvin og riktig fjerde-potens-form",
+  "kjenne igjen hvilken konkret feil hvert galt svaralternativ er bygget på, og bruke størrelsesorden til å stryke alternativer"
+ ],
+ "content": [
+  {
+   "id": "tfy4115-9-3-tip-eksamensvinkel",
+   "type": "tip",
+   "title": "Eksamensvinkel",
+   "content": "**Dette kapitlet drillet to sjangre samtidig.** **Sjanger T9 — varmeledningsoppgaven, altså varmestrøm gjennom en sammensatt vegg — i om lag 8 av 10 sett (~80 %).** **Sjanger T10 — strålingsoppgaven, altså utstrålt eller netto effekt, platebalanse eller Wien — i om lag 7 av 10 sett (~70 %).** Begge hører til **termofysikkhalvdelen, spørsmål 21–40**. Prioritet: **høyeste — dette må sitte.**\n\nDe to sjangrene deles ofte i samme sett, og noen ganger i samme spørsmålsklynge: en yttervegg som taper varme ved ledning, en ovn som stråler i rommet. Da er det avgjørende å holde de to formelfamiliene adskilt — for **den ene er lineær i temperaturdifferansen og den andre går som fjerde potens av den absolutte temperaturen.**\n\n**Dette kapitlet er en treningsbank, ikke en begrepsbank.** Teorien står i [kap. 9.1](/tfy4115/tfy4115-9-1) og [kap. 9.2](/tfy4115/tfy4115-9-2); her handler alt om **tempo og disiplin**. Fjorten oppgaver, fem av dem i **eksamensformat med seks alternativer A til F**, resten i åpen form.\n\n**Tidsbudsjett:** regn med $80$ minutter for hele kapitlet, fordelt på fire økter med pausepunkter. Én økt per kveld er trygt.\n\n**De fire feilene som avgjør denne bolken:** (1) **millimeter i stedet for meter** i ledningsdelen — en faktor 1000; (2) **$1/h$ mot $\\ell/\\kappa$** — varmeovergang har ingen tykkelse; (3) **celsius i strålingsdelen** — der $T^4$ er absolutt; (4) **$(T-T_\\text{omg})^4$ i stedet for $T^4 - T_\\text{omg}^4$** — kapitlets grovste feil, og i det gjennomregnede caset under er den en faktor $293$.\n\n## ⚠ Symbolvarsel og den ene regelen som skifter\n\n$R_\\text{term}$ er **termisk motstand** i $\\text{K/W}$ — ikke gasskonstanten, ikke en radius. $e$ er **emissivitet**, under 1 — ikke effektfaktoren $\\varepsilon$ fra [kap. 8.2](/tfy4115/tfy4115-8-2), som er over 1. $\\kappa$ er varmeledningsevne, $\\sigma$ Stefan–Boltzmanns konstant, $b$ Wien-konstanten.\n\n**Og den ene regelen som skifter midt i kapitlet:** i **ledningsdelen** er celsius trygt, fordi bare temperaturdifferanser inngår. I **strålingsdelen** er celsius katastrofalt, fordi $T^4$ er absolutt. Skriv om alt til kelvin, og du kan aldri ta feil."
+  },
+  {
+   "id": "tfy4115-9-3-forkunnskaper",
+   "type": "text",
+   "content": "## Forkunnskaper — sist du var her\n\nAlt du trenger står i [kap. 9.1](/tfy4115/tfy4115-9-1) og [kap. 9.2](/tfy4115/tfy4115-9-2). Her er hele verktøykassa samlet på én skjerm, slik at du kan lukke den og prøve deg først:\n\n**Varmeledning:**\n$$j = \\kappa\\frac{\\Delta T}{\\ell}, \\qquad P = jA = \\frac{\\Delta T}{R_\\text{term}}, \\qquad R_\\text{term} = \\frac{\\ell}{\\kappa A}$$\n\n$$R = \\sum_j \\frac{\\ell_j}{\\kappa_j} + \\sum \\frac{1}{h} \\quad\\text{(serie, per m}^2), \\qquad U = \\frac{1}{R}$$\n\n$$\\frac{\\Delta T_j}{\\Delta T} = \\frac{R_j}{R}, \\qquad T = T_\\text{inne} - jR_\\text{delvis}$$\n\n$$P = \\left(\\sum_j U_jA_j\\right)\\Delta T \\quad\\text{(parallell)}$$\n\n**Varmestråling:**\n$$P = e\\sigma AT^4, \\qquad P_\\text{netto} = e\\sigma A\\left(T^4 - T_\\text{omg}^4\\right)$$\n\n$$T_2 = \\left(\\frac{T_1^4+T_3^4}{2}\\right)^{1/4}, \\qquad j_n = \\frac{j_0}{n+1}, \\qquad j_0 = \\sigma(T_1^4-T_3^4)$$\n\n$$\\lambda_\\text{maks} = \\frac{b}{T}$$\n\n**Konstanter og verdier:**\n$$\\sigma = 5{,}670\\cdot10^{-8}\\,\\text{W/(m}^2\\cdot\\text{K}^4), \\qquad b = 2{,}898\\cdot10^{-3}\\,\\text{m}\\cdot\\text{K}$$\n\n| Materiale | $\\kappa$ | | Flate | $e$ |\n|---|---|---|---|---|\n| Mineralull | $0{,}037$ | | Svart maling | $0{,}95$ |\n| Trepanel | $0{,}13$ | | Hud | $0{,}97$ |\n| Gips | $0{,}22$ | | Murpuss | $0{,}90$ |\n| Betong | $1{,}4$ | | Blank aluminium | $0{,}05$ |\n\nTypisk $h_i \\approx 8\\,\\text{W/(m}^2\\cdot\\text{K)}$ og $h_u \\approx 25\\,\\text{W/(m}^2\\cdot\\text{K)}$.\n\n**Behold fire gjeldende siffer gjennom hele regnekjeden** — og i strålingsdelen ekstra nøye, siden fjerde potens forsterker relative feil fire ganger."
+  },
+  {
+   "id": "tfy4115-9-3-th-oppskrift",
+   "type": "theorem",
+   "title": "Løsningsoppskrift — rask vei til tall (MC-oppskrift) i seks trinn",
+   "content": "Dette er algoritmen du skal kjøre uten å tenke, fra oppgitte tall til bokstavsvar.\n\n**1. Ledning eller stråling?** Ord som «vegg», «sjikt», «isolasjon», «$\\kappa$», «U-verdi» → **ledning**. Ord som «stråler», «emissivitet», «vakuum», «bølgelengde», «plate mellom» → **stråling**. Noen oppgaver har begge; da behandler du dem hver for seg og legger sammen effektene til slutt.\n\n**2. Skriv om enhetene FØRST.** Ledning: alle tykkelser i **meter**. Stråling: alle temperaturer i **kelvin**. Dette ene trinnet fjerner de to hyppigste feilene i bolken.\n\n**3a. Ledning: skriv hver motstand ned som eget mellomresultat.** Sjikt: $\\ell/\\kappa$. Film: $1/h$. Summer til $R$. Deretter $j = \\Delta T/R$ og $U = 1/R$. Ligger felt ved siden av hverandre, summer $UA$ i stedet.\n\n**3b. Stråling: skriv faktoren $e\\sigma A$ og hver fjerdepotens ned som egne mellomresultater.** Deretter én multiplikasjon. For platebalanse: legg sammen fjerdepotensene, del på 2, ta kvadratrota **to ganger**.\n\n**4. Les hva som spørres om.** Fluks ($\\text{W/m}^2$) eller effekt (W)? Utstrålt eller netto? Grenseflatetemperatur eller totalt fall? Dette ene trinnet er verdt flere poeng enn all regningen.\n\n**5. Regn svaret.**\n\n**6. Sluttsjekk, fem ledd.** (i) Enheter: meter i ledning, kelvin i stråling. (ii) Ledning: summerer temperaturfallene til det totale? (iii) Ledning: er U-verdien i rimelig område ($0{,}10$–$0{,}30$ for en vegg)? (iv) Stråling: er formen $T^4-T_\\text{omg}^4$, og er $P_\\text{netto} < P_\\text{ut}$? (v) Platebalanse: ligger svaret mellom reservoarene og over det aritmetiske snittet?"
+  },
+  {
+   "id": "tfy4115-9-3-fig-veggfilm",
+   "type": "image",
+   "src": "/images/textbook/tfy4115/tfy4115-9-3-vegg-film.svg",
+   "alt": "Oeverst en rekke med fire sjikt tegnet ved siden av hverandre, med bredde som avspeiler termisk motstand: film inne med 0 komma 125, gips med 0 komma 0591, mineralull med 5 komma 4054 og film ute med 0 komma 04, alle i kvadratmeterkelvin per watt. Inne er 21 komma 0 grader, ute minus 8 komma 0. Nederst en graf med temperatur mot posisjon som viser fire rette linjestykker med ulik bratthet, med merkede temperaturer 20 komma 4 grader etter den indre filmen, 20 komma 1 grader etter gipsen og minus 7 komma 8 grader foer den ytre filmen.",
+   "caption": "Veggen i det gjennomregnede MC-caset: fire motstander i serie, og en temperaturprofil som knekker i hver grenseflate. Filmmotstandene tar bare ${N(andel_film*100,1)}$ prosent av fallet, men de flytter overflatetemperaturene — og det er de som avgjør om det blir kondens."
+  },
+  {
+   "id": "tfy4115-9-3-ex-mc-case",
+   "type": "example",
+   "title": "Gjennomregnet MC-case: ledning og stråling i eksamenstempo — med margnotater",
+   "problem": "Fire flervalgsspørsmål av den typen som kommer på eksamen, to fra hver sjanger.\n\n**Spørsmål 1.** En yttervegg har film inne ($h_i = 8{,}00$), $13\\,\\text{mm}$ gips ($\\kappa = 0{,}220$), $200\\,\\text{mm}$ mineralull ($\\kappa = 0{,}037$) og film ute ($h_u = 25{,}0$), alle i SI-enheter. Inne $21{,}0\\,^\\circ\\text{C}$, ute $-8{,}0\\,^\\circ\\text{C}$. Hva er U-verdien?\n\n**A** $5{,}6295$ · **B** $0{,}1830$ · **C** $0{,}1776$ · **D** $6{,}061$ · **E** $0{,}000178$ · **F** $17{,}11$\n\n**Spørsmål 2.** Samme vegg. Hva er temperaturen på veggflaten inne?\n\n**A** $21{,}00\\,^\\circ\\text{C}$ · **B** $20{,}36\\,^\\circ\\text{C}$ · **C** $20{,}05\\,^\\circ\\text{C}$ · **D** $6{,}28\\,^\\circ\\text{C}$ · **E** $-7{,}79\\,^\\circ\\text{C}$ · **F** $-8{,}00\\,^\\circ\\text{C}$\n\n**Spørsmål 3.** En ovnsflate på $1{,}00\\,\\text{m}^2$ med emissivitet $0{,}90$ holder $100{,}0\\,^\\circ\\text{C}$ i et rom på $20{,}0\\,^\\circ\\text{C}$. Hva er netto utstrålt effekt?\n\n**A** $2{,}090\\,\\text{W}$ · **B** $680{,}6\\,\\text{W}$ · **C** $989{,}4\\,\\text{W}$ · **D** $612{,}5\\,\\text{W}$ · **E** $5{,}095\\,\\text{W}$ · **F** $0{,}0000\\,\\text{W}$\n\n**Spørsmål 4.** Ved hvilken bølgelengde stråler ovnsflaten mest?\n\n**A** $7{,}766\\,\\mu\\text{m}$ · **B** $28{,}980\\,\\mu\\text{m}$ · **C** $0{,}1288\\,\\mu\\text{m}$ · **D** $9{,}886\\,\\mu\\text{m}$ · **E** $7766{,}3\\,\\mu\\text{m}$ · **F** $1081388{,}7\\,\\mu\\text{m}$",
+   "solution": "**Spørsmål 1: svar C.**\n\n*Margnotat — hvilken lov?* Ledning, fire motstander i serie. Og det avgjørende: **film er $1/h$, sjikt er $\\ell/\\kappa$.**\n\n*Margnotat — trinn 2: enheter først.* Tykkelsene i meter: $0{,}0130$ og $0{,}200\\,\\text{m}$.\n\n*Margnotat — trinn 3a: hver motstand som eget mellomresultat.*\n$$R_{f,i} = \\frac{1}{8{,}00} = 0{,}1250, \\quad R_1 = \\frac{0{,}0130}{0{,}220} = 0{,}05909, \\quad R_2 = \\frac{0{,}200}{0{,}037} = 5{,}4054, \\quad R_{f,u} = \\frac{1}{25{,}0} = 0{,}0400,$$\n$$R = 5{,}6295\\,\\text{K}\\cdot\\text{m}^2/\\text{W}, \\qquad U = \\frac{1}{5{,}6295} = 0{,}1776\\,\\text{W/(m}^2\\cdot\\text{K)}.$$\n\n*Margnotat — hva hentes hvor?* $R = \\ell/(\\kappa A)$, $R_\\text{film} = 1/(hA)$ og $\\kappa$-verdiene **står på det utdelte arket**. Det som **må kunne aktivt**, er at motstandene summeres.\n\n*Margnotat — fellene.* **A** er MOTSTANDEN, ikke U-verdien — de har ulik enhet og forveksles hyppig. **B** har utelatt filmene. **D** har bare filmene. **E** har regnet med tykkelsene i millimeter. **F** har lagt sammen $\\kappa/\\ell$ for sjiktene, altså brukt parallellformelen på sjikt i serie.\n\n*Margnotat — sluttsjekken, fem sekunder.* En moderne yttervegg har $U$ mellom $0{,}15$ og $0{,}25$. Det stryker **A**, **D**, **E** og **F** umiddelbart.\n\n— naturlig pausepunkt —\n\n**Spørsmål 2: svar B.**\n\n*Margnotat — hvilken lov, og hvor poengene faller.* Veggflaten inne ligger **etter** den indre filmmotstanden, sett fra romluften. Derfor er\n$$T_\\text{flate} = T_i - jR_{f,i}, \\qquad j = \\frac{\\Delta T}{R} = \\frac{29{,}0}{5{,}6295} = 5{,}1514\\,\\text{W/m}^2,$$\n$$T_\\text{flate} = 21{,}0 - 5{,}1514 \\cdot 0{,}1250 = 21{,}0 - 0{,}6439 = 20{,}356\\,^\\circ\\text{C}.$$\n\n*Margnotat — hvor mange siffer?* Fire i $j$. Fallet over filmen er bare $0{,}64\\,\\text{K}$, så runder du $j$ til to siffer, flytter du andre desimal i svaret.\n\n*Margnotat — fellene.* **A** er romlufttemperaturen, altså filmmotstanden glemt — den mest utbredte feilen her, og den gjør spørsmålet meningsløst. **C** er grenseflaten mellom gips og ull. **E** er ytterflaten. **F** er utetemperaturen, altså både filmen ute og hele veggen glemt. **D** er middelverdien av inne- og ytterflaten.\n\n*Margnotat — sluttsjekken.* Svaret må ligge litt UNDER romtemperaturen, men bare litt — filmmotstanden er $2,2$ prosent av totalen, så fallet er $2,2$ prosent av $29\\,\\text{K}$ ✔.\n\n**Spørsmål 3: svar D.**\n\n*Margnotat — hvilken lov?* Stråling, netto. Og trinn 2 FØRST: **kelvin**. $100{,}0\\,^\\circ\\text{C} = 373{,}15\\,\\text{K}$ og $20{,}0\\,^\\circ\\text{C} = 293{,}15\\,\\text{K}$.\n\n*Margnotat — trinn 3b: faktoren og potensene som egne mellomresultater.*\n$$e\\sigma A = 0{,}90 \\cdot 5{,}670\\cdot10^{-8} \\cdot 1{,}00 = 5{,}1030\\cdot10^{-8},$$\n$$T^4 = 19{,}3880\\cdot10^{9}, \\qquad T_\\text{omg}^4 = 7{,}3852\\cdot10^{9}, \\qquad \\text{differanse} = 12{,}0029\\cdot10^{9}\\,\\text{K}^4,$$\n$$P_\\text{netto} = 612{,}5\\,\\text{W}.$$\n\n*Margnotat — fellene, og den grovste av dem.* **A** er $(T-T_\\text{omg})^4$ i stedet for $T^4-T_\\text{omg}^4$ — en faktor **$293$** for lite, og kapitlets signaturfeil. **E** er celsius satt inn i fjerdepotensene. **C** er den UTSTRÅLTE effekten uten absorpsjonsleddet. **B** har glemt emissiviteten. **F** er lineært i temperaturdifferansen.\n\n*Margnotat — sluttsjekken, ti sekunder.* En ovnsflate på $100\\,^\\circ\\text{C}$ over en kvadratmeter stråler i hundrevis av watt. Det stryker **A**, **E** og **F** på fem sekunder — alle tre gir absurd små tall, og det er nettopp kjennetegnet på formfeilene i denne sjangeren.\n\n— naturlig pausepunkt —\n\n**Spørsmål 4: svar A.**\n\n*Margnotat — hvilken lov?* Wien, og igjen **kelvin**.\n$$\\lambda_\\text{maks} = \\frac{b}{T} = \\frac{2{,}898\\cdot10^{-3}}{373{,}15}\\,\\text{m} = 7{,}766\\,\\mu\\text{m}.$$\n\n*Margnotat — fellene.* **B** bruker celsius i nevneren. **D** bruker romtemperaturen i stedet for flatens. **C** har snudd brøken. **E** er svaret i nanometer, oppgitt med enheten mikrometer. **F** har multiplisert i stedet for å dividere.\n\n*Margnotat — sluttsjekken.* Wien gir kortere bølgelengde ved høyere temperatur, så ovnsflaten på $373\\,\\text{K}$ må ha KORTERE $\\lambda$ enn rommet på $293\\,\\text{K}$ ✔ — det stryker **D** og **B** straks. Og $7{,}8\\,\\mu\\text{m}$ ligger i det infrarøde, som det skal for en flate som ikke gløder."
+  },
+  {
+   "id": "tfy4115-9-3-okt2",
+   "type": "text",
+   "content": "## Økt 2 — varmeledning (~24 min)\n\nFem oppgaver. **Skriv alltid hver motstand ned som eget mellomresultat**, og hold $1/h$ og $\\ell/\\kappa$ adskilt."
+  },
+  {
+   "id": "tfy4115-9-3-o-1",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-9-3-oppg-1",
+    "number": 1,
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Sjanger T9 — varmeledningsoppgaven, A–F-format.) Et mineralullsjikt er $240\\,\\text{mm}$ tykt og har $\\kappa = 0{,}042\\,\\text{W/(m}\\cdot\\text{K)}$. Hva er den termiske motstanden per kvadratmeter, i $\\text{K}\\cdot\\text{m}^2/\\text{W}$?\n\n**A** $0{,}1750$ · **B** $0{,}01008$ · **C** $5{,}7143$ · **D** $5714{,}3$ · **E** $99{,}21$ · **F** $0{,}000175$",
+    "solution": "**Svar: C.**\n\n$$R = \\frac{\\ell}{\\kappa} = \\frac{0{,}240\\,\\text{m}}{0{,}042} = 5{,}7143\\,\\text{K}\\cdot\\text{m}^2/\\text{W}.$$\n\n*Fellene, hver regnet fram fra sin feil:* **D** har brukt tykkelsen i **millimeter** — en faktor 1000, og bolkens vanligste feil. **A** er brøken snudd, altså U-verdien for sjiktet. **B** har multiplisert i stedet for å dividere. **E** er den inverse av **B**. **F** er **A** med millimeter.\n\n*Sluttsjekk:* $240\\,\\text{mm}$ mineralull er et tykt isolasjonssjikt, og et slikt gir R-verdi i området $5$–$7$. Det stryker fire alternativer på fem sekunder. Enhetskontroll: meter delt på $\\text{W/(m}\\cdot\\text{K)}$ gir $\\text{K}\\cdot\\text{m}^2/\\text{W}$ ✔.",
+    "hints": [
+     "Gjør om millimeter til meter FØR du regner.",
+     "$R = \\ell/\\kappa$ — sjekk enheten på svaret."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-9-3-o-2",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-9-3-oppg-2",
+    "number": 2,
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger T9.) En yttervegg har film inne ($h_i = 7{,}50$), $22{,}0\\,\\text{mm}$ trepanel ($\\kappa = 0{,}140$), $180\\,\\text{mm}$ isolasjon ($\\kappa = 0{,}040$) og film ute ($h_u = 20{,}0$), i SI-enheter. Inne $22{,}0\\,^\\circ\\text{C}$, ute $-14{,}0\\,^\\circ\\text{C}$.\n\n**a)** Finn samlet motstand og varmefluks.\n\n**b)** Finn temperaturen på veggflaten inne.\n\n**c)** Finn temperaturen i grenseflaten mellom panel og isolasjon.",
+    "solution": "**a)** Hver motstand som eget mellomresultat:\n$$R_{f,i} = \\frac{1}{7{,}50} = 0{,}1333, \\quad R_a = \\frac{0{,}0220}{0{,}140} = 0{,}15714, \\quad R_b = \\frac{0{,}180}{0{,}040} = 4{,}5000, \\quad R_{f,u} = \\frac{1}{20{,}0} = 0{,}0500,$$\n$$R = 4{,}8405\\,\\text{K}\\cdot\\text{m}^2/\\text{W}, \\qquad j = \\frac{36{,}0}{4{,}8405} = 7{,}4373\\,\\text{W/m}^2.$$\n\n**b)**\n$$T_\\text{flate} = 22{,}0 - 7{,}4373 \\cdot 0{,}1333 = 22{,}0 - 0{,}9916 = 21{,}008\\,^\\circ\\text{C}.$$\n\n**c)**\n$$T_\\text{grenseflate} = 21{,}008 - 7{,}4373 \\cdot 0{,}15714 = 19{,}840\\,^\\circ\\text{C}.$$\n\n**Sluttsjekk, tre ledd.** (i) Alle fire fall summerer til $36{,}0\\,\\text{K}$ ✔. (ii) Kontroll fra motsatt side: ytterflaten er $T_u + jR_{f,u} = -14{,}0 + 0{,}3719 = -13{,}628\\,^\\circ\\text{C}$, og innenfra $T_\\text{grenseflate} - jR_b = 19{,}840 - 33{,}468 = -13{,}628\\,^\\circ\\text{C}$ ✔ — samme svar. (iii) $U = 1/4{,}840 = 0{,}2066$, i rimelig område ✔.\n\nLegg merke til at U-verdien er dårligere her enn i MC-caset ($0{,}207$ mot $0{,}178$): mindre isolasjon ($180$ mot $200\\,\\text{mm}$) og litt dårligere $\\kappa$.",
+    "hints": [
+     "Film er $1/h$, sjikt er $\\ell/\\kappa$ — hold dem adskilt.",
+     "Veggflaten inne ligger etter den indre filmmotstanden.",
+     "Kontroller ved å regne en temperatur fra begge sider."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-9-3-o-3",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-9-3-oppg-3",
+    "number": 3,
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Sjanger T9, A–F-format.) En vegg har $15{,}0\\,\\text{mm}$ med $\\kappa = 0{,}190$ og $220\\,\\text{mm}$ med $\\kappa = 0{,}039\\,\\text{W/(m}\\cdot\\text{K)}$. Hva er U-verdien i $\\text{W/(m}^2\\cdot\\text{K)}$?\n\n**A** $5{,}7200$ · **B** $0{,}1773$ · **C** $12{,}84$ · **D** $0{,}1748$ · **E** $0{,}000175$ · **F** $12{,}667$",
+    "solution": "**Svar: D.**\n\n$$R = \\frac{0{,}0150}{0{,}190} + \\frac{0{,}220}{0{,}039} = 0{,}07895 + 5{,}6410 = 5{,}7200, \\qquad U = \\frac{1}{5{,}7200} = 0{,}1748.$$\n\n*Fellene:* **A** er motstanden, ikke U-verdien. **B** har utelatt det tynne sjiktet, **F** det tykke. **C** har lagt sammen $\\kappa/\\ell$, altså brukt parallellformelen på sjikt i serie. **E** har regnet med millimeter.\n\n*Sluttsjekk:* U-verdien for en vegg ligger mellom $0{,}10$ og $0{,}30$. Det stryker **A**, **C**, **E** og **F**, og av de to som står igjen mangler **B** ett sjikt.",
+    "hints": [
+     "Regn hver motstand $\\ell/\\kappa$ først, med tykkelsen i meter.",
+     "U-verdien er den inverse av den samlede motstanden."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-9-3-o-4",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-9-3-oppg-4",
+    "number": 4,
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger T9.) En vegg har tre sjikt: $15{,}0\\,\\text{mm}$ gips ($\\kappa = 0{,}210$), $150\\,\\text{mm}$ isolasjon ($\\kappa = 0{,}038$) og $90{,}0\\,\\text{mm}$ betong ($\\kappa = 1{,}30$), i SI-enheter. Inne $23{,}0\\,^\\circ\\text{C}$, ute $-11{,}0\\,^\\circ\\text{C}$. Se bort fra varmeovergang.\n\n**a)** Finn samlet motstand og varmefluks.\n\n**b)** Finn temperaturene i de to grenseflatene.\n\n**c)** Hvor stor del av temperaturfallet ligger i hvert sjikt?",
+    "solution": "**a)**\n$$R_1 = 0{,}07143, \\qquad R_2 = 3{,}9474, \\qquad R_3 = 0{,}06923, \\qquad R = 4{,}0880\\,\\text{K}\\cdot\\text{m}^2/\\text{W},$$\n$$j = \\frac{34{,}0}{4{,}0880} = 8{,}3170\\,\\text{W/m}^2.$$\n\n**b)**\n$$T_1 = 23{,}0 - 8{,}3170 \\cdot 0{,}07143 = 22{,}406\\,^\\circ\\text{C}, \\qquad T_2 = 22{,}406 - 8{,}3170 \\cdot 3{,}9474 = -10{,}424\\,^\\circ\\text{C}.$$\nKontroll: $T_2 - jR_3 = -10{,}424 - 0{,}5758 = -11{,}00\\,^\\circ\\text{C}$, altså utetemperaturen ✔.\n\n**c)**\n$$\\frac{R_1}{R} = 0{,}01747, \\qquad \\frac{R_2}{R} = 0{,}96559, \\qquad \\frac{R_3}{R} = 0{,}01694,$$\naltså $1,75$, $96,56$ og $1,69$ prosent.\n\n**Sluttsjekk:** de tre andelene summerer til 100 prosent ✔, og isolasjonen tar over $97$ prosent — det vanlige mønsteret. Legg merke til at gipsen og betongen tar omtrent LIKE store andeler, selv om betongen er seks ganger tykkere: betongen leder $6{,}2$ ganger bedre, og de to effektene kansellerer nesten.",
+    "hints": [
+     "Regn hver motstand for seg, med tykkelsene i meter.",
+     "Grenseflatene finnes ved å trekke fra $jR_j$ i tur og orden.",
+     "Kontroller at du treffer utetemperaturen etter alle tre sjiktene."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-9-3-o-5",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-9-3-oppg-5",
+    "number": 5,
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger T9.) En husside har $22{,}0\\,\\text{m}^2$ vegg med $U = 0{,}180$, $4{,}50\\,\\text{m}^2$ vinduer med $U = 1{,}10$ og $2{,}00\\,\\text{m}^2$ dør med $U = 1{,}70\\,\\text{W/(m}^2\\cdot\\text{K)}$. Inne $21{,}0\\,^\\circ\\text{C}$, ute $-8{,}0\\,^\\circ\\text{C}$.\n\n**a)** Finn det samlede varmetapet.\n\n**b)** Hvor stor del av arealet og hvor stor del av tapet står vinduene for?\n\n**c)** Hvor mye faller tapet hvis vinduene byttes til $U = 0{,}80\\,\\text{W/(m}^2\\cdot\\text{K)}$?",
+    "solution": "**a)** Tre felt i parallell: legg sammen $UA$-produktene.\n$$UA = 0{,}180 \\cdot 22{,}0 + 1{,}10 \\cdot 4{,}50 + 1{,}70 \\cdot 2{,}00 = 3{,}960 + 4{,}950 + 3{,}400 = 12{,}3100\\,\\text{W/K},$$\n$$P = 12{,}3100 \\cdot 29{,}0\\,\\text{W} = 356{,}99\\,\\text{W}.$$\n\n**b)**\n$$\\frac{A_\\text{vindu}}{A_\\text{total}} = \\frac{4{,}50}{28{,}50} = 0{,}1579, \\qquad \\frac{P_\\text{vindu}}{P} = \\frac{143{,}55}{356{,}99} = 0{,}4021.$$\nVinduene er **$15,8$ prosent av arealet og $40,2$ prosent av tapet.**\n\n**c)** Ny $UA$-sum:\n$$UA' = 3{,}960 + 3{,}600 + 3{,}400 = 10{,}9600\\,\\text{W/K}, \\qquad P' = 317{,}84\\,\\text{W},$$\n$$\\text{reduksjon} = 1 - \\frac{317{,}84}{356{,}99} = 0{,}1097,$$\naltså om lag $11$ prosent.\n\n**Sluttsjekk:** det samlede tapet er større enn hvert enkeltbidrag ✔. Og legg merke til lærdommen: veggen er $77$ prosent av arealet men bare $32$ prosent av tapet. **Tiltak lønner seg der U-verdien er høy, ikke der arealet er stort.**",
+    "hints": [
+     "Parallelle felt: legg sammen $UA$, ikke motstandene.",
+     "Alle tre feltene har samme $\\Delta T$.",
+     "For c): regn den nye $UA$-summen og sammenlign."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-9-3-okt3",
+   "type": "text",
+   "content": "## Økt 3 — varmestråling (~26 min)\n\nFem oppgaver. **Kelvin i hvert eneste ledd**, og skriv faktoren $e\\sigma A$ og hver fjerdepotens ned som egne mellomresultater."
+  },
+  {
+   "id": "tfy4115-9-3-o-6",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-9-3-oppg-6",
+    "number": 6,
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Sjanger T10 — strålingsoppgaven, A–F-format.) En flate på $1{,}60\\,\\text{m}^2$ med emissivitet $0{,}80$ holder $520\\,\\text{K}$ i omgivelser på $300\\,\\text{K}$. Hva er netto utstrålt effekt?\n\n**A** $170{,}01\\,\\text{W}$ · **B** $4718{,}6\\,\\text{W}$ · **C** $5306{,}5\\,\\text{W}$ · **D** $5898{,}3\\,\\text{W}$ · **E** $0{,}0000\\,\\text{W}$ · **F** $269{,}44\\,\\text{W}$",
+    "solution": "**Svar: B.**\n\n$$e\\sigma A = 0{,}80 \\cdot 5{,}670\\cdot10^{-8} \\cdot 1{,}60 = 7{,}2576\\cdot10^{-8},$$\n$$T^4 - T_\\text{omg}^4 = 7{,}3116\\cdot10^{10} - 8{,}1000\\cdot10^{9} = 6{,}5016\\cdot10^{10}\\,\\text{K}^4,$$\n$$P_\\text{netto} = 4718{,}6\\,\\text{W}.$$\n\n*Fellene, hver regnet fram fra sin feil:* **A** bruker $(T-T_\\text{omg})^4$ i stedet for $T^4-T_\\text{omg}^4$ — en faktor $28$ for lite, og sjangerens grovste feil. **F** har brukt celsius i fjerdepotensene. **C** er den UTSTRÅLTE effekten, uten absorpsjonsleddet. **D** har glemt emissiviteten. **E** er lineært i temperaturdifferansen.\n\n*Sluttsjekk:* en flate på $520\\,\\text{K}$ over halvannen kvadratmeter stråler i kilowatt-området. Det stryker **A**, **E** og **F** på fem sekunder — de tre formfeilene gir alle absurd små tall.",
+    "hints": [
+     "Skriv faktoren $e\\sigma A$ og hver fjerdepotens som egne mellomresultater.",
+     "Er formen $T^4 - T_\\text{omg}^4$ eller $(T-T_\\text{omg})^4$?"
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-9-3-o-7",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-9-3-oppg-7",
+    "number": 7,
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger T10.) En ovnsflate på $0{,}750\\,\\text{m}^2$ med emissivitet $0{,}92$ holder $640\\,\\text{K}$ i et rom på $295\\,\\text{K}$.\n\n**a)** Finn utstrålt og netto effekt.\n\n**b)** Hvor stor del av den utstrålte effekten kommer tilbake som absorbert stråling?\n\n**c)** Ved hvilken bølgelengde stråler flaten mest, og gløder den synlig?",
+    "solution": "**a)**\n$$e\\sigma A = 3{,}9123\\cdot10^{-8}, \\qquad T^4 = 1{,}6777\\cdot10^{11}, \\qquad T_\\text{omg}^4 = 7{,}5734\\cdot10^{9},$$\n$$P_\\text{ut} = 6563{,}8\\,\\text{W}, \\qquad P_\\text{netto} = 6267{,}5\\,\\text{W}.$$\n\n**b)**\n$$\\frac{P_\\text{inn}}{P_\\text{ut}} = \\frac{T_\\text{omg}^4}{T^4} = 0{,}04514, \\qquad\\text{altså om lag } 4,5\\ \\text{prosent.}$$\nVed denne temperaturforskjellen er absorpsjonsleddet nesten forsvinnende — men det er det ikke ved lavere temperaturer, og det er derfor du aldri skal droppe det uten å regne.\n\n**c)**\n$$\\lambda_\\text{maks} = \\frac{2{,}898\\cdot10^{-3}}{640}\\,\\text{m} = 4{,}528\\,\\mu\\text{m}.$$\nSynlig lys ligger mellom $0{,}40$ og $0{,}70\\,\\mu\\text{m}$, så toppen ligger godt inne i det **infrarøde**. Men flaten kan likevel gløde svakt mørkerødt: det er nok at HALEN av spekteret rekker inn i det synlige, og det begynner rundt $900\\,\\text{K}$ — altså akkurat i dette området.\n\n**Sluttsjekk, tre ledd.** (i) Kelvin overalt ✔. (ii) $P_\\text{netto} < P_\\text{ut}$ ✔, og differansen er $296{,}3\\,\\text{W}$, altså absorpsjonen. (iii) Formen er $T^4-T_\\text{omg}^4$ ✔ — den gale formen ville gitt $554{,}3\\,\\text{W}$, som tilfeldigvis IKKE er absurd her, siden temperaturdifferansen er stor. **Det er nettopp derfor du må sjekke formen, ikke bare størrelsesordenen.**",
+    "hints": [
+     "Regn $P_\\text{ut}$ og $P_\\text{netto}$ hver for seg.",
+     "Forholdet mellom absorbert og utstrålt er forholdet mellom fjerdepotensene.",
+     "Synlig lys ligger mellom $0{,}40$ og $0{,}70\\,\\mu\\text{m}$ — men halen kan rekke inn."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-9-3-o-8",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-9-3-oppg-8",
+    "number": 8,
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger T10.) En tynn svart plate henger i vakuum mellom to store svarte plater på $900\\,\\text{K}$ og $400\\,\\text{K}$.\n\n**a)** Finn platens stasjonære temperatur.\n\n**b)** Finn nettofluksen mellom reservoarene med og uten platen.\n\n**c)** Vis at platen halverer fluksen, og forklar hvorfor.",
+    "solution": "**a)**\n$$T_1^4 = 6{,}5610\\cdot10^{11}, \\qquad T_3^4 = 2{,}5600\\cdot10^{10}, \\qquad \\frac{T_1^4+T_3^4}{2} = 3{,}4085\\cdot10^{11}\\,\\text{K}^4,$$\n$$T_2 = \\left(3{,}4085\\cdot10^{11}\\right)^{1/4} = 764{,}08\\,\\text{K}.$$\nFjerderota som to kvadratrøtter: $\\sqrt{340850000000} = 583824$, og $\\sqrt{\\cdot} = 764{,}08$ ✔.\n\n**b)**\n$$j_0 = \\sigma(T_1^4-T_3^4) = 35749{,}3\\,\\text{W/m}^2, \\qquad j_1 = \\sigma(T_1^4-T_2^4) = 17874{,}7\\,\\text{W/m}^2.$$\nKontroll på den andre siden: $\\sigma(T_2^4-T_3^4) = 17874{,}7\\,\\text{W/m}^2$ ✔ — like store, som stasjonaritet krever.\n\n**c)**\n$$\\frac{17874{,}7}{35749{,}3} = 0{,}5000,$$\naltså nøyaktig en halv. **Begrunnelsen symbolsk:** sett $2T_2^4 = T_1^4+T_3^4$ inn i $T_1^4 - T_2^4$:\n$$T_1^4 - \\frac{T_1^4+T_3^4}{2} = \\frac{2T_1^4 - T_1^4 - T_3^4}{2} = \\frac{T_1^4-T_3^4}{2}. \\checkmark$$\nHalveringen er altså en direkte konsekvens av balansetemperaturen — ikke av at platen «reflekterer halvparten». En svart plate reflekterer ingenting; den absorberer alt og stråler videre på sin egen temperatur.\n\n**Sluttsjekk:** $T_2 = 764{,}1\\,\\text{K}$ ligger mellom $400$ og $900$ ✔, og over det aritmetiske snittet $650\\,\\text{K}$ ✔.",
+    "hints": [
+     "Midle FJERDEPOTENSENE, ikke temperaturene.",
+     "Regn nettofluksen fra begge sider av midtplaten som kontroll.",
+     "For c): sett balansebetingelsen inn i uttrykket for fluksen."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-9-3-o-9",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-9-3-oppg-9",
+    "number": 9,
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Sjanger T10, A–F-format.) En flate holder $1450\\,\\text{K}$. Ved hvilken bølgelengde stråler den mest?\n\n**A** $2{,}4625\\,\\mu\\text{m}$ · **B** $0{,}5003\\,\\mu\\text{m}$ · **C** $1998{,}6\\,\\mu\\text{m}$ · **D** $1{,}9986\\,\\mu\\text{m}$ · **E** $4202100{,}0\\,\\mu\\text{m}$ · **F** $0{,}0019986\\,\\mu\\text{m}$",
+    "solution": "**Svar: D.**\n\n$$\\lambda_\\text{maks} = \\frac{b}{T} = \\frac{2{,}898\\cdot10^{-3}}{1450}\\,\\text{m} = 1{,}9986\\cdot10^{-6}\\,\\text{m} = 1{,}999\\,\\mu\\text{m}.$$\n\n*Fellene:* **A** bruker celsius i nevneren; Wiens lov krever absolutt temperatur. **B** har snudd brøken. **E** har multiplisert. **C** og **F** har feil tierpotens (millimeter og nanometer, oppgitt som mikrometer).\n\n*Sluttsjekk:* en flate på $1450\\,\\text{K}$ gløder svakt og har toppen i det nære infrarøde, altså et par mikrometer. Det stryker **B**, **C**, **E** og **F** på fem sekunder — de er alle flere tierpotenser feil.",
+    "hints": [
+     "$\\lambda_\\text{maks} = b/T$ — $T$ står i nevneren.",
+     "Sjekk tierpotensen: svaret skal være i mikrometer."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-9-3-o-10",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-9-3-oppg-10",
+    "number": 10,
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger T10.) Mellom to store svarte plater på $1000\\,\\text{K}$ og $300\\,\\text{K}$ settes det inn tynne svarte skjermer.\n\n**a)** Finn nettofluksen uten skjermer.\n\n**b)** Finn nettofluksen med $4$ skjermer.\n\n**c)** Hvor mange skjermer trengs for å komme under $6000\\,\\text{W/m}^2$?",
+    "solution": "**a)**\n$$j_0 = \\sigma(T_1^4-T_3^4) = 5{,}670\\cdot10^{-8}(1{,}0000\\cdot10^{12} - 8{,}100\\cdot10^{9})\\,\\text{W/m}^2 = 56240{,}7\\,\\text{W/m}^2.$$\n\n**b)**\n$$j_n = \\frac{j_0}{n+1} = \\frac{56240{,}7}{5} = 11248{,}1\\,\\text{W/m}^2.$$\n\n**c)** Krev $j_0/(n+1) < 6000$:\n$$n+1 > \\frac{56240{,}7}{6000} = 9{,}3735 \\quad\\Longrightarrow\\quad n > 8{,}3735,$$\naltså $n = 9$ skjermer. Kontroll: med $9$ skjermer blir $j = 5624{,}1\\,\\text{W/m}^2 < 6000$ ✔, mens $8$ skjermer gir $6249{,}0\\,\\text{W/m}^2$, altså for mye ✔.\n\n**Sluttsjekk:** svaret er et **heltall** og rundes **oppover** — én skjerm for lite gir for stor fluks. Og legg merke til den avtakende nytten: fra 0 til 1 skjerm halveres fluksen ($56241 \\to 28120\\,\\text{W/m}^2$), mens fra $8$ til $9$ faller den bare $10,0$ prosent. **De første lagene gjør nesten hele jobben.**",
+    "hints": [
+     "Regn $j_0 = \\sigma(T_1^4 - T_3^4)$ først.",
+     "$n$ skjermer deler fluksen på $n+1$, ikke på $n$.",
+     "Svaret må være et heltall — rund oppover og kontroller begge naboverdier."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-9-3-okt4",
+   "type": "text",
+   "content": "## Økt 4 — koblede oppgaver og vurdering (~24 min)\n\nFire oppgaver. Oppgave 11 kobler de to sjangrene i én klynge, slik eksamenssettet gjør det når det vil se om du klarer å holde de to formelfamiliene adskilt."
+  },
+  {
+   "id": "tfy4115-9-3-o-11",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-9-3-oppg-11",
+    "number": 11,
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger T9 og T10 — koblet klynge.) Et rom holdes på $20{,}0\\,^\\circ\\text{C}$ når det er $-6{,}0\\,^\\circ\\text{C}$ ute. Ytterveggene er $32{,}0\\,\\text{m}^2$ med $U = 0{,}190\\,\\text{W/(m}^2\\cdot\\text{K)}$. Inne står en ovn med overflate $1{,}40\\,\\text{m}^2$, temperatur $480\\,\\text{K}$ og emissivitet $0{,}88$.\n\n**a)** Finn varmetapet gjennom ytterveggene.\n\n**b)** Finn netto strålingseffekt fra ovnen til rommet (rommet regnes som $293\\,\\text{K}$).\n\n**c)** Dekker ovnens stråling alene varmetapet gjennom veggene?\n\n**d)** Ved hvilken bølgelengde stråler ovnen mest?\n\n**e)** Kommenter hvorfor de to regnestykkene ser så ulike ut.",
+    "solution": "**a) Ledning — celsius er trygt her, siden bare differansen inngår.**\n$$P_\\text{vegg} = UA\\,\\Delta T = 0{,}190 \\cdot 32{,}0 \\cdot 26{,}0\\,\\text{W} = 158{,}08\\,\\text{W}.$$\n\n**b) Stråling — nå MÅ det være kelvin.**\n$$e\\sigma A = 0{,}88 \\cdot 5{,}670\\cdot10^{-8} \\cdot 1{,}40 = 6{,}9854\\cdot10^{-8},$$\n$$T^4 = 5{,}3084\\cdot10^{10}, \\qquad T_\\text{rom}^4 = 7{,}3701\\cdot10^{9}, \\qquad \\text{differanse} = 4{,}5714\\cdot10^{10},$$\n$$P_\\text{stråling} = 3193{,}3\\,\\text{W} = 3{,}193\\,\\text{kW}.$$\n\n**c)** Ja, med stor margin:\n$$\\frac{P_\\text{vegg}}{P_\\text{stråling}} = \\frac{158{,}08}{3193{,}3} = 0{,}0495,$$\naltså dekker strålingen alene $20{,}2$ ganger varmetapet. Ovnen ville overopphetet rommet kraftig hvis den kjørte kontinuerlig — og det er nettopp derfor vedovner reguleres med trekk, og derfor et rom med vedovn blir ubehagelig varmt hvis man fyrer for hardt.\n\n**d)**\n$$\\lambda_\\text{maks} = \\frac{2{,}898\\cdot10^{-3}}{480}\\,\\text{m} = 6{,}038\\,\\mu\\text{m},$$\naltså i det infrarøde. Ovnen gløder ikke synlig ved $480\\,\\text{K}$.\n\n**e)** Fordi de to mekanismene har **helt ulik matematisk struktur**:\n$$P_\\text{ledning} \\propto \\Delta T \\quad\\text{(lineær i differansen)}, \\qquad P_\\text{stråling} \\propto T^4 - T_\\text{omg}^4 \\quad\\text{(fjerde potens, absolutt)}.$$\nVed veggen er temperaturdifferansen $26\\,\\text{K}$ og de absolutte temperaturene rundt $290\\,\\text{K}$; ved ovnen er differansen $187\\,\\text{K}$ og den varme temperaturen $480\\,\\text{K}$. Fjerde potens forsterker den store temperaturen enormt.\n\n**Og det praktiske poenget:** en varm flate stråler så voldsomt at strålingen dominerer over alt annet så snart temperaturen kommer noen hundre grader over omgivelsene. Ved romtemperatur er de to mekanismene sammenlignbare — det er derfor tabellverdiene for $h$ i [kap. 9.1](/tfy4115/tfy4115-9-1) i praksis inneholder et strålingsbidrag.\n\n**Sluttsjekk, fire ledd.** (i) Ledning i celsius-differanse, stråling i kelvin ✔. (ii) Formen $T^4 - T_\\text{rom}^4$ ✔. (iii) Begge svar i rimelig størrelsesorden: hundre watt gjennom veggen, kilowatt fra ovnen ✔. (iv) Wien gir infrarødt, som stemmer med at ovnen ikke gløder ✔.",
+    "hints": [
+     "Behandle de to mekanismene HVER FOR SEG, med sine egne formler.",
+     "Ledning: celsius-differanse er trygt. Stråling: kelvin, alltid.",
+     "Sammenlign de to effektene til slutt, og se på hvilke temperaturer som inngår i hver."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-9-3-o-12",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-9-3-oppg-12",
+    "number": 12,
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger T10, A–F-format.) En tynn svart plate henger i vakuum mellom to store svarte plater på $650\\,\\text{K}$ og $250\\,\\text{K}$. Hva blir platens stasjonære temperatur?\n\n**A** $450{,}0\\,\\text{K}$ · **B** $403{,}1\\,\\text{K}$ · **C** $302003{,}7\\,\\text{K}$ · **D** $549{,}5\\,\\text{K}$ · **E** $546{,}6\\,\\text{K}$ · **F** $543{,}6\\,\\text{K}$",
+    "solution": "**Svar: D.**\n\n$$\\frac{T_1^4+T_3^4}{2} = \\frac{1{,}7851\\cdot10^{11} + 3{,}9062\\cdot10^{9}}{2} = 9{,}1206\\cdot10^{10}\\,\\text{K}^4,$$\n$$T_2 = \\left(9{,}1206\\cdot10^{10}\\right)^{1/4} = 549{,}55\\,\\text{K}.$$\n\n*Fellene, hver regnet fram fra sin feil:* **A** er det aritmetiske snittet av temperaturene — det er FJERDEPOTENSENE som midles, og snittet er derfor systematisk for lavt. **B** er det geometriske snittet. **C** har tatt kvadratrota i stedet for fjerderota av det midlede uttrykket. **E** har glemt det kalde reservoaret helt, altså regnet $(T_1^4/2)^{1/4}$. **F** har TRUKKET FRA i stedet for å legge sammen fjerdepotensene — den ligger nærmest fasiten og er derfor den farligste, siden $250^4$ er lite mot $650^4$.\n\n*Sluttsjekk:* $T_2$ må ligge mellom $250$ og $650\\,\\text{K}$ **og over** det aritmetiske snittet $450\\,\\text{K}$. Det stryker **A**, **B** og **C** på ti sekunder. Mellom **D**, **E** og **F** må du regne — og kontrollen er at balansen $\\sigma(T_1^4-T_2^4) = \\sigma(T_2^4-T_3^4)$ bare holder for **D**.",
+    "hints": [
+     "Midle fjerdepotensene, og ta fjerderota (to kvadratrøtter).",
+     "Kontrollen: svaret ligger mellom reservoarene og over det aritmetiske snittet."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-9-3-o-13",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-9-3-oppg-13",
+    "number": 13,
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger T9.) En vegg skal ha U-verdi $0{,}150\\,\\text{W/(m}^2\\cdot\\text{K)}$. Den har film inne ($h_i = 8{,}00$), $13{,}0\\,\\text{mm}$ gips ($\\kappa = 0{,}220$) og film ute ($h_u = 25{,}0$), i SI-enheter.\n\n**a)** Hvilken samlet motstand kreves, og hvor mye er alt dekket?\n\n**b)** Hvor tykt mineralullsjikt ($\\kappa = 0{,}037$) trengs?\n\n**c)** Kommenter svaret opp mot vanlige byggetykkelser.",
+    "solution": "**a)**\n$$R_\\text{mål} = \\frac{1}{0{,}150} = 6{,}6667\\,\\text{K}\\cdot\\text{m}^2/\\text{W},$$\n$$R_\\text{dekket} = \\frac{1}{8{,}00} + \\frac{0{,}0130}{0{,}220} + \\frac{1}{25{,}0} = 0{,}1250 + 0{,}05909 + 0{,}0400 = 0{,}22409.$$\nAltså bare $3,4$ prosent av det som kreves.\n\n**b)**\n$$R_\\text{ull} = 6{,}6667 - 0{,}22409 = 6{,}4426, \\qquad \\ell = \\kappa R_\\text{ull} = 0{,}037 \\cdot 6{,}4426 = 0{,}23838\\,\\text{m} = 238{,}4\\,\\text{mm}.$$\n\n**c)** $238\\,\\text{mm}$ er mer enn standard bindingsverk på $198\\,\\text{mm}$, så i praksis må veggen bygges med utvendig tilleggsisolasjon eller med et tykkere bindingsverk. Kravet $U = 0{,}150$ er strengere enn dagens minstekrav og tilsvarer passivhusnivå — det er nettopp derfor det krever så mye.\n\n**Sluttsjekk, tre ledd.** (i) Kontroll baklengs: med $\\ell = 238{,}4\\,\\text{mm}$ blir $R = 0{,}2241 + 6{,}4426 = 6{,}6667$ og $U = 0{,}1500$ ✔. (ii) Enhetskontroll: $\\text{W/(m}\\cdot\\text{K)} \\cdot \\text{K}\\cdot\\text{m}^2/\\text{W} = \\text{m}$ ✔. (iii) Svaret er i samme størrelsesorden som virkelige vegger ✔.\n\n**Fellen:** å regne $\\ell = \\kappa/R$ i stedet for $\\kappa R$. Enhetskontrollen avslører den straks — $\\kappa/R$ gir ikke en lengde.",
+    "hints": [
+     "Start med $R = 1/U$, trekk fra det som alt finnes.",
+     "Filmene er $1/h$, gipsen $\\ell/\\kappa$ — hold dem adskilt.",
+     "Snu $R = \\ell/\\kappa$ og sjekk enheten."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-9-3-o-14",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-9-3-oppg-14",
+    "number": 14,
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger T9 og T10 — vurderingsoppgave.) En flate på $2{,}00\\,\\text{m}^2$ er $350\\,\\text{K}$ og omgivelsene $300\\,\\text{K}$. Sammenlign to måter varmen kan tape seg:\n\n- **stråling** fra den frie flaten (svart, $e = 1$);\n- **ledning** gjennom et $50\\,\\text{mm}$ isolasjonssjikt ($\\kappa = 0{,}040$) med samme areal og samme temperaturdifferanse.\n\n**a)** Finn de to effektene og forholdet mellom dem.\n\n**b)** Gjenta for en flate på $900\\,\\text{K}$, med samme omgivelser og samme isolasjonssjikt.\n\n**c)** Hva forteller de to forholdene om når stråling kan neglisjeres?",
+    "solution": "**a) Stråling:**\n$$P_\\text{str} = \\sigma A(T^4 - T_\\text{omg}^4) = 5{,}670\\cdot10^{-8} \\cdot 2{,}00 \\cdot (1{,}5006\\cdot10^{10} - 8{,}100\\cdot10^{9})\\,\\text{W} = 783{,}2\\,\\text{W}.$$\n**Ledning:**\n$$P_\\text{led} = \\kappa A\\frac{\\Delta T}{\\ell} = 0{,}040 \\cdot 2{,}00 \\cdot \\frac{50}{0{,}050}\\,\\text{W} = 80{,}0\\,\\text{W}.$$\n$$\\frac{P_\\text{str}}{P_\\text{led}} = \\frac{783{,}2}{80{,}0} = 9{,}79.$$\nStrålingen er altså om lag **$10$ ganger større** enn ledningen gjennom isolasjonen.\n\n**b)** Ved $900\\,\\text{K}$:\n$$P_\\text{str} = 5{,}670\\cdot10^{-8} \\cdot 2{,}00 \\cdot (6{,}5610\\cdot10^{11} - 8{,}100\\cdot10^{9})\\,\\text{W} = 73483\\,\\text{W},$$\n$$P_\\text{led} = 0{,}040 \\cdot 2{,}00 \\cdot \\frac{600}{0{,}050}\\,\\text{W} = 960\\,\\text{W}, \\qquad \\frac{P_\\text{str}}{P_\\text{led}} = 76{,}5.$$\n\n**c)** Forholdet vokste fra $9{,}8$ til $76{,}5$ da temperaturen gikk fra $350$ til $900\\,\\text{K}$ — altså nesten en åttedobling.\n\nÅrsaken er strukturen i de to lovene:\n$$P_\\text{led} \\propto \\Delta T \\quad\\text{(lineær)}, \\qquad P_\\text{str} \\propto T^4 - T_\\text{omg}^4 \\quad\\text{(fjerde potens)}.$$\nNår temperaturen stiger, vokser strålingen mye raskere enn ledningen. **Stråling kan derfor aldri neglisjeres ved høye temperaturer** — den dominerer fullstendig. Og selv ved beskjedne $350\\,\\text{K}$ er den $10$ ganger større enn ledning gjennom et femcentimeters isolasjonssjikt.\n\n**Konklusjonen for en ingeniør:** vil du hindre varmetap fra en varm flate, må du håndtere strålingen — enten med en skjerm (som halverer den, se oppgave 10) eller ved å senke emissiviteten. Isolasjon alene hjelper bare mot ledningen. Det er nettopp derfor ovnsrør har varmeskjold, og derfor superisolasjon består av mange lag folie i stedet for tykk ull.\n\n**Sluttsjekk, tre ledd.** (i) Ledning i celsius-differanse, stråling i kelvin ✔. (ii) Begge forhold er over 1, og det største ved høyest temperatur ✔ — retningen stemmer med at $T^4$ vokser raskere enn $T$. (iii) Størrelsesordener: hundrevis av watt ved $350\\,\\text{K}$, titusener ved $900\\,\\text{K}$ ✔.",
+    "hints": [
+     "Regn de to effektene med hver sin lov, og pass på hvilken temperaturskala hver krever.",
+     "Fouriers lov er $P = \\kappa A\\Delta T/\\ell$.",
+     "Sammenlign hvordan de to lovene avhenger av temperaturen når du forklarer c)."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-9-3-war-typiske-feil",
+   "type": "warning",
+   "title": "Typiske feil — hele T9- og T10-repertoaret, og de fire tallfellene",
+   "content": "**Millimeter i stedet for meter** (felle #16 i sin verste form). $200\\,\\text{mm}$ isolasjon gir $R = 5{,}405$; med millimeter får du $5405$ — en faktor 1000, og et helt urimelig tall. **Skriv alle tykkelser om til meter i det du leser oppgaven.**\n\n**$1/h$ mot $\\ell/\\kappa$** (felle #15 — blande varmeledning og varmeovergang). Filmmotstanden har **ingen tykkelse** i uttrykket. Skriver du $\\ell/h$, får du feil enhet, og enhetskontrollen fanger det.\n\n**Celsius i strålingsdelen** (felle #11). Her er celsius katastrofalt, fordi $T^4$ er absolutt. I MC-caset gir celsius $5{,}09\\,\\text{W}$ mot $613\\,\\text{W}$. **Merk at regelen SKIFTER midt i kapitlet:** i ledningsdelen er celsius trygt, siden bare differanser inngår.\n\n**$(T-T_\\text{omg})^4$ i stedet for $T^4 - T_\\text{omg}^4$** (felle #12). Bolkens grovste feil. I MC-caset er den en faktor **$293$**. Kjennetegnet: svaret blir absurd lite. **Skriv de to fjerdepotensene ned som separate mellomresultater**, og du kan ikke gjøre feilen.\n\n**Å midle $T$ i stedet for $T^4$ i platebalansen** (felle #12 i sin andre form). I oppgave 8 er svaret $764{,}1\\,\\text{K}$, ikke $650\\,\\text{K}$. **Kontrollen: midtplaten ligger alltid OVER det aritmetiske snittet.**\n\n**Å dele på $n$ i stedet for $n+1$** for strålingsskjermer. Med én skjerm ville $n$ gitt ingen reduksjon, som er åpenbart galt. Formelen er $j_0/(n+1)$.\n\n**Å blande U-verdi og R-verdi.** Inverse av hverandre, ulik enhet, og **begge står gjerne på alternativlista**. Lav $U$ er bra, høy $R$ er bra.\n\n**Å blande fluks og effekt.** $j$ i $\\text{W/m}^2$, $P$ i watt. Les om oppgaven sier «per kvadratmeter».\n\n**Å blande utstrålt og netto effekt.** $e\\sigma AT^4$ mot $e\\sigma A(T^4-T_\\text{omg}^4)$. I oppgave 7 skiller de seg med $4,7$ prosent, i MC-caset med $62$ prosent — differansen vokser når temperaturdifferansen blir liten.\n\n**Og de fire størrelsesordenkontrollene som fanger nesten alt:** (i) U-verdi for en vegg ligger mellom $0{,}10$ og $0{,}30$; (ii) varmefluks gjennom en vegg ved $29\\,\\text{K}$ er $4$–$8\\,\\text{W/m}^2$; (iii) en flate på noen hundre kelvin over en kvadratmeter stråler hundrevis til tusenvis av watt; (iv) en platebalanse ligger mellom reservoarene og over snittet. Fire kontroller, tjue sekunder, og de stryker som regel fire av seks alternativer."
+  },
+  {
+   "id": "tfy4115-9-3-begrepsbank-notis",
+   "type": "text",
+   "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+  },
+  {
+   "id": "tfy4115-9-3-bb-t9-drill",
+   "type": "definition",
+   "title": "Sjanger T9 i MC-tempo",
+   "content": "Gjenkjennes på: «vegg», «sjikt», «isolasjon», «$\\kappa$», «U-verdi», «grenseflate», «varmeovergang».\n\nOppskriften på tjue sekunder: **tykkelser til meter** → **hver motstand som eget mellomresultat** ($\\ell/\\kappa$ for sjikt, $1/h$ for film) → **summer** → **$j = \\Delta T/R$** eller **$U = 1/R$** → **grenseflater ved å trekke fra $jR_j$** → **kontroller fra motsatt side**.\n\nLigger felt ved siden av hverandre i stedet for etter hverandre, summer $UA$-produktene i stedet.\n\nTidsbudsjett: to til tre minutter per spørsmål, hvorav halvparten går til bokføring. Det er riktig fordelt — i denne sjangeren er nesten alle feil bokføringsfeil."
+  },
+  {
+   "id": "tfy4115-9-3-bb-t10-drill",
+   "type": "definition",
+   "title": "Sjanger T10 i MC-tempo",
+   "content": "Gjenkjennes på: «stråler», «emissivitet», «vakuum», «bølgelengde», «plate mellom», «Stefan–Boltzmann», «Wien».\n\nOppskriften på tjue sekunder: **temperaturer til kelvin** → **faktoren $e\\sigma A$ som eget mellomresultat** → **hver fjerdepotens for seg** → **én multiplikasjon** → **kontroller formen og størrelsesordenen**.\n\nFor platebalanse: legg sammen fjerdepotensene, del på 2, ta kvadratrota **to ganger**.\n\nFor Wien: én divisjon, og kontroller retningen (høyere $T$ gir kortere $\\lambda$)."
+  },
+  {
+   "id": "tfy4115-9-3-bb-regelskiftet",
+   "type": "definition",
+   "title": "Regelen som skifter mellom de to sjangrene",
+   "content": "| Egenskap | Ledning (T9) | Stråling (T10) |\n|---|---|---|\n| Avhengighet | $\\propto \\Delta T$ (lineær) | $\\propto T^4 - T_\\text{omg}^4$ |\n| Temperaturskala | celsius er **trygt** | kelvin er **påkrevd** |\n| Trenger medium? | ja | nei |\n| Dominerer | ved små $\\Delta T$ | ved høye $T$ |\n\n**Dette er den viktigste enkeltdistinksjonen i Del 9.** Har en oppgave begge mekanismene (som oppgave 11), må du behandle dem hver for seg med sin egen skala.\n\nDen sikre rutinen som aldri feiler: **skriv om alt til kelvin uansett.** Da er ledningen også riktig, siden differansen er den samme."
+  },
+  {
+   "id": "tfy4115-9-3-bb-enhetsdisiplin",
+   "type": "definition",
+   "title": "Enhetsdisiplinen i Del 9",
+   "content": "Fire omregninger som må gjøres FØR regningen:\n\n| Fra | Til | Faktor |\n|---|---|---|\n| millimeter | meter | $10^{-3}$ |\n| celsius | kelvin | $+273{,}15$ |\n| mikrometer | meter | $10^{-6}$ |\n| kWh | joule | $3{,}6\\cdot10^6$ |\n\nOg tre enhetskontroller som fanger formfeil:\n- $\\ell/\\kappa$: $\\text{m}$ delt på $\\text{W/(m}\\cdot\\text{K)}$ gir $\\text{K}\\cdot\\text{m}^2/\\text{W}$ ✔\n- $\\sigma AT^4$: $\\text{W/(m}^2\\cdot\\text{K}^4) \\cdot \\text{m}^2 \\cdot \\text{K}^4 = \\text{W}$ ✔\n- $b/T$: $\\text{m}\\cdot\\text{K}$ delt på $\\text{K}$ gir meter ✔"
+  },
+  {
+   "id": "tfy4115-9-3-bb-form-kontroll",
+   "type": "definition",
+   "title": "Formkontrollen i strålingsoppgaver",
+   "content": "Tre former som forveksles, og som gir helt ulike tall:\n\n$$P_\\text{ut} = e\\sigma AT^4 \\quad\\text{(alt flaten stråler)}$$\n$$P_\\text{netto} = e\\sigma A(T^4 - T_\\text{omg}^4) \\quad\\text{(det den taper)}$$\n$$e\\sigma A(T - T_\\text{omg})^4 \\quad\\text{(GALT, finnes ikke)}$$\n\n**Kontrollen:** regn $T^4$ og $T_\\text{omg}^4$ som to separate mellomresultater. Da kan du ikke skrive den tredje formen.\n\n**Størrelsesordenkontrollen:** den gale formen gir alltid absurd lite. Ser du et strålingssvar i milliwatt fra en varm flate, er det den."
+  },
+  {
+   "id": "tfy4115-9-3-bb-sifferdisiplin",
+   "type": "definition",
+   "title": "Sifferdisiplin i fjerde potens",
+   "content": "Fjerde potens **forsterker relative feil fire ganger**: 1 prosent feil i temperaturen gir 4 prosent feil i effekten.\n\nPraktisk: behold fire siffer i temperaturen, og skriv $T^4$ ned som eget mellomresultat i stedet for å kjede regningen på kalkulatoren. Med $T = 420\\,\\text{K}$ er $T^4 = 3{,}1117\\cdot10^{10}$; runder du til $3{,}1\\cdot10^{10}$, flytter du tredje siffer i svaret.\n\n**I platebalansen** går det motsatt vei: fjerderota **deler** relative feil på fire, så et lite avvik i det midlede uttrykket gir et enda mindre avvik i $T_2$. Men det hjelper bare hvis mellomresultatet var riktig i utgangspunktet."
+  },
+  {
+   "id": "tfy4115-9-3-bb-eliminasjon",
+   "type": "definition",
+   "title": "Eliminasjon ved størrelsesorden — samlet",
+   "content": "Seks grenser som stryker alternativer uten regning:\n\n1. **U-verdi for en vegg:** $0{,}10$–$0{,}30\\,\\text{W/(m}^2\\cdot\\text{K)}$.\n2. **Varmefluks gjennom en vegg** ved $25$–$30\\,\\text{K}$: $4$–$8\\,\\text{W/m}^2$.\n3. **Grenseflatetemperaturer** ligger mellom inne og ute, monotont avtakende utover.\n4. **Parallelle felt** gir større tap enn hvert enkeltbidrag.\n5. **$P_\\text{netto} < P_\\text{ut}$** i stråling.\n6. **Platebalanse** ligger mellom reservoarene og over det aritmetiske snittet.\n\nPunkt 1, 2 og 5 alene stryker som regel tre av seks alternativer, fordi de klassiske formfeilene alle gir tall som er flere tierpotenser feil."
+  },
+  {
+   "id": "tfy4115-9-3-bb-koblede",
+   "type": "definition",
+   "title": "Når en oppgave har begge mekanismene",
+   "content": "Noen sett kobler ledning og stråling i samme klynge: en vegg som taper varme ved ledning, og en ovn som stråler i rommet. Rutinen:\n\n1. **Behandle mekanismene hver for seg**, med sin egen formel og sin egen temperaturskala.\n2. **Legg sammen effektene** til slutt, hvis oppgaven ber om totalen.\n3. **Ikke bland formlene** — det finnes ingen felles formel, og enhver «snarvei» som slår dem sammen, er feil.\n\nUnntaket er varmeovergangskoeffisienten $h$ i tabellverdier, som i praksis inneholder både konveksjon og et strålingsbidrag. Det er en teknisk forenkling, ikke en fysisk sammenslåing — og den gjelder bare nær romtemperatur."
+  },
+  {
+   "id": "tfy4115-9-3-coll-symbolliste",
+   "type": "collapsible",
+   "title": "Symbol- og formelliste",
+   "buttonText": "Vis symboler og formler",
+   "content": [
+    {
+     "id": "tfy4115-9-3-symb-1",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n**Kolliderende symboler i dette delkapitlet — les nøye.**\n\n- $R_\\text{term}$ er **termisk motstand** i $\\text{K/W}$ (per kvadratmeter: $\\text{K}\\cdot\\text{m}^2/\\text{W}$). Det er **ikke** gasskonstanten $8{,}314\\,\\text{J/(mol}\\cdot\\text{K)}$ fra [kap. 8.1](/tfy4115/tfy4115-8-1), og **ikke** en radius.\n- $T$ er **temperatur**; celsius er trygt i ledningsdelen (bare differanser), men **kelvin er påkrevd** i strålingsdelen.\n- $e$ er **emissivitet**, under 1. Effektfaktoren $\\varepsilon$ i [kap. 8.2](/tfy4115/tfy4115-8-2) er over 1.\n- $\\kappa$ er **varmeledningsevne** (skrives $k$ eller $\\lambda$ andre steder; vi holder $k$ fri til fjærstivhet og $\\lambda$ til bølgelengde).\n- $h$ er **varmeovergangskoeffisient** i $\\text{W/(m}^2\\cdot\\text{K)}$; i mekanikken var $h$ en høyde. I Plancks lov er $h$ Plancks konstant.\n- $\\sigma$ er **Stefan–Boltzmanns konstant**, ikke et standardavvik.\n- $b$ er **Wien-konstanten** i $\\text{m}\\cdot\\text{K}$, ikke dempingskonstanten fra [kap. 5.2](/tfy4115/tfy4115-5-2).\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $j$ | Fluks (varmestrøm per areal) | $\\text{W/m}^2$ |\n| $P$ | Effekt | W |\n| $\\kappa$ | Varmeledningsevne | $\\text{W/(m}\\cdot\\text{K)}$ |\n| $\\ell$ | Tykkelse | m |\n| $R$ | Termisk motstand per $\\text{m}^2$ | $\\text{K}\\cdot\\text{m}^2/\\text{W}$ |\n| $U$ | U-verdi, $1/R$ | $\\text{W/(m}^2\\cdot\\text{K)}$ |\n| $h_i$, $h_u$ | Varmeovergangskoeffisienter | $\\text{W/(m}^2\\cdot\\text{K)}$ |\n| $\\sigma$ | Stefan–Boltzmanns konstant | $\\text{W/(m}^2\\cdot\\text{K}^4)$ |\n| $e$ | Emissivitet, $0<e\\le1$ | — |\n| $T$ | Temperatur (**kelvin** i stråling) | K |\n| $\\lambda_\\text{maks}$ | Bølgelengde med største utstråling | m |\n| $b$ | Wien-konstanten | $\\text{m}\\cdot\\text{K}$ |\n| $n$ | Antall strålingsskjermer | — |\n| $A$ | Areal | $\\text{m}^2$ |\n\n**Formler i dette delkapitlet:**\n\n$$j = \\kappa\\frac{\\Delta T}{\\ell}, \\qquad P = \\frac{\\Delta T}{R_\\text{term}}, \\qquad R = \\frac{\\ell}{\\kappa A}, \\qquad R_\\text{film} = \\frac{1}{hA}$$\nFouriers lov og de to motstandsformene [står på det utdelte arket].\n\n$$R = \\sum_j R_j \\ \\text{(serie)}, \\qquad P = \\left(\\sum_j U_jA_j\\right)\\Delta T \\ \\text{(parallell)}$$\nSerie og parallell [må kunne brukes eller utledes aktivt].\n\n$$\\frac{\\Delta T_j}{\\Delta T} = \\frac{R_j}{R}, \\qquad T = T_\\text{inne} - jR_\\text{delvis}, \\qquad U = \\frac{1}{R}$$\nTemperaturfordeling, grenseflater og U-verdi [må kunne brukes eller utledes aktivt].\n\n$$P = e\\sigma AT^4, \\qquad P_\\text{netto} = e\\sigma A\\left(T^4 - T_\\text{omg}^4\\right)$$\nStefan–Boltzmann; **aldri** $(T-T_\\text{omg})^4$ [står på det utdelte arket].\n\n$$T_2 = \\left(\\frac{T_1^4+T_3^4}{2}\\right)^{1/4}, \\qquad j_n = \\frac{j_0}{n+1}$$\nPlatebalanse og $n$ skjermer [må kunne brukes eller utledes aktivt].\n\n$$\\lambda_\\text{maks} = \\frac{b}{T}$$\nWiens forskyvningslov; høyere $T$ gir kortere $\\lambda$ [står på det utdelte arket].\n\n$$\\ell = \\kappa R, \\qquad \\kappa = \\frac{\\ell}{R}, \\qquad x^{1/4} = \\sqrt{\\sqrt{x}}$$\nBaklengs-variantene og fjerderota som to kvadratrøtter [Rottmann]."
+    }
+   ]
+  },
+  {
+   "id": "tfy4115-9-3-coll-repetisjon",
+   "type": "collapsible",
+   "title": "Repetisjonsoppgaver",
+   "buttonText": "Vis repetisjonsoppgaver",
+   "content": [
+    {
+     "id": "tfy4115-9-3-rep-1",
+     "type": "text",
+     "content": "Seks korte oppgaver på det denne drillen hviler på. Ta dem før du går videre til [prøvene til Del 9](/tfy4115/tfy4115-9-prove).\n\n**R1.** Finn $R$ per kvadratmeter for $220\\,\\text{mm}$ isolasjon med $\\kappa = 0{,}036\\,\\text{W/(m}\\cdot\\text{K)}$.\n\n*Svar:* $R = 0{,}220/0{,}036 = 6{,}111\\ \\text{K}\\cdot\\text{m}^2/\\text{W}$.\n\n**R2.** En vegg har $R = 5{,}20$ og $\\Delta T = 28{,}0\\,\\text{K}$. Finn $j$ og $U$.\n\n*Svar:* $j = 28{,}0/5{,}20 = 5{,}385\\,\\text{W/m}^2$ og $U = 1/5{,}20 = 0{,}1923\\,\\text{W/(m}^2\\cdot\\text{K)}$.\n\n**R3.** Et luftsjikt har $h = 12{,}0\\,\\text{W/(m}^2\\cdot\\text{K)}$. Finn motstanden.\n\n*Svar:* $R = 1/12{,}0 = 0{,}08333\\ \\text{K}\\cdot\\text{m}^2/\\text{W}$. Ingen tykkelse i uttrykket.\n\n**R4.** En svart flate på $1{,}20\\,\\text{m}^2$ holder $450\\,\\text{K}$ i omgivelser på $290\\,\\text{K}$. Finn netto effekt.\n\n*Svar:* $450^4 = 4{,}1006\\cdot10^{10}$, $290^4 = 7{,}0728\\cdot10^{9}$, differansen $3{,}3933\\cdot10^{10}$. $P = 5{,}670\\cdot10^{-8} \\cdot 1{,}20 \\cdot 3{,}3933\\cdot10^{10} = 2308{,}7\\,\\text{W}$.\n\n**R5.** Finn temperaturen til en tynn svart plate mellom flater på $700\\,\\text{K}$ og $300\\,\\text{K}$.\n\n*Svar:* $(700^4+300^4)/2 = (2{,}4010\\cdot10^{11}+8{,}100\\cdot10^{9})/2 = 1{,}2410\\cdot10^{11}$, fjerderota gir $593{,}5\\,\\text{K}$. Kontroll: mellom $300$ og $700$ ✔, over snittet $500\\,\\text{K}$ ✔.\n\n**R6.** Finn $\\lambda_\\text{maks}$ for en flate på $1200\\,\\text{K}$, og for en på $2400\\,\\text{K}$.\n\n*Svar:* $2{,}898\\cdot10^{-3}/1200 = 2{,}415\\,\\mu\\text{m}$ og $2{,}898\\cdot10^{-3}/2400 = 1{,}208\\,\\mu\\text{m}$. Doblet temperatur, halvert bølgelengde ✔."
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}

@@ -1,0 +1,400 @@
+{
+  "id": "tfy4115-4-4",
+  "courseId": "tfy4115",
+  "chapterNumber": "4.4",
+  "title": "Drill: treghetsmoment, dreieimpuls og statikk (sjanger M4, M5, M9)",
+  "description": "Sjangerdrill med Steiner-refleks, fortegnsdisiplin på dreieimpuls og klokt momentpunkt — raskt mot tallsvar.",
+  "estimatedMinutes": 90,
+  "competenceGoals": [
+    "velge riktig verktøy på få sekunder ut fra hva spørsmålet ber om: oppslag, Steiner, dreieimpuls, bevaring eller likevekt",
+    "gjennomføre hele regnekjeden fra oppgitte tall til et bokstavsvar innenfor eksamenstempo",
+    "kjenne igjen hvilken konkret regnefeil hvert galt svaralternativ er bygget på, og bruke øvre og nedre grenser til å stryke alternativer",
+    "holde fire gjeldende siffer gjennom kjeden og skrive retning og fortegn eksplisitt i hvert delsvar"
+  ],
+  "content": [
+    {
+      "id": "tfy4115-4-4-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er et treningskapittel, ikke et teorikapittel.** Her drilles de tre sjangrene fra Del 4 i eksamenstempo:\n\n**Sjanger M4 — treghetsmoment og Steiners sats** («finn $I$ om denne aksen») i praktisk talt alle sett (~100 %), **høyeste prioritet — dette må sitte**.\n\n**Sjanger M5 — dreieimpuls og rulling** («finn $L$ med riktig fortegn, eller hva som skjer når rotasjonen endres») i om lag 9 av 10 sett (~90 %), **høyeste prioritet**. Overgangen gliding→rulling i rundt 4 av 10 sett (~40 %).\n\n**Sjanger M9 — statikk og momentbalanse** («finn kreftene i en konstruksjon som står stille») i om lag 7 av 10 sett (~70 %), prioritet **bør sitte**.\n\nAlle tre hører til **mekanikkhalvdelen, spørsmål 1–20**.\n\n**Om tidsbruken.** Kapitlet er anslått til 90 minutter og er lagt opp som fire økter du trygt kan dele over flere kvelder: løsningsoppskriften og det gjennomregnede caset (~20 min), treghetsmoment-oppgavene 1–5 (~25 min), dreieimpuls- og rulleoppgavene 6–10 (~25 min), og statikk- og blandingsoppgavene 11–15 (~20 min). Seks av de femten oppgavene er i **A–F-format** med seks ferdige alternativer, akkurat som eksamen; resten er i åpen form, slik at du trener både metoden og bokstavsvaret.\n\n**Målet er tempo med presisjon.** På eksamen har du rundt seks minutter per spørsmål. Oppgavene her skal du klare på tre til fem — og fortsatt med fire gjeldende siffer gjennom kjeden."
+    },
+    {
+      "id": "tfy4115-4-4-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nAlt du trenger står i [kap. 4.1](/tfy4115/tfy4115-4-1), [kap. 4.2](/tfy4115/tfy4115-4-2) og [kap. 4.3](/tfy4115/tfy4115-4-3). Her er verktøykassa samlet på én skjerm, slik at du kan lukke den og prøve deg først:\n\n$$I = \\sum_i m_ir_i^2, \\qquad I = \\int r^2\\,dm, \\qquad I = I_\\text{CM} + Md^2$$\n\n$$I_\\text{stang, midt} = \\tfrac{1}{12}ML^2, \\quad I_\\text{stang, ende} = \\tfrac13ML^2, \\quad I_\\text{kule} = \\tfrac25MR^2, \\quad I_\\text{kuleskall} = \\tfrac23MR^2, \\quad I_\\text{sylinder} = \\tfrac12MR^2, \\quad I_\\text{ring} = MR^2$$\n\n$$\\tau = rF\\sin\\phi = dF, \\qquad \\sum\\tau = I\\alpha, \\qquad \\sum\\boldsymbol{\\tau}_\\text{ytre} = \\frac{d\\mathbf{L}}{dt}$$\n\n$$\\mathbf{L} = \\mathbf{L}_\\text{spinn} + \\mathbf{L}_\\text{bane} = I_\\text{CM}\\boldsymbol{\\omega} + \\mathbf{R}_\\text{CM}\\times m\\mathbf{V}, \\qquad I_1\\omega_1 = I_2\\omega_2$$\n\n$$V = R\\omega \\ (\\textbf{bare ved ren rulling}), \\qquad V_\\text{slutt} = \\tfrac57V_0 \\ (\\text{kule}), \\qquad t = \\frac{2V_0}{7\\mu g}$$\n\n$$\\omega_\\text{stang} = \\sqrt{\\frac{3g}{L}}, \\qquad \\alpha_\\text{stang} = \\frac{3g}{2L}\\cos\\phi, \\qquad \\Omega = \\frac{Mgr}{I_0\\omega}$$\n\n$$\\sum F_x = 0, \\qquad \\sum F_y = 0, \\qquad \\sum\\tau_P = 0, \\qquad f \\le \\mu_sN$$\n\nBoka bruker $g = 9{,}81\\,\\text{m/s}^2$. **Behold fire gjeldende siffer gjennom hele regnekjeden**, og rund først i sluttsvaret.\n\n**Symbolmerknad.** I dette kapitlet er $I$ et treghetsmoment (skalar), $\\mathbf{L}$ en dreieimpuls (vektor) og $L$ en lengde (skalar, kursiv). $\\tau$ er kraftmoment, $S$ et taustrekk, $R$ en radius, $\\mathbf{p}$ en bevegelsesmengde. Ingen av disse betyr det de betyr i termodelen fra Del 6 — se symbollisten nederst."
+    },
+    {
+      "id": "tfy4115-4-4-th-oppskrift",
+      "type": "theorem",
+      "title": "Løsningsoppskrift — rask vei til tall (MC-oppskrift) i seks trinn",
+      "content": "Dette er algoritmen du skal kjøre uten å tenke, fra oppgitte tall til bokstavsvar. Trinn 1 avgjør hvilken vei du går.\n\n**1. Hva spørres det om?** Fire muligheter, og du skal kjenne dem igjen på tre sekunder:\n- **et treghetsmoment** → punktmasser: $\\sum m_ir_i^2$; legeme: slå opp $I_\\text{CM}$ på arket;\n- **en dreieimpuls** → spinn pluss bane, med fortegn;\n- **en endring i rotasjon** → konstant $I$: $\\tau = I\\alpha$; endret $I$: $I_1\\omega_1 = I_2\\omega_2$;\n- **en kraft i en konstruksjon som står stille** → statikk: $\\sum\\tau_P = 0$ om et klokt punkt.\n\n**2. Massesenter først, hvis oppgaven krever det.** Bare når du trenger avstanden $d$ til Steiner, eller når tyngden skal plasseres i en statikkoppgave.\n\n**3. Går aksen gjennom massesenteret?** Er svaret **nei**, skriv $I = I_\\text{CM} + Md^2$ **før** du slår opp noe. Dette ene trinnet fanger den enkeltfeilen som koster flest poeng i Del 4. Husk unntaket: $\\tfrac13ML^2$ **er** stanga om endepunktet, så der skal du ikke legge til noe.\n\n**4. Dreieimpuls: skriv fortegnskonvensjonen først.** «Inn i papiret er positiv.» Deretter spinnbidraget $I_\\text{CM}\\omega$ (retning fra høyrehåndsregelen: mot klokka gir ut av papiret), så banebidraget $mVd_\\perp$ (retning fra hvilken vei massesenteret ser ut til å dreie om punktet). Legg sammen **med fortegn**.\n\n**5. Rotasjonsdynamikk: konstant moment eller ikke?** Er momentet konstant, er $\\alpha$ konstant og $\\omega = \\alpha t$ gjelder. Varierer momentet (fallende stang), bruk energibevaring for farten og spinnsatsen for akselerasjonen.\n\n**6. Statikk: velg momentpunktet der en ukjent virker.** Hengselet, opplagringen, stigens fot, vippekanten. Da får du svaret i én likning. Deretter $\\sum F_x = 0$ og $\\sum F_y = 0$ for resten.\n\n**Sluttsjekk, uansett vei:** enhet ($\\text{kg}\\cdot\\text{m}^2$, $\\text{kg}\\cdot\\text{m}^2/\\text{s}$, N, $\\text{N}\\cdot\\text{m}$) · retning i ord der størrelsen er en vektor · $I > I_\\text{CM}$ når aksen ligger utenfor massesenteret · tallet foran $MR^2$ mellom 0 og 2 for en akse gjennom legemet · negativ opplagerkraft betyr motsatt retning."
+    },
+    {
+      "id": "tfy4115-4-4-fig-1",
+      "type": "image",
+      "src": "/images/textbook/tfy4115/tfy4115-4-4-momentarm.svg",
+      "alt": "Et punkt O merket akse, med en linje r ut til et punkt P. I P starter en roed kraftpil F som peker skraatt nedover mot hoeyre. Kraftens virkelinje er forlenget med en stiplet linje. En groenn linje fra O staar vinkelrett paa denne virkelinja og er merket d er lik r sinus fi. Vinkelen fi mellom r og F er markert med en bue.",
+      "caption": "Momentarmen $d = r\\sin\\phi$ er den vinkelrette avstanden fra aksen til kraftens virkelinje — ikke avstanden $r$ til angrepspunktet. Denne ene forskjellen er den vanligste kilden til feil moment i både M5- og M9-oppgaver."
+    },
+    {
+      "id": "tfy4115-4-4-ex-mc-case",
+      "type": "example",
+      "title": "Gjennomregnet MC-case: rotasjon i eksamenstempo — med margnotater",
+      "problem": "To komplette flervalgsspørsmål av den typen som kommer på eksamen, regnet gjennom i MC-tempo med margnotater om hvor poengene faktisk faller.\n\n**Spørsmål 1.** En homogen skive har masse $2{,}50\\,\\text{kg}$ og radius $0{,}180\\,\\text{m}$. En klump med masse $1{,}00\\,\\text{kg}$, som kan regnes som en punktmasse, er festet på randen. Skiva roterer om en akse gjennom det **motsatte** randpunktet, vinkelrett på skiveplanet. Hvor stort er treghetsmomentet?\n\n**A** $0{,}1215\\,\\text{kg}\\cdot\\text{m}^2$ · **B** $0{,}1539\\,\\text{kg}\\cdot\\text{m}^2$ · **C** $0{,}1701\\,\\text{kg}\\cdot\\text{m}^2$ · **D** $0{,}2430\\,\\text{kg}\\cdot\\text{m}^2$ · **E** $0{,}2511\\,\\text{kg}\\cdot\\text{m}^2$ · **F** $0{,}2916\\,\\text{kg}\\cdot\\text{m}^2$\n\n**Spørsmål 2.** En kompakt kule med masse $0{,}320\\,\\text{kg}$ og radius $0{,}0600\\,\\text{m}$ glir mot høyre med senterfarten $8{,}50\\,\\text{m/s}$ og har baksnurr med vinkelfarten $60{,}0\\,\\text{rad/s}$. Hvor stor er den totale dreieimpulsen om et punkt på gulvet?\n\n**A** $0{,}02765\\,\\text{kg}\\cdot\\text{m}^2/\\text{s}$ · **B** $0{,}09792\\,\\text{kg}\\cdot\\text{m}^2/\\text{s}$ · **C** $0{,}13555\\,\\text{kg}\\cdot\\text{m}^2/\\text{s}$ · **D** $0{,}16320\\,\\text{kg}\\cdot\\text{m}^2/\\text{s}$ · **E** $0{,}19085\\,\\text{kg}\\cdot\\text{m}^2/\\text{s}$ · **F** $0{,}22848\\,\\text{kg}\\cdot\\text{m}^2/\\text{s}$",
+      "solution": "**Spørsmål 1: svar E.**\n\n*Margnotat — hvilken lov, og hvor mange deler?* Treghetsmoment for et sammensatt legeme: summen av delenes $I$ **om samme akse**. To deler: skiva og klumpen. Fem sekunder å se.\n\n*Margnotat — trinn 3 i oppskriften, det som avgjør oppgaven.* Går aksen gjennom skivas massesenter? **Nei** — den ligger i randen. Skriv derfor $I_\\text{skive} = \\tfrac12MR^2 + MR^2$ med én gang, før du regner:\n$$I_\\text{skive} = \\tfrac32MR^2 = 1{,}5 \\cdot 2{,}50 \\cdot 0{,}03240\\,\\text{kg}\\cdot\\text{m}^2 = 0{,}1215\\,\\text{kg}\\cdot\\text{m}^2.$$\nKlumpen er en punktmasse og trenger ikke Steiner — bare $mr^2$ med **riktig** $r$. Den sitter på motsatt rand, altså i avstanden $2R = 0{,}360\\,\\text{m}$ fra aksen:\n$$I_\\text{klump} = 1{,}00 \\cdot 0{,}1296\\,\\text{kg}\\cdot\\text{m}^2 = 0{,}1296\\,\\text{kg}\\cdot\\text{m}^2.$$\n$$I = 0{,}1215 + 0{,}1296 = 0{,}2511\\,\\text{kg}\\cdot\\text{m}^2.$$\nTo multiplikasjoner og en addisjon. Førti sekunder.\n\n*Margnotat — hva hentes hvor?* $\\tfrac12MR^2$ og Steiners sats **står på det utdelte arket**. Aksevalget, oppdelingen i to deler og avstanden $2R$ må du finne selv. Ingenting her krever mer enn en enkel kalkulator.\n\n*Margnotat — hvor mange siffer?* De to nærmeste alternativene ligger 3,3 prosent fra hverandre. Med tre siffer i $R^2$ er du trygg, men skriv fire i kladden: $0{,}03240$, ikke $0{,}032$.\n\n*Margnotat — hvilket alternativ lander du på hvis du slurver?* **C** er Steiner-leddet glemt for skiva (felle #4 — glemt Steiner-ledd). **B** setter klumpen i avstanden $R$ i stedet for $2R$ — den sitter på **motsatt** rand, og avstanden mellom to motstående randpunkter er diameteren. **D** bruker kule-formelen $\\tfrac25MR^2$ i stedet for skiveformelen. **F** bruker ringformelen $MR^2$. **A** glemmer klumpen helt.\n\n*Margnotat — sluttsjekken, femten sekunder.* Skiva alene om randen er $0{,}1215$, og klumpen kan bare legge til: alt som er $\\le 0{,}1215$ er umulig, og det stryker A. Klumpen bidrar med $0{,}1296$, altså **mer** enn skiva selv — svaret må ligge over det dobbelte av skivas bidrag, og det stryker C og B. Tre alternativer igjen, og de skiller seg bare i hvilken linje på arket du leste.\n\n— naturlig pausepunkt —\n\n**Spørsmål 2: svar C.**\n\n*Margnotat — hvilken lov?* Total dreieimpuls om et punkt: spinn pluss bane. To bidrag, og fortegnet avgjør.\n\n*Margnotat — trinn 4, det som avgjør oppgaven.* **Skriv konvensjonen først: «inn i papiret er positiv.»** Baksnurr betyr rotasjon mot klokka, altså spinn **ut** av papiret (negativt). Massesenteret går mot høyre over punktet, altså bane **inn** i papiret (positivt).\n\n*Margnotat — hvilke to regnelinjer?*\n$$L_\\text{bane} = mVR = 0{,}320 \\cdot 8{,}50 \\cdot 0{,}0600\\,\\text{kg}\\cdot\\text{m}^2/\\text{s} = 0{,}16320\\,\\text{kg}\\cdot\\text{m}^2/\\text{s},$$\n$$L_\\text{spinn} = \\tfrac25mR^2\\omega = 0{,}400 \\cdot 0{,}320 \\cdot 0{,}003600 \\cdot 60{,}0\\,\\text{kg}\\cdot\\text{m}^2/\\text{s} = 0{,}02765\\,\\text{kg}\\cdot\\text{m}^2/\\text{s},$$\n$$L = 0{,}16320 - 0{,}02765 = 0{,}13555\\,\\text{kg}\\cdot\\text{m}^2/\\text{s} \\text{ inn i papiret}.$$\n\n*Margnotat — hvor mange siffer, og hvorfor det avgjør her.* Summen ($0{,}19085$) og differansen ($0{,}13555$) ligger 41 prosent fra hverandre, og **begge står på lista**. Hadde spinnet vært mindre, ville de ligget enda tettere. Det er ikke avrundingen som er faren her — det er fortegnet. Men behold fire siffer likevel: $0{,}16320$, ikke $0{,}16$.\n\n*Margnotat — fellene.* **E** er summen, altså svaret med toppsnurr — ren fortegnsfeil, og det mest valgte gale alternativet i denne sjangeren. **D** er banebidraget alene, med spinnet glemt. **A** er spinnbidraget alene, med banen glemt. **F** er $\\tfrac75mVR$, altså svaret for en kule som ruller **rent** — riktig formel, feil situasjon (her er $\\omega = 60{,}0\\,\\text{rad/s}$, mens ren rulling ville krevd $V/R = 141{,}7\\,\\text{rad/s}$).\n\n*Margnotat — sluttsjekken.* Banebidraget dominerer med faktoren $5{,}903$, så svaret må ligge nær $0{,}16320$ — enten litt over eller litt under, avhengig av fortegnet. Alt som er langt fra $0{,}16320$, kan strykes. Og **oppgi alltid retningen i ord**: et tall uten «inn i papiret» er et halvt svar i denne sjangeren."
+    },
+    {
+      "id": "tfy4115-4-4-okt2",
+      "type": "text",
+      "content": "## Økt 2 — M4: treghetsmoment, oppslag og Steiner (~25 min)\n\nFem oppgaver på treghetsmoment. Oppgave 1 og 3 er i A–F-format med seks alternativer; de øvrige er i åpen form. Regn med tre til fem minutter per oppgave, og kjør trinn 3 i oppskriften hver gang: **går aksen gjennom massesenteret?**"
+    },
+    {
+      "id": "tfy4115-4-4-o-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-4-4-oppg-1",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger M4 — treghetsmoment og Steiners sats, A–F-format.) Et tynt kuleskall har masse $1{,}80\\,\\text{kg}$ og radius $0{,}220\\,\\text{m}$. Hvor stort er treghetsmomentet om en akse som tangerer skallets overflate?\n\n**A** $0{,}0581\\,\\text{kg}\\cdot\\text{m}^2$ · **B** $0{,}0871\\,\\text{kg}\\cdot\\text{m}^2$ · **C** $0{,}1220\\,\\text{kg}\\cdot\\text{m}^2$ · **D** $0{,}1307\\,\\text{kg}\\cdot\\text{m}^2$ · **E** $0{,}1452\\,\\text{kg}\\cdot\\text{m}^2$ · **F** $0{,}1742\\,\\text{kg}\\cdot\\text{m}^2$",
+        "solution": "**Svar: E.**\n\nKuleskallet har $I_\\text{CM} = \\tfrac23MR^2$, og tangentaksen ligger $d = R$ fra sentrum:\n$$I = \\tfrac23MR^2 + MR^2 = \\tfrac53MR^2 = 1{,}6667 \\cdot 1{,}80 \\cdot 0{,}04840\\,\\text{kg}\\cdot\\text{m}^2 = 0{,}1452\\,\\text{kg}\\cdot\\text{m}^2.$$\n\n*Fellene:* **A** er $\\tfrac23MR^2$, altså Steiner-leddet glemt. **B** er $MR^2$, altså skallets eget bidrag glemt. **C** er $\\tfrac75MR^2$, som er svaret for en **kompakt** kule — forbytning av de to kule-linjene på arket, og det farligste alternativet fordi det ligger bare 16 prosent under fasiten. **D** er $\\tfrac32MR^2$, altså skiveformelen brukt. **F** er $2MR^2$, med Steiner-leddet regnet dobbelt.\n\n*Sluttsjekk:* svaret må være større enn $\\tfrac23MR^2 = 0{,}0581$, og tallet foran $MR^2$ skal ligge mellom 1 og 2 for en akse som tangerer overflaten. $\\tfrac53 = 1{,}6667$ ✔",
+        "hints": [
+          "Trinn 3: går tangentaksen gjennom massesenteret?",
+          "Les linja på arket nøye — kuleskall og kompakt kule har ulike tall.",
+          "Avstanden fra sentrum til en tangentakse er radien."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-4-4-o-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-4-4-oppg-2",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M4.) Fire punktmasser på $0{,}400\\,\\text{kg}$ hver sitter i hjørnene av et rektangel med sidene $0{,}600\\,\\text{m}$ og $0{,}400\\,\\text{m}$, forbundet med lette staver.\n\n**a)** Finn treghetsmomentet om en akse gjennom rektangelets sentrum, vinkelrett på planet.\n\n**b)** Finn treghetsmomentet om en akse langs den lange midtlinja (parallell med siden $0{,}600\\,\\text{m}$).",
+        "solution": "**a)** Avstanden fra sentrum til hvert hjørne er halve diagonalen, og alle fire ligger like langt fra aksen:\n$$r^2 = \\left(\\frac{a}{2}\\right)^2 + \\left(\\frac{b}{2}\\right)^2 = 0{,}300^2 + 0{,}200^2 = 0{,}1300\\,\\text{m}^2,$$\n$$I = 4mr^2 = 4 \\cdot 0{,}400 \\cdot 0{,}1300\\,\\text{kg}\\cdot\\text{m}^2 = 0{,}2080\\,\\text{kg}\\cdot\\text{m}^2.$$\n\n**b)** Nå står aksen **i** planet, langs midtlinja parallell med den lange siden. Da er den vinkelrette avstanden fra hver masse til aksen bare $b/2 = 0{,}200\\,\\text{m}$ — utstrekningen **langs** aksen bidrar ikke:\n$$I = 4m\\left(\\frac{b}{2}\\right)^2 = 4 \\cdot 0{,}400 \\cdot 0{,}0400\\,\\text{kg}\\cdot\\text{m}^2 = 0{,}0640\\,\\text{kg}\\cdot\\text{m}^2.$$\n\n**Legg merke til poenget i b):** det er den samme massefordelingen, men bare den ene sidelengden teller. Dette er den vanligste feilen i punktmasse-oppgaver — å bruke avstanden til aksens **nærmeste punkt** i stedet for den vinkelrette avstanden til aksen. For en akse i planet er $a$ helt uten betydning.\n\n*Sluttsjekk:* svaret i b) må være mindre enn i a), siden avstandene er kortere ✔.",
+        "hints": [
+          "Avstanden fra sentrum til et hjørne finner du med Pytagoras på de to halve sidene.",
+          "I b) står aksen i planet — hvilken av de to halve sidene er den vinkelrette avstanden da?"
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-4-4-o-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-4-4-oppg-3",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M4, A–F-format.) En homogen skive har masse $2{,}60\\,\\text{kg}$ og radius $0{,}180\\,\\text{m}$. Den henges opp i et punkt på randen og roterer om en akse gjennom dette punktet, vinkelrett på skiveplanet. Hvor stort er treghetsmomentet?\n\n**A** $0{,}0211\\,\\text{kg}\\cdot\\text{m}^2$ · **B** $0{,}0421\\,\\text{kg}\\cdot\\text{m}^2$ · **C** $0{,}0842\\,\\text{kg}\\cdot\\text{m}^2$ · **D** $0{,}1179\\,\\text{kg}\\cdot\\text{m}^2$ · **E** $0{,}1264\\,\\text{kg}\\cdot\\text{m}^2$ · **F** $0{,}2106\\,\\text{kg}\\cdot\\text{m}^2$",
+        "solution": "**Svar: E.**\n\n$$I = \\tfrac12MR^2 + MR^2 = \\tfrac32MR^2 = 1{,}5 \\cdot 2{,}60 \\cdot 0{,}03240\\,\\text{kg}\\cdot\\text{m}^2 = 0{,}1264\\,\\text{kg}\\cdot\\text{m}^2.$$\n\n*Fellene:* **B** er $\\tfrac12MR^2$, altså skiva om sentrumsaksen (Steiner glemt). **C** er $MR^2$, bare Steiner-leddet. **D** er $\\tfrac75MR^2$, kule-formelen brukt før Steiner — bare 6,7 prosent under fasiten, og derfor det farligste alternativet. **F** er $\\tfrac52MR^2$, som du får ved å bruke $\\tfrac32MR^2$ og legge til $MR^2$ én gang for mye. **A** er $\\tfrac14MR^2$.\n\n*Sluttsjekk:* $\\tfrac32MR^2$ er også nøyaktig treghetsmomentet du trenger i [kap. 5.1](/tfy4115/tfy4115-5-1) når den samme skiva svinger som en fysisk pendel — verdt å kjenne igjen.",
+        "hints": [
+          "Trinn 3 i oppskriften.",
+          "Avstanden fra sentrum til randen er radien.",
+          "Kontroller at svaret er større enn skivas treghetsmoment om sentrumsaksen."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-4-4-o-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-4-4-oppg-4",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M4.) En homogen stang med masse $0{,}700\\,\\text{kg}$ og lengde $1{,}100\\,\\text{m}$ er hengslet i den ene enden. En punktmasse på $2{,}00\\,\\text{kg}$ er festet i den andre enden.\n\n**a)** Finn treghetsmomentet om hengselaksen.\n\n**b)** Hvor stor andel av treghetsmomentet kommer fra punktmassen?",
+        "solution": "**a)** Stanga bidrar med $\\tfrac13M_sL^2$ — **allerede** om endepunktet, så ingen Steiner her. Punktmassen bidrar med $m_pL^2$:\n$$I = \\tfrac13 \\cdot 0{,}700 \\cdot 1{,}2100 + 2{,}00 \\cdot 1{,}2100\\,\\text{kg}\\cdot\\text{m}^2 = 0{,}28233 + 2{,}4200 = 2{,}70233\\,\\text{kg}\\cdot\\text{m}^2.$$\n\n**b)**\n$$\\frac{2{,}4200}{2{,}70233} = 0{,}8955,$$\naltså om lag 90 prosent. Punktmassen dominerer fullstendig — den er nesten tre ganger så tung som stanga, og hele massen ligger i maksimal avstand, mens stangens masse i gjennomsnitt ligger nærmere aksen.\n\n*Vanlige feil her:* å legge til et Steiner-ledd for stanga (den har allerede $\\tfrac13M_sL^2$), eller å bruke $\\tfrac{1}{12}M_sL^2$ og glemme å flytte aksen. Det siste gir $2{,}49058\\,\\text{kg}\\cdot\\text{m}^2$.",
+        "hints": [
+          "Er $\\tfrac13M_sL^2$ om midten eller om enden?",
+          "En punktmasse trenger ikke Steiner — bare $mr^2$ med riktig $r$."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-4-4-o-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-4-4-oppg-5",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger M4, den vanskeligste varianten.) En homogen skive med radius $0{,}300\\,\\text{m}$ hadde massen $5{,}00\\,\\text{kg}$ før et sirkulært hull med radius $0{,}100\\,\\text{m}$ ble boret ut. Hullets sentrum ligger $0{,}150\\,\\text{m}$ fra skivas sentrum.\n\n**a)** Hvor stor masse ble fjernet, og hva er skivas masse etter boringen?\n\n**b)** Finn treghetsmomentet til den utborede skiva om symmetriaksen gjennom det opprinnelige sentret.",
+        "solution": "**a)** Massen er proporsjonal med arealet, og arealforholdet er $(r/R)^2$:\n$$m_\\text{hull} = M_\\text{full}\\left(\\frac{r}{R}\\right)^2 = 5{,}00 \\cdot \\left(\\frac{0{,}100}{0{,}300}\\right)^2\\,\\text{kg} = 5{,}00 \\cdot 0{,}11111\\,\\text{kg} = 0{,}55556\\,\\text{kg}.$$\nSkivas masse etter boringen er $5{,}00 - 0{,}55556 = 4{,}4444\\,\\text{kg}$.\n\n**b)** Bruk additiviteten med **negativ** masse: hele skiva minus hullet. Hullet skal trekkes fra med **både** sitt eget treghetsmoment og sitt Steiner-ledd, siden hullets sentrum ikke ligger på aksen:\n$$I_\\text{full} = \\tfrac12M_\\text{full}R^2 = 0{,}22500\\,\\text{kg}\\cdot\\text{m}^2,$$\n$$I_\\text{hull} = \\tfrac12m_\\text{hull}r^2 + m_\\text{hull}d^2 = 0{,}002778 + 0{,}012500 = 0{,}015278\\,\\text{kg}\\cdot\\text{m}^2,$$\n$$I = 0{,}22500 - 0{,}015278 = 0{,}209722\\,\\text{kg}\\cdot\\text{m}^2 \\approx 0{,}2097\\,\\text{kg}\\cdot\\text{m}^2.$$\n\n**Merk to feller.** (i) Å glemme hullets Steiner-ledd gir $0{,}22222\\,\\text{kg}\\cdot\\text{m}^2$ — for stort, fordi du da har trukket fra for lite. (ii) Å bruke $\\tfrac12M_\\text{rest}R^2 = 0{,}20000\\,\\text{kg}\\cdot\\text{m}^2$ forutsetter at massen ble fjernet jevnt over hele skiva, ikke på ett sted, og gir også et galt svar.\n\n*Sluttsjekk:* svaret må være mindre enn $I_\\text{full}$ (vi har fjernet masse) og større enn $\\tfrac12M_\\text{rest}R^2$ ville tilsi... nei, sjekk det siste selv: er $0{,}2097 > 0{,}20000$? Ja — og det er logisk, fordi massen som ble fjernet, satt **nærmere** aksen enn gjennomsnittet, og derfor bidro mindre enn sin andel.",
+        "hints": [
+          "Massen er proporsjonal med arealet — hvilket forhold er det mellom hullets og skivas areal?",
+          "Behandle hullet som en NEGATIV masse og bruk additiviteten.",
+          "Hullets sentrum ligger ikke på aksen, så hullet trenger sitt eget Steiner-ledd."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-4-4-okt3",
+      "type": "text",
+      "content": "## Økt 3 — M5: dreieimpuls, bevaring og rulling (~25 min)\n\nFem oppgaver på dreieimpuls og rotasjonsdynamikk. Oppgave 6 og 10 er i A–F-format. **Skriv fortegnskonvensjonen først i hver oppgave** — det er trinn 4 i oppskriften, og det er der poengene faller."
+    },
+    {
+      "id": "tfy4115-4-4-o-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-4-4-oppg-6",
+        "number": 6,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M5 — dreieimpuls og rulling, A–F-format.) En massiv sylinder med masse $3{,}00\\,\\text{kg}$ og radius $0{,}150\\,\\text{m}$ ruller rent mot høyre med senterfarten $2{,}40\\,\\text{m/s}$. Hvor stor er dreieimpulsen om et punkt på underlaget?\n\n**A** $0{,}5400\\,\\text{kg}\\cdot\\text{m}^2/\\text{s}$ · **B** $0{,}7560\\,\\text{kg}\\cdot\\text{m}^2/\\text{s}$ · **C** $1{,}0800\\,\\text{kg}\\cdot\\text{m}^2/\\text{s}$ · **D** $1{,}5120\\,\\text{kg}\\cdot\\text{m}^2/\\text{s}$ · **E** $1{,}6200\\,\\text{kg}\\cdot\\text{m}^2/\\text{s}$ · **F** $2{,}1600\\,\\text{kg}\\cdot\\text{m}^2/\\text{s}$",
+        "solution": "**Svar: E.**\n\nVed ren rulling er $\\omega = V/R$, og spinn og bane peker **samme** vei (begge inn i papiret når sylinderen går mot høyre):\n$$L = \\underbrace{\\tfrac12mR^2\\cdot\\frac{V}{R}}_{\\text{spinn}} + \\underbrace{mVR}_{\\text{bane}} = \\tfrac32mVR = 1{,}5 \\cdot 3{,}00 \\cdot 2{,}40 \\cdot 0{,}150\\,\\text{kg}\\cdot\\text{m}^2/\\text{s} = 1{,}6200\\,\\text{kg}\\cdot\\text{m}^2/\\text{s}.$$\nMerk at $\\tfrac32mR^2$ nettopp er treghetsmomentet om **kontaktlinja** (Steiner), så du kan også regne $L = I_\\text{kontakt}\\omega$ og få samme svar.\n\n*Fellene:* **A** er spinnbidraget alene ($\\tfrac12mVR$). **C** er banebidraget alene ($mVR$). **D** er $\\tfrac75mVR$, altså kule-formelen brukt på en sylinder — bare 6,7 prosent under fasiten. **F** er $2mVR$, med spinnbidraget satt lik banebidraget. **B** er $\\tfrac{7}{10}mVR$, som er en forveksling med energiuttrykket $\\tfrac{7}{10}mv^2$ for en rullende kule.\n\n*Sluttsjekk:* svaret må være større enn banebidraget alene, siden spinn og bane peker samme vei ved ren rulling. Det stryker de tre laveste alternativene på ti sekunder.",
+        "hints": [
+          "Ved ren rulling er $\\omega=V/R$ — og hvilken vei peker de to bidragene da?",
+          "Sjekk svaret ved å regne $I$ om kontaktlinja med Steiners sats i stedet."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-4-4-o-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-4-4-oppg-7",
+        "number": 7,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M5.) En golfball med masse $0{,}250\\,\\text{kg}$ og radius $0{,}0350\\,\\text{m}$ glir over gresset mot høyre med senterfarten $25{,}00\\,\\text{m/s}$ og har kraftig baksnurr: den roterer mot klokka med $350\\,\\text{rad/s}$.\n\n**a)** Finn den totale dreieimpulsen om et punkt på bakken, med retning.\n\n**b)** Hvor stor måtte vinkelfarten vært for ren rulling, og hva sier sammenligningen om hva som vil skje?",
+        "solution": "**Konvensjon: inn i papiret er positiv.**\n\n**a)** Banebidraget (massesenteret går mot høyre over punktet, altså inn i papiret):\n$$L_\\text{bane} = mVR = 0{,}250 \\cdot 25{,}00 \\cdot 0{,}0350\\,\\text{kg}\\cdot\\text{m}^2/\\text{s} = 0{,}21875\\,\\text{kg}\\cdot\\text{m}^2/\\text{s}.$$\nSpinnbidraget (mot klokka, altså ut av papiret — negativt):\n$$L_\\text{spinn} = \\tfrac25mR^2\\omega = 0{,}400 \\cdot 0{,}250 \\cdot 0{,}001225 \\cdot 350\\,\\text{kg}\\cdot\\text{m}^2/\\text{s} = 0{,}04288\\,\\text{kg}\\cdot\\text{m}^2/\\text{s}.$$\n$$L = 0{,}21875 - 0{,}04288 = 0{,}17588\\,\\text{kg}\\cdot\\text{m}^2/\\text{s} \\text{ inn i papiret}.$$\n\n**b)** Ren rulling krever $\\omega = V/R = 714{,}3\\,\\text{rad/s}$ — **med klokka**. Ballen roterer i stedet $350\\,\\text{rad/s}$ **mot** klokka, altså helt motsatt vei av det rulling krever. Friksjonen vil derfor både bremse translasjonen og gradvis snu rotasjonen, og ballen vil til slutt rulle rent framover (eller, hvis baksnurren er kraftig nok i forhold til farten, stoppe og rulle **bakover** — det er trikset bak en bakkespinn i golf og biljard).\n\n*Sluttsjekk:* med toppsnurr ville svaret vært $0{,}26163$ i stedet for $0{,}17588$, altså 49 prosent større. Det er hele fortegnspoenget i sjangeren.",
+        "hints": [
+          "Skriv ned hvilken retning som er positiv før du setter inn tall.",
+          "Baksnurr betyr rotasjon mot klokka når ballen går mot høyre — hvilken vei peker spinnet da?",
+          "Sammenlign den oppgitte vinkelfarten med $V/R$ i b)."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-4-4-o-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-4-4-oppg-8",
+        "number": 8,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M5.) En dreieskive med treghetsmoment $8{,}00\\,\\text{kg}\\cdot\\text{m}^2$ roterer friksjonsfritt om en loddrett akse med $1{,}80\\,\\text{rad/s}$. En person med masse $25{,}0\\,\\text{kg}$ setter seg forsiktig ned helt ute i kanten, i avstanden $1{,}200\\,\\text{m}$ fra aksen, uten å gi skiva noe støt.\n\n**a)** Finn vinkelfarten etterpå.\n\n**b)** Finn den kinetiske energien før og etter. Hvor ble energien av?",
+        "solution": "**a)** Ingen ytre momenter om den loddrette aksen, så dreieimpulsen er bevart. Personen bidrar med $mR^2$:\n$$I_\\text{etter} = 8{,}00 + 25{,}0 \\cdot 1{,}4400 = 8{,}00 + 36{,}00 = 44{,}00\\,\\text{kg}\\cdot\\text{m}^2,$$\n$$\\omega_\\text{etter} = \\frac{I_\\text{før}}{I_\\text{etter}}\\omega_\\text{før} = \\frac{8{,}00}{44{,}00} \\cdot 1{,}80\\,\\text{rad/s} = 0{,}3273\\,\\text{rad/s}.$$\nVinkelfarten faller til om lag 18 prosent av utgangspunktet.\n\n**b)**\n$$K_\\text{før} = \\tfrac12 \\cdot 8{,}00 \\cdot 3{,}2400\\,\\text{J} = 12{,}9600\\,\\text{J}, \\qquad K_\\text{etter} = \\tfrac12 \\cdot 44{,}00 \\cdot 0{,}10711\\,\\text{J} = 2{,}3564\\,\\text{J}.$$\nEnergien har **falt** med $10{,}6036\\,\\text{J}$ — nesten 82 prosent. Den gikk til varme og deformasjon i det øyeblikket personen ble dratt opp i skivas hastighet: dette er en fullstendig uelastisk prosess, akkurat som et uelastisk støt. Dreieimpulsen er bevart, energien ikke.\n\n*Sluttsjekk:* $L$ skal være uendret: $8{,}00 \\cdot 1{,}80 = 14{,}400$ og $44{,}00 \\cdot 0{,}3273 = 14{,}400\\,\\text{kg}\\cdot\\text{m}^2/\\text{s}$ ✔. Og vinkelfarten skal ha **falt**, siden treghetsmomentet økte. Merk kontrasten til oppgaven der noen trekker armene inn: da minker $I$, farten øker, og energien øker fordi personen gjør arbeid. Her øker $I$, og energi går tapt.",
+        "hints": [
+          "Er det noe ytre kraftmoment om den loddrette aksen?",
+          "Personen bidrar med $mR^2$ til systemets treghetsmoment.",
+          "Regn energien før og etter hver for seg — ikke forutsett at den er bevart."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-4-4-o-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-4-4-oppg-9",
+        "number": 9,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger M5.) En massiv sylinder med radius $0{,}0900\\,\\text{m}$ kastes uten rotasjon inn på et vannrett underlag med senterfarten $5{,}00\\,\\text{m/s}$. Glidefriksjonskoeffisienten er $0{,}200$.\n\n**a)** Sett opp de to Newton-likningene og vis at sluttfarten ved ren rulling er $\\tfrac23V_0$.\n\n**b)** Finn tiden og strekningen fram til ren rulling.\n\n**c)** Hvorfor er sluttfaktoren $\\tfrac23$ for en sylinder, mens den er $\\tfrac57$ for en kompakt kule?",
+        "solution": "**a) Translasjon:** friksjonen bremser massesenteret,\n$$ma = -\\mu mg \\quad\\Longrightarrow\\quad V(t) = V_0 - \\mu g t.$$\n**Rotasjon:** samme kraft gir momentet $\\mu mgR$ om massesenteret, og sylinderen har $I = \\tfrac12mR^2$:\n$$\\alpha = \\frac{\\mu mgR}{\\tfrac12mR^2} = \\frac{2\\mu g}{R} \\quad\\Longrightarrow\\quad \\omega(t) = \\frac{2\\mu g}{R}t.$$\nRen rulling nås når $V = R\\omega$:\n$$V_0 - \\mu gt = 2\\mu gt \\quad\\Longrightarrow\\quad t = \\frac{V_0}{3\\mu g}, \\qquad V = V_0 - \\mu g\\cdot\\frac{V_0}{3\\mu g} = \\tfrac23V_0. \\checkmark$$\n\n**b)** Med $\\mu g = 1{,}96200\\,\\text{m/s}^2$:\n$$t = \\frac{5{,}00}{3 \\cdot 1{,}96200}\\,\\text{s} = 0{,}84947\\,\\text{s}, \\qquad V = \\tfrac23 \\cdot 5{,}00\\,\\text{m/s} = 3{,}33333\\,\\text{m/s}.$$\n$$s = V_0t - \\tfrac12\\mu gt^2 = 5{,}00 \\cdot 0{,}84947 - \\tfrac12 \\cdot 1{,}96200 \\cdot 0{,}72160\\,\\text{m} = 3{,}53947\\,\\text{m} \\approx 3{,}5395\\,\\text{m}.$$\nKontroll: $\\omega = V/R = 37{,}0370\\,\\text{rad/s}$, og $\\alpha t = 43{,}6000 \\cdot 0{,}84947 = 37{,}0370\\,\\text{rad/s}$ ✔.\n\n**c)** Fordi faktoren kommer fra treghetsmomentet. Generelt, med $I = cmR^2$, gir de to likningene\n$$V_0 - \\mu gt = \\frac{\\mu g}{c}t \\quad\\Longrightarrow\\quad t = \\frac{cV_0}{(1+c)\\mu g}, \\qquad V = \\frac{V_0}{1+c}.$$\nFor en sylinder er $c = \\tfrac12$ og $V = V_0/(1{,}5) = \\tfrac23V_0$; for en kompakt kule er $c = \\tfrac25$ og $V = V_0/(1{,}4) = \\tfrac57V_0$. **Sylinderen mister mer fart** fordi den har større treghetsmoment og derfor trenger mer dreieimpuls for å komme opp i rullefart. Verdt å legge på minnet: $V_\\text{slutt} = V_0/(1+c)$ dekker alle legemer.\n\n*Sluttsjekk:* $\\tfrac23 = 0{,}667 < \\tfrac57 = 0{,}714$ ✔, og friksjonstallet påvirker bare tid og strekning, ikke sluttfarten.",
+        "hints": [
+          "Sett opp translasjons- og rotasjonslikningen hver for seg, med samme friksjonskraft i begge.",
+          "Ren rulling nås når $V(t)=R\\omega(t)$ — løs for tiden.",
+          "I c): skriv $I=cmR^2$ og se hvor $c$ havner i uttrykket for sluttfarten."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-4-4-o-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-4-4-oppg-10",
+        "number": 10,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger M5, A–F-format.) En homogen stang med lengde $1{,}500\\,\\text{m}$ er hengslet i den ene enden og slippes fra loddrett stilling. Hvor stor er vinkelfarten i det øyeblikket stanga er vannrett?\n\n**A** $2{,}5573\\,\\text{rad/s}$ · **B** $3{,}1321\\,\\text{rad/s}$ · **C** $3{,}6166\\,\\text{rad/s}$ · **D** $4{,}4294\\,\\text{rad/s}$ · **E** $6{,}2642\\,\\text{rad/s}$ · **F** $8{,}8589\\,\\text{rad/s}$",
+        "solution": "**Svar: D.**\n\nEnergibevaring: massesenteret faller $L/2$, og all potensiell energi går til rotasjon om hengselet med $I_A = \\tfrac13ML^2$:\n$$Mg\\frac{L}{2} = \\tfrac12\\cdot\\tfrac13ML^2\\omega^2 \\quad\\Longrightarrow\\quad \\omega = \\sqrt{\\frac{3g}{L}} = \\sqrt{\\frac{3 \\cdot 9{,}81}{1{,}500}}\\,\\text{rad/s} = \\sqrt{19{,}6200}\\,\\text{rad/s} = 4{,}4294\\,\\text{rad/s}.$$\nMassen faller ut — en tung og en lett stang med samme lengde treffer bunnen med samme vinkelfart.\n\n*Fellene:* **C** er $\\sqrt{2g/L}$, som du får hvis du bruker $ML^2$ (stanga behandlet som en punktmasse i enden). **B** er $\\sqrt{3g/(2L)}$, med faktoren $\\tfrac12$ i fallhøyden regnet to ganger. **E** er $\\sqrt{6g/L}$, med full fallhøyde $L$ i stedet for $L/2$. **A** er $\\sqrt{g/L}$. **F** er $\\sqrt{12g/L}$, altså både full fallhøyde og feil treghetsmoment.\n\n*Sluttsjekk, to ledd.* (i) Tippfarten blir $\\omega L = 6{,}6442\\,\\text{m/s}$. Sammenlign med et fritt fall fra høyden $L/2$: $\\sqrt{2g(L/2)} = \\sqrt{gL} = 3{,}8360\\,\\text{m/s}$. Stangenden er raskere — som den skal være, siden hengselet holder igjen på den nedre delen og «kaster» enden rundt. (ii) Bruk **ikke** konstant-akselerasjonsformler her (felle #3): momentet varierer med $\\cos\\phi$ gjennom hele fallet, så $\\alpha$ er alt annet enn konstant.",
+        "hints": [
+          "Hvilket verktøy gir vinkelfart etter et fall — energibevaring eller spinnsatsen?",
+          "Hvor langt faller massesenteret når stanga går fra loddrett til vannrett?",
+          "Bruk $I$ om hengselet, ikke om massesenteret."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-4-4-okt4",
+      "type": "text",
+      "content": "## Økt 4 — M9 og blandede oppgaver (~20 min)\n\nFem oppgaver: tre statikk og to som kombinerer rotasjonsdynamikk med det du har lært i hele delen. Oppgave 11 og 15 er i A–F-format. **Skriv positiv rotasjonsretning først i hver statikkoppgave.**"
+    },
+    {
+      "id": "tfy4115-4-4-o-11",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-4-4-oppg-11",
+        "number": 11,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M9 — statikk og momentbalanse, A–F-format.) En homogen bjelke med masse $35{,}0\\,\\text{kg}$ er festet i veggen med et hengsel og holdes vannrett av en snor fra ytterenden, i vinkelen $42^\\circ$ med bjelken. Hvor stort er strekket i snora?\n\n**A** $114{,}8730\\,\\text{N}$ · **B** $171{,}6750\\,\\text{N}$ · **C** $231{,}0115\\,\\text{N}$ · **D** $256{,}5643\\,\\text{N}$ · **E** $343{,}3500\\,\\text{N}$ · **F** $513{,}1285\\,\\text{N}$",
+        "solution": "**Svar: D.**\n\n**Positiv rotasjonsretning: mot klokka.** Momentpunkt i hengselet, så begge hengselkomponentene faller ut:\n$$S\\sin\\phi \\cdot L = Mg\\cdot\\frac{L}{2} \\quad\\Longrightarrow\\quad S = \\frac{Mg}{2\\sin\\phi} = \\frac{343{,}350}{2 \\cdot 0{,}66913}\\,\\text{N} = 256{,}5643\\,\\text{N}.$$\nBjelkens lengde faller ut — den er ikke engang oppgitt, og det er en del av oppgaven: kjenner du formelen, ser du at den ikke trengs.\n\n*Fellene:* **F** er $Mg/\\sin\\phi$, med faktoren $\\tfrac12$ glemt (tyngden plassert i ytterenden). **C** er $Mg/(2\\cos\\phi)$, med sinus og kosinus byttet om. **B** er $Mg/2$, med vinkelen glemt helt. **E** er hele tyngden. **A** er $Mg\\sin\\phi/2$, altså multiplikasjon i stedet for divisjon.\n\n*Sluttsjekk:* strekket må være **større** enn halve tyngden, siden bare komponenten $S\\sin\\phi$ bærer, og $\\sin\\phi < 1$. Det stryker de to laveste alternativene direkte.",
+        "hints": [
+          "Legg momentpunktet der de ukjente hengselkreftene virker.",
+          "Bare snorkraftens komponent vinkelrett på bjelken gir moment om hengselet.",
+          "Sjekk om bjelkens lengde i det hele tatt kan påvirke svaret."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-4-4-o-12",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-4-4-oppg-12",
+        "number": 12,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M9.) En homogen stige med masse $20{,}0\\,\\text{kg}$ står mot en glatt vegg og danner $65^\\circ$ med gulvet.\n\n**a)** Finn normalkraften fra gulvet og kraften fra veggen.\n\n**b)** Finn den minste friksjonskoeffisienten gulvet må ha.\n\n**c)** Hvordan endres svaret i b) hvis stigen er dobbelt så tung?",
+        "solution": "**Positiv rotasjonsretning: mot klokka.** Momentpunkt: stigens fot.\n\n**a)** Veggen er glatt og kan bare gi en vannrett kraft, så gulvet bærer hele tyngden:\n$$N_\\text{gulv} = Mg = 20{,}0 \\cdot 9{,}81\\,\\text{N} = 196{,}2000\\,\\text{N}.$$\nMomentlikningen om foten gir veggkraften:\n$$N_\\text{vegg} = \\frac{Mg}{2\\tan\\theta} = \\frac{196{,}2000}{2 \\cdot 2{,}14451}\\,\\text{N} = 45{,}7448\\,\\text{N}.$$\n\n**b)** Friksjonen må balansere veggkraften:\n$$\\mu_s \\ge \\frac{N_\\text{vegg}}{N_\\text{gulv}} = \\frac{1}{2\\tan\\theta} = 0{,}23315 \\approx 0{,}233.$$\n\n**c)** **Ikke i det hele tatt.** Både $N_\\text{vegg}$ og $N_\\text{gulv}$ er proporsjonale med $Mg$, så massen faller ut av forholdet: $\\mu_s \\ge 1/(2\\tan\\theta)$ avhenger **bare av vinkelen**. En tung stige presser hardere mot både vegg og gulv i samme forhold. Det er derfor rådet «sett stigen bratt» gjelder uansett hvor tung den er — og det er et resultat som ofte testes som et rent konseptspørsmål.\n\n*Sluttsjekk:* $\\mu_s$ er dimensjonsløs og av rimelig størrelse (tre mot tre gir typisk $0{,}3$–$0{,}5$), og $N_\\text{vegg} < N_\\text{gulv}$ for en bratt stige ✔.",
+        "hints": [
+          "Hva slags kraft kan en glatt vegg gi?",
+          "Momentarmene om foten: vannrett avstand for tyngden, loddrett for veggkraften.",
+          "I c): se om massen i det hele tatt står i uttrykket for $\\mu_s$."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-4-4-o-13",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-4-4-oppg-13",
+        "number": 13,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger M9.) Et homogent stupebrett med lengde $5{,}00\\,\\text{m}$ og masse $35{,}0\\,\\text{kg}$ ligger på to opplagringer: den innerste i $x=0$ og den ytterste i $x = 1{,}800\\,\\text{m}$. En person med masse $65{,}0\\,\\text{kg}$ står helt ute i den frie enden.\n\n**a)** Finn de to opplagerkreftene, med retning.\n\n**b)** Forklar hvorfor den ene kraften er større enn den samlede tyngden.",
+        "solution": "**Positiv rotasjonsretning: mot klokka.** Begge opplagerkrefter tegnes oppover, og fortegnet korrigerer oss.\n\n**a)** Momentpunkt i den innerste opplagringen:\n$$N_B \\cdot 1{,}800 = M_pg\\cdot 2{,}50 + m_dg\\cdot 5{,}00 = 858{,}375 + 3188{,}250 = 4046{,}625\\,\\text{N}\\cdot\\text{m},$$\n$$N_B = \\frac{4046{,}625}{1{,}800}\\,\\text{N} = 2248{,}12500\\,\\text{N} \\text{ oppover}.$$\nKraftbetingelsen loddrett:\n$$N_A = (M_p+m_d)g - N_B = 981{,}0000 - 2248{,}12500\\,\\text{N} = -1267{,}12500\\,\\text{N},$$\naltså $1267{,}12500\\,\\text{N}$ **nedover**. Den innerste opplagringen må holde brettet ned — derfor er et stupebrett boltet fast innerst.\n\n**b)** Fordi $N_B$ ikke bare skal bære tyngden, men også balansere nedholdet i $A$. Kraftbalansen er $N_A + N_B = 981{,}0000\\,\\text{N}$ med $N_A$ negativ, og da må $N_B$ være større enn summen. Fysisk: brettet er en vektstang der personen ute i enden har en lang momentarm om $B$, og den korte armen inn til $A$ må derfor holde igjen med en stor kraft.\n\n*Sluttsjekk:* $-1267{,}12500 + 2248{,}12500 = 981{,}0000\\,\\text{N}$ ✔, og fortegnet på $N_A$ er negativt — som det må være når personen står utenfor den ytterste opplagringen.",
+        "hints": [
+          "Tegn begge opplagerkreftene oppover og la fortegnet i svaret korrigere deg.",
+          "Legg momentpunktet i den innerste opplagringen for å finne den ytterste kraften.",
+          "Sjekk til slutt at de to kreftene summerer til den samlede tyngden."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-4-4-o-14",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-4-4-oppg-14",
+        "number": 14,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Blandet: rotasjonsdynamikk og translasjon.) En homogen skive med masse $4{,}00\\,\\text{kg}$ og radius $0{,}200\\,\\text{m}$ kan rotere friksjonsfritt om sin symmetriakse. En snor er viklet rundt randen, og i snorenden henger en masse $1{,}500\\,\\text{kg}$ som slippes fra ro.\n\n**a)** Finn akselerasjonen til den hengende massen.\n\n**b)** Finn strekket i snora og skivas vinkelakselerasjon.\n\n**c)** Kontroller svaret ved å regne momentet om skivas akse.",
+        "solution": "**a) Symbolsk.** To likninger. For den hengende massen (positiv retning nedover):\n$$mg - S = ma.$$\nFor skiva (snorkraften $S$ virker tangentielt, momentarm $R$):\n$$SR = I\\alpha = \\tfrac12MR^2\\alpha.$$\nSnora er stram og glir ikke, så $a = \\alpha R$. Sett inn $\\alpha = a/R$ i den andre likningen:\n$$SR = \\tfrac12MR^2\\cdot\\frac{a}{R} = \\tfrac12MRa \\quad\\Longrightarrow\\quad S = \\tfrac12Ma.$$\nSett dette i den første:\n$$mg - \\tfrac12Ma = ma \\quad\\Longrightarrow\\quad a = \\frac{mg}{m + M/2}.$$\n\n**Rask vei til tall.**\n$$a = \\frac{1{,}500 \\cdot 9{,}81}{1{,}500 + 2{,}00}\\,\\text{m/s}^2 = \\frac{14{,}7150}{3{,}50}\\,\\text{m/s}^2 = 4{,}20429\\,\\text{m/s}^2.$$\nMerk at $a < g$: skiva må settes i rotasjon, og det «koster» akselerasjon. Uttrykket viser hvorfor: skivas halve masse legger seg til den hengende massen i nevneren.\n\n**b)**\n$$S = m(g-a) = 1{,}500(9{,}81 - 4{,}20429)\\,\\text{N} = 8{,}40857\\,\\text{N}, \\qquad \\alpha = \\frac{a}{R} = \\frac{4{,}20429}{0{,}200}\\,\\text{rad/s}^2 = 21{,}02143\\,\\text{rad/s}^2.$$\nLegg merke til at $S < mg = 14{,}7150\\,\\text{N}$ — snorstrekket er mindre enn tyngden, ellers ville massen ikke akselerert nedover.\n\n**c)** Momentet på skiva er $SR = 8{,}40857 \\cdot 0{,}200 = 1{,}68171\\,\\text{N}\\cdot\\text{m}$, og $I\\alpha = \\tfrac12 \\cdot 4{,}00 \\cdot 0{,}0400 \\cdot 21{,}02143 = 1{,}68171\\,\\text{N}\\cdot\\text{m}$ ✔. De to stemmer, og kontrollen er verdt å gjøre fordi den bruker begge svarene på en helt annen måte enn utledningen.\n\n*Sluttsjekk:* to grensetilfeller. Er skiva masseløs ($M \\to 0$), blir $a \\to g$ — fritt fall, som det skal. Er skiva svært tung ($M \\to \\infty$), blir $a \\to 0$. Begge stemmer med uttrykket.",
+        "hints": [
+          "Sett opp Newtons 2. lov for den hengende massen og for skivas rotasjon hver for seg.",
+          "Snora kobler dem: $a=\\alpha R$ så lenge snora ikke glir.",
+          "Kontroller til slutt at $a<g$ og at $S<mg$."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-4-4-o-15",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-4-4-oppg-15",
+        "number": 15,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Blandet, A–F-format.) En homogen stang med masse $1{,}20\\,\\text{kg}$ og lengde $0{,}800\\,\\text{m}$ roterer om et hengsel i den ene enden med vinkelfarten $5{,}00\\,\\text{rad/s}$. En punktmasse på $0{,}500\\,\\text{kg}$ er festet i den frie enden.\n\nHvor stor er systemets dreieimpuls om hengselaksen?\n\n**A** $1{,}2800\\,\\text{kg}\\cdot\\text{m}^2/\\text{s}$ · **B** $1{,}6000\\,\\text{kg}\\cdot\\text{m}^2/\\text{s}$ · **C** $1{,}8133\\,\\text{kg}\\cdot\\text{m}^2/\\text{s}$ · **D** $1{,}9200\\,\\text{kg}\\cdot\\text{m}^2/\\text{s}$ · **E** $2{,}8800\\,\\text{kg}\\cdot\\text{m}^2/\\text{s}$ · **F** $5{,}4400\\,\\text{kg}\\cdot\\text{m}^2/\\text{s}$",
+        "solution": "**Svar: E.**\n\nSystemet roterer om en **fast** akse, så $L = I_A\\omega$ med $I_A$ om hengselet:\n$$I_A = \\tfrac13ML^2 + mL^2 = 0{,}25600 + 0{,}3200 = 0{,}5760\\,\\text{kg}\\cdot\\text{m}^2,$$\n$$L = I_A\\omega = 0{,}5760 \\cdot 5{,}00\\,\\text{kg}\\cdot\\text{m}^2/\\text{s} = 2{,}8800\\,\\text{kg}\\cdot\\text{m}^2/\\text{s}.$$\nIngen oppdeling i spinn og bane er nødvendig her — når aksen er fast, er $I_A\\omega$ hele dreieimpulsen.\n\n*Fellene:* **D** bruker $\\tfrac{1}{12}ML^2$ for stanga, altså aksen om stangens midtpunkt (Steiner glemt). **A** er stanga alene, med punktmassen glemt. **B** er punktmassen alene, med stanga glemt. **C** bruker $\\tfrac13$ på **begge** leddene, altså $\\tfrac13mL^2$ for punktmassen — men en punktmasse i avstanden $L$ har $mL^2$, ikke $\\tfrac13mL^2$. **F** legger hele massen $(M+m)$ i avstanden $L$, altså stanga behandlet som en punktmasse i enden.\n\n*Sluttsjekk:* svaret må være større enn hvert av de to bidragene hver for seg, og mindre enn det du får hvis all masse lå i enden ($(M+m)L^2\\omega = 5{,}4400$). Det stryker fire alternativer på tjue sekunder.",
+        "hints": [
+          "Roterer systemet om en fast akse? Da holder det med $L=I_A\\omega$.",
+          "Stanga har $\\tfrac13ML^2$ om enden; punktmassen har $mL^2$.",
+          "Sjekk at svaret ligger mellom bidragene hver for seg og summen med all masse i enden."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-4-4-war-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil — hele M4-, M5- og M9-repertoaret, og faktorfellen",
+      "content": "**Steiner glemt** (felle #4). Går aksen utenfor massesenteret og du bruker $I_\\text{CM}$ direkte, blir svaret grovt for lite — for en kule om tangentaksen med faktoren $3{,}5$. Motgiften er trinn 3 i oppskriften, hver gang.\n\n**Steiner brukt to ganger.** $\\tfrac13ML^2$ **er** stanga om endepunktet. Legger du på $M(L/2)^2$ igjen, får du $\\tfrac{7}{12}ML^2$ — et klassisk galt alternativ.\n\n**Feil linje på arket.** Kuleskall ($\\tfrac23MR^2$) mot kompakt kule ($\\tfrac25MR^2$), skive ($\\tfrac12MR^2$) mot ring ($MR^2$), stang om midten ($\\tfrac{1}{12}$) mot stang om enden ($\\tfrac13$). Disse forbytningene gir svar som ligger **10–20 prosent** fra fasiten, altså midt i alternativlista. Les både legemet og aksen på arket-linja.\n\n**Fortegn på spinn mot bane** (felle #5). Summen og differansen av de to bidragene står **begge** på lista. Skriv «inn i papiret er positiv» først, hver gang.\n\n**Dobbelttelling av kinetisk energi** (felle #2). Roterer legemet om en fast akse, er $\\tfrac12I_A\\omega^2$ hele energien. Bruker du i stedet $\\tfrac12MV_\\text{CM}^2 + \\tfrac12I_\\text{CM}\\omega^2$, er det også riktig — men ikke bland dem.\n\n**$V = R\\omega$ brukt før ren rulling er nådd.** I glidefasen er $V > R\\omega$. Rullebetingelsen er en betingelse, ikke en identitet.\n\n**Konstant-$\\alpha$-formler på et variabelt moment** (felle #3). Den fallende stanga har $\\alpha \\propto \\cos\\phi$.\n\n**Positiv rotasjonsretning ikke definert i en statikkoppgave.** Uten den blir fortegnene gjetning, og en fortegnsfeil i momentlikningen gir et svar som står på lista.\n\n**Minustegnet kastet på en opplagerkraft.** Negativ betyr motsatt retning. Det er svaret, ikke en feil.\n\n**Og faktorfellen som lander på nabo-alternativet** (felle #16): rotasjonsoppgaver er fulle av små tall som kvadreres. **Kvadrer før du runder** — $R = 0{,}180\\,\\text{m}$ gir $R^2 = 0{,}0324\\,\\text{m}^2$, og runder du til $0{,}032$, har du gjort en feil på 1,2 prosent som i et tett sett er nok. Hold også orden på tierpotensene: går radien fra centimeter til meter, endrer $R^2$ seg med $10^4$. Og i statikk: **sjekk at kalkulatoren står i grader og ikke radianer** før den første $\\sin$- eller $\\tan$-utregningen. Den feilen gir ikke et litt galt svar, den gir et helt galt et — som likevel ser ut som et tall."
+    },
+    {
+      "id": "tfy4115-4-4-begrepsbank-notis",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder oppgavene."
+    },
+    {
+      "id": "tfy4115-4-4-bb-m4-drill",
+      "type": "definition",
+      "title": "Sjanger M4 i MC-tempo",
+      "content": "Treghetsmoment og Steiners sats, i praktisk talt alle sett (~100 %), **mekanikkhalvdelen, spørsmål 1–20**. Drillformen har fire faste varianter: punktmasser i en figur (bruk vinkelrett avstand), oppslag av et standardlegeme (les både legeme og akse), integrasjon når tettheten er en funksjon, og — den klart vanligste — et standardlegeme om en akse utenfor massesenteret. Tidsbudsjett: under to minutter for en ren Steiner-oppgave, tre til fire for et sammensatt legeme. Det ene trinnet som avgjør: **går aksen gjennom massesenteret?**"
+    },
+    {
+      "id": "tfy4115-4-4-bb-m5-drill",
+      "type": "definition",
+      "title": "Sjanger M5 i MC-tempo",
+      "content": "Dreieimpuls og rulling, i om lag 9 av 10 sett (~90 %), **mekanikkhalvdelen**. Tre varianter: total dreieimpuls om et punkt (spinn pluss bane, med fortegn), bevaring når $I$ endres ($I_1\\omega_1=I_2\\omega_2$), og overgangen gliding→ren rulling (to Newton-likninger, $V_\\text{slutt}=V_0/(1+c)$). Tidsbudsjett: to–tre minutter. Det som avgjør: **fortegnskonvensjonen skrevet ned før første regnelinje**, og bevisstheten om at $V=R\\omega$ bare gjelder ved ren rulling."
+    },
+    {
+      "id": "tfy4115-4-4-bb-m9-drill",
+      "type": "definition",
+      "title": "Sjanger M9 i MC-tempo",
+      "content": "Statikk og momentbalanse, i om lag 7 av 10 sett (~70 %), **mekanikkhalvdelen**. Fire faste oppsett: bjelke i hengsel med snor ($S=Mg/(2\\sin\\phi)$), stupebrett på to opplagringer (den innerste blir negativ), stige mot glatt vegg ($\\mu_s\\ge1/(2\\tan\\theta)$) og talje ($F=Mg/n$). Tidsbudsjett: to minutter når du kjenner oppsettet. Det som avgjør: **positiv rotasjonsretning nedskrevet**, og **momentpunktet lagt der en ukjent virker**."
+    },
+    {
+      "id": "tfy4115-4-4-bb-steiner-refleks-drill",
+      "type": "definition",
+      "title": "Steiner-refleksen som tidsbesparelse",
+      "content": "Den faste rekkefølgen: (1) tegn aksen; (2) spør «går den gjennom massesenteret?»; (3) er svaret nei, skriv $I=I_\\text{CM}+Md^2$ **før** du slår opp noe; (4) slå opp $I_\\text{CM}$; (5) sjekk at $I>I_\\text{CM}$. Vanen koster fem sekunder og fanger den enkeltfeilen som koster flest poeng i Del 4. Den har ett unntak du må huske: $\\tfrac13ML^2$ er stanga om endepunktet, altså Steiner ferdig utført — der skal du **ikke** legge til noe."
+    },
+    {
+      "id": "tfy4115-4-4-bb-fortegnsdisiplin",
+      "type": "definition",
+      "title": "Fortegnsdisiplin på dreieimpuls",
+      "content": "Rutinen som gjør fortegnsoppgaver rutine: (1) skriv «inn i papiret er positiv» (eller motsatt) på arket; (2) finn spinnretningen med høyrehåndsregelen — mot klokka gir ut av papiret; (3) finn baneretningen ved å spørre hvilken vei massesenteret ser ut til å dreie om referansepunktet; (4) legg sammen **med fortegn**; (5) oppgi retningen i ord i svaret. Uten punkt 1 og 5 er svaret et halvt svar, og både summen og differansen av de to bidragene står på alternativlista."
+    },
+    {
+      "id": "tfy4115-4-4-bb-klokt-momentpunkt",
+      "type": "definition",
+      "title": "Det kloke momentpunktet",
+      "content": "Fordi $\\sum\\tau=0$ gjelder om hvilket som helst punkt, er valget et regneverktøy: legg punktet der en ukjent kraft virker, så faller den ut. Hengselet fjerner **to** ukjente samtidig ($H_x$ og $H_y$); stigens fot fjerner $N_\\text{gulv}$ og $f$; vippekanten fjerner normalkraften ved kantring. Resultatet er én likning med én ukjent i stedet for tre med tre. Et **annet** punkt kan brukes til slutt som uavhengig kontroll — den sterkeste sluttsjekken statikken har."
+    },
+    {
+      "id": "tfy4115-4-4-bb-mc-tempo-4",
+      "type": "definition",
+      "title": "MC-tempo i rotasjonsoppgaver",
+      "content": "Fire timer på ~40 spørsmål gir om lag seks minutter per spørsmål, men rotasjonsoppgavene i mekanikkhalvdelen er blant de raskeste: en ren Steiner-oppgave tar under to minutter, en dreieimpulsoppgave to–tre, en statikkoppgave to. Det gir tid til de tunge kretsprosessspørsmålene i termohalvdelen senere. Regel for tempo: **gjør oppslaget og oppsettet på papir, og bruk kalkulatoren én gang** — flere separate innslag er der avrundingsfeilene og tastefeilene kommer inn."
+    },
+    {
+      "id": "tfy4115-4-4-bb-eliminasjon-4",
+      "type": "definition",
+      "title": "Eliminasjon ved øvre og nedre grenser",
+      "content": "Rotasjonsoppgaver har uvanlig gode strykemuligheter, fordi fysikken gir harde grenser: $I > I_\\text{CM}$ når aksen ligger utenfor massesenteret; $I \\le MR^2$ for rotasjon om symmetriaksen; ved ren rulling er $L$ større enn banebidraget alene; et sammensatt legeme har større $I$ enn hver del for seg; en normalkraft i et toppunkt er mindre enn $mg$; snorstrekket i en bjelke er større enn $Mg/2$. **Bruk tjue sekunder på grensene før du regner** — ofte står du igjen med to–tre alternativer, og da er en delvis regning nok."
+    },
+    {
+      "id": "tfy4115-4-4-coll-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tfy4115-4-4-symb-1",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares i [kap. 4.1](/tfy4115/tfy4115-4-1), [kap. 4.2](/tfy4115/tfy4115-4-2) og [kap. 4.3](/tfy4115/tfy4115-4-3).\n\n**Kolliderende symboler i dette delkapitlet.** $R$ er **radius** (i termodelen: gasskonstanten eller termisk motstand). $\\mathbf{p}$ er **bevegelsesmengde** (i termodelen: trykk). $S$ er **taustrekk** (i termodelen: entropi). $\\tau$ er **kraftmoment** (i kap. 1.1: en tidskonstant). $L$ i fet skrift er **dreieimpuls**, $L$ i kursiv er en **lengde**.\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $I$, $I_\\text{CM}$, $I_A$ | Treghetsmoment; om massesenteret; om aksen $A$ | $\\text{kg}\\cdot\\text{m}^2$ |\n| $d$ | Avstand mellom parallelle akser (Steiner), eller momentarm | m |\n| $r$, $r_i$ | Vinkelrett avstand fra masse til akse | m |\n| $\\mathbf{L}$ | Dreieimpuls | $\\text{kg}\\cdot\\text{m}^2/\\text{s}$ |\n| $\\boldsymbol{\\omega}$, $\\alpha$ | Vinkelfart; vinkelakselerasjon | rad/s; $\\text{rad/s}^2$ |\n| $\\tau$ | Kraftmoment | $\\text{N}\\cdot\\text{m}$ |\n| $V$, $V_0$ | Massesenterets fart; startfart | m/s |\n| $\\mu$, $\\mu_s$ | Glidefriksjons- og statisk friksjonskoeffisient | — |\n| $S$ | Taustrekk | N |\n| $N$, $f$ | Normalkraft; friksjonskraft | N |\n| $c$ | Formfaktor i $I = cmR^2$ ($\\tfrac25$ kule, $\\tfrac12$ sylinder, $\\tfrac23$ skall, 1 ring) | — |\n| $n$ | Antall bærende tau i en talje | — |\n\n**Formler i dette delkapitlet:**\n\n$$I = \\sum m_ir_i^2, \\qquad I = \\int r^2dm, \\qquad I = I_\\text{CM}+Md^2$$\nTreghetsmoment og Steiners sats [står på det utdelte arket].\n\n$$\\tfrac{1}{12}ML^2, \\quad \\tfrac13ML^2, \\quad \\tfrac25MR^2, \\quad \\tfrac23MR^2, \\quad \\tfrac12MR^2, \\quad MR^2$$\nStandardtreghetsmomentene: stang om midten og om enden, kompakt kule, kuleskall, sylinder, ring [står på det utdelte arket].\n\n$$\\sum\\tau = I\\alpha, \\qquad \\sum\\boldsymbol{\\tau}_\\text{ytre} = \\frac{d\\mathbf{L}}{dt}, \\qquad \\mathbf{L} = I\\boldsymbol{\\omega}$$\nRotasjonsdynamikkens lover [står på det utdelte arket].\n\n$$L = I_\\text{CM}\\omega \\pm mVd_\\perp$$\nSpinn pluss bane, med fortegn fra høyrehåndsregelen [må kunne brukes eller utledes aktivt].\n\n$$I_1\\omega_1 = I_2\\omega_2, \\qquad K = \\frac{L^2}{2I}$$\nBevaring av dreieimpuls, og energien uttrykt ved bevart $L$ [må kunne brukes eller utledes aktivt].\n\n$$V_\\text{slutt} = \\frac{V_0}{1+c}, \\qquad t = \\frac{cV_0}{(1+c)\\mu g}$$\nOvergangen gliding → ren rulling for et legeme med $I = cmR^2$: kule $\\tfrac57V_0$, sylinder $\\tfrac23V_0$ [må kunne brukes eller utledes aktivt].\n\n$$\\omega = \\sqrt{\\frac{3g}{L}}, \\qquad \\alpha = \\frac{3g}{2L}\\cos\\phi$$\nFallende stang hengslet i enden [må kunne brukes eller utledes aktivt].\n\n$$\\sum F_x = 0, \\quad \\sum F_y = 0, \\quad \\sum\\tau_P = 0, \\quad f\\le\\mu_sN$$\nStatikk [står på det utdelte arket].\n\n$$S = \\frac{Mg}{2\\sin\\phi}, \\qquad N_\\text{vegg} = \\frac{Mg}{2\\tan\\theta}, \\qquad \\mu_s \\ge \\frac{1}{2\\tan\\theta}, \\qquad F = \\frac{Mg}{n}$$\nDe fire faste statikkoppsettene [må kunne brukes eller utledes aktivt].\n\n$$a = \\frac{mg}{m+M/2}$$\nHengende masse over en skive med masse — trinsen som selv må settes i rotasjon [må kunne brukes eller utledes aktivt]."
+        }
+      ]
+    },
+    {
+      "id": "tfy4115-4-4-coll-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tfy4115-4-4-rep-1",
+          "type": "text",
+          "content": "Fem korte oppgaver til oppvarming før prøvene i Del 4. De tar to minutter hver.\n\n**R1.** En kompakt kule har $I_\\text{CM} = 0{,}0160\\,\\text{kg}\\cdot\\text{m}^2$ og masse $2{,}00\\,\\text{kg}$. Hva er radien, og hva er treghetsmomentet om en tangentakse?\n\n*Svar:* $\\tfrac25MR^2 = 0{,}0160$ gir $R^2 = 0{,}0160/(0{,}400\\cdot2{,}00) = 0{,}0200\\,\\text{m}^2$, altså $R = 0{,}1414\\,\\text{m}$. Om tangentaksen: $\\tfrac75MR^2 = 3{,}5 \\cdot 0{,}0160 = 0{,}0560\\,\\text{kg}\\cdot\\text{m}^2$.\n\n**R2.** Et hjul med $I = 0{,}300\\,\\text{kg}\\cdot\\text{m}^2$ har dreieimpulsen $4{,}50\\,\\text{kg}\\cdot\\text{m}^2/\\text{s}$. Finn vinkelfarten og rotasjonsenergien.\n\n*Svar:* $\\omega = L/I = 15{,}0\\,\\text{rad/s}$, og $K = L^2/(2I) = 20{,}25/0{,}600 = 33{,}8\\,\\text{J}$.\n\n**R3.** En kule kastes uten spinn med $9{,}00\\,\\text{m/s}$. Hvilken fart har den når den ruller rent? Og en sylinder?\n\n*Svar:* Kule: $\\tfrac57 \\cdot 9{,}00 = 6{,}43\\,\\text{m/s}$. Sylinder: $\\tfrac23 \\cdot 9{,}00 = 6{,}00\\,\\text{m/s}$. Sylinderen mister mer, fordi den har større treghetsmoment.\n\n**R4.** En bjelke på $50{,}0\\,\\text{kg}$ holdes vannrett av en snor i $30{,}0^\\circ$ med bjelken. Hvor stort er strekket?\n\n*Svar:* $S = Mg/(2\\sin 30{,}0^\\circ) = 490{,}5/(2 \\cdot 0{,}500) = 490{,}5\\,\\text{N}$ — altså nøyaktig lik tyngden, siden $2\\sin 30^\\circ = 1$. Et pent kontrolltilfelle å kjenne.\n\n**R5.** Hvor bratt må en stige stå mot en glatt vegg for at $\\mu_s = 0{,}300$ skal være nok?\n\n*Svar:* $\\mu_s \\ge 1/(2\\tan\\theta)$ gir $\\tan\\theta \\ge 1/(2\\cdot0{,}300) = 1{,}667$, altså $\\theta \\ge 59{,}0^\\circ$. Under den vinkelen sklir stigen."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

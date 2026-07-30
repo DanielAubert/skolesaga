@@ -1,0 +1,421 @@
+{
+ "id": "tfy4115-3-1",
+ "courseId": "tfy4115",
+ "chapterNumber": "3.1",
+ "title": "Bevegelsesmengde, impuls og støt",
+ "description": "Impulsbevarelse, elastisk og fullstendig uelastisk støt med energitap, og impuls fra en tidsavhengig kraft $\\int F\\,dt$.",
+ "estimatedMinutes": 55,
+ "competenceGoals": [
+  "regne bevegelsesmengde og impuls med riktig fortegn, og lese impulsen som arealet under en kraft–tid-graf",
+  "avgjøre ut fra oppgaveteksten om et støt er elastisk eller fullstendig uelastisk, og velge bevaringslov deretter",
+  "finne felles fart og energitap i et uelastisk støt, og de to fartene etter et elastisk støt",
+  "løse en ballistisk pendel ved å bruke impulsbevarelse gjennom støtet og energibevaring gjennom svinget"
+ ],
+ "content": [
+  {
+   "id": "tfy4115-3-1-tip-eksamensvinkel",
+   "type": "tip",
+   "title": "Eksamensvinkel",
+   "content": "**Sjanger M6 — bevegelsesmengde og støt, impuls, altså «to legemer treffer hverandre, finn fartene etterpå eller hvor mye energi som gikk tapt» — dukker opp i praktisk talt alle sett (~100 %).** Den hører til **mekanikkhalvdelen, spørsmål 1–20**. Prioritet: **høyeste prioritet — dette må sitte.**\n\nSjangeren har tre faste ansikter, og det er verdt å kjenne dem igjen på tre sekunder:\n\n**Det uelastiske støtet.** To legemer treffer hverandre og blir sittende sammen. Bevegelsesmengden er bevart, energien er ikke. Spørsmålet er felles fart, energitap, eller hvor stor **andel** av energien som gikk tapt.\n\n**Det elastiske støtet.** To legemer treffer hverandre og spretter fra hverandre uten energitap. Nå er både bevegelsesmengden og energien bevart, og det gir to ligninger med to ukjente — som heldigvis er løst en gang for alle i to ferdige fartsformler.\n\n**Impulsen fra en tidsavhengig kraft.** En ball treffer en racket, en fot treffer en fotball, en hammer treffer en spiker. Kraften varierer voldsomt gjennom de få millisekundene kontakten varer, men **arealet** under $F(t)$-kurven er hele endringen i bevegelsesmengde.\n\n**Én felle bærer flere distraktorer enn de andre til sammen:** å bruke energibevaring i et uelastisk støt. Det er en av de mest naturlige tankefeilene i faget, fordi energibevaring har vært det mektigste verktøyet siden [kap. 2.2](/tfy4115/tfy4115-2-2). I et støt der legemene blir sittende sammen, er den rett og slett gal — og tallet den gir, ligger som et ferdig svaralternativ.\n\n**Om tidsbruken.** Kapitlet er anslått til 55 minutter, delt i fire løkker med tidsanslag og ett pausepunkt."
+  },
+  {
+   "id": "tfy4115-3-1-forkunnskaper",
+   "type": "text",
+   "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet bygger på [kap. 2.2](/tfy4115/tfy4115-2-2), der du satte opp energiregnskap og brukte arbeid–energisetningen, og på [kap. 2.1](/tfy4115/tfy4115-2-1), der du satte opp Newtons 2. lov komponentvis. Skal du lese et areal under en graf som et integral, står teknikken i [Bestemt integral som grenseverdi](/r2/r2-2-4).\n\n**De tre relasjonene du trenger ferdig oppfrisket:**\n\n$$\\sum \\mathbf{F} = m\\mathbf{a}$$\nNewtons 2. lov. I dette kapitlet skriver vi den om til en form som er langt nyttigere for støt, nemlig $\\sum \\mathbf{F} = d\\mathbf{p}/dt$. Loven **står på det utdelte formelarket** i begge former.\n\n$$K = \\tfrac12 mv^2$$\nKinetisk energi. Vi trenger den til å regne ut hvor mye energi som forsvinner i et støt, og til å uttrykke betingelsen for at et støt er elastisk. Den **står på arket**.\n\n$$v^2 = 2g\\,\\Delta y$$\nEnergibevaring for et legeme som glir eller svinger fritt, fra [kap. 1.2](/tfy4115/tfy4115-1-2) og [kap. 2.2](/tfy4115/tfy4115-2-2). Vi trenger den i den ballistiske pendelen i Løkke 4 — men bare **etter** støtet, aldri gjennom det.\n\n**Én ny idé kommer her, og den er verdt å forberede seg på.** Bevegelsesmengde er en **vektor**, mens energi er en skalar. Det betyr at bevegelsesmengden til to legemer som beveger seg mot hverandre, kan summere til null, mens energien deres aldri kan. Fortegnet er derfor ikke en detalj i dette kapitlet — det er halve regningen.\n\n**Symbolmerknad, og en av bokas viktigste symbolkollisjoner.** Her betyr $\\mathbf{p}$ **bevegelsesmengde**, en vektor med enheten $\\text{kg}\\cdot\\text{m/s}$. I termodelen Del 6–11 betyr **den samme bokstaven trykk**, en skalar med enheten pascal. De to har ingenting med hverandre å gjøre, og du vil aldri møte dem i samme kapittel — men det er verdt å vite nå, slik at du ikke blir forvirret senere. Symbolet $\\mathbf{J}$ er **impuls**, ikke joule (som er enheten J for energi); sammenhengen avgjør, og impulsen har enheten $\\text{N}\\cdot\\text{s}$. Symbolet $S$ brukes i denne boka som **taustrekk** i mekanikken og som **entropi** i termodelen; her opptrer det ikke."
+  },
+  {
+   "id": "tfy4115-3-1-lokke1",
+   "type": "text",
+   "content": "## Løkke 1 — bevegelsesmengde og impuls (~14 min)\n\nTa imot en fotball med hendene. Du gjør det instinktivt riktig: du følger etter ballen med hendene i stedet for å møte den stivt. Hvorfor?\n\nFordi ballens bevegelsesmengde skal til null uansett hva du gjør — den er gitt av massen og farten. Det du kan velge, er **hvor lang tid** det skal ta. Og siden kraften er endringen i bevegelsesmengde per tid, betyr lengre tid mindre kraft. Det er samme fysikk som ligger bak kollisjonsputer, fallunderlag på lekeplasser og knebøy når du lander etter et hopp.\n\nDette er hele innholdet i impulsbegrepet, og det er verdt å si det i én linje før vi formaliserer: **en gitt endring i bevegelsesmengde kan oppnås med en stor kraft i kort tid eller en liten kraft i lang tid.**"
+  },
+  {
+   "id": "tfy4115-3-1-def-bevegelsesmengde",
+   "type": "definition",
+   "title": "Bevegelsesmengde",
+   "content": "Produktet av et legemes masse og fart, som **vektor**:\n$$\\mathbf{p} = m\\mathbf{v}.$$\nEnheten er $\\text{kg}\\cdot\\text{m/s}$, som også kan skrives $\\text{N}\\cdot\\text{s}$. At størrelsen er en vektor, er avgjørende: i én dimensjon betyr det at du må velge en positiv retning og gi legemer som går motsatt vei negativ $p$. To biler som kjører mot hverandre med samme fart og masse, har total bevegelsesmengde **null** — men de har til sammen betydelig kinetisk energi, siden energi er en skalar som alltid er positiv. Denne boka bruker «bevegelsesmengde» om $m\\mathbf{v}$ og «impuls» om **endringen** i den, for å holde de to fra hverandre."
+  },
+  {
+   "id": "tfy4115-3-1-def-notasjon-p",
+   "type": "definition",
+   "title": "Symbolkollisjonen: $p$ som bevegelsesmengde og som trykk",
+   "content": "En av de fem symbolkollisjonene i denne boka, og verdt å ta med seg nå. I **mekanikken** (Del 1–5) er $p$ **bevegelsesmengde**, en vektor $\\mathbf{p} = m\\mathbf{v}$ med enheten $\\text{kg}\\cdot\\text{m/s}$. I **termofysikken** (Del 6–11) er $p$ **trykk**, en skalar med enheten pascal, $1\\,\\text{Pa} = 1\\,\\text{N/m}^2$. De to har ingen fysisk sammenheng, og de opptrer aldri i samme kapittel. Kjennetegnene som skiller dem umiddelbart: bevegelsesmengden skrives med fet vektormarkering og har en retning, trykket har ingen retning; bevegelsesmengden hører sammen med masse og fart, trykket med volum og temperatur. Regelen i boka er at symbollisten i hvert delkapittel sier hvilken betydning som gjelder der."
+  },
+  {
+   "id": "tfy4115-3-1-def-impuls",
+   "type": "definition",
+   "title": "Impuls",
+   "content": "Endringen i et legemes bevegelsesmengde, og samtidig integralet av kraften over tiden:\n$$\\mathbf{J} = \\Delta\\mathbf{p} = \\int \\mathbf{F}\\,dt.$$\nEnheten er $\\text{N}\\cdot\\text{s}$, som er identisk med $\\text{kg}\\cdot\\text{m/s}$ — og det er ikke en tilfeldighet, men selve innholdet i setningen. Impulsen er en **vektor** med samme retning som den gjennomsnittlige kraften. Størrelsen er nyttig nettopp når kraften varierer på en måte du ikke kjenner i detalj: du trenger ikke vite hvordan $F(t)$ ser ut, bare arealet under den. Merk skrivemåten $\\mathbf{J}$ — bokstaven brukes også som enheten joule for energi, men impuls og energi er helt ulike størrelser med ulike enheter, og sammenhengen avgjør hvilken som menes."
+  },
+  {
+   "id": "tfy4115-3-1-th-impulsform",
+   "type": "theorem",
+   "title": "Newtons 2. lov i impulsform, og impulsbevarelse",
+   "content": "**Impulsformen.** Newtons 2. lov kan skrives om når massen er konstant:\n\n$$\\sum \\mathbf{F} = m\\mathbf{a} = m\\frac{d\\mathbf{v}}{dt} = \\frac{d(m\\mathbf{v})}{dt} = \\frac{d\\mathbf{p}}{dt}.$$\n\n*Intuisjon:* kraft er ikke «det som gir fart», men **det som endrer bevegelsesmengde**, og hvor fort. Formen $\\sum \\mathbf{F} = d\\mathbf{p}/dt$ er faktisk den Newton selv brukte, og den er mer generell enn $m\\mathbf{a}$ — den gjelder også når massen endrer seg, som for en rakett ([kap. 3.2](/tfy4115/tfy4115-3-2)).\n\nIntegrerer vi over tiden et støt varer, får vi impulssetningen:\n\n$$\\int \\mathbf{F}\\,dt = \\Delta\\mathbf{p} \\quad\\Longleftrightarrow\\quad \\mathbf{J} = \\mathbf{p}_2 - \\mathbf{p}_1.$$\n\n**Impulsbevarelse.** Ser vi på **to** legemer som støter mot hverandre, er kreftene de utøver på hverandre like store og motsatt rettet — det er Newtons 3. lov. De virker dessuten i nøyaktig like lang tid. Derfor er impulsene de gir hverandre, like store og motsatt rettede, og summen av de to bevegelsesmengdene er **uendret**:\n\n$$\\sum m\\mathbf{v} = \\sum m\\mathbf{v}' \\quad\\Longleftrightarrow\\quad m_1\\mathbf{v}_1 + m_2\\mathbf{v}_2 = m_1\\mathbf{v}_1' + m_2\\mathbf{v}_2'.$$\n\n**Betingelsen, som må sies hver gang:** summen av **ytre** krefter på systemet må være null, eller så liten at impulsen fra dem er ubetydelig i den korte tiden støtet varer. Det siste er nesten alltid tilfellet på eksamen: tyngden virker jo på legemene, men over to millisekunder gir den en impuls som er forsvinnende liten sammenlignet med støtkreftene.\n\n**Dette er sjangerens ryggrad.** Bevegelsesmengden er bevart i **alle** støt — elastiske, uelastiske og alt mellom. Energien er bare bevart i de elastiske. Det er den ene setningen hele kapitlet hviler på."
+  },
+  {
+   "id": "tfy4115-3-1-def-impuls-areal",
+   "type": "definition",
+   "title": "Impuls som areal under $F(t)$",
+   "content": "Den praktiske lesningen av $\\mathbf{J} = \\int \\mathbf{F}\\,dt$: impulsen er **arealet** mellom $F(t)$-kurven og tidsaksen. Det gjør en støtoppgave regnbar uten at du vet hvordan kraften varierte i detalj. Er pulsen en trekant med topp $F_\\text{maks}$ og varighet $\\tau$, er arealet\n$$J = \\tfrac12 F_\\text{maks}\\tau,$$\naltså **halvparten** av rektangelet $F_\\text{maks}\\tau$ — og å glemme den halvparten er den vanligste feilen i denne varianten. Er pulsen et trapes, er arealet høyden ganget med gjennomsnittet av de to parallelle sidene. Middelkraften er $\\bar{F} = J/\\tau$, og den er alltid mindre enn toppkraften. Areal **under** tidsaksen teller negativt, altså en kraft som virker motsatt den positive retningen."
+  },
+  {
+   "id": "tfy4115-3-1-fig-1",
+   "type": "image",
+   "src": "/images/textbook/tfy4115/tfy4115-3-1-kraftpuls.svg",
+   "alt": "En graf med tid i sekunder langs den vannrette aksen og kraft i newton langs den loddrette. Kurven er en trekant som starter i null ved tiden null, stiger til 240 newton ved 0,0100 sekunder og faller tilbake til null ved 0,0200 sekunder. Området under trekanten er skyggelagt og merket med at arealet er en halv ganger 240 newton ganger 0,0200 sekunder, som er 2,40 newtonsekunder. En dobbeltpil under tidsaksen viser varigheten tau.",
+   "caption": "Impulsen er arealet under kurven, $J = \\tfrac12 F_\\text{maks}\\tau = 2{,}40\\,\\text{N}\\cdot\\text{s}$. Toppkraften gir toppakselerasjonen $a_\\text{maks} = F_\\text{maks}/m$, som er dobbelt så stor som den middelkraften arealet svarer til."
+  },
+  {
+   "id": "tfy4115-3-1-ex-1",
+   "type": "example",
+   "title": "Eksempel 1: tennisserven — fra kraftpuls til fart",
+   "problem": "En tennisball med masse $58{,}0\\,\\text{g}$ ligger i ro og treffes av en racket. Kraften på ballen vokser rettlinjet fra null til $240\\,\\text{N}$ og faller deretter rettlinjet tilbake til null. Hele kontakten varer $20{,}0\\,\\text{ms}$.\n\n**a)** Finn impulsen ballen får.\n**b)** Finn ballens fart rett etter støtet.\n**c)** Finn den største akselerasjonen ballen opplever, og sammenlign den med $g$.\n**d)** Hvor stor er middelkraften?",
+   "solution": "**a)** Trekantpulsen har arealet\n$$J = \\tfrac12 F_\\text{maks}\\tau = \\tfrac12 \\cdot 240\\,\\text{N} \\cdot 0{,}0200\\,\\text{s} = 2{,}40\\,\\text{N}\\cdot\\text{s}.$$\n\n**b) Symbolsk utledning.** Impulsen er endringen i bevegelsesmengde, og ballen startet i ro:\n$$J = \\Delta p = mv - 0 \\quad\\Longrightarrow\\quad v = \\frac{J}{m}.$$\n\n**Rask vei til tall.** Massen må i kilogram: $58{,}0\\,\\text{g} = 0{,}0580\\,\\text{kg}$.\n$$v = \\frac{2{,}40\\,\\text{N}\\cdot\\text{s}}{0{,}0580\\,\\text{kg}} = 41{,}379\\,\\text{m/s} \\approx 41{,}4\\,\\text{m/s}.$$\nDet er $149\\,\\text{km/t}$ — en realistisk serv.\n\n**Benevningskontroll:** $\\text{N}\\cdot\\text{s}/\\text{kg} = (\\text{kg}\\cdot\\text{m/s}^2)\\cdot\\text{s}/\\text{kg} = \\text{m/s}$. Det stemmer.\n\n**c)** Toppkraften gir toppakselerasjonen:\n$$a_\\text{maks} = \\frac{F_\\text{maks}}{m} = \\frac{240\\,\\text{N}}{0{,}0580\\,\\text{kg}} = 4\\,137{,}9\\,\\text{m/s}^2 \\approx 4{,}14 \\cdot 10^3\\,\\text{m/s}^2.$$\nDet er $4\\,138/9{,}81 = 422$ ganger $g$. Slike akselerasjoner er helt vanlige i støt, og de er en god påminnelse om hvorfor støt må behandles med impuls og ikke med konstant-akselerasjonsformler.\n\n**En pen kontroll.** For en symmetrisk trekantpuls er $J = \\tfrac12F_\\text{maks}\\tau$ og $\\Delta v = J/m$, altså\n$$a_\\text{maks} = \\frac{F_\\text{maks}}{m} = \\frac{2J}{m\\tau} = \\frac{2\\,\\Delta v}{\\tau} = \\frac{2 \\cdot 41{,}379}{0{,}0200}\\,\\text{m/s}^2 = 4\\,137{,}9\\,\\text{m/s}^2.$$\nSamme tall, uten å gå via kraften. Sammenhengen $a_\\text{maks} = 2\\Delta v/\\tau$ er verdt å kjenne — den sier at toppakselerasjonen er dobbelt så stor som gjennomsnittsakselerasjonen $\\Delta v/\\tau$.\n\n**d)** Middelkraften er impulsen delt på tiden:\n$$\\bar{F} = \\frac{J}{\\tau} = \\frac{2{,}40\\,\\text{N}\\cdot\\text{s}}{0{,}0200\\,\\text{s}} = 120\\,\\text{N},$$\naltså nøyaktig halvparten av toppkraften — som en trekant krever.\n\n**Den vanligste feilen her.** Å regne arealet som $F_\\text{maks}\\tau = 4{,}80\\,\\text{N}\\cdot\\text{s}$ og få $v = 82{,}8\\,\\text{m/s}$. Det er dobbelt så stort, og det ser like plausibelt ut. Trekanten er halve rektangelet."
+  },
+  {
+   "id": "tfy4115-3-1-o-1",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-3-1-oppg-1",
+    "number": "1",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Innstegsoppgave — regn bevegelsesmengde og impuls.)\n\n**a)** Hvor stor bevegelsesmengde har en bil med masse $1\\,450\\,\\text{kg}$ og fart $22{,}0\\,\\text{m/s}$?\n\n**b)** En ball med masse $45{,}0\\,\\text{g}$ har farten $30{,}0\\,\\text{m/s}$ mot en vegg. Den spretter tilbake med farten $22{,}0\\,\\text{m/s}$. Hvor stor impuls fikk ballen fra veggen?\n\n**c)** Kontakten med veggen varte $8{,}00\\,\\text{ms}$. Hvor stor var middelkraften?",
+    "solution": "**a)**\n$$p = mv = 1\\,450\\,\\text{kg} \\cdot 22{,}0\\,\\text{m/s} = 31\\,900\\,\\text{kg}\\cdot\\text{m/s} = 3{,}19 \\cdot 10^4\\,\\text{kg}\\cdot\\text{m/s}.$$\n\n**b)** Her er fortegnet hele oppgaven. Velg retningen **mot** veggen som positiv. Da er farten før $+30{,}0\\,\\text{m/s}$ og etter $-22{,}0\\,\\text{m/s}$:\n$$J = \\Delta p = m\\left(v_2 - v_1\\right) = 0{,}0450\\,\\text{kg}\\left(-22{,}0 - 30{,}0\\right)\\text{m/s} = 0{,}0450 \\cdot (-52{,}0)\\,\\text{N}\\cdot\\text{s},$$\n$$J = -2{,}34\\,\\text{N}\\cdot\\text{s}.$$\nTallverdien er $2{,}34\\,\\text{N}\\cdot\\text{s}$, og det negative fortegnet betyr at impulsen peker **bort** fra veggen — som den skal, siden veggen skyver ballen tilbake.\n\n**Legg merke til fella:** hadde du regnet $\\Delta v$ som differansen mellom tallverdiene, $30{,}0 - 22{,}0 = 8{,}00\\,\\text{m/s}$, ville du fått $0{,}360\\,\\text{N}\\cdot\\text{s}$ — under en sjettedel av det riktige. Fartsendringen er $52{,}0\\,\\text{m/s}$, ikke $8{,}00\\,\\text{m/s}$, fordi ballen skifter retning.\n\n**c)**\n$$\\bar{F} = \\frac{\\lvert J\\rvert}{\\Delta t} = \\frac{2{,}34\\,\\text{N}\\cdot\\text{s}}{0{,}00800\\,\\text{s}} = 292{,}5\\,\\text{N} \\approx 293\\,\\text{N}.$$\nDet svarer til tyngden av nesten $30\\,\\text{kg}$ — fra en ball på $45$ gram. Det er den korte kontakttiden som gjør kraften stor.",
+    "hints": [
+     "Bevegelsesmengden er $p = mv$; husk å gjøre om gram til kilogram.",
+     "Impulsen er $\\Delta p = m(v_2 - v_1)$ — velg en positiv retning først.",
+     "Middelkraften er impulsen delt på kontakttiden."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-3-1-o-2",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-3-1-oppg-2",
+    "number": "2",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger M6 — bevegelsesmengde og støt, impuls.) En ball med masse $60{,}0\\,\\text{g}$ treffer et gulv med farten $6{,}00\\,\\text{m/s}$ og spretter opp igjen med samme fart. Kontakten varer $12{,}0\\,\\text{ms}$, og kraften kan regnes som en symmetrisk trekantpuls.\n\n**a)** Finn impulsen ballen får fra gulvet.\n**b)** Finn toppkraften.\n**c)** Vis at toppakselerasjonen kan skrives $a_\\text{maks} = 4v/\\tau$, og regn den ut.",
+    "solution": "**a)** Fartsendringen er $\\Delta v = 6{,}00 - (-6{,}00) = 12{,}0\\,\\text{m/s}$, med oppover som positiv retning:\n$$J = m\\,\\Delta v = 0{,}0600\\,\\text{kg} \\cdot 12{,}0\\,\\text{m/s} = 0{,}720\\,\\text{N}\\cdot\\text{s}.$$\nMerk at fartsendringen er **dobbelt** så stor som farten, fordi ballen snur. Det er kjernen i oppgaven.\n\n**b)** For en trekantpuls er $J = \\tfrac12F_\\text{maks}\\tau$, altså\n$$F_\\text{maks} = \\frac{2J}{\\tau} = \\frac{2 \\cdot 0{,}720\\,\\text{N}\\cdot\\text{s}}{0{,}0120\\,\\text{s}} = 120\\,\\text{N}.$$\nTil sammenligning er ballens tyngde $0{,}0600 \\cdot 9{,}81 = 0{,}589\\,\\text{N}$ — toppkraften er over 200 ganger større, og det er grunnen til at tyngden trygt kan ignoreres gjennom støtet.\n\n**c)** Sett sammen de to relasjonene. Fartsendringen for en ball som spretter tilbake med samme fart, er $\\Delta v = 2v$:\n$$a_\\text{maks} = \\frac{F_\\text{maks}}{m} = \\frac{2J}{m\\tau} = \\frac{2m\\,\\Delta v}{m\\tau} = \\frac{2\\,\\Delta v}{\\tau} = \\frac{2 \\cdot 2v}{\\tau} = \\frac{4v}{\\tau}.$$\nMed tall:\n$$a_\\text{maks} = \\frac{4 \\cdot 6{,}00\\,\\text{m/s}}{0{,}0120\\,\\text{s}} = 2\\,000\\,\\text{m/s}^2 = 2{,}00 \\cdot 10^3\\,\\text{m/s}^2.$$\nKontroll den andre veien: $F_\\text{maks}/m = 120/0{,}0600 = 2\\,000\\,\\text{m/s}^2$. Samme tall.\n\nUttrykket $a_\\text{maks} = 4v/\\tau$ er verdt å kjenne, for det dukker opp i sprettball-varianten av sjangeren. Faktoren 4 er to bidrag ganget sammen: én faktor 2 fordi ballen snur, og én fordi trekantens topp er dobbelt så høy som gjennomsnittet.",
+    "hints": [
+     "Fartsendringen er ikke $v$, men $2v$, når ballen spretter tilbake.",
+     "For en trekantpuls er impulsen $\\tfrac12F_\\text{maks}\\tau$.",
+     "Sett de to uttrykkene sammen og eliminer $J$ og $m$."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-3-1-lokke2",
+   "type": "text",
+   "content": "## Løkke 2 — det uelastiske støtet (~14 min)\n\nNå til støt mellom to legemer. Vi begynner med det enkleste tilfellet: to legemer som treffer hverandre og blir sittende sammen. En godsvogn som kobles til en annen, en pil som treffer et blink, en kule som borer seg inn i en sandsekk.\n\n**Bevegelsesmengden er bevart.** Kreftene legemene utøver på hverandre, er like store og motsatt rettet (Newtons 3. lov) og virker like lenge, så de gir like store og motsatt rettede impulser. Summen endres ikke:\n\n$$mv_0 = (m + M)v' \\quad\\Longrightarrow\\quad v' = \\frac{m}{m + M}v_0,$$\n\nnår $M$ ligger i ro før støtet.\n\n*Intuisjon:* den samme bevegelsesmengden må nå fordeles på en større masse, så farten blir mindre. Brøken $m/(m+M)$ er alltid mellom 0 og 1, og den sier hvor stor andel av den samlede massen som «hadde farten» fra før.\n\n**Energien er ikke bevart.** Og dette er det avgjørende punktet i hele kapitlet. Deformasjon, varme og lyd tar en del av den kinetiske energien, og det er ingen måte å få den tilbake. Regn ut hvor mye:\n\n$$K_0 = \\tfrac12mv_0^2, \\qquad K' = \\tfrac12(m+M)v'^2 = \\tfrac12(m+M)\\frac{m^2v_0^2}{(m+M)^2} = \\tfrac12\\frac{m^2}{m+M}v_0^2.$$\n\nDifferansen blir\n\n$$\\Delta K = K_0 - K' = \\tfrac12mv_0^2\\left(1 - \\frac{m}{m+M}\\right) = \\tfrac12\\frac{mM}{m+M}v_0^2,$$\n\nog **andelen** som går tapt, er den forbausende enkle\n\n$$\\frac{\\Delta K}{K_0} = \\frac{M}{m+M}.$$\n\n*Intuisjon:* andelen tapt energi er den brøkdelen av den samlede massen som **sto stille** før støtet. En liten kule i en stor kloss taper nesten alt; to like masser taper nøyaktig halvparten; en stor kloss som treffer en liten kule, taper nesten ingenting.\n\n**Merk at energien ikke er «borte».** Den er blitt indre energi i de to legemene — varme, permanent deformasjon, lydbølger. Total energi er bevart; det er den **mekaniske** energien som ikke er."
+  },
+  {
+   "id": "tfy4115-3-1-def-stot",
+   "type": "definition",
+   "title": "Støt",
+   "content": "En kortvarig vekselvirkning mellom to legemer, der kreftene mellom dem er så store i forhold til de ytre kreftene at de ytre kan ignoreres i den tiden det varer. Definisjonen er praktisk, ikke skarp: «kortvarig» betyr kort nok til at impulsen fra tyngden eller friksjonen blir ubetydelig. For en tennisball er $20\\,\\text{ms}$ kort nok; for et sammenstøt mellom to skip over flere sekunder er det ikke opplagt. Konsekvensen av definisjonen er den viktigste enkeltregelen i kapitlet: **i et støt er bevegelsesmengden alltid bevart**, uansett hvor mye energi som går tapt. Fartene rett før og rett etter støtet er de vi regner med; hva som skjer i millisekundene mellom, trenger vi ikke vite."
+  },
+  {
+   "id": "tfy4115-3-1-def-uelastisk-stot",
+   "type": "definition",
+   "title": "Fullstendig uelastisk støt",
+   "content": "Et støt der de to legemene henger sammen etterpå og beveger seg med **felles** fart. Bevegelsesmengden er bevart, og med $M$ i ro før støtet gir det\n$$v' = \\frac{m}{m+M}v_0.$$\nDette er det støtet som taper **mest** mulig kinetisk energi av alle støt med de samme startbetingelsene — men merk at det ikke taper *all* energien, med mindre den totale bevegelsesmengden er null. Andelen som går tapt, er $M/(m+M)$. Ordet «fullstendig» skiller tilfellet fra delvis uelastiske støt, der legemene skilles igjen men med et energitap. På eksamen kjennes formen igjen på formuleringer som «blir sittende fast», «kobles sammen», «borer seg inn i» og «henger igjen i»."
+  },
+  {
+   "id": "tfy4115-3-1-def-isolert-system",
+   "type": "definition",
+   "title": "Isolert system, indre og ytre krefter",
+   "content": "Et system der summen av de **ytre** kreftene er null, slik at den totale bevegelsesmengden er konstant. Skillet mellom indre og ytre krefter er hele grunnen til at impulsbevarelse virker. **Indre** krefter er de legemene i systemet utøver på hverandre; de kommer alltid i par som er like store og motsatt rettede (Newtons 3. lov) og kan derfor aldri endre systemets totale bevegelsesmengde. **Ytre** krefter kommer utenfra og kan endre den. I støtoppgaver velger vi systemet slik at støtkreftene blir indre, og argumenterer for at de ytre kreftene — tyngden, friksjonen, snordraget — gir en ubetydelig impuls i den korte tiden støtet varer. Det er verdt å merke seg at nettopp dette argumentet **bryter sammen** i fasen etter støtet i en ballistisk pendel, der snoren er en ytre kraft som virker lenge."
+  },
+  {
+   "id": "tfy4115-3-1-fig-2",
+   "type": "image",
+   "src": "/images/textbook/tfy4115/tfy4115-3-1-stot.svg",
+   "alt": "To paneler side om side. Til venstre, merket FØR, ligger en liten kloss merket m med en pil merket v null mot høyre, og til høyre for den en større kloss merket M som står i ro. Under panelet står bevegelsesmengden m ganger v null og den kinetiske energien en halv m v null i annen. Til høyre, merket ETTER, ligger de to klossene inntil hverandre merket m pluss M sammen, med en kortere pil merket v strek mot høyre. Under panelet står at bevegelsesmengden er den samme og at den kinetiske energien er blitt mindre.",
+   "caption": "Bevegelsesmengden er den samme før og etter, men fartspilen er kortere fordi massen er større: $v' = mv_0/(m+M)$. Den kinetiske energien er derimot blitt mindre, med andelen $M/(m+M)$."
+  },
+  {
+   "id": "tfy4115-3-1-th-uelastisk",
+   "type": "theorem",
+   "title": "Fullstendig uelastisk støt: felles fart og energitap",
+   "content": "For et legeme med masse $m$ og fart $v_0$ som treffer et legeme med masse $M$ i ro, og blir sittende fast:\n\n$$v' = \\frac{m}{m+M}v_0, \\qquad \\Delta K = \\tfrac12\\frac{mM}{m+M}v_0^2, \\qquad \\frac{\\Delta K}{K_0} = \\frac{M}{m+M}$$\n\n**Grensetilfellene er verdt å ha i hodet som kontroller:**\n\n| Situasjon | Felles fart | Andel energi tapt |\n|---|---|---|\n| $M \\ll m$ (tung treffer lett) | nesten $v_0$ | nesten $0$ |\n| $M = m$ (like masser) | $v_0/2$ | $1/2$ |\n| $M \\gg m$ (lett treffer tung) | nesten $0$ | nesten $1$ |\n\nKula som skytes inn i en tung kloss, taper altså nesten hele sin kinetiske energi — men **all** bevegelsesmengden er der fortsatt, fordelt på en mye større masse.\n\n**Én forenkling verdt å merke seg:** den etterspurte energiandelen er ofte lettere å finne enn energitapet i joule. Andelen er bare $M/(m+M)$, og den krever ingen kjennskap til farten i det hele tatt.\n\n**Og en advarsel om hva du IKKE kan bruke.** Energibevaring gjelder ikke gjennom dette støtet. Setter du $\\tfrac12mv_0^2 = \\tfrac12(m+M)v'^2$, får du\n$$v'_\\text{feil} = v_0\\sqrt{\\frac{m}{m+M}},$$\nsom er **større** enn det riktige svaret med faktoren $\\sqrt{(m+M)/m}$. Tallet er alltid plausibelt, og det står i alternativlista."
+  },
+  {
+   "id": "tfy4115-3-1-ex-2",
+   "type": "example",
+   "title": "Eksempel 2: godsvognene som kobles",
+   "problem": "En godsvogn med masse $12{,}0 \\cdot 10^3\\,\\text{kg}$ ruller med farten $3{,}00\\,\\text{m/s}$ mot en stillestående vogn med masse $20{,}0 \\cdot 10^3\\,\\text{kg}$. Vognene kobles sammen i støtet. Regn med at rullemotstanden er ubetydelig.\n\n**a)** Finn farten til de sammenkoblede vognene.\n**b)** Finn den kinetiske energien før og etter støtet.\n**c)** Hvor mye energi gikk tapt, og hvor stor andel er det?\n**d)** Hva ville farten blitt hvis du feilaktig brukte energibevaring?",
+   "solution": "Sett $m = 12{,}0 \\cdot 10^3\\,\\text{kg}$ og $M = 20{,}0 \\cdot 10^3\\,\\text{kg}$.\n\n**a) Symbolsk utledning.** Bevegelsesmengden er bevart:\n$$mv_0 = (m+M)v' \\quad\\Longrightarrow\\quad v' = \\frac{m}{m+M}v_0.$$\n\n**Rask vei til tall.**\n$$v' = \\frac{12{,}0}{32{,}0} \\cdot 3{,}00\\,\\text{m/s} = 0{,}37500 \\cdot 3{,}00\\,\\text{m/s} = 1{,}1250\\,\\text{m/s} \\approx 1{,}13\\,\\text{m/s}.$$\nLegg merke til at massene kan settes inn i tonn, siden bare **forholdet** inngår.\n\n**b)**\n$$K_0 = \\tfrac12mv_0^2 = 0{,}500 \\cdot 12{,}0 \\cdot 10^3 \\cdot 9{,}00\\,\\text{J} = 54{,}0 \\cdot 10^3\\,\\text{J} = 54{,}0\\,\\text{kJ},$$\n$$K' = \\tfrac12(m+M)v'^2 = 0{,}500 \\cdot 32{,}0 \\cdot 10^3 \\cdot 1{,}2656\\,\\text{J} = 20{,}25 \\cdot 10^3\\,\\text{J} \\approx 20{,}3\\,\\text{kJ}.$$\n\n**c)**\n$$\\Delta K = 54{,}0 - 20{,}25\\,\\text{kJ} = 33{,}75\\,\\text{kJ} \\approx 33{,}8\\,\\text{kJ}.$$\nAndelen:\n$$\\frac{\\Delta K}{K_0} = \\frac{33{,}75}{54{,}0} = 0{,}62500 = 62{,}5\\ \\%.$$\n\n**Kontrollen som må stemme:** andelen skal være $M/(m+M)$:\n$$\\frac{20{,}0}{32{,}0} = 0{,}62500. \\quad \\checkmark$$\nNøyaktig samme tall, og regnet helt uavhengig av fartene. Det er den raskeste veien til en energiandel, og den er verdt å bruke som førstevalg på eksamen.\n\nVi kan også kontrollere formelen for tapet direkte:\n$$\\Delta K = \\tfrac12\\frac{mM}{m+M}v_0^2 = 0{,}500 \\cdot \\frac{12{,}0 \\cdot 20{,}0}{32{,}0} \\cdot 10^3 \\cdot 9{,}00\\,\\text{J} = 0{,}500 \\cdot 7{,}500 \\cdot 10^3 \\cdot 9{,}00\\,\\text{J} = 33{,}75\\,\\text{kJ}. \\quad \\checkmark$$\n\n**d)** Med energibevaring, som er **galt** her:\n$$\\tfrac12mv_0^2 = \\tfrac12(m+M)v'^2 \\quad\\Longrightarrow\\quad v'_\\text{feil} = v_0\\sqrt{\\frac{m}{m+M}} = 3{,}00\\sqrt{0{,}37500}\\,\\text{m/s},$$\n$$v'_\\text{feil} = 3{,}00 \\cdot 0{,}61237\\,\\text{m/s} = 1{,}8371\\,\\text{m/s} \\approx 1{,}84\\,\\text{m/s}.$$\nDet er 63 prosent for høyt. Og legg merke til hvorfor feilen ikke avslører seg selv: $1{,}84\\,\\text{m/s}$ er et helt rimelig tall for to sammenkoblede godsvogner. Den eneste måten å unngå den er å stille spørsmålet **før** du regner: henger legemene sammen etterpå? Da er energien ikke bevart.\n\n**Sluttsjekk.** Farten etter er lavere enn før, som den må være når massen har vokst. Energien etter er lavere enn før, som den må være i et uelastisk støt. Og andelen tapt stemmer med masseforholdet."
+  },
+  {
+   "id": "tfy4115-3-1-o-3",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-3-1-oppg-3",
+    "number": "3",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger M6.) En pil med masse $0{,}900\\,\\text{kg}$ treffer en stillestående blokk med masse $2{,}70\\,\\text{kg}$ og blir sittende fast. Pilas fart før støtet er $5{,}50\\,\\text{m/s}$.\n\n**a)** Finn farten rett etter støtet.\n**b)** Finn den kinetiske energien før og etter.\n**c)** Hvor stor andel av energien gikk tapt? Finn den på to måter.",
+    "solution": "**a)**\n$$v' = \\frac{m}{m+M}v_0 = \\frac{0{,}900}{3{,}60} \\cdot 5{,}50\\,\\text{m/s} = 0{,}25000 \\cdot 5{,}50\\,\\text{m/s} = 1{,}3750\\,\\text{m/s} \\approx 1{,}38\\,\\text{m/s}.$$\n\n**b)**\n$$K_0 = \\tfrac12 \\cdot 0{,}900 \\cdot \\left(5{,}50\\right)^2\\,\\text{J} = 0{,}450 \\cdot 30{,}25\\,\\text{J} = 13{,}613\\,\\text{J} \\approx 13{,}6\\,\\text{J},$$\n$$K' = \\tfrac12 \\cdot 3{,}60 \\cdot \\left(1{,}3750\\right)^2\\,\\text{J} = 1{,}80 \\cdot 1{,}8906\\,\\text{J} = 3{,}4031\\,\\text{J} \\approx 3{,}40\\,\\text{J}.$$\n\n**c) Første måte — som differanse:**\n$$\\frac{\\Delta K}{K_0} = \\frac{13{,}613 - 3{,}4031}{13{,}613} = \\frac{10{,}209}{13{,}613} = 0{,}75000 = 75{,}0\\ \\%.$$\n\n**Andre måte — direkte fra massene:**\n$$\\frac{\\Delta K}{K_0} = \\frac{M}{m+M} = \\frac{2{,}70}{3{,}60} = 0{,}75000 = 75{,}0\\ \\%.$$\n\nDen andre måten krever ingen fart og ingen energiregning i det hele tatt. Legg merke til at massebrøken $m/(m+M) = 0{,}250$ og energiandelen $M/(m+M) = 0{,}750$ er komplementære — det er lett å forveksle dem, og begge tallene står som regel i alternativlista.",
+    "hints": [
+     "Bevegelsesmengden er bevart: $mv_0 = (m+M)v'$.",
+     "Regn de to kinetiske energiene hver for seg, med riktig masse i hver.",
+     "Andelen tapt energi er $M/(m+M)$ — den brøkdelen av massen som sto stille."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-3-1-o-4",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-3-1-oppg-4",
+    "number": "4",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger M6, A–F-format — kun bokstavsvaret.) En kloss med masse $0{,}400\\,\\text{kg}$ glir med farten $9{,}00\\,\\text{m/s}$ og treffer en stillestående kloss med masse $1{,}10\\,\\text{kg}$. De to blir sittende sammen.\n\nHvor stor er farten rett etter støtet?\n\n**A** $3{,}27\\,\\text{m/s}$ · **B** $4{,}65\\,\\text{m/s}$ · **C** $2{,}40\\,\\text{m/s}$ · **D** $6{,}60\\,\\text{m/s}$ · **E** $4{,}80\\,\\text{m/s}$ · **F** $4{,}50\\,\\text{m/s}$",
+    "solution": "**Svar: C.**\n\nBevegelsesmengden er bevart, og de to har felles fart etterpå:\n$$v' = \\frac{m}{m+M}v_0 = \\frac{0{,}400}{1{,}50} \\cdot 9{,}00\\,\\text{m/s} = 0{,}26667 \\cdot 9{,}00\\,\\text{m/s} = 2{,}4000\\,\\text{m/s}.$$\n\nHvert galt alternativ er regnet fram fra én konkret feil.\n\n*Fellene:* **A** ($3{,}27\\,\\text{m/s}$) bruker $m/M$ i stedet for $m/(m+M)$, altså glemmer å legge den innkommende massen til i nevneren. **B** ($4{,}65\\,\\text{m/s}$) kommer av å bruke **energibevaring** gjennom støtet, $\\tfrac12mv_0^2 = \\tfrac12(m+M)v'^2$ — men energien er ikke bevart i et uelastisk støt. **D** ($6{,}60\\,\\text{m/s}$) bruker $M/(m+M)$ i stedet for $m/(m+M)$, altså snur massebrøken. **E** ($4{,}80\\,\\text{m/s}$) er farten det **elastiske** støtet ville gitt målklossen, $2m\\,v_0/(m+M)$ — dobbelt så stor som den uelastiske. **F** ($4{,}50\\,\\text{m/s}$) er halve startfarten, som ville vært riktig bare hvis de to massene var like store.\n\n**Sluttsjekken som stryker fire av fem.** Farten etter må være **mindre** enn $v_0/2 = 4{,}50\\,\\text{m/s}$, siden den innkommende massen er mindre enn halvparten av totalmassen. Det stryker alle alternativer over $4{,}50$ på ett sekund, uten en eneste regnelinje. Og energiandelen som gikk tapt, er $M/(m+M) = 73{,}3\\ \\%$ — over to tredjedeler, som passer med at målklossen er nesten tre ganger så tung.",
+    "hints": [
+     "Bevegelsesmengden er bevart — energien er det ikke.",
+     "$mv_0 = (m+M)v'$, så $v' = mv_0/(m+M)$.",
+     "Kontrollér at svaret er mindre enn halve startfarten når $m < M$."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-3-1-lokke3",
+   "type": "text",
+   "content": "— naturlig pausepunkt —\n\n## Løkke 3 — det elastiske støtet (~14 min)\n\nNå det andre ytterpunktet: et støt der **ingen** mekanisk energi går tapt. To biljardkuler, to stålkuler i en pendelrekke, to molekyler i en gass. Ingen virkelige makroskopiske støt er helt elastiske, men mange er nær nok til at idealiseringen er nyttig.\n\nNå har vi **to** bevaringslover, og altså to ligninger:\n\n$$mv_0 = mv_1' + Mv_2' \\qquad \\text{og} \\qquad \\tfrac12mv_0^2 = \\tfrac12mv_1'^2 + \\tfrac12Mv_2'^2.$$\n\nTo ligninger, to ukjente. Regningen er en smule kronglete, men den er gjort en gang for alle, og resultatet er to formler du kan slå opp:\n\n$$v_1' = \\frac{m - M}{m + M}v_0, \\qquad v_2' = \\frac{2m}{m + M}v_0.$$\n\n**Merk fortegnet i den første formelen nøye.** Telleren er $m - M$, altså den innkommende massen minus målets. Er $m < M$ — en lett kule treffer en tung — blir $v_1'$ **negativ**: kula spretter tilbake. Det er ikke en regnefeil, det er svaret. Fortegnet er informasjon om retning.\n\n*Intuisjon gjennom tre grensetilfeller:*\n\n**Like masser** ($m = M$): $v_1' = 0$ og $v_2' = v_0$. Den innkommende kula stopper helt, og målkula overtar hele farten. Det er biljardspillerens grunnstøt, og det er nettopp derfor det virker.\n\n**Lett treffer tungt** ($m \\ll M$): $v_1' \\to -v_0$ og $v_2' \\to 0$. Kula spretter tilbake med nesten samme fart, og veggen rører seg nesten ikke. Det er en ball mot en murvegg.\n\n**Tungt treffer lett** ($m \\gg M$): $v_1' \\to v_0$ og $v_2' \\to 2v_0$. Den tunge kula fortsetter nesten uforstyrret, og den lette skytes av gårde med **dobbelt** fart. Det er en golfklubb mot en golfball.\n\n**Og en kontroll som er lettere å huske enn formlene:** i et elastisk støt snur den **relative** farten mellom legemene, uten å endre størrelse:\n\n$$v_2' - v_1' = v_0.$$\n\nNærmer de seg med $4\\,\\text{m/s}$ før støtet, fjerner de seg med $4\\,\\text{m/s}$ etter. Den relasjonen er en ligning du kan bruke i stedet for den kvadratiske energiligningen, og det gjør regningen langt raskere hvis du må utlede formlene selv."
+  },
+  {
+   "id": "tfy4115-3-1-def-elastisk-stot",
+   "type": "definition",
+   "title": "Elastisk støt",
+   "content": "Et støt der den samlede kinetiske energien er den samme før og etter. Både bevegelsesmengden og energien er bevart, og legemene skilles igjen etter støtet. Ingen virkelige støt mellom makroskopiske legemer er helt elastiske — noe energi går alltid til lyd og deformasjon — men stålkuler, biljardkuler og molekyler i en gass kommer nær nok til at idealiseringen brukes. Betingelsen kan skrives på tre likeverdige måter, og den siste er den raskeste å bruke:\n$$\\tfrac12mv_0^2 = \\tfrac12mv_1'^2 + \\tfrac12Mv_2'^2 \\quad\\Longleftrightarrow\\quad \\Delta K = 0 \\quad\\Longleftrightarrow\\quad v_2' - v_1' = v_0.$$\nMerk at ordet «elastisk» handler om energien, ikke om hvordan støtet ser ut. To kuler som spretter fra hverandre, kan godt ha tapt energi — det er et delvis uelastisk støt."
+  },
+  {
+   "id": "tfy4115-3-1-def-fartsformlene",
+   "type": "definition",
+   "title": "Fartsformlene for elastisk støt mot legeme i ro",
+   "content": "Løsningen av de to bevaringslovene når $M$ ligger i ro før støtet:\n$$v_1' = \\frac{m - M}{m + M}v_0, \\qquad v_2' = \\frac{2m}{m + M}v_0.$$\nHer er $m$ den **innkommende** massen og $M$ målets. Legg merke til tre ting. Telleren i den første er $m - M$, så $v_1'$ blir **negativ** når den innkommende kula er lettest — den spretter tilbake, og fortegnet forteller det. Den andre farten er alltid positiv, siden både $2m$ og $m+M$ er positive: målet går alltid framover. Og faktoren 2 i telleren er grunnen til at en lett kule kan skytes av gårde med opptil **dobbelt** så stor fart som den tunge som traff den. Formlene står ikke ferdig på det utdelte arket; de [må kunne brukes eller utledes aktivt], og relasjonen $v_2' - v_1' = v_0$ er den raskeste veien til dem."
+  },
+  {
+   "id": "tfy4115-3-1-def-relativ-fart",
+   "type": "definition",
+   "title": "Den relative farten snur i et elastisk støt",
+   "content": "Egenskapen som gjør elastiske støt raske å regne på: i et elastisk støt har den relative farten mellom legemene samme størrelse før og etter, men motsatt fortegn:\n$$v_2' - v_1' = v_1 - v_2.$$\nNærmer legemene seg med $4\\,\\text{m/s}$, fjerner de seg med $4\\,\\text{m/s}$. Relasjonen er algebraisk likeverdig med energibevaringsligningen, men den er **lineær** — og derfor mye enklere å kombinere med impulsbevarelse enn den kvadratiske energiligningen. Skal du utlede fartsformlene selv under tidspress, er dette veien å gå. Størrelsesforholdet mellom den relative farten etter og før kalles restitusjonskoeffisienten, og for et elastisk støt er den 1; for et fullstendig uelastisk støt er den 0."
+  },
+  {
+   "id": "tfy4115-3-1-def-massesenterfart",
+   "type": "definition",
+   "title": "Massesenterets fart er uendret",
+   "content": "En egenskap som gjelder for **alle** støt, elastiske som uelastiske: massesenterets fart\n$$v_\\text{CM} = \\frac{\\sum m_i v_i}{\\sum m_i}$$\nendres ikke, siden den totale bevegelsesmengden er bevart og totalmassen er konstant. For et legeme med fart $v_0$ som treffer et i ro, er $v_\\text{CM} = mv_0/(m+M)$ — som tilfeldigvis er **nøyaktig** den felles farten i et fullstendig uelastisk støt. Det er ingen tilfeldighet: i det uelastiske støtet forsvinner all relativ bevegelse, og alt som er igjen, er massesenterets bevegelse. Egenskapen gir en pen kontroll: felles fart i et uelastisk støt er alltid nøyaktig lik massesenterets fart, og kan derfor aldri overstige den."
+  },
+  {
+   "id": "tfy4115-3-1-ex-3",
+   "type": "example",
+   "title": "Eksempel 3: den elastiske kula, og de tre grensetilfellene",
+   "problem": "En kule med masse $0{,}150\\,\\text{kg}$ og fart $4{,}00\\,\\text{m/s}$ treffer en stillestående kule med masse $0{,}450\\,\\text{kg}$ i et elastisk støt.\n\n**a)** Finn fartene til begge kulene etter støtet.\n**b)** Kontrollér at både bevegelsesmengden og energien er bevart.\n**c)** Kontrollér at den relative farten snudde.\n**d)** Hva blir svarene hvis målkula i stedet har massen $0{,}150\\,\\text{kg}$, eller $15{,}0\\,\\text{kg}$?",
+   "solution": "**a) Rask vei til tall.** Sett inn i fartsformlene, med $m = 0{,}150\\,\\text{kg}$ og $M = 0{,}450\\,\\text{kg}$, altså $m + M = 0{,}600\\,\\text{kg}$:\n$$v_1' = \\frac{0{,}150 - 0{,}450}{0{,}600} \\cdot 4{,}00\\,\\text{m/s} = \\frac{-0{,}300}{0{,}600} \\cdot 4{,}00\\,\\text{m/s} = -0{,}500 \\cdot 4{,}00\\,\\text{m/s} = -2{,}00\\,\\text{m/s},$$\n$$v_2' = \\frac{2 \\cdot 0{,}150}{0{,}600} \\cdot 4{,}00\\,\\text{m/s} = 0{,}500 \\cdot 4{,}00\\,\\text{m/s} = 2{,}00\\,\\text{m/s}.$$\n\nDen innkommende kula spretter **tilbake** med $2{,}00\\,\\text{m/s}$ — det negative fortegnet er svaret, ikke en feil — og målkula går framover med $2{,}00\\,\\text{m/s}$.\n\n**b) Bevegelsesmengde:**\n$$p_\\text{før} = 0{,}150 \\cdot 4{,}00\\,\\text{kg}\\cdot\\text{m/s} = 0{,}600\\,\\text{kg}\\cdot\\text{m/s},$$\n$$p_\\text{etter} = 0{,}150 \\cdot (-2{,}00) + 0{,}450 \\cdot 2{,}00\\,\\text{kg}\\cdot\\text{m/s} = -0{,}300 + 0{,}900\\,\\text{kg}\\cdot\\text{m/s} = 0{,}600\\,\\text{kg}\\cdot\\text{m/s}. \\quad \\checkmark$$\n\n**Energi:**\n$$K_\\text{før} = \\tfrac12 \\cdot 0{,}150 \\cdot 16{,}0\\,\\text{J} = 1{,}20\\,\\text{J},$$\n$$K_\\text{etter} = \\tfrac12 \\cdot 0{,}150 \\cdot 4{,}00 + \\tfrac12 \\cdot 0{,}450 \\cdot 4{,}00\\,\\text{J} = 0{,}300 + 0{,}900\\,\\text{J} = 1{,}20\\,\\text{J}. \\quad \\checkmark$$\n\nLegg merke til hvordan de to kontrollene fungerer ulikt: i energiregnskapet teller begge bidragene positivt, i bevegelsesmengderegnskapet trekker det negative bidraget fra. Det er skillet mellom en skalar og en vektor, i to linjer.\n\n**c)**\n$$v_2' - v_1' = 2{,}00 - (-2{,}00)\\,\\text{m/s} = 4{,}00\\,\\text{m/s} = v_0. \\quad \\checkmark$$\nDen relative farten er den samme, med motsatt fortegn.\n\n**d) Like masser** ($M = 0{,}150\\,\\text{kg}$):\n$$v_1' = \\frac{0}{0{,}300} \\cdot 4{,}00 = 0, \\qquad v_2' = \\frac{0{,}300}{0{,}300} \\cdot 4{,}00 = 4{,}00\\,\\text{m/s}.$$\nDen innkommende kula stopper **helt**, og målkula overtar hele farten. Det er biljardspillerens grunnstøt.\n\n**Mye tyngre mål** ($M = 15{,}0\\,\\text{kg}$, altså hundre ganger $m$):\n$$v_1' = \\frac{0{,}150 - 15{,}0}{15{,}15} \\cdot 4{,}00\\,\\text{m/s} = -0{,}98020 \\cdot 4{,}00\\,\\text{m/s} = -3{,}9208\\,\\text{m/s},$$\n$$v_2' = \\frac{0{,}300}{15{,}15} \\cdot 4{,}00\\,\\text{m/s} = 0{,}019802 \\cdot 4{,}00\\,\\text{m/s} = 0{,}079208\\,\\text{m/s} \\approx 0{,}0792\\,\\text{m/s}.$$\nKula spretter tilbake med 98 prosent av farten, og den tunge kula rører seg nesten ikke. Grensen $m \\ll M$ gir $v_1' \\to -v_0$ og $v_2' \\to 0$ — en ball mot en murvegg.\n\n**Sluttsjekk.** Alle tre tilfellene bevarer både bevegelsesmengde og energi, og i alle tre er $v_2' - v_1' = 4{,}00\\,\\text{m/s}$. Den siste kontrollen er den raskeste, og den fanger nesten alle regnefeil i sjangeren."
+  },
+  {
+   "id": "tfy4115-3-1-o-5",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-3-1-oppg-5",
+    "number": "5",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger M6.) En kule med masse $2{,}00\\,\\text{kg}$ og fart $4{,}00\\,\\text{m/s}$ treffer en stillestående kule med masse $0{,}500\\,\\text{kg}$ i et elastisk støt.\n\n**a)** Finn de to fartene etter støtet.\n**b)** Kontrollér at både bevegelsesmengden og den kinetiske energien er bevart.\n**c)** Hvor stor andel av energien har den lette kula fått?\n**d)** Hva er den største farten den lette kula i prinsippet kan få, uansett hvor tung den innkommende kula er?",
+    "solution": "**a)** Med $m = 2{,}00\\,\\text{kg}$, $M = 0{,}500\\,\\text{kg}$ og $m + M = 2{,}50\\,\\text{kg}$:\n$$v_1' = \\frac{2{,}00 - 0{,}500}{2{,}50} \\cdot 4{,}00\\,\\text{m/s} = \\frac{1{,}50}{2{,}50} \\cdot 4{,}00\\,\\text{m/s} = 0{,}600 \\cdot 4{,}00\\,\\text{m/s} = 2{,}40\\,\\text{m/s},$$\n$$v_2' = \\frac{2 \\cdot 2{,}00}{2{,}50} \\cdot 4{,}00\\,\\text{m/s} = 1{,}600 \\cdot 4{,}00\\,\\text{m/s} = 6{,}40\\,\\text{m/s}.$$\nBegge fartene er positive: den tunge kula fortsetter framover, og den lette skytes av gårde raskere enn den tunge kom inn.\n\n**b) Bevegelsesmengde:**\n$$p_\\text{før} = 2{,}00 \\cdot 4{,}00 = 8{,}00\\,\\text{kg}\\cdot\\text{m/s}, \\qquad p_\\text{etter} = 2{,}00 \\cdot 2{,}40 + 0{,}500 \\cdot 6{,}40 = 4{,}80 + 3{,}20 = 8{,}00\\,\\text{kg}\\cdot\\text{m/s}. \\quad \\checkmark$$\n**Energi:**\n$$K_\\text{før} = \\tfrac12 \\cdot 2{,}00 \\cdot 16{,}0 = 16{,}0\\,\\text{J}, \\qquad K_\\text{etter} = \\tfrac12 \\cdot 2{,}00 \\cdot 5{,}76 + \\tfrac12 \\cdot 0{,}500 \\cdot 40{,}96 = 5{,}76 + 10{,}24 = 16{,}0\\,\\text{J}. \\quad \\checkmark$$\n**Relativ fart:** $v_2' - v_1' = 6{,}40 - 2{,}40 = 4{,}00\\,\\text{m/s} = v_0$. $\\checkmark$\n\n**c)**\n$$\\frac{K_2'}{K_0} = \\frac{10{,}24}{16{,}0} = 0{,}640 = 64{,}0\\ \\%.$$\nDen lette kula har altså fått nesten to tredjedeler av energien, selv om den bare veier en fjerdedel så mye som den tunge.\n\n**d)** Fartsformelen er $v_2' = \\frac{2m}{m+M}v_0$, og brøken $\\frac{2m}{m+M}$ vokser mot **2** når $m \\gg M$:\n$$v_2'^\\text{maks} = 2v_0 = 8{,}00\\,\\text{m/s}.$$\nDen lette kula kan altså aldri få mer enn dobbel fart i et elastisk støt mot et legeme i ro, uansett hvor tung den innkommende massen er. Det er en pen kontroll å ha i hodet: får du et svar over $2v_0$, har du regnet feil. Grensen er også grunnen til at en golfball kan forlate klubben raskere enn klubbhodet beveger seg — men bare inntil dobbelt så fort.",
+    "hints": [
+     "Bruk fartsformlene med $m$ som den innkommende massen og $M$ som målets.",
+     "Kontrollér med både bevegelsesmengde og energi — og med at den relative farten snur.",
+     "I d): hva skjer med brøken $2m/(m+M)$ når $m$ blir mye større enn $M$?"
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-3-1-o-6",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-3-1-oppg-6",
+    "number": "6",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Kvalitativ oppgave — sjanger M6.) Svar i to til fire setninger på hvert punkt.\n\n**a)** To biler med samme masse kjører mot hverandre med samme fart og kolliderer. Den totale bevegelsesmengden er null både før og etter. Betyr det at ingen energi gikk tapt?\n\n**b)** Hvorfor kan en golfball forlate klubbhodet med større fart enn klubbhodet selv har, uten at det bryter noen bevaringslov?\n\n**c)** En student skriver: «I et støt er energien bevart hvis vi bare tar med all energien, også varmen. Derfor kan jeg alltid bruke energibevaring.» Hva er riktig og hva er galt i dette?",
+    "solution": "**a)** Nei, tvert imot — dette er tilfellet der **mest** mulig energi går tapt. Bevegelsesmengde er en **vektor**, og de to bilenes bidrag har motsatt fortegn og summerer til null. Kinetisk energi er en **skalar** som alltid er positiv, så begge bilene bidrar positivt, og den samlede energien før støtet er $2 \\cdot \\tfrac12mv^2 = mv^2$. Blir bilene stående stille etterpå, er **all** den kinetiske energien borte — omsatt til deformasjon, varme og lyd. At bevegelsesmengden er bevart, sier ingenting om energien; det er hele grunnen til at vi trenger to ulike regnskap.\n\n**b)** Fordi fartsformelen for et elastisk støt gir målet farten $v_2' = \\frac{2m}{m+M}v_0$, og brøkfaktoren $\\frac{2m}{m+M}$ er større enn 1 så snart $m > M$. Den nærmer seg 2 når klubbhodet er mye tyngre enn ballen. Ingen bevaringslov brytes: ballen får høy fart, men liten bevegelsesmengde og liten energi, siden massen er så liten. Regnskapet stemmer i begge bøker samtidig — det er nettopp de to bevaringslovene som **bestemmer** faktoren.\n\n**c)** Det er **riktig** at total energi alltid er bevart; energi forsvinner ikke fra universet. Det er **galt** at det gjør energibevaring til et brukbart regneverktøy i et støt. Setter du opp «kinetisk energi før = kinetisk energi etter», har du sagt noe som er usant for et uelastisk støt. Vil du inkludere varmen, må du kjenne den — og det gjør du ikke, for den er nettopp det du ikke kan regne ut på forhånd. Derfor bruker vi **bevegelsesmengde** gjennom støtet: den er bevart uten at vi trenger å vite noe om hva som skjedde med energien. Energiregnskapet kommer etterpå, som en beregning av hvor mye som gikk tapt.",
+    "hints": [
+     "Tenk over forskjellen mellom en vektor og en skalar i de to regnskapene.",
+     "I b): hvor stor kan brøken $2m/(m+M)$ maksimalt bli?",
+     "I c): hva krever et regneverktøy for å være brukbart — at påstanden er sann, eller at størrelsene er kjente?"
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-3-1-th-rask-vei",
+   "type": "theorem",
+   "title": "Rask vei til tall (MC-oppskrift)",
+   "content": "Fra oppgitt støt til bokstavsvar i fem trinn.\n\n**1. Hvilken lov?** **Bevegelsesmengden er alltid bevart:**\n$$\\sum m\\mathbf{v} = \\sum m\\mathbf{v}'.$$\nEnergien er bevart **kun** hvis støtet er elastisk. Dette ene skillet er det viktigste i sjangeren, og det avgjøres av ordene i oppgaveteksten — ikke av regningen.\n\n**2. Hvilken ene regnelinje?** Avgjør støttypen først, så følger formelen:\n- **«blir sittende fast», «kobles», «borer seg inn i»** → fullstendig uelastisk: $v' = \\dfrac{m}{m+M}v_0$.\n- **«elastisk», «energien er bevart», «spretter uten tap»** → $v_1' = \\dfrac{m-M}{m+M}v_0$ og $v_2' = \\dfrac{2m}{m+M}v_0$.\n- **spørres det om en energiandel** i et uelastisk støt → $\\dfrac{\\Delta K}{K_0} = \\dfrac{M}{m+M}$, uten å regne fart i det hele tatt.\n- **oppgis en $F(t)$-graf** → $J = $ areal $= \\Delta p$, og $\\Delta v = J/m$.\n\n**3. Rekkefølgen på oppslagene.** Fra det utdelte arket henter du $p = mv$, $dp/dt = F$, $\\mathbf{J} = \\Delta\\mathbf{p} = \\int\\mathbf{F}\\,dt$ og $K = \\tfrac12mv^2$. Fartsformlene for det elastiske støtet står **ikke** der og [må kunne brukes eller utledes aktivt] — den raskeste utledningen går via $v_2' - v_1' = v_0$ sammen med impulsbevarelse.\n\n**4. Hvor mange siffer?** Regn **massebrøken** som en egen mellomverdi med fire siffer før du multipliserer med farten. Det er den utsatte størrelsen, særlig når massene ligger nær hverandre. Skal du finne en energiandel, gjør det direkte fra massene i stedet for som en differanse mellom to energier — differansen mister siffer.\n\n**5. Sjekk før du krysser av.** Fem kontroller på ti sekunder:\n- **Fortegn:** peker svaret riktig vei? En lett kule som treffer en tung elastisk, **skal** ha negativ $v_1'$.\n- **Uelastisk grense:** felles fart må ligge mellom 0 og $v_0$, og den er alltid mindre enn $v_0/2$ når $m < M$.\n- **Elastisk grense:** $v_2'$ kan aldri overstige $2v_0$.\n- **Energien kan ikke vokse:** $K' \\le K_0$ i alle støt. Får du mer energi ut enn inn, har du snudd noe.\n- **Enhet:** m/s for fart, $\\text{N}\\cdot\\text{s}$ for impuls, J for energi."
+  },
+  {
+   "id": "tfy4115-3-1-lokke4",
+   "type": "text",
+   "content": "## Løkke 4 — den ballistiske pendelen (~13 min)\n\nTil slutt en oppgavetype som er en klassiker nettopp fordi den tvinger deg til å bruke **to ulike bevaringslover etter hverandre**, og til å vite hvorfor.\n\nEn kule skytes inn i en kloss som henger i en snor. Kula blir sittende fast, og klossen svinger opp til en høyde du kan måle. Ut fra høyden skal du finne kulas fart — og oppsettet var faktisk en av de første måtene å måle prosjektilfarter på.\n\n**Steg 1: støtet.** Kula og klossen blir sittende sammen, så dette er et fullstendig uelastisk støt. **Bevegelsesmengden er bevart, energien er ikke:**\n\n$$v' = \\frac{m}{m + M}v_0.$$\n\n**Steg 2: svinget.** Nå er støtet over. Klossen med kula i svinger som en pendel, og her er det **ingen** støt — bare tyngden og snordraget. Snordraget står vinkelrett på bevegelsen og gjør ikke arbeid, så **den mekaniske energien er bevart:**\n\n$$\\tfrac12(m+M)v'^2 = (m+M)gh \\quad\\Longrightarrow\\quad h = \\frac{v'^2}{2g}.$$\n\nKombinert, og løst baklengs for kulas fart:\n\n$$v_0 = \\frac{m + M}{m}\\sqrt{2gh}.$$\n\n**Og nå det avgjørende: hvorfor kan vi ikke bruke samme lov i begge stegene?**\n\nBruker du **energibevaring i steg 1**, får du for høy fart — energien er ikke bevart der, som Løkke 2 viste. Dette er den klassiske fella i oppgaven.\n\nBruker du **bevegelsesmengde i steg 2**, får du ikke noe svar i det hele tatt. Snoren er en **ytre** kraft på systemet, og den virker gjennom hele svinget — ikke bare i et par millisekunder. Bevegelsesmengden er derfor ikke bevart i svingfasen; den endres kontinuerlig fra maksimum i bunnen til null i toppen.\n\n*Regelen som følger:* **bevegelsesmengde gjennom støt, energi gjennom fritt svingende bevegelse.** Grensen mellom de to fasene er øyeblikket rett etter at kula har stanset i klossen."
+  },
+  {
+   "id": "tfy4115-3-1-def-ballistisk-pendel",
+   "type": "definition",
+   "title": "Ballistisk pendel",
+   "content": "Et oppsett der et prosjektil skytes inn i en kloss som henger i en snor, blir sittende fast, og der klossens utsving brukes til å finne prosjektilets fart. Løsningen krever **to** bevaringslover i rekkefølge, og det er hele poenget med oppgaven: impulsbevarelse gjennom støtet, deretter energibevaring gjennom svinget.\n$$v' = \\frac{m}{m+M}v_0, \\qquad h = \\frac{v'^2}{2g} \\quad\\Longrightarrow\\quad v_0 = \\frac{m+M}{m}\\sqrt{2gh}.$$\nMåles utsvinget som en vinkel $\\alpha$ i stedet for en høyde, og snorlengden er $L$, er $h = L(1 - \\cos\\alpha)$. Fordi $m \\ll M$ i praksis, er faktoren $(m+M)/m$ stor — en kule på $12\\,\\text{g}$ i en kloss på $2{,}5\\,\\text{kg}$ gir faktoren $209$, og det er derfor et beskjedent utsving svarer til en svært høy prosjektilfart."
+  },
+  {
+   "id": "tfy4115-3-1-def-delvis-uelastisk",
+   "type": "definition",
+   "title": "Delvis uelastisk støt (kjenne til)",
+   "content": "Det virkelige mellomtilfellet: legemene skilles etter støtet, men noe energi er tapt. Graden beskrives med **restitusjonskoeffisienten**\n$$e = \\frac{\\lvert v_2' - v_1'\\rvert}{\\lvert v_1 - v_2\\rvert},$$\naltså forholdet mellom den relative farten etter og før. Et elastisk støt har $e = 1$, et fullstendig uelastisk har $e = 0$, og virkelige støt ligger mellom: en tennisball mot betong har $e \\approx 0{,}75$, en leirklump har $e \\approx 0$. Størrelsen er «kjenne til»-stoff i denne boka — den forekommer sjelden i arkivet, og eksamensoppgavene holder seg nesten alltid til de to ytterpunktene. Men den er verdt å kjenne, fordi den viser at de to tilfellene vi regner på, er endene av et sammenhengende spektrum, ikke to urelaterte fenomener."
+  },
+  {
+   "id": "tfy4115-3-1-fig-3",
+   "type": "image",
+   "src": "/images/textbook/tfy4115/tfy4115-3-3-ballistisk.svg",
+   "alt": "Tre paneler side om side. Panel 1, merket Før støtet, viser en kloss merket M i ro hengende i en loddrett snor, og til venstre en liten kule merket m med fart v null som beveger seg mot klossen. Panel 2, merket Rett etter, viser kula sittende inne i klossen og en pil merket v strek som viser den felles farten mot høyre. Panel 3, merket På toppen, viser snoren svingt ut en vinkel alfa fra loddrett, med klossen hevet høyden h over utgangsstillingen.",
+   "caption": "To bevaringslover etter hverandre: impulsbevarelse gjennom støtet gir $v' = mv_0/(m+M)$, og energibevaring gjennom svinget gir $h = v'^2/(2g)$. Grensen mellom fasene er øyeblikket kula har stanset i klossen."
+  },
+  {
+   "id": "tfy4115-3-1-ex-4",
+   "type": "example",
+   "title": "Eksempel 4: den ballistiske pendelen (eksamensnivå)",
+   "problem": "En kule med masse $12{,}0\\,\\text{g}$ skytes vannrett inn i en trekloss med masse $2{,}50\\,\\text{kg}$ som henger i ro i en snor. Kula blir sittende fast i klossen.\n\n**a)** Finn farten til kloss og kule rett etter støtet, uttrykt ved kulas fart $v_0$.\n**b)** Kulas fart er $320\\,\\text{m/s}$. Hvor høyt svinger klossen?\n**c)** Hvor stor andel av kulas kinetiske energi ble borte i støtet?\n**d)** Snorlengden er $1{,}20\\,\\text{m}$. Hvor stor blir utsvingsvinkelen?\n**e)** En student måler høyden til $11{,}9\\,\\text{cm}$ og skal finne kulas fart. Vis regningen.",
+   "solution": "Sett $m = 0{,}0120\\,\\text{kg}$ og $M = 2{,}50\\,\\text{kg}$, altså $m + M = 2{,}512\\,\\text{kg}$.\n\n**a) Steg 1 — impulsbevarelse gjennom støtet.** Kula og klossen blir sittende sammen:\n$$mv_0 = (m+M)v' \\quad\\Longrightarrow\\quad v' = \\frac{m}{m+M}v_0 = \\frac{0{,}0120}{2{,}512}v_0 = 4{,}7771 \\cdot 10^{-3}\\,v_0.$$\nBare en halv prosent av farten er igjen. Det sier hvor dominerende klossens masse er.\n\n**b) Rask vei til tall.**\n$$v' = 4{,}7771 \\cdot 10^{-3} \\cdot 320\\,\\text{m/s} = 1{,}5287\\,\\text{m/s}.$$\n**Steg 2 — energibevaring gjennom svinget.** Nå er støtet over, snordraget gjør ikke arbeid, og all kinetisk energi blir potensiell:\n$$h = \\frac{v'^2}{2g} = \\frac{\\left(1{,}5287\\right)^2}{2 \\cdot 9{,}81}\\,\\text{m} = \\frac{2{,}3369}{19{,}62}\\,\\text{m} = 0{,}11910\\,\\text{m} \\approx 11{,}9\\,\\text{cm}.$$\nMerk at massen faller ut av steg 2, siden begge sider av energiligningen har faktoren $(m+M)$.\n\n**c)** Andelen tapt er $M/(m+M)$:\n$$\\frac{\\Delta K}{K_0} = \\frac{2{,}50}{2{,}512} = 0{,}99522 = 99{,}5\\ \\%.$$\nKontroll med tallene: $K_0 = \\tfrac12 \\cdot 0{,}0120 \\cdot 320^2 = 614{,}4\\,\\text{J}$, og\n$$K' = \\tfrac12 \\cdot 2{,}512 \\cdot 2{,}3369\\,\\text{J} = 2{,}9350\\,\\text{J}.$$\nTapt: $614{,}4 - 2{,}9350 = 611{,}47\\,\\text{J}$, altså $611{,}47/614{,}4 = 0{,}99523$. $\\checkmark$\n\nNesten all energien er borte — den gikk til å bore hullet i treet og varme det opp. Til gjengjeld er hele bevegelsesmengden der: $0{,}0120 \\cdot 320 = 3{,}84\\,\\text{kg}\\cdot\\text{m/s}$ før, og $2{,}512 \\cdot 1{,}5287 = 3{,}84\\,\\text{kg}\\cdot\\text{m/s}$ etter.\n\n**d)** Geometrien gir $h = L(1 - \\cos\\alpha)$, altså\n$$\\cos\\alpha = 1 - \\frac{h}{L} = 1 - \\frac{0{,}11910}{1{,}20} = 1 - 0{,}099250 = 0{,}90075,$$\n$$\\alpha = \\arccos 0{,}90075 = 25{,}744^\\circ \\approx 25{,}7^\\circ.$$\n\n**e)** Snu hele kjeden:\n$$v' = \\sqrt{2gh} = \\sqrt{2 \\cdot 9{,}81 \\cdot 0{,}119104}\\,\\text{m/s} = \\sqrt{2{,}3368}\\,\\text{m/s} = 1{,}5286\\,\\text{m/s},$$\n$$v_0 = \\frac{m+M}{m}v' = \\frac{2{,}512}{0{,}0120} \\cdot 1{,}5286\\,\\text{m/s} = 209{,}33 \\cdot 1{,}5286\\,\\text{m/s} = 320{,}0\\,\\text{m/s}. \\quad \\checkmark$$\n\n**Og fella, som er verdt å regne ut for å se hvor stor den er.** Bruker studenten energibevaring gjennom støtet i stedet, får han\n$$\\tfrac12mv_0^2 = (m+M)gh \\quad\\Longrightarrow\\quad v_0 = \\sqrt{\\frac{2(m+M)gh}{m}} = \\sqrt{\\frac{2 \\cdot 2{,}512 \\cdot 9{,}81 \\cdot 0{,}119104}{0{,}0120}}\\,\\text{m/s}.$$\n$$v_0 = \\sqrt{\\frac{5{,}8702}{0{,}0120}}\\,\\text{m/s} = \\sqrt{489{,}18}\\,\\text{m/s} = 22{,}118\\,\\text{m/s}.$$\nHan får $22\\,\\text{m/s}$ i stedet for $320\\,\\text{m/s}$ — under en fjortendedel. Her avslører feilen seg selv, siden $22\\,\\text{m/s}$ er en umulig fart for et prosjektil. Men i oppgaver der massene ligger nærmere hverandre, er avviket mye mindre og feilen mye vanskeligere å se.\n\n**Sluttsjekk.** Farten etter støtet er langt mindre enn før, som den må være. Høyden er positiv og mindre enn snorlengden, så vinkelen finnes. Energiandelen er under 100 prosent. Og den omvendte regningen i e) gir tilbake de $320\\,\\text{m/s}$ vi startet med."
+  },
+  {
+   "id": "tfy4115-3-1-o-7",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-3-1-oppg-7",
+    "number": "7",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Sjanger M6, eksamensnivå.) En kule med masse $25{,}0\\,\\text{g}$ skytes vannrett med farten $180\\,\\text{m/s}$ inn i en kloss med masse $1{,}20\\,\\text{kg}$ som henger i en snor med lengde $0{,}900\\,\\text{m}$. Kula blir sittende fast.\n\n**a)** Finn farten rett etter støtet.\n**b)** Hvor høyt svinger klossen, og hvor stor blir utsvingsvinkelen?\n**c)** Hvor mange joule gikk tapt i støtet, og hvor stor andel er det?\n**d)** Forklar hvorfor du måtte bruke to ulike bevaringslover, og hva som ville skjedd hvis du hadde brukt energibevaring gjennom støtet.",
+    "solution": "Sett $m = 0{,}0250\\,\\text{kg}$ og $M = 1{,}20\\,\\text{kg}$, altså $m + M = 1{,}225\\,\\text{kg}$.\n\n**a)** Impulsbevarelse gjennom støtet:\n$$v' = \\frac{m}{m+M}v_0 = \\frac{0{,}0250}{1{,}225} \\cdot 180\\,\\text{m/s} = 0{,}020408 \\cdot 180\\,\\text{m/s} = 3{,}6735\\,\\text{m/s} \\approx 3{,}67\\,\\text{m/s}.$$\n\n**b)** Energibevaring gjennom svinget:\n$$h = \\frac{v'^2}{2g} = \\frac{13{,}494}{19{,}62}\\,\\text{m} = 0{,}68779\\,\\text{m} \\approx 0{,}688\\,\\text{m}.$$\n**Kontroll før vi går videre:** høyden må være mindre enn snorlengden $0{,}900\\,\\text{m}$, ellers svinger klossen over det vannrette og oppgaven blir en annen. Her er $h/L = 0{,}764 < 1$, så vi er innenfor.\n$$\\cos\\alpha = 1 - \\frac{h}{L} = 1 - 0{,}76421 = 0{,}23579, \\qquad \\alpha = \\arccos 0{,}23579 = 76{,}362^\\circ \\approx 76{,}4^\\circ.$$\nEt stort utsving — nesten vannrett. Det er fordi kula er relativt tung sammenlignet med klossen her (én del mot 48), mot én del mot 208 i eksempel 4.\n\n**c)**\n$$K_0 = \\tfrac12 \\cdot 0{,}0250 \\cdot \\left(180\\right)^2\\,\\text{J} = 0{,}0125 \\cdot 32\\,400\\,\\text{J} = 405{,}0\\,\\text{J},$$\n$$K' = \\tfrac12 \\cdot 1{,}225 \\cdot 13{,}494\\,\\text{J} = 8{,}2653\\,\\text{J}.$$\n$$\\Delta K = 405{,}0 - 8{,}2653\\,\\text{J} = 396{,}73\\,\\text{J} \\approx 397\\,\\text{J}.$$\nAndelen:\n$$\\frac{\\Delta K}{K_0} = \\frac{396{,}73}{405{,}0} = 0{,}97959 = 98{,}0\\ \\%.$$\nKontroll direkte fra massene: $M/(m+M) = 1{,}20/1{,}225 = 0{,}97959$. $\\checkmark$\n\n**d)** De to fasene har helt ulike betingelser.\n\n**Gjennom støtet** virker svært store krefter i svært kort tid. De ytre kreftene — tyngden og snordraget — gir en ubetydelig impuls i den tiden, så bevegelsesmengden er bevart. Men kula borer seg inn i treet, og en stor del av den kinetiske energien blir varme og deformasjon. Energien er altså **ikke** bevart, og vi vet ikke hvor mye som gikk tapt før vi har regnet det ut.\n\n**Gjennom svinget** er støtet over. Nå virker bare tyngden og snordraget, og snordraget står vinkelrett på bevegelsen og gjør derfor ikke arbeid. Den mekaniske energien er bevart. Men bevegelsesmengden er **ikke** bevart: snoren er en ytre kraft som virker gjennom hele svinget, og bevegelsesmengden avtar fra maksimum i bunnen til null i toppen.\n\nHadde vi brukt energibevaring gjennom støtet, ville vi fått\n$$v_0 = \\sqrt{\\frac{2(m+M)gh}{m}} = \\sqrt{\\frac{2 \\cdot 1{,}225 \\cdot 9{,}81 \\cdot 0{,}68779}{0{,}0250}}\\,\\text{m/s} = \\sqrt{\\frac{16{,}530}{0{,}0250}}\\,\\text{m/s},$$\n$$v_0 = \\sqrt{661{,}20}\\,\\text{m/s} = 25{,}714\\,\\text{m/s}.$$\nAltså $25{,}7\\,\\text{m/s}$ i stedet for $180\\,\\text{m/s}$ — sju ganger for lavt. Merk at forholdet mellom det gale og det riktige svaret er $\\sqrt{m/(m+M)} = \\sqrt{0{,}020408} = 0{,}14286 = 1/7$: det er nøyaktig faktoren energibevaringsfeilen introduserer.",
+    "hints": [
+     "Del oppgaven i to faser, og bestem hvilken bevaringslov som gjelder i hver.",
+     "Impulsbevarelse gjennom støtet, energibevaring gjennom svinget.",
+     "Utsvingsvinkelen følger av $h = L(1 - \\cos\\alpha)$ — kontrollér at $h < L$.",
+     "Energiandelen kan finnes direkte fra massene som $M/(m+M)$."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-3-1-o-8",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-3-1-oppg-8",
+    "number": "8",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Sjanger M6, A–F-format — kun bokstavsvaret.) En kule med masse $0{,}200\\,\\text{kg}$ og fart $6{,}00\\,\\text{m/s}$ treffer en stillestående kule med masse $0{,}500\\,\\text{kg}$ i et **elastisk** støt.\n\nHvor stor fart har den stillestående kula rett etter støtet?\n\n**A** $2{,}57\\,\\text{m/s}$ · **B** $1{,}71\\,\\text{m/s}$ · **C** $8{,}57\\,\\text{m/s}$ · **D** $2{,}40\\,\\text{m/s}$ · **E** $3{,}00\\,\\text{m/s}$ · **F** $3{,}43\\,\\text{m/s}$",
+    "solution": "**Svar: F.**\n\nElastisk støt mot et legeme i ro, med $m = 0{,}200\\,\\text{kg}$, $M = 0{,}500\\,\\text{kg}$ og $m + M = 0{,}700\\,\\text{kg}$:\n$$v_2' = \\frac{2m}{m+M}v_0 = \\frac{0{,}400}{0{,}700} \\cdot 6{,}00\\,\\text{m/s} = 0{,}57143 \\cdot 6{,}00\\,\\text{m/s} = 3{,}4286\\,\\text{m/s}.$$\nDen innkommende kula spretter tilbake, siden $m < M$:\n$$v_1' = \\frac{0{,}200 - 0{,}500}{0{,}700} \\cdot 6{,}00\\,\\text{m/s} = -2{,}5714\\,\\text{m/s}.$$\n\nHvert galt alternativ er regnet fram fra én konkret feil.\n\n*Fellene:* **A** ($2{,}57\\,\\text{m/s}$) er farten den **innkommende** kula spretter tilbake med, altså $\\lvert v_1'\\rvert$ — riktig regning, galt legeme. **B** ($1{,}71\\,\\text{m/s}$) er felles fart hvis støtet hadde vært fullstendig **uelastisk**. **C** ($8{,}57\\,\\text{m/s}$) har byttet om massene i telleren og bruker $2M/(m+M)$. **D** ($2{,}40\\,\\text{m/s}$) bruker massebrøken $m/M$ uten faktoren 2 og uten summen i nevneren. **E** ($3{,}00\\,\\text{m/s}$) er halve startfarten, som bare ville vært svaret for like store masser i et uelastisk støt.\n\n**Kontrollene som avgjør.** Bevegelsesmengde: $0{,}200 \\cdot 6{,}00 = 1{,}20$ før, og $0{,}200 \\cdot (-2{,}5714) + 0{,}500 \\cdot 3{,}4286 = -0{,}51428 + 1{,}7143 = 1{,}20$ etter. Energi: $3{,}60\\,\\text{J}$ før, og $0{,}66122 + 2{,}9388 = 3{,}60\\,\\text{J}$ etter. Relativ fart: $3{,}4286 - (-2{,}5714) = 6{,}00\\,\\text{m/s} = v_0$. Alle tre stemmer.\n\n**Og størrelsesordenssjekken som stryker det største alternativet umiddelbart:** $v_2'$ kan aldri overstige $2v_0 = 12{,}0\\,\\text{m/s}$, og siden $m < M$ kan den heller ikke overstige $v_0 = 6{,}00\\,\\text{m/s}$.",
+    "hints": [
+     "Elastisk støt mot et legeme i ro har to ferdige fartsformler.",
+     "Målets fart er $v_2' = 2m\\,v_0/(m+M)$ — pass på hvilken masse som står i telleren.",
+     "Kontrollér med at den relative farten snur: $v_2' - v_1' = v_0$."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-3-1-war-typiske-feil",
+   "type": "warning",
+   "title": "Typiske feil — og hvorfor energibevaring er sjangerens dyreste feilgrep",
+   "content": "**Å bruke energibevaring i et uelastisk støt.** Dette er sjangerens hovedfelle, og den er farlig fordi energibevaring har vært det mektigste verktøyet i to hele kapitler. I et støt der legemene blir sittende sammen, er den mekaniske energien **ikke** bevart, og ligningen $\\tfrac12mv_0^2 = \\tfrac12(m+M)v'^2$ er rett og slett usann. Den gir en felles fart som er for høy med faktoren $\\sqrt{(m+M)/m}$. Motmiddelet er én vane: **spør om legemene henger sammen etterpå, før du velger lov.** Gjør de det, bruk bevegelsesmengde.\n\n**Å bruke bevegelsesmengde der en ytre kraft virker lenge.** Den motsatte feilen, og den dukker opp i den ballistiske pendelen: å prøve å bruke impulsbevarelse gjennom svingfasen. Snoren er en ytre kraft som virker gjennom hele svinget, så bevegelsesmengden er ikke bevart der. **Bevegelsesmengde gjennom støt, energi gjennom fritt svingende bevegelse.**\n\n**Å regne fartsendringen som differansen mellom tallverdiene når legemet snur.** En ball som kommer inn med $30\\,\\text{m/s}$ og går ut med $22\\,\\text{m/s}$ i motsatt retning, har fartsendring $52\\,\\text{m/s}$, ikke $8\\,\\text{m/s}$. Fortegnet er halve regningen i dette kapitlet, og feilen gir et svar som er en brøkdel av det riktige.\n\n**Å forveksle massebrøken $m/(m+M)$ med energiandelen $M/(m+M)$.** De er komplementære, og begge tallene står nesten alltid i alternativlista samtidig. Huskeregelen: **farten** skaleres med den brøkdelen av massen som **hadde farten**; **energitapet** er den brøkdelen som **sto stille**.\n\n**Å glemme faktoren $\\tfrac12$ i et trekantareal.** En trekantpuls gir impulsen $\\tfrac12F_\\text{maks}\\tau$, ikke $F_\\text{maks}\\tau$. Feilen dobler svaret.\n\n**Å bytte om massene i fartsformlene for det elastiske støtet.** Telleren i $v_1'$ er $m - M$, der $m$ er den **innkommende** massen. Bytter du dem, får du riktig tallverdi men galt fortegn — og fortegnet er svaret på spørsmålet om kula spretter tilbake eller fortsetter.\n\n**Å bruke konstant-akselerasjonsformler gjennom et støt** (felle #3 i denne sjangerens utgave — konstant-akselerasjonsformler brukt der akselerasjonen ikke er konstant). Kraften i et støt varierer med flere tusen newton over noen millisekunder, og akselerasjonen er alt annet enn konstant. Bruk impuls.\n\n**Og avrundingsfellen i dette kapitlet** (felle #16 — avrundingsfeil som lander på nabo-alternativet). Den utsatte mellomverdien er **massebrøken**. Ligger massene nær hverandre, blir brøken nær $\\tfrac12$, og alternativene ligger tett rundt der. Regn brøken med fire siffer som en egen mellomverdi før du multipliserer med farten. Og skal du finne en energiandel, regn den **direkte fra massene** i stedet for som en differanse mellom to energier — en differanse mellom to nesten like store tall mister siffer, og i eksempel 4 var $K'$ under en halv prosent av $K_0$."
+  },
+  {
+   "id": "tfy4115-3-1-begrepsbank-notis",
+   "type": "text",
+   "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+  },
+  {
+   "id": "tfy4115-3-1-def-bb-energitap",
+   "type": "definition",
+   "title": "Energitapet i et fullstendig uelastisk støt",
+   "content": "Den kinetiske energien som forsvinner når to legemer blir sittende sammen:\n$$\\Delta K = \\tfrac12\\frac{mM}{m+M}v_0^2,$$\nder $v_0$ er den innkommende farten og $M$ ligger i ro. Uttrykket kan leses som «halve produktet av den **reduserte massen** $mM/(m+M)$ og fartskvadratet», og den reduserte massen er alltid mindre enn den minste av de to massene. Energien er ikke borte fra universet — den er blitt indre energi: varme, permanent deformasjon og lyd. Er begge legemene i bevegelse før støtet, skal $v_0$ erstattes med den **relative** farten mellom dem, og uttrykket gjelder fortsatt."
+  },
+  {
+   "id": "tfy4115-3-1-def-bb-andel-tapt",
+   "type": "definition",
+   "title": "Andelen tapt energi: $M/(m+M)$",
+   "content": "Den enkleste og mest brukte relasjonen i sjangeren:\n$$\\frac{\\Delta K}{K_0} = \\frac{M}{m+M}$$\nfor et fullstendig uelastisk støt der $M$ ligger i ro. Legg merke til at den **ikke inneholder farten i det hele tatt** — bare massene. Det gjør den til førstevalget når en oppgave spør om en energiandel, siden du slipper å regne to energier og en differanse. Tolkningen er verdt å ha: andelen tapt energi er den brøkdelen av totalmassen som sto stille. En kule i en tung kloss taper nesten alt ($M \\gg m$), to like masser taper halvparten, og en tung kloss som treffer en lett kule, taper nesten ingenting. Den komplementære brøken $m/(m+M)$ er fartens skalafaktor, og å forveksle de to er en av kapitlets vanligste feil."
+  },
+  {
+   "id": "tfy4115-3-1-def-bb-kraftstot-arbeid",
+   "type": "definition",
+   "title": "Kraftstøt mot arbeid: $F\\Delta t$ mot $F\\Delta x$",
+   "content": "To sammenlikninger som ser like ut og gir helt ulike svar — og som eksamen bruker i rangeringsspørsmål. Får to legemer det samme **kraftstøtet** $F\\Delta t$, får de samme endring i **bevegelsesmengde**:\n$$\\Delta p = F\\Delta t \\quad\\Longrightarrow\\quad \\Delta v \\propto \\frac{1}{m}.$$\nFår de derimot det samme **arbeidet** $F\\Delta x$, får de samme endring i **kinetisk energi**:\n$$\\Delta K = F\\Delta x \\quad\\Longrightarrow\\quad \\Delta v \\propto \\frac{1}{\\sqrt{m}}.$$\nKonsekvensen: ved samme kraftstøt har det lette legemet mer energi enn det tunge; ved samme arbeid har det tunge legemet mer bevegelsesmengde enn det lette. Spørsmålet «hvilket legeme har mest …» kan altså ha to ulike svar avhengig av om det var tiden eller strekningen som var felles. Les oppgaveteksten nøyaktig på dette punktet."
+  },
+  {
+   "id": "tfy4115-3-1-def-bb-trekantpuls",
+   "type": "definition",
+   "title": "Trekantpulsen og toppakselerasjonen",
+   "content": "Standardmodellen for en støtkraft i oppgaver: kraften stiger rettlinjet fra null til $F_\\text{maks}$ og faller rettlinjet tilbake, over den totale tiden $\\tau$. Da er\n$$J = \\tfrac12F_\\text{maks}\\tau, \\qquad \\bar{F} = \\frac{J}{\\tau} = \\tfrac12F_\\text{maks}, \\qquad a_\\text{maks} = \\frac{F_\\text{maks}}{m} = \\frac{2\\,\\Delta v}{\\tau}.$$\nMiddelkraften er altså nøyaktig halve toppkraften, og toppakselerasjonen dobbelt gjennomsnittsakselerasjonen. For en ball som spretter tilbake med samme fart, er $\\Delta v = 2v$, og da blir $a_\\text{maks} = 4v/\\tau$ — en variant som dukker opp i arkivet. Faktoren 4 er to uavhengige faktorer 2: én fra at ballen snur, og én fra trekantens form."
+  },
+  {
+   "id": "tfy4115-3-1-def-bb-hvorfor-ikke-bevart",
+   "type": "definition",
+   "title": "Hvorfor energien ikke er bevart i et uelastisk støt",
+   "content": "Fordi legemene deformeres. Under støtet presses materialet sammen, og en del av deformasjonen er **permanent** — molekylene har flyttet seg i forhold til hverandre og går ikke tilbake. Arbeidet som gikk til den permanente deformasjonen, blir indre energi: varme i materialet, og lydbølger som stråler ut. Total energi er selvsagt bevart; det er den **mekaniske** energien, summen av kinetisk og potensiell, som ikke er. Poenget for regningen er at tapet ikke kan forutsies fra utsiden: du kan ikke sette opp et energiregnskap gjennom støtet fordi du ikke kjenner tapsleddet. Derfor bruker vi bevegelsesmengde, som er bevart uansett hvor mye energi som ble borte — og regner ut tapet etterpå som en **konsekvens**."
+  },
+  {
+   "id": "tfy4115-3-1-def-bb-fortegn-en-dimensjon",
+   "type": "definition",
+   "title": "Fortegn og retning i én dimensjon",
+   "content": "Arbeidsvanen som avgjør halvparten av oppgavene i dette kapitlet. Fordi bevegelsesmengden er en vektor, må du **velge en positiv retning** før du skriver den første ligningen, og deretter gi hvert legeme fortegn etter hvilken vei det går. Tre konsekvenser: to legemer som beveger seg mot hverandre, kan ha total bevegelsesmengde null; et negativt svar er ikke en feil, men informasjon om at størrelsen peker motsatt vei av det du valgte; og fartsendringen for et legeme som snur, er summen av tallverdiene, ikke differansen. Kinetisk energi følger andre regler — den er en skalar, alltid positiv, og fortegnet på farten forsvinner i kvadreringen. Det er nettopp derfor de to regnskapene gir ulike svar på hva som er «bevart»."
+  },
+  {
+   "id": "tfy4115-3-1-def-bb-newton-3",
+   "type": "definition",
+   "title": "Newtons 3. lov som grunnlaget for impulsbevarelse",
+   "content": "Loven som sier at når legeme A utøver en kraft på legeme B, utøver B en like stor og motsatt rettet kraft på A. I et støt er de to kreftene ikke bare like store og motsatte — de virker også i **nøyaktig samme tidsrom**, siden kontakten begynner og slutter samtidig for begge. Derfor er impulsene like store og motsatt rettede:\n$$\\mathbf{J}_{A\\to B} = -\\mathbf{J}_{B\\to A} \\quad\\Longrightarrow\\quad \\Delta\\mathbf{p}_A + \\Delta\\mathbf{p}_B = 0.$$\nSummen av de to bevegelsesmengdene er altså uendret. Dette er hele begrunnelsen for impulsbevarelse, og den forklarer også hvorfor loven ikke krever noe som helst om energien: kreftene er like store og motsatte uansett hvor mye materialet deformeres."
+  },
+  {
+   "id": "tfy4115-3-1-def-bb-sjanger-m6",
+   "type": "definition",
+   "title": "Sjanger M6 — bevegelsesmengde og støt, impuls",
+   "content": "Bokas navn på oppgaveformen der to legemer støter sammen, eller der en tidsavhengig kraft virker på ett legeme, og du skal finne fartene etterpå, energitapet eller impulsen. Den forekommer i praktisk talt alle eksamenssett (~100 %) og hører til **mekanikkhalvdelen, spørsmål 1–20**. Kjeden er kort og fast: avgjør støttypen ut fra oppgaveteksten, velg lov (bevegelsesmengde alltid, energi bare hvis elastisk), sett inn i den ferdige formelen, og kontrollér fortegnet. Tre feil bærer nesten alle distraktorene: energibevaring brukt i et uelastisk støt, massebrøken forvekslet med energiandelen, og fortegnsfeil når et legeme snur."
+  },
+  {
+   "id": "tfy4115-3-1-def-bb-eksplosjon",
+   "type": "definition",
+   "title": "Eksplosjonen — støtet baklengs (kjenne til)",
+   "content": "Det omvendte tilfellet, som følger av samme lov: et legeme i ro deles i to deler som går hver sin vei. Total bevegelsesmengde var null før og må være null etter, så\n$$m_1v_1 + m_2v_2 = 0 \\quad\\Longrightarrow\\quad \\frac{v_1}{v_2} = -\\frac{m_2}{m_1}.$$\nDen lette delen får høyest fart, og de to går i motsatte retninger. Her **vokser** den kinetiske energien, fra null til noe positivt — energien kommer fra en kjemisk eller elastisk kilde inne i systemet. Det er verdt å merke seg at bevegelsesmengden er bevart også her, akkurat som i et støt: en indre kraft kan aldri endre systemets totale bevegelsesmengde, uansett hvilken retning prosessen går. Rekylen i et gevær og rakettens framdrift ([kap. 3.2](/tfy4115/tfy4115-3-2)) er de to vanligste anvendelsene."
+  },
+  {
+   "id": "tfy4115-3-1-coll-symbolliste",
+   "type": "collapsible",
+   "title": "Symbol- og formelliste",
+   "buttonText": "Vis symboler og formler",
+   "content": [
+    {
+     "id": "tfy4115-3-1-coll-symbolliste-inn",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n**Kolliderende symboler i dette delkapitlet.** Symbolet $p$ betyr **bevegelsesmengde** her, en vektor $\\mathbf{p} = m\\mathbf{v}$ med enheten $\\text{kg}\\cdot\\text{m/s}$ — i termodelen Del 6–11 betyr den samme bokstaven **trykk**, en skalar i pascal. Symbolet $J$ er **impuls** med enheten $\\text{N}\\cdot\\text{s}$; bokstaven J er også enheten joule for energi, og sammenhengen avgjør. Symbolet $M$ er en **masse** her, ikke en molar masse. Symbolet $S$ brukes ikke i dette kapitlet — i mekanikken er det taustrekk (Del 5), i termodelen entropi (Del 7). Symbolene $T$, $R$ og $\\gamma$ opptrer ikke.\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $\\mathbf{p}$ | Bevegelsesmengde, $m\\mathbf{v}$ (vektor) | $\\text{kg}\\cdot\\text{m/s}$ |\n| $\\mathbf{J}$ | Impuls, $\\Delta\\mathbf{p}$ (vektor) | $\\text{N}\\cdot\\text{s}$ |\n| $m$ | Massen til det innkommende legemet | kg |\n| $M$ | Massen til legemet som ligger i ro | kg |\n| $v_0$ | Farten til det innkommende legemet før støtet | m/s |\n| $v'$ | Felles fart etter et fullstendig uelastisk støt | m/s |\n| $v_1'$, $v_2'$ | Fartene etter et elastisk støt | m/s |\n| $v_\\text{CM}$ | Massesenterets fart | m/s |\n| $K$ | Kinetisk energi | J |\n| $\\Delta K$ | Tapt kinetisk energi i støtet | J |\n| $F_\\text{maks}$ | Toppkraften i en kraftpuls | N |\n| $\\bar{F}$ | Middelkraften over støtet | N |\n| $\\tau$ | Varigheten av kraftpulsen | s |\n| $a_\\text{maks}$ | Toppakselerasjonen, $F_\\text{maks}/m$ | $\\text{m/s}^2$ |\n| $h$ | Utsvingshøyden i en ballistisk pendel | m |\n| $L$ | Snorlengden i pendelen | m |\n| $\\alpha$ | Utsvingsvinkelen | grader |\n| $e$ | Restitusjonskoeffisient (kjenne til) | — |\n| $g$ | Tyngdeakselerasjonen, $9{,}81\\,\\text{m/s}^2$ | $\\text{m/s}^2$ |\n\n**Formler i dette delkapitlet:**\n\n$$\\mathbf{p} = m\\mathbf{v}$$\nBevegelsesmengde [står på det utdelte arket].\n\n$$\\sum \\mathbf{F} = \\frac{d\\mathbf{p}}{dt}$$\nNewtons 2. lov i impulsform [står på det utdelte arket].\n\n$$\\mathbf{J} = \\Delta\\mathbf{p} = \\int \\mathbf{F}\\,dt = \\text{areal under } F(t)$$\nImpulssetningen [står på det utdelte arket].\n\n$$J = \\tfrac12F_\\text{maks}\\tau, \\qquad a_\\text{maks} = \\frac{F_\\text{maks}}{m} = \\frac{2\\,\\Delta v}{\\tau}$$\nTrekantpulsen [må kunne brukes eller utledes aktivt].\n\n$$\\sum m\\mathbf{v} = \\sum m\\mathbf{v}'$$\nImpulsbevarelse i et støt [står på det utdelte arket].\n\n$$v' = \\frac{m}{m+M}v_0$$\nFelles fart etter et fullstendig uelastisk støt [må kunne brukes eller utledes aktivt].\n\n$$\\Delta K = \\tfrac12\\frac{mM}{m+M}v_0^2, \\qquad \\frac{\\Delta K}{K_0} = \\frac{M}{m+M}$$\nEnergitapet og andelen [må kunne brukes eller utledes aktivt].\n\n$$v_1' = \\frac{m-M}{m+M}v_0, \\qquad v_2' = \\frac{2m}{m+M}v_0$$\nFartsformlene for elastisk støt mot et legeme i ro [må kunne brukes eller utledes aktivt].\n\n$$v_2' - v_1' = v_0$$\nDen relative farten snur i et elastisk støt — den raskeste veien til fartsformlene [må kunne brukes eller utledes aktivt].\n\n$$v_0 = \\frac{m+M}{m}\\sqrt{2gh}, \\qquad h = L\\left(1 - \\cos\\alpha\\right)$$\nDen ballistiske pendelen [må kunne brukes eller utledes aktivt].\n\nTrenger du å løse en andregradsligning eller regne med kvadratrøtter underveis, står regnereglene i **Rottmann**."
+    }
+   ]
+  },
+  {
+   "id": "tfy4115-3-1-coll-repetisjon",
+   "type": "collapsible",
+   "title": "Repetisjonsoppgaver",
+   "buttonText": "Vis repetisjonsoppgaver",
+   "content": [
+    {
+     "id": "tfy4115-3-1-coll-rep-inn",
+     "type": "text",
+     "content": "Fem korte oppgaver på det dette kapitlet bygger på — energiregnskap fra [kap. 2.2](/tfy4115/tfy4115-2-2), Newtons 2. lov fra [kap. 2.1](/tfy4115/tfy4115-2-1) og energibevaring fra [kap. 1.2](/tfy4115/tfy4115-1-2). Regn med to til tre minutter hver.\n\n**R1.** Et legeme med masse $0{,}250\\,\\text{kg}$ har farten $12{,}0\\,\\text{m/s}$. Finn den kinetiske energien.\n\n*Svar:* $K = \\tfrac12mv^2 = 0{,}125 \\cdot 144\\,\\text{J} = 18{,}0\\,\\text{J}$.\n\n**R2.** En kloss faller fritt fra $0{,}450\\,\\text{m}$. Hvor stor fart har den når den treffer bakken?\n\n*Svar:* $v = \\sqrt{2g\\Delta y} = \\sqrt{2 \\cdot 9{,}81 \\cdot 0{,}450}\\,\\text{m/s} = \\sqrt{8{,}829}\\,\\text{m/s} = 2{,}9714\\,\\text{m/s} \\approx 2{,}97\\,\\text{m/s}$. Massen falt ut.\n\n**R3.** En pendel svinger opp til høyden $0{,}200\\,\\text{m}$ over sitt laveste punkt. Hvor stor var farten i det laveste punktet?\n\n*Svar:* Energibevaring gir $v = \\sqrt{2gh} = \\sqrt{2 \\cdot 9{,}81 \\cdot 0{,}200}\\,\\text{m/s} = \\sqrt{3{,}924}\\,\\text{m/s} = 1{,}9809\\,\\text{m/s} \\approx 1{,}98\\,\\text{m/s}$. Snordraget gjør ikke arbeid, siden det står vinkelrett på bevegelsen.\n\n**R4.** En snor med lengde $0{,}800\\,\\text{m}$ svinger ut til vinkelen $30{,}0^\\circ$ fra loddrett. Hvor høyt har loddet steget?\n\n*Svar:* $h = L(1 - \\cos\\alpha) = 0{,}800(1 - 0{,}86603)\\,\\text{m} = 0{,}800 \\cdot 0{,}13397\\,\\text{m} = 0{,}10718\\,\\text{m} \\approx 0{,}107\\,\\text{m}$. Legg merke til at $h$ er langt mindre enn $L$ for moderate vinkler.\n\n**R5.** En konstant kraft på $12{,}0\\,\\text{N}$ virker på et legeme med masse $3{,}00\\,\\text{kg}$ i $2{,}00\\,\\text{s}$, fra ro. Finn både fartsendringen og strekningen, og forklar hvorfor de trenger to ulike regnestykker.\n\n*Svar:* Akselerasjonen er $a = F/m = 4{,}00\\,\\text{m/s}^2$, så $\\Delta v = at = 8{,}00\\,\\text{m/s}$ og $\\Delta x = \\tfrac12at^2 = 8{,}00\\,\\text{m}$. De to henger sammen med tiden, men de svarer på ulike spørsmål: kraftstøtet $F\\Delta t = 24{,}0\\,\\text{N}\\cdot\\text{s}$ gir fartsendringen gjennom $\\Delta p = m\\Delta v$, mens arbeidet $F\\Delta x = 96{,}0\\,\\text{J}$ gir energiendringen gjennom $\\Delta K = \\tfrac12 \\cdot 3{,}00 \\cdot 64{,}0 = 96{,}0\\,\\text{J}$. Kontrollér gjerne begge — de skal stemme hver for seg, og de er de to sporene dette kapitlet og [kap. 2.2](/tfy4115/tfy4115-2-2) representerer."
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}

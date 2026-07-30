@@ -1,0 +1,458 @@
+{
+  "id": "tfy4115-4-2",
+  "courseId": "tfy4115",
+  "chapterNumber": "4.2",
+  "title": "Dreieimpuls, rulling, presesjon og fallende stang",
+  "description": "Total dreieimpuls som spinn + bane med korrekte fortegn, N2 for rotasjon, overgang gliding→ren rulling, den fallende stanga og presesjon som kompakt tillegg.",
+  "estimatedMinutes": 65,
+  "competenceGoals": [
+    "sette opp Newtons 2. lov for rotasjon og spinnsatsen, og velge riktig av dem ut fra om treghetsmomentet er konstant",
+    "regne ut total dreieimpuls om et valgt punkt som summen av spinn- og banebidrag, med retning oppgitt i ord",
+    "bruke bevaring av dreieimpuls når et system endrer form, og forklare hvorfor kinetisk energi ikke er bevart samtidig",
+    "behandle overgangen fra gliding til ren rulling med to Newton-likninger, og bruke energibevaring og spinnsatsen på den fallende stanga"
+  ],
+  "content": [
+    {
+      "id": "tfy4115-4-2-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Sjanger M5 — dreieimpuls og rulling, altså «finn dreieimpulsen, eller finn hva som skjer når rotasjonen endres» — dukker opp i om lag 9 av 10 sett (~90 %).** Overgangen fra gliding til ren rulling er med i rundt 4 av 10 sett (~40 %). Alt hører til **mekanikkhalvdelen, spørsmål 1–20**, og dreieimpuls har **høyeste prioritet — dette må sitte**.\n\n**Fortegn og retning er det som skiller de riktige svarene fra de gale her.** Et legeme som både beveger seg og spinner, har to bidrag til dreieimpulsen, og de peker ikke alltid samme vei. Settene utnytter det systematisk: alternativene inneholder både summen og differansen av de to bidragene, slik at den som ikke holder orden på retningen, treffer et plausibelt galt tall.\n\nI tillegg møter du to spesialtilfeller som er faste gjengangere. **Den fallende stanga**, hengslet i den ene enden og sluppet fra loddrett stilling, dukker opp i utledningssettene og krever at du velger riktig verktøy: energibevaring for vinkelfarten, spinnsatsen for vinkelakselerasjonen — og aldri konstant-akselerasjonsformlene. **Presesjon** (sjanger M13 — den langsomme dreiningen av en snurrebasses akse) er med i rundt 2 av 10 sett (~20 %) og har prioritet **kjenne til**: du skal kunne kjenne igjen formen og sette inn i én formel, ikke utlede den."
+    },
+    {
+      "id": "tfy4115-4-2-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet bygger direkte på treghetsmomentet fra [kap. 4.1](/tfy4115/tfy4115-4-1). Du trenger tre ting derfra, og de står her:\n\n$$I = \\sum_i m_ir_i^2, \\qquad I = \\int r^2\\,dm$$\nTreghetsmomentet om en oppgitt akse, målt med **vinkelrette** avstander til aksen. Enheten er $\\text{kg}\\cdot\\text{m}^2$.\n\n$$I = I_\\text{CM} + Md^2$$\nSteiners sats, som flytter treghetsmomentet fra en akse gjennom massesenteret til en parallell akse i avstanden $d$. Du trenger den i dette kapitlet blant annet for stanga som er hengslet i enden: $\\tfrac13ML^2$ er nettopp $\\tfrac{1}{12}ML^2 + M(L/2)^2$.\n\n$$I_\\text{kule} = \\tfrac25MR^2, \\qquad I_\\text{sylinder} = \\tfrac12MR^2, \\qquad I_\\text{stang, ende} = \\tfrac13ML^2$$\nDe tre standardtreghetsmomentene dette kapitlet bruker mest. Alle **står på det utdelte arket**.\n\n**Fra matematikken:** [Vektorer i tre dimensjoner](/r2/r2-5-1) gir kryssproduktet og høyrehåndsregelen, som er verktøyet for retningen på dreieimpulsen. Vi bruker kryssproduktet bare i to situasjoner, og i begge er vektorene i papirplanet, slik at resultatet peker inn i eller ut av papiret.\n\n**Symbolmerknad.** I dette kapitlet er $\\mathbf{p}$ **bevegelsesmengde** (en vektor, $\\mathbf{p}=m\\mathbf{v}$), ikke trykk — trykk er betydningen i termodelen fra Del 6. $\\tau$ er **kraftmoment** i $\\text{N}\\cdot\\text{m}$, ikke en tidskonstant som i [kap. 1.1](/tfy4115/tfy4115-1-1). $R$ er en radius. Vektorer skrives med fet skrift ($\\mathbf{L}$, $\\boldsymbol{\\omega}$, $\\boldsymbol{\\tau}$), skalarer uten ($I$, $K$, $m$)."
+    },
+    {
+      "id": "tfy4115-4-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — kraftmoment og Newtons 2. lov for rotasjon (~13 min)\n\nPrøv å åpne en tung dør ved å skyve helt inne ved hengslene. Det går nesten ikke. Flytt hånden ut til håndtaket, og døra svinger opp med lett trykk. Kraften er den samme; det som er forskjellig, er **hvor** den virker.\n\nDet som får noe til å rotere, er altså ikke kraften alene, men kraften ganget med avstanden til aksen. Den størrelsen heter **kraftmoment**, og den er rotasjonens motsvarighet til kraften."
+    },
+    {
+      "id": "tfy4115-4-2-def-kraftmoment",
+      "type": "definition",
+      "title": "Kraftmoment",
+      "content": "Den størrelsen som får et legeme til å endre rotasjonen sin, med symbolet $\\boldsymbol{\\tau}$ (den greske bokstaven tau) og enheten $\\text{N}\\cdot\\text{m}$. Tallverdien er\n$$\\tau = rF\\sin\\phi = dF,$$\nder $r$ er avstanden fra aksen til angrepspunktet, $\\phi$ vinkelen mellom $\\mathbf{r}$ og kraften, og $d = r\\sin\\phi$ den **vinkelrette** avstanden fra aksen til kraftens virkelinje. Kraftmomentet er en vektor, $\\boldsymbol{\\tau}=\\mathbf{r}\\times\\mathbf{F}$, men i planproblemer holder det å holde orden på fortegnet: velg en positiv rotasjonsretning, og gi hvert moment fortegn etter om det dreier den veien eller motsatt. Merk at $\\tau$ her er et kraftmoment, ikke en tidskonstant."
+    },
+    {
+      "id": "tfy4115-4-2-def-momentarm",
+      "type": "definition",
+      "title": "Momentarm",
+      "content": "Den vinkelrette avstanden $d$ fra rotasjonsaksen til kraftens virkelinje — altså den lengden som faktisk ganges med kraften i $\\tau = dF$. Momentarmen finnes ved å forlenge kraftvektoren til en uendelig linje og måle den korteste avstanden fra aksen til denne linja. To konsekvenser å ha i fingrene: en kraft som peker rett mot (eller rett fra) aksen har momentarm null og gir **ingen** rotasjon, og en kraft som virker langt fra aksen gir stort moment selv om den er liten. Å bruke $r$ i stedet for $d$ er den vanligste momentfeilen, og den gjør momentet for stort med faktoren $1/\\sin\\phi$."
+    },
+    {
+      "id": "tfy4115-4-2-th-n2-rotasjon",
+      "type": "theorem",
+      "title": "Newtons 2. lov for rotasjon",
+      "content": "For et stivt legeme som roterer om en fast akse, er summen av kraftmomentene lik treghetsmomentet ganger vinkelakselerasjonen:\n$$\\sum \\tau = I\\alpha.$$\nLoven **står på det utdelte arket**, og den er den direkte rotasjons-analogien til $\\sum F = ma$: kraft blir moment, masse blir treghetsmoment, akselerasjon blir vinkelakselerasjon. Både $\\tau$ og $I$ må regnes om **samme** akse. To presiseringer som avgjør oppgaver: (i) er $\\tau$ ikke konstant, er $\\alpha$ ikke konstant, og da kan du **ikke** bruke konstant-akselerasjonsformlene (felle #3 — konstant-akselerasjonsformler brukt når akselerasjonen varierer); (ii) indre krefter i legemet gir null nettomoment, så bare **ytre** krefter teller i summen."
+    },
+    {
+      "id": "tfy4115-4-2-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: skiva som settes i rotasjon av en snor",
+      "problem": "En homogen skive med masse $M = 4{,}00\\,\\text{kg}$ og radius $R = 0{,}250\\,\\text{m}$ kan rotere friksjonsfritt om sin symmetriakse. En snor er viklet rundt randen, og vi trekker i den med den konstante kraften $F = 12{,}0\\,\\text{N}$, tangentielt på randen.\n\n**a)** Finn vinkelakselerasjonen.\n**b)** Hvor stor er vinkelfarten etter $2{,}00\\,\\text{s}$, og hvor mange radianer har skiva dreid seg?\n**c)** Kontroller energiregnskapet: stemmer rotasjonsenergien med arbeidet snorkraften har gjort?",
+      "solution": "**a) Symbolsk.** Snoren virker tangentielt, altså vinkelrett på radien, så momentarmen er hele radien: $\\tau = FR$. Skivas treghetsmoment om symmetriaksen er $\\tfrac12MR^2$, og Newtons 2. lov for rotasjon gir\n$$\\alpha = \\frac{\\tau}{I} = \\frac{FR}{\\tfrac12MR^2} = \\frac{2F}{MR}.$$\n\n**Rask vei til tall.**\n$$I = \\tfrac12 \\cdot 4{,}00 \\cdot 0{,}06250\\,\\text{kg}\\cdot\\text{m}^2 = 0{,}1250\\,\\text{kg}\\cdot\\text{m}^2, \\qquad \\tau = 12{,}0 \\cdot 0{,}250\\,\\text{N}\\cdot\\text{m} = 3{,}000\\,\\text{N}\\cdot\\text{m},$$\n$$\\alpha = \\frac{3{,}000}{0{,}1250}\\,\\text{rad/s}^2 = 24{,}00\\,\\text{rad/s}^2.$$\nBenevningskontroll: $\\text{N}\\cdot\\text{m}/(\\text{kg}\\cdot\\text{m}^2) = \\text{kg}\\cdot\\text{m}^2\\text{s}^{-2}/(\\text{kg}\\cdot\\text{m}^2) = \\text{s}^{-2}$, som er $\\text{rad/s}^2$ siden radianen er dimensjonsløs.\n\n**b)** Her **er** momentet konstant, altså er $\\alpha$ konstant, og da gjelder konstant-akselerasjonsformlene i vinkelvariabler:\n$$\\omega = \\alpha t = 24{,}00 \\cdot 2{,}00\\,\\text{rad/s} = 48{,}00\\,\\text{rad/s}, \\qquad \\varphi = \\tfrac12\\alpha t^2 = 48{,}00\\,\\text{rad}.$$\nDet er om lag 7,6 hele omdreininger.\n\n**c)** Rotasjonsenergien er\n$$K = \\tfrac12I\\omega^2 = \\tfrac12 \\cdot 0{,}1250 \\cdot 2304\\,\\text{J} = 144{,}0\\,\\text{J}.$$\nArbeidet kraften har gjort, er kraften ganger snorlengden som er trukket ut, og den lengden er buelengden $R\\varphi$:\n$$W = F\\cdot R\\varphi = 12{,}0 \\cdot 0{,}250 \\cdot 48{,}00\\,\\text{J} = 144{,}0\\,\\text{J}. \\checkmark$$\nDe to stemmer eksakt, som de må når det ikke er friksjon.\n\n**Merk kontrollen i c).** Å regne energien to veier er den beste sluttsjekken i rotasjonsoppgaver: den fanger både en feil $I$ og en feil $\\alpha$, fordi de to regnestykkene bruker størrelsene på helt forskjellige måter."
+    },
+    {
+      "id": "tfy4115-4-2-o-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-4-2-oppg-1",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — begreper.)\n\n**a)** En kraft på $25{,}0\\,\\text{N}$ virker i avstanden $0{,}400\\,\\text{m}$ fra en akse, i en vinkel på $30^\\circ$ med linja fra aksen til angrepspunktet. Regn ut kraftmomentet.\n\n**b)** Hvorfor gir en kraft som peker rett mot rotasjonsaksen, ingen rotasjon i det hele tatt?",
+        "solution": "**a)** Momentet er kraften ganger den vinkelrette avstanden til virkelinja:\n$$\\tau = rF\\sin\\phi = 0{,}400 \\cdot 25{,}0 \\cdot \\sin 30^\\circ\\,\\text{N}\\cdot\\text{m} = 0{,}400 \\cdot 25{,}0 \\cdot 0{,}500\\,\\text{N}\\cdot\\text{m} = 5{,}000\\,\\text{N}\\cdot\\text{m}.$$\nMomentarmen er $d = r\\sin\\phi = 0{,}200\\,\\text{m}$, altså bare halvparten av avstanden $r$ — det er faktoren $\\sin 30^\\circ = 0{,}500$ som gjør det.\n\n**b)** Fordi momentarmen da er null. Forlenger du kraftvektoren til en linje, går linja **gjennom** aksen, og den korteste avstanden fra aksen til linja er null. Med $\\tau = dF = 0$ er det ingenting som endrer rotasjonen. Fysisk: en kraft rett inn mot aksen presser legemet mot lageret, den dreier det ikke. Det er også grunnen til at $\\sin\\phi$ står i formelen — den er null når $\\mathbf{r}$ og $\\mathbf{F}$ er parallelle.",
+        "hints": [
+          "Momentet er kraften ganger den VINKELRETTE avstanden fra aksen til kraftens virkelinje.",
+          "Hva er $\\sin\\phi$ når kraften peker rett mot aksen?"
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-4-2-o-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-4-2-oppg-2",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M5 — dreieimpuls og rotasjonsdynamikk.) Et hjul med treghetsmoment $0{,}0450\\,\\text{kg}\\cdot\\text{m}^2$ starter fra ro og drives av et konstant moment på $1{,}350\\,\\text{N}\\cdot\\text{m}$.\n\n**a)** Finn vinkelakselerasjonen.\n\n**b)** Finn vinkelfarten etter $3{,}00\\,\\text{s}$, og forklar hvorfor du har lov til å bruke $\\omega = \\alpha t$ her.",
+        "solution": "**a)** Newtons 2. lov for rotasjon:\n$$\\alpha = \\frac{\\tau}{I} = \\frac{1{,}350\\,\\text{N}\\cdot\\text{m}}{0{,}0450\\,\\text{kg}\\cdot\\text{m}^2} = 30{,}000\\,\\text{rad/s}^2.$$\n\n**b)** $\\omega = \\alpha t = 30{,}000 \\cdot 3{,}00\\,\\text{rad/s} = 90{,}000\\,\\text{rad/s}$.\n\nDu har lov til å bruke $\\omega = \\alpha t$ fordi momentet er **konstant** og treghetsmomentet ikke endrer seg — da er $\\alpha = \\tau/I$ konstant, og konstant-akselerasjonsformlene i vinkelvariabler gjelder. Det er ikke selvsagt: i den fallende stanga senere i kapitlet varierer momentet med vinkelen, og der ville samme regning gitt et galt svar (felle #3). Sjekken tar tre sekunder: **er momentet konstant gjennom hele bevegelsen?**",
+        "hints": [
+          "Bruk $\\sum\\tau=I\\alpha$ — pass på at både moment og treghetsmoment gjelder samme akse.",
+          "Vurder om momentet endrer seg underveis før du bruker $\\omega=\\alpha t$."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-4-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — dreieimpuls: spinn og bane (~16 min)\n\nEn fotball som skrus, gjør to ting samtidig: den flyr framover, og den spinner om sin egen akse. Begge bevegelsene bidrar til den samme størrelsen — **dreieimpulsen** — og de kan bidra med motsatt fortegn.\n\nDette er kapitlets vanskeligste punkt og samtidig det mest eksamensrelevante. Nøkkelen er at dreieimpuls alltid regnes **om et valgt punkt eller en valgt akse**, og at et legeme som både flytter seg og spinner, har et **banebidrag** (fra massesenterets bevegelse) og et **spinnbidrag** (fra rotasjonen om massesenteret)."
+    },
+    {
+      "id": "tfy4115-4-2-def-dreieimpuls",
+      "type": "definition",
+      "title": "Dreieimpuls",
+      "content": "Rotasjonens motsvarighet til bevegelsesmengden, med symbolet $\\mathbf{L}$ og enheten $\\text{kg}\\cdot\\text{m}^2/\\text{s}$. For et stivt legeme som roterer om en fast akse med treghetsmoment $I$, er tallverdien\n$$L = I\\omega,$$\nog retningen er den samme som $\\boldsymbol{\\omega}$, gitt av høyrehåndsregelen. Dreieimpulsen er en **vektor**, og retningen er ikke pynt: den avgjør om to bidrag legges sammen eller trekkes fra hverandre. For en enkelt partikkel er $\\mathbf{L}=\\mathbf{r}\\times\\mathbf{p}=\\mathbf{r}\\times m\\mathbf{v}$, målt om det punktet $\\mathbf{r}$ regnes fra. Dreieimpuls uten oppgitt punkt eller akse er meningsløst — det er alltid det første du må fastsette."
+    },
+    {
+      "id": "tfy4115-4-2-def-spinn",
+      "type": "definition",
+      "title": "Spinndreieimpuls",
+      "content": "Bidraget til dreieimpulsen som kommer fra legemets rotasjon **om sitt eget massesenter**:\n$$\\mathbf{L}_\\text{spinn} = I_\\text{CM}\\boldsymbol{\\omega}.$$\nHer er $I_\\text{CM}$ treghetsmomentet om en akse gjennom massesenteret — for en kompakt kule $\\tfrac25mR^2$. Spinnbidraget er uavhengig av hvilket punkt du regner dreieimpulsen om: en kule som spinner, har samme spinndreieimpuls uansett hvor observatøren står. Retningen følger $\\boldsymbol{\\omega}$: spinner legemet mot klokka sett fra din side, peker $\\mathbf{L}_\\text{spinn}$ ut av papiret."
+    },
+    {
+      "id": "tfy4115-4-2-def-bane",
+      "type": "definition",
+      "title": "Banedreieimpuls",
+      "content": "Bidraget som kommer fra at massesenteret beveger seg forbi det punktet vi regner om:\n$$\\mathbf{L}_\\text{bane} = \\mathbf{R}_\\text{CM}\\times m\\mathbf{V},$$\nder $\\mathbf{R}_\\text{CM}$ er vektoren fra referansepunktet til massesenteret og $\\mathbf{V}$ er massesenterets fart. Tallverdien er $mVd_\\perp$, der $d_\\perp$ er den **vinkelrette** avstanden fra referansepunktet til massesenterets bane — for en kule som ruller langs bakken og regnes om et punkt på bakken, er $d_\\perp$ rett og slett kuleradien $R$. Legg merke til at banebidraget er null hvis farten peker rett mot eller rett fra referansepunktet."
+    },
+    {
+      "id": "tfy4115-4-2-def-hoyrehand",
+      "type": "definition",
+      "title": "Høyrehåndsregelen",
+      "content": "Regelen som gir retningen til et kryssprodukt, og dermed til $\\boldsymbol{\\tau}$ og $\\mathbf{L}$: krum høyre hånds fingre i rotasjonsretningen, og tommelen peker langs vektoren. I planproblemer, der alt ligger i papirplanet, gir regelen bare to muligheter: rotasjon **mot klokka** gir en vektor **ut av papiret** (tegnet $\\odot$), og rotasjon **med klokka** gir en vektor **inn i papiret** (tegnet $\\otimes$). I praktisk regning erstattes retningen derfor av et fortegn: velg én av de to retningene som positiv, og hold den gjennom hele oppgaven."
+    },
+    {
+      "id": "tfy4115-4-2-fig-1",
+      "type": "image",
+      "src": "/images/textbook/tfy4115/tfy4115-4-2-dreieimpuls.svg",
+      "alt": "En kule paa et vannrett underlag. En roed pil fra kulesentret peker mot hoeyre og er merket V. En boeyd blaa pil rundt kulesentret viser rotasjon mot klokka og er merket omega. En lilla pil fra et punkt O paa bakken til kulesentret er merket r. Til venstre staar symbolet for en vektor ut av papiret, merket L spinn, og til hoeyre symbolet for en vektor inn i papiret, merket L bane.",
+      "caption": "En kule med baksnurr: spinnbidraget peker ut av papiret, banebidraget inn i papiret. Fordi de peker motsatt vei, må tallverdiene trekkes fra hverandre — det er nettopp her fortegnspoengene ligger."
+    },
+    {
+      "id": "tfy4115-4-2-lokke2-utledning",
+      "type": "text",
+      "content": "Den totale dreieimpulsen om et punkt er summen av de to bidragene:\n\n$$\\mathbf{L} = \\mathbf{L}_\\text{spinn} + \\mathbf{L}_\\text{bane} = I_\\text{CM}\\boldsymbol{\\omega} + \\mathbf{R}_\\text{CM}\\times m\\mathbf{V}.$$\n\n*Intuisjon:* tenk på Jorda. Den spinner om sin egen akse (spinn) og går i bane rundt Sola (bane). Begge bevegelsene er rotasjon om noe, og begge gir dreieimpuls om Solas sentrum. Oppdelingen er ikke to konkurrerende beskrivelser — det er to ledd som legges sammen.\n\n**Hvordan finner du fortegnene?** Med tre spørsmål, i denne rekkefølgen:\n\n1. **Velg positiv retning.** For eksempel «inn i papiret er positiv».\n2. **Spinnbidraget:** hvilken vei roterer legemet om sitt eget senter? Mot klokka gir ut av papiret, med klokka gir inn i papiret.\n3. **Banebidraget:** går massesenteret forbi referansepunktet på den ene eller andre siden? Tegn vektoren $\\mathbf{R}_\\text{CM}$ og farten $\\mathbf{V}$, og bruk høyrehåndsregelen på kryssproduktet.\n\n*Intuisjon for banebidraget uten kryssprodukt:* se på om massesenterets bevegelse ser ut som en rotasjon med eller mot klokka sett fra referansepunktet. Går kula mot høyre og punktet ligger under den, ser bevegelsen ut som en dreining med klokka om punktet — altså inn i papiret.\n\n**Det som gjør sjangeren farlig,** er at banebidraget nesten alltid er mye større enn spinnbidraget. For en kule er $L_\\text{bane}/L_\\text{spinn} = mVR/(\\tfrac25mR^2\\omega) = \\tfrac52 V/(R\\omega)$, og med et moderat spinn er dette et tall mellom 2 og 10. Da avgjør fortegnet på det lille spinnleddet om svaret blir noen få prosent større eller mindre — og alternativene ligger nettopp der."
+    },
+    {
+      "id": "tfy4115-4-2-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: kula med baksnurr",
+      "problem": "En kompakt kule med masse $m = 0{,}450\\,\\text{kg}$ og radius $R = 0{,}0800\\,\\text{m}$ glir mot høyre over et vannrett gulv. Massesenterets fart er $V = 6{,}00\\,\\text{m/s}$, og kula har **baksnurr**: den roterer mot klokka med vinkelfarten $\\omega = 30{,}0\\,\\text{rad/s}$ sett fra vår side, altså motsatt vei av det ren rulling ville krevd.\n\n**a)** Finn tallverdien og retningen på spinndreieimpulsen om massesenteret.\n**b)** Finn tallverdien og retningen på banedreieimpulsen om et punkt $O$ på gulvet.\n**c)** Finn den totale dreieimpulsen om $O$.\n**d)** Hva ville svaret blitt med toppsnurr, altså samme vinkelfart den andre veien?",
+      "solution": "La oss velge **inn i papiret som positiv retning**, og holde det gjennom hele regningen.\n\n**a)** Kula er kompakt, så $I_\\text{CM} = \\tfrac25mR^2$:\n$$I_\\text{CM} = 0{,}4 \\cdot 0{,}450 \\cdot 0{,}006400\\,\\text{kg}\\cdot\\text{m}^2 = 0{,}0011520\\,\\text{kg}\\cdot\\text{m}^2,$$\n$$L_\\text{spinn} = I_\\text{CM}\\omega = 0{,}0011520 \\cdot 30{,}0\\,\\text{kg}\\cdot\\text{m}^2/\\text{s} = 0{,}03456\\,\\text{kg}\\cdot\\text{m}^2/\\text{s}.$$\nRotasjonen er mot klokka, så $\\mathbf{L}_\\text{spinn}$ peker **ut av papiret** — altså negativ i vår konvensjon.\n\n**b)** Massesenteret ligger i høyden $R$ over gulvet, og farten er vannrett. Den vinkelrette avstanden fra $O$ til massesenterets bane er derfor $R$:\n$$L_\\text{bane} = mVR = 0{,}450 \\cdot 6{,}00 \\cdot 0{,}0800\\,\\text{kg}\\cdot\\text{m}^2/\\text{s} = 0{,}21600\\,\\text{kg}\\cdot\\text{m}^2/\\text{s}.$$\nKula går mot høyre og $O$ ligger under banen, så bevegelsen ser ut som en dreining **med klokka** om $O$: $\\mathbf{L}_\\text{bane}$ peker **inn i papiret**, altså positiv.\n\nLegg merke til at dette svaret er uavhengig av hvor på gulvet $O$ ligger — bare den vinkelrette avstanden $R$ teller.\n\n**c)** Summer med fortegn:\n$$L = 0{,}21600 - 0{,}03456 = 0{,}18144\\,\\text{kg}\\cdot\\text{m}^2/\\text{s},$$\naltså $0{,}1814\\,\\text{kg}\\cdot\\text{m}^2/\\text{s}$ **inn i papiret**.\n\n**d)** Med toppsnurr peker spinnet også inn i papiret, og de to leddene legges sammen:\n$$L = 0{,}21600 + 0{,}03456 = 0{,}25056\\,\\text{kg}\\cdot\\text{m}^2/\\text{s} \\text{ inn i papiret}.$$\n\n**Se hvor tett de to svarene ligger:** $0{,}1814$ mot $0{,}2506$, en forskjell på om lag 38 prosent. Begge tall vil stå på alternativlista, og **det eneste som skiller dem, er fortegnet på spinnleddet**. Derfor er første regnelinje i denne sjangeren aldri et tall, men en setning: «inn i papiret er positiv».\n\n**Sluttsjekk:** forholdet $L_\\text{bane}/L_\\text{spinn} = 6{,}250$ forteller at banebidraget dominerer klart. Får du et svar der spinnleddet er størst, har du sannsynligvis brukt $\\omega$ for ren rulling ($V/R = 75{,}0\\,\\text{rad/s}$) i stedet for den oppgitte vinkelfarten."
+    },
+    {
+      "id": "tfy4115-4-2-o-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-4-2-oppg-3",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M5.) En kompakt kule med masse $0{,}600\\,\\text{kg}$ og radius $0{,}120\\,\\text{m}$ ruller ikke, men glir mot høyre med senterfarten $4{,}50\\,\\text{m/s}$ mens den spinner **med klokka** (toppsnurr) med vinkelfarten $25{,}0\\,\\text{rad/s}$.\n\n**a)** Finn spinn- og banedreieimpulsen om et punkt på gulvet, med retning.\n\n**b)** Finn den totale dreieimpulsen om punktet.\n\n**c)** Hvor stor måtte vinkelfarten vært for at kula skulle rulle rent?",
+        "solution": "Velg **inn i papiret** som positiv retning.\n\n**a)** Spinn:\n$$L_\\text{spinn} = \\tfrac25mR^2\\omega = 0{,}400 \\cdot 0{,}600 \\cdot 0{,}01440 \\cdot 25{,}0\\,\\text{kg}\\cdot\\text{m}^2/\\text{s} = 0{,}08640\\,\\text{kg}\\cdot\\text{m}^2/\\text{s},$$\nog siden rotasjonen er med klokka, peker den **inn i papiret** (positiv).\n\nBane:\n$$L_\\text{bane} = mVR = 0{,}600 \\cdot 4{,}50 \\cdot 0{,}120\\,\\text{kg}\\cdot\\text{m}^2/\\text{s} = 0{,}32400\\,\\text{kg}\\cdot\\text{m}^2/\\text{s},$$\nogså **inn i papiret**, siden kula går mot høyre og punktet ligger under banen.\n\n**b)** Begge peker samme vei, så de summeres:\n$$L = 0{,}32400 + 0{,}08640 = 0{,}41040\\,\\text{kg}\\cdot\\text{m}^2/\\text{s} \\text{ inn i papiret}.$$\n\n**c)** Ren rulling krever $V = R\\omega$, altså\n$$\\omega = \\frac{V}{R} = \\frac{4{,}50}{0{,}120}\\,\\text{rad/s} = 37{,}5\\,\\text{rad/s}.$$\nDen oppgitte vinkelfarten på $25{,}0\\,\\text{rad/s}$ er altså mindre enn dette: kula spinner for lite for sin fart, og gulvet vil bremse translasjonen og øke rotasjonen til de møtes. Det er nettopp overgangen vi ser på i Løkke 4.\n\n**Sluttsjekk:** hadde kula hatt baksnurr, ville svaret vært $0{,}32400 - 0{,}08640 = 0{,}23760$ i stedet. Forskjellen mellom de to er 42 prosent — og den er hele grunnen til å skrive ned fortegnskonvensjonen før du regner.",
+        "hints": [
+          "Skriv ned hvilken retning du regner som positiv FØR du setter inn tall.",
+          "Banebidraget er $mV$ ganger den vinkelrette avstanden fra punktet til massesenterets bane.",
+          "Ren rulling betyr at kontaktpunktet står stille: $V=R\\omega$."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-4-2-o-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-4-2-oppg-4",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Kvalitativ oppgave — retning og fortegn.) En kule ruller rent mot høyre på et vannrett gulv, uten å gli.\n\n**a)** Hvilken vei peker kulas spinndreieimpuls, og hvilken vei peker banedreieimpulsen om et punkt på gulvet? Legger de seg sammen eller mot hverandre?\n\n**b)** Hva er kulas fart i kontaktpunktet i det øyeblikket det berører gulvet, og hva følger av det for friksjonsarbeidet?\n\n**c)** En medstudent regner den totale dreieimpulsen som $L = I_\\text{CM}\\omega$ og glemmer banebidraget. Blir svaret for stort eller for lite, og med omtrent hvilken faktor for en kompakt kule?",
+        "solution": "**a)** Ved ren rulling mot høyre må kula rotere **med klokka** (toppen går framover, kontaktpunktet bakover relativt sentret), så $\\mathbf{L}_\\text{spinn}$ peker **inn i papiret**. Banebidraget peker også inn i papiret, siden massesenteret går mot høyre og referansepunktet ligger under banen. De to bidragene **legger seg sammen** ved ren rulling — det er den ene situasjonen der du ikke kan komme galt av sted med fortegnet.\n\n**b)** Kontaktpunktets fart er **null**. Det er nettopp innholdet i rullebetingelsen $V = R\\omega$: massesenterets fart framover og rotasjonens fart bakover kansellerer i kontaktpunktet. Fordi det ikke er noen relativ glidning, gjør friksjonen **ikke** noe arbeid, og det er derfor mekanisk energi er bevart ved ren rulling — mens den ikke er det ved gliding.\n\n**c)** For svar: for en kompakt kule i ren rulling er\n$$L_\\text{bane} = mVR = mR^2\\omega, \\qquad L_\\text{spinn} = \\tfrac25mR^2\\omega,$$\nså det totale er $\\tfrac75mR^2\\omega$, mens svaret uten banebidraget er $\\tfrac25mR^2\\omega$. Svaret blir altså **for lite**, med faktoren $\\tfrac25/\\tfrac75 = \\tfrac27 \\approx 0{,}286$: bare 29 prosent av det riktige. Merk at $\\tfrac75mR^2$ er nøyaktig treghetsmomentet om **kontaktpunktet** (Steiner), som det skal være — dreieimpulsen om kontaktpunktet kan regnes begge veier og gir samme svar.",
+        "hints": [
+          "Ved ren rulling mot høyre: hvilken vei må kula spinne?",
+          "Rullebetingelsen $V=R\\omega$ sier noe om farten i kontaktpunktet.",
+          "Sammenlign $\\tfrac25mR^2\\omega$ med summen av spinn og bane."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-4-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — spinnsatsen og bevaring av dreieimpuls (~12 min)\n\n— naturlig pausepunkt —\n\nEn kunstløper som snurrer med armene ut, trekker dem inn og snurrer plutselig mye fortere. Ingen skyver på henne. Det som skjer, er at hun endrer sitt eget treghetsmoment, og da må vinkelfarten endre seg for at dreieimpulsen skal holde seg konstant."
+    },
+    {
+      "id": "tfy4115-4-2-th-spinnsatsen",
+      "type": "theorem",
+      "title": "Spinnsatsen",
+      "content": "Det ytre kraftmomentet er lik endringsraten til dreieimpulsen:\n$$\\sum\\boldsymbol{\\tau}_\\text{ytre} = \\frac{d\\mathbf{L}}{dt}.$$\nSatsen **står på det utdelte arket** og er rotasjonens motsvarighet til $\\sum\\mathbf{F} = d\\mathbf{p}/dt$. Den er mer generell enn $\\tau = I\\alpha$: den gjelder også når treghetsmomentet **endrer seg**, for eksempel når et legeme trekker massen inn mot aksen. Skriver du $\\tau = I\\alpha$ i en slik situasjon, har du forutsatt at $I$ er konstant, og det er den ikke.\n\nDen viktigste konsekvensen: er det ytre momentet null, er $\\mathbf{L}$ **konstant** — i tallverdi og i retning. Da gjelder\n$$I_1\\omega_1 = I_2\\omega_2,$$\nog dette er bevaringsloven som løser hele denne oppgavefamilien."
+    },
+    {
+      "id": "tfy4115-4-2-def-bevaring",
+      "type": "definition",
+      "title": "Bevaring av dreieimpuls",
+      "content": "Prinsippet at et systems totale dreieimpuls holder seg konstant så lenge summen av de **ytre** kraftmomentene er null:\n$$I_1\\omega_1 = I_2\\omega_2.$$\nIndre krefter — en person som trekker inn armene, en snor som dras inn gjennom et hull i en dreieskive — kan flytte masse og endre $I$, men de kan ikke endre $\\mathbf{L}$. Tre viktige presiseringer: (i) bevaringen gjelder om det punktet eller den aksen der momentet er null, ofte en annen akse enn den «åpenbare»; (ii) tyngden gir null moment om massesenteret, så et fritt fallende legeme har bevart spinn; (iii) **kinetisk energi er IKKE bevart** i disse prosessene — trekker du massen inn, øker $K$, og økningen er arbeidet du selv gjorde."
+    },
+    {
+      "id": "tfy4115-4-2-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: dreieskiva der massen trekkes inn",
+      "problem": "En person står på en friksjonsfri dreieskive med to vekter i utstrakte armer. Systemets treghetsmoment er $I_1 = 4{,}50\\,\\text{kg}\\cdot\\text{m}^2$, og det roterer med $\\omega_1 = 2{,}00\\,\\text{rad/s}$. Personen trekker armene inn, slik at treghetsmomentet faller til $I_2 = 1{,}80\\,\\text{kg}\\cdot\\text{m}^2$.\n\n**a)** Finn den nye vinkelfarten.\n**b)** Finn den kinetiske energien før og etter. Er energien bevart?\n**c)** Hvorfor er dreieimpulsen bevart her, når energien ikke er det?",
+      "solution": "**a)** Dreieskiva er friksjonsfri, og alle krefter personen bruker, er **indre** i systemet. Det ytre momentet om rotasjonsaksen er null, så dreieimpulsen er bevart:\n$$I_1\\omega_1 = I_2\\omega_2 \\quad\\Longrightarrow\\quad \\omega_2 = \\frac{I_1}{I_2}\\omega_1 = \\frac{4{,}50}{1{,}80} \\cdot 2{,}00\\,\\text{rad/s} = 5{,}000\\,\\text{rad/s}.$$\nVinkelfarten har økt med faktoren $I_1/I_2 = 2{,}500$.\n\n**b)** Før:\n$$K_1 = \\tfrac12I_1\\omega_1^2 = \\tfrac12 \\cdot 4{,}50 \\cdot 4{,}00\\,\\text{J} = 9{,}000\\,\\text{J}.$$\nEtter:\n$$K_2 = \\tfrac12I_2\\omega_2^2 = \\tfrac12 \\cdot 1{,}80 \\cdot 25{,}00\\,\\text{J} = 22{,}500\\,\\text{J}.$$\nEnergien er altså **ikke** bevart — den har økt med $13{,}500\\,\\text{J}$, en faktor $2{,}500$.\n\n**c)** Fordi de to størrelsene beskytter mot forskjellige ting. Dreieimpulsen kan bare endres av et **ytre moment**, og det er ingen her. Den kinetiske energien kan endres av **arbeid**, og personen gjør et helt reelt arbeid når hun trekker vektene inn mot aksen mot den kraften som skal til for å holde dem i sirkelbane. Det arbeidet er nettopp $13{,}500\\,\\text{J}$, og det kommer fra musklene hennes.\n\n*Intuisjon for hvorfor energien øker og ikke synker:* når vektene trekkes innover, virker kraften hennes innover mens vektene også beveger seg innover — kraft og forflytning peker samme vei, og arbeidet er positivt.\n\n**Merk skalaen:** dreieimpulsen ganges med 1, farten med $2{,}500$ og energien med $2{,}500$. Generelt gir bevart $L$ at $K = L^2/(2I)$, så energien vokser med **samme faktor** som farten når $I$ minker. Det er en god sluttsjekk: har du fått en energi som er lavere etter inntrekkingen, har du regnet feil vei."
+    },
+    {
+      "id": "tfy4115-4-2-o-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-4-2-oppg-5",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M5.) En kunstløper snurrer med treghetsmomentet $3{,}60\\,\\text{kg}\\cdot\\text{m}^2$ og vinkelfarten $1{,}50\\,\\text{rad/s}$. Hun trekker armene inn, slik at treghetsmomentet faller til $1{,}20\\,\\text{kg}\\cdot\\text{m}^2$.\n\n**a)** Finn den nye vinkelfarten.\n\n**b)** Hvor mange ganger større er rotasjonsenergien etterpå, og hvor kommer forskjellen fra?",
+        "solution": "**a)** Isen er nesten friksjonsfri, og armbevegelsen er en indre kraft, så dreieimpulsen er bevart:\n$$\\omega_2 = \\frac{I_1}{I_2}\\omega_1 = \\frac{3{,}60}{1{,}20} \\cdot 1{,}50\\,\\text{rad/s} = 4{,}50\\,\\text{rad/s}.$$\nTreghetsmomentet ble tredelt, så vinkelfarten tredobles.\n\n**b)** $K_1 = \\tfrac12 \\cdot 3{,}60 \\cdot 2{,}25\\,\\text{J} = 4{,}050\\,\\text{J}$ og $K_2 = \\tfrac12 \\cdot 1{,}20 \\cdot 20{,}25\\,\\text{J} = 12{,}150\\,\\text{J}$, altså **tre ganger** så mye. Forskjellen på $8{,}100\\,\\text{J}$ er arbeidet hun selv gjør med armmusklene når hun trekker armene inn mot aksen.\n\nGenerelt: med bevart $L$ er $K = L^2/(2I)$, så energien vokser med samme faktor som $I$ minker — her en faktor 3.\n\n**Sluttsjekk:** dreieimpulsen skal være uendret. $L_1 = 3{,}60 \\cdot 1{,}50 = 5{,}40$ og $L_2 = 1{,}20 \\cdot 4{,}50 = 5{,}40\\,\\text{kg}\\cdot\\text{m}^2/\\text{s}$. ✔",
+        "hints": [
+          "Er det noe ytre kraftmoment om den loddrette rotasjonsaksen?",
+          "Bruk $I_1\\omega_1=I_2\\omega_2$, og regn energien etterpå med den NYE vinkelfarten."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-4-2-o-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-4-2-oppg-6",
+        "number": 6,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger M5.) En dreieskive med treghetsmoment $120{,}0\\,\\text{kg}\\cdot\\text{m}^2$ roterer friksjonsfritt om en loddrett akse med vinkelfarten $1{,}20\\,\\text{rad/s}$. En person med masse $60{,}0\\,\\text{kg}$ står helt ute i kanten, i avstanden $1{,}500\\,\\text{m}$ fra aksen, og kan regnes som en punktmasse. Personen går inn til sentrum av skiva.\n\n**a)** Finn vinkelfarten etterpå.\n\n**b)** Finn systemets kinetiske energi før og etter, og forklar differansen.\n\n**c)** Ville svaret i a) endret seg om personen hadde gått inn langsomt i stedet for raskt?",
+        "solution": "**a)** Ingen ytre momenter om den loddrette aksen, så dreieimpulsen er bevart. Før har personen treghetsmomentet $mR^2$:\n$$I_\\text{før} = 120{,}0 + 60{,}0 \\cdot 2{,}2500\\,\\text{kg}\\cdot\\text{m}^2 = 120{,}0 + 135{,}0 = 255{,}0\\,\\text{kg}\\cdot\\text{m}^2.$$\nI sentrum er personens avstand til aksen null, så hun bidrar ingenting: $I_\\text{etter} = 120{,}0\\,\\text{kg}\\cdot\\text{m}^2$.\n$$\\omega_\\text{etter} = \\frac{I_\\text{før}}{I_\\text{etter}}\\omega_0 = \\frac{255{,}0}{120{,}0} \\cdot 1{,}20\\,\\text{rad/s} = 2{,}550\\,\\text{rad/s}.$$\n\n**b)**\n$$K_\\text{før} = \\tfrac12 \\cdot 255{,}0 \\cdot 1{,}440\\,\\text{J} = 183{,}6\\,\\text{J}, \\qquad K_\\text{etter} = \\tfrac12 \\cdot 120{,}0 \\cdot 6{,}5025\\,\\text{J} = 390{,}1\\,\\text{J}.$$\nEnergien har økt med $206{,}5\\,\\text{J}$. Differansen er arbeidet personen gjør: for å komme innover må hun presse mot skiva og «klatre innover» mot den kraften som holder henne i sirkelbane, og det arbeidet går inn i systemets rotasjonsenergi.\n\n**c)** Nei. Bevaringen av dreieimpuls sier ingenting om hvor lang tid prosessen tar — den følger av at det ytre momentet er null, uansett tempo. Sluttilstanden er derfor den samme for en langsom og en rask innovergang. (Arbeidet er også det samme; det er bare **effekten** som blir mindre når det tar lengre tid.)\n\n**Sluttsjekk:** $L$ skal være uendret: $255{,}0 \\cdot 1{,}20 = 306{,}0$ og $120{,}0 \\cdot 2{,}550 = 306{,}0\\,\\text{kg}\\cdot\\text{m}^2/\\text{s}$. ✔ Og vinkelfarten skal ha økt, siden treghetsmomentet ble mindre.",
+        "hints": [
+          "Regn systemets treghetsmoment før og etter — personen bidrar med $mR^2$ i kanten og ingenting i sentrum.",
+          "Bruk $I_1\\omega_1=I_2\\omega_2$; kinetisk energi er IKKE bevart her.",
+          "I c): står det noe om tid i betingelsen for at dreieimpulsen er bevart?"
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-4-2-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — fra gliding til ren rulling (~12 min)\n\nKast en bowlingkule nedover banen. Den første biten glir den: farten framover er for stor for rotasjonen. Friksjonen gjør to ting samtidig — den bremser translasjonen og den øker rotasjonen — helt til de to møtes i **ren rulling**. Da slutter glidningen, og friksjonen har ikke lenger noe å bremse."
+    },
+    {
+      "id": "tfy4115-4-2-def-rullebetingelse",
+      "type": "definition",
+      "title": "Rullebetingelsen",
+      "content": "Kravet som skiller ren rulling fra gliding:\n$$V = R\\omega,$$\nder $V$ er massesenterets fart og $\\omega$ rotasjonens vinkelfart. Betingelsen betyr fysisk at **kontaktpunktet står stille** mot underlaget: rotasjonens hastighet bakover i kontaktpunktet, $R\\omega$, kansellerer massesenterets fart framover. Er $V > R\\omega$, glir legemet framover (kula «sleper»); er $V < R\\omega$, spinner det raskere enn det kommer fram (som et bilhjul som spinner på is). Den avgjørende regelen for oppgaveløsning: **du får ikke sette $V = R\\omega$ før ren rulling faktisk er nådd** — det er en av de vanligste feilene i sjangeren."
+    },
+    {
+      "id": "tfy4115-4-2-th-gliding-rulling",
+      "type": "theorem",
+      "title": "Overgangen gliding → ren rulling",
+      "content": "En kule kastes med senterfarten $V_0$ og uten rotasjon på et vannrett underlag med glidefriksjonskoeffisient $\\mu$. To likninger driver bevegelsen, og de må settes opp hver for seg:\n\n**Translasjon** (friksjonen bremser massesenteret):\n$$ma = -\\mu mg \\quad\\Longrightarrow\\quad a = -\\mu g, \\qquad V(t) = V_0 - \\mu g t.$$\n\n**Rotasjon** (samme friksjonskraft gir moment om massesenteret, med momentarm $R$):\n$$I\\alpha = \\mu mgR \\quad\\Longrightarrow\\quad \\alpha = \\frac{\\mu mgR}{\\tfrac25mR^2} = \\frac{5\\mu g}{2R}, \\qquad \\omega(t) = \\alpha t.$$\n\nRen rulling nås når $V(t) = R\\omega(t)$:\n$$V_0 - \\mu g t = \\tfrac52\\mu g t \\quad\\Longrightarrow\\quad t = \\frac{2V_0}{7\\mu g}, \\qquad V = \\tfrac57 V_0.$$\n\n**Sluttfarten $\\tfrac57V_0$ er uavhengig av både $\\mu$ og $R$** — friksjonstallet bestemmer bare hvor lang tid og hvor stor strekning overgangen tar, ikke hvor den ender. Resultatet [må kunne brukes eller utledes aktivt]; det står ikke på arket.\n\nEnergitapet er $\\Delta K = \\tfrac12mV_0^2 - \\tfrac{7}{10}mV^2 = \\tfrac27\\cdot\\tfrac12mV_0^2$, altså nøyaktig $\\tfrac27 \\approx 28{,}6$ prosent av startenergien, uansett tall. Tapet går til varme i glidningen."
+    },
+    {
+      "id": "tfy4115-4-2-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: kula som kastes uten spinn",
+      "problem": "En kompakt kule med masse $0{,}400\\,\\text{kg}$ og radius $0{,}110\\,\\text{m}$ kastes med senterfarten $V_0 = 8{,}00\\,\\text{m/s}$ og uten rotasjon inn på et vannrett gulv. Glidefriksjonskoeffisienten er $\\mu = 0{,}250$.\n\n**a)** Hvor lang tid går det før kula ruller rent?\n**b)** Hvor stor er farten da?\n**c)** Hvor langt har kula kommet?\n**d)** Hvor mye mekanisk energi er tapt?",
+      "solution": "**a) Symbolsk** (som i satsen over): $t = 2V_0/(7\\mu g)$.\n\n**Rask vei til tall.** Regn først $\\mu g = 0{,}250 \\cdot 9{,}81\\,\\text{m/s}^2 = 2{,}45250\\,\\text{m/s}^2$:\n$$t = \\frac{2 \\cdot 8{,}00}{7 \\cdot 2{,}45250}\\,\\text{s} = \\frac{16{,}00}{17{,}1675}\\,\\text{s} = 0{,}93199\\,\\text{s} \\approx 0{,}932\\,\\text{s}.$$\n\n**b)**\n$$V = \\tfrac57V_0 = 0{,}7143 \\cdot 8{,}00\\,\\text{m/s} = 5{,}71429\\,\\text{m/s} \\approx 5{,}714\\,\\text{m/s}.$$\nKontroll med bevegelseslikningen: $V = V_0 - \\mu g t = 8{,}00 - 2{,}45250 \\cdot 0{,}93199 = 5{,}7143\\,\\text{m/s}$. ✔\n\n**c)** Translasjonen har konstant akselerasjon $-\\mu g$ i denne fasen, så her **kan** vi bruke konstant-akselerasjonsformelen:\n$$s = V_0t - \\tfrac12\\mu g t^2 = 8{,}00 \\cdot 0{,}93199 - \\tfrac12 \\cdot 2{,}45250 \\cdot 0{,}86861\\,\\text{m} = 7{,}4559 - 1{,}0651\\,\\text{m} = 6{,}3908\\,\\text{m} \\approx 6{,}391\\,\\text{m}.$$\n\n**d)** Startenergien er ren translasjon:\n$$K_0 = \\tfrac12mV_0^2 = \\tfrac12 \\cdot 0{,}400 \\cdot 64{,}00\\,\\text{J} = 12{,}800\\,\\text{J}.$$\nVed ren rulling er energien $\\tfrac12mV^2 + \\tfrac12I\\omega^2 = \\tfrac{7}{10}mV^2$:\n$$K = 0{,}70 \\cdot 0{,}400 \\cdot 32{,}6531\\,\\text{J} = 9{,}1429\\,\\text{J}.$$\n$$\\Delta K = 12{,}800 - 9{,}1429 = 3{,}6571\\,\\text{J},$$\naltså 28,6 prosent av startenergien — nøyaktig $\\tfrac27$, som satsen sier.\n\n**Sluttsjekk, tre ledd:** (i) sluttfarten må være mindre enn startfarten, og $\\tfrac57 = 0{,}7143$ er den faste faktoren; (ii) vinkelfarten ved ren rulling er $\\omega = V/R = 51{,}95\\,\\text{rad/s}$, som skal stemme med $\\alpha t = 55{,}74 \\cdot 0{,}93199 = 51{,}95\\,\\text{rad/s}$ ✔; (iii) energitapet må være positivt — friksjon kan ikke gi energi."
+    },
+    {
+      "id": "tfy4115-4-2-o-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-4-2-oppg-7",
+        "number": 7,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger M5.) En bowlingkule med radius $0{,}105\\,\\text{m}$ slippes på banen med senterfarten $6{,}50\\,\\text{m/s}$ og uten rotasjon. Glidefriksjonskoeffisienten mot banen er $0{,}180$.\n\n**a)** Hvor langt glir kula før den ruller rent?\n\n**b)** Hvor stor er vinkelfarten i det øyeblikket ren rulling er nådd?\n\n**c)** En medstudent setter $V = R\\omega$ med én gang, ved $t=0$, og konkluderer med at kula ruller rent fra start. Hva er galt med resonnementet?",
+        "solution": "**a)** Tiden til ren rulling:\n$$t = \\frac{2V_0}{7\\mu g} = \\frac{2 \\cdot 6{,}50}{7 \\cdot 1{,}76580}\\,\\text{s} = 1{,}0517\\,\\text{s}.$$\nStrekningen med konstant bremseakselerasjon $-\\mu g$:\n$$s = V_0t - \\tfrac12\\mu g t^2 = 6{,}50 \\cdot 1{,}0517 - \\tfrac12 \\cdot 1{,}76580 \\cdot 1{,}1061\\,\\text{m} = 5{,}8596\\,\\text{m} \\approx 5{,}860\\,\\text{m}.$$\n\n**b)** Sluttfarten er $V = \\tfrac57V_0 = 4{,}6429\\,\\text{m/s}$, og ved ren rulling er\n$$\\omega = \\frac{V}{R} = \\frac{4{,}6429}{0{,}105}\\,\\text{rad/s} = 44{,}218\\,\\text{rad/s}.$$\n\n**c)** Rullebetingelsen $V = R\\omega$ er ikke en generell sammenheng mellom fart og vinkelfart — den er **definisjonen på at kula ruller rent**, og den gjelder bare når kontaktpunktet står stille. Ved $t = 0$ er kula sluppet uten rotasjon, altså $\\omega = 0$ mens $V = 6{,}50\\,\\text{m/s}$: kontaktpunktet glir bakover mot banen med full fart. Setter man likevel $V = R\\omega$ fra start, får man en helt gal vinkelfart, og hele overgangsfasen — der friksjonen både bremser og spinner opp kula — forsvinner fra regningen.\n\n**Sluttsjekk:** strekningen skal være av samme størrelsesorden som noen få meter for en bowlingkule (banen er om lag 18 m), og sluttfarten skal være $\\tfrac57$ av startfarten uansett friksjonstall. Begge stemmer.",
+        "hints": [
+          "Sett opp de to Newton-likningene hver for seg: én for translasjon, én for rotasjon.",
+          "Ren rulling nås når $V(t)=R\\omega(t)$ — løs for tiden.",
+          "Sluttfarten er $\\tfrac57V_0$ uansett $\\mu$ og $R$; friksjonen bestemmer bare hvor lang tid det tar."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-4-2-lokke5",
+      "type": "text",
+      "content": "## Løkke 5 — den fallende stanga (~13 min)\n\nEn stang er hengslet i den ene enden og står loddrett opp. Du slipper den. Hvor fort roterer den når den er vannrett, og hvor stor er vinkelakselerasjonen der?\n\nDette er en gjenganger i utledningssettene, og den er lærerik fordi den tvinger deg til å **velge verktøy**. To spørsmål, to helt forskjellige verktøy:\n\n**Vinkelfarten kommer fra energibevaring.** Massesenteret faller høyden $L/2$, og all den potensielle energien går til rotasjonsenergi om hengselet:\n\n$$Mg\\frac{L}{2} = \\tfrac12 I_A\\omega^2, \\qquad I_A = \\tfrac13ML^2.$$\n\n$$Mg\\frac{L}{2} = \\tfrac12\\cdot\\tfrac13ML^2\\omega^2 = \\tfrac16ML^2\\omega^2 \\quad\\Longrightarrow\\quad \\omega = \\sqrt{\\frac{3g}{L}}.$$\n\n*Intuisjon:* massen faller ut av svaret, akkurat som i fritt fall. En tung og en lett stang med samme lengde treffer bakken med samme vinkelfart.\n\n**Vinkelakselerasjonen kommer fra spinnsatsen.** Tyngden virker i massesenteret, i avstanden $L/2$ fra hengselet. Når stanga står i vinkelen $\\phi$ over vannrett, er momentarmen $\\tfrac{L}{2}\\cos\\phi$:\n\n$$\\tau = Mg\\frac{L}{2}\\cos\\phi = I_A\\alpha \\quad\\Longrightarrow\\quad \\alpha = \\frac{3g}{2L}\\cos\\phi.$$\n\n*Intuisjon:* momentet er størst når stanga er vannrett ($\\phi = 0$) og null når den står loddrett — der har tyngden ingen momentarm i det hele tatt. Derfor er $\\alpha$ **ikke konstant**, og derfor kan du ikke bruke $\\omega = \\alpha t$ eller $\\omega^2 = 2\\alpha\\varphi$ (felle #3).\n\n**Med tall.** For $L = 1{,}20\\,\\text{m}$ og $M = 2{,}00\\,\\text{kg}$:\n$$\\omega = \\sqrt{\\frac{3 \\cdot 9{,}81}{1{,}20}}\\,\\text{rad/s} = \\sqrt{24{,}5250}\\,\\text{rad/s} = 4{,}9523\\,\\text{rad/s},$$\n$$\\alpha_\\text{vannrett} = \\frac{3 \\cdot 9{,}81}{2 \\cdot 1{,}20}\\,\\text{rad/s}^2 = 12{,}2625\\,\\text{rad/s}^2.$$\n\nEnden av stanga har da banefarten $v = \\omega L = 5{,}9427\\,\\text{m/s}$ og tangentialakselerasjonen $a = \\alpha L = 14{,}7150\\,\\text{m/s}^2$ — altså **1{,}500 ganger $g$**. Enden av en fallende stang akselererer raskere enn fritt fall. Det er ikke et paradoks: hengselet holder igjen på den nedre delen, og stanga «kastes» derfor rundt.\n\n## Rask vei til tall (MC-oppskrift)\n\n1. **Hvilken lov?** Spør hva som er etterspurt. Dreieimpuls om et punkt: spinn pluss bane med fortegn. Endring i rotasjon med konstant moment: $\\tau=I\\alpha$. $I$ som endrer seg: $I_1\\omega_1=I_2\\omega_2$. Vinkelfart etter et fall: energibevaring. Vinkelakselerasjon i en gitt stilling: spinnsatsen.\n2. **Hvilken ene regnelinje?** Dreieimpuls: $L = mVd_\\perp \\pm I_\\text{CM}\\omega$. Gliding→rulling: $V=\\tfrac57V_0$ og $t=2V_0/(7\\mu g)$. Fallende stang: $\\omega=\\sqrt{3g/L}$ og $\\alpha=(3g/2L)\\cos\\phi$. Presesjon: $\\Omega=Mgr/(I_0\\omega)$.\n3. **Hva hentes hvor?** Treghetsmomentene, $\\tau=I\\alpha$, $L=I\\omega$, $\\boldsymbol{\\tau}=\\mathbf{r}\\times\\mathbf{F}$ og spinnsatsen **står på det utdelte arket**. Faktorene $\\tfrac57$, $\\sqrt{3g/L}$ og $(3g/2L)\\cos\\phi$ gjør det **ikke** — de må utledes.\n4. **Hvor mange siffer?** Fire gjennom kjeden. I dreieimpulsoppgaver ligger summen og differansen av de to bidragene ofte bare 20–30 prosent fra hverandre, og med tre siffer i mellomregningen kan de blandes.\n5. **Hva sjekker du før du krysser av?** (i) Enhet: $\\text{kg}\\cdot\\text{m}^2/\\text{s}$ for dreieimpuls, $\\text{N}\\cdot\\text{m}$ for moment. (ii) Retning oppgitt i ord — «inn i papiret», «ut av papiret». (iii) Ved bevaring: er $L$ virkelig uendret i tallene dine? (iv) Er energien større etter en innovertrekking (den skal være det)? (v) Har du brukt konstant-$\\alpha$-formler på et moment som varierer?"
+    },
+    {
+      "id": "tfy4115-4-2-o-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-4-2-oppg-8",
+        "number": 8,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger M5.) En homogen stang med lengde $0{,}900\\,\\text{m}$ er hengslet i den ene enden og holdes loddrett opp. Den slippes fra ro.\n\n**a)** Finn vinkelfarten i det øyeblikket stanga er vannrett.\n\n**b)** Finn banefarten til den frie enden i samme øyeblikk.\n\n**c)** Finn vinkelakselerasjonen når stanga står $30^\\circ$ over vannrett, og når den er vannrett.\n\n**d)** Forklar hvorfor du ikke kan finne vinkelfarten i c)-stillingene ved å bruke $\\omega^2 = 2\\alpha\\varphi$.",
+        "solution": "**a)** Energibevaring: massesenteret faller $L/2$, og all potensiell energi går til rotasjon om hengselet med $I_A = \\tfrac13ML^2$:\n$$Mg\\frac{L}{2} = \\tfrac12\\cdot\\tfrac13ML^2\\omega^2 \\quad\\Longrightarrow\\quad \\omega = \\sqrt{\\frac{3g}{L}} = \\sqrt{\\frac{3 \\cdot 9{,}81}{0{,}900}}\\,\\text{rad/s} = 5{,}7184\\,\\text{rad/s}.$$\nMassen faller ut, som den skal.\n\n**b)** $v = \\omega L = 5{,}7184 \\cdot 0{,}900\\,\\text{m/s} = 5{,}1466\\,\\text{m/s}$.\n\n**c)** Spinnsatsen med momentarmen $\\tfrac{L}{2}\\cos\\phi$:\n$$\\alpha = \\frac{3g}{2L}\\cos\\phi.$$\nVed $\\phi = 30^\\circ$: $\\alpha = \\frac{3 \\cdot 9{,}81}{2 \\cdot 0{,}900} \\cdot 0{,}8660\\,\\text{rad/s}^2 = 14{,}1595\\,\\text{rad/s}^2$.\nVannrett ($\\phi = 0$): $\\alpha = 16{,}3500\\,\\text{rad/s}^2$.\n\n**d)** Fordi $\\omega^2 = 2\\alpha\\varphi$ forutsetter **konstant** vinkelakselerasjon, og her varierer $\\alpha$ med $\\cos\\phi$ gjennom hele fallet — fra null i loddrett stilling til maksimum i vannrett (felle #3 — konstant-akselerasjonsformler brukt når akselerasjonen ikke er konstant). Vil du ha vinkelfarten i en mellomstilling, må du bruke energibevaring med den faktiske fallhøyden til massesenteret, ikke en konstant-akselerasjonsformel.\n\n**Sluttsjekk:** vinkelakselerasjonen skal være størst i vannrett stilling (største momentarm) og null i loddrett. Verdien ved $30^\\circ$ ligger mellom, og $14{,}1595 < 16{,}3500$. ✔",
+        "hints": [
+          "Vinkelfart etter et fall: energibevaring med massesenterets fallhøyde.",
+          "Vinkelakselerasjon i en gitt stilling: spinnsatsen med riktig momentarm for tyngden.",
+          "Momentarmen for tyngden er $\\tfrac{L}{2}\\cos\\phi$ når stanga står i vinkelen $\\phi$ over vannrett."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-4-2-o-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-4-2-oppg-9",
+        "number": 9,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M5, A–F-format.) En homogen stang med masse $1{,}500\\,\\text{kg}$ og lengde $0{,}800\\,\\text{m}$ roterer om et hengsel i den ene enden med vinkelfarten $6{,}00\\,\\text{rad/s}$.\n\nHvor stor er den kinetiske energien?\n\n**A** $1{,}4400\\,\\text{J}$ · **B** $4{,}3200\\,\\text{J}$ · **C** $5{,}7600\\,\\text{J}$ · **D** $10{,}0800\\,\\text{J}$ · **E** $11{,}5200\\,\\text{J}$ · **F** $17{,}2800\\,\\text{J}$",
+        "solution": "**Svar: C.**\n\nStanga roterer om en fast akse gjennom hengselet, og da er **hele** den kinetiske energien rotasjonsenergi om denne aksen:\n$$I_A = \\tfrac13ML^2 = \\tfrac13 \\cdot 1{,}500 \\cdot 0{,}6400\\,\\text{kg}\\cdot\\text{m}^2 = 0{,}3200\\,\\text{kg}\\cdot\\text{m}^2,$$\n$$K = \\tfrac12I_A\\omega^2 = \\tfrac12 \\cdot 0{,}3200 \\cdot 36{,}00\\,\\text{J} = 5{,}7600\\,\\text{J}.$$\n\n*Fellene:*\n\n- **D** er $\\tfrac12I_A\\omega^2 + \\tfrac12MV_\\text{CM}^2$ med $V_\\text{CM} = \\omega L/2$ — altså **dobbelttelling** av den kinetiske energien (felle #2). Når rotasjonen skjer om en fast akse, er $\\tfrac12I_A\\omega^2$ allerede hele energien; massesenterets bevegelse er ikke et bidrag i tillegg, den er *en del av* den samme rotasjonen.\n- **B** er bare $\\tfrac12MV_\\text{CM}^2$, altså rotasjonsleddet glemt og stanga behandlet som en punktmasse i massesenteret.\n- **A** bruker $\\tfrac{1}{12}ML^2$, altså treghetsmomentet om stangas **midtpunkt** i stedet for om hengselet — Steiner-leddet glemt.\n- **F** setter $V = \\omega L$, altså den frie endens fart brukt for hele stanga.\n- **E** er dobbelt fasit, som du får ved å glemme faktoren $\\tfrac12$ i $\\tfrac12I\\omega^2$.\n\n*Sluttsjekk:* dobbelttellings-alternativet er alltid $\\tfrac12MV_\\text{CM}^2$ større enn fasiten, altså her 1{,}750 ganger. Kjenner du forholdet igjen, kan du stryke det umiddelbart — og det er verdt å kunne, for det er det mest forlokkende gale svaret i hele Del 4.",
+        "hints": [
+          "Roterer stanga om en fast akse? Da er all kinetisk energi rotasjonsenergi om DEN aksen.",
+          "Bruk $I$ om hengselet, ikke om midtpunktet.",
+          "Legg IKKE til et translasjonsledd for massesenteret — det ville vært å telle samme energi to ganger."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-4-2-lokke6",
+      "type": "text",
+      "content": "## Løkke 6 — presesjon, til å kjenne igjen (~7 min)\n\nDenne biten har prioritet **kjenne til**: den er med i rundt 2 av 10 sett (~20 %), og når den kommer, er den ett flervalgsspørsmål med én formel. Du skal kunne kjenne igjen situasjonen og sette inn — ikke utlede.\n\nSett en snurrebass i gang og la den stå på skrå. I stedet for å falle, begynner aksen å dreie langsomt rundt i en kjegle. Det er **presesjon**, og forklaringen ligger i at spinnsatsen er en **vektorlikning**: tyngdens moment står vinkelrett på dreieimpulsen, og et moment vinkelrett på $\\mathbf{L}$ endrer ikke tallverdien til $\\mathbf{L}$ — bare retningen."
+    },
+    {
+      "id": "tfy4115-4-2-def-presesjon",
+      "type": "definition",
+      "title": "Presesjon",
+      "content": "Den langsomme dreiningen av rotasjonsaksen til et raskt spinnende legeme, når et ytre moment virker vinkelrett på dreieimpulsen. Presesjonsvinkelfarten er\n$$\\Omega = \\frac{\\tau}{L} = \\frac{Mgr}{I_0\\omega},$$\nder $r$ er den vannrette avstanden fra opplagringspunktet til massesenteret, $I_0$ treghetsmomentet om spinnaksen og $\\omega$ spinnets vinkelfart. Legg merke til hva uttrykket sier: **jo raskere legemet spinner, jo langsommere preseserer det.** En snurrebass som mister fart, preseserer raskere og raskere til den velter. Uttrykket forutsetter rask spinn ($\\Omega \\ll \\omega$), og det er derfor det er en tilnærming, ikke en eksakt lov."
+    },
+    {
+      "id": "tfy4115-4-2-o-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-4-2-oppg-10",
+        "number": 10,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger M13 — presesjon, altså den langsomme dreiningen av en snurrebasses akse. Prioritet: kjenne til.) Et gyroskop har treghetsmoment $4{,}00\\cdot10^{-3}\\,\\text{kg}\\cdot\\text{m}^2$ om spinnaksen og spinner med $180\\,\\text{rad/s}$. Hjulet har masse $0{,}300\\,\\text{kg}$, og massesenteret ligger $0{,}0500\\,\\text{m}$ vannrett fra opplagringspunktet.\n\n**a)** Finn presesjonsvinkelfarten.\n\n**b)** Hvor lang tid tar én full presesjonsomdreining?\n\n**c)** Hva skjer med presesjonen når hjulets spinn langsomt bremses ned av friksjon?",
+        "solution": "**a)** Tyngdens moment om opplagringspunktet er $\\tau = Mgr$, og dreieimpulsen er $L = I_0\\omega$:\n$$\\Omega = \\frac{Mgr}{I_0\\omega} = \\frac{0{,}300 \\cdot 9{,}81 \\cdot 0{,}0500}{4{,}00\\cdot10^{-3} \\cdot 180}\\,\\text{rad/s} = \\frac{0{,}14715}{0{,}7200}\\,\\text{rad/s} = 0{,}2044\\,\\text{rad/s}.$$\n\n**b)**\n$$T = \\frac{2\\pi}{\\Omega} = \\frac{6{,}28319}{0{,}2044}\\,\\text{s} = 30{,}743\\,\\text{s},$$\naltså om lag et halvt minutt per omdreining. Sammenlign med spinnet: hjulet gjør $180/2\\pi = 28{,}65$ omdreininger i sekundet om sin egen akse. Presesjonen er altså mer enn åtte hundre ganger langsommere — det er nettopp betingelsen $\\Omega \\ll \\omega$ som gjør formelen gyldig.\n\n**c)** Fordi $\\Omega$ er **omvendt** proporsjonal med $\\omega$, blir presesjonen **raskere** når spinnet avtar. Det er lett å observere: en snurrebass som er i ferd med å dø ut, vagger fortere og fortere, og til slutt er $\\Omega$ ikke lenger liten mot $\\omega$, tilnærmingen bryter sammen, og den velter.\n\n**Sluttsjekk:** enheten er $(\\text{kg}\\cdot\\text{m/s}^2\\cdot\\text{m})/(\\text{kg}\\cdot\\text{m}^2/\\text{s}) = 1/\\text{s}$, altså $\\text{rad/s}$. ✔",
+        "hints": [
+          "Momentet kommer fra tyngden med den vannrette avstanden som momentarm.",
+          "Dreieimpulsen er $I_0\\omega$ om spinnaksen.",
+          "Se på hvor $\\omega$ står i uttrykket for $\\Omega$ når du svarer på c)."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-4-2-war-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil — og fortegnsfellen som lander på nabo-alternativet",
+      "content": "**Å ta feil fortegn eller retning på spinn mot bane** (felle #5 — feil fortegn eller retning på dreieimpuls, friksjonskraft eller akselerasjonskomponent). Dette er kapitlets dyreste feil, og den er innebygd i alternativlista: settene oppgir systematisk både summen og differansen av de to bidragene. Motgiften er en fast åpningssetning: **skriv «inn i papiret er positiv» på arket før du regner et eneste tall.** Deretter gir du hvert bidrag fortegn, ett om gangen.\n\n**Å glemme banebidraget helt.** En kule som ruller og regnes om et punkt på bakken, har $L = \\tfrac75mR^2\\omega$, ikke $\\tfrac25mR^2\\omega$. Det gale svaret er bare 29 prosent av det riktige, og det ligger alltid på lista. Sjekk: spør «beveger massesenteret seg forbi punktet jeg regner om?» Er svaret ja, er det et banebidrag.\n\n**Å dobbelttelle kinetisk energi** (felle #2 — dobbelttelling i ren rotasjon). Roterer et legeme om en **fast** akse, er $\\tfrac12I\\omega^2$ om den aksen hele den kinetiske energien. Legger du til $\\tfrac12MV_\\text{CM}^2$, teller du samme energi to ganger. Den korrekte oppdelingen $\\tfrac12MV_\\text{CM}^2 + \\tfrac12I_\\text{CM}\\omega^2$ bruker $I$ om **massesenteret** — ikke om den faste aksen. Begge oppskriftene er riktige hver for seg; det er blandingen som er feil.\n\n**Å sette $V = R\\omega$ før ren rulling er nådd.** Rullebetingelsen er en betingelse, ikke en identitet. I glidefasen er $V > R\\omega$, og hele poenget med oppgaven er å finne når de blir like.\n\n**Å bruke konstant-akselerasjonsformler når momentet varierer** (felle #3). I den fallende stanga går $\\alpha$ fra null til maksimum gjennom fallet. Bruk energibevaring for vinkelfarten og spinnsatsen for vinkelakselerasjonen — aldri $\\omega = \\alpha t$.\n\n**Å bruke $\\tau = I\\alpha$ når treghetsmomentet endrer seg.** Trekker personen på dreieskiva armene inn, er ikke $I$ konstant, og $\\tau = I\\alpha$ gjelder ikke. Bruk spinnsatsen i sin generelle form, som her betyr bevaring: $I_1\\omega_1 = I_2\\omega_2$.\n\n**Og fortegnsfellen som avgjør flervalget** (felle #16 — nabo-alternativet): forskjellen mellom sum og differanse av de to dreieimpulsbidragene er ofte bare 20–40 prosent, og for en raskt roterende kule kan den være under 10 prosent. Da holder det ikke å «se» hva som er rimelig. **Behold fire siffer, og skriv retningen i ord ved hvert delsvar** — «$0{,}181\\,\\text{kg}\\cdot\\text{m}^2/\\text{s}$ inn i papiret». Et tall uten retning er et halvt svar i denne sjangeren."
+    },
+    {
+      "id": "tfy4115-4-2-begrepsbank-notis",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "tfy4115-4-2-bb-kryssprodukt",
+      "type": "definition",
+      "title": "Kryssproduktet i momenter og dreieimpuls",
+      "content": "Produktet $\\mathbf{a}\\times\\mathbf{b}$ som gir en vektor vinkelrett på begge faktorene, med tallverdi $ab\\sin\\phi$ og retning gitt av høyrehåndsregelen. I dette kapitlet brukes det to steder: $\\boldsymbol{\\tau} = \\mathbf{r}\\times\\mathbf{F}$ og $\\mathbf{L}_\\text{bane} = \\mathbf{R}_\\text{CM}\\times m\\mathbf{V}$. Begge **står på det utdelte arket**. Tre egenskaper å ha i fingrene: produktet er null når vektorene er parallelle, det er størst når de er vinkelrette, og det skifter fortegn hvis du bytter om faktorene — $\\mathbf{r}\\times\\mathbf{F}$ er ikke det samme som $\\mathbf{F}\\times\\mathbf{r}$."
+    },
+    {
+      "id": "tfy4115-4-2-bb-ren-rulling",
+      "type": "definition",
+      "title": "Ren rulling og gliding",
+      "content": "Ved **ren rulling** står kontaktpunktet stille mot underlaget, $V = R\\omega$, og friksjonen gjør ikke arbeid — mekanisk energi er bevart. Ved **gliding** er $V \\neq R\\omega$, kontaktpunktet sleper, og glidefriksjonen omdanner mekanisk energi til varme. En kule som kastes uten spinn, starter i gliding og går over til ren rulling; en kule som ruller rent, fortsetter å gjøre det på et vannrett underlag. Praktisk konsekvens for oppgaveløsning: energibevaring er bare lov etter at ren rulling er nådd."
+    },
+    {
+      "id": "tfy4115-4-2-bb-friksjon-rulling",
+      "type": "definition",
+      "title": "Friksjonens dobbeltrolle i overgangen til rulling",
+      "content": "Under gliding gjør den samme friksjonskraften to ting samtidig: den gir en negativ akselerasjon $a=-\\mu g$ på massesenteret, **og** et positivt moment $\\mu mgR$ om massesenteret. Translasjonen bremses, rotasjonen spinnes opp, og de møtes ved $V = R\\omega$. Derfor må du sette opp **to** likninger — én for translasjon og én for rotasjon — og løse dem sammen. Å bare skrive den ene er den vanligste strukturfeilen i sjangeren."
+    },
+    {
+      "id": "tfy4115-4-2-bb-fem-syvendeler",
+      "type": "definition",
+      "title": "Sluttfarten $\\tfrac57V_0$",
+      "content": "En kompakt kule som kastes med farten $V_0$ og uten rotasjon, ender med farten\n$$V = \\tfrac57V_0 \\approx 0{,}714\\,V_0$$\nnår ren rulling er nådd. Resultatet **må kunne utledes aktivt** — det står ikke på arket. Det bemerkelsesverdige er at faktoren er uavhengig av både friksjonstallet $\\mu$, radien $R$ og massen: friksjonen bestemmer bare **hvor lang tid** ($t = 2V_0/(7\\mu g)$) og **hvor langt** overgangen tar. For andre legemer blir faktoren en annen, fordi den kommer fra treghetsmomentet: en massiv sylinder ender på $\\tfrac23V_0$."
+    },
+    {
+      "id": "tfy4115-4-2-bb-energitap-rulling",
+      "type": "definition",
+      "title": "Energitapet i overgangen til rulling",
+      "content": "For en kompakt kule som kastes uten spinn, går nøyaktig $\\tfrac27 \\approx 28{,}6$ prosent av startenergien tapt som varme i glidefasen:\n$$\\Delta K = \\tfrac12mV_0^2 - \\tfrac{7}{10}mV^2 = \\tfrac27\\cdot\\tfrac12mV_0^2.$$\nAndelen er den samme uansett $\\mu$, $R$ og $m$. Merk at energien **ikke** er bevart her, selv om dreieimpulsen om kontaktlinja er det — det er en god illustrasjon på at de to bevaringslovene beskytter mot forskjellige ting."
+    },
+    {
+      "id": "tfy4115-4-2-bb-kinetisk-oppdeling",
+      "type": "definition",
+      "title": "De to riktige måtene å regne kinetisk energi",
+      "content": "For et legeme som både roterer og flytter seg, finnes to korrekte uttrykk, og de gir samme svar:\n$$K = \\tfrac12MV_\\text{CM}^2 + \\tfrac12I_\\text{CM}\\omega^2 \\qquad\\text{eller}\\qquad K = \\tfrac12I_A\\omega^2,$$\nder det siste gjelder når legemet roterer om en **fast** akse $A$ og $I_A$ er treghetsmomentet om den. Velg **ett** av dem. Å bruke $\\tfrac12I_A\\omega^2 + \\tfrac12MV_\\text{CM}^2$ er dobbelttelling (felle #2) og gir for stor energi. For en rullende kule: $\\tfrac12mV^2+\\tfrac12\\cdot\\tfrac25mR^2\\omega^2 = \\tfrac{7}{10}mv^2 = \\tfrac12\\cdot\\tfrac75mR^2\\omega^2$ — de to veiene møtes."
+    },
+    {
+      "id": "tfy4115-4-2-bb-felle-2",
+      "type": "definition",
+      "title": "Felle #2 — dobbelttelling av kinetisk energi",
+      "content": "Bokas kortnavn på feilen der man legger $\\tfrac12MV_\\text{CM}^2$ til $\\tfrac12I_A\\omega^2$ for et legeme som roterer om en fast akse. Feilen gir alltid et **for stort** svar, og for en stang om endepunktet er faktoren $1{,}8$: $5{,}76\\,\\text{J}$ blir $10{,}4\\,\\text{J}$. Fella er forlokkende fordi begge leddene «finnes» i pensum. Skillet du må holde: bruker du $I$ om **massesenteret**, skal translasjonsleddet med; bruker du $I$ om **den faste aksen**, er alt allerede med."
+    },
+    {
+      "id": "tfy4115-4-2-bb-felle-5",
+      "type": "definition",
+      "title": "Felle #5 — feil fortegn eller retning",
+      "content": "Bokas kortnavn på feilen der spinn- og banedreieimpuls (eller friksjonskraft og akselerasjonskomponent) får galt fortegn, slik at to bidrag summeres i stedet for å subtraheres. Feilen gir et svar som er plausibelt stort og som nesten alltid ligger på alternativlista. Motgiften er en fast rutine: velg positiv retning eksplisitt, tegn hver vektor på figuren, og skriv retningen i ord ved hvert delsvar. Fortegnsfeil er den ene feiltypen som ikke oppdages av en enhetssjekk eller en størrelsesordensjekk."
+    },
+    {
+      "id": "tfy4115-4-2-bb-fallende-stang",
+      "type": "definition",
+      "title": "Den fallende stanga (prosedyrekort)",
+      "content": "For en homogen stang med lengde $L$, hengslet i den ene enden og sluppet fra loddrett stilling:\n$$\\omega_\\text{vannrett} = \\sqrt{\\frac{3g}{L}} \\quad (\\text{energibevaring}), \\qquad \\alpha = \\frac{3g}{2L}\\cos\\phi \\quad (\\text{spinnsatsen}),$$\nder $\\phi$ er vinkelen over vannrett. Massen faller ut av begge uttrykkene. Enden av stanga har tangentialakselerasjonen $\\alpha L = \\tfrac32g$ i vannrett stilling — **halvannen gang tyngdeakselerasjonen**, som er grunnen til at en fallende stang «slår» raskere enn et fritt fall. Uttrykkene **må kunne utledes aktivt**; ingen av dem står på arket."
+    },
+    {
+      "id": "tfy4115-4-2-bb-felle-3",
+      "type": "definition",
+      "title": "Felle #3 — konstant-akselerasjonsformler på variabelt moment",
+      "content": "Bokas kortnavn på feilen der $\\omega = \\alpha t$ eller $\\omega^2 = 2\\alpha\\varphi$ brukes selv om momentet — og dermed $\\alpha$ — endrer seg underveis. Den fallende stanga er standardtilfellet: der går $\\alpha$ fra null i loddrett stilling til $3g/(2L)$ i vannrett. Sjekken tar tre sekunder: **er momentet konstant gjennom hele bevegelsen?** Er svaret nei, bruk energibevaring for farten og spinnsatsen for akselerasjonen i et enkeltøyeblikk."
+    },
+    {
+      "id": "tfy4115-4-2-bb-ytre-indre",
+      "type": "definition",
+      "title": "Ytre og indre momenter",
+      "content": "Bare **ytre** kraftmomenter kan endre et systems dreieimpuls. Indre krefter opptrer i par som er like store og motsatt rettet langs samme virkelinje, og gir derfor null nettomoment. Dette er grunnen til at en person på en dreieskive kan endre systemets treghetsmoment og vinkelfart, men ikke dreieimpulsen. Praktisk oppskrift når du skal avgjøre om $L$ er bevart: tegn en tenkt grense rundt systemet og spør hvilke momenter som kommer **utenfra** — friksjon i lageret, tyngden om et punkt utenfor massesenteret, et påført dreiemoment."
+    },
+    {
+      "id": "tfy4115-4-2-bb-I-endres",
+      "type": "definition",
+      "title": "Når treghetsmomentet endrer seg",
+      "content": "Treghetsmomentet er ikke en konstant for et legeme som kan endre form. En person som trekker armene inn, en satellitt som slipper ut antenner, en stuper som krøller seg sammen — alle endrer sitt eget $I$. Da gjelder ikke $\\tau = I\\alpha$, som forutsetter konstant $I$; du må bruke spinnsatsen i formen $\\tau = d\\mathbf{L}/dt$, og ved null ytre moment gir den $I_1\\omega_1 = I_2\\omega_2$. Konsekvensen for energien: $K = L^2/(2I)$, så energien vokser når $I$ minker — og økningen er arbeidet som ble gjort innvendig."
+    },
+    {
+      "id": "tfy4115-4-2-bb-sjanger-m5",
+      "type": "definition",
+      "title": "Sjanger M5 — dreieimpuls og rulling",
+      "content": "Bokas navn på oppgaveformen der du skal finne en dreieimpuls, bruke bevaring av dreieimpuls, eller behandle overgangen fra gliding til ren rulling. Den forekommer i om lag 9 av 10 eksamenssett (~90 %) og hører til **mekanikkhalvdelen, spørsmål 1–20**. De tre variantene: (i) total dreieimpuls om et punkt, med spinn og bane og korrekt fortegn; (ii) $I_1\\omega_1 = I_2\\omega_2$ når noe trekkes inn eller ut; (iii) gliding→rulling med de to Newton-likningene. Overgangsvarianten er med i rundt 4 av 10 sett (~40 %)."
+    },
+    {
+      "id": "tfy4115-4-2-bb-sjanger-m13",
+      "type": "definition",
+      "title": "Sjanger M13 — presesjon",
+      "content": "Bokas navn på oppgaveformen der en snurrebasse, et gyroskop eller et sykkelhjul preseserer, og du skal finne presesjonsvinkelfarten $\\Omega = Mgr/(I_0\\omega)$. Den forekommer i rundt 2 av 10 sett (~20 %) og har prioritet **kjenne til**: den kommer som ett flervalgsspørsmål med én innsetting, aldri som en utledning. Det du må kunne kjenne igjen, er (i) at et moment vinkelrett på $\\mathbf{L}$ dreier retningen uten å endre tallverdien, og (ii) at raskere spinn gir **langsommere** presesjon."
+    },
+    {
+      "id": "tfy4115-4-2-coll-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tfy4115-4-2-symb-1",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n**Kolliderende symboler i dette delkapitlet.** $\\mathbf{p}$ er **bevegelsesmengde** ($m\\mathbf{v}$, enhet $\\text{kg}\\cdot\\text{m/s}$); i termodelen Del 6–10 betyr $p$ **trykk** i pascal. $\\tau$ er **kraftmoment** i $\\text{N}\\cdot\\text{m}$; i [kap. 1.1](/tfy4115/tfy4115-1-1) var $\\tau$ en **tidskonstant** i sekunder. $R$ er en **radius**; i termodelen er $R$ gasskonstanten. $L$ brukes både om **dreieimpuls** (vektor, fet) og om **lengden** av en stang (skalar, kursiv) — de skilles av fet skrift og av enheten.\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $\\boldsymbol{\\tau}$ | Kraftmoment, $\\mathbf{r}\\times\\mathbf{F}$ (**ikke** tidskonstant her) | $\\text{N}\\cdot\\text{m}$ |\n| $d$ | Momentarm: vinkelrett avstand fra aksen til kraftens virkelinje | m |\n| $\\phi$ | Vinkelen mellom $\\mathbf{r}$ og $\\mathbf{F}$, eller stangas vinkel over vannrett | rad eller grader |\n| $I$, $I_\\text{CM}$, $I_A$ | Treghetsmoment; om massesenteret; om aksen $A$ | $\\text{kg}\\cdot\\text{m}^2$ |\n| $\\alpha$ | Vinkelakselerasjon | $\\text{rad/s}^2$ |\n| $\\boldsymbol{\\omega}$ | Vinkelfart (vektor langs rotasjonsaksen) | rad/s |\n| $\\mathbf{L}$ | Dreieimpuls (vektor) | $\\text{kg}\\cdot\\text{m}^2/\\text{s}$ |\n| $\\mathbf{L}_\\text{spinn}$ | Bidraget fra rotasjon om eget massesenter | $\\text{kg}\\cdot\\text{m}^2/\\text{s}$ |\n| $\\mathbf{L}_\\text{bane}$ | Bidraget fra massesenterets bevegelse forbi referansepunktet | $\\text{kg}\\cdot\\text{m}^2/\\text{s}$ |\n| $\\mathbf{p}$ | Bevegelsesmengde, $m\\mathbf{v}$ (**ikke** trykk her) | $\\text{kg}\\cdot\\text{m/s}$ |\n| $\\mathbf{V}$, $V_\\text{CM}$ | Massesenterets fart | m/s |\n| $R$ | Radius (**ikke** gasskonstant her) | m |\n| $L$ | Lengden av en stang (kursiv, skalar) | m |\n| $\\mu$ | Glidefriksjonskoeffisient | — |\n| $\\Omega$ | Presesjonsvinkelfart | rad/s |\n| $K$ | Kinetisk energi | J |\n\n**Formler i dette delkapitlet:**\n\n$$\\boldsymbol{\\tau} = \\mathbf{r}\\times\\mathbf{F}, \\qquad \\tau = rF\\sin\\phi = dF$$\nKraftmoment og momentarm [står på det utdelte arket].\n\n$$\\sum\\tau = I\\alpha$$\nNewtons 2. lov for rotasjon, gyldig når $I$ er konstant [står på det utdelte arket].\n\n$$\\sum\\boldsymbol{\\tau}_\\text{ytre} = \\frac{d\\mathbf{L}}{dt}$$\nSpinnsatsen, gyldig også når $I$ endrer seg [står på det utdelte arket].\n\n$$\\mathbf{L} = I\\boldsymbol{\\omega}, \\qquad \\mathbf{L} = \\mathbf{r}\\times m\\mathbf{v}$$\nDreieimpuls for et stivt legeme og for en partikkel [står på det utdelte arket].\n\n$$\\mathbf{L} = \\mathbf{L}_\\text{spinn} + \\mathbf{L}_\\text{bane} = I_\\text{CM}\\boldsymbol{\\omega} + \\mathbf{R}_\\text{CM}\\times m\\mathbf{V}$$\nOppdelingen i spinn og bane, med fortegn fra høyrehåndsregelen [må kunne brukes eller utledes aktivt].\n\n$$I_1\\omega_1 = I_2\\omega_2$$\nBevaring av dreieimpuls når det ytre momentet er null [må kunne brukes eller utledes aktivt].\n\n$$V = R\\omega$$\nRullebetingelsen — gjelder **bare** ved ren rulling [står på det utdelte arket].\n\n$$a = -\\mu g, \\qquad \\alpha = \\frac{5\\mu g}{2R}, \\qquad t = \\frac{2V_0}{7\\mu g}, \\qquad V = \\tfrac57V_0$$\nOvergangen gliding → ren rulling for en kompakt kule [må kunne brukes eller utledes aktivt].\n\n$$\\omega = \\sqrt{\\frac{3g}{L}}, \\qquad \\alpha = \\frac{3g}{2L}\\cos\\phi$$\nFallende stang hengslet i enden: vinkelfart i vannrett stilling fra energibevaring, vinkelakselerasjon fra spinnsatsen [må kunne brukes eller utledes aktivt].\n\n$$\\Omega = \\frac{\\tau}{L} = \\frac{Mgr}{I_0\\omega}$$\nPresesjonsvinkelfart, gyldig for rask spinn [står på det utdelte arket].\n\n$$K = \\tfrac12MV_\\text{CM}^2 + \\tfrac12I_\\text{CM}\\omega^2 = \\tfrac12I_A\\omega^2$$\nDe to ekvivalente uttrykkene for kinetisk energi — bruk **ett** av dem [må kunne brukes eller utledes aktivt].\n\n$$\\frac{d}{dt}(\\cos\\phi) = -\\sin\\phi\\,\\dot{\\phi}$$\nDerivasjonsregelen du trenger hvis du vil vise at $\\alpha$ ikke er konstant [Rottmann]."
+        }
+      ]
+    },
+    {
+      "id": "tfy4115-4-2-coll-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tfy4115-4-2-rep-1",
+          "type": "text",
+          "content": "Fem korte oppgaver på det dette kapitlet hviler på — særlig treghetsmomentene fra [kap. 4.1](/tfy4115/tfy4115-4-1). Ta dem før du går videre til [kap. 4.3](/tfy4115/tfy4115-4-3).\n\n**R1.** En kompakt kule har $m = 0{,}500\\,\\text{kg}$ og $R = 0{,}100\\,\\text{m}$. Finn $I_\\text{CM}$, og finn treghetsmomentet om kontaktpunktet med bakken.\n\n*Svar:* $I_\\text{CM} = \\tfrac25 \\cdot 0{,}500 \\cdot 0{,}0100\\,\\text{kg}\\cdot\\text{m}^2 = 2{,}00\\cdot10^{-3}\\,\\text{kg}\\cdot\\text{m}^2$. Om kontaktpunktet: $\\tfrac75mR^2 = 7{,}00\\cdot10^{-3}\\,\\text{kg}\\cdot\\text{m}^2$, altså 3,5 ganger større.\n\n**R2.** En homogen stang har $M = 1{,}20\\,\\text{kg}$ og $L = 0{,}600\\,\\text{m}$. Finn treghetsmomentet om midten og om endepunktet.\n\n*Svar:* $\\tfrac{1}{12} \\cdot 1{,}20 \\cdot 0{,}360 = 0{,}0360\\,\\text{kg}\\cdot\\text{m}^2$ og $\\tfrac13 \\cdot 1{,}20 \\cdot 0{,}360 = 0{,}144\\,\\text{kg}\\cdot\\text{m}^2$ — en faktor fire.\n\n**R3.** Hvilken vei peker vektoren $\\mathbf{r}\\times\\mathbf{F}$ når $\\mathbf{r}$ peker mot høyre i papirplanet og $\\mathbf{F}$ peker rett ned?\n\n*Svar:* Inn i papiret. Krum høyre hånds fingre fra $\\mathbf{r}$ (høyre) mot $\\mathbf{F}$ (ned): rotasjonen går med klokka, og tommelen peker inn i papiret. Kraften ville dreid legemet med klokka om aksen, som stemmer.\n\n**R4.** Et hjul med $I = 0{,}120\\,\\text{kg}\\cdot\\text{m}^2$ roterer med $\\omega = 25{,}0\\,\\text{rad/s}$. Finn dreieimpuls og rotasjonsenergi.\n\n*Svar:* $L = 0{,}120 \\cdot 25{,}0 = 3{,}00\\,\\text{kg}\\cdot\\text{m}^2/\\text{s}$ og $K = \\tfrac12 \\cdot 0{,}120 \\cdot 625 = 37{,}5\\,\\text{J}$. Merk at $K = L^2/(2I) = 9{,}00/0{,}240 = 37{,}5\\,\\text{J}$ gir det samme — den formen er nyttig i bevaringsoppgaver.\n\n**R5.** En kule ruller rent med $V = 3{,}00\\,\\text{m/s}$ og $R = 0{,}0600\\,\\text{m}$. Finn vinkelfarten, og finn hvor stor andel av den kinetiske energien som er rotasjon.\n\n*Svar:* $\\omega = V/R = 50{,}0\\,\\text{rad/s}$. Total energi er $\\tfrac{7}{10}mV^2$, og rotasjonsdelen er $\\tfrac12\\cdot\\tfrac25mR^2\\omega^2 = \\tfrac15mV^2$. Andelen er $(\\tfrac15)/(\\tfrac{7}{10}) = \\tfrac27 \\approx 28{,}6$ prosent — den samme brøken som dukket opp i energitapet i Løkke 4, og av samme grunn."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

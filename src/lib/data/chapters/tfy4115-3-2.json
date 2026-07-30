@@ -1,0 +1,383 @@
+{
+ "id": "tfy4115-3-2",
+ "courseId": "tfy4115",
+ "chapterNumber": "3.2",
+ "title": "Gravitasjon, satellittbaner og rakettligning",
+ "description": "Sirkelbane under gravitasjon ($GMm/r^2=m\\omega^2 r$), geostasjonær bane og rakettligningen fra impulsbevarelse — kompakt beredskap.",
+ "estimatedMinutes": 50,
+ "competenceGoals": [
+  "sette gravitasjonskraften lik den nødvendige sentripetalkraften og løse for banefart, baneradius eller omløpstid",
+  "finne radien og høyden til en geostasjonær bane, med omløpstiden riktig omregnet til sekunder",
+  "bruke rakettligningen til å finne fartsøkning, sluttmasse eller drivstoffandel, og forklare hvorfor massen synker når farten øker",
+  "kontrollere et banesvar mot Keplers tredje lov og mot rimelig størrelsesorden"
+ ],
+ "content": [
+  {
+   "id": "tfy4115-3-2-tip-eksamensvinkel",
+   "type": "tip",
+   "title": "Eksamensvinkel",
+   "content": "**Sjanger M12 — gravitasjon, satellittbaner og rakett, altså «et legeme går i bane rundt en klode, finn radien, farten eller omløpstiden» — dukker opp i rundt fire av ti sett (~40 %) for banedelen, og i rundt to av ti (~20 %) for rakettdelen.** Temaet hører til **mekanikkhalvdelen, spørsmål 1–20**. Prioritet: **bør sitte.**\n\nDette er ikke fagets hyppigste sjanger, men den er blant de mest lønnsomme å ha klar. Grunnen er at hele banedelen hviler på **én** ligning du setter opp selv, og at regnekjeden derfra er tre linjer lang. Kan du den, tar spørsmålet halvannet minutt. Kan du den ikke, står du fast — for det finnes ingen omvei.\n\nSignaturen er lett å kjenne igjen: en satellitt, en romstasjon eller en måne i **sirkelbane**, med to av de tre størrelsene baneradius $r$, banefart $v$ og omløpstid $T$ oppgitt. Den klassiske varianten er den **geostasjonære** banen, der omløpstiden er gitt som ett døgn og du skal finne radien eller høyden over bakken.\n\n**Rakettdelen er «kjenne til»-stoff.** Den ligger sist i kapitlet, i Løkke 3, og er kortere med vilje. Du trenger én formel og forståelsen av hvorfor massen synker når farten øker — men du skal ikke bruke halve lesetiden der.\n\n**Om tidsbruken.** Kapitlet er anslått til 50 minutter, delt i tre løkker med tidsanslag: sirkelbanen (~16 min), den geostasjonære banen (~16 min) og raketten (~12 min), pluss omtrent seks minutter på begrepsbank og formelliste. Det er et **kompakt** kapittel sammenlignet med [kap. 3.1](/tfy4115/tfy4115-3-1) — nettopp fordi frekvensen er lavere.\n\n**Ett tall å ta med seg videre allerede nå:** tyngdeakselerasjonen ved jordoverflaten kan regnes ut av gravitasjonsloven som $GM/R^2 = 9{,}82\\,\\text{m/s}^2$, altså de samme $9{,}81\\,\\text{m/s}^2$ du har brukt hele veien. Gravitasjonen i bane er ikke en annen kraft enn tyngden — det er samme kraft, målt lenger ute."
+  },
+  {
+   "id": "tfy4115-3-2-forkunnskaper",
+   "type": "text",
+   "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet bygger på [kap. 3.1](/tfy4115/tfy4115-3-1), der du arbeidet med bevegelsesmengde og impulsbevarelse — det er nøyaktig den bevaringsloven raketten hviler på. Fra [kap. 1.2](/tfy4115/tfy4115-1-2) trenger du sentripetalakselerasjonen og vanen med å sette opp Newtons 2. lov **inn mot sentrum** i en krum bane.\n\nFra videregående er fundamentet lagt i fysikk 2: [Newtons gravitasjonslov](/fysikk2/fysikk2-2-1), [Gravitasjonsfelt og gravitasjonspotensial](/fysikk2/fysikk2-2-2), [Satellittbevegelse og romfart](/fysikk2/fysikk2-2-3) og [Gravitasjon og energi](/fysikk2/fysikk2-2-5) (den siste for gravitasjonell potensiell energi, som vi bare berører her). Har du ikke hatt fysikk 2, går det fint: alt du trenger, står i de tre relasjonene under.\n\n**De tre relasjonene du trenger ferdig oppfrisket:**\n\n$$F = \\frac{GMm}{r^2}$$\nNewtons gravitasjonslov. To legemer med masse $M$ og $m$ trekker på hverandre med en kraft som avtar med **kvadratet** av avstanden $r$ mellom sentrene deres. Kraften peker langs linjen mellom dem, og $G = 6{,}674\\cdot10^{-11}\\,\\text{N}\\cdot\\text{m}^2/\\text{kg}^2$ er gravitasjonskonstanten. Både loven og konstanten **står på det utdelte formelarket**.\n\n$$a_\\text{sentripetal} = \\frac{v^2}{r} = \\omega^2 r$$\nSentripetalakselerasjonen for et legeme som går i sirkel med radius $r$. Den peker **inn mot sentrum**, og de to formene er den samme størrelsen skrevet med banefart $v$ eller med vinkelfart $\\omega$. Sammenhengen mellom dem er $v = \\omega r$. Dette **står på arket**.\n\n$$\\sum \\mathbf{p} = \\text{konstant} \\quad (\\text{når ingen ytre kraft virker})$$\nImpulsbevarelse fra [kap. 3.1](/tfy4115/tfy4115-3-1): den samlede bevegelsesmengden i et system endres ikke av indre krefter. En rakett som støter ut gass, er nettopp et slikt system — gassen får bevegelsesmengde bakover, raketten like mye forover.\n\n**Symbolmerknad — to av bokas fem symbolkollisjoner er aktive her.** I dette kapitlet er $T$ **omløpstiden** (svingetiden) i sekunder, ikke en temperatur; temperatur får du først i Del 6. Og $R$ er en **radius** i meter, ikke gasskonstanten. Symbolet $p$ er **bevegelsesmengde** (en vektor), ikke trykk. Vi skriver $M$ for kloden som blir gått i bane rundt og $m$ for legemet som går i bane, og vi skriver $R_\\text{jord}$ når vi mener jordas egen radius og $r$ når vi mener baneradien.\n\n**Tallene vi bruker gjennom hele kapitlet.** Jordas masse er $M = 5{,}972\\cdot10^{24}\\,\\text{kg}$ og radien $R_\\text{jord} = 6{,}371\\cdot10^{6}\\,\\text{m}$. Produktet $GM$ opptrer i **hver** formel, aldri $G$ og $M$ hver for seg — så regn det ut én gang og lagre det:\n\n$$GM = 3{,}986\\cdot10^{14}\\,\\text{m}^3/\\text{s}^2.$$\n\nAlle tre konstantene står på formelarket. Én kontroll før vi begynner: $GM/R_\\text{jord}^2 = 9{,}82\\,\\text{m/s}^2$, som er tyngdeakselerasjonen ved bakken. Stemmer det tallet, har du satt inn riktig."
+  },
+  {
+   "id": "tfy4115-3-2-lokke1",
+   "type": "text",
+   "content": "## Løkke 1 — gravitasjonen som sentripetalkraft (~16 min)\n\nAstronautene på en romstasjon flyter. De ser vektløse ut, og det er lett å tro at tyngden er borte der oppe. Den er ikke det. I 400 kilometers høyde er gravitasjonen fremdeles nesten 89 prosent av det den er ved bakken. Astronautene flyter fordi de er i **fritt fall** — de faller, sammen med stasjonen, hele tiden. De bare faller *rundt* jorda i stedet for ned i den.\n\nDet er hele ideen bak en bane. Kast en stein vannrett, og den faller i en bue til den treffer bakken. Kast den fortere, og buen blir lengre. Kast den fort nok, og buen krummer akkurat like mye som jordoverflaten krummer — og da treffer den aldri bakken. Steinen er i bane.\n\nRegnemessig er dette overraskende enkelt, fordi det bare finnes **én** kraft å tegne. Ingen normalkraft, ingen friksjon, ingen snor. Gravitasjonen er den eneste kraften på satellitten, og den peker rett inn mot sentrum av kloden. Men det er nøyaktig retningen en sentripetalkraft må ha."
+  },
+  {
+   "id": "tfy4115-3-2-def-sirkelbane",
+   "type": "definition",
+   "title": "Sirkelbane under gravitasjon",
+   "content": "Banen til et legeme som går rundt en klode i en **sirkel med konstant fart**, der den eneste kraften på legemet er klodens gravitasjon. Radien $r$ måles fra klodens **sentrum**, ikke fra overflaten — det er den vanligste lesefeilen i sjangeren.\n\nAt farten er konstant, er ikke en antakelse vi gjør for å slippe unna: gravitasjonen peker inn mot sentrum, og farten står vinkelrett på den, så kraften har ingen komponent langs banen. Da gjør den heller ikke arbeid, og den kinetiske energien — altså farten — endres ikke. Retningen endres hele tiden, farten aldri.\n\nSirkelbanen er et **spesialtilfelle**. Virkelige baner er ellipser, og en oppgave som oppgir «største og minste avstand» handler om en ellipse. Men eksamensoppgavene i dette faget ber om sirkelbaner, og der holder relasjonene i dette kapitlet eksakt."
+  },
+  {
+   "id": "tfy4115-3-2-def-gm",
+   "type": "definition",
+   "title": "Standard gravitasjonsparameter",
+   "content": "Produktet av gravitasjonskonstanten og klodens masse, skrevet som én størrelse:\n$$GM = 6{,}674\\cdot10^{-11}\\cdot 5{,}972\\cdot10^{24}\\,\\text{m}^3/\\text{s}^2 = 3{,}986\\cdot10^{14}\\,\\text{m}^3/\\text{s}^2 \\quad (\\text{jorda}).$$\nGrunnen til at den er verdt et eget navn, er at $G$ og $M$ **aldri** opptrer hver for seg i baneformlene — de kommer alltid som produktet. Regner du det ut én gang og lagrer det i kalkulatoren, sparer du både tid og en tastefeil per oppgave. Enheten $\\text{m}^3/\\text{s}^2$ ser rar ut, men den er riktig: $GM/r^2$ skal bli en akselerasjon i $\\text{m/s}^2$, og $\\text{m}^3/\\text{s}^2$ delt på $\\text{m}^2$ er nettopp det. Både $G$ og jordas masse står på formelarket, produktet må du lage selv."
+  },
+  {
+   "id": "tfy4115-3-2-def-sentripetal",
+   "type": "definition",
+   "title": "Sentripetalkraft (resultanten inn mot sentrum)",
+   "content": "Navnet på **summen** av de virkelige kreftene på et legeme som går i sirkel, når den summen peker inn mot sentrum. Sentripetalkraften er altså ikke en ny kraft du legger til i kraftskissen — den er en **rolle** som fylles av krefter du allerede har tegnet. På et karusellsete er det setet som presser; i en sving er det veifriksjonen; for en satellitt er det gravitasjonen, helt alene.\n\nKonsekvensen for figurene i dette kapitlet er streng: du skal aldri tegne inn en utoverrettet pil på en satellitt. Det finnes ingen kraft som drar satellitten utover. Den «vil» bevege seg rett fram, og gravitasjonen bøyer banen inn — det er alt.\n\nStørrelsen på den nødvendige resultanten er $mv^2/r$, rettet inn mot sentrum. Det er ikke en ny lov, bare Newtons 2. lov med sentripetalakselerasjonen satt inn."
+  },
+  {
+   "id": "tfy4115-3-2-th-banebetingelsen",
+   "type": "theorem",
+   "title": "Banebetingelsen: gravitasjonen ER sentripetalkraften",
+   "content": "Isolér satellitten. Den eneste kraften på den er gravitasjonen fra kloden, rettet inn mot sentrum. Newtons 2. lov inn mot sentrum gir derfor\n\n$$\\frac{GMm}{r^2} = \\frac{mv^2}{r} = m\\omega^2 r.$$\n\nDette er kapitlets ene ligning, og alt annet følger av den.\n\n**Trinn 1 — satellittens masse faller ut.** Massen $m$ står som faktor på begge sider og forkortes bort:\n$$\\frac{GM}{r^2} = \\frac{v^2}{r} \\quad\\Longrightarrow\\quad v = \\sqrt{\\frac{GM}{r}}.$$\n*Intuisjon:* en tung og en lett satellitt i samme høyde går like fort. Det er samme grunn som at en tung og en lett stein faller like fort — gravitasjonen vokser med massen, og treghetsmotstanden vokser like mye.\n\n**Trinn 2 — koblingen til omløpstiden.** En full runde er $2\\pi r$ lang og tar tiden $T$, så\n$$v = \\frac{2\\pi r}{T}.$$\nDette er ren definisjon, ikke fysikk, men det er koblingen som gjør oppgavene løsbare: oppgaven oppgir nesten alltid $T$ og spør etter $r$, eller omvendt.\n\n**Trinn 3 — sett de to sammen.** Bruk $\\omega = 2\\pi/T$ i midtformen $GM/r^2 = \\omega^2 r$:\n$$\\frac{GM}{r^2} = \\frac{4\\pi^2}{T^2}\\,r \\quad\\Longrightarrow\\quad \\boxed{\\ \\frac{T^2}{r^3} = \\frac{4\\pi^2}{GM}\\ }$$\n\nHøyresiden inneholder bare konstanter. For jorda er den\n$$\\frac{4\\pi^2}{GM} = 9{,}905\\cdot10^{-14}\\,\\text{s}^2/\\text{m}^3,$$\nog **den samme verdien gjelder for hver eneste bane rundt jorda**. Det er Keplers tredje lov, og det er den kraftigste kontrollen du har: regn ut $T^2/r^3$ for svaret ditt, og se om du treffer.\n\n**Tre former av samme sannhet**, alt etter hva oppgaven spør om:\n$$v = \\sqrt{\\frac{GM}{r}}, \\qquad T = 2\\pi\\sqrt{\\frac{r^3}{GM}}, \\qquad r = \\left(\\frac{GMT^2}{4\\pi^2}\\right)^{1/3}.$$\n\nIngen av de tre står ferdig på det utdelte arket. Gravitasjonsloven og sentripetalakselerasjonen står der; **kombinasjonen må du gjøre selv**, og det tar én linje."
+  },
+  {
+   "id": "tfy4115-3-2-fig-satellitt",
+   "type": "image",
+   "src": "/images/textbook/tfy4115/tfy4115-3-2-satellitt.svg",
+   "alt": "En sirkelbane tegnet som stiplet sirkel rundt jorda. Fra satellitten paa banen peker en pil merket F lik G M m delt paa r i andre inn mot jordas sentrum, og en pil merket v peker tangentielt langs banen, vinkelrett paa radien. Radien r er tegnet som en stiplet linje fra sentrum til satellitten. En bue med pilspiss viser omloepsretningen. Til hoeyre staar sammenhengene mellom gravitasjon, sentripetalakselerasjon, banefart og omloepstid. Ingen utoverrettet kraft er tegnet inn.",
+   "caption": "Sirkelbanen: den eneste kraften er gravitasjonen, og den peker inn mot sentrum. Farten $v$ står vinkelrett på radien, så gravitasjonen gjør ikke arbeid og banefarten er konstant."
+  },
+  {
+   "id": "tfy4115-3-2-def-banefart",
+   "type": "definition",
+   "title": "Banefart",
+   "content": "Farten et legeme har langs banen sin, målt i forhold til klodens sentrum. For en sirkelbane følger den av banebetingelsen alene:\n$$v = \\sqrt{\\frac{GM}{r}}.$$\nLegg merke til hva som **ikke** står der: satellittens masse. Legg også merke til fortegnet i sammenhengen — farten avtar når radien øker, som $1/\\sqrt{r}$. En satellitt langt ute går altså **langsommere** enn en nær bakken, selv om den har lengre vei å gå. Det er derfor omløpstiden vokser dobbelt så raskt som avstanden skulle tilsi. Enheten er m/s, og for jordbaner ligger tallene mellom omtrent $3\\,000$ og $7\\,900\\,\\text{m/s}$."
+  },
+  {
+   "id": "tfy4115-3-2-def-omlopstid",
+   "type": "definition",
+   "title": "Omløpstid",
+   "content": "Tiden $T$ et legeme bruker på én full runde i banen. Den kalles også baneperioden, og den er den størrelsen oppgaveteksten oftest oppgir — som regel i **timer eller minutter**, mens formlene krever **sekunder**. Sammenhengen med banefarten er ren geometri: én runde er $2\\pi r$ lang, så $T = 2\\pi r/v$. Kombinert med banefarten gir det $T = 2\\pi\\sqrt{r^3/GM}$.\n\nSymbolet $T$ betyr i dette kapitlet **omløpstid**, og ingenting annet. Fra Del 6 og utover betyr det samme symbolet absolutt temperatur i kelvin — en av bokas fem symbolkollisjoner, og en du bør legge merke til nå, mens den er ufarlig."
+  },
+  {
+   "id": "tfy4115-3-2-def-vinkelfart",
+   "type": "definition",
+   "title": "Vinkelfart i bane",
+   "content": "Hvor mange radianer per sekund legemet dreier seg rundt sentrum, $\\omega = 2\\pi/T$. Størrelsen er nyttig fordi banebetingelsen ofte er penest i formen $GM/r^2 = \\omega^2 r$: da slipper du å gå via banefarten i det hele tatt.\n\nSammenhengen med banefarten er $v = \\omega r$. Det er her den vanligste fella i sjangeren bor: å sette $\\omega$ inn der $v$ skal stå, altså å regne sentripetalleddet som $\\omega^2/r$ eller $v^2 r$. Enhetskontrollen avslører det straks — $\\omega$ har enhet $\\text{rad/s}$, altså $1/\\text{s}$, mens $v$ har $\\text{m/s}$. Ett sekunds sjekk."
+  },
+  {
+   "id": "tfy4115-3-2-ex-1",
+   "type": "example",
+   "title": "Eksempel 1: romstasjonen i lav bane",
+   "problem": "En romstasjon går i sirkelbane 400 kilometer over jordoverflaten.\n\n**a)** Finn baneradien.\n**b)** Finn banefarten.\n**c)** Finn omløpstiden, i minutter.\n**d)** Hvor stor er gravitasjonsakselerasjonen i denne høyden, og hvor mange prosent av verdien ved bakken er det?",
+   "solution": "**a)** Baneradien måles fra jordas **sentrum**, så høyden må legges til jordradien:\n$$r = R_\\text{jord} + h = 6{,}371\\cdot10^{6}\\,\\text{m} + 4{,}00\\cdot10^{5}\\,\\text{m} = 6{,}771\\cdot10^{6}\\,\\text{m}.$$\nDette er hele trinn én, og det er trinnet folk hopper over. Å bruke $4{,}00\\cdot10^5\\,\\text{m}$ som baneradius gir en banefart på over $31\\,000\\,\\text{m/s}$ — fire ganger for stort.\n\n**b) Symbolsk utledning.** Banebetingelsen $GMm/r^2 = mv^2/r$ gir $v = \\sqrt{GM/r}$.\n\n**Rask vei til tall.** Regn brøken først, med fire siffer:\n$$\\frac{GM}{r} = \\frac{3{,}986\\cdot10^{14}}{6{,}771\\cdot10^{6}}\\,\\text{m}^2/\\text{s}^2 = 5{,}886\\cdot10^{7}\\,\\text{m}^2/\\text{s}^2,$$\n$$v = \\sqrt{5{,}886\\cdot10^{7}}\\,\\text{m/s} = 7\\,672{,}3\\,\\text{m/s} \\approx 7\\,672\\,\\text{m/s} = 7{,}67\\,\\text{km/s}.$$\n\n**Benevningskontroll.** $\\text{m}^3/\\text{s}^2$ delt på $\\text{m}$ er $\\text{m}^2/\\text{s}^2$, og kvadratroten av det er m/s. Det stemmer.\n\n**c)** Én runde er $2\\pi r$:\n$$T = \\frac{2\\pi r}{v} = \\frac{6{,}28319 \\cdot 6{,}771\\cdot10^{6}}{7\\,672{,}3}\\,\\text{s} = \\frac{4{,}2543\\cdot10^{7}}{7\\,672{,}3}\\,\\text{s} = 5\\,545{,}1\\,\\text{s}.$$\nOmregnet: $5\\,545{,}1/60 = 92{,}42\\,\\text{min}$, altså rundt halvannen time per runde. Det er tallet du kanskje har hørt før — en romstasjon går omtrent 16 runder i døgnet.\n\n**Kepler-kontroll.** $T^2/r^3 = 5\\,545{,}1^2/(6{,}771\\cdot10^{6})^3 = 9{,}905\\cdot10^{-14}\\,\\text{s}^2/\\text{m}^3$. Det er nøyaktig $4\\pi^2/GM$, så banen er konsistent.\n\n**d)** Gravitasjonsakselerasjonen er kraften per masse:\n$$a = \\frac{GM}{r^2} = \\frac{3{,}986\\cdot10^{14}}{4{,}5846\\cdot10^{13}}\\,\\text{m/s}^2 = 8{,}694\\,\\text{m/s}^2.$$\nSammenlignet med bakken: $8{,}694/9{,}81 = 0{,}8862$, altså $88{,}6$ prosent.\n\n**Og der er svaret på romstasjons-gåten.** Tyngden er praktisk talt like sterk der oppe. Astronautene flyter ikke fordi gravitasjonen er borte, men fordi **alt** rundt dem faller like fort som de selv gjør — de er i fritt fall langs banen, sammen med stasjonen. En vekt under føttene deres ville vist null, men gravitasjonen leverer $8{,}694\\,\\text{m/s}^2$ hele tiden. Uten den ville stasjonen forlatt oss i en rett linje."
+  },
+  {
+   "id": "tfy4115-3-2-o-1",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-3-2-oppg-1",
+    "number": "1",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Innstegsoppgave — én formel og en enhetsomregning.)\n\nEn satellitt går i sirkelbane rundt jorda med baneradien $r = 7{,}00\\cdot10^{6}\\,\\text{m}$.\n\n**a)** Hvor høyt over jordoverflaten går den?\n**b)** Finn banefarten.\n**c)** Finn omløpstiden, både i sekunder og i minutter.",
+    "solution": "**a)** Høyden er baneradien minus jordradien:\n$$h = r - R_\\text{jord} = 7{,}00\\cdot10^{6}\\,\\text{m} - 6{,}371\\cdot10^{6}\\,\\text{m} = 6{,}29\\cdot10^{5}\\,\\text{m} = 629\\,\\text{km}.$$\n\n**b)**\n$$v = \\sqrt{\\frac{GM}{r}} = \\sqrt{\\frac{3{,}986\\cdot10^{14}}{7{,}00\\cdot10^{6}}}\\,\\text{m/s} = \\sqrt{5{,}6926\\cdot10^{7}}\\,\\text{m/s} = 7\\,545{,}8\\,\\text{m/s} \\approx 7\\,546\\,\\text{m/s}.$$\n\n**c)**\n$$T = \\frac{2\\pi r}{v} = \\frac{6{,}28319 \\cdot 7{,}00\\cdot10^{6}}{7\\,545{,}8}\\,\\text{s} = \\frac{4{,}3982\\cdot10^{7}}{7\\,545{,}8}\\,\\text{s} = 5\\,828{,}7\\,\\text{s}.$$\nDelt på 60: $97{,}1\\,\\text{min}$, altså i underkant av halvannen time.\n\n**Kontroll.** Banen ligger høyere enn romstasjonen i eksempel 1 ($629$ km mot $400$ km), og både farten er lavere ($7\\,546$ mot $7\\,672\\,\\text{m/s}$) og omløpstiden lengre ($97{,}1$ mot $92{,}4$ min). Slik skal det være: lengre ut betyr langsommere og lengre runde.",
+    "hints": [
+     "Baneradien måles fra jordas sentrum; høyden er $r - R_\\text{jord}$.",
+     "Banefarten følger av $v = \\sqrt{GM/r}$ med $GM = 3{,}986\\cdot10^{14}\\,\\text{m}^3/\\text{s}^2$.",
+     "Omløpstiden er banens omkrets $2\\pi r$ delt på farten."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-3-2-o-2",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-3-2-oppg-2",
+    "number": "2",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Sjanger M12 — gravitasjon, satellittbane og rakett.)\n\nEn jordobservasjonssatellitt går i sirkelbane 800 kilometer over bakken.\n\n**a)** Finn banefarten og omløpstiden.\n**b)** Sammenlign med romstasjonen i eksempel 1, som går 400 kilometer opp. Er farten høyere eller lavere, og er runden kortere eller lengre i tid?",
+    "solution": "**a)** Baneradien er\n$$r = 6{,}371\\cdot10^{6}\\,\\text{m} + 8{,}00\\cdot10^{5}\\,\\text{m} = 7{,}171\\cdot10^{6}\\,\\text{m}.$$\n$$v = \\sqrt{\\frac{3{,}986\\cdot10^{14}}{7{,}171\\cdot10^{6}}}\\,\\text{m/s} = \\sqrt{5{,}5581\\cdot10^{7}}\\,\\text{m/s} = 7\\,455{,}3\\,\\text{m/s} \\approx 7\\,455\\,\\text{m/s}.$$\n$$T = \\frac{6{,}28319 \\cdot 7{,}171\\cdot10^{6}}{7\\,455{,}3}\\,\\text{s} = 6\\,043{,}6\\,\\text{s} = 100{,}7\\,\\text{min}.$$\n\n**b)** Romstasjonen har $v = 7\\,672\\,\\text{m/s}$ og $T = 92{,}4\\,\\text{min}$. Denne satellitten går altså **langsommere** ($7\\,455$ mot $7\\,672\\,\\text{m/s}$, et forhold på $0{,}972$) og bruker **lengre** tid per runde ($100{,}7$ mot $92{,}4\\,\\text{min}$).\n\nDet er verdt å dvele ved hvorfor begge går samme vei. Farten avtar som $1/\\sqrt{r}$, og omkretsen vokser som $r$ — så omløpstiden vokser med både lengre vei og lavere fart, altså som $r^{3/2}$. Å doble baneradien gir $2^{3/2} = 2{,}83$ ganger så lang omløpstid.",
+    "hints": [
+     "Husk å legge høyden til jordradien før du regner.",
+     "Bruk $v = \\sqrt{GM/r}$ og deretter $T = 2\\pi r/v$.",
+     "Se på hvordan $v$ og $T$ avhenger av $r$ i de to formlene før du svarer på b)."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-3-2-lokke2",
+   "type": "text",
+   "content": "— naturlig pausepunkt —\n\n## Løkke 2 — den geostasjonære banen (~16 min)\n\nSe på en parabolantenne på en husvegg. Den er skrudd fast i én retning og blir aldri justert. Likevel treffer den en satellitt som beveger seg med tusenvis av meter per sekund. Det går fordi satellitten står **stille i forhold til huset**: den bruker akkurat ett døgn på en runde, og huset bruker akkurat ett døgn på en runde med jorda. De dreier i takt.\n\nDette er den geostasjonære banen, og den er kapitlets viktigste enkeltoppgave. Formen er alltid den samme: omløpstiden er gitt (ett døgn), og du skal finne radien eller høyden. Det som gjør oppgaven verdt å øve på, er at den kombinerer to feller — en enhetsfelle og en rotfelle — og at begge har ferdige svaralternativer i lista.\n\nVerktøyet er den tredje formen fra banebetingelsen, den vi løste for $r$."
+  },
+  {
+   "id": "tfy4115-3-2-def-radius-hoyde",
+   "type": "definition",
+   "title": "Baneradius og banehøyde",
+   "content": "To størrelser som blandes så ofte at det er verdt en egen oppføring. **Baneradien** $r$ måles fra klodens **sentrum** og er den som står i alle formlene. **Banehøyden** $h$ måles fra klodens **overflate** og er den oppgaveteksten gjerne oppgir, fordi den er lettere å forestille seg:\n$$r = R_\\text{jord} + h, \\qquad h = r - R_\\text{jord}.$$\nFor jorda er $R_\\text{jord} = 6{,}371\\cdot10^{6}\\,\\text{m}$. Hvor mye det betyr, avhenger av banen: for en romstasjon i $400$ km høyde er jordradien 94 prosent av baneradien, så å glemme den er katastrofalt. For en geostasjonær bane er den bare 15 prosent — men et avvik på 15 prosent er mer enn nok til å treffe et galt alternativ. Les alltid nøye hvilken av de to oppgaven spør etter, og skriv ned hvilken du regner med."
+  },
+  {
+   "id": "tfy4115-3-2-def-geostasjonar",
+   "type": "definition",
+   "title": "Geostasjonær bane",
+   "content": "Banen der en satellitt står **stille sett fra bakken**. Det krever tre ting samtidig: at omløpstiden er lik jordas rotasjonstid, at banen ligger i ekvatorplanet, og at den er en sirkel. Da dreier satellitten i takt med punktet under seg, og en antenne på bakken kan stå fast.\n\nRadien følger av banebetingelsen løst for $r$, med $T$ satt til ett døgn:\n$$r = \\left(\\frac{GMT^2}{4\\pi^2}\\right)^{1/3} = 4{,}224\\cdot10^{7}\\,\\text{m},$$\naltså omtrent $42\\,200$ km fra jordas sentrum og $35\\,900$ km over bakken. Der er banefarten $3{,}07\\,\\text{km/s}$ — under halvparten av farten i lav bane, fordi radien er over seks ganger større.\n\nBanen brukes til fjernsyn, værovervåking og kommunikasjon, og den er trang: alle geostasjonære satellitter må dele én og samme sirkel over ekvator."
+  },
+  {
+   "id": "tfy4115-3-2-th-radius-av-T",
+   "type": "theorem",
+   "title": "Baneradius fra omløpstid (Keplers tredje lov i regnbar form)",
+   "content": "Løs $T^2/r^3 = 4\\pi^2/GM$ for radien:\n\n$$r = \\left(\\frac{GMT^2}{4\\pi^2}\\right)^{1/3}.$$\n\n**Utledningen tar to linjer** og bør gjøres, ikke pugges. Start i banebetingelsen med vinkelfart, siden det er den formen der $T$ kommer inn direkte:\n$$\\frac{GMm}{r^2} = m\\omega^2 r = m\\left(\\frac{2\\pi}{T}\\right)^2 r \\quad\\Longrightarrow\\quad GM = \\frac{4\\pi^2 r^3}{T^2},$$\nog løs for $r^3$. Merk at massen $m$ falt ut igjen: **en tung og en lett satellitt har samme geostasjonære radius.**\n\n**Hva som er avgjørende i regnekjeden.** Tre ting, i denne rekkefølgen:\n\n1. **Omløpstiden skal i sekunder.** Ett døgn er $24 \\cdot 3\\,600\\,\\text{s} = 86\\,400\\,\\text{s}$. Setter du inn 24 i stedet, blir $T^2$ en faktor $3\\,600^2 = 1{,}3\\cdot10^{7}$ for liten, og radien en faktor $(1{,}3\\cdot10^{7})^{1/3} = 235$ for liten — du får $180$ km i stedet for $42\\,200$ km.\n2. **Det er en kubikkrot, ikke en kvadratrot.** Tar du kvadratroten, får du $2{,}7\\cdot10^{8}\\,\\text{km}$, som er nesten dobbelt så langt som til sola.\n3. **Faktoren $4\\pi^2 = 39{,}478$ hører i nevneren.** Glemmer du den, blir radien $(39{,}478)^{1/3} = 3{,}4$ ganger for stor: $143\\,800$ km.\n\n**Kubikkroten er samtidig en trøst.** Den demper feil kraftig: en feil på 10 prosent i $T^2$ gir bare 3 prosent i $r$. Så du behøver ikke være redd for avrunding her — men du må treffe **tierpotensen**, for den demper ingenting.\n\nFormelen står ikke ferdig på det utdelte arket; gravitasjonsloven og sentripetalakselerasjonen gjør det, og resten [må kunne brukes eller utledes aktivt]."
+  },
+  {
+   "id": "tfy4115-3-2-th-rask-vei",
+   "type": "theorem",
+   "title": "Rask vei til tall (MC-oppskrift)",
+   "content": "Fra oppgitt bane til bokstavsvar i fem trinn.\n\n**1. Hvilken lov?** Newtons 2. lov inn mot sentrum, med gravitasjonen som eneste kraft:\n$$\\frac{GMm}{r^2} = \\frac{mv^2}{r} = m\\omega^2 r.$$\nAlt annet i banedelen er denne ligningen løst for en annen bokstav.\n\n**2. Hvilken ene regnelinje?** Velg etter hva oppgaven oppgir og hva den spør om:\n- oppgitt $r$, spør om $v$: $\\ v = \\sqrt{GM/r}$\n- oppgitt $r$, spør om $T$: $\\ T = 2\\pi\\sqrt{r^3/GM}$\n- oppgitt $T$, spør om $r$: $\\ r = (GMT^2/4\\pi^2)^{1/3}$\n- spør om høyden: regn $r$ først, trekk fra $R_\\text{jord}$ **til slutt**\n- rakett: $\\ \\Delta v = u\\ln(m_0/m)$, eller $m = m_0e^{-\\Delta v/u}$\n\n**3. Hvilke verdier hentes fra arket?** $G$, jordas masse og jordradien står der. Produktet $GM = 3{,}986\\cdot10^{14}\\,\\text{m}^3/\\text{s}^2$ lager du selv, én gang, og lagrer. Kombinasjonene i punkt 2 må du sette opp selv — de står ikke der.\n\n**4. Hvor mange siffer?** Fire gjennom kjeden. Kubikkroten demper feil, så avrunding er mindre farlig her enn i resten av boka — men **tierpotensen** må være rett, og der hjelper ingen demping. Skriv derfor alltid tallene på standardform mens du regner: $3{,}986\\cdot10^{14}$, ikke $398\\,600\\,000\\,000\\,000$.\n\n**5. Sjekk før du krysser av.** Fem kontroller på tjue sekunder:\n- **Sekunder?** Timer og minutter i formelen er sjangerens dyreste feil.\n- **Radius eller høyde?** Spør oppgaven om høyde over bakken, skal $R_\\text{jord}$ trekkes fra.\n- **Størrelsesorden.** Jordbaner har $r$ mellom $6{,}4\\cdot10^{6}$ og omtrent $4{,}2\\cdot10^{7}\\,\\text{m}$, og $v$ mellom $3\\,000$ og $7\\,900\\,\\text{m/s}$. Et svar utenfor det er galt, uten at du behøver å vite hvorfor.\n- **Kepler.** $T^2/r^3$ skal bli $9{,}905\\cdot10^{-14}\\,\\text{s}^2/\\text{m}^3$. Denne kontrollen fanger nesten alle feil i sjangeren, og den tar to tastetrykk.\n- **Retningen på sammenhengen.** Høyere bane betyr **lavere** fart og **lengre** omløpstid. Har du fått motsatt, har du snudd en brøk."
+  },
+  {
+   "id": "tfy4115-3-2-ex-2",
+   "type": "example",
+   "title": "Eksempel 2: den geostasjonære banen",
+   "problem": "En kommunikasjonssatellitt skal stå stille sett fra bakken, altså gå én runde i takt med jordas rotasjon. Regn med omløpstiden $T = 24$ timer.\n\n**a)** Finn baneradien.\n**b)** Hvor høyt over bakken er det?\n**c)** Finn banefarten og vinkelfarten.\n**d)** Kontrollér svaret mot Keplers tredje lov.\n**e)** Jordas rotasjonstid i forhold til stjernene er egentlig $86\\,164$ sekunder, ikke $86\\,400$. Hvor mye endrer det svaret?",
+   "solution": "**a) Symbolsk utledning.** Fra banebetingelsen med vinkelfart, $GM/r^2 = \\omega^2 r$ og $\\omega = 2\\pi/T$:\n$$r = \\left(\\frac{GMT^2}{4\\pi^2}\\right)^{1/3}.$$\n\n**Rask vei til tall.** Først omløpstiden i sekunder — dette er trinnet som avgjør oppgaven:\n$$T = 24 \\cdot 3\\,600\\,\\text{s} = 86\\,400\\,\\text{s}, \\qquad T^2 = 7{,}4650\\cdot10^{9}\\,\\text{s}^2.$$\nDeretter teller og nevner hver for seg:\n$$GMT^2 = 3{,}986\\cdot10^{14} \\cdot 7{,}4650\\cdot10^{9} = 2{,}9755\\cdot10^{24}, \\qquad 4\\pi^2 = 39{,}478,$$\n$$r^3 = \\frac{2{,}9755\\cdot10^{24}}{39{,}478}\\,\\text{m}^3 = 7{,}5372\\cdot10^{22}\\,\\text{m}^3,$$\n$$r = \\left(7{,}5372\\cdot10^{22}\\right)^{1/3}\\,\\text{m} = 4{,}2240\\cdot10^{7}\\,\\text{m} = 42\\,240\\,\\text{km}.$$\n\n*Et tips til kubikkroten på en enkel kalkulator:* skriv eksponenten som et multiplum av 3 først. $7{,}5372\\cdot10^{22} = 75{,}372\\cdot10^{21}$, og $\\sqrt[3]{75{,}372} = 4{,}2240$ ganger $10^{7}$. Da slipper du å stole på at maskinen håndterer eksponenten riktig.\n\n**b)** Høyden over bakken:\n$$h = r - R_\\text{jord} = 4{,}2240\\cdot10^{7} - 6{,}371\\cdot10^{6}\\,\\text{m} = 3{,}5869\\cdot10^{7}\\,\\text{m} = 35\\,869\\,\\text{km}.$$\nDet er nesten seks jordradier ut. Dette tallet — rundt $36\\,000$ km — er verdt å ha i hodet som en størrelsesordenskontroll.\n\n**c)**\n$$v = \\frac{2\\pi r}{T} = \\frac{6{,}28319 \\cdot 4{,}2240\\cdot10^{7}}{86\\,400}\\,\\text{m/s} = \\frac{2{,}6540\\cdot10^{8}}{86\\,400}\\,\\text{m/s} = 3\\,071{,}8\\,\\text{m/s},$$\n$$\\omega = \\frac{2\\pi}{T} = \\frac{6{,}28319}{86\\,400}\\,\\text{rad/s} = 7{,}2722\\cdot10^{-5}\\,\\text{rad/s}.$$\nKontroll: $\\omega r = 7{,}2722\\cdot10^{-5} \\cdot 4{,}2240\\cdot10^{7}\\,\\text{m/s} = 3\\,072\\,\\text{m/s}$. Samme tall, som det skal være.\n\nMerk at farten er **lavere** enn i lav bane ($3\\,072$ mot $7\\,672\\,\\text{m/s}$), selv om banen er over seks ganger så stor. Det er $1/\\sqrt{r}$-oppførselen i praksis.\n\n**d) Kepler-kontroll.**\n$$\\frac{T^2}{r^3} = \\frac{7{,}4650\\cdot10^{9}}{7{,}5372\\cdot10^{22}}\\,\\text{s}^2/\\text{m}^3 = 9{,}905\\cdot10^{-14}\\,\\text{s}^2/\\text{m}^3.$$\nDet er $4\\pi^2/GM$, samme verdi som for romstasjonen i eksempel 1 — to helt ulike baner, samme konstant.\n\n**e)** Med $T = 86\\,164\\,\\text{s}$ blir $r = 42\\,163\\,\\text{km}$ og $h = 35\\,792\\,\\text{km}$. Forskjellen i radius er $0{,}18$ prosent — altså 77 kilometer.\n\n**Og her skal vi være ærlige om hva som er hva.** Den fysisk riktige omløpstiden for en geostasjonær bane er ett **stjernedøgn**, $86\\,164\\,\\text{s}$, fordi det er tiden jorda bruker på én omdreining om sin egen akse. Døgnet på $86\\,400\\,\\text{s}$ er tiden fra sol i sør til sol i sør igjen, som er litt lengre fordi jorda samtidig har flyttet seg langs banen rundt sola. Eksamensoppgaver oppgir «24 timer», og da regner du med $86\\,400\\,\\text{s}$ og får $42\\,240$ km. Vet du at forskjellen finnes, vet du også at et alternativ på $42\\,160$ km ikke er en felle, men en mer nøyaktig variant av det samme svaret."
+  },
+  {
+   "id": "tfy4115-3-2-o-3",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-3-2-oppg-3",
+    "number": "3",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger M12.) En navigasjonssatellitt går i sirkelbane med omløpstid $T = 12{,}0$ timer.\n\n**a)** Finn baneradien og høyden over bakken.\n**b)** Finn banefarten.\n**c)** Ligger banen høyere eller lavere enn den geostasjonære, og med hvilken faktor? Svar først uten å regne, ut fra formelen alene, og bekreft deretter med tallene.",
+    "solution": "**a)** Først sekunder:\n$$T = 12{,}0 \\cdot 3\\,600\\,\\text{s} = 43\\,200\\,\\text{s}, \\qquad T^2 = 1{,}8662\\cdot10^{9}\\,\\text{s}^2.$$\n$$r^3 = \\frac{GMT^2}{4\\pi^2} = \\frac{3{,}986\\cdot10^{14} \\cdot 1{,}8662\\cdot10^{9}}{39{,}478}\\,\\text{m}^3 = \\frac{7{,}4387\\cdot10^{23}}{39{,}478}\\,\\text{m}^3 = 1{,}8843\\cdot10^{22}\\,\\text{m}^3,$$\n$$r = \\left(1{,}8843\\cdot10^{22}\\right)^{1/3}\\,\\text{m} = 2{,}6610\\cdot10^{7}\\,\\text{m} = 26\\,610\\,\\text{km}.$$\nHøyden over bakken:\n$$h = 2{,}6610\\cdot10^{7} - 6{,}371\\cdot10^{6}\\,\\text{m} = 2{,}0239\\cdot10^{7}\\,\\text{m} = 20\\,239\\,\\text{km}.$$\n\n**b)**\n$$v = \\frac{2\\pi r}{T} = \\frac{6{,}28319 \\cdot 2{,}6610\\cdot10^{7}}{43\\,200}\\,\\text{m/s} = 3\\,870{,}2\\,\\text{m/s} \\approx 3\\,870\\,\\text{m/s}.$$\n\n**c) Uten å regne:** halv omløpstid gir mindre radius, siden $r$ vokser med $T^{2/3}$. Faktoren er\n$$\\left(\\frac{1}{2}\\right)^{2/3} = 0{,}6300.$$\n**Med tallene:** $\\frac{2{,}6610\\cdot10^{7}}{4{,}2240\\cdot10^{7}} = 0{,}6300$. Samme tall. Banen ligger altså 37 prosent nærmere jordas sentrum enn den geostasjonære.\n\n**Kepler-kontroll:** $T^2/r^3 = 1{,}8662\\cdot10^{9}/1{,}8843\\cdot10^{22} = 9{,}905\\cdot10^{-14}\\,\\text{s}^2/\\text{m}^3$. ✔\n\n**Legg merke til hvor lite radien reagerer.** Å halvere omløpstiden kutter bare 37 prosent av radien, ikke 50. Det er kubikkroten som demper — og den samme dempingen er grunnen til at avrundingsfeil er relativt harmløse i denne sjangeren, mens tierpotensfeil er dødelige.",
+    "hints": [
+     "Omløpstiden må i sekunder før den settes inn.",
+     "Bruk $r = (GMT^2/4\\pi^2)^{1/3}$, og trekk fra jordradien til slutt.",
+     "I c): se på hvilken potens av $T$ radien vokser med."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-3-2-o-4",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-3-2-oppg-4",
+    "number": "4",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Kvalitativ oppgave — svar med ord, ingen utregning.)\n\n**a)** En astronaut om bord på en romstasjon i lav bane flyter fritt inne i modulen. Betyr det at gravitasjonen er neglisjerbar der oppe? Forklar.\n\n**b)** To satellitter går i samme bane, den ene ti ganger så tung som den andre. Hvilken går fortest? Begrunn svaret ut fra banebetingelsen.",
+    "solution": "**a)** Nei. I $400$ km høyde er gravitasjonsakselerasjonen $8{,}69\\,\\text{m/s}^2$, altså 89 prosent av verdien ved bakken — gravitasjonen er nesten uendret. Astronauten flyter fordi hun og stasjonen er i **fritt fall** langs banen og faller med nøyaktig samme akselerasjon, slik at det ikke finnes noen kontaktkraft mellom dem. Det er nettopp gravitasjonen som holder henne i bane; var den borte, ville hun og stasjonen fortsatt rett fram og forlatt jorda.\n\n**b)** De går like fort. I banebetingelsen $GMm/r^2 = mv^2/r$ står satellittens masse $m$ som faktor på begge sider og forkortes bort, så $v = \\sqrt{GM/r}$ er uavhengig av $m$. Gravitasjonskraften er ti ganger større på den tunge satellitten, men den har også ti ganger så stor treghet, og de to effektene opphever hverandre eksakt. Det er den samme grunnen som at to steiner av ulik masse faller like fort.",
+    "hints": [
+     "Regn i hodet hvor stor $GM/r^2$ er i 400 km høyde sammenlignet med ved bakken.",
+     "Spør hva som må til for at en person skal *føle* tyngde — hvilken kraft er det egentlig vi kjenner?",
+     "I b): skriv opp banebetingelsen og se hvilke symboler som forkortes bort."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-3-2-lokke3",
+   "type": "text",
+   "content": "— naturlig pausepunkt —\n\n## Løkke 3 — raketten («kjenne til»-stoff, ~12 min)\n\nNå til noe helt annet. En rakett i verdensrommet har ingenting å skyve fra. Det finnes ikke luft å presse mot, ingen bakke å sparke i. Likevel akselererer den. Hvordan?\n\nSvaret ligger i bevaringsloven fra [kap. 3.1](/tfy4115/tfy4115-3-1). Raketten kaster masse bakover. Systemet rakett-pluss-gass hadde en viss bevegelsesmengde før, og har den samme etterpå. Går gassen bakover, må raketten gå forover. Det er alt — samme fysikk som når du står på skøyter og kaster en ryggsekk fra deg.\n\n**Om prioriteringen:** dette er «kjenne til»-stoff. Rakettdelen av sjanger M12 dukker opp i rundt to av ti sett (~20 %), og når den kommer, er det som regel ett spørsmål med én formel. Målet med denne løkka er derfor beskjedent: at du kjenner igjen formen, vet hvilken vei fortegnet går, og kan sette inn. Bruk tolv minutter, ikke tretti."
+  },
+  {
+   "id": "tfy4115-3-2-def-utstotsfart",
+   "type": "definition",
+   "title": "Utstøtsfart",
+   "content": "Farten $u$ som drivstoffet forlater raketten med, målt **i forhold til raketten selv** — ikke i forhold til bakken eller til stjernene. Det er en egenskap ved motoren og drivstoffet, ikke ved oppdraget, og den ligger for kjemiske raketter typisk mellom $2\\,500$ og $4\\,500\\,\\text{m/s}$.\n\nAt farten måles i rakettens eget system, er det avgjørende punktet, og det er lett å overse: gassen får en fart $u$ **bakover relativt raketten**, samtidig som raketten selv beveger seg forover. En observatør på bakken ser derfor gassen bevege seg med en annen fart enn $u$. Det er nettopp derfor rakettligningen inneholder en logaritme og ikke bare et produkt — regnestykket må gjøres om igjen for hvert lille massetap, mens raketten hele tiden har fått ny fart."
+  },
+  {
+   "id": "tfy4115-3-2-th-rakettligningen",
+   "type": "theorem",
+   "title": "Rakettligningen",
+   "content": "Se på raketten i det øyeblikket den har massen $m$ og farten $v$. I løpet av et lite tidsintervall støter den ut massen $\\lvert dm\\rvert$ med farten $u$ bakover relativt seg selv, og får selv fartsøkningen $dv$. Uten ytre krefter er bevegelsesmengden bevart, og regnskapet blir\n\n$$m\\,dv = -u\\,dm.$$\n\nMinustegnet er hele poenget: $dm$ er **negativ** (rakettens masse avtar), så $dv$ blir positiv. Del på $m$ og integrér fra starttilstanden $(m_0, v_0)$ til slutt-tilstanden $(m, v)$:\n\n$$\\int_{v_0}^{v} dv = -u\\int_{m_0}^{m}\\frac{dm}{m} \\quad\\Longrightarrow\\quad \\Delta v = u\\ln\\frac{m_0}{m}.$$\n\nIntegralet $\\int dm/m = \\ln m$ står i **Rottmann**. Løst for massen:\n\n$$\\boxed{\\ \\Delta v = u\\ln\\frac{m_0}{m}, \\qquad m = m_0e^{-\\Delta v/u}\\ }$$\n\n**Fortegnet er verdt en advarsel.** Eksponenten er **negativ**: massen synker når farten øker. Får du en eksponent uten minustegn, gir formelen en sluttmasse som er **større** enn startmassen — og en rakett som blir tyngre av å brenne drivstoff, finnes ikke. Kontrollen tar ett blikk: er $m < m_0$?\n\n*Intuisjon:* logaritmen forteller at fartsgevinsten går på **masseforhold**, ikke på massemengde. Å brenne halve massen gir $\\Delta v = u\\ln 2 = 0{,}69u$, uansett om raketten er stor eller liten. Vil du ha $\\Delta v = 3u$, må masseforholdet være $e^3 = 20$ — altså må 95 prosent av startmassen være drivstoff. Det er derfor raketter er nesten bare tank, og det er derfor de bygges i trinn som kastes av underveis.\n\nFormelen står ikke på det utdelte arket. Impulsbevarelsen gjør det, og logaritmeintegralet står i Rottmann; selve rakettligningen [må kunne brukes eller utledes aktivt]."
+  },
+  {
+   "id": "tfy4115-3-2-fig-rakett",
+   "type": "image",
+   "src": "/images/textbook/tfy4115/tfy4115-3-2-rakett.svg",
+   "alt": "En rakett tegnet med spissen mot hoeyre og merket masse m. Til venstre bak raketten er utstoett gass tegnet som tre avtagende trekanter, med en pil mot venstre merket utstoett masse med fart u relativt raketten. Foran raketten peker en pil mot hoeyre merket dv. Under figuren staar sammenhengene m dv er lik minus u dm og delta v er lik u ganger logaritmen av m null delt paa m.",
+   "caption": "Massen går én vei, fartsøkningen den andre. Fordi $dm$ er negativ, blir $dv$ positiv — og sluttmassen $m = m_0e^{-\\Delta v/u}$ er alltid **mindre** enn startmassen."
+  },
+  {
+   "id": "tfy4115-3-2-def-skyvekraft",
+   "type": "definition",
+   "title": "Skyvekraft",
+   "content": "Kraften raketten kjenner forover fordi den kaster masse bakover. Den er produktet av utstøtsfarten og massestrømmen ut av motoren:\n$$F = u\\left\\lvert\\frac{dm}{dt}\\right\\rvert.$$\nStørrelsen kalles også trykkraft eller «thrust». Legg merke til at den er **uavhengig av rakettens fart** — motoren yter det samme enten raketten står på rampen eller går i $3\\,000\\,\\text{m/s}$.\n\nNær bakken må skyvekraften bære tyngden i tillegg til å akselerere, så den faktiske akselerasjonen er\n$$a = \\frac{F}{m} - g.$$\nEr $F$ mindre enn $mg$, letter raketten ikke i det hele tatt. Og fordi $m$ synker mens $F$ er konstant, **vokser** akselerasjonen kraftig gjennom brenningen — mot slutten er den flere ganger startverdien. Enhetskontroll: $\\text{(m/s)} \\cdot \\text{(kg/s)} = \\text{kg}\\cdot\\text{m/s}^2 = \\text{N}$. ✔"
+  },
+  {
+   "id": "tfy4115-3-2-def-massebrok",
+   "type": "definition",
+   "title": "Massebrøk og drivstoffandel",
+   "content": "To måter å beskrive samme regnskap. **Massebrøken** er forholdet mellom sluttmasse og startmasse, $m/m_0 = e^{-\\Delta v/u}$, altså hvor stor del av raketten som er igjen når motoren stopper. **Drivstoffandelen** er resten, $1 - m/m_0$, altså hvor stor del av startmassen som må være drivstoff.\n\nSammenhengen er brutal fordi den er eksponentiell. En fartsgevinst på $\\Delta v = u$ krever at 63 prosent av massen er drivstoff; $\\Delta v = 2u$ krever 86 prosent; $\\Delta v = 3u$ krever 95 prosent. Nyttelasten er det som er igjen etter tank, motor og struktur — og den blir liten fort. Å øke utstøtsfarten $u$ hjelper langt mer enn å bygge større tank, siden $u$ står i nevneren i eksponenten."
+  },
+  {
+   "id": "tfy4115-3-2-ex-3",
+   "type": "example",
+   "title": "Eksempel 3: rakettrinnet",
+   "problem": "Et rakettrinn har startmasse $m_0 = 5{,}00\\cdot10^{4}\\,\\text{kg}$ og en motor med utstøtsfart $u = 2\\,800\\,\\text{m/s}$. Motoren brenner drivstoff med massestrømmen $250\\,\\text{kg/s}$.\n\n**a)** Hvor stor skyvekraft gir motoren?\n**b)** Trinnet skal øke farten med $\\Delta v = 3\\,200\\,\\text{m/s}$. Hvor stor er massen når motoren stopper, og hvor mye drivstoff er brent?\n**c)** Hvor lenge brenner motoren?\n**d)** Hvor stor er akselerasjonen ved start, rett over bakken, og hvor stor er den ved slutten av brenningen?",
+   "solution": "**a)**\n$$F = u\\left\\lvert\\frac{dm}{dt}\\right\\rvert = 2\\,800\\,\\text{m/s} \\cdot 250\\,\\text{kg/s} = 7{,}00\\cdot10^{5}\\,\\text{N} = 700\\,\\text{kN}.$$\n\n**b) Symbolsk utledning.** Rakettligningen løst for massen: $m = m_0e^{-\\Delta v/u}$.\n\n**Rask vei til tall.** Regn eksponenten først, med fire siffer:\n$$\\frac{\\Delta v}{u} = \\frac{3\\,200}{2\\,800} = 1{,}1429, \\qquad e^{-1{,}1429} = 0{,}31891.$$\n$$m = 5{,}00\\cdot10^{4}\\,\\text{kg} \\cdot 0{,}31891 = 15\\,945{,}3\\,\\text{kg} \\approx 1{,}59\\cdot10^{4}\\,\\text{kg}.$$\nBrent drivstoff:\n$$m_0 - m = 5{,}00\\cdot10^{4} - 15\\,945{,}3\\,\\text{kg} = 34\\,054{,}7\\,\\text{kg} \\approx 3{,}41\\cdot10^{4}\\,\\text{kg}.$$\nAltså er $68{,}1$ prosent av startmassen brent for å få $3\\,200\\,\\text{m/s}$.\n\n**Fortegnskontroll.** $15\\,945{,}3\\,\\text{kg}$ er mindre enn $50\\,000\\,\\text{kg}$. Hadde du glemt minustegnet i eksponenten, ville du fått $5{,}00\\cdot10^{4} \\cdot e^{+1{,}1429} = 156\\,786\\,\\text{kg}$ — altså en rakett som ble tyngre av å brenne. Det tallet ligger som et ferdig svaralternativ i denne sjangeren.\n\n**c)** Brenntiden er brent masse delt på massestrømmen:\n$$t = \\frac{34\\,054{,}7\\,\\text{kg}}{250\\,\\text{kg/s}} = 136{,}2\\,\\text{s} \\approx 136\\,\\text{s},$$\naltså litt over to minutter.\n\n**d)** Ved start må skyvekraften også bære tyngden:\n$$a_0 = \\frac{F}{m_0} - g = \\frac{7{,}00\\cdot10^{5}}{5{,}00\\cdot10^{4}}\\,\\text{m/s}^2 - 9{,}81\\,\\text{m/s}^2 = 14{,}00 - 9{,}81\\,\\text{m/s}^2 = 4{,}19\\,\\text{m/s}^2.$$\nVed slutten er massen nede i $1{,}59\\cdot10^{4}\\,\\text{kg}$, mens skyvekraften er den samme:\n$$a = \\frac{7{,}00\\cdot10^{5}}{15\\,945{,}3}\\,\\text{m/s}^2 - 9{,}81\\,\\text{m/s}^2 = 43{,}90 - 9{,}81\\,\\text{m/s}^2 = 34{,}1\\,\\text{m/s}^2.$$\n\n**Det er en åtte ganger så stor akselerasjon.** Grunnen er at motoren yter det samme hele veien, mens massen den skal flytte, er blitt tre ganger mindre. Det er derfor mannskapet kjenner den hardeste påkjenningen rett før et trinn kobles av, ikke ved oppskytingen — og derfor motorene i praksis strupes ned mot slutten.\n\n**Sluttsjekk av enheter.** Skyvekraften: $\\text{(m/s)}\\cdot\\text{(kg/s)} = \\text{N}$. ✔ Massen: kilogram ganget med et rent tall. ✔ Brenntiden: $\\text{kg}/(\\text{kg/s}) = \\text{s}$. ✔"
+  },
+  {
+   "id": "tfy4115-3-2-o-5",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-3-2-oppg-5",
+    "number": "5",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger M12, rakettdelen.) Et rakettrinn har utstøtsfart $u = 3\\,200\\,\\text{m/s}$ og skal brenne til startmassen er redusert til en fjerdedel, altså masseforholdet $m_0/m = 4{,}00$.\n\n**a)** Hvor stor fartsøkning gir det?\n**b)** Motoren har massestrømmen $180\\,\\text{kg/s}$. Hvor stor er skyvekraften?\n**c)** En vanlig feil er å regne fartsøkningen som $u \\cdot 4{,}00$. Hvorfor er det galt, og hva måtte masseforholdet vært for at $\\Delta v = 4{,}00u$ skulle stemme?",
+    "solution": "**a)**\n$$\\Delta v = u\\ln\\frac{m_0}{m} = 3\\,200\\,\\text{m/s} \\cdot \\ln 4{,}00 = 3\\,200 \\cdot 1{,}38629\\,\\text{m/s} = 4\\,436{,}1\\,\\text{m/s} \\approx 4\\,436\\,\\text{m/s}.$$\nMerk at $\\ln 4 = 2\\ln 2$, så dette er nøyaktig dobbelt så mye som å brenne halve massen ville gitt.\n\n**b)**\n$$F = u\\left\\lvert\\frac{dm}{dt}\\right\\rvert = 3\\,200\\,\\text{m/s} \\cdot 180\\,\\text{kg/s} = 5{,}76\\cdot10^{5}\\,\\text{N} = 576\\,\\text{kN}.$$\n\n**c)** Fordi fartsøkningen går på **logaritmen** av masseforholdet, ikke på forholdet selv. Å gange med $4{,}00$ gir $12\\,800\\,\\text{m/s}$, nesten tre ganger for mye. Feilen er å tro at hver kilo drivstoff gir like mye fart — men etter hvert som raketten blir lettere, gir hver kilo *mer* fart, og logaritmen er nettopp resultatet av å summere alle de små bidragene riktig.\n\nFor at $\\Delta v = 4{,}00u$ skulle stemme, måtte $\\ln(m_0/m) = 4{,}00$, altså $m_0/m = e^{4} = 54{,}6$. Da måtte 98 prosent av startmassen være drivstoff — mot 75 prosent i denne oppgaven.",
+    "hints": [
+     "Rakettligningen er $\\Delta v = u\\ln(m_0/m)$ — legg merke til at det er en logaritme.",
+     "Skyvekraften er utstøtsfarten ganget med massestrømmen.",
+     "I c): sett $\\Delta v = 4{,}00u$ inn i rakettligningen og løs for masseforholdet."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-3-2-war-typiske-feil",
+   "type": "warning",
+   "title": "Typiske feil — og tierpotensfellen i kubikkroten",
+   "content": "**Å bruke omløpstiden i timer eller minutter.** Dette er sjangerens dyreste feil, og den er lett å gjøre fordi oppgaveteksten *alltid* oppgir timer. Setter du 24 inn i stedet for $86\\,400$, blir radien 235 ganger for liten: $180$ km i stedet for $42\\,200$ km. Feilen gir alltid et alternativ som ser regnbart ut. Vanen som fjerner den: skriv «$T = \\ldots\\,\\text{s}$» som **første** linje i utregningen, hver gang.\n\n**Å blande $v$ og $\\omega$ i sentripetalleddet** (felle #5 — feil fortegn eller feil størrelse satt inn i en kraftkomponent). Sentripetalakselerasjonen er $v^2/r$ **eller** $\\omega^2 r$ — aldri $\\omega^2/r$ og aldri $v^2r$. Enhetskontrollen tar ett sekund: $v$ måles i m/s, $\\omega$ i rad/s, altså $1/\\text{s}$. Sett inn enhetene og se om du får $\\text{m/s}^2$.\n\n**Å glemme jordradien, eller å trekke den fra to ganger.** Baneradien er $r = R_\\text{jord} + h$, og spørsmålet om «høyden over bakken» krever at du trekker $R_\\text{jord}$ fra **helt til slutt**. To disipliner hjelper: skriv alltid ned hvilken av de to du har regnet ut, og gjør fratrekket som siste linje.\n\n**Å ta kvadratroten der det skal være kubikkrot.** $r = (GMT^2/4\\pi^2)^{1/3}$ har en tredjerot fordi $T^2$ er proporsjonal med $r^3$. Kvadratroten gir $2{,}7\\cdot10^{8}\\,\\text{km}$, som er utenfor jord-månesystemet. Størrelsesordenskontrollen fanger den umiddelbart: jordbaner har $r$ mellom $6{,}4\\cdot10^{6}$ og omtrent $4{,}2\\cdot10^{7}\\,\\text{m}$.\n\n**Å snu fortegnet i rakettligningen.** $m = m_0e^{-\\Delta v/u}$: eksponenten er negativ, og sluttmassen er mindre enn startmassen. Uten minustegnet får du en rakett som blir tyngre av å brenne drivstoff. Kontrollen er ett blikk på om $m < m_0$.\n\n**Å måle utstøtsfarten i forhold til bakken.** $u$ er farten gassen har **relativt raketten**. Det er nettopp derfor rakettligningen har en logaritme og ikke bare formen $\\Delta v = u \\cdot (\\text{masseforhold})$.\n\n**Og tierpotensfellen som er spesiell for dette kapitlet** (felle #16 — avrundingsfeil eller potensfeil som lander på et nabo-alternativ). Kubikkroten er en venn og en fiende samtidig. **Vennen:** en feil på 10 prosent i $T^2$ blir bare 3 prosent i $r$, så avrunding underveis er mindre farlig her enn ellers i boka. **Fienden:** nettopp fordi kubikkroten demper, ser et svar med feil tierpotens ofte «nesten riktig» ut i sifrene — $1{,}44\\cdot10^{8}$ har de samme første sifrene som ingenting, men står side om side med $4{,}22\\cdot10^{7}$ i en alternativliste. Regelen er derfor: **regn med standardform hele veien** ($3{,}986\\cdot10^{14}$, ikke sifferrekken), og gjør Kepler-kontrollen $T^2/r^3 = 9{,}905\\cdot10^{-14}\\,\\text{s}^2/\\text{m}^3$ til slutt. Den kontrollen er ufølsom for avrunding og treffsikker på potenser."
+  },
+  {
+   "id": "tfy4115-3-2-o-6",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-3-2-oppg-6",
+    "number": "6",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger M12.) En satellitt går i sirkelbane rundt jorda med omløpstid $T = 90{,}0$ minutter.\n\n**a)** Finn baneradien og høyden over bakken.\n**b)** Finn banefarten.\n**c)** Kontrollér svaret mot Keplers tredje lov.\n**d)** En annen satellitt går i bane $400$ km over bakken (som romstasjonen i eksempel 1). Hvilken av de to ligger lavest, og stemmer det med omløpstidene?",
+    "solution": "**a)** Sekunder først:\n$$T = 90{,}0 \\cdot 60\\,\\text{s} = 5\\,400\\,\\text{s}, \\qquad T^2 = 2{,}9160\\cdot10^{7}\\,\\text{s}^2.$$\n$$r^3 = \\frac{3{,}986\\cdot10^{14} \\cdot 2{,}9160\\cdot10^{7}}{39{,}478}\\,\\text{m}^3 = \\frac{1{,}1622\\cdot10^{22}}{39{,}478}\\,\\text{m}^3 = 2{,}9440\\cdot10^{20}\\,\\text{m}^3,$$\n$$r = \\left(2{,}9440\\cdot10^{20}\\right)^{1/3}\\,\\text{m} = 6{,}6524\\cdot10^{6}\\,\\text{m} = 6\\,652\\,\\text{km}.$$\n$$h = 6{,}6524\\cdot10^{6} - 6{,}371\\cdot10^{6}\\,\\text{m} = 2{,}814\\cdot10^{5}\\,\\text{m} = 281\\,\\text{km}.$$\n\n*Kubikkrot-tips:* $2{,}9440\\cdot10^{20} = 294{,}40\\cdot10^{18}$, og $\\sqrt[3]{294{,}40} = 6{,}6524$ ganger $10^{6}$.\n\n**b)**\n$$v = \\frac{2\\pi r}{T} = \\frac{6{,}28319 \\cdot 6{,}6524\\cdot10^{6}}{5\\,400}\\,\\text{m/s} = \\frac{4{,}1798\\cdot10^{7}}{5\\,400}\\,\\text{m/s} = 7\\,740{,}4\\,\\text{m/s} \\approx 7\\,740\\,\\text{m/s}.$$\nKontroll med den andre formen: $\\sqrt{GM/r} = \\sqrt{\\frac{3{,}986\\cdot10^{14}}{6{,}6524\\cdot10^{6}}} = \\sqrt{5{,}9914\\cdot10^{7}} = 7\\,740{,}4\\,\\text{m/s}$. Samme tall — de to veiene må gi det samme, og det er en gratis kontroll.\n\n**c)**\n$$\\frac{T^2}{r^3} = \\frac{2{,}9160\\cdot10^{7}}{2{,}9440\\cdot10^{20}}\\,\\text{s}^2/\\text{m}^3 = 9{,}905\\cdot10^{-14}\\,\\text{s}^2/\\text{m}^3.$$\nDet stemmer med $4\\pi^2/GM$. ✔\n\n**d)** Denne satellitten ligger **lavest**: $281$ km mot $400$ km. Det stemmer med omløpstidene, for romstasjonen bruker $92{,}4$ minutter mot $90{,}0$ her. Kortere omløpstid betyr lavere bane, alltid.\n\n**Og en observasjon som er verdt en advarsel:** høyden på $281$ km er så lav at luftmotstanden faktisk merkes. En bane der er ikke stabil over tid uten at satellitten korrigerer den. I oppgavesammenheng regner vi likevel banen som en ren sirkelbane, siden oppgaven ber om det — men det er greit å vite at $90$ minutter er omtrent den korteste omløpstiden en jordsatellitt kan ha i praksis.",
+    "hints": [
+     "Gjør om omløpstiden til sekunder som første linje.",
+     "Bruk $r = (GMT^2/4\\pi^2)^{1/3}$, og skriv tallene på standardform underveis.",
+     "Regn banefarten på to måter — $2\\pi r/T$ og $\\sqrt{GM/r}$ — og sammenlign."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-3-2-o-7",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-3-2-oppg-7",
+    "number": "7",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger M12, A–F-format — kun bokstavsvaret.)\n\nEt romfartøy skal øke farten med $\\Delta v = 4{,}00\\cdot10^{3}\\,\\text{m/s}$ med en motor som har utstøtsfart $u = 2{,}50\\cdot10^{3}\\,\\text{m/s}$.\n\nHvor stor andel av startmassen må være drivstoff?\n\n**A** $20{,}2\\,\\%$ · **B** $46{,}5\\,\\%$ · **C** $37{,}5\\,\\%$ · **D** $79{,}8\\,\\%$ · **E** $55{,}1\\,\\%$ · **F** $63{,}2\\,\\%$",
+    "solution": "**Svar: D.**\n\nRakettligningen løst for massen gir massebrøken direkte:\n$$\\frac{m}{m_0} = e^{-\\Delta v/u} = e^{-4\\,000/2\\,500} = e^{-1{,}6000} = 0{,}2019.$$\nDa er andelen som må være drivstoff, resten:\n$$1 - \\frac{m}{m_0} = 1 - 0{,}2019 = 0{,}7981 = 79{,}8\\ \\%.$$\n\nHvert galt alternativ er regnet fram fra én konkret feil.\n\n*Fellene:* **A** ($20{,}2\\,\\%$) er massebrøken $m/m_0 = e^{-\\Delta v/u}$, altså andelen som er **igjen** — svaret på det motsatte spørsmålet. **B** ($46{,}5\\,\\%$) er eksponenten snudd, $1 - e^{-u/\\Delta v}$ i stedet for $1 - e^{-\\Delta v/u}$. **C** ($37{,}5\\,\\%$) er en linearisering, $1 - u/\\Delta v$, altså logaritmen erstattet med et forhold. **E** ($55{,}1\\,\\%$) er halv eksponent, $1 - e^{-\\Delta v/2u}$ — en klassisk faktor-2-feil. **F** ($63{,}2\\,\\%$) er eksponenten satt til 1, altså $1 - e^{-1}$, som er svaret når $\\Delta v = u$.\n\n**Sluttsjekk.** Andelen må ligge mellom 0 og 100 prosent, og den må være **over** 50 prosent siden $\\Delta v > u$ (masseforholdet er $e^{1{,}6} = 4{,}95$, altså brennes nesten fire femdeler). Det stryker de tre laveste alternativene med én gang.",
+    "hints": [
+     "Bruk $m = m_0e^{-\\Delta v/u}$ til å finne hvor stor del av massen som er **igjen**.",
+     "Regn eksponenten $\\Delta v/u$ som eget mellomresultat før du bruker eksponentialfunksjonen.",
+     "Spørsmålet gjelder drivstoffet, altså komplementet til massebrøken."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-3-2-o-8",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-3-2-oppg-8",
+    "number": "8",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger M12, A–F-format — kun bokstavsvaret.)\n\nEn satellitt skal stå stille sett fra et punkt på ekvator. Hvor høyt over jordoverflaten går den?\n\n**A** $42\\,240\\,\\text{km}$ · **B** $35\\,870\\,\\text{km}$ · **C** $20\\,240\\,\\text{km}$ · **D** $60\\,680\\,\\text{km}$ · **E** $29\\,500\\,\\text{km}$ · **F** $137\\,500\\,\\text{km}$",
+    "solution": "**Svar: B.**\n\nÅ stå stille sett fra bakken betyr omløpstid lik ett døgn:\n$$T = 86\\,400\\,\\text{s}, \\qquad r = \\left(\\frac{GMT^2}{4\\pi^2}\\right)^{1/3} = \\left(\\frac{3{,}986\\cdot10^{14} \\cdot 7{,}4650\\cdot10^{9}}{39{,}478}\\right)^{1/3}\\,\\text{m} = 4{,}2240\\cdot10^{7}\\,\\text{m}.$$\nSpørsmålet gjelder høyden **over bakken**, så jordradien trekkes fra til slutt:\n$$h = 4{,}2240\\cdot10^{7} - 6{,}371\\cdot10^{6}\\,\\text{m} = 3{,}5869\\cdot10^{7}\\,\\text{m} = 35\\,869\\,\\text{km}.$$\n\n*Fellene:* **A** ($42\\,240\\,\\text{km}$) er bane**radien** fra jordas sentrum, ikke høyden over bakken. **C** ($20\\,240\\,\\text{km}$) er regnet med $T = 12{,}0$ timer, altså et halvt døgn. **D** ($60\\,680\\,\\text{km}$) er regnet med $T = 48$ timer, altså to døgn. **E** ($29\\,500\\,\\text{km}$) er jordradien trukket fra to ganger. **F** ($137\\,500\\,\\text{km}$) er faktoren $4\\pi^2$ glemt i nevneren, som gjør radien $3{,}4$ ganger for stor.\n\n**Sluttsjekk.** To kontroller stryker fire alternativer på ti sekunder. Den ene: høyden må være **mindre** enn radien, og differansen skal være nøyaktig én jordradius, altså $6\\,371$ km. Den andre: Kepler-kontrollen $T^2/r^3 = 9{,}905\\cdot10^{-14}\\,\\text{s}^2/\\text{m}^3$ på radien du fant.",
+    "hints": [
+     "«Stille sett fra bakken» fastsetter omløpstiden — hvilken verdi er det, i sekunder?",
+     "Bruk $r = (GMT^2/4\\pi^2)^{1/3}$ og hold tallene på standardform.",
+     "Les spørsmålet én gang til før du krysser av: radius eller høyde?"
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-3-2-begrepsbank-notis",
+   "type": "text",
+   "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+  },
+  {
+   "id": "tfy4115-3-2-def-bb-kepler",
+   "type": "definition",
+   "title": "Keplers tredje lov",
+   "content": "Sammenhengen mellom omløpstid og baneradius for alt som går rundt samme klode:\n$$\\frac{T^2}{r^3} = \\frac{4\\pi^2}{GM} = \\text{konstant}.$$\nFor jorda er konstanten $9{,}905\\cdot10^{-14}\\,\\text{s}^2/\\text{m}^3$, og den er **den samme** for en romstasjon i $400$ km høyde, for en geostasjonær satellitt og for månen. Loven ble funnet av Kepler ut av observasjoner lenge før Newton forklarte hvorfor den gjelder — den følger av gravitasjonsloven og sentripetalakselerasjonen i to linjer, slik du gjorde tidligere i kapitlet.\n\nPraktisk verdi på en flervalgseksamen: den er den beste selvkontrollen i sjangeren. Regn ut $T^2/r^3$ for svaret ditt og se om du treffer konstanten. Kontrollen er ufølsom for avrunding og avslører både tierpotensfeil og forbyttede formler."
+  },
+  {
+   "id": "tfy4115-3-2-def-bb-unnslipning",
+   "type": "definition",
+   "title": "Unnslipningsfart",
+   "content": "Den minste farten et legeme må få for å komme seg helt bort fra en klode, uten videre framdrift. Den følger av at kinetisk energi må dekke hele den gravitasjonelle bindingsenergien:\n$$v_\\text{unn} = \\sqrt{\\frac{2GM}{r}}.$$\nFra jordoverflaten er den $1{,}12\\cdot10^{4}\\,\\text{m/s}$, altså $11{,}2\\,\\text{km/s}$.\n\nDen pene sammenhengen er verdt å merke seg: $v_\\text{unn} = \\sqrt{2}\\,v_\\text{bane}$ i **samme** avstand. Å komme løs krever altså bare 41 prosent mer fart enn å gå i sirkelbane der. Energibetraktningen bak dette hører til [Gravitasjon og energi](/fysikk2/fysikk2-2-5); i dette kapitlet trenger du bare selve uttrykket og forholdstallet $\\sqrt{2}$."
+  },
+  {
+   "id": "tfy4115-3-2-def-bb-vektlos",
+   "type": "definition",
+   "title": "Vektløshet i bane er fritt fall",
+   "content": "Følelsen av å være vektløs oppstår når det ikke virker noen **kontaktkraft** på kroppen — ingen stol som presser, ingen gulvflate som bærer. Det er ikke det samme som at gravitasjonen er borte. En romstasjon i $400$ km høyde har $8{,}69\\,\\text{m/s}^2$ gravitasjonsakselerasjon, nesten 89 prosent av verdien ved bakken.\n\nAstronauten flyter fordi hun og stasjonen faller med **samme** akselerasjon langs banen, så det ikke oppstår noe press mellom dem. Samme tilstand kan du kjenne et halvt sekund i en heis som starter nedover, eller i et fly som følger en kastebane. Sagt kort: en bane er fritt fall som bommer på bakken.\n\nDette er verdt å kunne formulere presist, fordi de rene konsept-spørsmålene på eksamen gjerne spør nettopp om dette — og fordi den vanlige feilforklaringen («tyngden er borte») da står som et alternativ."
+  },
+  {
+   "id": "tfy4115-3-2-def-bb-siderisk",
+   "type": "definition",
+   "title": "Stjernedøgn og soldøgn",
+   "content": "To ulike døgn, med 236 sekunders forskjell. **Soldøgnet** på $86\\,400\\,\\text{s}$ er tiden fra sola står høyest til den gjør det igjen. **Stjernedøgnet** på $86\\,164\\,\\text{s}$ er tiden jorda bruker på én omdreining om sin egen akse, målt mot fjerne stjerner. Soldøgnet er litt lengre fordi jorda samtidig har flyttet seg litt langs banen rundt sola og derfor må dreie litt mer enn en hel runde for å få sola tilbake i sør.\n\nFor en geostasjonær bane er det **stjernedøgnet** som er den fysisk riktige omløpstiden, og det gir baneradien $42\\,163$ km i stedet for $42\\,240$ km — en forskjell på 0,18 prosent, altså 77 km. Eksamensoppgaver oppgir «24 timer», og da bruker du $86\\,400\\,\\text{s}$. Poenget med å kjenne forskjellen er å ikke bli usikker hvis du møter det andre tallet et sted: begge er riktige svar på litt ulike spørsmål."
+  },
+  {
+   "id": "tfy4115-3-2-def-bb-kubikkrot",
+   "type": "definition",
+   "title": "Kubikkroten som demper og som felle",
+   "content": "Et kontrollkort for regningen i baneoppgaver. Fordi $r = (GMT^2/4\\pi^2)^{1/3}$, går en relativ feil i $T^2$ inn i radien **delt på tre**: 10 prosent feil i $T^2$ blir bare 3,2 prosent feil i $r$. Det gjør sjangeren usedvanlig tolerant for avrunding, og du kan trygt regne med fire siffer uten å frykte at svaret vipper.\n\nMen den samme dempingen betyr at **tierpotensen** må være rett, for der demper ingenting: en feil på en faktor $1\\,000$ i $T^2$ gir en faktor 10 i radien, og det er nok til å treffe et helt annet alternativ. Arbeidsvanen som fjerner risikoen: hold alle tall på standardform gjennom hele kjeden, og regn kubikkroten ved å skrive eksponenten som et multiplum av tre først — $2{,}944\\cdot10^{20} = 294{,}4\\cdot10^{18}$, og $\\sqrt[3]{294{,}4} = 6{,}652$ ganger $10^{6}$."
+  },
+  {
+   "id": "tfy4115-3-2-def-bb-massen-faller-ut",
+   "type": "definition",
+   "title": "Når massen faller ut i baneoppgaver",
+   "content": "En rask kontroll som fanger mange feil. Satellittens masse $m$ forkortes bort av banebetingelsen, så den er **ikke** med i noen av disse svarene: banefart, omløpstid, baneradius, vinkelfart, unnslipningsfart. Står $m$ i svaret ditt på en av dem, har du gjort en feil.\n\nMassen er derimot **med** i alle svar som er krefter eller energier: gravitasjonskraften $GMm/r^2$, den nødvendige sentripetalkraften $mv^2/r$, den kinetiske energien i banen. Er en oppgitt satellittmasse ubrukt i svaret ditt på en fart, er det som regel riktig — den står i oppgaveteksten for å se om du lar deg lure. Er den ubrukt i svaret på en kraft, har du glemt noe.\n\nFor raketten gjelder en beslektet regel: bare **forholdet** $m_0/m$ betyr noe for fartsgevinsten, ikke de absolutte massene."
+  },
+  {
+   "id": "tfy4115-3-2-def-bb-sjanger-m12",
+   "type": "definition",
+   "title": "Sjanger M12 — gravitasjon, satellittbane og rakett",
+   "content": "Bokas navn på oppgaveformen der et legeme går i sirkelbane rundt en klode, eller der en rakett endrer fart ved å støte ut masse. Banedelen forekommer i rundt fire av ti sett (~40 %) og rakettdelen i rundt to av ti (~20 %); begge hører til **mekanikkhalvdelen, spørsmål 1–20**. Prioritet: bør sitte.\n\nKjeden for banedelen er kort og fast: sett gravitasjonen lik den nødvendige sentripetalkraften, forkort bort satellittens masse, koble inn $v = 2\\pi r/T$ hvis omløpstiden er involvert, og løs for det etterspurte. Kjeden for rakettdelen er ett oppslag: $\\Delta v = u\\ln(m_0/m)$, eventuelt skyvekraften $F = u\\lvert dm/dt\\rvert$.\n\nFire feil bærer nesten alle distraktorene i sjangeren: omløpstid i timer i stedet for sekunder, jordradien glemt eller trukket fra to ganger, kvadratrot der det skal være kubikkrot, og snudd fortegn i rakettligningens eksponent."
+  },
+  {
+   "id": "tfy4115-3-2-coll-symbolliste",
+   "type": "collapsible",
+   "title": "Symbol- og formelliste",
+   "buttonText": "Vis symboler og formler",
+   "content": [
+    {
+     "id": "tfy4115-3-2-coll-symbolliste-inn",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n**Kolliderende symboler i dette delkapitlet.** Her betyr $T$ **omløpstid** i sekunder — ikke temperatur, som er betydningen fra Del 6 og utover. $R_\\text{jord}$ er en **radius** i meter, ikke gasskonstanten $R$ fra termodelen. $\\mathbf{p}$ er **bevegelsesmengde** (vektor), ikke trykk. $u$ er **utstøtsfart** i m/s, ikke en integrasjonsvariabel. $M$ er massen til kloden det gås i bane rundt, og $m$ massen til legemet i bane; $m_0$ er rakettens startmasse. Symbolene $S$, $\\gamma$ og $\\theta$ opptrer ikke i dette kapitlet.\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $G$ | Gravitasjonskonstanten, $6{,}674\\cdot10^{-11}$ | $\\text{N}\\cdot\\text{m}^2/\\text{kg}^2$ |\n| $M$ | Massen til kloden det gås i bane rundt | kg |\n| $m$ | Massen til legemet i bane, eller rakettens masse | kg |\n| $m_0$ | Rakettens startmasse | kg |\n| $GM$ | Standard gravitasjonsparameter, $3{,}986\\cdot10^{14}$ for jorda | $\\text{m}^3/\\text{s}^2$ |\n| $r$ | Baneradius, målt fra klodens sentrum | m |\n| $R_\\text{jord}$ | Jordas radius, $6{,}371\\cdot10^{6}$ | m |\n| $h$ | Banehøyde over overflaten, $h = r - R_\\text{jord}$ | m |\n| $v$ | Banefart langs banen | m/s |\n| $T$ | Omløpstid (baneperiode) — her ALDRI temperatur | s |\n| $\\omega$ | Vinkelfart i banen, $2\\pi/T$ | rad/s |\n| $a$ | Gravitasjonsakselerasjon $GM/r^2$, eller rakettens akselerasjon | $\\text{m/s}^2$ |\n| $F$ | Gravitasjonskraft, eller rakettens skyvekraft | N |\n| $\\mathbf{p}$ | Bevegelsesmengde, $m\\mathbf{v}$ — her ALDRI trykk | $\\text{kg}\\cdot\\text{m/s}$ |\n| $u$ | Utstøtsfart, målt relativt raketten | m/s |\n| $\\lvert dm/dt\\rvert$ | Massestrøm ut av rakettmotoren | kg/s |\n| $\\Delta v$ | Fartsendring fra en rakettbrenning | m/s |\n| $g$ | Tyngdeakselerasjonen ved bakken, $9{,}81$ | $\\text{m/s}^2$ |\n| $v_\\text{unn}$ | Unnslipningsfart, $\\sqrt{2GM/r}$ | m/s |\n\n**Formler i dette delkapitlet:**\n\n$$F = \\frac{GMm}{r^2}$$\nNewtons gravitasjonslov [står på det utdelte arket].\n\n$$a_\\text{sentripetal} = \\frac{v^2}{r} = \\omega^2 r, \\qquad v = \\omega r$$\nSentripetalakselerasjonen i de to formene, og koblingen mellom banefart og vinkelfart [står på det utdelte arket].\n\n$$\\frac{GMm}{r^2} = \\frac{mv^2}{r} = m\\omega^2 r$$\nBanebetingelsen: gravitasjonen er resultanten inn mot sentrum [må kunne brukes eller utledes aktivt].\n\n$$v = \\sqrt{\\frac{GM}{r}}$$\nBanefarten i sirkelbane, uavhengig av satellittens masse [må kunne brukes eller utledes aktivt].\n\n$$v = \\frac{2\\pi r}{T}, \\qquad \\omega = \\frac{2\\pi}{T}$$\nGeometrisk kobling mellom bane, omløpstid og vinkelfart [må kunne brukes eller utledes aktivt].\n\n$$\\frac{T^2}{r^3} = \\frac{4\\pi^2}{GM} = 9{,}905\\cdot10^{-14}\\,\\text{s}^2/\\text{m}^3 \\quad (\\text{jorda})$$\nKeplers tredje lov, og kapitlets beste selvkontroll [må kunne brukes eller utledes aktivt].\n\n$$r = \\left(\\frac{GMT^2}{4\\pi^2}\\right)^{1/3}, \\qquad T = 2\\pi\\sqrt{\\frac{r^3}{GM}}$$\nSamme lov løst for radius og for omløpstid [må kunne brukes eller utledes aktivt].\n\n$$r = R_\\text{jord} + h$$\nBaneradius fra banehøyde. Jordradien står på arket [står på det utdelte arket].\n\n$$\\Delta v = u\\ln\\frac{m_0}{m}, \\qquad m = m_0e^{-\\Delta v/u}$$\nRakettligningen, utledet av impulsbevarelse. Logaritmeintegralet $\\int dm/m = \\ln m$ [Rottmann]; selve ligningen [må kunne brukes eller utledes aktivt].\n\n$$F = u\\left\\lvert\\frac{dm}{dt}\\right\\rvert, \\qquad a = \\frac{F}{m} - g \\ (\\text{nær bakken})$$\nSkyvekraft og akselerasjon under oppstigning [må kunne brukes eller utledes aktivt].\n\n$$v_\\text{unn} = \\sqrt{\\frac{2GM}{r}} = \\sqrt{2}\\,v_\\text{bane}$$\nUnnslipningsfart i samme avstand som banen [må kunne brukes eller utledes aktivt].\n\nTrenger du logaritmeregler, kubikkrøtter eller eksponentialfunksjonens egenskaper underveis, står de i **Rottmann**."
+    }
+   ]
+  },
+  {
+   "id": "tfy4115-3-2-coll-repetisjon",
+   "type": "collapsible",
+   "title": "Repetisjonsoppgaver",
+   "buttonText": "Vis repetisjonsoppgaver",
+   "content": [
+    {
+     "id": "tfy4115-3-2-coll-rep-inn",
+     "type": "text",
+     "content": "Fem korte oppgaver på det dette kapitlet bygger på — bevegelsesmengde og impulsbevarelse fra [kap. 3.1](/tfy4115/tfy4115-3-1), sentripetalakselerasjon og normalkraft fra [kap. 1.2](/tfy4115/tfy4115-1-2), og gravitasjonsloven fra videregående. Regn med to til tre minutter hver.\n\n**R1.** En satellitt med masse $1\\,200\\,\\text{kg}$ går i bane $r = 8{,}00\\cdot10^{6}\\,\\text{m}$ fra jordas sentrum. Hvor stor er gravitasjonskraften på den?\n\n*Svar:* $F = GMm/r^2 = 3{,}986\\cdot10^{14} \\cdot 1\\,200/(6{,}400\\cdot10^{13})\\,\\text{N} = 7\\,473\\,\\text{N} \\approx 7{,}47\\,\\text{kN}$. Merk at massen **er** med her, siden spørsmålet gjelder en kraft.\n\n**R2.** Et legeme går i sirkel med radius $2{,}50\\,\\text{m}$ og vinkelfart $4{,}00\\,\\text{rad/s}$. Finn banefarten og sentripetalakselerasjonen på to måter.\n\n*Svar:* $v = \\omega r = 10{,}0\\,\\text{m/s}$. Videre er $v^2/r = 100/2{,}50 = 40{,}0\\,\\text{m/s}^2$ og $\\omega^2 r = 16{,}0 \\cdot 2{,}50 = 40{,}0\\,\\text{m/s}^2$. Samme svar — det er kontrollen på at du ikke har blandet $v$ og $\\omega$.\n\n**R3.** En kule med masse $0{,}400\\,\\text{kg}$ og fart $6{,}00\\,\\text{m/s}$ treffer en stillestående kloss på $1{,}60\\,\\text{kg}$ og blir sittende fast. Finn felles fart etterpå, og hvor stor andel av den kinetiske energien som gikk tapt.\n\n*Svar:* $v' = mv_0/(m+M) = 2{,}40/2{,}00\\,\\text{m/s} = 1{,}20\\,\\text{m/s}$. Tapt andel er $M/(m+M) = 1{,}60/2{,}00 = 0{,}800$, altså 80,0 prosent. Kontroll: $K_0 = 7{,}20\\,\\text{J}$ og $K' = 1{,}44\\,\\text{J}$, differansen $5{,}76\\,\\text{J}$, som er 80,0 prosent av $7{,}20\\,\\text{J}$. ✔\n\n**R4.** Hvorfor kan du **ikke** bruke energibevaring for å finne farten til en rakett ut fra hvor mye drivstoff den har brent?\n\n*Svar:* Fordi den kjemiske energien fordeler seg mellom raketten og den utstøtte gassen, og fordelingen endrer seg mens farten øker. Bevegelses**mengden** er derimot bevart uansett, siden det ikke virker noen ytre kraft på systemet rakett-pluss-gass. Det er derfor rakettligningen utledes av impulsbevarelse — akkurat som det uelastiske støtet i [kap. 3.1](/tfy4115/tfy4115-3-1), der energien heller ikke var bevart, men bevegelsesmengden var det.\n\n**R5.** Vis at en satellitt som går i bane rett over bakken (altså $r = R_\\text{jord}$, uten luftmotstand) ville hatt banefarten $\\sqrt{gR_\\text{jord}}$, og regn ut tallet.\n\n*Svar:* Banebetingelsen gir $v = \\sqrt{GM/R_\\text{jord}}$. Ved overflaten er $g = GM/R_\\text{jord}^2$, altså $GM = gR_\\text{jord}^2$, og innsatt blir det\n$$v = \\sqrt{\\frac{gR_\\text{jord}^2}{R_\\text{jord}}} = \\sqrt{gR_\\text{jord}} = \\sqrt{9{,}81 \\cdot 6{,}371\\cdot10^{6}}\\,\\text{m/s} = 7\\,910\\,\\text{m/s} \\approx 7{,}91\\,\\text{km/s}.$$\nLegg merke til grepet: å bytte $GM$ mot $gR_\\text{jord}^2$ er nyttig når oppgaven oppgir $g$ i stedet for $GM$. Unnslipningsfarten der er $\\sqrt{2}$ ganger dette, altså $11{,}2\\,\\text{km/s}$."
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}

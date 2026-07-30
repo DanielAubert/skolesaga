@@ -1,0 +1,636 @@
+{
+  "id": "tfy4115-12-3",
+  "courseId": "tfy4115",
+  "chapterNumber": "12.3",
+  "title": "Øvingseksamen 2 — 40-spørsmålsmalen (tyngre varianter)",
+  "description": "Komplett sett i samme mal, vektet mot de tyngre variantene av kjerne-sjangrene og en ny tallkontekst gjennomgående.",
+  "estimatedMinutes": 240,
+  "competenceGoals": [
+    "løse de tyngre variantene av kjernesjangrene under samme tidspress som standardmalen",
+    "arbeide gjennom en Otto-syklus som fire koblede spørsmål, med kontroll av virkningsgraden på to uavhengige måter",
+    "skille de irreversible entropiprosessene fra de reversible, og se at universets entropi må øke",
+    "kjenne igjen når to ulike regnefeil gir samme tallsvar, og bruke egen mellomregning til å avgjøre hvilken du gjorde"
+  ],
+  "content": [
+    {
+      "id": "tfy4115-12-3-slik",
+      "type": "tip",
+      "title": "Slik tar du dette settet",
+      "content": "**Andre komplette øvingseksamen: 40 flervalgsspørsmål A–F, fire timer.** Samme mal som [kap. 12.2](/tfy4115/tfy4115-12-2) — spørsmål 1–20 mekanikk, 21–40 termisk fysikk, ett poeng for riktig og null for feil eller blankt — men **vektet mot de tyngre variantene** av hver kjernesjanger.\n\n**⚠️ De 240 minuttene er EKSAMENSTID, ikke lesetid.** Sett klokka på fire timer.\n\n**Hva «tyngre variant» betyr her, konkret:**\n\n| Sjanger | Standardvarianten i 12.2 | Den tyngre varianten her |\n|---|---|---|\n| Kinematikk | $v_0(1-e^{-t/\\tau})$, derivér | potens ganger eksponential, finn maksimum og totalvinkel |\n| Skråplan | fritt glidende legeme | ytre kraft langs planet, og energiandel opp og tilbake |\n| Rulling | finn farten i bunnen | overgang gliding → ren rulling, og dreieimpuls om kontaktlinjen |\n| Støt | fullstendig uelastisk | elastisk støt og ballistisk pendel |\n| Steiner | akse gjennom randen | akse i et kvartpunkt, der $d$ må regnes ut først |\n| Pendel | stang om enden | skive om randen, og konisk pendel |\n| Kretsprosess | rektangel i $pV$ | full Otto-syklus, fire koblede spørsmål |\n| Entropi | ett reservoar | blanding av to vannmengder, og fri ekspansjon |\n| Stråling | netto utstråling | platebalanse og strålingsskjermer |\n\n**Hjelpemidler — hjelpemiddelkode C:** Rottmann, det utdelte fysikk-formelarket og én bestemt, enkel kalkulator. **Ingen egne notater**, og ingen grafisk eller programmerbar maskin. Legg boka bort.\n\n**Ta aldri blankt.** Med seks alternativer er ren gjetting verdt rundt 17 %, og det finnes ingen minuspoeng.\n\n**Naturlige pausepunkter** står etter spørsmål 10, 20 og 30. Del gjerne settet der, men nullstill klokka — og ta minst ett av de tre settene i boka i ett strekk før eksamen."
+    },
+    {
+      "id": "tfy4115-12-3-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDette settet forutsetter at du har tatt [kap. 12.2](/tfy4115/tfy4115-12-2) og gått gjennom selvdiagnosen der. Strategien — tidsbudsjett, avrundingsdisiplin og sjekk-før-svar-listen — står i [kap. 12.1](/tfy4115/tfy4115-12-1).\n\nDe tyngre variantene henter fra de samme kapitlene som standardsettet, men lener seg særlig på [kap. 4.2](/tfy4115/tfy4115-4-2) (gliding → rulling, spinn og bane), [kap. 5.1](/tfy4115/tfy4115-5-1) (fysisk og konisk pendel), [kap. 8.1](/tfy4115/tfy4115-8-1) (Otto og Stirling), [kap. 9.2](/tfy4115/tfy4115-9-2) (platebalanse og skjermer), [kap. 10.1](/tfy4115/tfy4115-10-1) og [kap. 10.2](/tfy4115/tfy4115-10-2) (van der Waals, fasediagram og Clausius–Clapeyron) og [kap. 11.1](/tfy4115/tfy4115-11-1) (fikspunktiterasjon).\n\n**De fem relasjonene som bærer de tyngre variantene, ferdig oppfrisket:**\n\n$$I_A = I_\\text{CM} + Md^2, \\qquad T = 2\\pi\\sqrt{\\frac{I_A}{Mgd}}$$\n\nSteiner og den fysiske pendelen. $d$ er avstanden fra **massesenteret** til aksen — ikke fra enden, og ikke fra noe annet punkt. Se [kap. 4.1](/tfy4115/tfy4115-4-1) og [kap. 5.1](/tfy4115/tfy4115-5-1).\n\n$$V = \\frac{V_0}{1+c}, \\qquad t = \\frac{cV_0}{(1+c)\\mu g}$$\n\nOvergangen fra gliding til ren rulling, med $c = I/(mR^2)$. For en kompakt kule gir det $V = \\tfrac57V_0$ og $t = 2V_0/(7\\mu g)$. Se [kap. 4.2](/tfy4115/tfy4115-4-2).\n\n$$T_2 = T_1r^{\\gamma-1}, \\qquad \\eta_\\text{Otto} = 1 - r^{1-\\gamma}$$\n\nAdiabatrelasjonen og Otto-virkningsgraden, der $r = V_1/V_2$ er kompresjonsforholdet. Merk at $\\gamma$ her er **adiabateksponenten** $C_P/C_V$, dimensjonsløs — ikke dempingskoeffisienten fra [kap. 5.2](/tfy4115/tfy4115-5-2), som har enheten $\\text{s}^{-1}$.\n\n$$T_2 = \\left(\\frac{T_1^4+T_3^4}{2}\\right)^{1/4}, \\qquad j_n = \\frac{j_0}{n+1}$$\n\nPlatebalanse og strålingsskjermer. Det er **$T^4$** som midles, ikke $T$. Se [kap. 9.2](/tfy4115/tfy4115-9-2).\n\n$$p(T) = p_0\\exp\\left[-\\frac{l_f}{R}\\left(\\frac{1}{T} - \\frac{1}{T_0}\\right)\\right]$$\n\nClausius–Clapeyron integrert, med kokepunktet $(T_0, p_0)$ som referanse og $l_f$ som molar fordampningsvarme i J/mol. Temperaturene **må** i kelvin. Se [kap. 10.2](/tfy4115/tfy4115-10-2)."
+    },
+    {
+      "id": "tfy4115-12-3-intro",
+      "type": "text",
+      "content": "## Oppgavesettet\n\n**Bare bokstavsvaret teller.** Bruk kladdearket likevel — det er den eneste måten du selv kan finne feilen på.\n\nBruk $g = 9{,}81\\,\\text{m/s}^2$ der ikke annet er oppgitt, $R = 8{,}314\\,\\text{J/(mol}\\cdot\\text{K)}$ og $\\sigma = 5{,}670\\cdot10^{-8}\\,\\text{W/(m}^2\\cdot\\text{K}^4)$.\n\n**Merk at spørsmål 1–3 og 26–29 henger sammen.** De to klyngene har felles oppsett, så et mellomresultat regnet én gang med fem siffer sparer deg for arbeid tre ganger.\n\n*Klokka starter nå.*"
+    },
+    {
+      "id": "tfy4115-12-3-sp-1",
+      "type": "text",
+      "content": "**Spørsmål 1** *(sjanger M10 — kinematikk fra gitt fartsfunksjon, altså «her er $v(t)$ eller $\\omega(t)$ — derivér, integrér eller tell runder»)*\n\nEn rotor drives opp og bremses ned igjen slik at vinkelfarten er $\\omega(t) = \\omega_0\\,(t/\\tau)\\,e^{-t/\\tau}$ med $\\omega_0 = 210{,}0\\,\\text{rad/s}$ og $\\tau = 3{,}40\\,\\text{s}$. Hvor stor er den **største** vinkelfarten, i rad/s?\n\n**A** $113{,}68$ · **B** $210{,}00$ · **C** $77{,}25$ · **D** $714{,}0$ · **E** $105{,}00$ · **F** $22{,}72$\n\n**Spørsmål 2** *(sjanger M10)*\n\nSamme rotor som i spørsmål 1. Hvor stor er den totale dreievinkelen fra start til rotoren står stille, i radianer? Bruk standardintegralet $\\int_0^\\infty u^ne^{-u}\\,du = n!$ fra **Rottmann**.\n\n**A** $1428{,}0$ · **B** $61{,}76$ · **C** $262{,}7$ · **D** $357{,}0$ · **E** $113{,}64$ · **F** $714{,}0$\n\n**Spørsmål 3** *(sjanger M10)*\n\nSamme rotor. Hvor mange **hele** omdreininger gjør den til sammen?\n\n**A** $113$ · **B** $41$ · **C** $56$ · **D** $227$ · **E** $114$ · **F** $714$\n\n**Spørsmål 4** *(sjanger M11 — krumning og normalkraft, altså «her er en bane $y(x)$ — finn kraften mot underlaget i toppen eller bunnen»)*\n\nEn syklist med samlet masse $68{,}0\\,\\text{kg}$ passerer bunnen av en dal som kan beskrives ved $y = bx^2$ med $b = 0{,}0250\\,\\text{m}^{-1}$. Farten i bunnpunktet er $14{,}0\\,\\text{m/s}$. Hvor stor er normalkraften fra underlaget, i newton?\n\n**A** $0{,}7$ · **B** $667{,}1$ · **C** $1000$ · **D** $1333$ · **E** $666{,}4$ · **F** $714{,}7$\n\n**Spørsmål 5** *(sjanger M1 — Newton på skråplan med friksjon, altså «et legeme på en skrå flate — finn akselerasjonen, snuavstanden eller vinkelen der glidingen starter»)*\n\nEn kasse på $32{,}0\\,\\text{kg}$ dras **oppover** et skråplan som heller $18{,}0^\\circ$, med en kraft $210\\,\\text{N}$ rettet **langs planet**. Den kinetiske friksjonskoeffisienten er $0{,}240$. Hvor stor er akselerasjonen, i $\\text{m/s}^2$?\n\n**A** $1{,}292$ · **B** $3{,}531$ · **C** $5{,}770$ · **D** $4{,}323$ · **E** $1{,}177$ · **F** $-3{,}495$"
+    },
+    {
+      "id": "tfy4115-12-3-sp-2",
+      "type": "text",
+      "content": "**Spørsmål 6** *(sjanger M1)*\n\nEn kloss sendes oppover et skråplan som heller $30{,}0^\\circ$, med friksjonskoeffisient $0{,}180$, og glir tilbake til utgangspunktet. Hvor stor **andel** av den opprinnelige kinetiske energien har den igjen når den er tilbake?\n\n**A** $1{,}9060$ · **B** $0{,}8200$ · **C** $0{,}5247$ · **D** $0{,}4706$ · **E** $0{,}3765$ · **F** $0{,}3118$\n\n**Spørsmål 7** *(sjanger M2 — arbeid, energi og effekt, altså «sett opp et energiregnskap og finn fart, arbeid eller effekt»)*\n\nEn ball med masse $0{,}145\\,\\text{kg}$ og tverrsnittsareal $4{,}26\\cdot10^{-3}\\,\\text{m}^2$ faller gjennom luft med tetthet $1{,}225\\,\\text{kg/m}^3$. Motstandskoeffisienten er $C_d = 0{,}470$. Hva er terminalfarten, i m/s?\n\n**A** $34{,}06$ · **B** $1160$ · **C** $24{,}08$ · **D** $23{,}35$ · **E** $1{,}687$ · **F** $16{,}01$\n\n**Spørsmål 8** *(sjanger M3 — rullende legeme med energibevaring, altså «en kule eller sylinder ruller uten å gli over et høydefall — finn farten»)*\n\nTre legemer med samme masse og samme radius — en kompakt kule, en massiv sylinder og et kuleskall — slippes samtidig fra ro øverst i samme bakke og ruller uten å gli. Hvilken rekkefølge kommer de ned i, og hvorfor?\n\n**A** $\\text{kule, sylinder, skall — lavest formfaktor } c \\text{ gir høyest fart}$ · **B** $\\text{skall, sylinder, kule — størst treghetsmoment gir størst dreieimpuls}$ · **C** $\\text{alle tre kommer ned samtidig, siden massen faller ut av regnestykket}$ · **D** $\\text{sylinder, kule, skall — sylinderen har lavest treghetsmoment}$ · **E** $\\text{kule, skall, sylinder — skallets masse ligger nærmest aksen}$ · **F** $\\text{rekkefølgen avhenger av radien, og kan ikke avgjøres uten tallverdier}$\n\n**Spørsmål 9** *(sjanger M3)*\n\nEt kuleskall ruller uten å gli med farten $4{,}60\\,\\text{m/s}$ og fortsetter oppover en bakke. Hvor høyt kommer det, i meter?\n\n**A** $0{,}7190$ · **B** $1{,}0785$ · **C** $1{,}5099$ · **D** $1{,}6177$ · **E** $1{,}7975$ · **F** $3{,}5950$\n\n**Spørsmål 10** *(sjanger M5 — dreieimpuls og rulling, altså «bruk at dreieimpulsen er bevart, eller finn overgangen fra gliding til ren rulling»)*\n\nEn bowlingkule settes ned med farten $7{,}20\\,\\text{m/s}$ og uten rotasjon. Friksjonskoeffisienten mot banen er $0{,}120$. Hvor lang tid går det før kula ruller uten å gli, i sekunder?\n\n**A** $6{,}116$ · **B** $2{,}039$ · **C** $21{,}41$ · **D** $4{,}369$ · **E** $0{,}874$ · **F** $1{,}747$\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "tfy4115-12-3-sp-3",
+      "type": "text",
+      "content": "**Spørsmål 11** *(sjanger M5)*\n\nEn kompakt kule med masse $2{,}40\\,\\text{kg}$ og radius $0{,}150\\,\\text{m}$ ruller uten å gli langs et vannrett gulv med massesenterfart $3{,}50\\,\\text{m/s}$. Hvor stor er dreieimpulsen om kontaktlinjen mot gulvet, i $\\text{kg}\\cdot\\text{m}^2/\\text{s}$?\n\n**A** $0{,}5040$ · **B** $1{,}2600$ · **C** $0{,}7560$ · **D** $0{,}07560$ · **E** $1{,}7640$ · **F** $3{,}5280$\n\n**Spørsmål 12** *(sjanger M6 — bevegelsesmengde, støt og impuls, altså «to legemer treffer hverandre — finn fartene etterpå, energitapet eller kraftstøtet»)*\n\nEn kule på $0{,}180\\,\\text{kg}$ med farten $6{,}40\\,\\text{m/s}$ treffer **elastisk** en kule på $0{,}520\\,\\text{kg}$ som ligger i ro. Hvor stor blir farten til den **tyngste** kula etter støtet, i m/s?\n\n**A** $3{,}109$ · **B** $1{,}646$ · **C** $9{,}509$ · **D** $6{,}400$ · **E** $3{,}291$ · **F** $3{,}765$\n\n**Spørsmål 13** *(sjanger M6)*\n\nEn kule på $0{,}0250\\,\\text{kg}$ skytes inn i en trekloss på $1{,}85\\,\\text{kg}$ som henger i en snor med lengde $1{,}20\\,\\text{m}$, og blir sittende fast. Klossen svinger ut til vinkelen $32{,}0^\\circ$. Hvor stor var kulas fart, i m/s?\n\n**A** $141{,}9$ · **B** $0{,}02522$ · **C** $264{,}9$ · **D** $100{,}3$ · **E** $1{,}8914$ · **F** $140{,}0$\n\n**Spørsmål 14** *(sjanger M4 — treghetsmoment og Steiners sats, altså «finn treghetsmomentet om en akse som ikke går gjennom massesenteret»)*\n\nEn homogen stang med masse $3{,}10\\,\\text{kg}$ og lengde $1{,}50\\,\\text{m}$ dreies om en akse vinkelrett på stanga, gjennom et punkt som ligger en fjerdedel av lengden fra den ene enden. Finn treghetsmomentet, i $\\text{kg}\\cdot\\text{m}^2$.\n\n**A** $0{,}5813$ · **B** $0{,}4359$ · **C** $2{,}7609$ · **D** $1{,}0172$ · **E** $0{,}1453$ · **F** $2{,}3250$\n\n**Spørsmål 15** *(sjanger M4)*\n\nEt lodd på $1{,}60\\,\\text{kg}$ henger i en snor som går over en trinse formet som en homogen skive med masse $2{,}40\\,\\text{kg}$. Snora glir ikke på trinsen. Hvor stor er akselerasjonen til loddet, i $\\text{m/s}^2$?\n\n**A** $9{,}810$ · **B** $3{,}924$ · **C** $5{,}606$ · **D** $2{,}453$ · **E** $6{,}540$ · **F** $7{,}135$"
+    },
+    {
+      "id": "tfy4115-12-3-sp-4",
+      "type": "text",
+      "content": "**Spørsmål 16** *(sjanger M8 — pendler, altså «finn svingetiden til en fysisk, matematisk eller konisk pendel»)*\n\nEn homogen skive med radius $0{,}185\\,\\text{m}$ henger på en spiker gjennom randen og svinger med små utslag i sitt eget plan. Hva er svingetiden, i sekunder?\n\n**A** $0{,}8628$ · **B** $1{,}4945$ · **C** $0{,}6101$ · **D** $1{,}2202$ · **E** $1{,}0568$ · **F** $0{,}5284$\n\n**Spørsmål 17** *(sjanger M8)*\n\nEn konisk pendel har snorlengde $0{,}950\\,\\text{m}$, og snora danner $28{,}0^\\circ$ med loddlinja mens loddet går i en vannrett sirkel. Hva er omløpstiden, i sekunder?\n\n**A** $1{,}9553$ · **B** $1{,}8373$ · **C** $1{,}3397$ · **D** $2{,}0808$ · **E** $1{,}2992$ · **F** $0{,}2924$\n\n**Spørsmål 18** *(sjanger M7 — svingninger, altså «finn egenfrekvens, dempingskoeffisient, kvalitetsfaktor eller resonansamplitude»)*\n\nEn dempet fjærpendel har $m = 0{,}450\\,\\text{kg}$, $k = 32{,}0\\,\\text{N/m}$ og $b = 0{,}250\\,\\text{kg/s}$. Hvor lang tid tar det før **amplituden** er redusert til en fjerdedel, i sekunder?\n\n**A** $2{,}495$ · **B** $4{,}991$ · **C** $0{,}3851$ · **D** $3{,}600$ · **E** $1{,}248$ · **F** $14{,}400$\n\n**Spørsmål 19** *(sjanger M7)*\n\nSamme fjærpendel som i spørsmål 18 drives nå av en ytre kraft $F(t) = F_0\\cos\\omega t$ med $F_0 = 0{,}450\\,\\text{N}$, og frekvensen justeres til $\\omega = \\omega_0$. Hvor stor blir amplituden, i meter?\n\n**A** $3{,}2400$ · **B** $0{,}01406$ · **C** $0{,}2136$ · **D** $0{,}0961$ · **E** $0{,}2135$ · **F** $0{,}02531$\n\n**Spørsmål 20** *(sjanger M9 — statikk og momentbalanse, altså «et legeme står i ro — finn en ukjent kraft av likevektsbetingelsene»)*\n\nEn homogen stige står mot en **glatt** vegg og danner $62{,}0^\\circ$ med gulvet. Hvor stor må den statiske friksjonskoeffisienten mot gulvet minst være for at stigen ikke skal skli?\n\n**A** $0{,}5317$ · **B** $1{,}8807$ · **C** $3{,}761$ · **D** $0{,}2659$ · **E** $0{,}5663$ · **F** $0{,}9404$\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "tfy4115-12-3-sp-5",
+      "type": "text",
+      "content": "**Spørsmål 21** *(sjanger T1 — ideell gasslov og molekyltall, altså «bruk $pV=nRT$ til å finne trykk, volum, temperatur eller stoffmengde»)*\n\nEt bildekk har absolutt trykk $230\\,\\text{kPa}$ ved $283\\,\\text{K}$. Etter kjøring har temperaturen steget til $318\\,\\text{K}$, og volumet har økt med $3{,}0\\,\\%$. Hva er det nye trykket, i kPa?\n\n**A** $258{,}4$ · **B** $266{,}2$ · **C** $198{,}7$ · **D** $1005$ · **E** $223{,}3$ · **F** $250{,}9$\n\n**Spørsmål 22** *(sjanger T2 — kinetisk gassteori, altså «finn $v_\\text{rms}$ eller den midlere kinetiske energien til et molekyl»)*\n\nHelium ($M = 4{,}003\\,\\text{g/mol}$) og argon ($M = 39{,}95\\,\\text{g/mol}$) holder samme temperatur. Hva er forholdet $v_\\text{rms,He}/v_\\text{rms,Ar}$?\n\n**A** $0{,}3165$ · **B** $3{,}159$ · **C** $0{,}1002$ · **D** $9{,}980$ · **E** $1{,}000$ · **F** $5{,}472$\n\n**Spørsmål 23** *(sjanger T3 — ekvipartisjon og frihetsgrader, altså «tell frihetsgradene og finn $C_V$, $C_P$ eller $\\gamma$»)*\n\nVed høy temperatur har en toatomig gass fått vibrasjonsmoden aktivert, slik at adiabateksponenten er målt til $\\gamma = 1{,}2857$. Hva er den molare varmekapasiteten $C_P$ for gassen, i $\\text{J/(mol}\\cdot\\text{K)}$?\n\n**A** $37{,}413$ · **B** $20{,}785$ · **C** $29{,}099$ · **D** $12{,}471$ · **E** $45{,}727$ · **F** $10{,}689$\n\n**Spørsmål 24** *(sjanger T4 — adiabatisk prosess, altså «bruk $pV^{\\gamma}$ eller $TV^{\\gamma-1}$ konstant til å finne en ny tilstand»)*\n\nLuft ($\\gamma = 1{,}40$) komprimeres raskt i en sykkelpumpe fra $101\\,\\text{kPa}$ og $291\\,\\text{K}$ til $780\\,\\text{kPa}$. Kompresjonen er så rask at den kan regnes adiabatisk. Hva er sluttemperaturen, i kelvin?\n\n**A** $2247$ · **B** $521{,}8$ · **C** $659{,}2$ · **D** $1253{,}2$ · **E** $458{,}3$ · **F** $162{,}3$\n\n**Spørsmål 25** *(sjanger T8 — hovedsetningene som fortegnsanalyse, altså «avgjør fortegnet på $Q$, $W$ og $\\Delta U$, eller om en prosess er mulig»)*\n\nFire maskiner arbeider alle mellom reservoarer på $T_v = 800\\,\\text{K}$ og $T_k = 320\\,\\text{K}$. Hvilken av de beskrevne ytelsene er **umulig**?\n\n**A** $\\text{en varmekraftmaskin med virkningsgrad } 0{,}52$ · **B** $\\text{en varmepumpe med effektfaktor } \\varepsilon_V = 1{,}55$ · **C** $\\text{en varmekraftmaskin med virkningsgrad } 0{,}68$ · **D** $\\text{et kjøleskap med effektfaktor } \\varepsilon_K = 0{,}54$ · **E** $\\text{en reversibel maskin med virkningsgrad } 0{,}60$ · **F** $\\text{en varmekraftmaskin som avgir } 40\\ \\% \\text{ av tilført varme}$"
+    },
+    {
+      "id": "tfy4115-12-3-sp-6",
+      "type": "text",
+      "content": "**Spørsmål 26** *(sjanger T5 — kretsprosess og virkningsgrad, altså «en gass føres rundt en lukket sløyfe — finn varme, arbeid og virkningsgrad»)*\n\n**Otto-syklusen i spørsmål 26–29.** $0{,}0400\\,\\text{mol}$ toatomig gass ($\\gamma = 1{,}40$, $C_V = \\tfrac52R$) gjennomgår en Otto-syklus: adiabatisk kompresjon fra $T_1 = 300\\,\\text{K}$ med kompresjonsforhold $r = 9{,}00$, deretter isokor varmetilførsel $Q_\\text{inn} = 1250\\,\\text{J}$, så adiabatisk ekspansjon tilbake til utgangsvolumet, og til slutt isokor avkjøling. Hva er temperaturen etter kompresjonen, $T_2$, i kelvin?\n\n**A** $2700$ · **B** $722{,}5$ · **C** $6502$ · **D** $1298{,}0$ · **E** $124{,}6$ · **F** $562{,}0$\n\n**Spørsmål 27** *(sjanger T5)*\n\nSamme Otto-syklus. Hva er den høyeste temperaturen i syklusen, $T_3$, i kelvin?\n\n**A** $3228$ · **B** $1503$ · **C** $1796$ · **D** $2226$ · **E** $1803$ · **F** $1740$\n\n**Spørsmål 28** *(sjanger T5)*\n\nSamme Otto-syklus. Hva er virkningsgraden?\n\n**A** $0{,}8652$ · **B** $0{,}4152$ · **C** $0{,}9539$ · **D** $0{,}5848$ · **E** $0{,}8889$ · **F** $0{,}7689$\n\n**Spørsmål 29** *(sjanger T5)*\n\nSamme Otto-syklus. Hvor stort er netto arbeid per syklus, i joule?\n\n**A** $1250$ · **B** $519$ · **C** $1769$ · **D** $1082$ · **E** $731$ · **F** $351$\n\n**Spørsmål 30** *(sjanger T5)*\n\nEn Stirling-maskin med ideell regenerator bruker $0{,}250\\,\\text{mol}$ ideell gass mellom $620\\,\\text{K}$ og $300\\,\\text{K}$, med volumforhold $2{,}50$ i de to isoterme trinnene. Hvor stort er netto arbeid per syklus, i joule?\n\n**A** $1180{,}8$ · **B** $1662{,}8$ · **C** $1752{,}1$ · **D** $571{,}4$ · **E** $609{,}4$ · **F** $1523{,}6$\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "tfy4115-12-3-sp-7",
+      "type": "text",
+      "content": "**Spørsmål 31** *(sjanger T7 — entropi, altså «finn entropiendringen til gassen, til omgivelsene eller til universet»)*\n\n$6{,}00\\,\\text{kg}$ vann på $350\\,\\text{K}$ blandes med $6{,}00\\,\\text{kg}$ vann på $290\\,\\text{K}$ i en isolert beholder. Spesifikk varmekapasitet er $4186\\,\\text{J/(kg}\\cdot\\text{K)}$. Hvor mye øker universets entropi, i J/K?\n\n**A** $221{,}72$ · **B** $2472{,}42$ · **C** $-2250{,}70$ · **D** $4709{,}2$ · **E** $-221{,}72$ · **F** $443{,}44$\n\n**Spørsmål 32** *(sjanger T7)*\n\n$1{,}50\\,\\text{mol}$ ideell gass er stengt inne i den ene halvdelen av en isolert, stiv beholder. En ventil åpnes, og gassen fyller hele beholderen uten å gjøre arbeid og uten varmeutveksling. Hvor mye endres **universets** entropi, i J/K?\n\n**A** $0{,}0000$ · **B** $-8{,}6442$ · **C** $8{,}6442$ · **D** $21{,}6106$ · **E** $24{,}942$ · **F** $17{,}2885$\n\n**Spørsmål 33** *(sjanger T6 — varmepumpe og kjøleskap, altså «finn effektfaktoren, eller hvor mye varme som flyttes per arbeid»)*\n\nEt kjøleskap holder $275\\,\\text{K}$ innvendig i et kjøkken på $298\\,\\text{K}$. Hva er det **minste** elektriske arbeidet som kreves for å fjerne $500\\,\\text{J}$ varme fra kjølerommet, i joule?\n\n**A** $38{,}59$ · **B** $5978$ · **C** $541{,}8$ · **D** $41{,}82$ · **E** $6216$ · **F** $500$\n\n**Spørsmål 34** *(sjanger T9 — varmeledning, altså «legg sammen termiske motstander i serie og finn varmefluks, U-verdi eller en grenseflatetemperatur»)*\n\nEn yttervegg har U-verdi $0{,}180$ og inneholder vinduer med U-verdi $1{,}20\\,\\text{W/(m}^2\\cdot\\text{K)}$. Vinduene utgjør $12{,}0\\,\\%$ av veggflaten. Hva er den samlede U-verdien for veggen, i $\\text{W/(m}^2\\cdot\\text{K)}$?\n\n**A** $0{,}6900$ · **B** $1{,}0776$ · **C** $0{,}2004$ · **D** $1{,}380$ · **E** $0{,}180$ · **F** $0{,}3024$\n\n**Spørsmål 35** *(sjanger T10 — varmestråling, altså «bruk $\\sigma T^4$ til å finne utstrålt effekt, en platetemperatur eller en bølgelengde»)*\n\nTo store, parallelle svarte plater holder $640\\,\\text{K}$ og $300\\,\\text{K}$. En tynn, svart plate henger fritt mellom dem, uten annen varmeutveksling enn stråling. Hvilken stasjonær temperatur får midtplata, i kelvin?\n\n**A** $296540$ · **B** $470{,}0$ · **C** $438{,}2$ · **D** $544{,}6$ · **E** $531{,}6$ · **F** $647{,}6$"
+    },
+    {
+      "id": "tfy4115-12-3-sp-8",
+      "type": "text",
+      "content": "**Spørsmål 36** *(sjanger T10)*\n\nMellom de samme to platene ($640\\,\\text{K}$ og $300\\,\\text{K}$) settes det nå inn $3$ tynne, svarte strålingsskjermer. Hvor stor blir varmefluksen mellom platene, i $\\text{W/m}^2$?\n\n**A** $9053{,}4$ · **B** $2263{,}4$ · **C** $1810{,}7$ · **D** $189{,}4256$ · **E** $565{,}8$ · **F** $3017{,}8$\n\n**Spørsmål 37** *(sjanger T11 — van der Waals og fasediagram, altså «finn det kritiske punktet fra $a$ og $b$, eller les av hvilken fase stoffet er i»)*\n\nNitrogen har van der Waals-konstantene $a = 0{,}1370\\,\\text{Pa}\\cdot\\text{m}^6/\\text{mol}^2$ og $b = 3{,}87\\cdot10^{-5}\\,\\text{m}^3/\\text{mol}$. Hva er det kritiske trykket, i MPa?\n\n**A** $126{,}161$ · **B** $91{,}474$ · **C** $0{,}034$ · **D** $6{,}776$ · **E** $1{,}694$ · **F** $3{,}388$\n\n**Spørsmål 38** *(sjanger T11)*\n\nEt stoff har trippelpunkt ved $p_t = 5{,}18\\,\\text{bar}$ og $T_t = 217\\,\\text{K}$, og kritisk punkt ved $p_c = 73{,}8\\,\\text{bar}$ og $T_c = 304\\,\\text{K}$. Hva skjer når du varmer opp stoffet fra fast form ved konstant trykk $1{,}0\\,\\text{bar}$?\n\n**A** $\\text{det smelter til væske og koker deretter ved en høyere temperatur}$ · **B** $\\text{det går over i en overkritisk fase uten skarp faseovergang}$ · **C** $\\text{det smelter, men kan ikke koke fordi trykket er under det kritiske}$ · **D** $\\text{det forblir fast uansett temperatur, siden trykket er for lavt}$ · **E** $\\text{det blir flytende først når temperaturen passerer } 304\\,\\text{K}$ · **F** $\\text{det sublimerer direkte fra fast til gass, uten å bli flytende}$\n\n**Spørsmål 39** *(sjanger T12 — Clausius–Clapeyron, altså «finn damptrykket ved en ny temperatur med kokepunktet som referanse»)*\n\nVann koker ved $373{,}15\\,\\text{K}$ når trykket er $101{,}3\\,\\text{kPa}$, og fordampningsvarmen er $40{,}66\\,\\text{kJ/mol}$. Anslå damptrykket ved $353{,}15\\,\\text{K}$, i kPa.\n\n**A** $213$ · **B** $95{,}9$ · **C** $48{,}2$ · **D** $50{,}2$ · **E** $0{,}000496$ · **F** $101{,}2$\n\n**Spørsmål 40** *(sjanger T14 — numerisk iterasjon, altså «kjør en fikspunktiterasjon eller en Euler-tabell for hånd»)*\n\nMaksimum i Plancks strålingslov gir likningen $x = 5\\left(1 - e^{-x}\\right)$, som løses med fikspunktiterasjonen $x_{n+1} = 5\\left(1 - e^{-x_n}\\right)$. Start med $x_0 = 4{,}000$ og utfør **tre** iterasjoner. Hva er $x_3$, med fem desimaler?\n\n**A** $4{,}96308$ · **B** $4{,}90842$ · **C** $4{,}96511$ · **D** $4{,}99322$ · **E** $5{,}00000$ · **F** $4{,}96504$"
+    },
+    {
+      "id": "tfy4115-12-3-stopp",
+      "type": "tip",
+      "title": "Stopp her til klokka er ute",
+      "content": "**Under kommer løsningsforslagene, ett per spørsmål**, i formen avgjørende lov → få regnelinjer → bokstavsvar, med felle-merking på hvert av de fem gale alternativene.\n\n**Les dem ikke før klokka er ute.**\n\n**Når du retter:** noter hvilket alternativ du krysset av, og slå opp i listen hvilken feil det tilsvarer. I dette settet er flere av distraktorene konstruert slik at **to ulike feil gir samme tall** — det står sagt i klartekst der det gjelder, og det er verdt å legge merke til: det betyr at ett galt kryss ikke alltid identifiserer feilen entydig."
+    },
+    {
+      "id": "tfy4115-12-3-los-1",
+      "type": "collapsible",
+      "title": "Løsningsforslag — spørsmål 1 (sjanger M10)",
+      "buttonText": "Vis løsning 1",
+      "content": [
+        {
+          "id": "tfy4115-12-3-los-1-t",
+          "type": "text",
+          "content": "**Svar: C.**\n\n**Avgjørende lov:** Deriver $\\omega(t)$ og sett den lik null: $\\frac{d\\omega}{dt} = \\frac{\\omega_0}{\\tau}\\left(1 - \\frac{t}{\\tau}\\right)e^{-t/\\tau} = 0$ gir $t = \\tau$.\n\n$$\\omega_\\text{maks} = \\omega(\\tau) = \\omega_0\\cdot 1\\cdot e^{-1} = \\frac{210{,}0}{e} = 210{,}0\\cdot 0{,}36788 = 77{,}255\\,\\text{rad/s}.$$\n\n*Fellene, hver regnet fram fra sin feil:* **B** ($210{,}00$) er $\\omega_0$ selv — men konstanten i modellen er **ikke** maksimalfarten når det står en potens foran eksponentialleddet. **A** ($113{,}68$) er maksimalverdien for modellen med $(t/\\tau)^2$ i stedet for $(t/\\tau)$. **D** ($714{,}0$) er $\\omega_0\\tau$, altså totalvinkelen i radianer. **E** ($105{,}00$) antar at maksimum ligger på halve $\\omega_0$. **F** ($22{,}72$) har delt på $\\tau$ og fått en vinkelakselerasjon i stedet.\n\n*Sluttsjekk:* maksimum må være **mindre** enn $\\omega_0$, siden faktoren $(t/\\tau)e^{-t/\\tau}$ aldri overstiger $1/e$. Det stryker to alternativer uten regning. Legg merke til at maksimum inntreffer nøyaktig ved $t = \\tau = 3{,}40\\,\\text{s}$ — det er en gratis kontroll på at deriveringen er riktig."
+        }
+      ]
+    },
+    {
+      "id": "tfy4115-12-3-los-2",
+      "type": "collapsible",
+      "title": "Løsningsforslag — spørsmål 2 (sjanger M10)",
+      "buttonText": "Vis løsning 2",
+      "content": [
+        {
+          "id": "tfy4115-12-3-los-2-t",
+          "type": "text",
+          "content": "**Svar: F.**\n\n**Avgjørende lov:** $\\varphi_\\text{tot} = \\int_0^\\infty\\omega\\,dt$. Substituer $u = t/\\tau$, så $dt = \\tau\\,du$.\n\n$$\\varphi_\\text{tot} = \\omega_0\\tau\\int_0^\\infty ue^{-u}\\,du = \\omega_0\\tau\\cdot 1! = 210{,}0\\cdot 3{,}40 = 714{,}0\\,\\text{rad}.$$\n\n*Fellene, hver regnet fram fra sin feil:* **A** ($1428{,}0$) er totalvinkelen for modellen med $(t/\\tau)^2$, der integralet gir $2! = 2$. **B** ($61{,}76$) har delt i stedet for å gange. **C** ($262{,}7$) har brukt maksimalfarten i stedet for $\\omega_0$. **D** ($357{,}0$) har halvert produktet. **E** ($113{,}64$) er antall omdreininger, ikke vinkelen i radianer.\n\n*Sluttsjekk:* faktoriteten er hele hemmeligheten: $n = 1$ gir 1, $n = 2$ gir 2. Uten den må du delvis integrere to ganger midt på eksamen. Dimensjonskontroll: rad/s ganger s gir rad ✓."
+        }
+      ]
+    },
+    {
+      "id": "tfy4115-12-3-los-3",
+      "type": "collapsible",
+      "title": "Løsningsforslag — spørsmål 3 (sjanger M10)",
+      "buttonText": "Vis løsning 3",
+      "content": [
+        {
+          "id": "tfy4115-12-3-los-3-t",
+          "type": "text",
+          "content": "**Svar: A.**\n\n**Avgjørende lov:** $n = \\left\\lfloor \\varphi_\\text{tot}/2\\pi \\right\\rfloor$ — heltallsdelen, aldri desimaltallet.\n\n$$\\frac{714{,}0}{6{,}28319} = 113{,}637 \\quad\\Longrightarrow\\quad n = 113.$$\n\n*Fellene, hver regnet fram fra sin feil:* **E** ($114$) har rundet oppover; siste runde blir ikke fullført. **B** ($41$) har brukt maksimalfarten $\\omega_0/e$ fra spørsmål 1 i stedet for konstanten $\\omega_0$ i totalvinkelen. **C** ($56$) har delt på $4\\pi$. **D** ($227$) har brukt totalvinkelen for kvadratmodellen. **F** ($714$) oppgir vinkelen i radianer.\n\n*Sluttsjekk:* $113\\cdot 2\\pi = 710{,}0$ og $114\\cdot 2\\pi = 716{,}3$, så totalvinkelen $714{,}0$ ligger entydig mellom dem. Dette er den ene sjangeren der svaret er et heltall, og derfor den ene der avrunding underveis er direkte fatal: her ligger brøken $113{,}637$ trygt inne i intervallet, men en avrunding av $2\\pi$ til $6{,}3$ ville gitt $113{,}333$ — fremdeles 113, men margin er ikke noe å bruke opp med vilje."
+        }
+      ]
+    },
+    {
+      "id": "tfy4115-12-3-los-4",
+      "type": "collapsible",
+      "title": "Løsningsforslag — spørsmål 4 (sjanger M11)",
+      "buttonText": "Vis løsning 4",
+      "content": [
+        {
+          "id": "tfy4115-12-3-los-4-t",
+          "type": "text",
+          "content": "**Svar: D.**\n\n**Avgjørende lov:** I bunnpunktet er $y' = 0$, så $\\rho = 1/\\lvert y''\\rvert = 1/(2b)$. Newtons 2. lov loddrett, med akselerasjonen rettet **oppover** mot krumningssenteret: $N - mg = mv^2/\\rho$.\n\n$$\\rho = \\frac{1}{2b} = 20{,}0\\,\\text{m}, \\qquad N = m\\left(g + \\frac{v^2}{\\rho}\\right) = 68{,}0\\left(9{,}81 + \\frac{196{,}0}{20{,}0}\\right) = 1333{,}5\\,\\text{N}.$$\n\n*Fellene, hver regnet fram fra sin feil:* **A** ($0{,}7$) har brukt minus, altså toppunktsformelen i et bunnpunkt — og gir her en normalkraft nær null, som er fysisk feil i en dal. **B** ($667{,}1$) er $mg$, altså sentripetalleddet glemt. **C** ($1000$) har brukt $\\rho = 1/b$ og glemt faktoren 2 i den andrederiverte. **E** ($666{,}4$) er bare den resulterende kraften inn mot krumningssenteret. **F** ($714{,}7$) har glemt kvadratet på farten.\n\n*Sluttsjekk:* i en dal blir du **tyngre**, ikke lettere, så svaret må overstige $mg = 667{,}1\\,\\text{N}$ — det stryker tre alternativer på ett sekund. Opplevd tyngde er $1{,}999$ ganger den normale."
+        }
+      ]
+    },
+    {
+      "id": "tfy4115-12-3-los-5",
+      "type": "collapsible",
+      "title": "Løsningsforslag — spørsmål 5 (sjanger M1)",
+      "buttonText": "Vis løsning 5",
+      "content": [
+        {
+          "id": "tfy4115-12-3-los-5-t",
+          "type": "text",
+          "content": "**Svar: A.**\n\n**Avgjørende lov:** Tre krefter langs planet: den ytre kraften opp, tyngdekomponenten $mg\\sin\\theta$ ned, og friksjonen $\\mu N$ ned. Normalt på planet: $N = mg\\cos\\theta$, siden den ytre kraften ligger i planet.\n\n$$N = mg\\cos\\theta = 298{,}56\\,\\text{N}, \\qquad f = \\mu N = 71{,}65\\,\\text{N},$$\n$$a = \\frac{210 - 97{,}01 - 71{,}65}{32{,}0} = \\frac{41{,}34}{32{,}0} = 1{,}2919\\,\\text{m/s}^2.$$\n\n*Fellene, hver regnet fram fra sin feil:* **C** ($5{,}770$) har friksjonen pekende oppover planet — men den peker alltid mot bevegelsen, altså nedover her. **B** ($3{,}531$) har glemt friksjonen. **D** ($4{,}323$) har glemt tyngdekomponenten langs planet. **E** ($1{,}177$) har satt $N = mg$ i stedet for $mg\\cos\\theta$. **F** ($-3{,}495$) har byttet om $\\sin$ og $\\cos$.\n\n*Sluttsjekk:* her faller massen **ikke** ut, fordi det finnes en ytre kraft som ikke er proporsjonal med $m$ — det er forskjellen fra standardvarianten. Nettokraften er $41{,}3\\,\\text{N}$, altså liten i forhold til de $210\\,\\text{N}$ som dras — det meste går med til å løfte og til friksjon."
+        }
+      ]
+    },
+    {
+      "id": "tfy4115-12-3-los-6",
+      "type": "collapsible",
+      "title": "Løsningsforslag — spørsmål 6 (sjanger M1)",
+      "buttonText": "Vis løsning 6",
+      "content": [
+        {
+          "id": "tfy4115-12-3-los-6-t",
+          "type": "text",
+          "content": "**Svar: C.**\n\n**Avgjørende lov:** Oppover: $a_\\uparrow = g(\\sin\\theta + \\mu\\cos\\theta)$. Nedover: $a_\\downarrow = g(\\sin\\theta - \\mu\\cos\\theta)$. Snuavstanden er den samme begge veier, så energiforholdet blir $a_\\downarrow/a_\\uparrow$, og $\\cos\\theta$ forkortes bort.\n\n$$\\frac{K}{K_0} = \\frac{\\tan\\theta - \\mu}{\\tan\\theta + \\mu} = \\frac{0{,}57735 - 0{,}180}{0{,}57735 + 0{,}180} = \\frac{0{,}39735}{0{,}75735} = 0{,}5247.$$\n\n*Fellene, hver regnet fram fra sin feil:* **A** ($1{,}9060$) er brøken snudd, og gir en andel over 1 — altså mer energi enn den startet med. **B** ($0{,}8200$) har trukket friksjonskoeffisienten rett fra. **D** ($0{,}4706$) har brukt $\\sin\\theta$ der det skal stå $\\tan\\theta$. **E** ($0{,}3765$) har brukt en tilnærming som først gjelder for små friksjonstall. **F** ($0{,}3118$) er andelen som går **tapt** per passering, ikke andelen som er igjen.\n\n*Sluttsjekk:* andelen må ligge strengt mellom 0 og 1 — det stryker ett alternativ umiddelbart. Uttrykket forutsetter at $\\tan\\theta > \\mu$, altså $0{,}5774 > 0{,}180$ ✓; ellers ville klossen blitt liggende i snupunktet, og spørsmålet hadde ikke hatt noe svar."
+        }
+      ]
+    },
+    {
+      "id": "tfy4115-12-3-los-7",
+      "type": "collapsible",
+      "title": "Løsningsforslag — spørsmål 7 (sjanger M2)",
+      "buttonText": "Vis løsning 7",
+      "content": [
+        {
+          "id": "tfy4115-12-3-los-7-t",
+          "type": "text",
+          "content": "**Svar: A.**\n\n**Avgjørende lov:** Terminalfart betyr $a = 0$, altså at luftmotstanden $\\tfrac12\\rho AC_dv^2$ akkurat balanserer tyngden $mg$.\n\n$$\\tfrac12\\rho AC_dv_t^2 = mg \\ \\Longrightarrow\\ v_t = \\sqrt{\\frac{2mg}{\\rho AC_d}} = \\sqrt{\\frac{2\\cdot 0{,}145\\cdot 9{,}81}{1{,}225\\cdot 4{,}26\\cdot10^{-3}\\cdot 0{,}470}} = \\sqrt{1159{,}9} = 34{,}057\\,\\text{m/s}.$$\n\n*Fellene, hver regnet fram fra sin feil:* **C** ($24{,}08$) har glemt faktoren 2. **B** ($1160$) har glemt kvadratrota. **D** ($23{,}35$) har glemt motstandskoeffisienten. **E** ($1{,}687$) har blandet inn fallformelen $\\sqrt{2gh}$ med massen i høydens plass. **F** ($16{,}01$) har $C_d$ i telleren i stedet for i nevneren.\n\n*Sluttsjekk:* drøyt 123 km/t er realistisk for en ball i fritt fall over lang nok strekning ✓. Dimensjonskontroll: $\\text{kg}\\cdot\\text{m/s}^2$ delt på $\\text{kg/m}^3\\cdot\\text{m}^2$ gir $\\text{m}^2/\\text{s}^2$, og rota gir m/s ✓. Merk at $v_t \\propto \\sqrt{m/A}$ — en dobbelt så tung ball med samme tverrsnitt faller $\\sqrt{2}$ ganger raskere."
+        }
+      ]
+    },
+    {
+      "id": "tfy4115-12-3-los-8",
+      "type": "collapsible",
+      "title": "Løsningsforslag — spørsmål 8 (sjanger M3)",
+      "buttonText": "Vis løsning 8",
+      "content": [
+        {
+          "id": "tfy4115-12-3-los-8-t",
+          "type": "text",
+          "content": "**Svar: A.**\n\n**Avgjørende lov:** Energibevaring gir $v = \\sqrt{2g\\,\\Delta y/(1+c)}$, der $c = I/(mR^2)$ er en ren formfaktor: $\\tfrac25$ for en kompakt kule, $\\tfrac12$ for en massiv sylinder og $\\tfrac23$ for et kuleskall.\n\n$$c_\\text{kule} = 0{,}4000 < c_\\text{sylinder} = 0{,}5000 < c_\\text{skall} = 0{,}6667$$\n$$\\Longrightarrow\\quad v_\\text{kule} > v_\\text{sylinder} > v_\\text{skall}.$$\n\nMed et fall på $2{,}00\\,\\text{m}$ blir fartene $5{,}29$, $5{,}11$ og $4{,}85\\,\\text{m/s}$.\n\n*Fellene, hver regnet fram fra sin feil:* **B** ($\\text{skall, sylinder, kule — størst treghetsmoment gir størst dreieimpuls}$) snur rekkefølgen: stort treghetsmoment betyr at en større del av energien bindes i rotasjon, så legemet blir tregere, ikke raskere. **C** ($\\text{alle tre kommer ned samtidig, siden massen faller ut av regnestykket}$) forveksler massen med formen: massen faller riktignok ut, men formfaktoren $c$ gjør det ikke. **D** ($\\text{sylinder, kule, skall — sylinderen har lavest treghetsmoment}$) har feil rangering av formfaktorene: sylinderen har $c=\\tfrac12$, kula $\\tfrac25$. **E** ($\\text{kule, skall, sylinder — skallets masse ligger nærmest aksen}$) har det motsatt: i et skall ligger all massen **lengst** fra aksen. **F** ($\\text{rekkefølgen avhenger av radien, og kan ikke avgjøres uten tallverdier}$) overser at radien forkortes bort i $c = I/(mR^2)$.\n\n*Sluttsjekk:* verken masse eller radius står igjen i uttrykket — bare formen. Det er hele poenget med sjangeren, og grunnen til at en kvalitativ variant som denne er like mye verdt som en regneoppgave på dette settet."
+        }
+      ]
+    },
+    {
+      "id": "tfy4115-12-3-los-9",
+      "type": "collapsible",
+      "title": "Løsningsforslag — spørsmål 9 (sjanger M3)",
+      "buttonText": "Vis løsning 9",
+      "content": [
+        {
+          "id": "tfy4115-12-3-los-9-t",
+          "type": "text",
+          "content": "**Svar: E.**\n\n**Avgjørende lov:** All kinetisk energi — både translasjon og rotasjon — går over i potensiell energi: $\\tfrac12(1+c)mv^2 = mg\\,\\Delta y$.\n\n$$\\Delta y = \\frac{(1+c)v_0^2}{2g} = \\frac{1{,}6667\\cdot 21{,}160}{19{,}62} = 1{,}79749\\,\\text{m}.$$\n\n*Fellene, hver regnet fram fra sin feil:* **B** ($1{,}0785$) har glemt rotasjonsenergien (felle #1) og gir for lav høyde. **C** ($1{,}5099$) bruker $c = \\tfrac25$, altså en kompakt kule. **D** ($1{,}6177$) bruker $c = \\tfrac12$, altså en massiv sylinder. **A** ($0{,}7190$) har glemt translasjonsleddet og regnet bare med rotasjonen. **F** ($3{,}5950$) har glemt faktoren 2.\n\n*Sluttsjekk:* et rullende legeme kommer **høyere** enn et glidende med samme fart, fordi det har rotasjonsenergi i tillegg: $1{,}797 > 1{,}078\\,\\text{m}$ ✓. Forholdet er nøyaktig $1+c$, og massen og radien faller ut."
+        }
+      ]
+    },
+    {
+      "id": "tfy4115-12-3-los-10",
+      "type": "collapsible",
+      "title": "Løsningsforslag — spørsmål 10 (sjanger M5)",
+      "buttonText": "Vis løsning 10",
+      "content": [
+        {
+          "id": "tfy4115-12-3-los-10-t",
+          "type": "text",
+          "content": "**Svar: F.**\n\n**Avgjørende lov:** Friksjonen bremser massesenteret ($a = -\\mu g$) og gir samtidig et moment som setter kula i rotasjon ($\\alpha = 5\\mu g/2R$). Ren rulling inntreffer når $V = \\omega R$.\n\n$$V_0 - \\mu gt = \\frac{5\\mu g}{2R}\\,t\\,R \\quad\\Longrightarrow\\quad t = \\frac{2V_0}{7\\mu g} = \\frac{2\\cdot 7{,}20}{7\\cdot 0{,}120\\cdot 9{,}81} = 1{,}7475\\,\\text{s}.$$\n\n*Fellene, hver regnet fram fra sin feil:* **A** ($6{,}116$) er tiden til kula ville **stoppet** hvis den bare gled, altså friksjonsbremsingen uten rotasjonen. **B** ($2{,}039$) bruker $c = \\tfrac12$, altså en massiv sylinder. **C** ($21{,}41$) har snudd brøken $2/7$. **D** ($4{,}369$) har brukt teller 5 i stedet for 2 — altså sluttfarten $\\tfrac57V_0$ satt inn feil sted. **E** ($0{,}874$) er halvparten av fasiten.\n\n*Sluttsjekk:* kontroll med sluttfarten: $V = V_0 - \\mu gt = 7{,}20 - 2{,}0571 = 5{,}1429\\,\\text{m/s}$, som skal være $\\tfrac57V_0 = 5{,}1429$ ✓. Og tiden må være **kortere** enn bremsetiden $6{,}12\\,\\text{s}$, siden kula aldri stopper."
+        }
+      ]
+    },
+    {
+      "id": "tfy4115-12-3-los-11",
+      "type": "collapsible",
+      "title": "Løsningsforslag — spørsmål 11 (sjanger M5)",
+      "buttonText": "Vis løsning 11",
+      "content": [
+        {
+          "id": "tfy4115-12-3-los-11-t",
+          "type": "text",
+          "content": "**Svar: E.**\n\n**Avgjørende lov:** Dreieimpulsen om et punkt utenfor massesenteret deles i spinn og bane: $L = I_\\text{CM}\\omega + mVd_\\perp$. Her er $d_\\perp = R$ og $\\omega = V/R$ (rullebetingelsen). **Begge peker samme vei**, så de legges sammen.\n\n$$L = \\tfrac25mR^2\\cdot\\frac{V}{R} + mVR = \\left(\\tfrac25 + 1\\right)mVR = 1{,}4000\\cdot 2{,}40\\cdot 3{,}50\\cdot 0{,}150 = 1{,}76400\\,\\text{kg}\\cdot\\text{m}^2/\\text{s},$$\n\nrettet **inn i papirplanet** dersom kula ruller mot høyre.\n\n*Fellene, hver regnet fram fra sin feil:* **A** ($0{,}5040$) er bare spinnleddet $I_\\text{CM}\\omega$, uten banebidraget. **B** ($1{,}2600$) er bare banebidraget $mVR$, uten kulas eget spinn. **C** ($0{,}7560$) har trukket spinnbidraget fra i stedet for å legge det til (felle #5 — feil fortegn på dreieimpulsen). **D** ($0{,}07560$) har en radius for mye — dette er $I_\\text{CM}V$, ikke $I_\\text{CM}\\omega$. **F** ($3{,}5280$) er dobbelt så mye.\n\n*Sluttsjekk:* faktoren $(1+c) = 1{,}4$ er den samme som i energiuttrykket $\\tfrac12(1+c)mv^2$ — ikke tilfeldig, men et resultat av at begge kommer fra rullebetingelsen. Enhetskontroll: $\\text{kg}\\cdot\\text{m/s}\\cdot\\text{m}$ gir $\\text{kg}\\cdot\\text{m}^2/\\text{s}$ ✓. Og retningen skal alltid oppgis — den er halve poenget i denne sjangeren."
+        }
+      ]
+    },
+    {
+      "id": "tfy4115-12-3-los-12",
+      "type": "collapsible",
+      "title": "Løsningsforslag — spørsmål 12 (sjanger M6)",
+      "buttonText": "Vis løsning 12",
+      "content": [
+        {
+          "id": "tfy4115-12-3-los-12-t",
+          "type": "text",
+          "content": "**Svar: E.**\n\n**Avgjørende lov:** Elastisk støt mot et legeme i ro: både bevegelsesmengde og kinetisk energi er bevart, og de to likningene gir de ferdige fartsformlene $v_1' = \\frac{m-M}{m+M}v_0$ og $v_2' = \\frac{2m}{m+M}v_0$.\n\n$$v_2' = \\frac{2m}{m+M}v_0 = \\frac{2\\cdot 0{,}180}{0{,}700}\\cdot 6{,}40 = 3{,}2914\\,\\text{m/s}.$$\n\nDen lette kula spretter tilbake med $v_1' = -3{,}1086\\,\\text{m/s}$ — negativ, altså motsatt vei.\n\n*Fellene, hver regnet fram fra sin feil:* **A** ($3{,}109$) er farten til den **letteste** kula, som spretter tilbake. **B** ($1{,}646$) er formelen for et **uelastist** støt, der kulene henger sammen etterpå. **C** ($9{,}509$) har byttet om massene i telleren. **D** ($6{,}400$) antar at hele farten overføres, noe som bare skjer ved like masser. **F** ($3{,}765$) kommer av å bruke bare energibevaring, uten bevegelsesmengden.\n\n*Sluttsjekk:* to gratis kontroller. **Energi:** $\\tfrac12mv_0^2 = 3{,}6864\\,\\text{J}$ mot $\\tfrac12mv_1'^2 + \\tfrac12Mv_2'^2 = 3{,}6864\\,\\text{J}$ ✓. **Relativ fart:** $v_2' - v_1' = 6{,}400 = v_0$ ✓ — i et elastisk støt snur den relative farten uten å endre størrelse."
+        }
+      ]
+    },
+    {
+      "id": "tfy4115-12-3-los-13",
+      "type": "collapsible",
+      "title": "Løsningsforslag — spørsmål 13 (sjanger M6)",
+      "buttonText": "Vis løsning 13",
+      "content": [
+        {
+          "id": "tfy4115-12-3-los-13-t",
+          "type": "text",
+          "content": "**Svar: A.**\n\n**Avgjørende lov:** To atskilte faser. **Støtet:** bevegelsesmengden er bevart, energien ikke. **Utsvinget:** energien er bevart, bevegelsesmengden ikke. Å blande dem er den klassiske feilen i sjangeren.\n\n$$h = L(1 - \\cos\\alpha) = 1{,}20\\left(1 - 0{,}84805\\right) = 0{,}18234\\,\\text{m},$$\n$$v' = \\sqrt{2gh} = 1{,}8914\\,\\text{m/s}, \\qquad v_0 = \\frac{m+M}{m}v' = 75{,}00\\cdot 1{,}8914 = 141{,}86\\,\\text{m/s}.$$\n\n*Fellene, hver regnet fram fra sin feil:* **E** ($1{,}8914$) er felles fart rett etter støtet, ikke kulas fart før. **B** ($0{,}02522$) har brukt masseforholdet motsatt vei. **C** ($264{,}9$) har brukt $L\\sin\\alpha$ som utsvingshøyde i stedet for $L(1-\\cos\\alpha)$. **D** ($100{,}3$) har glemt faktoren 2 i $\\sqrt{2gh}$. **F** ($140{,}0$) har brukt bare klossens masse i telleren.\n\n*Sluttsjekk:* forsterkningsfaktoren $(m+M)/m = 75{,}0$ er hele poenget med en ballistisk pendel: et lite utsving avslører en svært høy prosjektilfart. Rundt 142 m/s er realistisk for en luftgeværkule. Energitapet i støtet er 98{,}7 % ✓."
+        }
+      ]
+    },
+    {
+      "id": "tfy4115-12-3-los-14",
+      "type": "collapsible",
+      "title": "Løsningsforslag — spørsmål 14 (sjanger M4)",
+      "buttonText": "Vis løsning 14",
+      "content": [
+        {
+          "id": "tfy4115-12-3-los-14-t",
+          "type": "text",
+          "content": "**Svar: D.**\n\n**Avgjørende lov:** $I = I_\\text{CM} + Md^2$, der $d$ er avstanden fra **massesenteret** til aksen. Massesenteret ligger midt på stanga, altså $L/2$ fra enden; aksen ligger $L/4$ fra enden. Da er $d = L/2 - L/4 = L/4$.\n\n$$I = \\tfrac{1}{12}ML^2 + M\\left(\\tfrac{L}{4}\\right)^2 = ML^2\\left(\\tfrac{1}{12} + \\tfrac{1}{16}\\right) = \\tfrac{7}{48}ML^2 = 1{,}01719\\,\\text{kg}\\cdot\\text{m}^2.$$\n\n*Fellene, hver regnet fram fra sin feil:* **A** ($0{,}5813$) er $I_\\text{CM}$ alene — Steiner-leddet glemt (felle #4). **B** ($0{,}4359$) er Steiner-leddet alene. **C** ($2{,}7609$) har lagt Steiner-leddet til treghetsmomentet om **enden** i stedet for om massesenteret. **E** ($0{,}1453$) har trukket Steiner-leddet fra — men Steiner legger **alltid** til. **F** ($2{,}3250$) er treghetsmomentet om enden, altså $d = L/2$ i stedet for $L/4$.\n\n*Sluttsjekk:* svaret må ligge **mellom** verdien om massesenteret ($0{,}5813$) og verdien om enden ($2{,}3250$), siden aksen ligger mellom de to punktene ✓. Det er en gratis innsnevring til to alternativer. Hovedfellen her er å måle $d$ fra enden i stedet for fra massesenteret."
+        }
+      ]
+    },
+    {
+      "id": "tfy4115-12-3-los-15",
+      "type": "collapsible",
+      "title": "Løsningsforslag — spørsmål 15 (sjanger M4)",
+      "buttonText": "Vis løsning 15",
+      "content": [
+        {
+          "id": "tfy4115-12-3-los-15-t",
+          "type": "text",
+          "content": "**Svar: C.**\n\n**Avgjørende lov:** To likninger: Newtons 2. lov for loddet ($mg - S = ma$) og for rotasjonen av trinsen ($SR = I\\alpha$), koblet av $a = \\alpha R$ og $I = \\tfrac12M_pR^2$.\n\n$$mg - S = ma, \\qquad SR = \\tfrac12M_pR^2\\cdot\\frac{a}{R} \\ \\Longrightarrow\\ S = \\tfrac12M_pa,$$\n$$a = \\frac{mg}{m + M_p/2} = \\frac{1{,}60\\cdot 9{,}81}{2{,}80} = 5{,}6057\\,\\text{m/s}^2.$$\n\n*Fellene, hver regnet fram fra sin feil:* **A** ($9{,}810$) antar at trinsen er masseløs. **B** ($3{,}924$) har regnet trinsens hele masse med, uten faktoren $\\tfrac12$ som kommer av $I = \\tfrac12MR^2$. **D** ($2{,}453$) har brukt $2M$ i stedet for $M/2$. **E** ($6{,}540$) har glemt loddets egen masse i nevneren. **F** ($7{,}135$) har brukt $\\tfrac14MR^2$, som gjelder om en diameter.\n\n*Sluttsjekk:* akselerasjonen må være mindre enn $g$, siden trinsen selv må settes i rotasjon ✓ — og radien faller ut, slik den alltid gjør her. Snordraget blir $S = \\tfrac12M_pa = 6{,}727\\,\\text{N}$, mindre enn tyngden $15{,}696\\,\\text{N}$ ✓."
+        }
+      ]
+    },
+    {
+      "id": "tfy4115-12-3-los-16",
+      "type": "collapsible",
+      "title": "Løsningsforslag — spørsmål 16 (sjanger M8)",
+      "buttonText": "Vis løsning 16",
+      "content": [
+        {
+          "id": "tfy4115-12-3-los-16-t",
+          "type": "text",
+          "content": "**Svar: E.**\n\n**Avgjørende lov:** Fysisk pendel: $T = 2\\pi\\sqrt{I_A/(Mgd)}$. For en skive om et punkt på randen er $I_A = \\tfrac12MR^2 + MR^2 = \\tfrac32MR^2$ og $d = R$.\n\n$$T = 2\\pi\\sqrt{\\frac{\\tfrac32MR^2}{MgR}} = 2\\pi\\sqrt{\\frac{3R}{2g}} = 2\\pi\\sqrt{\\frac{3\\cdot 0{,}185}{19{,}62}} = 1{,}05676\\,\\text{s}.$$\n\n*Fellene, hver regnet fram fra sin feil:* **A** ($0{,}8628$) er den matematiske pendelen med lengde $R$, altså Steiner og skivas eget treghetsmoment begge glemt. **C** ($0{,}6101$) har glemt Steiner-leddet og brukt $I_\\text{CM} = \\tfrac12MR^2$ om opphengspunktet. **D** ($1{,}2202$) har brukt $L = 2R$, altså diameteren, i den matematiske pendelen. **B** ($1{,}4945$) har glemt faktoren 2 i nevneren. **F** ($0{,}5284$) har $\\pi$ i stedet for $2\\pi$.\n\n*Sluttsjekk:* den effektive pendellengden er $L_\\text{ekv} = I_A/(Md) = \\tfrac32R = 0{,}2775\\,\\text{m}$, altså **halvannen skiveradius** — lengre enn $R$, og derfor må svingetiden være lengre enn for en matematisk pendel med lengde $R$ ($0{,}8628\\,\\text{s}$) ✓. Massen faller ut."
+        }
+      ]
+    },
+    {
+      "id": "tfy4115-12-3-los-17",
+      "type": "collapsible",
+      "title": "Løsningsforslag — spørsmål 17 (sjanger M8)",
+      "buttonText": "Vis løsning 17",
+      "content": [
+        {
+          "id": "tfy4115-12-3-los-17-t",
+          "type": "text",
+          "content": "**Svar: B.**\n\n**Avgjørende lov:** Kraftlikningene for en konisk pendel: loddrett $S\\cos\\theta = mg$, vannrett $S\\sin\\theta = mv^2/r$ med $r = L\\sin\\theta$. Deler du dem, faller $S$ ut, og du står igjen med $T = 2\\pi\\sqrt{L\\cos\\theta/g}$ — altså en matematisk pendel med **høyden** $L\\cos\\theta$ som lengde.\n\n$$T = 2\\pi\\sqrt{\\frac{L\\cos\\theta}{g}} = 2\\pi\\sqrt{\\frac{0{,}950\\cdot 0{,}88295}{9{,}81}} = 1{,}83728\\,\\text{s}.$$\n\n*Fellene, hver regnet fram fra sin feil:* **A** ($1{,}9553$) har glemt $\\cos\\theta$ og brukt hele snorlengden som effektiv lengde. **C** ($1{,}3397$) har brukt $\\sin\\theta$ i stedet for $\\cos\\theta$, altså sirkelradien i stedet for høyden. **D** ($2{,}0808$) har $\\cos\\theta$ i nevneren. **E** ($1{,}2992$) har en ekstra faktor 2 i nevneren. **F** ($0{,}2924$) har glemt faktoren $2\\pi$.\n\n*Sluttsjekk:* det er **høyden fra opphengspunktet ned til sirkelplanet** som bestemmer omløpstiden, ikke snorlengden — og høyden ($0{,}8388\\,\\text{m}$) er alltid mindre enn snorlengden, så $T$ må være kortere enn $1{,}9553\\,\\text{s}$ ✓. Kontroll: banefarten blir $v = \\sqrt{gr\\tan\\theta} = 1{,}5252\\,\\text{m/s}$, og $2\\pi r/v = 1{,}8373\\,\\text{s}$ ✓ — samme svar."
+        }
+      ]
+    },
+    {
+      "id": "tfy4115-12-3-los-18",
+      "type": "collapsible",
+      "title": "Løsningsforslag — spørsmål 18 (sjanger M7)",
+      "buttonText": "Vis løsning 18",
+      "content": [
+        {
+          "id": "tfy4115-12-3-los-18-t",
+          "type": "text",
+          "content": "**Svar: B.**\n\n**Avgjørende lov:** $A(t) = A_0e^{-\\gamma t}$ med $\\gamma = b/2m$. Sett $A/A_0 = \\tfrac14$ og løs for $t$.\n\n$$\\gamma = \\frac{b}{2m} = \\frac{0{,}250}{0{,}900} = 0{,}27778\\,\\text{s}^{-1},$$\n$$t = \\frac{\\ln 4}{\\gamma} = \\frac{1{,}38629}{0{,}27778} = 4{,}9907\\,\\text{s}.$$\n\n*Fellene, hver regnet fram fra sin feil:* **A** ($2{,}495$) er halveringstiden $\\ln 2/\\gamma$. Merk at nøyaktig samme tall også kommer ut hvis du bruker $\\gamma = b/m$ uten faktoren 2, eller hvis du regner tiden til **energien** er redusert til en fjerdedel — tre ulike feil som alle lander her. **F** ($14{,}400$) har brukt tallet 4 i stedet for $\\ln 4$. **C** ($0{,}3851$) har ganget i stedet for å dele. **D** ($3{,}600$) er tidskonstanten $1/\\gamma$, altså tiden til amplituden er $1/e$ av starten. **E** ($1{,}248$) har delt på 2 én gang for mye.\n\n*Sluttsjekk:* tiden til en fjerdedel er nøyaktig **dobbelt** så lang som halveringstiden ($2{,}4953\\,\\text{s}$) ✓, siden $\\ln 4 = 2\\ln 2$. Svingetiden er $T' = 2\\pi/\\omega' = 0{,}7455\\,\\text{s}$, så dette tilsvarer omtrent 6{,}7 svingninger."
+        }
+      ]
+    },
+    {
+      "id": "tfy4115-12-3-los-19",
+      "type": "collapsible",
+      "title": "Løsningsforslag — spørsmål 19 (sjanger M7)",
+      "buttonText": "Vis løsning 19",
+      "content": [
+        {
+          "id": "tfy4115-12-3-los-19-t",
+          "type": "text",
+          "content": "**Svar: E.**\n\n**Avgjørende lov:** På resonans forsvinner leddet $\\omega_0^2 - \\omega^2$ i nevneren av amplituderesponsen, og det som står igjen er $A(\\omega_0) = F_0/(b\\omega_0)$.\n\n$$\\omega_0 = \\sqrt{\\frac{32{,}0}{0{,}450}} = 8{,}4327\\,\\text{rad/s},$$\n$$A(\\omega_0) = \\frac{F_0}{b\\omega_0} = \\frac{0{,}450}{0{,}250\\cdot 8{,}4327} = 0{,}21345\\,\\text{m}.$$\n\n*Fellene, hver regnet fram fra sin feil:* **B** ($0{,}01406$) er den statiske utbøyingen $F_0/k$, altså uten resonansforsterkningen. **C** ($0{,}2136$) har brukt $\\omega'$ i stedet for $\\omega_0$ — en liten, men systematisk feil. **D** ($0{,}0961$) har brukt $2\\gamma$ i stedet for $b$ i nevneren, altså glemt massen. **A** ($3{,}2400$) har kvadrert kvalitetsfaktoren. **F** ($0{,}02531$) har $\\omega_0$ i andre potens i nevneren.\n\n*Sluttsjekk:* kontroll med den andre formen: $A = Q\\cdot F_0/k$ med $Q = \\omega_0/(2\\gamma) = 15{,}179$ gir $15{,}179\\cdot 0{,}014063 = 0{,}21345$ ✓. Resonansen forsterker altså den statiske utbøyingen med nøyaktig faktoren $Q = 15{,}2$ — det er hva kvalitetsfaktoren *betyr*, og en gratis rimelighetskontroll."
+        }
+      ]
+    },
+    {
+      "id": "tfy4115-12-3-los-20",
+      "type": "collapsible",
+      "title": "Løsningsforslag — spørsmål 20 (sjanger M9)",
+      "buttonText": "Vis løsning 20",
+      "content": [
+        {
+          "id": "tfy4115-12-3-los-20-t",
+          "type": "text",
+          "content": "**Svar: D.**\n\n**Avgjørende lov:** Tre likevektsbetingelser. Loddrett: $N_\\text{gulv} = Mg$. Vannrett: $f = N_\\text{vegg}$. Moment om foten, med tyngden i midtpunktet: $Mg\\cdot\\tfrac{L}{2}\\cos\\theta = N_\\text{vegg}L\\sin\\theta$.\n\n$$N_\\text{vegg} = \\frac{Mg}{2\\tan\\theta}, \\qquad f \\le \\mu_sN_\\text{gulv} = \\mu_sMg,$$\n$$\\mu_s \\ge \\frac{1}{2\\tan\\theta} = \\frac{1}{2\\cdot 1{,}88073} = 0{,}26585.$$\n\n*Fellene, hver regnet fram fra sin feil:* **A** ($0{,}5317$) har glemt faktoren 2, som kommer av at tyngden virker i stigens midtpunkt. **B** ($1{,}8807$) er $\\tan\\theta$ selv, altså brøken snudd. **C** ($3{,}761$) har både snudd brøken og ganget med 2. **F** ($0{,}9404$) har delt $\\tan\\theta$ på 2 i stedet for å ta det inverse — samme tall får du hvis du måler vinkelen fra veggen i stedet for fra gulvet. **E** ($0{,}5663$) har brukt $\\sin\\theta$ der det skal stå $\\tan\\theta$.\n\n*Sluttsjekk:* veggen er glatt, så den kan bare skyve vinkelrett ut fra seg — hadde den hatt friksjon, ville kravet vært mindre. Både massen og lengden faller ut; bare vinkelen betyr noe. En koeffisient på 0{,}27 er realistisk for aluminium mot betong ✓, og kravet **synker** når stigen settes brattere."
+        }
+      ]
+    },
+    {
+      "id": "tfy4115-12-3-los-21",
+      "type": "collapsible",
+      "title": "Løsningsforslag — spørsmål 21 (sjanger T1)",
+      "buttonText": "Vis løsning 21",
+      "content": [
+        {
+          "id": "tfy4115-12-3-los-21-t",
+          "type": "text",
+          "content": "**Svar: F.**\n\n**Avgjørende lov:** Forholdsformen av gassloven for fast stoffmengde: $\\frac{p_1V_1}{T_1} = \\frac{p_2V_2}{T_2}$. Løs for $p_2$.\n\n$$p_2 = p_1\\cdot\\frac{T_2}{T_1}\\cdot\\frac{V_1}{V_2} = 230\\cdot\\frac{318}{283}\\cdot\\frac{1}{1{,}030} = 230\\cdot 1{,}12367\\cdot 0{,}97087 = 250{,}92\\,\\text{kPa}.$$\n\n*Fellene, hver regnet fram fra sin feil:* **A** ($258{,}4$) har sett bort fra volumøkningen. **B** ($266{,}2$) har ganget med volumfaktoren i stedet for å dele. **C** ($198{,}7$) har snudd temperaturforholdet. **D** ($1005$) har brukt celsius-verdiene $45$ og $10$ i forholdet (felle #11). **E** ($223{,}3$) har bare tatt hensyn til volumøkningen.\n\n*Sluttsjekk:* temperaturøkningen på 12,4 % drar trykket opp, volumøkningen på 3 % drar det ned, og netto blir en økning på 9{,}1 %. Celsius-varianten ville gitt en faktor 4,5 i stedet for 1,12 — en åpenbart urimelig firedobling av dekktrykket. Størrelsesordenkontrollen tar den umiddelbart."
+        }
+      ]
+    },
+    {
+      "id": "tfy4115-12-3-los-22",
+      "type": "collapsible",
+      "title": "Løsningsforslag — spørsmål 22 (sjanger T2)",
+      "buttonText": "Vis løsning 22",
+      "content": [
+        {
+          "id": "tfy4115-12-3-los-22-t",
+          "type": "text",
+          "content": "**Svar: B.**\n\n**Avgjørende lov:** $v_\\text{rms} = \\sqrt{3RT/M}$. Ved samme temperatur forkortes både $3$, $R$ og $T$ bort, og bare masseforholdet står igjen.\n\n$$\\frac{v_\\text{He}}{v_\\text{Ar}} = \\sqrt{\\frac{M_\\text{Ar}}{M_\\text{He}}} = \\sqrt{\\frac{39{,}95}{4{,}003}} = \\sqrt{9{,}9800} = 3{,}1591.$$\n\n*Fellene, hver regnet fram fra sin feil:* **A** ($0{,}3165$) har snudd forholdet, og gir det tyngre molekylet høyest fart. **D** ($9{,}980$) har glemt kvadratrota. **C** ($0{,}1002$) har både glemt rota og snudd forholdet. **E** ($1{,}000$) antar at fartene er like fordi temperaturen er lik — det er den midlere kinetiske **energien** som er lik, ikke farten. **F** ($5{,}472$) har dratt med seg faktoren 3 fra $v_\\text{rms} = \\sqrt{3RT/M}$, men den forkortes bort i et forhold.\n\n*Sluttsjekk:* **det tyngre molekylet er tregest** ved samme temperatur — det stryker alle alternativer under 1 umiddelbart. Argon er omtrent ti ganger så tungt som helium, så fartsforholdet skal være omtrent $\\sqrt{10}$, altså rundt 3{,}2 ✓. Merk at den midlere kinetiske energien $\\tfrac32k_BT$ er **identisk** for de to."
+        }
+      ]
+    },
+    {
+      "id": "tfy4115-12-3-los-23",
+      "type": "collapsible",
+      "title": "Løsningsforslag — spørsmål 23 (sjanger T3)",
+      "buttonText": "Vis løsning 23",
+      "content": [
+        {
+          "id": "tfy4115-12-3-los-23-t",
+          "type": "text",
+          "content": "**Svar: A.**\n\n**Avgjørende lov:** Gå baklengs fra $\\gamma$ til antall frihetsgrader: $f = 2/(\\gamma-1)$. Deretter $C_V = \\tfrac{f}{2}R$ og $C_P = C_V + R$.\n\n$$f = \\frac{2}{\\gamma - 1} = \\frac{2}{0{,}28571} = 7{,}000,$$\n$$C_V = \\tfrac72R = 29{,}0990, \\qquad C_P = C_V + R = \\tfrac92R = 37{,}4130\\,\\text{J/(mol}\\cdot\\text{K)}.$$\n\n*Fellene, hver regnet fram fra sin feil:* **C** ($29{,}099$) er $C_V$ for denne gassen, ikke $C_P$ (felle #8). **B** ($20{,}785$) er $C_V$ for en toatomig gass **uten** vibrasjon. **D** ($12{,}471$) er $C_V$ for en enatomig gass. **E** ($45{,}727$) har telt én vibrasjonsmode for mye, altså $f = 9$ (felle #9). **F** ($10{,}689$) har ganget $\\gamma$ med gasskonstanten.\n\n*Sluttsjekk:* **$f$ skal alltid bli et heltall** — blir det ikke det, er noe galt. Sju frihetsgrader er tre translasjon, to rotasjon og to fra vibrasjonen, som teller dobbelt fordi både kinetisk og potensiell energi lagres. Kontroll: $C_P/C_V = 1{,}2857 = \\tfrac97$ ✓."
+        }
+      ]
+    },
+    {
+      "id": "tfy4115-12-3-los-24",
+      "type": "collapsible",
+      "title": "Løsningsforslag — spørsmål 24 (sjanger T4)",
+      "buttonText": "Vis løsning 24",
+      "content": [
+        {
+          "id": "tfy4115-12-3-los-24-t",
+          "type": "text",
+          "content": "**Svar: B.**\n\n**Avgjørende lov:** Adiabatrelasjonen i trykkform: $T^{\\gamma}/p^{\\gamma-1} = \\text{konstant}$, altså $T_2 = T_1\\left(p_2/p_1\\right)^{(\\gamma-1)/\\gamma}$.\n\n$$\\frac{\\gamma-1}{\\gamma} = \\frac{0{,}400}{1{,}400} = 0{,}28571,$$\n$$T_2 = 291\\left(\\frac{780}{101}\\right)^{0{,}28571} = 291\\cdot 1{,}79329 = 521{,}85\\,\\text{K}.$$\n\n*Fellene, hver regnet fram fra sin feil:* **A** ($2247$) har antatt at temperaturen følger trykket lineært. **C** ($659{,}2$) har brukt eksponenten $\\gamma - 1$, som hører til **volum**formen. (Nøyaktig samme tall får du hvis du bruker riktig eksponent men setter $\\gamma = \\tfrac53$ — de to feilene faller sammen her.) **D** ($1253{,}2$) har brukt eksponenten $1/\\gamma$. **E** ($458{,}3$) har brukt $\\gamma = \\tfrac97$, altså en gass med aktiv vibrasjon (felle #8). **F** ($162{,}3$) har brukt forholdet feil vei, og gir avkjøling ved kompresjon.\n\n*Sluttsjekk:* $522\\,\\text{K}$ er $249\\,^\\circ\\text{C}$ — og det er nettopp derfor sykkelpumpa blir varm. Temperaturen **må** stige ved kompresjon uten varmeutveksling, så alt under $291\\,\\text{K}$ er strøket. Kontroll via volumformen: $V_1/V_2 = (p_2/p_1)^{1/\\gamma} = 4{,}3065$, og $T_1\\cdot 4{,}3065^{0{,}400} = 521{,}8$ ✓."
+        }
+      ]
+    },
+    {
+      "id": "tfy4115-12-3-los-25",
+      "type": "collapsible",
+      "title": "Løsningsforslag — spørsmål 25 (sjanger T8)",
+      "buttonText": "Vis løsning 25",
+      "content": [
+        {
+          "id": "tfy4115-12-3-los-25-t",
+          "type": "text",
+          "content": "**Svar: C.**\n\n**Avgjørende lov:** Carnot-grensen: ingen maskin mellom to reservoarer kan ha $\\eta > 1 - T_k/T_v$. Grensene for pumper følger av samme regnestykke: $\\varepsilon_V \\le T_v/(T_v-T_k)$ og $\\varepsilon_K \\le T_k/(T_v-T_k)$.\n\n$$\\eta_\\text{Carnot} = 1 - \\frac{320}{800} = 0{,}6000, \\qquad \\varepsilon_{V,\\text{Carnot}} = \\frac{800}{480} = 1{,}6667, \\qquad \\varepsilon_{K,\\text{Carnot}} = \\frac{320}{480} = 0{,}6667.$$\n\nVirkningsgraden $0{,}68$ overstiger grensen $0{,}600$ og bryter dermed andre hovedsetning.\n\n*Fellene, hver regnet fram fra sin feil:* **A** ($\\text{en varmekraftmaskin med virkningsgrad } 0{,}52$) ligger under Carnot-grensen og er fullt mulig. **B** ($\\text{en varmepumpe med effektfaktor } \\varepsilon_V = 1{,}55$) ligger langt under Carnot-grensen for oppvarming og er mulig, om enn dårlig. **D** ($\\text{et kjøleskap med effektfaktor } \\varepsilon_K = 0{,}54$) ligger under Carnot-grensen for kjøling og er mulig. **E** ($\\text{en reversibel maskin med virkningsgrad } 0{,}60$) ligger under grensen og er dermed mulig — men den kan da ikke være reversibel, bare mulig. **F** ($\\text{en varmekraftmaskin som avgir } 40\\ \\% \\text{ av tilført varme}$) svarer til virkningsgrad $0{,}60$, som ligger under grensen.\n\n*Sluttsjekk:* Carnot-kontrollen skal gjøres på **hver** syklus du møter, og den tar fem sekunder. Merk at effektfaktorene skal måles mot sine egne grenser — det er felle #13 å sammenligne en effektfaktor med virkningsgradens grense."
+        }
+      ]
+    },
+    {
+      "id": "tfy4115-12-3-los-26",
+      "type": "collapsible",
+      "title": "Løsningsforslag — spørsmål 26 (sjanger T5)",
+      "buttonText": "Vis løsning 26",
+      "content": [
+        {
+          "id": "tfy4115-12-3-los-26-t",
+          "type": "text",
+          "content": "**Svar: B.**\n\n**Avgjørende lov:** Adiabatisk kompresjon: $TV^{\\gamma-1} = \\text{konstant}$, altså $T_2 = T_1r^{\\gamma-1}$ med $r = V_1/V_2$.\n\n$$T_2 = 300\\cdot 9{,}00^{0{,}400} = 300\\cdot 2{,}40822 = 722{,}47\\,\\text{K}.$$\n\n**Tabellen du bruker i spørsmål 27–29:**\n\n| Tilstand | $T$ (K) | Prosess inn |\n|---|---|---|\n| 1 | 300{,}0 | — |\n| 2 | 722{,}5 | adiabatisk kompresjon |\n| 3 | 2226{,}0 | isokor oppvarming |\n| 4 | 924{,}3 | adiabatisk ekspansjon |\n\n\n*Fellene, hver regnet fram fra sin feil:* **A** ($2700$) har antatt lineær sammenheng med kompresjonsforholdet. **C** ($6502$) har brukt eksponenten $\\gamma$ i stedet for $\\gamma - 1$. **D** ($1298{,}0$) har brukt $\\gamma = \\tfrac53$, altså en enatomig gass. **E** ($124{,}6$) har brukt forholdet feil vei. **F** ($562{,}0$) har brukt trykkformens eksponent $(\\gamma-1)/\\gamma$.\n\n*Sluttsjekk:* kompresjon uten varmeutveksling gir høyere temperatur, så $T_2 > T_1$ ✓. Faktoren $r^{\\gamma-1} = 2{,}4082$ er den samme som dukker opp igjen i virkningsgraden i spørsmål 28 — regn den én gang, med fem siffer, og gjenbruk den."
+        }
+      ]
+    },
+    {
+      "id": "tfy4115-12-3-los-27",
+      "type": "collapsible",
+      "title": "Løsningsforslag — spørsmål 27 (sjanger T5)",
+      "buttonText": "Vis løsning 27",
+      "content": [
+        {
+          "id": "tfy4115-12-3-los-27-t",
+          "type": "text",
+          "content": "**Svar: D.**\n\n**Avgjørende lov:** Isokor varmetilførsel: $W = 0$, så all varmen går til indre energi, $Q = nC_V\\,\\Delta T$. Løs for $\\Delta T$ og legg til $T_2$.\n\n$$\\Delta T = \\frac{Q_\\text{inn}}{nC_V} = \\frac{1250}{0{,}0400\\cdot 20{,}7850} = \\frac{1250}{0{,}83140} = 1503{,}5\\,\\text{K},$$\n$$T_3 = 722{,}47 + 1503{,}5 = 2226{,}0\\,\\text{K}.$$\n\n*Fellene, hver regnet fram fra sin feil:* **B** ($1503$) er bare temperaturøkningen i forbrenningstrinnet, uten å legge til $T_2$. **C** ($1796$) har brukt $C_P$ i stedet for $C_V$ i et **isokort** trinn (felle #8). **A** ($3228$) har brukt $C_V$ for en enatomig gass. **E** ($1803$) har lagt varmen til $T_1$ i stedet for til $T_2$. **F** ($1740$) har utført enda en adiabatisk kompresjon i stedet for varmetilførselen.\n\n*Sluttsjekk:* toppen av en Otto-syklus ligger i området 2000–2800 K i en virkelig bensinmotor, så $2226\\,\\text{K}$ er fysisk rimelig ✓. Legg merke til at det er **$C_V$** som gjelder her, selv om trinnet kalles «forbrenning» — volumet er låst, og da er det ingen plass til utvidelsesarbeid."
+        }
+      ]
+    },
+    {
+      "id": "tfy4115-12-3-los-28",
+      "type": "collapsible",
+      "title": "Løsningsforslag — spørsmål 28 (sjanger T5)",
+      "buttonText": "Vis løsning 28",
+      "content": [
+        {
+          "id": "tfy4115-12-3-los-28-t",
+          "type": "text",
+          "content": "**Svar: D.**\n\n**Avgjørende lov:** $\\eta = W_\\text{netto}/Q_\\text{inn}$. For en Otto-syklus faller de to isokore varmene sammen slik at $\\eta_\\text{Otto} = 1 - r^{1-\\gamma}$ — den avhenger **bare** av kompresjonsforholdet.\n\n$$\\eta = 1 - \\frac{1}{r^{\\gamma-1}} = 1 - \\frac{1}{2{,}40822} = 0{,}58476.$$\n\nDirekte kontroll med varmene: $Q_\\text{ut} = nC_V(T_4 - T_1) = 519{,}1\\,\\text{J}$, $W_\\text{netto} = 1250 - 519{,}1 = 730{,}9\\,\\text{J}$, og $\\eta = 730{,}9/1250 = 0{,}58476$ ✓.\n\n*Fellene, hver regnet fram fra sin feil:* **A** ($0{,}8652$) er Carnot-grensen mellom $T_3$ og $T_1$, ikke syklusens egen virkningsgrad. **B** ($0{,}4152$) er andelen varme som går ut igjen som spillvarme. **C** ($0{,}9539$) har brukt eksponenten $\\gamma$ i stedet for $\\gamma-1$. **F** ($0{,}7689$) har brukt $\\gamma = \\tfrac53$. **E** ($0{,}8889$) har droppet potensen helt.\n\n*Sluttsjekk:* **Carnot-kontrollen:** ytterpunktene er $T_3 = 2226\\,\\text{K}$ og $T_1 = 300\\,\\text{K}$, så grensen er $0{,}8652$. Vår syklus ligger på 67{,}6 % av den ✓ — under, som den må være. Legg merke til at virkningsgraden er uavhengig av hvor mye varme som tilføres; den bestemmes av geometrien alene."
+        }
+      ]
+    },
+    {
+      "id": "tfy4115-12-3-los-29",
+      "type": "collapsible",
+      "title": "Løsningsforslag — spørsmål 29 (sjanger T5)",
+      "buttonText": "Vis løsning 29",
+      "content": [
+        {
+          "id": "tfy4115-12-3-los-29-t",
+          "type": "text",
+          "content": "**Svar: E.**\n\n**Avgjørende lov:** Over en full syklus er $\\Delta U = 0$, så $W_\\text{netto} = Q_\\text{inn} - \\lvert Q_\\text{ut}\\rvert$. Alternativt $W = \\eta Q_\\text{inn}$.\n\n$$\\lvert Q_\\text{ut}\\rvert = nC_V(T_4 - T_1) = 0{,}83140\\left(924{,}3 - 300\\right) = 519{,}1\\,\\text{J},$$\n$$W_\\text{netto} = 1250 - 519{,}1 = 730{,}9\\,\\text{J}.$$\n\n*Fellene, hver regnet fram fra sin feil:* **A** ($1250$) er tilført varme, ikke netto arbeid. **B** ($519$) er avgitt varme. **C** ($1769$) har lagt sammen de to varmene i stedet for å trekke dem fra hverandre. **D** ($1082$) er arbeidet i **ekspansjonstrinnet** alene, uten å trekke fra kompresjonsarbeidet. **F** ($351$) er arbeidet som gjøres **på** gassen i kompresjonstrinnet.\n\n*Sluttsjekk:* kontroll med virkningsgraden: $\\eta Q_\\text{inn} = 0{,}5848\\cdot 1250 = 730{,}9\\,\\text{J}$ ✓ — samme svar to veier. Netto arbeid må være mindre enn tilført varme og større enn null; det innsnevrer til to alternativer før du regner."
+        }
+      ]
+    },
+    {
+      "id": "tfy4115-12-3-los-30",
+      "type": "collapsible",
+      "title": "Løsningsforslag — spørsmål 30 (sjanger T5)",
+      "buttonText": "Vis løsning 30",
+      "content": [
+        {
+          "id": "tfy4115-12-3-los-30-t",
+          "type": "text",
+          "content": "**Svar: E.**\n\n**Avgjørende lov:** Stirling-syklusen har to isotermer og to isokorer. De isokore trinnene bytter varme med regeneratoren og bidrar ikke til netto arbeid, så bare de to isotermene teller: $W = nRT_v\\ln\\frac{V_2}{V_1} - nRT_k\\ln\\frac{V_2}{V_1}$.\n\n$$W = nR(T_v - T_k)\\ln\\frac{V_2}{V_1} = 0{,}250\\cdot 8{,}314\\cdot 320\\cdot 0{,}91629 = 609{,}44\\,\\text{J}.$$\n\n*Fellene, hver regnet fram fra sin feil:* **A** ($1180{,}8$) er bare det isoterme arbeidet ved høy temperatur, uten å trekke fra kompresjonsarbeidet. **B** ($1662{,}8$) har glemt logaritmen. **C** ($1752{,}1$) har lagt sammen temperaturene i stedet for å trekke dem fra hverandre. **D** ($571{,}4$) er kompresjonsarbeidet ved lav temperatur alene. **F** ($1523{,}6$) har brukt $C_V$ i stedet for $R$ foran volumleddet.\n\n*Sluttsjekk:* med ideell regenerator er virkningsgraden $1 - T_k/T_v = 0{,}5161$, altså **nøyaktig Carnot-grensen** — det er Stirling-syklusens berømte egenskap. Kontroll: tilført varme ved høy temperatur er $1180{,}8\\,\\text{J}$, og $W/Q_\\text{inn} = 0{,}5161 = 0{,}5161$ ✓."
+        }
+      ]
+    },
+    {
+      "id": "tfy4115-12-3-los-31",
+      "type": "collapsible",
+      "title": "Løsningsforslag — spørsmål 31 (sjanger T7)",
+      "buttonText": "Vis løsning 31",
+      "content": [
+        {
+          "id": "tfy4115-12-3-los-31-t",
+          "type": "text",
+          "content": "**Svar: A.**\n\n**Avgjørende lov:** Sluttemperaturen følger av energibevaring; siden massene og varmekapasitetene er like, er den middelverdien. Entropiendringen for et stoff med konstant varmekapasitet er $\\Delta S = mc\\ln(T_f/T_i)$, regnet for hver halvdel.\n\n$$T_f = \\frac{350 + 290}{2} = 320\\,\\text{K},$$\n$$\\Delta S = mc\\ln\\frac{320}{350} + mc\\ln\\frac{320}{290} = 25116\\left(-0{,}089612 + 0{,}098440\\right) = 221{,}722\\,\\text{J/K}.$$\n\n*Fellene, hver regnet fram fra sin feil:* **E** ($-221{,}72$) har snudd fortegnet; en spontan blanding kan ikke minske entropien. **B** ($2472{,}42$) er bare den kalde halvdelens bidrag. **C** ($-2250{,}70$) er bare den varme halvdelens bidrag, som er negativt. **D** ($4709{,}2$) har brukt $Q/T$ med sluttemperaturen i stedet for å integrere logaritmisk. **F** ($443{,}44$) har telt hver halvdel to ganger.\n\n*Sluttsjekk:* den varme halvdelen taper $2250{,}70\\,\\text{J/K}$ og den kalde vinner $2472{,}42\\,\\text{J/K}$ — den kalde vinner mest, fordi den samme varmemengden er verdt mer entropi ved lav temperatur. Nettoresultatet **må** være positivt for en irreversibel prosess ✓. Energibalansen holder eksakt: begge halvdeler bytter $753{,}5\\,\\text{kJ}$."
+        }
+      ]
+    },
+    {
+      "id": "tfy4115-12-3-los-32",
+      "type": "collapsible",
+      "title": "Løsningsforslag — spørsmål 32 (sjanger T7)",
+      "buttonText": "Vis løsning 32",
+      "content": [
+        {
+          "id": "tfy4115-12-3-los-32-t",
+          "type": "text",
+          "content": "**Svar: C.**\n\n**Avgjørende lov:** Entropi er en **tilstandsfunksjon**. Selv om den virkelige prosessen er irreversibel og har $Q = 0$, regnes $\\Delta S$ langs en tenkt **reversibel** vei mellom de samme to tilstandene — her en isoterm ekspansjon, siden temperaturen er uendret for en ideell gass.\n\n$$\\Delta S_\\text{gass} = nR\\ln\\frac{V_2}{V_1} = 1{,}50\\cdot 8{,}314\\cdot 0{,}69315 = 8{,}64424\\,\\text{J/K}.$$\n\nOmgivelsene er uberørt ($Q = 0$ og ingen arbeid), så $\\Delta S_\\text{omgivelser} = 0$ og $\\Delta S_\\text{univers} = 8{,}6442\\,\\text{J/K}$.\n\n*Fellene, hver regnet fram fra sin feil:* **A** ($0{,}0000$) følger av å sette $\\Delta S = Q/T$ med $Q = 0$ — men den formelen krever en **reversibel** vei, og fri ekspansjon er irreversibel (felle #14). **B** ($-8{,}6442$) har snudd fortegnet. **D** ($21{,}6106$) har brukt $nC_V\\ln 2$; temperaturen er uendret, så det leddet er null. **E** ($24{,}942$) har glemt logaritmen. **F** ($17{,}2885$) har telt bidraget to ganger.\n\n*Sluttsjekk:* temperaturen endres ikke, fordi den indre energien til en ideell gass bare avhenger av $T$, og verken varme eller arbeid krysser grensen. Likevel øker entropien — det er nettopp dette som gjør fri ekspansjon til lærebokeksempelet på en irreversibel prosess. Svaret må være strengt positivt ✓."
+        }
+      ]
+    },
+    {
+      "id": "tfy4115-12-3-los-33",
+      "type": "collapsible",
+      "title": "Løsningsforslag — spørsmål 33 (sjanger T6)",
+      "buttonText": "Vis løsning 33",
+      "content": [
+        {
+          "id": "tfy4115-12-3-los-33-t",
+          "type": "text",
+          "content": "**Svar: D.**\n\n**Avgjørende lov:** Best mulig ytelse er Carnot-grensen for kjøling, $\\varepsilon_{K,\\text{Carnot}} = T_k/(T_v - T_k)$, og $W = \\lvert Q_L\\rvert/\\varepsilon_K$.\n\n$$\\varepsilon_{K,\\text{Carnot}} = \\frac{275}{23} = 11{,}9565,$$\n$$W = \\frac{500}{11{,}9565} = 41{,}818\\,\\text{J}.$$\n\n*Fellene, hver regnet fram fra sin feil:* **A** ($38{,}59$) har brukt effektfaktoren for **oppvarming**, $\\varepsilon_V$, i stedet for $\\varepsilon_K$ (felle #13). **B** ($5978$) har ganget med effektfaktoren i stedet for å dele. **C** ($541{,}8$) har brukt $T_k/T_v$ som effektfaktor. **E** ($6216$) har brukt celsius-verdiene i effektfaktoren (felle #11). **F** ($500$) antar at arbeidet må være like stort som varmen som flyttes.\n\n*Sluttsjekk:* effektfaktoren er stor (12{,}0) fordi temperaturspranget er lite — bare 23 K. Kontroll: $\\varepsilon_V = \\varepsilon_K + 1 = 12{,}957$, og $T_v/(T_v-T_k) = 12{,}957$ ✓. Varmen som avgis til kjøkkenet blir $541{,}8\\,\\text{J}$ — mer enn det som fjernes fra skapet."
+        }
+      ]
+    },
+    {
+      "id": "tfy4115-12-3-los-34",
+      "type": "collapsible",
+      "title": "Løsningsforslag — spørsmål 34 (sjanger T9)",
+      "buttonText": "Vis løsning 34",
+      "content": [
+        {
+          "id": "tfy4115-12-3-los-34-t",
+          "type": "text",
+          "content": "**Svar: F.**\n\n**Avgjørende lov:** Felt ved siden av hverandre ligger i **parallell**: varmestrømmene legges sammen, altså $P = \\left(\\sum U_jA_j\\right)\\Delta T$. Delt på totalarealet blir den samlede U-verdien et arealveid gjennomsnitt.\n\n$$U = (1 - 0{,}120)\\cdot 0{,}180 + 0{,}120\\cdot 1{,}20 = 0{,}15840 + 0{,}14400 = 0{,}30240\\,\\text{W/(m}^2\\cdot\\text{K)}.$$\n\n*Fellene, hver regnet fram fra sin feil:* **A** ($0{,}6900$) har tatt et enkelt gjennomsnitt uten å vekte med arealene. **C** ($0{,}2004$) har summert motstandene som om sjiktene lå i **serie** — men vegg og vindu ligger ved siden av hverandre, altså i parallell (felle #15). **D** ($1{,}380$) har lagt sammen U-verdiene uten vekting. **E** ($0{,}180$) har sett bort fra vinduene. **B** ($1{,}0776$) har byttet om arealandelene.\n\n*Sluttsjekk:* vinduene utgjør bare 12 % av arealet, men står for 47{,}6 % av varmetapet ✓ — det er hele poenget med regnestykket. Svaret må ligge mellom $0{,}180$ og $1{,}20$, og nærmere den laveste siden veggen dominerer arealet."
+        }
+      ]
+    },
+    {
+      "id": "tfy4115-12-3-los-35",
+      "type": "collapsible",
+      "title": "Løsningsforslag — spørsmål 35 (sjanger T10)",
+      "buttonText": "Vis løsning 35",
+      "content": [
+        {
+          "id": "tfy4115-12-3-los-35-t",
+          "type": "text",
+          "content": "**Svar: D.**\n\n**Avgjørende lov:** Stasjonær tilstand betyr at midtplata mottar like mye som den avgir. For svarte plater gir det $\\sigma T_1^4 - \\sigma T_2^4 = \\sigma T_2^4 - \\sigma T_3^4$, altså $T_2^4 = \\tfrac12\\left(T_1^4 + T_3^4\\right)$.\n\n$$T_1^4 = 1{,}68\\cdot10^{11}, \\qquad T_3^4 = 8{,}10\\cdot10^{9},$$\n$$T_2 = \\left(\\frac{1{,}68\\cdot10^{11} + 8{,}10\\cdot10^{9}}{2}\\right)^{1/4} = \\left(8{,}79\\cdot10^{10}\\right)^{1/4} = 544{,}56\\,\\text{K}.$$\n\nPå en enkel kalkulator tas fjerderota raskest som **to kvadratrøtter** etter hverandre.\n\n*Fellene, hver regnet fram fra sin feil:* **B** ($470{,}0$) har midlet **temperaturene** i stedet for fjerdepotensene (felle #12). **C** ($438{,}2$) har tatt det geometriske gjennomsnittet. **A** ($296540$) har tatt kvadratrota i stedet for fjerderota. **E** ($531{,}6$) har trukket fra i stedet for å legge sammen inne i parentesen. **F** ($647{,}6$) har glemt å dele på 2.\n\n*Sluttsjekk:* midtplata må ligge **mellom** de to ytterplatene ✓, og fordi det er $T^4$ som midles, trekkes den mot den varme: $544{,}6\\,\\text{K}$ er godt over det aritmetiske gjennomsnittet $470{,}0\\,\\text{K}$. Det er den kontrollen som skiller fasiten fra den vanligste fella."
+        }
+      ]
+    },
+    {
+      "id": "tfy4115-12-3-los-36",
+      "type": "collapsible",
+      "title": "Løsningsforslag — spørsmål 36 (sjanger T10)",
+      "buttonText": "Vis løsning 36",
+      "content": [
+        {
+          "id": "tfy4115-12-3-los-36-t",
+          "type": "text",
+          "content": "**Svar: B.**\n\n**Avgjørende lov:** Med $n$ skjermer blir det $n+1$ like store temperatursprang i $T^4$-skalaen, og fluksen reduseres med samme faktor: $j_n = j_0/(n+1)$.\n\n$$j_0 = \\sigma\\left(T_1^4 - T_3^4\\right) = 5{,}670\\cdot10^{-8}\\cdot 1{,}60\\cdot10^{11} = 9053{,}4\\,\\text{W/m}^2,$$\n$$j_3 = \\frac{9053{,}4}{4} = 2263{,}35\\,\\text{W/m}^2.$$\n\n*Fellene, hver regnet fram fra sin feil:* **A** ($9053{,}4$) er fluksen uten skjermer. **F** ($3017{,}8$) har delt på antall skjermer i stedet for på antall **mellomrom**, som er én mer. **C** ($1810{,}7$) har delt på én for mye. **D** ($189{,}4256$) har regnet $\\left(T_1-T_3\\right)^4$ i stedet for differansen mellom fjerdepotensene (felle #12). **E** ($565{,}8$) har kvadrert nevneren.\n\n*Sluttsjekk:* **tell mellomrommene, ikke skjermene** — tre skjermer gir fire mellomrom. Det er av-for-én-fella i denne sjangeren, og den ligger ferdig i alternativlista. Kontroll: uten skjermer er fluksen $9053\\,\\text{W/m}^2$, og tre skjermer skal kutte den til en fjerdedel ✓ — det er derfor en termos har flere sølvbelagte lag."
+        }
+      ]
+    },
+    {
+      "id": "tfy4115-12-3-los-37",
+      "type": "collapsible",
+      "title": "Løsningsforslag — spørsmål 37 (sjanger T11)",
+      "buttonText": "Vis løsning 37",
+      "content": [
+        {
+          "id": "tfy4115-12-3-los-37-t",
+          "type": "text",
+          "content": "**Svar: F.**\n\n**Avgjørende lov:** Det kritiske punktet for van der Waals-gassen: $V_c = 3nb$, $p_c = \\frac{a}{27b^2}$, $T_c = \\frac{8a}{27Rb}$. Alle tre står på det utdelte arket.\n\n$$p_c = \\frac{a}{27b^2} = \\frac{0{,}1370}{27\\cdot \\left(3{,}87\\cdot10^{-5}\\right)^2} = \\frac{0{,}1370}{4{,}04\\cdot10^{-8}} = 3{,}39\\cdot10^{6}\\,\\text{Pa} = 3{,}3879\\,\\text{MPa}.$$\n\n*Fellene, hver regnet fram fra sin feil:* **B** ($91{,}474$) har glemt faktoren 27 i nevneren. **C** ($0{,}034$) har en tierpotensfeil i $b$. **D** ($6{,}776$) har brukt $2a$ i telleren. **E** ($1{,}694$) har brukt 54 i stedet for 27 i nevneren. **A** ($126{,}161$) er den kritiske **temperaturen** i kelvin, ikke trykket i MPa.\n\n*Sluttsjekk:* det kritiske trykket for vanlige gasser ligger i området 3–8 MPa, altså 30–80 atmosfærer ✓. Kontroll av kombinasjonen: den kritiske temperaturen blir $T_c = 8a/(27Rb) = 126{,}2\\,\\text{K}$, og $p_cV_c/(RT_c) = 0{,}3750$ — nøyaktig $\\tfrac38$, som van der Waals-modellen forutsier for alle stoffer ✓."
+        }
+      ]
+    },
+    {
+      "id": "tfy4115-12-3-los-38",
+      "type": "collapsible",
+      "title": "Løsningsforslag — spørsmål 38 (sjanger T11)",
+      "buttonText": "Vis løsning 38",
+      "content": [
+        {
+          "id": "tfy4115-12-3-los-38-t",
+          "type": "text",
+          "content": "**Svar: F.**\n\n**Avgjørende lov:** Under trippeltrykket finnes det **ingen væskefase**. Koeksistenslinjen som møtes i trippelpunktet, er sublimasjonslinjen, og en vannrett linje i $p$–$T$-diagrammet under $p_t$ krysser bare den.\n\n$$p = 1{,}0\\,\\text{bar} < p_t = 5{,}18\\,\\text{bar} \\quad\\Longrightarrow\\quad \\text{fast} \\to \\text{gass}.$$\n\nDette er nettopp oppførselen til karbondioksid, som gir «tørris» navnet sitt: den går rett fra fast form til gass ved atmosfæretrykk.\n\n*Fellene, hver regnet fram fra sin feil:* **A** ($\\text{det smelter til væske og koker deretter ved en høyere temperatur}$) beskriver den vanlige veien, men den krever et trykk **over** trippeltrykket. **B** ($\\text{det går over i en overkritisk fase uten skarp faseovergang}$) krever et trykk og en temperatur over det **kritiske** punktet, ikke under trippeltrykket. **C** ($\\text{det smelter, men kan ikke koke fordi trykket er under det kritiske}$) blander sammen de to punktene: det kritiske trykket setter ingen grense nedad for koking. **D** ($\\text{det forblir fast uansett temperatur, siden trykket er for lavt}$) overser at et fast stoff alltid går over i gass ved høy nok temperatur. **E** ($\\text{det blir flytende først når temperaturen passerer } 304\\,\\text{K}$) forveksler den kritiske temperaturen med et smeltepunkt.\n\n*Sluttsjekk:* de to punktene i et fasediagram har hver sin rolle. **Trippelpunktet** er der alle tre faser møtes, og det setter det laveste trykket der væske i det hele tatt kan finnes. **Det kritiske punktet** er der væske–gass-linjen **slutter** — over det er det ingen skarp forskjell på væske og gass. Å bytte om de to er den vanligste fella i sjangeren."
+        }
+      ]
+    },
+    {
+      "id": "tfy4115-12-3-los-39",
+      "type": "collapsible",
+      "title": "Løsningsforslag — spørsmål 39 (sjanger T12)",
+      "buttonText": "Vis løsning 39",
+      "content": [
+        {
+          "id": "tfy4115-12-3-los-39-t",
+          "type": "text",
+          "content": "**Svar: C.**\n\n**Avgjørende lov:** Clausius–Clapeyron, integrert med konstant fordampningsvarme og ideell damp: $p(T) = p_0\\exp\\left[-\\frac{l_f}{R}\\left(\\frac{1}{T} - \\frac{1}{T_0}\\right)\\right]$, med kokepunktet som referanse.\n\n$$\\frac{l_f}{R} = \\frac{40660}{8{,}314} = 4890{,}5\\,\\text{K},$$\n$$\\frac{1}{T} - \\frac{1}{T_0} = 1{,}52\\cdot10^{-4}\\,\\text{K}^{-1}, \\qquad \\text{eksponenten} = -0{,}74224,$$\n$$p = 101{,}3\\cdot e^{-0{,}7422} = 101{,}3\\cdot 0{,}47605 = 48{,}22\\,\\text{kPa}.$$\n\n*Fellene, hver regnet fram fra sin feil:* **A** ($213$) har feil fortegn i eksponenten, og gir høyere damptrykk ved lavere temperatur — samme tall får du hvis du bytter om de to temperaturene i parentesen. **B** ($95{,}9$) har antatt at damptrykket følger temperaturen lineært. **E** ($0{,}000496$) har brukt celsius-verdiene $80$ og $100$ i eksponenten (felle #11). **D** ($50{,}2$) har brukt en linearisert form av eksponenten. **F** ($101{,}2$) har brukt fordampningsvarmen i kJ/mol uten å gjøre om til J/mol, og får dermed nesten ingen endring i det hele tatt.\n\n*Sluttsjekk:* damptrykket **synker** når temperaturen synker, så svaret må ligge under $101{,}3\\,\\text{kPa}$ ✓ — det stryker to alternativer umiddelbart. Tabellverdien for vann ved denne temperaturen er rundt $47\\,\\text{kPa}$, så tilnærmingen med konstant fordampningsvarme treffer godt her. Og temperaturene **må** i kelvin: med celsius blir eksponenten hundrevis av ganger for stor."
+        }
+      ]
+    },
+    {
+      "id": "tfy4115-12-3-los-40",
+      "type": "collapsible",
+      "title": "Løsningsforslag — spørsmål 40 (sjanger T14)",
+      "buttonText": "Vis løsning 40",
+      "content": [
+        {
+          "id": "tfy4115-12-3-los-40-t",
+          "type": "text",
+          "content": "**Svar: F.**\n\n**Avgjørende lov:** Fikspunktiterasjon gjøres for hånd på en enkel kalkulator: sett verdien inn i $g(x)$, les av, sett inn igjen. **Tell stegene** og behold alle sifrene kalkulatoren gir mellom hvert steg.\n\n$$x_1 = 5\\left(1 - e^{-4{,}000}\\right) = 4{,}908422,$$\n$$x_2 = 5\\left(1 - e^{-4{,}908422}\\right) = 4{,}963079,$$\n$$x_3 = 5\\left(1 - e^{-4{,}963079}\\right) = 4{,}965043.$$\n\n*Fellene, hver regnet fram fra sin feil:* **A** ($4{,}96308$) er $x_2$ — én iterasjon for lite (av-for-én, sjangerens innebygde felle). **B** ($4{,}90842$) er $x_1$ — to iterasjoner for lite. **C** ($4{,}96511$) er $x_4$ — én iterasjon for mye. **E** ($5{,}00000$) er faktoren 5 i likningen; fikspunktet ligger litt under. **D** ($4{,}99322$) kommer av å iterere $x_{n+1} = 5 - e^{-x_n}$, altså en feil omskriving der parentesen er borte.\n\n*Sluttsjekk:* iterasjonen nærmer seg roten $x = 4{,}96511$ nedenfra, og hvert steg flytter svaret omtrent en tierpotens nærmere. Med fem desimaler er $x_3$ og $x_4$ ($=4{,}96511$) forskjellige, så antall iterasjoner avgjør faktisk bokstaven her — derfor står tellingen i oppgaveteksten. Roten gir Wien-konstanten $b = hc/(xk_B) = 2{,}898\\cdot10^{-3}\\,\\text{m}\\cdot\\text{K}$, verdien som står på det utdelte arket."
+        }
+      ]
+    },
+    {
+      "id": "tfy4115-12-3-protokoll",
+      "type": "collapsible",
+      "title": "En arbeidsprotokoll på midtnivå, ærlig merket",
+      "buttonText": "Vis arbeidsprotokollen",
+      "content": [
+        {
+          "id": "tfy4115-12-3-prot-t",
+          "type": "text",
+          "content": "Gjennomgangen under er **nyskrevet for denne boka** og er ikke en ekte studentbesvarelse. Den er skrevet som et realistisk midtsjikt på nettopp dette settet, som er tyngre enn [kap. 12.2](/tfy4115/tfy4115-12-2).\n\n> **0–6 min.** Blar gjennom settet, skriver sjanger i margen. Ser at 1–3 henger sammen og at 26–29 er en Otto-klynge. Setter av 25 minutter til hver klynge.\n> **6–52 min.** Spørsmål 1–10. Deriverer $\\omega(t)$ riktig i spørsmål 1 og finner $t = \\tau$. I spørsmål 2 husker hun ikke faktoritetsintegralet og bruker delvis integrasjon to ganger — riktig svar, men **seks minutter for mye**.\n> **52–105 min.** Spørsmål 11–20. Spørsmål 11 (dreieimpuls om kontaktlinjen) blir stående: hun regner spinnleddet riktig, men er usikker på om banebidraget skal legges til eller trekkes fra. Merker det og går videre etter to minutter — **riktig avgjørelse**. Spørsmål 17 (konisk pendel) tar åtte minutter fordi hun først setter opp med snorlengden som pendellengde.\n> **105–190 min.** Spørsmål 21–35. Otto-klyngen går på 22 minutter, og hun kontrollerer $\\eta$ mot både $1-r^{1-\\gamma}$ og $W/Q_\\text{inn}$ — de stemmer, og hun vet dermed at hele klyngen sitter. I spørsmål 31 glemmer hun at **begge** vannmengder bidrar til entropien og krysser av for bare den kalde halvdelens bidrag.\n> **190–225 min.** Spørsmål 36–40, pluss det merkede spørsmål 11. Der løser hun det ved å tegne: begge bidragene peker samme vei, så de legges sammen.\n> **225–240 min.** Kontrollrunde på ni svar. Finner ingenting nytt.\n\n**Resultat: 34 riktige av 40.**\n\n**Hva som var godt nok — og det er mye.** Hun rakk hele settet. Hun brukte hopp-og-merk i spørsmål 11 i stedet for å stå fast, og hun gjorde den ene kontrollen som virkelig betyr noe: å verifisere Otto-virkningsgraden på to uavhengige måter før hun brukte tallene videre i tre spørsmål. Det er en arbeidsform som beskytter fire poeng samtidig.\n\n**De seks bommene, med prisen for hver:**\n\n1. **Spørsmål 2** — brukte delvis integrasjon i stedet for $\\int_0^\\infty u^ne^{-u}\\,du = n!$ fra Rottmann. Riktig svar, men *prisen var 6 minutter*, og de minuttene manglet senere.\n2. **Spørsmål 17** — startet med snorlengden i stedet for høyden $L\\cos\\theta$. *Pris: 8 minutter, og et halvt sekunds usikkerhet til slutt.* Grepet er å huske at den koniske pendelen svarer til en matematisk pendel med **høyden** som lengde.\n3. **Spørsmål 31** — tok bare den kalde halvdelens entropiøkning. *Pris: ett poeng.* Kontrollen som ville fanget den, er at den varme halvdelen **må** ha negativ entropiendring, og at summen likevel er positiv.\n4–6. **Spørsmål 14, 36 og 39** — Steiner målt fra enden i stedet for fra massesenteret; skjermer talt i stedet for mellomrom; og fordampningsvarmen brukt i kJ/mol. *Alle tre er enhets- og tellingsfeil, ikke forståelsesfeil.*\n\n**Den veide konklusjonen.** Fire av de seks bommene er *kontrollfeil*, ikke *kunnskapsfeil*: hun kunne fysikken i alle fire. Gapet til 38–39 riktige er derfor ikke mer pensum, men tre vaner — les hva $d$ måles fra, tell mellomrom og ikke gjenstander, og sjekk enheten på hver oppgitt konstant før den settes inn. Til sammen koster de under to minutter å gjennomføre.\n\n**34 av 40 på et sett som er kalibrert tyngre enn standardmalen, er et godt resultat. C er en god og vanlig karakter**, og dette ligger over."
+        }
+      ]
+    },
+    {
+      "id": "tfy4115-12-3-selvdiagnose",
+      "type": "text",
+      "content": "## Poengoversikt og selvdiagnose\n\n| Bolk | Spørsmål | Sjangre | Poeng | Ditt resultat |\n|---|---|---|---|---|\n| Kinematikk-klyngen og krumning | 1–4 | M10, M11 | 4 | \\_\\_\\_\\_ |\n| Skråplan og terminalfart | 5–7 | M1, M2 | 3 | \\_\\_\\_\\_ |\n| Rulling, gliding og dreieimpuls | 8–11 | M3, M5 | 4 | \\_\\_\\_\\_ |\n| Elastisk støt og ballistisk pendel | 12–13 | M6 | 2 | \\_\\_\\_\\_ |\n| Steiner og trinse | 14–15 | M4 | 2 | \\_\\_\\_\\_ |\n| Fysisk og konisk pendel | 16–17 | M8 | 2 | \\_\\_\\_\\_ |\n| Demping og resonans | 18–19 | M7 | 2 | \\_\\_\\_\\_ |\n| Statikk | 20 | M9 | 1 | \\_\\_\\_\\_ |\n| Gass, fartsforhold og varmekapasitet | 21–23 | T1, T2, T3 | 3 | \\_\\_\\_\\_ |\n| Adiabat og mulighetsanalyse | 24–25 | T4, T8 | 2 | \\_\\_\\_\\_ |\n| Otto-klyngen og Stirling | 26–30 | T5 | 5 | \\_\\_\\_\\_ |\n| Entropi ved irreversible prosesser | 31–32 | T7 | 2 | \\_\\_\\_\\_ |\n| Kjøleskap og sammensatt vegg | 33–34 | T6, T9 | 2 | \\_\\_\\_\\_ |\n| Platebalanse og skjermer | 35–36 | T10 | 2 | \\_\\_\\_\\_ |\n| Reell gass og fasediagram | 37–38 | T11 | 2 | \\_\\_\\_\\_ |\n| Damptrykk og iterasjon | 39–40 | T12, T14 | 2 | \\_\\_\\_\\_ |\n| **Sum** | **40** | — | **40** | \\_\\_\\_\\_ |\n\nPoengene er bokas egne; arkivet oppgir ingen karaktergrenser. **C er en god og vanlig karakter.**\n\n### Selvdiagnose\n\nKryss av det du **faktisk gjorde**.\n\n**De tyngre variantenes egne feller:**\n\n- ☐ Fant jeg maksimum i spørsmål 1 ved å derivere, og ikke ved å anta at $\\omega_0$ er maksimalfarten?\n- ☐ Brukte jeg faktoritetsintegralet $\\int_0^\\infty u^ne^{-u}du = n!$ i spørsmål 2, i stedet for å delvis integrere?\n- ☐ Målte jeg $d$ i Steiners sats fra **massesenteret** i spørsmål 14?\n- ☐ Brukte jeg **høyden** $L\\cos\\theta$, ikke snorlengden, i den koniske pendelen (spm. 17)?\n- ☐ La jeg spinn og bane **sammen** i spørsmål 11, og oppgav retningen?\n- ☐ Talte jeg **mellomrom** og ikke skjermer i spørsmål 36?\n- ☐ Tok jeg med **begge** vannmengder i entropiregnskapet i spørsmål 31?\n\n**Kelvin, enheter og fortegn:**\n\n- ☐ Var alle temperaturer i kelvin i spørsmål 21, 24–33 og 39?\n- ☐ Var fordampningsvarmen i J/mol og ikke kJ/mol i spørsmål 39?\n- ☐ Ga entropiregnestykkene i 31 og 32 **positive** svar, som irreversible prosesser må?\n- ☐ Er $\\gamma$ i termohalvdelen dimensjonsløs, og $\\gamma = b/2m$ i spørsmål 18–19 oppgitt i $\\text{s}^{-1}$?\n\n**Klyngearbeid:**\n\n- ☐ Regnet jeg $r^{\\gamma-1}$ **én** gang med fem siffer og gjenbrukte den i spørsmål 26, 28 og 29?\n- ☐ Kontrollerte jeg Otto-virkningsgraden på to måter ($1-r^{1-\\gamma}$ og $W/Q_\\text{inn}$) før jeg brukte den?\n- ☐ Sjekket jeg at syklusen ligger **under** Carnot-grensen?\n\n**Hvis noe skar seg:**\n\n- ☐ Bommet du på 1–3? Tilbake til [kap. 1.1](/tfy4115/tfy4115-1-1) og drillen i [kap. 1.3](/tfy4115/tfy4115-1-3).\n- ☐ Bommet du på 10 eller 11? Gliding → rulling og spinn/bane står i [kap. 4.2](/tfy4115/tfy4115-4-2), med drill i [kap. 4.4](/tfy4115/tfy4115-4-4).\n- ☐ Bommet du på 16 eller 17? Pendlene står i [kap. 5.1](/tfy4115/tfy4115-5-1), med drill i [kap. 5.3](/tfy4115/tfy4115-5-3).\n- ☐ Bommet du på 26–30? Kretsprosessene står i [kap. 8.1](/tfy4115/tfy4115-8-1), med drill i [kap. 8.3](/tfy4115/tfy4115-8-3).\n- ☐ Bommet du på 35 eller 36? Platebalansen står i [kap. 9.2](/tfy4115/tfy4115-9-2), med drill i [kap. 9.3](/tfy4115/tfy4115-9-3).\n- ☐ Bommet du på 37–39? Reelle gasser og faseoverganger står i [kap. 10.1](/tfy4115/tfy4115-10-1) og [kap. 10.2](/tfy4115/tfy4115-10-2), med drill i [kap. 10.3](/tfy4115/tfy4115-10-3)."
+    },
+    {
+      "id": "tfy4115-12-3-vekting",
+      "type": "tip",
+      "title": "Hvor de innebygde fellene sitter i dette settet",
+      "content": "**Ni feller er bygget inn med ferdige tall i alternativlistene.** Her er kartet — les det **etter** at du har tatt settet:\n\n| Spørsmål | Fella | Alternativet den produserer |\n|---|---|---|\n| 1 | tro at $\\omega_0$ er maksimalfarten | $\\omega_0$ selv, altså $e$ ganger for stort |\n| 9 | glemt rotasjonsleddet (felle #1) | for lav snuhøyde, med faktor $1+c$ |\n| 11 | trukket spinn fra bane (felle #5) | $(1-c)mVR$ i stedet for $(1+c)mVR$ |\n| 14 | Steiner målt fra enden (felle #4) | treghetsmomentet om enden |\n| 18 | $\\gamma = b/m$ uten faktoren 2 | halveringstiden — som her **også** er svaret på to andre feil |\n| 24 | $\\gamma-1$ i stedet for $(\\gamma-1)/\\gamma$ | samme tall som $\\gamma = \\tfrac53$ gir |\n| 27 | $C_P$ i et isokort trinn (felle #8) | for lav topptemperatur |\n| 35 | midlet $T$ i stedet for $T^4$ (felle #12) | det aritmetiske gjennomsnittet |\n| 39 | celsius i Clausius–Clapeyron (felle #11) | et damptrykk nær null |\n\n**Merk noe viktig ved spørsmål 18 og 24: to ulike feil gir samme tall.** Det er ikke en svakhet ved settet, men en egenskap ved fysikken — og det betyr at et galt kryss der ikke identifiserer feilen entydig. Når du retter, må du gå tilbake til din egen mellomregning for å se hvilken av dem du faktisk gjorde.\n\n**Tidsanslag per bolk (regnetid):**\n\n| Bolk | Spørsmål | Anslag |\n|---|---|---|\n| Kartlegging | — | 5–7 min |\n| Kinematikk-klyngen og krumning | 1–4 | 25 min |\n| Skråplan, terminalfart, rulling | 5–11 | 45 min |\n| Støt, Steiner, trinse | 12–15 | 30 min |\n| Pendler, demping, statikk | 16–20 | 35 min |\n| Gass, adiabat, mulighetsanalyse | 21–25 | 30 min |\n| Otto-klyngen og Stirling | 26–30 | 30 min |\n| Entropi, kjøleskap, vegg | 31–34 | 25 min |\n| Stråling, reell gass, iterasjon | 35–40 | 30 min |\n| Kontrollrunde | — | 15 min |\n| **Sum** | — | **235 min** |\n\n**De fem minuttene som mangler opp til 240, er buffer.** Anslagene er regnetid; kartleggingen og kontrollrunden er ikke regning, men de er det som gjør regnetiden trygg. Bruker du mer enn 30 minutter på Otto-klyngen, er det den som spiser bufferen — og da skal du merke resten av klyngen og gå videre."
+    },
+    {
+      "id": "tfy4115-12-3-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tfy4115-12-3-sym-t",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n**Kolliderende symboler i dette delkapitlet.** Alle fem kollisjonene er aktive i settet, men aldri innenfor samme spørsmål:\n\n- $\\gamma$ er **dempingskoeffisienten** $b/2m$ i $\\text{s}^{-1}$ i spørsmål 18–19, og **adiabateksponenten** $C_P/C_V$ (dimensjonsløs, mellom 1 og $\\tfrac53$) i spørsmål 23–30. **Har $\\gamma$ enhet, er det demping.**\n- $p$ er **trykk** i pascal i spørsmål 21, 24 og 37, og opptrer ikke som bevegelsesmengde i dette settet; i spørsmål 12–13 skrives bevegelsesmengden ut som $mv$.\n- $T$ er **absolutt temperatur i kelvin** i hele termohalvdelen, og **svingetid** i sekunder i spørsmål 16–17.\n- $R$ er **gasskonstanten** i spørsmål 21–39, og en **radius** i spørsmål 11 og 16.\n- $S$ er **entropi** i J/K i spørsmål 31–32, og **snordrag** i newton i spørsmål 15 og 17.\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $\\omega$, $\\omega_0$ | Vinkelfart; konstanten i modellen | rad/s |\n| $\\varphi_\\text{tot}$ | Totalvinkel | rad |\n| $\\tau$ | Tidskonstant | s |\n| $\\rho$ | Krumningsradius (spm. 4) / luftens tetthet (spm. 7) | m / $\\text{kg/m}^3$ |\n| $N$ | Normalkraft | N |\n| $\\theta$ | Skråplanets helning / vinkel fra loddlinja | grader |\n| $\\mu$, $\\mu_s$ | Kinetisk og statisk friksjonskoeffisient | — |\n| $C_d$ | Motstandskoeffisient | — |\n| $v_t$ | Terminalfart | m/s |\n| $c$ | Formfaktoren $I/(mR^2)$ | — |\n| $I$, $I_\\text{CM}$, $I_A$ | Treghetsmoment; om massesenteret; om aksen | $\\text{kg}\\cdot\\text{m}^2$ |\n| $d$ | Avstand massesenter–akse (Steiner) | m |\n| $L$ | Dreieimpuls (spm. 11) / lengde (spm. 14, 17) | $\\text{kg}\\cdot\\text{m}^2/\\text{s}$ / m |\n| $S$ | Snordrag (spm. 15, 17) / entropi (spm. 31–32) | N / J/K |\n| $b$ | Dempingskonstant (spm. 18–19) / van der Waals-volum (spm. 37) | kg/s / $\\text{m}^3/\\text{mol}$ |\n| $\\gamma$ | Demping (spm. 18–19) / adiabateksponent (spm. 23–30) | $\\text{s}^{-1}$ / — |\n| $Q$ | Kvalitetsfaktor (spm. 19) / varme (spm. 26–33) | — / J |\n| $F_0$ | Amplituden til drivkraften | N |\n| $r$ | Kompresjonsforhold $V_1/V_2$ | — |\n| $C_V$, $C_P$ | Molar varmekapasitet | $\\text{J/(mol}\\cdot\\text{K)}$ |\n| $c$ (liten, spm. 31) | **Spesifikk** varmekapasitet | $\\text{J/(kg}\\cdot\\text{K)}$ |\n| $f$ | Antall frihetsgrader | — |\n| $\\varepsilon_K$ | Effektfaktor for kjøling | — |\n| $U$ | U-verdi (spm. 34) | $\\text{W/(m}^2\\cdot\\text{K)}$ |\n| $j$ | Varmefluks | $\\text{W/m}^2$ |\n| $\\sigma$ | Stefan–Boltzmanns konstant | $\\text{W/(m}^2\\cdot\\text{K}^4)$ |\n| $a$, $b$ | van der Waals-konstantene | $\\text{Pa}\\cdot\\text{m}^6/\\text{mol}^2$, $\\text{m}^3/\\text{mol}$ |\n| $l_f$ | Molar fordampningsvarme | J/mol |\n| $x_n$ | Iterat nummer $n$ | — |\n\n**Formler i dette delkapitlet:**\n\n$$\\omega_\\text{maks} = \\frac{\\omega_0}{e} \\ (\\text{ved } t=\\tau), \\qquad \\varphi_\\text{tot} = \\omega_0\\tau, \\qquad \\int_0^\\infty u^ne^{-u}\\,du = n!$$\nPotensmodellen for vinkelfart. Standardintegralet [Rottmann]; resten [må kunne brukes eller utledes aktivt].\n\n$$\\rho = \\frac{1}{\\lvert y''\\rvert}, \\qquad N = m\\left(g + \\frac{v^2}{\\rho}\\right) \\ (\\text{bunnpunkt})$$\nKrumning i et bunnpunkt [må kunne brukes eller utledes aktivt].\n\n$$\\frac{K}{K_0} = \\frac{\\tan\\theta - \\mu}{\\tan\\theta + \\mu}, \\qquad v_t = \\sqrt{\\frac{2mg}{\\rho AC_d}}$$\nEnergiandel opp og tilbake, og terminalfart [må kunne brukes eller utledes aktivt].\n\n$$V = \\frac{V_0}{1+c}, \\qquad t = \\frac{cV_0}{(1+c)\\mu g}, \\qquad L = (1+c)mVR$$\nGliding → ren rulling, og dreieimpuls om kontaktlinjen [må kunne brukes eller utledes aktivt].\n\n$$v_1' = \\frac{m-M}{m+M}v_0, \\qquad v_2' = \\frac{2m}{m+M}v_0, \\qquad v_0 = \\frac{m+M}{m}\\sqrt{2gh}$$\nElastisk støt og ballistisk pendel [må kunne brukes eller utledes aktivt].\n\n$$I = I_\\text{CM} + Md^2, \\qquad a = \\frac{mg}{m + M_p/2}$$\nSteiner [står på det utdelte arket]; trinsen med masse [må kunne brukes eller utledes aktivt].\n\n$$T_\\text{skive, rand} = 2\\pi\\sqrt{\\frac{3R}{2g}}, \\qquad T_\\text{konisk} = 2\\pi\\sqrt{\\frac{L\\cos\\theta}{g}}$$\nDe to pendlene [må kunne brukes eller utledes aktivt]; den generelle formen $T = 2\\pi\\sqrt{I_A/(Mgd)}$ [står på det utdelte arket].\n\n$$\\gamma = \\frac{b}{2m}, \\qquad t = \\frac{\\ln 4}{\\gamma}, \\qquad A(\\omega_0) = \\frac{F_0}{b\\omega_0} = Q\\cdot\\frac{F_0}{k}$$\nDemping og resonans [står på det utdelte arket].\n\n$$\\mu_s \\ge \\frac{1}{2\\tan\\theta}$$\nStigen mot en glatt vegg [må kunne brukes eller utledes aktivt].\n\n$$\\frac{p_1V_1}{T_1} = \\frac{p_2V_2}{T_2}, \\qquad \\frac{v_1}{v_2} = \\sqrt{\\frac{M_2}{M_1}}$$\nGassloven i forholdsform og fartsforholdet ved samme temperatur [må kunne brukes eller utledes aktivt].\n\n$$f = \\frac{2}{\\gamma-1}, \\qquad C_V = \\frac{f}{2}R, \\qquad C_P = C_V + R$$\nEkvipartisjon baklengs [må kunne brukes eller utledes aktivt].\n\n$$T_2 = T_1\\left(\\frac{p_2}{p_1}\\right)^{(\\gamma-1)/\\gamma}, \\qquad T_2 = T_1r^{\\gamma-1}$$\nAdiabatrelasjonen i trykk- og volumform [står på det utdelte arket].\n\n$$\\eta_\\text{Otto} = 1 - r^{1-\\gamma}, \\qquad W_\\text{Stirling} = nR(T_v-T_k)\\ln\\frac{V_2}{V_1}$$\nDe to syklusene [må kunne brukes eller utledes aktivt].\n\n$$\\eta \\le 1 - \\frac{T_k}{T_v}, \\qquad \\varepsilon_V \\le \\frac{T_v}{T_v-T_k}, \\qquad \\varepsilon_K \\le \\frac{T_k}{T_v-T_k}$$\nCarnot-grensene, som **hver** ytelse skal måles mot [står på det utdelte arket].\n\n$$\\Delta S = mc\\ln\\frac{T_f}{T_i}, \\qquad \\Delta S = nR\\ln\\frac{V_2}{V_1}$$\nEntropi for et stoff med konstant varmekapasitet, og for en ideell gass ved isoterm volumendring [står på det utdelte arket].\n\n$$U = \\sum_j \\frac{A_j}{A}U_j \\quad (\\text{parallell})$$\nFelt ved siden av hverandre [må kunne brukes eller utledes aktivt].\n\n$$T_2 = \\left(\\frac{T_1^4+T_3^4}{2}\\right)^{1/4}, \\qquad j_n = \\frac{j_0}{n+1}, \\qquad j_0 = \\sigma\\left(T_1^4-T_3^4\\right)$$\nPlatebalanse og strålingsskjermer [må kunne brukes eller utledes aktivt]; Stefan–Boltzmann [står på det utdelte arket].\n\n$$p_c = \\frac{a}{27b^2}, \\qquad T_c = \\frac{8a}{27Rb}, \\qquad V_c = 3nb$$\nvan der Waals' kritiske punkt [står på det utdelte arket].\n\n$$p(T) = p_0\\exp\\left[-\\frac{l_f}{R}\\left(\\frac{1}{T} - \\frac{1}{T_0}\\right)\\right]$$\nClausius–Clapeyron, integrert [står på det utdelte arket].\n\n$$x_{n+1} = 5\\left(1 - e^{-x_n}\\right)$$\nFikspunktiterasjonen fra Plancks lov [må kunne brukes eller utledes aktivt]. Eksponentialer, logaritmer og potenser slås opp i **Rottmann**."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

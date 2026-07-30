@@ -1,0 +1,439 @@
+{
+  "id": "tfy4115-5-2",
+  "courseId": "tfy4115",
+  "chapterNumber": "5.2",
+  "title": "Dempede og drevne svingninger — $Q$-faktor og resonans",
+  "description": "Amplitude som avtar eksponentielt, $A(t)=A_0 e^{-\\gamma t}$ med $\\gamma=b/2m$, overkritisk demping, kvalitetsfaktor $Q$ og drevet svingning på resonans (seismometer-sjangeren).",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "regne ut dempingskoeffisienten fra masse og dempingskonstant, og finne tiden til en gitt brøk av amplituden eller energien",
+    "avgjøre om et system er svakt, kritisk eller overkritisk dempet, og forklare hvorfor kritisk demping gir raskest retur",
+    "regne ut kvalitetsfaktoren og bruke den som mål på både utdøingstid og forsterkning på resonans",
+    "sette opp likningen for en drevet svingning, finne amplituden på og utenfor resonans, og forklare seismometerets virkemåte"
+  ],
+  "content": [
+    {
+      "id": "tfy4115-5-2-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Sjanger M7 — svingninger, i den dempede varianten — dukker opp i om lag 9 av 10 sett (~90 %)**, og hører til **mekanikkhalvdelen, spørsmål 1–20**. Prioritet: **høyeste — dette må sitte.**\n\nSignaturen er nesten alltid den samme: du får masse, fjærstivhet og en dempingskonstant, og skal finne **hvor lang tid det tar før amplituden er redusert til en gitt brøk** — halvparten, en fjerdedel, $1/e$. Eller du skal finne **hvor mange hele svingninger** det tar. Eller du skal finne **kvalitetsfaktoren $Q$**. Alle tre svarene kommer ut av det samme lille uttrykket, $A(t)=A_0e^{-\\gamma t}$, og av at $\\gamma = b/2m$.\n\nDen drevne svingningen — en ytre kraft som pumper systemet med en valgt frekvens — er en gjenganger i utledningssettene, blant annet i seismometer-oppgaven, der et instrument måler bakkens bevegelse. Der er poenget resonans: at amplituden blir stor når drivfrekvensen treffer egenfrekvensen, og at forsterkningen er nøyaktig $Q$.\n\n**To feil koster nesten alle poengene her.** Den første er **faktoren 2 i $\\gamma = b/2m$**: skriver du $b/m$, blir alle tider halvert. Den andre er å blande **amplitudedemping** ($e^{-\\gamma t}$) med **energidemping** ($e^{-2\\gamma t}$) — energien faller dobbelt så fort som amplituden, fordi energien går som amplituden i annen.\n\n## ⚠ Symbolvarsel: $\\gamma$ betyr to helt ulike ting i denne boka\n\nI dette kapitlet er $\\gamma$ **dempingskoeffisienten**, $\\gamma = b/2m$, med enheten $\\text{s}^{-1}$. Fra Del 6 og utover er $\\gamma$ **adiabateksponenten** $\\gamma = C_P/C_V$, som er **dimensjonsløs** og har verdier rundt $1{,}4$ eller $1{,}67$.\n\nDe to er den mest forvirrende av bokas fem symbolkollisjoner, fordi **begge dukker opp i eksponentielle uttrykk**: her møter du $e^{-\\gamma t}$, i termodelen $pV^\\gamma = \\text{konstant}$. Kjennetegnene som skiller dem: dempingskoeffisienten har **enhet** ($\\text{s}^{-1}$) og er typisk et lite tall (0,1–1); adiabateksponenten er **dimensjonsløs** og ligger mellom 1 og 5/3. Og de opptrer aldri i samme oppgave.\n\nTilsvarende er $T$ en **periode** i sekunder i hele Del 5, men **absolutt temperatur i kelvin** fra Del 6."
+    },
+    {
+      "id": "tfy4115-5-2-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet bygger direkte på [kap. 5.1](/tfy4115/tfy4115-5-1). Du trenger tre ting derfra, og de står her:\n\n$$\\omega_0 = \\sqrt{\\frac{k}{m}}$$\nEgenfrekvensen til den **udempede** svingningen. Den er fortsatt referansen i alt vi gjør her: dempingen måles mot den, og resonansen skjer nær den.\n\n$$T = \\frac{2\\pi}{\\omega}, \\qquad f = \\frac{1}{T} = \\frac{\\omega}{2\\pi}$$\nOmregningene mellom vinkelfrekvens, frekvens og periode. Fortsatt den vanligste enkeltfeilen i sjangeren.\n\n$$\\ddot{x} + \\omega_0^2x = 0 \\quad\\text{med løsning}\\quad x(t) = A\\cos(\\omega_0t+\\phi)$$\nDen udempede svingelikningen. Hele dette kapitlet handler om hva som skjer når vi legger til ett ledd i denne likningen.\n\n**Fra matematikken:** [Repetisjon av derivasjon](/r2/r2-2-1) trenger du til den eksponentielle dempingen. To relasjoner er verdt å ha ferdig oppfrisket:\n\n$$\\frac{d}{dt}e^{-\\gamma t} = -\\gamma e^{-\\gamma t}, \\qquad e^{-1} = 0{,}36788, \\quad e^{-2} = 0{,}13534$$\n\n$$\\ln 2 = 0{,}69315, \\qquad \\ln 4 = 2\\ln 2 = 1{,}38629, \\qquad \\ln 10 = 2{,}30259$$\nLogaritmeverdiene du kommer til å bruke i praktisk talt hver oppgave, fordi «tid til en gitt brøk» alltid gir en logaritme.\n\n**Symbolmerknad — les eksamensvinkelen over.** $\\gamma$ er **dempingskoeffisient** her ($\\text{s}^{-1}$), **adiabateksponent** i Del 6–10 (dimensjonsløs). $T$ er **periode** her, **temperatur** i termodelen. $b$ er en **dempingskonstant** i kg/s, $k$ en **fjærstivhet** i N/m, $Q$ en **kvalitetsfaktor** (dimensjonsløs) — i termodelen er $Q$ **varme** i joule."
+    },
+    {
+      "id": "tfy4115-5-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — den dempede svingelikningen og $\\gamma = b/2m$ (~15 min)\n\nSlå an en gitarstreng. Den svinger med sin egen tone — men lyden dør ut. Slipp en bildør: den svinger ikke i det hele tatt, den bare glir igjen. Begge er dempede svingninger, men de er i to helt forskjellige **regimer**, og hele dette kapitlet handler om forskjellen.\n\nModellen er enkel: legg til en motstandskraft som er proporsjonal med **farten**, ikke med utslaget:\n\n$$F_\\text{demping} = -b\\dot{x}.$$\n\n*Intuisjon:* luftmotstand ved lav fart, olje i en støtdemper og friksjon i et lager oppfører seg omtrent slik — jo fortere noe går, jo hardere bremses det. Merk kontrasten til fjærkraften $-kx$, som avhenger av **hvor** massen er, ikke av hvor fort den går.\n\nNewtons 2. lov blir da\n\n$$m\\ddot{x} = -kx - b\\dot{x} \\quad\\Longrightarrow\\quad m\\ddot{x} + b\\dot{x} + kx = 0.$$\n\nDel på $m$ og innfør to forkortelser:\n\n$$\\ddot{x} + 2\\gamma\\dot{x} + \\omega_0^2x = 0, \\qquad \\gamma = \\frac{b}{2m}, \\qquad \\omega_0 = \\sqrt{\\frac{k}{m}}.$$\n\n**Hvorfor faktoren 2 i definisjonen av $\\gamma$?** Fordi den gjør løsningen pen. Prøv ansatsen $x = A_0e^{-\\gamma t}\\cos(\\omega't)$, og du finner at nettopp dette valget av $\\gamma$ får leddene til å gå opp, med $\\omega' = \\sqrt{\\omega_0^2-\\gamma^2}$. Prisen er at du må huske faktoren — og det er **sjangerens dyreste enkeltfeil**: bruker du $\\gamma = b/m$, blir alle tider dobbelt så korte."
+    },
+    {
+      "id": "tfy4115-5-2-def-dempet-svingning",
+      "type": "definition",
+      "title": "Dempet svingning",
+      "content": "En svingning der en motstandskraft proporsjonal med farten, $F=-b\\dot{x}$, trekker energi ut av systemet, slik at amplituden avtar. Bevegelseslikningen er\n$$m\\ddot{x}+b\\dot{x}+kx = 0, \\qquad\\text{eller}\\qquad \\ddot{x}+2\\gamma\\dot{x}+\\omega_0^2x = 0.$$\nLikningen **står på det utdelte arket** sammen med løsningen. Det som skiller den fra den udempede, er det **midterste** leddet, som inneholder farten. Konsekvensen er at amplituden faller eksponentielt mens frekvensen praktisk talt ikke endres — og for sterk nok demping forsvinner svingningen helt."
+    },
+    {
+      "id": "tfy4115-5-2-def-gamma",
+      "type": "definition",
+      "title": "Dempingskoeffisienten $\\gamma$",
+      "content": "Størrelsen som styrer hvor raskt amplituden faller:\n$$\\gamma = \\frac{b}{2m},$$\nmed enheten $\\text{s}^{-1}$ (eller rad/s). **Faktoren 2 i nevneren er ufravikelig** — den er innebygd i definisjonen for at løsningen $A_0e^{-\\gamma t}\\cos\\omega't$ skal passe i likningen. Bruker du $b/m$, blir alle tider halvert; bruker du $b/2k$, får du feil enhet. Uttrykket **står på det utdelte arket**, men du må lese det riktig av.\n\n⚠ **Symbolkollisjon:** $\\gamma$ betyr **dempingskoeffisient** i $\\text{s}^{-1}$ her, men **adiabateksponent** $\\gamma = C_P/C_V$ (dimensjonsløs, mellom 1 og 5/3) i termofysikken fra Del 6. Kjennetegnet som skiller dem er enheten: dempingskoeffisienten har enhet og er typisk et lite tall, adiabateksponenten er et rent tallforhold."
+    },
+    {
+      "id": "tfy4115-5-2-def-b",
+      "type": "definition",
+      "title": "Dempingskonstanten $b$",
+      "content": "Proporsjonalitetskonstanten i motstandskraften $F = -b\\dot{x}$, med enheten $\\text{kg/s}$ (som er det samme som $\\text{N}\\cdot\\text{s/m}$). Den beskriver mediet eller mekanismen som demper: tykk olje i en støtdemper gir stor $b$, luft gir liten. Merk at $b$ **ikke** er dempingskoeffisienten $\\gamma$ — de skiller seg med faktoren $2m$. Enhetssjekken avgjør: $[b] = \\text{kg/s}$, mens $[\\gamma] = \\text{s}^{-1}$. Får du en tid ved å dele på $b$ direkte, har du glemt massen."
+    },
+    {
+      "id": "tfy4115-5-2-th-losning",
+      "type": "theorem",
+      "title": "Løsningen for svak demping",
+      "content": "For $\\gamma < \\omega_0$ (svak eller **underkritisk** demping) er løsningen\n$$x(t) = A_0e^{-\\gamma t}\\cos(\\omega' t + \\delta), \\qquad \\omega' = \\sqrt{\\omega_0^2-\\gamma^2}.$$\nBåde løsningen og uttrykket for $\\omega'$ **står på det utdelte arket**. Tre egenskaper som avgjør oppgaver:\n\n1. **Amplituden faller eksponentielt:** $A(t) = A_0e^{-\\gamma t}$. Dette er innhyllingskurven.\n2. **Frekvensen er praktisk talt uendret ved svak demping.** For $\\gamma \\ll \\omega_0$ er $\\omega' \\approx \\omega_0(1-\\gamma^2/2\\omega_0^2)$, altså en forskjell i annen orden. Med $\\gamma/\\omega_0 = 0{,}02$ er $\\omega'$ bare $0{,}02$ prosent lavere enn $\\omega_0$.\n3. **Perioden er konstant gjennom hele forløpet.** Amplituden faller, men avstanden mellom toppene gjør det ikke. Dette er verdt å merke seg: en figur der toppene kommer tettere og tettere, viser ikke en dempet harmonisk svingning.\n\n**Energien faller dobbelt så fort som amplituden:**\n$$E(t) = \\tfrac12kA(t)^2 = \\tfrac12kA_0^2e^{-2\\gamma t} = E_0e^{-2\\gamma t},$$\nfordi energien går som amplituden i annen. **Dette er sjangerens andre store felle** — spør oppgaven om tid til halv **energi**, er svaret $\\ln2/(2\\gamma)$, altså halvparten av tiden til halv **amplitude**."
+    },
+    {
+      "id": "tfy4115-5-2-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: fjærsystemet som dør ut",
+      "problem": "Et masse-fjær-system har $m = 0{,}500\\,\\text{kg}$, $k = 72{,}0\\,\\text{N/m}$ og dempingskonstant $b = 0{,}240\\,\\text{kg/s}$.\n\n**a)** Finn $\\omega_0$, $\\gamma$ og den dempede vinkelfrekvensen $\\omega'$.\n**b)** Hvor lang tid tar det før amplituden er halvert?\n**c)** Hvor mange hele svingninger er gjort da?\n**d)** Hvor lang tid tar det før **energien** er halvert?",
+      "solution": "**a) Symbolsk.** $\\omega_0=\\sqrt{k/m}$ og $\\gamma = b/2m$ — merk faktoren 2.\n\n**Rask vei til tall.**\n$$\\omega_0 = \\sqrt{\\frac{72{,}0}{0{,}500}}\\,\\text{rad/s} = \\sqrt{144{,}0}\\,\\text{rad/s} = 12{,}0000\\,\\text{rad/s},$$\n$$\\gamma = \\frac{0{,}240}{2 \\cdot 0{,}500}\\,\\text{s}^{-1} = \\frac{0{,}240}{1{,}000}\\,\\text{s}^{-1} = 0{,}2400\\,\\text{s}^{-1}.$$\n$$\\omega' = \\sqrt{\\omega_0^2-\\gamma^2} = \\sqrt{144{,}00 - 0{,}05760}\\,\\text{rad/s} = \\sqrt{143{,}94240}\\,\\text{rad/s} = 11{,}997600\\,\\text{rad/s}.$$\nLegg merke til hvor lite $\\omega'$ skiller seg fra $\\omega_0$: bare 0,020 prosent. **Dempingen påvirker amplituden dramatisk og frekvensen nesten ikke i det hele tatt.** Det er derfor en gitarstreng holder tonen mens lyden dør ut.\n\n**b) Symbolsk.** Sett $A(t) = A_0e^{-\\gamma t} = \\tfrac12A_0$, altså $e^{-\\gamma t} = \\tfrac12$:\n$$-\\gamma t = \\ln\\tfrac12 = -\\ln 2 \\quad\\Longrightarrow\\quad t = \\frac{\\ln 2}{\\gamma}.$$\n**Rask vei til tall.**\n$$t = \\frac{0{,}69315}{0{,}2400}\\,\\text{s} = 2{,}88811\\,\\text{s} \\approx 2{,}888\\,\\text{s}.$$\nMerk at $A_0$ faller ut — tiden til halv amplitude er den samme uansett hvor stort utslaget var i utgangspunktet.\n\n**c)** Perioden er\n$$T' = \\frac{2\\pi}{\\omega'} = \\frac{6{,}28319}{11{,}997600}\\,\\text{s} = 0{,}52370\\,\\text{s},$$\nog antall svingninger i tiden $t$ er\n$$n = \\frac{t}{T'} = \\frac{2{,}88811}{0{,}52370} = 5{,}5148,$$\naltså **5 hele** svingninger. (Spør oppgaven om *hele* svingninger, er svaret et heltall, og du skal runde **nedover** — den 6 svingningen ble påbegynt, men amplituden var alt under halvparten.)\n\n**d)** Energien går som $e^{-2\\gamma t}$, så\n$$t = \\frac{\\ln 2}{2\\gamma} = \\frac{0{,}69315}{0{,}4800}\\,\\text{s} = 1{,}44406\\,\\text{s},$$\naltså **nøyaktig halvparten** av tiden i b). Energien dør ut dobbelt så fort som amplituden, fordi $E \\propto A^2$.\n\n**Sluttsjekk, tre ledd.** (i) Enheten på $\\gamma$ er $\\text{kg/s}$ delt på kg, altså $\\text{s}^{-1}$ ✔. (ii) $\\omega' < \\omega_0$ alltid, og bare litt mindre ved svak demping ✔. (iii) Tiden til halv energi må være **halvparten** av tiden til halv amplitude ✔ — den kontrollen fanger den nest vanligste feilen i sjangeren."
+    },
+    {
+      "id": "tfy4115-5-2-o-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-5-2-oppg-1",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — begreper og enheter.)\n\n**a)** Et dempet system har $b = 0{,}360\\,\\text{kg/s}$ og $m = 0{,}900\\,\\text{kg}$. Finn dempingskoeffisienten $\\gamma$.\n\n**b)** Vis at $\\gamma$ har enheten $\\text{s}^{-1}$.\n\n**c)** Hva betyr det for symbolbruken i denne boka at $\\gamma$ også opptrer i termofysikken?",
+        "solution": "**a)**\n$$\\gamma = \\frac{b}{2m} = \\frac{0{,}360}{2 \\cdot 0{,}900}\\,\\text{s}^{-1} = \\frac{0{,}360}{1{,}800}\\,\\text{s}^{-1} = 0{,}2000\\,\\text{s}^{-1}.$$\nMerk faktoren 2: uten den ville du fått $0{,}4000\\,\\text{s}^{-1}$, altså dobbelt så stor demping og halverte tider i alt som følger.\n\n**b)** Dempingskonstanten har enhet $\\text{kg/s}$, siden kraften $b\\dot{x}$ skal bli newton: $[\\text{b}]\\cdot\\text{m/s} = \\text{N} = \\text{kg}\\cdot\\text{m/s}^2$, altså $[b] = \\text{kg/s}$. Da er\n$$[\\gamma] = \\frac{\\text{kg/s}}{\\text{kg}} = \\text{s}^{-1}. \\checkmark$$\nEnheten er den samme som for en vinkelfrekvens, og det er ikke tilfeldig: $\\gamma$ sammenlignes direkte med $\\omega_0$ når vi skal avgjøre dempingsregimet.\n\n**c)** Det betyr at du **alltid må vite hvilken del av boka du er i**. I Del 5 er $\\gamma$ en dempingskoeffisient med enhet $\\text{s}^{-1}$, typisk et lite tall mellom 0,1 og 1. Fra Del 6 er $\\gamma$ **adiabateksponenten** $C_P/C_V$, som er dimensjonsløs og ligger mellom 1 og 5/3 (1,67 for en enatomig gass, 1,40 for en toatomig). Kollisjonen er ekstra forvirrende fordi begge dukker opp i eksponentielle uttrykk — $e^{-\\gamma t}$ her, $pV^\\gamma = \\text{konstant}$ der. Kjennetegnet som alltid skiller dem: **har størrelsen enhet, er det dempingskoeffisienten.**",
+        "hints": [
+          "Faktoren 2 står i nevneren i definisjonen av $\\gamma$.",
+          "Finn enheten til $b$ først, ut fra at $b\\dot{x}$ skal være en kraft."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-5-2-o-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-5-2-oppg-2",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M7 — svingninger, dempet variant.) Et masse-fjær-system har $m = 0{,}400\\,\\text{kg}$, $k = 64{,}0\\,\\text{N/m}$ og $b = 0{,}160\\,\\text{kg/s}$.\n\n**a)** Finn $\\omega_0$, $\\gamma$ og $\\omega'$.\n\n**b)** Hvor lang tid tar det før amplituden er halvert?\n\n**c)** Hvor mange **hele** svingninger er gjennomført i løpet av den tiden?",
+        "solution": "**a)**\n$$\\omega_0 = \\sqrt{\\frac{64{,}0}{0{,}400}}\\,\\text{rad/s} = 12{,}64911\\,\\text{rad/s}, \\qquad \\gamma = \\frac{0{,}160}{2 \\cdot 0{,}400}\\,\\text{s}^{-1} = 0{,}2000\\,\\text{s}^{-1},$$\n$$\\omega' = \\sqrt{160{,}00 - 0{,}0400}\\,\\text{rad/s} = 12{,}647529\\,\\text{rad/s}.$$\nForskjellen mellom $\\omega'$ og $\\omega_0$ er bare 0,013 prosent — dempingen er svak.\n\n**b)**\n$$t = \\frac{\\ln 2}{\\gamma} = \\frac{0{,}69315}{0{,}2000}\\,\\text{s} = 3{,}46574\\,\\text{s} \\approx 3{,}4657\\,\\text{s}.$$\n\n**c)**\n$$T' = \\frac{2\\pi}{\\omega'} = 0{,}49679\\,\\text{s}, \\qquad n = \\frac{3{,}46574}{0{,}49679} = 6{,}9762,$$\naltså **6 hele** svingninger.\n\n**Merk at spørsmålet ber om HELE svingninger.** Svaret er heltallsdelen, ikke det avrundede tallet: den 7 svingningen ble startet, men fullført først etter at amplituden var under halvparten. Et desimaltall blant alternativene er en distraktor plassert der med hensikt.\n\n**Sluttsjekk:** ville du brukt $\\gamma = b/m = 0{,}4000\\,\\text{s}^{-1}$, hadde du fått $t = 1{,}7329\\,\\text{s}$ og bare 3 hele svingninger — halvparten. **Det er faktoren 2 som skiller de to svarene, og begge står typisk på lista.**",
+        "hints": [
+          "$\\gamma=b/2m$ — pass på faktoren 2.",
+          "Tiden til halv amplitude er $\\ln2/\\gamma$; $A_0$ faller ut.",
+          "Bruk $T'=2\\pi/\\omega'$ og ta heltallsdelen når det spørres om HELE svingninger."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-5-2-o-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-5-2-oppg-3",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M7.) Bruk systemet fra oppgave 2 ($\\gamma = 0{,}2000\\,\\text{s}^{-1}$).\n\n**a)** Hvor lang tid tar det før **energien** er halvert?\n\n**b)** Hvor lang tid tar det før amplituden er $1/e$ av startverdien? Og energien?\n\n**c)** Forklar hvorfor de to tidene i a) og i oppgave 2b skiller seg med en faktor 2.",
+        "solution": "**a)** Energien går som $E = E_0e^{-2\\gamma t}$, så\n$$t = \\frac{\\ln 2}{2\\gamma} = \\frac{0{,}69315}{2 \\cdot 0{,}2000}\\,\\text{s} = \\frac{0{,}69315}{0{,}4000}\\,\\text{s} = 1{,}73287\\,\\text{s}.$$\nDet er nøyaktig halvparten av de $3{,}4657\\,\\text{s}$ det tok å halvere amplituden.\n\n**b)** Amplituden er $1/e$ når $\\gamma t = 1$:\n$$t = \\frac{1}{\\gamma} = 5{,}0000\\,\\text{s}.$$\nDenne tiden kalles **relaksasjonstiden**. Energien er $1/e$ når $2\\gamma t = 1$, altså etter\n$$t = \\frac{1}{2\\gamma} = 2{,}5000\\,\\text{s}.$$\n\n**c)** Fordi energien er proporsjonal med amplituden i **annen**: $E = \\tfrac12kA^2$. Når amplituden er $A_0e^{-\\gamma t}$, er energien $\\tfrac12kA_0^2e^{-2\\gamma t}$ — eksponenten dobles. Halvering av $A$ betyr at $E$ er nede på en **fjerdedel**, og halvering av $E$ skjer allerede når $A$ er $1/\\sqrt2 = 0{,}707$ av startverdien.\n\n**Dette er sjangerens nest vanligste feil.** Les nøye om oppgaven spør om **amplitude** eller **energi**, og sett inn $\\gamma$ eller $2\\gamma$ i samsvar med det. Halvparten eller det dobbelte av riktig svar står alltid på lista.",
+        "hints": [
+          "Skriv opp uttrykket for energien i en svingning som funksjon av amplituden.",
+          "Sett $E(t)/E_0=\\tfrac12$ og løs for $t$.",
+          "Hva skjer med eksponenten når du kvadrerer $e^{-\\gamma t}$?"
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-5-2-o-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-5-2-oppg-4",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M7.) Et dempet system har $\\omega_0 = 25{,}0\\,\\text{rad/s}$ og $\\gamma = 1{,}500\\,\\text{s}^{-1}$.\n\n**a)** Finn den dempede vinkelfrekvensen, og oppgi hvor mange prosent den ligger under $\\omega_0$.\n\n**b)** Er dempingen svak, kritisk eller overkritisk?\n\n**c)** Hvor stor måtte $\\gamma$ vært for at $\\omega'$ skulle ligge 10 prosent under $\\omega_0$?",
+        "solution": "**a)**\n$$\\omega' = \\sqrt{\\omega_0^2-\\gamma^2} = \\sqrt{625{,}0 - 2{,}2500}\\,\\text{rad/s} = \\sqrt{622{,}7500}\\,\\text{rad/s} = 24{,}954959\\,\\text{rad/s}.$$\nDen relative forskjellen er\n$$\\frac{\\omega_0-\\omega'}{\\omega_0} = 0{,}001802 = 0,180\\ \\text{prosent}.$$\nPraktisk talt ingenting — og det er typisk. **Dempingen endrer amplituden dramatisk og frekvensen knapt merkbart.**\n\n**b)** Svak (underkritisk), siden $\\gamma = 1{,}500 \\ll \\omega_0 = 25{,}0$. Systemet svinger, med en frekvens som er nesten den udempede.\n\n**c)** Krav: $\\omega'/\\omega_0 = 0{,}900$, altså\n$$\\frac{\\omega_0^2-\\gamma^2}{\\omega_0^2} = 0{,}810 \\quad\\Longrightarrow\\quad \\gamma^2 = 0{,}190\\,\\omega_0^2 \\quad\\Longrightarrow\\quad \\gamma = 0{,}4359\\,\\omega_0 = 10{,}8972\\,\\text{s}^{-1}.$$\nDempingskoeffisienten måtte altså være over sju ganger så stor. Det illustrerer poenget: for at frekvensen skal endre seg merkbart, må dempingen være i nærheten av **kritisk** — og da er svingningen nesten borte i løpet av en periode likevel.\n\n**Sluttsjekk:** $\\omega'$ er alltid **mindre** enn $\\omega_0$, og forskjellen går som $\\gamma^2$, altså i annen orden. Derfor er $\\omega' \\approx \\omega_0$ en helt brukbar tilnærming i praktisk talt alle eksamensoppgaver — men bruk den eksakte formelen når tallene er oppgitt.",
+        "hints": [
+          "Bruk $\\omega'=\\sqrt{\\omega_0^2-\\gamma^2}$ og behold nok siffer — forskjellen er liten.",
+          "Sammenlign $\\gamma$ med $\\omega_0$ for å avgjøre regimet.",
+          "I c): sett opp kravet $\\omega'/\\omega_0=0{,}900$ og kvadrer."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-5-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — de tre dempingsregimene (~14 min)\n\n— naturlig pausepunkt —\n\nAlt henger på **størrelsesforholdet mellom $\\gamma$ og $\\omega_0$**. Tre tilfeller, med tre helt forskjellige oppførsler:\n\n**Svak (underkritisk) demping, $\\gamma < \\omega_0$.** Systemet svinger, og amplituden faller som $e^{-\\gamma t}$. Gitarstrengen, pendelen i luft, bygningen som svaier etter et vindkast.\n\n**Kritisk demping, $\\gamma = \\omega_0$.** Grensetilfellet. Systemet svinger **ikke**, men kommer tilbake til likevekt **raskest mulig**. Løsningen er $x = (x_0 + Ct)e^{-\\omega_0t}$. Dette er hva en støtdemper i en bil siktes mot: bilen skal legge seg til ro etter et fartshump uten å hoppe.\n\n**Overkritisk demping, $\\gamma > \\omega_0$.** Systemet svinger ikke, og det bruker **lengre** tid tilbake enn ved kritisk demping. Løsningen er en sum av to eksponentialer, og for sterk demping ($\\gamma \\gg \\omega_0$) domineres den av den langsomste:\n$$x \\approx x_0e^{-\\omega_0^2t/(2\\gamma)}.$$\nEn dør med en trang dørpumpe, eller en pendel i sirup.\n\n*Intuisjon for at overkritisk er tregere enn kritisk:* mer demping betyr mer motstand mot **all** bevegelse, også bevegelsen tilbake mot likevekt. Sirup stopper svingningen, men den bremser også returen. Det er et minimum i returtiden, og det ligger nøyaktig ved kritisk demping.\n\n**Den kritiske dempingskonstanten** finner du ved å sette $\\gamma = \\omega_0$:\n$$\\frac{b_\\text{krit}}{2m} = \\sqrt{\\frac{k}{m}} \\quad\\Longrightarrow\\quad b_\\text{krit} = 2m\\omega_0 = 2\\sqrt{km}.$$"
+    },
+    {
+      "id": "tfy4115-5-2-def-svak",
+      "type": "definition",
+      "title": "Svak (underkritisk) demping",
+      "content": "Regimet der $\\gamma < \\omega_0$. Systemet **svinger**, med den dempede vinkelfrekvensen $\\omega'=\\sqrt{\\omega_0^2-\\gamma^2}$, og amplituden faller eksponentielt som $A_0e^{-\\gamma t}$. Nesten alle svingende systemer i naturen og i eksamensoppgaver ligger her, og oftest med $\\gamma \\ll \\omega_0$, slik at $\\omega' \\approx \\omega_0$ til flere siffer. Kjennetegnet på en figur: kurven krysser nulllinja mange ganger, med **konstant** avstand mellom toppene, og toppene ligger på en glatt eksponentiell innhyllingskurve."
+    },
+    {
+      "id": "tfy4115-5-2-def-kritisk",
+      "type": "definition",
+      "title": "Kritisk demping",
+      "content": "Grensetilfellet $\\gamma = \\omega_0$, som gir den **raskeste** returen til likevekt uten svingning. Den tilsvarende dempingskonstanten er\n$$b_\\text{krit} = 2m\\omega_0 = 2\\sqrt{km}.$$\nLøsningen er $x(t) = (x_0+Ct)e^{-\\omega_0t}$ — ingen cosinus, altså ingen svingning, men en enkelt gjennomgang mot null. Kritisk demping er designmålet for støtdempere, dørpumper, måleinstrumenter med viser og alt annet som skal legge seg til ro fort uten å pendle. Merk at systemet i praksis dimensjoneres litt **under** kritisk, siden en anelse svingning er mindre irriterende enn en treg retur."
+    },
+    {
+      "id": "tfy4115-5-2-def-overkritisk",
+      "type": "definition",
+      "title": "Overkritisk demping",
+      "content": "Regimet der $\\gamma > \\omega_0$. Systemet svinger **ikke** — det kryper tilbake mot likevekt, og det gjør det **langsommere** enn ved kritisk demping. Løsningen er en sum av to rene eksponentialer med tidskonstanter fra\n$$r = -\\gamma \\pm \\sqrt{\\gamma^2-\\omega_0^2},$$\nog for sterk demping ($\\gamma\\gg\\omega_0$) dominerer den langsomste, som gir\n$$x \\approx x_0e^{-\\omega_0^2t/(2\\gamma)}, \\qquad \\tau \\approx \\frac{2\\gamma}{\\omega_0^2}.$$\nLegg merke til det kontraintuitive: **mer demping gir langsommere retur**. Tidskonstanten vokser proporsjonalt med $\\gamma$. En pendel i sirup svinger ikke, men den tar lang tid på å komme til ro."
+    },
+    {
+      "id": "tfy4115-5-2-def-innhylling",
+      "type": "definition",
+      "title": "Innhyllingskurve",
+      "content": "Kurven $\\pm A_0e^{-\\gamma t}$ som tangerer toppene og bunnene i en dempet svingning. Den viser hvordan amplituden avtar, uten å si noe om selve svingningen. To egenskaper å lese av en figur: innhyllingskurven **tangerer** hver topp (den skjærer ikke gjennom dem), og avstanden mellom toppene er **konstant** — det er amplituden som avtar, ikke frekvensen. En figur der toppene kommer tettere sammen, viser ikke en dempet harmonisk svingning, men noe annet."
+    },
+    {
+      "id": "tfy4115-5-2-def-dempet-frekvens",
+      "type": "definition",
+      "title": "Dempet vinkelfrekvens",
+      "content": "Vinkelfrekvensen til den faktiske svingningen i det underkritiske regimet:\n$$\\omega' = \\sqrt{\\omega_0^2-\\gamma^2}.$$\nUttrykket **står på det utdelte arket**. Den er alltid **mindre** enn $\\omega_0$, men bare i annen orden i $\\gamma/\\omega_0$: er dempingen 2 prosent av egenfrekvensen, er $\\omega'$ bare 0,02 prosent lavere. Praktisk konsekvens: i de fleste oppgaver kan du bruke $\\omega' \\approx \\omega_0$ når du skal finne perioden, men bruk den eksakte formelen hvis oppgaven oppgir tall og ber om flere siffer — og alltid hvis dempingen er sterk."
+    },
+    {
+      "id": "tfy4115-5-2-fig-1",
+      "type": "image",
+      "src": "/images/textbook/tfy4115/tfy4115-5-2-demping.svg",
+      "alt": "To paneler med utslag mot tid. Panel A viser en svakt dempet svingning som krysser nulllinja mange ganger, med to stiplede innhyllingskurver som tangerer toppene og bunnene, merket pluss minus A null ganger e opphoeyd i minus gamma t. Avstanden mellom to toppunkt er markert som perioden T merket. Panel B viser tre kurver som alle starter i samme utslag: en svakt dempet som svinger, en kritisk dempet som gaar rett mot null uten aa svinge, og en overkritisk som kryper langsommere mot null.",
+      "caption": "Til venstre: svak demping, med innhyllingskurven $\\pm A_0e^{-\\gamma t}$ som tangerer toppene og en periode som er konstant gjennom hele forløpet. Til høyre: de tre regimene med samme startutslag — kritisk demping er den raskeste veien tilbake til likevekt."
+    },
+    {
+      "id": "tfy4115-5-2-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: bilen som skal legge seg til ro",
+      "problem": "En bil har massen $320{,}0\\,\\text{kg}$ per hjul og en fjær med stivhet $2{,}60\\cdot10^{4}\\,\\text{N/m}$.\n\n**a)** Finn egenfrekvensen og den periode bilen ville svingt med **uten** støtdemper.\n**b)** Finn dempingskonstanten som gir kritisk demping.\n**c)** Verkstedet monterer en støtdemper med $b = 9000\\,\\text{kg/s}$. Hvilket regime er bilen i, og hvor lang tid tar det før et utslag har falt til $1/e$?",
+      "solution": "**a)**\n$$\\omega_0 = \\sqrt{\\frac{k}{m}} = \\sqrt{\\frac{26000}{320{,}0}}\\,\\text{rad/s} = \\sqrt{81{,}2500}\\,\\text{rad/s} = 9{,}01388\\,\\text{rad/s},$$\n$$T = \\frac{2\\pi}{\\omega_0} = 0{,}69706\\,\\text{s}.$$\nUten støtdemper ville bilen altså hoppet opp og ned med om lag 0{,}70 sekunders periode etter hvert fartshump — omtrent halvannen gang i sekundet. Det er nøyaktig den ubehagelige frekvensen en bil uten støtdempere har.\n\n**b)**\n$$b_\\text{krit} = 2m\\omega_0 = 2 \\cdot 320{,}0 \\cdot 9{,}01388\\,\\text{kg/s} = 5768{,}8820\\,\\text{kg/s} \\approx 5768{,}882\\,\\text{kg/s}.$$\nKontroll med den andre formen: $2\\sqrt{km} = 2\\sqrt{26000 \\cdot 320{,}0} = 5768{,}8820\\,\\text{kg/s}$ ✔.\n\n**c)** Med $b = 9000\\,\\text{kg/s}$ er\n$$\\gamma = \\frac{b}{2m} = \\frac{9000}{640{,}0}\\,\\text{s}^{-1} = 14{,}06250\\,\\text{s}^{-1},$$\nsom er **større** enn $\\omega_0 = 9{,}01388\\,\\text{rad/s}$. Bilen er altså **overkritisk** dempet: den svinger ikke i det hele tatt, men den er også tregere tilbake enn den trengte å være. (En bil som føles «treig» og «klissen» over hump, er ofte overdempet.)\n\nDen langsomste tidskonstanten er\n$$\\tau = \\frac{-1}{-\\gamma+\\sqrt{\\gamma^2-\\omega_0^2}} = \\frac{-1}{-3{,}268802}\\,\\text{s} = 0{,}30592\\,\\text{s},$$\nog tilnærmingen for sterk demping gir\n$$\\tau \\approx \\frac{2\\gamma}{\\omega_0^2} = \\frac{28{,}1250}{81{,}2500}\\,\\text{s} = 0{,}34615\\,\\text{s},$$\naltså 13,2 prosent over den eksakte verdien. Tilnærmingen er brukbar, men her er $\\gamma$ bare 1{,}560 ganger $\\omega_0$ — den blir bedre når forholdet er større.\n\n**Sluttsjekk:** ved kritisk demping ville tidskonstanten vært $1/\\omega_0 = 0{,}11094\\,\\text{s}$, altså **kortere** enn de $0{,}30592\\,\\text{s}$ vi fikk. Det bekrefter at overkritisk demping er tregere enn kritisk — hovedpoenget i denne løkka."
+    },
+    {
+      "id": "tfy4115-5-2-o-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-5-2-oppg-5",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Kvalitativ oppgave — regimene.)\n\n**a)** Tre systemer har samme $\\omega_0$ men $\\gamma = 0{,}1\\omega_0$, $\\gamma = \\omega_0$ og $\\gamma = 5\\omega_0$. Hvilket kommer raskest tilbake til likevekt etter et utslag? Begrunn.\n\n**b)** Hvorfor er en støtdemper i en bil dimensjonert nær kritisk demping, og ikke langt over?\n\n**c)** En pendel senkes i sirup og slutter å svinge. Har egenfrekvensen $\\omega_0$ endret seg?",
+        "solution": "**a)** Det **kritisk** dempede ($\\gamma = \\omega_0$). Det svakt dempede svinger fram og tilbake mange ganger før det legger seg — det er raskt til nulllinja første gang, men bruker lang tid på å bli stille. Det overkritiske svinger ikke, men bruker lengre tid enn nødvendig, fordi den store motstanden også bremser bevegelsen **tilbake** mot likevekt. Kritisk demping er nøyaktig det punktet der de to ulempene balanserer, og returtiden har sitt minimum.\n\n**b)** Fordi målet er å få bilen til ro raskest mulig etter et hump, **uten** at den hopper. For lite demping gir en bil som fortsetter å vugge (og som mister veigrep, siden hjulet letter). For mye demping gir en bil som føles hard og treg — og som ikke rekker å komme tilbake før neste hump. I praksis legges bilen litt **under** kritisk, fordi en anelse etterhopp er mindre generende enn en treg respons.\n\n**c)** Nei. Egenfrekvensen $\\omega_0=\\sqrt{k/m}$ avhenger bare av fjærstivheten og massen, og sirupen endrer ingen av dem. Det som endres, er $\\gamma$ — og når $\\gamma$ blir større enn $\\omega_0$, forsvinner svingningen. Men $\\omega_0$ er fortsatt der som en referansestørrelse i likningene, og den er nettopp det $\\gamma$ sammenlignes med. **Systemet «mistet ikke sin egenfrekvens»; det kom bare i et regime der den ikke gir noen svingning.**",
+        "hints": [
+          "Tenk på hva mer demping gjør med bevegelsen TILBAKE mot likevekt, ikke bare med svingningen.",
+          "Hva er ulempene ved for lite og for mye demping i en bil?",
+          "Står $b$ eller $\\gamma$ i uttrykket for $\\omega_0$?"
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-5-2-o-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-5-2-oppg-6",
+        "number": 6,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger M7.) Et system har $m = 2{,}00\\,\\text{kg}$, $k = 50{,}0\\,\\text{N/m}$ og $b = 40{,}0\\,\\text{kg/s}$.\n\n**a)** Avgjør hvilket dempingsregime systemet er i.\n\n**b)** Finn den kritiske dempingskonstanten.\n\n**c)** Finn den langsomste tidskonstanten eksakt, og sammenlign med tilnærmingen $\\tau \\approx 2\\gamma/\\omega_0^2$.",
+        "solution": "**a)**\n$$\\omega_0 = \\sqrt{\\frac{50{,}0}{2{,}00}}\\,\\text{rad/s} = 5{,}0000\\,\\text{rad/s}, \\qquad \\gamma = \\frac{40{,}0}{2 \\cdot 2{,}00}\\,\\text{s}^{-1} = 10{,}0000\\,\\text{s}^{-1}.$$\nSiden $\\gamma = 10{,}0000 > \\omega_0 = 5{,}0000$, er systemet **overkritisk dempet**: det svinger ikke.\n\n**b)**\n$$b_\\text{krit} = 2m\\omega_0 = 2 \\cdot 2{,}00 \\cdot 5{,}0000\\,\\text{kg/s} = 20{,}0000\\,\\text{kg/s}.$$\nDen faktiske dempingen $40{,}0\\,\\text{kg/s}$ er altså 2{,}000 ganger den kritiske.\n\n**c)** Løsningen er en sum av to eksponentialer med eksponenter $r = -\\gamma\\pm\\sqrt{\\gamma^2-\\omega_0^2}$:\n$$\\sqrt{\\gamma^2-\\omega_0^2} = \\sqrt{100{,}00-25{,}00}\\,\\text{s}^{-1} = \\sqrt{75{,}00}\\,\\text{s}^{-1} = 8{,}660254\\,\\text{s}^{-1},$$\n$$r_1 = -10{,}0000+8{,}660254 = -1{,}339746\\,\\text{s}^{-1}, \\qquad r_2 = -10{,}0000-8{,}660254 = -18{,}660254\\,\\text{s}^{-1}.$$\nDen **langsomste** avtakningen er den med minst tallverdi på eksponenten, altså $r_1$:\n$$\\tau = \\frac{1}{|r_1|} = 0{,}74641\\,\\text{s}.$$\nTilnærmingen for sterk demping gir\n$$\\tau \\approx \\frac{2\\gamma}{\\omega_0^2} = \\frac{20{,}000}{25{,}00}\\,\\text{s} = 0{,}80000\\,\\text{s},$$\naltså 7,2 prosent for stort. Tilnærmingen forutsetter $\\gamma \\gg \\omega_0$, og her er $\\gamma$ bare 2{,}000 ganger $\\omega_0$ — derfor avviket.\n\n**Sluttsjekk:** ved kritisk demping ville tidskonstanten vært $1/\\omega_0 = 0{,}20000\\,\\text{s}$. Den overkritiske tidskonstanten $0{,}74641\\,\\text{s}$ er **større**, som den skal være ✔. Og den raske eksponenten $r_2$ svarer til tidskonstanten $0{,}05359\\,\\text{s}$ — det leddet dør ut nesten umiddelbart, og det er derfor bare den langsomme betyr noe etter kort tid.",
+        "hints": [
+          "Sammenlign $\\gamma$ med $\\omega_0$ for å finne regimet.",
+          "De to eksponentene er $-\\gamma\\pm\\sqrt{\\gamma^2-\\omega_0^2}$.",
+          "Den langsomste avtakningen har den MINSTE tallverdien på eksponenten."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-5-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — kvalitetsfaktor og resonans (~17 min)\n\nHvor «god» er en svingning? Et vinglass ringer lenge, en pute gjør ikke. Målet på det er **kvalitetsfaktoren**:\n\n$$Q = \\frac{\\omega_0}{2\\gamma}.$$\n\n*Intuisjon:* $Q$ er (nær nok) antall radianer av svingning før amplituden faller til $1/e$, delt på to. Mer nyttig i praksis: **amplituden faller til $1/e$ etter om lag $Q/\\pi$ hele svingninger.** Et vinglass har $Q$ i tusenklassen, en bilfjær med støtdemper under 1.\n\nNå kommer den delen som gjør $Q$ interessant. Sett en **ytre kraft** på systemet, som pumper det med en frekvens $\\omega$ vi kan velge:\n\n$$m\\ddot{x} + b\\dot{x} + kx = F_0\\cos\\omega t.$$\n\nEtter en innsvingningsfase svinger systemet med **drivfrekvensen** $\\omega$, ikke med sin egen, og amplituden blir\n\n$$A(\\omega) = \\frac{F_0/m}{\\sqrt{(\\omega_0^2-\\omega^2)^2 + 4\\gamma^2\\omega^2}}.$$\n\n*Intuisjon:* nevneren er minst når $\\omega$ er nær $\\omega_0$ — da forsvinner det første leddet nesten, og bare dempingsleddet står igjen. Amplituden blir da stor. Det er **resonans**.\n\n**Ved $\\omega = \\omega_0$** forenkles uttrykket vakkert:\n\n$$A(\\omega_0) = \\frac{F_0/m}{2\\gamma\\omega_0} = \\frac{F_0}{b\\omega_0},$$\n\nog sammenligner vi med det **statiske** utslaget $A_\\text{stat} = F_0/k$ (det du får ved å dra i systemet med en konstant kraft $F_0$), finner vi\n\n$$\\frac{A(\\omega_0)}{A_\\text{stat}} = \\frac{\\omega_0}{2\\gamma} = Q.$$\n\n**Forsterkningen på resonans er nøyaktig $Q$.** Det er derfor $Q$ heter kvalitetsfaktor: den måler både hvor lenge en fri svingning varer og hvor kraftig systemet svarer på en drivkraft ved rett frekvens.\n\nToppen ligger strengt tatt ved $\\omega = \\sqrt{\\omega_0^2-2\\gamma^2}$, ikke helt ved $\\omega_0$ — men for svak demping er forskjellen ubetydelig."
+    },
+    {
+      "id": "tfy4115-5-2-def-Q",
+      "type": "definition",
+      "title": "Kvalitetsfaktor",
+      "content": "Et dimensjonsløst mål på hvor lite dempet en svingning er:\n$$Q = \\frac{\\omega_0}{2\\gamma} = \\frac{\\sqrt{km}}{b}.$$\nUttrykket **står på det utdelte arket**. Tre tolkninger, alle nyttige: (i) amplituden faller til $1/e$ etter om lag $Q/\\pi$ hele svingninger; (ii) forsterkningen på resonans er nøyaktig $Q$ ganger det statiske utslaget; (iii) $Q$ er $2\\pi$ ganger forholdet mellom lagret energi og energitapet per periode. Typiske verdier: et kvartskrystall $10^5$, et vinglass $10^3$, en pendel i luft $10^2$, en bilfjær med støtdemper under 1. Merk at $Q$ er **dimensjonsløs** — får du en enhet, har du regnet feil."
+    },
+    {
+      "id": "tfy4115-5-2-def-relaksasjonstid",
+      "type": "definition",
+      "title": "Relaksasjonstid",
+      "content": "Tiden det tar før amplituden er falt til $1/e \\approx 37$ prosent av startverdien:\n$$\\tau = \\frac{1}{\\gamma}.$$\nEnergien faller til $1/e$ i halvparten av den tiden, $1/(2\\gamma)$, siden $E\\propto A^2$. Relaksasjonstiden er en praktisk måte å oppgi demping på, fordi den er direkte målbar, og fordi den knytter seg enkelt til $Q$: antall hele svingninger i tiden $\\tau$ er $\\tau/T' \\approx Q/\\pi$. Merk at «halveringstiden» for amplituden er noe kortere: $\\ln 2/\\gamma = 0{,}693\\,\\tau$."
+    },
+    {
+      "id": "tfy4115-5-2-def-drevet",
+      "type": "definition",
+      "title": "Drevet (tvungen) svingning",
+      "content": "En svingning der en ytre, periodisk kraft $F_0\\cos\\omega t$ holder systemet i gang. Bevegelseslikningen er\n$$m\\ddot{x}+b\\dot{x}+kx = F_0\\cos\\omega t,$$\nog etter en innsvingningsfase svinger systemet med **drivfrekvensen** $\\omega$ — ikke med sin egen $\\omega_0$. Amplituden er\n$$A(\\omega) = \\frac{F_0/m}{\\sqrt{(\\omega_0^2-\\omega^2)^2+4\\gamma^2\\omega^2}}.$$\nLikningen og amplitudeuttrykket **står på det utdelte arket**. Legg merke til to grenser: for $\\omega \\to 0$ går $A$ mot det statiske utslaget $F_0/k$, og for $\\omega \\to \\infty$ går $A$ mot null — massen rekker ikke å følge en for rask drivkraft."
+    },
+    {
+      "id": "tfy4115-5-2-def-resonans",
+      "type": "definition",
+      "title": "Resonans",
+      "content": "Fenomenet at amplituden i en drevet svingning blir stor når drivfrekvensen er nær egenfrekvensen. Amplituden på resonans er\n$$A(\\omega_0) = \\frac{F_0}{b\\omega_0} = Q\\cdot\\frac{F_0}{k},$$\naltså $Q$ ganger det statiske utslaget. Toppen ligger ved $\\omega = \\sqrt{\\omega_0^2-2\\gamma^2}$, som for svak demping er praktisk talt $\\omega_0$. Jo mindre demping, jo høyere og smalere blir resonanstoppen — og i grensen $b \\to 0$ blir amplituden ubegrenset. Det er dette som knuser vinglass med lyd, som får broer til å svinge farlig i takt med skritt, og som gjør at et radioapparat kan plukke ut én stasjon blant mange."
+    },
+    {
+      "id": "tfy4115-5-2-def-transient",
+      "type": "definition",
+      "title": "Transient og stasjonær løsning",
+      "content": "Den fullstendige løsningen av en drevet svingning består av to deler. Den **transiente** delen er løsningen av den udrevne likningen, $A_0e^{-\\gamma t}\\cos(\\omega't+\\delta)$, som dør ut etter noen relaksasjonstider. Den **stasjonære** delen svinger med drivfrekvensen $\\omega$ og varer så lenge kraften virker. Praktisk konsekvens for oppgaveløsning: spør oppgaven om amplituden «etter lang tid» eller «i stasjonær tilstand», er det bare den stasjonære delen som gjelder, og startbetingelsene er uten betydning. Er systemet nettopp satt i gang, må begge deler med — og da kan utslaget midlertidig bli større enn den stasjonære amplituden."
+    },
+    {
+      "id": "tfy4115-5-2-def-seismometer",
+      "type": "definition",
+      "title": "Seismometer",
+      "content": "Et instrument som måler bakkens bevegelse ved hjelp av en tung masse opphengt i en fjær med demping. Når bakken (og instrumenthuset) flytter seg med utslaget $h(t)$, blir likningen for massens posisjon **relativt til huset**\n$$\\ddot{x}+2\\gamma\\dot{x}+\\omega_0^2x = -\\ddot{h},$$\naltså en drevet svingning der drivleddet er bakkens **akselerasjon**. Instrumentets oppførsel avhenger av forholdet mellom bakkens frekvens og $\\omega_0$: for høye frekvenser ($\\omega \\gg \\omega_0$) står massen praktisk talt stille i rommet, og $x \\approx -h$ — instrumentet måler forskyvningen direkte. Derfor bygges seismometre med **lav** egenfrekvens, altså tung masse og myk fjær, og med demping nær kritisk for å unngå at instrumentet ringer med sin egen frekvens."
+    },
+    {
+      "id": "tfy4115-5-2-fig-2",
+      "type": "image",
+      "src": "/images/textbook/tfy4115/tfy4115-5-2-resonans.svg",
+      "alt": "Et diagram med amplitude paa loddrett akse og forholdet mellom drivfrekvens og egenfrekvens paa vannrett akse. Tre kurver med ulik kvalitetsfaktor har topp naer forholdet 1: den med Q lik 2 er lav og bred, den med Q lik 5 hoeyere, og den med Q lik 12 hoeyest og smalest. En vannrett stiplet linje merker det statiske utslaget F null delt paa k.",
+      "caption": "Resonanskurven for tre kvalitetsfaktorer. Toppen ligger praktisk talt ved $\\omega=\\omega_0$, og høyden over det statiske utslaget er nøyaktig $Q$ — derfor er $Q=12$-kurven tolv ganger høyere enn den stiplede linja."
+    },
+    {
+      "id": "tfy4115-5-2-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: resonans og forsterkning (eksamensnivå)",
+      "problem": "Systemet fra eksempel 1 ($m = 0{,}500\\,\\text{kg}$, $k = 72{,}0\\,\\text{N/m}$, $b = 0{,}240\\,\\text{kg/s}$) drives nå av en ytre kraft med amplitude $F_0 = 0{,}360\\,\\text{N}$.\n\n**a)** Finn kvalitetsfaktoren.\n**b)** Finn amplituden når drivfrekvensen er lik egenfrekvensen.\n**c)** Sammenlign med det statiske utslaget, og kontroller sammenhengen med $Q$.\n**d)** Hvor mange hele svingninger tar det før en fri svingning i dette systemet har falt til $1/e$?",
+      "solution": "**a)** Med $\\omega_0 = 12{,}000\\,\\text{rad/s}$ og $\\gamma = 0{,}2400\\,\\text{s}^{-1}$ fra eksempel 1:\n$$Q = \\frac{\\omega_0}{2\\gamma} = \\frac{12{,}000}{2 \\cdot 0{,}2400} = \\frac{12{,}000}{0{,}4800} = 25{,}000.$$\nKontroll med den andre formen: $Q = \\sqrt{km}/b = \\sqrt{72{,}0 \\cdot 0{,}500}/0{,}240 = 25{,}000$ ✔. **$Q$ er dimensjonsløs** — får du en enhet, har du regnet feil.\n\n**b) Symbolsk.** På resonans forsvinner leddet $(\\omega_0^2-\\omega^2)$, og\n$$A(\\omega_0) = \\frac{F_0/m}{2\\gamma\\omega_0} = \\frac{F_0}{b\\omega_0}.$$\n**Rask vei til tall.**\n$$A = \\frac{0{,}360}{0{,}240 \\cdot 12{,}000}\\,\\text{m} = \\frac{0{,}360}{2{,}8800}\\,\\text{m} = 0{,}1250\\,\\text{m}.$$\n\n**c)** Det statiske utslaget — det du får ved å dra i massen med en konstant kraft $F_0$ — er\n$$A_\\text{stat} = \\frac{F_0}{k} = \\frac{0{,}360}{72{,}0}\\,\\text{m} = 0{,}0050\\,\\text{m}.$$\nForsterkningen er\n$$\\frac{A(\\omega_0)}{A_\\text{stat}} = \\frac{0{,}1250}{0{,}0050} = 25{,}000 = Q. \\checkmark$$\nNøyaktig kvalitetsfaktoren. Systemet svinger 25{,}000 ganger så langt på resonans som det ville stått ut under en konstant kraft av samme størrelse — med **samme** kraft. Det er hele resonansens innhold.\n\n**d)** Amplituden faller til $1/e$ etter tiden $\\tau = 1/\\gamma = 4{,}1667\\,\\text{s}$, og perioden er $T' = 0{,}52370\\,\\text{s}$:\n$$n = \\frac{\\tau}{T'} = \\frac{4{,}1667}{0{,}52370} = 7{,}9562,$$\naltså om lag 8{,}0 hele svingninger. Kontroll mot tommelregelen $Q/\\pi = 7{,}958$ ✔ — de er praktisk talt like, som de skal være for svak demping.\n\n**Sluttsjekk:** (i) $A$ på resonans må være mye større enn det statiske utslaget når $Q \\gg 1$ ✔. (ii) $Q$ dimensjonsløs ✔. (iii) Et system med $Q = 25{,}000$ skal ringe i noen titalls svingninger før det dør ut, og 8{,}0 stemmer med det."
+    },
+    {
+      "id": "tfy4115-5-2-o-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-5-2-oppg-7",
+        "number": 7,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M7.) Et dempet system har $\\omega_0 = 30{,}0\\,\\text{rad/s}$ og $\\gamma = 0{,}250\\,\\text{s}^{-1}$.\n\n**a)** Finn kvalitetsfaktoren.\n\n**b)** Om lag hvor mange hele svingninger tar det før amplituden er falt til $1/e$?\n\n**c)** Hvor stor blir forsterkningen på resonans, sammenlignet med det statiske utslaget?",
+        "solution": "**a)**\n$$Q = \\frac{\\omega_0}{2\\gamma} = \\frac{30{,}0}{2 \\cdot 0{,}250} = 60{,}000.$$\n\n**b)** Relaksasjonstiden er $\\tau = 1/\\gamma = 4{,}000\\,\\text{s}$, og perioden er $T \\approx 2\\pi/\\omega_0 = 0{,}20944\\,\\text{s}$ (dempingen er svak, så $\\omega'\\approx\\omega_0$):\n$$n = \\frac{\\tau}{T} = \\frac{4{,}000}{0{,}20944} = 19{,}0986,$$\naltså om lag 19{,}1 hele svingninger. Tommelregelen $Q/\\pi = 19{,}099$ gir det samme.\n\n**c)** Forsterkningen på resonans er nøyaktig $Q = 60{,}000$. Systemet svinger altså 60{,}000 ganger så langt som det statiske utslaget under samme krafts amplitude.\n\n**Sluttsjekk:** $Q$ skal være dimensjonsløs, og en $Q$ på noen titalls svarer til et system som ringer i noen titalls svingninger — det er konsistent med svaret i b).",
+        "hints": [
+          "$Q=\\omega_0/(2\\gamma)$ — sjekk at svaret er dimensjonsløst.",
+          "Relaksasjonstiden er $1/\\gamma$, og perioden $2\\pi/\\omega'$.",
+          "Tommelregelen $Q/\\pi$ gir antall svingninger til $1/e$."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-5-2-o-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-5-2-oppg-8",
+        "number": 8,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger M7 — resonansvarianten.) Et system har $m = 0{,}500\\,\\text{kg}$, $k = 72{,}0\\,\\text{N/m}$ og $b = 0{,}240\\,\\text{kg/s}$, og drives av kraften $F_0\\cos\\omega t$ med $F_0 = 0{,}360\\,\\text{N}$.\n\n**a)** Finn amplituden på resonans, og forsterkningen sammenlignet med det statiske utslaget.\n\n**b)** Finn amplituden når drivfrekvensen er **halvparten** av egenfrekvensen, og kommentér hvor bratt resonanskurven faller.\n\n**c)** Hva skjer med resonansamplituden hvis dempingen halveres?",
+        "solution": "**a)** Med $\\omega_0 = 12{,}0\\,\\text{rad/s}$:\n$$A(\\omega_0) = \\frac{F_0}{b\\omega_0} = \\frac{0{,}360}{0{,}240 \\cdot 12{,}0}\\,\\text{m} = 0{,}1250\\,\\text{m}.$$\nStatisk utslag: $A_\\text{stat} = F_0/k = 0{,}0050\\,\\text{m}$. Forsterkningen er $0{,}1250/0{,}0050 = 25{,}000$, altså nøyaktig $Q = \\omega_0/(2\\gamma) = 25{,}000$.\n\n**b)** Ved $\\omega = \\omega_0/2 = 6{,}0\\,\\text{rad/s}$ setter vi inn i det fulle uttrykket:\n$$A = \\frac{F_0/m}{\\sqrt{(\\omega_0^2-\\omega^2)^2+4\\gamma^2\\omega^2}}.$$\nRegn nevneren ledd for ledd:\n$$\\omega_0^2-\\omega^2 = 144{,}0 - 36{,}0 = 108{,}0\\,\\text{s}^{-2}, \\qquad (\\omega_0^2-\\omega^2)^2 = 11664{,}0\\,\\text{s}^{-4},$$\n$$4\\gamma^2\\omega^2 = 4 \\cdot 0{,}05760 \\cdot 36{,}0 = 8{,}2944\\,\\text{s}^{-4},$$\n$$\\sqrt{11664{,}0+8{,}2944} = 108{,}0384\\,\\text{s}^{-2}, \\qquad A = \\frac{0{,}7200}{108{,}0384}\\,\\text{m} = 0{,}006664\\,\\text{m}.$$\n\nSammenlign: på resonans var amplituden $0{,}1250\\,\\text{m}$, ved halve egenfrekvensen bare $0{,}006664\\,\\text{m}$ — en faktor 18{,}757 mindre. **Og legg merke til hvor dempingen kom inn:** ved halve egenfrekvensen er dempingsleddet $8{,}2944$ mot $11664{,}0$ fra det andre leddet, altså helt ubetydelig. Utenfor resonans spiller dempingen nesten ingen rolle; **hele resonanstoppens høyde er bestemt av dempingen alene.**\n\n**c)** Da dobles $Q$, og resonansamplituden **dobles**: $A(\\omega_0) = F_0/(b\\omega_0)$ er omvendt proporsjonal med $b$. Toppen blir dobbelt så høy og omtrent halvparten så bred. I grensen $b \\to 0$ vokser den uten grense — det er den matematiske grunnen til at resonans kan være destruktivt.\n\n**Sluttsjekk:** amplituden utenfor resonans må være **mindre** enn på resonans ✔, og litt **større** enn det statiske utslaget, siden $\\omega = \\omega_0/2$ ligger på oppsiden av kurven: $0{,}006664 > 0{,}0050$ ✔.",
+        "hints": [
+          "På resonans forsvinner leddet $(\\omega_0^2-\\omega^2)$ fra nevneren.",
+          "Utenfor resonans må du bruke hele amplitudeuttrykket — regn nevneren ledd for ledd.",
+          "Se hvor $b$ står i uttrykket for resonansamplituden når du svarer på c)."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-5-2-rask-vei",
+      "type": "text",
+      "content": "## Rask vei til tall (MC-oppskrift)\n\n1. **Hvilken lov?** Fire spørsmålstyper, gjenkjennelig på tre sekunder: **tid til en gitt brøk av amplituden** → $t = -\\ln(\\text{brøk})/\\gamma$. **Tid til en gitt brøk av energien** → samme, men med $2\\gamma$. **Antall svingninger** → del tiden på $T' = 2\\pi/\\omega'$. **Kvalitetsfaktor eller resonansforsterkning** → $Q = \\omega_0/(2\\gamma)$.\n2. **Hvilken ene regnelinje?** Regn **alltid $\\gamma = b/2m$ først**, som eget mellomresultat. Da er resten én logaritme og én divisjon. For halv amplitude: $t = \\ln2/\\gamma = 0{,}6931/\\gamma$. For en fjerdedel: $\\ln4/\\gamma = 1{,}3863/\\gamma$. For $1/e$: $1/\\gamma$.\n3. **Hva hentes hvor?** Den dempede likningen, løsningen, $\\omega'=\\sqrt{\\omega_0^2-\\gamma^2}$, $\\gamma=b/2m$ og $Q$ **står på det utdelte arket**. Logaritmeverdier slår du opp i **Rottmann** eller regner på kalkulatoren. Det som **må kunne utledes aktivt**, er at energien går med $2\\gamma$, at $A(\\omega_0)=F_0/(b\\omega_0)$, og at forsterkningen er $Q$.\n4. **Hvor mange siffer?** Fire gjennom kjeden. Særlig i $\\omega' = \\sqrt{\\omega_0^2-\\gamma^2}$: her trekker du fra et lite tall fra et stort, og med for få siffer forsvinner hele forskjellen. Bruk $\\ln2 = 0{,}69315$ og $\\ln4 = 1{,}38629$, ikke 0,69 og 1,39.\n5. **Hva sjekker du før du krysser av?** (i) **Er $\\gamma$ regnet med faktoren 2?** (ii) **Spør oppgaven om amplitude eller energi?** ($\\gamma$ mot $2\\gamma$.) (iii) Ber den om **hele** svingninger? Da er svaret et heltall, rundet **nedover**. (iv) Er $Q$ dimensjonsløs? (v) Er $\\omega' < \\omega_0$, men bare litt? (vi) Er dempingen svak, kritisk eller overkritisk — svinger systemet i det hele tatt?"
+    },
+    {
+      "id": "tfy4115-5-2-o-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-5-2-oppg-9",
+        "number": 9,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M7, A–F-format.) Et dempet system har dempingskoeffisienten $\\gamma = 0{,}180\\,\\text{s}^{-1}$. Hvor lang tid tar det før amplituden er redusert til en **fjerdedel** av startverdien?\n\n**A** $1{,}9254\\,\\text{s}$ · **B** $3{,}8508\\,\\text{s}$ · **C** $5{,}5556\\,\\text{s}$ · **D** $7{,}7016\\,\\text{s}$ · **E** $11{,}1111\\,\\text{s}$ · **F** $22{,}2222\\,\\text{s}$",
+        "solution": "**Svar: D.**\n\nSett $A_0e^{-\\gamma t} = \\tfrac14A_0$:\n$$e^{-\\gamma t} = \\tfrac14 \\quad\\Longrightarrow\\quad t = \\frac{\\ln 4}{\\gamma} = \\frac{1{,}38629}{0{,}180}\\,\\text{s} = 7{,}7016\\,\\text{s}.$$\nMerk at $\\ln 4 = 2\\ln 2$, så dette er nøyaktig **to** halveringstider — som det må være, siden to halveringer gir en fjerdedel.\n\n*Fellene:*\n\n- **B** er $\\ln2/\\gamma$, altså tiden til **halv** amplitude — riktig regning, feil brøk.\n- **C** er $1/\\gamma$, relaksasjonstiden (tid til $1/e = 0{,}368$), som ligger mellom halv og en fjerdedel.\n- **E** er $2/\\gamma$, altså logaritmen erstattet med tallet 2.\n- **F** er $4/\\gamma$, med brøken $\\tfrac14$ satt rett inn i stedet for logaritmen — den mest utbredte varianten av denne feilen.\n- **A** er $\\ln4/(4\\gamma)$, med en ekstra faktor 4 i nevneren.\n\n*Sluttsjekk:* svaret må være **nøyaktig dobbelt** så stort som tiden til halv amplitude ($3{,}8508\\,\\text{s}$), og det er det ✔. Merk også at hadde spørsmålet gjeldt **energien**, ville svaret vært halvparten, $3{,}8508\\,\\text{s}$ — les alltid hvilken størrelse som er redusert.",
+        "hints": [
+          "Sett opp likningen $A_0e^{-\\gamma t}=\\tfrac14A_0$ og ta logaritmen.",
+          "$\\ln4=2\\ln2$ — hvor mange halveringer er en fjerdedel?",
+          "Kontroller svaret mot tiden til halv amplitude."
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-5-2-o-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "tfy4115-5-2-oppg-10",
+        "number": 10,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Blandet — seismometeret.) Et seismometer består av en masse i en fjær med demping, montert i et hus som er festet til bakken. Når bakken flytter seg med utslaget $h(t)$, oppfyller massens posisjon **relativt til huset** likningen\n$$\\ddot{x}+2\\gamma\\dot{x}+\\omega_0^2x = -\\ddot{h}.$$\n\n**a)** Forklar hvorfor drivleddet er bakkens **akselerasjon** og ikke dens utslag.\n\n**b)** Anta at bakken svinger med $h = h_0\\cos\\omega t$ og at $\\omega \\gg \\omega_0$. Vis at $x \\approx -h$, og forklar hva det betyr for hva instrumentet måler.\n\n**c)** Hvorfor bygges seismometre med **lav** egenfrekvens og demping nær kritisk?",
+        "solution": "**a)** Fordi likningen er satt opp i husets referansesystem, som selv akselererer. Massens posisjon i rommet er $X = x + h$ (relativ posisjon pluss husets), og Newtons 2. lov i det inertiale systemet gir\n$$m\\ddot{X} = -kx - b\\dot{x} \\quad\\Longrightarrow\\quad m(\\ddot{x}+\\ddot{h}) = -kx-b\\dot{x}.$$\nFlytt $\\ddot h$ over, del på $m$, og du har likningen i oppgaveteksten. Drivleddet er $-\\ddot h$ nettopp fordi det er husets **akselerasjon** som gjør at massen «henger etter» — en konstant hastighet på bakken ville ikke gitt noe utslag i det hele tatt.\n\n**b)** Med $h = h_0\\cos\\omega t$ er $-\\ddot h = \\omega^2h_0\\cos\\omega t$, altså en drivkraft med amplitude $\\omega^2h_0$. Den stasjonære amplituden blir\n$$|x| = \\frac{\\omega^2h_0}{\\sqrt{(\\omega_0^2-\\omega^2)^2+4\\gamma^2\\omega^2}}.$$\nFor $\\omega \\gg \\omega_0$ (og $\\omega \\gg \\gamma$) domineres nevneren av $\\omega^2$:\n$$|x| \\approx \\frac{\\omega^2h_0}{\\omega^2} = h_0,$$\nog fortegnsanalysen viser at $x$ er i **motfase** med $h$, altså $x \\approx -h$.\n\nFysisk tolkning: **massen står praktisk talt stille i rommet** mens huset rister rundt den, så den relative bevegelsen er husets bevegelse med motsatt fortegn. Instrumentet måler dermed bakkens **forskyvning** direkte — det er hele konstruksjonsideen.\n\n**c) Lav egenfrekvens** fordi tilnærmingen i b) krever $\\omega \\gg \\omega_0$: jo lavere $\\omega_0$, jo lavere frekvenser kan instrumentet måle riktig. Det oppnås med **tung masse og myk fjær**, siden $\\omega_0=\\sqrt{k/m}$. Jordskjelvbølger har perioder fra brøkdeler av sekunder til flere minutter, så $\\omega_0$ må være svært lav.\n\n**Demping nær kritisk** fordi et instrument med høy $Q$ ville hatt en skarp resonanstopp ved sin egen frekvens: alt som passerte nær $\\omega_0$ ville blitt kraftig forsterket, og instrumentet ville «ringt» med sin egen tone etter hvert støt i stedet for å gjengi bakkens bevegelse. Med demping nær kritisk er responsen flat og transientene dør ut fort. Det er samme designhensyn som for en støtdemper — men her er målet troverdig **måling**, ikke komfort.",
+        "hints": [
+          "Sett opp N2 for massen i det inertiale systemet, med posisjonen $X=x+h$.",
+          "For $\\omega\\gg\\omega_0$: hvilket ledd dominerer nevneren i amplitudeuttrykket?",
+          "Hva ville en skarp resonanstopp gjort med instrumentets gjengivelse av et støt?"
+        ]
+      }
+    },
+    {
+      "id": "tfy4115-5-2-war-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil — og faktoren 2 som lander på nabo-alternativet",
+      "content": "**Å bruke $\\gamma = b/m$ i stedet for $\\gamma = b/2m$.** Dette er kapitlets dyreste feil. Alle tider blir halvert, alle antall svingninger halvert, og $Q$ halvert. Det gale svaret er alltid **eksakt halvparten** av det riktige, og det står derfor nesten alltid på alternativlista. **Skriv $\\gamma = b/2m$ som første regnelinje, hver gang** — ikke som en mellomregning i hodet.\n\n**Å blande amplitudedemping og energidemping.** Amplituden går som $e^{-\\gamma t}$, energien som $e^{-2\\gamma t}$. Tid til halv **amplitude** er $\\ln2/\\gamma$; tid til halv **energi** er $\\ln2/(2\\gamma)$. Igjen skiller de to seg med akkurat en faktor 2, og igjen står begge på lista. Les hvilken størrelse oppgaven spør om.\n\n**Å sette brøken rett inn i stedet for logaritmen.** «Tid til en fjerdedel» er $\\ln4/\\gamma = 1{,}386/\\gamma$, ikke $4/\\gamma$ og ikke $\\gamma/4$. Enhetssjekken avslører de fleste variantene: $t$ skal ha enhet sekund, og $1/\\gamma$ har det.\n\n**Å rapportere et desimaltall når oppgaven ber om HELE svingninger.** Da er svaret heltallsdelen, rundet **nedover**. Er det et desimaltall blant alternativene, er det en distraktor.\n\n**Å tro at dempingen endrer frekvensen merkbart.** $\\omega' = \\sqrt{\\omega_0^2-\\gamma^2}$ ligger typisk under 0,1 prosent under $\\omega_0$ for realistiske dempinger. Dempingen påvirker amplituden dramatisk og frekvensen knapt. Men: har oppgaven **sterk** demping, må du bruke det eksakte uttrykket — og med for få siffer forsvinner hele forskjellen mellom $\\omega_0^2$ og $\\gamma^2$ i avrundingen.\n\n**Å regne som om systemet svinger når det er overkritisk dempet.** Er $\\gamma > \\omega_0$, finnes ingen $\\omega'$ (rota blir imaginær) og ingen periode. **Sammenlign $\\gamma$ med $\\omega_0$ før du regner en periode.**\n\n**Å forveksle $\\gamma$ med adiabateksponenten.** I dette kapitlet er $\\gamma$ en dempingskoeffisient med enheten $\\text{s}^{-1}$ og typisk verdi 0,1–1. I termodelen fra Del 6 er $\\gamma = C_P/C_V$ dimensjonsløs, med verdi 1,40 eller 1,67. Har størrelsen enhet, er det dempingskoeffisienten.\n\n**Og faktorfellen som lander på nabo-alternativet** (felle #16): dette kapitlet er bygget av faktorer 2 — i $\\gamma = b/2m$, i $e^{-2\\gamma t}$ for energien, i $Q = \\omega_0/2\\gamma$, i $b_\\text{krit} = 2m\\omega_0$. Hver av dem kan gjøres feil hver for seg, og hver feil gir et svar som er dobbelt eller halvparten av det riktige. **Skriv derfor de tre grunnstørrelsene ned eksplisitt før du regner videre: $\\omega_0$, $\\gamma$ og forholdet mellom dem.** Da har du både regimet og alle faktorene på plass i én operasjon."
+    },
+    {
+      "id": "tfy4115-5-2-begrepsbank-notis",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "tfy4115-5-2-bb-amplitudedemping",
+      "type": "definition",
+      "title": "Amplitudedemping mot energidemping",
+      "content": "Amplituden i en dempet svingning faller som\n$$A(t) = A_0e^{-\\gamma t},$$\nmens energien faller **dobbelt så fort**,\n$$E(t) = E_0e^{-2\\gamma t},$$\nfordi $E = \\tfrac12kA^2$. Konsekvensen for oppgaveregning: tid til halv amplitude er $\\ln2/\\gamma$, tid til halv energi er $\\ln2/(2\\gamma)$. Når amplituden er halvert, er energien nede på en **fjerdedel**. Dette er sjangerens nest vanligste feil, og de to svarene skiller seg med akkurat en faktor 2 — begge står derfor typisk på alternativlista."
+    },
+    {
+      "id": "tfy4115-5-2-bb-halveringstid",
+      "type": "definition",
+      "title": "Tid til en gitt brøk",
+      "content": "Løs $A_0e^{-\\gamma t} = fA_0$ for tiden:\n$$t = \\frac{-\\ln f}{\\gamma} = \\frac{\\ln(1/f)}{\\gamma}.$$\nDe tre du møter oftest: halv amplitude $\\ln2/\\gamma = 0{,}6931/\\gamma$; en fjerdedel $\\ln4/\\gamma = 1{,}3863/\\gamma$ (nøyaktig to halveringer); $1/e$ $= 1/\\gamma$ (relaksasjonstiden). Merk at startamplituden **faller ut** — tiden avhenger bare av brøken og av $\\gamma$. Skal du ha antall hele svingninger, del på $T' = 2\\pi/\\omega'$ og ta heltallsdelen."
+    },
+    {
+      "id": "tfy4115-5-2-bb-bkrit",
+      "type": "definition",
+      "title": "Den kritiske dempingskonstanten",
+      "content": "Verdien av $b$ som gjør $\\gamma = \\omega_0$, altså grensen mellom svingning og ingen svingning:\n$$b_\\text{krit} = 2m\\omega_0 = 2\\sqrt{km}.$$\nDe to formene er ekvivalente og det er nyttig å kunne begge — den siste sparer deg for å regne $\\omega_0$ først. Forholdet $b/b_\\text{krit} = \\gamma/\\omega_0$ kalles **dempingsforholdet** og er det ene tallet som avgjør regimet: under 1 svinger systemet, over 1 gjør det ikke, og ved 1 er returen raskest. For en bil ligger tallet typisk på 0,2–0,4."
+    },
+    {
+      "id": "tfy4115-5-2-bb-Q-tolkninger",
+      "type": "definition",
+      "title": "Tre tolkninger av $Q$",
+      "content": "Kvalitetsfaktoren $Q = \\omega_0/(2\\gamma) = \\sqrt{km}/b$ kan leses på tre måter, og alle tre brukes i oppgaver: (i) amplituden faller til $1/e$ etter om lag $Q/\\pi$ hele svingninger; (ii) forsterkningen på resonans er nøyaktig $Q$ ganger det statiske utslaget $F_0/k$; (iii) $Q = 2\\pi E/|\\Delta E|$, altså $2\\pi$ ganger lagret energi delt på energitapet per periode. Alle tre gir samme tall, og den siste er grunnen til navnet «kvalitet»: et system med høy $Q$ mister lite energi per svingning."
+    },
+    {
+      "id": "tfy4115-5-2-bb-resonansamplitude",
+      "type": "definition",
+      "title": "Resonansamplituden",
+      "content": "Amplituden når drivfrekvensen treffer egenfrekvensen:\n$$A(\\omega_0) = \\frac{F_0/m}{2\\gamma\\omega_0} = \\frac{F_0}{b\\omega_0} = Q\\cdot\\frac{F_0}{k}.$$\nDe tre formene er samme uttrykk, og den siste er den mest talende: forsterkningen over det statiske utslaget er nøyaktig $Q$. Legg merke til at **dempingen alene bestemmer topphøyden** — utenfor resonans spiller $b$ nesten ingen rolle. Halverer du dempingen, dobles resonansamplituden, og i grensen $b\\to0$ vokser den uten grense."
+    },
+    {
+      "id": "tfy4115-5-2-bb-resonanstopp",
+      "type": "definition",
+      "title": "Hvor resonanstoppen faktisk ligger",
+      "content": "Amplituden $A(\\omega)$ har sitt maksimum ved\n$$\\omega_\\text{topp} = \\sqrt{\\omega_0^2-2\\gamma^2},$$\naltså litt **under** egenfrekvensen — og litt lavere enn $\\omega' = \\sqrt{\\omega_0^2-\\gamma^2}$. For svak demping er alle tre praktisk talt like: med $\\gamma/\\omega_0 = 0{,}02$ ligger toppen 0,04 prosent under $\\omega_0$. Merk grensen: for $\\gamma > \\omega_0/\\sqrt2$ finnes ingen topp i det hele tatt — amplituden avtar monotont fra det statiske utslaget, og systemet har ingen resonans."
+    },
+    {
+      "id": "tfy4115-5-2-bb-fase-drevet",
+      "type": "definition",
+      "title": "Faseforskyvning i en drevet svingning",
+      "content": "Den stasjonære svingningen følger drivkraften med en faseforskyvning $\\delta$ gitt av\n$$\\tan\\delta = \\frac{2\\gamma\\omega}{\\omega_0^2-\\omega^2}.$$\nTre tilfeller å kjenne: ved lave drivfrekvenser ($\\omega \\ll \\omega_0$) følger utslaget kraften i fase ($\\delta \\approx 0$); **på resonans er forskyvningen nøyaktig en kvart periode** ($\\delta = \\pi/2$), altså utslaget ligger 90 grader etter kraften; og ved høye frekvenser er de i motfase ($\\delta \\to \\pi$). Den siste egenskapen er nettopp den seismometeret utnytter: massen står stille i rommet fordi den er i motfase med huset."
+    },
+    {
+      "id": "tfy4115-5-2-bb-sjanger-m7-dempet",
+      "type": "definition",
+      "title": "Sjanger M7 — den dempede varianten",
+      "content": "Bokas navn på oppgaveformen der du får $m$, $k$ og $b$ (eller $\\omega_0$ og $\\gamma$) og skal finne en tid, et antall svingninger, en kvalitetsfaktor eller en resonansamplitude. Den forekommer i om lag 9 av 10 sett (~90 %) og hører til **mekanikkhalvdelen, spørsmål 1–20**. Prioritet: **høyeste**. Oppskriften er alltid den samme: regn $\\gamma = b/2m$ først, avgjør regimet ved å sammenligne med $\\omega_0$, og bruk deretter $\\gamma$ for amplitude og $2\\gamma$ for energi."
+    },
+    {
+      "id": "tfy4115-5-2-bb-felle-faktor2",
+      "type": "definition",
+      "title": "Faktor-2-fellene i dette kapitlet",
+      "content": "Fire steder står det en faktor 2, og hver av dem kan gjøres feil for seg: $\\gamma = b/2m$ (ikke $b/m$); energien går som $e^{-2\\gamma t}$ (ikke $e^{-\\gamma t}$); $Q = \\omega_0/(2\\gamma)$ (ikke $\\omega_0/\\gamma$); $b_\\text{krit} = 2m\\omega_0$ (ikke $m\\omega_0$). Fordi hver feil gir et svar som er nøyaktig dobbelt eller halvparten av det riktige, står de gale svarene systematisk på alternativlista. Motgiften er å **skrive de tre grunnstørrelsene $\\omega_0$, $\\gamma$ og forholdet $\\gamma/\\omega_0$ ned først**, før du regner noe annet."
+    },
+    {
+      "id": "tfy4115-5-2-bb-gamma-kollisjon",
+      "type": "definition",
+      "title": "$\\gamma$: dempingskoeffisient eller adiabateksponent?",
+      "content": "Bokas mest forvirrende symbolkollisjon, fordi begge betydningene opptrer i eksponentielle uttrykk. **I Del 5** er $\\gamma = b/2m$ en **dempingskoeffisient** med enheten $\\text{s}^{-1}$, typisk mellom 0,1 og 1, og den står i $e^{-\\gamma t}$. **I Del 6–10** er $\\gamma = C_P/C_V$ en **adiabateksponent**, dimensjonsløs, med verdiene $\\tfrac53 \\approx 1{,}67$ (enatomig gass) og $\\tfrac75 = 1{,}40$ (toatomig), og den står i $pV^\\gamma = \\text{konstant}$. Kjennetegnet som alltid skiller dem: **har størrelsen enhet, er det dempingskoeffisienten.** De opptrer aldri i samme oppgave."
+    },
+    {
+      "id": "tfy4115-5-2-coll-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tfy4115-5-2-symb-1",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n**Kolliderende symboler i dette delkapitlet — les nøye.**\n\n- $\\gamma$ er **dempingskoeffisienten** $b/2m$ med enheten $\\text{s}^{-1}$. I termofysikken (Del 6–10) er $\\gamma$ **adiabateksponenten** $C_P/C_V$, som er **dimensjonsløs** med verdier mellom 1 og $\\tfrac53$. Begge står i eksponentielle uttrykk ($e^{-\\gamma t}$ her, $pV^\\gamma$ der), og det er nettopp derfor kollisjonen er farlig. **Enheten avgjør:** har $\\gamma$ enhet, er det demping.\n- $T$ er **periode** i sekunder. I Del 6–10 er $T$ **absolutt temperatur i kelvin**.\n- $Q$ er **kvalitetsfaktor**, dimensjonsløs. I termodelen er $Q$ **varme** i joule.\n- $k$ er **fjærstivhet** i N/m; Boltzmanns konstant skrives $k_B$.\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $x(t)$, $A_0$ | Utslag; startamplitude | m |\n| $\\omega_0$ | Udempet egenfrekvens, $\\sqrt{k/m}$ | rad/s |\n| $\\omega'$ | Dempet vinkelfrekvens, $\\sqrt{\\omega_0^2-\\gamma^2}$ | rad/s |\n| $\\omega$ | Drivfrekvens i en tvungen svingning | rad/s |\n| $\\gamma$ | Dempingskoeffisient, $b/2m$ (**ikke** adiabateksponent her) | $\\text{s}^{-1}$ |\n| $b$ | Dempingskonstant i $F=-b\\dot{x}$ | kg/s |\n| $b_\\text{krit}$ | Kritisk demping, $2m\\omega_0 = 2\\sqrt{km}$ | kg/s |\n| $T'$ | Periode for den dempede svingningen, $2\\pi/\\omega'$ | s |\n| $\\tau$ | Relaksasjonstid, $1/\\gamma$ | s |\n| $Q$ | Kvalitetsfaktor, $\\omega_0/(2\\gamma)$ (**ikke** varme her) | — |\n| $F_0$ | Amplituden til drivkraften | N |\n| $\\delta$ | Faseforskyvning mellom kraft og utslag | rad |\n| $E$ | Mekanisk energi i svingningen | J |\n| $h(t)$ | Bakkens utslag i seismometeret | m |\n\n**Formler i dette delkapitlet:**\n\n$$m\\ddot{x}+b\\dot{x}+kx = 0, \\qquad \\ddot{x}+2\\gamma\\dot{x}+\\omega_0^2x = 0$$\nDen dempede svingelikningen [står på det utdelte arket].\n\n$$x(t) = A_0e^{-\\gamma t}\\cos(\\omega't+\\delta), \\qquad \\omega' = \\sqrt{\\omega_0^2-\\gamma^2}$$\nLøsningen ved svak demping [står på det utdelte arket].\n\n$$\\gamma = \\frac{b}{2m}$$\nDempingskoeffisienten — **merk faktoren 2** [står på det utdelte arket].\n\n$$A(t) = A_0e^{-\\gamma t}, \\qquad E(t) = E_0e^{-2\\gamma t}$$\nAmplitude- og energidemping; energien faller dobbelt så fort [må kunne brukes eller utledes aktivt].\n\n$$t = \\frac{\\ln(1/f)}{\\gamma} \\quad (\\text{amplitude}), \\qquad t = \\frac{\\ln(1/f)}{2\\gamma} \\quad (\\text{energi})$$\nTid til en gitt brøk $f$ [må kunne brukes eller utledes aktivt].\n\n$$b_\\text{krit} = 2m\\omega_0 = 2\\sqrt{km}$$\nKritisk demping, grensen $\\gamma=\\omega_0$ [må kunne brukes eller utledes aktivt].\n\n$$x \\approx x_0e^{-\\omega_0^2t/(2\\gamma)} \\quad (\\gamma \\gg \\omega_0), \\qquad r = -\\gamma\\pm\\sqrt{\\gamma^2-\\omega_0^2}$$\nOverkritisk demping: eksakte eksponenter og tilnærmingen for sterk demping [må kunne brukes eller utledes aktivt].\n\n$$Q = \\frac{\\omega_0}{2\\gamma} = \\frac{\\sqrt{km}}{b}$$\nKvalitetsfaktoren [står på det utdelte arket].\n\n$$m\\ddot{x}+b\\dot{x}+kx = F_0\\cos\\omega t, \\qquad A(\\omega) = \\frac{F_0/m}{\\sqrt{(\\omega_0^2-\\omega^2)^2+4\\gamma^2\\omega^2}}$$\nDrevet svingning og amplituderesponsen [står på det utdelte arket].\n\n$$A(\\omega_0) = \\frac{F_0}{b\\omega_0} = Q\\cdot\\frac{F_0}{k}, \\qquad \\omega_\\text{topp} = \\sqrt{\\omega_0^2-2\\gamma^2}$$\nResonansamplituden og hvor toppen ligger [må kunne brukes eller utledes aktivt].\n\n$$\\tan\\delta = \\frac{2\\gamma\\omega}{\\omega_0^2-\\omega^2}$$\nFaseforskyvningen; $\\pi/2$ på resonans [står på det utdelte arket].\n\n$$\\ddot{x}+2\\gamma\\dot{x}+\\omega_0^2x = -\\ddot{h}$$\nSeismometerlikningen, med bakkens akselerasjon som drivledd [må kunne brukes eller utledes aktivt].\n\n$$\\frac{d}{dt}e^{-\\gamma t} = -\\gamma e^{-\\gamma t}, \\qquad \\ln 2 = 0{,}69315, \\qquad \\ln 4 = 1{,}38629$$\nDerivasjonsregelen og logaritmeverdiene [Rottmann]."
+        }
+      ]
+    },
+    {
+      "id": "tfy4115-5-2-coll-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tfy4115-5-2-rep-1",
+          "type": "text",
+          "content": "Fem korte oppgaver på det dette kapitlet hviler på. Ta dem før du går videre til [kap. 5.3](/tfy4115/tfy4115-5-3).\n\n**R1.** Et system har $m = 0{,}800\\,\\text{kg}$ og $b = 0{,}480\\,\\text{kg/s}$. Finn $\\gamma$.\n\n*Svar:* $\\gamma = b/(2m) = 0{,}480/1{,}600 = 0{,}300\\,\\text{s}^{-1}$. Uten faktoren 2 ville du fått $0{,}600\\,\\text{s}^{-1}$ — dobbelt så mye.\n\n**R2.** Hvor lang tid tar det før amplituden i R1-systemet er halvert? Og energien?\n\n*Svar:* Amplitude: $\\ln2/\\gamma = 0{,}69315/0{,}300 = 2{,}311\\,\\text{s}$. Energi: halvparten, $1{,}155\\,\\text{s}$.\n\n**R3.** Et system har $\\omega_0 = 40{,}0\\,\\text{rad/s}$ og $\\gamma = 0{,}500\\,\\text{s}^{-1}$. Finn $\\omega'$ og $Q$.\n\n*Svar:* $\\omega' = \\sqrt{1600-0{,}250} = \\sqrt{1599{,}75} = 39{,}997\\,\\text{rad/s}$ — bare 0,008 prosent under $\\omega_0$. Og $Q = 40{,}0/1{,}00 = 40{,}0$.\n\n**R4.** Et system har $m = 1{,}50\\,\\text{kg}$ og $k = 24{,}0\\,\\text{N/m}$. Hvor stor må $b$ være for kritisk demping?\n\n*Svar:* $b_\\text{krit} = 2\\sqrt{km} = 2\\sqrt{24{,}0 \\cdot 1{,}50} = 2\\sqrt{36{,}0} = 12{,}0\\,\\text{kg/s}$. Kontroll: $\\omega_0 = \\sqrt{16{,}0} = 4{,}00\\,\\text{rad/s}$, og $2m\\omega_0 = 2 \\cdot 1{,}50 \\cdot 4{,}00 = 12{,}0$ ✔.\n\n**R5.** Et system med $Q = 30{,}0$ drives på resonans med en kraft med amplitude $0{,}200\\,\\text{N}$. Fjærstivheten er $50{,}0\\,\\text{N/m}$. Hvor stor blir amplituden?\n\n*Svar:* Statisk utslag: $F_0/k = 0{,}200/50{,}0 = 0{,}00400\\,\\text{m}$. På resonans: $Q$ ganger dette, altså $30{,}0 \\cdot 0{,}00400 = 0{,}120\\,\\text{m}$ — tretti ganger større med samme krafts amplitude."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

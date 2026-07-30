@@ -1,0 +1,387 @@
+{
+ "id": "tfy4115-10-3",
+ "courseId": "tfy4115",
+ "chapterNumber": "10.3",
+ "title": "Drill: van der Waals, fasediagram og Clausius–Clapeyron (sjanger T11–T13)",
+ "description": "Sjangerdrill: kritisk punkt fra $a$/$b$, fasediagram-avlesning, damptrykk fra kokepunkt og termisk utvidelse — raskt mot tallsvar.",
+ "estimatedMinutes": 75,
+ "competenceGoals": [
+  "avgjøre på få sekunder hvilket av de fire sporene en oppgave hører til, og velge formelfamilie deretter",
+  "regne kritisk punkt fra de to konstantene i eksamenstempo, og bruke kompressibilitetsfaktoren som kontroll på alle tre",
+  "lese av en fase i et fasediagram uten å regne, og avgjøre hvilke faseoverganger en ferd passerer",
+  "regne damptrykk og termisk utvidelse med riktig temperaturskala i hver av dem, og kjenne igjen hvilken konkret feil hvert galt svaralternativ er bygget på"
+ ],
+ "content": [
+  {
+   "id": "tfy4115-10-3-tip-eksamensvinkel",
+   "type": "tip",
+   "title": "Eksamensvinkel",
+   "content": "**Dette kapitlet driller tre sjangre samtidig.** **Sjanger T11 — van der Waals og fasediagram, altså den tette gassen og kartet over faser** — kommer i rundt seks av ti sett når du regner fasediagram-varianten med (~60 %), og i om lag halvparten for van der Waals-regningen (~50 %). **Sjanger T12 — damptrykk og Clausius–Clapeyron** kommer i om lag fire av ti sett (~40 %). **Sjanger T13 — termisk utvidelse** i rundt tre av ti (~30 %). Alle tre bor i **termofysikkhalvdelen, spørsmål 21–40**. Prioritet: **bør sitte.**\n\nTil sammen er det altså gode odds for at minst én av de tre dukker opp i settet ditt — og de er blant de raskeste poengene som finnes, hvis oppskriften sitter.\n\n**Dette kapitlet har ingen ny teori.** Alt står i [kap. 10.1](/tfy4115/tfy4115-10-1) og [kap. 10.2](/tfy4115/tfy4115-10-2). Her trener du én ting: å gjenkjenne hvilken av de fire oppskriftene som gjelder, og kjøre den til bunns uten å nøle.\n\n**Fem oppgaver er skrevet i eksamensformat med seks alternativer A–F**, resten i åpen form. Merk forskjellen: den interaktive quizen har fire alternativer fordi det er formatet plattformen bruker, mens eksamen har fem eller seks. Med seks alternativer er ren gjetting verdt om lag $17$ prosent, ikke $25$.\n\n## ⚠ Regelen som skifter midt i dette kapitlet\n\nI **van der Waals-, fasediagram- og damptrykksoppgavene** står $T$ alene, og **kelvin er ufravikelig**. I **utvidelsesoppgavene** står temperaturen bare i en differanse $\\Delta T$, og **celsius er trygt**. Den sikre rutinen er å skrive om alt til kelvin uansett — det koster ingenting, og du kan ikke ta feil.\n\n## ⚠ Symbolvarsel\n\n$p$ er **trykk**, ikke bevegelsesmengde. $T$ er **temperatur**, ikke svingetid. $R$ er **gasskonstanten** $8{,}314\\,\\text{J/(mol}\\cdot\\text{K)}$, ikke radius og ikke termisk motstand. $a$ og $b$ er **van der Waals-konstanter** ($\\text{Pa}\\cdot\\text{m}^6/\\text{mol}^2$ og $\\text{m}^3/\\text{mol}$), ikke akselerasjon og ikke Wien-konstanten. $\\alpha$ og $\\beta$ er **utvidelseskoeffisienter** i $\\text{K}^{-1}$ — har størrelsen enhet $\\text{K}^{-1}$, er det en utvidelseskoeffisient. $l$ (liten) er **molar** latent varme i $\\text{J/mol}$; $L$ (stor) er lengde her, og spesifikk latent varme i $\\text{J/kg}$ der den opptrer."
+  },
+  {
+   "id": "tfy4115-10-3-forkunnskaper",
+   "type": "text",
+   "content": "## Forkunnskaper — sist du var her\n\nAlt du trenger står i [kap. 10.1](/tfy4115/tfy4115-10-1) og [kap. 10.2](/tfy4115/tfy4115-10-2). Her er verktøykassa samlet på én skjerm, slik at du kan lukke den og prøve deg først:\n\n**Reelle gasser og det kritiske punktet:**\n$$p = \\frac{nRT}{V-nb} - \\frac{an^2}{V^2}, \\qquad V_c = 3nb, \\qquad p_c = \\frac{a}{27b^2}, \\qquad T_c = \\frac{8a}{27Rb}$$\n\n$$Z_c = \\frac{p_cV_c}{nRT_c} = \\frac{3}{8} = 0{,}375, \\qquad b = \\frac{RT_c}{8p_c}, \\qquad a = 27b^2p_c$$\n\n**Fasediagram:** trippelpunktet er der tre linjer møtes (ingen væske under $p_t$); det kritiske punktet er der damptrykkslinjen slutter (ingen væske over $T_c$).\n\n**Damptrykk:**\n$$\\frac{dp}{dT} = \\frac{l}{T\\,\\Delta V} = \\frac{l\\,p}{RT^2}, \\qquad p = p_0\\exp\\left[-\\frac{l}{R}\\left(\\frac{1}{T}-\\frac{1}{T_0}\\right)\\right], \\qquad \\frac{1}{T} = \\frac{1}{T_0}-\\frac{R}{l}\\ln\\frac{p}{p_0}$$\n\n**Termisk utvidelse:**\n$$\\Delta L = \\alpha L\\,\\Delta T, \\qquad \\Delta V = \\beta V\\,\\Delta T, \\qquad \\beta \\approx 3\\alpha, \\qquad \\Delta V_\\text{overløp} = (\\beta_\\text{væske}-\\beta_\\text{beholder})V\\,\\Delta T$$\n\n**Strømmende medium:**\n$$P = c\\rho\\dot{V}\\,\\Delta T, \\qquad c\\rho(\\text{vann}) = 4{,}186\\cdot10^{6}\\,\\text{J/(m}^3\\cdot\\text{K)}$$\n\n**Konstanter:** $R = 8{,}314\\,\\text{J/(mol}\\cdot\\text{K)}$. Materialverdier ($a$, $b$, $l$, $\\alpha$, $\\beta$) oppgis alltid i oppgaveteksten.\n\n**Omregninger som må gjøres FØRST:**\n\n| Fra | Til | Gang med |\n|---|---|---|\n| L | $\\text{m}^3$ | $10^{-3}$ |\n| $\\text{cm}^3$ | $\\text{m}^3$ | $10^{-6}$ |\n| $^\\circ\\text{C}$ | K (absolutt) | legg til $273{,}15$ |\n| kJ/mol | J/mol | $10^{3}$ |\n| MPa | Pa | $10^{6}$ |\n\n**Behold fire gjeldende siffer gjennom hele kjeden — og fem i parentesen $1/T - 1/T_0$**, som er en differanse mellom to nesten like tall."
+  },
+  {
+   "id": "tfy4115-10-3-th-oppskrift",
+   "type": "theorem",
+   "title": "Løsningsoppskrift — rask vei til tall (MC-oppskrift) i fire spor",
+   "content": "Dette er algoritmen du skal kjøre uten å tenke, fra oppgitte tall til bokstavsvar.\n\n**Steg 0 — hvilket spor?** Se etter nøkkelordene:\n\n| Ser du … | Spor | Første grep |\n|---|---|---|\n| «$a$ og $b$», «kritisk punkt», «reell gass», «van der Waals» | **1** | tre innsettinger, så $Z_c$-kontroll |\n| «fasediagram», «trippelpunkt», «sublimerer», «hvilken fase» | **2** | plasser punktet, ikke regn |\n| «damptrykk», «koker ved», «fordampningsvarme», «høyde over havet» | **3** | kelvin, så eksponentialen |\n| «hvor mye lengre», «skinne», «renner over», «utvidelseskoeffisient» | **4** | $\\Delta T$ som differanse, én multiplikasjon |\n\n**Steg 1 — enheter, før noe annet.** Volum til $\\text{m}^3$, trykk til Pa, temperatur til K (unntatt i rene $\\Delta T$), energi til J.\n\n**Spor 1 — van der Waals.**\n\n1. Trykk fra $(n, V, T)$: $p = \\dfrac{nRT}{V-nb} - \\dfrac{an^2}{V^2}$, **to ledd hver for seg**. Husk $n$ i det første og $n^2$ i det andre.\n2. Kritisk punkt fra $(a,b)$: $V_c = 3nb$, så $b^2$ som eget mellomresultat, så $p_c = a/(27b^2)$, så $T_c = 8a/(27Rb)$.\n3. Baklengs fra $(T_c, p_c)$: $b = RT_c/(8p_c)$, så $a = 27b^2p_c$.\n4. **Kontroll: $Z_c = p_cV_c/(nRT_c) = 0{,}375$.** Den ene testen fanger enhver ombytting av de tre formlene.\n\n**Spor 2 — fasediagram.** Fire spørsmål, i denne rekkefølgen:\n\n1. Er $p < p_t$? → **ingen væske mulig**; oppvarming gir sublimasjon.\n2. Er $T > T_c$? → **ingen væskefase**; stoffet er gass eller overkritisk.\n3. Ellers: hvilken side av linjene ligger punktet på?\n4. Beveger oppgaven punktet? Tegn ferden som en rett linje og noter hvilke linjer den krysser.\n\n**Spor 3 — damptrykk.**\n\n1. Begge temperaturer til **kelvin**.\n2. $l/R$ som eget mellomresultat (enhet kelvin).\n3. $1/T - 1/T_0$ som eget mellomresultat, med **fem siffer**.\n4. Eksponentialen. Spør oppgaven om temperaturen i stedet, bruk $1/T = 1/T_0 - (R/l)\\ln(p/p_0)$.\n5. **Fortegnskontroll: høyere temperatur skal gi høyere damptrykk.**\n\n**Spor 4 — termisk utvidelse.**\n\n1. $\\Delta T$ som differanse — celsius trygt.\n2. Én, to eller tre dimensjoner? $\\alpha$, $2\\alpha$ eller $\\beta = 3\\alpha$.\n3. Full beholder: bare differansen $(\\beta_\\text{væske}-\\beta_\\text{beholder})$ renner over.\n4. **Kontroll: svaret skal ligge i promille-området.**\n\n**Steg 2 — sluttsjekk, fem ledd, hver gang.** Enhet · tierpotens · fortegn · faktor ($3$? $8$? $27$?) · kelvin."
+  },
+  {
+   "id": "tfy4115-10-3-fig-fasepunkter",
+   "type": "image",
+   "src": "/images/textbook/tfy4115/tfy4115-10-3-fasepunkter.svg",
+   "alt": "Et fasediagram for vann med temperatur langs den vannrette aksen og trykk langs den loddrette, med fargede omraader for fast, vaeske og gass. Fire roede punkt merket A, B, C og D er tegnet inn: A oppe til venstre i det faste omraadet, B i midten i vaeskeomraadet, C nede til hoeyre i gassomraadet, og D paa selve damptrykkslinjen. Trippelpunktet og det kritiske punktet er merket, og en stiplet vannrett linje gjennom trippelpunktet viser at det ikke finnes vaeskefase under trippeltrykket.",
+   "caption": "Fire punkt å plassere i fasediagrammet for vann. **A** ligger over trippeltrykket og til venstre for smeltelinjen — is. **B** ligger mellom smeltelinjen og damptrykkslinjen — flytende vann. **C** ligger til høyre for damptrykkslinjen — damp. **D** ligger på selve damptrykkslinjen, altså i likevekt mellom væske og damp; varmer du D ved konstant trykk, beveger punktet seg vannrett mot høyre og forlater linjen inn i gassområdet, og all væsken koker bort ved konstant temperatur før temperaturen begynner å stige igjen."
+  },
+  {
+   "id": "tfy4115-10-3-ex-mc",
+   "type": "example",
+   "title": "Gjennomregnet MC-case: fire spor i eksamenstempo — med margnotater",
+   "problem": "Fire flervalgsspørsmål av den typen som faktisk kommer, ett fra hvert spor. Løs dem på til sammen åtte minutter.\n\n**Spørsmål 1.** En gass har $a = 0{,}1382\\,\\text{Pa}\\cdot\\text{m}^6/\\text{mol}^2$ og $b = 3{,}186\\cdot10^{-5}\\,\\text{m}^3/\\text{mol}$. Hva er den kritiske temperaturen?\n\n**A** $19{,}32\\,\\text{K}$ · **B** $57{,}97\\,\\text{K}$ · **C** $154{,}6\\,\\text{K}$ · **D** $153{,}9\\,\\text{K}$ · **E** $95{,}58\\,\\text{K}$ · **F** $1285\\,\\text{K}$\n\n**Spørsmål 2.** Vann har trippelpunkt ved $273{,}16\\,\\text{K}$ og $611{,}7\\,\\text{Pa}$. En prøve holder $260\\,\\text{K}$ ved $300\\,\\text{Pa}$ og varmes langsomt ved konstant trykk. Hva skjer først?\n\n**A** Isen smelter til vann · **B** Isen sublimerer til damp · **C** Vannet koker · **D** Ingenting, faseoverganger krever høyere trykk · **E** Prøven blir overkritisk · **F** Prøven fryser hardere\n\n**Spørsmål 3.** Vann koker ved $100{,}0\\,^\\circ\\text{C}$ ved $101{,}325\\,\\text{kPa}$, med $l = 40{,}66\\,\\text{kJ/mol}$. Hva er damptrykket ved $60{,}0\\,^\\circ\\text{C}$?\n\n**A** $2{,}834\\,\\text{kPa}$ · **B** $21{,}00\\,\\text{kPa}$ · **C** $21{,}19\\,\\text{kPa}$ · **D** $31{,}73\\,\\text{kPa}$ · **E** $210{,}0\\,\\text{kPa}$ · **F** $488{,}8\\,\\text{kPa}$\n\n**Spørsmål 4.** En messingstang er $18{,}0\\,\\text{m}$ lang og varmes $55{,}0\\,\\text{K}$. Messing har $\\alpha = 19\\cdot10^{-6}\\,\\text{K}^{-1}$. Hvor mye lengre blir den?\n\n**A** $1{,}045\\,\\text{mm}$ · **B** $6{,}270\\,\\text{mm}$ · **C** $18{,}81\\,\\text{mm}$ · **D** $56{,}43\\,\\text{mm}$ · **E** $188{,}1\\,\\text{mm}$ · **F** $0{,}3420\\,\\text{mm}$",
+   "solution": "**Spørsmål 1 — svar C.**\n\n*Margnotat: sporet er «$a$ og $b$ gitt, kritisk punkt spurt». Ingen enhetsomregning nødvendig — de er allerede i SI.*\n$$T_c = \\frac{8a}{27Rb} = \\frac{8 \\cdot 0{,}1382}{27 \\cdot 8{,}314 \\cdot 3{,}186\\cdot10^{-5}} = \\frac{1{,}1056}{7{,}1518\\cdot10^{-3}} = 154{,}6\\,\\text{K}.$$\n\n*Hvor poenget faller:* på faktorene. $8$ i telleren, $27$ og $R$ i nevneren.\n\n*Fellene:* $19{,}32\\,\\text{K}$ har glemt faktoren $8$ helt, altså regnet $a/(27Rb)$. $57{,}97\\,\\text{K}$ er $3a/(27Rb)$ — faktoren $3$ hører til $V_c$. $95{,}58\\,\\text{K}$ er tallverdien til $V_c = 3b$ i $\\text{cm}^3/\\text{mol}$, altså riktig regning på feil størrelse. $1285\\,\\text{K}$ har glemt $R$ i nevneren. **Og den tetteste:** $153{,}9\\,\\text{K}$ er hva du får hvis du runder $b$ av til $3{,}2\\cdot10^{-5}$ først — en halv prosent, og nok til å bomme.\n\n*Siffer å beholde:* fire i $b$, hele veien. *Nabo-alternativet du lander på ved for tidlig avrunding:* $153{,}9\\,\\text{K}$.\n\n*Tid: 45 sekunder.*\n\n---\n\n**Spørsmål 2 — svar B.**\n\n*Margnotat: dette sporet krever ingen regning i det hele tatt. Sammenlign trykket med trippeltrykket, og du er ferdig.*\n\n$300\\,\\text{Pa} < 611{,}7\\,\\text{Pa}$, altså **under trippeltrykket**. Da finnes ingen væskefase ved noen temperatur, og oppvarming ved konstant trykk må krysse sublimasjonslinjen.\n\n*Fellene:* smelting og koking forutsetter begge at det finnes en væskefase, altså at trykket er over $p_t$. «Ingenting skjer» overser at sublimasjon er en fullverdig faseovergang. Overkritisk krever både $T > T_c$ og $p > p_c$, og vi er milevis unna begge. Og å fryse hardere er ikke en faseovergang.\n\n*Tid: 20 sekunder. Dette er settets billigste poeng.*\n\n---\n\n**Spørsmål 3 — svar B.**\n\n*Margnotat: kelvin FØRST, alltid, før noe annet i dette sporet.*\n$$T = 333{,}15\\,\\text{K}, \\qquad T_0 = 373{,}15\\,\\text{K},$$\n$$\\frac{1}{T}-\\frac{1}{T_0} = 3{,}00165\\cdot10^{-3} - 2{,}67989\\cdot10^{-3} = 3{,}21763\\cdot10^{-4}\\,\\text{K}^{-1},$$\n$$\\frac{l}{R} = 4890{,}5\\,\\text{K}, \\qquad \\text{eksponent} = -1{,}57359, \\qquad p = 101{,}325 \\cdot 0{,}207295 = 21{,}00\\,\\text{kPa}.$$\n\n*Hvor poenget faller:* i parentesen. De to reverstallene er like på to siffer, så du må ha med fem.\n\n*Fellene:* $2{,}834\\,\\text{kPa}$ er damptrykket ved $20\\,^\\circ\\text{C}$, altså riktig metode på feil temperatur. $488{,}8\\,\\text{kPa}$ har snudd fortegnet i eksponenten — og gir høyere damptrykk ved lavere temperatur, som er umulig. $210{,}0\\,\\text{kPa}$ er riktig svar med én tierpotens for mye. $31{,}73\\,\\text{kPa}$ har lest av fordampningsvarmen som $30{,}00\\,\\text{kJ/mol}$ i stedet for $40{,}66$. **Og den tetteste:** $21{,}19\\,\\text{kPa}$ har rundet de to reverstallene til tre siffer ($3{,}00\\cdot10^{-3}$ og $2{,}68\\cdot10^{-3}$), slik at differansen ble $3{,}20\\cdot10^{-4}$ i stedet for $3{,}21763\\cdot10^{-4}$ — under én prosent, men nok til å treffe nabo-alternativet.\n\n*Siffer å beholde:* **fem** i reverstallene. *Nabo-alternativet:* $21{,}19\\,\\text{kPa}$.\n\n*Tid: 2 minutter. Dette er sporet som tar tid — planlegg for det.*\n\n---\n\n**Spørsmål 4 — svar C.**\n\n*Margnotat: her er celsius trygt, siden bare $\\Delta T$ inngår. Én multiplikasjon.*\n$$\\Delta L = \\alpha L\\,\\Delta T = 19\\cdot10^{-6} \\cdot 18{,}0 \\cdot 55{,}0\\,\\text{m} = 1{,}881\\cdot10^{-2}\\,\\text{m} = 18{,}81\\,\\text{mm}.$$\n\n*Hvor poenget faller:* på $\\alpha$ mot $\\beta$, og på tierpotensen.\n\n*Fellene:* $56{,}43\\,\\text{mm}$ har brukt $\\beta = 3\\alpha$ i en lengdeformel — nøyaktig tre ganger for mye. $1{,}045\\,\\text{mm}$ har brukt $L = 1{,}00\\,\\text{m}$ i stedet for $18{,}0\\,\\text{m}$. $188{,}1\\,\\text{mm}$ er én tierpotens for mye. $0{,}3420\\,\\text{mm}$ har glemt temperaturdifferansen, altså regnet med $\\Delta T = 1{,}00\\,\\text{K}$. $6{,}270\\,\\text{mm}$ har DELT på tre i stedet for å la $\\alpha$ stå — altså brukt $\\alpha/3$.\n\n*Kontroll:* relativ utvidelse er $\\alpha\\Delta T = 1{,}045\\cdot10^{-3}$, altså én promille — og én promille av $18$ meter er $18$ millimeter ✔.\n\n*Tid: 30 sekunder.*\n\n---\n\n**Fasit samlet: 1 C · 2 B · 3 B · 4 C.** Til sammen brukte vi under fire minutter på fire spørsmål der budsjettet er seks minutter hver. Den sparte tiden går til kretsprosess-klyngen tidligere i termohalvdelen."
+  },
+  {
+   "id": "tfy4115-10-3-okt2",
+   "type": "text",
+   "content": "## Økt 2 — van der Waals og det kritiske punktet (~25 min)\n\nFem oppgaver. **Skriv alltid ned de to leddene i van der Waals-uttrykket hver for seg**, og gjør $Z_c$-kontrollen hver gang du har regnet et kritisk punkt. To av oppgavene er i eksamensformat A–F."
+  },
+  {
+   "id": "tfy4115-10-3-o-1",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-10-3-ex-1",
+    "number": 1,
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Sjanger T11 — van der Waals-oppgaven, A–F-format.) Etan har $a = 0{,}5562\\,\\text{Pa}\\cdot\\text{m}^6/\\text{mol}^2$ og $b = 6{,}380\\cdot10^{-5}\\,\\text{m}^3/\\text{mol}$. Hva er den kritiske temperaturen?\n\n**A** $310{,}7\\,\\text{K}$ · **B** $116{,}5\\,\\text{K}$ · **C** $191{,}4\\,\\text{K}$ · **D** $2583\\,\\text{K}$ · **E** $38{,}84\\,\\text{K}$ · **F** $8389\\,\\text{K}$",
+    "solution": "**Svar: A.**\n\n$$T_c = \\frac{8a}{27Rb} = \\frac{8 \\cdot 0{,}5562}{27 \\cdot 8{,}314 \\cdot 6{,}380\\cdot10^{-5}} = \\frac{4{,}4496}{1{,}43197\\cdot10^{-2}} = 310{,}7\\,\\text{K}.$$\n\n*Fellene, hver regnet fram fra sin feil:* $116{,}5\\,\\text{K}$ er $3a/(27Rb)$ — faktoren $3$ hører til $V_c$, ikke til $T_c$. $38{,}84\\,\\text{K}$ har glemt faktoren $8$ helt. $191{,}4\\,\\text{K}$ er tallverdien til $V_c = 3b$ i $\\text{cm}^3/\\text{mol}$, altså riktig regning på feil størrelse. $2583\\,\\text{K}$ har glemt $R$ i nevneren. $8389\\,\\text{K}$ har glemt faktoren $27$.\n\n*Sluttsjekk:* etan koker ved $-89\\,^\\circ\\text{C} = 184\\,\\text{K}$ ved én atmosfære, og $T_c$ ligger alltid over kokepunktet — typisk $1{,}3$ til $1{,}8$ ganger så høyt. Det peker rett på $310{,}7\\,\\text{K}$ og stryker alle de andre.",
+    "hints": [
+     "$T_c = 8a/(27Rb)$ — regn teller og nevner som egne mellomresultater.",
+     "Kontroller at både $R$ og faktoren $27$ står i nevneren.",
+     "Etan koker ved $184\\,\\text{K}$; hvor må $T_c$ ligge i forhold til det?"
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-10-3-o-2",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-10-3-ex-2",
+    "number": 2,
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger T11.) $2{,}50$ mol karbondioksid holdes i $1{,}50\\,\\text{L}$ ved $320\\,\\text{K}$. For CO$_2$ er $a = 0{,}3640\\,\\text{Pa}\\cdot\\text{m}^6/\\text{mol}^2$ og $b = 4{,}267\\cdot10^{-5}\\,\\text{m}^3/\\text{mol}$.\n\n**a)** Finn trykket etter den ideelle gassloven og etter van der Waals.\n\n**b)** Hvor mange prosent bommer den ideelle gassloven?\n\n**c)** Hvilket av de to korreksjonsleddene dominerer, og hva ville skjedd om du hadde glemt $n^2$ i tiltrekningsleddet?",
+    "solution": "**a)** Volumet til $\\text{m}^3$ først: $1{,}50\\,\\text{L} = 1{,}50\\cdot10^{-3}\\,\\text{m}^3$.\n$$p_\\text{id} = \\frac{nRT}{V} = \\frac{2{,}50 \\cdot 8{,}314 \\cdot 320}{1{,}50\\cdot10^{-3}} = 4{,}4341\\cdot10^{6}\\,\\text{Pa} = 4{,}434\\,\\text{MPa}.$$\n$$V - nb = 1{,}50\\cdot10^{-3} - 2{,}50 \\cdot 4{,}267\\cdot10^{-5} = 1{,}50\\cdot10^{-3} - 1{,}0668\\cdot10^{-4} = 1{,}39333\\cdot10^{-3}\\,\\text{m}^3,$$\n$$\\text{ledd 1} = \\frac{6651{,}2}{1{,}39333\\cdot10^{-3}} = 4{,}7736\\cdot10^{6}\\,\\text{Pa}, \\qquad \\text{ledd 2} = \\frac{0{,}3640 \\cdot 6{,}25}{2{,}25\\cdot10^{-6}} = 1{,}0111\\cdot10^{6}\\,\\text{Pa},$$\n$$p = 4{,}7736\\cdot10^{6} - 1{,}0111\\cdot10^{6} = 3{,}7625\\cdot10^{6}\\,\\text{Pa} = 3{,}763\\,\\text{MPa}.$$\n\n**b)**\n$$\\frac{3{,}7625 - 4{,}4341}{4{,}4341} = -0{,}1515,$$\naltså **$15{,}1$ prosent for høyt** med den ideelle gassloven.\n\n**c)** Egenvolumet løftet trykket med $0{,}3395\\,\\text{MPa}$, tiltrekningen dro det ned med $1{,}0111\\,\\text{MPa}$ — **tiltrekningen dominerer klart**, med en faktor $3{,}0$.\n\nUten $n^2$ ville tiltrekningsleddet blitt $0{,}3640 \\cdot 2{,}50/(2{,}25\\cdot10^{-6}) = 4{,}0444\\cdot10^{5}\\,\\text{Pa}$, altså $2{,}5$ ganger for lite, og svaret ville blitt $4{,}369\\,\\text{MPa}$ — bare halvannen prosent under det ideelle. **Feilen er farlig nettopp fordi resultatet ser rimelig ut**: den ligner et svar der korreksjonene er små, ikke et absurd tall.\n\n**Sluttsjekk, fire ledd.** (i) Volum i $\\text{m}^3$. (ii) $n$ i det første leddet og $n^2$ i det andre. (iii) Kelvin. (iv) Størrelsesorden: $0{,}600\\,\\text{L/mol}$ er $40$ ganger tettere enn romluft, så titalls prosents avvik er å vente.",
+    "hints": [
+     "Gjør om volumet til $\\text{m}^3$ før noe annet.",
+     "Regn $nb$ og $an^2$ som egne mellomresultater — legg merke til at det ene har $n$ og det andre $n^2$.",
+     "Sammenlign de to korreksjonsleddene tallmessig, og se hvilket som er størst."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-10-3-o-3",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-10-3-ex-3",
+    "number": 3,
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Sjanger T11, A–F-format.) Samme etan som i oppgave 1, med $a = 0{,}5562$ og $b = 6{,}380\\cdot10^{-5}$ i SI-enheter. Hva er det kritiske trykket?\n\n**A** $15{,}18\\,\\text{MPa}$ · **B** $0{,}5623\\,\\text{MPa}$ · **C** $40{,}49\\,\\text{MPa}$ · **D** $5{,}061\\,\\text{MPa}$ · **E** $136{,}6\\,\\text{MPa}$ · **F** $5{,}109\\,\\text{MPa}$",
+    "solution": "**Svar: D.**\n\n$$b^2 = 4{,}0704\\cdot10^{-9}\\,\\text{m}^6/\\text{mol}^2, \\qquad p_c = \\frac{a}{27b^2} = \\frac{0{,}5562}{1{,}09902\\cdot10^{-7}} = 5{,}061\\cdot10^{6}\\,\\text{Pa} = 5{,}061\\,\\text{MPa}.$$\n\nKontroll: $V_c = 3b = 1{,}914\\cdot10^{-4}\\,\\text{m}^3/\\text{mol}$ og $T_c = 310{,}7\\,\\text{K}$ fra oppgave 1 gir\n$$Z_c = \\frac{5{,}061\\cdot10^{6} \\cdot 1{,}914\\cdot10^{-4}}{8{,}314 \\cdot 310{,}7} = \\frac{968{,}7}{2583{,}1} = 0{,}3750,$$\naltså nøyaktig $3/8$.\n\n*Fellene, hver regnet fram fra sin feil:* $15{,}18\\,\\text{MPa}$ har brukt $9$ i stedet for $27$ i nevneren, altså tre ganger for mye. $40{,}49\\,\\text{MPa}$ har tatt med faktoren $8$, som hører til $T_c$. $136{,}6\\,\\text{MPa}$ har glemt faktoren $27$ helt. $0{,}5623\\,\\text{MPa}$ har satt $V_c = 3b$ inn i kvadratet i stedet for $b$, altså ni ganger for lite. **Og den tetteste:** $5{,}109\\,\\text{MPa}$ er hva du får hvis du runder $b$ av til $6{,}35\\cdot10^{-5}$ før kvadreringen — under én prosent i $b$, men kvadreringen dobler den relative feilen.\n\n*Sluttsjekk:* $Z_c$-kontrollen. Den fanger alle fem fellene på én gang, og tar femten sekunder.",
+    "hints": [
+     "Regn $b^2$ som eget mellomresultat før divisjonen.",
+     "Faktoren $8$ hører til $T_c$; $p_c$ har bare $27$ og $b^2$.",
+     "Gjør $Z_c$-kontrollen med $V_c$ og $T_c$ fra oppgave 1."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-10-3-o-4",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-10-3-ex-4",
+    "number": 4,
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger T11.) Metan har målt kritisk temperatur $190{,}6\\,\\text{K}$ og kritisk trykk $4{,}60\\,\\text{MPa}$.\n\n**a)** Finn van der Waals-konstantene $a$ og $b$.\n\n**b)** Finn det kritiske molarvolumet, og sammenlign med den målte verdien $99\\,\\text{cm}^3/\\text{mol}$.\n\n**c)** Metan er hovedbestanddelen i naturgass. Kan naturgass transporteres som væske i en tank ved romtemperatur?",
+    "solution": "**a) Symbolsk.** Deler du de to kritiske uttrykkene på hverandre, faller $a$ ut:\n$$\\frac{T_c}{p_c} = \\frac{8b}{R} \\quad\\Longrightarrow\\quad b = \\frac{RT_c}{8p_c}, \\qquad a = 27b^2p_c.$$\n\n**Rask vei til tall.**\n$$b = \\frac{8{,}314 \\cdot 190{,}6}{8 \\cdot 4{,}60\\cdot10^{6}} = \\frac{1584{,}65}{3{,}680\\cdot10^{7}} = 4{,}3061\\cdot10^{-5}\\,\\text{m}^3/\\text{mol},$$\n$$b^2 = 1{,}85426\\cdot10^{-9}, \\qquad a = 27 \\cdot 1{,}85426\\cdot10^{-9} \\cdot 4{,}60\\cdot10^{6} = 0{,}23030\\,\\text{Pa}\\cdot\\text{m}^6/\\text{mol}^2.$$\n\n**b)**\n$$V_c = 3b = 1{,}2918\\cdot10^{-4}\\,\\text{m}^3/\\text{mol} = 129{,}2\\,\\text{cm}^3/\\text{mol}.$$\nMålt er $99\\,\\text{cm}^3/\\text{mol}$, så modellen bommer med $30{,}5$ prosent. Det er nøyaktig det $Z_c$-avviket forteller: van der Waals gir alltid $0{,}375$, mens virkelige gasser ligger rundt $0{,}27$. **Modellen er god på $T_c$ og $p_c$ og svak på $V_c$** — og det er derfor eksamensoppgaver sjelden spør om det kritiske volumet alene.\n\n**c)** Nei. Romtemperatur er rundt $293\\,\\text{K}$, langt over metanens $T_c = 190{,}6\\,\\text{K}$. Over den kritiske temperaturen finnes ingen væskefase ved noe trykk. Derfor transporteres naturgass enten som **komprimert gass** (CNG, ved høyt trykk og romtemperatur) eller som **nedkjølt væske** (LNG, ved $-162\\,^\\circ\\text{C} = 111\\,\\text{K}$ og nesten atmosfæretrykk) — og aldri som «flytende gass under trykk» slik propan er det. Propan har $T_c = 370\\,\\text{K}$, godt over romtemperatur, og kan derfor ligge flytende på en vanlig gassflaske.",
+    "hints": [
+     "Del de to kritiske uttrykkene på hverandre og se hva som faller ut.",
+     "$b$ først, så $b^2$ som eget mellomresultat, så $a$.",
+     "Sammenlign $T_c$ med romtemperatur — hva utelukker det?"
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-10-3-o-5",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-10-3-ex-5",
+    "number": 5,
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Kvalitativ oppgave — konsept og rangering.) Fire gasser har disse kritiske temperaturene: helium $5{,}2\\,\\text{K}$, nitrogen $126\\,\\text{K}$, karbondioksid $304\\,\\text{K}$, propan $370\\,\\text{K}$.\n\n**a)** Hvilke av dem kan finnes som væske i en trykkflaske ved romtemperatur ($293\\,\\text{K}$)?\n\n**b)** Ranger de fire etter forventet størrelse på van der Waals-konstanten $a$, og begrunn.\n\n**c)** En student sier: «Helium har lav $T_c$ fordi heliumatomet er så lite.» Er det en god forklaring?",
+    "solution": "**a)** Bare de som har $T_c$ **over** $293\\,\\text{K}$: **karbondioksid** ($304\\,\\text{K}$) og **propan** ($370\\,\\text{K}$). Helium og nitrogen er komprimert gass på flasken, uansett hvor høyt trykket er.\n\nMerk hvor knapt CO$_2$ klarer det: $304\\,\\text{K}$ er $31\\,^\\circ\\text{C}$. En CO$_2$-flaske som står i sola på en varm dag, kan komme over sin egen kritiske temperatur, og da forsvinner væskefasen inni.\n\n**b)** Fordi $T_c = 8a/(27Rb)$ og $b$ varierer langt mindre enn $a$, følger rekkefølgen på $a$ i hovedsak rekkefølgen på $T_c$:\n$$a(\\text{helium}) < a(\\text{nitrogen}) < a(\\text{karbondioksid}) < a(\\text{propan}).$$\nTabellverdiene bekrefter det: $0{,}00346$, $0{,}1370$, $0{,}3640$ og $0{,}9385$, alle i $\\text{Pa}\\cdot\\text{m}^6/\\text{mol}^2$ — en spennvidde på nesten tre tierpotenser.\n\nFysisk henger det sammen: $a$ måler hvor sterkt molekylene trekker på hverandre, og sterk tiltrekning er nettopp det som gjør at en gass kan kondensere ved høy temperatur.\n\n**c)** Delvis, men forklaringen treffer feil størrelse. Atomets **størrelse** er det $b$ måler, og heliums $b = 2{,}38\\cdot10^{-5}\\,\\text{m}^3/\\text{mol}$ er riktignok lavest — men bare en faktor to under de andres. Det er $a$ som er ekstrem: heliums $a$ er $40$ ganger mindre enn nitrogenets.\n\nDen bedre forklaringen er at helium er et **edelgassatom uten permanent dipol og med svært lav polariserbarhet**, så tiltrekningen mellom to heliumatomer er den svakeste som finnes. Lav $a$ gir lav $T_c$ — og siden $b$ står i nevneren, ville et lite atom isolert sett trukket $T_c$ **opp**, ikke ned. Studentens forklaring peker altså feil vei.",
+    "hints": [
+     "Sammenlign hver $T_c$ med romtemperatur — over eller under?",
+     "Se på $T_c = 8a/(27Rb)$ og tenk over hvilken av de to konstantene som varierer mest.",
+     "Hvilken konstant måler størrelse, og hvilken måler tiltrekning?"
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-10-3-okt3",
+   "type": "text",
+   "content": "## Økt 3 — fasediagrammet (~20 min)\n\n— naturlig pausepunkt —\n\nFire oppgaver. **Her regner du ikke — du plasserer et punkt.** Rekkefølgen på spørsmålene er alltid den samme: er trykket under trippeltrykket? Er temperaturen over den kritiske? Og hvilke linjer krysser ferden?"
+  },
+  {
+   "id": "tfy4115-10-3-o-6",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-10-3-ex-6",
+    "number": 6,
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Sjanger T11 — fasediagramoppgaven, A–F-format.) Karbondioksid har trippelpunkt ved $216{,}6\\,\\text{K}$ og $518\\,\\text{kPa}$, og kritisk punkt ved $304{,}1\\,\\text{K}$ og $7{,}38\\,\\text{MPa}$. En prøve holder $250\\,\\text{K}$ ved $101{,}3\\,\\text{kPa}$. Hvilken fase har den?\n\n**A** Væske · **B** Gass · **C** Fast · **D** Overkritisk fluid · **E** Væske og damp i likevekt · **F** Fast og væske i likevekt",
+    "solution": "**Svar: B.**\n\nTrykket $101{,}3\\,\\text{kPa}$ ligger **under** trippeltrykket $518\\,\\text{kPa}$, så væskefasen er utelukket ved enhver temperatur. Da står bare fast og gass igjen, og skillet mellom dem er sublimasjonslinjen. Ved $250\\,\\text{K}$ og atmosfæretrykk er CO$_2$ **gass** — det er nettopp derfor tørris ($195\\,\\text{K}$ ved atmosfæretrykk) sublimerer bort til luft.\n\n*Fellene:* alle tre alternativer som involverer væske — væske, væske og damp, fast og væske — krever $p > p_t$, og de kan strykes på ett sekund. Fast fase ville krevd at punktet lå til venstre for sublimasjonslinjen, altså under sublimasjonstemperaturen $195\\,\\text{K}$ ved dette trykket. Overkritisk krever både $T > 304{,}1\\,\\text{K}$ og $p > 7{,}38\\,\\text{MPa}$; vi er under begge, det ene med en faktor $73$.\n\n*Sluttsjekk:* CO$_2$ er en gass i luften rundt deg, ved omtrent $293\\,\\text{K}$ og $101\\,\\text{kPa}$. At den også er gass ved $250\\,\\text{K}$ og samme trykk, er rimelig — den kondenserer aldri ved atmosfæretrykk, den går rett til fast.",
+    "hints": [
+     "Første spørsmål alltid: er trykket over eller under trippeltrykket?",
+     "Er væskefasen utelukket, står bare to muligheter igjen.",
+     "Ved atmosfæretrykk sublimerer tørris ved $195\\,\\text{K}$ — hvilken side av det ligger $250\\,\\text{K}$?"
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-10-3-o-7",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-10-3-ex-7",
+    "number": 7,
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger T11.) Bruk fasediagrammet for vann over, med trippelpunkt ved $273{,}16\\,\\text{K}$ og $611{,}7\\,\\text{Pa}$ og kritisk punkt ved $647{,}1\\,\\text{K}$ og $22{,}06\\,\\text{MPa}$.\n\n**a)** En prøve i punkt D ligger på damptrykkslinjen. Hva betyr det fysisk, og hva skjer hvis du tilfører varme uten å endre trykket?\n\n**b)** En prøve holder $500\\,\\text{K}$ ved $30{,}0\\,\\text{MPa}$ og kjøles til $300\\,\\text{K}$ ved konstant trykk. Hvilke faseoverganger passerer den?\n\n**c)** En prøve holder $700\\,\\text{K}$ ved $30{,}0\\,\\text{MPa}$ og kjøles til $300\\,\\text{K}$ ved konstant trykk. Hvordan skiller den ferden seg fra b)?",
+    "solution": "**a)** At punktet ligger **på** linjen betyr at væske og damp er i **likevekt** — like mange molekyler fordamper som kondenserer, og begge fasene finnes samtidig.\n\nTilfører du varme ved konstant trykk, stiger **ikke** temperaturen. All energien går til å fordampe væske, og punktet blir stående på linjen til den siste dråpen er borte. Først da begynner temperaturen å stige igjen, og punktet beveger seg vannrett mot høyre inn i gassområdet.\n\nDet er nettopp derfor kokende vann holder $100\\,^\\circ\\text{C}$ uansett hvor kraftig du fyrer: ekstra effekt gir raskere fordampning, ikke høyere temperatur.\n\n**b)** Vi går vannrett mot venstre ved $30{,}0\\,\\text{MPa}$, fra $500$ til $300\\,\\text{K}$. Trykket ligger **over** det kritiske $22{,}06\\,\\text{MPa}$, så damptrykkslinjen finnes ikke der oppe — den sluttet i det kritiske punktet. Men $500\\,\\text{K}$ er **under** den kritiske temperaturen, så prøven er allerede væske ved start.\n\nFerden krysser derfor **ingen faseovergang**: væske hele veien, bare gradvis tettere. Ved $273\\,\\text{K}$ ville vi nærmet oss smeltelinjen, men den når vi ikke.\n\n**c)** Fra $700\\,\\text{K}$ starter vi **over** $T_c$, altså i det overkritiske området. Ferden går fra overkritisk fluid til væske — men fremdeles uten å krysse noen linje, siden vi hele tiden ligger over det kritiske trykket.\n\n**Forskjellen er altså bare hvor vi starter, ikke hva vi passerer.** Begge ferder ender som væske ved $300\\,\\text{K}$, og ingen av dem har et øyeblikk der du kan si «nå kondenserte det». Det er den kontinuerlige veien rundt det kritiske punktet, og den er hele poenget med at damptrykkslinjen slutter: væske og gass er ikke kvalitativt forskjellige tilstander.\n\nHadde trykket i stedet vært $10{,}0\\,\\text{MPa}$, altså under $p_c$, ville begge ferder krysset damptrykkslinjen, og da ville du sett en væskeflate danne seg ved en bestemt temperatur.",
+    "hints": [
+     "Et punkt PÅ en linje betyr at to faser er i likevekt.",
+     "Sammenlign trykket $30{,}0\\,\\text{MPa}$ med det kritiske trykket før du ser på temperaturen.",
+     "Tegn de to ferdene inn i figuren og noter hvilke linjer de krysser."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-10-3-o-8",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-10-3-ex-8",
+    "number": 8,
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger T11.) Et laboratorium skal lagre en biologisk prøve ved frysetørking. Vann har trippelpunkt ved $273{,}16\\,\\text{K}$ og $611{,}7\\,\\text{Pa}$.\n\n**a)** Prøven fryses til $250\\,\\text{K}$. Hvilket krav må trykket i kammeret oppfylle for at isen skal sublimere?\n\n**b)** Hva ville skjedd hvis kammertrykket i stedet var $10{,}0\\,\\text{kPa}$?\n\n**c)** En kollega foreslår å pumpe kammeret til $611{,}7\\,\\text{Pa}$ nøyaktig, «akkurat på grensen». Hvorfor er det et dårlig valg?",
+    "solution": "**a)** Kravet er at trykket ligger **under trippeltrykket**:\n$$p < p_t = 611{,}7\\,\\text{Pa}.$$\nDa finnes ingen væskefase ved noen temperatur, og oppvarming fra $250\\,\\text{K}$ må krysse sublimasjonslinjen. Merk at det er **trykket** som avgjør, ikke temperaturen: væske er umulig ved ethvert $T$ når $p < p_t$.\n\n**b)** $10{,}0\\,\\text{kPa}$ er $16$ ganger trippeltrykket. Da er væskefasen tilgjengelig, og oppvarming fra $250\\,\\text{K}$ ville gitt **smelting** rundt $273\\,\\text{K}$ i stedet for sublimasjon. Prøven ville blitt våt — og for en biologisk prøve er det nettopp det frysetørking skal unngå, siden væskens overflatespenning ødelegger cellestrukturen når den siden fordamper.\n\n**c)** Tre grunner:\n\n1. **Ingen margin.** Ved nøyaktig $p_t$ er alle tre fasene i likevekt, og den minste trykkstigning — for eksempel fra dampen som frigjøres under sublimasjonen selv — bringer deg over grensen og inn i væskeområdet.\n2. **Prosessen ville gått i sneglefart.** Drivkraften for sublimasjon er differansen mellom isens eget sublimasjonstrykk og kammertrykket. Ved $250\\,\\text{K}$ er isens sublimasjonstrykk under $100\\,\\text{Pa}$, så et kammer på $611{,}7\\,\\text{Pa}$ gir ingen netto sublimasjon i det hele tatt — den ville gått motsatt vei.\n3. **Temperaturen ville steget.** Sublimasjonen kjøler prøven; uten netto sublimasjon forsvinner den kjølingen, og prøven varmes av omgivelsene mot smeltepunktet.\n\n**I praksis pumper man til noen titalls pascal**, godt under isens sublimasjonstrykk ved arbeidstemperaturen, og har dermed både margin og drivkraft.",
+    "hints": [
+     "Skriv ulikheten som utelukker væskefasen.",
+     "Sammenlign $10{,}0\\,\\text{kPa}$ med trippeltrykket — hvor mange ganger større?",
+     "Tenk på hva som driver sublimasjonen, og hva som skjer når drivkraften blir null."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-10-3-o-9",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-10-3-ex-9",
+    "number": 9,
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Kvalitativ oppgave — konsept.) Et fasediagram viser tre linjer.\n\n**a)** Hvorfor slutter damptrykkslinjen i et kritisk punkt, mens smeltelinjen ikke gjør det?\n\n**b)** Et stoff har trippelpunkt ved $216{,}6\\,\\text{K}$ og $518\\,\\text{kPa}$, og smelter ved $195\\,\\text{K}$ ved $101{,}3\\,\\text{kPa}$. Er det siste mulig? Forklar.\n\n**c)** Hvordan ser du på et fasediagram om et stoff utvider seg eller trekker seg sammen når det fryser?",
+    "solution": "**a)** Væske og gass skiller seg bare **kvantitativt** — begge er uordnede, og forskjellen er tetthet. Den forskjellen kan krympe kontinuerlig til null, og det gjør den i det kritiske punktet. Derfra og oppover finnes ingen grense å krysse.\n\nFast fase har derimot en **kvalitativt** annen struktur: molekylene sitter i et ordnet gitter. Et gitter er enten der eller ikke der; det finnes ingen kontinuerlig vei fra ordnet til uordnet. Derfor kan ikke smeltelinjen slutte i et kritisk punkt, og så langt noen har målt, gjør den ikke det.\n\n**b)** Nei, det er umulig. Ved $101{,}3\\,\\text{kPa}$, som ligger **under** trippeltrykket $518\\,\\text{kPa}$, finnes ingen væskefase i det hele tatt — og uten væske kan stoffet ikke smelte. Ved $195\\,\\text{K}$ og atmosfæretrykk **sublimerer** stoffet i stedet.\n\n(Tallene er karbondioksidets, og $195\\,\\text{K}$ er nettopp tørrisens sublimasjonstemperatur ved atmosfæretrykk.)\n\n**c)** På **smeltelinjens helning**:\n\n- **Heller forover** (mot høyre når trykket øker): den faste fasen er tettest, altså **trekker stoffet seg sammen når det fryser**. Dette er det normale.\n- **Heller bakover**: den faste fasen er minst tett, altså **utvider stoffet seg når det fryser**. Vann er hovedeksemplet, og derfor flyter is.\n\nBegrunnelsen er Clausius–Clapeyron: $dp/dT = l/(T\\Delta V)$ med $\\Delta V = V_\\text{væske} - V_\\text{fast}$, og fortegnet på helningen er fortegnet på $\\Delta V$.",
+    "hints": [
+     "Tenk på hva som skiller de to fasene i hvert tilfelle: tetthet eller struktur?",
+     "Sammenlign $101{,}3\\,\\text{kPa}$ med trippeltrykket før du vurderer temperaturen.",
+     "Bruk $dp/dT = l/(T\\Delta V)$ på smeltelinjen og se hva fortegnet forteller."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-10-3-okt4",
+   "type": "text",
+   "content": "## Økt 4 — damptrykk, utvidelse og koblede oppgaver (~30 min)\n\n— naturlig pausepunkt —\n\nFem oppgaver. **Kelvin i damptrykksoppgavene, differanse i utvidelsesoppgavene.** To er i eksamensformat A–F, og den siste kobler tre spor i én klynge, slik eksamenssett gjerne gjør i termohalvdelen."
+  },
+  {
+   "id": "tfy4115-10-3-o-10",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-10-3-ex-10",
+    "number": 10,
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger T12 — damptrykksoppgaven.) Ammoniakk koker ved $-33{,}3\\,^\\circ\\text{C}$ ved $101{,}325\\,\\text{kPa}$ og har molar fordampningsvarme $23{,}35\\,\\text{kJ/mol}$.\n\n**a)** Finn damptrykket ved $20{,}0\\,^\\circ\\text{C}$.\n\n**b)** Hva forteller svaret om trykket i en ammoniakkflaske som står i romtemperatur?\n\n**c)** Ammoniakk har kritisk temperatur $405{,}5\\,\\text{K}$. Kan innholdet i flasken være flytende?",
+    "solution": "**a) Rask vei til tall.** Kelvin først:\n$$T = 293{,}15\\,\\text{K}, \\qquad T_0 = -33{,}3 + 273{,}15 = 239{,}85\\,\\text{K}.$$\n$$\\frac{1}{T}-\\frac{1}{T_0} = 3{,}41122\\cdot10^{-3} - 4{,}16927\\cdot10^{-3} = -7{,}58050\\cdot10^{-4}\\,\\text{K}^{-1},$$\n$$\\frac{l}{R} = \\frac{23350}{8{,}314} = 2808{,}5\\,\\text{K}, \\qquad \\text{eksponent} = +2{,}12899,$$\n$$p = 101{,}325 \\cdot e^{2{,}12899} = 101{,}325 \\cdot 8{,}40637 = 851{,}8\\,\\text{kPa}.$$\n\nMerk fortegnet: $T > T_0$, så parentesen er **negativ**, minustegnet foran gjør eksponenten **positiv**, og trykket blir høyere enn referansen ✔. Det er som det skal være — vi er langt over kokepunktet.\n\n**b)** Flasken må tåle et innvendig trykk på om lag $8{,}4$ atmosfærer ved romtemperatur. Det er derfor ammoniakkflasker er tykkveggede stålsylindre og ikke plastbeholdere — og det er derfor de skal lagres kjølig: ved $40\\,^\\circ\\text{C}$ ville trykket vært vesentlig høyere igjen, siden kurven er konveks.\n\n**c)** Ja. Romtemperatur $293\\,\\text{K}$ ligger godt **under** $T_c = 405{,}5\\,\\text{K}$, så væskefasen finnes. Flasken inneholder flytende ammoniakk med damp over, og trykket i den er nettopp damptrykket vi regnet ut. Sammenlign med nitrogen, der $T_c = 126\\,\\text{K}$ gjør flytende innhold ved romtemperatur umulig uansett trykk.\n\n**Sluttsjekk, fire ledd.** (i) Begge temperaturer i kelvin — og legg merke til at kokepunktet var negativt i celsius, som er en klassisk stumbling block. (ii) $l$ i $\\text{J/mol}$. (iii) Fortegn: over kokepunktet gir trykk over én atmosfære ✔. (iv) Størrelsesorden: noen få til noen titalls atmosfærer er typisk for kondenserte gasser i flaske.",
+    "hints": [
+     "Kokepunktet er oppgitt i negative celsiusgrader — regn det om til kelvin med omhu.",
+     "Regn $l/R$ og parentesen som egne mellomresultater, med fem siffer i reverstallene.",
+     "Kontroller fortegnet: er $T > T_0$, skal trykket bli høyere enn $p_0$."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-10-3-o-11",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-10-3-ex-11",
+    "number": 11,
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Sjanger T13 — termisk utvidelse, A–F-format.) En stålskinne er $32{,}0\\,\\text{m}$ lang og gjennomgår en temperaturvariasjon på $48{,}0\\,\\text{K}$ over året. Stål har $\\alpha = 12\\cdot10^{-6}\\,\\text{K}^{-1}$. Hvor stor må ekspansjonsspalten minst være?\n\n**A** $1{,}536\\,\\text{mm}$ · **B** $0{,}5760\\,\\text{mm}$ · **C** $55{,}30\\,\\text{mm}$ · **D** $6{,}144\\,\\text{mm}$ · **E** $18{,}43\\,\\text{mm}$ · **F** $184{,}3\\,\\text{mm}$",
+    "solution": "**Svar: E.**\n\n$$\\Delta L = \\alpha L\\,\\Delta T = 12\\cdot10^{-6} \\cdot 32{,}0 \\cdot 48{,}0\\,\\text{m} = 1{,}8432\\cdot10^{-2}\\,\\text{m} = 18{,}43\\,\\text{mm}.$$\n\nTemperaturen inngår bare som en **differanse**, så celsius er trygt her.\n\n*Fellene, hver regnet fram fra sin feil:* $55{,}30\\,\\text{mm}$ har brukt $\\beta = 3\\alpha$ i en lengdeformel — nøyaktig tre ganger for mye. $184{,}3\\,\\text{mm}$ er riktig regning med én tierpotens for mye. $1{,}536\\,\\text{mm}$ har brukt $\\Delta T = 4{,}00\\,\\text{K}$, altså delt temperaturvariasjonen på tolv. $0{,}5760\\,\\text{mm}$ har brukt $L = 1{,}00\\,\\text{m}$. $6{,}144\\,\\text{mm}$ har delt på tre i stedet for å la $\\alpha$ stå, altså brukt $\\alpha/3$.\n\n*Sluttsjekk:* relativ utvidelse er $\\alpha\\Delta T = 5{,}76\\cdot10^{-4}$, altså vel en halv promille — og en halv promille av $32$ meter er rundt $18$ millimeter. Den ene kontrollen stryker fire av de fem gale svarene.",
+    "hints": [
+     "$\\Delta L = \\alpha L\\Delta T$ — bruk $\\alpha$, ikke $\\beta$.",
+     "Temperaturen inngår som en differanse; celsius er trygt.",
+     "Regn ut den relative utvidelsen $\\alpha\\Delta T$ først, som en kontroll på tierpotensen."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-10-3-o-12",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-10-3-ex-12",
+    "number": 12,
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger T12.) Vann koker ved $100{,}0\\,^\\circ\\text{C}$ ved $101{,}325\\,\\text{kPa}$, med $l = 40{,}66\\,\\text{kJ/mol}$.\n\n**a)** Ved hvilken temperatur koker vann når lufttrykket er $80{,}0\\,\\text{kPa}$?\n\n**b)** Et matoppskriftsråd sier at koketiden må økes med rundt ti prosent per tusen meter høyde. Passer det med svaret i a), gitt at $80{,}0\\,\\text{kPa}$ svarer til om lag $2000$ meter?\n\n**c)** Hvor mye må trykket økes over én atmosfære for at vann skal koke ved $110{,}0\\,^\\circ\\text{C}$?",
+    "solution": "**a) Symbolsk.** $\\dfrac{1}{T} = \\dfrac{1}{T_0} - \\dfrac{R}{l}\\ln\\dfrac{p}{p_0}$.\n\n**Rask vei til tall.**\n$$\\ln\\frac{80{,}0}{101{,}325} = \\ln 0{,}789537 = -0{,}236307,$$\n$$\\frac{R}{l} = \\frac{8{,}314}{40660} = 2{,}04476\\cdot10^{-4}\\,\\text{K}^{-1},$$\n$$\\frac{1}{T} = 2{,}67989\\cdot10^{-3} + 2{,}04476\\cdot10^{-4} \\cdot 0{,}236307 = 2{,}67989\\cdot10^{-3} + 4{,}83192\\cdot10^{-5} = 2{,}72821\\cdot10^{-3},$$\n$$T = 366{,}54\\,\\text{K} = 93{,}39\\,^\\circ\\text{C}.$$\n\nFortegnskontroll: lavere trykk gir lavere kokepunkt ✔.\n\n**b)** Kokepunktet faller $6{,}6$ grader på $2000$ meter, altså rundt $3{,}3$ grader per tusen meter. Rådet om ti prosent lengre koketid per tusen meter er en tommelfingerregel som forutsetter at reaksjonsfarten omtrent dobles per ti graders temperaturøkning — en vanlig kjemisk tommelfingerregel. Med $3{,}3$ graders fall per tusen meter gir det i størrelsesorden $20$–$25$ prosent lengre tid per tusen meter, altså **mer** enn rådet sier.\n\nKonklusjonen er at rådet er konservativt, og at det er avrundet kraftig ned. Poenget for oss er at fysikken gir temperaturfallet presist, mens omsettingen til koketid hviler på en biologisk-kjemisk tommelfingerregel som er langt mer omtrentlig. **Ikke overfør presisjonen fra det ene til det andre.**\n\n**c)** Nå er temperaturen kjent og trykket ukjent:\n$$T = 383{,}15\\,\\text{K}, \\qquad \\frac{1}{T}-\\frac{1}{T_0} = 2{,}60994\\cdot10^{-3} - 2{,}67989\\cdot10^{-3} = -6{,}99436\\cdot10^{-5}\\,\\text{K}^{-1},$$\n$$\\text{eksponent} = +0{,}342062, \\qquad p = 101{,}325 \\cdot 1{,}40785 = 142{,}65\\,\\text{kPa}.$$\nTrykket må altså opp $41{,}3\\,\\text{kPa}$, altså om lag $41$ prosent over atmosfæretrykket ($142{,}65$ mot $101{,}325$). En vanlig trykkoker arbeider ved rundt det dobbelte av det igjen, og når $121\\,^\\circ\\text{C}$.",
+    "hints": [
+     "I a): bruk $1/T = 1/T_0 - (R/l)\\ln(p/p_0)$, og pass på at logaritmen av et tall under 1 er negativ.",
+     "I c): nå er det trykket som er ukjent, så bruk eksponentialformen direkte.",
+     "Kontroller fortegnet begge veier: lavere trykk gir lavere kokepunkt, høyere trykk høyere."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-10-3-o-13",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-10-3-ex-13",
+    "number": 13,
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Sjanger T13, A–F-format.) En stålbeholder på $2{,}00\\,\\text{L}$ ($\\alpha = 12\\cdot10^{-6}\\,\\text{K}^{-1}$) fylles helt med kvikksølv ($\\beta = 1{,}80\\cdot10^{-4}\\,\\text{K}^{-1}$) og varmes $40{,}0\\,\\text{K}$. Hvor mye renner over?\n\n**A** $2{,}880\\,\\text{mL}$ · **B** $17{,}28\\,\\text{mL}$ · **C** $11{,}52\\,\\text{mL}$ · **D** $14{,}40\\,\\text{mL}$ · **E** $13{,}44\\,\\text{mL}$ · **F** $0{,}9600\\,\\text{mL}$",
+    "solution": "**Svar: C.**\n\nBeholderen utvider seg også, så bare differansen renner over. Først beholderens volumkoeffisient:\n$$\\beta_\\text{stål} = 3\\alpha = 3 \\cdot 12\\cdot10^{-6} = 3{,}60\\cdot10^{-5}\\,\\text{K}^{-1}.$$\n$$\\Delta V_\\text{overløp} = \\left(\\beta_\\text{kvikksølv} - \\beta_\\text{stål}\\right)V\\,\\Delta T = \\left(1{,}800\\cdot10^{-4} - 0{,}360\\cdot10^{-4}\\right) \\cdot 2{,}00 \\cdot 40{,}0\\,\\text{L},$$\n$$= 1{,}440\\cdot10^{-4} \\cdot 80{,}0\\,\\text{L} = 1{,}152\\cdot10^{-2}\\,\\text{L} = 11{,}52\\,\\text{mL}.$$\n\n*Fellene, hver regnet fram fra sin feil:* $14{,}40\\,\\text{mL}$ har glemt at beholderen også vokser — sjangerens vanligste feil, og alltid i retning for mye. $2{,}880\\,\\text{mL}$ er beholderens egen utvidelse alene. $17{,}28\\,\\text{mL}$ har LAGT SAMMEN de to koeffisientene i stedet for å trekke dem fra. $13{,}44\\,\\text{mL}$ har brukt $\\alpha_\\text{stål} = 12\\cdot10^{-6}$ direkte i stedet for $\\beta = 3\\alpha$, altså glemt faktoren tre for beholderen. $0{,}9600\\,\\text{mL}$ er beholderens utvidelse regnet med $\\alpha$ i stedet for $\\beta$, altså både feil størrelse og glemt faktoren tre.\n\n*Sluttsjekk:* overløpet må være **mindre** enn væskens egen utvidelse på $14{,}40\\,\\text{mL}$, siden beholderen tar unna noe. Det stryker både $17{,}28$ og $14{,}40\\,\\text{mL}$ på ett sekund.",
+    "hints": [
+     "Beholderen er oppgitt med $\\alpha$, ikke $\\beta$ — gjør om først.",
+     "Bare differansen mellom de to volumkoeffisientene renner over.",
+     "Kontroller at svaret er mindre enn væskens egen utvidelse."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-10-3-o-14",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-10-3-ex-14",
+    "number": 14,
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger T11, T12 og T13 — koblet klynge.) En industriprosess bruker etan som arbeidsmedium. Etan har $a = 0{,}5562\\,\\text{Pa}\\cdot\\text{m}^6/\\text{mol}^2$, $b = 6{,}380\\cdot10^{-5}\\,\\text{m}^3/\\text{mol}$, koker ved $184{,}6\\,\\text{K}$ ved $101{,}325\\,\\text{kPa}$ og har molar fordampningsvarme $14{,}70\\,\\text{kJ/mol}$.\n\n**a)** Finn etanens kritiske temperatur og kritisk trykk, og kontroller med $Z_c$.\n\n**b)** Kan etan lagres flytende i en tank ved $290\\,\\text{K}$? Begrunn.\n\n**c)** Finn damptrykket ved $250{,}0\\,\\text{K}$.\n\n**d)** Tanken er av stål ($\\alpha = 12\\cdot10^{-6}\\,\\text{K}^{-1}$) med volum $5{,}00\\,\\text{m}^3$ ved $250\\,\\text{K}$. Hvor mye vokser tankvolumet hvis den varmes til $290\\,\\text{K}$?\n\n**e)** Vurder: er det forsvarlig å fylle tanken helt full med flytende etan ved $250\\,\\text{K}$?",
+    "solution": "**a)**\n$$V_c = 3b = 1{,}9140\\cdot10^{-4}\\,\\text{m}^3/\\text{mol} = 191{,}4\\,\\text{cm}^3/\\text{mol},$$\n$$b^2 = 4{,}0704\\cdot10^{-9}, \\qquad p_c = \\frac{0{,}5562}{27 \\cdot 4{,}0704\\cdot10^{-9}} = \\frac{0{,}5562}{1{,}09902\\cdot10^{-7}} = 5{,}061\\cdot10^{6}\\,\\text{Pa} = 5{,}061\\,\\text{MPa},$$\n$$T_c = \\frac{8 \\cdot 0{,}5562}{27 \\cdot 8{,}314 \\cdot 6{,}380\\cdot10^{-5}} = \\frac{4{,}4496}{1{,}43197\\cdot10^{-2}} = 310{,}7\\,\\text{K}.$$\n$$Z_c = \\frac{5{,}061\\cdot10^{6} \\cdot 1{,}9140\\cdot10^{-4}}{8{,}314 \\cdot 310{,}7} = \\frac{968{,}7}{2583{,}1} = 0{,}3750.$$\nDet stemmer ✔ — nøyaktig $3/8$, slik enhver van der Waals-gass skal gi.\n\n**b)** Ja. $290\\,\\text{K}$ ligger **under** $T_c = 310{,}7\\,\\text{K}$, så væskefasen finnes. Men marginen er bare $21$ kelvin, og det er lite: en varm sommerdag eller en tank i direkte sol kan lett bringe innholdet over den kritiske temperaturen, og da forsvinner væskefasen og trykket oppfører seg helt annerledes. **Etan er et grensetilfelle ved romtemperatur**, mye tettere på grensen enn propan ($T_c = 370\\,\\text{K}$).\n\n**c)** Kelvin er alt på plass. Med $T = 250{,}0\\,\\text{K}$ og $T_0 = 184{,}6\\,\\text{K}$:\n$$\\frac{1}{T}-\\frac{1}{T_0} = 4{,}00000\\cdot10^{-3} - 5{,}41712\\cdot10^{-3} = -1{,}41712\\cdot10^{-3}\\,\\text{K}^{-1},$$\n$$\\frac{l}{R} = \\frac{14700}{8{,}314} = 1768{,}1\\,\\text{K}, \\qquad \\text{eksponent} = +2{,}50561,$$\n$$p = 101{,}325 \\cdot e^{2{,}50561} = 101{,}325 \\cdot 12{,}2510 = 1241{,}3\\,\\text{kPa} = 1{,}241\\,\\text{MPa}.$$\n\nKontroll: $250{,}0\\,\\text{K}$ ligger over kokepunktet, så trykket skal være over én atmosfære ✔ — og godt under $p_c = 5{,}061\\,\\text{MPa}$, som det må være, siden vi fremdeles er under $T_c$ ✔.\n\n**d)** Her er celsius og kelvin likegyldig, siden bare $\\Delta T = 40{,}0\\,\\text{K}$ inngår:\n$$\\beta_\\text{stål} = 3\\alpha = 3{,}60\\cdot10^{-5}\\,\\text{K}^{-1},$$\n$$\\Delta V = \\beta V\\,\\Delta T = 3{,}60\\cdot10^{-5} \\cdot 5{,}00 \\cdot 40{,}0\\,\\text{m}^3 = 7{,}200\\cdot10^{-3}\\,\\text{m}^3 = 7{,}20\\,\\text{L}.$$\nAltså $0{,}144$ prosent — som ventet i promille-området.\n\n**e)** **Nei, det er ikke forsvarlig.** Tre grunner, i økende alvorlighet:\n\n1. **Væsken utvider seg mye mer enn tanken.** Flytende etan har en volumutvidelseskoeffisient i størrelsesorden $2\\cdot10^{-3}\\,\\text{K}^{-1}$ nær kokepunktet, altså om lag $55$ ganger stålets $3{,}60\\cdot10^{-5}$. En helt full tank varmet $40$ grader ville sprengt seg selv lenge før tanken rakk å gi etter.\n2. **Uten dampfase finnes ingen buffer.** Er tanken helt full av væske, er det ingen komprimerbar gass til å ta opp volumøkningen, og trykket stiger nesten momentant til langt over konstruksjonstrykket. Det er derfor slike tanker alltid fylles til en angitt fyllingsgrad, typisk $80$–$85$ prosent.\n3. **Den kritiske temperaturen ligger nær.** Overskrides $310{,}7\\,\\text{K}$, forsvinner væskefasen, og hele innholdet blir ett overkritisk fluid som fyller tanken. Da bestemmes trykket ikke lenger av damptrykkskurven, men av tettheten — og for en tank fylt til randen med væsketetthet blir det trykket enormt.\n\n**Konklusjonen er skarp:** tanken skal ha dampvolum over væsken, den skal ha trykkavlastningsventil, og den skal ikke lagres der den kan komme over $310\\,\\text{K}$.\n\n**Sluttsjekk over hele klyngen.** (i) $Z_c = 0{,}375$ ✔. (ii) Damptrykket ligger mellom $101{,}3\\,\\text{kPa}$ (kokepunktet) og $5{,}061\\,\\text{MPa}$ (kritisk trykk) ✔. (iii) Utvidelsen i promille-området ✔. (iv) Kelvin i a) og c), differanse i d) — og regelen skiftet nettopp mellom dem.",
+    "hints": [
+     "Ta a) som tre innsettinger og gjør $Z_c$-kontrollen før du går videre.",
+     "I c): kokepunktet er allerede i kelvin, men regn parentesen med fem siffer.",
+     "I d): bare $\\Delta T$ inngår, og tanken er en volumutvidelse — hvilken koeffisient?",
+     "I e): sammenlign væskens utvidelseskoeffisient med stålets, og tenk på hva som skjer uten dampvolum."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-10-3-warn-typiske-feil",
+   "type": "warning",
+   "title": "Typiske feil — hele T11–T13-repertoaret, og de fire tallfellene",
+   "content": "**Å bytte om $a$ og $b$** (felle #11 i sin faseoverganger-variant). $a$ retter **trykket** og har enheten $\\text{Pa}\\cdot\\text{m}^6/\\text{mol}^2$; $b$ retter **volumet** og har enheten $\\text{m}^3/\\text{mol}$. Enhetene skiller dem entydig.\n\n**Å blande de tre kritiske formlene.** Faktoren $8$ hører til $T_c$, faktoren $3$ til $V_c$, og $R$ står bare i $T_c$. **$Z_c$-kontrollen fanger alle tre på én gang** — den tar femten sekunder og er det beste enkeltgrepet i hele denne delen.\n\n**Å forveksle trippelpunkt og kritisk punkt.** Trippelpunktet: tre linjer møtes, lavt trykk, nede til venstre, setter en **nedre trykkgrense** for væske. Kritisk punkt: én linje slutter, høyt trykk, oppe til høyre, setter en **øvre temperaturgrense** for væske.\n\n**Å tro at det finnes væske under trippeltrykket.** Det gjør det ikke, ved noen temperatur.\n\n**Celsius i Clausius–Clapeyron.** Temperaturen står alene i $1/T$, altså i en eksponent, og feilen blir tierpotenser — ikke prosenter.\n\n**Men celsius i utvidelsesformlene er trygt.** Der inngår bare $\\Delta T$.\n\n**Feil fortegn i damptrykkseksponenten.** Damptrykket stiger med temperaturen, alltid. Er $T > T_0$, skal $p > p_0$.\n\n**$\\alpha$ mot $\\beta$.** $\\beta \\approx 3\\alpha$ — én dimensjon mot tre. Bruker du $\\beta$ i en lengdeformel, blir svaret nøyaktig tre ganger for stort, og faktoren tre ligger som et nabo-alternativ i praktisk talt hvert eneste utvidelsesspørsmål.\n\n**Å glemme at beholderen utvider seg.** Bare differansen renner over.\n\n**⚠ De fire tallfellene som lander deg på nabo-alternativet:**\n\n1. **$b^2$ og $b^3$ i de kritiske uttrykkene forsterker enhver avrunding.** Runder du $b$ til tre siffer før du kvadrerer, får du typisk en prosents feil i $p_c$ — nok til å bomme.\n2. **Parentesen $1/T - 1/T_0$ er en differanse mellom to nesten like tall.** For vann mellom $60$ og $100\\,^\\circ\\text{C}$ er de to reverstallene like på to siffer. **Behold fem.** Dette er det ene stedet i termodelen der fire siffer ikke rekker.\n3. **Enhetsomregningen må komme først.** Liter til $\\text{m}^3$, $\\text{cm}^3$ til $\\text{m}^3$, kJ/mol til J/mol, MPa til Pa, celsius til kelvin. Gjør du den midt i regningen, glemmer du den.\n4. **Faktorene $3$, $8$ og $27$ ligger alle som nabo-alternativer.** Et alternativ som er nøyaktig tre eller åtte ganger et annet, er nesten alltid en formelforveksling — og det betyr at ett av de to er riktig."
+  },
+  {
+   "id": "tfy4115-10-3-begrepsbank",
+   "type": "text",
+   "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+  },
+  {
+   "id": "tfy4115-10-3-bb-fire-spor",
+   "type": "definition",
+   "title": "De fire sporene i Del 10 — gjenkjenning på ti sekunder",
+   "content": "| Spor | Nøkkelord | Første grep | Kontroll |\n|---|---|---|---|\n| **1. van der Waals** | «$a$ og $b$», «kritisk punkt», «reell gass» | tre innsettinger, eller to ledd | $Z_c = 0{,}375$ |\n| **2. Fasediagram** | «hvilken fase», «trippelpunkt», «sublimerer» | plasser punktet, ikke regn | er $p$ under $p_t$? er $T$ over $T_c$? |\n| **3. Damptrykk** | «damptrykk», «koker ved», «fordampningsvarme» | kelvin, så $l/R$, så parentesen | høyere $T$ gir høyere $p$ |\n| **4. Utvidelse** | «hvor mye lengre», «renner over», «spalte» | $\\Delta T$ som differanse | svaret i promille-området |\n\n**Ti sekunder på å velge spor sparer deg to minutter på feil vei.** Sporene bruker helt ulike formler, og feil spor gir alltid feil svar — men sjelden et absurd et."
+  },
+  {
+   "id": "tfy4115-10-3-bb-zc-kontroll",
+   "type": "definition",
+   "title": "$Z_c$-kontrollen — femten sekunder som fanger fem feil",
+   "content": "$$Z_c = \\frac{p_cV_c}{nRT_c} = \\frac{3}{8} = 0{,}375 \\quad\\text{for enhver van der Waals-gass.}$$\n\nRegn alltid de tre kritiske størrelsene og sett dem inn. Får du noe annet enn $0{,}375$, har du minst én av dem gal — og du vet det før du krysser av.\n\n**Hvilke feil den fanger:**\n\n- faktoren $8$ satt i $p_c$ i stedet for $T_c$;\n- faktoren $3$ satt i $T_c$ i stedet for $V_c$;\n- $9$ i stedet for $27$;\n- $b$ i første potens der det skulle vært andre;\n- $R$ glemt eller doblet.\n\n**Hvilken den ikke fanger:** en avrundingsfeil i $b$ som forplanter seg til alle tre — den gir fremdeles $0{,}375$. Derfor holder du fire siffer uansett."
+  },
+  {
+   "id": "tfy4115-10-3-bb-fasediagram-fire-sporsmal",
+   "type": "definition",
+   "title": "Fasediagrammet: fire spørsmål, i rekkefølge",
+   "content": "1. **Er $p < p_t$?** → ingen væske mulig ved noen temperatur. Oppvarming gir sublimasjon.\n2. **Er $T > T_c$?** → ingen skarp væske–gass-grense. Stoffet er gass, eller overkritisk hvis også $p > p_c$.\n3. **Ellers:** hvilken side av smeltelinjen og damptrykkslinjen ligger punktet på? Oppe til venstre er fast, midten væske, høyre og nede gass.\n4. **Beveger oppgaven punktet?** Tegn ferden som en rett linje — vannrett er konstant trykk, loddrett er konstant temperatur — og noter hvilke linjer den krysser og i hvilken rekkefølge.\n\n**Ligger punktet PÅ en linje**, sameksisterer to faser, og temperaturen holder seg konstant mens overgangen pågår, uansett hvor mye varme du tilfører.\n\n**De to første spørsmålene alene avgjør de fleste flervalgsoppgavene**, og de krever ingen regning."
+  },
+  {
+   "id": "tfy4115-10-3-bb-arket-del-10",
+   "type": "definition",
+   "title": "Hva arket gir deg i Del 10 — og hva det ikke gir",
+   "content": "**Arket gir deg:** van der Waals-formen, de tre kritiske uttrykkene, Clausius–Clapeyron-formen, utvidelsesformlene og gasskonstanten. Pugg dem aldri — kjenn dem igjen og finn dem raskt.\n\n**Arket gir deg IKKE:**\n\n- hvilken konstant som hører til hvilket ledd ($a$ til trykk, $b$ til volum);\n- $Z_c = 0{,}375$-kontrollen, som ikke står noe sted;\n- rekkefølgen som gir minst avrunding;\n- hvilken temperaturskala som kreves hvor;\n- avlesningen av et fasediagram, som er ren forståelse;\n- vurderingen av om svaret i det hele tatt er fysisk mulig.\n\n**Løs alltid oppgaver med formelarket og Rottmann ved siden av, slik eksamen faktisk er.** Å lete etter en formel første gang under tidspress koster et halvt minutt du ikke har."
+  },
+  {
+   "id": "tfy4115-10-3-bb-sifferdisiplin-del10",
+   "type": "definition",
+   "title": "Sifferdisiplinen i Del 10 — hvor fire ikke rekker",
+   "content": "| Regning | Siffer å beholde | Hvorfor |\n|---|---|---|\n| $V_c = 3nb$ | fire | ren multiplikasjon |\n| $p_c = a/(27b^2)$ | **fire i $b$ før kvadreringen** | kvadratet dobler relativ feil |\n| $T_c = 8a/(27Rb)$ | fire | ren divisjon |\n| $1/T - 1/T_0$ | **fem** | differanse mellom nesten like tall |\n| $\\Delta L = \\alpha L\\Delta T$ | tre holder | ren multiplikasjon, ingen forsterkning |\n\n**Regelen bak tabellen:** en potensering ganger den relative feilen med eksponenten, og en differanse mellom nesten like tall spiser gjeldende siffer. Begge deler skjer i Del 10, og de skjer på hvert sitt sted.\n\n**Sluttsvaret oppgis med to eller tre siffer**, uansett hvor mange du beholdt underveis."
+  },
+  {
+   "id": "tfy4115-10-3-bb-fortegn-del10",
+   "type": "definition",
+   "title": "Fortegnskontrollene i Del 10",
+   "content": "Fem kontroller som tar ett sekund hver, og som fanger de fleste blunderne:\n\n1. **Damptrykk:** $T > T_0 \\Rightarrow p > p_0$. Alltid, for alle stoffer.\n2. **van der Waals ved moderat tetthet:** trykket ligger **under** det ideelle, fordi tiltrekningen dominerer. Ved svært sterk kompresjon snur det.\n3. **Termisk utvidelse:** oppvarming gir vekst, også for hull.\n4. **Overløp:** mindre enn væskens egen utvidelse, siden beholderen tar unna noe.\n5. **Fasediagram:** høyere trykk favoriserer den tetteste fasen — som for vann er væsken, ikke isen.\n\n**Kontroll 1 alene stryker ofte halve alternativsettet** i en damptrykksoppgave."
+  },
+  {
+   "id": "tfy4115-10-3-bb-storrelsesorden-del10",
+   "type": "definition",
+   "title": "Størrelsesorden i Del 10 — seks grenser",
+   "content": "1. **$T_c$ ligger over kokepunktet** ved én atmosfære, typisk $1{,}3$ til $1{,}8$ ganger så høyt i kelvin.\n2. **$p_c$ ligger mellom $0{,}2$ og $25\\,\\text{MPa}$** for vanlige stoffer.\n3. **$V_c = 3b$ ligger på $70$–$280\\,\\text{cm}^3/\\text{mol}$** for småmolekyler.\n4. **Termisk utvidelse er promiller**, aldri prosenter. Et svar i centimeter på en meterlang stang er en tierpotens for mye.\n5. **Damptrykk ved romtemperatur** ligger fra noen få kilopascal (vann) til noen hundre (kondenserte gasser).\n6. **$l_\\text{ford}$ ligger mellom $10$ og $45\\,\\text{kJ/mol}$** for vanlige stoffer — helium og hydrogen langt under, vann i toppen.\n\nGrensene er ikke fasit; de er **eliminasjonsverktøy**. Et alternativ som bryter en av dem, kan strykes uten regning."
+  },
+  {
+   "id": "tfy4115-10-3-bb-tidsbudsjett-del10",
+   "type": "definition",
+   "title": "Tidsbudsjett for Del 10 i eksamenstempo",
+   "content": "Med $40$ spørsmål på fire timer er budsjettet omtrent seks minutter per spørsmål. Del 10 skal ta mindre, og den sparte tiden går til kretsprosess-klyngen.\n\n| Spor | Tid | Hva tiden går til |\n|---|---|---|\n| Fasediagram | under ett minutt | plassering, ingen regning |\n| Utvidelse | under ett minutt | én multiplikasjon |\n| Kritisk punkt | ett til to minutter | tre innsettinger pluss $Z_c$-kontroll |\n| van der Waals-trykk | to minutter | to ledd, enhetsomregning |\n| Damptrykk | to til tre minutter | parentesen med fem siffer |\n\n**Kommer du over disse tidene, er det nesten alltid fordi enhetene ikke ble ordnet først.** Bruk de ti første sekundene på det, hver gang."
+  },
+  {
+   "id": "tfy4115-10-3-coll-symbolliste",
+   "type": "collapsible",
+   "title": "Symbol- og formelliste",
+   "buttonText": "Vis symboler og formler",
+   "content": [
+    {
+     "id": "tfy4115-10-3-symbolliste-tekst",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n**Kolliderende symboler i dette delkapitlet — les nøye.**\n\n- $p$ er **trykk** i pascal, en skalar. I mekanikkhalvdelen er $\\mathbf{p}$ bevegelsesmengde, en vektor; den opptrer ikke her.\n- $T$ er **temperatur**, aldri svingetid. Kelvin i sporene 1–3, differanse i spor 4.\n- $R$ er **gasskonstanten**, ikke radius og ikke den termiske motstanden $R_\\text{term}$ fra [kap. 9.1](/tfy4115/tfy4115-9-1).\n- $a$ og $b$ er **van der Waals-konstanter**; $a$ er ikke akselerasjon, og $b$ er ikke Wien-konstanten fra [kap. 9.2](/tfy4115/tfy4115-9-2) eller dempingskonstanten fra [kap. 5.2](/tfy4115/tfy4115-5-2). Skilleregelen er enheten.\n- $\\alpha$ og $\\beta$ er **utvidelseskoeffisienter** i $\\text{K}^{-1}$; $\\alpha$ er ikke vinkelakselerasjon, og $\\beta$ er ikke banevinkel.\n- $l$ (liten) er **molar** latent varme i $\\text{J/mol}$. $L$ (stor) brukes her om **lengde** i meter; i [kap. 8.2](/tfy4115/tfy4115-8-2) betydde $L$ spesifikk latent varme i $\\text{J/kg}$. Sammenhengen er $l = LM$.\n- $V$ er volum, $\\dot{V}$ volumstrøm, $v$ fart. $S$ og $\\gamma$ opptrer ikke her.\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $p$ | Trykk eller damptrykk | Pa |\n| $V$ | Volum | $\\text{m}^3$ |\n| $n$ | Stoffmengde | mol |\n| $T$ | Absolutt temperatur (spor 1–3) | K |\n| $\\Delta T$ | Temperaturdifferanse (spor 4) — celsius trygt | K |\n| $R$ | Gasskonstanten, $8{,}314$ | $\\text{J/(mol}\\cdot\\text{K)}$ |\n| $a$ | van der Waals' tiltrekningskonstant | $\\text{Pa}\\cdot\\text{m}^6/\\text{mol}^2$ |\n| $b$ | van der Waals' egenvolum per mol | $\\text{m}^3/\\text{mol}$ |\n| $V_c$, $p_c$, $T_c$ | Kritisk volum, trykk og temperatur | $\\text{m}^3$, Pa, K |\n| $T_t$, $p_t$ | Trippelpunktets temperatur og trykk | K, Pa |\n| $Z_c$ | Kompressibilitetsfaktor i kritisk punkt, $3/8$ | — |\n| $l$ | Molar latent varme | J/mol |\n| $L$ | Lengde | m |\n| $\\alpha$ | Lengdeutvidelseskoeffisient | $\\text{K}^{-1}$ |\n| $\\beta$ | Volumutvidelseskoeffisient, $\\approx 3\\alpha$ | $\\text{K}^{-1}$ |\n| $c$ | Spesifikk varmekapasitet | $\\text{J/(kg}\\cdot\\text{K)}$ |\n| $\\rho$ | Tetthet | $\\text{kg/m}^3$ |\n| $\\dot{V}$ | Volumstrøm | $\\text{m}^3/\\text{s}$ |\n\n**Formler i dette delkapitlet:**\n\n$$p = \\frac{nRT}{V-nb} - \\frac{an^2}{V^2}$$\nvan der Waals; $n$ i det første leddet, $n^2$ i det andre [står på det utdelte arket].\n\n$$V_c = 3nb, \\qquad p_c = \\frac{a}{27b^2}, \\qquad T_c = \\frac{8a}{27Rb}$$\nDet kritiske punktet [står på det utdelte arket].\n\n$$Z_c = \\frac{p_cV_c}{nRT_c} = 0{,}375, \\qquad b = \\frac{RT_c}{8p_c}, \\qquad a = 27b^2p_c$$\nKontrollen og veien baklengs [må kunne brukes eller utledes aktivt].\n\n$$p = p_0\\exp\\left[-\\frac{l}{R}\\left(\\frac{1}{T}-\\frac{1}{T_0}\\right)\\right], \\qquad \\frac{1}{T} = \\frac{1}{T_0}-\\frac{R}{l}\\ln\\frac{p}{p_0}$$\nClausius–Clapeyron integrert, begge veier — **kelvin** [står på det utdelte arket].\n\n$$\\frac{dp}{dT} = \\frac{l}{T\\,\\Delta V} = \\frac{l\\,p}{RT^2}$$\nHelningen på koeksistenslinjen; fortegnet er fortegnet på $\\Delta V$ [står på det utdelte arket].\n\n$$\\Delta L = \\alpha L\\,\\Delta T, \\qquad \\Delta V = \\beta V\\,\\Delta T, \\qquad \\beta \\approx 3\\alpha$$\nTermisk utvidelse — celsius trygt [står på det utdelte arket].\n\n$$\\Delta V_\\text{overløp} = \\left(\\beta_\\text{væske}-\\beta_\\text{beholder}\\right)V\\,\\Delta T$$\nBare den relative utvidelsen renner over [må kunne brukes eller utledes aktivt].\n\n$$P = c\\rho\\dot{V}\\,\\Delta T$$\nVarmestrøm i et strømmende medium [står på det utdelte arket].\n\n$$\\ln\\frac{x}{y} = \\ln x - \\ln y, \\qquad e^{\\ln x} = x$$\nLogaritmereglene damptrykksregningen hviler på [Rottmann]."
+    }
+   ]
+  },
+  {
+   "id": "tfy4115-10-3-coll-repetisjon",
+   "type": "collapsible",
+   "title": "Repetisjonsoppgaver",
+   "buttonText": "Vis repetisjonsoppgaver",
+   "content": [
+    {
+     "id": "tfy4115-10-3-repetisjon-tekst",
+     "type": "text",
+     "content": "Seks korte oppgaver på det dette kapitlet hviler på. Ta dem før du går videre til prøvene i Del 10.\n\n**R1.** En gass har $a = 0{,}1370$ og $b = 3{,}870\\cdot10^{-5}$ i SI-enheter. Finn $T_c$.\n\n*Svar:* $T_c = 8 \\cdot 0{,}1370/(27 \\cdot 8{,}314 \\cdot 3{,}870\\cdot10^{-5}) = \\frac{1{,}0960}{8{,}68617\\cdot10^{-3}} = 126{,}2\\,\\text{K}$. (Nitrogen.)\n\n**R2.** Samme gass: finn $p_c$ og kontroller med $Z_c$.\n\n*Svar:* $b^2 = 1{,}49769\\cdot10^{-9}$, så $p_c = 0{,}1370/(4{,}04376\\cdot10^{-8}) = 3{,}388\\cdot10^{6}\\,\\text{Pa}$. Med $V_c = 1{,}1610\\cdot10^{-4}$ blir $Z_c = 3{,}388\\cdot10^{6} \\cdot 1{,}1610\\cdot10^{-4}/(8{,}314 \\cdot 126{,}2) = 393{,}3/1049{,}2 = 0{,}3749$, altså $3/8$ innenfor avrunding.\n\n**R3.** Et stoff har trippelpunkt ved $3{,}00\\,\\text{kPa}$. Hva skjer når det faste stoffet varmes ved $1{,}00\\,\\text{kPa}$?\n\n*Svar:* $1{,}00 < 3{,}00\\,\\text{kPa}$, altså under trippeltrykket. Ingen væskefase er mulig; stoffet sublimerer.\n\n**R4.** Vann koker ved $373{,}15\\,\\text{K}$ ved $101{,}325\\,\\text{kPa}$, med $l = 40{,}66\\,\\text{kJ/mol}$. Finn damptrykket ved $50{,}0\\,^\\circ\\text{C}$.\n\n*Svar:* $1/323{,}15 - 1/373{,}15 = 3{,}09454\\cdot10^{-3} - 2{,}67989\\cdot10^{-3} = 4{,}14651\\cdot10^{-4}$. Eksponent $= -4890{,}5 \\cdot 4{,}14651\\cdot10^{-4} = -2{,}02787$, og $p = 101{,}325 \\cdot 0{,}131618 = 13{,}34\\,\\text{kPa}$.\n\n**R5.** En aluminiumsplate har hull med diameter $40{,}00\\,\\text{mm}$ og varmes $150\\,\\text{K}$. ($\\alpha = 23\\cdot10^{-6}\\,\\text{K}^{-1}$.) Hva blir diameteren?\n\n*Svar:* $\\Delta d = 23\\cdot10^{-6} \\cdot 40{,}00 \\cdot 150 = 0{,}1380\\,\\text{mm}$, altså $40{,}14\\,\\text{mm}$. Hullet blir **større**.\n\n**R6.** Et rør fører $1{,}80\\,\\text{L/s}$ vann som avkjøles $30{,}0\\,\\text{K}$. Hvor stor effekt leveres?\n\n*Svar:* $P = 4186 \\cdot 1000 \\cdot 1{,}80\\cdot10^{-3} \\cdot 30{,}0 = 2{,}260\\cdot10^{5}\\,\\text{W} = 226\\,\\text{kW}$."
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}

@@ -1,0 +1,439 @@
+{
+ "id": "tfy4115-8-2",
+ "courseId": "tfy4115",
+ "chapterNumber": "8.2",
+ "title": "Varmepumpe og kjøleskap — effektfaktor",
+ "description": "Kretsprosessen baklengs: effektfaktor for oppvarming ($\\varepsilon_V$) og kjøling ($\\varepsilon_K$), Carnot-grensen, og praktiske reservoar-/kompressoroppsett.",
+ "estimatedMinutes": 55,
+ "competenceGoals": [
+  "regne effektfaktoren for oppvarming og for kjøling, og velge riktig av de to ut fra hva som er nytten i oppgaven",
+  "bruke energibalansen over en syklus til å finne kompressorarbeid, varme flyttet eller varme avgitt",
+  "regne Carnot-grensen for en varmepumpe med alle temperaturer i kelvin, og forklare hvorfor et svar under 1 er umulig",
+  "bygge effektfaktoren fra et praktisk oppsett med vannmengde, temperaturheving, kompressoreffekt og tid"
+ ],
+ "content": [
+  {
+   "id": "tfy4115-8-2-tip-eksamensvinkel",
+   "type": "tip",
+   "title": "Eksamensvinkel",
+   "content": "**Sjanger T6 — varmepumpe- og kjøleskapsoppgaven, altså en kretsprosess kjørt baklengs der du skal finne effektfaktoren, kompressorarbeidet eller varmen som blir flyttet — dukker opp i om lag 9 av 10 sett (~90 %).** Den hører til **termofysikkhalvdelen, spørsmål 21–40**, og kommer nesten alltid rett etter eller sammen med kretsprosessklyngen fra [kap. 8.1](/tfy4115/tfy4115-8-1). Prioritet: **høyeste — dette må sitte.**\n\nSignaturen er kort: du får to temperaturer og enten en varmeeffekt eller et kompressorarbeid, og skal finne den tredje størrelsen gjennom **effektfaktoren**. Eller du får en oppgitt effektfaktor og skal sjekke den mot Carnot-grensen for en varmepumpe.\n\n**Ordforklaringer først.** En **varmepumpe** er en maskin som bruker arbeid til å flytte varme fra et kaldt sted til et varmt. Et **kjøleskap** er den samme maskinen — forskjellen ligger bare i hva du er interessert i: varmen som kommer UT i det varme rommet (varmepumpe), eller varmen som blir FJERNET fra det kalde (kjøleskap). **Effektfaktoren** (også kalt COP, fra engelsk *coefficient of performance*) er forholdet mellom det du er interessert i, og arbeidet du måtte betale for. **Kompressoren** er pumpa som gjør arbeidet.\n\n**Den ene tingen som skiller denne sjangeren fra alle andre:** effektfaktoren er **større enn 1**. En varmepumpe med effektfaktor $3{,}50$ leverer tre og en halv gang så mye varme som den elektriske energien du putter inn. Det er ikke juks og ikke et brudd på energibevaring — pumpa **flytter** varme, den lager den ikke. Resten kommer fra uteluften.\n\n**Tre feil koster nesten alle poengene her.** Den første er å tro at effektfaktoren må være under 1, «fordi virkningsgrad alltid er det», og «rette» et riktig svar på $4{,}00$ til $0{,}25$. Den andre er å regne **$\\varepsilon_V$ når $\\varepsilon_K$ var spurt** — de skiller seg med nøyaktig 1. Den tredje er **celsius i Carnot-grensen**, og her er den ekstra brutal: den gir en effektfaktor **under** 1, altså et svar som er fysisk umulig for en varmepumpe.\n\n## ⚠ Symbolvarsel\n\n$T$ er **absolutt temperatur i kelvin** i hele dette kapitlet — Carnot-grensene er brøker av temperaturer og tåler ikke celsius. $Q$ er **varme i joule**, ikke kvalitetsfaktoren fra [kap. 5.2](/tfy4115/tfy4115-5-2). $\\varepsilon$ (epsilon) er **effektfaktoren**, dimensjonsløs, og skal ikke forveksles med emissiviteten $e$ som kommer i [kap. 9.2](/tfy4115/tfy4115-9-2). $c$ er **spesifikk varmekapasitet** i $\\text{J/(kg}\\cdot\\text{K)}$, per kilogram, ikke per mol som $C_V$."
+  },
+  {
+   "id": "tfy4115-8-2-forkunnskaper",
+   "type": "text",
+   "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet bygger direkte på [kap. 8.1](/tfy4115/tfy4115-8-1). Du trenger fire ting derfra, og de står her:\n\n$$\\Delta U_\\text{syklus} = 0 \\quad\\Longrightarrow\\quad |Q_H| = |Q_L| + W$$\n**Energibalansen over en syklus.** For en varmepumpe leser du den slik: varmen som kommer ut i det varme rommet, er summen av varmen som ble hentet fra det kalde, og arbeidet kompressoren gjorde. Det er denne ene likningen hele kapitlet hviler på.\n\n$$\\eta = \\frac{W_\\text{netto}}{Q_\\text{inn}}, \\qquad \\eta_\\text{Carnot} = 1 - \\frac{T_k}{T_v}$$\n**Virkningsgrad og Carnot-grensen for en maskin.** Vi kommer til å snu begge om til pumpeformer.\n\n$$\\text{medklokke i } pV \\Rightarrow \\text{maskin}, \\qquad \\text{motklokke} \\Rightarrow \\text{pumpe}$$\n**Omløpsretningen.** Den er den raskeste måten å avgjøre hvilken av de to formelfamiliene du skal bruke.\n\n$$\\Delta S_\\text{univers} \\ge 0$$\n**Andre hovedsetning.** Den er grunnen til at effektfaktoren har et tak, akkurat som virkningsgraden har det. Entropien behandles i full bredde i kap. 7.2.\n\n**Nytt i dette kapitlet** er den spesifikke varmekapasiteten per kilogram,\n$$Q = mc\\,\\Delta T, \\qquad c_\\text{vann} = 4180\\,\\text{J/(kg}\\cdot\\text{K)},$$\nsom du trenger når oppgaven handler om å varme opp vann i en tank i stedet for om en ideell gass. Merk forskjellen fra $C_V$ og $C_P$, som er per **mol**. Har du hatt Fysikk 1 på videregående, har du møtt $Q = mc\\Delta T$ der.\n\nBoka bruker $R = 8{,}314\\,\\text{J/(mol}\\cdot\\text{K)}$ og **behold fire gjeldende siffer gjennom hele regnekjeden**."
+  },
+  {
+   "id": "tfy4115-8-2-lokke1",
+   "type": "text",
+   "content": "## Løkke 1 — maskinen baklengs, og hvorfor tallet blir større enn 1 (~14 min)\n\nLegg hånda bak kjøleskapet. Der er det varmt. Kjøleskapet kjøler ikke ned kjøkkenet — det **varmer det opp**, og det varmer det opp med mer energi enn det bruker strøm til, fordi det i tillegg flytter varme ut av matvarene. Et kjøleskap er en varmepumpe der du har snudd deg mot den kalde siden.\n\n*Intuisjon:* tenk på en vannpumpe. Den lager ikke vann; den flytter vann oppover, og den kan flytte mange liter for hver joule den bruker. En varmepumpe gjør det samme med varme — den flytter den fra et kaldt sted til et varmt, og arbeidet er bare det som trengs for å tvinge varmen «oppover» mot sin naturlige retning.\n\nEnergiregnskapet er identisk med maskinens, bare lest baklengs. Over én syklus er $\\Delta U = 0$, så\n\n$$|Q_H| = |Q_L| + W,$$\n\nder $W$ nå er arbeid tilført utenfra. Alle tre er positive tall når vi skriver dem med absoluttverdi, og likningen sier: **det som kommer ut på den varme siden, er summen av det som kom inn på den kalde siden og arbeidet.**"
+  },
+  {
+   "id": "tfy4115-8-2-def-varmepumpe",
+   "type": "definition",
+   "title": "Varmepumpe",
+   "content": "En maskin som bruker tilført arbeid $W$ til å flytte varme $|Q_L|$ fra et kaldt reservoar til et varmt, og som derfor avgir $|Q_H| = |Q_L| + W$ til det varme. Den kjøres som en kretsprosess **motklokke** i $pV$-diagrammet.\n\nNyttevirkningen er varmen som kommer ut i det varme rommet, og den måles med **effektfaktoren for oppvarming** $\\varepsilon_V = |Q_H|/W$. Betingelsen for at det er en varmepumpe og ikke en maskin, er bare omløpsretningen — den samme fysiske innretningen kan brukes begge veier. En luft-til-luft-varmepumpe i en norsk stue er nettopp dette: et kjøleskap som er montert med den kalde siden ut."
+  },
+  {
+   "id": "tfy4115-8-2-def-kjoleskap",
+   "type": "definition",
+   "title": "Kjøleskap (kjølemaskin)",
+   "content": "Fysisk den samme maskinen som en varmepumpe: arbeid inn, varme flyttet fra kaldt til varmt. Forskjellen er utelukkende **hva som er nyttevirkningen**. For et kjøleskap er det varmen som fjernes fra det kalde rommet, $|Q_L|$, og effektfaktoren blir\n$$\\varepsilon_K = \\frac{|Q_L|}{W}.$$\nDerfor er $\\varepsilon_K$ alltid mindre enn $\\varepsilon_V$ for samme maskin — nøyaktig 1 mindre. **Les alltid hvilken av de to oppgaven spør om**, for de står nesten alltid begge på alternativlista. Et kjøleskap avgir $|Q_H| = |Q_L| + W$ til kjøkkenet, altså mer varme enn det fjerner fra maten."
+  },
+  {
+   "id": "tfy4115-8-2-def-epsV",
+   "type": "definition",
+   "title": "Effektfaktor for oppvarming",
+   "content": "$$\\varepsilon_V = \\frac{|Q_H|}{W} = \\frac{\\text{varmen du får i huset}}{\\text{arbeidet du betaler for}}.$$\nDen er **dimensjonsløs** og **alltid større enn 1**, siden $|Q_H| = |Q_L| + W > W$ når det i det hele tatt flyttes varme. Typiske verdier for en virkelig luft-til-luft-pumpe i norsk klima er $2$ til $4$; en bergvarmepumpe kan komme over $4$.\n\n⚠ **Dette er den viktigste enkeltopplysningen i kapitlet.** Et tall over 1 er ikke en feil her — det er normen. En student som «retter» en effektfaktor på $4{,}00$ til $0{,}25$ fordi «virkningsgrad må være under 1», har mistet hele poenget: en varmepumpe **flytter** varme, og flyttejobben er billigere enn å lage varmen fra grunnen av. Ingen energi er skapt: resten kommer fra uteluften. Betingelsen som ALDRI brytes, er energibevaring, og den er innebygd i $|Q_H| = |Q_L| + W$. [står på det utdelte arket]"
+  },
+  {
+   "id": "tfy4115-8-2-def-epsK",
+   "type": "definition",
+   "title": "Effektfaktor for kjøling",
+   "content": "$$\\varepsilon_K = \\frac{|Q_L|}{W} = \\frac{\\text{varmen du fjerner fra det kalde}}{\\text{arbeidet du betaler for}}.$$\nDimensjonsløs, og **vanligvis** større enn 1 — men her er betingelsen viktig: $\\varepsilon_K > 1$ krever $|Q_L| > W$, og det er ikke automatisk. Presses temperaturforskjellen stor nok (en dypfryser mot en varm sommerdag, eller en kryokjøler), kan $\\varepsilon_K$ komme under 1. Det er $\\varepsilon_V$ som er større enn 1 uansett.\n\nSammenhengen med den andre effektfaktoren er alltid\n$$\\varepsilon_V = \\varepsilon_K + 1.$$\n[står på det utdelte arket]"
+  },
+  {
+   "id": "tfy4115-8-2-def-kompressor",
+   "type": "definition",
+   "title": "Kompressor og kuldemedium",
+   "content": "**Kompressoren** er innretningen som gjør arbeidet $W$: den komprimerer kuldemediet og hever dermed temperaturen over det varme reservoarets, slik at varme kan strømme ut. **Kuldemediet** er arbeidsstoffet som sirkulerer — i virkelige pumper en væske som fordamper og kondenserer, i eksamensoppgaver oftest en ideell gass.\n\nI regnskapet er kompressoren bare $W$ i nevneren. Det du må huske, er at **kompressorarbeidet ALLTID står i nevneren** — både i $\\varepsilon_V$ og i $\\varepsilon_K$. Å sette varmen i nevneren gir den omvendte brøken, og et tall under 1 der svaret skulle vært over."
+  },
+  {
+   "id": "tfy4115-8-2-fig-energiflyt",
+   "type": "image",
+   "src": "/images/textbook/tfy4115/tfy4115-8-2-energiflyt.svg",
+   "alt": "Et energiflytdiagram. Oeverst en roed boks merket varmt reservoar inne i huset ved 294 kelvin. Nederst en blaa boks merket kaldt reservoar uteluften ved 268 kelvin. I midten en graa boks merket varmepumpe med kompressor og delta U lik null per syklus. En bred blaa pil peker oppover fra det kalde reservoaret inn i pumpa, merket Q L lik 5 komma 71 kilowatt. En bred roed pil peker oppover fra pumpa til det varme reservoaret, merket Q H lik 8 komma 00 kilowatt. En groenn pil peker inn fra venstre til pumpa, merket W lik 2 komma 29 kilowatt elektrisk arbeid inn. Til hoeyre staar likningene Q H lik Q L pluss W, epsilon V lik 3 komma 50 og epsilon K lik 2 komma 50.",
+   "caption": "Energiflyten i en varmepumpe. Legg merke til at pila ut på toppen er **bredere** enn pila inn fra siden: du får mer varme ut enn du putter inn elektrisk arbeid. Differansen er varmen fra uteluften, og derfor er $\\varepsilon_V > 1$ uten at noen energi er skapt."
+  },
+  {
+   "id": "tfy4115-8-2-th-epsrel",
+   "type": "theorem",
+   "title": "$\\varepsilon_V = \\varepsilon_K + 1$",
+   "content": "**Påstand:** for én og samme maskin er effektfaktoren for oppvarming nøyaktig 1 større enn effektfaktoren for kjøling.\n\n**Utledning.** Start i energibalansen over en syklus, $|Q_H| = |Q_L| + W$, og del alt på $W$:\n$$\\frac{|Q_H|}{W} = \\frac{|Q_L|}{W} + \\frac{W}{W} \\quad\\Longrightarrow\\quad \\varepsilon_V = \\varepsilon_K + 1.$$\nDet er hele utledningen — én divisjon.\n\n*Intuisjon:* varmen som kommer ut på den varme siden, er varmen du hentet PLUSS arbeidet du betalte. Arbeidet blir selv varme til slutt, og det teller med i $|Q_H|$ men ikke i $|Q_L|$. Differansen er nøyaktig ett arbeid, og delt på arbeidet blir det 1.\n\n**Betingelser:** likningen gjelder for én bestemt maskin med ett bestemt arbeid og én bestemt syklus. Den gjelder også for Carnot-grensene hver for seg:\n$$\\varepsilon_{V,\\text{Carnot}} = \\frac{T_v}{T_v - T_k} = \\frac{T_k}{T_v - T_k} + 1 = \\varepsilon_{K,\\text{Carnot}} + 1.$$\n\n**Bruk den som kontroll.** Har du regnet én av de to, får du den andre gratis — og hvis du har regnet begge uavhengig og de ikke skiller seg med nøyaktig 1, har du gjort en feil et sted. [må kunne brukes eller utledes aktivt]"
+  },
+  {
+   "id": "tfy4115-8-2-o-1",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-8-2-oppg-1",
+    "number": 1,
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Innstegsoppgave — begreper og energibalanse.)\n\n**a)** En varmepumpe bruker $1{,}50\\,\\text{kW}$ elektrisk effekt og leverer $5{,}40\\,\\text{kW}$ varme til et hus. Finn $\\varepsilon_V$.\n\n**b)** Hvor mye varme hentes fra uteluften per sekund?\n\n**c)** Finn $\\varepsilon_K$ for den samme maskinen, og kontroller sammenhengen mellom de to.\n\n**d)** Forklar i én til to setninger hvorfor $\\varepsilon_V > 1$ ikke bryter energibevaring.",
+    "solution": "**a)**\n$$\\varepsilon_V = \\frac{|Q_H|}{W} = \\frac{5{,}40\\,\\text{kW}}{1{,}50\\,\\text{kW}} = 3{,}600.$$\nMerk at effektene kan settes rett inn — effektfaktoren er et forhold, så det er det samme om du bruker energi per syklus eller effekt.\n\n**b)** Fra $|Q_H| = |Q_L| + W$:\n$$|\\dot Q_L| = 5{,}40 - 1{,}50 = 3{,}90\\,\\text{kW}.$$\n\n**c)**\n$$\\varepsilon_K = \\frac{|\\dot Q_L|}{W} = \\frac{3{,}90}{1{,}50} = 2{,}600.$$\nKontroll: $\\varepsilon_V - \\varepsilon_K = 3{,}600 - 2{,}600 = 1{,}000$ ✔ — nøyaktig 1, som det skal.\n\n**d)** Fordi pumpa ikke LAGER de $5{,}40\\,\\text{kW}$ — den flytter $3{,}90\\,\\text{kW}$ fra uteluften og legger til $1{,}50\\,\\text{kW}$ elektrisk arbeid. Energien inn i pumpa er $3{,}90 + 1{,}50 = 5{,}40\\,\\text{kW}$, og energien ut er $5{,}40\\,\\text{kW}$. Regnskapet balanserer helt. Det som er «over 1», er ikke en virkningsgrad, men et forhold mellom nytte og betaling.",
+    "hints": [
+     "Effektfaktoren har arbeidet i nevneren, alltid.",
+     "Energibalansen over en syklus er $|Q_H| = |Q_L| + W$.",
+     "De to effektfaktorene skiller seg med et bestemt tall — hvilket?"
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-8-2-o-2",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-8-2-oppg-2",
+    "number": 2,
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger T6 — varmepumpe- og kjøleskapsoppgaven.) Et kjøleskap fjerner $180\\,\\text{W}$ varme fra kjøleskapsrommet og har $\\varepsilon_K = 3{,}20$.\n\n**a)** Hvilken elektrisk effekt bruker kompressoren?\n\n**b)** Hvor mye varme avgir kjøleskapet til kjøkkenet per sekund?\n\n**c)** Hvor lang tid tar det å fryse $0,500\\,\\text{kg}$ vann som alt er ved $0\\,^\\circ\\text{C}$, hvis all kjøleeffekten går til det? Smeltevarmen til vann er $L_f = 3{,}34\\cdot10^5\\,\\text{J/kg}$.",
+    "solution": "**a)** Kompressorarbeidet står i nevneren, så vi snur brøken:\n$$W = \\frac{|\\dot Q_L|}{\\varepsilon_K} = \\frac{180\\,\\text{W}}{3{,}20} = 56{,}25\\,\\text{W}.$$\n\n**b)**\n$$|\\dot Q_H| = |\\dot Q_L| + W = 180 + 56{,}25 = 236{,}25\\,\\text{W}.$$\nKontroll med den andre effektfaktoren: $\\varepsilon_V = \\varepsilon_K + 1 = 4{,}20$, og $\\varepsilon_V W = 4{,}20 \\cdot 56{,}25 = 236{,}25\\,\\text{W}$ ✔.\n\nLegg merke til hva dette betyr: kjøleskapet **avgir mer varme til kjøkkenet enn det fjerner fra maten**. Du kan ikke kjøle ned et rom ved å la kjøleskapsdøra stå åpen — netto blir rommet varmere, med nøyaktig kompressoreffekten.\n\n**c)** Varmen som må fjernes:\n$$Q = mL_f = 0,500 \\cdot 3{,}34\\cdot10^5\\,\\text{J} = 167{,}0\\,\\text{kJ}.$$\n$$t = \\frac{Q}{|\\dot Q_L|} = \\frac{167000\\,\\text{J}}{180\\,\\text{W}} = 927{,}8\\,\\text{s} = 15{,}46\\,\\text{min}.$$\n\n**Enhetskontroll:** J delt på W er $\\text{J}/(\\text{J/s}) = \\text{s}$ ✔.\n\n**Sluttsjekk:** et kvarter for å fryse en halv liter er raskere enn et virkelig kjøleskap klarer — og det er riktig, siden vi antok at ALL kjøleeffekten går til isen. I virkeligheten går mesteparten til å holde resten av skapet kaldt.",
+    "hints": [
+     "Effektfaktoren har alltid arbeidet i nevneren — snu brøken for å finne $W$.",
+     "$|Q_H| = |Q_L| + W$, og kontroller med $\\varepsilon_V = \\varepsilon_K + 1$.",
+     "Frysing ved konstant temperatur krever $Q = mL_f$, ikke $mc\\Delta T$."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-8-2-lokke2",
+   "type": "text",
+   "content": "## Løkke 2 — Carnot-grensene for en pumpe (~14 min)\n\nAkkurat som virkningsgraden har et tak, har effektfaktoren det. Og taket har samme opphav: entropiregnskapet.\n\n*Intuisjon:* varmen du henter fra uteluften ved $T_k$, bærer entropi $|Q_L|/T_k$ med seg. Den entropien må ut igjen med varmen som avgis ved $T_v$, altså $|Q_H|/T_v$. Arbeid bærer ingen entropi. Skal regnskapet minst gå opp, må $|Q_H|/T_v \\ge |Q_L|/T_k$, og det setter en øvre grense for hvor mye varme du kan flytte per joule arbeid.\n\nRegner du det ut, får du to grenser som er verdt å kunne utenat i formen — ikke i tallverdi, siden de står på arket:\n\n$$\\varepsilon_{V,\\text{Carnot}} = \\frac{T_v}{T_v - T_k}, \\qquad \\varepsilon_{K,\\text{Carnot}} = \\frac{T_k}{T_v - T_k}.$$\n\n**Legg merke til hva som står i nevneren: temperaturDIFFERANSEN.** Det er den som avgjør. Skal du flytte varme over en liten temperaturforskjell, er det billig og effektfaktoren blir stor. Skal du flytte den langt, blir det dyrt."
+  },
+  {
+   "id": "tfy4115-8-2-th-carnotpumpe",
+   "type": "theorem",
+   "title": "Carnot-effektfaktorene, utledet fra entropiregnskapet",
+   "content": "**Påstand:** ingen varmepumpe mellom reservoarene $T_v$ og $T_k$ kan ha $\\varepsilon_V$ større enn $T_v/(T_v-T_k)$.\n\n**Utledning.** Kjør en Carnot-syklus baklengs. Arbeidsmediet er tilbake i utgangstilstanden, så $\\Delta S_\\text{gass} = 0$, og for en reversibel syklus gir det\n$$\\frac{|Q_H|}{T_v} = \\frac{|Q_L|}{T_k} \\quad\\Longrightarrow\\quad \\frac{|Q_L|}{|Q_H|} = \\frac{T_k}{T_v}.$$\nSett inn energibalansen $W = |Q_H| - |Q_L|$:\n$$\\varepsilon_V = \\frac{|Q_H|}{|Q_H|-|Q_L|} = \\frac{1}{1 - |Q_L|/|Q_H|} = \\frac{1}{1 - T_k/T_v} = \\frac{T_v}{T_v-T_k}.$$\nOg deretter, direkte fra $\\varepsilon_V = \\varepsilon_K + 1$:\n$$\\varepsilon_{K,\\text{Carnot}} = \\frac{T_v}{T_v-T_k} - 1 = \\frac{T_k}{T_v-T_k}.$$\n\n**Legg merke til den vakre sammenhengen** som er verdt å kjenne:\n$$\\varepsilon_{V,\\text{Carnot}} = \\frac{1}{\\eta_\\text{Carnot}}.$$\nEn Carnot-varmepumpe er nøyaktig en Carnot-maskin baklengs, så effektfaktoren er den inverse virkningsgraden. Det er også den raskeste veien til tallet på eksamen: har du alt regnet $\\eta_\\text{Carnot}$, er $\\varepsilon_V$ én divisjon unna.\n\n**Grensetilfeller:**\n- $T_k \\to T_v$ gir $\\varepsilon_V \\to \\infty$. Å flytte varme over en forsvinnende liten temperaturforskjell koster forsvinnende lite arbeid.\n- $T_k \\to 0$ gir $\\varepsilon_V \\to 1$ og $\\varepsilon_K \\to 0$. Det er den nedre grensen: å pumpe fra det absolutte nullpunktet er så dyrt at all varmen ut kommer fra arbeidet.\n- **$\\varepsilon_V > 1$ alltid**, siden $T_v > T_v - T_k$ når $T_k > 0$.\n\nMed tallene i eksempelet under, $T_v = 294{,}15\\,\\text{K}$ og $T_k = 268{,}15\\,\\text{K}$: $\\varepsilon_{V,\\text{Carnot}} = 11{,}3135$ og $\\varepsilon_{K,\\text{Carnot}} = 10{,}3135$. Differansen er nøyaktig 1 ✔. [står på det utdelte arket; **må også kunne utledes aktivt**]"
+  },
+  {
+   "id": "tfy4115-8-2-war-kelvin",
+   "type": "warning",
+   "title": "Celsius i effektfaktoren gir et fysisk umulig svar",
+   "content": "**Carnot-effektfaktorene er brøker av absolutte temperaturer og krever kelvin.** Feilen her er farligere enn i virkningsgraden, fordi den gir et svar som ser tilforlatelig ut i formen men er umulig i fysikken.\n\nSe på huset i eksempelet under: inne $21{,}0\\,^\\circ\\text{C}$, ute $-5{,}0\\,^\\circ\\text{C}$. Riktig, i kelvin:\n$$\\varepsilon_{V,\\text{Carnot}} = \\frac{294{,}15}{294{,}15 - 268{,}15} = \\frac{294{,}15}{26{,}00} = 11{,}3135.$$\nGalt, i celsius:\n$$\\frac{21{,}0}{21{,}0 - (-5{,}0)} = \\frac{21{,}0}{26{,}0} = 0{,}8077.$$\n\n**Svaret er under 1, og det er umulig.** En varmepumpe med $\\varepsilon_V < 1$ ville levert mindre varme enn det elektriske arbeidet den brukte — altså vært dårligere enn en panelovn, som per definisjon har $\\varepsilon_V = 1$ nøyaktig. Ingen varmepumpe kan være dårligere enn en panelovn: i verste fall stopper den bare å flytte varme, og da er den en panelovn.\n\n**Kontrollen som fjerner fella helt:** $\\varepsilon_V$ skal være større enn 1. Får du et tall under, har du enten brukt celsius eller snudd brøken. (Felle #11 — kelvin- og enhetsslurv, og felle #13 — forveksle virkningsgrad og effektfaktor.)\n\n**Merk hva som skjer med nevneren:** temperaturDIFFERANSEN $T_v - T_k$ er den SAMME i kelvin og celsius — $26{,}0$ begge veier. Det er bare telleren som må være absolutt. Derfor ser celsius-varianten så uskyldig ut: halve regnestykket er riktig."
+  },
+  {
+   "id": "tfy4115-8-2-ex-1",
+   "type": "example",
+   "title": "Eksempel 1: varmepumpe til et hus (eksamensnivå)",
+   "problem": "En luft-til-luft-varmepumpe holder et hus på $21{,}0\\,^\\circ\\text{C}$ mens uteluften er $-5{,}0\\,^\\circ\\text{C}$. Huset trenger $8{,}00\\,\\text{kW}$ varme for å holde temperaturen. Pumpa har en virkelig effektfaktor $\\varepsilon_V = 3{,}50$.\n\n**a)** Finn Carnot-grensen for begge effektfaktorene.\n\n**b)** Hvilken elektrisk effekt trenger kompressoren, og hvor mye varme hentes fra uteluften?\n\n**c)** Finn $\\varepsilon_K$ for pumpa, og kontroller sammenhengen.\n\n**d)** Hvor stor del av grensen utnytter pumpa, og hvor mye strøm sparer den mot en panelovn?",
+   "solution": "**a) Symbolsk.** $\\varepsilon_{V,\\text{Carnot}} = T_v/(T_v-T_k)$ med begge temperaturer i **kelvin**.\n\n**Rask vei til tall.** Skriv om først:\n$$T_v = 21{,}0 + 273{,}15 = 294{,}15\\,\\text{K}, \\qquad T_k = -5{,}0 + 273{,}15 = 268{,}15\\,\\text{K}, \\qquad T_v - T_k = 26{,}00\\,\\text{K}.$$\n$$\\varepsilon_{V,\\text{Carnot}} = \\frac{294{,}15}{26{,}00} = 11{,}3135, \\qquad \\varepsilon_{K,\\text{Carnot}} = \\frac{268{,}15}{26{,}00} = 10{,}3135.$$\nKontroll: differansen er $1{,}0000$, altså nøyaktig 1 ✔. Og $1/\\eta_\\text{Carnot} = 1/0{,}08839 = 11{,}3135$ ✔.\n\n**b) Symbolsk.** Fra $\\varepsilon_V = |Q_H|/W$ følger $W = |Q_H|/\\varepsilon_V$.\n\n**Rask vei til tall.**\n$$W = \\frac{8{,}00\\,\\text{kW}}{3{,}50} = 2{,}2857\\,\\text{kW},$$\n$$|\\dot Q_L| = 8{,}00 - 2{,}2857 = 5{,}7143\\,\\text{kW}.$$\nAltså: $5{,}71\\,\\text{kW}$ hentes gratis fra uteluft på $-5{,}0\\,^\\circ\\text{C}$.\n\n**c)**\n$$\\varepsilon_K = \\frac{5{,}7143}{2{,}2857} = 2{,}5000.$$\nKontroll: $\\varepsilon_V - 1 = 3{,}50 - 1 = 2{,}50$ ✔.\n\n**d)** Andel av grensen:\n$$\\frac{3{,}50}{11{,}3135} = 0{,}3094, \\qquad\\text{altså om lag } 31\\ \\text{prosent av det teoretisk mulige}.$$\nEn panelovn måtte brukt hele $8{,}00\\,\\text{kW}$ elektrisk. Pumpa bruker $2{,}286\\,\\text{kW}$, altså en besparelse på\n$$1 - \\frac{1}{\\varepsilon_V} = 1 - \\frac{1}{3{,}50} = 0{,}7143, \\qquad\\text{om lag } 71\\ \\text{prosent.}$$\n\n**Sluttsjekk, fire ledd.** (i) Begge temperaturene i kelvin ✔. (ii) $\\varepsilon_V = 3{,}50 > 1$ ✔. (iii) $\\varepsilon_V < \\varepsilon_{V,\\text{Carnot}} = 11{,}313$ ✔ — pumpa bryter ikke andre hovedsetning. (iv) $|\\dot Q_L| + W = 5{,}714 + 2{,}286 = 8{,}00\\,\\text{kW}$ ✔.\n\n**Og hvorfor grensen er så høy her:** temperaturdifferansen er bare $26{,}0\\,\\text{K}$, mens den varme temperaturen er $294{,}1\\,\\text{K}$. Nevneren er liten, telleren stor, og grensen blir over 11. At virkelige pumper bare klarer en tredjedel av det, skyldes at kompressoren har friksjon og at varmevekslerne trenger en reell temperaturforskjell for å overføre varme i det hele tatt."
+  },
+  {
+   "id": "tfy4115-8-2-o-3",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-8-2-oppg-3",
+    "number": 3,
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger T6.) En varmepumpe skal holde et hus på $22{,}0\\,^\\circ\\text{C}$ når det er $-15{,}0\\,^\\circ\\text{C}$ ute, og huset trenger $6{,}50\\,\\text{kW}$.\n\n**a)** Finn Carnot-grensen for effektfaktoren.\n\n**b)** Hvilken elektrisk effekt trenger kompressoren minst?\n\n**c)** En medarbeider regner grensen med celsius og får $0{,}5946$. Forklar hvordan man ser at det svaret er umulig, uten å regne på nytt.",
+    "solution": "**a)**\n$$T_v = 295{,}15\\,\\text{K}, \\qquad T_k = 258{,}15\\,\\text{K}, \\qquad T_v - T_k = 37{,}00\\,\\text{K},$$\n$$\\varepsilon_{V,\\text{Carnot}} = \\frac{295{,}15}{37{,}00} = 7{,}9770.$$\n\n**b)** Den minste effekten svarer til den største effektfaktoren:\n$$W_\\text{min} = \\frac{|Q_H|}{\\varepsilon_{V,\\text{Carnot}}} = \\frac{6500\\,\\text{W}}{7{,}9770} = 814{,}8\\,\\text{W}.$$\nEn virkelig pumpe med $\\varepsilon_V$ rundt 3 ville trengt om lag $2167\\,\\text{W}$ — altså mer enn dobbelt så mye.\n\n**c)** Fordi $0{,}595$ er **mindre enn 1**, og en varmepumpe kan ikke ha $\\varepsilon_V < 1$. En panelovn har $\\varepsilon_V = 1$ nøyaktig: alt det elektriske arbeidet blir varme. En varmepumpe gjør i tillegg det panelovnen ikke gjør — den flytter varme inn utenfra — så den kan i verste fall bli like god som en panelovn, aldri dårligere.\n\nMan ser det også på formen: nevneren $T_v - T_k$ er den samme i celsius og kelvin ($37{,}0$ begge veier), men telleren $T_v$ er mye mindre i celsius ($22{,}0$ mot $295{,}1$). **Feilen sitter alltid i telleren**, og den gjør svaret altfor lite.\n\n**Sluttsjekk:** $7{,}977$ er et rimelig tall for en varmepumpe over $37{,}0\\,\\text{K}$ temperaturforskjell. Grensen synker når det blir kaldere ute — det er derfor luft-til-luft-pumper yter dårlig på de kaldeste dagene, akkurat når man trenger dem mest.",
+    "hints": [
+     "Skriv om begge temperaturene til kelvin før du gjør noe annet.",
+     "Den minste kompressoreffekten svarer til den STØRSTE mulige effektfaktoren.",
+     "Hva er effektfaktoren til en panelovn, og kan en varmepumpe være dårligere enn den?"
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-8-2-o-4",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-8-2-oppg-4",
+    "number": 4,
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger T6.) En varmepumpe leverer $5{,}20\\,\\text{kW}$ til et hus på $20{,}0\\,^\\circ\\text{C}$ mens det er $-10{,}0\\,^\\circ\\text{C}$ ute. Den målte effektfaktoren er $\\varepsilon_V = 2{,}80$.\n\n**a)** Finn kompressoreffekten og varmen som hentes fra uteluften.\n\n**b)** Finn $\\varepsilon_K$.\n\n**c)** Hvor stor del av Carnot-grensen utnytter pumpa?",
+    "solution": "**a)**\n$$W = \\frac{5200\\,\\text{W}}{2{,}80} = 1857{,}1\\,\\text{W}, \\qquad |\\dot Q_L| = 5200 - 1857{,}1 = 3342{,}9\\,\\text{W}.$$\n\n**b)**\n$$\\varepsilon_K = \\varepsilon_V - 1 = 1{,}80.$$\nKontroll direkte: $|\\dot Q_L|/W = 3342{,}9/1857{,}1 = 1{,}800$ ✔.\n\n**c)**\n$$\\varepsilon_{V,\\text{Carnot}} = \\frac{293{,}15}{30{,}00} = 9{,}7717, \\qquad \\frac{2{,}80}{9{,}7717} = 0{,}2865,$$\naltså om lag $29$ prosent av grensen.\n\n**Sluttsjekk:** $2{,}80 < 9{,}772$ ✔, og $\\varepsilon_V > 1$ ✔. Legg merke til at andelen er lavere her enn i eksempelet over — og grunnen er at temperaturforskjellen er mindre ($30{,}0\\,\\text{K}$ mot $26{,}0\\,\\text{K}$), slik at grensen er høyere. **En liten temperaturforskjell hever grensen mer enn den hever den virkelige ytelsen.**",
+    "hints": [
+     "Kompressorarbeidet står i nevneren i effektfaktoren.",
+     "Bruk $\\varepsilon_V = \\varepsilon_K + 1$ i stedet for å regne på nytt.",
+     "Carnot-grensen har temperaturdifferansen i nevneren."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-8-2-lokke3",
+   "type": "text",
+   "content": "## Løkke 3 — den samme sløyfa, motsatt vei (~10 min)\n\nI $pV$-diagrammet er en varmepumpe ikke en ny figur. Det er den **samme** figuren, gjennomløpt motsatt vei.\n\n*Intuisjon:* la gassen gå gjennom nøyaktig de samme fire prosessene, men i omvendt rekkefølge. Der maskinen tok imot varme ved høy temperatur, gir pumpa den fra seg. Der maskinen ga fra seg ved lav temperatur, tar pumpa imot. Og der maskinen leverte netto arbeid, må pumpa få det tilført.\n\nDerfor er **omløpsretningen** det første du leser i en oppgave med et diagram. Den avgjør hvilken formelfamilie du er i, og den avgjør fortegnet på arealet."
+  },
+  {
+   "id": "tfy4115-8-2-def-motklokke",
+   "type": "definition",
+   "title": "Motklokke i $pV$-diagrammet",
+   "content": "En syklus som gjennomløpes **motklokke** (med volum langs den vannrette aksen og trykk langs den loddrette) har\n$$W_\\text{netto} = \\oint p\\,dV < 0,$$\naltså netto arbeid TILFØRT. Da er maskinen en varmepumpe eller et kjøleskap, og du skal regne effektfaktor, ikke virkningsgrad.\n\nGrunnen er den samme som for medklokke, bare speilvendt: nå gjennomløpes den nedre delen av sløyfa mot større volum (lite arbeid ut) og den øvre tilbake mot mindre volum ved høyt trykk (stort arbeid inn). Differansen er negativ.\n\n**Praktisk:** ser du en oppgave der arealet er oppgitt som en tallverdi og retningen er motklokke, er $W$ det tallet med minustegn i maskin-konvensjonen — men i effektfaktoren bruker vi tallverdien $W = |W_\\text{netto}|$ som en positiv kostnad."
+  },
+  {
+   "id": "tfy4115-8-2-fig-vppv",
+   "type": "image",
+   "src": "/images/textbook/tfy4115/tfy4115-8-2-varmepumpe-pv.svg",
+   "alt": "Et pV-diagram med en lukket sloeyfe med fire hjoerner merket a, b, c og d. Fra a til b en blaa isoterm ved den lave temperaturen merket varme INN. Fra b til c en lilla adiabat. Fra c til d en roed isoterm ved den hoeye temperaturen merket varme UT. Fra d til a en lilla adiabat. En buet pil inne i sloeyfa peker motklokke, med teksten W inn.",
+   "caption": "Den samme Carnot-sløyfa som i [kap. 8.1](/tfy4115/tfy4115-8-1), gjennomløpt motklokke. Nå tas varme opp på den KALDE isotermen og gis fra seg på den varme — og arbeidet må tilføres. Rekkefølgen $a \\to b \\to c \\to d$ er nøyaktig motsatt av maskinens $1 \\to 2 \\to 3 \\to 4$."
+  },
+  {
+   "id": "tfy4115-8-2-ex-2",
+   "type": "example",
+   "title": "Eksempel 2: kjøleskapet som varmer kjøkkenet",
+   "problem": "Et kjøleskap holder $4{,}0\\,^\\circ\\text{C}$ inne mens kjøkkenet er $22{,}0\\,^\\circ\\text{C}$. Det fjerner $250\\,\\text{W}$ fra kjøleskapsrommet og har $\\varepsilon_K = 4{,}00$.\n\n**a)** Finn kompressoreffekten og varmen som avgis til kjøkkenet.\n\n**b)** Finn Carnot-grensen for kjølingen, og hvor stor del av den kjøleskapet utnytter.\n\n**c)** En student foreslår å kjøle ned kjøkkenet ved å la kjøleskapsdøra stå åpen. Regn ut hva som faktisk skjer med kjøkkenets energibalanse per døgn.",
+   "solution": "**a) Symbolsk.** $W = |Q_L|/\\varepsilon_K$ og $|Q_H| = |Q_L| + W$.\n\n**Rask vei til tall.**\n$$W = \\frac{250\\,\\text{W}}{4{,}00} = 62{,}50\\,\\text{W}, \\qquad |\\dot Q_H| = 250 + 62{,}50 = 312{,}50\\,\\text{W}.$$\nKontroll: $\\varepsilon_V = \\varepsilon_K + 1 = 5{,}00$, og $\\varepsilon_V W = 5{,}00 \\cdot 62{,}50 = 312{,}50\\,\\text{W}$ ✔.\n\n**b)**\n$$T_i = 277{,}15\\,\\text{K}, \\qquad T_r = 295{,}15\\,\\text{K}, \\qquad T_r - T_i = 18{,}00\\,\\text{K},$$\n$$\\varepsilon_{K,\\text{Carnot}} = \\frac{T_i}{T_r-T_i} = \\frac{277{,}15}{18{,}00} = 15{,}3972.$$\nKjøleskapet utnytter $4{,}00/15{,}3972 = 0{,}2598$, altså om lag $26$ prosent av grensen. Det er et helt normalt tall for et husholdningsapparat.\n\n**c)** Med døra åpen slutter skapet å ha en kald og en varm side — all varmen det «fjerner» kommer rett fra kjøkkenet igjen. Netto tilføres kjøkkenet nøyaktig kompressorarbeidet:\n$$\\dot Q_\\text{netto til kjøkkenet} = |\\dot Q_H| - |\\dot Q_L| = W = 62{,}50\\,\\text{W}.$$\nPer døgn:\n$$E = 62{,}50\\,\\text{W} \\cdot 24 \\cdot 3600\\,\\text{s} = 5{,}4000\\,\\text{MJ} = 1{,}500\\,\\text{kWh}.$$\nKjøkkenet blir **varmere**, ikke kaldere. Og det er verdt å merke seg at selv med døra LUKKET tilføres kjøkkenet netto $62{,}50\\,\\text{W}$ — for varmen som fjernes fra maten, kommer også ut på baksiden til slutt. Et kjøleskap er en varmeovn med $62{,}5\\,\\text{W}$ effekt, som tilfeldigvis holder maten kald.\n\n**Sluttsjekk, tre ledd.** (i) Begge temperaturer i kelvin i grensen ✔. (ii) $\\varepsilon_K = 4{,}00 < \\varepsilon_{K,\\text{Carnot}} = 15{,}397$ ✔. (iii) $|\\dot Q_H| > |\\dot Q_L|$ ✔ — det kommer alltid mer varme ut enn inn, og differansen er arbeidet."
+  },
+  {
+   "id": "tfy4115-8-2-o-5",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-8-2-oppg-5",
+    "number": 5,
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger T6.) Et fryserom holdes på $-18{,}0\\,^\\circ\\text{C}$ i et rom på $24{,}0\\,^\\circ\\text{C}$. Kjølemaskinen fjerner $1{,}40\\,\\text{kW}$ fra fryserommet med en kompressor på $0{,}850\\,\\text{kW}$.\n\n**a)** Finn $\\varepsilon_K$ og $\\varepsilon_V$ for maskinen.\n\n**b)** Finn Carnot-grensen for $\\varepsilon_K$.\n\n**c)** Hva ville $\\varepsilon_K$ blitt hvis kompressoren i stedet brukte $1{,}60\\,\\text{kW}$? Kommenter svaret.",
+    "solution": "**a)**\n$$\\varepsilon_K = \\frac{1{,}40}{0{,}850} = 1{,}6471, \\qquad \\varepsilon_V = \\varepsilon_K + 1 = 2{,}6471.$$\nKontroll: $|\\dot Q_H| = 1{,}40 + 0{,}850 = 2{,}250\\,\\text{kW}$, og $2{,}250/0{,}850 = 2{,}6471$ ✔.\n\n**b)**\n$$T_i = -18{,}0 + 273{,}15 = 255{,}15\\,\\text{K}, \\qquad T_r = 297{,}15\\,\\text{K}, \\qquad T_r - T_i = 42{,}0\\,\\text{K},$$\n$$\\varepsilon_{K,\\text{Carnot}} = \\frac{255{,}15}{42{,}0} = 6{,}0750.$$\nMaskinen utnytter $1{,}647/6{,}075 = 0{,}2711$, altså om lag $27$ prosent av grensen.\n\n**c)**\n$$\\varepsilon_K = \\frac{1{,}40}{1{,}60} = 0{,}8750.$$\nNå er $\\varepsilon_K$ **under 1** — og det er ikke umulig. Det betyr bare at maskinen bruker mer arbeid enn den varmen den flytter, og det er helt lovlig når temperaturforskjellen er stor eller maskinen er dårlig. **Merk kontrasten til $\\varepsilon_V$**, som fortsatt er over 1: $\\varepsilon_V = 1{,}8750$.\n\nDet er en viktig presisering: **$\\varepsilon_V > 1$ er en fysisk lov, $\\varepsilon_K > 1$ er bare vanlig.** Betingelsen for $\\varepsilon_K > 1$ er $|Q_L| > W$, og den kan brytes uten at noen naturlov gjør det. Kryokjølere som skal ned mot noen få kelvin, har $\\varepsilon_K$ langt under 1.\n\n**Sluttsjekk:** $0{,}875 < 6{,}075$ ✔ — fortsatt under Carnot-grensen, så maskinen er lovlig, bare dårlig.",
+    "hints": [
+     "Effektfaktorene har alltid kompressorarbeidet i nevneren.",
+     "Carnot-grensen for kjøling har den KALDE temperaturen i telleren.",
+     "Sjekk om det er $\\varepsilon_V$ eller $\\varepsilon_K$ som har en absolutt nedre grense på 1."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-8-2-lokke4",
+   "type": "text",
+   "content": "## Løkke 4 — praktiske oppsett: fra tank til effektfaktor (~11 min)\n\nEksamenssettene stiller sjelden spørsmålet så rent som «finn $\\varepsilon_V$». Oftere er det pakket inn: en varmepumpe varmer $150$ liter vann fra en temperatur til en annen på et gitt antall timer, og kompressoren bruker en gitt effekt. Finn effektfaktoren.\n\nDa må du selv bygge brøken. Telleren er varmen som faktisk ble levert, nevneren arbeidet som gikk inn:\n\n$$\\varepsilon_V = \\frac{|Q_H|}{W} = \\frac{mc\\,\\Delta T}{P\\,\\Delta t} = \\frac{\\rho Vc\\,\\Delta T}{P\\,\\Delta t}.$$\n\n*Intuisjon:* dette er ikke en ny formel. Det er den samme definisjonen, med telleren og nevneren regnet ut fra det oppgaven faktisk oppgir. Massen finner du av volum og tetthet ($\\rho_\\text{vann} = 1000\\,\\text{kg/m}^3$, så 1 liter vann er 1 kg), varmen av $mc\\Delta T$, og arbeidet av effekt ganger tid.\n\n**Her er celsius trygt** — men bare i $\\Delta T$. Temperaturdifferansen er den samme i kelvin og celsius. Skal du i tillegg sjekke mot Carnot-grensen, må du over til kelvin igjen."
+  },
+  {
+   "id": "tfy4115-8-2-def-praktisk",
+   "type": "definition",
+   "title": "Effektfaktor fra et praktisk oppsett",
+   "content": "Når oppgaven oppgir en vannmengde, en temperaturheving og en kompressoreffekt over en tid, bygges effektfaktoren slik:\n$$\\varepsilon_V = \\frac{\\rho V c\\,\\Delta T}{P\\,\\Delta t},$$\nder $\\rho$ er tettheten, $V$ volumet, $c$ den spesifikke varmekapasiteten per kilogram, $\\Delta T$ temperaturhevingen, $P$ kompressoreffekten og $\\Delta t$ tiden.\n\nVerdier du trenger: $\\rho_\\text{vann} = 1000\\,\\text{kg/m}^3$ (altså 1 liter = 1 kg) og $c_\\text{vann} = 4180\\,\\text{J/(kg}\\cdot\\text{K)}$. Betingelsen for at uttrykket gjelder, er at all den tilførte varmen faktisk går til vannet — i virkeligheten er det varmetap fra tanken, og da blir den målte effektfaktoren lavere.\n\n⚠ **To enhetsfeller:** liter må gjøres om til kubikkmeter (eller kilogram direkte), og timer til sekunder. Glemmer du én av dem, er svaret feil med en faktor 1000 eller 3600."
+  },
+  {
+   "id": "tfy4115-8-2-ex-3",
+   "type": "example",
+   "title": "Eksempel 3: varmepumpe til varmtvannstank",
+   "problem": "En varmepumpe varmer $150$ liter vann fra $12{,}0\\,^\\circ\\text{C}$ til $45{,}0\\,^\\circ\\text{C}$. Kompressoren bruker $700\\,\\text{W}$ og går i $2,00$ timer. Varmen hentes fra uteluft på $5{,}0\\,^\\circ\\text{C}$. Bruk $c_\\text{vann} = 4180\\,\\text{J/(kg}\\cdot\\text{K)}$ og $\\rho_\\text{vann} = 1000\\,\\text{kg/m}^3$.\n\n**a)** Finn varmen som er levert til vannet.\n\n**b)** Finn kompressorarbeidet og effektfaktoren.\n\n**c)** Sammenlign med Carnot-grensen mellom uteluft og vanntemperatur.\n\n**d)** Hvor mye varme ble hentet fra uteluften, og hva ville en elektrisk kolbe kostet i strøm til $1{,}20$ kr/kWh?",
+   "solution": "**a) Symbolsk.** $|Q_H| = mc\\Delta T$ med $m = \\rho V$.\n\n**Rask vei til tall.**\n$$m = 1000 \\cdot 0,150\\,\\text{kg} = 150{,}0\\,\\text{kg}, \\qquad \\Delta T = 45{,}0 - 12{,}0 = 33{,}0\\,\\text{K},$$\n$$|Q_H| = 150{,}0 \\cdot 4180 \\cdot 33{,}0\\,\\text{J} = 20{,}6910\\,\\text{MJ}.$$\nMerk at $\\Delta T$ er en **differanse**, så celsius er trygt her — $33{,}0\\,\\text{K}$ og $33{,}0\\,^\\circ\\text{C}$-forskjell er samme tall.\n\n**b)**\n$$W = P\\,\\Delta t = 700\\,\\text{W} \\cdot 2,00 \\cdot 3600\\,\\text{s} = 5{,}0400\\,\\text{MJ},$$\n$$\\varepsilon_V = \\frac{20{,}6910}{5{,}0400} = 4{,}1054.$$\n\n**c)** Nå må vi over til kelvin:\n$$T_v = 45{,}0 + 273{,}15 = 318{,}15\\,\\text{K}, \\qquad T_k = 5{,}0 + 273{,}15 = 278{,}15\\,\\text{K}, \\qquad T_v - T_k = 40{,}0\\,\\text{K},$$\n$$\\varepsilon_{V,\\text{Carnot}} = \\frac{318{,}15}{40{,}0} = 7{,}9537.$$\nAnlegget utnytter $4{,}1054/7{,}9537 = 0{,}5162$, altså om lag $52$ prosent av grensen — bra for et virkelig anlegg.\n\n**d)** Fra uteluften:\n$$|Q_L| = |Q_H| - W = 20{,}6910 - 5{,}0400 = 15{,}6510\\,\\text{MJ}.$$\nAltså kom $76$ prosent av varmen gratis utenfra. Strømkostnad, med $1\\,\\text{kWh} = 3{,}6\\,\\text{MJ}$:\n$$\\text{varmepumpe: } \\frac{5{,}040}{3{,}6}\\,\\text{kWh} \\cdot 1{,}20\\ \\text{kr/kWh} = 1{,}68\\ \\text{kr},$$\n$$\\text{elektrisk kolbe: } \\frac{20{,}691}{3{,}6}\\,\\text{kWh} \\cdot 1{,}20\\ \\text{kr/kWh} = 6{,}90\\ \\text{kr}.$$\nKolben måtte levert hele varmen elektrisk, og koster derfor $4{,}11$ ganger så mye — nøyaktig faktoren $\\varepsilon_V$.\n\n**Sluttsjekk, fire ledd.** (i) Liter gjort om til kilogram ✔ og timer til sekunder ✔. (ii) $\\varepsilon_V = 4{,}105 > 1$ ✔. (iii) $\\varepsilon_V < \\varepsilon_{V,\\text{Carnot}} = 7{,}954$ ✔. (iv) $\\Delta T$ i celsius-differanse, men Carnot-grensen i kelvin ✔ — det er nettopp den doble disiplinen denne sjangeren krever."
+  },
+  {
+   "id": "tfy4115-8-2-o-6",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-8-2-oppg-6",
+    "number": 6,
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger T6.) En varmepumpe varmer $220$ liter vann fra $10{,}0\\,^\\circ\\text{C}$ til $55{,}0\\,^\\circ\\text{C}$ på $3{,}00$ timer. Kompressoren bruker $1{,}30\\,\\text{kW}$. Bruk $c_\\text{vann} = 4180\\,\\text{J/(kg}\\cdot\\text{K)}$.\n\n**a)** Finn varmen levert til vannet og kompressorarbeidet.\n\n**b)** Finn effektfaktoren.\n\n**c)** Varmen hentes fra en bergvarmebrønn på $4{,}0\\,^\\circ\\text{C}$. Ligger anlegget innenfor Carnot-grensen?",
+    "solution": "**a)**\n$$m = 220\\,\\text{kg}, \\qquad \\Delta T = 45{,}0\\,\\text{K}, \\qquad |Q_H| = 220 \\cdot 4180 \\cdot 45{,}0\\,\\text{J} = 41{,}3820\\,\\text{MJ},$$\n$$W = 1{,}30\\cdot10^3\\,\\text{W} \\cdot 3{,}00 \\cdot 3600\\,\\text{s} = 14{,}0400\\,\\text{MJ}.$$\n\n**b)**\n$$\\varepsilon_V = \\frac{41{,}3820}{14{,}0400} = 2{,}9474.$$\n\n**c)**\n$$T_v = 328{,}15\\,\\text{K}, \\qquad T_k = 277{,}15\\,\\text{K}, \\qquad T_v - T_k = 51{,}0\\,\\text{K},$$\n$$\\varepsilon_{V,\\text{Carnot}} = \\frac{328{,}15}{51{,}0} = 6{,}4343.$$\n$2{,}947 < 6{,}434$, altså **innenfor** ✔ — anlegget utnytter $46$ prosent av grensen.\n\n**Sluttsjekk:** legg merke til at grensen er lavere her enn i eksempelet over ($6{,}43$ mot $7{,}95$), fordi vannet skal varmere ($55$ mot $45\\,^\\circ\\text{C}$) og temperaturforskjellen dermed større. **Det er hovedgrunnen til at varmepumper kobles til gulvvarme og ikke til gamle radiatorer:** lavere turtemperatur gir høyere effektfaktor.",
+    "hints": [
+     "Liter vann er kilogram vann — tettheten er $1000\\,\\text{kg/m}^3$.",
+     "Timer må gjøres om til sekunder før du regner arbeidet.",
+     "Carnot-grensen krever kelvin, mens $\\Delta T$ i telleren kan stå i celsius-differanse."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-8-2-o-7",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-8-2-oppg-7",
+    "number": 7,
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Kvalitativ oppgave — konsept.)\n\n**a)** En panelovn har $\\varepsilon_V = 1$ nøyaktig. Forklar hvorfor, og hvorfor det betyr at ingen varmepumpe kan ha $\\varepsilon_V < 1$.\n\n**b)** Hvorfor synker effektfaktoren til en luft-til-luft-varmepumpe når det blir kaldere ute, selv om innetemperaturen holdes konstant?\n\n**c)** Ranger disse tre etter effektfaktor for oppvarming, høyest først, og begrunn: (i) en varmepumpe som leverer $35\\,^\\circ\\text{C}$ vann til gulvvarme fra en brønn på $4\\,^\\circ\\text{C}$; (ii) den samme pumpa som leverer $55\\,^\\circ\\text{C}$ til radiatorer fra samme brønn; (iii) en panelovn.",
+    "solution": "**a)** En panelovn gjør alt det elektriske arbeidet om til varme i rommet, og henter ingenting utenfra: $|Q_H| = W$ og $|Q_L| = 0$, altså $\\varepsilon_V = 1$ nøyaktig.\n\nEn varmepumpe gjør i tillegg det panelovnen ikke gjør: den flytter varme inn fra uteluften. Selv om kompressoren skulle være elendig, blir alt kompressorarbeidet også varme til slutt, og $|Q_H| = |Q_L| + W \\ge W$. Derfor er $\\varepsilon_V \\ge 1$ alltid, med likhet bare i grensetilfellet der pumpa ikke flytter noe varme i det hele tatt. **En varmepumpe kan i verste fall bli en panelovn — den kan ikke bli dårligere.**\n\n**b)** Fordi Carnot-grensen $\\varepsilon_{V,\\text{Carnot}} = T_v/(T_v - T_k)$ har temperaturDIFFERANSEN i nevneren. Blir det kaldere ute, øker $T_v - T_k$, og grensen synker. Samtidig blir kompressoren nødt til å arbeide over et større trykkspenn, så også avstanden til grensen øker.\n\nDet er derfor luft-til-luft-pumper yter dårligst nettopp på de kaldeste dagene — når huset trenger mest varme. En bergvarmepumpe henter fra en brønn som holder rundt $4\\,^\\circ\\text{C}$ hele året, og slipper unna problemet.\n\n**c)** Rangeringen er (i) $>$ (ii) $>$ (iii).\n\n- **(i) gulvvarme** har den minste temperaturforskjellen: $308\\,\\text{K} - 277\\,\\text{K} = 31\\,\\text{K}$, altså $\\varepsilon_{V,\\text{Carnot}} = 308/31 \\approx 9{,}9$.\n- **(ii) radiatorer** krever $328\\,\\text{K} - 277\\,\\text{K} = 51\\,\\text{K}$, altså grensen $328/51 \\approx 6{,}4$.\n- **(iii) panelovnen** har $\\varepsilon_V = 1$.\n\nKonklusjonen er praktisk viktig: **det lønner seg å levere varmen ved lavest mulig temperatur.** Gulvvarme med stor flate slår radiatorer nettopp fordi den kan drives kjøligere.",
+    "hints": [
+     "Hva skjer med $|Q_L|$ når en panelovn brukes?",
+     "Se på hva som står i nevneren i Carnot-grensen for en varmepumpe.",
+     "Regn Carnot-grensen for de to temperaturparene i c) før du rangerer."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-8-2-rask-vei",
+   "type": "text",
+   "content": "## Rask vei til tall (MC-oppskrift)\n\n1. **Hvilken lov?** Les først: er dette en maskin eller en pumpe? Motklokke i $pV$, eller ordene «varmepumpe», «kjøleskap», «kompressor», «effektfaktor» betyr **pumpe**. Deretter det avgjørende spørsmålet: **er nyttevirkningen varmen UT (oppvarming, $\\varepsilon_V$) eller varmen FJERNET (kjøling, $\\varepsilon_K$)?** Handler oppgaven om et hus eller en tank, er det $\\varepsilon_V$; handler den om et kjøleskap, en fryser eller et kjølerom, er det $\\varepsilon_K$.\n\n2. **Hvilken ene regnelinje?** Alt kommer fra to likninger: $\\varepsilon = |Q|/W$ og $|Q_H| = |Q_L| + W$. Trenger du Carnot-grensen, er det $\\varepsilon_{V,\\text{Carnot}} = T_v/(T_v-T_k)$ — **regn nevneren $T_v - T_k$ først som eget mellomresultat.**\n\n3. **Hva hentes hvor?** $\\varepsilon_V = |Q_H|/W$, $\\varepsilon_K = |Q_L|/W$, $\\varepsilon_V = \\varepsilon_K + 1$ og de to Carnot-grensene **står på det utdelte arket**, sammen med $c$ for vann. Det som **må kunne utledes aktivt**, er $\\varepsilon_V = \\varepsilon_K + 1$ fra energibalansen, og Carnot-grensene fra entropiregnskapet.\n\n4. **Hvor mange siffer?** Fire gjennom kjeden. Effektfaktorer er tall mellom 1 og 15, så to desimaler i sluttsvaret er nok — men **ikke rund nevneren $T_v - T_k$**: går du fra $26{,}0$ til $26$, mister du ingenting, men går du fra $294{,}15$ til $294$ i telleren, flytter du fjerde siffer.\n\n5. **Hva sjekker du før du krysser av?** (i) Er begge temperaturene i **kelvin** i Carnot-grensen? (ii) Er $\\varepsilon_V > 1$? (Et svar under 1 er umulig.) (iii) Ba oppgaven om $\\varepsilon_V$ eller $\\varepsilon_K$? De skiller seg med nøyaktig 1, og begge står på lista. (iv) Ligger svaret **under** Carnot-grensen? (v) Står kompressorarbeidet i nevneren? (vi) Er liter gjort om til kilogram og timer til sekunder?\n\n— naturlig pausepunkt —"
+  },
+  {
+   "id": "tfy4115-8-2-o-8",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-8-2-oppg-8",
+    "number": 8,
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Sjanger T6, A–F-format.) En Carnot-varmepumpe holder et rom på $298\\,\\text{K}$ når det er $273\\,\\text{K}$ ute. Hva er den største mulige effektfaktoren for **oppvarming**?\n\n**A** $0{,}084$ · **B** $0{,}994$ · **C** $10{,}920$ · **D** $11{,}920$ · **E** $0{,}916$ · **F** $1{,}092$",
+    "solution": "**Svar: D.**\n\n$$T_v - T_k = 298 - 273 = 25{,}0\\,\\text{K}, \\qquad \\varepsilon_{V,\\text{Carnot}} = \\frac{298}{25{,}0} = 11{,}9200.$$\n\n*Fellene, hver regnet fram:* **C** er $\\varepsilon_K = T_k/(T_v-T_k) = 10{,}920$, altså effektfaktoren for KJØLING — den skiller seg fra fasiten med nøyaktig 1, og er det mest valgte gale svaret i sjangeren. **A** er virkningsgraden $1 - T_k/T_v$ til en maskin mellom samme temperaturer. **F** er $T_v/T_k$, altså forholdet mellom temperaturene i stedet for mellom temperatur og differanse. **E** er $T_k/T_v$. **B** er celsius satt inn i telleren i stedet for kelvin.\n\n*Sluttsjekk på fem sekunder:* $\\varepsilon_V$ **må** være mye større enn 1 når temperaturløftet bare er $25{,}0\\,\\text{K}$, og det stryker **A**, **B**, **E** og **F** umiddelbart. Da står bare **C** og **D** igjen, og de skiller seg med 1 — så spørsmålet er bare om oppgaven ba om oppvarming eller kjøling. Den ba om oppvarming, altså den største av de to.",
+    "hints": [
+     "Skriv ned nevneren $T_v - T_k$ som eget mellomresultat.",
+     "Hvilken av de to effektfaktorene har den VARME temperaturen i telleren?"
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-8-2-o-9",
+   "type": "exercise",
+   "exercise": {
+    "id": "tfy4115-8-2-oppg-9",
+    "number": 9,
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger T6.) Et hus trenger $9{,}00\\,\\text{kW}$ varme. En bergvarmepumpe henter fra en brønn på $0{,}0\\,^\\circ\\text{C}$ og leverer til gulvvarme ved $35{,}0\\,^\\circ\\text{C}$, med målt $\\varepsilon_V = 4{,}20$.\n\n**a)** Finn kompressoreffekten og varmen som hentes fra brønnen.\n\n**b)** Hvor stor del av Carnot-grensen utnytter anlegget?\n\n**c)** Eieren vurderer å koble pumpa til gamle radiatorer som krever $55{,}0\\,^\\circ\\text{C}$ i stedet. Anta at anlegget beholder **samme andel** av Carnot-grensen. Hvor mye øker strømforbruket?",
+    "solution": "**a)**\n$$W = \\frac{9000\\,\\text{W}}{4{,}20} = 2142{,}9\\,\\text{W}, \\qquad |\\dot Q_L| = 9000 - 2142{,}9 = 6857{,}1\\,\\text{W}.$$\n\n**b)**\n$$T_v = 308{,}15\\,\\text{K}, \\qquad T_k = 273{,}15\\,\\text{K}, \\qquad T_v - T_k = 35{,}00\\,\\text{K},$$\n$$\\varepsilon_{V,\\text{Carnot}} = \\frac{308{,}15}{35{,}00} = 8{,}8043, \\qquad \\frac{4{,}20}{8{,}8043} = 0{,}4770,$$\naltså om lag $48$ prosent av grensen.\n\n**c)** Ny Carnot-grense med $T_v = 328{,}15\\,\\text{K}$:\n$$T_v - T_k = 55{,}00\\,\\text{K}, \\qquad \\varepsilon_{V,\\text{Carnot}}' = \\frac{328{,}15}{55{,}00} = 5{,}9664.$$\nSamme andel av grensen gir\n$$\\varepsilon_V' = 0{,}4770 \\cdot 5{,}9664 = 2{,}8462,$$\n$$W' = \\frac{9000}{2{,}8462} = 3162{,}1\\,\\text{W}.$$\nØkningen er\n$$\\frac{3162{,}1}{2142{,}9} - 1 = 0{,}4757, \\qquad\\text{altså om lag } 48\\ \\text{prosent mer strøm.}$$\n\n**Sluttsjekk, tre ledd.** (i) Begge grensene regnet i kelvin ✔. (ii) $2{,}85 < 5{,}97$ og $4{,}20 < 8{,}80$ ✔. (iii) Temperaturløftet økte fra $35{,}0\\,\\text{K}$ til $55{,}0\\,\\text{K}$, altså med faktoren $1{,}571$ — og strømforbruket økte med om lag $48$ prosent, litt mindre enn løftet, siden telleren $T_v$ også vokste ✔.\n\n**Og hva svaret betyr praktisk:** $48$ prosent høyere strømregning for oppvarming, bare fordi varmen skal leveres $20\\,\\text{K}$ varmere. Det er nettopp derfor lavtemperatur-distribusjon er en så viktig del av å bygge for varmepumpe.",
+    "hints": [
+     "Kompressorarbeidet står i nevneren i effektfaktoren.",
+     "Regn den nye Carnot-grensen først, så bruk at anlegget beholder samme ANDEL av den.",
+     "Sammenlign de to kompressoreffektene til slutt, ikke effektfaktorene."
+    ]
+   }
+  },
+  {
+   "id": "tfy4115-8-2-war-typiske-feil",
+   "type": "warning",
+   "title": "Typiske feil — og fortegnet som lander på nabo-alternativet",
+   "content": "**Å tro at effektfaktoren må være under 1** (felle #13 — forveksle virkningsgrad $\\eta$ og effektfaktor $\\varepsilon$). Dette er den ene feilen som kan slette et helt riktig svar. $\\eta \\le 1$ alltid, men $\\varepsilon_V > 1$ alltid. Regner du ut $3{,}50$ og «retter» det til $1/3{,}50 = 0{,}286$ fordi det «må være under 1», har du gjort et riktig svar galt. **Kontrollen: ser oppgaven ut som en pumpe, skal svaret være over 1.**\n\n**Å regne $\\varepsilon_V$ når $\\varepsilon_K$ var spurt, eller omvendt.** De skiller seg med nøyaktig 1, og **begge står nesten alltid på alternativlista**. Rutinen som fjerner fella: skriv ned hva som er NYTTEN i oppgaven. Hus, tank, rom som skal varmes $\\to \\varepsilon_V$. Kjøleskap, fryser, kjølerom, «hvor mye varme fjernes» $\\to \\varepsilon_K$.\n\n**Celsius i Carnot-grensen** (felle #11). Behandlet i sin egen boks over. Kjennetegnet er at svaret blir **under 1**, altså umulig — og at nevneren $T_v-T_k$ ser riktig ut, siden differansen er den samme i begge skalaer.\n\n**Å snu brøken.** Kompressorarbeidet står i **nevneren**, alltid: $\\varepsilon = |Q|/W$. Setter du varmen i nevneren, får du $1/\\varepsilon$, som er under 1 — samme symptom som celsius-fella, men annen årsak. Enhetskontrollen hjelper ikke her, siden begge er dimensjonsløse; kontrollen er «er svaret over 1?».\n\n**Å glemme at et kjøleskap avgir mer varme enn det fjerner.** $|Q_H| = |Q_L| + W$ betyr at kjøkkenet får tilført kompressorarbeidet i tillegg til all varmen som ble tatt ut av maten. En oppgave som spør «hvor mye varme avgis til rommet» vil ha $|Q_H|$, ikke $|Q_L|$.\n\n**Enhetsfeller i praktiske oppsett:** liter til kilogram (faktor 1 for vann, men $10^{-3}$ fra liter til $\\text{m}^3$), timer til sekunder (faktor 3600), kWh til joule (faktor $3{,}6\\cdot10^6$). Hver av dem gir et svar som er feil med en pen tierpotens, og pene tierpotenser står gjerne på alternativlista.\n\n**Og faktorfellen som lander på nabo-alternativet** (felle #16): i denne sjangeren er nabo-alternativet nesten alltid **fasiten pluss eller minus 1**, fordi $\\varepsilon_V$ og $\\varepsilon_K$ ligger så tett. Med $T_v = 298\\,\\text{K}$ og $T_k = 273\\,\\text{K}$ er de $11{,}920$ og $10{,}920$ — to alternativer som ser like plausible ut, og der bare oppgaveteksten skiller dem. **Les hvilken nytte som er spurt om, to ganger.**"
+  },
+  {
+   "id": "tfy4115-8-2-begrepsbank-notis",
+   "type": "text",
+   "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+  },
+  {
+   "id": "tfy4115-8-2-bb-epsvsK",
+   "type": "definition",
+   "title": "$\\varepsilon_V$ mot $\\varepsilon_K$ — hvordan du velger",
+   "content": "Samme maskin, to tall, som skiller seg med nøyaktig 1:\n$$\\varepsilon_V = \\frac{|Q_H|}{W} \\quad\\text{(oppvarming)}, \\qquad \\varepsilon_K = \\frac{|Q_L|}{W} \\quad\\text{(kjøling)}.$$\n**Valgregelen:** hva er nytten i oppgaven? Skal noe VARMES (hus, tank, stue, gulvvarme), er det $\\varepsilon_V$. Skal noe KJØLES (kjøleskap, fryser, kjølerom, klimaanlegg), er det $\\varepsilon_K$.\n\nFordi begge nesten alltid står på alternativlista, er dette valget verdt mer enn regningen. Har du regnet den ene, får du den andre gratis av $\\varepsilon_V = \\varepsilon_K + 1$."
+  },
+  {
+   "id": "tfy4115-8-2-bb-over1",
+   "type": "definition",
+   "title": "Hvorfor $\\varepsilon_V$ alltid er over 1 — og $\\varepsilon_K$ ikke behøver å være",
+   "content": "$\\varepsilon_V = |Q_H|/W$ og $|Q_H| = |Q_L| + W \\ge W$, siden $|Q_L| \\ge 0$. Derfor er **$\\varepsilon_V \\ge 1$ en fysisk lov**, med likhet bare når pumpa ikke flytter noe varme (og da er den en panelovn).\n\n$\\varepsilon_K = |Q_L|/W$ er derimot bare **vanligvis** over 1. Betingelsen er $|Q_L| > W$, og den brytes når temperaturløftet blir stort nok: en dypfryser mot en varm sommerdag, eller en kryokjøler ned mot noen kelvin, kan godt ha $\\varepsilon_K < 1$. Det er lovlig og forekommer.\n\nSkriv derfor betingelsen ut når du bruker regelen: **«$\\varepsilon_V$ over 1 alltid; $\\varepsilon_K$ over 1 når $|Q_L| > W$.»**"
+  },
+  {
+   "id": "tfy4115-8-2-bb-panelovn",
+   "type": "definition",
+   "title": "Panelovnen som referanse",
+   "content": "En panelovn (eller en elektrisk kolbe) har $\\varepsilon_V = 1$ nøyaktig: alt det elektriske arbeidet blir varme i rommet, og ingenting hentes utenfra. Den er derfor den naturlige referansen.\n\nTo konsekvenser å kunne:\n- **En varmepumpe kan aldri være dårligere enn en panelovn**, siden kompressorarbeidet også ender som varme.\n- **Strømbesparelsen** mot en panelovn er $1 - 1/\\varepsilon_V$. Med $\\varepsilon_V = 3{,}50$ blir det $71{,}4$ prosent.\n\nFår du en effektfaktor under 1, har du regnet feil — som regel celsius, eller brøken snudd."
+  },
+  {
+   "id": "tfy4115-8-2-bb-carnotgrenser",
+   "type": "definition",
+   "title": "De to Carnot-grensene på ett kort",
+   "content": "$$\\varepsilon_{V,\\text{Carnot}} = \\frac{T_v}{T_v-T_k}, \\qquad \\varepsilon_{K,\\text{Carnot}} = \\frac{T_k}{T_v-T_k},$$\nbegge med $T$ i **kelvin**. Tre relasjoner verdt å kjenne:\n- differansen mellom dem er nøyaktig 1;\n- $\\varepsilon_{V,\\text{Carnot}} = 1/\\eta_\\text{Carnot}$;\n- nevneren er temperaturDIFFERANSEN — den er det samme tallet i kelvin og celsius, mens telleren MÅ være absolutt.\n\nHuskeregel for hvilken temperatur som står i telleren: **det du er interessert i.** Oppvarming interesserer seg for det varme reservoaret ($T_v$), kjøling for det kalde ($T_k$)."
+  },
+  {
+   "id": "tfy4115-8-2-bb-energibalanse",
+   "type": "definition",
+   "title": "Energibalansen $|Q_H| = |Q_L| + W$",
+   "content": "Den ene likningen hele kapitlet hviler på, og den følger av $\\Delta U = 0$ over en syklus. Les den slik: **det som kommer ut på den varme siden, er summen av det som kom inn på den kalde siden og arbeidet som ble tilført.**\n\nTre bruksmåter:\n- kjenner du to av tre, får du den tredje;\n- den gir $\\varepsilon_V = \\varepsilon_K + 1$ ved å dele på $W$;\n- den forteller at et kjøleskap avgir MER varme til kjøkkenet enn det fjerner fra maten.\n\nMerk at alle tre størrelsene skrives som positive tallverdier her. Vil du ha fortegn, er $Q_H < 0$ (varme ut av gassen) og $Q_L > 0$ (varme inn) i systemkonvensjonen fra [kap. 8.1](/tfy4115/tfy4115-8-1)."
+  },
+  {
+   "id": "tfy4115-8-2-bb-temperaturloft",
+   "type": "definition",
+   "title": "Temperaturløftet er det som koster",
+   "content": "Nevneren i begge Carnot-grensene er $T_v - T_k$ — **temperaturløftet**. Det er den ene størrelsen som avgjør hvor dyrt det er å flytte varme.\n\nPraktiske følger, alle eksamensrelevante:\n- **Kaldere ute** gir større løft og lavere effektfaktor. Derfor yter luft-til-luft-pumper dårligst når det er kaldest.\n- **Lavere turtemperatur** gir mindre løft og høyere effektfaktor. Derfor gulvvarme framfor radiatorer.\n- **Bergvarme** henter fra en brønn som holder rundt $4\\,^\\circ\\text{C}$ hele året, og har derfor et stabilt, moderat løft.\n\nEn oppgave som endrer én av de to temperaturene og spør hva som skjer, spør egentlig bare om nevneren."
+  },
+  {
+   "id": "tfy4115-8-2-bb-kjoleskapdor",
+   "type": "definition",
+   "title": "Kjøleskapsdøra — og hvorfor den ikke kjøler rommet",
+   "content": "Med døra åpen har kjøleskapet ikke lenger to reservoarer: varmen det «fjerner» kommer rett fra rommet, og varmen det avgir går tilbake til det samme rommet. Netto tilføres rommet nøyaktig kompressorarbeidet $W$.\n\nRegnestykket: $|Q_H| - |Q_L| = W$, uansett hvor stor $\\varepsilon_K$ er. Med en kompressor på $60\\,\\text{W}$ blir rommet varmet med $60\\,\\text{W}$ — omtrent som en gammel lyspære.\n\nPoenget generaliserer: **enhver maskin som står i et lukket rom, varmer rommet med sitt fulle strømforbruk**, uansett hva den ellers gjør. Det er første hovedsetning, og den kan ikke omgås."
+  },
+  {
+   "id": "tfy4115-8-2-bb-spesifikk",
+   "type": "definition",
+   "title": "Spesifikk mot molar varmekapasitet",
+   "content": "To varmekapasiteter som brukes side om side i denne delen:\n- **spesifikk** $c$, per kilogram: $Q = mc\\Delta T$, med $c_\\text{vann} = 4180\\,\\text{J/(kg}\\cdot\\text{K)}$;\n- **molar** $C_V$ og $C_P$, per mol: $Q = nC\\Delta T$, med $C_V = \\tfrac32R$ eller $\\tfrac52R$.\n\nSammenhengen er $C = Mc$, der $M$ er molarmassen. **Enheten avslører hvilken du har:** $\\text{J/(kg}\\cdot\\text{K)}$ mot $\\text{J/(mol}\\cdot\\text{K)}$.\n\nI varmepumpeoppgaver er telleren nesten alltid $mc\\Delta T$ for vann, siden nyttevirkningen måles i en tank eller et rom, ikke i arbeidsmediet."
+  },
+  {
+   "id": "tfy4115-8-2-bb-faseovergang",
+   "type": "definition",
+   "title": "Når varmen går til en faseovergang",
+   "content": "Skal noe frysе, smelte, koke eller kondensere, endres ikke temperaturen mens det skjer, og da gjelder IKKE $mc\\Delta T$. I stedet er\n$$Q = mL,$$\nder $L$ er den spesifikke smelte- eller fordampningsvarmen. For vann: $L_f = 3{,}34\\cdot10^5\\,\\text{J/kg}$ (smelting) og $L_v = 2{,}26\\cdot10^6\\,\\text{J/kg}$ (fordamping).\n\n**Fellen** er å bruke $mc\\Delta T$ gjennom en faseovergang, eller å glemme faseovergangen når oppgaven ber om å kjøle vann fra $+10\\,^\\circ\\text{C}$ til is på $-5\\,^\\circ\\text{C}$: da trengs tre ledd — kjøle vannet, fryse det, kjøle isen."
+  },
+  {
+   "id": "tfy4115-8-2-bb-sjangert6",
+   "type": "definition",
+   "title": "Sjanger T6 — varmepumpe- og kjøleskapsoppgaven",
+   "content": "Signaturen: to temperaturer, og enten en varmeeffekt eller et arbeid. Du skal finne effektfaktoren, kompressoreffekten eller varmen som flyttes — og ofte sammenligne med Carnot-grensen.\n\nVarianter som går igjen:\n- **rene grenseoppgaver:** «finn den største mulige effektfaktoren» — bare Carnot-formelen;\n- **virkelig maskin:** en oppgitt $\\varepsilon$, finn $W$ eller $|Q_L|$;\n- **praktisk oppsett:** en vanntank, en tid og en kompressoreffekt — bygg brøken selv;\n- **sammenligning:** hvor stor del av grensen utnyttes, eller hva skjer hvis en temperatur endres.\n\nI flervalgssettene kommer T6 gjerne som ett eller to spørsmål rett etter T5-klyngen, og alternativene inneholder nesten alltid både $\\varepsilon_V$ og $\\varepsilon_K$."
+  },
+  {
+   "id": "tfy4115-8-2-bb-epsilonsymbol",
+   "type": "definition",
+   "title": "$\\varepsilon$ i Del 8 mot $e$ i Del 9",
+   "content": "$\\varepsilon$ (epsilon) er **effektfaktoren**, dimensjonsløs, i dette kapitlet. Den skrives $\\varepsilon_V$ for oppvarming og $\\varepsilon_K$ for kjøling.\n\n⚠ **Nær-kollisjon:** i [kap. 9.2](/tfy4115/tfy4115-9-2) er $e$ **emissiviteten** til en flate, også dimensjonsløs, men med verdier mellom 0 og 1. De to har lignende navn i litteraturen (begge kalles «coefficient» eller «faktor» på engelsk) og lignende symboler. Skillet: effektfaktoren er **større** enn 1, emissiviteten **mindre** enn 1. Og de opptrer i helt ulike formler."
+  },
+  {
+   "id": "tfy4115-8-2-bb-Tsymbol",
+   "type": "definition",
+   "title": "$T$ i Del 8: kelvin, uten unntak i Carnot-grensene",
+   "content": "$T$ er **absolutt temperatur i kelvin** i hele termodelen. I Del 1–5 var $T$ **perioden** til en svingning, i sekunder.\n\nDen praktiske disiplinen i dette kapitlet er dobbel:\n- **telleren** i en Carnot-grense MÅ være kelvin;\n- **nevneren** $T_v - T_k$ er den samme i kelvin og celsius;\n- **$\\Delta T$ i $mc\\Delta T$** kan stå i celsius-differanse.\n\nDerfor kan halve regnestykket være riktig med celsius, og det er nettopp det som gjør fella så vanskelig å se."
+  },
+  {
+   "id": "tfy4115-8-2-bb-cop",
+   "type": "definition",
+   "title": "COP — det engelske navnet",
+   "content": "Effektfaktoren heter **COP** på engelsk, fra *coefficient of performance*, og skrives ofte $\\text{COP}_h$ (heating) og $\\text{COP}_c$ (cooling). Det er nøyaktig de samme størrelsene som $\\varepsilon_V$ og $\\varepsilon_K$.\n\nDu møter forkortelsen i produktdatablad og i engelsk pensumlitteratur, og den er verdt å kjenne — men i norske oppgavetekster brukes «effektfaktor», og symbolene er $\\varepsilon_V$ og $\\varepsilon_K$. Merk at produsenter også oppgir **SCOP** (seasonal COP), et sesongveid gjennomsnitt som ligger lavere enn COP målt ved én temperatur."
+  },
+  {
+   "id": "tfy4115-8-2-bb-kontroll",
+   "type": "definition",
+   "title": "Fire kontroller som fanger nesten alle feil",
+   "content": "1. **Er $\\varepsilon_V > 1$?** Er den ikke det, har du brukt celsius eller snudd brøken.\n2. **Skiller $\\varepsilon_V$ og $\\varepsilon_K$ seg med nøyaktig 1?** Har du regnet begge og de ikke gjør det, er én av dem feil.\n3. **Ligger svaret under Carnot-grensen?** Regn grensen først — det er én divisjon.\n4. **Stemmer $|Q_H| = |Q_L| + W$?** Legg sammen og kontroller.\n\nFire kontroller, femten sekunder til sammen, og de fanger celsius-fella, brøkvendingen, $\\varepsilon_V$/$\\varepsilon_K$-forvekslingen og alle regnefeil i energibalansen."
+  },
+  {
+   "id": "tfy4115-8-2-bb-eliminasjon",
+   "type": "definition",
+   "title": "Eliminasjon ved fysiske grenser i pumpeoppgaver",
+   "content": "Tre grenser stryker alternativer uten regning:\n\n1. **$\\varepsilon_V > 1$.** Alt under ryker straks — og det er ofte tre av seks alternativer, siden både $1/\\varepsilon_V$, virkningsgraden og celsius-varianten ligger under 1.\n2. **$\\varepsilon < \\varepsilon_\\text{Carnot}$.** Regn grensen først; alternativer over den er umulige.\n3. **De to gjenværende skiller seg med 1.** Da er spørsmålet bare om oppgaven ba om oppvarming eller kjøling — og det leser du i oppgaveteksten, ikke i regningen.\n\nI et sett med seks alternativer er dette nesten alltid nok til å komme ned til to, og de to siste avgjøres av én lesning av teksten."
+  },
+  {
+   "id": "tfy4115-8-2-bb-mc-tempo",
+   "type": "definition",
+   "title": "MC-tempo i pumpeoppgaver",
+   "content": "T6-spørsmål er blant de raskeste i termohalvdelen — to til tre minutter hver, hvis du er disiplinert:\n\n- **tjue sekunder** på å lese hva som er nytten ($\\varepsilon_V$ eller $\\varepsilon_K$);\n- **tjue sekunder** på å skrive om temperaturene til kelvin og regne $T_v - T_k$;\n- **tretti sekunder** på selve brøken;\n- **tretti sekunder** på de fire kontrollene.\n\nDet gir margin til å bruke lengre tid på kretsprosessklyngen, som er verdt flere poeng. **Ikke bruk lang tid her — bruk riktig tid.**"
+  },
+  {
+   "id": "tfy4115-8-2-bb-virkelige-verdier",
+   "type": "definition",
+   "title": "Realistiske effektfaktorer",
+   "content": "Tall verdt å ha som følelse, slik at du kjenner igjen et urimelig svar:\n\n| Anlegg | Typisk $\\varepsilon_V$ |\n|---|---|\n| Luft-til-luft, mildt vær | $3$–$4$ |\n| Luft-til-luft, $-15\\,^\\circ\\text{C}$ ute | $1{,}5$–$2$ |\n| Bergvarme til gulvvarme | $4$–$5$ |\n| Panelovn | $1{,}0$ |\n| Kjøleskap ($\\varepsilon_K$) | $2$–$4$ |\n\nVirkelige anlegg ligger typisk på 25–50 prosent av Carnot-grensen. Får du en effektfaktor over 10 for et virkelig anlegg, har du sannsynligvis regnet grensen i stedet for ytelsen — og det er ofte nettopp det oppgaven vil at du skal se."
+  },
+  {
+   "id": "tfy4115-8-2-coll-symbolliste",
+   "type": "collapsible",
+   "title": "Symbol- og formelliste",
+   "buttonText": "Vis symboler og formler",
+   "content": [
+    {
+     "id": "tfy4115-8-2-symb-1",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n**Kolliderende symboler i dette delkapitlet — les nøye.**\n\n- $T$ er **absolutt temperatur i kelvin**. I Del 1–5 var $T$ **perioden** i sekunder. Carnot-grensene tåler ikke celsius i telleren.\n- $Q$ er **varme i joule**. I [kap. 5.2](/tfy4115/tfy4115-5-2) var $Q$ **kvalitetsfaktoren**, dimensjonsløs.\n- $\\varepsilon$ er **effektfaktoren**, dimensjonsløs og **større enn 1** for oppvarming. I [kap. 9.2](/tfy4115/tfy4115-9-2) er $e$ **emissiviteten**, dimensjonsløs og **mindre** enn 1.\n- $c$ er **spesifikk** varmekapasitet per kilogram. $C_V$ og $C_P$ fra [kap. 8.1](/tfy4115/tfy4115-8-1) er **molare**, per mol.\n- $p$ er **trykk**; i Del 3 var $\\mathbf{p}$ **bevegelsesmengde**.\n- $S$ er **entropi** i $\\text{J/K}$; i [kap. 5.1](/tfy4115/tfy4115-5-1) var $S$ **taustrekk** i newton.\n- $L$ er **spesifikk faseovergangsvarme** i J/kg; i Del 4 var $\\mathbf{L}$ **dreieimpuls**.\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $T_v$ | Temperatur i det varme reservoaret (**kelvin**) | K |\n| $T_k$ | Temperatur i det kalde reservoaret (**kelvin**) | K |\n| $Q_H$ | Varme avgitt til det varme reservoaret | J |\n| $Q_L$ | Varme hentet fra det kalde reservoaret | J |\n| $W$ | Arbeid tilført kompressoren | J |\n| $\\varepsilon_V$ | Effektfaktor for oppvarming, $|Q_H|/W$ | — |\n| $\\varepsilon_K$ | Effektfaktor for kjøling, $|Q_L|/W$ | — |\n| $\\eta$ | Virkningsgrad (maskin, ikke pumpe) | — |\n| $P$ | Effekt (kompressor eller varmeeffekt) | W |\n| $m$ | Masse | kg |\n| $\\rho$ | Tetthet, $1000\\,\\text{kg/m}^3$ for vann | $\\text{kg/m}^3$ |\n| $c$ | Spesifikk varmekapasitet, $4180$ for vann | $\\text{J/(kg}\\cdot\\text{K)}$ |\n| $L_f$, $L_v$ | Spesifikk smelte- og fordampningsvarme | J/kg |\n| $\\Delta T$ | Temperaturdifferanse (celsius trygt her) | K |\n| $\\Delta t$ | Tidsintervall | s |\n| $S$ | Entropi (ikke taustrekk her) | J/K |\n\n**Formler i dette delkapitlet:**\n\n$$|Q_H| = |Q_L| + W$$\nEnergibalansen over en syklus, fra $\\Delta U = 0$ [må kunne brukes eller utledes aktivt].\n\n$$\\varepsilon_V = \\frac{|Q_H|}{W}, \\qquad \\varepsilon_K = \\frac{|Q_L|}{W}$$\nDe to effektfaktorene; kompressorarbeidet står ALLTID i nevneren [står på det utdelte arket].\n\n$$\\varepsilon_V = \\varepsilon_K + 1$$\nSammenhengen, fra energibalansen delt på $W$ [må kunne brukes eller utledes aktivt].\n\n$$\\varepsilon_{V,\\text{Carnot}} = \\frac{T_v}{T_v-T_k}, \\qquad \\varepsilon_{K,\\text{Carnot}} = \\frac{T_k}{T_v-T_k}$$\nCarnot-grensene, med $T$ i kelvin [står på det utdelte arket; **må også kunne utledes aktivt**].\n\n$$\\varepsilon_{V,\\text{Carnot}} = \\frac{1}{\\eta_\\text{Carnot}} = \\frac{1}{1 - T_k/T_v}$$\nPumpa som maskinen baklengs [må kunne brukes eller utledes aktivt].\n\n$$\\varepsilon_V = \\frac{\\rho V c\\,\\Delta T}{P\\,\\Delta t}$$\nEffektfaktor fra et praktisk oppsett med en vanntank [må kunne brukes eller utledes aktivt].\n\n$$Q = mc\\,\\Delta T \\quad\\text{(temperaturendring)}, \\qquad Q = mL \\quad\\text{(faseovergang)}$$\nVarme til oppvarming og til faseovergang [står på det utdelte arket].\n\n$$\\text{strømbesparelse mot panelovn} = 1 - \\frac{1}{\\varepsilon_V}$$\nPanelovnen har $\\varepsilon_V = 1$ nøyaktig [må kunne brukes eller utledes aktivt].\n\n$$\\frac{|Q_L|}{|Q_H|} = \\frac{T_k}{T_v} \\quad\\text{(Carnot)}, \\qquad \\Delta S_\\text{univers} \\ge 0$$\nEntropiregnskapet som grensene følger av; entropi behandles i kap. 7.2 [står på det utdelte arket].\n\n$$1\\,\\text{kWh} = 3{,}6\\cdot10^6\\,\\text{J}, \\qquad 1\\ \\text{liter vann} = 1\\,\\text{kg}$$\nOmregningene du trenger i praktiske oppsett [Rottmann]."
+    }
+   ]
+  },
+  {
+   "id": "tfy4115-8-2-coll-repetisjon",
+   "type": "collapsible",
+   "title": "Repetisjonsoppgaver",
+   "buttonText": "Vis repetisjonsoppgaver",
+   "content": [
+    {
+     "id": "tfy4115-8-2-rep-1",
+     "type": "text",
+     "content": "Fem korte oppgaver på det dette kapitlet hviler på. Ta dem før du går videre til [kap. 8.3](/tfy4115/tfy4115-8-3).\n\n**R1.** En varmepumpe bruker $1{,}20\\,\\text{kW}$ og leverer $4{,}80\\,\\text{kW}$. Finn $\\varepsilon_V$ og $\\varepsilon_K$.\n\n*Svar:* $\\varepsilon_V = 4{,}80/1{,}20 = 4{,}00$ og $\\varepsilon_K = 4{,}00 - 1 = 3{,}00$. Kontroll direkte: $|Q_L| = 4{,}80 - 1{,}20 = 3{,}60\\,\\text{kW}$, og $3{,}60/1{,}20 = 3{,}00$ ✔.\n\n**R2.** Finn Carnot-grensen for $\\varepsilon_V$ mellom $20{,}0\\,^\\circ\\text{C}$ inne og $0{,}0\\,^\\circ\\text{C}$ ute.\n\n*Svar:* $T_v = 293{,}15\\,\\text{K}$, $T_k = 273{,}15\\,\\text{K}$, differansen $20{,}0\\,\\text{K}$. $\\varepsilon_{V,\\text{Carnot}} = 293{,}15/20{,}0 = 14{,}66$. Merk hvor høy grensen blir når løftet er lite.\n\n**R3.** Hvor mye energi trengs for å varme $50{,}0$ liter vann fra $15{,}0\\,^\\circ\\text{C}$ til $60{,}0\\,^\\circ\\text{C}$?\n\n*Svar:* $Q = mc\\Delta T = 50{,}0 \\cdot 4180 \\cdot 45{,}0\\,\\text{J} = 9{,}405\\,\\text{MJ} = 2{,}613\\,\\text{kWh}$. Liter vann er kilogram vann.\n\n**R4.** Et kjøleskap fjerner $200\\,\\text{W}$ og har $\\varepsilon_K = 2{,}50$. Hvor mye varme avgir det til kjøkkenet?\n\n*Svar:* $W = 200/2{,}50 = 80{,}0\\,\\text{W}$, og $|Q_H| = 200 + 80{,}0 = 280\\,\\text{W}$. Merk: mer ut enn inn, alltid.\n\n**R5.** En varmepumpe har $\\varepsilon_V = 3{,}00$. Hvor mye strøm sparer den mot en panelovn som leverer samme varme?\n\n*Svar:* $1 - 1/3{,}00 = 0{,}667$, altså $66{,}7$ prosent. Panelovnen har $\\varepsilon_V = 1$ nøyaktig, og forholdet mellom forbrukene er nettopp $\\varepsilon_V$."
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}
