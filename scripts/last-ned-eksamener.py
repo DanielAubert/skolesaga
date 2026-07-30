@@ -63,7 +63,11 @@ KATALOG = os.environ.get('KILDER') or os.path.join(
 # vite hvilke rader som er innholdsverifiserte og hvilke som bare er gjettet.
 MANIFESTNAVN = os.environ.get('MANIFEST') or 'MANIFEST.csv'
 UA = 'Skolesaga-arkivhenter/1.0 (laerebok-prosjekt; kontakt: studenthjelp@gmail.com)'
-PAUSE = 1.2          # sekunder mellom forespørsler
+# Sekunder mellom forespørsler. Kan settes ned med PAUSE= for store runder mot
+# en stor institusjon — ILOS-runden var 236 mapper à ti filer, og 1,2 s ville
+# tatt 3,5 timer. Ikke sett den under ~0,4: vi laster ned fra offentlige
+# universiteter, og de skal ikke merke oss.
+PAUSE = float(os.environ.get('PAUSE') or 1.2)
 # ASCII-navn er primært: `TØRR=1` med norsk tegn settes IKKE av zsh/bash, og
 # skriptet lastet ned da jeg trodde det tørrkjørte. DRY er det som virker.
 TØRR = bool(os.environ.get('DRY') or os.environ.get('TORR') or os.environ.get('TØRR'))

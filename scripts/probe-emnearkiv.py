@@ -101,8 +101,13 @@ def lenker(sidehtml, base):
 def emnekoder(institutt):
     """Alle emnekodene instituttet listar opp på oversiktssida."""
     s = curl(BASE + institutt + '/')
+    # ⚠ TO SIFFER, IKKJE FIRE. Emnekodene har fire siffer — bortsett frå
+    # EXPHIL03 og heile EXFAC03-familien (EXFAC03-EAST, -FIL, -KUN, -LIT …),
+    # som har to. Eit mønster som krev fire hoppa over ni emne ved IKOS, ILOS
+    # og IFIKK, og eitt av dei var EXPHIL03 — som denne kodebasen har ei
+    # lærebok for.
     return sorted(set(re.findall(
-        r'/studier/emner/%s/([A-ZÆØÅ]{2,10}[0-9]{4}[A-Za-z0-9-]*)/'
+        r'/studier/emner/%s/([A-ZÆØÅ]{2,10}[0-9]{2,4}[A-Za-z0-9-]*)/'
         % re.escape(institutt), s)))
 
 

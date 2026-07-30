@@ -137,7 +137,11 @@ def kryp(rot, djupn):
                 elif l.endswith('/') and l.split('?')[0] not in besøkt \
                         and l.rstrip('/') != url.rstrip('/'):
                     undermapper.add(l)
-        if dok and url != rot:
+        # ⚠ OGSÅ ROTA. Ho blei utelaten i første utkast, ut frå at ei rot er ei
+        # oversiktsside og ikkje eit emnearkiv. Det er feil for arkiv som ikkje
+        # har undermapper i det heile: IFIKKs EXPHIL03-arkiv har 87 dokument
+        # liggjande rett i rota, og skriptet melde «0 mapper med dokument».
+        if dok:
             funne[url] = dok
         for u in sorted(undermapper):
             kø.append((u, niv + 1))

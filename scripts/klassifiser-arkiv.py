@@ -115,14 +115,34 @@ def treff(mønstre, tekst):
     return ut
 
 
+# ⚠ IKKJE BERRE PDF. Fallgruve 3 i ARKIV-NESTE-STEG.md: fleire eksamenssett
+# finst berre som HTML-side eller Word-fil — halve HVL-arkivet låg slik. Ein
+# klassifikator som berre les PDF, let 785 filer stå på ei rein namnegjetting.
+TEKSTLIKE = {'.txt', '.tex', '.md'}
+TEXTUTIL = {'.doc', '.docx', '.odt', '.rtf', '.html', '.htm'}
+
+
 def tekst_av(sti):
-    """Første sider som rein tekst. Tom streng for skanna PDF-ar utan tekstlag."""
-    if not sti.lower().endswith('.pdf'):
-        return ''
-    r = subprocess.run(
-        ['pdftotext', '-f', '1', '-l', str(SIDER), '-q', sti, '-'],
-        capture_output=True, timeout=60)
-    return r.stdout.decode('utf-8', 'replace')
+    """Første sider som rein tekst. Tom streng når fila ikkje har tekstlag."""
+    e = os.path.splitext(sti)[1].lower()
+    if e == '.pdf':
+        r = subprocess.run(
+            ['pdftotext', '-f', '1', '-l', str(SIDER), '-q', sti, '-'],
+            capture_output=True, timeout=60)
+        return r.stdout.decode('utf-8', 'replace')
+    if e in TEKSTLIKE:
+        with open(sti, 'rb') as f:
+            return f.read(40000).decode('utf-8', 'replace')
+    if e in TEXTUTIL:
+        # textutil følgjer med macOS og les både Word og HTML. Utan
+        # -stdout skriv han ei fil ved sida av originalen — og arkivet skal
+        # ikkje endre seg av at vi les det.
+        r = subprocess.run(['textutil', '-convert', 'txt', '-stdout', sti],
+                           capture_output=True, timeout=60)
+        # Heile dokumentet, ikkje berre framsida: ei HTML-side har ingen sider.
+        # 40 000 teikn er rundt tre PDF-sider med tekst.
+        return r.stdout.decode('utf-8', 'replace')[:40000]
+    return ''
 
 
 def klassifiser(tekst):
@@ -197,13 +217,15 @@ def main():
     alle = '--alle' in sys.argv
     prøve = int(sys.argv[sys.argv.index('--prove') + 1]) if '--prove' in sys.argv else 0
 
-    r = [x for x in rader() if x['filnavn'].lower().endswith('.pdf')]
+    lesbar = {'.pdf'} | TEKSTLIKE | TEXTUTIL
+    r = [x for x in rader()
+         if os.path.splitext(x['filnavn'])[1].lower() in lesbar]
     if not alle:
         r = [x for x in r if x.get('type_kilde') != 'pdf-verifisert']
     if prøve:
         random.seed(20260731)      # same stikkprøve kvar gong — elles kan ingen ettergå henne
         r = random.sample(r, min(prøve, len(r)))
-    print('%d PDF-ar å gå gjennom%s' % (len(r), '  (STIKKPRØVE)' if prøve else ''))
+    print('%d filer å gå gjennom%s' % (len(r), '  (STIKKPRØVE)' if prøve else ''))
 
     tel = Counter()
     endra = Counter()
@@ -257,6 +279,22 @@ def main():
     if prøve:
         print('\nStikkprøve — ingenting skrive.')
         return
+
+    # ⚠ SLÅ SAMAN MED DET SOM ALT STÅR I MANIFESTET. Skriptet går som standard
+    # berre gjennom filer som IKKJE alt er innhaldsverifiserte — og skreiv
+    # først berre desse, med 'w'. Andre køyring 31. juli 2026 gjekk gjennom
+    # 7 364 nye filer, skreiv 2 551 rader, og sletta dermed dei 7 458 radene
+    # frå første køyring. Dei filene hadde blitt gjettingar igjen ved neste
+    # sortering, utan at noko sa frå. Ei inkrementell køyring må leggje TIL.
+    gamle = []
+    if os.path.exists(UT):
+        with open(UT, encoding='utf-8') as f:
+            nye_nøklar = {(r[0], r[2]) for r in ut}
+            gamle = [r for r in csv.reader(f)
+                     if r and r[0] != 'emnekode' and (r[0], r[2]) not in nye_nøklar]
+        print('\nBeheld %d rader frå tidlegare køyringar' % len(gamle))
+    ut = gamle + ut
+
     with open(UT, 'w', newline='', encoding='utf-8') as f:
         w = csv.writer(f)
         w.writerow(['emnekode', 'larested', 'filnavn', 'type', 'bytes',
