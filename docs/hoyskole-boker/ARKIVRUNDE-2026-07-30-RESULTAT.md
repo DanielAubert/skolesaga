@@ -1,6 +1,6 @@
 # Arkivrunden 30. juli 2026 — resultat
 
-Utvidelse av eksamensarkivet fra ~2 800 til **15 657 filer**. Alt ligger i
+Utvidelse av eksamensarkivet fra ~2 800 til **15 740 filer**. Alt ligger i
 `~/Desktop/Eksamner/_nedlastet-2026-07-30/`, bevisst adskilt fra det gamle
 arkivet.
 
@@ -11,10 +11,10 @@ Se også `ARKIV-SORTERING-2026-07-30.md` (metoden) og
 
 | mål | tall |
 |---|---|
-| Filer | 15 657 |
+| Filer | 15 740 |
 | Størrelse | ~6,2 GB |
-| **Unike eksamensterminer** | **6 463** |
-| Emner | 794 |
+| **Unike eksamensterminer** | **6 481** |
+| Emner | 797 |
 | Emner med ≥5 terminer med fasit | **190** |
 | — herav ≥10 terminer med fasit | 99 |
 
@@ -85,10 +85,13 @@ Disse er undersøkt grundig, ikke bare «ikke funnet»:
 
 ## Kvalitetsforbehold
 
-- **2 964 filer har ingen tolkbar termin** og er ikke talt. Tallene er et
+- **2 984 filer har ingen tolkbar termin** og er ikke talt. Tallene er et
   gulv, ikke et tak.
-- **4 137 filer mangler kilde-URL**, så bruksklassen deres er *antatt*,
-  ikke avklart. Se kolonnen `bruksklasse_sikkerhet` i `INDEKS.csv`.
+- **Bruksklassen er avgjort på faktisk kilde-URL for 15 488 av 15 740
+  filer.** De siste 252 mangler manifestrad, og klassen deres er derfor
+  *antatt* framfor avklart — se kolonnen `bruksklasse_sikkerhet` i
+  `INDEKS.csv`. Skillet finnes fordi vi uten kilde-URL ikke kan se
+  forskjell på et instituttarkiv og en ansatts personlige katalog.
 - **937 filer bærer en annen emnekode enn arkivet de lå i.** Som regel
   ikke en feil — NTNU har endret koder over tid — men listet i
   `KRYSSREFERANSER.csv` for menneskelig avgjørelse.
