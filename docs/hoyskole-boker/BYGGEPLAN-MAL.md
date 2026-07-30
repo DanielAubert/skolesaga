@@ -224,6 +224,21 @@ Redaktør per del-gruppe (3–4 agenter à 7–10 kapitler) + for JUS-fag ALLTID
       ingen collapsible har tom/manglende `content`-array; stikkprøv at Del 0
       har «Lite tid?»-boks + kildenote + prosedyrekort, og at «kap. X.Y» i
       fasiter er markdown-lenker.
+- [ ] **KVOTEOVERSKYTING TRIMMES IKKE — avgjort 30. juli 2026.**
+      Byggekontraktene sier `==` mellom skjelettets kvotetall og antall toppnivå
+      `definition`-blokker. **Regelen finnes for å hindre UNDERSKYTING.** Skriver en
+      agent flere korrekte, nyttige kort enn planlagt, er det ekstra studiestoff —
+      ikke et avvik. Å slette dem for å treffe et planlagt tall tar verdi fra
+      leseren og gir ingen noe.
+
+      ma1301 landet på 543 flashcards mot skjelettets sum, med 2-1 på 34 (mot 26),
+      4-1 på 31 (mot 24) og 2-4 på 25. Overskytingen står. Minstekravet i
+      `../CLAUDE.md` er 500 quiz og 500 flashcards per fag, og begge klareres.
+
+      **Underskyting er derimot fortsatt et avvik** som skal fylles, ikke bortforklares.
+      Og tallene som havner i wiring/metadata regnes ut fra de faktiske filene, så
+      overskyting gir ingen usann påstand noe sted.
+
 - [ ] **⚠ ARBEIDSTRE-REVISJON ETTER HVER AGENTBØLGE — NYTT 30. juli 2026.**
       ```bash
       for w in .claude/worktrees/*/; do
