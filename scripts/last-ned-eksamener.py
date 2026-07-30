@@ -20,6 +20,10 @@ FALLGRUVER (funnet 30. juli 2026, alle håndtert her):
   · Noen filnavn har dobbel endelse (…h24.pdf.pdf).
   · UiO har en skrivefeil i én sti: «tidligerer-» (SOS1004).
   · Filnavn med MELLOMROM avvises av urllib — URL-en enkodes derfor først.
+  · ⚠ MEN FELLEN GÅR BEGGE VEIER. Apache-indekser (UiB) har allerede %20 i
+    href-ene sine. Enkoder man dem én gang til, blir %20 til %2520 og ALT med
+    mellomrom svarer 404 — ni av tolv filer i én kjøring. Derfor står «%» i
+    safe-lista under: det som alt er enkodet, skal stå i fred.
 
 ⚠ BEGRENSNING: skriptet leser ÉN arkivside. Det holder for UiO, men ikke for
 NTNUs mattewiki, som sprer settene over mange undersider i samme namespace
