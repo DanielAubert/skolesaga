@@ -388,10 +388,19 @@ def finn_sprak(navn):
 # Hva vi HAR lov til å gjøre med filen, ikke hva den inneholder. Regelen må
 # følge dataene: et notat i en README blir ikke lest når boka faktisk skrives.
 #
-#   apen-institusjonell — eksamensmateriale fra en offentlig institusjons EGET
-#       arkiv. Prosjektets grunnlag er åndsverkloven § 14.
-#   internt-referanse   — SKAL IKKE GJENGIS. Brukes bare til å kontrollere våre
-#       egne, nyskrevne løsninger, og til å forstå hva sensor premierer.
+# ⚠ INGENTING I ARKIVET PUBLISERES. Produkteier har bestemt at hverken
+# eksamensoppgaver, sensorveiledninger eller løsningsforslag deles på
+# skolesaga.no. Arkivet er kildemateriale for å SKRIVE bøker, ikke innhold
+# som skal serveres. Kolonnen `deles_pa_nett` er derfor `nei` for alt.
+#
+# `juridisk_status` sier hva vi LOVLIG kunne gjort, ikke hva vi gjør:
+#   kan-hostes-lovlig — eksamensoppgave eller sensorveiledning fra en
+#       offentlig institusjons EGET arkiv
+#   kan-ikke-hostes   — tredjeparts løsningsforslag, materiale fra ansattes
+#       personlige kataloger, pensum/temanotater, lærebokstoff
+#
+# Hvorfor beholde et skille vi ikke bruker? Fordi produktvalget kan endres,
+# og da skal ingen måtte klassifisere 15 000 filer på nytt.
 #
 # To ting havner i «internt-referanse»:
 #  1. Materiale fra ansattes PERSONLIGE sider (folk.*). Selve eksamensoppgaven
@@ -435,41 +444,38 @@ UNDERMAPPE_INTERN = re.compile(
 PERSONLIG_STI = re.compile(r'/~[A-Za-z0-9._-]+/')
 
 
-def bruksklasse(mappe, kilde_url, typ, undermappe=''):
+def juridisk_status(mappe, kilde_url, typ, undermappe=''):
     if typ in ('pensum', 'temanotat'):
-        return 'internt-referanse'
-    # ⚠ VERKEN LØSNINGSFORSLAG ELLER SENSORVEILEDNING DELES.
+        return 'kan-ikke-hostes'
+    # ⚠ DENNE FUNKSJONEN SIER HVA SOM ER LOVLIG, IKKE HVA VI GJØR.
+    # At ingenting deles på nett, står i kolonnen `deles_pa_nett`. Blander
+    # man de to, blir den juridiske vurderingen verdiløs — og den er nettopp
+    # det som trengs den dagen produktvalget endres.
     #
-    # De to er juridisk ulike, og skillet er derfor bevart i `type`:
-    #   · sensorveiledning fra offentlig institusjon — LOV å hoste
-    #   · tredjeparts løsningsforslag               — IKKE lov å hoste
-    #     (prosjektet slettet 343 slike fra storage 6. juli 2026)
-    #
-    # Men produkteier har bestemt at INGEN av dem deles. Det er et
-    # produktvalg, ikke en juridisk tvang, og det er strengere enn loven
-    # krever. Skillet i `type` står likevel, fordi valget kan endres — og
-    # fordi en sensorveiledning og et løsningsforslag er ulike kilder når vi
-    # kontrollerer våre egne, nyskrevne løsninger.
-    if typ in ('losningsforslag', 'sensorveiledning'):
-        return 'internt-referanse'
+    # Tredjeparts løsningsforslag kan ikke hostes uansett hvor åpent de lå.
+    # Det er en dokumenttypevurdering, ikke en kildevurdering, og det er
+    # regelen prosjektet håndhevet da 343 slike ble slettet 6. juli 2026.
+    # Sensorveiledninger fra offentlige institusjoner er derimot lovlige.
+    if typ == 'losningsforslag':
+        return 'kan-ikke-hostes'
     if undermappe and UNDERMAPPE_INTERN.search(undermappe):
-        return 'internt-referanse'
+        return 'kan-ikke-hostes'
     if mappe.upper() in PERSONLIG_MAPPE:
-        return 'internt-referanse'
+        return 'kan-ikke-hostes'
     if kilde_url:
         d = urllib.parse.urlsplit(kilde_url)
         if PERSONLIG_VERT.search(d.netloc) or PERSONLIG_STI.search(d.path):
-            return 'internt-referanse'
-        return 'apen-institusjonell'
+            return 'kan-ikke-hostes'
+        return 'kan-hostes-lovlig'
     # ⚠ INGEN KILDE-URL = INGEN SIKKER KLASSIFISERING. 43 % av filene mangler
     # manifestrad, og for dem VET vi ikke om kilden var et instituttarkiv eller
     # en ansatts personlige katalog. «apen-institusjonell» er standardvalget
     # fordi de fleste arkivene er institusjonelle — men det er en ANTAKELSE, og
-    # den skal stå i dataene. Se kolonnen bruksklasse_sikkerhet.
-    return 'apen-institusjonell'
+    # den skal stå i dataene. Se kolonnen status_sikkerhet.
+    return 'kan-hostes-lovlig'
 
 
-def bruksklasse_sikkerhet(kilde_url, mappe, typ, undermappe=''):
+def status_sikkerhet(kilde_url, mappe, typ, undermappe=''):
     """«sikker» når noe faktisk avgjorde klassen, «antatt» når vi bare falt tilbake."""
     if typ in ('pensum', 'temanotat'):
         return 'sikker'
@@ -694,10 +700,12 @@ def main():
                              if undermappe and UNDERMAPPE_INTERN.search(undermappe)
                              else verifisert_type or finn_type(ekte)),
                     'type_kilde': type_kilde_manifest if verifisert_type else 'filnavn',
-                    'bruksklasse': bruksklasse(
+                    # Produktvalget først: ingenting herfra går på nett.
+                    'deles_pa_nett': 'nei',
+                    'juridisk_status': juridisk_status(
                         mappe, url, verifisert_type or finn_type(ekte),
                         undermappe),
-                    'bruksklasse_sikkerhet': bruksklasse_sikkerhet(
+                    'status_sikkerhet': status_sikkerhet(
                         url, mappe, verifisert_type or finn_type(ekte),
                         undermappe),
                     'sprak': finn_sprak(ekte),

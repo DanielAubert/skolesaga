@@ -28,19 +28,21 @@ et alminnelig åndsverk institusjonen eier — der finnes ingen tilsvarende
 fritt, er prosjektets arbeidsgrunnlag slik det er dokumentert og praktisert.
 Det er en velbegrunnet posisjon, men den er ikke rettslig prøvd.
 
-## Produktvalget: vi deler ingen fasit
+## Produktvalget: ingenting herfra publiseres
 
-Produkteier har bestemt at **verken løsningsforslag eller sensorveiledninger
-deles** — også der hosting ville vært lovlig. Det er strengere enn loven
-krever, og det er et bevisst valg.
+**Ingenting i arkivet deles på skolesaga.no** — heller ikke
+eksamensoppgavene, og heller ikke sensorveiledningene, som begge ville vært
+lovlige å hoste. Arkivet er kildemateriale for å SKRIVE bøker, ikke innhold
+som skal serveres.
 
-Det eneste som kan publiseres, er altså **eksamensoppgavene**: 9 152 av
-15 741 filer.
+Det er strengere enn loven krever, og det er et bevisst valg.
 
-Skillet mellom de to fasittypene står likevel i kolonnen `type`, av to
-grunner. Juridisk er de ulike, så valget kan endres uten å klassifisere på
-nytt. Og de er ulike kilder i arbeidet: sensorveiledningen sier hva sensor
-gir poeng for, løsningsforslaget viser én vei fram.
+Per 30. juli 2026 er det også faktisk tilstand: ingen arkivfil er lastet opp
+til Supabase, ingen ligger i repoet, og verken `src/` eller `public/`
+refererer til arkivmappa. Alt ligger lokalt.
+
+Skillene i klassifiseringen står likevel, fordi produktvalget kan endres —
+og da skal ingen måtte klassifisere 15 000 filer på nytt.
 
 ## Den ufravikelige regelen
 
@@ -57,16 +59,20 @@ bygget på fagets faktiske eksamensarkiv.
 
 ## Slik ser det ut i `INDEKS.csv`
 
+To akser, holdt fra hverandre med vilje. Blandes de, blir den juridiske
+vurderingen verdiløs — og den er nettopp det som trengs den dagen
+produktvalget endres.
+
 | kolonne | betydning |
 |---|---|
+| `deles_pa_nett` | **`nei` for alt.** Produktvalget. |
+| `juridisk_status` | Hva vi LOVLIG kunne: `kan-hostes-lovlig` · `kan-ikke-hostes` |
+| `status_sikkerhet` | `sikker` når kilde-URL avgjorde · `antatt` når vi falt tilbake |
 | `type` | `oppgave` · `sensorveiledning` · `losningsforslag` · `pensum` · `temanotat` |
-| `bruksklasse` | `apen-institusjonell` (kan publiseres) · `internt-referanse` (skal ikke deles) |
-| `bruksklasse_sikkerhet` | `sikker` når kilde-URL avgjorde · `antatt` når vi falt tilbake |
 | `type_kilde` | `pdf-verifisert` · `manifest-filnavn` · `filnavn` · `manifest-uspesifisert` |
 
-Fordeling: 9 152 publiserbare eksamensoppgaver, 6 589 interne — hvorav
-4 270 løsningsforslag, 1 374 sensorveiledninger, 253 pensum/temanotat, og
-resten materiale fra ansattes personlige kurskataloger.
+Fordeling: 9 844 oppgaver, 1 374 sensorveiledninger, 4 270 løsningsforslag,
+253 pensum/temanotat. Juridisk kunne 10 526 vært hostet; 5 215 ikke.
 
 ## Personlige kurskataloger
 
@@ -99,6 +105,6 @@ seg det kursmaterialet lenker til.**
 ## Når du bygger en bok
 
 1. Bruk `TERMINER.csv` for «N av M sett»-påstander — aldri filtellinger.
-2. Publiser bare `bruksklasse == 'apen-institusjonell'`.
+2. **Publiser ingenting herfra.** Arkivet er kilde, ikke innhold.
 3. Sjekk `type_kilde`: er den `filnavn`, er typen gjettet og kan være feil.
 4. Skriv løsningen selv. Bruk arkivets fasit til å kontrollere den.
