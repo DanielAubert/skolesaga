@@ -300,6 +300,11 @@ ferdig (= rammeverk komplett, klart for Opus-bygging via BYGGEKONTRAKT-MAL) ·
 
 | Emne | Arketype | Status |
 |---|---|---|
+| PSYC1202 Profesjonsforberedende 1 (UiO) | drøfting/kasus | skjelett + **kontrakt** |
+| STV1400 Offentlig politikk og administrasjon (UiO) | drøfting | skjelett + **kontrakt** |
+| STV1200 Internasjonal politikk (UiO) | drøfting | skjelett + **kontrakt** |
+| INTER1000 Innføringsemne i internasjonale studier (UiO) | drøfting/tverrfaglig | skjelett + **kontrakt** |
+| SGO1001 Innføring i samfunnsgeografi (UiO) | drøfting | **bok** (live) |
 | ECON1310 Makroøkonomi I (UiO) | regnefag | **bok** (live) |
 | JUS1111 Privatrett I (UiO) | jus | **bok** (live) |
 | JUS4213 Strafferett og straffeprosess (UiO) | jus | skjelett |
@@ -409,7 +414,7 @@ ferdig (= rammeverk komplett, klart for Opus-bygging via BYGGEKONTRAKT-MAL) ·
 | TMA4245 Statistikk (NTNU) | regnefag | skjelett |
 | TDT4186 Operativsystemer (NTNU) | regnefag/hybrid | skjelett |
 | TTM4100 Kommunikasjon — Tjenester og nett (NTNU) | regnefag/hybrid | skjelett |
-| SOS1004 Innføring i sosiologi (UiO; arkiv SOS1000/1001/1003) | drøfting | skjelett |
+| SOS1004 Innføring i sosiologi (UiO; arkiv SOS1000/1001/1003) | drøfting | skjelett + **kontrakt** |
 | SOSANT1090 Antropologiens historie (UiO) | drøfting | skjelett |
 | SOSANT1400 Antropologi og religion (UiO) | drøfting | skjelett |
 | JUS2211 Forvaltningsrett og EØS-rett (UiO) | jus | skjelett |
