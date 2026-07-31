@@ -107,6 +107,41 @@ karakter, og prosjektet har ingen behandlingsgrunnlag for det.
 `resultat`, `karakter`, `sensur`, `RPT` og `kandidat` være stoppord som
 krever manuell godkjenning, uansett hvor eksamensaktig stien ser ut.
 
+## ⚠ Studentbesvarelser: publisert av institusjonen, men ikke institusjonens
+
+Universitetet i Agder publiserte i mange år inntil tre eksamensbesvarelser per
+emne per semester, side om side med oppgavesettene. Arkivets egen tekst:
+
+> «Eksamensbesvarelsene representerer tilfeldig valgte besvarelser innen gitte
+> semestre. Det er ikke publisert mer en maks tre besvarelser i det enkelte
+> emnet per semester. Det er fortrinnsvis besvarelser vurdert til karakteren A
+> eller B som er publisert.»
+
+I et utvalg på 292 PDF-er fra arkivet var **135 studentbesvarelser** mot 157
+oppgavesett — nesten halvparten. Filnavnene er `besvarelse-3.pdf`,
+`Besvarelse 1.pdf`, `Kandidat 1.pdf`, `MA-154 Besvarelse 243.pdf`.
+
+**De lastes ikke ned.** To grunner, og den andre er den tyngste:
+
+1. Besvarelsen er **studentens** åndsverk, ikke institusjonens eksamensoppgave.
+   Den faller utenfor åpningen reglene over bygger på, på samme måte som
+   tredjeparts løsningsforslag.
+2. `Besvarelse 243` er et **kandidatnummer**, koblet til opplysningen om at
+   besvarelsen fikk A eller B. Det er en karakter knyttet til en
+   identifikator — nøyaktig det stoppordslista over skal fange, og «kandidat»
+   står allerede der.
+
+De er heller ikke til nytte for oss: modellbesvarelsene i bøkene er nyskrevne,
+og vi gjengir aldri noen andres løsning.
+
+Filteret ligger i både `hent-wayback.py` og `last-ned-eksamener.py`, og begge
+teller opp og skriver hvor mange lenker de stanset — et stoppord som stanser
+noe i stillhet, blir aldri oppdaget når det stanser for mye.
+
+⚠ Det koster noe: en sensorveiledning som skulle hett
+«sensorveiledning_med_besvarelse.pdf» ville blitt stanset også. Tellingen i
+loggen er der for å oppdage nettopp det.
+
 ## Produkteiervalg 31. juli 2026: USNs glemte katalog
 
 `https://web01.usn.no/eksamen/` er en åpen Apache-katalogindeks med **3 487

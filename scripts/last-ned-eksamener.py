@@ -95,6 +95,26 @@ HTML_SETT = re.compile(
 IKKE_SETT = re.compile(r'(index\.html|/english/|personvern|kontakt|karakter|'
                        r'kalkulator|fusk|klage|tilrettelegging|sykdom|trekk|'
                        r'ny-eksamen|kildebruk)', re.I)
+# ⚠ TO TING SOM ALDRI SKAL LASTES NED, uansett hvor eksamensaktig lenken ser
+# ut. Begge ble funnet i faktiske arkiv 31. juli 2026, midt blant ekte
+# oppgavesett, og begge ville blitt dratt inn av et filter som bare spør «er
+# dette et dokument?». Se BRUKSREGLER-ARKIV.md.
+#
+# PERSONDATA: hinesna.no/eksamen/moduler/**/RPT0001.HTM er 211 sider med
+# studentnummer og karakterer; cs.oslomet.no/~ulfu/AlgDat/**/resultater.txt
+# ligger i HVER eksamensmappe.
+#
+# BESVARELSE: UiA publiserte inntil tre studentbesvarelser per emne per
+# semester — «fortrinnsvis besvarelser vurdert til karakteren A eller B», med
+# deres egne ord. I et utvalg på 292 PDF-er var 135 slike. En besvarelse er
+# STUDENTENS åndsverk, ikke institusjonens eksamensoppgave, og filnavnet
+# («Kandidat 1.pdf», «MA-154 Besvarelse 243.pdf») er et kandidatnummer koblet
+# til opplysningen om at besvarelsen fikk A eller B.
+PERSONDATA = re.compile(r'(?i)(resultat|karakter|sensurliste|/RPT\d|kandidatliste'
+                        r'|studentliste|oppmelding|klagesak)')
+BESVARELSE = re.compile(r'(?i)(?<![a-z])(besvarelse|besvarelser|kandidat)'
+                        r'[\s_.\-]*\d*(?![a-z])')
+
 # Innloggingsvegg. Et par STV-sett er IKKE åpent publisert; sida svarer 200 med
 # Weblogin-skjemaet. Slikt skal ikke i arkivet — se den rettslige rammen øverst.
 INNLOGGING = re.compile(r'Logg inn med din UiO-konto|Weblogin', re.I)
@@ -288,11 +308,19 @@ def main():
                     kandidater.append((u, 'dokument'))
                 elif HTML_SETT.search(u) and not IKKE_SETT.search(u):
                     kandidater.append((u, 'html-sett'))
-        # dedupliser, behold rekkefølge
+        # dedupliser, behold rekkefølge — og luk ut det som aldri skal inn
         sett = set(); unike = []
+        n_stoppet = 0
         for u, t in kandidater:
+            klar = urllib.parse.unquote(u)
+            if PERSONDATA.search(klar) or BESVARELSE.search(klar):
+                n_stoppet += 1
+                continue
             if u not in sett:
                 sett.add(u); unike.append((u, t))
+        if n_stoppet:
+            print('   ⚠ %d lenker hoppet over (personopplysninger eller '
+                  'studentbesvarelser)' % n_stoppet)
 
         if not unike:
             print('   ingen filer funnet på siden')

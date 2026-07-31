@@ -55,11 +55,30 @@ def trygt_navn(url):
     return n[:150] or 'ukjent.pdf'
 
 
-def hent(url):
-    """Wayback med id_-suffiks gir originalfila uten HTML-rammen rundt."""
-    r = subprocess.run(['curl', '-sSL', '--max-time', '90', '-A', UA, url],
-                       capture_output=True)
-    return r.stdout if r.returncode == 0 else b''
+def hent(url, forsøk=4):
+    """Wayback med id_-suffiks gir originalfila uten HTML-rammen rundt.
+
+    ⚠ ETT FORSØK ER IKKE NOK, og feilen ser ut som et manglende dokument.
+    Internet Archive avviser tilkoblinger på TCP-nivå når den er belastet —
+    curl gir da rc=7 og null byte, og loggen skrev «for liten (0 B)». Det
+    ligner til forveksling på en fil som ikke finnes.
+
+    Målt 31. juli 2026: 648 rader i Nord/INN-lista og 367 i UiA-lista falt
+    slik. Fire tilfeldig valgte ble prøvd på nytt — ALLE FIRE kom ned, og en
+    av dem («FasitH2002.pdf») var 178 kB. Tapet var altså rent kunstig.
+
+    Vi prøver på nytt bare når vi ikke fikk SVAR (rc≠0). Et lite svar er et
+    ekte lite svar — å prøve om igjen på en 30-byte omdirigeringsstubb koster
+    et minutt per rad og gir aldri noe.
+    """
+    for n in range(forsøk):
+        r = subprocess.run(['curl', '-sSL', '--max-time', '90', '-A', UA, url],
+                           capture_output=True)
+        if r.returncode == 0:
+            return r.stdout
+        if n + 1 < forsøk:
+            time.sleep(4 * (n + 1))
+    return b''
 
 
 def finn_type(navn, url):
@@ -110,6 +129,26 @@ def html_eksamenssett(url, data):
 PERSONDATA = re.compile(r'(?i)(resultat|karakter|sensurliste|/RPT\d|kandidatliste'
                         r'|studentliste|oppmelding|klagesak)')
 
+# ⚠ STUDENTBESVARELSER ER IKKE EKSAMENSOPPGAVER. UiA publiserte inntil tre
+# besvarelser per emne per semester, og skriver selv: «Det er fortrinnsvis
+# besvarelser vurdert til karakteren A eller B som er publisert.» I et utvalg
+# på 292 PDF-er fra arkivet var 135 slike — nesten halvparten.
+#
+# To grunner til å la dem ligge, og den andre er den tyngste:
+#
+# 1. Besvarelsen er STUDENTENS åndsverk, ikke institusjonens eksamensoppgave.
+#    Den faller utenfor det bruksreglene åpner for, på samme måte som
+#    tredjeparts løsningsforslag.
+# 2. Filnavnene er «Kandidat 1.pdf» og «MA-154 Besvarelse 243.pdf» — et
+#    kandidatnummer, koblet til opplysningen om at besvarelsen fikk A eller B.
+#    Det er en karakter knyttet til en identifikator. «kandidat» er allerede
+#    stoppord hos oss av nettopp den grunn.
+#
+# De er heller ikke til nytte: modellbesvarelsene i bøkene er nyskrevne, og
+# vi gjengir aldri noen andres løsning.
+BESVARELSE = re.compile(r'(?i)(?<![a-z])(besvarelse|besvarelser|kandidat)'
+                        r'[\s_.\-]*\d*(?![a-z])')
+
 
 def main():
     treff = json.load(open(sys.argv[1]))
@@ -124,12 +163,17 @@ def main():
                     'kilde_url', 'arkiv_url', 'hentet', 'type_kilde',
                     'kildestatus'])
 
-    n_ny = n_hopp = n_feil = n_persondata = 0
+    n_ny = n_hopp = n_feil = n_persondata = n_besvarelse = 0
     sett_md5 = {}
     for ts, url in treff:
         if PERSONDATA.search(urllib.parse.unquote(url)):
             n_persondata += 1
             print('   ⚠ HOPPET OVER (kan være personopplysninger): %s'
+                  % url.split('/')[-1][:70])
+            continue
+        if BESVARELSE.search(urllib.parse.unquote(url)):
+            n_besvarelse += 1
+            print('   ⚠ HOPPET OVER (studentbesvarelse): %s'
                   % url.split('/')[-1][:70])
             continue
         kode = emnekode(url, standard)
@@ -173,6 +217,9 @@ def main():
     if n_persondata:
         print('%d URL-er hoppet over som mulige personopplysninger — '
               'se BRUKSREGLER-ARKIV.md' % n_persondata)
+    if n_besvarelse:
+        print('%d URL-er hoppet over som studentbesvarelser (studentens '
+              'åndsverk, ikke institusjonens oppgave)' % n_besvarelse)
 
 
 if __name__ == '__main__':
