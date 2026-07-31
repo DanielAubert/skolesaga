@@ -15,9 +15,10 @@ skjeletter. Alt er kontrollert mot lærestedets egen emneside, ikke mot søketre
 | BI-skjeletter | 12 | **1 nedlagt**, **2 usikre** |
 | OsloMet · HiØ · UiB · HVL · NHH · UiT · NOKUT | 14 | **2 nedlagt**, 1 død kode, 1 usikker |
 | NTNU-skjeletter | 69 | **13 nedlagt**, 1 utfases, 7 feil institusjon, 10 feil kode |
-| UiO-skjeletter | 90 | under arbeid |
+| UiO-skjeletter gruppe A | 42 | **6 nedlagt** |
+| UiO-skjeletter gruppe B | 42 | under arbeid |
 
-**Ferdig kontrollert: 146 av 242.** Av dem er **21 nedlagt**, 1 utfases, 13
+**Ferdig kontrollert: 188 av 242.** Av dem er **27 nedlagt**, 1 utfases, 13
 krever skjelettretting (kode eller institusjon) før bygging, og 2 er uavklarte.
 
 ## ⛔ KRITISK: TMA4110 er nedlagt — og vi har live bok
@@ -133,6 +134,28 @@ helt tilbake til hhv. 2020/21 og 2019/20 — der hviler konklusjonen på *fravæ
 som er svakere belegg. `SØK2008` (offentlig økonomi) har ingen etterfølger;
 SØK1020-serien dekker ikke det feltet.
 
+## UiO-skjeletter gruppe A: seks nedlagte
+
+| emne | siste undervisning | erstatter |
+|---|---|---|
+| `econ4130` Statistics 2 | H2022 | **ingen** — finnes ikke i masterprogrammets struktur |
+| `fys-mek1110` Mekanikk | V2022 (siste eksamen V2024) | `FYS1100` (verifisert aktiv) — **utledet**, 7 av 10 sp overlapp, ikke 1:1 |
+| `in1140` Introduksjon til språkteknologi | **H2025 som selvstudium** | ingen — hele bachelorprogrammet er under avvikling, siste opptak H2024 |
+| `jus4211` Prosess og strafferett | H2024 | `JUS4212` + `JUS4213` (begge verifisert aktive) — **navngitt eksplisitt** på sida |
+| `kjm1110` Organisk kjemi I | V2017 (siste eksamen V2019) | `KJM1111` (verifisert aktiv) — **navngitt eksplisitt** |
+| `kulkom1001` Forståelsesformer og perspektiv | siste eksamen H2025 | `KULKOM1100` + `KULKOM1200` (begge verifisert aktive) — **utledet** fra programstrukturen |
+
+⚠ **`IN1140` sto på lista over byggeklare 1.-semesteremner** med «solid grunnlag»
+(7 terminer). Den har ferdig skjelett OG eksamensanalyse. Emnet undervises ikke
+lenger — siste gang var H2025 som selvstudium, og eksamen H2026/H2027 er kun for
+dem som allerede har godkjente obliger. Dette er fella i ren form: eksamen holder
+liv i emnet på papiret i to år etter at undervisningen er slutt.
+
+⚠ **`med-avsluttende` er ikke en emnekode.** «Felles avsluttende skriftlig
+deleksamen» er én av tre deleksamener inne i `MED6800 – Medisinstudiet, modul 8`,
+som er aktivt. Selve eksamenen lever, men skjelettet må merkes med at det dekker
+en deleksamen, ikke et emne.
+
 ## ⚠ Feil kode i mappenavnet — 10 emner ville blitt feilklassifisert
 
 `sok*`-mappene er NTNU-emner, men riktig kode er **SØK med Ø**. Oppslag på
@@ -240,6 +263,20 @@ be eksplisitt om at delvise resultater meldes som delvise. Et oppdrag som ber om
 — å konkludere fra den ville vært direkte villedende. Fungerende form er
 `/studieinfo/emne/<KODE>/<ÅR>/HØST`. OsloMet og HiØ avviser dessuten WebFetch
 med 403 og må hentes med curl og browser-User-Agent.
+
+**8b. Fakta-boksen alene er ikke nok.** `ECON4130` står fortsatt oppført med
+«Teaching: Every autumn» i fakta-boksen, men er nedlagt siden H2022. Og motsatt:
+`KULKOM1001` har **ikke** nedleggelsesbanner i det hele tatt — den ville sluppet
+gjennom en ren bannersjekk. Tre uavhengige signaler må leses: banneret,
+fakta-boksens «tilbys siste gang», og semesterlenkene under «Timeplan, pensum og
+eksamensdato».
+
+**8c. UiO har ikke publisert V2027-sider for NOE emne per 31. juli 2026.**
+Kontrollert mot emner som utvilsomt lever: `MAT1100` og `ECON1210` har H2026-side
+(200) men V2027 gir 404. For vårfag kan undervisning i 2026/2027 derfor ikke
+bekreftes positivt — belegget er fakta-boksens «Undervisning: Vår» uten «siste
+gang»-markør, pluss fravær av banner. Det er sterkt, men ett hakk svakere enn for
+høstfagene. 17 av gruppe A-emnene står på det grunnlaget.
 
 **8. Manglende nedleggingsmarkør er svakt belegg.** NIH publiserer ikke
 «utgått»/«erstattet av» i det hele tatt. Det bærende beviset må være positivt: en
