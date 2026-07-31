@@ -88,6 +88,17 @@ for rad in $INSTITUTT; do
     continue
   fi
 
+  # ⚠ EN FERDIG NEDLASTING SKAL IKKE GJØRES OM. Ved gjenopptak 31. juli lastet
+  # runden ned matnat/math på nytt fordi den bare sjekket om KILDELISTA fantes.
+  # Filene ble riktignok hoppet over enkeltvis, men alle 49 mappesidene ble
+  # hentet igjen — unødig trafikk mot UiO, og minutter tapt per institutt.
+  # Nedlasteren skriver siste linje «N filer, M MB» når den er ferdig; står den
+  # der, er instituttet gjort.
+  if grep -qE '^[0-9]+ filer,' "$ARB/nedlasting-$slug.txt" 2>/dev/null; then
+    echo "   nedlastingen er alt fullført — går videre"
+    continue
+  fi
+
   echo "   laster ned $(( $(wc -l < "$kilder") - 1 )) mapper  ($(date '+%H:%M'))"
   PAUSE=0.5 KILDER="$kilder" MAAL="$MAAL" MANIFEST="MANIFEST-$slug.csv" \
     python3 -u "$SKRIPT/last-ned-eksamener.py" > "$ARB/nedlasting-$slug.txt" 2>&1
