@@ -456,7 +456,16 @@ UNDERMAPPE_INTERN = re.compile(
 # `cs.oslomet.no/~bruker/`. Det er institusjonens egen server, men en ansatts
 # personlige katalog — ikke instituttets forpliktende arkiv. Halvparten av
 # materialet fra UiS, UiA, NMBU og HVL ligger slik.
-PERSONLIG_STI = re.compile(r'/~[A-Za-z0-9._-]+/')
+# ⚠ OG «~» ER IKKE DEN ENESTE FORMEN. Høgskolen Stord/Haugesund la ansattes
+# kataloger på `www.hsh.no/home/<initialer>/` — ingen tilde, institusjonell
+# vert, og likevel en personlig side. Funnet 31. juli 2026 i en kartlegging som
+# fant 31 slike kataloger med 191 dokumenter. Uten dette mønsteret ville de
+# blitt ført som instituttarkiv, og skillet bruksreglene hviler på, forsvinner.
+# `/ansatt/` er samme sak hos UiS (`www6.uis.no/ansatt/melhus/`).
+PERSONLIG_STI = re.compile(
+    r'/~[A-Za-z0-9._-]+/'
+    r'|/home/[A-Za-z][A-Za-z0-9._-]{1,12}/'
+    r'|/ansatt(?:e)?/[A-Za-z][A-Za-z0-9._-]{1,14}/')
 
 
 def juridisk_status(mappe, kilde_url, typ, undermappe=''):
