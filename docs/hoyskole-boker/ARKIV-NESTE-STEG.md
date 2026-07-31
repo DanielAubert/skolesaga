@@ -1,10 +1,19 @@
 # Arkivrunden — overlevering til neste økt
 
-Oppdatert 31. juli 2026 kl. 06. Køen fra 30. juli er tømt, og natten
-31. juli tok UiO emne for emne (alle 45 institutter) og de nedlagte statlige
-høgskolene via Wayback.
+Oppdatert 31. juli 2026 kl. 21. Arkivet er nå **29 745 filer, 14 631
+eksamensterminer og 3 687 emner** — opp fra 24 769 / 12 653 / 2 733 samme
+morgen. 57 % av filene har dokumenttype lest ut av teksten, 44 % av terminene
+har fasit.
 
-Les først: `ARKIVRUNDE-2026-07-31-NATT.md`,
+Kveldsrunden hentet HVL 1 673, UiT 300, UiS 122, NMBU 70, UiA 85 — og
+**gjenkjøringer reddet 820 filer** som var talt som feilet. Se
+`ARKIVRUNDE-2026-07-31-KVELD.md`.
+
+Natten 31. juli tok UiO emne for emne (alle 45 institutter) og de nedlagte
+statlige høgskolene via Wayback.
+
+Les først: `ARKIVRUNDE-2026-07-31-KVELD.md`,
+`ARKIVRUNDE-2026-07-31-NATT.md`,
 `ARKIVRUNDE-2026-07-31-RESULTAT.md` og
 `ARKIVRUNDE-2026-07-30-RESULTAT.md` (hva som ble gjort),
 `ARKIV-SORTERING-2026-07-30.md` (metoden) og `BRUKSREGLER-ARKIV.md`
