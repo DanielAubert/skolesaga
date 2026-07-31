@@ -30,6 +30,9 @@ Køyr:
     python3 scripts/termin-fra-lenketekst.py \\
         https://www.ntnu.no/econ/eksamensoppgaver "NTNU ISØ" \\
         --join MANIFEST-ntnu-institutt.csv --ut MANIFEST-ntnu-econ-terminer.csv
+
+`--tabell` for arkiv der terminen står i ei KOLONNEOVERSKRIFT framfor i
+lenketeksten (NTNU biologi og IKB).
 """
 import csv
 import html
@@ -58,6 +61,11 @@ TERMIN = re.compile(
 TERMIN_I_TEKST = re.compile(
     r'(?i)(?<![a-zæøå])(v[åa]r(?:en|semester|semesteret)?|h[øo]st(?:en|semester|semesteret)?'
     r'|haust(?:en)?|spring|autumn|fall)\s*(?:semester\s*)?(\d{2}|\d{4})(?![0-9])')
+# Same sak, men motsett rekkjefølgje: «2017 - vår». NTNUs IKB skriv lenkene
+# slik, og eit mønster som krev årstidsordet først finn null av 168 filer.
+TERMIN_SNUDD = re.compile(
+    r'(?i)(?<!\d)(\d{4})\s*[-–—\s]\s*(v[åa]r(?:en)?|h[øo]st(?:en)?|haust(?:en)?'
+    r'|spring|autumn|fall)(?![a-zæøå])')
 
 
 def curl(url):
@@ -77,9 +85,13 @@ def normaliser_termin(tekst):
             bokstav = 'V' if ord_.startswith('v') else 'H'
     else:
         m = TERMIN_I_TEKST.search(t)
-        if not m:
-            return ''
-        ord_, år = m.group(1).lower(), m.group(2)
+        if m:
+            ord_, år = m.group(1).lower(), m.group(2)
+        else:
+            m = TERMIN_SNUDD.search(t)
+            if not m:
+                return ''
+            år, ord_ = m.group(1), m.group(2).lower()
         bokstav = 'V' if ord_.startswith(('v', 's')) else 'H'
     år = int(år)
     if år < 100:
@@ -136,6 +148,54 @@ def les(url):
     return ut
 
 
+def les_tabell(url):
+    """[(kode, termin, dok-url)] når terminen står i en TABELLKOLONNE.
+
+    NTNUs biologi- og IKB-arkiv er bygd som ei rutenett-tabell:
+
+        <thead><tr><th>Vår 2018</th><th>Høst 2018</th></tr></thead>
+        <tbody><tr><td><a href="…">BI2012 Cellebiologi</a></td><td>…</td></tr>
+
+    Terminen står altså verken i lenketeksten eller i filnamnet — han står i
+    kolonneoverskrifta. `les()` finn null her, og 143 filer sto utan termin av
+    den grunn.
+
+    ⚠ KOLONNETELJINGA MÅ FØLGJE `colspan`. Ei rad med ei samanslegen celle
+    forskyv alle cellene etter henne, og då hamnar hausteksamenar i
+    vårkolonnen.
+    """
+    side = curl(url)
+    if not side:
+        sys.exit('kunne ikkje hente %s' % url)
+    rein = html.unescape(side)
+    ut = []
+    for tab in re.findall(r'(?is)<table\b.*?</table>', rein):
+        hovud = re.search(r'(?is)<thead\b.*?</thead>', tab)
+        if not hovud:
+            continue
+        terminar = []
+        for c in re.findall(r'(?is)<th\b[^>]*>(.*?)</th>', hovud.group(0)):
+            terminar.append(normaliser_termin(re.sub(r'<[^>]+>', ' ', c)))
+        if not any(terminar):
+            continue
+        for rad in re.findall(r'(?is)<tr\b.*?</tr>', tab.split('</thead>')[-1]):
+            i = 0
+            for c in re.finditer(r'(?is)<t[dh]\b([^>]*)>(.*?)</t[dh]>', rad):
+                spenn = re.search(r'colspan\s*=\s*["\']?(\d+)', c.group(1), re.I)
+                t = terminar[i] if i < len(terminar) else ''
+                if t:
+                    for lm in re.finditer(r'(?is)href=["\']([^"\'#]+)["\'][^>]*>(.*?)</a>',
+                                          c.group(2)):
+                        u = urllib.parse.urljoin(url, lm.group(1))
+                        if not DOKUMENT.search(u):
+                            continue
+                        k = KODE.search(re.sub(r'<[^>]+>', '', lm.group(2)))
+                        if k:
+                            ut.append((k.group(1).replace(' ', '').upper(), t, u))
+                i += int(spenn.group(1)) if spenn else 1
+    return ut
+
+
 def trygt_navn(url):
     """Same namngjeving som last-ned-eksamener.py — elles peikar radene på
     filer som ikkje finst. Endelsen kan stå MIDT i stien hos Liferay."""
@@ -158,7 +218,7 @@ def main():
     ut_navn = (sys.argv[sys.argv.index('--ut') + 1] if '--ut' in sys.argv
                else 'MANIFEST-terminer.csv')
 
-    funne = les(url)
+    funne = les_tabell(url) if '--tabell' in sys.argv else les(url)
     print('%d dokumentlenker med termin på sida' % len(funne))
 
     # Eksisterande filer: slå opp på kjelde-URL for å finne mappe og filnamn

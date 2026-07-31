@@ -38,6 +38,7 @@ Køyr:
     python3 scripts/probe-emnearkiv.py hf/ilos "UiO ILOS" --emne ENG1100,ENG1200
 """
 import html
+import os
 import re
 import subprocess
 import sys
@@ -50,24 +51,44 @@ UA = ('Skolesaga-arkivhenter/1.0 (laerebok-prosjekt; '
 BASE = 'https://www.uio.no/studier/emner/'
 # Høflegheit. HEAD er ei billig førespurnad, men det er eit offentleg
 # universitet vi bankar på — ikkje meir enn eit par i sekundet totalt.
-ARBEIDARAR = 3
-PAUSE = 0.5
+# Kan justerast med ARBEIDARAR= og PAUSE= for lange køyringar over mange
+# institutt; ikkje skru dei så langt opp at UiO merkar oss.
+ARBEIDARAR = int(os.environ.get('ARBEIDARAR') or 3)
+PAUSE = float(os.environ.get('PAUSE') or 0.5)
 
-# Mappenamn observerte i faktiske UiO-stiar (CDX-uttrekk frå IKOS, ILOS og
-# IFIKK + det som alt låg i arkivet). Rekkjefølgja er etter kor ofte dei traff.
+# Mappenamn som FAKTISK finst i arkivet, henta ut av `arkiv_url` i alle
+# manifesta og sorterte etter kor mange filer dei har gjeve. Lista er ikkje
+# gjetta — kvar linje er ein mappe nokon har lasta ned frå.
+#
+# ⚠ KASUS OG MELLOMROM ER DEL AV STIEN. «Eksamensoppgaver» (156 filer) og
+# «eksamensoppgaver» (123) er to ulike mapper på to ulike emne, og
+# «Assessment Guidelines» har både mellomrom og store bokstavar. Ei normalisert
+# liste finn ingen av dei.
 MAPPENAMN = [
     'tidligere-eksamensoppgaver',
-    'tidligere-eksamensoppgaver-og-sensorveiledninger',
-    'eksamensoppgaver-og-sensorveiledninger',
-    'eksamensoppgaver-og-sensurveiledning',
-    'Eksamensoppgaver',
-    'eksamensoppgaver',
-    'sensorveiledning',
+    'previous-exams',
     'sensorveiledninger',
-    'sensorrettleiingar',
-    'grading-guidelines',
-    'tidligere-gitte-sensorveiledninger',
+    'sensorveiledninger-og-oppgavetekster',
+    'Eksamensoppgaver',
+    'tidligere-eksamensoppgaver-og-sensorveiledninger',
+    'eksamensoppgaver',
+    'Assessment Guidelines',
     'assessment-guidelines',
+    'oppgaver',
+    'sensorveiledning',
+    'Eksamensoppgaver og sensorveiledninger',
+    'grading-guidelines',
+    'eksamensoppgaver-og-sensorveiledninger',
+    'previous-exams-and-grading-guidelines',
+    'Previous exams and assessment guidelines',
+    'eksamensoppgaver-og-sensorveiledning',
+    'Assessment guidelines',
+    'Sensorveiledninger',
+    'sensorveiledninger-og-eksamensoppgaver',
+    'sensorrettleiingar',
+    'sensorrettleiing',
+    'eksamensoppgaver-og-sensurveiledning',
+    'tidligere-gitte-sensorveiledninger',
     'exam-papers',
 ]
 # Lenketekst/sti på emnesida som tyder arkiv (inngang 1).
