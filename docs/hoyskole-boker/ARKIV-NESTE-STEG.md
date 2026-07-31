@@ -219,6 +219,30 @@ Alle er funnet i faktiske data, og hver enkelt har kostet materiale:
     mønster. `SØK1000 V2024.pdf` mistet sesongen sin fordi «k1000» ble prøvd
     først og forkastet. Bruk `finditer` når et treff kan bli forkastet.
 
+## ⚠ TELL FILER I `INDEKS.csv`, IKKE RADER I MANIFESTENE
+
+`MANIFEST*.csv` har én rad per HENDELSE, ikke per fil. Særlig
+`MANIFEST-innholdsklassifisering.csv` lister opp igjen filer som alt står i
+nedlastingsmanifestene — den sier hvilken TYPE en fil har, ikke at den er
+hentet på nytt.
+
+Summerer man rader over alle manifester, blir tallet nesten dobbelt så høyt
+som virkeligheten:
+
+| | sum over manifester | fasit i INDEKS.csv |
+|---|---:|---:|
+| Alle filer | 45 245 | **24 493** |
+| www.nih.no | 1 087 | **593** |
+| www.hia.no | 2 553 | **844** |
+| www.uio.no | 20 071 | **11 481** |
+
+Feilen ble gjort 31. juli: oppdragsbrevet til åtte kartleggingsagenter listet
+«verter vi allerede har hentet fra» med manifest-summer. En agent fant det
+selv ved å telle mot INDEKS.csv, og meldte fra. Et for høyt tall her får noen
+til å hoppe over materiale som ikke er hentet.
+
+`INDEKS.csv` er fasit. Den har én rad per fil på disk.
+
 ## Krav til enhver ny nedlastingsjobb
 
 **Skriv manifest.** Uten `kilde_url` kan vi ikke skille et instituttarkiv fra
