@@ -489,6 +489,43 @@ const KILDEGRUNNLAG: Record<string, Kildegrunnlag> = {
     analysedato: 'juli 2026',
   },
 
+  sgo1001: {
+    courseId: 'sgo1001',
+    institusjon: 'Universitetet i Oslo (UiO) — Institutt for sosiologi og samfunnsgeografi',
+    sammendrag:
+      'Boka er kalibrert mot SGO1001s eksamensarkiv ved UiO: 34 eksamenssett fra V2003 til H2025 og 8 publiserte sensorveiledninger fra H2018 til H2025. Arkivet er dypt i tid, men skjevt fordelt — sensorveiledningene dekker bare de siste åtte årene, og eksamen skiftet både pensum og form underveis. Frekvenspåstandene i boka er derfor formulert som andeler av settene, ikke som telte N-av-M der belegget ikke bærer det.',
+    eksamenssett: [
+      {
+        tittel: '34 eksamenssett (V2003 – H2025)',
+        detalj:
+          'Hele arkivet er gjennomgått. Settene til og med 2015 er seks timers essayeksamen på et eldre pensum og er skummet for temakontinuitet, ikke brukt som kalibrering av dagens krav. Fra V2016 er settene lest grundig. Dagens firetimers todelte form (Del 1: tre av fire kortsvar, Del 2: to av tre langsvar) gjelder de tre settene H2023, H2024 og H2025 — der boka omtaler «dagens form», er det disse tre den mener.',
+      },
+    ],
+    sensorveiledninger: [
+      {
+        tittel: '8 publiserte sensorveiledninger (H2018 – H2025)',
+        detalj:
+          'H2018, V2019, H2020, H2021, H2022, H2023, H2024 og H2025. De bærer bokas vurderingsakser, feilkatalogen og kravet om at kjernebegrepene rom, sted og skala skal brukes som analyseverktøy og ikke bare defineres. H2018-veiledningen er den eneste med eksplisitte terskelverdier per del. Sensorveiledninger eldre enn H2018 finnes ikke i arkivet.',
+      },
+    ],
+    andreKilder: [
+      {
+        tittel: 'UiOs emnebeskrivelse for SGO1001',
+        detalj:
+          'Omskrevet sammendrag. Emnet er en innføring i samfunnsgeografi på 10 studiepoeng med firetimers digital skoleeksamen i to deler og karakterskala A–F. Kortsvarsdelen teller 40 prosent, langsvarsdelen 60.',
+      },
+    ],
+    forbehold: [
+      'Arkivet har verken fasit eller løsningsforslag for SGO1001 — UiO publiserer ingen. Alle modellbesvarelser, momentlister og prøvefasiter i boka er nyskrevet av oss fra pensumkunnskap og veiledningenes nivåbeskrivelser, og er merket som det hvert sted de forekommer. Ingen av dem er en ekte kandidatbesvarelse.',
+      'Pensum brøt om lag 2016–2017. Settene før bruddet arbeider med et annet begrepsapparat (befolkningspyramide, demografisk overgang, moderniserings- og avhengighetsteori), og boka presiserer det hver gang den viser til en lang tidsserie. En påstand om at et tema «har vært på eksamen siden 2003» er derfor ikke uten videre sann om dagens pensum.',
+      'Flervalgsdelene fra 2016–2019 er ikke publisert — settene angir selv at spørsmålene skal kunne gjenbrukes. De tjue bevarte spørsmålene fra H2020 er den beste kilden vi har til den delen, og boka bygger sine egne flervalgsoppgaver framfor å hevde å gjengi eksamens.',
+      'Enkelte sett fra 2010–2014 foreligger som skann eller som forside- og instruksjonssider med kort oppgaveliste. Oppgavelistene er hentet ut, men de settene bærer ikke detaljert temaanalyse.',
+      'Emneansvaret har rullert gjennom perioden. Vurderingskriteriene er likevel påfallende stabile fra 2017 og framover, og boka bygger på det som går igjen på tvers av veiledningene, ikke på én enkelt sensors formuleringer.',
+      'Eksamensoppgaver og sensorveiledninger fra offentlige institusjoner er unntatt opphavsrett etter åndsverkloven § 14. Alt innhold i boka er likevel omskrevet med egne ord.',
+    ],
+    analysedato: 'juli 2026',
+  },
+
   fil1001: {
     courseId: 'fil1001',
     institusjon: 'Universitetet i Oslo (UiO) — Institutt for filosofi, idé- og kunsthistorie og klassiske språk (IFIKK)',
