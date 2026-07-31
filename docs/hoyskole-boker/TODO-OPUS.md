@@ -1,5 +1,55 @@
 # TODO: Bokbygging med Opus — bare å sette i gang
 
+## ⛔ FØRST: 35 emner i denne køen er NEDLAGT og skal IKKE bygges
+
+Emnestatus for alle 242 emner ble kontrollert mot lærestedenes egne emnesider
+31. juli 2026. **Ett av seks skjeletter er for et emne som ikke lenger
+undervises** — noen døde så langt tilbake som 2017.
+
+Hvert av dem har nå en `IKKE-BYGG.md` i mappa si, og
+**`sjekk-skjelett.py` nekter å kjøre på dem** (exit 2). Du trenger altså ikke
+huske lista — porten stopper deg. Men her er den:
+
+
+`econ4130` · `fys-mek1110` · `hio-statistikk-okonomi` · `in1140` · `jus4211` ·
+`kjm1110` · `kulkom1001` · `mat-inf1100` · `met2911-bi` · `nih-is205` ·
+`nih-is225` · `nih-lki235` · `nih-ppu406` · `ola4001` · `ola4060` · `psy1000` ·
+`psyc2205` · `psyc2207` · `psyc4305` · `sok1000` · `sok1002` · `sok1011` ·
+`sok1012` · `sok2007` · `sok2008` · `sos1120` · `sosant1090` · `tma4101` ·
+`tma4110` · `tma4121` · `tma4123` · `tma4125` · `tma4185` · `tma4212` ·
+`uit-ingdes1`
+
+**⚠ `tma4110` har LIVE BOK.** Emnet mistet undervisningen etter H2025, men har
+én gjenstående eksamen **18. november 2026**. Boka er fortsatt riktig for det
+kullet. Beslutning om hva som skjer etter november står åpen.
+
+### ⚠ Tre emner er inne i sitt siste undervisningsår
+
+`tma4135` · `psy1300` · `sosant1400` — alle undervises H2026 og deretter aldri
+mer. En bok rekker ett kull. `SISTE-UNDERVISNINGSAR.md` i mappa forklarer
+avveiningen. Merk at `psy1300`s erstatter `PSY1301` er 5 sp mot 10 — skjelettet
+passer ikke uten omarbeiding.
+
+### ⚠ Fire emner har uavklart status
+
+`sos4010` · `sos4020` · `str3605-bi` · `met1190-bi` — motstridende signaler, og
+lærestedet har ikke merket dem nedlagt. Se `AVKLAR-FORST.md` i hver mappe. Ikke
+bruk byggeressurser før statusen er avklart.
+
+### Feil kode eller institusjon i mappenavnet
+
+`sok*` må slås opp som **SØK** (med Ø) og `tio4215` som **TIØ4215** hos NTNU.
+`mek1100`, `od2200`, `od4200`, `od5100`, `od5200`, `ola4001` og `ola4060` er
+**UiO**, ikke NTNU. De tre `hio-*` er **Høgskolen i Østfold**, ikke OsloMet.
+`oslomet-mat1000` peker på den døde koden `FO010A`; gjeldende er `DAFE1000`.
+`med-avsluttende` er ingen emnekode, men en deleksamen inne i aktive `MED6800`.
+
+Full kartlegging med kilder og metodefeller:
+**`docs/hoyskole-boker/EMNESTATUS-2026-07-31.md`**
+
+---
+
+
 Alt her er forberedt slik at en Opus-økt kan bygge én bok om gangen uten
 forarbeid — og uten kvalitetssikring i etterkant: kvalitetsdommene ligger i
 skjelettkontraktene, de ferdigskrevne promptene og de deterministiske

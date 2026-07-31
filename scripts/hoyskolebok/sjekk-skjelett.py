@@ -3,7 +3,36 @@
 import re, sys, os
 
 emne = sys.argv[1]
-p = f"/Users/danielandreasaubert/eksamenssett/Skolesaga/docs/hoyskole-boker/{emne}/SKJELETT.md"
+BOKDIR = f"/Users/danielandreasaubert/eksamenssett/Skolesaga/docs/hoyskole-boker/{emne}"
+
+# ─── HARD SPERRE: er emnet nedlagt, skal det ikke bygges ────────────────────
+# Produkteierkrav 31. juli 2026: bygg kun bøker for emner som tilbys kommende
+# studieår. Kartleggingen fant 35 skjeletter for emner som ikke lenger
+# undervises — noen døde siden 2017. Uten denne porten ville en byggeagent
+# brukt en full dags arbeid på et pensum ingen tar eksamen i.
+_stopp = os.path.join(BOKDIR, "IKKE-BYGG.md")
+if os.path.exists(_stopp):
+    print(f"⛔ {emne}: EMNET ER NEDLAGT — porten nekter å kjøre.", file=sys.stderr)
+    print(f"   Se {_stopp}", file=sys.stderr)
+    with open(_stopp, encoding="utf-8") as fh:
+        for line in fh.read().splitlines()[:12]:
+            if line.strip():
+                print(f"   │ {line}", file=sys.stderr)
+    print("   Skal emnet likevel bygges, er det en produkteierbeslutning:",
+          file=sys.stderr)
+    print("   bygg mot etterfølgerens emnekode og slett IKKE-BYGG.md bevisst.",
+          file=sys.stderr)
+    sys.exit(2)
+
+# ─── ADVARSLER som ikke stopper porten ─────────────────────────────────────
+for _fil, _tekst in (
+    ("SISTE-UNDERVISNINGSAR.md", "SISTE UNDERVISNINGSÅR — boka rekker ett kull"),
+    ("AVKLAR-FORST.md", "STATUS UAVKLART — avklar før du bruker byggeressurser"),
+):
+    if os.path.exists(os.path.join(BOKDIR, _fil)):
+        print(f"⚠  {emne}: {_tekst}. Se {_fil}", file=sys.stderr)
+
+p = os.path.join(BOKDIR, "SKJELETT.md")
 s = open(p, encoding="utf-8").read()
 issues = []
 
