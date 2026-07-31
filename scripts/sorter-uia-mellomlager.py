@@ -78,7 +78,12 @@ IKKE_EKSAMEN = re.compile(
     # emnekoden «VR360», som ikke er et emne.
     r'|vurderingsrapport|sluttrapport|masterhåndbok|infobrosjyre'
     r'|emnebeskrivelse|course\s+description|application\s+form'
-    r'|følgeskjema|søknadsskjema|praktisk\s+informasjon)')
+    r'|følgeskjema|søknadsskjema|praktisk\s+informasjon'
+    # Siste runde falske: en fransk studieguide, en eksamensPLAN (ikke et
+    # sett), et honorarskjema for sensorer og en brukerveiledning. Alle fire
+    # har både emnekodeliknende tegn og eksamensord.
+    r'|brukerveiledning|honorarskjema|eksamensplan|timeplan'
+    r'|guideetudiant|guide\s+etudiant|user\s+guide|veiledning\s+til)')
 
 # ⚠ ARKIVET BRUKER FORMEN UTEN SKILLETEGN. 3 709 mapper heter «BE401», to
 # heter «BE-401». «ORG947» og «ORG-947» er samme emne, og uten normalisering
@@ -86,6 +91,34 @@ IKKE_EKSAMEN = re.compile(
 # helt.
 def normaliser(kode):
     return re.sub(r'[\s-]', '', kode).upper()
+
+
+# ⚠ ET ORD PLUSS ET TALL ER IKKE NØDVENDIGVIS EN EMNEKODE. Terminregelen
+# over ga «FALL2013» fra «BE_506_course_description_fall2013.pdf»,
+# «SPRING2019» fra en studiekatalog, «VÅR14» fra et vedlegg om fordypning,
+# «MASTER09» fra «Master09-11.doc» og «UIA2016» fra en timeplan. Åtte av
+# tretti nye treff var slike — og de er den verste sorten, fordi de lager en
+# emnemappe for et emne som ikke finnes og som ingen senere leter etter.
+IKKE_KODE = {
+    'FALL', 'SPRING', 'SUMMER', 'AUTUMN', 'WINTER', 'VÅR', 'VAR', 'HØST',
+    'HOST', 'HAUST', 'SOMMER', 'MASTER', 'BACHELOR', 'PHD', 'UIA', 'HIA',
+    'KULL', 'VERSION', 'VERSJON', 'DEL', 'SIDE', 'VEDLEGG', 'KOPI', 'NR',
+    'WEEK', 'UKE', 'MAI', 'JUNI', 'JULI', 'MARS', 'APRIL', 'OKT', 'DES',
+    'ISBN', 'RAPPORT', 'PLAN', 'SAK', 'ROM', 'GRUPPE', 'GROUP',
+    'HØSTEN', 'HOSTEN', 'VÅREN', 'VAREN', 'HAUSTEN', 'INNTIL', 'SAMMEN',
+    'OG', 'FOR', 'TIL', 'FRA', 'PÅ', 'AV', 'SIDER', 'TOTALT', 'CA',
+}
+
+
+def ekte_kode(kode):
+    """Skiller «BE414» fra «FALL2013»."""
+    if not kode:
+        return None
+    k = normaliser(kode)
+    bokstaver = re.match(r'[A-ZÆØÅ]+', k)
+    if not bokstaver or bokstaver.group(0) in IKKE_KODE:
+        return None
+    return k
 
 TEKSTVERKTØY = {'.pdf': None, '.txt': None, '.tex': None, '.md': None}
 TEKSTUTIL = {'.doc', '.docx', '.odt', '.rtf', '.html', '.htm'}
@@ -116,8 +149,16 @@ def vurder(tekst, filnavn):
     ett tilfeldig ord.
     """
     t = tekst[:6000]           # avgjørelsen tas på forsida, ikke i brødteksten
-    if IKKE_EKSAMEN.search(t):
-        return False, None, 'avvist: ' + IKKE_EKSAMEN.search(t).group(0)[:30]
+    # ⚠ OGSÅ MOT FILNAVNET. «Emnebeskrivelse Ped999.pdf» og
+    # «BE_506_course_description_fall2013.pdf» har ingen tekstlag, så en
+    # sjekk som bare leser innholdet ser ingenting å avvise. Understrek
+    # regnes som mellomrom, ellers matcher «course description» ikke
+    # «course_description».
+    navn_som_tekst = filnavn.replace('_', ' ')
+    for kilde in (t, navn_som_tekst):
+        m_av = IKKE_EKSAMEN.search(kilde)
+        if m_av:
+            return False, None, 'avvist: ' + m_av.group(0)[:30]
 
     m_kode = EMNEKODE_TEKST.search(t)
     m_ord = EKSAMENSORD.search(t)
@@ -125,19 +166,28 @@ def vurder(tekst, filnavn):
     if not t.strip():
         # Ingen tekst å lese. Da er filnavnet det eneste vi har, og det får
         # bare avgjøre når det BÅDE har en emnekode og et eksamensord.
+        # ⚠ TERMINEN ER OGSÅ ET EKSAMENSORD. UiA navnga settene
+        # «ORG976 2019 V__R.pdf», «DAT200-G H-16 ORD.pdf», «be-414 Oppgave
+        # V16.pdf» — emnekode pluss semester, uten ordet «oppgave». Regelen
+        # som bare lette etter «oppgave|eksamen» forkastet «BE-414 2019
+        # V__R.pdf», et ekte sett. Et emne pluss et semester er like sterkt
+        # belegg som ordet «oppgave»: ingen brosjyre heter det.
         n = filnavn
         if EMNEKODE_NAVN.search(n) and re.search(
-                r'(?i)(oppgave|eksamen|exam|sensor|kont|utsatt)', n):
-            return True, normaliser(EMNEKODE_NAVN.search(n).group(1)), \
-                'ingen tekstlag — godtatt på filnavn'
+                r'(?i)(oppgave|eksamen|exam|sensor|kont|utsatt|ordin'
+                r'|(?<![a-z])(v[\s_-]?\d{2}|h[\s_-]?\d{2}|ord)(?![a-z])'
+                r'|v_+r|h_+st|vår|høst|haust|spring|autumn)', n):
+            k = ekte_kode(EMNEKODE_NAVN.search(n).group(1))
+            if k:
+                return True, k, 'ingen tekstlag — godtatt på filnavn'
         return False, None, 'ingen tekstlag, filnavnet sier ingenting'
 
     if not m_ord:
         return False, None, 'ingen eksamensord'
     if not m_kode:
         m = EMNEKODE_NAVN.search(filnavn)
-        if m:
-            return True, normaliser(m.group(1)), \
+        if m and ekte_kode(m.group(1)):
+            return True, ekte_kode(m.group(1)), \
                 'kode fra filnavn: ' + m_ord.group(0)[:22]
         # ⚠ «Emnekode:» kan stå UTEN koden etter seg. UiAs eldre skjema har
         # etikettene i én kolonne og verdiene i en annen, og pdftotext leser
@@ -145,11 +195,14 @@ def vurder(tekst, filnavn):
         # Står etiketten der, er koden et sted i nærheten.
         if re.search(r'(?i)emnekode', t):
             m2 = EMNEKODE_NAVN.search(t)
-            if m2:
-                return True, normaliser(m2.group(1)), \
+            if m2 and ekte_kode(m2.group(1)):
+                return True, ekte_kode(m2.group(1)), \
                     'kode fra kolonnesprik: ' + m_ord.group(0)[:18]
         return False, None, 'eksamensord, men ingen emnekode noe sted'
-    return True, normaliser(m_kode.group(1)), m_ord.group(0)[:24]
+    k = ekte_kode(m_kode.group(1))
+    if not k:
+        return False, None, 'emnekoden var et årstidsord'
+    return True, k, m_ord.group(0)[:24]
 
 
 def selvtest():
@@ -176,6 +229,20 @@ def selvtest():
         # Uten tekstlag: filnavnet må ha BÅDE kode og eksamensord.
         ('', 'BE-410 Oppgave.pdf', True, 'BE410'),
         ('', 'NEOMA course catalogue 2022-23.pdf', False, None),
+        ('', 'BE-414 2019 V__R.pdf', True, 'BE414'),
+        ('', 'DAT200-G H-16 ORD.pdf', True, 'DAT200'),
+        ('', 'oppgave 1.pdf', False, None),          # ingen emnekode
+        ('', 'PhD Thesis Rune Zahl-Olsen 2019.pdf', False, None),
+        ('', 'Likestillingsrapport 2014.pdf', False, None),
+        ('', 'BE_506_course_description_fall2013.pdf', False, None),
+        ('', 'Course Catalogue School of Business spring 2019.pdf', False, None),
+        ('', 'Master09-11.doc', False, None),
+        ('', 'Schedule IWE_WEng UiA 2016.pdf', False, None),
+        ('', 'Emnebeskrivelse Ped999.pdf', False, None),
+        ('', 'guideetudiant-en2015-v03.pdf', False, None),
+        ('', 'Eksamensplan_Grooseveien_Høsten_2008.htm', False, None),
+        ('', 'Honorarskjema_sensor.doc', False, None),
+        ('', 'Brukerveiledning Online Learning inntil 30.pdf', False, None),
         # Kolonnesprik: koden står etter «Emnenavn:», ikke etter «Emnekode:».
         ('UNIVERSITETET I AGDER Bokmål EKSAMEN Emnekode: Emnenavn: ORG-964 '
          'Rektor kull Varighet: 4 timer', 'org964 h16 oppgave.pdf',
