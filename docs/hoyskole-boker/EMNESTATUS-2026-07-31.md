@@ -14,11 +14,11 @@ skjeletter. Alt er kontrollert mot lærestedets egen emneside, ikke mot søketre
 | NIH-skjeletter | 19 | **4 nedlagt**, 1 navneendret |
 | BI-skjeletter | 12 | **1 nedlagt**, 1 usikker |
 | OsloMet · HiØ · UiB · HVL · NHH · UiT · NOKUT | 14 | **2 nedlagt**, 1 død kode, 1 usikker |
-| NTNU-skjeletter | 69 | under arbeid |
+| NTNU-skjeletter | 69 | **13 nedlagt**, 1 utfases, 7 feil institusjon, 10 feil kode |
 | UiO-skjeletter | 90 | under arbeid |
 
-**Ferdig kontrollert: 77 av 242.** Av dem er 8 nedlagt, 3 krever
-skjelettretting før bygging, og 2 er uavklarte.
+**Ferdig kontrollert: 146 av 242.** Av dem er **21 nedlagt**, 1 utfases, 13
+krever skjelettretting (kode eller institusjon) før bygging, og 2 er uavklarte.
 
 ## ⛔ KRITISK: TMA4110 er nedlagt — og vi har live bok
 
@@ -42,14 +42,25 @@ dette studieåret».
 Beslutning står åpen: behold med ærlig merknad fram til 18.11.2026, omadresser
 til TMA4422, eller ta ned. Ikke gjort noe med boka ennå.
 
-## ⚠ Utfasingsvarsel — aktive nå, men samme mønster som TMA4110 hadde
+## ⚠ Utfasingsvarsel — kun TMA4135
 
-| emne | ny kode med full/stor overlapp | fra | vår status |
+| emne | ny kode med overlapp | fra | vår status |
 |---|---|---|---|
-| `TDT4110` | `PROG1001` (7,5 sp, full reduksjon) | H2026 | live bok |
-| `TMA4135` | `TMA4420` · `TMA4430` · `TMA4431` · `TMA4432` | H2026 | live bok |
+| `TMA4135` Matematikk 4D | `TMA4420` · `TMA4430` · `TMA4431` · `TMA4432` | H2026 | live bok |
 
-Begge undervises fortsatt høsten 2026. Sjekk på nytt før studieåret 2027/2028.
+TMA4135 undervises høsten 2026, men søskenemnene i samme familie (TMA4120 4K,
+TMA4121, TMA4125 4N) er allerede nedlagt. Realistisk levetid: ett til to kull.
+
+⛔ **RETTELSE: `TDT4110` er IKKE under utfasing.** Første gjennomgang meldte den
+som varslet fordi `PROG1001` gir 7,5 sp full reduksjon fra H2026. Etterprøvd:
+`PROG1001` er et **Gjøvik-emne som har eksistert siden 2019**, med reduksjoner mot
+IMT1031/DCST1003/INFT1002 helt fra H2019. Reduksjonene fra H2026 mot TDT4110,
+TDT4100, TDT4102, TDT4120 og MA0301 er **nyregistrerte kryss-campus-overlapp**
+mellom Gjøvik og Trondheim — ikke innføring av erstatningskoder. Alle 14
+TDT-emner i porteføljen er aktive med undervisning i 2026/2027.
+
+Forskjellen mot TMA er avgjørende: TMA4110 har **mistet undervisningen**, mens
+TDT4110 har den i behold og motparten er et sju år gammelt emne.
 
 ## Nedlagte skjelettemner — bygg ikke
 
@@ -87,6 +98,55 @@ at emnet er nedlagt, er nå bekreftet mot HiØs eget historiske arkiv.
 ⚠ **De tre `hio-*`-emnene er Høgskolen i Østfold, ikke OsloMet.** Inventarets
 institusjonsgjetting tok feil; skjelettdokumentene hadde rett. `hio-diskretmatte`
 (ITF10705) og `hio-ingmatte` (ITD15020) er begge aktive H2026.
+
+## NTNU: matematikkreformen er reell, i to bølger
+
+Institutt for matematiske fag har erstattet **hele** ingeniørmatematikk-porteføljen
+med en ny TMA44xx-serie:
+
+- **Bølge 1, fra H2025:** TMA4400 (Matematikk 1), TMA4401 (1D), TMA4410 (2A),
+  TMA4411 (2B), TMA4412, TMA4413 (2D).
+- **Bølge 2, fra H2026:** TMA4420 (3A), TMA4421 (3B), TMA4422 (3C), TMA4430 (4A),
+  TMA4431 (4B), TMA4432 (4C) — alle verifisert med eget Undervisningsstart-felt.
+- **Numerikk følger etter:** TMA4212 → TMA4216 (ny, V2027).
+
+**Av de sju grunnleggende ingeniørmatte- og numerikk-emnene i vår portefølje er
+seks nedlagt og det sjuende under utfasing — sju av sju rammet.** De elleve
+spesialiserte TMA-emnene (4145, 4150, 4160, 4165, 4180, 4195, 4245, 4250, 4265,
+4275, 4320) er uberørt og undervises alle i 2026/2027.
+
+MA-emnene (MA0001, MA1101, MA1102, MA1103, MA1201, MA1202) har fått nye
+sp-reduksjoner mot TMA44xx, men er **ikke** nedlagt — de overlapper med de nye.
+
+**En parallell reform i samfunnsøkonomi:** SØK1000, SØK1002, SØK1011, SØK1012 og
+SØK2007 er erstattet av SØK1020–1026-serien fra H2024 og er ute av katalogen.
+Seks av ni SØK-emner er døde.
+
+### Nedlagte NTNU-emner (13)
+
+`TMA4101` · `TMA4110` · `TMA4121` · `TMA4123` · `TMA4125` · `TMA4185` ·
+`TMA4212` · `SØK1000` · `SØK1002` · `SØK1011` · `SØK1012` · `SØK2007` · `SØK2008`
+
+Alle med «Det tilbys ikke lenger undervisning i emnet» og manglende
+Undervisningsstart-felt, unntatt `TMA4123` og `SØK2008`, som mangler katalogside
+helt tilbake til hhv. 2020/21 og 2019/20 — der hviler konklusjonen på *fravær*,
+som er svakere belegg. `SØK2008` (offentlig økonomi) har ingen etterfølger;
+SØK1020-serien dekker ikke det feltet.
+
+## ⚠ Feil kode i mappenavnet — 10 emner ville blitt feilklassifisert
+
+`sok*`-mappene er NTNU-emner, men riktig kode er **SØK med Ø**. Oppslag på
+`SOK1000` gir «ingen informasjon», mens `SØK1000` gir treff. Samme gjelder
+`tio4215` → **TIØ4215**. Uten denne korreksjonen ville ti levende eller nedlagte
+emner blitt lest som «finnes ikke».
+
+## ⚠ Feil institusjon — sju «NTNU»-emner er UiO
+
+`mek1100` (Feltteori og vektoranalyse), `od2200`, `od4200`, `od5100`, `od5200`
+(odontologi) og `ola4001`, `ola4060` (organisasjon, ledelse og arbeid) ligger alle
+hos UiO. Skjelettdokumentene deres oppgir også UiO. De må vurderes mot UiOs
+katalog — dette er andre gang inventarets institusjonsgjetting bommet, etter
+`hio-*`.
 
 ## Navne- og kodeendringer — emnet lever, vårt navn er utdatert
 
