@@ -133,6 +133,12 @@ radene i planen mot radene i loggen.**
 - **NTNU per emne**: emnesidene lenker ikke til eksamensarkiv i det hele tatt.
   Institutt-sidene og mattewikien er det som finnes, og begge er hentet.
 - **NMBU, Nord, INN**: eksamenssider uten arkivlenker.
-- **cs.oslomet.no, ux.uis.no, home.hvl.no, grimstad.uia.no**: personlige
-  kurskataloger uten katalogindeks (403). Wayback er eneste inngang, og den
-  er nå brukt.
+- **cs.oslomet.no, home.hvl.no, grimstad.uia.no**: personlige kurskataloger.
+
+⚠ **RETTELSE 31. juli kl. 12.** `ux.uis.no` sto i lista over som «uten
+katalogindeks (403)». Det er feil, og konklusjonen ble trukket fra ÉN
+403-respons. **Apache autoindex er på** der hjemmekatalogen er lesbar:
+`~s-skj/ResTek1-v03/EksOpg/` og `~per-am/km/` gir fulle kataloglister
+(verifisert 31. juli kl. 12). 403 kommer av filrettigheter på den enkelte
+katalogen, ikke av `Options -Indexes`. Av 56 prøvde brukere er 16 lesbare, 22
+gir 403 og 18 gir 404 — og det lå 186 dokumenter der.
