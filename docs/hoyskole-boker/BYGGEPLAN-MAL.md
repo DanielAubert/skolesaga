@@ -26,6 +26,24 @@ bølge: mål disk (`ls`) og gap-fill kun det som mangler.
       het «Etikk og profesjonsrolle» i arkivet og «Profesjonsforberedende 1» i
       2026. Ved navneskifte skal boka bære begge navn, og kap. 0.1 forklare det,
       så emnet er søkbart på begge.
+- [ ] **⚠ ARBEIDSTREET ARVER BARE DET SOM ER COMMITTET — NYTT 31. juli 2026.**
+      `git worktree add` sjekker ut HEAD. Er kontrakten, BOKCONFIG eller en
+      oppdatert EKSAMENSANALYSE fortsatt usporet i hovedtreet, finnes de ikke i
+      arbeidstreet — og byggeagentene leser den gamle versjonen uten å vite det.
+
+      Dette skjedde med `stv1400`: arbeidstreet fikk en 254 linjers analyse mens
+      hovedtreet hadde den rekonstruerte på 741. Del 0-agenten oppdaget avviket
+      selv og leste fra hovedtreet, men det var flaks, ikke rutine.
+
+      Rekkefølgen er: **committ rammeverket FØRST, opprett arbeidstreet ETTERPÅ.**
+      Må treet opprettes først, kopier inn `BYGGEKONTRAKT.md`, `BOKCONFIG.json`
+      OG `EKSAMENSANALYSE.md`, og verifiser med `diff -q` mot hovedtreet:
+      ```bash
+      for f in BYGGEKONTRAKT.md BOKCONFIG.json EKSAMENSANALYSE.md SKJELETT.md; do
+        diff -q docs/hoyskole-boker/<emne>/$f \
+                .claude/worktrees/bok-<emne>/docs/hoyskole-boker/<emne>/$f
+      done
+      ```
 - [ ] `docs/hoyskole-boker/<emne>/EKSAMENSANALYSE.md` + `SKJELETT.md` finnes
 - [ ] `python3 scripts/hoyskolebok/sjekk-skjelett.py <emne>` → OK
 - [ ] `<emne>/BYGGEKONTRAKT.md` finnes (ellers: instansier fra
