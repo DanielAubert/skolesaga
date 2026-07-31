@@ -167,7 +167,12 @@ Alle er funnet i faktiske data, og hver enkelt har kostet materiale:
 15. **Emnekoder har ikke alltid fire siffer.** EXPHIL03 og hele
     EXFAC03-familien har to. Et mønster som krevde fire hoppet over ni emner
     uten spor i loggen — ett av dem EXPHIL03, med 137 dokumenter.
-16. **`re.search` gir bare FØRSTE treff.** Forkastes det (umulig årstall, feil
+16. **En kjøreliste uten avsluttende linjeskift mister siste linje.**
+    `while read` returnerer usant på en siste linje uten `\n`, så løkkekroppen
+    kjøres aldri for den. Wayback-runden hoppet over hio.no uten et ord i
+    loggen — og «FERDIG» ble skrevet ut som om alt var gjort. Skriv alltid
+    `'\n'.join(...) + '\n'`, og tell radene i planen mot radene i loggen.
+17. **`re.search` gir bare FØRSTE treff.** Forkastes det (umulig årstall, feil
     kode), skal letingen gå til neste TREFF i samme navn, ikke til neste
     mønster. `SØK1000 V2024.pdf` mistet sesongen sin fordi «k1000» ble prøvd
     først og forkastet. Bruk `finditer` når et treff kan bli forkastet.
