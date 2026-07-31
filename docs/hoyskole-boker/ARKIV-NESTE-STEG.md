@@ -75,10 +75,14 @@ med flere nivå, kjør `finn-arkivmapper.py --djupn 3` på den mappa i tillegg.
   ⚠ Les `BRUKSREGLER-ARKIV.md` om personlige kurskataloger først: en
   foreleser-side er ikke institusjonens forpliktende publisering, og et
   løsningsforslag skrevet der er vedkommendes åndsverk.
-- **NTNU biologi og IKB**: 143 filer står uten termin. Arkivsidene deres
-  legger terminen i en TABELLKOLONNE, ikke i lenketeksten, så
-  `termin-fra-lenketekst.py` finner null der. Det trengs en tabellparser som
-  leser kolonneoverskriften.
+- **UiB** er stengt. `org.uib.no/mi/eksamen/` har nøyaktig fire emnekoder, og
+  22 andre instituttforkortelser ble prøvd med både `/eksamen/` og
+  `/eksamensoppgaver/` — alle 404.
+- **NTNU per emne** virker ikke: emnesidene (`ntnu.no/studier/emner/TMA4100`)
+  lenker ikke til eksamensarkiv i det hele tatt. Der er det institutt-sidene og
+  mattewikien som gjelder, og begge er hentet.
+- **NMBU, Nord og INN** har eksamenssider uten arkivlenker. Bekreftet mot de
+  faktiske sidene, ikke antatt.
 
 ### 3. NHH-innsyn (krever produkteier)
 NHH publiserer i praksis ingenting — verifisert mot 10 711 URL-er, alle 548
@@ -113,6 +117,12 @@ det — men de er nå identifiserbare: `type_kilde` er ikke `pdf-verifisert`, og
   helhet: 33 IAKH-mapper, 122 ILN-mapper, og hvert eneste av de 673 emnene ved
   IKOS, ILOS og IFIKK prøvd med begge inngangene i `probe-emnearkiv.py`.
 - **NTNU econ** — 1 005 av 1 005 dokumentlenker hentet.
+- **KHiO, Høgskolen i Molde og Norges musikkhøgskole** — Wayback har PDF-ene
+  deres, men det som ser ut som eksamensmateriale er det ikke: «opptaksprøver»,
+  «Prosessbeskrivelse eksamen og vurdering», «Sikkerhetsinstruks for avvikling
+  av hovedinstrumenteksamen». Fire–fem filer hver, alle administrative.
+  ⚠ Merk fellen: et filter på «løsning» drar inn «Mellomløsning til fusjon».
+  Et arkiv blir ikke bedre av å bli større.
 
 ## Feller enhver ny henter MÅ håndtere
 
