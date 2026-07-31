@@ -22,14 +22,20 @@ import time
 import urllib.parse
 from datetime import date
 
-MÅL = os.path.expanduser('~/Desktop/Eksamner/_nedlastet-2026-07-30')
+# ⚠ MÅL kan overstyres for MELLOMLAGRING. UiAs /content/download/-URL-er er
+# 2 301 arkiverte filer der bare 9 % har emnekode i filnavnet — resten heter
+# «Oppgave.pdf», og blant dem ligger også brosjyrer og rapporter som ikke er
+# eksamensmateriale i det hele tatt. De hentes derfor til en egen mappe,
+# leses, og bare det som ER eksamensmateriale flyttes inn i arkivet.
+MÅL = os.environ.get('MAAL') or os.path.expanduser(
+    '~/Desktop/Eksamner/_nedlastet-2026-07-30')
 # ⚠ IKKE HARDKODE DATOEN. `hentet` sto som '2026-07-30' i kildekoden, så da
 # skriptet ble kjørt igjen natt til 31. juli, fikk 1 506 nye filer en dato de
 # ikke var hentet på. Kolonnen finnes nettopp for å kunne se hva som kom når.
 DATO = date.today().isoformat()
-MANIFEST = os.path.join(MÅL, 'MANIFEST-wayback.csv')
+MANIFEST = os.path.join(MÅL, os.environ.get('MANIFEST') or 'MANIFEST-wayback.csv')
 UA = 'Skolesaga-arkivhenter/1.0 (laerebok-prosjekt; kontakt: studenthjelp@gmail.com)'
-PAUSE = 2.0
+PAUSE = float(os.environ.get('PAUSE') or 2.0)
 
 SENSOR = re.compile(r'(?i)sensor[\s_.\-]*(veiledning|veil|rettleiing|guide)')
 LØSNING = re.compile(r'(?i)(?<![a-z])(lf|losning|l\xf8sning|fasit|solution|answers?)')

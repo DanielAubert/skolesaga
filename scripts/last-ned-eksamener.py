@@ -137,13 +137,28 @@ def hent(url, binaer=False):
     url = urllib.parse.urlunsplit(
         (d.scheme, d.netloc, urllib.parse.quote(d.path, safe='/%:@'), d.query, ''))
     req = urllib.request.Request(url, headers={'User-Agent': UA})
-    try:
-        with urllib.request.urlopen(req, timeout=45) as r:
-            data = r.read()
-            return data if binaer else data.decode('utf-8', 'replace')
-    except (ssl.SSLError, urllib.error.URLError) as e:
-        if 'SSL' not in str(e) and 'TLS' not in str(e):
-            raise
+    for n in range(4):
+        try:
+            with urllib.request.urlopen(req, timeout=45) as r:
+                data = r.read()
+                return data if binaer else data.decode('utf-8', 'replace')
+        except urllib.error.HTTPError:
+            raise                      # 404 er et svar. Ikke prøv igjen.
+        except (ssl.SSLError, urllib.error.URLError) as e:
+            if 'SSL' in str(e) or 'TLS' in str(e):
+                break                  # → curl-fallbacken under
+            # ⚠ «Connection refused» ER IKKE «fila finnes ikke». Internet
+            # Archive avviser tilkoblinger på TCP-nivå når den er belastet, og
+            # UiA-runden 31. juli 2026 endte med 1 810 slike mot 39 ekte 404.
+            # Uten gjentak ble hele runden 44 filer av 1 815 sider.
+            #
+            # hent-wayback.py fikk denne fiksen samme formiddag. Den ble ikke
+            # båret over hit, og det kostet en hel institusjon. Lærdommen er
+            # ikke om curl eller urlopen: har to hentere samme svakhet, må
+            # rettelsen skje begge steder samtidig.
+            if n + 1 == 4:
+                raise
+            time.sleep(4 * (n + 1))
     r = subprocess.run(['curl', '-sSL', '--max-time', '45', '-A', UA, url],
                        capture_output=True)
     if r.returncode != 0:
