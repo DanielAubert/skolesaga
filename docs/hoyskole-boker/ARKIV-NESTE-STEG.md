@@ -65,9 +65,20 @@ ikke (verifisert), og da er per-emne-prøving bortkastet.
 
 ### 2. Haler som er rekjørbare
 - **Flere nedlagte vertsnavn.** Wayback-CDX er inngangen, og den er billig:
-  én spørring per vert. Prøvd og tomme: hin.no, hials.no, hibo.no, hifm.no,
-  hibu.no, hive.no, hit.no, hil.no, umb.no, nlh.no, hsh.no, hib.no. Ikke
-  prøvd: samas.no, phs.no, forsvaret, hiho.no, hitos.no, dhs.no, mhs.no.
+  én spørring per vert. Ikke prøvd: samas.no, phs.no, forsvaret, hiho.no,
+  dhs.no, mhs.no.
+
+  ⚠ **RETTELSE 31. juli kl. 11.** Dette dokumentet listet tidligere tolv
+  vertsnavn som «prøvd og tomme». **Den lista var feil og er fjernet.** To
+  grunner, begge verifisert:
+
+  1. Spørringene brukte PREFIKS (`url=hibo.no*`). Wayback kanoniserer bort
+     `www.`, men ikke andre underdomener, så `fag.sib.hibo.no` faller utenfor.
+     Målt på hibo.no: prefiks ga 273 PDF-er, `matchType=domain` ga **1 487**.
+  2. Flere av spørringene fikk trolig et tomt svar uten at det ble merket.
+
+  Alle verter som er hentet med prefiks bør kjøres om med `matchType=domain`
+  — også de vi TROR er ferdige.
   ⚠ Les `BRUKSREGLER-ARKIV.md` om personlige kurskataloger først: en
   foreleser-side er ikke institusjonens forpliktende publisering, og et
   løsningsforslag skrevet der er vedkommendes åndsverk.
@@ -172,7 +183,20 @@ Alle er funnet i faktiske data, og hver enkelt har kostet materiale:
     kjøres aldri for den. Wayback-runden hoppet over hio.no uten et ord i
     loggen — og «FERDIG» ble skrevet ut som om alt var gjort. Skriv alltid
     `'\n'.join(...) + '\n'`, og tell radene i planen mot radene i loggen.
-17. **`re.search` gir bare FØRSTE treff.** Forkastes det (umulig årstall, feil
+17. **Wayback-CDX med PREFIKS mister underdomener.** `url=hibo.no*`
+    kanoniserer bort `www.`, men ikke `fag.sib.hibo.no`. Målt: 273 PDF-er med
+    prefiks, 1 487 med `matchType=domain`. Bruk domenematch.
+18. **Et NULL fra Internet Archive er ikke bevis.** Tjenesten svarer med
+    tilkoblingsfeil eller tomt under last, og et skript som skriver resultatet
+    rett i en fil, lagrer «ingenting finnes». Målt samme minutt:
+    `fag.sib.hibo.no` ga 0 rader på første forsøk og 500 på andre. **Gjenta
+    hver spørring som gir null, minst to ganger, før du konkluderer.**
+19. **Karakterutskrifter ser ut som eksamensarkiv.**
+    `hinesna.no/eksamen/moduler/**/RPT0001.HTM` — 211 sider med emnekode og
+    dato i stien, akkurat som et institusjonsarkiv. Innholdet er
+    studentnummer og karakterer. Et navnefilter alene drar hele bunken inn.
+    **Åpne alltid én fil fra en ny mappe før mappa tas med.**
+20. **`re.search` gir bare FØRSTE treff.** Forkastes det (umulig årstall, feil
     kode), skal letingen gå til neste TREFF i samme navn, ikke til neste
     mønster. `SØK1000 V2024.pdf` mistet sesongen sin fordi «k1000» ble prøvd
     først og forkastet. Bruk `finditer` når et treff kan bli forkastet.
