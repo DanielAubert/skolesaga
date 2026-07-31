@@ -1,10 +1,11 @@
 # Arkivrunden — overlevering til neste økt
 
-Oppdatert 31. juli 2026. Forrige versjon av dette dokumentet ble skrevet
-30. juli; køen den satte opp er delvis tømt, og det som står igjen er
-omskrevet under.
+Oppdatert 31. juli 2026 kl. 06. Køen fra 30. juli er tømt, og natten
+31. juli tok UiO emne for emne (alle 45 institutter) og de nedlagte statlige
+høgskolene via Wayback.
 
-Les først: `ARKIVRUNDE-2026-07-31-RESULTAT.md` og
+Les først: `ARKIVRUNDE-2026-07-31-NATT.md`,
+`ARKIVRUNDE-2026-07-31-RESULTAT.md` og
 `ARKIVRUNDE-2026-07-30-RESULTAT.md` (hva som ble gjort),
 `ARKIV-SORTERING-2026-07-30.md` (metoden) og `BRUKSREGLER-ARKIV.md`
 (hva vi har lov til, og hva vi har bestemt).
@@ -53,25 +54,20 @@ python3 scripts/sorter-arkiv.py
 
 ## Det som gjenstår, i prioritert rekkefølge
 
-### 1. De UiO-instituttene som ikke er gjennomgått emne for emne
-IMK, IMV, TF, IPED, ISP, SAI, IKRS, IFI, MATH, FYS, IBV, GEOFAG, ISS,
-PSYKOLOGI, STATSVITENSKAP. Alle har materiale i arkivet fra før, men ingen er
-prøvd emne for emne — og det var nettopp den runden som ga 1 823 filer fra
-IKOS, ILOS og IFIKK. Én kommando per institutt:
+### 1. Andre universiteter, emne for emne
+UiO er ferdig. Metoden virket der — 3 877 filer, og 26 av 45 institutter
+avklart som tomme — men den er ikke prøvd andre steder. `probe-emnearkiv.py`
+er skrevet for UiOs URL-form (`/studier/emner/<fak>/<inst>/<KODE>/`) og må
+tilpasses per lærested. Kandidater: OsloMet, HVL, USN, UiS, Nord, INN.
 
-```bash
-python3 scripts/probe-emnearkiv.py sv/iss "UiO ISS" > iss-kilder.csv
-```
-
-⚠ `probe-emnearkiv.py` går ikke nedover i undermapper. Har et emne et arkiv
-med flere nivå, kjør `finn-arkivmapper.py --djupn 3` på den mappa i tillegg.
+⚠ Sjekk FØRST om emnesidene i det hele tatt lenker til arkiv. NTNU gjør det
+ikke (verifisert), og da er per-emne-prøving bortkastet.
 
 ### 2. Haler som er rekjørbare
-- **UiA, HVL, HiØ, OsloMet, UiS.** Alt materialet herfra ligger på
-  fagpersoners kurssider (`grimstad.uia.no`, `home.hvl.no`, `www.ia.hiof.no`,
-  `www.cs.oslomet.no`, `www.ux.uis.no`). Crawlene traff sidetak med kø igjen.
-  `finn-arkivmapper.py` med en rot per vert er inngangen — den paginerer og
-  går flere nivå ned, som var nettopp det som manglet.
+- **Flere nedlagte vertsnavn.** Wayback-CDX er inngangen, og den er billig:
+  én spørring per vert. Prøvd og tomme: hin.no, hials.no, hibo.no, hifm.no,
+  hibu.no, hive.no, hit.no, hil.no, umb.no, nlh.no, hsh.no, hib.no. Ikke
+  prøvd: samas.no, phs.no, forsvaret, hiho.no, hitos.no, dhs.no, mhs.no.
   ⚠ Les `BRUKSREGLER-ARKIV.md` om personlige kurskataloger først: en
   foreleser-side er ikke institusjonens forpliktende publisering, og et
   løsningsforslag skrevet der er vedkommendes åndsverk.
@@ -113,9 +109,13 @@ det — men de er nå identifiserbare: `type_kilde` er ikke `pdf-verifisert`, og
 - **UiO MN-fakultetet** — publiserer i praksis ikke (kun MAT1105, KJM1101).
 - **TFY4115** — utharvet per aug 2020. Fem innganger prøvd, alle 404.
 - **UiB Matematisk institutt** — katalogrota har nøyaktig fire emnekoder, alle hentet.
-- **UiO IAKH, ILN, IKOS, ILOS og IFIKK** — alle fem er nå gjennomgått i sin
-  helhet: 33 IAKH-mapper, 122 ILN-mapper, og hvert eneste av de 673 emnene ved
-  IKOS, ILOS og IFIKK prøvd med begge inngangene i `probe-emnearkiv.py`.
+- **HELE UiO** — alle 45 institutter er gjennomgått emne for emne, rundt
+  3 000 emnesider. 26 av dem har ingen arkiv i det hele tatt: FYS, geofag,
+  astro, farmasi, ITS, SFE, natfag, MN, ILS, IMK, CEMO, hele medisin- og
+  odontologifakultetet, SKK, Ibsen-senteret m.fl.
+  ⚠ MEN: «UiO MN publiserer ikke» stemmer for åtte av ni MN-institutter — og
+  ikke for MATH, som ga 732 filer i 48 emner via mappenavnet `oppgaver`. En
+  påstand om et helt fakultet tåler ikke ett moteksempel.
 - **NTNU econ** — 1 005 av 1 005 dokumentlenker hentet.
 - **KHiO, Høgskolen i Molde og Norges musikkhøgskole** — Wayback har PDF-ene
   deres, men det som ser ut som eksamensmateriale er det ikke: «opptaksprøver»,
