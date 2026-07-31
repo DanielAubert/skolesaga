@@ -82,8 +82,15 @@ DOKUMENT = re.compile(r'\.(pdf|docx?|rtf|odt)(\?|/|$)', re.I)
 # ⚠ Mønsteret krevde STORE bokstaver før 30. juli 2026. UiO skriver halvparten
 # av sidene med små: STV1100-2010H.html ble hentet, stv1100-2015h.html ikke.
 # Fire STV1100-sett, fem STV1200, fire INTER1000 og tre STV1400 lå usynlige.
+# ⚠ MØNSTERET ANTAR AT FILNAVNET BÆRER EN EMNEKODE. Det gjør det ikke alltid.
+# UiTs juridiske fakultet legger hele arkivet 1988-2002 som HTML uten kode i
+# navnet: `p-1-h2000.html` er eksamensoppgaven, `sensorv_1_h00_praktikum.htm`
+# er sensorveiledningen. Mot dét finner standardmønsteret NULL.
+# Sett HTML_MONSTER= for å utvide for én runde — det er tryggere enn å løsne
+# standardmønsteret for alle.
 HTML_SETT = re.compile(
-    r'/[A-Za-zÆØÅæøå]{2,10}\d{3,4}[-_][^/]*\.html?$')
+    r'/[A-Za-zÆØÅæøå]{2,10}\d{3,4}[-_][^/]*\.html?$'
+    + (r'|' + os.environ['HTML_MONSTER'] if os.environ.get('HTML_MONSTER') else ''))
 # Sider som matcher HTML_SETT, men aldri er eksamenssett.
 IKKE_SETT = re.compile(r'(index\.html|/english/|personvern|kontakt|karakter|'
                        r'kalkulator|fusk|klage|tilrettelegging|sykdom|trekk|'
