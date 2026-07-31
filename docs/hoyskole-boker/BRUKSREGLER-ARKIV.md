@@ -107,6 +107,28 @@ karakter, og prosjektet har ingen behandlingsgrunnlag for det.
 `resultat`, `karakter`, `sensur`, `RPT` og `kandidat` være stoppord som
 krever manuell godkjenning, uansett hvor eksamensaktig stien ser ut.
 
+## Produkteiervalg 31. juli 2026: USNs glemte katalog
+
+`https://web01.usn.no/eksamen/` er en åpen Apache-katalogindeks med **3 487
+eksamensoppgaver fra 468 emner (2008H–2017V)**. Ingen innlogging, ingen 401,
+og `robots.txt` sperrer bare en annen sti. Juridisk faller det inn under
+prosjektets etablerte posisjon: eksamensoppgaver fra en offentlig institusjon.
+
+**Produkteier valgte likevel å la den ligge.**
+
+Grunnen er at USNs egen nettside sier ordrett at *«Seksjon for eksamen har
+ikke anledning til å gi ut tidligere eksamensoppgaver»*, og katalogen er ikke
+lenket fra usn.no noe sted. Den ser ut som en tjeneste fra Høgskolen i
+Telemark som ble med over i fusjonen og aldri ble tatt ned.
+
+At en glemt server fortsatt svarer, er ikke det samme som at institusjonen
+publiserer. Vi tar bare de 768 dokumentene fra vertsnavn som er *nedlagt* —
+der finnes ingen institusjon som kan ha en mening lenger.
+
+Kildelista ligger i behold som
+`usn-kilder-LAGT-BORT-produkteiervalg.csv`, slik at valget kan gjøres om
+uten å måtte kartlegge på nytt.
+
 ## Avvist, ikke lastet ned
 
 - **Innloggingsvegger.** Minst fire sider svarte `200 OK` med et
