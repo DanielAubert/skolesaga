@@ -16,10 +16,14 @@ skjeletter. Alt er kontrollert mot lærestedets egen emneside, ikke mot søketre
 | OsloMet · HiØ · UiB · HVL · NHH · UiT · NOKUT | 14 | **2 nedlagt**, 1 død kode, 1 usikker |
 | NTNU-skjeletter | 69 | **13 nedlagt**, 1 utfases, 7 feil institusjon, 10 feil kode |
 | UiO-skjeletter gruppe A | 42 | **6 nedlagt** |
-| UiO-skjeletter gruppe B | 42 | under arbeid |
+| UiO-skjeletter gruppe B | 42 | **8 nedlagt**, 2 siste år, 2 usikre |
 
-**Ferdig kontrollert: 188 av 242.** Av dem er **27 nedlagt**, 1 utfases, 13
-krever skjelettretting (kode eller institusjon) før bygging, og 2 er uavklarte.
+**Ferdig kontrollert: 236 av 242 — kartleggingen er i praksis fullført.**
+
+- **36 emner er nedlagt** (35 skjeletter + `TMA4110`, som har live bok)
+- **3 er inne i sitt siste undervisningsår** (`TMA4135`, `PSY1300`, `SOSANT1400`)
+- **4 er uavklarte** (`SOS4010`, `SOS4020`, `str3605-bi`, `met1190-bi`)
+- **13 krever skjelettretting** (feil kode eller feil institusjon) før bygging
 
 ## ⛔ KRITISK: TMA4110 er nedlagt — og vi har live bok
 
@@ -156,6 +160,44 @@ deleksamen» er én av tre deleksamener inne i `MED6800 – Medisinstudiet, modu
 som er aktivt. Selve eksamenen lever, men skjelettet må merkes med at det dekker
 en deleksamen, ikke et emne.
 
+## UiO-skjeletter gruppe B: åtte nedlagte, to i siste år
+
+| emne | siste undervisning | erstatter |
+|---|---|---|
+| `psy1000` Innføring i generell psykologi | **V2018** | ingen — innholdet er splittet over PSY1100/1250/1301/1200 |
+| `psyc2205` Psykopatologi | H2019 | ingen |
+| `psyc2207` Kognitiv nevrovitenskap 2 | H2019 | ingen |
+| `psyc4305` Klinisk nevropsykologi | H2021 | ingen |
+| `sos1120` Kvantitativ metode | V2019 | `SOSGEO1120` (verifisert aktiv) |
+| `ola4001` Ledelse, organisasjon og institusjon | H2025 | `OLA4000` + `OLA4002` (begge verifisert aktive) |
+| `ola4060` Fordypningsemne | H2025 | ingen |
+| `sosant1090` Antropologiens historie | **V2026 — allerede passert** | ingen; eksamen til V2027 |
+
+⚠ **`psy1000` har et fullt ferdig bokskjelett og har vært nedlagt siden 2018.**
+Åtte år. Det er det eldste tilfellet i materialet etter `kjm1110` (V2017).
+
+### Siste undervisningsår — bygg med åpne øyne
+
+**`PSY1300 Kognitiv psykologi`** undervises høsten 2026 og aldri mer. Den
+erstattes i bachelorløpet av **`PSY1301`** (verifisert aktiv) — men det er **5 sp,
+ikke 10**. En bok bør bygges mot PSY1301, ikke PSY1300.
+
+**`SOSANT1400 Antropologi og religion`** undervises høsten 2026, deretter slutt.
+Eksamen til H2027. Ingen erstatter i det nye bachelorløpet. En bok får omtrent
+ett semesters levetid pluss ett års eksamenshale.
+
+### Uavklart: SOS4010 og SOS4020
+
+Motstridende signaler, og ingen «nedlagt»-merking. Faktaboksen sier ordrett
+**«Emnet tilbys ikke høsten 2026»**, og begge er høstemner — altså ingen
+undervisning i 2026/2027. Sosiologi-masterens oppbygging innfører
+`SOSGEO4000` + seks `SOSGEO40xx`-emner fra H2026, og `SOSGEO4000`s egen side sier
+«offered for the first time autumn 2026» (verifisert). **Men** semestersidene for
+H2026 finnes for begge, med navngitt faglærer og Canvas-oppsett.
+
+Lesningen er at de fases ut og ikke bør bygges — men UiO har ikke merket dem
+formelt, og semestersidene motsier faktaboksen. Bør bekreftes med ISS.
+
 ## ⚠ Feil kode i mappenavnet — 10 emner ville blitt feilklassifisert
 
 `sok*`-mappene er NTNU-emner, men riktig kode er **SØK med Ø**. Oppslag på
@@ -182,6 +224,8 @@ katalog — dette er andre gang inventarets institusjonsgjetting bommet, etter
 | `in1900` | Introduksjon til programmering med vitenskapelige anvendelser | Introduksjon i programmering for naturvitenskapelige anvendelser |
 | `sosant1000` | Antropologisk samfunnsanalyse (Innføring i sosialantropologi) | parentesen er ikke del av tittelen |
 | `nih-ti300` | … – Trenerens relasjonskompetanse | «Sports Coaching 2: Trenerens relasjonskompetanse» (kolon) |
+| `od5200` | Samfunnsodontologi, pedodonti og oral protetikk | «Odontologistudiet, 10. semester» |
+| `psy2014` | Kvantitativ metode / Generell lineær modell | bare «Kvantitativ metode» |
 | `oslomet-mat1000` | FO010A | **FO010A er en død legacy-kode** — finnes ikke i OsloMets katalog for noe år. Gjeldende kode er **DAFE1000**, et **vårfag** (neste V2027). Arven FO010A→DAFE1000 er ikke bekreftet. Merk at «Matematikk 1000» finnes under flere programspesifikke koder (DAFE1000 for data/IT, MEK1000, TRE1000, BYFE1000) — hvilken som er riktig avhenger av studieprogram |
 | `oslomet-data2500` | DATA2500 | lever, men er et **vårfag** (neste V2027), ikke høstfag |
 
