@@ -70,6 +70,47 @@ def finn_type(navn, url):
     return 'oppgave'
 
 
+# ⚠ FLERE EKSAMENSSETT ER HTML-SIDER, IKKE FILER. Dette er felle 3 i
+# ARKIV-NESTE-STEG.md — halve HVL-arkivet lå slik. Magi-sjekken over kastet
+# dem alle med «ikke dokument»: 199 av 863 rader i Nord/INN-lista, og 7
+# PostScript-filer i tillegg.
+#
+# Men HTML er også nettopp det Wayback svarer med når noe har gått galt, så
+# den kan ikke slippes inn ubetinget. To krav må være oppfylt:
+#   1. URL-en må se ut som et eksamenssett (fallgruve 3s eget mønster), og
+#   2. innholdet må ikke være en Wayback-feilside eller en innloggingsvegg.
+HTML_SETT = re.compile(r'(?i)/[a-zæøå]{2,10}\d{2,4}[^/]*\.html?$'
+                       r'|(?i)(eksamen|eksam|oppgav|exam)[^/]*\.html?$')
+WAYBACK_FEIL = re.compile(
+    r'(?i)(wayback machine has not archived|got an HTTP 30\d response|'
+    r'this URL has been excluded|Hrm\.|robots\.txt query exception|'
+    r'Logg inn|Weblogin|Feide|<title>\s*(404|403|Not Found))')
+
+
+def html_eksamenssett(url, data):
+    """Er dette en HTML-side som FAKTISK bærer en eksamensoppgave?"""
+    if not HTML_SETT.search(urllib.parse.unquote(url)):
+        return False
+    tekst = data[:20000].decode('utf-8', 'replace')
+    if WAYBACK_FEIL.search(tekst):
+        return False
+    # En oppgavetekst har brødtekst. En feilside eller en ren lenkeliste har
+    # det ikke. 600 tegn synlig tekst er lavt nok for et kort sett og høyt nok
+    # til å luke ut rammeverk.
+    synlig = re.sub(r'(?is)<(script|style).*?</\1>', ' ', tekst)
+    synlig = re.sub(r'<[^>]+>', ' ', synlig)
+    return len(re.sub(r'\s+', ' ', synlig).strip()) >= 600
+
+
+# ⚠ STOPPORD FOR PERSONOPPLYSNINGER. Funnet 31. juli 2026 to steder samme dag:
+# hinesna.no/eksamen/moduler/**/RPT0001.HTM er 211 sider med studentnummer og
+# karakterer, og cs.oslomet.no/~ulfu/AlgDat/**/resultater.txt ligger i HVER
+# eksamensmappe. Begge lå midt blant ekte oppgavesett, og begge ville blitt
+# dratt inn av et filnavnsfilter. Se BRUKSREGLER-ARKIV.md.
+PERSONDATA = re.compile(r'(?i)(resultat|karakter|sensurliste|/RPT\d|kandidatliste'
+                        r'|studentliste|oppmelding|klagesak)')
+
+
 def main():
     treff = json.load(open(sys.argv[1]))
     larested = sys.argv[2]
@@ -83,9 +124,14 @@ def main():
                     'kilde_url', 'arkiv_url', 'hentet', 'type_kilde',
                     'kildestatus'])
 
-    n_ny = n_hopp = n_feil = 0
+    n_ny = n_hopp = n_feil = n_persondata = 0
     sett_md5 = {}
     for ts, url in treff:
+        if PERSONDATA.search(urllib.parse.unquote(url)):
+            n_persondata += 1
+            print('   ⚠ HOPPET OVER (kan være personopplysninger): %s'
+                  % url.split('/')[-1][:70])
+            continue
         kode = emnekode(url, standard)
         mappe = os.path.join(MÅL, kode)
         navn = trygt_navn(url)
@@ -102,7 +148,9 @@ def main():
             continue
         # ⚠ Wayback svarer ofte 200 med en HTML-feilside. Sjekk magien.
         if not (data[:5] == b'%PDF-' or data[:4] == b'\xd0\xcf\x11\xe0'
-                or data[:2] == b'PK' or data[:5] == b'{\\rtf'):
+                or data[:2] == b'PK' or data[:5] == b'{\\rtf'
+                or data[:2] == b'%!'          # PostScript
+                or html_eksamenssett(url, data)):
             n_feil += 1
             print('   ikke dokument: %s' % navn[:60])
             continue
@@ -122,6 +170,9 @@ def main():
             print('   %d nye …' % n_ny)
     mf.close()
     print('\n%s: %d nye, %d hoppet over, %d feilet' % (larested, n_ny, n_hopp, n_feil))
+    if n_persondata:
+        print('%d URL-er hoppet over som mulige personopplysninger — '
+              'se BRUKSREGLER-ARKIV.md' % n_persondata)
 
 
 if __name__ == '__main__':
