@@ -107,40 +107,84 @@ karakter, og prosjektet har ingen behandlingsgrunnlag for det.
 `resultat`, `karakter`, `sensur`, `RPT` og `kandidat` være stoppord som
 krever manuell godkjenning, uansett hvor eksamensaktig stien ser ut.
 
-## ⚠ Studentbesvarelser: publisert av institusjonen, men ikke institusjonens
+## Studentbesvarelser: hentet som strippet tekst, aldri som fil
 
 Universitetet i Agder publiserte i mange år inntil tre eksamensbesvarelser per
-emne per semester, side om side med oppgavesettene. Arkivets egen tekst:
+emne per semester, side om side med oppgavesettene — *«fortrinnsvis
+besvarelser vurdert til karakteren A eller B»*, med deres egne ord. I et
+utvalg på 292 PDF-er fra arkivet var 135 slike. 314 av dem svarer fortsatt
+`200` i Wayback.
 
-> «Eksamensbesvarelsene representerer tilfeldig valgte besvarelser innen gitte
-> semestre. Det er ikke publisert mer en maks tre besvarelser i det enkelte
-> emnet per semester. Det er fortrinnsvis besvarelser vurdert til karakteren A
-> eller B som er publisert.»
+**UiA innhentet samtykke, og lovte anonymitet.** Det står i besvarelsene selv,
+som et spørsmål stilt til kandidaten under eksamen:
 
-I et utvalg på 292 PDF-er fra arkivet var **135 studentbesvarelser** mot 157
-oppgavesett — nesten halvparten. Filnavnene er `besvarelse-3.pdf`,
-`Besvarelse 1.pdf`, `Kandidat 1.pdf`, `MA-154 Besvarelse 243.pdf`.
+> «Det forekommer av og til spørsmål om bruk av eksamensbesvarelser til
+> undervisnings- og læringsformål. Universitetet trenger kandidatens
+> tillatelse til at besvarelsen kan benyttes til dette. **Besvarelsen vil være
+> anonym.** Tillater du at din eksamensbesvarelse blir brukt til slikt formål?»
 
-**De lastes ikke ned.** To grunner, og den andre er den tyngste:
+Undervisning og læring er nøyaktig vårt formål. Men løftet om anonymitet holdt
+ikke helt: besvarelsene er Inspera-eksporter, og hver eneste side bærer
+`Candidate 1621` / `KANDIDAT 1621` — for gruppeeksamener `Group 2411` — og
+enkelte filnavn har både kandidatnummer og karakter (`MA-216 5114 A
+besvarelse.pdf`).
 
-1. Besvarelsen er **studentens** åndsverk, ikke institusjonens eksamensoppgave.
-   Den faller utenfor åpningen reglene over bygger på, på samme måte som
-   tredjeparts løsningsforslag.
-2. `Besvarelse 243` er et **kandidatnummer**, koblet til opplysningen om at
-   besvarelsen fikk A eller B. Det er en karakter knyttet til en
-   identifikator — nøyaktig det stoppordslista over skal fange, og «kandidat»
-   står allerede der.
+⚠ Hvilket svar den enkelte ga på samtykkespørsmålet, står ikke i teksten. At
+UiA publiserte nettopp disse, er grunnen til å tro at de svarte ja. Det er en
+slutning, ikke noe vi har lest.
 
-De er heller ikke til nytte for oss: modellbesvarelsene i bøkene er nyskrevne,
-og vi gjengir aldri noen andres løsning.
+**Derfor henter vi teksten, ikke fila.** `scripts/hent-besvarelser.py` laster
+ned PDF-en, trekker ut teksten, fjerner kandidat- og gruppenummeret, skriver
+teksten — og **sletter PDF-en**. Identifikatoren finnes ikke i korpuset, og da
+er ikke spørsmålet om dette er en personopplysning lenger et spørsmål.
 
-Filteret ligger i både `hent-wayback.py` og `last-ned-eksamener.py`, og begge
-teller opp og skriver hvor mange lenker de stanset — et stoppord som stanser
-noe i stillhet, blir aldri oppdaget når det stanser for mye.
+Materialet ligger i `~/Desktop/Eksamner/_KALIBRERING-besvarelser/`, **utenfor**
+arkivmappa, slik at `sorter-arkiv.py` aldri ser det og aldri kan telle en
+besvarelse som et eksamenssett. Manifestet har ingen kolonne for
+kandidatnummer — det finnes ingen grunn til å skrive ned det vi nettopp brukte
+arbeid på å fjerne.
 
-⚠ Det koster noe: en sensorveiledning som skulle hett
-«sensorveiledning_med_besvarelse.pdf» ville blitt stanset også. Tellingen i
-loggen er der for å oppdage nettopp det.
+### Reglene for bruk
+
+1. **Ingenting herfra publiseres.** Gjelder alt i arkivet, og i særlig grad
+   dette.
+2. **Teksten utleveres aldri til en bokskrivende agent.** Det er den operative
+   risikoen, ikke den juridiske: ligger et A-svar i korpuset, kan en agent
+   lene seg på det, og den ufravikelige regelen er at modellbesvarelsene i
+   bøkene er nyskrevne. Bruken er aggregert — ett kalibreringsnotat per fag.
+3. Aldri i `INDEKS.csv` som `oppgave`.
+
+### Hva vi får, og hva vi ikke får
+
+Kalibrering: vi skriver i dag modellbesvarelser uten å vite om vi ligger langt
+over det som faktisk gir A. Og oppgavesettet på kjøpet — Inspera-eksporten tar
+med emnekode, dato, varighet, tillatte hjelpemidler og hver oppgave i sin
+helhet før svaret, så for emner der settet aldri ble arkivert, ER besvarelsen
+settet.
+
+⚠ Bare A- og B-besvarelser ble publisert. Vi kan derfor ikke se hva som
+skiller A fra C — bare hvordan et godt svar ser ut, ikke hvor grensa går.
+
+⚠ En stor andel er skannet uten tekstlag. Der er det ingenting å strippe og
+ingenting å lese, og de forkastes.
+
+### Fellene i strippingen
+
+- **Gruppeeksamen stempler `Group`, ikke `Candidate`.** Første kjøring skrev en
+  HEL904-besvarelse med `Group 2411 / GRUPPE / 2411` i behold og meldte
+  «0 kandidatnummer fjernet» — stille tap av nøyaktig det slaget vi ellers
+  advarer mot.
+- **`gruppe` er også et alminnelig ord.** «Vi kan dele muskulaturen inn i tre
+  grupper», «fokusgrupper». Mønsteret krever derfor et tall rett etter ordet.
+- **Emnekoden står i teksten, ikke i filnavnet.** Over halvparten heter bare
+  `Besvarelse 1 - Del 1.pdf`. Første kjøring merket dem alle `UKJENT` — et
+  korpus uten emnekode er nesten verdiløst til kalibrering, siden hele poenget
+  er å sammenlikne med VÅR bok i SAMME fag.
+- **Strippingen er målrettet, ikke bred.** Vi finner først hvilke tall som ER
+  kandidatnumre, og fjerner så nøyaktig de. Å stryke alle firesifrede tall
+  ville ødelagt fagteksten — årstall, beløp og måleverdier er også tall.
+- **Skriptet kontrollerer seg selv** og skriver ikke fila hvis en identifikator
+  står igjen etter strippingen.
 
 ## Produkteiervalg 31. juli 2026: USNs glemte katalog
 
