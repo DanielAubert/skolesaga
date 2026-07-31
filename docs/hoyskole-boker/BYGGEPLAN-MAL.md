@@ -11,6 +11,21 @@ Verktøy (i repo): `scripts/hoyskolebok/sjekk-skjelett.py`, `wire-bok.py`,
 bølge: mål disk (`ls`) og gap-fill kun det som mangler.
 
 ## Steg 0 — Forutsetninger
+- [ ] **EMNET TILBYS KOMMENDE STUDIEÅR — NYTT 31. juli 2026, produkteierkrav.**
+      Sjekk lærestedets emneside FØR kontrakten skrives, ikke etter. Er emnet
+      nedlagt, skal boka ikke bygges — den ville lært bort et pensum ingen tar
+      eksamen i.
+
+      `MAT-INF1100` sto i UiOs 1.-semesterliste og hadde både arkiv og
+      statusnotat, men siste undervisning var H2023; emnet er erstattet av
+      `MAT-INF1100L`. Skjelettene er skrevet over lang tid, så flere av de
+      gjenstående kan ha gått ut siden analysen ble laget.
+
+      To feller: en nedlagt **variant** kan ligne emnet (`SGO1001S` er nedlagt,
+      `SGO1001` er aktivt), og et aktivt emne kan ha **byttet navn** — `PSYC1202`
+      het «Etikk og profesjonsrolle» i arkivet og «Profesjonsforberedende 1» i
+      2026. Ved navneskifte skal boka bære begge navn, og kap. 0.1 forklare det,
+      så emnet er søkbart på begge.
 - [ ] `docs/hoyskole-boker/<emne>/EKSAMENSANALYSE.md` + `SKJELETT.md` finnes
 - [ ] `python3 scripts/hoyskolebok/sjekk-skjelett.py <emne>` → OK
 - [ ] `<emne>/BYGGEKONTRAKT.md` finnes (ellers: instansier fra
