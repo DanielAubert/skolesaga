@@ -250,7 +250,11 @@ def main():
         sys.exit('SELVTESTEN FEILET — henter ingenting.')
 
     os.makedirs(MÅL, exist_ok=True)
-    rader = cdx_rader(os.path.join(MÅL, '_cdx-uia-download.txt'))
+    # ⚠ .csv, ikke .txt. Hjelpefila lå først som .txt i samme mappe som
+    # korpuset, og lekkasjekontrollen — som leser alle *.txt — meldte funn av
+    # «Gruppe16» i den. Det var en URL, ikke en besvarelse, men en kontroll
+    # som roper ulv på sitt eget arbeidsmateriale blir sluttet å lytte til.
+    rader = cdx_rader(os.path.join(MÅL, '_cdx-uia-download.csv'))
     treff = [(ts, u) for ts, u, st in rader
              if st == '200' and 'esvarelse' in urllib.parse.unquote(u).lower()]
     print('%d besvarelser å hente\nMål: %s\n' % (len(treff), MÅL))
@@ -265,7 +269,7 @@ def main():
         w.writerow(['emnekode', 'termin', 'karakter', 'tegn', 'kilde_url',
                     'tekstfil', 'merknad'])
 
-    n_ok = n_skannet = n_feil = n_avvist = 0
+    n_ok = n_skannet = n_feil = n_avvist = n_avkuttet = 0
     for i, (ts, u) in enumerate(treff, 1):
         klar = urllib.parse.unquote(u)
         navn = klar.rsplit('/', 1)[-1]
@@ -288,9 +292,24 @@ def main():
         os.remove(midl)          # ⚠ PDF-en skal ALDRI bli liggende.
 
         if len(tekst.strip()) < 400:
-            n_skannet += 1
-            print('  [%3d/%d] skannet, ingen tekst: %s' % (i, len(treff),
-                                                           navn[:50]))
+            # ⚠ SKILL AVKUTTET FRA SKANNET. Første kjøring meldte «skannet,
+            # ingen tekst» om 70 filer på rad. De var ikke skannet — de var
+            # NØYAKTIG 1 048 576 byte, altså 1 MiB blankt, og pdftotext sa
+            # «Couldn't find trailer dictionary». Wayback-crawleren kappet
+            # dem ved fangst, og xref-tabellen står i enden av en PDF, så
+            # uten den er sidetreet uleselig. Verken Ghostscript eller
+            # pdftotext kommer forbi det, og bare ett øyeblikksbilde finnes.
+            #
+            # Filene er altså tapt — men ÅRSAKEN er en annen, og en logg som
+            # sier «skannet» sender neste person til OCR framfor til
+            # spørsmålet om det finnes et annet øyeblikksbilde.
+            if len(data) == 1048576:
+                n_avkuttet += 1
+                merke = 'AVKUTTET i arkivet (nøyaktig 1 MiB)'
+            else:
+                n_skannet += 1
+                merke = 'skannet, ingen tekstlag'
+            print('  [%3d/%d] %s: %s' % (i, len(treff), merke, navn[:46]))
             continue
 
         # Kandidatnummer kan stå i filnavnet også, uten stempel i teksten.
@@ -330,8 +349,9 @@ def main():
             print('  %d hentet …' % n_ok)
 
     mf.close()
-    print('\n%d strippet og lagret · %d skannet uten tekstlag · %d avvist '
-          '· %d feilet' % (n_ok, n_skannet, n_avvist, n_feil))
+    print('\n%d strippet og lagret · %d avkuttet i arkivet (1 MiB) '
+          '· %d skannet uten tekstlag · %d avvist · %d feilet'
+          % (n_ok, n_avkuttet, n_skannet, n_avvist, n_feil))
     print('Ingen PDF-er beholdt. Manifest: %s' % manifest)
 
 
