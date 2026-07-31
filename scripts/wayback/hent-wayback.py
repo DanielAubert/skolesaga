@@ -20,8 +20,13 @@ import subprocess
 import sys
 import time
 import urllib.parse
+from datetime import date
 
 MÅL = os.path.expanduser('~/Desktop/Eksamner/_nedlastet-2026-07-30')
+# ⚠ IKKE HARDKODE DATOEN. `hentet` sto som '2026-07-30' i kildekoden, så da
+# skriptet ble kjørt igjen natt til 31. juli, fikk 1 506 nye filer en dato de
+# ikke var hentet på. Kolonnen finnes nettopp for å kunne se hva som kom når.
+DATO = date.today().isoformat()
 MANIFEST = os.path.join(MÅL, 'MANIFEST-wayback.csv')
 UA = 'Skolesaga-arkivhenter/1.0 (laerebok-prosjekt; kontakt: studenthjelp@gmail.com)'
 PAUSE = 2.0
@@ -109,7 +114,7 @@ def main():
         os.makedirs(mappe, exist_ok=True)
         open(sti, 'wb').write(data)
         w.writerow([kode, larested, navn, finn_type(navn, url), len(data),
-                    url, wb, '2026-07-30', 'filnavn',
+                    url, wb, DATO, 'filnavn',
                     'nedtatt-hentet-fra-wayback'])
         mf.flush()
         n_ny += 1
