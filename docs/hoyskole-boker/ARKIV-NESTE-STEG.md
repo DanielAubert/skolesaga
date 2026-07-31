@@ -79,6 +79,18 @@ ikke (verifisert), og da er per-emne-prøving bortkastet.
 
   Alle verter som er hentet med prefiks bør kjøres om med `matchType=domain`
   — også de vi TROR er ferdige.
+
+  ⚠ **OG FILTERET VAR ANKRET.** Nattens spørringer brukte
+  `filter=original:.*\.(pdf|docx?)$`. Ankeret `$` betyr at filnavnet må stå
+  SIST i URL-en — og hos Liferay gjør det ikke det
+  (`/documents/10449/0/SØK1011.pdf/<uuid>?t=…`). Målt på
+  `ntnu.no/documents*`: **0 rader med ankret filter, 20 000 uten.** Dette er
+  felle 6, som står i dette dokumentet — og som jeg selv gikk i.
+
+  **Riktig framgangsmåte:** hent CDX UFILTRERT (eller med et løsere filter)
+  og filtrer lokalt i Python. Det er dyrere i båndbredde, men det er
+  forskjellen mellom å finne materialet og å konkludere med at det ikke
+  finnes.
   ⚠ Les `BRUKSREGLER-ARKIV.md` om personlige kurskataloger først: en
   foreleser-side er ikke institusjonens forpliktende publisering, og et
   løsningsforslag skrevet der er vedkommendes åndsverk.
@@ -191,11 +203,17 @@ Alle er funnet i faktiske data, og hver enkelt har kostet materiale:
     rett i en fil, lagrer «ingenting finnes». Målt samme minutt:
     `fag.sib.hibo.no` ga 0 rader på første forsøk og 500 på andre. **Gjenta
     hver spørring som gir null, minst to ganger, før du konkluderer.**
-19. **Karakterutskrifter ser ut som eksamensarkiv.**
-    `hinesna.no/eksamen/moduler/**/RPT0001.HTM` — 211 sider med emnekode og
-    dato i stien, akkurat som et institusjonsarkiv. Innholdet er
-    studentnummer og karakterer. Et navnefilter alene drar hele bunken inn.
-    **Åpne alltid én fil fra en ny mappe før mappa tas med.**
+19. **⚠ EKSAMENSMAPPER INNEHOLDER STUDENTRESULTATER.** Funnet to steder
+    uavhengig av hverandre, samme dag:
+    · `hinesna.no/eksamen/moduler/**/RPT0001.HTM` — 211 sider med emnekode og
+      dato i stien, akkurat som et institusjonsarkiv. Innholdet er
+      studentnummer og karakterer.
+    · `www.cs.oslomet.no/~ulfu/AlgDat/**/resultater.txt` — én i HVER
+      eksamensmappe, med studentresultater.
+    Dette er personopplysninger, ikke bare støy. Et navnefilter drar dem inn,
+    og de havner i et arkiv som aldri var ment å inneholde dem.
+    **Åpne alltid én fil fra en ny mappe før mappa tas med**, og la
+    `resultat`, `karakter`, `sensur` og `RPT` være hardkodede stoppord.
 20. **`re.search` gir bare FØRSTE treff.** Forkastes det (umulig årstall, feil
     kode), skal letingen gå til neste TREFF i samme navn, ikke til neste
     mønster. `SØK1000 V2024.pdf` mistet sesongen sin fordi «k1000» ble prøvd

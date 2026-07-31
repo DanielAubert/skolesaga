@@ -85,6 +85,28 @@ personlig side er ikke institusjonens forpliktende publisering.
 ⚠ Vertsnavnet alene holder ikke: `www.idi.ntnu.no/~alfw/` ligger på en
 institusjonell vert. Det er `/~` i stien som avslører den.
 
+## ⚠ Personopplysninger: den ene tingen som aldri skal inn
+
+Funnet 31. juli 2026, to steder uavhengig av hverandre, på én dag:
+
+- `hinesna.no/eksamen/moduler/**/RPT0001.HTM` — 211 sider som ser ut som et
+  institusjonsarkiv, med emnekode og dato i stien. Innholdet er
+  **studentnummer og karakterer**.
+- `www.cs.oslomet.no/~ulfu/AlgDat/**/resultater.txt` — én i HVER
+  eksamensmappe, med **studentresultater**.
+
+Begge lå midt blant ekte eksamensoppgaver, og begge ville blitt dratt inn av
+et filter som bare ser på filnavn. Ingen av dem er i arkivet; begge ble
+stanset fordi noen åpnet én fil før mappa ble tatt med.
+
+Dette er ikke en kvalitetssak, det er en personvernsak. Et arkiv av
+eksamensoppgaver har ingen grunn til å inneholde hvem som fikk hvilken
+karakter, og prosjektet har ingen behandlingsgrunnlag for det.
+
+**Regelen: åpne én fil fra hver nye mappe før mappa tas med.** Og la
+`resultat`, `karakter`, `sensur`, `RPT` og `kandidat` være stoppord som
+krever manuell godkjenning, uansett hvor eksamensaktig stien ser ut.
+
 ## Avvist, ikke lastet ned
 
 - **Innloggingsvegger.** Minst fire sider svarte `200 OK` med et
