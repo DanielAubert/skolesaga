@@ -11,8 +11,14 @@ Fortsettelsen av `ARKIVRUNDE-2026-07-31-RESULTAT.md`, kjørt fra 02:30 til
 | Filer | 18 482 | **24 769** |
 | Eksamensterminer | 9 042 | **12 653** |
 | Emner | 1 396 | **2 733** |
-| Sensorveiledninger | 3 395 | **4 488** |
-| Terminer der vi har fasit | 4 903 | **6 083** |
+| Sensorveiledninger | 3 395 | **4 732** |
+| Terminer der vi har fasit | 4 903 | **6 259** |
+| Filer med innholdsverifisert type | 13 310 (72,0 %) | **16 945 (68,4 %)** |
+
+⚠ Andelen innholdsverifiserte gikk NED, fra 72,0 % til 68,4 %, selv om
+antallet steg med 3 635. Grunnen er Agder: 844 filer som alle er skanninger
+uten tekstlag. Andelen er et forhold, ikke en kvalitet — og et arkiv som
+vokser med uleselige skanninger, får lavere andel uten at noe er blitt verre.
 
 Emnetallet er nesten doblet. Det skyldes ikke at UiO ble større, men at
 Høgskolen i Agder alene la til 687 emner ingen hadde sett på før.
