@@ -44,6 +44,8 @@ function gjenopprettDollar(s: string): string {
 
 // Render inline content without paragraph wrapping
 function renderInlineContent(content: string): string {
+  // Datahull (manglende felt i kapittel-JSON) skal ikke velte hele siden med 500.
+  if (!content) return '';
   const katexBlocks: string[] = [];
   const KATEX_START = '\u0000KATEX';
   const KATEX_END = 'KATEX\u0000';
@@ -77,6 +79,8 @@ function renderInlineContent(content: string): string {
 }
 
 function renderMixedContent(content: string): string {
+  // Datahull (manglende felt i kapittel-JSON) skal ikke velte hele siden med 500.
+  if (!content) return '';
   // Store KaTeX rendered content to protect from text transformations
   const katexBlocks: string[] = [];
   // Use Unicode characters that won't be affected by Markdown processing
