@@ -26,7 +26,7 @@
     {
       "id": "tma4245-8-3-intro",
       "type": "text",
-      "content": "Noen ganger *vet* vi at responsen skal være null når $x$ er null: strømforbruk ved null produksjon, strekk ved null last, avstand ved null tid. Da er det faglig riktig å **tvinge regresjonslinja gjennom origo** og droppe konstantleddet: $Y_i=\\beta x_i+\\varepsilon_i$. Men da åpner det seg flere «naturlige» måter å estimere $\\beta$ på — og eksamen elsker å be deg **sammenligne dem**.\n\nFire løkker: **modellen og LS-estimatoren uten konstantledd** (løkke 1), **de tre kandidatene og forventningsretthet** (løkke 2), **variansene — hvem vinner?** (løkke 3), og **inferens med $n-1$ frihetsgrader** (løkke 4). Hver løkke går teori $\\to$ eksempel $\\to$ oppgave.\n\n*Samlet kjernetid ≈ 55 min. Pausepunkter er markert mellom løkkene.*"
+      "content": "Noen ganger *vet* vi at responsen skal være null når $x$ er null: strømforbruk ved null produksjon, strekk ved null last, avstand ved null tid. Da er det faglig riktig å **tvinge regresjonslinja gjennom origo** og droppe konstantleddet: $Y_i=\\beta x_i+\\varepsilon_i$. Men da åpner det seg flere «naturlige» måter å estimere $\\beta$ på — og eksamen elsker å be deg **sammenligne dem**.\n\nFire løkker: **modellen og LS-estimatoren uten konstantledd**, **de tre kandidatene og forventningsretthet**, **variansene — hvem vinner?**, og **inferens med $n-1$ frihetsgrader**. Hver løkke går teori $\\to$ eksempel $\\to$ oppgave.\n\n*Samlet kjernetid ≈ 55 min. Pausepunkter er markert mellom løkkene.*"
     },
     {
       "id": "tma4245-8-3-lokke1",
@@ -88,7 +88,7 @@
       "id": "tma4245-8-3-def-forventning",
       "type": "definition",
       "title": "Alle tre er forventningsrette",
-      "content": "For hver kandidat sjekker vi forventningen, med $E(Y_i)=\\beta x_i$ (origo-modellen) og linearitet:\n\n$$E(\\hat{\\beta}_1)=\\frac{\\sum x_iE(Y_i)}{\\sum x_i^2}=\\frac{\\sum x_i(\\beta x_i)}{\\sum x_i^2}=\\frac{\\beta\\sum x_i^2}{\\sum x_i^2}=\\beta.$$\n\n$$E(\\hat{\\beta}_2)=\\frac{1}{n}\\sum\\frac{E(Y_i)}{x_i}=\\frac{1}{n}\\sum\\frac{\\beta x_i}{x_i}=\\frac{1}{n}\\sum\\beta=\\beta.$$\n\n$$E(\\hat{\\beta}_3)=\\frac{E(\\bar{Y})}{\\bar{x}}=\\frac{\\frac{1}{n}\\sum\\beta x_i}{\\bar{x}}=\\frac{\\beta\\bar{x}}{\\bar{x}}=\\beta.$$\n\nAlle tre treffer $\\beta$ i gjennomsnitt — de er **forventningsrette**. Forventningsretthet alene skiller dem altså ikke; det er **variansen** som avgjør hvem vi bør bruke (løkke 3)."
+      "content": "For hver kandidat sjekker vi forventningen, med $E(Y_i)=\\beta x_i$ (origo-modellen) og linearitet:\n\n$$E(\\hat{\\beta}_1)=\\frac{\\sum x_iE(Y_i)}{\\sum x_i^2}=\\frac{\\sum x_i(\\beta x_i)}{\\sum x_i^2}=\\frac{\\beta\\sum x_i^2}{\\sum x_i^2}=\\beta.$$\n\n$$E(\\hat{\\beta}_2)=\\frac{1}{n}\\sum\\frac{E(Y_i)}{x_i}=\\frac{1}{n}\\sum\\frac{\\beta x_i}{x_i}=\\frac{1}{n}\\sum\\beta=\\beta.$$\n\n$$E(\\hat{\\beta}_3)=\\frac{E(\\bar{Y})}{\\bar{x}}=\\frac{\\frac{1}{n}\\sum\\beta x_i}{\\bar{x}}=\\frac{\\beta\\bar{x}}{\\bar{x}}=\\beta.$$\n\nAlle tre treffer $\\beta$ i gjennomsnitt — de er **forventningsrette**. Forventningsretthet alene skiller dem altså ikke; det er **variansen** som avgjør hvem vi bør bruke (se avsnittet om variansene)."
     },
     {
       "id": "tma4245-8-3-ex2",

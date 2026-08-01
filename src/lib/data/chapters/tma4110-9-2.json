@@ -26,7 +26,7 @@
     {
       "id": "tma4110-9-2-intro",
       "type": "text",
-      "content": "Så langt har høyresida vært null. Nå slår vi på et **pådrag** $g(x)$:\n\n$$y''+py'+qy=g(x).$$\n\nFysisk er $g(x)$ en ytre kraft — en motor som rister fjæren, en spenningskilde i kretsen. Løsningen deler seg i to: systemets *egen* oppførsel $y_h$ (fra kap. 9.1) pluss et *drevet* svar $y_p$ som matcher pådraget. Vi finner $y_p$ med **ubestemte koeffisienter**: gjett en form med ukjente konstanter, sett inn, og løs for konstantene.\n\nDen ene tingen som gjør oppgaven vanskelig — og som sensor jakter på — er **resonans**: når pådraget $g(x)$ tilfeldigvis *selv* er en homogen løsning. Da må ansatsen ganges med $x^s$, ellers får du et umulig regnestykke.\n\nKapitlet går i seks løkker: (1) strukturen $y=y_h+y_p$, (2) polynom-ansats, (3) eksponential-ansats, (4) sinus/cosinus-ansats, (5) **resonans** ($x^s$), og (6) superposisjon og initialverdi. Regn med rundt 60 minutter — pausepunkt etter løkke 4."
+      "content": "Så langt har høyresida vært null. Nå slår vi på et **pådrag** $g(x)$:\n\n$$y''+py'+qy=g(x).$$\n\nFysisk er $g(x)$ en ytre kraft — en motor som rister fjæren, en spenningskilde i kretsen. Løsningen deler seg i to: systemets *egen* oppførsel $y_h$ (fra kap. 9.1) pluss et *drevet* svar $y_p$ som matcher pådraget. Vi finner $y_p$ med **ubestemte koeffisienter**: gjett en form med ukjente konstanter, sett inn, og løs for konstantene.\n\nDen ene tingen som gjør oppgaven vanskelig — og som sensor jakter på — er **resonans**: når pådraget $g(x)$ tilfeldigvis *selv* er en homogen løsning. Da må ansatsen ganges med $x^s$, ellers får du et umulig regnestykke.\n\nKapitlet går i seks løkker: (1) strukturen $y=y_h+y_p$, (2) polynom-ansats, (3) eksponential-ansats, (4) sinus/cosinus-ansats, (5) **resonans** ($x^s$), og (6) superposisjon og initialverdi. Regn med rundt 60 minutter — pausepunkt etter sinus/cosinus-ansatsen."
     },
     {
       "id": "tma4110-9-2-lokke1",
@@ -102,7 +102,7 @@
       "id": "tma4110-9-2-def-ansats-poly",
       "type": "definition",
       "title": "Ansats for polynom",
-      "content": "Er $g(x)$ et polynom av grad $n$, prøv et **fullstendig** polynom av samme grad:\n\n$$g=x^2\\ \\Rightarrow\\ y_p=Ax^2+Bx+C.$$\n\nTa alltid med alle lavere ledd, også konstantleddet — de deriverte blander gradene. (Unntak: hvis $q=0$ er $r=0$ en rot, og da trengs resonans, se løkke 5.)"
+      "content": "Er $g(x)$ et polynom av grad $n$, prøv et **fullstendig** polynom av samme grad:\n\n$$g=x^2\\ \\Rightarrow\\ y_p=Ax^2+Bx+C.$$\n\nTa alltid med alle lavere ledd, også konstantleddet — de deriverte blander gradene. (Unntak: hvis $q=0$ er $r=0$ en rot, og da trengs resonans, se resonansavsnittet.)"
     },
     {
       "id": "tma4110-9-2-ex-poly",
@@ -137,7 +137,7 @@
       "id": "tma4110-9-2-def-ansats-exp",
       "type": "definition",
       "title": "Ansats for eksponential",
-      "content": "Er $g(x)=e^{\\alpha x}$, prøv\n\n$$y_p=Ae^{\\alpha x}.$$\n\nSiden $\\dfrac{d}{dx}e^{\\alpha x}=\\alpha e^{\\alpha x}$, blir innsetting bare et tall ganger $e^{\\alpha x}$, og $A$ løses direkte. **Advarsel:** virker bare hvis $\\alpha$ **ikke** er rot i den karakteristiske likningen — er den det, har du resonans (løkke 5)."
+      "content": "Er $g(x)=e^{\\alpha x}$, prøv\n\n$$y_p=Ae^{\\alpha x}.$$\n\nSiden $\\dfrac{d}{dx}e^{\\alpha x}=\\alpha e^{\\alpha x}$, blir innsetting bare et tall ganger $e^{\\alpha x}$, og $A$ løses direkte. **Advarsel:** virker bare hvis $\\alpha$ **ikke** er rot i den karakteristiske likningen — er den det, har du resonans (se resonansavsnittet)."
     },
     {
       "id": "tma4110-9-2-ex-exp",
@@ -172,13 +172,13 @@
       "id": "tma4110-9-2-def-ansats-trig",
       "type": "definition",
       "title": "Ansats for sinus/cosinus",
-      "content": "Er $g(x)=\\cos\\beta x$ **eller** $\\sin\\beta x$ (eller en kombinasjon), prøv **begge** ledd:\n\n$$y_p=A\\cos\\beta x+B\\sin\\beta x.$$\n\nDu må ta med *både* $\\cos$ og $\\sin$ selv om $g$ bare har det ene — derivasjon bytter mellom dem, så begge trengs. **Advarsel:** virker bare hvis $\\pm\\beta i$ **ikke** er røtter (ellers resonans, løkke 5)."
+      "content": "Er $g(x)=\\cos\\beta x$ **eller** $\\sin\\beta x$ (eller en kombinasjon), prøv **begge** ledd:\n\n$$y_p=A\\cos\\beta x+B\\sin\\beta x.$$\n\nDu må ta med *både* $\\cos$ og $\\sin$ selv om $g$ bare har det ene — derivasjon bytter mellom dem, så begge trengs. **Advarsel:** virker bare hvis $\\pm\\beta i$ **ikke** er røtter (ellers resonans, se resonansavsnittet)."
     },
     {
       "id": "tma4110-9-2-def-ansats-produkt",
       "type": "definition",
       "title": "Ansats for produkter og summer",
-      "content": "Sammensatte pådrag håndteres ledd for ledd: **produkt** $g=e^{\\alpha x}\\cos\\beta x$ gir ansats $e^{\\alpha x}(A\\cos\\beta x+B\\sin\\beta x)$; **produkt** $g=x\\,e^{\\alpha x}$ gir $(Ax+B)e^{\\alpha x}$; en **sum** $g=g_1+g_2$ løses ved superposisjon (løkke 6): finn $y_{p1}$ for $g_1$ og $y_{p2}$ for $g_2$ hver for seg."
+      "content": "Sammensatte pådrag håndteres ledd for ledd: **produkt** $g=e^{\\alpha x}\\cos\\beta x$ gir ansats $e^{\\alpha x}(A\\cos\\beta x+B\\sin\\beta x)$; **produkt** $g=x\\,e^{\\alpha x}$ gir $(Ax+B)e^{\\alpha x}$; en **sum** $g=g_1+g_2$ løses ved superposisjon: finn $y_{p1}$ for $g_1$ og $y_{p2}$ for $g_2$ hver for seg."
     },
     {
       "id": "tma4110-9-2-ex-trig",

@@ -89,7 +89,7 @@
         "type": "classic",
         "difficulty": "lett",
         "task": "La $X_1,\\dots,X_n$ være uavhengige med $E(X_i)=\\mu$. Betrakt estimatoren $\\hat\\mu=\\tfrac13 X_1+\\tfrac13 X_2+\\tfrac13 X_3$ (bare de tre første, likt vektet).\n\n**a)** Er $\\hat\\mu$ forventningsrett for $\\mu$?\n\n**b)** Hva blir skjevheten hvis du i stedet bruker $\\tilde\\mu=\\tfrac12 X_1+\\tfrac12 X_2$?",
-        "solution": "**a)** $E(\\hat\\mu)=\\tfrac13 E(X_1)+\\tfrac13 E(X_2)+\\tfrac13 E(X_3)=\\tfrac13\\mu\\cdot 3=\\mu$. Ja, forventningsrett (skjevhet 0). Vektene summerer til 1, som er nøkkelen.\n\n**b)** $E(\\tilde\\mu)=\\tfrac12\\mu+\\tfrac12\\mu=\\mu$, så $b(\\tilde\\mu)=0$ — også forventningsrett. Enhver vektet sum $\\sum w_iX_i$ med $\\sum w_i=1$ er forventningsrett for $\\mu$; det er *variansen* som skiller dem (løkke 2).",
+        "solution": "**a)** $E(\\hat\\mu)=\\tfrac13 E(X_1)+\\tfrac13 E(X_2)+\\tfrac13 E(X_3)=\\tfrac13\\mu\\cdot 3=\\mu$. Ja, forventningsrett (skjevhet 0). Vektene summerer til 1, som er nøkkelen.\n\n**b)** $E(\\tilde\\mu)=\\tfrac12\\mu+\\tfrac12\\mu=\\mu$, så $b(\\tilde\\mu)=0$ — også forventningsrett. Enhver vektet sum $\\sum w_iX_i$ med $\\sum w_i=1$ er forventningsrett for $\\mu$; det er *variansen* som skiller dem.",
         "hints": [
           "Bruk at $E(\\sum w_iX_i)=\\sum w_iE(X_i)$.",
           "Sjekk om vektene summerer til 1."
@@ -162,7 +162,7 @@
       "id": "stk1110-1-1-def-samvar",
       "type": "definition",
       "title": "Estimator-sammenligning på varians",
-      "content": "Er to estimatorer **begge forventningsrette** for $\\theta$, velger du den med **minst varians** (den mest effisiente). Dette er den korrekte sammenligningen *bare* når begge er forventningsrette; er den ene skjev, må du bruke MSE i stedet (løkke 3)."
+      "content": "Er to estimatorer **begge forventningsrette** for $\\theta$, velger du den med **minst varians** (den mest effisiente). Dette er den korrekte sammenligningen *bare* når begge er forventningsrette; er den ene skjev, må du bruke MSE i stedet."
     },
     {
       "id": "stk1110-1-1-l2-utl",
@@ -173,7 +173,7 @@
       "id": "stk1110-1-1-ex3",
       "type": "example",
       "title": "Eksempel 3: To forventningsrette estimatorer — hvilken vinner? (sjanger B)",
-      "problem": "La $X_1,\\dots,X_n$ ($n\\ge3$) være uavhengige med $E(X_i)=\\mu$, $\\text{Var}(X_i)=\\sigma^2$. Sammenlign $\\bar X=\\frac1n\\sum X_i$ med $\\hat\\mu_2=\\frac12(X_1+X_2)$. Begge er forventningsrette (løkke 1). Hvilken foretrekker du?",
+      "problem": "La $X_1,\\dots,X_n$ ($n\\ge3$) være uavhengige med $E(X_i)=\\mu$, $\\text{Var}(X_i)=\\sigma^2$. Sammenlign $\\bar X=\\frac1n\\sum X_i$ med $\\hat\\mu_2=\\frac12(X_1+X_2)$. Begge er forventningsrette. Hvilken foretrekker du?",
       "solution": "Vi regner variansene med reglene fra kap. 0.2 ($\\text{Var}(aX)=a^2\\text{Var}(X)$, varianser adderer for uavhengige):\n\n$$\\text{Var}(\\bar X)=\\frac{\\sigma^2}{n}, \\qquad \\text{Var}(\\hat\\mu_2)=\\tfrac14\\sigma^2+\\tfrac14\\sigma^2=\\frac{\\sigma^2}{2}.$$\n\nFor $n>2$ er $\\sigma^2/n<\\sigma^2/2$, så $\\bar X$ har minst varians og er mest effisient. **Konklusjon:** foretrekk $\\bar X$ — den bruker all informasjonen, mens $\\hat\\mu_2$ kaster bort $n-2$ observasjoner.\n\nTallsjekk ($n=6$): $\\text{Var}(\\bar X)=\\sigma^2/6$ mot $\\sigma^2/2$ — $\\bar X$ har tre ganger mindre varians."
     },
     {

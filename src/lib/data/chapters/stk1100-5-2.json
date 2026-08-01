@@ -26,7 +26,7 @@
     {
       "id": "stk1100-5-2-intro",
       "type": "text",
-      "content": "Du har en fordeling med en ukjent parameter $\\theta$ og et datasett $x_1, \\dots, x_n$. Hvilken $\\theta$ er mest *plausibel* gitt akkurat disse dataene? **Maximum likelihood** svarer: velg den $\\theta$ som gjør de observerte dataene *mest sannsynlige*. Vi setter opp sannsynligheten (tettheten) for å se nettopp dette datasettet som en funksjon av $\\theta$ — likelihood-funksjonen — og finner toppunktet.\n\nKapitlet har fem læringsløkker (teori → eksempel → oppgaver): (1) selve ML-ritualet med eksponensial, (2) flere standardtilfeller (Poisson, eksponensial forventningsform), (3) normal og gamma med kjent form, (4) de eksotiske (Pareto, Weibull), og (5) momentmetoden som alternativ + invariansprinsippet. Kapitlet er på 70 minutter — ta en pause etter løkke 3."
+      "content": "Du har en fordeling med en ukjent parameter $\\theta$ og et datasett $x_1, \\dots, x_n$. Hvilken $\\theta$ er mest *plausibel* gitt akkurat disse dataene? **Maximum likelihood** svarer: velg den $\\theta$ som gjør de observerte dataene *mest sannsynlige*. Vi setter opp sannsynligheten (tettheten) for å se nettopp dette datasettet som en funksjon av $\\theta$ — likelihood-funksjonen — og finner toppunktet.\n\nKapitlet har fem læringsløkker (teori → eksempel → oppgaver): (1) selve ML-ritualet med eksponensial, (2) flere standardtilfeller (Poisson, eksponensial forventningsform), (3) normal og gamma med kjent form, (4) de eksotiske (Pareto, Weibull), og (5) momentmetoden som alternativ + invariansprinsippet. Kapitlet er på 70 minutter — ta en pause etter bolken om normal og gamma."
     },
     {
       "id": "stk1100-5-2-l1-head",
@@ -61,7 +61,7 @@
       "type": "example",
       "title": "Eksempel 1: ML for eksponensial i rateform",
       "problem": "Levetidene $x_1, \\dots, x_n$ er iid eksponensialfordelte i **rateform**: $f(x; \\lambda) = \\lambda e^{-\\lambda x}$, $x > 0$, med ukjent rate $\\lambda$. Utled ML-estimatoren for $\\lambda$.",
-      "solution": "**1. Likelihood** (produkt over alle $n$):\n\n$$L(\\lambda) = \\prod_{i=1}^n \\lambda e^{-\\lambda x_i} = \\lambda^n e^{-\\lambda \\sum_{i=1}^n x_i}.$$\n\n**2. Log-likelihood** (produkt → sum):\n\n$$\\ell(\\lambda) = n\\ln\\lambda - \\lambda\\sum_{i=1}^n x_i.$$\n\n**3. Derivér og sett lik 0:**\n\n$$\\ell'(\\lambda) = \\frac{n}{\\lambda} - \\sum_{i=1}^n x_i = 0.$$\n\n**4. Løs:** $\\frac{n}{\\lambda} = \\sum x_i \\Rightarrow \\hat\\lambda = \\dfrac{n}{\\sum_{i=1}^n x_i} = \\dfrac{1}{\\bar x}$.\n\nML-estimatoren er $\\hat\\lambda = 1/\\bar X$. Rimelig: stor gjennomsnittlig levetid $\\bar X$ betyr liten rate. (I forventningsform hadde vi fått $\\hat\\mu = \\bar X$ — se løkke 2.)"
+      "solution": "**1. Likelihood** (produkt over alle $n$):\n\n$$L(\\lambda) = \\prod_{i=1}^n \\lambda e^{-\\lambda x_i} = \\lambda^n e^{-\\lambda \\sum_{i=1}^n x_i}.$$\n\n**2. Log-likelihood** (produkt → sum):\n\n$$\\ell(\\lambda) = n\\ln\\lambda - \\lambda\\sum_{i=1}^n x_i.$$\n\n**3. Derivér og sett lik 0:**\n\n$$\\ell'(\\lambda) = \\frac{n}{\\lambda} - \\sum_{i=1}^n x_i = 0.$$\n\n**4. Løs:** $\\frac{n}{\\lambda} = \\sum x_i \\Rightarrow \\hat\\lambda = \\dfrac{n}{\\sum_{i=1}^n x_i} = \\dfrac{1}{\\bar x}$.\n\nML-estimatoren er $\\hat\\lambda = 1/\\bar X$. Rimelig: stor gjennomsnittlig levetid $\\bar X$ betyr liten rate. (I forventningsform hadde vi fått $\\hat\\mu = \\bar X$ — se avsnittet om flere standardtilfeller.)"
     },
     {
       "id": "stk1100-5-2-l1a",

@@ -92,7 +92,7 @@
     {
       "id": "mat1120-6-1-l2-teori",
       "type": "text",
-      "content": "Når de $n$ egenverdiene er **distinkte**, er egenvektorene allerede ortogonale (løkke 1). Da mangler bare ett steg for å få en *ortogonal* $P$: å gjøre hver egenvektor til en **enhetsvektor** ved å dele på lengden. Metoden i tre steg:\n\n**a)** Les egenverdier og egenvektorer av vedlegget.\n\n**b)** **Normalisér** hver egenvektor: $\\mathbf{u}_i=\\dfrac{1}{\\lVert\\mathbf{v}_i\\rVert}\\mathbf{v}_i$.\n\n**c)** Sett de ortonormale $\\mathbf{u}_i$ som søyler i $P$ og egenverdiene i $D$, matchet søyle for søyle. Da er $A=PDP^{T}$.\n\nGlemmer du normaliseringen, har $P$ ortogonale, men ikke ortonormale, søyler — da er $P$ ingen ortogonal matrise, $P^{T}P\\ne I$, og $A=PDP^{T}$ blir feil."
+      "content": "Når de $n$ egenverdiene er **distinkte**, er egenvektorene allerede ortogonale (spektralteoremet). Da mangler bare ett steg for å få en *ortogonal* $P$: å gjøre hver egenvektor til en **enhetsvektor** ved å dele på lengden. Metoden i tre steg:\n\n**a)** Les egenverdier og egenvektorer av vedlegget.\n\n**b)** **Normalisér** hver egenvektor: $\\mathbf{u}_i=\\dfrac{1}{\\lVert\\mathbf{v}_i\\rVert}\\mathbf{v}_i$.\n\n**c)** Sett de ortonormale $\\mathbf{u}_i$ som søyler i $P$ og egenverdiene i $D$, matchet søyle for søyle. Da er $A=PDP^{T}$.\n\nGlemmer du normaliseringen, har $P$ ortogonale, men ikke ortonormale, søyler — da er $P$ ingen ortogonal matrise, $P^{T}P\\ne I$, og $A=PDP^{T}$ blir feil."
     },
     {
       "id": "mat1120-6-1-def-norm",
@@ -220,7 +220,7 @@
       "id": "mat1120-6-1-ex4",
       "type": "example",
       "title": "Eksempel 4: Spektral dekomposisjon av en 2×2-matrise",
-      "problem": "Skriv $A=\\begin{bmatrix}2&1\\\\1&2\\end{bmatrix}$ som en spektral dekomposisjon. (Fra løkke 1: $\\lambda=3$ med $\\mathbf{u}_1=\\tfrac{1}{\\sqrt2}(1,1)^{T}$, $\\lambda=1$ med $\\mathbf{u}_2=\\tfrac{1}{\\sqrt2}(1,-1)^{T}$.)",
+      "problem": "Skriv $A=\\begin{bmatrix}2&1\\\\1&2\\end{bmatrix}$ som en spektral dekomposisjon. (Fra avsnittet om spektralteoremet: $\\lambda=3$ med $\\mathbf{u}_1=\\tfrac{1}{\\sqrt2}(1,1)^{T}$, $\\lambda=1$ med $\\mathbf{u}_2=\\tfrac{1}{\\sqrt2}(1,-1)^{T}$.)",
       "solution": "Med de ortonormale egenvektorene:\n$$\\mathbf{u}_1\\mathbf{u}_1^{T}=\\tfrac{1}{2}\\begin{bmatrix}1\\\\1\\end{bmatrix}\\begin{bmatrix}1&1\\end{bmatrix}=\\tfrac{1}{2}\\begin{bmatrix}1&1\\\\1&1\\end{bmatrix},\\qquad \\mathbf{u}_2\\mathbf{u}_2^{T}=\\tfrac{1}{2}\\begin{bmatrix}1&-1\\\\-1&1\\end{bmatrix}.$$\nDa er\n$$A=3\\cdot\\tfrac{1}{2}\\begin{bmatrix}1&1\\\\1&1\\end{bmatrix}+1\\cdot\\tfrac{1}{2}\\begin{bmatrix}1&-1\\\\-1&1\\end{bmatrix}=\\begin{bmatrix}\\tfrac32&\\tfrac32\\\\\\tfrac32&\\tfrac32\\end{bmatrix}+\\begin{bmatrix}\\tfrac12&-\\tfrac12\\\\-\\tfrac12&\\tfrac12\\end{bmatrix}=\\begin{bmatrix}2&1\\\\1&2\\end{bmatrix}=A.$$ ✓\n**Konklusjon:** $A=3\\,\\mathbf{u}_1\\mathbf{u}_1^{T}+1\\,\\mathbf{u}_2\\mathbf{u}_2^{T}$ — egenverdiene som vekter på rang-1-projeksjonene."
     },
     {

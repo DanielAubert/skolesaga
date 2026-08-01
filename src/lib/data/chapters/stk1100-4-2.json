@@ -26,7 +26,7 @@
     {
       "id": "stk1100-4-2-intro",
       "type": "text",
-      "content": "Du har en variabel $X$ med kjent fordeling, og du er interessert i en *funksjon* av den — kvadratet $X^2$, logaritmen $\\ln X$, summen $X + Y$. Hva er fordelingen til den nye variabelen? Dette spørsmålet er selve motoren i STK1100: det er slik en observasjon gjøres om til en $\\chi^2$-størrelse som gir eksakt konfidensintervall senere.\n\nDet finnes to hovedmetoder. For én variabel bruker vi **CDF-metoden**: regn ut fordelingsfunksjonen til $Y = g(X)$ ved å oversette hendelsen $\\{g(X) \\le y\\}$ til en hendelse om $X$, og deriver til tetthet. For to variable bruker vi **Jacobi-formelen**, som er flerdimensjonal substitusjon: bytt variabler, gang med absoluttverdien av Jacobi-determinanten, og integrer ut det du ikke trenger.\n\nKapitlet er seks **læringsløkker**: CDF-metoden for voksende $g$ → for avtakende $g$ → kroneksempelet $Z^2 \\sim \\chi^2_1$ → standardtransformasjonene mot gamma/$\\chi^2$ → Jacobi-formelen → Jacobi med marginalisering. Hver løkke går teori → eksempel → oppgave.\n\n> 65-minutters kapittel. Naturlig pausepunkt er markert ved løkke 4 (overgangen til Jacobi)."
+      "content": "Du har en variabel $X$ med kjent fordeling, og du er interessert i en *funksjon* av den — kvadratet $X^2$, logaritmen $\\ln X$, summen $X + Y$. Hva er fordelingen til den nye variabelen? Dette spørsmålet er selve motoren i STK1100: det er slik en observasjon gjøres om til en $\\chi^2$-størrelse som gir eksakt konfidensintervall senere.\n\nDet finnes to hovedmetoder. For én variabel bruker vi **CDF-metoden**: regn ut fordelingsfunksjonen til $Y = g(X)$ ved å oversette hendelsen $\\{g(X) \\le y\\}$ til en hendelse om $X$, og deriver til tetthet. For to variable bruker vi **Jacobi-formelen**, som er flerdimensjonal substitusjon: bytt variabler, gang med absoluttverdien av Jacobi-determinanten, og integrer ut det du ikke trenger.\n\nKapitlet er seks **læringsløkker**: CDF-metoden for voksende $g$ → for avtakende $g$ → kroneksempelet $Z^2 \\sim \\chi^2_1$ → standardtransformasjonene mot gamma/$\\chi^2$ → Jacobi-formelen → Jacobi med marginalisering. Hver løkke går teori → eksempel → oppgave.\n\n> 65-minutters kapittel. Naturlig pausepunkt er markert ved standardtransformasjonene (overgangen til Jacobi)."
     },
     {
       "id": "stk1100-4-2-l1-head",
@@ -182,10 +182,10 @@
         "type": "classic",
         "difficulty": "middels",
         "task": "La $X \\sim N(\\mu, \\sigma^2)$ med kjent $\\mu$, og sett $W = (X - \\mu)^2/\\sigma^2$.\n\n**a)** Vis at $Z = (X-\\mu)/\\sigma \\sim N(0,1)$, og skriv $W$ ved $Z$.\n**b)** Angi fordelingen til $W$ med begrunnelse.",
-        "solution": "**a)** Standardisering: $Z = (X-\\mu)/\\sigma$ har forventning 0 og varians 1, og er normal fordi en lineær funksjon av en normal er normal — altså $Z \\sim N(0,1)$. Da er $W = (X-\\mu)^2/\\sigma^2 = Z^2$.\n\n**b)** Fra kroneksempelet (løkke 3) er $Z^2 \\sim \\chi^2_1$. Altså $W \\sim \\chi^2_1$ (én frihetsgrad). $\\sigma^2$ faller ut, så $W$ er pivotal.",
+        "solution": "**a)** Standardisering: $Z = (X-\\mu)/\\sigma$ har forventning 0 og varians 1, og er normal fordi en lineær funksjon av en normal er normal — altså $Z \\sim N(0,1)$. Da er $W = (X-\\mu)^2/\\sigma^2 = Z^2$.\n\n**b)** Fra kroneksempelet er $Z^2 \\sim \\chi^2_1$. Altså $W \\sim \\chi^2_1$ (én frihetsgrad). $\\sigma^2$ faller ut, så $W$ er pivotal.",
         "hints": [
           "Standardiser $X$ til $Z=(X-\\mu)/\\sigma$; da er $W=Z^2$.",
-          "Bruk $Z^2 \\sim \\chi^2_1$ fra løkke 3 — én frihetsgrad, ikke to."
+          "Bruk $Z^2 \\sim \\chi^2_1$ fra kroneksempelet — én frihetsgrad, ikke to."
         ]
       }
     },
@@ -209,7 +209,7 @@
       "id": "stk1100-4-2-def-jacobi",
       "type": "definition",
       "title": "Jacobi-formelen for simultantetthet",
-      "content": "Oppskriften for fordelingen til $(U,V) = g(X,Y)$: sett de gamle variablene inn i simultantettheten og gang med $|J|$.\n\n$$f_{UV}(u,v) = f_{XY}\\big(x(u,v),\\, y(u,v)\\big)\\cdot |J|.$$\n\nTrinnene: (1) løs $U, V$ for $X, Y$ (finn inversen); (2) regn $|J|$; (3) sett inn i $f_{XY}$ og gang; (4) finn **støtten** til $(U,V)$ ved å oversette den gamle støtten — tegn området! For å få en marginaltetthet integrerer du ut den andre variabelen (løkke 6)."
+      "content": "Oppskriften for fordelingen til $(U,V) = g(X,Y)$: sett de gamle variablene inn i simultantettheten og gang med $|J|$.\n\n$$f_{UV}(u,v) = f_{XY}\\big(x(u,v),\\, y(u,v)\\big)\\cdot |J|.$$\n\nTrinnene: (1) løs $U, V$ for $X, Y$ (finn inversen); (2) regn $|J|$; (3) sett inn i $f_{XY}$ og gang; (4) finn **støtten** til $(U,V)$ ved å oversette den gamle støtten — tegn området! For å få en marginaltetthet integrerer du ut den andre variabelen (se avsnittet om Jacobi med marginalisering)."
     },
     {
       "id": "stk1100-4-2-l5-utledning",
