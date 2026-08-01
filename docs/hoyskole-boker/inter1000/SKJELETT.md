@@ -904,8 +904,9 @@ førsteårs-nivå per disiplin.
 **id:** `inter1000-6-7` · **number:** 6.7 · **estimatedMinutes:** 55 · **prerequisites:** `inter1000-6-1`
 
 - **Kapitteltype:** modellbesvarelse.
-- **Description:** Én ØK-figuroppgave (ØF) og én JUS-redegjørelse (JRE) besvart på A/C/E-nivå, som viser hvordan
-  mekanisme (ØK) og balansert drøfting på ikke-jurist-nivå (JUS) skiller karakternivåene.
+- **Description:** Tre oppgaver besvart på A/C/E-nivå: to fra økonomisøylen — figuroppgaven (ØF) og
+  virkemiddelvurderingen (ØVM) — og én folkerettsoppgave (JRE), som viser hvordan mekanismen (ØK) og
+  balansert drøfting på ikke-jurist-nivå (JUS) skiller karakternivåene.
 - **Eksamensbelegg:** bygger på 3.2 + 4.1. Prioritet: perfekt.
 - **Innhold:** nyskrevet ØF-oppgave → `collapsible` **A/C/E-versjoner** (A = figur + mekanisme + eksempel;
   C = riktig figur, ingen mekanisme; E = feil retning) → nyskrevet JRE-oppgave → `collapsible` **A/C/E-versjoner**

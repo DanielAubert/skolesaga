@@ -49,10 +49,32 @@ for m in re.finditer(rf"^#### Kapittel (\d+\.\d+):\s*(.+)$", sk, re.M):
     # Den case-sensitive varianten ga tomme beskrivelser i fire live boker
     # (psy1010, fil1001, exphil03, stv1100 — 114 kapitler til sammen),
     # fordi kursmetadataens description da ble tom streng.
-    dm = re.search(r"\*\*description:\*\* (.+)", tail, re.I)
+    # Beskrivelsen går ofte over FLERE linjer i skjelettet. «(.+)» stanser ved
+    # linjeskift, og ga 53 kursmetadata-beskrivelser som slutter midt i
+    # setningen — «… som viser hvordan», «… performativitet, og» — synlig for
+    # leseren i kapitteloversikten. Fortsettelseslinjer er innrykket og starter
+    # ikke et nytt «- **felt:**».
+    dm = re.search(
+        r"\*\*description:\*\*[ \t]*(.+(?:\n(?![ \t]*[-*][ \t]*\*\*)(?![ \t]*$)"
+        r"(?![ \t]*#)[ \t]*\S.*)*)", tail, re.I)
+    desc = " ".join(dm.group(1).split()) if dm else ""
+    # Kontrakten (§2) sier at kapittel-JSONs eget description-felt er den
+    # AUTORITATIVE kilden. Skjelettet råtner når et kapittel skrives om —
+    # inter1000-6-7 fikk en tredje oppgave uten at skjelettet fulgte med.
+    kp = os.path.join(CH, im.group(1) + ".json")
+    if os.path.exists(kp):
+        try:
+            kd = (json.load(open(kp, encoding="utf-8")).get("description") or "").strip()
+        except Exception:
+            kd = ""
+        if kd and " ".join(kd.split()) != desc:
+            if desc:
+                print(f"  merk: {im.group(1)} — description i kapittelfila avviker "
+                      f"fra skjelettet; bruker kapittelfila (autoritativ)")
+            desc = " ".join(kd.split())
     chapters.append({
         "id": im.group(1), "number": num, "title": title,
-        "desc": dm.group(1).strip() if dm else "",
+        "desc": desc,
         "min": int(mm.group(1)) if mm else 50,
         "prereq": re.findall(rf"`({emne}-\d+-\d+)`", pm.group(1)) if pm else [],
     })

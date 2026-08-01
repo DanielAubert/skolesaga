@@ -2407,7 +2407,7 @@ const quizData_inter1000: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvor ofte forekommer markedsmodellen med et sjokk i grunnlaget for boka?",
-      options: ["I 6 av 15 terminer — men i 6 av de 9 settene fra H2017", "I samtlige 15 terminer, siden økonomi har vært fast del av eksamen", "I 6 av 15 terminer, jevnt fordelt fra og med H2010", "I 4 av 15 terminer, alle sammen fra tiden før formen ble lagt om"],
+      options: ["I 6 av 15 terminer — men i 6 av de 8 settene fra H2017", "I samtlige 15 terminer, siden økonomi har vært fast del av eksamen", "I 6 av 15 terminer, jevnt fordelt fra og med H2010", "I 4 av 15 terminer, alle sammen fra tiden før formen ble lagt om"],
       explanation: "Fordelingen er skjev: temaet finnes ikke i noen av de sju settene før H2017, men i seks av de ni settene fra H2017 og framover. Det gjør det til en nyere fast post, ikke en historisk konstant, og tallet 4 av 15 hører til virkemiddelvurderingen som hovedoppgave.",
     },
     {
