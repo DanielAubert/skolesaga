@@ -37,6 +37,7 @@ export const INSTITUSJONER: Institusjon[] = [
     image: '/images/institusjoner/uio.webp',
       imageHero: '/images/institusjoner/uio-hero.webp',
     subjects: [
+      { courseId: 'stv1400', name: 'STV1400 Offentlig politikk og administrasjon', icon: '🏢', color: 'from-slate-500 to-slate-700' },
       { courseId: 'sgo1001', name: 'SGO1001 Innføring i samfunnsgeografi', icon: '🗺️', color: 'from-slate-500 to-slate-700' },
       { courseId: 'in2010', name: 'IN2010 Algoritmer og datastrukturer', icon: '🌳', color: 'from-slate-500 to-slate-700' },
       { courseId: 'med1100', name: 'MED1100 Medisinstudiet modul 1', icon: '🩺', color: 'from-slate-500 to-slate-700' },
