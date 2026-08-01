@@ -86,6 +86,18 @@ BYGGESPRAK_PROSA = re.compile(
 # mens in2010 hadde det som byggespråk. Bare et menneske ser forskjellen.
 BYGGESPRAK_TABELL = re.compile(r"\|\s*Løkke[nr]?\s*\|")
 
+# Påstander om leserens lesehistorikk (RÅDGIVENDE). Forkunnskapsblokka
+# oppsummerer et ANNET kapittel, så «her» peker feil vei — og boka vet
+# uansett ikke hvor leseren har vært. 526 blokker sa «Sist du var her»,
+# verst i inter1000-1-1: første kapittel i sin fagsøyle, som tre linjer
+# lenger nede skriver at det kan leses uten å ha vært innom noe annet.
+LESEHISTORIKK = re.compile(
+    r"[Ss]ist du var her"
+    r"|[Ss]om du (?:sikkert )?husker"
+    r"|[Dd]u har jo allerede"
+    r"|[Dd]ette kan du fra før"
+    r"|[Dd]a vi (?:gikk gjennom|så på) dette sist")
+
 for f in files:
     cid = os.path.basename(f)[:-5]
     try:
@@ -149,6 +161,11 @@ for f in files:
     if BYGGESPRAK_TABELL.search(txt):
         notes.append(f"{cid}: tabellkolonne «| Løkke |» — byggespråk, eller "
                      f"ekte sporingstabell for programmeringsløkker? Vurder selv")
+    m = LESEHISTORIKK.search(txt)
+    if m:
+        notes.append(f"{cid}: «{m.group(0)}» — boka påstår noe om hvor leseren "
+                     f"har vært. Skriv om stoffet i stedet: «Dette sto der», "
+                     f"«Fra kap. X», «I det kapitlet lærte du …»")
     # døde lenker
     # /bok-prefikset ble fjernet 27. juli 2026 (kapitler ligger nå på
     # /<kurs>/<kapittel>). Sto det gamle mønsteret igjen her, ville regexen

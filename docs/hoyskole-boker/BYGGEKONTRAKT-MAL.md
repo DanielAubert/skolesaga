@@ -75,6 +75,40 @@ C, og `fil1001-2-1` viste til et avsnitt om det Machianske svaret der
 innholdet gjaldt Leibniz. Nummererte kryssreferanser råtner stille — det
 er selve grunnen til at de skal være navn.
 
+## Tiltale og deiksis — si aldri hvor leseren har vært (nytt 2. august 2026)
+
+Forkunnskapsblokka oppsummerer **et annet kapittel**. Da kan den ikke si
+«her». Husmalen gjorde det likevel, i 526 blokker over 524 filer:
+
+```
+✗ **Sist du var her, sto dette:** en eksamensoppgave har to ledd …
+✓ **Dette sto der:** en eksamensoppgave har to ledd …
+```
+
+Verst i `inter1000-1-1`, som er det **første** kapitlet i sin fagsøyle og
+tre linjer lenger nede skriver «Det bygger ikke på noen av de andre
+søylene, og du kan lese det uten å ha vært innom historie, økonomi eller
+folkerett». Leseren blir altså først fortalt at hun har vært her før, og
+straks etter at hun ikke trenger å ha vært noe sted.
+
+**Regelen:** en lærebok vet ikke hva leseren har gjort. Den vet hva som
+står i sine egne kapitler. Skriv om innholdet, ikke om lesehistorikken:
+
+| ✗ | ✓ |
+|---|---|
+| Sist du var her … | Dette sto der … / Kort oppfrisket … |
+| Sist du var her (fra kap. 3.2): | Fra kap. 3.2: |
+| Sist du var her lærte du at … | I det kapitlet lærte du at … |
+| Som du husker fra … | I kap. X står … |
+| Da vi gikk gjennom dette sist … | I gjennomgangen i kap. X … |
+
+Samme regel rammer «som du sikkert husker», «du har jo allerede sett»,
+«dette kan du fra før» — alt som gjør en påstand om leseren i stedet for
+om stoffet. En student som hopper rett til kapittel 5.3 fordi det er det
+hun skal ha eksamen i, skal ikke møte en bok som later som de har møttes.
+
+`sjekk-bok.py` flagger dette rådgivende.
+
 ## BOKCONFIG `description` — HARDT FORMATKRAV (nytt 1. august 2026)
 
 Kursforsiden parser dette feltet og splitter det i tre visuelle elementer:
