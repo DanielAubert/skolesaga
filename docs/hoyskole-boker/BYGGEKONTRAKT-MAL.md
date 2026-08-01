@@ -6,6 +6,76 @@ identitetsseksjon (notasjonsregler, forbudt-termer, arketypesærtrekk).
 Referanse-instansieringer: `econ1310/BYGGEKONTRAKT.md` (regnefag),
 `jus1111/BYGGEKONTRAKT.md` (jus).
 
+## Underoverskrifter — ALDRI byggespråk (nytt 1. august 2026)
+
+Læringsløkke er **byggeplanens** ord for hvordan et kapittel settes sammen.
+Det er ikke et ord leseren skal se. Likevel endte 3 048 overskrifter i 780
+filer som «## Løkke 3 — Varians og standardavvik», og en student som blar
+gjennom boka møtte en nummerert struktur ingen har forklart henne.
+
+**Overskriften skal si hva avsnittet handler om, og ingenting annet:**
+
+```
+✗ ## Løkke 1 — Reformbølgen og hva den faktisk besto av (~14 min)
+✓ ## Reformbølgen og hva den faktisk besto av (~14 min)
+
+✗ ## Løkke 3: Eulers teorem
+✓ ## Eulers teorem
+```
+
+Tidsanslaget `(~14 min)` skal stå — det er nyttig for leseren.
+
+Samme regel gjelder alt annet internt stillas: **Bolk N**, **Blokk N**,
+**Runde N**, **Sekvens N**, **Modul N**, **Iterasjon N**. Trenger du å vise
+til et tidligere avsnitt, vis til det ved **navn**, ikke ved nummer — «da vi
+så på arbeid–energi-setningen», ikke «i Løkke 2». Nummeret forsvinner i det
+øyeblikket noen setter inn et avsnitt til.
+
+⚠ **Fagord som ligner byggespråk skal stå.** I programmeringsfagene er
+«løkke» et sentralt fagbegrep: `for-løkke`, `while-løkke`, «løkka kjører
+til betingelsen er usann». `in1900` alene har 770 slike. Rydding i
+overskrifter må derfor forankres på syntaks — `## Løkke <tall> — ` og
+`## Løkke <tall>: ` — aldri på ordet alene. Jf. minnet «Forankret
+erstatning»: søk-og-erstatt over kapitteldata har ødelagt innhold tre
+ganger.
+
+## BOKCONFIG `description` — HARDT FORMATKRAV (nytt 1. august 2026)
+
+Kursforsiden parser dette feltet og splitter det i tre visuelle elementer:
+en kort ingress, en «Bygget på …»-boks med lenke til kildegrunnlaget, og
+emne-chips. Parseren i `src/app/[courseId]/page.tsx` krever nøyaktig dette
+mønsteret:
+
+```
+<ingress> — kalibrert mot <kalibrering>: <tema>, <tema>, <tema> og <tema>
+```
+
+**Matcher ikke teksten, faller HELE beskrivelsen ut som én grå tekstblokk.**
+Det skjedde med 25 av 26 høyskolebøker: STV1400 endte med en 1 734 tegns
+setning som fylte halve skjermen og var praktisk talt uleselig.
+
+| ledd | krav | eksempel |
+|---|---|---|
+| ingress | **maks ~90 tegn**, én setning, ingen temaliste | `Eksamensrettet lærebok for ECON1310 ved UiO` |
+| kalibrering | hva boka er bygget på, uten «bygget på»-ord | `eksamenssettene 2015–2025` |
+| temaer | **3–6 stykker**, komma- eller «og»-separert, hver 2–5 ord | `Keynes-modellen på tilvekstform, Phillips-kurven, IS-RR-PK og finanspolitikk` |
+
+**Samlet lengde skal være under 250 tegn.** Er den over, har du skrevet
+innholdsfortegnelse i stedet for beskrivelse.
+
+Regler som følger av dette:
+
+- **Ikke ramse opp pensum.** Beskrivelsen er en salgslinje, ikke et sammendrag.
+  Velg de tre til seks temaene en student kjenner igjen emnet på.
+- **Ikke legg eksamensform, vekting, karakterskala eller kildetall i temalista.**
+  Kildetallene hører i `kildegrunnlag.ts`, som har sin egen side og lenkes
+  automatisk fra boksen. Eksamensformen hører i kapittel 0.1.
+- **Ingen semikolon, tankestrek eller kolon inne i leddene** — de bryter
+  parseren. Bare det ene ` — ` og det ene `: ` som skiller leddene.
+- Sannferdighetskravet gjelder fortsatt: kalibreringsleddet må stemme med
+  `EKSAMENSANALYSE.md`. Men det skal stå kort («34 eksamenssett fra 2003 til
+  2025»), ikke som en oppramsing av filtyper og forbehold.
+
 ## Filplassering
 Ett JSON-dokument per kapittel: `src/lib/data/chapters/<kapittel-id>.json`.
 IKKE rør `_registry.json`, `_all.json`, `textbook-courses*.ts`, `quiz-data*.ts`

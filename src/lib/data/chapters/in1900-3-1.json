@@ -26,7 +26,7 @@
     {
       "id": "in1900-3-1-txt-lokke1",
       "type": "text",
-      "content": "## Løkke 1 — å be programmet stoppe når noe er galt (~10 min)\n\nEt laboratorium logger konsentrasjonen av et legemiddel i blodet. Programmet som behandler loggen forventer fire målinger per døgn. Kommer det bare tre, regner programmet videre og gir et svar som ser helt fornuftig ut — men som er feil.\n\nDet er den farligste typen feil: den som ikke gir feilmelding. Python har en innebygd måte å si «her stoller jeg på at noe er sant, og hvis det ikke er det, skal du stoppe med en gang». Setningen heter `assert`, og ordet betyr «å påstå».\n\nEn `assert` er altså en **påstand du plasserer i koden**. Er påstanden sann, skjer ingenting, og programmet fortsetter som om linja ikke var der. Er den usann, stopper programmet umiddelbart."
+      "content": "## å be programmet stoppe når noe er galt (~10 min)\n\nEt laboratorium logger konsentrasjonen av et legemiddel i blodet. Programmet som behandler loggen forventer fire målinger per døgn. Kommer det bare tre, regner programmet videre og gir et svar som ser helt fornuftig ut — men som er feil.\n\nDet er den farligste typen feil: den som ikke gir feilmelding. Python har en innebygd måte å si «her stoller jeg på at noe er sant, og hvis det ikke er det, skal du stoppe med en gang». Setningen heter `assert`, og ordet betyr «å påstå».\n\nEn `assert` er altså en **påstand du plasserer i koden**. Er påstanden sann, skjer ingenting, og programmet fortsetter som om linja ikke var der. Er den usann, stopper programmet umiddelbart."
     },
     {
       "id": "in1900-3-1-def-assert",
@@ -88,7 +88,7 @@
     {
       "id": "in1900-3-1-txt-lokke2",
       "type": "text",
-      "content": "## Løkke 2 — hvorfor du aldri sammenligner flyttall med likhetstegn (~10 min)\n\nNå kommer den ene faglige innsikten i kapitlet. Alt annet er håndverk.\n\nEt flyttall i Python lagres med et endelig antall siffer i totallsystemet. De fleste desimaltall kan ikke skrives eksakt slik, på samme måte som en tredel ikke kan skrives eksakt som et desimaltall. Derfor er hvert flyttall en **tilnærming**, og små avrundingsfeil hoper seg opp gjennom en utregning.\n\nDet gir et resultat som overrasker alle første gang:\n\n```python\nprint(0.1 + 0.2)\nprint(0.1 + 0.2 == 0.3)\nprint(abs(0.1 + 0.2 - 0.3) < 1e-10)\n```\n\n**Utskrift:**\n```\n0.30000000000000004\nFalse\nTrue\n```\n\nSummen er ikke $0{,}3$, men $0{,}3$ pluss omtrent $5\\cdot 10^{-17}$. Det er en helt ubetydelig forskjell fysisk sett — og en helt avgjørende forskjell for `==`, som krever at hvert eneste siffer stemmer."
+      "content": "## hvorfor du aldri sammenligner flyttall med likhetstegn (~10 min)\n\nNå kommer den ene faglige innsikten i kapitlet. Alt annet er håndverk.\n\nEt flyttall i Python lagres med et endelig antall siffer i totallsystemet. De fleste desimaltall kan ikke skrives eksakt slik, på samme måte som en tredel ikke kan skrives eksakt som et desimaltall. Derfor er hvert flyttall en **tilnærming**, og små avrundingsfeil hoper seg opp gjennom en utregning.\n\nDet gir et resultat som overrasker alle første gang:\n\n```python\nprint(0.1 + 0.2)\nprint(0.1 + 0.2 == 0.3)\nprint(abs(0.1 + 0.2 - 0.3) < 1e-10)\n```\n\n**Utskrift:**\n```\n0.30000000000000004\nFalse\nTrue\n```\n\nSummen er ikke $0{,}3$, men $0{,}3$ pluss omtrent $5\\cdot 10^{-17}$. Det er en helt ubetydelig forskjell fysisk sett — og en helt avgjørende forskjell for `==`, som krever at hvert eneste siffer stemmer."
     },
     {
       "id": "in1900-3-1-def-float-likhet",
@@ -140,7 +140,7 @@
     {
       "id": "in1900-3-1-txt-lokke3",
       "type": "text",
-      "content": "## Løkke 3 — mønsteret sensor forventer (~12 min)\n\nNå har du alle bitene. Det som gjenstår er å sette dem sammen i den faste rekkefølgen, og å lære den utenat. Fem linjer, alltid de samme, uansett hvilken funksjon som skal testes.\n\nAt mønsteret er så fast er gode nyheter under tidspress: du kan skrive testfunksjonen først, før du har løst resten av oppgaven, og fylle inn tallene etterpå."
+      "content": "## mønsteret sensor forventer (~12 min)\n\nNå har du alle bitene. Det som gjenstår er å sette dem sammen i den faste rekkefølgen, og å lære den utenat. Fem linjer, alltid de samme, uansett hvilken funksjon som skal testes.\n\nAt mønsteret er så fast er gode nyheter under tidspress: du kan skrive testfunksjonen først, før du har løst resten av oppgaven, og fylle inn tallene etterpå."
     },
     {
       "id": "in1900-3-1-thm-idiom",
@@ -196,7 +196,7 @@
     {
       "id": "in1900-3-1-txt-lokke4",
       "type": "text",
-      "content": "## Løkke 4 — flere punkter i én test (~8 min)\n\nEn test som sjekker ett punkt kan være heldig. En funksjon som ganger med feil konstant kan tilfeldigvis treffe i akkurat det punktet du valgte — for eksempel gir enhver funksjon riktig svar i $t = 0$ hvis begge sider er null der.\n\nDerfor tester vi gjerne to eller tre punkter i samme testfunksjon. Det koster tre linjer ekstra og er noe sensor legger merke til.\n\nDu kan skrive punktene rett etter hverandre, eller legge dem i to lister og gå gjennom dem med `zip` fra [kap. 1.3](/in1900/in1900-1-3). Den siste formen er den korteste når det er mer enn to punkter."
+      "content": "## flere punkter i én test (~8 min)\n\nEn test som sjekker ett punkt kan være heldig. En funksjon som ganger med feil konstant kan tilfeldigvis treffe i akkurat det punktet du valgte — for eksempel gir enhver funksjon riktig svar i $t = 0$ hvis begge sider er null der.\n\nDerfor tester vi gjerne to eller tre punkter i samme testfunksjon. Det koster tre linjer ekstra og er noe sensor legger merke til.\n\nDu kan skrive punktene rett etter hverandre, eller legge dem i to lister og gå gjennom dem med `zip` fra [kap. 1.3](/in1900/in1900-1-3). Den siste formen er den korteste når det er mer enn to punkter."
     },
     {
       "id": "in1900-3-1-def-fasit-math",

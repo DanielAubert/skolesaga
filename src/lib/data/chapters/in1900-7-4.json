@@ -26,7 +26,7 @@
     {
       "id": "in1900-7-4-t1",
       "type": "text",
-      "content": "## Løkke 1 — arbeidsdelingen: løkka nedarves, formelen skrives\n\nTenk på en bilfabrikk som lager samme understell til alle modellene sine. Karosseriet varierer, understellet gjør det ikke. `ODESolver` er understellet: den vet hvordan et tidsarray lages, hvor startverdien settes inn, og hvor mange ganger det skal itereres. Karosseriet er formelen for **ett** steg — og den er forskjellig for Euler, Heun og Runge–Kutta.\n\nDerfor er svaret på «implementér en ny ODE-metode» alltid det samme: *arv fra `ODESolver` og skriv bare `advance`*. Å skrive om hele klassen er ikke bare unødvendig arbeid; det er en feilkilde, og sensor gir ikke ekstra poeng for det.\n\nEn liten, men avgjørende detalj: `advance` skal **returnere** den neste verdien. Den skal ikke skrive den inn i `self.u` selv. Basisklassen tar imot returverdien og legger den på riktig plass."
+      "content": "## arbeidsdelingen: løkka nedarves, formelen skrives\n\nTenk på en bilfabrikk som lager samme understell til alle modellene sine. Karosseriet varierer, understellet gjør det ikke. `ODESolver` er understellet: den vet hvordan et tidsarray lages, hvor startverdien settes inn, og hvor mange ganger det skal itereres. Karosseriet er formelen for **ett** steg — og den er forskjellig for Euler, Heun og Runge–Kutta.\n\nDerfor er svaret på «implementér en ny ODE-metode» alltid det samme: *arv fra `ODESolver` og skriv bare `advance`*. Å skrive om hele klassen er ikke bare unødvendig arbeid; det er en feilkilde, og sensor gir ikke ekstra poeng for det.\n\nEn liten, men avgjørende detalj: `advance` skal **returnere** den neste verdien. Den skal ikke skrive den inn i `self.u` selv. Basisklassen tar imot returverdien og legger den på riktig plass."
     },
     {
       "id": "in1900-7-4-def-subklasse",
@@ -82,7 +82,7 @@
     {
       "id": "in1900-7-4-t2",
       "type": "text",
-      "content": "## Løkke 2 — de fem attributtene du har til rådighet (~14 min)\n\n`advance` tar ingen argumenter. Alt den trenger, ligger allerede lagret på instansen, og basisklassen har oppdatert det før hvert kall. Kjenner du de fem navnene, kan du skrive hvilken som helst eksplisitt metode.\n\nDen vanligste feilen her er ikke matematisk, men navnemessig: du skriver `self.dt` i en subklasse der den utleverte modulen ikke har noe `self.dt`. Derfor kommer den robuste formen rett etter tabellen — den virker uansett årgang."
+      "content": "## de fem attributtene du har til rådighet (~14 min)\n\n`advance` tar ingen argumenter. Alt den trenger, ligger allerede lagret på instansen, og basisklassen har oppdatert det før hvert kall. Kjenner du de fem navnene, kan du skrive hvilken som helst eksplisitt metode.\n\nDen vanligste feilen her er ikke matematisk, men navnemessig: du skriver `self.dt` i en subklasse der den utleverte modulen ikke har noe `self.dt`. Derfor kommer den robuste formen rett etter tabellen — den virker uansett årgang."
     },
     {
       "id": "in1900-7-4-def-attr",
@@ -145,7 +145,7 @@
     {
       "id": "in1900-7-4-t3",
       "type": "text",
-      "content": "## Løkke 3 — når subklassen trenger noe eget (~13 min)\n\nSå langt har subklassene bare hatt `advance`. Noen ganger trenger metoden en **parameter** — en vekt, en toleranse, en teller. Da må subklassen ha sin egen oppstartsmetode, og det er her arven kan gå galt.\n\nBasisklassens `__init__` gjør noe viktig: den tar imot høyresiden `f` og pakker den slik at den alltid gir et NumPy-array tilbake. Overskriver du `__init__` uten å kalle basisklassens, mister du den pakkingen, og `self.f` finnes ikke i det hele tatt. Symptomet er `AttributeError` ved første steg.\n\nLøsningen er én linje, og den skal stå **først**."
+      "content": "## når subklassen trenger noe eget (~13 min)\n\nSå langt har subklassene bare hatt `advance`. Noen ganger trenger metoden en **parameter** — en vekt, en toleranse, en teller. Da må subklassen ha sin egen oppstartsmetode, og det er her arven kan gå galt.\n\nBasisklassens `__init__` gjør noe viktig: den tar imot høyresiden `f` og pakker den slik at den alltid gir et NumPy-array tilbake. Overskriver du `__init__` uten å kalle basisklassens, mister du den pakkingen, og `self.f` finnes ikke i det hele tatt. Symptomet er `AttributeError` ved første steg.\n\nLøsningen er én linje, og den skal stå **først**."
     },
     {
       "id": "in1900-7-4-def-super",
@@ -197,7 +197,7 @@
     {
       "id": "in1900-7-4-t4",
       "type": "text",
-      "content": "## Løkke 4 — implisitte metoder: når hvert steg er en likning (~16 min)\n\n— naturlig pausepunkt —\n\nDenne siste løkka er nivå 3-stoffet i kapitlet: **bør kjenne til**. Den er den tyngste enkeltdelen i Del 7, og den er samtidig den mest sannsynlige toppoppgaven. Har du kort tid, ta den etter at resten av Del 7 sitter.\n\nAlle metodene så langt har vært **eksplisitte**: den nye verdien regnes ut av gamle verdier, ferdig. Baklengs Euler er **implisitt** — den bruker høyresiden evaluert i det nye punktet:\n\n$$u_{n+1} = u_n + \\Delta t\\, f(t_{n+1}, u_{n+1}).$$\n\nDen ukjente står på begge sider. Det er ikke en formel du kan regne ut; det er en **likning** du må løse, én gang per tidssteg. Og det er nettopp derfor oppgaven er attraktiv på eksamen: den krever at du kombinerer ODE-løsing med `root` fra [kap. 6.1](/in1900/in1900-6-1).\n\nHvorfor gidde? Fordi implisitte metoder er **stabile**. For såkalt stive problemer — der noe skjer svært raskt i forhold til tidsrommet du er interessert i — sprenger forlengs Euler med mindre steget er absurd lite, mens baklengs Euler holder seg i ro. Eksempel 4 viser forskjellen."
+      "content": "## implisitte metoder: når hvert steg er en likning (~16 min)\n\n— naturlig pausepunkt —\n\nDenne siste løkka er nivå 3-stoffet i kapitlet: **bør kjenne til**. Den er den tyngste enkeltdelen i Del 7, og den er samtidig den mest sannsynlige toppoppgaven. Har du kort tid, ta den etter at resten av Del 7 sitter.\n\nAlle metodene så langt har vært **eksplisitte**: den nye verdien regnes ut av gamle verdier, ferdig. Baklengs Euler er **implisitt** — den bruker høyresiden evaluert i det nye punktet:\n\n$$u_{n+1} = u_n + \\Delta t\\, f(t_{n+1}, u_{n+1}).$$\n\nDen ukjente står på begge sider. Det er ikke en formel du kan regne ut; det er en **likning** du må løse, én gang per tidssteg. Og det er nettopp derfor oppgaven er attraktiv på eksamen: den krever at du kombinerer ODE-løsing med `root` fra [kap. 6.1](/in1900/in1900-6-1).\n\nHvorfor gidde? Fordi implisitte metoder er **stabile**. For såkalt stive problemer — der noe skjer svært raskt i forhold til tidsrommet du er interessert i — sprenger forlengs Euler med mindre steget er absurd lite, mens baklengs Euler holder seg i ro. Eksempel 4 viser forskjellen."
     },
     {
       "id": "in1900-7-4-def-baklengs",

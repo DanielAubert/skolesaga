@@ -44,7 +44,7 @@
     {
       "id": "in2010-3-2-t-1",
       "type": "text",
-      "content": "## Løkke 1 — load-faktoren: hvor full er tabellen? (ca. 12 min)\n\nKlyngedannelsen du så i [kap. 3.1](/in2010/in2010-3-1) blir raskt verre jo mer\ntabellen fylles opp. Med tre nøkler i en tabell på elleve plasser er kollisjoner\nsjeldne. Med ti nøkler i den samme tabellen er de nesten uunngåelige, og\nprobing-sekvensene blir lange.\n\nMålet på hvor full tabellen er, heter **load-faktoren**:\n\n$$\\alpha = \\frac{n}{N}$$\n\nder $n$ er antall lagrede nøkler og $N$ er antall plasser. Er $\\alpha = 0{,}5$,\ner halvparten av plassene i bruk. Er $\\alpha = 1$, er tabellen full, og ingen ny\nnøkkel får plass.\n\nRekkefølgen i brøken er verdt å låse fast: **nøkler over plasser**. Snur du\nbrøken, får du et tall over 1 så snart tabellen er mindre enn halvfull, og det\ngir ingen mening."
+      "content": "## load-faktoren: hvor full er tabellen? (ca. 12 min)\n\nKlyngedannelsen du så i [kap. 3.1](/in2010/in2010-3-1) blir raskt verre jo mer\ntabellen fylles opp. Med tre nøkler i en tabell på elleve plasser er kollisjoner\nsjeldne. Med ti nøkler i den samme tabellen er de nesten uunngåelige, og\nprobing-sekvensene blir lange.\n\nMålet på hvor full tabellen er, heter **load-faktoren**:\n\n$$\\alpha = \\frac{n}{N}$$\n\nder $n$ er antall lagrede nøkler og $N$ er antall plasser. Er $\\alpha = 0{,}5$,\ner halvparten av plassene i bruk. Er $\\alpha = 1$, er tabellen full, og ingen ny\nnøkkel får plass.\n\nRekkefølgen i brøken er verdt å låse fast: **nøkler over plasser**. Snur du\nbrøken, får du et tall over 1 så snart tabellen er mindre enn halvfull, og det\ngir ingen mening."
     },
     {
       "id": "in2010-3-2-def-1",
@@ -78,7 +78,7 @@
     {
       "id": "in2010-3-2-t-2",
       "type": "text",
-      "content": "## Løkke 2 — rehashing: hele tabellen bygges på nytt (ca. 16 min)\n\n— naturlig pausepunkt —\n\nNår load-faktoren blir for høy, må tabellen utvides. Og her ligger poenget som\nhar vært et sant/usant-punkt i sett etter sett.\n\nDu kan **ikke** bare lage et større array og flytte nøklene over på de samme\nindeksene.\n\nGrunnen står i hashfunksjonen: $h(k) = k \\bmod N$. Den avhenger av $N$. Dobler du\ntabellen fra 7 til 14, endres **alle** hashverdier. Nøkkelen 22 hashet til plass\n1 da $N = 7$; med $N = 14$ hasher den til plass 8. En nøkkel som ligger igjen på\nplass 1, vil aldri bli funnet av et søk som starter på plass 8.\n\nDerfor må hele tabellen bygges på nytt: opprett et nytt array, gå gjennom det\ngamle, og **sett inn hver nøkkel på nytt** med den nye hashfunksjonen."
+      "content": "## rehashing: hele tabellen bygges på nytt (ca. 16 min)\n\n— naturlig pausepunkt —\n\nNår load-faktoren blir for høy, må tabellen utvides. Og her ligger poenget som\nhar vært et sant/usant-punkt i sett etter sett.\n\nDu kan **ikke** bare lage et større array og flytte nøklene over på de samme\nindeksene.\n\nGrunnen står i hashfunksjonen: $h(k) = k \\bmod N$. Den avhenger av $N$. Dobler du\ntabellen fra 7 til 14, endres **alle** hashverdier. Nøkkelen 22 hashet til plass\n1 da $N = 7$; med $N = 14$ hasher den til plass 8. En nøkkel som ligger igjen på\nplass 1, vil aldri bli funnet av et søk som starter på plass 8.\n\nDerfor må hele tabellen bygges på nytt: opprett et nytt array, gå gjennom det\ngamle, og **sett inn hver nøkkel på nytt** med den nye hashfunksjonen."
     },
     {
       "id": "in2010-3-2-def-2",
@@ -124,7 +124,7 @@
     {
       "id": "in2010-3-2-t-3",
       "type": "text",
-      "content": "## Løkke 3 — hashmap og hash-set som Del 2-verktøy (ca. 15 min)\n\nNå til den delen som gir poeng på Del 2.\n\nHashtabellen du har håndkjørt, er maskineriet. To grensesnitt bygger på det, og\nbegge har du sannsynligvis brukt før uten å tenke på kostnaden:\n\n- Et **hashmap** lagrer par av nøkkel og verdi. Du slår opp på nøkkelen og får\n  verdien. «Hvor mange ganger forekommer hvert ord i teksten?» er en\n  hashmap-oppgave.\n- Et **hash-set** lagrer bare nøkler, og svarer på ett spørsmål: finnes denne\n  her? «Har jeg sett dette elementet før?» er en hash-set-oppgave.\n\nBegge gir $O(1)$ **forventet** for innsetting, oppslag og medlemskapstest, og\n$O(n)$ i verste tilfelle. Og det er nettopp den forventede $O(1)$-en som gjør at\nen hel klasse Del 2-oppgaver kan løses i $O(n)$ i stedet for $O(n \\log n)$."
+      "content": "## hashmap og hash-set som Del 2-verktøy (ca. 15 min)\n\nNå til den delen som gir poeng på Del 2.\n\nHashtabellen du har håndkjørt, er maskineriet. To grensesnitt bygger på det, og\nbegge har du sannsynligvis brukt før uten å tenke på kostnaden:\n\n- Et **hashmap** lagrer par av nøkkel og verdi. Du slår opp på nøkkelen og får\n  verdien. «Hvor mange ganger forekommer hvert ord i teksten?» er en\n  hashmap-oppgave.\n- Et **hash-set** lagrer bare nøkler, og svarer på ett spørsmål: finnes denne\n  her? «Har jeg sett dette elementet før?» er en hash-set-oppgave.\n\nBegge gir $O(1)$ **forventet** for innsetting, oppslag og medlemskapstest, og\n$O(n)$ i verste tilfelle. Og det er nettopp den forventede $O(1)$-en som gjør at\nen hel klasse Del 2-oppgaver kan løses i $O(n)$ i stedet for $O(n \\log n)$."
     },
     {
       "id": "in2010-3-2-def-3",

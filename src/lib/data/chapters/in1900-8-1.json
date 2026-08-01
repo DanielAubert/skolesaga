@@ -26,7 +26,7 @@
     {
       "id": "in1900-8-1-anker",
       "type": "text",
-      "content": "## Løkke 1 — Fra fil til tekstlinjer (~15 min)\n\nEn værstasjon lagrer én måling per linje i en tekstfil. Ingen tabell, ingen database — bare tekst. Skal programmet ditt regne på tallene, må du først få tak i linjene, deretter klippe hver linje i felt, og til slutt gjøre tekst om til tall. Vi tar de tre stegene i tur og orden.\n\nGjennom hele kapitlet bruker vi denne lille datafila. **Den kan du lage selv i to sekunder:** opprett en tekstfil som heter `stasjoner.txt` i samme mappe som programmet ditt, og lim inn de fire linjene. Dette er dataene alle eksemplene under leser.\n\n**Innholdet i `stasjoner.txt`:**\n```\nKvitheia;7.9;1180\nSandvollen;5.4;760\nOspedalen;8.6;1420\nNordvika;3.1;980\n```\n\nFeltene er `navn;årsmiddeltemperatur;årsnedbør`, med semikolon mellom. Tallene er konstruert for eksempelet — de er ikke hentet fra en virkelig måleserie."
+      "content": "## Fra fil til tekstlinjer (~15 min)\n\nEn værstasjon lagrer én måling per linje i en tekstfil. Ingen tabell, ingen database — bare tekst. Skal programmet ditt regne på tallene, må du først få tak i linjene, deretter klippe hver linje i felt, og til slutt gjøre tekst om til tall. Vi tar de tre stegene i tur og orden.\n\nGjennom hele kapitlet bruker vi denne lille datafila. **Den kan du lage selv i to sekunder:** opprett en tekstfil som heter `stasjoner.txt` i samme mappe som programmet ditt, og lim inn de fire linjene. Dette er dataene alle eksemplene under leser.\n\n**Innholdet i `stasjoner.txt`:**\n```\nKvitheia;7.9;1180\nSandvollen;5.4;760\nOspedalen;8.6;1420\nNordvika;3.1;980\n```\n\nFeltene er `navn;årsmiddeltemperatur;årsnedbør`, med semikolon mellom. Tallene er konstruert for eksempelet — de er ikke hentet fra en virkelig måleserie."
     },
     {
       "id": "in1900-8-1-def-1",
@@ -115,7 +115,7 @@
     {
       "id": "in1900-8-1-loop2",
       "type": "text",
-      "content": "## Løkke 2 — Bygg den nøstede ordboka (~15 min)\n\nNå har du linjene og feltene. Spørsmålet er hvor du skal legge dem. Du *kunne* samlet alt i en liste av lister, `[['Kvitheia', 7.9, 1180], ...]`, men da må du lete deg gjennom lista hver gang du vil finne Kvitheia. Skal programmet svare på «hvor mye nedbør fikk Ospedalen?», er ordboka riktig verktøy: stasjonsnavnet **er** nøkkelen.\n\nOg fordi hver stasjon har flere tall, blir verdien selv en ordbok. Det er den **nøstede ordboka**: ytre nøkkel er det som identifiserer raden (stasjon, ID, land, kandidatnummer), indre nøkler er feltnavnene.\n\n```\ndata['Ospedalen']['nedbor']\n        ytre           indre\n```"
+      "content": "## Bygg den nøstede ordboka (~15 min)\n\nNå har du linjene og feltene. Spørsmålet er hvor du skal legge dem. Du *kunne* samlet alt i en liste av lister, `[['Kvitheia', 7.9, 1180], ...]`, men da må du lete deg gjennom lista hver gang du vil finne Kvitheia. Skal programmet svare på «hvor mye nedbør fikk Ospedalen?», er ordboka riktig verktøy: stasjonsnavnet **er** nøkkelen.\n\nOg fordi hver stasjon har flere tall, blir verdien selv en ordbok. Det er den **nøstede ordboka**: ytre nøkkel er det som identifiserer raden (stasjon, ID, land, kandidatnummer), indre nøkler er feltnavnene.\n\n```\ndata['Ospedalen']['nedbor']\n        ytre           indre\n```"
     },
     {
       "id": "in1900-8-1-thm-1",
@@ -222,7 +222,7 @@
     {
       "id": "in1900-8-1-loop3",
       "type": "text",
-      "content": "## Løkke 3 — Hvorfor ordbok, og ikke liste? (~10 min)\n\n— naturlig pausepunkt —\n\nOppgaveteksten sier nesten alltid «returner en ordbok». Det er ikke en tilfeldig preferanse, og du bør kunne begrunne den, for begrunnelsen dukker opp som flervalgsspørsmål.\n\nPoenget er hvordan du **finner igjen** en rad. I en liste av lister må du gå gjennom radene til du treffer navnet du leter etter. I en ordbok går oppslaget rett på nøkkelen. Under regner vi på forskjellen i stedet for å påstå den."
+      "content": "## Hvorfor ordbok, og ikke liste? (~10 min)\n\n— naturlig pausepunkt —\n\nOppgaveteksten sier nesten alltid «returner en ordbok». Det er ikke en tilfeldig preferanse, og du bør kunne begrunne den, for begrunnelsen dukker opp som flervalgsspørsmål.\n\nPoenget er hvordan du **finner igjen** en rad. I en liste av lister må du gå gjennom radene til du treffer navnet du leter etter. I en ordbok går oppslaget rett på nøkkelen. Under regner vi på forskjellen i stedet for å påstå den."
     },
     {
       "id": "in1900-8-1-def-9",
@@ -263,7 +263,7 @@
     {
       "id": "in1900-8-1-loop4",
       "type": "text",
-      "content": "## Løkke 4 — Bruk strukturen (~15 min)\n\nDel (a) av en eksamensoppgave slutter med `return data`. Del (b) og (c) spør alltid om noe du skal **gjøre** med strukturen: finn den varmeste stasjonen, regn ut et gjennomsnitt, skriv en tabell. Da må du iterere over ordboka."
+      "content": "## Bruk strukturen (~15 min)\n\nDel (a) av en eksamensoppgave slutter med `return data`. Del (b) og (c) spør alltid om noe du skal **gjøre** med strukturen: finn den varmeste stasjonen, regn ut et gjennomsnitt, skriv en tabell. Da må du iterere over ordboka."
     },
     {
       "id": "in1900-8-1-def-10",

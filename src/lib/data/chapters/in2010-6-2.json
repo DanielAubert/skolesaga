@@ -50,7 +50,7 @@
     {
       "id": "in2010-6-2-t-1",
       "type": "text",
-      "content": "## Løkke 1 — når alle skritt koster like mye (ca. 10 min)\n\nEt gangveinett mellom åtte bygg. Alle strekkene tar omtrent like lang tid å gå, så\ndet eneste som teller, er **hvor mange strekk** du må innom. Hvor mange strekk er\ndet fra bygg $A$ til bygg $H$?\n\nNår alle kanter koster det samme, er korteste vei det samme som **færrest kanter**,\nog da trenger du ingen prioritetskø. Bredde-først-søket tar nodene i den\nrekkefølgen de ligger fra startnoden: først alle som er ett skritt unna, så alle\nsom er to skritt unna. Første gang du når en node, er det via den korteste veien —\ndet ligger i selve lagvis-rekkefølgen."
+      "content": "## når alle skritt koster like mye (ca. 10 min)\n\nEt gangveinett mellom åtte bygg. Alle strekkene tar omtrent like lang tid å gå, så\ndet eneste som teller, er **hvor mange strekk** du må innom. Hvor mange strekk er\ndet fra bygg $A$ til bygg $H$?\n\nNår alle kanter koster det samme, er korteste vei det samme som **færrest kanter**,\nog da trenger du ingen prioritetskø. Bredde-først-søket tar nodene i den\nrekkefølgen de ligger fra startnoden: først alle som er ett skritt unna, så alle\nsom er to skritt unna. Første gang du når en node, er det via den korteste veien —\ndet ligger i selve lagvis-rekkefølgen."
     },
     {
       "id": "in2010-6-2-th-1",
@@ -84,7 +84,7 @@
     {
       "id": "in2010-6-2-t-2",
       "type": "text",
-      "content": "## Løkke 2 — Dijkstra: alltid den nærmeste uferdige (ca. 18 min)\n\nNå koster strekkene forskjellig. Et bilnett mellom seks knutepunkter, med\nkjøretider i minutter og enveiskjøring på alle strekk. Hvor lang tid tar det fra\n$A$ til hvert av de andre?\n\nGrunnideen i Dijkstras algoritme er én setning: **ta alltid den uferdige noden med\nlavest kjent avstand, og erklær den ferdig.** Når du gjør det, kan ingen senere\noppdagelse gjøre den kortere — for enhver annen vei dit måtte gått gjennom en node\nmed *høyere* avstand, og alle kanter koster minst 0.\n\nDen siste halvsetningen er hele forutsetningen: **alle kanter må være\nikke-negative.** Vi kommer tilbake til hva som skjer når de ikke er det."
+      "content": "## Dijkstra: alltid den nærmeste uferdige (ca. 18 min)\n\nNå koster strekkene forskjellig. Et bilnett mellom seks knutepunkter, med\nkjøretider i minutter og enveiskjøring på alle strekk. Hvor lang tid tar det fra\n$A$ til hvert av de andre?\n\nGrunnideen i Dijkstras algoritme er én setning: **ta alltid den uferdige noden med\nlavest kjent avstand, og erklær den ferdig.** Når du gjør det, kan ingen senere\noppdagelse gjøre den kortere — for enhver annen vei dit måtte gått gjennom en node\nmed *høyere* avstand, og alle kanter koster minst 0.\n\nDen siste halvsetningen er hele forutsetningen: **alle kanter må være\nikke-negative.** Vi kommer tilbake til hva som skjer når de ikke er det."
     },
     {
       "id": "in2010-6-2-def-1",
@@ -143,7 +143,7 @@
     {
       "id": "in2010-6-2-t-3",
       "type": "text",
-      "content": "## Løkke 3 — når en kant kan være negativ (ca. 16 min)\n\nNegative kanter høres kunstig ut i et veinett, men de er helt vanlige så snart\nvekten er noe annet enn avstand: en transaksjon som gir gevinst, et\nproduksjonstrinn som frigjør kapasitet, et bytte som gir tilbake mer enn det\nkostet.\n\nOg de ødelegger Dijkstra. Ikke litt — helt."
+      "content": "## når en kant kan være negativ (ca. 16 min)\n\nNegative kanter høres kunstig ut i et veinett, men de er helt vanlige så snart\nvekten er noe annet enn avstand: en transaksjon som gir gevinst, et\nproduksjonstrinn som frigjør kapasitet, et bytte som gir tilbake mer enn det\nkostet.\n\nOg de ødelegger Dijkstra. Ikke litt — helt."
     },
     {
       "id": "in2010-6-2-ex-3",
@@ -229,7 +229,7 @@
     {
       "id": "in2010-6-2-t-5",
       "type": "text",
-      "content": "## Løkke 4 — trikset som skiller B fra A: snu grafen (ca. 14 min)\n\nNå kommer det grepet som oftest avgjør toppkarakteren på en korteste-vei-oppgave.\n\nSituasjonen er alltid den samme i formen: du har **flere mulige utgangspunkt** og\n**ett mål**, og spørsmålet er hvilket utgangspunkt som er nærmest målet. En\nbrannstasjon som skal velges, en av flere lagre som skal levere, en av flere\ninngangsdører som skal brukes.\n\nDen nærliggende løsningen er å kjøre Dijkstra fra hvert utgangspunkt og\nsammenligne. Med $|U|$ utgangspunkt koster det $|U|$ Dijkstra-kjøringer, altså\n$O(|U| \\cdot (|V| + |E|)\\log |V|)$.\n\n**Den gode løsningen snur grafen.** Avstanden fra $p$ til $t$ i $G$ er nøyaktig\ndet samme som avstanden fra $t$ til $p$ i den reverserte grafen $G^R$. Så kjør\n**én** Dijkstra, fra $t$, i $G^R$ — og les av avstanden til alle utgangspunktene\npå én gang."
+      "content": "## trikset som skiller B fra A: snu grafen (ca. 14 min)\n\nNå kommer det grepet som oftest avgjør toppkarakteren på en korteste-vei-oppgave.\n\nSituasjonen er alltid den samme i formen: du har **flere mulige utgangspunkt** og\n**ett mål**, og spørsmålet er hvilket utgangspunkt som er nærmest målet. En\nbrannstasjon som skal velges, en av flere lagre som skal levere, en av flere\ninngangsdører som skal brukes.\n\nDen nærliggende løsningen er å kjøre Dijkstra fra hvert utgangspunkt og\nsammenligne. Med $|U|$ utgangspunkt koster det $|U|$ Dijkstra-kjøringer, altså\n$O(|U| \\cdot (|V| + |E|)\\log |V|)$.\n\n**Den gode løsningen snur grafen.** Avstanden fra $p$ til $t$ i $G$ er nøyaktig\ndet samme som avstanden fra $t$ til $p$ i den reverserte grafen $G^R$. Så kjør\n**én** Dijkstra, fra $t$, i $G^R$ — og les av avstanden til alle utgangspunktene\npå én gang."
     },
     {
       "id": "in2010-6-2-img-2",

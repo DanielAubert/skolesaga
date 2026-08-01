@@ -26,7 +26,7 @@
   {
    "id": "in1900-4-3-txt-lokke1",
    "type": "text",
-   "content": "## Løkke 1 — malen med én kurve (~13 min)\n\nEn ball kastet rett opp har høyden $h(t) = 4t - 0{,}5t^2$ meter. Vil du se banen, trenger du to tabeller: en tett rekke tidspunkter, og de tilsvarende høydene. Deretter ber du matplotlib tegne den ene mot den andre.\n\n**matplotlib** er Pythons standardbibliotek for figurer, og delen vi bruker heter `pyplot`. Importlinjen er alltid den samme, og som med NumPy gir vi biblioteket et kort kallenavn.\n\nMerk at figurene i denne boka er beskrevet i ord under koden, ikke vist som bilder. Det er med vilje: på eksamen skal du selv kunne si hva koden din tegner, uten å kjøre den."
+   "content": "## malen med én kurve (~13 min)\n\nEn ball kastet rett opp har høyden $h(t) = 4t - 0{,}5t^2$ meter. Vil du se banen, trenger du to tabeller: en tett rekke tidspunkter, og de tilsvarende høydene. Deretter ber du matplotlib tegne den ene mot den andre.\n\n**matplotlib** er Pythons standardbibliotek for figurer, og delen vi bruker heter `pyplot`. Importlinjen er alltid den samme, og som med NumPy gir vi biblioteket et kort kallenavn.\n\nMerk at figurene i denne boka er beskrevet i ord under koden, ikke vist som bilder. Det er med vilje: på eksamen skal du selv kunne si hva koden din tegner, uten å kjøre den."
   },
   {
    "id": "in1900-4-3-def-import",
@@ -84,7 +84,7 @@
   {
    "id": "in1900-4-3-txt-lokke2",
    "type": "text",
-   "content": "## Løkke 2 — flere kurver i samme figur (~14 min)\n\nDen vanlige eksamensvarianten er ikke én kurve, men to eller tre i samme figur: mottakelige, smittede og immune i en epidemimodell, eller byttedyr og rovdyr i en bestandsmodell. Da kaller du `plt.plot` én gang per kurve **før** du kaller `plt.show()`, og gir hver kurve et navn med `label=`.\n\nI Del 7 kommer løsningen av et ODE-system til deg som en tabell med to indekser: én rad per tidspunkt og **én kolonne per komponent**. Da er `u[:, 0]` første komponent, `u[:, 1]` den andre og `u[:, 2]` den tredje. Det er derfor kolonneutsnittet fra [kap. 4.1](/in1900/in1900-4-1) er en forkunnskap her."
+   "content": "## flere kurver i samme figur (~14 min)\n\nDen vanlige eksamensvarianten er ikke én kurve, men to eller tre i samme figur: mottakelige, smittede og immune i en epidemimodell, eller byttedyr og rovdyr i en bestandsmodell. Da kaller du `plt.plot` én gang per kurve **før** du kaller `plt.show()`, og gir hver kurve et navn med `label=`.\n\nI Del 7 kommer løsningen av et ODE-system til deg som en tabell med to indekser: én rad per tidspunkt og **én kolonne per komponent**. Da er `u[:, 0]` første komponent, `u[:, 1]` den andre og `u[:, 2]` den tredje. Det er derfor kolonneutsnittet fra [kap. 4.1](/in1900/in1900-4-1) er en forkunnskap her."
   },
   {
    "id": "in1900-4-3-def-label",
@@ -163,7 +163,7 @@
   {
    "id": "in1900-4-3-txt-lokke3",
    "type": "text",
-   "content": "## Løkke 3 — fasekurve og figuren i ord (~13 min)\n\nNoen ganger er ikke tiden det interessante. I en rovdyr–byttedyr-modell vil du kanskje se hvordan de to bestandene henger sammen: hvordan antall rovdyr utvikler seg som funksjon av antall byttedyr. Da plotter du de to størrelsene **mot hverandre** i stedet for mot tiden.\n\nDet kalles en **fasekurve**, og koden er den samme malen — bare med andre argumenter: `plt.plot(B, R)`. Tiden er ikke lenger en akse; den er «langs kurven». En syklisk modell gir da en lukket løkke, mens en modell som går mot likevekt gir en spiral inn mot ett punkt.\n\nTil slutt i denne løkka: å beskrive figuren i ord. På hjelpemiddelfri eksamen er dette selvkontrollen din, og noen oppgaver ber deg eksplisitt forklare hva plottet viser."
+   "content": "## fasekurve og figuren i ord (~13 min)\n\nNoen ganger er ikke tiden det interessante. I en rovdyr–byttedyr-modell vil du kanskje se hvordan de to bestandene henger sammen: hvordan antall rovdyr utvikler seg som funksjon av antall byttedyr. Da plotter du de to størrelsene **mot hverandre** i stedet for mot tiden.\n\nDet kalles en **fasekurve**, og koden er den samme malen — bare med andre argumenter: `plt.plot(B, R)`. Tiden er ikke lenger en akse; den er «langs kurven». En syklisk modell gir da en lukket løkke, mens en modell som går mot likevekt gir en spiral inn mot ett punkt.\n\nTil slutt i denne løkka: å beskrive figuren i ord. På hjelpemiddelfri eksamen er dette selvkontrollen din, og noen oppgaver ber deg eksplisitt forklare hva plottet viser."
   },
   {
    "id": "in1900-4-3-def-fase",

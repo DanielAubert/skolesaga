@@ -49,7 +49,7 @@
     {
       "id": "in2010-6-3-t-1",
       "type": "text",
-      "content": "## Løkke 1 — å koble alt sammen så billig som mulig (ca. 12 min)\n\nSju gårder i en dal skal få fiber. Mellom noen av gårdene er det mulig å grave, og\nhver mulig grøft har en pris i hundretusen kroner. Alle gårdene må ende opp\ntilkoblet — men det er likegyldig **hvordan** de henger sammen, så lenge det går an\nå komme fra hvilken som helst gård til hvilken som helst annen gjennom nettet.\n\nHva er den billigste måten?\n\nTo observasjoner løser halve problemet. For det første: løsningen kan aldri\ninneholde en sykel. Har du en sykel, kan du fjerne den dyreste kanten i den, og\nalt henger fortsatt sammen — bare billigere. For det andre: løsningen må ha\nnøyaktig $|V| - 1$ kanter. Færre, og noe henger løst; flere, og du har en sykel.\n\nEn sammenhengende graf uten sykler er et **tre**. Vi leter altså etter et tre."
+      "content": "## å koble alt sammen så billig som mulig (ca. 12 min)\n\nSju gårder i en dal skal få fiber. Mellom noen av gårdene er det mulig å grave, og\nhver mulig grøft har en pris i hundretusen kroner. Alle gårdene må ende opp\ntilkoblet — men det er likegyldig **hvordan** de henger sammen, så lenge det går an\nå komme fra hvilken som helst gård til hvilken som helst annen gjennom nettet.\n\nHva er den billigste måten?\n\nTo observasjoner løser halve problemet. For det første: løsningen kan aldri\ninneholde en sykel. Har du en sykel, kan du fjerne den dyreste kanten i den, og\nalt henger fortsatt sammen — bare billigere. For det andre: løsningen må ha\nnøyaktig $|V| - 1$ kanter. Færre, og noe henger løst; flere, og du har en sykel.\n\nEn sammenhengende graf uten sykler er et **tre**. Vi leter altså etter et tre."
     },
     {
       "id": "in2010-6-3-def-1",
@@ -95,7 +95,7 @@
     {
       "id": "in2010-6-3-t-2",
       "type": "text",
-      "content": "## Løkke 2 — Prim: la treet vokse (ca. 14 min)\n\nPrims algoritme er Dijkstra med én linje endret, og den linja er verdt å stoppe\nopp ved.\n\nI Dijkstra er nøkkelen til en node **avstanden fra startnoden**:\n`avstand[u] + vekt`. I Prim er nøkkelen bare **vekten på kanten inn til treet**:\n`vekt`. Prim bryr seg ikke om hvor langt det er tilbake til startnoden — den vil\nbare koble den neste noden på billigst mulig vis.\n\nAlt annet er likt: en prioritetskø over noder som ikke er i treet ennå, `RemoveMin`\nfor å velge den neste, og `DecreaseKey` når en billigere forbindelse dukker opp."
+      "content": "## Prim: la treet vokse (ca. 14 min)\n\nPrims algoritme er Dijkstra med én linje endret, og den linja er verdt å stoppe\nopp ved.\n\nI Dijkstra er nøkkelen til en node **avstanden fra startnoden**:\n`avstand[u] + vekt`. I Prim er nøkkelen bare **vekten på kanten inn til treet**:\n`vekt`. Prim bryr seg ikke om hvor langt det er tilbake til startnoden — den vil\nbare koble den neste noden på billigst mulig vis.\n\nAlt annet er likt: en prioritetskø over noder som ikke er i treet ennå, `RemoveMin`\nfor å velge den neste, og `DecreaseKey` når en billigere forbindelse dukker opp."
     },
     {
       "id": "in2010-6-3-th-2",
@@ -129,7 +129,7 @@
     {
       "id": "in2010-6-3-t-3",
       "type": "text",
-      "content": "## Løkke 3 — Kruskal: ta de billigste kantene først (ca. 12 min)\n\nKruskals algoritme angriper problemet fra motsatt kant. I stedet for å la ett tre\nvokse, sorterer den **alle kantene** etter vekt og går gjennom dem fra billigst til\ndyrest. Hver kant tas med, med mindre den ville laget en sykel.\n\nDa trenger den ett hjelpemiddel: en måte å svare raskt på spørsmålet «henger disse\nto nodene allerede sammen?». Det er **union-find**: hver node hører til en\nkomponent, `Find(v)` gir komponentens navn, og `Union(u, v)` slår to komponenter\nsammen. Lager kanten en sykel? Nøyaktig når `Find(u)` og `Find(v)` gir samme svar."
+      "content": "## Kruskal: ta de billigste kantene først (ca. 12 min)\n\nKruskals algoritme angriper problemet fra motsatt kant. I stedet for å la ett tre\nvokse, sorterer den **alle kantene** etter vekt og går gjennom dem fra billigst til\ndyrest. Hver kant tas med, med mindre den ville laget en sykel.\n\nDa trenger den ett hjelpemiddel: en måte å svare raskt på spørsmålet «henger disse\nto nodene allerede sammen?». Det er **union-find**: hver node hører til en\nkomponent, `Find(v)` gir komponentens navn, og `Union(u, v)` slår to komponenter\nsammen. Lager kanten en sykel? Nøyaktig når `Find(u)` og `Find(v)` gir samme svar."
     },
     {
       "id": "in2010-6-3-def-3",
@@ -187,7 +187,7 @@
     {
       "id": "in2010-6-3-t-4",
       "type": "text",
-      "content": "## Løkke 4 — modelleringen, og fellen som kommer rett etterpå (ca. 12 min)\n\nPå eksamen står det aldri «finn et minimalt spenntre». Det står noe slikt som\n«kommunen skal legge fiber til alle gårdene så billig som mulig». Jobben din er å\nkjenne igjen strukturen.\n\n**Mønsteret:** når oppgaven ber deg **koble alt sammen** til lavest mulig samlet\nkostnad, og det er likegyldig hvordan forbindelsene går, er svaret et minimalt\nspenntre.\n\nOg så kommer oppfølgingsspørsmålet, som er der halve poengsummen ligger: «etterpå\nskal en tekniker kjøre fra gård $A$ til gård $G$ **gjennom det nye nettet**.\nHvilken vei?»\n\nHer svarer mange Dijkstra, og det er feil av to grunner."
+      "content": "## modelleringen, og fellen som kommer rett etterpå (ca. 12 min)\n\nPå eksamen står det aldri «finn et minimalt spenntre». Det står noe slikt som\n«kommunen skal legge fiber til alle gårdene så billig som mulig». Jobben din er å\nkjenne igjen strukturen.\n\n**Mønsteret:** når oppgaven ber deg **koble alt sammen** til lavest mulig samlet\nkostnad, og det er likegyldig hvordan forbindelsene går, er svaret et minimalt\nspenntre.\n\nOg så kommer oppfølgingsspørsmålet, som er der halve poengsummen ligger: «etterpå\nskal en tekniker kjøre fra gård $A$ til gård $G$ **gjennom det nye nettet**.\nHvilken vei?»\n\nHer svarer mange Dijkstra, og det er feil av to grunner."
     },
     {
       "id": "in2010-6-3-th-4",

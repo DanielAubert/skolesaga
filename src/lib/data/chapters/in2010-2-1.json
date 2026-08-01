@@ -44,7 +44,7 @@
     {
       "id": "in2010-2-1-t-1",
       "type": "text",
-      "content": "## Løkke 1 — å sortere ved å sammenligne (ca. 10 min)\n\nTenk på en hånd med spillkort du skal få i rekkefølge. Du kan ikke lese av\n«plassen» et kort skal ha; du kan bare holde to kort opp mot hverandre og se\nhvilket som er lavest. Alt du får vite om verden, kommer fra slike\nsammenligninger — og hvert svar er ett bit informasjon: enten er dette lavere\nenn det, eller så er det ikke.\n\nDet er nøyaktig arbeidsbetingelsen til en **sammenligningsbasert sortering**, og\nden er verdt å ta på alvor, for den er grunnen til at det finnes en grense for\nhvor rask sortering kan bli. Vi kommer tilbake til grensen i løkke 4.\n\nDe tre algoritmene i dette kapitlet — boblesortering, utvalgssortering og\ninnsettingssortering — er alle sammenligningsbaserte, alle kvadratiske i verste\ntilfelle, og alle enkle nok til at du kan skrive dem ned uten hjelpemidler. Det\ner den siste egenskapen UiO utnytter: de spør ikke om du kan implementere dem,\nmen om du vet nøyaktig hva de har utrettet halvveis."
+      "content": "## å sortere ved å sammenligne (ca. 10 min)\n\nTenk på en hånd med spillkort du skal få i rekkefølge. Du kan ikke lese av\n«plassen» et kort skal ha; du kan bare holde to kort opp mot hverandre og se\nhvilket som er lavest. Alt du får vite om verden, kommer fra slike\nsammenligninger — og hvert svar er ett bit informasjon: enten er dette lavere\nenn det, eller så er det ikke.\n\nDet er nøyaktig arbeidsbetingelsen til en **sammenligningsbasert sortering**, og\nden er verdt å ta på alvor, for den er grunnen til at det finnes en grense for\nhvor rask sortering kan bli. Vi kommer tilbake til grensen i løkke 4.\n\nDe tre algoritmene i dette kapitlet — boblesortering, utvalgssortering og\ninnsettingssortering — er alle sammenligningsbaserte, alle kvadratiske i verste\ntilfelle, og alle enkle nok til at du kan skrive dem ned uten hjelpemidler. Det\ner den siste egenskapen UiO utnytter: de spør ikke om du kan implementere dem,\nmen om du vet nøyaktig hva de har utrettet halvveis."
     },
     {
       "id": "in2010-2-1-def-1",
@@ -112,7 +112,7 @@
     {
       "id": "in2010-2-1-t-2",
       "type": "text",
-      "content": "## Løkke 2 — utvalgssortering og de billige byttene (ca. 12 min)\n\n— naturlig pausepunkt —\n\nBoblesortering flytter elementer i mange små steg. **Utvalgssortering** (selection\nsort) gjør det motsatte: den leter først og flytter så én gang.\n\nFramgangsmåten er den du ville brukt hvis flyttingen var dyr — for eksempel hvis\nhvert «element» var en tung eske i et lager. Finn den letteste esken i hele\nlageret og sett den helt til venstre. Finn den letteste av dem som er igjen, og\nsett den ved siden av. Og så videre.\n\nPoenget er at du bare gjør **ett bytte per runde**, uansett hvor rotete arrayet\ner. Det er utvalgssorteringens ene virkelige fortrinn, og det er et fast\nsant/usant-punkt."
+      "content": "## utvalgssortering og de billige byttene (ca. 12 min)\n\n— naturlig pausepunkt —\n\nBoblesortering flytter elementer i mange små steg. **Utvalgssortering** (selection\nsort) gjør det motsatte: den leter først og flytter så én gang.\n\nFramgangsmåten er den du ville brukt hvis flyttingen var dyr — for eksempel hvis\nhvert «element» var en tung eske i et lager. Finn den letteste esken i hele\nlageret og sett den helt til venstre. Finn den letteste av dem som er igjen, og\nsett den ved siden av. Og så videre.\n\nPoenget er at du bare gjør **ett bytte per runde**, uansett hvor rotete arrayet\ner. Det er utvalgssorteringens ene virkelige fortrinn, og det er et fast\nsant/usant-punkt."
     },
     {
       "id": "in2010-2-1-def-3",
@@ -158,7 +158,7 @@
     {
       "id": "in2010-2-1-t-3",
       "type": "text",
-      "content": "## Løkke 3 — innsettingssortering og prefikset som ikke er endelig (ca. 13 min)\n\n**Innsettingssortering** (insertion sort) er den du faktisk bruker på en hånd med\nkort. Du holder en sortert vifte i venstre hånd, tar opp ett nytt kort og skyver\ndet inn på rett plass i vifta.\n\nDen viktige detaljen — og den UiO spør om oftere enn noe annet i dette kapitlet —\ner hva «rett plass i vifta» betyr. Det betyr rett plass **blant kortene du har\nsett så langt**. Neste kort du trekker, kan godt være lavere enn alle sammen, og\nda må hele vifta forskyves. Innsettingssortering plasserer altså **ingenting\nendelig** før den er helt ferdig."
+      "content": "## innsettingssortering og prefikset som ikke er endelig (ca. 13 min)\n\n**Innsettingssortering** (insertion sort) er den du faktisk bruker på en hånd med\nkort. Du holder en sortert vifte i venstre hånd, tar opp ett nytt kort og skyver\ndet inn på rett plass i vifta.\n\nDen viktige detaljen — og den UiO spør om oftere enn noe annet i dette kapitlet —\ner hva «rett plass i vifta» betyr. Det betyr rett plass **blant kortene du har\nsett så langt**. Neste kort du trekker, kan godt være lavere enn alle sammen, og\nda må hele vifta forskyves. Innsettingssortering plasserer altså **ingenting\nendelig** før den er helt ferdig."
     },
     {
       "id": "in2010-2-1-def-4",
@@ -210,7 +210,7 @@
     {
       "id": "in2010-2-1-t-4",
       "type": "text",
-      "content": "## Løkke 4 — stabilitet, in-place og grensen på $n \\log n$ (ca. 15 min)\n\n— naturlig pausepunkt —\n\nNå kommer de to egenskapene som avgjør flest sant/usant-punkter, og de er begge\nlettere enn de høres ut.\n\nTenk deg en deltakerliste fra et løp, allerede sortert alfabetisk på etternavn.\nNå vil du sortere den på **klubb**. To løpere fra samme klubb — hva skjer med den\nalfabetiske rekkefølgen mellom dem?\n\nSvarer algoritmen «den beholdes», er den **stabil**. Svarer den «det kommer an\npå», er den ustabil. Det er hele begrepet."
+      "content": "## stabilitet, in-place og grensen på $n \\log n$ (ca. 15 min)\n\n— naturlig pausepunkt —\n\nNå kommer de to egenskapene som avgjør flest sant/usant-punkter, og de er begge\nlettere enn de høres ut.\n\nTenk deg en deltakerliste fra et løp, allerede sortert alfabetisk på etternavn.\nNå vil du sortere den på **klubb**. To løpere fra samme klubb — hva skjer med den\nalfabetiske rekkefølgen mellom dem?\n\nSvarer algoritmen «den beholdes», er den **stabil**. Svarer den «det kommer an\npå», er den ustabil. Det er hele begrepet."
     },
     {
       "id": "in2010-2-1-def-5",

@@ -44,7 +44,7 @@
     {
       "id": "in2010-2-2-t-1",
       "type": "text",
-      "content": "## Løkke 1 — flettesortering og nivåtellingen (ca. 14 min)\n\nTenk deg to bunker med søknader, hver allerede sortert på dato. Å slå dem sammen\ntil én sortert bunke er lett: se på det øverste arket i hver bunke, ta det\neldste, gjenta. Du går gjennom hvert ark nøyaktig én gang.\n\nDet er hele ideen bak **flettesortering** (merge sort). Del arrayet i to,\nsortér hver halvdel — med samme metode — og flett de to sorterte halvdelene\nsammen.\n\nDet avgjørende for kjøretiden er ikke rekursjonen i seg selv, men **hvor mange\nganger et array på $n$ elementer kan halveres før bitene har ett element**. Det\ner $\\log_2 n$ ganger. Og på hvert nivå gjør flettingen til sammen $O(n)$\narbeid, fordi hvert element passerer gjennom nøyaktig én fletting per nivå.\n\n$\\log_2 n$ nivåer, $O(n)$ arbeid per nivå. Det gir $O(n \\log n)$. Legg merke til\nat dette er ren telling — vi setter ikke opp noen ligning."
+      "content": "## flettesortering og nivåtellingen (ca. 14 min)\n\nTenk deg to bunker med søknader, hver allerede sortert på dato. Å slå dem sammen\ntil én sortert bunke er lett: se på det øverste arket i hver bunke, ta det\neldste, gjenta. Du går gjennom hvert ark nøyaktig én gang.\n\nDet er hele ideen bak **flettesortering** (merge sort). Del arrayet i to,\nsortér hver halvdel — med samme metode — og flett de to sorterte halvdelene\nsammen.\n\nDet avgjørende for kjøretiden er ikke rekursjonen i seg selv, men **hvor mange\nganger et array på $n$ elementer kan halveres før bitene har ett element**. Det\ner $\\log_2 n$ ganger. Og på hvert nivå gjør flettingen til sammen $O(n)$\narbeid, fordi hvert element passerer gjennom nøyaktig én fletting per nivå.\n\n$\\log_2 n$ nivåer, $O(n)$ arbeid per nivå. Det gir $O(n \\log n)$. Legg merke til\nat dette er ren telling — vi setter ikke opp noen ligning."
     },
     {
       "id": "in2010-2-2-def-1",
@@ -84,7 +84,7 @@
     {
       "id": "in2010-2-2-t-2",
       "type": "text",
-      "content": "## Løkke 2 — heapsort, kort og presist (ca. 8 min)\n\n**Heapsort** får en kort omtale her og full behandling i Del 4, der selve\nheap-strukturen bygges og håndkjøres. Det du trenger for Del 1 nå, er de tre\nlinjene i tabellen.\n\nIdeen: gjør arrayet om til en **heap** — en struktur der du alltid kan plukke ut\ndet minste elementet raskt — og plukk deretter ut elementene ett for ett.\nUttrekket koster $O(\\log n)$ og gjøres $n$ ganger, altså $O(n \\log n)$.\n\nEtt tall her er lett å bomme på, og det er et fast sant/usant-punkt: å **bygge**\nheapen fra et vilkårlig array koster $O(n)$, ikke $O(n \\log n)$. Det er selve\nuttrekksfasen som koster logaritmisk per element."
+      "content": "## heapsort, kort og presist (ca. 8 min)\n\n**Heapsort** får en kort omtale her og full behandling i Del 4, der selve\nheap-strukturen bygges og håndkjøres. Det du trenger for Del 1 nå, er de tre\nlinjene i tabellen.\n\nIdeen: gjør arrayet om til en **heap** — en struktur der du alltid kan plukke ut\ndet minste elementet raskt — og plukk deretter ut elementene ett for ett.\nUttrekket koster $O(\\log n)$ og gjøres $n$ ganger, altså $O(n \\log n)$.\n\nEtt tall her er lett å bomme på, og det er et fast sant/usant-punkt: å **bygge**\nheapen fra et vilkårlig array koster $O(n)$, ikke $O(n \\log n)$. Det er selve\nuttrekksfasen som koster logaritmisk per element."
     },
     {
       "id": "in2010-2-2-def-2",
@@ -101,7 +101,7 @@
     {
       "id": "in2010-2-2-t-3",
       "type": "text",
-      "content": "## Løkke 3 — kvikksortering og de to kjøretidene (ca. 14 min)\n\n— naturlig pausepunkt —\n\n**Kvikksortering** (quicksort) angriper problemet fra motsatt kant av\nflettesortering. Der flettesortering deler blindt på midten og gjør arbeidet i\nflettingen, gjør kvikksortering **alt** arbeidet i delingen — og trenger ingen\nfletting i det hele tatt.\n\nMetoden heter **partisjonering**: velg ett element som **pivot**, og still om\narrayet slik at alt som er mindre enn pivoten havner til venstre for den, og alt\nsom er større havner til høyre. Da står pivoten på sin endelige plass, og du kan\nsortere de to sidene hver for seg.\n\nHer ligger både styrken og svakheten. Deler pivoten omtrent på midten hver gang,\nfår du $\\log_2 n$ nivåer og $O(n \\log n)$. Havner pivoten ytterst hver gang,\nskreller du av bare ett element per nivå — og da får du $n$ nivåer og $O(n^2)$."
+      "content": "## kvikksortering og de to kjøretidene (ca. 14 min)\n\n— naturlig pausepunkt —\n\n**Kvikksortering** (quicksort) angriper problemet fra motsatt kant av\nflettesortering. Der flettesortering deler blindt på midten og gjør arbeidet i\nflettingen, gjør kvikksortering **alt** arbeidet i delingen — og trenger ingen\nfletting i det hele tatt.\n\nMetoden heter **partisjonering**: velg ett element som **pivot**, og still om\narrayet slik at alt som er mindre enn pivoten havner til venstre for den, og alt\nsom er større havner til høyre. Da står pivoten på sin endelige plass, og du kan\nsortere de to sidene hver for seg.\n\nHer ligger både styrken og svakheten. Deler pivoten omtrent på midten hver gang,\nfår du $\\log_2 n$ nivåer og $O(n \\log n)$. Havner pivoten ytterst hver gang,\nskreller du av bare ett element per nivå — og da får du $n$ nivåer og $O(n^2)$."
     },
     {
       "id": "in2010-2-2-def-4",
@@ -170,7 +170,7 @@
     {
       "id": "in2010-2-2-t-4",
       "type": "text",
-      "content": "## Løkke 4 — nedre grensen, tegnet ut (ca. 14 min)\n\nNå kan vi gjøre ferdig det [kap. 2.1](/in2010/in2010-2-1) bare skisserte: hvorfor\n$O(n \\log n)$ ikke bare er bra, men **optimalt** for en sammenligningsbasert\nsortering.\n\nTenk på algoritmen som en person som skal gjette hvilken av rekkefølgene input\nhar, og som bare får stille ja/nei-spørsmål av typen «er $x$ mindre enn $y$?».\nHvert spørsmål deler mulighetene i to. Alle mulige spørsmålsrekker danner til\nsammen et **beslutningstre**: en node per spørsmål, to grener ut, og ett blad per\nmulig sluttrekkefølge."
+      "content": "## nedre grensen, tegnet ut (ca. 14 min)\n\nNå kan vi gjøre ferdig det [kap. 2.1](/in2010/in2010-2-1) bare skisserte: hvorfor\n$O(n \\log n)$ ikke bare er bra, men **optimalt** for en sammenligningsbasert\nsortering.\n\nTenk på algoritmen som en person som skal gjette hvilken av rekkefølgene input\nhar, og som bare får stille ja/nei-spørsmål av typen «er $x$ mindre enn $y$?».\nHvert spørsmål deler mulighetene i to. Alle mulige spørsmålsrekker danner til\nsammen et **beslutningstre**: en node per spørsmål, to grener ut, og ett blad per\nmulig sluttrekkefølge."
     },
     {
       "id": "in2010-2-2-def-6",

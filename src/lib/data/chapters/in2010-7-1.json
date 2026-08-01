@@ -49,7 +49,7 @@
     {
       "id": "in2010-7-1-t-1",
       "type": "text",
-      "content": "## Løkke 1 — hva oppgaven egentlig ber om (ca. 8 min)\n\nEn **abstrakt datatype** er et sett operasjoner med en kontrakt, uten at det er\nsagt hvordan de skal implementeres. «En struktur som støtter `Insert(x)` og\n`Median()`» er en abstrakt datatype; en max-heap er en implementasjon.\n\nEksamensoppgaven gir deg alltid det første og ber om det andre. Formen er fast:\n\n> «Design en datastruktur som støtter operasjonene … effektivt. Beskriv\n> strukturen og oppgi kjøretiden per operasjon.»\n\nDet er ordet **per operasjon** som er nøkkelen. Du skal ikke oppgi én samlet\nkjøretid — du skal gå gjennom operasjon for operasjon og si hva hver av dem koster.\nEn besvarelse som sier «$O(\\log n)$» uten å spesifisere hva, mister poeng selv om\nløsningen er riktig."
+      "content": "## hva oppgaven egentlig ber om (ca. 8 min)\n\nEn **abstrakt datatype** er et sett operasjoner med en kontrakt, uten at det er\nsagt hvordan de skal implementeres. «En struktur som støtter `Insert(x)` og\n`Median()`» er en abstrakt datatype; en max-heap er en implementasjon.\n\nEksamensoppgaven gir deg alltid det første og ber om det andre. Formen er fast:\n\n> «Design en datastruktur som støtter operasjonene … effektivt. Beskriv\n> strukturen og oppgi kjøretiden per operasjon.»\n\nDet er ordet **per operasjon** som er nøkkelen. Du skal ikke oppgi én samlet\nkjøretid — du skal gå gjennom operasjon for operasjon og si hva hver av dem koster.\nEn besvarelse som sier «$O(\\log n)$» uten å spesifisere hva, mister poeng selv om\nløsningen er riktig."
     },
     {
       "id": "in2010-7-1-def-1",
@@ -82,7 +82,7 @@
     {
       "id": "in2010-7-1-t-2",
       "type": "text",
-      "content": "## Løkke 2 — mediankøen: to heaps som møtes på midten (ca. 15 min)\n\nNå en oppgave der ingen enkelt struktur holder.\n\nEt vaktsystem tar imot responstider fortløpende, og skal til enhver tid kunne\noppgi **medianen** — det midterste tallet når alle er sortert. Operasjonene er\n`Insert(x)` og `Median()`.\n\nEn sortert liste gir `Median()` i $O(1)$, men `Insert` blir $O(n)$ fordi alt bak\ninnsettingspunktet må flyttes. En min-heap gir `Insert` i $O(\\log n)$, men\nmedianen ligger et sted midt i arrayet, uten fast plass — å finne den koster\n$O(n)$.\n\n**Trikset er å bruke to heaps.** Del tallene i to like store halvdeler: den nedre\nhalvdelen i en **max-heap** (så det største av de små ligger på toppen), og den\nøvre halvdelen i en **min-heap** (så det minste av de store ligger på toppen). Da\nligger medianen alltid på toppen av max-heapen — rett ved skillet."
+      "content": "## mediankøen: to heaps som møtes på midten (ca. 15 min)\n\nNå en oppgave der ingen enkelt struktur holder.\n\nEt vaktsystem tar imot responstider fortløpende, og skal til enhver tid kunne\noppgi **medianen** — det midterste tallet når alle er sortert. Operasjonene er\n`Insert(x)` og `Median()`.\n\nEn sortert liste gir `Median()` i $O(1)$, men `Insert` blir $O(n)$ fordi alt bak\ninnsettingspunktet må flyttes. En min-heap gir `Insert` i $O(\\log n)$, men\nmedianen ligger et sted midt i arrayet, uten fast plass — å finne den koster\n$O(n)$.\n\n**Trikset er å bruke to heaps.** Del tallene i to like store halvdeler: den nedre\nhalvdelen i en **max-heap** (så det største av de små ligger på toppen), og den\nøvre halvdelen i en **min-heap** (så det minste av de store ligger på toppen). Da\nligger medianen alltid på toppen av max-heapen — rett ved skillet."
     },
     {
       "id": "in2010-7-1-def-2",
@@ -135,7 +135,7 @@
     {
       "id": "in2010-7-1-t-3",
       "type": "text",
-      "content": "## Løkke 3 — bøttekøen: når heapen er overkill (ca. 12 min)\n\nNå en oppgave der den opplagte løsningen gir færre poeng enn den enkle.\n\nEt meldingssystem behandler meldinger etter prioritet. Prioritetene er hele tall\nfra 0 til 9 — **et fast, lite antall nivåer**, uavhengig av hvor mange meldinger\nsom ligger i køen. Operasjonene er `Insert(melding, prioritet)` og `RemoveMin()`,\nsom tar den viktigste ventende meldingen.\n\nEn min-heap løser dette: $O(\\log n)$ per operasjon. Men se på forutsetningen én\ngang til: **bare ti prioritetsnivåer.** Da trenger du ingen heap. Lag et array med\nti bøtter, én per prioritet, og la hver bøtte være en lenket liste med meldingene\npå det nivået."
+      "content": "## bøttekøen: når heapen er overkill (ca. 12 min)\n\nNå en oppgave der den opplagte løsningen gir færre poeng enn den enkle.\n\nEt meldingssystem behandler meldinger etter prioritet. Prioritetene er hele tall\nfra 0 til 9 — **et fast, lite antall nivåer**, uavhengig av hvor mange meldinger\nsom ligger i køen. Operasjonene er `Insert(melding, prioritet)` og `RemoveMin()`,\nsom tar den viktigste ventende meldingen.\n\nEn min-heap løser dette: $O(\\log n)$ per operasjon. Men se på forutsetningen én\ngang til: **bare ti prioritetsnivåer.** Da trenger du ingen heap. Lag et array med\nti bøtter, én per prioritet, og la hver bøtte være en lenket liste med meldingene\npå det nivået."
     },
     {
       "id": "in2010-7-1-def-3",
@@ -175,7 +175,7 @@
     {
       "id": "in2010-7-1-t-4",
       "type": "text",
-      "content": "## Løkke 4 — trie-et: strukturen som kjenner prefikser (ca. 12 min)\n\nDen tredje faste ADT-oppgaven handler om **autocomplete**: du skriver noen\nbokstaver, og systemet skal finne alle ord som begynner slik.\n\nEt hashmap løser oppslaget «finnes dette ordet?» i $O(1)$ forventet. Men det løser\n**ikke** «hvilke ord begynner med `sa`?» — hashverdien til `sa` har ingen\nsammenheng med hashverdien til `sand`. Du måtte gått gjennom alle ordene og sjekket\nhver enkelt: $O(\\text{antall ord})$.\n\nTrie-et lagrer ordene bokstav for bokstav i et tre, slik at alle ord med samme\nprefiks havner i samme subtre."
+      "content": "## trie-et: strukturen som kjenner prefikser (ca. 12 min)\n\nDen tredje faste ADT-oppgaven handler om **autocomplete**: du skriver noen\nbokstaver, og systemet skal finne alle ord som begynner slik.\n\nEt hashmap løser oppslaget «finnes dette ordet?» i $O(1)$ forventet. Men det løser\n**ikke** «hvilke ord begynner med `sa`?» — hashverdien til `sa` har ingen\nsammenheng med hashverdien til `sand`. Du måtte gått gjennom alle ordene og sjekket\nhver enkelt: $O(\\text{antall ord})$.\n\nTrie-et lagrer ordene bokstav for bokstav i et tre, slik at alle ord med samme\nprefiks havner i samme subtre."
     },
     {
       "id": "in2010-7-1-def-4",

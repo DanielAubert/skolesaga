@@ -44,7 +44,7 @@
     {
       "id": "in2010-3-1-t-1",
       "type": "text",
-      "content": "## Løkke 1 — garderoben med nummererte knagger (ca. 12 min)\n\nSe for deg en garderobe med sju knagger, nummerert 0 til 6. Du får en jakke med et\nlappnummer, for eksempel 15, og skal henge den et sted du **selv kan finne den\nigjen** uten å lete gjennom hele rekka.\n\nTrikset er å regne ut knaggen fra lappnummeret: ta resten når du deler på 7.\n$15 = 2 \\cdot 7 + 1$, så jakke 15 skal på knagg 1. Kommer du tilbake senere,\nregner du ut det samme og går rett til knagg 1. Ingen leting.\n\nDet er en **hashtabell**. Regnestykket «rest ved divisjon med tabellstørrelsen»\ner **hashfunksjonen**, og den skrives $h(k) = k \\bmod N$.\n\nSå oppstår problemet som hele resten av kapitlet handler om: neste jakke har\nlappnummer 22, og $22 = 3 \\cdot 7 + 1$ — også knagg 1. To jakker, én knagg. Det\nkalles en **kollisjon**, og måten IN2010 løser den på, er den enkleste som\nfinnes: heng jakka på **neste ledige knagg**."
+      "content": "## garderoben med nummererte knagger (ca. 12 min)\n\nSe for deg en garderobe med sju knagger, nummerert 0 til 6. Du får en jakke med et\nlappnummer, for eksempel 15, og skal henge den et sted du **selv kan finne den\nigjen** uten å lete gjennom hele rekka.\n\nTrikset er å regne ut knaggen fra lappnummeret: ta resten når du deler på 7.\n$15 = 2 \\cdot 7 + 1$, så jakke 15 skal på knagg 1. Kommer du tilbake senere,\nregner du ut det samme og går rett til knagg 1. Ingen leting.\n\nDet er en **hashtabell**. Regnestykket «rest ved divisjon med tabellstørrelsen»\ner **hashfunksjonen**, og den skrives $h(k) = k \\bmod N$.\n\nSå oppstår problemet som hele resten av kapitlet handler om: neste jakke har\nlappnummer 22, og $22 = 3 \\cdot 7 + 1$ — også knagg 1. To jakker, én knagg. Det\nkalles en **kollisjon**, og måten IN2010 løser den på, er den enkleste som\nfinnes: heng jakka på **neste ledige knagg**."
     },
     {
       "id": "in2010-3-1-def-1",
@@ -102,7 +102,7 @@
     {
       "id": "in2010-3-1-t-2",
       "type": "text",
-      "content": "## Løkke 2 — wraparound: når klyngen når enden (ca. 13 min)\n\n— naturlig pausepunkt —\n\nNå kommer detaljen som skiller en riktig håndkjøring fra en gal, og den er verdt\net helt poeng i hvert eneste sett.\n\nHva skjer når en nøkkel hasher til den **siste** plassen i tabellen, og den er\nopptatt?\n\nSvaret er ikke «plass $N$» — den finnes ikke. Svaret er at du går **rundt** til\nplass 0. Det er derfor probing-steget skrives\n\n$$i_{\\text{neste}} = (i + 1) \\bmod N$$\n\nog ikke bare $i + 1$. Tabellen er en **ring**, ikke en linje.\n\nUten `mod N` går indeksen utenfor arrayet. Det er felle **#11** i bokas\nfeilregister, og på en programmeringsoppgave ville det gitt en feilmelding; på en\nhåndkjøring gir det et svar sensor ikke kan gi poeng for."
+      "content": "## wraparound: når klyngen når enden (ca. 13 min)\n\n— naturlig pausepunkt —\n\nNå kommer detaljen som skiller en riktig håndkjøring fra en gal, og den er verdt\net helt poeng i hvert eneste sett.\n\nHva skjer når en nøkkel hasher til den **siste** plassen i tabellen, og den er\nopptatt?\n\nSvaret er ikke «plass $N$» — den finnes ikke. Svaret er at du går **rundt** til\nplass 0. Det er derfor probing-steget skrives\n\n$$i_{\\text{neste}} = (i + 1) \\bmod N$$\n\nog ikke bare $i + 1$. Tabellen er en **ring**, ikke en linje.\n\nUten `mod N` går indeksen utenfor arrayet. Det er felle **#11** i bokas\nfeilregister, og på en programmeringsoppgave ville det gitt en feilmelding; på en\nhåndkjøring gir det et svar sensor ikke kan gi poeng for."
     },
     {
       "id": "in2010-3-1-th-2",
@@ -136,7 +136,7 @@
     {
       "id": "in2010-3-1-t-3",
       "type": "text",
-      "content": "## Løkke 3 — lik nøkkel skal overskrives (ca. 12 min)\n\nDen andre detaljen sensor trekker for, er kortere å forklare og like lett å\nglemme.\n\nEn hashtabell lagrer hver nøkkel **én** gang. Setter du inn 10, og senere setter\ninn 10 igjen, skal tabellen fortsatt inneholde nøyaktig én 10-er. Den nye verdien\noverskriver den gamle på **samme plass**.\n\nI pseudokoden er det den ene betingelsen `and T[i] er ulik k` som sørger for det.\nLøkka stopper på to typer plasser: en tom plass, **eller** en plass som allerede\ninneholder nøkkelen. I begge tilfeller er `T[i] = k` riktig handling.\n\nFjerner du den betingelsen, går løkka forbi den eksisterende 10-eren og fortsetter\ntil første tomme plass. Da står 10 to steder, og alle senere søk finner den\nførste — mens all data som ble lagret sammen med den andre, er utilgjengelig.\nDette er den andre halvdelen av felle **#11**."
+      "content": "## lik nøkkel skal overskrives (ca. 12 min)\n\nDen andre detaljen sensor trekker for, er kortere å forklare og like lett å\nglemme.\n\nEn hashtabell lagrer hver nøkkel **én** gang. Setter du inn 10, og senere setter\ninn 10 igjen, skal tabellen fortsatt inneholde nøyaktig én 10-er. Den nye verdien\noverskriver den gamle på **samme plass**.\n\nI pseudokoden er det den ene betingelsen `and T[i] er ulik k` som sørger for det.\nLøkka stopper på to typer plasser: en tom plass, **eller** en plass som allerede\ninneholder nøkkelen. I begge tilfeller er `T[i] = k` riktig handling.\n\nFjerner du den betingelsen, går løkka forbi den eksisterende 10-eren og fortsetter\ntil første tomme plass. Da står 10 to steder, og alle senere søk finner den\nførste — mens all data som ble lagret sammen med den andre, er utilgjengelig.\nDette er den andre halvdelen av felle **#11**."
     },
     {
       "id": "in2010-3-1-def-5",
@@ -170,7 +170,7 @@
     {
       "id": "in2010-3-1-t-4",
       "type": "text",
-      "content": "## Løkke 4 — søk, og de to kjøretidene (ca. 14 min)\n\n— naturlig pausepunkt —\n\nÅ finne igjen en nøkkel bruker nøyaktig samme regnestykke som å sette den inn:\nstart på $h(k)$, gå framover med `mod N`. Forskjellen er hva du gjør underveis og\nnår du stopper.\n\nDu stopper når du finner nøkkelen — da finnes den — eller når du treffer en **tom\nplass**. Den tomme plassen er beviset på at nøkkelen ikke finnes: hadde den vært\nsatt inn, ville probing-sekvensen stoppet der, og den ville ligget på den plassen\neller tidligere."
+      "content": "## søk, og de to kjøretidene (ca. 14 min)\n\n— naturlig pausepunkt —\n\nÅ finne igjen en nøkkel bruker nøyaktig samme regnestykke som å sette den inn:\nstart på $h(k)$, gå framover med `mod N`. Forskjellen er hva du gjør underveis og\nnår du stopper.\n\nDu stopper når du finner nøkkelen — da finnes den — eller når du treffer en **tom\nplass**. Den tomme plassen er beviset på at nøkkelen ikke finnes: hadde den vært\nsatt inn, ville probing-sekvensen stoppet der, og den ville ligget på den plassen\neller tidligere."
     },
     {
       "id": "in2010-3-1-th-3",

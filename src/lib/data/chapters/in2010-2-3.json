@@ -44,7 +44,7 @@
     {
       "id": "in2010-2-3-t-1",
       "type": "text",
-      "content": "## Løkke 1 — counting sort: å telle i stedet for å sammenligne (ca. 16 min)\n\nTenk deg at du skal stille 800 elever på rekke etter hvilket klassetrinn de går\npå — 1 til 10. Du ville ikke sammenlignet dem to og to. Du ville ropt opp\ntrinnene i rekkefølge, og latt hvert trinn stille seg der det hører hjemme.\n\nDet er hele ideen. Du bruker ikke sammenligninger, du bruker **verdien selv som\nen adresse**. Og fordi du aldri sammenligner, gjelder ikke nedre grensen fra\n[kap. 2.2](/in2010/in2010-2-2).\n\nPrisen står i eksempelet: du måtte vite på forhånd at trinnene var 1 til 10. Uten\nden kunnskapen finnes det ingen rekker å stille seg i. **Counting sort krever et\nkjent, begrenset verdiområde**, og det er nettopp forutsetningen sensor ser etter\ni besvarelsen din."
+      "content": "## counting sort: å telle i stedet for å sammenligne (ca. 16 min)\n\nTenk deg at du skal stille 800 elever på rekke etter hvilket klassetrinn de går\npå — 1 til 10. Du ville ikke sammenlignet dem to og to. Du ville ropt opp\ntrinnene i rekkefølge, og latt hvert trinn stille seg der det hører hjemme.\n\nDet er hele ideen. Du bruker ikke sammenligninger, du bruker **verdien selv som\nen adresse**. Og fordi du aldri sammenligner, gjelder ikke nedre grensen fra\n[kap. 2.2](/in2010/in2010-2-2).\n\nPrisen står i eksempelet: du måtte vite på forhånd at trinnene var 1 til 10. Uten\nden kunnskapen finnes det ingen rekker å stille seg i. **Counting sort krever et\nkjent, begrenset verdiområde**, og det er nettopp forutsetningen sensor ser etter\ni besvarelsen din."
     },
     {
       "id": "in2010-2-3-def-1",
@@ -100,7 +100,7 @@
     {
       "id": "in2010-2-3-t-2",
       "type": "text",
-      "content": "## Løkke 2 — radix sort: ett siffer om gangen (ca. 14 min)\n\n— naturlig pausepunkt —\n\nCounting sort blir ubrukelig når verdiområdet er stort. Postnumre går fra 0000 til\n9999 — det er ti tusen mulige verdier, og skal du sortere femti postnumre, er\ntelleregisteret to hundre ganger større enn dataene.\n\n**Radix sort** løser det ved å sortere **ett siffer om gangen**. Hvert siffer har\nbare ti mulige verdier, så hvert pass er en counting sort med $k = 9$. Fire pass\nsenere er hele tallet sortert.\n\nRekkefølgen er det som overrasker: du sorterer på **minst** signifikante siffer\nførst. Og det virker bare fordi hvert pass er **stabilt** — den regelen fra\n[kap. 2.1](/in2010/in2010-2-1) om at den siste sorteringen styrer\nhovedrekkefølgen, er hele maskineriet her."
+      "content": "## radix sort: ett siffer om gangen (ca. 14 min)\n\n— naturlig pausepunkt —\n\nCounting sort blir ubrukelig når verdiområdet er stort. Postnumre går fra 0000 til\n9999 — det er ti tusen mulige verdier, og skal du sortere femti postnumre, er\ntelleregisteret to hundre ganger større enn dataene.\n\n**Radix sort** løser det ved å sortere **ett siffer om gangen**. Hvert siffer har\nbare ti mulige verdier, så hvert pass er en counting sort med $k = 9$. Fire pass\nsenere er hele tallet sortert.\n\nRekkefølgen er det som overrasker: du sorterer på **minst** signifikante siffer\nførst. Og det virker bare fordi hvert pass er **stabilt** — den regelen fra\n[kap. 2.1](/in2010/in2010-2-1) om at den siste sorteringen styrer\nhovedrekkefølgen, er hele maskineriet her."
     },
     {
       "id": "in2010-2-3-def-2",
@@ -140,7 +140,7 @@
     {
       "id": "in2010-2-3-t-3",
       "type": "text",
-      "content": "## Løkke 3 — bucket sort, og den avgjørende begrensningen (ca. 15 min)\n\n**Bucket sort** er den tredje varianten, og den er den løseste av dem. Ideen: hvis\ndu vet at verdiene ligger jevnt fordelt i et kjent intervall, del intervallet i\n$m$ like store bøtter, kast hvert element i sin bøtte, sortér hver bøtte for seg,\nog skjøt bøttene sammen i rekkefølge.\n\nEr fordelingen jevn, får hver bøtte omtrent $n/m$ elementer, og med $m \\approx n$\ner hver bøtte så liten at sorteringen inne i den er nesten gratis. Da blir totalen\n$O(n)$ **forventet**.\n\nEr fordelingen skjev — alle elementene i én bøtte — degenererer det til å sortere\nhele arrayet med den indre sorteringen, altså $O(n^2)$ med innsettingssortering.\nDerfor står det «forventet» og ikke «verste» i tabellen."
+      "content": "## bucket sort, og den avgjørende begrensningen (ca. 15 min)\n\n**Bucket sort** er den tredje varianten, og den er den løseste av dem. Ideen: hvis\ndu vet at verdiene ligger jevnt fordelt i et kjent intervall, del intervallet i\n$m$ like store bøtter, kast hvert element i sin bøtte, sortér hver bøtte for seg,\nog skjøt bøttene sammen i rekkefølge.\n\nEr fordelingen jevn, får hver bøtte omtrent $n/m$ elementer, og med $m \\approx n$\ner hver bøtte så liten at sorteringen inne i den er nesten gratis. Da blir totalen\n$O(n)$ **forventet**.\n\nEr fordelingen skjev — alle elementene i én bøtte — degenererer det til å sortere\nhele arrayet med den indre sorteringen, altså $O(n^2)$ med innsettingssortering.\nDerfor står det «forventet» og ikke «verste» i tabellen."
     },
     {
       "id": "in2010-2-3-def-3",

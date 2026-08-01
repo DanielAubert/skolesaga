@@ -26,7 +26,7 @@
     {
       "id": "in1900-7-2-t1",
       "type": "text",
-      "content": "## Løkke 1 — de tre kallene\n\nDu får utlevert en modul som allerede kan løse ODE-er. Da er jobben din redusert til fire ting: skriv høyresiden, velg metode, oppgi startverdien, og løs.\n\n```python\nsolver = RungeKutta4(f)              # 1. velg metode, send høyresiden\nsolver.set_initial_condition(2)      # 2. oppgi startverdien\nt, u = solver.solve((0, 10), 100)    # 3. løs på [0, 10] med 100 steg\n```\n\n**Utskrift:** ingen (fragmentet mangler `f` og importen; det fullstendige programmet står i Eksempel 1).\n\nDet er alt. Legg merke til at `solve` tar **to** argumenter: en tuppel med start- og sluttid, og antall steg. Og at den returnerer **to** arrays, i rekkefølgen tid først."
+      "content": "## de tre kallene\n\nDu får utlevert en modul som allerede kan løse ODE-er. Da er jobben din redusert til fire ting: skriv høyresiden, velg metode, oppgi startverdien, og løs.\n\n```python\nsolver = RungeKutta4(f)              # 1. velg metode, send høyresiden\nsolver.set_initial_condition(2)      # 2. oppgi startverdien\nt, u = solver.solve((0, 10), 100)    # 3. løs på [0, 10] med 100 steg\n```\n\n**Utskrift:** ingen (fragmentet mangler `f` og importen; det fullstendige programmet står i Eksempel 1).\n\nDet er alt. Legg merke til at `solve` tar **to** argumenter: en tuppel med start- og sluttid, og antall steg. Og at den returnerer **to** arrays, i rekkefølgen tid først."
     },
     {
       "id": "in1900-7-2-def-instans",
@@ -73,7 +73,7 @@
     {
       "id": "in1900-7-2-t2",
       "type": "text",
-      "content": "## Løkke 2 — hva som står i vedlegget\n\nDu trenger ikke kunne skrive modulen, men du må kunne lese den, av to grunner: du må sjekke argumentrekkefølgen, og i [kap. 7.4](/in1900/in1900-7-4) skal du utvide den med en egen metode. Da må du vite hvilke attributter du har tilgang til.\n\nStrukturen er alltid den samme. Basisklassen gjør alt det kjedelige — lager arrays, setter startverdien, kjører løkka — og lar **én** metode stå åpen: `advance`, som gjør ett steg. Hver metode er en subklasse som fyller inn nettopp den."
+      "content": "## hva som står i vedlegget\n\nDu trenger ikke kunne skrive modulen, men du må kunne lese den, av to grunner: du må sjekke argumentrekkefølgen, og i [kap. 7.4](/in1900/in1900-7-4) skal du utvide den med en egen metode. Da må du vite hvilke attributter du har tilgang til.\n\nStrukturen er alltid den samme. Basisklassen gjør alt det kjedelige — lager arrays, setter startverdien, kjører løkka — og lar **én** metode stå åpen: `advance`, som gjør ett steg. Hver metode er en subklasse som fyller inn nettopp den."
     },
     {
       "id": "in1900-7-2-def-hierarki",
@@ -156,7 +156,7 @@
     {
       "id": "in1900-7-2-t3",
       "type": "text",
-      "content": "## Løkke 3 — å kontrollere at svaret er riktig\n\n— naturlig pausepunkt —\n\nEn numerisk løsning er alltid feil. Spørsmålet er om den er **nok** riktig, og en besvarelse som viser at du kan sjekke det, skiller seg positivt ut. Du har tre kontroller, og alle tre er raske:\n\n1. **Sammenlign med en eksakt løsning** der du har en.\n2. **Forfin steget** og se om svaret slutter å endre seg.\n3. **Sjekk fornuften**: er høyresiden null i startpunktet, skal løsningen stå stille; en bestand skal ikke bli negativ; en temperatur skal ikke gå under romtemperaturen.\n\nLikningen fra Eksempel 1 kan faktisk løses eksakt, og det gir den beste kontrollen."
+      "content": "## å kontrollere at svaret er riktig\n\n— naturlig pausepunkt —\n\nEn numerisk løsning er alltid feil. Spørsmålet er om den er **nok** riktig, og en besvarelse som viser at du kan sjekke det, skiller seg positivt ut. Du har tre kontroller, og alle tre er raske:\n\n1. **Sammenlign med en eksakt løsning** der du har en.\n2. **Forfin steget** og se om svaret slutter å endre seg.\n3. **Sjekk fornuften**: er høyresiden null i startpunktet, skal løsningen stå stille; en bestand skal ikke bli negativ; en temperatur skal ikke gå under romtemperaturen.\n\nLikningen fra Eksempel 1 kan faktisk løses eksakt, og det gir den beste kontrollen."
     },
     {
       "id": "in1900-7-2-def-rk4",

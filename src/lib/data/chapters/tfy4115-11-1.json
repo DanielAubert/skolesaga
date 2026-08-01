@@ -26,7 +26,7 @@
   {
    "id": "tfy4115-11-1-lokke1",
    "type": "text",
-   "content": "## Løkke 1 — fikspunktiterasjon (~15 min)\n\nTa fram kalkulatoren, sett den i radianmodus, skriv inn et hvilket som helst tall, og trykk `cos` om og om igjen. Etter tjue–tretti trykk står det $0{,}739085$, og der blir det stående uansett hvor mange ganger du trykker til.\n\nDu har nettopp løst ligningen $x = \\cos x$ — en ligning som ikke kan løses med algebra i det hele tatt.\n\n*Hverdagsanker:* dette er ikke en kuriositet. Mange fysikkligninger har den ukjente både utenfor og inne i en eksponentialfunksjon, og da finnes det ingen formel å isolere den med. Maksimum i Plancks strålingslov er det viktigste eksemplet i dette faget, og den er selve grunnen til at Wien-konstanten er det tallet den er.\n\nMetoden er enkel nok til å gjøres for hånd:\n\n1. Skriv ligningen på formen $x = g(x)$.\n2. Velg en startverdi $x_0$.\n3. Regn $x_1 = g(x_0)$, deretter $x_2 = g(x_1)$, og så videre.\n4. Stopp når sifrene slutter å endre seg — eller når oppgaven sier stopp."
+   "content": "## fikspunktiterasjon (~15 min)\n\nTa fram kalkulatoren, sett den i radianmodus, skriv inn et hvilket som helst tall, og trykk `cos` om og om igjen. Etter tjue–tretti trykk står det $0{,}739085$, og der blir det stående uansett hvor mange ganger du trykker til.\n\nDu har nettopp løst ligningen $x = \\cos x$ — en ligning som ikke kan løses med algebra i det hele tatt.\n\n*Hverdagsanker:* dette er ikke en kuriositet. Mange fysikkligninger har den ukjente både utenfor og inne i en eksponentialfunksjon, og da finnes det ingen formel å isolere den med. Maksimum i Plancks strålingslov er det viktigste eksemplet i dette faget, og den er selve grunnen til at Wien-konstanten er det tallet den er.\n\nMetoden er enkel nok til å gjøres for hånd:\n\n1. Skriv ligningen på formen $x = g(x)$.\n2. Velg en startverdi $x_0$.\n3. Regn $x_1 = g(x_0)$, deretter $x_2 = g(x_1)$, og så videre.\n4. Stopp når sifrene slutter å endre seg — eller når oppgaven sier stopp."
   },
   {
    "id": "tfy4115-11-1-def-transcendent",
@@ -97,7 +97,7 @@
   {
    "id": "tfy4115-11-1-lokke2",
    "type": "text",
-   "content": "## Løkke 2 — hvor ligningen kommer fra: Planck og Wien (~12 min)\n\n— naturlig pausepunkt —\n\nI [kap. 9.2](/tfy4115/tfy4115-9-2) brukte vi Wiens forskyvningslov $\\lambda_\\text{maks} = b/T$ med $b = 2{,}898\\cdot10^{-3}\\,\\text{m}\\cdot\\text{K}$ som en oppgitt konstant. Nå skal vi se hvor tallet kommer fra — og svaret er: fra roten i nettopp den ligningen vi akkurat itererte.\n\nDet er en fin illustrasjon av hvorfor numerikk hører hjemme i et fysikkemne. Wien-konstanten er ikke målt inn; den er **regnet ut** fra Plancks lov, og regningen krever en iterasjon."
+   "content": "## hvor ligningen kommer fra: Planck og Wien (~12 min)\n\n— naturlig pausepunkt —\n\nI [kap. 9.2](/tfy4115/tfy4115-9-2) brukte vi Wiens forskyvningslov $\\lambda_\\text{maks} = b/T$ med $b = 2{,}898\\cdot10^{-3}\\,\\text{m}\\cdot\\text{K}$ som en oppgitt konstant. Nå skal vi se hvor tallet kommer fra — og svaret er: fra roten i nettopp den ligningen vi akkurat itererte.\n\nDet er en fin illustrasjon av hvorfor numerikk hører hjemme i et fysikkemne. Wien-konstanten er ikke målt inn; den er **regnet ut** fra Plancks lov, og regningen krever en iterasjon."
   },
   {
    "id": "tfy4115-11-1-utl-planck",
@@ -137,7 +137,7 @@
   {
    "id": "tfy4115-11-1-lokke3",
    "type": "text",
-   "content": "## Løkke 3 — konvergensorden: hvorfor noen metoder er raske (~11 min)\n\n— naturlig pausepunkt —\n\n*Dette avsnittet er merket **kjenne til**.* Eksamensoppgavene i sjanger T14 ber om iterasjoner, ikke om konvergensteori. Men å vite **hvorfor** fikspunktiterasjonen krymper feilen med en fast faktor, gjør at du kan anslå hvor mange steg du trenger — og det er en praktisk ferdighet under tidspress.\n\nVi utleder ordenen til tre metoder på samme ligning, og sammenligner tallene.\n\n**Definisjonen først.** En metode har **konvergensorden $p$** hvis feilen oppfyller\n$$\\left\\lvert e_{n+1}\\right\\rvert  \\approx C\\left\\lvert e_n\\right\\rvert ^p$$\nfor en konstant $C$. $p = 1$ kalles **lineær** konvergens, $p = 2$ **kvadratisk**.\n\nForskjellen er dramatisk. Lineær konvergens med faktor $0{,}1$ gir én ny riktig desimal per steg. Kvadratisk konvergens **dobler antall riktige desimaler** per steg: tre riktige siffer blir seks, blir tolv."
+   "content": "## konvergensorden: hvorfor noen metoder er raske (~11 min)\n\n— naturlig pausepunkt —\n\n*Dette avsnittet er merket **kjenne til**.* Eksamensoppgavene i sjanger T14 ber om iterasjoner, ikke om konvergensteori. Men å vite **hvorfor** fikspunktiterasjonen krymper feilen med en fast faktor, gjør at du kan anslå hvor mange steg du trenger — og det er en praktisk ferdighet under tidspress.\n\nVi utleder ordenen til tre metoder på samme ligning, og sammenligner tallene.\n\n**Definisjonen først.** En metode har **konvergensorden $p$** hvis feilen oppfyller\n$$\\left\\lvert e_{n+1}\\right\\rvert  \\approx C\\left\\lvert e_n\\right\\rvert ^p$$\nfor en konstant $C$. $p = 1$ kalles **lineær** konvergens, $p = 2$ **kvadratisk**.\n\nForskjellen er dramatisk. Lineær konvergens med faktor $0{,}1$ gir én ny riktig desimal per steg. Kvadratisk konvergens **dobler antall riktige desimaler** per steg: tre riktige siffer blir seks, blir tolv."
   },
   {
    "id": "tfy4115-11-1-th-konvergensorden",
@@ -189,7 +189,7 @@
   {
    "id": "tfy4115-11-1-lokke4",
    "type": "text",
-   "content": "## Løkke 4 — Eulers metode: å diskretisere en bevegelse (~12 min)\n\n— naturlig pausepunkt —\n\nSlipp en fallskjermhopper ut av et fly. I det første sekundet er akselerasjonen nesten $g$; etter tjue sekunder er den praktisk talt null, fordi luftmotstanden har tatt igjen tyngden. Farten nærmer seg en **terminalfart** og blir stående der.\n\n*Hverdagsanker:* akselerasjonen er ikke konstant, så konstant-akselerasjonsformlene fra [kap. 1.1](/tfy4115/tfy4115-1-1) gjelder ikke (felle #3 — å bruke dem når $a$ ikke er konstant). Og differensialligningen har riktignok en pen løsning i akkurat dette tilfellet, men i de fleste virkelige tilfeller har den ikke det.\n\nDa diskretiserer du: del tiden i små steg, og anta at akselerasjonen er **konstant innenfor hvert steg**. Det er hele Eulers metode."
+   "content": "## Eulers metode: å diskretisere en bevegelse (~12 min)\n\n— naturlig pausepunkt —\n\nSlipp en fallskjermhopper ut av et fly. I det første sekundet er akselerasjonen nesten $g$; etter tjue sekunder er den praktisk talt null, fordi luftmotstanden har tatt igjen tyngden. Farten nærmer seg en **terminalfart** og blir stående der.\n\n*Hverdagsanker:* akselerasjonen er ikke konstant, så konstant-akselerasjonsformlene fra [kap. 1.1](/tfy4115/tfy4115-1-1) gjelder ikke (felle #3 — å bruke dem når $a$ ikke er konstant). Og differensialligningen har riktignok en pen løsning i akkurat dette tilfellet, men i de fleste virkelige tilfeller har den ikke det.\n\nDa diskretiserer du: del tiden i små steg, og anta at akselerasjonen er **konstant innenfor hvert steg**. Det er hele Eulers metode."
   },
   {
    "id": "tfy4115-11-1-def-diskretisering",

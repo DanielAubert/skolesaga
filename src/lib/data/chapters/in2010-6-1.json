@@ -49,7 +49,7 @@
     {
       "id": "in2010-6-1-t-1",
       "type": "text",
-      "content": "## Løkke 1 — huset som må bygges i riktig rekkefølge (ca. 12 min)\n\nEt modulbygg settes opp av åtte arbeidslag. Grunnmuren må stå før gulvmodulene\nkan legges, gulvmodulene før heissjakten kan reises, og fasadekledningen kan først\nkomme når både taket og heissjakten er ferdige. Ingen av lagene bryr seg om noe\nannet enn sine egne forutsetninger.\n\nSpørsmålet byggelederen sitter med, er ikke vanskelig å formulere: **finnes det en\nrekkefølge der hvert lag kan gjøre jobben sin uten å vente på noe som ikke er\ngjort?** Og hvis den finnes — hvordan finner vi den, uten å prøve oss fram?\n\nDette er et grafproblem. Hvert arbeidslag er en node, og en pil fra $u$ til $v$\nbetyr «$u$ må være ferdig før $v$ kan starte». Da er spørsmålet: kan nodene stilles\nopp på en linje slik at **alle pilene peker framover**?"
+      "content": "## huset som må bygges i riktig rekkefølge (ca. 12 min)\n\nEt modulbygg settes opp av åtte arbeidslag. Grunnmuren må stå før gulvmodulene\nkan legges, gulvmodulene før heissjakten kan reises, og fasadekledningen kan først\nkomme når både taket og heissjakten er ferdige. Ingen av lagene bryr seg om noe\nannet enn sine egne forutsetninger.\n\nSpørsmålet byggelederen sitter med, er ikke vanskelig å formulere: **finnes det en\nrekkefølge der hvert lag kan gjøre jobben sin uten å vente på noe som ikke er\ngjort?** Og hvis den finnes — hvordan finner vi den, uten å prøve oss fram?\n\nDette er et grafproblem. Hvert arbeidslag er en node, og en pil fra $u$ til $v$\nbetyr «$u$ må være ferdig før $v$ kan starte». Da er spørsmålet: kan nodene stilles\nopp på en linje slik at **alle pilene peker framover**?"
     },
     {
       "id": "in2010-6-1-def-1",
@@ -108,7 +108,7 @@
     {
       "id": "in2010-6-1-t-2",
       "type": "text",
-      "content": "## Løkke 2 — algoritmen skrevet ned (ca. 15 min)\n\nSporingen i eksempel 1 er hele algoritmen. Nå skal den skrives ned slik du må\nkunne den på eksamen: som en `Procedure` med input, output og oppgitt kjøretid.\n\nMetoden heter **Kahns algoritme** etter Arthur Kahn, som beskrev den i 1962. Ideen\ner den samme som byggelederens: gjør alt som *kan* gjøres nå, og se hva som blir\nklart av det."
+      "content": "## algoritmen skrevet ned (ca. 15 min)\n\nSporingen i eksempel 1 er hele algoritmen. Nå skal den skrives ned slik du må\nkunne den på eksamen: som en `Procedure` med input, output og oppgitt kjøretid.\n\nMetoden heter **Kahns algoritme** etter Arthur Kahn, som beskrev den i 1962. Ideen\ner den samme som byggelederens: gjør alt som *kan* gjøres nå, og se hva som blir\nklart av det."
     },
     {
       "id": "in2010-6-1-th-2",
@@ -153,7 +153,7 @@
     {
       "id": "in2010-6-1-t-4",
       "type": "text",
-      "content": "## Løkke 3 — når det ikke finnes noen rekkefølge (ca. 12 min)\n\nHalvparten av eksamensoppgavene på dette temaet spør ikke bare om rekkefølgen. De\nspør: **finnes det en i det hele tatt?** Formuleringen er gjerne «meld fra hvis en\nsirkulær avhengighet gjør det umulig».\n\nDet gode med Kahns algoritme er at du får svaret gratis. Du trenger ikke en egen\nsykeldeteksjon — du trenger bare å telle."
+      "content": "## når det ikke finnes noen rekkefølge (ca. 12 min)\n\nHalvparten av eksamensoppgavene på dette temaet spør ikke bare om rekkefølgen. De\nspør: **finnes det en i det hele tatt?** Formuleringen er gjerne «meld fra hvis en\nsirkulær avhengighet gjør det umulig».\n\nDet gode med Kahns algoritme er at du får svaret gratis. Du trenger ikke en egen\nsykeldeteksjon — du trenger bare å telle."
     },
     {
       "id": "in2010-6-1-th-3",
@@ -193,7 +193,7 @@
     {
       "id": "in2010-6-1-t-5",
       "type": "text",
-      "content": "## Løkke 4 — de to alternativene, og hva sensor egentlig ser etter (ca. 10 min)\n\nKahn er ikke den eneste veien. To alternativer nevnes i pensum, og begge kan gi\nfull uttelling hvis de er presist beskrevet.\n\n**DFS med tre tilstander.** Gi hver node en av tilstandene *uoppdaget*, *under\nprosessering* og *ferdig*. Gjør en dybde-først-traversering; møter du en node som\ner **under prosessering**, har du funnet en sykel. Er alle ferdige, gir nodene i\nomvendt rekkefølge av når de ble *ferdige*, en topologisk rekkefølge. Kjøretiden\ner den samme, $O(|V| + |E|)$.\n\nGrunnen til at de tre tilstandene er nødvendige: en node som er *ferdig*, kan du\ngodt møte på nytt — det betyr bare at to stier fører til samme sted. En node som\ner *under prosessering*, ligger derimot på stien du står på akkurat nå, og da har\ndu gått i ring.\n\n**Sterkt sammenhengende komponenter.** En rettet graf har en sykel hvis og bare\nhvis minst én sterkt sammenhengende komponent inneholder mer enn én node. Det\ngir en sykel-test i $O(|V| + |E|)$, og du får i tillegg vite hvilke noder som\nhenger sammen. Se [kap. 5.4](/in2010/in2010-5-4).\n\n**Kan dette gjøres raskere?** Nei. Du må se på hver kant minst én gang for å vite\nat den peker riktig vei, så $O(|V| + |E|)$ er nedre grense for problemet. Alle tre\nmetodene treffer den. Når tre metoder har samme kjøretid, velger du den du kan\nskrive presist — og det er poenget sensorveiledningene gjentar: en klar forklaring\ner verdt mer enn en uklar pseudokode."
+      "content": "## de to alternativene, og hva sensor egentlig ser etter (ca. 10 min)\n\nKahn er ikke den eneste veien. To alternativer nevnes i pensum, og begge kan gi\nfull uttelling hvis de er presist beskrevet.\n\n**DFS med tre tilstander.** Gi hver node en av tilstandene *uoppdaget*, *under\nprosessering* og *ferdig*. Gjør en dybde-først-traversering; møter du en node som\ner **under prosessering**, har du funnet en sykel. Er alle ferdige, gir nodene i\nomvendt rekkefølge av når de ble *ferdige*, en topologisk rekkefølge. Kjøretiden\ner den samme, $O(|V| + |E|)$.\n\nGrunnen til at de tre tilstandene er nødvendige: en node som er *ferdig*, kan du\ngodt møte på nytt — det betyr bare at to stier fører til samme sted. En node som\ner *under prosessering*, ligger derimot på stien du står på akkurat nå, og da har\ndu gått i ring.\n\n**Sterkt sammenhengende komponenter.** En rettet graf har en sykel hvis og bare\nhvis minst én sterkt sammenhengende komponent inneholder mer enn én node. Det\ngir en sykel-test i $O(|V| + |E|)$, og du får i tillegg vite hvilke noder som\nhenger sammen. Se [kap. 5.4](/in2010/in2010-5-4).\n\n**Kan dette gjøres raskere?** Nei. Du må se på hver kant minst én gang for å vite\nat den peker riktig vei, så $O(|V| + |E|)$ er nedre grense for problemet. Alle tre\nmetodene treffer den. Når tre metoder har samme kjøretid, velger du den du kan\nskrive presist — og det er poenget sensorveiledningene gjentar: en klar forklaring\ner verdt mer enn en uklar pseudokode."
     },
     {
       "id": "in2010-6-1-ex-4",

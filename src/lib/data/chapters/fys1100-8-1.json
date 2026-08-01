@@ -26,7 +26,7 @@
     {
       "id": "fys1100-8-1-lokke1",
       "type": "text",
-      "content": "## Løkke 1 — tiden i skiver (~14 min)\n\nEt videokamera som filmer en fallende ball, ser ikke en kontinuerlig bevegelse. Det tar 50 bilder i sekundet, og mellom to bilder vet kameraet ingenting. Likevel klarer du å lese av hele bevegelsen fra bildeserien, fordi bildene ligger tett nok.\n\nEn numerisk løsning gjør nøyaktig det samme. I stedet for en formel $x(t)$ som gjelder for alle tidspunkt, regner vi ut posisjonen i en **serie tidspunkt** som ligger tett nok. Svaret er ikke en funksjon, men en tabell av tall.\n\n**Intuisjon:** analytisk løsning gir deg fasiten i én formel. Numerisk løsning gir deg fasiten som en filmstrimmel. Er strimmelen tett nok, ser du det samme.\n\nDet er tre ting som må på plass før løkka kan starte: et **tidsrutenett**, en **steglengde**, og **plass til å lagre svaret**."
+      "content": "## tiden i skiver (~14 min)\n\nEt videokamera som filmer en fallende ball, ser ikke en kontinuerlig bevegelse. Det tar 50 bilder i sekundet, og mellom to bilder vet kameraet ingenting. Likevel klarer du å lese av hele bevegelsen fra bildeserien, fordi bildene ligger tett nok.\n\nEn numerisk løsning gjør nøyaktig det samme. I stedet for en formel $x(t)$ som gjelder for alle tidspunkt, regner vi ut posisjonen i en **serie tidspunkt** som ligger tett nok. Svaret er ikke en funksjon, men en tabell av tall.\n\n**Intuisjon:** analytisk løsning gir deg fasiten i én formel. Numerisk løsning gir deg fasiten som en filmstrimmel. Er strimmelen tett nok, ser du det samme.\n\nDet er tre ting som må på plass før løkka kan starte: et **tidsrutenett**, en **steglengde**, og **plass til å lagre svaret**."
     },
     {
       "id": "fys1100-8-1-def-rutenett",
@@ -71,7 +71,7 @@
     {
       "id": "fys1100-8-1-lokke2",
       "type": "text",
-      "content": "## Løkke 2 — akselerasjonslinja (~14 min)\n\nNå kommer den delen som gir flest poeng. Av de fem poengene i en typisk kodedeloppgave ligger **tre** i én eneste linje: uttrykket for akselerasjonen.\n\nGrunnen er enkel. Akselerasjonslinja er det eneste stedet i koden der **fysikken** i akkurat ditt problem står. Resten av løkka er den samme uansett om du modellerer en fjær, en pendel, et kast eller en komet."
+      "content": "## akselerasjonslinja (~14 min)\n\nNå kommer den delen som gir flest poeng. Av de fem poengene i en typisk kodedeloppgave ligger **tre** i én eneste linje: uttrykket for akselerasjonen.\n\nGrunnen er enkel. Akselerasjonslinja er det eneste stedet i koden der **fysikken** i akkurat ditt problem står. Resten av løkka er den samme uansett om du modellerer en fjær, en pendel, et kast eller en komet."
     },
     {
       "id": "fys1100-8-1-def-akselerasjonslinja",
@@ -125,7 +125,7 @@
     {
       "id": "fys1100-8-1-lokke3",
       "type": "text",
-      "content": "## Løkke 3 — selve løkka, og den ene indeksen som avgjør alt (~16 min)\n\nNå står akselerasjonen der. Spørsmålet er hvordan vi kommer fra tilstanden i tidspunkt $i$ til tilstanden i tidspunkt $i+1$.\n\nIdeen er den enkleste tenkelige. Over et lite tidssteg $dt$ er akselerasjonen omtrent konstant, så farten endrer seg med $a\\,dt$. Og over det samme steget er farten omtrent konstant, så posisjonen endrer seg med $v\\,dt$:\n\n$$v_{i+1} = v_i + a_i\\,dt, \\qquad x_{i+1} = x_i + v\\,dt$$\n\nOg så kommer spørsmålet som hele dette kapitlet handler om: **hvilken $v$ skal stå i den andre linja — den gamle $v_i$, eller den nye $v_{i+1}$?**\n\nSvaret virker som en detalj. Det er det ikke."
+      "content": "## selve løkka, og den ene indeksen som avgjør alt (~16 min)\n\nNå står akselerasjonen der. Spørsmålet er hvordan vi kommer fra tilstanden i tidspunkt $i$ til tilstanden i tidspunkt $i+1$.\n\nIdeen er den enkleste tenkelige. Over et lite tidssteg $dt$ er akselerasjonen omtrent konstant, så farten endrer seg med $a\\,dt$. Og over det samme steget er farten omtrent konstant, så posisjonen endrer seg med $v\\,dt$:\n\n$$v_{i+1} = v_i + a_i\\,dt, \\qquad x_{i+1} = x_i + v\\,dt$$\n\nOg så kommer spørsmålet som hele dette kapitlet handler om: **hvilken $v$ skal stå i den andre linja — den gamle $v_i$, eller den nye $v_{i+1}$?**\n\nSvaret virker som en detalj. Det er det ikke."
     },
     {
       "id": "fys1100-8-1-def-euler-cromer",
@@ -178,7 +178,7 @@
     {
       "id": "fys1100-8-1-lokke4",
       "type": "text",
-      "content": "## Løkke 4 — hvorfor Euler–Cromer, og hvorfor det er verdt poeng (~14 min)\n\nBegge metodene gjør en feil i hvert steg, og feilen er like stor i begge. Forskjellen ligger i **hvordan feilene legger seg sammen over tid**.\n\nTenk på en svingende fjær. Halve tiden går klossen utover, halve tiden innover.\n\n- **Euler–Cromer** bruker den nye farten i posisjonsoppdateringen. Den overvurderer forflytningen i noen deler av svingningen og undervurderer den i andre — **den tar av og til for mye og av og til for lite**. Over en hel periode kansellerer bidragene hverandre nesten fullstendig, og energien vandrer bare litt fram og tilbake rundt riktig verdi.\n- **Forward Euler** bruker den gamle farten. På vei utover er den gamle farten større enn gjennomsnittsfarten i steget, så klossen flyttes for langt. På vei innover er den gamle farten også større i tallverdi, så klossen flyttes for langt inn — men fjæren rekker å presse hardere. Nettoeffekten er systematisk: **energien vokser i hvert eneste steg.**\n\n**Intuisjon:** Euler–Cromer gjør en feil som svinger; Forward Euler gjør en feil som drar. Det er drivingen som ødelegger, ikke størrelsen på enkeltfeilen."
+      "content": "## hvorfor Euler–Cromer, og hvorfor det er verdt poeng (~14 min)\n\nBegge metodene gjør en feil i hvert steg, og feilen er like stor i begge. Forskjellen ligger i **hvordan feilene legger seg sammen over tid**.\n\nTenk på en svingende fjær. Halve tiden går klossen utover, halve tiden innover.\n\n- **Euler–Cromer** bruker den nye farten i posisjonsoppdateringen. Den overvurderer forflytningen i noen deler av svingningen og undervurderer den i andre — **den tar av og til for mye og av og til for lite**. Over en hel periode kansellerer bidragene hverandre nesten fullstendig, og energien vandrer bare litt fram og tilbake rundt riktig verdi.\n- **Forward Euler** bruker den gamle farten. På vei utover er den gamle farten større enn gjennomsnittsfarten i steget, så klossen flyttes for langt. På vei innover er den gamle farten også større i tallverdi, så klossen flyttes for langt inn — men fjæren rekker å presse hardere. Nettoeffekten er systematisk: **energien vokser i hvert eneste steg.**\n\n**Intuisjon:** Euler–Cromer gjør en feil som svinger; Forward Euler gjør en feil som drar. Det er drivingen som ødelegger, ikke størrelsen på enkeltfeilen."
     },
     {
       "id": "fys1100-8-1-def-energidrift",
@@ -220,7 +220,7 @@
     {
       "id": "fys1100-8-1-lokke5",
       "type": "text",
-      "content": "## Løkke 5 — kontroll av et numerisk svar (~14 min)\n\nEn kode som kjører, er ikke en kode som er riktig. Den kan gi et helt korrekt svar på et annet problem enn det du stilte — som i oppgave 3, der de manglende initialbetingelsene ga en perfekt beregnet nulløsning.\n\nDet finnes to kontroller som til sammen fanger nesten alt, og begge tar under et minutt."
+      "content": "## kontroll av et numerisk svar (~14 min)\n\nEn kode som kjører, er ikke en kode som er riktig. Den kan gi et helt korrekt svar på et annet problem enn det du stilte — som i oppgave 3, der de manglende initialbetingelsene ga en perfekt beregnet nulløsning.\n\nDet finnes to kontroller som til sammen fanger nesten alt, og begge tar under et minutt."
     },
     {
       "id": "fys1100-8-1-def-kontrollcase",

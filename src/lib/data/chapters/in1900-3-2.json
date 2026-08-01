@@ -26,7 +26,7 @@
   {
    "id": "in1900-3-2-t-lokke1",
    "type": "text",
-   "content": "## Løkke 1 — fra summetegn til løkke (~12 min)\n\nEn kalkulator har ingen «eksponentialknapp» inni seg. Den regner ut $e^x$ ved å legge sammen ledd fra en uendelig rekke og stoppe når leddene blir små nok. Formelen er\n\n$$e^x = \\sum_{k=0}^{\\infty} \\frac{x^k}{k!}$$\n\nVi kan selvsagt ikke legge sammen uendelig mange ledd. Det vi kan, er å stoppe etter ledd nummer $N$:\n\n$$e^x \\approx \\sum_{k=0}^{N} \\frac{x^k}{k!}$$\n\n**Les summetegnet som en oppskrift på en løkke.** Under tegnet står `k = 0`: det er der løkka begynner. Over står $N$: det er der den slutter, og $N$ skal **være med**. Til høyre står leddet: det er uttrykket som legges til hver runde.\n\nDet er hele oversettelsen. Alt annet i dette kapitlet er varianter av den samme fire linjene."
+   "content": "## fra summetegn til løkke (~12 min)\n\nEn kalkulator har ingen «eksponentialknapp» inni seg. Den regner ut $e^x$ ved å legge sammen ledd fra en uendelig rekke og stoppe når leddene blir små nok. Formelen er\n\n$$e^x = \\sum_{k=0}^{\\infty} \\frac{x^k}{k!}$$\n\nVi kan selvsagt ikke legge sammen uendelig mange ledd. Det vi kan, er å stoppe etter ledd nummer $N$:\n\n$$e^x \\approx \\sum_{k=0}^{N} \\frac{x^k}{k!}$$\n\n**Les summetegnet som en oppskrift på en løkke.** Under tegnet står `k = 0`: det er der løkka begynner. Over står $N$: det er der den slutter, og $N$ skal **være med**. Til høyre står leddet: det er uttrykket som legges til hver runde.\n\nDet er hele oversettelsen. Alt annet i dette kapitlet er varianter av den samme fire linjene."
   },
   {
    "id": "in1900-3-2-thm-mal",
@@ -117,7 +117,7 @@
   {
    "id": "in1900-3-2-t-lokke2",
    "type": "text",
-   "content": "## Løkke 2 — ledd som skifter fortegn (~12 min)\n\n— naturlig pausepunkt —\n\nMange av de nyttigste rekkene har ledd som veksler mellom pluss og minus. Den naturlige logaritmen er et eksempel:\n\n$$\\ln(1+x) = \\sum_{k=1}^{\\infty} (-1)^{k+1}\\frac{x^k}{k} = x - \\frac{x^2}{2} + \\frac{x^3}{3} - \\cdots$$\n\nI koden løses dette med én faktor. Du trenger ingen `if`-setning og ingen hjelpevariabel som skifter fortegn — bare et fortegnsledd som er en potens av $-1$.\n\nLegg samtidig merke til at denne summen starter på $k = 1$, ikke på $k = 0$. Det er en av de tre tingene du leser rett av summetegnet: **startverdi, sluttverdi og leddets uttrykk.**"
+   "content": "## ledd som skifter fortegn (~12 min)\n\n— naturlig pausepunkt —\n\nMange av de nyttigste rekkene har ledd som veksler mellom pluss og minus. Den naturlige logaritmen er et eksempel:\n\n$$\\ln(1+x) = \\sum_{k=1}^{\\infty} (-1)^{k+1}\\frac{x^k}{k} = x - \\frac{x^2}{2} + \\frac{x^3}{3} - \\cdots$$\n\nI koden løses dette med én faktor. Du trenger ingen `if`-setning og ingen hjelpevariabel som skifter fortegn — bare et fortegnsledd som er en potens av $-1$.\n\nLegg samtidig merke til at denne summen starter på $k = 1$, ikke på $k = 0$. Det er en av de tre tingene du leser rett av summetegnet: **startverdi, sluttverdi og leddets uttrykk.**"
   },
   {
    "id": "in1900-3-2-def-fortegn",
@@ -152,7 +152,7 @@
   {
    "id": "in1900-3-2-t-lokke3",
    "type": "text",
-   "content": "## Løkke 3 — rekker med bare oddetallsledd (~15 min)\n\nSinus hyperbolicus beskriver blant annet formen på en hengende kjede, og har rekka\n\n$$\\sinh x = \\sum_{n=0}^{\\infty} \\frac{x^{2n+1}}{(2n+1)!} = x + \\frac{x^3}{3!} + \\frac{x^5}{5!} + \\cdots$$\n\nHer er hvert eneste ledd en oddetallspotens. Fristelsen er å løkke over alle heltall og hoppe over partallene med en `if`. Ikke gjør det. **Løkk over leddnummeret, og la uttrykket lage oddetallet.**\n\nDet er nettopp det $2n+1$ gjør: med $n = 0, 1, 2, 3$ blir $2n+1$ lik $1, 3, 5, 7$. Løkkevariabelen teller ledd; uttrykket regner ut hvilken potens leddet har."
+   "content": "## rekker med bare oddetallsledd (~15 min)\n\nSinus hyperbolicus beskriver blant annet formen på en hengende kjede, og har rekka\n\n$$\\sinh x = \\sum_{n=0}^{\\infty} \\frac{x^{2n+1}}{(2n+1)!} = x + \\frac{x^3}{3!} + \\frac{x^5}{5!} + \\cdots$$\n\nHer er hvert eneste ledd en oddetallspotens. Fristelsen er å løkke over alle heltall og hoppe over partallene med en `if`. Ikke gjør det. **Løkk over leddnummeret, og la uttrykket lage oddetallet.**\n\nDet er nettopp det $2n+1$ gjør: med $n = 0, 1, 2, 3$ blir $2n+1$ lik $1, 3, 5, 7$. Løkkevariabelen teller ledd; uttrykket regner ut hvilken potens leddet har."
   },
   {
    "id": "in1900-3-2-def-odde",
@@ -187,7 +187,7 @@
   {
    "id": "in1900-3-2-t-lokke4",
    "type": "text",
-   "content": "## Løkke 4 — rekurrente rekker, løst med løkke (~16 min)\n\nNoen rekker er ikke gitt ved en formel for leddet, men ved en **rekurrens**: hvert ledd defineres ut fra de forrige. Chebyshev-polynomene er det klassiske eksempelet:\n\n$$T_0(x) = 1, \\qquad T_1(x) = x, \\qquad T_{n+1}(x) = 2xT_n(x) - T_{n-1}(x)$$\n\nDe brukes i numerisk analyse fordi de fordeler tilnærmingsfeilen jevnt over et intervall. For oss er de interessante av en helt annen grunn: de er den ene rekketypen der studenter systematisk velger feil verktøy.\n\n**Løsningen er en løkke som husker de to siste verdiene.** Du trenger to variabler, og du oppdaterer dem i takt."
+   "content": "## rekurrente rekker, løst med løkke (~16 min)\n\nNoen rekker er ikke gitt ved en formel for leddet, men ved en **rekurrens**: hvert ledd defineres ut fra de forrige. Chebyshev-polynomene er det klassiske eksempelet:\n\n$$T_0(x) = 1, \\qquad T_1(x) = x, \\qquad T_{n+1}(x) = 2xT_n(x) - T_{n-1}(x)$$\n\nDe brukes i numerisk analyse fordi de fordeler tilnærmingsfeilen jevnt over et intervall. For oss er de interessante av en helt annen grunn: de er den ene rekketypen der studenter systematisk velger feil verktøy.\n\n**Løsningen er en løkke som husker de to siste verdiene.** Du trenger to variabler, og du oppdaterer dem i takt."
   },
   {
    "id": "in1900-3-2-warn-lokkekrav",

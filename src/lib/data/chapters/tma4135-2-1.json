@@ -31,7 +31,7 @@
     {
       "id": "tma4135-2-1-lokke1",
       "type": "text",
-      "content": "## Løkke 1 — Hva transformen er (~10 min)\n\nEn transform er en maskin som spiser en funksjon og spytter ut en annen funksjon. Laplace-maskinen spiser en funksjon av tiden, $f(t)$ for $t\\ge 0$, og gir en funksjon av en ny variabel $s$."
+      "content": "## Hva transformen er (~10 min)\n\nEn transform er en maskin som spiser en funksjon og spytter ut en annen funksjon. Laplace-maskinen spiser en funksjon av tiden, $f(t)$ for $t\\ge 0$, og gir en funksjon av en ny variabel $s$."
     },
     {
       "id": "tma4135-2-1-def-laplace",
@@ -140,7 +140,7 @@
     {
       "id": "tma4135-2-1-lokke2",
       "type": "text",
-      "content": "## Løkke 2 — Derivasjonsregelen, motoren i metoden (~14 min)\n\nNå kommer den ene formelen som gjør Laplace-transformen til et verktøy for differensiallikninger og ikke bare en kuriositet. Den forteller hva som skjer med en **derivert** når du transformerer.\n\n**Utledningen** er delvis integrasjon, én gang. Sett $u = e^{-st}$ og $dv = f'(t)\\,dt$:\n\n$$\\mathcal{L}\\{f'\\} = \\int_0^{\\infty} e^{-st}f'(t)\\,dt = \\Big[e^{-st}f(t)\\Big]_0^{\\infty} + s\\int_0^{\\infty}e^{-st}f(t)\\,dt.$$\n\nRandleddet: ved $t=0$ gir det $-f(0)$, og ved $t\\to\\infty$ går $e^{-st}f(t)\\to 0$ når $s$ er stor nok (det er nettopp derfor vi krevde eksponentiell orden). Integralet som står igjen, er $F(s)$. Altså\n\n$$\\mathcal{L}\\{f'\\} = sF(s) - f(0).$$\n\n**Intuisjon:** å derivere i tidsplanet blir til å **gange med $s$** i $s$-planet, minus en korreksjon som er startverdien. Kalkulus blir algebra, og startverdien kommer gratis med på kjøpet — den er ikke noe du fyller inn til slutt, den *er* en del av likningen."
+      "content": "## Derivasjonsregelen, motoren i metoden (~14 min)\n\nNå kommer den ene formelen som gjør Laplace-transformen til et verktøy for differensiallikninger og ikke bare en kuriositet. Den forteller hva som skjer med en **derivert** når du transformerer.\n\n**Utledningen** er delvis integrasjon, én gang. Sett $u = e^{-st}$ og $dv = f'(t)\\,dt$:\n\n$$\\mathcal{L}\\{f'\\} = \\int_0^{\\infty} e^{-st}f'(t)\\,dt = \\Big[e^{-st}f(t)\\Big]_0^{\\infty} + s\\int_0^{\\infty}e^{-st}f(t)\\,dt.$$\n\nRandleddet: ved $t=0$ gir det $-f(0)$, og ved $t\\to\\infty$ går $e^{-st}f(t)\\to 0$ når $s$ er stor nok (det er nettopp derfor vi krevde eksponentiell orden). Integralet som står igjen, er $F(s)$. Altså\n\n$$\\mathcal{L}\\{f'\\} = sF(s) - f(0).$$\n\n**Intuisjon:** å derivere i tidsplanet blir til å **gange med $s$** i $s$-planet, minus en korreksjon som er startverdien. Kalkulus blir algebra, og startverdien kommer gratis med på kjøpet — den er ikke noe du fyller inn til slutt, den *er* en del av likningen."
     },
     {
       "id": "tma4135-2-1-def-derivasjon1",
@@ -191,7 +191,7 @@
     {
       "id": "tma4135-2-1-lokke3",
       "type": "text",
-      "content": "## Løkke 3 — Fireskrittsoppskriften (~14 min)\n\nNå settes bitene sammen. Oppskriften under er den samme i hele Del 2; det eneste som varierer, er hva som står på høyresiden av likningen."
+      "content": "## Fireskrittsoppskriften (~14 min)\n\nNå settes bitene sammen. Oppskriften under er den samme i hele Del 2; det eneste som varierer, er hva som står på høyresiden av likningen."
     },
     {
       "id": "tma4135-2-1-def-ivp",
@@ -265,7 +265,7 @@
     {
       "id": "tma4135-2-1-lokke4",
       "type": "text",
-      "content": "## Løkke 4 — Førsteforskyvningsteoremet (~10 min)\n\nTabellen har ingen rad for $e^{-2t}\\cos 4t$. Den trenger den heller ikke, for det finnes én regel som lager alle slike rader av de du allerede har.\n\n**Utledningen** er én linje. Skriv definisjonen for $e^{at}f(t)$ og samle eksponentene:\n\n$$\\mathcal{L}\\{e^{at}f(t)\\} = \\int_0^\\infty e^{-st}e^{at}f(t)\\,dt = \\int_0^\\infty e^{-(s-a)t}f(t)\\,dt = F(s-a).$$\n\nDet siste integralet er nøyaktig definisjonen av $F$, bare med $s-a$ der det ellers står $s$.\n\n**Intuisjon:** å gange med $e^{at}$ i tidsplanet **forskyver** transformen $a$ enheter langs $s$-aksen. Derfor navnet."
+      "content": "## Førsteforskyvningsteoremet (~10 min)\n\nTabellen har ingen rad for $e^{-2t}\\cos 4t$. Den trenger den heller ikke, for det finnes én regel som lager alle slike rader av de du allerede har.\n\n**Utledningen** er én linje. Skriv definisjonen for $e^{at}f(t)$ og samle eksponentene:\n\n$$\\mathcal{L}\\{e^{at}f(t)\\} = \\int_0^\\infty e^{-st}e^{at}f(t)\\,dt = \\int_0^\\infty e^{-(s-a)t}f(t)\\,dt = F(s-a).$$\n\nDet siste integralet er nøyaktig definisjonen av $F$, bare med $s-a$ der det ellers står $s$.\n\n**Intuisjon:** å gange med $e^{at}$ i tidsplanet **forskyver** transformen $a$ enheter langs $s$-aksen. Derfor navnet."
     },
     {
       "id": "tma4135-2-1-def-forste-forskyvning",
@@ -305,7 +305,7 @@
     {
       "id": "tma4135-2-1-lokke5",
       "type": "text",
-      "content": "## Løkke 5 — Eksamensnivå: en likning der nevneren må splittes (~12 min)\n\nI de fire eksemplene så langt kunne $Y(s)$ leses rett av tabellen. Det er sjelden på eksamen. Som regel er $Y(s)$ en brøk med flere faktorer i nevneren, og du må dele den opp i enklere brøker først.\n\nHele teknikken er tema i [kap. 2.2](/tma4135/tma4135-2-2). Her tar vi bare det enkleste tilfellet — nevneren har bare **enkle, forskjellige reelle røtter** — fordi du trenger det for å komme gjennom en fullstendig oppgave allerede nå."
+      "content": "## Eksamensnivå: en likning der nevneren må splittes (~12 min)\n\nI de fire eksemplene så langt kunne $Y(s)$ leses rett av tabellen. Det er sjelden på eksamen. Som regel er $Y(s)$ en brøk med flere faktorer i nevneren, og du må dele den opp i enklere brøker først.\n\nHele teknikken er tema i [kap. 2.2](/tma4135/tma4135-2-2). Her tar vi bare det enkleste tilfellet — nevneren har bare **enkle, forskjellige reelle røtter** — fordi du trenger det for å komme gjennom en fullstendig oppgave allerede nå."
     },
     {
       "id": "tma4135-2-1-def-coverup",

@@ -44,7 +44,7 @@
   {
    "id": "in2010-4-4-t-1",
    "type": "text",
-   "content": "## Løkke 1 — alltid-minste-først-køen (ca. 13 min)\n\nEt kommunalt vaktlag tar imot meldinger om hull i veien. Hver melding får et\nhastetall: 1 er «gjennomgående hovedvei, må fikses i dag», 9 er «grusvei til en\nhytteklynge». Meldingene kommer inn hulter til bulter gjennom dagen, og laget\nskal alltid ta den mest hastende først.\n\nEn vanlig kø hjelper ikke — den gir deg den **eldste** meldingen, ikke den mest\nhastende. En sortert liste hjelper heller ikke helt: hver nye melding må settes\ninn på riktig plass, og det koster $O(n)$ når lista er lang.\n\nDet du trenger, er en struktur der du kan gjøre **to** ting billig: legge inn en\nny melding, og plukke ut den med lavest hastetall. Det er en **prioritetskø**, og\nden vanligste måten å bygge den på er en **heap**.\n\nTrikset i heapen er at den ikke holder alt sortert. Den holder bare akkurat nok\norden til at det minste elementet alltid ligger øverst — og «akkurat nok» er\nbillig å vedlikeholde."
+   "content": "## alltid-minste-først-køen (ca. 13 min)\n\nEt kommunalt vaktlag tar imot meldinger om hull i veien. Hver melding får et\nhastetall: 1 er «gjennomgående hovedvei, må fikses i dag», 9 er «grusvei til en\nhytteklynge». Meldingene kommer inn hulter til bulter gjennom dagen, og laget\nskal alltid ta den mest hastende først.\n\nEn vanlig kø hjelper ikke — den gir deg den **eldste** meldingen, ikke den mest\nhastende. En sortert liste hjelper heller ikke helt: hver nye melding må settes\ninn på riktig plass, og det koster $O(n)$ når lista er lang.\n\nDet du trenger, er en struktur der du kan gjøre **to** ting billig: legge inn en\nny melding, og plukke ut den med lavest hastetall. Det er en **prioritetskø**, og\nden vanligste måten å bygge den på er en **heap**.\n\nTrikset i heapen er at den ikke holder alt sortert. Den holder bare akkurat nok\norden til at det minste elementet alltid ligger øverst — og «akkurat nok» er\nbillig å vedlikeholde."
   },
   {
    "id": "in2010-4-4-def-1",
@@ -115,7 +115,7 @@
   {
    "id": "in2010-4-4-t-2",
    "type": "text",
-   "content": "## Løkke 2 — `Insert` og sift-up (ca. 13 min)\n\nEt nytt element skal inn. Hvor?\n\nStrukturkravet svarer med én gang: heapen er et komplett tre, så det er nøyaktig\n**én** plass det nye elementet kan ligge — den første ledige, altså indeks $n$\nbakerst i arrayet. Der legger vi det, og så er heap-egenskapen antakelig brutt,\nfordi elementet kan være mindre enn forelderen sin.\n\nReparasjonen heter **sift-up**: sammenlign med forelderen, bytt hvis elementet er\nmindre, og gjenta oppover. Du stopper når forelderen er mindre enn eller lik\nelementet, eller når du har nådd rota.\n\nLegg merke til hvor lite som skjer. Du berører **én sti** fra bunnen opp til\nrota, og den er $\\lfloor \\log_2 n \\rfloor$ ledd lang. Resten av heapen røres\nikke."
+   "content": "## `Insert` og sift-up (ca. 13 min)\n\nEt nytt element skal inn. Hvor?\n\nStrukturkravet svarer med én gang: heapen er et komplett tre, så det er nøyaktig\n**én** plass det nye elementet kan ligge — den første ledige, altså indeks $n$\nbakerst i arrayet. Der legger vi det, og så er heap-egenskapen antakelig brutt,\nfordi elementet kan være mindre enn forelderen sin.\n\nReparasjonen heter **sift-up**: sammenlign med forelderen, bytt hvis elementet er\nmindre, og gjenta oppover. Du stopper når forelderen er mindre enn eller lik\nelementet, eller når du har nådd rota.\n\nLegg merke til hvor lite som skjer. Du berører **én sti** fra bunnen opp til\nrota, og den er $\\lfloor \\log_2 n \\rfloor$ ledd lang. Resten av heapen røres\nikke."
   },
   {
    "id": "in2010-4-4-th-2",
@@ -195,7 +195,7 @@
   {
    "id": "in2010-4-4-t-3",
    "type": "text",
-   "content": "## Løkke 3 — `RemoveMin` og down-heap (ca. 14 min)\n\n— naturlig pausepunkt —\n\nNå til den operasjonen prioritetskøen egentlig finnes for: å plukke ut det minste\nelementet.\n\nSelve uthentingen er gratis — det minste ligger på indeks 0. Problemet er hullet\nsom blir igjen. Løsningen er å fylle det med det **siste** elementet i arrayet\n(det eneste som kan fjernes uten å ødelegge strukturkravet), krympe arrayet, og\nderetter la det innflyttede elementet **synke** til det er på plass.\n\nNedstigningen heter **down-heap**, og den har to detaljer som er hele forskjellen\nmellom full og halv uttelling:\n\n1. **Du synker alltid mot det MINSTE av barna.** Bytter du med det største, får\n   du et nytt brudd på veien ned, og heapen blir ugyldig.\n2. **Du må sjekke at barnet finnes.** Nederst i treet har noder ingen barn, og\n   noen har bare venstre barn. Å lese `H[2i+2]` uten å sjekke er felle **#3** i\n   bokas feilregister, og den har eksplisitt takpoeng i sensorveiledningene: uten\n   sjekken får du maks delvis uttelling, uansett hvor riktig resten er."
+   "content": "## `RemoveMin` og down-heap (ca. 14 min)\n\n— naturlig pausepunkt —\n\nNå til den operasjonen prioritetskøen egentlig finnes for: å plukke ut det minste\nelementet.\n\nSelve uthentingen er gratis — det minste ligger på indeks 0. Problemet er hullet\nsom blir igjen. Løsningen er å fylle det med det **siste** elementet i arrayet\n(det eneste som kan fjernes uten å ødelegge strukturkravet), krympe arrayet, og\nderetter la det innflyttede elementet **synke** til det er på plass.\n\nNedstigningen heter **down-heap**, og den har to detaljer som er hele forskjellen\nmellom full og halv uttelling:\n\n1. **Du synker alltid mot det MINSTE av barna.** Bytter du med det største, får\n   du et nytt brudd på veien ned, og heapen blir ugyldig.\n2. **Du må sjekke at barnet finnes.** Nederst i treet har noder ingen barn, og\n   noen har bare venstre barn. Å lese `H[2i+2]` uten å sjekke er felle **#3** i\n   bokas feilregister, og den har eksplisitt takpoeng i sensorveiledningene: uten\n   sjekken får du maks delvis uttelling, uansett hvor riktig resten er."
   },
   {
    "id": "in2010-4-4-th-3",
@@ -242,7 +242,7 @@
   {
    "id": "in2010-4-4-t-4",
    "type": "text",
-   "content": "## Løkke 4 — `BuildHeap`, og hvorfor den er $O(n)$ (ca. 10 min)\n\nDu har et vilkårlig array og vil gjøre det om til en heap. Den opplagte måten er\nå sette inn ett element om gangen: $n$ innsettinger à $O(\\log n)$, altså\n$O(n \\log n)$.\n\nDet finnes en bedre måte, og forskjellen er ikke bare konstantfaktorer — den er\nen hel $O$-klasse.\n\n**Ideen:** i stedet for å bygge ovenfra og ned, går du **nedenfra og opp**. Den\nnederste halvparten av arrayet er blader, og et blad er allerede en gyldig heap i\nseg selv. Start derfor på den siste **indre** noden, indeks\n$\\lfloor n/2 \\rfloor - 1$, og kjør `DownHeap` derfra og bakover til indeks 0.\n\n```text\nProcedure BuildHeap(A)\n  Input:  vilkaarlig array A med n elementer (indeks fra 0)\n  Output: A omgjort til en gyldig min-heap\n  n = |A|\n  for i = n/2 - 1 ned til 0:\n      DownHeap(A, i, n)\n  Kjoeretid: O(n)\n```\n\nHvorfor blir dette billigere? Fordi **de fleste nodene ligger nær bunnen og har\nkort vei å synke.** Den ene noden som kan synke helt gjennom treet, er rota — og\ndet er én node. Teoremet under teller det opp."
+   "content": "## `BuildHeap`, og hvorfor den er $O(n)$ (ca. 10 min)\n\nDu har et vilkårlig array og vil gjøre det om til en heap. Den opplagte måten er\nå sette inn ett element om gangen: $n$ innsettinger à $O(\\log n)$, altså\n$O(n \\log n)$.\n\nDet finnes en bedre måte, og forskjellen er ikke bare konstantfaktorer — den er\nen hel $O$-klasse.\n\n**Ideen:** i stedet for å bygge ovenfra og ned, går du **nedenfra og opp**. Den\nnederste halvparten av arrayet er blader, og et blad er allerede en gyldig heap i\nseg selv. Start derfor på den siste **indre** noden, indeks\n$\\lfloor n/2 \\rfloor - 1$, og kjør `DownHeap` derfra og bakover til indeks 0.\n\n```text\nProcedure BuildHeap(A)\n  Input:  vilkaarlig array A med n elementer (indeks fra 0)\n  Output: A omgjort til en gyldig min-heap\n  n = |A|\n  for i = n/2 - 1 ned til 0:\n      DownHeap(A, i, n)\n  Kjoeretid: O(n)\n```\n\nHvorfor blir dette billigere? Fordi **de fleste nodene ligger nær bunnen og har\nkort vei å synke.** Den ene noden som kan synke helt gjennom treet, er rota — og\ndet er én node. Teoremet under teller det opp."
   },
   {
    "id": "in2010-4-4-th-4",
@@ -276,7 +276,7 @@
   {
    "id": "in2010-4-4-t-5",
    "type": "text",
-   "content": "## Løkke 5 — de faste heap-faktaene (ca. 5 min)\n\nFire påstander om heaper går igjen på Del 1, år etter år. Tre av dem er laget for\nå fange den som «nesten» husker. Her er de, med begrunnelsene."
+   "content": "## de faste heap-faktaene (ca. 5 min)\n\nFire påstander om heaper går igjen på Del 1, år etter år. Tre av dem er laget for\nå fange den som «nesten» husker. Her er de, med begrunnelsene."
   },
   {
    "id": "in2010-4-4-def-6",

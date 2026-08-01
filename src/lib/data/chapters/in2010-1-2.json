@@ -44,7 +44,7 @@
     {
       "id": "in2010-1-2-t-1",
       "type": "text",
-      "content": "## Løkke 1 — én løkke, og løkker inni løkker (ca. 12 min)\n\nStart med det aller enkleste. Denne prosedyren legger sammen alle tallene i et\narray:\n\n```text\nProcedure Sum(A)\n  Input:  array A med n tall, indeksert fra 0\n  Output: summen av alle tallene i A\n  n = A.length\n  sum = 0\n  for i = 0 to n-1:\n      sum = sum + A[i]\n  return sum\n```\n\nLøkka går $n$ runder. Inni løkka står én linje som gjør en fast mengde arbeid:\nett oppslag og én addisjon, uansett hvor stort arrayet er. Total: $n$ ganger et\nkonstant arbeid, altså $O(n)$.\n\nDet er hele metoden. Alt annet i dette kapitlet er varianter av det samme\nspørsmålet: **hvor mange ganger kjører den innerste linja?**"
+      "content": "## én løkke, og løkker inni løkker (ca. 12 min)\n\nStart med det aller enkleste. Denne prosedyren legger sammen alle tallene i et\narray:\n\n```text\nProcedure Sum(A)\n  Input:  array A med n tall, indeksert fra 0\n  Output: summen av alle tallene i A\n  n = A.length\n  sum = 0\n  for i = 0 to n-1:\n      sum = sum + A[i]\n  return sum\n```\n\nLøkka går $n$ runder. Inni løkka står én linje som gjør en fast mengde arbeid:\nett oppslag og én addisjon, uansett hvor stort arrayet er. Total: $n$ ganger et\nkonstant arbeid, altså $O(n)$.\n\nDet er hele metoden. Alt annet i dette kapitlet er varianter av det samme\nspørsmålet: **hvor mange ganger kjører den innerste linja?**"
     },
     {
       "id": "in2010-1-2-th-1",
@@ -78,7 +78,7 @@
     {
       "id": "in2010-1-2-t-2",
       "type": "text",
-      "content": "## Løkke 2 — den konstante indre løkka (ca. 8 min)\n\nHer ligger den fella som koster flest poeng på sjanger B, og den er lett å se\nnår du først vet om den.\n\n```text\nProcedure NullstillNaboer(A)\n  Input:  array A med n tall, indeksert fra 0\n  Output: A der hvert element er erstattet av summen av seg selv og de ti neste\n  n = A.length\n  for i = 0 to n-1:\n      s = 0\n      for j = 0 to 9:\n          if i + j < n:\n              s = s + A[i + j]\n      A[i] = s\n```\n\nDet ser ut som to nøstede løkker, og to nøstede løkker er $O(n^2)$. Men se på\nden indre: den går **fra 0 til 9**. Alltid ti runder, uansett om arrayet har\nåtte eller åtte millioner elementer.\n\nTi er en konstant. Den innerste linja kjører derfor $10n$ ganger, og $10n$ er\n$O(n)$."
+      "content": "## den konstante indre løkka (ca. 8 min)\n\nHer ligger den fella som koster flest poeng på sjanger B, og den er lett å se\nnår du først vet om den.\n\n```text\nProcedure NullstillNaboer(A)\n  Input:  array A med n tall, indeksert fra 0\n  Output: A der hvert element er erstattet av summen av seg selv og de ti neste\n  n = A.length\n  for i = 0 to n-1:\n      s = 0\n      for j = 0 to 9:\n          if i + j < n:\n              s = s + A[i + j]\n      A[i] = s\n```\n\nDet ser ut som to nøstede løkker, og to nøstede løkker er $O(n^2)$. Men se på\nden indre: den går **fra 0 til 9**. Alltid ti runder, uansett om arrayet har\nåtte eller åtte millioner elementer.\n\nTi er en konstant. Den innerste linja kjører derfor $10n$ ganger, og $10n$ er\n$O(n)$."
     },
     {
       "id": "in2010-1-2-def-1",
@@ -112,7 +112,7 @@
     {
       "id": "in2010-1-2-t-3",
       "type": "text",
-      "content": "## Løkke 3 — når tellevariabelen dobles eller halveres (ca. 12 min)\n\n— naturlig pausepunkt —\n\nDen andre store gjenkjenningsoppgaven er løkker som ikke går **ett** steg av\ngangen, men ganger eller deler.\n\n```text\nj = 1\nwhile j < n:\n    x = x + 1\n    j = j * 2\n```\n\nMed $n = 8$ tar `j` verdiene 1, 2, 4 — tre runder, for ved $j = 8$ er ikke\nlenger `j < n`. Med $n = 16$ blir det fire runder, med $n = 32$ fem, med\n$n = 128$ sju.\n\nLegg merke til hva som skjedde: vi doblet $n$ fra 8 til 16, og antall runder\nøkte med **én**. Doblet vi $n$ igjen, økte det med én til. Det er nøyaktig\ndefinisjonen av en logaritme: antall doblinger fra 1 opp til $n$ er\n$\\lfloor \\log_2 n \\rfloor + 1$.\n\nLøkka er altså $O(\\log n)$ — og det gjelder like mye den motsatte veien:"
+      "content": "## når tellevariabelen dobles eller halveres (ca. 12 min)\n\n— naturlig pausepunkt —\n\nDen andre store gjenkjenningsoppgaven er løkker som ikke går **ett** steg av\ngangen, men ganger eller deler.\n\n```text\nj = 1\nwhile j < n:\n    x = x + 1\n    j = j * 2\n```\n\nMed $n = 8$ tar `j` verdiene 1, 2, 4 — tre runder, for ved $j = 8$ er ikke\nlenger `j < n`. Med $n = 16$ blir det fire runder, med $n = 32$ fem, med\n$n = 128$ sju.\n\nLegg merke til hva som skjedde: vi doblet $n$ fra 8 til 16, og antall runder\nøkte med **én**. Doblet vi $n$ igjen, økte det med én til. Det er nøyaktig\ndefinisjonen av en logaritme: antall doblinger fra 1 opp til $n$ er\n$\\lfloor \\log_2 n \\rfloor + 1$.\n\nLøkka er altså $O(\\log n)$ — og det gjelder like mye den motsatte veien:"
     },
     {
       "id": "in2010-1-2-def-2",
@@ -152,7 +152,7 @@
     {
       "id": "in2010-1-2-t-4",
       "type": "text",
-      "content": "## Løkke 4 — sekvens, og løkker som starter der den ytre står (ca. 10 min)\n\nTo siste mønstre, og så har du hele repertoaret.\n\n**Sekvens.** Står to løkker etter hverandre, legges de sammen — og den verste\noverlever:\n\n```text\nfor i = 0 to n-1:\n    for j = 0 to n-1:\n        x = x + 1\n\nfor i = 0 to n-1:\n    y = y + 1\n```\n\nDen første blokken er $O(n^2)$, den andre er $O(n)$. Til sammen $n^2 + n$, og\ndet dominerende leddet er $n^2$. **Svaret er $O(n^2)$.**\n\n**Trekantløkker.** Denne varianten dukker opp hver gang koden skal se på alle\n**par** uten å telle samme par to ganger:\n\n```text\nfor i = 0 to n-1:\n    for j = i to n-1:\n        x = x + 1\n```\n\nDen indre løkka går $n$ runder når `i` er 0, $n-1$ runder når `i` er 1, og til\nslutt bare 1 runde. Summen er $n + (n-1) + \\cdots + 1 = \\frac{n(n+1)}{2}$, som\ner $O(n^2)$ — halvparten av arbeidet til to fulle løkker, men samme orden,\nfordi $\\frac{1}{2}$ er en konstant."
+      "content": "## sekvens, og løkker som starter der den ytre står (ca. 10 min)\n\nTo siste mønstre, og så har du hele repertoaret.\n\n**Sekvens.** Står to løkker etter hverandre, legges de sammen — og den verste\noverlever:\n\n```text\nfor i = 0 to n-1:\n    for j = 0 to n-1:\n        x = x + 1\n\nfor i = 0 to n-1:\n    y = y + 1\n```\n\nDen første blokken er $O(n^2)$, den andre er $O(n)$. Til sammen $n^2 + n$, og\ndet dominerende leddet er $n^2$. **Svaret er $O(n^2)$.**\n\n**Trekantløkker.** Denne varianten dukker opp hver gang koden skal se på alle\n**par** uten å telle samme par to ganger:\n\n```text\nfor i = 0 to n-1:\n    for j = i to n-1:\n        x = x + 1\n```\n\nDen indre løkka går $n$ runder når `i` er 0, $n-1$ runder når `i` er 1, og til\nslutt bare 1 runde. Summen er $n + (n-1) + \\cdots + 1 = \\frac{n(n+1)}{2}$, som\ner $O(n^2)$ — halvparten av arbeidet til to fulle løkker, men samme orden,\nfordi $\\frac{1}{2}$ er en konstant."
     },
     {
       "id": "in2010-1-2-def-4",
@@ -198,7 +198,7 @@
     {
       "id": "in2010-1-2-t-5",
       "type": "text",
-      "content": "## Løkke 5 — sammensatte snutter og et blikk på rekursjon (ca. 10 min)\n\nPå eksamen kommer sjanger B som regel med to eller tre nivåer der minst ett er\nen dobling. Da er framgangsmåten uendret: ta ett nivå om gangen, innenfra og ut."
+      "content": "## sammensatte snutter og et blikk på rekursjon (ca. 10 min)\n\nPå eksamen kommer sjanger B som regel med to eller tre nivåer der minst ett er\nen dobling. Da er framgangsmåten uendret: ta ett nivå om gangen, innenfra og ut."
     },
     {
       "id": "in2010-1-2-ex-5",

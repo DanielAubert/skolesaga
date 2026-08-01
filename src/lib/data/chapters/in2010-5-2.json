@@ -44,7 +44,7 @@
   {
    "id": "in2010-5-2-t-1",
    "type": "text",
-   "content": "## Løkke 1 — bredde-først: køen og lagene (ca. 15 min)\n\nEn beskjed skal ut i et nettverk av kolleger. Du sender den til alle du\nkjenner direkte. De sender den videre til alle **de** kjenner, som ikke\nallerede har fått den. Og så videre.\n\nEtter første runde har alle som er ett ledd unna, fått beskjeden. Etter andre\nrunde alle som er to ledd unna. **Rundene er lag**, og de kommer i rekkefølge\n— det er hele ideen bak bredde-først-søk.\n\nFor at det skal virke mekanisk, trenger du to ting. Du trenger et sted å\nlegge dem som har fått beskjeden, men ikke har sendt den videre ennå — det er\n**køen**. Og du trenger å huske hvem som allerede har fått den — det er\n**merket** `v.besokt`. Uten merket sender kollegene beskjeden fram og tilbake\ntil hverandre for alltid, og programmet ditt stopper aldri."
+   "content": "## bredde-først: køen og lagene (ca. 15 min)\n\nEn beskjed skal ut i et nettverk av kolleger. Du sender den til alle du\nkjenner direkte. De sender den videre til alle **de** kjenner, som ikke\nallerede har fått den. Og så videre.\n\nEtter første runde har alle som er ett ledd unna, fått beskjeden. Etter andre\nrunde alle som er to ledd unna. **Rundene er lag**, og de kommer i rekkefølge\n— det er hele ideen bak bredde-først-søk.\n\nFor at det skal virke mekanisk, trenger du to ting. Du trenger et sted å\nlegge dem som har fått beskjeden, men ikke har sendt den videre ennå — det er\n**køen**. Og du trenger å huske hvem som allerede har fått den — det er\n**merket** `v.besokt`. Uten merket sender kollegene beskjeden fram og tilbake\ntil hverandre for alltid, og programmet ditt stopper aldri."
   },
   {
    "id": "in2010-5-2-def-1",
@@ -144,7 +144,7 @@
   {
    "id": "in2010-5-2-t-2",
    "type": "text",
-   "content": "## Løkke 2 — dybde-først med rekursjon (ca. 13 min)\n\n— naturlig pausepunkt —\n\nBytt ut beskjeden i nettverket med en person som utforsker et tunnelsystem.\nHun går inn i den første sidegangen hun ser, og i den første sidegangen der\nigjen, og fortsetter så langt hun kommer. Først når hun står i en blindvei,\nsnur hun og går tilbake til forrige veikryss for å prøve neste sidegang.\n\nDet er **dybde-først-søk**. Der bredde-først brer seg utover i ringer, borer\ndybde-først seg ned.\n\nOg legg merke til hva «gå tilbake til forrige veikryss» er: det er nøyaktig\ndet et **rekursivt kall** gjør når det returnerer. Derfor er dybde-først\nkortest og klarest skrevet rekursivt — og rekursjon er pensum i IN2010, så\ndet er formen du skal bruke. Den iterative varianten med en eksplisitt stakk\nkommer i neste løkke, og den gjør det samme."
+   "content": "## dybde-først med rekursjon (ca. 13 min)\n\n— naturlig pausepunkt —\n\nBytt ut beskjeden i nettverket med en person som utforsker et tunnelsystem.\nHun går inn i den første sidegangen hun ser, og i den første sidegangen der\nigjen, og fortsetter så langt hun kommer. Først når hun står i en blindvei,\nsnur hun og går tilbake til forrige veikryss for å prøve neste sidegang.\n\nDet er **dybde-først-søk**. Der bredde-først brer seg utover i ringer, borer\ndybde-først seg ned.\n\nOg legg merke til hva «gå tilbake til forrige veikryss» er: det er nøyaktig\ndet et **rekursivt kall** gjør når det returnerer. Derfor er dybde-først\nkortest og klarest skrevet rekursivt — og rekursjon er pensum i IN2010, så\ndet er formen du skal bruke. Den iterative varianten med en eksplisitt stakk\nkommer i neste løkke, og den gjør det samme."
   },
   {
    "id": "in2010-5-2-def-6",
@@ -190,7 +190,7 @@
   {
    "id": "in2010-5-2-t-3",
    "type": "text",
-   "content": "## Løkke 3 — den samme traverseringen uten rekursjon (ca. 8 min)\n\nKallstakken i eksempel 3 var ikke magi. Den var en **stakk**: kall legges\nøverst, returer tas av øverst. Bytter du den ut med en stakk du styrer selv,\nfår du nøyaktig den samme traverseringen uten et eneste rekursivt kall.\n\nDet er verdt å kunne begge formene. Den rekursive er kortere og er den du bør\nskrive på eksamen; den iterative viser hva som faktisk skjer, og er svaret\nhvis en oppgave uttrykkelig ber om en variant uten rekursjon."
+   "content": "## den samme traverseringen uten rekursjon (ca. 8 min)\n\nKallstakken i eksempel 3 var ikke magi. Den var en **stakk**: kall legges\nøverst, returer tas av øverst. Bytter du den ut med en stakk du styrer selv,\nfår du nøyaktig den samme traverseringen uten et eneste rekursivt kall.\n\nDet er verdt å kunne begge formene. Den rekursive er kortere og er den du bør\nskrive på eksamen; den iterative viser hva som faktisk skjer, og er svaret\nhvis en oppgave uttrykkelig ber om en variant uten rekursjon."
   },
   {
    "id": "in2010-5-2-def-8",
@@ -236,7 +236,7 @@
   {
    "id": "in2010-5-2-t-4",
    "type": "text",
-   "content": "## Løkke 4 — hele grafen, og det faste kjøretidsskillet (ca. 10 min)\n\n— naturlig pausepunkt —\n\nBåde `BFS` og `DFSVisit` starter i én node og merker det de kan nå derfra.\nMen i [kap. 5.1](/in2010/in2010-5-1) så du en graf med tre atskilte biter, og\nen node uten en eneste kant. En traversering fra A ville aldri sett dem.\n\nSkal **hele** grafen dekkes, må du derfor gå over alle nodene og starte en ny\ntraversering hver gang du finner en som ikke er merket. Det er `DFSFull`.\n\nOg det er her det faste trekkpunktet i faget ligger. De to prosedyrene har\n**forskjellig kjøretid**, og forskjellen er ikke pedantisk — den er\neksplisitt påpekt i sensorenes veiledninger, og den er grunnen til at feilen\nhar fått et eget nummer i bokas feilregister."
+   "content": "## hele grafen, og det faste kjøretidsskillet (ca. 10 min)\n\n— naturlig pausepunkt —\n\nBåde `BFS` og `DFSVisit` starter i én node og merker det de kan nå derfra.\nMen i [kap. 5.1](/in2010/in2010-5-1) så du en graf med tre atskilte biter, og\nen node uten en eneste kant. En traversering fra A ville aldri sett dem.\n\nSkal **hele** grafen dekkes, må du derfor gå over alle nodene og starte en ny\ntraversering hver gang du finner en som ikke er merket. Det er `DFSFull`.\n\nOg det er her det faste trekkpunktet i faget ligger. De to prosedyrene har\n**forskjellig kjøretid**, og forskjellen er ikke pedantisk — den er\neksplisitt påpekt i sensorenes veiledninger, og den er grunnen til at feilen\nhar fått et eget nummer i bokas feilregister."
   },
   {
    "id": "in2010-5-2-def-10",
@@ -309,7 +309,7 @@
   {
    "id": "in2010-5-2-t-5",
    "type": "text",
-   "content": "## Løkke 5 — samme graf, to rekkefølger (ca. 9 min)\n\nTil slutt skal de to settes ved siden av hverandre på nøyaktig den samme\ngrafen, fra nøyaktig den samme noden. Det er den formen spørsmålet kommer i\npå eksamen: «oppgi besøksrekkefølgen for bredde-først og for dybde-først».\n\nPoenget er ikke å pugge to rekkefølger, men å se **hvorfor** de skiller lag:\nkøen tvinger fram lagene, stakken tvinger fram dybden."
+   "content": "## samme graf, to rekkefølger (ca. 9 min)\n\nTil slutt skal de to settes ved siden av hverandre på nøyaktig den samme\ngrafen, fra nøyaktig den samme noden. Det er den formen spørsmålet kommer i\npå eksamen: «oppgi besøksrekkefølgen for bredde-først og for dybde-først».\n\nPoenget er ikke å pugge to rekkefølger, men å se **hvorfor** de skiller lag:\nkøen tvinger fram lagene, stakken tvinger fram dybden."
   },
   {
    "id": "in2010-5-2-fig-2",
