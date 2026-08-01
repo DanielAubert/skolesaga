@@ -69,7 +69,7 @@ distinksjoner sensor tester, hvordan et tema henger sammen), vinner
    (etterprøvd mot disk 31. juli 2026).
 5. **«Markedsmodellen kommer i praksis hvert år» er feil.** Temaet finnes
    **ikke i ett eneste sett før H2017**; riktig er 6 av 15 terminer, men 6 av de
-   9 settene fra H2017 (§6.2.1).
+   8 settene fra H2017 (§6.2.1).
 6. **«~45 talte oppgave-slots» og nevneren «åtte veiledninger» er feil.**
    Kanonisk nevner for alle frekvenspåstander er **15 terminer**; slot-summen er
    **78**.
@@ -546,7 +546,7 @@ forekomme noe sted.**
   eldste terminene, skriver du «oppgavesettene fra H2010–H2014 viser at …» —
   settene er kilden der, ikke veiledningene.
 - **Kanonisk nevner for enhver frekvenspåstand er 15 terminer.** Delkorpus er
-  tillatt, men **bare navngitt i samme setning**: «6 av de 9 settene fra H2017»,
+  tillatt, men **bare navngitt i samme setning**: «6 av de 8 settene fra H2017»,
   «9 av de 10 settene fra H2015», «0 av de 7 settene før H2017», «0 av de 5
   settene fra H2021». **Blandede nevnere i samme setning er forbudt**, og ingen
   «N av M»-påstand får stå uten oppgitt M. Slot-telleren (78) er sekundærmål og
@@ -729,7 +729,7 @@ Nevneren er alltid **15 terminer**. Delkorpus navngis i samme setning (§6.1.1).
 | 2.2 | Folkeforbundet, mellomkrigsorden og FNs oppbygging | «~3 slots ⭐⭐» | **4 av 15 terminer (H2017, H2018, H2019, H2025) · 4 slots.** Nær-gjenbruk H2018-H ≈ H2025-A | kunne |
 | 2.3 | Menneskerettigheter | «~1 slot ⭐ (H2016)» | **4 av 15 terminer (H2010, H2012, H2013, H2016) · 4 slots — men ingen forekomst etter H2016.** Kraftig undervurdert i skjelettet historisk, men tidsvektet fortsatt lavt | bør kjenne til |
 | 2.4 | Det klassiske europeiske statssystemet / Westfalen | «~2 slots (H2015-IId, H2019-F)» | **2 av 15 terminer — H2016 og H2019, IKKE H2015.** Skjelettets H2015-attribusjon er feil (temaet hører til H2016). Ingen forekomst etter H2019 | bør kjenne til |
-| 3.1, 3.2 | Markedsmodellen med sjokk | «~9 slots ⭐⭐⭐, kjernen i ØK-oppgaven **hvert år**» | **6 av 15 terminer · 6 slots — men 6 av de 9 settene fra H2017, og 0 av de 7 settene før H2017.** «Hvert år» og «praktisk talt hvert år» er **FORBUDT** (§14.5). Riktig ramme: en nyere fixtur som har vært i tre av de fire siste settene | høyeste prioritet |
+| 3.1, 3.2 | Markedsmodellen med sjokk | «~9 slots ⭐⭐⭐, kjernen i ØK-oppgaven **hvert år**» | **6 av 15 terminer · 6 slots — men 6 av de 8 settene fra H2017, og 0 av de 7 settene før H2017.** «Hvert år» og «praktisk talt hvert år» er **FORBUDT** (§14.5). Riktig ramme: en nyere fixtur som har vært i tre av de fire siste settene | høyeste prioritet |
 | 3.3 | Eksternaliteter, klima og karbonprising · kollektive goder | «~9 innvevd + ~3 kollektive goder» | **Klima/eksternaliteter/karbonprising: 9 av 15 terminer · 10 slots — 9 av de 10 settene fra H2015.** Virkemiddelvurderingen (ØVM) er **hovedoppgave i 4 av 15 terminer** (H2016, H2019, H2021, H2022). **Kollektive goder / allmenningens tragedie: 3 av 15 (H2015, H2018, H2025) · 4 slots.** Coase er eksplisitt krav **kun i H2019** | høyeste prioritet |
 | 3.4 | Frihandel, komparativt fortrinn, kostnadsbegreper | «~3 slots ⭐⭐ (H2016-Ib, H2022-B, H2023-D)» | **Frihandel/handelsregime: 2–3 av 15 terminer (H2021 delvis, H2022, H2023) · 3 slots — alle i Fase 2, stigende.** **ØK-kostnadsbegreper: 1 av 15 (H2016).** Merk: skjelettets «H2016-Ib» er en **globaliseringsoppgave** og hører til kap. 5.1, ikke hit | kunne |
 | 4.1 | Folkerettslig maktbruk og FN-pakten | «~5 slots ⭐⭐⭐» | **8 av 15 terminer (H2010, H2011, H2012, H2014, H2015, H2018, H2022, H2024) · 10 slots — fagets tyngste JUS-tema.** Ordrett gjenbrukt H2018-C → H2022-D | høyeste prioritet |
@@ -749,7 +749,7 @@ Nevneren er alltid **15 terminer**. Delkorpus navngis i samme setning (§6.1.1).
 | «to av filene er identiske dubletter av H2023-veiledningen» | det finnes **én** H2023-fil | utelat helt; arkivet har ingen dubletter |
 | «~45 talte oppgave-slots» | slot-summen er **78** over 15 terminer | «78 oppgave-slots over 15 terminer» |
 | «tre semestre mangler (H2017, H2020, H2021)» | H2017 finnes som **oppgavesett**, H2021 som **veiledning**; bare H2020 mangler | «H2020 mangler helt; H2017 finnes som sett uten veiledning, H2021 som veiledning uten eget sett» |
-| «markedsmodellen kommer i praksis hvert år» | temaet finnes **ikke** i noen av de sju settene før H2017 | «6 av de 9 settene fra H2017 — en nyere fixtur, ikke en historisk konstant» |
+| «markedsmodellen kommer i praksis hvert år» | temaet finnes **ikke** i noen av de sju settene før H2017 | «6 av de 8 settene fra H2017 — en nyere fixtur, ikke en historisk konstant» |
 | «eksamensformen la om i 2022, og boka trener det nye formatet» | Fase 2-formen er dokumentert fra **H2021**; H2022 var en retur til skoleeksamen, ikke et strukturskifte | «formen med fire brede oppgaver er dokumentert fra H2021; H2020 og H2021 ble avviklet hjemme, deretter på skolen igjen» |
 | «H2022→-format» som navn på dagens form | samme grunn | «dagens format (H2021→)» |
 | «vurderingen er kombinert i hele arkivperioden» | først dokumentert fra **H2016**; H2013–H2015 oppgir 100 % på skoleeksamen | §6.1.3 |
@@ -1464,9 +1464,15 @@ sammensatt», «begge hensyn er viktige»):
   `definition`-blokker slettes ALDRI for å «rydde» — de er flashcard-kilden.
 - **Øktmerking:** alle kapitler med `estimatedMinutes > 45` — altså 0.2, 0.3,
   1.1, 1.2, 2.1, 2.2, 3.1, 3.2, 3.3, 3.4, 4.1, 4.2, 5.1, 5.2, 6.1, 6.2, 6.3,
-  6.4, 6.5, 6.7 og 6.8 — har tidsanslag per løkke («Løkke 3 — avgiftsdelingen
-  (~15 min)») eller eksplisitte «— naturlig pausepunkt —»-markører. Lange
-  modellbesvarelser har pausepunkt mellom hovedseksjonene.
+  6.4, 6.5, 6.7 og 6.8 — har tidsanslag i underoverskriften («## Avgiftsdelingen
+  og hvem som faktisk betaler (~15 min)») eller eksplisitte «— naturlig
+  pausepunkt —»-markører. Lange modellbesvarelser har pausepunkt mellom
+  hovedseksjonene.
+  ⚠ Overskriften skal bære **navnet**, aldri løkkenummeret. Denne linja sto
+  selv med «Løkke 3 — avgiftsdelingen» som mønstereksempel, og ville
+  gjeninnført formen hos neste forfatter — verifikatoren fanget det etter at
+  66 slike overskrifter var ryddet ut av boka. Jf. BYGGEKONTRAKT-MAL
+  «Underoverskrifter — ALDRI byggespråk».
 - **Tidsbudsjett-konsistens:** der en oppgaves deklarerte tid avviker fra summen
   av deltidene, forklares differansen (§6.6). «Lite tid?»-boksen sier eksplisitt
   at kapitlenes tidsanslag er **LESEtid**, og at den som skriver besvarelser for
@@ -1658,7 +1664,7 @@ eksamen.
 
 | Kode | Analysens type | Sjanger | Status | Hjem i boka |
 |---|---|---|---|---|
-| **ØF** | A | ØK-figuroppgave — beskriv/forklar tilbud og etterspørsel og analyser et sjokk, med mekanismen | i bruk (6 av 15 terminer; 6 av de 9 settene fra H2017) | 3.1–3.2 · 6.1 · 6.7 |
+| **ØF** | A | ØK-figuroppgave — beskriv/forklar tilbud og etterspørsel og analyser et sjokk, med mekanismen | i bruk (6 av 15 terminer; 6 av de 8 settene fra H2017) | 3.1–3.2 · 6.1 · 6.7 |
 | **ØVM** | A2 | ØK-virkemiddelvurdering i miljøpolitikken — ekstern virkning + avgift mot omsettelige kvoter mot uomsettelige kvoter mot subsidier, rangert på de tre kriteriene | i bruk (hovedoppgave i 4 av 15 terminer) | 3.3 · 6.1 · 6.7 |
 | **IPD** | B | IP «redegjør+drøft med teori» — kort redegjørelse + drøfting knyttet til minst én teoritradisjon, ANVENDT | i bruk (kjernen i Fase 2) | 1.1–1.3 · 6.2 · 6.8 |
 | **HRE** | C | HIST-redegjørelse med eksempelkrav — forklar et historisk fenomen + minst ett konkret eksempel | i bruk (9 av 15 terminer med kald krig, 4 av 15 med mellomkrig/FN) | 2.1–2.4 · 6.3 · 6.8 |
@@ -1755,12 +1761,12 @@ python3 scripts/hoyskolebok/sjekk-prosaregel.py inter1000 \
 # 5) FREKVENSPORTEN: «hvert år»/«alltid» krever en telling som bærer det
 python3 scripts/hoyskolebok/sjekk-prosaregel.py inter1000 \
     "hvert år|alle settene|alle terminene|i praksis hvert år|alltid med" \
-    "av 15|av de 10 settene|av de 9 settene|av de 5 settene|fra H2015|fra H2017|læringsmål"
+    "av 15|av de 10 settene|av de 8 settene|av de 5 settene|fra H2015|fra H2017|læringsmål"
 
 # 6) MARKEDSMODELL-PORTEN: temaet er ikke en historisk konstant
 python3 scripts/hoyskolebok/sjekk-prosaregel.py inter1000 \
     "markedsmodellen|stykkskatt|avgiftsdeling" \
-    "fra H2017|av de 9 settene|6 av 15|H2017|H2018|H2019|H2023|H2024|H2025|mekanism|figur|elastisitet|likevekt|pris"
+    "fra H2017|av de 8 settene|6 av 15|H2017|H2018|H2019|H2023|H2024|H2025|mekanism|figur|elastisitet|likevekt|pris"
 
 # 7) TRE-OPPGAVE-PORTEN: «velg 3» hviler på H2025 alene
 python3 scripts/hoyskolebok/sjekk-prosaregel.py inter1000 \
