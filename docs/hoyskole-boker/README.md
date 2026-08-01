@@ -300,8 +300,8 @@ ferdig (= rammeverk komplett, klart for Opus-bygging via BYGGEKONTRAKT-MAL) ·
 
 | Emne | Arketype | Status |
 |---|---|---|
-| PSYC1202 Profesjonsforberedende 1 (UiO) | drøfting/kasus | skjelett + **kontrakt** |
-| STV1400 Offentlig politikk og administrasjon (UiO) | drøfting | skjelett + **kontrakt** |
+| PSYC1202 Profesjonsforberedende 1 (UiO) | drøfting/kasus | **bok** (live) |
+| STV1400 Offentlig politikk og administrasjon (UiO) | drøfting | **bok** (live) |
 | STV1200 Internasjonal politikk (UiO) | drøfting | skjelett + **kontrakt** |
 | INTER1000 Innføringsemne i internasjonale studier (UiO) | drøfting/tverrfaglig | skjelett + **kontrakt** |
 | SGO1001 Innføring i samfunnsgeografi (UiO) | drøfting | **bok** (live) |
