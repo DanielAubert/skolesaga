@@ -52,6 +52,40 @@ ALL_A_FASIT = re.compile(r"\b1a\b[^\n]{0,12}\b2a\b[^\n]{0,12}\b3a\b")
 def _forklart(s):  # whitelist: teksten forklarer skala/kode ⇒ ikke merknad
     return bool(re.search(r"karakter|A[–-]F|bestått|forkort|= |betyr|dvs\.", s, re.I))
 
+# Byggespråk som lekker til leseren (BLOKKERENDE — nytt 2. august 2026).
+# «Læringsløkke» er byggeplanens ord for hvordan et kapittel settes sammen;
+# leseren skal aldri se det. Likevel nådde 3 048 overskrifter + 1 024
+# kryssreferanser ut i live bøker, fordelt på fire former som hver slapp unna
+# forrige runde med rydding:
+#   ## Løkke 3 — Varians            (tall i overskrift)
+#   «Repeter løkke 2 og 3»          (liten forbokstav i prosa — 820 treff)
+#   ## Løkke B — Subsumsjonen       (bokstav i stedet for tall — 109 treff)
+#   | Løkke | Innhold | Tid |       (tabellhode uten nummer)
+# Mønsteret krever nummer/bokstav ETTER ordet, aldri ordet alene: i
+# programmeringsfagene er «løkke» et sentralt fagbegrep (in1900 har 770
+# for-/while-løkker), og en port forankret på ordet ville vært ubrukelig der.
+#
+# Ordene deles i to klasser, fordi de har ulik sannsynlighet for å være ekte:
+#   BLOKKERENDE: «Løkke N» og «Bolk N» er byggeplanens egne ord. De har ingen
+#     legitim bruk som overskrift i noen av bøkene våre.
+#   RÅDGIVENDE: «Blokk N», «Runde N», «Sekvens N», «Modul N», «Iterasjon N» er
+#     ekte fagord i flere fag. med1100 har «## Blokk 1 i detalj» fordi UiOs
+#     medisineksamen FAKTISK består av tre blokker; econ1100 har «Runde 2» om
+#     multiplikatorprosessen. Porten kan ikke avgjøre dette — mennesket kan.
+BYGGESPRAK_OVERSKRIFT = re.compile(r"#{2,4}\s*(?:Løkke|Bolk)\s+[0-9A-ZÆØÅ]\b")
+BYGGESPRAK_OVERSKRIFT_KANSKJE = re.compile(
+    r"#{2,4}\s*(?:Blokk|Runde|Sekvens|Modul|Iterasjon)\s+[0-9A-ZÆØÅ]\b")
+# Prosa-mønsteret dekker BARE «løkke», ikke de andre ordene. En måling 2.
+# august fant 119 «Runde N» i prosa — bobblesorteringsrunder, polynomdivisjon,
+# iterert dominans, delvis integrasjon, designiterasjoner, kall-og-svar i
+# musikk — og alle var ekte. Et bredere mønster her ville vært ren støy.
+BYGGESPRAK_PROSA = re.compile(
+    r"(?<!#)(?<!# )\b[Ll]økke[nra]?\s+(?:[0-9]+|[A-ZÆØÅ])\b(?![-\w])")
+# Tabellhodet er RÅDGIVENDE: i algoritme-/programmeringsbøker er «| Løkke |»
+# et ekte sporingstabell-hode (in1900, tdt4110, naturfag-9-5-6 har gyldige),
+# mens in2010 hadde det som byggespråk. Bare et menneske ser forskjellen.
+BYGGESPRAK_TABELL = re.compile(r"\|\s*Løkke[nr]?\s*\|")
+
 for f in files:
     cid = os.path.basename(f)[:-5]
     try:
@@ -97,6 +131,24 @@ for f in files:
     # forbudte felt
     if re.search(r"solutionVideo|allowsUpload|allowsCanvasDrawing", txt):
         issues.append(f"{cid}: forbudte exercise-felt")
+    # byggespråk som lekker til leseren
+    m = BYGGESPRAK_OVERSKRIFT.search(txt)
+    if m:
+        issues.append(f"{cid}: byggespråk i overskrift — «{m.group(0).strip()}»; "
+                      f"overskriften skal si hva avsnittet handler om")
+    m = BYGGESPRAK_OVERSKRIFT_KANSKJE.search(txt)
+    if m:
+        notes.append(f"{cid}: «{m.group(0).strip()}» i overskrift — byggespråk, "
+                     f"eller fagets eget navn (eksamensblokk, multiplikatorrunde)? "
+                     f"Vurder selv")
+    n_prosa = len(BYGGESPRAK_PROSA.findall(txt))
+    if n_prosa:
+        ett = BYGGESPRAK_PROSA.search(txt).group(0)
+        issues.append(f"{cid}: {n_prosa} nummerert løkke-referanse(r) i prosa "
+                      f"(«{ett}») — vis til avsnittet ved NAVN, ikke nummer")
+    if BYGGESPRAK_TABELL.search(txt):
+        notes.append(f"{cid}: tabellkolonne «| Løkke |» — byggespråk, eller "
+                     f"ekte sporingstabell for programmeringsløkker? Vurder selv")
     # døde lenker
     # /bok-prefikset ble fjernet 27. juli 2026 (kapitler ligger nå på
     # /<kurs>/<kapittel>). Sto det gamle mønsteret igjen her, ville regexen

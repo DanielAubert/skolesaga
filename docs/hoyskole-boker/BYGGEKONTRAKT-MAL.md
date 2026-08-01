@@ -39,6 +39,42 @@ overskrifter må derfor forankres på syntaks — `## Løkke <tall> — ` og
 erstatning»: søk-og-erstatt over kapitteldata har ødelagt innhold tre
 ganger.
 
+### Fire former forankringen må dekke — alle fire har sluppet gjennom
+
+Ryddingen 1.–2. august gikk i fire runder fordi hver runde bare fant sin
+egen form. Sjekk **alle fire** før du erklærer en bok ren:
+
+| form | eksempel | hvorfor den slapp unna |
+|---|---|---|
+| tall i overskrift | `## Løkke 3 — Varians` | — (fanget først) |
+| **liten forbokstav i prosa** | «Repeter løkke 2 og 3» | søket krevde stor L; 820 treff i 297 filer |
+| **bokstav i stedet for tall** | `## Løkke B — Subsumsjonen` | mønsteret krevde siffer; 109 i jus1111 + econ1310 |
+| **tabellkolonne uten tall** | `\| Løkke \| Innhold \| Tid \|` | ordet står alene, uten nummer etter |
+
+Den siste er farligst i programmeringsbøkene: `in2010` hadde
+kapitteloversikter med kolonnehodet `| Løkke |` rett over prosa om ytre
+løkker i DFS — byggespråk og fagord på samme skjerm.
+
+Kjør denne før ferdigmelding, og forvent **null** treff utenfor ekte
+fagbruk:
+
+```bash
+grep -rnE '#{2,4}[[:space:]]*Løkke|[Ll]økke[[:space:]]+[0-9A-ZÆØÅ]|\| Løkke \|' \
+  src/lib/data/chapters/
+```
+
+**Overskrift og kryssreferanse må ryddes i SAMME operasjon.** Stripper du
+overskriftene først, blir «se løkke D» hengende og peker i tomme lufta —
+og en referanse som peker på ingenting er verre enn byggespråket den
+erstattet. Bygg et oppslagskart bokstav/tall → navn *før* du rører
+overskriftene.
+
+⚠ Ryddingen avdekket to referanser som pekte feil **allerede før** vi rørte
+dem: `jus1111-1-3` viste til «løkke B» i et kapittel som hopper fra A til
+C, og `fil1001-2-1` viste til et avsnitt om det Machianske svaret der
+innholdet gjaldt Leibniz. Nummererte kryssreferanser råtner stille — det
+er selve grunnen til at de skal være navn.
+
 ## BOKCONFIG `description` — HARDT FORMATKRAV (nytt 1. august 2026)
 
 Kursforsiden parser dette feltet og splitter det i tre visuelle elementer:
