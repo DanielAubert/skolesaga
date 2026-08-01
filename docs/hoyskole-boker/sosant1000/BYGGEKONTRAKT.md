@@ -397,7 +397,7 @@ tall):
 > begge veier. Veiledningene er uvanlig rike: de graderer hvert enkelt spørsmål
 > i tre nivåer, og de sier eksplisitt hva som skiller et godt svar fra et meget
 > godt. Det er dette grunnlaget kravene i boka hviler på, ikke gjetning.
-> **Det finnes ingen offisielle løsningsforslag og ingen fasit for SOSANT1000.**
+> **UiO publiserer verken fasit eller løsningsforslag for SOSANT1000, og ingen fasit.**
 > Alt du finner av modellbesvarelser og momentlister her er derfor skrevet av
 > oss, ut fra pensum og veiledningenes egne nivåbeskrivelser.
 > **Forbehold:** den utsatte eksamenen høsten 2020 har ingen veiledning,

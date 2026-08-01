@@ -405,7 +405,7 @@ tall):
 > er uvanlig konkrete: de beskriver hvert spørsmål på tre nivåer og sier rett ut
 > hva som skiller et godt svar fra et av de beste. Det er dette grunnlaget kravene
 > i boka hviler på, ikke gjetning.
-> **Det finnes ingen offisielle løsningsforslag og ingen fasit for SGO1001.** Alt
+> **UiO publiserer verken fasit eller løsningsforslag for SGO1001, og ingen fasit.** Alt
 > du finner av modellbesvarelser og momentlister her er derfor skrevet av oss, ut
 > fra pensum og veiledningenes egne nivåbeskrivelser.
 > **Forbehold:** emnet la om pensum rundt 2016–2017, så oppgavene fra 2003–2015

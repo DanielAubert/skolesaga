@@ -609,7 +609,7 @@ Bruk denne ordlyden, tilpasset i språk, **aldri i tall**:
 > en redegjørelse uten drøfting fra en besvarelse som når C, og hva som løfter
 > videre til B og A. Det er dette grunnlaget kravene i boka hviler på, ikke
 > gjetning.
-> **Det finnes ingen offisielle løsningsforslag og ingen fasit for STV1400.** Alt
+> **UiO publiserer verken fasit eller løsningsforslag for STV1400, og ingen fasit.** Alt
 > du finner av modellbesvarelser og momentlister her er derfor skrevet av oss, ut
 > fra pensum og veiledningenes egne nivåbeskrivelser.
 > **Forbehold:** **høsten 2016 mangler helt** i arkivet, og det finnes ingen

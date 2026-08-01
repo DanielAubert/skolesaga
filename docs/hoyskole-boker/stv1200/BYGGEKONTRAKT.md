@@ -679,7 +679,7 @@ Bruk denne ordlyden, tilpasset i språk, **aldri i tall**:
 > etter år, at begreper, teorier og empirisk kunnskap må **anvendes og drøftes**,
 > ikke bare gjengis. Det er dette grunnlaget kravene i boka hviler på, ikke
 > gjetning.
-> **Det finnes ingen offisielle løsningsforslag og ingen fasit for STV1200.** Alt
+> **UiO publiserer verken fasit eller løsningsforslag for STV1200, og ingen fasit.** Alt
 > du finner av modellbesvarelser og momentlister her er derfor skrevet av oss, ut
 > fra pensum og veiledningenes egne nivåbeskrivelser.
 > **Forbehold:** **høsten 2016 mangler helt** i arkivet, og det finnes ingen
