@@ -37,6 +37,7 @@ export const INSTITUSJONER: Institusjon[] = [
     image: '/images/institusjoner/uio.webp',
       imageHero: '/images/institusjoner/uio-hero.webp',
     subjects: [
+      { courseId: 'inter1000', name: 'INTER1000 Innføringsemne i internasjonale studier', icon: '🌐', color: 'from-slate-500 to-slate-700' },
       { courseId: 'stv1400', name: 'STV1400 Offentlig politikk og administrasjon', icon: '🏢', color: 'from-slate-500 to-slate-700' },
       { courseId: 'psyc1202', name: 'PSYC1202 Profesjonsforberedende 1 — etikk og profesjonsrolle', icon: '🧭', color: 'from-slate-500 to-slate-700' },
       { courseId: 'sgo1001', name: 'SGO1001 Innføring i samfunnsgeografi', icon: '🗺️', color: 'from-slate-500 to-slate-700' },
