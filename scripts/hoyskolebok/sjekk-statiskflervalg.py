@@ -37,6 +37,18 @@ TAK = 0.35          # over dette feiler porten
 MAL = 0.25          # sjansenivå ved fire alternativer
 MIN_N = 8           # under dette er tallet for støyete til å dømme etter
 
+# Et «strengt lengste» alternativ som er ÉN tegn lengre enn det nest lengste er
+# ikke et signal en student kan lese. Porten måler derfor to ting, og feiler
+# bare på den andre:
+#   · strengt lengst    — statistikken, nyttig som trend
+#   · SYNLIG lengst     — minst MARGIN_TEGN OG MARGIN_ANDEL lengre enn nest
+#                         lengste, altså faktisk mulig å se uten å telle
+# Første utkast feilet bare på «strengt lengst», og ville sendt en redaktør inn
+# i inter1000-3-prove for å rette seks oppgaver med margin 1, 1, 3, 4, 5 og 5
+# tegn — der ingenting var galt.
+MARGIN_TEGN = 12
+MARGIN_ANDEL = 0.20
+
 # Spørsmål: «**7.** Hva er …» eller «**Oppgave 7.** …», fulgt av a)–e)-linjer.
 SPM = re.compile(r"^\*{0,2}(?:Oppgave\s+)?(\d{1,2})[.)]\*{0,2}\s", re.M)
 ALT = re.compile(r"^\s*[-*]?\s*\*{0,2}([a-eA-E])\)\*{0,2}\s*(.+?)\s*$", re.M)
@@ -102,7 +114,7 @@ def mal_fil(sti):
         # collapsible-del, fasit i neste). Samle på tvers, koble på nummer.
         alle_oppg.update(_oppgaver(s))
         alle_fasit.update(_fasiter(s))
-    n = lengst = kortest = 0
+    n = lengst = kortest = synlig = 0
     eks = []
     for nr, alt in sorted(alle_oppg.items(), key=lambda x: int(x[0])):
         f = alle_fasit.get(nr)
@@ -114,10 +126,17 @@ def mal_fil(sti):
         andre = [v for k, v in lengder.items() if k != f]
         if fl > max(andre):
             lengst += 1
-            eks.append((nr, f, fl, max(andre), "lengst"))
+            margin = fl - max(andre)
+            if margin >= MARGIN_TEGN and margin >= MARGIN_ANDEL * max(andre):
+                synlig += 1
+                eks.append((nr, f, fl, max(andre), "lengst"))
         elif fl < min(andre):
             kortest += 1
-    return n, lengst, kortest, eks
+            margin = min(andre) - fl
+            if margin >= MARGIN_TEGN and margin >= MARGIN_ANDEL * fl:
+                synlig += 1
+                eks.append((nr, f, fl, min(andre), "kortest"))
+    return n, lengst, kortest, synlig, eks
 
 
 def ukoblet(sti):
@@ -141,13 +160,13 @@ def rapporter(emne, vis=False):
     rader, sum_n = [], 0
     verste = 0.0
     for f in filer:
-        n, lengst, kortest, eks = mal_fil(f)
+        n, lengst, kortest, synlig, eks = mal_fil(f)
         if n < MIN_N:
             continue
         sum_n += n
-        pl, pk = lengst / n, kortest / n
-        rader.append((os.path.basename(f)[:-5], n, pl, pk, eks))
-        verste = max(verste, pl, pk)
+        pl, pk, ps = lengst / n, kortest / n, synlig / n
+        rader.append((os.path.basename(f)[:-5], n, pl, pk, ps, eks))
+        verste = max(verste, ps)   # porten feiler på SYNLIG skjevhet
     if not rader:
         # Ingen målbare oppgaver — men FINNES det alternativer vi ikke klarte
         # å koble? Da er stillheten en parserfeil, ikke en ren bok.
@@ -158,13 +177,14 @@ def rapporter(emne, vis=False):
                   f"dette som at boka er ren.")
         return None, 0.0
     print(f"\n{emne}: {sum_n} statiske flervalg i {len(rader)} filer")
-    for cid, n, pl, pk, eks in sorted(rader, key=lambda r: -max(r[2], r[3])):
-        flagg = "  ⚠" if max(pl, pk) > TAK else ""
-        print(f"   {cid:26} n={n:3}  lengst {pl:5.0%}  kortest {pk:5.0%}{flagg}")
-        if vis and pl > TAK:
-            for nr, b, fl, nest, _ in eks[:3]:
-                print(f"       oppg {nr}: fasit {b}) er {fl} tegn, "
-                      f"nest lengste {nest} — {fl - nest} tegn margin")
+    for cid, n, pl, pk, ps, eks in sorted(rader, key=lambda r: -r[4]):
+        flagg = "  ⚠" if ps > TAK else ""
+        print(f"   {cid:26} n={n:3}  lengst {pl:5.0%}  kortest {pk:5.0%}"
+              f"  SYNLIG {ps:5.0%}{flagg}")
+        if vis and eks:
+            for nr, b, fl, nest, retning in eks[:4]:
+                print(f"       oppg {nr}: fasit {b}) {fl} tegn mot {nest} "
+                      f"— {abs(fl - nest)} tegns margin, {retning}")
     return rader, verste
 
 
