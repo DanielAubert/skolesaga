@@ -39,8 +39,8 @@ const quizData_psyc1202: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvor mange av de 19 eksamenssettene har bedt om at de fagetiske hovedprinsippene anvendes på et kasus?",
-      options: ["9 av 19 sett, og temaet er dermed det klart hyppigste enkelttemaet i arkivet.", "3 av 19 sett, og temaet er dermed blant de mest perifere i hele arkivet.", "16 av 19 sett, og temaet finnes dermed i nesten hvert eneste sett.", "19 av 19 sett, og temaet har dermed vært med i alle settene siden 2010."],
-      explanation: "Opptellingen over arkivet gir 9 av 19 sett, som gjør dette til det hyppigste enkelttemaet uten at det er i nærheten av alle sett. Alternativet med 3 av 19 tilsvarer den etiske beslutningsprosessen, ikke prinsippene. Alternativene med 16 og 19 tester en overdrivelse som ikke har belegg i opptellingen.",
+      options: ["9 av 19 sett, og temaet er dermed det klart hyppigste enkelttemaet i arkivet.", "3 av 19 sett, og temaet er dermed blant de mest perifere i hele arkivet.", "15 av 19 sett, og temaet finnes dermed i nesten hvert eneste sett.", "19 av 19 sett, og temaet har dermed vært med i alle settene siden 2010."],
+      explanation: "Opptellingen over arkivet gir 9 av 19 sett, som gjør dette til det hyppigste enkelttemaet uten at det er i nærheten av alle sett. Alternativet med 3 av 19 tilsvarer den etiske beslutningsprosessen, ikke prinsippene. De to høye tallene tester en overdrivelse som ikke har belegg i opptellingen.",
     },
     {
       question: "Respons-øvelsen forankret i Hill, «Helping Skills», er en egen oppgavesjanger. Hvordan er den belagt i arkivet?",
@@ -48,9 +48,9 @@ const quizData_psyc1202: Record<string, QuizQuestion[]> = {
       explanation: "Sjangeren er ny fra V2025 og finnes i tre sett — V2025, H2025 og V2026 — mens temaet empati og respons-ferdigheter er eldre og finnes i sju sett, med en annen pensumforankring i den eldre perioden. Alternativene som bytter om tallene eller lar dem falle sammen, tester nettopp sammenblandingen av tema og sjanger. Alternativet med 9 av 19 siden 2014 er uforenlig med at pensumboka kom inn i 2025.",
     },
     {
-      question: "Hva er «godt bestått» i denne boka?",
-      options: ["Bokas eget uttrykk for en besvarelse som ligger trygt over terskelen.", "En offisiell karakter i emnet, som føres på vitnemålet sammen med bestått.", "Sensors interne betegnelse på besvarelser som er vurdert av to sensorer.", "Et krav om at alle prinsippene i pensum skal behandles like grundig."],
-      explanation: "Uttrykket er bokas eget navn på margin over terskelen; emnet har bare bestått og ikke bestått, og ingenting annet føres på vitnemålet. Alternativet om en offisiell karakter er den misforståelsen boka eksplisitt advarer mot. Alternativet om lik behandling av alle prinsipper er direkte i strid med kravet om å prioritere de mest relevante.",
+      question: "Boka viser modellsvar både i «bestått»-versjon og i «godt bestått»-versjon. Hva er det som skiller de to versjonene?",
+      options: ["Godt bestått tar med flere berørte parter, prioriterer prinsippene og drøfter følgene av alternativene.", "Bestått er en besvarelse med faglige feil, og godt bestått er den samme teksten med feilene rettet opp.", "Godt bestått følger APA-kravene, mens bestått-versjonen mangler henvisninger og en samlet referanseliste.", "Bestått holder seg innenfor ordkvoten, mens godt bestått bruker omtrent dobbelt så mange ord på kasuset."],
+      explanation: "Bestått-versjonen er korrekt og fullgod; den er bare kortere, tar færre prinsipper og lar konsekvensdrøftingen ligge. Merk at «godt bestått» er bokas eget uttrykk for margin over terskelen og ikke en offisiell karakter — emnet har bare bestått og ikke bestått. Alternativene om faglige feil og om manglende referanser tester antakelsen om at bestått betyr mangelfullt, og lengdealternativet tester troen på at margin kommer av flere ord.",
     },
     {
       question: "Hva er forholdet mellom emnekoden PSYC1202 og navnet «Profesjonsforberedende 1»?",
@@ -299,9 +299,9 @@ const quizData_psyc1202: Record<string, QuizQuestion[]> = {
       explanation: "Riktig svar er at respekt handler om råderett og omsorg om behov. De trekker ofte i samme retning, men ikke alltid — å ordne noe for klienten uten å spørre er omsorg uten respekt, og det er den kombinasjonen som er hyppigst i eksamenskasus.",
     },
     {
-      question: "Hva er definisjonsmakt?",
-      options: ["Makten til å avgjøre hvilke ord som brukes om en person", "Retten til å avgjøre hvilken diagnose som skal settes i en sak", "Adgangen til å bestemme hvem som får innsyn i journalen", "Myndigheten til å avslutte et forløp uten klientens samtykke"],
-      explanation: "Riktig svar er makten over ordene. «Motstand mot behandling» og «hun har ikke opplevd at vi treffer det hun trenger» kan beskrive samme observasjon og føre til helt ulike beslutninger senere. Vurderingsansvaret i seg selv er ikke problemet — det er når vurderingen fremstilles som en egenskap ved personen.",
+      question: "Når blir psykologens definisjonsmakt et etisk problem, slik kapitlet beskriver det?",
+      options: ["Når vurderingen fremstilles som en egenskap ved personen framfor som noe som er observert", "Når psykologen skriver en vurdering uten å ha innhentet klientens samtykke på forhånd", "Når psykologen bruker fagord som klienten ikke kjenner betydningen av fra før", "Når vurderingen deles med flere instanser enn den som opprinnelig ba om den"],
+      explanation: "Psykologen skal vurdere — det er jobben, og vurderingsansvaret er ikke problemet i seg selv. Problemet oppstår i valget mellom ord som beskriver det samme: «motstand mot behandling» og «hun har ikke opplevd at vi treffer det hun trenger» kan gjelde samme observasjon og føre til helt ulike beslutninger hos dem som leser det senere. Manglende samtykke, uforklart fagspråk og for bred deling er reelle problemer, men de hører til konfidensialitet og forståelighet.",
     },
     {
       question: "Hvorfor er frivillighet mer enn en formalitet i en psykologrelasjon?",
@@ -1202,9 +1202,9 @@ const quizData_psyc1202: Record<string, QuizQuestion[]> = {
       explanation: "Riktig svar er den formende makten som virker gjennom kunnskap og vurdering. Poenget er at den sjelden oppleves som makt: den kommer i form av hjelp, ikke av påbud. Tvang og maktmisbruk er andre fenomener.",
     },
     {
-      question: "Hva er definisjonsmakt?",
-      options: ["Makten til å avgjøre hva en sak og et menneske «egentlig» handler om", "Makten til å avgjøre hvilke begreper som skal brukes i et fagfelt", "Makten til å avgjøre hvem som får tilbud først når kapasiteten er knapp", "Makten til å avgjøre om et vedtak skal opprettholdes ved en klage"],
-      explanation: "Riktig svar er makten over hva saken og mennesket handler om. Den viser seg i valget mellom to dekkende formuleringer, der bare den ene følger klienten videre. Prioritering og klagebehandling er andre former for makt.",
+      question: "Hvor virker definisjonsmakten, slik maktperspektivet i dette kapitlet beskriver den?",
+      options: ["I valget mellom flere dekkende beskrivelser, der bare den ene følger klienten videre", "I avgjørelsen av hvilke klienter som skal få tilbud når kapasiteten er knapp", "I adgangen til å avslutte et forløp uten at klienten har samtykket til det", "I retten til å avgjøre hvilke fagbegreper en profesjon skal bruke om sitt eget felt"],
+      explanation: "Definisjonsmakten virker i ordvalget: «har lav motivasjon for endring» og «har erfart at hjelpen ikke har kommet før» kan begge være dekkende, men bare den ene blir stående i papirene. Begrepet er fagalminnelig, og det er i maktperspektivet det får sin forankring. Prioritering, avslutning av forløp og fagets egen terminologi er andre former for makt.",
     },
     {
       question: "Hva er ideologikritikk, brukt på ens eget fag?",
@@ -2213,8 +2213,8 @@ const quizData_psyc1202: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvor mange av de 19 eksamenssettene i arkivet ber om minst én av de to kasusanalyse-sjangrene S1 og S2?",
-      options: ["13 av 19", "16 av 19", "19 av 19", "7 av 19"],
-      explanation: "S1 er bedt om i 9 av 19 sett og S2 i 7 av 19, og noen sett ber om begge. Foreningen av de to årslistene gir 13 av 19. Tallet 16 av 19 har ikke belegg i arkivet, og 7 av 19 er S2 alene.",
+      options: ["13 av 19", "15 av 19", "19 av 19", "7 av 19"],
+      explanation: "S1 er bedt om i 9 av 19 sett og S2 i 7 av 19, og noen sett ber om begge. Foreningen av de to årslistene gir 13 av 19. De to høyere tallene tester en overdrivelse uten belegg i arkivet, og 7 av 19 er S2 alene.",
     },
     {
       question: "Hva kjennetegner et partsledd som gir uttelling?",
@@ -2346,7 +2346,7 @@ const quizData_psyc1202: Record<string, QuizQuestion[]> = {
     {
       question: "Hvor mange av de 19 settene ber om minst én av de tre oppgave 2-sjangrene S3, S4 og S5?",
       options: ["10 av 19", "19 av 19", "13 av 19", "7 av 19"],
-      explanation: "Foreningen av de tre årslistene gir 10 av 19. Formuleringen «de fleste sett» har ikke belegg. 13 av 19 er foreningen av kasusanalyse-sjangrene i oppgave 1, og 7 av 19 er S3 alene.",
+      explanation: "Foreningen av de tre årslistene gir 10 av 19, og det er det telte tallet som skal brukes framfor løse anslag om hvor utbredt sjangrene er. 13 av 19 er foreningen av kasusanalyse-sjangrene i oppgave 1, og 7 av 19 er S3 alene.",
     },
     {
       question: "Når du må stramme inn oppgave 2 for å holde ordkvoten, hva bør du kutte først?",
@@ -2381,9 +2381,9 @@ const quizData_psyc1202: Record<string, QuizQuestion[]> = {
   ],
   'psyc1202-6-3': [
     {
-      question: "Hva er «godt bestått» i denne boka?",
-      options: ["Bokas eget uttrykk for en besvarelse som ligger trygt over terskelen", "En offisiell karakter ved UiO for de aller sterkeste besvarelsene i emnet", "Betegnelsen sensor bruker når en besvarelse ligger på grensen oppad", "Kravet som må oppfylles for å få bestått på en hjemmeeksamen"],
-      explanation: "Emnet vurderes med bestått eller ikke bestått og har ingen bokstavkarakter og ingen tilleggsgrad. «Godt bestått» er bokas navn på margin, og det brukes fordi det er nyttig å ha et ord for forskjellen mellom å så vidt komme over og å komme godt over.",
+      question: "Hvorfor viser kapitlet flere nivåer av besvarelsen på den samme oppgaven?",
+      options: ["Fordi forskjellen mellom nivåene ligger i grepene, ikke i temaet — kasuset holdes fast", "Fordi hvert nivå bruker sitt eget kasus, slik at bredden i pensum blir dekket", "Fordi sensor vurderer besvarelsene mot hverandre når de er skrevet over samme oppgave", "Fordi ordkvoten gjør at én og samme oppgave må dekke både analyse og kommunikasjon"],
+      explanation: "Når kasuset holdes fast, er det bare leddene som varierer: partene, prioriteringen, alternativene med konsekvenser og de faktiske ordene. Sensor vurderer hver besvarelse for seg mot terskelen, ikke mot andre besvarelser, og emnet gir bestått eller ikke bestått uten bokstavkarakter. At settene har to obligatoriske oppgaver, er en annen sak enn hvorfor boka gjentar den samme.",
     },
     {
       question: "Hvilke løsningsforslag finnes for PSYC1202?",
