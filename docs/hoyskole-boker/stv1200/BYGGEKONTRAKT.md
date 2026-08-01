@@ -1336,9 +1336,12 @@ langsvarenes drøftingsdeler er med vilje laget åpne.
   `definition`-blokker slettes ALDRI for å «rydde» — de er flashcard-kilden.
 - **Øktmerking:** alle kapitler med `estimatedMinutes > 45` — altså 0.2, 0.3, 1.1,
   1.2, 1.3, 2.1, 2.2, 3.1, 3.2, 3.3, 4.1, 4.2, 4.3, 5.1, 5.2, 5.3, 5.4, 6.1, 6.2,
-  6.3, 7.1, 7.2, 7.3, 7.5 og 7.6 — har tidsanslag per løkke («Løkke 3 — relative
-  gevinster og samarbeidsutfordringen (~15 min)») eller eksplisitte «— naturlig
-  pausepunkt —»-markører. Lange modellbesvarelser har pausepunkt mellom
+  6.3, 7.1, 7.2, 7.3, 7.5 og 7.6 — har tidsanslag i underoverskriften
+  («## Relative gevinster og samarbeidsutfordringen (~15 min)») eller eksplisitte
+  «— naturlig pausepunkt —»-markører.
+  ⚠ Overskriften skal bære NAVNET, aldri løkkenummeret. Denne linja sto selv med
+  «Løkke 3 — relative gevinster» som mønstereksempel og ville gjeninnført formen
+  hos neste forfatter — 103 slike overskrifter er ryddet ut av boka. Lange modellbesvarelser har pausepunkt mellom
   hovedseksjonene. Kun 0.1, 2.3 og 7.4 (alle 45 min) er unntatt.
 - **Tidsbudsjett-konsistens:** der en oppgaves deklarerte tid avviker fra summen av
   deltidene, forklares differansen (§6.6). «Lite tid?»-boksen sier eksplisitt at
