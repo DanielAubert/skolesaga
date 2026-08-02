@@ -85,7 +85,7 @@ er noe annet enn en kalibrert mot tretti.
 | **ECON3120** Mathematics 2 | 36 | 89 | skjelett |
 | **ECON4160** Econometrics II | 35 | 77 | ⚠ ingenting |
 | **LIT1302** | 34 | 39 | ⚠ ingenting |
-| **SVMET1010** Kvalitative metoder | 32 | 44 | 🔨 **bygges nå** |
+| **SVMET1010** Kvalitative metoder | 32 | 44 | ✅ **BOK LIVE** (39 kap) |
 | **MAT3500** Topologi | 30 | 28 | ⚠ ingenting |
 | **SOS4020** Kvantitativ metode | 30 | 34 | skjelett |
 | **JUROFF1500** Strafferett for ikke-jurister | **34** | 48 | ✅ analyse |
@@ -94,7 +94,7 @@ er noe annet enn en kalibrert mot tretti.
 | **SGO2500** | 26 | 37 | ⚠ ingenting |
 | **SOS4010** Kvalitativ metode | 26 | 26 | skjelett |
 | **SGO2200** | 25 | 30 | ⚠ ingenting |
-| **SVEXFAC03** Examen facultatum, samfunnsvitenskap | 22 | 29 | ✅ analyse (28 dok, 21 av 22 terminer) |
+| **SVEXFAC03** Examen facultatum, samfunnsvitenskap | 22 | 29 | ✅ skjelett (44 kap) |
 
 **ECON1220 har dypest arkiv av alle høstemnene** — 40 terminer — og skjelettet
 finnes. Den er det opplagte valget utenfor jusløpet.
@@ -130,10 +130,10 @@ undervisningsår**. Åpen produkteierbeslutning.
 
 | emne | hvor langt |
 |---|---|
-| **SVMET1010** | kontrakt ✅, skjelett konvertert til v3 ✅, 39 kapittelfiler bygges |
-| **JFEXFAC04** | analyse ✅, skjelett ✅, kontrakt ✅ (41 filer). **Byggeklar** |
+| **SVMET1010** | ✅ **FERDIG OG LIVE** — 39 kap, 538 flashcards, 546 quiz, alle porter grønne, verifisert mot prod |
+| **JFEXFAC04** | analyse ✅, skjelett ✅, kontrakt ✅ — 41 filer **bygges nå** (6 agenter) |
 | **JUROFF1500** | analyse ✅ — 34 terminer (ikke 30), strafferett, 20 terminer på straffeloven 1902. Skjelett neste |
-| **SVEXFAC03** | analyse ✅ — 22 terminer, tre eksamensregimer, klimastoff i 13 av 35 oppgaver. Skjelett neste |
+| **SVEXFAC03** | analyse ✅, skjelett ✅ — 44 kap, 910 quiz, 857 fc. **Trenger byggekontrakt** |
 
 Neste ut når disse lander: **JUS1211** (tier 1, samme kull som alt leser
 JUS1111 og EXPHIL03 hos oss), **ECON1220** (40 terminer, dypest av alle
