@@ -46,7 +46,7 @@ høst 2026.**
 | 1 | EXPHIL03 + **JUS1111** Privatrett I | 29 | 130 | ✅ **bok live** |
 | 2 | **JUS1211** Privatrett II | 26 | 116 | skjelett |
 | 3 | **JUS2111** Statsforfatningsrett, folkerett og MR | 28 | 115 | skjelett |
-| 3 | **JFEXFAC04** Examen facultatum | **38** | 109 | ⚠ ingenting |
+| 3 | **JFEXFAC04** Examen facultatum | **40** | 109 | ✅ skjelett (34 kap) |
 | 4 | **JUS2211** Forvaltningsrett og EØS-rett | 22 | 88 | skjelett |
 | 5 | **JUS3112** Formuerett I | 10 | 29 | skjelett |
 | 5 | **JUS3220** Rettshistorie | 21 | 47 | ⚠ ingenting |
@@ -61,8 +61,9 @@ høst 2026.**
 1. **JUS1211** — semester 2. Samme kull som allerede leser JUS1111 og EXPHIL03
    hos oss. Ingen annen bok i katalogen har en like direkte målgruppe.
 2. **JUS2111** — semester 3, 28 terminer.
-3. **JFEXFAC04** — semester 3, **dypeste arkiv i hele jusløpet** (38 terminer).
-   Krever eksamensanalyse og skjelett fra bunnen.
+3. **JFEXFAC04** — semester 3, **dypeste arkiv i hele jusløpet**. Talt i mappa
+   3. august 2026: **40 terminer**, ikke 38 — indeksen slår sammen 2015 og
+   mister V2017. Analyse og skjelett ✅ ferdig; kontrakten skrives nå.
 4. **JUS4111** — 30 terminer, og metodeemnet er det som avgjør karakterer i
    hele løpet.
 5. **JUS2211** — semester 4, 22 terminer.
@@ -84,16 +85,16 @@ er noe annet enn en kalibrert mot tretti.
 | **ECON3120** Mathematics 2 | 36 | 89 | skjelett |
 | **ECON4160** Econometrics II | 35 | 77 | ⚠ ingenting |
 | **LIT1302** | 34 | 39 | ⚠ ingenting |
-| **SVMET1010** Kvalitative metoder | 32 | 44 | skjelett |
+| **SVMET1010** Kvalitative metoder | 32 | 44 | 🔨 **bygges nå** |
 | **MAT3500** Topologi | 30 | 28 | ⚠ ingenting |
 | **SOS4020** Kvantitativ metode | 30 | 34 | skjelett |
-| **JUROFF1500** | 30 | 48 | ⚠ ingenting |
+| **JUROFF1500** | 30 | 48 | 🔨 analyse under arbeid |
 | **ECON4925** Resource Economics | 29 | 45 | ⚠ ingenting |
 | **ECON4415** | 27 | 49 | ⚠ ingenting |
 | **SGO2500** | 26 | 37 | ⚠ ingenting |
 | **SOS4010** Kvalitativ metode | 26 | 26 | skjelett |
 | **SGO2200** | 25 | 30 | ⚠ ingenting |
-| **SVEXFAC03** Examen facultatum, samfunnsvitenskap | 22 | 29 | ⚠ ingenting |
+| **SVEXFAC03** Examen facultatum, samfunnsvitenskap | 22 | 29 | 🔨 analyse under arbeid |
 
 **ECON1220 har dypest arkiv av alle høstemnene** — 40 terminer — og skjelettet
 finnes. Den er det opplagte valget utenfor jusløpet.
@@ -124,6 +125,22 @@ JUROFF1201
 
 ⚠ **PSY1300 og SOSANT1400** undervises høst 2026, men er merket **siste
 undervisningsår**. Åpen produkteierbeslutning.
+
+## Arbeidsstatus 3. august 2026
+
+| emne | hvor langt |
+|---|---|
+| **SVMET1010** | kontrakt ✅, skjelett konvertert til v3 ✅, 39 kapittelfiler bygges |
+| **JFEXFAC04** | analyse ✅, skjelett ✅ (34 kap, 712 quiz / 675 fc), kontrakt under arbeid |
+| **JUROFF1500** | eksamensanalyse under arbeid |
+| **SVEXFAC03** | eksamensanalyse under arbeid |
+
+Neste ut når disse lander: **JUS1211** (tier 1, samme kull som alt leser
+JUS1111 og EXPHIL03 hos oss), **ECON1220** (40 terminer, dypest av alle
+høstemnene, skjelettet finnes), **SGO2500** og **SGO2200**.
+
+⚠ Tre produkteierbeslutninger står fortsatt åpne: **TMA4110** (live bok,
+nedlagt emne), **PSY1300** og **SOSANT1400** (siste undervisningsår).
 
 ## Metode — slik listen kan gjenskapes
 
