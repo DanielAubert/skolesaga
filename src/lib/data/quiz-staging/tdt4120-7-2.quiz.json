@@ -1,0 +1,182 @@
+[
+  {
+    "question": "Hva betyr $A \\le_p B$?",
+    "options": [
+      "At $A$ kan oversettes til $B$ i polynomisk tid, med svaret bevart begge veier",
+      "At $B$ kan oversettes til $A$ i polynomisk tid, med svaret bevart begge veier",
+      "At $A$ og $B$ kan løses med den samme algoritmen i polynomisk tid",
+      "At $A$ kan løses raskere enn $B$ på enhver instans av de to problemene"
+    ],
+    "explanation": "Notasjonen leses «$A$ reduseres til $B$», og oversettelsen går fra $A$-instanser til $B$-instanser. Konsekvensen er at $B$ er minst like vanskelig som $A$ — ikke at $A$ er raskest, som er det motsatte av hva relasjonen sier."
+  },
+  {
+    "question": "Du vil vise at problemet X er NP-hardt. Hvilken vei må reduksjonen gå?",
+    "options": [
+      "FRA et kjent NP-komplett problem TIL X",
+      "FRA X TIL et kjent NP-komplett problem",
+      "Begge veier — reduksjonen må vises i begge retninger",
+      "FRA X TIL et problem som er kjent å ligge i klassen P"
+    ],
+    "explanation": "Hardheten arves langs pilen: er det kjente problemet vanskelig, må X være minst like vanskelig. Den motsatte retningen viser bare at X ligger i NP, og det er sant for hvert eneste NP-problem — derfor skiller den ingenting."
+  },
+  {
+    "question": "Du har vist X $\\le_p$ 3-CNF-SAT. Hva følger?",
+    "options": [
+      "At X ikke er vanskeligere enn 3-CNF-SAT, altså at X ligger i NP",
+      "At X er NP-hardt, siden 3-CNF-SAT er NP-komplett",
+      "At X er NP-komplett, siden reduksjonen går til et NPC-problem",
+      "At 3-CNF-SAT er minst like lett som X, siden pilen peker dit"
+    ],
+    "explanation": "Pilen peker mot det som er minst like vanskelig, og her er det 3-CNF-SAT — så X arver ingen hardhet. Å tro noe annet er felle #1, fagets mest fremhevede feil, og resultatet er null uttelling på oppgaven."
+  },
+  {
+    "question": "Hva er forskjellen på NP-hardt og NP-komplett?",
+    "options": [
+      "NP-komplett er NP-hardt **og** i NP; NP-hardt alene stiller ingen krav om medlemskap",
+      "NP-hardt er NP-komplett **og** i P; NP-komplett alene stiller ingen slike krav om medlemskap",
+      "De er to navn på det samme, og brukes om hverandre i litteraturen",
+      "NP-hardt gjelder avgjørelsesproblemer, NP-komplett gjelder optimeringsproblemer"
+    ],
+    "explanation": "Et NPC-bevis har derfor to uavhengige deler: sertifikatet som viser medlemskap, og reduksjonen som viser hardhet. Det er tvert imot NP-hardt som **ikke** krever at problemet er et avgjørelsesproblem — optimeringsvarianter er typisk NP-harde uten å være i NP."
+  },
+  {
+    "question": "Hvilke tre krav må en polynomisk reduksjon oppfylle?",
+    "options": [
+      "Polynomisk oversettelse, svarbevaring begge veier, og definert for alle instanser",
+      "Polynomisk oversettelse, svarbevaring én vei, og definert for ja-instanser",
+      "Lineær oversettelse, svarbevaring begge veier, og definert for alle instanser",
+      "Polynomisk oversettelse, samme inputstørrelse, og samme kjøretid for begge problemer"
+    ],
+    "explanation": "«Hvis og bare hvis» er avgjørende: en oversettelse som bare bevarer ja-svar, kan gjøre en nei-instans om til en ja-instans og ødelegge argumentet. Oversettelsen behøver ikke være lineær — polynomisk holder, siden sammensetningen da fortsatt er polynomisk."
+  },
+  {
+    "question": "Hva følger hvis noen finner en polynomisk algoritme for ett NP-komplett problem?",
+    "options": [
+      "At $P = NP$, siden alle problemer i NP kan reduseres til det",
+      "At $P \\ne NP$, siden det ene problemet da skiller seg fra de andre",
+      "At nettopp det problemet ikke var NP-komplett likevel",
+      "Ingenting — problemene i NP er uavhengige av hverandre"
+    ],
+    "explanation": "Ethvert $A \\in NP$ kan reduseres til NPC-problemet i polynomisk tid, og sammensetningen av to polynomiske algoritmer er polynomisk. Det er nettopp derfor de NP-komplette problemene sies å stå og falle sammen."
+  },
+  {
+    "question": "Hvorfor er SUBSET-SUM NP-komplett selv om den har en $\\Theta(n\\,t)$-algoritme?",
+    "options": [
+      "Fordi $t$ er en tallverdi, ikke inputstørrelsen — algoritmen er pseudopolynomisk",
+      "Fordi $\\Theta(n\\,t)$ er eksponentielt i $n$, altså i antall tall som står i mengden",
+      "Fordi algoritmen bare virker når alle tallene i mengden er positive",
+      "Fordi $\\Theta(n\\,t)$ ikke er en gyldig kjøretid for et avgjørelsesproblem"
+    ],
+    "explanation": "Måltallet $t$ skrives binært med $\\lceil\\lg t\\rceil$ siffer, så $t$ er eksponentielt i den delen av inputen. Kjøretiden er derfor ikke polynomisk i inputens lengde, og det er den lengden all kompleksitetsteori måles mot."
+  },
+  {
+    "question": "Hva sier en pseudopolynomisk algoritme om problemets vanskelighet?",
+    "options": [
+      "Ingenting — vanskeligheten avgjøres av reduksjoner, ikke av algoritmens form",
+      "At problemet er NP-hardt, siden kjøretiden ikke er polynomisk i inputlengden",
+      "At problemet ligger i P, siden kjøretiden er polynomisk i tallverdiene",
+      "At problemet ligger i NP, men ikke er NP-komplett"
+    ],
+    "explanation": "`Ford-Fulkerson` er pseudopolynomisk og maks-flyt ligger i P; SUBSET-SUM har en pseudopolynomisk algoritme og er NP-komplett. Fellen går altså i begge retninger, og den er nummer sju i registeret."
+  },
+  {
+    "question": "Hva er inputstørrelsen til et tall $t$ i et NP-teoretisk argument?",
+    "options": [
+      "Antall siffer som trengs for å skrive $t$, altså $\\lceil\\lg t\\rceil$ binært",
+      "Tallverdien $t$ selv, siden det er nettopp den algoritmen faktisk arbeider med",
+      "Antall primfaktorer i $t$, siden det er dem operasjonene bryter ned",
+      "Kvadratroten av $t$, som er den vanlige normeringen i kompleksitetsteori"
+    ],
+    "explanation": "Inputstørrelse er alltid antall symboler i beskrivelsen av instansen, ikke verdiene som står i den. Å bruke tallverdien i stedet er nettopp forvekslingen som gjør pseudopolynomiske algoritmer til å se polynomiske ut."
+  },
+  {
+    "question": "Hva mangler for at «$A \\le_p X$ med $A$ NP-komplett» skal gi at X er NP-komplett?",
+    "options": [
+      "Medlemskapsdelen — at X ligger i NP, vist med et sertifikat",
+      "Hardhetsdelen — at alle problemer i NP kan reduseres til X",
+      "En reduksjon den motsatte veien, altså X $\\le_p$ A i tillegg",
+      "En polynomisk algoritme for X, som viser at det i det hele tatt er løsbart"
+    ],
+    "explanation": "Reduksjonen har allerede gitt hardheten; det som gjenstår, er å gi et sertifikat som kan kontrolleres i polynomisk tid. En reduksjon den motsatte veien ville også vist medlemskap i NP, men det er en omvei — sertifikatet er som regel enklere."
+  },
+  {
+    "question": "En kandidat viser at problemet hans reduseres **til** SAT. Hva har han oppnådd?",
+    "options": [
+      "Vist at problemet ligger i NP — men ingenting om at det er hardt",
+      "Vist at problemet er NP-hardt, siden SAT er NP-komplett",
+      "Vist at problemet er NP-komplett, siden begge deler følger av reduksjonen",
+      "Vist at SAT er minst like lett som problemet hans"
+    ],
+    "explanation": "Retningen gir en øvre grense på vanskeligheten: problemet er ikke verre enn SAT. Siden **hvert eneste** problem i NP kan reduseres til et NPC-problem, skiller påstanden ingenting — og det er derfor den gir null uttelling som hardhetsbevis."
+  },
+  {
+    "question": "Hvorfor må en reduksjon bevare svaret **begge** veier?",
+    "options": [
+      "Fordi en nei-instans ellers kan bli oversatt til en ja-instans, og svaret blir galt",
+      "Fordi oversettelsen ellers ikke kan regnes ut i polynomisk tid",
+      "Fordi de to problemene ellers ikke kan ligge i den samme kompleksitetsklassen i det hele tatt",
+      "Fordi sertifikatet ellers ikke kan oversettes sammen med instansen"
+    ],
+    "explanation": "Løseren for $B$ svarer på den oversatte instansen, og skal svaret kunne leses tilbake, må sammenhengen holde i begge retninger. Kjøretiden til oversettelsen er et eget krav og har ingenting med svarbevaringen å gjøre."
+  },
+  {
+    "question": "Kan et NP-hardt problem ligge utenfor NP?",
+    "options": [
+      "Ja — NP-hardhet stiller ingen krav om at problemet selv ligger i NP",
+      "Nei — NP-hardhet er definert som medlemskap i NP pluss en reduksjon",
+      "Nei — alle problemer som er NP-harde, er også NP-komplette",
+      "Ja, men bare hvis problemet er et optimeringsproblem og ikke et avgjørelsesproblem"
+    ],
+    "explanation": "Definisjonen handler bare om reduksjoner **inn** til problemet, og sier ingenting om problemet selv. Det finnes NP-harde problemer som ikke engang er avgjørbare — de er da langt utenfor NP, og optimeringsformen er bare ett av flere tilfeller."
+  },
+  {
+    "question": "Hva viser en reduksjon $X \\le_p Y$ når $Y$ kan løses i $O(n^3)$?",
+    "options": [
+      "At X kan løses i polynomisk tid, siden lettheten flyter bakover langs pilen",
+      "At Y er NP-hardt, siden noe kan reduseres til det i polynomisk tid",
+      "At X er NP-hardt, siden reduksjonen viser at X er minst like vanskelig som $Y$",
+      "Ingenting — reduksjoner kan bare brukes til å vise hardhet, ikke letthet"
+    ],
+    "explanation": "Oversett i polynomisk tid og kjør $Y$-løseren; sammensetningen er polynomisk. Reduksjoner brukes nettopp begge veier: framover flytter de vanskelighet, bakover flytter de letthet."
+  },
+  {
+    "question": "Hvorfor holder det å redusere fra **ett** NP-komplett problem for å vise NP-hardhet?",
+    "options": [
+      "Fordi alle problemer i NP allerede reduseres til det, og reduksjoner kan settes sammen",
+      "Fordi NP-komplette problemer per definisjon dekker alle instanser av alle NP-problemer",
+      "Fordi det er en konvensjon i faget, ikke et matematisk krav i seg selv",
+      "Fordi ett NP-komplett problem alltid kan oversettes til hvilket som helst annet i P"
+    ],
+    "explanation": "Er $A \\le_p C$ for alle $A \\in NP$, og $C \\le_p X$, gir sammensetningen $A \\le_p X$ for alle $A$. Kjeden i [kap. 7.3](/tdt4120/tdt4120-7-3) er nettopp bygget på denne sammensetningen, ledd for ledd."
+  },
+  {
+    "question": "Hva er den skjulte fellen i kravet «reduksjonen må dekke alle instanser»?",
+    "options": [
+      "Å redusere fra et spesialtilfelle av det kjente problemet i stedet for hele problemet",
+      "Å bruke en oversettelse som gjør den nye instansen større enn den opprinnelige instansen var",
+      "Å oversette instanser som allerede har kjent svar, i stedet for ukjente",
+      "Å la oversettelsen avhenge av hvilken algoritme man senere vil bruke på $B$"
+    ],
+    "explanation": "Et spesialtilfelle kan godt være lett selv om det generelle problemet er hardt, så en slik reduksjon beviser ingenting. At instansen vokser er helt uproblematisk, så lenge veksten er polynomisk."
+  },
+  {
+    "question": "Hva bør stå i tillegg til konklusjonen i et sjanger G-svar?",
+    "options": [
+      "Hva reduksjonen **ikke** viser om problemet",
+      "En full utskriving av oversettelsesfunksjonen $f$",
+      "Kjøretiden til den beste kjente algoritmen for begge problemene",
+      "En vurdering av om $P = NP$ er sant eller ikke"
+    ],
+    "explanation": "Forbeholdet er halve svaret i denne sjangeren, og det er der løsningsforslagene oftest skiller mellom riktig og galt. En full utskriving av $f$ er sjelden etterspurt — skissen holder, og tiden er knapp."
+  },
+  {
+    "question": "Hvorfor ligger maks-flyt i P selv om `Ford-Fulkerson` er pseudopolynomisk?",
+    "options": [
+      "Fordi `Edmonds-Karp` løser problemet i $O(VE^2)$, uten tallverdier i kjøretiden",
+      "Fordi pseudopolynomiske algoritmer alltid er polynomiske for heltallige kapasiteter",
+      "Fordi maks-flyt ikke er et avgjørelsesproblem og derfor faller utenfor klassen",
+      "Fordi flytverdien alltid er begrenset av antall kanter i nettet"
+    ],
+    "explanation": "Et problem ligger i P så snart **minst én** polynomisk algoritme finnes — det kreves ikke at alle er det. Flytverdien er ikke begrenset av antall kanter: én eneste kant med kapasitet $10^9$ gir en flytverdi på en milliard."
+  }
+]

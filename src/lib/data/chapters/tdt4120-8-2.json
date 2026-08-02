@@ -1,0 +1,318 @@
+{
+  "id": "tdt4120-8-2",
+  "courseId": "tdt4120",
+  "chapterNumber": "8.2",
+  "title": "DRILL — Åpen algoritmedesign via reduksjon",
+  "description": "Den tverrgående designdrillen (sjanger H): gjenkjenn det klassiske problemet i en innpakning og reduser til det — maks-flyt, DP, Gale-Shapley, BFS.",
+  "estimatedMinutes": 90,
+  "competenceGoals": [
+    "kunne kjenne igjen hvilket klassisk problem en innpakket oppgave egentlig er, og navngi paradigmet eksplisitt",
+    "kunne bygge konstruksjonen — nettet, rekurrensen eller grafen — og oppgi kjøretiden i problemets egne størrelser",
+    "kunne rekonstruere selve løsningen og ikke bare optimalverdien, og si at det ikke øker kjøretiden"
+  ],
+  "content": [
+    {
+      "id": "tdt4120-8-2-tip-1",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**De siste tre til fem oppgavene i hvert ordinære sett er åpne\ndesignoppgaver.** Det er der toppkarakteren avgjøres, og det er den ene\nsjangeren som trekker på hele pensum samtidig.\n\nSjangeren er én:\n\n- **Sjanger H — åpen algoritmedesign**, altså at du får et problem i ny\n  innpakning og skal skissere en algoritme på fem til ti linjer. Svaret har\n  **fem obligatoriske ledd**, og de er de samme hver gang.\n\nPrioritet: **høyeste prioritet — dette må sitte** for A og B.\n**Bør sitte** for C: den som treffer riktig paradigme og skriver en halv\nkonstruksjon, får uttelling selv om detaljene halter.\n\n**Fordelingen i grunnlaget:** de tre designryggradene er maks-flyt (registrert i\n16 av de 17 settene i grunnlaget, 94 %), dynamisk programmering (16 av 17,\n94 %) og grafsøk (14 av 17, 82 %). Grunnlaget er de 17 settene fra august 2015\ntil august 2023 som er gjennomgått tema for tema — det er nevneren hver gang\nboka oppgir en prosent. `Gale-Shapley` er registrert i 2 av de 17, men i 6 av\nde 7 settene med dagens hjelpemiddelkode E: regn med den.\n\n**De fem leddene, én gang for alle:**\n\n1. **Navngi det klassiske problemet.** «Dette er et tilordningsproblem med\n   kapasiteter.»\n2. **Navngi paradigmet eksplisitt.** «Det løses med maks-flyt.»\n3. **Konstruksjonen.** Nodene, kantene og kapasitetene — eller delproblemet,\n   rekurrensen og grunntilfellene.\n4. **Rekonstruksjonen av selve løsningen**, ikke bare verdien, med den\n   eksplisitte setningen om at det ikke øker den asymptotiske kjøretiden.\n5. **Kjøretiden**, med $V$, $E$, $n$ og $m$ definert i problemets egne\n   størrelser.\n\n**Mangler ett ledd, er svaret ufullstendig** — også når resten er riktig. Det\nfjerde er det som glipper oftest.\n\n**Slik er kapitlet lagt opp (90 min):**\n\n| Innhold | Tid |\n|---|---|\n| Løsningsoppskriften og mønsterkatalogen | ca. 14 min |\n| Gjennomkjørt eksamenscase med margnotater | ca. 16 min |\n| Drill: flyt og min-snitt | ca. 18 min |\n| Drill: dynamisk programmering | ca. 16 min |\n| Drill: grafsøk og stabil matching | ca. 16 min |\n| Kald bank — uten hint | ca. 10 min |\n\n— naturlig pausepunkt — etter flytdrillen. Resten kan tas i en egen økt."
+    },
+    {
+      "id": "tdt4120-8-2-t-2",
+      "type": "text",
+      "content": "## Forkunnskaper\n\nDette kapitlet bruker hele boka, men to oppskrifter må ligge klare i hånden.\nDe står ferdig oppfrisket her:\n\n**Flytmodellen fra [kap. 5.3](/tdt4120/tdt4120-5-3).** Fire lag: kilde $s$, ett\nnodesett for det som skal tildeles, ett for det de tildeles til, og sluk $t$.\nKapasiteten fra $s$ til en venstre node er **hvor mange den kan ta**;\nkapasiteten fra en høyre node til $t$ er **hvor mange den har plass til**. En\nkant i midten betyr at nettopp den tildelingen er **tillatt** — ikke en grense.\nKjør `Edmonds-Karp`, $O(VE^2)$. Tildelingen leses av som de midtkantene som\nbærer flyt, og **heltallsteoremet** garanterer at flyten kan velges heltallig,\nslik at avlesningen er entydig.\n\n**DP-oppskriften fra [kap. 6.3](/tdt4120/tdt4120-6-3).** Seks steg: gjenkjenn\nmønsteret, definér delproblemet **med ord**, skriv rekurrensen med\ngrunntilfeller, oppgi fylleorden, rekonstruér fra lagrede valg, oppgi\nkjøretiden som antall delproblemer ganger arbeid per delproblem. De tre\ngrunnformene:\n\n$$r[j] = \\max_{1 \\le i \\le j}\\big(p_i + r[j-i]\\big) \\qquad\\text{(oppdeling)}$$\n\n$$c[i,j] = \\begin{cases} c[i-1,j-1]+1 & x_i = y_j \\\\\n\\max(c[i-1,j],\\; c[i,j-1]) & \\text{ellers}\\end{cases} \\qquad\\text{(to sekvenser)}$$\n\n$$c[i,w] = \\max\\big(c[i-1,w],\\; v_i + c[i-1,\\,w-w_i]\\big) \\qquad\\text{(velg eller ikke)}$$\n\nØvrige forkunnskaper:\n\n- [kap. 4.1](/tdt4120/tdt4120-4-1) — `BFS` gir færrest **kanter**, ikke minst\n  vekt, i $\\Theta(V+E)$.\n- [kap. 4.3](/tdt4120/tdt4120-4-3) — `Dijkstra` $O(E\\lg V)$ krever ikke-negative\n  vekter; `Bellman-Ford` $\\Theta(VE)$ tåler negative.\n- [kap. 6.5](/tdt4120/tdt4120-6-5) — `Gale-Shapley` $O(n^2)$, frier-optimal,\n  begge orienteringer rammer inn hva som er mulig.\n- [kap. 7.2](/tdt4120/tdt4120-7-2) — reduksjonsretningen, når oppgaven ber deg\n  argumentere for at et problem er **vanskelig** i stedet for å løse det."
+    },
+    {
+      "id": "tdt4120-8-2-coll-4",
+      "type": "collapsible",
+      "title": "Notasjons- og pseudokodeliste",
+      "buttonText": "Vis notasjon og pseudokode",
+      "content": [
+        {
+          "id": "tdt4120-8-2-ct-3",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et algoritmefag: den lister kjøretidsuttrykk og pseudokode-operasjoner i stedet for bare greske bokstaver.\n\n| Symbol | Betydning |\n|---|---|\n| $n$, $m$, $k$ | problemets egne størrelser — antall personer, oppdrag, ord, ruter |\n| $V$, $E$ | antall noder og kanter i grafen eller nettet **du konstruerer** |\n| $s$, $t$ | kilden og sluket i et flytnett |\n| $c(u,v)$ | kapasiteten på en kant |\n| $c[i,j]$ | verditabellen i en dynamisk programmering |\n| $s[j]$ | valgtabellen, som rekonstruksjonen leser baklengs |\n| $A \\le_p B$ | polynomisk reduksjon — brukes når oppgaven spør om vanskelighet |\n\n| Algoritme/operasjon | Kontrakt | Kjøretid |\n|---|---|---|\n| `Edmonds-Karp(G, s, t)` | maksimal flyt med korteste forøkende sti | $O(VE^2)$ |\n| `BFS(G, s)` | færrest **kanter** fra $s$ til hver node | $\\Theta(V+E)$ |\n| `Dijkstra(G, w, s)` | korteste vei etter **vekt**; krever ikke-negative vekter | $O(E\\lg V)$ |\n| `DAG-Shortest-Path(G, w, s)` | korteste vei i en syklusfri graf; tåler negative vekter | $\\Theta(V+E)$ |\n| `Topological-Sort(G)` | nodene i synkende finish-tid; krever DAG | $\\Theta(V+E)$ |\n| `Gale-Shapley(F, M)` | stabil matching; frier-optimal | $O(n^2)$ |\n| `MST-Kruskal(G, w)` | billigste sammenhengende nett, $V-1$ kanter | $O(E\\lg V)$ |\n| `Print-Solution(s, j)` | leser valgtabellen baklengs og gir selve løsningen | $O(n)$ |\n\n**Formler i dette delkapitlet:**\n\n$$\\text{kilde} \\to \\text{venstre} \\to \\text{høyre} \\to \\text{sluk}$$\n\nFlytmalen. Ytterkantene koder grenser; midtkantene koder hva som er tillatt.\n\n$$\\text{kjøretid} = (\\text{antall delproblemer}) \\times (\\text{arbeid per delproblem})$$\n\nDP-regelen, brukt hver gang kjøretiden til en tabellutfylling skal oppgis.\n\n$$\\max_f \\lvert f\\rvert = \\min_{(S,T)} c(S,T)$$\n\nMaks-flyt/min-snitt — brukes når oppgaven spør etter en **billigste barriere**.\n"
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-8-2-thm-5",
+      "type": "theorem",
+      "title": "Løsningsoppskriften og mønsterkatalogen",
+      "content": "**Steg 1 — les oppgaven én gang, og let etter mønsteret, ikke etter\ndetaljene.** Innpakningen er alltid ny; strukturen er alltid en av en håndfull.\n\n| Innpakningen sier | Paradigmet | Kjøretid |\n|---|---|---|\n| «fordel A på B, med grenser for hvor mange hver kan ta» | **maks-flyt**, firelagsnett | $O(VE^2)$ |\n| «hvor mange kan tildeles samtidig» | **maksimal matching** = maks-flyt, alle kapasiteter 1 | $O(VE^2)$ |\n| «billigste barriere som gjør det umulig å komme fra X til Y» | **min-snitt**, lest av etter maks-flyt | $O(VE^2)$ |\n| «del opp i biter, hver bit har en verdi eller kostnad» | **DP**, oppdelingsformen | typisk $\\Theta(n^2)$ |\n| «finn den lengste felles / mest like sekvensen» | **DP**, LCS-formen | $\\Theta(nm)$ |\n| «velg eller ikke velg, med en samlet grense» | **DP**, ryggsekkformen | $\\Theta(nW)$, pseudopolynomisk |\n| «færrest ledd / korteste kjede / minst antall steg» | **BFS** | $\\Theta(V+E)$ |\n| «korteste vei etter vekt, ikke-negative vekter» | **Dijkstra** | $O(E\\lg V)$ |\n| «korteste vei i en syklusfri graf, eller med negative vekter» | **DAG-Shortest-Path** eller `Bellman-Ford` | $\\Theta(V+E)$ / $\\Theta(VE)$ |\n| «stabil parvis tilordning der begge sider har preferanser» | **Gale-Shapley** | $O(n^2)$ |\n| «billigste nett som henger sammen, uten ringer» | **MST**, `Kruskal` eller `Prim` | $O(E\\lg V)$ |\n| «vis at problemet er vanskelig» | **reduksjon**, FRA kjent vanskelig TIL ditt | — |\n\n**Steg 2 — skriv de to første leddene som to setninger.** «Dette er et\ntilordningsproblem med kapasiteter. Det løses med maks-flyt.» De to setningene\ner billige, og de gir uttelling.\n\n**Steg 3 — bygg konstruksjonen presist.** For flyt: hvilke noder, hvilke\nkanter, hvilke kapasiteter, og **hva hver kapasitet koder**. For DP:\ndelproblemet med ord, rekurrensen, grunntilfellene, fylleorden.\n\n**Steg 4 — rekonstruér selve løsningen.** Hvilke midtkanter bærer flyt? Hvilke\nvalg står i valgtabellen? Skriv den ene setningen: *avlesningen koster $O(E)$\nog øker ikke den asymptotiske kjøretiden.* Ved flyt: nevn\n**heltallsteoremet**.\n\n**Steg 5 — oppgi kjøretiden i problemets egne størrelser.** «$O(VE^2)$ med\n$V = n + m + 2$ og $E = O(n + m + k)$» er et helt svar; «$O(VE^2)$» alene er et\nhalvt.\n\n**Steg 6 — stopp.** Fem til ti linjer. Lange svar teller ikke positivt, og de\nnitten andre oppgavene venter.\n\n**Kontrollen før du leverer:** tell leddene. Fem?"
+    },
+    {
+      "id": "tdt4120-8-2-eks-6",
+      "type": "example",
+      "title": "Eksempel 1: Gjennomkjørt eksamenscase med margnotater",
+      "problem": "En kommune skal fordele $n$ hjemmehjelpere på $m$ besøksruter i løpet av en\nuke. Hver hjelper har oppgitt hvilke ruter hun har sertifisering for, og kan ta\nhøyst tre ruter. Hver rute må dekkes av nøyaktig én hjelper.\n\n**a)** Beskriv en algoritme som avgjør om alle rutene kan dekkes, og som finner\nen konkret fordeling.\n**b)** Kommunen vurderer å kreve at hver hjelper tar **minst** én rute. Endrer\ndet noe?",
+      "solution": "**a)**\n\n**Ledd 1 — det klassiske problemet.** Ruter skal fordeles på hjelpere, hver part\nhar en øvre grense, og bare visse par er tillatt. Dette er et\n**tilordningsproblem med kapasiteter**.\n\n*Margnotat.* Denne setningen alene er verdt et ledd. Den som skriver «jeg lager\net flytnett» uten å si hvilket problem det **er**, mister det.\n\n**Ledd 2 — paradigmet.** Maksimal flyt i et firelagsnett.\n\n**Ledd 3 — konstruksjonen.**\n\n- Kilde $s$ og sluk $t$.\n- Én node per hjelper, med kant $s \\to \\text{hjelper}$ og kapasitet **3** —\n  denne kapasiteten koder «høyst tre ruter hver».\n- Én node per rute, med kant $\\text{rute} \\to t$ og kapasitet **1** — denne\n  koder «nøyaktig én hjelper per rute».\n- Kant $\\text{hjelper} \\to \\text{rute}$ med kapasitet 1 for hvert par der\n  hjelperen er sertifisert. **At kanten finnes**, koder at tildelingen er\n  tillatt.\n\nKjør `Edmonds-Karp`. Alle rutene kan dekkes hvis og bare hvis maksimal flyt er\n$m$.\n\n*Margnotat.* Legg merke til at de tre kapasitetene koder tre forskjellige ting.\nÅ sette 3-eren på midtkantene i stedet for på kildekanten er den vanligste\nmodelleringsfeilen, og den gir et nett som tillater tre enheter til **samme**\nrute.\n\n**Ledd 4 — rekonstruksjonen.** Midtkantene som bærer flyt 1, **er**\nfordelingen: hjelper $i$ tar rute $j$. **Heltallsteoremet** garanterer at en\nmaksimal flyt kan velges heltallig når alle kapasitetene er heltall, så hver\nmidtkant bærer 0 eller 1 og avlesningen er entydig. Den koster $O(E)$ og\n**øker ikke den asymptotiske kjøretiden**.\n\n*Margnotat.* Dette leddet er det som skiller topp fra midtsjikt. Oppgaven ba om\nen **fordeling**, ikke om et ja eller nei — og et svar som stopper ved\nflytverdien, er felle #6.\n\n**Ledd 5 — kjøretiden.** Nettet har $V = n + m + 2$ noder og\n$E = O(n + m + k)$ kanter, der $k$ er antall sertifiseringer. `Edmonds-Karp`\ngir $O(VE^2)$.\n\n*Margnotat.* «$O(VE^2)$» uten å si hva $V$ og $E$ er i **denne**\nkonstruksjonen, er et halvt svar. Én linje til koster ingenting.\n\n**b) Endrer minstekravet noe?**\n\n**Ja — og det er ikke lenger et rent maks-flyt-problem.** Kapasiteter setter\n**øvre** grenser; en nedre grense på hver kildekant kan ikke uttrykkes i\nstandardmodellen fra [kap. 5.1](/tdt4120/tdt4120-5-1).\n\nDet ærlige svaret er å si nettopp det, og deretter peke på hva som kan gjøres:\nenten flyt med **nedre grenser** på kantene, som er en utvidelse utenfor\npensum, eller en enkel forbehandling der hver hjelper først tildeles én rute\nvia en maksimal matching, og resten fordeles med nettet over.\n\n*Margnotat.* Å si «dette faller utenfor standardmodellen, og her er grunnen»\ngir uttelling. Å late som om kapasiteten 3 plutselig koder et minstekrav, gir\ndet ikke.\n\n**Hele svaret på a), i eksamensform:**\n\n> Dette er et tilordningsproblem med kapasiteter, og løses med maks-flyt. Bygg\n> et nett med kilde $s$, én node per hjelper (kant fra $s$, kapasitet 3), én\n> node per rute (kant til $t$, kapasitet 1), og en kant med kapasitet 1 fra\n> hjelper til rute for hver sertifisering. Kjør `Edmonds-Karp`. Alle rutene\n> dekkes hvis og bare hvis maksimal flyt er $m$. Fordelingen leses av som de\n> midtkantene som bærer flyt; heltallsteoremet gir en heltallig flyt, og\n> avlesningen koster $O(E)$ uten å øke kjøretiden. Kjøretid $O(VE^2)$ med\n> $V = n+m+2$ og $E = O(n+m+k)$.\n\nSju linjer. Det er lengden."
+    },
+    {
+      "id": "tdt4120-8-2-t-7",
+      "type": "text",
+      "content": "## Drill: flyt og min-snitt (~18 min)\n\nFire oppgaver. Kjenn igjen mønsteret først, bygg nettet etterpå."
+    },
+    {
+      "id": "tdt4120-8-2-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-8-2-oppg-8-inner",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamensnivå, sjanger H — åpen algoritmedesign, altså at du skisserer en\nalgoritme kort: hvilket kjent problem det er, hvilket paradigme du bruker,\nkonstruksjonen, hvordan du henter ut selve svaret, og kjøretiden.)\n\nEt bibliotek har $n$ ledige leseplasser og $m$ studenter som har meldt seg på.\nHver student har oppgitt hvilke plasser hun kan bruke, og skal ha nøyaktig én.\nHver plass tar én student.\n\nBeskriv hvordan du avgjør om alle får plass, og hvordan du finner\nfordelingen.",
+        "solution": "**Det klassiske problemet.** Én-til-én-paring der bare visse par er tillatt —\ndette er **maksimal matching** i en todelt graf.\n\n**Paradigmet.** Maksimal flyt, med alle kapasiteter 1.\n\n**Konstruksjonen.** Kilde $s$, sluk $t$. Én node per student med kant fra $s$\nog kapasitet 1. Én node per plass med kant til $t$ og kapasitet 1. En kant med\nkapasitet 1 fra student til plass for hvert oppgitt par.\n\nKjør `Edmonds-Karp`. Alle får plass hvis og bare hvis maksimal flyt er $m$.\n\n**Rekonstruksjon av fordelingen.** Midtkantene som bærer flyt 1, er\nfordelingen. Heltallsteoremet gjør avlesningen entydig; den koster $O(E)$ og\nøker ikke kjøretiden.\n\n**Kjøretid.** $O(VE^2)$ med $V = n + m + 2$ og $E = O(n + m + k)$, der $k$ er\nantall oppgitte par.\n\n**Kjennetegnet på en ren matching:** alle kapasitetene er 1.",
+        "hints": [
+          "Hvilket mønster er «hver skal ha nøyaktig én, og hver kan ta én»?",
+          "Hvor i nettet koder du hvilke par som er tillatt?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-8-2-oppg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-8-2-oppg-9-inner",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger H.)\n\nEn by planlegger flomsikring. Kartet er et rutenett; noen ruter er elvebredd,\nnoen er sykehusområde. Å sette opp en barriere i en rute koster et oppgitt\nbeløp. Byen vil finne den **billigste** samlingen ruter som gjør det umulig å\nkomme fra elvebredden til sykehusområdet.\n\nBeskriv en løsning.",
+        "solution": "**Det klassiske problemet.** «Billigste barriere som skiller X fra Y» er\nmønsteret for **min-snitt**.\n\n**Paradigmet.** Min-snitt, beregnet ved å kjøre maks-flyt og lese av snittet.\n\n**Konstruksjonen.**\n\n- Én node per rute, med kanter mellom naboruter.\n- Superkilde $s$ med **uendelig**-kanter til hver elvebredd-rute, og supersluk\n  $t$ med uendelig-kanter fra hver sykehus-rute.\n- Kostnaden ligger på **ruter**, ikke på overganger. Del derfor hver rute i\n  $v_{\\text{inn}}$ og $v_{\\text{ut}}$, med en indre kant som bærer\n  barrierekostnaden. Alle nabokanter går inn i $v_{\\text{inn}}$ og ut av\n  $v_{\\text{ut}}$, med uendelig kapasitet.\n\nKjør `Edmonds-Karp`. Min-snittet kan bare bestå av indre kanter, siden alle\nandre er uendelige — og hver indre kant tilsvarer nøyaktig én rute.\n\n**Rekonstruksjon.** Kjør én `BFS` fra $s$ i det siste restnettet. De indre\nkantene som krysser fra $S$ til $T$, er rutene som skal sikres. Kostnaden er\nsnittkapasiteten, altså maksimal flytverdi.\n\n**Kjøretid.** Med $r$ ruter har nettet $O(r)$ noder og $O(r)$ kanter, siden\nhver rute har høyst fire naboer. `Edmonds-Karp` gir $O(VE^2) = O(r^3)$.\n\n**Nodesplittingen er standardgrepet** når kostnaden ligger på en node og ikke\npå en kant.",
+        "hints": [
+          "Hvilket av de to flytmønstrene passer «billigste barriere»?",
+          "Hvordan gjør du en kostnad som ligger på en node, om til en kapasitet på en kant?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-8-2-oppg-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-8-2-oppg-10-inner",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger H, med en variant der enhetene er delbare.)\n\nEt datasenter skal fordele $n$ beregningsjobber på $m$ maskiner. Jobb $j$\nkrever $r_j$ kjernetimer, og maskin $i$ har $k_i$ ledige kjernetimer. En jobb\nkan splittes på flere maskiner, men bare på dem som har riktig programvare.\n\nBeskriv hvordan du avgjør om alle jobbene kan kjøres.",
+        "solution": "**Det klassiske problemet.** Et tilordningsproblem med kapasiteter, der\nenhetene er **delbare** — altså et rent flytproblem.\n\n**Paradigmet.** Maksimal flyt.\n\n**Konstruksjonen.** Kilde $s$, sluk $t$. Én node per jobb med kant fra $s$ og\nkapasitet $r_j$. Én node per maskin med kant til $t$ og kapasitet $k_i$. En\nkant fra jobb til maskin med kapasitet $r_j$ når maskinen har riktig\nprogramvare.\n\nKjør `Edmonds-Karp`. Alle jobbene kan kjøres hvis og bare hvis maksimal flyt er\n$\\sum_j r_j$, altså at hver kildekant er mettet.\n\n**Rekonstruksjon.** Flyten på midtkanten $j \\to i$ er **antall kjernetimer**\njobb $j$ får på maskin $i$. Heltallsteoremet gir en heltallig fordeling, så\nplanen er i hele timer. Avlesningen koster $O(E)$.\n\n**Kjøretid.** $O(VE^2)$ med $V = n + m + 2$.\n\n**Forskjellen fra en matching:** midtkantene bærer her **mer enn 1**, og flyten\nleses som «hvor mye» i stedet for «om». Det er delbarheten som gjør flyt\nmulig — var jobbene udelbare, ville dette vært en ryggsekkvariant, og den er\nNP-hard (se [kap. 7.2](/tdt4120/tdt4120-7-2)).",
+        "hints": [
+          "Hva skal kapasiteten på kildekanten være når en jobb krever flere enheter?",
+          "Hva ville skjedd med problemet hvis jobbene ikke kunne splittes?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-8-2-oppg-11",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-8-2-oppg-11-inner",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger H og G kombinert — design og et argument om\nvanskelighet.)\n\nSamme datasenter som i forrige oppgave, men nå kan **ikke** en jobb splittes:\nhver jobb må kjøres i sin helhet på én maskin.\n\n**a)** Virker flytmodellen fortsatt?\n**b)** Hva kan du si om problemets vanskelighet?",
+        "solution": "**a)** **Nei.**\n\nFlytmodellen tillater at flyten fra en jobbnode fordeles på flere midtkanter, og\ndet er nettopp det heltallsteoremet **ikke** hindrer: heltallighet betyr at hver\nkant bærer et helt tall, ikke at hele jobben går én vei.\n\nMaksimal flyt kan altså være $\\sum_j r_j$ uten at det finnes en gyldig udelt\nfordeling.\n\n**b)** Problemet er **NP-hardt**.\n\n**Reduksjonen, i retningen som gjelder:** reduser **FRA** et kjent vanskelig\nproblem **TIL** dette. Ta en SUBSET-SUM-instans med tallmengde $S$ og mål $t$,\nog la $\\Sigma$ være summen av alle tallene. Lag en instans med de samme tallene\nsom jobbstørrelser, **to** maskiner med kapasitet $t$ og $\\Sigma - t$, og la\nalle jobber kunne kjøres på begge. Da finnes en gyldig udelt fordeling hvis og\nbare hvis en delmengde summerer til $t$.\n\nOversettelsen er lineær, og svaret bevares begge veier. Altså\nSUBSET-SUM $\\le_p$ udelt fordeling, og problemet er NP-hardt.\n\n**Hva argumentet ikke viser:** at problemet er NP-komplett. Det krever i tillegg\nmedlemskap i NP, som vises ved at selve fordelingen er et sertifikat som kan\nkontrolleres i $O(n)$.\n\n**Og merk hvorfor delbarheten var avgjørende.** Den delbare varianten ligger i\nP; den udelte er NP-hard. Det er den samme grensen som skiller flyt fra\nryggsekk.",
+        "hints": [
+          "Kan flyten fra én jobbnode deles på flere kanter, og er det tillatt i den nye varianten?",
+          "Hvilket kjent NP-komplett problem handler om å dele en tallmengde i to deler?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-8-2-t-12",
+      "type": "text",
+      "content": "## Drill: dynamisk programmering (~16 min)\n\nTre oppgaver. Delproblemet skal defineres med ord før rekurrensen kommer."
+    },
+    {
+      "id": "tdt4120-8-2-oppg-13",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-8-2-oppg-13-inner",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger H.)\n\nEt museum skal sette opp en utstillingsrekke langs en korridor med $n$\nposisjoner. Å plassere en montre på posisjon $i$ gir besøksverdien $g_i$, men\nto montre kan ikke stå på naboposisjoner. Samlet besøksverdi skal\nmaksimeres.\n\nBeskriv en DP-løsning, og oppgi kjøretiden.",
+        "solution": "**Det klassiske problemet.** Velg eller ikke velg langs en linje, med en regel\nom avstand mellom valgene. Det er utvelgelsesmønsteret langs en tidslinje.\n\n**Paradigmet.** Dynamisk programmering.\n\n**Delproblemet.** La $b[i]$ være den høyeste samlede besøksverdien man kan få\nav de **$i$ første posisjonene**.\n\n**Rekurrensen.**\n\n$$b[i] = \\max\\big(b[i-1],\\; g_i + b[i-2]\\big)$$\n\nmed $b[0] = 0$ og $b[i] = 0$ for $i < 0$. Enten står posisjon $i$ tom, og du\nhar det samme som etter $i-1$; eller så settes en montre der, og da må\nposisjon $i-1$ stå tom.\n\n**Fylleorden.** Stigende $i$.\n\n**Rekonstruksjon av selve plasseringen.** Lagre $s[i] = 1$ når det andre leddet\nvant. Les baklengs fra $i = n$: er $s[i] = 1$, står det en montre på posisjon\n$i$, og du hopper til $i-2$; ellers går du til $i-1$. Koster $O(n)$ og øker\nikke kjøretiden.\n\n**Kjøretid.** $n$ delproblemer à konstant arbeid, altså $\\Theta(n)$.\n\n**Merk hvor lite arbeid hvert delproblem krever.** Rekurrensen sammenligner bare\nto tall — det er derfor kjøretiden er lineær og ikke kvadratisk.",
+        "hints": [
+          "Tenk på det siste valget: står det en montre på posisjon $n$ eller ikke?",
+          "Settes en montre på posisjon $i$, hvilket delproblem står igjen?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-8-2-oppg-14",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-8-2-oppg-14-inner",
+        "number": 6,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger H.)\n\nTo laboratorier har hver sin logg over hvilke målinger de har utført, i\nkronologisk rekkefølge. Kvalitetsavdelingen vil finne den lengste rekken av\nmåletyper **begge** har utført, **i samme rekkefølge** — men ikke nødvendigvis\nrett etter hverandre.\n\nBeskriv en løsning.",
+        "solution": "**Det klassiske problemet.** To sekvenser skal sammenlignes, og vi leter etter\nden lengste felles delsekvensen. Dette er **LCS**.\n\n**Paradigmet.** Dynamisk programmering.\n\n**Delproblemet.** La $c[i,j]$ være lengden på den lengste felles delsekvensen\nav de $i$ første målingene i logg 1 og de $j$ første i logg 2.\n\n**Rekurrensen.**\n\n$$c[i,j] = \\begin{cases}\n0 & i = 0 \\text{ eller } j = 0 \\\\\nc[i-1,j-1] + 1 & x_i = y_j \\\\\n\\max(c[i-1,j],\\; c[i,j-1]) & \\text{ellers}\n\\end{cases}$$\n\n**Fylleorden.** Stigende $i$, og for hver $i$ stigende $j$.\n\n**Rekonstruksjon av selve rekken.** Lagre en retningspeker i hver celle, og les\nbaklengs fra $c[n,m]$: ta måletypen med hver gang pekeren er diagonal. Stien\nhar høyst $n+m$ steg, så rekonstruksjonen koster $O(n+m)$ og øker ikke\nkjøretiden.\n\n**Kjøretid.** $\\Theta(nm)$, der $n$ og $m$ er lengdene på de to loggene.\n\n**Kravet «i samme rekkefølge» er det som gjør dette til LCS.** Uten det ville\ndet vært et vanlig mengdesnitt, som klares i $\\Theta(n+m)$.",
+        "hints": [
+          "Hvilke ord i oppgaveteksten skiller dette fra et mengdesnitt?",
+          "Hva er delproblemet når to sekvenser skal sammenlignes?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-8-2-oppg-15",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-8-2-oppg-15-inner",
+        "number": 7,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger H, med en felle i kjøretiden.)\n\nEn transportør skal fylle en container med kapasitet $W$ kilo. Det finnes $n$\nkolli, hvert med en vekt og en verdi, og hvert kolli kan tas med eller ikke —\nikke deles.\n\n**a)** Beskriv en DP-løsning som finner høyest mulig verdi **og** hvilke kolli\nsom velges.\n**b)** En kollega sier at algoritmen er polynomisk siden kjøretiden er\n$\\Theta(nW)$. Stemmer det?",
+        "solution": "**a)** **Det klassiske problemet.** 0-1-ryggsekk.\n\n**Paradigmet.** Dynamisk programmering, velg-eller-ikke-formen.\n\n**Delproblemet.** La $c[i,w]$ være den høyeste verdien man kan få av de $i$\nførste kolliene med en vektgrense på $w$.\n\n**Rekurrensen.**\n\n$$c[i,w] = \\begin{cases}\nc[i-1,w] & w_i > w \\\\\n\\max\\big(c[i-1,w],\\; v_i + c[i-1,\\,w-w_i]\\big) & \\text{ellers}\n\\end{cases}$$\n\nmed $c[0,w] = 0$ for alle $w$.\n\n**Fylleorden.** Stigende $i$, og for hver $i$ alle $w$ fra 0 til $W$.\n\n**Rekonstruksjon av utvalget.** Gå baklengs fra $c[n,W]$: er\n$c[i,w] \\ne c[i-1,w]$, ble kolli $i$ tatt med — noter det og trekk vekten fra\n$w$. Ellers gå opp én rad. Koster $O(n)$ og øker ikke kjøretiden.\n\n**Kjøretid.** $\\Theta(nW)$.\n\n**b) Nei.**\n\n$W$ er en **tallverdi**, ikke inputstørrelsen. Kapasiteten skrives binært med\n$\\lceil\\lg W\\rceil$ siffer, så $W$ er eksponentiell i den delen av inputen.\nAlgoritmen er derfor **pseudopolynomisk**, ikke polynomisk.\n\nOg det er ingen selvmotsigelse mot at 0-1-ryggsekk er NP-hardt: en\npseudopolynomisk algoritme sier ingenting om problemets vanskelighet. Se\n[kap. 7.2](/tdt4120/tdt4120-7-2).",
+        "hints": [
+          "Hva er delproblemet når hvert element enten tas med eller ikke, under en samlet grense?",
+          "For b: er $W$ inputstørrelsen, eller et tall som står skrevet i inputen?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-8-2-t-16",
+      "type": "text",
+      "content": "## Drill: grafsøk og stabil matching (~16 min)\n\nTre oppgaver. Her er fellen å velge feil søkealgoritme."
+    },
+    {
+      "id": "tdt4120-8-2-oppg-17",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-8-2-oppg-17-inner",
+        "number": 8,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger H.)\n\nEt regelverk består av $n$ paragrafer. Noen paragrafer viser til andre. En\nsaksbehandler vil vite: hva er den **korteste kjeden av henvisninger** fra\nparagraf $a$ til paragraf $b$, målt i antall ledd?\n\nBeskriv en løsning, og oppgi kjøretiden.",
+        "solution": "**Det klassiske problemet.** Færrest **ledd** — altså færrest kanter — fra én\nnode til en annen i en rettet graf.\n\n**Paradigmet.** Bredde-først-søk.\n\n**Konstruksjonen.** Lag en rettet graf med én node per paragraf og en kant\n$u \\to v$ for hver henvisning fra $u$ til $v$. Kjør `BFS` fra $a$.\n\n**Rekonstruksjon av selve kjeden.** `BFS` setter $\\pi[v]$ for hver node den\noppdager. Les $\\pi$ baklengs fra $b$ til du treffer $a$; det gir kjeden. Koster\n$O(V)$ og øker ikke kjøretiden. Er $b$ ikke nådd, finnes ingen kjede.\n\n**Kjøretid.** $\\Theta(V+E)$ med $V = n$ og $E$ = antall henvisninger.\n\n**Fellen her er å bruke `Dijkstra`.** Den er $O(E\\lg V)$ og løser et annet\nproblem: korteste vei etter **vekt**. Her er alle kantene like mye verdt, og da\ner `BFS` både riktig og raskere.",
+        "hints": [
+          "Hva måles kjeden i — antall ledd eller samlet vekt?",
+          "Hvilken algoritme gir færrest kanter, og hva koster den?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-8-2-oppg-18",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-8-2-oppg-18-inner",
+        "number": 9,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger H.)\n\nEn studieadministrasjon skal fordele $n$ studenter på $n$ prosjektgrupper.\nStudentene har rangert gruppene, og gruppene har rangert studentene. Fordelingen\nskal være slik at ingen student og gruppe begge heller vil ha hverandre enn det\nde fikk.\n\n**a)** Hvilket problem er dette, og hvordan løser du det?\n**b)** En student spør om hun kunne fått gruppe $G$ i stedet. Hvordan svarer\ndu?",
+        "solution": "**a)** **Det klassiske problemet.** Kravet «ingen to vil begge heller ha\nhverandre» er definisjonen på **stabil matching** — ingen blokkerende par.\n\n**Paradigmet.** `Gale-Shapley`.\n\n**Konstruksjonen.** Velg en orientering — for eksempel studentene som friere.\nHver ledig student frir til den høyest rangerte gruppen som ennå ikke har\navvist henne; gruppen beholder sitt beste tilbud og bytter bare oppover.\n\n**Rekonstruksjonen.** Den ferdige matchingen **er** fordelingen. Oppgi\nsamtidig **hvilken orientering** som ble kjørt — den andre kan gi et annet, like\nstabilt resultat.\n\n**Kjøretid.** $O(n^2)$: hver student frir til hver gruppe høyst én gang.\n\n**b)** Kjør algoritmen **begge veier**. Den studentorienterte kjøringen gir\nhver student sitt **beste** mulige stabile utfall, den gruppeorienterte hennes\n**dårligste**. Alt hun kan få i en stabil matching, ligger mellom disse to på\nlisten hennes.\n\nLigger $G$ utenfor det intervallet, kan hun ikke få $G$ i noen stabil matching.\nTo kjøringer à $O(n^2)$ koster $O(n^2)$.\n\n**Merk at dette ikke er maksimal matching.** Antallet er ikke problemet — alle\nkan alltid pares. Preferansene er hele saken, og et flytnett har ingen plass\ntil dem.",
+        "hints": [
+          "Hvilket begrep beskriver kravet «ingen to vil begge heller ha hverandre»?",
+          "Hva rammer de to orienteringene inn?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-8-2-oppg-19",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-8-2-oppg-19-inner",
+        "number": 10,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger H, der valget av algoritme er hele oppgaven.)\n\nEt logistikkfirma har et rutenett mellom $V$ terminaler med $E$ strekninger.\nHver strekning har en kostnad, og noen kostnader er **negative** fordi\nreturlast betaler bedre enn utgiften. Nettet har ingen sykel med negativ\ntotalkostnad.\n\n**a)** Firmaet vil ha billigste rute fra hovedterminalen til alle andre.\nHvilken algoritme, og hvorfor ikke de andre?\n**b)** Nettet viser seg i tillegg å være **syklusfritt**. Endrer det svaret?",
+        "solution": "**a)** **Algoritmen er `Bellman-Ford`,** $\\Theta(VE)$.\n\n**Hvorfor ikke `Dijkstra`:** den krever **ikke-negative** kantvekter, og en\neneste negativ kant kan gi feil svar. Dette er felle **#8**.\n\n**Hvorfor ikke `BFS`:** den teller kanter, ikke vekt.\n\n**Hvorfor ikke `Floyd-Warshall`:** den løser alle-til-alle og koster\n$\\Theta(V^3)$. Oppgaven ber om én kilde, og $\\Theta(VE)$ er bedre så lenge\ngrafen ikke er svært tett.\n\n**Rekonstruksjon.** `Bellman-Ford` setter $\\pi[v]$ underveis; les den baklengs\nfra hver terminal for å få selve ruten. Koster $O(V)$ per rute.\n\n**b) Ja — da er `DAG-Shortest-Path` bedre,** $\\Theta(V+E)$.\n\nDen finner først en topologisk sortering og slakker deretter kantene ut fra\nhver node i den rekkefølgen. Hver kant slakkes nøyaktig én gang, og ingen\nprioritetskø trengs.\n\n**Og den tåler negative vekter uten videre** — kravet er bare at grafen er\nsyklusfri. Se [kap. 4.5](/tdt4120/tdt4120-4-5).\n\n**Regelen bak begge svarene:** fortegnet på vektene avgjør hvilke algoritmer som\ner **lovlige**; grafens form avgjør hvilken av de lovlige som er **raskest**.",
+        "hints": [
+          "Hvilken av korteste-vei-algoritmene stiller krav til fortegnet på vektene?",
+          "Hva kan du utnytte når grafen er syklusfri?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-8-2-coll-21",
+      "type": "collapsible",
+      "title": "Kald bank — uten hint",
+      "buttonText": "Vis den kalde banken",
+      "content": [
+        {
+          "id": "tdt4120-8-2-ct-20",
+          "type": "text",
+          "content": "**Ti innpakninger, ingen hint, ingen sjangertag.** Dette er den nærmeste\nkopien av eksamenssituasjonen boka har: du får problemet slik det står, og må\nselv finne ut hvilket paradigme det er.\n\nFasitene er **momentlister** — de fem leddene i stikkord, ikke ferdigskrevne\nsvar. Skriv ditt eget svar først, og bruk listen til å krysse av hva du fikk\nmed.\n\n**Sett klokka på ti minutter per oppgave.**\n\n---\n\n**1.** En festival har $n$ frivillige og $m$ vaktposter. Hver frivillig har\noppgitt hvilke poster hun kan bemanne, og kan ta høyst to. Hver post trenger\nnøyaktig én. Kan alle postene bemannes, og hvordan?\n\n*Moment:* tilordning med kapasiteter · maks-flyt · kildekant 2, slukkant 1,\nmidtkant 1 der det er tillatt · midtkantene med flyt er bemanningen,\nheltallsteoremet, $O(E)$ · $O(VE^2)$ med $V = n+m+2$.\n\n---\n\n**2.** Et arkiv skal deles inn i bokser. Dokumentene ligger i fast rekkefølge,\nog en boks med dokumentene $i$ til $j$ har en oppgitt pakkekostnad. Finn den\nbilligste inndelingen.\n\n*Moment:* oppdeling · DP · $c[j] = \\min_{i<j}(c[i] + K(i{+}1,j))$, $c[0]=0$ ·\nlagre $s[j]$, les baklengs, $O(n)$ · $\\Theta(n^2)$.\n\n---\n\n**3.** En kommune vil vite hvilke veistrekninger den må stenge for å hindre all\ntrafikk mellom to bydeler, billigst mulig. Hver strekning har en\nstengekostnad.\n\n*Moment:* billigste barriere · min-snitt via maks-flyt · superkilde og supersluk\ni de to bydelene, kapasitet = stengekostnad · les snittet med én `BFS` i\nrestnettet · $O(VE^2)$.\n\n---\n\n**4.** To versjoner av et dokument skal sammenlignes. Finn den lengste rekken av\navsnitt som står i begge, i samme rekkefølge.\n\n*Moment:* to sekvenser · DP, LCS · standard LCS-rekurrens · retningspekere, les\nbaklengs, $O(n+m)$ · $\\Theta(nm)$.\n\n---\n\n**5.** Et sosialt nettverk vil finne det minste antallet introduksjoner som må\ntil for å knytte person $a$ til person $b$ gjennom felles bekjente.\n\n*Moment:* færrest ledd · `BFS` · én node per person, kant per bekjentskap ·\nles $\\pi$ baklengs fra $b$ · $\\Theta(V+E)$.\n\n---\n\n**6.** En skole skal pare $n$ elever med $n$ fadderelever. Begge grupper har\nrangert hverandre. Ingen to skal begge heller ville hatt hverandre.\n\n*Moment:* stabil matching · `Gale-Shapley` · velg orientering, friere går\nnedover, mottakere bytter oppover · matchingen **og** orienteringen ·\n$O(n^2)$.\n\n---\n\n**7.** Et strømnett skal bygges mellom $n$ punkter. Kostnaden for hver mulig\nkabel er oppgitt. Alle punktene skal henge sammen, og totalkostnaden skal være\nlavest mulig.\n\n*Moment:* billigste sammenhengende nett · minimalt spenntre · `Kruskal` med\n`Union-Find` eller `Prim` med prioritetskø · kantene i den rekkefølgen de\nlegges til, $V-1$ stykker · $O(E\\lg V)$.\n\n---\n\n**8.** Et lager skal fylles med varer. Hver vare har en vekt og en verdi, og\nlageret har en samlet vektgrense. Varene kan ikke deles. Finn høyest mulig\nverdi og hvilke varer.\n\n*Moment:* velg eller ikke velg med samlet grense · DP, 0-1-ryggsekk ·\n$c[i,w] = \\max(c[i-1,w], v_i + c[i-1,w-w_i])$ · gå baklengs og sammenlign med\nraden over, $O(n)$ · $\\Theta(nW)$, **pseudopolynomisk**.\n\n---\n\n**9.** En prosjektplan har $n$ oppgaver med varigheter og avhengigheter. Ingen\noppgave kan starte før alle den avhenger av, er ferdige. Finn den korteste\nmulige totaltiden.\n\n*Moment:* rekkefølge med avhengigheter · topologisk sortering pluss\nlengste-vei-i-DAG · kant $u \\to v$ med vekt lik varigheten til $u$ · les $\\pi$\nbaklengs for den kritiske stien · $\\Theta(V+E)$.\n\n---\n\n**10.** En kandidat har vist at problemet hans reduseres **til** VERTEX-COVER,\nog konkluderer at problemet er NP-hardt. Hva er galt, og hva måtte han gjort?\n\n*Moment:* retningen er snudd · $X \\le_p$ VERTEX-COVER viser bare at $X$ ligger i\nNP · for hardhet må reduksjonen gå VERTEX-COVER $\\le_p X$ · si også hva\nargumentet ikke viser · felle #1."
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-8-2-warn-22",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "De to første koster mest, og de kommer i nesten hver eneste designoppgave.\n\n- **Å oppgi bare optimalverdien.** Dette er felle **#6**. Oppgaven ber om en\n  fordeling, en plan, en oppdeling eller en kjede — og da må du si hvordan den\n  leses ut. Ta med setningen om at rekonstruksjonen ikke øker kjøretiden.\n- **Å ikke navngi paradigmet.** «Jeg lager et nett med noder og kanter» uten å\n  si at det er maks-flyt, mister ett ledd. To setninger koster ingenting.\n- **Å reversere reduksjonsretningen** når oppgaven ber om et\n  vanskelighetsargument. Felle **#1**: reduser **FRA** det kjente vanskelige\n  **TIL** ditt problem.\n- **Å glemme heltallsteoremet** i en flytmodellering. Det er det som gjør at\n  flyten kan leses som en tildeling.\n- **Å sette kapasitetene feil sted.** «Hvor mange hver kan ta» hører på\n  kildekanten; «hvor mange hver har plass til» på slukkanten; hva som er\n  **tillatt**, kodes ved at midtkanten finnes.\n- **Å bruke `Dijkstra` på negative vekter.** Felle **#8**. Og motsatt: å bruke\n  `Dijkstra` der `BFS` holder, når alle kantene teller likt.\n- **Å oppgi kjøretiden uten å definere størrelsene.** «$O(VE^2)$» alene er et\n  halvt svar; si hva $V$ og $E$ er i **din** konstruksjon.\n- **Å bruke for lang tid.** Fem til ti linjer. Den som bruker 40 minutter på én\n  designoppgave, har nitten andre som teller like mye.\n\nOg den gjennomgående: **å ikke telle leddene før du går videre**. Fem ledd, hver\ngang."
+    },
+    {
+      "id": "tdt4120-8-2-t-23",
+      "type": "text",
+      "content": "## Paradigmene og kjøretidene samlet\n\n| Paradigme | Når | Kjøretid | Rekonstruksjon |\n|---|---|---|---|\n| Maks-flyt | fordeling med kapasiteter | $O(VE^2)$ | midtkanter med flyt, $O(E)$ |\n| Min-snitt | billigste barriere | $O(VE^2)$ | én `BFS` i restnettet, $O(V+E)$ |\n| Maksimal matching | én-til-én-paring | $O(VE^2)$ | midtkanter med flyt, $O(E)$ |\n| DP, oppdeling | del i biter med verdi | $\\Theta(n^2)$ | valgtabell baklengs, $O(n)$ |\n| DP, LCS | to sekvenser | $\\Theta(nm)$ | retningspekere baklengs, $O(n+m)$ |\n| DP, ryggsekk | velg eller ikke, med grense | $\\Theta(nW)$, pseudopolynomisk | rad-sammenligning baklengs, $O(n)$ |\n| `BFS` | færrest ledd | $\\Theta(V+E)$ | $\\pi$ baklengs, $O(V)$ |\n| `Dijkstra` | korteste vei, ikke-negative vekter | $O(E\\lg V)$ | $\\pi$ baklengs, $O(V)$ |\n| `DAG-Shortest-Path` | korteste vei i DAG, negative lov | $\\Theta(V+E)$ | $\\pi$ baklengs, $O(V)$ |\n| `Bellman-Ford` | korteste vei med negative vekter | $\\Theta(VE)$ | $\\pi$ baklengs, $O(V)$ |\n| `Gale-Shapley` | stabil parvis tilordning | $O(n^2)$ | matchingen **og** orienteringen |\n| MST | billigste sammenhengende nett | $O(E\\lg V)$ | kantene i rekkefølge, $V-1$ stk. |\n| Reduksjon | «vis at problemet er vanskelig» | — | retning + hva den ikke viser |\n\n**Én presisering som er verdt å ta med seg.** Rekonstruksjonskolonnen er den\nkorteste i tabellen og den dyreste å glemme. I hvert eneste tilfelle er den et\n**lavere ledd** enn selve algoritmen — og i hvert eneste tilfelle er den det\noppgaven faktisk ber om."
+    },
+    {
+      "id": "tdt4120-8-2-t-24",
+      "type": "text",
+      "content": "### Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp\nhar lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet\ngjelder kjernestoffet."
+    },
+    {
+      "id": "tdt4120-8-2-def-25",
+      "type": "definition",
+      "title": "De fem leddene i et designsvar",
+      "content": "navngi det klassiske problemet, navngi paradigmet, bygg konstruksjonen,\nrekonstruér selve løsningen, og oppgi kjøretiden.\n\nDet fjerde glipper oftest, og det andre er det billigste å få med.\n\n**Tell leddene før du går videre til neste oppgave.**"
+    },
+    {
+      "id": "tdt4120-8-2-def-26",
+      "type": "definition",
+      "title": "Mønstergjenkjenning",
+      "content": "å lese innpakningen og finne strukturen: fordeling, barriere, oppdeling, to\nsekvenser, velg-eller-ikke, færrest ledd, eller stabil paring.\n\nInnpakningen er alltid ny; strukturen er alltid en av en håndfull.\n\n**Les oppgaven én gang for mønsteret**, og først deretter for detaljene."
+    },
+    {
+      "id": "tdt4120-8-2-def-27",
+      "type": "definition",
+      "title": "Flytmalen",
+      "content": "kilde, venstre nodesett, høyre nodesett, sluk. Ytterkantene koder grenser;\nmidtkantene koder hva som er tillatt.\n\nKjør `Edmonds-Karp`, $O(VE^2)$, og les tildelingen av de midtkantene som bærer\nflyt.\n\n**Heltallsteoremet er det som gjør avlesningen entydig** — nevn det."
+    },
+    {
+      "id": "tdt4120-8-2-def-28",
+      "type": "definition",
+      "title": "Nodesplitting",
+      "content": "å dele en node i to med en indre kant som bærer nodens kapasitet eller kostnad.\n\nBrukes når begrensningen sitter på en **node** og ikke på en kant — typisk i\nbarriereproblemer der det koster å sperre et sted.\n\n**Alle innkommende kanter til den ene halvdelen, alle utgående fra den\nandre.**"
+    },
+    {
+      "id": "tdt4120-8-2-def-29",
+      "type": "definition",
+      "title": "Rekonstruksjon",
+      "content": "å hente ut selve løsningen: hvilke midtkanter bærer flyt, hvilke valg står i\nvalgtabellen, hvilken sti gir $\\pi$.\n\nKoster $O(E)$, $O(n)$ eller $O(n+m)$ — alltid et lavere ledd.\n\n**Setningen «dette øker ikke den asymptotiske kjøretiden» hører med.**"
+    },
+    {
+      "id": "tdt4120-8-2-def-30",
+      "type": "definition",
+      "title": "Å oppgi kjøretiden i problemets størrelser",
+      "content": "«$O(VE^2)$ med $V = n+m+2$ og $E = O(n+m+k)$» er et helt svar.\n\n«$O(VE^2)$» alene er et halvt: den som retter, kan ikke se om konstruksjonen\ndin faktisk gir den grensen.\n\n**Én linje til koster ingenting** og henter et helt ledd."
+    },
+    {
+      "id": "tdt4120-8-2-def-31",
+      "type": "definition",
+      "title": "Når flyt ikke virker",
+      "content": "flytmodellen tåler ikke **nedre** grenser på kanter, og den hindrer ikke at\nflyten fra én node splittes på flere veier.\n\nKrever oppgaven at en enhet holdes samlet, er problemet typisk NP-hardt — en\nryggsekkvariant.\n\n**Å si at noe faller utenfor standardmodellen, og hvorfor, gir uttelling.**"
+    },
+    {
+      "id": "tdt4120-8-2-def-32",
+      "type": "definition",
+      "title": "Sjanger H — åpen algoritmedesign",
+      "content": "oppgavetypen der du skisserer en algoritme på fem til ti linjer.\n\nDe siste tre til fem oppgavene i hvert ordinære sett er av denne typen.\n\n**Delvis uttelling er regelen:** riktig paradigme og halv konstruksjon gir\nuttelling selv om detaljene halter."
+    },
+    {
+      "id": "tdt4120-8-2-coll-34",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tdt4120-8-2-ct-33",
+          "type": "text",
+          "content": "Seks korte spørsmål fra kapitlene dette bygger på. Svar i hodet først, så\nsammenlign.\n\n**1.** Hvor i et flytnett koder du «hver person kan ta høyst tre oppdrag»?\n\n*Svar:* som kapasitet 3 på kanten fra kilden til personens node. Se\n[kap. 5.3](/tdt4120/tdt4120-5-3).\n\n**2.** Hva sier heltallsteoremet?\n\n*Svar:* med heltallige kapasiteter finnes en maksimal flyt der hver kant bærer\net heltall. Se [kap. 5.1](/tdt4120/tdt4120-5-1).\n\n**3.** Hva er de seks stegene i DP-oppskriften?\n\n*Svar:* gjenkjenn mønsteret, definér delproblemet med ord, skriv rekurrensen\nmed grunntilfeller, oppgi fylleorden, rekonstruér, oppgi kjøretiden. Se\n[kap. 6.3](/tdt4120/tdt4120-6-3).\n\n**4.** Hvilken algoritme gir færrest **kanter**, og hva koster den?\n\n*Svar:* `BFS`, $\\Theta(V+E)$. `Dijkstra` løser et annet problem — korteste vei\netter vekt. Se [kap. 4.1](/tdt4120/tdt4120-4-1).\n\n**5.** Hvilken vei må en reduksjon gå for å vise at et problem er vanskelig?\n\n*Svar:* **FRA** et kjent vanskelig problem **TIL** ditt. Se\n[kap. 7.2](/tdt4120/tdt4120-7-2).\n\n**6.** Hva må stå i svaret på en `Gale-Shapley`-oppgave, i tillegg til\nmatchingen?\n\n*Svar:* hvilken orientering som ble kjørt. Se\n[kap. 6.5](/tdt4120/tdt4120-6-5).\n\n**Videre:** [kap. 8.3](/tdt4120/tdt4120-8-3), [kap. 8.4](/tdt4120/tdt4120-8-4)\nog [kap. 8.5](/tdt4120/tdt4120-8-5) er tre komplette øvingseksamener. Ta minst\nett av dem på tid, uten hjelpemidler."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
