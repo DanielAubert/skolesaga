@@ -1,0 +1,365 @@
+{
+  "id": "tdt4120-5-2",
+  "courseId": "tdt4120",
+  "chapterNumber": "5.2",
+  "title": "Ford-Fulkerson, Edmonds-Karp og maks-flyt/min-snitt",
+  "description": "`Ford-Fulkerson`-metoden, `Edmonds-Karp` (BFS-forøkende stier), maks-flyt/min-snitt-teoremet, og hvorfor FF er pseudopolynomisk mens EK er polynomisk.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "kunne kjøre Ford-Fulkerson-metoden for hånd og oppgi både maksimal flytverdi og et min-snitt",
+    "kunne forklare hva maks-flyt/min-snitt-teoremet sier, og bruke det til å bevise at en flyt er maksimal",
+    "kunne skille pseudopolynomisk fra polynomisk, og si hvorfor Edmonds-Karp er polynomisk mens den generelle metoden ikke er det"
+  ],
+  "content": [
+    {
+      "id": "tdt4120-5-2-tip-1",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Maksimal flyt er registrert i 16 av de 17 settene i grunnlaget (94 %).**\nGrunnlaget er de 17 settene fra august 2015 til august 2023 som er gjennomgått\ntema for tema — det er nevneren hver gang boka oppgir en prosent.\n\nMaks-flyt er den ene av fagets to designryggrader: de åpne designoppgavene på\nslutten av settet handler oftere om flyt enn om noe annet. Prioritet:\n**høyeste prioritet — dette må sitte.**\n\nTre sjangre henter fra dette kapitlet, og de skrives ut i klarspråk her:\n\n- **Sjanger E — kjøretidskunnskap**, altså at du oppgir kjøretiden i det\n  strammeste uttrykket som er riktig. $O(VE^2)$ for `Edmonds-Karp` er et av\n  tallene som skal sitte kaldt.\n- **Sjanger F — «stemmer dette?»**, altså at du svarer ja eller nei først og\n  deretter gir én presis setning. Den klassiske her: «Er `Ford-Fulkerson`\n  polynomisk?»\n- **Sjanger G — argument om vanskelighet**, altså at du sier hva et argument\n  faktisk viser. Her møter du skillet mellom **pseudopolynomisk** og\n  **NP-hardt**, som er et av fagets faste innsiktsspørsmål.\n\n**Det ene skillet du må ha klart:** at `Ford-Fulkerson` ikke er polynomisk,\nbetyr **ikke** at maks-flyt er et vanskelig problem. Maks-flyt løses i\npolynomisk tid av `Edmonds-Karp`. Det er algoritmen som er treg, ikke problemet\nsom er hardt. Dette er felle **#7**.\n\n**Slik er kapitlet lagt opp (55 min):**\n\n| Innhold | Tid |\n|---|---|\n| Ford-Fulkerson-metoden | ca. 15 min |\n| `Edmonds-Karp` og hvorfor den er polynomisk | ca. 12 min |\n| Maks-flyt/min-snitt-teoremet | ca. 14 min |\n| Pseudopolynomisk mot polynomisk | ca. 14 min |"
+    },
+    {
+      "id": "tdt4120-5-2-t-2",
+      "type": "text",
+      "content": "## Forkunnskaper\n\n- [kap. 5.1](/tdt4120/tdt4120-5-1) — flytnett, restnett og snitt. Dette er\n  hele grunnlaget, og de fire resultatene du trenger i hånden, står her:\n\n  1. **Restkapasiteten** er $c_f(u,v) = c(u,v) - f(u,v)$ for en framoverkant,\n     og $c_f(v,u) = f(u,v)$ for **ryggkanten**. Restnettet $G_f$ inneholder\n     alle kanter med $c_f > 0$.\n  2. **En forøkende sti** er en sti fra $s$ til $t$ i restnettet.\n     **Flaskehalsen** er den minste restkapasiteten på stien.\n  3. **Et snitt** $(S,T)$ deler nodene med $s \\in S$ og $t \\in T$.\n     Snittkapasiteten $c(S,T)$ teller **bare** kantene som går fra $S$ til $T$.\n  4. **Snittlemmaet:** for enhver lovlig flyt og ethvert snitt er\n     $\\lvert f\\rvert = f(S,T) \\le c(S,T)$. All flyt må krysse ethvert snitt.\n\n  Det siste er den ene ulikheten hele dette kapitlet hviler på.\n- [kap. 4.1](/tdt4120/tdt4120-4-1) — `BFS`. `Edmonds-Karp` er `Ford-Fulkerson`\n  med `BFS` til å finne stien, og det er den eneste forskjellen.\n- [kap. 1.1](/tdt4120/tdt4120-1-1) — de asymptotiske symbolene."
+    },
+    {
+      "id": "tdt4120-5-2-coll-4",
+      "type": "collapsible",
+      "title": "Notasjons- og pseudokodeliste",
+      "buttonText": "Vis notasjon og pseudokode",
+      "content": [
+        {
+          "id": "tdt4120-5-2-ct-3",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et algoritmefag: den lister kjøretidsuttrykk og pseudokode-operasjoner i stedet for bare greske bokstaver.\n\n| Symbol | Betydning |\n|---|---|\n| $G=(V,E)$ | flytnettet; i kjøretider betyr $V$ og $E$ antall noder og kanter |\n| $s$, $t$ | kilden og sluket |\n| $c(u,v)$ | kapasiteten på kanten fra $u$ til $v$ |\n| $f(u,v)$ | flyten på kanten |\n| $\\lvert f\\rvert$ | flytverdien: nettoflyten ut av kilden |\n| $c_f(u,v)$ | restkapasiteten |\n| $G_f$ | restnettet — kantene med $c_f > 0$ |\n| $(S,T)$ | et snitt, med $s \\in S$ og $t \\in T$ |\n| $c(S,T)$ | snittkapasiteten: summen av kapasitetene på kantene fra $S$ til $T$ |\n| $C$ | summen av kapasitetene ut av kilden — brukes i kjøretidsanalysen av FF |\n\n| Algoritme/operasjon | Kontrakt | Kjøretid |\n|---|---|---|\n| `Ford-Fulkerson(G, s, t)` | finn en forøkende sti i $G_f$, forøk med flaskehalsen, gjenta til ingen finnes | $O(E\\cdot\\lvert f^*\\rvert)$ — **pseudopolynomisk** |\n| `Edmonds-Karp(G, s, t)` | samme, men stien er den **korteste** i $G_f$, funnet med `BFS` | $O(VE^2)$ — polynomisk |\n| `BFS(G_f, s)` | finner en sti fra $s$ til $t$ med færrest kanter | $O(V+E)$ |\n| `Augment(f, sti)` | øker flyten langs stien med flaskehalsen, og senker den på ryggkantene | $O(V)$ |\n\n**Formler i dette delkapitlet:**\n\n$$c_f(u,v) = c(u,v) - f(u,v), \\qquad c_f(v,u) = f(u,v)$$\n\nRestkapasiteten framover og bakover. Ryggkanten er muligheten til å **angre**.\n\n$$\\lvert f\\rvert = f(S,T) \\le c(S,T)$$\n\nSnittlemmaet fra [kap. 5.1](/tdt4120/tdt4120-5-1) — enhver flyt er begrenset av ethvert snitt.\n\n$$\\max_f \\lvert f\\rvert = \\min_{(S,T)} c(S,T)$$\n\nMaks-flyt/min-snitt-teoremet: den største flyten er nøyaktig like stor som det billigste snittet.\n\n$$O(E\\cdot\\lvert f^*\\rvert) \\quad \\text{mot} \\quad O(VE^2)$$\n\nFord-Fulkerson mot Edmonds-Karp: den ene avhenger av **tallverdien** til svaret, den andre bare av grafens størrelse.\n"
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-5-2-t-5",
+      "type": "text",
+      "content": "## Ford-Fulkerson-metoden (~15 min)\n\nIdeen er så enkel at det er lett å undervurdere den: **så lenge det finnes en\nvei å presse mer vann gjennom, gjør det**.\n\n«En vei» betyr en sti fra $s$ til $t$ i restnettet, og restnettet er nettopp\nkonstruert slik at en sti der alltid er lovlig å bruke. Ryggkantene gjør at\nmetoden kan **angre** tidligere valg: å sende flyt bakover langs en ryggkant\nbetyr i praksis å trekke tilbake litt av det som ble sendt framover før.\n\nLegg merke til ordet **metode**, ikke algoritme. `Ford-Fulkerson` sier ikke\nhvordan stien skal finnes — bare at den skal finnes. Det valget er det som\navgjør kjøretiden, og det er derfor `Edmonds-Karp` finnes."
+    },
+    {
+      "id": "tdt4120-5-2-thm-6",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `Ford-Fulkerson`",
+      "content": "**Antagelser om representasjon.** Flytnettet er $G=(V,E)$ med kilde `s`, sluk\n`t` og kapasiteter `c(u,v) >= 0`. Restnettet `G_f` bygges av `c` og `f` etter\nregelen fra [kap. 5.1](/tdt4120/tdt4120-5-1). Kapasitetene antas **heltallige**\n— ellers er ikke terminering garantert.\n\n**Prebetingelse:** `c(u,v) >= 0` for alle kanter.\n**Postbetingelse:** `f` er en maksimal flyt, og nodene som kan nås fra `s` i\nrestnettet, utgjør venstresiden i et min-snitt.\n\n```text\nFord-Fulkerson(G, s, t)\n  Input:  flytnettet G med kapasiteter c, kilde s, sluk t\n  Output: en maksimal flyt f\n  for hver kant (u,v) i E\n      f(u,v) = 0\n  while det finnes en sti p fra s til t i restnettet G_f\n      flaskehals = min over kantene (u,v) paa p av c_f(u,v)\n      for hver kant (u,v) paa p\n          if (u,v) er en framoverkant\n              f(u,v) = f(u,v) + flaskehals\n          else\n              f(v,u) = f(v,u) - flaskehals\n  return f\n  Kjoeretid: O(E * |f*|) med heltallige kapasiteter\n```\n\n**Invarianten i én setning:** `f` er hele veien en lovlig flyt — den bryter\nverken kapasitets- eller bevaringsbetingelsen — og flytverdien øker med minst 1\ni hver runde.\n\n**Hvorfor den terminerer.** Med heltallige kapasiteter er flaskehalsen alltid\net positivt heltall, så $\\lvert f\\rvert$ øker med minst 1 per runde. Den kan\nikke overstige maksimal flytverdi $\\lvert f^*\\rvert$, så antall runder er høyst\n$\\lvert f^*\\rvert$. Hver runde koster $O(E)$ til å finne stien og forøke.\n\n**Kjøretid:** $O(E\\cdot\\lvert f^*\\rvert)$. Legg merke til hva som står der:\nkjøretiden avhenger av **tallverdien** til svaret, ikke bare av hvor stor\ngrafen er. Det er nettopp definisjonen på **pseudopolynomisk**, og vi kommer\ntilbake til det."
+    },
+    {
+      "id": "tdt4120-5-2-fig-7",
+      "type": "image",
+      "src": "/images/textbook/tdt4120/5-2-foroekende-sti-for.svg",
+      "alt": "Restnettet for vanningsanlegget etter to forokninger. Nodene er s, a, b, c, d og t. Stien fra s til a til b til d til c til t er tegnet med tykke gronne piler og har restkapasitetene fire, fire, en, fem og seks. De ovrige restkantene er tegnet graa og tynne, blant annet ryggkantene fra a til s, fra b til s, fra c til a, fra d til b, fra t til c og fra t til d. En note forklarer at flaskehalsen er en, altsa den minste restkapasiteten pa veien.",
+      "caption": "Restnettet før tredje forøkning i Eksempel 1. Den grønne stien er den korteste `BFS` finner, og flaskehalsen er 1 — restkapasiteten på kanten $b \\to d$."
+    },
+    {
+      "id": "tdt4120-5-2-eks-8",
+      "type": "example",
+      "title": "Eksempel 1: `Ford-Fulkerson` fra tom flyt til maksimal",
+      "problem": "Vanningsanlegget fra [kap. 5.1](/tdt4120/tdt4120-5-1) har pumpehuset $s$,\nkummene $a$, $b$, $c$, $d$ og jordet $t$, med kapasitetene\n\n```text\nc(s,a) = 12    c(s,b) = 9     c(a,b) = 4    c(a,c) = 8\nc(b,d) = 10    c(c,t) = 14    c(d,c) = 5    c(d,t) = 9\n```\n\nKjør `Ford-Fulkerson` fra nullflyten, og finn stiene med `BFS` (altså\n`Edmonds-Karp`). Naboene besøkes i alfabetisk rekkefølge.\n\nOppgi maksimal flytverdi og et min-snitt.",
+      "solution": "| Runde | Forøkende sti | Flaskehals | $\\lvert f\\rvert$ etterpå |\n|---|---|---|---|\n| 1 | $s \\to a \\to c \\to t$ | 8 | 8 |\n| 2 | $s \\to b \\to d \\to t$ | 9 | 17 |\n| 3 | $s \\to a \\to b \\to d \\to c \\to t$ | 1 | 18 |\n| 4 | ingen sti finnes i $G_f$ | — | **18** |\n\n**Runde 1:** stien $s \\to a \\to c \\to t$ har restkapasiteter $12$, $8$ og $14$\n— flaskehalsen er 8, satt av den mettede kanten $a \\to c$.\n\n**Runde 2:** stien $s \\to b \\to d \\to t$ har restkapasiteter $9$, $10$ og $9$ —\nflaskehalsen er 9.\n\n**Runde 3:** nå er de to åpenbare veiene brukt opp, og `BFS` finner\n$s \\to a \\to b \\to d \\to c \\to t$ med restkapasiteter $4$, $4$, $1$, $5$ og\n$6$. Flaskehalsen er 1, satt av $b \\to d$, som allerede bærer 9 av 10.\n\n**Runde 4:** `BFS` fra $s$ i restnettet når bare $a$ og $b$. Ingen sti til $t$\nfinnes, og algoritmen stopper.\n\n**Den endelige flyten:**\n\n```text\nf(s,a) = 9/12    f(s,b) = 9/9     f(a,b) = 1/4     f(a,c) = 8/8\nf(b,d) = 10/10   f(c,t) = 9/14    f(d,c) = 1/5     f(d,t) = 9/9\n```\n\n**Sluttilstanden — det du ville levert på eksamen:**\n\n**Maks-flyt $\\lvert f^*\\rvert = 18$. Et min-snitt er\n$S = \\{a, b, s\\}$, $T = \\{c, d, t\\}$,\nmed snittkapasitet $8 + 10 = 18$.**\n\n**Slik leser du av min-snittet.** Når algoritmen stopper, kjører du én siste\n`BFS` fra $s$ i restnettet. Nodene den når, utgjør $S$; resten utgjør $T$. Her\nnås $a$ og $b$, men ikke $c$, $d$ eller $t$.\n\n**Legg merke til at runde 3 var den vanskelige.** Uten ryggkantene i restnettet\nville den stien ikke eksistert — kanten $d \\to c$ er en vanlig framoverkant her,\nmen det er sidesprangene gjennom $a \\to b$ som gjør at den siste enheten finner\nveien. En sti som denne er nettopp det håndkjøringsoppgaver tester.\n\nMerk at oppgaven ba om **både** flytverdien og et min-snitt. Er begge spurt om,\ner begge en del av svaret."
+    },
+    {
+      "id": "tdt4120-5-2-oppg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-5-2-oppg-9-inner",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave, sjanger D — definisjon med egne ord, altså én presis setning\nmed hovedpoenget først.)\n\nForklar hva `Ford-Fulkerson`-metoden gjør, og hvorfor den kalles en **metode**\nog ikke en algoritme.",
+        "solution": "Metoden starter med nullflyten og gjentar: finn en sti fra $s$ til $t$ i\nrestnettet, øk flyten langs stien med flaskehalsen, og gjenta til ingen slik\nsti finnes.\n\nDen kalles en **metode** fordi den ikke sier **hvordan** stien skal finnes. Det\nvalget er fritt, og det avgjør kjøretiden: velger du korteste sti med `BFS`, får\ndu `Edmonds-Karp` med $O(VE^2)$; velger du vilkårlig, kan kjøretiden avhenge av\ntallverdiene i kapasitetene.\n\nSelve svaret blir like riktig uansett valg — det er bare tiden det tar som\nendrer seg.",
+        "hints": [
+          "Hva er de tre stegene som gjentas i løkka?",
+          "Hvilken del av pseudokoden er ikke spesifisert?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-5-2-oppg-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-5-2-oppg-10-inner",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C — håndkjøring, altså at du utfører algoritmen steg for\nsteg og oppgir bare sluttilstanden.)\n\nEt flytnett har nodene $s$, $u$, $v$, $x$, $y$, $t$ og kapasitetene\n\n```text\nc(s,u) = 10    c(s,v) = 8     c(u,v) = 3    c(u,x) = 6\nc(v,y) = 9     c(x,t) = 7     c(y,x) = 4    c(y,t) = 5\n```\n\nKjør `Edmonds-Karp` fra nullflyten, med naboene i alfabetisk rekkefølge.\n\n**a)** Oppgi de forøkende stiene og flaskehalsene.\n**b)** Oppgi maksimal flytverdi og et min-snitt.",
+        "solution": "**a)**\n\n| Runde | Forøkende sti | Flaskehals |\n|---|---|---|\n| 1 | $s \\to u \\to x \\to t$ | 6 |\n| 2 | $s \\to v \\to y \\to t$ | 5 |\n| 3 | $s \\to v \\to y \\to x \\to t$ | 1 |\n\nEtter runde 3 finner `BFS` ingen sti til $t$.\n\n**b)** **Maks-flyt $\\lvert f^*\\rvert = 12$.** Et min-snitt er\n$S = \\{s, u, v, x, y\\}$, $T = \\{t\\}$, med snittkapasitet\n$c(x,t) + c(y,t) = 7 + 5 = 12$.\n\nKontroll: flytverdien og snittkapasiteten er like, og etter maks-flyt/min-snitt\ner det beviset på at flyten er maksimal.\n\nLegg merke til runde 3: stien går via $y \\to x$, en kant som ikke ble brukt i\ndet hele tatt i runde 1 og 2. Restkapasiteten på $x \\to t$ var da 1, og det ble\nflaskehalsen.",
+        "hints": [
+          "Bygg restnettet etter hver forøkning, og bruk `BFS` til å finne den korteste stien.",
+          "Min-snittet leses av ved å se hvilke noder `BFS` når fra $s$ når algoritmen stopper."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-5-2-t-11",
+      "type": "text",
+      "content": "## `Edmonds-Karp` og hvorfor den er polynomisk (~12 min)\n\nForskjellen mellom `Ford-Fulkerson` og `Edmonds-Karp` er én linje: hvordan\nstien velges. `Edmonds-Karp` bruker **korteste** forøkende sti, målt i antall\nkanter, og finner den med `BFS`.\n\nDet høres ut som en detalj. Det er det ikke."
+    },
+    {
+      "id": "tdt4120-5-2-thm-12",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `Edmonds-Karp`",
+      "content": "**Antagelser om representasjon.** Som `Ford-Fulkerson`. Restnettet $G_f$\nbygges på nytt (eller oppdateres) etter hver forøkning, og `BFS` kjøres på det.\n\n**Prebetingelse:** `c(u,v) >= 0`. Merk at heltallighet **ikke** er nødvendig\nher — kjøretidsgrensen holder også for reelle kapasiteter.\n**Postbetingelse:** `f` er en maksimal flyt.\n\n```text\nEdmonds-Karp(G, s, t)\n  Input:  flytnettet G med kapasiteter c, kilde s, sluk t\n  Output: en maksimal flyt f\n  for hver kant (u,v) i E\n      f(u,v) = 0\n  while BFS finner en sti p fra s til t i G_f\n      flaskehals = min over kantene (u,v) paa p av c_f(u,v)\n      forok flyten langs p med flaskehals\n  return f\n  Kjoeretid: O(V * E^2)\n```\n\n**Grunnideen i én setning:** når stien alltid er den korteste, kan avstanden\nfra $s$ til hver node i restnettet aldri **synke** underveis — og det gir en\ngrense på hvor mange forøkninger som kan gjøres.\n\n**Utledningen, i tre ledd.**\n\n*Ledd 1.* Avstanden $\\delta_f(s,v)$ fra $s$ til $v$ i restnettet er\nikke-synkende gjennom hele kjøringen. Hver forøkning fjerner minst én kant fra\nrestnettet (den som var flaskehals) og kan legge til ryggkanter, men aldri på\nen måte som forkorter avstanden.\n\n*Intuisjon:* `BFS` tar alltid den korteste veien, så en ny snarvei måtte ha\neksistert allerede.\n\n*Ledd 2.* En kant $(u,v)$ som er flaskehals i én runde, kan ikke bli flaskehals\nigjen før avstanden $\\delta_f(s,u)$ har økt med minst 2.\n\n*Intuisjon:* kanten forsvinner fra restnettet når den mettes, og den kommer\nbare tilbake hvis flyt sendes **bakover** gjennom den — og det skjer bare når\n$u$ ligger lenger unna $s$ enn før.\n\n*Ledd 3.* Avstanden er høyst $V-1$, så hver av de $E$ kantene kan være\nflaskehals høyst $O(V)$ ganger. Det gir $O(VE)$ forøkninger totalt, og hver\nkoster $O(E)$ til `BFS`.\n\n**Kjøretid:** $O(VE^2)$. Uttrykket inneholder **bare** $V$ og $E$ — ingen\nkapasiteter. Det er nettopp det som gjør algoritmen polynomisk."
+    },
+    {
+      "id": "tdt4120-5-2-fig-13",
+      "type": "image",
+      "src": "/images/textbook/tdt4120/5-2-foroekende-sti-etter.svg",
+      "alt": "Restnettet for vanningsanlegget etter den tredje forokningen. Alle kantene er graa. Fra noden s gar det restkanter til a og b, men ingen sti videre til c, d eller t. Ryggkantene fra c til a, fra d til b, fra t til c og fra t til d finnes, men de peker feil vei. En note forklarer at flyten er okt med en og at maks-flyt er nadd, og at delingen mellom det s nar og resten er min-snittet.",
+      "caption": "Restnettet etter siste forøkning i Eksempel 1. `BFS` fra $s$ når bare $a$ og $b$ — det er stoppkriteriet, og samtidig avlesningen av min-snittet."
+    },
+    {
+      "id": "tdt4120-5-2-oppg-14",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-5-2-oppg-14-inner",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger E — kjøretidskunnskap, altså at svaret er ett uttrykk.)\n\n**a)** Hva er kjøretiden til `Edmonds-Karp`, og hva avhenger den av?\n**b)** Hva er kjøretiden til `Ford-Fulkerson` med vilkårlig valg av sti, og hva\navhenger den av?\n**c)** Hvilken av de to ville du valgt hvis kapasitetene kunne være opptil en\nmilliard?",
+        "solution": "**a)** $O(VE^2)$. Uttrykket avhenger **bare** av antall noder og kanter —\ningen kapasiteter inngår.\n\n**b)** $O(E\\cdot\\lvert f^*\\rvert)$ med heltallige kapasiteter, der\n$\\lvert f^*\\rvert$ er den maksimale flytverdien. Den avhenger altså av\n**tallverdien** til svaret.\n\n**c)** `Edmonds-Karp`, uten tvil. Med kapasiteter opptil $10^9$ kan\n$\\lvert f^*\\rvert$ bli enormt selv i en liten graf, og\n$O(E\\cdot\\lvert f^*\\rvert)$ blir ubrukelig. $O(VE^2)$ bryr seg ikke om\ntallenes størrelse i det hele tatt.\n\nDet er dette skillet som gjør at den ene kalles polynomisk og den andre\npseudopolynomisk.",
+        "hints": [
+          "Se etter hvilke størrelser som faktisk står i hvert av de to uttrykkene.",
+          "Hva skjer med $\\lvert f^*\\rvert$ når kapasitetene blir store, men grafen forblir liten?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-5-2-t-15",
+      "type": "text",
+      "content": "## Maks-flyt/min-snitt-teoremet (~14 min)\n\nNå kommer resultatet hele delen bygger mot, og det er et av de vakreste i\nfaget: **det største du kan presse gjennom, er nøyaktig like mye som den\nbilligste flaskehalsen.**"
+    },
+    {
+      "id": "tdt4120-5-2-thm-16",
+      "type": "theorem",
+      "title": "Maks-flyt/min-snitt-teoremet",
+      "content": "**Påstanden.** For enhver lovlig flyt $f$ i et flytnett er disse tre utsagnene\nekvivalente:\n\n1. $f$ er en **maksimal** flyt.\n2. Restnettet $G_f$ inneholder **ingen forøkende sti**.\n3. Det finnes et snitt $(S,T)$ med $\\lvert f\\rvert = c(S,T)$.\n\nFølgen er navnet på teoremet: den maksimale flytverdien er lik den minimale\nsnittkapasiteten,\n\n$$\\max_f \\lvert f\\rvert = \\min_{(S,T)} c(S,T)$$\n\n**Argumentet, kort.** At 1 gir 2 er lett: fantes det en forøkende sti, kunne\nflyten økes, og da var den ikke maksimal. At 3 gir 1 følger av snittlemmaet fra\n[kap. 5.1](/tdt4120/tdt4120-5-1): enhver flyt er $\\le c(S,T)$, så en flyt som\n**når** $c(S,T)$, kan ikke slås.\n\nDen interessante retningen er at 2 gir 3, og den er konstruktiv: la $S$ være\nnodene som kan nås fra $s$ i restnettet. Siden ingen forøkende sti finnes, er\n$t \\notin S$, så $(S,T)$ er et snitt. Hver kant fra $S$ til $T$ må være\n**mettet** — ellers ville den gitt en restkant, og naboen ville ligget i $S$.\nHver kant fra $T$ til $S$ må ha **null** flyt, av samme grunn. Da er\n$\\lvert f\\rvert = f(S,T) = c(S,T)$.\n\n**Konsekvensen du bruker på eksamen:** når `Ford-Fulkerson` stopper, kjør én\n`BFS` fra $s$ i restnettet. Nodene den når, **er** venstresiden i et min-snitt.\nDu får snittet gratis, og du får samtidig beviset på at flyten er maksimal."
+    },
+    {
+      "id": "tdt4120-5-2-fig-17",
+      "type": "image",
+      "src": "/images/textbook/tdt4120/5-2-min-snitt.svg",
+      "alt": "Vanningsanlegget med den maksimale flyten pa hver kant, skrevet som flyt skraastrek kapasitet. En rod stiplet kurve deler nodene i to grupper: S med s, a og b til venstre, og T med c, d og t til hoyre. De to kantene som krysser fra S til T, fra a til c og fra b til d, er tegnet rode og tykke og er begge mettede med atte av atte og ti av ti. En note forklarer at snittkapasiteten atte pluss ti er atten, som er lik maks-flyten, og at kanter fra T til S ikke teller med.",
+      "caption": "Min-snittet fra Eksempel 1. Begge kantene som krysser fra $S$ til $T$ er mettet — det er nettopp det som gjør snittet minimalt, og flyten maksimal."
+    },
+    {
+      "id": "tdt4120-5-2-eks-18",
+      "type": "example",
+      "title": "Eksempel 2: Bevis at en flyt er maksimal",
+      "problem": "En kandidat leverer en flyt med verdi 18 i vanningsanlegget og påstår at den er\nmaksimal.\n\n**a)** Hvordan kan påstanden bevises uten å kjøre algoritmen på nytt?\n**b)** Gjennomfør beviset.\n**c)** Hva ville et snitt med kapasitet 22 fortalt deg?",
+      "solution": "**a)** Finn et snitt med kapasitet 18. Snittlemmaet sier at enhver flyt er\n$\\le c(S,T)$ for ethvert snitt, så en flyt som når kapasiteten til et snitt,\nkan ikke slås — og snittet kan ikke være dyrere enn noe annet.\n\nDet er den ene retningen av maks-flyt/min-snitt, og den er kort nok til å\nskrives på to linjer.\n\n**b)** Velg $S = \\{s, a, b\\}$ og $T = \\{c, d, t\\}$. Kantene fra $S$ til $T$ er\n$a \\to c$ med kapasitet 8 og $b \\to d$ med kapasitet 10. Ingen andre kanter går\nden veien.\n\n$$c(S,T) = 8 + 10 = 18 = \\lvert f\\rvert$$\n\nAltså er flyten maksimal, og snittet er minimalt. **Ferdig.**\n\n**c)** Ingenting avgjørende. Et snitt med kapasitet 22 gir bare den øvre\ngrensen $\\lvert f\\rvert \\le 22$, og den er allerede oppfylt av en flyt på 18.\nBeviset krever et snitt som **treffer** flytverdien.\n\nSnittet $S = \\{s\\}$ har for eksempel kapasitet $12 + 9 = 21$ — sant, men\nubrukelig som bevis.\n\n**Svarformen på eksamen:** oppgi snittet, list kantene som krysser, summer, og\nkonstater likheten. Fire linjer."
+    },
+    {
+      "id": "tdt4120-5-2-oppg-19",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-5-2-oppg-19-inner",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger F — «stemmer dette?», altså ja eller nei først og\nderetter én presis setning.)\n\nTa stilling til hver av påstandene:\n\n**a)** Et flytnett har alltid nøyaktig ett min-snitt.\n**b)** Hvis en kant krysser et min-snitt fra $S$ til $T$, må den være mettet.\n**c)** Maks-flyt/min-snitt-teoremet gjelder bare når kapasitetene er heltall.",
+        "solution": "**a)** **Nei.** Det kan finnes flere snitt med samme minimale kapasitet.\nTeoremet sier at maks-flyt er lik **den minimale** snittkapasiteten, ikke at\nsnittet er entydig.\n\n**b)** **Ja.** Var den ikke mettet, ville den gitt en restkant fra $S$ til $T$,\nog da ville noden på $T$-siden vært nåbar fra $s$ i restnettet — altså hadde\nden ligget i $S$.\n\n**c)** **Nei.** Teoremet gjelder også for reelle kapasiteter. Det er\n**termineringsgarantien** til `Ford-Fulkerson` som krever heltall (eller\nrasjonale tall) — uten dem kan metoden i teorien kjøre i det uendelige.\n`Edmonds-Karp` terminerer uansett, siden $O(VE^2)$ ikke nevner kapasiteter.\n\nPunkt c) er en presis liten felle: kravet om heltall hører til algoritmen, ikke\ntil teoremet.",
+        "hints": [
+          "For a: kan to forskjellige snitt ha samme kapasitet?",
+          "For c: hvor i kapitlet dukket kravet om heltallige kapasiteter opp?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-5-2-t-20",
+      "type": "text",
+      "content": "## Pseudopolynomisk mot polynomisk (~14 min)\n\nHer ligger et av fagets faste innsiktsskiller, og det er verdt å bruke tid på —\nfordi det blir hentet fram igjen i [kap. 7.2](/tdt4120/tdt4120-7-2) og fordi\ndet er lett å trekke feil konklusjon av det."
+    },
+    {
+      "id": "tdt4120-5-2-def-21",
+      "type": "definition",
+      "title": "Pseudopolynomisk",
+      "content": "en algoritme er **pseudopolynomisk** når kjøretiden er polynomisk i\n**tallverdiene** i inputen, men ikke i inputens **lengde**.\n\n`Ford-Fulkerson` er $O(E\\cdot\\lvert f^*\\rvert)$. Skriver du en kapasitet på\n$10^9$, tar det bare 30 binære siffer å skrive den ned — men den kan gi en\nmilliard runder. Kjøretiden vokser altså eksponentielt i antall siffer.\n\n**En polynomisk algoritme** har kjøretid som er polynomisk i inputens lengde.\n`Edmonds-Karp` er $O(VE^2)$ og nevner ingen kapasiteter i det hele tatt — den\ner polynomisk."
+    },
+    {
+      "id": "tdt4120-5-2-warn-22",
+      "type": "warning",
+      "title": "Felle #7 — pseudopolynomisk er ikke det samme som NP-hardt",
+      "content": "Dette er felle **#7**, og den er blant fagets mest fremhevede.\n\nAt `Ford-Fulkerson` ikke er polynomisk, sier **ingenting** om hvor vanskelig\nmaks-flyt-problemet er. Det sier bare noe om **den ene algoritmen**.\n\nMaks-flyt er et **lett** problem: `Edmonds-Karp` løser det i $O(VE^2)$, altså i\npolynomisk tid. Problemet ligger i klassen P.\n\nKontrollen når du skal formulere svaret:\n\n- «`Ford-Fulkerson` er pseudopolynomisk» — **riktig**.\n- «Maks-flyt er derfor et vanskelig problem» — **galt**.\n- «Maks-flyt kan løses i polynomisk tid av `Edmonds-Karp`» — **riktig**.\n\nDet samme skillet dukker opp igjen i [kap. 6.2](/tdt4120/tdt4120-6-2) med\n0-1-ryggsekk, som har en $\\Theta(nm)$-algoritme der $m$ er en **tallverdi**.\nDer er problemet faktisk NP-hardt — men det følger ikke av at algoritmen er\npseudopolynomisk, det følger av et helt annet argument."
+    },
+    {
+      "id": "tdt4120-5-2-eks-23",
+      "type": "example",
+      "title": "Eksempel 3: Et nett der `Ford-Fulkerson` kan gå galt",
+      "problem": "Konstruér et flytnett med fire noder der `Ford-Fulkerson` med **uheldig** valg\nav forøkende sti bruker mange flere runder enn nødvendig, og forklar hvorfor\n`Edmonds-Karp` slipper unna.",
+      "solution": "**Konstruksjonen.** La nodene være $s$, $u$, $v$, $t$ med kapasitetene\n\n```text\nc(s,u) = 1000000    c(s,v) = 1000000\nc(u,t) = 1000000    c(v,t) = 1000000\nc(u,v) = 1\n```\n\n**Det uheldige valget.** Velger metoden stien $s \\to u \\to v \\to t$, er\nflaskehalsen 1 — kanten $u \\to v$ slipper bare én enhet gjennom. Etter\nforøkningen finnes ryggkanten $v \\to u$ med restkapasitet 1, og metoden kan\nvelge $s \\to v \\to u \\to t$, som også har flaskehals 1.\n\nFortsetter den å veksle mellom disse to stiene, øker flyten med **1** per\nrunde, og det trengs 2 000 000 runder for å nå maksimal flyt.\n\n**Hvorfor `Edmonds-Karp` slipper unna.** `BFS` finner alltid den **korteste**\nstien. Stiene $s \\to u \\to t$ og $s \\to v \\to t$ har to kanter; de uheldige\nstiene har tre. `Edmonds-Karp` tar derfor de to korte først, mestrer hele\nflyten på **to** runder, og rører aldri kanten $u \\to v$.\n\n**Poenget med eksemplet.** Antall runder i `Ford-Fulkerson` avhenger av\nkapasitetenes **størrelse**; i `Edmonds-Karp` avhenger det bare av grafens\nform. Fordoble kapasitetene i eksemplet, og den første kjøringen tar dobbelt så\nlang tid mens den andre er uendret.\n\n**Og merk hva eksemplet ikke viser:** at maks-flyt er vanskelig. Det samme\nnettet løses på to runder av `Edmonds-Karp`."
+    },
+    {
+      "id": "tdt4120-5-2-oppg-24",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-5-2-oppg-24-inner",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger F og G — «stemmer dette?» kombinert med et argument om\nvanskelighet, altså at du sier hva argumentet faktisk viser og hva det ikke\nviser.)\n\nEn kandidat skriver: «`Ford-Fulkerson` er pseudopolynomisk. Maks-flyt er derfor\net vanskelig problem, sannsynligvis NP-hardt.»\n\nEr konklusjonen riktig? Svar ja eller nei, og forklar hva argumentet viser og\nhva det ikke viser.",
+        "solution": "**Nei.**\n\n**Hva argumentet viser:** at *denne ene algoritmen* har en kjøretid som\navhenger av tallverdiene i inputen. Det er en egenskap ved algoritmen.\n\n**Hva det ikke viser:** noe som helst om problemets vanskelighet. Et problem er\nlett hvis det finnes **minst én** polynomisk algoritme for det — ikke hvis alle\nalgoritmer er polynomiske.\n\nOg en slik algoritme finnes: `Edmonds-Karp` løser maks-flyt i $O(VE^2)$, som er\npolynomisk i grafens størrelse. Maks-flyt ligger derfor i klassen P.\n\nDette er felle **#7** — å blande pseudopolynomisk med NP-hardt. Riktig\nformulering: «`Ford-Fulkerson` er pseudopolynomisk, men maks-flyt kan likevel\nløses i polynomisk tid av `Edmonds-Karp`.»",
+        "hints": [
+          "Skiller argumentet mellom en egenskap ved algoritmen og en egenskap ved problemet?",
+          "Hva skal til for at et problem regnes som løsbart i polynomisk tid?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-5-2-oppg-25",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-5-2-oppg-25-inner",
+        "number": 6,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger H — åpen algoritmedesign, altså at du skisserer en\nalgoritme kort: hvilket kjent problem det er, hvilket paradigme du bruker,\nkonstruksjonen, hvordan du henter ut selve svaret, og kjøretiden.)\n\nEt sykehus har $n$ sykepleiere og $m$ vakter. Hver sykepleier har oppgitt\nhvilke vakter hun kan ta, og kan ta høyst tre vakter. Hver vakt trenger\nnøyaktig én sykepleier.\n\nBeskriv hvordan du avgjør om alle vaktene kan dekkes, og hvordan du finner en\nkonkret vaktliste.",
+        "solution": "**Det klassiske problemet.** Dette er et tilordningsproblem med kapasiteter —\naltså maks-flyt.\n\n**Paradigmet.** Flyt i et nett.\n\n**Konstruksjonen.** Bygg et flytnett med fire lag:\n\n- en kilde $s$ og et sluk $t$;\n- én node per sykepleier, med kant $s \\to$ sykepleier og kapasitet **3** (høyst\n  tre vakter hver);\n- én node per vakt, med kant vakt $\\to t$ og kapasitet **1** (nøyaktig én\n  sykepleier per vakt);\n- en kant fra sykepleier til vakt med kapasitet 1 for hvert par der\n  sykepleieren kan ta vakten.\n\nKjør `Edmonds-Karp`. Alle vaktene kan dekkes hvis og bare hvis maksimal flyt er\n$m$ — altså at hver eneste vakt-til-sluk-kant er mettet.\n\n**Rekonstruksjon av selve vaktlisten.** Kantene mellom sykepleiere og vakter som\nbærer flyt 1, **er** vaktlisten: sykepleier $i$ tar vakt $j$. Heltallsteoremet\nfra [kap. 5.1](/tdt4120/tdt4120-5-1) garanterer at maks-flyt kan velges\nheltallig når alle kapasitetene er heltall, så hver kant bærer enten 0 eller 1\nog tilordningen er entydig lesbar. Avlesningen koster $O(E)$ og øker ikke den\nasymptotiske kjøretiden.\n\n**Kjøretid.** Nettet har $V = n + m + 2$ noder og $E = O(n + m + k)$ kanter,\nder $k$ er antall tillatte sykepleier–vakt-par. `Edmonds-Karp` gir $O(VE^2)$.\n\n**Merk kapasiteten 3 på kildesiden.** Det er den som koder «høyst tre vakter\nhver». Hadde grensen vært én vakt per sykepleier, ville kapasiteten vært 1, og\nproblemet ville vært en vanlig maksimal matching.",
+        "hints": [
+          "Hvilket mønster gjenkjenner du: noe skal fordeles på noe annet, med en øvre grense per part?",
+          "Hvor i nettet koder du «høyst tre vakter per sykepleier», og hvor koder du «én sykepleier per vakt»?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-5-2-warn-26",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "De to første koster hele oppgaven.\n\n- **Å blande pseudopolynomisk og NP-hardt.** Dette er felle **#7**. At\n  `Ford-Fulkerson` er pseudopolynomisk, sier noe om algoritmen, ikke om\n  problemet. Maks-flyt ligger i P.\n- **Å glemme ryggkantene under forøkning.** En forøkende sti kan gå bakover\n  langs en kant som bærer flyt, og da skal flyten på den kanten **senkes**.\n  Uten ryggkantene finner metoden ikke den maksimale flyten.\n- **Å tro at `Edmonds-Karp` bare er «`Ford-Fulkerson` med `BFS` for\n  bekvemmelighets skyld».** Kravet er at stien er den **korteste**; det er\n  nettopp det som gir $O(VE^2)$.\n- **Å oppgi bare flytverdien når min-snittet også er spurt om.** Er begge\n  etterspurt, er begge en del av svaret — og snittet leses gratis av\n  restnettet til slutt.\n- **Å telle kanter fra $T$ til $S$ i snittkapasiteten.** Bare kantene fra $S$\n  til $T$ teller. Kantene den andre veien påvirker $f(S,T)$, men ikke\n  $c(S,T)$.\n- **Å bruke et snitt med for høy kapasitet som «bevis».** Beviset krever et\n  snitt som **treffer** flytverdien. Et dyrere snitt gir bare en øvre grense.\n- **Å tro at min-snittet er entydig.** Det kan finnes flere snitt med samme\n  minimale kapasitet.\n\nOg den gjennomgående: **å skrive $\\Theta$ der bare $O$ er vist.** Begge\nkjøretidene i dette kapitlet er $O$-grenser, ikke tette."
+    },
+    {
+      "id": "tdt4120-5-2-t-27",
+      "type": "text",
+      "content": "## Kjøretidene samlet\n\nDette er kapitlets puggeflate. Eksamen er hjelpemiddelfri, så tabellen må ligge\ni hodet.\n\n| Algoritme | Kjøretid | Krav / egenskap |\n|---|---|---|\n| `Ford-Fulkerson` (vilkårlig sti) | $O(E\\cdot\\lvert f^*\\rvert)$ | **pseudopolynomisk**; krever heltallige kapasiteter for terminering |\n| `Edmonds-Karp` | $O(VE^2)$ | **polynomisk**; krever **korteste** forøkende sti, funnet med `BFS` |\n| Én `BFS` i restnettet | $O(V+E)$ | brukes både til å finne stien og til å lese av min-snittet |\n| Én forøkning langs en sti | $O(V)$ | stien har høyst $V-1$ kanter |\n| Å lese av min-snittet | $O(V+E)$ | én `BFS` fra $s$ etter at algoritmen har stoppet |\n| Antall forøkninger i `Edmonds-Karp` | $O(VE)$ | hver kant kan være flaskehals $O(V)$ ganger |\n\n**Én presisering som er verdt å ta med seg.** Det finnes raskere maks-flyt-\nalgoritmer enn `Edmonds-Karp`, men de er ikke pensum her. Det du skal kunne, er\nat maks-flyt **kan** løses i polynomisk tid, og at $O(VE^2)$ er tallet for\n`Edmonds-Karp`."
+    },
+    {
+      "id": "tdt4120-5-2-t-28",
+      "type": "text",
+      "content": "### Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp\nhar lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet\ngjelder kjernestoffet."
+    },
+    {
+      "id": "tdt4120-5-2-def-29",
+      "type": "definition",
+      "title": "`Ford-Fulkerson`-metoden",
+      "content": "starter med nullflyten og gjentar: finn en forøkende sti i restnettet, øk\nflyten med flaskehalsen, gjenta til ingen sti finnes.\n\nKjøretid $O(E\\cdot\\lvert f^*\\rvert)$ med heltallige kapasiteter.\n\n**En metode, ikke en algoritme:** valget av sti er ikke spesifisert, og det er\nnettopp det valget som avgjør kjøretiden."
+    },
+    {
+      "id": "tdt4120-5-2-def-30",
+      "type": "definition",
+      "title": "`Edmonds-Karp`",
+      "content": "`Ford-Fulkerson` der stien alltid er den **korteste** i restnettet, funnet med\n`BFS`.\n\nKjøretid $O(VE^2)$ — **polynomisk**, og uavhengig av kapasitetenes størrelse.\n\n**Kravet om korteste sti er ikke valgfritt.** Det er det som gir grensen på\n$O(VE)$ forøkninger."
+    },
+    {
+      "id": "tdt4120-5-2-def-31",
+      "type": "definition",
+      "title": "Forøkende sti",
+      "content": "en sti fra $s$ til $t$ i restnettet $G_f$.\n\nSå lenge én finnes, kan flyten økes; når ingen finnes, er flyten maksimal.\n\n**Stien kan gå bakover** langs kanter som bærer flyt — det er ryggkantene, og\nde er muligheten til å angre."
+    },
+    {
+      "id": "tdt4120-5-2-def-32",
+      "type": "definition",
+      "title": "Flaskehals",
+      "content": "den minste restkapasiteten blant kantene på en forøkende sti.\n\nFlyten økes med nøyaktig dette tallet, og minst én kant blir mettet.\n\n**Med heltallige kapasiteter er flaskehalsen minst 1**, og det er grunnen til\nat metoden terminerer."
+    },
+    {
+      "id": "tdt4120-5-2-def-33",
+      "type": "definition",
+      "title": "Maks-flyt/min-snitt-teoremet",
+      "content": "$\\max_f \\lvert f\\rvert = \\min_{(S,T)} c(S,T)$ — den største flyten er lik den\nbilligste snittkapasiteten.\n\nTre ekvivalente utsagn: flyten er maksimal, restnettet har ingen forøkende sti,\nog det finnes et snitt med $\\lvert f\\rvert = c(S,T)$.\n\n**Brukes til å bevise maksimalitet:** finn et snitt som treffer flytverdien, så\ner saken avgjort."
+    },
+    {
+      "id": "tdt4120-5-2-def-34",
+      "type": "definition",
+      "title": "Å lese av min-snittet",
+      "content": "når algoritmen stopper, kjør én `BFS` fra $s$ i restnettet. Nodene som nås,\nutgjør $S$; resten utgjør $T$.\n\nHver kant fra $S$ til $T$ er da mettet, og hver kant fra $T$ til $S$ har null\nflyt.\n\n**Snittet kommer gratis** — det er ingen ekstra algoritme å kjøre."
+    },
+    {
+      "id": "tdt4120-5-2-def-35",
+      "type": "definition",
+      "title": "Pseudopolynomisk",
+      "content": "kjøretiden er polynomisk i **tallverdiene** i inputen, men ikke i inputens\n**lengde**.\n\n`Ford-Fulkerson` er $O(E\\cdot\\lvert f^*\\rvert)$: en kapasitet på $10^9$ tar 30\nbinære siffer å skrive, men kan gi en milliard runder.\n\n**Sier ingenting om problemets vanskelighet** — det er felle #7."
+    },
+    {
+      "id": "tdt4120-5-2-def-36",
+      "type": "definition",
+      "title": "Polynomisk algoritme",
+      "content": "kjøretiden er polynomisk i inputens **lengde**, altså i antall symboler som\ntrengs for å skrive den ned.\n\n`Edmonds-Karp` er $O(VE^2)$ og nevner ingen tallverdier.\n\n**Et problem er «lett» hvis det finnes minst én polynomisk algoritme** — ikke\nhvis alle algoritmer for det er polynomiske."
+    },
+    {
+      "id": "tdt4120-5-2-def-37",
+      "type": "definition",
+      "title": "Felle #7 — pseudopolynomisk mot NP-hardt",
+      "content": "å slutte fra «denne algoritmen er pseudopolynomisk» til «problemet er\nvanskelig».\n\n`Ford-Fulkerson` er pseudopolynomisk, men maks-flyt ligger i P fordi\n`Edmonds-Karp` er polynomisk.\n\n**Skill mellom en egenskap ved algoritmen og en egenskap ved problemet.**"
+    },
+    {
+      "id": "tdt4120-5-2-def-38",
+      "type": "definition",
+      "title": "Mettet kant",
+      "content": "en kant der $f(u,v) = c(u,v)$, altså med restkapasitet 0 framover.\n\nDen gir ingen framoverkant i restnettet, bare en ryggkant.\n\n**Hver kant som krysser et min-snitt fra $S$ til $T$, er mettet** — det er en\ndel av beviset for teoremet."
+    },
+    {
+      "id": "tdt4120-5-2-def-39",
+      "type": "definition",
+      "title": "Ryggkant",
+      "content": "restkanten $(v,u)$ med $c_f(v,u) = f(u,v)$, som finnes når kanten $(u,v)$ bærer\nflyt.\n\nÅ sende flyt langs den betyr å **trekke tilbake** flyt som ble sendt framover\nfør.\n\n**Uten ryggkanter finner metoden ikke maksimal flyt** — det er den vanligste\nhåndkjøringsfeilen i flytoppgaver."
+    },
+    {
+      "id": "tdt4120-5-2-def-40",
+      "type": "definition",
+      "title": "Restnettet $G_f$",
+      "content": "grafen med de samme nodene, og med de kantene som har $c_f > 0$.\n\nBygges på nytt etter hver forøkning, og inneholder både framoverkanter og\nryggkanter.\n\n**Stoppkriteriet er at $t$ ikke lenger er nåbar fra $s$** i restnettet."
+    },
+    {
+      "id": "tdt4120-5-2-def-41",
+      "type": "definition",
+      "title": "Snittkapasitet",
+      "content": "summen av kapasitetene på kantene som går **fra $S$ til $T$**.\n\nKanter som går fra $T$ til $S$ teller **ikke** med.\n\n**Enhver flytverdi er $\\le$ enhver snittkapasitet** — det er snittlemmaet, og\ndet er derfor et snitt kan brukes som bevis."
+    },
+    {
+      "id": "tdt4120-5-2-def-42",
+      "type": "definition",
+      "title": "Heltallsteoremet",
+      "content": "er alle kapasitetene heltall, finnes en maksimal flyt der **hver** kant bærer\net heltall.\n\nDet følger av at `Ford-Fulkerson` bare legger til heltallige flaskehalser.\n\n**Dette er grunnen til at flyt er et tilordningsverktøy:** en kant som bærer 1,\nbetyr «denne tildelingen skjer»."
+    },
+    {
+      "id": "tdt4120-5-2-def-43",
+      "type": "definition",
+      "title": "Flytmodellering",
+      "content": "å oversette et fordelingsproblem til et flytnett: kilde, ett nodesett for det\nsom skal tildeles, ett for det de tildeles til, og sluk.\n\nKapasiteten på kilde- og slukkantene koder øvre grenser; kantene i midten koder\nhvilke tildelinger som er tillatte.\n\n**Rekonstruksjonen er å lese av hvilke midtkanter som bærer flyt.**"
+    },
+    {
+      "id": "tdt4120-5-2-def-44",
+      "type": "definition",
+      "title": "Sjanger E — kjøretidskunnskap",
+      "content": "oppgavetypen der du oppgir kjøretiden til en navngitt algoritme.\n\n$O(VE^2)$ for `Edmonds-Karp` og $O(E\\cdot\\lvert f^*\\rvert)$ for\n`Ford-Fulkerson`.\n\n**Legg merke til hvilke størrelser som inngår** — det er hele forskjellen\nmellom polynomisk og pseudopolynomisk."
+    },
+    {
+      "id": "tdt4120-5-2-def-45",
+      "type": "definition",
+      "title": "Sjanger F — «stemmer dette?»",
+      "content": "oppgavetypen der du får en påstand og skal ta stilling til den.\n\nSvarformen er **ja eller nei først**, deretter én presis setning.\n\n**«Er `Ford-Fulkerson` polynomisk?»** er den klassiske i denne delen — og\nsvaret er nei, med ordet *pseudopolynomisk* i begrunnelsen."
+    },
+    {
+      "id": "tdt4120-5-2-def-46",
+      "type": "definition",
+      "title": "Sjanger G — argument om vanskelighet",
+      "content": "oppgavetypen der du skal si hva et argument faktisk viser, og hva det **ikke**\nviser.\n\nSvarformen er retningen, konsekvensen og det eksplisitte forbeholdet.\n\n**Her er standardfeilen** å slutte fra en treg algoritme til et hardt\nproblem."
+    },
+    {
+      "id": "tdt4120-5-2-coll-48",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tdt4120-5-2-ct-47",
+          "type": "text",
+          "content": "Fem korte spørsmål fra kapitlene dette bygger på. Svar i hodet først, så\nsammenlign.\n\n**1.** Hva er restkapasiteten på en kant, og hva er en ryggkant?\n\n*Svar:* $c_f(u,v) = c(u,v) - f(u,v)$ framover, og $c_f(v,u) = f(u,v)$ bakover.\nRyggkanten er muligheten til å angre. Se\n[kap. 5.1](/tdt4120/tdt4120-5-1).\n\n**2.** Hvilke kanter teller i snittkapasiteten $c(S,T)$?\n\n*Svar:* bare de som går **fra $S$ til $T$**.\n\n**3.** Hva sier snittlemmaet?\n\n*Svar:* $\\lvert f\\rvert = f(S,T) \\le c(S,T)$ for enhver flyt og ethvert snitt.\n\n**4.** Hva sier heltallsteoremet?\n\n*Svar:* med heltallige kapasiteter finnes en maksimal flyt der hver kant bærer\net heltall.\n\n**5.** Hva er kjøretiden til `BFS`?\n\n*Svar:* $\\Theta(V+E)$, og den finner stien med færrest **kanter**. Se\n[kap. 4.1](/tdt4120/tdt4120-4-1).\n\n**Videre:** [kap. 5.3](/tdt4120/tdt4120-5-3) driller begge halvdelene —\nhåndkjøringen av `Edmonds-Karp` og modelleringen som gjør et hverdagsproblem om\ntil et flytnett."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

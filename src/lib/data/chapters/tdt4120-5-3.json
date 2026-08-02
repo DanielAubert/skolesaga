@@ -1,0 +1,337 @@
+{
+  "id": "tdt4120-5-3",
+  "courseId": "tdt4120",
+  "chapterNumber": "5.3",
+  "title": "DRILL — Håndkjøring av maks-flyt og flyt-modellering",
+  "description": "Drill på håndkjøring av `Ford-Fulkerson`/`Edmonds-Karp` (sjanger C) OG den første halvdelen av flyt-modelleringen (sjanger H): gjenkjenn et fordelings-/barriereproblem som flyt.",
+  "estimatedMinutes": 85,
+  "competenceGoals": [
+    "kunne kjøre `Edmonds-Karp` for hånd, føre restnettet underveis og oppgi både flytverdi og min-snitt",
+    "kunne kjenne igjen et fordelingsproblem som maks-flyt og et barriereproblem som min-snitt",
+    "kunne bygge flytnettet i en modelleringsoppgave og lese tildelingen ut av den ferdige flyten"
+  ],
+  "content": [
+    {
+      "id": "tdt4120-5-3-tip-1",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Maksimal flyt er registrert i 16 av de 17 settene i grunnlaget (94 %).**\nGrunnlaget er de 17 settene fra august 2015 til august 2023 som er gjennomgått\ntema for tema — det er nevneren hver gang boka oppgir en prosent. Flyt er\nverktøyet i flest av de åpne designoppgavene på slutten av settet.\n\nKapitlet driller to sjangre, og de skrives ut i klarspråk her:\n\n- **Sjanger C — håndkjøring**, altså at du utfører algoritmen steg for steg på\n  papir og oppgir bare sluttilstanden. For flyt er svarformen **flytverdien**,\n  og **min-snittet** når begge er spurt om.\n- **Sjanger H — åpen algoritmedesign**, altså at du skisserer en algoritme på\n  fem til ti linjer. Her øver vi den første halvdelen: å kjenne igjen at et\n  innpakket problem *er* et flytproblem, og å bygge nettet. Hele designsjangeren\n  driller vi i [kap. 8.2](/tdt4120/tdt4120-8-2).\n\n**Høyeste prioritet — dette må sitte.**\n\n**De to mønstrene du skal kjenne igjen på tre sekunder:**\n\n| Innpakningen sier | Verktøyet er |\n|---|---|\n| «fordel A på B, med grenser for hvor mange hver kan ta» | **maks-flyt** |\n| «finn den billigste barrieren som skiller X fra Y» | **min-snitt** |\n\n**Slik er kapitlet lagt opp (85 min):**\n\n| Innhold | Tid |\n|---|---|\n| Løsningsoppskriften, begge halvdelene | ca. 12 min |\n| Gjennomkjørt håndkjøringscase med margnotater | ca. 15 min |\n| Drill på håndkjøring | ca. 22 min |\n| Gjennomkjørt modelleringscase med margnotater | ca. 14 min |\n| Drill på modellering | ca. 22 min |\n\n— naturlig pausepunkt — etter håndkjøringsdrillen. Modelleringen er en helt\nannen type arbeid og kan tas i en egen økt."
+    },
+    {
+      "id": "tdt4120-5-3-t-2",
+      "type": "text",
+      "content": "## Forkunnskaper\n\nDette kapitlet legger ikke til nytt stoff. De fire reglene du trenger i hånden,\nstår her — resten finner du i kapitlene:\n\n1. **Restnettet** fra [kap. 5.1](/tdt4120/tdt4120-5-1):\n   $c_f(u,v) = c(u,v) - f(u,v)$ framover, og $c_f(v,u) = f(u,v)$ på\n   **ryggkanten**. Bare kanter med $c_f > 0$ er med. En **mettet** kant gir\n   ingen framoverkant; en **tom** kant gir ingen ryggkant.\n2. **Forøkende sti og flaskehals:** en sti fra $s$ til $t$ i $G_f$, og den\n   minste restkapasiteten på den.\n3. **Min-snittet leses av til slutt:** kjør én `BFS` fra $s$ i restnettet når\n   algoritmen har stoppet. Nodene den når, utgjør $S$. Se\n   [kap. 5.2](/tdt4120/tdt4120-5-2).\n4. **Heltallsteoremet:** med heltallige kapasiteter finnes en maksimal flyt der\n   hver kant bærer et heltall. Det er dette som gjør at flyten kan leses som en\n   **tildeling**.\n\nØvrige forkunnskaper:\n\n- [kap. 5.2](/tdt4120/tdt4120-5-2) — `Ford-Fulkerson`, `Edmonds-Karp`,\n  maks-flyt/min-snitt-teoremet.\n- [kap. 4.1](/tdt4120/tdt4120-4-1) — `BFS`, som er stivalget i\n  `Edmonds-Karp`."
+    },
+    {
+      "id": "tdt4120-5-3-coll-4",
+      "type": "collapsible",
+      "title": "Notasjons- og pseudokodeliste",
+      "buttonText": "Vis notasjon og pseudokode",
+      "content": [
+        {
+          "id": "tdt4120-5-3-ct-3",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et algoritmefag: den lister kjøretidsuttrykk og pseudokode-operasjoner i stedet for bare greske bokstaver.\n\n| Symbol | Betydning |\n|---|---|\n| $G=(V,E)$ | flytnettet |\n| $s$, $t$ | kilden og sluket |\n| $c(u,v)$ | kapasiteten på kanten |\n| $f(u,v)$ | flyten på kanten; skrives ofte $f/c$ i figurer |\n| $\\lvert f\\rvert$ | flytverdien |\n| $c_f(u,v)$ | restkapasiteten |\n| $G_f$ | restnettet |\n| $(S,T)$ | et snitt, med $s \\in S$ og $t \\in T$ |\n| $c(S,T)$ | snittkapasiteten — bare kantene fra $S$ til $T$ |\n\n| Algoritme/operasjon | Kontrakt | Kjøretid |\n|---|---|---|\n| `Edmonds-Karp(G, s, t)` | finner maksimal flyt ved å bruke korteste forøkende sti hver gang | $O(VE^2)$ |\n| `BFS(G_f, s)` | finner korteste sti i restnettet, og til slutt selve min-snittet | $O(V+E)$ |\n| `Ford-Fulkerson(G, s, t)` | samme metode, men uten krav til hvordan stien velges | $O(E\\cdot\\lvert f^*\\rvert)$ |\n\n**Formler i dette delkapitlet:**\n\n$$c_f(u,v) = c(u,v) - f(u,v), \\qquad c_f(v,u) = f(u,v)$$\n\nRestkapasiteten framover og bakover — grunnlaget for hver eneste håndkjøring.\n\n$$\\max_f \\lvert f\\rvert = \\min_{(S,T)} c(S,T)$$\n\nMaks-flyt/min-snitt: brukes til å kontrollere at håndkjøringen er ferdig.\n\n$$\\text{kilde} \\to \\text{venstre} \\to \\text{høyre} \\to \\text{sluk}$$\n\nModelleringsmalen. Kapasitetene på ytterkantene koder grensene; midtkantene koder hva som er tillatt.\n"
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-5-3-thm-5",
+      "type": "theorem",
+      "title": "Løsningsoppskriften — håndkjøring (sjanger C)",
+      "content": "**Steg 1 — tegn restnettet.** Ikke prøv å holde det i hodet. For hver kant\nskriver du opp framoverkanten med $c - f$ og ryggkanten med $f$, og stryker\ndem som blir 0.\n\n**Steg 2 — finn en forøkende sti.** Bruker du `Edmonds-Karp`, skal den være\n**korteste**, funnet med `BFS`. Naboene besøkes i den rekkefølgen oppgaven\noppgir — det er en del av oppgaven.\n\n**Steg 3 — finn flaskehalsen.** Den minste restkapasiteten på stien.\n\n**Steg 4 — forøk.** Legg flaskehalsen til på framoverkantene og **trekk den\nfra** på kantene der stien gikk bakover. Det siste er den feilen som gjøres\noftest.\n\n**Steg 5 — gjenta** til `BFS` ikke finner $t$.\n\n**Steg 6 — les av min-snittet.** Nodene `BFS` når fra $s$ i det siste\nrestnettet, utgjør $S$. Kantene fra $S$ til $T$ er alle mettet, og summen av\nkapasitetene deres skal være **lik** flytverdien. Stemmer ikke det, har du\nregnet feil.\n\n**Steg 7 — lever.** Flytverdien, og min-snittet når det er spurt om. Ikke hele\ntabellen med mindre oppgaven ber om den."
+    },
+    {
+      "id": "tdt4120-5-3-thm-6",
+      "type": "theorem",
+      "title": "Løsningsoppskriften — modellering (sjanger H)",
+      "content": "**Steg 1 — navngi det klassiske problemet.** Les innpakningen og finn mønsteret:\n\n| Innpakningen | Problemet |\n|---|---|\n| noe skal fordeles på noe annet, med grenser per part | **maks-flyt** i et firelagsnett |\n| «billigste barriere som skiller X fra Y» | **min-snitt** |\n| «hvor mange kan tildeles samtidig» | **maksimal matching**, som er maks-flyt med kapasitet 1 |\n\n**Steg 2 — navngi paradigmet eksplisitt.** Skriv «dette løses med maks-flyt» i\nklartekst. Det er ett av leddene som gir uttelling.\n\n**Steg 3 — bygg konstruksjonen.** Fire lag:\n\n- kilden $s$;\n- ett nodesett for det som skal tildeles;\n- ett nodesett for det de tildeles til;\n- sluket $t$.\n\nKapasiteten fra $s$ til en venstre node er **hvor mange den kan ta**.\nKapasiteten fra en høyre node til $t$ er **hvor mange den har plass til**. En\nkant i midten med kapasitet 1 betyr at nettopp den tildelingen er tillatt.\n\n**Steg 4 — kjør, og si hva flytverdien betyr.** Er den lik antall enheter som\nmåtte plasseres, går regnestykket opp; er den lavere, finnes ingen fullstendig\ntildeling.\n\n**Steg 5 — rekonstruér selve løsningen.** Midtkantene som bærer flyt, **er**\ntildelingen. Si eksplisitt at **heltallsteoremet** gir en heltallig flyt, slik\nat hver midtkant bærer 0 eller 1 og avlesningen er entydig. Si også at\navlesningen koster $O(E)$ og ikke øker den asymptotiske kjøretiden.\n\n**Steg 6 — oppgi kjøretiden** med $V$ og $E$ definert i problemets egne\nstørrelser.\n\nMangler ett av de fem leddene — problem, paradigme, konstruksjon,\nrekonstruksjon, kjøretid — er svaret ufullstendig."
+    },
+    {
+      "id": "tdt4120-5-3-eks-7",
+      "type": "example",
+      "title": "Eksempel 1: Gjennomkjørt håndkjøring med margnotater",
+      "problem": "Et vannverk har pumpen $s$, tre kummer $p$, $q$, $r$ og forbruket $t$.\nKapasitetene, i liter per sekund, er\n\n```text\nc(s,p) = 8    c(s,q) = 5    c(p,q) = 2    c(p,r) = 7\nc(q,r) = 6    c(r,t) = 9    c(q,t) = 3\n```\n\nKjør `Edmonds-Karp` fra nullflyten, med naboene i alfabetisk rekkefølge. Oppgi\nmaksimal flytverdi og et min-snitt.",
+      "solution": "| Runde | Forøkende sti | Flaskehals | Flytverdi etterpå |\n|---|---|---|---|\n| 1 | $s \\to q \\to t$ | 3 | 3 |\n| 2 | $s \\to p \\to r \\to t$ | 7 | 10 |\n| 3 | $s \\to q \\to r \\to t$ | 2 | 12 |\n| 4 | ingen sti finnes i $G_f$ | — | **12** |\n\n*Margnotat.* `BFS` finner **korteste** sti. I runde 1 er $s \\to q \\to t$ på to\nkanter, mens $s \\to p \\to r \\to t$ er på tre — derfor kommer den korte først,\nselv om den bare gir 3 enheter. Å velge stien med størst flaskehals er en\nannen algoritme, og den er ikke `Edmonds-Karp`.\n\n*Margnotat.* I runde 3 er $q \\to t$ mettet, så `BFS` må gå\n$s \\to q \\to r \\to t$. Restkapasiteten på $r \\to t$ er da $9 - 7 = 2$, og det\nblir flaskehalsen.\n\n**Den endelige flyten:**\n\n```text\nf(s,p) = 7/8    f(s,q) = 5/5    f(p,q) = 0/2    f(p,r) = 7/7\nf(q,r) = 2/6    f(r,t) = 9/9    f(q,t) = 3/3\n```\n\n*Margnotat.* Legg merke til at $p \\to q$ ikke bærer noe. Ikke enhver kant må\nbrukes for at flyten skal være maksimal — flaskehalsen ligger et helt annet\nsted.\n\n**Sluttilstanden — det du ville levert på eksamen:**\n\n**Maks-flyt $\\lvert f^*\\rvert = 12$. Min-snitt:\n$S = \\{p, q, r, s\\}$, $T = \\{t\\}$,\nmed $c(S,T) = 9 + 3 = 12$.**\n\n*Margnotat.* Kontrollen tar fem sekunder: snittkapasiteten er\n12, og flytverdien er\n12. Like tall betyr at kjøringen er ferdig og riktig.\nUlike tall betyr at du har regnet feil et sted — og da vet du det **før** du\nleverer.\n\n*Margnotat om delvis uttelling.* En håndkjøring som stopper etter to runder,\ngir uttelling for de to rundene. Skriv derfor ned sti og flaskehals for hver\nrunde mens du regner, ikke bare det endelige tallet."
+    },
+    {
+      "id": "tdt4120-5-3-t-8",
+      "type": "text",
+      "content": "## Drill: håndkjøring (~22 min)\n\nFem oppgaver. Legg merke til at svarformatet skifter — noen ber om\nflytverdien alene, andre om snittet i tillegg."
+    },
+    {
+      "id": "tdt4120-5-3-oppg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-5-3-oppg-9-inner",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamensnivå, sjanger C — håndkjøring, altså at du utfører algoritmen steg for\nsteg og oppgir bare sluttilstanden.)\n\nEt flytnett har nodene $s$, $a$, $b$, $c$, $d$, $t$ og kapasitetene\n\n```text\nc(s,a) = 7    c(s,b) = 6    c(a,c) = 5    c(a,d) = 4\nc(b,c) = 3    c(b,d) = 8    c(c,t) = 6    c(d,t) = 9\n```\n\nKjør `Edmonds-Karp` med naboene i alfabetisk rekkefølge, og oppgi maksimal\nflytverdi.",
+        "solution": "| Runde | Forøkende sti | Flaskehals | Flytverdi etterpå |\n|---|---|---|---|\n| 1 | $s \\to a \\to c \\to t$ | 5 | 5 |\n| 2 | $s \\to a \\to d \\to t$ | 2 | 7 |\n| 3 | $s \\to b \\to c \\to t$ | 1 | 8 |\n| 4 | $s \\to b \\to d \\to t$ | 5 | 13 |\n| 5 | ingen sti finnes i $G_f$ | — | **13** |\n\n**Maks-flyt $\\lvert f^*\\rvert = 13$.**\n\nKontroll: min-snittet er $S = \\{s\\}$ med\n$c(S,T) = 7 + 6 = 13$\n— begge kantene ut av kilden er mettet, og da kan ingenting mer komme inn i\nnettet.\n\nMerk at oppgaven bare ba om flytverdien. Snittet er tatt med her som kontroll,\nmen det ville ikke gitt ekstra uttelling.",
+        "hints": [
+          "Bygg restnettet etter hver forøkning, og bruk `BFS` til å finne den korteste stien.",
+          "Kontroller til slutt at flytverdien er lik kapasiteten til et snitt."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-5-3-oppg-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-5-3-oppg-10-inner",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C.)\n\nEt flytnett har nodene $s$, $u$, $v$, $w$, $t$ og kapasitetene\n\n```text\nc(s,u) = 4    c(s,v) = 9    c(u,w) = 6    c(v,u) = 3\nc(v,w) = 2    c(w,t) = 5    c(v,t) = 7\n```\n\nKjør `Edmonds-Karp` med naboene i alfabetisk rekkefølge.\n\n**a)** Oppgi de forøkende stiene med flaskehals.\n**b)** Oppgi maksimal flytverdi og et min-snitt.",
+        "solution": "**a)**\n\n| Runde | Forøkende sti | Flaskehals | Flytverdi etterpå |\n|---|---|---|---|\n| 1 | $s \\to v \\to t$ | 7 | 7 |\n| 2 | $s \\to u \\to w \\to t$ | 4 | 11 |\n| 3 | $s \\to v \\to w \\to t$ | 1 | 12 |\n| 4 | ingen sti finnes i $G_f$ | — | **12** |\n\n**b)** **Maks-flyt $\\lvert f^*\\rvert = 12$. Min-snitt:\n$S = \\{s, u, v, w\\}$, $T = \\{t\\}$,\nmed $c(S,T) = 5 + 7 = 12$.**\n\nLegg merke til at kanten $v \\to u$ aldri brukes: $u$ har allerede all den\nflyten den kan sende videre gjennom $u \\to w$, begrenset av $w \\to t$.\nFlaskehalsen i nettet ligger i de to kantene inn til $t$.",
+        "hints": [
+          "Begge kantene inn til $t$ er kandidater til å bli mettet — se hva som skjer med dem.",
+          "Min-snittet leses av med én `BFS` fra $s$ når algoritmen har stoppet."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-5-3-oppg-11",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-5-3-oppg-11-inner",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C, med en ryggkant i spill.)\n\nBruk vanningsanlegget fra [kap. 5.2](/tdt4120/tdt4120-5-2), der maksimal flyt\ner 18 og den siste forøkende stien var $s \\to a \\to b \\to d \\to c \\to t$ med\nflaskehals 1.\n\nAnta i stedet at kanten $b \\to d$ har kapasitet 9 i stedet for 10, mens alt\nannet er uendret.\n\n**a)** Hva blir maksimal flytverdi?\n**b)** Hva blir min-snittet?",
+        "solution": "**a)** **Maks-flyt blir 17.**\n\nDen tredje forøkningen i den opprinnelige kjøringen hentet nøyaktig 1 enhet\ngjennom $b \\to d$, som da hadde 1 restkapasitet igjen. Senkes kapasiteten fra\n10 til 9, er kanten allerede mettet etter runde 2, og den siste enheten finner\ningen vei.\n\n**b)** Snittet er det samme: $S = \\{s, a, b\\}$, $T = \\{c, d, t\\}$. Kantene fra\n$S$ til $T$ er $a \\to c$ med kapasitet 8 og $b \\to d$ med den nye kapasiteten\n9, altså $c(S,T) = 8 + 9 = 17$.\n\nKontroll: flytverdien og snittkapasiteten er like.\n\n**Poenget med oppgaven:** min-snittet peker rett på hvilke kapasiteter som\nfaktisk betyr noe. Å øke $c(s,a)$ fra 12 til 100 ville ikke hjulpet i det hele\ntatt — den kanten krysser ikke snittet.",
+        "hints": [
+          "Se på hvilke kanter som krysser min-snittet i den opprinnelige kjøringen.",
+          "En kapasitetsendring påvirker bare maks-flyt hvis kanten ligger i et min-snitt."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-5-3-oppg-12",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-5-3-oppg-12-inner",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger F — «stemmer dette?», altså ja eller nei først og\nderetter én presis setning.)\n\nEn kandidat har kjørt `Edmonds-Karp` på et nett og fått flytverdi 15. Hun\nfinner et snitt med kapasitet 19 og konkluderer: «Flyten er maksimal, siden\n$15 \\le 19$.»\n\nEr konklusjonen riktig? Svar ja eller nei, og forklar hva som mangler.",
+        "solution": "**Nei.**\n\nUlikheten $\\lvert f\\rvert \\le c(S,T)$ gjelder for **ethvert** snitt og enhver\nlovlig flyt — den sier altså ingenting om at nettopp denne flyten er maksimal.\nDen utelukker bare at flyten kan være større enn 19.\n\nBeviset krever et snitt som **treffer** flytverdien: et snitt med kapasitet\nnøyaktig 15. Da, og bare da, gir maks-flyt/min-snitt-teoremet at flyten er\nmaksimal.\n\nAlternativt er stoppkriteriet i seg selv nok: har `BFS` bekreftet at ingen\nforøkende sti finnes i restnettet, er flyten maksimal — og da leser du snittet\nav gratis, med den riktige kapasiteten.",
+        "hints": [
+          "Hvilken ulikhet gjelder for **alle** flyter og alle snitt?",
+          "Hva må være likt for at teoremet skal kunne brukes som bevis?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-5-3-oppg-13",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-5-3-oppg-13-inner",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger C og F.)\n\nEt flytnett har nodene $s$, $x$, $y$, $t$ med kapasitetene\n\n```text\nc(s,x) = 20    c(s,y) = 20    c(x,y) = 1\nc(x,t) = 20    c(y,t) = 20\n```\n\n**a)** Hvor mange runder bruker `Edmonds-Karp`, og hva blir maksimal flyt?\n**b)** Hvor mange runder kan `Ford-Fulkerson` med uheldig valg av sti bruke?\n**c)** Hva illustrerer forskjellen?",
+        "solution": "**a)** **To runder.** `BFS` finner $s \\to x \\to t$ med flaskehals 20, deretter\n$s \\to y \\to t$ med flaskehals 20. **Maks-flyt er 40.**\n\n**b)** Velger metoden i stedet $s \\to x \\to y \\to t$, er flaskehalsen 1 —\nkanten $x \\to y$ slipper bare én enhet gjennom. Etter forøkningen finnes\nryggkanten $y \\to x$ med restkapasitet 1, og metoden kan velge\n$s \\to y \\to x \\to t$, også med flaskehals 1.\n\nVeksler den mellom disse to, øker flyten med 1 per runde, og det trengs **40\nrunder**.\n\n**c)** Forskjellen mellom polynomisk og pseudopolynomisk. `Edmonds-Karp` bruker\nto runder uansett hvor store kapasitetene er, fordi antall runder bare avhenger\nav grafens form. `Ford-Fulkerson` med uheldig stivalg bruker et antall runder\nsom er proporsjonalt med **tallverdien** i kapasitetene — bytt 20 med\n1 000 000, og den bruker to millioner runder mens `Edmonds-Karp` fortsatt\nbruker to.\n\nMerk hva eksemplet **ikke** viser: at maks-flyt er et vanskelig problem. Det er\nfelle **#7**.",
+        "hints": [
+          "Sammenlign lengden på stiene: hvor mange kanter har de korte, og hvor mange har de lange?",
+          "Hva skjer med antall runder hvis du multipliserer alle kapasitetene med 1000?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-5-3-t-14",
+      "type": "text",
+      "content": "## Modellering: fra innpakning til flytnett (~14 min)\n\nDen andre halvdelen av kapitlet handler om det som skjer **før** algoritmen: å\nse at et problem i det hele tatt er et flytproblem.\n\nKjennetegnet er nesten alltid det samme. Noe skal fordeles på noe annet, hver\npart har en øvre grense, og bare visse kombinasjoner er tillatt. Da bygger du\net nett i fire lag."
+    },
+    {
+      "id": "tdt4120-5-3-fig-15",
+      "type": "image",
+      "src": "/images/textbook/tdt4120/5-3-modelleringsmal.svg",
+      "alt": "En mal for et flytnett i fire lag. Til venstre kilden s, som har groenne piler med kapasitet en til tre noder merket A1, A2 og A3. Fra disse gaar det graa piler med kapasitet en til tre noder merket B1, B2 og B3, men bare der tildelingen er tillatt. Fra B-nodene gaar det groenne piler med kapasitet en til sluket t til hoyre. Notene under forklarer at kapasiteten fra kilden koder hvor mange hver kan ta, at midtkantene koder hvilke tildelinger som er tillatt, at kapasiteten til sluket koder hvor mange hver har plass til, og at heltallsteoremet gir en heltallig loesning som leses av som selve tildelingen.",
+      "caption": "Modelleringsmalen. Kapasitetene på ytterkantene koder grensene i oppgaveteksten; midtkantene koder hva som er tillatt. Her har hver venstre node kapasitet 1 — endre det tallet, og du har kodet «hver kan ta høyst tre»."
+    },
+    {
+      "id": "tdt4120-5-3-eks-16",
+      "type": "example",
+      "title": "Eksempel 2: Gjennomkjørt modelleringscase med margnotater",
+      "problem": "Et laboratorium har fem analyseinstrumenter og sju prøver som skal kjøres i\nløpet av natten. Hver prøve kan kjøres på visse av instrumentene, ikke alle.\nHvert instrument rekker to prøver i løpet av natten.\n\nBeskriv hvordan du avgjør om alle sju prøvene rekkes, og hvordan du finner en\nkonkret kjøreplan.",
+      "solution": "**Steg 1 — det klassiske problemet.** Prøver skal fordeles på instrumenter, hver\npart har en grense, og bare visse par er tillatt. Dette er et\n**tilordningsproblem med kapasiteter**, altså maks-flyt.\n\n*Margnotat.* Å navngi problemet er ett av de fem leddene som gir uttelling.\n«Dette er et flytproblem» er en halv linje, og den halve linja teller.\n\n**Steg 2 — paradigmet.** Maksimal flyt i et firelagsnett. Skriv det eksplisitt.\n\n**Steg 3 — konstruksjonen.**\n\n- Kilde $s$ og sluk $t$.\n- Én node per **prøve**, med kant $s \\to \\text{prøve}$ og kapasitet **1** —\n  hver prøve skal kjøres nøyaktig én gang.\n- Én node per **instrument**, med kant $\\text{instrument} \\to t$ og kapasitet\n  **2** — hvert instrument rekker to prøver.\n- En kant $\\text{prøve} \\to \\text{instrument}$ med kapasitet 1 for hvert par\n  der prøven kan kjøres på instrumentet.\n\n*Margnotat.* Legg merke til hvor grensene sitter. «Én gang per prøve» er\nkapasiteten på **kildekanten**; «to per instrument» er kapasiteten på\n**slukkanten**. Å bytte om de to er den vanligste modelleringsfeilen.\n\n*Margnotat.* Midtkantene trenger bare kapasitet 1. Kapasiteten der koder ikke\nen grense — den koder at *dette paret er tillatt*.\n\n**Steg 4 — kjør og tolk.** Kjør `Edmonds-Karp`. Alle sju prøvene rekkes hvis og\nbare hvis maksimal flyt er **7**, altså at hver kildekant er mettet.\n\nEr maksimal flyt 6, er svaret nei — og min-snittet forteller deg til og med\nhvorfor: det peker ut den flaskehalsen som gjør det umulig.\n\n**Steg 5 — rekonstruér kjøreplanen.** Midtkantene som bærer flyt 1, **er**\nplanen: prøve $i$ kjøres på instrument $j$. **Heltallsteoremet** garanterer at\nen maksimal flyt kan velges heltallig når alle kapasitetene er heltall, så hver\nmidtkant bærer enten 0 eller 1, og avlesningen er entydig. Den koster $O(E)$ og\n**øker ikke den asymptotiske kjøretiden**.\n\n*Margnotat.* Dette leddet er det som skiller et fullt svar fra et halvt.\nOppgaven ba om en **kjøreplan**, ikke om et ja eller nei — og da må du si\nhvordan planen leses ut.\n\n**Steg 6 — kjøretiden.** Nettet har $V = 7 + 5 + 2 = 14$ noder og $E = O(7 + 5 + k)$ kanter, der $k$ er antall tillatte prøve–instrument-par. `Edmonds-Karp`\ngir $O(VE^2)$.\n\n**Hele svaret, i eksamensform:**\n\n> Dette er et tilordningsproblem med kapasiteter, og løses med maks-flyt. Bygg\n> et nett med kilde $s$, én node per prøve (kant fra $s$ med kapasitet 1), én\n> node per instrument (kant til $t$ med kapasitet 2), og en kant med kapasitet\n> 1 fra hver prøve til hvert instrument den kan kjøres på. Kjør `Edmonds-Karp`.\n> Alle prøvene rekkes hvis og bare hvis maksimal flyt er 7. Kjøreplanen leses\n> av som de midtkantene som bærer flyt; heltallsteoremet gir en heltallig flyt,\n> og avlesningen koster $O(E)$. Kjøretid $O(VE^2)$ med $V = 14$ og\n> $E = O(12 + k)$.\n\nÅtte linjer. Det er lengden en sjanger H-oppgave skal ha."
+    },
+    {
+      "id": "tdt4120-5-3-t-17",
+      "type": "text",
+      "content": "## Drill: modellering (~22 min)\n\nFem oppgaver. Alle er nyskrevne innpakninger av de samme to mønstrene."
+    },
+    {
+      "id": "tdt4120-5-3-oppg-18",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-5-3-oppg-18-inner",
+        "number": 6,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger H — åpen algoritmedesign, altså at du skisserer en\nalgoritme kort: hvilket kjent problem det er, hvilket paradigme du bruker,\nkonstruksjonen, hvordan du henter ut selve svaret, og kjøretiden.)\n\nEn idrettshall har $m$ treningstider ledig i uka. $n$ lag har hver oppgitt\nhvilke tider de kan bruke, og hvert lag skal ha nøyaktig én tid. Hver tid kan\nbrukes av bare ett lag.\n\nBeskriv hvordan du avgjør om alle lagene får en tid, og hvordan du finner\nfordelingen.",
+        "solution": "**Det klassiske problemet.** Hvert lag skal pares med én tid, og hver tid tar\nett lag — dette er en **maksimal matching** i en todelt graf, som løses med\nmaks-flyt.\n\n**Paradigmet.** Maksimal flyt i et firelagsnett.\n\n**Konstruksjonen.**\n\n- Kilde $s$, sluk $t$.\n- Én node per lag, med kant $s \\to \\text{lag}$ og kapasitet **1**.\n- Én node per treningstid, med kant $\\text{tid} \\to t$ og kapasitet **1**.\n- Kant $\\text{lag} \\to \\text{tid}$ med kapasitet 1 for hver tid laget har\n  oppgitt.\n\nKjør `Edmonds-Karp`. Alle lagene får en tid hvis og bare hvis maksimal flyt er\n$n$.\n\n**Rekonstruksjon av fordelingen.** Midtkantene som bærer flyt 1, er\nfordelingen: lag $i$ får tid $j$. Heltallsteoremet gir en heltallig maksimal\nflyt, så hver midtkant bærer 0 eller 1, og avlesningen er entydig. Den koster\n$O(E)$ og øker ikke kjøretiden.\n\n**Kjøretid.** $V = n + m + 2$, $E = O(n + m + k)$ der $k$ er antall oppgitte\nlag–tid-par. `Edmonds-Karp` gir $O(VE^2)$.\n\n**Merk at alle kapasitetene er 1.** Det er kjennetegnet på en ren matching —\ningen part kan ta mer enn én.",
+        "hints": [
+          "Hvilket mønster er dette: noe skal pares én-til-én med noe annet?",
+          "Hvor i nettet koder du «nøyaktig én tid per lag», og hvor «ett lag per tid»?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-5-3-oppg-19",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-5-3-oppg-19-inner",
+        "number": 7,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger H.)\n\nEn kommune skal sette opp midlertidige flomsperrer. Kartet er et rutenett der\nnoen ruter er elvebredd og noen er sentrum. Å sette opp en sperre i en rute\nkoster et oppgitt beløp. Kommunen vil finne den **billigste** samlingen ruter\nsom gjør det umulig å komme fra elvebredden til sentrum.\n\nBeskriv hvordan problemet løses.",
+        "solution": "**Det klassiske problemet.** «Billigste barriere som skiller X fra Y» er\nmønsteret for **min-snitt**.\n\n**Paradigmet.** Min-snitt, som beregnes ved å kjøre maks-flyt og lese av\nsnittet.\n\n**Konstruksjonen.**\n\n- Lag en node per rute, og kanter mellom naboruter.\n- Lag en superkilde $s$ med kanter av **uendelig** kapasitet til hver\n  elvebredd-rute, og et supersluk $t$ med uendelig-kanter fra hver\n  sentrums-rute.\n- Kostnaden ved å sperre en rute er en kostnad på **noden**, ikke på en kant.\n  Del derfor hver rute i to noder $v_{\\text{inn}}$ og $v_{\\text{ut}}$, med en\n  kant mellom dem med kapasitet lik sperrekostnaden. Alle nabokanter går inn i\n  $v_{\\text{inn}}$ og ut av $v_{\\text{ut}}$, og får uendelig kapasitet.\n\n**Kjør maks-flyt.** Min-snittet kan da bare bestå av de indre kantene, siden\nalle andre har uendelig kapasitet — og hver indre kant tilsvarer nøyaktig én\nrute som sperres.\n\n**Rekonstruksjon av selve svaret.** Kjør én `BFS` fra $s$ i det siste\nrestnettet. De indre kantene som krysser fra $S$ til $T$, er rutene som skal\nsperres. Kostnaden er min-snittkapasiteten, altså maksimal flytverdi.\n\n**Kjøretid.** Med $r$ ruter har nettet $O(r)$ noder og $O(r)$ kanter (hver rute\nhar høyst fire naboer), så `Edmonds-Karp` gir $O(VE^2) = O(r^3)$.\n\n**Merk nodesplittingen.** Det er den eneste ikke-opplagte delen, og den er\nstandardgrepet når kostnaden ligger på **noder** i stedet for på kanter.",
+        "hints": [
+          "Hvilket av de to mønstrene passer «billigste barriere som skiller to områder»?",
+          "Hvordan gjør du om en kostnad som ligger på en node, til en kapasitet på en kant?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-5-3-oppg-20",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-5-3-oppg-20-inner",
+        "number": 8,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger H, med et forbehold.)\n\nEt transportfirma har $n$ sjåfører og $m$ oppdrag. Hver sjåfør kan ta høyst to\noppdrag, og hvert oppdrag trenger nøyaktig én sjåfør. I tillegg gjelder: sjåfør\nog oppdrag må høre til samme distrikt.\n\n**a)** Bygg flytnettet.\n**b)** En kollega foreslår å modellere distriktskravet som en kapasitet på\nkildekanten. Er det riktig?",
+        "solution": "**a)** **Konstruksjonen.**\n\n- Kilde $s$, sluk $t$.\n- Én node per sjåfør, med kant $s \\to \\text{sjåfør}$ og kapasitet **2**.\n- Én node per oppdrag, med kant $\\text{oppdrag} \\to t$ og kapasitet **1**.\n- Kant $\\text{sjåfør} \\to \\text{oppdrag}$ med kapasitet 1 **bare** når de hører\n  til samme distrikt.\n\nAlle oppdragene kan dekkes hvis og bare hvis maksimal flyt er $m$. Tildelingen\nleses av som de midtkantene som bærer flyt; heltallsteoremet gjør avlesningen\nentydig, og den koster $O(E)$.\n\nKjøretid $O(VE^2)$ med $V = n + m + 2$.\n\n**b)** **Nei.**\n\nDistriktskravet er en regel om **hvilke par** som er tillatt, ikke om hvor\nmange oppdrag en sjåfør kan ta. Det kodes derfor ved at midtkanten **ikke\nfinnes** når distriktene er ulike.\n\nKapasiteten på kildekanten koder noe helt annet: den øvre grensen på antall\noppdrag per sjåfør, altså 2. Blandes de to, får du et nett som verken teller\nriktig eller respekterer distriktene.\n\n**Regelen:** kapasiteter koder **hvor mange**; kantenes eksistens koder **hva\nsom er tillatt**.",
+        "hints": [
+          "Skill mellom en grense på antall og en regel om hvilke kombinasjoner som er lovlige.",
+          "Hvilken del av nettet forsvinner når en tildeling ikke er tillatt?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-5-3-oppg-21",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-5-3-oppg-21-inner",
+        "number": 9,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger H, med en variant som ikke er ren matching.)\n\nEt datasenter har $n$ servere og $m$ jobber. Jobb $j$ krever $r_j$ kjerner, og\nserver $i$ har $k_i$ ledige kjerner. En jobb kan **splittes** på flere servere.\nAlle jobber skal kjøres.\n\n**a)** Bygg flytnettet.\n**b)** Hva er forskjellen fra en vanlig matching, og hva betyr det for\navlesningen?",
+        "solution": "**a)** **Konstruksjonen.**\n\n- Kilde $s$, sluk $t$.\n- Én node per jobb, med kant $s \\to \\text{jobb } j$ og kapasitet $r_j$.\n- Én node per server, med kant $\\text{server } i \\to t$ og kapasitet $k_i$.\n- Kant $\\text{jobb } j \\to \\text{server } i$ med kapasitet $r_j$ (eller\n  uendelig) når jobben kan kjøres på serveren.\n\nKjør `Edmonds-Karp`. Alle jobbene kan kjøres hvis og bare hvis maksimal flyt er\n$\\sum_j r_j$, altså at hver kildekant er mettet.\n\n**Rekonstruksjon.** Flyten på midtkanten $j \\to i$ er **antall kjerner** jobb\n$j$ får på server $i$. Heltallsteoremet gir en heltallig løsning, så\nfordelingen er i hele kjerner.\n\n**Kjøretid.** $O(VE^2)$ med $V = n + m + 2$.\n\n**b)** Forskjellen er at midtkantene her bærer **mer enn 1**. I en matching er\nalle kapasitetene 1, og flyten leses som «ja/nei». Her er kapasitetene\ntallverdier, og flyten leses som «hvor mye».\n\nDet påvirker avlesningen: du oppgir ikke bare hvilke par som er koblet, men\nhvor mye hver kobling bærer. Heltallsteoremet er fortsatt det som gjør svaret\nbrukbart — uten det kunne en jobb fått 2,5 kjerner på én server.\n\n**Merk hva delbarheten koster.** Var jobbene **udelbare**, ville dette vært et\nhelt annet og mye vanskeligere problem — en variant av ryggsekk, som er NP-hardt\n(se [kap. 6.2](/tdt4120/tdt4120-6-2)). Det er delbarheten som gjør at flyt\nvirker.",
+        "hints": [
+          "Hva skal kapasiteten på kildekanten være når en jobb krever flere enheter?",
+          "Hva betyr et tall på en midtkant her, sammenlignet med i en ren matching?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-5-3-oppg-22",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-5-3-oppg-22-inner",
+        "number": 10,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger F og H kombinert.)\n\nEn kandidat modellerer et fordelingsproblem som maks-flyt, kjører\n`Edmonds-Karp`, og skriver som hele svaret: «Maksimal flyt er 14, så svaret er\nja.»\n\n**a)** Hva mangler i svaret?\n**b)** Skriv om svaret slik at det er fullstendig, for oppgaven «tildel 14\nvakter til 6 vikarer som hver kan ta høyst 3 vakter».",
+        "solution": "**a)** Tre av de fem obligatoriske leddene mangler: hvilket klassisk problem\ndette er, hvordan nettet er bygget, og **hvordan selve tildelingen leses ut**.\nDet siste er det tyngste — oppgaven ba om en tildeling, ikke om et ja.\n\nKjøretiden mangler også.\n\n**b)** **Et fullstendig svar:**\n\n> Dette er et tilordningsproblem med kapasiteter, og løses med maks-flyt. Bygg\n> et nett med kilde $s$, én node per vikar med kant fra $s$ og kapasitet 3, én\n> node per vakt med kant til $t$ og kapasitet 1, og en kant med kapasitet 1 fra\n> hver vikar til hver vakt vedkommende kan ta. Kjør `Edmonds-Karp`.\n>\n> Alle 14 vaktene dekkes hvis og bare hvis maksimal flyt er 14, og det er den\n> her. Selve vaktlisten leses av som de vikar–vakt-kantene som bærer flyt 1;\n> heltallsteoremet garanterer at flyten kan velges heltallig, så hver slik kant\n> bærer 0 eller 1. Avlesningen koster $O(E)$ og øker ikke kjøretiden.\n>\n> Kjøretid: $O(VE^2)$ med $V = 6 + 14 + 2 = 22$.\n\n**Legg merke til kontrollen som ligger i tallene.** Seks vikarer à tre vakter\ngir høyst 18 vakter dekket, og 14 er under det. Hadde det vært 20 vakter, ville\nsvaret vært nei uten at algoritmen trengte å kjøre i det hele tatt — og det er\nverdt å nevne.",
+        "hints": [
+          "Hvilke fem ledd skal et designsvar ha?",
+          "Hva ba oppgaven om — et ja/nei, eller en konkret tildeling?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-5-3-warn-23",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "De to første koster hele oppgaven.\n\n- **Å glemme ryggkantene under forøkning.** Går den forøkende stien bakover\n  langs en kant, skal flyten der **senkes** med flaskehalsen. Uten det finner\n  ikke håndkjøringen den maksimale flyten.\n- **Å oppgi bare flytverdien når min-snittet også er spurt om.** Er begge\n  etterspurt, er begge en del av svaret — og snittet leses gratis av det siste\n  restnettet.\n- **Å bruke stien med størst flaskehals i stedet for korteste sti.**\n  `Edmonds-Karp` krever **korteste** sti, funnet med `BFS`. Andre valg gir\n  gyldige flyter, men det er en annen algoritme og et annet svar på\n  håndkjøringen.\n- **Å sette kapasitetene feil sted i en modellering.** «Hvor mange hver kan\n  ta» hører på kildekanten; «hvor mange hver har plass til» hører på\n  slukkanten. Hvilke par som er **tillatt**, kodes ved at midtkanten finnes\n  eller ikke — ikke ved en kapasitet.\n- **Å glemme heltallsteoremet i modelleringssvaret.** Det er det som gjør at\n  flyten kan leses som en tildeling, og det er ett av leddene som gir\n  uttelling.\n- **Å stoppe ved flytverdien i en designoppgave.** Oppgaven ber om en\n  **tildeling** eller en **plan**, og da må du si hvordan den leses ut av\n  flyten. Å oppgi bare optimalverdien er felle **#6**.\n- **Å bruke et for dyrt snitt som bevis.** Beviset krever et snitt som treffer\n  flytverdien.\n- **Å tro at en treg algoritme betyr et hardt problem.** Felle **#7** — se\n  [kap. 5.2](/tdt4120/tdt4120-5-2).\n\nOg den gjennomgående: **å skrive mer enn de fem leddene**. Et designsvar er\nfem til ti linjer. Lengre svar gir ingen ekstra uttelling."
+    },
+    {
+      "id": "tdt4120-5-3-t-24",
+      "type": "text",
+      "content": "## Kjøretidene du kan bli spurt om i en deloppgave\n\n| Operasjon | Kjøretid | Krav / egenskap |\n|---|---|---|\n| `Edmonds-Karp` | $O(VE^2)$ | korteste forøkende sti; polynomisk |\n| `Ford-Fulkerson` (vilkårlig sti) | $O(E\\cdot\\lvert f^*\\rvert)$ | pseudopolynomisk; krever heltall for terminering |\n| Én `BFS` i restnettet | $O(V+E)$ | både stivalget og avlesningen av snittet |\n| Å lese av tildelingen fra flyten | $O(E)$ | **øker ikke den asymptotiske kjøretiden** |\n| Todelt matching via flyt | $O(VE^2)$ | alle kapasiteter 1 |\n| Min-snitt med nodekostnader | $O(VE^2)$ | krever nodesplitting først |\n\n**Én presisering som er verdt å ta med seg.** Kjøretiden i et designsvar skal\noppgis i **problemets egne størrelser**: hvor mange noder og kanter nettet får\nnår det bygges av oppgavens $n$, $m$ og $k$. Å skrive «$O(VE^2)$» uten å si hva\n$V$ og $E$ er i denne konstruksjonen, er et halvt svar."
+    },
+    {
+      "id": "tdt4120-5-3-t-25",
+      "type": "text",
+      "content": "### Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp\nhar lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet\ngjelder kjernestoffet."
+    },
+    {
+      "id": "tdt4120-5-3-def-26",
+      "type": "definition",
+      "title": "Svarformat for en flyt-håndkjøring",
+      "content": "oppgi **flytverdien**, og **min-snittet** når begge er spurt om.\n\nKontrollen: snittkapasiteten skal være lik flytverdien.\n\n**Skriv ned sti og flaskehals for hver runde** underveis — delvis riktig\nhåndkjøring gir delvis uttelling."
+    },
+    {
+      "id": "tdt4120-5-3-def-27",
+      "type": "definition",
+      "title": "Å føre restnettet",
+      "content": "for hver kant: framoverkanten med $c - f$ og ryggkanten med $f$. Kanter med 0\nstrykes.\n\nEn **mettet** kant gir bare ryggkant; en **tom** kant gir bare framoverkant.\n\n**Tegn det, ikke hold det i hodet.** Det er her de fleste regnefeilene\noppstår."
+    },
+    {
+      "id": "tdt4120-5-3-def-28",
+      "type": "definition",
+      "title": "Å forøke langs en sti",
+      "content": "legg flaskehalsen til på framoverkantene, og **trekk den fra** på kantene der\nstien gikk bakover.\n\nMinst én kant blir mettet i hver forøkning.\n\n**Fratrekket på ryggkantene er den vanligste feilen** i denne\nhåndkjøringen."
+    },
+    {
+      "id": "tdt4120-5-3-def-29",
+      "type": "definition",
+      "title": "Modelleringsmalen",
+      "content": "fire lag: kilde, ett nodesett for det som skal tildeles, ett for det de\ntildeles til, og sluk.\n\nKapasiteten fra kilden koder hvor mange hver kan ta; kapasiteten til sluket\nkoder hvor mange hver har plass til.\n\n**Kantenes eksistens i midten koder hva som er tillatt** — ikke en kapasitet."
+    },
+    {
+      "id": "tdt4120-5-3-def-30",
+      "type": "definition",
+      "title": "Fordelingsmønsteret",
+      "content": "«fordel A på B, med grenser for hvor mange hver kan ta» — kjennetegnet på et\nmaks-flyt-problem.\n\nAlle tildelingene kan gjøres hvis og bare hvis maksimal flyt er lik antall\nenheter som måtte plasseres.\n\n**Er alle kapasitetene 1**, er problemet en ren maksimal matching."
+    },
+    {
+      "id": "tdt4120-5-3-def-31",
+      "type": "definition",
+      "title": "Barrieremønsteret",
+      "content": "«finn den billigste samlingen som gjør det umulig å komme fra X til Y» —\nkjennetegnet på et **min-snitt**-problem.\n\nLøses ved å kjøre maks-flyt og lese av snittet fra det siste restnettet.\n\n**Ligger kostnaden på noder**, splitt hver node i to med en indre kant som\nbærer kostnaden."
+    },
+    {
+      "id": "tdt4120-5-3-def-32",
+      "type": "definition",
+      "title": "Nodesplitting",
+      "content": "å dele en node $v$ i $v_{\\text{inn}}$ og $v_{\\text{ut}}$ med en kant mellom\ndem som bærer nodens kapasitet eller kostnad.\n\nAlle innkommende kanter går til $v_{\\text{inn}}$, alle utgående fra\n$v_{\\text{ut}}$.\n\n**Standardgrepet når begrensningen sitter på en node** i stedet for på en\nkant."
+    },
+    {
+      "id": "tdt4120-5-3-def-33",
+      "type": "definition",
+      "title": "Rekonstruksjon fra en flyt",
+      "content": "midtkantene som bærer flyt, **er** tildelingen.\n\nHeltallsteoremet gir en heltallig maksimal flyt, så avlesningen er entydig, og\nden koster $O(E)$.\n\n**Å oppgi bare flytverdien er felle #6** — oppgaven ber om planen, ikke om\ntallet."
+    },
+    {
+      "id": "tdt4120-5-3-def-34",
+      "type": "definition",
+      "title": "Sjanger C — håndkjøring",
+      "content": "oppgavetypen der du utfører algoritmen steg for steg og oppgir sluttilstanden.\n\nFor flyt: flytverdien, og min-snittet når det er spurt om.\n\n**Naboenes rekkefølge er en del av oppgaven** når `BFS` brukes."
+    },
+    {
+      "id": "tdt4120-5-3-def-35",
+      "type": "definition",
+      "title": "Sjanger H — åpen algoritmedesign",
+      "content": "oppgavetypen der du skisserer en algoritme på fem til ti linjer.\n\nFem obligatoriske ledd: navngi problemet, navngi paradigmet, konstruksjonen,\n**rekonstruksjonen av selve løsningen**, og kjøretiden.\n\n**Mangler ett ledd, er svaret ufullstendig** — og det er oftest\nrekonstruksjonen som glipper."
+    },
+    {
+      "id": "tdt4120-5-3-coll-37",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tdt4120-5-3-ct-36",
+          "type": "text",
+          "content": "Fem korte spørsmål fra kapitlene dette bygger på. Svar i hodet først, så\nsammenlign.\n\n**1.** Hva er restkapasiteten framover og bakover på en kant?\n\n*Svar:* $c_f(u,v) = c(u,v) - f(u,v)$ og $c_f(v,u) = f(u,v)$. Se\n[kap. 5.1](/tdt4120/tdt4120-5-1).\n\n**2.** Hva er kjøretiden til `Edmonds-Karp`?\n\n*Svar:* $O(VE^2)$, og den avhenger ikke av kapasitetene. Se\n[kap. 5.2](/tdt4120/tdt4120-5-2).\n\n**3.** Hvordan leser du av min-snittet?\n\n*Svar:* én `BFS` fra $s$ i det siste restnettet; nodene som nås, utgjør $S$.\n\n**4.** Hva sier heltallsteoremet, og hvorfor trenger vi det?\n\n*Svar:* med heltallige kapasiteter finnes en heltallig maksimal flyt — og det\ner den som kan leses som en tildeling.\n\n**5.** Hva er kjøretiden til `BFS`?\n\n*Svar:* $\\Theta(V+E)$. Se [kap. 4.1](/tdt4120/tdt4120-4-1).\n\n**Videre:** [kap. 6.1](/tdt4120/tdt4120-6-1) tar den andre designryggraden —\ndynamisk programmering. Sammen dekker flyt og DP de aller fleste åpne\ndesignoppgavene."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
