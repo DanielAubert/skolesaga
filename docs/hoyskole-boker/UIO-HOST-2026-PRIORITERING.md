@@ -94,7 +94,7 @@ er noe annet enn en kalibrert mot tretti.
 | **SGO2500** | 26 | 37 | ⚠ ingenting |
 | **SOS4010** Kvalitativ metode | 26 | 26 | skjelett |
 | **SGO2200** | 25 | 30 | ⚠ ingenting |
-| **SVEXFAC03** Examen facultatum, samfunnsvitenskap | 22 | 29 | 🔨 analyse under arbeid |
+| **SVEXFAC03** Examen facultatum, samfunnsvitenskap | 22 | 29 | ✅ analyse (28 dok, 21 av 22 terminer) |
 
 **ECON1220 har dypest arkiv av alle høstemnene** — 40 terminer — og skjelettet
 finnes. Den er det opplagte valget utenfor jusløpet.
@@ -133,7 +133,7 @@ undervisningsår**. Åpen produkteierbeslutning.
 | **SVMET1010** | kontrakt ✅, skjelett konvertert til v3 ✅, 39 kapittelfiler bygges |
 | **JFEXFAC04** | analyse ✅, skjelett ✅ (34 kap, 712 quiz / 675 fc), kontrakt under arbeid |
 | **JUROFF1500** | eksamensanalyse under arbeid |
-| **SVEXFAC03** | eksamensanalyse under arbeid |
+| **SVEXFAC03** | analyse ✅ — 22 terminer, tre eksamensregimer, klimastoff i 13 av 35 oppgaver. Skjelett neste |
 
 Neste ut når disse lander: **JUS1211** (tier 1, samme kull som alt leser
 JUS1111 og EXPHIL03 hos oss), **ECON1220** (40 terminer, dypest av alle

@@ -124,6 +124,24 @@ veiledning». Det tallet må telles i mappa.
 (19 md5-duplikater + V2017-oppgavesettet). Indeksen er et utgangspunkt for
 søk, ikke en fasit over hva arkivet inneholder.
 
+## ⚠ «Ingen oppgavefil» kan bety «oppgaven ligger inne i veiledningen»
+
+Funnet i SVEXFAC03, 3. august 2026. Indeksen oppgir **`oppgavefiler=0` for 16
+av 22 terminer** — men fra H2019 publiserer UiO ikke oppgavesettet som egen
+fil. Sensorveiledningen gjengir oppgaveteksten i sin helhet, og heter
+«Sensorveiledning og langsvarsoppgaver».
+
+Oppgaveteksten mangler altså for **én** termin, ikke seksten.
+
+**Regelen:** før du skriver at et emne mangler oppgavetekster, ÅPNE
+veiledningene. Et emne kan se halvtomt ut i indeksen og være nesten komplett
+på disk.
+
+⚠ Motsatt felle i samme emne: **ikke ett eneste flervalgsspørsmål er bevart**,
+selv om flervalgsdelen i dag er 25 % av karakteren og må bestås separat. Der
+er hullet ekte, og en bok må si at quiz-banken er nykonstruksjon — ikke
+rekonstruksjon av noe som har vært gitt.
+
 ## Tre regler som gjelder alt arbeid med arkivet
 
 **Termin, ikke fil.** TMA4110 har over 200 filer og 34 terminer. Enhver
