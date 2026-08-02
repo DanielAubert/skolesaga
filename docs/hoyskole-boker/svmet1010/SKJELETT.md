@@ -77,11 +77,12 @@ får IKKE egne kapitler (utfaset etter 2015 — analysen §2 «Trendbrudd»).
 
 ### Del 0 — Eksamenskart og drøftingshåndverk
 
-**Kap. 0.1 — Slik testes SVMET1010**
-`id: svmet1010-0-1` · number 0.1 · estimatedMinutes 40 · prerequisites: ingen ·
-type: eksamenskart.
-*Description:* Eksamensformens historikk og dagens format, temafrekvens, de åtte
-oppgavesjangrene, og hvordan boka skal brukes mot eksamen.
+#### Kapittel 0.1: Slik testes SVMET1010
+**id:** `svmet1010-0-1` · **number:** 0.1 · **estimatedMinutes:** 40 · **prerequisites:** ingen
+
+- **Kapitteltype:** eksamenskart.
+- **Description:** Eksamensformens historikk og dagens format, temafrekvens, de åtte oppgavesjangrene, og hvordan boka skal brukes mot eksamen.
+
 **Belegg:** Metakapittel — bygger på hele arkivet. Skal formidle: (a) gjeldende form
 fra H2024: 4 t digital skoleeksamen, langsvar + kortsvar/flervalg, begge deler må
 bestås; H2025-varianten: 2 kortsvar (40 %, ~1,5 t) + langsvar design (60 %, ~2,5 t);
@@ -103,11 +104,12 @@ hvorfor- OG hvordan-dimensjon); #10 svare på flere valgfrie oppgaver enn påkre
 gir null uttelling, sensor teller bare den beste.
 **Kvote:** 10 quiz / 10 flashcards (eksamensform-fakta, sjangergjenkjenning).
 
-**Kap. 0.2 — Drøftingshåndverket: fra deskripsjon til begrunnelse**
-`id: svmet1010-0-2` · number 0.2 · estimatedMinutes 60 · prerequisites: svmet1010-0-1 ·
-type: essayhåndverk.
-*Description:* Hvordan en drøftingsbesvarelse bygges, og hva som faktisk skiller
-A, C og E ifølge sensorveiledningene 2016–2025.
+#### Kapittel 0.2: Drøftingshåndverket: fra deskripsjon til begrunnelse
+**id:** `svmet1010-0-2` · **number:** 0.2 · **estimatedMinutes:** 60 · **prerequisites:** `svmet1010-0-1`
+
+- **Kapitteltype:** essayhåndverk.
+- **Description:** Hvordan en drøftingsbesvarelse bygges, og hva som faktisk skiller A, C og E ifølge sensorveiledningene 2016–2025.
+
 **Belegg:** Destillat av sensorkravene (analysen §4) — konsistente 2016–2025.
 Prioritet: perfekt. Skal operasjonalisere: A/B = begrunner alle valg (eksplisitt
 vippekriterium mellom karakterer), argumenterer for en klar påstand, alle
@@ -138,11 +140,12 @@ besvarelser (svært god på én del, svak på resten → C, ikke B).
 
 ### Del 1 — Kvalitativ grunnlogikk
 
-**Kap. 1.1 — Hva kvalitative metoder er (og ikke er)**
-`id: svmet1010-1-1` · number 1.1 · estimatedMinutes 60 · prerequisites: svmet1010-0-2 ·
-type: tema.
-*Description:* Kjennetegn ved kvalitative metoder, fordeler/ulemper, og det absolutte
-skillet mot kvantitativ logikk.
+#### Kapittel 1.1: Hva kvalitative metoder er (og ikke er)
+**id:** `svmet1010-1-1` · **number:** 1.1 · **estimatedMinutes:** 60 · **prerequisites:** `svmet1010-0-2`
+
+- **Kapitteltype:** tema.
+- **Description:** Kjennetegn ved kvalitative metoder, fordeler/ulemper, og det absolutte skillet mot kvantitativ logikk.
+
 **Belegg:** Eget kortsvar H2025 («kjennetegn + fordeler/ulemper»); kval vs. kvant som
 tema i 2007Hu, 2011V, 2014V, 2014H, 2015V, 2025H (6 forekomster) + premiss for ALT
 annet. Sjangre: T1, T6, T7; implisitt i T2. Prioritet: **perfekt** (§7 pkt. 3 —
@@ -167,12 +170,12 @@ mot kap. 1.2).
 **Kvote:** 30 quiz / 30 flashcards (kjennetegn, kontrastpar, «hvilken logikk hører
 utsagnet til»-flervalg).
 
-**Kap. 1.2 — Overførbarhet, validitet, reliabilitet og refleksivitet**
-`id: svmet1010-1-2` · number 1.2 · estimatedMinutes 60 · prerequisites: svmet1010-1-1 ·
-type: tema.
-*Description:* Kvalitetskriteriene i kvalitativ forskning: hvorfor «generalisering»
-byttes ut med overførbarhet, hva validitet betyr uten tall, og hvorfor transparens
-er et sensorkrav.
+#### Kapittel 1.2: Overførbarhet, validitet, reliabilitet og refleksivitet
+**id:** `svmet1010-1-2` · **number:** 1.2 · **estimatedMinutes:** 60 · **prerequisites:** `svmet1010-1-1`
+
+- **Kapitteltype:** tema.
+- **Description:** Kvalitetskriteriene i kvalitativ forskning: hvorfor «generalisering» byttes ut med overførbarhet, hva validitet betyr uten tall, og hvorfor transparens er et sensorkrav.
+
 **Belegg:** 10 forekomster (2005V ×2, 2006V, 2006H, 2007V, 2009V, 2016V, 2016H,
 2017V, 2017H); overførbarhet er blant de hyppigste kortsvarsbegrepene. Sjangre: T1,
 T7 + obligatorisk refleksjonskomponent i T2/T8. Prioritet: kunne (høy
@@ -199,11 +202,12 @@ kvalitetskriterie-språk: «funnene er representative for norske matbud» er str
 
 ### Del 2 — Forskningsdesign
 
-**Kap. 2.1 — Problemstilling og forskningsspørsmål**
-`id: svmet1010-2-1` · number 2.1 · estimatedMinutes 45 · prerequisites: svmet1010-1-1 ·
-type: tema.
-*Description:* Å formulere et forskbart kvalitativt spørsmål — og å splitte case i
-«hvorfor»- og «hvordan»-dimensjoner som styrer metodevalget.
+#### Kapittel 2.1: Problemstilling og forskningsspørsmål
+**id:** `svmet1010-2-1` · **number:** 2.1 · **estimatedMinutes:** 45 · **prerequisites:** `svmet1010-1-1`
+
+- **Kapitteltype:** tema.
+- **Description:** Å formulere et forskbart kvalitativt spørsmål — og å splitte case i «hvorfor»- og «hvordan»-dimensjoner som styrer metodevalget.
+
 **Belegg:** Eget tema 2010V, 2011V, 2014H + komponent i ALLE designoppgaver (24);
 «uklar/uforskbar problemstilling» er det hyppigst nevnte D/E-kjennetegnet. Sjangre:
 T1, T2, T7, T8. Prioritet: perfekt (som designkomponent).
@@ -225,11 +229,12 @@ i sosiale ritualer i skolegården (praksis)?»).
 har to dimensjoner).
 **Kvote:** 15 quiz / 15 flashcards.
 
-**Kap. 2.2 — Utvalg, rekruttering og portvakter**
-`id: svmet1010-2-2` · number 2.2 · estimatedMinutes 60 · prerequisites: svmet1010-2-1 ·
-type: tema.
-*Description:* Utvalgstyper i kvalitativ forskning, rekrutteringsveier og portvaktens
-rolle — og hvorfor utvalget aldri skal begrunnes statistisk.
+#### Kapittel 2.2: Utvalg, rekruttering og portvakter
+**id:** `svmet1010-2-2` · **number:** 2.2 · **estimatedMinutes:** 60 · **prerequisites:** `svmet1010-2-1`
+
+- **Kapitteltype:** tema.
+- **Description:** Utvalgstyper i kvalitativ forskning, rekrutteringsveier og portvaktens rolle — og hvorfor utvalget aldri skal begrunnes statistisk.
+
 **Belegg:** Utvalg som kortsvar/tema: 2004V, 2016V, 2017V; portvakt: 2005H, 2009V,
 2013H; + utvalgskomponent i alle designoppgaver (6+ eksplisitte forekomster).
 Sjangre: T1, T2, T7, T8. Prioritet: kunne (§7 pkt. 7).
@@ -255,11 +260,12 @@ være representativt» som selvkritikk — feil ramme, riktig ramme er overførb
 **Kvote:** 25 quiz / 30 flashcards (typologiene er flashcard-gull:
 utvalgstype↔definisjon↔forfatter).
 
-**Kap. 2.3 — Det komplette forskningsopplegget: sju komponenter, én sammenheng**
-`id: svmet1010-2-3` · number 2.3 · estimatedMinutes 90 · prerequisites:
-svmet1010-2-1, svmet1010-2-2 · type: tema (bokas tyngdepunkt).
-*Description:* Å komponere og begrunne et helhetlig kvalitativt forskningsdesign —
-komponent for komponent, med sammenhengen som selve vurderingskriteriet.
+#### Kapittel 2.3: Det komplette forskningsopplegget: sju komponenter, én sammenheng
+**id:** `svmet1010-2-3` · **number:** 2.3 · **estimatedMinutes:** 90 · **prerequisites:** `svmet1010-2-1`, `svmet1010-2-2`
+
+- **Kapitteltype:** tema.
+- **Description:** Å komponere og begrunne et helhetlig kvalitativt forskningsdesign — komponent for komponent, med sammenhengen som selve vurderingskriteriet.
+
 **Belegg:** 24 forekomster (2005H, 2006V, 2006H, 2007H, 2008V, 2008H, 2009V, 2009H,
 2010V, 2010H, 2012H, 2013V, 2013H, 2014V, 2014H, 2016H, 2017V, 2017H, 2018–21
 emneoppgaver, 2024H, 2025H) — langsvarsalternativ i praktisk talt alle sett siden
@@ -295,11 +301,12 @@ irrelevante for problemstillingen.
 
 ### Del 3 — Deltagende observasjon og feltarbeid
 
-**Kap. 3.1 — Deltakerroller: Fangen-kontinuumet**
-`id: svmet1010-3-1` · number 3.1 · estimatedMinutes 75 · prerequisites: svmet1010-1-1 ·
-type: tema.
-*Description:* Rollekontinuumet fra ikke-deltakende observatør til «go native» —
-emnets mest drøftede enkeltmodell — anvendt på konkrete feltarbeid.
+#### Kapittel 3.1: Deltakerroller: Fangen-kontinuumet
+**id:** `svmet1010-3-1` · **number:** 3.1 · **estimatedMinutes:** 75 · **prerequisites:** `svmet1010-1-1`
+
+- **Kapitteltype:** tema.
+- **Description:** Rollekontinuumet fra ikke-deltakende observatør til «go native» — emnets mest drøftede enkeltmodell — anvendt på konkrete feltarbeid.
+
 **Belegg:** Observasjon/deltakerroller: 23 forekomster (2004V, 2005H, 2007V, 2007Hu,
 2008V, 2008H, 2010V, 2010H, 2011V, 2012H, 2013V, 2013H, 2014H, 2015H, 2016V,
 2016H ×2, 2017V ×2, 2017H, 2018V, 2018–21, 2024H); deltakerrolle-drøfting er den
@@ -324,11 +331,12 @@ uten dilemmaer); #16 upresis gjengivelse av kontinuumet (hopper over mellomtrinn
 eller glemmer at roller kan skiftes).
 **Kvote:** 30 quiz / 30 flashcards (rolletyper↔definisjon↔Fangen; fordel/ulempe-par).
 
-**Kap. 3.2 — Feltarbeid i praksis: adgang, roller og de faste eksempelstudiene**
-`id: svmet1010-3-2` · number 3.2 · estimatedMinutes 60 · prerequisites: svmet1010-3-1 ·
-type: tema.
-*Description:* Feltarbeidets forløp fra adgang til avslutning, og eksempellageret av
-pensumstudier en A-besvarelse øser av.
+#### Kapittel 3.2: Feltarbeid i praksis: adgang, roller og de faste eksempelstudiene
+**id:** `svmet1010-3-2` · **number:** 3.2 · **estimatedMinutes:** 60 · **prerequisites:** `svmet1010-3-1`
+
+- **Kapitteltype:** tema.
+- **Description:** Feltarbeidets forløp fra adgang til avslutning, og eksempellageret av pensumstudier en A-besvarelse øser av.
+
 **Belegg:** Samme 23-forekomst-basen som 3.1; Ugelvik-utdrag brukt som vedlegg i
 minst tre sett (2016V, 2017V-settet, V2018-settet — gjenbruk på tvers av år er
 normen). Sjangre: T4, T2 (feltdelen), T1 (work-along, multilokalt feltarbeid).
@@ -353,10 +361,12 @@ omstendighetene (varighet, relasjoner, egen rolle).
 **Kvote:** 20 quiz / 25 flashcards (studie↔forsker↔metodepoeng-koblinger —
 eksempellageret er flashcard-kjerne).
 
-**Kap. 3.3 — Feltnotater**
-`id: svmet1010-3-3` · number 3.3 · estimatedMinutes 40 · prerequisites: svmet1010-3-2 ·
-type: tema.
-*Description:* Hva feltnotater er, typene, hensikten — og feltnotater som empiri.
+#### Kapittel 3.3: Feltnotater
+**id:** `svmet1010-3-3` · **number:** 3.3 · **estimatedMinutes:** 40 · **prerequisites:** `svmet1010-3-2`
+
+- **Kapitteltype:** tema.
+- **Description:** Hva feltnotater er, typene, hensikten — og feltnotater som empiri.
+
 **Belegg:** 7 forekomster (2010H, 2015V implisitt, 2015H, 2016H, 2017V, 2017H,
 2018V) — hyppig kortsvarsbegrep. Sjangre: T1, T7, T2 (dokumentasjonskomponent).
 Prioritet: kunne (§7 pkt. 11).
@@ -376,11 +386,12 @@ hovedskille og hensikt — skjema uten forståelse).
 
 ### Del 4 — Intervju og fokusgrupper
 
-**Kap. 4.1 — Dybdeintervjuet: guide, spørsmål og markører**
-`id: svmet1010-4-1` · number 4.1 · estimatedMinutes 75 · prerequisites: svmet1010-1-1 ·
-type: tema.
-*Description:* Intervjuhåndverket etter Weiss: guidetyper, pilotering,
-spørsmålstyper, prober og markører.
+#### Kapittel 4.1: Dybdeintervjuet: guide, spørsmål og markører
+**id:** `svmet1010-4-1` · **number:** 4.1 · **estimatedMinutes:** 75 · **prerequisites:** `svmet1010-1-1`
+
+- **Kapitteltype:** tema.
+- **Description:** Intervjuhåndverket etter Weiss: guidetyper, pilotering, spørsmålstyper, prober og markører.
+
 **Belegg:** Intervju: 17 forekomster (2004V, 2006V probe, 2007H, 2008H, 2009H,
 2013V ×2, 2015V, 2016H, 2017V, 2017H ×2, 2018V, 2018–21, 2024H, 2025H); markør og
 intervjuguide er faste kortsvarsbegreper. Sjangre: T1, T2, T6, T7, T8. Prioritet:
@@ -408,11 +419,12 @@ er et strukturert spørreskjema (sensor brukte vedlagte guider til å avsløre d
 opptelling der tolkning var poenget.
 **Kvote:** 30 quiz / 30 flashcards (begrep↔Weiss; guidetyper; spørsmålstype-par).
 
-**Kap. 4.2 — Intervjuets relasjoner: asymmetri, bekjente og sårbare informanter**
-`id: svmet1010-4-2` · number 4.2 · estimatedMinutes 45 · prerequisites: svmet1010-4-1 ·
-type: tema.
-*Description:* Maktforholdet i intervjusituasjonen og de metodiske dilemmaene ved
-nærhet til informantene.
+#### Kapittel 4.2: Intervjuets relasjoner: asymmetri, bekjente og sårbare informanter
+**id:** `svmet1010-4-2` · **number:** 4.2 · **estimatedMinutes:** 45 · **prerequisites:** `svmet1010-4-1`
+
+- **Kapitteltype:** tema.
+- **Description:** Maktforholdet i intervjusituasjonen og de metodiske dilemmaene ved nærhet til informantene.
+
 **Belegg:** Asymmetri forsker–informant er kortsvarsbegrep; «å intervjue bekjente»
 er eksplisitt vurderingspunkt i emneoppgave-veiledningene (2016–2021). Sjangre: T1,
 T8, T2 (refleksjonskomponent). Prioritet: kunne.
@@ -431,11 +443,12 @@ drøftet dem.
 **Typiske feil:** #14 å intervjue bekjente uten å drøfte det.
 **Kvote:** 15 quiz / 15 flashcards.
 
-**Kap. 4.3 — Fokusgrupper**
-`id: svmet1010-4-3` · number 4.3 · estimatedMinutes 45 · prerequisites: svmet1010-4-1 ·
-type: tema.
-*Description:* Gruppesamtalen som datakilde: moderator, sammensetning og hva
-interaksjonen i seg selv forteller.
+#### Kapittel 4.3: Fokusgrupper
+**id:** `svmet1010-4-3` · **number:** 4.3 · **estimatedMinutes:** 45 · **prerequisites:** `svmet1010-4-1`
+
+- **Kapitteltype:** tema.
+- **Description:** Gruppesamtalen som datakilde: moderator, sammensetning og hva interaksjonen i seg selv forteller.
+
 **Belegg:** 4 forekomster (2015V, 2017V, 2024H, 2025H) — lav historisk frekvens, men
 FASET INN: med i metodesammenligningen H2024 og relevant metodevalg H2025. Sjangre:
 T1, T6, T7, T2 (metodevalg). Prioritet: kunne (stigende — §7 pkt. 10).
@@ -459,11 +472,12 @@ interaksjonspoenget — treffer ikke Wibecks bruk); vag konfidensialitetshåndte
 
 ### Del 5 — Webetnografi og digitale data
 
-**Kap. 5.1 — Webetnografi: feltarbeid på nett**
-`id: svmet1010-5-1` · number 5.1 · estimatedMinutes 50 · prerequisites: svmet1010-3-1 ·
-type: tema.
-*Description:* Etnografisk logikk overført til digitale rom: adgang, datatyper og
-det digitale personvernets gråsoner.
+#### Kapittel 5.1: Webetnografi: feltarbeid på nett
+**id:** `svmet1010-5-1` · **number:** 5.1 · **estimatedMinutes:** 50 · **prerequisites:** `svmet1010-3-1`
+
+- **Kapitteltype:** tema.
+- **Description:** Etnografisk logikk overført til digitale rom: adgang, datatyper og det digitale personvernets gråsoner.
+
 **Belegg:** 5 forekomster, ALLE nyere (2017V/H17-settet, 2018V, 2024H ×2, 2025H
 alt. B) — sterkt stigende, sentralt i begge de to siste settene (§7 pkt. 9).
 Sjangre: T1, T6, T7, T2 («hvordan»-dimensjonen i digitale case). Prioritet: kunne
@@ -489,11 +503,12 @@ etikk-dilemmaene (mindreårige, sporbarhet, skjermdumper).
 
 ### Del 6 — Forskningsetikk
 
-**Kap. 6.1 — Etikkens rammeverk: NESH, samtykke og konfidensialitet**
-`id: svmet1010-6-1` · number 6.1 · estimatedMinutes 60 · prerequisites: svmet1010-1-1 ·
-type: tema.
-*Description:* Forskningsetikkens grunnkrav og institusjoner — presist nok til
-kortsvar, operasjonelt nok til designoppgaven.
+#### Kapittel 6.1: Etikkens rammeverk: NESH, samtykke og konfidensialitet
+**id:** `svmet1010-6-1` · **number:** 6.1 · **estimatedMinutes:** 60 · **prerequisites:** `svmet1010-1-1`
+
+- **Kapitteltype:** tema.
+- **Description:** Forskningsetikkens grunnkrav og institusjoner — presist nok til kortsvar, operasjonelt nok til designoppgaven.
+
 **Belegg:** Etikk: 20+ forekomster (2005V, 2005H, 2006V, 2009V ×2, 2009H, 2010V,
 2011V, 2013H, 2014V, 2015V, 2015H, 2016V, 2017H, 2018V, 2018–21, 2025H) + obligatorisk
 komponent i ALLE designoppgaver; eget kortsvar H2025. Sjangre: T1, T5, T7, T2.
@@ -520,11 +535,12 @@ etikk som rituell seksjon i stedet for gjennomgående hensyn.
 flervalgsbanken skal drille presise skiller: samtykke vs. konfidensialitet vs.
 meldeplikt).
 
-**Kap. 6.2 — Etikk i praksis: metode- og case-spesifikke dilemmaer**
-`id: svmet1010-6-2` · number 6.2 · estimatedMinutes 60 · prerequisites:
-svmet1010-6-1, svmet1010-3-1 · type: tema.
-*Description:* De etiske dilemmaene som følger METODEN og CASET — det som skiller
-A-etikk fra rituell etikk.
+#### Kapittel 6.2: Etikk i praksis: metode- og case-spesifikke dilemmaer
+**id:** `svmet1010-6-2` · **number:** 6.2 · **estimatedMinutes:** 60 · **prerequisites:** `svmet1010-6-1`, `svmet1010-3-1`
+
+- **Kapitteltype:** tema.
+- **Description:** De etiske dilemmaene som følger METODEN og CASET — det som skiller A-etikk fra rituell etikk.
+
 **Belegg:** Vedleggsbaserte etikkoppgaver: 2016V (Skilbrei m.fl. om anonymisering
 av gateprostituerte), 2017H-settet (intervjustudie av voldsutsatte kvinner);
 case-tilpasset etikk er eksplisitt sensorsjekk i H2024/H2025-designoppgavene.
@@ -554,11 +570,12 @@ prosjektløpet.
 
 ### Del 7 — Analyse av kvalitative data
 
-**Kap. 7.1 — Fasemodellen: fra koding til begrepsutvikling**
-`id: svmet1010-7-1` · number 7.1 · estimatedMinutes 75 · prerequisites:
-svmet1010-4-1 · type: tema.
-*Description:* Den faste analysemodellen fra pensum/forelesning — og evnen til å
-forklare HENSIKTEN med hvert grep, som er det som skiller A fra B/C.
+#### Kapittel 7.1: Fasemodellen: fra koding til begrepsutvikling
+**id:** `svmet1010-7-1` · **number:** 7.1 · **estimatedMinutes:** 75 · **prerequisites:** `svmet1010-4-1`
+
+- **Kapitteltype:** tema.
+- **Description:** Den faste analysemodellen fra pensum/forelesning — og evnen til å forklare HENSIKTEN med hvert grep, som er det som skiller A fra B/C.
+
 **Belegg:** Analyse: 18 forekomster (2007V, 2007Hu, 2008V ×3, 2009H, 2010V, 2010H,
 2011V, 2012H ×2, 2015H, 2016H ×2, 2017V, 2017H, 2018V, 2018–21); vedleggsanalyse
 var dominerende langsvarssjanger 2015–2018. Sjangre: T3, T1, T2
@@ -586,11 +603,12 @@ empiri–teori; #12 manglende samsvar beskrevet analysemetode ↔ faktisk analys
 **Kvote:** 30 quiz / 25 flashcards (fasene i rekkefølge, hensikten per fase,
 begrep↔Weiss/Corbin & Strauss).
 
-**Kap. 7.2 — Analysetradisjoner og fortolkningsnivåer**
-`id: svmet1010-7-2` · number 7.2 · estimatedMinutes 50 · prerequisites:
-svmet1010-7-1 · type: tema.
-*Description:* Landskapet av analysetilnærminger — tematisk analyse, grounded
-theory, fortellings- og beretningsanalyse — og Fangens fortolkningsgrader.
+#### Kapittel 7.2: Analysetradisjoner og fortolkningsnivåer
+**id:** `svmet1010-7-2` · **number:** 7.2 · **estimatedMinutes:** 50 · **prerequisites:** `svmet1010-7-1`
+
+- **Kapitteltype:** tema.
+- **Description:** Landskapet av analysetilnærminger — tematisk analyse, grounded theory, fortellings- og beretningsanalyse — og Fangens fortolkningsgrader.
+
 **Belegg:** Fortolkningsgrader: 2007V, 2016H; beretnings-/fortellingsanalyse:
 kortsvarsbegreper i eldre sett; tematisk analyse/grounded theory/fenomenologisk-
 etnografisk analyse nevnes eksplisitt i NYERE veiledninger (H2024/H2025) som
@@ -613,11 +631,12 @@ følger den — pynteteori gir null); #16 (blande fortellings- og beretningsanal
 
 ### Del 8 — Randsonen: dokumenter, vitenskapsteori og restbegreper
 
-**Kap. 8.1 — Dokumentanalyse og foreliggende kilder**
-`id: svmet1010-8-1` · number 8.1 · estimatedMinutes 40 · prerequisites:
-svmet1010-1-1 · type: tema.
-*Description:* Kjeldstadlis kildebegreper og bruk av foreliggende materiale —
-kompakt «bør kjenne til»-dekning.
+#### Kapittel 8.1: Dokumentanalyse og foreliggende kilder
+**id:** `svmet1010-8-1` · **number:** 8.1 · **estimatedMinutes:** 40 · **prerequisites:** `svmet1010-1-1`
+
+- **Kapitteltype:** tema.
+- **Description:** Kjeldstadlis kildebegreper og bruk av foreliggende materiale — kompakt «bør kjenne til»-dekning.
+
 **Belegg:** 6 forekomster (2009H, 2011V, 2013V tekstanalyse, 2014V, 2015V, 2016V),
 hyppig 2009–2016, borte siden. Sjangre: T1, T7. Prioritet: **kjenne** (mulig
 comeback som kortsvar; levning/work-along var kortsvar så sent som 2016V).
@@ -637,11 +656,12 @@ bekymringer).
 kortsvaret krever det funksjonelle skillet, ikke synonymer).
 **Kvote:** 15 quiz / 20 flashcards.
 
-**Kap. 8.2 — Vitenskapsteori, diskursanalyse og kortsvarsberedskap**
-`id: svmet1010-8-2` · number 8.2 · estimatedMinutes 45 · prerequisites:
-svmet1010-1-1 · type: tema.
-*Description:* Utfaset, men gjenoppstandelses-kapabelt stoff i kortformat, pluss
-oppsamlingsheat for kortsvars-/flervalgsbegreper som ikke hører hjemme andre steder.
+#### Kapittel 8.2: Vitenskapsteori, diskursanalyse og kortsvarsberedskap
+**id:** `svmet1010-8-2` · **number:** 8.2 · **estimatedMinutes:** 45 · **prerequisites:** `svmet1010-1-1`
+
+- **Kapitteltype:** tema.
+- **Description:** Utfaset, men gjenoppstandelses-kapabelt stoff i kortformat, pluss oppsamlingsheat for kortsvars-/flervalgsbegreper som ikke hører hjemme andre steder.
+
 **Belegg:** Vitenskapsteori: 13 forekomster FØR 2016, null etter (2006H, 2007Hu ×2,
 2008V, 2008H, 2009H, 2010H ×2, 2011V, 2012H, 2014V, 2014H, 2015V). Diskursanalyse:
 9 forekomster (2006H–2015H), utfaset — men veiledningene sier at vellykket
@@ -670,11 +690,12 @@ kortsvarsbegreper er dekket et sted i boka).
 
 ### Del 9 — Eksamenstrening
 
-**Kap. 9.1 — Sjanger: kortsvar og flervalg**
-`id: svmet1010-9-1` · number 9.1 · estimatedMinutes 45 · prerequisites: Del 1–8 ·
-type: sjanger (T1 + T7).
-*Description:* Presisjonssjangrene: firetrinns kortsvarsoppskrift og
-flervalgstaktikk.
+#### Kapittel 9.1: Sjanger: kortsvar og flervalg
+**id:** `svmet1010-9-1` · **number:** 9.1 · **estimatedMinutes:** 45 · **prerequisites:** `svmet1010-8-2`
+
+- **Kapitteltype:** sjanger.
+- **Description:** Presisjonssjangrene: firetrinns kortsvarsoppskrift og flervalgstaktikk.
+
 **Belegg:** Kortsvar i så godt som alle sett 2004–2025 (1/3–40 % av karakteren);
 flervalg H2024 (10 spørsmål, 40 %, hemmeligholdes for gjenbruk → banktrening er
 eneste forberedelse). Prioritet: perfekt.
@@ -691,11 +712,12 @@ flervalgssett med fasitkommentarer.
 bruk; #10 (svare på alle fire når tre kreves).
 **Kvote:** 25 quiz / 15 flashcards.
 
-**Kap. 9.2 — Sjanger: «design en studie av X»**
-`id: svmet1010-9-2` · number 9.2 · estimatedMinutes 60 · prerequisites:
-svmet1010-2-3 · type: sjanger (T2, inkl. T8-arven).
-*Description:* Langsvarssjangeren som avgjør karakteren: disponering, tidsbudsjett
-og begrunnelsesdisiplin.
+#### Kapittel 9.2: Sjanger: «design en studie av X»
+**id:** `svmet1010-9-2` · **number:** 9.2 · **estimatedMinutes:** 60 · **prerequisites:** `svmet1010-2-3`
+
+- **Kapitteltype:** sjanger.
+- **Description:** Langsvarssjangeren som avgjør karakteren: disponering, tidsbudsjett og begrunnelsesdisiplin.
+
 **Belegg:** 24 forekomster; langsvaret i begge de to nyeste settene. H2024-
 veiledningen sier eksplisitt at designoppgaven skal løses «slik som i emneoppgaven
 og på seminar» — emneoppgavens kravliste (T8) er derfor bakt inn her som mal.
@@ -713,10 +735,12 @@ etikk-asymmetrien og hvorfor/hvordan-splitten.
 metodedel kompenserer ikke fraværende analyse/funn — det gir C).
 **Kvote:** 15 quiz / 10 flashcards.
 
-**Kap. 9.3 — Sjanger: vedleggsanalyse av intervjudata**
-`id: svmet1010-9-3` · number 9.3 · estimatedMinutes 50 · prerequisites:
-svmet1010-7-1 · type: sjanger (T3).
-*Description:* Å analysere utlevert materiale: fra fasemodell til belagte påstander.
+#### Kapittel 9.3: Sjanger: vedleggsanalyse av intervjudata
+**id:** `svmet1010-9-3` · **number:** 9.3 · **estimatedMinutes:** 50 · **prerequisites:** `svmet1010-7-1`
+
+- **Kapitteltype:** sjanger.
+- **Description:** Å analysere utlevert materiale: fra fasemodell til belagte påstander.
+
 **Belegg:** 2015H (russesitater), 2016H (sexkunde-intervju), 2018V-settet
 (russesitater gjenbrukt) — dominerende 2015–2018, fraværende H2024/H2025, men
 analysen anbefaler den som beste treningsform og mulig comeback. Prioritet: kunne.
@@ -732,11 +756,12 @@ påstand som skal prøves, én uten.
 men ikke brukt.
 **Kvote:** 10 quiz / 8 flashcards.
 
-**Kap. 9.4 — Sjanger: vedleggsdrøfting av deltakerroller i feltarbeid**
-`id: svmet1010-9-4` · number 9.4 · estimatedMinutes 50 · prerequisites:
-svmet1010-3-1, svmet1010-3-2 · type: sjanger (T4).
-*Description:* Tre-leddsoppgaven: begrep → plassering med belegg → drøfting begge
-veier + kontrafaktisk.
+#### Kapittel 9.4: Sjanger: vedleggsdrøfting av deltakerroller i feltarbeid
+**id:** `svmet1010-9-4` · **number:** 9.4 · **estimatedMinutes:** 50 · **prerequisites:** `svmet1010-3-1`, `svmet1010-3-2`
+
+- **Kapitteltype:** sjanger.
+- **Description:** Tre-leddsoppgaven: begrep → plassering med belegg → drøfting begge veier + kontrafaktisk.
+
 **Belegg:** 2015H (Øygarden), 2016V (Ugelvik), 2017V/H-settene (Ugelvik, Broch),
 2018V-settet (Ugelvik) — den hyppigste vedleggssjangeren. Prioritet: perfekt.
 **Innhold:** Oppskrift: (1) HELE Fangen-kontinuumet før drøfting av den ene rollen
@@ -751,11 +776,12 @@ deltakende i syklubb; skiftende rolle i vekterjobb).
 tekstbelegg).
 **Kvote:** 10 quiz / 8 flashcards.
 
-**Kap. 9.5 — Sjanger: sammenlign metoder + frittstående etikkoppgave**
-`id: svmet1010-9-5` · number 9.5 · estimatedMinutes 45 · prerequisites: Del 3–6 ·
-type: sjanger (T6 + T5).
-*Description:* De to redegjør-og-drøft-sjangrene i kortsvars-/langsvarsformat:
-metodesammenligning (H2024 del 1) og etikk-redegjørelse (H2025 kortsvar 2).
+#### Kapittel 9.5: Sjanger: sammenlign metoder + frittstående etikkoppgave
+**id:** `svmet1010-9-5` · **number:** 9.5 · **estimatedMinutes:** 45 · **prerequisites:** `svmet1010-6-2`
+
+- **Kapitteltype:** sjanger.
+- **Description:** De to redegjør-og-drøft-sjangrene i kortsvars-/langsvarsformat: metodesammenligning (H2024 del 1) og etikk-redegjørelse (H2025 kortsvar 2).
+
 **Belegg:** T6: 2011V, 2013V, 2024H del 1, 2025H kortsvar 1. T5 frittstående:
 2009V, 2025H kortsvar 2 (+ vedleggsvariantene dekket i 6.2/9.3). Begge sjangre står
 i de to NYESTE settene → obligatorisk trening mot gjeldende form. Prioritet:
@@ -773,11 +799,12 @@ observasjon, fokusgrupper, webetnografi, biografiske intervjuer — H2024-utvalg
 #15 (én metode grundig, resten stemoderlig).
 **Kvote:** 12 quiz / 10 flashcards.
 
-**Kap. 9.6 — Feilvaksinen: de 16 feilene som senker karakteren**
-`id: svmet1010-9-6` · number 9.6 · estimatedMinutes 60 · prerequisites: Del 0–8 ·
-type: sjanger (tverrgående drillkapittel — utvidelse av DNA-malen, anbefalt
-eksplisitt i analysen §7 «Anbefalt bokdesign»).
-*Description:* Alle 16 sensordokumenterte feil drillet med før/etter-omskrivinger.
+#### Kapittel 9.6: Feilvaksinen: de 16 feilene som senker karakteren
+**id:** `svmet1010-9-6` · **number:** 9.6 · **estimatedMinutes:** 60 · **prerequisites:** `svmet1010-8-2`
+
+- **Kapitteltype:** sjanger.
+- **Description:** Alle 16 sensordokumenterte feil drillet med før/etter-omskrivinger.
+
 **Belegg:** Analysen §5 komplett; feil #1 (kvantitativ logikk) er den mest
 fremhevede strykfeilen, #3/#5 definerer C/E-nivå, #11 er hyppigste D/E-kjennetegn.
 Prioritet: perfekt (feilunngåelse er karakterforsikring).
@@ -791,9 +818,12 @@ gjenkjenning («hvilken feil begår denne kandidaten?»-oppgaver — utmerket
 flervalgsformat).
 **Kvote:** 20 quiz / 10 flashcards (feil↔riktig-omskrivning-par).
 
-**Kap. 9.7 — Modellbesvarelse: komplett forskningsopplegg**
-`id: svmet1010-9-7` · number 9.7 · estimatedMinutes 50 · prerequisites:
-svmet1010-9-2 · type: modellbesvarelse.
+#### Kapittel 9.7: Modellbesvarelse: komplett forskningsopplegg
+**id:** `svmet1010-9-7` · **number:** 9.7 · **estimatedMinutes:** 50 · **prerequisites:** `svmet1010-9-2`
+
+- **Kapitteltype:** modellbesvarelse.
+- **Description:** Modellbesvarelse på langsvarssjangeren som avgjør karakteren: et komplett forskningsopplegg designet fra problemstilling til etikk, med begrunnelse for hvert valg — ikke bare beskrivelse av det.
+
 **Oppgavesjanger:** T2 «design en studie» (gjeldende langsvarsform H2025).
 **Tema/oppgave (nyskrevet):** Design et komplett kvalitativt forskningsopplegg om
 hvorfor ungdommer i en drabantby begynner å selge vapes og snus til jevnaldrende
@@ -810,9 +840,12 @@ komponentene og vippekriteriet «begrunner vs. konstaterer».
 **Typiske feil demonstrert i C-versjonen:** #3, #6, #8.
 **Kvote:** 6 quiz / 5 flashcards.
 
-**Kap. 9.8 — Modellbesvarelse: vedleggsanalyse med påstand**
-`id: svmet1010-9-8` · number 9.8 · estimatedMinutes 45 · prerequisites:
-svmet1010-9-3 · type: modellbesvarelse.
+#### Kapittel 9.8: Modellbesvarelse: vedleggsanalyse med påstand
+**id:** `svmet1010-9-8` · **number:** 9.8 · **estimatedMinutes:** 45 · **prerequisites:** `svmet1010-9-3`
+
+- **Kapitteltype:** modellbesvarelse.
+- **Description:** Modellbesvarelse på vedleggsanalysen: seks intervjusitater analysert mot en gitt påstand, der hvert ledd i konklusjonen belegges i materialet.
+
 **Oppgavesjanger:** T3 vedleggsanalyse av intervjusitater, med gitt påstand.
 **Tema/oppgave (nyskrevet):** Seks nyskrevne intervjusitater fra unge kvinner om
 kropp og trening på sosiale medier; gitt påstand: informantene tar avstand fra
@@ -827,9 +860,12 @@ er gjenfortelling; begrepet nevnes uten å brukes). Sensorblikket-momentliste.
 **Typiske feil demonstrert:** #5, #6.
 **Kvote:** 6 quiz / 5 flashcards.
 
-**Kap. 9.9 — Modellbesvarelse: deltakerrolle-drøfting**
-`id: svmet1010-9-9` · number 9.9 · estimatedMinutes 45 · prerequisites:
-svmet1010-9-4 · type: modellbesvarelse.
+#### Kapittel 9.9: Modellbesvarelse: deltakerrolle-drøfting
+**id:** `svmet1010-9-9` · **number:** 9.9 · **estimatedMinutes:** 45 · **prerequisites:** `svmet1010-9-4`
+
+- **Kapitteltype:** modellbesvarelse.
+- **Description:** Modellbesvarelse på deltakerrolle-drøftingen: begrep, plassering på Fangen-kontinuumet med belegg i feltutdraget, og drøfting av begge sider.
+
 **Oppgavesjanger:** T4 vedleggsdrøfting av feltarbeidsutdrag.
 **Tema/oppgave (nyskrevet):** Utdrag fra en (nyskrevet) feltstudie der forskeren
 jobber som ringevikar på et sykehjem for å studere uformell omsorgsprioritering —
@@ -842,9 +878,12 @@ fordeler-remse; kontinuumet ufullstendig; ingen kontrafaktikk). Sensorblikket.
 **Typiske feil demonstrert:** #4, #16.
 **Kvote:** 6 quiz / 5 flashcards.
 
-**Kap. 9.10 — Modellbesvarelse: kortsvarssett + metodesammenligning**
-`id: svmet1010-9-10` · number 9.10 · estimatedMinutes 40 · prerequisites:
-svmet1010-9-1, svmet1010-9-5 · type: modellbesvarelse.
+#### Kapittel 9.10: Modellbesvarelse: kortsvarssett + metodesammenligning
+**id:** `svmet1010-9-10` · **number:** 9.10 · **estimatedMinutes:** 40 · **prerequisites:** `svmet1010-9-1`, `svmet1010-9-5`
+
+- **Kapitteltype:** modellbesvarelse.
+- **Description:** Modellbesvarelse på eksamensformens lille del: to obligatoriske kortsvar og én metodesammenligning, ført så stramt som tidsrammen krever.
+
 **Oppgavesjanger:** T1 kortsvar (H2025 del 1-format: to obligatoriske kortsvar) +
 T6 sammenligning (H2024 del 1-format) — dekker gjeldende eksamensforms «lille» del.
 **Tema/oppgave (nyskrevet):** (i) kortsvar: «kjennetegn ved kvalitative metoder med
