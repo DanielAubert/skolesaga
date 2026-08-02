@@ -1,0 +1,333 @@
+{
+  "id": "tdt4120-6-3",
+  "courseId": "tdt4120",
+  "chapterNumber": "6.3",
+  "title": "DRILL — DP-design og rekonstruksjon",
+  "description": "Full drill på sjanger H med DP: gjenkjenn et sekvens-/delstrukturproblem, sett opp rekurrensen, fyll tabellen og **rekonstruér** løsningen.",
+  "estimatedMinutes": 85,
+  "competenceGoals": [
+    "kunne kjenne igjen et problem som løses med dynamisk programmering, og definere delproblemet presist",
+    "kunne skrive rekurrensen med grunntilfeller og oppgi fylleorden og kjøretid",
+    "kunne rekonstruere selve løsningen fra lagrede valg, og begrunne at det ikke øker den asymptotiske kjøretiden"
+  ],
+  "content": [
+    {
+      "id": "tdt4120-6-3-tip-1",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dynamisk programmering er registrert i 16 av de 17 settene i grunnlaget\n(94 %).** Grunnlaget er de 17 settene fra august 2015 til august 2023 som er\ngjennomgått tema for tema — det er nevneren hver gang boka oppgir en prosent.\n\nDP er den ene av fagets to designryggrader. Sammen med maks-flyt dekker de de\naller fleste av de åpne designoppgavene som avslutter hvert ordinære sett — og\ndet er der toppkarakteren avgjøres.\n\nTo sjangre driller vi her:\n\n- **Sjanger H — åpen algoritmedesign**, altså at du skisserer en algoritme på\n  fem til ti linjer. Denne sjangeren har fem obligatoriske ledd, og det\n  vanskeligste er det fjerde: **rekonstruksjonen av selve løsningen**.\n- **Sjanger C — håndkjøring**, altså at du fyller ut en DP-tabell for hånd og\n  oppgir det etterspurte — en celle, en rad, eller den ferdige løsningen.\n\nPrioritet: **bør sitte.**\n\n**Den ene feilen som koster mest:** å oppgi optimalverdien og stoppe der.\nOppgaven ber om en **oppdeling**, en **delsekvens** eller en **plan** — ikke om\ntallet. Dette er felle **#6**, og den koster typisk et helt ledd av\nuttellingen.\n\n**Slik er kapitlet lagt opp (85 min):**\n\n| Innhold | Tid |\n|---|---|\n| Løsningsoppskriften, seks steg | ca. 12 min |\n| Gjennomkjørt eksamenscase med margnotater | ca. 16 min |\n| Drill på oppdelingsproblemer | ca. 20 min |\n| Drill på sekvensproblemer | ca. 20 min |\n| Drill på rekonstruksjon og kjøretid | ca. 17 min |\n\n— naturlig pausepunkt — etter oppdelingsdrillen. Resten kan tas i en egen\nøkt."
+    },
+    {
+      "id": "tdt4120-6-3-t-2",
+      "type": "text",
+      "content": "## Forkunnskaper\n\nDette kapitlet legger ikke til nytt stoff. Det gjør to kapitlers teori til en\nferdighet, og de tre resultatene du trenger i hånden, står her:\n\n1. **De to kravene** fra [kap. 6.1](/tdt4120/tdt4120-6-1): DP virker når\n   problemet har **optimal substruktur** (en optimal helhetsløsning inneholder\n   optimale delløsninger) **og** **overlappende delproblemer** (de samme\n   delproblemene dukker opp igjen og igjen). Mangler det andre, er\n   splitt-og-hersk like bra.\n2. **Kjøretidsregelen** fra [kap. 6.1](/tdt4120/tdt4120-6-1):\n\n   $$\\text{kjøretid} = (\\text{antall delproblemer}) \\times (\\text{arbeid per delproblem})$$\n\n   Den brukes i hver eneste oppgave i dette kapitlet.\n3. **Rekurrensmønsteret** fra [kap. 6.2](/tdt4120/tdt4120-6-2). De tre\n   klassikerne, ferdig oppfrisket:\n\n   **Stavkapping** — ett kutt om gangen, resten løses rekursivt:\n\n   $$r[j] = \\max_{1 \\le i \\le j}\\big(p_i + r[j-i]\\big), \\qquad r[0] = 0$$\n\n   **Lengste felles delsekvens (LCS)** — sammenlign to tegn, og enten matcher\n   de eller så hopper du over ett av dem:\n\n   $$c[i,j] = \\begin{cases}\n   0 & i = 0 \\text{ eller } j = 0 \\\\\n   c[i-1,j-1] + 1 & x_i = y_j \\\\\n   \\max(c[i-1,j],\\; c[i,j-1]) & \\text{ellers}\n   \\end{cases}$$\n\n   Kjøretid $\\Theta(nm)$.\n\n   **0-1-ryggsekk** — ta gjenstanden eller la den ligge:\n\n   $$c[i,w] = \\max\\big(c[i-1,w],\\; v_i + c[i-1,\\,w-w_i]\\big)$$\n\n   Kjøretid $\\Theta(nm)$, der $m$ er **kapasiteten som tallverdi** — derfor\n   **pseudopolynomisk**.\n\nLegg merke til at alle tre har den samme formen: **ta et valg i ett steg, og\nslå opp den beste løsningen på resten**. Det er det mønsteret du leter etter i\nen ny innpakning."
+    },
+    {
+      "id": "tdt4120-6-3-coll-4",
+      "type": "collapsible",
+      "title": "Notasjons- og pseudokodeliste",
+      "buttonText": "Vis notasjon og pseudokode",
+      "content": [
+        {
+          "id": "tdt4120-6-3-ct-3",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et algoritmefag: den lister kjøretidsuttrykk og pseudokode-operasjoner i stedet for bare greske bokstaver.\n\n| Symbol | Betydning |\n|---|---|\n| $n$, $m$ | størrelsene i problemet — lengder, antall, kapasitet |\n| $c[i,j]$ | verditabellen: den beste verdien for delproblemet $(i,j)$ |\n| $r[j]$ | verditabellen for et endimensjonalt delproblem |\n| $s[j]$ | valgtabellen: hvilket valg som ga verdien i $r[j]$ |\n| $b[i,j]$ | retningspekeren i LCS-tabellen |\n| $p_i$ | prisen eller verdien knyttet til valg $i$ |\n| $w_i$ | vekten eller kostnaden knyttet til valg $i$ |\n| $\\Theta(nm)$ | typisk DP-kjøretid: antall celler ganger konstant arbeid per celle |\n\n| Algoritme/operasjon | Kontrakt | Kjøretid |\n|---|---|---|\n| `Rod-Cutting(p, n)` | fyller `r[0..n]` og `s[0..n]` nedenfra og opp | $\\Theta(n^2)$ |\n| `LCS-Length(X, Y)` | fyller `c[0..m, 0..n]` med retningspekere | $\\Theta(nm)$ |\n| `Knapsack(v, w, W)` | fyller `c[0..n, 0..W]` | $\\Theta(nW)$ — pseudopolynomisk |\n| `Print-Solution(s, j)` | leser valgtabellen baklengs og skriver ut selve løsningen | $O(n)$ |\n| `Memoized(...)` | samme rekurrens, men ovenfra og ned med lagring | samme asymptotiske kjøretid |\n\n**Formler i dette delkapitlet:**\n\n$$\\text{kjøretid} = (\\text{antall delproblemer}) \\times (\\text{arbeid per delproblem})$$\n\nRegelen du bruker hver gang du skal oppgi kjøretiden til en DP.\n\n$$r[j] = \\max_{1 \\le i \\le j}\\big(p_i + r[j-i]\\big), \\qquad r[0] = 0$$\n\nStavkapping-rekurrensen: velg ett kutt, slå opp resten.\n\n$$c[i,j] = \\begin{cases} c[i-1,j-1]+1 & x_i = y_j \\\\ \\max(c[i-1,j],\\, c[i,j-1]) & \\text{ellers}\\end{cases}$$\n\nLCS-rekurrensen: match, eller hopp over ett tegn.\n"
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-6-3-thm-5",
+      "type": "theorem",
+      "title": "Løsningsoppskriften for en DP-designoppgave",
+      "content": "**Steg 1 — gjenkjenn mønsteret.** Se etter en av disse formene:\n\n| Innpakningen | Delproblemet |\n|---|---|\n| noe skal **deles opp** i biter (stav, tekst, tidslinje) | «beste verdi for de første $j$ enhetene» |\n| to **sekvenser** skal sammenlignes (strenger, ruter, hendelser) | «beste verdi for de første $i$ og de første $j$» |\n| **velg eller ikke velg** hver gjenstand, med en samlet grense | «beste verdi av de $i$ første, med grense $w$» |\n| en **sti** gjennom et rutenett eller en DAG | «beste verdi fram til rute $(i,j)$» |\n\n**Steg 2 — definér delproblemet i én setning, med ord.** «La $c[i]$ være den\nhøyeste verdien man kan få av de $i$ første enhetene.» Uten denne setningen er\nrekurrensen uleselig, og den er ett av leddene som gir uttelling.\n\n**Steg 3 — skriv rekurrensen, og ta med grunntilfellene.** Rekurrensen er\nalltid «prøv hvert mulig valg i **ett** steg, og slå opp den beste løsningen på\nresten».\n\n**Steg 4 — oppgi fylleorden.** Bottom-up krever at delproblemene fylles i en\nrekkefølge der alt et delproblem trenger, allerede er beregnet — typisk\nstigende $i$, eller stigende $i$ og $j$. Alternativt: memoisering, som lar\nrekursjonen styre rekkefølgen selv.\n\n**Steg 5 — rekonstruér selve løsningen.** Lagre **valget** i hver celle, ikke\nbare verdien, og les valgtabellen baklengs fra det ferdige svaret. Si\neksplisitt at rekonstruksjonen koster $O(n)$ eller $O(n+m)$ og **ikke øker den\nasymptotiske kjøretiden**.\n\n**Steg 6 — oppgi kjøretiden** som antall delproblemer ganger arbeid per\ndelproblem, med $n$ og $m$ definert i problemets egne størrelser.\n\n**Kontrollen før du leverer:** har du med alle seks? Det femte er det som\noftest glipper."
+    },
+    {
+      "id": "tdt4120-6-3-eks-6",
+      "type": "example",
+      "title": "Eksempel 1: Gjennomkjørt eksamenscase med margnotater",
+      "problem": "En stavekontroll skal avgjøre om en sammensatt streng kan deles i ord fra en\nordbok, og i så fall hvilke ord.\n\nStrengen er `sykkelstativ`, og ordboka inneholder `sykkel`, `stativ`, `syk`,\n`kel`, `stat`, `iv`.\n\nBeskriv en DP-løsning: definér delproblemet, skriv rekurrensen, oppgi\nkjøretiden, og forklar hvordan du rekonstruerer selve oppdelingen. Kjør den\nderetter på strengen.",
+      "solution": "**Steg 1 — mønsteret.** Strengen skal **deles opp** i biter. Det er\noppdelingsmønsteret, og det peker rett på DP.\n\n*Margnotat.* Å navngi mønsteret er halvparten av jobben, og det er ett av de\nfem leddene som gir uttelling. Skriv det i klartekst.\n\n**Steg 2 — delproblemet.** La `ok[j]` være sann hvis prefikset `tekst[1..j]`\nkan deles i ord fra ordboka.\n\n*Margnotat.* Denne setningen skrives med ord, ikke med formler. Uten den er\nrekurrensen umulig å lese for den som retter.\n\n**Steg 3 — rekurrensen.**\n\n$$\\text{ok}[j] = \\bigvee_{0 \\le i < j}\\Big(\\text{ok}[i] \\;\\wedge\\; \\text{tekst}[i{+}1..j] \\in \\text{ordboka}\\Big)$$\n\nmed grunntilfellet $\\text{ok}[0] = \\text{sann}$ — den tomme strengen er en\ngyldig oppdeling.\n\n*Margnotat.* Grunntilfellet er ikke pynt. Uten $\\text{ok}[0] = \\text{sann}$\nkan aldri det første ordet godkjennes, og hele tabellen blir usann.\n\n**Steg 4 — fylleorden.** Stigende $j$ fra 1 til $n$. Da er alle $\\text{ok}[i]$\nmed $i < j$ ferdig beregnet når $\\text{ok}[j]$ skal fylles.\n\n**Steg 5 — rekonstruksjonen.** Lagre i tillegg `valg[j]` = den $i$ som gjorde\n$\\text{ok}[j]$ sann. Les så baklengs fra $j = n$: ordet er\n`tekst[valg[n]+1..n]`, og du fortsetter fra $j = \\text{valg}[n]$ til du treffer\n0.\n\n*Margnotat.* Dette leddet er hele forskjellen mellom et halvt og et helt svar.\nOppgaven ba om **hvilke ord**, ikke om ja eller nei.\n\n**Steg 6 — kjøretiden.** $n+1$ delproblemer, og hvert krever at inntil $n$\ndelstrenger slås opp i ordboka. Med et oppslag i konstant tid gir det\n$\\Theta(n^2)$ oppslag, altså $O(n^2)$ når ordlengdene regnes som konstante.\nRekonstruksjonen koster $O(n)$ og **øker ikke** kjøretiden.\n\n**Kjøringen på `sykkelstativ`** (12 tegn):\n\n| $j$ | Delstreng `tekst[1..j]` | Kan deles? | Siste ordet starter i |\n|---|---|---|---|\n| 0 | (tom) | ja | — |\n| 1 | `s` | nei | — |\n| 2 | `sy` | nei | — |\n| 3 | `syk` | ja | $i = 0$, ordet `syk` |\n| 4 | `sykk` | nei | — |\n| 5 | `sykke` | nei | — |\n| 6 | `sykkel` | ja | $i = 0$, ordet `sykkel` |\n| 7 | `sykkels` | nei | — |\n| 8 | `sykkelst` | nei | — |\n| 9 | `sykkelsta` | nei | — |\n| 10 | `sykkelstat` | ja | $i = 6$, ordet `stat` |\n| 11 | `sykkelstati` | nei | — |\n| 12 | `sykkelstativ` | ja | $i = 6$, ordet `stativ` |\n\n*Margnotat.* Legg merke til $j = 3$: `syk` finnes i ordboka, så prefikset kan\ndeles. Men $j = 6$ blir sann via `sykkel` som ett ord, ikke via `syk` + `kel` —\nbegge veier finnes, og algoritmen tar den første den finner. Det spiller ingen\nrolle for svaret: begge oppdelingene er gyldige.\n\n**Sluttilstanden — det du ville levert på eksamen:**\n\n**Ja, strengen kan deles: `sykkel` + `stativ`.**\n\n*Margnotat om delvis uttelling.* Har du delproblemet, rekurrensen og\nkjøretiden, men ikke rekonstruksjonen, ligger du typisk på fire av fem ledd.\nHar du bare «ja», har du ett."
+    },
+    {
+      "id": "tdt4120-6-3-t-7",
+      "type": "text",
+      "content": "## Drill: oppdelingsproblemer (~20 min)\n\nFire oppgaver på det første mønsteret: noe skal deles i biter, og hver bit gir\nen verdi."
+    },
+    {
+      "id": "tdt4120-6-3-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-6-3-oppg-8-inner",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamensnivå, sjanger C — håndkjøring, altså at du fyller ut tabellen og\noppgir bare det etterspurte.)\n\nEn stålstang kan kappes i biter, og en bit av lengde $i$ selges for prisen\n$p_i$:\n\n| Lengde $i$ | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |\n|---|---|---|---|---|---|---|---|---|\n| Pris $p_i$ | 2 | 5 | 9 | 11 | 14 | 19 | 20 | 23 |\n\n**a)** Fyll ut $r[0..8]$ med stavkapping-rekurrensen.\n**b)** Hva er den høyeste inntekten fra en stang av lengde 8?",
+        "solution": "**a)** Rekurrensen er\n$r[j] = \\max_{1 \\le i \\le j}\\big(p_i + r[j-i]\\big)$ med $r[0] = 0$.\n\n| $j$ | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |\n|---|---|---|---|---|---|---|---|---|---|\n| $r[j]$ | 0 | 2 | 5 | 9 | 11 | 14 | 19 | 21 | 24 |\n| $s[j]$ | 0 | 1 | 2 | 3 | 1 | 2 | 6 | 1 | 2 |\n\nRaden $s[j]$ er valgtabellen: lengden på den **første** biten i den optimale\noppdelingen av en stang på $j$.\n\n**b)** **Den høyeste inntekten er 24.**\n\nMerk at oppgaven bare spurte om tallet. Skulle den også hatt oppdelingen, ville\nsvaret vært 2 + 6.",
+        "hints": [
+          "Fyll tabellen nedenfra: $r[1]$ først, så $r[2]$, og bruk allerede beregnede verdier.",
+          "For hver $j$: prøv alle mulige lengder på den første biten."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-6-3-oppg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-6-3-oppg-9-inner",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C.)\n\nSamme prisliste som i oppgave 1.\n\n**a)** Vis alle leddene i maksimeringen for $r[6]$.\n**b)** Oppgi den optimale oppdelingen av en stang på lengde 8, og forklar\nhvordan du leser den ut av valgtabellen.",
+        "solution": "**a)**\n\n| Første bit $i$ | $p_i$ | $r[6-i]$ | Sum |\n|---|---|---|---|\n| 1 | 2 | 14 | 16 |\n| 2 | 5 | 11 | 16 |\n| 3 | 9 | 9 | 18 |\n| 4 | 11 | 5 | 16 |\n| 5 | 14 | 2 | 16 |\n| 6 | 19 | 0 | 19 |\n\nMaksimum er 19, oppnådd med første bit av lengde\n6.\n\n**b)** Les valgtabellen baklengs fra $j = 8$: $s[8] = 2$,\nså den første biten har lengde 2. Fortsett fra\n$j = 8 - 2 = 6$:\n$s[6] = 6$. Fortsett til\n$j$ når 0.\n\n**Den optimale oppdelingen er 2 + 6**,\nmed samlet verdi 24.\n\nKontroll: $p_2 = 5$ + $p_6 = 19$,\ntil sammen 24 — som stemmer med $r[8]$.\n\n**Legg merke til hva valgtabellen inneholder.** Den lagrer ikke hele\noppdelingen, bare det **første** valget for hvert delproblem. Resten hentes\nved gjentatte oppslag, og det koster $O(n)$ til sammen.",
+        "hints": [
+          "Skriv opp alle leddene $p_i + r[6-i]$ for $i$ fra 1 til 6 før du tar maksimum.",
+          "Valgtabellen leses baklengs: hvert oppslag gir én bit, og du trekker lengden fra."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-6-3-oppg-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-6-3-oppg-10-inner",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger H — åpen algoritmedesign, altså at du skisserer en\nalgoritme kort: hvilket kjent problem det er, hvilket paradigme du bruker,\nkonstruksjonen, hvordan du henter ut selve svaret, og kjøretiden.)\n\nEn teksteditor skal bryte en avsnittstekst med $n$ ord i linjer. Å legge ordene\n$i$ til $j$ på én linje gir en «styggehetskostnad» $K(i,j)$ som kan slås opp i\nkonstant tid, eller uendelig hvis ordene ikke får plass. Summen av kostnadene\nskal minimeres.\n\nBeskriv en DP-løsning.",
+        "solution": "**Det klassiske problemet.** Teksten skal **deles opp** i biter (linjer), og\nhver bit har en kostnad. Det er oppdelingsmønsteret.\n\n**Paradigmet.** Dynamisk programmering.\n\n**Delproblemet.** La $c[j]$ være den minste samlede kostnaden ved å bryte de\n**første $j$ ordene** i linjer.\n\n**Rekurrensen.**\n\n$$c[j] = \\min_{0 \\le i < j}\\big(c[i] + K(i{+}1, j)\\big), \\qquad c[0] = 0$$\n\nTolkningen: den siste linja inneholder ordene $i+1$ til $j$, og resten er\nallerede løst optimalt.\n\n**Fylleorden.** Stigende $j$ fra 1 til $n$.\n\n**Rekonstruksjon av selve linjedelingen.** Lagre $s[j]$ = den $i$ som ga\nminimum. Les baklengs fra $j = n$: siste linje er ordene $s[n]+1$ til $n$,\nneste linje slutter på $s[n]$, og så videre til du treffer 0. Dette koster\n$O(n)$ og **øker ikke den asymptotiske kjøretiden**.\n\n**Kjøretid.** $n$ delproblemer à $O(n)$ arbeid, altså $\\Theta(n^2)$.\n\n**Merk at oppgaven ber om en linjedeling, ikke om kostnaden.** Uten\nrekonstruksjonen har du bare et tall.",
+        "hints": [
+          "Hvilket mønster er dette — oppdeling, to sekvenser, eller velg-eller-ikke?",
+          "Tenk på hva den **siste** linja inneholder, og la resten være et mindre delproblem."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-6-3-oppg-11",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-6-3-oppg-11-inner",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger F — «stemmer dette?», altså ja eller nei først og\nderetter én presis setning.)\n\nEn kandidat foreslår å løse stavkapping grådig: «Kapp alltid av den dyreste\nenkeltbiten som får plass, og gjenta med resten.»\n\nVil det alltid gi optimal inntekt? Svar ja eller nei, og gi et konkret\nmotbevis.",
+        "solution": "**Nei.**\n\n**Motbevis** med prislisten fra oppgave 1, på en stang av lengde 8: den dyreste\nenkeltbiten som får plass, er lengde 8 til 23. Den grådige regelen tar altså\nhele stangen udelt og får **23**.\n\nDen optimale oppdelingen er $2 + 6$ med verdi $5 + 19 =$ **24**, som du kan\nlese av $r[8]$ i tabellen fra oppgave 1.\n\nSamme regel bommer også på lengde 7: grådig tar lengde 7 til 20, mens\n$1 + 6 = 2 + 19 = 21$ er bedre.\n\n**Poenget er generelt:** stavkapping mangler den **grådige valg-egenskapen**\nfra [kap. 6.4](/tdt4120/tdt4120-6-4). Det lokalt beste kuttet er ikke\nnødvendigvis en del av en optimal oppdeling, fordi det som blir igjen, kan bli\ndårlig. DP prøver derfor **alle** valgene i det første steget i stedet for å\ngjette ett — og det er nettopp derfor maksimeringen står i rekurrensen.",
+        "hints": [
+          "Hva kreves for at en grådig regel skal virke, og har dette problemet den egenskapen?",
+          "Prøv den grådige regelen på lengde 8 og sammenlign med $r[8]$ fra oppgave 1."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-6-3-t-12",
+      "type": "text",
+      "content": "## Drill: sekvensproblemer (~20 min)\n\nFire oppgaver på det andre mønsteret: to sekvenser skal sammenlignes."
+    },
+    {
+      "id": "tdt4120-6-3-oppg-13",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-6-3-oppg-13-inner",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C.)\n\nFinn lengden på den lengste felles delsekvensen av `SPRING` og `STRENG` ved å\nfylle ut LCS-tabellen.\n\n**a)** Oppgi den ferdige tabellen $c[0..6, 0..6]$.\n**b)** Oppgi en lengste felles delsekvens.",
+        "solution": "**a)**\n\n| | $j$=0 | 1: `S` | 2: `T` | 3: `R` | 4: `E` | 5: `N` | 6: `G` |\n|---|---|---|---|---|---|---|---|\n| **$i$=0** | 0 | 0 | 0 | 0 | 0 | 0 | 0 |\n| **1: `S`** | 0 | 1 | 1 | 1 | 1 | 1 | 1 |\n| **2: `P`** | 0 | 1 | 1 | 1 | 1 | 1 | 1 |\n| **3: `R`** | 0 | 1 | 1 | 2 | 2 | 2 | 2 |\n| **4: `I`** | 0 | 1 | 1 | 2 | 2 | 2 | 2 |\n| **5: `N`** | 0 | 1 | 1 | 2 | 2 | 3 | 3 |\n| **6: `G`** | 0 | 1 | 1 | 2 | 2 | 3 | 4 |\n\n**b)** Lengden er 4, og en lengste felles\ndelsekvens er **`SRNG`**.\n\nLes den ut ved å gå baklengs fra $c[6,6]$: står det en diagonal match, ta\ntegnet med og gå til $c[i-1,j-1]$; ellers gå til den av $c[i-1,j]$ og\n$c[i,j-1]$ som er størst.\n\n**Merk at delsekvensen ikke må være sammenhengende.** `SRNG` er en delsekvens\nav begge strengene, selv om tegnene ikke står ved siden av hverandre.",
+        "hints": [
+          "Fyll tabellen radvis, med nullrad og nullkolonne som grunntilfelle.",
+          "Er tegnene like, kommer verdien fra diagonalen pluss 1; ellers fra den største naboen."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-6-3-oppg-14",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-6-3-oppg-14-inner",
+        "number": 6,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C og E.)\n\n**a)** Finn lengden på den lengste felles delsekvensen av `ALGORITME` og\n`LOGARITME`.\n**b)** Hva er kjøretiden til LCS-algoritmen på to strenger av lengde $n$ og\n$m$, og hvorfor?",
+        "solution": "**a)** Lengden er 7, og en lengste felles\ndelsekvens er **`LGRITME`**.\n\n**b)** $\\Theta(nm)$.\n\nBegrunnelsen er kjøretidsregelen: tabellen har $(n+1)(m+1)$ celler, altså\n$\\Theta(nm)$ delproblemer, og hver celle fylles med konstant arbeid — én\nsammenligning og høyst to oppslag.\n\nRekonstruksjonen koster $O(n+m)$, siden hvert steg baklengs reduserer $i$\neller $j$ med minst 1. Den øker altså ikke den asymptotiske kjøretiden.",
+        "hints": [
+          "Fyll tabellen systematisk — de fleste feilene kommer av å hoppe over en rad.",
+          "Kjøretidsregelen: antall delproblemer ganger arbeid per delproblem."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-6-3-oppg-15",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-6-3-oppg-15-inner",
+        "number": 7,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger H.)\n\nTo turgåere har hver sin logg over hvilke hytter de har overnattet på, i\nkronologisk rekkefølge. Turistforeningen vil finne den lengste sekvensen av\nhytter **begge** har besøkt, **i samme rekkefølge** — men ikke nødvendigvis\netter hverandre.\n\nBeskriv en DP-løsning.",
+        "solution": "**Det klassiske problemet.** To sekvenser skal sammenlignes, og vi leter etter\nden lengste felles delsekvensen. Dette er **LCS**, i ny innpakning.\n\n**Paradigmet.** Dynamisk programmering.\n\n**Delproblemet.** La $c[i,j]$ være lengden på den lengste felles delsekvensen\nav de $i$ første hyttene i logg 1 og de $j$ første i logg 2.\n\n**Rekurrensen.**\n\n$$c[i,j] = \\begin{cases}\n0 & i = 0 \\text{ eller } j = 0 \\\\\nc[i-1,j-1] + 1 & \\text{hytte } x_i = y_j \\\\\n\\max(c[i-1,j],\\; c[i,j-1]) & \\text{ellers}\n\\end{cases}$$\n\n**Fylleorden.** Stigende $i$, og for hver $i$ stigende $j$.\n\n**Rekonstruksjon av selve sekvensen.** Lagre en retningspeker $b[i,j]$ i hver\ncelle: diagonal ved match, opp eller venstre ellers. Les baklengs fra $c[n,m]$\nog ta med hytta hver gang pekeren er diagonal. Dette koster $O(n+m)$ og\n**øker ikke kjøretiden**.\n\n**Kjøretid.** $\\Theta(nm)$, der $n$ og $m$ er antall overnattinger i de to\nloggene.\n\n**Merk kravet «i samme rekkefølge».** Det er nettopp det som gjør dette til\nLCS og ikke til et snitt mellom to mengder — sistnevnte ville vært\n$\\Theta(n+m)$ med en hashtabell.",
+        "hints": [
+          "Hvilke to ord i oppgaveteksten avgjør at dette er LCS og ikke et vanlig mengdesnitt?",
+          "Hva er delproblemet når du sammenligner to sekvenser?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-6-3-oppg-16",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-6-3-oppg-16-inner",
+        "number": 8,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger F.)\n\nEn kandidat skriver: «LCS-tabellen har $\\Theta(nm)$ celler, og rekonstruksjonen\ngår gjennom hele tabellen. Derfor er rekonstruksjonen også $\\Theta(nm)$, og\nkjøretiden dobles.»\n\nEr utsagnet riktig? Svar ja eller nei, og begrunn.",
+        "solution": "**Nei.**\n\nRekonstruksjonen går **ikke** gjennom hele tabellen. Den følger én sti fra\n$c[n,m]$ til $c[0,0]$, og hvert steg reduserer $i$, $j$ eller begge med 1.\nStien har derfor høyst $n + m$ steg, og rekonstruksjonen koster $O(n+m)$.\n\nSiden $n + m$ er langt mindre enn $nm$ for store $n$ og $m$, forsvinner leddet\ni den asymptotiske kjøretiden: $\\Theta(nm) + O(n+m) = \\Theta(nm)$.\n\n**Dette er felle #6** — å ta feil om hva rekonstruksjon koster. Feilen går\nbegge veier: noen påstår at den er «gratis» (den krever lagrede valg), andre at\nden dobler kjøretiden (den er et lavere ledd). Riktig formulering: den krever\nlagrede valg, men **øker ikke den asymptotiske kjøretiden**.",
+        "hints": [
+          "Hvor mange steg tar en sti fra hjørne til hjørne i tabellen?",
+          "Sammenlign $n+m$ med $nm$ for store verdier."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-6-3-t-17",
+      "type": "text",
+      "content": "## Drill: rekonstruksjon og kjøretid (~17 min)\n\nTre oppgaver på det leddet som oftest glipper."
+    },
+    {
+      "id": "tdt4120-6-3-oppg-18",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-6-3-oppg-18-inner",
+        "number": 9,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C.)\n\nFire gjenstander skal pakkes i en ryggsekk med kapasitet 9:\n\n| Gjenstand | 1 | 2 | 3 | 4 |\n|---|---|---|---|---|\n| Vekt $w_i$ | 2 | 3 | 4 | 5 |\n| Verdi $v_i$ | 3 | 4 | 5 | 6 |\n\n**a)** Fyll ut 0-1-ryggsekk-tabellen $c[0..4, 0..9]$.\n**b)** Oppgi den høyeste verdien, og **hvilke gjenstander** som velges.",
+        "solution": "**a)**\n\n| | $w$=0 | $w$=1 | $w$=2 | $w$=3 | $w$=4 | $w$=5 | $w$=6 | $w$=7 | $w$=8 | $w$=9 |\n|---|---|---|---|---|---|---|---|---|---|---|\n| **$i$=0** | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |\n| **gjenstand 1** | 0 | 0 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 |\n| **gjenstand 2** | 0 | 0 | 3 | 4 | 4 | 7 | 7 | 7 | 7 | 7 |\n| **gjenstand 3** | 0 | 0 | 3 | 4 | 5 | 7 | 8 | 9 | 9 | 12 |\n| **gjenstand 4** | 0 | 0 | 3 | 4 | 5 | 7 | 8 | 9 | 10 | 12 |\n\n**b)** Den høyeste verdien er **12**, oppnådd med\ngjenstandene **1, 2, 3** (samlet vekt\n9).\n\n**Slik leses valget ut.** Start i $c[4,9]$ og gå oppover: er\n$c[i,w] \\ne c[i-1,w]$, ble gjenstand $i$ tatt med — noter den og trekk vekten\nfra $w$. Er de like, ble den ikke tatt, og du går bare opp én rad.\n\nKontroll: $3 + 4 + 5 = 12$, og $2 + 3 + 4 = 9$ som er nøyaktig kapasiteten.\n\n**Merk at tabellen alene ikke gir svaret på b).** Verdien står i hjørnet, men\nhvilke gjenstander som utgjør den, må leses ut ved å gå baklengs.",
+        "hints": [
+          "Fyll radvis: for hver gjenstand og hver kapasitet, velg mellom å ta den eller la den ligge.",
+          "Gå baklengs fra hjørnet og sammenlign hver celle med cellen rett over."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-6-3-oppg-19",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-6-3-oppg-19-inner",
+        "number": 10,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger E — kjøretidskunnskap.)\n\nOppgi kjøretiden for hver av disse, og si hva $n$ og $m$ er:\n\n**a)** LCS på to strenger.\n**b)** Stavkapping på en stang av lengde $n$.\n**c)** 0-1-ryggsekk med $n$ gjenstander og kapasitet $W$.\n**d)** Rekonstruksjonen i hvert av de tre tilfellene.",
+        "solution": "**a)** $\\Theta(nm)$, der $n$ og $m$ er lengdene på de to strengene.\n$(n+1)(m+1)$ celler à konstant arbeid.\n\n**b)** $\\Theta(n^2)$. Det er $n+1$ delproblemer, og delproblem $j$ krever\nmaksimering over inntil $j$ ledd — summen er $\\Theta(n^2)$.\n\n**c)** $\\Theta(nW)$. Det er $(n+1)(W+1)$ celler à konstant arbeid. Merk at\n$W$ er en **tallverdi**, ikke en lengde: algoritmen er derfor\n**pseudopolynomisk**, ikke polynomisk. Se\n[kap. 6.2](/tdt4120/tdt4120-6-2).\n\n**d)** $O(n+m)$ for LCS, $O(n)$ for stavkapping og $O(n)$ for ryggsekk. I alle\ntre tilfellene er rekonstruksjonen et lavere ledd og **øker ikke den\nasymptotiske kjøretiden**.\n\nDen siste setningen er den som skal stå i et designsvar.",
+        "hints": [
+          "Bruk kjøretidsregelen: antall delproblemer ganger arbeid per delproblem.",
+          "For c: hva slags størrelse er $W$ — en lengde eller en tallverdi?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-6-3-oppg-20",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-6-3-oppg-20-inner",
+        "number": 11,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger H, med et krav om rekonstruksjon.)\n\nEt vannkraftverk kan hver måned enten kjøre turbinen eller la magasinet fylle\nseg. Kjøres turbinen i måned $i$, gis inntekten $g_i$, men magasinet må stå\nurørt de **to** neste månedene. Over $n$ måneder skal samlet inntekt\nmaksimeres.\n\n**a)** Beskriv en DP-løsning.\n**b)** Oppgi kjøreplanen for $n = 6$ og inntektene $g = 4, 9, 3, 8, 2, 7$.",
+        "solution": "**a)** **Det klassiske problemet.** Velg eller ikke velg for hver måned, med en\nregel om avstand mellom valgene. Det er et **oppdelings-/utvelgelsesproblem**\nlangs en tidslinje.\n\n**Paradigmet.** Dynamisk programmering.\n\n**Delproblemet.** La $b[i]$ være den høyeste samlede inntekten fra de $i$\nførste månedene.\n\n**Rekurrensen.**\n\n$$b[i] = \\max\\big(b[i-1],\\; g_i + b[i-3]\\big)$$\n\nmed grunntilfellene $b[0] = 0$ og $b[i] = 0$ for $i < 0$. Tolkningen: enten\nkjører du **ikke** i måned $i$, og har det samme som etter $i-1$ måneder;\neller så kjører du, og må da hoppe over månedene $i-1$ og $i-2$.\n\n**Fylleorden.** Stigende $i$.\n\n**Rekonstruksjon av kjøreplanen.** Lagre $s[i] = 1$ hvis det andre leddet\nvant, ellers 0. Les baklengs fra $i = n$: er $s[i] = 1$, kjøres turbinen i\nmåned $i$ og du hopper til $i-3$; ellers går du til $i-1$. Koster $O(n)$ og\n**øker ikke kjøretiden**.\n\n**Kjøretid.** $n$ delproblemer à konstant arbeid, altså $\\Theta(n)$.\n\n**b)** Med $g = 4, 9, 3, 8, 2, 7$:\n\n| $i$ | 0 | 1 | 2 | 3 | 4 | 5 | 6 |\n|---|---|---|---|---|---|---|---|\n| $b[i]$ | 0 | 4 | 9 | 9 | 12 | 12 | 16 |\n| $s[i]$ | — | 1 | 1 | 0 | 1 | 0 | 1 |\n\nRegnestykkene, ett for ett:\n\n- $b[1] = \\max(b[0],\\; 4 + b[-2]) = \\max(0, 4) = 4$\n- $b[2] = \\max(b[1],\\; 9 + b[-1]) = \\max(4, 9) = 9$\n- $b[3] = \\max(b[2],\\; 3 + b[0]) = \\max(9, 3) = 9$\n- $b[4] = \\max(b[3],\\; 8 + b[1]) = \\max(9, 12) = 12$\n- $b[5] = \\max(b[4],\\; 2 + b[2]) = \\max(12, 11) = 12$\n- $b[6] = \\max(b[5],\\; 7 + b[3]) = \\max(12, 16) = 16$\n\n**Kjøreplanen leses baklengs fra $i = 6$:** $s[6] = 1$, så turbinen kjøres i\nmåned 6; hopp til $i = 3$. Der er $s[3] = 0$, så gå til $i = 2$. Der er\n$s[2] = 1$, så måned 2 kjøres; hopp til $i = -1$ og stopp.\n\n**Kjøreplanen er måned 2 og måned 6, med samlet inntekt $9 + 7 = 16$.**\n\nKontroll: månedene 2 og 6 ligger fire fra hverandre, altså lovlig. Alternativet\nmåned 1 og 4 gir $4 + 8 = 12$, og måned 2 og 5 er ulovlig, siden 5 kommer\nmindre enn tre måneder etter 2.",
+        "hints": [
+          "Tenk på det siste valget: kjørte du i måned $i$ eller ikke?",
+          "Kjører du i måned $i$, hvilket delproblem står igjen?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-6-3-warn-21",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "Den første koster mest, og den kommer i nesten hver designoppgave.\n\n- **Å oppgi bare optimalverdien.** Dette er felle **#6**. Oppgaven ber om en\n  oppdeling, en delsekvens eller en plan — og da må du lagre valgene og lese\n  dem baklengs. Si samtidig at rekonstruksjonen **ikke øker den asymptotiske\n  kjøretiden**.\n- **Å påstå at rekonstruksjon er «gratis».** Også felle #6, den andre veien.\n  Den krever at valgene faktisk lagres. Riktig formulering er «krever lagrede\n  valg, men øker ikke kjøretiden».\n- **Å bruke DP på et problem uten overlappende delproblemer.** Da er\n  splitt-og-hersk like bra, og DP-tabellen er bare overhead. Se\n  [kap. 6.1](/tdt4120/tdt4120-6-1).\n- **Å definere delproblemet upresist.** «La $c[i]$ være den beste verdien» er\n  ikke nok — best for hva? Setningen skal si nøyaktig hvilken delmengde eller\n  hvilket prefiks $i$ står for.\n- **Å glemme grunntilfellene.** Uten $r[0] = 0$ eller $\\text{ok}[0] = \\text{sann}$ kollapser hele tabellen.\n- **Å oppgi feil fylleorden.** Bottom-up krever at alt et delproblem trenger,\n  er beregnet på forhånd. For LCS betyr det stigende $i$ og stigende $j$.\n- **Å regne $\\Theta(nW)$ som polynomisk i ryggsekk.** $W$ er en **tallverdi**,\n  og algoritmen er derfor **pseudopolynomisk**. Se\n  [kap. 6.2](/tdt4120/tdt4120-6-2).\n- **Å bruke en grådig regel der DP kreves.** Stavkapping mangler den grådige\n  valg-egenskapen: det lokalt beste kuttet kan ødelegge for resten.\n\nOg den gjennomgående: **å skrive mer enn de fem leddene**. Et designsvar er\nfem til ti linjer, og lengre svar gir ingen ekstra uttelling."
+    },
+    {
+      "id": "tdt4120-6-3-t-22",
+      "type": "text",
+      "content": "## Kjøretidene du kan bli spurt om i en deloppgave\n\n| Problem | Delproblemer | Arbeid per | Kjøretid | Rekonstruksjon |\n|---|---|---|---|---|\n| Stavkapping | $n$ | $O(n)$ | $\\Theta(n^2)$ | $O(n)$ |\n| LCS | $\\Theta(nm)$ | $\\Theta(1)$ | $\\Theta(nm)$ | $O(n+m)$ |\n| 0-1-ryggsekk | $\\Theta(nW)$ | $\\Theta(1)$ | $\\Theta(nW)$ — **pseudopolynomisk** | $O(n)$ |\n| Ordsplitting | $n$ | $O(n)$ | $O(n^2)$ | $O(n)$ |\n| Linjebryting | $n$ | $O(n)$ | $\\Theta(n^2)$ | $O(n)$ |\n| Utvelgelse langs en tidslinje | $n$ | $\\Theta(1)$ | $\\Theta(n)$ | $O(n)$ |\n\n**Én presisering som er verdt å ta med seg.** Rekonstruksjonen er alltid et\nlavere ledd enn tabellutfyllingen — den følger **én sti** gjennom tabellen, ikke\nalle cellene. Den setningen hører hjemme i hvert eneste designsvar, og den er\nkort nok til å koste ingenting."
+    },
+    {
+      "id": "tdt4120-6-3-t-23",
+      "type": "text",
+      "content": "### Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp\nhar lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet\ngjelder kjernestoffet."
+    },
+    {
+      "id": "tdt4120-6-3-def-24",
+      "type": "definition",
+      "title": "De fem leddene i et DP-designsvar",
+      "content": "navngi problemet og paradigmet, definér delproblemet, skriv rekurrensen med\ngrunntilfeller, **rekonstruér løsningen**, og oppgi kjøretiden.\n\nDet fjerde leddet er det som oftest glipper.\n\n**Mangler ett ledd, er svaret ufullstendig** — også når resten er riktig."
+    },
+    {
+      "id": "tdt4120-6-3-def-25",
+      "type": "definition",
+      "title": "Å definere delproblemet",
+      "content": "én setning med ord som sier nøyaktig hva $c[i]$ eller $c[i,j]$ står for.\n\n«La $c[i,j]$ være lengden på den lengste felles delsekvensen av de $i$ første og\nde $j$ første.»\n\n**Uten denne setningen er rekurrensen uleselig**, og den er ett av leddene som\ngir uttelling."
+    },
+    {
+      "id": "tdt4120-6-3-def-26",
+      "type": "definition",
+      "title": "Valgtabell",
+      "content": "tabellen som lagrer **hvilket valg** som ga verdien i hver celle — ikke bare\nverdien selv.\n\nUten den kan ikke løsningen rekonstrueres, bare optimalverdien oppgis.\n\n**Den koster $\\Theta(1)$ ekstra per celle** og endrer ikke kjøretiden."
+    },
+    {
+      "id": "tdt4120-6-3-def-27",
+      "type": "definition",
+      "title": "Rekonstruksjon",
+      "content": "å lese valgtabellen baklengs fra det ferdige svaret og bygge opp selve\nløsningen.\n\nFølger **én sti** gjennom tabellen, ikke alle cellene, og koster $O(n)$ eller\n$O(n+m)$.\n\n**Øker ikke den asymptotiske kjøretiden** — den setningen skal stå i svaret."
+    },
+    {
+      "id": "tdt4120-6-3-def-28",
+      "type": "definition",
+      "title": "Felle #6 — rekonstruksjonens pris",
+      "content": "å påstå enten at rekonstruksjon er gratis, eller at den dobler kjøretiden.\n\nRiktig: den **krever lagrede valg**, men er et lavere ledd og øker ikke den\nasymptotiske kjøretiden.\n\n**Den vanligste varianten** er å oppgi optimalverdien og stoppe der."
+    },
+    {
+      "id": "tdt4120-6-3-def-29",
+      "type": "definition",
+      "title": "Fylleorden",
+      "content": "rekkefølgen delproblemene beregnes i, valgt slik at alt et delproblem trenger,\nallerede er ferdig.\n\nTypisk stigende $i$, eller stigende $i$ og $j$.\n\n**Memoisering slipper å velge:** rekursjonen styrer rekkefølgen selv, med samme\nasymptotiske kjøretid."
+    },
+    {
+      "id": "tdt4120-6-3-def-30",
+      "type": "definition",
+      "title": "Kjøretidsregelen for DP",
+      "content": "$\\text{kjøretid} = (\\text{antall delproblemer}) \\times (\\text{arbeid per delproblem})$.\n\nFor LCS: $\\Theta(nm)$ celler à konstant arbeid. For stavkapping: $n$ celler à\n$O(n)$ arbeid.\n\n**Brukes i hver eneste DP-oppgave**, og den er ett ledd i svaret."
+    },
+    {
+      "id": "tdt4120-6-3-def-31",
+      "type": "definition",
+      "title": "Oppdelingsmønsteret",
+      "content": "noe skal deles i biter, og hver bit gir en verdi eller en kostnad.\n\nDelproblemet er «beste verdi for de $j$ første enhetene», og rekurrensen prøver\nalle mulige lengder på den **siste** biten.\n\n**Stavkapping, ordsplitting og linjebryting** er alle av denne typen."
+    },
+    {
+      "id": "tdt4120-6-3-def-32",
+      "type": "definition",
+      "title": "Sekvensmønsteret",
+      "content": "to sekvenser skal sammenlignes, og du leter etter en felles struktur.\n\nDelproblemet er «beste verdi for de $i$ første og de $j$ første», og\nrekurrensen sammenligner $x_i$ med $y_j$.\n\n**LCS er grunnformen**, og de fleste innpakninger er varianter av den."
+    },
+    {
+      "id": "tdt4120-6-3-def-33",
+      "type": "definition",
+      "title": "Sjanger H — åpen algoritmedesign",
+      "content": "oppgavetypen der du skisserer en algoritme på fem til ti linjer.\n\nFem obligatoriske ledd, og rekonstruksjonen er det tyngste.\n\n**De siste tre til fem oppgavene i hvert ordinære sett** er av denne typen — det\ner der toppkarakteren avgjøres."
+    },
+    {
+      "id": "tdt4120-6-3-coll-35",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tdt4120-6-3-ct-34",
+          "type": "text",
+          "content": "Fem korte spørsmål fra kapitlene dette bygger på. Svar i hodet først, så\nsammenlign.\n\n**1.** Hvilke to egenskaper må et problem ha for at DP skal være riktig\nverktøy?\n\n*Svar:* optimal substruktur og overlappende delproblemer. Se\n[kap. 6.1](/tdt4120/tdt4120-6-1).\n\n**2.** Hva er kjøretiden til LCS, og hvorfor?\n\n*Svar:* $\\Theta(nm)$ — $(n+1)(m+1)$ celler à konstant arbeid. Se\n[kap. 6.2](/tdt4120/tdt4120-6-2).\n\n**3.** Hvorfor er 0-1-ryggsekk pseudopolynomisk?\n\n*Svar:* fordi $W$ i $\\Theta(nW)$ er en **tallverdi**, ikke en lengde — den kan\nskrives med få siffer, men gi mange kolonner.\n\n**4.** Hva er forskjellen på memoisering og bottom-up?\n\n*Svar:* memoisering er ovenfra og ned med lagring, bottom-up er nedenfra og opp\nmed en valgt fylleorden. Samme asymptotiske kjøretid.\n\n**5.** Hva skiller DP fra splitt og hersk?\n\n*Svar:* overlappende delproblemer. I splitt og hersk løses hvert delproblem\nnøyaktig én gang uansett. Se [kap. 1.5](/tdt4120/tdt4120-1-5).\n\n**Videre:** [kap. 6.4](/tdt4120/tdt4120-6-4) tar grådighet — teknikken som er\nraskere enn DP når den virker, og gal når den ikke gjør det."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
