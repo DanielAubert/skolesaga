@@ -1,0 +1,381 @@
+{
+  "id": "tdt4120-3-2",
+  "courseId": "tdt4120",
+  "chapterNumber": "3.2",
+  "title": "Binære søketrær",
+  "description": "`Tree-Insert`, `Inorder-Tree-Walk`, `Tree-Search`/`Minimum`/`Maximum` — inkludert nøkkelinnsikten at inorder på et BST gir **sortert** rekkefølge.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "kunne avgjøre om et gitt tre oppfyller søketreegenskapen, og skille den fra haugegenskapen",
+    "kunne sette inn en rekke nøkler i et tomt søketre for hånd og oppgi inorder-utskriften",
+    "kunne gjengi kjøretidene til søketreoperasjonene som funksjoner av høyden, og si når høyden blir lineær"
+  ],
+  "content": [
+    {
+      "id": "tdt4120-3-2-tip-1",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Binære søketrær og hauger er den sikreste håndkjøringskandidaten i faget.**\nTemaet er registrert i **16 av de 17 settene i grunnlaget (94 %)**. Grunnlaget\ner de 17 settene fra august 2015 til august 2023 som er gjennomgått tema for\ntema — det er nevneren hver gang boka oppgir en prosent.\n\nTo sjangre henter fra dette kapitlet:\n\n- **Sjanger C — håndkjøring**, altså at du utfører algoritmen steg for steg på\n  papir og oppgir bare sluttilstanden. Den klassiske er: «sett inn disse\n  nøklene i denne rekkefølgen i et tomt søketre, og oppgi\n  `Inorder-Tree-Walk`-utskriften». Dette er den hyppigste håndkjøringen i hele\n  faget.\n- **Sjanger D — definisjon med egne ord**, altså én presis setning med\n  hovedpoenget først. «Definér søketreegenskapen» kommer igjen og igjen.\n\n**Høyeste prioritet — dette må sitte.** Eksamen er hjelpemiddelfri, og både\negenskapen og kjøretidene er ren gjenkalling.\n\n**Tre ting er verdt å merke seg med én gang:**\n\n1. **Søketreegenskapen ordner venstre–høyre, haugegenskapen ordner opp–ned.**\n   Å blande dem er fagets mest fremhevede datastrukturfeil, og den koster hele\n   oppgaven.\n2. **`Inorder-Tree-Walk` gir utskriften i sortert rekkefølge**, ikke i\n   innsettingsrekkefølge. Det er både nøkkelinnsikten og en gratis kontroll på\n   at du har satt inn riktig.\n3. **Kjøretidene oppgis i høyden $h$, ikke i $n$.** `Tree-Insert` er $O(h)$, og\n   $h$ kan være alt fra $\\lfloor\\lg n\\rfloor$ til $n-1$.\n\n**Slik er kapitlet lagt opp (50 min):**\n\n| Innhold | Tid |\n|---|---|\n| Søketreegenskapen, og kontrasten mot haugen | ca. 11 min |\n| `Tree-Insert` og innsettingsveien | ca. 12 min |\n| `Inorder-Tree-Walk` og de tre traverseringene | ca. 11 min |\n| Søk, minimum og maksimum | ca. 8 min |\n| Høyden — der kjøretiden avgjøres | ca. 8 min |"
+    },
+    {
+      "id": "tdt4120-3-2-t-2",
+      "type": "text",
+      "content": "## Forkunnskaper\n\n- [kap. 3.1](/tdt4120/tdt4120-3-1) — hauger. Dette sto der: en maks-haug\n  krever at hver forelder er $\\ge$ **begge** barna, og den sier ingenting om\n  venstre mot høyre. Haugen ligger i et array `A[1..n]` med forelder\n  $\\lfloor i/2\\rfloor$ og barn $2i$ og $2i+1$. `Build-Max-Heap` er $\\Theta(n)$,\n  og `Heapsort` er $\\Theta(n\\lg n)$. Søketreet i dette kapitlet ordner i den\n  **andre** retningen, og kontrasten er halve poenget med Del 3.\n- [kap. 2.1](/tdt4120/tdt4120-2-1) — sortering. Vi bruker at et sortert\n  materiale kan søkes ved halvering, og sammenligner søketreets $O(h)$ med\n  sorteringens $\\Theta(n\\lg n)$.\n- [kap. 1.1](/tdt4120/tdt4120-1-1) — de asymptotiske symbolene. Skillet mellom\n  $O$ og $\\Theta$ er bevisst brukt i hele kapitlet: operasjonene er $O(h)$,\n  ikke $\\Theta(h)$, fordi de kan stoppe tidlig.\n\nEr logaritmen fersk: [Potenser og logaritmer](/r1/r1-1-2). I hele denne boka\nbetyr $\\lg n$ det samme som $\\log_2 n$."
+    },
+    {
+      "id": "tdt4120-3-2-coll-4",
+      "type": "collapsible",
+      "title": "Notasjons- og pseudokodeliste",
+      "buttonText": "Vis notasjon og pseudokode",
+      "content": [
+        {
+          "id": "tdt4120-3-2-ct-3",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et algoritmefag: den lister kjøretidsuttrykk og pseudokode-operasjoner i stedet for bare greske bokstaver.\n\n| Symbol | Betydning |\n|---|---|\n| $n$ | antall noder i treet |\n| $h$ | treets høyde: antall kanter på den lengste stien fra rota ned til et blad |\n| `x.key` | nøkkelen i node `x` |\n| `x.left`, `x.right` | venstre og høyre barn av `x`; `NIL` når barnet mangler |\n| `x.p` | forelderen til `x`; `NIL` for rota |\n| `T.root` | rota i treet `T` |\n| $O(h)$ | øvre grense uttrykt i høyden — operasjonen følger én sti nedover |\n| $\\Theta(n)$ | tett grense i antall noder |\n| $\\lg n$ | $\\log_2 n$ |\n| $\\lfloor x \\rfloor$ | gulvfunksjonen: rund ned til nærmeste heltall |\n\n| Algoritme/operasjon | Kontrakt | Kjøretid |\n|---|---|---|\n| `Tree-Insert(T, z)` | setter nøkkelen `z` inn som et nytt blad, på den plassen søket etter `z` ville endt | $O(h)$ |\n| `Tree-Search(x, v)` | leter etter nøkkelen `v` i deltreet med rot `x` | $O(h)$ |\n| `Tree-Minimum(x)` | følger `left`-pekerne så langt de går | $O(h)$ |\n| `Tree-Maximum(x)` | følger `right`-pekerne så langt de går | $O(h)$ |\n| `Inorder-Tree-Walk(x)` | skriver ut hele deltreet i **sortert** rekkefølge | $\\Theta(n)$ |\n| `Build-Max-Heap(A)` | kontrast fra [kap. 3.1](/tdt4120/tdt4120-3-1): ordner opp–ned, ikke venstre–høyre | $\\Theta(n)$ |\n\n**Formler i dette delkapitlet:**\n\n$$\\text{venstre deltre} \\;\\le\\; \\text{rot} \\;\\le\\; \\text{høyre deltre}$$\n\nSøketreegenskapen. Den gjelder i **hver** node, ikke bare i rota.\n\n$$\\lfloor \\lg n \\rfloor \\;\\le\\; h \\;\\le\\; n-1$$\n\nHøydens ytterpunkter: perfekt balansert tre mot degenerert lenket liste.\n\n$$h = \\Theta(\\lg n) \\text{ forventet for et tilfeldig bygd tre}$$\n\nForventningen over alle innsettingsrekkefølger — ingen garanti for det enkelte treet.\n"
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-3-2-t-5",
+      "type": "text",
+      "content": "## Søketreegenskapen, og kontrasten mot haugen (~11 min)\n\nEt bibliotek har et kortregister der hvert kort peker videre til to andre kort:\nett for «lavere nummer» og ett for «høyere nummer». Leter du etter et bestemt\nnummer, sammenligner du med kortet du står på og går én vei. Du slipper å lete\ngjennom resten.\n\nDet er et **binært søketre**. Strukturen er den samme som haugen — noder med to\nbarn hver — men regelen som ordner nodene er en helt annen."
+    },
+    {
+      "id": "tdt4120-3-2-def-6",
+      "type": "definition",
+      "title": "Søketreegenskapen",
+      "content": "I et **binært søketre** gjelder for hver node `x`: alle nøkler i venstre deltre\ner $\\le$ `x.key`, og alle nøkler i høyre deltre er $\\ge$ `x.key`.\n\nRegelen gjelder i **hver eneste node**, ikke bare i rota. Det holder ikke at\nvenstre barn er mindre enn `x` — hele venstre deltre må være det, også\nbarnebarna.\n\n**Det er venstre–høyre-ordenen som er poenget.** Ingenting sies om hvor dypt\nnoe ligger, og treet trenger ikke være balansert."
+    },
+    {
+      "id": "tdt4120-3-2-def-7",
+      "type": "definition",
+      "title": "Kontrasten: haugegenskapen",
+      "content": "I en **maks-haug** gjelder for hver node at forelderen er $\\ge$ **begge**\nbarna. Det er en **opp–ned**-ordning.\n\nEn maks-haug sier ingenting om venstre mot høyre: venstre barn kan godt være\nstørre enn høyre barn, og arrayet er ikke sortert.\n\n**Dette er felle #2 — å blande de to strukturene.** Kontrollen er å spørre hva\nregelen ordner: haugen ordner nedover, søketreet ordner sidelengs."
+    },
+    {
+      "id": "tdt4120-3-2-def-8",
+      "type": "definition",
+      "title": "Høyden $h$",
+      "content": "**Høyden** til et tre er antall kanter på den lengste stien fra rota ned til et\nblad. Et tre med bare rota har høyde 0.\n\nAlle søketreoperasjonene utenom traverseringene er $O(h)$ — de følger én sti\nnedover.\n\n**Høyden er ikke bestemt av $n$ alene.** Den ligger mellom\n$\\lfloor\\lg n\\rfloor$ (perfekt balansert) og $n-1$ (en lenket liste), og hvilken\ndet blir, avhenger av innsettingsrekkefølgen."
+    },
+    {
+      "id": "tdt4120-3-2-oppg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-3-2-oppg-9-inner",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave, sjanger D — definisjon med egne ord, altså én presis setning\nmed hovedpoenget først.)\n\nDefinér søketreegenskapen, og si med én setning hva som skiller den fra\nhaugegenskapen.",
+        "solution": "**Søketreegenskapen:** for hver node `x` er alle nøkler i venstre deltre\n$\\le$ `x.key`, og alle nøkler i høyre deltre er $\\ge$ `x.key`.\n\n**Forskjellen:** søketreet ordner **venstre–høyre**, haugen ordner\n**opp–ned**. En maks-haug krever bare at forelderen er $\\ge$ begge barna, og\nsier ingenting om hvilket av barna som er størst.\n\nMerk at regelen gjelder i hver node, ikke bare i rota — hele deltreet, ikke\nbare det nærmeste barnet.",
+        "hints": [
+          "Hovedpoenget er hvilken retning regelen ordner i.",
+          "Er det nok å sammenligne en node med barna sine, eller gjelder det hele deltreet?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-3-2-fig-10",
+      "type": "image",
+      "src": "/images/textbook/tdt4120/3-2-bst-innsetting-og-inorder.svg",
+      "alt": "Et binaert soketre med rota 46. Venstre deltre har 25 med barna 13 og 31, og 31 har venstre barn 29. Hoyre deltre har 68 med barna 57 og 79. Nodene er nummerert fra 1 til 8 i inorder-rekkefolge. Under staar innsettingsveien for 29: 29 er mindre enn 46 saa venstre, 29 er stoerre enn 25 saa hoyre, 29 er mindre enn 31 saa venstre, og der er det ledig plass. En note sier at inorder leser tallene 13, 25, 29, 31, 46, 57, 68 og 79, altsaa sortert.",
+      "caption": "Treet fra Eksempel 1 etter at 29 er satt inn. De grønne tallene er inorder-rekkefølgen — les dem i stigende rekkefølge, og du får nøklene sortert."
+    },
+    {
+      "id": "tdt4120-3-2-warn-11",
+      "type": "warning",
+      "title": "Typiske feil ved søketreegenskapen",
+      "content": "- **Å forveksle søketreegenskapen med haugegenskapen.** Dette er felle **#2**\n  — å blande de to strukturene. En haug ordner opp–ned; et søketre ordner\n  venstre–høyre. Kontrollen: kjør `Inorder-Tree-Walk` i hodet. Kommer nøklene\n  ut sortert, er det et søketre.\n- **Å bare sjekke de nærmeste barna.** Egenskapen gjelder hele deltreet. Et tre\n  der rota er 46, venstre barn er 25 og 25 sitt høyre barn er 50, bryter\n  egenskapen — 50 ligger i rotas venstre deltre og er større enn 46 — selv om\n  hver enkelt forelder–barn-relasjon ser riktig ut.\n- **Å anta at treet er balansert.** Ingenting i egenskapen krever det, og\n  høyden kan bli $n-1$."
+    },
+    {
+      "id": "tdt4120-3-2-t-12",
+      "type": "text",
+      "content": "## `Tree-Insert` og innsettingsveien (~12 min)\n\nInnsetting er den enkleste operasjonen, og den som oftest håndkjøres. Ideen er\nat den nye nøkkelen skal ende opp nøyaktig der et søk etter den ville stoppet."
+    },
+    {
+      "id": "tdt4120-3-2-thm-13",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `Tree-Insert`",
+      "content": "**Antagelser om representasjon.** Hver node `x` har feltene `x.key`, `x.left`,\n`x.right` og `x.p`. Manglende barn og manglende forelder er `NIL`. Treet `T`\nhar `T.root`. Noden `z` som settes inn, har `z.left = z.right = NIL`.\n\n**Prebetingelse:** `T` oppfyller søketreegenskapen.\n**Postbetingelse:** `T` inneholder `z` i tillegg til de gamle nøklene, og\noppfyller fortsatt søketreegenskapen. `z` er et **blad**.\n\n```text\nTree-Insert(T, z)\n  Input:  soeketreet T og en ny node z med noekkel z.key\n  Output: T med z satt inn som blad\n  y = NIL\n  x = T.root\n  while x != NIL\n      y = x\n      if z.key < x.key\n          x = x.left\n      else\n          x = x.right\n  z.p = y\n  if y == NIL\n      T.root = z\n  else if z.key < y.key\n      y.left = z\n  else\n      y.right = z\n  Kjoeretid: O(h)\n```\n\n**Invarianten i én setning:** hvis `z.key` skal inn i treet, ligger den\nriktige plassen i deltreet med rot `x` — og `y` er alltid forelderen til `x`.\n\n**Legg merke til at ingen eksisterende node flyttes.** Innsettingen henger bare\npå et nytt blad. Det er derfor et søketre bygget ved gjentatte innsettinger kan\nbli skjevt: strukturen bestemmes helt av rekkefølgen nøklene kommer i.\n\n**Kjøretid:** $O(h)$ — løkka følger én sti fra rota og nedover, og gjør\nkonstant arbeid per nivå. Grensen er $O$ og ikke $\\Theta$ fordi stien kan være\nkort."
+    },
+    {
+      "id": "tdt4120-3-2-eks-14",
+      "type": "example",
+      "title": "Eksempel 1: Åtte innsettinger, og veien hver nøkkel tar",
+      "problem": "Åtte medlemsnumre registreres i denne rekkefølgen: `46, 25, 68, 13, 31, 57,\n79`, og til slutt `29`.\n\nSett dem inn i et tomt binært søketre med `Tree-Insert`, og oppgi\n`Inorder-Tree-Walk`-utskriften til slutt.",
+      "solution": "| Nøkkel | Sammenligninger på veien ned | Havner som |\n|---|---|---|\n| 46 | — | rot |\n| 25 | 25 < 46 → venstre | venstre barn av 46 |\n| 68 | 68 > 46 → høyre | høyre barn av 46 |\n| 13 | 13 < 46 → venstre · 13 < 25 → venstre | venstre barn av 25 |\n| 31 | 31 < 46 → venstre · 31 > 25 → høyre | høyre barn av 25 |\n| 57 | 57 > 46 → høyre · 57 < 68 → venstre | venstre barn av 68 |\n| 79 | 79 > 46 → høyre · 79 > 68 → høyre | høyre barn av 68 |\n| 29 | 29 < 46 → venstre · 29 > 25 → høyre · 29 < 31 → venstre | venstre barn av 31 |\n\nTreet ser slik ut etterpå:\n\n```text\n                  46\n          25              68\n      13      31      57      79\n            29\n```\n\n**Sluttilstanden — det du ville levert på eksamen:**\n\n**`13, 25, 29, 31, 46, 57, 68, 79`**\n\n**Kontrollen er gratis.** Inorder-utskriften skal være sortert. Er den ikke\ndet, har du satt inn feil et sted — og du finner feilen ved å gå tilbake til\nden første nøkkelen som kommer ut av rekkefølge.\n\n**Legg merke til veien 29 tok.** Den gikk til venstre fra 46, til høyre fra 25,\nog til venstre fra 31. Tre sammenligninger, og så et ledig sted. Det er alltid\nslik: nøkkelen ender der søket etter den ville stoppet.\n\nHøyden til treet er 3 — den lengste stien er\n46–25–31–29."
+    },
+    {
+      "id": "tdt4120-3-2-oppg-15",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-3-2-oppg-15-inner",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C — håndkjøring, altså at du utfører algoritmen steg for\nsteg og oppgir bare sluttilstanden.)\n\nSett inn nøklene `40, 62, 18, 55, 71, 9, 27` i denne rekkefølgen i et tomt\nbinært søketre.\n\n**a)** Oppgi `Inorder-Tree-Walk`-utskriften.\n**b)** Hva er rotas nøkkel, og hva er treets høyde?",
+        "solution": "**a)** `9, 18, 27, 40, 55, 62, 71`\n\n**b)** Rota er **40** — den første nøkkelen som settes inn, blir alltid rota.\nHøyden er **2**: de lengste stiene er 40–62–55, 40–62–71, 40–18–9 og 40–18–27,\nalle med to kanter.\n\nTreet:\n\n```text\n                  40\n          18              62\n       9      27      55      71\n```\n\nKontroll: inorder-utskriften er sortert, og den inneholder nøyaktig de sju\nnøklene.",
+        "hints": [
+          "Den første nøkkelen blir rota. Deretter går hver ny nøkkel én vei per sammenligning.",
+          "Inorder-utskriften er alltid sortert — bruk det som kontroll til slutt."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-3-2-t-16",
+      "type": "text",
+      "content": "## `Inorder-Tree-Walk` og de tre traverseringene (~11 min)\n\nTraverseringen er der søketreets viktigste egenskap kommer til syne."
+    },
+    {
+      "id": "tdt4120-3-2-thm-17",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `Inorder-Tree-Walk`",
+      "content": "**Antagelser om representasjon.** Som over: `x.key`, `x.left`, `x.right`, med\n`NIL` for manglende barn. Kallet utenfra er\n`Inorder-Tree-Walk(T.root)`.\n\n**Prebetingelse:** deltreet med rot `x` oppfyller søketreegenskapen.\n**Postbetingelse:** alle nøkler i deltreet er skrevet ut, i **stigende**\nrekkefølge.\n\n```text\nInorder-Tree-Walk(x)\n  Input:  rota x i et deltre\n  Output: alle noekler i deltreet, skrevet ut sortert\n  if x != NIL\n      Inorder-Tree-Walk(x.left)\n      skriv ut x.key\n      Inorder-Tree-Walk(x.right)\n  Kjoeretid: Theta(n)\n```\n\n**Grunnideen i én setning:** søketreegenskapen sier at alt i venstre deltre er\n$\\le$ `x.key` og alt i høyre deltre er $\\ge$ `x.key` — så skriver du ut venstre\nførst, deretter `x` selv, deretter høyre, kommer nøklene ut i orden.\n\n**Kjøretid:** $\\Theta(n)$. Hver node besøkes nøyaktig én gang, og arbeidet per\nnode er konstant. Her er grensen tett: ingen input gjør traverseringen\nkortere, siden alle nodene skal skrives ut.\n\n**De to søsknene** følger samme mønster, men med utskriften plassert et annet\nsted: **preorder** skriver `x` **før** deltrærne, og **postorder** skriver `x`\n**etter** dem. Ingen av dem gir sortert utskrift."
+    },
+    {
+      "id": "tdt4120-3-2-eks-18",
+      "type": "example",
+      "title": "Eksempel 2: De tre traverseringene på samme tre",
+      "problem": "Bruk treet fra Eksempel 1 — det med rota 46 og nøklene `13, 25, 29, 31, 46,\n57, 68, 79`.\n\nOppgi utskriften fra `Inorder-Tree-Walk`, fra preorder og fra postorder, og si\nhva hver av dem er nyttig til.",
+      "solution": "| Traversering | Utskrift |\n|---|---|\n| **inorder** (venstre, node, høyre) | `13, 25, 29, 31, 46, 57, 68, 79` |\n| **preorder** (node, venstre, høyre) | `46, 25, 13, 31, 29, 68, 57, 79` |\n| **postorder** (venstre, høyre, node) | `13, 29, 31, 25, 57, 79, 68, 46` |\n\n**Inorder** gir sortert rekkefølge. Det er den ene av de tre som utnytter\nsøketreegenskapen, og den eneste som er interessant på eksamen.\n\n**Preorder** starter i rota og tar venstre deltre ferdig før høyre. Den er\nnyttig til å skrive ned et tre slik at det kan bygges opp igjen med nøyaktig\nsamme form — legg merke til at preorder-listen begynner med 46, som er rota.\n\n**Postorder** besøker begge barna før noden selv. Den passer når noe skal\ngjøres nedenfra og opp, for eksempel å frigjøre minne.\n\n**Fellen:** inorder gir **ikke** innsettingsrekkefølgen. Innsettingsrekkefølgen\ni Eksempel 1 var `46, 25, 68, 13, 31, 57, 79, 29`, og den ser du ikke igjen i\nnoen av de tre listene. Preorder er nærmest, men er ikke den samme: den ville\ngitt `46, 25, 13, 31, 29, 68, 57, 79`."
+    },
+    {
+      "id": "tdt4120-3-2-oppg-19",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-3-2-oppg-19-inner",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger F — «stemmer dette?», altså ja eller nei først og\nderetter én presis setning.)\n\nTa stilling til hver av påstandene:\n\n**a)** `Inorder-Tree-Walk` skriver ut nøklene i den rekkefølgen de ble satt\ninn.\n**b)** To ulike søketrær over de samme nøklene gir samme inorder-utskrift.\n**c)** `Inorder-Tree-Walk` er $O(h)$.",
+        "solution": "**a)** **Nei.** Den skriver ut nøklene **sortert**. Innsettingsrekkefølgen er\nikke lagret noe sted i treet — bare formen på treet bærer spor av den.\n\n**b)** **Ja.** Inorder-utskriften er den sorterte rekkefølgen, og den avhenger\nbare av hvilke nøkler som finnes, ikke av treets form.\n\n**c)** **Nei.** Den er $\\Theta(n)$: hver node skrives ut nøyaktig én gang, så\nkjøretiden er proporsjonal med antall noder, ikke med høyden.\n\nPunkt b) er verdt å merke seg som kontrollverktøy: to studenter som setter inn\nde samme nøklene i ulik rekkefølge, får ulike trær, men **samme**\ninorder-utskrift.",
+        "hints": [
+          "Hva er det inorder-rekkefølgen faktisk sier noe om — formen eller innholdet?",
+          "Hvor mange noder må besøkes for å skrive ut hele treet?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-3-2-t-20",
+      "type": "text",
+      "content": "## Søk, minimum og maksimum (~8 min)\n\nDe tre siste operasjonene er varianter av det samme: følg én sti nedover."
+    },
+    {
+      "id": "tdt4120-3-2-thm-21",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `Tree-Search`, `Tree-Minimum` og `Tree-Maximum`",
+      "content": "**Antagelser om representasjon.** Som over. Alle tre kalles med rota i det\ndeltreet det skal letes i.\n\n**Prebetingelse:** deltreet oppfyller søketreegenskapen; for `Tree-Minimum` og\n`Tree-Maximum` må det være ikke-tomt.\n**Postbetingelse:** `Tree-Search` returnerer noden med nøkkelen `v` hvis den\nfinnes, ellers `NIL`. `Tree-Minimum` returnerer noden med den minste nøkkelen,\n`Tree-Maximum` den med den største.\n\n```text\nTree-Search(x, v)\n  Input:  rota x i et deltre og en noekkel v\n  Output: noden med noekkel v, eller NIL\n  while x != NIL and v != x.key\n      if v < x.key\n          x = x.left\n      else\n          x = x.right\n  return x\n\nTree-Minimum(x)\n  while x.left != NIL\n      x = x.left\n  return x\n\nTree-Maximum(x)\n  while x.right != NIL\n      x = x.right\n  return x\n  Kjoeretid: O(h) for alle tre\n```\n\n**Grunnideen i én setning:** søketreegenskapen gjør at hver sammenligning\nutelukker et helt deltre — og at det minste elementet ligger så langt til\nvenstre som det er mulig å komme.\n\n**Kjøretid:** $O(h)$ for alle tre. Hver runde går ett nivå ned, og det finnes\n$h$ nivåer.\n\n**Kontrasten mot maks-haugen er verdt å merke seg.** I en maks-haug ligger\nmaksimum alltid på `A[1]` og koster $\\Theta(1)$ å finne, mens **minimum**\nkrever at du leter gjennom alle bladene, altså $\\Theta(n)$. I et søketre\nkoster begge $O(h)$ — strukturen er mer symmetrisk."
+    },
+    {
+      "id": "tdt4120-3-2-oppg-22",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-3-2-oppg-22-inner",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C og E — håndkjøring og kjøretid.)\n\nBruk treet fra Eksempel 1 (rota 46, nøklene `13, 25, 29, 31, 46, 57, 68, 79`).\n\n**a)** Hvilke noder besøker `Tree-Search` når den leter etter 57?\n**b)** Hva returnerer `Tree-Minimum(T.root)` og `Tree-Maximum(T.root)`?\n**c)** Hva er kjøretiden til et søk, uttrykt i høyden?",
+        "solution": "**a)** `46, 68, 57`. Søket sammenligner 57 med 46 og går til høyre, sammenligner\nmed 68 og går til venstre, og finner 57.\n\n**b)** `Tree-Minimum` gir **13** — følg `left` fra 46 til 25 til 13, og der\nfinnes ingen venstre barn. `Tree-Maximum` gir **79** — følg `right` fra 46 til\n68 til 79.\n\n**c)** $O(h)$, der $h$ er treets høyde. Grensen er $O$ og ikke $\\Theta$ fordi\nsøket kan stoppe med én gang, hvis nøkkelen ligger i rota.",
+        "hints": [
+          "Start i rota og sammenlign. Hver sammenligning velger én av to veier.",
+          "Minimum ligger så langt til venstre som mulig — følg `left` til den tar slutt."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-3-2-t-23",
+      "type": "text",
+      "content": "## Høyden — der kjøretiden avgjøres (~8 min)\n\nAlle kjøretidene over er $O(h)$. Det er et ærlig svar, men det utsetter\nspørsmålet: hvor stor er $h$?\n\nSvaret avhenger fullstendig av rekkefølgen nøklene ble satt inn i, og det er\nher et søketre kan gå fullstendig galt."
+    },
+    {
+      "id": "tdt4120-3-2-fig-24",
+      "type": "image",
+      "src": "/images/textbook/tdt4120/3-2-degenerert-bst.svg",
+      "alt": "Seks noder i en loddrett kjede: 8 paa dybde 0, 15 paa dybde 1, 23 paa dybde 2, 34 paa dybde 3, 42 paa dybde 4 og 56 paa dybde 5. Hver node har bare hoyre barn. En note forklarer at alle noeklene er stoerre enn forgjengeren, saa hver innsetting gaar til hoyre, og at treet dermed er en lenket liste med hoyde 5 og seks noder.",
+      "caption": "Det degenererte treet: nøklene `8, 15, 23, 34, 42, 56` satt inn i stigende rekkefølge gir høyde $h = n-1 = 5$. Et søk etter 56 må gjennom alle seks nodene."
+    },
+    {
+      "id": "tdt4120-3-2-def-25",
+      "type": "definition",
+      "title": "Høydens ytterpunkter",
+      "content": "For et binært søketre med $n$ noder gjelder\n$\\lfloor\\lg n\\rfloor \\le h \\le n-1$.\n\nNedre grense nås av et perfekt balansert tre; øvre grense nås når nøklene\nsettes inn i **stigende** eller **synkende** rekkefølge, slik at hver\ninnsetting går samme vei og treet blir en lenket liste.\n\n**Med $h = n-1$ er alle operasjonene $\\Theta(n)$**, og søketreet har ingen\nfordel framfor en usortert liste."
+    },
+    {
+      "id": "tdt4120-3-2-def-26",
+      "type": "definition",
+      "title": "Forventet høyde for et tilfeldig bygd tre",
+      "content": "Settes $n$ forskjellige nøkler inn i tilfeldig rekkefølge, er den **forventede**\nhøyden $\\Theta(\\lg n)$.\n\nDet er en forventning over alle innsettingsrekkefølger, ikke en garanti for det\nenkelte treet.\n\n**Skillet er en eksamensfelle:** å svare $\\Theta(\\lg n)$ på et spørsmål om\nverste tilfelle er galt. Verste tilfelle er $\\Theta(n)$."
+    },
+    {
+      "id": "tdt4120-3-2-eks-27",
+      "type": "example",
+      "title": "Eksempel 3: Samme nøkler, to helt ulike trær",
+      "problem": "Seks lagernumre skal inn i et søketre: `8, 15, 23, 34, 42, 56`.\n\n**a)** Hva blir treets høyde hvis de settes inn i denne rekkefølgen?\n**b)** Finn en innsettingsrekkefølge som gir så lav høyde som mulig, og oppgi\nhøyden.\n**c)** Hva er inorder-utskriften i de to tilfellene?",
+      "solution": "**a)** Nøklene kommer i stigende rekkefølge, så hver eneste innsetting går til\nhøyre. Treet blir en kjede:\n\n```text\n  8\n    15\n      23\n        34\n          42\n            56\n```\n\nHøyden er 5, altså $n-1$. Et søk etter 56 må\ngjennom alle seks nodene.\n\n**b)** Sett inn medianen først, deretter medianene i hver halvdel:\n`34, 15, 56, 8, 23, 42`.\n\n```text\n              34\n        15          56\n      8    23     42\n```\n\nHøyden er 2, altså $\\lfloor\\lg 6\\rfloor = 2$ — så lavt det går med seks noder.\n\n**c)** **Den samme i begge tilfeller:** `8, 15, 23, 34, 42, 56`.\n\nDet er hele poenget. Inorder-utskriften avhenger bare av **hvilke** nøkler\ntreet inneholder, ikke av **hvordan** de ligger. Formen påvirker kjøretiden,\nikke innholdet.\n\n**Svarformen på eksamen:** høyden er ett tall, utskriften er én linje. Ikke\ntegn treet med mindre oppgaven ber om det."
+    },
+    {
+      "id": "tdt4120-3-2-oppg-28",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-3-2-oppg-28-inner",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger F — «stemmer dette?».)\n\nEn kandidat skriver i besvarelsen sin: «Søk i et binært søketre er\n$\\Theta(\\lg n)$, siden treet halverer søkeområdet i hvert steg.»\n\nEr utsagnet riktig? Svar ja eller nei, og gi et konkret motbevis.",
+        "solution": "**Nei.**\n\nSøk er $O(h)$, og $h$ er ikke garantert $\\Theta(\\lg n)$. Halveringen skjer bare\nhvis treet er balansert, og ingenting i søketreegenskapen krever det.\n\n**Motbevis:** sett inn `8, 15, 23, 34, 42, 56` i denne rekkefølgen. Hver\ninnsetting går til høyre, treet blir en lenket liste med høyde $n-1 = 5$, og et\nsøk etter 56 sammenligner mot alle seks nodene. Det er $\\Theta(n)$, ikke\n$\\Theta(\\lg n)$.\n\n**Den riktige formuleringen:** søk er $O(h)$, og $h$ er $\\Theta(\\lg n)$\n**forventet** for et tilfeldig bygd tre, men $\\Theta(n)$ i verste tilfelle.",
+        "hints": [
+          "Hvilken forutsetning må være oppfylt for at «halvering i hvert steg» skal stemme?",
+          "Finn en innsettingsrekkefølge som gjør treet så skjevt som mulig."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-3-2-oppg-29",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-3-2-oppg-29-inner",
+        "number": 6,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger H — åpen algoritmedesign, altså at du skisserer en\nalgoritme kort: hvilket kjent problem det er, hvilket paradigme du bruker,\nkonstruksjonen, hvordan du henter ut selve svaret, og kjøretiden.)\n\nDu får $n$ forskjellige heltall i vilkårlig rekkefølge og skal skrive dem ut\nsortert.\n\n**a)** Beskriv en løsning som bygger et binært søketre.\n**b)** Hva er kjøretiden i beste og verste tilfelle, og hvorfor er dette et\ndårligere valg enn `Merge-Sort`?",
+        "solution": "**a)** **Det klassiske problemet.** Dette er sortering.\n\n**Paradigmet.** Bygg en datastruktur som holder orden, og les den av.\n\n**Konstruksjonen.** Kall `Tree-Insert` én gang per tall, i den rekkefølgen de\nkommer. Kall deretter `Inorder-Tree-Walk(T.root)`.\n\n**Rekonstruksjon av selve svaret.** Utskriften fra traverseringen **er** den\nsorterte listen — det trengs ingen ekstra bearbeiding, og traverseringen koster\n$\\Theta(n)$ uansett treets form.\n\n**Kjøretid.** $n$ innsettinger à $O(h)$, pluss $\\Theta(n)$ til traverseringen.\n\n**b)** Beste tilfelle: tallene kommer i en rekkefølge som gir et balansert tre,\naltså $h = \\Theta(\\lg n)$, og totalen blir $\\Theta(n\\lg n)$.\n\nVerste tilfelle: tallene kommer sortert. Da går hver innsetting helt ned til\nbunnen av en stadig lengre kjede, og totalen blir\n$1 + 2 + \\dots + (n-1) = \\Theta(n^2)$.\n\n**Hvorfor `Merge-Sort` er bedre:** den er $\\Theta(n\\lg n)$ **garantert**, mens\ndenne løsningen bare er det når inputen er heldig — og den verste inputen er\nden som ser mest velordnet ut. I tillegg bruker søketreet $\\Theta(n)$ ekstra\nplass til noder og pekere.",
+        "hints": [
+          "Hvilken operasjon gir deg nøklene i sortert rekkefølge når treet først er bygget?",
+          "Hva skjer med innsettingskostnaden når treet blir en lenket liste?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-3-2-warn-30",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "De to første koster hele oppgaven.\n\n- **Å forveksle søketreegenskapen med haugegenskapen.** Dette er felle **#2** —\n  å blande de to strukturene. Kontrollen er å kjøre `Inorder-Tree-Walk` i\n  hodet: kommer nøklene ut sortert, er det et søketre.\n- **Å tro at inorder gir innsettingsrekkefølgen.** Den gir **sortert**\n  rekkefølge. Innsettingsrekkefølgen finnes ikke lagret noe sted i treet.\n- **Å gå til feil side under innsetting.** Mindre går til venstre, større til\n  høyre — og sammenligningen gjøres mot **den noden du står i**, ikke mot rota.\n- **Å svare $\\Theta(\\lg n)$ på et spørsmål om verste tilfelle.**\n  $\\Theta(\\lg n)$ er den forventede høyden for et tilfeldig bygd tre. Verste\n  tilfelle er $\\Theta(n)$, og det inntreffer på sortert input.\n- **Å oppgi $\\Theta(h)$ der operasjonen er $O(h)$.** Et søk kan stoppe i rota;\n  grensen er derfor bare øvre.\n- **Å oppgi `Inorder-Tree-Walk` som $O(h)$.** Den er $\\Theta(n)$ — hver node\n  skrives ut.\n- **Å bare sjekke nærmeste barn** når du skal avgjøre om et tre er et søketre.\n  Egenskapen gjelder hele deltreet.\n\nOg den gjennomgående: **å levere treet når oppgaven ba om utskriften**.\nSvarformatet for en søketre-håndkjøring er `Inorder-Tree-Walk`-linja, eventuelt\nmed rotverdien hvis den er spurt om."
+    },
+    {
+      "id": "tdt4120-3-2-t-31",
+      "type": "text",
+      "content": "## Kjøretidene samlet\n\nDette er kapitlets puggeflate. Eksamen er hjelpemiddelfri, så tabellen må ligge\ni hodet.\n\n| Operasjon | Kjøretid | Krav / egenskap |\n|---|---|---|\n| `Tree-Insert` | $O(h)$ | ny node blir alltid et blad; ingen eksisterende node flyttes |\n| `Tree-Search` | $O(h)$ | hver sammenligning utelukker ett helt deltre |\n| `Tree-Minimum` | $O(h)$ | følg `left` så langt det går |\n| `Tree-Maximum` | $O(h)$ | følg `right` så langt det går |\n| `Inorder-Tree-Walk` | $\\Theta(n)$ | gir **sortert** utskrift; tett grense, alle noder besøkes |\n| Preorder- og postorder-traversering | $\\Theta(n)$ | gir **ikke** sortert utskrift |\n| Høyden $h$ | $\\Theta(\\lg n)$ forventet, $\\Theta(n)$ verste | verste tilfelle på sortert input |\n| Sortering via søketre | $\\Theta(n\\lg n)$ beste, $\\Theta(n^2)$ verste | dårligere enn `Merge-Sort`, som garanterer |\n\n**Én presisering som er verdt å ta med seg.** Alle $O(h)$-operasjonene er\n$\\Theta(n)$ i verste tilfelle, siden $h$ kan bli $n-1$. Skriver du bare\n«$O(\\lg n)$» om et søketre uten å nevne balansen, har du lovet noe strukturen\nikke garanterer.\n\n**Kontrasten mot maks-haugen fra [kap. 3.1](/tdt4120/tdt4120-3-1):**\n\n| | Maks-haug | Binært søketre |\n|---|---|---|\n| Ordner | opp–ned: forelder $\\ge$ begge barn | venstre–høyre: venstre $\\le$ rot $\\le$ høyre |\n| Finne maksimum | $\\Theta(1)$ — ligger på `A[1]` | $O(h)$ — helt til høyre |\n| Finne minimum | $\\Theta(n)$ — må lete i alle bladene | $O(h)$ — helt til venstre |\n| Sortert utskrift | krever `Heapsort`, $\\Theta(n\\lg n)$ | `Inorder-Tree-Walk`, $\\Theta(n)$ |\n| Form | alltid nesten komplett | kan bli en lenket liste |"
+    },
+    {
+      "id": "tdt4120-3-2-t-32",
+      "type": "text",
+      "content": "### Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp\nhar lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet\ngjelder kjernestoffet."
+    },
+    {
+      "id": "tdt4120-3-2-def-33",
+      "type": "definition",
+      "title": "Binært søketre",
+      "content": "en trestruktur der hver node har høyst to barn, og der søketreegenskapen holder\ni hver node.\n\nStøtter innsetting, søk, minimum og maksimum i $O(h)$, og sortert utskrift i\n$\\Theta(n)$.\n\n**Formen bestemmes av innsettingsrekkefølgen**, og ingenting garanterer at\ntreet er balansert."
+    },
+    {
+      "id": "tdt4120-3-2-def-34",
+      "type": "definition",
+      "title": "Søketreegenskapen",
+      "content": "for hver node `x`: alle nøkler i venstre deltre er $\\le$ `x.key`, og alle\nnøkler i høyre deltre er $\\ge$ `x.key`.\n\nRegelen gjelder i **hver** node og for **hele** deltreet, ikke bare for de\nnærmeste barna.\n\n**Kontrollen er inorder:** kommer nøklene ut sortert, holder egenskapen."
+    },
+    {
+      "id": "tdt4120-3-2-def-35",
+      "type": "definition",
+      "title": "`Tree-Insert`",
+      "content": "setter en ny nøkkel inn som et blad, på den plassen et søk etter nøkkelen ville\nendt.\n\nKjøretid $O(h)$.\n\n**Ingen eksisterende node flyttes.** Derfor bærer treets form et fullstendig\navtrykk av rekkefølgen nøklene kom i."
+    },
+    {
+      "id": "tdt4120-3-2-def-36",
+      "type": "definition",
+      "title": "`Inorder-Tree-Walk`",
+      "content": "skriver ut deltreet i rekkefølgen venstre deltre, node, høyre deltre — som gir\n**sortert** utskrift.\n\nKjøretid $\\Theta(n)$, tett grense: hver node besøkes nøyaktig én gang.\n\n**Gir ikke innsettingsrekkefølgen.** Den er ikke lagret noe sted i treet."
+    },
+    {
+      "id": "tdt4120-3-2-def-37",
+      "type": "definition",
+      "title": "Preorder-traversering",
+      "content": "skriver ut noden **før** deltrærne: node, venstre, høyre.\n\nKjøretid $\\Theta(n)$. Gir **ikke** sortert utskrift, men starter alltid med\nrota.\n\n**Nyttig til å skrive ned treets form** slik at det kan bygges opp igjen\nidentisk."
+    },
+    {
+      "id": "tdt4120-3-2-def-38",
+      "type": "definition",
+      "title": "Postorder-traversering",
+      "content": "skriver ut noden **etter** deltrærne: venstre, høyre, node.\n\nKjøretid $\\Theta(n)$. Gir **ikke** sortert utskrift.\n\n**Passer når noe skal gjøres nedenfra og opp**, for eksempel å frigjøre\nnoder."
+    },
+    {
+      "id": "tdt4120-3-2-def-39",
+      "type": "definition",
+      "title": "`Tree-Search`",
+      "content": "leter etter en nøkkel ved å sammenligne med noden man står i og gå én vei.\n\nKjøretid $O(h)$.\n\n**Hver sammenligning utelukker et helt deltre** — det er derfor søket er\nbillig, når treet er balansert."
+    },
+    {
+      "id": "tdt4120-3-2-def-40",
+      "type": "definition",
+      "title": "`Tree-Minimum` og `Tree-Maximum`",
+      "content": "følger henholdsvis `left`- og `right`-pekerne så langt de går.\n\nKjøretid $O(h)$ begge.\n\n**Symmetrien er en forskjell fra haugen:** i en maks-haug er maksimum\n$\\Theta(1)$, men minimum $\\Theta(n)$."
+    },
+    {
+      "id": "tdt4120-3-2-def-41",
+      "type": "definition",
+      "title": "Høyden $h$",
+      "content": "antall kanter på den lengste stien fra rota ned til et blad. Et tre med bare\nrota har høyde 0.\n\n$\\lfloor\\lg n\\rfloor \\le h \\le n-1$.\n\n**Alle $O(h)$-kjøretidene blir $\\Theta(n)$ når treet degenererer**, og det gjør\ndet på sortert input."
+    },
+    {
+      "id": "tdt4120-3-2-def-42",
+      "type": "definition",
+      "title": "Degenerert søketre",
+      "content": "et tre der hver node har bare ett barn, slik at treet er en lenket liste med\nhøyde $n-1$.\n\nOppstår når nøklene settes inn i stigende eller synkende rekkefølge.\n\n**Alle operasjonene blir $\\Theta(n)$**, og treet har ingen fordel framfor en\nusortert liste."
+    },
+    {
+      "id": "tdt4120-3-2-def-43",
+      "type": "definition",
+      "title": "Forventet høyde",
+      "content": "$\\Theta(\\lg n)$ for et tre bygget ved å sette inn $n$ forskjellige nøkler i\ntilfeldig rekkefølge.\n\nDet er en forventning over alle innsettingsrekkefølger.\n\n**Ikke en garanti.** Verste tilfelle er $\\Theta(n)$, og spørsmål om verste\ntilfelle skal besvares med det."
+    },
+    {
+      "id": "tdt4120-3-2-def-44",
+      "type": "definition",
+      "title": "Felle #2 — søketre mot haug",
+      "content": "å blande søketreegenskapen (venstre $\\le$ rot $\\le$ høyre) med haugegenskapen\n(forelder $\\ge$ begge barn).\n\nDen mest fremhevede datastrukturfeilen i faget.\n\n**Kontrollen:** hva ordner regelen? Haugen ordner opp–ned, søketreet ordner\nsidelengs."
+    },
+    {
+      "id": "tdt4120-3-2-def-45",
+      "type": "definition",
+      "title": "Blad",
+      "content": "en node uten barn.\n\nNye nøkler settes alltid inn som blader, og det er blader som ligger dypest i\ntreet.\n\n**Høyden er avstanden til det dypeste bladet**, målt i antall kanter."
+    },
+    {
+      "id": "tdt4120-3-2-def-46",
+      "type": "definition",
+      "title": "Svarformat for en søketre-håndkjøring",
+      "content": "oppgi `Inorder-Tree-Walk`-utskriften, og rotverdien hvis den er spurt om.\n\nTegn treet bare når oppgaven ber om det.\n\n**Kontrollen før du leverer:** er utskriften sortert, og inneholder den\nnøyaktig de nøklene som ble satt inn?"
+    },
+    {
+      "id": "tdt4120-3-2-def-47",
+      "type": "definition",
+      "title": "Sjanger C — håndkjøring",
+      "content": "oppgavetypen der du utfører en navngitt algoritme steg for steg og oppgir\nsluttilstanden.\n\nSøketrær og hauger er de to hyppigste strukturene: temaet er registrert i 16 av\nde 17 settene i grunnlaget.\n\n**Svarformen er kun sluttilstanden.** En forklaring av algoritmen gir ingen\nekstra uttelling."
+    },
+    {
+      "id": "tdt4120-3-2-def-48",
+      "type": "definition",
+      "title": "Sjanger D — definisjon med egne ord",
+      "content": "oppgavetypen der du skal forklare et begrep presist og kort.\n\nSvarformen er én til to setninger med **hovedpoenget først**.\n\n**«Definér søketreegenskapen»** er den hyppigste definisjonsoppgaven i Del 3."
+    },
+    {
+      "id": "tdt4120-3-2-def-49",
+      "type": "definition",
+      "title": "Sjanger F — «stemmer dette?»",
+      "content": "oppgavetypen der du får en påstand og skal ta stilling til den.\n\nSvarformen er **ja eller nei først**, deretter én presis setning.\n\n**Et konkret motbevis holder** når svaret er nei — ett tre der påstanden\nsvikter."
+    },
+    {
+      "id": "tdt4120-3-2-coll-51",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tdt4120-3-2-ct-50",
+          "type": "text",
+          "content": "Fem korte spørsmål fra kapitlene dette bygger på. Svar i hodet først, så\nsammenlign.\n\n**1.** Hva sier haugegenskapen i en maks-haug?\n\n*Svar:* hver forelder er $\\ge$ **begge** barna. Ingenting sies om venstre mot\nhøyre. Se [kap. 3.1](/tdt4120/tdt4120-3-1).\n\n**2.** Hva er kjøretiden til `Build-Max-Heap`?\n\n*Svar:* $\\Theta(n)$, ikke $\\Theta(n\\lg n)$. Å svare det siste er felle #9 —\nfeil kjøretidsfakta.\n\n**3.** Hvor ligger forelderen til indeks $i$ i en haug som ligger i `A[1..n]`?\n\n*Svar:* på indeks $\\lfloor i/2\\rfloor$. Barna ligger på $2i$ og $2i+1$.\n\n**4.** Hva er kjøretiden til `Merge-Sort`, og er den garantert?\n\n*Svar:* $\\Theta(n\\lg n)$, og ja — ingen input gjør den raskere eller tregere.\nSe [kap. 2.1](/tdt4120/tdt4120-2-1).\n\n**5.** Hva er forskjellen på $O(g)$ og $\\Theta(g)$?\n\n*Svar:* $O$ er bare øvre grense, $\\Theta$ er tett. Derfor er `Tree-Search`\n$O(h)$ — den kan stoppe i rota — mens `Inorder-Tree-Walk` er $\\Theta(n)$. Se\n[kap. 1.1](/tdt4120/tdt4120-1-1).\n\n**Videre:** [kap. 3.3](/tdt4120/tdt4120-3-3) driller håndkjøring av begge\nstrukturene side om side, og det er der kontrasten mellom dem virkelig\nsitter."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
