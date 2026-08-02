@@ -270,12 +270,18 @@ unike i kapitlet. Duplikate blokk-id-er felles av kvalitetsporten.
 2. `text` **Forkunnskaper** — kapitler i boka som markdown-lenker
    (`[kap. 2.1](/utv1000/utv1000-2-1)`) + eventuelle kryssbok-lenker fra tabellen
    i §14. «Dette kapitlet kan leses uten forkunnskaper» der skjelettet sier
-   `prerequisites: ingen` (kun 0.1). **«Sist du var her»:** i kapitler med stor
+   `prerequisites: ingen` (kun 0.1). **Oppfrisket forkunnskap:** i kapitler med stor
    avstand til forkunnskapen (3.1, 4.1, 4.2, 6.3 og 7.1 bygger alle direkte på
    1.1 eller 1.3; 5.1 på 1.2; 6.1 på 2.4; hele Del 8 på temadelene) SKAL blokken
    VISE de 2–3 kjernepåstandene ferdig oppfrisket («avhengighetsteori: underutvikling
    er *produsert* av den kapitalistiske verdensøkonomien, ikke et fravær av
    modernitet»), ikke bare lenke.
+
+   ⚠ **Frasen «Sist du var her» er FORBUDT** (rettet 2. august 2026). Blokka
+   oppsummerer et ANNET kapittel, så «her» peker feil vei — og en lærebok vet
+   uansett ikke hvor leseren har vært. 526 slike blokker er ryddet ut av
+   katalogen. Skriv **«Dette sto der:»**, **«Fra kap. 1.2:»** eller **«I det
+   kapitlet lærte du …»**. Det er BLOKKA som er påkrevd, ikke frasen.
 
 ### 5.2 Temakapittel (Del 1–7) — DNA-drøfting + skjelettets per-kapittel-DNA
 
