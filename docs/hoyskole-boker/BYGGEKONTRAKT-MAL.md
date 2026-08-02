@@ -75,6 +75,40 @@ C, og `fil1001-2-1` viste til et avsnitt om det Machianske svaret der
 innholdet gjaldt Leibniz. Nummererte kryssreferanser råtner stille — det
 er selve grunnen til at de skal være navn.
 
+## Deloppgaver i prøvekapitler: bruk (i) (ii) (iii), ikke a) b) c)
+
+Statiske flervalg måles av `sjekk-statiskflervalg.py`, som kjenner igjen et
+flervalg på at det står `a)` `b)` `c)` `d)` under et nummerert spørsmål. En
+**ja/nei-liste** eller en **deloppgave-rekke** merket a)–e) blir da lest som et
+flervalg — og siden det første punktet ofte er «ja», måles «ja» som fasit i
+alle. Porten rapporterer da en skjevhet som ikke finnes, og du bruker tid på å
+«rette» noe som er riktig.
+
+**Skriv derfor deloppgaver og ja/nei-punkter som (i), (ii), (iii).** Da er
+hvert eneste målte flervalg et ekte flervalg, og tallet porten gir er sant.
+
+Dette gjelder alle bøker, ikke bare regnefag. Regelen kom fra en agent som
+merket at porten ville feilmåle listene den skulle til å skrive, og valgte
+notasjon deretter i stedet for å levere tall den ikke kunne stå inne for.
+
+## Linjeskift midt i inline-matte gir rå LaTeX til leseren
+
+Plattformens rendrer matcher `$([^$\n]+?)$`. Et **linjeskift inne i et
+`$…$`-uttrykk** gjør at mønsteret ikke treffer, og studenten ser rå LaTeX:
+
+```
+✗  $\Theta(n^3\lg n) + O(n^3) +
+   \Theta(n^2\lg^2 n)$
+✓  $\Theta(n^3\lg n) + O(n^3) + \Theta(n^2\lg^2 n)$
+```
+
+Feilen sprer seg: når det første uttrykket ikke lukkes riktig, parer porten
+feil dollartegn, og en helt vanlig prosasetning lenger nede blir flagget som
+matte. Tre meldte avvik i `tdt4120-1-3` viste seg å være to linjeskift.
+
+**Bryt lange uttrykk med `$$…$$` på egen linje i stedet** — der er linjeskift
+lov.
+
 ## Tiltale og deiksis — si aldri hvor leseren har vært (nytt 2. august 2026)
 
 Forkunnskapsblokka oppsummerer **et annet kapittel**. Da kan den ikke si
