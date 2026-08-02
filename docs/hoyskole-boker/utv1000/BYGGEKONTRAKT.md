@@ -270,12 +270,18 @@ unike i kapitlet. Duplikate blokk-id-er felles av kvalitetsporten.
 2. `text` **Forkunnskaper** — kapitler i boka som markdown-lenker
    (`[kap. 2.1](/utv1000/utv1000-2-1)`) + eventuelle kryssbok-lenker fra tabellen
    i §14. «Dette kapitlet kan leses uten forkunnskaper» der skjelettet sier
-   `prerequisites: ingen` (kun 0.1). **«Sist du var her»:** i kapitler med stor
+   `prerequisites: ingen` (kun 0.1). **Oppfrisket forkunnskap:** i kapitler med stor
    avstand til forkunnskapen (3.1, 4.1, 4.2, 6.3 og 7.1 bygger alle direkte på
    1.1 eller 1.3; 5.1 på 1.2; 6.1 på 2.4; hele Del 8 på temadelene) SKAL blokken
    VISE de 2–3 kjernepåstandene ferdig oppfrisket («avhengighetsteori: underutvikling
    er *produsert* av den kapitalistiske verdensøkonomien, ikke et fravær av
    modernitet»), ikke bare lenke.
+
+   ⚠ **Frasen «Sist du var her» er FORBUDT** (rettet 2. august 2026). Blokka
+   oppsummerer et ANNET kapittel, så «her» peker feil vei — og en lærebok vet
+   uansett ikke hvor leseren har vært. 526 slike blokker er ryddet ut av
+   katalogen. Skriv **«Dette sto der:»**, **«Fra kap. 1.2:»** eller **«I det
+   kapitlet lærte du …»**. Det er BLOKKA som er påkrevd, ikke frasen.
 
 ### 5.2 Temakapittel (Del 1–7) — DNA-drøfting + skjelettets per-kapittel-DNA
 
@@ -745,7 +751,7 @@ Mangler én av de sju i et Del 2-kapittel, er kapitlet ikke ferdig skrevet.
 | 3.1 | Bistand | ~7 av 19 | H2017, H2019, H2020, H2021, H2023, H2024, H2025 (7) | **«7 av 19 sett — H2017, H2019, H2020, H2021, H2023, H2024 og H2025.»** ✓ stemmer. |
 | 3.2 | Bistand ↔ nyliberalisme, Norges rolle | delmengde av 3.1 | H2023, H2025 (2) | **«2 av 19 sett har spurt direkte om koblingen bistand–nyliberalisme og om Norges rolle (H2023 og H2025), innenfor bistandstemaet som helhet.»** |
 | 4.1 | Konflikt | ~8 av 19 | H2012, H2016, H2018, H2019, H2020, H2022, H2023, H2024, H2025 (9) | **«9 av 19 sett — H2012, H2016, H2018, H2019, H2020, H2022, H2023, H2024 og H2025.»** ⚠ Skjelettet skriver «~8/19», men lista har ni semestre; H2023 kombinerer konflikt og korrupsjon og er derfor talt i begge i analysens samletabell. Skriv det telte tallet. |
-| 4.2 | Korrupsjon | ~6 av 19 | H2016, H2018, H2021, H2022, H2023, H2024 (6) | **«6 av 19 sett — H2016, H2018, H2021, H2022, H2023 og H2024.»** ✓ stemmer. |
+| 4.2 | Korrupsjon | ~6 av 19 | H2016-o3, H2018-o4, H2021-k2, **H2022-veil.**, H2023-k2, H2024-k3 (6 oppføringer, men **5 oppgavesett + 1 sensorveiledning**) | **«5 av 19 oppgavesett — H2016, H2018, H2021, H2023 og H2024 — pluss sensorveiledningen fra H2022.»** ⚠ RETTET 2. august 2026: raden sto som «✓ stemmer» fordi den bare telte oppføringer i skjelettets belegg-liste. Den fjerde er en veiledning, ikke et sett, og «6 av 19 sett» er derfor ikke belagt. Nevnerregelen i §7.1 gjelder også nevnerens INNHOLD, ikke bare antallet. |
 | 5.1 | Menneskelig utvikling / HDI | ~7 av 19 | H2010, H2011, H2015, H2019, H2021, H2022 (6) | **«6 av 19 sett — H2010, H2011, H2015, H2019, H2021 og H2022.»** ⚠ Skjelettet skriver «~7/19»; lista har seks semestre. Skriv det telte tallet. |
 | 5.2 | Menneskelig utvikling vs. nyliberalisme (KOMP) | delmengde | H2021, H2022 (2) | **«2 av 19 sett har hatt denne kontrasten som egen oppgave (H2021 og H2022) — den er en fast kandidat i Del II.»** |
 | 6.1 | Statens rolle / Øst-Asia | ~3 av 19 | H2010, H2020, H2022 (3) | **«3 av 19 sett — H2010, H2020 og H2022.»** ✓ stemmer. |
@@ -930,6 +936,9 @@ også når den «låter riktig».
 - **Usikre detaljer utelates hellere enn gjettes.** Ingen oppdiktede referanser,
   verk, teoretikere, årstall eller tall. Det er den ene feilen som ødelegger bokas
   troverdighet hos en fagperson.
+
+⚠ **Skjelettets case-forslag for 5.1 kolliderer med denne regelen.** Det ber om å «kontrastere et lands BNP-rangering med dets HDI-/capabilities-profil». Regelen over forbyr nettopp HDI-verdier og -rangeringer. **Regelen vinner.** Løsningen som virker, og som er brukt i boka: to land med tilnærmet lik inntekt og ulike utfall i levealder og skolegang — ingen indeksverdier, ingen rangeringer.
+
 
 ### 8.4 Eksempellageret — hva hvert case faktisk viser
 
