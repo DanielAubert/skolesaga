@@ -157,8 +157,17 @@ SKRIVE bøker. Jussen er avklart, ikke uklar — se
 `eksamenssett/docs/juridisk-kartlegging-losningsforslag.md`.
 
 **Filnavn lyver i begge retninger.** I én runde var 276 filer som het
-«eksamen…» løsningsforslag, og 83 som het «…svar» var oppgavesett. Bruk
-`type`-kolonnen i indeksen, ikke filnavnet.
+«eksamen…» løsningsforslag, og 83 som het «…svar» var oppgavesett.
+
+⚠ **Men `type`-kolonnen lyver også** — rettet 3. august 2026. Denne siden sa
+tidligere «bruk `type`-kolonnen, ikke filnavnet». Det holder ikke. I
+JUROFF1500 er **10 av 16 rader typet `sensorveiledning` i virkeligheten
+oppgavesett**, og én av dem heter `juroff1500_eksamensoppgave_h14.pdf` — der
+løy filnavnet ikke, det gjorde indeksen. Alle er merket `pdf-verifisert`, så
+verifiseringsflagget er heller ikke belegg.
+
+**Regelen er derfor: åpne fila.** Verken filnavn eller `type`-kolonne kan
+avgjøre hva et dokument er. Indeksen er et søkeverktøy; innholdet er fasit.
 
 ## Se også
 

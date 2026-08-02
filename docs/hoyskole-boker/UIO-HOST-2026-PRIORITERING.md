@@ -88,7 +88,7 @@ er noe annet enn en kalibrert mot tretti.
 | **SVMET1010** Kvalitative metoder | 32 | 44 | 🔨 **bygges nå** |
 | **MAT3500** Topologi | 30 | 28 | ⚠ ingenting |
 | **SOS4020** Kvantitativ metode | 30 | 34 | skjelett |
-| **JUROFF1500** | 30 | 48 | 🔨 analyse under arbeid |
+| **JUROFF1500** Strafferett for ikke-jurister | **34** | 48 | ✅ analyse |
 | **ECON4925** Resource Economics | 29 | 45 | ⚠ ingenting |
 | **ECON4415** | 27 | 49 | ⚠ ingenting |
 | **SGO2500** | 26 | 37 | ⚠ ingenting |
@@ -131,8 +131,8 @@ undervisningsår**. Åpen produkteierbeslutning.
 | emne | hvor langt |
 |---|---|
 | **SVMET1010** | kontrakt ✅, skjelett konvertert til v3 ✅, 39 kapittelfiler bygges |
-| **JFEXFAC04** | analyse ✅, skjelett ✅ (34 kap, 712 quiz / 675 fc), kontrakt under arbeid |
-| **JUROFF1500** | eksamensanalyse under arbeid |
+| **JFEXFAC04** | analyse ✅, skjelett ✅, kontrakt ✅ (41 filer). **Byggeklar** |
+| **JUROFF1500** | analyse ✅ — 34 terminer (ikke 30), strafferett, 20 terminer på straffeloven 1902. Skjelett neste |
 | **SVEXFAC03** | analyse ✅ — 22 terminer, tre eksamensregimer, klimastoff i 13 av 35 oppgaver. Skjelett neste |
 
 Neste ut når disse lander: **JUS1211** (tier 1, samme kull som alt leser

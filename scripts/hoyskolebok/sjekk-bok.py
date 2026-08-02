@@ -205,8 +205,45 @@ for f in files:
     # er det som regel en tilbakevisning («Ingen feil — (i)») eller en
     # oppramsing av modellens ledd, ikke en deloppgavemerking. Det blokkerer
     # derfor ikke, men nevnes.
+    # ⚠ Og bare når leddene er DELOPPGAVER. Spør oppgaven det SAMME om hvert
+    # ledd — «For hvert av de fire utsagnene: er det riktig eller galt?»,
+    # «Avgjør for hver av dem …», «Koble hver beskrivelse …» — er leddene en
+    # liste av selvstendige påstander, ikke deloppgaver. Der er romertall det
+    # RIKTIGE valget: med a) b) c) leser sjekk-statiskflervalg.py lista som ett
+    # flervalg med én fasit. Jf. BYGGEKONTRAKT-MAL «Ja/nei-lister i
+    # prøvekapitler kan feilmåles som flervalg».
+    #
+    # Deloppgaver stiller ULIKE spørsmål: «(i) Hva er forklaringen? (ii)
+    # Hvorfor er forskjellen faglig interessant?»
+    # Testen: er LEDDENE selv instruksjoner eller spørsmål? Da er de
+    # deloppgaver. Er de påstander, formler eller navn som skal bedømmes, er
+    # de en liste — og «Avgjør om de følgende følgene konvergerer: (i) a_n =
+    # …» skal beholde romertallene.
+    DELOPPGAVE = re.compile(
+        r"^\s*(?:Gjør|Gjer|Analyser|Drøft|Forklar|Vurder|Diskuter|Redegjør|"
+        r"Grei\s+ut|Beskriv|Sammenlign|Sammenlikn|Begrunn|Vis\s+at|Utled|"
+        r"Skriv|Definer|Nevn|Regn\s+ut|Finn|Bruk|Velg|Hva|Hvorfor|Hvordan|"
+        r"Hvilke|Hvilken|Hvilket|Når|Hvem)\b", re.I)
+    LEDD = re.compile(r"\*\*\((?:i{1,3}|iv|v)\)\*\*\s*|(?:^|\n)\((?:i{1,3}|iv|v)\)\s*")
+
+    # ⚠ Ett grensetilfelle til: leddene KAN være imperativer og likevel være en
+    # liste, når de er siterte oppgaveformuleringer som skal klassifiseres —
+    # «Her er fire nyskrevne oppgaveformuleringer. Hva bestiller hver av dem?
+    # (i) Gjør kort rede for … (ii) Utform et forskningsopplegg …». Stammen
+    # avslører det: spør den om «hver av dem», er leddene eksemplarer.
+    LISTESTAMME = re.compile(r"\bhver[t]?\s+av\b|\bfor\s+hver[t]?\b"
+                             r"|\bhvert?\s+enkelt\b", re.I)
+
+    def _er_deloppgaver(felt):
+        biter = LEDD.split(felt)
+        if LISTESTAMME.search(biter[0]):
+            return False
+        return sum(1 for b in biter[1:] if DELOPPGAVE.match(b)) >= 2
+
     for felt in _oppgavetekst(d, ("task", "problem")):
         m = ROMER.search(felt)
+        if m and not _er_deloppgaver(felt):
+            continue        # liste av selvstendige ledd — romertall er riktig
         if m:
             issues.append(f"{cid}: deloppgave merket «{m.group(0).strip()}» i "
                           f"oppgaveteksten — deloppgaver skal ha a), b), c). "

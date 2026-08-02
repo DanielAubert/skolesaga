@@ -59,10 +59,19 @@ ALT = re.compile(r"^\s*[-*]?\s*\*{0,2}([a-eA-E])\)\*{0,2}\s*(.+?)\s*$", re.M)
 #
 #   utfyllende:  «**Oppgave 7.** Riktig svar: b). Definisjonen har tre ledd …»
 #   kompakt:     «**Del A:** 1b · 2d · 3a · 4c · 5b · 6a»
+# ⚠ HORISONTALT mellomrom, ikke `\s*`. Med `\s*` krysser mønsteret linjeskift,
+# og en setning som ENDER på et tall spiser fasiten under seg:
+#
+#     Dette er den vanligste feilen, feil 1.
+#     **Oppgave 7.** Riktig svar: b) …
+#
+# ble lest som «oppgave 1 har fasit b», og oppgave 7 ble stående uparet og
+# umålt. Funnet av en byggeagent som skrev om setningen sin for å komme rundt
+# porten — og sa fra om hvorfor, i stedet for bare å omgå den.
 FASIT = re.compile(
-    r"\*{0,2}(?:Oppgave|Spørsmål)?\s*(\d{1,2})[.)]\*{0,2}\s*"
-    r"(?:[^\n]{0,40}?)(?:Riktig|Rett|Korrekt)?\s*[Ss]var(?:et)?\s*(?:er)?\s*[:—-]?\s*"
-    r"\*{0,2}([a-eA-E])\)")
+    r"\*{0,2}(?:Oppgave|Spørsmål)?[^\S\n]*(\d{1,2})[.)]\*{0,2}[^\S\n]*"
+    r"(?:[^\n]{0,40}?)(?:Riktig|Rett|Korrekt)?[^\S\n]*[Ss]var(?:et)?[^\S\n]*"
+    r"(?:er)?[^\S\n]*[:—-]?[^\S\n]*\*{0,2}([a-eA-E])\)")
 # Fjerde form: «**Oppgave 1 — riktig: c.**» — bokstaven UTEN sluttparentes.
 # mat1100-3-prove hadde ni flervalg som aldri ble målt av denne grunn.
 # Nøkkelordet må stå umiddelbart foran, ellers ville en hvilken som helst
@@ -217,8 +226,12 @@ def ukoblet(sti):
     # Tell alle oppgaveblokker i fila, ikke bare den siste — samme blindsone
     # som _par() ble skrevet om for.
     alle = [alt for s in _strenger(d) for alt in _oppgaver(s).values()]
-    skriv = sum(1 for alt in alle if _skriveoppgave(alt))
-    return len(alle) - len(_par(sti)) - skriv, len(alle), skriv
+    # ⚠ Trekk skriveoppgaver bare fra de UPAREDE. En skriveoppgave kan være
+    # paret (fasitsettet dekket nummeret dens), og da ble den trukket fra to
+    # ganger — tdt4110-8-prove kom ut på «-1 av 62».
+    uparede = max(0, len(alle) - len(_par(sti)))
+    skriv = min(sum(1 for alt in alle if _skriveoppgave(alt)), uparede)
+    return uparede - skriv, len(alle), skriv
 
 
 def rapporter(emne, vis=False):
