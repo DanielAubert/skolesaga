@@ -216,6 +216,7 @@ import quizData_psyc1202 from './quiz-data-psyc1202';
 import quizData_stv1400 from './quiz-data-stv1400';
 import quizData_inter1000 from './quiz-data-inter1000';
 import quizData_stv1200 from './quiz-data-stv1200';
+import quizData_sos1004 from './quiz-data-sos1004';
 
 // Merged quiz data from all subject files
 export const quizData: Record<string, QuizQuestion[]> = {
@@ -400,6 +401,7 @@ export const quizData: Record<string, QuizQuestion[]> = {
   ...quizData_stv1400,
   ...quizData_inter1000,
   ...quizData_stv1200,
+  ...quizData_sos1004,
 };
 
 /**

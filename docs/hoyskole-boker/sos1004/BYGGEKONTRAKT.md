@@ -1100,9 +1100,12 @@ sammensatt»):
   kapitlet gjelder kjernestoffet.» `definition`-blokker slettes ALDRI for å
   «rydde» — de er flashcard-kilden.
 - **Øktmerking:** alle kapitler med `estimatedMinutes > 45` — altså alle unntatt
-  kap. 0.1 (45 min) — har tidsanslag per løkke («Løkke 3 — felteksperimentet og
-  innkallingsgapet (~15 min)») eller eksplisitte «— naturlig pausepunkt —»-
-  markører. Lange modellbesvarelser har pausepunkt mellom hovedseksjonene.
+  kap. 0.1 (45 min) — har tidsanslag i underoverskriften
+  («## Felteksperimentet og innkallingsgapet (~15 min)») eller eksplisitte
+  «— naturlig pausepunkt —»-markører.
+  ⚠ Overskriften skal bære NAVNET, aldri løkkenummeret. Denne linja sto selv
+  med «Løkke 3 — felteksperimentet» som mønstereksempel og ville gjeninnført
+  formen hos neste forfatter — 72 slike overskrifter er ryddet ut av boka. Lange modellbesvarelser har pausepunkt mellom hovedseksjonene.
 - **Tidsbudsjett-konsistens:** der en oppgaves deklarerte tid avviker fra summen
   av deltidene, forklares differansen (§6.5). «Lite tid?»-boksen sier eksplisitt
   at kapitlenes tidsanslag er **LESEtid**, og at den som skriver besvarelser for
