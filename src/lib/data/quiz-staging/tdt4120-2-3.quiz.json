@@ -1,0 +1,122 @@
+[
+  {
+    "question": "Hva er verste-tilfelle-kjøretiden til `Randomized-Select`?",
+    "options": [
+      "$\\Theta(n^2)$, når hvert pivotvalg skiller av bare ett element om gangen",
+      "$\\Theta(n)$, siden algoritmen kaster den ene siden i hvert eneste kall",
+      "$\\Theta(n\\lg n)$, som for `Quicksort` med tilfeldig valgt pivotelement",
+      "$\\Theta(\\lg n)$, siden delen halveres for hver runde i rekursjonen"
+    ],
+    "explanation": "Med maksimalt skjeve delinger blir rekurrensen $T(n) = T(n-1) + \\Theta(n)$, som gir $\\Theta(n^2)$. Alternativet som oppgir $\\Theta(n)$ er felle #9: det er den **forventede** kjøretiden, og det er `Select` — median av medianer — som har $\\Theta(n)$ også i verste tilfelle."
+  },
+  {
+    "question": "Hva returnerer `Partition(A, p, r)`, og hva garanterer den om arrayet etterpå?",
+    "options": [
+      "Pivotens sluttindeks `q`; alt i `A[p..q-1]` er $\\le$ pivoten og alt i `A[q+1..r]` er $>$",
+      "Pivotens sluttindeks `q`; både `A[p..q-1]` og `A[q+1..r]` er ferdig sortert stigende etterpå",
+      "Antall elementer som er mindre enn pivoten; delen `A[p..r]` er uendret ellers",
+      "Verdien til pivoten; alt i `A[p..r]` er nå gruppert etter hvor stort det er"
+    ],
+    "explanation": "Postbetingelsen sier bare noe om *hvilken side* av `q` elementene havner på, ikke om rekkefølgen innenfor sidene. Alternativet som lover sorterte sider er den vanligste misforståelsen — hadde det vært sant, ville `Quicksort` vært ferdig etter én partisjonering."
+  },
+  {
+    "question": "Hvorfor er `Randomized-Select` $\\Theta(n)$ forventet mens `Quicksort` er $\\Theta(n\\lg n)$ forventet?",
+    "options": [
+      "Fordi utvelgelsen kaster den ene siden, så rekurrensen får ett kall i stedet for to",
+      "Fordi utvelgelsen bruker en billigere partisjonering enn den `Quicksort` er nødt til å bruke",
+      "Fordi utvelgelsen alltid velger medianen som pivot og dermed deler helt jevnt",
+      "Fordi utvelgelsen slipper å sammenligne elementer og bruker nøkkelen som indeks"
+    ],
+    "explanation": "Rekurrensene er $T(n) = T(n/2) + \\Theta(n)$ mot $T(n) = 2T(n/2) + \\Theta(n)$, og summen $n + n/2 + n/4 + \\dots$ er under $2n$. Partisjoneringen er nøyaktig den samme i begge — det er antall rekursive kall som skiller dem."
+  },
+  {
+    "question": "Du kjører `Randomized-Select` for $i = 7$, og partisjoneringen gir `k = 3`. Hva skjer videre?",
+    "options": [
+      "Søket fortsetter i høyre del, med ordenstallet endret til $i = 4$",
+      "Søket fortsetter i høyre del, med ordenstallet uendret på $i = 7$",
+      "Søket fortsetter i venstre del, med ordenstallet endret til $i = 4$",
+      "Søket stopper, siden pivoten er det sjuende minste elementet i delen"
+    ],
+    "explanation": "Siden $i > k$ ligger svaret til høyre, og de tre elementene til og med pivoten er strøket fra regnskapet, så det nye ordenstallet er $7 - 3 = 4$. Å beholde $i = 7$ er den vanligste håndkjøringsfeilen i denne sjangeren."
+  },
+  {
+    "question": "Hva er kjøretiden til `Select` — median av medianer — i verste tilfelle?",
+    "options": [
+      "$\\Theta(n)$ — det er nettopp garantien som skiller den fra den tilfeldige varianten",
+      "$\\Theta(n^2)$ — akkurat som for `Randomized-Select` når pivotene blir skjeve",
+      "$\\Theta(n\\lg n)$ — den må sortere gruppene på fem før medianene kan finnes",
+      "$\\Theta(\\lg n)$ — den halverer arbeidet systematisk i hvert rekursive kall"
+    ],
+    "explanation": "Pivotvalget sikrer at hvert rekursivt kall arbeider på høyst omtrent syv tideler av delen, og en slik geometrisk rekke summerer seg til $\\Theta(n)$. Sorteringen av gruppene koster ikke $\\lg n$ per element: hver gruppe har konstant størrelse fem, så det er konstant arbeid per element."
+  },
+  {
+    "question": "Hvilket element velger `Partition` som pivot i denne boka?",
+    "options": [
+      "Det siste elementet i delen, altså `A[r]`",
+      "Det første elementet, `A[p]`",
+      "Det midterste elementet i delen, altså `A[floor((p+r)/2)]`",
+      "Medianen av delen, funnet med et eget rekursivt kall"
+    ],
+    "explanation": "Boka følger CLRS, og både `Quicksort` og utvelgelsesalgoritmene bygger på den varianten. `Randomized-Partition` bytter et tilfeldig element til plass `r` **først**, og kaller så den samme rutinen — pivotregelen selv er uendret."
+  },
+  {
+    "question": "Hva er verdien av `i` når `Partition` starter, og hvorfor?",
+    "options": [
+      "`i = p - 1`, fordi den venstre regionen er tom før første runde",
+      "`i = p`, fordi det første elementet alltid tilhører den venstre regionen",
+      "`i = r`, fordi pivoten står der og regionene bygges innover mot midten",
+      "`i = 0`, fordi indekseringen alltid starter fra begynnelsen av arrayet"
+    ],
+    "explanation": "`i` peker på det **siste** elementet i regionen med verdier $\\le$ pivoten, og den regionen har ingen elementer ennå. Er alle elementene større enn pivoten, blir `i` liggende på `p - 1`, og pivoten havner riktig på plass `p`."
+  },
+  {
+    "question": "Hva er utvelgelsesproblemet?",
+    "options": [
+      "Å finne det $i$-te minste elementet blant $n$ tall, for et gitt ordenstall $i$",
+      "Å velge ut den beste sorteringsalgoritmen for en gitt type input og nøkkeltype",
+      "Å plukke ut de $i$ minste elementene og returnere dem i sortert rekkefølge",
+      "Å avgjøre om et bestemt element finnes blant $n$ tall som ikke er sortert"
+    ],
+    "explanation": "Svaret er ett element, ikke en delmengde og ikke et ja/nei. Alternativet som ber om «de $i$ minste i sortert rekkefølge» er et strengt større problem, og det kan ikke løses i lineær tid for generell $i$."
+  },
+  {
+    "question": "En kandidat skriver: «Etter `Partition` er høyresiden sortert.» Stemmer det?",
+    "options": [
+      "Nei — bare pivotens plassering er endelig, sidene kan stå i vilkårlig rekkefølge",
+      "Ja — alle elementene til høyre er større enn pivoten og står derfor riktig",
+      "Ja, men bare når pivoten er det minste elementet i hele den aktuelle delen",
+      "Nei — men venstresiden er alltid sortert, siden elementene byttes inn i rekkefølge"
+    ],
+    "explanation": "Postbetingelsen sier bare hvilken side hvert element havner på. Alternativet om at venstresiden er sortert er like galt: elementene byttes inn i den rekkefølgen de påtreffes, ikke etter størrelse."
+  },
+  {
+    "question": "Hvorfor kan utvelgelse gjøres i lineær tid når sortering ikke kan det?",
+    "options": [
+      "Fordi utvelgelse bare krever plasseringen av ett element, ikke rekkefølgen mellom alle",
+      "Fordi utvelgelse ikke bruker sammenligninger, men slår opp direkte på nøkkelverdien",
+      "Fordi utvelgelse alltid arbeider på et array som allerede er delvis sortert på forhånd",
+      "Fordi $\\Omega(n\\lg n)$-grensen bare gjelder når inputen er større enn et visst antall"
+    ],
+    "explanation": "$\\Omega(n\\lg n)$-grensen gjelder problemet «sorter alt», og utvelgelse er et strengt mindre problem. Utvelgelsesalgoritmene er fullt ut sammenligningsbaserte — de sammenligner mot pivoten hele veien — så det er ikke der forskjellen ligger."
+  },
+  {
+    "question": "Hvilken rekurrens beskriver `Randomized-Select` ved jevn deling?",
+    "options": [
+      "$T(n) = T(n/2) + \\Theta(n)$, som gir $\\Theta(n)$",
+      "$T(n) = 2T(n/2) + \\Theta(n)$, som gir $\\Theta(n\\lg n)$",
+      "$T(n) = T(n-1) + \\Theta(n)$, som gir $\\Theta(n^2)$",
+      "$T(n) = T(n/2) + \\Theta(1)$, som gir $\\Theta(\\lg n)$"
+    ],
+    "explanation": "Ett rekursivt kall på halve delen pluss lineært arbeid til partisjoneringen; summen $n + n/2 + n/4 + \\dots$ er under $2n$. Rekurrensen med to kall hører til `Quicksort`, og den med $T(n-1)$ hører til verste tilfelle."
+  },
+  {
+    "question": "Hva er `k` i `Randomized-Select`, og hva brukes det til?",
+    "options": [
+      "Pivotens ordenstall innenfor delen, `q - p + 1`; det avgjør hvilken side søket fortsetter i",
+      "Antall rekursive kall som gjenstår før algoritmen når grunntilfellet der `p == r` og delen er tom",
+      "Største nøkkelverdi i delen, brukt til å avgjøre om lineær sortering er mulig",
+      "Antall elementer som er strengt større enn pivoten i den gjeldende delen `A[p..r]`"
+    ],
+    "explanation": "Sammenligningen mellom `i` og `k` er hele styringen: lik gir svar, mindre gir venstre side, større gir høyre side med `i` redusert til `i - k`. Alternativet om største nøkkelverdi forveksler denne `k` med parameteren i `Counting-Sort`."
+  }
+]

@@ -1,0 +1,297 @@
+{
+  "id": "tdt4120-2-3",
+  "courseId": "tdt4120",
+  "chapterNumber": "2.3",
+  "title": "Utvelgelse — Partition, Randomized-Select og Select",
+  "description": "Finne det `i`-te minste elementet uten å sortere: `Partition`, `Randomized-Select` og `Select` (median av medianer) med kjøretider.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "kunne håndkjøre `Partition` med siste element som pivot og oppgi arrayet og pivotens sluttindeks",
+    "kunne forklare hvorfor utvelgelse kan gjøres i lineær tid mens sortering ikke kan det",
+    "kunne skille forventet fra garantert kjøretid for de to utvelgelsesalgoritmene, og oppgi begge riktig"
+  ],
+  "content": [
+    {
+      "id": "tdt4120-2-3-tip-1",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Utvelgelse er registrert i 8 av de 17 settene i grunnlaget (47 %).**\nGrunnlaget er de 17 settene fra august 2015 til august 2023 som er gjennomgått\ntema for tema — det er nevneren hver gang boka oppgir en prosent.\n\nTemaet er delt i to når det gjelder prioritet:\n\n- **`Partition` må sitte.** Den er motoren i `Quicksort`, den er en fast\n  håndkjøringsoppgave, og den dukker opp som «fyll inn den manglende linjen».\n  Prioritet: **bør sitte**.\n- **`Select` — median av medianer — er noe du skal kjenne til.** Du skal kunne\n  si at den garanterer $\\Theta(n)$ i verste tilfelle, og hvorfor\n  `Randomized-Select` ikke gjør det. Selve analysen er ikke pensum å utlede.\n  Prioritet: **kjenne til**.\n\nTo sjangre henter fra kapitlet, og de skrives ut i klarspråk her:\n\n- **Sjanger C — håndkjøring**, altså at du utfører algoritmen steg for steg på\n  papir og oppgir bare sluttilstanden. For `Partition` er svarformen arrayet\n  etterpå **og** pivotens sluttindeks `q`.\n- **Sjanger E — kjøretidskunnskap**, altså at du oppgir kjøretiden i det\n  strammeste uttrykket som er riktig. Her ligger kapitlets faste felle: å\n  oppgi `Randomized-Select` sitt verste tilfelle som $\\Theta(n)$. Det er\n  **forventet** kjøretid; verste tilfelle er $\\Theta(n^2)$.\n\n**Slik er kapitlet lagt opp (45 min):**\n\n| Innhold | Tid |\n|---|---|\n| Utvelgelsesproblemet | ca. 6 min |\n| `Partition`, linje for linje | ca. 14 min |\n| `Randomized-Select` | ca. 15 min |\n| `Select` og den garanterte lineære tiden | ca. 10 min |"
+    },
+    {
+      "id": "tdt4120-2-3-t-2",
+      "type": "text",
+      "content": "## Forkunnskaper\n\n- [kap. 2.1](/tdt4120/tdt4120-2-1) — sammenligningsbaserte sorteringer. Fra det\n  kapitlet: `Quicksort` partisjonerer om et pivot og sorterer de to sidene\n  rekursivt, og den er $\\Theta(n\\lg n)$ forventet og $\\Theta(n^2)$ i verste\n  tilfelle. Vi bruker den samme `Partition` her, men denne gangen bare på\n  **den ene** siden.\n- [kap. 1.1](/tdt4120/tdt4120-1-1) — de asymptotiske symbolene. Skillet mellom\n  «forventet» og «verste tilfelle» er selve poenget i dette kapitlet.\n- [kap. 1.5](/tdt4120/tdt4120-1-5) — iterasjonsmetoden. Rekurrensen\n  $T(n) = T(n/2) + \\Theta(n)$ løses lettest ved å summere en geometrisk rekke."
+    },
+    {
+      "id": "tdt4120-2-3-coll-4",
+      "type": "collapsible",
+      "title": "Notasjons- og pseudokodeliste",
+      "buttonText": "Vis notasjon og pseudokode",
+      "content": [
+        {
+          "id": "tdt4120-2-3-ct-3",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et algoritmefag: den lister kjøretidsuttrykk og pseudokode-operasjoner i stedet for bare greske bokstaver.\n\n| Symbol | Betydning |\n|---|---|\n| $n$ | antall elementer i arrayet |\n| `A[1..n]` | arrayet, indeks fra 1 |\n| `A[p..r]` | den delen av arrayet et rekursivt kall arbeider på |\n| $i$ | hvilket ordenstall vi leter etter — det $i$-te minste elementet |\n| `q` | pivotens sluttindeks etter en partisjonering |\n| `k` | pivotens ordenstall **innenfor delen**, altså `q - p + 1` |\n| $\\Theta(f(n))$ | tett grense: kjøretiden vokser som $f(n)$, både opp og ned |\n| $O(f(n))$ | øvre grense |\n| $\\lfloor x \\rfloor$ | gulvfunksjonen: rund ned til nærmeste heltall |\n\n| Algoritme/operasjon | Kontrakt | Kjøretid |\n|---|---|---|\n| `Partition(A, p, r)` | stokker `A[p..r]` om pivoten `A[r]` og returnerer pivotens sluttindeks | $\\Theta(r-p+1)$ |\n| `Randomized-Partition(A, p, r)` | bytter et tilfeldig element til plass `r` og kaller `Partition` | $\\Theta(r-p+1)$ |\n| `Randomized-Select(A, p, r, i)` | returnerer det $i$-te minste elementet i `A[p..r]` | $\\Theta(n)$ forventet, $\\Theta(n^2)$ verste |\n| `Select(A, p, r, i)` | samme, men med median av medianer som pivot | $\\Theta(n)$ **verste** |\n| `Quicksort(A, p, r)` | tas med som kontrast: den går rekursivt inn i **begge** sidene | $\\Theta(n\\lg n)$ forventet |\n\n**Formler i dette delkapitlet:**\n\n$$k = q - p + 1$$\n\nPivotens ordenstall innenfor delen — tallet som avgjør hvilken side utvelgelsen fortsetter i.\n\n$$T(n) = T(n/2) + \\Theta(n) \\;\\Rightarrow\\; T(n) = \\Theta(n)$$\n\nRekurrensen for utvelgelse med jevn deling: $n + n/2 + n/4 + \\dots < 2n$.\n\n$$T(n) = T(n-1) + \\Theta(n) \\;\\Rightarrow\\; T(n) = \\Theta(n^2)$$\n\nVerste tilfelle for `Randomized-Select`, når hvert pivotvalg skiller av bare ett element.\n"
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-2-3-t-5",
+      "type": "text",
+      "content": "## Utvelgelsesproblemet (~6 min)\n\nEn kommune har 240 000 innbyggere og vil vite **medianinntekten** — beløpet der\nhalvparten tjener mindre og halvparten mer. Den enkleste framgangsmåten er å\nsortere alle inntektene og lese av det midterste tallet. Det koster\n$\\Theta(n\\lg n)$.\n\nMen spørsmålet er mye smalere enn en sortering. Vi vil ha **ett** tall, ikke\nhele rekkefølgen. Og det viser seg at det ene tallet kan hentes ut i lineær\ntid."
+    },
+    {
+      "id": "tdt4120-2-3-def-6",
+      "type": "definition",
+      "title": "Utvelgelsesproblemet",
+      "content": "**Utvelgelse** er problemet: gitt $n$ tall og et ordenstall $i$, finn det\n$i$-te minste elementet.\n\nMed $i = 1$ er det minimum, med $i = n$ er det maksimum, og med\n$i = \\lfloor (n+1)/2 \\rfloor$ er det medianen.\n\n**Det er et lettere problem enn sortering**, og det er nettopp poenget: en\n$\\Theta(n\\lg n)$-sortering løser det, men den gjør mye mer arbeid enn\nnødvendig."
+    },
+    {
+      "id": "tdt4120-2-3-def-7",
+      "type": "definition",
+      "title": "Ordensstatistikk og median",
+      "content": "Den $i$-te **ordensstatistikken** i en mengde er det $i$-te minste elementet.\n\n**Medianen** er den midterste ordensstatistikken. Med odde $n$ er den entydig;\nmed like $n$ finnes en nedre og en øvre median, og denne boka mener den nedre,\naltså $i = \\lfloor (n+1)/2 \\rfloor$.\n\n**Minimum og maksimum** finnes trivielt i $\\Theta(n)$ ved ett gjennomløp — det\ner de generelle ordenstallene som er interessante."
+    },
+    {
+      "id": "tdt4120-2-3-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-2-3-oppg-8-inner",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave, sjanger D — definisjon med egne ord, altså én presis setning\nmed hovedpoenget først.)\n\nForklar hva utvelgelsesproblemet er, og hvorfor en sortering er en\n«overdimensjonert» løsning på det.",
+        "solution": "Utvelgelse er problemet med å finne det $i$-te minste elementet blant $n$ tall,\nfor et gitt ordenstall $i$.\n\nEn sortering løser det, men den fastsetter rekkefølgen mellom **alle** par av\nelementer, mens utvelgelse bare trenger å vite hvor **ett** element står. Å\nsortere koster $\\Theta(n\\lg n)$; utvelgelse kan gjøres i $\\Theta(n)$.\n\nKonkret: for å finne medianen trenger du ikke vite om det nest største og\ntredje største er i riktig rekkefølge.",
+        "hints": [
+          "Hva er det minste du må vite for å kunne peke ut det $i$-te minste elementet?",
+          "Sammenlign hvor mye informasjon en sortering produserer med hvor mye svaret krever."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-2-3-t-9",
+      "type": "text",
+      "content": "## `Partition`, linje for linje (~14 min)\n\nBåde utvelgelsesalgoritmene og `Quicksort` hviler på den samme rutinen. Den er\nverdt å kunne utenat, fordi den er en fast håndkjøringsoppgave og fordi den\ndukker opp i «hvilken linje mangler?»-varianten.\n\n`Partition` velger siste element i delen som pivot og går gjennom delen én gang\nfra venstre. Underveis holder den et skille: alt til venstre for skillet er\nmindre enn eller lik pivoten. Til slutt settes pivoten inn på skilleplassen."
+    },
+    {
+      "id": "tdt4120-2-3-thm-10",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `Partition`",
+      "content": "**Antagelser om representasjon.** Arrayet er `A[1..n]`, indeks fra 1. Kallet\narbeider på delen `A[p..r]` med `p <= r`. Pivoten er **siste element**, `A[r]`.\nRutinen går på stedet.\n\n**Prebetingelse:** `p <= r`.\n**Postbetingelse:** rutinen returnerer en indeks `q` med `p <= q <= r`, slik at\n`A[p..q-1]` alle er $\\le$ `A[q]` og `A[q+1..r]` alle er $>$ `A[q]`. Elementet\npå plass `q` er pivoten, og det står på den plassen det ville hatt i et ferdig\nsortert array.\n\n```text\nPartition(A, p, r)\n  Input:  array A[p..r]\n  Output: pivotens sluttindeks q\n  x = A[r]\n  i = p - 1\n  for j = p to r - 1\n      if A[j] <= x\n          i = i + 1\n          bytt A[i] og A[j]\n  bytt A[i+1] og A[r]\n  return i + 1\n  Kjoeretid: Theta(r - p + 1)\n```\n\n**Invarianten i én setning:** rett før hver runde med indeks `j` er alt i\n`A[p..i]` mindre enn eller lik pivoten, alt i `A[i+1..j-1]` er større enn\npivoten, og `A[r]` er pivoten selv.\n\n**Legg merke til at `i` starter på `p - 1`.** Den venstre regionen er tom til\nå begynne med, og `i` peker alltid på det **siste** elementet i den. Er alle\nelementene større enn pivoten, blir `i` liggende på `p - 1`, og pivoten havner\npå plass `p`.\n\n**Kjøretid:** for-løkka gjør `r - p` runder med konstant arbeid, pluss ett\nbytte til slutt — altså $\\Theta(r-p+1)$, lineært i lengden på delen."
+    },
+    {
+      "id": "tdt4120-2-3-eks-11",
+      "type": "example",
+      "title": "Eksempel 1: `Partition` med siste element som pivot",
+      "problem": "Sju måleverdier ligger slik: `A = 53, 18, 67, 24, 71, 39, 45` (indeks fra 1).\n\nKjør `Partition(A, 1, 7)`. Oppgi arrayet etter partisjoneringen og pivotens\nsluttindeks `q`.",
+      "solution": "Pivoten er `A[7] = 45`, og `i` starter på 0.\n\n| `j` | Test | `i` etterpå | Array etter runden |\n|---|---|---|---|\n| 1 | `A[1]=53` $>$ 45 | — | `53, 18, 67, 24, 71, 39, 45` |\n| 2 | `A[2]=18` $\\le$ 45 | 1 | `18, 53, 67, 24, 71, 39, 45` |\n| 3 | `A[3]=67` $>$ 45 | — | `18, 53, 67, 24, 71, 39, 45` |\n| 4 | `A[4]=24` $\\le$ 45 | 2 | `18, 24, 67, 53, 71, 39, 45` |\n| 5 | `A[5]=71` $>$ 45 | — | `18, 24, 67, 53, 71, 39, 45` |\n| 6 | `A[6]=39` $\\le$ 45 | 3 | `18, 24, 39, 53, 71, 67, 45` |\n\nEtter løkka står `i` på 3. Det siste steget bytter `A[i+1]` og `A[r]`, altså\n`A[4]` og `A[7]`.\n\n**Sluttilstanden — det du ville levert på eksamen:**\n\n**Array: `18, 24, 39, 45, 71, 67, 53`, og `q = 4`.**\n\nKontrollen er enkel: alt til venstre for plass 4 er $\\le$\n45, og alt til høyre er $>$ 45. Legg merke\ntil at høyresiden **ikke** er sortert — `Partition` lover ingenting om\nrekkefølgen innenfor hver side.\n\nOppgaven ba om arrayet **og** `q`. Ba den bare om `q`, er det ene tallet hele\nsvaret."
+    },
+    {
+      "id": "tdt4120-2-3-oppg-12",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-2-3-oppg-12-inner",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C — håndkjøring.)\n\nKjør `Partition(A, 1, 6)` på `A = 12, 45, 7, 33, 21, 19` med siste element som\npivot.\n\n**a)** Oppgi arrayet etter partisjoneringen.\n**b)** Oppgi pivotens sluttindeks `q`.",
+        "solution": "**a)** `12, 7, 19, 33, 21, 45`\n\n**b)** `q = 3`\n\nGjennomgangen: pivoten er 19. `A[1]=12` $\\le$ 19 gir `i = 1` og ingen faktisk\nflytting. `A[2]=45` $>$ 19, ingen endring. `A[3]=7` $\\le$ 19 gir `i = 2` og\nbytte av `A[2]` og `A[3]`, altså `12, 7, 45, 33, 21, 19`. `A[4]=33` og\n`A[5]=21` er begge $>$ 19. Til slutt byttes `A[3]` og `A[6]`.\n\nKontroll: `12, 7` er $\\le 19$, og `33, 21, 45` er $> 19$.",
+        "hints": [
+          "Pivoten er `A[r]`, altså det siste elementet. Skriv den ned først.",
+          "`i` starter på `p - 1` og øker bare når du møter et element som er $\\le$ pivoten."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-2-3-oppg-13",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-2-3-oppg-13-inner",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger F — «stemmer dette?», altså ja eller nei først og\nderetter én presis setning.)\n\nEn kandidat skriver: «Etter `Partition` er venstresiden sortert stigende og\nhøyresiden sortert stigende.»\n\nStemmer det? Svar ja eller nei, og begrunn.",
+        "solution": "**Nei.**\n\n`Partition` lover bare at alt til venstre for `q` er $\\le$ pivoten og alt til\nhøyre er $>$ pivoten. Innbyrdes rekkefølge på hver side er vilkårlig.\n\nMotbevis fra Eksempel 1: etter partisjoneringen sto høyresiden som\n`71, 67, 53` — strengt synkende.\n\nDet ene som er sant, er at **pivoten** står på sin endelige plass. Det er\ngrunnen til at `Quicksort` slipper å røre den igjen.",
+        "hints": [
+          "Les postbetingelsen i pseudokode-kontrakten ordrett.",
+          "Finn et konkret eksempel i kapitlet der høyresiden ikke er sortert."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-2-3-t-14",
+      "type": "text",
+      "content": "## `Randomized-Select` (~15 min)\n\nNå kommer ideen som gjør utvelgelse lineær. `Quicksort` partisjonerer og går\nrekursivt inn i **begge** sidene. Men leter du etter det $i$-te minste\nelementet, vet du etter partisjoneringen nøyaktig hvilken side svaret ligger\npå — og den andre siden kan kastes.\n\nEtter `Partition(A, p, r)` som returnerer `q`, står pivoten som nummer\n`k = q - p + 1` innenfor delen. Er `i = k`, er pivoten svaret. Er `i < k`,\nligger svaret til venstre. Er `i > k`, ligger det til høyre, og du leter der\netter det `(i - k)`-te minste — fordi `k` elementer nå er strøket bort under\ndet du leter etter."
+    },
+    {
+      "id": "tdt4120-2-3-thm-15",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `Randomized-Select`",
+      "content": "**Antagelser om representasjon.** Arrayet er `A[1..n]`, indeks fra 1. Kallet\nutenfra er `Randomized-Select(A, 1, A.length, i)` med\n`1 <= i <= A.length`. Elementene antas forskjellige.\n`Randomized-Partition` bytter et tilfeldig element i delen til plass `r` og\nkaller `Partition`.\n\n**Prebetingelse:** `1 <= i <= r - p + 1`.\n**Postbetingelse:** rutinen returnerer det $i$-te minste elementet i `A[p..r]`.\nSvaret er alltid riktig; det er bare kjøretiden som avhenger av de tilfeldige\ntrekkene.\n\n```text\nRandomized-Select(A, p, r, i)\n  Input:  array A[p..r] og et ordenstall i\n  Output: det i-te minste elementet i A[p..r]\n  if p == r\n      return A[p]\n  q = Randomized-Partition(A, p, r)\n  k = q - p + 1\n  if i == k\n      return A[q]\n  else if i < k\n      return Randomized-Select(A, p, q-1, i)\n  else\n      return Randomized-Select(A, q+1, r, i-k)\n  Kjoeretid: Theta(n) forventet, Theta(n^2) verste\n```\n\n**Grunnideen i én setning:** partisjoneringen forteller hvilken side svaret\nligger på, og den andre siden trenger aldri å ses på igjen.\n\n**Intuisjon for hvorfor det blir lineært.** Antar vi at hvert kall halverer\ndelen, blir arbeidet $n + n/2 + n/4 + n/8 + \\dots$, og den summen er mindre\nenn $2n$ uansett hvor mange ledd du tar med. Rekurrensen\n$T(n) = T(n/2) + \\Theta(n)$ gir altså $\\Theta(n)$ — i motsetning til\n`Quicksort`s $T(n) = 2T(n/2) + \\Theta(n) = \\Theta(n\\lg n)$, der begge sidene\nmå behandles. **Det er den ene forkastede halvdelen som er hele gevinsten.**\n\n**Kjøretid:** $\\Theta(n)$ **forventet**. Verste tilfelle er $\\Theta(n^2)$: gir\nhvert pivotvalg en deling som skiller av bare ett element, blir rekurrensen\n$T(n) = T(n-1) + \\Theta(n)$."
+    },
+    {
+      "id": "tdt4120-2-3-eks-16",
+      "type": "example",
+      "title": "Eksempel 2: `Randomized-Select` finner det fjerde minste",
+      "problem": "Ni sensorutslag ligger slik: `A = 38, 15, 72, 9, 54, 27, 63, 41, 20`\n(indeks fra 1). Vi vil ha det **fjerde minste**, altså $i = 4$.\n\nHer er kjøringen med disse tilfeldige pivotvalgene: først element nummer 5,\nderetter nummer 2 i den gjenværende delen, deretter nummer 3, deretter nummer\n4. (På eksamen er pivotene oppgitt eller valgt av deg; her viser vi ett\nkonkret løp.)\n\nFølg hvilken del som står igjen etter hvert kall.",
+      "solution": "| Kall | Del | Pivot | `q` | `k` | Hva som skjer |\n|---|---|---|---|---|---|\n| 1 | `A[1..9]` | 54 | 7 | 7 | `i` = 4 $<$ `k` = 7: fortsett i `A[1..6]` |\n| 2 | `A[1..6]` | 15 | 2 | 2 | `i` = 4 $>$ `k` = 2: fortsett i `A[3..6]` med `i` = 2 |\n| 3 | `A[3..6]` | 38 | 5 | 3 | `i` = 2 $<$ `k` = 3: fortsett i `A[3..4]` |\n| 4 | `A[3..4]` | 27 | 4 | 2 | `i == k` = 2, svaret er `A[4]` = 27 |\n\n**Sluttilstanden — svaret: 27**\n\nKontroll: sortert er arrayet `9, 15, 20, 27, 38, 41, 54, 63, 72`, og det\nfjerde minste er 27 — men vi kom fram til det uten å\nsortere.\n\n**Legg merke til hvordan `i` endrer seg.** I det andre kallet gikk vi til\nhøyre side og satte `i = 4 - 2 = 2`: to elementer (pivoten og det ene til\nvenstre for den) ligger nå garantert under det vi leter etter, og er strøket\nfra regnskapet. Å glemme dette fratrekket er den vanligste feilen i\nhåndkjøring av utvelgelse.\n\n**Tell arbeidet.** Delene som ble partisjonert hadde lengde 9, 6, 4 og 2 —\ntil sammen 21 elementgjennomganger, ikke $9 \\lg 9 \\approx 29$. Forskjellen\nvokser fort med $n$."
+    },
+    {
+      "id": "tdt4120-2-3-oppg-17",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-2-3-oppg-17-inner",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger E — kjøretidskunnskap.)\n\n**a)** Hva er forventet kjøretid for `Randomized-Select`?\n**b)** Hva er verste-tilfelle-kjøretiden, og hvordan oppstår den?\n**c)** Hvorfor er `Quicksort` $\\Theta(n\\lg n)$ forventet når\n`Randomized-Select` er $\\Theta(n)$ forventet, når begge bruker samme\npartisjonering?",
+        "solution": "**a)** $\\Theta(n)$.\n\n**b)** $\\Theta(n^2)$. Den oppstår når hvert pivotvalg skiller av bare ett\nelement, slik at rekurrensen blir $T(n) = T(n-1) + \\Theta(n)$. Med tilfeldige\npivoter er det svært usannsynlig, men det er mulig.\n\n**c)** Fordi `Quicksort` går rekursivt inn i **begge** sidene, mens\n`Randomized-Select` kaster den ene. Sammenlign rekurrensene ved jevn deling:\n$T(n) = 2T(n/2) + \\Theta(n)$ mot $T(n) = T(n/2) + \\Theta(n)$. Den første gir\n$\\Theta(n\\lg n)$, den andre $\\Theta(n)$, fordi $n + n/2 + n/4 + \\dots < 2n$.",
+        "hints": [
+          "Skriv opp de to rekurrensene ved siden av hverandre — forskjellen er én faktor foran $T$.",
+          "For verste tilfelle: hvilken deling er den mest ubrukelige et pivot kan gi?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-2-3-oppg-18",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-2-3-oppg-18-inner",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger C.)\n\n`A = 30, 12, 47, 8, 25` (indeks fra 1), og du kjører `Randomized-Select` for\n$i = 2$. Det tilfeldige valget faller hver gang på **siste** element i den\ngjeldende delen, altså oppfører algoritmen seg som `Partition` uten\nomstokking.\n\nOppgi hvilke deler som partisjoneres, og hva svaret blir.",
+        "solution": "**Kall 1:** `A[1..5]`, pivot 25. Etter partisjoneringen: `12, 8, 25, 47, 30`\nmed `q = 3`, altså `k = 3`. Siden $i = 2 < 3$, fortsetter vi i `A[1..2]`.\n\n**Kall 2:** `A[1..2] = 12, 8`, pivot 8. Etter partisjoneringen: `8, 12` med\n`q = 1`, altså `k = 1`. Siden $i = 2 > 1$, fortsetter vi i `A[2..2]` med\n$i = 2 - 1 = 1$.\n\n**Kall 3:** `p == r = 2`, så svaret er `A[2] = 12`.\n\n**Svaret: 12.**\n\nKontroll: sortert er arrayet `8, 12, 25, 30, 47`, og det nest minste er 12.",
+        "hints": [
+          "Kjør `Partition` på hele arrayet først, og regn ut `k = q - p + 1`.",
+          "Husk fratrekket i `i` når du fortsetter i høyre del."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-2-3-t-19",
+      "type": "text",
+      "content": "## `Select` og den garanterte lineære tiden (~10 min)\n\n`Randomized-Select` er rask nesten alltid, men gir ingen garanti. Det finnes en\nvariant som gjør det: **`Select`**, ofte kalt median av medianer. Den er\n$\\Theta(n)$ i **verste** tilfelle.\n\nDette er et tema du skal **kjenne til**: du skal kunne si hva den garanterer og\nhvordan pivoten velges, ikke utlede analysen."
+    },
+    {
+      "id": "tdt4120-2-3-def-20",
+      "type": "definition",
+      "title": "`Select` (median av medianer)",
+      "content": "finner det $i$-te minste elementet i **garantert** $\\Theta(n)$ tid ved å velge\npivoten omhyggelig i stedet for tilfeldig.\n\nPivotvalget: del elementene i grupper på fem, finn medianen i hver gruppe, og\nfinn så rekursivt medianen av disse medianene. Den brukes som pivot.\n\n**Garantien kommer av at pivoten aldri er for skjev.** Minst omtrent tre\ntideler av elementene ligger på hver side av den, så hvert rekursivt kall\narbeider på høyst omtrent syv tideler av delen — og $n + 0{,}7n + 0{,}49n + \\dots$ er en konvergent geometrisk rekke, altså $\\Theta(n)$.\n\n**I praksis brukes likevel `Randomized-Select`**: konstantene i `Select` er\nstore. Garantien er det teoretiske poenget."
+    },
+    {
+      "id": "tdt4120-2-3-warn-21",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "Den første koster hele oppgaven.\n\n- **Å oppgi `Randomized-Select` sitt verste tilfelle som $\\Theta(n)$.** Dette\n  er felle **#9** — feil kjøretidsfakta. $\\Theta(n)$ er **forventet**\n  kjøretid; verste tilfelle er $\\Theta(n^2)$. Det er `Select` som har\n  $\\Theta(n)$ i verste tilfelle, og de to må ikke forveksles.\n- **Å glemme fratrekket i `i`.** Fortsetter du i høyre del, leter du etter det\n  `(i - k)`-te minste, ikke det $i$-te. De `k` elementene til og med pivoten er\n  strøket fra regnskapet.\n- **Å tro at `Partition` sorterer sidene.** Den lover bare at venstresiden er\n  $\\le$ pivoten og høyresiden $>$ pivoten. Rekkefølgen innenfor hver side er\n  vilkårlig.\n- **Å la `i` starte feil sted.** `i = p - 1`, ikke `i = p`. Er alle elementene\n  større enn pivoten, skal pivoten havne helt til venstre, på plass `p`.\n- **Å oppgi mer enn det som er spurt om.** Ber oppgaven om `q`, er tallet hele\n  svaret. Ber den om arrayet **og** `q`, skal begge med.\n\nOg den gjennomgående: **å skrive $\\Theta$ der bare $O$ er vist**. Har du bare\nbegrunnet en øvre grense, skriv $O$."
+    },
+    {
+      "id": "tdt4120-2-3-t-22",
+      "type": "text",
+      "content": "## Kjøretidene samlet\n\nDette er kapitlets puggeflate. Eksamen er hjelpemiddelfri, så tabellen må ligge\ni hodet — og kolonnen «forventet mot verste» er der poengene faller.\n\n| Operasjon | Forventet | Verste | Krav / egenskap |\n|---|---|---|---|\n| `Partition` | $\\Theta(n)$ | $\\Theta(n)$ | ett gjennomløp, på stedet; pivoten er siste element |\n| `Randomized-Partition` | $\\Theta(n)$ | $\\Theta(n)$ | ett tilfeldig bytte før partisjoneringen |\n| `Randomized-Select` | $\\Theta(n)$ | $\\Theta(n^2)$ | kaster den ene siden; **ingen garanti** |\n| `Select` (median av medianer) | $\\Theta(n)$ | $\\Theta(n)$ | garantert; grupper på fem; store konstanter |\n| Minimum eller maksimum | $\\Theta(n)$ | $\\Theta(n)$ | ett gjennomløp med én sammenligning per element |\n| Median via sortering | $\\Theta(n\\lg n)$ | $\\Theta(n\\lg n)$ | korrekt, men gjør mer arbeid enn nødvendig |\n| `Quicksort` | $\\Theta(n\\lg n)$ | $\\Theta(n^2)$ | går rekursivt inn i **begge** sidene |\n\n**Én presisering som er verdt å ta med seg.** Sortering kan ikke gjøres i\nlineær tid med sammenligninger, men utvelgelse kan. Det er ingen motsetning:\nutvelgelse er et mindre problem, og $\\Omega(n\\lg n)$-grensen gjelder bare\nsortering."
+    },
+    {
+      "id": "tdt4120-2-3-t-23",
+      "type": "text",
+      "content": "### Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp\nhar lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet\ngjelder kjernestoffet."
+    },
+    {
+      "id": "tdt4120-2-3-def-24",
+      "type": "definition",
+      "title": "`Partition`",
+      "content": "stokker `A[p..r]` om pivoten `A[r]` slik at alt $\\le$ pivoten havner til\nvenstre for den og alt $>$ havner til høyre, og returnerer pivotens\nsluttindeks `q`.\n\nKjøretid $\\Theta(r-p+1)$ — ett gjennomløp, på stedet.\n\n**Sidene blir ikke sortert.** Det eneste som er ferdig etterpå, er pivotens\nplassering."
+    },
+    {
+      "id": "tdt4120-2-3-def-25",
+      "type": "definition",
+      "title": "Invarianten i `Partition`",
+      "content": "rett før hver runde med indeks `j` er alt i `A[p..i]` $\\le$ pivoten, alt i\n`A[i+1..j-1]` er $>$ pivoten, og `A[r]` er pivoten.\n\nIndeksen `i` peker på det siste elementet i den venstre regionen, og starter\nderfor på `p - 1`.\n\n**Invarianten er kontrollen din under håndkjøring:** står det et for stort\nelement til venstre for `i`, har du gjort en feil."
+    },
+    {
+      "id": "tdt4120-2-3-def-26",
+      "type": "definition",
+      "title": "`Randomized-Partition`",
+      "content": "bytter et tilfeldig valgt element i `A[p..r]` til plass `r` og kaller\n`Partition`.\n\nKjøretid $\\Theta(r-p+1)$, som `Partition`.\n\n**Hensikten er ikke hastighet, men uavhengighet av inputen.** Ingen bestemt\ninput kan lenger framtvinge en skjev deling."
+    },
+    {
+      "id": "tdt4120-2-3-def-27",
+      "type": "definition",
+      "title": "`Randomized-Select`",
+      "content": "finner det $i$-te minste elementet ved å partisjonere og fortsette **bare** i\nden siden svaret ligger i.\n\nKjøretid $\\Theta(n)$ **forventet**, $\\Theta(n^2)$ verste.\n\n**Forventet er ikke garantert.** Ordet må stå i svaret; utelates det, har du\nlovet noe algoritmen ikke holder."
+    },
+    {
+      "id": "tdt4120-2-3-def-28",
+      "type": "definition",
+      "title": "`Select` (median av medianer)",
+      "content": "utvelgelse med garantert $\\Theta(n)$ i **verste** tilfelle, oppnådd ved å velge\npivoten som medianen av gruppemedianer i grupper på fem.\n\nKjøretid $\\Theta(n)$ verste.\n\n**Skilles fra `Randomized-Select` på nettopp garantien.** I praksis er\nkonstantene så store at den tilfeldige varianten vinner."
+    },
+    {
+      "id": "tdt4120-2-3-def-29",
+      "type": "definition",
+      "title": "Ordenstallet `k` i en deling",
+      "content": "pivotens plassering **innenfor delen**, regnet som `k = q - p + 1`.\n\nEr `i == k`, er pivoten svaret. Er `i < k`, ligger svaret til venstre. Er\n`i > k`, ligger det til høyre, og du leter videre etter det `(i - k)`-te\nminste.\n\n**Fratrekket `i - k` er den vanligste håndkjøringsfeilen** i denne sjangeren."
+    },
+    {
+      "id": "tdt4120-2-3-def-30",
+      "type": "definition",
+      "title": "Utvelgelse mot sortering",
+      "content": "utvelgelse spør om **ett** element; sortering fastsetter rekkefølgen mellom\nalle.\n\nUtvelgelse kan gjøres i $\\Theta(n)$; sortering med sammenligninger kan ikke\nkomme under $\\Omega(n\\lg n)$.\n\n**Ingen motsetning:** grensen gjelder det større problemet."
+    },
+    {
+      "id": "tdt4120-2-3-def-31",
+      "type": "definition",
+      "title": "Ordensstatistikk",
+      "content": "den $i$-te ordensstatistikken er det $i$-te minste elementet i mengden.\n\nMinimum er den første, maksimum den $n$-te, medianen den midterste.\n\n**Begrepet er språket oppgavetekstene bruker** når de ber om «det $i$-te\nminste»."
+    },
+    {
+      "id": "tdt4120-2-3-def-32",
+      "type": "definition",
+      "title": "Median",
+      "content": "den midterste ordensstatistikken, altså elementet der like mange ligger under\nsom over.\n\nMed like $n$ finnes en nedre og en øvre median; denne boka mener den nedre,\n$i = \\lfloor (n+1)/2 \\rfloor$.\n\n**Kan finnes i $\\Theta(n)$** — det er hovedresultatet i dette kapitlet."
+    },
+    {
+      "id": "tdt4120-2-3-def-33",
+      "type": "definition",
+      "title": "Grupper på fem i `Select`",
+      "content": "elementene deles i $\\lceil n/5 \\rceil$ grupper à fem, hver gruppe får sin\nmedian, og medianen av disse medianene brukes som pivot.\n\nTallet fem er valgt fordi det er det minste som gjør at den rekursive\nregningen går opp.\n\n**Effekten er at pivoten aldri blir for skjev**, og det er nettopp det\ngarantien hviler på."
+    },
+    {
+      "id": "tdt4120-2-3-def-34",
+      "type": "definition",
+      "title": "Forventet mot garantert kjøretid",
+      "content": "**forventet** er et gjennomsnitt over algoritmens egne tilfeldige valg;\n**garantert** gjelder for enhver kjøring.\n\n`Randomized-Select` er $\\Theta(n)$ forventet; `Select` er $\\Theta(n)$\ngarantert.\n\n**Les alltid om oppgaven spør etter det ene eller det andre.** Svaret er\nforskjellig."
+    },
+    {
+      "id": "tdt4120-2-3-def-35",
+      "type": "definition",
+      "title": "Rekurrensen $T(n) = T(n/2) + \\Theta(n)$",
+      "content": "utvelgelsesrekurrensen ved jevn deling: ett rekursivt kall på halve delen,\npluss lineært arbeid.\n\nLøsningen er $\\Theta(n)$, fordi $n + n/2 + n/4 + \\dots < 2n$.\n\n**Kontrasten er $T(n) = 2T(n/2) + \\Theta(n) = \\Theta(n\\lg n)$**, altså\n`Quicksort`, der begge sidene må behandles."
+    },
+    {
+      "id": "tdt4120-2-3-def-36",
+      "type": "definition",
+      "title": "Sjanger C — håndkjøring",
+      "content": "oppgavetypen der du utfører en navngitt algoritme steg for steg og oppgir\nsluttilstanden.\n\nFor `Partition` er svarformen **arrayet etterpå og pivotens sluttindeks `q`** —\nbegge deler når begge er spurt om.\n\n**Ingen ekstra uttelling for å forklare algoritmen.**"
+    },
+    {
+      "id": "tdt4120-2-3-def-37",
+      "type": "definition",
+      "title": "Sjanger E — kjøretidskunnskap",
+      "content": "oppgavetypen der du oppgir kjøretiden til en navngitt operasjon.\n\nSvarformen er ett uttrykk i det strammeste som er riktig, med ordet\n«forventet» der det hører hjemme.\n\n**Her bor felle #9:** `Randomized-Select` sitt verste tilfelle er\n$\\Theta(n^2)$, ikke $\\Theta(n)$."
+    },
+    {
+      "id": "tdt4120-2-3-coll-39",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tdt4120-2-3-ct-38",
+          "type": "text",
+          "content": "Fem korte spørsmål fra kapitlene dette bygger på. Svar i hodet først, så\nsammenlign.\n\n**1.** Hva er verste tilfelle for `Quicksort`, og hvorfor?\n\n*Svar:* $\\Theta(n^2)$, når hver partisjonering skiller av bare ett element —\nfor eksempel på allerede sortert input med siste element som pivot. Se\n[kap. 2.1](/tdt4120/tdt4120-2-1).\n\n**2.** Hvilke sorteringer er stabile?\n\n*Svar:* `Insertion-Sort`, `Merge-Sort`, `Counting-Sort`, `Radix-Sort` og\n`Bucket-Sort`. `Quicksort` og `Heapsort` er det ikke. Se\n[kap. 2.2](/tdt4120/tdt4120-2-2).\n\n**3.** Hva er kjøretiden til `Counting-Sort`, og under hvilken betingelse er\nden lineær?\n\n*Svar:* $\\Theta(n+k)$, lineær når $k = O(n)$.\n\n**4.** Løs $T(n) = T(n/2) + \\Theta(n)$ med iterasjon.\n\n*Svar:* $n + n/2 + n/4 + \\dots < 2n$, altså $\\Theta(n)$. Se\n[kap. 1.5](/tdt4120/tdt4120-1-5).\n\n**5.** Hva er forskjellen på $\\Theta$ og $O$?\n\n*Svar:* $\\Theta$ er tett grense begge veier, $O$ bare øvre. Se\n[kap. 1.1](/tdt4120/tdt4120-1-1).\n\n**Videre:** [kap. 2.4](/tdt4120/tdt4120-2-4) driller hele Del 2 — håndkjøring,\nkjøretidsfakta og kombinasjonsspørsmålet om rekkefølgen på to sorteringer."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
