@@ -91,9 +91,14 @@ BYGGESPRAK_TABELL = re.compile(r"\|\s*Løkke[nr]?\s*\|")
 # uansett ikke hvor leseren har vært. 526 blokker sa «Sist du var her»,
 # verst i inter1000-1-1: første kapittel i sin fagsøyle, som tre linjer
 # lenger nede skriver at det kan leses uten å ha vært innom noe annet.
+#
+# ⚠ Ordgrense foran «som»: uten den treffer mønsteret «der·som du husker», som
+# er en helt vanlig betingelse og ikke en påstand om lesehistorikk. 13 av 14
+# treff i nynorsk-laget var nettopp det. En rådgivende port som roper ulv,
+# blir ignorert.
 LESEHISTORIKK = re.compile(
     r"[Ss]ist du var her"
-    r"|[Ss]om du (?:sikkert )?husker"
+    r"|(?<![a-zæøå])[Ss]om du (?:sikkert )?husker"
     r"|[Dd]u har jo allerede"
     r"|[Dd]ette kan du fra før"
     r"|[Dd]a vi (?:gikk gjennom|så på) dette sist")
@@ -166,6 +171,18 @@ for f in files:
         notes.append(f"{cid}: «{m.group(0)}» — boka påstår noe om hvor leseren "
                      f"har vært. Skriv om stoffet i stedet: «Dette sto der», "
                      f"«Fra kap. X», «I det kapitlet lærte du …»")
+    # `description` er REN TEKST. Verifisert mot prod-server 2. august 2026:
+    # feltet havner rått i <meta name="description">, og:description og
+    # twitter:description — altså i Google-treffet og lenkeforhåndsvisningen —
+    # og i den synlige kroppen. KaTeX rendrer 1217 uttrykk ellers på
+    # kapittelsiden, men ikke ett i beskrivelsen. 122 kapitler i 17 bøker viste
+    # «$\omega_0=\sqrt{k/m}$» og «**rekonstruér**» bokstavelig i søkeresultatet.
+    d_desc = d.get("description") or ""
+    m = re.search(r"\$[^$]+\$|\*\*[^*]+\*\*|`[^`]+`", d_desc)
+    if m:
+        issues.append(f"{cid}: markdown/LaTeX i description — «{m.group(0)[:40]}» "
+                      f"vises bokstavelig i Google-treffet. Skriv ren tekst "
+                      f"(ω₀=√(k/m), ikke $\\omega_0=\\sqrt{{k/m}}$)")
     # døde lenker
     # /bok-prefikset ble fjernet 27. juli 2026 (kapitler ligger nå på
     # /<kurs>/<kapittel>). Sto det gamle mønsteret igjen her, ville regexen
