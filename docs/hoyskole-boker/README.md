@@ -298,7 +298,7 @@ Status: **analyse** = EKSAMENSANALYSE.md ferdig · **skjelett** = SKJELETT.md
 ferdig (= rammeverk komplett, klart for Opus-bygging via BYGGEKONTRAKT-MAL) ·
 **bok** = bygget og wiret i plattformen.
 
-Generert fra disken: **36** **bok** (live) · **1** ⚠ siste år — **bok** · **2** ⚠ siste år · **1** skjelett + **kontrakt** · **4** ⚠ avklar først · **151** skjelett · **2** analyse · **11** — · **1** ⛔ nedlagt (live bok) · **34** ⛔ nedlagt.
+Generert fra disken: **37** **bok** (live) · **1** ⚠ siste år — **bok** · **2** ⚠ siste år · **4** ⚠ avklar først · **151** skjelett · **2** analyse · **11** — · **1** ⛔ nedlagt (live bok) · **34** ⛔ nedlagt.
 
 | Emne | Arketype | Status |
 |---|---|---|
@@ -338,10 +338,10 @@ Generert fra disken: **36** **bok** (live) · **1** ⚠ siste år — **bok** ·
 | TDT4120 Algoritmer og datastrukturer (NTNU) | regnefag | **bok** (live) |
 | TFY4115 Fysikk (NTNU) | regnefag | **bok** (live) |
 | TMA4245 Statistikk (NTNU) | regnefag | **bok** (live) |
+| UTV1000 Innføring i utviklingsstudier og bærekraft (UiO) | — | **bok** (live) |
 | TMA4135 Matematikk 4D (NTNU) | regnefag | ⚠ siste år — **bok** |
 | PSY1300 Kognitiv psykologi (UiO) | — | ⚠ siste år |
 | SOSANT1400 Antropologi og religion (UiO) | drøfting | ⚠ siste år |
-| UTV1000 Innføring i utviklingsstudier og bærekraft (UiO) | — | skjelett + **kontrakt** |
 | MET 1190 Statistikk | — | ⚠ avklar først |
 | SOS4010 Kvalitativ metode — eksamensrettet lærebok (UiO, master) | — | ⚠ avklar først |
 | SOS4020 Kvantitativ metode — eksamensrettet lærebok (UiO, master) | — | ⚠ avklar først |
