@@ -1,0 +1,370 @@
+{
+  "id": "tdt4120-1-6",
+  "courseId": "tdt4120",
+  "chapterNumber": "1.6",
+  "title": "DRILL — Rekurrensløsning med navngitt metode",
+  "description": "Full drill på sjanger B: velg riktig metode (masterteorem / iterasjon / substitusjon), løs, og oppgi svaret på riktig form (asymptotisk vs. eksakt).",
+  "estimatedMinutes": 80,
+  "competenceGoals": [
+    "kunne avgjøre på ett blikk hvilken av de tre metodene en gitt rekurrens skal løses med",
+    "kunne løse en rekurrens med masterteoremet og oppgi hvilket tilfelle som gjelder, inkludert riktig antall logaritmefaktorer",
+    "kunne kjenne igjen en rekurrens som faller utenfor pensumvarianten av masterteoremet, og si hvorfor"
+  ],
+  "content": [
+    {
+      "id": "tdt4120-1-6-tip-1",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Rekurrenser er registrert i 13 av de 17 settene i grunnlaget (76 %).**\nGrunnlaget er de 17 settene fra august 2015 til august 2023 som er gjennomgått\ntema for tema — det er nevneren hver gang boka oppgir en prosent.\n\nSjangeren er én, og den er smal nok til å drilles ferdig:\n\n- **Sjanger B — rekurrensløsning med navngitt metode**, altså at du sier\n  hvilken metode du brukte og oppgir svaret på den formen oppgaven ber om.\n  Bruker du masterteoremet, skal **tilfellet** oppgis.\n\n**Høyeste prioritet — dette må sitte.** To ting avgjør uttellingen: at metoden\ner riktig valgt og navngitt, og at svarformen er den oppgaven ba om.\n\n**De tre feilene som koster mest, i rekkefølge:**\n\n1. **Feil masterteorem-tilfelle**, og særlig å glemme logaritmefaktoren i\n   tilfelle 2. Svaret der er $\\lg^{k+1} n$, ikke $\\lg^{k} n$.\n2. **Asymptotisk svar der oppgaven ba om et eksakt uttrykk.** $\\Theta(n^2)$ er\n   ikke et svar på «finn et eksakt uttrykk».\n3. **Å bruke masterteoremet på en rekurrens som faller utenfor.** Det gir et\n   svar som ser riktig ut og er galt — mens det å påpeke at teoremet ikke\n   gjelder, gir uttelling.\n\n**Slik er kapitlet lagt opp (80 min):**\n\n| Innhold | Tid |\n|---|---|\n| Løsningsoppskriften | ca. 10 min |\n| Den gjennomarbeidede eksamenscasen | ca. 14 min |\n| Drill på masterteoremet, alle tre tilfellene | ca. 22 min |\n| Drill på iterasjon og eksakte svar | ca. 16 min |\n| Drill på substitusjon | ca. 10 min |\n| Blandet: hvilken metode? | ca. 8 min |\n\n— naturlig pausepunkt — etter masterteorem-drillen. Resten kan tas i en egen\nøkt."
+    },
+    {
+      "id": "tdt4120-1-6-t-2",
+      "type": "text",
+      "content": "## Forkunnskaper\n\n- [kap. 1.4](/tdt4120/tdt4120-1-4) — masterteoremet, de tre tilfellene og\n  regularitetsbetingelsen.\n- [kap. 1.5](/tdt4120/tdt4120-1-5) — iterasjonsmetoden, substitusjonsmetoden og\n  splitt og hersk.\n- [kap. 1.1](/tdt4120/tdt4120-1-1) — de asymptotiske symbolene.\n\nEr induksjon ustøtt, er [Induksjonsbevis](/r2/r2-1-6) den grundige\ngjennomgangen og [Induksjon](/r1/r1-9-2) den mykere. Summeformlene finner du i\n[Rekker og summasjon](/r2/r2-1-4) og\n[Geometriske følger og rekker](/s2/s2-7-2).\n\nDette kapitlet legger ikke til nytt stoff. Det gjør stoffet til en ferdighet du\nkan utføre på fem minutter under tidspress."
+    },
+    {
+      "id": "tdt4120-1-6-coll-4",
+      "type": "collapsible",
+      "title": "Notasjons- og pseudokodeliste",
+      "buttonText": "Vis notasjon og pseudokode",
+      "content": [
+        {
+          "id": "tdt4120-1-6-ct-3",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et algoritmefag: den lister kjøretidsuttrykk og pseudokode-operasjoner i stedet for bare greske bokstaver.\n\n| Symbol | Betydning |\n|---|---|\n| $T(n)$ | kjøretiden på input av størrelse $n$ |\n| $a$ | antall rekursive kall |\n| $b$ | faktoren inputen krymper med |\n| $f(n)$ | arbeidet utenom de rekursive kallene |\n| $n^{\\log_b a}$ | sammenligningsuttrykket i masterteoremet |\n| $k$ | potensen på logaritmefaktoren i tilfelle 2; må være $k \\ge 0$ |\n| $\\varepsilon$ | den strengt positive konstanten i tilfelle 1 og 3 |\n| $c$ | konstanten i regularitetsbetingelsen og i substitusjonsmetoden |\n| $\\Theta$, $O$, $\\Omega$ | tett grense, øvre grense, nedre grense |\n| $\\lg n$ | $\\log_2 n$ |\n\n| Algoritme/operasjon | Kontrakt | Kjøretid |\n|---|---|---|\n| masterteoremet | løser $T(n) = aT(n/b) + f(n)$ ved å sammenligne $f(n)$ med $n^{\\log_b a}$ | gir et asymptotisk svar |\n| iterasjonsmetoden | setter rekurrensen inn i seg selv og summerer leddene | gir et eksakt uttrykk |\n| substitusjonsmetoden | gjetter svaret og beviser det ved induksjon | verifiserer en gitt grense |\n| `Merge-Sort(A, p, r)` | gjennomgangseksempel: $T(n) = 2T(n/2) + \\Theta(n)$ | $\\Theta(n\\lg n)$ |\n| `Bisect(A, v)` | gjennomgangseksempel: $T(n) = T(n/2) + \\Theta(1)$ | $\\Theta(\\lg n)$ |\n\n**Formler i dette delkapitlet:**\n\n$$T(n) = aT(n/b) + f(n), \\quad a \\ge 1,\\; b > 1$$\n\nStandardformen masterteoremet krever. Er den ikke oppfylt, gjelder teoremet ikke.\n\n$$f(n) = \\Theta(n^{\\log_b a}\\lg^{k} n),\\; k \\ge 0 \\;\\Rightarrow\\; T(n) = \\Theta(n^{\\log_b a}\\lg^{k+1} n)$$\n\nTilfelle 2. Merk $k \\ge 0$ og at svaret får én logaritme **mer** enn $f$ hadde.\n\n$$1 + 2 + \\dots + n = \\frac{n(n+1)}{2}, \\qquad 1 + 2 + \\dots + 2^{n-1} = 2^n - 1$$\n\nDe to summene nesten alle eksakte iterasjonssvar ender i.\n"
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-1-6-thm-5",
+      "type": "theorem",
+      "title": "Løsningsoppskriften for en rekurrensoppgave",
+      "content": "**Steg 1 — les hva oppgaven ber om.** Står ordet «eksakt» eller «lukket\nuttrykk» der? Da er det iterasjon, uansett hvilken form rekurrensen har. Står\ndet «vis at $T(n) = O(\\dots)$»? Da er det substitusjon.\n\n**Steg 2 — er rekurrensen på formen $aT(n/b) + f(n)$ med $a \\ge 1$ og\n$b > 1$?** Er den det, og oppgaven vil ha en asymptotisk grense, bruk\nmasterteoremet. Er den ikke det — for eksempel $T(n) = T(n-1) + f(n)$ — bruk\niterasjon.\n\n**Steg 3 ved masterteoremet — regn ut $n^{\\log_b a}$ først.** Ikke gjett.\n$\\log_2 8 = 3$, $\\log_3 9 = 2$, $\\log_4 2 = 1/2$, $\\log_2 7 \\approx 2{,}807$.\n\n**Steg 4 — sammenlign $f(n)$ med $n^{\\log_b a}$, og velg tilfelle:**\n\n| Forholdet | Tilfelle | Svar |\n|---|---|---|\n| $f(n)$ vokser en hel potens langsommere | 1 | $\\Theta(n^{\\log_b a})$ |\n| $f(n) = \\Theta(n^{\\log_b a}\\lg^{k} n)$, $k \\ge 0$ | 2 | $\\Theta(n^{\\log_b a}\\lg^{k+1} n)$ |\n| $f(n)$ vokser en hel potens raskere, og regularitet holder | 3 | $\\Theta(f(n))$ |\n\n**Steg 5 — sjekk at tilfellet faktisk gjelder.** I tilfelle 1 og 3 må gapet\nvære en hel potens av $n$, ikke bare en logaritme; $\\varepsilon$ må være\nstrengt positiv. I tilfelle 3 skal regularitetsbetingelsen\n$af(n/b) \\le c\\,f(n)$ skrives ut på én linje.\n\n**Steg 6 — er $k$ negativ, faller rekurrensen utenfor pensumvarianten.** Si\ndet. $T(n) = 2T(n/2) + n/\\lg n$ er det klassiske eksemplet.\n\n**Steg 7 ved iterasjon:** skriv ut tre innsettinger, finn det generelle leddet,\nfinn hvilken $i$ som treffer grunntilfellet, summer. Grunntilfellets verdi skal\nmed i det eksakte uttrykket.\n\n**Steg 8 ved substitusjon:** sett hypotesen inn der $T$-uttrykket står, regn\nut, og vis at du ender på **nøyaktig** den formen du antok. Er det et restledd\nigjen, er gjetningen for optimistisk.\n\n**Steg 9 — skriv svaret.** Metodens navn, tilfellet hvis masterteoremet, og\nselve uttrykket. To til tre linjer."
+    },
+    {
+      "id": "tdt4120-1-6-eks-6",
+      "type": "example",
+      "title": "Eksempel 1: Gjennomarbeidet eksamenscase med margnotater",
+      "problem": "Tre deloppgaver av den typen som kommer sammen på arket. Les margnotatene: de\nsier hva som gir uttelling ved hvert steg.\n\n**a)** Løs $T(n) = 2T(n/2) + n\\lg n$ og oppgi tilfellet.\n\n**b)** Finn et **eksakt** uttrykk for $T(n) = T(n-1) + n$ med $T(0) = 0$.\n\n**c)** Løs $T(n) = 3T(n/4) + n\\lg n$ og oppgi tilfellet.",
+      "solution": "**a)** **Metode: masterteoremet.**\n\n$a = 2$, $b = 2$, altså $n^{\\log_2 2} = n$.\n\n$f(n) = n\\lg n = \\Theta(n^{1}\\lg^{1} n)$, altså $\\Theta(n^{\\log_b a}\\lg^{k} n)$\nmed $k = 1$. Det er **tilfelle 2**.\n\n$$T(n) = \\Theta(n\\lg^{2} n)$$\n\n*Margnotat.* Her faller de fleste poengene. Svaret er $\\lg^{k+1} n$, altså\n$\\lg^2 n$ — du legger til én logaritme, du beholder ikke den du hadde. Skriver\ndu $\\Theta(n\\lg n)$, har du gitt `Merge-Sort`s svar på en rekurrens som er\ndyrere.\n\n*Margnotat.* Tilfellet skal oppgis. «Tilfelle 2» er to ord og gir uttelling.\n\n**b)** **Metode: iterasjon.**\n\n$$T(n) = T(n-1) + n = T(n-2) + (n-1) + n = \\dots = T(0) + 1 + 2 + \\dots + n$$\n\n$$T(n) = \\frac{n(n+1)}{2}$$\n\n*Margnotat.* Oppgaven ba om et **eksakt** uttrykk. Svarer du $\\Theta(n^2)$, er\npåstanden sann og svaret galt — det er ikke den formen som ble etterspurt.\n\n*Margnotat.* Grunntilfellet $T(0) = 0$ bidrar ingenting her, men det skal med i\nregnestykket. Hadde det vært $T(0) = 4$, ville svaret vært $n(n+1)/2 + 4$.\n\n**c)** **Metode: masterteoremet.**\n\n$a = 3$, $b = 4$, altså $n^{\\log_4 3} \\approx n^{0{,}79}$.\n\n$f(n) = n\\lg n$ vokser strengt raskere enn $n^{0{,}79}$ — og gapet er en hel\npotens: $n\\lg n = \\Omega(n^{0{,}79+\\varepsilon})$ holder for eksempel med\n$\\varepsilon = 0{,}2$. Vi er i **tilfelle 3**.\n\nRegularitetsbetingelsen: $3f(n/4) = 3\\cdot\\frac{n}{4}\\lg\\frac{n}{4} \\le \\frac{3}{4}\\,n\\lg n = c\\,f(n)$ med $c = 3/4 < 1$. Den holder. (Kontrollert\nnumerisk for $n$ opp til 65 536.)\n\n$$T(n) = \\Theta(n\\lg n)$$\n\n*Margnotat.* I tilfelle 3 er svaret $\\Theta(f(n))$ — ingen ekstra\nlogaritmefaktor. Å legge til én er en refleks fra tilfelle 2 og er galt her.\n\n*Margnotat.* Regularitetsbetingelsen er ett av leddene som gir uttelling i\ntilfelle 3. Én linje holder.\n\n**På eksamen leverer du de tre svarene under — resten er utregning:**\n\n- **a)** Masterteoremet, tilfelle 2: $\\Theta(n\\lg^2 n)$\n- **b)** Iterasjon: $T(n) = n(n+1)/2$\n- **c)** Masterteoremet, tilfelle 3 (regularitet oppfylt): $\\Theta(n\\lg n)$"
+    },
+    {
+      "id": "tdt4120-1-6-t-7",
+      "type": "text",
+      "content": "## Drill på masterteoremet (~22 min)\n\nSeks oppgaver som roterer alle tre tilfellene, pluss den ene som faller\nutenfor."
+    },
+    {
+      "id": "tdt4120-1-6-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-1-6-oppg-8-inner",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamensnivå, sjanger B — rekurrensløsning med navngitt metode, altså at du\nsier hvilken metode du bruker og oppgir svaret på riktig form.)\n\nLøs $T(n) = 8T(n/2) + n^3$. Oppgi tilfellet.",
+        "solution": "**Metode:** masterteoremet.\n\n$a = 8$, $b = 2$, altså $n^{\\log_2 8} = n^3$.\n\n$f(n) = n^3 = \\Theta(n^{3}\\lg^{0} n)$, altså tilfelle 2 med $k = 0$.\n\n$$T(n) = \\Theta(n^3\\lg n)$$\n\n**Tilfelle 2.** Merk logaritmen: $\\lg^{k+1} n = \\lg^1 n$. Å svare\n$\\Theta(n^3)$ er å glemme den, og det er felle **#5** — feil\nmasterteorem-tilfelle.",
+        "hints": [
+          "Regn ut $\\log_b a$ først, og sammenlign så $f(n)$ med $n^{\\log_b a}$.",
+          "Når de to er like store, er du i tilfelle 2 — og svaret får én logaritme mer."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-1-6-oppg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-1-6-oppg-9-inner",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamensnivå, sjanger B.)\n\nLøs $T(n) = 9T(n/3) + n$. Oppgi tilfellet.",
+        "solution": "**Metode:** masterteoremet.\n\n$a = 9$, $b = 3$, altså $n^{\\log_3 9} = n^2$.\n\n$f(n) = n$ vokser en hel potens langsommere: $n = O(n^{2-\\varepsilon})$ holder\nfor $\\varepsilon = 1$. Det er **tilfelle 1**.\n\n$$T(n) = \\Theta(n^2)$$\n\nI tilfelle 1 dominerer rekursjonen, og svaret er $n^{\\log_b a}$ alene — ingen\nlogaritmefaktor.",
+        "hints": [
+          "$\\log_3 9$ er et helt tall. Regn det ut.",
+          "Vokser $f(n)$ raskere eller langsommere enn $n^{\\log_b a}$?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-1-6-oppg-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-1-6-oppg-10-inner",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger B.)\n\nLøs $T(n) = 4T(n/2) + n^2$. Oppgi tilfellet.",
+        "solution": "**Metode:** masterteoremet.\n\n$a = 4$, $b = 2$, altså $n^{\\log_2 4} = n^2$.\n\n$f(n) = n^2 = \\Theta(n^{2}\\lg^{0} n)$, altså **tilfelle 2** med $k = 0$.\n\n$$T(n) = \\Theta(n^2\\lg n)$$\n\nSammenlign med forrige oppgave: der var $f(n)$ mindre enn $n^{\\log_b a}$ og\nsvaret ble $\\Theta(n^2)$; her er de like store og svaret får en logaritme på\nkjøpet. Forskjellen mellom de to tilfellene er nettopp den logaritmen.",
+        "hints": [
+          "Er $f(n)$ mindre enn, like stor som eller større enn $n^{\\log_b a}$?",
+          "Tilfelle 2 gjelder også når $k = 0$ — pensumvarianten krever bare $k \\ge 0$."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-1-6-oppg-11",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-1-6-oppg-11-inner",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger B.)\n\nLøs $T(n) = 2T(n/4) + 1$. Oppgi tilfellet.",
+        "solution": "**Metode:** masterteoremet.\n\n$a = 2$, $b = 4$, altså $n^{\\log_4 2} = n^{1/2} = \\sqrt{n}$.\n\n$f(n) = \\Theta(1)$ vokser en hel potens langsommere:\n$1 = O(n^{1/2-\\varepsilon})$ holder for $\\varepsilon = 1/4$. Det er\n**tilfelle 1**.\n\n$$T(n) = \\Theta(\\sqrt{n})$$\n\nLegg merke til at $\\log_b a$ ikke må være et helt tall. Her er den $1/2$, og\nsvaret blir en kvadratrot.",
+        "hints": [
+          "$\\log_4 2$ er ikke et helt tall — skriv det som en brøk.",
+          "Konstant arbeid per nivå er $f(n) = \\Theta(1) = \\Theta(n^0)$."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-1-6-oppg-12",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-1-6-oppg-12-inner",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger B.)\n\nLøs $T(n) = 7T(n/2) + n^2$. Oppgi tilfellet, og forklar med én setning hvorfor\nsvaret ikke er $\\Theta(n^2\\lg n)$.",
+        "solution": "**Metode:** masterteoremet.\n\n$a = 7$, $b = 2$, altså $n^{\\log_2 7} \\approx n^{2{,}807}$.\n\n$f(n) = n^2$ vokser strengt langsommere enn $n^{2{,}807}$, og gapet er en hel\npotens: $n^2 = O(n^{2{,}807-\\varepsilon})$ holder for $\\varepsilon = 0{,}8$.\nDet er **tilfelle 1**.\n\n$$T(n) = \\Theta(n^{\\lg 7})$$\n\nSvaret er ikke $\\Theta(n^2\\lg n)$ fordi $f(n)$ og $n^{\\log_b a}$ **ikke** er\nlike store — de skiller seg med en hel potens av $n$, ikke med en logaritme, og\nda er vi ikke i tilfelle 2.\n\n(Uttrykket $n^{\\lg 7}$ betyr $n^{\\log_2 7}$, altså omtrent $n^{2{,}807}$.)",
+        "hints": [
+          "Sammenlign eksponentene: er $2$ og $\\log_2 7$ like store?",
+          "Tilfelle 2 krever at $f(n)$ er $\\Theta(n^{\\log_b a})$ ganger en logaritmepotens."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-1-6-oppg-13",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-1-6-oppg-13-inner",
+        "number": 6,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger B — med en felle.)\n\nBetrakt $T(n) = 2T(n/2) + \\dfrac{n}{\\lg n}$.\n\n**a)** Regn ut $n^{\\log_b a}$ og sammenlign med $f(n)$.\n**b)** Kan pensumvarianten av masterteoremet brukes? Begrunn.",
+        "solution": "**a)** $a = 2$, $b = 2$, altså $n^{\\log_2 2} = n$. Her er\n$f(n) = \\dfrac{n}{\\lg n} = n\\lg^{-1} n$, altså $\\Theta(n^{\\log_b a}\\lg^{k} n)$\nmed $k = -1$.\n\n**b)** **Nei.** Pensumvarianten av tilfelle 2 krever $k \\ge 0$, altså en\nikke-negativ potens på logaritmefaktoren. Her er $k = -1$, og rekurrensen\nfaller utenfor.\n\nDen faller heller ikke i tilfelle 1 eller 3: gapet mellom $f(n)$ og\n$n^{\\log_b a}$ er bare en logaritmefaktor, ikke en hel potens av $n$, så\nverken $O(n^{1-\\varepsilon})$ eller $\\Omega(n^{1+\\varepsilon})$ holder for\nnoen strengt positiv $\\varepsilon$.\n\n**Å si dette høyt gir uttelling.** Å tvinge teoremet på og svare\n$\\Theta(n\\lg n)$ eller $\\Theta(n)$ gir et svar som ser riktig ut og er galt.\nDette er felle **#5** — feil bruk av masterteoremet.",
+        "hints": [
+          "Skriv $n/\\lg n$ som $n$ ganger en logaritmepotens, og les av eksponenten.",
+          "Hvilken betingelse stiller pensumvarianten av tilfelle 2 på den eksponenten?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-1-6-t-14",
+      "type": "text",
+      "content": "## Drill på iterasjon og eksakte svar (~16 min)\n\nFire oppgaver. Alle ber om et **eksakt** uttrykk — les svarformen nøye."
+    },
+    {
+      "id": "tdt4120-1-6-oppg-15",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-1-6-oppg-15-inner",
+        "number": 7,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamensnivå, sjanger B.)\n\nFinn et **eksakt** uttrykk for $T(n) = T(n-1) + 2^{n-1}$ med $T(0) = 0$, og\nnavngi metoden.",
+        "solution": "**Metode:** iterasjon.\n\nLeddene som blir liggende igjen, er $2^{n-1}, 2^{n-2}, \\dots, 2^1, 2^0$, altså\nalle potenser fra $2^0$ til $2^{n-1}$:\n\n$$T(n) = \\sum_{j=0}^{n-1} 2^j = 2^n - 1$$\n\n**Svar:** $T(n) = 2^n - 1$.\n\nKontroll: $T(1) = 1$, $T(2) = 3$, $T(3) = 7$, $T(4) = 15$. Stemmer med\nrekurrensen.",
+        "hints": [
+          "Skriv ut de tre første innsettingene og se hvilke ledd som blir liggende igjen.",
+          "Summen av alle potenser opp til $2^{n-1}$ har et lukket uttrykk."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-1-6-oppg-16",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-1-6-oppg-16-inner",
+        "number": 8,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger B.)\n\nFinn et **eksakt** uttrykk for $T(n) = 3T(n-1)$ med $T(0) = 2$, og navngi\nmetoden.",
+        "solution": "**Metode:** iterasjon.\n\n$$T(n) = 3T(n-1) = 9T(n-2) = 27T(n-3) = \\dots = 3^{n}T(0)$$\n\n$$T(n) = 2\\cdot 3^{n}$$\n\n**Svar:** $T(n) = 2\\cdot 3^n$.\n\nKontroll: $T(0) = 2$, $T(1) = 6$, $T(2) = 18$, $T(3) = 54$. Stemmer.\n\nHer betyr grunntilfellet alt: med $T(0) = 1$ ville svaret vært $3^n$. Ved\neksakte svar er grunntilfellet en faktor eller et ledd i uttrykket, aldri noe\nsom kan sløyfes.",
+        "hints": [
+          "Det legges ikke til noe i hvert steg — bare ganges. Hva blir faktoren etter $n$ steg?",
+          "Grunntilfellet er ikke 1 her."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-1-6-oppg-17",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-1-6-oppg-17-inner",
+        "number": 9,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger B.)\n\nEn rutine kaller seg selv på en input som er to elementer kortere, og gjør $n$\nenheter arbeid per kall: $T(n) = T(n-2) + n$ for like $n$, med $T(0) = 0$.\n\nFinn et **eksakt** uttrykk for like $n$.",
+        "solution": "**Metode:** iterasjon.\n\nLeddene som blir liggende igjen, er $n, n-2, n-4, \\dots, 2$ — bare de like\ntallene. Med $n = 2m$:\n\n$$T(n) = 2 + 4 + \\dots + 2m = 2(1 + 2 + \\dots + m) = m(m+1)$$\n\nSett inn $m = n/2$:\n\n$$T(n) = \\frac{n(n+2)}{4}$$\n\n**Svar:** $T(n) = \\dfrac{n(n+2)}{4}$ for like $n$.\n\nKontroll: $T(2) = 2$, $T(4) = 6$, $T(6) = 12$. Stemmer.\n\nAsymptotisk er dette $\\Theta(n^2)$ — halvparten så mange ledd som i\n$T(n) = T(n-1) + n$, men samme vekstklasse.",
+        "hints": [
+          "Hvilke tall blir liggende igjen som ledd når argumentet synker med 2 om gangen?",
+          "Sett $n = 2m$ og bruk den aritmetiske summen på $m$."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-1-6-oppg-18",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-1-6-oppg-18-inner",
+        "number": 10,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger B — begge svarformene.)\n\nBetrakt $T(n) = T(n-1) + n$ med $T(0) = 0$.\n\n**a)** Oppgi et eksakt uttrykk.\n**b)** Oppgi den strammeste asymptotiske grensen.\n**c)** Forklar med én setning hvorfor de to svarene ikke er utskiftbare på\neksamen.",
+        "solution": "**a)** $T(n) = \\dfrac{n(n+1)}{2}$.\n\n**b)** $T(n) = \\Theta(n^2)$.\n\n**c)** Det eksakte uttrykket gir verdien av $T(n)$ for hver eneste $n$; den\nasymptotiske grensen gir bare vekstklassen, og kaster bort både konstanten\n$1/2$ og førsteordensleddet. Ber oppgaven om det ene, er det andre ikke et\nsvar — selv om begge er sanne.\n\nPraktisk regel: ordet «eksakt» eller «lukket uttrykk» i oppgaveteksten styrer\nsvarformen. Står ingen av dem, og rekurrensen er på $aT(n/b)+f(n)$-form, er\ndet den asymptotiske grensen som forventes.",
+        "hints": [
+          "Løs først med iterasjon, og forenkle deretter resultatet.",
+          "Tenk på hva hvert av de to svarene forteller og ikke forteller."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-1-6-t-19",
+      "type": "text",
+      "content": "## Drill på substitusjon (~10 min)\n\nTo oppgaver. Husk at uttellingen ligger i induksjonssteget, ikke i\ngjetningen."
+    },
+    {
+      "id": "tdt4120-1-6-oppg-20",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-1-6-oppg-20-inner",
+        "number": 11,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger B.)\n\nVis ved substitusjon at $T(n) = 2T(n/2) + n$ gir $T(n) = O(n\\lg n)$. Før\ninduksjonssteget ferdig.",
+        "solution": "**Metode:** substitusjon.\n\n**Påstand:** $T(n) \\le c\\,n\\lg n$ for en konstant $c > 0$ og alle $n \\ge 2$.\n\n**Induksjonshypotese:** $T(n/2) \\le c\\,\\dfrac{n}{2}\\lg\\dfrac{n}{2}$.\n\n**Steget:**\n\n$$T(n) = 2T(n/2) + n \\le 2c\\,\\frac{n}{2}\\lg\\frac{n}{2} + n = c\\,n\\lg\\frac{n}{2} + n$$\n$$= c\\,n(\\lg n - 1) + n = c\\,n\\lg n - c\\,n + n \\le c\\,n\\lg n \\quad\\text{når } c \\ge 1$$\n\n**Grunntilfelle:** $n = 2$ gir $T(2) = 2T(1) + 2$, en konstant, og $c$ kan\nvelges stor nok til at $T(2) \\le 2c$. Merk at $n = 1$ **ikke** duger som\ngrunntilfelle: $c\\cdot 1\\cdot\\lg 1 = 0$, mens $T(1) > 0$.\n\n**Konklusjon:** $T(n) = O(n\\lg n)$.\n\nKontroll: med $c = 2$ og $T(1) = 1$ holder ulikheten for alle $n$ fra 2 til\n4999.",
+        "hints": [
+          "Sett hypotesen inn der $T(n/2)$ står, og bruk at $\\lg(n/2) = \\lg n - 1$.",
+          "Se etter et ledd som gir deg reserve til å absorbere det ekstra $n$-et."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-1-6-oppg-21",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-1-6-oppg-21-inner",
+        "number": 12,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger B — «er argumentet gyldig?».)\n\nEn kandidat vil vise at $T(n) = 4T(n/2) + n$ gir $T(n) = O(n^2)$, og skriver:\n\n«Anta $T(n/2) \\le c(n/2)^2$. Da er $T(n) \\le 4c(n/2)^2 + n = cn^2 + n$, som er\n$O(n^2)$.»\n\nEr beviset gyldig? Svar ja eller nei, og forklar hvor det svikter — og hvordan\ndet kan repareres.",
+        "solution": "**Nei**, ikke som det står.\n\nSteget ender på $cn^2 + n$, ikke på $cn^2$. Induksjonen krever at du kommer ut\nmed **nøyaktig** den formen du antok; et restledd betyr at konstanten vokser\nfor hvert nivå.\n\n**Reparasjonen** er å styrke hypotesen med et lavere ledd. Anta i stedet\n$T(n) \\le c\\,n^2 - d\\,n$ for konstanter $c, d > 0$. Da blir steget\n\n$$T(n) \\le 4\\left(c\\frac{n^2}{4} - d\\frac{n}{2}\\right) + n = c\\,n^2 - 2dn + n\n= c\\,n^2 - dn - (d-1)n$$\n\nsom er $\\le c\\,n^2 - dn$ så snart $d \\ge 1$. Nå ender vi på den antatte formen,\nog beviset går gjennom.\n\n**Kontroll med masterteoremet:** $a = 4$, $b = 2$ gir $n^{\\log_2 4} = n^2$, og\n$f(n) = n$ vokser en hel potens langsommere — tilfelle 1, altså\n$T(n) = \\Theta(n^2)$. Påstanden var altså riktig; det var beviset som ikke\nholdt.\n\nDet er et poeng verdt å merke seg: en riktig påstand med et ugyldig bevis er\nfortsatt et ugyldig bevis.",
+        "hints": [
+          "Sammenlign formen du antok med formen du endte opp med.",
+          "Prøv en hypotese med et ekstra ledd som trekkes fra, og se hva som skjer med restleddet."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-1-6-t-22",
+      "type": "text",
+      "content": "## Blandet: hvilken metode? (~8 min)\n\nDen siste oppgaven blander alt. På eksamen er dette den vanligste\ninnpakningen: tre rekurrenser på rad, ulike metoder."
+    },
+    {
+      "id": "tdt4120-1-6-oppg-23",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-1-6-oppg-23-inner",
+        "number": 13,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger B.)\n\nFor hver rekurrens: navngi metoden, løs, og oppgi svaret på riktig form.\n\n**a)** $T(n) = 2T(n/2) + n\\lg n$\n**b)** $T(n) = T(n-1) + n$, $T(0) = 0$ — **eksakt** svar\n**c)** $T(n) = 8T(n/2) + n^3$ — oppgi tilfellet\n**d)** $T(n) = T(n/2) + \\Theta(1)$",
+        "solution": "**a)** Masterteoremet, **tilfelle 2** med $k = 1$:\n$n^{\\log_2 2} = n$, og $f(n) = \\Theta(n\\lg n)$.\n\n$$T(n) = \\Theta(n\\lg^{2} n)$$\n\n**b)** Iterasjon:\n\n$$T(n) = \\frac{n(n+1)}{2}$$\n\n**c)** Masterteoremet, **tilfelle 2** med $k = 0$: $n^{\\log_2 8} = n^3$, og\n$f(n) = \\Theta(n^3)$.\n\n$$T(n) = \\Theta(n^3\\lg n)$$\n\n**d)** Masterteoremet, **tilfelle 2** med $k = 0$: $n^{\\log_2 1} = n^0 = 1$, og\n$f(n) = \\Theta(1)$.\n\n$$T(n) = \\Theta(\\lg n)$$\n\n**Det som er verdt å merke seg:** tre av de fire er tilfelle 2, og i alle tre\ner svaret $\\lg^{k+1} n$. Tilfelle 2 er det klart vanligste i praksis, fordi de\nfleste splitt-og-hersk-algoritmer gjør nøyaktig like mye arbeid på hvert nivå\ni rekursjonstreet.",
+        "hints": [
+          "Gå gjennom sjekklista for hver: er formen $aT(n/b)+f(n)$, og hva ber oppgaven om?",
+          "Regn ut $n^{\\log_b a}$ før du sammenligner med $f(n)$."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-1-6-warn-24",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "Den første er den dyreste, og den kommer igjen og igjen.\n\n- **Å glemme logaritmefaktoren i tilfelle 2.** Svaret er\n  $\\Theta(n^{\\log_b a}\\lg^{k+1} n)$ — én logaritme **mer** enn $f(n)$ hadde.\n  For $T(n) = 8T(n/2)+n^3$ er svaret $\\Theta(n^3\\lg n)$, ikke $\\Theta(n^3)$.\n  Dette er felle **#5** — feil masterteorem-tilfelle.\n- **Å bruke tilfelle 2 med negativ $k$.** Pensumvarianten krever $k \\ge 0$.\n  $T(n) = 2T(n/2) + n/\\lg n$ har $k = -1$ og faller utenfor — si det, ikke\n  regn videre.\n- **Å legge til en logaritme i tilfelle 3.** Der er svaret $\\Theta(f(n))$,\n  punktum. Logaritmen hører til tilfelle 2.\n- **Å hoppe over regularitetsbetingelsen i tilfelle 3.** Den er ett av leddene\n  som gir uttelling, og den skrives på én linje.\n- **Å oppgi asymptotisk grense der oppgaven ber om et eksakt uttrykk**, eller\n  motsatt. Ordet «eksakt» styrer svarformen.\n- **Å glemme grunntilfellet i et eksakt svar.** Med $T(0) = 2$ i stedet for\n  $T(0) = 0$ blir svaret et annet.\n- **Å ikke navngi metoden.** Sjangeren heter «rekurrensløsning med navngitt\n  metode», og navnet er ett ord.\n- **Å ende induksjonssteget på feil form.** Kommer du ut med $cn^2 + n$ når du\n  antok $cn^2$, har du ikke vist påstanden — konstanten har vokst.\n\nOg den gjennomgående: **å tvinge masterteoremet på en rekurrens som ikke er på\nformen $aT(n/b) + f(n)$**. Å påpeke at teoremet ikke gjelder, gir uttelling."
+    },
+    {
+      "id": "tdt4120-1-6-t-25",
+      "type": "text",
+      "content": "## Rekurrensene du bør kjenne igjen på ett blikk\n\n| Rekurrens | Metode | Svar |\n|---|---|---|\n| $T(n) = T(n/2) + \\Theta(1)$ | masterteoremet, tilfelle 2 ($k=0$) | $\\Theta(\\lg n)$ |\n| $T(n) = 2T(n/2) + \\Theta(n)$ | masterteoremet, tilfelle 2 ($k=0$) | $\\Theta(n\\lg n)$ |\n| $T(n) = 2T(n/2) + n\\lg n$ | masterteoremet, tilfelle 2 ($k=1$) | $\\Theta(n\\lg^2 n)$ |\n| $T(n) = 2T(n/2) + n^2$ | masterteoremet, tilfelle 3 | $\\Theta(n^2)$ |\n| $T(n) = 4T(n/2) + n$ | masterteoremet, tilfelle 1 | $\\Theta(n^2)$ |\n| $T(n) = 8T(n/2) + n^3$ | masterteoremet, tilfelle 2 ($k=0$) | $\\Theta(n^3\\lg n)$ |\n| $T(n) = 7T(n/2) + n^2$ | masterteoremet, tilfelle 1 | $\\Theta(n^{\\lg 7})$ |\n| $T(n) = 2T(n/4) + 1$ | masterteoremet, tilfelle 1 | $\\Theta(\\sqrt{n})$ |\n| $T(n) = T(n-1) + \\Theta(1)$ | iterasjon | $\\Theta(n)$ |\n| $T(n) = T(n-1) + n$ | iterasjon | eksakt $n(n+1)/2$; $\\Theta(n^2)$ |\n| $T(n) = T(n-1) + 2^{n-1}$ | iterasjon | eksakt $2^n - 1$; $\\Theta(2^n)$ |\n| $T(n) = 2T(n-1) + 1$ | iterasjon | eksakt $2^n - 1$; $\\Theta(2^n)$ |\n| $T(n) = 2T(n/2) + n/\\lg n$ | **ingen** — $k = -1$ | faller utenfor pensumvarianten |\n\nDe fem øverste dekker de fleste algoritmene i denne boka. Kjenner du dem igjen\nuten å regne, sparer du minutter du trenger andre steder."
+    },
+    {
+      "id": "tdt4120-1-6-t-26",
+      "type": "text",
+      "content": "### Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp\nhar lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet\ngjelder kjernestoffet."
+    },
+    {
+      "id": "tdt4120-1-6-def-27",
+      "type": "definition",
+      "title": "Sjanger B — rekurrensløsning med navngitt metode",
+      "content": "oppgavetypen der du får en rekurrens og skal løse den.\n\nSvarformen er metodens navn, svaret på riktig form — asymptotisk eller eksakt —\nog for masterteoremet også hvilket tilfelle som gjelder.\n\n**Metodenavnet er ett ord**, og det er en del av det som gir uttelling."
+    },
+    {
+      "id": "tdt4120-1-6-def-28",
+      "type": "definition",
+      "title": "Sjekklista for metodevalg",
+      "content": "spør i denne rekkefølgen: (1) ber oppgaven om et **eksakt** uttrykk? Da\niterasjon. (2) Ber den deg **vise** en gitt grense? Da substitusjon. (3) Er\nformen $aT(n/b)+f(n)$? Da masterteoremet. (4) Ellers iterasjon.\n\nRekkefølgen er viktig: svarformen bestemmer før rekurrensens form gjør det.\n\n**Ordet «eksakt» slår masterteoremet**, uansett hvor pen rekurrensen ser ut."
+    },
+    {
+      "id": "tdt4120-1-6-def-29",
+      "type": "definition",
+      "title": "Tilfelle 2 og logaritmefaktoren",
+      "content": "$f(n) = \\Theta(n^{\\log_b a}\\lg^{k} n)$ med $k \\ge 0$ gir\n$T(n) = \\Theta(n^{\\log_b a}\\lg^{k+1} n)$.\n\nDu legger til én logaritme; du beholder ikke den du hadde.\n\n**Dette er stedet flest poeng faller.** For $f(n) = n\\lg n$ og\n$n^{\\log_b a} = n$ er svaret $\\Theta(n\\lg^2 n)$."
+    },
+    {
+      "id": "tdt4120-1-6-def-30",
+      "type": "definition",
+      "title": "Betingelsen $k \\ge 0$",
+      "content": "potensen på logaritmefaktoren i tilfelle 2 må være **ikke-negativ**.\n\n$k = 0$ er tillatt og er det vanligste tilfellet, siden $\\lg^0 n = 1$.\n\n**Negativ $k$ faller utenfor pensumvarianten:** $T(n) = 2T(n/2) + n/\\lg n$ har\n$k = -1$, og da skal du si at teoremet ikke gjelder."
+    },
+    {
+      "id": "tdt4120-1-6-def-31",
+      "type": "definition",
+      "title": "Regularitetsbetingelsen",
+      "content": "kravet $af(n/b) \\le c\\,f(n)$ for en konstant $c < 1$ og alle store nok $n$, som\nmå holde i tilfelle 3.\n\nDen sier at arbeidet på toppen virkelig dominerer, og ikke blir tatt igjen av\nnivåene under.\n\n**Skriv den ut på én linje** — det er ett av leddene som gir uttelling i\ntilfelle 3."
+    },
+    {
+      "id": "tdt4120-1-6-def-32",
+      "type": "definition",
+      "title": "Tilfelle 3 og fraværet av logaritme",
+      "content": "i tilfelle 3 er svaret $\\Theta(f(n))$ — ingen ekstra logaritmefaktor.\n\nÅ legge til én er en refleks fra tilfelle 2 og gjør svaret galt.\n\n**Kontrollen:** dominerer $f(n)$ en hel potens over $n^{\\log_b a}$, er\nrekursjonen asymptotisk uvesentlig, og da er $f$ alene svaret."
+    },
+    {
+      "id": "tdt4120-1-6-def-33",
+      "type": "definition",
+      "title": "Iterasjon og grunntilfellet",
+      "content": "i et eksakt svar er grunntilfellets verdi et ledd eller en faktor i uttrykket.\n\n$T(n) = T(n-1)+3$ gir $3n$ med $T(0) = 0$, men $3n+5$ med $T(0) = 5$.\n\n**For asymptotiske svar betyr grunntilfellet som regel ingenting** — det er\nved eksakte svar det avgjør."
+    },
+    {
+      "id": "tdt4120-1-6-def-34",
+      "type": "definition",
+      "title": "Substitusjonssteget",
+      "content": "sett induksjonshypotesen inn der $T$-uttrykket står, regn ut, og vis at du\nender på **nøyaktig** den formen du antok.\n\nEt restledd betyr at konstanten vokser per nivå, og da er ikke påstanden vist.\n\n**Reparasjonen er ofte å styrke hypotesen** med et lavere ledd som trekkes\nfra, for eksempel $c\\,n^2 - d\\,n$ i stedet for $c\\,n^2$."
+    },
+    {
+      "id": "tdt4120-1-6-def-35",
+      "type": "definition",
+      "title": "Felle #5 — feil masterteorem-tilfelle",
+      "content": "å velge feil av de tre tilfellene, eller å bomme på logaritmefaktoren.\n\nDe to hyppigste variantene: å glemme $\\lg n$ i tilfelle 2, og å bruke tilfelle\n2 med negativ $k$.\n\n**Kontrollen:** regn ut $n^{\\log_b a}$ eksakt, og avgjør deretter om $f(n)$ er\nmindre, like stor eller større — i den rekkefølgen."
+    },
+    {
+      "id": "tdt4120-1-6-def-36",
+      "type": "definition",
+      "title": "Eksakt mot asymptotisk svarform",
+      "content": "et eksakt uttrykk gir verdien av $T(n)$ for hver $n$; en asymptotisk grense gir\nbare vekstklassen.\n\n$n(n+1)/2$ mot $\\Theta(n^2)$ — begge er sanne om den samme rekurrensen.\n\n**Bare den ene er svaret** på et gitt spørsmål. Ordet «eksakt» i\noppgaveteksten avgjør."
+    },
+    {
+      "id": "tdt4120-1-6-coll-38",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tdt4120-1-6-ct-37",
+          "type": "text",
+          "content": "Fem korte spørsmål fra kapitlene dette bygger på. Svar i hodet først, så\nsammenlign.\n\n**1.** Hva er de tre tilfellene i masterteoremet?\n\n*Svar:* rekursjonen dominerer ($\\Theta(n^{\\log_b a})$), de er like store\n($\\Theta(n^{\\log_b a}\\lg^{k+1} n)$ med $k \\ge 0$), eller $f(n)$ dominerer\n($\\Theta(f(n))$, med regularitet sjekket). Se\n[kap. 1.4](/tdt4120/tdt4120-1-4).\n\n**2.** Hvilken metode gir et eksakt uttrykk?\n\n*Svar:* iterasjon. Se [kap. 1.5](/tdt4120/tdt4120-1-5).\n\n**3.** Hva er $1 + 2 + \\dots + n$?\n\n*Svar:* $n(n+1)/2$. Se [Rekker og summasjon](/r2/r2-1-4).\n\n**4.** Hvor mange nivåer har rekursjonstreet til $T(n) = 4T(n/2) + n$?\n\n*Svar:* $\\Theta(\\lg n)$ — dybden avhenger av $b$, ikke av $a$.\n\n**5.** Hva betyr $\\Theta(g)$ i motsetning til $O(g)$?\n\n*Svar:* $\\Theta$ er en tett grense begge veier, $O$ bare øvre. Se\n[kap. 1.1](/tdt4120/tdt4120-1-1).\n\n**Videre:** [kap. 2.1](/tdt4120/tdt4120-2-1) bruker masterteoremet til det\ndet er laget for: å finne kjøretiden til `Merge-Sort` og de andre\nsorteringene."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
