@@ -1,0 +1,162 @@
+[
+  {
+    "question": "Hva betyr det at et problem har **overlappende delproblemer**?",
+    "options": [
+      "At den rekursive løsningen møter de samme delproblemene om og om igjen, slik at svarene kan gjenbrukes",
+      "At delproblemene deler input med hverandre, men at hvert enkelt av dem likevel må løses helt på nytt hver gang",
+      "At delproblemene kan løses uavhengig av hverandre og derfor gjerne kan kjøres i parallell",
+      "At løsningen på hele problemet er summen av løsningene på delproblemene, uten dobbelttelling"
+    ],
+    "explanation": "Overlappet er nettopp det som gjør lagring lønnsomt: er hvert delproblem nytt, sparer du ingenting på å huske svarene. `Merge-Sort` deler også opp, men de to halvdelene er alltid forskjellige — der er delproblemene uavhengige, og dynamisk programmering gir null gevinst."
+  },
+  {
+    "question": "Du står nederst i en trapp med $n$ trinn og kan ta enten ett eller to trinn av gangen. Hvilken rekurrens teller antall måter å komme opp på?",
+    "options": [
+      "$T(n) = T(n-1) + T(n-2)$ — siste steg var enten ett trinn eller to, og de to tilfellene er disjunkte",
+      "$T(n) = T(n-1) \\cdot T(n-2)$ — de to mulige siste stegene kombineres med hverandre på alle måter",
+      "$T(n) = 2T(n/2)$ — trappa deles i to like halvdeler som hver kan gås på $T(n/2)$ måter hver for seg",
+      "$T(n) = T(n-1) + 1$ — hvert nytt trinn gir nøyaktig én ny mulighet i tillegg til dem du hadde"
+    ],
+    "explanation": "Enhver vei opp ender med enten ett eller to trinn, og de to gruppene overlapper ikke — derfor legges de sammen. Dette er fibonaccirekurrensen, og den er nettopp grunnen til at den naive rekursjonen er eksponentiell: $T(n-2)$ regnes ut på nytt inne i $T(n-1)$."
+  },
+  {
+    "question": "Hva betyr **optimal substruktur**?",
+    "options": [
+      "At en optimal løsning på hele problemet inneholder optimale løsninger på delproblemene sine",
+      "At problemet kan deles i like store deler, slik at rekursjonstreet blir balansert",
+      "At antall delproblemer er polynomisk i inputstørrelsen, slik at tabellen får håndterbar størrelse",
+      "At det finnes en grådig regel som velger riktig delproblem uten å se på de øvrige valgene"
+    ],
+    "explanation": "Egenskapen er det som gjør at du kan bygge svaret nedenfra: er den beste løsningen på et delproblem ikke en del av den beste helhetsløsningen, kan du ikke sette sammen svarene. Balanserte deler er `Merge-Sort`s sak, og en grådig valgregel er en strengere egenskap som dynamisk programmering ikke krever."
+  },
+  {
+    "question": "Hva er forskjellen på memoisering og bottom-up-utfylling?",
+    "options": [
+      "Memoisering er rekursiv og regner bare ut de delproblemene som etterspørres; bottom-up fyller hele tabellen i en fast rekkefølge",
+      "Memoisering er iterativ og fyller hele tabellen i én omgang; bottom-up er rekursiv og regner ut de delproblemene som etterspørres",
+      "Memoisering gir alltid lavere asymptotisk kjøretid, siden den slipper å regne ut ubrukte delproblemer",
+      "Memoisering lagrer bare valgtabellen, mens bottom-up i tillegg lagrer verditabellen for hvert delproblem"
+    ],
+    "explanation": "De to er to veier til samme sted, og de gir samme asymptotiske kjøretid — begge løser hvert delproblem én gang og gjør konstant arbeid per delproblem. Memoisering kan spare **konstantfaktorer** når mange delproblemer aldri etterspørres, men den asymptotiske grensen er den samme. Begge lagrer verdier, og begge kan i tillegg lagre valg."
+  },
+  {
+    "question": "Hva er kjøretiden til `Naiv-Fib(n)` og `Memoized-Fib(n)`?",
+    "options": [
+      "`Naiv-Fib` er eksponentiell i $n$; `Memoized-Fib` er $\\Theta(n)$",
+      "`Naiv-Fib` er $\\Theta(n^2)$; `Memoized-Fib` er $\\Theta(n)$",
+      "`Naiv-Fib` er $\\Theta(n\\lg n)$; `Memoized-Fib` er $\\Theta(\\lg n)$",
+      "Begge er $\\Theta(n)$; forskjellen ligger bare i hvor mye plass de bruker"
+    ],
+    "explanation": "Uten lagring følger antall kall selv fibonaccirekurrensen, og antallet vokser eksponentielt. Med lagring løses hvert av delproblemene $0$ til $n$ nøyaktig én gang, og resten av kallene er oppslag. Forskjellen er altså i tid, ikke bare i plass — det er hele poenget med å memoisere."
+  },
+  {
+    "question": "Hva er kjøretidsregelen for en dynamisk programmering?",
+    "options": [
+      "Antall delproblemer ganger arbeidet per delproblem, medregnet hvor mange valg hvert delproblem har",
+      "Antall delproblemer pluss arbeidet per delproblem, siden hele tabellen fylles i én eneste gjennomgang",
+      "Antall delproblemer opphøyd i antall valg, siden hvert valg gir en ny gren i rekursjonen",
+      "Antall celler i tabellen ganget med logaritmen av antall celler, på grunn av oppslagene"
+    ],
+    "explanation": "Regelen er et produkt: er det $n$ delproblemer og hvert av dem krever et minimum over $j$ alternativer, blir det $\\Theta(nj)$. Derfor er stavkapping $\\Theta(n^2)$ selv om tabellen bare har $n$ celler — hver celle koster $O(n)$ arbeid. Å legge sammen i stedet for å gange overser nettopp dette."
+  },
+  {
+    "question": "Hvorfor gir memoisering ingen gevinst for `Merge-Sort`?",
+    "options": [
+      "Fordi delproblemene aldri gjentar seg — de to halvdelene er alltid ulike, så ingenting kan gjenbrukes",
+      "Fordi `Merge-Sort` allerede er $\\Theta(n\\lg n)$, som er den nedre grensen for enhver sammenligningsbasert sortering",
+      "Fordi `Merge-Sort` mangler optimal substruktur — en sortert halvdel gir ikke et sortert hele",
+      "Fordi tabellen ville måtte lagre hele delarrayer, og oppslagene ville blitt for dyre til å lønne seg"
+    ],
+    "explanation": "Dynamisk programmering krever begge egenskapene, og `Merge-Sort` har bare den ene: substrukturen er optimal, men delproblemene overlapper ikke. Splitt-og-hersk deler inputen i disjunkte biter, og en bit du har sortert, dukker aldri opp igjen. Den nedre grensen for sortering er sann, men den forklarer ikke hvorfor lagring ikke hjelper."
+  },
+  {
+    "question": "Hva trengs for å hente ut selve løsningen og ikke bare optimalverdien?",
+    "options": [
+      "En valgtabell som lagrer hvilket valg som ga verdien i hver celle, lest baklengs etterpå",
+      "En ekstra gjennomgang av verditabellen der cellene sammenlignes med hverandre på nytt",
+      "En rekursiv gjenkjøring av hele algoritmen, siden valgene ikke kan lagres underveis",
+      "Ingenting ekstra — verditabellen inneholder allerede selve løsningen, bare skrevet som tall"
+    ],
+    "explanation": "Verditabellen sier hvor godt det gikk, ikke hva du gjorde. Valgtabellen lagres samtidig med verdiene og koster ingenting ekstra asymptotisk, og `Print-Solution` leser den baklengs på $O(n)$. Å regne ut valgene på nytt i etterkant er mulig, men unødvendig arbeid som eksamensfasitene ikke belønner."
+  },
+  {
+    "question": "En oppgave ber om «den høyeste samlede betalingen og hvilke netter som velges». Hva er den vanligste tabben?",
+    "options": [
+      "Å levere bare tallet — optimalverdien alene svarer ikke på hvilke netter som inngår",
+      "Å levere bare nettene — listen alene svarer ikke på hva den samlede betalingen blir",
+      "Å levere hele den utfylte tabellen i stedet for å oppsummere svaret i én linje",
+      "Å levere rekurrensen i stedet for å regne den ut på de konkrete tallene i oppgaven"
+    ],
+    "explanation": "Utfyllingen gir optimalverdien, og det er lett å stoppe der — men oppgaven ba om to ting, og rekonstruksjonen fra valgtabellen er den andre. Å levere hele tabellen er ikke feil i seg selv, bare unødvendig; det er det manglende leddet som koster poeng."
+  },
+  {
+    "question": "Hva er kravet til fylleorden i en bottom-up dynamisk programmering?",
+    "options": [
+      "Hver celle må fylles etter alle cellene den er avhengig av, slik rekurrensen definerer avhengighetene",
+      "Cellene må fylles i stigende indeksrekkefølge, siden avhengighetene i en rekurrens alltid peker mot lavere indekser",
+      "Cellene må fylles radvis fra venstre mot høyre, siden det er den rekkefølgen løkkene skriver dem i",
+      "Rekkefølgen er likegyldig, siden hver celle uansett regnes ut på nytt hvis avhengigheten mangler"
+    ],
+    "explanation": "Avhengighetene i rekurrensen bestemmer rekkefølgen, og lovlige fylleordener er nettopp de topologiske sorteringene av delproblemgrafen. Stigende indeks er ofte en slik orden, men ikke alltid — i LCS må både $i-1$ og $j-1$ være ferdige, og i noen problemer teller løkkene nedover. Bottom-up regner ingenting ut på nytt; den forutsetter at avhengigheten allerede står der."
+  },
+  {
+    "question": "Hva er delproblemgrafen til en dynamisk programmering?",
+    "options": [
+      "En rettet graf med ett hjørne per delproblem og en kant til hvert delproblem det avhenger av",
+      "En rettet graf med ett hjørne per inputelement og en kant mellom elementer som sammenlignes",
+      "Rekursjonstreet til den naive løsningen, med alle gjentakelsene tegnet ut hver for seg",
+      "En urettet graf der hjørnene er tabellceller og kantene viser hvilke celler som har samme verdi"
+    ],
+    "explanation": "Grafen er rekursjonstreet med de gjentatte delproblemene slått sammen til ett hjørne hver, og den er per definisjon syklusfri — ellers ville et delproblem avhengt av seg selv. Antall hjørner er antall delproblemer, og antall kanter er summen av valgene, som til sammen gir kjøretiden."
+  },
+  {
+    "question": "Hva er forskjellen på avgjørelsesvarianten og optimeringsvarianten av et problem?",
+    "options": [
+      "Avgjørelsesvarianten legger til en terskel $k$ og svarer ja eller nei; optimeringsvarianten leverer den beste verdien",
+      "En rettet graf med ett hjørne per inputelement og en kant mellom nettopp de elementene som sammenlignes med hverandre underveis",
+      "Avgjørelsesvarianten er alltid strengt vanskeligere enn optimeringsvarianten av det samme problemet",
+      "Avgjørelsesvarianten gjelder bare grafproblemer, mens optimeringsvarianten gjelder tallproblemer"
+    ],
+    "explanation": "«Finn den største verdien» blir «finnes det en løsning med verdi minst $k$?», og terskelen er en del av inputen. Avgjørelsesvarianten er aldri vanskeligere: kan du finne den beste løsningen, kan du sammenligne den med $k$. Skillet er det som gjør at NP-teorien kan formuleres på ja/nei-problemer alene."
+  },
+  {
+    "question": "Hva er rollen til grunntilfellet i en DP-rekurrens?",
+    "options": [
+      "Det gir de cellene som fylles uten å slå opp i andre celler, og uten dem stopper ikke rekurrensen",
+      "Avgjørelsesvarianten leverer den beste verdien; optimeringsvarianten leverer i tillegg selve løsningen som ga den",
+      "Det avgjør hvor stor tabellen må være, siden antall grunntilfeller er lik antall dimensjoner",
+      "Det er valgfritt i en bottom-up-løsning, siden utfyllingen uansett starter fra den første cellen"
+    ],
+    "explanation": "Grunntilfellene er ankeret: $r_0 = 0$ i stavkapping og $c[i,0] = c[0,j] = 0$ i LCS. Uten dem har den første cellen ingenting å slå opp i, og bottom-up-varianten er like avhengig av dem som den rekursive. Hvor svaret leses av til slutt, er et annet spørsmål — det er ofte den siste cellen, ikke den første."
+  },
+  {
+    "question": "Når kan en DP-tabell plassoptimaliseres?",
+    "options": [
+      "Når hver celle bare avhenger av et fast antall foregående rader, slik at eldre rader kan kastes",
+      "Det angir hvilken celle svaret til slutt skal leses av fra, altså hvor utfyllingen ender opp til sist",
+      "Aldri — hele tabellen må ligge der til slutt for at kjøretiden skal holde seg polynomisk",
+      "Bare når problemet er endimensjonalt, siden todimensjonale tabeller ikke kan komprimeres"
+    ],
+    "explanation": "Trenger `LCS-Length` bare rad $i-1$ for å fylle rad $i$, holder det å ha to rader om gangen, og plassen faller fra $\\Theta(nm)$ til $\\Theta(\\min(n,m))$. Prisen er at du mister rekonstruksjonen: uten hele tabellen eller valgtabellen kan du ikke lese ut selve løsningen etterpå."
+  },
+  {
+    "question": "Hva er kjøretiden og plassbruken til `Bottom-Up-Fib(n)` slik den er satt opp med tabellen `b[0..n]`?",
+    "options": [
+      "$\\Theta(n)$ tid og $\\Theta(n)$ plass — men plassen kan senkes til $\\Theta(1)$ med to rullerende variabler",
+      "Alltid — en DP-tabell kan alltid komprimeres helt ned til konstant plass uten at noe som helst går tapt",
+      "$\\Theta(n^2)$ tid og $\\Theta(n)$ plass — hver celle må slå opp i alle de foregående cellene",
+      "$\\Theta(\\lg n)$ tid og $\\Theta(\\lg n)$ plass — hvert steg dobler indeksen i tabellen"
+    ],
+    "explanation": "Løkka går én gang gjennom $n$ celler og gjør konstant arbeid i hver, og tabellen har $n+1$ plasser. Siden hver celle bare avhenger av de to foregående, kan tabellen erstattes av to variabler — et rent plasstriks som ikke endrer kjøretiden. Rekursjonen har bare to ledd, ikke alle foregående."
+  },
+  {
+    "question": "Hvilke delproblemer regner en memoisert løsning faktisk ut?",
+    "options": [
+      "Bare de som etterspørres av rekursjonen fra det opprinnelige kallet, og hvert av dem nøyaktig én gang",
+      "$\\Theta(n)$ tid og $\\Theta(1)$ plass — tabellen er unødvendig og finnes ikke i implementasjonen av rutinen",
+      "Bare grunntilfellene; resten leses av tabellen uten at noen utregning finner sted i det hele tatt",
+      "Alle delproblemer, og de som etterspørres flere ganger, regnes ut på nytt for hver forespørsel"
+    ],
+    "explanation": "Rekursjonen styrer hvilke celler som berøres, og et delproblem ingen spør etter, blir aldri regnet ut — det er den ene praktiske forskjellen fra bottom-up. Første gang et delproblem møtes, regnes det ut og lagres; alle senere møter er rene oppslag."
+  }
+]

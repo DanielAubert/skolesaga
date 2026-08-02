@@ -1,0 +1,202 @@
+[
+  {
+    "question": "Du skal vise at problemet $X$ er NP-hardt. Hvilken vei går reduksjonen?",
+    "options": [
+      "Fra et kjent NP-komplett problem $Y$ til $X$, altså $Y \\le_p X$",
+      "Fra $X$ til et kjent NP-komplett problem $Y$, altså $X \\le_p Y$",
+      "Begge veier — en gyldig reduksjon må vise ekvivalens mellom de to problemene",
+      "Fra $X$ til et problem i $P$, siden det viser at $X$ ikke lar seg løse raskt"
+    ],
+    "explanation": "$Y \\le_p X$ leses «$X$ er minst like vanskelig som $Y$», og det er nøyaktig den påstanden du er ute etter. Setningen du sier høyt hver gang: jeg reduserer FRA det kjente vanskelige TIL mitt problem. Motsatt retning er ikke et delvis riktig svar — det er et svar på et annet spørsmål."
+  },
+  {
+    "question": "Du har vist $X \\le_p$ TSP. Hva har du bevist om $X$?",
+    "options": [
+      "At $X$ ikke er vanskeligere enn TSP — det sier ingenting om at $X$ selv er vanskelig",
+      "At $X$ er NP-hardt, siden TSP er NP-komplett og hardheten dermed overføres langs pilen til $X$",
+      "At $X$ er NP-komplett, siden reduksjonen både gir hardhet og medlemskap i $NP$",
+      "At $X$ ikke ligger i $P$, med mindre det viser seg at $P = NP$ likevel er sant"
+    ],
+    "explanation": "Pilen peker oppover i vanskelighet: reduksjonen sier at TSP er minst like vanskelig som $X$, og om $X$ selv sier den bare at det er løsbart innenfor TSP. Sortering kan reduseres til TSP også, og sortering er ikke vanskelig. Til gjengjeld gir denne retningen deg medlemskapet gratis, siden $NP$ er lukket under polynomiske reduksjoner."
+  },
+  {
+    "question": "Hvilke tre krav må en polynomisk reduksjon oppfylle samtidig?",
+    "options": [
+      "Polynomisk konstruksjonstid, en lovlig instans ut, og svarbevaring i begge retninger",
+      "Polynomisk konstruksjonstid, lovlig instans ut, og at målproblemet ligger i $NP$",
+      "Polynomisk konstruksjonstid, at instansen blir mindre, og svarbevaring begge veier",
+      "Lovlig instans ut, svarbevaring begge veier, og at begge problemene er avgjørelsesproblemer"
+    ],
+    "explanation": "Alle tre må holde, og et argument som glipper på ett av dem, er ugyldig. Instansen behøver ikke bli mindre — den kan gjerne vokse, bare den vokser polynomisk. Om målproblemet ligger i $NP$, er et separat spørsmål som ikke inngår i selve reduksjonen."
+  },
+  {
+    "question": "Hva må stå i medlemskapsdelen av et NP-komplett-bevis?",
+    "options": [
+      "Hva sertifikatet består av, og at det kan verifiseres i polynomisk tid i instansens lengde",
+      "En polynomisk algoritme som løser problemet, siden medlemskap betyr at problemet er løsbart",
+      "En reduksjon fra et kjent problem i $NP$, siden medlemskap arves langs reduksjonspilen",
+      "En begrunnelse for at ingen eksponentiell algoritme er nødvendig for å avgjøre problemet"
+    ],
+    "explanation": "To linjer holder på eksamen, men begge må stå: navngi sertifikatet — en nodemengde, en delmengde, en tilordning, en rekkefølge — og oppgi verifikasjonstiden. Medlemskap i $NP$ krever at ja-svar er lette å **sjekke**, ikke at problemet er lett å **løse**. En reduksjon erstatter ikke denne delen."
+  },
+  {
+    "question": "En besvarelse gir en korrekt reduksjon fra 3-CNF-SAT til $X$ og stopper der. Hva er vist?",
+    "options": [
+      "At $X$ er NP-hardt — men ikke at $X$ er NP-komplett, siden hele medlemskapsdelen mangler",
+      "At $X$ er NP-komplett — reduksjonen fra et NP-komplett problem gir begge deler på én gang",
+      "At $X$ ligger i $NP$ — men ikke at $X$ er NP-hardt, siden bare ett katalogproblem er brukt",
+      "Ingenting — en enkelt reduksjon er aldri nok, det kreves reduksjoner fra minst to katalogproblemer"
+    ],
+    "explanation": "Reduksjonen gir hardheten, og transitiviteten sørger for at alt i $NP$ dermed reduseres til $X$. Men NP-kompletthet er to påstander, og den andre — sertifikat pluss polynomisk verifikasjon — står igjen. Én reduksjon fra ett kjent NP-komplett problem er tilstrekkelig for hardheten; flere trengs ikke."
+  },
+  {
+    "question": "En reduksjon tar tallet $t$ fra inputen og lager $t$ noder ut av det. Hva er galt?",
+    "options": [
+      "Outputen blir eksponentielt stor i inputlengden, siden $t$ skrives med om lag $\\lg t$ bit",
+      "At $X$ er NP-komplett — reduksjonen fra et NP-komplett problem gir begge deler på én eneste gang",
+      "Svarbevaringen brytes, siden antall noder ikke kan bestemmes av en enkelt tallverdi",
+      "Ingenting — konstruksjonen er lineær i $t$ og dermed polynomisk i inputen"
+    ],
+    "explanation": "Kravet om polynomisk tid måles mot inputens lengde i bit, ikke mot tallenes verdi — og et tall på 30 bit kan gi en milliard noder. Feilen er lumsk fordi retningen og svarbevaringen godt kan være helt korrekte. Kontrollen er å sammenligne outputens størrelse med inputens lengde i bit."
+  },
+  {
+    "question": "«$X$ er et spesialtilfelle av et NP-komplett problem, altså er $X$ NP-komplett.» Hva er galt?",
+    "options": [
+      "Å levere en begrenset instans inn i det generelle problemet viser bare at spesialtilfellet ikke er vanskeligere",
+      "Ingenting — et spesialtilfelle av et NP-komplett problem er alltid selv NP-komplett",
+      "Argumentet mangler bare medlemskapsdelen; med sertifikat og verifikasjon blir det gyldig",
+      "Spesialtilfeller kan ikke reduseres i det hele tatt, siden instansene i dem allerede er begrenset på forhånd"
+    ],
+    "explanation": "Reduksjonen SPESIALTILFELLE $\\le_p$ GENERELT går feil vei for formålet, og et spesialtilfelle kan være strengt lettere: 2-CNF-SAT avgjøres i polynomisk tid, mens 3-CNF-SAT er NP-komplett. Skal du vise at et begrenset problem er NP-hardt, må reduksjonen gå **inn i** begrensningen, slik SAT $\\le_p$ 3-CNF-SAT gjør."
+  },
+  {
+    "question": "Du vet at $X \\le_p Y$ og at $Y \\in P$. Hva følger?",
+    "options": [
+      "$X \\in P$ — kjør reduksjonen og deretter den polynomiske algoritmen for $Y$",
+      "$Y$ er NP-hardt — siden $X$ reduseres til det, arver $Y$ vanskeligheten fra $X$",
+      "$X$ er NP-hardt — reduksjonen viser at $X$ er minst like vanskelig som $Y$",
+      "Ingenting — en reduksjon kan bare brukes til å vise hardhet, aldri til å vise at noe er lett"
+    ],
+    "explanation": "Dette er den kontrapositive lesningen, og den er den nyttigste når du vil vise at noe er **lett**: et polynom satt inn i et polynom er fortsatt et polynom. Snudd om sier den samme reduksjonen at hvis $X$ er vanskelig, må $Y$ være minst like vanskelig — men det krever at $X$ faktisk er vanskelig, og her er $Y \\in P$."
+  },
+  {
+    "question": "Du vet at $X \\le_p Y$ og at $Y \\in NP$. Hva følger?",
+    "options": [
+      "$X \\in NP$ — klassen er lukket under polynomiske reduksjoner",
+      "$X \\in P$ — medlemskap i $NP$ smitter nedover til $P$",
+      "$X$ er NP-hardt — alt som reduseres til noe i $NP$, er selv minst like vanskelig",
+      "Ingenting om $X$ — en reduksjon overfører bare hardhet, aldri medlemskap"
+    ],
+    "explanation": "Kjør reduksjonen og bruk deretter verifikasjonsalgoritmen for $Y$; til sammen er det fortsatt polynomisk, og sertifikatet for $Y$-instansen fungerer som sertifikat for $X$. Det er nettopp derfor en reduksjon **til** et katalogproblem likevel gir deg medlemskapsdelen gratis — den er bare ubrukelig som hardhetsargument."
+  },
+  {
+    "question": "Hva følger hvis noen finner en polynomisk algoritme for ett eneste NP-komplett problem?",
+    "options": [
+      "$P = NP$ — alt i $NP$ reduseres polynomisk til det problemet og blir dermed polynomisk løsbart",
+      "Bare at det ene problemet ligger i $P$ — de øvrige NP-komplette problemene er upåvirket av funnet",
+      "$P \\ne NP$ — funnet ville vist at klassene kan skilles fra hverandre med en konkret algoritme",
+      "At $NP$ og $\\text{co-}NP$ faller sammen, men spørsmålet om $P$ mot $NP$ ville fortsatt vært åpent"
+    ],
+    "explanation": "Per definisjon reduseres hvert problem i $NP$ polynomisk til et NP-komplett problem, så en polynomisk løsning på ett av dem gir polynomiske løsninger på alle — et polynom satt inn i et polynom er fortsatt et polynom. Alle NP-komplette problemer står og faller sammen. Spørsmålet om $P = NP$ er fortsatt åpent."
+  },
+  {
+    "question": "Hva sier en korrekt reduksjon **ikke** noe om?",
+    "options": [
+      "Om kildeproblemet er lett — pilen peker oppover i vanskelighet og sier ingenting om det du reduserte fra",
+      "Om målproblemet er minst like vanskelig som kildeproblemet — det må vises med et eget argument",
+      "Om konstruksjonen kan gjennomføres i polynomisk tid — det følger av at reduksjonen er korrekt",
+      "Om ja-instanser blir til ja-instanser — svarbevaringen er en ren konsekvens av at reduksjonen i det hele tatt finnes"
+    ],
+    "explanation": "Reduksjonen sier heller ikke at problemet er uløselig i praksis, og den sier ikke at problemet er NP-komplett med mindre medlemskapet også er vist. At målproblemet er minst like vanskelig, er derimot nøyaktig det reduksjonen sier, og både polynomisk tid og svarbevaring er krav du må vise, ikke gratis konsekvenser."
+  },
+  {
+    "question": "Hva forteller det at en algoritme for et problem er pseudopolynomisk?",
+    "options": [
+      "Noe om den ene algoritmen, ikke om problemet — det er verken et tegn på lett eller på NP-hardt",
+      "At problemet er NP-hardt, siden en ekte polynomisk algoritme ellers ville vært funnet",
+      "At problemet ligger i $P$, siden kjøretiden er polynomisk i de tallverdiene som faktisk står i inputen",
+      "At problemet ikke ligger i $NP$, siden verifikasjonen arver den samme kjøretiden"
+    ],
+    "explanation": "`Ford-Fulkerson` er pseudopolynomisk, og maks-flyt ligger likevel i $P$ — `Edmonds-Karp` løser det på $O(VE^2)$. SUBSET-SUM har også en pseudopolynomisk algoritme og er NP-komplett. Ordet beskriver altså én algoritmes kjøretid, ikke problemets kompleksitetsklasse."
+  },
+  {
+    "question": "En oppgave spør: «Er $X$ i $NP$?» Hva skal svaret inneholde?",
+    "options": [
+      "Sertifikat og verifikasjonstid — en reduksjon er overflødig når det er medlemskapet som etterspørres",
+      "En reduksjon fra et kjent NP-komplett problem, siden det er nettopp slik man viser tilhørighet til klassen $NP$",
+      "Både sertifikat og reduksjon, siden de to spørsmålene i praksis alltid stilles sammen",
+      "En polynomisk algoritme som løser $X$, siden medlemskap i $NP$ betyr polynomisk løsbarhet"
+    ],
+    "explanation": "De tre spørsmålene «er $X$ i $NP$», «er $X$ NP-hardt» og «er $X$ NP-komplett» har helt forskjellige svar, og den vanligste tapte poengen er å svare på et annet enn det som ble stilt. Blir du bedt om medlemskap alene, koster reduksjonen bare tid. Og medlemskap i $NP$ handler om å **sjekke** ja-svar, ikke om å finne dem."
+  },
+  {
+    "question": "«Problemet ligger i $NP$, altså er det vanskelig.» Hva er galt med resonnementet?",
+    "options": [
+      "Alt i $P$ ligger også i $NP$ — sortering er i $NP$, og sortering er ikke vanskelig",
+      "Ingenting — $NP$ er per definisjon klassen av de vanskelige avgjørelsesproblemene",
+      "$NP$ inneholder bare problemer uten kjent algoritme, så påstanden er sirkulær men sann",
+      "Feilen er bare formuleringen — det skulle stått «altså er det ikke i $P$», som er riktig"
+    ],
+    "explanation": "$P \\subseteq NP$, så medlemskap i $NP$ er en svært mild påstand: den sier bare at ja-svar kan verifiseres raskt gitt et sertifikat. Det er NP-**hardheten** som er vanskelighetspåstanden. Å hevde at et problem i $NP$ ikke ligger i $P$, ville dessuten forutsatt at $P \\ne NP$, som er åpent."
+  },
+  {
+    "question": "Problemet ditt handler om å dele en mengde tall i to like tunge halvdeler. Hvilket katalogproblem er det mest naturlig å redusere fra?",
+    "options": [
+      "SUBSET-SUM — det er tallproblemet i katalogen, og formen på instansen ligner mest på ditt",
+      "CLIQUE — det er det mest brukte katalogproblemet, og alle reduksjoner kan gå ut fra det",
+      "HAM-CYCLE — enhver oppdeling kan skrives som en rundtur gjennom de valgte elementene",
+      "CIRCUIT-SAT — det er det opprinnelige NP-komplette problemet, og derfor det sikreste valget"
+    ],
+    "explanation": "Velg det katalogproblemet som ligner mest i form: tallmengder mot SUBSET-SUM, nodeutvalg mot CLIQUE eller VERTEX-COVER, rundturer mot HAM-CYCLE. Alle katalogproblemene er formelt like gode utgangspunkt, siden hardheten er den samme — men en reduksjon fra et problem med helt annen form blir unødvendig tung å skrive ned."
+  },
+  {
+    "question": "Hva betyr kravet om at en reduksjon skal bevare svaret «begge veier»?",
+    "options": [
+      "Ja-instanser skal bli til ja-instanser, **og** nei-instanser skal bli til nei-instanser også",
+      "Reduksjonen skal kunne kjøres i begge retninger, altså både fra $Y$ til $X$ og fra $X$ til $Y$",
+      "Både ja- og nei-instanser skal kunne verifiseres med hvert sitt sertifikat i polynomisk tid",
+      "Konstruksjonen skal kunne reverseres, slik at den opprinnelige instansen kan gjenskapes fra outputen"
+    ],
+    "explanation": "Kravet er en ekvivalens: $x$ er en ja-instans av $Y$ hvis og bare hvis $f(x)$ er en ja-instans av $X$. Bare den ene retningen holder ikke — en konstruksjon som gjør alle instanser til ja-instanser, ville vært ubrukelig. Selve avbildningen trenger derimot verken være reversibel eller injektiv."
+  },
+  {
+    "question": "Hva skal kjøretiden til en reduksjon måles mot?",
+    "options": [
+      "Lengden av inputinstansen målt i bit — ikke tallverdiene som står i den",
+      "Antall elementer i inputinstansen, uansett hvor store tallene i den er",
+      "Kjøretiden til den beste kjente algoritmen for målproblemet $X$",
+      "Størrelsen på instansen reduksjonen produserer, siden det er den som skal løses"
+    ],
+    "explanation": "Dette er kravet som oftest brytes usynlig: skrives et tall $t$ ut ledd for ledd, blir instansen eksponentielt stor selv om konstruksjonen «bare» er lineær i $t$. Målproblemets egen kjøretid er irrelevant for om reduksjonen er polynomisk — det er to atskilte spørsmål."
+  },
+  {
+    "question": "Hvorfor holder det å redusere fra **ett** kjent NP-komplett problem for å vise NP-hardhet?",
+    "options": [
+      "Fordi reduksjoner er transitive: er $A \\le_p Y$ for alle $A \\in NP$ og $Y \\le_p X$, så er $A \\le_p X$",
+      "Antall elementer i inputinstansen, uansett hvor store tallverdiene som står i den er",
+      "Kjøretiden til den beste kjente algoritmen for målproblemet $X$, siden det er den som til slutt skal kjøres",
+      "Fordi definisjonen av NP-hardhet bare krever én reduksjon fra ett vilkårlig problem i $NP$"
+    ],
+    "explanation": "$Y$ er NP-hardt, altså reduseres alt i $NP$ til $Y$, og din reduksjon tar det videre til $X$ — sammensetningen av to polynomiske reduksjoner er selv polynomisk. Det er transitiviteten som gjør at du slipper å behandle alle $A \\in NP$ direkte, slik CIRCUIT-SAT-beviset måtte gjøre."
+  },
+  {
+    "question": "Må et NP-hardt problem ligge i $NP$?",
+    "options": [
+      "Nei — NP-hardt sier bare at problemet er minst like vanskelig som alt i $NP$, og det kan være strengt verre",
+      "Fordi de NP-komplette problemene er innbyrdes ekvivalente, og ett bevis derfor dekker alle mulige tilfeller",
+      "Ja — reduksjonen fra et problem i $NP$ overfører medlemskapet sammen med hardheten",
+      "Nei — men bare fordi noen problemer i $NP$ ennå ikke er klassifisert som harde eller lette"
+    ],
+    "explanation": "Et NP-hardt problem kan være uavgjørbart, altså langt utenfor $NP$. Det er nettopp derfor NP-kompletthet er to påstander og ikke én. Reduksjonen går dessuten inn til problemet ditt, og den retningen overfører hardhet — ikke medlemskap."
+  },
+  {
+    "question": "Hvilken setning avslutter et fullstendig svar i sjanger G, ifølge løsningsforslagene?",
+    "options": [
+      "En setning om hva reduksjonen ikke viser — for eksempel at den ikke sier noe om kildeproblemets vanskelighet",
+      "Ja — NP-hardhet er definert som medlemskap i klassen $NP$ pluss maksimal vanskelighet innenfor den samme klassen",
+      "En setning om at $P \\ne NP$, siden konklusjonen ellers henger i lufta uten en avklaring",
+      "En setning som gjentar reduksjonsretningen, slik at sensor ser at du har kontroll på pilen"
+    ],
+    "explanation": "Det er ofte den setningen som skiller et fullt svar fra et halvt: reduksjonen sier ikke at kildeproblemet er lett, ikke at problemet er uløselig i praksis, og ikke at problemet er NP-komplett med mindre medlemskapet også er vist. Å postulere $P \\ne NP$ ville derimot vært en påstand boka ikke gjør — spørsmålet er åpent."
+  }
+]

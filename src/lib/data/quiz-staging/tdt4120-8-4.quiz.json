@@ -1,0 +1,162 @@
+[
+  {
+    "question": "Hva er det strammeste $\\Theta$-uttrykket for $f(n) = 5n^2\\lg n + \\dfrac{n^3}{\\lg n} + 9n^2\\sqrt{n}$?",
+    "options": [
+      "$\\Theta\\!\\left(\\dfrac{n^3}{\\lg n}\\right)$",
+      "$\\Theta(n^3)$ — logaritmen i nevneren strykes",
+      "$\\Theta(n^2\\lg n)$ — det første leddet dominerer",
+      "$\\Theta\\!\\left(n^{2{,}5}\\right)$ — det siste leddet dominerer"
+    ],
+    "explanation": "De tre leddene har vekstklassene $n^2\\lg n$, $n^3/\\lg n$ og $n^{2{,}5}$, og midterste vinner: $n^3/\\lg n$ vokser raskere enn $n^{2{,}5}$ fordi $n^{0{,}5}$ passerer $\\lg n$. Å svare $\\Theta(n^3)$ stryker logaritmen i nevneren, og den lar seg ikke stryke — $n^3/\\lg n$ vokser strengt saktere enn $n^3$."
+  },
+  {
+    "question": "Ranger $(\\lg n)^5$, $n^{\\lg 5}$, $5^{\\lg n}$, $n^5$ og $2^{5n}$ etter voksende vekst. Hvilken kjede er riktig?",
+    "options": [
+      "$(\\lg n)^5 < n^{\\lg 5} = 5^{\\lg n} < n^5 < 2^{5n}$",
+      "$(\\lg n)^5 < n^{\\lg 5} < 5^{\\lg n} < n^5 < 2^{5n}$",
+      "$(\\lg n)^5 < 5^{\\lg n} < n^{\\lg 5} < 2^{5n} < n^5$",
+      "$n^{\\lg 5} < (\\lg n)^5 < 5^{\\lg n} < n^5 < 2^{5n}$"
+    ],
+    "explanation": "$n^{\\lg 5}$ og $5^{\\lg n}$ er samme funksjon skrevet på to måter — tar du toerlogaritmen av begge, får du $\\lg 5 \\cdot \\lg n$ — og $\\lg 5 \\approx 2{,}32$, så begge ligger mellom $(\\lg n)^5$ og $n^5$. $2^{5n}$ er den eneste ekte eksponentielle og vokser raskest. Oppgaven ber uttrykkelig om at likheten markeres."
+  },
+  {
+    "question": "Løs $T(1) = 1$, $T(n) = T(n-1) + 4n - 3$ ved iterasjon. Hva er det **eksakte** uttrykket for $T(n)$?",
+    "options": [
+      "$2n^2 - n$",
+      "$2n^2 + n$",
+      "$4n^2 - 3n$",
+      "$\\Theta(n^2)$"
+    ],
+    "explanation": "Utfoldet blir $T(n) = 1 + \\sum_{k=2}^{n}(4k-3) = 1 + 4\\left(\\tfrac{n(n+1)}{2} - 1\\right) - 3(n-1) = 2n^2 - n$, og kontrollen $T(1) = 1$ og $T(2) = 6$ stemmer. $\\Theta(n^2)$ er sant, men oppgaven ba om et eksakt uttrykk — et asymptotisk svar er å svare på et annet spørsmål enn det som ble stilt."
+  },
+  {
+    "question": "Arrayet $A[1..n]$ er allerede sortert stigende. Hva er kjøretiden til `Insertion-Sort`, `Merge-Sort` og `Heapsort` på nettopp dette arrayet?",
+    "options": [
+      "$\\Theta(n)$, $\\Theta(n\\lg n)$ og $\\Theta(n\\lg n)$",
+      "$\\Theta(n)$, $\\Theta(n)$ og $\\Theta(n)$",
+      "$\\Theta(n^2)$, $\\Theta(n\\lg n)$ og $\\Theta(n\\lg n)$",
+      "$\\Theta(n)$, $\\Theta(n\\lg n)$ og $\\Theta(n)$"
+    ],
+    "explanation": "`Insertion-Sort` er den eneste av de tre som utnytter at inputen er sortert: hvert element sammenlignes én gang og flyttes ikke. `Merge-Sort` deler og fletter uansett innhold, og `Heapsort` bygger haug og trekker ut $n$ ganger uansett — ingen input gjør dem raskere, og derfor er begge grensene tette."
+  },
+  {
+    "question": "Hvorfor er `Counting-Sort` ikke i strid med den nedre grensen $\\Omega(n\\lg n)$ for sortering?",
+    "options": [
+      "Fordi den bruker nøkkelverdien direkte som indeks og aldri sammenligner to nøkler med hverandre",
+      "Fordi grensen $\\Omega(n\\lg n)$ bare gjelder når nøklene er reelle tall og ikke heltall",
+      "Fordi den er $\\Theta(n+k)$, og $\\Theta(n+k)$ er større enn $\\Theta(n\\lg n)$ når $k$ er stor nok",
+      "Fordi grensen gjelder verste tilfelle, mens `Counting-Sort` bare er rask i beste tilfelle"
+    ],
+    "explanation": "Den nedre grensen gjelder **sammenligningsbaserte** sorteringer, og mekanismen — indeksering i en telletabell framfor sammenligning — er nettopp det svaret må peke på. At $\\Theta(n+k)$ kan være stort, er sant, men det er ikke begrunnelsen: `Counting-Sort` er lineær i $n$ bare når $k = O(n)$, og det er en annen observasjon. Og grensen gjelder også for heltallsnøkler når de bare sammenlignes."
+  },
+  {
+    "question": "Du kjører `Build-Max-Heap` på $A[1..8] = \\langle 4,\\ 13,\\ 7,\\ 2,\\ 19,\\ 6,\\ 11,\\ 5 \\rangle$. Hva blir arrayet?",
+    "options": [
+      "$\\langle 19,\\ 13,\\ 11,\\ 5,\\ 4,\\ 6,\\ 7,\\ 2 \\rangle$",
+      "$\\langle 19,\\ 13,\\ 11,\\ 7,\\ 6,\\ 5,\\ 4,\\ 2 \\rangle$",
+      "$\\langle 19,\\ 13,\\ 11,\\ 5,\\ 4,\\ 7,\\ 6,\\ 2 \\rangle$",
+      "$\\langle 19,\\ 4,\\ 11,\\ 5,\\ 13,\\ 6,\\ 7,\\ 2 \\rangle$"
+    ],
+    "explanation": "Løkka går fra $i = 4$ ned til 1: 2 bytter med 5, 7 bytter med 11, 13 bytter med 19, og til slutt siver 4 fra rota ned via posisjon 2 til posisjon 5. Det synkende sorterte arrayet er en felle — en maks-haug er ikke sortert. Svaret der 4 blir stående i $A[2]$, stopper `Max-Heapify` etter ett bytte i stedet for å la elementet sive videre."
+  },
+  {
+    "question": "Nøklene $52,\\ 31,\\ 74,\\ 18,\\ 44,\\ 63,\\ 88,\\ 27,\\ 39,\\ 70$ settes inn i den rekkefølgen med `Tree-Insert`. Hvilken nøkkel er forelder til 39?",
+    "options": [
+      "44",
+      "31",
+      "27",
+      "18"
+    ],
+    "explanation": "39 sammenlignes med 52 (til venstre), med 31 (til høyre) og med 44 (til venstre) — der er venstre barn ledig, og 39 henges på 44. Nøkkelen 27 ligger i en helt annen gren: den gikk til venstre for 31 og deretter til høyre for 18."
+  },
+  {
+    "question": "En FIFO-kø ligger i $Q[1..7]$ med wraparound. Hva skjer med `Q.tail` etter en `Enqueue` når `Q.tail` var 7?",
+    "options": [
+      "Verdien skrives til $Q[7]$, og `Q.tail` settes til 1",
+      "Verdien skrives til $Q[1]$, og `Q.tail` settes til 2",
+      "Køen er full, og `Enqueue` avvises uten å skrive noe",
+      "Verdien skrives til $Q[7]$, og `Q.tail` settes til 8"
+    ],
+    "explanation": "`Enqueue` skriver først til cellen `Q.tail` peker på, og flytter deretter pekeren — og når pekeren er på siste plass, hopper den tilbake til 1. Å skrive til $Q[1]$ med én gang hopper over cellen som faktisk sto for tur. Merk også at `Dequeue` ikke sletter noe: den døde verdien blir stående i cellen og skal være med i svaret."
+  },
+  {
+    "question": "Hva leverer du som svar på en `MST-Kruskal`-håndkjøring?",
+    "options": [
+      "Kantene i den rekkefølgen de ble lagt til, med vekt, og totalvekten — og gjerne hvilke kanter som ble forkastet",
+      "Bare totalvekten av det minimale spenntreet, siden det er den eneste entydige størrelsen i svaret",
+      "Hele den sorterte kantlista, siden det er den som viser at algoritmen ble kjørt riktig fra start",
+      "Komponentstrukturen etter hvert eneste steg, altså hvilke noder som ligger i hvilken mengde til enhver tid"
+    ],
+    "explanation": "Sluttilstanden er kantmengden med rekkefølge og totalvekt; forkastede kanter dokumenterer sykeltestene og gir delpoeng. Den sorterte kantlista og komponenttavlen er arbeidsverktøy underveis — de hører hjemme på kladden, ikke i svaret. Totalvekten alene svarer bare på halve spørsmålet."
+  },
+  {
+    "question": "I `Floyd-Warshall`: hvordan oppdateres forgjengeren $\\pi^{(k)}_{ij}$ når veien via $k$ er kortere?",
+    "options": [
+      "Den arves fra $\\pi^{(k-1)}_{kj}$, altså fra **raden til $k$** — ikke fra $k$ selv",
+      "Den settes til $k$ selv, siden det er nettopp den noden veien nå går gjennom på vei fra $i$ til $j$",
+      "Den arves fra $\\pi^{(k-1)}_{ik}$, altså fra kolonnen som fører inn til $k$",
+      "Den settes til NIL og fylles inn på nytt i den avsluttende gjennomgangen"
+    ],
+    "explanation": "Forgjengeren til $j$ på veien fra $i$ er den siste noden **før** $j$, og den finner du i den delen av veien som går fra $k$ til $j$ — altså i rad $k$. Å sette $\\pi_{ij} = k$ ville pekt på en node midt på veien, ikke på den siste før $j$, og gir feil sti når den leses ut."
+  },
+  {
+    "question": "Hvordan definerer du et minimalt spenntre i et kortsvar?",
+    "options": [
+      "Et spenntre for $G$ med minst mulig samlet kantvekt — altså en syklusfri kantmengde som når alle nodene",
+      "Et spenntre for $G$ der hver enkelt kant er den letteste kanten ut av noden sin",
+      "Den letteste stien mellom hvert par av noder i $G$, samlet i én felles kantmengde",
+      "Et spenntre for $G$ med færrest mulig kanter, siden færre kanter i treet også gir lavere samlet vekt"
+    ],
+    "explanation": "Definisjonen er «spenntre» pluss «minst mulig totalvekt», og hovedpoenget skal stå i første setning. Å kreve at hver kant er lettest ut av sin node, er en lokal betingelse som verken er nødvendig eller tilstrekkelig. Og antall kanter er alltid $V-1$ i et spenntre, så det kan ikke minimeres."
+  },
+  {
+    "question": "VAKTPOST er et nytt problem, og du skal vise at det er NP-hardt ved hjelp av `VERTEX-COVER`. Hvilken vei går reduksjonen?",
+    "options": [
+      "Fra `VERTEX-COVER` til VAKTPOST — en vilkårlig `VERTEX-COVER`-instans skrives om til en VAKTPOST-instans",
+      "Fra VAKTPOST til `VERTEX-COVER` — VAKTPOST-instansen skrives om til en tilsvarende `VERTEX-COVER`-instans",
+      "Begge veier — du må vise at de to problemene er polynomisk ekvivalente med hverandre",
+      "Fra `VERTEX-COVER` til VAKTPOST, men bare for de instansene der grafen er sammenhengende"
+    ],
+    "explanation": "Du reduserer FRA det kjente vanskelige TIL ditt eget problem, altså `VERTEX-COVER` $\\le_p$ VAKTPOST — da arver VAKTPOST hardheten. Motsatt vei viser bare at VAKTPOST ikke er verre enn `VERTEX-COVER`. Reduksjonen må dessuten dekke **alle** instanser av kildeproblemet; en begrensning til sammenhengende grafer ville gjort argumentet ugyldig."
+  },
+  {
+    "question": "En vaktplan der hver vakt skal dekkes av nøyaktig én kvalifisert person, modelleres som maksimal flyt. Hvilke kapasiteter setter du?",
+    "options": [
+      "1 fra $s$ til hver person, 1 på hver person–vakt-kant, og 1 fra hver vakt videre til $t$",
+      "$\\infty$ fra $s$ til hver person, 1 på hver person–vakt-kant, og $\\infty$ fra hver vakt til $t$",
+      "1 fra $s$ til hver person, $\\infty$ på hver person–vakt-kant, og 1 fra hver vakt til $t$",
+      "Antall vakter fra $s$ til hver person, 1 på hver person–vakt-kant, og antall personer fra hver vakt til $t$"
+    ],
+    "explanation": "Kapasitet 1 ut av kilden begrenser hver person til én vakt, og kapasitet 1 inn i sluket begrenser hver vakt til én person — det er nettopp de to begrensningene oppgaven stiller. Heltallsteoremet garanterer så at en maksimal flyt kan velges heltallig, slik at hver kant er brukt eller ikke, og modellen leses direkte som en tilordning."
+  },
+  {
+    "question": "Et lag kan ta ett oppdrag per dag, men må hvile dagen etter et oppdrag. Verdien for dag $i$ er $v_i$. Hvilken rekurrens gir den største samlede verdien?",
+    "options": [
+      "$OPT(i) = \\max(OPT(i-1),\\ OPT(i-2) + v_i)$, med $OPT(0) = 0$ og $OPT(1) = v_1$",
+      "$OPT(i) = \\max(OPT(i-1) + v_i,\\ OPT(i-2))$, med $OPT(0) = 0$ og $OPT(1) = v_1$",
+      "$OPT(i) = OPT(i-1) + OPT(i-2) + v_i$, med $OPT(0) = 0$ og $OPT(1) = v_1$",
+      "$OPT(i) = \\max(OPT(i-1),\\ OPT(i-2)) + v_i$, med $OPT(0) = 0$ og $OPT(1) = v_1$"
+    ],
+    "explanation": "Enten hviler laget på dag $i$, og da er verdien $OPT(i-1)$; eller så tas oppdraget, og da må dag $i-1$ stå ubrukt, slik at resten er $OPT(i-2) + v_i$. Varianten som legger $v_i$ til begge grenene, får med verdien selv når dagen ikke brukes. Begge grunntilfellene må stå — uten dem er rekurrensen ikke definert."
+  },
+  {
+    "question": "Hvorfor duger ikke en grådig regel «ta alltid den høyeste gjenværende verdien» på oppdragsplanen?",
+    "options": [
+      "Fordi et høyt valg sperrer naboene: på $v = \\langle 4, 9, 8, 1 \\rangle$ gir regelen 10, mens dag 1 og dag 3 gir 12",
+      "Fordi grådighet aldri kan brukes når verdiene er heltall som kan være like store som hverandre",
+      "Fordi den grådige regelen krever at verdiene sorteres først, og sorteringen alene koster $\\Theta(n\\lg n)$",
+      "Fordi problemet er NP-hardt, og ingen polynomisk regel kan derfor gi riktig svar på det i det hele tatt"
+    ],
+    "explanation": "Regelen tar dag 2 med verdi 9, og det sperrer både dag 1 og dag 3 — den ender på dag 2 og dag 4, altså 10, mens det optimale er dag 1 og dag 3 med 12. Ett moteksempel er nok til å forkaste en grådig regel. Problemet er slett ikke NP-hardt: dynamisk programmering løser det på $\\Theta(n)$ tid."
+  },
+  {
+    "question": "En oppgave ber om korteste vei i en **uvektet** graf. Hvilken algoritme er det riktige svaret, og hva er kjøretiden?",
+    "options": [
+      "`BFS` fra startnoden; $\\Theta(V+E)$",
+      "`Dijkstra` med binærhaug; $O(E\\lg V)$",
+      "`Bellman-Ford` fra startnoden; $\\Theta(VE)$",
+      "`DFS` fra startnoden; $\\Theta(V+E)$"
+    ],
+    "explanation": "Er alle kantene like tunge, er færrest kanter det samme som lavest samlet vekt, og `BFS` gir nettopp færrest kanter i lineær tid. `Dijkstra` og `Bellman-Ford` gir riktig svar, men er unødvendig trege — å velge dem er ikke galt, men det er ikke det svaret oppgaven er ute etter. `DFS` finner ingen korteste vei i det hele tatt."
+  }
+]
