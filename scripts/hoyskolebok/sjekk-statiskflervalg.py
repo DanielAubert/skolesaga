@@ -105,21 +105,47 @@ def _fasiter(tekst):
     return ut
 
 
-def mal_fil(sti):
-    """-> (n, lengst, kortest, [avvikseksempler])"""
+def _par(sti):
+    """[(prøvenr, spørsmålsnr, alternativer, fasitbokstav), …]
+
+    ⚠ Første versjon samlet ALLE oppgaver i én dict per fil, nøklet på
+    spørsmålsnummer. Et prøvekapittel har fire prøver som HVER teller fra 1,
+    så prøve 4 overskrev prøve 1, 2 og 3 — porten målte 20 av 34 flervalg i
+    sgo1001 og rapporterte tallet som om det dekket hele fila. Blindsonen ble
+    funnet av en byggeagent, ikke av porten selv.
+
+    Oppgavene og fasiten ligger i HVER SIN blokk (oppgaver i én collapsible-del,
+    fasit i neste). Vi går derfor gjennom strengene i dokumentrekkefølge og
+    parer hvert fasitsett med den nærmeste FORANSTÅENDE oppgaveblokka som ennå
+    ikke er paret.
+    """
     d = json.load(open(sti, encoding="utf-8"))
-    alle_oppg, alle_fasit = {}, {}
+    ventende, ut, prove = [], [], 0
     for s in _strenger(d):
-        # Et spørsmål og fasiten står i HVER SIN blokk (oppgave i én
-        # collapsible-del, fasit i neste). Samle på tvers, koble på nummer.
-        alle_oppg.update(_oppgaver(s))
-        alle_fasit.update(_fasiter(s))
+        o = _oppgaver(s)
+        if o:
+            prove += 1
+            ventende.append((prove, o))
+        f = _fasiter(s)
+        if f and ventende:
+            # nærmeste uparede oppgaveblokk som deler spørsmålsnumre
+            for k in range(len(ventende) - 1, -1, -1):
+                pnr, oppg = ventende[k]
+                if set(f) & set(oppg):
+                    for nr, alt in oppg.items():
+                        if nr in f and f[nr] in alt:
+                            ut.append((pnr, nr, alt, f[nr]))
+                    ventende.pop(k)
+                    break
+    return ut
+
+
+def mal_fil(sti):
+    """-> (n, lengst, kortest, synlig, [avvikseksempler])"""
     n = lengst = kortest = synlig = 0
     eks = []
-    for nr, alt in sorted(alle_oppg.items(), key=lambda x: int(x[0])):
-        f = alle_fasit.get(nr)
-        if not f or f not in alt:
-            continue
+    for pnr, nr, alt, f in _par(sti):
+        nr = f"{pnr}.{nr}"
         n += 1
         lengder = {k: len(v) for k, v in alt.items()}
         fl = lengder[f]
@@ -148,11 +174,10 @@ def ukoblet(sti):
     kompakt («1b · 2d · 3a») i stedet for utfyllende.
     """
     d = json.load(open(sti, encoding="utf-8"))
-    oppg, fas = {}, {}
-    for s in _strenger(d):
-        oppg.update(_oppgaver(s))
-        fas.update(_fasiter(s))
-    return sum(1 for nr in oppg if nr not in fas), len(oppg)
+    # Tell alle oppgaveblokker i fila, ikke bare den siste — samme blindsone
+    # som _par() ble skrevet om for.
+    totalt = sum(len(_oppgaver(s)) for s in _strenger(d))
+    return totalt - len(_par(sti)), totalt
 
 
 def rapporter(emne, vis=False):
