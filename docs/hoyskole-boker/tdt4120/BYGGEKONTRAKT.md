@@ -307,8 +307,11 @@ Alltid, i denne rekkefølgen først i kapitlet:
    `[kap. X.Y](/tdt4120/tdt4120-X-Y)`, og (ii) lenke kryssbok der forkunnskapen
    ikke dekkes i boka (tabellen i §14 — KUN filer som finnes). Har kapitlet
    ingen forkunnskaper (1.1), sier blokken det.
-   **I tunge, sene kapitler skal blokken være en «Sist du var her»-blokk** som
-   VISER de 2–3 nøkkelresultatene ferdig oppfrisket, ikke bare lenker. Det er
+   **I tunge, sene kapitler skal blokken VISE de oppfriskede resultatene**, ikke
+   bare lenke til dem. ⚠ Selve frasen «Sist du var her» er FORBUDT — boka vet
+   ikke hvor leseren har vært. Skriv «Dette sto der», «Fra kap. X» eller
+   «I det kapitlet lærte du …». Blokken skal
+   VISE de 2–3 nøkkelresultatene ferdig oppfrisket, ikke bare lenker. Det er
    ufravikelig i **4.2** (`Union-Find` fra 3.5), **4.5** (haug-/BST-reglene fra
    3.3 og slakkeregelen fra 4.3), **5.3** (restnettdefinisjonen fra 5.1),
    **6.3** (rekurrensmønsteret fra 6.2), **7.2** (pseudopolynomisk fra 5.2) og
@@ -403,7 +406,8 @@ unntatt kravene om «Typiske feil»-warning og notasjons-/symbolliste.
   korte som gir full uttelling.
 - **8.2 Designdrillen** følger §5.2, men er tverrgående: den gjenbruker maks-flyt
   (Del 5), DP (Del 6), Gale-Shapley (6.5) og BFS (4.1), og skal derfor ha
-  «Sist du var her»-forkunnskaper som VISER flytmodellen og DP-oppskriften.
+  oppfrisket forkunnskap som VISER flytmodellen og DP-oppskriften
+  (uten frasen «Sist du var her», jf. §5.1).
 - **8.3–8.5 Øvingseksamener** (`estimatedMinutes` 240 hver): `tip` med format
   (4 timer, ~20 kortsvarsoppgaver à 5 %, hjelpemiddelkode E, ~12 min per
   oppgave) og at settet trygt kan deles over flere kvelder → `text`
@@ -1482,7 +1486,8 @@ si at de tas på tid, én per kveld, aldri stablet i siste uke.
   metaeksempler.
 - **Øktmerking:** alle kapitler med `estimatedMinutes` > 45 — altså alle utenom
   0.1 (35), 1.1 (45), 2.2 (45), 2.3 (45), 3.4 (45) og 8.1 (45) — har tidsanslag
-  per løkke («## Løkke 3 — `Build-Max-Heap` og hvorfor den er lineær (~15 min)»)
+  per avsnitt — og overskriften skal si hva avsnittet HANDLER OM, aldri
+  «Løkke 3»/«Bolk B» («## `Build-Max-Heap` og hvorfor den er lineær (~15 min)»)
   eller «— naturlig pausepunkt —»-markører. De ni drillkapitlene (80–90 min) og
   de tre øvingseksamenene (240 min) skal ha eksplisitte pausepunkter.
 - **Hint + difficulty-spredning:** alle `exercise` har utfylte `hints` (første

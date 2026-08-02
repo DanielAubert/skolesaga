@@ -61,6 +61,8 @@ Basert på de 17 settene med løsningsforslag. Celleverdi = **antall sett i års
 | **Korteste vei fra én** (Dijkstra, Bellman-Ford, DAG-Shortest-Paths) | 5 | 2 | 3 | 3 | **13/17 = 76 %** |
 | **Rekurrenser** (masterteoremet, iterasjons-/substitusjonsmetoden) | 5 | 3 | 2 | 3 | **13/17 = 76 %** |
 | **Splitt-og-hersk & binærsøk** (Bisect, D&C-analyse) | 5 | 4 | 1 | 2 | **12/17 = 71 %** |
+
+
 | **Alle-til-alle korteste vei** (Floyd-Warshall, Slow-APSP, Π-matrise) | 5 | 3 | 1 | 2 | **11/17 = 65 %** |
 | **Grådighet** (Huffman, aktivitetsutvelgelse, greedy-argument) | 3 | 4 | 3 | 1 | **11/17 = 65 %** |
 | **Select / pivotvalg** (Randomized-Select, Partition, median av medianer) | 3 | 1 | 2 | 2 | **8/17 = 47 %** |
@@ -94,7 +96,7 @@ De ni sjangrene som faktisk går igjen. «Krav» oppsummerer fasitens foretrukne
 
 ### B. Rekurrensløsning
 - **Krav:** **Navngi metoden.** Masterteoremet (og hvilket **tilfelle** — `T(n)=4T(n/2)+n²lg n` er tilfelle 2 med log-faktor → `Θ(n²lg²n)`). Iterasjonsmetoden (teleskopér summen, sett inn grunntilfellet) for **eksakte** rekurrenser — da oppgis svaret **uten asymptotisk notasjon** (`T(n)=T(n−1)+2ⁿ⁻¹ ⇒ 2ⁿ−1`). Substitusjons-/induksjonsmetoden brukes til å **verifisere** et gjettet svar (vis induksjonssteget når det bes om). Delspørsmål: «hvor mange linjer i iterasjonsmetoden?» → `Θ(log_b n)`.
-- **Frekvens:** 76 %. Advarsel: faglærer har ved minst ett tilfelle tatt en rekurrens ut av sensur fordi den falt utenfor pensumvarianten av masterteoremet (`f(n)=Θ(n^{log_b a} lg^k n)` krever `k>0`).
+- **Frekvens:** 76 %. Advarsel: faglærer har ved minst ett tilfelle tatt en rekurrens ut av sensur fordi den falt utenfor pensumvarianten av masterteoremet (`f(n)=Θ(n^{log_b a} lg^k n)` krever `k \ge 0`).
 
 ### C. Håndkjøring av CLRS-algoritme, trinn for trinn
 - **Krav:** Utfør nøyaktig og oppgi **kun det etterspurte** (sluttilstand eller ett tall). Repertoar: `Tree-Insert` + `Inorder-Tree-Walk` (utnytt at inorder på BST gir **sortert** rekkefølge); haug-operasjoner (`Build-Max-Heap`, `Heap-Extract-Max`, `Heapsort` — **utfør trinnene selv om input bryter haugegenskapen**); FIFO-kø (`Enqueue`/`Dequeue` med `head`/`tail` og **wraparound** — oppgi **hele tabellen**, ikke bare den logiske køen); `Slow-APSP` (min-pluss-produkt, finn `l⁽²⁾ᵢⱼ`); `Floyd-Warshall` (både `d`- og `π`-regelen); `DAG-Shortest-Path`, `Transitive-Closure`, `Kruskal` (list kantene i valgt rekkefølge).
@@ -153,7 +155,7 @@ De ni sjangrene som faktisk går igjen. «Krav» oppsummerer fasitens foretrukne
 2. **Forveksle BST-egenskapen med haugegenskapen** — BST: venstre deltre ≤ rot ≤ høyre deltre (venstre–høyre-orden); haug: forelder ≥/≤ *begge* barn (opp–ned-orden, ingen venstre–høyre-orden).
 3. **Køfeil ved håndkjøring** — bytte om `head`/`tail` (kun delvis uttelling) eller glemme **wraparound**; oppgi bare den logiske køen i stedet for hele tabellen inkludert «døde» celler.
 4. **Løse asymptotiske grenser der en strammere finnes** — «kaste bort informasjon» under forenklingen. Oppgi alltid det mest presise enkeltuttrykket.
-5. **Feil masterteorem-tilfelle** — særlig glemme log-faktoren når `f(n)` matcher `n^{log_b a}` opp til en logaritme (tilfelle 2 med `lg^k`), eller bruke tilfelle 2 med `k≤0` (utenfor pensumvarianten).
+5. **Feil masterteorem-tilfelle** — særlig glemme log-faktoren når `f(n)` matcher `n^{log_b a}` opp til en logaritme (tilfelle 2 med `lg^k`), eller bruke tilfelle 2 med `k<0` (utenfor pensumvarianten).
 6. **Påstå at rekonstruksjon fra en DP er «trivielt gratis»** — å hente ut *selve* løsningen (ikke bare optimalverdien) krever lagrede beslutninger/tilbakepekere. Toppsvar sier eksplisitt at det kan gjøres uten å øke asymptotisk kjøretid.
 7. **Blande pseudopolynomisk og NP-hardt** — Ford-Fulkerson er pseudopolynomisk (kjøretid avhenger av kapasitetenes *størrelse*), ikke et tegn på at maks-flyt er NP-hardt.
 8. **Bruke Dijkstra på negative kantvekter** — Dijkstra krever ikke-negative vekter; Bellman-Ford håndterer negative kanter (og oppdager negative sykler nåbare fra start).
@@ -171,7 +173,9 @@ All pseudokode og alle navn følger **CLRS**. Læreboken bør bruke nøyaktig di
 `O` (øvre grense), `Ω` (nedre grense), `Θ` (tett grense), `o` (strengt mindre), `ω` (strengt større). Forenklingsregler: i en **sum** dominerer det raskest voksende leddet; en `Ω`/`ω`-term uten øvre grense fjerner enhver `O`-grense for summen; oppgi alltid det strammeste enkeltuttrykket.
 
 ### Rekurrensmetoder
-- **Masterteoremet:** `T(n)=aT(n/b)+f(n)`. Sammenlign `f(n)` med `n^{log_b a}`. Tre tilfeller; tilfelle 2 i pensumvarianten har form `f(n)=Θ(n^{log_b a} lg^k n)` med **`k>0`**.
+> ⚠ **`k \ge 0`, ikke `k > 0`.** Rettet 2. august 2026 mot fasitene: des 2016 og aug 2025 bruker begge tilfelle 2 med `k=0`, og bokas egen eksempeltabell har `T(n)=2T(n/2)+n` (Merge-Sort, `k=0`) som tilfelle 2. Det dokumenterte unntaket er NEGATIV `k` — aug 2023-fasit avviser `k=-1` og tar oppgaven ut av sensur. Se BYGGEKONTRAKT §K3.3 og §A2.
+
+- **Masterteoremet:** `T(n)=aT(n/b)+f(n)`. Sammenlign `f(n)` med `n^{log_b a}`. Tre tilfeller; tilfelle 2 i pensumvarianten har form `f(n)=Θ(n^{log_b a} lg^k n)` med **`k \ge 0`**.
 - **Iterasjonsmetoden** (repeated substitution): teleskopér, gjenkjenn summen (`1+2+…+2^{n-1}=2ⁿ−1`, `1+2+…+n=n(n+1)/2`), sett inn grunntilfellet. Gir **eksakt** svar uten asymptotisk notasjon.
 - **Substitusjonsmetoden:** gjett svar, verifiser med induksjon.
 

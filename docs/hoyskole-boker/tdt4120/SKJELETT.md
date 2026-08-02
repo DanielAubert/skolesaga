@@ -117,6 +117,8 @@ form.
   pseudokode-kontrakter.** Der DNA-en bruker `theorem` for matematiske resultater,
   brukes den her for (a) resultatene som skal sitte i ryggmargen — masterteoremet,
   **snittegenskapen** (letteste kant over et snitt er trygg), **maks-flyt/min-snitt-
+
+
   teoremet**, **heltallsteoremet**, Θ(n lg n)-nedre grensen for
   sammenligningssortering — og (b) **pseudokode-kontrakter**: hvert algoritmekapittel
   har en `theorem`-blokk «Pseudokode-kontrakt» som gjengir CLRS-algoritmen (nyskrevet
@@ -268,9 +270,11 @@ løsningsoppskrift → sensor-kommentert case → 8–15 oppgaver på eksamensni
 - **id:** `tdt4120-1-4` · **number:** 1.4 · **estimatedMinutes:** 50 · **prerequisites:** `tdt4120-1-1` · **kapitteltype:** teori
 - **description:** Masterteoremet for `T(n)=aT(n/b)+f(n)` — de tre tilfellene, inkludert log-faktor-tilfellet som er den faste fellen.
 - **Eksamensbelegg:** Sjanger B, 76 %. Nesten alltid «navngi metoden». Det kritiske: **riktig tilfelle**, inkl. log-faktoren i tilfelle 2. Faglærer har tatt en rekurrens ut av sensur fordi den falt utenfor pensumvarianten. Prioritet: **perfekt** (kjernen), tett integrert med sortering (Del 2). Bruk kun; se 1.5 for utledning av intuisjon.
-- **Innholdskontrakt:** `theorem` **masterteoremet**: `T(n)=aT(n/b)+f(n)`, `a≥1, b>1`. Sammenlign `f(n)` med `n^{\log_b a}`. **Tilfelle 1** (`f(n)=O(n^{\log_b a - ε})`) → `Θ(n^{\log_b a})`. **Tilfelle 2** (pensumvariant: `f(n)=Θ(n^{\log_b a} \lg^k n)`, **`k>0`**) → `Θ(n^{\log_b a} \lg^{k+1} n)`. **Tilfelle 3** (`f(n)=Ω(n^{\log_b a + ε})` + regularitet) → `Θ(f(n))`. Eksempeltabell: `T(n)=2T(n/2)+n → Θ(n\lg n)` (Merge-Sort); `T(n)=4T(n/2)+n^2\lg n → Θ(n^2\lg^2 n)` (tilfelle 2, `k=1`); `T(n)=T(n/2)+1 → Θ(\lg n)` (binærsøk). Delspørsmål «hvor mange nivåer i rekursjonstreet?» → `Θ(\log_b n)`.
+- **Innholdskontrakt:** `theorem` **masterteoremet**: `T(n)=aT(n/b)+f(n)`, `a≥1, b>1`. Sammenlign `f(n)` med `n^{\log_b a}`. **Tilfelle 1** (`f(n)=O(n^{\log_b a - ε})`) → `Θ(n^{\log_b a})`. **Tilfelle 2** (pensumvariant: `f(n)=Θ(n^{\log_b a} \lg^k n)`, **`k \ge 0`**) → `Θ(n^{\log_b a} \lg^{k+1} n)`. **Tilfelle 3** (`f(n)=Ω(n^{\log_b a + ε})` + regularitet) → `Θ(f(n))`. Eksempeltabell: `T(n)=2T(n/2)+n → Θ(n\lg n)` (Merge-Sort); `T(n)=4T(n/2)+n^2\lg n → Θ(n^2\lg^2 n)` (tilfelle 2, `k=1`); `T(n)=T(n/2)+1 → Θ(\lg n)` (binærsøk). Delspørsmål «hvor mange nivåer i rekursjonstreet?» → `Θ(\log_b n)`.
 - **Oppgavesjangre:** B. Mønstereksempel (nyskrevet): «Løs `T(n)=3T(n/3)+n\lg n` med masterteoremet. Angi hvilket tilfelle, og hvorfor log-faktoren gir `k=1`.»
-- **Typiske feil:** Feil tilfelle — særlig glemme log-faktoren når `f(n)` matcher `n^{\log_b a}` opp til en logaritme (§5.5); bruke tilfelle 2 med `k≤0` (utenfor pensumvarianten); regne `\log_b a` feil; bruke masterteoremet på ikke-standard rekurrens (der iterasjon kreves).
+> ⚠ **`k \ge 0`, ikke `k > 0`.** Rettet 2. august 2026 mot fasitene: des 2016 og aug 2025 bruker begge tilfelle 2 med `k=0`, og bokas egen eksempeltabell har `T(n)=2T(n/2)+n` (Merge-Sort, `k=0`) som tilfelle 2. Det dokumenterte unntaket er NEGATIV `k` — aug 2023-fasit avviser `k=-1` og tar oppgaven ut av sensur. Se BYGGEKONTRAKT §K3.3 og §A2.
+
+- **Typiske feil:** Feil tilfelle — særlig glemme log-faktoren når `f(n)` matcher `n^{\log_b a}` opp til en logaritme (§5.5); bruke tilfelle 2 med `k<0` (utenfor pensumvarianten); regne `\log_b a` feil; bruke masterteoremet på ikke-standard rekurrens (der iterasjon kreves).
 - **Quiz: 16 · Flashcards: 16**
 
 #### Kapittel 1.5: Rekurrenser — iterasjon, substitusjon og splitt-og-hersk
