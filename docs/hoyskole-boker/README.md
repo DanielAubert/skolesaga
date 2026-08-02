@@ -298,156 +298,269 @@ Status: **analyse** = EKSAMENSANALYSE.md ferdig · **skjelett** = SKJELETT.md
 ferdig (= rammeverk komplett, klart for Opus-bygging via BYGGEKONTRAKT-MAL) ·
 **bok** = bygget og wiret i plattformen.
 
+Generert fra disken: **35** **bok** (live) · **1** ⚠ siste år — **bok** · **2** ⚠ siste år · **2** skjelett + **kontrakt** · **4** ⚠ avklar først · **151** skjelett · **2** analyse · **11** — · **1** ⛔ nedlagt (live bok) · **34** ⛔ nedlagt.
+
 | Emne | Arketype | Status |
 |---|---|---|
-| PSYC1202 Profesjonsforberedende 1 (UiO) | drøfting/kasus | **bok** (live) |
-| STV1400 Offentlig politikk og administrasjon (UiO) | drøfting | **bok** (live) |
-| STV1200 Internasjonal politikk (UiO) | drøfting | skjelett + **kontrakt** |
-| INTER1000 Innføringsemne i internasjonale studier (UiO) | drøfting/tverrfaglig | skjelett + **kontrakt** |
-| SGO1001 Innføring i samfunnsgeografi (UiO) | drøfting | **bok** (live) |
-| ECON1310 Makroøkonomi I (UiO) | regnefag | **bok** (live) |
-| JUS1111 Privatrett I (UiO) | jus | **bok** (live) |
-| JUS4213 Strafferett og straffeprosess (UiO) | jus | skjelett |
-| TGB4100 Geologi, innføring (NTNU) | fakta/pugg | skjelett |
-| TTT4120 Digital signalbehandling (NTNU) | regnefag | skjelett |
-| TFE4171 Design av digitale systemer 2 (NTNU) | regnefag/verifikasjonsfag | skjelett |
-| JUR 3420 Forretningsjus (BI) | jus | skjelett |
-| ORG 3620 Arbeids- og personaljus (BI) | jus | skjelett |
-| STR 3605 Strategi (BI) | drøfting/case-analyse | skjelett |
-| BØK 3423 Finans (BI) | regnefag | skjelett |
-| FIN 3521 Finansiering av bedrifter (BI) | regnefag | skjelett |
-| BØK 3532 Finansregnskap og regnskapsanalyse (BI) | regnefag | skjelett |
-| BØK 3632 Finansiell styring (BI) | regnefag/corporate finance II | skjelett |
-| SØK 3500 Samfunnsøkonomi II (BI) | regnefag | skjelett |
-| MET 2910 Matematikk for økonomer (BI) | regnefag | skjelett |
-| MET 2920 Statistikk for økonomer (BI) | regnefag | skjelett |
-| MET 1190 Statistikk (BI) | regnefag | skjelett |
-| ECON1100 Matematikk I for økonomer (UiO) | regnefag | **bok** (live) |
+| ECON1100 Matematikk I (UiO) | regnefag | **bok** (live) |
 | ECON1210 Mikroøkonomi 1 (UiO) | regnefag | **bok** (live) |
+| ECON1310 Makroøkonomi I (UiO) | regnefag | **bok** (live) |
+| ECON2220 Mikroøkonomi 2 (UiO) | regnefag | **bok** (live) |
+| ECON2310 Makroøkonomi 2 (UiO) | regnefag | **bok** (live) |
+| EXPHIL03 Examen philosophicum (UiO) | — | **bok** (live) |
+| FIL1001 Innføring i metafysikk og bevissthetsfilosofi (UiO) | drøfting | **bok** (live) |
+| FYS1001 Innføring i fysikk (UiO) | regnefag | **bok** (live) |
+| FYS1100 Mekanikk og modellering (UiO) | regnefag | **bok** (live) |
+| IN1000 Introduksjon til objektorientert programmering (UiO) | regnefag/kodefag | **bok** (live) |
+| IN1020 Introduksjon til datateknologi (UiO) | regnefag | **bok** (live) |
+| IN1900 Introduksjon til programmering med vitenskapelige anvendelser (UiO) | regnefag/kodefag | **bok** (live) |
+| IN2010 Algoritmer og datastrukturer (UiO) | regnefag | **bok** (live) |
+| INTER1000 Innføringsemne i internasjonale studier (UiO) | drøfting/tverrfaglig | **bok** (live) |
+| JUS1111 Privatrett I (UiO) | jus | **bok** (live) |
+| LING1100 Innføring i semantikk og pragmatikk (UiO) | formell-hybrid | **bok** (live) |
+| MA1301 Tallteori (NTNU) | regnefag/bevis | **bok** (live) |
+| MAT1100 Kalkulus (UiO) | regnefag | **bok** (live) |
+| MAT111 Grunnkurs i matematikk I (UiB) | — | **bok** (live) |
+| MAT1110 Kalkulus og lineær algebra (UiO) | regnefag | **bok** (live) |
+| MAT1120 Lineær algebra (UiO) | regnefag | **bok** (live) |
+| MED1100 Medisinstudiet modul 1 (UiO) | fakta/pugg-hybrid | **bok** (live) |
+| PSY1010 Innføring i metode (UiO) | drøfting/hybrid | **bok** (live) |
+| PSYC1202 Profesjonsforberedende 1 — etikk og profesjonsrolle (UiO) | drøfting/kasus | **bok** (live) |
+| SGO1001 Innføring i samfunnsgeografi (UiO) | drøfting | **bok** (live) |
+| SOS1004 Innføring i sosiologi (UiO) | drøfting | **bok** (live) |
+| SOSANT1000 Antropologisk samfunnsanalyse (Innføring i sosialantropologi) (UiO) | drøfting | **bok** (live) |
+| STK1100 Sannsynlighetsregning og statistisk modellering (UiO) | regnefag | **bok** (live) |
+| STK1110 Statistiske metoder og dataanalyse (UiO) | regnefag | **bok** (live) |
+| STV1100 Politisk teori (UiO) | — | **bok** (live) |
+| STV1200 Internasjonal politikk (UiO) | drøfting | **bok** (live) |
+| STV1400 Offentlig politikk og administrasjon (UiO) | drøfting | **bok** (live) |
+| TDT4110 Informasjonsteknologi grunnkurs (NTNU) | regnefag/kodefag | **bok** (live) |
+| TFY4115 Fysikk (NTNU) | regnefag | **bok** (live) |
+| TMA4245 Statistikk (NTNU) | regnefag | **bok** (live) |
+| TMA4135 Matematikk 4D (NTNU) | regnefag | ⚠ siste år — **bok** |
+| PSY1300 Kognitiv psykologi (UiO) | — | ⚠ siste år |
+| SOSANT1400 Antropologi og religion (UiO) | drøfting | ⚠ siste år |
+| TDT4120 Algoritmer og datastrukturer (NTNU) | regnefag | skjelett + **kontrakt** |
+| UTV1000 Innføring i utviklingsstudier og bærekraft (UiO) | — | skjelett + **kontrakt** |
+| MET 1190 Statistikk | — | ⚠ avklar først |
+| SOS4010 Kvalitativ metode — eksamensrettet lærebok (UiO, master) | — | ⚠ avklar først |
+| SOS4020 Kvantitativ metode — eksamensrettet lærebok (UiO, master) | — | ⚠ avklar først |
+| STR 3605 Strategi (Handelshøyskolen BI) | — | ⚠ avklar først |
+| BØK 3423 Finans | — | skjelett |
+| BØK 3532 Finansregnskap og regnskapsanalyse | — | skjelett |
+| BØK 3632 Finansiell styring | — | skjelett |
+| DAPE1300 Diskret matematikk (OsloMet) | — | skjelett |
+| DATA2500 Operativsystemer (OsloMet) | — | skjelett |
 | ECON1220 Velferd og økonomisk politikk (UiO) | drøfting/hybrid | skjelett |
 | ECON1410 Internasjonal økonomi (UiO) | regnefag | skjelett |
-| ECON2610 Ressursallokering, fordeling og strategisk atferd (UiO) | regnefag/figur-i-ord-hybrid | skjelett |
 | ECON1910 Poverty and Distribution (UiO) | drøfting/hybrid | skjelett |
-| ECON4915 Development Economics (UiO) | drøfting | skjelett |
 | ECON2130 Statistikk 1 (UiO) | regnefag | skjelett |
-| ECON2220 Mikroøkonomi 2 (UiO) | regnefag | **bok** (live) |
-| ECON4220 Microeconomics 3 (UiO) | regnefag | skjelett |
-| ECON2310 Makroøkonomi 2 (UiO) | regnefag | **bok** (live) |
 | ECON2500 Investering og finansiering (UiO) | regnefag | skjelett |
+| ECON2610 Ressursallokering, fordeling og strategisk atferd (UiO) | regnefag/figur-i-ord-hybrid | skjelett |
+| ECON3010 Anvendt økonomisk analyse (UiO) | drøfting | skjelett |
+| ECON3120/4120 Mathematics 2 (UiO) | regnefag | skjelett |
 | ECON3150 Introductory Econometrics (UiO) | regnefag | skjelett |
+| ECON4220 Microeconomics 3 (UiO) | regnefag | skjelett |
+| ECON4260 Behavioral Economics (UiO) | regnefag/drøfting-hybrid | skjelett |
 | ECON4310 Macroeconomic Theory (UiO) | regnefag/essay-hybrid | skjelett |
-| EXPHIL03 Examen philosophicum (UiO) | drøfting | **bok** (live) |
-| FIL1001 Metafysikk og bevissthetsfilosofi (UiO) | drøfting | skjelett |
-| LING1100 Innføring i semantikk og pragmatikk (UiO) | formell-hybrid | skjelett |
+| ECON4915 Development Economics (UiO) | drøfting | skjelett |
+| FAF311 Perspektiver på funksjonshemminger og samhandling (NIH) | — | skjelett |
 | FIL1003 Innføring i etikk (UiO) | drøfting | skjelett |
-| FYS1001 Innføring i fysikk (UiO) | regnefag | **bok** (live) |
-| FYS1100 Mekanikk og modellering (UiO) | regnefag | skjelett |
+| FIN 3521 Finansiering av bedrifter | — | skjelett |
 | FYS1120 Elektromagnetisme (UiO) | regnefag | skjelett |
 | FYS2140 Kvantefysikk (UiO) | regnefag | skjelett |
-| IN1000 Intro. objektorientert programmering (UiO) | regnefag/kodefag | **bok** (live) |
+| Fagprøven for leger utdannet utenfor EU/EØS (MFFAGPR) | — | skjelett |
+| Felles avsluttende skriftlig deleksamen i medisin (nasjonal) | — | skjelett |
+| IDR109 Treningslære (NIH) | — | skjelett |
 | IN1010 Objektorientert programmering (UiO) | regnefag/kodefag | skjelett |
-| IN1020 Introduksjon til datateknologi (UiO) | regnefag | **bok** (live) |
 | IN1030 Systemer, krav og konsekvenser (UiO) | drøfting/prosedyre-hybrid | skjelett |
-| IN1140 Introduksjon til språkteknologi (UiO) | regnefag/formell-hybrid | skjelett |
-| IN1900 Python-programmering (UiO) | regnefag/kodefag | **bok** (live) |
-| IN2010 Algoritmer og datastrukturer (UiO) | regnefag | skjelett |
 | IN2040 Funksjonell programmering (UiO) | regnefag/kodefag | skjelett |
 | IN2060 Digitalteknikk og datamaskinarkitektur (UiO) | regnefag | skjelett |
+| IT2805 Webteknologi (NTNU) | kodefag-hybrid | skjelett |
+| ITD15020 Kalkulus (Høgskolen i Østfold, ingeniørmatematikk) | — | skjelett |
+| ITF10705 Diskret matematikk (Høgskolen i Østfold) | — | skjelett |
+| JUR 3420 Forretningsjus (BI) | — | skjelett |
 | JUS1211 Privatrett II (UiO) | jus | skjelett |
 | JUS2111 Statsforfatningsrett og folkerett (UiO) | jus | skjelett |
+| JUS2211 Forvaltningsrett og EØS-rett (UiO) | jus | skjelett |
+| JUS3112 Formuerett I (UiO) | jus | skjelett |
+| JUS3213 Formuerett II (UiO) | jus | skjelett |
 | JUS4111 Metode og etikk (UiO) | jus/drøfting-hybrid | skjelett |
 | JUS4212 Sivilprosess (UiO) | jus | skjelett |
+| JUS4213 Strafferett og straffeprosess (UiO) | jus | skjelett |
+| JUS5511 Individuell arbeidsrett (UiO) | jus | skjelett |
 | KJ1020 / TKJ4103 Organisk kjemi grunnkurs (NTNU) | regnefag/mønster-drill | skjelett |
 | KJ2050 Analytisk kjemi, grunnkurs (NTNU) | regnefag/prosedyre-hybrid | skjelett |
-| KJM1110 / KJM1111 Organisk kjemi I (UiO) | regnefag/kjemi-konstruksjon-hybrid | skjelett |
+| MA0001 Brukerkurs i matematikk A (NTNU) | — | skjelett |
 | MA0301 Elementær diskret matematikk (NTNU) | regnefag | skjelett |
-| MAT111 Grunnkurs matematikk I (UiB) | regnefag | skjelett |
-| MAT112 Grunnkurs matematikk II (UiB) | regnefag | skjelett |
-| MAT121 Lineær algebra (UiB) | regnefag | skjelett |
-| MAT1100 Kalkulus (UiO) | regnefag | skjelett |
-| MAT1110 Kalkulus og lineær algebra (UiO) | regnefag | skjelett |
-| MAT1120 Lineær algebra (UiO) | regnefag | skjelett |
+| MA1101 Grunnkurs i analyse 1 (NTNU) | — | skjelett |
+| MA1102 Grunnkurs i analyse 2 (NTNU) | — | skjelett |
+| MA1103 Flerdimensjonal analyse (NTNU) | — | skjelett |
+| MA1201 Lineær algebra og geometri (NTNU) | — | skjelett |
+| MA1202 Lineær algebra med anvendelser (NTNU) | — | skjelett |
+| MA460 Exercise Biology and Sport Performance Analysis I (NIH) | — | skjelett |
+| MAS116 Hydrodynamikk — eksamensrettet lærebok (HVL) | — | skjelett |
+| MAT112 Grunnkurs i matematikk II (UiB) | — | skjelett |
+| MAT121 Lineær algebra (UiB) | — | skjelett |
 | MAT2200 Grupper, ringer og kropper (UiO) | regnefag | skjelett |
 | MAT2400 Reell analyse (UiO) | regnefag | skjelett |
+| MAT2410 Innføring i kompleks analyse (UiO) | regnefag/bevis | skjelett |
 | MAT2500 Geometri (UiO) | regnefag | skjelett |
 | MEK1100 Feltteori og vektoranalyse (UiO) | regnefag | skjelett |
-| MET4 Empiriske metoder (NHH) | regnefag/hybrid | skjelett |
-| Matematikk 1000 / DAFE1000 (OsloMet) | regnefag | skjelett |
-| AFB Anatomi, fysiologi og biokjemi (NOKUT, sykepleie) | fakta/pugg | skjelett |
-| GLU-matte Nasjonal deleksamen i matematikk (GLU) (NOKUT) | regnefag/didaktikk-hybrid | skjelett |
-| NB Nasjonal deleksamen i barnevern (rettsanvendelse) (NOKUT) | jus | skjelett |
-| MED1100 Medisinstudiet modul 1 (UiO) | fakta/pugg-hybrid | skjelett |
-| Felles avsluttende deleksamen i medisin (nasjonal, UiO) | fakta/klinisk beslutning | skjelett |
-| MFFAGPR Fagprøven for leger utdannet utenfor EU/EØS (UiO) | fakta/klinisk beslutning | skjelett |
-| PSY1000 Innføring i generell psykologi (UiO) | drøfting/fakta-hybrid | skjelett |
-| PSY1010 Innføring i metode (UiO) | drøfting/hybrid | **bok** (live) |
+| MET 2910 Matematikk for økonomer | — | skjelett |
+| MET 2920 Statistikk for økonomer | — | skjelett |
+| MET200 Forskningsmetode (Norges idrettshøgskole, NIH) | — | skjelett |
+| MET4 Empiriske metoder (NHH) | — | skjelett |
+| MET402 Kvantitativ metode (NIH, master) | — | skjelett |
+| MRK 3481 Forbrukerpsykologi (Handelshøyskolen BI) | — | skjelett |
+| Matematikk 1000 (DAFE1000) — OsloMet ingeniørutdanning | — | skjelett |
+| Nasjonal deleksamen i anatomi, fysiologi og biokjemi (AFB) | — | skjelett |
+| Nasjonal deleksamen i barnevern (rettsanvendelse) | — | skjelett |
+| Nasjonal deleksamen i matematikk for grunnskolelærerutdanningen (GLU) | — | skjelett |
+| OD2200 Odontologi 4. sem – patologi/kraniofacial (UiO) | fakta/pugg-klinisk | skjelett |
+| OD4200 Odontologistudiet 8. semester (UiO) | — | skjelett |
+| OD5100 Odontologistudiet, 9. semester (UiO) | — | skjelett |
+| OD5200 Samfunnsodontologi, pedodonti og oral protetikk (UiO) | — | skjelett |
+| ORG 3620 Arbeids- og personaljus (BI) | — | skjelett |
+| PSY1250 / PSYC1220 Personlighetspsykologi 1 (UiO) | — | skjelett |
+| PSY2013 Kvalitativ metode | — | skjelett |
+| PSY2014 Kvantitativ metode / Generell lineær modell (UiO) | — | skjelett |
+| PSY2101 Helsepsykologi (UiO) | — | skjelett |
+| PSY2103 Sexologi (UiO) | — | skjelett |
+| PSY2405 Innføring i arbeidspsykologi (UiO) | — | skjelett |
+| PSY2503 Kultur- og samfunnspsykologi (UiO) | — | skjelett |
 | PSYC1201 Sosialpsykologi (UiO) | fakta-forklaring-hybrid | skjelett |
-| MRK 3481 Forbrukerpsykologi (BI) | drøfting/fakta-hybrid | skjelett |
-| SOK1002 Mikroøkonomi (NTNU) | regnefag | skjelett |
-| SOS1120 / SOSGEO1120 Kvantitativ metode (UiO) | hybrid (statistikk-tyngdepunkt) | skjelett |
+| PSYC2104 Kvantitativ metode A (UiO) | — | skjelett |
+| SGO2100 Bygeografi og urbanisme — eksamensrettet lærebok (UiO) | — | skjelett |
+| SGO2400 Politisk geografi — eksamensrettet lærebok (UiO) | — | skjelett |
 | SOS2200 Organisasjon, ledelse og arbeid (UiO) | drøfting | skjelett |
-| SOSANT1000 Innføring i sosialantropologi (UiO) | drøfting | skjelett |
-| STK1100 Sannsynlighet og statistisk modellering (UiO) | regnefag | skjelett |
-| STK1110 Statistiske metoder og dataanalyse (UiO) | regnefag | **bok** (live) |
+| SOS2500 Kulturanalyse, diskurs og semiotikk — eksamensrettet lærebok (UiO) | — | skjelett |
+| SOS4200 Arbeidsliv og velferdsstat | — | skjelett |
+| SOSANT1200 Politikk, makt og ulikhet | — | skjelett |
+| SOSANT2600 Antropologi i praksis | — | skjelett |
+| SPM102 Lederskap i idrett (NIH) | — | skjelett |
+| SPM103 Idrett og bærekraft (NIH) | — | skjelett |
+| SPM105 Idrettens organisasjoner og organisering (NIH) | — | skjelett |
+| SPM245 Økonomi (Norges idrettshøgskole, NIH) | — | skjelett |
+| STK2100 Maskinlæring og statistiske metoder (UiO) | regnefag/drøfting | skjelett |
 | STV1020 Politisk analyse 2 (UiO) | drøfting/hybrid | skjelett |
+| STV2110 Politisk filosofi — eksamensrettet lærebok (UiO) | — | skjelett |
 | SVMET1010 Kvalitative metoder (UiO) | drøfting | skjelett |
+| SØK 3500 Samfunnsøkonomi II (Handelshøyskolen BI) | — | skjelett |
+| SØK1001 Matematikk for økonomer | — | skjelett |
+| SØK1004 Statistikk for økonomer | — | skjelett |
+| SØK2005 / SOK2005 Finansmarkeder | — | skjelett |
+| SØK2009 Internasjonal makroøkonomi | — | skjelett |
+| SØK2010 Banking | — | skjelett |
+| SØK2011 Offentlig økonomi og økonomisk politikk | — | skjelett |
+| SØK2012 Atferdsøkonomi | — | skjelett |
+| SØK3001 Videregående økonometri | — | skjelett |
+| SØK3004 Videregående matematisk analyse | — | skjelett |
+| SØK3006 Valuta, olje og makroøkonomisk politikk | — | skjelett |
+| SØK3007 Skatt, beslutningsatferd og økonomisk politikk | — | skjelett |
 | TDT4100 Objektorientert programmering (NTNU) | regnefag/kodefag | skjelett |
 | TDT4102 Prosedyre- og objektorientert programmering (C++) (NTNU) | regnefag/kodefag | skjelett |
-| TDT4110 Informasjonsteknologi grunnkurs (NTNU) | regnefag/kodefag | skjelett |
-| TDT4120 Algoritmer og datastrukturer (NTNU) | regnefag | skjelett |
 | TDT4136 Introduksjon til kunstig intelligens (NTNU) | regnefag | skjelett |
 | TDT4137 Kognitive systemer (NTNU) | drøfting/regne-hybrid | skjelett |
 | TDT4145 Datamodellering og databasesystemer (NTNU) | regnefag | skjelett |
-| TDT4225 Store, distribuerte datamengder (NTNU) | drøfting/regne-hybrid | skjelett |
 | TDT4160 Datamaskiner (NTNU) | regnefag | skjelett |
+| TDT4171 Metoder i kunstig intelligens (NTNU) | regnefag | skjelett |
+| TDT4186 Operativsystemer (NTNU) | regnefag/hybrid | skjelett |
+| TDT4225 Store, distribuerte datamengder (NTNU) | drøfting/regne-hybrid | skjelett |
+| TDT4237 Programvaresikkerhet og personvern (NTNU) | drøfting/prosedyre-hybrid | skjelett |
 | TDT4260 Datamaskinarkitektur (NTNU) | regnefag/begrepsdrevet hybrid | skjelett |
 | TDT4300 Datavarehus og datagruvedrift (NTNU) | regnefag | skjelett |
-| TDT4171 Metoder i kunstig intelligens (NTNU) | regnefag | skjelett |
-| TDT4237 Programvaresikkerhet og personvern (NTNU) | drøfting/prosedyre-hybrid | skjelett |
+| TFE4171 Design av digitale systemer 2 (NTNU) | regnefag/verifikasjonsfag | skjelett |
 | TFY4104 Fysikk (NTNU) | regnefag | skjelett |
-| TFY4115 Fysikk (NTNU) | regnefag | skjelett |
 | TFY4125 Fysikk (NTNU) | regnefag | skjelett |
-| TMA4101 Flervariabel kalkulus og vektoranalyse (NTNU) | regnefag | skjelett |
-| TMA4110 Lineær algebra, komplekse tall og differensiallikninger (NTNU) | regnefag | **bok** (live) |
-| TMA4121 Matematikk 4 (NTNU) | regnefag | skjelett |
-| TMA4135 Matematikk 4D (NTNU) | regnefag | skjelett |
-| TMA4245 Statistikk (NTNU) | regnefag | skjelett |
-| TDT4186 Operativsystemer (NTNU) | regnefag/hybrid | skjelett |
-| TTM4100 Kommunikasjon — Tjenester og nett (NTNU) | regnefag/hybrid | skjelett |
-| SOS1004 Innføring i sosiologi (UiO; arkiv SOS1000/1001/1003) | drøfting | skjelett + **kontrakt** |
-| SOSANT1090 Antropologiens historie (UiO) | drøfting | skjelett |
-| SOSANT1400 Antropologi og religion (UiO) | drøfting | skjelett |
-| JUS2211 Forvaltningsrett og EØS-rett (UiO) | jus | skjelett |
-| JUS3213 Formuerett II (UiO) | jus | skjelett |
-| JUS3112 Formuerett I (UiO) | jus | skjelett |
-| JUS5511 Individuell arbeidsrett (UiO) | jus | skjelett |
-| ECON3010 Anvendt økonomisk analyse (UiO) | drøfting | skjelett |
-| ECON4260 Behavioral Economics (UiO) | regnefag/drøfting-hybrid | skjelett |
-| ECON3120/4120 Mathematics 2 (UiO) | regnefag | skjelett |
-| TTM4135 Anvendt kryptografi og nettverkssikkerhet (NTNU) | regnefag/hybrid | skjelett |
+| TGB4100 Geologi, innføring (NTNU) | fakta/pugg | skjelett |
+| THP100 Humanfysiologi (Norges idrettshøgskole) | — | skjelett |
+| THP101 Funksjonell anatomi (NIH) | — | skjelett |
+| THP202 Treningsfysiologi (NIH) | — | skjelett |
+| THP203 Basal biomekanikk — eksamensrettet lærebok (NIH) | — | skjelett |
+| THP204 Metabolisme (NIH) | — | skjelett |
+| TI100 Idrettspsykologi 1 (NIH) | — | skjelett |
+| TI300 Sports Coaching 2 — Trenerens relasjonskompetanse (NIH) | — | skjelett |
+| TIK4001 Teknologi, innovasjon og kunnskap — eksamensrettet lærebok (UiO, masternivå) | — | skjelett |
+| TIØ4215 Kontraktsrett og kontraktsforhandlinger | — | skjelett |
+| TMA4145 Lineære metoder (NTNU) | — | skjelett |
+| TMA4150 Algebra (NTNU) | — | skjelett |
+| TMA4160 Kryptografi (NTNU) | — | skjelett |
+| TMA4165 Dynamiske systemer (NTNU) | — | skjelett |
+| TMA4180 Optimering 1 / Optimization 1 (NTNU) | — | skjelett |
+| TMA4195 Matematisk modellering (NTNU) | — | skjelett |
+| TMA4250 Romlig statistikk (Spatial Statistics, NTNU) | — | skjelett |
+| TMA4265 Stokastisk modellering — eksamensrettet lærebok (NTNU) | — | skjelett |
+| TMA4275 Levetidsanalyse — eksamensrettet lærebok (NTNU) | — | skjelett |
+| TMA4320 Introduksjon til vitenskapelige beregninger (NTNU) | — | skjelett |
 | TTK4240 Industriell elektroteknikk (NTNU) | regnefag | skjelett |
-| IT2805 Webteknologi (NTNU) | kodefag-hybrid | skjelett |
-| TIØ4215 Kontraktsrett og kontraktsforhandlinger (NTNU) | jus/forhandling-hybrid | skjelett |
-| ECON2200 Matematikk 1/mikro (UiO) | — | analyse (NEDLAGT; dekkes av ECON1100+ECON2220) |
-| MA1301 Tallteori (NTNU) | regnefag/bevis | skjelett (K2) |
-| SØK1011 Markeder og markedssvikt (NTNU) | regnefag/drøfting | skjelett (K2; komplement SOK1002) |
-| OD2200 Odontologi 4. sem – patologi/kraniofacial (UiO) | fakta/pugg-klinisk | skjelett (K2) |
-| MAS116 Hydrodynamikk (HVL) | regnefag | skjelett (K2) |
-| STK2100 Maskinlæring og statistiske metoder (UiO) | regnefag/drøfting | skjelett (K2) |
-| MAT2410 Innføring i kompleks analyse (UiO) | regnefag/bevis | skjelett (K2) |
-| THP100 Humanfysiologi (NIH) | fakta/pugg-mekanisme | skjelett (K2) |
-| THP101 Funksjonell anatomi (NIH) | fakta/pugg + moment | skjelett (K2) |
-| THP202 Treningsfysiologi (NIH) | mekanisme/pugg | skjelett (K2) |
-| THP203 Basal biomekanikk (NIH) | regnefag | skjelett (K2) |
-| THP204 Metabolisme (NIH) | fakta/pugg-biokjemi | skjelett (K2) |
-| LKI235 Treningsfysiologi for idrettsfag (NIH) | mekanisme/pugg | skjelett (K2; THP202-tvilling) |
-| IDR109 Treningslære (NIH) | anvendt/case | skjelett (K2) |
-| MA460 Exercise Biology and Sport Performance Analysis I (NIH master) | drøfting/masternivå | skjelett (K2) |
+| TTM4100 Kommunikasjon — Tjenester og nett (NTNU) | regnefag/hybrid | skjelett |
+| TTM4135 Anvendt kryptografi og nettverkssikkerhet (NTNU) | regnefag/hybrid | skjelett |
+| TTT4120 Digital signalbehandling (NTNU) | regnefag | skjelett |
+| ECON2200 Matematikk 1/mikro (UiO) | — | analyse |
+| IN2080 | — | analyse |
+| FIGUR-MANIFESTS-TEKSTFAG | — | — |
+| HIS1100 | — | — |
+| SGO3500 | — | — |
+| SOK2103 | — | — |
+| SOK3005 | — | — |
+| SOK3514 | — | — |
+| SOK3515 | — | — |
+| SOK3523 | — | — |
+| SOS2100 | — | — |
+| SOS4013 | — | — |
+| SOSANT1050 | — | — |
+| TMA4110 Lineær algebra, komplekse tall og differensiallikninger (NTNU) | regnefag | ⛔ nedlagt (live bok) |
+| ECON4130 Statistics 2 | — | ⛔ nedlagt |
+| FYS-MEK1110 | — | ⛔ nedlagt |
+| HiØ Statistikk og økonomi (ITD20106 / IRM23116) | — | ⛔ nedlagt |
+| IN1140 Introduksjon til språkteknologi (UiO) | regnefag/formell-hybrid | ⛔ nedlagt |
+| IS205 Sosiologiske perspektiver på idrett (NIH) | — | ⛔ nedlagt |
+| IS225 Helse, kultur, idrett og samfunn (NIH) | — | ⛔ nedlagt |
+| JUS4211 | — | ⛔ nedlagt |
+| KJM1110 / KJM1111 Organisk kjemi I (UiO) | regnefag/kjemi-konstruksjon-hybrid | ⛔ nedlagt |
+| KULKOM1001 Innføringsemne – Forståelsesformer og perspektiv | — | ⛔ nedlagt |
+| LKI235 Treningsfysiologi for idrettsfag (Norges idrettshøgskole) | — | ⛔ nedlagt |
+| MAT-INF1100 | — | ⛔ nedlagt |
+| MET2911-BI | — | ⛔ nedlagt |
+| OLA4001 Ledelse, organisasjon og institusjon — eksamensrettet lærebok (UiO, masternivå) | — | ⛔ nedlagt |
+| OLA4060 Fordypningsemne — organisasjon, ledelse og arbeid (UiO, masternivå) | — | ⛔ nedlagt |
+| PPU406 Kroppsøvingslæreren, skolen og faget (Norges idrettshøgskole) | — | ⛔ nedlagt |
+| PSY1000 Innføring i generell psykologi (UiO) | drøfting/fakta-hybrid | ⛔ nedlagt |
+| PSYC2205 | — | ⛔ nedlagt |
+| PSYC2207 | — | ⛔ nedlagt |
+| PSYC4305 | — | ⛔ nedlagt |
+| SOK1002 Mikroøkonomi (NTNU) | regnefag | ⛔ nedlagt |
+| SOK2008 | — | ⛔ nedlagt |
+| SOS1120 / SOSGEO1120 Kvantitativ metode (UiO) | hybrid (statistikk-tyngdepunkt) | ⛔ nedlagt |
+| SOSANT1090 Antropologiens historie (UiO) | drøfting | ⛔ nedlagt |
+| SØK1000 Innføring i samfunnsøkonomi | — | ⛔ nedlagt |
+| SØK1011 Markeder og markedssvikt | — | ⛔ nedlagt |
+| SØK1012 Makroøkonomisk analyse | — | ⛔ nedlagt |
+| SØK2007 / SOK2007 Utviklingsøkonomi | — | ⛔ nedlagt |
+| TMA4101 Flervariabel kalkulus og vektoranalyse (NTNU) | regnefag | ⛔ nedlagt |
+| TMA4121 Matematikk 4 (NTNU) | regnefag | ⛔ nedlagt |
+| TMA4123 | — | ⛔ nedlagt |
+| TMA4125 | — | ⛔ nedlagt |
+| TMA4185 | — | ⛔ nedlagt |
+| TMA4212 | — | ⛔ nedlagt |
+| UIT-INGDES1 | — | ⛔ nedlagt |
+
+**Tavla over er GENERERT** av `scripts/hoyskolebok/skriv-statustavle.py`, som
+leser status ut av disken: `IKKE-BYGG.md`, `BYGGEKONTRAKT.md`, `SKJELETT.md`
+og hvilke `COURSE_`-konstanter som faktisk finnes i
+`textbook-courses-hoyskole.ts`. **Rediger den ikke for hånd** — den
+håndskrevne versjonen oppga 17 live bøker da 37 var wiret. Emnenavn og
+arketype er håndkurert og ligger i `statustavle-kurert.json`; legger du til et
+emne, fyll inn der.
 
 **Slik settes Opus på et fag senere:** følg PRODUKSJONSLOYPE fase 3–7 —
 instansier `BYGGEKONTRAKT-MAL.md` til `<emne>/BYGGEKONTRAKT.md` (fyll
 fagspesifikk stil fra skjelettets identitetsseksjon), kjør byggebølge
-(én Opus-agent per del, maks 2 samtidige), wiring, verifiseringsbølge, build.
+(én agent per del, flere bøker samtidig går fint), wiring, verifiseringsbølge,
+build. Arbeidet må være gjenopptakbart: eget arbeidstre per bok, commit per
+del, og quiz-filene i `quiz-staging/` committes — de har ligget usporet i to
+bøker og ville gått tapt.
 
 Skalering videre: 156 aktive emner kartlagt i `fagbeskrivelser-samlet`
 (Desktop); 137 har eksamensarkiv, 67 har sensorveiledningsinnsikt.
