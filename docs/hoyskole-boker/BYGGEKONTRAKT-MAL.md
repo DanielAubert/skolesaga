@@ -226,6 +226,27 @@ Regler som følger av dette:
   `EKSAMENSANALYSE.md`. Men det skal stå kort («34 eksamenssett fra 2003 til
   2025»), ikke som en oppramsing av filtyper og forbehold.
 
+## Deloppgaver merkes a), b), c) — aldri romertall (nytt 3. august 2026)
+
+Produkteierregel, ufravikelig. Brutt i første SVMET1010-bygg: kap. 0.1 hadde
+«**(i)** Gjør kort rede for begrepet …» med fire bestillinger, og fasiten
+refererte til dem med samme romertall.
+
+`sjekk-bok.py` blokkerer når romertallet står i **oppgaveteksten**, og nevner
+det rådgivende når det bare står i fasiten — der er det som regel en
+tilbakevisning («Ingen feil — (i)») eller en oppramsing av modellens ledd.
+
+⚠ **Retter du dette, må oppgave OG fasit rettes samtidig.** Ellers peker
+fasiten på etiketter som ikke finnes. Og se etter prosahenvisninger uten
+parenteser: «som drøftingsmateriale i ledd ii og iii» byttes ikke av et søk
+etter `(ii)`.
+
+⚠ Regelen gjelder DELOPPGAVER. En prosedyre som nummererer sine sju steg
+«(i) faktoriser modulusen; (ii) skriv gcd-sjekken …» er ikke deloppgaver, og
+en sjekkliste over hva en drøfting skal inneholde er det heller ikke.
+
+Restansen i live-katalogen: `docs/hoyskole-boker/RESTANSE-romertall-deloppgaver.md`.
+
 ## SKJELETT.md må være v3 — tre feller wire-bok stopper på (nytt 2. august 2026)
 
 `wire-bok.py` parser skjelettet med to mønstre, og finner den ingen kapitler,

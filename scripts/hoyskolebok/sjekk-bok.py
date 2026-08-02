@@ -171,6 +171,55 @@ for f in files:
         notes.append(f"{cid}: «{m.group(0)}» — boka påstår noe om hvor leseren "
                      f"har vært. Skriv om stoffet i stedet: «Dette sto der», "
                      f"«Fra kap. X», «I det kapitlet lærte du …»")
+    # Deloppgaver merkes a), b), c) — ALDRI (i), (ii), (iii). Produkteierregel,
+    # ufravikelig. Brutt i første SVMET1010-bygg: kap. 0.1 hadde «**(i)** Gjør
+    # kort rede for …» med fire bestillinger, og fasiten refererte til dem med
+    # samme romertall.
+    #
+    # ⚠ Smalt forankret med vilje. «To løftesetninger: (i) jo strammere guiden
+    # er … eller (ii) …» er inline-alternativer i en setning, ikke deloppgaver,
+    # og skal IKKE flagges. Derfor kreves fet markør eller linjestart.
+    # ⚠ Og bare inne i OPPGAVEBLOKKER. En prosedyre som nummererer sine sju
+    # steg «(i) faktoriser modulusen; (ii) skriv gcd-sjekken …» (ma1301-8-1) er
+    # ikke deloppgaver, og en sjekkliste over hva en drøfting skal inneholde
+    # (ling1100-11-5) er det heller ikke. Første utkast av porten flagget 52
+    # kapitler i 25 bøker, og de fleste var slike oppramsinger.
+    ROMER = re.compile(r"\*\*\((i{1,3}|iv|v)\)\*\*|(?:^|\\n)\((i{1,3}|iv|v)\)\s")
+
+    def _oppgavetekst(o, nøkler):
+        if isinstance(o, dict):
+            if o.get("type") == "exercise" or "task" in o or "problem" in o:
+                for k in nøkler:
+                    v = o.get(k)
+                    if isinstance(v, str):
+                        yield v
+                    elif isinstance(v, list):
+                        yield from (x for x in v if isinstance(x, str))
+            for v in o.values():
+                yield from _oppgavetekst(v, nøkler)
+        elif isinstance(o, list):
+            for v in o:
+                yield from _oppgavetekst(v, nøkler)
+
+    # Etiketten hører hjemme i SPØRSMÅLET. Står romertallet bare i fasiten,
+    # er det som regel en tilbakevisning («Ingen feil — (i)») eller en
+    # oppramsing av modellens ledd, ikke en deloppgavemerking. Det blokkerer
+    # derfor ikke, men nevnes.
+    for felt in _oppgavetekst(d, ("task", "problem")):
+        m = ROMER.search(felt)
+        if m:
+            issues.append(f"{cid}: deloppgave merket «{m.group(0).strip()}» i "
+                          f"oppgaveteksten — deloppgaver skal ha a), b), c). "
+                          f"Rett BÅDE oppgaven og fasiten, ellers peker fasiten "
+                          f"på etiketter som ikke finnes")
+            break
+    else:
+        for felt in _oppgavetekst(d, ("solution", "hints")):
+            if ROMER.search(felt):
+                notes.append(f"{cid}: romertall i fasit/hint uten romertall i "
+                             f"oppgaveteksten — tilbakevisning eller oppramsing? "
+                             f"Vurder selv")
+                break
     # `description` er REN TEKST. Verifisert mot prod-server 2. august 2026:
     # feltet havner rått i <meta name="description">, og:description og
     # twitter:description — altså i Google-treffet og lenkeforhåndsvisningen —
