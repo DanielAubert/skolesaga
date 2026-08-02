@@ -189,6 +189,22 @@ def mal_fil(sti):
     return n, lengst, kortest, synlig, eks
 
 
+# Skriveoppgaver og momentlister er også merket a) b) c), men er ikke flervalg.
+# Et flervalgsalternativ er et SVAR; en skriveoppgave er en INSTRUKS. Skillet er
+# imperativen: «Gjør rede for …», «Analyser …», «Drøft om …». Målt på residuet
+# 2. august 2026 var det nettopp disse som lå igjen som «ikke paret» — bl.a.
+# storessay-oppgavene i inter1000 og momentlistene i psyc1202.
+SKRIVEVERB = re.compile(
+    r"^\s*(?:Gjør|Gjer|Analyser|Drøft|Drøft|Forklar|Vurder|Diskuter|Redegjør|"
+    r"Grei\s+ut|Beskriv|Sammenlign|Sammenlikn|Begrunn|Vis\s+at|Utled|Skriv|"
+    r"Definer|Nevn|Regn\s+ut|Bruk|Ta\s+utgangspunkt)\b", re.I)
+
+
+def _skriveoppgave(alt):
+    """Er dette en skriveoppgave/momentliste forkledd som flervalg?"""
+    return sum(1 for t in alt.values() if SKRIVEVERB.match(t)) >= 2
+
+
 def ukoblet(sti):
     """Alternativlinjer i fila som INGEN fasit kunne kobles til.
 
@@ -200,8 +216,9 @@ def ukoblet(sti):
     d = json.load(open(sti, encoding="utf-8"))
     # Tell alle oppgaveblokker i fila, ikke bare den siste — samme blindsone
     # som _par() ble skrevet om for.
-    totalt = sum(len(_oppgaver(s)) for s in _strenger(d))
-    return totalt - len(_par(sti)), totalt
+    alle = [alt for s in _strenger(d) for alt in _oppgaver(s).values()]
+    skriv = sum(1 for alt in alle if _skriveoppgave(alt))
+    return len(alle) - len(_par(sti)) - skriv, len(alle), skriv
 
 
 def rapporter(emne, vis=False):
@@ -212,9 +229,9 @@ def rapporter(emne, vis=False):
     uparede = []            # filer der noe ikke lot seg pare
     for f in filer:
         n, lengst, kortest, synlig, eks = mal_fil(f)
-        løs, tot = ukoblet(f)
+        løs, tot, skriv = ukoblet(f)
         if løs:
-            uparede.append((os.path.basename(f)[:-5], løs, tot))
+            uparede.append((os.path.basename(f)[:-5], løs, tot, skriv))
         if n < MIN_N:
             # ⚠ Disse ble tidligere hoppet over UTEN et ord i rapporten, så
             # en fil med 6 målbare flervalg så ut som en fil uten flervalg.
@@ -242,9 +259,11 @@ def rapporter(emne, vis=False):
         for cid, n in forbigatt:
             print(f"       {cid:26} {n} flervalg")
     if uparede:
-        print(f"   ⚠ IKKE PARET — flervalg uten gjenkjent fasit:")
-        for cid, løs, tot in uparede:
-            print(f"       {cid:26} {løs} av {tot}")
+        print(f"   ⚠ IKKE PARET — flervalg uten gjenkjent fasit "
+              f"(skriveoppgaver/momentlister er trukket fra):")
+        for cid, løs, tot, skriv in uparede:
+            ekstra = f"  (+{skriv} skriveoppgaver, ikke flervalg)" if skriv else ""
+            print(f"       {cid:26} {løs} av {tot}{ekstra}")
     for cid, n, pl, pk, ps, eks in sorted(rader, key=lambda r: -r[4]):
         flagg = "  ⚠" if ps > TAK else ""
         print(f"   {cid:26} n={n:3}  lengst {pl:5.0%}  kortest {pk:5.0%}"
