@@ -67,6 +67,41 @@ Andre nøkkelfiler i `_nedlastet-2026-07-30/`:
 - `BRUKSREGLER.md` — hva som kan hostes og ikke
 - `MANIFEST-*.csv` — én per henterunde, med `kilde_url`
 
+## ⚠ To målte defekter i TERMINER.csv (funnet 2. august 2026)
+
+Termindataene er grunnlaget for ALLE «N av M sett»-påstander i bøkene. To feil
+er verifisert, og begge gjør at tallet kan bli for lavt eller bety noe annet
+enn det ser ut til.
+
+**1. `har_fasit=ja` betyr «har sensorveiledning», ikke fasit.**
+
+Kolonnen er internt konsistent — de 6 497 ja-radene er nøyaktig de med
+`losningsfiler > 0`. Problemet er hva klassifikatoren regner som løsningsfil:
+den teller **sensorveiledninger**. For JFEXFAC04 er 35 av 38 rader merket
+`har_fasit=ja`, mens arkivet inneholder **null** løsningsforslag for emnet —
+det som finnes er 37 sensorveiledninger.
+
+**Konsekvens:** «N terminer med fasit» hentet rett fra kolonnen er misvisende.
+Tell sensorveiledning og løsningsforslag hver for seg, og si hvilket du mener.
+Bøkene som er bygget, gjør dette riktig fordi kontraktene ble skrevet ved å
+lese filene — ikke ved å stole på kolonnen.
+
+**2. 1 332 rader har «U» i terminfeltet — sammenslåtte eller ukjente sesonger.**
+
+De fordeler seg på **577 emner**, og i hvert eneste tilfelle finnes året BARE
+som U-rad. Der emnet har hatt både vår- og høsteksamen samme år, er de to
+slått til én termin, og terminantallet blir for lavt.
+
+Verifisert tilfelle: JFEXFAC04 har **38 rader mot 40 faktiske terminer**.
+`2015U` dekker to distinkte eksamener (V2015 og H2015), og **V2017 mangler
+helt** — både oppgavesettet og sensorveiledningen ligger i mappa, men
+veiledningsfila har ingen årstall i navnet, og oppgavesettet står ikke i
+`INDEKS.csv` i det hele tatt.
+
+**Konsekvens:** for emner med to eksamener i året kan terminantallet være
+underestimert. Tell mappa når tallet skal inn i en bok, og bruk indeksen som
+utgangspunkt — ikke som fasit.
+
 ## Tre regler som gjelder alt arbeid med arkivet
 
 **Termin, ikke fil.** TMA4110 har over 200 filer og 34 terminer. Enhver
