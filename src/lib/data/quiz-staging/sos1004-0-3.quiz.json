@@ -1,0 +1,182 @@
+[
+ {
+  "question": "Hvor mange poeng trekkes for et galt svar på flervalgsdelen?",
+  "options": [
+   "0,5 poeng trekkes fra summen for hvert gale svar som er avgitt",
+   "0,25 poeng trekkes fra summen for hvert gale svar",
+   "1 poeng trekkes fra den samlede summen for hvert gale svar",
+   "Ingenting trekkes, men riktige svar gir bare et halvt poeng"
+  ],
+  "explanation": "Modellen er +1 for riktig, −0,5 for galt og 0 for ubesvart. Svaret om 1 poeng gjør straffen like stor som belønningen, og da ville selv kvalifisert gjetting vært ulønnsomt. Svaret om at ingenting trekkes beskriver en flervalgsprøve uten minuspoeng, der det aldri er feil å krysse av."
+ },
+ {
+  "question": "Hva er forventet uttelling ved blind gjetting på et spørsmål med fire svaralternativer?",
+  "options": [
+   "−0,125 poeng, som er dårligere enn å la spørsmålet stå ubesvart",
+   "0 poeng, altså nøyaktig det samme som å la spørsmålet stå",
+   "+0,25 poeng, fordi sjansen for å treffe alltid er til stede",
+   "−0,5 poeng, fordi et gjett i praksis nesten alltid slår feil"
+  ],
+  "explanation": "Regnestykket er en fjerdedel ganger pluss én pluss tre fjerdedeler ganger minus et halvt, altså −0,125. Svaret om 0 gjelder situasjonen der ett alternativ er utelukket, og svaret om +0,25 gjelder der to er utelukket. Svaret om −0,5 forveksler forventet uttelling med straffen for ett gale svar."
+ },
+ {
+  "question": "Hva er forventet uttelling når du har utelukket to av fire svaralternativer?",
+  "options": [
+   "+0,25 poeng, så du bør svare selv om du er i tvil",
+   "0 poeng, så det er likegyldig om du svarer eller ikke",
+   "−0,125 poeng, så du bør fortsatt la spørsmålet stå",
+   "+0,5 poeng, som er halvparten av et fullt riktig svar"
+  ],
+  "explanation": "Med to igjen er sjansen femti femti: et halvt ganger pluss én pluss et halvt ganger minus et halvt gir +0,25. Svaret om 0 gjelder når bare ett alternativ er utelukket, og svaret om −0,125 gjelder blind gjetting. Svaret om +0,5 overser at det gale utfallet også trekker."
+ },
+ {
+  "question": "Hva er forventet uttelling når du har utelukket nøyaktig ett av fire svaralternativer?",
+  "options": [
+   "0 poeng, så det er likegyldig om du svarer eller lar stå",
+   "+0,25 poeng, så du bør svare på spørsmålet uansett tvil",
+   "−0,125 poeng, så du bør fortsatt la spørsmålet stå ubesvart",
+   "+0,5 poeng, fordi ett utelukket alternativ halverer risikoen"
+  ],
+  "explanation": "Med tre igjen blir regnestykket en tredel ganger pluss én pluss to tredeler ganger minus et halvt, som går nøyaktig i null. Da kan magefølelsen få avgjøre, og under tidspress kan du trygt la det stå. Svaret om +0,25 gjelder når to alternativer er utelukket."
+ },
+ {
+  "question": "Du klarer ikke å utelukke et eneste alternativ. Hva sier beslutningsregelen?",
+  "options": [
+   "La spørsmålet stå, siden 0 poeng er bedre enn forventet uttelling",
+   "Svar likevel, siden en fjerdedels sjanse er bedre enn ingen sjanse",
+   "Svar hvis du har god tid igjen, og la stå hvis du er i tidsnød",
+   "Velg det lengste alternativet, som statistisk sett oftest er riktig"
+  ],
+  "explanation": "Uten eliminasjon er forventet uttelling −0,125, og ubesvart gir 0. Svaret om en fjerdedels sjanse ser bort fra at de tre andre fjerdedelene koster. Svaret om det lengste alternativet er en gjettestrategi som ikke virker her — quizene i denne boka er nettopp bygget for at den ikke skal virke."
+ },
+ {
+  "question": "Du har utelukket to alternativer, men er i reell tvil mellom de to siste. Hva bør du gjøre?",
+  "options": [
+   "Svare, fordi forventet uttelling nå er klart positiv for deg",
+   "La stå, fordi du fortsatt ikke vet hva som er riktig svar",
+   "Svare bare hvis du kan begrunne valget mellom de to siste",
+   "La stå hvis du allerede har svart på mange av spørsmålene"
+  ],
+  "explanation": "Med to igjen er forventet uttelling +0,25, og det er her poengene ligger. Kravet om begrunnelse gjelder elimineringen, ikke det endelige valget mellom de gjenværende. Svaret om hvor mange du allerede har svart på er irrelevant, siden hvert spørsmål regnes for seg."
+ },
+ {
+  "question": "En kandidat svarer på alle 20 spørsmål og har 12 riktige. Hva blir poengsummen?",
+  "options": [
+   "8 poeng, fordi de 8 gale trekker 4 poeng fra de 12 riktige",
+   "12 poeng, fordi bare de riktige svarene telles med i summen",
+   "4 poeng, fordi hvert gale svar trekker et helt poeng fra summen",
+   "10 poeng, fordi minuspoengene rundes av til nærmeste hele poeng"
+  ],
+  "explanation": "12 riktige gir 12 poeng, og 8 gale trekker 8 ganger 0,5, altså 4 poeng. Summen blir 8. Svaret om 12 poeng overser minuspoengene helt, og svaret om 4 poeng bruker feil trekk per gale svar. Legg merke til at forskjellen mellom 8 og 12 er forskjellen mellom D og C."
+ },
+ {
+  "question": "Hva er den viktigste konsekvensen av at terskeltabellen er oppgitt i poeng og ikke i antall riktige?",
+  "options": [
+   "To kandidater med like mange riktige svar kan ende på ulik karakter",
+   "Antall riktige svar er uten betydning så lenge summen er høy nok",
+   "Kandidater som svarer på alle spørsmålene får en systematisk fordel",
+   "Karakteren kan ikke beregnes før alle besvarelsene er rettet ferdig"
+  ],
+  "explanation": "Forskjellen ligger i hva de gjorde med spørsmålene de ikke kunne: den som gjettet blindt, mister poeng den som lot stå beholder. Svaret om at kandidater som svarer på alt får en fordel er den motsatte påstanden — med minuspoeng er det typisk en ulempe."
+ },
+ {
+  "question": "Hvilken forutsetning bygger regnestykket om forventet uttelling på?",
+  "options": [
+   "At hvert spørsmål har fire svaralternativer, noe som ikke er dokumentert",
+   "At alle spørsmålene har omtrent samme vanskelighetsgrad gjennom settet",
+   "At kandidaten svarer på spørsmålene i den rekkefølgen de står i settet",
+   "At antallet riktige svar fordeler seg jevnt utover de fire alternativene"
+  ],
+  "explanation": "Tallene −0,125, 0 og +0,25 forutsetter fire alternativer. Hvor mange alternativer eksamen faktisk bruker, står ikke i noe materiale — veiledningene sier bare at ett av flere er riktig. Er det flere, blir blind gjetting enda mer ulønnsomt, men beslutningsregelen holder uansett."
+ },
+ {
+  "question": "Hva er en nabobegrep-distraktor?",
+  "options": [
+   "Et alternativ som beskriver et annet og nærliggende begrep helt korrekt",
+   "Et alternativ som er sant om hele feltet og derfor for generelt",
+   "Et alternativ der årsak og virkning er byttet om i forhold til funnet",
+   "Et alternativ som beskriver noe man måler med en helt annen metode"
+  ],
+  "explanation": "Nabobegrep-distraktoren er farlig nettopp fordi den ikke er gal — den er sann, bare om noe annet, typisk det andre begrepet i samme par. De tre andre svarene beskriver de øvrige distraktortypene: det for generelle, den snudde mekanismen og feil metode."
+ },
+ {
+  "question": "Hva kjennetegner distraktortypen «den snudde mekanismen»?",
+  "options": [
+   "Retningen eller årsaksforholdet går motsatt vei av det funnet viser",
+   "Beskrivelsen passer på et annet begrep i den samme pensumbolken",
+   "Utsagnet er sant om hele feltet og fanger ikke noe særegent",
+   "Utsagnet forutsetter data som en annen metode måtte samlet inn"
+  ],
+  "explanation": "Et typisk eksempel er «katastrofen jevnet ut forskjeller» der funnet er at den forsterket dem. Beskrivelsen av et annet begrep er nabobegrep-distraktoren, og utsagnet som er sant om hele feltet er det for generelle alternativet."
+ },
+ {
+  "question": "Hva kjennetegner distraktortypen «det for generelle alternativet»?",
+  "options": [
+   "Det er sant om hele feltet og fanger ikke det særegne ved begrepet",
+   "Det gjengir et nabobegrep i samme pensumbolk på en korrekt måte",
+   "Det snur retningen i forhold til det studien faktisk har funnet",
+   "Det beskriver et utfall som må måles med en annen forskningsmetode"
+  ],
+  "explanation": "«Diskriminering er når noen behandles dårligere» er sant og innholdsløst — det ville vært riktig svar på nesten hvilket som helst spørsmål om temaet, og det er nettopp gjenkjenningstegnet. De tre andre svarene beskriver de øvrige distraktortypene."
+ },
+ {
+  "question": "Et alternativ beskriver hvordan søkere opplever en ansettelsesprosess, på et spørsmål om hva et felteksperiment kan vise. Hvilken distraktortype er dette?",
+  "options": [
+   "Feil metode — opplevelser måles med en helt annen datainnsamling",
+   "Nabobegrepet — opplevelse er nabobegrepet til diskriminering her",
+   "Den snudde mekanismen — retningen i utsagnet går motsatt vei",
+   "Det for generelle alternativet — utsagnet er sant om hele feltet"
+  ],
+  "explanation": "Opplevd forskjellsbehandling måles med spørreundersøkelse eller intervju, mens et felteksperiment måler arbeidsgiveres faktiske handlinger. Gjenkjenningsspørsmålet er «hvilke data måtte man samlet inn for at dette skulle være mulig å måle?». Alternativet er sant om noe, bare målt på en annen måte."
+ },
+ {
+  "question": "Hva går to-runders-metoden på flervalgsdelen ut på?",
+  "options": [
+   "Første runde svarer og merker, andre runde tar avståelsesbeslutningene",
+   "Første runde leser alle spørsmålene, andre runde svarer på alle sammen",
+   "Første runde tar de lette spørsmålene, andre runde tar de vanskelige",
+   "Første runde svarer raskt, andre runde kontrollerer alle svarene på nytt"
+  ],
+  "explanation": "Poenget er å skille to jobber som går tregere når de blandes: å finne svar og å veie risiko. En tilleggsgevinst er at senere spørsmål ofte minner deg om begreper du trengte tidligere. Svaret om å ta lette først og vanskelige sist beskriver en annen og vanlig, men mindre presis, strategi."
+ },
+ {
+  "question": "Hvor mye av de 240 minuttene bør flervalgsdelen ta?",
+  "options": [
+   "Rundt 30 minutter, altså omtrent halvannet minutt per spørsmål",
+   "Rundt 80 minutter, siden delen teller en tredel av karakteren",
+   "Rundt 60 minutter, altså omtrent tre minutter per spørsmål i snitt",
+   "Rundt 15 minutter, siden svarene enten sitter med en gang eller ikke"
+  ],
+  "explanation": "Anbefalingen er rundt 30 minutter, fordelt på to runder. Svaret om 80 minutter fordeler tiden etter vektingen, og det er nettopp feilen: flervalg er gjenkjenning, mens langsvaret er produksjon. Svaret om 15 minutter gir ikke rom for den andre runden der beslutningene faktisk tas."
+ },
+ {
+  "question": "Hvorfor kan overforsiktighet på flervalgsdelen koste mer enn blind gjetting?",
+  "options": [
+   "Fordi hvert spørsmål der to er utelukket er verdt +0,25 i forventning",
+   "Fordi ubesvarte spørsmål trekker et halvt poeng på samme måte som gale",
+   "Fordi sensor merker seg hvor mange spørsmål kandidaten har latt stå",
+   "Fordi terskelverdiene beregnes ut fra hvor mange spørsmål som er besvart"
+  ],
+  "explanation": "Å la stå der du faktisk hadde eliminert to, er å gi bort en kvart poeng hver gang, og en godt forberedt kandidat er ofte i den situasjonen mange ganger. Svaret om at ubesvarte trekker, er direkte galt — ubesvart gir 0. Svaret om at sensor merker seg avståelser overser at delen rettes automatisk."
+ },
+ {
+  "question": "Hva er den vanligste kalibreringsfeilen på en flervalgsdel i et begrepstungt fag?",
+  "options": [
+   "Å forveksle gjenkjenning av fagord med faktisk kunnskap om begrepet",
+   "Å bruke for lite tid på de spørsmålene man er helt sikker på",
+   "Å endre svar i andre runde etter først å ha valgt riktig alternativ",
+   "Å svare i den rekkefølgen spørsmålene står i stedet for å hoppe rundt"
+  ],
+  "explanation": "Fire alternativer som alle inneholder fagord du har lest, skaper en sterk følelse av å kunne noe — men følelsen er ikke informasjon. Testen er om du kan si hvorfor et alternativ er galt. Svaret om å endre svar beskriver en reell, men langt mindre kostbar vane."
+ },
+ {
+  "question": "Hvorfor er flervalgsoppgavene i denne boka skrevet av oss?",
+  "options": [
+   "Fordi eksamens egne spørsmål aldri publiseres og gjenbrukes i Inspera",
+   "Fordi eksamens egne spørsmål er for lette til å fungere som trening",
+   "Fordi eldre spørsmål bygger på et pensum som er skiftet ut siden 2021",
+   "Fordi boka trener et bredere pensum enn det eksamen faktisk dekker"
+  ],
+  "explanation": "Spørsmålene holdes tilbake fordi de gjenbrukes fra år til år, så det finnes ikke noe publisert materiale å bygge på. Boka kalibrerer derfor formen og poengmodellen eksakt, og lager spørsmålene ut fra pensumbredden og distinksjonene. Svaret om at boka trener bredere pensum enn eksamen stemmer ikke — hele pensum er nedslagsfelt på Del I."
+ }
+]
