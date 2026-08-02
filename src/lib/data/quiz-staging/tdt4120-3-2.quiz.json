@@ -1,13 +1,13 @@
 [
   {
-    "question": "Hva sier søketreegenskapen?",
+    "question": "Et tre har rot 46, venstre barn 25, og 25 har høyre barn 50. Hvilken regel er brutt?",
     "options": [
-      "For hver node er alt i venstre deltre $\\le$ noden, og alt i høyre deltre $\\ge$ noden",
-      "For hver node er venstre barn $\\le$ noden, og høyre barn $\\ge$ noden i verdi",
-      "For hver node er forelderen $\\ge$ begge barna, uansett hvilken side de står på",
-      "For hver node er begge deltrærne like dype, slik at treet holder seg balansert"
+      "Søketreegenskapen — 50 ligger i rotas venstre deltre, men er større enn 46",
+      "Ingen — 25 er mindre enn 46, og 50 er større enn 25, så alt stemmer",
+      "Haugegenskapen — forelderen 25 er mindre enn barnet 50 i dette treet",
+      "Balansekravet — venstre deltre er dypere enn høyre deltre etter innsettingen"
     ],
-    "explanation": "Regelen gjelder **hele** deltreet, ikke bare det nærmeste barnet: et tre med rot 46, venstre barn 25 og barnebarn 50 bryter egenskapen. Alternativet om forelder $\\ge$ begge barn er haugegenskapen — det er felle #2, fagets mest fremhevede datastrukturfeil."
+    "explanation": "Søketreegenskapen gjelder **hele** deltreet, ikke bare det nærmeste barnet, og alt til venstre for 46 må derfor være $\\le 46$. Kontrollen er inorder: den ville gitt `25, 50, 46`, som ikke er sortert — og et søketre uten balansekrav er helt lovlig, så det er ikke der feilen ligger."
   },
   {
     "question": "Hva gir `Inorder-Tree-Walk` på et binært søketre?",
