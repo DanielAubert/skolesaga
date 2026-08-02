@@ -89,8 +89,15 @@ def _oppgaver(tekst):
     for i, m in enumerate(treff):
         slutt = treff[i + 1].start() if i + 1 < len(treff) else len(tekst)
         blokk = tekst[m.end():slutt]
-        # Bare linjer FØR neste tomme-linje-gruppe teller som alternativliste;
-        # ellers sluker vi neste spørsmåls tekst når nummereringen er uryddig.
+        # Klipp ved neste overskrift eller «**Del B …**». Uten dette sluker
+        # siste flervalg i et sett skriveoppgavene som kommer etter — de er
+        # også merket a) b) c), og siden alternativene lagres i en dict,
+        # OVERSKREV de det ekte flervalgets alternativer. ling1100-5-prove
+        # målte da spørsmål 10 mot Del B-oppgavene. Funnet av en agent som
+        # nektet å godta et tall porten ga uten å skjønne hvor det kom fra.
+        kutt = re.search(r"\n#{2,4}\s|\n\*\*Del\s[A-Z]\b", blokk)
+        if kutt:
+            blokk = blokk[:kutt.start()]
         alt = {b.lower(): t for b, t in ALT.findall(blokk)}
         if len(alt) >= 3 and set(alt) == set("abcde"[:len(alt)]):
             ut[m.group(1)] = alt
