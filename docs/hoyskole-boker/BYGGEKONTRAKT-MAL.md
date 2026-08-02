@@ -247,6 +247,37 @@ en sjekkliste over hva en drøfting skal inneholde er det heller ikke.
 
 Restansen i live-katalogen: `docs/hoyskole-boker/RESTANSE-romertall-deloppgaver.md`.
 
+## To hardkodinger i plattformen skjelettet må rette seg etter (nytt 3. aug 2026)
+
+**1. Prøvekapitler får beskrivelsen «Fire prøver …» automatisk.**
+`wire-bok.py` linje 94 genererer den, og den kan ikke overstyres fra
+skjelettet. Planlegger du tre øvingseksamener i et prøvekapittel, får leseren
+en beskrivelse som ikke stemmer. SVEXFAC03 løste det ved å legge én
+flervalgsprøve foran de tre eksamenene, så det faktisk ER fire.
+
+**2. Kursbeskrivelsens temaliste splittes på BÅDE komma og « og ».**
+Parseren i `src/app/[courseId]/page.tsx` gjør
+`m[3].split(/,\s*|\s+og\s+/)`. Et tema som selv inneholder «og» sprekker
+derfor i to meningsløse chips:
+
+```
+✗ «definisjons- og språkteori, rett og moral»
+    → chips: «definisjons-», «språkteori», «rett», «moral»
+✗ «rasjonalitet og menneskemodeller»
+    → chips: «rasjonalitet», «menneskemodeller»
+✓ «normtypelæren, definisjonslæren, lovtekstanalyse»
+```
+
+Begge bøkene som ble skrevet 3. august traff denne uavhengig av hverandre.
+**Test alltid BOKCONFIG-strengen mot parserens egen regex** før du melder
+ferdig.
+
+⚠ Og tittelen avgjør om jus-forbeholdet vises: `erJus()` i
+`hoyskole-disclaimer.tsx` krever `^jus` i kurs-id-en ELLER
+`\brett(s\w*)?\b|juridisk` i tittelen. «JFEXFAC04 Examen facultatum (jus)»
+traff ingen av delene — Lovdata-forbeholdet ville falt bort på et emne der
+lovtekstanalyse er signaturoppgaven.
+
 ## SKJELETT.md må være v3 — tre feller wire-bok stopper på (nytt 2. august 2026)
 
 `wire-bok.py` parser skjelettet med to mønstre, og finner den ingen kapitler,
