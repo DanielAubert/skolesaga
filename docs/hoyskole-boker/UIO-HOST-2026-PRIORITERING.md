@@ -132,8 +132,8 @@ undervisningsår**. Åpen produkteierbeslutning.
 |---|---|
 | **SVMET1010** | ✅ **FERDIG OG LIVE** — 39 kap, 538 flashcards, 546 quiz, alle porter grønne, verifisert mot prod |
 | **JFEXFAC04** | analyse ✅, skjelett ✅, kontrakt ✅ — 41 filer **bygges nå** (6 agenter) |
-| **JUROFF1500** | analyse ✅ — 34 terminer (ikke 30), strafferett, 20 terminer på straffeloven 1902. Skjelett neste |
-| **SVEXFAC03** | analyse ✅, skjelett ✅ — 44 kap, 910 quiz, 857 fc. **Trenger byggekontrakt** |
+| **JUROFF1500** | analyse ✅ — 34 terminer, 20 av dem på straffeloven 1902. Skjelett under arbeid |
+| **SVEXFAC03** | analyse ✅, skjelett ✅, kontrakt ✅ — 53 filer, 910 quiz, 857 fc. **Byggeklar** |
 
 Neste ut når disse lander: **JUS1211** (tier 1, samme kull som alt leser
 JUS1111 og EXPHIL03 hos oss), **ECON1220** (40 terminer, dypest av alle
