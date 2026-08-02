@@ -150,6 +150,45 @@ hun skal ha eksamen i, skal ikke møte en bok som later som de har møttes.
 
 `sjekk-bok.py` flagger dette rådgivende.
 
+⚠ **Én form overlevde første rydding: overskriften.** 246 kapitler i ni bøker
+hadde fortsatt `## Forkunnskaper — sist du var her` — med liten forbokstav,
+midt i en overskrift. Første runde søkte etter `**Sist du var her**` og fant
+den ikke. Overskriften sier uansett allerede hva blokka er, så den skal bare
+være `## Forkunnskaper`.
+
+⚠ **Og porten selv hadde en ordgrensefeil:** uten `(?<![a-zæøå])` foran «som»
+treffer mønsteret «der·som du husker», som er en helt vanlig betingelse.
+13 av 14 treff i nynorsk-laget var nettopp det. En rådgivende port som roper
+ulv, blir ignorert — og da forsvinner de ekte treffene i støyen.
+
+## `description` er REN TEKST — markdown havner i Google-treffet (nytt 2. august 2026)
+
+Kapitlenes `description` rendres **aldri** som markdown. Verifisert mot
+prod-server: feltet havner uendret i `<meta name="description">`,
+`og:description` og `twitter:description` — altså i søketreffet og i
+lenkeforhåndsvisningen — og i den synlige kroppen. KaTeX rendrer 1217 uttrykk
+ellers på kapittelsiden, men ikke ett i beskrivelsen.
+
+122 kapitler i 17 bøker viste derfor dette i Google:
+
+```
+✗ Den harmoniske svingelikningen, egenfrekvens $\omega_0=\sqrt{k/m}$ …
+✓ Den harmoniske svingelikningen, egenfrekvens ω₀=√(k/m) …
+
+✗ … fyll tabellen og **rekonstruér** løsningen.
+✓ … fyll tabellen og rekonstruér løsningen.
+```
+
+Skriv matte som lesbar tekst: `ω₀=√(k/m)`, `xⁿ`, `Δf`, `χ²₂ₙ`, `0/0`, `∞`,
+`E = Δmc²`. Ingen `$…$`, ingen `**fet**`, ingen backticks.
+
+⚠ **Metadataen må konverteres for seg.** `description` i
+`textbook-courses*.ts` er ofte skrevet SELVSTENDIG, ikke kopiert fra
+kapittelfila — `econ1100-3-1` hadde to helt forskjellige setninger. Retter du
+bare kapittelfila, står den andre igjen.
+
+`sjekk-bok.py` blokkerer nå på dette.
+
 ## BOKCONFIG `description` — HARDT FORMATKRAV (nytt 1. august 2026)
 
 Kursforsiden parser dette feltet og splitter det i tre visuelle elementer:
@@ -186,6 +225,39 @@ Regler som følger av dette:
 - Sannferdighetskravet gjelder fortsatt: kalibreringsleddet må stemme med
   `EKSAMENSANALYSE.md`. Men det skal stå kort («34 eksamenssett fra 2003 til
   2025»), ikke som en oppramsing av filtyper og forbehold.
+
+## SKJELETT.md må være v3 — tre feller wire-bok stopper på (nytt 2. august 2026)
+
+`wire-bok.py` parser skjelettet med to mønstre, og finner den ingen kapitler,
+stopper den på `assert`. SVMET1010 lå i den eldre formen (`**Kap. 3.1 — Tittel**`
++ `` `id: … · number …` ``) og ga **0 treff av 30 kapitler**.
+
+```
+#### Kapittel 3.1: Deltakerroller: Fangen-kontinuumet
+**id:** `svmet1010-3-1` · **number:** 3.1 · **estimatedMinutes:** 75 · **prerequisites:** `svmet1010-1-1`
+
+- **Kapitteltype:** tema.
+- **Description:** Rollekontinuumet fra ikke-deltakende observatør til «go native».
+
+**Belegg:** …
+```
+
+Tre ting som har gått galt i praksis:
+
+1. **`prerequisites` MÅ stå i backticks.** Parseren plukker dem med
+   `` re.findall(rf"`({emne}-\d+-\d+)`", …) `` — uten backticks finnes de ikke.
+   «ingen» skrives uten (gjelder kun kap. 0.1).
+2. **Tom linje etter `- **Description:**`.** Uten den blør beskrivelsen rett
+   inn i `**Belegg:**`-blokka, fordi parserens lookahead krever `- **`, ikke
+   `**`. Det er samme mekanisme som ga **53 avkuttede kursbeskrivelser**
+   tidligere.
+3. **Aldri prosa-forkunnskaper.** Tre eksamenstreningskapitler i SVMET1010 hadde
+   `prerequisites: Del 1–8`. Forkunnskapskjeden styrer rekkefølgen i boka, så
+   den må peke på en konkret kapittel-id — bruk siste kapittel i den øverste
+   delen det vises til.
+
+Og: kapittelfilas eget `description` **overstyrer** skjelettet (parseren
+foretrekker kapittelfila), så fyll det alltid ut ordrett begge steder.
 
 ## Filplassering
 Ett JSON-dokument per kapittel: `src/lib/data/chapters/<kapittel-id>.json`.
