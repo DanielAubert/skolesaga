@@ -1,0 +1,408 @@
+{
+  "id": "tdt4120-6-1",
+  "courseId": "tdt4120",
+  "chapterNumber": "6.1",
+  "title": "Dynamisk programmering — mekanikk",
+  "description": "Overlappende delproblemer + optimal substruktur, memoisering vs. bottom-up, og rekonstruksjon av selve løsningen (ikke bare verdien) via lagrede beslutninger.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "kunne avgjøre om et problem har optimal substruktur og overlappende delproblemer, og dermed om dynamisk programmering er riktig verktøy",
+    "kunne skrive den samme rekurrensen både som memoisert rekursjon og som tabellutfylling nedenfra og opp, og begrunne at de har samme asymptotiske kjøretid",
+    "kunne hente ut selve løsningen og ikke bare optimalverdien, ved å lagre valgene underveis, og forklare hvorfor det ikke øker kjøretiden",
+    "kunne skille et avgjørelsesproblem fra et optimeringsproblem og oversette mellom de to variantene av samme problem"
+  ],
+  "content": [
+    {
+      "id": "tdt4120-6-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dynamisk programmering er en av de to designryggradene i faget, og temaet er registrert i 94 % (16 av de 17 settene i grunnlaget).** Grunnlaget er de 17 settene fra august 2015 til august 2023 som er gjennomgått tema for tema — det er nevneren hver gang boka oppgir en prosent.\n\nTre oppgavesjangre henter fra dette kapitlet, og de skrives ut i klarspråk her fordi de går igjen resten av boka:\n\n- **Sjanger F — «stemmer dette?»**: du får en påstand og skal svare **ja eller nei først**, og deretter gi én presis setning. Den klassiske her er: «rekonstruksjon av selve løsningen fra en DP-tabell er gratis — stemmer det?»\n- **Sjanger G — reduksjon og argument om vanskelighet**: du skal si hvilken vei et argument går og hva det faktisk beviser. I dette kapitlet møter du forløperen: hva skillet mellom en avgjørelsesvariant og en optimeringsvariant betyr.\n- **Sjanger H — åpen algoritmedesign**: du får et problem i ny innpakning og skal skissere en algoritme på fem–ti linjer. Mekanikken i dette kapitlet er det du bygger den skissen av.\n\nTo innsikter går igjen som faste delspørsmål: **når memoisering ikke hjelper** (fordi delproblemene ikke gjentar seg), og at **rekonstruksjon krever lagrede valg**, men uten at kjøretiden vokser.\n\nPrioritet: **bør sitte**. Regner du med å møte en åpen designoppgave — og det gjør du, de siste oppgavene i hvert ordinære sett er nettopp det — er dette kapitlet i praksis obligatorisk."
+    },
+    {
+      "id": "tdt4120-6-1-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper\n\nDette kapitlet bygger på rekurrenser og rekursjon:\n\n- **[kap. 1.1](/tdt4120/tdt4120-1-1)** — de asymptotiske symbolene. Du trenger å kunne lese $\\Theta$, $O$ og $\\Omega$, og vite at $\\lg n$ betyr $\\log_2 n$.\n- **[kap. 1.4](/tdt4120/tdt4120-1-4)** og **[kap. 1.5](/tdt4120/tdt4120-1-5)** — å sette opp og løse en rekurrens. Vi setter opp rekurrenser hele veien her, men vi løser dem sjelden med masterteoremet: DP-rekurrenser deler sjelden problemet i like store biter.\n- **[kap. 2.1](/tdt4120/tdt4120-2-1)** — `Merge-Sort`. Den brukes som kontrast: et rekursivt problem der delproblemene **ikke** gjentar seg.\n\nEr rekursjon i seg selv ferskt, er [Rekursjon — spore og skrive](/tdt4110/tdt4110-5-2) et mykere første møte. Du trenger ikke mer enn å kunne følge et rekursivt kall med blyant."
+    },
+    {
+      "id": "tdt4120-6-1-notasjon",
+      "type": "collapsible",
+      "title": "Notasjons- og pseudokodeliste",
+      "buttonText": "Vis notasjon og pseudokode",
+      "content": [
+        {
+          "id": "tdt4120-6-1-notasjon-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et algoritmefag: den lister kjøretidsuttrykk og pseudokode-operasjoner i stedet for bare greske bokstaver.\n\n| Symbol | Betydning |\n|---|---|\n| $n$ | størrelsen på inputen — antall trinn, antall netter, antall elementer |\n| $T(n)$ | kjøretiden på input av størrelse $n$ |\n| $\\Theta(f(n))$ | tett grense: kjøretiden vokser som $f(n)$, både opp og ned |\n| $O(f(n))$ | øvre grense: kjøretiden vokser ikke raskere enn $f(n)$ |\n| $\\Omega(f(n))$ | nedre grense |\n| $\\lg n$ | $\\log_2 n$ — konvensjonen i dette faget |\n| $F(n)$ | det $n$-te fibonaccitallet, brukt som gjennomgangseksempel |\n| $b[i]$ | verditabellen i en dynamisk programmering: den beste verdien for delproblem $i$ |\n| $s[i]$ | valgtabellen: hvilket valg som ga verdien i $b[i]$ |\n| $p_i$ | betalingen for natt $i$ i vaktliste-eksemplet |\n\n| Algoritme/operasjon | Kontrakt | Kjøretid |\n|---|---|---|\n| `Naiv-Fib(n)` | regner ut $F(n)$ ved ren rekursjon, uten å huske noe | eksponentiell i $n$ |\n| `Memoized-Fib(n)` | samme rekurrens, men hvert delproblem løses bare første gang | $\\Theta(n)$ |\n| `Bottom-Up-Fib(n)` | fyller tabellen `b[0..n]` i stigende rekkefølge | $\\Theta(n)$ |\n| `Print-Solution(s, i)` | leser valgtabellen `s` baklengs og skriver ut selve løsningen | $O(n)$ |\n| `Merge-Sort(A, p, r)` | sorterer `A[p..r]` ved å dele i to, sortere hver del og flette | $\\Theta(n\\lg n)$ |\n\n**Formler i dette delkapitlet:**\n\n$$F(n) = F(n-1) + F(n-2), \\qquad F(0)=0,\\; F(1)=1$$\n\nRekurrensen bak gjennomgangseksemplet. De to kallene overlapper — det er hele poenget.\n\n$$b[i] = \\max\\big(b[i-1],\\; b[i-2] + p_i\\big), \\qquad b[0]=0,\\; b[1]=p_1$$\n\nVaktliste-rekurrensen: enten hopper du over natt $i$, eller så tar du den og mister natt $i-1$.\n\n$$\\text{kjøretid for en DP} = (\\text{antall delproblemer}) \\times (\\text{arbeid per delproblem})$$\n\nRegelen du bruker hver eneste gang du skal oppgi kjøretiden til en dynamisk programmering.\n\n$$T(n) = 2T(n/2) + \\Theta(n) = \\Theta(n\\lg n)$$\n\n`Merge-Sort`-rekurrensen, tatt med som kontrast: her overlapper ikke delproblemene."
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-6-1-bolk1-tittel",
+      "type": "text",
+      "content": "## Når det samme regnestykket dukker opp igjen (~15 min)"
+    },
+    {
+      "id": "tdt4120-6-1-anker",
+      "type": "text",
+      "content": "Du står nederst i en trapp med $n$ trinn og kan ta enten ett eller to trinn av gangen. Hvor mange forskjellige måter kan du gå opp på? Spørsmålet er ikke konstruert: det er nøyaktig formen på et ruteproblem, og du løser det uten å tenke etter i det små. Med tre trinn finnes tre måter, med fire finnes fem.\n\nDen naturlige måten å angripe det på er å se på det **siste** trinnet du tok. Enten kom du fra trinn $n-1$ med ett steg, eller fra trinn $n-2$ med to steg. Ingen andre muligheter finnes, og de to gruppene overlapper ikke. Altså:\n\n$$W(n) = W(n-1) + W(n-2), \\qquad W(0) = 1,\\; W(1) = 1$$\n\nDet er fibonaccitallene forskjøvet ett hakk, og rekurrensen kan skrives rett om til et rekursivt program. Problemet er at det programmet er ubrukelig i praksis. For å regne ut $W(n)$ regner det ut $W(n-2)$ to ganger, $W(n-3)$ tre ganger, $W(n-4)$ fem ganger — og arbeidet vokser eksponentielt selv om det bare finnes $n+1$ forskjellige spørsmål å svare på.\n\nDet er kjernen i **dynamisk programmering**: når de samme delproblemene dukker opp igjen og igjen, lønner det seg å svare på hvert av dem **én** gang og skrive svaret ned."
+    },
+    {
+      "id": "tdt4120-6-1-fig-1",
+      "type": "image",
+      "src": "/images/textbook/tdt4120/dp-overlapp-vs-dc.svg",
+      "alt": "To rekursjonstraer side om side. Til venstre treet for Fib(5): rota F(5) kaller F(4) og F(3), F(4) kaller F(3) og F(2), og de gjentatte kallene F(3), F(2) og F(1) er tegnet med stiplet ramme. Til hoyre treet for Merge-Sort paa aatte elementer: intervallet 1 til 8 deles i 1 til 4 og 5 til 8, som igjen deles i 1 til 2, 3 til 4, 5 til 6 og 7 til 8. Hvert intervall opptrer noyaktig en gang.",
+      "caption": "Til venstre trappe-/fibonaccirekurrensen fra dette avsnittet: de stiplede nodene er delproblemer som løses om igjen. Til høyre `Merge-Sort` på åtte elementer, der hvert delproblem opptrer nøyaktig én gang — og memoisering derfor ikke gir noen gevinst."
+    },
+    {
+      "id": "tdt4120-6-1-def-overlapp",
+      "type": "definition",
+      "title": "Overlappende delproblemer",
+      "content": "Et problem har **overlappende delproblemer** når den rekursive løsningen løser de samme delproblemene om igjen mange ganger, i stedet for stadig nye.\n\nKjennetegnet er at antallet **forskjellige** delproblemer er lite (typisk polynomisk i $n$), mens antallet **kall** er stort (typisk eksponentielt). Det er nettopp gapet mellom de to tallene dynamisk programmering høster inn.\n\nHar et problem ikke overlappende delproblemer, hjelper det ikke å huske noe — da er du i splitt-og-hersk-landskapet i stedet."
+    },
+    {
+      "id": "tdt4120-6-1-def-optimal-substruktur",
+      "type": "definition",
+      "title": "Optimal substruktur",
+      "content": "Et problem har **optimal substruktur** når en optimal løsning på hele problemet inneholder optimale løsninger på delproblemene sine.\n\nPraktisk sagt: hvis du kjenner det beste svaret for hvert mindre delproblem, kan du sette sammen det beste svaret for det store ved å prøve alle valgene i **ett** steg. Trappen har det: den beste (her: fullstendige) tellingen for $n$ trinn er summen av tellingene for $n-1$ og $n-2$ trinn.\n\nEgenskapen må sjekkes, ikke antas. Den vanlige måten er et **klipp-og-lim-argument**: anta at en optimal helhetsløsning inneholder en dårligere delløsning enn nødvendig, bytt delløsningen med den optimale, og se at helheten ble bedre — en selvmotsigelse."
+    },
+    {
+      "id": "tdt4120-6-1-def-dp",
+      "type": "definition",
+      "title": "Dynamisk programmering",
+      "content": "En designteknikk for problemer som har **både** optimal substruktur og overlappende delproblemer: hvert delproblem løses nøyaktig én gang, og svaret lagres i en tabell som slås opp i senere.\n\nTeknikken består alltid av de samme fire delene: definér delproblemet presist, skriv rekurrensen, oppgi grunntilfellene, og velg en rekkefølge å regne dem ut i. Kjøretiden er da antall delproblemer ganget med arbeidet per delproblem.\n\nNavnet er historisk og misvisende — «programmering» betyr her *planlegging med tabell*, ikke koding."
+    },
+    {
+      "id": "tdt4120-6-1-eks-1",
+      "type": "example",
+      "title": "Eksempel 1: Hvor mye arbeid kaster den naive rekursjonen bort?",
+      "problem": "`Naiv-Fib(n)` er rekurrensen skrevet rett om til rekursjon, uten noe minne:\n\n```text\nNaiv-Fib(n)\n  Input:  et heltall n >= 0\n  Output: F(n)\n  if n <= 1\n      return n\n  return Naiv-Fib(n-1) + Naiv-Fib(n-2)\n```\n\nTell antall kall for $n = 0, 1, \\dots, 10$, og tell hvor mange ganger hvert enkelt delproblem løses når du kjører `Naiv-Fib(5)`.",
+      "solution": "**Antall kall totalt:**\n\n| $n$ | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |\n|---|---|---|---|---|---|---|---|---|---|---|---|\n| $F(n)$ | 0 | 1 | 1 | 2 | 3 | 5 | 8 | 13 | 21 | 34 | 55 |\n| Kall | 1 | 1 | 3 | 5 | 9 | 15 | 25 | 41 | 67 | 109 | 177 |\n\n**Hvor mange ganger hvert delproblem løses i `Naiv-Fib(5)`:**\n\n| Delproblem | $F(5)$ | $F(4)$ | $F(3)$ | $F(2)$ | $F(1)$ | $F(0)$ |\n|---|---|---|---|---|---|---|\n| Antall ganger løst | 1 | 1 | 2 | 3 | 5 | 3 |\n\nTil sammen 15 kall for å svare på **seks** forskjellige spørsmål.\n\nLegg merke til at kalletallet selv følger fibonaccimønsteret: antall kall for $n$ er antall kall for $n-1$ pluss antall kall for $n-2$ pluss ett. Det vokser derfor like fort som $F(n)$ selv, altså eksponentielt. For $n = 40$ blir det 331 160 281 kall — for å regne ut 41 forskjellige tall.\n\n**Svaret oppgaven ber om:** 15 kall for $n=5$, og delproblemene løses 1, 1, 2, 3, 5 og 3 ganger. Det er den observasjonen som gjør dynamisk programmering aktuell — ikke tallene i seg selv."
+    },
+    {
+      "id": "tdt4120-6-1-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-6-1-oppg-1-inner",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger D — definisjon med egne ord.)\n\nForklar med egne ord forskjellen på **optimal substruktur** og **overlappende delproblemer**, og si hvorfor dynamisk programmering krever begge.",
+        "solution": "**Optimal substruktur** handler om at problemet lar seg bygge av optimale delløsninger: kjenner du det beste svaret på delproblemene, kan du sette sammen det beste svaret på helheten ved å prøve valgene i ett steg.\n\n**Overlappende delproblemer** handler om at de samme delproblemene dukker opp mange ganger i den rekursive løsningen, slik at det lønner seg å lagre svarene.\n\nBegge trengs: uten optimal substruktur er rekurrensen rett og slett gal, uansett hvor mye du lagrer. Uten overlapp er det ingenting å spare — da er ren splitt-og-hersk like raskt, og enklere.",
+        "hints": [
+          "Den ene egenskapen handler om at rekurrensen er riktig, den andre om at den er effektiv å regne ut.",
+          "Tenk på `Merge-Sort`: hvilken av de to egenskapene mangler der?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-6-1-bolk2-tittel",
+      "type": "text",
+      "content": "## Memoisering og tabellutfylling — to veier, samme kjøretid (~15 min)"
+    },
+    {
+      "id": "tdt4120-6-1-bolk2-intro",
+      "type": "text",
+      "content": "Det finnes to måter å realisere en dynamisk programmering på, og eksamensoppgaver ber deg jevnlig sammenligne dem. De gir samme svar og samme asymptotiske kjøretid; forskjellen er hvem som styrer rekkefølgen."
+    },
+    {
+      "id": "tdt4120-6-1-def-memoisering",
+      "type": "definition",
+      "title": "Memoisering",
+      "content": "**Memoisering** er den rekursive varianten av dynamisk programmering, ovenfra og ned: du beholder den naturlige rekursjonen, men legger inn en tabell som husker svar. Første gang et delproblem løses, skrives svaret inn i tabellen; hvert senere kall slår bare opp.\n\nFordelen er at du bare regner ut de delproblemene som faktisk trengs. Ulempen er kall-overheadet og at rekursjonsdybden kan bli stor.\n\nOrdet kommer av *memo*, altså notat — det er ikke en stavefeil for «memorisering»."
+    },
+    {
+      "id": "tdt4120-6-1-teo-memofib",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `Memoized-Fib`",
+      "content": "**1. Antagelser om representasjon.** Tabellen er `b[0..n]`, indeksert fra 0 fordi delproblemene selv er nummerert fra 0. Hver celle er enten `NIL` (ikke løst ennå) eller det ferdige svaret. Tabellen er felles for alle rekursive kall.\n\n**2. Pre-/postbetingelse.** Før: `n >= 0`, og `b[i] = NIL` for alle `i`. Etter: returverdien er $F(n)$, og `b[i]` inneholder $F(i)$ for hvert delproblem `i` som faktisk ble berørt.\n\n**3. Pseudokoden.**\n\n```text\nMemoized-Fib(n)\n  Input:  et heltall n >= 0\n  Output: F(n); tabellen b husker delproblemene som er lost\n  la b[0..n] vaere en ny tabell\n  for i = 0 to n\n      b[i] = NIL\n  return Memoized-Fib-Aux(b, n)\n\nMemoized-Fib-Aux(b, i)\n  Input:  tabellen b og et delproblem i\n  Output: F(i), og b[i] er fylt ut\n  if b[i] != NIL\n      return b[i]\n  if i <= 1\n      b[i] = i\n  else\n      b[i] = Memoized-Fib-Aux(b, i-1) + Memoized-Fib-Aux(b, i-2)\n  return b[i]\n```\n\n**4. Grunnideen i én setning.** Hvert delproblem `i` får høyst **ett** kall som faktisk regner noe ut — alle senere kall treffer en utfylt celle og returnerer med det samme.\n\n**5. Kjøretid.** Det finnes $n+1$ delproblemer, hvert av dem gjør konstant arbeid utover de rekursive kallene, og hvert kall som ikke regner ut noe, koster konstant tid: $\\Theta(n)$."
+    },
+    {
+      "id": "tdt4120-6-1-def-bottomup",
+      "type": "definition",
+      "title": "Bottom-up-utfylling",
+      "content": "**Bottom-up** er den iterative varianten, nedenfra og opp: du dropper rekursjonen og fyller tabellen med løkker, i en rekkefølge der hvert delproblem kommer etter alle delproblemene det avhenger av.\n\nFordelen er at det ikke finnes rekursjonsstabel og ikke noe kall-overhead, og at fylleordenen gjør avhengighetene synlige. Ulempen er at du regner ut **alle** cellene, også de en memoisert løsning ville ha hoppet over.\n\nKjøretiden er den samme som memoisert, opp til konstanter."
+    },
+    {
+      "id": "tdt4120-6-1-teo-bufib",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `Bottom-Up-Fib`",
+      "content": "**1. Antagelser om representasjon.** Samme tabell `b[0..n]`, men nå fylles den i stigende rekkefølge. Ingen celle leses før den er skrevet.\n\n**2. Pre-/postbetingelse.** Før: `n >= 0`. Etter: `b[i] = F(i)` for **hver** `i` fra 0 til `n`, og returverdien er `b[n]`.\n\n**3. Pseudokoden.**\n\n```text\nBottom-Up-Fib(n)\n  Input:  et heltall n >= 0\n  Output: F(n); tabellen b[0..n] er fylt ut i sin helhet\n  la b[0..n] vaere en ny tabell\n  b[0] = 0\n  if n >= 1\n      b[1] = 1\n  for i = 2 to n\n      b[i] = b[i-1] + b[i-2]\n  return b[n]\n```\n\n**4. Invarianten i én setning.** Før hver runde av `for`-løkka med telleverdi `i` gjelder at `b[0..i-1]` inneholder de riktige verdiene $F(0), \\dots, F(i-1)$ — derfor er de to cellene løkka leser, allerede ferdige.\n\n**5. Kjøretid.** Løkka går $n-1$ runder og gjør konstant arbeid per runde: $\\Theta(n)$, altså nøyaktig det samme som den memoiserte varianten."
+    },
+    {
+      "id": "tdt4120-6-1-bolk2-samme",
+      "type": "text",
+      "content": "Hvorfor gir de to variantene samme asymptotiske kjøretid? Argumentet er kort nok til å skrives på eksamen i to setninger, og det er verdt å kunne:\n\n**Intuisjon:** i begge tilfellene finnes det nøyaktig ett arbeidsstykke per delproblem. Memoiseringen betaler for det første gangen delproblemet møtes; bottom-up betaler for det når løkka kommer dit. Alt annet arbeid — oppslag i en utfylt celle, en løkkerunde som bare leser — er konstant per gang, og antall slike ganger er begrenset av hvor mange kanter delproblemgrafen har.\n\nRegelen du bruker i praksis, er derfor denne, og den gjelder for hver eneste dynamiske programmering du møter i faget:\n\n$$\\text{kjøretid} = (\\text{antall delproblemer}) \\times (\\text{arbeid per delproblem})$$\n\nFor trapperekurrensen: $n+1$ delproblemer, konstant arbeid hver, altså $\\Theta(n)$. Har du en tabell med $n$ rader og $m$ kolonner der hver celle koster konstant tid, får du $\\Theta(nm)$. Må hver celle sammenligne $j$ kandidater, får du en sum i stedet, og den summen kan bli $\\Theta(n^2)$.\n\nDen eneste virkelige forskjellen er **hvilke** celler som fylles. En memoisert løsning som bare trenger halve tabellen, fyller bare halve tabellen. Bottom-up fyller alt. Asymptotisk er det ofte likegyldig, men det er svaret på delspørsmålet «når vil du foretrekke memoisering?»: når mange delproblemer aldri blir spurt om."
+    },
+    {
+      "id": "tdt4120-6-1-eks-2",
+      "type": "example",
+      "title": "Eksempel 2: Samme tabell, tre helt ulike arbeidsmengder",
+      "problem": "Kjør de tre variantene på trappe-/fibonaccirekurrensen og sammenlign arbeidet. Oppgi antall kall for `Naiv-Fib`, antall kall for `Memoized-Fib` og antall tilordninger i løkka til `Bottom-Up-Fib`.",
+      "solution": "| $n$ | `Naiv-Fib`: kall | `Memoized-Fib`: kall | `Bottom-Up-Fib`: løkkerunder | $F(n)$ |\n|---|---|---|---|---|\n| 5 | 15 | 9 | 4 | 5 |\n| 10 | 177 | 19 | 9 | 55 |\n| 20 | 21 891 | 39 | 19 | 6 765 |\n| 30 | 2 692 537 | 59 | 29 | 832 040 |\n| 40 | 331 160 281 | 79 | 39 | 102 334 155 |\n\nBegge de to DP-variantene gir samme ferdige tabell. For $n = 10$:\n\n`b[0..10]` $= [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55]$ — identisk om den fylles ovenfra og ned eller nedenfra og opp.\n\n**Lesning av tallene:** `Naiv-Fib` bruker et antall kall som selv følger fibonaccirekurrensen, altså eksponentiell vekst. `Memoized-Fib` bruker $2n-1$ kall for $n \\ge 1$: ett kall per delproblem pluss ett oppslagskall per kant i delproblemgrafen. `Bottom-Up-Fib` bruker $n-1$ løkkerunder. De to siste kolonnene skiller seg med en konstant faktor — det er nettopp derfor begge er $\\Theta(n)$.\n\n**Svaret oppgaven ber om** er de tre kolonnene. Sammenligningen av `Naiv-Fib` med de to andre er poenget; sammenligningen av de to DP-variantene med hverandre er en konstantfaktor, ikke en asymptotisk forskjell."
+    },
+    {
+      "id": "tdt4120-6-1-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-6-1-oppg-2-inner",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamensnivå, sjanger E — kjøretid.)\n\nEn dynamisk programmering har $n \\cdot m$ delproblemer, og hvert delproblem sammenligner et konstant antall kandidater. Oppgi kjøretiden på strammest mulig form, og skriv den ene setningen som begrunner den.",
+        "solution": "$\\Theta(nm)$.\n\nKjøretiden er antall delproblemer ganger arbeidet per delproblem: $n \\cdot m$ delproblemer, konstant arbeid hver, altså $\\Theta(nm)$. Grensen er tett — hver celle fylles nøyaktig én gang — så $\\Theta$ er riktig og ikke bare $O$.",
+        "hints": [
+          "Bruk regelen «antall delproblemer ganger arbeid per delproblem».",
+          "Spør deg om grensen er tett eller bare øvre: fylles hver celle alltid, eller bare noen ganger?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-6-1-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-6-1-oppg-3-inner",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger F — «stemmer dette?».)\n\nTa stilling til hver av påstandene. Svar ja eller nei først, deretter én setning.\n\n**a)** En memoisert løsning har alltid lavere asymptotisk kjøretid enn den tilsvarende bottom-up-løsningen, fordi den hopper over delproblemer.\n**b)** En bottom-up-løsning trenger en fylleorden der hvert delproblem kommer etter alle delproblemene det avhenger av.",
+        "solution": "**a)** Nei. De to har samme asymptotiske kjøretid; memoisering kan hoppe over celler og dermed spare en konstant faktor eller mindre, men grensen «antall delproblemer ganger arbeid per delproblem» gjelder begge. Den memoiserte varianten kan være raskere i praksis når store deler av tabellen aldri etterspørres.\n\n**b)** Ja. Uten en slik rekkefølge leser løkka en celle som ennå ikke er skrevet. Memoisering slipper å tenke på dette, fordi rekursjonen selv fremskaffer avhengighetene i riktig rekkefølge.",
+        "hints": [
+          "Skriv opp regelen for kjøretiden til en DP før du svarer på a).",
+          "For b): hva skjer i `Bottom-Up-Fib` hvis løkka teller nedover i stedet for oppover?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-6-1-warn-typiske",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**Felle #6 — å påstå at rekonstruksjon fra en DP-tabell er «trivielt gratis».** Verditabellen alene gir deg tallet, ikke løsningen. Skal du ut med selve oppdelingen, sekvensen eller utvalget, må valgene lagres underveis — eller leses tilbake ut av verditabellen. Det er billig, men det er ikke ingenting, og en fasit som hopper over leddet er ufullstendig. Vi bygger opp svaret i avsnittet om å hente ut selve løsningen.\n\n**Å bruke dynamisk programmering der det ikke er overlapp.** Har delproblemene ingen gjentakelse, gir memoisering null gevinst og bare ekstra minnebruk. Da er splitt-og-hersk både raskere og enklere.\n\n**Å blande optimal substruktur med grådig valg-egenskap.** Optimal substruktur sier at *hvis* du kjenner de optimale delløsningene, kan du bygge helheten av dem — du må fortsatt prøve alle valgene i steget. Grådig valg-egenskap er den mye sterkere påstanden at ett bestemt valg alltid kan tas uten å se på delløsningene. Nesten alle DP-problemer har det første og ikke det andre.\n\n**Å glemme at memoisering og bottom-up har samme kjøretid.** Det er et fast delspørsmål, og «memoisering er raskere» er galt som asymptotisk påstand."
+    },
+    {
+      "id": "tdt4120-6-1-bolk3-tittel",
+      "type": "text",
+      "content": "## Når dynamisk programmering ikke slår splitt-og-hersk (~8 min)"
+    },
+    {
+      "id": "tdt4120-6-1-bolk3",
+      "type": "text",
+      "content": "`Merge-Sort` deler arrayet i to halvdeler, sorterer hver av dem og fletter. Den er rekursiv, den har åpenbart optimal substruktur — en sortert helhet består av to sorterte halvdeler — og likevel er memoisering fullstendig bortkastet der.\n\nGrunnen står i høyre halvdel av figuren over: `Merge-Sort` på åtte elementer løser delproblemene `1..8`, `1..4`, `5..8`, `1..2`, `3..4`, `5..6` og `7..8`. Hvert intervall opptrer **nøyaktig én gang**. Det finnes ingen celle å slå opp i, fordi ingen spør om det samme to ganger.\n\n**Intuisjon:** splitt-og-hersk deler inputen i **disjunkte** biter, og disjunkte biter kan ikke overlappe. Dynamisk programmering blir aktuelt først når delproblemene deler materiale — som i trapperekurrensen, der $W(n-1)$ og $W(n-2)$ begge trenger $W(n-3)$.\n\nTesten du bruker på eksamen er derfor kort: **tegn to nivåer av rekursjonstreet og se om det samme delproblemet dukker opp to steder.** Gjør det ikke det, er svaret at memoisering ikke hjelper, og da skal du si det rett ut — det er et av de faste delspørsmålene."
+    },
+    {
+      "id": "tdt4120-6-1-def-dc",
+      "type": "definition",
+      "title": "Splitt-og-hersk",
+      "content": "En designteknikk der problemet deles i **disjunkte** delproblemer, hver del løses rekursivt, og delsvarene settes sammen. `Merge-Sort` er standardeksempelet.\n\nFordi delene er disjunkte, gjentar delproblemene seg ikke, og memoisering gir ingen gevinst. Kjøretiden finner du fra rekurrensen, typisk med masterteoremet fra [kap. 1.4](/tdt4120/tdt4120-1-4): `Merge-Sort` gir $T(n) = 2T(n/2) + \\Theta(n) = \\Theta(n\\lg n)$.\n\nSkillet mot dynamisk programmering går altså **ikke** på om problemet er rekursivt, men på om delproblemene overlapper."
+    },
+    {
+      "id": "tdt4120-6-1-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-6-1-oppg-4-inner",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger F — «stemmer dette?».)\n\nEn student foreslår å memoisere `Merge-Sort` for å gjøre den raskere. Svar ja eller nei på om det hjelper, og begrunn i én til to setninger.",
+        "solution": "Nei.\n\n`Merge-Sort` deler arrayet i disjunkte halvdeler, så hvert delintervall løses nøyaktig én gang — det finnes ingen gjentatte delproblemer å slå opp. Memoisering ville bare lagt til tabelloppslag og minnebruk, og kjøretiden ville fortsatt vært $\\Theta(n\\lg n)$.\n\nOppgaven ber om ja/nei og begrunnelsen, ikke om en gjennomgang av `Merge-Sort`.",
+        "hints": [
+          "Sjekk hvilken av de to DP-forutsetningene `Merge-Sort` mangler.",
+          "Tegn to nivåer av rekursjonstreet og se etter et delproblem som dukker opp to steder."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-6-1-bolk4-tittel",
+      "type": "text",
+      "content": "## Å hente ut selve løsningen, ikke bare verdien (~12 min)"
+    },
+    {
+      "id": "tdt4120-6-1-bolk4-intro",
+      "type": "text",
+      "content": "En vaktsentral setter opp turnus for en uke. For hver natt $i$ finnes et tillegg $p_i$, men reglene sier at ingen kan ta to netter på rad. Hvilke netter skal du melde deg på for å tjene mest mulig?\n\nRekurrensen faller ut av det samme grepet som i trappen — se på det siste valget. Enten står du over natt $i$, og da er det beste du kan få, det beste for de $i-1$ første nettene. Eller så tar du natt $i$, og da må natt $i-1$ stå over:\n\n$$b[i] = \\max\\big(b[i-1],\\; b[i-2] + p_i\\big), \\qquad b[0] = 0,\\; b[1] = p_1$$\n\nHer ligger fellen som eksamen faktisk tester. `b[n]` gir deg **beløpet**. Det gir deg ikke **vaktlisten**. Og det er vaktlisten sjefen din vil ha.\n\n**Felle #6 — å påstå at rekonstruksjonen er trivielt gratis** — er nettopp dette: leddet som mangler i en ellers riktig besvarelse. Retten på det er enkel, men den må skrives: hver gang rekurrensen gjør et valg, lagrer du valget i en egen tabell `s`. Etterpå leser du `s` baklengs."
+    },
+    {
+      "id": "tdt4120-6-1-def-rekonstruksjon",
+      "type": "definition",
+      "title": "Rekonstruksjon",
+      "content": "**Rekonstruksjon** er å hente ut selve den optimale løsningen — oppdelingen, sekvensen, utvalget, stien — og ikke bare optimalverdien.\n\nDet gjøres på én av to måter: enten lagrer du valget i hver celle mens du fyller tabellen, eller så leser du valget tilbake ut av verditabellen etterpå ved å sammenligne nabocellene. Begge deler koster $O(n)$ eller $O(n+m)$ ekstra, altså mindre enn selve utfyllingen.\n\nKonsekvensen som skal stå i et designsvar: rekonstruksjon **øker ikke den asymptotiske kjøretiden**. Den er billig, men den er ikke gratis i den forstand at du kan la være å nevne den."
+    },
+    {
+      "id": "tdt4120-6-1-def-valgtabell",
+      "type": "definition",
+      "title": "Valgtabell",
+      "content": "En tabell `s` som lagres ved siden av verditabellen `b`, og som for hvert delproblem husker **hvilket valg** som ga den beste verdien.\n\nI vaktliste-rekurrensen er `s[i]` enten «ta natt `i`» eller «hopp over». I en oppdelingsrekurrens er `s[j]` lengden på det første stykket. I en tabell over to sekvenser er `s[i,j]` en retning: skrått, opp eller til venstre.\n\nÅ fylle `s` koster konstant tid ekstra per celle, altså ingen asymptotisk endring — og det er det som gjør rekonstruksjonen billig."
+    },
+    {
+      "id": "tdt4120-6-1-teo-print",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `Print-Solution`",
+      "content": "**1. Antagelser om representasjon.** Verditabellen `b[0..n]` og valgtabellen `s[1..n]` er begge ferdig utfylt av utfyllingsfasen. `s[i]` er enten `TA` eller `HOPP`. Vi bruker vaktliste-rekurrensen som bærer, men mønsteret er det samme for alle DP-er med ett valg per celle.\n\n**2. Pre-/postbetingelse.** Før: `b` og `s` er fylt ut for alle `i` fra 1 til `n`. Etter: rutinen har skrevet ut nøyaktig de nettene som inngår i en optimal vaktliste, i stigende rekkefølge, og tabellene er urørt.\n\n**3. Pseudokoden.**\n\n```text\nExtended-Bottom-Up-Shifts(p, n)\n  Input:  betalingene p[1..n]\n  Output: verditabellen b[0..n] og valgtabellen s[1..n]\n  la b[0..n] og s[1..n] vaere nye tabeller\n  b[0] = 0\n  for i = 1 to n\n      if i == 1\n          ta = p[1]\n      else\n          ta = b[i-2] + p[i]\n      if ta > b[i-1]\n          b[i] = ta\n          s[i] = TA\n      else\n          b[i] = b[i-1]\n          s[i] = HOPP\n  return b, s\n\nPrint-Solution(s, i)\n  Input:  valgtabellen s og et delproblem i\n  Output: nettene i en optimal vaktliste, i stigende rekkefolge\n  if i <= 0\n      return\n  if s[i] == TA\n      Print-Solution(s, i-2)\n      skriv ut i\n  else\n      Print-Solution(s, i-1)\n```\n\n**4. Grunnideen i én setning.** Hvert kall flytter seg minst ett hakk nedover i tabellen og skriver ut høyst ett tall, så utskriften er nøyaktig valgene langs den optimale kjeden fra `n` og ned til grunntilfellet.\n\n**5. Kjøretid.** `Print-Solution` gjør høyst `n` kall med konstant arbeid hver, altså $O(n)$ — samme orden som utfyllingen selv, og derfor øker den ikke den asymptotiske kjøretiden. Å fylle `s` koster konstant tid ekstra per celle og endrer heller ingenting."
+    },
+    {
+      "id": "tdt4120-6-1-eks-3",
+      "type": "example",
+      "title": "Eksempel 3: Vaktlisten — verdien er ikke svaret",
+      "problem": "En uke har sju netter med tilleggene\n\n$$p = [4,\\; 11,\\; 8,\\; 3,\\; 9,\\; 6,\\; 7]$$\n\nIngen kan ta to netter på rad. Fyll tabellene $b$ og $s$, oppgi det største samlede tillegget, og oppgi **hvilke netter** som gir det.",
+      "solution": "**Utfyllingen, natt for natt:**\n\n| Steg $i$ | $p_i$ | Hopp over: $b[i-1]$ | Ta natt $i$: $b[i-2]+p_i$ | $b[i]$ | Lagret valg $s[i]$ |\n|---|---|---|---|---|---|\n| 1 | 4 | 0 | 4 | **4** | ta natt 1 |\n| 2 | 11 | 4 | 11 | **11** | ta natt 2 |\n| 3 | 8 | 11 | 12 | **12** | ta natt 3 |\n| 4 | 3 | 12 | 14 | **14** | ta natt 4 |\n| 5 | 9 | 14 | 21 | **21** | ta natt 5 |\n| 6 | 6 | 21 | 20 | **21** | hopp over |\n| 7 | 7 | 21 | 28 | **28** | ta natt 7 |\n\n$b[0..7] = [0, 4, 11, 12, 14, 21, 21, 28]$\n\n**Rekonstruksjonen**, lest baklengs fra $s[7]$: $s[7]$ sier *ta*, så natt 7 er med, og vi hopper til $i=5$. $s[5]$ sier *ta*, så natt 5 er med, og vi hopper til $i=3$. $s[3]$ sier *ta*, natt 3 er med, videre til $i=1$. $s[1]$ sier *ta*, natt 1 er med.\n\n**Svaret:**\n\n- Største samlede tillegg: **28**.\n- Vaktlisten: **nettene 1, 3, 5 og 7**.\n\n**Merk hva oppgaven ber om.** Den ber om både beløpet og listen. Hadde du bare levert 28, ville halve svaret manglet — og det er nettopp felle #6. Legg også merke til at $s[6]$ er det eneste *hopp over*-valget: der er $b[5] = 21$ større enn $b[4] + p_6 = 14 + 6 = 20$. Én eneste celle avgjør formen på hele listen.\n\n**Kjøretid:** $n$ delproblemer med konstant arbeid hver gir $\\Theta(n)$ for utfyllingen, og rekonstruksjonen legger til $O(n)$. Samlet $\\Theta(n)$ — rekonstruksjonen er altså gratis i asymptotisk forstand, men den krever at $s$ ble fylt ut."
+    },
+    {
+      "id": "tdt4120-6-1-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-6-1-oppg-5-inner",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C — håndkjøring, altså at du utfører algoritmen steg for steg og oppgir bare sluttilstanden.)\n\nBruk vaktliste-rekurrensen på tilleggene\n\n$$p = [6,\\; 3,\\; 9,\\; 2,\\; 8]$$\n\nOppgi tabellen $b[0..5]$ og hvilke netter som inngår i den optimale listen.",
+        "solution": "$b[0..5] = [0, 6, 6, 15, 15, 23]$\n\nOptimal vaktliste: **nettene 1, 3 og 5**, samlet tillegg **23**.\n\nOppgaven ber om sluttilstanden — tabellen og listen — ikke om en gjennomgang av hvert steg.",
+        "hints": [
+          "Sett opp $b[i] = \\max(b[i-1],\\; b[i-2] + p_i)$ og fyll fra venstre.",
+          "Noter for hver $i$ hvilken av de to kandidatene som vant; det er den noteringen du leser baklengs til slutt."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-6-1-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-6-1-oppg-6-inner",
+        "number": 6,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger F — «stemmer dette?».)\n\nEn besvarelse skriver: «Vi fyller tabellen $b$ og leser av $b[n]$. Selve løsningen får vi gratis ut av tabellen etterpå, så rekonstruksjonen trenger ingen egen omtale.»\n\nSvar ja eller nei på om påstanden holder, og skriv den presise rettelsen i to til tre setninger.",
+        "solution": "Nei.\n\nVerditabellen alene inneholder ikke løsningen — den inneholder optimalverdiene. For å få ut selve utvalget må enten valget lagres i en egen tabell $s$ mens $b$ fylles, eller så må valget leses tilbake ved å sammenligne nabocellene i $b$ etterpå ($b[i]$ mot $b[i-1]$ forteller om natt $i$ ble tatt).\n\nDet som **er** riktig i påstanden, er at dette ikke øker den asymptotiske kjøretiden: rekonstruksjonen er $O(n)$ mot utfyllingens $\\Theta(n)$. Rettelsen er altså ikke at rekonstruksjon er dyrt, men at leddet må være med — og det er felle #6.",
+        "hints": [
+          "Skill mellom «koster ingenting asymptotisk» og «krever ingen omtale».",
+          "Hvilken tabell inneholder valgene, og hva står det i verditabellen?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-6-1-bolk5-tittel",
+      "type": "text",
+      "content": "## Avgjørelsesvariant og optimeringsvariant (~5 min)"
+    },
+    {
+      "id": "tdt4120-6-1-bolk5",
+      "type": "text",
+      "content": "Det samme problemet finnes nesten alltid i to former, og forskjellen blir viktig i [kap. 7.1](/tdt4120/tdt4120-7-1).\n\n**Optimeringsvarianten** spør etter det beste: «hva er det største samlede tillegget?» Svaret er et tall — eller, hvis du rekonstruerer, en liste.\n\n**Avgjørelsesvarianten** spør etter ja eller nei: «finnes det en lovlig vaktliste med samlet tillegg minst 25?» Svaret er ett bit.\n\nDe to henger tett sammen. Kan du løse optimeringsvarianten, kan du svare på avgjørelsesvarianten ved å sammenligne optimalverdien med grensen. Motsatt vei kan du ofte finne optimalverdien ved å stille avgjørelsesspørsmålet gjentatte ganger med forskjellige grenser.\n\nGrunnen til at skillet finnes, er teknisk: teorien om vanskelige problemer i Del 7 er bygget på avgjørelsesproblemer, fordi et ja/nei-svar lar seg **verifisere** presist. Når du senere leser at et problem er NP-komplett, er det alltid avgjørelsesvarianten som omtales."
+    },
+    {
+      "id": "tdt4120-6-1-def-avgjorelse",
+      "type": "definition",
+      "title": "Avgjørelsesproblem",
+      "content": "Et problem der svaret for hver input er **ja** eller **nei**.\n\nEksempel: «finnes det en lovlig vaktliste med samlet tillegg minst 25?» Ja eller nei, ingenting mer. Formen er valgt fordi et ja-svar kan følges av et bevis som lar seg sjekke — selve vaktlisten — og det er den egenskapen hele Del 7 er bygget på.\n\nKjøretiden endres ikke av innpakningen: er optimeringsvarianten $\\Theta(n)$, er avgjørelsesvarianten det også, siden du bare sammenligner optimalverdien med grensen."
+    },
+    {
+      "id": "tdt4120-6-1-def-optimering",
+      "type": "definition",
+      "title": "Optimeringsproblem",
+      "content": "Et problem der svaret er den **beste** løsningen — den største verdien, den korteste stien, den billigste oppdelingen — eventuelt sammen med selve løsningen som gir den.\n\nNesten alle problemene i Del 6 er optimeringsproblemer, og alle har en tilhørende avgjørelsesvariant med en grense innbakt. Å konvertere mellom dem er en fast liten øvelse.\n\nMerk at «hva er verdien?» og «hvilken løsning gir verdien?» er to forskjellige spørsmål med samme kjøretid — det siste krever rekonstruksjon."
+    },
+    {
+      "id": "tdt4120-6-1-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-6-1-oppg-7-inner",
+        "number": 7,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger D — definisjon, hovedpoenget først.)\n\nFormulér avgjørelsesvarianten av vaktlisteproblemet presist, og forklar i én setning hvordan du svarer på den når du allerede har fylt tabellen $b$.",
+        "solution": "**Avgjørelsesvarianten:** gitt betalingene $p[1..n]$ og en grense $k$, finnes det et utvalg netter uten to på rad med samlet tillegg minst $k$?\n\nHar du fylt $b$, svarer du ja hvis $b[n] \\ge k$ og nei ellers — sammenligningen koster konstant tid, så kjøretiden er fortsatt $\\Theta(n)$.",
+        "hints": [
+          "En avgjørelsesvariant trenger en grense i inputen.",
+          "Hvilken enkelt celle i tabellen inneholder optimalverdien?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-6-1-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-6-1-oppg-8-inner",
+        "number": 8,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger H — åpen algoritmedesign, altså at du skisserer en algoritme på noen få linjer i stedet for å skrive den ut.)\n\nEn sykkelverksted-kjede skal velge ut hvilke av $n$ verksteder langs en hovedvei som skal holde søndagsåpent. Verksted $i$ gir et anslått overskudd $g_i$, men konkurransereglene sier at to verksteder som ligger ved siden av hverandre i rekka, ikke begge kan holde åpent.\n\nBeskriv en algoritme som finner det største samlede overskuddet **og hvilke verksteder** som skal holde åpent. Svar i designformatet: hvilket klassisk problem dette er, hvilket paradigme du bruker, konstruksjonen, rekonstruksjonen og kjøretiden.",
+        "solution": "**Det klassiske problemet.** Dette er utvalg av et største-vektet sett uten to naboer i en rekke — samme struktur som vaktlisteproblemet i dette kapitlet.\n\n**Paradigmet.** Dynamisk programmering. Problemet har optimal substruktur (det beste utvalget blant de $i$ første verkstedene er bygget av det beste blant de $i-1$ eller $i-2$ første), og delproblemene overlapper (både $b[i-1]$ og $b[i]$ trenger $b[i-2]$).\n\n**Konstruksjonen.** La $b[i]$ være det største samlede overskuddet man kan få av de $i$ første verkstedene. Rekurrensen ser på det siste valget:\n\n$$b[i] = \\max\\big(b[i-1],\\; b[i-2] + g_i\\big)$$\n\nmed grunntilfellene $b[0] = 0$ og $b[1] = g_1$. Fyll tabellen for $i = 1, 2, \\dots, n$. Optimalverdien er $b[n]$. Lagre samtidig $s[i] = $ «åpent» eller «stengt» etter hvilken av de to kandidatene som vant.\n\n**Rekonstruksjonen.** Start på $i = n$. Er $s[i]$ «åpent», tas verksted $i$ med og du hopper til $i-2$; ellers går du til $i-1$. Utskriften er selve utvalget. Dette koster $O(n)$ og **øker ikke den asymptotiske kjøretiden**.\n\n**Kjøretid.** $n$ delproblemer, konstant arbeid per delproblem, altså $\\Theta(n)$ tid og $\\Theta(n)$ plass. Her er $n$ antall verksteder.",
+        "hints": [
+          "Se på det siste verkstedet i rekka: enten er det åpent, eller så er det ikke.",
+          "Formuler delproblemet som «de $i$ første verkstedene» før du skriver rekurrensen.",
+          "Husk at oppgaven ber om hvilke verksteder, ikke bare beløpet — da trengs en valgtabell."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-6-1-kjoretidstabell",
+      "type": "text",
+      "content": "## Kjøretidene i dette kapitlet samlet\n\n| Algoritme | Beste | Verste | Forventet | Krav/egenskap |\n|---|---|---|---|---|\n| `Naiv-Fib(n)` | eksponentiell | eksponentiell | eksponentiell | ingen lagring; antall kall følger selv fibonaccirekurrensen |\n| `Memoized-Fib(n)` | $\\Theta(n)$ | $\\Theta(n)$ | $\\Theta(n)$ | krever tabell `b[0..n]`; regner bare ut delproblemer som etterspørres |\n| `Bottom-Up-Fib(n)` | $\\Theta(n)$ | $\\Theta(n)$ | $\\Theta(n)$ | krever fylleorden der avhengighetene kommer først; fyller hele tabellen |\n| Vaktliste-DP (utfylling) | $\\Theta(n)$ | $\\Theta(n)$ | $\\Theta(n)$ | optimal substruktur og overlapp; gir bare optimal**verdien** |\n| `Print-Solution(s, n)` | $O(n)$ | $O(n)$ | $O(n)$ | krever utfylt valgtabell `s`; øker ikke kjøretiden til utfyllingen |\n| `Merge-Sort(A, 1, n)` | $\\Theta(n\\lg n)$ | $\\Theta(n\\lg n)$ | $\\Theta(n\\lg n)$ | splitt-og-hersk, ingen overlapp — memoisering gir null gevinst |\n\nDen generelle regelen står over de enkelte radene: kjøretiden til en dynamisk programmering er **antall delproblemer ganger arbeidet per delproblem**. Klarer du å oppgi de to faktorene, har du kjøretiden — og du har den på en form du kan begrunne, ikke bare huske."
+    },
+    {
+      "id": "tdt4120-6-1-begrepsbank-notis",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "tdt4120-6-1-def-delproblemrom",
+      "type": "definition",
+      "title": "Delproblemrom",
+      "content": "Mengden av **forskjellige** delproblemer en rekurrens kan gi opphav til.\n\nDet er størrelsen på dette rommet som avgjør hvor stor tabellen blir, og dermed halvparten av kjøretidsregnestykket. Trapperekurrensen har $n+1$ delproblemer; en rekurrens over to sekvenser har $nm$.\n\nEr delproblemrommet eksponentielt stort, hjelper ikke dynamisk programmering — da har du ikke funnet riktig delproblem ennå."
+    },
+    {
+      "id": "tdt4120-6-1-def-delproblemgraf",
+      "type": "definition",
+      "title": "Delproblemgraf",
+      "content": "Grafen med ett hjørne per delproblem og en kant fra et delproblem til hvert delproblem det direkte avhenger av.\n\nDen er nyttig fordi kjøretiden til en dynamisk programmering kan leses av den: antall hjørner ganger arbeidet i hvert hjørne, pluss antall kanter. For trapperekurrensen har grafen $n+1$ hjørner og omtrent $2n$ kanter, altså $\\Theta(n)$.\n\nGrafen må være asyklisk — et delproblem kan ikke avhenge av seg selv, direkte eller indirekte — ellers finnes det ingen lovlig fylleorden."
+    },
+    {
+      "id": "tdt4120-6-1-def-fylleorden",
+      "type": "definition",
+      "title": "Fylleorden",
+      "content": "Rekkefølgen en bottom-up-løsning fyller tabellen i: hvert delproblem må komme **etter** alle delproblemene det avhenger av.\n\nI praksis er det som regel stigende indeks, økende delproblemstørrelse, eller rad for rad i en todimensjonal tabell. Formelt er det en topologisk sortering av delproblemgrafen.\n\nFeil fylleorden gir en løsning som leser tomme celler — og det er en av de vanligste feilene når man skriver DP-en ut i detalj i stedet for å skissere den."
+    },
+    {
+      "id": "tdt4120-6-1-def-grunntilfelle",
+      "type": "definition",
+      "title": "Grunntilfelle i en DP-rekurrens",
+      "content": "De minste delproblemene, som har svar uten rekursjon: `b[0] = 0`, `c[i,0] = 0`, «en tom stav er verdt null».\n\nDe skal alltid oppgis eksplisitt. En rekurrens uten grunntilfeller er ufullstendig, og en fasit som hopper over dem, mister et delpoeng: rekurrensen alene definerer ikke noen verdi.\n\nDet er også her av-én-feilene bor. Sjekk alltid det minste tilfellet for hånd før du oppgir en rekurrens."
+    },
+    {
+      "id": "tdt4120-6-1-def-naiv",
+      "type": "definition",
+      "title": "Naiv rekursjon uten lagring",
+      "content": "Rekurrensen skrevet rett om til rekursive kall, uten noen tabell.\n\nKjøretiden blir antall **kall**, ikke antall delproblemer — og på et problem med overlapp er det tallet typisk eksponentielt. `Naiv-Fib(40)` gjør 331 160 281 kall for å regne ut 41 forskjellige tall.\n\nDen er likevel nyttig som mellomstasjon: skriv rekurrensen naivt først, se om delproblemene gjentar seg, og legg til tabellen etterpå."
+    },
+    {
+      "id": "tdt4120-6-1-def-gradig-valg",
+      "type": "definition",
+      "title": "Grådig valg-egenskap",
+      "content": "Egenskapen at ett bestemt lokalt valg alltid kan inngå i en optimal løsning, slik at du kan ta valget uten å se på delløsningene.\n\nDen er strengt sterkere enn optimal substruktur, og den er sjelden. Har et problem den, trengs ingen tabell — da holder det å ta valgene i riktig rekkefølge, og du får en grådig algoritme. Det er temaet i [kap. 6.4](/tdt4120/tdt4120-6-4).\n\nÅ forveksle de to er en fast felle: optimal substruktur lar deg bygge av optimale delløsninger, men du må fortsatt **prøve** valgene."
+    },
+    {
+      "id": "tdt4120-6-1-def-kjoretidsregel",
+      "type": "definition",
+      "title": "Kjøretidsregelen for dynamisk programmering",
+      "content": "Kjøretiden er antall delproblemer ganget med arbeidet per delproblem — pluss eventuell rekonstruksjon, som aldri dominerer.\n\nKonstant arbeid per celle i en tabell med $n$ celler gir $\\Theta(n)$; i en tabell med $nm$ celler gir det $\\Theta(nm)$. Må hver celle sammenligne opptil $j$ kandidater der $j$ er cellens indeks, blir summen $1+2+\\dots+n = n(n+1)/2$, altså $\\Theta(n^2)$.\n\nDette er formelen du skal skrive på eksamen når du blir bedt om kjøretiden til en DP du nettopp har designet."
+    },
+    {
+      "id": "tdt4120-6-1-def-plass",
+      "type": "definition",
+      "title": "Plassoptimalisering i en DP-tabell",
+      "content": "Trikset der du bare beholder de radene av tabellen rekurrensen faktisk leser.\n\nTrapperekurrensen leser bare `b[i-1]` og `b[i-2]`, så to variabler holder: plassen faller fra $\\Theta(n)$ til $\\Theta(1)$. En tabell der hver rad bare leser raden over, klarer seg med to rader.\n\nPrisen er at du **mister rekonstruksjonen**: kaster du tabellen, kan du ikke lese valgene tilbake. Blir du bedt om selve løsningen og ikke bare verdien, må du beholde tabellen — eller lagre valgene separat."
+    },
+    {
+      "id": "tdt4120-6-1-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tdt4120-6-1-rep-tekst",
+          "type": "text",
+          "content": "Fem korte oppgaver fra kapitlene dette bygger på. Bruk dem som oppvarming — de tar noen minutter til sammen.\n\n**R1.** ([kap. 1.1](/tdt4120/tdt4120-1-1)) Hva betyr $\\lg n$ i dette faget, og hvorfor er $\\Theta(\\lg n)$ og $\\Theta(\\log_{10} n)$ samme klasse?\n\n*Svar:* $\\lg n = \\log_2 n$. Logaritmer med ulik base skiller seg bare med en konstant faktor, og konstante faktorer forsvinner i asymptotisk notasjon.\n\n**R2.** ([kap. 1.1](/tdt4120/tdt4120-1-1)) Når skriver du $\\Theta$ og når skriver du $O$?\n\n*Svar:* $\\Theta$ når grensen er tett i begge retninger, $O$ når du bare har vist en øvre grense. En fasit som skriver $\\Theta$ der bare $O$ er belagt, sier mer enn den kan.\n\n**R3.** ([kap. 1.5](/tdt4120/tdt4120-1-5)) Løs $T(n) = T(n-1) + \\Theta(1)$ med $T(0) = \\Theta(1)$ ved iterasjon.\n\n*Svar:* Teleskoperer til $n$ ledd av konstant størrelse, altså $T(n) = \\Theta(n)$. Det er nøyaktig kjøretiden til en DP med $n$ delproblemer og konstant arbeid hver.\n\n**R4.** ([kap. 1.4](/tdt4120/tdt4120-1-4)) Hvilket masterteorem-tilfelle gir $T(n) = 2T(n/2) + \\Theta(n)$, og hva blir svaret?\n\n*Svar:* Her er $\\log_b a = \\log_2 2 = 1$, og $f(n) = \\Theta(n) = \\Theta(n^{\\log_b a}\\lg^{0} n)$, altså tilfelle 2 med $k = 0$. Svaret er $\\Theta(n\\lg n)$.\n\n**R5.** ([kap. 2.1](/tdt4120/tdt4120-2-1)) Er `Merge-Sort` på stedet? Er den stabil?\n\n*Svar:* Nei på det første — den trenger et hjelpearray. Ja på det andre. Kjøretiden er $\\Theta(n\\lg n)$ i alle tilfeller."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

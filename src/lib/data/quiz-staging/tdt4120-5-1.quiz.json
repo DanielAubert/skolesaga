@@ -1,0 +1,162 @@
+[
+  {
+    "question": "Hvilke to betingelser må en lovlig flyt $f$ i et flytnett oppfylle?",
+    "options": [
+      "Kapasitetsbetingelsen $0 \\le f(u,v) \\le c(u,v)$ og bevaring i alle noder utenom kilden og sluket",
+      "Kapasitetsbetingelsen $0 \\le f(u,v) \\le c(u,v)$ og bevaring i absolutt alle noder, kilden og sluket inkludert",
+      "At flyten er heltallig på hver kant, og at ingen kant bærer flyt i begge retninger samtidig",
+      "At hver kant enten er mettet eller tom, og at summen ut av kilden er lik summen inn i sluket"
+    ],
+    "explanation": "Kapasiteten begrenser hver enkelt kant, og bevaringen sier at inn er lik ut i hver indre node. Kilden og sluket er unntatt nettopp fordi det er der flyten oppstår og forsvinner — krevde du bevaring også der, ville bare nullflyten være lovlig. Heltallighet er ikke et krav, men en egenskap `Ford-Fulkerson` gir deg gratis når kapasitetene er heltall."
+  },
+  {
+    "question": "Hva er restkapasiteten $c_f(u,v)$ når kanten $(u,v)$ finnes i nettet?",
+    "options": [
+      "$c(u,v) - f(u,v)$ — kapasiteten minus det som allerede går der",
+      "$c(u,v) + f(u,v)$ — kapasiteten pluss det som allerede går der",
+      "$f(u,v)$ — det som allerede går der, siden bare det kan flyttes på",
+      "$c(u,v)$ — kapasiteten, uavhengig av hvor mye flyt kanten bærer"
+    ],
+    "explanation": "Restkapasiteten er hvor mye **mer** som får plass, og det er den ledige delen av kapasiteten. $f(u,v)$ er derimot restkapasiteten den **motsatte** veien, altså på ryggkanten $c_f(v,u)$ — de to reglene er begge nødvendige, og å bruke feil av dem er den vanligste feilen i hele Del 5."
+  },
+  {
+    "question": "En kant $(u,v)$ har $c(u,v) = 10$ og $f(u,v) = 6$. Hvilke kanter finnes i restnettet mellom $u$ og $v$?",
+    "options": [
+      "$c_f(u,v) = 4$ framover og $c_f(v,u) = 6$ bakover",
+      "$c_f(u,v) = 4$ framover, og ingen kant bakover",
+      "$c_f(u,v) = 6$ framover og $c_f(v,u) = 4$ bakover",
+      "$c_f(u,v) = 10$ framover og $c_f(v,u) = 10$ bakover"
+    ],
+    "explanation": "Framover er det 4 ledig av kapasiteten 10, og bakover kan du «angre» opptil de 6 enhetene som allerede går der. Å utelate ryggkanten er den feilen som gjør at algoritmen kan male seg inn i et hjørne — uten den kan ingen tidligere beslutning omgjøres."
+  },
+  {
+    "question": "Hva betyr det å sende flyt langs en ryggkant?",
+    "options": [
+      "At flyten på den opprinnelige kanten reduseres tilsvarende, slik at kapasiteten frigjøres til bruk et annet sted",
+      "At det faktisk renner væske baklengs gjennom kanten, i strid med kapasitetsbetingelsen for den kanten",
+      "At kanten fjernes fra nettet, siden en kant som brukes begge veier ikke kan ha en entydig retning",
+      "At kapasiteten på den opprinnelige kanten økes, slik at nettet får plass til mer flyt enn før"
+    ],
+    "explanation": "Ryggkanten er retten til å angre: går det 8 fra $u$ til $v$ og du sender 3 tilbake, betyr det at $f(u,v)$ settes til 5 og de tre enhetene brukes et bedre sted. Ingen kapasitet endres, og ingenting renner motsatt vei — det er bokføringen som justeres."
+  },
+  {
+    "question": "Hvordan forholder restnettet $G_f$ seg til det opprinnelige nettet $G$?",
+    "options": [
+      "$G_f$ har samme noder, men er ikke et delnett av $G$ — ryggkantene finnes ikke i $G$",
+      "$G_f$ er et delnett av $G$: det inneholder nøyaktig de kantene i $G$ som ikke er mettet",
+      "$G_f$ har samme kanter som $G$, men med kapasitetene erstattet av flytverdiene på dem",
+      "$G_f$ har samme kanter som $G$ i motsatt retning, siden restnettet viser hva som kan angres"
+    ],
+    "explanation": "$G_f$ har kantmengden $\\{(u,v) : c_f(u,v) > 0\\}$, og den kan inneholde inntil to kanter per opprinnelig kant — framoverkanten og ryggkanten. Ryggkantene finnes ikke i $G$, og derfor er $G_f$ ikke et delnett. Antall kanter er likevel høyst $2E$, altså $O(E)$."
+  },
+  {
+    "question": "Hva er en forøkende sti?",
+    "options": [
+      "En enkel sti fra $s$ til $t$ i restnettet, der hver kant har positiv restkapasitet",
+      "En enkel sti fra $s$ til $t$ i det opprinnelige nettet, der ingen kant er mettet",
+      "En sti fra $s$ til $t$ som bare bruker framoverkanter, siden ryggkanter ikke øker flyten",
+      "Enhver sti i restnettet, uansett endepunkter, som gjør det mulig å flytte flyt rundt i nettet"
+    ],
+    "explanation": "Stien må gå fra kilden til sluket, og den lever i restnettet — derfor kan den godt bruke ryggkanter, som bare betyr at en tidligere beslutning delvis reverseres. Å lete i det opprinnelige nettet i stedet for i restnettet er nettopp det som gjør at man går glipp av forbedringer. Å finne en slik sti koster $\\Theta(V+E)$ med `BFS`."
+  },
+  {
+    "question": "Hva er flaskehalsen på en forøkende sti, og hva skjer når du forøker med den?",
+    "options": [
+      "Den minste restkapasiteten langs stien; minst én kant på stien blir mettet eller tømt etterpå",
+      "Den største restkapasiteten langs stien; alle kantene på stien blir mettet på én gang etterpå",
+      "Summen av restkapasitetene langs stien; hele stien forsvinner fra restnettet etterpå",
+      "Kapasiteten på den siste kanten inn i sluket; bare den kanten endrer restkapasitet etterpå"
+    ],
+    "explanation": "Du kan sende akkurat så mye som det trangeste leddet tåler, og etter forøkningen har det leddet null restkapasitet — stien forsvinner dermed fra restnettet. Flaskehalsen er alltid et positivt tall, siden alle kanter i $G_f$ per definisjon har $c_f > 0$."
+  },
+  {
+    "question": "Hva er et snitt $(S,T)$ i et flytnett?",
+    "options": [
+      "En oppdeling av $V$ i to deler med $s \\in S$ og $t \\in T$; delene trenger verken være like store eller henge sammen",
+      "En oppdeling av $V$ i to like store deler med $s \\in S$ og $t \\in T$, der begge delene må være sammenhengende",
+      "Mengden av kanter som må fjernes for at nettet skal falle fra hverandre i minst to biter",
+      "Mengden av mettede kanter i nettet, altså de kantene som ikke tåler mer flyt enn de allerede bærer"
+    ],
+    "explanation": "Kravet er bare at hver node havner i nøyaktig én del, og at kilden og sluket havner hver sin vei — $S = \\{s\\}$ er et fullgodt snitt. Et nett med $n$ noder har derfor $2^{n-2}$ ulike snitt. Kantene som krysser, er en konsekvens av oppdelingen, ikke definisjonen av den."
+  },
+  {
+    "question": "Hvordan regnes snittkapasiteten $c(S,T)$ ut?",
+    "options": [
+      "Summen av kapasitetene på kantene fra $S$ til $T$ — og bare de",
+      "Summen av kapasitetene på kantene fra $S$ til $T$, minus kapasitetene på kantene fra $T$ til $S$",
+      "Summen av kapasitetene på alle kanter som har minst ett endepunkt i $S$",
+      "Summen av flyten på kantene fra $S$ til $T$, siden kapasitet og flyt faller sammen i et snitt"
+    ],
+    "explanation": "Bare kantene som går fra $S$-siden til $T$-siden teller. Kanter den andre veien teller ikke, og kanter internt i $S$ eller internt i $T$ teller heller ikke — det er denne ene detaljen som oftest gir feil svar på en snittoppgave. Å trekke fra motsatt retning er derimot regelen for snitt**flyten**, ikke for kapasiteten."
+  },
+  {
+    "question": "Hvordan regnes snittflyten $f(S,T)$ ut?",
+    "options": [
+      "Flyten fra $S$ til $T$ minus flyten fra $T$ til $S$ — begge retninger teller, med motsatt fortegn",
+      "Flyten fra $S$ til $T$ alene — kanter den andre veien holdes utenfor, slik som for kapasiteten",
+      "Summen av flyten på alle kanter som krysser snittet, uansett hvilken vei de peker",
+      "Flyten på den mettede kanten som krysser snittet, siden det er den som utgjør flaskehalsen"
+    ],
+    "explanation": "Til forskjell fra kapasiteten teller snittflyten begge retninger, men med motsatt fortegn. Blander du de to reglene — teller retningene i kapasiteten eller ignorerer dem i flyten — får du feil på begge regnestykkene. Det er nettopp fordi de to reglene er ulike at $f(S,T) = \\lvert f \\rvert$ kan holde for **ethvert** snitt."
+  },
+  {
+    "question": "Hva sier snittlemmaet?",
+    "options": [
+      "For enhver lovlig flyt og ethvert snitt er $f(S,T) = \\lvert f\\rvert$, og dermed $\\lvert f\\rvert \\le c(S,T)$",
+      "For enhver lovlig flyt finnes det ett snitt med $f(S,T) = \\lvert f\\rvert$; for de øvrige snittene er summen lavere",
+      "For enhver lovlig flyt er $\\lvert f\\rvert = c(S,T)$ for ethvert snitt, siden all flyt må gå gjennom hvert snitt",
+      "For maksimal flyt er $\\lvert f\\rvert \\le c(S,T)$; for andre flyter kan ulikheten gå begge veier"
+    ],
+    "explanation": "All flyt som forlater kilden, må krysse ethvert snitt på veien til sluket, og netto kryssing er derfor alltid lik flytverdien — for **hvert** snitt, ikke bare for ett. Ulikheten mot kapasiteten følger fordi hver kant er begrenset av $f(u,v) \\le c(u,v)$. Likhet mellom flytverdien og kapasiteten inntreffer bare for et minimalt snitt."
+  },
+  {
+    "question": "Du finner et snitt med kapasitet 17 i et flytnett. Hva vet du da?",
+    "options": [
+      "At ingen lovlig flyt kan ha verdi over 17 — ethvert snitt er en øvre grense for maksimal flyt",
+      "At maksimal flyt er nøyaktig 17, siden hvert snitt måler nøyaktig hvor mye som kan passere",
+      "At maksimal flyt er minst 17, siden snittet garanterer at så mye får plass gjennom nettet",
+      "Ingenting — bare det minimale snittet sier noe om maksimal flyt, og du vet ikke om dette er det"
+    ],
+    "explanation": "Snittlemmaet gir $\\lvert f\\rvert \\le c(S,T)$ for hvert eneste snitt, så ethvert snitt du finner, er et tak. At det er nøyaktig 17, vet du bare hvis snittet er minimalt — og det viser du ved å oppgi en flyt med verdi 17. Et snitt er derfor et bevis oppover, aldri nedover."
+  },
+  {
+    "question": "Hva sier heltallsteoremet?",
+    "options": [
+      "Er alle kapasitetene heltall, finnes det en maksimal flyt der flyten på hver kant er et heltall",
+      "Er alle kapasitetene heltall, er **enhver** maksimal flyt heltallig på hver eneste kant i nettet",
+      "Er alle kapasitetene heltall, er maksimal flyt lik summen av kapasitetene ut av kilden",
+      "Er alle kapasitetene heltall, kan `Ford-Fulkerson` kjøre i polynomisk tid i antall noder"
+    ],
+    "explanation": "Nullflyten er heltallig, hver flaskehals er et heltall, og forøkningen legger til eller trekker fra heltall — så flyten forblir heltallig gjennom hele kjøringen. Teoremet lover **eksistens** av en slik løsning, ikke at alle maksimale flyter er heltallige. Det er nettopp denne eksistensen som gjør maks-flyt brukbart som tilordningsverktøy."
+  },
+  {
+    "question": "Hvorfor gjør heltallsteoremet maks-flyt til et tilordningsverktøy?",
+    "options": [
+      "Fordi kapasitet 1 på hver person–oppgave-kant garanterer en løsning der hver kant bærer 0 eller 1",
+      "Fordi teoremet garanterer at alle personer får tildelt en oppgave så lenge kapasitetene er heltall",
+      "Fordi heltallige kapasiteter gjør at `Ford-Fulkerson` alltid finner den maksimale flyten på $O(VE)$ tid",
+      "Fordi teoremet lar deg dele en oppgave mellom flere personer med en fast brøkdel til hver av dem"
+    ],
+    "explanation": "Uten teoremet kunne den optimale løsningen tildelt en halv oppgave til hver av to personer, og det gir ingen mening i virkeligheten. Med heltallighet er hver kant enten brukt eller ikke, og modellen leses direkte som en tilordning. Teoremet lover ikke at alle får noe — bare at flest mulig par kan velges heltallig."
+  },
+  {
+    "question": "Hva koster det å bygge restnettet $G_f$ fra en gitt flyt $f$?",
+    "options": [
+      "$\\Theta(V+E)$ — hver kant behandles én gang og gir inntil to restkanter",
+      "$\\Theta(V^2)$ — hvert nodepar må undersøkes for å avgjøre om det finnes restkapasitet",
+      "$\\Theta(E\\lg V)$ — restkantene må sorteres etter restkapasitet før stien kan velges",
+      "$\\Theta(VE)$ — hver kant må sjekkes én gang for hver node på en mulig forøkende sti"
+    ],
+    "explanation": "Du går gjennom kantmengden én gang og legger inn framoverkanten der det er ledig kapasitet og ryggkanten der det går flyt. Antall restkanter er høyst $2E$, altså fortsatt $O(E)$, og ingen sortering trengs — `BFS` i restnettet velger stien uten å se på restkapasitetene."
+  },
+  {
+    "question": "En kant har $f(u,v) = c(u,v)$. Hva kalles den, og hva betyr det for restnettet?",
+    "options": [
+      "Den er **mettet**, og framoverkanten $(u,v)$ finnes ikke i restnettet",
+      "Den er **mettet**, og både framoverkanten og ryggkanten finnes i restnettet",
+      "Den er **tom**, og bare framoverkanten $(u,v)$ finnes i restnettet",
+      "Den er **kritisk**, og den må inngå i ethvert minimalt snitt i nettet"
+    ],
+    "explanation": "En mettet kant har $c_f(u,v) = c(u,v) - f(u,v) = 0$, så framoverkanten faller bort — men ryggkanten står der med full kapasitet $c(u,v)$, siden hele flyten kan angres. At en kant er mettet, betyr ikke at den ligger i et minimalt snitt: det avhenger av hvilke noder som er nåbare fra $s$ i restnettet."
+  }
+]

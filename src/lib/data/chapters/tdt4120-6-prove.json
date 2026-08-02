@@ -1,0 +1,303 @@
+{
+  "id": "tdt4120-6-prove",
+  "courseId": "tdt4120",
+  "chapterNumber": "6.P",
+  "title": "Prøver til del 6: Dynamisk programmering, grådighet og stabil matching",
+  "description": "Fire prøver med full fasit: DP-mekanikk og rekonstruksjon, DP-design med rekurrens og tabell, Huffman-håndkjøring med bytteargument, og Gale-Shapley i begge orienteringer.",
+  "estimatedMinutes": 130,
+  "competenceGoals": [
+    "kunne avgjøre om et problem har overlappende delproblemer og optimal substruktur, og begrunne valget mellom memoisering og utfylling nedenfra og opp",
+    "kunne sette opp en DP-rekurrens med grunntilfeller, fylle tabellen og hente ut selve løsningen fra lagrede beslutninger",
+    "kunne bygge et Huffman-tre fra frekvenser og oppgi kodelengden per tegn og totalt antall bits",
+    "kunne kjøre Gale-Shapley i begge orienteringer og avgjøre om en gitt matching har et blokkerende par"
+  ],
+  "content": [
+    {
+      "id": "tdt4120-6-prove-tip",
+      "type": "tip",
+      "title": "Om prøvene til del 6",
+      "content": "**4 prøver à ~25–40 min** (30 + 40 + 30 + 30 minutter, 130 minutter i alt).\nDe kan trygt deles over flere kvelder — **én prøve per økt** er en fin rytme.\nAlle oppgaver er nyskrevne og satt i eksamens sjangre, og løsningsforslagene\nviser formen som gir uttelling, med delpoeng-notat der oppgaven har flere ledd.\n\n- **Prøve 6.A (30 min):** mekanikken i dynamisk programmering — overlappende\n  delproblemer, memoisering mot utfylling nedenfra og opp, og rekonstruksjon.\n  Dekker [kap. 6.1](/tdt4120/tdt4120-6-1).\n- **Prøve 6.B (40 min):** DP-design — rekurrens, tabell og rekonstruksjon.\n  Dekker [kap. 6.2](/tdt4120/tdt4120-6-2) og\n  [kap. 6.3](/tdt4120/tdt4120-6-3).\n- **Prøve 6.C (30 min):** grådighet — Huffman-tre og bytteargument. Dekker\n  [kap. 6.4](/tdt4120/tdt4120-6-4).\n- **Prøve 6.D (30 min):** stabil matching — blokkerende par og begge\n  orienteringer av `Gale-Shapley`. Dekker\n  [kap. 6.5](/tdt4120/tdt4120-6-5).\n\n**Hvor flervalget bor.** Prøve 6.A avsluttes med en flervalgsblokk som ligger\n**inline i prøveteksten**, med bokstavsvar i fasiten. De interaktive\nflervalgsspørsmålene finner du i quizen til hvert av kapitlene i delen — de er\net annet verktøy, laget for repetisjon.\n\n**Slik bruker du prøvene.** Ta én prøve på tid, uten fasit og uten oppslag.\nEksamen i TDT4120 er en firetimers skoleeksamen **uten hjelpemidler**\n(hjelpemiddelkode E er NTNUs kode for nettopp det), med rundt 20 korte\nfrisvarsoppgaver som teller likt. Det betyr at kjøretider, definisjoner og\npseudokode må sitte i hodet — og at et langt svar koster tid du trenger på de\n19 andre oppgavene. Skriv derfor svarene like kort som fasitene her gjør.\n\nTidsanslagene er arbeidstid. Legg på noen minutter til å lese oppgavene og lese\ngjennom svaret til slutt."
+    },
+    {
+      "id": "tdt4120-6-prove-forkunn",
+      "type": "text",
+      "content": "## Forkunnskaper\n\nPrøvene forutsetter hele Del 6: [kap. 6.1](/tdt4120/tdt4120-6-1) om mekanikken\ni dynamisk programmering, [kap. 6.2](/tdt4120/tdt4120-6-2) om stavkapping, LCS\nog ryggsekk, drillen i [kap. 6.3](/tdt4120/tdt4120-6-3),\n[kap. 6.4](/tdt4120/tdt4120-6-4) om grådighet og `Huffman`, og\n[kap. 6.5](/tdt4120/tdt4120-6-5) om `Gale-Shapley`.\n\nFra tidligere deler trengs asymptotisk notasjon\n([kap. 1.1](/tdt4120/tdt4120-1-1)), rekursjon og rekurrenser\n([kap. 1.5](/tdt4120/tdt4120-1-5)), og prioritetskøen som `Huffman` bygger på\n([kap. 3.1](/tdt4120/tdt4120-3-1)).\n\nFra Del 5 hentes ett begrep inn igjen i oppgave 6.B.3: **pseudopolynomisk**. Det\nsto der slik: en algoritme er pseudopolynomisk når kjøretiden er polynomisk i\nTALLVERDIENE i inputen, men ikke i lengden på den. Kapasiteten $m$ i et\nryggsekkproblem skrives med omtrent $\\lg m$ siffer, så $\\Theta(nm)$ er\neksponentiell i antall siffer. `Ford-Fulkerson` er pseudopolynomisk av samme\ngrunn ([kap. 5.2](/tdt4120/tdt4120-5-2))."
+    },
+    {
+      "id": "tdt4120-6-prove-coll-A",
+      "type": "collapsible",
+      "title": "Prøve 6.A — Mekanikken i dynamisk programmering (30 min)",
+      "buttonText": "Vis prøve 1",
+      "content": [
+        {
+          "id": "tdt4120-6-prove-A-intro",
+          "type": "text",
+          "content": "**Prøve 6.A — mekanikken i dynamisk programmering (30 minutter).** Tre\noppgaver. Ingen hjelpemidler.\n\nPoengfordeling: 6 poeng, 6 poeng og 10 poeng — 22 poeng i alt.\n\nDe to første er sjanger F — «stemmer dette?», altså at du svarer ja eller nei\nførst og deretter begrunner med én presis setning. Den tredje er en\nflervalgsblokk med fem spørsmål; der er det ingen antigjettingsregel, så svar\npå alle fem."
+        },
+        {
+          "id": "tdt4120-6-prove-A-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tdt4120-6-prove-A-1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Sjanger F — «stemmer dette?», altså ja eller nei først og så én presis\nsetning.) En medarbeider har fylt en DP-tabell og lest av at den billigste\noppdelingen av en produksjonsserie koster 148 kroner. Nå skal hun også\nrapportere hvilke kutt som gir den prisen.\n\n**a)** Stemmer det at det å hente ut selve oppdelingen er gratis når tabellen\nallerede er fylt? Svar ja eller nei, og begrunn.\n\n**b)** Hva må lagres under utfyllingen for at oppdelingen skal kunne hentes ut,\nog hva koster det asymptotisk?",
+            "solution": "**a)** **Nei.** Tabellen inneholder bare optimal**verdien** i hver celle; hvilket\nvalg som ga verdien, er ikke lagret med mindre du lagret det med vilje.\n\n**b)** Du lagrer beslutningen i hver celle — en tilbakepeker eller det valgte\nkuttet — mens du fyller tabellen. Det koster $\\Theta(1)$ ekstra arbeid og\n$\\Theta(1)$ ekstra plass per celle, altså **ingen økning i den asymptotiske\nkjøretiden**. Selve uthentingen er en vandring bakover gjennom pekerne, som tar\n$O(n)$ og drukner i tiden det tok å fylle tabellen.\n\n*Delpoeng:* hovedpoenget er «nei — beslutningene må lagres». Svarer du bare det,\nhar du det meste. Det siste poenget henger på at du sier at kjøretiden ikke\nøker asymptotisk — dette er felle #6, å påstå at rekonstruksjon er trivielt\ngratis.\n\n*Oppgaven ber om ja/nei og en begrunnelse, ikke om en gjennomgang av hele\nDP-metoden.*",
+            "hints": [
+              "Skiller tabellen mellom «hvor god er den beste løsningen» og «hvilken løsning er det»?",
+              "Tenk på hva du må skrive ned i det øyeblikket du velger maksimum over flere kandidater.",
+              "Sammenlign kostnaden ved å lagre ett tall per celle med kostnaden ved å fylle cellen."
+            ]
+          }
+        },
+        {
+          "id": "tdt4120-6-prove-A-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tdt4120-6-prove-A-2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Sjanger F.) To studenter diskuterer memoisering — teknikken der en rekursiv\nalgoritme husker svarene på delproblemer den allerede har løst.\n\n**a)** Den ene sier: «Memoisering gjør enhver rekursiv algoritme raskere.»\nStemmer det? Svar ja eller nei, og gi et konkret moteksempel.\n\n**b)** Den andre sier: «Memoisering ovenfra og ned og utfylling nedenfra og opp\nhar ulik asymptotisk kjøretid.» Stemmer det? Begrunn.",
+            "solution": "**a)** **Nei.** Memoisering hjelper bare når de samme delproblemene dukker opp\nflere ganger. `Merge-Sort` deler et intervall i to disjunkte halvdeler, så\ningen delproblemer gjentar seg — et oppslag i en tabell som aldri gir treff, er\nbare ekstra arbeid og ekstra plass.\n\n**b)** **Nei.** Begge løser hvert distinkte delproblem nøyaktig én gang og gjør\nkonstant arbeid per delproblem utover delløsningene, så begge er\n$\\Theta(\\text{antall delproblemer} \\times \\text{arbeid per delproblem})$.\nForskjellen er praktisk: memoisering løser bare de delproblemene som faktisk\ntrengs, mens utfylling nedenfra og opp slipper rekursjonsstakken.\n\n*Delpoeng:* hovedpoenget i **a)** er «bare ved overlappende delproblemer», og i\n**b)** «samme asymptotiske kjøretid». Moteksempelet gir det siste poenget i\n**a)**.",
+            "hints": [
+              "Hva er den ene av de to egenskapene et problem må ha for at DP skal lønne seg?",
+              "Tenk på splitt-og-hersk: hvor mange ganger møter du det samme delintervallet?",
+              "Tell delproblemer, ikke linjer kode, når du sammenligner de to arbeidsmåtene."
+            ]
+          }
+        },
+        {
+          "id": "tdt4120-6-prove-A-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tdt4120-6-prove-A-3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Sjanger F i flervalgsform.) Kryss av for ett alternativ per spørsmål. Alle\nfem teller like mye.\n\n**1.** Hva betyr det at et problem har *optimal substruktur*?\na) At problemet kan løses grådig, uten å se på delproblemer i det hele tatt.\nb) At en optimal løsning inneholder optimale løsninger på delproblemene sine.\nc) At delproblemene er disjunkte og aldri møtes mer enn én gang under rekursjonen.\nd) At antallet distinkte delproblemer vokser polynomisk med størrelsen på inputen.\n\n**2.** Hva er det som gjør at dynamisk programmering slår naiv rekursjon på Fibonacci-tallene?\na) At rekursjonstreet inneholder de samme delproblemene mange ganger, så svarene kan gjenbrukes.\nb) At addisjon av to store heltall går raskere når tallene ligger i en tabell.\nc) At rekursjonsdybden reduseres fra lineær til logaritmisk når delsvarene lagres underveis i kallet.\nd) At grunntilfellene forsvinner helt når algoritmen fylles ut nedenfra og opp i stedet for ovenfra.\n\n**3.** Et DP-problem har $n \\cdot m$ distinkte delproblemer, og hvert av dem løses med konstant arbeid gitt delløsningene. Hva er kjøretiden?\na) $\\Theta(n + m)$, siden hver rad og hver kolonne besøkes én gang hver.\nb) $\\Theta(nm \\lg (nm))$, siden delproblemene først må sorteres i avhengighetsrekkefølge, og det koster en logaritmisk faktor.\nc) $\\Theta(nm)$, siden hvert delproblem løses nøyaktig én gang med konstant arbeid.\nd) $\\Theta(2^{nm})$, siden hvert delproblem enten tas med eller utelates.\n\n**4.** Hva er forskjellen på avgjørelsesvarianten og optimeringsvarianten av et problem?\na) Avgjørelsesvarianten er alltid strengt vanskeligere enn optimeringsvarianten.\nb) Avgjørelsesvarianten krever alltid dynamisk programmering, mens optimeringsvarianten som regel kan løses grådig.\nc) Avgjørelsesvarianten gir alltid selve løsningen, mens optimeringsvarianten bare gir verdien av den beste løsningen.\nd) Avgjørelsesvarianten spør om det finnes en løsning minst så god som en gitt grense, og svarer ja eller nei.\n\n**5.** Når er det RIKTIG å si at DP ikke er verdt bryet på et gitt problem?\na) Når problemet handler om sekvenser, siden sekvenser alltid håndteres bedre med en grådig regel.\nb) Når inputen er stor, siden tabellen da ikke får plass i minnet uansett hvordan den fylles ut.\nc) Når delproblemene ikke overlapper hverandre, slik at hvert av dem uansett løses bare én gang.\nd) Når rekurrensen har mer enn ett grunntilfelle, siden tabellen da ikke kan initialiseres riktig.",
+            "solution": "**Fasit:** 1b, 2a, 3c, 4d, 5c\n\nTil spørsmål 1: optimal substruktur betyr nettopp at en optimal helhet er bygd\nav optimale deler — det er forutsetningen som lar deg sette opp en rekurrens i\ndet hele tatt. Alternativet om disjunkte delproblemer beskriver splitt-og-hersk,\naltså det motsatte av overlapp.\n\nTil spørsmål 2: gevinsten ligger i gjenbruken. Naiv rekursjon på Fibonacci\nbruker 177 kall for å regne ut det tiende tallet; med memoisering er tallet 19.\nAlternativet om redusert rekursjonsdybde er galt — dybden er den samme, det er\n**bredden** i treet som forsvinner.\n\nTil spørsmål 3: kjøretiden i DP er antall distinkte delproblemer ganget med\narbeidet per delproblem. Alternativet $\\Theta(n+m)$ teller rader og kolonner i\nstedet for celler.\n\nTil spørsmål 4: avgjørelsesvarianten er ja/nei-versjonen med en grense, og den\ner aldri vanskeligere enn optimeringsvarianten — det er nettopp derfor\nNP-teorien er formulert med avgjørelsesproblemer.\n\nTil spørsmål 5: uten overlapp gir memoisering ingenting å gjenbruke. Alternativet\nom store input er galt: tabellstørrelsen er et plassproblem, ikke et argument mot\nmetoden.\n\n*Delpoeng:* hvert riktig kryss teller 2 poeng.",
+            "hints": [
+              "Skill mellom de TO egenskapene DP krever — den ene handler om struktur, den andre om gjentakelse.",
+              "På kjøretidsspørsmålet: tell cellene i tabellen, ikke radene og kolonnene.",
+              "På det siste spørsmålet: hva er det memoisering faktisk sparer deg for?"
+            ]
+          }
+        },
+        {
+          "id": "tdt4120-6-prove-A-diag",
+          "type": "text",
+          "content": "**Selvdiagnose etter prøve 6.A**\n\n- ☐ Svarte du ja eller nei FØRST på begge sjanger F-oppgavene, før begrunnelsen?\n- ☐ Sa du eksplisitt at rekonstruksjon krever lagrede beslutninger, og at det\n  ikke øker den asymptotiske kjøretiden?\n- ☐ Nevnte du overlappende delproblemer som betingelsen for at memoisering\n  hjelper, ikke bare «det går raskere»?\n- ☐ Oppga du bare det som ble etterspurt — ingen gjennomgang av hele metoden?\n- ☐ Traff du kjøretiden som antall delproblemer ganger arbeid per delproblem?\n\nBommet du på oppgave 1 eller 2, les\n[kap. 6.1](/tdt4120/tdt4120-6-1) på nytt før du går videre til 6.B."
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-6-prove-coll-B",
+      "type": "collapsible",
+      "title": "Prøve 6.B — DP-design: rekurrens, tabell og rekonstruksjon (40 min)",
+      "buttonText": "Vis prøve 2",
+      "content": [
+        {
+          "id": "tdt4120-6-prove-B-intro",
+          "type": "text",
+          "content": "**Prøve 6.B — DP-design: rekurrens, tabell og rekonstruksjon (40 minutter).**\nTre oppgaver. Ingen hjelpemidler.\n\nPoengfordeling: 8 poeng, 10 poeng og 8 poeng — 26 poeng i alt.\n\nDette er den tyngste prøven i delen, og den ligger nærmest de åpne\ndesignoppgavene som avslutter et eksamenssett. Oppgave 2 er sjanger H — åpen\nalgoritmedesign, altså at du selv skal se hvilket klassisk problem teksten\nhandler om. Husk de fem leddene: hvilket problem det er, hvilket paradigme du\nbruker, konstruksjonen, hvordan du henter ut selve løsningen, og kjøretiden."
+        },
+        {
+          "id": "tdt4120-6-prove-B-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tdt4120-6-prove-B-1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Sjanger C — håndkjøring, altså at du utfører algoritmen steg for steg og\noppgir bare sluttilstanden.) To varenavn skal sammenlignes tegn for tegn:\n`TAKRENNE` og `KRANSEN`.\n\n**a)** Fyll tabellen `c[i, j]` for lengste felles delsekvens, med `TAKRENNE`\nlangs radene og `KRANSEN` langs kolonnene.\n\n**b)** Oppgi lengden på den lengste felles delsekvensen.\n\n**c)** Oppgi selve delsekvensen.",
+            "solution": "**a)** Sporingstavlen under viser hele tabellen. Rad $i$ svarer til de $i$\nførste tegnene i `TAKRENNE`, kolonne $j$ til de $j$ første i `KRANSEN`.\n\n| `c[i,j]` | – | K | R | A | N | S | E | N |\n|---|---|---|---|---|---|---|---|---|\n| **–** | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |\n| **T** | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |\n| **A** | 0 | 0 | 0 | 1 | 1 | 1 | 1 | 1 |\n| **K** | 0 | 1 | 1 | 1 | 1 | 1 | 1 | 1 |\n| **R** | 0 | 1 | 2 | 2 | 2 | 2 | 2 | 2 |\n| **E** | 0 | 1 | 2 | 2 | 2 | 2 | 3 | 3 |\n| **N** | 0 | 1 | 2 | 2 | 3 | 3 | 3 | 4 |\n| **N** | 0 | 1 | 2 | 2 | 3 | 3 | 3 | 4 |\n| **E** | 0 | 1 | 2 | 2 | 3 | 3 | 4 | 4 |\n\n**b)** Lengden er **4**.\n\n**c)** Delsekvensen er **KREN**.\n\nPå eksamen leverer du tabellen og de to linjene over — tavlen er her for å vise\nhvordan du kommer dit.\n\n*Legg merke til raden for den andre `N`-en: den er identisk med raden over. Det\ner riktig, og et vanlig sted å tvile: et ekstra tegn som ikke gir noe nytt\nmatch, kopierer bare raden over.*\n\n*Delpoeng:* en delvis riktig tabell gir delvis uttelling. Det siste poenget\nhenger på at delsekvensen faktisk leses ut, ikke bare lengden — oppgaven ber om\nbegge deler.",
+            "hints": [
+              "Grunntilfellene er hele rad 0 og hele kolonne 0, og de er null.",
+              "Ved likt tegn: legg 1 til cellen skrått opp til venstre. Ved ulikt tegn: ta det største av cellen over og cellen til venstre.",
+              "For selve delsekvensen: start nederst til høyre og følg diagonaltrekkene bakover."
+            ]
+          }
+        },
+        {
+          "id": "tdt4120-6-prove-B-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tdt4120-6-prove-B-2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(Sjanger H — åpen algoritmedesign, altså at du selv skal kjenne igjen hvilket\nklassisk problem teksten handler om.) Et arkivsystem mottar sammensatte\nfilnavn uten skilletegn, som `solnedgang`. Systemet har en ordliste $D$ med\n$|D|$ oppslagsord, og skal avgjøre om et navn $s$ med $n$ tegn kan deles opp i\nen rekke ord som alle står i $D$ — og hvis det kan, hvilke ord.\n\nBeskriv en løsning. Ta med hvilket problem dette er, hvilket paradigme du\nbruker, delproblemet og rekurrensen med grunntilfeller, hvordan du henter ut\nselve oppdelingen, og kjøretiden. Anta at et oppslag i $D$ tar konstant tid.",
+            "solution": "**Problemet.** Dette er et **oppdelingsproblem** over en sekvens: hvert prefiks av\nnavnet kan enten deles opp eller ikke, og oppdelingen av et langt prefiks\nbygger på oppdelingen av et kortere. Delproblemene overlapper — det samme\nprefikset vurderes fra mange ulike siste ord.\n\n**Paradigmet.** Dynamisk programmering.\n\n**Delproblemet og rekurrensen.** La `mulig[i]` være sant hvis de $i$ første\ntegnene i $s$ kan deles opp i ord fra $D$. Grunntilfellet er `mulig[0] = sann`\n(den tomme forstavelsen er trivielt oppdelt). For $i$ fra 1 til $n$:\n\n```text\nmulig[i] = sann hvis det finnes j i {0, ..., i-1} slik at\n           mulig[j] = sann og s[j+1..i] er et ord i D\n```\n\nSvaret på ja/nei-spørsmålet er `mulig[n]`.\n\n**Rekonstruksjon av selve oppdelingen.** Når `mulig[i]` settes sann, lagres\nden $j$-en som gjorde det, i `valg[i]`. Oppdelingen leses så ut bakfra: start i\n$i = n$, skriv ut ordet `s[valg[i]+1..i]`, sett $i = $ `valg[i]`, gjenta til\n$i = 0$, og snu rekkefølgen. Dette koster $O(n)$ og **øker ikke den\nasymptotiske kjøretiden** — det er én ekstra heltallsverdi per celle, og\nvandringen bakover er kortere enn utfyllingen.\n\n**Kjøretid.** Det er $n$ delproblemer, og hvert av dem prøver opptil $n$\ndelingspunkter med ett konstant-tids oppslag i $D$ hver, altså\n$\\Theta(n^2)$ i verste fall. Her er $n$ antall tegn i navnet; $|D|$ inngår ikke,\nfordi oppslaget er antatt konstant.\n\n**Kontroll på det oppgitte navnet.** Med ordlisten\n{`sol`, `ned`, `gang`, `brann`, `verk`, `bok`, `hylle`, `tak`} gir algoritmen\n`sol` + `ned` + `gang` for `solnedgang`, og `tak` + `sol` + `verk` for\n`taksolverk`. For et navn som ikke lar seg dele, står `mulig[n]` usann, og da\nfinnes det ingen oppdeling å hente ut.\n\n*Delpoeng:* riktig paradigme og riktig rekurrens bærer hovedpoenget. Det siste\npoenget henger på rekonstruksjonen med `valg`-tabellen og på at kjøretiden er\noppgitt og begrunnet. En besvarelse som stopper ved `mulig[n]` har svart på\nja/nei-spørsmålet, men ikke på «hvilke ord».",
+            "hints": [
+              "Spør deg hva det minste spørsmålet er som det lange spørsmålet kan bygges av: kan de i første tegnene deles opp?",
+              "Grunntilfellet handler om den tomme forstavelsen.",
+              "Du trenger én ekstra tabell for å huske HVOR det siste ordet begynte."
+            ]
+          }
+        },
+        {
+          "id": "tdt4120-6-prove-B-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tdt4120-6-prove-B-3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Sjanger E — kjøretidskunnskap, altså at du oppgir uttrykket med\n$\\Theta$ eller $O$ bevisst valgt.) En bedrift løser\n0-1-ryggsekkproblemet med dynamisk programmering: $n$ gjenstander skal pakkes i\nen beholder med kapasitet $m$, der $m$ er et heltall.\n\n**a)** Oppgi kjøretiden til standardalgoritmen.\n\n**b)** En kollega sier at algoritmen dermed er polynomisk i inputstørrelsen.\nStemmer det? Begrunn med én setning.\n\n**c)** Hvorfor kan ikke det samme problemet løses grådig ved alltid å ta\ngjenstanden med høyest verdi per kilo?",
+            "solution": "**a)** $\\Theta(nm)$ — tabellen har $n \\cdot m$ celler, og hver celle fylles med\nkonstant arbeid.\n\n**b)** **Nei.** $m$ er en tall**verdi**, ikke en lengde: kapasiteten skrives med\nomtrent $\\lg m$ siffer, så $\\Theta(nm)$ er eksponentiell i antall siffer.\nAlgoritmen kalles derfor **pseudopolynomisk** — rask når tallene er små, ikke\npolynomisk i inputstørrelsen.\n\n**c)** Fordi et grådig valg kan blokkere en bedre kombinasjon: en gjenstand med\nhøy verdi per kilo kan fylle beholderen slik at det ikke blir plass til to\nandre som til sammen er verdt mer. Den fraksjonelle varianten, der gjenstander\nkan deles, løses derimot grådig — der kan resten av plassen alltid fylles med\ndet nest beste.\n\n*Delpoeng:* hovedpoenget i **b)** er at $m$ er en tallverdi. Skriver du bare\n«pseudopolynomisk» uten å si hvorfor, mangler begrunnelsen — og det er nettopp\nbegrunnelsen som skiller et fullt svar fra et halvt.",
+            "hints": [
+              "Tell cellene i tabellen: hvor mange rader og hvor mange kolonner?",
+              "Hvor mange siffer trengs for å skrive ned kapasiteten m?",
+              "Prøv å konstruere et lite moteksempel med tre gjenstander."
+            ]
+          }
+        },
+        {
+          "id": "tdt4120-6-prove-B-diag",
+          "type": "text",
+          "content": "**Selvdiagnose etter prøve 6.B**\n\n- ☐ Leverte du hele tabellen i oppgave 1, ikke bare tallet i nederste hjørne?\n- ☐ Leste du ut selve delsekvensen, og ikke bare lengden?\n- ☐ Navnga du paradigmet eksplisitt i designoppgaven?\n- ☐ Sto grunntilfellene i rekurrensen din?\n- ☐ Forklarte du hvordan selve oppdelingen hentes ut, og sa du at det ikke\n  øker den asymptotiske kjøretiden?\n- ☐ Oppga du kjøretiden, og definerte du hva $n$ står for?\n- ☐ Sa du at $m$ er en tallverdi da du forklarte «pseudopolynomisk»?\n\nMangler rekonstruksjonsleddet, er det verdt en runde i\n[kap. 6.3](/tdt4120/tdt4120-6-3)."
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-6-prove-coll-C",
+      "type": "collapsible",
+      "title": "Prøve 6.C — Grådighet: Huffman-tre og bytteargument (30 min)",
+      "buttonText": "Vis prøve 3",
+      "content": [
+        {
+          "id": "tdt4120-6-prove-C-intro",
+          "type": "text",
+          "content": "**Prøve 6.C — grådighet: Huffman-tre og bytteargument (30 minutter).** Tre\noppgaver. Ingen hjelpemidler.\n\nPoengfordeling: 9 poeng, 7 poeng og 6 poeng — 22 poeng i alt.\n\nOppgave 1 er sjanger C — håndkjøring, altså at du utfører algoritmen steg for\nsteg og oppgir bare sluttilstanden. Ved Huffman er sluttilstanden **kodelengden\nper tegn**, ikke tegningen av treet."
+        },
+        {
+          "id": "tdt4120-6-prove-C-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tdt4120-6-prove-C-1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Sjanger C — håndkjøring.) Seks tegn skal kodes. Frekvensene er\n$A$ 30, $T$ 20, $O$ 13, $L$ 9, $V$ 6 og $Z$ 2.\n\n**a)** Hvor mange sammenslåinger gjør algoritmen?\n\n**b)** Oppgi kodelengden for hvert tegn.\n\n**c)** Hvor mange bits bruker den kodede teksten totalt, og hvor mye spares mot\nen fast koding med like lange kodeord?",
+            "solution": "**a)** $n - 1 = 6 - 1 = $ **5** sammenslåinger.\n\n**b)** Sporingstavlen viser hver sammenslåing. Algoritmen tar hver gang ut de\n**to letteste** nodene og setter dem sammen til én ny node med summen som vekt.\n\n| Steg | De to letteste tas ut | Ny node legges inn | Køen etter steget (vekt, navn) |\n|---|---|---|---|\n| 1 | $(2, Z)$ og $(6, V)$ | $(8, ZV)$ | $(8, ZV)$, $(9, L)$, $(13, O)$, $(20, T)$, $(30, A)$ |\n| 2 | $(8, ZV)$ og $(9, L)$ | $(17, ZVL)$ | $(13, O)$, $(17, ZVL)$, $(20, T)$, $(30, A)$ |\n| 3 | $(13, O)$ og $(17, ZVL)$ | $(30, OZVL)$ | $(20, T)$, $(30, A)$, $(30, OZVL)$ |\n| 4 | $(20, T)$ og $(30, A)$ | $(50, TA)$ | $(30, OZVL)$, $(50, TA)$ |\n| 5 | $(30, OZVL)$ og $(50, TA)$ | $(80, OZVLTA)$ | $(80, OZVLTA)$ — roten |\n\nSluttilstanden, som er det du leverer:\n\n**$A$ 2 bits, $T$ 2 bits, $O$ 2 bits, $L$ 3 bits, $V$ 4 bits, $Z$ 4 bits.**\n\n**c)** Summen av frekvens ganger kodelengde:\n\n$$30 \\cdot 2 + 20 \\cdot 2 + 13 \\cdot 2 + 9 \\cdot 3 + 6 \\cdot 4 + 2 \\cdot 4 = 60 + 40 + 26 + 27 + 24 + 8 = 185$$\n\nDen kodede teksten bruker **185 bits**. En fast koding trenger 3 bits per tegn\nfor seks tegn, altså $80 \\cdot 3 = 240$ bits. Besparelsen er **55 bits**.\n\n*Fellen her er å slå sammen feil noder — å ta det letteste og det NEST letteste\netter at en ny node er lagt inn, uten å regne den nye noden med i køen. I steg\n2 er det den nye noden $(8, ZV)$ som er lettest, ikke $(9, L)$.*\n\n*Delpoeng:* riktige kodelengder bærer hovedpoenget. Regner du feil i steg 4 og 5,\nmen har riktig prinsipp, gir det fortsatt delvis uttelling.",
+            "hints": [
+              "De to letteste nodene slås sammen, og den nye noden legges tilbake i køen og konkurrerer på lik linje.",
+              "Kodelengden til et tegn er dybden til bladet i treet, altså hvor mange sammenslåinger tegnet var med i.",
+              "Til slutt: gang hver frekvens med sin kodelengde og summer."
+            ]
+          }
+        },
+        {
+          "id": "tdt4120-6-prove-C-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tdt4120-6-prove-C-2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Sjanger D — definisjon med egne ord, altså én presis setning med\nhovedpoenget først.)\n\n**a)** Definér en **prefikskode**, og forklar med én setning hvorfor\negenskapen er nødvendig.\n\n**b)** Forklar hvorfor det grådige valget i `Huffman` — å slå sammen de to\nletteste nodene — kan inngå i en optimal løsning. Bruk et bytteargument.",
+            "solution": "**a)** En **prefikskode** er en koding der ingen kodeord er en forstavelse av\net annet kodeord. Egenskapen er nødvendig fordi den gjør den kodede strømmen\nentydig lesbar uten skilletegn: leseren kan stoppe i det øyeblikket bitene\nmatcher et kodeord, og vet at ingen lengre tolkning finnes.\n\n**b)** **Bytteargumentet.** La $x$ og $y$ være de to tegnene med lavest\nfrekvens, og la $T$ være et optimalt tre. I $T$ finnes to søskenblad $a$ og $b$\npå maksimal dybde. Bytt $x$ med $a$ og $y$ med $b$. Siden $x$ og $y$ har lavest\nfrekvens og $a$ og $b$ ligger dypest, kan totalkostnaden — summen av frekvens\nganger dybde — ikke øke ved byttet. Det nye treet er derfor også optimalt, og\ndet inneholder det grådige valget. Altså finnes det alltid en optimal løsning\nsom gjør det samme valget som `Huffman`.\n\n*Delpoeng:* i **a)** er hovedpoenget «ingen kodeord er forstavelse av et annet»\n— si det først. I **b)** er hovedpoenget selve byttet; sier du bare «det er\noptimalt fordi grådighet virker her», mangler argumentet.",
+            "hints": [
+              "Tenk på hva som går galt hvis kodeordet for ett tegn er starten på kodeordet for et annet.",
+              "Et bytteargument starter med en optimal løsning du ikke kjenner, og endrer den slik at den ligner ditt valg.",
+              "De to letteste tegnene bør ligge dypest — hva skjer med kostnaden hvis du bytter dem med dem som allerede ligger dypest?"
+            ]
+          }
+        },
+        {
+          "id": "tdt4120-6-prove-C-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tdt4120-6-prove-C-3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Sjanger F — «stemmer dette?».) Svar ja eller nei på hver påstand, med én\nsetnings begrunnelse.\n\n**a)** Fraksjonell ryggsekk kan løses grådig ved å sortere på verdi per kilo.\n\n**b)** 0-1-ryggsekk kan løses grådig på samme måte.\n\n**c)** Aktivitetsutvelgelse løses ved alltid å velge aktiviteten som starter\nførst blant dem som passer.",
+            "solution": "**a)** **Ja.** Når gjenstander kan deles, er det alltid optimalt å fylle med\ndet høyeste verdi/vekt-forholdet først, og resten av plassen med det nest\nbeste.\n\n**b)** **Nei.** Uten deling kan et grådig valg låse plassen slik at en bedre\nkombinasjon blir umulig. 0-1-varianten løses med dynamisk programmering i\n$\\Theta(nm)$.\n\n**c)** **Nei.** Regelen er å velge aktiviteten som **slutter** først blant dem\nsom passer — det etterlater mest tid til resten. Å velge den som starter først,\nkan låse en lang aktivitet inn og utelukke to korte.\n\n*Delpoeng:* ja/nei først på alle tre er hovedpoenget. Begrunnelsene gir\nresten.",
+            "hints": [
+              "To av tre påstander er gale. Se etter hvilken egenskap ved problemet som gjør grådighet lovlig.",
+              "På den siste: hvilket valg etterlater mest ledig tid til aktivitetene som kommer etter?"
+            ]
+          }
+        },
+        {
+          "id": "tdt4120-6-prove-C-diag",
+          "type": "text",
+          "content": "**Selvdiagnose etter prøve 6.C**\n\n- ☐ Leverte du kodelengden per tegn, og ikke en tegning av treet?\n- ☐ Tok du den nye sammenslåtte noden med i køen før neste steg?\n- ☐ Sto hovedpoenget først i definisjonen av prefikskode?\n- ☐ Hadde bytteargumentet ditt et faktisk bytte i seg?\n- ☐ Svarte du ja eller nei først på alle tre påstandene?\n- ☐ Skrev du «slutter først», ikke «starter først», om aktivitetsutvelgelse?"
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-6-prove-coll-D",
+      "type": "collapsible",
+      "title": "Prøve 6.D — Stabil matching: blokkerende par og begge orienteringer (30 min)",
+      "buttonText": "Vis prøve 4",
+      "content": [
+        {
+          "id": "tdt4120-6-prove-D-intro",
+          "type": "text",
+          "content": "**Prøve 6.D — stabil matching: blokkerende par og begge orienteringer\n(30 minutter).** Tre oppgaver. Ingen hjelpemidler.\n\nPoengfordeling: 6 poeng, 8 poeng og 8 poeng — 22 poeng i alt.\n\nAlle tre oppgavene bygger på det samme datasettet, som står i oppgave 2. Les\ndet først."
+        },
+        {
+          "id": "tdt4120-6-prove-D-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tdt4120-6-prove-D-1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Sjanger D — definisjon med egne ord.)\n\n**a)** Definér et **blokkerende par**.\n\n**b)** Definér hva det vil si at en matching er **stabil**.\n\n**c)** Hva er forskjellen på en stabil matching og en maksimal matching?",
+            "solution": "**a)** Et **blokkerende par** er to parter som ikke er satt sammen, men som\nbegge foretrekker hverandre framfor den de faktisk fikk.\n\n**b)** En matching er **stabil** når den ikke har noe blokkerende par. Alle er\naltså sammen med noen, og ingen to har både grunn og mulighet til å hoppe av\navtalen sammen.\n\n**c)** En maksimal matching handler om ANTALL par — å koble sammen så mange som\nmulig. En stabil matching handler om PREFERANSER — ingen to skal ville bytte.\nDe to begrepene måler helt ulike ting, og en matching kan være det ene uten å\nvære det andre.\n\n*Delpoeng:* hovedpoenget i **a)** er «begge foretrekker hverandre framfor den de\nhar». Skriver du bare «to som helst vil bytte», mangler gjensidigheten — og det\ner nettopp gjensidigheten som gjør paret blokkerende.",
+            "hints": [
+              "Et blokkerende par krever at BEGGE to vil bytte, ikke bare den ene.",
+              "Definér stabilitet ved fravær av noe, ikke ved tilstedeværelse.",
+              "Det ene begrepet teller par, det andre rangerer dem."
+            ]
+          }
+        },
+        {
+          "id": "tdt4120-6-prove-D-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tdt4120-6-prove-D-2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Sjanger C — håndkjøring.) Fire nyutdannede sykepleiere skal fordeles på fire\nsengeposter. Preferansene, med det best likte først:\n\n| Sykepleier | Preferanser |\n|---|---|\n| Iben | Nord, Vest, Sør, Øst |\n| Jonas | Vest, Nord, Øst, Sør |\n| Kaia | Nord, Sør, Vest, Øst |\n| Liv | Vest, Sør, Nord, Øst |\n\n| Post | Preferanser |\n|---|---|\n| Nord | Jonas, Iben, Liv, Kaia |\n| Vest | Iben, Kaia, Jonas, Liv |\n| Sør | Kaia, Liv, Iben, Jonas |\n| Øst | Liv, Jonas, Kaia, Iben |\n\nKjør `Gale-Shapley` med **sykepleierne som friere**. Ledige friere behandles i\nalfabetisk rekkefølge.\n\n**a)** Oppgi den ferdige matchingen.\n\n**b)** Oppgi hvor mange frierunder som ble avvist.",
+            "solution": "**a)** Sporingstavlen viser hvert frieri i den rekkefølgen algoritmen gjør dem.\n\n| Steg | Frieri | Utfall | Foreløpige par etter steget |\n|---|---|---|---|\n| 1 | Iben til Nord | godtatt, Nord var ledig | Nord–Iben |\n| 2 | Jonas til Vest | godtatt, Vest var ledig | Nord–Iben, Vest–Jonas |\n| 3 | Kaia til Nord | avvist; Nord rangerer Iben over Kaia | Nord–Iben, Vest–Jonas |\n| 4 | Kaia til Sør | godtatt, Sør var ledig | Nord–Iben, Vest–Jonas, Sør–Kaia |\n| 5 | Liv til Vest | avvist; Vest rangerer Jonas over Liv | uendret |\n| 6 | Liv til Sør | avvist; Sør rangerer Kaia over Liv | uendret |\n| 7 | Liv til Nord | avvist; Nord rangerer Iben over Liv | uendret |\n| 8 | Liv til Øst | godtatt, Øst var ledig | Nord–Iben, Vest–Jonas, Sør–Kaia, Øst–Liv |\n\nSluttilstanden, som er det du leverer:\n\n**Iben–Nord, Jonas–Vest, Kaia–Sør, Liv–Øst — kjørt med sykepleierne som\nfriere.**\n\n**b)** **Fire** frierier ble avvist (steg 3, 5, 6 og 7).\n\n*Fasiten skal alltid oppgi hvilken orientering som ble kjørt. Kjører du med\npostene som friere i stedet, får du en annen matching — se oppgave 3.*\n\n*Delpoeng:* en delvis riktig kjøring gir delvis uttelling. Det siste poenget\nhenger på at orienteringen er oppgitt.",
+            "hints": [
+              "En frier går nedover sin egen liste og frir til den beste hun ennå ikke har fått avslag fra.",
+              "En mottaker som allerede har et tilbud, beholder det beste av det gamle og det nye.",
+              "En frier som blir avvist, er ledig igjen og frir videre i neste runde."
+            ]
+          }
+        },
+        {
+          "id": "tdt4120-6-prove-D-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tdt4120-6-prove-D-3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(Sjanger H — åpen algoritmedesign.) Samme datasett som i oppgave 2.\n\n**a)** En koordinator foreslår matchingen Kaia–Nord, Liv–Vest, Iben–Sør,\nJonas–Øst. Er den stabil? Hvis ikke, oppgi et blokkerende par og forklar\nhvorfor det er blokkerende.\n\n**b)** Kjør `Gale-Shapley` med **postene som friere**, og oppgi matchingen.\n\n**c)** Koordinatoren spør om Iben og Vest kan være paret i noen stabil\nmatching. Beskriv hvordan du avgjør slike spørsmål generelt, og svar for dette\ntilfellet.",
+            "solution": "**a)** **Nei, den er ikke stabil.** Et blokkerende par er **Iben og Nord**.\nIben har Sør, men rangerer Nord øverst av alle. Nord har Kaia, men rangerer\nIben på andreplass og Kaia sist. Begge foretrekker altså hverandre framfor det\nde har, og de vil hoppe av sammen. (Også Iben–Vest, Jonas–Nord og Jonas–Vest er\nblokkerende par i denne matchingen; det holder å oppgi ett.)\n\n**b)** Med postene som friere:\n\n| Steg | Frieri | Utfall | Foreløpige par etter steget |\n|---|---|---|---|\n| 1 | Nord til Jonas | godtatt, Jonas var ledig | Jonas–Nord |\n| 2 | Vest til Iben | godtatt, Iben var ledig | Jonas–Nord, Iben–Vest |\n| 3 | Sør til Kaia | godtatt, Kaia var ledig | + Kaia–Sør |\n| 4 | Øst til Liv | godtatt, Liv var ledig | + Liv–Øst |\n\nSluttilstanden: **Iben–Vest, Jonas–Nord, Kaia–Sør, Liv–Øst — kjørt med postene\nsom friere.** Ingen frierier ble avvist.\n\n**c)** **Fremgangsmåten.** `Gale-Shapley` er **frier-optimal**: den gir hver\nfrier den beste partneren hun kan ha i noen stabil matching, og hver mottaker\nden dårligste. De to orienteringene gir derfor de to ytterpunktene. Kjør begge:\net par som opptrer i minst én av dem, er med i minst én stabil matching. Er\nparet det samme i begge kjøringene, er det med i **alle** stabile matchinger.\nKjøretiden er $O(n^2)$ per kjøring, altså $O(n^2)$ i alt.\n\n**Svaret her:** Iben–Vest opptrer i kjøringen med postene som friere, og\n**Iben og Vest kan derfor være paret i en stabil matching**. Legg merke til at\nde IKKE er paret når sykepleierne frir — matchingen er ikke unik, og hvilken\nside som frir, bestemmer utfallet. Kaia–Sør og Liv–Øst er derimot like i begge\nkjøringene.\n\n*Delpoeng:* hovedpoenget i **c)** er at begge orienteringer må kjøres og\nsammenlignes. Svarer du bare «ja» uten metoden, mangler det som faktisk testes.",
+            "hints": [
+              "Et blokkerende par finner du ved å gå gjennom hver frier og se om noen hun liker bedre, også liker henne bedre.",
+              "Frier-optimalitet betyr at frieren får det best mulige hun kan få i noen stabil matching.",
+              "Hva blir da resultatet hvis du bytter om hvem som frir?"
+            ]
+          }
+        },
+        {
+          "id": "tdt4120-6-prove-D-diag",
+          "type": "text",
+          "content": "**Selvdiagnose etter prøve 6.D**\n\n- ☐ Sto gjensidigheten i definisjonen av blokkerende par — at BEGGE foretrekker\n  hverandre?\n- ☐ Oppga du hvilken orientering du kjørte, sammen med matchingen?\n- ☐ Fullførte du kjøringen, i stedet for å stoppe da de fleste var paret?\n- ☐ Brukte du begge orienteringer da du skulle avgjøre om et par er mulig?\n- ☐ Sa du eksplisitt at matchingen ikke er unik?\n- ☐ Oppga du kjøretiden $O(n^2)$?\n\nEr noe av dette uklart, står gjennomgangen i\n[kap. 6.5](/tdt4120/tdt4120-6-5)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

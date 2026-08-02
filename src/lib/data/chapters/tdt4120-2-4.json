@@ -1,0 +1,414 @@
+{
+  "id": "tdt4120-2-4",
+  "courseId": "tdt4120",
+  "chapterNumber": "2.4",
+  "title": "DRILL — Sortering: håndkjøring, kjøretid og kombinasjon",
+  "description": "Full drill på sjanger C (håndkjøring av `Counting-Sort`/`Partition`) og E (kjøretidsfakta + kombinasjonsspørsmål: rekkefølgen på to sorteringer).",
+  "estimatedMinutes": 80,
+  "competenceGoals": [
+    "kunne håndkjøre `Counting-Sort` og `Partition` mekanisk og levere nøyaktig det svarformatet oppgaven ber om",
+    "kunne hente fram kjøretiden til hver av de sju sorteringene med riktig skille mellom beste, verste og forventet",
+    "kunne avgjøre hvilken rekkefølge to sorteringer må kjøres i for at totalen skal bli så billig som mulig, og begrunne det"
+  ],
+  "content": [
+    {
+      "id": "tdt4120-2-4-tip-1",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Sortering er registrert i alle de 17 settene i grunnlaget (100 %)** — ingen\nandre temaer er sikrere. Grunnlaget er de 17 settene fra august 2015 til august\n2023 som er gjennomgått tema for tema; det er nevneren hver gang boka oppgir en\nprosent.\n\nTre sjangre driller vi her, og de skrives ut i klarspråk:\n\n- **Sjanger C — håndkjøring**, altså at du utfører algoritmen steg for steg på\n  papir og oppgir bare sluttilstanden. `Counting-Sort` og `Partition` er de to\n  som kommer i sorteringsdelen.\n- **Sjanger E — kjøretidskunnskap**, altså at du oppgir kjøretiden til en\n  navngitt algoritme i det strammeste uttrykket som er riktig. Dette er den\n  billigste poengtypen i hele faget: sju algoritmer, tre tall hver, og de er\n  aldri annerledes.\n- **Kombinasjonsspørsmålet**, en fast variant av sjanger E: du kjører to\n  sorteringer etter hverandre og skal si hvilken rekkefølge som gir billigst\n  total.\n\n**Høyeste prioritet — dette må sitte.** Eksamen er hjelpemiddelfri, og alt i\ndette kapitlet er ren gjenkalling eller ren mekanikk.\n\n**Slik er kapitlet lagt opp (80 min):**\n\n| Innhold | Tid |\n|---|---|\n| Løsningsoppskriften | ca. 8 min |\n| Den gjennomarbeidede eksamenscasen | ca. 14 min |\n| Drill på `Counting-Sort` | ca. 15 min |\n| Drill på `Partition` | ca. 15 min |\n| Drill på kjøretidsfakta | ca. 13 min |\n| Kombinasjonsspørsmål | ca. 15 min |\n\n— naturlig pausepunkt — etter `Partition`-drillen er du halvveis. Resten er\nfaktakunnskap og kan tas i en egen økt."
+    },
+    {
+      "id": "tdt4120-2-4-t-2",
+      "type": "text",
+      "content": "## Forkunnskaper\n\n- [kap. 2.1](/tdt4120/tdt4120-2-1) — `Insertion-Sort`, `Merge-Sort`,\n  `Quicksort` og `Randomized-Quicksort`, med kjøretider og\n  $\\Omega(n\\lg n)$-grensen.\n- [kap. 2.2](/tdt4120/tdt4120-2-2) — `Counting-Sort`, `Radix-Sort`,\n  `Bucket-Sort` og stabilitet.\n- [kap. 2.3](/tdt4120/tdt4120-2-3) — `Partition` med siste element som pivot,\n  og utvelgelse.\n- [kap. 1.1](/tdt4120/tdt4120-1-1) — de asymptotiske symbolene, og skillet\n  mellom $\\Theta$ og $O$.\n\nAlle sju algoritmene er innført der. Dette kapitlet legger ikke til nytt stoff —\ndet gjør stoffet til en ferdighet."
+    },
+    {
+      "id": "tdt4120-2-4-coll-4",
+      "type": "collapsible",
+      "title": "Notasjons- og pseudokodeliste",
+      "buttonText": "Vis notasjon og pseudokode",
+      "content": [
+        {
+          "id": "tdt4120-2-4-ct-3",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et algoritmefag: den lister kjøretidsuttrykk og pseudokode-operasjoner i stedet for bare greske bokstaver.\n\n| Symbol | Betydning |\n|---|---|\n| $n$ | antall elementer som skal sorteres |\n| $k$ | største nøkkelverdi i `Counting-Sort`; nøklene ligger i $[0..k]$ |\n| $d$ | antall siffer per nøkkel i `Radix-Sort` |\n| `A[1..n]` | arrayet, indeks fra 1 |\n| `C[0..k]` | telletabellen i `Counting-Sort` |\n| `B[1..n]` | outputarrayet i `Counting-Sort` |\n| `q` | pivotens sluttindeks etter en partisjonering |\n| $\\Theta(f(n))$ | tett grense: både øvre og nedre |\n| $O(f(n))$ | bare øvre grense |\n| $\\Omega(f(n))$ | bare nedre grense |\n| $\\lg n$ | $\\log_2 n$ |\n\n| Algoritme/operasjon | Kontrakt | Kjøretid |\n|---|---|---|\n| `Insertion-Sort(A)` | skyver hvert element bakover til sin plass i den sorterte venstredelen | $\\Theta(n)$ beste, $\\Theta(n^2)$ verste |\n| `Merge-Sort(A, p, r)` | deler i to, sorterer hver halvdel og fletter | $\\Theta(n\\lg n)$ |\n| `Quicksort(A, p, r)` | partisjonerer om et pivot og sorterer begge sidene | $\\Theta(n\\lg n)$ forventet, $\\Theta(n^2)$ verste |\n| `Randomized-Quicksort(A, p, r)` | samme, med tilfeldig pivot | $\\Theta(n\\lg n)$ forventet uansett input |\n| `Heapsort(A)` | bygger maks-haug og henter ut maksimum $n-1$ ganger | $\\Theta(n\\lg n)$ |\n| `Counting-Sort(A, B, k)` | teller, summerer opp og plasserer bakfra | $\\Theta(n+k)$ |\n| `Radix-Sort(A, d)` | én stabil delsortering per siffer, minst signifikante først | $\\Theta(d(n+k))$ |\n| `Partition(A, p, r)` | stokker om pivoten `A[r]` og returnerer `q` | $\\Theta(r-p+1)$ |\n\n**Formler i dette delkapitlet:**\n\n$$C[i] = C[i] + C[i-1]$$\n\nOppsummeringen i `Counting-Sort`: etterpå er `C[i]` siste ledige plass for nøkkelen $i$.\n\n$$k = q - p + 1$$\n\nPivotens ordenstall innenfor delen — brukes i utvelgelse, ikke i sortering.\n\n$$\\Theta(n\\lg n) + \\Theta(n) = \\Theta(n\\lg n)$$\n\nKombinasjonsregelen når den dyre sorteringen kjøres først: `Insertion-Sort` etterpå er lineær på sortert input.\n"
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-2-4-thm-5",
+      "type": "theorem",
+      "title": "Løsningsoppskriften for sorteringsoppgaver",
+      "content": "**Steg 1 — avgjør hvilken sjanger oppgaven er.** Ber den deg *utføre* noe, er\ndet håndkjøring (C). Ber den om et *tall* eller et *uttrykk*, er det\nkjøretidskunnskap (E). Ber den deg *velge* mellom algoritmer eller rekkefølger,\ner det kombinasjonsspørsmålet.\n\n**Steg 2 ved håndkjøring:** utfør algoritmen **mekanisk**, linje for linje,\nuten å ta snarveier og uten å reparere en input som ser rar ut. Skriv ned\ntilstanden etter hvert steg mens du regner — det er der delpoengene ligger hvis\ndu bommer til slutt.\n\n**Steg 3 ved håndkjøring:** oppgi **kun** det etterspurte.\n\n| Oppgaven ber om | Du leverer |\n|---|---|\n| telletabellen etter tellingen | den ene raden `C[0..k]` |\n| telletabellen etter oppsummeringen | den ene raden `C[0..k]` |\n| resultatet av `Counting-Sort` | arrayet `B[1..n]` |\n| `Partition` | arrayet etterpå **og** `q`, hvis begge er spurt om |\n| én runde av `Insertion-Sort` | arrayet etter den runden, ikke hele sorteringen |\n\n**Steg 4 ved kjøretid:** hent faktumet fra tabellen, og les spørsmålet én gang\ntil for å se om det gjelder **beste**, **verste** eller **forventet**. Skriv\n$\\Theta$ der grensen er tett og $O$ der bare øvre grense er vist. Trengs en\nutregning, hold den på én linje.\n\n**Steg 5 ved kombinasjon:** finn ut hvilken av de to sorteringene som er\n**inputfølsom**, og sørg for at den kjøres på den inputen som passer den best.\n`Insertion-Sort` er den eneste inputfølsomme i pensum: $\\Theta(n)$ på sortert\ninput, $\\Theta(n^2)$ ellers.\n\n**Steg 6:** skriv svaret på én til tre linjer. Lange svar gir ingen ekstra\nuttelling, og de stjeler tid fra de nitten andre oppgavene."
+    },
+    {
+      "id": "tdt4120-2-4-eks-6",
+      "type": "example",
+      "title": "Eksempel 1: Gjennomarbeidet eksamenscase med margnotater",
+      "problem": "Dette er et sett på tre deloppgaver av den typen som kommer sammen på arket.\nLes margnotatene: de sier hva som gir uttelling ved hvert steg.\n\n**a)** Arrayet `A = 3, 1, 4, 1, 0, 4, 2, 3, 4` skal sorteres med\n`Counting-Sort` med $k = 4$. Oppgi telletabellen `C` **etter oppsummeringen**.\n\n**b)** Kjør `Partition(A, 1, 6)` på `A = 61, 27, 84, 13, 55, 42`. Oppgi arrayet\netterpå og pivotens sluttindeks `q`.\n\n**c)** En algoritme kjører først `Merge-Sort` på hele arrayet og deretter\n`Insertion-Sort` på resultatet. Hva er total kjøretid?",
+      "solution": "**a)** Telletabellen etter tellingen er\n`1, 2, 1, 2, 3` — én nuller, to enere, én\ntoer, to treere og tre firere.\n\nEtter oppsummeringen: **`C = 1, 3, 4, 6, 9`**\n\n*Margnotat.* Oppgaven ba om tabellen etter **oppsummeringen**. Leverer du\ntabellen etter tellingen, har du svart på et annet spørsmål — og hele\ndeloppgaven ryker, selv om regningen er riktig. Kontrollen: siste celle skal\nvære $n = 9$.\n\n*Margnotat.* Kjøringen videre — plasseringen bakfra — var **ikke** etterspurt,\nog skal ikke med i svaret. (Til orientering blir `B` = `0, 1, 1, 2, 3, 3, 4, 4, 4`.)\n\n**b)** Pivoten er `A[6] = 42`.\n\n| `j` | Test | Array etter runden |\n|---|---|---|\n| 1 | `A[1]=61` $>$ 42 | `61, 27, 84, 13, 55, 42` |\n| 2 | `A[2]=27` $\\le$ 42 | `27, 61, 84, 13, 55, 42` |\n| 3 | `A[3]=84` $>$ 42 | `27, 61, 84, 13, 55, 42` |\n| 4 | `A[4]=13` $\\le$ 42 | `27, 13, 84, 61, 55, 42` |\n| 5 | `A[5]=55` $>$ 42 | `27, 13, 84, 61, 55, 42` |\n\nEtter løkka står `i` på 3, og siste steg bytter `A[4]` og `A[6]`.\n\n**Array: `27, 13, 42, 61, 55, 84`, og `q = 3`.**\n\n*Margnotat.* Her ba oppgaven om **begge** deler. Leverer du bare arrayet, får\ndu typisk delvis uttelling — hovedpoenget er der, men ett ledd mangler.\n\n*Margnotat.* En vanlig feil er å sortere sidene etterpå «for at det skal se\nriktig ut». Ikke gjør det: `Partition` lover ingenting om rekkefølgen innenfor\nsidene, og et sortert svar er et **galt** svar på denne oppgaven.\n\n**c)** $\\Theta(n\\lg n)$.\n\n*Margnotat.* Begrunnelsen skal være én linje: `Merge-Sort` koster\n$\\Theta(n\\lg n)$, og etterpå er arrayet sortert, så `Insertion-Sort` treffer\nsitt beste tilfelle og koster $\\Theta(n)$. Summen domineres av det første\nleddet.\n\n*Margnotat.* Motsatt rekkefølge er den fellen oppgaven egentlig tester: kjører\ndu `Insertion-Sort` først, kan den alene koste $\\Theta(n^2)$, og totalen blir\n$\\Theta(n^2)$.\n\n**På eksamen leverer du de tre linjene under — resten er utregning:**\n\n- **a)** `C = 1, 3, 4, 6, 9`\n- **b)** `27, 13, 42, 61, 55, 84`, `q = 3`\n- **c)** $\\Theta(n\\lg n)$"
+    },
+    {
+      "id": "tdt4120-2-4-t-7",
+      "type": "text",
+      "content": "## Drill: `Counting-Sort` (~15 min)\n\nFem oppgaver på håndkjøring. Legg merke til hvor ulikt de spør — svarformatet\nskifter fra oppgave til oppgave, og det er en del av testen."
+    },
+    {
+      "id": "tdt4120-2-4-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-2-4-oppg-8-inner",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamensnivå, sjanger C — håndkjøring, altså at du utfører algoritmen steg for\nsteg og oppgir bare det etterspurte.)\n\n`A = 2, 0, 3, 2, 1, 3, 3` skal sorteres med `Counting-Sort` med $k = 3$.\n\nOppgi telletabellen `C[0..3]` **etter tellingen**.",
+        "solution": "**`C = 1, 1, 2, 3`**\n\nÉn nuller, én ener, to toere og tre treere. Summen av cellene er 7, altså\n$n$ — det er kontrollen.\n\nMerk at oppgaven ba om tabellen etter tellingen, ikke etter oppsummeringen.",
+        "hints": [
+          "Gå gjennom arrayet én gang og legg til én i `C[A[j]]` for hvert element.",
+          "Summen av alle cellene skal bli antall elementer."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-2-4-oppg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-2-4-oppg-9-inner",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamensnivå, sjanger C.)\n\nSamme array som i oppgave 1: `A = 2, 0, 3, 2, 1, 3, 3`, $k = 3$.\n\nOppgi `C[0..3]` **etter den kumulative oppsummeringen**, og forklar med én\nsetning hva tallet i `C[2]` betyr.",
+        "solution": "**`C = 1, 2, 4, 7`**\n\n`C[2] = 4` betyr at fire elementer har nøkkel 2 eller\nlavere — altså er plass 4 den siste ledige plassen for en toer i outputarrayet.\n\nKontrollen: siste celle er 7, som er $n$.",
+        "hints": [
+          "Oppsummeringen er `C[i] = C[i] + C[i-1]` for $i$ fra 1 til $k$.",
+          "Etter oppsummeringen leses `C[i]` som «hvor mange har nøkkel høyst $i$»."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-2-4-oppg-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-2-4-oppg-10-inner",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C.)\n\n`A = 1, 4, 1, 0, 4, 2` skal sorteres med `Counting-Sort` med $k = 4$.\n\nOppgi det ferdige outputarrayet `B`.",
+        "solution": "**`B = 0, 1, 1, 2, 4, 4`**\n\nUnderveis: `C` etter tellingen er `1, 2, 1, 0, 2`, og etter oppsummeringen\n`1, 3, 4, 4, 6`.\n\nMerk at nøkkelen 3 ikke forekommer. Cellen `C[3]` blir stående lik `C[2]` etter\noppsummeringen, og ingen elementer plasseres på grunnlag av den — det er\nkorrekt oppførsel, ikke en feil.",
+        "hints": [
+          "Tell først, summer opp, og plasser deretter elementene bakfra fra `j = n`.",
+          "En nøkkelverdi som ikke forekommer, gir null i telletabellen."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-2-4-oppg-11",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-2-4-oppg-11-inner",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C og F — «stemmer dette?», altså ja eller nei først og\nderetter én presis setning.)\n\nTo pakker har samme rutenummer 5. I inputarrayet ligger pakke `P` før pakke\n`Q`.\n\n**a)** Hvor ligger de i forhold til hverandre etter `Counting-Sort`?\n**b)** Ville svaret vært det samme hvis den siste løkka gikk fra `1` og oppover\ntil `n`?",
+        "solution": "**a)** `P` ligger fortsatt før `Q`. `Counting-Sort` er stabil.\n\n**b)** **Nei.** Med løkka snudd ville `P` blitt plassert først, på den siste\nledige femmerplassen, og `Q` deretter på plassen foran — altså `Q` før `P`.\nSorteringen ville fortsatt vært korrekt, men ikke stabil, og da kunne den ikke\nbrukes som delsortering i `Radix-Sort`.",
+        "hints": [
+          "Se på hvilken retning plasseringsløkka går i, og hvilken plass det første plasserte elementet får.",
+          "Stabilitet betyr at like nøkler beholder innbyrdes rekkefølge."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-2-4-oppg-12",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-2-4-oppg-12-inner",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C.)\n\nSeks lagernumre skal sorteres med `Radix-Sort`: `A = 271, 039, 415, 082, 260,\n417`. Hvert nummer skrives med tre siffer, altså $d = 3$.\n\nOppgi arrayet etter hver av de tre rundene.",
+        "solution": "| Runde | Sorterer på | Array etter runden |\n|---|---|---|\n| 1 | enerne | `260, 271, 082, 415, 417, 039` |\n| 2 | tierne | `415, 417, 039, 260, 271, 082` |\n| 3 | hundrerne | `039, 082, 260, 271, 415, 417` |\n\n**Sluttilstanden: `039, 082, 260, 271, 415, 417`.**\n\nFølg 415 og 417 gjennom kjøringen: etter runde 1 ligger 415 før 417, og i runde\n3 har de samme hundrersiffer. Det er stabiliteten i delsorteringen som holder\ndem i riktig rekkefølge der.",
+        "hints": [
+          "Start med det minst signifikante sifferet, altså enerne.",
+          "Innenfor hver runde skal like siffer beholde rekkefølgen fra forrige runde."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-2-4-t-13",
+      "type": "text",
+      "content": "## Drill: `Partition` (~15 min)\n\nFire oppgaver. Husk at svarformatet er arrayet etterpå **og** `q` når begge er\nspurt om, og at sidene ikke skal sorteres."
+    },
+    {
+      "id": "tdt4120-2-4-oppg-14",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-2-4-oppg-14-inner",
+        "number": 6,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C.)\n\nKjør `Partition(A, 1, 7)` på `A = 38, 71, 15, 62, 29, 47, 33` med siste element\nsom pivot.\n\n**a)** Oppgi arrayet etterpå.\n**b)** Oppgi `q`.",
+        "solution": "Pivoten er 33.\n\n**a)** `15, 29, 33, 62, 71, 47, 38`\n\n**b)** `q = 3`\n\nKontroll: `15, 29` er alle\n$\\le 33$, og `62, 71, 47, 38`\ner alle $> 33$. Høyresiden er ikke sortert, og skal ikke\nvære det.",
+        "hints": [
+          "Pivoten er `A[7]`. Skriv den ned først, og la `i` starte på 0.",
+          "`i` øker bare når du møter et element som er $\\le$ pivoten."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-2-4-oppg-15",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-2-4-oppg-15-inner",
+        "number": 7,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C.)\n\nKjør `Partition(A, 1, 6)` på `A = 9, 14, 22, 31, 45, 50` — et array som\nallerede er sortert.\n\n**a)** Oppgi arrayet etterpå og `q`.\n**b)** Hva forteller resultatet om `Quicksort`s kjøretid på sortert input?",
+        "solution": "**a)** Arrayet er uendret: `9, 14, 22, 31, 45, 50`, og\n`q = 6`.\n\nAlle elementene er $\\le$ pivoten, så `i` øker i hver runde og havner på 5.\nSiste bytte er `A[6]` med `A[6]`, altså ingenting.\n\n**b)** Pivoten havner helt til høyre, og delingen skiller av null elementer på\nhøyre side. Gjentas det i hvert kall, blir rekurrensen\n$T(n) = T(n-1) + \\Theta(n)$, altså $\\Theta(n^2)$ — verste tilfelle for\n`Quicksort`, på den inputen som ser mest velordnet ut.",
+        "hints": [
+          "Sjekk hva testen `A[j] <= x` gir for hvert element når arrayet er sortert.",
+          "Hvor mange elementer havner på hver side av pivoten?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-2-4-oppg-16",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-2-4-oppg-16-inner",
+        "number": 8,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C.)\n\nKjør `Partition(A, 1, 5)` på `A = 56, 41, 68, 23, 12`.\n\nOppgi arrayet etterpå og `q`.",
+        "solution": "Pivoten er 12, som er det minste elementet.\n\n**Array: `12, 41, 68, 23, 56`, og `q = 1`.**\n\nIngen elementer er $\\le$ pivoten, så `i` blir liggende på `p - 1 = 0`, og\npivoten byttes inn på plass 1. Det er den andre ytterligheten: hele arrayet\nhavner på høyre side.",
+        "hints": [
+          "Hva skjer med `i` når ingen elementer består testen `A[j] <= x`?",
+          "Siste steg bytter `A[i+1]` og `A[r]`."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-2-4-oppg-17",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-2-4-oppg-17-inner",
+        "number": 9,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger C, med flere ledd.)\n\n`A = 44, 17, 63, 25, 58, 31`.\n\n**a)** Kjør `Quicksort(A, 1, 6)` og oppgi arrayet etter **den første**\npartisjoneringen.\n**b)** Hvilke to deler blir de rekursive kallene gjort på?\n**c)** Oppgi det ferdig sorterte arrayet.",
+        "solution": "**a)** Pivoten er 31, og etter den første\npartisjoneringen står arrayet som `17, 25, 31, 44, 58, 63` med\n`q = 3`.\n\n**b)** `A[1..2]` og\n`A[4..6]` — pivoten på plass\n3 er ferdig og røres ikke igjen.\n\n**c)** `17, 25, 31, 44, 58, 63`\n\nMerk at deloppgave a) ba om arrayet etter **den første** partisjoneringen. Å\nlevere det ferdig sorterte arrayet der ville vært å svare på deloppgave c) i\nstedet.",
+        "hints": [
+          "Første pivot er `A[6]`. Kjør `Partition` på hele arrayet først.",
+          "De to rekursive kallene hopper over pivotplassen."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-2-4-t-18",
+      "type": "text",
+      "content": "## Drill: kjøretidsfakta (~13 min)\n\nTre oppgaver på ren gjenkalling. Dette er de billigste poengene i faget, og de\ner gratis hvis tabellen sitter."
+    },
+    {
+      "id": "tdt4120-2-4-oppg-19",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-2-4-oppg-19-inner",
+        "number": 10,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamensnivå, sjanger E — kjøretidskunnskap, altså at svaret er ett uttrykk.)\n\nOppgi beste og verste kjøretid for hver av de sju sorteringene: `Insertion-Sort`,\n`Merge-Sort`, `Quicksort`, `Randomized-Quicksort`, `Heapsort`, `Counting-Sort`\nog `Radix-Sort`. Ta med betingelsene der de finnes.",
+        "solution": "| Algoritme | Beste | Verste | Merknad |\n|---|---|---|---|\n| `Insertion-Sort` | $\\Theta(n)$ | $\\Theta(n^2)$ | beste på ferdigsortert input |\n| `Merge-Sort` | $\\Theta(n\\lg n)$ | $\\Theta(n\\lg n)$ | ikke på stedet |\n| `Quicksort` | $\\Theta(n\\lg n)$ | $\\Theta(n^2)$ | $\\Theta(n\\lg n)$ **forventet** |\n| `Randomized-Quicksort` | $\\Theta(n\\lg n)$ | $\\Theta(n^2)$ | forventet $\\Theta(n\\lg n)$ **for enhver input** |\n| `Heapsort` | $\\Theta(n\\lg n)$ | $\\Theta(n\\lg n)$ | på stedet, ustabil |\n| `Counting-Sort` | $\\Theta(n+k)$ | $\\Theta(n+k)$ | lineær bare når $k = O(n)$ |\n| `Radix-Sort` | $\\Theta(d(n+k))$ | $\\Theta(d(n+k))$ | krever stabil delsortering |\n\nDe tre siste kolonneverdiene er ikke pynt — de er selve svaret når oppgaven\nspør «under hvilke forutsetninger».",
+        "hints": [
+          "Del algoritmene i to grupper: de som er inputfølsomme og de som ikke er det.",
+          "Bare én av de sju har et beste tilfelle som er asymptotisk bedre enn verste."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-2-4-oppg-20",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-2-4-oppg-20-inner",
+        "number": 11,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger E.)\n\nFor hvert utsagn: er kjøretiden riktig oppgitt? Rett den om nødvendig.\n\n**a)** `Insertion-Sort` er $\\Omega(n\\lg n)$ i beste tilfelle.\n**b)** `Build-Max-Heap` er $\\Theta(n\\lg n)$.\n**c)** `Randomized-Select` er $\\Theta(n)$ i verste tilfelle.\n**d)** `Counting-Sort` er $\\Theta(n)$.",
+        "solution": "**a)** **Galt.** Beste tilfelle er $\\Theta(n)$, på ferdigsortert input. Dette\ner felle **#9** — feil kjøretidsfakta.\n\n**b)** **Galt.** `Build-Max-Heap` er $\\Theta(n)$. Den løse tellingen «$n/2$\nkall à $O(\\lg n)$» er en gyldig øvre grense, men ikke stram. Se\n[kap. 3.1](/tdt4120/tdt4120-3-1).\n\n**c)** **Galt.** $\\Theta(n)$ er **forventet** kjøretid; verste tilfelle er\n$\\Theta(n^2)$. Det er `Select` — median av medianer — som er $\\Theta(n)$ i\nverste tilfelle.\n\n**d)** **Ufullstendig.** Riktig er $\\Theta(n+k)$, og lineært bare når\n$k = O(n)$.\n\nAlle fire er kjente feilsvar. Legg merke til at tre av dem er *nesten* riktige:\ntallet stemmer for et annet tilfelle enn det spørsmålet gjelder.",
+        "hints": [
+          "For hvert utsagn: hvilket tilfelle gjelder tallet faktisk for?",
+          "Ett av utsagnene er ikke direkte galt, bare ufullstendig."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-2-4-oppg-21",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-2-4-oppg-21-inner",
+        "number": 12,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger E.)\n\nDu skal sortere $n$ elementer og må **garantere** kjøretiden — en forventning\nholder ikke.\n\n**a)** Hvilke av de sju sorteringene kan du bruke, og hva blir garantien?\n**b)** Hvilke må du utelukke, og hvorfor?",
+        "solution": "**a)** `Merge-Sort` og `Heapsort` gir $\\Theta(n\\lg n)$ garantert.\n`Counting-Sort` gir $\\Theta(n+k)$ garantert, og `Radix-Sort` gir\n$\\Theta(d(n+k))$ garantert — men begge under forutsetninger om nøklene.\n\n**b)** `Quicksort` og `Randomized-Quicksort` gir bare en forventning; verste\ntilfelle er $\\Theta(n^2)$ for begge. `Insertion-Sort` er $\\Theta(n^2)$ i verste\ntilfelle, altså en garanti — men en dårlig en.\n\nSkal du velge én uten kjennskap til nøklene: `Merge-Sort` hvis du kan avse\nplassen, `Heapsort` hvis du ikke kan.",
+        "hints": [
+          "Skill mellom «forventet» og «verste tilfelle» for hver algoritme.",
+          "To av de sju har en garanti som er både god og betingelsesfri."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-2-4-t-22",
+      "type": "text",
+      "content": "## Kombinasjonsspørsmål (~15 min)\n\nDen siste varianten er en fast felle: du får to sorteringer og skal si hvilken\nrekkefølge som er billigst. Nøkkelen er å finne den **inputfølsomme**\nalgoritmen."
+    },
+    {
+      "id": "tdt4120-2-4-oppg-23",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-2-4-oppg-23-inner",
+        "number": 13,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger E — kombinasjonsspørsmål.)\n\nDu kjører først den ene algoritmen på hele arrayet, deretter den andre på\nresultatet.\n\n**a)** For hvilken rekkefølge av `Merge-Sort` og `Insertion-Sort` blir total\nkjøretid $\\Theta(n\\lg n)$?\n**b)** Hva blir totalen i motsatt rekkefølge?\n**c)** Begrunn med et talleksempel.",
+        "solution": "**a)** `Merge-Sort` **først**, `Insertion-Sort` etterpå: $\\Theta(n\\lg n) + \\Theta(n) = \\Theta(n\\lg n)$.\n\n**b)** `Insertion-Sort` først: den kan alene koste $\\Theta(n^2)$, og totalen\nblir $\\Theta(n^2) + \\Theta(n\\lg n) = \\Theta(n^2)$.\n\n**c)** Med $n = 12$: på synkende input `12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1`\ngjør `Insertion-Sort` 66 enkeltskyv i den\nindre løkka. På sortert input `1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12`\ngjør den 0. Det er hele forskjellen mellom\n$\\Theta(n^2)$ og $\\Theta(n)$, og den avhenger utelukkende av hva som kom først.\n\n**Regelen bak:** `Insertion-Sort` er den eneste inputfølsomme sorteringen i\npensum. `Merge-Sort` gjør nøyaktig like mye arbeid uansett, så den bryr seg\nikke om hva som kom først — og derfor skal den gå først.",
+        "hints": [
+          "Hvilken av de to blir raskere når inputen allerede er sortert?",
+          "Hvilken av de to gjør like mye arbeid uansett hvordan inputen ser ut?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-2-4-oppg-24",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-2-4-oppg-24-inner",
+        "number": 14,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger E — kombinasjonsspørsmål, variant.)\n\nDu kjører først `Counting-Sort` på en **sekundærnøkkel**, deretter\n`Insertion-Sort` på primærnøkkelen. Nøklene er heltall i $[0..k]$ med\n$k = O(n)$.\n\n**a)** Blir resultatet sortert riktig etter begge nøklene?\n**b)** Hva er total kjøretid i verste tilfelle?",
+        "solution": "**a)** **Ja**, forutsatt at `Insertion-Sort` er stabil — og det er den. Etter\n`Counting-Sort` er elementene ordnet etter sekundærnøkkelen; når\n`Insertion-Sort` deretter ordner etter primærnøkkelen uten å bytte om på like\nprimærnøkler, bevares sekundærordningen innenfor hver gruppe. Det er det samme\nprinsippet som i `Radix-Sort`.\n\n**b)** $\\Theta(n^2)$. `Counting-Sort` koster $\\Theta(n+k) = \\Theta(n)$, men\n`Insertion-Sort` er $\\Theta(n^2)$ i verste tilfelle — og etter sortering på\n**sekundærnøkkelen** er det ingen grunn til å tro at primærnøklene ligger pent.\n\nVil du ha $\\Theta(n)$ totalt, bytt den siste sorteringen med en ny\n`Counting-Sort` på primærnøkkelen. Det er nøyaktig `Radix-Sort`-oppskriften.",
+        "hints": [
+          "Hvilken egenskap ved den siste sorteringen kreves for at den første ikke skal gå tapt?",
+          "Er det noen grunn til å tro at sortering på én nøkkel gjør inputen pen for den andre?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-2-4-oppg-25",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-2-4-oppg-25-inner",
+        "number": 15,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger F — «stemmer dette?».)\n\nEn kandidat skriver: «Vi kjører `Merge-Sort` og deretter `Counting-Sort` med\n$k = n$. Totalen blir $\\Theta(n)$, siden `Counting-Sort` er lineær og den siste\nsorteringen bestemmer resultatet.»\n\nStemmer konklusjonen? Svar ja eller nei, og begrunn.",
+        "solution": "**Nei.**\n\nTotal kjøretid er summen av leddene, ikke bare det siste: $\\Theta(n\\lg n) + \\Theta(n+k)$. Med $k = n$ blir det $\\Theta(n\\lg n) + \\Theta(n) = \\Theta(n\\lg n)$.\n\nAt den siste sorteringen bestemmer *resultatet*, er riktig. At den bestemmer\n*kjøretiden*, er galt — arbeidet fra det første steget forsvinner ikke.\n\nSkulle totalen blitt $\\Theta(n)$, måtte `Merge-Sort`-steget vært fjernet helt.\nOg det kan det: `Counting-Sort` alene sorterer riktig.",
+        "hints": [
+          "Hvordan legger man sammen kjøretidene til to steg som utføres etter hverandre?",
+          "Er det første steget nødvendig i det hele tatt?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-2-4-warn-26",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "De to første koster hele oppgaven.\n\n- **Å oppgi mer enn det som er spurt om.** Ber oppgaven om telletabellen etter\n  oppsummeringen, er den ene raden hele svaret. Ber den om arrayet etter én\n  `Insertion-Sort`-runde, skal du ikke levere hele sorteringen. Dette er den\n  hyppigste kilden til tapte poeng i sjanger C — ikke fordi svaret er galt,\n  men fordi det ikke er svaret på spørsmålet.\n- **Å oppgi feil kjøretidsfakta.** Dette er felle **#9**. De fire som går\n  igjen: `Insertion-Sort` beste som $\\Omega(n\\lg n)$ (den er $\\Theta(n)$),\n  `Build-Max-Heap` som $\\Theta(n\\lg n)$ (den er $\\Theta(n)$),\n  `Randomized-Select` verste som $\\Theta(n)$ (den er $\\Theta(n^2)$), og\n  `Counting-Sort` som $\\Theta(n)$ uten betingelsen $k = O(n)$.\n- **Å sortere sidene etter `Partition`.** Rutinen lover bare hvilken side hvert\n  element havner på. Et «pent» svar der begge sidene er sortert, er galt.\n- **Å velge feil rekkefølge i kombinasjonsspørsmålet.** Den inputfølsomme\n  sorteringen skal ha den inputen som passer den best — altså skal\n  `Insertion-Sort` kjøres **sist**, på et allerede sortert array.\n- **Å tro at bare det siste steget teller.** To steg etter hverandre koster\n  summen av begge.\n- **Å reparere en input som ser rar ut.** Kjører du en algoritme på en input\n  som ikke oppfyller den vanlige forutsetningen, skal du utføre trinnene\n  mekanisk og levere det du får.\n\nOg den gjennomgående: **å bruke tid på en forklaring ingen har bedt om**.\nTjue oppgaver teller likt; tiden er den knappeste ressursen på arket."
+    },
+    {
+      "id": "tdt4120-2-4-t-27",
+      "type": "text",
+      "content": "## Kjøretidene du kan bli spurt om i en deloppgave\n\n| Algoritme | Beste | Verste | Forventet | Stabil | På stedet | Betingelse |\n|---|---|---|---|---|---|---|\n| `Insertion-Sort` | $\\Theta(n)$ | $\\Theta(n^2)$ | $\\Theta(n^2)$ | ja | ja | beste på sortert input |\n| `Merge-Sort` | $\\Theta(n\\lg n)$ | $\\Theta(n\\lg n)$ | $\\Theta(n\\lg n)$ | ja | nei | — |\n| `Quicksort` | $\\Theta(n\\lg n)$ | $\\Theta(n^2)$ | $\\Theta(n\\lg n)$ | nei | ja | verste på sortert input |\n| `Randomized-Quicksort` | $\\Theta(n\\lg n)$ | $\\Theta(n^2)$ | $\\Theta(n\\lg n)$ | nei | ja | forventet gjelder enhver input |\n| `Heapsort` | $\\Theta(n\\lg n)$ | $\\Theta(n\\lg n)$ | $\\Theta(n\\lg n)$ | nei | ja | — |\n| `Counting-Sort` | $\\Theta(n+k)$ | $\\Theta(n+k)$ | $\\Theta(n+k)$ | ja | nei | heltall i $[0..k]$; lineær når $k = O(n)$ |\n| `Radix-Sort` | $\\Theta(d(n+k))$ | $\\Theta(d(n+k))$ | $\\Theta(d(n+k))$ | ja | nei | krever stabil delsortering |\n| `Bucket-Sort` | $\\Theta(n)$ | $\\Theta(n^2)$ | $\\Theta(n)$ | ja | nei | krever jevn fordeling |\n| `Partition` | $\\Theta(m)$ | $\\Theta(m)$ | $\\Theta(m)$ | — | ja | $m$ = lengden på delen |\n\n`Heapsort` og `Build-Max-Heap` hører hjemme i [kap. 3.1](/tdt4120/tdt4120-3-1);\nde står her fordi de er en del av den samme puggeflaten på eksamen."
+    },
+    {
+      "id": "tdt4120-2-4-t-28",
+      "type": "text",
+      "content": "### Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp\nhar lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet\ngjelder kjernestoffet."
+    },
+    {
+      "id": "tdt4120-2-4-def-29",
+      "type": "definition",
+      "title": "Svarformat for `Counting-Sort`",
+      "content": "oppgi **kun** det som er etterspurt: telletabellen etter tellingen,\ntelletabellen etter oppsummeringen, eller outputarrayet `B`.\n\nKontrollen på den oppsummerte tabellen: siste celle skal være $n$.\n\n**Å levere begge tabellene når bare én var spurt om**, gir ingen ekstra\nuttelling — og koster tid."
+    },
+    {
+      "id": "tdt4120-2-4-def-30",
+      "type": "definition",
+      "title": "Svarformat for `Partition`",
+      "content": "oppgi arrayet etterpå **og** pivotens sluttindeks `q`, når begge er spurt om.\n\nSidene skal **ikke** sorteres. Alt til venstre for `q` er $\\le$ pivoten, alt til\nhøyre er $>$.\n\n**Bare pivotens plassering er endelig.**"
+    },
+    {
+      "id": "tdt4120-2-4-def-31",
+      "type": "definition",
+      "title": "Svarformat for én sorteringsrunde",
+      "content": "ber oppgaven om arrayet etter én bestemt runde, leverer du den ene tilstanden —\nikke hele sorteringen.\n\nFor `Insertion-Sort` betyr «runde `j`» at `A[1..j]` er ordnet og resten er\nurørt.\n\n**Å kjøre ferdig hele sorteringen er å svare på et annet spørsmål.**"
+    },
+    {
+      "id": "tdt4120-2-4-def-32",
+      "type": "definition",
+      "title": "Kombinasjonsregelen",
+      "content": "kjører du to sorteringer etter hverandre, skal den **inputfølsomme** kjøres\nsist, på en input som passer den.\n\n`Merge-Sort` før `Insertion-Sort` gir $\\Theta(n\\lg n)$; motsatt rekkefølge\nrisikerer $\\Theta(n^2)$.\n\n**Total kjøretid er summen av leddene**, ikke bare det siste."
+    },
+    {
+      "id": "tdt4120-2-4-def-33",
+      "type": "definition",
+      "title": "Inputfølsom sortering",
+      "content": "en sortering hvis kjøretid avhenger av hvordan inputen ser ut.\n\n`Insertion-Sort` er den eneste asymptotisk inputfølsomme i pensum: $\\Theta(n)$\npå sortert input, $\\Theta(n^2)$ på synkende.\n\n**`Merge-Sort` og `Heapsort` er upåvirket** — de gjør like mye arbeid uansett."
+    },
+    {
+      "id": "tdt4120-2-4-def-34",
+      "type": "definition",
+      "title": "Felle #9 — feil kjøretidsfakta",
+      "content": "å oppgi et kjøretidstall som gjelder et annet tilfelle enn det spørsmålet\nhandler om.\n\nDe fire som går igjen: `Insertion-Sort` beste, `Build-Max-Heap`,\n`Randomized-Select` verste, og `Counting-Sort` uten betingelse.\n\n**Kontrollen er å lese spørsmålet én gang til** og finne ordet «beste»,\n«verste» eller «forventet»."
+    },
+    {
+      "id": "tdt4120-2-4-def-35",
+      "type": "definition",
+      "title": "Mekanisk håndkjøring",
+      "content": "å utføre algoritmen nøyaktig slik pseudokoden sier, også når inputen ikke ser\nut som forventet.\n\nDu reparerer ikke, forenkler ikke og hopper ikke over steg.\n\n**Det er den mekaniske kjøringen oppgaven spør etter**, ikke det svaret\nalgoritmen «burde» gitt."
+    },
+    {
+      "id": "tdt4120-2-4-def-36",
+      "type": "definition",
+      "title": "Delvis uttelling i sjanger C",
+      "content": "en håndkjøring som er delvis riktig, gir delvis uttelling — derfor lønner det\nseg å skrive ned tilstanden etter hvert steg mens du regner.\n\nMangler ett ledd av et sammensatt svar (for eksempel `q` når både array og `q`\nvar spurt om), trekkes det typisk bare for det leddet.\n\n**Blankt ark gir null.** Et delvis svar gir noe."
+    },
+    {
+      "id": "tdt4120-2-4-def-37",
+      "type": "definition",
+      "title": "Sjanger C — håndkjøring",
+      "content": "oppgavetypen der du utfører en navngitt algoritme steg for steg og oppgir\nsluttilstanden.\n\nSvarformen er **kun sluttilstanden**, i det formatet oppgaven ber om.\n\n**Den hyppigste håndkjøringen i sorteringsdelen** er `Counting-Sort` og\n`Partition`."
+    },
+    {
+      "id": "tdt4120-2-4-def-38",
+      "type": "definition",
+      "title": "Sjanger E — kjøretidskunnskap",
+      "content": "oppgavetypen der du oppgir kjøretiden til en navngitt algoritme.\n\nSvarformen er ett uttrykk, i det strammeste som er riktig, med betingelsen der\nden finnes.\n\n**Den billigste poengtypen i faget** — hvis tabellen sitter."
+    },
+    {
+      "id": "tdt4120-2-4-def-39",
+      "type": "definition",
+      "title": "Sjanger F — «stemmer dette?»",
+      "content": "oppgavetypen der du får en påstand og skal ta stilling til den.\n\nSvarformen er **ja eller nei først**, deretter én presis setning.\n\n**Et konkret motbevis holder** når svaret er nei."
+    },
+    {
+      "id": "tdt4120-2-4-def-40",
+      "type": "definition",
+      "title": "Garantert mot forventet",
+      "content": "en **garanti** gjelder for enhver kjøring; en **forventning** er et\ngjennomsnitt over algoritmens tilfeldige valg.\n\n`Merge-Sort` og `Heapsort` gir garantier; `Quicksort` og\n`Randomized-Quicksort` gir forventninger.\n\n**Spør oppgaven om en garanti, er `Quicksort` feil svar** — uansett hvor rask\nden er i praksis."
+    },
+    {
+      "id": "tdt4120-2-4-coll-42",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tdt4120-2-4-ct-41",
+          "type": "text",
+          "content": "Fem korte spørsmål fra kapitlene dette bygger på. Svar i hodet først, så\nsammenlign.\n\n**1.** Hvilken rekurrens beskriver `Merge-Sort`, og hvilket\nmasterteorem-tilfelle løser den?\n\n*Svar:* $T(n) = 2T(n/2) + \\Theta(n)$, tilfelle 2 med $k = 0$, altså\n$\\Theta(n\\lg n)$. Se [kap. 1.4](/tdt4120/tdt4120-1-4).\n\n**2.** Hvorfor må delsorteringen i `Radix-Sort` være stabil?\n\n*Svar:* fordi rekkefølgen fra de foregående sifferrundene ellers går tapt for\nelementer med likt siffer i den aktuelle runden. Se\n[kap. 2.2](/tdt4120/tdt4120-2-2).\n\n**3.** Hva returnerer `Partition`, og hva garanterer den?\n\n*Svar:* pivotens sluttindeks `q`; alt til venstre er $\\le$ pivoten, alt til\nhøyre er $>$. Sidene er ikke sortert. Se [kap. 2.3](/tdt4120/tdt4120-2-3).\n\n**4.** Hva er verste tilfelle for `Randomized-Select`?\n\n*Svar:* $\\Theta(n^2)$. $\\Theta(n)$ er forventet.\n\n**5.** Hvorfor gjelder ikke $\\Omega(n\\lg n)$-grensen for `Counting-Sort`?\n\n*Svar:* fordi grensen bare gjelder sorteringer som avgjør rekkefølgen ved\nsammenligninger; `Counting-Sort` bruker nøkkelen som indeks. Se\n[kap. 2.1](/tdt4120/tdt4120-2-1).\n\n**Videre:** [kap. 3.1](/tdt4120/tdt4120-3-1) tar maks-haugen og `Heapsort` —\nden siste sammenligningssorteringen, og den som gir deg prioritetskøen på\nkjøpet."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

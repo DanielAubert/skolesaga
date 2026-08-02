@@ -1,0 +1,366 @@
+{
+  "id": "tdt4120-6-4",
+  "courseId": "tdt4120",
+  "chapterNumber": "6.4",
+  "title": "Grådighet — Huffman og aktivitetsutvelgelse",
+  "description": "Huffman (optimale prefikskoder), aktivitetsutvelgelse og grådig-bytteargumentet — når et lokalt optimalt valg gir globalt optimum.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "kunne bygge et Huffman-tre fra gitte frekvenser og oppgi kodelengden for hvert tegn",
+    "kunne begrunne hvorfor det å velge aktiviteten som slutter først gir flest mulig aktiviteter",
+    "kunne forklare et bytteargument, altså at et lokalt valg kan inngå i en optimal løsning",
+    "kunne avgjøre når grådighet virker, og når problemet i stedet krever dynamisk programmering"
+  ],
+  "content": [
+    {
+      "id": "tdt4120-6-4-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Grådighet er belagt i 65 % (11 av de 17 settene i grunnlaget).** Temaet er\nsjelden hovedretten, men det dukker opp i tre faste former:\n\n- **Sjanger C — håndkjøring**, altså at du utfører algoritmen steg for steg på\n  papir og oppgir **bare sluttilstanden**. For `Huffman` er sluttilstanden\n  **kodelengden per tegn**, ikke tegningen av treet.\n- **Sjanger D — definisjon med egne ord**, altså én presis setning med\n  hovedpoenget først. «Hva er en prefikskode?» og «hva menes med grådig valg?»\n  er typiske.\n- **Sjanger H — åpen algoritmedesign**, altså «hvordan vil du gå fram?». Her er\n  poenget som regel å se at problemet **ikke** er grådig og må løses med\n  dynamisk programmering, eller motsatt.\n\n**Prioritet: kjenne til.** Du skal kjenne igjen `Huffman` fra en frekvenstabell,\nkunne kjøre den mekanisk, og kunne si i én setning hvorfor det grådige valget er\ntrygt. Du trenger ikke kunne bevise optimaliteten formelt.\n\n**Det som faktisk koster poeng her**, er å svare «grådig» på et problem som ikke\ner grådig. 0-1-ryggsekk fra [kap. 6.2](/tdt4120/tdt4120-6-2) er motbeviset du\nalltid kan ty til, og du møter det igjen mot slutten av dette kapitlet.\n\n**Slik er kapitlet lagt opp (50 min):**\n\n| # | Innhold | Tid |\n|---|---|---|\n| 1 | Hva en grådig algoritme er, og aktivitetsutvelgelse | ca. 13 min |\n| 2 | Bytteargumentet og grådig valg-egenskap | ca. 12 min |\n| 3 | `Huffman` og optimale prefikskoder | ca. 15 min |\n| 4 | Fraksjonell mot 0-1-ryggsekk, og begrepsbanken | ca. 10 min |"
+    },
+    {
+      "id": "tdt4120-6-4-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper\n\nDette kapitlet bygger på [kap. 6.1](/tdt4120/tdt4120-6-1), der **optimal\nsubstruktur** ble innført — egenskapen at en optimal løsning på hele problemet\ninneholder optimale løsninger på delproblemene. Grådighet krever den samme\negenskapen, pluss én til, og hele kapitlet handler om den ekstra egenskapen.\n\nFra [kap. 6.2](/tdt4120/tdt4120-6-2) trenger du 0-1-ryggsekk som kontrast: der\ner verdien $\\Theta(nm)$ og problemet lar seg **ikke** løse grådig. Det er bokas\nfaste motbevis mot «grådighet virker alltid».\n\nDu trenger dessuten:\n\n- **prioritetskø** fra [kap. 3.1](/tdt4120/tdt4120-3-1) — `Huffman` plukker\n  gjentatte ganger ut det minste elementet, og en binærhaug gjør hvert slikt\n  uttak i $O(\\lg n)$;\n- **sortering** fra [kap. 2.1](/tdt4120/tdt4120-2-1) — aktivitetsutvelgelse\n  forutsetter at aktivitetene allerede er sortert på sluttid, og det koster\n  $\\Theta(n\\lg n)$ hvis de ikke er det;\n- **asymptotisk notasjon** fra [kap. 1.1](/tdt4120/tdt4120-1-1) — særlig\n  skillet mellom $O$ (bare øvre grense) og $\\Theta$ (tett grense).\n\nHar du ikke møtt pseudokode og kjøretidsuttrykk før, er\n[Algoritmedefinisjon, pseudokode og kompleksitet (Big-O)](/tdt4110/tdt4110-6-3)\net mykere første møte."
+    },
+    {
+      "id": "tdt4120-6-4-coll-notasjon",
+      "type": "collapsible",
+      "title": "Notasjons- og pseudokodeliste",
+      "buttonText": "Vis notasjon og pseudokode",
+      "content": [
+        {
+          "id": "tdt4120-6-4-nt-1",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et algoritmefag: den lister kjøretidsuttrykk\nog pseudokode-operasjoner i stedet for bare greske bokstaver.\n\n| Symbol | Betydning |\n|---|---|\n| $n$ | antall tegn i alfabetet, eller antall aktiviteter |\n| $C$ | alfabetet — mengden av tegn som skal kodes |\n| $c.freq$ | frekvensen til tegnet $c$, altså hvor mange ganger det forekommer |\n| $d_T(c)$ | dybden til tegnet $c$ i kodetreet $T$, som er **det samme som kodelengden** i bits |\n| $B(T)$ | totalt antall bits teksten koster med kodetreet $T$ |\n| $s[i]$, $f[i]$ | starttid og sluttid for aktivitet $i$ |\n| $Q$ | en min-prioritetskø ordnet på frekvens |\n| $O(g(n))$ | øvre grense — det kan ikke gå verre enn dette |\n| $\\Theta(g(n))$ | tett grense — det går verken bedre eller verre enn dette |\n| $\\lg n$ | logaritmen med grunntall 2, altså $\\log_2 n$ |\n| $\\lceil x \\rceil$ | opprunding — minste heltall som er minst $x$ |"
+        },
+        {
+          "id": "tdt4120-6-4-nt-2",
+          "type": "text",
+          "content": "| Algoritme/operasjon | Kontrakt | Kjøretid |\n|---|---|---|\n| `Huffman(C)` | bygger et binært kodetre for alfabetet `C` ved gjentatt å slå sammen de to letteste nodene; returnerer rota | $O(n\\lg n)$ |\n| `Greedy-Activity-Selector(s, f)` | velger flest mulig innbyrdes kompatible aktiviteter når `f` er sortert stigende | $\\Theta(n)$ |\n| `Extract-Min(Q)` | fjerner og returnerer noden med lavest frekvens i prioritetskøen | $O(\\lg n)$ med binærhaug |\n| `Insert(Q, z)` | setter noden `z` inn i prioritetskøen | $O(\\lg n)$ med binærhaug |\n| `Merge-Sort(A)` | sorterer `A[1..n]` stigende; brukes til å sortere aktivitetene på sluttid | $\\Theta(n\\lg n)$ |\n| `Fractional-Knapsack` | fyller sekken grådig etter verdi per vekt, og kan dele siste vare | $\\Theta(n\\lg n)$ med sortering |"
+        },
+        {
+          "id": "tdt4120-6-4-nt-3",
+          "type": "text",
+          "content": "**Formler i dette delkapitlet:**\n\n$$B(T) = \\sum_{c \\in C} c.freq \\cdot d_T(c)$$\n\nTotalkostnaden i bits: hvert tegn koster sin egen kodelengde, ganget med hvor\nofte det forekommer. Det er denne summen `Huffman` gjør minst mulig.\n\n$$B_{\\text{fast}} = \\lceil \\lg n \\rceil \\cdot \\sum_{c \\in C} c.freq$$\n\nSammenligningsgrunnlaget: med **fast** kodelengde får alle tegn like mange bits,\nog da trengs $\\lceil \\lg n \\rceil$ bits for å skille $n$ tegn.\n\n$$s[m] \\ge f[k]$$\n\nKompatibilitetsbetingelsen i aktivitetsutvelgelse: aktivitet $m$ kan velges\netter aktivitet $k$ hvis den starter tidligst når $k$ er ferdig."
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-6-4-anker",
+      "type": "text",
+      "content": "## Ett rom, mange arrangementer (~13 min)\n\nEt grendehus har ett stort rom og en bunke søknader om å låne det. Hver søknad\nhar et starttidspunkt og et sluttidspunkt, og to arrangementer kan ikke overlappe\ni tid. Styret vil få **flest mulig** arrangementer inn i kalenderen — ikke de\nlengste, ikke de mest populære, bare flest mulig.\n\nDet finnes en overraskende enkel regel som alltid gir riktig svar: **velg hele\ntiden det arrangementet som slutter først blant dem som fortsatt passer.** Ingen\ntabell, ingen tilbakesporing — bare ett gjennomløp av listen.\n\nEn algoritme som bygger løsningen ved å ta det valget som ser best ut akkurat nå,\nog aldri angrer, kalles **grådig**. Grådighet er billigere enn dynamisk\nprogrammering, men den virker bare når problemet har en bestemt struktur. Dette\nkapitlet handler om når den strukturen er der — og hvordan du oppdager at den\nikke er det."
+    },
+    {
+      "id": "tdt4120-6-4-def-gradig",
+      "type": "definition",
+      "title": "Grådig algoritme",
+      "content": "En algoritme som bygger løsningen bit for bit og hver gang tar det valget som\nser best ut lokalt, uten å se framover og uten å angre senere.\n\nFordelen er kjøretid: en grådig algoritme trenger som regel bare ett gjennomløp,\naltså $\\Theta(n)$ etter en eventuell sortering, mens dynamisk programmering fyller\nen hel tabell. Kravet er at problemet har **grådig valg-egenskap** — at det finnes\nen optimal løsning som inneholder det lokale valget. Er ikke det oppfylt, gir\ngrådighet et svar som ser rimelig ut og er galt."
+    },
+    {
+      "id": "tdt4120-6-4-def-aktivitet",
+      "type": "definition",
+      "title": "Aktivitetsutvelgelsesproblemet",
+      "content": "Gitt $n$ aktiviteter der aktivitet $i$ opptar tidsrommet fra $s[i]$ til $f[i]$,\nfinn en størst mulig mengde aktiviteter som ikke overlapper hverandre i tid.\n\nTo aktiviteter er **kompatible** når den ene slutter senest når den andre starter.\nProblemet løses grådig ved å velge aktiviteten som **slutter først**, og deretter\ngjenta på det som er igjen. Kjøretiden er $\\Theta(n)$ når aktivitetene allerede er\nsortert stigende på sluttid, og $\\Theta(n\\lg n)$ når sorteringen må gjøres først.\nLegg merke til at det er **sluttiden** som styrer, ikke starttiden og ikke\nvarigheten."
+    },
+    {
+      "id": "tdt4120-6-4-th-pk-gas",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `Greedy-Activity-Selector`",
+      "content": "**1. Antagelser om representasjon.** Aktivitetene er nummerert $1$ til $n$ og\ngitt som to arrayer `s[1..n]` og `f[1..n]` med indeks fra 1. Arrayene er ordnet\nslik at sluttidene er stigende: $f[1] \\le f[2] \\le \\dots \\le f[n]$. Er de ikke\ndet, sorterer du dem først, og det koster $\\Theta(n\\lg n)$.\n\n**2. Pre- og postbetingelse.** *Før:* `f` er sortert stigende. *Etter:* mengden\n`A` inneholder innbyrdes kompatible aktiviteter, og ingen annen mengde av\ninnbyrdes kompatible aktiviteter har flere elementer.\n\n**3. Pseudokoden.**\n\n```text\nGreedy-Activity-Selector(s, f)\n  Input:  starttider s[1..n] og sluttider f[1..n],\n          med f[1] <= f[2] <= ... <= f[n]\n  Output: en storst mulig mengde innbyrdes kompatible aktiviteter\n  A = {1}\n  k = 1\n  for m = 2 to n\n      if s[m] >= f[k]\n          A = A + {m}\n          k = m\n  return A\n```\n\n**4. Grunnideen i én setning.** Ved å velge aktiviteten som slutter først,\netterlater du så mye ledig tid som mulig til resten — og mer ledig tid kan aldri\ngi færre aktiviteter.\n\n**5. Kjøretid.** Løkka gjør ett gjennomløp av $n$ aktiviteter med konstant arbeid\nper aktivitet, altså $\\Theta(n)$ etter sortering. Skriv `$\\Theta$` her, ikke `$O$`:\nløkka går alltid hele veien, uansett input."
+    },
+    {
+      "id": "tdt4120-6-4-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Åtte arrangementer i grendehuset",
+      "problem": "Åtte arrangementer er søkt inn i det store rommet. Tidene er oppgitt i timer\netter klokka 08, og lista er allerede sortert stigende på sluttid:\n\n| Aktivitet | A1 | A2 | A3 | A4 | A5 | A6 | A7 | A8 |\n|---|---|---|---|---|---|---|---|---|\n| Start | 0 | 2 | 1 | 4 | 6 | 5 | 8 | 9 |\n| Slutt | 3 | 4 | 6 | 7 | 9 | 10 | 11 | 13 |\n\nKjør `Greedy-Activity-Selector` og oppgi hvilke arrangementer som velges.",
+      "solution": "Regelen er mekanisk: gå gjennom lista i sluttid-rekkefølge, og velg en aktivitet\nhvis den starter tidligst når den forrige valgte er ferdig.\n\n| Steg | Aktivitet | Start | Slutt | Avgjørelse | Siste sluttid etter steget |\n|---|---|---|---|---|---|\n| 1 | A1 | 0 | 3 | velges | 3 |\n| 2 | A2 | 2 | 4 | forkastes (start 2 < 3) | 3 |\n| 3 | A3 | 1 | 6 | forkastes (start 1 < 3) | 3 |\n| 4 | A4 | 4 | 7 | velges | 7 |\n| 5 | A5 | 6 | 9 | forkastes (start 6 < 7) | 7 |\n| 6 | A6 | 5 | 10 | forkastes (start 5 < 7) | 7 |\n| 7 | A7 | 8 | 11 | velges | 11 |\n| 8 | A8 | 9 | 13 | forkastes (start 9 < 11) | 11 |\n\n**Sluttilstand: `A1, A4, A7` — tre arrangementer.**\n\n**Margnotat: hva som gir uttelling ved hvert steg.**\n\n- Steg 1 er gratis: den første aktiviteten i en sluttid-sortert liste velges\n  alltid. Å hoppe over den er aldri lønnsomt.\n- Steg 2 og 3 er der de fleste bommer. A3 varer fra 1 til 6 og virker «stor og\n  viktig», men den kolliderer med A1. Grådigheten bryr seg ikke om varighet.\n- Steg 5 og 6 tester det samme en gang til: A5 slutter tidligere enn A6, men\n  begge starter før A4 er ferdig, så begge forkastes.\n\n**Kontroll av svaret.** A1 slutter i 3, A4 starter i 4 — greit. A4 slutter i 7,\nA7 starter i 8 — greit. Ingen overlapp, og en uttømmende gjennomgang av alle\ndelmengder bekrefter at tre er det maksimale her.\n\n**Merk hva som faktisk leveres.** Oppgaven ber om hvilke arrangementer som\nvelges, ikke om en forklaring av algoritmen. Én linje med tre navn er hele svaret;\ntabellen over er undervisning."
+    },
+    {
+      "id": "tdt4120-6-4-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-6-4-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave.) Sju vaktskift er søkt inn på samme ressurs. Lista er allerede\nsortert stigende på sluttid, og tidene er klokkeslett:\n\n| Vakt | V1 | V2 | V3 | V4 | V5 | V6 | V7 |\n|---|---|---|---|---|---|---|---|\n| Start | 8 | 9 | 10 | 11 | 13 | 15 | 14 |\n| Slutt | 10 | 11 | 13 | 14 | 16 | 18 | 19 |\n\n**a)** Hvilke vakter velger `Greedy-Activity-Selector`?\n**b)** Hvor mange vakter kommer med?",
+        "solution": "| Steg | Aktivitet | Start | Slutt | Avgjørelse | Siste sluttid etter steget |\n|---|---|---|---|---|---|\n| 1 | V1 | 8 | 10 | velges | 10 |\n| 2 | V2 | 9 | 11 | forkastes (start 9 < 10) | 10 |\n| 3 | V3 | 10 | 13 | velges | 13 |\n| 4 | V4 | 11 | 14 | forkastes (start 11 < 13) | 13 |\n| 5 | V5 | 13 | 16 | velges | 16 |\n| 6 | V6 | 15 | 18 | forkastes (start 15 < 16) | 16 |\n| 7 | V7 | 14 | 19 | forkastes (start 14 < 16) | 16 |\n\n**a) `V1, V3, V5`.**\n\n**b) Tre vakter.**\n\nLegg merke til V4 og V7. V4 starter i 11, men V3 holder på til 13, så den\nforkastes. V7 varer lengst av alle (fra 14 til 19), men den slutter sist og blir\nderfor vurdert helt til slutt — da er V5 allerede valgt og opptar tiden fram til\n16.\n\n**Kontroll:** V1 slutter i 10, V3 starter i 10. Betingelsen er $s[m] \\ge f[k]$,\naltså «starter tidligst når forrige er ferdig» — likhet er lov. Skriver du\n$s[m] > f[k]$, mister du V3 og får bare to vakter.",
+        "hints": [
+          "Gå gjennom lista i den rekkefølgen den står, og hold styr på sluttiden til den sist valgte vakta.",
+          "Betingelsen er $s[m] \\ge f[k]$. Sjekk hva som skjer når starttiden er nøyaktig lik forrige sluttid."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-6-4-motbevis",
+      "type": "text",
+      "content": "### Hvorfor nettopp «slutter først»?\n\nTo andre regler ser like fornuftige ut, og begge er gale. Det er verdt å ha\nmotbevisene klare, for de er korte og de dukker opp som delspørsmål.\n\n**«Velg den korteste aktiviteten først.»** Ta tre aktiviteter: C1 fra 0 til 5,\nC2 fra 4 til 6, C3 fra 5 til 10. Den korteste er C2 med varighet 2. Velger du\nden, blokkerer du både C1 og C3, og du sitter igjen med **én** aktivitet. Den\noptimale løsningen er `C1, C3` med **to** aktiviteter.\n\n**«Velg den som starter først.»** Ta D1 fra 0 til 12, D2 fra 1 til 4, D3 fra 5\ntil 8, D4 fra 9 til 11. Den som starter først er D1, og den spiser hele dagen —\nresultatet blir **én** aktivitet. Optimum er `D2, D3, D4` med **tre**.\n\n**Intuisjon:** det eneste som betyr noe for resten av problemet, er *når rommet\nblir ledig igjen*. Varighet og starttidspunkt sier ingenting om det. Sluttiden\ngjør det, og derfor er det den grådigheten skal styres av."
+    },
+    {
+      "id": "tdt4120-6-4-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-6-4-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger C — håndkjøring, altså at du utfører algoritmen steg for steg og oppgir\nbare sluttilstanden.) Åtte gruppetimer er søkt inn på ett grupperom, sortert\nstigende på sluttid:\n\n| Aktivitet | B1 | B2 | B3 | B4 | B5 | B6 | B7 | B8 |\n|---|---|---|---|---|---|---|---|---|\n| Start | 1 | 3 | 0 | 5 | 4 | 7 | 8 | 11 |\n| Slutt | 4 | 5 | 6 | 8 | 9 | 10 | 12 | 14 |\n\n**a)** Oppgi mengden `Greedy-Activity-Selector` returnerer.\n**b)** B8 starter i 11 og slutter i 14, og ser ut som en grei kandidat. Forklar i\nén setning hvorfor den likevel ikke kommer med.",
+        "solution": "| Steg | Aktivitet | Start | Slutt | Avgjørelse | Siste sluttid etter steget |\n|---|---|---|---|---|---|\n| 1 | B1 | 1 | 4 | velges | 4 |\n| 2 | B2 | 3 | 5 | forkastes (start 3 < 4) | 4 |\n| 3 | B3 | 0 | 6 | forkastes (start 0 < 4) | 4 |\n| 4 | B4 | 5 | 8 | velges | 8 |\n| 5 | B5 | 4 | 9 | forkastes (start 4 < 8) | 8 |\n| 6 | B6 | 7 | 10 | forkastes (start 7 < 8) | 8 |\n| 7 | B7 | 8 | 12 | velges | 12 |\n| 8 | B8 | 11 | 14 | forkastes (start 11 < 12) | 12 |\n\n**a) Sluttilstand: `B1, B4, B7`** — tre gruppetimer.\n\n**b)** B7 ble valgt i steg 7 og holder rommet opptatt til klokka 12, og\n$11 < 12$, så B8 bryter kompatibilitetsbetingelsen $s[m] \\ge f[k]$.\n\nMerk at B8 *isolert sett* er uskyldig — den kolliderer ikke med B1 eller B4. Men\ngrådigheten hadde allerede bundet seg til B7, som slutter tidligere enn B8 og\nderfor kom først i lista. En uttømmende gjennomgang bekrefter at tre er\nmaksimum: du kan bytte ut B7 med B8, men aldri få med begge.",
+        "hints": [
+          "Skriv opp $f[k]$ for den sist valgte aktiviteten etter hvert steg — det er den eneste tilstanden algoritmen har.",
+          "For b): finn hvilken aktivitet som var valgt rett før B8 ble vurdert, og sammenlign de to tallene."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-6-4-bytte",
+      "type": "text",
+      "content": "## Bytteargumentet — hvorfor et lokalt valg er trygt (~12 min)\n\nAt regelen virker på tre eksempler, er ikke et argument. Det som gjør grådighet\nfaglig holdbar, er et **bytteargument**: du viser at *en hvilken som helst*\noptimal løsning kan gjøres om til en optimal løsning som inneholder ditt grådige\nvalg — ved å bytte ut ett element.\n\n**Intuisjon:** hvis den optimale løsningen bruker et annet element enn ditt, kan\ndu erstatte det med ditt uten å tape noe. Da er din løsning minst like god, og\nsiden den andre var optimal, er din det også.\n\nFor aktivitetsutvelgelse går argumentet slik. La $A$ være en optimal mengde\naktiviteter, og la $j$ være den aktiviteten i $A$ som slutter først. La $1$ være\naktiviteten som slutter først i hele problemet — den grådigheten velger. Da er\n$f[1] \\le f[j]$. Bytt ut $j$ med $1$ i $A$. Den nye mengden har like mange\nelementer som $A$, og den er fortsatt lovlig, fordi $1$ slutter tidligere enn $j$\nog derfor ikke kan kollidere med noe som lå etter $j$. Altså finnes det en\noptimal løsning som inneholder det grådige valget.\n\nResten følger ved gjentakelse: etter det første valget står du igjen med et\nmindre problem av nøyaktig samme type, og argumentet kan brukes på nytt."
+    },
+    {
+      "id": "tdt4120-6-4-th-gradigvalg",
+      "type": "theorem",
+      "title": "Grådig valg-egenskap og optimal substruktur",
+      "content": "En grådig algoritme er korrekt når **begge** disse egenskapene holder:\n\n**1. Grådig valg-egenskap.** Det finnes en optimal løsning som inneholder det\nlokalt beste valget. Dette er egenskapen som skiller grådighet fra dynamisk\nprogrammering, og den bevises med et **bytteargument**.\n\n**2. Optimal substruktur.** Når det grådige valget er tatt, er det som gjenstår\net mindre problem av samme type, og en optimal løsning på helheten inneholder en\noptimal løsning på restproblemet.\n\nDynamisk programmering krever bare punkt 2. Det er derfor DP er bredere anvendelig\nog grådighet er raskere: DP prøver **alle** valg i hvert steg og lar tabellen\navgjøre, mens grådighet tar **ett** valg og går videre. Mangler punkt 1, gir\ngrådighet et galt svar — og 0-1-ryggsekk er standardmotbeviset."
+    },
+    {
+      "id": "tdt4120-6-4-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-6-4-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger D — definisjon med egne ord, altså én presis setning med hovedpoenget\nførst.)\n\n**a)** Forklar hva **grådig valg-egenskap** betyr.\n**b)** Forklar med én setning hva et **bytteargument** gjør, og hvorfor det er\nnødvendig.\n**c)** Hvilken av de to egenskapene i teoremet over krever dynamisk programmering,\nog hvilken krever grådighet i tillegg?",
+        "solution": "**a)** Grådig valg-egenskap betyr at det finnes **minst én optimal løsning som\ninneholder det lokalt beste valget** — altså at du ikke taper noe på å binde deg\ntil dette valget før du har sett resten av problemet.\n\n**b)** Et bytteargument viser at en vilkårlig optimal løsning kan gjøres om til\nen like god optimal løsning som inneholder det grådige valget, ved å bytte ut ett\nelement. Det er nødvendig fordi «det virker på eksemplene mine» ikke utelukker at\nen annen løsning er bedre på en instans du ikke har prøvd.\n\n**c)** Dynamisk programmering krever bare **optimal substruktur**. Grådighet\nkrever optimal substruktur **og** grådig valg-egenskap.\n\nHvis du bare får plass til én setning på eksamen, er det siste punktet den som\ngir uttelling: begge paradigmene krever optimal substruktur, det er grådig\nvalg-egenskap som er det ekstra kravet.",
+        "hints": [
+          "Start hver forklaring med hovedpoenget, ikke med en innledning — svarformen i sjanger D er én presis setning.",
+          "For c): tenk på hva DP faktisk gjør i hvert steg (prøver alle valg) mot hva grådighet gjør (tar ett valg)."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-6-4-huffman-intro",
+      "type": "text",
+      "content": "## `Huffman` og optimale prefikskoder (~15 min)\n\n— naturlig pausepunkt —\n\nEn tekstfil skal lagres med færrest mulig bits. Med **fast** kodelengde får alle\ntegn like mange bits: seks ulike tegn krever $\\lceil \\lg 6 \\rceil = 3$ bits\nhver. Men tegnene forekommer ikke like ofte. Gir vi de hyppigste tegnene korte\nkoder og de sjeldne lange, kan totalen bli langt mindre.\n\nProblemet er at koder med ulik lengde kan bli tvetydige. Hvis `A` er `0` og `B`\ner `01`, vet ikke mottakeren om `01` betyr «B» eller «A etterfulgt av noe som\nbegynner på 1». Løsningen er en **prefikskode**."
+    },
+    {
+      "id": "tdt4120-6-4-def-prefikskode",
+      "type": "definition",
+      "title": "Prefikskode",
+      "content": "En koding der ingen tegns kode er begynnelsen på et annet tegns kode.\n\nDet gjør avkodingen entydig: leser du bitstrømmen fra venstre, finnes det til\nenhver tid høyst én kode som passer, og du kan skjære av tegnet med én gang du\nkjenner det igjen. En prefikskode svarer nøyaktig til et **binærtre der alle\ntegnene sitter i bladene** — venstre kant leses som 0, høyre som 1, og veien fra\nrota ned til bladet er tegnets kode. Kodelengden til et tegn er derfor det samme\nsom dybden til bladet."
+    },
+    {
+      "id": "tdt4120-6-4-th-pk-huffman",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `Huffman`",
+      "content": "**1. Antagelser om representasjon.** Alfabetet `C` har $n$ tegn, og hvert tegn\n`c` har et frekvensfelt `c.freq` som er et ikke-negativt tall. `Q` er en\nmin-prioritetskø ordnet på `freq`, typisk implementert som en binærhaug. Hver\nnode i treet har feltene `venstre`, `hoyre` og `freq`; tegnene ligger i bladene.\n\n**2. Pre- og postbetingelse.** *Før:* alle frekvenser er kjent, og $n \\ge 2$.\n*Etter:* returverdien er rota i et binærtre som gir en **optimal prefikskode**\nfor `C` — ingen annen prefikskode gir færre bits totalt.\n\n**3. Pseudokoden.**\n\n```text\nHuffman(C)\n  Input:  alfabet C med n tegn, hvert tegn c har frekvensen c.freq\n  Output: rota i et binaertre som gir en optimal prefikskode for C\n  n = |C|\n  Q = C                          // min-prioritetsko ordnet paa freq\n  for i = 1 to n - 1\n      alloker en ny node z\n      x = Extract-Min(Q)\n      y = Extract-Min(Q)\n      z.venstre = x\n      z.hoyre   = y\n      z.freq    = x.freq + y.freq\n      Insert(Q, z)\n  return Extract-Min(Q)\n```\n\n**4. Grunnideen i én setning.** De to sjeldneste tegnene må ligge dypest i et\noptimalt tre, og de kan alltid plasseres som søsken — derfor kan de slås sammen\ntil én node med summen som frekvens, og problemet krymper med ett tegn.\n\n**5. Kjøretid.** Løkka kjøres $n-1$ ganger, og hver runde gjør to `Extract-Min`\nog én `Insert`, hver i $O(\\lg n)$ med binærhaug. Det gir $O(n\\lg n)$. Skriv `$O$`\nog ikke `$\\Theta$` her: kjøretiden avhenger av hvordan prioritetskøen er\nimplementert."
+    },
+    {
+      "id": "tdt4120-6-4-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Huffman-tre for seks tegn",
+      "problem": "En logg består av seks ulike tegn med disse frekvensene:\n\n| Tegn | E | R | N | S | K | Y |\n|---|---|---|---|---|---|---|\n| Frekvens | 22 | 14 | 11 | 7 | 4 | 2 |\n\n**a)** Kjør `Huffman` og oppgi kodelengden for hvert tegn.\n**b)** Hvor mange bits koster loggen med denne kodingen, mot en fast koding med\n3 bits per tegn?",
+      "solution": "Regelen er den samme hver runde: ta ut de **to letteste** nodene, slå dem sammen\ntil én ny node med summen som frekvens, og legg den nye noden tilbake i køen.\n\n| Steg | To letteste | Ny node | Køen etter steget (frekvens: node) |\n|---|---|---|---|\n| 1 | Y (2) og K (4) | 6 | 6: (6), 7: S, 11: N, 14: R, 22: E |\n| 2 | (6) (6) og S (7) | 13 | 11: N, 13: (13), 14: R, 22: E |\n| 3 | N (11) og (13) (13) | 24 | 14: R, 22: E, 24: (24) |\n| 4 | R (14) og E (22) | 36 | 24: (24), 36: (36) |\n| 5 | (24) (24) og (36) (36) | 60 | 60: (60) |\n\n**a) Sluttilstand — kodelengde per tegn: E 2, R 2, N 2, S 3, K 4, Y 4.**\n\n**b)** Totalt 139 bits, mot $3 \\cdot 60 = 180$ bits med fast 3-bits koding.\n\nRegnestykket bak (a):\n\n$$22 \\cdot 2 + 14 \\cdot 2 + 11 \\cdot 2 + 7 \\cdot 3 + 4 \\cdot 4 + 2 \\cdot 4 = 139$$\n\n**Margnotat: hvor delpoenget faller.**\n\n- Steg 1 er hele testen. Y (2) og K (4) er de to letteste, og de skal slås\n  sammen — ikke Y og S, og ikke de to første i tabellen.\n- Steg 2 er det andre kritiske: den nye noden med frekvens 6 er nå **lettere enn\n  S (7)**, så den deltar i neste sammenslåing på lik linje med de opprinnelige\n  tegnene. Å legge sammenslåtte noder «til side» er den vanligste feilen.\n- Etter 5 sammenslåinger står det igjen én node — det er alltid $n-1$ runder for\n  $n$ tegn.\n\n**Kontroll uten å telle treet på nytt:** legg sammen $2^{-\\ell}$ over alle\nkodelengder. Her blir det $2^{-2}+2^{-2}+2^{-2}+2^{-3}+2^{-4}+2^{-4} = 1$\nnøyaktig, som den skal for et tre der alle indre noder har to barn.\n\n**Merk hva som leveres.** Sjanger C krever sluttilstanden i det formatet oppgaven\nber om, og for `Huffman` er det **kodelengden per tegn** — ikke en tegning av\ntreet, og ikke selve bitmønstrene, med mindre det står i oppgaven."
+    },
+    {
+      "id": "tdt4120-6-4-fig-huffman",
+      "type": "image",
+      "src": "/images/textbook/tdt4120/huffman-tre.svg",
+      "alt": "Huffman-treet for frekvensene E 22, R 14, N 11, S 7, K 4 og Y 2. Rota har frekvens 60 og to barn med frekvens 24 og 36. Noden 24 har barna N med 11 og en node med 13, som igjen har barna en node med 6 og S med 7. Noden 6 har barna Y med 2 og K med 4. Noden 36 har barna R med 14 og E med 22. Kantene er merket 0 til venstre og 1 til hoyre.",
+      "caption": "Treet fra Eksempel 2, med frekvensene fra hver sammenslåing tegnet inn. Kodelengden til et tegn er antall kanter fra rota ned til bladet: E, R og N ligger på dybde 2, S på 3, og K og Y på 4."
+    },
+    {
+      "id": "tdt4120-6-4-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-6-4-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger C — håndkjøring.) Fem tegn har disse frekvensene:\n\n| Tegn | P | V | H | J | C |\n|---|---|---|---|---|---|\n| Frekvens | 25 | 20 | 18 | 12 | 5 |\n\n**a)** Kjør `Huffman` og oppgi kodelengden for hvert tegn.\n**b)** Hvor mange bits koster teksten totalt?",
+        "solution": "| Steg | To letteste | Ny node | Køen etter steget (frekvens: node) |\n|---|---|---|---|\n| 1 | C (5) og J (12) | 17 | 17: (17), 18: H, 20: V, 25: P |\n| 2 | (17) (17) og H (18) | 35 | 20: V, 25: P, 35: (35) |\n| 3 | V (20) og P (25) | 45 | 35: (35), 45: (45) |\n| 4 | (35) (35) og (45) (45) | 80 | 80: (80) |\n\n**a) Sluttilstand — kodelengde per tegn: P 2, V 2, H 2, J 3, C 3.**\n\n**b)** $25 \\cdot 2 + 20 \\cdot 2 + 18 \\cdot 2 + 12 \\cdot 3 + 5 \\cdot 3 = 177$ bits.\n\nTil sammenligning ville fast koding med 3 bits per tegn kostet\n$3 \\cdot 80 = 240$ bits. Gevinsten er beskjeden her, og det er ikke tilfeldig:\nfrekvensene ligger tett, og da nærmer den optimale kodingen seg den faste.\n\n**Kontroll:** $2^{-2}+2^{-2}+2^{-2}+2^{-3}+2^{-3} = 1$.",
+        "hints": [
+          "Sett opp de fem frekvensene som en kø, og finn de to letteste. Skriv ned køen på nytt etter hver sammenslåing.",
+          "Etter hver runde er det ett element færre i køen. Med fem tegn blir det fire runder."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-6-4-warn-1",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Å slå sammen feil noder.** `Huffman` tar de **to letteste** i køen, og en\n  node som er laget ved sammenslåing teller på lik linje med et opprinnelig tegn.\n  I Eksempel 2 er det nettopp den nye noden med frekvens 6 som er lettere enn S\n  med 7. **Kontrollen:** skriv opp hele køen etter hver runde, sortert.\n- **Å gi det sjeldneste tegnet den korteste koden.** Sammenhengen er motsatt: jo\n  sjeldnere tegnet er, desto dypere ligger bladet og desto lengre er koden. Er\n  kodelengdene dine ikke svakt synkende med frekvensen, har du regnet feil.\n- **Å levere treet når det ble spurt om kodelengder.** Sluttilstanden for\n  `Huffman` er kodelengden per tegn, eventuelt totalt antall bits. Tegningen er\n  arbeidet ditt, ikke svaret.\n- **Å oppgi kjøretiden til `Huffman` som $\\Theta(n)$.** Den er $O(n\\lg n)$, fordi\n  hver av de $n-1$ rundene gjør prioritetskø-operasjoner i $O(\\lg n)$. Dette er\n  felle **#9** i bokas feilregister — å oppgi feil kjøretidsfakta.\n- **Å tro at grådighet alltid gir optimum.** Det gjør den bare når grådig\n  valg-egenskap er oppfylt. Neste avsnitt viser motbeviset.\n- **Å sortere aktivitetene på starttid.** Aktivitetsutvelgelse forutsetter\n  sortering på **sluttid**. Sorterer du på start, gir algoritmen feil svar, som\n  motbeviset med D1 til D4 viser."
+    },
+    {
+      "id": "tdt4120-6-4-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-6-4-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger C, med en ekstra vri.) Seks tegn har frekvensene\n\n| Tegn | A | B | C | D | E | F |\n|---|---|---|---|---|---|---|\n| Frekvens | 1 | 1 | 2 | 3 | 5 | 8 |\n\n**a)** Kjør `Huffman` og oppgi kodelengden for hvert tegn.\n**b)** Treet får en påfallende form. Beskriv formen med én setning, og si hva i\nfrekvensene som forårsaker den.",
+        "solution": "| Steg | To letteste | Ny node | Køen etter steget (frekvens: node) |\n|---|---|---|---|\n| 1 | A (1) og B (1) | 2 | 2: (2), 2: C, 3: D, 5: E, 8: F |\n| 2 | C (2) og (2) (2) | 4 | 3: D, 4: (4), 5: E, 8: F |\n| 3 | D (3) og (4) (4) | 7 | 5: E, 7: (7), 8: F |\n| 4 | E (5) og (7) (7) | 12 | 8: F, 12: (12) |\n| 5 | F (8) og (12) (12) | 20 | 20: (20) |\n\n**a) Sluttilstand — kodelengde per tegn: A 5, B 5, C 4, D 3, E 2, F 1.**\n\n**b)** Treet blir helt **skjevt**: hver sammenslåing lager en node som er akkurat\ntung nok til å bli slått sammen med det neste enkelttegnet, så treet vokser som\nen trapp i stedet for å bli balansert. Årsaken ligger i frekvensene — hvert tall\ner summen av de to foregående, altså er den nye noden alltid nøyaktig like tung\nsom det neste tegnet i rekka.\n\nTotalt koster teksten $45$ bits, mot $3 \\cdot 20 = 60$ med fast koding — den\nstørste relative gevinsten du får se i dette kapitlet, nettopp fordi frekvensene\ner så ulike.\n\n**Poenget å ta med seg:** Huffman-treet er ikke balansert og skal ikke være det.\nEt balansert tre er optimalt bare når frekvensene er like — se\nbegrepsbanken.",
+        "hints": [
+          "Skriv opp køen etter hver runde. Legg merke til hvor den nye noden havner i forhold til tegnene som er igjen.",
+          "Sammenlign frekvensen til den nye noden med frekvensen til det letteste gjenværende tegnet i hver runde."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-6-4-ryggsekk-intro",
+      "type": "text",
+      "content": "## Fraksjonell mot 0-1: der grådighet slutter å virke (~10 min)\n\n— naturlig pausepunkt —\n\nRyggsekkproblemet finnes i to varianter, og de skiller lag nøyaktig på grådighet.\n\nI **fraksjonell** ryggsekk kan du ta en del av en vare — halvparten av sekken med\nkobber, tre firedeler av sinken. Da virker grådighet: sorter varene på **verdi\nper vekt**, ta så mye du kan av den beste, og fyll resten med den nest beste. Den\nsiste varen deles hvis den ikke får plass hel.\n\nI **0-1**-varianten er varene udelelige: du tar hele varen eller ingenting. Da\nfaller grådigheten sammen, og du må bruke dynamisk programmering — det er\n$\\Theta(nm)$-algoritmen fra [kap. 6.2](/tdt4120/tdt4120-6-2), der $m$ er\nkapasiteten."
+    },
+    {
+      "id": "tdt4120-6-4-def-fraksjonell",
+      "type": "definition",
+      "title": "Fraksjonell ryggsekk",
+      "content": "Varianten av ryggsekkproblemet der du kan ta en vilkårlig **del** av hver vare,\nog verdien skaleres tilsvarende.\n\nDen løses grådig: ranger varene etter verdi per vekt, ta så mye som mulig av den\nmed høyest forhold, og fortsett nedover. Bare den siste varen som får plass, blir\ndelt. Kjøretiden er $\\Theta(n\\lg n)$, som er dominert av sorteringen — selve\nfyllingen er $\\Theta(n)$. **Kontrast:** i 0-1-varianten er varene udelelige,\ngrådig valg-egenskap er ikke oppfylt, og problemet krever dynamisk programmering."
+    },
+    {
+      "id": "tdt4120-6-4-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Samme instans, to svar",
+      "problem": "Et gjenvinningsanlegg har plass til 6 kg metall på lasteplanet:\n\n| Vare | Vekt (kg) | Verdi (kr) |\n|---|---|---|\n| kobber | 2 | 30 |\n| sink | 5 | 60 |\n| tinn | 5 | 55 |\n\n**a)** Hva er den største verdien i den **fraksjonelle** varianten?\n**b)** Hva er den største verdien i **0-1**-varianten?\n**c)** Hva gir grådighet etter verdi per vekt i 0-1-varianten?",
+      "solution": "**a)** Ranger på verdi per vekt og fyll ovenfra:\n\n| Rang | Vare | Vekt | Verdi | Verdi per vekt | Tatt (kg) | Verdi hittil |\n|---|---|---|---|---|---|---|\n| 1 | kobber | 2 | 30 | 15.0 | 2 | 30.0 |\n| 2 | sink | 5 | 60 | 12.0 | 4 | 78.0 |\n| 3 | tinn | 5 | 55 | 11.0 | 0 | 78.0 |\n\nFraksjonelt optimum: **78 kroner** — hele kobberet og fire femdeler av sinken.\n\n**b)** I 0-1-varianten kan ingen vare deles. Uttømmende gjennomgang av alle åtte\ndelmengder gir optimum **60 kroner**, oppnådd med `sink` alene, som veier\nnøyaktig 5 kg.\n\n**c)** Grådighet tar først kobber (verdi per vekt 15), som veier 2 kg. Da er det\n4 kg igjen, og verken sink eller tinn får plass hele. Grådigheten stopper med\n**30 kroner** — 30 kroner dårligere enn optimum.\n\n**Dette er motbeviset i én instans.** Fraksjonell ryggsekk har grådig\nvalg-egenskap; 0-1-ryggsekk har det ikke. Merk at det fraksjonelle svaret\n(78) er **høyere** enn 0-1-svaret (60) — det er alltid slik, siden fraksjonell\ntillater alt 0-1 tillater og mer til.\n\n**Svarformen.** Oppgaven ber om verdier, ikke om en utledning. Tre tall er hele\nsvaret; rangeringstabellen er arbeidet."
+    },
+    {
+      "id": "tdt4120-6-4-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-6-4-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger F — «stemmer dette?», altså at du svarer ja eller nei først og deretter\ngir én presis setning.) Avgjør for hver påstand:\n\n**a)** Grådighet gir optimal løsning på 0-1-ryggsekk hvis du rangerer varene på\nverdi per vekt.\n**b)** `Huffman` gir en optimal prefikskode.\n**c)** I et Huffman-tre kan et tegn med høyere frekvens få lengre kode enn et\ntegn med lavere frekvens.\n**d)** Aktivitetsutvelgelse løst grådig er $\\Theta(n\\lg n)$ uansett.",
+        "solution": "**a) Nei.** Motbeviset i Eksempel 3 gir 30 kroner grådig mot 60 kroner optimalt,\nfordi kobberet legger beslag på plass som sinken trengte hel.\n\n**b) Ja.** `Huffman` gir en kode som gjør $B(T) = \\sum_c c.freq \\cdot d_T(c)$\nminst mulig blant alle prefikskoder; ingen annen prefikskode bruker færre bits.\n\n**c) Nei.** Har $c_1$ høyere frekvens enn $c_2$, kan $c_1$ aldri få lengre kode —\nellers ville du fått en billigere kode ved å bytte de to bladene, og treet var\naltså ikke optimalt. Like frekvenser kan derimot gi like lange koder i hvilken som\nhelst rekkefølge.\n\n**d) Nei.** Selve utvelgelsen er $\\Theta(n)$; det er sorteringen på sluttid som\nkoster $\\Theta(n\\lg n)$. Er aktivitetene allerede sortert — og det er de ofte i\noppgaveteksten — er totalen $\\Theta(n)$.\n\n**Merk svarformen.** Sjanger F krever ja eller nei **først**, deretter én setning.\nEn lang utledning uten et klart ja eller nei i første ord gir dårligere uttelling\nenn to ord og en presis begrunnelse.",
+        "hints": [
+          "For a): finn en konkret instans der grådighet bommer — én instans er nok til å avvise en «alltid»-påstand.",
+          "For c): tenk på hva som skjer med totalkostnaden hvis du bytter to blader i treet.",
+          "For d): skill mellom det algoritmen gjør og det forarbeidet den forutsetter."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-6-4-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-6-4-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger H — åpen algoritmedesign, altså at du navngir det\nklassiske problemet, velger paradigme og gjør rede for konstruksjon, uthenting av\nselve løsningen og kjøretid.)\n\nEn serverpark skal kjøre $n$ jobber. Jobb $i$ opptar maskinen fra $s[i]$ til\n$f[i]$, og hver jobb gir samme inntekt. Du har **én** maskin.\n\n**a)** Beskriv en algoritme som gir flest mulig kjørte jobber, og oppgi kjøretiden.\n**b)** Anta i stedet at jobb $i$ gir inntekten $v[i]$, og at inntektene er\nforskjellige. Holder algoritmen fra (a)? Begrunn, og si hva du ville gjort i\nstedet.",
+        "solution": "**a)**\n\n1. **Det klassiske problemet:** dette er aktivitetsutvelgelse — flest mulig\n   innbyrdes kompatible tidsrom på én ressurs.\n2. **Paradigmet:** grådighet.\n3. **Konstruksjonen:** sorter jobbene stigende på sluttid $f$. Velg den første.\n   Gå deretter gjennom lista og velg jobb $m$ hvis $s[m] \\ge f[k]$, der $k$ er\n   den sist valgte. Grunnideen er at den som slutter først, etterlater mest ledig\n   maskintid til resten.\n4. **Uthenting av selve løsningen:** algoritmen bygger listen over valgte jobber\n   underveis, så selve kjøreplanen — ikke bare antallet — faller ut gratis. Det\n   øker ikke kjøretiden asymptotisk, siden hver valgt jobb legges til i konstant\n   tid.\n5. **Kjøretid:** $\\Theta(n\\lg n)$ med $n$ = antall jobber, dominert av\n   sorteringen; selve utvelgelsen er $\\Theta(n)$.\n\n**b) Nei, den holder ikke.** Med ulike inntekter er ikke «flest jobber» det samme\nsom «mest inntekt»: én lang, svært verdifull jobb kan slå tre korte. Grådig\nvalg-egenskap svikter — jobben som slutter først, trenger ikke inngå i noen\noptimal løsning.\n\nDa bruker du **dynamisk programmering** i stedet. Sorter på sluttid, la $p(i)$\nvære den siste jobben som slutter senest når jobb $i$ starter, og la $b[i]$ være\nhøyest oppnåelig inntekt blant de $i$ første jobbene:\n\n$$b[i] = \\max\\big(b[i-1],\\; v[i] + b[p(i)]\\big), \\qquad b[0] = 0$$\n\nSelve utvalget rekonstrueres ved å gå baklengs gjennom $b$: valgte du det andre\nleddet i posisjon $i$, var jobb $i$ med, og du hopper til $p(i)$; ellers hopper\ndu til $i-1$. Det er $\\Theta(n)$ ekstra arbeid og øker **ikke** den asymptotiske\nkjøretiden. Totalt $\\Theta(n\\lg n)$: sortering pluss $n$ oppslag av $p(i)$ med\nbinærsøk.",
+        "hints": [
+          "For a): spør deg hvilken størrelse som bestemmer hvor mye ledig tid som er igjen til resten av jobbene.",
+          "For b): prøv å konstruere en liten instans med tre korte, billige jobber og én lang, dyr.",
+          "Husk at et designsvar skal si hvordan du henter ut selve løsningen, ikke bare tallet."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-6-4-kjoretid",
+      "type": "text",
+      "content": "### Kjøretider i dette kapitlet\n\n| Algoritme | Beste | Verste | Krav / egenskap |\n|---|---|---|---|\n| `Greedy-Activity-Selector` | $\\Theta(n)$ | $\\Theta(n)$ | krever at aktivitetene er sortert på **sluttid** |\n| Aktivitetsutvelgelse inkl. sortering | $\\Theta(n\\lg n)$ | $\\Theta(n\\lg n)$ | sorteringen dominerer |\n| `Huffman` | $O(n\\lg n)$ | $O(n\\lg n)$ | prioritetskø; gir **optimal** prefikskode |\n| `Extract-Min` / `Insert` (binærhaug) | $O(\\lg n)$ | $O(\\lg n)$ | én sti opp eller ned i haugen |\n| Fraksjonell ryggsekk | $\\Theta(n\\lg n)$ | $\\Theta(n\\lg n)$ | varene kan deles; grådig på verdi per vekt |\n| 0-1-ryggsekk | $\\Theta(nm)$ | $\\Theta(nm)$ | **ikke** grådig; dynamisk programmering, **pseudopolynomisk** fordi $m$ er en tallverdi |\n\nLegg merke til at `Huffman` står med $O$ og aktivitetsutvelgelse med $\\Theta$.\nDet er ikke slurv: `Huffman` sin kjøretid henger på hvordan prioritetskøen er\nimplementert, mens `Greedy-Activity-Selector` alltid gjør nøyaktig ett gjennomløp."
+    },
+    {
+      "id": "tdt4120-6-4-begrepsbank",
+      "type": "text",
+      "content": "### Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp\nhar lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet\ngjelder kjernestoffet."
+    },
+    {
+      "id": "tdt4120-6-4-def-gas",
+      "type": "definition",
+      "title": "`Greedy-Activity-Selector`",
+      "content": "Velger flest mulig aktiviteter som ikke overlapper, ved alltid å ta den som\nslutter først blant dem som fortsatt passer.\n\nKjøretid $\\Theta(n)$ når aktivitetene allerede er sortert stigende på sluttid, og\n$\\Theta(n\\lg n)$ når sorteringen må gjøres først. **Krever sortering på sluttid**\n— sorterer du på starttid eller varighet, gir algoritmen feil svar."
+    },
+    {
+      "id": "tdt4120-6-4-def-huffman",
+      "type": "definition",
+      "title": "`Huffman`",
+      "content": "Bygger en optimal prefikskode ved gjentatte ganger å slå sammen de to letteste\nnodene i en prioritetskø til én ny node med summen som frekvens.\n\nKjøretid $O(n\\lg n)$: $n-1$ runder med to `Extract-Min` og én `Insert` hver, alle\ni $O(\\lg n)$ med binærhaug. **Egenskapen:** ingen annen prefikskode gir færre bits\ntotalt. Sluttilstanden du leverer på eksamen, er kodelengden per tegn."
+    },
+    {
+      "id": "tdt4120-6-4-def-gradigvalg",
+      "type": "definition",
+      "title": "Grådig valg-egenskap",
+      "content": "Egenskapen at det finnes en optimal løsning som inneholder det lokalt beste\nvalget.\n\nDette er kravet som skiller grådighet fra dynamisk programmering. Er egenskapen\noppfylt, kan du binde deg til det lokale valget uten å se resten av problemet, og\nkjøretiden faller fra en full tabell til ett gjennomløp. Er den ikke oppfylt,\nsvarer grådigheten galt — 0-1-ryggsekk er standardmotbeviset."
+    },
+    {
+      "id": "tdt4120-6-4-def-optsub",
+      "type": "definition",
+      "title": "Optimal substruktur",
+      "content": "Egenskapen at en optimal løsning på hele problemet inneholder optimale løsninger\npå delproblemene.\n\nBåde grådighet og dynamisk programmering krever denne egenskapen; det er bare\ngrådighet som i tillegg krever grådig valg-egenskap. Egenskapen er det som gjør\nat du kan sette opp en rekurrens i det hele tatt: uten den ville en optimal\nhelhet kunne bygges av ikke-optimale deler."
+    },
+    {
+      "id": "tdt4120-6-4-def-bytte",
+      "type": "definition",
+      "title": "Bytteargument",
+      "content": "Beviset for at et grådig valg er trygt: du tar en vilkårlig optimal løsning,\nbytter ut ett element med det grådige valget, og viser at resultatet er like godt\nog fortsatt lovlig.\n\nFor aktivitetsutvelgelse byttes den aktiviteten i den optimale løsningen som\nslutter først, ut med den som slutter først i hele problemet. Det er argumentet\nsjanger H spør etter når oppgaven ber deg begrunne at grådighet virker."
+    },
+    {
+      "id": "tdt4120-6-4-def-hufftre",
+      "type": "definition",
+      "title": "Huffman-treet",
+      "content": "Binærtreet `Huffman` bygger: tegnene sitter i bladene, venstre kant leses som 0\nog høyre som 1, og koden til et tegn er veien fra rota ned til bladet.\n\nKodelengden til et tegn er derfor **dybden** til bladet. Treet er som regel\n**ikke** balansert — hyppige tegn ligger grunt og sjeldne dypt. Et balansert tre\ner optimalt bare når alle frekvensene er like."
+    },
+    {
+      "id": "tdt4120-6-4-def-kodelengde",
+      "type": "definition",
+      "title": "Kodelengde og totalkostnad",
+      "content": "Antall bits et tegn koster i en gitt koding, og summen av dette over hele\nteksten.\n\nTotalkostnaden er $B(T) = \\sum_{c \\in C} c.freq \\cdot d_T(c)$: hvert tegn koster\nkodelengden sin, ganget med hvor ofte det forekommer. Det er nøyaktig denne\nsummen `Huffman` gjør minst mulig. Sammenligningsgrunnlaget er fast koding, som\nkoster $\\lceil \\lg n \\rceil$ bits per tegn."
+    },
+    {
+      "id": "tdt4120-6-4-def-prioko",
+      "type": "definition",
+      "title": "Prioritetskø i `Huffman`",
+      "content": "Datastrukturen som holder de gjenværende nodene ordnet på frekvens, slik at de\nto letteste kan hentes ut raskt.\n\nMed binærhaug koster `Extract-Min` og `Insert` $O(\\lg n)$ hver, og det er dette\nsom gir `Huffman` kjøretiden $O(n\\lg n)$. **Merk:** en node som er laget ved\nsammenslåing, legges tilbake i køen og konkurrerer på like fot med de\nopprinnelige tegnene — det er her de fleste håndkjøringer sporer av."
+    },
+    {
+      "id": "tdt4120-6-4-def-fastkode",
+      "type": "definition",
+      "title": "Fast mot variabel kodelengde",
+      "content": "Fast kodelengde gir alle tegn like mange bits, nemlig $\\lceil \\lg n \\rceil$ for\n$n$ tegn; variabel kodelengde gir korte koder til hyppige tegn og lange til\nsjeldne.\n\nVariabel koding kan aldri bli dyrere enn fast, og blir billigere jo skjevere\nfrekvensene er. Prisen er at kodingen må være **prefiksfri** for å kunne avkodes\nentydig."
+    },
+    {
+      "id": "tdt4120-6-4-def-null_en",
+      "type": "definition",
+      "title": "Hvorfor 0-1-ryggsekk ikke er grådig",
+      "content": "Fordi grådig valg-egenskap ikke er oppfylt: varen med høyest verdi per vekt kan\nlegge beslag på plass som en annen vare trengte hel.\n\nKonkret motbevis: med kapasitet 6 kg og varene kobber (2 kg, 30 kr), sink (5 kg,\n60 kr) og tinn (5 kg, 55 kr) tar grådigheten kobberet først og lander på 30\nkroner, mens optimum er 60. Løsningen er dynamisk programmering i $\\Theta(nm)$\n— **pseudopolynomisk**, altså polynomisk i kapasitetens tallverdi $m$, men ikke i\nantall bits det tar å skrive $m$."
+    },
+    {
+      "id": "tdt4120-6-4-def-dpvsgradig",
+      "type": "definition",
+      "title": "Grådighet mot dynamisk programmering",
+      "content": "To paradigmer med samme forutsetning og ulik pris: begge krever optimal\nsubstruktur, men grådighet krever i tillegg grådig valg-egenskap.\n\nDynamisk programmering prøver **alle** valg i hvert steg og lar tabellen avgjøre;\ngrådighet tar **ett** valg og går videre. Derfor er grådighet raskere der den\nvirker, og feil der den ikke gjør det. Kjenner du ikke igjen strukturen, er DP det\ntrygge valget — det gir riktig svar også når grådighet ville gjort det."
+    },
+    {
+      "id": "tdt4120-6-4-def-optprefiks",
+      "type": "definition",
+      "title": "Optimal prefikskode",
+      "content": "En prefikskode som gjør totalt antall bits minst mulig for de gitte frekvensene.\n\n`Huffman` produserer alltid en slik kode, men den er ikke nødvendigvis entydig:\nved like frekvenser kan flere ulike trær gi samme totalkostnad, og da er begge\nsvar riktige. **Kodelengdene** er det som skal stemme, ikke hvilken side av rota\net tegn havnet på."
+    },
+    {
+      "id": "tdt4120-6-4-coll-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tdt4120-6-4-rep-1",
+          "type": "text",
+          "content": "Fem korte oppgaver fra kapitlene dette bygger på. Svar i én linje hver, og sjekk\nderetter mot fasiten under.\n\n**1.** Hva er kjøretiden til `Extract-Min` i en binærhaug med $n$ elementer?\n([kap. 3.1](/tdt4120/tdt4120-3-1))\n**2.** Hva er kjøretiden til `Merge-Sort`, og er den på stedet?\n([kap. 2.1](/tdt4120/tdt4120-2-1))\n**3.** Hva betyr **optimal substruktur**? ([kap. 6.1](/tdt4120/tdt4120-6-1))\n**4.** Hva er kjøretiden til 0-1-ryggsekk med dynamisk programmering, og hva står\n$m$ for? ([kap. 6.2](/tdt4120/tdt4120-6-2))\n**5.** Hva er forskjellen på $O(g(n))$ og $\\Theta(g(n))$?\n([kap. 1.1](/tdt4120/tdt4120-1-1))"
+        },
+        {
+          "id": "tdt4120-6-4-rep-2",
+          "type": "text",
+          "content": "**Fasit.**\n\n**1.** $O(\\lg n)$ — elementet på toppen fjernes, det siste flyttes opp, og det\nsiver ned én sti.\n\n**2.** $\\Theta(n\\lg n)$, og den er **ikke** på stedet: fletting krever et\nhjelpearray. Den er derimot stabil.\n\n**3.** At en optimal løsning på hele problemet inneholder optimale løsninger på\ndelproblemene. Det er forutsetningen for å kunne sette opp en rekurrens.\n\n**4.** $\\Theta(nm)$, der $n$ er antall varer og $m$ er sekkens kapasitet. Fordi\n$m$ er en **tallverdi** og ikke antall varer, er algoritmen pseudopolynomisk.\n\n**5.** $O$ er bare en øvre grense — det kan ikke gå verre. $\\Theta$ er en tett\ngrense — det går verken bedre eller verre, opp til konstanter."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

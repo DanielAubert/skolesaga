@@ -1,0 +1,455 @@
+{
+  "id": "tdt4120-1-3",
+  "courseId": "tdt4120",
+  "chapterNumber": "1.3",
+  "title": "DRILL — Asymptotisk forenkling og notasjon",
+  "description": "Systematisk drill i sjanger A: definér symbolene, klassifisér funksjoner og forenkl sammensatte uttrykk til det strammeste svaret — de garanterte poengene.",
+  "estimatedMinutes": 80,
+  "competenceGoals": [
+    "kunne skrive ned de formelle definisjonene av O, Omega, Theta, o og omega med konstantene c og n_0, uten hjelpemidler",
+    "kunne klassifisere en konkret funksjon mot en oppgitt sammenligningsfunksjon ved hjelp av forholdstesten",
+    "kunne forenkle en sum av asymptotiske ledd til det strammeste enkeltuttrykket, og avgjøre når summen mangler øvre grense",
+    "kunne regne ut et sammensatt brøk- og produktuttrykk ledd for ledd ved å sette inn ekstremverdier i teller og nevner"
+  ],
+  "content": [
+    {
+      "id": "tdt4120-1-3-tip-vinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "Dette er et **drillkapittel**. Det lærer deg ingenting nytt — det gjør de grepene\ndu alt har sett til noe du utfører uten å tenke, under tidspress og uten\nhjelpemidler.\n\n**Sjanger A — asymptotisk forenkling**, altså at du får et sammensatt uttrykk og\nskal koke det ned til ett strammeste svar, er den mest forutsigbare sjangeren i\nhele faget. Den er med i **100 % (17 av de 17 settene i grunnlaget)**, ofte med\n2–3 oppgaver i samme sett. Tett opptil ligger **sjanger D — definisjonsspørsmålet**,\nder du blir bedt om å skrive ned den presise definisjonen av ett av de fem\nsymbolene $O$, $\\Omega$, $\\Theta$, $o$ og $\\omega$. Begge sjangrene trenes i de\nsamme rundene her.\n\n**Høyeste prioritet — dette må sitte.** Ingen andre poeng i faget er like\nbillige: oppgaveteksten er kort, svaret er ett uttrykk, og fasiten er entydig.\n\n**Slik er kapitlet lagt opp.** Først løsningsoppskriften, så ett fullt\ngjennomarbeidet eksamenscase med margnotater om hva som gir uttelling ved hvert\nsteg. Deretter 14 oppgaver på eksamensnivå som roterer gjennom alle variantene:\ndefinér et symbol, klassifisér en funksjon, forenkl en sum, håndtér blandede\noperatorer og regn på brøkuttrykk. Alle har full løsning og hint.\n\nKapitlet er anslått til 80 minutter og **kan trygt deles over flere økter**. Det\nstår «— naturlig pausepunkt —» der det er et godt sted å stoppe, og hver\noverskrift har sitt eget tidsanslag.\n\nTo ord om eksamensformen før vi begynner. En **kortsvarsoppgave** er en oppgave\nder du skriver svaret selv, i en liten rute, uten å krysse av. **Delvis\nuttelling** betyr at et svar som er delvis riktig kan gi noen av poengene — det\nlønner seg altså å skrive ned det du er sikker på. I settene fra 2015 til 2018\nsto det svart på hvitt på oppgavearket: lange svar teller ikke positivt. Det er\nen god rettesnor her. Ett riktig uttrykk er hele svaret."
+    },
+    {
+      "id": "tdt4120-1-3-forkunn",
+      "type": "text",
+      "content": "## Forkunnskaper\n\nDette kapitlet er ren trening på stoffet fra de to foregående kapitlene og\nintroduserer ingenting nytt. Du bør ha vært gjennom:\n\n- Kapittel 1.1, *Asymptotisk notasjon — de fem symbolene*. Der står de formelle\n  definisjonene av $O$, $\\Omega$, $\\Theta$, $o$ og $\\omega$ med konstantene $c$\n  og $n_0$, og den standard vekstordningen\n  $1 < \\lg n < n < n\\lg n < n^2 < n^3 < 2^n < n!$.\n- Kapittel 1.2, *Forenkling av asymptotiske uttrykk*. Der står de tre\n  forenklingsreglene: i en sum dominerer det raskest voksende leddet, en\n  $\\Omega$- eller $\\omega$-term uten øvre grense fjerner enhver $O$-grense for\n  hele summen, og svaret skal alltid være det strammeste enkeltuttrykket.\n\nOrdet **asymptotisk** betyr «for store $n$». Vi bryr oss ikke om hvordan\nfunksjonen oppfører seg for $n = 5$, bare om hvordan den vokser når $n$ blir\nvilkårlig stor. Alle konstanter og alle lavere ordens ledd faller derfor bort.\n\nTrenger du et mykere første møte med vekstklasser og $O$-notasjon før du drilles\npå dem, er dette et godt sted å begynne:\n\n- [Algoritmedefinisjon, pseudokode og kompleksitet (Big-O)](/tdt4110/tdt4110-6-3)\n  — NTNUs eget introduksjonsemne i programmering, der $O$-notasjonen forklares\n  på kode som faktisk kjører.\n\nNotasjonen i denne boka følger CLRS (Cormen, Leiserson, Rivest og Stein,\n*Introduction to Algorithms*), som er pensumankeret i faget. Det er derfor det\nstår $\\lg n$ og ikke $\\log n$ i uttrykkene: $\\lg n$ betyr $\\log_2 n$."
+    },
+    {
+      "id": "tdt4120-1-3-coll-notasjon",
+      "type": "collapsible",
+      "title": "Notasjons- og pseudokodeliste",
+      "buttonText": "Vis notasjon og pseudokode",
+      "content": [
+        {
+          "id": "tdt4120-1-3-nt-1",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et algoritmefag: den lister kjøretidsuttrykk\nog pseudokode-operasjoner i stedet for bare greske bokstaver.\n\n| Symbol | Betydning |\n|---|---|\n| $n$ | problemstørrelsen — antall elementer, noder eller bits |\n| $f(n)$, $g(n)$ | funksjoner fra $n$ til ikke-negative tall; typisk kjøretider |\n| $c$, $c_1$, $c_2$ | positive konstanter i definisjonene |\n| $n_0$ | terskelen: definisjonene krever bare at ulikheten gjelder for $n \\ge n_0$ |\n| $O(g(n))$ | øvre grense — «vokser høyst som $g$» |\n| $\\Omega(g(n))$ | nedre grense — «vokser minst som $g$» |\n| $\\Theta(g(n))$ | tett grense — både $O(g(n))$ og $\\Omega(g(n))$ |\n| $o(g(n))$ | strengt mindre — «vokser strengt langsommere enn $g$» |\n| $\\omega(g(n))$ | strengt større — «vokser strengt raskere enn $g$» |\n| $\\lg n$ | $\\log_2 n$ (CLRS-konvensjonen, brukt i hele boka) |\n| $\\lg^2 n$ | $(\\lg n)^2$, ikke $\\lg(\\lg n)$ |\n| $\\varepsilon$ | en vilkårlig liten positiv konstant |\n\nKapitlet regner ikke på algoritmer, men bruker tre kjøretider fra Del 2 som\nkonkrete knagger for vekstklassene. Du trenger bare tallene her; algoritmene\nselv hører hjemme senere i boka.\n\n| Algoritme/operasjon | Kontrakt | Kjøretid |\n|---|---|---|\n| `Insertion-Sort` | sorterer `A[1..n]` stigende, på stedet | $\\Theta(n)$ beste tilfelle, $\\Theta(n^2)$ verste tilfelle |\n| `Merge` | fletter to ferdig sorterte delarrayer til ett | $\\Theta(n)$ på et delarray av lengde $n$ |\n| `Merge-Sort` | sorterer `A[1..n]` stigende, ikke på stedet | $\\Theta(n\\lg n)$ i alle tilfeller |\n\n**Formler i dette delkapitlet:**\n\n$$0 \\le f(n) \\le c\\,g(n) \\quad \\text{for alle } n \\ge n_0$$\n\nDefinisjonen av $f(n) = O(g(n))$: det holder å finne **én** konstant $c$ som\nvirker fra og med en terskel $n_0$.\n\n$$0 \\le c\\,g(n) \\le f(n) \\quad \\text{for alle } n \\ge n_0$$\n\nDefinisjonen av $f(n) = \\Omega(g(n))$: samme oppskrift, motsatt ulikhetsretning.\n\n$$0 \\le c_1 g(n) \\le f(n) \\le c_2 g(n) \\quad \\text{for alle } n \\ge n_0$$\n\nDefinisjonen av $f(n) = \\Theta(g(n))$: to konstanter klemmer $f$ inne fra begge\nsider.\n\n$$1 < \\lg n < n < n\\lg n < n^2 < n^3 < 2^n < n!$$\n\nStandard vekstordning. Alt du trenger for å avgjøre hvilket ledd i en sum som\noverlever, ligger i denne rekka."
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-1-3-t-sjanger",
+      "type": "text",
+      "content": "## Slik ser sjanger A ut på arket (~10 min)\n\nOppgaven er alltid av samme type. Du får et uttrykk som er satt sammen av flere\nledd, hvert ledd merket med ett av de fem symbolene, og du blir bedt om å skrive\ndet som **ett** uttrykk — det strammeste som er sant.\n\nDet som gjør oppgaven forutsigbar, er at du aldri skal bevise noe. Du skal ikke\nfinne $c$ og $n_0$, ikke tegne grafer og ikke skrive en utledning. Du skal\ngjenkjenne hvilket ledd som vokser raskest, og hvilke av leddene som har en\nøvre grense og hvilke som ikke har det.\n\nDet som gjør oppgaven farlig, er at det finnes mange **sanne** svar, og bare ett\nav dem gir full uttelling. At $3n^2 + 5n$ er $O(n^{10})$ er helt sant, men det er\net dårlig svar: det strammeste er $\\Theta(n^2)$. Løsningsforslagene er tydelige\npå at det er det strammeste uttrykket som etterspørres."
+    },
+    {
+      "id": "tdt4120-1-3-th-oppskrift",
+      "type": "theorem",
+      "title": "Løsningsoppskriften for sjanger A",
+      "content": "Kjør denne ovenfra og ned, hver gang — også når svaret virker opplagt.\n\n1. **Identifisér hvert ledd og dets vekstklasse.** Skriv leddene under hverandre\n   og sett vekstklassen på hvert enkelt: er dette $n^2$, $n^2\\lg n$ eller $n^3$?\n2. **For summer: behold det raskest voksende leddet.** Alt som vokser\n   langsommere, forsvinner. Sjekk deretter om en $\\omega$- eller $\\Omega$-term\n   fjerner den øvre grensen for hele summen.\n3. **For grenser hver for seg: oppgi strammeste $\\Omega$ og strammeste $O$\n   separat.** Ber oppgaven om både nedre og øvre grense, skal du gi to uttrykk —\n   og de er ofte ikke like.\n4. **For brøk: bytt teller og nevner med sin ekstremverdi, og forkort.** Et\n   $\\Theta$-ledd har både en største og en minste verdi; et $O$-ledd har bare en\n   største; et $\\Omega$-ledd har bare en minste.\n5. **Skriv kun det strammeste enkeltuttrykket.** Ett uttrykk, ingen utledning,\n   ingen forklaring — med mindre oppgaven uttrykkelig ber om en.\n\nPunkt 4 fortjener en presisering, for det er der de fleste bommer. Et symbol\ninne i et regnestykke står for **en vilkårlig funksjon** i den klassen. Når du\nspør «hvor stor kan brøken bli?», velger du den største lovlige telleren og den\nminste lovlige nevneren. Når du spør «hvor liten kan den bli?», velger du\nmotsatt. Har en av dem ingen slik ekstremverdi, finnes ikke den grensen."
+    },
+    {
+      "id": "tdt4120-1-3-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Et fullt eksamenscase, steg for steg",
+      "problem": "Et sett gir deg tre deloppgaver om det samme uttrykket:\n\n$$S(n) = \\frac{\\Theta(n^6)}{\\Omega(n^2)} + \\Theta(n^3\\lg n) + o(n^4)$$\n\n**a)** Gi den strammeste øvre grensen for $S(n)$.\n\n**b)** Gi den strammeste nedre grensen for $S(n)$.\n\n**c)** Kan $S(n)$ skrives som ett $\\Theta$-uttrykk? Begrunn med én setning.",
+      "solution": "**Steg 1 — identifisér leddene og grensetypen deres.**\n\n| Ledd | Øvre grense? | Nedre grense? |\n|---|---|---|\n| $\\frac{\\Theta(n^6)}{\\Omega(n^2)}$ | ja (regnes ut i steg 2) | nei |\n| $\\Theta(n^3\\lg n)$ | ja | ja |\n| $o(n^4)$ | ja, og den er ikke oppnådd | nei |\n\n> **Margnotat:** Selve oppsettet er verdt uttelling. Skriver du opp leddene med\n> hver sin grensetype før du regner, gjør du sjelden feil på hvilken\n> ekstremverdi som skal brukes hvor. Det tar femten sekunder.\n\n**Steg 2 — regn ut brøkleddet for seg.** Telleren er $\\Theta(n^6)$, altså klemt\nmellom $c_1 n^6$ og $c_2 n^6$. Nevneren er $\\Omega(n^2)$, altså minst $c\\,n^2$,\nmen uten noen øvre grense — den kan like gjerne være $n^{10}$.\n\nStørst mulig verdi av brøken får du med størst mulig teller og minst mulig\nnevner:\n\n$$\\frac{c_2 n^6}{c\\,n^2} = \\frac{c_2}{c}\\,n^4$$\n\nBrøkleddet er altså $O(n^4)$. Minst mulig verdi finnes derimot ikke: nevneren\nkan vokse uten grense, og da går brøken mot null. Brøkleddet har **ingen nedre\ngrense**.\n\n> **Margnotat:** Her faller delpoenget for de fleste. Hopper du over å bytte inn\n> ekstremverdiene og skriver $\\Theta(n^4)$ rett fra $6 - 2 = 4$, har du behandlet\n> en $\\Omega$-nevner som om den var en $\\Theta$-nevner. Svaret ser riktig ut og\n> er galt.\n\n**Steg 3 — a) den strammeste øvre grensen.** Alle tre leddene har en øvre\ngrense: brøkleddet er $O(n^4)$, midtleddet er $O(n^3\\lg n)$, og $o(n^4)$ er i\nsærdeleshet $O(n^4)$. Det raskest voksende av disse er $n^4$.\n\n$$S(n) = O(n^4)$$\n\n> **Margnotat:** Legg merke til at $o(n^4)$ **ikke** løfter svaret over $n^4$.\n> Symbolet $o$ betyr strengt langsommere enn $n^4$; det er en øvre grense, ikke\n> en nedre.\n\n**Steg 4 — b) den strammeste nedre grensen.** Bare midtleddet har en nedre\ngrense: $\\Theta(n^3\\lg n)$ er minst $c_1 n^3\\lg n$. De to andre leddene er\nikke-negative og kan bare gjøre summen større.\n\n$$S(n) = \\Omega(n^3\\lg n)$$\n\n> **Margnotat:** Fristelsen er å skrive $\\Omega(n^4)$ fordi $n^4$ dukket opp i\n> a). Men ingen av leddene garanterer $n^4$ nedenfra — brøkleddet kan være\n> forsvinnende lite.\n\n**Steg 5 — c) kan det skrives som ett $\\Theta$-uttrykk?**\n\nNei. Den øvre grensen er $n^4$ og den nedre er $n^3\\lg n$, og de to møtes ikke:\n$n^3\\lg n = o(n^4)$. Brøkleddet kan legge seg hvor som helst i mellomrommet\navhengig av hvilken nevner som velges, og da finnes det ingen felles $\\Theta$.\n\n> **Margnotat:** «Nei, fordi øvre og nedre grense ikke møtes» er hele svaret på\n> c). En utledning på seks linjer gir ikke mer.\n\n**Kortsvaret du faktisk leverer:**\n\n**a)** $O(n^4)$ **b)** $\\Omega(n^3\\lg n)$ **c)** Nei — grensene møtes ikke,\nsiden $n^3\\lg n = o(n^4)$."
+    },
+    {
+      "id": "tdt4120-1-3-t-def",
+      "type": "text",
+      "content": "## Symbolene skal kunne skrives ned kaldt (~12 min)\n\n— naturlig pausepunkt —\n\nDefinisjonsspørsmålet er den ene oppgaven i faget der du ikke kan resonnere deg\nfram til svaret. Enten kan du formen med $c$ og $n_0$, eller så kan du den ikke.\nFordi eksamen er uten hjelpemidler, må de fem definisjonene sitte som utenatlære.\n\nDe tre første har samme skjelett — «det finnes konstanter … slik at … for alle\n$n \\ge n_0$» — og skiller seg bare i hvilken vei ulikheten peker. De to siste\nbytter ut «det finnes en $c$» med «for alle $c$», og det er hele forskjellen."
+    },
+    {
+      "id": "tdt4120-1-3-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-1-3-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamensnivå, sjanger D — definisjonsspørsmålet, altså at du skal skrive ned\nden presise definisjonen av et symbol.)\n\n**a)** Definér $f(n) = O(g(n))$ presist, med de konstantene som inngår.\n\n**b)** Definér $f(n) = \\Omega(g(n))$ presist.\n\n**c)** Hvilket ord i disse to definisjonene er det som gjør at du bare trenger å\nfinne **én** konstant $c$ som virker?",
+        "solution": "**a)** $f(n) = O(g(n))$ betyr: det finnes positive konstanter $c$ og $n_0$ slik\nat $0 \\le f(n) \\le c\\,g(n)$ for alle $n \\ge n_0$.\n\n**b)** $f(n) = \\Omega(g(n))$ betyr: det finnes positive konstanter $c$ og $n_0$\nslik at $0 \\le c\\,g(n) \\le f(n)$ for alle $n \\ge n_0$.\n\n**c)** Ordet «finnes». Kravet er eksistens av én konstant, ikke at påstanden\nskal gjelde for alle konstanter. Det er nettopp dette ordet som skiller $O$ fra\n$o$ og $\\Omega$ fra $\\omega$, der kravet er «for alle $c > 0$».\n\nLegg også merke til at $0 \\le$ står med i begge: definisjonene forutsetter at\nfunksjonene er ikke-negative for store $n$, slik kjøretider alltid er.",
+        "hints": [
+          "Begge definisjonene har formen «det finnes konstanter $c > 0$ og $n_0 > 0$ slik at … for alle $n \\ge n_0$».",
+          "Det eneste som skiller dem, er hvilken vei ulikheten mellom $f(n)$ og $c\\,g(n)$ peker."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-1-3-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-1-3-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamensnivå, sjanger D.)\n\n**a)** Definér $f(n) = o(g(n))$ presist.\n\n**b)** Definér $f(n) = \\omega(g(n))$ presist.\n\n**c)** Forklar med én setning hva som skiller $o$ fra $O$, og gi ett konkret\nfunksjonspar der $f(n) = O(g(n))$ er sant, men $f(n) = o(g(n))$ er galt.",
+        "solution": "**a)** $f(n) = o(g(n))$ betyr: **for alle** konstanter $c > 0$ finnes det et\n$n_0$ slik at $0 \\le f(n) < c\\,g(n)$ for alle $n \\ge n_0$.\n\n**b)** $f(n) = \\omega(g(n))$ betyr: **for alle** konstanter $c > 0$ finnes det et\n$n_0$ slik at $0 \\le c\\,g(n) < f(n)$ for alle $n \\ge n_0$.\n\n**c)** $O$ krever at det finnes én konstant som virker, mens $o$ krever at\n**enhver** konstant virker — $f$ må derfor bli forsvinnende liten i forhold til\n$g$.\n\nKonkret par: $f(n) = 3n^2 + 5n$ og $g(n) = n^2$. Her er $f(n) = O(n^2)$, for\n$c = 4$ virker fra $n_0 = 5$. Men $f(n) = o(n^2)$ er galt: forholdet\n$f(n)/g(n)$ nærmer seg 3 og går ikke mot null, så $c = 1$ virker aldri.",
+        "hints": [
+          "Se etter kvantoren først: står det «det finnes en $c$» eller «for alle $c$»?",
+          "For $o$ må forholdet $f(n)/g(n)$ gå mot null. Finn et par der forholdet i stedet stabiliserer seg på en konstant."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-1-3-tip-signal-1",
+      "type": "tip",
+      "title": "Hva de to oppgavene over tester",
+      "content": "Kvantoren, og ingenting annet. Et svar som skriver «det finnes en $c$» i\ndefinisjonen av $o$, er galt selv om resten er ordrett riktig — og det er den\nenkeltfeilen som oftest koster hele poenget i sjanger D.\n\nEt huskegrep: $O$ og $\\Omega$ er de romslige symbolene og trenger bare **én**\nkonstant. $o$ og $\\omega$ er de strenge symbolene og krever at **alle**\nkonstanter virker."
+    },
+    {
+      "id": "tdt4120-1-3-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-1-3-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger D.)\n\n**a)** Definér $f(n) = \\Theta(g(n))$ presist.\n\n**b)** Forklar med én setning forskjellen mellom $\\Theta(g(n))$ og $O(g(n))$.\n\n**c)** En besvarelse skriver: «$\\Theta$ betyr at $f$ og $g$ vokser like fort, og\n$O$ betyr at $f$ vokser saktere enn $g$.» Hva er galt i den siste halvdelen?",
+        "solution": "**a)** $f(n) = \\Theta(g(n))$ betyr: det finnes positive konstanter $c_1$, $c_2$\nog $n_0$ slik at $0 \\le c_1 g(n) \\le f(n) \\le c_2 g(n)$ for alle $n \\ge n_0$.\nEkvivalent: $f(n) = O(g(n))$ **og** $f(n) = \\Omega(g(n))$.\n\n**b)** $\\Theta$ er en tett grense og binder $f$ både ovenfra og nedenfra, mens\n$O$ bare binder ovenfra og derfor også er sant når $f$ vokser mye langsommere\nenn $g$.\n\n**c)** «Saktere enn» er feil ord. $O$ tillater at $f$ vokser **like fort** som\n$g$: $3n^2 = O(n^2)$ er sant. Det symbolet som betyr strengt saktere, er $o$.\nFeilen er verdt å merke seg, for den fører rett til at man skriver $O$ når\n$\\Theta$ er sant og går glipp av den strammeste grensen.",
+        "hints": [
+          "$\\Theta$ trenger to konstanter, ikke én.",
+          "Tenk på $O$ som «høyst», ikke som «mindre enn» — hvilket av de fem symbolene betyr egentlig «mindre enn»?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-1-3-t-klass",
+      "type": "text",
+      "content": "## Å klassifisere en funksjon (~12 min)\n\nDen andre faste varianten gir deg en konkret funksjon og en konkret $g(n)$, og\nspør hvilke av de fem symbolene som stemmer. Framgangsmåten er alltid den samme:\nse på forholdet $f(n)/g(n)$ når $n$ vokser.\n\n- Forholdet stabiliserer seg på et positivt tall: $f = \\Theta(g)$, og dermed\n  både $O(g)$ og $\\Omega(g)$.\n- Forholdet går mot null: $f = o(g)$, og dermed $O(g)$, men **ikke** $\\Omega(g)$.\n- Forholdet vokser uten grense: $f = \\omega(g)$, og dermed $\\Omega(g)$, men\n  **ikke** $O(g)$.\n\nMerk deg de to «og dermed»-ene. De gir gratis delpoeng: har du først avgjort at\nnoe er $o(g)$, kan du uten videre svare ja på om det er $O(g)$."
+    },
+    {
+      "id": "tdt4120-1-3-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Fire spørsmål om samme funksjon",
+      "problem": "La $f(n) = 4n^2\\lg n$. Avgjør for hver av påstandene om den er sann eller\nusann, og oppgi til slutt den strammeste enkeltpåstanden du kan gjøre om $f$.\n\n**a)** $f(n) = O(n^3)$ **b)** $f(n) = \\Theta(n^2)$ **c)** $f(n) = \\omega(n^2)$\n**d)** $f(n) = o(n^3)$",
+      "solution": "Regn ut forholdene, ett om gangen.\n\n**a)** Sann. $\\dfrac{4n^2\\lg n}{n^3} = \\dfrac{4\\lg n}{n}$, som går mot null. Går\nforholdet mot null, er $f = o(n^3)$, og alt som er $o$ er også $O$.\n\n**b)** Usann. $\\dfrac{4n^2\\lg n}{n^2} = 4\\lg n$, som vokser uten grense.\nForholdet stabiliserer seg ikke, så $f$ er ikke $\\Theta(n^2)$. Den er $\\Omega(n^2)$,\nmen ikke $O(n^2)$.\n\n**c)** Sann. Samme regnestykke som i b): forholdet $4\\lg n$ vokser uten grense,\nog det er nettopp definisjonen av $\\omega$.\n\n**d)** Sann — det er den samme observasjonen som i a), sagt strengere.\n\n**Strammeste enkeltpåstand:** $f(n) = \\Theta(n^2\\lg n)$. Konstanten 4 forsvinner,\nog både øvre og nedre grense er $n^2\\lg n$.\n\nLegg merke til at både $O(n^3)$ og $\\Omega(n^2)$ er sanne påstander om $f$, men\nbegge kaster bort informasjon. Blir du bedt om den strammeste, er det bare\n$\\Theta(n^2\\lg n)$ som gir full uttelling."
+    },
+    {
+      "id": "tdt4120-1-3-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-1-3-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger A — asymptotisk forenkling.) La $f(n) = 2n^3 + 7n^2$.\n\n**a)** Er $f(n) = \\Theta(n^3)$?\n\n**b)** Er $f(n) = O(n^4)$? Er den $o(n^4)$?\n\n**c)** Er $f(n) = \\omega(n^2)$?\n\n**d)** Oppgi den strammeste enkeltpåstanden om $f(n)$.",
+        "solution": "**a)** Ja. Forholdet $\\dfrac{2n^3 + 7n^2}{n^3} = 2 + \\dfrac{7}{n}$ nærmer seg 2,\naltså et positivt tall. Både $c_1 = 2$ og $c_2 = 9$ virker fra $n_0 = 1$.\n\n**b)** Ja på begge. Forholdet $\\dfrac{2n^3 + 7n^2}{n^4}$ går mot null, så\n$f(n) = o(n^4)$ — og alt som er $o$ er også $O$.\n\n**c)** Ja. Forholdet $\\dfrac{2n^3 + 7n^2}{n^2} = 2n + 7$ vokser uten grense.\n\n**d)** $f(n) = \\Theta(n^3)$. Det er den eneste påstanden som binder $f$ fra begge\nsider samtidig.",
+        "hints": [
+          "Del $f(n)$ på $g(n)$ og se hva forholdet gjør når $n$ vokser: stabiliserer det seg, går det mot null, eller vokser det uten grense?",
+          "Et polynom er alltid $\\Theta$ av sitt eget høyeste ledd — konstanten foran forsvinner."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-1-3-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-1-3-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger A.) Avgjør hver påstand, og begrunn hver med\nforholdet $f(n)/g(n)$.\n\n**a)** $n\\lg^2 n = O(n^2)$?\n\n**b)** $n\\lg^2 n = \\Theta(n\\lg n)$?\n\n**c)** $\\lg(n^3) = \\Theta(\\lg n)$?\n\n**d)** $\\sqrt{n} = \\omega(\\lg n)$?",
+        "solution": "**a)** Sann. $\\dfrac{n\\lg^2 n}{n^2} = \\dfrac{\\lg^2 n}{n}$ går mot null, så\nuttrykket er $o(n^2)$ og dermed også $O(n^2)$.\n\n**b)** Usann. $\\dfrac{n\\lg^2 n}{n\\lg n} = \\lg n$ vokser uten grense. Riktig\npåstand er $n\\lg^2 n = \\omega(n\\lg n)$.\n\n**c)** Sann. $\\lg(n^3) = 3\\lg n$, så forholdet er konstant lik 3. Eksponenten\ninne i logaritmen blir en konstant faktor utenfor, og konstanter forsvinner.\n\n**d)** Sann. $\\dfrac{\\sqrt{n}}{\\lg n}$ vokser uten grense — enhver positiv\npotens av $n$ vokser raskere enn enhver potens av $\\lg n$.",
+        "hints": [
+          "$\\lg^2 n$ betyr $(\\lg n)^2$, ikke $\\lg(\\lg n)$.",
+          "I c): bruk logaritmeregelen $\\lg(n^k) = k\\lg n$ før du regner på forholdet."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-1-3-warn-feller",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "Tre feil står for nesten alle tapte poeng i denne sjangeren. De to første er\ngamle kjenninger; den tredje er den dyreste.\n\n**Felle #4 — å oppgi en løsere grense når en strammere finnes.** Du regner\nriktig, konkluderer med $O(n^3)$, og det er sant — men $\\Theta(n^2)$ var også\nsant og er strammere. Løsningsforslagene ber om det strammeste uttrykket, og et\nsant, løsere svar gir sjelden full uttelling. Rutinen som fjerner fellen: når du\nhar funnet en $O$-grense, spør alltid om den samme funksjonen også er $\\Omega$ av\ndet samme. Er den det, skriv $\\Theta$.\n\n**Feil kvantor i $o$ og $\\omega$.** Definisjonene av $O$ og $\\Omega$ sier «det\nfinnes en $c$»; definisjonene av $o$ og $\\omega$ sier «for alle $c$». Blander du\ndem, blir definisjonssvaret galt selv om du har forstått innholdet, og du får\nogså klassifiseringsoppgavene feil: du kommer til å svare $o(n^2)$ om noe som\nbare er $O(n^2)$.\n\n**Å behandle en brøk som ett ledd.** Dette er den dyreste. Ser du\n$\\dfrac{\\Theta(n^5)}{\\Omega(n^2)}$ og trekker fra eksponentene til $\\Theta(n^3)$,\nhar du antatt at nevneren er $\\Theta(n^2)$ — men $\\Omega$ har ingen øvre grense,\nog nevneren kan være vilkårlig stor. Riktig svar er $O(n^3)$, uten nedre grense.\nRegelen er å bytte teller og nevner med hver sin ekstremverdi **før** du\nforkorter, aldri etterpå."
+    },
+    {
+      "id": "tdt4120-1-3-t-sum",
+      "type": "text",
+      "content": "## Summer: ett ledd overlever (~12 min)\n\n— naturlig pausepunkt —\n\nI en sum av asymptotiske ledd er det bare det raskest voksende leddet som\nbetyr noe. De andre er så små at de kan puttes inn i konstanten. Men før du\nskriver ned svaret, må du stille ett spørsmål til: **har hele summen en øvre\ngrense?**\n\nSvaret er nei så snart minst ett ledd er merket $\\Omega$ eller $\\omega$. Et slikt\nledd står for en funksjon som er bundet nedenfra og fri oppover, og en sum som\ninneholder en fri funksjon kan ikke bindes ovenfra. Da er svaret et\n$\\Omega$- eller $\\omega$-uttrykk, ikke et $\\Theta$-uttrykk.\n\nOg motsatt: er alle leddene $O$, $\\Theta$ eller $o$, har summen en øvre grense.\nHar den i tillegg minst ett $\\Theta$-ledd som er det raskest voksende, er svaret\net $\\Theta$-uttrykk."
+    },
+    {
+      "id": "tdt4120-1-3-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-1-3-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger A.) Forenkl til ett strammeste uttrykk:\n\n$$\\Theta(n^2\\lg n) + O(n^2) + \\Theta(n\\lg^2 n)$$",
+        "solution": "**Svar:** $\\Theta(n^2\\lg n)$.\n\nSlik kommer du dit. Alle tre leddene har en øvre grense, så summen har det også.\nDet raskest voksende er $n^2\\lg n$: både $n^2$ og $n\\lg^2 n$ vokser langsommere,\nsiden $\\dfrac{n^2}{n^2\\lg n} = \\dfrac{1}{\\lg n}$ og\n$\\dfrac{n\\lg^2 n}{n^2\\lg n} = \\dfrac{\\lg n}{n}$ begge går mot null.\n\nDet raskest voksende leddet er merket $\\Theta$, altså bundet begge veier. Da er\nhele summen bundet begge veier av det samme uttrykket.\n\n*Oppgaven ber om ett uttrykk, ikke om en utledning. Linja over er hele svaret.*",
+        "hints": [
+          "Sorter de tre vekstklassene $n^2\\lg n$, $n^2$ og $n\\lg^2 n$ etter hvor raskt de vokser.",
+          "Spør om summen har en øvre grense i det hele tatt: er noen av leddene merket $\\Omega$ eller $\\omega$?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-1-3-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-1-3-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger A.) Forenkl til ett strammeste uttrykk:\n\n$$\\Theta(n^3) + \\Omega(n^2) + O(n\\lg n)$$",
+        "solution": "**Svar:** $\\Omega(n^3)$.\n\n$\\Omega(n^2)$-leddet har ingen øvre grense, så hele summen kan ikke bindes\novenfra — ethvert $O$-svar ville vært galt. Nedenfra er summen minst\n$\\Theta(n^3)$-leddet, altså minst $c_1 n^3$.\n\nKunne svaret vært $\\Omega(n^2)$? Det er sant, men løsere: $\\Omega(n^3)$ er\nstrammere og like sant. Kunne det vært $\\omega(n^3)$? Nei — $\\Omega(n^2)$-leddet\nkan være akkurat $n^2$, og da vokser summen som $n^3$, ikke strengt raskere.\n\n*Oppgaven ber om det strammeste uttrykket. Det er $\\Omega(n^3)$.*",
+        "hints": [
+          "Sjekk først om summen i det hele tatt har en øvre grense.",
+          "Hvilket ledd gir den sterkeste garantien nedenfra?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-1-3-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-1-3-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger A.) Forenkl til ett strammeste uttrykk, og forklar\nmed én setning hvorfor du ikke kan skrive $\\omega$ i svaret:\n\n$$O(n^4) + \\omega(n^2) + \\Theta(n^3)$$",
+        "solution": "**Svar:** $\\Omega(n^3)$.\n\n$\\omega(n^2)$-leddet er fritt oppover, så summen har ingen øvre grense.\n$\\Theta(n^3)$-leddet garanterer $c_1 n^3$ nedenfra, altså $\\Omega(n^3)$.\n\nHvorfor ikke $\\omega(n^3)$: $\\omega(n^2)$-leddet kan være for eksempel\n$n^{2{,}5}$, som er strengt raskere enn $n^2$ men langsommere enn $n^3$. Da er\nsummen $\\Theta(n^3)$-leddet pluss noe mindre, og den vokser ikke strengt raskere\nenn $n^3$.\n\nHvorfor ikke $\\omega(n^2)$: det er sant, men løsere enn $\\Omega(n^3)$ — og\n$\\Omega(n^3)$ medfører $\\omega(n^2)$, ikke omvendt.",
+        "hints": [
+          "Skriv opp hva hvert ledd garanterer nedenfra, og hva det garanterer ovenfra.",
+          "Prøv å sette inn en konkret funksjon i $\\omega(n^2)$-leddet som vokser langsommere enn $n^3$ — går påstanden $\\omega(n^3)$ da fortsatt?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-1-3-tip-signal-2",
+      "type": "tip",
+      "title": "Hva oppgaven over tester",
+      "content": "At du ikke overdriver. Fristelsen er å la det sterkeste symbolet i uttrykket\nsmitte over på svaret: det står $\\omega$ i oppgaven, altså må det stå $\\omega$ i\nsvaret. Slik er det ikke. $\\omega(n^2)$ lover bare at leddet er strengt raskere\nenn $n^2$ — det lover ingenting om $n^3$.\n\nRegelen som holder: et $\\omega(g)$-ledd fjerner den øvre grensen, men det løfter\nbare den nedre grensen til $g$ selv, ikke til noe over $g$."
+    },
+    {
+      "id": "tdt4120-1-3-t-hver",
+      "type": "text",
+      "content": "## Grenser hver for seg (~10 min)\n\nNoen oppgaver ber ikke om ett uttrykk, men om **to**: den strammeste nedre og\nden strammeste øvre grensen, hver for seg. Det er en gavepakke, for den varianten\ner lettere enn den vanlige — du slipper å avgjøre om grensene møtes.\n\nFramgangsmåten er å gå gjennom leddene to ganger. Første runde: hvilke ledd har\nen nedre grense, og hvilken av dem er størst? Andre runde: hvilke ledd har en\nøvre grense, og hvilken av dem er størst? Har ett av leddene ingen øvre grense,\ner svaret på andre runde at det ikke finnes noen.\n\nAt de to svarene ofte er forskjellige, er selve poenget med spørsmålsformen."
+    },
+    {
+      "id": "tdt4120-1-3-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: To grenser som ikke møtes",
+      "problem": "Oppgi den strammeste nedre og den strammeste øvre grensen, hver for seg, for\n\n$$n\\lg n + \\Theta(n^2) + O(n^2\\lg n)$$",
+      "solution": "**Nedre grense.** Hvilke ledd garanterer noe nedenfra? Det første leddet er en\nkonkret funksjon, $n\\lg n$, som alltid er der. Det andre er $\\Theta(n^2)$, som er\nminst $c_1 n^2$. Det tredje, $O(n^2\\lg n)$, garanterer ingenting nedenfra — det\nkan være så lite som null. Største garanti nedenfra er dermed $n^2$:\n\n$$\\Omega(n^2)$$\n\n**Øvre grense.** Alle tre leddene har en øvre grense: $n\\lg n$ er seg selv,\n$\\Theta(n^2)$ er høyst $c_2 n^2$, og $O(n^2\\lg n)$ er høyst $c_3 n^2\\lg n$. Det\nraskest voksende av disse er $n^2\\lg n$:\n\n$$O(n^2\\lg n)$$\n\n**Kortsvaret:** $\\Omega(n^2)$ og $O(n^2\\lg n)$.\n\nGrensene møtes ikke, og det skal de heller ikke — $O(n^2\\lg n)$-leddet kan legge\nseg hvor som helst mellom null og $n^2\\lg n$. Å presse svaret inn i ett\n$\\Theta$-uttrykk ville vært galt."
+    },
+    {
+      "id": "tdt4120-1-3-oppg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-1-3-o9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger A.) Oppgi strammeste nedre og strammeste øvre grense,\nhver for seg, for\n\n$$\\Theta(n\\lg n) + O(n^2) + \\Theta(n)$$\n\nog si med én setning om uttrykket kan skrives som ett $\\Theta$-uttrykk.",
+        "solution": "**Nedre grense:** $\\Omega(n\\lg n)$. Det er $\\Theta(n\\lg n)$-leddet som gir den\nsterkeste garantien nedenfra; $\\Theta(n)$-leddet gir bare $n$, og $O(n^2)$-leddet\ngir ingenting.\n\n**Øvre grense:** $O(n^2)$. Alle tre leddene har en øvre grense, og den raskest\nvoksende av dem er $n^2$.\n\n**Ett $\\Theta$-uttrykk?** Nei — grensene møtes ikke, siden $n\\lg n = o(n^2)$, og\n$O(n^2)$-leddet kan velges både stort og lite.",
+        "hints": [
+          "Gå gjennom leddene to ganger: én runde for hva de garanterer nedenfra, én for hva de garanterer ovenfra.",
+          "$O(n^2)$ garanterer ingenting nedenfra — det leddet kan være null."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-1-3-oppg-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-1-3-o10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger A.) Oppgi strammeste nedre og strammeste øvre grense,\nhver for seg, for\n\n$$\\frac{O(n^4)}{\\Theta(n)} + \\Theta(n^2)$$",
+        "solution": "**Regn ut brøkleddet først.** Telleren er $O(n^4)$: høyst $c_1 n^4$, uten noen\nnedre grense. Nevneren er $\\Theta(n)$: klemt mellom $c_2 n$ og $c_3 n$. Størst\nmulig brøk er $\\dfrac{c_1 n^4}{c_2 n} = \\dfrac{c_1}{c_2}n^3$, så brøkleddet er\n$O(n^3)$. Nedre grense har det ikke, siden telleren kan være vilkårlig liten.\n\n**Nedre grense for hele uttrykket:** $\\Omega(n^2)$, fra $\\Theta(n^2)$-leddet.\nBrøkleddet bidrar ingenting nedenfra.\n\n**Øvre grense:** $O(n^3)$, fra brøkleddet. $\\Theta(n^2)$-leddet er høyst\n$c\\,n^2$, som er mindre.\n\n**Kortsvaret:** $\\Omega(n^2)$ og $O(n^3)$.",
+        "hints": [
+          "Regn brøken ferdig som et eget ledd før du legger til $\\Theta(n^2)$.",
+          "En $O$-teller har ingen nedre grense — hva betyr det for brøkens nedre grense?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-1-3-t-blandet",
+      "type": "text",
+      "content": "## Blandede operatorer (~10 min)\n\nDen varianten som oftest ser verre ut enn den er, er den som blander alle fem\nsymbolene i samme sum. Oppskriften er likevel uendret, og den kan sammenfattes i\nto spørsmål:\n\n1. Er det noe her som ikke har øvre grense? Alle $\\Omega$- og $\\omega$-ledd\n   svarer ja. Da blir svaret et $\\Omega$- eller $\\omega$-uttrykk.\n2. Hvilket ledd gir den sterkeste garantien nedenfra? Det bestemmer hvilken\n   funksjon som står inne i parentesen.\n\nEr svaret på spørsmål 1 nei, faller du tilbake på den vanlige summeregelen: det\nraskest voksende leddet vinner, og symbolet blir $\\Theta$ hvis det leddet er et\n$\\Theta$-ledd, ellers $O$."
+    },
+    {
+      "id": "tdt4120-1-3-oppg-11",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-1-3-o11",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger A.) Forenkl til ett strammeste uttrykk:\n\n$$O(n^2) + \\Theta(n\\lg n) + \\omega(n\\lg n) + o(n)$$",
+        "solution": "**Svar:** $\\omega(n\\lg n)$.\n\n$\\omega(n\\lg n)$-leddet er fritt oppover, så ingen $O$-grense gjelder for summen.\nSamme ledd er per definisjon strengt raskere enn $n\\lg n$: forholdet mellom det\nog $n\\lg n$ vokser uten grense. De øvrige leddene er ikke-negative, så de kan\nbare gjøre summen større. Dermed vokser hele summen strengt raskere enn $n\\lg n$.\n\nMerk kontrasten til den forrige oppgaven med $\\omega$: der hadde et $\\Theta$-ledd\nen **høyere** vekstklasse enn $\\omega$-leddet, og da ble svaret $\\Omega$ av det\nhøyeste. Her ligger $\\Theta$-leddet på nøyaktig samme nivå som $\\omega$-leddet,\nog da overlever den strenge ulikheten.",
+        "hints": [
+          "Skriv opp hvilke ledd som mangler øvre grense.",
+          "Sammenlign vekstklassen i $\\omega$-leddet med vekstklassen i $\\Theta$-leddet: ligger de på samme nivå, eller er ett av dem høyere?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-1-3-oppg-12",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-1-3-o12",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger A.) Forenkl hvert produkt til ett strammeste uttrykk:\n\n**a)** $\\Theta(n\\lg n)\\cdot O(n)$\n\n**b)** $\\omega(n)\\cdot\\Theta(n^2)$\n\n**c)** $O(n^2)\\cdot o(n)$",
+        "solution": "**a)** $O(n^2\\lg n)$. Telleren i $\\Theta$-leddet er høyst $c_1 n\\lg n$ og\n$O$-leddet høyst $c_2 n$, så produktet er høyst $c_1c_2 n^2\\lg n$. Nedenfra\ngaranterer $O$-leddet ingenting, så produktet har ingen nedre grense.\n\n**b)** $\\omega(n^3)$. Et $\\omega(n)$-ledd delt på $n$ vokser uten grense; ganger\ndu med noe som er minst $c_1 n^2$, vokser produktet delt på $n^3$ også uten\ngrense.\n\n**c)** $o(n^3)$. Begge faktorene har øvre grense, og den ene er strengt mindre\nenn sin. Produktet er høyst $c\\,n^2$ ganger noe som er forsvinnende lite i\nforhold til $n$, altså forsvinnende lite i forhold til $n^3$.",
+        "hints": [
+          "Multiplikasjon følger samme logikk som brøk: bytt hver faktor med sin ekstremverdi.",
+          "En $O$-faktor har ingen nedre grense — hva gjør det med produktets nedre grense?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-1-3-tip-signal-3",
+      "type": "tip",
+      "title": "Hva oppgavene over tester",
+      "content": "Om du husker at symbolene beskriver **mengder av funksjoner**, ikke tall.\n$\\Theta(n\\lg n)\\cdot O(n)$ er ikke «gang sammen to uttrykk», det er «velg en\nvilkårlig funksjon fra hver mengde og gang dem sammen — hva kan resultatet bli?».\n\nNår du tenker slik, følger regnereglene av seg selv: mangler den ene faktoren en\nnedre grense, mangler produktet den også."
+    },
+    {
+      "id": "tdt4120-1-3-t-brok",
+      "type": "text",
+      "content": "## Brøkuttrykk — teller og nevner hver for seg (~14 min)\n\n— naturlig pausepunkt —\n\nBrøkvarianten er den som gir flest tapte poeng, og grunnen er at den ser ut som\nvanlig potensregning. Fristelsen er å trekke eksponentene fra hverandre og gå\nvidere. Det virker bare når **både** teller og nevner er $\\Theta$-ledd.\n\nDen trygge rutinen har tre linjer:\n\n1. Spør: hvor stor kan brøken bli? Sett inn den største lovlige telleren og den\n   minste lovlige nevneren, og forkort. Får du et uttrykk, er det $O$-grensen.\n   Har telleren ingen største verdi, eller nevneren ingen minste, finnes ingen\n   $O$-grense.\n2. Spør: hvor liten kan brøken bli? Sett inn den minste lovlige telleren og den\n   største lovlige nevneren, og forkort. Får du et uttrykk, er det\n   $\\Omega$-grensen. Ellers finnes den ikke.\n3. Møtes svarene fra 1 og 2, skriv $\\Theta$. Ellers oppgir du det ene som finnes.\n\nTabellen du trenger for linje 1 og 2 er kort: $\\Theta(g)$ har både største og\nminste verdi (begge er $g$ opp til en konstant), $O(g)$ har bare største, og\n$\\Omega(g)$ har bare minste."
+    },
+    {
+      "id": "tdt4120-1-3-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: Brøk og sum i samme uttrykk",
+      "problem": "Forenkl til ett strammeste uttrykk:\n\n$$\\frac{\\Theta(n^5\\lg n)}{\\Theta(n^2)} + O(n^3) + \\Theta(n^2\\lg^2 n)$$",
+      "solution": "**Brøkleddet.** Både teller og nevner er $\\Theta$-ledd, og det er det eneste\ntilfellet der du trygt kan forkorte direkte. Største brøk:\n$\\dfrac{c_2 n^5\\lg n}{c_3 n^2} = \\dfrac{c_2}{c_3}n^3\\lg n$. Minste brøk:\n$\\dfrac{c_1 n^5\\lg n}{c_4 n^2} = \\dfrac{c_1}{c_4}n^3\\lg n$. Samme uttrykk begge\nveier, altså $\\Theta(n^3\\lg n)$.\n\n**Sammenlign de tre leddene.** Vi har nå $\\Theta(n^3\\lg n) + O(n^3) + \\Theta(n^2\\lg^2 n)$. Sorter vekstklassene:\n\n- $n^3\\lg n$\n- $n^3$, som er $o(n^3\\lg n)$\n- $n^2\\lg^2 n$, som er $o(n^3)$ og dermed enda mindre\n\nDet raskest voksende leddet er $n^3\\lg n$, og det er merket $\\Theta$. Ingen ledd\nmangler øvre grense.\n\n**Svar:** $\\Theta(n^3\\lg n)$.\n\nMerk hvorfor svaret ikke kan skrives $\\Theta(n^3)$: logaritmefaktoren er en ekte\nvekstforskjell, ikke en konstant. $n^3\\lg n$ delt på $n^3$ er $\\lg n$, som vokser\nuten grense — altså er $n^3\\lg n = \\omega(n^3)$."
+    },
+    {
+      "id": "tdt4120-1-3-oppg-13",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-1-3-o13",
+        "number": "13",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger A.) Forenkl hver brøk til ett strammeste uttrykk:\n\n**a)** $\\dfrac{\\Theta(n^5)}{\\Omega(n^2)}$\n\n**b)** $\\dfrac{\\Omega(n^4\\lg n)}{O(n^2)}$\n\n**c)** $\\dfrac{\\Theta(n^6)}{\\Theta(n^3)}$",
+        "solution": "**a)** $O(n^3)$. Største brøk: $\\dfrac{c_2 n^5}{c\\,n^2} = \\dfrac{c_2}{c}n^3$.\nMinste brøk finnes ikke — nevneren er $\\Omega(n^2)$ og har ingen øvre grense, så\nbrøken kan presses vilkårlig nær null.\n\n**b)** $\\Omega(n^2\\lg n)$. Minste brøk: $\\dfrac{c_1 n^4\\lg n}{c_2 n^2} = \\dfrac{c_1}{c_2}n^2\\lg n$. Største brøk finnes ikke — nevneren er $O(n^2)$ og\nkan være vilkårlig liten, så brøken kan bli vilkårlig stor.\n\n**c)** $\\Theta(n^3)$. Begge er $\\Theta$-ledd, så både største og minste brøk gir\n$n^3$ opp til en konstant, og grensene møtes.\n\n*Legg merke til mønsteret: bare c) tåler at du trekker eksponentene fra\nhverandre direkte.*",
+        "hints": [
+          "Still to spørsmål per brøk: hvor stor kan den bli, og hvor liten?",
+          "$\\Omega$ i nevneren betyr at nevneren kan vokse uten grense. Hva gjør det med brøken?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-1-3-oppg-14",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-1-3-o14",
+        "number": "14",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger A og D.) Et sett gir deg tre deloppgaver.\n\n**a)** La $f(n) = n^2/\\lg n$. Er $f(n) = \\Theta(n^2)$? Er $f(n) = O(n^2)$? Er\n$f(n) = \\omega(n)$? Svar for hver.\n\n**b)** Forenkl til ett strammeste uttrykk:\n$\\dfrac{\\Theta(n^7)}{\\Theta(n^3)} + O(n^4) + \\Theta(n^3\\lg^2 n)$\n\n**c)** Forklar med én setning hvorfor svaret i b) ikke kunne vært skrevet\n$\\Theta(n^3\\lg^2 n)$.",
+        "solution": "**a)** Ikke $\\Theta(n^2)$: forholdet $\\dfrac{n^2/\\lg n}{n^2} = \\dfrac{1}{\\lg n}$\ngår mot null, så $f(n) = o(n^2)$. Ja på $O(n^2)$, siden alt som er $o$ også er\n$O$. Ja på $\\omega(n)$: forholdet $\\dfrac{n^2/\\lg n}{n} = \\dfrac{n}{\\lg n}$\nvokser uten grense.\n\n**b)** $\\Theta(n^4)$. Brøkleddet er $\\Theta(n^4)$ (begge deler er $\\Theta$-ledd,\nså eksponentene kan trekkes fra hverandre). $O(n^4)$-leddet er høyst like stort\nog legger ingenting til. $\\Theta(n^3\\lg^2 n)$ er $o(n^4)$ og faller bort. Ingen\nledd mangler øvre grense, og det raskest voksende leddet er merket $\\Theta$.\n\n**c)** Fordi $n^3\\lg^2 n$ vokser strengt langsommere enn $n^4$ — forholdet\n$\\dfrac{n^3\\lg^2 n}{n^4} = \\dfrac{\\lg^2 n}{n}$ går mot null — så det leddet er\nikke det dominerende.",
+        "hints": [
+          "I a): regn ut forholdet $f(n)/g(n)$ for hver av de tre påstandene.",
+          "I b): regn brøken ferdig først, og sorter deretter de tre leddene etter vekstklasse.",
+          "En logaritme i andre potens slår aldri en hel ekstra faktor $n$."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-1-3-tip-signal-4",
+      "type": "tip",
+      "title": "Hva den siste oppgaven tester",
+      "content": "Hele oppskriften i én oppgave: klassifisering med forholdstesten, brøk med\nekstremverdier, sum med dominerende ledd, og til slutt en begrunnelse på én\nlinje. Det er nøyaktig slik en sjanger A-oppgave med deloppgaver er bygd opp.\n\nKlarer du denne på under fem minutter uten å slå opp, sitter kapitlet. Bruker du\nlengre tid, er det som regel steg 1 i oppskriften som mangler: å skrive leddene\nunder hverandre med vekstklassen på hvert."
+    },
+    {
+      "id": "tdt4120-1-3-t-bank",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har\nlest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder\nkjernestoffet."
+    },
+    {
+      "id": "tdt4120-1-3-d-o",
+      "type": "definition",
+      "title": "Symbolet $O$ — øvre grense",
+      "content": "Sier at funksjonen vokser **høyst** som $g$, opp til en konstant faktor. Det er\ndet romsligste av de fem symbolene, og det er sant også når $f$ vokser mye\nlangsommere enn $g$.\n\nFormelt: $f(n) = O(g(n))$ dersom det finnes positive konstanter $c$ og $n_0$ slik\nat $0 \\le f(n) \\le c\\,g(n)$ for alle $n \\ge n_0$.\n\nKravet er **eksistens** av én konstant $c$. Den vanligste feilen er å lese $O$\nsom «vokser saktere enn» — det stemmer ikke, $3n^2 = O(n^2)$ er sant."
+    },
+    {
+      "id": "tdt4120-1-3-d-omega",
+      "type": "definition",
+      "title": "Symbolet $\\Omega$ — nedre grense",
+      "content": "Sier at funksjonen vokser **minst** som $g$, opp til en konstant faktor. Et\n$\\Omega$-ledd i et regnestykke har ingen øvre grense — det er dette som gjør at\nen sum med et $\\Omega$-ledd ikke kan bindes ovenfra.\n\nFormelt: $f(n) = \\Omega(g(n))$ dersom det finnes positive konstanter $c$ og $n_0$\nslik at $0 \\le c\\,g(n) \\le f(n)$ for alle $n \\ge n_0$.\n\nSamme skjelett som $O$, motsatt ulikhetsretning. Definisjonen krever $n_0$ — en\nnedre grense som bare gjelder for små $n$, er ingen nedre grense."
+    },
+    {
+      "id": "tdt4120-1-3-d-theta",
+      "type": "definition",
+      "title": "Symbolet $\\Theta$ — tett grense",
+      "content": "Sier at funksjonen vokser **nøyaktig** som $g$, opp til konstante faktorer. Det\ner det svaret eksamen som regel er ute etter, fordi det er det strammeste.\n\nFormelt: $f(n) = \\Theta(g(n))$ dersom det finnes positive konstanter $c_1$, $c_2$\nog $n_0$ slik at $0 \\le c_1 g(n) \\le f(n) \\le c_2 g(n)$ for alle $n \\ge n_0$.\nEkvivalent: $f(n) = O(g(n))$ og $f(n) = \\Omega(g(n))$ samtidig.\n\nKravet er to konstanter, ikke én. Et polynom er alltid $\\Theta$ av sitt eget\nhøyeste ledd."
+    },
+    {
+      "id": "tdt4120-1-3-d-lilleo",
+      "type": "definition",
+      "title": "Symbolet $o$ — strengt mindre",
+      "content": "Sier at funksjonen blir **forsvinnende liten** i forhold til $g$: forholdet\n$f(n)/g(n)$ går mot null. Alt som er $o(g)$ er også $O(g)$, men ikke omvendt.\n\nFormelt: $f(n) = o(g(n))$ dersom det for **alle** konstanter $c > 0$ finnes et\n$n_0$ slik at $0 \\le f(n) < c\\,g(n)$ for alle $n \\ge n_0$.\n\nKravet «for alle $c$» er hele forskjellen fra $O$, og det er den detaljen som\noftest mangler i et definisjonssvar."
+    },
+    {
+      "id": "tdt4120-1-3-d-storomega",
+      "type": "definition",
+      "title": "Symbolet $\\omega$ — strengt større",
+      "content": "Sier at funksjonen vokser **uten grense i forhold til** $g$: forholdet\n$f(n)/g(n)$ vokser mot uendelig. Alt som er $\\omega(g)$ er også $\\Omega(g)$, men\nikke omvendt.\n\nFormelt: $f(n) = \\omega(g(n))$ dersom det for **alle** konstanter $c > 0$ finnes\net $n_0$ slik at $0 \\le c\\,g(n) < f(n)$ for alle $n \\ge n_0$.\n\nI en sum fjerner et $\\omega$-ledd den øvre grensen, men det løfter bare den nedre\ngrensen til $g$ selv — ikke til noe over $g$."
+    },
+    {
+      "id": "tdt4120-1-3-d-strammest",
+      "type": "definition",
+      "title": "Strammeste grense",
+      "content": "Den mest informative av flere sanne påstander om samme funksjon. Er både\n$O(n^3)$, $\\Omega(n^2)$ og $\\Theta(n^2)$ sant, er $\\Theta(n^2)$ det strammeste,\nfordi det binder funksjonen fra begge sider på samme nivå.\n\nRutinen som finner den: har du en $O$-grense, spør om den samme funksjonen også\ner $\\Omega$ av det samme uttrykket. Er den det, skriv $\\Theta$.\n\nOppgaveteksten spør nesten alltid etter denne. Et sant, men løsere svar er\nfelle #4 og gir sjelden full uttelling."
+    },
+    {
+      "id": "tdt4120-1-3-d-dominerende",
+      "type": "definition",
+      "title": "Dominerende ledd i en sum",
+      "content": "Det leddet som vokser raskest, og det eneste som overlever forenklingen. Alle\nlangsommere ledd kan puttes inn i konstanten og forsvinner.\n\nRekkefølgen du trenger er $1 < \\lg n < n < n\\lg n < n^2 < n^3 < 2^n < n!$, og\nden utvides på det opplagte viset: $n^2$ kommer før $n^2\\lg n$, som kommer før\n$n^3$.\n\nKravet for at svaret kan bli et $\\Theta$-uttrykk, er at det dominerende leddet\nselv er et $\\Theta$-ledd og at ingen av de andre mangler øvre grense."
+    },
+    {
+      "id": "tdt4120-1-3-d-sprenger",
+      "type": "definition",
+      "title": "Når et ledd fjerner den øvre grensen",
+      "content": "Så snart en sum inneholder et $\\Omega$- eller $\\omega$-ledd, kan den ikke\nbindes ovenfra, og svaret må skrives med $\\Omega$ eller $\\omega$.\n\nGrunnen er at et slikt ledd står for en vilkårlig funksjon som bare er bundet\nnedenfra. Den kan være hvor stor som helst, og en sum som inneholder en\nubegrenset funksjon er selv ubegrenset.\n\nKontrollspørsmålet er alltid det samme, og det skal stilles før du velger\nsymbol: er noen av leddene merket $\\Omega$ eller $\\omega$?"
+    },
+    {
+      "id": "tdt4120-1-3-d-brok",
+      "type": "definition",
+      "title": "Brøkregelen: ekstremverdi i teller og nevner",
+      "content": "Regelen for å forenkle en brøk av asymptotiske ledd: bytt teller og nevner med\nhver sin ekstremverdi **før** du forkorter, aldri etterpå.\n\nØvre grense får du med største teller og minste nevner; nedre grense med minste\nteller og største nevner. $\\Theta(g)$ har begge ekstremverdier, $O(g)$ bare den\nstørste, $\\Omega(g)$ bare den minste.\n\nKravet for at du trygt kan trekke eksponentene fra hverandre direkte, er at\n**både** teller og nevner er $\\Theta$-ledd. I alle andre tilfeller mangler minst\nén av grensene."
+    },
+    {
+      "id": "tdt4120-1-3-d-forholdstest",
+      "type": "definition",
+      "title": "Forholdstesten",
+      "content": "Den praktiske måten å klassifisere en konkret funksjon på: se hva $f(n)/g(n)$\ngjør når $n$ vokser.\n\nStabiliserer forholdet seg på et positivt tall, er $f = \\Theta(g)$. Går det mot\nnull, er $f = o(g)$ og dermed $O(g)$. Vokser det uten grense, er $f = \\omega(g)$\nog dermed $\\Omega(g)$.\n\nKravet er at du husker de to «og dermed»-ene — de gir gratis delpoeng når en\noppgave spør om flere symboler for samme funksjonspar."
+    },
+    {
+      "id": "tdt4120-1-3-d-sjanger-a",
+      "type": "definition",
+      "title": "Sjanger A — asymptotisk forenkling",
+      "content": "Oppgavetypen dette kapitlet drilles på: du får et sammensatt uttrykk og skal\nskrive det som ett strammeste uttrykk.\n\nDen er med i 100 % (17 av de 17 settene i grunnlaget), ofte med 2–3 oppgaver i\nsamme sett. Svarformen er **én linje** — ett uttrykk, ingen utledning.\n\nKravet som avgjør uttellingen, er at svaret er det strammeste, ikke bare et sant\nsvar."
+    },
+    {
+      "id": "tdt4120-1-3-d-sjanger-d",
+      "type": "definition",
+      "title": "Sjanger D — definisjonsspørsmålet",
+      "content": "Oppgavetypen der du blir bedt om å skrive ned den presise definisjonen av ett\nav de fem symbolene, eller å forklare forskjellen mellom to av dem.\n\nSvarformen er én presis setning med **hovedpoenget først**: kvantoren, de to\nkonstantene og ulikheten. Fordi eksamen er uten hjelpemidler, må formen kunnes\nutenat.\n\nKravet som skiller riktig fra galt, er kvantoren: «det finnes en $c$» for $O$ og\n$\\Omega$, «for alle $c$» for $o$ og $\\omega$."
+    },
+    {
+      "id": "tdt4120-1-3-coll-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tdt4120-1-3-rep-1",
+          "type": "text",
+          "content": "Fem korte spørsmål fra kapitlene dette bygger på. Svar i hodet, og les fasiten\netterpå.\n\n**1.** Hva betyr $\\lg n$ i denne boka, og hvorfor skrives det ikke $\\log n$?\n\n*Fasit:* $\\lg n$ betyr $\\log_2 n$. Det er CLRS-konvensjonen, og den brukes\ngjennomgående i faget. Basen betyr uansett ingenting asymptotisk, siden\nlogaritmer med ulik base skiller seg med en konstant faktor.\n\n**2.** Sett de fem symbolene $O$, $\\Omega$, $\\Theta$, $o$, $\\omega$ på hver sin\nsammenligningsoperator mellom tall.\n\n*Fasit:* $O$ svarer til «høyst», $\\Omega$ til «minst», $\\Theta$ til «lik», $o$\ntil «strengt mindre» og $\\omega$ til «strengt større». Analogien er ikke perfekt\n— to funksjoner trenger ikke være sammenlignbare i det hele tatt — men den er\nriktig nok til å velge symbol.\n\n**3.** Hvorfor forsvinner konstanten 5 i $5n^2$ når du skriver svaret\nasymptotisk?\n\n*Fasit:* Fordi definisjonene har en fri konstant $c$ som kan absorbere den. Med\n$c_1 = 5$ og $c_2 = 5$ er $5n^2 = \\Theta(n^2)$ direkte fra definisjonen.\n\n**4.** Hvilket ledd overlever i $n^3 + 100n^2 + 5000n + 10^6$?\n\n*Fasit:* $n^3$. Svaret er $\\Theta(n^3)$. Tallet $10^6$ ser stort ut, men det er\nen konstant, og for store nok $n$ er $n^3$ større enn alt det andre til sammen.\n\n**5.** Hva sier standard vekstordning, fra langsomst til raskest?\n\n*Fasit:* $1 < \\lg n < n < n\\lg n < n^2 < n^3 < 2^n < n!$. Rekka dekker\npraktisk talt alle kjøretider du møter i faget, og den er nok til å avgjøre\nhvilket ledd i en sum som dominerer."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

@@ -1,0 +1,432 @@
+{
+  "id": "tdt4120-4-1",
+  "courseId": "tdt4120",
+  "chapterNumber": "4.1",
+  "title": "Grafrepresentasjon, traversering og topologisk sortering",
+  "description": "Nabomatrise vs. naboliste, `BFS`, `DFS` med kantklassifisering, og topologisk sortering via **synkende finish-tid**.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "kunne velge mellom nabomatrise og naboliste ut fra hvor tett grafen er, og begrunne valget med plassforbruk og kjøretid",
+    "kunne kjøre `BFS` og `DFS` for hånd og oppgi avstander, discover- og finish-tider og kantklassifiseringen",
+    "kunne finne en topologisk sortering av en rettet asyklisk graf ved synkende finish-tid, og forklare hvorfor det virker",
+    "kunne avgjøre om en rettet graf har en sykel ved hjelp av dybde-først-søk, og oppgi kjøretiden"
+  ],
+  "content": [
+    {
+      "id": "tdt4120-4-1-tip-1",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "En rutebilsjåfør, en montasjeleder og en driftsvakt stiller det samme spørsmålet\ni tre forkledninger: **hva henger sammen med hva, og i hvilken rekkefølge må jeg\nta det?** Svaret er en graf og en traversering. Dette kapitlet gir deg de to\ntraverseringene hele resten av grafdelen hviler på, og den ene ordningen de\nbrukes til å lage.\n\n**Hvor ofte kommer det?** Grafrepresentasjon og traversering er belagt i\n**82 % (14 av de 17 settene i grunnlaget)**, og topologisk sortering i\n**41 % (7 av de 17 settene)**. Grunnlaget er de 17 settene fra august 2015 til\naugust 2023 som er gjennomgått tema for tema — det er nevneren hver gang et\nprosenttall dukker opp i denne boka.\n\n**Sjangrene du møter her**, med kodene skrevet ut:\n\n- **sjanger C — håndkjøring**, altså at du utfører algoritmen steg for steg og\n  oppgir bare sluttilstanden: `BFS`- eller `DFS`-rekkefølgen, `d`-verdiene eller\n  finish-tidene.\n- **sjanger D — definisjon med egne ord**, altså én presis setning med\n  hovedpoenget først: «definér topologisk sortering».\n- **sjanger F — stemmer dette?**, altså et påstandsspørsmål der du svarer\n  **ja eller nei først** og deretter én setning. Den faste fella er\n  «topologisk sortering ordner nodene etter starttid» (nei — synkende\n  **finish-tid**).\n\n**Prioritet: bør sitte.** Traversering er ikke det aller første du pugger, men\ndet er fundamentet under korteste vei, spenntrær og flytnett. Sitter `BFS` og\n`DFS`, får du billige poeng i fire senere kapitler.\n\n**Slik er kapitlet lagt opp (60 min):**\n\n| # | Innhold | Tid |\n|---|---|---|\n| 1 | Nabomatrise mot naboliste — og når du velger hva | ca. 12 min |\n| 2 | `BFS`: færrest kanter, lag for lag | ca. 14 min |\n| 3 | `DFS`: klokka, finish-tidene og de fire kanttypene | ca. 16 min |\n| 4 | Topologisk sortering via synkende finish-tid | ca. 14 min |\n| 5 | Kjøretidstabell, begrepsbank og repetisjon | ca. 4 min |"
+    },
+    {
+      "id": "tdt4120-4-1-t-forkunn",
+      "type": "text",
+      "content": "## Forkunnskaper\n\n- [kap. 3.5](/tdt4120/tdt4120-3-5) — **køer og stakker**. De to traverseringene\n  i dette kapitlet skiller seg fra hverandre på nøyaktig ett punkt: hvilken\n  beholder de tar den neste noden fra. `BFS` bruker en **kø** (først inn, først\n  ut), `DFS` bruker en **stakk** (sist inn, først ut) — og i praksis er stakken\n  rekursjonsstakken, altså at prosedyren kaller seg selv.\n- [Mengdelære](/1t/1t-1-7) — grafen skrives $G = (V, E)$, altså et par av to\n  mengder: nodene $V$ og kantene $E$. Trenger du en oppfriskning av\n  mengdenotasjonen bak den skrivemåten, ligger den der.\n- [Algoritmedefinisjon, pseudokode og kompleksitet (Big-O)](/tdt4110/tdt4110-6-3)\n  — et mykere første møte med $O$-notasjon og med å lese pseudokode, hvis\n  kjøretidsuttrykkene under fortsatt kjennes uvante.\n\nDu trenger **ingen** kjennskap til vektede grafer her. Kantene i dette kapitlet\nhar ingen tall på seg; vekter kommer i [kap. 4.2](/tdt4120/tdt4120-4-2) og\n[kap. 4.3](/tdt4120/tdt4120-4-3)."
+    },
+    {
+      "id": "tdt4120-4-1-coll-notasjon",
+      "type": "collapsible",
+      "title": "Notasjons- og pseudokodeliste",
+      "buttonText": "Vis notasjon og pseudokode",
+      "content": [
+        {
+          "id": "tdt4120-4-1-nt-1",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et algoritmefag: den lister kjøretidsuttrykk\nog pseudokode-operasjoner i stedet for bare greske bokstaver.\n\n| Symbol | Betydning |\n|---|---|\n| $G = (V, E)$ | grafen: nodemengden $V$ og kantmengden $E$ |\n| $V$ | antall noder — i kjøretidsuttrykk skriver vi $V$, ikke antall-tegn rundt |\n| $E$ | antall kanter |\n| $\\Theta(V + E)$ | lineær tid i grafens størrelse: kjøretiden til `BFS`, `DFS` og `Topological-Sort` |\n| $\\Theta(V^2)$ | plassen en nabomatrise bruker, uansett hvor få kanter grafen har |\n| $O(1)$ | konstant tid — kantoppslaget i en nabomatrise |\n| $u.d$ | for `BFS`: avstanden fra kilden målt i **antall kanter**. For `DFS`: tidspunktet noden ble oppdaget |\n| $u.f$ | finish-tiden: tidspunktet `DFS` ble ferdig med noden og alt under den |\n| $u.\\pi$ | forgjengeren: noden vi kom fra da $u$ ble oppdaget |\n| $\\mathrm{Adj}[u]$ | nabolista til $u$: de nodene det går en kant fra $u$ til |"
+        },
+        {
+          "id": "tdt4120-4-1-nt-2",
+          "type": "text",
+          "content": "| Algoritme/operasjon | Kontrakt | Kjøretid |\n|---|---|---|\n| `BFS(G, s)` | traverserer grafen lagvis fra kilden `s` og setter `v.d` til antall kanter i den korteste stien fra `s`, samt `v.pi` | $\\Theta(V+E)$ |\n| `DFS(G)` | traverserer hele grafen i dybden, gir hver node en discover-tid `v.d` og en finish-tid `v.f`, og klassifiserer hver kant | $\\Theta(V+E)$ |\n| `DFS-Visit(G, u)` | den rekursive kjernen i `DFS`: utforsker alt som er nåbart fra `u` og ikke alt besøkt | del av $\\Theta(V+E)$ |\n| `Topological-Sort(G)` | kjører `DFS` på en rettet asyklisk graf og setter hver node fremst i en liste når den ferdigstilles | $\\Theta(V+E)$ |\n| `Enqueue`, `Dequeue` | køoperasjonene `BFS` bruker, fra [kap. 3.5](/tdt4120/tdt4120-3-5) | $O(1)$ hver |\n\n**Formler i dette delkapitlet:**\n\n$$\\text{plass(nabomatrise)} = \\Theta(V^2), \\qquad \\text{plass(naboliste)} = \\Theta(V + E)$$\n\nMatrisen betaler for alle par av noder, også de som ikke er naboer. Nabolista\nbetaler bare for de kantene som faktisk finnes.\n\n$$\\Theta(V + E)$$\n\nKjøretiden til begge traverseringene: hver node behandles én gang, og hver\nkantpost i nabolistene leses én gang.\n\n$$0 \\le E \\le V(V-1)/2$$\n\nAntall kanter i en urettet enkel graf. Er $E$ nær den øvre grensen, er grafen\n**tett**; er $E$ nær $V$, er den **glissen**."
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-4-1-t-1",
+      "type": "text",
+      "content": "## Grafen på papiret: to måter å lagre den på (~12 min)\n\nEt bysykkelselskap har 640 stativer og litt over 1 700 sykkelveistrekninger\nmellom dem. Systemet skal svare på to slags spørsmål hele dagen: «går det en\nstrekning direkte fra stativ 88 til stativ 402?» og «hvilke stativer kan jeg\nsykle til fra stativ 88?». De to spørsmålene trekker i hver sin retning, og\nvalget mellom dem er hele grunnen til at faget har to representasjoner.\n\nEn **graf** er bare noder og kanter, skrevet $G = (V, E)$. Selve tegningen med\nsirkler og streker er ikke noe datamaskinen har; den må ha grafen som tall i\nminnet. Det finnes to standardformer, og eksamen forventer at du kjenner\nstyrkene og svakhetene til begge.\n\nVi skriver $V$ for antall noder og $E$ for antall kanter, rett inn i\nkjøretidsuttrykkene: $\\Theta(V + E)$, $\\Theta(V^2)$. Det er skrivemåten\nlæreboka og løsningsforslagene bruker, og den du skal levere."
+    },
+    {
+      "id": "tdt4120-4-1-def-1",
+      "type": "definition",
+      "title": "Graf, rettet og urettet",
+      "content": "En samling noder og kanter mellom dem, skrevet $G = (V, E)$.\n\nI en **urettet** graf går kanten begge veier: er $A$ nabo med $B$, er $B$ nabo\nmed $A$ (sykkelveier, kabler, vennskap). I en **rettet** graf har hver kant en\nretning, skrevet `u -> v` (envegskjøring, avhengigheter, lenker). Alt i dette\nkapitlet gjelder begge typene, men **kantklassifisering** og **topologisk\nsortering** gir bare mening i rettede grafer. En urettet graf med $V$ noder har\nmellom $0$ og $V(V-1)/2$ kanter."
+    },
+    {
+      "id": "tdt4120-4-1-def-2",
+      "type": "definition",
+      "title": "Nabomatrise",
+      "content": "En tabell med én rad og én kolonne per node, der cellen for raden $u$ og\nkolonnen $v$ er 1 hvis kanten finnes og 0 ellers.\n\nPlassen er $\\Theta(V^2)$ **uansett hvor få kanter grafen har** — du betaler for\nhvert par av noder. Til gjengjeld er kantoppslaget «finnes kanten fra $u$ til\n$v$?» $O(1)$: du slår rett opp i én celle. I en urettet graf er matrisen\nsymmetrisk om diagonalen. Velg nabomatrise når grafen er **tett**, eller når\nprogrammet gjør mange kantoppslag og få naboløkker."
+    },
+    {
+      "id": "tdt4120-4-1-def-3",
+      "type": "definition",
+      "title": "Naboliste",
+      "content": "Ett listehode per node, der lista inneholder nodens naboer.\n\nPlassen er $\\Theta(V + E)$: ett hode per node pluss én post per kant — to poster\nper kant i en urettet graf, siden kanten står i begge nabolistene. Å gå gjennom\nnaboene til $u$ koster tid proporsjonal med antall naboer, som er akkurat det\nen traversering vil ha. Prisen er at kantoppslaget «finnes kanten fra $u$ til\n$v$?» krever at du leter gjennom nabolista til $u$. **Naboliste er\nstandardvalget** i dette faget, og den representasjonen `BFS` og `DFS` antar\nnår kjøretiden oppgis som $\\Theta(V + E)$."
+    },
+    {
+      "id": "tdt4120-4-1-fig-1",
+      "type": "image",
+      "src": "/images/textbook/tdt4120/4-1-representasjon.svg",
+      "alt": "En urettet graf med seks noder merket A til F og atte kanter, tegnet til venstre. I midten den samme grafen som en nabomatrise med seks rader og seks kolonner fylt med nuller og ettall. Til hoyre den samme grafen som naboliste, med en linje per node som lister nodens naboer.",
+      "caption": "Samme graf, tre ganger. Matrisen bruker 36 celler; nabolista bruker 6 hoder og 16 poster. Med bare 8 kanter i grafen står de fleste matrisecellene tomme — det er den prisen $\\Theta(V^2)$ betyr i praksis."
+    },
+    {
+      "id": "tdt4120-4-1-def-4",
+      "type": "definition",
+      "title": "Glissen og tett graf",
+      "content": "En graf er **glissen** når antall kanter er nær antall noder, og **tett** når\ndet er nær det maksimale $V(V-1)/2$.\n\nSkillet er ikke et presist grensetall, men en tommelfingerregel for\nrepresentasjonsvalget. Med $V = 1000$ og $E = 2000$ bruker nabomatrisen\n$1\\,000\\,000$ celler mot nabolistas $5\\,000$ poster — 200 ganger mer. Med\n$E = 499\\,500$, altså en komplett graf, bruker de to like mye. **Virkelige\ngrafer er nesten alltid glisne**: veinett, sosiale nett og avhengighetsgrafer\nhar få naboer per node."
+    },
+    {
+      "id": "tdt4120-4-1-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Hvilken representasjon skal bysykkelsystemet bruke?",
+      "problem": "Systemet har $V = 640$ stativer og $E = 1\\,730$ strekninger, og skal gjøre to\nting: (i) svare på «finnes strekningen fra stativ $u$ til stativ $v$?» noen\ntusen ganger i timen, og (ii) kjøre en traversering over hele nettet hvert\nkvarter for å finne stativer som er blitt frakoblet.\n\nHvilken representasjon bør velges, og hva koster de to oppgavene i hver av dem?",
+      "solution": "**Naboliste.**\n\n**Plassen.** Nabomatrisen bruker $640^2 = 409\\,600$ celler. Nabolista bruker\n$640$ hoder pluss $2 \\cdot 1\\,730 = 3\\,460$ poster, altså $4\\,100$ poster — rundt\nhundre ganger mindre. Grafen er glissen: hvert stativ har i snitt\n$2 \\cdot 1730 / 640 \\approx 5{,}4$ naboer av 639 mulige.\n\n**Traverseringen**, som er den tunge jobben, er $\\Theta(V + E) = \\Theta(640 + 1730)$\nmed naboliste. Med nabomatrise må traverseringen lese hele raden til hver node\nfor å finne naboene, og blir $\\Theta(V^2) = \\Theta(409\\,600)$ — over to\nstørrelsesordener dyrere.\n\n**Kantoppslaget** er det eneste matrisen vinner: $O(1)$ mot «let gjennom\nnabolista til $u$», som i snitt er rundt 5 sammenligninger her. Noen tusen\noppslag i timen à 5 sammenligninger er ingenting mot en kvarterlig traversering\nsom blir hundre ganger dyrere.\n\n**Konklusjonen i én linje:** naboliste, fordi grafen er glissen og\nhovedoperasjonen er en traversering."
+    },
+    {
+      "id": "tdt4120-4-1-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-4-1-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave, sjanger D — definisjon med egne ord, altså én presis setning\nmed hovedpoenget først.) En sambandsgruppe har fem radiopunkter, og disse\ndirekte sambandene: A–B, A–C, B–C, B–D, C–E og D–E.\n\n**a)** Skriv nabolista for grafen, med naboene i alfabetisk rekkefølge.\n**b)** Hvor mange celler har nabomatrisen, og hvor mange av dem er 1?\n**c)** Hva er plassforbruket til de to representasjonene uttrykt i $V$ og $E$?",
+        "solution": "**a)**\n\n```text\nA: B, C\nB: A, C, D\nC: A, B, E\nD: B, E\nE: C, D\n```\n\n**b)** $5 \\times 5 = 25$ celler. Grafen er urettet med 6 kanter, så 12 celler er\n1 (hver kant står to steder), og 13 er 0. Diagonalen er null hele veien: ingen\nradiopunkt har samband med seg selv.\n\n**c)** Nabomatrise $\\Theta(V^2)$, naboliste $\\Theta(V + E)$. Her: 25 celler mot\n5 hoder og 12 poster.",
+        "hints": [
+          "Tell naboene til hver node først, og husk at en urettet kant står i to nabolister.",
+          "Nabomatrisen har én rad og én kolonne per node — antall celler avhenger bare av $V$."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-4-1-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-4-1-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger E — kjøretidskunnskap, altså at svaret er ett uttrykk med `\\Theta` eller\n`O` bevisst valgt.) To grafer har begge $V = 2000$ noder. Graf 1 er et veinett\nmed $E = 4\\,800$ kanter. Graf 2 er en interessekonflikt-graf der nesten alle par\ner koblet, med $E = 1\\,900\\,000$ kanter.\n\n**a)** Hvor mange celler bruker en nabomatrise for hver av dem?\n**b)** Hvor mange poster bruker en naboliste for hver av dem, dersom grafene er\nurettede?\n**c)** Hvilken representasjon velger du for hver graf, og hva er det avgjørende\nargumentet?",
+        "solution": "**a)** Begge: $2000^2 = 4\\,000\\,000$ celler. Matrisen bryr seg ikke om antall\nkanter.\n\n**b)** Graf 1: $2000 + 2 \\cdot 4800 = 11\\,600$ poster. Graf 2:\n$2000 + 2 \\cdot 1\\,900\\,000 = 3\\,802\\,000$ poster.\n\n**c)** Graf 1: **naboliste** — den er glissen, og lista bruker rundt 345 ganger\nmindre plass enn matrisen. Graf 2: **nabomatrise** — grafen er tett, lista\nsparer nesten ingen plass ($3{,}8$ mot $4{,}0$ millioner), og matrisen gir\n$O(1)$ kantoppslag i tillegg.\n\nDet avgjørende argumentet er forholdet mellom $E$ og $V^2$, ikke $E$ alene.",
+        "hints": [
+          "Regn ut $V^2$ først — det tallet er det samme for begge grafene.",
+          "En urettet kant koster to poster i nabolistene, én i hver ende."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-4-1-t-2",
+      "type": "text",
+      "content": "## Bredde-først: færrest kanter, lag for lag (~14 min)\n\nEn beredskapsvakt skal varsle et nett av kontrollrom. Hvert rom kan ringe sine\nnaboer, og vakta vil vite hvor mange ledd varselet må gjennom for å nå fram til\nhvert enkelt rom. Ikke hvor lang tid det tar, ikke hvor mange kilometer — hvor\nmange **ledd**.\n\nDet er akkurat det bredde-først-søket gjør. Det starter i kilden, tar alle\nnaboene først, deretter alle naboene til dem, og så videre. Nodene faller i\n**lag** etter hvor mange kanter unna kilden de ligger, og feltet `v.d` holder\ndet tallet.\n\n**Merk deg dette nå**, for det er en fast eksamensfelle: `BFS` gir korteste vei\nmålt i **antall kanter**, ikke i vekt. En omvei på tre korte strekninger kan\ngodt være lettere enn én lang direkte kant, og da svarer `BFS` feil på\nvekt-spørsmålet. Vektede korteste veier krever `Dijkstra` eller `Bellman-Ford`\nfra [kap. 4.3](/tdt4120/tdt4120-4-3)."
+    },
+    {
+      "id": "tdt4120-4-1-thm-1",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `BFS`",
+      "content": "**Antagelser om representasjon.** Grafen $G = (V, E)$ er gitt som nabolister;\n`Adj[u]` gjennomløpes i den rekkefølgen lista er oppgitt. Hver node `v` har tre\nfelt: fargen `v.farge` (hvit = ikke oppdaget, grå = i køen, svart = ferdig),\navstanden `v.d` og forgjengeren `v.pi`. Køen er en FIFO-kø fra\n[kap. 3.5](/tdt4120/tdt4120-3-5). Grafen kan være rettet eller urettet.\n\n**Prebetingelse:** `s` er en node i `G`. **Postbetingelse:** for hver node `v`\nsom er nåbar fra `s` er `v.d` antall kanter i den korteste stien fra `s` til\n`v`, og `v.pi` er nodens forgjenger i den stien. Noder som ikke er nåbare,\nbeholder `v.d = uendelig` og `v.pi = NIL`.\n\n```text\nBFS(G, s)\n  Input:  graf G som nabolister, kildenode s\n  Output: v.d og v.pi satt for hver node v\n  for hver node u i V minus {s}\n      u.farge = hvit\n      u.d     = uendelig\n      u.pi    = NIL\n  s.farge = graa\n  s.d     = 0\n  s.pi    = NIL\n  Q = tom ko\n  Enqueue(Q, s)\n  while Q ikke er tom\n      u = Dequeue(Q)\n      for hver v i Adj[u]\n          if v.farge == hvit\n              v.farge = graa\n              v.d     = u.d + 1\n              v.pi    = u\n              Enqueue(Q, v)\n      u.farge = svart\n  Kjoretid: Theta(V + E)\n```\n\n**Grunnideen i én setning:** køen holder alltid nodene i ikke-synkende\n`d`-rekkefølge, så når en node blir oppdaget for første gang, er den oppdaget\nlangs en sti med færrest mulig kanter.\n\n**Kjøretid $\\Theta(V + E)$:** hver node legges i køen og tas ut nøyaktig én\ngang, siden fargen sperrer for gjentakelse, og nabolista til hver node\ngjennomløpes nøyaktig én gang — summen av alle nabolistelengder er $E$ i en\nrettet graf og $2E$ i en urettet."
+    },
+    {
+      "id": "tdt4120-4-1-fig-2",
+      "type": "image",
+      "src": "/images/textbook/tdt4120/4-1-bfs-lag.svg",
+      "alt": "En urettet graf med seks noder ordnet i fire kolonner etter avstand fra node A. A staar alene i forste kolonne med d lik 0, B og C i andre kolonne med d lik 1, D og E i tredje kolonne med d lik 2, og F i fjerde kolonne med d lik 3. Kantene som horer til BFS-treet er heltrukne, de ovrige er stiplet.",
+      "caption": "Kollektivnettet fra Eksempel 2, tegnet etter lagene $\\mathrm{BFS}$ finner. De stiplede kantene finnes i grafen, men $\\mathrm{BFS}$ bygger ikke treet med dem: begge endene var allerede oppdaget da kanten ble sett på."
+    },
+    {
+      "id": "tdt4120-4-1-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: BFS gjennom kollektivnettet",
+      "problem": "Seks holdeplasser henger sammen slik nabolistene under viser. Rekkefølgen i\nlistene er den systemet faktisk lagrer, og den skal følges.\n\n```text\nA: B, C\nB: A, C, D\nC: A, B, E\nD: B, E, F\nE: C, D, F\nF: D, E\n```\n\nKjør `BFS` fra `A`. Oppgi `v.d` for hver node og rekkefølgen nodene tas ut av\nkøen i.",
+      "solution": "**Sporingstavlen.** Én rad per gang en node tas ut av køen. Køen står oppgitt\netter hvert steg, med fronten først.\n\n| Steg | Tas ut av køen | `d` | Nye noder som legges i køen | Køen etter steget |\n|---|---|---|---|---|\n| 1 | `A` | 0 | B (d=1, pi=A), C (d=1, pi=A) | `B, C` |\n| 2 | `B` | 1 | D (d=2, pi=B) | `C, D` |\n| 3 | `C` | 1 | E (d=2, pi=C) | `D, E` |\n| 4 | `D` | 2 | F (d=3, pi=D) | `E, F` |\n| 5 | `E` | 2 | - | `F` |\n| 6 | `F` | 3 | - | `(tom)` |\n\n**På eksamen leverer du bare linja under — tavlen er her for å vise hvordan du\nkommer dit.**\n\n`A.d` = 0, `B.d` = 1, `C.d` = 1, `D.d` = 2, `E.d` = 2, `F.d` = 3\n\nBlir også besøksrekkefølgen etterspurt: **A, B, C, D, E, F**.\n\n**Legg merke til hvorfor `E` fikk `d = 2` og ikke `d = 3`.** `E` ble oppdaget\nfra `C` i steg 3, ikke fra `D` i steg 4. Da `D` senere så på `E`, var `E`\nallerede grå, og `BFS` rører ikke en node som er oppdaget. Det er nettopp det\nsom gjør at `d`-verdien blir den minste mulige.\n\n**Fellenote.** Fellen her er å svare på et vekt-spørsmål med `BFS`-tallene.\n`BFS` gir færrest **kanter**, ikke minst vekt: hadde strekningen A–C tatt 40\nminutter og A–B–C 12 minutter til sammen, ville `BFS` fortsatt gitt `C.d = 1`\nlangs den trege kanten."
+    },
+    {
+      "id": "tdt4120-4-1-warn-1",
+      "type": "warning",
+      "title": "Typiske feil i BFS",
+      "content": "- **Å tro at `BFS` gir korteste vei i vekt.** Den gir færrest **kanter**.\n  Kontrollen: står det tall på kantene i oppgaven, og spørres det om «korteste»\n  eller «billigste» vei, er `BFS` feil verktøy — da skal du til\n  [kap. 4.3](/tdt4120/tdt4120-4-3).\n- **Å oppdatere `d` på en node som allerede er oppdaget.** Testen er\n  `if v.farge == hvit`, ikke «hvis den nye `d` er mindre». En node som er grå\n  eller svart, har allerede sin endelige `d`.\n- **Å oppgi $O(V^2)$ som kjøretid uten forbehold.** Med nabolister er `BFS`\n  $\\Theta(V + E)$. $\\Theta(V^2)$ er det du får hvis grafen er lagret som\n  nabomatrise, fordi du da må lese en hel rad for å finne naboene til én node.\n  Oppgi representasjonen når du oppgir kjøretiden.\n- **Å bytte om køen og stakken.** `BFS` bruker kø (først inn, først ut). Bruker\n  du stakk, har du skrevet `DFS` — og fått en helt annen besøksrekkefølge."
+    },
+    {
+      "id": "tdt4120-4-1-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-4-1-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C — håndkjøring, altså at du utfører algoritmen steg for\nsteg og oppgir bare sluttilstanden.) Et sykkelveinett har sju kryss med\nnabolistene under. Rekkefølgen i listene skal følges.\n\n```text\nA: B, D\nB: A, C, E\nC: B, F\nD: A, E\nE: B, D, F, G\nF: C, E, G\nG: E, F\n```\n\nKjør `BFS` fra `A`. **Oppgaven ber om `d`-verdiene og besøksrekkefølgen, ikke om\nen forklaring av algoritmen.**",
+        "solution": "| Steg | Tas ut av køen | `d` | Nye noder som legges i køen | Køen etter steget |\n|---|---|---|---|---|\n| 1 | `A` | 0 | B (d=1, pi=A), D (d=1, pi=A) | `B, D` |\n| 2 | `B` | 1 | C (d=2, pi=B), E (d=2, pi=B) | `D, C, E` |\n| 3 | `D` | 1 | - | `C, E` |\n| 4 | `C` | 2 | F (d=3, pi=C) | `E, F` |\n| 5 | `E` | 2 | G (d=3, pi=E) | `F, G` |\n| 6 | `F` | 3 | - | `G` |\n| 7 | `G` | 3 | - | `(tom)` |\n\n**Sluttilstanden, som er svaret:**\n\n`A.d` = 0, `B.d` = 1, `C.d` = 2, `D.d` = 1, `E.d` = 2, `F.d` = 3, `G.d` = 3\n\nBesøksrekkefølge: **A, B, D, C, E, F, G**\n\n**Der det glipper:** `D` står i nabolista til `A` etter `B`, så `B` kommer først\ni køen. Men `D` har ingen ubesøkte naboer når turen kommer til den — `E` ble\noppdaget fra `B` ett steg før. Delvis riktig tavle gir delvis uttelling, så før\nkøen synlig og ikke i hodet.",
+        "hints": [
+          "Skriv opp køen etter hvert eneste steg, med fronten til venstre.",
+          "En node får `d`-verdi bare den gangen den går fra hvit til grå — aldri senere."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-4-1-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-4-1-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger F — «stemmer dette?», altså at du svarer ja eller nei først og deretter\ngir én presis setning.) En student skriver: «Siden `BFS` finner korteste vei fra\nkilden, kan vi bruke den til å finne den raskeste bussruten mellom to\nholdeplasser når hver strekning har oppgitt kjøretid.»\n\nStemmer dette? Begrunn.",
+        "solution": "**Nei.**\n\n`BFS` minimerer **antall kanter** i stien, ikke summen av kantvektene, så med\noppgitte kjøretider kan den svare med en rute som har færre bytter men lengre\ntotal kjøretid.\n\n**Et talleksempel:** tre holdeplasser med strekningene A–B (50 min), B–C\n(50 min) og A–C (1000 min). `BFS` fra `A` gir `C.d = 1` langs den direkte\nkanten, altså ruten A–C på 1000 minutter, mens den raskeste ruten er A–B–C på\n100 minutter. Til vektede grafer trenger du `Dijkstra`, som kommer i\n[kap. 4.3](/tdt4120/tdt4120-4-3).",
+        "hints": [
+          "Spør deg hva `v.d` faktisk teller i pseudokoden: hva legges det 1 til?",
+          "Prøv å konstruere en graf med tre noder der den direkte kanten er dyrest."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-4-1-t-3",
+      "type": "text",
+      "content": "## Dybde-først: klokka, tidene og de fire kanttypene (~16 min)\n\n— naturlig pausepunkt —\n\nDer `BFS` sprer seg utover i lag, går **dybde-først-søket** så langt det kan i\nén retning før det snur. Det er akkurat oppførselen du får når en prosedyre\nkaller seg selv: den nye noden tar over, og den forrige må vente til den nye er\nferdig med alt sitt.\n\nDen ventingen er det som gjør `DFS` verdifullt. Underveis fører algoritmen en\n**klokke** som tikker ett hakk hver gang noe skjer, og hver node får to\ntidsstempler: ett når den blir oppdaget, og ett når den er helt ferdig.\n\nTo ord må på plass før pseudokoden, for de brukes uten forklaring i\noppgavetekstene:\n\n- **Finish-tid** er tidspunktet `DFS` er ferdig med en node — ikke da den ble\n  funnet, men da den og *alt som ligger under den* er utforsket ferdig. Feltet\n  heter `v.f`.\n- **Kantklassifisering** er å sette merkelapp på hver kant ut fra hva slags node\n  den peker på i det øyeblikket algoritmen ser på den. Fire merkelapper finnes,\n  og hvilken en kant får, avgjøres av fargen på nodene, ikke av hvordan grafen\n  ser ut på papiret."
+    },
+    {
+      "id": "tdt4120-4-1-def-5",
+      "type": "definition",
+      "title": "Discover-tid og finish-tid",
+      "content": "De to tidsstemplene `DFS` gir hver node: `v.d` er klokkeslettet da noden ble\noppdaget og farget grå, `v.f` er klokkeslettet da den ble ferdig og farget\nsvart.\n\nKlokka starter på 0 og tikker ett hakk for hver av de to hendelsene, så med $V$\nnoder ender den på $2V$, og alle tidene er forskjellige. Intervallene er\n**perfekt nøstet**: er $u$ en forfar til $v$ i dybde-først-treet, gjelder\n$u.d < v.d < v.f < u.f$ — $v$ blir både oppdaget og ferdig mens $u$ ennå står\ngrå. To noder der ingen er forfar til den andre, har intervaller som ikke\noverlapper i det hele tatt."
+    },
+    {
+      "id": "tdt4120-4-1-thm-2",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `DFS`",
+      "content": "**Antagelser om representasjon.** Grafen $G = (V, E)$ er gitt som nabolister som\ngjennomløpes i oppgitt rekkefølge, og den ytre løkka går gjennom nodene i\noppgitt rekkefølge. Hver node `v` har feltene `v.farge`, `v.d`, `v.f` og\n`v.pi`. `tid` er en global teller. Merk at `v.d` her betyr **discover-tid**, ikke\navstand som i `BFS`.\n\n**Prebetingelse:** ingen. **Postbetingelse:** hver node har fått `v.d` og `v.f`\nmed $1 \\le v.d < v.f \\le 2V$, alle $2V$ tidene er forskjellige, og hver kant er\nklassifisert.\n\n```text\nDFS(G)\n  Input:  graf G som nabolister\n  Output: v.d, v.f og v.pi satt for hver node v\n  for hver node u i V\n      u.farge = hvit\n      u.pi    = NIL\n  tid = 0\n  for hver node u i V\n      if u.farge == hvit\n          DFS-Visit(G, u)\n\nDFS-Visit(G, u)\n  tid     = tid + 1\n  u.d     = tid\n  u.farge = graa\n  for hver v i Adj[u]\n      if v.farge == hvit\n          v.pi = u\n          DFS-Visit(G, v)\n  tid     = tid + 1\n  u.f     = tid\n  u.farge = svart\n  Kjoretid totalt: Theta(V + E)\n```\n\n**Grunnideen i én setning:** en node blir svart først når hele det nåbare\nområdet under den er ferdig utforsket, og derfor forteller finish-tidene noe om\navhengighetene i grafen som discover-tidene ikke gjør.\n\n**Kjøretid $\\Theta(V + E)$:** de to initialiseringsløkkene er $\\Theta(V)$, og\n`DFS-Visit` kalles nøyaktig én gang per node fordi noden farges grå med det\nsamme — summen av nabolistegjennomløpene over alle kallene er $\\Theta(E)$.\n\n**Den ytre løkka er ikke pynt.** Den er grunnen til at kjøretiden har\n$V$-leddet: også noder ingen kan nå fra den første startnoden må innom. Uten den\nville `DFS` bare dekket ett område av grafen."
+    },
+    {
+      "id": "tdt4120-4-1-def-6",
+      "type": "definition",
+      "title": "Kantklassifisering",
+      "content": "Merkelappen `DFS` gir en kant `u -> v` ut fra fargen på `v` i det øyeblikket\nkanten blir sett på.\n\n- **Trekant** (*tree edge*): `v` var hvit, og `DFS` gikk langs kanten. Navnet\n  betyr «kant i dybde-først-treet» — det har ingenting med geometriske trekanter\n  å gjøre.\n- **Tilbakekant** (*back edge*): `v` var grå, altså en node algoritmen ennå står\n  inne i. Kanten peker bakover til en forfar.\n- **Forlengs kant** (*forward edge*): `v` var svart og `v.d > u.d` — kanten\n  peker framover til en etterkommer som allerede er ferdig.\n- **Krysskant** (*cross edge*): `v` var svart og `v.d < u.d` — kanten går til en\n  node i en annen gren eller et annet tre, som ble ferdig før `u` ble oppdaget.\n\nKlassifiseringen avhenger av rekkefølgen på nabolistene og på den ytre løkka:\nsamme graf kan gi ulike merkelapper med en annen rekkefølge. Ett unntak finnes,\nog det er det viktigste: **finnes det en tilbakekant, finnes det en sykel — og\nomvendt**, uansett rekkefølge."
+    },
+    {
+      "id": "tdt4120-4-1-fig-3",
+      "type": "image",
+      "src": "/images/textbook/tdt4120/4-1-dfs-tider.svg",
+      "alt": "En rettet graf med seks noder tegnet som et dybde-forst-tre med A oeverst. Under nodene staar to tall skilt med skraastrek, discover-tid og finish-tid. Fire kanter er tegnet i ulik stil: heltrukne trekanter, en buet tilbakekant fra E til B, en stiplet forlengs kant fra A til E og en stiplet krysskant fra C til E. Nederst staar en tegnforklaring for de fire kanttypene.",
+      "caption": "Grafen fra Eksempel 3 med alle fire kanttypene i samme figur. Legg merke til at $E$ har $f = 4$ og ferdigstilles først, mens $A$ har $f = 12$ og ferdigstilles sist: rota i et dybde-først-tre er alltid den siste som blir svart."
+    },
+    {
+      "id": "tdt4120-4-1-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: DFS med alle fire kanttypene",
+      "problem": "En rettet graf beskriver hvilke saksdokumenter som henviser til hvilke. Noden\n`A` er hoveddokumentet.\n\n```text\nA: B, C, D, E\nB: E\nC: E\nD: F\nE: B\nF: (ingen)\n```\n\nKjør `DFS` med den ytre løkka i rekkefølgen A, B, C, D, E, F. Oppgi `v.d` og\n`v.f` for hver node, og klassifiser hver kant.",
+      "solution": "**Sporingstavlen.** Radene med klokkeslett i parentes er kanter som blir sett på\nuten at klokka tikker.\n\n| Klokke | Hendelse | Hva skjer |\n|---|---|---|\n| 1 | oppdager `A` | `A.d` = 1, farge grå |\n| (1) | ser på kanten `A->B` | B er hvit — **trekant** |\n| 2 | oppdager `B` | `B.d` = 2, farge grå |\n| (2) | ser på kanten `B->E` | E er hvit — **trekant** |\n| 3 | oppdager `E` | `E.d` = 3, farge grå |\n| (3) | ser på kanten `E->B` | B er grå — **tilbakekant** (sykel) |\n| 4 | ferdig med `E` | `E.f` = 4, farge svart |\n| 5 | ferdig med `B` | `B.f` = 5, farge svart |\n| (5) | ser på kanten `A->C` | C er hvit — **trekant** |\n| 6 | oppdager `C` | `C.d` = 6, farge grå |\n| (6) | ser på kanten `C->E` | E er svart og `E.d`=3 er mindre enn `C.d`=6 — **krysskant** |\n| 7 | ferdig med `C` | `C.f` = 7, farge svart |\n| (7) | ser på kanten `A->D` | D er hvit — **trekant** |\n| 8 | oppdager `D` | `D.d` = 8, farge grå |\n| (8) | ser på kanten `D->F` | F er hvit — **trekant** |\n| 9 | oppdager `F` | `F.d` = 9, farge grå |\n| 10 | ferdig med `F` | `F.f` = 10, farge svart |\n| 11 | ferdig med `D` | `D.f` = 11, farge svart |\n| (11) | ser på kanten `A->E` | E er svart og `E.d`=3 er større enn `A.d`=1 — **forlengs kant** |\n| 12 | ferdig med `A` | `A.f` = 12, farge svart |\n\n**På eksamen leverer du bare linjene under — tavlen er her for å vise hvordan du\nkommer dit.**\n\nTidene, oppgitt som `d/f`: A: 1/12, B: 2/5, C: 6/7, D: 8/11, E: 3/4, F: 9/10\n\nKantklassifiseringen: `A->B` trekant, `B->E` trekant, `E->B` **tilbakekant**,\n`A->C` trekant, `C->E` **krysskant**, `A->D` trekant, `D->F` trekant, `A->E`\n**forlengs kant**\n\n**Hvorfor `C->E` og `A->E` får ulik merkelapp** selv om begge peker på den samme\nsvarte noden: `A` ble oppdaget på tidspunkt 1, altså **før** `E`, så `E` ligger\nunder `A` i treet og kanten peker framover. `C` ble oppdaget på tidspunkt 6,\naltså **etter** at `E` var ferdig, så kanten krysser over til en annen gren.\nSammenligningen er alltid mellom `u.d` og `v.d`.\n\n**Fellenote.** Fellen er å lese av tallene i feil rekkefølge når oppgaven bare\nspør om finish-tidene: da er svaret E: 4, B: 5, C: 7, F: 10, D: 11, A: 12 — og\ningenting mer."
+    },
+    {
+      "id": "tdt4120-4-1-def-7",
+      "type": "definition",
+      "title": "Tilbakekant",
+      "content": "En kant `u -> v` der `v` var grå da kanten ble sett på, altså en kant tilbake til\nen node algoritmen fortsatt står inne i.\n\nTilbakekanten er den viktigste av de fire merkelappene, fordi den er et\n**hvis-og-bare-hvis**: en rettet graf har en sykel nøyaktig når et\ndybde-først-søk finner minst én tilbakekant. Grunnen er enkel: er `v` grå, står\n`DFS` fortsatt inne i `v`, så det finnes en sti fra `v` ned til `u` — og kanten\n`u -> v` lukker den til en rundtur. Dette er den vanlige måten å svare på\n«inneholder grafen en sykel?», og kjøretiden er $\\Theta(V + E)$."
+    },
+    {
+      "id": "tdt4120-4-1-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-4-1-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C.) En rettet saksflyt har nabolistene under. Den ytre\nløkka går i rekkefølgen A, B, C, D, E, F.\n\n```text\nA: B, D\nB: C\nC: A, E\nD: C, E\nE: F\nF: (ingen)\n```\n\n**a)** Oppgi `v.d` og `v.f` for hver node.\n**b)** Hvilke noder har `DFS` ferdigstilt før `D` i det hele tatt blir oppdaget?",
+        "solution": "**a)**\n\n| Klokke | Hendelse | Hva skjer |\n|---|---|---|\n| 1 | oppdager `A` | `A.d` = 1, farge grå |\n| (1) | ser på kanten `A->B` | B er hvit — **trekant** |\n| 2 | oppdager `B` | `B.d` = 2, farge grå |\n| (2) | ser på kanten `B->C` | C er hvit — **trekant** |\n| 3 | oppdager `C` | `C.d` = 3, farge grå |\n| (3) | ser på kanten `C->A` | A er grå — **tilbakekant** (sykel) |\n| (3) | ser på kanten `C->E` | E er hvit — **trekant** |\n| 4 | oppdager `E` | `E.d` = 4, farge grå |\n| (4) | ser på kanten `E->F` | F er hvit — **trekant** |\n| 5 | oppdager `F` | `F.d` = 5, farge grå |\n| 6 | ferdig med `F` | `F.f` = 6, farge svart |\n| 7 | ferdig med `E` | `E.f` = 7, farge svart |\n| 8 | ferdig med `C` | `C.f` = 8, farge svart |\n| 9 | ferdig med `B` | `B.f` = 9, farge svart |\n| (9) | ser på kanten `A->D` | D er hvit — **trekant** |\n| 10 | oppdager `D` | `D.d` = 10, farge grå |\n| (10) | ser på kanten `D->C` | C er svart og `C.d`=3 er mindre enn `D.d`=10 — **krysskant** |\n| (10) | ser på kanten `D->E` | E er svart og `E.d`=4 er mindre enn `D.d`=10 — **krysskant** |\n| 11 | ferdig med `D` | `D.f` = 11, farge svart |\n| 12 | ferdig med `A` | `A.f` = 12, farge svart |\n\n**Sluttilstanden, som er svaret:**\n\nA: 1/12, B: 2/9, C: 3/8, D: 10/11, E: 4/7, F: 5/6\n\n**b)** `F` (f = 6), `E` (f = 7), `C` (f = 8) og `B` (f = 9) er alle svarte før\n`D` oppdages på tidspunkt 10. `A` er grå hele tiden — den er ikke ferdig før\ntil slutt.\n\nGrunnen er at `B` står før `D` i nabolista til `A`, så hele grenen under `B`\nutforskes ferdig først. Hadde nabolista vært `A: D, B`, hadde tidene sett helt\nannerledes ut.",
+        "hints": [
+          "Klokka tikker to ganger per node: én gang ved oppdagelse, én gang ved ferdigstilling.",
+          "Følg nabolistene i den rekkefølgen de er skrevet — det er den som bestemmer tidene."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-4-1-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-4-1-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C.) Bruk grafen og tidene fra oppgave 5.\n\n**a)** Klassifiser hver av de sju kantene som trekant, tilbakekant, forlengs\nkant eller krysskant.\n**b)** Hva forteller klassifiseringen deg om grafen har en sykel?",
+        "solution": "**a)**\n\n| Kant | Klasse | Hvorfor |\n|---|---|---|\n| `A->B` | trekant | `B` var hvit |\n| `B->C` | trekant | `C` var hvit |\n| `C->A` | **tilbakekant** | `A` var grå |\n| `C->E` | trekant | `E` var hvit |\n| `E->F` | trekant | `F` var hvit |\n| `A->D` | trekant | `D` var hvit |\n| `D->C` | krysskant | `C` var svart, `C.d`=3 mindre enn `D.d`=10 |\n| `D->E` | krysskant | `E` var svart, `E.d`=4 mindre enn `D.d`=10 |\n\n(Grafen har åtte kanter, ikke sju — tell postene i nabolistene før du svarer.)\n\n**b)** **Ja, grafen har en sykel.** Tilbakekanten `C->A` beviser det: `A` var\ngrå, altså sto `DFS` fortsatt inne i `A`, så det finnes en sti `A -> B -> C`, og\nkanten `C->A` lukker den. Sykelen er A, B, C, A.",
+        "hints": [
+          "Merkelappen bestemmes av fargen på noden kanten peker på, i det øyeblikket kanten ses på.",
+          "Skiller du forlengs kant fra krysskant, er det `u.d` mot `v.d` du sammenligner."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-4-1-t-4",
+      "type": "text",
+      "content": "## Topologisk sortering: rekkefølgen som holder (~14 min)\n\nEn montasjeleder på en trafostasjon har ni arbeidssteg og en liste over hva som\nmå være ferdig før hva. Ingen av kravene er tidsangivelser — de sier bare\n«dette før dette». Spørsmålet er om det finnes en rekkefølge som holder alle\nkravene, og i så fall hvilken.\n\nTegn hvert arbeidssteg som en node og hvert krav som en rettet kant fra det som\nmå komme først til det som må komme etterpå. Da er spørsmålet en **topologisk\nsortering** av grafen. Og her kommer den ene setningen som er verdt mest i dette\nkapitlet: **den finner du ved å kjøre `DFS` og ordne nodene etter synkende\nfinish-tid.**\n\nHvorfor virker det? Fordi en node først blir ferdig når alt den peker på er\nferdig. Da har alt som skal komme *etter* den, allerede fått en lavere\nfinish-tid — og «høyest finish-tid først» blir nettopp riktig rekkefølge."
+    },
+    {
+      "id": "tdt4120-4-1-def-8",
+      "type": "definition",
+      "title": "Rettet asyklisk graf (DAG)",
+      "content": "En rettet graf uten sykler (*directed acyclic graph*, DAG).\n\nAt det ikke finnes noen sykel, er nøyaktig kravet for at en topologisk sortering\nskal eksistere: en sirkelavhengighet der A må før B, B må før C og C må før A,\nkan ikke ordnes lineært uansett hvor lenge du prøver. Testen er `DFS`: grafen er\nen DAG hvis og bare hvis søket ikke finner en eneste **tilbakekant**, og det\navgjøres i $\\Theta(V + E)$."
+    },
+    {
+      "id": "tdt4120-4-1-def-9",
+      "type": "definition",
+      "title": "Topologisk sortering",
+      "content": "En lineær ordning av alle nodene i en rettet asyklisk graf slik at hver kant\n`u -> v` gir `u` før `v` i ordningen.\n\nSkriver du nodene på én linje i denne rekkefølgen, peker **alle** kantene\nframover. Ordningen finnes ved å kjøre `DFS` og liste nodene etter **synkende\nfinish-tid**, i $\\Theta(V + E)$. Den er sjelden entydig — de fleste DAG-er har\nmange gyldige ordninger, og enhver av dem er et riktig svar. Kravet er bare at\ningen kant peker bakover.\n\n**Det er finish-tid, ikke starttid.** Å ordne etter stigende discover-tid gir\ni de fleste grafer en ulovlig ordning; det er felle **#11** — å blande\ntopologisk sortering med starttid."
+    },
+    {
+      "id": "tdt4120-4-1-thm-3",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `Topological-Sort`",
+      "content": "**Antagelser om representasjon.** `G` er en **rettet asyklisk** graf gitt som\nnabolister. Vi bruker `DFS` fra kontrakten over, med den ene endringen at hver\nnode settes **fremst** i en lenket liste i det øyeblikket den ferdigstilles.\nLista må støtte innsetting fremst i $O(1)$.\n\n**Prebetingelse:** `G` har ingen sykel. Er den betingelsen brutt, finnes det\ningen topologisk sortering, og algoritmen skal i stedet melde fra — noe den kan\ngjøre gratis, siden `DFS` da vil finne en tilbakekant.\n**Postbetingelse:** lista inneholder alle nodene, og for hver kant `u -> v` står\n`u` før `v`.\n\n```text\nTopological-Sort(G)\n  Input:  rettet asyklisk graf G som nabolister\n  Output: en lenket liste med alle nodene i topologisk orden\n  L = tom lenket liste\n  kjor DFS(G), men med denne linjen lagt til i DFS-Visit:\n      naar u.f er satt (noden blir svart):\n          sett u fremst i L\n  return L\n  Kjoretid: Theta(V + E)\n```\n\n**Invarianten i én setning:** når `u` settes fremst i lista, står allerede alle\nnoder som er nåbare fra `u`, i lista — de ble ferdige før `u`, og havner derfor\nbak den.\n\n**Kjøretid $\\Theta(V + E)$:** algoritmen er én `DFS` pluss én\ninnsetting-fremst per node, og hver innsetting er $O(1)$, altså $\\Theta(V)$ til\nsammen. Å sortere etter finish-tid i etterkant er heller ikke nødvendig —\nrekkefølgen faller ut av seg selv."
+    },
+    {
+      "id": "tdt4120-4-1-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: Montasjerekkefølgen på trafostasjonen",
+      "problem": "Sju arbeidssteg A til G har disse kravene, oppgitt som nabolister der `A: C, D`\nbetyr at A må være ferdig før både C og D kan begynne:\n\n```text\nA: C, D\nB: D, E\nC: F\nD: F, G\nE: G\nF: (ingen)\nG: F\n```\n\nDen ytre løkka i `DFS` går i rekkefølgen A, B, C, D, E, F, G.\n\n**a)** Finn en topologisk sortering.\n**b)** En kollega foreslår å bruke rekkefølgen nodene ble **oppdaget** i i\nstedet. Vis at det ikke virker.",
+      "solution": "**a) Sporingstavlen.**\n\n| Klokke | Hendelse | Hva skjer |\n|---|---|---|\n| 1 | oppdager `A` | `A.d` = 1, farge grå |\n| (1) | ser på kanten `A->C` | C er hvit — **trekant** |\n| 2 | oppdager `C` | `C.d` = 2, farge grå |\n| (2) | ser på kanten `C->F` | F er hvit — **trekant** |\n| 3 | oppdager `F` | `F.d` = 3, farge grå |\n| 4 | ferdig med `F` | `F.f` = 4, farge svart |\n| 5 | ferdig med `C` | `C.f` = 5, farge svart |\n| (5) | ser på kanten `A->D` | D er hvit — **trekant** |\n| 6 | oppdager `D` | `D.d` = 6, farge grå |\n| (6) | ser på kanten `D->F` | F er svart og `F.d`=3 er mindre enn `D.d`=6 — **krysskant** |\n| (6) | ser på kanten `D->G` | G er hvit — **trekant** |\n| 7 | oppdager `G` | `G.d` = 7, farge grå |\n| (7) | ser på kanten `G->F` | F er svart og `F.d`=3 er mindre enn `G.d`=7 — **krysskant** |\n| 8 | ferdig med `G` | `G.f` = 8, farge svart |\n| 9 | ferdig med `D` | `D.f` = 9, farge svart |\n| 10 | ferdig med `A` | `A.f` = 10, farge svart |\n| 11 | oppdager `B` | `B.d` = 11, farge grå |\n| (11) | ser på kanten `B->D` | D er svart og `D.d`=6 er mindre enn `B.d`=11 — **krysskant** |\n| (11) | ser på kanten `B->E` | E er hvit — **trekant** |\n| 12 | oppdager `E` | `E.d` = 12, farge grå |\n| (12) | ser på kanten `E->G` | G er svart og `G.d`=7 er mindre enn `E.d`=12 — **krysskant** |\n| 13 | ferdig med `E` | `E.f` = 13, farge svart |\n| 14 | ferdig med `B` | `B.f` = 14, farge svart |\n\nIngen tilbakekant ble funnet, så grafen er en DAG og en sortering finnes.\n\n**På eksamen leverer du bare linja under — tavlen er her for å vise hvordan du\nkommer dit.**\n\nSynkende finish-tid: **B (14), E (13), A (10), D (9), G (8), C (5), F (4)**\n\naltså rekkefølgen **B, E, A, D, G, C, F**.\n\n**Kontrollen du bør gjøre på papiret:** gå gjennom hver kant og sjekk at den\npeker framover. `A->C`: A på plass 3, C på plass 6. `A->D`: 3 før 4. `B->D`: 1\nfør 4. `B->E`: 1 før 2. `C->F`: 6 før 7. `D->F`: 4 før 7. `D->G`: 4 før 5.\n`E->G`: 2 før 5. `G->F`: 5 før 7. Alle ni peker framover.\n\n**b) Discover-tidene** gir rekkefølgen A (1), C (2), F (3), D (6), G (7),\nB (11), E (12), altså **A, C, F, D, G, B, E**. Den er ulovlig, og det holder å\npeke på én kant: `D->F` krever at D kommer før F, men F står på plass 3 og D på\nplass 4. Tre andre kanter peker også bakover i denne rekkefølgen: `B->D`,\n`E->G` og `G->F`.\n\nFellen er **#11** — å blande topologisk sortering med starttid. Ordningen er\nsynkende **finish-tid**.\n\n**Merk at svaret ikke er entydig.** Denne grafen har 21 gyldige topologiske\nordninger; `DFS` gir deg én av dem, og den er like riktig som de andre. Blir du\nbedt om «en topologisk sortering», er én lovlig rekkefølge hele svaret."
+    },
+    {
+      "id": "tdt4120-4-1-warn-2",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Å sortere etter starttid.** Felle **#11** — å blande topologisk sortering\n  med starttid. Det er **synkende finish-tid** som gir ordningen. Kontrollen tar\n  ti sekunder: skriv opp rekkefølgen din og se om noen kant peker bakover.\n- **Å tro at svaret er entydig.** De fleste DAG-er har mange gyldige ordninger.\n  Blir du bedt om «en topologisk sortering», er én lovlig rekkefølge hele\n  svaret; du skal ikke lete etter «den riktige».\n- **Å topologisk sortere en graf med sykel.** Da finnes det ingen ordning.\n  `DFS` avslører det ved å finne en tilbakekant, og det svaret — «grafen har en\n  sykel, så ingen topologisk sortering finnes» — er det riktige.\n- **Å velge feil kanttype.** Merkelappen bestemmes av fargen på noden kanten\n  peker på, ikke av hvordan grafen ser ut når den er tegnet pent. Forlengs kant\n  og krysskant skilles på om `u.d` er mindre eller større enn `v.d`.\n- **Å hoppe over den ytre løkka i `DFS`.** Uten den blir bare det området som er\n  nåbart fra den første noden, dekket. I eksempelet over ville `B` og `E` aldri\n  fått tider, og sorteringen ville manglet to steg."
+    },
+    {
+      "id": "tdt4120-4-1-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-4-1-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger D — definisjon med egne ord, altså én presis setning med hovedpoenget\nførst.)\n\n**a)** Definér topologisk sortering.\n**b)** Forklar i to setninger hvordan `DFS` gir en, og hvorfor det virker.\n**c)** Hva er kjøretiden, og hva kreves av grafen?",
+        "solution": "**a)** En topologisk sortering av en rettet asyklisk graf er en lineær ordning av\nnodene der hver kant `u -> v` gir `u` før `v`.\n\n**b)** Kjør `DFS` og list nodene etter synkende finish-tid. Det virker fordi en\nnode først blir ferdig når alt som er nåbart fra den er ferdig, så alt som må\nkomme etter noden, har allerede fått lavere finish-tid.\n\n**c)** $\\Theta(V + E)$, og grafen må være en DAG — uten sykler. Har den en\nsykel, finnes ingen topologisk sortering, og `DFS` oppdager det ved å finne en\ntilbakekant.",
+        "hints": [
+          "Start definisjonen med hva ordningen er, ikke med hvordan du finner den.",
+          "Kravet på grafen er det samme som kravet for at problemet i det hele tatt har en løsning."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-4-1-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-4-1-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger F — «stemmer dette?».) En kandidat skriver i besvarelsen\nsin: «Topologisk sortering ordner nodene etter starttid fra `DFS`, altså etter\n`v.d` stigende.»\n\n**a)** Stemmer dette? Svar ja eller nei først.\n**b)** Gi et konkret moteksempel eller en presis begrunnelse.\n**c)** Hva er den riktige regelen?",
+        "solution": "**a) Nei.**\n\n**b)** Moteksempel med to noder og fire kanter er nok, men her er et fra en graf\ndu har sett: i DAG-en `A: C, D` / `B: D, E` / `C: F` / `D: F, G` / `E: G` /\n`G: F` gir stigende discover-tid rekkefølgen A, C, F, D, G, B, E. Kanten `D->F`\nkrever D før F, men F står på plass 3 og D på plass 4. Ordningen er ulovlig.\n\nGrunnen er at discover-tiden bare sier når `DFS` **kom til** noden, og `DFS` går\ni dybden: den dykker helt ned til en node uten utgående kanter før den snur.\nNoder langt nede i grafen får derfor lave discover-tider, selv om de skal helt\nsist i rekkefølgen.\n\n**c)** Riktig regel: **synkende finish-tid**. En node blir ferdig først når alt\nsom er nåbart fra den er ferdig, så alt som skal komme etter den, har lavere\n`v.f`. Dette er felle **#11** — å blande topologisk sortering med starttid.",
+        "hints": [
+          "Sjekk påstanden mot en DAG der `DFS` dykker dypt før den snur.",
+          "Én kant som peker bakover er nok til å avvise en foreslått ordning."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-4-1-oppg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-4-1-o9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger C.) En godkjenningsflyt har sju trinn med disse kravene,\nder `A: B, E` betyr at A må godkjennes før B og E:\n\n```text\nA: B, E\nB: C, F\nC: D\nD: (ingen)\nE: C, F\nF: D, G\nG: (ingen)\n```\n\nDen ytre løkka går i rekkefølgen A, B, C, D, E, F, G.\n\n**a)** Er dette en DAG? Begrunn med `DFS`.\n**b)** Oppgi finish-tidene og en topologisk sortering.\n**c)** Kan trinn `E` behandles før trinn `B`? Kan `D` behandles før `F`?",
+        "solution": "**a)** **Ja.** `DFS` finner ingen tilbakekant, og en rettet graf er asyklisk\nnøyaktig når dybde-først-søket ikke finner en eneste tilbakekant. Alle kantene\nsom ikke er trekanter, er krysskanter, se tavlen.\n\n**b)**\n\n| Klokke | Hendelse | Hva skjer |\n|---|---|---|\n| 1 | oppdager `A` | `A.d` = 1, farge grå |\n| (1) | ser på kanten `A->B` | B er hvit — **trekant** |\n| 2 | oppdager `B` | `B.d` = 2, farge grå |\n| (2) | ser på kanten `B->C` | C er hvit — **trekant** |\n| 3 | oppdager `C` | `C.d` = 3, farge grå |\n| (3) | ser på kanten `C->D` | D er hvit — **trekant** |\n| 4 | oppdager `D` | `D.d` = 4, farge grå |\n| 5 | ferdig med `D` | `D.f` = 5, farge svart |\n| 6 | ferdig med `C` | `C.f` = 6, farge svart |\n| (6) | ser på kanten `B->F` | F er hvit — **trekant** |\n| 7 | oppdager `F` | `F.d` = 7, farge grå |\n| (7) | ser på kanten `F->D` | D er svart og `D.d`=4 er mindre enn `F.d`=7 — **krysskant** |\n| (7) | ser på kanten `F->G` | G er hvit — **trekant** |\n| 8 | oppdager `G` | `G.d` = 8, farge grå |\n| 9 | ferdig med `G` | `G.f` = 9, farge svart |\n| 10 | ferdig med `F` | `F.f` = 10, farge svart |\n| 11 | ferdig med `B` | `B.f` = 11, farge svart |\n| (11) | ser på kanten `A->E` | E er hvit — **trekant** |\n| 12 | oppdager `E` | `E.d` = 12, farge grå |\n| (12) | ser på kanten `E->C` | C er svart og `C.d`=3 er mindre enn `E.d`=12 — **krysskant** |\n| (12) | ser på kanten `E->F` | F er svart og `F.d`=7 er mindre enn `E.d`=12 — **krysskant** |\n| 13 | ferdig med `E` | `E.f` = 13, farge svart |\n| 14 | ferdig med `A` | `A.f` = 14, farge svart |\n\n**Sluttilstanden, som er svaret:**\n\nFinish-tider: A: 14, B: 11, C: 6, D: 5, E: 13, F: 10, G: 9\n\nTopologisk sortering (synkende finish-tid): **A, E, B, F, G, C, D**\n\n**c)** **Ja til begge, men av ulike grunner.** `E` kan behandles før `B`: det\nfinnes ingen sti mellom dem, bare en felles forgjenger `A` og to felles\netterfølgere. Ordningen over gjør nettopp det. `D` kan derimot **ikke**\nbehandles før `F` — kanten `F->D` krever F først. Merk at `D` i ordningen over\nstår helt sist, med finish-tid 5, som er den laveste.",
+        "hints": [
+          "Klokka tikker to ganger per node; skriv opp hver hendelse i tur og orden.",
+          "For c): se om det finnes en rettet sti mellom de to trinnene i det hele tatt."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-4-1-t-5",
+      "type": "text",
+      "content": "## Kjøretidene samlet (~4 min)\n\nDette er puggeflaten fra kapitlet. Eksamen er uten hjelpemidler, så tabellen\nskal sitte utenat.\n\n| Operasjon | Kjøretid | Plass | Krav og egenskap |\n|---|---|---|---|\n| Nabomatrise, kantoppslag | $O(1)$ | $\\Theta(V^2)$ | best i tette grafer |\n| Naboliste, kantoppslag | tid proporsjonal med graden til `u` | $\\Theta(V+E)$ | best i glisne grafer; standardvalget |\n| Naboliste, gå gjennom naboene til `u` | proporsjonalt med antall naboer | — | dette er det traverseringene gjør |\n| `BFS(G, s)` | $\\Theta(V+E)$ | $O(V)$ for køen | gir færrest **kanter**, ikke minst vekt |\n| `DFS(G)` | $\\Theta(V+E)$ | $O(V)$ for rekursjonsstakken | gir `d`- og `f`-tider og kantklassifisering |\n| `Topological-Sort(G)` | $\\Theta(V+E)$ | $O(V)$ | **krever DAG**; synkende finish-tid |\n| Sykeltest med `DFS` | $\\Theta(V+E)$ | $O(V)$ | sykel finnes nøyaktig når en tilbakekant finnes |\n\nAlle kjøretidene forutsetter **naboliste**. Med nabomatrise blir både `BFS` og\n`DFS` $\\Theta(V^2)$, fordi hver node krever at du leser en hel rad for å finne\nnaboene. Oppgi derfor representasjonen når du oppgir kjøretiden — det er en\nsetning som ofte er forskjellen mellom full og delvis uttelling."
+    },
+    {
+      "id": "tdt4120-4-1-t-bank",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har\nlest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder\nkjernestoffet."
+    },
+    {
+      "id": "tdt4120-4-1-def-10",
+      "type": "definition",
+      "title": "Grad, inn-grad og ut-grad",
+      "content": "Antall kanter som møtes i en node.\n\nI en urettet graf er **graden** antall naboer, og summen av alle gradene er\n$2E$ — hver kant teller i to noder. I en rettet graf skiller vi: **ut-graden**\ner antall kanter ut av noden, altså lengden på nabolista, og **inn-graden** er\nantall kanter inn til den. Summen av ut-gradene er $E$. Nabolista gir deg\nut-graden gratis; inn-graden krever at du går gjennom hele grafen."
+    },
+    {
+      "id": "tdt4120-4-1-def-11",
+      "type": "definition",
+      "title": "Sti og sykel",
+      "content": "En **sti** er en følge av noder der det går en kant fra hver til den neste. En\n**sykel** er en sti som ender der den startet.\n\nLengden på en sti er antall kanter i den, ikke antall noder — en sti med tre\nnoder har lengde 2. En rettet graf uten sykler kalles en DAG og er nettopp den\ngrafen som kan topologisk sorteres. `BFS` finner den korteste stien målt i\nantall kanter fra kilden til hver node, i $\\Theta(V + E)$."
+    },
+    {
+      "id": "tdt4120-4-1-def-12",
+      "type": "definition",
+      "title": "Nåbarhet",
+      "content": "At det finnes en sti fra én node til en annen.\n\nNåbarhet er ikke det samme som naboskap: `F` kan være nåbar fra `A` uten at det\nfinnes en kant mellom dem. Både `BFS` og `DFS` besvarer «hva er nåbart fra\n$s$?» i $\\Theta(V + E)$ — alt som får en farge underveis, er nåbart. I en\nrettet graf er nåbarhet **ensidig**: at `v` er nåbar fra `u` sier ingenting om\nmotsatt vei."
+    },
+    {
+      "id": "tdt4120-4-1-def-13",
+      "type": "definition",
+      "title": "`BFS`",
+      "content": "Traverserer grafen lagvis fra en kilde og finner den korteste stien målt i\n**antall kanter**.\n\nKjøretid $\\Theta(V + E)$ med naboliste. Bruker en **kø** (først inn, først ut).\nSetter `v.d` til antall kanter fra kilden og `v.pi` til forgjengeren.\n**Krever ingenting av grafen** — den virker på rettede og urettede grafer, med\neller uten sykler. Men den tar **ikke** hensyn til kantvekter; til det trenger\ndu `Dijkstra`."
+    },
+    {
+      "id": "tdt4120-4-1-def-14",
+      "type": "definition",
+      "title": "`DFS`",
+      "content": "Traverserer grafen i dybden og gir hver node en discover-tid `v.d` og en\nfinish-tid `v.f`.\n\nKjøretid $\\Theta(V + E)$ med naboliste. Bruker en **stakk** — i praksis\nrekursjonsstakken. Klassifiserer hver kant som trekant, tilbakekant, forlengs\nkant eller krysskant. Den ytre løkka over alle noder er nødvendig for at også\nnoder som ikke er nåbare fra startnoden, skal bli besøkt."
+    },
+    {
+      "id": "tdt4120-4-1-def-15",
+      "type": "definition",
+      "title": "`Topological-Sort`",
+      "content": "Gir en lineær ordning av nodene i en DAG der hver kant peker framover.\n\nKjøretid $\\Theta(V + E)$. Kjører `DFS` og setter hver node fremst i en liste når\nden ferdigstilles, altså **synkende finish-tid**. **Krever at grafen er\nasyklisk** — har den en sykel, finnes ingen ordning, og `DFS` avslører det ved å\nfinne en tilbakekant. Svaret er sjelden entydig."
+    },
+    {
+      "id": "tdt4120-4-1-def-16",
+      "type": "definition",
+      "title": "Forgjengerfeltet `v.pi`",
+      "content": "Noden vi kom fra da `v` ble oppdaget.\n\nBåde `BFS` og `DFS` fyller det ut, og til sammen danner `pi`-feltene et tre\n(eller en skog) som viser hvordan traverseringen fant fram. Vil du skrive ut\nselve stien fra kilden til `v`, følger du `pi` bakover fra `v` til du treffer\n`NIL` — det koster $O(V)$ og krever ingen ekstra datastruktur."
+    },
+    {
+      "id": "tdt4120-4-1-def-17",
+      "type": "definition",
+      "title": "BFS-treet og DFS-skogen",
+      "content": "Trestrukturen `pi`-feltene danner etter en traversering.\n\n`BFS` fra én kilde gir ett tre som dekker alt nåbart derfra, og dybden til en\nnode i treet er nøyaktig `v.d`. `DFS` med den ytre løkka gir én **skog**: ett\ntre per gang løkka måtte starte et nytt søk. Antall trær i skogen er antall\nganger `DFS-Visit` ble kalt fra den ytre løkka."
+    },
+    {
+      "id": "tdt4120-4-1-def-18",
+      "type": "definition",
+      "title": "Hvit, grå og svart",
+      "content": "De tre tilstandene en node går gjennom under en traversering.\n\n**Hvit** = ikke oppdaget ennå. **Grå** = oppdaget, men ikke ferdigbehandlet\n(i køen i `BFS`, på rekursjonsstakken i `DFS`). **Svart** = ferdig. Fargen er\ndet som gjør at en traversering terminerer i en graf med sykler, og i `DFS` er\nden også det som avgjør kantklassifiseringen. Et par grå noder forbundet med en\nkant betyr alltid en sykel."
+    },
+    {
+      "id": "tdt4120-4-1-def-19",
+      "type": "definition",
+      "title": "Forlengs kant",
+      "content": "En kant `u -> v` der `v` var svart og `v.d > u.d`, altså en snarvei ned til en\nnode som allerede er ferdig utforsket lenger nede i samme tre.\n\nForlengs kanter forekommer bare i rettede grafer, og de sier ingenting om\nsykler. Skillet mot krysskant er ren tallsammenligning: forlengs når `u.d` er\nminst, kryss når `v.d` er minst. Merkelappen avhenger av rekkefølgen på\nnabolistene — samme graf kan gi en annen klassifisering med en annen\nrekkefølge."
+    },
+    {
+      "id": "tdt4120-4-1-def-20",
+      "type": "definition",
+      "title": "Krysskant",
+      "content": "En kant `u -> v` der `v` var svart og `v.d < u.d`, altså en kant over til en\nnode som ble ferdig før `u` i det hele tatt ble oppdaget.\n\nKrysskanter går enten mellom to grener i samme dybde-først-tre eller mellom to\nulike trær i skogen. Som forlengs kanter sier de ingenting om sykler — det er\nkun **tilbakekanten** som gjør det. I en urettet graf finnes de ikke i det hele\ntatt: klassifiserer du hver kant den første gangen den blir sett på, får du bare\ntrekanter og tilbakekanter."
+    },
+    {
+      "id": "tdt4120-4-1-coll-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tdt4120-4-1-rep-1",
+          "type": "text",
+          "content": "Fem korte spørsmål fra det kapitlet bygger på. Svar i hodet, og sjekk deretter.\n\n**1.** Hvilken beholder tar `BFS` den neste noden fra, og hvilken tar `DFS` den\nfra?\n\n*Svar:* `BFS` bruker en **kø** — først inn, først ut. `DFS` bruker en **stakk** —\nsist inn, først ut, i praksis rekursjonsstakken. Begge fra\n[kap. 3.5](/tdt4120/tdt4120-3-5). Det er den eneste forskjellen i selve\nmekanikken, og den gir helt forskjellig besøksrekkefølge.\n\n**2.** En FIFO-kø er lagret i et array. Hva må du levere hvis en oppgave ber om\nkøens tilstand?\n\n*Svar:* **hele** tabellen, inkludert de døde cellene, pluss `head` og `tail` —\nikke bare den logiske køen. Dette er felle **#3** — køfeil ved håndkjøring, som\nogså dekker det å bytte om `head` og `tail` og å glemme wraparound.\n\n**3.** Grafen $G = (V, E)$ er skrevet som et par av to mengder. Hva er\nelementene i hver av dem?\n\n*Svar:* $V$ er mengden av noder, $E$ er mengden av kanter. En kant i en urettet\ngraf er et par av noder; i en rettet graf er den et ordnet par, altså med\nretning. Mengdenotasjonen ligger i [Mengdelære](/1t/1t-1-7).\n\n**4.** Hva betyr det at en kjøretid er $\\Theta(V + E)$ og ikke $O(V + E)$?\n\n*Svar:* $\\Theta$ er en **tett** grense: kjøretiden vokser som $V + E$ både\nnedenfra og ovenfra. $O$ gir bare en øvre grense. `BFS` og `DFS` må se på hver\nnode og hver kant, så $\\Theta$ er riktig og strammest — og et strammere svar\ngir mer uttelling enn et løsere.\n\n**5.** Hvorfor er summen av nabolistelengdene $2E$ i en urettet graf, men $E$ i\nen rettet?\n\n*Svar:* i en urettet graf står kanten mellom `u` og `v` i begge nabolistene, én\ngang i hver. I en rettet graf står kanten `u -> v` bare i lista til `u`. Det er\nogså grunnen til at gradsummen i en urettet graf er $2E$."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

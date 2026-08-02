@@ -1,0 +1,402 @@
+{
+  "id": "tdt4120-1-2",
+  "courseId": "tdt4120",
+  "chapterNumber": "1.2",
+  "title": "Forenkling av asymptotiske uttrykk",
+  "description": "De faste forenklingsvariantene: summer, blandede operatorer og sammensatte brøkuttrykk — løst ledd for ledd til det strammeste enkeltuttrykket.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "kunne forenkle en sum av asymptotiske ledd til det strammeste enkeltuttrykket",
+    "kunne oppgi nedre og øvre grense hver for seg når ett uttrykk ikke fanger begge",
+    "kunne avgjøre når et ledd fjerner den øvre grensen for hele uttrykket",
+    "kunne løse et sammensatt brøkuttrykk ledd for ledd ved å bytte teller og nevner med sin ekstremverdi"
+  ],
+  "content": [
+    {
+      "id": "tdt4120-1-2-tip-1",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "Forenkling av asymptotiske uttrykk er **sjanger A — asymptotisk forenkling**,\naltså at du skal koke et sammensatt uttrykk ned til ett strammeste svar. Sjangeren\ner med i **100 % (17 av de 17 settene i grunnlaget)**, og ofte med to eller tre\noppgaver i samme sett. Det gjør dette til de mest forutsigbare poengene i hele\nfaget.\n\nOppgavene ser like ut hver gang. Du får et uttrykk som\n$n + \\Theta(n^2) + O(n^3)$ eller en brøk som $\\Theta(n^4)/\\Omega(n^2)$, og du\nskal svare med ett uttrykk — eller med en nedre og en øvre grense hver for seg\nnår ett uttrykk ikke rekker. Svaret er en **kortsvarsoppgave**: én linje, ingen\nutledning.\n\nDet er tre faste varianter, og alle tre er med i dette kapitlet: summer,\nblandede operatorer og sammensatte brøkuttrykk. Klarer du dem, plukker du poeng\npå under et minutt per oppgave — og de minuttene trenger du til\ndesignoppgavene senere i settet.\n\n**Prioritet: høyeste prioritet — dette må sitte.**\n\n**Slik er kapitlet lagt opp (50 min):** en regel om gangen, hver med sitt\neksempel og en oppgave rett etter. Det er merket av et naturlig pausepunkt midt\ni kapitlet, så du kan trygt ta summene den ene kvelden og brøkene den neste."
+    },
+    {
+      "id": "tdt4120-1-2-t-forkunn",
+      "type": "text",
+      "content": "## Forkunnskaper\n\n- [kap. 1.1](/tdt4120/tdt4120-1-1) — de fem symbolene $O$, $\\Omega$, $\\Theta$,\n  $o$ og $\\omega$ med formelle definisjoner. Dette sto der: $O$ og $\\Omega$\n  krever bare **én** konstant $c$, mens $o$ og $\\omega$ krever at ulikheten\n  holder for **hver** $c > 0$. Hele dette kapitlet er en anvendelse av det\n  skillet.\n- Fra kap. 1.1: vekstordningen $1 < \\lg n < n < n\\lg n < n^2 < n^3 < 2^n < n!$.\n  Du bruker den i hver eneste oppgave her.\n\nEr $O$-notasjon fortsatt nytt for deg, er\n[Algoritmedefinisjon, pseudokode og kompleksitet (Big-O)](/tdt4110/tdt4110-6-3)\net mykere første møte. Den boka nøyer seg med $O$ og ett ledd om gangen; her\nskal du håndtere fem symboler i samme uttrykk."
+    },
+    {
+      "id": "tdt4120-1-2-coll-notasjon",
+      "type": "collapsible",
+      "title": "Notasjons- og pseudokodeliste",
+      "buttonText": "Vis notasjon og pseudokode",
+      "content": [
+        {
+          "id": "tdt4120-1-2-nt-1",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et algoritmefag: den lister kjøretidsuttrykk\nog pseudokode-operasjoner i stedet for bare greske bokstaver.\n\n| Symbol | Betydning |\n|---|---|\n| $n$ | størrelsen på inndataene |\n| $O(g(n))$ | et ledd som er høyst like stort som $g$ — har tak, men ikke gulv |\n| $\\Omega(g(n))$ | et ledd som er minst like stort som $g$ — har gulv, men ikke tak |\n| $\\Theta(g(n))$ | et ledd som er nøyaktig like stort som $g$ — har både tak og gulv |\n| $o(g(n))$ | et ledd som er strengt mindre enn $g$ — taket er $g$, og det nås aldri |\n| $\\omega(g(n))$ | et ledd som er strengt større enn $g$ — gulvet er $g$, og det er ingen tak |\n| $\\lg n$ | toerlogaritmen $\\log_2 n$, CLRS-konvensjonen |\n| $T(n)$ | kjøretidsfunksjonen som uttrykket beskriver |\n\n| Algoritme/operasjon | Kontrakt | Kjøretid |\n|---|---|---|\n| `Merge-Sort(A)` | sorterer `A[1..n]` stigende ved å dele i to, sortere hver halvdel og flette | $\\Theta(n\\lg n)$ i alle tilfeller |\n| `Insertion-Sort(A)` | sorterer `A[1..n]` stigende på stedet ved å skyve hvert element inn i et sortert prefiks | $\\Theta(n)$ beste, $\\Theta(n^2)$ verste |\n| `Maximum(A)` | returnerer det største elementet i `A[1..n]` ved ett gjennomløp | $\\Theta(n)$ |\n\nDe tre står her bare fordi kapitlet bruker dem som konkrete ledd å legge sammen.\nSelve algoritmene hører hjemme i del 2 av boka."
+        },
+        {
+          "id": "tdt4120-1-2-nt-2",
+          "type": "text",
+          "content": "**Formler i dette delkapitlet:**\n\n$$\\Theta(f) + \\Theta(g) = \\Theta(\\max(f, g))$$\n\nSumregelen: i en sum overlever bare det raskest voksende leddet.\n\n$$n + \\Theta(n^2) + O(n^3) = \\Omega(n^2) \\ \\text{og} \\ O(n^3)$$\n\nDen faste varianten der ett uttrykk ikke rekker: nedre og øvre grense oppgis\nhver for seg.\n\n$$O(n) + \\Omega(n) + \\Theta(n) + o(n) + \\omega(n) = \\omega(n)$$\n\nBlandede operatorer: det raskest voksende leddet uten tak bestemmer.\n\n$$\\frac{\\Theta(n^4)}{\\Omega(n^2)} = O(n^2), \\qquad \\frac{\\Omega(n^3)}{O(n^2)} = \\Omega(n)$$\n\nBrøkregelen: teller og nevner byttes hver for seg med sin ekstremverdi, og så\nforkorter du.\n\n$$1 < \\lg n < n < n\\lg n < n^2 < n^3 < 2^n < n!$$\n\nVekstordningen fra kap. 1.1 — den avgjør hvilket ledd som dominerer."
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-1-2-t-1",
+      "type": "text",
+      "content": "## Hva en forenklingsoppgave spør om (~8 min)\n\nEt program på et bibliotek skal rydde opp i utlånsloggen hver natt. Det leser\ninn $n$ linjer fra en fil, sorterer dem etter dato og skriver dem ut igjen. Tre\ndeler, tre kjøretider: innlesningen er $\\Theta(n)$, sorteringen er\n$\\Theta(n\\lg n)$, og utskriften er $\\Theta(n)$.\n\nHvor lang tid tar hele jobben? Du legger sammen:\n\n$$T(n) = \\Theta(n) + \\Theta(n\\lg n) + \\Theta(n).$$\n\nSvaret er $\\Theta(n\\lg n)$. De to lineære delene forsvinner ikke fordi de er\ngratis — de forsvinner fordi de drukner. Når $n$ er en million, gjør sorteringen\nomtrent tjue ganger så mye arbeid som innlesningen, og det forholdet blir bare\nverre med større $n$.\n\nDet er hele ideen i forenkling: **finn leddet som vokser fortest, og kast\nresten.** Resten av kapitlet er den ideen gjort presis, i de tre variantene\neksamen faktisk bruker."
+    },
+    {
+      "id": "tdt4120-1-2-th-regler",
+      "type": "theorem",
+      "title": "Forenklingsreglene",
+      "content": "**(i) I en sum dominerer det raskest voksende leddet.** Legger du sammen to\n$\\Theta$-ledd, blir summen $\\Theta$ av det største:\n\n$$\\Theta(f(n)) + \\Theta(g(n)) = \\Theta(\\max(f(n), g(n))).$$\n\nDet samme gjelder for $O$ med $O$, og for $\\Omega$ med $\\Omega$. Grunnen ligger i\ndefinisjonen: summen av to funksjoner som begge er høyst $c\\,\\max(f,g)$, er høyst\n$2c\\,\\max(f,g)$ — og faktoren 2 forsvinner inn i konstanten.\n\n**(ii) Et ledd uten tak fjerner taket for hele summen.** Står det et $\\Omega$-\neller $\\omega$-ledd i summen, kan det leddet vokse så fort det vil. Da finnes det\ningen $O$-grense for summen, uansett hva de andre leddene er. Du kan fortsatt\noppgi en nedre grense, men enhver $O$-påstand faller bort.\n\n**(iii) Oppgi alltid det strammeste enkeltuttrykket.** Kan du forsvare $\\Theta$,\nskal du ikke svare $O$. Kan du forsvare $O(n^2)$, skal du ikke svare $O(n^3)$.\nOg finnes det ikke ett uttrykk som fanger både gulv og tak, oppgir du de to hver\nfor seg — det er et fullstendig svar, ikke en unnvikelse."
+    },
+    {
+      "id": "tdt4120-1-2-def-dominerende",
+      "type": "definition",
+      "title": "Dominerende ledd",
+      "content": "Det leddet i en sum som vokser raskest, og som alene bestemmer summens\nasymptotiske klasse.\n\nDu finner det ved å plassere leddene i vekstordningen\n$1 < \\lg n < n < n\\lg n < n^2 < n^3 < 2^n < n!$ og velge det som ligger lengst\ntil høyre. I $5n^2 + 100n + 3000$ er det $5n^2$, og summen er $\\Theta(n^2)$.\nKonstantfaktoren 5 forsvinner sammen med resten."
+    },
+    {
+      "id": "tdt4120-1-2-def-strammest",
+      "type": "definition",
+      "title": "Strammeste enkeltuttrykk",
+      "content": "Det uttrykket som gir mest informasjon blant alle sanne påstander om samme\nfunksjon: $\\Theta$ foran $O$ og $\\Omega$, og $O(n^2)$ foran $O(n^3)$.\n\nLøsningsforslagene forventer det strammeste. Å svare $O(n^3)$ når $\\Theta(n^2)$\nkan vises, er **felle #4 — å oppgi en løs asymptotisk grense der en strammere\nfinnes**. Påstanden er sann, men den kaster bort informasjon, og et slikt svar\nregnes ikke som fullstendig."
+    },
+    {
+      "id": "tdt4120-1-2-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-1-2-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave, sjanger A — asymptotisk forenkling, altså at du oppgir det\nstrammeste uttrykket.)\n\nForenkl hvert uttrykk til ett $\\Theta$-uttrykk.\n\n**a)** $5n^2 + 100n + 3000$\n**b)** $7n\\lg n + 40n$\n**c)** $2^n + n^{100}$",
+        "solution": "**a)** $\\Theta(n^2)$. Leddet $5n^2$ vokser raskest; konstanten 5 og de to\nlavereordens leddene forsvinner.\n\n**b)** $\\Theta(n\\lg n)$. Siden $n = o(n\\lg n)$, drukner $40n$ i det første\nleddet.\n\n**c)** $\\Theta(2^n)$. Enhver fast potens av $n$ vokser strengt saktere enn $2^n$,\nogså $n^{100}$. Ved $n = 32$ er $2^n$ over fire milliarder, mens tallet foran\nsier lite: det er veksten som avgjør, ikke verdien ved en enkelt $n$.",
+        "hints": [
+          "Plasser leddene i vekstordningen og behold det som ligger lengst til høyre.",
+          "Konstantfaktorer forsvinner alltid — de blir spist av $c_1$ og $c_2$ i definisjonen av $\\Theta$."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-1-2-t-2",
+      "type": "text",
+      "content": "## Når ett uttrykk ikke rekker (~12 min)\n\nSå langt har alle leddene vært konkrete funksjoner. På eksamen er de som oftest\nselv asymptotiske uttrykk, og det endrer spillet: et ledd som $O(n^3)$ er ikke\nén funksjon, men **alle** funksjoner som holder seg under $n^3$.\n\nSe på\n\n$$n + \\Theta(n^2) + O(n^3).$$\n\n$\\Theta(n^2)$-leddet er noe som vokser nøyaktig som $n^2$. $O(n^3)$-leddet er noe\nsom holder seg under $n^3$ — det kan være $7n^3$, men det kan like gjerne være\ntallet 1. Summen er derfor ikke én bestemt vekstklasse.\n\n**Intuisjon:** tenk på de to ytterpunktene. Er $O(n^3)$-leddet lik 1, blir summen\n$\\Theta(n^2)$. Er det lik $7n^3$, blir summen $\\Theta(n^3)$. Begge er mulige, så\ningen $\\Theta$-påstand kan gjelde for hele uttrykket. Det du derimot vet sikkert,\ner at summen aldri blir mindre enn $n^2$ og aldri større enn $n^3$ — og det er\nnettopp de to grensene du skal oppgi."
+    },
+    {
+      "id": "tdt4120-1-2-def-hver-for-seg",
+      "type": "definition",
+      "title": "Nedre og øvre grense hver for seg",
+      "content": "Svarformen du bruker når ett uttrykk ikke kan fange både gulv og tak: du oppgir\nden strammeste $\\Omega$-påstanden og den strammeste $O$-påstanden ved siden av\nhverandre.\n\nFor $n + \\Theta(n^2) + O(n^3)$ er svaret «$\\Omega(n^2)$ og $O(n^3)$». Dette er et\nfullstendig svar og gir full uttelling. Å presse fram ett $\\Theta$-uttrykk der\ndet ikke finnes ett, er derimot direkte galt."
+    },
+    {
+      "id": "tdt4120-1-2-def-ekstremverdi",
+      "type": "definition",
+      "title": "Ekstremverdien til et asymptotisk ledd",
+      "content": "Den største eller minste veksten et asymptotisk ledd kan ha, avhengig av hvilken\nretning du leter etter en grense i.\n\nEt $O(g)$-ledd har $g$ som største mulige vekst og ingen minste — det kan være så\nlite som en konstant. Et $\\Omega(g)$-ledd har $g$ som minste mulige vekst og\ningen største. Et $\\Theta(g)$-ledd er låst til $g$ begge veier. Å bytte hvert ledd\nmed riktig ekstremverdi er selve arbeidsmetoden i forenklingsoppgaver."
+    },
+    {
+      "id": "tdt4120-1-2-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: nedre og øvre grense for $n + \\Theta(n^2) + O(n^3)$",
+      "problem": "Gi den strammeste nedre grensen og den strammeste øvre grensen for\n$n + \\Theta(n^2) + O(n^3)$.",
+      "solution": "Vi tar én grense om gangen og bytter hvert ledd med sin ekstremverdi.\n\n**Nedre grense.** Vi vil ha summen så liten som mulig. Leddet $n$ er $n$.\n$\\Theta(n^2)$-leddet er minst $c_1 n^2$ for en positiv konstant. $O(n^3)$-leddet\nkan være så lite som ingenting, men det er aldri negativt. Minste mulige sum er\naltså i størrelsesorden $n^2$:\n\n$$n + \\Theta(n^2) + O(n^3) = \\Omega(n^2).$$\n\n**Øvre grense.** Nå vil vi ha summen så stor som mulig. Leddet $n$ er $O(n^3)$,\n$\\Theta(n^2)$-leddet er $O(n^3)$, og $O(n^3)$-leddet er per definisjon $O(n^3)$.\nTre ledd som alle er $O(n^3)$ gir en sum som er $O(n^3)$:\n\n$$n + \\Theta(n^2) + O(n^3) = O(n^3).$$\n\n**Svaret er «$\\Omega(n^2)$ og $O(n^3)$»** — to uttrykk, fordi ett ikke rekker.\n\n**Hvorfor ikke $\\Theta$?** Fordi begge ytterpunktene er mulige. Settes\n$O(n^3)$-leddet til 1, er summen $\\Theta(n^2)$; settes det til $7n^3$, er den\n$\\Theta(n^3)$. Ingen enkelt $\\Theta$-påstand kan da være sann for uttrykket.\n\n**Oppgaven ber om to grenser, ikke ett uttrykk.** Skriver du bare $O(n^3)$, har\ndu svart på halve spørsmålet."
+    },
+    {
+      "id": "tdt4120-1-2-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-1-2-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger A.) Gi den strammeste nedre grensen og den strammeste øvre grensen for\n\n$$\\lg n + \\Theta(n\\lg n) + O(n^2).$$",
+        "solution": "**Nedre grense: $\\Omega(n\\lg n)$.** $\\Theta(n\\lg n)$-leddet er minst\n$c_1 n\\lg n$, og de to andre leddene er aldri negative. Mindre enn $n\\lg n$ kan\nsummen altså ikke bli.\n\n**Øvre grense: $O(n^2)$.** Alle tre leddene er $O(n^2)$: $\\lg n$ og $n\\lg n$\nvokser begge saktere enn $n^2$, og det siste leddet er $O(n^2)$ per definisjon.\n\n**Svaret er «$\\Omega(n\\lg n)$ og $O(n^2)$».** Noe $\\Theta$-uttrykk finnes ikke,\nfordi $O(n^2)$-leddet kan være alt fra en konstant til $n^2$.",
+        "hints": [
+          "Ta én grense om gangen: først den minste mulige summen, så den største.",
+          "Et $O$-ledd kan være så lite som en konstant — hva betyr det for den nedre grensen?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-1-2-t-3",
+      "type": "text",
+      "content": "## Et ledd uten tak fjerner taket for hele summen (~10 min)\n\nRegel (ii) er den som oftest blir oversett, og den er verdt å bruke et par\nminutter på.\n\nEt $\\Omega(n)$-ledd betyr «minst like stort som $n$». Det setter et gulv, men\ningen tak: leddet kan være $n$, det kan være $n^2$, det kan være $2^n$. Står et\nslikt ledd i en sum, arver hele summen den egenskapen. Uansett hvilken funksjon\n$h$ du foreslår som tak, kan $\\Omega$-leddet velges større.\n\nKonsekvensen er kort: **i en sum med et $\\Omega$- eller $\\omega$-ledd finnes det\ningen $O$-grense i det hele tatt.** Du kan bare svare med en nedre grense.\n\nSamme resonnement forklarer hva som skjer når du legger $\\Omega$ **utenpå** et\nsammensatt uttrykk, som i $\\Omega(n + \\Theta(n^2) + O(n^3))$. Da spør du: hva er\ndet minste innmaten kan være? Det minste er $n^2$, og da lover $\\Omega$ bare\n$n^2$. Den minst presise grensen bestemmer."
+    },
+    {
+      "id": "tdt4120-1-2-def-sprenger",
+      "type": "definition",
+      "title": "Et $\\Omega$-ledd sprenger $O$-grensen",
+      "content": "Regelen som sier at en sum med et $\\Omega$- eller $\\omega$-ledd ikke har noen\nøvre grense i det hele tatt.\n\nBegrunnelsen er at $\\Omega(g)$ bare setter et gulv: leddet kan være $g$, men det\nkan like gjerne være $2^n$. Derfor er $\\Omega(n^2) + O(n^3)$ verken $O(n^3)$\neller $\\Theta$ av noe — det strammeste sanne svaret er $\\Omega(n^2)$. Å svare\n$O(n^3)$ her er en av de vanligste feilene i sjangeren."
+    },
+    {
+      "id": "tdt4120-1-2-def-omega-utenpa",
+      "type": "definition",
+      "title": "$\\Omega$ utenpå et sammensatt uttrykk",
+      "content": "Når $\\Omega$ står utenpå en hel sum, spør du hva det **minste** innmaten kan\nvære — for det er alt $\\Omega$ lover.\n\nI $\\Omega(n + \\Theta(n^2) + O(n^3))$ er det minste innmaten kan bli, i\nstørrelsesorden $n^2$, siden $O(n^3)$-leddet kan skrumpe til en konstant. Svaret\ner derfor $\\Omega(n^2)$, ikke $\\Omega(n^3)$. Tilsvarende ville $O$ utenpå spurt\netter det største innmaten kan være."
+    },
+    {
+      "id": "tdt4120-1-2-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: forenkl $\\Omega(n + \\Theta(n^2) + O(n^3))$",
+      "problem": "Forenkl $\\Omega(n + \\Theta(n^2) + O(n^3))$ til ett strammeste uttrykk.",
+      "solution": "Her står $\\Omega$ **utenpå** hele summen. Uttrykket beskriver altså alle\nfunksjoner som er minst like store som noe som ligger inne i parentesen.\n\n**Steg 1: hva kan innmaten være?** Fra Eksempel 1 vet vi at summen ligger mellom\n$n^2$ og $n^3$: den er $\\Omega(n^2)$ og $O(n^3)$.\n\n**Steg 2: hvilken av dem bestemmer?** $\\Omega$ lover bare et gulv. Det svakeste\ngulvet innmaten kan gi, er $n^2$ — det inntreffer når $O(n^3)$-leddet er en\nkonstant. Et $\\Omega$-utsagn må gjelde uansett hvilken funksjon innmaten er, og\nderfor er det den **minst presise** grensen som bestemmer:\n\n$$\\Omega(n + \\Theta(n^2) + O(n^3)) = \\Omega(n^2).$$\n\n**Sjekk mot fellen.** Det fristende svaret er $\\Omega(n^3)$, fordi $n^3$ er det\nstørste tallet i uttrykket. Men $O(n^3)$-leddet er ikke garantert å være $n^3$ —\ndet er garantert å være **høyst** $n^3$. Å love $\\Omega(n^3)$ ville vært å love\nnoe uttrykket ikke gir dekning for.\n\n**Kortsvarsformen:** $\\Omega(n^2)$. Én linje."
+    },
+    {
+      "id": "tdt4120-1-2-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-1-2-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger A.) Forenkl til ett strammeste uttrykk, og begrunn hvert svar med én\nsetning.\n\n**a)** $O(\\lg n + \\Theta(n) + O(n^2))$\n**b)** $\\Omega(n^2) + O(n^3)$",
+        "solution": "**a)** $O(n^2)$. $O$ utenpå spør hva det **største** innmaten kan bli, og alle tre\nleddene er høyst $n^2$.\n\n**b)** $\\Omega(n^2)$. Dette er regel (ii): $\\Omega(n^2)$-leddet har ingen øvre\ngrense, så ingen $O$-påstand kan gjelde for summen. Den nedre grensen er alt du\nkan love, og den strammeste er $n^2$.\n\n**Legg merke til forskjellen på a) og b).** I a) står $O$ utenpå og skal fanges\noppover; i b) står $\\Omega$ som et ledd inni og river bort taket. Samme symbol,\nhelt ulik rolle, avhengig av om det står utenfor eller inni.",
+        "hints": [
+          "For a): hvilket ledd blir størst hvis hvert ledd tar sin ekstremverdi?",
+          "For b): kan du sette et tak over noe som bare har et gulv?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-1-2-warn-1",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**Å oppgi en løsere grense enn nødvendig — felle #4, altså å svare med en løs\nasymptotisk grense der en strammere finnes.** $\\Theta(n\\lg n) + O(n)$ er\n$\\Theta(n\\lg n)$, ikke bare $O(n\\lg n)$. Sjekk alltid om du har gulv i tillegg\ntil tak før du velger symbol.\n\n**Å glemme at et $\\Omega$- eller $\\omega$-ledd sprenger $O$-grensen.** I\n$\\Omega(n^2) + O(n^3)$ er det fristende å svare $O(n^3)$, siden $n^3$ er det\nstørste som står der. Men $\\Omega(n^2)$-leddet kan være $2^n$, og da holder ikke\nnoe tak.\n\n**Å behandle en brøk som ett ledd.** $\\Theta(n^4)/\\Omega(n^2)$ er ikke\n$\\Theta(n^2)$. Teller og nevner har hver sin ekstremverdi, og de skal settes inn\nhver for seg.\n\n**Å bytte om hvilken ekstremverdi teller og nevner skal ha.** For en **øvre**\ngrense vil du ha stor teller og **liten** nevner. For en **nedre** grense vil du\nha liten teller og **stor** nevner. Bytter du om, får du svar som ser riktige ut\nog er gale.\n\n**Å tro at et $o$-ledd kan bestemme svaret.** Et $o(n^2)$-ledd vokser strengt\nsaktere enn $n^2$ og drukner i ethvert $\\Theta(n^2)$-ledd. Det kan aldri være det\ndominerende leddet i en sum der noe større står."
+    },
+    {
+      "id": "tdt4120-1-2-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: blandede operatorer",
+      "problem": "Forenkl $O(n) + \\Omega(n) + \\Theta(n) + o(n) + \\omega(n)$ til ett strammeste\nuttrykk.",
+      "solution": "Fem ledd, ett av hvert symbol. Vi går gjennom dem én for én og spør hvor stort og\nhvor lite hvert kan bli.\n\n| Ledd | Minst | Størst |\n|---|---|---|\n| $O(n)$ | en konstant | i størrelsesorden $n$ |\n| $\\Omega(n)$ | i størrelsesorden $n$ | ingen grense |\n| $\\Theta(n)$ | i størrelsesorden $n$ | i størrelsesorden $n$ |\n| $o(n)$ | en konstant | strengt under $n$ |\n| $\\omega(n)$ | strengt over $n$ | ingen grense |\n\n**Øvre grense?** Nei. Både $\\Omega(n)$-leddet og $\\omega(n)$-leddet kan velges så\nstore vi vil, så ingen $O$-påstand holder for summen. Regel (ii) slår inn.\n\n**Nedre grense?** Ja, og den er strammere enn $n$. Leddet $\\omega(n)$ vokser\nstrengt fortere enn $n$, og de fire andre leddene er aldri negative. Summen er\nderfor selv strengt større enn $n$:\n\n$$O(n) + \\Omega(n) + \\Theta(n) + o(n) + \\omega(n) = \\omega(n).$$\n\n**Legg merke til rekkefølgen i resonnementet.** Vi lette først etter det raskest\nvoksende leddet — det var $\\omega(n)$ — og konstaterte deretter at det ikke har\nnoe tak. Svaret er alltid det raskest voksende leddet, og symbolet blir det\nsvakeste av dem som er i spill.\n\n**Kortsvarsformen:** $\\omega(n)$. Én linje."
+    },
+    {
+      "id": "tdt4120-1-2-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-1-2-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger A.) Forenkl $o(n^2) + \\Theta(n\\lg n) + \\omega(n^2)$ til ett strammeste\nuttrykk, og forklar med én setning hvorfor de to første leddene ikke påvirker\nsvaret.",
+        "solution": "**Svaret er $\\omega(n^2)$.**\n\n$\\omega(n^2)$-leddet vokser strengt fortere enn $n^2$ og har ingen øvre grense, så\ndet bestemmer både klassen og symbolet.\n\nDe to andre leddene forsvinner: $o(n^2)$ vokser strengt saktere enn $n^2$, og\n$\\Theta(n\\lg n)$ vokser saktere enn $n^2$ siden $n\\lg n = o(n^2)$. Ingen av dem\nkan løfte summen over det $\\omega(n^2)$-leddet allerede gir, og ingen av dem kan\nsette et tak.\n\n**Ikke svar $\\Omega(n^2)$.** Det er sant, men løsere: $\\omega$ er den strammeste\npåstanden du har belegg for her.",
+        "hints": [
+          "Plasser de tre leddene i vekstordningen og finn det raskest voksende.",
+          "Har uttrykket noen øvre grense i det hele tatt?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-1-2-t-pause",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\nSå langt har alt handlet om summer. Neste halvdel er brøkene, og de er den eneste\nvarianten som krever en egen arbeidsmetode. Har du brukt omtrent 30 minutter nå,\nligger du godt an."
+    },
+    {
+      "id": "tdt4120-1-2-t-4",
+      "type": "text",
+      "content": "## Brøker løses ledd for ledd (~14 min)\n\nEn brøk som $\\Theta(n^4)/\\Omega(n^2)$ ser ut som ett ledd, men er det ikke.\nTeller og nevner er to uavhengige asymptotiske uttrykk, og hver av dem har sin\negen ekstremverdi.\n\nMetoden har tre steg, og de er alltid de samme:\n\n1. **Bestem retningen.** Leter du etter en øvre grense eller en nedre?\n2. **Bytt teller og nevner med sin ekstremverdi i den retningen.** For en øvre\n   grense vil du ha størst mulig teller og minst mulig nevner. For en nedre\n   grense vil du ha minst mulig teller og størst mulig nevner.\n3. **Forkort brøken**, og sammenlign med de andre leddene til slutt.\n\n**Intuisjon for steg 2:** en brøk blir stor når telleren er stor og nevneren\nliten. Det er den samme regelen du bruker på vanlige tall — $100/2$ er større enn\n$100/50$ — og den gjelder uendret for vekstrater."
+    },
+    {
+      "id": "tdt4120-1-2-th-brok",
+      "type": "theorem",
+      "title": "Ekstremverdimetoden for brøk",
+      "content": "La telleren være $T$ og nevneren $N$, begge asymptotiske uttrykk.\n\n**Øvre grense:** sett $T$ til sin største mulige vekst og $N$ til sin minste\nmulige vekst, og forkort. Har $T$ ingen største vekst — det vil si at den er\n$\\Omega$ eller $\\omega$ av noe — finnes ingen øvre grense. Har $N$ ingen minste\npositive vekst — det vil si at den er $O$ eller $o$ av noe — finnes heller ingen\nøvre grense.\n\n**Nedre grense:** sett $T$ til sin minste mulige vekst og $N$ til sin største\nmulige vekst, og forkort. Mangler en av dem, finnes ingen nedre grense.\n\nTo standardtilfeller er verdt å kunne utenat:\n\n$$\\frac{\\Theta(n^4)}{\\Omega(n^2)} = O(n^2), \\qquad \\frac{\\Omega(n^3)}{O(n^2)} = \\Omega(n).$$\n\nI den første er telleren låst og nevneren minst $n^2$, så kvotienten er høyst\n$n^2$ — men nevneren kan være mye større, så det finnes ingen nedre grense. I den\nandre er telleren minst $n^3$ og nevneren høyst $n^2$, så kvotienten er minst\n$n$ — men telleren kan være mye større, så det finnes ingen øvre grense."
+    },
+    {
+      "id": "tdt4120-1-2-def-brok",
+      "type": "definition",
+      "title": "Brøkregelen: teller og nevner hver for seg",
+      "content": "En brøk av asymptotiske uttrykk behandles ved å sette teller og nevner til hver\nsin ekstremverdi, og deretter forkorte.\n\nRetningen bestemmer hvilken ekstremverdi du velger: **størst teller og minst\nnevner** gir den øvre grensen, **minst teller og størst nevner** gir den nedre.\nÅ behandle brøken som ett samlet ledd er den vanligste feilen i denne varianten —\n$\\Theta(n^4)/\\Omega(n^2)$ er $O(n^2)$, ikke $\\Theta(n^2)$."
+    },
+    {
+      "id": "tdt4120-1-2-def-nar-O",
+      "type": "definition",
+      "title": "Når svaret må være $O$ og ikke $\\Theta$",
+      "content": "Når det finnes et tak, men ikke noe gulv. Det skjer så snart et ledd kan skrumpe\nfritt: et $\\Omega$ i nevneren, eller et $O$-ledd som får være vilkårlig lite.\n\n$\\Theta(n^4)/\\Omega(n^2)$ er et rent eksempel. Nevneren er minst $n^2$, og det\ngir taket $n^2$ — men nevneren kan også være $n^4$, og da er kvotienten en\nkonstant. Ingen $\\Omega$-påstand overlever, så $O(n^2)$ er hele svaret."
+    },
+    {
+      "id": "tdt4120-1-2-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: eksamensnivå — sammensatt brøkuttrykk",
+      "problem": "Regn ut\n\n$$\\frac{\\Theta(n^4)}{\\Theta(n^2)} + \\frac{O(n^3)}{\\Omega(n)}$$\n\nledd for ledd, og oppgi det strammeste enkeltuttrykket for hele summen.",
+      "solution": "To ledd, og hvert av dem er en brøk. Vi tar dem hver for seg og legger sammen til\nslutt.\n\n**Første ledd: $\\Theta(n^4)/\\Theta(n^2)$.** Begge er låst begge veier. Telleren\nligger mellom $c_1 n^4$ og $c_2 n^4$, nevneren mellom $c_3 n^2$ og $c_4 n^2$.\nKvotienten ligger da mellom $(c_1/c_4)n^2$ og $(c_2/c_3)n^2$ — to konstanter\nganger $n^2$. Altså\n\n$$\\frac{\\Theta(n^4)}{\\Theta(n^2)} = \\Theta(n^2).$$\n\n**Andre ledd: $O(n^3)/\\Omega(n)$.** Nå er begge løse.\n\n- Øvre grense: største teller er $n^3$, minste nevner er $n$. Forkort:\n  $n^3/n = n^2$. Så leddet er $O(n^2)$.\n- Nedre grense: telleren kan være en konstant og nevneren kan være $2^n$. Da går\n  kvotienten mot null, og ingen $\\Omega$-påstand holder.\n\nAltså er andre ledd $O(n^2)$ og ikke noe mer.\n\n**Summen.** Første ledd er $\\Theta(n^2)$, andre ledd er $O(n^2)$. Det gir et gulv\nfra første ledd og et tak fra begge:\n\n$$\\Theta(n^2) + O(n^2) = \\Theta(n^2).$$\n\n**Svaret er $\\Theta(n^2)$.**\n\n**Merk hvorfor det ble $\\Theta$ her, men bare $O$ i Eksempel 1.** Her har det ene\nleddet både gulv og tak i samme klasse som taket til det andre. Da kan de settes\nsammen. I Eksempel 1 lå gulvet på $n^2$ og taket på $n^3$, og da finnes det ikke\nnoe felles $\\Theta$.\n\n**Kortsvarsformen:** $\\Theta(n^2)$. Én linje — men regn hvert ledd for seg på\nkladden først."
+    },
+    {
+      "id": "tdt4120-1-2-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-1-2-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger A.) Forenkl hver brøk til det strammeste enkeltuttrykket.\n\n**a)** $\\dfrac{\\Theta(n^4)}{\\Omega(n^2)}$\n**b)** $\\dfrac{\\Omega(n^3)}{O(n^2)}$\n**c)** $\\dfrac{\\Theta(n^5)}{\\Theta(n^2)}$",
+        "solution": "**a)** $O(n^2)$. Telleren er låst til $n^4$, nevneren er minst $n^2$. Største\nkvotient er $n^4/n^2 = n^2$. Men nevneren kan være $n^4$ eller mer, og da går\nkvotienten mot null, så ingen nedre grense finnes.\n\n**b)** $\\Omega(n)$. Telleren er minst $n^3$, nevneren er høyst $n^2$. Minste\nkvotient er $n^3/n^2 = n$. Telleren har ingen øvre grense, så ingen $O$-påstand\nholder.\n\n**c)** $\\Theta(n^5)/\\Theta(n^2) = \\Theta(n^3)$. Begge ledd er låst begge veier,\nså kvotienten er låst begge veier.\n\n**Mønsteret å ta med seg:** to $\\Theta$-er gir $\\Theta$. Ellers arver kvotienten\nløsheten fra det løseste leddet.",
+        "hints": [
+          "Spør først: hvilken vei har jeg en grense — oppover, nedover eller begge?",
+          "Øvre grense: størst teller, minst nevner. Nedre grense: minst teller, størst nevner."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-1-2-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-1-2-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger F — «stemmer dette?», altså at du svarer ja eller nei først og\nbegrunner med én setning.)\n\nEt forslag til svar lyder: «$\\Omega(n^2) + O(n^3) = \\Theta(n^3)$, siden $n^3$ er\ndet raskest voksende som står i uttrykket.»\n\n**a)** Stemmer det?\n**b)** Hva er det strammeste riktige svaret?",
+        "solution": "**a)** Nei. To ting er galt. For det første er $O(n^3)$-leddet ikke garantert å\nvokse som $n^3$ — det er garantert å være **høyst** $n^3$, og kan være en\nkonstant. For det andre har $\\Omega(n^2)$-leddet ingen øvre grense i det hele\ntatt, så uttrykket kan vokse langt forbi $n^3$.\n\n**b)** $\\Omega(n^2)$. Det er alt uttrykket garanterer: en nedre grense fra\n$\\Omega$-leddet. Noen øvre grense finnes ikke.\n\n**Feilen i forslaget er å lese asymptotiske ledd som om de var tall.** «Det\nstørste tallet i uttrykket» er ikke et gyldig argument når leddene er mengder av\nfunksjoner.",
+        "hints": [
+          "Hvor stort kan et $\\Omega(n^2)$-ledd bli?",
+          "Hvor lite kan et $O(n^3)$-ledd bli?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-1-2-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-1-2-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger A.) Regn ut ledd for ledd og oppgi det strammeste\nenkeltuttrykket:\n\n$$\\frac{\\Theta(n^6)}{\\Theta(n^3)} + \\frac{\\Omega(n^4)}{O(n^2)}.$$",
+        "solution": "**Første ledd.** $\\Theta(n^6)/\\Theta(n^3) = \\Theta(n^3)$ — begge er låst begge\nveier, så kvotienten er det også.\n\n**Andre ledd.** $\\Omega(n^4)/O(n^2)$: minste teller er $n^4$, største nevner er\n$n^2$, og $n^4/n^2 = n^2$. Så leddet er $\\Omega(n^2)$. Noen øvre grense finnes\nikke: telleren kan være $2^n$ og nevneren kan være en konstant.\n\n**Summen.** Første ledd gir gulvet $n^3$. Andre ledd gir gulvet $n^2$, som er\nsvakere, og bidrar derfor ingenting til gulvet. Men andre ledd river bort taket,\nså ingen $O$-påstand holder for summen.\n\n$$\\frac{\\Theta(n^6)}{\\Theta(n^3)} + \\frac{\\Omega(n^4)}{O(n^2)} = \\Omega(n^3).$$\n\n**Fellen er å svare $\\Theta(n^3)$.** Det ville vært riktig hvis andre ledd hadde\nhatt et tak på $n^3$ eller lavere — men det har det ikke.",
+        "hints": [
+          "Regn hvert ledd for seg før du legger dem sammen.",
+          "Et $\\Omega$-ledd i telleren gjør hele leddet takløst.",
+          "Når du legger sammen: hvilket ledd gir det strammeste gulvet, og finnes det noe tak?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-1-2-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-1-2-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger A og D blandet.)\n\n**a)** Forenkl $\\Theta(n^2) \\cdot \\Theta(n\\lg n)$.\n**b)** Forenkl $O(n^2) + O(n\\lg n) + o(n^3)$.\n**c)** Forklar med to setninger hvorfor svaret i b) ikke kan skrives som et\n$\\Theta$-uttrykk.",
+        "solution": "**a)** $\\Theta(n^3\\lg n)$. Et produkt av to $\\Theta$-uttrykk er $\\Theta$ av\nproduktet: telleren i begge er låst begge veier, og konstantene ganges bare\nsammen.\n\n**b)** $O(n^3)$. Alle tre leddene er $O(n^3)$: $n^2$ og $n\\lg n$ vokser begge\nsaktere enn $n^3$, og $o(n^3)$ er per definisjon $O(n^3)$. Det strammeste taket\ner $n^3$ — vi kan ikke stramme til $O(n^2)$, siden $o(n^3)$-leddet kan være\n$n^{2{,}5}$, som er større enn $n^2$.\n\n**c)** Ingen av leddene setter noe gulv. Hvert av dem kan være så lite som en\nkonstant, så hele summen kan være $\\Theta(1)$ — og den kan også være nær $n^3$.\nUten gulv finnes ingen $\\Theta$.\n\n**Merk kontrasten til a).** Der var begge leddene låst begge veier, og da\noverlever både gulv og tak gjennom regningen.",
+        "hints": [
+          "For a): hva skjer med to $\\Theta$-uttrykk som ganges sammen?",
+          "For b): hvor stort kan $o(n^3)$-leddet bli — og er $n^2$ da et gyldig tak?",
+          "For c): et $\\Theta$-svar krever både gulv og tak. Har du et gulv her?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-1-2-t-5",
+      "type": "text",
+      "content": "## Oppskriften samlet (~6 min)\n\nFem steg som dekker alle tre variantene:\n\n1. **Identifisér leddene** og hvilken vekstklasse hver av dem tilhører.\n2. **Er det en brøk?** Bytt teller og nevner med sin ekstremverdi hver for seg,\n   og forkort. Gjør det én retning om gangen.\n3. **Er det en sum?** Behold det raskest voksende leddet; resten drukner.\n4. **Sjekk om noe ledd mangler tak.** Står det et $\\Omega$ eller $\\omega$ i\n   summen, faller enhver $O$-påstand bort.\n5. **Skriv det strammeste enkeltuttrykket.** Finnes det ikke ett, oppgir du\n   nedre og øvre grense hver for seg — det er også et fullstendig svar.\n\n| Uttrykk | Svar | Hvorfor |\n|---|---|---|\n| $5n^2 + 100n + 3000$ | $\\Theta(n^2)$ | det raskest voksende leddet, konstanter forsvinner |\n| $n + \\Theta(n^2) + O(n^3)$ | $\\Omega(n^2)$ og $O(n^3)$ | gulv og tak i ulike klasser |\n| $\\Omega(n + \\Theta(n^2) + O(n^3))$ | $\\Omega(n^2)$ | den minst presise grensen bestemmer |\n| $O(n) + \\Omega(n) + \\Theta(n) + o(n) + \\omega(n)$ | $\\omega(n)$ | raskest voksende ledd, og det har ingen tak |\n| $\\Theta(n^4)/\\Omega(n^2)$ | $O(n^2)$ | låst teller, nevner minst $n^2$ |\n| $\\Omega(n^3)/O(n^2)$ | $\\Omega(n)$ | teller minst $n^3$, nevner høyst $n^2$ |\n| $\\Theta(n^4)/\\Theta(n^2) + O(n^3)/\\Omega(n)$ | $\\Theta(n^2)$ | $\\Theta$-ledd pluss $O$-ledd i samme klasse |\n\nLær tabellen som mønstre, ikke som utenatpugg. På eksamen kommer de samme sju\nformene med andre eksponenter."
+    },
+    {
+      "id": "tdt4120-1-2-t-bank",
+      "type": "text",
+      "content": "### Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har\nlest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder\nkjernestoffet."
+    },
+    {
+      "id": "tdt4120-1-2-bank-1",
+      "type": "definition",
+      "title": "Sumregelen",
+      "content": "I en sum av asymptotiske ledd overlever bare det raskest voksende:\n$\\Theta(f) + \\Theta(g) = \\Theta(\\max(f, g))$.\n\nBegrunnelsen ligger i definisjonen: to funksjoner som begge er høyst\n$c\\,\\max(f,g)$, har en sum som er høyst $2c\\,\\max(f,g)$, og faktoren 2\nforsvinner inn i konstanten. Samme regel gjelder for $O$ med $O$ og for $\\Omega$\nmed $\\Omega$."
+    },
+    {
+      "id": "tdt4120-1-2-bank-2",
+      "type": "definition",
+      "title": "$o$-ledd i en sum",
+      "content": "Et $o(g)$-ledd vokser strengt saktere enn $g$ og kan aldri være det dominerende\nleddet i en sum der noe av størrelsesorden $g$ eller større står.\n\nPraktisk: i $\\Theta(n^2) + o(n^2)$ er svaret $\\Theta(n^2)$. Leddet forsvinner.\nMen et $o(n^3)$-ledd er ikke like harmløst i en sum av $n^2$-ledd — det kan være\n$n^{2{,}5}$, altså større enn $n^2$, uten å bryte med $o(n^3)$."
+    },
+    {
+      "id": "tdt4120-1-2-bank-3",
+      "type": "definition",
+      "title": "Sum av to $O$-uttrykk",
+      "content": "$O(f) + O(g) = O(\\max(f, g))$. Summen arver taket fra det største leddet, og\ningen av leddene bidrar med et gulv.\n\nDerfor kan en sum av bare $O$-ledd aldri gi et $\\Theta$-svar: hvert ledd kan være\nså lite som en konstant, så hele summen kan være $\\Theta(1)$."
+    },
+    {
+      "id": "tdt4120-1-2-bank-4",
+      "type": "definition",
+      "title": "Konstantfaktorer i en forenkling",
+      "content": "Enhver konstant foran et asymptotisk uttrykk forsvinner. Både\n$7\\,\\Theta(n\\lg n)$ og $\\Theta(n\\lg n)$ beskriver det samme, og $5n^2$ er\n$\\Theta(n^2)$.\n\nKonstanten absorberes i $c_1$ og $c_2$ fra definisjonen av $\\Theta$. Det samme\ngjelder grunntallet i en logaritme, siden $\\log_b n = \\lg n / \\lg b$."
+    },
+    {
+      "id": "tdt4120-1-2-bank-5",
+      "type": "definition",
+      "title": "Produkt av asymptotiske uttrykk",
+      "content": "Et produkt behandles ledd for ledd på samme måte som en brøk:\n$\\Theta(f) \\cdot \\Theta(g) = \\Theta(f \\cdot g)$.\n\nMed løsere symboler arver produktet løsheten: $O(f) \\cdot O(g) = O(f \\cdot g)$,\nmen $\\Omega(f) \\cdot O(g)$ har verken tak eller garantert gulv i noen enkelt\nklasse. Ganger du inn en konstant, endres ingenting."
+    },
+    {
+      "id": "tdt4120-1-2-bank-6",
+      "type": "definition",
+      "title": "Vekstordningen som rangeringsverktøy",
+      "content": "Rekkefølgen $1 < \\lg n < n < n\\lg n < n^2 < n^3 < 2^n < n!$ er verktøyet du\nbruker til å plukke ut det dominerende leddet.\n\nI en forenklingsoppgave er første grep alltid å plassere hvert ledd i denne\nkjeden. Leddet lengst til høyre vinner; alle de andre drukner. De sammensatte\nuttrykkene passer også inn: $n^2\\lg n$ ligger mellom $n^2$ og $n^3$."
+    },
+    {
+      "id": "tdt4120-1-2-bank-7",
+      "type": "definition",
+      "title": "Å kaste bort informasjon",
+      "content": "Å svare med en løsere grense enn den du kan forsvare. Dette er felle #4, og den\ner den vanligste enkeltfeilen i sjanger A.\n\nKonkret: å svare $O(n^2)$ når $\\Theta(n^2)$ kan vises, eller $O(n^3)$ når\n$O(n^2)$ holder. Påstandene er sanne, men de gir bort informasjon oppgaven\netterspør. Sjekk alltid til slutt: har jeg gulv i tillegg til tak, og er taket så\nlavt som det kan bli?"
+    },
+    {
+      "id": "tdt4120-1-2-bank-8",
+      "type": "definition",
+      "title": "Ledd som ikke kan dominere",
+      "content": "Et ledd kan bare bestemme svaret hvis det har det raskest voksende gulvet eller\ndet høyeste taket, avhengig av retningen du ser etter.\n\nEt $O$-ledd bidrar aldri til gulvet, fordi det kan være en konstant. Et\n$o$-ledd bidrar heller aldri. Til gjengjeld bidrar et $\\Omega$- eller\n$\\omega$-ledd aldri til taket — det finnes ikke noe tak å bidra med."
+    },
+    {
+      "id": "tdt4120-1-2-bank-9",
+      "type": "definition",
+      "title": "Sjekklista for en forenklingsoppgave",
+      "content": "Fem steg, i denne rekkefølgen: identifisér leddene; løs opp eventuelle brøker\nledd for ledd; behold det raskest voksende leddet i en sum; sjekk om noe ledd\nmangler tak; skriv det strammeste enkeltuttrykket.\n\nSteg fire er det som oftest hoppes over. Et $\\Omega$- eller $\\omega$-ledd et sted\ni uttrykket betyr at ingen $O$-påstand kan gjelde, og da er svaret en ren nedre\ngrense."
+    },
+    {
+      "id": "tdt4120-1-2-bank-10",
+      "type": "definition",
+      "title": "$\\Theta$ av en sum av to $\\Theta$-ledd",
+      "content": "To $\\Theta$-ledd gir alltid et $\\Theta$-svar, fordi begge har både gulv og tak:\n$\\Theta(n^2) + \\Theta(n\\lg n) = \\Theta(n^2)$.\n\nDette er den eneste sumformen som garantert gir en tett grense. Så snart ett av\nleddene er $O$, $\\Omega$, $o$ eller $\\omega$, må du sjekke gulv og tak hver for\nseg før du velger symbol."
+    },
+    {
+      "id": "tdt4120-1-2-bank-11",
+      "type": "definition",
+      "title": "De sju standardformene",
+      "content": "Eksamensoppgavene i sjanger A gjenbruker et lite knippe former: ren sum av\nkonkrete ledd; sum med blandede symboler; $\\Omega$ eller $O$ utenpå en sum; alle\nfem symbolene i samme sum; enkel brøk med ett løst ledd; enkel brøk med to låste\nledd; og sum av to brøker.\n\nEksponentene varierer fra sett til sett, men formene gjør det ikke. Gjenkjenner\ndu formen, har du svaret på under et minutt."
+    },
+    {
+      "id": "tdt4120-1-2-bank-12",
+      "type": "definition",
+      "title": "Svarformen i sjanger A",
+      "content": "Ett strammeste uttrykk på én linje — eller to uttrykk når nedre og øvre grense\nligger i ulike klasser.\n\nLøsningsforslagene svarer med selve uttrykket og ikke stort mer. Utregningen din\nhører hjemme på kladden. Oppgaven ber om et uttrykk, ikke om en forklaring av\nhvordan du kom fram til det, med mindre den ber om begrunnelse eksplisitt."
+    },
+    {
+      "id": "tdt4120-1-2-bank-13",
+      "type": "definition",
+      "title": "Hvorfor $O$ utenpå og $\\Omega$ utenpå spør motsatt",
+      "content": "$O$ utenpå en sum spør hva det **største** innmaten kan bli; $\\Omega$ utenpå\nspør hva det **minste** innmaten kan bli.\n\nFor $n + \\Theta(n^2) + O(n^3)$ gir det $O$-svaret $O(n^3)$ og $\\Omega$-svaret\n$\\Omega(n^2)$. Samme innmat, to helt ulike tall, fordi de to symbolene leter i\nhver sin retning."
+    },
+    {
+      "id": "tdt4120-1-2-bank-14",
+      "type": "definition",
+      "title": "Nedre grense uten øvre grense",
+      "content": "Et fullt gyldig svar. Uttrykk med et $\\Omega$- eller $\\omega$-ledd har ofte ingen\nøvre grense i det hele tatt, og da er en ren $\\Omega$- eller $\\omega$-påstand det\nstrammeste som finnes.\n\nEksempler: $\\Omega(n^2) + O(n^3) = \\Omega(n^2)$, og\n$\\Omega(n^3)/O(n^2) = \\Omega(n)$. Å legge til «og $O$ av noe» ville vært å påstå\nmer enn uttrykket gir dekning for."
+    },
+    {
+      "id": "tdt4120-1-2-coll-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tdt4120-1-2-rep-1",
+          "type": "text",
+          "content": "Fem korte oppgaver fra [kap. 1.1](/tdt4120/tdt4120-1-1), som dette kapitlet\nbygger direkte på. De tar noen minutter til sammen.\n\n**1.** Skriv definisjonen av $f(n) = O(g(n))$ med $c$ og $n_0$.\n\n**2.** Hva er forskjellen på $\\Omega(g(n))$ og $\\omega(g(n))$?\n\n**3.** Er $n\\lg n = o(n^2)$?\n\n**4.** Sett $n^2\\lg n$ inn på riktig plass i vekstordningen.\n\n**5.** Hva betyr $\\lg n$, og hvorfor spiller grunntallet ingen rolle\nasymptotisk?\n\n---\n\n**Fasit.**\n\n**1.** Det finnes konstanter $c > 0$ og $n_0 > 0$ slik at\n$0 \\le f(n) \\le c\\,g(n)$ for alle $n \\ge n_0$.\n\n**2.** $\\Omega$ krever at ulikheten holder for **én** konstant $c$; $\\omega$\nkrever at den holder for **hver** $c > 0$. Derfor er $\\omega$ strengere, og ingen\nfunksjon er $\\omega$ av seg selv.\n\n**3.** Ja. Forholdet $\\lg n / n$ går mot null, så $n\\lg n$ vokser strengt\nsaktere enn $n^2$.\n\n**4.** Mellom $n^2$ og $n^3$: $n^2 < n^2\\lg n < n^3$, siden\n$n^2\\lg n / n^3 = \\lg n / n$ går mot null.\n\n**5.** $\\lg n$ er $\\log_2 n$, CLRS-konvensjonen som fasitene bruker. Grunntallet\nspiller ingen rolle fordi $\\log_b n = \\lg n / \\lg b$, og $\\lg b$ er bare en\nkonstant faktor."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

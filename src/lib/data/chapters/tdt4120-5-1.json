@@ -1,0 +1,391 @@
+{
+  "id": "tdt4120-5-1",
+  "courseId": "tdt4120",
+  "chapterNumber": "5.1",
+  "title": "Flytnett, restnett og snitt",
+  "description": "Flytnett, restkapasitet og restnett, snitt `(S,T)`, og heltallsteoremet — begrepene alle flytoppgaver hviler på.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "kunne avgjøre om en gitt tildeling av tall til kantene er en lovlig flyt, og lese av flytverdien",
+    "kunne bygge restnettet til en flyt med ryggkantene, og finne en forøkende sti med flaskehals",
+    "kunne regne ut snittkapasitet og snittflyt for et gitt snitt, og bruke et snitt som øvre grense for flytverdien",
+    "kunne forklare hva heltallsteoremet garanterer, og hvorfor det gjør maks-flyt brukbart til tilordning"
+  ],
+  "content": [
+    {
+      "id": "tdt4120-5-1-tip-1",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "Maks-flyt er et av de aller sikreste temaene i dette faget: temaet er registrert\ni **94 % (16 av de 17 settene i grunnlaget)**. Dette kapitlet dekker begrepene alt\ndet andre hviler på — flytnett, restnett, snitt og heltallsteoremet.\n\nBegrepene testes i to sjangre. **Sjanger D — definisjon «med egne ord»**, altså at\ndu skal gi én presis setning som treffer hovedpoenget («definér restkapasitet»).\nOg **sjanger F — «stemmer dette?»**, altså en påstand du skal svare ja eller nei\npå og deretter begrunne i én setning («snittkapasiteten teller alle kanter som\nkrysser snittet»).\n\nPrioriteten er **høyeste prioritet — dette må sitte**. Grunnen er praktisk: de\nåpne designoppgavene helt til slutt i settet bruker maks-flyt som verktøy, og du\nkommer ikke i gang med dem hvis restnettet og snittet er uklare. Eksamen er uten\nhjelpemidler, så definisjonene skal sitte i hodet.\n\n**Slik er kapitlet lagt opp (55 min):**\n\n| # | Innhold | Tid |\n|---|---|---|\n| 1 | Flytnett, og hva en lovlig flyt er | ca. 12 min |\n| 2 | Restkapasitet, ryggkanten og restnettet | ca. 16 min |\n| 3 | Forøkende sti | ca. 8 min |\n| 4 | Snitt, snittkapasitet og snittflyt | ca. 13 min |\n| 5 | Heltallsteoremet, og hvorfor det gjør flyt til et tilordningsverktøy | ca. 6 min |"
+    },
+    {
+      "id": "tdt4120-5-1-t-forkunn",
+      "type": "text",
+      "content": "## Forkunnskaper\n\n- [kap. 4.1](/tdt4120/tdt4120-4-1) — grafrepresentasjon og traversering. Et\n  flytnett **er** en rettet graf, og den eneste algoritmen vi trenger i dette\n  kapitlet, er `BFS`: den brukes til å lete etter en vei fra $s$ til $t$.\n- [Mengdelære](/1t/1t-1-7) — hvis notasjonen $G=(V,E)$, «$v \\in V$» og «en\n  partisjon av $V$» er uvant. Et snitt er nettopp en partisjon av nodemengden i\n  to deler.\n\nDu trenger ingen ny algoritme i dette kapitlet. Alt handler om å lese og regne på\net nett med tall på kantene — algoritmene kommer i\n[kap. 5.2](/tdt4120/tdt4120-5-2)."
+    },
+    {
+      "id": "tdt4120-5-1-coll-notasjon",
+      "type": "collapsible",
+      "title": "Notasjons- og pseudokodeliste",
+      "buttonText": "Vis notasjon og pseudokode",
+      "content": [
+        {
+          "id": "tdt4120-5-1-nt-1",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et algoritmefag: den lister kjøretidsuttrykk og\npseudokode-operasjoner i stedet for bare greske bokstaver.\n\n| Symbol | Betydning |\n|---|---|\n| $G=(V,E)$ | den rettede grafen: nodemengden $V$ og kantmengden $E$ |\n| $V$, $E$ | brukes også som tall i kjøretider: antall noder og antall kanter |\n| $s$, $t$ | kilden (der alt kommer fra) og sluket (der alt skal ende) |\n| $c(u,v)$ | kapasiteten til kanten fra $u$ til $v$, alltid $c(u,v) \\ge 0$ |\n| $f(u,v)$ | flyten på kanten fra $u$ til $v$ |\n| $\\lvert f\\rvert$ | flytverdien: netto hvor mye som forlater kilden |\n| $c_f(u,v)$ | restkapasiteten: hvor mye mer som får plass fra $u$ til $v$ |\n| $G_f$ | restnettet som hører til flyten $f$ |\n| $(S,T)$ | et snitt: $V$ delt i to deler med $s \\in S$ og $t \\in T$ |\n| $c(S,T)$ | snittkapasiteten: summen av kapasitetene på kantene fra $S$ til $T$ |\n| $f(S,T)$ | snittflyten: netto flyt fra $S$ til $T$ |"
+        },
+        {
+          "id": "tdt4120-5-1-nt-2",
+          "type": "text",
+          "content": "| Algoritme/operasjon | Kontrakt | Kjøretid |\n|---|---|---|\n| `BFS(G_f, s)` | finner alle noder som er nåbare fra `s` i restnettet, lag for lag; brukes til å lete etter en forøkende sti | $\\Theta(V+E)$ |\n| bygg `G_f` fra `f` | går gjennom hver kant én gang og legger inn inntil to restkanter: framoverkanten og ryggkanten | $\\Theta(V+E)$ |\n| les av flytverdien | summerer flyten på kantene ut av `s` og trekker fra flyten inn i `s` | $\\Theta(V)$ med naboliste for `s` |\n\n**Formler i dette delkapitlet:**\n\n$$0 \\le f(u,v) \\le c(u,v)$$\n\nKapasitetsbetingelsen: ingen kant kan bære mer enn den tåler, og flyten er aldri\nnegativ.\n\n$$\\sum_{u \\in V} f(u,v) = \\sum_{w \\in V} f(v,w) \\quad \\text{for alle } v \\in V \\setminus \\{s,t\\}$$\n\nBevaringsbetingelsen: i alle andre noder enn kilden og sluket er det som kommer\ninn, nøyaktig like mye som det som går ut.\n\n$$c_f(u,v) = c(u,v) - f(u,v), \\qquad c_f(v,u) = f(u,v)$$\n\nRestkapasitet framover og på ryggkanten. Den andre likningen er den som gjør at\nen forøkning kan **angre** tidligere valg.\n\n$$\\lvert f\\rvert = \\sum_{v \\in V} f(s,v) - \\sum_{v \\in V} f(v,s)$$\n\nFlytverdien: netto hvor mye som forlater kilden.\n\n$$c(S,T) = \\sum_{u \\in S} \\sum_{v \\in T} c(u,v)$$\n\nSnittkapasiteten. Legg merke til rekkefølgen på indeksene: **bare** kanter som\ngår fra $S$ til $T$ er med."
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-5-1-t-1",
+      "type": "text",
+      "content": "## Vann gjennom et nett med kapasiteter (~12 min)\n\nEt vanningsanlegg på en gård henter vann fra ett pumpehus og fører det gjennom\nnedgravde rør til ett jorde. Underveis går vannet innom kummer der rørene\nforgrener seg. Hvert rør har en øvre grense for hvor mange liter i minuttet det\ntåler, og i kummene renner det verken bort eller oppstår vann av seg selv: alt som\nkommer inn, går ut igjen.\n\nSpørsmålet bonden stiller, er det samme spørsmålet et strømnett, en containerhavn\nog en vaktliste stiller: **hvor mye kan vi maksimalt få fram fra start til mål?**\nOg når svaret er «ikke mer enn dette» — *hvor* sitter da proppen?\n\nHele Del 5 er svaret på de to spørsmålene. Dette kapitlet bygger begrepene, og\n[kap. 5.2](/tdt4120/tdt4120-5-2) gir algoritmene som regner dem ut."
+    },
+    {
+      "id": "tdt4120-5-1-def-1",
+      "type": "definition",
+      "title": "Flytnett",
+      "content": "En rettet graf der hver kant har en øvre grense for hvor mye som kan passere, og\nder én node er utpekt som start og én som mål.\n\nFormelt er et flytnett en rettet graf $G=(V,E)$ med en **kilde** $s$, et **sluk**\n$t$ og en **kapasitetsfunksjon** $c$ som gir hver kant $(u,v) \\in E$ et tall\n$c(u,v) \\ge 0$. Finnes det ingen kant fra $u$ til $v$, setter vi $c(u,v)=0$. Vi\nantar at hver node ligger på en vei fra $s$ til $t$; noder som ikke gjør det, kan\naldri bære flyt og kan strykes."
+    },
+    {
+      "id": "tdt4120-5-1-def-2",
+      "type": "definition",
+      "title": "Kilde og sluk",
+      "content": "Kilden $s$ er noden all flyt starter i, og sluket $t$ er noden all flyt ender i.\nDe to er de eneste nodene som får ha ubalanse mellom inn og ut.\n\nAlle andre noder er gjennomgangsnoder. Det er nettopp derfor flytverdien kan måles\nto steder med samme svar: det som netto forlater $s$, er det samme som det som\nnetto ankommer $t$."
+    },
+    {
+      "id": "tdt4120-5-1-def-3",
+      "type": "definition",
+      "title": "Flyt",
+      "content": "En tildeling av et tall til hver kant, som sier hvor mye som faktisk sendes der, og\nsom oppfyller to betingelser samtidig.\n\nEn flyt er en funksjon som gir hvert nodepar en verdi $f(u,v)$ og oppfyller\n**kapasitetsbetingelsen** $0 \\le f(u,v) \\le c(u,v)$ for alle kanter, og\n**bevaringsbetingelsen** i alle noder unntatt $s$ og $t$. **Flytverdien** er\n$\\lvert f\\rvert = \\sum_{v \\in V} f(s,v) - \\sum_{v \\in V} f(v,s)$, altså netto ut\nav kilden. Maks-flyt-problemet er å finne en flyt med størst mulig verdi."
+    },
+    {
+      "id": "tdt4120-5-1-def-4",
+      "type": "definition",
+      "title": "Kapasitetsbetingelsen",
+      "content": "Ingen kant får bære mer enn kapasiteten sin, og ingen kant får bære et negativt\ntall: $0 \\le f(u,v) \\le c(u,v)$.\n\nDette er den betingelsen som er lettest å sjekke, og den som faktisk blir sjekket.\nEn kant der $f(u,v) = c(u,v)$, kalles **mettet** — den er full, og kan ikke ta\nimot mer uten at noe annet endres."
+    },
+    {
+      "id": "tdt4120-5-1-def-5",
+      "type": "definition",
+      "title": "Bevaringsbetingelsen",
+      "content": "I alle andre noder enn kilden og sluket er summen av det som kommer inn, lik summen\nav det som går ut.\n\nFormelt: $\\sum_{u \\in V} f(u,v) = \\sum_{w \\in V} f(v,w)$ for hver\n$v \\in V \\setminus \\{s,t\\}$. Dette er betingelsen som glemmes når man «tegner på»\nlitt ekstra flyt et sted. Kontrollen er mekanisk: gå gjennom nodene én for én og\nlegg sammen begge veier."
+    },
+    {
+      "id": "tdt4120-5-1-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Er dette en lovlig flyt?",
+      "problem": "Vanningsanlegget har pumpehuset $s$, kummene $a$, $b$, $c$ og $d$, og jordet $t$.\nKapasitetene, i liter per minutt, er\n\n```text\nc(s,a) = 12    c(s,b) = 9     c(a,b) = 4    c(a,c) = 8\nc(b,d) = 10    c(c,t) = 14    c(d,c) = 5    c(d,t) = 9\n```\n\nDriftsteknikeren foreslår denne innstillingen:\n\n```text\nf(s,a) = 8     f(s,b) = 5     f(a,b) = 0    f(a,c) = 8\nf(b,d) = 5     f(c,t) = 8     f(d,c) = 0    f(d,t) = 5\n```\n\nEr dette en lovlig flyt, og hva er i så fall flytverdien?",
+      "solution": "**Kapasitetsbetingelsen**, kant for kant:\n\n| Kant | $f$ | $c$ | Er $0 \\le f \\le c$? |\n|---|---|---|---|\n| $s \\to a$ | 8 | 12 | ja |\n| $s \\to b$ | 5 | 9 | ja |\n| $a \\to b$ | 0 | 4 | ja |\n| $a \\to c$ | 8 | 8 | ja — og kanten er **mettet** |\n| $b \\to d$ | 5 | 10 | ja |\n| $c \\to t$ | 8 | 14 | ja |\n| $d \\to c$ | 0 | 5 | ja |\n| $d \\to t$ | 5 | 9 | ja |\n\n**Bevaringsbetingelsen**, node for node (kilden og sluket er unntatt):\n\n| Node | Inn | Ut | Balanse |\n|---|---|---|---|\n| $a$ | 8 | $0 + 8 = 8$ | ja |\n| $b$ | $5 + 0 = 5$ | 5 | ja |\n| $c$ | $8 + 0 = 8$ | 8 | ja |\n| $d$ | 5 | $0 + 5 = 5$ | ja |\n\nBegge betingelsene holder, så innstillingen er en lovlig flyt.\n\n**Flytverdien** leses av ved kilden: $\\lvert f\\rvert = f(s,a) + f(s,b) = 8 + 5 = 13$.\nKontroll ved sluket: $f(c,t) + f(d,t) = 8 + 5 = 13$. Samme tall, som seg hør og bør.\n\n**Svar: ja, det er en lovlig flyt, og $\\lvert f\\rvert = 13$.**\n\nLegg merke til at flyten *ikke* er maksimal. Ingenting i de to betingelsene sier\nat du har presset så mye gjennom som mulig — de sier bare at det du har satt opp,\nhenger sammen."
+    },
+    {
+      "id": "tdt4120-5-1-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-5-1-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave, sjanger F — «stemmer dette?», altså at du svarer ja eller nei\nførst og deretter begrunner i én setning.) I det samme vanningsanlegget som i\nEksempel 1 foreslår en kollega å endre ett tall: $f(s,b) = 7$, mens alt annet står\nsom før.\n\n**a)** Er den nye innstillingen en lovlig flyt?\n**b)** Hvilken av de to betingelsene ryker eventuelt?",
+        "solution": "**a) Nei.**\n\n**b) Bevaringsbetingelsen i node $b$.** Inn i $b$: $f(s,b) + f(a,b) = 7 + 0 = 7$.\nUt av $b$: $f(b,d) = 5$. Siden $7 \\ne 5$, «forsvinner» det 2 liter i minuttet i\nkum $b$, og det er ikke lov.\n\nKapasitetsbetingelsen er derimot i orden: $7 \\le 9$.\n\nOppgaven ber om ja eller nei og hvilken betingelse som ryker — ikke om å reparere\nflyten.",
+        "hints": [
+          "Sjekk de to betingelsene hver for seg: først kapasitet kant for kant, så bevaring node for node.",
+          "Bare node $b$ har endret seg. Legg sammen alt som går inn i $b$, og alt som går ut."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-5-1-t-2",
+      "type": "text",
+      "content": "## Restkapasitet, ryggkanten og restnettet (~16 min)\n\nBonden vil vite om det er mer å hente. Da nytter det ikke å stirre på det\nopprinnelige nettet: det viser hva rørene tåler, ikke hva som er igjen. Det vi\ntrenger, er et nytt nett som svarer på spørsmålet «hvor mye mer kan jeg sende, og\nhvilken vei?».\n\nSvaret har to deler, og den andre delen er den alle glemmer.\n\nDen første delen er lett: på en kant der du bruker 8 av 12, kan du sende 4 til.\nDen andre delen er at du også kan **angre**. Sender du 8 langs $s \\to a$, kan du\nsenere ombestemme deg og redusere med opptil 8 — og det er nøyaktig som å ha en\nkant den *motsatte* veien med kapasitet 8. Den kanten kalles ryggkanten."
+    },
+    {
+      "id": "tdt4120-5-1-def-6",
+      "type": "definition",
+      "title": "Restkapasitet",
+      "content": "Hvor mye mer som kan sendes fra $u$ til $v$ når flyten $f$ allerede ligger der.\n\nDet er to tilfeller, og begge er nødvendige. På en ekte kant $(u,v) \\in E$ er\n$c_f(u,v) = c(u,v) - f(u,v)$: kapasiteten minus det som allerede går der. Motsatt\nvei er $c_f(v,u) = f(u,v)$: du kan «sende tilbake» opptil så mye som allerede går\nframover. Alle andre par har $c_f = 0$. Engelsk fagterm: *residual capacity*."
+    },
+    {
+      "id": "tdt4120-5-1-def-7",
+      "type": "definition",
+      "title": "Ryggkant",
+      "content": "Kanten den motsatte veien av en kant som bærer flyt. Den finnes ikke i det\nopprinnelige nettet, men i restnettet, og den representerer retten til å angre.\n\nGår det $f(u,v) = 8$ fra $u$ til $v$, har restnettet en kant fra $v$ til $u$ med\nkapasitet 8. Å sende 3 langs ryggkanten betyr *ikke* at vann renner baklengs; det\nbetyr at du reduserer $f(u,v)$ fra 8 til 5 og bruker de tre enhetene et bedre sted.\nUten ryggkantene kan en algoritme male seg inn i et hjørne — å glemme dem er den\nvanligste feilen i hele Del 5."
+    },
+    {
+      "id": "tdt4120-5-1-def-8",
+      "type": "definition",
+      "title": "Restnettet",
+      "content": "Grafen som viser alt som fortsatt er mulig: samme noder som det opprinnelige\nnettet, men med de kantene som har positiv restkapasitet.\n\nRestnettet $G_f$ har kantmengden $\\{(u,v) : c_f(u,v) > 0\\}$. Det inneholder inntil\nto kanter per opprinnelig kant — framoverkanten og ryggkanten — så antallet kanter\ner høyst $2E$, altså $O(E)$. Å bygge det tar $\\Theta(V+E)$. Merk at $G_f$\n**ikke** er et delnett av $G$: ryggkantene finnes ikke i $G$."
+    },
+    {
+      "id": "tdt4120-5-1-fig-1",
+      "type": "image",
+      "src": "/images/textbook/tdt4120/5-1-flytnett-og-restnett.svg",
+      "alt": "To tegninger av det samme nettet under hverandre. Oeverst flytnettet med seks noder s, a, b, c, d og t, der hver kant er merket med flyt skraastrek kapasitet. Nederst restnettet med de samme nodene, der heltrukne groenne piler viser restkapasitet framover og graa stiplede piler viser ryggkanter den motsatte veien.",
+      "caption": "Vanningsanlegget fra Eksempel 1, øverst med $f/c$ på hver kant og nederst som restnett $G_f$. Hver kant som bærer flyt, gir en stiplet ryggkant den motsatte veien — det er den som mangler i et restnett tegnet på rutine."
+    },
+    {
+      "id": "tdt4120-5-1-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Bygg restnettet",
+      "problem": "Bygg restnettet $G_f$ for flyten i Eksempel 1, og oppgi restkapasiteten på hver\nkant i det.",
+      "solution": "Gå gjennom de åtte kantene og skriv opp begge restkantene for hver. En restkant med\n$c_f = 0$ tas ikke med.\n\n| Kant $(u,v)$ | $f/c$ | Framover: $c_f(u,v)$ | Ryggkant: $c_f(v,u)$ |\n|---|---|---|---|\n| $s \\to a$ | 8/12 | 4 | $a \\to s$: 8 |\n| $s \\to b$ | 5/9 | 4 | $b \\to s$: 5 |\n| $a \\to b$ | 0/4 | 4 | ingen, siden $f = 0$ |\n| $a \\to c$ | 8/8 | ingen, kanten er mettet | $c \\to a$: 8 |\n| $b \\to d$ | 5/10 | 5 | $d \\to b$: 5 |\n| $c \\to t$ | 8/14 | 6 | $t \\to c$: 8 |\n| $d \\to c$ | 0/5 | 5 | ingen, siden $f = 0$ |\n| $d \\to t$ | 5/9 | 4 | $t \\to d$: 5 |\n\nRestnettet har altså disse 13 kantene:\n\n```text\ns->a: 4    s->b: 4    a->s: 8    a->b: 4\nb->s: 5    b->d: 5    c->a: 8    c->t: 6\nd->b: 5    d->c: 5    d->t: 4    t->c: 8\nt->d: 5\n```\n\n**To mønstre å ta med seg.** En **mettet** kant ($f = c$) gir ingen framoverkant,\nbare ryggkant — se $a \\to c$. En **tom** kant ($f = 0$) gir ingen ryggkant, bare\nframoverkant — se $a \\to b$ og $d \\to c$. Alle kanter midt imellom gir begge deler,\nog de er de vanligste."
+    },
+    {
+      "id": "tdt4120-5-1-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-5-1-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamensnivå, sjanger D — definisjon med egne ord, altså én presis setning med\nhovedpoenget først.) Definér *restkapasitet* $c_f(u,v)$ med egne ord, og forklar\nhva ryggkanten $c_f(v,u) = f(u,v)$ representerer.",
+        "solution": "Restkapasiteten $c_f(u,v)$ er hvor mye mer flyt som kan sendes fra $u$ til $v$ uten\nå bryte kapasitetsbetingelsen: $c_f(u,v) = c(u,v) - f(u,v)$ på en ekte kant, og\n$c_f(v,u) = f(u,v)$ den motsatte veien.\n\nRyggkanten representerer retten til å **angre**: å sende flyt langs $v \\to u$ betyr\nå redusere den flyten som allerede går fra $u$ til $v$, slik at de enhetene kan\nbrukes langs en bedre vei.\n\nOppgaven ber om definisjonen og tolkningen av ryggkanten, ikke om en gjennomgang av\nhvordan restnettet bygges.",
+        "hints": [
+          "Definisjonen har to ledd: ett for framoverkanten og ett for den motsatte veien.",
+          "Tenk på hva det praktisk betyr å «sende noe tilbake» langs en kant som allerede bærer flyt."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-5-1-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-5-1-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C — håndkjøring, altså at du utfører regelen mekanisk og\noppgir bare svaret.) Bruk flyten fra Eksempel 1.\n\n**a)** Oppgi $c_f(s,a)$ og $c_f(a,s)$.\n**b)** Oppgi alle restkanter **ut av** node $d$, med restkapasitet.\n**c)** Hvorfor finnes det ingen kant fra $a$ til $c$ i restnettet?",
+        "solution": "**a)** $c_f(s,a) = 12 - 8 = 4$ og $c_f(a,s) = f(s,a) = 8$.\n\n**b)** Tre kanter:\n\n```text\nd->b: 5   (ryggkant, fordi f(b,d) = 5)\nd->c: 5   (framover, fordi f(d,c) = 0 og c(d,c) = 5)\nd->t: 4   (framover, fordi c(d,t) - f(d,t) = 9 - 5)\n```\n\n**c)** Fordi kanten er mettet: $f(a,c) = c(a,c) = 8$, altså $c_f(a,c) = 8 - 8 = 0$.\nRestnettet har bare kanter med **positiv** restkapasitet, så $a \\to c$ faller ut —\nmens ryggkanten $c \\to a$ med kapasitet 8 er med.\n\nOppgaven ber om restkapasitetene, ikke om en forøkende sti.",
+        "hints": [
+          "Hver kant i det opprinnelige nettet kan gi opphav til to restkanter. Regn ut begge før du velger hvilke som blir med.",
+          "Kanter ut av $d$ kan komme fra kanter *inn i* $d$ i det opprinnelige nettet — se etter ryggkanten."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-5-1-warn-1",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "Fire feil koster mest i dette kapitlet, og den første er den desidert dyreste.\n\n- **Å glemme ryggkanten.** Et restnett uten kanter den motsatte veien er ikke et\n  restnett. Konsekvensen er ikke bare en tegnefeil: algoritmen i\n  [kap. 5.2](/tdt4120/tdt4120-5-2) kan da låse seg på en flyt som ikke er\n  maksimal. **Kontrollen:** hver kant med $0 < f < c$ skal gi **to** kanter i\n  $G_f$. Tell dem.\n- **Å blande snittkapasitet med snittflyt.** Kapasiteten $c(S,T)$ teller **bare**\n  kanter fra $S$ til $T$, og bruker $c$. Snittflyten $f(S,T)$ teller flyten begge\n  veier og trekker fra det som går tilbake. To ulike regnestykker på det samme\n  snittet.\n- **Å tro at snittet må dele nettet i to like store deler.** $(S,T)$ er en helt\n  vanlig partisjon. $S = \\{s\\}$ er et lovlig snitt, og ofte et av de interessante.\n- **Å glemme kravet $s \\in S$ og $t \\in T$.** Uten det er «snittet» bare en\n  vilkårlig oppdeling, og ingen av setningene om snitt gjelder.\n\nOg den stille: **å tro at en lovlig flyt er en maksimal flyt.** De to betingelsene\nsier ingenting om at du har presset gjennom så mye som mulig. Det er nettopp derfor\nvi trenger restnettet."
+    },
+    {
+      "id": "tdt4120-5-1-t-3",
+      "type": "text",
+      "content": "## Forøkende sti (~8 min)\n\nNå er spørsmålet «er det mer å hente?» blitt til et rent grafspørsmål: **finnes det\nen vei fra $s$ til $t$ i restnettet?** Finnes den, kan du sende mer. Finnes den\nikke, er du ferdig.\n\nHvor mye du kan sende langs veien, bestemmes av det svakeste leddet — den minste\nrestkapasiteten på veien. Den kalles flaskehalsen, og den er alltid et ledd i\nsvaret ditt.\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "tdt4120-5-1-def-9",
+      "type": "definition",
+      "title": "Forøkende sti",
+      "content": "En vei fra kilden til sluket i restnettet, altså en rekke kanter som alle har\nrestkapasitet igjen.\n\nFormelt er det en enkel sti fra $s$ til $t$ i $G_f$. En slik sti kan bestå av både\nframoverkanter og ryggkanter, og det er helt i orden — en ryggkant på stien betyr\nbare at en tidligere beslutning delvis reverseres. Engelsk fagterm:\n*augmenting path*. Å lete etter en tar $\\Theta(V+E)$ med `BFS`."
+    },
+    {
+      "id": "tdt4120-5-1-def-10",
+      "type": "definition",
+      "title": "Flaskehalsen på en forøkende sti",
+      "content": "Den minste restkapasiteten langs stien — altså akkurat så mye du kan sende før det\nførste leddet går tomt.\n\nFor en sti $p$ er flaskehalsen minimum av $c_f(u,v)$ over kantene på $p$. Forøker\ndu med dette tallet, blir minst én kant på stien mettet (eller minst én ryggkant\ntømt), og stien forsvinner fra restnettet. Flaskehalsen er alltid et positivt tall,\nsiden alle kanter i $G_f$ har $c_f > 0$."
+    },
+    {
+      "id": "tdt4120-5-1-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Er det mer å hente?",
+      "problem": "Bruk restnettet fra Eksempel 2. Finn en forøkende sti med `BFS` fra $s$, og oppgi\nflaskehalsen.",
+      "solution": "`BFS` fra $s$ i restnettet finner nodene lagvis. Med nodene i rekkefølgen\n$s, a, b, c, d, t$ blir lagene slik:\n\n| Lag | Noder | Nådd via |\n|---|---|---|\n| 0 | $s$ | — |\n| 1 | $a$, $b$ | $s \\to a$ (4), $s \\to b$ (4) |\n| 2 | $d$ | $b \\to d$ (5) |\n| 3 | $c$, $t$ | $d \\to c$ (5), $d \\to t$ (4) |\n\nSluket $t$ ble nådd i lag 3, via $d$. Følger vi forgjengerne bakover, får vi\n\n$$s \\to b \\to d \\to t$$\n\n**Flaskehalsen** er den minste restkapasiteten langs stien: $\\min\\{4, 5, 4\\} = 4$.\n\n**Svar: stien $s \\to b \\to d \\to t$ er forøkende, og flaskehalsen er 4.**\n\nDet betyr at flyten kan økes fra 13 til minst 17. Hvordan man gjør det systematisk\n— og hvor mye man til slutt lander på — er innholdet i\n[kap. 5.2](/tdt4120/tdt4120-5-2).\n\nMerk at det finnes flere forøkende stier i dette restnettet;\n$s \\to a \\to b \\to d \\to t$ er også en. `BFS` finner den **korteste**, og det er\nikke tilfeldig at vi bruker nettopp den — men det argumentet hører hjemme i neste\nkapittel."
+    },
+    {
+      "id": "tdt4120-5-1-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-5-1-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C — håndkjøring.) I restnettet fra Eksempel 2 antar vi at\nkum $d$ er sperret for vedlikehold, slik at ingen sti får gå gjennom $d$.\n\n**a)** Finnes det fortsatt en forøkende sti fra $s$ til $t$? Oppgi en i så fall.\n**b)** Hva er flaskehalsen på stien du fant?",
+        "solution": "**a) Nei.** De eneste restkantene inn i $t$ er $c \\to t$ (6) og $d \\to t$ (4). Med\n$d$ sperret må stien gå via $c$. De eneste restkantene inn i $c$ er $d \\to c$\n(sperret) og $t \\to c$ — og den siste kommer *fra* $t$, så den hjelper ikke. Altså\ner $c$ ikke nåbar fra $s$ uten å gå via $d$, og da er ikke $t$ det heller.\n\n**b) Ingen sti, ingen flaskehals.**\n\nPoenget: uten $d$ er det ikke mer å hente på flyten $\\lvert f\\rvert = 13$ — den er\nmaksimal i det reduserte nettet. Legg merke til at $s \\to a$ og $a \\to b$ fortsatt\nhar restkapasitet. Restkapasitet et sted i nettet betyr ingenting hvis den ikke\ninngår i en **vei helt fram** til $t$.",
+        "hints": [
+          "Start med å se hvilke restkanter som går *inn i* $t$, og jobb bakover derfra.",
+          "Husk at en restkant har retning: $t \\to c$ hjelper deg ikke på vei fra $s$ til $t$."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-5-1-t-4",
+      "type": "text",
+      "content": "## Snitt: hvor sitter proppen? (~13 min)\n\nDet andre spørsmålet var *hvor* proppen sitter. Tenk deg at du deler\nvanningsanlegget i to med en strek: pumpehuset på den ene siden, jordet på den\nandre. Alt vann som skal fram, må krysse streken. Da kan flytverdien aldri være\nstørre enn den samlede kapasiteten på rørene som krysser — den ene veien.\n\nDen streken er et snitt, og den er bokas verktøy for å **bevise** at en flyt er\nmaksimal. Uten den ville «jeg fant ikke mer» vært det eneste argumentet du hadde."
+    },
+    {
+      "id": "tdt4120-5-1-def-11",
+      "type": "definition",
+      "title": "Snitt",
+      "content": "En oppdeling av alle nodene i to deler, der kilden ligger i den ene og sluket i den\nandre.\n\nEt snitt $(S,T)$ er en partisjon av $V$ med $s \\in S$ og $t \\in T$, der $S$ og $T$\ntil sammen utgjør $V$ og ikke har noen node felles. Hver node er i nøyaktig én av\ndelene. Det er **ingen** krav om at delene skal være like store eller henge sammen:\n$S = \\{s\\}$ er et fullgodt snitt. Et nett med $n$ noder har $2^{n-2}$ ulike snitt."
+    },
+    {
+      "id": "tdt4120-5-1-def-12",
+      "type": "definition",
+      "title": "Snittkapasitet",
+      "content": "Summen av kapasitetene på kantene som går fra $S$-siden til $T$-siden — og bare de.\n\n$c(S,T) = \\sum_{u \\in S} \\sum_{v \\in T} c(u,v)$. Kanter som går den andre veien,\nfra $T$ til $S$, teller **ikke** med, og kanter som går internt i $S$ eller internt\ni $T$, teller heller ikke. Dette er den enkeltdetaljen som oftest gir feil svar på\nen snittoppgave."
+    },
+    {
+      "id": "tdt4120-5-1-def-13",
+      "type": "definition",
+      "title": "Snittflyt",
+      "content": "Netto hvor mye som faktisk krysser snittet: flyten fra $S$ til $T$ minus flyten fra\n$T$ til $S$.\n\nI motsetning til kapasiteten teller snittflyten **begge** retninger, men med\nmotsatt fortegn: du summerer $f(u,v)$ for $u \\in S$, $v \\in T$, og trekker fra\n$f(v,u)$ for de samme parene. Blander du de to reglene, får du feil på begge\nregnestykkene."
+    },
+    {
+      "id": "tdt4120-5-1-fig-2",
+      "type": "image",
+      "src": "/images/textbook/tdt4120/5-1-snitt.svg",
+      "alt": "Flytnettet med seks noder der en stiplet loddrett strek deler nodene i to. Til venstre for streken staar s, a og b, merket S. Til hoeyre staar c, d og t, merket T. De to kantene som krysser streken fra venstre mot hoeyre, er tegnet med tykk roed strek og merket med kapasitetene sine.",
+      "caption": "Snittet med $S=\\{s,a,b\\}$ i vanningsanlegget. Bare de to kantene som går fra $S$ til $T$, teller i $c(S,T) = 8 + 10 = 18$ — og legg merke til at snittet slett ikke deler nettet i to like store deler."
+    },
+    {
+      "id": "tdt4120-5-1-thm-1",
+      "type": "theorem",
+      "title": "Snittlemmaet: all flyt må krysse ethvert snitt",
+      "content": "**Påstand.** For enhver lovlig flyt $f$ og ethvert snitt $(S,T)$ i et flytnett\ngjelder\n\n$$f(S,T) = \\lvert f\\rvert \\qquad \\text{og dermed} \\qquad \\lvert f\\rvert \\le c(S,T).$$\n\n**Hvorfor det første leddet holder.** Flytverdien er netto ut av $s$. Legger du til\nbevaringsbetingelsen for hver av de andre nodene i $S$ — der inn og ut er like\nstore, altså netto null — endrer ikke summen seg. Det du sitter igjen med, er netto\nflyt ut av hele mengden $S$, og det er nøyaktig $f(S,T)$.\n\n**Hvorfor det andre leddet følger.** Netto flyt fra $S$ til $T$ kan ikke være\nstørre enn den samlede kapasiteten på kantene fra $S$ til $T$, siden hver enkelt\nkant er begrenset av $f(u,v) \\le c(u,v)$, og flyten den andre veien bare trekker\nfra.\n\n**Hva dette gir deg på eksamen.** Ethvert snitt er en **øvre grense** for\nflytverdien. Finner du en flyt og et snitt med samme tall, er du ferdig: flyten kan\nikke bli større, og snittet kan ikke bli mindre. Det er den korteste gyldige\nbegrunnelsen som finnes for at en flyt er maksimal."
+    },
+    {
+      "id": "tdt4120-5-1-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: To snitt i det samme nettet",
+      "problem": "Bruk vanningsanlegget og flyten fra Eksempel 1, der $\\lvert f\\rvert = 13$.\n\n**a)** Regn ut $c(S,T)$ og $f(S,T)$ for $S = \\{s,a,b\\}$.\n**b)** Regn ut det samme for $S = \\{s,a,c\\}$.\n**c)** Hva kan du konkludere om maks-flyten i nettet?",
+      "solution": "**a) $S = \\{s,a,b\\}$, altså $T = \\{c,d,t\\}$.**\n\nKanter fra $S$ til $T$: $a \\to c$ (kapasitet 8) og $b \\to d$ (kapasitet 10). Kanter\nfra $T$ til $S$: ingen.\n\n$$c(S,T) = 8 + 10 = 18, \\qquad f(S,T) = 8 + 5 - 0 = 13.$$\n\n**b) $S = \\{s,a,c\\}$, altså $T = \\{b,d,t\\}$.**\n\nKanter fra $S$ til $T$: $s \\to b$ (9), $a \\to b$ (4) og $c \\to t$ (14). Kanten\n$d \\to c$ går fra $T$ til $S$: den teller **ikke** i kapasiteten, men flyten på den\nskal trekkes fra i snittflyten.\n\n$$c(S,T) = 9 + 4 + 14 = 27, \\qquad f(S,T) = (5 + 0 + 8) - 0 = 13.$$\n\nFlyten på $d \\to c$ er 0, så trekket blir null her — men regelen er det du blir\ntestet på.\n\n**c)** Begge snittene gir samme snittflyt, 13, akkurat som snittlemmaet lover. Og\nbegge er øvre grenser, så maks-flyten er høyst 18. Den minste øvre grensen vi har\nfunnet, er altså 18, mens den beste flyten vi har funnet, er 13. Svaret ligger et\nsted mellom — og i [kap. 5.2](/tdt4120/tdt4120-5-2) viser det seg å være nøyaktig\n18.\n\n**På eksamen leverer du bare de fire tallene og konklusjonen** — utregningen over er\nher for å vise hvordan du kommer dit."
+    },
+    {
+      "id": "tdt4120-5-1-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-5-1-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C — håndkjøring.) Fortsatt vanningsanlegget fra Eksempel 1,\nmed flyten som har $\\lvert f\\rvert = 13$.\n\n**a)** Regn ut $c(S,T)$ for $S = \\{s\\}$.\n**b)** Regn ut $c(S,T)$ for $S = \\{s,a,b,c,d\\}$.\n**c)** Hvilken av de to gir den strammeste øvre grensen for maks-flyten?",
+        "solution": "**a)** Kantene ut av $s$ er $s \\to a$ (12) og $s \\to b$ (9), så\n$c(S,T) = 12 + 9 = 21$.\n\n**b)** Her er $T = \\{t\\}$, så kantene fra $S$ til $T$ er $c \\to t$ (14) og\n$d \\to t$ (9): $c(S,T) = 14 + 9 = 23$.\n\n**c)** $S = \\{s\\}$ gir 21, som er strammere enn 23. Begge er lovlige øvre grenser,\nmen den minste er den mest informative — og ingen av dem er den beste: snittet\n$\\{s,a,b\\}$ fra Eksempel 4 gir 18.\n\nOppgaven ber om kapasitetene, ikke om flyten over snittene.",
+        "hints": [
+          "Kantene fra $S$ til $T$ er de som starter i en node du har tatt med, og ender i en du ikke har tatt med.",
+          "Bruk kapasitetene $c$, ikke flytverdiene $f$ — dette er kapasitetsregnestykket."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-5-1-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-5-1-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger F — «stemmer dette?».) Avgjør for hver påstand om den er\nsann eller usann, og begrunn hver med én setning.\n\n**a)** «Et snitt $(S,T)$ må dele nodene i to like store deler.»\n**b)** «I $c(S,T)$ teller vi alle kanter som krysser snittet, uansett retning.»\n**c)** «For enhver lovlig flyt og ethvert snitt er $\\lvert f\\rvert \\le c(S,T)$.»",
+        "solution": "**a) Usann.** Et snitt er en vilkårlig partisjon med $s \\in S$ og $t \\in T$;\n$S = \\{s\\}$ er et fullgodt snitt selv om $T$ inneholder alle de andre nodene.\n\n**b) Usann.** Bare kanter som går **fra $S$ til $T$** teller i snittkapasiteten.\nKanter fra $T$ til $S$ teller ikke, og det er nettopp der snittkapasitet skiller seg\nfra snittflyt.\n\n**c) Sann.** Dette er snittlemmaet: all netto flyt må krysse snittet, og den kan\nikke overstige den samlede kapasiteten den veien.",
+        "hints": [
+          "To av påstandene handler om hva som telles, og én om en generell ulikhet.",
+          "Sjekk påstand b) mot et konkret snitt der det finnes en kant som går fra $T$ tilbake til $S$."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-5-1-t-5",
+      "type": "text",
+      "content": "## Heltallsteoremet — derfor blir flyt et tilordningsverktøy (~6 min)\n\nTil nå har vi snakket om liter i minuttet, der halve enheter er meningsfulle. Men de\naller fleste eksamensoppgavene handler om noe annet: **vikarer til vakter**,\ncontainere til båter, studenter til praksisplasser. Der gir ikke «0,4 vikarer på\nnattevakten» noen mening.\n\nHeldigvis trenger du ikke å gjøre noe spesielt for å unngå det."
+    },
+    {
+      "id": "tdt4120-5-1-thm-2",
+      "type": "theorem",
+      "title": "Heltallsteoremet",
+      "content": "**Påstand.** Er alle kapasitetene i flytnettet heltall, finnes det en maksimal flyt\nder $f(u,v)$ er et heltall for **hver** kant. `Ford-Fulkerson`-metoden — se\n[kap. 5.2](/tdt4120/tdt4120-5-2) — produserer en slik flyt.\n\n**Hvorfor.** Metoden starter med flyten som er 0 overalt, og den er heltallig. I\nhver runde er alle restkapasiteter heltall, så flaskehalsen — som er den minste av\ndem — er også et heltall. Forøkningen legger til eller trekker fra et heltall på\nhver kant på stien. Altså er flyten heltallig etter hver eneste runde, og dermed\nogså til slutt.\n\n**Hva dette gir deg på eksamen.** Det er dette som gjør maks-flyt til et\n**tilordningsverktøy**. Modellerer du «hvem tar hvilken vakt» som et flytnett med\nkapasitet 1 på hver person–vakt-kant, garanterer teoremet at maks-flyten kan velges\nslik at hver slik kant har flyt 0 eller 1. Og en kant med flyt 1 er en ekte\nbeslutning: *denne personen tar den vakten*. Uten heltallsteoremet satt du igjen med\net tall, ikke med en vaktliste.\n\nSi dette eksplisitt når du besvarer en designoppgave. Det er ett av de fem leddene et\nfullt designsvar skal ha, og det er billig å skrive: «kapasitetene er heltall, så\nheltallsteoremet gir en heltallig maks-flyt, og kantene med flyt 1 er selve\ntilordningen»."
+    },
+    {
+      "id": "tdt4120-5-1-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-5-1-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger F — «stemmer dette?».) En medstudent modellerer fordelingen\nav seks vikarer på fire vakter som et flytnett der hver vikar–vakt-kant har\nkapasitet 1, og påstår: «Maks-flyt kan gi meg et desimaltall her, så jeg må runde av\ntil slutt.»\n\n**a)** Er påstanden riktig?\n**b)** Begrunn svaret med navnet på resultatet som avgjør saken.",
+        "solution": "**a) Nei.**\n\n**b)** Alle kapasitetene i modellen er heltall, og da sier **heltallsteoremet** at\ndet finnes en maksimal flyt der hver kant har heltallig flyt — og at\n`Ford-Fulkerson` finner nettopp en slik. Ingen avrunding er nødvendig, og avrunding\nkunne dessuten ødelagt både kapasitets- og bevaringsbetingelsen.\n\nOppgaven ber om ja eller nei og begrunnelsen, ikke om selve modellen.",
+        "hints": [
+          "Se på hva slags tall kapasitetene i modellen er.",
+          "Resultatet du skal navngi, sier noe om hva slags flyt `Ford-Fulkerson` produserer når inndataene er heltall."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-5-1-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-5-1-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger F — «stemmer dette?» kombinert med et snittargument.) I\nvanningsanlegget fra Eksempel 1 hevder driftslederen at han har funnet en innstilling\nmed $\\lvert f\\rvert = 18$, og at ingen kan gjøre det bedre.\n\n**a)** Kan flytverdien 18 være riktig, gitt kapasitetene? Begrunn med et snitt.\n**b)** Hvordan kan han **bevise** at 18 ikke kan slås, uten å prøve alle\ninnstillinger?\n**c)** Hva må da gjelde for de kantene som krysser snittet han bruker?",
+        "solution": "**a) Ja.** Snittet $S = \\{s\\}$ gir $c(S,T) = 12 + 9 = 21$, og $18 \\le 21$, så\nverdien er ikke i strid med kapasitetene.\n\n**b)** Ved å oppgi et snitt med kapasitet nøyaktig 18. Snittlemmaet sier at\n$\\lvert f\\rvert \\le c(S,T)$ for ethvert snitt; finner han et snitt med\n$c(S,T) = 18$ samtidig som han har en flyt med verdi 18, er begge deler klemt fast.\nSnittet $S = \\{s,a,b\\}$ er et slikt: $c(S,T) = 8 + 10 = 18$.\n\n**c)** Alle kantene fra $S$ til $T$ må være **mettet**, altså ha $f = c$, og alle\nkanter fra $T$ tilbake til $S$ må ha flyt 0. Ellers ville snittflyten vært mindre\nenn snittkapasiteten, og da kunne ikke flytverdien vært lik $c(S,T)$.\n\nOppgaven ber om argumentet, ikke om selve innstillingen.",
+        "hints": [
+          "Snittlemmaet gir deg en øvre grense for enhver flyt. Hva skjer når grensen og flytverdien er like store?",
+          "Se på snittet mellom $\\{s,a,b\\}$ og resten, og regn ut kapasiteten på kantene den ene veien.",
+          "For at snittflyten skal nå helt opp til snittkapasiteten, kan ingen kant fra $S$ til $T$ ha ledig kapasitet."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-5-1-t-bank",
+      "type": "text",
+      "content": "### Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har\nlest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder\nkjernestoffet."
+    },
+    {
+      "id": "tdt4120-5-1-def-14",
+      "type": "definition",
+      "title": "Flytverdien",
+      "content": "Netto hvor mye som forlater kilden — og dermed også netto hvor mye som ankommer\nsluket.\n\nRegnestykket er summen av $f(s,v)$ over alle noder, minus summen av $f(v,s)$.\nTrekket for flyt *inn* i $s$ er sjelden aktuelt, men det hører med i definisjonen. Å\nlese av flytverdien tar $\\Theta(V)$ når du har nabolista til $s$. Kontroller alltid\nmot sluket: får du et annet tall der, har du brutt bevaringsbetingelsen et sted."
+    },
+    {
+      "id": "tdt4120-5-1-def-15",
+      "type": "definition",
+      "title": "Mettet kant",
+      "content": "En kant der flyten er lik kapasiteten, altså $f(u,v) = c(u,v)$.\n\nEn mettet kant har ingen framoverkant i restnettet, bare ryggkant. I et min-snitt er\nalle kantene fra $S$ til $T$ mettet — det er selve kjennetegnet på at snittet er\nstramt."
+    },
+    {
+      "id": "tdt4120-5-1-def-16",
+      "type": "definition",
+      "title": "Nullflyten",
+      "content": "Flyten der $f(u,v) = 0$ for hver kant. Den er alltid lovlig, og den har verdi 0.\n\nNullflyten er startpunktet for alle flytalgoritmer. Restnettet til nullflyten er det\nopprinnelige nettet uten ryggkanter, siden ingen kant bærer noe å angre på."
+    },
+    {
+      "id": "tdt4120-5-1-def-17",
+      "type": "definition",
+      "title": "Maks-flyt-problemet",
+      "content": "Å finne en lovlig flyt med størst mulig verdi i et gitt flytnett.\n\nProblemet er løsbart i polynomisk tid — `Edmonds-Karp` klarer det i $O(VE^2)$, se\n[kap. 5.2](/tdt4120/tdt4120-5-2). Det finnes alltid en optimal løsning, og med\nheltallige kapasiteter finnes det alltid en heltallig optimal løsning. Bruk\nmaks-flyt når oppgaven handler om å presse mest mulig gjennom et nett med\nkapasiteter, eller om å tilordne én mengde til en annen."
+    },
+    {
+      "id": "tdt4120-5-1-def-18",
+      "type": "definition",
+      "title": "Min-snitt",
+      "content": "Et snitt med minst mulig snittkapasitet blant alle snitt i nettet.\n\nSnittlemmaet gir at $\\lvert f\\rvert \\le c(S,T)$ for alle par av flyt og snitt, så\nmaks-flyten er høyst så stor som det minste snittet. At de to faktisk er like —\nmaks-flyt/min-snitt-teoremet — vises i [kap. 5.2](/tdt4120/tdt4120-5-2). Et nett kan\nha **flere** min-snitt med samme kapasitet, og derfor ber oppgaver om «et\nmin-snitt», ikke «det»."
+    },
+    {
+      "id": "tdt4120-5-1-t-oppsum",
+      "type": "text",
+      "content": "### Begrepene på ett kort\n\n| Begrep | Hva det er | Vanligste feil |\n|---|---|---|\n| Flyt | tall på hver kant som oppfyller kapasitet **og** bevaring | å sjekke bare kapasiteten |\n| Flytverdien | netto ut av $s$ | å summere alle kanter i nettet |\n| Restkapasitet $c_f(u,v)$ | $c(u,v)-f(u,v)$ framover, $f(u,v)$ bakover | å glemme det andre leddet |\n| Restnettet $G_f$ | kantene med $c_f > 0$, inntil $2E$ stykker | å tegne det uten ryggkanter |\n| Forøkende sti | vei fra $s$ til $t$ i $G_f$ | å lete i $G$ i stedet for i $G_f$ |\n| Flaskehals | minste $c_f$ på stien | å bruke kapasiteten i stedet for restkapasiteten |\n| Snitt $(S,T)$ | partisjon med $s \\in S$, $t \\in T$ | å glemme kravet om hvor $s$ og $t$ ligger |\n| Snittkapasitet $c(S,T)$ | sum av $c$ **fra $S$ til $T$** | å ta med kanter fra $T$ til $S$ |\n| Snittflyt $f(S,T)$ | flyt fram minus flyt tilbake | å bruke kapasitetsregelen her |\n| Heltallsteoremet | heltallige kapasiteter gir heltallig maks-flyt | å tro at man må runde av |"
+    },
+    {
+      "id": "tdt4120-5-1-coll-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tdt4120-5-1-rep-1",
+          "type": "text",
+          "content": "Fem korte oppgaver fra [kap. 4.1](/tdt4120/tdt4120-4-1), som dette kapitlet bygger\npå. Svaret står under hver.\n\n**1.** Hvilken datastruktur bruker `BFS` for å holde styr på hvilke noder som står\nfor tur?\n\n*Svar:* en FIFO-kø. Det er den som gjør at nodene behandles lagvis, og det er\ngrunnen til at `BFS` finner stier med færrest kanter.\n\n**2.** Hva er kjøretiden til `BFS` på en graf med nabolister?\n\n*Svar:* $\\Theta(V+E)$. Hver node settes i køen én gang, og hver kant ses på én gang\nfra sin ende.\n\n**3.** Hva er forskjellen på en rettet og en urettet kant når du lagrer grafen med\nnabolister?\n\n*Svar:* en urettet kant legges inn i **begge** nodenes nabolister, en rettet kant\nbare i startnodens. Flytnett er alltid rettede.\n\n**4.** Hvor mange kanter kan en rettet graf med $V$ noder ha på det meste, uten\nløkker fra en node til seg selv?\n\n*Svar:* $V(V-1)$, altså $O(V^2)$. Derfor er $O(E)$ aldri verre enn $O(V^2)$ — et\npoeng du får bruk for når du skal sammenligne kjøretider i\n[kap. 5.2](/tdt4120/tdt4120-5-2).\n\n**5.** Du skal finne veien med færrest kanter fra én node til en annen i en uvektet\ngraf. Hvilken algoritme velger du?\n\n*Svar:* `BFS`. Den finner korteste vei målt i antall kanter, og det er nøyaktig den\negenskapen `Edmonds-Karp` utnytter når den leter etter forøkende stier."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

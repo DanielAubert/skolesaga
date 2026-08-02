@@ -1,0 +1,406 @@
+{
+  "id": "tdt4120-4-3",
+  "courseId": "tdt4120",
+  "chapterNumber": "4.3",
+  "title": "Korteste vei fra én kilde — Dijkstra, Bellman-Ford, DAG",
+  "description": "`Dijkstra`, `Bellman-Ford` og `DAG-Shortest-Path` — krav per algoritme (negative kanter/sykler), kjøretider og forgjengerstrukturen.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "kunne slakke en kant for hånd og gjøre rede for hva d- og pi-verdiene står for underveis",
+    "kunne velge riktig algoritme for korteste vei fra én kilde ut fra om grafen har negative kantvekter og om den er syklusfri",
+    "kunne oppgi kjøretiden til Dijkstra, Bellman-Ford og DAG-Shortest-Path og begrunne hver av dem i én setning",
+    "kunne håndkjøre Dijkstra og Bellman-Ford og levere d-verdien for hver node i eksamensformatet"
+  ],
+  "content": [
+    {
+      "id": "tdt4120-4-3-tip-1",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "Du står med et vegkart, en startby og et spørsmål alle kjenner: hva er billigste\nvei herfra til alle de andre? Det er hele dette kapitlet. Temaet **korteste vei\nfra én kilde** er belagt i **13 av de 17 settene i grunnlaget (76 %)**, og det\nkommer i tre former:\n\n- **sjanger E — kjøretidskunnskap**, altså at du oppgir kjøretiden til en\n  navngitt algoritme som ett uttrykk, uten utregning;\n- **sjanger F — «stemmer dette?»**, altså at du svarer ja eller nei **først** og\n  så begrunner med én setning;\n- **sjanger C — håndkjøring**, altså at du utfører algoritmen steg for steg på\n  papir og leverer bare sluttilstanden.\n\nDen faste F-oppgaven i dette temaet er en variant av «kan `Dijkstra` brukes når\nén kant har negativ vekt?». Svaret er nei, og hele kapitlet er bygget for at du\nskal kunne si **hvorfor** på én linje.\n\nPrioriteten er den midterste av bokas tre klasser: **bør sitte**. Det betyr at du\nskal kunne skrive ned kravene og kjøretidene uten å slå opp — eksamen er\nhjelpemiddelfri — men at du ikke trenger å kunne bevise korrektheten.\n\n**Slik er kapitlet lagt opp (60 min):**\n\n| # | Innhold | Tid |\n|---|---|---|\n| 1 | Kantslakking: motoren i alle tre algoritmene | ca. 12 min |\n| 2 | `Dijkstra` — den grådige, og kravet den stiller | ca. 15 min |\n| 3 | Når `Dijkstra` går galt, og hvorfor | ca. 8 min |\n| 4 | `Bellman-Ford` — den robuste | ca. 15 min |\n| 5 | `DAG-Shortest-Path` — den raske når grafen er syklusfri | ca. 10 min |"
+    },
+    {
+      "id": "tdt4120-4-3-t-forkunn",
+      "type": "text",
+      "content": "## Forkunnskaper\n\n- [kap. 4.1](/tdt4120/tdt4120-4-1) — grafrepresentasjon og traversering. Du bør\n  vite hva en naboliste er, og at `BFS` finner veien med **færrest kanter** —\n  ikke den med minst vekt. Forskjellen er hele grunnen til at dette kapitlet\n  finnes.\n- [kap. 4.1](/tdt4120/tdt4120-4-1) dekker også **topologisk sortering**, som\n  `DAG-Shortest-Path` bygger direkte på.\n- [kap. 3.1](/tdt4120/tdt4120-3-1) — hauger. `Dijkstra` bruker en **prioritetskø**,\n  og kjøretiden $O(E\\lg V)$ er nettopp prisen for at prioritetskøen er en\n  binærhaug.\n- [kap. 1.1](/tdt4120/tdt4120-1-1) — asymptotisk notasjon. Her skiller vi bevisst\n  mellom $\\Theta$ (grensen er tett) og $O$ (bare øvre grense er vist).\n\nEr logaritmen i $\\lg V$ rusten, er [Potenser og logaritmer](/r1/r1-1-2) et raskt\noppfriskningskapittel; $\\lg n$ betyr alltid $\\log_2 n$ i denne boka. Trenger du\net mykere første møte med selve $O$-notasjonen, ligger det i\n[Algoritmedefinisjon, pseudokode og kompleksitet (Big-O)](/tdt4110/tdt4110-6-3)."
+    },
+    {
+      "id": "tdt4120-4-3-coll-notasjon",
+      "type": "collapsible",
+      "title": "Notasjons- og pseudokodeliste",
+      "buttonText": "Vis notasjon og pseudokode",
+      "content": [
+        {
+          "id": "tdt4120-4-3-nt-1",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et algoritmefag: den lister kjøretidsuttrykk\nog pseudokode-operasjoner i stedet for bare greske bokstaver.\n\n| Symbol | Betydning |\n|---|---|\n| $G=(V,E)$ | grafen: nodemengden $V$ og kantmengden $E$ |\n| $V$ | antall noder — i kjøretidsuttrykk skriver vi bare $V$, ikke absoluttverditegn |\n| $E$ | antall kanter |\n| $w(u,v)$ | vekten på kanten fra $u$ til $v$: kroner, minutter, kilometer — det oppgaven sier |\n| $s$ | kilden, altså noden alle avstandene måles fra |\n| $d[v]$ | korteste-vei-estimatet: det beste tallet vi har funnet så langt for veien fra $s$ til $v$ |\n| $\\pi[v]$ | forgjengeren til $v$ på den beste veien vi har funnet så langt |\n| $\\delta(s,v)$ | den sanne vekten til en korteste vei fra $s$ til $v$ |\n| $\\infty$ | startverdien for $d[v]$: «ingen vei funnet ennå» |\n| $O(E\\lg V)$ | kjøretiden til `Dijkstra` med binærhaug |\n| $\\Theta(VE)$ | kjøretiden til `Bellman-Ford` |\n| $\\Theta(V+E)$ | kjøretiden til `DAG-Shortest-Path` |"
+        },
+        {
+          "id": "tdt4120-4-3-nt-2",
+          "type": "text",
+          "content": "| Algoritme/operasjon | Kontrakt | Kjøretid |\n|---|---|---|\n| `Initialize-Single-Source(G, s)` | setter `d[v] = uendelig` og `pi[v] = NIL` for alle noder, og `d[s] = 0` | $\\Theta(V)$ |\n| `Relax(u, v, w)` | slakker kanten: senker `d[v]` til `d[u] + w(u,v)` hvis det er bedre, og setter `pi[v] = u` | $\\Theta(1)$ |\n| `Dijkstra(G, w, s)` | korteste vei fra `s` til alle noder; plukker gjentatte ganger den nærmeste ubehandlede noden fra en prioritetskø og slakker kantene ut fra den | $O(E\\lg V)$ med binærhaug |\n| `Bellman-Ford(G, w, s)` | korteste vei fra `s`; slakker **alle** kanter `V-1` ganger og returnerer USANN hvis en negativ sykel er nåbar fra `s` | $\\Theta(VE)$ |\n| `DAG-Shortest-Path(G, w, s)` | korteste vei fra `s` i en rettet asyklisk graf; slakker kantene ut fra hver node i topologisk orden | $\\Theta(V+E)$ |\n| `Extract-Min(Q)` | tar ut noden med minst `d` fra prioritetskøen | $O(\\lg V)$ med binærhaug |\n| `Decrease-Key(Q, v, ny)` | senker nøkkelen til `v` i prioritetskøen etter en vellykket slakking | $O(\\lg V)$ med binærhaug |\n\n**Formler i dette delkapitlet:**\n\n$$d[v] > d[u] + w(u,v) \\implies d[v] = d[u] + w(u,v),\\ \\pi[v] = u$$\n\nSlakkeregelen. Den er hele motoren: alle tre algoritmene består av å slakke\nkanter, og det eneste som skiller dem, er **i hvilken rekkefølge** de gjør det.\n\n$$\\delta(s,v) \\le \\delta(s,u) + w(u,v)$$\n\nTrekantulikheten. En vei til $v$ som går innom $u$, kan aldri være billigere enn\nden aller billigste veien til $v$. Det er derfor slakking aldri kan gjøre $d[v]$\nfor liten.\n\n$$O(E\\lg V) \\quad \\Theta(VE) \\quad \\Theta(V+E)$$\n\nKjøretidene til henholdsvis `Dijkstra` (binærhaug), `Bellman-Ford` og\n`DAG-Shortest-Path`."
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-4-3-t-1",
+      "type": "text",
+      "content": "## Kantslakking — motoren i alle tre algoritmene (~12 min)\n\nTenk på en bilist som planlegger ruta si over et vegnett med bomstasjoner.\nHun har et ark med et anslag for hver by: «hit kommer jeg for høyst så mange\nkroner». Anslagene starter håpløst dårlige — alle er «uendelig», bortsett fra\nbyen hun står i, som koster 0. Så går hun gjennom vegstrekningene én for én, og\nhver gang hun ser at en strekning gir en billigere måte å nå en by på, retter hun\nanslaget ned.\n\nDet er nøyaktig det algoritmene i dette kapitlet gjør. Anslaget kalles $d[v]$, og\noperasjonen som retter det ned, kalles **slakking**. Alle tre algoritmene er den\nsamme operasjonen, kjørt i tre forskjellige rekkefølger.\n\nUnderveis noterer hun også hvor hun kom fra: hvis den billigste måten å nå $v$ på\ngår via $u$, skriver hun $\\pi[v] = u$. Til slutt kan hun følge disse notatene\nbakover fra en hvilken som helst by og lese ut hele ruta. Det er derfor svaret på\nen korteste-vei-oppgave nesten alltid er to ting: **tallene** ($d$) og **veien**\n($\\pi$)."
+    },
+    {
+      "id": "tdt4120-4-3-def-1",
+      "type": "definition",
+      "title": "Korteste vei fra én kilde",
+      "content": "Problemet med å finne den billigste veien fra **én bestemt startnode** til\n**alle** de andre nodene i en vektet graf, ikke bare til én bestemt målnode.\n\nVekten til en vei er summen av vektene på kantene i den. Det engelske navnet er\n*single-source shortest paths*, ofte forkortet SSSP. At problemet gjelder alle\nmål samtidig, er ikke sløsing: enhver kjent algoritme som finner den billigste\nveien til **ett** mål, finner underveis også veien til alle nodene som er\nnærmere. Å be om mindre gjør ikke jobben raskere.\n\nLøses av `Dijkstra` i $O(E\\lg V)$ når alle kantvekter er ikke-negative, av\n`Bellman-Ford` i $\\Theta(VE)$ ellers, og av `DAG-Shortest-Path` i $\\Theta(V+E)$\nnår grafen er syklusfri."
+    },
+    {
+      "id": "tdt4120-4-3-def-2",
+      "type": "definition",
+      "title": "Kantslakking (*relax*)",
+      "content": "Å prøve om kanten fra $u$ til $v$ gir en billigere vei til $v$ enn den vi\nallerede har funnet — og i så fall rette ned anslaget.\n\nTesten er `d[v] > d[u] + w(u,v)`. Er den sann, settes `d[v] = d[u] + w(u,v)` og\n`pi[v] = u`. Er den usann, skjer ingenting. Merk den **strenge** ulikheten: er de\nto like store, gjør vi ingen endring, og forgjengeren står som den står.\n\nKjøretid $\\Theta(1)$ per kant. Slakking gjør aldri $d[v]$ større, og den kan\naldri gjøre $d[v]$ mindre enn den sanne korteste veien $\\delta(s,v)$ — det følger\nav trekantulikheten."
+    },
+    {
+      "id": "tdt4120-4-3-def-3",
+      "type": "definition",
+      "title": "$d[v]$ — korteste-vei-estimatet",
+      "content": "Det beste tallet algoritmen har funnet så langt for veien fra kilden til $v$.\n\nDet starter på $\\infty$ for alle noder unntatt kilden, som starter på 0, og det\ngår bare **nedover** underveis. Når algoritmen er ferdig, er $d[v]$ lik den sanne\nkorteste veien $\\delta(s,v)$ — og hvis $v$ ikke er nåbar fra kilden, står $d[v]$\nigjen på $\\infty$.\n\nDette er størrelsen eksamen ber om når den sier «oppgi `v.d` for hver node»."
+    },
+    {
+      "id": "tdt4120-4-3-def-4",
+      "type": "definition",
+      "title": "$\\pi[v]$ — forgjengeren",
+      "content": "Noden algoritmen kom fra da den sist forbedret $d[v]$.\n\nDen starter på `NIL` for alle noder og oppdateres hver gang en slakking lykkes.\nFølger du $\\pi$ bakover fra $v$, får du hele veien fra kilden til $v$ — i motsatt\nrekkefølge. Kantene $(\\pi[v], v)$ danner til sammen et tre med kilden som rot.\n\nKjøretid $\\Theta(1)$ å oppdatere. Fella er å tro at $\\pi$ peker **framover**: den\npeker alltid mot kilden, aldri mot målet."
+    },
+    {
+      "id": "tdt4120-4-3-fig-1",
+      "type": "image",
+      "src": "/images/textbook/tdt4120/4-3-slakking.svg",
+      "alt": "To tegninger av den samme kanten fra node u til node v med vekt 3. Til venstre, foer slakkingen, har u avstand 5, v avstand 11 og ingen forgjenger. Til hoeyre, etter slakkingen, har v avstand 8 og forgjenger u, mens u staar uendret med avstand 5.",
+      "caption": "Slakking av én kant, generert av kapitlets egen simulator: $11 > 5 + 3$, altså senkes $d[v]$ til 8 og $\\pi[v]$ settes til $u$. Ingenting annet i grafen røres."
+    },
+    {
+      "id": "tdt4120-4-3-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Én slakking, og én som ikke gjør noe",
+      "problem": "Node `u` har `d[u] = 5`. Kanten fra `u` til `v` har vekt 3.\n\n**a)** `v` har `d[v] = 11` og `pi[v] = NIL`. Utfør `Relax(u, v, w)`.\n\n**b)** En annen node `v` har `d[v] = 7` og `pi[v] = x`. Utfør `Relax(u, v, w)`\nmed den samme kanten på 3.",
+      "solution": "**a)** Sporingen:\n\n| Størrelse | Før slakkingen | Test | Etter slakkingen |\n|---|---|---|---|\n| `d[u]` | 5 | uendret | 5 |\n| `d[v]` | 11 | 11 er større enn 5 + 3 = 8 | 8 |\n| `pi[v]` | NIL | forgjengeren settes til `u` | `u` |\n\n**Sluttilstand:** `d[v] = 8`, `pi[v] = u`\n\n**b)** Sporingen:\n\n| Størrelse | Før slakkingen | Test | Etter slakkingen |\n|---|---|---|---|\n| `d[u]` | 5 | uendret | 5 |\n| `d[v]` | 7 | 7 er ikke større enn 5 + 3 = 8 | 7 |\n| `pi[v]` | `x` | ingen endring | `x` |\n\n**Sluttilstand:** `d[v] = 7`, `pi[v] = x` — uendret.\n\nPoenget med b) er at $7 = 5 + 3 - 1$ ikke er større enn 8, så testen slår ikke\ntil. Hadde `d[v]` vært nøyaktig 8, hadde den heller ikke slått til: ulikheten er\nstreng. Det høres ut som en detalj, men det er den vanligste kilden til at to\nstudenter får ulik $\\pi$-struktur på det samme eksempeloppgavesettet."
+    },
+    {
+      "id": "tdt4120-4-3-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-4-3-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave, sjanger C — håndkjøring, altså at du utfører operasjonen steg\nfor steg og oppgir bare sluttilstanden.) Tre noder har `d[u] = 4`, `d[v] = 12` og\n`d[x] = 20`, og `pi[u] = s` mens `pi[v]` og `pi[x]` er `NIL`. Utfør disse tre\nslakkingene i rekkefølge:\n\n**a)** `Relax(u, v, w)` med `w(u,v) = 5`\n**b)** `Relax(u, x, w)` med `w(u,x) = 9`\n**c)** `Relax(v, x, w)` med `w(v,x) = 3`\n\nOppgi `d` og `pi` for alle tre nodene til slutt. Oppgaven ber om verdiene, ikke\nom en forklaring av hva slakking er.",
+        "solution": "Sporingen:\n\n| Kant | Vekt | Test | Resultat | `d` etter steget |\n|---|---|---|---|---|\n| `(u,v)` | 5 | 12 er større enn 4 + 5 = 9 | d[v] = 9, pi[v] = u | d[u] = 4, d[v] = 9, d[x] = 20 |\n| `(u,x)` | 9 | 20 er større enn 4 + 9 = 13 | d[x] = 13, pi[x] = u | d[u] = 4, d[v] = 9, d[x] = 13 |\n| `(v,x)` | 3 | 13 er større enn 9 + 3 = 12 | d[x] = 12, pi[x] = v | d[u] = 4, d[v] = 9, d[x] = 12 |\n\n**Sluttilstanden alene:** d[u] = 4, d[v] = 9, d[x] = 12 og\npi[u] = s, pi[v] = u, pi[x] = v\n\nLegg merke til at `d[x]` ble senket to ganger: først til 13 via `u`, så til 12\nvia `v`. Den siste slakkingen vinner, og `pi[x]` ender derfor på `v`, ikke `u`.",
+        "hints": [
+          "Slakkeregelen er `d[v] > d[u] + w(u,v)`; er den sann, setter du `d[v] = d[u] + w(u,v)` og `pi[v] = u`.",
+          "Ta slakkingene i den rekkefølgen oppgaven oppgir, og bruk den d-verdien som gjelder akkurat da — ikke startverdien.",
+          "Sjekk c) mot resultatet fra b), ikke mot utgangspunktet."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-4-3-t-2",
+      "type": "text",
+      "content": "## `Dijkstra` — den grådige, og kravet den stiller (~15 min)\n\nTilbake til bilisten. Den smarteste måten å jobbe seg gjennom kartet på, er å ta\nbyene i rekkefølge etter hvor billige de er: den nærmeste først, så den nest\nnærmeste, og så videre. Når hun har funnet den aller billigste byen som ennå ikke\ner behandlet, kan hun **låse** anslaget for den — ingen senere oppdagelse kan\ngjøre den billigere.\n\nDet er `Dijkstra`. Algoritmen holder alle ubehandlede noder i en **prioritetskø**\nsortert på $d$, plukker ut den minste med `Extract-Min`, låser den, og slakker\nalle kantene ut fra den. Så gjentar den til køen er tom.\n\nMen se på argumentet for låsingen én gang til: «ingen senere oppdagelse kan gjøre\nden billigere». Det holder bare hvis det å gå en omvei alltid koster **mer**.\nMed en negativ kantvekt kan en omvei koste mindre — og da faller hele resonnementet.\nDet er derfor `Dijkstra` krever ikke-negative kantvekter, og det er den viktigste\nenkeltsetningen i dette kapitlet."
+    },
+    {
+      "id": "tdt4120-4-3-def-5",
+      "type": "definition",
+      "title": "`Dijkstra`",
+      "content": "Finner korteste vei fra én kilde ved å plukke den nærmeste ubehandlede noden fra\nen prioritetskø og slakke kantene ut fra den, om og om igjen.\n\nMetoden er **grådig**: hver runde tar den det som ser best ut akkurat nå, og går\naldri tilbake på valget. Når en node er tatt ut av køen, er $d$-verdien dens\nendelig.\n\nKjøretid $O(E\\lg V)$ med binærhaug — $V$ kall på `Extract-Min` og opptil $E$ kall\npå `Decrease-Key`, hvert på $O(\\lg V)$. **Krever ikke-negative kantvekter.** Med\nén eneste negativ kant kan svaret bli galt, og da må du bruke `Bellman-Ford`."
+    },
+    {
+      "id": "tdt4120-4-3-def-6",
+      "type": "definition",
+      "title": "Prioritetskø",
+      "content": "En samling elementer med nøkler, der du alltid kan få ut elementet med minst\nnøkkel — uten å sortere hele samlingen først.\n\nI `Dijkstra` er nøkkelen $d[v]$, og de to operasjonene som brukes, er\n`Extract-Min` (ta ut den nærmeste ubehandlede noden) og `Decrease-Key` (senk\nnøkkelen når en slakking lyktes).\n\nImplementert som binærhaug koster begge $O(\\lg V)$, og det er nettopp derfor\n`Dijkstra` lander på $O(E\\lg V)$ og ikke på noe lineært."
+    },
+    {
+      "id": "tdt4120-4-3-thm-1",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `Dijkstra`",
+      "content": "**Antagelser om representasjon.** Grafen $G=(V,E)$ er rettet og gitt som\nnabolister, slik at kantene ut fra en node kan gjennomløpes i tid proporsjonalt\nmed antallet. Hver node `v` har feltene `v.d` og `v.pi`. Vektfunksjonen `w`\noppgir vekten på hver kant. `Q` er en prioritetskø på `v.d`, i praksis en\nbinærhaug.\n\n**Prebetingelse:** alle kantvekter er ikke-negative, `w(u,v) >= 0`.\n**Postbetingelse:** for hver node `v` er `v.d` lik vekten til en korteste vei fra\n`s` til `v`, og `v.pi` peker på forgjengeren på en slik vei. Noder som ikke er\nnåbare fra `s`, står igjen med `v.d = uendelig`.\n\n```text\nDijkstra(G, w, s)\n  Input:  graf G = (V, E) med ikke-negative vekter w, kilde s\n  Output: v.d og v.pi for hver node v i V\n  Initialize-Single-Source(G, s)\n  S = tom mengde\n  Q = alle noder i V, med noekkel v.d\n  while Q er ikke tom\n      u = Extract-Min(Q)\n      legg u til S\n      for hver kant (u, v) ut fra u\n          Relax(u, v, w)\n\nInitialize-Single-Source(G, s)\n  for hver node v i V\n      v.d = uendelig\n      v.pi = NIL\n  s.d = 0\n\nRelax(u, v, w)\n  if v.d > u.d + w(u, v)\n      v.d = u.d + w(u, v)\n      v.pi = u\n```\n\n**Grunnideen i én setning:** når en node tas ut av `Q`, er den den nærmeste av\nalle som gjenstår, og siden ingen kant kan trekke fra noe underveis, finnes det\ningen vei rundt som kan bli billigere — altså er `u.d` endelig i det øyeblikket.\n\n**Kjøretid:** $O(E\\lg V)$. Hver node tas ut av køen nøyaktig én gang, altså $V$\nkall på `Extract-Min` à $O(\\lg V)$; hver kant slakkes nøyaktig én gang, altså\nopptil $E$ kall på `Decrease-Key` à $O(\\lg V)$. Summen $O((V+E)\\lg V)$ skrives\n$O(E\\lg V)$ når grafen er sammenhengende, siden $E \\ge V-1$ da. Merk at det er\n$O$, ikke $\\Theta$: antallet vellykkede `Decrease-Key`-kall avhenger av grafen."
+    },
+    {
+      "id": "tdt4120-4-3-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: `Dijkstra` på et bomvegnett",
+      "problem": "Seks kryss i et vegnett heter `S`, `A`, `B`, `C`, `D` og `E`. Strekningene er\nenveiskjørte, og tallet på hver strekning er bomavgiften i kroner:\n\n```text\nS -> A  4      B -> A   1      C -> D  2\nS -> B  2      B -> C   8      C -> E  6\nA -> C  5      B -> D  10      D -> E  3\n```\n\nKjør `Dijkstra` fra `S`. Oppgi `v.d` for hver node.\n\nPrioritetskøen plukker alltid den ubehandlede noden med minst `d`. Er to like,\ntas den som kommer først alfabetisk.",
+      "solution": "Sporingstavlen. Hver rad er ett `Extract-Min` pluss slakkingen av alle kantene\nut fra noden som ble plukket:\n\n| Steg | `Extract-Min` gir | `d` for noden | Slakking av kantene ut | `d` etter steget |\n|---|---|---|---|---|\n| 1 | `S` | 0 | (S,A): 0 + 4 = 4 < $\\infty$, d[A] = 4, pi[A] = S; (S,B): 0 + 2 = 2 < $\\infty$, d[B] = 2, pi[B] = S | S: 0, A: 4, B: 2, C: $\\infty$, D: $\\infty$, E: $\\infty$ |\n| 2 | `B` | 2 | (B,A): 2 + 1 = 3 < 4, d[A] = 3, pi[A] = B; (B,C): 2 + 8 = 10 < $\\infty$, d[C] = 10, pi[C] = B; (B,D): 2 + 10 = 12 < $\\infty$, d[D] = 12, pi[D] = B | S: 0, A: 3, B: 2, C: 10, D: 12, E: $\\infty$ |\n| 3 | `A` | 3 | (A,C): 3 + 5 = 8 < 10, d[C] = 8, pi[C] = A | S: 0, A: 3, B: 2, C: 8, D: 12, E: $\\infty$ |\n| 4 | `C` | 8 | (C,D): 8 + 2 = 10 < 12, d[D] = 10, pi[D] = C; (C,E): 8 + 6 = 14 < $\\infty$, d[E] = 14, pi[E] = C | S: 0, A: 3, B: 2, C: 8, D: 10, E: 14 |\n| 5 | `D` | 10 | (D,E): 10 + 3 = 13 < 14, d[E] = 13, pi[E] = D | S: 0, A: 3, B: 2, C: 8, D: 10, E: 13 |\n| 6 | `E` | 13 | ingen kanter ut | S: 0, A: 3, B: 2, C: 8, D: 10, E: 13 |\n\nNodene ble låst i rekkefølgen `S`, `B`, `A`, `C`, `D`, `E` — altså\nstigende etter `d`, som seg hør og bør for en grådig algoritme.\n\n**På eksamen leverer du bare linja under — tavlen er her for å vise hvordan du\nkommer dit.**\n\n`v.d`: S: 0, A: 3, B: 2, C: 8, D: 10, E: 13\n\nForgjengerne, hvis oppgaven også ber om dem: S: NIL, A: B, B: S, C: A, D: C, E: D\n\nLegg merke til steg 2 og 3: `A` fikk først `d = 4` direkte fra `S`, men ble\nsenket til 3 da `B` ble behandlet. Det er lov — `A` var ikke tatt ut av køen\nennå. Etter at en node ER tatt ut, skjer det aldri mer.\n\n**Fellenote.** Fellen her er å stoppe før køen er tom, eller å låse `A` med 4 i\ndet øyeblikket den fikk sin første verdi. En `d`-verdi er ikke endelig før noden\ner plukket av `Extract-Min`."
+    },
+    {
+      "id": "tdt4120-4-3-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-4-3-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger E — kjøretidskunnskap, altså at du oppgir kjøretiden som\nett uttrykk.)\n\n**a)** Hva er kjøretiden til `Dijkstra` når prioritetskøen er en binærhaug?\n**b)** Begrunn den i én setning ved å telle operasjonene på prioritetskøen.\n**c)** Hvorfor skriver vi $O$ og ikke $\\Theta$ her?",
+        "solution": "**a)** $O(E\\lg V)$.\n\n**b)** Hver node tas ut av køen nøyaktig én gang ($V$ kall på `Extract-Min`), og\nhver kant slakkes nøyaktig én gang (opptil $E$ kall på `Decrease-Key`); begge\noperasjonene koster $O(\\lg V)$ i en binærhaug, og $E \\ge V-1$ i en sammenhengende\ngraf, så $O((V+E)\\lg V)$ skrives $O(E\\lg V)$.\n\n**c)** Fordi bare den øvre grensen er vist: hvor mange av de $E$ slakkingene som\nfaktisk lykkes og utløser en `Decrease-Key`, avhenger av grafen og av\nrekkefølgen. $\\Theta$ ville påstått at grensen også er nedre, og det er ikke\nbelagt.\n\nEt vanlig feilsvar er $O(V^2\\lg V)$. Det kommer av å telle kantene som $V^2$ —\nriktig for en tett graf, men det er ikke uttrykket som spørres etter, og det er\nløsere enn nødvendig.",
+        "hints": [
+          "Tell de to køoperasjonene hver for seg: hvor mange `Extract-Min` og hvor mange `Decrease-Key`?",
+          "En binærhaug gjør begge operasjonene i $O(\\lg V)$.",
+          "Til c): spør deg om antallet vellykkede slakkinger er det samme for alle grafer."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-4-3-t-3",
+      "type": "text",
+      "content": "## Når `Dijkstra` går galt (~8 min)\n\n— naturlig pausepunkt —\n\nLa oss se hva som faktisk skjer med en negativ kant. Et ferjeselskap gir rabatt\npå en bestemt overfart hvis du har kjøpt billett på en annen strekning først. I\ngrafen blir den rabatterte overfarten en kant med **negativ** vekt: du betaler\nmindre samlet enn du gjorde før du tok den.\n\nNå er antakelsen som `Dijkstra` hviler på, brutt. Algoritmen låser en node fordi\n«ingen omvei kan bli billigere» — men en omvei innom den rabatterte kanten kan\nvære akkurat det."
+    },
+    {
+      "id": "tdt4120-4-3-fig-2",
+      "type": "image",
+      "src": "/images/textbook/tdt4120/4-3-dijkstra-negativ.svg",
+      "alt": "En rettet graf med fire noder. Fra kilden S gaar det en kant med vekt 2 til A og en med vekt 3 til B. Fra B gaar det en roed kant med vekt minus 2 til A. Fra A gaar det en kant med vekt 1 til C. To bokser under grafen viser at Dijkstra svarer avstand 3 til C, mens den riktige korteste veien til C er 2.",
+      "caption": "Grafen der `Dijkstra` faktisk svarer feil. Den negative kanten er markert i rødt. Tallene er hentet fra en kjøring av begge algoritmene, ikke fra hukommelsen."
+    },
+    {
+      "id": "tdt4120-4-3-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: `Dijkstra` svarer feil på fire noder",
+      "problem": "Grafen har fire noder og fire kanter:\n\n```text\nS -> A   2\nS -> B   3\nB -> A  -2\nA -> C   1\n```\n\n**a)** Kjør `Dijkstra` fra `S` mekanisk, uten å «reparere» noe, og oppgi `v.d`.\n**b)** Hva er den sanne korteste veien til `C`?",
+      "solution": "**a)** Sporingen, kjørt mekanisk:\n\n| Steg | `Extract-Min` gir | `d` for noden | Slakking av kantene ut | `d` etter steget |\n|---|---|---|---|---|\n| 1 | `S` | 0 | (S,A): 0 + 2 = 2 < $\\infty$, d[A] = 2, pi[A] = S; (S,B): 0 + 3 = 3 < $\\infty$, d[B] = 3, pi[B] = S | S: 0, A: 2, B: 3, C: $\\infty$ |\n| 2 | `A` | 2 | (A,C): 2 + 1 = 3 < $\\infty$, d[C] = 3, pi[C] = A | S: 0, A: 2, B: 3, C: 3 |\n| 3 | `B` | 3 | (B,A): 3 + -2 = 1 < 2, d[A] = 1, pi[A] = B | S: 0, A: 1, B: 3, C: 3 |\n| 4 | `C` | 3 | ingen kanter ut | S: 0, A: 1, B: 3, C: 3 |\n\nNodene ble låst i rekkefølgen `S`, `A`, `B`, `C`.\n\n`Dijkstra` svarer: S: 0, A: 1, B: 3, C: 3\n\n**b)** Den sanne korteste veien til `C` går `S`, `B`, `A`, `C` og koster\n$3 + (-2) + 1 = 2$. Kjørt med `Bellman-Ford`, som tåler negative kanter, blir\nfasiten: S: 0, A: 1, B: 3, C: 2\n\n**Avviket:** Dijkstra svarer `d[C] = 3`; korrekt korteste vei er 2.\n\n**Hvor gikk det galt?** I steg 2 ble `A` tatt ut av køen med `d[A] = 2` og låst.\nKanten fra `A` til `C` ble slakket med den verdien, så `d[C]` ble 3. Først i\nsteg 3 oppdaget algoritmen at `A` egentlig kunne nås for 1 via `B` — men da var\n`A` allerede behandlet, og `Dijkstra` går aldri tilbake til en behandlet node.\nForbedringen av `d[A]` rakk aldri fram til `C`.\n\n**Merk en viktig nyanse.** `Dijkstra` svarer ikke *alltid* feil når det finnes en\nnegativ kant; på mange grafer kommer den heldigvis i mål. Men den gir ingen\ngaranti, og på eksamen er det garantien som spørres etter. Riktig svar er derfor\nalltid: nei, `Dijkstra` kan ikke brukes — bruk `Bellman-Ford`."
+    },
+    {
+      "id": "tdt4120-4-3-warn-1",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "Fire feil koster mest i dette kapitlet.\n\n- **Å bruke `Dijkstra` på en graf med negativ kantvekt.** Dette er felle **#8** —\n  å bruke `Dijkstra` på negative kantvekter, når algoritmen krever at alle\n  kantvekter er ikke-negative. Eksempel 3 viser hva som faktisk skjer. Rett svar\n  på «kan `Dijkstra` brukes her?» når minst én kant er negativ, er **nei**, med\n  begrunnelsen at en behandlet node aldri revurderes.\n- **Å tro at `Bellman-Ford` bare *finner* negative sykler.** Den **håndterer**\n  dem: kontrollrunden etter de $V-1$ slakkerundene får algoritmen til å returnere\n  USANN, som er det riktige svaret — for da finnes det ingen korteste vei å\n  oppgi. En «vei» kan gå rundt sykelen så mange ganger den vil og bli vilkårlig\n  billig.\n- **Å oppgi feil kjøretid for `Dijkstra`.** Riktig er $O(E\\lg V)$ med binærhaug.\n  $O(V^2\\lg V)$ er ikke det strammeste uttrykket, og $\\Theta(V+E)$ er ren\n  forveksling med `BFS`.\n- **Å kjøre `DAG-Shortest-Path` på en graf med sykel.** Da finnes det ingen\n  topologisk orden, og algoritmen er ikke definert. Sjekk alltid at grafen\n  faktisk er syklusfri før du bruker den.\n\nOg den stille: **å stoppe håndkjøringen for tidlig.** En `d`-verdi er ikke\nendelig i `Dijkstra` før noden er plukket av `Extract-Min`, og ikke endelig i\n`Bellman-Ford` før alle $V-1$ rundene er kjørt."
+    },
+    {
+      "id": "tdt4120-4-3-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-4-3-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger F — «stemmer dette?», altså at du svarer ja eller nei\nførst og deretter begrunner med én setning.)\n\n**a)** En rettet graf har 40 kanter. 39 av dem har positiv vekt, én har vekten\n$-1$. Kan `Dijkstra` brukes til å finne korteste vei fra en kilde `s`?\n**b)** Samme graf: kan `Bellman-Ford` brukes?\n**c)** Stemmer det at `Dijkstra` alltid gir feil svar når grafen har en negativ\nkant?",
+        "solution": "**a) Nei.** `Dijkstra` krever at alle kantvekter er ikke-negative, og én negativ\nkant er nok til at garantien faller — en node kan bli låst før den billigste\nveien til den er funnet.\n\n**b) Ja.** `Bellman-Ford` tåler negative kanter, og hvis det i tillegg finnes en\nnegativ sykel nåbar fra `s`, returnerer den USANN i stedet for å oppgi tall.\n\n**c) Nei.** Den kan gi riktig svar på mange slike grafer; det den ikke gir, er\nnoen **garanti**. Derfor er svaret på a) fortsatt nei — eksamen spør etter om\nalgoritmen kan brukes, ikke om den er heldig på akkurat denne grafen.",
+        "hints": [
+          "Se på prebetingelsen i pseudokode-kontrakten til `Dijkstra` før du svarer.",
+          "Til c): tenk over forskjellen mellom «gir alltid feil» og «gir ingen garanti».",
+          "Husk formen: ja eller nei først, så én setning."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-4-3-t-4",
+      "type": "text",
+      "content": "## `Bellman-Ford` — den robuste (~15 min)\n\nNår du ikke kan stole på rekkefølgen, dropper du rekkefølgen. `Bellman-Ford`\nslakker rett og slett **alle** kantene i grafen, om og om igjen, $V-1$ ganger.\n\nHvorfor akkurat $V-1$? Fordi en korteste vei aldri kan ha flere enn $V-1$ kanter\n— hadde den hatt flere, ville den besøkt en node to ganger, altså gått i en\nsykel, og en sykel med positiv vekt kan alltid klippes bort. Etter runde 1 er\nalle korteste veier med én kant funnet, etter runde 2 alle med to kanter, og så\nvidere.\n\nOg der `Dijkstra` bare feiler stille på en negativ sykel, gjør `Bellman-Ford` det\neneste ærlige: den kjører **én runde til**. Hvis en eneste kant fortsatt kan\nslakkes etter $V-1$ runder, finnes det en negativ sykel nåbar fra kilden, og da\nreturnerer algoritmen USANN. Det er riktig svar, for da finnes det ingen korteste\nvei: du kan gå rundt sykelen så mange ganger du vil og få vilkårlig lav vekt."
+    },
+    {
+      "id": "tdt4120-4-3-def-7",
+      "type": "definition",
+      "title": "`Bellman-Ford`",
+      "content": "Finner korteste vei fra én kilde ved å slakke samtlige kanter i grafen $V-1$\nganger, i en fast rekkefølge.\n\nDen bryr seg ikke om hvilken rekkefølge kantene står i — svaret blir det samme —\nmen **antall runder som trengs**, avhenger av rekkefølgen. Etter de $V-1$ rundene\nkjører den en kontrollrunde til: kan noen kant fortsatt slakkes, returnerer den\nUSANN.\n\nKjøretid $\\Theta(VE)$. **Tåler negative kanter** og **oppdager negative sykler**\nsom er nåbare fra kilden. Med tidlig stopp — bryt ut når en runde ikke endret\nnoe — blir beste tilfelle $\\Theta(V+E)$."
+    },
+    {
+      "id": "tdt4120-4-3-def-8",
+      "type": "definition",
+      "title": "Negativ sykel",
+      "content": "En sykel i en rettet graf der summen av kantvektene er mindre enn null.\n\nEr den nåbar fra kilden, finnes det ingen korteste vei til nodene på og bak\nsykelen: du kan runde den én gang til og få en billigere «vei», i det uendelige.\nProblemet er da udefinert, ikke bare vanskelig.\n\n`Bellman-Ford` oppdager dette i kontrollrunden etter de $V-1$ slakkerundene og\nreturnerer USANN. En negativ sykel som **ikke** er nåbar fra kilden, påvirker\ningenting og oppdages heller ikke."
+    },
+    {
+      "id": "tdt4120-4-3-def-9",
+      "type": "definition",
+      "title": "Tidlig stopp i `Bellman-Ford`",
+      "content": "Å bryte ut av løkka så snart en hel runde med slakkinger ikke endret en eneste\n$d$-verdi.\n\nDa kan ingen senere runde endre noe heller, siden hver runde bare avhenger av\ntilstanden ved rundens start. Svaret blir identisk med å kjøre alle $V-1$\nrundene.\n\nDette gir beste tilfelle $\\Theta(V+E)$ — én runde slakking pluss kontrollen —\nmens verste tilfelle fortsatt er $\\Theta(VE)$. Merk at eksamen som regel ber deg\nkjøre et **oppgitt antall runder**; da kjører du nøyaktig så mange, uansett."
+    },
+    {
+      "id": "tdt4120-4-3-thm-2",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `Bellman-Ford`",
+      "content": "**Antagelser om representasjon.** Grafen $G=(V,E)$ er rettet og gitt som en\n**kantliste**, siden algoritmen uansett skal gjennom alle kanter hver runde.\nRekkefølgen på kantlista er fast og oppgitt. Hver node `v` har feltene `v.d` og\n`v.pi`.\n\n**Prebetingelse:** ingen — vektene kan være negative.\n**Postbetingelse:** hvis ingen negativ sykel er nåbar fra `s`, returneres SANN,\nog `v.d` er vekten til en korteste vei fra `s` til `v` for hver node. Finnes det\nen negativ sykel nåbar fra `s`, returneres USANN, og `v.d`-verdiene er\nmeningsløse.\n\n```text\nBellman-Ford(G, w, s)\n  Input:  graf G = (V, E) som kantliste, vekter w (kan vaere negative), kilde s\n  Output: SANN med v.d og v.pi satt, eller USANN ved negativ sykel naabar fra s\n  Initialize-Single-Source(G, s)\n  for i = 1 to |V| - 1\n      for hver kant (u, v) i E, i den faste rekkefoelgen\n          Relax(u, v, w)\n  for hver kant (u, v) i E\n      if v.d > u.d + w(u, v)\n          return USANN\n  return SANN\n```\n\n**Invarianten i én setning:** etter runde $i$ er `v.d` korrekt for alle noder\n`v` som har en korteste vei fra `s` med høyst $i$ kanter.\n\n**Kjøretid:** $\\Theta(VE)$. Den ytre for-løkka går $V-1$ ganger, den indre gjennom\nalle $E$ kanter, og hver slakking er $\\Theta(1)$; kontrollrunden legger til\n$\\Theta(E)$, som forsvinner i det største leddet. Her står det $\\Theta$ og ikke\n$O$: uten tidlig stopp gjøres arbeidet uansett hva grafen ser ut som."
+    },
+    {
+      "id": "tdt4120-4-3-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: `Bellman-Ford` på et ferjenett med rabatt",
+      "problem": "Fem havner heter `S`, `A`, `B`, `C` og `D`. Tallene er prisen i hundrelapper for\nhver overfart; to av dem er negative fordi selskapet gir rabatt når du allerede\nhar kjøpt en tidligere billett i kjeden:\n\n```text\nS -> A   4      A -> B  -1      C -> D   2\nS -> B   6      A -> C   3      D -> A   8\nB -> C  -2      B -> D   5\n```\n\nKantene skal slakkes i denne faste rekkefølgen hver runde:\n\n`(D,A)`, `(C,D)`, `(B,D)`, `(B,C)`, `(A,C)`, `(A,B)`, `(S,B)`, `(S,A)`\n\nKjør `Bellman-Ford` fra `S`. Oppgi `v.d` for hver node, og si om algoritmen\nreturnerer SANN eller USANN.",
+      "solution": "Grafen har 5 noder, så det kjøres $5 - 1 = 4$ runder. Sporingstavlen har én rad\nper kant per runde:\n\n| Runde | Kant | Vekt | Test `d[v] > d[u] + w(u,v)`? | Resultat | `d` etter steget |\n|---|---|---|---|---|---|\n| 1 | `(D,A)` | 8 | d[D] er $\\infty$ | ingen endring | S: 0, A: $\\infty$, B: $\\infty$, C: $\\infty$, D: $\\infty$ |\n| 1 | `(C,D)` | 2 | d[C] er $\\infty$ | ingen endring | S: 0, A: $\\infty$, B: $\\infty$, C: $\\infty$, D: $\\infty$ |\n| 1 | `(B,D)` | 5 | d[B] er $\\infty$ | ingen endring | S: 0, A: $\\infty$, B: $\\infty$, C: $\\infty$, D: $\\infty$ |\n| 1 | `(B,C)` | -2 | d[B] er $\\infty$ | ingen endring | S: 0, A: $\\infty$, B: $\\infty$, C: $\\infty$, D: $\\infty$ |\n| 1 | `(A,C)` | 3 | d[A] er $\\infty$ | ingen endring | S: 0, A: $\\infty$, B: $\\infty$, C: $\\infty$, D: $\\infty$ |\n| 1 | `(A,B)` | -1 | d[A] er $\\infty$ | ingen endring | S: 0, A: $\\infty$, B: $\\infty$, C: $\\infty$, D: $\\infty$ |\n| 1 | `(S,B)` | 6 | 0 + 6 = 6 er mindre enn $\\infty$ | d[B] = 6, pi[B] = S | S: 0, A: $\\infty$, B: 6, C: $\\infty$, D: $\\infty$ |\n| 1 | `(S,A)` | 4 | 0 + 4 = 4 er mindre enn $\\infty$ | d[A] = 4, pi[A] = S | S: 0, A: 4, B: 6, C: $\\infty$, D: $\\infty$ |\n| 2 | `(D,A)` | 8 | d[D] er $\\infty$ | ingen endring | S: 0, A: 4, B: 6, C: $\\infty$, D: $\\infty$ |\n| 2 | `(C,D)` | 2 | d[C] er $\\infty$ | ingen endring | S: 0, A: 4, B: 6, C: $\\infty$, D: $\\infty$ |\n| 2 | `(B,D)` | 5 | 6 + 5 = 11 er mindre enn $\\infty$ | d[D] = 11, pi[D] = B | S: 0, A: 4, B: 6, C: $\\infty$, D: 11 |\n| 2 | `(B,C)` | -2 | 6 + (-2) = 4 er mindre enn $\\infty$ | d[C] = 4, pi[C] = B | S: 0, A: 4, B: 6, C: 4, D: 11 |\n| 2 | `(A,C)` | 3 | 4 + 3 = 7 er ikke mindre enn 4 | ingen endring | S: 0, A: 4, B: 6, C: 4, D: 11 |\n| 2 | `(A,B)` | -1 | 4 + (-1) = 3 er mindre enn 6 | d[B] = 3, pi[B] = A | S: 0, A: 4, B: 3, C: 4, D: 11 |\n| 2 | `(S,B)` | 6 | 0 + 6 = 6 er ikke mindre enn 3 | ingen endring | S: 0, A: 4, B: 3, C: 4, D: 11 |\n| 2 | `(S,A)` | 4 | 0 + 4 = 4 er ikke mindre enn 4 | ingen endring | S: 0, A: 4, B: 3, C: 4, D: 11 |\n| 3 | `(D,A)` | 8 | 11 + 8 = 19 er ikke mindre enn 4 | ingen endring | S: 0, A: 4, B: 3, C: 4, D: 11 |\n| 3 | `(C,D)` | 2 | 4 + 2 = 6 er mindre enn 11 | d[D] = 6, pi[D] = C | S: 0, A: 4, B: 3, C: 4, D: 6 |\n| 3 | `(B,D)` | 5 | 3 + 5 = 8 er ikke mindre enn 6 | ingen endring | S: 0, A: 4, B: 3, C: 4, D: 6 |\n| 3 | `(B,C)` | -2 | 3 + (-2) = 1 er mindre enn 4 | d[C] = 1, pi[C] = B | S: 0, A: 4, B: 3, C: 1, D: 6 |\n| 3 | `(A,C)` | 3 | 4 + 3 = 7 er ikke mindre enn 1 | ingen endring | S: 0, A: 4, B: 3, C: 1, D: 6 |\n| 3 | `(A,B)` | -1 | 4 + (-1) = 3 er ikke mindre enn 3 | ingen endring | S: 0, A: 4, B: 3, C: 1, D: 6 |\n| 3 | `(S,B)` | 6 | 0 + 6 = 6 er ikke mindre enn 3 | ingen endring | S: 0, A: 4, B: 3, C: 1, D: 6 |\n| 3 | `(S,A)` | 4 | 0 + 4 = 4 er ikke mindre enn 4 | ingen endring | S: 0, A: 4, B: 3, C: 1, D: 6 |\n| 4 | `(D,A)` | 8 | 6 + 8 = 14 er ikke mindre enn 4 | ingen endring | S: 0, A: 4, B: 3, C: 1, D: 6 |\n| 4 | `(C,D)` | 2 | 1 + 2 = 3 er mindre enn 6 | d[D] = 3, pi[D] = C | S: 0, A: 4, B: 3, C: 1, D: 3 |\n| 4 | `(B,D)` | 5 | 3 + 5 = 8 er ikke mindre enn 3 | ingen endring | S: 0, A: 4, B: 3, C: 1, D: 3 |\n| 4 | `(B,C)` | -2 | 3 + (-2) = 1 er ikke mindre enn 1 | ingen endring | S: 0, A: 4, B: 3, C: 1, D: 3 |\n| 4 | `(A,C)` | 3 | 4 + 3 = 7 er ikke mindre enn 1 | ingen endring | S: 0, A: 4, B: 3, C: 1, D: 3 |\n| 4 | `(A,B)` | -1 | 4 + (-1) = 3 er ikke mindre enn 3 | ingen endring | S: 0, A: 4, B: 3, C: 1, D: 3 |\n| 4 | `(S,B)` | 6 | 0 + 6 = 6 er ikke mindre enn 3 | ingen endring | S: 0, A: 4, B: 3, C: 1, D: 3 |\n| 4 | `(S,A)` | 4 | 0 + 4 = 4 er ikke mindre enn 4 | ingen endring | S: 0, A: 4, B: 3, C: 1, D: 3 |\n\nAntall vellykkede slakkinger per runde: runde 1: 2 endringer, runde 2: 3 endringer, runde 3: 2 endringer, runde 4: 1 endringer. Legg\nmerke til at det skjedde en endring helt til og med runde 4 — den ugunstige\nkantrekkefølgen gjør at forbedringene forplanter seg bare ett hakk per runde.\nHadde kantene ligget i motsatt rekkefølge, hadde alt vært på plass etter runde 1.\n\n**Kontrollrunden:** ingen kant kan slakkes mer, altså ingen negativ sykel nåbar fra `S` Algoritmen returnerer **SANN**.\n\n**På eksamen leverer du bare linja under — tavlen er her for å vise hvordan du\nkommer dit.**\n\n`v.d`: S: 0, A: 4, B: 3, C: 1, D: 3\n\nForgjengerne: S: NIL, A: S, B: A, C: B, D: C\n\n**Fellenote.** Fellen her er å stoppe etter runde 1 fordi «det ser ferdig ut».\nDet gjorde det ikke: `D` gikk fra 11 via 6 til 3 gjennom rundene 2, 3 og 4.\nOppgaven ber om verdiene etter at algoritmen er ferdig, ikke etter første runde."
+    },
+    {
+      "id": "tdt4120-4-3-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-4-3-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C — håndkjøring.) En rettet graf har nodene `S`, `A`, `B`\nog `C` og kantene\n\n```text\nA -> C   2\nC -> B  -4\nS -> A   6\nS -> B   7\nB -> A   3\n```\n\nKantene slakkes i nøyaktig den rekkefølgen de står i lista over, i hver runde.\nKjør `Bellman-Ford` fra `S`.\n\n**a)** Hva er `d` for hver node etter **runde 1**?\n**b)** Hva er `d` for hver node når algoritmen er ferdig?\n**c)** Returnerer algoritmen SANN eller USANN?\n\nOppgaven ber om verdiene, ikke om en forklaring av algoritmen.",
+        "solution": "Sporingen:\n\n| Runde | Kant | Vekt | Test `d[v] > d[u] + w(u,v)`? | Resultat | `d` etter steget |\n|---|---|---|---|---|---|\n| 1 | `(A,C)` | 2 | d[A] er $\\infty$ | ingen endring | S: 0, A: $\\infty$, B: $\\infty$, C: $\\infty$ |\n| 1 | `(C,B)` | -4 | d[C] er $\\infty$ | ingen endring | S: 0, A: $\\infty$, B: $\\infty$, C: $\\infty$ |\n| 1 | `(S,A)` | 6 | 0 + 6 = 6 er mindre enn $\\infty$ | d[A] = 6, pi[A] = S | S: 0, A: 6, B: $\\infty$, C: $\\infty$ |\n| 1 | `(S,B)` | 7 | 0 + 7 = 7 er mindre enn $\\infty$ | d[B] = 7, pi[B] = S | S: 0, A: 6, B: 7, C: $\\infty$ |\n| 1 | `(B,A)` | 3 | 7 + 3 = 10 er ikke mindre enn 6 | ingen endring | S: 0, A: 6, B: 7, C: $\\infty$ |\n| 2 | `(A,C)` | 2 | 6 + 2 = 8 er mindre enn $\\infty$ | d[C] = 8, pi[C] = A | S: 0, A: 6, B: 7, C: 8 |\n| 2 | `(C,B)` | -4 | 8 + (-4) = 4 er mindre enn 7 | d[B] = 4, pi[B] = C | S: 0, A: 6, B: 4, C: 8 |\n| 2 | `(S,A)` | 6 | 0 + 6 = 6 er ikke mindre enn 6 | ingen endring | S: 0, A: 6, B: 4, C: 8 |\n| 2 | `(S,B)` | 7 | 0 + 7 = 7 er ikke mindre enn 4 | ingen endring | S: 0, A: 6, B: 4, C: 8 |\n| 2 | `(B,A)` | 3 | 4 + 3 = 7 er ikke mindre enn 6 | ingen endring | S: 0, A: 6, B: 4, C: 8 |\n| 3 | `(A,C)` | 2 | 6 + 2 = 8 er ikke mindre enn 8 | ingen endring | S: 0, A: 6, B: 4, C: 8 |\n| 3 | `(C,B)` | -4 | 8 + (-4) = 4 er ikke mindre enn 4 | ingen endring | S: 0, A: 6, B: 4, C: 8 |\n| 3 | `(S,A)` | 6 | 0 + 6 = 6 er ikke mindre enn 6 | ingen endring | S: 0, A: 6, B: 4, C: 8 |\n| 3 | `(S,B)` | 7 | 0 + 7 = 7 er ikke mindre enn 4 | ingen endring | S: 0, A: 6, B: 4, C: 8 |\n| 3 | `(B,A)` | 3 | 4 + 3 = 7 er ikke mindre enn 6 | ingen endring | S: 0, A: 6, B: 4, C: 8 |\n\n**a)** S: 0, A: 6, B: 7, C: $\\infty$\n\n**b)** S: 0, A: 6, B: 4, C: 8\n\n**c) SANN** — ingen kant kan slakkes mer — ingen negativ sykel nåbar fra `S`.\n\nForgjengerne, om de spørres: S: NIL, A: S, B: C, C: A\n\nPoenget med a) er at rekkefølgen på kantlista bestemmer hvor langt informasjonen\nrekker per runde. Kantene `(A,C)` og `(C,B)` står **før** `(S,A)`, så i runde 1\ner `d[A]` fortsatt uendelig når de behandles, og de gjør ingenting.",
+        "hints": [
+          "Skriv opp `d`-vektoren og oppdater den kant for kant, i den oppgitte rekkefølgen.",
+          "Grafen har 4 noder, så algoritmen kjører 3 runder pluss én kontrollrunde.",
+          "Til c): sjekk om noen kant fortsatt kan slakkes etter siste runde."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-4-3-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-4-3-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger C og F kombinert.) En rettet graf har nodene `S`, `X`,\n`Y` og `Z` og kantene\n\n```text\nS -> X   4\nX -> Y   3\nY -> Z  -2\nZ -> X  -3\nX -> Z   9\n```\n\nKantene slakkes i den rekkefølgen de står, i hver runde.\n\n**a)** Kjør `Bellman-Ford` fra `S` og oppgi hvilken kant som fortsatt kan slakkes\ni kontrollrunden.\n**b)** Hva returnerer algoritmen, og hva betyr det for spørsmålet «hva er\nkorteste vei fra `S` til `Z`?»",
+        "solution": "Sporingen gjennom de $4 - 1 = 3$ rundene:\n\n| Runde | Kant | Vekt | Test `d[v] > d[u] + w(u,v)`? | Resultat | `d` etter steget |\n|---|---|---|---|---|---|\n| 1 | `(S,X)` | 4 | 0 + 4 = 4 er mindre enn $\\infty$ | d[X] = 4, pi[X] = S | S: 0, X: 4, Y: $\\infty$, Z: $\\infty$ |\n| 1 | `(X,Y)` | 3 | 4 + 3 = 7 er mindre enn $\\infty$ | d[Y] = 7, pi[Y] = X | S: 0, X: 4, Y: 7, Z: $\\infty$ |\n| 1 | `(Y,Z)` | -2 | 7 + (-2) = 5 er mindre enn $\\infty$ | d[Z] = 5, pi[Z] = Y | S: 0, X: 4, Y: 7, Z: 5 |\n| 1 | `(Z,X)` | -3 | 5 + (-3) = 2 er mindre enn 4 | d[X] = 2, pi[X] = Z | S: 0, X: 2, Y: 7, Z: 5 |\n| 1 | `(X,Z)` | 9 | 2 + 9 = 11 er ikke mindre enn 5 | ingen endring | S: 0, X: 2, Y: 7, Z: 5 |\n| 2 | `(S,X)` | 4 | 0 + 4 = 4 er ikke mindre enn 2 | ingen endring | S: 0, X: 2, Y: 7, Z: 5 |\n| 2 | `(X,Y)` | 3 | 2 + 3 = 5 er mindre enn 7 | d[Y] = 5, pi[Y] = X | S: 0, X: 2, Y: 5, Z: 5 |\n| 2 | `(Y,Z)` | -2 | 5 + (-2) = 3 er mindre enn 5 | d[Z] = 3, pi[Z] = Y | S: 0, X: 2, Y: 5, Z: 3 |\n| 2 | `(Z,X)` | -3 | 3 + (-3) = 0 er mindre enn 2 | d[X] = 0, pi[X] = Z | S: 0, X: 0, Y: 5, Z: 3 |\n| 2 | `(X,Z)` | 9 | 0 + 9 = 9 er ikke mindre enn 3 | ingen endring | S: 0, X: 0, Y: 5, Z: 3 |\n| 3 | `(S,X)` | 4 | 0 + 4 = 4 er ikke mindre enn 0 | ingen endring | S: 0, X: 0, Y: 5, Z: 3 |\n| 3 | `(X,Y)` | 3 | 0 + 3 = 3 er mindre enn 5 | d[Y] = 3, pi[Y] = X | S: 0, X: 0, Y: 3, Z: 3 |\n| 3 | `(Y,Z)` | -2 | 3 + (-2) = 1 er mindre enn 3 | d[Z] = 1, pi[Z] = Y | S: 0, X: 0, Y: 3, Z: 1 |\n| 3 | `(Z,X)` | -3 | 1 + (-3) = -2 er mindre enn 0 | d[X] = -2, pi[X] = Z | S: 0, X: -2, Y: 3, Z: 1 |\n| 3 | `(X,Z)` | 9 | -2 + 9 = 7 er ikke mindre enn 1 | ingen endring | S: 0, X: -2, Y: 3, Z: 1 |\n\n**a)** Kontrollrunden: kanten `(X,Y)` med vekt 3 kan fortsatt slakkes.\n\n**b) USANN.** Grafen har en negativ sykel som er nåbar fra `S`:\nX -> Y -> Z -> X har vekt 3 + (-2) + (-3) = -2. Da finnes det **ingen** korteste vei fra\n`S` til `Z`: for hver ekstra runde i sykelen blir «veien» to enheter billigere,\ni det uendelige. Riktig svar på spørsmålet er altså ikke et tall, men at\nproblemet er udefinert for de nodene som ligger på eller bak sykelen.\n\n`d`-verdiene etter tredje runde er S: 0, X: -2, Y: 3, Z: 1, men de er\nmeningsløse som svar — de er bare et øyeblikksbilde av en prosess som aldri\nstanser.",
+        "hints": [
+          "Regn ut summen av vektene rundt hver sykel i grafen før du begynner å slakke.",
+          "Kontrollrunden er den ekstra runden etter de $V-1$ slakkerundene — den endrer ingenting, den bare tester.",
+          "Til b): tenk over hva det ville bety å gå rundt sykelen to ganger i stedet for én."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-4-3-t-5",
+      "type": "text",
+      "content": "## `DAG-Shortest-Path` — den raske når grafen er syklusfri (~10 min)\n\n— naturlig pausepunkt —\n\nEt monteringsverksted setter sammen et produkt i en fast rekkefølge: kabinettet\nmå stå før kortet kan settes inn, kortet før lokket kan skrus på. Noen\ndelmontasjer kan gjøres i parallell, men ingen operasjon kan komme etter seg\nselv. En slik graf har **ingen sykler** — den er en **rettet asyklisk graf**, på\nengelsk *directed acyclic graph*, forkortet DAG.\n\nI en DAG kan du sortere nodene i en lineær **topologisk orden**, der hver kant\npeker framover. Og da trenger du verken prioritetskø eller gjentatte runder: gå\ngjennom nodene i topologisk orden og slakk kantene ut fra hver av dem, én gang.\nNår du kommer til en node, er alle veiene inn til den allerede ferdigbehandlet.\n\nDet gir $\\Theta(V+E)$ — raskere enn både `Dijkstra` og `Bellman-Ford` — og\nalgoritmen tåler negative kantvekter uten videre, siden det uansett ikke finnes\nnoen sykel å gå rundt."
+    },
+    {
+      "id": "tdt4120-4-3-def-10",
+      "type": "definition",
+      "title": "Rettet asyklisk graf (DAG)",
+      "content": "En rettet graf uten sykler: det finnes ingen vei som starter og ender i den samme\nnoden.\n\nNavnet kommer fra engelsk, *directed acyclic graph*. Modellen passer på alt som\nhar en «må gjøres før»-struktur: monteringsrekkefølger, emneforløp, oppgaver med\navhengigheter.\n\nNøkkelegenskapen er at nodene kan legges i en topologisk orden. Har grafen bare\nén eneste sykel, finnes ingen slik orden, og `DAG-Shortest-Path` kan ikke\nbrukes."
+    },
+    {
+      "id": "tdt4120-4-3-def-11",
+      "type": "definition",
+      "title": "Topologisk orden",
+      "content": "En rekkefølge på nodene i en rettet asyklisk graf der hver kant peker framover:\ngår det en kant fra $u$ til $v$, står $u$ før $v$.\n\nDen finnes hvis og bare hvis grafen er asyklisk, og den er sjelden entydig — de\nfleste DAG-er har flere gyldige ordener.\n\nDen finnes i $\\Theta(V+E)$ med en dybde-først-traversering, ved å sortere nodene\netter **synkende finish-tid**. `DAG-Shortest-Path` bruker den som sin\nbehandlingsrekkefølge."
+    },
+    {
+      "id": "tdt4120-4-3-def-12",
+      "type": "definition",
+      "title": "`DAG-Shortest-Path`",
+      "content": "Finner korteste vei fra én kilde i en rettet asyklisk graf ved å gå gjennom\nnodene i topologisk orden og slakke kantene ut fra hver node nøyaktig én gang.\n\nGrunnen til at én runde holder: når du kommer til en node i topologisk orden, har\nalle kantene inn til den allerede vært slakket, så $d$-verdien er ferdig.\n\nKjøretid $\\Theta(V+E)$ — det er den raskeste av de tre. **Krever DAG**, men\ntåler negative kantvekter helt greit, siden en negativ sykel er umulig i en\nsyklusfri graf."
+    },
+    {
+      "id": "tdt4120-4-3-thm-3",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `DAG-Shortest-Path`",
+      "content": "**Antagelser om representasjon.** Grafen $G=(V,E)$ er rettet, **asyklisk** og\ngitt som nabolister. Hver node `v` har feltene `v.d` og `v.pi`. Vektene kan være\nnegative.\n\n**Prebetingelse:** `G` har ingen sykler. **Postbetingelse:** `v.d` er vekten til\nen korteste vei fra `s` til `v` for hver node `v`, og `v.pi` gir veien bakover.\nNoder som ikke er nåbare fra `s`, står igjen med `v.d = uendelig`.\n\n```text\nDAG-Shortest-Path(G, w, s)\n  Input:  rettet asyklisk graf G = (V, E), vekter w, kilde s\n  Output: v.d og v.pi for hver node v i V\n  sorter nodene i V topologisk\n  Initialize-Single-Source(G, s)\n  for hver node u i V, i topologisk orden\n      for hver kant (u, v) ut fra u\n          Relax(u, v, w)\n```\n\n**Invarianten i én setning:** når den ytre for-løkka kommer til node `u`, er\n`u.d` allerede ferdig, fordi hver kant inn til `u` går fra en node som står\ntidligere i den topologiske ordenen og derfor allerede er behandlet.\n\n**Kjøretid:** $\\Theta(V+E)$. Den topologiske sorteringen er $\\Theta(V+E)$,\ninitialiseringen $\\Theta(V)$, og den doble løkka ser på hver kant nøyaktig én\ngang, altså $\\Theta(E)$. Her er $\\Theta$ riktig: arbeidet gjøres uansett hvordan\nDAG-en ser ut."
+    },
+    {
+      "id": "tdt4120-4-3-ex-5",
+      "type": "example",
+      "title": "Eksempel 5: `DAG-Shortest-Path` på en monteringslinje",
+      "problem": "Seks operasjoner heter `A` til `F`. En kant fra `X` til `Y` betyr at `X` må\ngjøres før `Y`, og vekten er omstillingstiden i minutter — negativ der to\noperasjoner deler samme oppsett og verkstedet sparer tid:\n\n```text\nA -> B   5      C -> D   7      D -> F   2\nA -> C   3      C -> E   4      E -> F  -1\nB -> C  -2      D -> E   1\n```\n\nEn topologisk orden er `A`, `B`, `C`, `D`, `E`, `F`. Kjør `DAG-Shortest-Path` fra\n`A` og oppgi `v.d` for hver node.",
+      "solution": "Sporingen, én rad per node i topologisk orden:\n\n| Steg | Node i topologisk orden | `d` for noden | Slakking av kantene ut | `d` etter steget |\n|---|---|---|---|---|\n| 1 | `A` | 0 | (A,B): 0 + 5 = 5 < $\\infty$, d[B] = 5, pi[B] = A; (A,C): 0 + 3 = 3 < $\\infty$, d[C] = 3, pi[C] = A | A: 0, B: 5, C: 3, D: $\\infty$, E: $\\infty$, F: $\\infty$ |\n| 2 | `B` | 5 | (B,C): 5 + (-2) = 3 ikke mindre enn 3, ingen endring; (B,D): 5 + 6 = 11 < $\\infty$, d[D] = 11, pi[D] = B | A: 0, B: 5, C: 3, D: 11, E: $\\infty$, F: $\\infty$ |\n| 3 | `C` | 3 | (C,D): 3 + 7 = 10 < 11, d[D] = 10, pi[D] = C; (C,E): 3 + 4 = 7 < $\\infty$, d[E] = 7, pi[E] = C | A: 0, B: 5, C: 3, D: 10, E: 7, F: $\\infty$ |\n| 4 | `D` | 10 | (D,E): 10 + 1 = 11 ikke mindre enn 7, ingen endring; (D,F): 10 + 2 = 12 < $\\infty$, d[F] = 12, pi[F] = D | A: 0, B: 5, C: 3, D: 10, E: 7, F: 12 |\n| 5 | `E` | 7 | (E,F): 7 + (-1) = 6 < 12, d[F] = 6, pi[F] = E | A: 0, B: 5, C: 3, D: 10, E: 7, F: 6 |\n| 6 | `F` | 6 | ingen kanter ut | A: 0, B: 5, C: 3, D: 10, E: 7, F: 6 |\n\n**På eksamen leverer du bare linja under — tavlen er her for å vise hvordan du\nkommer dit.**\n\n`v.d`: A: 0, B: 5, C: 3, D: 10, E: 7, F: 6\n\nForgjengerne: A: NIL, B: A, C: A, D: C, E: C, F: E\n\nTo ting er verdt å legge merke til. I steg 2 ble kanten fra `B` til `C` slakket\nuten at noe skjedde: $5 + (-2) = 3$, og `d[C]` var allerede 3. Ulikheten er\nstreng, så `pi[C]` ble stående på `A`. Og i steg 5 senket den negative kanten\n`d[F]` fra 12 til 6 — helt uproblematisk, fordi grafen ikke har noen sykel å gå\nrundt.\n\n**Fellenote.** Fellen her er å behandle nodene i alfabetisk rekkefølge i stedet\nfor topologisk. Med denne grafen ville det gitt samme svar tilfeldigvis, men det\ngjør det ikke generelt: hele garantien hviler på at ingen kant peker bakover."
+    },
+    {
+      "id": "tdt4120-4-3-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-4-3-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C — håndkjøring.) En rettet asyklisk graf har nodene `S`,\n`P`, `Q`, `R` og `T`, og kantene\n\n```text\nS -> P   3      P -> R   6      Q -> T   9\nS -> Q   8      Q -> R   1      R -> T   2\nP -> Q  -2\n```\n\nEn topologisk orden er `S`, `P`, `Q`, `R`, `T`. Kjør `DAG-Shortest-Path` fra `S`\nog oppgi `v.d` for hver node.",
+        "solution": "Sporingen:\n\n| Steg | Node i topologisk orden | `d` for noden | Slakking av kantene ut | `d` etter steget |\n|---|---|---|---|---|\n| 1 | `S` | 0 | (S,P): 0 + 3 = 3 < $\\infty$, d[P] = 3; (S,Q): 0 + 8 = 8 < $\\infty$, d[Q] = 8 | S: 0, P: 3, Q: 8, R: $\\infty$, T: $\\infty$ |\n| 2 | `P` | 3 | (P,Q): 3 + (-2) = 1 < 8, d[Q] = 1; (P,R): 3 + 6 = 9 < $\\infty$, d[R] = 9 | S: 0, P: 3, Q: 1, R: 9, T: $\\infty$ |\n| 3 | `Q` | 1 | (Q,R): 1 + 1 = 2 < 9, d[R] = 2; (Q,T): 1 + 9 = 10 < $\\infty$, d[T] = 10 | S: 0, P: 3, Q: 1, R: 2, T: 10 |\n| 4 | `R` | 2 | (R,T): 2 + 2 = 4 < 10, d[T] = 4 | S: 0, P: 3, Q: 1, R: 2, T: 4 |\n| 5 | `T` | 4 | ingen kanter ut | S: 0, P: 3, Q: 1, R: 2, T: 4 |\n\n**Sluttilstanden alene** — `v.d`: S: 0, P: 3, Q: 1, R: 2, T: 4\n\nForgjengerne: S: NIL, P: S, Q: P, R: Q, T: R\n\nLegg merke til at `d[Q]` endte på 1, altså **lavere** enn `d[P] = 3`, selv om `Q`\nkommer etter `P` i den topologiske ordenen. Topologisk orden handler om\navhengigheter mellom operasjonene, ikke om hvor billige de er.",
+        "hints": [
+          "Behandle nodene i den oppgitte topologiske ordenen, og slakk alle kantene ut fra hver node før du går videre.",
+          "Hver kant slakkes nøyaktig én gang — det er ingen runde nummer to i denne algoritmen.",
+          "Husk at slakkeregelen bruker streng ulikhet."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-4-3-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-4-3-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger F og E kombinert.) For hver av de fire situasjonene: si\nhvilken av `Dijkstra`, `Bellman-Ford` og `DAG-Shortest-Path` du ville brukt, og\noppgi kjøretiden til valget ditt. Velg den **raskeste** algoritmen som faktisk\nkan brukes.\n\n**a)** Et vegnett med bomavgifter. Alle avgifter er positive, grafen har sykler.\n**b)** En monteringsplan der noen omstillinger sparer tid (negative vekter), og\ningen operasjon kan komme etter seg selv.\n**c)** Et rutenett der to strekninger gir rabatt (negative vekter) og det finnes\nsykler.\n**d)** Samme graf som i c), men du skal i tillegg avgjøre om det i det hele tatt\nfinnes en korteste vei.",
+        "solution": "**a)** `Dijkstra`, $O(E\\lg V)$. Alle vekter er ikke-negative, så kravet er\noppfylt, og den er raskere enn `Bellman-Ford`. `DAG-Shortest-Path` er utelukket\nfordi grafen har sykler.\n\n**b)** `DAG-Shortest-Path`, $\\Theta(V+E)$. Grafen er en DAG, og da spiller de\nnegative vektene ingen rolle — det finnes ingen sykel å gå rundt. Dette er det\nraskeste alternativet av de tre.\n\n**c)** `Bellman-Ford`, $\\Theta(VE)$. Negative vekter utelukker `Dijkstra`, og\nsykler utelukker `DAG-Shortest-Path`. Da er det bare én igjen.\n\n**d)** `Bellman-Ford`, $\\Theta(VE)$ — og det er nettopp her den viser sin andre\nstyrke: kontrollrunden returnerer USANN hvis en negativ sykel er nåbar fra\nkilden, altså hvis spørsmålet «hva er korteste vei?» ikke har noe svar.\n\nKjøretidene i én oversikt: $\\Theta(V+E)$ er raskest, deretter $O(E\\lg V)$, og\n$\\Theta(VE)$ er dyrest. Rekkefølgen på hvor mye grafen må tåle, er den motsatte:\n`DAG-Shortest-Path` krever mest av grafen, `Bellman-Ford` minst.",
+        "hints": [
+          "Still to spørsmål om grafen i denne rekkefølgen: er den syklusfri? Har den negative vekter?",
+          "Skriv opp kravkolonnen for de tre algoritmene før du velger.",
+          "Oppgaven ber om den raskeste som **kan** brukes, ikke om den mest robuste."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-4-3-t-6",
+      "type": "text",
+      "content": "## Hvilken algoritme når? (~5 min)\n\nAlle tre løser det samme problemet og bruker den samme slakkeregelen. Det som\nskiller dem, er hva de krever av grafen — og prisen du betaler for robustheten.\n\n| Algoritme | Beste tilfelle | Verste tilfelle | Krav og egenskap |\n|---|---|---|---|\n| `Dijkstra` (binærhaug) | $\\Omega(E + V\\lg V)$ | $O(E\\lg V)$ | **krever ikke-negative kantvekter**; grådig, låser én node per runde |\n| `Bellman-Ford` | $\\Theta(V+E)$ med tidlig stopp | $\\Theta(VE)$ | tåler **negative kanter**; **oppdager** negative sykler nåbare fra kilden |\n| `DAG-Shortest-Path` | $\\Theta(V+E)$ | $\\Theta(V+E)$ | **krever DAG**; tåler negative vekter, raskest av de tre |\n| `BFS` (til sammenligning) | $\\Theta(V+E)$ | $\\Theta(V+E)$ | gir færrest **kanter**, ikke minst **vekt** — bare riktig når alle vekter er like |\n\nLes tabellen nedenfra og opp når du skal velge: er grafen syklusfri, ta den\nøverste raden du har lov til. Er den ikke det, avgjør fortegnene på vektene.\n\nÉn ting til som gjelder alle tre: er en node ikke nåbar fra kilden, står $d$ igjen\npå $\\infty$. Det er et gyldig svar, ikke en feil."
+    },
+    {
+      "id": "tdt4120-4-3-t-begrep",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har\nlest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder\nkjernestoffet."
+    },
+    {
+      "id": "tdt4120-4-3-def-13",
+      "type": "definition",
+      "title": "Forgjengertreet",
+      "content": "Treet du får ved å tegne inn kanten $(\\pi[v], v)$ for hver node $v$ som har en\nforgjenger.\n\nDet har kilden som rot, og veien fra roten ned til en node er en korteste vei til\nden noden. Derfor er $\\pi$-strukturen svaret når en oppgave spør etter **veien**\nog ikke bare tallet.\n\nDet er ikke nødvendigvis entydig: har grafen to like billige veier til samme\nnode, avgjør slakkerekkefølgen hvilken av dem som havner i treet."
+    },
+    {
+      "id": "tdt4120-4-3-def-14",
+      "type": "definition",
+      "title": "Trekantulikheten for korteste veier",
+      "content": "Regelen om at en korteste vei til $v$ aldri kan være dyrere enn en korteste vei\ntil $u$ pluss kanten fra $u$ til $v$: $\\delta(s,v) \\le \\delta(s,u) + w(u,v)$.\n\nDen er grunnen til at slakking er trygg: operasjonen kan aldri sette $d[v]$\nlavere enn den sanne korteste veien, for da måtte det finnes en billigere vei enn\nden billigste.\n\nDen brukes ikke direkte i håndkjøring, men den er argumentet bak at alle tre\nalgoritmene i det hele tatt virker."
+    },
+    {
+      "id": "tdt4120-4-3-def-15",
+      "type": "definition",
+      "title": "Vektfunksjonen $w(u,v)$",
+      "content": "Tallet som står på kanten fra $u$ til $v$: kroner i bomavgift, minutter, meter —\ndet oppgaven sier at det er.\n\nVekten til en **vei** er summen av vektene til kantene i den, og det er den summen\nkorteste-vei-problemet minimerer.\n\nVær oppmerksom på at «korteste» aldri betyr «færrest kanter» i dette kapitlet.\nDet gjør det derimot i `BFS`, som er det samme som at alle kantvekter er 1."
+    },
+    {
+      "id": "tdt4120-4-3-def-16",
+      "type": "definition",
+      "title": "Nåbar fra kilden",
+      "content": "En node $v$ er nåbar fra kilden $s$ hvis det finnes minst én rettet vei fra $s$\ntil $v$.\n\nEr den ikke nåbar, står $d[v]$ igjen på $\\infty$ når algoritmen er ferdig — og\ndet er det riktige svaret, ikke et tegn på at du har gjort feil.\n\nBegrepet er også avgjørende for `Bellman-Ford`: algoritmen oppdager bare de\nnegative syklene som er nåbare fra kilden. En negativ sykel i en avsondret del av\ngrafen påvirker ingen av svarene og flagges ikke."
+    },
+    {
+      "id": "tdt4120-4-3-def-17",
+      "type": "definition",
+      "title": "`Extract-Min` og `Decrease-Key`",
+      "content": "De to prioritetskø-operasjonene `Dijkstra` består av: å ta ut noden med minst\n$d$-verdi, og å senke $d$-verdien til en node som ligger i køen.\n\n`Extract-Min` kalles nøyaktig $V$ ganger — én gang per node. `Decrease-Key`\nkalles opptil $E$ ganger, én per vellykket slakking.\n\nMed binærhaug koster begge $O(\\lg V)$, og produktet av disse to tellingene er\nhele kjøretidsutledningen: $O((V+E)\\lg V) = O(E\\lg V)$."
+    },
+    {
+      "id": "tdt4120-4-3-def-18",
+      "type": "definition",
+      "title": "Binærhaug som prioritetskø",
+      "content": "Den vanlige implementasjonen av prioritetskøen i `Dijkstra`: et array `A[1..n]`\ntolket som et binærtre, med forelder på indeks $\\lfloor i/2\\rfloor$ og barna på\n$2i$ og $2i+1$.\n\nI `Dijkstra` er den en **min**-haug: forelderen er ikke større enn noen av barna,\nslik at den minste $d$-verdien alltid ligger på indeks 1.\n\nBåde `Extract-Min` og `Decrease-Key` koster $O(\\lg V)$, fordi begge bare beveger\nett element langs én vei mellom rot og blad. Det er akkurat dette $\\lg V$-leddet\ni $O(E\\lg V)$ som er haugen."
+    },
+    {
+      "id": "tdt4120-4-3-def-19",
+      "type": "definition",
+      "title": "Grådig algoritme",
+      "content": "En algoritme som i hvert steg tar det valget som ser best ut akkurat der og da,\nog aldri går tilbake på det.\n\n`Dijkstra` er grådig: den plukker den nærmeste ubehandlede noden og låser den for\ngodt. Det er raskt — men det virker bare når «det som ser best ut nå» faktisk er\nbest, og det er nettopp det de ikke-negative kantvektene garanterer.\n\n`Bellman-Ford` er ikke grådig: den revurderer alt, hver runde, og betaler\n$\\Theta(VE)$ for å slippe å stole på noen rekkefølge."
+    },
+    {
+      "id": "tdt4120-4-3-def-20",
+      "type": "definition",
+      "title": "Korteste vei som ikke finnes",
+      "content": "To ulike tilfeller der spørsmålet «hva er $d[v]$?» ikke har et vanlig tall som\nsvar.\n\n**Uendelig:** $v$ er ikke nåbar fra kilden. Da er $d[v] = \\infty$, og det er et\ngyldig svar du skal skrive ned.\n\n**Udefinert:** det finnes en negativ sykel på veien til $v$. Da finnes det ingen\nkorteste vei i det hele tatt, og riktig svar er at `Bellman-Ford` returnerer\nUSANN — ikke et tall."
+    },
+    {
+      "id": "tdt4120-4-3-coll-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tdt4120-4-3-rep-1",
+          "type": "text",
+          "content": "Fem korte spørsmål fra kapitlene dette bygger på. Svar i hodet, og sjekk deretter.\n\n**1.** Hva er kjøretiden til `BFS`, og hva er det egentlig `BFS` finner? Se\n[kap. 4.1](/tdt4120/tdt4120-4-1).\n\n*Svar:* $\\Theta(V+E)$, og den finner veien med **færrest kanter** fra kilden —\nikke veien med minst samlet vekt. De to sammenfaller bare når alle kantvekter er\nlike.\n\n**2.** Hva koster `Extract-Min` i en binærhaug, og hvorfor? Se\n[kap. 3.1](/tdt4120/tdt4120-3-1).\n\n*Svar:* $O(\\lg V)$. Elementet på toppen fjernes, det siste elementet flyttes opp\nog siver ned langs én vei fra rot til blad, og den veien er $O(\\lg V)$ lang fordi\nhaugen er et nesten komplett binærtre.\n\n**3.** Hva er en topologisk sortering, og hvordan får du den ut av en\ndybde-først-traversering? Se [kap. 4.1](/tdt4120/tdt4120-4-1).\n\n*Svar:* en rekkefølge på nodene i en DAG der hver kant peker framover. Du får den\nved å sortere nodene etter **synkende finish-tid** — ikke etter starttid.\n\n**4.** Hva betyr det at et uttrykk er $O(g(n))$ og ikke $\\Theta(g(n))$? Se\n[kap. 1.1](/tdt4120/tdt4120-1-1).\n\n*Svar:* at bare den øvre grensen er vist. $\\Theta$ påstår i tillegg at grensen er\nnedre, altså at kjøretiden faktisk er så stor for store nok $n$.\n\n**5.** Hva står $\\lg n$ for i denne boka? Se\n[Potenser og logaritmer](/r1/r1-1-2).\n\n*Svar:* $\\log_2 n$, altså logaritmen med grunntall 2. Det er CLRS-konvensjonen,\nog den brukes gjennom hele faget."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

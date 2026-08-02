@@ -1,0 +1,182 @@
+[
+  {
+    "question": "Hva leverer du når en oppgave ber om resultatet av `MST-Kruskal`?",
+    "options": [
+      "Kantene i den rekkefølgen de legges til, med de forkastede merket",
+      "Alle kantene i grafen sortert stigende etter vekt, uten videre merking",
+      "Nodene i den rekkefølgen de knyttes til treet under kjøringen",
+      "Bare den samlede vekten av spenntreet, siden treet ellers kan variere"
+    ],
+    "explanation": "Kantrekkefølgen er selve sporet av algoritmen, og oppgaven spør ofte spesifikt etter hvilke kanter som ble forkastet underveis. Å levere bare totalvekten er å svare på et smalere spørsmål enn det som ble stilt — og kontrollen $V-1$ kanter går tapt."
+  },
+  {
+    "question": "Hvor mange kanter har et minimalt spenntre i en sammenhengende graf med $V$ noder?",
+    "options": [
+      "Nøyaktig $V-1$",
+      "Nøyaktig $V$",
+      "Nøyaktig $E - V + 1$",
+      "Det avhenger av kantvektene i grafen"
+    ],
+    "explanation": "Et tre med $V$ noder har alltid $V-1$ kanter — færre gir en usammenhengende graf, flere gir en syklus. Dette er den gratis kontrollen på enhver `Kruskal`- eller `Prim`-håndkjøring."
+  },
+  {
+    "question": "Hvilken regel gir en topologisk sortering fra `DFS`?",
+    "options": [
+      "Nodene i **synkende finish-tid**",
+      "Nodene i **stigende discover-tid**",
+      "Nodene i **stigende finish-tid**",
+      "Nodene i den rekkefølgen ytterløkka besøker dem"
+    ],
+    "explanation": "Noden som avsluttes sist, har ingen uferdige etterfølgere igjen og hører derfor først i rekkefølgen. Stigende discover-tid er felle #11, og den gir et galt svar så snart en node oppdages fra to ulike steder."
+  },
+  {
+    "question": "Hva er syklustesten i `MST-Kruskal`?",
+    "options": [
+      "`Find-Set(u) != Find-Set(v)` — endepunktene må ligge i ulike komponenter",
+      "At kanten ikke allerede er lagt til spenntreet tidligere i kjøringen",
+      "At kantens vekt er større enn vekten på alle kantene som alt er lagt til",
+      "At begge endepunktene har grad minst 1 i det treet som er bygget så langt"
+    ],
+    "explanation": "Ligger begge endepunktene allerede i samme komponent, finnes det alt en vei mellom dem, og kanten ville lukket en ring. Testen gjøres **før** kanten legges til, og `Union` kalles først når testen slår positivt ut."
+  },
+  {
+    "question": "Hva er kjøretiden til `DAG-Shortest-Path`, og hva krever den?",
+    "options": [
+      "$\\Theta(V+E)$, og den krever at grafen er syklusfri",
+      "$\\Theta(V+E)$, og den krever ikke-negative kantvekter i grafen",
+      "$O(E\\lg V)$, og den krever at grafen er syklusfri og sammenhengende",
+      "$\\Theta(VE)$, og den krever at grafen ikke har negative sykler i seg"
+    ],
+    "explanation": "Den topologiske rekkefølgen er kjent på forhånd, så hver node behandles én gang og hver kant slakkes én gang — ingen prioritetskø, ingen logaritmefaktor. Negative vekter er helt uproblematiske her; det er `Dijkstra` som stiller krav til fortegnet."
+  },
+  {
+    "question": "Hvilken kanttype i `DFS` avslører at en rettet graf har en sykel?",
+    "options": [
+      "Tilbakekant — en kant til en node som fortsatt er grå",
+      "Krysskant — en kant til en node i et annet deltre som er ferdig",
+      "Forlengs kant — en kant til en etterkommer som allerede er ferdig",
+      "Trekant — en kant til en node som ennå ikke er oppdaget"
+    ],
+    "explanation": "En grå node ligger på stien vi står i akkurat nå, så kanten lukker en ring tilbake til en forfar. En rettet graf har en sykel hvis og bare hvis `DFS` finner en tilbakekant — de tre andre kanttypene sier ingenting om sykler."
+  },
+  {
+    "question": "Hvorfor må `DAG-Shortest-Path` behandle nodene i topologisk rekkefølge?",
+    "options": [
+      "For at en node skal ha fått sin endelige `d`-verdi før kantene ut fra den slakkes",
+      "For at kantene skal kunne slakkes flere ganger, slik `Bellman-Ford` gjør",
+      "For at prioritetskøen skal kunne holde nodene sortert etter avstand",
+      "For at algoritmen skal kunne oppdage negative sykler underveis i kjøringen"
+    ],
+    "explanation": "Topologisk rekkefølge garanterer at alle innkommende kanter til en node er slakket før noden selv behandles. Algoritmen bruker ingen prioritetskø — det er nettopp det som gjør den $\\Theta(V+E)$ i stedet for $O(E\\lg V)$."
+  },
+  {
+    "question": "Hva er kontrollen på at en `DFS`-håndkjøring har riktige tider?",
+    "options": [
+      "Siste finish-tid skal være $2V$, og hver node skal ha nøyaktig ett par tider",
+      "Siste finish-tid skal være $V$, siden hver node avsluttes nøyaktig én gang",
+      "Alle discover-tider skal være mindre enn alle finish-tider i hele grafen",
+      "Summen av alle discover-tider skal være lik summen av alle finish-tider"
+    ],
+    "explanation": "Klokka telles opp både ved oppdagelse og ved ferdigstilling, så $V$ noder gir $2V$ tidsstempler. At alle discover-tider skulle være mindre enn alle finish-tider, er galt: en node oppdaget sent kan ha lavere finish-tid enn en node som ble ferdig tidlig."
+  },
+  {
+    "question": "En kant med vekt 4 forkastes av `Kruskal`, mens en kant med vekt 5 legges til. Hva betyr det?",
+    "options": [
+      "At endepunktene til firer-kanten allerede lå i samme komponent da den ble vurdert",
+      "At algoritmen har gjort en feil, siden billigere kanter alltid skal foretrekkes",
+      "At firer-kanten er en dobbeltkant mellom to noder som allerede er direkte forbundet",
+      "At femmer-kanten ble vurdert først, siden sorteringen brøt likhet alfabetisk"
+    ],
+    "explanation": "Prisen alene avgjør ikke: kanten må også forbinde to komponenter som ennå ikke henger sammen. `Kruskal` går strengt i stigende vektrekkefølge, så femmer-kanten ble vurdert **etter** firer-kanten, ikke før."
+  },
+  {
+    "question": "Hva gir `BFS` fra en node `s`?",
+    "options": [
+      "Færrest **kanter** fra `s` til hver node — ikke minst samlet vekt",
+      "Korteste vei målt i samlet kantvekt fra `s` til hver node i grafen",
+      "En topologisk sortering av grafen, lest fra `s` og utover i lagene",
+      "Et minimalt spenntre med `s` som rot, bygget lag for lag utover"
+    ],
+    "explanation": "Køen behandler nodene i den rekkefølgen de oppdages, og `v.d` teller antall kanter — vektene brukes ikke i det hele tatt. Skal vekter med, trengs `Dijkstra`, `Bellman-Ford` eller `DAG-Shortest-Path`."
+  },
+  {
+    "question": "Hva er kjøretiden til `MST-Kruskal`, og hvilket steg dominerer?",
+    "options": [
+      "$O(E\\lg V)$ — sorteringen og `Union-Find`-operasjonene er like dyre",
+      "$\\Theta(V^3)$ — alle par av noder må sjekkes mot hverandre",
+      "$\\Theta(V+E)$ — hver node og hver kant besøkes nøyaktig én gang",
+      "$O(V\\lg V)$ — bare nodene må sorteres, ikke kantene i grafen"
+    ],
+    "explanation": "Sorteringen koster $O(E\\lg E)$, og siden $E < V^2$ er $\\lg E = O(\\lg V)$; de $O(E)$ `Union-Find`-operasjonene koster like mye. Det er kantene som sorteres, ikke nodene — algoritmen vurderer hver kant én gang, i stigende vektrekkefølge."
+  },
+  {
+    "question": "Hva skjer med cellene i `Floyd-Warshall` der veien om node $k$ ikke er kortere?",
+    "options": [
+      "De står uendret, i både `d` og `π`",
+      "De regnes om uansett",
+      "De settes til $\\infty$ inntil en senere runde forbedrer dem",
+      "De arver forgjengeren fra rad $k$ selv om avstanden er uendret"
+    ],
+    "explanation": "Testen `if d[i][k] + d[k][j] < d[i][j]` er det eneste som skriver, så alt annet blir liggende. `π` oppdateres bare sammen med `d` — at forgjengeren skulle arves uten at avstanden ble bedre, ville brutt sammenhengen mellom de to matrisene."
+  },
+  {
+    "question": "Hvilken algoritme velger du for korteste vei i en DAG med noen negative kantvekter?",
+    "options": [
+      "`DAG-Shortest-Path`, $\\Theta(V+E)$ — den bryr seg ikke om fortegnet",
+      "`Dijkstra`, $O(E\\lg V)$ — den er raskest når grafen er syklusfri",
+      "`Floyd-Warshall`, $\\Theta(V^3)$ — den eneste som tåler negative vekter",
+      "`Bellman-Ford`, $\\Theta(VE)$ — den eneste som tåler negative vekter fra én kilde"
+    ],
+    "explanation": "Er grafen syklusfri, er den topologiske varianten både raskest og helt upåvirket av fortegn. `Bellman-Ford` ville gitt riktig svar, men til $\\Theta(VE)$ i stedet for $\\Theta(V+E)$ — og `Dijkstra` ville rett og slett gitt feil svar (felle #8)."
+  },
+  {
+    "question": "Hvorfor er rekkefølgen i nabolistene en del av en `DFS`-oppgave?",
+    "options": [
+      "Fordi den avgjør hvilke discover- og finish-tider nodene får",
+      "Fordi den avgjør om algoritmen i det hele tatt finner alle nodene",
+      "Fordi den avgjør kjøretiden, som ellers kunne blitt kvadratisk",
+      "Fordi den avgjør om grafen har en sykel eller ikke i denne kjøringen"
+    ],
+    "explanation": "`DFS` følger nabolistene i den rekkefølgen de står, og en annen rekkefølge gir en annen gyldig kjøring med andre tider. Alle noder blir funnet uansett, og om grafen har en sykel er en egenskap ved grafen — ikke ved kjøringen."
+  },
+  {
+    "question": "Hva er min-pluss-produktet i `Slow-APSP`?",
+    "options": [
+      "$\\min_k (l_{ik} + w_{kj})$",
+      "$\\sum_k l_{ik} w_{kj}$",
+      "$\\min_k (l_{ik} \\cdot w_{kj})$",
+      "$\\sum_k \\min(l_{ik},\\, w_{kj})$"
+    ],
+    "explanation": "Ytterst står minimum, innerst står pluss — vi leter etter det mellomleddet som gir kortest total vei. Ordet «produkt» i navnet er en analogi til matrisemultiplikasjon, ikke en instruks om å gange."
+  },
+  {
+    "question": "Hvilken kontroll bruker du på en topologisk sortering?",
+    "options": [
+      "At hver kant peker framover i den ferdige listen",
+      "At listen er sortert på discover-tid",
+      "At den første noden i listen har inn-grad lik antall kanter",
+      "At listen inneholder nøyaktig $V-1$ noder etter kjøringen"
+    ],
+    "explanation": "Definisjonen av en topologisk sortering er nettopp at hver kant går fra en tidligere til en senere node i rekkefølgen, og det tar sekunder å sjekke. Listen inneholder alle $V$ nodene — det er spenntrær som har $V-1$ elementer, og de er kanter."
+  },
+  {
+    "question": "I `Floyd-Warshall`: hvor arves `π` fra når veien om $k$ vinner?",
+    "options": [
+      "Fra rad $k$: $\\pi^{(k)}_{ij} = \\pi^{(k-1)}_{kj}$",
+      "Fra rad $i$: $\\pi^{(k)}_{ij} = \\pi^{(k-1)}_{ik}$",
+      "Fra node $k$ direkte: $\\pi^{(k)}_{ij} = k$",
+      "Fra kolonne $i$: $\\pi^{(k)}_{ij} = \\pi^{(k-1)}_{ji}$"
+    ],
+    "explanation": "Den siste kanten inn til $j$ er den samme som på korteste sti fra $k$ til $j$, og den informasjonen står i rad $k$. Å sette $\\pi = k$ stemmer bare når kanten $k \\to j$ er den aller siste — ellers ligger det flere noder imellom."
+  },
+  {
+    "question": "Fire av grafalgoritmene er $\\Theta(V+E)$. Hva har de til felles?",
+    "options": [
+      "De besøker hver node og hver kant nøyaktig én gang, uten prioritetskø",
+      "De arbeider på nabomatrisen i stedet for på nabolistene",
+      "De krever alle sammen at grafen er syklusfri for å gi riktig svar",
+      "De gir alle sammen korteste vei målt i samlet kantvekt fra én kilde"
+    ],
+    "explanation": "`BFS`, `DFS`, `Topological-Sort` og `DAG-Shortest-Path` gjør ett gjennomløp med konstant arbeid per node og per kant. Logaritmefaktoren i `Dijkstra`, `Kruskal` og `Prim` kommer fra sortering eller prioritetskø, ikke fra selve grafgjennomgangen."
+  }
+]

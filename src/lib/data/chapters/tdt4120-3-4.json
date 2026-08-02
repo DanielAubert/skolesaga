@@ -1,0 +1,367 @@
+{
+  "id": "tdt4120-3-4",
+  "courseId": "tdt4120",
+  "chapterNumber": "3.4",
+  "title": "Hashing",
+  "description": "Hashtabeller med kjeding, kollisjoner, lastfaktor og hva som gjør en hashfunksjon god — et voksende tema (3/3 i 2022–23).",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "kunne sette inn nøkler i en hashtabell med kjeding ved hjelp av divisjonsmetoden, og lese av innholdet i hver bøtte",
+    "kunne definere kollisjon, kjeding og lastfaktor med egne ord, og regne ut lastfaktoren for en gitt tabell",
+    "kunne oppgi forventet og verste søketid med kjeding, med antakelsen som kreves for forventningen",
+    "kunne begrunne hva som gjør en hashfunksjon god, og hvorfor valget av antall bøtter betyr noe"
+  ],
+  "content": [
+    {
+      "id": "tdt4120-3-4-tip-1",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Hashing er temaet som vokser.** Det er talt i **7 av de 17 settene i\ngrunnlaget (41 %)** — men det er med i **alle tre settene fra 2022 og 2023**.\nPrioriteten i pensumoversikten er «kjenne til», og det står ved lag, men gitt\ntrenden bør du prioritere det høyere enn prosenten alene tilsier. Dette er 45\nminutter som med god margin kan gi poeng.\n\nTemaet testes i tre sjangre, og alle tre trenes her:\n\n- **Sjanger D — definisjon «med egne ord»**, altså at du skriver én presis\n  setning med hovedpoenget først. «Hva er lastfaktoren i en hashtabell?»\n- **Sjanger E — kjøretidskunnskap**, altså at du oppgir det strammeste\n  uttrykket, med `\\Theta` der grensen er tett og `O` der bare den øvre er vist.\n- **Sjanger F — «stemmer dette?»**, altså at du svarer **ja eller nei først**, og\n  så begrunner med én setning. Dette er hashingens hovedsjanger, og fella er\n  nesten alltid den samme: er søk i en hashtabell «alltid raskt»?\n\n**Det ene du må ha helt presist:** søk i en hashtabell med kjeding er\n$\\Theta(1+\\alpha)$ **forventet** under enkel uniform hashing, og $\\Theta(n)$ i\n**verste** tilfelle. Skriver du «garantert $O(1)$», har du svart feil på det\nspørsmålet som stilles oftest.\n\n**Slik er kapitlet lagt opp (45 min):**\n\n| Del | Innhold | Tid |\n|---|---|---|\n| 1 | Hashtabellen, kollisjoner og kjeding | ca. 15 min |\n| 2 | Lastfaktoren og hva søk faktisk koster | ca. 15 min |\n| 3 | Hva som gjør en hashfunksjon god | ca. 15 min |"
+    },
+    {
+      "id": "tdt4120-3-4-t-forkunn",
+      "type": "text",
+      "content": "## Forkunnskaper\n\n- [kap. 1.1](/tdt4120/tdt4120-1-1) — de asymptotiske symbolene. Du trenger\n  særlig skillet mellom $\\Theta$ (tett grense, både over og under) og $O$ (bare\n  øvre grense), og hva det vil si at noe er en **forventet** kjøretid framfor en\n  garantert.\n\nDette sto der: $\\Theta(g(n))$ brukes når du har vist at kjøretiden både er minst\nog høyst av størrelsesorden $g(n)$, mens $O(g(n))$ bare lover et tak. En\n«forventet» kjøretid er et gjennomsnitt over noe tilfeldig — her over hvordan\nnøklene fordeler seg — og sier ingenting om hva som skjer i det verste tilfellet.\n\nTrenger du en mykere inngang til $O$-notasjonen først, ligger den i\n[Algoritmedefinisjon, pseudokode og kompleksitet (Big-O)](/tdt4110/tdt4110-6-3).\n\nDu trenger **ikke** hauger eller søketrær for dette kapitlet. Hashtabellen er en\nhelt egen struktur, og den sammenlignes med søketreet først helt til slutt."
+    },
+    {
+      "id": "tdt4120-3-4-coll-notasjon",
+      "type": "collapsible",
+      "title": "Notasjons- og pseudokodeliste",
+      "buttonText": "Vis notasjon og pseudokode",
+      "content": [
+        {
+          "id": "tdt4120-3-4-nt-1",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et algoritmefag: den lister kjøretidsuttrykk\nog pseudokode-operasjoner i stedet for bare greske bokstaver.\n\n| Symbol | Betydning |\n|---|---|\n| $n$ | antall nøkler som ligger lagret i tabellen |\n| $m$ | antall bøtter, altså plasser i tabellen `T` |\n| $T[0..m-1]$ | selve hashtabellen; hver plass er én bøtte |\n| $k$ | en nøkkel |\n| $h(k)$ | hashfunksjonen: hvilken bøtte nøkkelen `k` hører hjemme i |\n| $\\alpha$ | lastfaktoren, $\\alpha = n/m$ — gjennomsnittlig antall nøkler per bøtte |\n| $\\Theta(1+\\alpha)$ | forventet søketid med kjeding: én hashutregning pluss gjennomgang av kjeden |\n| $\\Theta(n)$ | verste søketid med kjeding, når alle nøklene har havnet i samme bøtte |\n| $k \\bmod m$ | resten når $k$ deles på $m$ — divisjonsmetodens hashfunksjon |"
+        },
+        {
+          "id": "tdt4120-3-4-nt-2",
+          "type": "text",
+          "content": "| Algoritme/operasjon | Kontrakt | Kjøretid |\n|---|---|---|\n| `Chained-Hash-Insert(T, x)` | regner ut `h(x.key)` og legger `x` fremst i den lenkede lista i den bøtta | $O(1)$ |\n| `Chained-Hash-Search(T, k)` | regner ut `h(k)` og går gjennom lista i den bøtta til `k` finnes eller lista er slutt | $\\Theta(1+\\alpha)$ forventet, $\\Theta(n)$ verste |\n| `Chained-Hash-Delete(T, x)` | fjerner `x` fra lista i bøtta `h(x.key)` | $O(1)$ med dobbeltlenket liste når `x` allerede er funnet |\n\n**Formler i dette delkapitlet:**\n\n$$\\alpha = \\frac{n}{m}$$\n\nLastfaktoren: antall lagrede nøkler delt på antall bøtter. Med kjeding kan\n$\\alpha$ godt være større enn 1 — det betyr bare at kjedene i snitt er lengre enn\nett element.\n\n$$h(k) = k \\bmod m$$\n\nDivisjonsmetoden. Den er rask og enkel, men kvaliteten avhenger helt av hvilken\n$m$ du velger.\n\n$$T_{\\text{søk}} = \\Theta(1 + \\alpha) \\ \\text{forventet}, \\qquad\nT_{\\text{søk}} = \\Theta(n) \\ \\text{verste}$$\n\nSøketiden med kjeding. Leddet 1 er hashutregningen, som du betaler uansett;\nleddet $\\alpha$ er gjennomgangen av kjeden."
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-3-4-t-anker",
+      "type": "text",
+      "content": "## Hashtabellen, kollisjoner og kjeding (~15 min)\n\nEt idrettslag låner ut nøkkelbrikker til klubbhuset. Hver brikke har et\nfemsifret nummer, og i løpet av et år er det kanskje tre hundre brikker i\nomløp. Skal du kunne slå opp «hvem har brikke 40 231?» raskt, har du to\nåpenbare, dårlige alternativer.\n\nDu kan lage én plass for hvert mulige brikkenummer. Det gir oppslag på ett\nøyeblikk, men krever hundre tusen plasser for tre hundre brikker. Eller du kan\nlegge brikkene i en liste og lete gjennom den. Det tar minimalt med plass, men\noppslaget koster $\\Theta(n)$.\n\nHashtabellen er kompromisset: du velger et **håndterbart** antall plasser, og\nlar en regel bestemme hvilken plass hver nøkkel hører hjemme i. Regelen er\nhashfunksjonen. Med tre hundre brikker holder det med for eksempel 401 plasser —\nog oppslaget blir raskt likevel."
+    },
+    {
+      "id": "tdt4120-3-4-def-1",
+      "type": "definition",
+      "title": "Hashtabell",
+      "content": "en tabell `T` med $m$ plasser der plassen til en nøkkel bestemmes av en regel i\nstedet for av innsettingsrekkefølgen. Plassene kalles **bøtter**. Tabellen bruker\n$\\Theta(m + n)$ plass, altså langt mindre enn én plass per mulige nøkkel, og\nstøtter innsetting, søk og sletting."
+    },
+    {
+      "id": "tdt4120-3-4-def-2",
+      "type": "definition",
+      "title": "Hashfunksjon",
+      "content": "regelen $h$ som avgjør hvilken bøtte en nøkkel havner i: $h(k)$ er et tall\nmellom $0$ og $m-1$. Den må være **deterministisk** (samme nøkkel gir samme bøtte\nhver gang), **rask** å regne ut, og den bør spre nøklene **jevnt** over bøttene.\nEn hashfunksjon oversetter altså fra et stort nøkkelunivers til et lite\ntabellområde."
+    },
+    {
+      "id": "tdt4120-3-4-def-3",
+      "type": "definition",
+      "title": "Kollisjon",
+      "content": "at to ulike nøkler får samme bøtte, altså $h(k_1) = h(k_2)$ for\n$k_1 \\ne k_2$. Kollisjoner er **uunngåelige** når nøkkeluniverset er større enn\nantall bøtter, og en hashtabell er derfor alltid en struktur pluss en\nkollisjonsstrategi. Spørsmålet er aldri om kollisjoner oppstår, men hva du gjør\nnår de gjør det."
+    },
+    {
+      "id": "tdt4120-3-4-def-4",
+      "type": "definition",
+      "title": "Kjeding",
+      "content": "kollisjonsstrategien der hver bøtte holder en **lenket liste** av alle nøklene\nsom hashet dit. Innsetting legger den nye nøkkelen fremst i lista og koster\n$O(1)$; søk må gå gjennom lista i den ene bøtta. Alle nøklene ligger altså inne i\ntabellen, og antall nøkler kan overstige antall bøtter."
+    },
+    {
+      "id": "tdt4120-3-4-thm-1",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `Chained-Hash-Insert` og `Chained-Hash-Search`",
+      "content": "**Antagelser om representasjon.** `T` er en tabell med $m$ plasser, indeksert\n`T[0]` til `T[m-1]`. Hver plass peker til en lenket liste, som er tom i\nutgangspunktet. Hashfunksjonen `h` gir et heltall i `0..m-1` for enhver nøkkel.\n\n**Prebetingelse:** `T` er en gyldig hashtabell med kjeding. **Postbetingelse for\ninnsetting:** `x` ligger fremst i lista `T[h(x.key)]`, og ingen andre elementer\ner flyttet.\n\n```text\nChained-Hash-Insert(T, x)\n  Input:  hashtabell T med kjeding, element x med noekkel x.key\n  Output: x lagt inn fremst i lista T[h(x.key)]\n  sett x fremst i den lenkede lista T[h(x.key)]\n  Kjoretid: O(1)\n```\n\n```text\nChained-Hash-Search(T, k)\n  Input:  hashtabell T med kjeding, noekkel k\n  Output: elementet med noekkel k, eller NIL\n  i = h(k)\n  for hvert element y i den lenkede lista T[i]\n      if y.key == k\n          return y\n  return NIL\n  Kjoretid: Theta(1 + alfa) forventet, Theta(n) verste\n```\n\n**Grunnideen i én setning:** hashfunksjonen gjør om et søk i hele datamengden til\net søk i én enkelt kjede, og alt henger på hvor korte de kjedene er.\n\n**Kjøretid:** innsetting er $O(1)$ fordi den ikke leter — den legger elementet\nfremst uten å sjekke om nøkkelen finnes fra før. Søk koster én hashutregning\npluss gjennomgangen av kjeden, altså $\\Theta(1+\\alpha)$ forventet under enkel\nuniform hashing, og $\\Theta(n)$ når alle $n$ nøklene ligger i samme bøtte."
+    },
+    {
+      "id": "tdt4120-3-4-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Seks nøkler inn i en tabell med sju bøtter",
+      "problem": "En hashtabell har $m = 7$ bøtter og bruker divisjonsmetoden $h(k) = k \\bmod 7$.\nSett inn nøklene `26, 13, 40, 9, 18, 31` i denne rekkefølgen.\n\n**a)** Hvordan ser tabellen ut etterpå?\n**b)** Hva er lastfaktoren?\n**c)** Hvor mange sammenligninger koster et mislykket søk etter nøkkelen 5?",
+      "solution": "**a)** Vi regner ut $h(k)$ for hver nøkkel og legger den fremst i sin bøtte.\n\n| Steg | Nøkkel `k` | `h(k) = k mod 7` | Kollisjon? | Bøtta etter innsettingen |\n|---|---|---|---|---|\n| 1 | 26 | 26 mod 7 = 5 | nei | `26` |\n| 2 | 13 | 13 mod 7 = 6 | nei | `13` |\n| 3 | 40 | 40 mod 7 = 5 | ja (1 element der fra før) | `40 -> 26` |\n| 4 | 9 | 9 mod 7 = 2 | nei | `9` |\n| 5 | 18 | 18 mod 7 = 4 | nei | `18` |\n| 6 | 31 | 31 mod 7 = 3 | nei | `31` |\n\nTabellen til slutt:\n\n```text\nT[0]: tom\nT[1]: tom\nT[2]: 9\nT[3]: 31\nT[4]: 18\nT[5]: 40 -> 26\nT[6]: 13\n```\n\n**b)** $\\alpha = n/m = 6/7 \\approx 0{,}86$.\n\n**c)** $h(5) = 5$, så søket går til bøtte 5. Der ligger 40 og 26. Begge må\nsammenlignes med 5 før søket kan svare at nøkkelen ikke finnes: **to\nsammenligninger**.\n\n**Legg merke til rekkefølgen i bøtte 5.** Nøkkelen 40 kom sist, men ligger\nførst. `Chained-Hash-Insert` legger alltid det nye elementet fremst, fordi det er\n$O(1)$ — å legge det bakerst ville krevd at man gikk gjennom hele lista.\n\n**Legg merke til hva et mislykket søk koster.** Det er dyrere enn et vellykket\nsøk i gjennomsnitt, fordi det alltid må gå gjennom **hele** kjeden. Et vellykket\nsøk kan stoppe underveis."
+    },
+    {
+      "id": "tdt4120-3-4-fig-1",
+      "type": "image",
+      "src": "/images/textbook/tdt4120/3-4-hashtabell-kjeding.svg",
+      "alt": "Sju rader merket T null til T seks. Rad to inneholder 9, rad tre 31, rad fire 18, rad fem inneholder to bokser med 40 og 26 etter hverandre, og rad seks inneholder 13. Rad null og rad en er tomme.",
+      "caption": "Tabellen fra Eksempel 1. Bøtte 5 er den eneste med en kollisjon: både 40 og 26 gir $h(k) = 5$, og de ligger derfor i samme kjede. Lastfaktoren er $\\alpha = 6/7$."
+    },
+    {
+      "id": "tdt4120-3-4-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-3-4-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamensnivå, sjanger C — håndkjøring, altså at du utfører algoritmen steg for\nsteg og oppgir bare sluttilstanden.)\n\nEn hashtabell med kjeding har $m = 5$ bøtter og bruker $h(k) = k \\bmod 5$. Sett\ninn nøklene `14, 29, 7, 20, 33, 11` i denne rekkefølgen.\n\n**a)** Oppgi innholdet i hver av de fem bøttene.\n**b)** Hva er lastfaktoren?",
+        "solution": "| Steg | Nøkkel `k` | `h(k) = k mod 5` | Kollisjon? | Bøtta etter innsettingen |\n|---|---|---|---|---|\n| 1 | 14 | 14 mod 5 = 4 | nei | `14` |\n| 2 | 29 | 29 mod 5 = 4 | ja (1 element der fra før) | `29 -> 14` |\n| 3 | 7 | 7 mod 5 = 2 | nei | `7` |\n| 4 | 20 | 20 mod 5 = 0 | nei | `20` |\n| 5 | 33 | 33 mod 5 = 3 | nei | `33` |\n| 6 | 11 | 11 mod 5 = 1 | nei | `11` |\n\nPå eksamen leverer du bare linjene under — tavlen er her for å vise hvordan du\nkommer dit.\n\n**a)**\n\n```text\nT[0]: 20\nT[1]: 11\nT[2]: 7\nT[3]: 33\nT[4]: 29 -> 14\n```\n\n**b)** $\\alpha = 6/5 = 1{,}2$.\n\n**Margnotat.** Lastfaktoren er større enn 1 her, og det er helt uproblematisk med\nkjeding: den sier bare at det i snitt ligger 1,2 nøkler per bøtte. Det er\nkollisjonsstrategier der $\\alpha$ **ikke** kan overstige 1, men kjeding er ikke\nen av dem.",
+        "hints": [
+          "Regn ut $k \\bmod 5$ for hver nøkkel, i den rekkefølgen de kommer.",
+          "Nye nøkler legges **fremst** i kjeden, ikke bakerst.",
+          "Lastfaktoren er antall lagrede nøkler delt på antall bøtter."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-3-4-t-lastfaktor",
+      "type": "text",
+      "content": "## Lastfaktoren og hva et søk faktisk koster (~15 min)\n\nHashtabellens hastighet er ikke en egenskap ved strukturen alene. Den avhenger\nav hvor full tabellen er, og av hvor jevnt nøklene har fordelt seg. Det første\nmåles av lastfaktoren."
+    },
+    {
+      "id": "tdt4120-3-4-def-5",
+      "type": "definition",
+      "title": "Lastfaktor",
+      "content": "forholdet $\\alpha = n/m$ mellom antall lagrede nøkler og antall bøtter, altså\ngjennomsnittlig kjedelengde. Med kjeding kan $\\alpha$ være både mindre og større\nenn 1. Lastfaktoren er den ene knappen du kan skru på: holder du $\\alpha$\nkonstant ved å øke $m$ når $n$ vokser, holder du også den forventede søketiden\nkonstant."
+    },
+    {
+      "id": "tdt4120-3-4-thm-2",
+      "type": "theorem",
+      "title": "Forventet søketid med kjeding",
+      "content": "**Antakelsen** kalles **enkel uniform hashing**: hver nøkkel er like sannsynlig\nå hashe til hver av de $m$ bøttene, uavhengig av hvor de andre nøklene havner.\nDette er en antakelse om nøklene og hashfunksjonen sammen — ikke noe algoritmen\nkan garantere.\n\n**Under den antakelsen** er den forventede lengden på en kjede lik lastfaktoren\n$\\alpha = n/m$. Et søk koster da\n\n$$\\Theta(1 + \\alpha),$$\n\nder leddet 1 er hashutregningen og oppslaget i tabellen, som du betaler uansett,\nog leddet $\\alpha$ er gjennomgangen av kjeden.\n\n**Konsekvensen** er den viktigste setningen i kapitlet: holder du $\\alpha$\nbegrenset av en konstant — for eksempel ved å velge $m$ slik at\n$n = O(m)$ — blir forventet søketid $\\Theta(1)$. Det er nettopp derfor\nhashtabeller er raske i praksis.\n\n**Verste tilfelle er noe helt annet.** Havner alle $n$ nøklene i samme bøtte, er\ntabellen redusert til én lenket liste, og et søk koster $\\Theta(n)$. Det er ikke\net teoretisk grensetilfelle: velger du $m = 6$ og alle nøklene er delelige med 6,\nskjer det.\n\n**Derfor:** søk i en hashtabell med kjeding er $\\Theta(1+\\alpha)$ **forventet**\nog $\\Theta(n)$ i **verste** tilfelle. Uttrykket «garantert $O(1)$» er galt, og\ndet er den feilen dette temaet oftest tester."
+    },
+    {
+      "id": "tdt4120-3-4-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Samme antall nøkler, mye dårligere fordeling",
+      "problem": "En hashtabell har $m = 9$ bøtter og $h(k) = k \\bmod 9$. Sett inn nøklene\n`18, 27, 45, 13, 36, 22, 31`.\n\n**a)** Hvordan ser tabellen ut?\n**b)** Hva er lastfaktoren, og hva koster et mislykket søk etter nøkkelen 40?\n**c)** Hva forteller dette om forskjellen mellom forventet og verste tilfelle?",
+      "solution": "**a)**\n\n| Steg | Nøkkel `k` | `h(k) = k mod 9` | Kollisjon? | Bøtta etter innsettingen |\n|---|---|---|---|---|\n| 1 | 18 | 18 mod 9 = 0 | nei | `18` |\n| 2 | 27 | 27 mod 9 = 0 | ja (1 element der fra før) | `27 -> 18` |\n| 3 | 45 | 45 mod 9 = 0 | ja (2 elementer der fra før) | `45 -> 27 -> 18` |\n| 4 | 13 | 13 mod 9 = 4 | nei | `13` |\n| 5 | 36 | 36 mod 9 = 0 | ja (3 elementer der fra før) | `36 -> 45 -> 27 -> 18` |\n| 6 | 22 | 22 mod 9 = 4 | ja (1 element der fra før) | `22 -> 13` |\n| 7 | 31 | 31 mod 9 = 4 | ja (2 elementer der fra før) | `31 -> 22 -> 13` |\n\n```text\nT[0]: 36 -> 45 -> 27 -> 18\nT[1]: tom\nT[2]: tom\nT[3]: tom\nT[4]: 31 -> 22 -> 13\nT[5]: tom\nT[6]: tom\nT[7]: tom\nT[8]: tom\n```\n\n**b)** $\\alpha = 7/9 \\approx 0{,}78$. Et mislykket søk etter 40 går til bøtte\n$40 \\bmod 9 = 4$, og må gjennom hele kjeden der: **tre sammenligninger**.\n\n**c)** Lastfaktoren er lavere enn i Eksempel 1 ($0{,}78$ mot $0{,}86$), men\ntabellen er klart dårligere. Sju av ni bøtter står tomme, og de to kjedene er\nfire og tre lange. Lastfaktoren er et **gjennomsnitt**, og gjennomsnittet sier\ningenting om hvordan nøklene faktisk har spredt seg.\n\n**Hvorfor det gikk galt her.** Fire av nøklene er delelige med 9, så de gir alle\n$h(k) = 0$. Med $m = 9$ blir hashfunksjonen dermed helt avhengig av om nøklene\ntilfeldigvis har en felles faktor med 9. Det er ikke tilfeldig at anbefalingen er\nå velge $m$ som et **primtall** som ikke ligger nær en potens av 2: da er det\nlangt færre nøkkelmønstre som kan kollapse på denne måten."
+    },
+    {
+      "id": "tdt4120-3-4-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-3-4-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C.)\n\nEn hashtabell med kjeding har $m = 8$ bøtter og $h(k) = k \\bmod 8$. Sett inn\nnøklene `41, 17, 25, 33, 6, 19` i denne rekkefølgen.\n\n**a)** Oppgi innholdet i hver bøtte.\n**b)** Hva er lastfaktoren, og hva er den lengste kjeden?\n**c)** Hvor mange sammenligninger koster et mislykket søk etter nøkkelen 12?",
+        "solution": "| Steg | Nøkkel `k` | `h(k) = k mod 8` | Kollisjon? | Bøtta etter innsettingen |\n|---|---|---|---|---|\n| 1 | 41 | 41 mod 8 = 1 | nei | `41` |\n| 2 | 17 | 17 mod 8 = 1 | ja (1 element der fra før) | `17 -> 41` |\n| 3 | 25 | 25 mod 8 = 1 | ja (2 elementer der fra før) | `25 -> 17 -> 41` |\n| 4 | 33 | 33 mod 8 = 1 | ja (3 elementer der fra før) | `33 -> 25 -> 17 -> 41` |\n| 5 | 6 | 6 mod 8 = 6 | nei | `6` |\n| 6 | 19 | 19 mod 8 = 3 | nei | `19` |\n\nPå eksamen leverer du bare linjene under — tavlen er her for å vise hvordan du\nkommer dit.\n\n**a)**\n\n```text\nT[0]: tom\nT[1]: 33 -> 25 -> 17 -> 41\nT[2]: tom\nT[3]: 19\nT[4]: tom\nT[5]: tom\nT[6]: 6\nT[7]: tom\n```\n\n**b)** $\\alpha = 6/8 = 0{,}75$. Lengste kjede er **fire** (bøtte 1).\n\n**c)** $12 \\bmod 8 = 4$, og bøtte 4 er tom: **null sammenligninger**.\n\n**Margnotat.** De fire nøklene 41, 17, 25 og 33 gir alle rest 1 ved deling på 8,\nfordi de ligger 8 fra hverandre. Med $m = 8$, altså en potens av 2, avgjøres\nbøtta utelukkende av de tre siste bitene i nøkkelen — all annen informasjon i\ntallet kastes bort. Det er hovedgrunnen til at potenser av 2 frarådes som $m$ i\ndivisjonsmetoden.",
+        "hints": [
+          "Regn ut $k \\bmod 8$ for hver nøkkel etter tur.",
+          "Se etter hva de fire første nøklene har til felles når du deler på 8.",
+          "Et mislykket søk koster like mange sammenligninger som det er elementer i den bøtta."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-3-4-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-3-4-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C og sjanger E — kjøretidskunnskap, der du oppgir det\nstrammeste uttrykket.)\n\nEn hashtabell med kjeding har $m = 6$ bøtter og $h(k) = k \\bmod 6$. Sett inn\nnøklene `12, 18, 24, 30, 7`.\n\n**a)** Oppgi innholdet i hver bøtte.\n**b)** Hva koster et mislykket søk etter nøkkelen 42, målt i sammenligninger?\n**c)** Hva er kjøretiden for søk i denne tabellen i verste tilfelle, uttrykt i\n$n$?",
+        "solution": "| Steg | Nøkkel `k` | `h(k) = k mod 6` | Kollisjon? | Bøtta etter innsettingen |\n|---|---|---|---|---|\n| 1 | 12 | 12 mod 6 = 0 | nei | `12` |\n| 2 | 18 | 18 mod 6 = 0 | ja (1 element der fra før) | `18 -> 12` |\n| 3 | 24 | 24 mod 6 = 0 | ja (2 elementer der fra før) | `24 -> 18 -> 12` |\n| 4 | 30 | 30 mod 6 = 0 | ja (3 elementer der fra før) | `30 -> 24 -> 18 -> 12` |\n| 5 | 7 | 7 mod 6 = 1 | nei | `7` |\n\nPå eksamen leverer du bare linjene under — tavlen er her for å vise hvordan du\nkommer dit.\n\n**a)**\n\n```text\nT[0]: 30 -> 24 -> 18 -> 12\nT[1]: 7\nT[2]: tom\nT[3]: tom\nT[4]: tom\nT[5]: tom\n```\n\n**b)** $42 \\bmod 6 = 0$, så søket går til bøtte 0 og må gjennom alle fire\nelementene: **fire sammenligninger**.\n\n**c)** $\\Theta(n)$. Fire av de fem nøklene ligger i én kjede, og et søk dit må\ngjennom hele kjeden.\n\n**Margnotat.** Her er lastfaktoren $\\alpha = 5/6 \\approx 0{,}83$, altså under 1 —\nog likevel er tabellen nesten like treg som en lenket liste. Det er hele poenget\nmed skillet mellom forventet og verste tilfelle: den forventede kjøretiden\n$\\Theta(1+\\alpha)$ hviler på antakelsen om enkel uniform hashing, og den\nantakelsen holder ikke når nøklene alle er multipler av 6.",
+        "hints": [
+          "Alle de fire første nøklene har noe til felles med tallet 6.",
+          "Et mislykket søk går gjennom hele kjeden i den ene bøtta.",
+          "For deloppgave c): hvor mange av de $n$ nøklene ligger i samme bøtte i verste tilfelle?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-3-4-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-3-4-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger C og sjanger E.)\n\nEn hashtabell med kjeding har $m = 11$ bøtter og $h(k) = k \\bmod 11$. Sett inn\nnøklene `52, 19, 41, 30, 63, 8`.\n\n**a)** Oppgi innholdet i hver bøtte.\n**b)** Er dette verstetilfellet for en hashtabell med kjeding og $n = 6$? Svar ja\neller nei, og begrunn med én setning.\n**c)** Betyr resultatet at $m = 11$ er et dårlig valg? Begrunn med én setning.",
+        "solution": "| Steg | Nøkkel `k` | `h(k) = k mod 11` | Kollisjon? | Bøtta etter innsettingen |\n|---|---|---|---|---|\n| 1 | 52 | 52 mod 11 = 8 | nei | `52` |\n| 2 | 19 | 19 mod 11 = 8 | ja (1 element der fra før) | `19 -> 52` |\n| 3 | 41 | 41 mod 11 = 8 | ja (2 elementer der fra før) | `41 -> 19 -> 52` |\n| 4 | 30 | 30 mod 11 = 8 | ja (3 elementer der fra før) | `30 -> 41 -> 19 -> 52` |\n| 5 | 63 | 63 mod 11 = 8 | ja (4 elementer der fra før) | `63 -> 30 -> 41 -> 19 -> 52` |\n| 6 | 8 | 8 mod 11 = 8 | ja (5 elementer der fra før) | `8 -> 63 -> 30 -> 41 -> 19 -> 52` |\n\nPå eksamen leverer du bare linjene under — tavlen er her for å vise hvordan du\nkommer dit.\n\n**a)**\n\n```text\nT[0]: tom\nT[1]: tom\nT[2]: tom\nT[3]: tom\nT[4]: tom\nT[5]: tom\nT[6]: tom\nT[7]: tom\nT[8]: 8 -> 63 -> 30 -> 41 -> 19 -> 52\nT[9]: tom\nT[10]: tom\n```\n\n**b) Ja.** Alle $n = 6$ nøklene ligger i samme bøtte, så tabellen oppfører seg\nnøyaktig som én lenket liste, og et søk koster $\\Theta(n)$.\n\n**c) Nei.** $m = 11$ er et primtall og et helt greit valg; det som gikk galt her,\ner at nøklene tilfeldigvis alle gir rest 8 ved deling på 11. Ingen fast\nhashfunksjon kan hindre at det finnes nøkkelsett som kollapser i én bøtte —\nverstetilfellet er en egenskap ved kombinasjonen av nøkler og funksjon, ikke ved\n$m$ alene.\n\n**Margnotat.** Deloppgave c) er den som skiller. Fristelsen er å svare «ja,\n$m = 11$ var dårlig» fordi resultatet ble dårlig. Men resultatet forteller bare\nat akkurat disse seks nøklene ligger 11 fra hverandre. Det er derfor\nverstetilfellet alltid er $\\Theta(n)$, uansett hvor god hashfunksjonen er — og\nderfor den forventede kjøretiden alltid oppgis med antakelsen om enkel uniform\nhashing eksplisitt.",
+        "hints": [
+          "Regn ut $k \\bmod 11$ for alle seks nøklene før du konkluderer.",
+          "Se etter differansen mellom nøklene.",
+          "For deloppgave c): kan noen fast hashfunksjon garantere at ingen nøkkelsett samler seg i én bøtte?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-3-4-t-god-hash",
+      "type": "text",
+      "content": "## Hva gjør en hashfunksjon god? (~15 min)\n\nKravene er tre, og de kan alle formuleres i én setning hver. Dette er\ndefinisjonssjangeren i praksis: du blir bedt om å nevne kravene, ikke om å bevise\nnoe.\n\n**Uniform fordeling.** Nøklene skal spres jevnt over bøttene, slik at ingen\nkjede blir mye lengre enn de andre. Dette er det som gjør antakelsen om enkel\nuniform hashing rimelig, og dermed det som gjør $\\Theta(1+\\alpha)$ til noe du kan\nregne med i praksis.\n\n**Determinisme.** Samme nøkkel må gi samme bøtte hver gang. Uten det kan du\nsette inn en nøkkel og aldri finne den igjen. Kravet virker banalt, men det\nutelukker enhver hashfunksjon som bruker tilfeldighet eller tid.\n\n**Hastighet.** Utregningen av $h(k)$ må koste $O(1)$. Er hashfunksjonen dyrere\nenn å gå gjennom en kort kjede, har du tapt det du kom for."
+    },
+    {
+      "id": "tdt4120-3-4-def-6",
+      "type": "definition",
+      "title": "Divisjonsmetoden",
+      "content": "hashfunksjonen $h(k) = k \\bmod m$, altså resten når nøkkelen deles på antall\nbøtter. Den er rask og enkel, og den er den du regner med for hånd på eksamen.\nKvaliteten avhenger helt av valget av $m$: et **primtall** som ikke ligger nær en\npotens av 2 er anbefalingen, fordi $m$ som potens av 2 gjør at bare de nederste\nbitene i nøkkelen teller."
+    },
+    {
+      "id": "tdt4120-3-4-def-7",
+      "type": "definition",
+      "title": "Multiplikasjonsmetoden",
+      "content": "en alternativ hashfunksjon der nøkkelen først multipliseres med en konstant\nmellom 0 og 1, og desimaldelen av produktet deretter skaleres opp til\n$0..m-1$. Fordelen er at valget av $m$ ikke er kritisk — metoden fungerer også\nnår $m$ er en potens av 2. Du trenger å kjenne den som begrep og vite hva den\nløser; det er divisjonsmetoden du regner med."
+    },
+    {
+      "id": "tdt4120-3-4-warn-1",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Å påstå at søk i en hashtabell er garantert $O(1)$.** Dette er kapitlets\n  hovedfelle, og den kommer igjen og igjen i «stemmer dette?»-oppgaver. Riktig\n  svar er at søk er $\\Theta(1+\\alpha)$ **forventet** under enkel uniform\n  hashing, og $\\Theta(n)$ i **verste** tilfelle. Kontrollen: har du skrevet ordet\n  «forventet» eller «i gjennomsnitt» i svaret ditt? Hvis ikke, mangler det noe.\n- **Å blande kjeding med åpen adressering.** Med **kjeding** ligger nøklene i\n  lenkede lister utenfor selve tabellplassen, og $\\alpha$ kan være større enn 1.\n  Med **åpen adressering** — den andre hovedstrategien, der en kolliderende\n  nøkkel i stedet plasseres i en annen ledig bøtte i tabellen — ligger alle\n  nøklene inne i tabellen, og da må $\\alpha \\le 1$. Sier en oppgave «kjeding»,\n  gjelder det første.\n- **Å glemme lastfaktorens rolle i svaret.** Et svar som bare sier «søk er raskt»\n  får ikke uttelling. Det er $\\alpha$ som styrer, og det er derfor tabellen må\n  vokse når $n$ vokser.\n- **Å tro at en lav lastfaktor garanterer korte kjeder.** Lastfaktoren er et\n  gjennomsnitt. Med $m = 6$ og nøklene 12, 18, 24 og 30 er $\\alpha$ under 1, mens\n  den lengste kjeden er fire.\n- **Å tro at enhver hashfunksjon gir uniform fordeling.** Uniformitet er en\n  **antakelse** vi gjør for å kunne regne, og et **mål** når vi designer\n  funksjonen — ikke noe som følger av at funksjonen er en hashfunksjon."
+    },
+    {
+      "id": "tdt4120-3-4-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-3-4-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger F — «stemmer dette?», der du svarer ja eller nei først og\nderetter begrunner med én setning.)\n\nStemmer det at søk i en hashtabell med kjeding alltid er $O(1)$?",
+        "solution": "**Nei.**\n\nSøk med kjeding er $\\Theta(1+\\alpha)$ **forventet** under enkel uniform hashing,\nmen $\\Theta(n)$ i verste tilfelle, når alle $n$ nøklene har hashet til samme\nbøtte.\n\n**Margnotat.** Svarformen i denne sjangeren er to linjer: ja eller nei først, så\nén presis setning. Setningen må inneholde både det forventede og det verste\ntilfellet — nevner du bare det ene, har du bare halve poenget. Og skriv\n«forventet», ikke «i snitt fort».",
+        "hints": [
+          "Sjangeren krever ja eller nei først, og deretter én setning.",
+          "Tenk over hva som skjer hvis alle nøklene tilfeldigvis gir samme bøtte.",
+          "Skillet mellom forventet og verste tilfelle må stå eksplisitt i setningen."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-3-4-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-3-4-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger F.)\n\nSvar ja eller nei på hver av påstandene, og begrunn hver med én setning.\n\n**a)** Lastfaktoren i en hashtabell med kjeding kan ikke være større enn 1.\n**b)** En hashfunksjon må være deterministisk.\n**c)** Kollisjoner kan unngås helt hvis hashfunksjonen er god nok.",
+        "solution": "**a) Nei.** Med kjeding ligger nøklene i lenkede lister utenfor tabellplassene,\nså $\\alpha = n/m$ kan godt være større enn 1 — det betyr bare at kjedene i snitt\ner lengre enn ett element.\n\n**b) Ja.** Samme nøkkel må gi samme bøtte hver gang, ellers ville du ikke kunne\nfinne igjen noe du har satt inn.\n\n**c) Nei.** Når nøkkeluniverset er større enn antall bøtter, må minst to nøkler\ndele bøtte, uansett hvor god funksjonen er.\n\n**Margnotat.** Legg merke til at listen blander sant og usant. Svarer du «nei» på\nalt eller «ja» på alt, er sjansen stor for at du ikke har lest hver påstand for\nseg. Behandle hver som en egen oppgave.",
+        "hints": [
+          "Ta én påstand om gangen og svar ja eller nei før du begrunner.",
+          "For a): hvor ligger nøklene fysisk når man bruker kjeding?",
+          "For c): sammenlign antall mulige nøkler med antall bøtter."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-3-4-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-3-4-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger D — definisjon med egne ord, der du skriver én presis\nsetning med hovedpoenget først, og sjanger E.)\n\n**a)** Definer lastfaktoren i en hashtabell.\n**b)** Oppgi forventet søketid for en hashtabell med kjeding, med den antakelsen\nsom kreves, og verste søketid.",
+        "solution": "**a)** Lastfaktoren $\\alpha = n/m$ er antall lagrede nøkler delt på antall\nbøtter, altså gjennomsnittlig kjedelengde.\n\n**b)** Forventet søketid er $\\Theta(1+\\alpha)$ under enkel uniform hashing, der\nhver nøkkel er like sannsynlig å havne i hver bøtte, uavhengig av de andre.\nVerste søketid er $\\Theta(n)$, når alle nøklene ligger i samme bøtte.\n\n**Margnotat.** Dette er hele svaret. Sjanger D ber om én presis setning med\nhovedpoenget først — ikke om en forklaring av hvorfor hashtabeller er nyttige.\nDet som gir uttelling i b), er at antakelsen står der: uten «under enkel uniform\nhashing» er $\\Theta(1+\\alpha)$ en påstand som ikke holder.",
+        "hints": [
+          "Definisjonen av lastfaktoren er en brøk mellom to størrelser du må navngi.",
+          "Forventet søketid har to ledd, og hvert ledd svarer til en konkret kostnad.",
+          "Antakelsen har et navn, og den skal stå i svaret."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-3-4-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-3-4-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger E og sjanger F.)\n\nTo hashtabeller bruker begge kjeding, har begge $m = 6$ bøtter og lagrer begge\nfem nøkler. Tabell 1 har nøklene `12, 18, 24, 30, 7`; tabell 2 har nøklene\n`1, 2, 3, 4, 5`. Begge bruker $h(k) = k \\bmod 6$.\n\n**a)** Hva er lastfaktoren i hver av tabellene?\n**b)** Hva er lengste kjede i hver av dem?\n**c)** Stemmer det at to hashtabeller med samme lastfaktor har samme søketid i\nverste tilfelle? Svar ja eller nei, og begrunn med én setning.",
+        "solution": "**a)** Begge har $\\alpha = 5/6 \\approx 0{,}83$.\n\n**b)** Tabell 1: nøklene 12, 18, 24 og 30 gir alle $h(k) = 0$, og 7 gir\n$h(k) = 1$. Lengste kjede er **fire**. Tabell 2: nøklene gir bøttene 1, 2, 3, 4\nog 5, én i hver. Lengste kjede er **én**.\n\n```text\nTabell 1                     Tabell 2\nT[0]: 30 -> 24 -> 18 -> 12   T[0]: tom\nT[1]: 7                      T[1]: 1\nT[2]: tom                    T[2]: 2\nT[3]: tom                    T[3]: 3\nT[4]: tom                    T[4]: 4\nT[5]: tom                    T[5]: 5\n```\n\n**c) Nei.** Lastfaktoren er et gjennomsnitt over bøttene, og to tabeller med\nsamme gjennomsnitt kan ha helt ulik fordeling — her koster et mislykket søk fire\nsammenligninger i den ene og høyst én i den andre.\n\n**Margnotat.** Dette er den presiseringen som skiller et godt svar fra et\nhalvgodt. $\\Theta(1+\\alpha)$ er en **forventet** kjøretid som forutsetter at\nnøklene fordeler seg jevnt. Lastfaktoren alene forteller deg ingenting om det\nverste tilfellet — den forteller deg hva du kan håpe på, ikke hva du er garantert.",
+        "hints": [
+          "Regn ut $k \\bmod 6$ for alle ti nøklene, fem og fem.",
+          "Lastfaktoren teller bare hvor mange nøkler og hvor mange bøtter det er.",
+          "For deloppgave c): kan to fordelinger ha samme gjennomsnitt uten å være like?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-3-4-t-kjoretid",
+      "type": "text",
+      "content": "## Kjøretidene, samlet\n\n| Operasjon | Forventet | Verste | Krav / egenskap |\n|---|---|---|---|\n| `Chained-Hash-Insert` | $O(1)$ | $O(1)$ | legger fremst i kjeden, sjekker ikke om nøkkelen finnes fra før |\n| `Chained-Hash-Search` | $\\Theta(1+\\alpha)$ | $\\Theta(n)$ | forventningen krever enkel uniform hashing |\n| `Chained-Hash-Delete` | $O(1)$ | $O(1)$ | forutsetter dobbeltlenket liste og at elementet allerede er funnet |\n| Plassbruk | $\\Theta(m+n)$ | $\\Theta(m+n)$ | $m$ bøtter pluss $n$ lagrede nøkler |\n\n**Til sammenligning:** et binært søketre gir $O(h)$ på søk, der høyden $h$ er\n$\\Theta(\\lg n)$ forventet for et tilfeldig bygd tre og $\\Theta(n)$ i verste\ntilfelle — se [kap. 3.2](/tdt4120/tdt4120-3-2). Hashtabellen er raskere i det\ntypiske tilfellet, men søketreet gir deg noe hashtabellen ikke gir: nøklene i\nsortert rekkefølge, i $\\Theta(n)$, via `Inorder-Tree-Walk`. Trenger du orden,\nhjelper ingen hashfunksjon deg."
+    },
+    {
+      "id": "tdt4120-3-4-t-bank",
+      "type": "text",
+      "content": "### Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har\nlest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder\nkjernestoffet."
+    },
+    {
+      "id": "tdt4120-3-4-def-8",
+      "type": "definition",
+      "title": "Bøtte",
+      "content": "én av de $m$ plassene i hashtabellen. Med kjeding holder hver bøtte en lenket\nliste over alle nøklene som hashet dit, og en bøtte kan være tom, ha ett element\neller ha mange. Antall bøtter er $m$, og det er den ene størrelsen du styrer selv\nnår du dimensjonerer tabellen."
+    },
+    {
+      "id": "tdt4120-3-4-def-9",
+      "type": "definition",
+      "title": "Enkel uniform hashing",
+      "content": "antakelsen om at hver nøkkel er like sannsynlig å hashe til hver av de $m$\nbøttene, uavhengig av hvor de andre nøklene havner. Det er denne antakelsen som\ngjør forventet søketid $\\Theta(1+\\alpha)$. Den er en antakelse om nøklene og\nhashfunksjonen sammen, ikke en garanti algoritmen kan gi."
+    },
+    {
+      "id": "tdt4120-3-4-def-10",
+      "type": "definition",
+      "title": "Forventet søketid med kjeding",
+      "content": "$\\Theta(1+\\alpha)$ under enkel uniform hashing: ett ledd for hashutregningen og\ntabelloppslaget, og ett ledd for gjennomgangen av kjeden. Holdes $\\alpha$\nbegrenset av en konstant, er forventet søketid $\\Theta(1)$ — men det er en\nforventning, ikke en garanti."
+    },
+    {
+      "id": "tdt4120-3-4-def-11",
+      "type": "definition",
+      "title": "Verste søketid med kjeding",
+      "content": "$\\Theta(n)$, som inntreffer når alle $n$ nøklene har hashet til samme bøtte og\ntabellen dermed er redusert til én lenket liste. Dette skjer ikke bare i teorien:\n$m = 8$ med nøkler som ligger 8 fra hverandre holder."
+    },
+    {
+      "id": "tdt4120-3-4-def-12",
+      "type": "definition",
+      "title": "Åpen adressering",
+      "content": "den andre hovedstrategien for kollisjoner, der en kolliderende nøkkel plasseres\ni en annen ledig bøtte i selve tabellen i stedet for i en liste utenfor. Alle\nnøklene ligger da inne i tabellen, og lastfaktoren kan derfor ikke overstige 1.\nKjeding og åpen adressering skal ikke blandes i et svar."
+    },
+    {
+      "id": "tdt4120-3-4-def-13",
+      "type": "definition",
+      "title": "Mislykket søk",
+      "content": "et søk etter en nøkkel som ikke finnes. Det koster alltid gjennomgang av\n**hele** kjeden i den bøtta $h(k)$ peker på, mens et vellykket søk kan stoppe\nunderveis. Blir du bedt om å telle sammenligninger, er det derfor kjedelengden\nsom er svaret."
+    },
+    {
+      "id": "tdt4120-3-4-def-14",
+      "type": "definition",
+      "title": "Valg av $m$ i divisjonsmetoden",
+      "content": "tommelfingerregelen er å velge $m$ som et primtall som ikke ligger nær en potens\nav 2. Er $m$ en potens av 2, avgjøres bøtta bare av de nederste bitene i\nnøkkelen, og all annen informasjon i tallet kastes bort. Valget av $m$ er den ene\ndesignbeslutningen som avgjør om divisjonsmetoden sprer godt."
+    },
+    {
+      "id": "tdt4120-3-4-def-15",
+      "type": "definition",
+      "title": "Hashtabell mot binært søketre",
+      "content": "hashtabellen gir forventet $\\Theta(1+\\alpha)$ på søk, men **ingen orden**:\nnøklene kan ikke leses ut sortert, og det finnes ingen naturlig «neste nøkkel».\nSøketreet gir $O(h)$ på søk og sortert utskrift i $\\Theta(n)$. Trenger du\nrekkefølge eller intervallsøk, velger du treet."
+    },
+    {
+      "id": "tdt4120-3-4-def-16",
+      "type": "definition",
+      "title": "Hvorfor kollisjoner er uunngåelige",
+      "content": "fordi nøkkeluniverset nesten alltid er mye større enn antall bøtter: med flere\nmulige nøkler enn plasser må minst to nøkler dele plass. En hashtabell er derfor\nalltid en tabell **pluss** en kollisjonsstrategi, og påstanden «med en god nok\nhashfunksjon slipper man kollisjoner» er gal."
+    },
+    {
+      "id": "tdt4120-3-4-def-17",
+      "type": "definition",
+      "title": "Å holde lastfaktoren konstant",
+      "content": "strategien der tabellen forstørres når $n$ vokser, slik at $\\alpha = n/m$ holder\nseg under en fast grense. Da forblir forventet søketid $\\Theta(1)$ uansett hvor\nmange nøkler som kommer inn. Forstørringen koster å gjøre — det er samme\nmekanikk som i den dynamiske tabellen i [kap. 3.5](/tdt4120/tdt4120-3-5)."
+    },
+    {
+      "id": "tdt4120-3-4-def-18",
+      "type": "definition",
+      "title": "Sjanger F — «stemmer dette?»",
+      "content": "oppgavetypen der du får en påstand og skal avgjøre om den holder. Svarformen er\nfast: **ja eller nei først**, deretter én presis setning som begrunner. Hashing\ner et av temaene som oftest kommer i denne formen, og påstanden handler nesten\nalltid om at søk skulle være garantert konstant."
+    },
+    {
+      "id": "tdt4120-3-4-coll-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tdt4120-3-4-rep-1",
+          "type": "text",
+          "content": "Fem korte spørsmål fra [kap. 1.1](/tdt4120/tdt4120-1-1), som dette kapitlet\nbygger på. Svar i hodet først.\n\n**1.** Hva er forskjellen på $O(g(n))$ og $\\Theta(g(n))$?\n\n*Svar:* $O$ gir bare en øvre grense; $\\Theta$ gir både øvre og nedre, altså en\ntett grense. Skriver du $\\Theta$ der du bare har vist et tak, påstår du mer enn\ndu har belegg for.\n\n**2.** Hva betyr det at en kjøretid er «forventet»?\n\n*Svar:* At den er et gjennomsnitt over noe tilfeldig — her over hvordan nøklene\nfordeler seg mellom bøttene. Den sier ingenting om verste tilfelle.\n\n**3.** Er $\\Theta(1+\\alpha)$ det samme som $\\Theta(\\alpha)$?\n\n*Svar:* Nei. Er $\\alpha$ svært liten, for eksempel når $m$ er mye større enn $n$,\ngår $\\Theta(\\alpha)$ mot null — men søket koster fortsatt hashutregningen. Leddet\n1 kan ikke fjernes.\n\n**4.** Hvorfor er $\\Theta(n)$ en dårligere garanti enn $\\Theta(\\lg n)$?\n\n*Svar:* Fordi $\\lg n$ vokser mye langsommere enn $n$: for en million elementer\ner $\\lg n$ rundt 20, mens $n$ er en million.\n\n**5.** Hva er den strammeste grensen for et mislykket søk i en hashtabell der\nalle nøklene ligger i samme bøtte?\n\n*Svar:* $\\Theta(n)$ — hele kjeden må gjennomsøkes, og den inneholder alle\nnøklene."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

@@ -1,0 +1,361 @@
+{
+  "id": "tdt4120-4-5",
+  "courseId": "tdt4120",
+  "chapterNumber": "4.5",
+  "title": "DRILL — Håndkjøring av grafalgoritmer",
+  "description": "Full drill på sjanger C for grafdelen: `Kruskal`, `DAG-Shortest-Path`, `BFS`/`DFS`-orden, `Floyd-Warshall` (`d`/`π`), `Slow-APSP`, `Transitive-Closure`.",
+  "estimatedMinutes": 85,
+  "competenceGoals": [
+    "kunne kjøre `Kruskal` mekanisk og oppgi kantene i den rekkefølgen de legges til, med de forkastede merket",
+    "kunne føre `BFS` og `DFS` på papir og lese av avstander, discover- og finish-tider og en topologisk rekkefølge",
+    "kunne utføre én runde av `Floyd-Warshall` og ett min-pluss-produkt uten å blande sammen reglene"
+  ],
+  "content": [
+    {
+      "id": "tdt4120-4-5-tip-1",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Grafdelen er den bredeste i faget.** Traversering er registrert i 14 av de 17\nsettene i grunnlaget (82 %), minimale spenntrær i 14 av 17 (82 %), korteste vei\nfra én kilde i 13 av 17 (76 %), alle-til-alle korteste vei i 11 av 17 (65 %) og\ntopologisk sortering i 7 av 17 (41 %). Grunnlaget er de 17 settene fra august\n2015 til august 2023 som er gjennomgått tema for tema — det er nevneren hver\ngang boka oppgir en prosent.\n\nSjangeren er én eneste:\n\n- **Sjanger C — håndkjøring**, altså at du utfører en navngitt algoritme steg\n  for steg på papir og oppgir **bare** det etterspurte. Svarformatet skifter\n  fra algoritme til algoritme, og halve treningen ligger i å kjenne det igjen.\n\nPrioritet: **bør sitte**. Grafhåndkjøring er mekanisk arbeid som gir sikre\npoeng når rutinen er der, og som koster hele oppgaven når den ikke er det.\n\n**Svarformatene, samlet:**\n\n| Algoritme | Du leverer |\n|---|---|\n| `MST-Kruskal` | kantene i den rekkefølgen de **legges til**, og hvilke som forkastes |\n| `BFS` | `v.d` for hver node, i nodenes rekkefølge |\n| `DFS` | discover- og finish-tid per node, eventuelt kantklassifiseringen |\n| `Topological-Sort` | nodene i synkende **finish-tid** |\n| `DAG-Shortest-Path` | `v.d` for hver node |\n| `Floyd-Warshall` | den etterspurte matrisen for den etterspurte `k` |\n| `Slow-APSP` | den etterspurte cellen |\n| `Transitive-Closure` | den boolske matrisen |\n\n**Slik er kapitlet lagt opp (85 min):**\n\n| Innhold | Tid |\n|---|---|\n| Løsningsoppskriften | ca. 8 min |\n| Den gjennomarbeidede eksamenscasen (`Kruskal`) | ca. 15 min |\n| Drill på `Kruskal` og spenntrær | ca. 14 min |\n| Drill på `BFS`, `DFS` og topologisk sortering | ca. 22 min |\n| Drill på `DAG-Shortest-Path` | ca. 12 min |\n| Drill på matrisealgoritmene | ca. 14 min |\n\n— naturlig pausepunkt — etter traverseringsdrillen. Matrisealgoritmene er en\negen type arbeid og kan tas i en egen økt."
+    },
+    {
+      "id": "tdt4120-4-5-t-2",
+      "type": "text",
+      "content": "## Forkunnskaper\n\nDette kapitlet legger ikke til nytt stoff. Det gjør fire kapitlers teori til en\nferdighet. De tre nøkkelreglene du trenger i hånden, står her — resten finner\ndu i kapitlene:\n\n- **Slakkeregelen** fra [kap. 4.3](/tdt4120/tdt4120-4-3): hvis\n  $d[u] + w(u,v) < d[v]$, settes $d[v] = d[u] + w(u,v)$ og $\\pi[v] = u$. Alle\n  korteste-vei-algoritmene er varianter av når og hvor ofte denne regelen\n  brukes.\n- **Snittegenskapen** fra [kap. 4.2](/tdt4120/tdt4120-4-2): den letteste kanten\n  over et snitt som respekterer valgene så langt, er trygg — den kan legges til\n  spenntreet uten å ødelegge muligheten for et minimalt resultat. Det er dette\n  som gjør `Kruskal` riktig.\n- **Finish-tid-regelen** fra [kap. 4.1](/tdt4120/tdt4120-4-1): en topologisk\n  sortering er nodene i **synkende finish-tid** fra `DFS`. Ikke stigende, og\n  ikke discover-tid.\n\nØvrige forkunnskaper:\n\n- [kap. 4.1](/tdt4120/tdt4120-4-1) — nabolister og nabomatrise, `BFS`, `DFS`\n  med discover- og finish-tid, kantklassifisering, `Topological-Sort`.\n- [kap. 4.4](/tdt4120/tdt4120-4-4) — `Floyd-Warshall`, min-pluss-produktet og\n  `Transitive-Closure`.\n- [kap. 3.5](/tdt4120/tdt4120-3-5) — `Union-Find`, som er syklustesten i\n  `Kruskal`."
+    },
+    {
+      "id": "tdt4120-4-5-coll-4",
+      "type": "collapsible",
+      "title": "Notasjons- og pseudokodeliste",
+      "buttonText": "Vis notasjon og pseudokode",
+      "content": [
+        {
+          "id": "tdt4120-4-5-ct-3",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et algoritmefag: den lister kjøretidsuttrykk og pseudokode-operasjoner i stedet for bare greske bokstaver.\n\n| Symbol | Betydning |\n|---|---|\n| $G=(V,E)$ | grafen; i kjøretider betyr $V$ og $E$ antall noder og kanter |\n| $w(u,v)$ | vekten på kanten mellom $u$ og $v$ |\n| `v.d` | avstanden fra kilden til `v`, eller discover-tiden i `DFS` |\n| `v.f` | finish-tiden til `v` i `DFS` |\n| `v.pi` | forgjengeren til `v` |\n| $d^{(k)}_{ij}$ | `Floyd-Warshall`s avstand med mellomnoder blant $1$ til $k$ |\n| $l^{(m)}_{ij}$ | korteste avstand med høyst $m$ kanter |\n| $\\infty$ | ingen vei funnet ennå |\n| NIL | ingen forgjenger |\n\n| Algoritme/operasjon | Kontrakt | Kjøretid |\n|---|---|---|\n| `MST-Kruskal(G, w)` | sorterer kantene stigende og legger til dem som ikke lukker en syklus | $O(E\\lg V)$ |\n| `MST-Prim(G, w, r)` | lar ett tre vokse utover fra rota `r` | $O(E\\lg V)$ |\n| `BFS(G, s)` | besøker nodene lag for lag med en FIFO-kø | $\\Theta(V+E)$ |\n| `DFS(G)` | går i dybden og setter discover- og finish-tid på hver node | $\\Theta(V+E)$ |\n| `Topological-Sort(G)` | kjører `DFS` og sorterer nodene etter **synkende finish-tid** | $\\Theta(V+E)$ |\n| `DAG-Shortest-Path(G, w, s)` | slakker kantene ut fra nodene i topologisk rekkefølge | $\\Theta(V+E)$ |\n| `Floyd-Warshall(W)` | prøver hver node som mellomnode etter tur | $\\Theta(V^3)$ |\n| `Slow-APSP(L, W)` | ett min-pluss-produkt | $\\Theta(V^3)$ |\n| `Find-Set(x)` | syklustesten i `Kruskal`: ligger endepunktene i samme komponent? | $O(\\lg V)$ |\n\n**Formler i dette delkapitlet:**\n\n$$d[v] > d[u] + w(u,v) \\;\\Rightarrow\\; d[v] = d[u] + w(u,v),\\; \\pi[v] = u$$\n\nSlakkeregelen — motoren i `DAG-Shortest-Path`, `Dijkstra` og `Bellman-Ford`.\n\n$$d^{(k)}_{ij} = \\min\\left(d^{(k-1)}_{ij},\\; d^{(k-1)}_{ik} + d^{(k-1)}_{kj}\\right)$$\n\n`d`-regelen i `Floyd-Warshall`.\n\n$$l^{(m)}_{ij} = \\min_{k}\\left(l^{(m-1)}_{ik} + w_{kj}\\right)$$\n\nMin-pluss-produktet: minimum av summer, ikke sum av produkter.\n"
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-4-5-thm-5",
+      "type": "theorem",
+      "title": "Løsningsoppskriften for en grafhåndkjøring",
+      "content": "**Steg 1 — les grafen først, og skriv den om til den representasjonen\nalgoritmen bruker.** `Kruskal` trenger en liste over kantene med vekter. `BFS`\nog `DFS` trenger nabolistene, og **rekkefølgen innenfor hver naboliste er en\ndel av oppgaven** — den avgjør hvilket svar som er riktig. Matrisealgoritmene\ntrenger vektmatrisen.\n\n**Steg 2 — skriv ned hvilken rekkefølge algoritmen dikterer**, før du begynner\nå regne:\n\n- `Kruskal`: kantene sortert **stigende** etter vekt. Ved lik vekt, bruk den\n  rekkefølgen oppgaven oppgir — eller alfabetisk, og si at du gjør det.\n- `BFS`: FIFO-køen. Nodene forlates i den rekkefølgen de ble oppdaget.\n- `DFS`: nabolistene, i den rekkefølgen de står. Klokka går fra 1 og telles opp\n  **både** ved oppdagelse og ved ferdigstilling.\n- `DAG-Shortest-Path`: den topologiske rekkefølgen, som du må finne først.\n- `Floyd-Warshall`: `k` fra 1 og oppover, med hele matrisen ferdig per `k`.\n\n**Steg 3 — utfør mekanisk.** Skriv ned tilstanden etter hvert steg mens du\nregner. Det er der delpoengene ligger hvis du bommer til slutt.\n\n**Steg 4 — oppgi kun det etterspurte**, i formatet fra tabellen i\nEksamensvinkel-boksen over.\n\n**Steg 5 — kontroller.** Hver algoritme har en gratis kontroll:\n\n| Algoritme | Kontroll |\n|---|---|\n| `Kruskal` | spenntreet skal ha nøyaktig $V-1$ kanter |\n| `BFS` | ingen `v.d` kan avvike med mer enn 1 mellom to naboer |\n| `DFS` | siste finish-tid skal være $2V$; hver node har ett par tider |\n| topologisk sortering | hver kant skal peke framover i lista |\n| `DAG-Shortest-Path` | ingen `d`-verdi kan bli lavere etter at noden er passert |\n| `Floyd-Warshall` | diagonalen skal være 0 hele veien |\n\n**Steg 6 — lever kort.** Én linje per delspørsmål. Lange svar teller ikke\npositivt, og de nitten andre oppgavene venter."
+    },
+    {
+      "id": "tdt4120-4-5-fig-6",
+      "type": "image",
+      "src": "/images/textbook/tdt4120/4-5-kruskal-case.svg",
+      "alt": "En vektet urettet graf med sju noder merket A til G. Kantene med vekt er A til B fire, A til C tre, B til C to, B til D seks, C til D tre, C til E sju, D til E fem, D til F ni, E til F en, E til G ti og F til G fire. Seks kanter er tegnet med heltrukket linje som det minimale spenntreet med samlet vekt atten, og kanten fra A til B er tegnet med roed stiplet linje som forkastet fordi den ville lagd en syklus. De oevrige kantene er graa og stiplede.",
+      "caption": "Grafen fra Eksempel 1. De heltrukne kantene er spenntreet `Kruskal` bygger, med samlet vekt 18. Den røde stiplede kanten `A–B` er den første som forkastes fordi begge endepunktene alt lå i samme komponent."
+    },
+    {
+      "id": "tdt4120-4-5-eks-7",
+      "type": "example",
+      "title": "Eksempel 1: Gjennomarbeidet eksamenscase med margnotater",
+      "problem": "Et fiberselskap skal knytte sammen sju knutepunkter `A` til `G`. Mulige\nstrekninger med kostnad:\n\n`A–B` 4, `A–C` 3, `B–C` 2, `B–D` 6, `C–D` 3, `C–E` 7, `D–E` 5, `D–F` 9,\n`E–F` 1, `E–G` 10, `F–G` 4.\n\nKjør `MST-Kruskal` og list kantene i den rekkefølgen de legges til. Ved lik\nvekt behandles kantene alfabetisk. Oppgi også samlet vekt.",
+      "solution": "**Steg 1 — sorter kantene stigende, med alfabetisk likhetsbryting:**\n\n`E–F` 1, `B–C` 2, `A–C` 3, `C–D` 3, `A–B` 4, `F–G` 4, `D–E` 5, `B–D` 6,\n`C–E` 7, `D–F` 9, `E–G` 10.\n\n*Margnotat.* Sorteringen er halve arbeidet, og den er verdt å skrive ned\nordentlig. To kanter med vekt 3 og to med vekt 4 — her må likhetsbrytingen\noppgis, ellers er svaret flertydig.\n\n**Steg 2 — gå gjennom listen og bruk syklustesten:**\n\n| Kant | Vekt | Handling | Samlet vekt |\n|---|---|---|---|\n| E–F | 1 | legges til | 1 |\n| B–C | 2 | legges til | 3 |\n| A–C | 3 | legges til | 6 |\n| C–D | 3 | legges til | 9 |\n| A–B | 4 | forkastes (ville lagd en syklus) | 9 |\n| F–G | 4 | legges til | 13 |\n| D–E | 5 | legges til | 18 |\n| B–D | 6 | forkastes (ville lagd en syklus) | 18 |\n| C–E | 7 | forkastes (ville lagd en syklus) | 18 |\n| D–F | 9 | forkastes (ville lagd en syklus) | 18 |\n| E–G | 10 | forkastes (ville lagd en syklus) | 18 |\n\n*Margnotat.* Legg merke til `A–B` med vekt 4. På det tidspunktet ligger `A`,\n`B`, `C` og `D` allerede i samme komponent, så kanten forkastes — selv om den\ner billigere enn `D–E`, som legges til senere. Det er hele poenget med\n`Kruskal`: prisen alene bestemmer ikke, det gjør prisen **kombinert med**\nsyklustesten.\n\n*Margnotat.* Fra og med `B–D` er treet ferdig, og resten forkastes. En\ngjennomkjøring kan stoppe når $V-1 = 6$ kanter er lagt til — men på eksamen\nlønner det seg å ta med de forkastede kantene med merking, siden oppgaven ofte\nspør om nettopp dem.\n\n**Sluttilstanden — det du ville levert på eksamen:**\n\n**Kantene i rekkefølge: `E–F`, `B–C`, `A–C`, `C–D`, `F–G`, `D–E`. Samlet vekt\n18.**\n\n*Margnotat.* Kontrollen: 6 kanter for 7 noder, altså $V-1$. Stemmer ikke det,\nhar du enten lagt til en kant for mye eller hoppet over en.\n\n*Margnotat om delvis uttelling.* En håndkjøring som stopper halvveis, gir\nuttelling for det som er riktig så langt. Skriv derfor ned kantene etter hvert\nsom de legges til — ikke bare det ferdige treet."
+    },
+    {
+      "id": "tdt4120-4-5-t-8",
+      "type": "text",
+      "content": "## Drill: `Kruskal` og spenntrær (~14 min)\n\nTre oppgaver. Legg merke til at svarformatet skifter mellom dem."
+    },
+    {
+      "id": "tdt4120-4-5-oppg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-4-5-oppg-9-inner",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamensnivå, sjanger C — håndkjøring, altså at du utfører algoritmen steg for\nsteg og oppgir bare det etterspurte.)\n\nEn urettet, vektet graf har nodene `P`, `Q`, `R`, `S`, `T`, `U` og kantene:\n\n`P–Q` 5, `P–R` 8, `Q–R` 3, `Q–S` 6, `R–T` 2, `S–T` 4, `S–U` 9, `T–U` 7.\n\nKjør `MST-Kruskal`. List kantene i den rekkefølgen de legges til, og oppgi\nsamlet vekt.",
+        "solution": "Sortert stigende: `R–T` 2, `Q–R` 3, `S–T` 4, `P–Q` 5, `Q–S` 6, `T–U` 7,\n`P–R` 8, `S–U` 9.\n\n| Kant | Vekt | Handling |\n|---|---|---|\n| R–T | 2 | legges til |\n| Q–R | 3 | legges til |\n| S–T | 4 | legges til |\n| P–Q | 5 | legges til |\n| Q–S | 6 | forkastes (ville lagd en syklus) |\n| T–U | 7 | legges til |\n| P–R | 8 | forkastes (ville lagd en syklus) |\n| S–U | 9 | forkastes (ville lagd en syklus) |\n\n**Kantene i rekkefølge: `R–T`, `Q–R`, `S–T`, `P–Q`, `T–U`. Samlet vekt\n21.**\n\nKontroll: 5 kanter for 6 noder, altså $V-1$.",
+        "hints": [
+          "Sorter kantene stigende etter vekt før du begynner.",
+          "For hver kant: ligger endepunktene allerede i samme komponent?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-4-5-oppg-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-4-5-oppg-10-inner",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C og F — håndkjøring og «stemmer dette?», altså ja eller\nnei først og deretter én presis setning.)\n\nBruk grafen fra Eksempel 1 (`A` til `G`).\n\n**a)** Hvilke kanter forkastes, og hvorfor?\n**b)** En kandidat påstår at kanten `A–B` med vekt 4 må være med i **ethvert**\nminimalt spenntre, siden det finnes dyrere kanter i treet. Stemmer det?",
+        "solution": "**a)** Fem kanter forkastes: `A–B` (4), `B–D` (6), `C–E` (7), `D–F` (9) og\n`E–G` (10). Alle fem forkastes av samme grunn: da `Kruskal` kom til dem, lå\nbegge endepunktene allerede i samme komponent, og kanten ville lukket en\nsyklus.\n\n**b)** **Nei.**\n\nDet er ikke prisen alene som avgjør, men om kanten forbinder to komponenter som\nennå ikke henger sammen. Da `Kruskal` kom til `A–B`, var `A` og `B` allerede\nknyttet sammen via `A–C` og `B–C` med samlet vekt $3 + 2 = 5$. Den dyrere\nkanten `D–E` med vekt 5 kom derimot inn fordi den var den eneste billige\nforbindelsen mellom to ellers atskilte deler av grafen.\n\nMotbeviset står altså i tabellen fra Eksempel 1: `A–B` er forkastet, `D–E` er\nmed, og resultatet er beviselig minimalt.",
+        "hints": [
+          "Se på hvilke komponenter som fantes i det øyeblikket hver kant ble vurdert.",
+          "Sammenlign vekten på `A–B` med den samlede vekten av `A–C` og `B–C`."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-4-5-oppg-11",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-4-5-oppg-11-inner",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger E — kjøretidskunnskap, altså at svaret er ett uttrykk.)\n\n**a)** Hva er kjøretiden til `MST-Kruskal`, og hvilket steg dominerer?\n**b)** Hva er kjøretiden til `MST-Prim` med binærhaug?\n**c)** Hvor mange kanter har et minimalt spenntre i en sammenhengende graf med\n$V$ noder?",
+        "solution": "**a)** $O(E\\lg V)$. Sorteringen av kantene koster $O(E\\lg E)$, og siden\n$E < V^2$ er $\\lg E = O(\\lg V)$ — altså $O(E\\lg V)$. `Union-Find`-operasjonene\nkoster $O(E\\lg V)$ til sammen, så de to stegene er like dyre asymptotisk.\n\n**b)** $O(E\\lg V)$ — samme uttrykk.\n\n**c)** Nøyaktig $V-1$. Færre gir en usammenhengende graf; flere gir en syklus.\n\nPunkt c) er kontrollen du bruker på hver eneste `Kruskal`-håndkjøring.",
+        "hints": [
+          "Hvilke to steg består `Kruskal` av, og hva koster hvert av dem?",
+          "Et tre med $V$ noder har alltid samme antall kanter, uansett form."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-4-5-t-12",
+      "type": "text",
+      "content": "## Drill: `BFS`, `DFS` og topologisk sortering (~22 min)\n\nFire oppgaver på den samme grafen. Nabolistene er oppgitt i den rekkefølgen\nalgoritmene skal følge — det er en del av oppgaven, og ulik rekkefølge gir ulikt\nsvar."
+    },
+    {
+      "id": "tdt4120-4-5-oppg-13",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-4-5-oppg-13-inner",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamensnivå, sjanger C.)\n\nEn rettet graf har disse nabolistene, i den rekkefølgen de skal behandles:\n\n- `a`: `b`, `d`\n- `b`: `c`\n- `c`: `f`\n- `d`: `b`, `e`\n- `e`: `c`, `f`\n- `f`: ingen\n\nKjør `BFS` fra node `a`. Oppgi `v.d` for hver node.",
+        "solution": "| Node som forlates | Nye noder oppdaget | Køen etterpå |\n|---|---|---|\n| `a` | `b`, `d` | `b`, `d` |\n| `b` | `c` | `d`, `c` |\n| `d` | `e` | `c`, `e` |\n| `c` | `f` | `e`, `f` |\n| `e` | ingen | `f` |\n| `f` | ingen | tom |\n\n**Sluttilstanden:**\n\n| Node | `a` | `b` | `c` | `d` | `e` | `f` |\n|---|---|---|---|---|---|---|\n| `v.d` | 0 | 1 | 2 | 1 | 2 | 3 |\n\nKontroll: for hver kant $(u,v)$ er $d[v] \\le d[u] + 1$. Kanten $e \\to c$ gir\n$2 \\le 2 + 1$, og kanten $d \\to b$ gir $1 \\le 1 + 1$ — begge stemmer.\n\nMerk at `c` fikk avstand 2 fra `b`, ikke fra `e`: `b` ble forlatt først, og\n`BFS` gir hver node avstanden fra det første stedet den blir oppdaget.",
+        "hints": [
+          "Bruk en FIFO-kø, og legg nodene inn i den rekkefølgen nabolistene oppgir.",
+          "En node får `d`-verdi bare første gang den oppdages."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-4-5-oppg-14",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-4-5-oppg-14-inner",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C.)\n\nBruk den samme grafen og de samme nabolistene.\n\nKjør `DFS` med ytterløkka i alfabetisk rekkefølge `a, b, c, d, e, f`. Klokka\nstarter på 0 og telles opp ved både oppdagelse og ferdigstilling.\n\nOppgi discover- og finish-tid for hver node.",
+        "solution": "| Node | discover-tid | finish-tid |\n|---|---|---|\n| `a` | 1 | 12 |\n| `b` | 2 | 7 |\n| `c` | 3 | 6 |\n| `d` | 8 | 11 |\n| `e` | 9 | 10 |\n| `f` | 4 | 5 |\n\nGjennomgangen: `a` oppdages på 1 og går til `b` (2), som går til `c` (3), som\ngår til `f` (4). `f` har ingen naboer og avsluttes på 5, deretter `c` på 6 og\n`b` på 7. Tilbake i `a` tas neste naboliste-oppføring, `d`, som oppdages på 8.\n`d` sin første nabo `b` er allerede ferdig, så den hoppes over; `e` oppdages på\n9. Begge `e` sine naboer er ferdige, så `e` avsluttes på 10, `d` på 11 og `a`\npå 12.\n\nKontroll: siste finish-tid er 12, altså $2V$ med $V = 6$. Hver node har\nnøyaktig ett par tider, og ingen tid er brukt to ganger.",
+        "hints": [
+          "Klokka telles opp både når en node blir grå og når den blir svart.",
+          "Følg nabolistene i den rekkefølgen de er oppgitt, og hopp over noder som ikke lenger er hvite."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-4-5-oppg-15",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-4-5-oppg-15-inner",
+        "number": 6,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C.)\n\nBruk `DFS`-kjøringen fra forrige oppgave.\n\n**a)** Klassifiser hver av de åtte kantene som trekant, forlengs kant,\nkrysskant eller tilbakekant.\n**b)** Har grafen en sykel? Begrunn med ett ord fra svaret i a).",
+        "solution": "**a)**\n\n| Kant | Type |\n|---|---|\n| $a \\to b$ | trekant |\n| $b \\to c$ | trekant |\n| $c \\to f$ | trekant |\n| $a \\to d$ | trekant |\n| $d \\to b$ | krysskant |\n| $d \\to e$ | trekant |\n| $e \\to c$ | krysskant |\n| $e \\to f$ | krysskant |\n\nRegelen: en kant $u \\to v$ er en **trekant** hvis `v` var hvit da den ble\nutforsket, **tilbakekant** hvis `v` var grå, og **forlengs eller krysskant**\nhvis `v` var svart. Skillet mellom de to siste avgjøres av tidene: er\n$d[u] < d[v]$, er den forlengs; ellers er den en krysskant.\n\n**b)** **Nei.** Det finnes **ingen tilbakekant**, og en rettet graf har en\nsykel hvis og bare hvis `DFS` finner en tilbakekant.\n\nDet betyr også at grafen er en DAG, og at en topologisk sortering finnes.",
+        "hints": [
+          "Hvilken farge hadde noden `v` i det øyeblikket kanten $u \\to v$ ble utforsket?",
+          "Sammenlign discover-tidene når kanten går til en ferdig node."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-4-5-oppg-16",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-4-5-oppg-16-inner",
+        "number": 7,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C.)\n\nBruk `DFS`-kjøringen fra oppgave 5.\n\nOppgi en topologisk sortering av grafen, og forklar med én setning hvilken\nregel du brukte.",
+        "solution": "Regelen: nodene sorteres etter **synkende finish-tid**.\n\nFinish-tidene er `a` 12, `d` 11, `e` 10, `b` 7, `c` 6, `f` 5.\n\n**Topologisk sortering: `a`, `d`, `e`, `b`, `c`, `f`.**\n\nKontroll: hver kant skal peke framover i lista. $a \\to b$ (plass 1 til 4),\n$a \\to d$ (1 til 2), $d \\to b$ (2 til 4), $d \\to e$ (2 til 3), $e \\to c$ (3 til 5),\n$e \\to f$ (3 til 6), $b \\to c$ (4 til 5), $c \\to f$ (5 til 6). Alle peker framover.\n\n**Fellen her er #11 — å bruke starttid i stedet for finish-tid.** Stigende\ndiscover-tid ville gitt `a, b, c, f, d, e`, og der peker $d \\to b$ bakover. Det\ner et galt svar.",
+        "hints": [
+          "Hvilken av de to tidene fra `DFS` er det topologisk sortering bruker?",
+          "Skal listen sorteres stigende eller synkende etter den tiden?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-4-5-t-17",
+      "type": "text",
+      "content": "## Drill: `DAG-Shortest-Path` (~12 min)\n\nTo oppgaver. Algoritmen er den raskeste korteste-vei-algoritmen som finnes —\n$\\Theta(V+E)$ — men den virker bare på syklusfrie grafer."
+    },
+    {
+      "id": "tdt4120-4-5-oppg-18",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-4-5-oppg-18-inner",
+        "number": 8,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C.)\n\nDen samme rettede grafen som over, nå med kantvekter:\n\n$a \\to b$ 4, $a \\to d$ 2, $b \\to c$ 5, $c \\to f$ 3, $d \\to b$ 1, $d \\to e$ 7,\n$e \\to c$ 2, $e \\to f$ 6.\n\nKjør `DAG-Shortest-Path` fra `a`, med den topologiske rekkefølgen du fant i\noppgave 7. Oppgi `v.d` for hver node.",
+        "solution": "Topologisk rekkefølge: `a`, `d`, `e`, `b`, `c`, `f`.\n\n| Node som behandles | Kanter som slakkes | `d` etterpå |\n|---|---|---|\n| `a` | `b` blir 4, `d` blir 2 | `a`=0, `b`=4, `c`=$\\infty$, `d`=2, `e`=$\\infty$, `f`=$\\infty$ |\n| `d` | `b` blir 3, `e` blir 9 | `a`=0, `b`=3, `c`=$\\infty$, `d`=2, `e`=9, `f`=$\\infty$ |\n| `e` | `c` blir 11, `f` blir 15 | `a`=0, `b`=3, `c`=11, `d`=2, `e`=9, `f`=15 |\n| `b` | `c` blir 8 | `a`=0, `b`=3, `c`=8, `d`=2, `e`=9, `f`=15 |\n| `c` | `f` blir 11 | `a`=0, `b`=3, `c`=8, `d`=2, `e`=9, `f`=11 |\n| `f` | ingen endring | `a`=0, `b`=3, `c`=8, `d`=2, `e`=9, `f`=11 |\n\n**Sluttilstanden:**\n\n| Node | `a` | `b` | `c` | `d` | `e` | `f` |\n|---|---|---|---|---|---|---|\n| `v.d` | 0 | 3 | 8 | 2 | 9 | 11 |\n\n**Legg merke til `b`.** Den fikk først verdien 4 fra kanten $a \\to b$, men ble\nforbedret til 3 da `d` ble behandlet: veien $a \\to d \\to b$ koster $2 + 1 = 3$. Det\ner nettopp derfor rekkefølgen må være topologisk — `d` må behandles før `b`,\nellers ville forbedringen kommet for sent.\n\nKontroll: ingen `d`-verdi ble lavere etter at noden selv var behandlet.",
+        "hints": [
+          "Behandle nodene i topologisk rekkefølge, og slakk alle kantene ut fra hver node.",
+          "Slakkeregelen: hvis $d[u] + w(u,v) < d[v]$, oppdater $d[v]$."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-4-5-oppg-19",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-4-5-oppg-19-inner",
+        "number": 9,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger F og E.)\n\nBruk resultatet fra forrige oppgave.\n\n**a)** Hvilken sti gir $d[f]$, og hvordan leser du den av?\n**b)** Hvorfor er `DAG-Shortest-Path` $\\Theta(V+E)$ mens `Dijkstra` er\n$O(E\\lg V)$?\n**c)** Kunne du brukt `DAG-Shortest-Path` hvis en av kantvektene var negativ?",
+        "solution": "**a)** Les $\\pi$ baklengs fra `f`: $\\pi[f] =$ `c`, $\\pi[c] =$ `b`,\n$\\pi[b] =$ `d`, $\\pi[d] =$ `a`. Stien er\n**$a \\to d \\to b \\to c \\to f$** med lengde $2 + 1 + 5 + 3 = 11$, som stemmer med\n$d[f] = 11$.\n\n**b)** `DAG-Shortest-Path` slipper prioritetskøen. Den topologiske rekkefølgen\ner kjent på forhånd, så hver node behandles nøyaktig én gang og hver kant\nslakkes nøyaktig én gang — $\\Theta(V+E)$ til sammen. `Dijkstra` må derimot\nfinne den nærmeste ubehandlede noden i hvert steg, og det er\nprioritetskø-operasjonene som gir logaritmefaktoren.\n\n**c)** **Ja.** `DAG-Shortest-Path` bryr seg ikke om fortegnet på vektene — den\ntrenger bare at grafen er syklusfri. Det er `Dijkstra` som krever ikke-negative\nvekter (felle **#8**).\n\nRekkefølgen er det eneste kravet, og en topologisk rekkefølge finnes nøyaktig\nnår grafen ikke har en sykel.",
+        "hints": [
+          "Forgjengerpekerne bygger stien bakfra, fra sluttnoden til kilden.",
+          "Hvilken datastruktur er det `Dijkstra` bruker som `DAG-Shortest-Path` slipper?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-4-5-t-20",
+      "type": "text",
+      "content": "## Drill: matrisealgoritmene (~14 min)\n\nTre oppgaver på en ny graf. Her er svarformatet en matrise eller én celle —\nles nøye hvilket."
+    },
+    {
+      "id": "tdt4120-4-5-oppg-21",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-4-5-oppg-21-inner",
+        "number": 10,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C.)\n\nEn rettet, vektet graf har fire noder og kantene:\n\n$1 \\to 2$ (4), $1 \\to 3$ (11), $2 \\to 3$ (2), $2 \\to 4$ (6), $3 \\to 1$ (3),\n$4 \\to 3$ (1).\n\n**a)** Skriv opp vektmatrisen $W = d^{(0)}$.\n**b)** Utfør runden med $k = 1$ i `Floyd-Warshall`, og oppgi $d^{(1)}$.",
+        "solution": "**a)**\n\n**$d^{(0)} = W$**\n\n| | 1 | 2 | 3 | 4 |\n|---|---|---|---|---|\n| **1** | 0 | 4 | 11 | $\\infty$ |\n| **2** | $\\infty$ | 0 | 2 | 6 |\n| **3** | 3 | $\\infty$ | 0 | $\\infty$ |\n| **4** | $\\infty$ | $\\infty$ | 1 | 0 |\n\n**b)** Med $k = 1$ ser vi etter stier $i \\to 1 \\to j$. Bare rad 3 kan brukes,\nsiden bare node 3 har en kant inn til node 1:\n\n- $d[3][2]$: veien $3 \\to 1 \\to 2$ koster $3 + 4 = 7$, mot $\\infty$ før.\n- $d[3][3]$: veien $3 \\to 1 \\to 3$ koster $3 + 11 = 14$, men $d[3][3] = 0$ —\n  ingen forbedring.\n\n**$d^{(1)}$**\n\n| | 1 | 2 | 3 | 4 |\n|---|---|---|---|---|\n| **1** | 0 | 4 | 11 | $\\infty$ |\n| **2** | $\\infty$ | 0 | 2 | 6 |\n| **3** | 3 | 7 | 0 | $\\infty$ |\n| **4** | $\\infty$ | $\\infty$ | 1 | 0 |\n\nAlle andre celler står uendret. Kontroll: diagonalen er fortsatt 0.",
+        "hints": [
+          "Diagonalen er 0, og $\\infty$ står der det ikke går noen kant.",
+          "For runden $k=1$: hvilke rader har en endelig verdi i kolonne 1?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-4-5-oppg-22",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-4-5-oppg-22-inner",
+        "number": 11,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C.)\n\nFortsett fra $d^{(1)}$ i forrige oppgave, med den samme grafen.\n\nUtfør runden med $k = 2$, og oppgi **både** $d^{(2)}$ og $\\pi^{(2)}$.",
+        "solution": "Med $k = 2$ ser vi etter stier $i \\to 2 \\to j$. To celler forbedres:\n\n- $d[1][3]$: veien $1 \\to 2 \\to 3$ koster $4 + 2 = 6$, mot 11 før.\n  $\\pi[1][3] = \\pi[2][3] = 2$.\n- $d[1][4]$: veien $1 \\to 2 \\to 4$ koster $4 + 6 = 10$, mot $\\infty$ før.\n  $\\pi[1][4] = \\pi[2][4] = 2$.\n- $d[3][3]$ og $d[3][4]$: fra rad 3 er $d[3][2] = 7$, og $7 + 2 = 9 > 0$ for\n  kolonne 3, mens $7 + 6 = 13$ forbedrer $d[3][4]$ fra $\\infty$.\n  $\\pi[3][4] = \\pi[2][4] = 2$.\n\n**$d^{(2)}$**\n\n| | 1 | 2 | 3 | 4 |\n|---|---|---|---|---|\n| **1** | 0 | 4 | 6 | 10 |\n| **2** | $\\infty$ | 0 | 2 | 6 |\n| **3** | 3 | 7 | 0 | 13 |\n| **4** | $\\infty$ | $\\infty$ | 1 | 0 |\n\n**$\\pi^{(2)}$**\n\n| | 1 | 2 | 3 | 4 |\n|---|---|---|---|---|\n| **1** | NIL | 1 | 2 | 2 |\n| **2** | NIL | NIL | 2 | 2 |\n| **3** | 3 | 1 | NIL | 2 |\n| **4** | NIL | NIL | 4 | NIL |\n\nMerk at forgjengeren alltid arves fra **rad $k$**, altså rad 2 her — ikke fra\nrad $i$.",
+        "hints": [
+          "Gå gjennom radene én for én og sjekk om $d[i][2] + d[2][j]$ slår $d[i][j]$.",
+          "Når en celle forbedres, arver $\\pi$ verdien fra rad $k$."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-4-5-oppg-23",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-4-5-oppg-23-inner",
+        "number": 12,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger C.)\n\nBruk den samme grafen med fire noder.\n\n**a)** Regn ut $l^{(2)}_{14}$ med min-pluss-produktet, og vis alle leddene.\n**b)** Hva ville vanlig matriseprodukt gitt for den samme cellen, og hvorfor er\ndet galt her?",
+        "solution": "**a)** $l^{(2)}_{14} = \\min_{1 \\le k \\le 4}\\left(l^{(1)}_{1k} + w_{k4}\\right)$\nmed $l^{(1)} = W$:\n\n| $k$ | $l^{(1)}_{1k}$ | $w_{k4}$ | Summen |\n|---|---|---|---|\n| 1 | $0$ | $\\infty$ | $\\infty$ |\n| 2 | $4$ | $6$ | $10$ |\n| 3 | $11$ | $\\infty$ | $\\infty$ |\n| 4 | $\\infty$ | $0$ | $\\infty$ |\n\n**$l^{(2)}_{14} = 10$**, via $k = 2$, altså stien\n$1 \\to 2 \\to 4$.\n\n**b)** Vanlig matriseprodukt ville regnet $\\sum_k W_{1k}\\cdot W_{k4}$, altså\nsummen av produktene. Det er galt av to grunner: operasjonene er byttet om\n(pluss skal være multiplikasjon, minimum skal være sum), og resultatet har\ningen tolkning som avstand — det ville lagt sammen bidrag fra flere stier i\nstedet for å velge den korteste.\n\nRegelen: i min-pluss er **minimum** den ytre operasjonen og **pluss** den\nindre. Ordet «produkt» i navnet er en analogi, ikke en instruks.",
+        "hints": [
+          "Skriv opp alle fire leddene, også de som blir $\\infty$.",
+          "Hvilken operasjon står ytterst i min-pluss, og hvilken står innerst?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-4-5-warn-24",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "De tre første koster hele oppgaven.\n\n- **Å bruke starttid i stedet for finish-tid i topologisk sortering.** Dette er\n  felle **#11**. Regelen er **synkende finish-tid**. Kontrollen er at hver kant\n  skal peke framover i den ferdige listen.\n- **Å legge til en syklusskapende kant i `Kruskal`.** Syklustesten er\n  `Find-Set(u) != Find-Set(v)`, og den skal gjøres **før** kanten legges til.\n  Kontrollen er at treet skal ha nøyaktig $V-1$ kanter.\n- **Å bruke vanlig matriseprodukt i `Slow-APSP`.** Produktet er min-pluss:\n  minimum av summer.\n- **Å ignorere rekkefølgen i nabolistene.** For `DFS` og `BFS` er\n  naboliste-rekkefølgen en del av oppgaven, og et annet valg gir et annet\n  gyldig svar på et annet spørsmål.\n- **Å bruke `Dijkstra` på negative kantvekter.** Dette er felle **#8**. På en\n  DAG med negative vekter er `DAG-Shortest-Path` det riktige valget, og den\n  bryr seg ikke om fortegnet.\n- **Å behandle nodene i feil rekkefølge i `DAG-Shortest-Path`.** Uten topologisk\n  rekkefølge kan en node bli behandlet før den har fått sin endelige\n  `d`-verdi, og da er svaret galt.\n- **Å blande `d`-regelen og `π`-regelen i `Floyd-Warshall`**, eller å arve\n  forgjengeren fra rad $i$ i stedet for rad $k$.\n- **Å oppgi mer enn det som er spurt om.** Ber oppgaven om `v.d`, er det én rad\n  med tall. Ber den om kantrekkefølgen i `Kruskal`, er det seks kantnavn.\n\nOg den gjennomgående: **å ikke skrive ned tilstanden underveis**. Delvis riktig\nhåndkjøring gir delvis uttelling, men bare hvis mellomregningen finnes på\narket."
+    },
+    {
+      "id": "tdt4120-4-5-t-25",
+      "type": "text",
+      "content": "## Kjøretidene du kan bli spurt om i en deloppgave\n\n| Algoritme | Kjøretid | Krav / egenskap |\n|---|---|---|\n| `BFS` | $\\Theta(V+E)$ | gir færrest **kanter**, ikke minst vekt; bruker FIFO-kø |\n| `DFS` | $\\Theta(V+E)$ | gir discover- og finish-tid; tilbakekant betyr sykel |\n| `Topological-Sort` | $\\Theta(V+E)$ | **synkende finish-tid**; krever DAG |\n| `DAG-Shortest-Path` | $\\Theta(V+E)$ | krever DAG; **tåler negative vekter** |\n| `Dijkstra` (binærhaug) | $O(E\\lg V)$ | **krever ikke-negative vekter** |\n| `Bellman-Ford` | $\\Theta(VE)$ | tåler negative kanter; **oppdager** negative sykler |\n| `MST-Kruskal` | $O(E\\lg V)$ | sortering + `Union-Find`; gir $V-1$ kanter |\n| `MST-Prim` (binærhaug) | $O(E\\lg V)$ | ett tre som vokser fra rota |\n| `Floyd-Warshall` | $\\Theta(V^3)$ | uavhengig av antall kanter; tåler negative kanter |\n| `Slow-APSP`, ett produkt | $\\Theta(V^3)$ | min-pluss |\n| `Transitive-Closure` | $\\Theta(V^3)$ | boolsk variant |\n\n**Én presisering som er verdt å ta med seg.** Fire av algoritmene er\n$\\Theta(V+E)$, og det er ingen tilfeldighet: de besøker hver node og hver kant\nnøyaktig én gang, uten prioritetskø. Logaritmefaktoren i `Dijkstra`, `Kruskal`\nog `Prim` kommer fra sortering eller fra en prioritetskø — ikke fra selve\ngrafgjennomgangen."
+    },
+    {
+      "id": "tdt4120-4-5-t-26",
+      "type": "text",
+      "content": "### Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp\nhar lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet\ngjelder kjernestoffet."
+    },
+    {
+      "id": "tdt4120-4-5-def-27",
+      "type": "definition",
+      "title": "Svarformat for `MST-Kruskal`",
+      "content": "oppgi kantene i den rekkefølgen de **legges til**, og merk de forkastede der\noppgaven ber om det.\n\nKontrollen: et minimalt spenntre har nøyaktig $V-1$ kanter.\n\n**Likhetsbryting skal oppgis** når to kanter har samme vekt — ellers er svaret\nflertydig."
+    },
+    {
+      "id": "tdt4120-4-5-def-28",
+      "type": "definition",
+      "title": "Svarformat for `BFS` og `DFS`",
+      "content": "for `BFS`: `v.d` for hver node, i nodenes rekkefølge. For `DFS`: discover- og\nfinish-tid per node, eventuelt kantklassifiseringen.\n\nKontrollen for `DFS`: siste finish-tid er $2V$, og hver node har nøyaktig ett\npar tider.\n\n**Naboliste-rekkefølgen er en del av oppgaven** — den avgjør hvilket svar som\ner riktig."
+    },
+    {
+      "id": "tdt4120-4-5-def-29",
+      "type": "definition",
+      "title": "Svarformat for en topologisk sortering",
+      "content": "oppgi nodene i **synkende finish-tid** fra `DFS`.\n\nKontrollen: hver kant skal peke framover i listen.\n\n**Felle #11 bor her:** stigende discover-tid gir et annet, og galt, svar."
+    },
+    {
+      "id": "tdt4120-4-5-def-30",
+      "type": "definition",
+      "title": "Svarformat for `Floyd-Warshall`",
+      "content": "oppgi den etterspurte matrisen for den etterspurte runden `k`.\n\nBare celler der veien om `k` er kortere, endrer seg. Resten står uendret, i\nbegge matrisene.\n\n**Diagonalen skal være 0 hele veien** — det er kontrollen."
+    },
+    {
+      "id": "tdt4120-4-5-def-31",
+      "type": "definition",
+      "title": "Syklustesten i `Kruskal`",
+      "content": "`Find-Set(u) != Find-Set(v)` — ligger endepunktene i ulike komponenter, kan\nkanten legges til.\n\nTesten gjøres **før** kanten legges til, og `Union` kalles etterpå.\n\n**Uten testen ville algoritmen lagd sykler**, og resultatet ville ikke vært et\ntre."
+    },
+    {
+      "id": "tdt4120-4-5-def-32",
+      "type": "definition",
+      "title": "Slakking",
+      "content": "hvis $d[u] + w(u,v) < d[v]$, settes $d[v] = d[u] + w(u,v)$ og $\\pi[v] = u$.\n\nMotoren i `DAG-Shortest-Path`, `Dijkstra` og `Bellman-Ford` — forskjellen\nmellom dem er bare **når** og **hvor ofte** kantene slakkes.\n\n**Rekkefølgen avgjør riktigheten:** i en DAG holder én runde i topologisk\nrekkefølge."
+    },
+    {
+      "id": "tdt4120-4-5-def-33",
+      "type": "definition",
+      "title": "`DAG-Shortest-Path`",
+      "content": "slakker kantene ut fra hver node, i topologisk rekkefølge.\n\nKjøretid $\\Theta(V+E)$ — den raskeste korteste-vei-algoritmen som finnes.\n\n**Krever en DAG**, men **tåler negative vekter**. Det er `Dijkstra` som stiller\nkrav til fortegnet."
+    },
+    {
+      "id": "tdt4120-4-5-def-34",
+      "type": "definition",
+      "title": "Kantklassifisering i `DFS`",
+      "content": "**trekant** når `v` er hvit, **tilbakekant** når `v` er grå, og **forlengs\neller krysskant** når `v` er svart.\n\nEr $d[u] < d[v]$ i det siste tilfellet, er kanten forlengs; ellers er den en\nkrysskant.\n\n**En rettet graf har en sykel hvis og bare hvis `DFS` finner en\ntilbakekant.**"
+    },
+    {
+      "id": "tdt4120-4-5-def-35",
+      "type": "definition",
+      "title": "Felle #11 — starttid mot finish-tid",
+      "content": "topologisk sortering bruker **synkende finish-tid**, ikke stigende\ndiscover-tid.\n\nDe to gir ulike svar på de fleste grafer, og bare det første er riktig.\n\n**Kontrollen er å sjekke at hver kant peker framover** i den ferdige listen."
+    },
+    {
+      "id": "tdt4120-4-5-def-36",
+      "type": "definition",
+      "title": "Sjanger C — håndkjøring",
+      "content": "oppgavetypen der du utfører en navngitt algoritme steg for steg og oppgir\nsluttilstanden.\n\nSvarformen skifter fra algoritme til algoritme, og halve treningen ligger i å\nkjenne den igjen.\n\n**Delvis riktig gir delvis uttelling** — skriv ned tilstanden underveis."
+    },
+    {
+      "id": "tdt4120-4-5-coll-38",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tdt4120-4-5-ct-37",
+          "type": "text",
+          "content": "Fem korte spørsmål fra kapitlene dette bygger på. Svar i hodet først, så\nsammenlign.\n\n**1.** Hva sier snittegenskapen?\n\n*Svar:* den letteste kanten over et snitt som respekterer valgene så langt, er\ntrygg — den kan legges til uten å ødelegge muligheten for et minimalt\nspenntre. Se [kap. 4.2](/tdt4120/tdt4120-4-2).\n\n**2.** Hvilken algoritme velger du på en graf med negative kantvekter og bare\nén kilde?\n\n*Svar:* `Bellman-Ford`, $\\Theta(VE)$. `Dijkstra` er utelukket — felle #8. Se\n[kap. 4.3](/tdt4120/tdt4120-4-3).\n\n**3.** Hva er `d`-regelen i `Floyd-Warshall`?\n\n*Svar:* $d^{(k)}_{ij} = \\min(d^{(k-1)}_{ij}, d^{(k-1)}_{ik} + d^{(k-1)}_{kj})$.\nSe [kap. 4.4](/tdt4120/tdt4120-4-4).\n\n**4.** Hva er kjøretiden til `BFS` og `DFS`?\n\n*Svar:* $\\Theta(V+E)$ begge — hver node og hver kant besøkes én gang. Se\n[kap. 4.1](/tdt4120/tdt4120-4-1).\n\n**5.** Hva brukes `Union-Find` til i `Kruskal`?\n\n*Svar:* til syklustesten — ligger endepunktene i samme komponent, forkastes\nkanten. Se [kap. 3.5](/tdt4120/tdt4120-3-5).\n\n**Videre:** [kap. 5.1](/tdt4120/tdt4120-5-1) tar flytnett, der grafene får en\nhelt ny type spørsmål: hvor mye kan strømme gjennom?"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

@@ -1,0 +1,384 @@
+{
+  "id": "tdt4120-1-4",
+  "courseId": "tdt4120",
+  "chapterNumber": "1.4",
+  "title": "Rekurrenser — masterteoremet",
+  "description": "Masterteoremet for `T(n)=aT(n/b)+f(n)` — de tre tilfellene, inkludert log-faktor-tilfellet som er den faste fellen.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "kunne lese av a, b og f(n) fra en rekurrens og regne ut sammenligningsuttrykket n opphoeyd i logaritmen til a med grunntall b",
+    "kunne velge riktig tilfelle i masterteoremet og oppgi svaret med riktig antall logaritmefaktorer",
+    "kunne sjekke regularitetsbetingelsen i tilfelle 3 og skrive begrunnelsen paa en linje",
+    "kunne avgjoere naar en rekurrens faller utenfor masterteoremet, og si hvorfor"
+  ],
+  "content": [
+    {
+      "id": "tdt4120-1-4-tip-vinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Sjanger B — rekurrensløsning**, altså at du får en rekurrens for en kjøretid og\nskal oppgi hva den løser til, er blant de best belagte sjangrene i faget: den er\nmed i **76 % (13 av de 17 settene i grunnlaget)**. Oppgaven ber deg nesten alltid\nom å **navngi metoden** du bruker, i tillegg til å gi svaret.\n\n**Høyeste prioritet — dette må sitte.** Masterteoremet er den metoden som\ndekker flest av oppgavene, og den er rask: har du de tre tilfellene i hodet, tar\nen typisk oppgave under to minutter.\n\nDet kritiske er å velge **riktig tilfelle**. Det aller vanligste tapet er å\nglemme logaritmefaktoren i tilfelle 2 og svare $\\Theta(n^2)$ der det riktige er\n$\\Theta(n^2\\lg n)$. Løsningsforslagene skiller tydelig mellom de to.\n\n**Slik er kapitlet lagt opp.** Først hvor rekurrensene kommer fra og hva de tre\ntallene $a$, $b$ og $f(n)$ betyr. Så selve teoremet med rekursjonstreet som\nbilde, deretter de tre tilfellene ett for ett med et gjennomregnet eksempel på\nhvert. Til slutt log-faktor-fellen, antall nivåer i rekursjonstreet og de\nrekurrensene teoremet **ikke** dekker.\n\nKapitlet er anslått til 50 minutter, og hver overskrift har sitt eget tidsanslag\n— det står «— naturlig pausepunkt —» der det er greit å stoppe.\n\nDette kapitlet bruker masterteoremet. **Hvorfor** det stemmer, og hva du gjør når\ndet ikke gjelder, hører hjemme i kapittel 1.5 om iterasjon og substitusjon."
+    },
+    {
+      "id": "tdt4120-1-4-forkunn",
+      "type": "text",
+      "content": "## Forkunnskaper\n\n- Kapittel 1.1, *Asymptotisk notasjon — de fem symbolene*. Du trenger $\\Theta$,\n  $O$ og $\\Omega$, og du må kunne avgjøre hvilken av to funksjoner som vokser\n  raskest.\n- [Potenser og logaritmer](/r1/r1-1-2) — regneregler for potenser og logaritmer\n  fra R1. Masterteoremet bygger helt og holdent på uttrykket $n^{\\log_b a}$, og\n  du må kunne regne ut $\\log_b a$ for konkrete tall.\n\nTo notasjonspunkter før vi begynner. $\\lg n$ betyr $\\log_2 n$ — det er\nCLRS-konvensjonen, og den brukes i hele boka. Og $\\log_b a$ er logaritmen til\n$a$ med grunntall $b$: det tallet du må opphøye $b$ i for å få $a$. For eksempel\ner $\\log_2 8 = 3$, fordi $2^3 = 8$."
+    },
+    {
+      "id": "tdt4120-1-4-coll-notasjon",
+      "type": "collapsible",
+      "title": "Notasjons- og pseudokodeliste",
+      "buttonText": "Vis notasjon og pseudokode",
+      "content": [
+        {
+          "id": "tdt4120-1-4-nt-1",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et algoritmefag: den lister kjøretidsuttrykk\nog pseudokode-operasjoner i stedet for bare greske bokstaver.\n\n| Symbol | Betydning |\n|---|---|\n| $T(n)$ | kjøretiden på et problem av størrelse $n$ |\n| $a$ | antall delproblemer algoritmen lager, $a \\ge 1$ |\n| $b$ | faktoren størrelsen krymper med i hvert delproblem, $b > 1$ |\n| $f(n)$ | arbeidet utenom rekursjonen: å dele opp og å sette sammen igjen |\n| $n^{\\log_b a}$ | antall løvnoder i rekursjonstreet — arbeidet helt i bunnen |\n| $\\log_b a$ | logaritmen til $a$ med grunntall $b$; $\\log_2 8 = 3$ fordi $2^3 = 8$ |\n| $\\varepsilon$ | en konstant som må være strengt positiv i tilfelle 1 og 3 |\n| $k$ | potensen på logaritmen i tilfelle 2; må være ikke-negativ |\n| $\\lg n$ | $\\log_2 n$ |\n| $\\lg^k n$ | $(\\lg n)^k$, ikke $\\lg(\\lg n)$ |\n\nDe tre algoritmene under er bare kilder til rekurrenser i dette kapitlet — selve\nalgoritmene hører hjemme i Del 2 og i kapittel 1.5. Du trenger rekurrensen og\nkjøretiden, ikke mekanikken.\n\n| Algoritme/operasjon | Kontrakt | Kjøretid |\n|---|---|---|\n| `Merge-Sort` | sorterer `A[1..n]` stigende ved å dele i to like deler, sortere hver del og flette dem | $\\Theta(n\\lg n)$ i alle tilfeller |\n| `Merge` | fletter to ferdig sorterte delarrayer til ett sortert array | $\\Theta(n)$ på et delarray av lengde $n$ |\n| `Binary-Search` | søker etter en verdi i et ferdig sortert array ved å halvere søkeområdet | $\\Theta(\\lg n)$ |\n\n**Formler i dette delkapitlet:**\n\n$$T(n) = aT(n/b) + f(n), \\quad a \\ge 1,\\ b > 1$$\n\nStandardformen masterteoremet gjelder for: $a$ delproblemer, hvert av størrelse\n$n/b$, pluss $f(n)$ arbeid utenom.\n\n$$f(n) = O(n^{\\log_b a - \\varepsilon}) \\ \\Rightarrow\\ T(n) = \\Theta(n^{\\log_b a})$$\n\nTilfelle 1: rekursjonen dominerer, og svaret er antall løvnoder.\n\n$$f(n) = \\Theta(n^{\\log_b a}\\lg^{k} n),\\ k \\ge 0 \\ \\Rightarrow\\ T(n) = \\Theta(n^{\\log_b a}\\lg^{k+1} n)$$\n\nTilfelle 2: de to sidene er like store, og svaret får én logaritme ekstra.\n\n$$f(n) = \\Omega(n^{\\log_b a + \\varepsilon}) \\ \\Rightarrow\\ T(n) = \\Theta(f(n))$$\n\nTilfelle 3: arbeidet på toppen dominerer — forutsatt at regularitetsbetingelsen\n$af(n/b) \\le c\\,f(n)$ holder for en konstant $c < 1$.\n\n$$\\Theta(\\log_b n)$$\n\nAntall nivåer i rekursjonstreet, et fast delspørsmål."
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-1-4-t-anker",
+      "type": "text",
+      "content": "## Der rekurrensene kommer fra (~8 min)\n\nEt bibliotek får inn en kasse med 800 innleverte bøker som skal settes i hylla i\nriktig rekkefølge. Én person alene ville brukt hele dagen. I stedet deler du\nkassa i to like store bunker, gir én bunke til hver av to medarbeidere som gjør\nakkurat det samme med sin, og til slutt fletter du de to ferdig ordnede bunkene\nsammen til én — noe som krever at du tar én bok om gangen og ser hvilken av de\nto bunkene som har den neste i rekkefølgen.\n\nHvor lang tid tar det? Kall tiden for $n$ bøker $T(n)$. De to medarbeiderne\nbruker $T(n/2)$ hver. Flettingen på slutten krever at du er innom hver bok én\ngang, altså omtrent $n$ arbeidsenheter. Til sammen:\n\n$$T(n) = 2T(n/2) + n$$\n\nDette er en **rekurrens**: en ligning som beskriver $T(n)$ ved hjelp av $T$ av en\nmindre inputstørrelse. Den er ikke et svar ennå — den sier ikke hvor lang tid\ndet faktisk tar. Å finne det lukkede uttrykket, altså å svare «$T(n)$ er\n$\\Theta(n\\lg n)$», kalles å **løse** rekurrensen.\n\nNesten alle rekurrensene i dette faget ser like ut, fordi de kommer fra samme\ntype algoritme: del opp, løs delene, sett sammen. Det er derfor det finnes ett\nverktøy som løser nesten alle på under et minutt."
+    },
+    {
+      "id": "tdt4120-1-4-d-rekurrens",
+      "type": "definition",
+      "title": "Rekurrens",
+      "content": "En ligning som uttrykker kjøretiden for et problem av størrelse $n$ ved hjelp av\nkjøretiden for mindre inputstørrelser. Den beskriver arbeidet, men oppgir det\nikke — svaret må regnes fram.\n\nStandardformen i dette faget er $T(n) = aT(n/b) + f(n)$: algoritmen lager $a$\ndelproblemer av størrelse $n/b$ og bruker $f(n)$ på alt annet.\n\nKravet for at masterteoremet skal kunne brukes, er at rekurrensen faktisk er på\ndenne formen — med $a \\ge 1$ og $b > 1$. Rekurrenser som $T(n) = T(n-1) + n$\nkrymper ved subtraksjon i stedet for divisjon og faller utenfor."
+    },
+    {
+      "id": "tdt4120-1-4-d-grunntilfelle",
+      "type": "definition",
+      "title": "Grunntilfellet",
+      "content": "Den minste inputen algoritmen ikke deler opp videre, og den verdien rekursjonen\nstopper på. Uten et grunntilfelle er en rekurrens uendelig.\n\nFor algoritmiske rekurrenser antas $T(k) = \\Theta(1)$ for en konstant $k$ — å\nsortere ett element eller søke i et array med ett element tar konstant tid.\n\nKravet er mildere enn man skulle tro: et oppgitt grunntilfelle som $T(0) = 0$\neller $T(1) = 1$ er som regel uten betydning for det asymptotiske svaret, og\nmasterteoremet spør aldri etter det. Skal du derimot oppgi et **eksakt**\nuttrykk, betyr grunntilfellet alt."
+    },
+    {
+      "id": "tdt4120-1-4-t-abf",
+      "type": "text",
+      "content": "### Hva de tre tallene betyr\n\nTre størrelser bestemmer alt, og de kan leses rett ut av rekurrensen:\n\n- **$a$** er hvor mange delproblemer algoritmen lager. I biblioteket er $a = 2$,\n  fordi kassa deles i to bunker.\n- **$b$** er hvor mye mindre hvert delproblem er. Her er $b = 2$, fordi hver\n  bunke er halvparten så stor.\n- **$f(n)$** er arbeidet utenom rekursjonen: både oppdelingen på veien ned og\n  sammensettingen på veien opp. Her er $f(n) = n$, fra flettingen.\n\nLegg merke til at $a$ og $b$ ikke behøver å være like. Deler du inn i tre bunker\nmen bare må jobbe videre med to av dem, er $a = 2$ og $b = 3$.\n\nMasterteoremet består i å sammenligne to størrelser: arbeidet $f(n)$ på toppen,\nog uttrykket $n^{\\log_b a}$, som er antall løvnoder helt i bunnen av\nrekursjonen. Den av de to som dominerer, bestemmer svaret. Er de like store,\nkommer det en logaritme på kjøpet."
+    },
+    {
+      "id": "tdt4120-1-4-th-master",
+      "type": "theorem",
+      "title": "Masterteoremet",
+      "content": "La $T(n) = aT(n/b) + f(n)$ med $a \\ge 1$ og $b > 1$. Sammenlign $f(n)$ med\n$n^{\\log_b a}$.\n\n**Tilfelle 1.** Er $f(n) = O(n^{\\log_b a - \\varepsilon})$ for en konstant\n$\\varepsilon > 0$, så er\n\n$$T(n) = \\Theta(n^{\\log_b a})$$\n\n**Tilfelle 2.** Er $f(n) = \\Theta(n^{\\log_b a}\\lg^{k} n)$ med $k \\ge 0$, så er\n\n$$T(n) = \\Theta(n^{\\log_b a}\\lg^{k+1} n)$$\n\n**Tilfelle 3.** Er $f(n) = \\Omega(n^{\\log_b a + \\varepsilon})$ for en konstant\n$\\varepsilon > 0$, **og** regularitetsbetingelsen $af(n/b) \\le c\\,f(n)$ holder\nfor en konstant $c < 1$ og alle store nok $n$, så er\n\n$$T(n) = \\Theta(f(n))$$\n\nLegg merke til to detaljer i tilfelle 2, for begge er faste feilkilder. For det\nførste må $k$ være **ikke-negativ** — $k = 0$ er tillatt og er det aller\nvanligste tilfellet, siden $\\lg^0 n = 1$. For det andre er svaret\n$\\lg^{k+1} n$, ikke $\\lg^k n$: du legger til én logaritme, du beholder ikke den\ndu hadde.\n\nI tilfelle 1 og 3 er $\\varepsilon$ derimot **strengt positiv**. Gapet mellom\n$f(n)$ og $n^{\\log_b a}$ må være en hel potens av $n$, ikke bare en logaritme.\nDet er nettopp derfor tilfelle 2 finnes: den fanger opp mellomrommet der\navstanden er logaritmisk."
+    },
+    {
+      "id": "tdt4120-1-4-fig-tre",
+      "type": "image",
+      "src": "/images/textbook/tdt4120/rekursjonstre.svg",
+      "alt": "Rekursjonstre for T(n) lik a ganger T av n delt paa b, pluss f av n. Rota har stoerrelse n og arbeid f av n. Neste niva har a delproblemer av stoerrelse n delt paa b, med samlet arbeid a ganger f av n delt paa b. Nivaet under har a i andre delproblemer av stoerrelse n delt paa b i andre. Nederst staar loevnodene, i antall n opphoeyd i logaritmen til a med grunntall b. Treet har logaritmen til n med grunntall b nivaaer.",
+      "caption": "Rekursjonstreet for $T(n)=aT(n/b)+f(n)$. Kolonnen til høyre er arbeidet per nivå: $f(n)$ øverst, $af(n/b)$ på neste, $a^2f(n/b^2)$ på det tredje. Nederst ligger $n^{\\log_b a}$ løvnoder, og treet er $\\log_b n$ nivåer dypt. Masterteoremet er ikke annet enn svaret på hvilken ende av denne kolonnen som er størst. I biblioteket med $T(n)=2T(n/2)+n$ er hvert nivå like stort — $n$ arbeidsenheter — og da bestemmer antall nivåer svaret."
+    },
+    {
+      "id": "tdt4120-1-4-t-intuisjon",
+      "type": "text",
+      "content": "**Intuisjon:** Se på kolonnen med arbeid per nivå i figuren. Øverst gjør du\n$f(n)$. På neste nivå har du $a$ delproblemer som hver koster $f(n/b)$, altså\n$af(n/b)$ til sammen. Slik fortsetter det nedover, og helt i bunnen sitter\n$n^{\\log_b a}$ løvnoder som hver koster konstant tid.\n\nTre ting kan skje med en slik kolonne. Enten vokser tallene nedover, og da er\ndet bunnen — løvnodene — som dominerer, og svaret blir $\\Theta(n^{\\log_b a})$.\nDet er tilfelle 1. Eller de synker nedover, og da dominerer toppen, og svaret\nblir $\\Theta(f(n))$. Det er tilfelle 3. Eller de er omtrent like store hele\nveien, og da er svaret arbeidet per nivå ganger antall nivåer — og antall nivåer\ner $\\log_b n$. Det er tilfelle 2, og det er derfra logaritmen i svaret kommer.\n\nDu trenger ikke bevise noe av dette på eksamen. Men bildet gjør at du husker\nhvorfor tilfelle 2 er det eneste som legger på en logaritme."
+    },
+    {
+      "id": "tdt4120-1-4-d-nlogba",
+      "type": "definition",
+      "title": "Uttrykket $n^{\\log_b a}$",
+      "content": "Antall løvnoder i rekursjonstreet, altså hvor mye arbeid som ligger helt i\nbunnen av rekursjonen. Det er den ene av de to størrelsene masterteoremet\nsammenligner.\n\nRegnes ut ved å ta logaritmen til $a$ med grunntall $b$. For $T(n)=2T(n/2)+n$ er\n$\\log_2 2 = 1$, altså $n^1 = n$. For $T(n)=9T(n/3)+n$ er $\\log_3 9 = 2$, altså\n$n^2$.\n\nKravet er å regne dette først, hver eneste gang. Alle tre tilfellene er\nformulert som en sammenligning mot nettopp dette uttrykket, så uten det kan du\nikke velge tilfelle."
+    },
+    {
+      "id": "tdt4120-1-4-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Bibliotekets egen rekurrens",
+      "problem": "Løs $T(n) = 2T(n/2) + n$ med masterteoremet. Angi hvilket tilfelle du bruker.",
+      "solution": "**Les av tallene.** $a = 2$, $b = 2$, $f(n) = n$.\n\n**Regn ut $n^{\\log_b a}$.** $\\log_2 2 = 1$, så $n^{\\log_b a} = n^1 = n$.\n\n**Sammenlign.** $f(n) = n$ og $n^{\\log_b a} = n$ er samme funksjon. Da er\n$f(n) = \\Theta(n^{\\log_b a}\\lg^0 n)$, altså tilfelle 2 med $k = 0$ — husk at\n$\\lg^0 n = 1$.\n\n**Sett inn i tilfelle 2.** Svaret er $\\Theta(n^{\\log_b a}\\lg^{k+1} n)$ med\n$k + 1 = 1$:\n\n$$T(n) = \\Theta(n\\lg n)$$\n\n*Kortsvaret du leverer:* masterteoremet, tilfelle 2 med $k = 0$, gir\n$T(n) = \\Theta(n\\lg n)$.\n\nDette er `Merge-Sort`s rekurrens, og $\\Theta(n\\lg n)$ er den kjøretiden du\nkommer til å møte igjen i Del 2. Legg merke til at $k = 0$ er helt lovlig — det\ner tvert imot det vanligste. Et krav om at $k$ måtte være strengt positiv, ville\nutelukket nettopp denne rekurrensen fra teoremet."
+    },
+    {
+      "id": "tdt4120-1-4-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-1-4-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamensnivå, sjanger B — rekurrensløsning, altså at du oppgir hva en rekurrens\nløser til og hvilken metode du brukte.) Gitt $T(n) = 4T(n/2) + n$.\n\n**a)** Hva er $a$, $b$ og $f(n)$?\n\n**b)** Regn ut $n^{\\log_b a}$.\n\n**c)** Hvilket tilfelle av masterteoremet gjelder, og hva blir $T(n)$?",
+        "solution": "**a)** $a = 4$, $b = 2$, $f(n) = n$.\n\n**b)** $\\log_2 4 = 2$, så $n^{\\log_b a} = n^2$.\n\n**c)** $f(n) = n$ vokser mye langsommere enn $n^2$: med $\\varepsilon = 1$ er\n$n = O(n^{2-1})$. Det er tilfelle 1, og svaret er antall løvnoder:\n\n$$T(n) = \\Theta(n^2)$$\n\n*Kortsvaret:* masterteoremet, tilfelle 1, gir $T(n) = \\Theta(n^2)$.",
+        "hints": [
+          "$\\log_2 4$ er det tallet du må opphøye 2 i for å få 4.",
+          "Sammenlign $f(n) = n$ med $n^2$: er avstanden mellom dem en hel potens av $n$, eller bare en logaritme?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-1-4-t-tre",
+      "type": "text",
+      "content": "## De tre tilfellene, ett for ett (~14 min)\n\n— naturlig pausepunkt —\n\nAlle tre tilfellene er formulert som en sammenligning mellom $f(n)$ og\n$n^{\\log_b a}$. Rekkefølgen du bør gå fram i, er alltid den samme: regn ut\n$n^{\\log_b a}$, sammenlign, velg tilfelle, sett inn.\n\nDet som skiller tilfellene, er hvor stort gapet er:\n\n| Gapet mellom $f(n)$ og $n^{\\log_b a}$ | Tilfelle | Svar |\n|---|---|---|\n| $f(n)$ er en hel potens av $n$ **mindre** | 1 | $\\Theta(n^{\\log_b a})$ |\n| de er like store, eventuelt med en logaritmefaktor mellom | 2 | $\\Theta(n^{\\log_b a}\\lg^{k+1} n)$ |\n| $f(n)$ er en hel potens av $n$ **større** | 3 | $\\Theta(f(n))$ |\n\n«En hel potens av $n$» er det $\\varepsilon$-et står for. Er $n^{\\log_b a} = n^2$\nog $f(n) = n$, er gapet en faktor $n$, altså rikelig. Er $f(n) = n^2/\\lg n$, er\ngapet bare en logaritme, og da holder det ikke til tilfelle 1."
+    },
+    {
+      "id": "tdt4120-1-4-d-tilfelle-1",
+      "type": "definition",
+      "title": "Tilfelle 1 i masterteoremet",
+      "content": "Det tilfellet der rekursjonen dominerer: arbeidet utenom er så lite at det er\nløvnodene som bestemmer kjøretiden.\n\nBetingelsen er $f(n) = O(n^{\\log_b a - \\varepsilon})$ for en konstant\n$\\varepsilon > 0$, og svaret er $T(n) = \\Theta(n^{\\log_b a})$.\n\nKravet som lett overses, er at $\\varepsilon$ må være **strengt positiv**: gapet\nmå være en hel potens av $n$. At $f(n)$ bare er litt mindre enn $n^{\\log_b a}$,\nfor eksempel med en logaritmefaktor, er ikke nok."
+    },
+    {
+      "id": "tdt4120-1-4-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Rekursjonen dominerer",
+      "problem": "Løs $T(n) = 9T(n/3) + n$ med masterteoremet, og angi tilfellet.",
+      "solution": "$a = 9$, $b = 3$, $f(n) = n$.\n\n$\\log_3 9 = 2$, fordi $3^2 = 9$. Altså er $n^{\\log_b a} = n^2$.\n\nNå sammenligner vi $f(n) = n$ med $n^2$. Gapet er en hel faktor $n$: med\n$\\varepsilon = 1$ er $n = O(n^{2-1}) = O(n)$, som stemmer. Betingelsen i\ntilfelle 1 er oppfylt.\n\n$$T(n) = \\Theta(n^2)$$\n\n*Kortsvaret:* masterteoremet, tilfelle 1, gir $T(n) = \\Theta(n^2)$.\n\nLegg merke til at $f(n)$ ikke dukker opp i svaret i det hele tatt når tilfelle 1\ngjelder. Det er hele poenget: arbeidet på toppen er så lite at det drukner i\narbeidet nederst i treet."
+    },
+    {
+      "id": "tdt4120-1-4-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-1-4-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamensnivå, sjanger B.) Løs med masterteoremet, og oppgi tilfellet:\n\n**a)** $T(n) = 3T(n/2) + n$\n\n**b)** $T(n) = 2T(n/2) + \\lg n$",
+        "solution": "**a)** $a = 3$, $b = 2$, $f(n) = n$. Her er $\\log_2 3 \\approx 1{,}585$, så\n$n^{\\log_b a} = n^{\\lg 3}$. Siden $n$ vokser langsommere enn $n^{1{,}585}$ — med\n$\\varepsilon = 0{,}5$ er $n = O(n^{\\lg 3 - 0{,}5})$ — er dette tilfelle 1:\n\n$$T(n) = \\Theta(n^{\\lg 3})$$\n\n**b)** $a = 2$, $b = 2$, $f(n) = \\lg n$. Her er $\\log_2 2 = 1$, så\n$n^{\\log_b a} = n$. En logaritme vokser langt langsommere enn $n$: med\n$\\varepsilon = 0{,}5$ er $\\lg n = O(n^{0{,}5})$. Tilfelle 1:\n\n$$T(n) = \\Theta(n)$$\n\n*Kortsvaret er metodens navn, tilfellet og uttrykket — ikke utregningen.*",
+        "hints": [
+          "Regn ut $n^{\\log_b a}$ først i begge deloppgavene.",
+          "Det er lov at $\\log_b a$ ikke er et helt tall; da står det bare et desimaltall eller et logaritmeuttrykk i eksponenten."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-1-4-d-tilfelle-2",
+      "type": "definition",
+      "title": "Tilfelle 2 i masterteoremet",
+      "content": "Det tilfellet der arbeidet på toppen og arbeidet i bunnen er like store, slik at\nhvert nivå i rekursjonstreet koster omtrent det samme.\n\nBetingelsen er $f(n) = \\Theta(n^{\\log_b a}\\lg^{k} n)$ med $k \\ge 0$, og svaret er\n$T(n) = \\Theta(n^{\\log_b a}\\lg^{k+1} n)$.\n\nKravet er at $k$ er **ikke-negativ**. Den ekstra logaritmen i svaret kommer fra\nantall nivåer i treet: like mye arbeid på hvert av $\\log_b n$ nivåer gir én\nlogaritme ekstra."
+    },
+    {
+      "id": "tdt4120-1-4-d-k",
+      "type": "definition",
+      "title": "Potensen $k$ i tilfelle 2",
+      "content": "Antall logaritmefaktorer i $f(n)$ utover $n^{\\log_b a}$. Den avgjør hvor mange\nlogaritmer som står i svaret, og den skal alltid leses av før du konkluderer.\n\nEr $f(n) = n^{\\log_b a}$ glatt, er $k = 0$ og svaret får én logaritme. Er\n$f(n) = n^{\\log_b a}\\lg n$, er $k = 1$ og svaret får to. Regelen er alltid\n$k \\to k+1$.\n\nKravet er at $k$ må være ikke-negativ. Er $f(n)$ mindre enn $n^{\\log_b a}$ med\nen logaritmefaktor — altså $k = -1$ — faller rekurrensen utenfor den varianten av\nteoremet som brukes i dette faget."
+    },
+    {
+      "id": "tdt4120-1-4-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-1-4-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger B.) Løs med masterteoremet, og oppgi tilfellet og\nverdien av $k$:\n\n**a)** $T(n) = 16T(n/4) + n^2$\n\n**b)** $T(n) = 2T(n/2) + n\\lg n$",
+        "solution": "**a)** $a = 16$, $b = 4$, $f(n) = n^2$. Her er $\\log_4 16 = 2$, så\n$n^{\\log_b a} = n^2$ — nøyaktig det samme som $f(n)$. Det er tilfelle 2 med\n$k = 0$:\n\n$$T(n) = \\Theta(n^2\\lg n)$$\n\n**b)** $a = 2$, $b = 2$, $f(n) = n\\lg n$. Her er $\\log_2 2 = 1$, så\n$n^{\\log_b a} = n$, og $f(n) = n\\lg n = \\Theta(n^1\\lg^1 n)$. Tilfelle 2 med\n$k = 1$:\n\n$$T(n) = \\Theta(n\\lg^2 n)$$\n\n*Oppgaven ber om tilfellet i tillegg til svaret. Å skrive $\\Theta(n^2\\lg n)$ uten\nå nevne metoden gir ikke full uttelling i sjanger B.*\n\nMerk at svaret i a) **ikke** er $\\Theta(n^2)$. Når $f(n)$ og $n^{\\log_b a}$ er\nlike store, legger tilfelle 2 alltid på en logaritme.",
+        "hints": [
+          "Regn ut $\\log_4 16$ og $\\log_2 2$ først.",
+          "Skriv $f(n)$ på formen $n^{\\log_b a}\\lg^k n$ og les av $k$ direkte.",
+          "Husk at svaret får $\\lg^{k+1} n$, ikke $\\lg^k n$."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-1-4-d-tilfelle-3",
+      "type": "definition",
+      "title": "Tilfelle 3 i masterteoremet",
+      "content": "Det tilfellet der arbeidet på toppen dominerer: oppdelingen og sammensettingen\nkoster så mye at rekursjonen blir uvesentlig.\n\nBetingelsen er $f(n) = \\Omega(n^{\\log_b a + \\varepsilon})$ for en konstant\n$\\varepsilon > 0$, og svaret er $T(n) = \\Theta(f(n))$.\n\nKravet som skiller dette tilfellet fra de to andre, er at det har **to**\nbetingelser: gapet må være en hel potens av $n$, og i tillegg må\nregularitetsbetingelsen holde."
+    },
+    {
+      "id": "tdt4120-1-4-d-regularitet",
+      "type": "definition",
+      "title": "Regularitetsbetingelsen",
+      "content": "Tilleggskravet i tilfelle 3: arbeidet på ett nivå skal være en fast brøkdel\nmindre enn arbeidet på nivået over, slik at summen nedover faktisk krymper.\n\nFormelt: $af(n/b) \\le c\\,f(n)$ for en konstant $c < 1$ og alle store nok $n$.\n\nKravet er nesten alltid oppfylt for de $f(n)$-ene som dukker opp på eksamen —\npolynomer og polynomer ganger logaritmer. For $T(n)=2T(n/2)+n^2$ er\n$2(n/2)^2 = n^2/2$, altså $c = 1/2$, og betingelsen holder. Skriv én linje om\nden når du bruker tilfelle 3; det er den linja løsningsforslagene ser etter."
+    },
+    {
+      "id": "tdt4120-1-4-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Arbeidet på toppen dominerer",
+      "problem": "Løs $T(n) = 2T(n/2) + n^2$ med masterteoremet. Angi tilfellet, og vis at\ntilleggsbetingelsen holder.",
+      "solution": "$a = 2$, $b = 2$, $f(n) = n^2$.\n\n$\\log_2 2 = 1$, så $n^{\\log_b a} = n$.\n\nNå er $f(n) = n^2$ **større** enn $n$, og gapet er en hel faktor $n$: med\n$\\varepsilon = 1$ er $n^2 = \\Omega(n^{1+1})$. Første betingelse i tilfelle 3 er\noppfylt.\n\n**Regularitetsbetingelsen.** Vi må vise at $af(n/b) \\le c\\,f(n)$ for en\n$c < 1$:\n\n$$2\\left(\\frac{n}{2}\\right)^2 = 2\\cdot\\frac{n^2}{4} = \\frac{n^2}{2}$$\n\nDet er $\\tfrac{1}{2}\\,f(n)$, så $c = \\tfrac{1}{2} < 1$ virker. Betingelsen\nholder.\n\n$$T(n) = \\Theta(n^2)$$\n\n*Kortsvaret:* masterteoremet, tilfelle 3 (regularitetsbetingelsen holder med\n$c = 1/2$), gir $T(n) = \\Theta(n^2)$.\n\nMerk kontrasten til eksempel 1: samme $a$ og $b$, men et tyngre $f(n)$, og\nsvaret blir noe helt annet. Det er $f(n)$ alene som står i svaret her — ingen\nlogaritme kommer i tillegg."
+    },
+    {
+      "id": "tdt4120-1-4-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-1-4-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger B.) Løs med masterteoremet. Oppgi tilfellet, og skriv én\nlinje om regularitetsbetingelsen der den er relevant.\n\n**a)** $T(n) = 8T(n/4) + n^2$\n\n**b)** $T(n) = 2T(n/4) + n$",
+        "solution": "**a)** $a = 8$, $b = 4$, $f(n) = n^2$. Her er $\\log_4 8 = 3/2$, så\n$n^{\\log_b a} = n^{1{,}5}$. Siden $n^2 = \\Omega(n^{1{,}5 + 0{,}5})$, er dette\ntilfelle 3. Regularitet: $8(n/4)^2 = n^2/2$, altså $c = 1/2 < 1$.\n\n$$T(n) = \\Theta(n^2)$$\n\n**b)** $a = 2$, $b = 4$, $f(n) = n$. Her er $\\log_4 2 = 1/2$, så\n$n^{\\log_b a} = \\sqrt{n}$. Siden $n = \\Omega(n^{0{,}5 + 0{,}5})$, er dette\ntilfelle 3. Regularitet: $2(n/4) = n/2$, altså $c = 1/2 < 1$.\n\n$$T(n) = \\Theta(n)$$\n\n*Begge svarene er $\\Theta(f(n))$ — det er formen tilfelle 3 alltid gir.*",
+        "hints": [
+          "$\\log_4 8$ er ikke et helt tall. Skriv $8 = 4^x$ og løs for $x$.",
+          "Regularitetsbetingelsen sjekkes ved å sette $n/b$ inn i $f$ og gange med $a$: blir resultatet en brøkdel av $f(n)$?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-1-4-t-logfaktor",
+      "type": "text",
+      "content": "## Log-faktoren — den faste fellen (~12 min)\n\n— naturlig pausepunkt —\n\nNå kommer den enkeltdetaljen som avgjør flest poeng i sjanger B. Når $f(n)$\nmatcher $n^{\\log_b a}$ **opp til en logaritme**, er du i tilfelle 2 — og svaret\nfår én logaritme mer enn $f(n)$ hadde.\n\nFeilen ser slik ut i praksis. Du har $T(n) = 4T(n/2) + n^2\\lg n$, regner ut at\n$\\log_2 4 = 2$, ser at $f(n)$ er «omtrent $n^2$», og svarer $\\Theta(n^2)$ eller\n$\\Theta(n^2\\lg n)$. Begge er gale. Riktig svar er $\\Theta(n^2\\lg^2 n)$.\n\nGrepet som fjerner feilen er å skrive $f(n)$ eksplisitt på formen\n$n^{\\log_b a}\\lg^k n$ før du konkluderer, og lese av $k$ derfra. Da blir svaret\nmekanisk: bytt $k$ med $k+1$."
+    },
+    {
+      "id": "tdt4120-1-4-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: Logaritmen som må telles",
+      "problem": "Løs $T(n) = 4T(n/2) + n^2\\lg n$ med masterteoremet. Angi tilfellet og verdien av\n$k$, og forklar med én setning hvorfor tilfelle 3 **ikke** gjelder.",
+      "solution": "$a = 4$, $b = 2$, $f(n) = n^2\\lg n$.\n\n$\\log_2 4 = 2$, så $n^{\\log_b a} = n^2$.\n\n**Skriv $f(n)$ på riktig form.** $f(n) = n^2\\lg n = n^{\\log_b a}\\lg^1 n$, altså\ntilfelle 2 med $k = 1$.\n\n**Sett inn.** Svaret er $\\Theta(n^{\\log_b a}\\lg^{k+1} n)$ med $k + 1 = 2$:\n\n$$T(n) = \\Theta(n^2\\lg^2 n)$$\n\n**Hvorfor ikke tilfelle 3?** Fordi $f(n)$ bare er en logaritme større enn\n$n^{\\log_b a}$, ikke en hel potens av $n$: det finnes ingen $\\varepsilon > 0$\nmed $n^2\\lg n = \\Omega(n^{2+\\varepsilon})$, siden $\\lg n$ vokser langsommere enn\nenhver positiv potens av $n$.\n\n*Kortsvaret:* masterteoremet, tilfelle 2 med $k = 1$, gir\n$T(n) = \\Theta(n^2\\lg^2 n)$.\n\nLegg merke til at $\\lg^2 n$ betyr $(\\lg n)^2$, ikke $\\lg(\\lg n)$. Skriver du det\nsiste, har du svart på noe annet."
+    },
+    {
+      "id": "tdt4120-1-4-warn-feller",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**Felle #5 — feil masterteorem-tilfelle.** Dette er kapitlets hovedfelle, og den\nhar tre ansikter.\n\n*Glemt logaritmefaktor.* Når $f(n) = \\Theta(n^{\\log_b a})$, altså tilfelle 2 med\n$k = 0$, er svaret $\\Theta(n^{\\log_b a}\\lg n)$ — ikke $\\Theta(n^{\\log_b a})$.\nÅ svare $\\Theta(n^2)$ på $T(n)=16T(n/4)+n^2$ er den vanligste enkeltfeilen i hele\nsjangeren. Motgiften er å skrive $f(n)$ eksplisitt som $n^{\\log_b a}\\lg^k n$ og\nlese av $k$, i stedet for å gjette tilfellet på øyemål.\n\n*Tilfelle 2 med negativ $k$.* Se på $T(n) = 2T(n/2) + n/\\lg n$. Her er\n$\\log_2 2 = 1$, og $f(n) = n/\\lg n = n\\lg^{-1} n$, altså $k = -1$. Det er\n**utenfor** den varianten av masterteoremet som brukes i dette faget: kravet er\nat $k$ må være ikke-negativ. Rekurrensen har et svar — den løser til\n$\\Theta(n\\lg\\lg n)$ — men det svaret får du ikke fra masterteoremet, og du skal\nikke sette inn i tilfelle 2 og håpe. Noterer du at rekurrensen faller utenfor\npensumvarianten, har du sagt det som er riktig. Det har hendt at en slik\nrekurrens har havnet i et sett og blitt tatt ut av vurderingen etterpå, men det\ner ikke noe å planlegge for: skriv hvorfor teoremet ikke gjelder, og gå videre.\n\n*Feil utregnet $\\log_b a$.* Merk at $\\log_b a$ har $b$ som grunntall, ikke $a$.\nFor $T(n)=8T(n/2)+n^3$ er $\\log_2 8 = 3$, ikke $\\log_8 2$. En byttet\nrekkefølge her gir feil eksponent og dermed feil tilfelle.\n\n**Masterteoremet brukt på feil form.** Teoremet krever $T(n) = aT(n/b) + f(n)$\nmed $a \\ge 1$ og $b > 1$. En rekurrens som $T(n) = T(n-1) + n$ krymper ved\nsubtraksjon og er ikke på denne formen — der trengs iterasjonsmetoden, som hører\nhjemme i kapittel 1.5. Det samme gjelder rekurrenser med ulikt store deler, som\n$T(n) = T(n/3) + T(2n/3) + n$. Å tvinge masterteoremet på en slik rekurrens gir\net svar som ser pent ut og er galt."
+    },
+    {
+      "id": "tdt4120-1-4-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-1-4-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger B.) Løs med masterteoremet. Oppgi tilfellet og $k$ der\ntilfelle 2 gjelder.\n\n**a)** $T(n) = 27T(n/3) + n^3\\lg n$\n\n**b)** $T(n) = 64T(n/4) + n^3$\n\n**c)** $T(n) = 7T(n/2) + n^2$",
+        "solution": "**a)** $a = 27$, $b = 3$, $f(n) = n^3\\lg n$. Her er $\\log_3 27 = 3$, så\n$n^{\\log_b a} = n^3$, og $f(n) = n^3\\lg^1 n$. Tilfelle 2 med $k = 1$:\n\n$$T(n) = \\Theta(n^3\\lg^2 n)$$\n\n**b)** $a = 64$, $b = 4$, $f(n) = n^3$. Her er $\\log_4 64 = 3$, så\n$n^{\\log_b a} = n^3 = f(n)$. Tilfelle 2 med $k = 0$:\n\n$$T(n) = \\Theta(n^3\\lg n)$$\n\n**c)** $a = 7$, $b = 2$, $f(n) = n^2$. Her er $\\log_2 7 \\approx 2{,}807$, så\n$n^{\\log_b a} = n^{\\lg 7}$, som vokser raskere enn $n^2$. Tilfelle 1:\n\n$$T(n) = \\Theta(n^{\\lg 7})$$\n\n*De tre ser like ut på arket og havner i tre ulike tilfeller. Det er nettopp\nderfor $n^{\\log_b a}$ må regnes ut før du velger.*",
+        "hints": [
+          "Regn ut $\\log_3 27$, $\\log_4 64$ og $\\log_2 7$ før du ser på $f(n)$ i det hele tatt.",
+          "I c): er $\\log_2 7$ større eller mindre enn 2?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-1-4-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-1-4-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger B.) Betrakt $T(n) = 2T(n/2) + \\dfrac{n}{\\lg n}$.\n\n**a)** Regn ut $n^{\\log_b a}$ og skriv $f(n)$ på formen $n^{\\log_b a}\\lg^k n$.\nHva blir $k$?\n\n**b)** Kan du bruke masterteoremet slik det er formulert i dette kapitlet?\nBegrunn.\n\n**c)** Hva er riktig svar på en slik oppgave på eksamen?",
+        "solution": "**a)** $a = 2$, $b = 2$, så $\\log_2 2 = 1$ og $n^{\\log_b a} = n$. Da er\n\n$$f(n) = \\frac{n}{\\lg n} = n\\lg^{-1} n$$\n\naltså $k = -1$.\n\n**b)** Nei. Tilfelle 2 krever $k \\ge 0$, og her er $k$ negativ. Tilfelle 1\nhjelper heller ikke: $f(n)$ er mindre enn $n$, men ikke med en hel potens av $n$\n— det finnes ingen $\\varepsilon > 0$ med $n/\\lg n = O(n^{1-\\varepsilon})$. Og\ntilfelle 3 er utelukket, siden $f(n)$ er mindre enn $n^{\\log_b a}$, ikke større.\nRekurrensen faller i gapet mellom tilfelle 1 og tilfelle 2.\n\n**c)** At masterteoremet i denne formen ikke dekker rekurrensen, og hvorfor:\n$k = -1$ er utenfor kravet $k \\ge 0$. Det er et fullgodt svar, og det er det\nærlige svaret. Ikke sett inn i tilfelle 2 likevel — svaret $\\Theta(n)$ som det\nville gitt, er galt.\n\n*Til orientering løser rekurrensen til $\\Theta(n\\lg\\lg n)$, men det krever andre\nmetoder enn dette kapitlet gir deg.*",
+        "hints": [
+          "Skriv $\\dfrac{1}{\\lg n}$ som $\\lg^{-1} n$ og les av $k$ derfra.",
+          "Gå gjennom alle tre tilfellene og forkast dem ett for ett, med begrunnelse for hvert."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-1-4-t-nivaa",
+      "type": "text",
+      "content": "## Antall nivåer og grunntilfellet (~8 min)\n\nEt fast delspørsmål er hvor mange nivåer rekursjonstreet har. Svaret følger av\nfiguren tidligere i kapitlet: hvert nivå deler størrelsen på $b$, og du er\nframme ved grunntilfellet når $n$ er krympet ned til en konstant. Antall\nhalveringer, tredelinger eller hva det nå er, er $\\log_b n$:\n\n$$\\Theta(\\log_b n)$$\n\nLegg merke til at $a$ ikke er med. Hvor mange delproblemer hvert nivå lager,\npåvirker hvor **bredt** treet er, ikke hvor **dypt**. Bredden er $n^{\\log_b a}$\nløvnoder; dybden er $\\log_b n$ nivåer.\n\nLegg også merke til at grunntallet i logaritmen ikke betyr noe asymptotisk.\n$\\Theta(\\log_b n)$ og $\\Theta(\\lg n)$ er samme klasse, siden logaritmer med ulikt\ngrunntall skiller seg med en konstant faktor. Blir du spurt om et konkret tall\n— «hvor mange nivåer har treet for $n = 1024$ når $b = 2$?» — må du derimot\nregne med riktig grunntall: $\\log_2 1024 = 10$ nivåer under rota, altså 11\nnivåer i alt hvis du teller rota med."
+    },
+    {
+      "id": "tdt4120-1-4-d-nivaaer",
+      "type": "definition",
+      "title": "Antall nivåer i rekursjonstreet",
+      "content": "Hvor dypt rekursjonen går før den treffer grunntilfellet. Det er antall ganger\ndu kan dele $n$ på $b$ før du er nede på en konstant.\n\nSvaret er $\\Theta(\\log_b n)$, og siden logaritmer med ulikt grunntall skiller seg\nmed en konstant faktor, er det samme klasse som $\\Theta(\\lg n)$.\n\nKravet er å ikke blande dybde og bredde: $a$ påvirker antall løvnoder\n($n^{\\log_b a}$), ikke antall nivåer. For $b = 2$ og $n = 1024$ er det 10 nivåer\nunder rota, altså 11 nivåer i alt."
+    },
+    {
+      "id": "tdt4120-1-4-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-1-4-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger B.) Gitt $T(n) = 2T(n/4) + n$.\n\n**a)** Hvor mange nivåer har rekursjonstreet, asymptotisk?\n\n**b)** Hvor mange løvnoder har det?\n\n**c)** Løs rekurrensen med masterteoremet, og oppgi tilfellet.",
+        "solution": "**a)** $\\Theta(\\log_4 n)$, som er samme klasse som $\\Theta(\\lg n)$. Størrelsen\ndeles på 4 for hvert nivå.\n\n**b)** $n^{\\log_4 2} = n^{1/2} = \\sqrt{n}$ løvnoder.\n\n**c)** $f(n) = n$ er større enn $\\sqrt{n}$, og gapet er en hel potens: med\n$\\varepsilon = 1/2$ er $n = \\Omega(n^{1/2 + 1/2})$. Tilfelle 3, og\nregularitetsbetingelsen holder siden $2(n/4) = n/2$, altså $c = 1/2$:\n\n$$T(n) = \\Theta(n)$$\n\n*Merk at a) og b) har ulike svar. Dybden styres av $b$ alene, bredden av både\n$a$ og $b$.*",
+        "hints": [
+          "Dybden bestemmes av hvor mye størrelsen krymper per nivå, altså av $b$.",
+          "Antall løvnoder er alltid $n^{\\log_b a}$ — regn ut $\\log_4 2$."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-1-4-t-utenfor",
+      "type": "text",
+      "content": "## Når masterteoremet ikke gjelder (~8 min)\n\nMasterteoremet er et verktøy med en tydelig bruksanvisning, og et av de\nvanligste tapene i sjanger B er å bruke det på en rekurrens det ikke dekker.\nFire situasjoner er verdt å kjenne igjen med det samme:\n\n- **Størrelsen krymper ved subtraksjon.** $T(n) = T(n-1) + n$ er ikke på formen\n  $aT(n/b) + f(n)$ i det hele tatt. Slike løses med iterasjonsmetoden, som hører\n  hjemme i kapittel 1.5.\n- **Delene er ulikt store.** $T(n) = T(n/3) + T(2n/3) + n$ har to ulike\n  delproblemstørrelser, og teoremet forutsetter én felles $b$.\n- **$f(n)$ ligger i gapet.** $T(n) = 2T(n/2) + n/\\lg n$ er på riktig form, men\n  $f(n)$ treffer verken tilfelle 1, 2 eller 3.\n- **$a$ eller $b$ er ulovlig.** Kravene er $a \\ge 1$ og $b > 1$. En «rekurrens»\n  med $b = 1$ krymper aldri.\n\nI alle fire tilfellene er riktig eksamenssvar å si at masterteoremet ikke\ngjelder, og hvorfor. Sjanger B ber om metodens navn, og «masterteoremet gjelder\nikke her, fordi rekurrensen ikke er på formen $aT(n/b)+f(n)$» er et helt svar."
+    },
+    {
+      "id": "tdt4120-1-4-d-utenfor",
+      "type": "definition",
+      "title": "Rekurrenser masterteoremet ikke dekker",
+      "content": "De rekurrensene som faller utenfor bruksområdet, og som derfor krever en annen\nmetode.\n\nFire typer: størrelsen krymper ved subtraksjon ($T(n)=T(n-1)+n$), delene er\nulikt store ($T(n)=T(n/3)+T(2n/3)+n$), $f(n)$ ligger i gapet mellom tilfellene\n($T(n)=2T(n/2)+n/\\lg n$), eller $a < 1$ eller $b \\le 1$.\n\nKravet er å si det høyt i besvarelsen. Å tvinge teoremet på en slik rekurrens\ngir et svar som ser riktig ut og er galt — og å påpeke at det ikke gjelder, gir\nuttelling."
+    },
+    {
+      "id": "tdt4120-1-4-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-1-4-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger B.) For hver av rekurrensene under: avgjør om\nmasterteoremet gjelder, og løs den hvis det gjør det. Oppgi tilfellet.\n\n**a)** $T(n) = 4T(n/2) + n^3$\n\n**b)** $T(n) = 4T(n/2) + n^2$\n\n**c)** $T(n) = T(n-1) + n^2$\n\n**d)** $T(n) = 5T(n/5) + n$",
+        "solution": "**a)** Gjelder. $\\log_2 4 = 2$, og $f(n) = n^3 = \\Omega(n^{2+1})$. Tilfelle 3;\nregularitet: $4(n/2)^3 = n^3/2$, altså $c = 1/2$.\n\n$$T(n) = \\Theta(n^3)$$\n\n**b)** Gjelder. Samme $a$ og $b$, men nå er $f(n) = n^2 = n^{\\log_b a}$.\nTilfelle 2 med $k = 0$:\n\n$$T(n) = \\Theta(n^2\\lg n)$$\n\n**c)** Gjelder ikke. Størrelsen krymper med 1 om gangen, ikke med en faktor\n$b > 1$, så rekurrensen er ikke på formen $aT(n/b)+f(n)$. Riktig svar er å si\ndet, og at metoden som trengs er iterasjon.\n\n**d)** Gjelder. $\\log_5 5 = 1$, så $n^{\\log_b a} = n = f(n)$. Tilfelle 2 med\n$k = 0$:\n\n$$T(n) = \\Theta(n\\lg n)$$\n\n*Legg merke til a) og b): samme $a$ og $b$, ett trinn forskjell i $f(n)$, og to\nhelt ulike tilfeller. Det er derfor $n^{\\log_b a}$ alltid regnes ut først.*",
+        "hints": [
+          "Sjekk formen før du regner: står det $T(n/b)$ eller $T(n-1)$?",
+          "I a) og b): regn ut $\\log_2 4$ én gang, og sammenlign den med begge $f$-ene.",
+          "I d): hva er $\\log_5 5$?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-1-4-t-tabell",
+      "type": "text",
+      "content": "## Eksempeltabellen du bør kjenne igjen\n\nDisse rekurrensene dukker opp igjen og igjen, og de dekker alle tre tilfellene.\nKjenner du dem igjen på formen, sparer du et halvt minutt per oppgave.\n\n| Rekurrens | $n^{\\log_b a}$ | Tilfelle | Svar | Hvor den kommer fra |\n|---|---|---|---|---|\n| $T(n)=2T(n/2)+n$ | $n$ | 2, $k=0$ | $\\Theta(n\\lg n)$ | `Merge-Sort` |\n| $T(n)=T(n/2)+1$ | $1$ | 2, $k=0$ | $\\Theta(\\lg n)$ | `Binary-Search` |\n| $T(n)=9T(n/3)+n$ | $n^2$ | 1 | $\\Theta(n^2)$ | rekursjonen dominerer |\n| $T(n)=4T(n/2)+n^2\\lg n$ | $n^2$ | 2, $k=1$ | $\\Theta(n^2\\lg^2 n)$ | log-faktor-fellen |\n| $T(n)=2T(n/2)+n^2$ | $n$ | 3 | $\\Theta(n^2)$ | toppen dominerer |\n| $T(n)=8T(n/2)+n^3$ | $n^3$ | 2, $k=0$ | $\\Theta(n^3\\lg n)$ | glemt logaritme |\n| $T(n)=2T(n/2)+n/\\lg n$ | $n$ | ingen | — | $k=-1$, utenfor teoremet |\n\nDen andre raden er verdt en kommentar. $T(n)=T(n/2)+1$ har $a = 1$, altså bare\nett delproblem, og $\\log_2 1 = 0$, så $n^{\\log_b a} = n^0 = 1$. Siden $f(n) = 1$\ner nøyaktig det samme, er dette tilfelle 2 med $k = 0$, og svaret blir\n$\\Theta(1\\cdot\\lg n) = \\Theta(\\lg n)$. Det er kjøretiden til `Binary-Search`."
+    },
+    {
+      "id": "tdt4120-1-4-t-bank",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har\nlest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder\nkjernestoffet."
+    },
+    {
+      "id": "tdt4120-1-4-d-masterform",
+      "type": "definition",
+      "title": "Masterteoremets standardform",
+      "content": "Den formen en rekurrens må ha for at teoremet skal kunne brukes: $a$ like store\ndelproblemer av størrelse $n/b$, pluss $f(n)$ arbeid utenom rekursjonen.\n\nSkrevet ut: $T(n) = aT(n/b) + f(n)$ med $a \\ge 1$ og $b > 1$.\n\nKravene på $a$ og $b$ er ufravikelige. Er $b = 1$, krymper problemet aldri; er\n$a < 1$, gir rekursjonen ingen mening. Og delene må være like store — én felles\n$b$ for alle delproblemene."
+    },
+    {
+      "id": "tdt4120-1-4-d-epsilon",
+      "type": "definition",
+      "title": "Konstanten $\\varepsilon$ i tilfelle 1 og 3",
+      "content": "Størrelsen på gapet mellom $f(n)$ og $n^{\\log_b a}$, målt i potenser av $n$.\nDen finnes bare i tilfelle 1 og 3, og den må være **strengt positiv**.\n\nI tilfelle 1 skal $f(n) = O(n^{\\log_b a - \\varepsilon})$; i tilfelle 3 skal\n$f(n) = \\Omega(n^{\\log_b a + \\varepsilon})$.\n\nKravet betyr i praksis at gapet må være en hel potens av $n$. Er avstanden bare\nen logaritme, finnes ingen slik $\\varepsilon$, og du er i tilfelle 2 i stedet.\nDet er nettopp derfor tilfelle 2 må finnes."
+    },
+    {
+      "id": "tdt4120-1-4-d-logba",
+      "type": "definition",
+      "title": "Å regne ut $\\log_b a$",
+      "content": "Det første steget i enhver masterteorem-oppgave: finn det tallet du må opphøye\n$b$ i for å få $a$.\n\nEksempler: $\\log_2 4 = 2$ fordi $2^2 = 4$; $\\log_3 9 = 2$ fordi $3^2 = 9$;\n$\\log_4 8 = 3/2$ fordi $4^{1{,}5} = 8$; $\\log_5 5 = 1$; $\\log_2 1 = 0$.\n\nKravet er å ha grunntallet riktig vei: $b$ er grunntallet og $a$ er argumentet.\n$\\log_2 8 = 3$, mens $\\log_8 2 = 1/3$ — en ombytting her gir feil tilfelle og\nfeil svar. Verdien behøver ikke være et helt tall."
+    },
+    {
+      "id": "tdt4120-1-4-d-felle5",
+      "type": "definition",
+      "title": "Felle #5 — feil masterteorem-tilfelle",
+      "content": "Den vanligste feilen i rekurrensoppgaver: å velge tilfelle på øyemål i stedet\nfor å regne.\n\nTre former: glemt logaritmefaktor når $f(n) = \\Theta(n^{\\log_b a})$, bruk av\ntilfelle 2 med negativ $k$, og feil utregnet $\\log_b a$.\n\nKravet som fjerner alle tre, er å skrive $n^{\\log_b a}$ eksplisitt, deretter\n$f(n)$ på formen $n^{\\log_b a}\\lg^k n$, og først da velge tilfelle. To ekstra\nlinjer på kladden, og fellen er borte."
+    },
+    {
+      "id": "tdt4120-1-4-d-sjanger-b",
+      "type": "definition",
+      "title": "Sjanger B — rekurrensløsning",
+      "content": "Oppgavetypen dette kapitlet trener: du får en rekurrens og skal oppgi hva den\nløser til.\n\nDen er med i 76 % (13 av de 17 settene i grunnlaget). Svarformen er 1–3 linjer:\n**metodens navn**, svaret på riktig form, og hvilket masterteorem-tilfelle du\nbrukte.\n\nKravet som skiller full fra delvis uttelling, er at metoden navngis. Å skrive\nbare $\\Theta(n\\lg n)$ uten å si «masterteoremet, tilfelle 2» besvarer ikke hele\nspørsmålet."
+    },
+    {
+      "id": "tdt4120-1-4-d-mergesort-rek",
+      "type": "definition",
+      "title": "Rekurrensen $T(n)=2T(n/2)+n$",
+      "content": "Rekurrensen for `Merge-Sort` og for enhver algoritme som deler problemet i to\nlike halvdeler og bruker lineær tid på å sette dem sammen igjen.\n\nHer er $\\log_2 2 = 1$, så $n^{\\log_b a} = n$, som er nøyaktig $f(n)$. Tilfelle 2\nmed $k = 0$ gir $\\Theta(n\\lg n)$.\n\nKravet du bør merke deg, er at $k = 0$ er lovlig. Med et krav om strengt\npositiv $k$ ville denne aller mest sentrale rekurrensen falt utenfor teoremet."
+    },
+    {
+      "id": "tdt4120-1-4-d-binaer-rek",
+      "type": "definition",
+      "title": "Rekurrensen $T(n)=T(n/2)+1$",
+      "content": "Rekurrensen for `Binary-Search` og for enhver algoritme som halverer\nsøkeområdet og gjør konstant arbeid per steg.\n\nHer er $a = 1$ og $\\log_2 1 = 0$, så $n^{\\log_b a} = n^0 = 1$, som er nøyaktig\n$f(n)$. Tilfelle 2 med $k = 0$ gir $\\Theta(\\lg n)$.\n\nKravet som overrasker, er at $a = 1$ er tillatt — teoremet krever $a \\ge 1$, ikke\n$a > 1$. Én rekursiv gren er nok."
+    },
+    {
+      "id": "tdt4120-1-4-d-dybde-bredde",
+      "type": "definition",
+      "title": "Dybde mot bredde i rekursjonstreet",
+      "content": "To ulike størrelser som ofte forveksles. Dybden er hvor mange nivåer treet har;\nbredden er hvor mange løvnoder det ender med.\n\nDybden er $\\Theta(\\log_b n)$ og styres av $b$ alene. Bredden er $n^{\\log_b a}$ og\nstyres av både $a$ og $b$.\n\nKravet er å lese spørsmålet nøye: «hvor mange nivåer?» og «hvor mye arbeid gjøres\ni bunnen?» har ulike svar, og delspørsmålet om nivåer går igjen i grunnlaget."
+    },
+    {
+      "id": "tdt4120-1-4-coll-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tdt4120-1-4-rep-1",
+          "type": "text",
+          "content": "Fem korte spørsmål fra stoffet dette kapitlet bygger på. Svar i hodet, og les\nfasiten etterpå.\n\n**1.** Hva betyr $\\Theta(g(n))$, i én setning?\n\n*Fasit:* At funksjonen er klemt mellom $c_1 g(n)$ og $c_2 g(n)$ for alle\ntilstrekkelig store $n$ — altså både $O(g(n))$ og $\\Omega(g(n))$.\n\n**2.** Hvilken av $n^2$ og $n^2\\lg n$ vokser raskest, og hvorfor?\n\n*Fasit:* $n^2\\lg n$. Forholdet mellom dem er $\\lg n$, som vokser uten grense, så\n$n^2\\lg n = \\omega(n^2)$. Det er nettopp denne forskjellen tilfelle 2 handler om.\n\n**3.** Regn ut $\\log_2 32$, $\\log_3 81$ og $\\log_4 2$.\n\n*Fasit:* $5$, fordi $2^5 = 32$. $4$, fordi $3^4 = 81$. $1/2$, fordi\n$4^{1/2} = 2$.\n\n**4.** Hvorfor spiller ikke logaritmens grunntall noen rolle i et\n$\\Theta$-uttrykk?\n\n*Fasit:* Fordi $\\log_b n = \\dfrac{\\lg n}{\\lg b}$, og $\\lg b$ er en konstant.\nKonstanter absorberes av $c_1$ og $c_2$ i definisjonen av $\\Theta$.\n\n**5.** Hvorfor kan et oppgitt grunntilfelle som $T(0)=0$ som regel ignoreres?\n\n*Fasit:* Fordi det asymptotiske svaret bare avhenger av hvordan $T$ vokser for\nstore $n$. Et grunntilfelle som er konstant, endrer bare $T$ med en konstant og\nflytter ikke funksjonen ut av sin vekstklasse. Skal du derimot oppgi et\n**eksakt** uttrykk, betyr grunntilfellet alt."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

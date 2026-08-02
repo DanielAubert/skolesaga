@@ -1,0 +1,420 @@
+{
+  "id": "tdt4120-3-5",
+  "courseId": "tdt4120",
+  "chapterNumber": "3.5",
+  "title": "Køer, stakker, amortisert analyse og disjunkte mengder",
+  "description": "FIFO-kø med wraparound (håndkjøring), stakk (LIFO), `Table-Insert` (amortisert `O(1)`) og disjunkte mengder (`Union-Find`) — de øvrige strukturene.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "kunne håndkjøre en sirkulær FIFO-kø og oppgi hele tabellen med døde celler pluss head og tail",
+    "kunne forklare hva amortisert kjøretid betyr, og hvorfor en dobling gir amortisert konstant innsetting",
+    "kunne kjøre `Union` og `Find-Set` med rangheuristikk for hånd og oppgi hvilke mengder som finnes til slutt"
+  ],
+  "content": [
+    {
+      "id": "tdt4120-3-5-tip-1",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Køer og stakker er registrert i 5 av de 17 settene i grunnlaget (29 %), og\namortisert analyse og disjunkte mengder i like mange, 5 av 17 (29 %).**\nGrunnlaget er de 17 settene fra august 2015 til august 2023 som er gjennomgått\ntema for tema — det er nevneren hver gang boka oppgir en prosent.\n\nPrioritet: **kjenne til**. Men det er en «kjenne til» med en viktig\npresisering — de tre delene av kapitlet har helt ulik rolle:\n\n- **Kø-håndkjøringen er en ren mekanisk oppgave** du enten får til eller ikke.\n  Den koster fem minutter å lære, og den kommer i sjanger **C — håndkjøring**,\n  altså at du utfører operasjonene steg for steg og oppgir sluttilstanden.\n  Svarformen er **hele tabellen, inkludert de «døde» cellene**, pluss `head`\n  og `tail`.\n- **Amortisert analyse** kommer i sjanger **D — definisjon med egne ord** og\n  **E — kjøretidskunnskap**. Du skal kunne si hva ordet betyr og hvorfor\n  dobling gir amortisert $O(1)$.\n- **`Union-Find` er verktøyet i `MST-Kruskal`** i\n  [kap. 4.2](/tdt4120/tdt4120-4-2). Det er den viktigste grunnen til at det\n  står her: uten disjunkte mengder er Kruskals syklustest en gåte.\n\n**Slik er kapitlet lagt opp (55 min):**\n\n| Innhold | Tid |\n|---|---|\n| FIFO-køen, wraparound og de døde cellene | ca. 16 min |\n| Stakken | ca. 7 min |\n| Amortisert analyse og `Table-Insert` | ca. 15 min |\n| Disjunkte mengder og `Union-Find` | ca. 17 min |\n\n— naturlig pausepunkt — etter stakken. De to siste delene henger ikke sammen\nmed de to første og kan tas i en egen økt."
+    },
+    {
+      "id": "tdt4120-3-5-t-2",
+      "type": "text",
+      "content": "## Forkunnskaper\n\n- [kap. 3.1](/tdt4120/tdt4120-3-1) — hauger. Dette sto der: en datastruktur kan\n  bo i et array `A[1..n]` med indeks fra 1, og operasjonene beskrives som\n  indeksregning. Vi bruker den samme konvensjonen her.\n- [kap. 1.1](/tdt4120/tdt4120-1-1) — de asymptotiske symbolene. Amortisert\n  analyse handler om å skille kostnaden til **én** operasjon fra\n  gjennomsnittet over en hel serie, og det krever presis notasjon.\n- [kap. 2.1](/tdt4120/tdt4120-2-1) — «forventet» mot «garantert». Amortisert er\n  en tredje ting igjen: det er et gjennomsnitt over en serie operasjoner, uten\n  noen sannsynlighet inne i bildet.\n\nIngen av delene krever noe utover dette."
+    },
+    {
+      "id": "tdt4120-3-5-coll-4",
+      "type": "collapsible",
+      "title": "Notasjons- og pseudokodeliste",
+      "buttonText": "Vis notasjon og pseudokode",
+      "content": [
+        {
+          "id": "tdt4120-3-5-ct-3",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et algoritmefag: den lister kjøretidsuttrykk og pseudokode-operasjoner i stedet for bare greske bokstaver.\n\n| Symbol | Betydning |\n|---|---|\n| `Q[1..n]` | arrayet køen ligger i, med indeks fra 1 |\n| `Q.head` | indeksen til det fremste elementet i køen |\n| `Q.tail` | indeksen der neste element skal skrives inn |\n| `S[1..n]` | arrayet stakken ligger i |\n| `S.top` | indeksen til det øverste elementet på stakken |\n| `T.num` | antall elementer i den dynamiske tabellen |\n| `T.size` | tabellens kapasitet |\n| `x.p` | forelderpeker i en `Union-Find`-skog; rota peker på seg selv |\n| `x.rank` | en øvre grense for høyden på deltreet med rot `x` |\n| $\\alpha$ | brukes ellers om lastfaktor; i dette kapitlet trengs den ikke |\n\n| Algoritme/operasjon | Kontrakt | Kjøretid |\n|---|---|---|\n| `Enqueue(Q, x)` | skriver `x` i `Q[Q.tail]` og flytter `tail` ett hakk fram, med wraparound | $\\Theta(1)$ |\n| `Dequeue(Q)` | returnerer `Q[Q.head]` og flytter `head` ett hakk fram, med wraparound | $\\Theta(1)$ |\n| `Push(S, x)` | øker `S.top` med 1 og skriver `x` der | $\\Theta(1)$ |\n| `Pop(S)` | returnerer `S[S.top]` og senker `S.top` med 1 | $\\Theta(1)$ |\n| `Table-Insert(T, x)` | setter inn `x`; dobler tabellen og kopierer alt over når den er full | amortisert $O(1)$ |\n| `Make-Set(x)` | lager en mengde som bare inneholder `x` | $\\Theta(1)$ |\n| `Find-Set(x)` | følger `p`-pekerne opp til rota og returnerer den | $O(\\lg n)$ med rangheuristikk |\n| `Union(x, y)` | slår sammen mengdene til `x` og `y` ved å henge den ene rota under den andre | $O(\\lg n)$ |\n\n**Formler i dette delkapitlet:**\n\n$$\\text{ny indeks} = \\begin{cases} 1 & \\text{hvis indeksen var } n \\\\ \\text{indeks} + 1 & \\text{ellers} \\end{cases}$$\n\nWraparound-regelen. Den gjelder både `head` og `tail`, og den er hele grunnen til at køen kalles sirkulær.\n\n$$\\text{total kostnad for } n \\text{ innsettinger} < 3n$$\n\nKopieringene i `Table-Insert` summerer seg til under $2n$, pluss $n$ enkeltinnsettinger — derav amortisert $O(1)$.\n\n$$1 + 2 + 4 + \\dots + 2^{m} = 2^{m+1} - 1 < 2\\cdot 2^{m}$$\n\nDen geometriske summen bak doblingsargumentet: all kopiering til sammen koster mindre enn to ganger den siste kopieringen.\n"
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-3-5-t-5",
+      "type": "text",
+      "content": "## FIFO-køen, wraparound og de døde cellene (~16 min)\n\nI kantinekøen står den som kom først, fremst. Nye gjester stiller seg bakerst,\nog det er alltid den fremste som blir betjent. Det er en **FIFO-kø** — *first\nin, first out*.\n\nSkal køen ligge i et array med fast lengde, oppstår et praktisk problem. Etter\nnoen inn- og utmeldinger har hele køen «vandret» bakover i arrayet, og til slutt\ner den bakerste plassen brukt opp — selv om det er masse ledig plass foran.\nLøsningen er å la køen gå **rundt hjørnet**: når indeksen når enden, begynner\nden på 1 igjen. Det kalles **wraparound**, og det er derfor køen kalles\nsirkulær."
+    },
+    {
+      "id": "tdt4120-3-5-def-6",
+      "type": "definition",
+      "title": "FIFO-kø",
+      "content": "en **FIFO-kø** (*first in, first out*) er en samling der elementer tas ut i\nden rekkefølgen de ble lagt inn.\n\n`Enqueue` legger til bakerst, `Dequeue` tar ut forrest. Begge er $\\Theta(1)$.\n\n**Rekkefølgen er hele poenget.** En stakk gjør det motsatte — den tar ut det\nsist innlagte først."
+    },
+    {
+      "id": "tdt4120-3-5-def-7",
+      "type": "definition",
+      "title": "`head` og `tail`",
+      "content": "**`Q.head`** er indeksen til det fremste elementet, altså det som tas ut ved\nneste `Dequeue`. **`Q.tail`** er indeksen der det neste elementet skal\nskrives inn.\n\nKøen er tom når `head == tail`, og den inneholder elementene fra `head` og\nrundt til, men ikke med, `tail`.\n\n**Å bytte om de to er den vanligste feilen** i denne håndkjøringen. Huskeregel:\n`head` er der du **spiser** fra, `tail` er der du **legger på**."
+    },
+    {
+      "id": "tdt4120-3-5-def-8",
+      "type": "definition",
+      "title": "Wraparound og døde celler",
+      "content": "**Wraparound** er regelen om at en indeks som når `n`, settes til 1 ved neste\nøkning — arrayet leses som en sirkel.\n\nEn **død celle** er en celle som ligger utenfor det logiske intervallet fra\n`head` til `tail`, men som fortsatt inneholder en gammel verdi. `Dequeue`\nsletter ikke noe; den flytter bare `head`.\n\n**Døde celler skal med i svaret.** Svarformatet for en kø-håndkjøring er\n**hele** tabellen slik den faktisk står i minnet, pluss `head` og `tail`."
+    },
+    {
+      "id": "tdt4120-3-5-thm-9",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `Enqueue` og `Dequeue`",
+      "content": "**Antagelser om representasjon.** Køen ligger i `Q[1..n]`, indeks fra 1. Ved\noppstart er `Q.head = Q.tail = 1`. Cellene som ikke er i bruk, beholder de\nverdiene de måtte ha fra før — ingenting nullstilles.\n\n**Prebetingelse:** for `Enqueue` at køen ikke er full; for `Dequeue` at den\nikke er tom.\n**Postbetingelse:** `Enqueue` har lagt `x` bakerst; `Dequeue` har returnert det\nfremste elementet og flyttet `head`.\n\n```text\nEnqueue(Q, x)\n  Input:  koeen Q og et element x\n  Output: x lagt bakerst i koeen\n  Q[Q.tail] = x\n  if Q.tail == Q.length\n      Q.tail = 1\n  else\n      Q.tail = Q.tail + 1\n\nDequeue(Q)\n  Input:  koeen Q\n  Output: det fremste elementet\n  x = Q[Q.head]\n  if Q.head == Q.length\n      Q.head = 1\n  else\n      Q.head = Q.head + 1\n  return x\n  Kjoeretid: Theta(1) for begge\n```\n\n**Invarianten i én setning:** de elementene som faktisk står i køen, er de som\nligger fra indeks `head` og framover — rundt hjørnet om nødvendig — til, men\nikke med, indeks `tail`.\n\n**Legg merke til at `Dequeue` ikke sletter noe.** Verdien blir liggende igjen i\ncellen, og den kan bli overskrevet senere av en `Enqueue` som kommer rundt.\nDet er nettopp disse restene som er de døde cellene.\n\n**Kjøretid:** $\\Theta(1)$ for begge — noen få indeksregninger, uansett hvor\nmange elementer køen inneholder."
+    },
+    {
+      "id": "tdt4120-3-5-fig-10",
+      "type": "image",
+      "src": "/images/textbook/tdt4120/3-5-fifo-ko-wraparound.svg",
+      "alt": "En sirkulaer koe i arrayet Q med fem celler. Celle 1 inneholder f, celle 2 inneholder b, celle 3 inneholder c, celle 4 inneholder d og celle 5 inneholder e. head peker paa celle 4 og tail paa celle 2. Cellene 4, 5 og 1 er merket groenne som de tre elementene som faktisk staar i koeen, mens cellene 2 og 3 er merket graa som doede celler. En note forklarer at b og c er tatt ut, men at verdiene staar igjen i tabellen og skal vaere med i svaret.",
+      "caption": "Sluttilstanden fra Eksempel 1: tabellen `f, b, c, d, e` med `head = 4` og `tail = 2`. Den logiske køen er `d, e, f`, men det er hele tabellen som er svaret på eksamen."
+    },
+    {
+      "id": "tdt4120-3-5-eks-11",
+      "type": "example",
+      "title": "Eksempel 1: Ni operasjoner på en kø med fem plasser",
+      "problem": "En vaktsentral bruker en sirkulær FIFO-kø `Q[1..5]` til innkommende meldinger.\nVed oppstart er `Q.head = Q.tail = 1`, og alle cellene er tomme.\n\nUtfør: `Enqueue(a)`, `Enqueue(b)`, `Enqueue(c)`, `Enqueue(d)`, `Dequeue`,\n`Dequeue`, `Dequeue`, `Enqueue(e)`, `Enqueue(f)`.\n\nOppgi **hele** tabellen til slutt, sammen med `head` og `tail`.",
+      "solution": "En understrek betyr at cellen aldri har vært skrevet i.\n\n| Steg | Operasjon | Hva som skjer | `Q[1..5]` etterpå | `head` | `tail` |\n|---|---|---|---|---|---|\n| 1 | `Enqueue(a)` | skriver a i Q[1] | `a, _, _, _, _` | 1 | 2 |\n| 2 | `Enqueue(b)` | skriver b i Q[2] | `a, b, _, _, _` | 1 | 3 |\n| 3 | `Enqueue(c)` | skriver c i Q[3] | `a, b, c, _, _` | 1 | 4 |\n| 4 | `Enqueue(d)` | skriver d i Q[4] | `a, b, c, d, _` | 1 | 5 |\n| 5 | `Dequeue` | returnerer a fra Q[1] | `a, b, c, d, _` | 2 | 5 |\n| 6 | `Dequeue` | returnerer b fra Q[2] | `a, b, c, d, _` | 3 | 5 |\n| 7 | `Dequeue` | returnerer c fra Q[3] | `a, b, c, d, _` | 4 | 5 |\n| 8 | `Enqueue(e)` | skriver e i Q[5] | `a, b, c, d, e` | 4 | 1 |\n| 9 | `Enqueue(f)` | skriver f i Q[1] | `f, b, c, d, e` | 4 | 2 |\n\n**Sluttilstanden — det du ville levert på eksamen:**\n\n**Tabell: `f, b, c, d, e`, `head = 4`,\n`tail = 2`.**\n\n**Tre ting er verdt å studere i tavlen.**\n\nFor det første: de tre `Dequeue`-operasjonene endrer **ikke** tabellen i det\nhele tatt. Bare `head` flytter seg. Verdiene `a`, `b` og `c` blir liggende.\n\nFor det andre: steg 8 skriver `e` i `Q[5]`, og siden `tail` da sto på 5, går\nden rundt hjørnet til 1. Steg 9 skriver derfor `f` over den døde verdien `a`.\n\nFor det tredje: den **logiske** køen til slutt er\n`d, e, f` — les fra `head = 4`\nog rundt til `tail = 2`. Men `b` og `c` står fortsatt i\ntabellen som døde celler, og de skal med i svaret.\n\n**Fellen her er #3 — køfeil ved håndkjøring:** å levere bare den logiske køen\n`d, e, f` i stedet for hele tabellen, eller å bytte\nom `head` og `tail`. Delvis riktig svar gir delvis uttelling, og det siste\npoenget henger på at både tabellen og begge indeksene er med."
+    },
+    {
+      "id": "tdt4120-3-5-oppg-12",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-3-5-oppg-12-inner",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave, sjanger D — definisjon med egne ord, altså én presis setning\nmed hovedpoenget først.)\n\nForklar hva `head` og `tail` peker på i en sirkulær FIFO-kø, og hva som menes\nmed en «død celle».",
+        "solution": "`head` peker på det **fremste** elementet i køen, altså det som tas ut ved\nneste `Dequeue`. `tail` peker på den **neste ledige** plassen, altså der neste\n`Enqueue` skal skrive.\n\nEn **død celle** er en celle som inneholder en gammel verdi, men som ligger\nutenfor intervallet fra `head` til `tail`. Den oppstår fordi `Dequeue` bare\nflytter `head` og aldri sletter noe.\n\nKort huskeregel: `head` er der du tar ut, `tail` er der du legger på.",
+        "hints": [
+          "Én av de to peker på et element som finnes, den andre på en plass som skal fylles.",
+          "Hva skjer egentlig med verdien i cellen når `Dequeue` kjøres?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-3-5-oppg-13",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-3-5-oppg-13-inner",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C — håndkjøring, altså at du utfører operasjonene steg\nfor steg og oppgir bare sluttilstanden.)\n\nEn sirkulær FIFO-kø `Q[1..4]` starter tom med `head = tail = 1`.\n\nUtfør: `Enqueue(p)`, `Enqueue(q)`, `Dequeue`, `Enqueue(r)`, `Enqueue(s)`,\n`Dequeue`, `Enqueue(t)`.\n\nOppgi hele tabellen, `head` og `tail`.",
+        "solution": "**Tabell: `t, q, r, s`, `head = 3`,\n`tail = 2`.**\n\nGjennomgangen: `p` skrives i `Q[1]`, `q` i `Q[2]`. Første `Dequeue` returnerer\n`p` og flytter `head` til 2. `r` skrives i `Q[3]`, `s` i `Q[4]`, og `tail` går\nrundt hjørnet til 1. Andre `Dequeue` returnerer `q` og flytter `head` til 3.\n`t` skrives i `Q[1]`, over den døde verdien `p`, og `tail` blir 2.\n\nDen logiske køen er `r, s, t`, men svaret er hele\ntabellen.",
+        "hints": [
+          "Skriv opp tabellen med fire celler og hold styr på begge indeksene for hver operasjon.",
+          "`Dequeue` endrer aldri innholdet i tabellen — bare `head`."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-3-5-oppg-14",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-3-5-oppg-14-inner",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger F — «stemmer dette?», altså ja eller nei først og\nderetter én presis setning.)\n\nTa stilling til hver av påstandene om en sirkulær FIFO-kø `Q[1..n]`:\n\n**a)** Køen er tom når `head == tail`.\n**b)** `Dequeue` nullstiller cellen den leser fra.\n**c)** `Enqueue` og `Dequeue` er $O(\\lg n)$.",
+        "solution": "**a)** **Ja.** Køen inneholder elementene fra `head` og rundt til, men ikke\nmed, `tail` — og det intervallet er tomt når de to er like.\n\n**b)** **Nei.** Den returnerer verdien og flytter `head`. Verdien blir liggende\nigjen som en død celle, og kan bli overskrevet senere.\n\n**c)** **Nei.** Begge er $\\Theta(1)$: noen få indeksregninger, uavhengig av hvor\nmange elementer køen inneholder.\n\nPunkt a) har en velkjent hake i praksis: med denne konvensjonen kan man ikke\nskille en tom kø fra en helt full kø, og derfor holdes én plass vanligvis\nubrukt. Det er ikke et eksamenspoeng, men det forklarer hvorfor\nimplementasjoner ser ut som de gjør.",
+        "hints": [
+          "Les invarianten i pseudokode-kontrakten: hvilke indekser regnes som «i køen»?",
+          "Hvor mye arbeid gjør hver av de to operasjonene, uansett køens lengde?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-3-5-t-15",
+      "type": "text",
+      "content": "## Stakken (~7 min)\n\nStakken er køens speilbilde. Der køen tar ut det eldste, tar stakken ut det\nnyeste — som en bunke tallerkener der du både legger på og tar av på toppen."
+    },
+    {
+      "id": "tdt4120-3-5-thm-16",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `Push` og `Pop`",
+      "content": "**Antagelser om representasjon.** Stakken ligger i `S[1..n]`, indeks fra 1.\n`S.top` er indeksen til det øverste elementet, og `S.top = 0` betyr tom stakk.\n\n**Prebetingelse:** for `Push` at stakken ikke er full; for `Pop` at den ikke er\ntom.\n**Postbetingelse:** `Push` har lagt `x` øverst; `Pop` har returnert og fjernet\ndet øverste elementet.\n\n```text\nPush(S, x)\n  Input:  stakken S og et element x\n  Output: x lagt oeverst\n  S.top = S.top + 1\n  S[S.top] = x\n\nPop(S)\n  Input:  stakken S\n  Output: det oeverste elementet\n  S.top = S.top - 1\n  return S[S.top + 1]\n  Kjoeretid: Theta(1) for begge\n```\n\n**Invarianten i én setning:** elementene i stakken er `S[1..S.top]`, med det\nsist innlagte øverst.\n\n**Ingen wraparound trengs.** Stakken vokser og krymper i samme ende, så den\nvandrer aldri gjennom arrayet slik køen gjør. Det er derfor\nstakk-håndkjøringer er enklere enn kø-håndkjøringer — og derfor køen er den\nsom kommer på eksamen.\n\n**Kjøretid:** $\\Theta(1)$ for begge."
+    },
+    {
+      "id": "tdt4120-3-5-oppg-17",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-3-5-oppg-17-inner",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger C — håndkjøring.)\n\nEn stakk `S[1..5]` starter tom med `S.top = 0`.\n\nUtfør: `Push(4)`, `Push(9)`, `Push(2)`, `Pop`, `Push(7)`, `Pop`, `Push(5)`.\n\nOppgi `S[1..S.top]` og verdien til `S.top` til slutt, samt hvilke verdier\n`Pop` returnerte.",
+        "solution": "`Pop` returnerte først **2**, deretter **7**.\n\n**Sluttilstanden: `S[1..3] = 4, 9, 5` med `S.top = 3`.**\n\nGjennomgangen: etter de tre første er `S = 4, 9, 2` med `top = 3`. `Pop` gir 2\nog senker `top` til 2. `Push(7)` skriver 7 i `S[3]`. `Pop` gir 7 og senker\n`top` til 2 igjen. `Push(5)` skriver 5 i `S[3]`.\n\nMerk at `S[3]` er blitt overskrevet to ganger. Det er uproblematisk, siden alt\nover `top` er ugyldig.",
+        "hints": [
+          "`Pop` returnerer det sist innlagte elementet — motsatt av køen.",
+          "Hold styr på `top` etter hver operasjon."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-3-5-t-18",
+      "type": "text",
+      "content": "## Amortisert analyse og `Table-Insert` (~15 min)\n\nEn dynamisk tabell er et array som vokser etter behov. Så lenge det er plass,\nkoster en innsetting konstant tid. Blir tabellen full, må den byttes ut med en\ndobbelt så stor, og **alt** kopieres over — en enkeltoperasjon som koster\n$\\Theta(n)$.\n\nSpørsmålet er hva en innsetting «koster» når noen få av dem er så dyre. Svaret\ner ikke verste tilfelle for én operasjon, og det er heller ikke et\nsannsynlighetsregnestykke. Det er en tredje ting: **amortisert** kostnad."
+    },
+    {
+      "id": "tdt4120-3-5-def-19",
+      "type": "definition",
+      "title": "Amortisert kjøretid",
+      "content": "**Amortisert kjøretid** er den gjennomsnittlige kostnaden per operasjon over en\nhel serie operasjoner, i verste tilfelle for serien.\n\nDet er **ikke** en forventning: ingen sannsynlighet er involvert. Garantien\ngjelder totalen for serien, ikke for den enkelte operasjonen.\n\n**Sagt konkret:** at `Table-Insert` er amortisert $O(1)$ betyr at $n$\ninnsettinger til sammen koster $O(n)$ — selv om enkelte av dem koster\n$\\Theta(n)$ hver for seg."
+    },
+    {
+      "id": "tdt4120-3-5-thm-20",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `Table-Insert`",
+      "content": "**Antagelser om representasjon.** Tabellen `T` har feltene `T.num` (antall\nelementer) og `T.size` (kapasitet). Ved oppstart er begge 0. Å allokere en ny\ntabell og kopiere over `T.num` elementer koster $\\Theta(T.num)$.\n\n**Prebetingelse:** ingen.\n**Postbetingelse:** `x` ligger i tabellen, og `T.num` er økt med 1.\n\n```text\nTable-Insert(T, x)\n  Input:  den dynamiske tabellen T og et element x\n  Output: T med x satt inn\n  if T.size == 0\n      alloker T med plass til 1 element\n      T.size = 1\n  if T.num == T.size\n      alloker en ny tabell med plass til 2 * T.size\n      kopier alle T.num elementer over\n      T.size = 2 * T.size\n  sett x inn i T\n  T.num = T.num + 1\n  Kjoeretid: Theta(n) i verste tilfelle, amortisert O(1)\n```\n\n**Grunnideen i én setning:** en dobling er dyr, men den kjøper plass til like\nmange billige innsettinger som det nettopp ble kopiert elementer — så\nkostnaden fordeles utover.\n\n**Utledningen, ledd for ledd.** Kopieringer skjer ved innsetting nummer $1, 2, 4, 8, \\dots$, altså ved hver toerpotens opp til $n$.\n\n*Intuisjon:* det er de eneste øyeblikkene tabellen er full.\n\nKopieringen ved innsetting nummer $2^j$ koster $2^{j-1}$ (antall elementer som\nflyttes). Summen av alle kopieringene er derfor\n\n$$1 + 2 + 4 + \\dots + 2^{\\lfloor \\lg n\\rfloor} < 2n$$\n\n*Intuisjon:* den geometriske summen domineres av det siste leddet — all\nkopiering til sammen koster mindre enn to ganger den siste kopieringen. Det er\nden samme egenskapen som gjør at $1 + \\tfrac12 + \\tfrac14 + \\dots < 2$.\n\nI tillegg koster hver av de $n$ innsettingene selv $\\Theta(1)$. Totalen blir\nunder $3n$, altså $O(n)$.\n\n*Intuisjon:* deler du $O(n)$ på $n$ operasjoner, får du $O(1)$ per operasjon.\n\n**Kjøretid:** $\\Theta(n)$ i verste tilfelle for **én** innsetting, men\namortisert $O(1)$ over en serie."
+    },
+    {
+      "id": "tdt4120-3-5-eks-21",
+      "type": "example",
+      "title": "Eksempel 2: Kostnaden for de seksten første innsettingene",
+      "problem": "En dynamisk tabell starter tom. Sett inn seksten elementer med `Table-Insert`,\nog regn ut kostnaden per innsetting og totalen.\n\nKostnaden for en innsetting er 1 hvis det er plass, og $1 +$ antall elementer\nsom må kopieres hvis tabellen må dobles.",
+      "solution": "| Innsetting nr. | Kapasitet etterpå | Kostnad | Sum så langt |\n|---|---|---|---|\n| 1 | 1 | 1 | 1 |\n| 2 | 2 | 2 | 3 |\n| 3 | 4 | 3 | 6 |\n| 4 | 4 | 1 | 7 |\n| 5 | 8 | 5 | 12 |\n| 6 | 8 | 1 | 13 |\n| 7 | 8 | 1 | 14 |\n| 8 | 8 | 1 | 15 |\n| 9 | 16 | 9 | 24 |\n| 10 | 16 | 1 | 25 |\n| 11 | 16 | 1 | 26 |\n| 12 | 16 | 1 | 27 |\n| 13 | 16 | 1 | 28 |\n| 14 | 16 | 1 | 29 |\n| 15 | 16 | 1 | 30 |\n| 16 | 16 | 1 | 31 |\n\n**Totalen for 16 innsettinger: 31 enheter**, altså\n1,94 per innsetting i snitt.\n\n**Det avgjørende er at snittet ikke vokser.** De dyre radene er få og ligger\nlangt fra hverandre: 1, 2, 3, 5, 9, 17 og så videre — én for hver toerpotens.\nMellom dem ligger stadig lengre strekk med kostnad 1.\n\nRegn etter: kopieringene koster $1 + 2 + 4 + 8 = 15$ til sammen, altså under\n$2n = 32$. Legger vi til de 16 enkeltinnsettingene og de to første\nallokeringene, ender vi under $3n = 48$.\n\n**Svarformen på eksamen:** «amortisert $O(1)$, fordi doblingene koster under\n$2n$ til sammen». To linjer. Ikke hele tabellen, med mindre den er etterspurt."
+    },
+    {
+      "id": "tdt4120-3-5-oppg-22",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-3-5-oppg-22-inner",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger F — «stemmer dette?».)\n\nEn kandidat skriver: «`Table-Insert` er $\\Theta(n)$ per innsetting, siden\ntabellen må kopieres.»\n\nEr utsagnet riktig? Svar ja eller nei, og gi den presise formuleringen.",
+        "solution": "**Nei**, ikke som en generell påstand.\n\n$\\Theta(n)$ er verste tilfelle for **én** innsetting — den som utløser en\ndobling. Men bare én av omtrent hver $n$-te innsetting gjør det, og totalen for\n$n$ innsettinger er $O(n)$.\n\n**Den presise formuleringen:** `Table-Insert` er $\\Theta(n)$ i verste tilfelle\nfor en enkelt operasjon, men **amortisert $O(1)$** over en serie.\n\nBegge tallene er riktige, og de svarer på ulike spørsmål. Fellen er å oppgi det\nene der det andre er etterspurt.",
+        "hints": [
+          "Skill mellom kostnaden til én operasjon og gjennomsnittet over en hel serie.",
+          "Hvor mange av $n$ innsettinger utløser faktisk en dobling?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-3-5-oppg-23",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-3-5-oppg-23-inner",
+        "number": 6,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger F og E.)\n\nEn kollega foreslår å la tabellen vokse med **ett** element om gangen i stedet\nfor å doble: hver gang den er full, allokeres en ny tabell med plass til\n`T.size + 1` elementer.\n\n**a)** Hva blir den totale kostnaden for $n$ innsettinger?\n**b)** Hva blir den amortiserte kostnaden per innsetting?\n**c)** Hva er lærdommen?",
+        "solution": "**a)** Nå må **hver eneste** innsetting kopiere alt som ligger der fra før.\nInnsetting nummer $j$ koster $j$, og totalen blir\n\n$$1 + 2 + \\dots + n = \\frac{n(n+1)}{2} = \\Theta(n^2)$$\n\n**b)** $\\Theta(n^2)/n = \\Theta(n)$ per innsetting, amortisert.\n\n**c)** Doblingen er ikke en detalj — den er hele grunnen til at strukturen\nvirker. Med doblingsstrategien er kopieringene få og eksponentielt fordelt, og\nsummen konvergerer til under $2n$. Med en fast økning på 1 er kopieringene like\nhyppige som innsettingene, og summen blir kvadratisk.\n\nMer generelt: enhver **multiplikativ** vekstfaktor $c > 1$ gir amortisert\n$O(1)$, mens enhver fast **additiv** økning gir amortisert $\\Theta(n)$.",
+        "hints": [
+          "Regn ut kostnaden til innsetting nummer $j$ under den nye strategien.",
+          "Hvilken sum får du når du legger sammen kostnadene for alle $n$ innsettingene?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-3-5-t-24",
+      "type": "text",
+      "content": "## Disjunkte mengder og `Union-Find` (~17 min)\n\nEt veinett bygges ut bit for bit. Etter hver nye veistrekning vil du vite: er\ndisse to stedene nå knyttet sammen, direkte eller indirekte? Og: hører disse to\ntil samme sammenhengende område?\n\nStrukturen som svarer på slike spørsmål heter **disjunkte mengder**, ofte kalt\n`Union-Find`. Den holder styr på en samling mengder som ikke overlapper, og\nstøtter to ting: slå sammen to mengder, og finne ut hvilken mengde et element\nhører til.\n\nDet er nøyaktig det `MST-Kruskal` trenger i [kap. 4.2](/tdt4120/tdt4120-4-2):\nen kant kan legges til spenntreet bare hvis endepunktene ligger i **ulike**\nkomponenter."
+    },
+    {
+      "id": "tdt4120-3-5-def-25",
+      "type": "definition",
+      "title": "Disjunkte mengder",
+      "content": "en samling mengder der ingen to mengder har noe element felles.\n\nHver mengde har en utpekt **representant** — ett bestemt element som står for\nhele mengden. To elementer ligger i samme mengde nøyaktig når `Find-Set` gir\nsamme representant for begge.\n\n**Representanten kan skifte** når to mengder slås sammen, men så lenge ingenting\nendres, er den den samme hver gang du spør."
+    },
+    {
+      "id": "tdt4120-3-5-def-26",
+      "type": "definition",
+      "title": "Skogrepresentasjonen",
+      "content": "hver mengde lagres som et **tre**: hver node har en peker `x.p` til\nforelderen, og rota peker på seg selv. Rota er mengdens representant.\n\n`Find-Set(x)` følger `p`-pekerne oppover til den når rota.\n\n**Trærne her har ingenting med søketrær å gjøre.** Det finnes ingen ordning\nmellom nodene — pekerne sier bare «tilhører samme mengde som»."
+    },
+    {
+      "id": "tdt4120-3-5-def-27",
+      "type": "definition",
+      "title": "Rangheuristikken",
+      "content": "**`x.rank`** er en øvre grense for høyden på deltreet med rot `x`. Ved `Union`\nhenges rota med **lavest** rang under den med høyest.\n\nEr rangene like, velges den ene som ny rot og får rangen sin økt med 1.\n\n**Effekten er at trærne holder seg lave:** høyden blir $O(\\lg n)$, og dermed er\nbåde `Find-Set` og `Union` $O(\\lg n)$. Uten heuristikken kan et tre bli en\nkjede med høyde $n-1$."
+    },
+    {
+      "id": "tdt4120-3-5-thm-28",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `Make-Set`, `Find-Set`, `Union` og `Link`",
+      "content": "**Antagelser om representasjon.** Hvert element `x` har feltene `x.p`\n(forelder) og `x.rank`. Rota `r` har `r.p = r`. Denne boka bruker\nrangheuristikken, men **ikke** stikomprimering.\n\n**Prebetingelse:** for `Make-Set` at `x` ikke allerede ligger i en mengde; for\n`Union` at begge argumentene ligger i en mengde.\n**Postbetingelse:** `Find-Set(x)` returnerer representanten for mengden `x`\nligger i. `Union(x, y)` gjør at `x` og `y` etterpå ligger i samme mengde.\n\n```text\nMake-Set(x)\n  x.p = x\n  x.rank = 0\n\nFind-Set(x)\n  while x.p != x\n      x = x.p\n  return x\n\nLink(x, y)\n  Input:  to ROETTER x og y\n  if x.rank > y.rank\n      y.p = x\n  else\n      x.p = y\n      if x.rank == y.rank\n          y.rank = y.rank + 1\n\nUnion(x, y)\n  Link(Find-Set(x), Find-Set(y))\n  Kjoeretid: Theta(1) for Make-Set, O(lg n) for Find-Set og Union\n```\n\n**Invarianten i én setning:** hver mengde er et tre der alle `p`-pekere fører\nopp til representanten, og `x.rank` er alltid minst like stor som høyden på\ndeltreet under `x`.\n\n**Legg merke til at `Link` tar to røtter, ikke to vilkårlige elementer.**\n`Union` gjør oppslaget først. En vanlig håndkjøringsfeil er å henge et element\nmidt i treet under en annen rot.\n\n**Kjøretid:** `Make-Set` er $\\Theta(1)$. `Find-Set` følger én sti opp til rota,\nog med rangheuristikken er høyden $O(\\lg n)$ — derav $O(\\lg n)$ for både\n`Find-Set` og `Union`."
+    },
+    {
+      "id": "tdt4120-3-5-fig-29",
+      "type": "image",
+      "src": "/images/textbook/tdt4120/3-5-union-find-skog.svg",
+      "alt": "To troer som viser to disjunkte mengder. Til venstre mengden med a, b, c og d: d er rot med rang 2, b henger under d med rang 1, c henger under d med rang 0, og a henger under b med rang 0. Til hoyre mengden med e og f: f er rot med rang 1 og e henger under f med rang 0. Pilene er merket med p, altsaa forelderpekere. En note forklarer at rota er mengdens representant, at Find-Set foelger p-pekerne opp til den, og at Union henger den ene rota under den andre.",
+      "caption": "Skogen fra Eksempel 3 etter de fire `Union`-operasjonene. Legg merke til at `a` ligger to nivåer under rota `d` — `Find-Set(a)` må derfor følge to pekere."
+    },
+    {
+      "id": "tdt4120-3-5-eks-30",
+      "type": "example",
+      "title": "Eksempel 3: Fire sammenslåinger med rangheuristikk",
+      "problem": "Seks målestasjoner `a`, `b`, `c`, `d`, `e`, `f` starter hver for seg:\n`Make-Set` kalles på alle seks, så alle har rang 0 og er sin egen rot.\n\nUtfør `Union(a, b)`, `Union(c, d)`, `Union(b, d)` og `Union(e, f)`.\n\nOppgi hvilke mengder som finnes til slutt, hvem som er representant for hver,\nog hva `Find-Set(a)` returnerer.",
+      "solution": "| Steg | Operasjon | Hva som skjer | Mengdene etterpå |\n|---|---|---|---|\n| 1 | `Union(a, b)` | like ranger (0): rot a henges under rot b, og b får rang 1 | {a, b} med rot b; {c} med rot c; {d} med rot d; {e} med rot e; {f} med rot f |\n| 2 | `Union(c, d)` | like ranger (0): rot c henges under rot d, og d får rang 1 | {a, b} med rot b; {c, d} med rot d; {e} med rot e; {f} med rot f |\n| 3 | `Union(b, d)` | like ranger (1): rot b henges under rot d, og d får rang 2 | {a, b, c, d} med rot d; {e} med rot e; {f} med rot f |\n| 4 | `Union(e, f)` | like ranger (0): rot e henges under rot f, og f får rang 1 | {a, b, c, d} med rot d; {e, f} med rot f |\n\n**Sluttilstanden — det du ville levert på eksamen:**\n\n**Mengdene er `{a, b, c, d}` med representant `d`, og `{e, f}` med representant\n`f`. `Find-Set(a)` returnerer `d`.**\n\n**Slik ser skogen ut:**\n\n```text\n        d (rang 2)                f (rang 1)\n       /         \\                   |\n   b (rang 1)  c (rang 0)        e (rang 0)\n      |\n   a (rang 0)\n```\n\n**Legg merke til hvordan rangene styrer.** I steg 1 og 2 møtes to røtter med\nrang 0, og den ene får rang 1. I steg 3 møtes to røtter med rang 1 — igjen\nuavgjort, så den ene blir rot og får rang 2. Hadde rangene vært ulike, ville\nden lavere rota alltid havnet under, og ingen rang ville økt.\n\n**`Find-Set(a)` følger to pekere:** fra `a` til `b`, fra `b` til `d`. Det er\nhøyden på treet, og det er nettopp den rangheuristikken holder nede."
+    },
+    {
+      "id": "tdt4120-3-5-oppg-31",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-3-5-oppg-31-inner",
+        "number": 7,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C — håndkjøring.)\n\nFem noder `u`, `v`, `w`, `x`, `y` får hver sin `Make-Set`.\n\nUtfør `Union(u, v)`, `Union(w, x)`, `Union(v, w)`, `Union(x, y)`.\n\n**a)** Hvilke mengder finnes til slutt, og hvem er representanten?\n**b)** Hvor mange pekere følger `Find-Set(u)`?",
+        "solution": "**a)** Én eneste mengde: `{u, v, w, x, y}` med representant **`x`**.\n\nGjennomgangen: `Union(u, v)` gir `v` som rot med rang 1, `u` under.\n`Union(w, x)` gir `x` som rot med rang 1, `w` under. `Union(v, w)`: røttene er\n`v` (rang 1) og `x` (rang 1) — like ranger, så `v` henges under `x`, og `x` får\nrang 2. `Union(x, y)`: røttene er `x` (rang 2) og `y` (rang 0), så `y` henges\nunder `x`, og ingen rang endres.\n\n**b)** To: fra `u` til `v`, og fra `v` til `x`.\n\nSkogen:\n\n```text\n            x (rang 2)\n          /     |     \\\n      v(1)     w(0)    y(0)\n       |\n      u(0)\n```",
+        "hints": [
+          "Kall `Find-Set` på begge argumentene før du henger noe under noe.",
+          "Rangen øker bare når to røtter med **lik** rang møtes."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-3-5-oppg-32",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-3-5-oppg-32-inner",
+        "number": 8,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger H — åpen algoritmedesign, altså at du skisserer en\nalgoritme kort: hvilket kjent problem det er, hvilket paradigme du bruker,\nkonstruksjonen, hvordan du henter ut selve svaret, og kjøretiden.)\n\nEt fiberselskap legger nye kabler mellom $n$ kundesteder, én strekning om\ngangen, til sammen $m$ strekninger. Etter hver ny strekning vil de vite hvor\nmange **sammenhengende områder** nettet består av.\n\nBeskriv en algoritme, og oppgi kjøretiden.",
+        "solution": "**Det klassiske problemet.** Dette er å holde styr på sammenhengende\nkomponenter i en graf som får kanter én om gangen.\n\n**Paradigmet.** En disjunkt-mengde-struktur, altså `Union-Find`.\n\n**Konstruksjonen.** Kall `Make-Set` på hvert av de $n$ kundestedene, og sett en\nteller `komponenter = n`. For hver ny strekning mellom `u` og `v`: kall\n`Find-Set(u)` og `Find-Set(v)`. Er de like, ligger stedene allerede i samme\nområde, og ingenting skjer. Er de ulike, kall `Union(u, v)` og senk telleren\nmed 1.\n\n**Rekonstruksjon av selve svaret.** Telleren **er** svaret etter hver\nstrekning, og den kan skrives ut umiddelbart — det koster ingenting ekstra.\nSkal selve gruppene også oppgis, går du gjennom alle $n$ stedene til slutt og\ngrupperer dem på `Find-Set`-verdien, i $O(n\\lg n)$.\n\n**Kjøretid.** $\\Theta(n)$ til initialiseringen pluss $O(m\\lg n)$ til de $m$\nstrekningene, altså $O(n + m\\lg n)$ til sammen.\n\n**Legg merke til at telleren bare senkes når `Find-Set` gir ulike røtter.** Det\ner den samme testen `MST-Kruskal` bruker for å avvise en kant som ville lagd\nen syklus.",
+        "hints": [
+          "Hvilken struktur svarer raskt på «ligger disse to i samme gruppe?»",
+          "Hva skjer med antall komponenter når to ulike komponenter slås sammen?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-3-5-warn-33",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "De to første koster hele oppgaven.\n\n- **Å levere bare den logiske køen.** Dette er felle **#3** — køfeil ved\n  håndkjøring. Svarformatet er **hele** tabellen `Q[1..n]` inkludert de døde\n  cellene, pluss `head` og `tail`. `Dequeue` sletter ingenting.\n- **Å bytte om `head` og `tail`.** Også felle #3. `head` er der du tar ut,\n  `tail` er der du legger på. Delvis riktig svar gir delvis uttelling, men\n  ombytting gir feil i hele tabellen.\n- **Å glemme wraparound.** Når `tail` står på `n` og en `Enqueue` kommer, skal\n  `tail` bli 1 — ikke `n+1`. Det er samme regel for `head`.\n- **Å oppgi `Table-Insert` som $\\Theta(n)$ per innsetting.** Det er verste\n  tilfelle for **én** operasjon; amortisert er den $O(1)$. Begge tallene er\n  riktige, og fellen er å oppgi det ene der det andre er etterspurt.\n- **Å blande amortisert med forventet.** Amortisert er et gjennomsnitt over en\n  serie, i verste tilfelle for serien — uten noen sannsynlighet. «Forventet»\n  er et gjennomsnitt over tilfeldige valg.\n- **Å henge et ikke-rot-element under en rot i `Union`.** `Link` tar to\n  **røtter**. Kall `Find-Set` på begge argumentene først.\n- **Å øke rangen når rangene er ulike.** Rangen økes bare når to røtter med\n  **lik** rang møtes.\n- **Å tro at `Union-Find`-trærne er søketrær.** Det finnes ingen ordning mellom\n  nodene; pekerne betyr bare «samme mengde».\n\nOg den gjennomgående: **å oppgi mer enn det som er spurt om**. Ber oppgaven om\n`head` og `tail`, er to tall svaret."
+    },
+    {
+      "id": "tdt4120-3-5-t-34",
+      "type": "text",
+      "content": "## Kjøretidene samlet\n\nDette er kapitlets puggeflate. Eksamen er hjelpemiddelfri, så tabellen må ligge\ni hodet.\n\n| Operasjon | Kjøretid | Krav / egenskap |\n|---|---|---|\n| `Enqueue`, `Dequeue` | $\\Theta(1)$ | sirkulært array; `Dequeue` sletter ikke, den flytter `head` |\n| `Push`, `Pop` | $\\Theta(1)$ | LIFO; ingen wraparound nødvendig |\n| `Table-Insert` | $\\Theta(n)$ verste for **én**, **amortisert $O(1)$** | doblingsstrategi; fast økning gir amortisert $\\Theta(n)$ |\n| `Make-Set` | $\\Theta(1)$ | oppretter et enkeltnode-tre med rang 0 |\n| `Find-Set` | $O(\\lg n)$ | med rangheuristikk; følger én sti opp til rota |\n| `Union` | $O(\\lg n)$ | to `Find-Set` pluss ett `Link` |\n| $n$ `Table-Insert` til sammen | $O(n)$ | dette er hele poenget med «amortisert» |\n\n**Én presisering som er verdt å ta med seg.** De tre delene av dette kapitlet\nhar hver sin rolle på eksamen: køen kommer som håndkjøring, amortisert analyse\nsom definisjon, og `Union-Find` som verktøy i `MST-Kruskal`. Ingen av dem er\ntunge, men alle tre har en presis svarform."
+    },
+    {
+      "id": "tdt4120-3-5-t-35",
+      "type": "text",
+      "content": "### Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp\nhar lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet\ngjelder kjernestoffet."
+    },
+    {
+      "id": "tdt4120-3-5-def-36",
+      "type": "definition",
+      "title": "FIFO-kø",
+      "content": "en samling der elementer tas ut i den rekkefølgen de ble lagt inn — *first in,\nfirst out*.\n\n`Enqueue` legger til bakerst, `Dequeue` tar ut forrest, begge i $\\Theta(1)$.\n\n**Brukes i `BFS`** (se [kap. 4.1](/tdt4120/tdt4120-4-1)), der køen er det som\ngjør at søket går lag for lag."
+    },
+    {
+      "id": "tdt4120-3-5-def-37",
+      "type": "definition",
+      "title": "Stakk",
+      "content": "en samling der elementer tas ut i motsatt rekkefølge av innleggingen — *last\nin, first out*.\n\n`Push` og `Pop` arbeider begge på toppen, i $\\Theta(1)$.\n\n**Brukes implisitt i `DFS`** gjennom rekursjonen, og trenger ingen\nwraparound."
+    },
+    {
+      "id": "tdt4120-3-5-def-38",
+      "type": "definition",
+      "title": "`head` og `tail`",
+      "content": "`head` er indeksen til det fremste elementet i køen; `tail` er indeksen der\nneste element skal skrives.\n\nKøen er tom når `head == tail`.\n\n**Å bytte om de to** er den vanligste håndkjøringsfeilen i denne strukturen —\nfelle #3."
+    },
+    {
+      "id": "tdt4120-3-5-def-39",
+      "type": "definition",
+      "title": "Wraparound",
+      "content": "regelen om at en indeks som når `n`, settes til 1 ved neste økning, slik at\narrayet leses som en sirkel.\n\nGjelder både `head` og `tail`.\n\n**Uten wraparound går køen tom for plass** selv om det er ledige celler foran\nden."
+    },
+    {
+      "id": "tdt4120-3-5-def-40",
+      "type": "definition",
+      "title": "Død celle",
+      "content": "en celle som fortsatt inneholder en gammel verdi, men som ligger utenfor\nintervallet fra `head` til `tail`.\n\nOppstår fordi `Dequeue` bare flytter `head` og aldri sletter.\n\n**Døde celler skal med i svaret** på en kø-håndkjøring — svarformatet er hele\ntabellen."
+    },
+    {
+      "id": "tdt4120-3-5-def-41",
+      "type": "definition",
+      "title": "Amortisert kjøretid",
+      "content": "gjennomsnittlig kostnad per operasjon over en hel serie, i verste tilfelle for\nserien.\n\nIngen sannsynlighet er involvert — dette er ikke det samme som «forventet».\n\n**`Table-Insert` er amortisert $O(1)$:** $n$ innsettinger koster $O(n)$ til\nsammen, selv om enkelte koster $\\Theta(n)$."
+    },
+    {
+      "id": "tdt4120-3-5-def-42",
+      "type": "definition",
+      "title": "`Table-Insert`",
+      "content": "setter inn ett element i en dynamisk tabell, og dobler kapasiteten når tabellen\ner full.\n\nKjøretid $\\Theta(n)$ i verste tilfelle for én innsetting, **amortisert $O(1)$**\nover en serie.\n\n**Doblingen er avgjørende.** Med en fast økning på ett element blir amortisert\nkostnad $\\Theta(n)$."
+    },
+    {
+      "id": "tdt4120-3-5-def-43",
+      "type": "definition",
+      "title": "Aggregert analyse",
+      "content": "metoden der du regner ut totalkostnaden for en serie på $n$ operasjoner og\ndeler på $n$.\n\nFor `Table-Insert`: kopieringene summerer seg til under $2n$, pluss $n$\nenkeltinnsettinger, altså under $3n$ totalt.\n\n**Det er den enkleste av de amortiserte metodene**, og den holder for alt i\ndenne boka."
+    },
+    {
+      "id": "tdt4120-3-5-def-44",
+      "type": "definition",
+      "title": "Doblingsstrategien",
+      "content": "å multiplisere kapasiteten med en faktor $c > 1$ når tabellen blir full.\n\nGir amortisert $O(1)$ per innsetting, fordi kopieringene blir eksponentielt\nsjeldnere.\n\n**Enhver additiv økning** — «legg til $k$ plasser» — gir derimot amortisert\n$\\Theta(n)$."
+    },
+    {
+      "id": "tdt4120-3-5-def-45",
+      "type": "definition",
+      "title": "Disjunkte mengder",
+      "content": "en samling mengder uten felles elementer, der hver mengde har en representant.\n\nOperasjonene er `Make-Set`, `Find-Set` og `Union`.\n\n**To elementer ligger i samme mengde** nøyaktig når `Find-Set` gir samme\nrepresentant for begge."
+    },
+    {
+      "id": "tdt4120-3-5-def-46",
+      "type": "definition",
+      "title": "`Make-Set`",
+      "content": "oppretter en ny mengde som bare inneholder `x`, ved å sette `x.p = x` og\n`x.rank = 0`.\n\nKjøretid $\\Theta(1)$.\n\n**Kalles én gang per element** før noen sammenslåing."
+    },
+    {
+      "id": "tdt4120-3-5-def-47",
+      "type": "definition",
+      "title": "`Find-Set`",
+      "content": "følger `p`-pekerne fra `x` opp til rota, og returnerer rota.\n\nKjøretid $O(\\lg n)$ med rangheuristikk.\n\n**Rota er representanten.** Endres ingenting mellom to kall, gir de samme\nsvar."
+    },
+    {
+      "id": "tdt4120-3-5-def-48",
+      "type": "definition",
+      "title": "`Union` og `Link`",
+      "content": "`Union(x, y)` slår sammen mengdene ved å kalle `Link` på de to **røttene**.\n`Link` henger rota med lavest rang under den med høyest.\n\nKjøretid $O(\\lg n)$, dominert av de to `Find-Set`-kallene.\n\n**`Link` tar røtter, ikke vilkårlige elementer** — en vanlig\nhåndkjøringsfeil."
+    },
+    {
+      "id": "tdt4120-3-5-def-49",
+      "type": "definition",
+      "title": "Rang",
+      "content": "`x.rank` er en øvre grense for høyden på deltreet med rot `x`.\n\nØkes bare når to røtter med **lik** rang slås sammen.\n\n**Heuristikken holder trærne lave**, slik at høyden blir $O(\\lg n)$ i stedet\nfor $n-1$."
+    },
+    {
+      "id": "tdt4120-3-5-def-50",
+      "type": "definition",
+      "title": "Skogrepresentasjon",
+      "content": "hver disjunkt mengde lagres som et tre av forelderpekere, der rota peker på seg\nselv.\n\nDet finnes **ingen ordning** mellom nodene — pekerne betyr bare «tilhører samme\nmengde».\n\n**Ikke forveksle med binære søketrær.** Antall barn er ubegrenset, og\nnøkkelverdiene spiller ingen rolle."
+    },
+    {
+      "id": "tdt4120-3-5-def-51",
+      "type": "definition",
+      "title": "Sjanger C — håndkjøring",
+      "content": "oppgavetypen der du utfører operasjonene steg for steg og oppgir\nsluttilstanden.\n\nFor en kø er svarformen **hele tabellen inkludert døde celler, pluss `head` og\n`tail`**. For `Union-Find` er den hvilke mengder som finnes og hvem som er\nrepresentant.\n\n**Delvis riktig gir delvis uttelling** — skriv ned tilstanden underveis."
+    },
+    {
+      "id": "tdt4120-3-5-def-52",
+      "type": "definition",
+      "title": "Sjanger D — definisjon med egne ord",
+      "content": "oppgavetypen der du forklarer et begrep presist og kort.\n\nSvarformen er én til to setninger med hovedpoenget først.\n\n**«Hva betyr amortisert kjøretid?»** er den typiske definisjonsoppgaven fra\ndette kapitlet."
+    },
+    {
+      "id": "tdt4120-3-5-coll-54",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tdt4120-3-5-ct-53",
+          "type": "text",
+          "content": "Fem korte spørsmål fra kapitlene dette bygger på. Svar i hodet først, så\nsammenlign.\n\n**1.** Hvor ligger barna til indeks $i$ i en haug som ligger i `A[1..n]`?\n\n*Svar:* på $2i$ og $2i+1$; forelderen ligger på $\\lfloor i/2\\rfloor$. Se\n[kap. 3.1](/tdt4120/tdt4120-3-1).\n\n**2.** Hva gir `Inorder-Tree-Walk` på et binært søketre?\n\n*Svar:* nøklene i **sortert** rekkefølge, i $\\Theta(n)$. Se\n[kap. 3.2](/tdt4120/tdt4120-3-2).\n\n**3.** Hva er forskjellen på «forventet» og «garantert» kjøretid?\n\n*Svar:* forventet er et gjennomsnitt over tilfeldige valg; garantert gjelder\nenhver kjøring. Se [kap. 2.1](/tdt4120/tdt4120-2-1).\n\n**4.** Hva er $1 + 2 + 4 + \\dots + 2^{m}$?\n\n*Svar:* $2^{m+1} - 1$, altså under det dobbelte av det siste leddet. Se\n[kap. 1.5](/tdt4120/tdt4120-1-5).\n\n**5.** Hva betyr $O(g)$ i motsetning til $\\Theta(g)$?\n\n*Svar:* $O$ er bare øvre grense, $\\Theta$ er tett. Derfor skriver vi\namortisert $O(1)$ og ikke $\\Theta(1)$. Se\n[kap. 1.1](/tdt4120/tdt4120-1-1).\n\n**Videre:** [kap. 4.2](/tdt4120/tdt4120-4-2) bruker `Union-Find` i\n`MST-Kruskal` — det er der strukturen fra dette kapitlet får sin viktigste\njobb."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

@@ -1,0 +1,368 @@
+{
+  "id": "tdt4120-2-2",
+  "courseId": "tdt4120",
+  "chapterNumber": "2.2",
+  "title": "Lineær sortering og stabilitet",
+  "description": "`Counting-Sort`, `Radix-Sort`, `Bucket-Sort` — når lineær sortering er mulig, og hva stabilitet betyr og krever.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "kunne definere hva det vil si at en sortering er stabil, og avgjøre om en gitt sortering er det",
+    "kunne oppgi kravene `Counting-Sort` stiller til nøklene, og kjøretiden som følger av dem",
+    "kunne forklare hvorfor `Radix-Sort` bryter sammen hvis delsorteringen ikke er stabil",
+    "kunne begrunne hvorfor lineær sortering ikke er i strid med den nedre grensen for sammenligningssortering"
+  ],
+  "content": [
+    {
+      "id": "tdt4120-2-2-tip-1",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Sortering er registrert i alle de 17 settene i grunnlaget (100 %)**, og\nspørsmålet «når kan du sortere i lineær tid?» er en av de faste variantene.\nGrunnlaget er de 17 settene fra august 2015 til august 2023 som er gjennomgått\ntema for tema — det er nevneren hver gang boka oppgir en prosent.\n\nTo sjangre henter fra dette kapitlet, og de skrives ut i klarspråk her:\n\n- **Sjanger D — definisjon med egne ord**, altså at du skriver én presis\n  setning med hovedpoenget først. «Definér stabil sortering» er den hyppigste\n  definisjonsoppgaven i sorteringsdelen.\n- **Sjanger E — kjøretidskunnskap**, altså at du oppgir kjøretiden til en\n  navngitt algoritme i det strammeste uttrykket som er riktig. Her må\n  **betingelsen** med: `Counting-Sort` er $\\Theta(n+k)$, og det er bare lineært\n  når $k = O(n)$.\n\n**Høyeste prioritet — dette må sitte.** Eksamen er hjelpemiddelfri, og både\ndefinisjonen av stabilitet og de tre kjøretidene er ren gjenkalling.\n\n**Det som skiller dette kapitlet fra det forrige:** algoritmene her\nsammenligner ikke elementer med hverandre. De bruker nøkkelverdien direkte som\nen indeks i en tabell. Derfor er de ikke bundet av $\\Omega(n\\lg n)$-grensen —\nog derfor stiller de til gjengjeld krav til hvordan nøklene ser ut.\n\n**Slik er kapitlet lagt opp (45 min):**\n\n| Innhold | Tid |\n|---|---|\n| Stabilitet, og `Counting-Sort` | ca. 16 min |\n| `Radix-Sort` og hvorfor stabilitet er et krav | ca. 13 min |\n| `Bucket-Sort` | ca. 8 min |\n| Hvorfor grensen ikke er brutt | ca. 8 min |"
+    },
+    {
+      "id": "tdt4120-2-2-t-2",
+      "type": "text",
+      "content": "## Forkunnskaper\n\n- [kap. 2.1](/tdt4120/tdt4120-2-1) — sammenligningsbaserte sorteringer. Fra det\n  kapitlet: `Merge-Sort` er $\\Theta(n\\lg n)$ og stabil, `Quicksort` er\n  $\\Theta(n\\lg n)$ forventet og ustabil, og **ingen** sortering som bare\n  sammenligner elementpar kan komme under $\\Omega(n\\lg n)$ i verste tilfelle.\n  Det siste er poenget dette kapitlet spiller mot.\n- [kap. 1.1](/tdt4120/tdt4120-1-1) — de asymptotiske symbolene. Du trenger\n  $\\Theta$ og $O$, og at $O(n)$ brukt om en *parameter* (som $k$) betyr «vokser\n  ikke raskere enn $n$».\n\nVil du se sortering konkret i kode først:\n[Sortering: boblesortering, `.sort()` og gitt `sort_list`](/tdt4110/tdt4110-6-1)."
+    },
+    {
+      "id": "tdt4120-2-2-coll-4",
+      "type": "collapsible",
+      "title": "Notasjons- og pseudokodeliste",
+      "buttonText": "Vis notasjon og pseudokode",
+      "content": [
+        {
+          "id": "tdt4120-2-2-ct-3",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et algoritmefag: den lister kjøretidsuttrykk og pseudokode-operasjoner i stedet for bare greske bokstaver.\n\n| Symbol | Betydning |\n|---|---|\n| $n$ | antall elementer som skal sorteres |\n| $k$ | største mulige nøkkelverdi i `Counting-Sort`; nøklene ligger i $[0..k]$ |\n| $d$ | antall siffer per nøkkel i `Radix-Sort` |\n| `A[1..n]` | inputarrayet, indeks fra 1 |\n| `B[1..n]` | outputarrayet i `Counting-Sort` — sorteringen er ikke på stedet |\n| `C[0..k]` | hjelpetabellen som først teller og deretter summeres opp |\n| $\\Theta(f(n))$ | tett grense: kjøretiden vokser som $f(n)$, både opp og ned |\n| $\\Omega(f(n))$ | nedre grense |\n| $\\lg n$ | $\\log_2 n$ — konvensjonen i dette faget |\n\n| Algoritme/operasjon | Kontrakt | Kjøretid |\n|---|---|---|\n| `Counting-Sort(A, B, k)` | sorterer heltallsnøkler i $[0..k]$ ved å telle forekomster og plassere bakfra | $\\Theta(n+k)$ |\n| `Radix-Sort(A, d)` | sorterer $d$-sifrede nøkler ved å kjøre en **stabil** delsortering per siffer, minst signifikante først | $\\Theta(d(n+k))$ |\n| `Bucket-Sort(A)` | fordeler elementene i $n$ bøtter etter verdi, sorterer hver bøtte og setter dem sammen | $\\Theta(n)$ forventet |\n| `Insertion-Sort(A)` | brukes som delsortering inne i hver bøtte | $\\Theta(n^2)$ verste |\n| `Merge-Sort(A, p, r)` | tas med som kontrast: sammenligningsbasert, og derfor bundet av grensen | $\\Theta(n\\lg n)$ |\n\n**Formler i dette delkapitlet:**\n\n$$C[i] = C[i] + C[i-1] \\quad \\text{for } i = 1 \\dots k$$\n\nOppsummeringen som gjør telletabellen om til «hvor mange er $\\le i$» — altså siste ledige plass for nøkkel $i$.\n\n$$\\Theta(n+k) = \\Theta(n) \\quad \\text{når } k = O(n)$$\n\nBetingelsen som gjør `Counting-Sort` lineær. Uten den er den ikke lineær.\n\n$$\\Theta(d(n+k))$$\n\n`Radix-Sort`: $d$ runder à én `Counting-Sort` med sifferområde $[0..k]$.\n"
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-2-2-t-5",
+      "type": "text",
+      "content": "## Stabilitet, og `Counting-Sort` (~16 min)\n\nPå et postterminal kommer pakkene inn på et bånd, hver med et rutenummer fra 0\ntil 40. Skal du legge dem i rutenummerrekkefølge, er det tåpelig å sammenligne\npakker to og to. Du vet jo hvor mange ruter det finnes. Du kan telle hvor mange\npakker som skal til hver rute, og dermed regne ut nøyaktig hvilke plasser i\nrekka hver rute skal ha.\n\nDet er `Counting-Sort`. Den sammenligner aldri to elementer med hverandre — den\nbruker nøkkelen som **indeks** i en telletabell. Prisen er at nøklene må være\nheltall i et kjent, ikke altfor stort område.\n\nMen først et begrep som hele resten av kapitlet hviler på."
+    },
+    {
+      "id": "tdt4120-2-2-def-6",
+      "type": "definition",
+      "title": "Stabil sortering",
+      "content": "En sortering er **stabil** når to elementer med lik nøkkel beholder sin\ninnbyrdes rekkefølge fra input til output.\n\nLigger to pakker med rutenummer 12 på båndet i rekkefølgen «først den fra\nTromsø, så den fra Bodø», skal de ligge i den samme rekkefølgen etterpå.\n\nEgenskapen er bare interessant når elementene bærer med seg mer enn nøkkelen —\nen pakke er ikke bare et rutenummer. Og den er **avgjørende** når du sorterer\netter én nøkkel om gangen, slik `Radix-Sort` gjør."
+    },
+    {
+      "id": "tdt4120-2-2-thm-7",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `Counting-Sort`",
+      "content": "**Antagelser om representasjon.** Arrayet er `A[1..n]`, indeks fra 1. Hver\nnøkkel `A[j]` er et **heltall** i området $[0..k]$, og $k$ er kjent på\nforhånd. Outputen skrives til et eget array `B[1..n]`; sorteringen er **ikke**\npå stedet.\n\n**Prebetingelse:** alle nøkler er heltall i $[0..k]$.\n**Postbetingelse:** `B[1..n]` inneholder de samme elementene i stigende\nrekkefølge, og like nøkler står i samme innbyrdes rekkefølge som i `A`.\n\n```text\nCounting-Sort(A, B, k)\n  Input:  array A[1..n] med heltallsnoekler i [0..k]\n  Output: B[1..n] sortert stigende, stabilt\n  la C[0..k] vaere et nytt array\n  for i = 0 to k\n      C[i] = 0\n  for j = 1 to A.length\n      C[A[j]] = C[A[j]] + 1\n  for i = 1 to k\n      C[i] = C[i] + C[i-1]\n  for j = A.length downto 1\n      B[C[A[j]]] = A[j]\n      C[A[j]] = C[A[j]] - 1\n  Kjoeretid: Theta(n + k)\n```\n\n**Grunnideen i én setning:** etter oppsummeringen forteller `C[i]` hvor mange\nelementer som har nøkkel **høyst** $i$ — og det er nøyaktig den siste ledige\nplassen i `B` for nøkkelen $i$.\n\n**Hvorfor den siste løkka teller nedover.** Går du fra `n` ned til `1`, blir\ndet **siste** elementet med en gitt nøkkel plassert **sist** blant sine like.\nSnur du løkka, sorterer algoritmen fortsatt riktig, men stabiliteten\nforsvinner — og da kan den ikke brukes inne i `Radix-Sort`.\n\n**Kjøretid:** $\\Theta(k)$ til å nullstille `C`, $\\Theta(n)$ til tellingen,\n$\\Theta(k)$ til oppsummeringen og $\\Theta(n)$ til plasseringen, altså\n$\\Theta(n+k)$. Det er **lineært bare når $k = O(n)$**. Med nøkler opp til\n$k = n^2$ er algoritmen $\\Theta(n^2)$, og da er `Merge-Sort` langt bedre."
+    },
+    {
+      "id": "tdt4120-2-2-fig-8",
+      "type": "image",
+      "src": "/images/textbook/tdt4120/counting-sort.svg",
+      "alt": "Fire rader som viser Counting-Sort paa fem elementer. Foerste rad er inputarrayet A med elementene 2a, 1b, 2c, 3d og 1e. Andre rad er telletabellen C med verdiene 0, 2, 2 og 1 for noeklene 0, 1, 2 og 3. Tredje rad er den kumulative C med verdiene 0, 2, 4 og 5. Fjerde rad er outputarrayet B med 1b, 1e, 2a, 2c og 3d. En note under forklarer at plasseringen gaar fra j lik n ned til j lik 1, og at 2a derfor havner foran 2c, akkurat som i input.",
+      "caption": "De tre tabellene i Eksempel 1: input, telletabellen `C` før og etter oppsummeringen, og resultatet. Bokstavene `a` til `e` er merkelapper som viser hvor hvert element kom fra — at de holder rekkefølgen, er nettopp stabiliteten."
+    },
+    {
+      "id": "tdt4120-2-2-eks-9",
+      "type": "example",
+      "title": "Eksempel 1: `Counting-Sort` med merkede like nøkler",
+      "problem": "Fem pakker har rutenumrene `A = 2, 1, 2, 3, 1` i denne rekkefølgen. For å\nkunne se hva som skjer med like nøkler, merker vi dem: `2a, 1b, 2c, 3d, 1e`.\nBokstaven er bare en etikett som følger elementet; sorteringen ser bare tallet.\nHer er $n = 5$ og $k = 3$.\n\nKjør `Counting-Sort` og oppgi telletabellen `C` etter tellingen, `C` etter\noppsummeringen, og det ferdige `B`.",
+      "solution": "**Telletabellen `C[0..3]` etter tellingen:** `0, 2, 2, 1`\n\nIngen pakker til rute 0, to til rute 1, to til rute 2, én til rute 3.\n\n**`C[0..3]` etter oppsummeringen:** `0, 2, 4, 5`\n\nNå leses tabellen som «antall elementer med nøkkel høyst $i$». `C[2] = 4`\nbetyr at fire elementer har nøkkel 2 eller lavere — altså er plass 4 den siste\nledige plassen for en toer.\n\n**Plasseringen, bakfra:**\n\n| Steg | `j` | Element | Plass i `B` | `C` etter steget | `B` etter steget |\n|---|---|---|---|---|---|\n| 1 | 5 | `1e` | 2 | `0, 1, 4, 5` | `_, 1, _, _, _` |\n| 2 | 4 | `3d` | 5 | `0, 1, 4, 4` | `_, 1, _, _, 3` |\n| 3 | 3 | `2c` | 4 | `0, 1, 3, 4` | `_, 1, _, 2, 3` |\n| 4 | 2 | `1b` | 1 | `0, 0, 3, 4` | `1, 1, _, 2, 3` |\n| 5 | 1 | `2a` | 3 | `0, 0, 2, 4` | `1, 1, 2, 2, 3` |\n\n**Sluttilstanden — det du ville levert på eksamen:**\n\n**`B = 1, 1, 2, 2, 3`**, og med merkelappene:\n`1b, 1e, 2a, 2c, 3d`.\n\nSe på de to toerne. I input lå `2a` før `2c`. I output ligger `2a` fortsatt før\n`2c` — fordi løkka gikk bakfra, ble `2c` plassert først, på den *siste* ledige\ntoerplassen. **Det er stabilitet, konkret.**\n\nMerk hva oppgaven ba om: de tre tabellene. Ba den bare om `C` etter\noppsummeringen, skulle du oppgitt den ene raden og ikke mer."
+    },
+    {
+      "id": "tdt4120-2-2-oppg-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-2-2-oppg-10-inner",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave, sjanger D — definisjon med egne ord, altså én presis setning\nmed hovedpoenget først.)\n\nDefinér *stabil sortering*, og gi et eksempel på en situasjon der egenskapen\nhar betydning.",
+        "solution": "En sortering er **stabil** når elementer med lik nøkkel beholder sin innbyrdes\nrekkefølge fra input til output.\n\nBetydning: sorterer du en liste over ansatte først på fornavn og deretter på\navdeling, vil en stabil sortering gi deg avdelingene i rekkefølge, med\nnavnene fortsatt alfabetisk inne i hver avdeling. En ustabil sortering ville\nstokket om på navnene.\n\nMerk at egenskapen bare er synlig når elementene bærer med seg noe mer enn\nnøkkelen. Sorterer du bare tall, kan du ikke se forskjell.",
+        "hints": [
+          "Hovedpoenget er hva som skjer med to elementer som har **samme** nøkkel.",
+          "Tenk på en sortering som gjøres i to omganger, etter to ulike nøkler."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-2-2-oppg-11",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-2-2-oppg-11-inner",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C — håndkjøring, altså at du utfører algoritmen steg for\nsteg og oppgir bare det etterspurte.)\n\nEt array `A = 4, 1, 3, 4, 0, 2, 3, 4` skal sorteres med `Counting-Sort` med\n$k = 4$.\n\n**a)** Oppgi telletabellen `C[0..4]` etter tellingen.\n**b)** Oppgi `C[0..4]` etter oppsummeringen.\n**c)** Oppgi det ferdige `B`.",
+        "solution": "**a)** `C = 1, 1, 1, 2, 3`\n\n**b)** `C = 1, 2, 3, 5, 8`\n\n**c)** `B = 0, 1, 2, 3, 3, 4, 4, 4`\n\nKontrollen på b): siste verdi i den oppsummerte tabellen skal alltid være $n$,\nher 8. Stemmer ikke det, har du regnet feil i tellingen.",
+        "hints": [
+          "Tell først hvor mange ganger hver nøkkelverdi fra 0 til 4 forekommer.",
+          "Oppsummeringen er kumulativ: `C[i] = C[i] + C[i-1]` for $i$ fra 1 til $k$."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-2-2-t-12",
+      "type": "text",
+      "content": "## `Radix-Sort` og hvorfor stabilitet er et krav (~13 min)\n\n`Counting-Sort` er ubrukelig på store nøkler: skal du sortere sekssifrede\nordrenumre, er $k = 999\\,999$, og telletabellen blir større enn hele arkivet.\n\n`Radix-Sort` løser det ved å ta ett siffer om gangen. Nøkkelen har $d$ siffer,\nhvert siffer ligger i et lite område, og hvert siffer sorteres for seg — med en\nstabil delsortering, typisk `Counting-Sort`.\n\nDet overraskende er rekkefølgen: du starter med det **minst** signifikante\nsifferet."
+    },
+    {
+      "id": "tdt4120-2-2-thm-13",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `Radix-Sort`",
+      "content": "**Antagelser om representasjon.** Arrayet er `A[1..n]`, indeks fra 1. Hver\nnøkkel har nøyaktig $d$ siffer, der siffer 1 er det minst signifikante.\nSifrene ligger i et lite område $[0..k]$ — for desimaltall er $k = 9$.\n\n**Prebetingelse:** delsorteringen som brukes per siffer, **må være stabil**.\n**Postbetingelse:** `A[1..n]` er sortert stigende etter hele nøkkelen.\n\n```text\nRadix-Sort(A, d)\n  Input:  array A[1..n] der hver noekkel har d siffer\n  Output: A sortert stigende etter hele noekkelen\n  for i = 1 to d\n      sorter A stabilt paa siffer i\n  Kjoeretid: Theta(d(n + k))\n```\n\n**Invarianten i én setning:** etter runde `i` er arrayet sortert etter de `i`\nminst signifikante sifrene under ett.\n\n**Hvorfor stabiliteten er et krav og ikke en bonus.** Anta at invarianten\nholder etter runde `i`, og at vi nå sorterer på siffer `i+1`. To elementer med\n**forskjellig** siffer `i+1` havner riktig av seg selv. To elementer med\n**samme** siffer `i+1` må avgjøres av de foregående sifrene — altså av\nrekkefølgen de allerede har. Er delsorteringen ustabil, kastes den\nrekkefølgen, og hele arbeidet fra de tidligere rundene går tapt.\n\n**Kjøretid:** $d$ runder à én `Counting-Sort` med sifferområde $[0..k]$, altså\n$\\Theta(d(n+k))$. Med faste $d$ og $k = O(n)$ er dette $\\Theta(n)$."
+    },
+    {
+      "id": "tdt4120-2-2-eks-14",
+      "type": "example",
+      "title": "Eksempel 2: `Radix-Sort` siffer for siffer",
+      "problem": "Sju tresifrede lagernumre skal sorteres: `A = 482, 175, 439, 175, 908, 261,\n493`. Her er $n = 7$, $d = 3$ og sifferområdet er $[0..9]$, altså $k = 9$.\n\nKjør `Radix-Sort` og oppgi arrayet etter hver runde.",
+      "solution": "| Runde | Sorterer på | Array etter runden |\n|---|---|---|\n| 1 | enerne (siffer 1) | `261, 482, 493, 175, 175, 908, 439` |\n| 2 | tierne (siffer 2) | `908, 439, 261, 175, 175, 482, 493` |\n| 3 | hundrerne (siffer 3) | `175, 175, 261, 439, 482, 493, 908` |\n\n**Sluttilstanden: `175, 175, 261, 439, 482, 493, 908`.**\n\nFølg de to like numrene 175 for å se stabiliteten arbeide: de har identiske\nsiffer hele veien og bytter derfor aldri innbyrdes plass. Følg heller 482 og\n493. Etter runde 1 ligger 493 før 482 (3 er mindre enn 2? nei — 482 slutter på\n2 og 493 på 3, så 482 kommer først). Etter runde 2 avgjør tierne: 8 mot 9, og\n482 blir liggende først. Etter runde 3 er hundrerne like, 4 mot 4 — og da er\ndet **stabiliteten** som bevarer resultatet fra runde 2.\n\nDet siste er hele poenget: i den avgjørende runden gjør delsorteringen\ningenting med disse to, og likevel er de riktig ordnet. Hadde delsorteringen\nvært ustabil, kunne den snudd dem.\n\n**Kjøretid her:** $\\Theta(d(n+k)) = \\Theta(3 \\cdot (7+10))$, altså konstant\narbeid per element per siffer."
+    },
+    {
+      "id": "tdt4120-2-2-oppg-15",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-2-2-oppg-15-inner",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger F — «stemmer dette?», altså ja eller nei først og\nderetter én presis setning.)\n\nEn student foreslår å bruke `Quicksort` som delsortering inne i `Radix-Sort`,\n«siden den er raskere i praksis enn `Counting-Sort`».\n\nVil `Radix-Sort` da sortere riktig? Svar ja eller nei, og begrunn.",
+        "solution": "**Nei.**\n\n`Quicksort` er ustabil, og `Radix-Sort` er helt avhengig av at delsorteringen\ner stabil: rekkefølgen mellom to elementer med samme siffer i den runden som\nkjøres nå, er nettopp det resultatet de foregående rundene har bygd opp. En\nustabil delsortering kan snu den rekkefølgen, og da er informasjonen borte.\n\nEt konkret motbevis: på `21, 12` sorterer runde 1 på enerne og gir `21, 12`.\nRunde 2 sorterer på tierne, som er 2 og 1, og gir `12, 21` — riktig. Men på\n`11, 12` gir runde 1 `11, 12`, og i runde 2 har begge tieren 1. En ustabil\ndelsortering står fritt til å levere `12, 11`, som er galt.\n\nLegg til at kjøretiden heller ikke ville blitt bedre: hele poenget med\n`Counting-Sort` per siffer er at den er lineær.",
+        "hints": [
+          "Hvilken egenskap ved delsorteringen bruker `Radix-Sort` til å bevare arbeidet fra tidligere runder?",
+          "Konstruér to nøkler som har samme siffer i den siste runden."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-2-2-oppg-16",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-2-2-oppg-16-inner",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger E — kjøretidskunnskap, med en betingelse som skal\nfinnes.)\n\nDu skal sortere $n$ nøkler som hver har $d$ siffer i tallsystem med grunntall\n$k$.\n\n**a)** Oppgi kjøretiden til `Radix-Sort` og til `Merge-Sort` på denne\ninputen.\n**b)** Finn en betingelse på $d$ og $k$ som gjør `Radix-Sort` asymptotisk\nraskest, og forklar hva den betyr i praksis.",
+        "solution": "**a)** `Radix-Sort` er $\\Theta(d(n+k))$. `Merge-Sort` er $\\Theta(n\\lg n)$ —\nden bryr seg ikke om hvordan nøklene ser ut.\n\n**b)** `Radix-Sort` er asymptotisk raskest når\n\n$$d(n+k) = o(n\\lg n)$$\n\nDen praktiske varianten: hold $k = O(n)$, slik at $n+k = \\Theta(n)$. Da blir\nkravet $d = o(\\lg n)$ — altså at antall siffer vokser langsommere enn\nlogaritmen av antall nøkler.\n\nI praksis betyr det **få siffer i et lite tallsystem**. Sekssifrede\npostnumre blant en million adresser er et godt tilfelle: $d = 6$ er konstant,\nmens $\\lg n \\approx 20$. Motsatt: tilfeldige 64-bits heltall lest som 64\nbinære siffer gir $d = 64$, og da taper `Radix-Sort` for `Merge-Sort` med\nmindre $n$ er svært stort.\n\nMerk at betingelsen er en **betingelse**, ikke en påstand. «`Radix-Sort` er\nraskere enn `Merge-Sort`» er galt som generell påstand.",
+        "hints": [
+          "Sett opp de to kjøretidsuttrykkene ved siden av hverandre og sammenlign dem direkte.",
+          "Anta først at $k$ er liten nok til at $n+k = \\Theta(n)$, og se hva som da gjenstår."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-2-2-t-17",
+      "type": "text",
+      "content": "## `Bucket-Sort` (~8 min)\n\nDen tredje lineære sorteringen stiller en helt annen type krav: ikke til\nnøklenes *form*, men til deres *fordeling*.\n\nIdeen er å dele verdiområdet i $n$ like store intervaller — bøtter — legge hvert\nelement i sin bøtte, sortere hver bøtte for seg med `Insertion-Sort`, og\nskjøte bøttene sammen i rekkefølge."
+    },
+    {
+      "id": "tdt4120-2-2-def-18",
+      "type": "definition",
+      "title": "`Bucket-Sort`",
+      "content": "fordeler $n$ elementer i $n$ bøtter etter verdi, sorterer hver bøtte med\n`Insertion-Sort`, og setter bøttene sammen i rekkefølge.\n\nKjøretid $\\Theta(n)$ **forventet**, $\\Theta(n^2)$ verste.\n\n**Krever at inputen er tilnærmet jevnt fordelt** over verdiområdet. Da havner\ndet i gjennomsnitt ett element i hver bøtte, og `Insertion-Sort` gjør konstant\narbeid per bøtte. Havner alle elementene i samme bøtte, degenererer algoritmen\ntil én stor `Insertion-Sort`."
+    },
+    {
+      "id": "tdt4120-2-2-oppg-19",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-2-2-oppg-19-inner",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger F.)\n\nTa stilling til hver av påstandene:\n\n**a)** `Bucket-Sort` er $\\Theta(n)$ i verste tilfelle.\n**b)** `Counting-Sort` krever at nøklene er heltall.\n**c)** `Radix-Sort` kan bruke `Counting-Sort` som delsortering.",
+        "solution": "**a)** **Nei.** Forventet kjøretid er $\\Theta(n)$, men verste tilfelle er\n$\\Theta(n^2)$ — det inntreffer når alle elementene havner i samme bøtte, slik\nat `Insertion-Sort` må sortere hele arrayet alene.\n\n**b)** **Ja.** Nøkkelen brukes som indeks i `C`, og en indeks må være et\nheltall i et kjent område $[0..k]$.\n\n**c)** **Ja.** Det er det vanlige valget, nettopp fordi `Counting-Sort` er\nstabil og lineær på små sifferområder.",
+        "hints": [
+          "For a: hva er den verst tenkelige fordelingen av elementene over bøttene?",
+          "For b: se på hva `C[A[j]]` faktisk gjør med verdien `A[j]`."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-2-2-t-20",
+      "type": "text",
+      "content": "## Hvorfor grensen ikke er brutt (~8 min)\n\nEt rimelig spørsmål på dette punktet: [kap. 2.1](/tdt4120/tdt4120-2-1) beviste\nat ingen sortering kan komme under $\\Omega(n\\lg n)$. Nå har vi tre som er\nlineære. Er beviset galt?\n\nNei — og det er verdt å ha svaret klart, fordi spørsmålet stilles direkte på\neksamen."
+    },
+    {
+      "id": "tdt4120-2-2-def-21",
+      "type": "definition",
+      "title": "Hvorfor lineær sortering ikke bryter grensen",
+      "content": "$\\Omega(n\\lg n)$-grensen gjelder **bare sammenligningsbaserte** sorteringer,\naltså de som avgjør rekkefølgen utelukkende ved å spørre «er $a_i \\le a_j$?».\n\nBeviset er et beslutningstre der hver node er én binær sammenligning. En\nalgoritme som slår opp direkte på nøkkelverdien, har ikke et slikt tre — den\ngjør et valg blant $k+1$ muligheter i ett steg, ikke blant 2.\n\n**Prisen er antagelser om nøklene.** `Counting-Sort` krever heltall i et lite\nområde, `Radix-Sort` krever få siffer, `Bucket-Sort` krever jevn fordeling.\nSammenligningssorteringene krever ingenting."
+    },
+    {
+      "id": "tdt4120-2-2-eks-22",
+      "type": "example",
+      "title": "Eksempel 3: Hvilken sortering velger du?",
+      "problem": "Fire oppdrag. For hvert av dem: hvilken sortering fra Del 2 velger du, og\nhvilken kjøretid får du?\n\n**a)** 10 millioner eksamensresultater, hver et heltall fra 0 til 100.\n**b)** 500 flyttallsmålinger fra en sensor, jevnt fordelt i $[0, 1)$.\n**c)** 1 million navn, sortert alfabetisk, der lik nøkkel må beholde\nrekkefølgen.\n**d)** 200 000 vilkårlige heltall uten kjent øvre grense, og du må garantere\nkjøretiden.",
+      "solution": "**a)** `Counting-Sort` med $k = 100$. Her er $k$ konstant og langt mindre enn\n$n$, så $\\Theta(n+k) = \\Theta(n)$. Ti millioner sammenligningsbaserte\noperasjoner à $\\lg n \\approx 23$ er sløsing når du kjenner området.\n\n**b)** `Bucket-Sort`. Jevn fordeling er nettopp forutsetningen, og forventet\nkjøretid er $\\Theta(n)$. Merk «forventet»: garantien er $\\Theta(n^2)$.\n\n**c)** `Merge-Sort`. Den er stabil og $\\Theta(n\\lg n)$ garantert. `Radix-Sort`\npå strenger er også mulig, men krever lik lengde eller polstring, og\noppgaven gir ingen grunn til å tro at $d$ er liten.\n\n**d)** `Merge-Sort` eller `Heapsort`, begge $\\Theta(n\\lg n)$ **garantert**.\nIkke `Quicksort`: den gir bare en forventning. Ikke `Counting-Sort`: uten\nkjent øvre grense på nøklene finnes ingen $k$.\n\n**Svarformen på eksamen** er algoritmenavnet, kjøretiden og betingelsen som\ngjør valget gyldig — én linje per deloppgave. Ikke en gjennomgang av hvordan\nalgoritmen virker."
+    },
+    {
+      "id": "tdt4120-2-2-oppg-23",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-2-2-oppg-23-inner",
+        "number": 6,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger F.)\n\nEn kandidat skriver: «`Counting-Sort` er $\\Theta(n)$, og er derfor alltid\nraskere enn `Merge-Sort`.»\n\nEr utsagnet riktig? Svar ja eller nei, og begrunn.",
+        "solution": "**Nei.**\n\n`Counting-Sort` er $\\Theta(n+k)$, ikke $\\Theta(n)$. De to faller sammen bare\nnår $k = O(n)$.\n\nMotbevis: skal du sortere $n = 1000$ heltall som kan være hva som helst opp\ntil $k = 10^9$, må `Counting-Sort` opprette og gå gjennom en telletabell med\nen milliard celler. `Merge-Sort` bruker $\\Theta(n\\lg n) \\approx 10\\,000$\noperasjoner.\n\nRiktig formulering: «`Counting-Sort` er $\\Theta(n+k)$, og er lineær når\n$k = O(n)$.» Betingelsen er en del av svaret, ikke en fotnote.",
+        "hints": [
+          "Skriv opp den fullstendige kjøretiden, ikke den forkortede.",
+          "Finn en verdi av $k$ som gjør uttrykket dyrere enn $n\\lg n$."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-2-2-oppg-24",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-2-2-oppg-24-inner",
+        "number": 7,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger H — åpen algoritmedesign, altså at du skisserer en\nalgoritme kort: hvilket kjent problem det er, hvilket paradigme du bruker,\nkonstruksjonen, hvordan du henter ut selve svaret, og kjøretiden.)\n\nEt bibliotek har $n$ utlån registrert med to felter: dato (et heltall fra 1 til\n365) og filialnummer (et heltall fra 1 til 20). Utlånene skal sorteres etter\nfilial, og innenfor hver filial etter dato.\n\nBeskriv en algoritme som bruker $\\Theta(n)$ tid.",
+        "solution": "**Det klassiske problemet.** Sortering på to nøkler, der begge nøklene ligger\ni et lite heltallsområde.\n\n**Paradigmet.** To stabile lineære sorteringer etter hverandre — samme idé som\ni `Radix-Sort`, der sifrene er de to feltene.\n\n**Konstruksjonen.** Kjør `Counting-Sort` **først** på dato, med $k = 365$.\nKjør deretter `Counting-Sort` på filialnummer, med $k = 20$. Rekkefølgen er\navgjørende: den **minst** viktige nøkkelen sorteres først.\n\nEtter den andre kjøringen er utlånene gruppert etter filial, og innenfor hver\nfilial har de beholdt datorekkefølgen fra første kjøring — fordi\n`Counting-Sort` er stabil.\n\n**Rekonstruksjon av selve svaret.** Hvert element bærer med seg hele\nutlånsposten gjennom begge kjøringene; den ferdige rekkefølgen i `B` er\nsvaret. Det koster ingenting ekstra.\n\n**Kjøretid.** $\\Theta(n + 365) + \\Theta(n + 20) = \\Theta(n)$, siden begge\nnøkkelområdene er konstante.\n\n**Fellen å unngå:** å sortere på filial først. Da ville den andre kjøringen\ngruppert alt etter dato og revet filialene fra hverandre.",
+        "hints": [
+          "Hvilken av de to nøklene er den «viktigste», og hvilken rekkefølge sorterer `Radix-Sort` sifrene i?",
+          "Hvilken egenskap ved delsorteringen gjør at den første sorteringen ikke går tapt?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-2-2-warn-25",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "De to første koster hele oppgaven.\n\n- **Å oppgi `Counting-Sort` som $\\Theta(n)$ uten betingelsen.** Dette er felle\n  **#9** — feil kjøretidsfakta. Riktig er $\\Theta(n+k)$, og lineær **bare når\n  $k = O(n)$**. Betingelsen er en del av svaret.\n- **Å tro at `Radix-Sort` virker med en ustabil delsortering.** Stabiliteten\n  er ikke en bonus, den er forutsetningen for at arbeidet fra de foregående\n  sifferrundene overlever.\n- **Å sortere sifrene fra det mest signifikante og nedover.** Den varianten\n  finnes, men den er en annen algoritme med en annen struktur.\n  `Radix-Sort` slik den er definert her, går fra minst signifikante siffer.\n- **Å blande stabilitet med «sorterer riktig».** En ustabil sortering sorterer\n  helt riktig — den gir bare ingen garanti om rekkefølgen mellom like nøkler.\n- **Å tro at $\\Omega(n\\lg n)$ binder disse algoritmene.** Grensen gjelder bare\n  sammenligningsbaserte sorteringer. Blir du spurt om hvorfor det ikke er en\n  selvmotsigelse, er svaret at algoritmene her aldri sammenligner to elementer\n  med hverandre.\n- **Å oppgi `Bucket-Sort` som $\\Theta(n)$ garantert.** Den er $\\Theta(n)$\n  **forventet**, under antagelsen om jevn fordeling. Verste tilfelle er\n  $\\Theta(n^2)$.\n\nOg den gjennomgående: **å oppgi mer enn det oppgaven ber om**. Ber en oppgave\nom telletabellen etter oppsummeringen, er det den ene raden som er svaret —\nikke hele kjøringen."
+    },
+    {
+      "id": "tdt4120-2-2-t-26",
+      "type": "text",
+      "content": "## Kjøretidene samlet\n\nDette er kapitlets puggeflate. Eksamen er hjelpemiddelfri, så tabellen må ligge\ni hodet — og betingelsen i høyre kolonne hører med til svaret.\n\n| Algoritme | Kjøretid | Stabil? | På stedet? | Krav |\n|---|---|---|---|---|\n| `Counting-Sort` | $\\Theta(n+k)$ | ja | nei | heltallsnøkler i $[0..k]$; lineær bare når $k = O(n)$ |\n| `Radix-Sort` | $\\Theta(d(n+k))$ | ja | nei | $d$ siffer i området $[0..k]$; **krever stabil delsortering** |\n| `Bucket-Sort` | $\\Theta(n)$ forventet, $\\Theta(n^2)$ verste | ja | nei | tilnærmet jevn fordeling over verdiområdet |\n| `Insertion-Sort` | $\\Theta(n)$ beste, $\\Theta(n^2)$ verste | ja | ja | ingen — brukes som delsortering i bøttene |\n| `Merge-Sort` | $\\Theta(n\\lg n)$ | ja | nei | ingen — sammenligningsbasert, derfor bundet av grensen |\n| `Quicksort` | $\\Theta(n\\lg n)$ forventet | nei | ja | ingen; kan **ikke** brukes som delsortering i `Radix-Sort` |\n\n**Én presisering som er verdt å ta med seg.** Alle de tre lineære sorteringene\ner stabile, og alle tre trenger hjelpeplass. Det er ingen tilfeldighet: de\nplasserer elementene direkte på beregnede plasser i et outputarray, og en slik\nplassering er både lett å gjøre stabil og umulig å gjøre på stedet."
+    },
+    {
+      "id": "tdt4120-2-2-t-27",
+      "type": "text",
+      "content": "### Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp\nhar lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet\ngjelder kjernestoffet."
+    },
+    {
+      "id": "tdt4120-2-2-def-28",
+      "type": "definition",
+      "title": "`Counting-Sort`",
+      "content": "sorterer heltallsnøkler i $[0..k]$ ved å telle forekomster, summere\ntelletabellen opp kumulativt, og plassere elementene bakfra i et outputarray.\n\nKjøretid $\\Theta(n+k)$ — lineær **bare når $k = O(n)$**.\n\n**Stabil, men ikke på stedet.** Stabiliteten kommer av at siste løkke går fra\n`n` ned til `1`."
+    },
+    {
+      "id": "tdt4120-2-2-def-29",
+      "type": "definition",
+      "title": "`Radix-Sort`",
+      "content": "sorterer $d$-sifrede nøkler ved å kjøre én stabil delsortering per siffer, fra\ndet **minst** signifikante og oppover.\n\nKjøretid $\\Theta(d(n+k))$ med `Counting-Sort` som delsortering.\n\n**Krever at delsorteringen er stabil.** Uten stabilitet går rekkefølgen fra de\nforegående sifferrundene tapt, og resultatet blir galt."
+    },
+    {
+      "id": "tdt4120-2-2-def-30",
+      "type": "definition",
+      "title": "`Bucket-Sort`",
+      "content": "fordeler elementene i $n$ bøtter etter verdi, sorterer hver bøtte med\n`Insertion-Sort` og skjøter bøttene sammen.\n\nKjøretid $\\Theta(n)$ **forventet**, $\\Theta(n^2)$ verste.\n\n**Krever tilnærmet jevn fordeling** over verdiområdet. Havner alt i én bøtte,\ner den bare en `Insertion-Sort` med ekstra trinn."
+    },
+    {
+      "id": "tdt4120-2-2-def-31",
+      "type": "definition",
+      "title": "Stabilitet",
+      "content": "like nøkler beholder sin innbyrdes rekkefølge fra input til output.\n\nStabile: `Insertion-Sort`, `Merge-Sort`, `Counting-Sort`, `Radix-Sort`,\n`Bucket-Sort`. Ustabile: `Quicksort`, `Heapsort`.\n\n**Egenskapen er en forutsetning**, ikke en bekvemmelighet, når du sorterer\netter én nøkkel om gangen."
+    },
+    {
+      "id": "tdt4120-2-2-def-32",
+      "type": "definition",
+      "title": "Telletabellen `C`",
+      "content": "hjelpearrayet i `Counting-Sort`, med én celle per mulig nøkkelverdi.\n\nEtter tellingen inneholder `C[i]` antall elementer med nøkkel nøyaktig $i$;\netter oppsummeringen antall elementer med nøkkel **høyst** $i$.\n\n**Kontrollen:** siste celle skal være $n$ etter oppsummeringen."
+    },
+    {
+      "id": "tdt4120-2-2-def-33",
+      "type": "definition",
+      "title": "Den kumulative oppsummeringen",
+      "content": "løkka `C[i] = C[i] + C[i-1]` som gjør telletabellen om til en tabell over\nplasseringer.\n\nEtter den er `C[i]` den **siste ledige plassen** i outputarrayet for nøkkelen\n$i$.\n\n**Koster $\\Theta(k)$** og er grunnen til at $k$ står i kjøretiden."
+    },
+    {
+      "id": "tdt4120-2-2-def-34",
+      "type": "definition",
+      "title": "Hvorfor siste løkke går bakfra",
+      "content": "plasseringsløkka i `Counting-Sort` teller fra `n` ned til `1`.\n\nDa blir det siste elementet med en gitt nøkkel plassert på den siste av\nplassene som hører til den nøkkelen — og rekkefølgen mellom like nøkler blir\nbevart.\n\n**Snus løkka, sorterer algoritmen fortsatt riktig**, men den mister\nstabiliteten og kan ikke lenger brukes i `Radix-Sort`."
+    },
+    {
+      "id": "tdt4120-2-2-def-35",
+      "type": "definition",
+      "title": "Betingelsen $k = O(n)$",
+      "content": "kravet som gjør `Counting-Sort` lineær.\n\nEr nøkkelområdet mye større enn antall elementer, dominerer $k$ og algoritmen\nblir tregere enn `Merge-Sort`.\n\n**Betingelsen skal stå i svaret.** «`Counting-Sort` er $\\Theta(n)$» uten\nforbehold er galt."
+    },
+    {
+      "id": "tdt4120-2-2-def-36",
+      "type": "definition",
+      "title": "Siffer og grunntall i `Radix-Sort`",
+      "content": "$d$ er antall siffer per nøkkel, og $k$ er største sifferverdi — for\ndesimaltall $k = 9$, for byte-vis lesing $k = 255$.\n\nKjøretiden $\\Theta(d(n+k))$ viser avveiningen: større grunntall gir færre\nsiffer, men dyrere delsortering.\n\n**`Radix-Sort` slår `Merge-Sort`** når $d(n+k) = o(n\\lg n)$ — typisk når $d$\ner konstant og $k = O(n)$."
+    },
+    {
+      "id": "tdt4120-2-2-def-37",
+      "type": "definition",
+      "title": "Minst signifikante siffer først",
+      "content": "rekkefølgen `Radix-Sort` behandler sifrene i: enerne før tierne før hundrerne.\n\nEtter runde $i$ er arrayet sortert etter de $i$ minst signifikante sifrene\nunder ett.\n\n**Motsatt rekkefølge gir en helt annen algoritme** med rekursiv oppdeling —\nden er ikke det denne boka mener med `Radix-Sort`."
+    },
+    {
+      "id": "tdt4120-2-2-def-38",
+      "type": "definition",
+      "title": "Ikke-sammenligningsbasert sortering",
+      "content": "en sortering som bruker selve nøkkelverdien — som indeks eller som siffer — i\nstedet for å sammenligne elementpar.\n\nDe tre i dette kapitlet er alle av denne typen.\n\n**Derfor gjelder ikke $\\Omega(n\\lg n)$-grensen for dem.** Prisen er at de\nstiller krav til nøklene."
+    },
+    {
+      "id": "tdt4120-2-2-def-39",
+      "type": "definition",
+      "title": "Hvorfor $\\Omega(n\\lg n)$ ikke gjelder her",
+      "content": "beslutningstre-argumentet forutsetter at hvert steg er én binær sammenligning\nmellom to elementer.\n\n`Counting-Sort` velger blant $k+1$ muligheter i ett steg ved å slå opp på\nnøkkelen, og har derfor ikke et binært beslutningstre med $n!$ løv.\n\n**Grensen er ikke brutt** — den gjelder en annen klasse av algoritmer."
+    },
+    {
+      "id": "tdt4120-2-2-def-40",
+      "type": "definition",
+      "title": "Outputarrayet `B`",
+      "content": "arrayet `Counting-Sort` skriver det sorterte resultatet til.\n\nElementene plasseres direkte på beregnede indekser, ikke ved å bytte om i\ninputen.\n\n**Derfor er algoritmen ikke på stedet:** den trenger $\\Theta(n)$ ekstra plass i\ntillegg til telletabellens $\\Theta(k)$."
+    },
+    {
+      "id": "tdt4120-2-2-def-41",
+      "type": "definition",
+      "title": "Nøkkel og satellittdata",
+      "content": "**nøkkelen** er verdien det sorteres etter; **satellittdataene** er alt annet\nelementet bærer med seg.\n\nEn pakke har rutenummeret som nøkkel og avsender, vekt og innhold som\nsatellittdata.\n\n**Stabilitet er bare synlig når satellittdata finnes** — to like tall er ikke\ntil å skille fra hverandre."
+    },
+    {
+      "id": "tdt4120-2-2-def-42",
+      "type": "definition",
+      "title": "Sjanger D — definisjon med egne ord",
+      "content": "oppgavetypen der du skal forklare et begrep presist og kort.\n\nSvarformen er én til to setninger med **hovedpoenget først**; eksempler og\npresiseringer kommer etter.\n\n**Delvis uttelling belønner hovedpoenget**, så begynn med det som faktisk\ndefinerer begrepet."
+    },
+    {
+      "id": "tdt4120-2-2-def-43",
+      "type": "definition",
+      "title": "Sjanger E — kjøretidskunnskap",
+      "content": "oppgavetypen der du oppgir kjøretiden til en navngitt algoritme.\n\nSvarformen er ett uttrykk i det strammeste som er riktig — og for algoritmene i\ndette kapitlet hører **betingelsen** med.\n\n**$\\Theta(n+k)$, ikke $\\Theta(n)$**, med mindre oppgaven har sagt at\n$k = O(n)$."
+    },
+    {
+      "id": "tdt4120-2-2-def-44",
+      "type": "definition",
+      "title": "Sjanger F — «stemmer dette?»",
+      "content": "oppgavetypen der du får en påstand og skal ta stilling til den.\n\nSvarformen er **ja eller nei først**, deretter én presis setning.\n\n**Et konkret motbevis holder** når svaret er nei — én input der påstanden\nsvikter."
+    },
+    {
+      "id": "tdt4120-2-2-def-45",
+      "type": "definition",
+      "title": "Delsortering",
+      "content": "sorteringen `Radix-Sort` kaller én gang per siffer, og sorteringen\n`Bucket-Sort` kjører inne i hver bøtte.\n\nI `Radix-Sort` må den være stabil og bør være lineær — derfor `Counting-Sort`.\nI `Bucket-Sort` brukes `Insertion-Sort`, fordi bøttene forventes å være små.\n\n**Valget av delsortering er en del av algoritmen**, ikke en detalj."
+    },
+    {
+      "id": "tdt4120-2-2-coll-47",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tdt4120-2-2-ct-46",
+          "type": "text",
+          "content": "Fem korte spørsmål fra kapitlene dette bygger på. Svar i hodet først, så\nsammenlign.\n\n**1.** Hva er kjøretiden til `Merge-Sort`, og er den stabil?\n\n*Svar:* $\\Theta(n\\lg n)$ i alle tilfeller, og ja — `Merge` plukker fra venstre\nbunke ved likhet. Se [kap. 2.1](/tdt4120/tdt4120-2-1).\n\n**2.** Hvorfor kan ingen sammenligningsbasert sortering komme under\n$\\Omega(n\\lg n)$ i verste tilfelle?\n\n*Svar:* beslutningstreet må ha $n!$ løvnoder, og et binært tre med så mange\nløv har høyde minst $\\lg(n!) = \\Theta(n\\lg n)$.\n\n**3.** Hva er verste tilfelle for `Quicksort`, og på hvilken input?\n\n*Svar:* $\\Theta(n^2)$, blant annet på allerede sortert input når pivoten er\nsiste element.\n\n**4.** Hva betyr det at en algoritme går på stedet?\n\n*Svar:* at den bruker $O(1)$ ekstra plass utenom inputen. Ingen av\nsorteringene i dette kapitlet gjør det.\n\n**5.** Hva er forskjellen på $\\Theta$ og $O$?\n\n*Svar:* $\\Theta$ er en tett grense begge veier, $O$ bare en øvre. Derfor\nskriver vi $\\Theta(n+k)$ for `Counting-Sort`, ikke $O(n)$. Se\n[kap. 1.1](/tdt4120/tdt4120-1-1).\n\n**Videre:** [kap. 2.3](/tdt4120/tdt4120-2-3) tar utvelgelse — å finne det\n$i$-te minste elementet uten å sortere i det hele tatt."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

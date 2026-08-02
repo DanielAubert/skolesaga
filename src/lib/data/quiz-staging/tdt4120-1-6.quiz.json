@@ -1,0 +1,182 @@
+[
+  {
+    "question": "Løs $T(n) = 8T(n/2) + n^3$ med masterteoremet.",
+    "options": [
+      "$\\Theta(n^3\\lg n)$, tilfelle 2 med $k = 0$",
+      "$\\Theta(n^3)$, tilfelle 2 med $k = 0$",
+      "$\\Theta(n^3)$, tilfelle 3 med regularitet oppfylt",
+      "$\\Theta(n^4)$, tilfelle 1 med rekursjonen dominerende"
+    ],
+    "explanation": "$n^{\\log_2 8} = n^3$ er nøyaktig like stor som $f(n)$, så vi er i tilfelle 2 med $k = 0$, og svaret får $\\lg^{k+1} n = \\lg n$. Alternativet uten logaritme er felle #5: du legger til én logaritme i tilfelle 2, du beholder ikke bare den $f$ hadde."
+  },
+  {
+    "question": "Løs $T(n) = 2T(n/2) + n\\lg n$ med masterteoremet.",
+    "options": [
+      "$\\Theta(n\\lg^2 n)$, tilfelle 2 med $k = 1$",
+      "$\\Theta(n\\lg n)$, tilfelle 2 med $k = 1$",
+      "$\\Theta(n\\lg n)$, tilfelle 3 med regularitet oppfylt",
+      "$\\Theta(n^2\\lg n)$, tilfelle 1 med rekursjonen dominerende"
+    ],
+    "explanation": "$n^{\\log_2 2} = n$, og $f(n) = \\Theta(n\\lg^1 n)$, altså tilfelle 2 med $k = 1$ og svar $\\lg^{k+1} n = \\lg^2 n$. Alternativet $\\Theta(n\\lg n)$ er `Merge-Sort`s svar, og det gjelder en rekurrens som er billigere enn denne."
+  },
+  {
+    "question": "Hvorfor faller $T(n) = 2T(n/2) + n/\\lg n$ utenfor pensumvarianten av masterteoremet?",
+    "options": [
+      "Fordi $f(n) = n\\lg^{-1} n$ gir $k = -1$, og tilfelle 2 krever $k \\ge 0$",
+      "Fordi $f(n)$ vokser raskere enn $n^{\\log_b a}$ uten at regularitet holder",
+      "Fordi $a = 2$ og $b = 2$ er like store, og teoremet krever at de er ulike",
+      "Fordi $n/\\lg n$ ikke er en polynomisk funksjon og derfor ikke kan brukes"
+    ],
+    "explanation": "Skrevet som $n^{\\log_b a}\\lg^k n$ har $f$ eksponenten $k = -1$, og pensumvarianten tillater bare ikke-negativ $k$. Rekurrensen faller heller ikke i tilfelle 1 eller 3, siden gapet bare er en logaritmefaktor og ikke en hel potens av $n$."
+  },
+  {
+    "question": "Løs $T(n) = 9T(n/3) + n$ med masterteoremet.",
+    "options": [
+      "$\\Theta(n^2)$, tilfelle 1",
+      "$\\Theta(n^2\\lg n)$, tilfelle 2",
+      "$\\Theta(n\\lg n)$, tilfelle 2",
+      "$\\Theta(n)$, tilfelle 3"
+    ],
+    "explanation": "$n^{\\log_3 9} = n^2$, og $f(n) = n$ vokser en hel potens langsommere, så rekursjonen dominerer og svaret er $n^{\\log_b a}$ alene. Tilfelle 1 gir aldri en logaritmefaktor — den hører til tilfelle 2, der $f$ og $n^{\\log_b a}$ er like store."
+  },
+  {
+    "question": "Hvilken metode bruker du når oppgaven sier «vis at $T(n) = O(n\\lg n)$»?",
+    "options": [
+      "Substitusjonsmetoden — gjett formen, og før induksjonssteget",
+      "Iterasjonsmetoden — sett inn i seg selv, og summer leddene",
+      "Masterteoremet — les av $a$ og $b$, og velg riktig tilfelle",
+      "Rekursjonstremetoden — tegn treet, og summer arbeidet per nivå"
+    ],
+    "explanation": "«Vis at» ber om et bevis for en gitt grense, og det er nettopp det substitusjon leverer. Masterteoremet ville gitt riktig svar, men det er ikke et bevis for påstanden slik den er formulert — og oppgaven har allerede oppgitt svaret."
+  },
+  {
+    "question": "Hva er det eksakte svaret på $T(n) = 3T(n-1)$ med $T(0) = 2$?",
+    "options": [
+      "$T(n) = 2\\cdot 3^n$",
+      "$T(n) = 3^n$",
+      "$T(n) = 3^n + 2$",
+      "$T(n) = 2n\\cdot 3$"
+    ],
+    "explanation": "Faktoren 3 påføres $n$ ganger på grunntilfellet, som er 2; kontroll: $T(2) = 18$. Alternativet $3^n$ er svaret man får hvis man glemmer at $T(0) \\ne 1$ — ved eksakte svar er grunntilfellet en faktor i uttrykket."
+  },
+  {
+    "question": "Løs $T(n) = 2T(n/4) + 1$ med masterteoremet.",
+    "options": [
+      "$\\Theta(\\sqrt{n})$, tilfelle 1",
+      "$\\Theta(\\lg n)$, tilfelle 2",
+      "$\\Theta(n)$, tilfelle 3 med regularitetsbetingelsen oppfylt",
+      "$\\Theta(\\sqrt{n}\\lg n)$, tilfelle 2 med $k = 0$"
+    ],
+    "explanation": "$n^{\\log_4 2} = n^{1/2} = \\sqrt{n}$, og $f(n) = \\Theta(1)$ vokser en hel potens langsommere — tilfelle 1, uten logaritmefaktor. Legg merke til at $\\log_b a$ ikke må være et helt tall."
+  },
+  {
+    "question": "I tilfelle 3 av masterteoremet — hva er svaret?",
+    "options": [
+      "$\\Theta(f(n))$, uten noen ekstra logaritmefaktor",
+      "$\\Theta(f(n)\\lg n)$, siden hvert nivå bidrar med en logaritme",
+      "$\\Theta(n^{\\log_b a})$, som i tilfelle 1",
+      "$\\Theta(n^{\\log_b a}\\lg n)$, som i tilfelle 2 med $k$ lik null"
+    ],
+    "explanation": "I tilfelle 3 dominerer arbeidet på toppen så kraftig at rekursjonen er asymptotisk uvesentlig, og $f$ alene er svaret. Å legge til en logaritme er en refleks fra tilfelle 2 og gjør svaret galt."
+  },
+  {
+    "question": "Hva må sjekkes i tillegg før du kan bruke tilfelle 3?",
+    "options": [
+      "Regularitetsbetingelsen $af(n/b) \\le c\\,f(n)$ for en konstant $c < 1$",
+      "At $f(n)$ er en polynomisk funksjon av $n$ uten logaritmefaktorer i seg",
+      "At grunntilfellet er oppgitt eksplisitt i rekurrensen som skal løses",
+      "At $a$ og $b$ begge er hele tall, slik at $\\log_b a$ blir et helt tall"
+    ],
+    "explanation": "Betingelsen sikrer at arbeidet på toppen ikke blir tatt igjen av nivåene under, og den skrives ut på én linje i besvarelsen. $f$ kan gjerne inneholde logaritmer — $T(n) = 3T(n/4) + n\\lg n$ er nettopp et tilfelle 3-eksempel."
+  },
+  {
+    "question": "Hvilken metode passer for $T(n) = T(n-1) + \\lg n$?",
+    "options": [
+      "Iterasjon — formen er ikke $aT(n/b) + f(n)$, så masterteoremet gjelder ikke",
+      "Masterteoremet med $a = 1$ og $b = 1$, altså tilfelle 2 med $k$ lik null",
+      "Substitusjon, siden en subtraksjonsrekurrens ikke lar seg iterere",
+      "Rekursjonstremetoden, siden treet får konstant dybde i denne rekurrensen"
+    ],
+    "explanation": "Argumentet krymper ved subtraksjon, ikke ved divisjon, så det finnes ingen $b > 1$ og teoremet er ikke anvendelig. Substitusjon ville også fungert hvis oppgaven oppga en grense å verifisere, men iterasjon er metoden når du selv skal finne svaret."
+  },
+  {
+    "question": "Hva er det eksakte svaret på $T(n) = T(n-1) + 2^{n-1}$ med $T(0) = 0$?",
+    "options": [
+      "$T(n) = 2^n - 1$",
+      "$T(n) = 2^{n-1}$",
+      "$T(n) = \\Theta(2^n)$",
+      "$T(n) = n\\cdot 2^{n-1}$"
+    ],
+    "explanation": "Leddene teleskoperer til $2^0 + 2^1 + \\dots + 2^{n-1}$, som er den geometriske summen $2^n - 1$; kontroll: $T(4) = 15$. Svaret $\\Theta(2^n)$ er sant, men det er en asymptotisk grense og ikke det eksakte uttrykket."
+  },
+  {
+    "question": "Løs $T(n) = 7T(n/2) + n^2$ med masterteoremet.",
+    "options": [
+      "$\\Theta(n^{\\lg 7})$, tilfelle 1",
+      "$\\Theta(n^2\\lg n)$, tilfelle 2 med $k = 0$",
+      "$\\Theta(n^2)$, tilfelle 3 med regularitet oppfylt",
+      "$\\Theta(n^3)$, tilfelle 1"
+    ],
+    "explanation": "$\\log_2 7 \\approx 2{,}807$, og $f(n) = n^2$ vokser en hel potens langsommere — tilfelle 1, med svar $n^{\\log_b a}$. Alternativet med logaritme forutsetter at $f$ og $n^{\\log_b a}$ er like store, men her skiller de seg med nesten en hel potens."
+  },
+  {
+    "question": "Hvor mange nivåer har rekursjonstreet til $T(n) = 4T(n/2) + n$?",
+    "options": [
+      "$\\Theta(\\lg n)$ — dybden bestemmes av $b$, ikke av $a$",
+      "$\\Theta(n^2)$ — dybden er lik antall løvnoder i rekursjonstreet",
+      "$\\Theta(\\log_4 n)$ — dybden bestemmes av antall rekursive kall $a$",
+      "$\\Theta(n)$ — ett element fjernes per nivå"
+    ],
+    "explanation": "$n$ halveres for hvert nivå, så dybden er antall halveringer, uansett hvor mange kall hvert nivå gjør. Antall delkall $a = 4$ styrer bredden — treet får $n^{\\log_2 4} = n^2$ løvnoder — men ikke dybden."
+  },
+  {
+    "question": "En kandidat antar $T(n/2) \\le c(n/2)^2$ og ender på $T(n) \\le cn^2 + n$. Hva bør gjøres?",
+    "options": [
+      "Styrke hypotesen til $c\\,n^2 - d\\,n$, slik at restleddet kan absorberes",
+      "Ingenting — $cn^2 + n$ er $O(n^2)$, og påstanden er dermed vist",
+      "Bytte metode til masterteoremet, siden substitusjon ikke virker her",
+      "Velge en større konstant $c$, slik at ulikheten holder for alle $n$"
+    ],
+    "explanation": "Induksjonen krever at steget ender på nøyaktig den antatte formen; et lavere ledd som trekkes fra, gir deg reserven til å svelge restleddet. En større $c$ hjelper ikke — problemet er at konstanten vokser med ett $n$ per nivå, uansett hvor stor den startet."
+  },
+  {
+    "question": "Hva styrer om du skal svare eksakt eller asymptotisk?",
+    "options": [
+      "Ordet «eksakt» eller «lukket uttrykk» i oppgaveteksten",
+      "Hvilken form rekurrensen har, siden subtraksjonsrekurrenser alltid løses eksakt",
+      "Hvilken metode du valgte, siden iterasjon bare kan gi eksakte svar",
+      "Hvor mange poeng oppgaven gir, siden eksakte svar teller mer enn grenser"
+    ],
+    "explanation": "Svarformen bestemmes av spørsmålet, ikke av rekurrensen — og et sant svar på feil form er ikke et svar. Iterasjon kan fint gi en asymptotisk grense: du forenkler bare det eksakte uttrykket til slutt."
+  },
+  {
+    "question": "Løs $T(n) = 4T(n/2) + n^2$ med masterteoremet.",
+    "options": [
+      "$\\Theta(n^2\\lg n)$, tilfelle 2 med $k = 0$",
+      "$\\Theta(n^2)$, tilfelle 3 med regularitet oppfylt",
+      "$\\Theta(n^2)$, tilfelle 1 med rekursjonen dominerende",
+      "$\\Theta(n^3)$, tilfelle 3 med regularitet oppfylt"
+    ],
+    "explanation": "$n^{\\log_2 4} = n^2$ er nøyaktig like stor som $f(n)$, altså tilfelle 2 med $k = 0$ og svar $n^2\\lg n$. Sammenlign med $T(n) = 4T(n/2) + n$, der $f$ er mindre og svaret blir $\\Theta(n^2)$ uten logaritme — hele forskjellen ligger i om de to uttrykkene er like store."
+  },
+  {
+    "question": "Hva skal alltid stå i et svar på en masterteorem-oppgave, i tillegg til uttrykket?",
+    "options": [
+      "Metodens navn og hvilket av de tre tilfellene som gjelder",
+      "Utregningen av $n^{\\log_b a}$ i full detalj, med mellomregning",
+      "En begrunnelse for hvorfor iterasjon ikke ville fungert like godt her",
+      "Rekursjonstreets dybde og antall løvnoder på det nederste nivået"
+    ],
+    "explanation": "Sjangeren heter «rekurrensløsning med navngitt metode», og tilfellet er to ord som gir uttelling. Full mellomregning er sjelden etterspurt — lange svar teller ikke positivt, og tjue oppgaver deler på fire timer."
+  },
+  {
+    "question": "Hvilken av rekurrensene under gir $\\Theta(n\\lg n)$?",
+    "options": [
+      "$T(n) = 2T(n/2) + \\Theta(n)$",
+      "$T(n) = 2T(n/2) + \\Theta(n^2)$",
+      "$T(n) = 4T(n/2) + \\Theta(n)$",
+      "$T(n) = T(n-1) + \\Theta(n)$"
+    ],
+    "explanation": "$n^{\\log_2 2} = n$ er like stor som $f(n)$, altså tilfelle 2 med $k = 0$ og svar $n\\lg n$ — dette er `Merge-Sort`-rekurrensen. De to neste gir $\\Theta(n^2)$ ved henholdsvis tilfelle 3 og tilfelle 1, og den siste gir $\\Theta(n^2)$ ved iterasjon."
+  }
+]

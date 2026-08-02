@@ -1,0 +1,162 @@
+[
+ {
+  "question": "Hva er kjøretiden til `Build-Max-Heap` på et array med $n$ elementer?",
+  "options": [
+   "$\\Theta(n)$ — arbeidet summerer seg til under $2n$ fordi de fleste nodene er blader",
+   "$\\Theta(n\\lg n)$ — det er $n/2$ kall til `Max-Heapify` som hver koster $O(\\lg n)$",
+   "$\\Theta(n^2)$ — hver node må sammenlignes med hver av de øvrige nodene i haugen",
+   "$\\Theta(\\lg n)$ — bare stien fra rota og ned til det dypeste bladet berøres"
+  ],
+  "explanation": "Halvparten av nodene er blader og gjør null arbeid, en firedel gjør høyst ett bytte, og summen $\\sum h/2^h$ konvergerer mot 2 — totalen holder seg under $2n$. Alternativet som oppgir $\\Theta(n\\lg n)$ er en gyldig øvre grense, men ikke stram, og det er fagets mest brukte kjøretidsfelle. Det er `Heapsort` som er $\\Theta(n\\lg n)$, ikke byggingen."
+ },
+ {
+  "question": "Hva er kjøretiden til `Max-Heapify` på en haug med $n$ elementer?",
+  "options": [
+   "$O(\\lg n)$, fordi elementet følger én sti fra sin egen indeks og nedover",
+   "$O(n)$, fordi rutinen i verste fall må besøke hver eneste node i haugen",
+   "$\\Theta(1)$, fordi den bare sammenligner et element med de to barna sine",
+   "$O(n\\lg n)$, fordi hvert av de $n$ elementene kan måtte flyttes ett nivå"
+  ],
+  "explanation": "Elementet flytter seg høyst ett nivå per bytte, og haugen har $\\lfloor \\lg n\\rfloor$ nivåer, så én sti nedover koster $O(\\lg n)$. Alternativet som oppgir $\\Theta(1)$ overser at sivingen fortsetter rekursivt nedover etter hvert bytte — én sammenligningsrunde er konstant, men ikke hele kallet."
+ },
+ {
+  "question": "Hvilken kombinasjon av egenskaper har `Heapsort`?",
+  "options": [
+   "$\\Theta(n\\lg n)$, går på stedet, og er **ustabil**",
+   "$\\Theta(n\\lg n)$, går på stedet, og er **stabil**",
+   "$\\Theta(n\\lg n)$, trenger hjelpearray, og er **stabil**",
+   "$\\Theta(n)$ i beste tilfelle, går på stedet, og er **ustabil**"
+  ],
+  "explanation": "`Heapsort` bruker bare et konstant antall hjelpevariabler, og ingen input gjør den raskere — derfor er grensen tett i begge retninger. Alternativet som kaller den stabil, er galt: på `3a, 3b, 1c` gir den `1c, 3b, 3a`, altså med de to like nøklene byttet om. Stabilitet er `Merge-Sort`s fortrinn, og det koster et hjelpearray."
+ },
+ {
+  "question": "Hva sier haugegenskapen i en maks-haug?",
+  "options": [
+   "Hver forelder er større enn eller lik begge barna sine, og søsken er uordnet",
+   "Hver forelder er større enn eller lik venstre barn, som igjen er størst av barna",
+   "Venstre deltre er mindre enn eller lik rota, som er mindre enn eller lik høyre",
+   "Hele arrayet er sortert synkende, slik at det største elementet står forrest"
+  ],
+  "explanation": "Ordningen går bare opp og ned: $A[\\lfloor i/2\\rfloor] \\ge A[i]$ for hver $i \\ge 2$, og det står ingenting om forholdet mellom to søsken. Alternativet som krever venstre deltre mindre enn rota, beskriver søketreegenskapen — den forvekslingen er den mest fremhevede datastrukturfeilen i faget."
+ },
+ {
+  "question": "I et array `A[1..n]` med indeks fra 1: hvor ligger forelderen til `A[i]`?",
+  "options": [
+   "På indeks $\\lfloor i/2 \\rfloor$, og rota på indeks 1 har ingen forelder",
+   "På indeks $\\lceil i/2 \\rceil$, og rota på indeks 1 er sin egen forelder",
+   "På indeks $i - 1$, siden hvert nivå ligger rett foran det neste i arrayet",
+   "På indeks $2i$, siden barna alltid ligger foran forelderen i arrayet"
+  ],
+  "explanation": "Fordi treet fylles nivå for nivå fra indeks 1, halverer man indeksen og runder ned for å komme ett nivå opp. Alternativet som oppgir $2i$, snur formelen: $2i$ er venstre **barn**, ikke forelderen. Kontrollen er alltid den samme — rota skal ikke ha noen forelder."
+ },
+ {
+  "question": "I et array `A[1..n]` med indeks fra 1: hvor ligger barna til `A[i]`?",
+  "options": [
+   "Venstre barn på $2i$ og høyre barn på $2i+1$, når indeksene er $\\le n$",
+   "Venstre barn på $\\lfloor i/2\\rfloor$ og høyre barn på $\\lfloor i/2\\rfloor + 1$, når indeksene er $\\ge 1$",
+   "Venstre barn på $i+1$ og høyre barn på $i+2$, når indeksene er $\\le n$",
+   "Venstre barn på $2i$ og høyre barn på $2i+1$, uansett hvor stor $n$ er"
+  ],
+  "explanation": "Med rot på indeks 1 dobles indeksen for å komme ett nivå ned, og høyre barn ligger rett etter venstre. Alternativet som dropper kravet om at indeksen skal være $\\le n$, er den farlige: en node med $2i > n$ er et blad, og en sammenligning der leser utenfor haugen. Alternativet med $\\lfloor i/2\\rfloor$ snur relasjonen: det er forelderens formel brukt som barnas. Halvering fører oppover i treet, dobling nedover."
+ },
+ {
+  "question": "Hvor i en gyldig maks-haug ligger det største elementet, og hva koster det å lese det?",
+  "options": [
+   "På `A[1]`, og det koster $\\Theta(1)$ fordi ingen leting er nødvendig der",
+   "På `A[n]`, og det koster $\\Theta(1)$ fordi haugen fylles nivå for nivå",
+   "I et av bladene, og det koster $\\Theta(n)$ fordi alle bladene må sjekkes",
+   "På `A[1]`, men det koster $O(\\lg n)$ fordi rota må verifiseres nedover"
+  ],
+  "explanation": "Haugegenskapen gir at rota er større enn eller lik alt under seg, så maksimum har en garantert plass og oppslaget er konstant. Alternativet som plasserer maksimum i et blad, beskriver derimot hvor **minimum** kan ligge — å finne det minste i en maks-haug koster $\\Theta(n)$."
+ },
+ {
+  "question": "Hvilket av disse arrayene er en gyldig maks-haug med indeks fra 1?",
+  "options": [
+   "`48, 35, 40, 12, 30, 21, 9`",
+   "`48, 35, 40, 12, 30, 44, 9`",
+   "`9, 12, 21, 30, 35, 40, 48`",
+   "`48, 40, 35, 44, 30, 21, 9`"
+  ],
+  "explanation": "I det riktige arrayet gjelder $48 \\ge 35, 40$, deretter $35 \\ge 12, 30$ og $40 \\ge 21, 9$ — ingen brudd. Alternativet `48, 35, 40, 12, 30, 44, 9` bryter i `A[3]=40` mot venstre barn `A[6]=44`, og det stigende sorterte arrayet har det minste elementet i rota, som aldri kan være en maks-haug for $n \\ge 2$."
+ },
+ {
+  "question": "Hvilket barn bytter `Max-Heapify` med når begge barna er større enn forelderen?",
+  "options": [
+   "Det **største** av de to barna, uansett om det står til venstre eller høyre",
+   "Det **venstre** barnet, siden haugen alltid fylles fra venstre mot høyre",
+   "Det **minste** av de to barna, slik at det største blir liggende lengst ned",
+   "Begge barna etter tur, slik at hele deltreet blir gjennomgått i ett kall"
+  ],
+  "explanation": "Løftes det største opp, er det garantert større enn eller lik begge de andre to, og bruddet er borte i denne noden. Alternativet som velger venstre barn, gir feil svar hver gang høyre barn er størst — og det er nettopp den forvekslingen som skjer når man tar med seg søketreets venstre-før-høyre-tenkning inn i en haug."
+ },
+ {
+  "question": "Hvilken indeks starter for-løkka i `Build-Max-Heap` på, og hvilken vei teller den?",
+  "options": [
+   "På $\\lfloor n/2 \\rfloor$, og den teller **nedover** mot indeks 1",
+   "På $\\lfloor n/2 \\rfloor$, og den teller **oppover** mot indeks $n$",
+   "På indeks 1, og den teller **oppover** mot indeks $\\lfloor n/2 \\rfloor$",
+   "På indeks $n$, og den teller **nedover** mot indeks $\\lfloor n/2 \\rfloor$"
+  ],
+  "explanation": "Alle indekser over $\\lfloor n/2 \\rfloor$ er blader og allerede gyldige hauger, og nedover er eneste retning som oppfyller `Max-Heapify`s krav om at deltrærne under er i orden. Alternativet som teller oppover, bryter nettopp den prebetingelsen, og resultatet blir en haug som er riktig på toppen og ødelagt lenger nede."
+ },
+ {
+  "question": "Hvorfor er den løse analysen «$n/2$ kall à $O(\\lg n)$» ikke stram for `Build-Max-Heap`?",
+  "options": [
+   "Fordi de fleste nodene ligger nederst og siver kort, ikke gjennom hele høyden",
+   "Fordi de fleste nodene ligger øverst og derfor bare kan sive svært kort ned",
+   "Fordi `Max-Heapify` er $\\Theta(1)$ og ikke $O(\\lg n)$ når haugen er ferdig bygd",
+   "Fordi løkka bare kalles $\\lg n$ ganger, ikke $n/2$ ganger, i en ferdig haug"
+  ],
+  "explanation": "Analysen later som om hvert kall koster maksimalt, mens halvparten av nodene er blader med null arbeid og bare de få nodene nær rota har full høyde å sive gjennom. Alternativet som sier at de fleste nodene ligger øverst, snur fordelingen på hodet — antallet noder halveres for hvert nivå du går oppover."
+ },
+ {
+  "question": "Du kaller `Heap-Extract-Max` på et array som **ikke** er en gyldig maks-haug. Hva returneres?",
+  "options": [
+   "`A[1]`, uansett om det er det største elementet i haugen eller ikke",
+   "Det største elementet, siden rutinen leter gjennom haugen først",
+   "En feilmelding, siden rutinens prebetingelse er brutt av inputen",
+   "`A[1]`, men først etter at `Build-Max-Heap` har reparert arrayet"
+  ],
+  "explanation": "Pseudokoden leser `A[1]` og kontrollerer aldri at rota faktisk er maksimum — den eneste testen er om haugen er tom. Alternativet som først reparerer med `Build-Max-Heap`, beskriver et annet spørsmål enn det oppgaven stiller, og gir en annen slutthaug enn den mekaniske kjøringen."
+ },
+ {
+  "question": "Hva koster det å finne det **minste** elementet i en maks-haug med $n$ elementer?",
+  "options": [
+   "$\\Theta(n)$, fordi det kan ligge hvor som helst blant bladene",
+   "$\\Theta(1)$, fordi det minste elementet alltid ligger på `A[n]`",
+   "$O(\\lg n)$, fordi man følger stien nedover mot venstre fra rota",
+   "$O(\\lg n)$, fordi det minste ligger i det dypeste bladet"
+  ],
+  "explanation": "Haugegenskapen lover bare at maksimum ligger i rota; om det minste ligger i det ene eller andre bladet sier den ingenting om, så alle bladene må sjekkes. Alternativet som oppgir `A[n]`, forveksler «siste plass i arrayet» med «minste verdi» — det er tilfeldig hva som står der."
+ },
+ {
+  "question": "Hva er høyden til en maks-haug med $n$ elementer, målt i antall kanter fra rota?",
+  "options": [
+   "$\\lfloor \\lg n \\rfloor$, fordi treet fylles nivå for nivå uten hull",
+   "$\\lceil n/2 \\rceil$, fordi omtrent halvparten av nodene er blader",
+   "$n - 1$, fordi haugen i verste fall kan degenerere til en kjede",
+   "$\\lfloor \\lg n \\rfloor + 1$, fordi rota også teller som et eget nivå"
+  ],
+  "explanation": "Fordi hvert nivå fylles helt før det neste begynner, er høyden den lavest mulige for $n$ noder, og det er grunnen til at alle stiene opp og ned er $O(\\lg n)$. Alternativet $n-1$ beskriver et degenerert tre — det kan skje i et binært søketre, men aldri i en haug, som per konstruksjon er fylt nivå for nivå."
+ },
+ {
+  "question": "`Heapsort` kalles på arrayet `3a, 3b, 1c`, der tallet er nøkkelen. Hva blir resultatet?",
+  "options": [
+   "`1c, 3b, 3a` — de to like nøklene har byttet innbyrdes rekkefølge",
+   "`1c, 3a, 3b` — de to like nøklene beholder sin innbyrdes rekkefølge",
+   "`1c, 3a, 3b` — fordi byggefasen aldri bytter to elementer med lik nøkkel",
+   "`3a, 3b, 1c` — fordi arrayet allerede er en gyldig maks-haug fra start"
+  ],
+  "explanation": "Byggefasen gjør ingenting, siden testen i `Max-Heapify` er strengt større enn; deretter bytter sorteringsfasen `A[1]` med `A[3]` og flytter `3a` forbi `3b`. Alternativet `1c, 3a, 3b` er nettopp det en **stabil** sortering ville gitt, og forskjellen er hele grunnen til at `Heapsort` regnes som ustabil."
+ },
+ {
+  "question": "Hvilken egenskap ved `A.heap-size` er avgjørende under håndkjøring av `Heapsort`?",
+  "options": [
+   "Den krymper med én per runde, så halen bakerst er ute av sammenligningene",
+   "Den er alltid lik arrayets lengde, så hele arrayet er med i sammenligningene",
+   "Den vokser med én per runde, så halen bakerst kommer inn i sammenligningene",
+   "Den halveres for hver runde, så haugen tømmes etter $\\lg n$ runder totalt"
+  ],
+  "explanation": "Hver runde legger det største elementet bakerst og tar det ut av haugen, slik at `Max-Heapify` etterpå bare ser den delen som fortsatt er en haug. Alternativet som sier at `A.heap-size` alltid er lik arrayets lengde, ville latt reparasjonen sammenligne med ferdigsorterte elementer, og da blir sluttarrayet feil."
+ }
+]

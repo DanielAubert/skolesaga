@@ -1,0 +1,344 @@
+{
+  "id": "tdt4120-4-4",
+  "courseId": "tdt4120",
+  "chapterNumber": "4.4",
+  "title": "Alle-til-alle korteste vei",
+  "description": "`Floyd-Warshall` (`d`- og `π`-regel), `Slow-APSP` (min-pluss-produkt) og `Transitive-Closure` — matrisebaserte APSP-algoritmer.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "kunne utføre én runde av `Floyd-Warshall` for hånd og oppdatere både avstandsmatrisen og forgjengermatrisen",
+    "kunne regne ut en celle i min-pluss-produktet og forklare hvorfor det ikke er vanlig matriseprodukt",
+    "kunne velge riktig algoritme for alle-til-alle korteste vei ut fra grafens tetthet og fortegnet på kantvektene"
+  ],
+  "content": [
+    {
+      "id": "tdt4120-4-4-tip-1",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Alle-til-alle korteste vei er registrert i 11 av de 17 settene i grunnlaget\n(65 %).** Grunnlaget er de 17 settene fra august 2015 til august 2023 som er\ngjennomgått tema for tema — det er nevneren hver gang boka oppgir en prosent.\n\nPrioritet: **kjenne til**. Men temaet differensierer i toppen, og det er verdt\nå merke seg hvorfor: håndkjøringen er helt mekanisk, og den som har regnet\ngjennom to runder på forhånd, får poengene på fem minutter.\n\nTo sjangre henter fra kapitlet:\n\n- **Sjanger C — håndkjøring**, altså at du utfører algoritmen steg for steg og\n  oppgir bare det etterspurte. Her er det en **matrise** som etterspørres, og\n  ofte bare for én bestemt runde `k` eller én bestemt celle.\n- **Sjanger E — kjøretidskunnskap**, altså at du oppgir kjøretiden i det\n  strammeste uttrykket som er riktig. $\\Theta(V^3)$ for `Floyd-Warshall` er et\n  av de tallene som skal kunne skrives ned kaldt.\n\n**De to fellene som koster mest i dette kapitlet:**\n\n1. **Å bruke vanlig matriseprodukt i `Slow-APSP`.** Produktet der er\n   **min-pluss**: du tar minimum av summer, ikke summen av produkter.\n2. **Å blande `d`-regelen og `π`-regelen** i `Floyd-Warshall`. De oppdateres\n   samtidig, men etter forskjellige regler — og `π`-regelen arver fra **rad\n   `k`**, ikke fra rad `i`.\n\n**Slik er kapitlet lagt opp (50 min):**\n\n| Innhold | Tid |\n|---|---|\n| Hvorfor et eget alle-til-alle-problem | ca. 7 min |\n| `Floyd-Warshall`: `d`-regelen og `π`-regelen | ca. 20 min |\n| `Slow-APSP` og min-pluss-produktet | ca. 14 min |\n| `Transitive-Closure` og utskrift av stien | ca. 9 min |"
+    },
+    {
+      "id": "tdt4120-4-4-t-2",
+      "type": "text",
+      "content": "## Forkunnskaper\n\n- [kap. 4.3](/tdt4120/tdt4120-4-3) — korteste vei fra én kilde. Dette sto der:\n  `Dijkstra` er $O(E\\lg V)$ og **krever ikke-negative kantvekter**;\n  `Bellman-Ford` er $\\Theta(VE)$, tåler negative kanter og oppdager negative\n  sykler. Begge bygger på **slakking**: hvis $d[u] + w(u,v) < d[v]$, er den\n  nye veien bedre, og $d[v]$ og $\\pi[v]$ oppdateres.\n- [kap. 4.1](/tdt4120/tdt4120-4-1) — grafrepresentasjon. Vi bruker\n  **nabomatrisen** her, ikke nabolister: algoritmene i dette kapitlet arbeider\n  direkte på en $V \\times V$-matrise.\n- [kap. 1.1](/tdt4120/tdt4120-1-1) — de asymptotiske symbolene.\n\nEtt nytt begrep innføres underveis: **mellomnode**. Det er den eneste ideen du\ntrenger utover kap. 4.3."
+    },
+    {
+      "id": "tdt4120-4-4-coll-4",
+      "type": "collapsible",
+      "title": "Notasjons- og pseudokodeliste",
+      "buttonText": "Vis notasjon og pseudokode",
+      "content": [
+        {
+          "id": "tdt4120-4-4-ct-3",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et algoritmefag: den lister kjøretidsuttrykk og pseudokode-operasjoner i stedet for bare greske bokstaver.\n\n| Symbol | Betydning |\n|---|---|\n| $G=(V,E)$ | grafen, med $V$ noder og $E$ kanter; i kjøretider betyr $V$ og $E$ antallet |\n| $w(u,v)$ | vekten på kanten fra $u$ til $v$ |\n| $W$ | vektmatrisen: $W[i][j] = w(i,j)$, med 0 på diagonalen og $\\infty$ der det ikke går kant |\n| $d^{(k)}_{ij}$ | korteste avstand fra $i$ til $j$ når bare nodene $1$ til $k$ er tillatt som mellomnoder |\n| $\\pi^{(k)}_{ij}$ | forgjengeren til $j$ på den korteste stien fra $i$, etter runde $k$ |\n| $l^{(m)}_{ij}$ | korteste avstand fra $i$ til $j$ med **høyst** $m$ kanter |\n| $t^{(k)}_{ij}$ | sann hvis det finnes en vei fra $i$ til $j$ via mellomnoder i $1$ til $k$ |\n| $\\infty$ | ingen vei funnet ennå; $\\infty + x = \\infty$ |\n| NIL | ingen forgjenger — enten er $i = j$, eller så finnes ingen vei |\n\n| Algoritme/operasjon | Kontrakt | Kjøretid |\n|---|---|---|\n| `Floyd-Warshall(W)` | prøver hver node som mellomnode etter tur og oppdaterer `d` og `pi` | $\\Theta(V^3)$ |\n| `Slow-APSP(L, W)` | ett min-pluss-produkt: forlenger stiene med én kant til | $\\Theta(V^3)$ per produkt, $\\Theta(V^4)$ totalt |\n| `Transitive-Closure(G)` | boolsk variant: finnes det i det hele tatt en vei? | $\\Theta(V^3)$ |\n| `Print-All-Pairs-Shortest-Path(pi, i, j)` | leser forgjengermatrisen baklengs og skriver ut stien | $O(V)$ |\n| `Dijkstra(G, w, s)` | kontrast fra [kap. 4.3](/tdt4120/tdt4120-4-3): én kilde, krever ikke-negative vekter | $O(E\\lg V)$ |\n| `Bellman-Ford(G, w, s)` | kontrast: én kilde, tåler negative kanter | $\\Theta(VE)$ |\n\n**Formler i dette delkapitlet:**\n\n$$d^{(k)}_{ij} = \\min\\left(d^{(k-1)}_{ij},\\; d^{(k-1)}_{ik} + d^{(k-1)}_{kj}\\right)$$\n\n**`d`-regelen** i `Floyd-Warshall`: er veien om node $k$ kortere enn den vi hadde?\n\n$$\\pi^{(k)}_{ij} = \\begin{cases} \\pi^{(k-1)}_{ij} & \\text{hvis } d^{(k-1)}_{ij} \\le d^{(k-1)}_{ik} + d^{(k-1)}_{kj} \\\\ \\pi^{(k-1)}_{kj} & \\text{ellers} \\end{cases}$$\n\n**`π`-regelen**: bare når veien om $k$ er kortere, arves forgjengeren fra **rad $k$**.\n\n$$l^{(m)}_{ij} = \\min_{1 \\le k \\le n}\\left(l^{(m-1)}_{ik} + w_{kj}\\right)$$\n\n**Min-pluss-produktet**: minimum av summer. Vanlig matriseprodukt ville hatt sum av produkter.\n\n$$t^{(k)}_{ij} = t^{(k-1)}_{ij} \\;\\lor\\; \\left(t^{(k-1)}_{ik} \\land t^{(k-1)}_{kj}\\right)$$\n\nDen boolske varianten: «eller» der `d`-regelen har «minimum», «og» der den har «pluss».\n"
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-4-4-t-5",
+      "type": "text",
+      "content": "## Hvorfor et eget alle-til-alle-problem (~7 min)\n\nEn rutetjeneste skal vise reisetiden mellom **alle** par av holdeplasser, ikke\nbare fra én. Den enkle løsningen er å kjøre `Dijkstra` én gang per node: $V$\nkjøringer à $O(E\\lg V)$, altså $O(VE\\lg V)$.\n\nFor en **glissen** graf, der $E$ er omtrent like stor som $V$, er det et godt\nvalg. For en **tett** graf, der $E$ nærmer seg $V^2$, blir det $O(V^3\\lg V)$ —\nog da finnes noe bedre. `Floyd-Warshall` gjør jobben i $\\Theta(V^3)$, uten\nlogaritmefaktor og uten prioritetskø.\n\nOg det finnes en grunn til: `Dijkstra` **krever ikke-negative kantvekter**. Har\ngrafen negative kanter, må du bruke `Bellman-Ford` per node, og det koster\n$\\Theta(V^2E)$. `Floyd-Warshall` tåler negative kanter uten videre."
+    },
+    {
+      "id": "tdt4120-4-4-def-6",
+      "type": "definition",
+      "title": "Alle-til-alle korteste vei",
+      "content": "problemet med å finne den korteste avstanden mellom **hvert par** av noder i en\ngraf, ikke bare fra én bestemt kilde.\n\nSvaret er en $V \\times V$-matrise `d` med avstander, og gjerne en tilsvarende\nmatrise `π` med forgjengere, slik at selve stiene kan hentes ut.\n\n**Løsningen er ikke automatisk «kjør én-kilde-algoritmen $V$ ganger».** For\ntette grafer og for grafer med negative kanter finnes bedre alternativer, og\nvalget mellom dem er en fast eksamensoppgave."
+    },
+    {
+      "id": "tdt4120-4-4-def-7",
+      "type": "definition",
+      "title": "Mellomnode",
+      "content": "en node som ligger **inni** en sti — altså verken start- eller endepunkt.\n\nI stien $1 \\to 2 \\to 3 \\to 4$ er mellomnodene 2 og 3.\n\n**Hele `Floyd-Warshall` bygger på dette begrepet:** algoritmen utvider trinn\nfor trinn hvilke noder som får lov til å opptre som mellomnoder, fra ingen til\nalle."
+    },
+    {
+      "id": "tdt4120-4-4-t-8",
+      "type": "text",
+      "content": "## `Floyd-Warshall`: `d`-regelen og `π`-regelen (~20 min)\n\nIdeen er å stille ett spørsmål av gangen: hvor korte blir stiene hvis **bare\nnode 1** får være mellomnode? Så: hvis bare node 1 og 2 får det? Og så videre,\ntil alle nodene er tillatt.\n\nLa $d^{(k)}_{ij}$ være den korteste avstanden fra $i$ til $j$ når bare nodene\n$1, 2, \\dots, k$ er tillatt som mellomnoder. Da er $d^{(0)}$ selve\nvektmatrisen — ingen mellomnoder er tillatt, så bare direkte kanter teller — og\n$d^{(V)}$ er svaret.\n\nOvergangen fra $k-1$ til $k$ er ett enkelt valg: enten går den korteste stien\ngjennom node $k$, eller så gjør den det ikke."
+    },
+    {
+      "id": "tdt4120-4-4-thm-9",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `Floyd-Warshall`",
+      "content": "**Antagelser om representasjon.** Grafen er gitt som en **vektmatrise**\n`W[1..n][1..n]` med `W[i][i] = 0`, `W[i][j] = w(i,j)` når kanten finnes, og\n`INF` ellers. Nodene er nummerert 1 til $n = |V|$. Negative kantvekter er\ntillatt; negative sykler er ikke.\n\n**Prebetingelse:** grafen har ingen negativ sykel.\n**Postbetingelse:** `d[i][j]` er den korteste avstanden fra `i` til `j`, og\n`pi[i][j]` er forgjengeren til `j` på en korteste sti fra `i`.\n\n```text\nFloyd-Warshall(W)\n  Input:  vektmatrisen W[1..n][1..n]\n  Output: avstandsmatrisen d og forgjengermatrisen pi\n  d = W\n  for i = 1 to n\n      for j = 1 to n\n          if i != j and W[i][j] < INF\n              pi[i][j] = i\n          else\n              pi[i][j] = NIL\n  for k = 1 to n\n      for i = 1 to n\n          for j = 1 to n\n              if d[i][k] + d[k][j] < d[i][j]\n                  d[i][j] = d[i][k] + d[k][j]\n                  pi[i][j] = pi[k][j]\n  return d, pi\n  Kjoeretid: Theta(V^3)\n```\n\n**Invarianten i én setning:** etter runde `k` inneholder `d[i][j]` den korteste\navstanden fra `i` til `j` blant alle stier som bare bruker nodene `1` til `k`\nsom mellomnoder.\n\n**`d`-regelen og `π`-regelen er ikke den samme regelen.** `d` tar minimum av\nden gamle verdien og veien om `k`. `π` beholder den gamle forgjengeren så lenge\nden gamle veien er minst like kort — og **arver `pi[k][j]`** når veien om `k`\nvinner. Legg merke til at den arvede verdien hentes fra **rad `k`**, ikke fra\nrad `i`: den siste kanten inn til `j` er den samme som på den korteste stien\nfra `k` til `j`.\n\n**Kjøretid:** tre nøstede løkker over $n = |V|$, med konstant arbeid innerst,\naltså $\\Theta(V^3)$. Grensen er tett: løkkene kjører alltid ferdig, uansett\ngraf.\n\n**Rekkefølgen på løkkene er ikke likegyldig.** `k` må være den **ytterste**.\nBytter du om, brytes invarianten, og resultatet blir galt."
+    },
+    {
+      "id": "tdt4120-4-4-fig-10",
+      "type": "image",
+      "src": "/images/textbook/tdt4120/4-4-floyd-warshall-matrise.svg",
+      "alt": "To matriser side om side for en graf med fire noder, begge etter runden med k lik 2. Til venstre avstandsmatrisen d med radene 0, 3, 5, 7 for node 1; 8, 0, 2, 15 for node 2; uendelig, uendelig, 0, 1 for node 3; og 2, 5, 7, 0 for node 4. Til hoyre forgjengermatrisen pi med radene NIL, 1, 2, 1; 2, NIL, 2, 1; NIL, NIL, NIL, 3; og 4, 1, 2, NIL. De to cellene som ble oppdatert i denne runden, er markert. Notene forklarer d-regelen og pi-regelen.",
+      "caption": "De to matrisene fra Eksempel 1 etter runden med $k = 2$. Bare to celler ble oppdatert — `d[1][3]` og `d[4][3]` — og begge arvet forgjengeren sin fra rad 2."
+    },
+    {
+      "id": "tdt4120-4-4-eks-11",
+      "type": "example",
+      "title": "Eksempel 1: To runder av `Floyd-Warshall`",
+      "problem": "Et internt transportnett har fire terminaler nummerert 1 til 4, med disse\nenveis-strekningene og kjøretidene:\n\n$1 \\to 2$ (3), $1 \\to 4$ (7), $2 \\to 1$ (8), $2 \\to 3$ (2), $3 \\to 4$ (1),\n$4 \\to 1$ (2).\n\n**a)** Skriv opp vektmatrisen $W = d^{(0)}$ og den tilhørende $\\pi^{(0)}$.\n**b)** Utfør runden med $k = 1$.\n**c)** Utfør runden med $k = 2$, og oppgi begge matrisene.",
+      "solution": "**a)** Diagonalen er 0, og $\\infty$ står der det ikke går noen strekning.\n\n**$d^{(0)} = W$**\n\n| | 1 | 2 | 3 | 4 |\n|---|---|---|---|---|\n| **1** | 0 | 3 | $\\infty$ | 7 |\n| **2** | 8 | 0 | 2 | $\\infty$ |\n| **3** | $\\infty$ | $\\infty$ | 0 | 1 |\n| **4** | 2 | $\\infty$ | $\\infty$ | 0 |\n\n**$\\pi^{(0)}$**\n\n| | 1 | 2 | 3 | 4 |\n|---|---|---|---|---|\n| **1** | NIL | 1 | NIL | 1 |\n| **2** | 2 | NIL | 2 | NIL |\n| **3** | NIL | NIL | NIL | 3 |\n| **4** | 4 | NIL | NIL | NIL |\n\nI $\\pi^{(0)}$ står `i` selv som forgjenger overalt der det finnes en direkte\nkant — den korteste kjente stien fra `i` til `j` er da kanten, og forgjengeren\ntil `j` er `i`.\n\n**b)** Med $k = 1$ ser vi etter stier $i \\to 1 \\to j$ som er kortere enn det vi\nhar. To celler forbedres:\n\n- $d[2][4]$: veien $2 \\to 1 \\to 4$ koster $8 + 7 = 15$, mot $\\infty$ før.\n  Forgjengeren arves fra rad 1: $\\pi[2][4] = \\pi[1][4] = 1$.\n- $d[4][2]$: veien $4 \\to 1 \\to 2$ koster $2 + 3 = 5$, mot $\\infty$ før.\n  $\\pi[4][2] = \\pi[1][2] = 1$.\n\n**$d^{(1)}$**\n\n| | 1 | 2 | 3 | 4 |\n|---|---|---|---|---|\n| **1** | 0 | 3 | $\\infty$ | 7 |\n| **2** | 8 | 0 | 2 | 15 |\n| **3** | $\\infty$ | $\\infty$ | 0 | 1 |\n| **4** | 2 | 5 | $\\infty$ | 0 |\n\n**c)** Med $k = 2$ ser vi etter stier $i \\to 2 \\to j$. To celler forbedres:\n\n- $d[1][3]$: veien $1 \\to 2 \\to 3$ koster $3 + 2 = 5$, mot $\\infty$ før.\n  $\\pi[1][3] = \\pi[2][3] = 2$.\n- $d[4][3]$: veien $4 \\to 2 \\to 3$ koster $5 + 2 = 7$, mot $\\infty$ før.\n  $\\pi[4][3] = \\pi[2][3] = 2$.\n\n**Sluttilstanden — det du ville levert på eksamen:**\n\n**$d^{(2)}$**\n\n| | 1 | 2 | 3 | 4 |\n|---|---|---|---|---|\n| **1** | 0 | 3 | 5 | 7 |\n| **2** | 8 | 0 | 2 | 15 |\n| **3** | $\\infty$ | $\\infty$ | 0 | 1 |\n| **4** | 2 | 5 | 7 | 0 |\n\n**$\\pi^{(2)}$**\n\n| | 1 | 2 | 3 | 4 |\n|---|---|---|---|---|\n| **1** | NIL | 1 | 2 | 1 |\n| **2** | 2 | NIL | 2 | 1 |\n| **3** | NIL | NIL | NIL | 3 |\n| **4** | 4 | 1 | 2 | NIL |\n\n**Legg merke til tre ting.**\n\nAlle cellene som ikke nevnes, står **uendret** fra forrige runde — i begge\nmatrisene. En vanlig feil er å regne om hele matrisen fra grunnen av.\n\nForgjengeren arves fra **rad `k`**, ikke fra rad `i`. Ved $d[4][3]$ hentet vi\n$\\pi[2][3]$, ikke $\\pi[4][2]$.\n\nRad 3 er uendret gjennom begge rundene. Node 3 har bare én utgående kant, til\nnode 4, og hverken node 1 eller 2 kan nås derfra på to runder.\n\n**Fellen her er å blande `d`-regelen og `π`-regelen.** `d` tar et minimum;\n`π` gjør et valg mellom to forgjengere, og valget følger utfallet av\nminimumet."
+    },
+    {
+      "id": "tdt4120-4-4-oppg-12",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-4-4-oppg-12-inner",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave, sjanger D — definisjon med egne ord, altså én presis setning\nmed hovedpoenget først.)\n\nHva betyr $d^{(k)}_{ij}$ i `Floyd-Warshall`, og hva er $d^{(0)}$?",
+        "solution": "$d^{(k)}_{ij}$ er den korteste avstanden fra node $i$ til node $j$ blant alle\nstier som bare bruker nodene $1, 2, \\dots, k$ som **mellomnoder**.\n\n$d^{(0)}$ er vektmatrisen $W$ selv: ingen mellomnoder er tillatt, så bare\ndirekte kanter teller. Diagonalen er 0, og $\\infty$ står der det ikke finnes en\nkant.\n\nEtter siste runde, $d^{(V)}$, er alle noder tillatt som mellomnoder, og\nmatrisen inneholder de virkelige korteste avstandene.",
+        "hints": [
+          "Ordet «mellomnode» betyr en node inni stien, ikke start- eller endepunkt.",
+          "Hvilke stier finnes når ingen noder får være mellomnoder?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-4-4-oppg-13",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-4-4-oppg-13-inner",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C — håndkjøring, altså at du utfører algoritmen steg for\nsteg og oppgir bare det etterspurte.)\n\nBruk grafen fra Eksempel 1, og fortsett fra $d^{(2)}$.\n\nUtfør runden med $k = 3$, og oppgi **bare** de cellene i $d$ som endrer seg,\nmed de nye verdiene og de nye forgjengerne.",
+        "solution": "Med $k = 3$ ser vi etter stier $i \\to 3 \\to j$. Node 3 har bare kanten\n$3 \\to 4$ med vekt 1, så bare kolonne 4 kan forbedres.\n\n| Celle | Ny verdi | Regnestykke | Ny $\\pi$ |\n|---|---|---|---|\n| $d[1][4]$ | 6 | $d[1][3] + d[3][4] = 5 + 1$, mot 7 før | $\\pi[3][4] = 3$ |\n| $d[2][4]$ | 3 | $d[2][3] + d[3][4] = 2 + 1$, mot 15 før | $\\pi[3][4] = 3$ |\n\nIngen andre celler endrer seg.\n\nMerk at $d[2][4]$ ble forbedret for **andre** gang: den var $\\infty$, ble 15 i\nrunde 1, og blir 3 nå. Det er helt normalt — en celle kan forbedres flere\nganger etter hvert som flere mellomnoder blir tillatt.",
+        "hints": [
+          "Se først hvilke utgående kanter node 3 har. Bare de kolonnene kan forbedres.",
+          "For hver rad $i$: er $d[i][3] + d[3][j]$ mindre enn $d[i][j]$?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-4-4-oppg-14",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-4-4-oppg-14-inner",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger F — «stemmer dette?», altså ja eller nei først og\nderetter én presis setning.)\n\nTa stilling til hver av påstandene om `Floyd-Warshall`:\n\n**a)** Løkkene kan kjøres i hvilken som helst rekkefølge, siden alle tre går\nover alle nodene.\n**b)** Algoritmen krever ikke-negative kantvekter.\n**c)** Kjøretiden er $\\Theta(V^3)$ uansett hvor mange kanter grafen har.",
+        "solution": "**a)** **Nei.** `k` må være den **ytterste** løkka. Invarianten sier at etter\nrunde `k` er bare nodene 1 til `k` tillatt som mellomnoder, og den holder bare\nhvis hele matrisen oppdateres for én `k` om gangen.\n\n**b)** **Nei.** Det er `Dijkstra` som krever det. `Floyd-Warshall` tåler\nnegative kanter helt fint; den krever bare at det ikke finnes negative\n**sykler**.\n\n**c)** **Ja.** Tre nøstede løkker over $V$ noder, med konstant arbeid innerst,\nkjøres alltid ferdig. Antall kanter påvirker ikke kjøretiden i det hele tatt —\ndet er derfor algoritmen er et godt valg for tette grafer.",
+        "hints": [
+          "Les invarianten: hva må være ferdig før neste `k` begynner?",
+          "Hvilken av algoritmene i Del 4 er det som stiller krav til fortegnet på vektene?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-4-4-t-15",
+      "type": "text",
+      "content": "## `Slow-APSP` og min-pluss-produktet (~14 min)\n\nDet finnes en helt annen vei til det samme svaret, og den er verdt å kunne\nfordi den kommer som en egen håndkjøringsoppgave: å bygge stiene opp **kant for\nkant** i stedet for mellomnode for mellomnode.\n\nLa $l^{(m)}_{ij}$ være den korteste avstanden fra $i$ til $j$ blant stier med\n**høyst $m$ kanter**. Da er $l^{(1)} = W$, og skrittet videre er å legge til én\nkant til."
+    },
+    {
+      "id": "tdt4120-4-4-def-16",
+      "type": "definition",
+      "title": "Min-pluss-produktet",
+      "content": "operasjonen som forlenger alle stier med én kant:\n\n$$l^{(m)}_{ij} = \\min_{1 \\le k \\le n}\\left(l^{(m-1)}_{ik} + w_{kj}\\right)$$\n\nDen ser ut som et matriseprodukt, men med **minimum** der produktet har sum, og\n**pluss** der det har gange.\n\n**Dette er kapitlets viktigste felle.** Vanlig matriseprodukt ville vært\n$\\sum_k l_{ik}\\cdot w_{kj}$ — sum av produkter. Her er det minimum av summer, og\net svar regnet ut med vanlig produkt er fullstendig meningsløst i\ngrafsammenheng."
+    },
+    {
+      "id": "tdt4120-4-4-thm-17",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `Slow-APSP`",
+      "content": "**Antagelser om representasjon.** Vektmatrisen `W[1..n][1..n]` som over.\n`L` er en matrise av samme form, med `L[i][j]` = korteste avstand med høyst et\nvisst antall kanter.\n\n**Prebetingelse:** ingen negativ sykel.\n**Postbetingelse:** rutinen returnerer matrisen der hver sti er forlenget med\nhøyst én kant til.\n\n```text\nSlow-APSP(L, W)\n  Input:  matrisene L og W, begge n x n\n  Output: matrisen L' der stiene er forlenget med hoeyst en kant\n  la L' vaere en ny n x n matrise\n  for i = 1 to n\n      for j = 1 to n\n          L'[i][j] = INF\n          for k = 1 to n\n              L'[i][j] = min(L'[i][j], L[i][k] + W[k][j])\n  return L'\n  Kjoeretid: Theta(V^3) per produkt\n```\n\n**Invarianten i én setning:** er `L` korteste avstander med høyst $m$ kanter,\ner `L'` korteste avstander med høyst $m+1$ kanter.\n\n**Hele APSP-problemet løses ved å gjenta produktet.** En korteste sti i en graf\nuten negative sykler har høyst $V-1$ kanter, så $V-2$ produkter etter det\nførste holder — altså $\\Theta(V^4)$ naivt. Med gjentatt kvadrering kommer man\nned i $\\Theta(V^3\\lg V)$, men `Floyd-Warshall` med sine $\\Theta(V^3)$ er\nfortsatt bedre.\n\n**Kjøretid:** $\\Theta(V^3)$ for **ett** produkt, $\\Theta(V^4)$ for hele den\nnaive løsningen."
+    },
+    {
+      "id": "tdt4120-4-4-eks-18",
+      "type": "example",
+      "title": "Eksempel 2: Én celle i min-pluss-produktet",
+      "problem": "Bruk den samme grafen som i Eksempel 1, med vektmatrisen $W$.\n\nRegn ut $l^{(2)}_{13}$, altså den korteste avstanden fra node 1 til node 3 med\n**høyst to kanter**. Vis alle leddene.",
+      "solution": "Vi bruker $l^{(1)} = W$ og regner\n\n$$l^{(2)}_{13} = \\min_{1 \\le k \\le 4}\\left(l^{(1)}_{1k} + w_{k3}\\right)$$\n\n| $k$ | $l^{(1)}_{1k}$ | $w_{k3}$ | Summen |\n|---|---|---|---|\n| 1 | $0$ | $\\infty$ | $\\infty$ |\n| 2 | $3$ | $2$ | $5$ |\n| 3 | $\\infty$ | $0$ | $\\infty$ |\n| 4 | $7$ | $\\infty$ | $\\infty$ |\n\n**Svaret: $l^{(2)}_{13} = 5$**, via $k = 2$, altså stien $1 \\to 2 \\to 3$.\n\n**Legg merke til de tre $\\infty$-leddene.** Regelen $\\infty + x = \\infty$\ngjelder, og de bidrar ikke til minimumet. Leddet med $k = 1$ er $0 + \\infty$\nfordi det ikke finnes noen kant $1 \\to 3$; leddet med $k = 4$ er $7 + \\infty$\nfordi det ikke finnes noen kant $4 \\to 3$.\n\n**Kontrollen mot vanlig matriseprodukt.** Med vanlig produkt ville vi regnet\n$\\sum_k W_{1k}\\cdot W_{k3}$, altså $0\\cdot\\infty + 3\\cdot 2 + \\infty\\cdot 0 + 7\\cdot\\infty$. Det gir ingen mening som avstand, og det er ikke det oppgaven\nspør etter — men det er nøyaktig den feilen som gjøres når man leser\n«matriseprodukt» og går på autopilot.\n\n**Svarformen på eksamen:** ett tall. Ba oppgaven om hele $l^{(2)}$, er det\nmatrisen. Ba den om én celle, er det tallet og ikke mer."
+    },
+    {
+      "id": "tdt4120-4-4-oppg-19",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-4-4-oppg-19-inner",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C.)\n\nBruk grafen fra Eksempel 1.\n\n**a)** Regn ut $l^{(2)}_{24}$, altså korteste avstand fra node 2 til node 4 med\nhøyst to kanter.\n**b)** Regn ut $l^{(2)}_{34}$.",
+        "solution": "**a)** Leddene er $l^{(1)}_{2k} + w_{k4}$ for $k = 1, 2, 3, 4$:\n\n- $k=1$: $8 + 7 = 15$\n- $k=2$: $0 + \\infty = \\infty$\n- $k=3$: $2 + 1 = 3$\n- $k=4$: $\\infty + 0 = \\infty$\n\n**$l^{(2)}_{24} = 3$**, via stien $2 \\to 3 \\to 4$.\n\n**b)** Leddene er $l^{(1)}_{3k} + w_{k4}$:\n\n- $k=1$: $\\infty + 7 = \\infty$\n- $k=2$: $\\infty + \\infty = \\infty$\n- $k=3$: $0 + 1 = 1$\n- $k=4$: $1 + 0 = 1$\n\n**$l^{(2)}_{34} = 1$** — den direkte kanten er allerede den korteste, og\nleddet med $k = 4$ gir samme verdi fordi $w_{44} = 0$.\n\nMerk at diagonalleddene $k = i$ og $k = j$ alltid er med i minimumet. De er\ngrunnen til at $l^{(m)}$ er «høyst $m$ kanter» og ikke «nøyaktig $m$».",
+        "hints": [
+          "Skriv opp alle fire leddene før du tar minimum — også dem som blir $\\infty$.",
+          "Husk at $W[i][i] = 0$, så leddet med $k = i$ gir bare $w_{ij}$ tilbake."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-4-4-t-20",
+      "type": "text",
+      "content": "## `Transitive-Closure` og utskrift av stien (~9 min)\n\nNoen ganger er ikke avstanden interessant — bare om det i det hele tatt går an\nå komme fra $i$ til $j$. Da holder det med sanne og usanne verdier, og\nalgoritmen blir billigere i praksis fordi den slipper aritmetikk."
+    },
+    {
+      "id": "tdt4120-4-4-def-21",
+      "type": "definition",
+      "title": "`Transitive-Closure`",
+      "content": "den boolske varianten av `Floyd-Warshall`: $t^{(k)}_{ij}$ er sann hvis det\nfinnes en vei fra $i$ til $j$ som bare bruker nodene 1 til $k$ som mellomnoder.\n\nRegelen er\n$t^{(k)}_{ij} = t^{(k-1)}_{ij} \\lor \\left(t^{(k-1)}_{ik} \\land t^{(k-1)}_{kj}\\right)$\n— «eller» der `d`-regelen har «minimum», «og» der den har «pluss».\n\nKjøretid $\\Theta(V^3)$.\n\n**Startmatrisen $t^{(0)}$ har sann på diagonalen** og der det finnes en kant.\nEnhver node når seg selv med null kanter."
+    },
+    {
+      "id": "tdt4120-4-4-def-22",
+      "type": "definition",
+      "title": "`Print-All-Pairs-Shortest-Path`",
+      "content": "skriver ut selve stien fra $i$ til $j$ ved å lese forgjengermatrisen\n**baklengs**: siste node er $j$, forgjengeren er $\\pi[i][j]$, og så videre til\ndu treffer $i$.\n\nKjøretid $O(V)$ per sti — stien kan ikke ha flere enn $V$ noder.\n\n**Dette er grunnen til at `π`-matrisen finnes.** `d` gir bare tallet; `π` gir\nveien. Ber en oppgave om **stien**, er det $\\pi$ du skal bruke, ikke $d$."
+    },
+    {
+      "id": "tdt4120-4-4-oppg-23",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-4-4-oppg-23-inner",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C og D.)\n\nBruk $\\pi^{(2)}$ fra Eksempel 1.\n\n**a)** Hvilken sti fra node 4 til node 3 er kodet i matrisen på dette\ntidspunktet?\n**b)** Forklar med én setning hvorfor `d`-matrisen alene ikke er nok til å\nsvare på a).",
+        "solution": "**a)** Vi leser baklengs fra $j = 3$: $\\pi[4][3] = 2$, så forgjengeren til 3\ner node 2. Deretter $\\pi[4][2] = 1$, så forgjengeren til 2 er node 1. Deretter\n$\\pi[4][1] = 4$, som er startnoden — og da stopper vi.\n\nStien er **$4 \\to 1 \\to 2 \\to 3$**, med lengde $2 + 3 + 2 = 7$, som stemmer med\n$d^{(2)}[4][3] = 7$.\n\n**b)** `d`-matrisen inneholder bare **lengden** på den korteste stien, ikke\nhvilke noder den går gjennom. To helt ulike stier kan ha samme lengde, og\n`d` gir ingen måte å skille dem.",
+        "hints": [
+          "Start i sluttnoden og les $\\pi$ baklengs til du treffer startnoden.",
+          "Hva slags informasjon står egentlig i hver celle av `d`?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-4-4-oppg-24",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-4-4-oppg-24-inner",
+        "number": 6,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger E og H — kjøretidsvalg og kort designskisse.)\n\nEn kartleverandør skal regne ut reisetid mellom alle par av $V$ steder.\n\n**a)** Grafen er glissen ($E \\approx V$) og alle vektene er positive. Hvilken\nalgoritme velger du, og hva blir kjøretiden?\n**b)** Grafen er tett ($E \\approx V^2$) og noen vekter er negative, men det\nfinnes ingen negativ sykel. Hvilken velger du, og hva blir kjøretiden?\n**c)** Bare spørsmålet «finnes det en vei?» skal besvares, for alle par.\nHvilken velger du?",
+        "solution": "**a)** `Dijkstra` fra hver node: $V$ kjøringer à $O(E\\lg V)$, altså\n$O(VE\\lg V)$. Med $E \\approx V$ blir det $O(V^2\\lg V)$ — bedre enn\n`Floyd-Warshall`s $\\Theta(V^3)$. Vektene er positive, så kravet er oppfylt.\n\n**b)** `Floyd-Warshall`: $\\Theta(V^3)$. `Dijkstra` er utelukket fordi vektene\nkan være negative — det er felle **#8**, å bruke `Dijkstra` på negative kanter.\n`Bellman-Ford` fra hver node ville kostet $\\Theta(V\\cdot VE) = \\Theta(V^2E)$,\naltså $\\Theta(V^4)$ på en tett graf. `Floyd-Warshall` vinner klart.\n\n**c)** `Transitive-Closure`, $\\Theta(V^3)$. Den regner med sanne og usanne\nverdier i stedet for tall, og trenger verken vekter eller aritmetikk.\n\n**Regelen bak valget:** tettheten avgjør mellom $V$ kjøringer av en\nén-kilde-algoritme og én kjøring av en matrisealgoritme; fortegnet på vektene\navgjør hvilken én-kilde-algoritme som i det hele tatt er lovlig.",
+        "hints": [
+          "Sammenlign $O(VE\\lg V)$ med $\\Theta(V^3)$ for $E \\approx V$ og for $E \\approx V^2$.",
+          "Hvilken av én-kilde-algoritmene stiller krav til fortegnet på vektene?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-4-4-warn-25",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "De to første koster hele oppgaven.\n\n- **Å bruke vanlig matriseprodukt i `Slow-APSP`.** Produktet er\n  **min-pluss**: minimum av summer, ikke sum av produkter. Et svar regnet ut\n  med vanlig produkt er meningsløst som avstand.\n- **Å blande `d`-regelen og `π`-regelen.** `d` tar et minimum; `π` velger\n  mellom den gamle forgjengeren og $\\pi[k][j]$. Og den arvede verdien hentes\n  fra **rad `k`** — ikke fra rad `i`.\n- **Å regne om hele matrisen i hver runde.** Bare de cellene der veien om `k`\n  faktisk er kortere, endrer seg. Alle andre står uendret, i begge matrisene.\n- **Å bytte om løkkene i `Floyd-Warshall`.** `k` må være ytterst. Med `i` eller\n  `j` ytterst brytes invarianten, og svaret blir galt.\n- **Å bruke `Dijkstra` på en graf med negative kanter.** Dette er felle **#8**.\n  `Floyd-Warshall` og `Bellman-Ford` tåler negative kanter; `Dijkstra` gjør det\n  ikke.\n- **Å oppgi stien fra `d`-matrisen.** `d` gir lengden, `π` gir veien. Ber\n  oppgaven om stien, skal du lese `π` baklengs.\n- **Å glemme at $\\infty + x = \\infty$.** I min-pluss-regningen er det de\n  endelige leddene som konkurrerer; $\\infty$-leddene er bare med for\n  fullstendighetens skyld.\n\nOg den gjennomgående: **å oppgi mer enn det som er spurt om**. Ber oppgaven om\n$d$ etter én bestemt runde, er det den ene matrisen som er svaret — ikke hele\nkjøringen, og ikke $\\pi$ i tillegg."
+    },
+    {
+      "id": "tdt4120-4-4-t-26",
+      "type": "text",
+      "content": "## Kjøretidene samlet\n\nDette er kapitlets puggeflate. Eksamen er hjelpemiddelfri, så tabellen må ligge\ni hodet.\n\n| Algoritme | Kjøretid | Krav / egenskap |\n|---|---|---|\n| `Floyd-Warshall` | $\\Theta(V^3)$ | tåler negative kanter; ingen negativ sykel; `k` ytterst |\n| `Slow-APSP`, ett produkt | $\\Theta(V^3)$ | **min-pluss**, ikke vanlig matriseprodukt |\n| `Slow-APSP`, hele problemet naivt | $\\Theta(V^4)$ | $V-2$ produkter etter det første |\n| `Transitive-Closure` | $\\Theta(V^3)$ | boolsk: «eller» og «og» i stedet for min og pluss |\n| `Print-All-Pairs-Shortest-Path` | $O(V)$ per sti | leser `π` baklengs |\n| $V$ kjøringer av `Dijkstra` | $O(VE\\lg V)$ | **krever ikke-negative vekter**; best på glisne grafer |\n| $V$ kjøringer av `Bellman-Ford` | $\\Theta(V^2E)$ | tåler negative kanter, men dyrt |\n\n**Én presisering som er verdt å ta med seg.** `Floyd-Warshall` bryr seg ikke om\nhvor mange kanter grafen har — kjøretiden er $\\Theta(V^3)$ uansett. Det er både\nstyrken (tette grafer) og svakheten (svært glisne grafer, der $V$ kjøringer av\n`Dijkstra` er raskere)."
+    },
+    {
+      "id": "tdt4120-4-4-t-27",
+      "type": "text",
+      "content": "### Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp\nhar lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet\ngjelder kjernestoffet."
+    },
+    {
+      "id": "tdt4120-4-4-def-28",
+      "type": "definition",
+      "title": "`Floyd-Warshall`",
+      "content": "løser alle-til-alle korteste vei ved å prøve hver node etter tur som tillatt\nmellomnode, og oppdatere hele avstandsmatrisen for én $k$ om gangen.\n\nKjøretid $\\Theta(V^3)$, uavhengig av antall kanter.\n\n**Tåler negative kantvekter**, men ikke negative sykler. `k` må være den\nytterste løkka."
+    },
+    {
+      "id": "tdt4120-4-4-def-29",
+      "type": "definition",
+      "title": "`d`-regelen",
+      "content": "$d^{(k)}_{ij} = \\min\\left(d^{(k-1)}_{ij},\\; d^{(k-1)}_{ik} + d^{(k-1)}_{kj}\\right)$\n\nEr veien om node $k$ kortere enn den vi hadde, brukes den.\n\n**Celler der veien om $k$ ikke er kortere, står uendret** — de skal ikke regnes\nom."
+    },
+    {
+      "id": "tdt4120-4-4-def-30",
+      "type": "definition",
+      "title": "`π`-regelen",
+      "content": "forgjengeren beholdes når den gamle veien er minst like kort, og arves fra\n**rad $k$** når veien om $k$ vinner: $\\pi^{(k)}_{ij} = \\pi^{(k-1)}_{kj}$.\n\nOppdateres i samme løkke som `d`, men etter en annen regel.\n\n**Fellen er å arve fra rad $i$.** Den siste kanten inn til $j$ er den samme som\npå korteste sti fra $k$ til $j$, og det er derfor rad $k$ som gjelder."
+    },
+    {
+      "id": "tdt4120-4-4-def-31",
+      "type": "definition",
+      "title": "Mellomnode",
+      "content": "en node som ligger inni en sti, altså verken start- eller endepunkt.\n\n$d^{(k)}$ er avstandene når bare nodene 1 til $k$ er tillatt som mellomnoder.\n\n**Hele `Floyd-Warshall`s invariant er formulert i dette begrepet.**"
+    },
+    {
+      "id": "tdt4120-4-4-def-32",
+      "type": "definition",
+      "title": "Min-pluss-produktet",
+      "content": "$l^{(m)}_{ij} = \\min_k\\left(l^{(m-1)}_{ik} + w_{kj}\\right)$ — minimum av summer.\n\nForlenger alle stier med høyst én kant til.\n\n**Ikke vanlig matriseprodukt.** Vanlig produkt ville vært sum av produkter, og\ngir ingen mening som avstand."
+    },
+    {
+      "id": "tdt4120-4-4-def-33",
+      "type": "definition",
+      "title": "`Slow-APSP`",
+      "content": "bygger korteste stier opp kant for kant ved gjentatte min-pluss-produkter.\n\n$\\Theta(V^3)$ per produkt, $\\Theta(V^4)$ for hele problemet naivt.\n\n**Erstattes i praksis av `Floyd-Warshall`**, som er $\\Theta(V^3)$ totalt — men\nmin-pluss-regningen kommer som egen håndkjøringsoppgave."
+    },
+    {
+      "id": "tdt4120-4-4-def-34",
+      "type": "definition",
+      "title": "$l^{(m)}_{ij}$",
+      "content": "korteste avstand fra $i$ til $j$ blant stier med **høyst** $m$ kanter.\n\n$l^{(1)} = W$, og $l^{(V-1)}$ er svaret når grafen ikke har negative sykler.\n\n**«Høyst», ikke «nøyaktig».** Diagonalleddene $w_{ii} = 0$ er det som gjør\nkortere stier lovlige."
+    },
+    {
+      "id": "tdt4120-4-4-def-35",
+      "type": "definition",
+      "title": "`Transitive-Closure`",
+      "content": "den boolske varianten: finnes det i det hele tatt en vei fra $i$ til $j$?\n\n$t^{(k)}_{ij} = t^{(k-1)}_{ij} \\lor (t^{(k-1)}_{ik} \\land t^{(k-1)}_{kj})$,\nkjøretid $\\Theta(V^3)$.\n\n**Startmatrisen har sann på diagonalen** — enhver node når seg selv."
+    },
+    {
+      "id": "tdt4120-4-4-def-36",
+      "type": "definition",
+      "title": "`Print-All-Pairs-Shortest-Path`",
+      "content": "skriver ut selve stien ved å lese $\\pi$ baklengs fra $j$ til $i$.\n\nKjøretid $O(V)$ per sti.\n\n**`d` gir lengden, `π` gir veien.** Ber oppgaven om stien, er det $\\pi$ som\nbrukes."
+    },
+    {
+      "id": "tdt4120-4-4-def-37",
+      "type": "definition",
+      "title": "Vektmatrisen $W$",
+      "content": "$W[i][j] = w(i,j)$ når kanten finnes, $W[i][i] = 0$, og $\\infty$ ellers.\n\nEr samtidig $d^{(0)}$ i `Floyd-Warshall` og $l^{(1)}$ i `Slow-APSP`.\n\n**Regelen $\\infty + x = \\infty$** gjelder i all regning på denne matrisen."
+    },
+    {
+      "id": "tdt4120-4-4-def-38",
+      "type": "definition",
+      "title": "Forgjengermatrisen $\\pi$",
+      "content": "$\\pi[i][j]$ er forgjengeren til $j$ på en korteste sti fra $i$.\n\n`NIL` betyr enten at $i = j$, eller at ingen vei er funnet.\n\n**Fra $\\pi$ kan hele stien leses ut baklengs** i $O(V)$."
+    },
+    {
+      "id": "tdt4120-4-4-def-39",
+      "type": "definition",
+      "title": "Glissen mot tett graf",
+      "content": "en graf er **glissen** når $E$ er omtrent som $V$, og **tett** når $E$ nærmer\nseg $V^2$.\n\nFor glisne grafer er $V$ kjøringer av `Dijkstra` — $O(VE\\lg V)$ — best. For\ntette er `Floyd-Warshall` med $\\Theta(V^3)$ best.\n\n**Tettheten er halve svaret** på «hvilken algoritme velger du»; fortegnet på\nvektene er den andre halvparten."
+    },
+    {
+      "id": "tdt4120-4-4-def-40",
+      "type": "definition",
+      "title": "Felle #8 — `Dijkstra` på negative kanter",
+      "content": "`Dijkstra` forutsetter ikke-negative kantvekter og kan gi feil svar med én\neneste negativ kant.\n\n`Floyd-Warshall` og `Bellman-Ford` tåler negative kanter.\n\n**Sjekk fortegnet før du velger algoritme** — det er det første spørsmålet i en\nkorteste-vei-oppgave."
+    },
+    {
+      "id": "tdt4120-4-4-def-41",
+      "type": "definition",
+      "title": "Negativ sykel",
+      "content": "en sykel der summen av kantvektene er negativ.\n\nDa finnes ingen korteste sti: du kan gå rundt sykelen igjen og igjen og få\nlavere og lavere kostnad.\n\n**`Floyd-Warshall` forutsetter at det ikke finnes noen.** `Bellman-Ford`\n**oppdager** dem, og det er dens særegne styrke."
+    },
+    {
+      "id": "tdt4120-4-4-def-42",
+      "type": "definition",
+      "title": "Sjanger C — håndkjøring",
+      "content": "oppgavetypen der du utfører algoritmen steg for steg og oppgir sluttilstanden.\n\nHer er svarformen **den etterspurte matrisen for den etterspurte runden** —\neller den ene cellen, hvis det er det som er spurt om.\n\n**Ikke lever både `d` og `π` når bare én var etterspurt.**"
+    },
+    {
+      "id": "tdt4120-4-4-def-43",
+      "type": "definition",
+      "title": "Sjanger E — kjøretidskunnskap",
+      "content": "oppgavetypen der du oppgir kjøretiden til en navngitt algoritme.\n\n$\\Theta(V^3)$ for `Floyd-Warshall` og `Transitive-Closure`, $\\Theta(V^4)$ for\nnaiv `Slow-APSP`.\n\n**Merk at antall kanter ikke inngår** i noen av dem — det er poenget med\nmatriseformuleringen."
+    },
+    {
+      "id": "tdt4120-4-4-coll-45",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tdt4120-4-4-ct-44",
+          "type": "text",
+          "content": "Fem korte spørsmål fra kapitlene dette bygger på. Svar i hodet først, så\nsammenlign.\n\n**1.** Hva er kjøretiden til `Dijkstra` med binærhaug, og hvilket krav stiller\nden?\n\n*Svar:* $O(E\\lg V)$, og den krever **ikke-negative** kantvekter. Se\n[kap. 4.3](/tdt4120/tdt4120-4-3).\n\n**2.** Hva er kjøretiden til `Bellman-Ford`, og hva kan den i tillegg?\n\n*Svar:* $\\Theta(VE)$, og den **oppdager** negative sykler.\n\n**3.** Hva gjør slakking av en kant $(u,v)$?\n\n*Svar:* hvis $d[u] + w(u,v) < d[v]$, settes $d[v] = d[u] + w(u,v)$ og\n$\\pi[v] = u$.\n\n**4.** Når lønner det seg med nabomatrise framfor naboliste?\n\n*Svar:* når grafen er tett, eller når du trenger oppslag på enkeltkanter i\nkonstant tid. Se [kap. 4.1](/tdt4120/tdt4120-4-1).\n\n**5.** Hva betyr $\\Theta$ i motsetning til $O$?\n\n*Svar:* $\\Theta$ er en tett grense begge veier. `Floyd-Warshall` er\n$\\Theta(V^3)$ fordi løkkene alltid kjører ferdig. Se\n[kap. 1.1](/tdt4120/tdt4120-1-1).\n\n**Videre:** [kap. 4.5](/tdt4120/tdt4120-4-5) driller håndkjøring av hele\ngrafdelen — `Kruskal`, `BFS`, `DFS`, `Floyd-Warshall` og min-pluss side om\nside."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

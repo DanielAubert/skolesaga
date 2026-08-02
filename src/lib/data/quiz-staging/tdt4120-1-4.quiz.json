@@ -1,0 +1,162 @@
+[
+  {
+    "question": "Hvilken form må en rekurrens ha for at masterteoremet skal kunne brukes?",
+    "options": [
+      "$T(n) = aT(n/b) + f(n)$ med $a \\ge 1$ og $b > 1$, altså $a$ like store delproblemer av størrelse $n/b$",
+      "$T(n) = aT(n-b) + f(n)$ med $a \\ge 1$ og $b \\ge 1$, altså at problemet krymper med et fast antall hver gang",
+      "$T(n) = aT(n/b) + f(n)$ med vilkårlige $a$ og $b$, så lenge $f(n)$ er et polynom uten logaritmefaktorer",
+      "$T(n) = T(n/b_1) + T(n/b_2) + f(n)$, altså to delproblemer som gjerne kan ha hver sin størrelse"
+    ],
+    "explanation": "Teoremet krever én felles $b$ — alle delproblemene må være like store — og kravene $a \\ge 1$, $b > 1$ er ufravikelige: er $b = 1$, krymper problemet aldri. Formen med subtraksjon, $T(n) = T(n-1)+n$, faller helt utenfor og må løses ved iterasjon eller substitusjon. Ulikt store deler, som i $T(n) = T(n/3)+T(2n/3)+n$, dekkes heller ikke."
+  },
+  {
+    "question": "Hvilket tilfelle og hvilket svar gir masterteoremet for $T(n) = 2T(n/2) + n$?",
+    "options": [
+      "Tilfelle 2 med $k = 0$, og svaret $\\Theta(n\\lg n)$",
+      "Tilfelle 1, og svaret $\\Theta(n)$",
+      "Tilfelle 3, og svaret $\\Theta(n)$",
+      "Tilfelle 2 med $k = 1$, og svaret $\\Theta(n\\lg^2 n)$"
+    ],
+    "explanation": "$n^{\\log_2 2} = n$, og $f(n) = n = \\Theta(n\\lg^0 n)$, altså tilfelle 2 med $k = 0$ — regelen $k \\to k+1$ gir én logaritme i svaret. Dette er `Merge-Sort`s rekurrens, og den viser hvorfor $k = 0$ må være tillatt: med et krav om $k > 0$ ville teoremet ikke dekket den i det hele tatt. Å svare $\\Theta(n)$ er å glemme logaritmefaktoren, som er den vanligste enkeltfeilen i sjangeren."
+  },
+  {
+    "question": "Hvilket tilfelle og hvilket svar gir masterteoremet for $T(n) = 4T(n/2) + n$?",
+    "options": [
+      "Tilfelle 1, og svaret $\\Theta(n^2)$",
+      "Tilfelle 2 med $k = 0$, og svaret $\\Theta(n^2\\lg n)$",
+      "Tilfelle 3, og svaret $\\Theta(n)$",
+      "Tilfelle 1, og svaret $\\Theta(n^4)$"
+    ],
+    "explanation": "$\\log_2 4 = 2$, så sammenligningsfunksjonen er $n^2$, og $f(n) = n$ ligger en hel potens under: $n = O(n^{2-\\varepsilon})$ med $\\varepsilon = 1$. Rekursjonen dominerer, og løvnodene bestemmer. Å svare $\\Theta(n^4)$ er å forveksle $a$ med eksponenten — det er $\\log_b a$ som skal stå der, ikke $a$ selv."
+  },
+  {
+    "question": "Hvilket svar gir masterteoremet for $T(n) = T(n/2) + 1$?",
+    "options": [
+      "$\\Theta(\\lg n)$ — tilfelle 2 med $k = 0$, siden $n^{\\log_2 1} = n^0 = 1$ er bunnarbeidet",
+      "$\\Theta(1)$ — tilfelle 2 med $k = 0$, siden både $f(n)$ og $n^{\\log_b a}$ er konstante",
+      "$\\Theta(n)$ — tilfelle 3, siden arbeidet utenom rekursjonen dominerer helt",
+      "$\\Theta(n\\lg n)$ — tilfelle 2 med $k = 1$, siden det er ett kall per nivå i treet"
+    ],
+    "explanation": "$a = 1$ gir $\\log_2 1 = 0$ og $n^0 = 1$, og $f(n) = 1$ er $\\Theta(1 \\cdot \\lg^0 n)$ — altså tilfelle 2 med $k = 0$, og svaret får én logaritme. Dette er binærsøkets rekurrens. Å svare $\\Theta(1)$ er å hoppe over regelen $k \\to k+1$: arbeidet er riktignok konstant per nivå, men det er $\\lg n$ nivåer."
+  },
+  {
+    "question": "Hvilket tilfelle og hvilket svar gir masterteoremet for $T(n) = 2T(n/2) + n^2$?",
+    "options": [
+      "Tilfelle 3, og svaret $\\Theta(n^2)$ — regularitetsbetingelsen holder med $c = 1/2$",
+      "Tilfelle 2 med $k = 1$, og svaret $\\Theta(n^2\\lg n)$ — arbeidet er like stort på hvert nivå",
+      "Tilfelle 1, og svaret $\\Theta(n)$ — rekursjonen dominerer siden $a = 2$ og $b = 2$",
+      "Tilfelle 3, og svaret $\\Theta(n^2\\lg n)$ — én logaritme legges til også i dette tilfellet"
+    ],
+    "explanation": "$n^{\\log_2 2} = n$, og $f(n) = n^2 = \\Omega(n^{1+\\varepsilon})$ med $\\varepsilon = 1$, så arbeidet på toppen dominerer. Regularitetskravet sjekkes: $2(n/2)^2 = n^2/2$, altså $c = 1/2 < 1$. I tilfelle 3 er svaret $\\Theta(f(n))$ uten noen ekstra logaritme — logaritmen legges bare til i tilfelle 2."
+  },
+  {
+    "question": "Hvilket svar gir masterteoremet for $T(n) = 2T(n/2) + n\\lg n$?",
+    "options": [
+      "$\\Theta(n\\lg^2 n)$ — tilfelle 2 med $k = 1$",
+      "$\\Theta(n\\lg n)$ — tilfelle 3, siden $f(n)$ dominerer",
+      "$\\Theta(n\\lg n)$ — tilfelle 2 med $k = 0$",
+      "$\\Theta(n^2\\lg n)$ — tilfelle 1, siden $a = b = 2$"
+    ],
+    "explanation": "$n^{\\log_2 2} = n$, og $f(n) = n\\lg n = \\Theta(n \\lg^1 n)$, altså $k = 1$ — og regelen $k \\to k+1$ gir $\\lg^2 n$ i svaret. Tilfelle 3 er utelukket fordi gapet mellom $n\\lg n$ og $n$ bare er en logaritme, ikke en hel potens av $n$, så det finnes ingen $\\varepsilon > 0$. Å svare $\\Theta(n\\lg n)$ er å beholde logaritmen du hadde i stedet for å legge til én."
+  },
+  {
+    "question": "Hvilket krav stiller masterteoremet til potensen $k$ i tilfelle 2?",
+    "options": [
+      "$k$ må være ikke-negativ, altså $k \\ge 0$ — og $k = 0$ er i praksis det aller vanligste tilfellet",
+      "$k$ må være strengt positiv, altså $k > 0$ — en logaritmefaktor må faktisk være til stede",
+      "$k$ må være et positivt heltall, siden $\\lg^k n$ ellers ikke er definert for reelle eksponenter",
+      "$k$ kan være et hvilket som helst reelt tall, også negativt, så lenge $f(n)$ selv er positiv"
+    ],
+    "explanation": "$\\lg^0 n = 1$, så $k = 0$ betyr at $f(n)$ er $\\Theta(n^{\\log_b a})$ glatt — og det er nettopp tilfellet for `Merge-Sort` og for binærsøk. Et krav om $k > 0$ ville stengt begge ute av teoremet. Negativ $k$, altså $f(n)$ mindre enn $n^{\\log_b a}$ med en logaritmefaktor, faller derimot utenfor den varianten faget bruker."
+  },
+  {
+    "question": "Hvilket krav stiller masterteoremet til konstanten $\\varepsilon$ i tilfelle 1 og 3?",
+    "options": [
+      "$\\varepsilon$ må være strengt positiv — gapet må være en hel potens av $n$, ikke bare en logaritmefaktor",
+      "$\\varepsilon$ må være ikke-negativ, slik at $\\varepsilon = 0$ er tillatt og gir grensetilfellet mellom 1 og 3",
+      "$\\varepsilon$ må være mindre enn 1, ellers blir gapet så stort at rekursjonen mister betydning helt",
+      "$\\varepsilon$ må være et heltall, siden eksponenten $\\log_b a \\pm \\varepsilon$ ellers ikke lar seg regne ut"
+    ],
+    "explanation": "Med $\\varepsilon = 0$ ville betingelsene i tilfelle 1 og 3 blitt trivielt oppfylt av alt, og teoremet ville sagt selvmotsigende ting. Kravet om et gap på en hel potens av $n$ er nettopp grunnen til at tilfelle 2 må finnes: det fanger opp mellomrommet der avstanden bare er logaritmisk. Noen øvre grense for $\\varepsilon$ finnes ikke."
+  },
+  {
+    "question": "Hva er regularitetsbetingelsen, og hvor gjelder den?",
+    "options": [
+      "$af(n/b) \\le c\\,f(n)$ for en konstant $c < 1$ og alle store nok $n$ — et tilleggskrav i tilfelle 3",
+      "$af(n/b) \\le c\\,f(n)$ for en konstant $c < 1$ og alle store nok $n$ — et tilleggskrav i tilfelle 1",
+      "$f(n) \\le c\\,n^{\\log_b a}$ for en konstant $c < 1$ — et krav som må sjekkes i alle de tre tilfellene",
+      "$f(n/b) \\ge c\\,f(n)$ for en konstant $c > 1$ — et krav som sikrer at arbeidet vokser nedover i treet"
+    ],
+    "explanation": "Betingelsen sier at arbeidet på ett nivå er en fast brøkdel mindre enn arbeidet på nivået over, slik at summen nedover faktisk krymper — og det er nøyaktig det tilfelle 3 hviler på. Tilfelle 1 og 2 har ingen slik ekstra betingelse. For $T(n) = 2T(n/2)+n^2$ er $2(n/2)^2 = n^2/2$, altså $c = 1/2$, og kravet holder."
+  },
+  {
+    "question": "Hvilken av disse rekurrensene kan masterteoremet **ikke** brukes på?",
+    "options": [
+      "$T(n) = T(n-1) + n$ — størrelsen krymper ved subtraksjon",
+      "$T(n) = 3T(n/4) + n$",
+      "$T(n) = 8T(n/2) + n^2$ — åtte delproblemer av halv størrelse",
+      "$T(n) = T(n/3) + \\lg n$ — ett delproblem av tredjedels størrelse"
+    ],
+    "explanation": "Størrelsen krymper ved subtraksjon i stedet for divisjon, og teoremet krever formen $n/b$ med $b > 1$. Rekurrensen løses i stedet ved iterasjon og gir $\\Theta(n^2)$. De tre andre har alle formen $aT(n/b)+f(n)$ og er innenfor bruksområdet."
+  },
+  {
+    "question": "Hvorfor gjelder ikke masterteoremet for $T(n) = 2T(n/2) + n/\\lg n$?",
+    "options": [
+      "Fordi $f(n)$ havner i gapet mellom tilfellene: den er mindre enn $n$ med en logaritmefaktor, altså $k = -1$",
+      "Fordi $f(n)$ ikke er en polynomfunksjon, og teoremet krever at $f(n)$ er et polynom i $n$ av positiv grad",
+      "Fordi $f(n)$ vokser langsommere enn $\\lg n$, og teoremet forutsetter minst lineært arbeid utenom rekursjonen",
+      "Fordi $a = b = 2$ gjør at $n^{\\log_b a} = n$, og en rekurrens der $\\log_b a$ er nøyaktig 1 alltid faller utenfor"
+    ],
+    "explanation": "$n^{\\log_2 2} = n$, og $f(n) = n/\\lg n$ ligger under $n$ — men bare med en logaritmefaktor, ikke med en hel potens. Da finnes ingen $\\varepsilon > 0$ for tilfelle 1, og tilfelle 2 krever $k \\ge 0$, mens dette svarer til $k = -1$. Teoremet dekker mange ikke-polynomiske $f(n)$, for eksempel $n\\lg n$, så formen alene er ikke problemet."
+  },
+  {
+    "question": "Hvor mange nivåer har rekursjonstreet til $T(n) = aT(n/b) + f(n)$?",
+    "options": [
+      "Om lag $\\log_b n$ — problemet deles på $b$ for hvert nivå til det når grunntilfellet",
+      "Om lag $\\log_a n$ — antall delproblemer per kall avgjør hvor dypt treet blir",
+      "Om lag $n/b$ — hvert nivå fjerner $b$ elementer fra den opprinnelige inputen",
+      "Om lag $a^{\\log_b n}$ — det er nettopp antall løvnoder i treet, og de ligger nederst"
+    ],
+    "explanation": "Størrelsen går $n, n/b, n/b^2, \\ldots$, og den når 1 etter $\\log_b n$ delinger — det er $b$, ikke $a$, som styrer dybden. $a$ styrer bredden: antall løvnoder er $a^{\\log_b n} = n^{\\log_b a}$, som er noe helt annet enn antall nivåer."
+  },
+  {
+    "question": "Hva representerer uttrykket $n^{\\log_b a}$ i masterteoremet?",
+    "options": [
+      "Antall løvnoder i rekursjonstreet — altså arbeidet helt i bunnen, der rekursjonen stopper",
+      "Arbeidet utenom rekursjonen, altså nøyaktig det samme som $f(n)$ skrevet på en annen måte",
+      "Antall nivåer i rekursjonstreet, som er den faktoren logaritmen i svaret kommer fra",
+      "Kjøretiden til hele algoritmen, uansett hvilket av de tre tilfellene som gjelder"
+    ],
+    "explanation": "Treet har $\\log_b n$ nivåer og $a$ barn per node, så bunnen har $a^{\\log_b n} = n^{\\log_b a}$ løvnoder. Hele teoremet består i å sammenligne dette bunnarbeidet med toppearbeidet $f(n)$. At $n^{\\log_b a}$ **er** svaret, gjelder bare i tilfelle 1 — i tilfelle 3 er svaret $\\Theta(f(n))$."
+  },
+  {
+    "question": "Hvilket svar gir masterteoremet for $T(n) = 3T(n/9) + \\sqrt{n}$?",
+    "options": [
+      "$\\Theta(\\sqrt{n}\\lg n)$ — tilfelle 2 med $k = 0$, siden $\\log_9 3 = 1/2$",
+      "$\\Theta(\\sqrt{n})$ — tilfelle 3, siden $f(n) = \\sqrt{n}$ dominerer bunnarbeidet",
+      "$\\Theta(n)$ — tilfelle 1, siden tre delproblemer av størrelse $n/9$ til sammen gir $n/3$",
+      "$\\Theta(n^{1/3})$ — tilfelle 1, siden $\\log_9 3$ må regnes ut som $3/9$"
+    ],
+    "explanation": "$\\log_9 3 = 1/2$ fordi $9^{1/2} = 3$, så $n^{\\log_b a} = \\sqrt{n}$ — nøyaktig det samme som $f(n)$. Da er $k = 0$, og svaret får én logaritme. Å regne $\\log_9 3$ som brøken $3/9$ er en av de tre formene av felle #5: logaritmen er ikke en divisjon."
+  },
+  {
+    "question": "Hvilket svar gir masterteoremet for $T(n) = 9T(n/3) + n$?",
+    "options": [
+      "$\\Theta(n^2)$ — tilfelle 1, siden $\\log_3 9 = 2$ og $f(n) = n$ ligger en hel potens under",
+      "$\\Theta(n^2\\lg n)$ — tilfelle 2 med $k = 0$, siden $f(n)$ og bunnarbeidet er like store",
+      "$\\Theta(n\\lg n)$ — tilfelle 2 med $k = 0$, siden $\\log_3 9$ og $f(n)$ begge svarer til $n$",
+      "$\\Theta(n^9)$ — tilfelle 1, siden antallet delproblemer havner rett i eksponenten"
+    ],
+    "explanation": "$\\log_3 9 = 2$, så bunnarbeidet er $n^2$, mens $f(n) = n = O(n^{2-\\varepsilon})$ med $\\varepsilon = 1$. Rekursjonen dominerer, og svaret er bunnarbeidet uten noen logaritme — logaritmen dukker bare opp når de to sidene er like store. Å sette $a$ selv i eksponenten gir $n^9$ og er ren regnefeil."
+  },
+  {
+    "question": "Hva er svaret i tilfelle 2 når $f(n) = \\Theta(n^{\\log_b a}\\lg^k n)$?",
+    "options": [
+      "$\\Theta(n^{\\log_b a}\\lg^{k+1} n)$ — du legger til én logaritme til",
+      "$\\Theta(n^{\\log_b a}\\lg^{k} n)$ — du beholder logaritmene du hadde",
+      "$\\Theta(n^{\\log_b a})$ — logaritmefaktorene forsvinner i svaret",
+      "$\\Theta(f(n))$ — arbeidet utenom rekursjonen dominerer her også"
+    ],
+    "explanation": "Den ekstra logaritmen kommer fra antall nivåer: like mye arbeid på hvert av $\\log_b n$ nivåer gir én logaritme mer enn $f(n)$ selv. Regelen er alltid $k \\to k+1$. Å svare $\\Theta(f(n))$ er tilfelle 3-svaret, og det gjelder bare når $f(n)$ ligger en hel potens over bunnarbeidet."
+  }
+]

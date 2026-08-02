@@ -1,0 +1,162 @@
+[
+  {
+    "question": "Hvor mye plass bruker en nabomatrise og en naboliste for en graf med $V$ noder og $E$ kanter?",
+    "options": [
+      "Nabomatrisen $\\Theta(V^2)$ uansett antall kanter, nabolista $\\Theta(V+E)$",
+      "Nabomatrisen $\\Theta(V+E)$, nabolista $\\Theta(V^2)$ på grunn av pekerne",
+      "Begge $\\Theta(V^2)$, siden begge må kunne representere alle mulige kanter",
+      "Begge $\\Theta(V+E)$, siden begge lagrer nøyaktig de kantene som finnes"
+    ],
+    "explanation": "Matrisen reserverer én celle for hvert nodepar enten kanten finnes eller ikke, mens nabolista bare lagrer de kantene som faktisk er der, pluss ett listehode per node. Det er nettopp derfor nabolista er standardvalget i glisne grafer: med $E$ langt under $V^2$ er forskjellen enorm."
+  },
+  {
+    "question": "Hva koster spørsmålet «finnes det en kant fra $u$ til $v$?» i de to representasjonene?",
+    "options": [
+      "$O(1)$ i nabomatrise; tid proporsjonal med graden til $u$ i naboliste",
+      "$O(1)$ i begge, siden begge representasjonene indekseres direkte på nodenummer",
+      "Tid proporsjonal med graden til $u$ i nabomatrise; $O(1)$ i naboliste",
+      "$\\Theta(V)$ i nabomatrise; $\\Theta(E)$ i naboliste, siden begge må gjennomsøkes"
+    ],
+    "explanation": "Matrisen er et todimensjonalt array, så oppslaget er ett indeksoppslag. Nabolista må derimot gå gjennom lista til $u$ til den finner $v$ eller er slutt. Dette er hele argumentet for matrisen: den er rask på **kantoppslag**, mens lista er rask på «gå gjennom naboene til $u$»."
+  },
+  {
+    "question": "Når er nabomatrisen det riktige valget?",
+    "options": [
+      "Når grafen er tett, altså når $E$ nærmer seg $V^2$, og algoritmen gjør mange kantoppslag",
+      "Når grafen er glissen, altså når $E$ er langt mindre enn $V^2$, og plass er en knapp ressurs",
+      "Når grafen er rettet, siden nabolister bare kan representere urettede grafer på en entydig måte",
+      "Når grafen er vektet, siden en naboliste ikke har noe sted å lagre vekten på en kant"
+    ],
+    "explanation": "Er nesten alle kanter til stede, går det ikke mye plass til spille, og til gjengjeld får du konstante kantoppslag. Nabolista håndterer både rettede og vektede grafer helt fint — vekten lagres sammen med naboen i lista. Det er tettheten, ikke retningen eller vektene, som avgjør valget."
+  },
+  {
+    "question": "Hva er kjøretiden til `BFS`, og hva står `v.d` for etterpå?",
+    "options": [
+      "$\\Theta(V+E)$, og `v.d` er antall **kanter** i den korteste stien fra kilden til $v$",
+      "$\\Theta(V+E)$, og `v.d` er den samlede **vekten** av den korteste stien fra kilden til $v$",
+      "$\\Theta(V^2)$, og `v.d` er antall kanter i den korteste stien fra kilden til $v$",
+      "$\\Theta(E\\lg V)$, og `v.d` er tidspunktet noden ble oppdaget under gjennomløpet"
+    ],
+    "explanation": "Hver node settes i køen én gang, og hver nabolisteoppføring leses én gang, så totalen er lineær i grafens størrelse. `BFS` teller kanter og ser ikke på vekter i det hele tatt — det er derfor den bare gir korteste vei når alle kantene er like tunge. Discover-tid er `DFS`-begrepet, og der brukes `u.d` om noe helt annet."
+  },
+  {
+    "question": "En vektet graf har kanter med ulik vekt. Gir `BFS` fra $s$ den billigste veien til hver node?",
+    "options": [
+      "Nei — `BFS` minimerer antall kanter, ikke samlet vekt, og de to kan gi helt ulike stier",
+      "Ja — `BFS` finner alltid den korteste veien, og korteste vei er den samme som billigste vei",
+      "Ja, forutsatt at alle vektene er positive; det er bare negative vekter `BFS` ikke tåler",
+      "Nei — men `BFS` gir riktig svar hvis du kjører den én gang for hver mulige startnode"
+    ],
+    "explanation": "En sti med to dyre kanter kan koste mer enn en sti med fem billige, og `BFS` vil velge den med to. Algoritmen leser aldri vektene, så fortegnet på dem er uten betydning — og å kjøre den flere ganger endrer ingenting. Skal vektene med, må du bruke `Dijkstra`, `Bellman-Ford` eller `DAG-Shortest-Path`."
+  },
+  {
+    "question": "Hvilken hjelpestruktur bruker `BFS`, og hvilken bruker `DFS`?",
+    "options": [
+      "`BFS` bruker en FIFO-kø; `DFS` bruker en stakk, i praksis rekursjonsstakken",
+      "`BFS` bruker en stakk; `DFS` bruker en FIFO-kø som holder nodene i oppdagelsesrekkefølge",
+      "Begge bruker en prioritetskø, men `BFS` sorterer på avstand og `DFS` sorterer på finish-tid",
+      "`BFS` bruker en FIFO-kø; `DFS` bruker en prioritetskø sortert på nodenes discover-tid"
+    ],
+    "explanation": "Køen er grunnen til at `BFS` går lagvis: den noden som ble oppdaget først, behandles først. Stakken gjør det motsatte for `DFS` — den siste oppdagede utforskes videre, og det er nettopp derfor søket går i dybden. Ingen av de to bruker prioritetskø; det gjør `Dijkstra` og `MST-Prim`."
+  },
+  {
+    "question": "Hva er finish-tiden `u.f` i `DFS`?",
+    "options": [
+      "Tidspunktet `DFS` ble ferdig med $u$ og alt som ligger under $u$ i dybdesøket",
+      "Tidspunktet noden $u$ ble oppdaget for aller første gang og farget grå av dybdesøket",
+      "Antall kanter i den korteste stien fra startnoden fram til noden $u$",
+      "Antall noder som fortsatt er hvite når `DFS` forlater noden $u$ for godt"
+    ],
+    "explanation": "Klokka tikker to ganger per node: én gang når den oppdages (`u.d`) og én gang når hele deltreet under den er utforsket (`u.f`). Rekkefølgen på finish-tidene er nøkkelen til topologisk sortering, og det er derfor forvekslingen med discover-tid er en så dyr feil."
+  },
+  {
+    "question": "Hvordan avgjør du med `DFS` om en rettet graf inneholder en sykel?",
+    "options": [
+      "Grafen har en sykel nøyaktig når `DFS` finner minst én tilbakekant; testen koster $\\Theta(V+E)$",
+      "Grafen har en sykel nøyaktig når `DFS` finner minst én krysskant; testen koster $\\Theta(V+E)$",
+      "Grafen har en sykel nøyaktig når to noder får samme finish-tid; testen koster $\\Theta(V\\lg V)$",
+      "Grafen har en sykel nøyaktig når `DFS` må startes på nytt fra mer enn én node; testen koster $\\Theta(V^2)$"
+    ],
+    "explanation": "En tilbakekant går til en node som fortsatt er grå, altså en node søket ennå ikke er ferdig med — og da finnes en sti tilbake, som er nøyaktig en sykel. Krysskanter og forlengs kanter går til ferdige noder og betyr ingenting for syklusspørsmålet. At `DFS` må startes flere steder, betyr bare at grafen ikke er nåbar fra én node."
+  },
+  {
+    "question": "Hva er en krysskant i en `DFS`-skog?",
+    "options": [
+      "En kant til en node som allerede er ferdig, og som ikke er en etterkommer av noden du står i",
+      "En kant til en node som fortsatt er grå, altså en node søket ennå ikke har gjort seg ferdig med",
+      "En kant til en etterkommer i det samme dybdetreet, men ikke til et direkte barn av noden",
+      "En kant mellom to noder som begge fortsatt er hvite når `DFS` oppdager forbindelsen mellom dem"
+    ],
+    "explanation": "Krysskanter går på tvers — enten mellom to ulike dybdetrær eller mellom to grener i samme tre — og målnoden er alltid svart. Kanten til en grå node er en tilbakekant, den til en etterkommer er en forlengs kant. En kant kan aldri gå til en hvit node uten at den noden blir oppdaget og kanten blir en trekant."
+  },
+  {
+    "question": "Hva er en topologisk sortering av en rettet graf?",
+    "options": [
+      "En lineær rekkefølge av nodene der hver kant $(u,v)$ har $u$ før $v$ i rekkefølgen",
+      "En lineær rekkefølge av nodene sortert etter inn-grad, med de laveste inn-gradene først",
+      "En lineær rekkefølge av nodene der hver kant $(u,v)$ har $v$ før $u$, altså motsatt av kantretningen",
+      "En oppdeling av nodene i lag, der hvert lag inneholder de nodene som har samme avstand fra kilden"
+    ],
+    "explanation": "Kravet er at ingen kant peker bakover i lista — det er dette som gjør rekkefølgen brukbar som arbeidsplan. Å sortere etter inn-grad alene gir ingen slik garanti, og en oppdeling i lag etter avstand er `BFS`-resultatet, som er noe helt annet."
+  },
+  {
+    "question": "Hvordan produserer `Topological-Sort` rekkefølgen sin, og hva koster det?",
+    "options": [
+      "Ved å kjøre `DFS` og sette hver node fremst i en liste når den ferdigstilles; $\\Theta(V+E)$",
+      "Ved å kjøre `DFS` og legge hver node bakerst i en liste når den oppdages; $\\Theta(V+E)$",
+      "Ved å kjøre `BFS` fra en vilkårlig node og lese av lagene i stigende rekkefølge; $\\Theta(V+E)$",
+      "Ved å sortere nodene på finish-tid med en sammenligningssortering; $\\Theta(V\\lg V + E)$"
+    ],
+    "explanation": "Å sette noden fremst når den ferdigstilles, gir nodene i **synkende** finish-tid — og det er nettopp den rekkefølgen som respekterer alle kantene. Ingen egen sortering trengs, siden `DFS` produserer finish-tidene i stigende rekkefølge av seg selv, og derfor holder totalen seg lineær. Oppdagelsesrekkefølgen gir ikke en gyldig topologisk sortering."
+  },
+  {
+    "question": "«En topologisk sortering får du ved å liste nodene etter stigende finish-tid.» Stemmer dette?",
+    "options": [
+      "Nei — rekkefølgen skal være **synkende** finish-tid; stigende gir den motsatte rekkefølgen",
+      "Ja — nodene ferdigstilles i den rekkefølgen kantene peker, så stigende finish-tid er riktig",
+      "Nei — rekkefølgen skal være stigende **discover**-tid, altså oppdagelsesrekkefølgen fra `DFS`",
+      "Ja, men bare når `DFS` startes i en node med inn-grad null; ellers må rekkefølgen snus"
+    ],
+    "explanation": "En node ferdigstilles først når alt den peker på er ferdig, så den som ferdigstilles sist, må stå først. Stigende finish-tid gir altså nøyaktig den reverserte — og ubrukelige — rekkefølgen. Discover-tid duger heller ikke: `DFS` kan oppdage en node lenge før en annen node som må komme foran den."
+  },
+  {
+    "question": "Hvilket krav stiller `Topological-Sort` til grafen?",
+    "options": [
+      "Grafen må være en DAG — rettet og uten sykler; med en sykel finnes ingen gyldig rekkefølge",
+      "Grafen må være sammenhengende, slik at hele rekkefølgen kan bygges ut fra én startnode",
+      "Grafen må være urettet, siden en topologisk sortering ordner noder og ikke kantretninger",
+      "Grafen må ha minst én node med inn-grad null og minst én node med ut-grad null"
+    ],
+    "explanation": "Ligger $u$ og $v$ på samme sykel, må $u$ komme før $v$ og $v$ før $u$ samtidig, og det er umulig. Sammenheng er derimot ikke nødvendig — en DAG i flere biter sorteres fint, `DFS` startes bare på nytt i hver bit. En DAG har for øvrig alltid minst én node av hver slag, så det kravet følger av DAG-egenskapen framfor å være et selvstendig krav."
+  },
+  {
+    "question": "Er den topologiske sorteringen av en DAG entydig?",
+    "options": [
+      "Nei — er to noder ikke bundet av noen sti, kan de stå i hvilken som helst innbyrdes rekkefølge",
+      "Ja — en DAG har nøyaktig én gyldig topologisk sortering, gitt av finish-tidene fra `DFS`",
+      "Ja, forutsatt at `DFS` alltid starter i en node med inn-grad null; ellers finnes det flere",
+      "Nei — men de ulike sorteringene skiller seg bare i hvilken node som står aller først i lista"
+    ],
+    "explanation": "Rekkefølgen er bare bundet der det finnes en sti, og en DAG med flere uavhengige grener har derfor mange gyldige svar. Hvilken `DFS` gir deg, avhenger av rekkefølgen nabolistene gjennomløpes i. Ulikhetene kan opptre hvor som helst i lista, ikke bare i begynnelsen."
+  },
+  {
+    "question": "Hva står forgjengerfeltet `v.pi` for etter en kjøring av `BFS`?",
+    "options": [
+      "Noden $v$ ble oppdaget fra — følger du feltene bakover fra $v$, får du en korteste sti tilbake til kilden",
+      "Noden med lavest nodenummer blant naboene til $v$, valgt for å gjøre resultatet entydig",
+      "Antall kanter fra kilden fram til $v$, altså nøyaktig den samme verdien som `v.d` inneholder etter kjøringen",
+      "Den siste noden `BFS` besøkte før algoritmen avsluttet, uavhengig av hvor $v$ ligger i grafen"
+    ],
+    "explanation": "Feltene til sammen utgjør `BFS`-treet, og de gjør at algoritmen kan gi selve stien og ikke bare avstanden. Nodenummer spiller ingen rolle for hvem som blir forgjenger — det er hvem som oppdaget noden først, altså køens rekkefølge, som bestemmer. Avstanden ligger i `v.d`, som er et eget felt."
+  },
+  {
+    "question": "Hva er kjøretiden til `DFS` på en graf gitt som naboliste?",
+    "options": [
+      "$\\Theta(V+E)$ — hver node farges én gang, og hver nabolisteoppføring leses én gang",
+      "$\\Theta(V^2)$ — for hver node må hele nodemengden gjennomsøkes etter naboer",
+      "$\\Theta(E\\lg V)$ — nodene må hentes ut i riktig rekkefølge fra en prioritetskø",
+      "$\\Theta(V \\cdot E)$ — hele kantmengden gjennomløpes én gang for hver node i grafen"
+    ],
+    "explanation": "Ytre løkke berører hver node én gang, og summen av nabolistenes lengder er $E$ i en rettet graf, så arbeidet er lineært i grafens størrelse. $\\Theta(V^2)$ ville vært svaret med nabomatrise, der hver rad må skannes i sin helhet uansett hvor få naboer noden har."
+  }
+]

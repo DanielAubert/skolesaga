@@ -1,0 +1,472 @@
+{
+  "id": "tdt4120-2-1",
+  "courseId": "tdt4120",
+  "chapterNumber": "2.1",
+  "title": "Sammenligningsbaserte sorteringer",
+  "description": "`Insertion-Sort`, `Merge-Sort`, `Quicksort` og `Randomized-Quicksort` — mekanikk, kjøretider (beste/verste/forventet) og `Θ(n\\lg n)`-nedre grensen.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "kunne gjengi beste, verste og forventet kjøretid for de fire sammenligningsbaserte sorteringene, og si hvilken input som utløser hvert tilfelle",
+    "kunne forklare hva en løkkeinvariant er, og bruke den til å begrunne at en sortering faktisk sorterer",
+    "kunne sette opp rekurrensen for en splitt-og-hersk-sortering og løse den med masterteoremet",
+    "kunne begrunne hvorfor ingen sortering som bare sammenligner elementer kan komme under n ganger lg n i verste tilfelle"
+  ],
+  "content": [
+    {
+      "id": "tdt4120-2-1-tip-1",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Sortering er registrert i alle de 17 settene i grunnlaget (100 %).** Grunnlaget\ner de 17 settene fra august 2015 til august 2023 som er gjennomgått tema for\ntema — det er nevneren hver gang boka oppgir en prosent. Ingen andre temaer\nslår det, og bare to andre er like høye (asymptotisk notasjon og\nNP/reduksjoner).\n\nTemaet kommer i to sjangre, og de skrives ut i klarspråk her:\n\n- **Sjanger E — kjøretidskunnskap**, altså at du oppgir kjøretiden til en\n  navngitt algoritme i det strammeste uttrykket som er riktig. Spørsmålet er\n  ofte spisset: «beste tilfelle», «verste tilfelle», «forventet» — og de tre\n  har ulike svar for tre av de fire algoritmene i dette kapitlet.\n- **Sjanger C — håndkjøring**, altså at du utfører algoritmen steg for steg på\n  papir og oppgir bare sluttilstanden. Selve håndkjøringsdrillen ligger i\n  [kap. 2.4](/tdt4120/tdt4120-2-4); her møter du mekanikken første gang.\n\n**Høyeste prioritet — dette må sitte.** Eksamen er hjelpemiddelfri, så\nkjøretidstabellen nederst i kapitlet er rent puggestoff.\n\n**To ting er verdt å merke seg med én gang:**\n\n1. **Skillet mellom garantert og inputavhengig kjøretid er selve poenget.**\n   `Merge-Sort` er $\\Theta(n\\lg n)$ uansett hva du gir den. `Quicksort` er\n   $\\Theta(n\\lg n)$ *forventet* og $\\Theta(n^2)$ i verste tilfelle. Å svare\n   «$\\Theta(n\\lg n)$» på et spørsmål om `Quicksort`s verste tilfelle er galt,\n   selv om tallet stemmer for det vanlige tilfellet.\n2. **Den nedre grensen $\\Omega(n\\lg n)$ gjelder bare sortering som\n   sammenligner elementer med hverandre.** [Kap. 2.2](/tdt4120/tdt4120-2-2)\n   viser sorteringer som går i lineær tid nettopp fordi de ikke sammenligner.\n\n**Slik er kapitlet lagt opp (55 min):**\n\n| Innhold | Tid |\n|---|---|\n| `Insertion-Sort` og løkkeinvarianten | ca. 12 min |\n| `Merge-Sort` og rekurrensen bak den | ca. 14 min |\n| `Quicksort` og pivotens rolle | ca. 13 min |\n| `Randomized-Quicksort` | ca. 6 min |\n| Den nedre grensen for sammenligningssortering | ca. 10 min |"
+    },
+    {
+      "id": "tdt4120-2-1-t-2",
+      "type": "text",
+      "content": "## Forkunnskaper\n\n- [kap. 1.1](/tdt4120/tdt4120-1-1) — de asymptotiske symbolene. Du trenger\n  skillet mellom $O$ (bare øvre grense er vist), $\\Omega$ (bare nedre) og\n  $\\Theta$ (tett grense begge veier), fordi dette kapitlet bruker alle tre\n  bevisst. I hele boka betyr $\\lg n$ det samme som $\\log_2 n$.\n- [kap. 1.2](/tdt4120/tdt4120-1-2) — forenkling. Kjøretidssvar oppgis alltid i\n  det strammeste uttrykket som er riktig.\n- [kap. 1.4](/tdt4120/tdt4120-1-4) — masterteoremet. `Merge-Sort`s kjøretid\n  utledes her ved å løse rekurrensen $T(n) = 2T(n/2) + \\Theta(n)$, og det gjør\n  vi med masterteoremet.\n\nVil du se sortering konkret i kode først, er\n[Sortering: boblesortering, `.sort()` og gitt `sort_list`](/tdt4110/tdt4110-6-1)\net mykere første møte. Du trenger ikke mer enn å kunne følge en løkke med\nblyant."
+    },
+    {
+      "id": "tdt4120-2-1-coll-4",
+      "type": "collapsible",
+      "title": "Notasjons- og pseudokodeliste",
+      "buttonText": "Vis notasjon og pseudokode",
+      "content": [
+        {
+          "id": "tdt4120-2-1-ct-3",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et algoritmefag: den lister kjøretidsuttrykk og pseudokode-operasjoner i stedet for bare greske bokstaver.\n\n| Symbol | Betydning |\n|---|---|\n| $n$ | antall elementer som skal sorteres |\n| `A[1..n]` | arrayet som sorteres, med indeks fra 1 — konvensjonen i hele denne boka |\n| $T(n)$ | kjøretiden på input av størrelse $n$ |\n| $\\Theta(f(n))$ | tett grense: kjøretiden vokser som $f(n)$, både opp og ned |\n| $O(f(n))$ | øvre grense: kjøretiden vokser ikke raskere enn $f(n)$ |\n| $\\Omega(f(n))$ | nedre grense: kjøretiden vokser minst så fort som $f(n)$ |\n| $\\lg n$ | $\\log_2 n$ — konvensjonen i dette faget |\n| $n!$ | $n$-fakultet, altså $1\\cdot 2\\cdot 3\\cdots n$ — antall mulige rekkefølger av $n$ elementer |\n| $q$ | pivotens sluttindeks etter en partisjonering |\n\n| Algoritme/operasjon | Kontrakt | Kjøretid |\n|---|---|---|\n| `Insertion-Sort(A)` | sorterer `A[1..n]` på stedet ved å flytte hvert element bakover til sin plass | $\\Theta(n)$ beste, $\\Theta(n^2)$ verste |\n| `Merge(A, p, q, r)` | fletter de to sorterte delene `A[p..q]` og `A[q+1..r]` til én sortert del | $\\Theta(r-p+1)$ |\n| `Merge-Sort(A, p, r)` | sorterer `A[p..r]` ved å dele i to, sortere hver halvdel og flette | $\\Theta(n\\lg n)$ |\n| `Partition(A, p, r)` | stokker `A[p..r]` om pivoten `A[r]` og returnerer pivotens sluttindeks `q` | $\\Theta(r-p+1)$ |\n| `Quicksort(A, p, r)` | partisjonerer og sorterer de to sidene rekursivt | $\\Theta(n\\lg n)$ forventet, $\\Theta(n^2)$ verste |\n| `Randomized-Quicksort(A, p, r)` | samme, men pivoten trekkes tilfeldig i hvert kall | $\\Theta(n\\lg n)$ forventet, uansett input |\n\n**Formler i dette delkapitlet:**\n\n$$T(n) = 2T(n/2) + \\Theta(n) \\;\\Rightarrow\\; T(n) = \\Theta(n\\lg n)$$\n\n`Merge-Sort`-rekurrensen, løst med masterteoremets tilfelle 2.\n\n$$T(n) = T(n-1) + \\Theta(n) \\;\\Rightarrow\\; T(n) = \\Theta(n^2)$$\n\n`Quicksort`s verste tilfelle: hver partisjonering deler av bare ett element.\n\n$$\\lg(n!) = \\Theta(n\\lg n)$$\n\nHøyden på beslutningstreet, og dermed den nedre grensen for sammenligningssortering.\n"
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-2-1-t-5",
+      "type": "text",
+      "content": "## `Insertion-Sort` og løkkeinvarianten (~12 min)\n\nDu har fjorten pasientjournaler i en bunke og skal legge dem i stigende\nrekkefølge etter registreringsnummer. Den naturlige framgangsmåten er å ta én\njournal av gangen, holde den i hånden, og skyve den inn på riktig plass i den\ndelen av bunken du allerede har ordnet. Det er nøyaktig `Insertion-Sort`.\n\nAlgoritmen er interessant på eksamen av to grunner. Den er den ene sorteringen\nsom er **raskere på pen input** — allerede sortert input gir lineær tid — og\nden er den letteste å begrunne, fordi begrunnelsen er en **løkkeinvariant**:\nen påstand om tilstanden som er sann før løkka begynner, forblir sann gjennom\nhver runde, og gir det du vil ha når løkka er ferdig."
+    },
+    {
+      "id": "tdt4120-2-1-def-6",
+      "type": "definition",
+      "title": "Løkkeinvariant",
+      "content": "En **løkkeinvariant** er en påstand om tilstanden som gjelder rett før hver\nrunde i en løkke.\n\nDen brukes til å vise at en algoritme er riktig, og har alltid tre ledd:\n**initialisering** (påstanden er sann før første runde), **vedlikehold** (er\nden sann før en runde, er den sann før den neste), og **terminering** (når\nløkka stopper, gir påstanden nettopp det resultatet vi ville ha).\n\nOrdet «invariant» betyr her *det som ikke endrer seg* — ikke tilstanden selv,\nmen påstanden om den."
+    },
+    {
+      "id": "tdt4120-2-1-thm-7",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `Insertion-Sort`",
+      "content": "**Antagelser om representasjon.** Arrayet er `A[1..n]`, indeks fra 1.\nElementene kan sammenlignes med `<` og `>`; ingenting annet antas om dem.\nSorteringen skjer **på stedet** (*in-place*): utenom noen få hjelpevariabler\nbrukes ingen ekstra plass som vokser med $n$.\n\n**Prebetingelse:** `A[1..n]` inneholder $n$ elementer i vilkårlig rekkefølge.\n**Postbetingelse:** `A[1..n]` inneholder de samme elementene i stigende\nrekkefølge.\n\n```text\nInsertion-Sort(A)\n  Input:  array A[1..n]\n  Output: A sortert stigende, paa stedet\n  for j = 2 to A.length\n      key = A[j]\n      i = j - 1\n      while i >= 1 and A[i] > key\n          A[i+1] = A[i]\n          i = i - 1\n      A[i+1] = key\n  Kjoeretid: Theta(n) beste, Theta(n^2) verste\n```\n\n**Invarianten i én setning:** rett før hver runde med indeks `j` er\n`A[1..j-1]` sortert og inneholder nøyaktig de elementene som lå der fra start.\n\n**Kjøretid:** den ytre løkka går $n-1$ ganger. Den indre while-løkka gjør\ningen runder når `A[j]` allerede er større enn alt til venstre — da blir\ntotalen $\\Theta(n)$. Er arrayet sortert **synkende**, må hvert element skyves\nhelt fram til indeks 1, og totalen blir $1 + 2 + \\dots + (n-1) = n(n-1)/2$,\naltså $\\Theta(n^2)$."
+    },
+    {
+      "id": "tdt4120-2-1-eks-8",
+      "type": "example",
+      "title": "Eksempel 1: `Insertion-Sort` runde for runde",
+      "problem": "Seks måleverdier fra en værstasjon ligger i den rekkefølgen de ble avlest:\n`A = 34, 12, 47, 8, 23, 19` (indeks fra 1).\n\nKjør `Insertion-Sort(A)` og oppgi arrayet etter hver runde i den ytre løkka.\nTell til slutt hvor mange enkeltskyv den indre løkka gjorde til sammen.",
+      "solution": "Løkka starter på $j = 2$, fordi `A[1..1]` er sortert allerede.\n\n| Runde `j` | `key` | Antall skyv i while-løkka | Array etter runden |\n|---|---|---|---|\n| 2 | 12 | 1 | `12, 34, 47, 8, 23, 19` |\n| 3 | 47 | 0 | `12, 34, 47, 8, 23, 19` |\n| 4 | 8 | 3 | `8, 12, 34, 47, 23, 19` |\n| 5 | 23 | 2 | `8, 12, 23, 34, 47, 19` |\n| 6 | 19 | 3 | `8, 12, 19, 23, 34, 47` |\n\nTil sammen 9 skyv i den indre løkka.\n\n**Sluttilstanden — det du ville levert på eksamen:**\n\n**`8, 12, 19, 23, 34, 47`**\n\nLegg merke til runde 3: `key = 47` er større enn alt til venstre, så while-løkka\ngjør null runder. Det er nettopp det som skjer i *hver* runde når inputen\nallerede er sortert, og det er derfor beste tilfelle er $\\Theta(n)$.\n\nPå eksamen leverer du bare sluttarrayet — tavlen er her for å vise hvordan du\nkommer dit."
+    },
+    {
+      "id": "tdt4120-2-1-oppg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-2-1-oppg-9-inner",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave, sjanger D — definisjon med egne ord, altså én presis setning\nmed hovedpoenget først.)\n\nHva er beste tilfelle for `Insertion-Sort`, hvilken input gir det, og hva er\nverste tilfelle?",
+        "solution": "Beste tilfelle er $\\Theta(n)$, og det oppstår når arrayet allerede er sortert\nstigende: da stopper den indre while-løkka umiddelbart hver gang, og hver av\nde $n-1$ rundene koster konstant tid.\n\nVerste tilfelle er $\\Theta(n^2)$, og det oppstår når arrayet er sortert\nsynkende: hvert element må skyves forbi alle de foregående.\n\nMerk fellen: å oppgi $\\Omega(n\\lg n)$ som beste tilfelle er **galt**. Den\nnedre grensen $\\Omega(n\\lg n)$ gjelder verste tilfelle for en\nsammenligningsbasert sortering, ikke beste tilfelle for en enkelt algoritme.",
+        "hints": [
+          "Se på while-betingelsen `A[i] > key`. Hvilken input gjør at den er usann med én gang?",
+          "Beste og verste tilfelle skiller seg med en hel faktor $n$ her."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-2-1-oppg-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-2-1-oppg-10-inner",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger C — håndkjøring.)\n\nKjør `Insertion-Sort` på `A = 5, 3, 9, 1` og oppgi arrayet etter hver runde i\nden ytre løkka.",
+        "solution": "| Runde `j` | `key` | Array etter runden |\n|---|---|---|\n| 2 | 3 | `3, 5, 9, 1` |\n| 3 | 9 | `3, 5, 9, 1` |\n| 4 | 1 | `1, 3, 5, 9` |\n\n**Sluttilstanden: `1, 3, 5, 9`.**\n\nRunde 3 gjør ingenting fordi 9 allerede er større enn 5.",
+        "hints": [
+          "Ta ett element av gangen fra venstre, og skyv det bakover forbi alt som er større.",
+          "Runde `j` rører bare `A[1..j]`."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-2-1-t-11",
+      "type": "text",
+      "content": "## `Merge-Sort` og rekurrensen bak den (~14 min)\n\n`Insertion-Sort` bruker kvadratisk tid på store arrayer, og det er for dyrt.\nDen andre ideen er **splitt og hersk**: del arrayet i to like store halvdeler,\nsorter hver halvdel for seg, og flett de to sorterte halvdelene sammen. Selve\narbeidet ligger i flettingen.\n\nFlettingen er lettere enn den ser ut. Har du to sorterte bunker foran deg, er\ndet minste elementet i unionen alltid det øverste i én av de to bunkene. Du\nsammenligner de to toppene, tar den minste, og gjentar."
+    },
+    {
+      "id": "tdt4120-2-1-thm-12",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `Merge`",
+      "content": "**Antagelser om representasjon.** Arrayet er `A[1..n]`, indeks fra 1.\nIndeksene tilfredsstiller `p <= q < r`. Rutinen bruker to hjelpearrayer `L` og\n`R`, og er derfor **ikke** på stedet.\n\n**Prebetingelse:** `A[p..q]` er sortert, og `A[q+1..r]` er sortert.\n**Postbetingelse:** `A[p..r]` er sortert og inneholder de samme elementene.\n\n```text\nMerge(A, p, q, r)\n  Input:  A[p..q] og A[q+1..r] er hver for seg sorterte\n  Output: A[p..r] sortert\n  kopier A[p..q] til L og A[q+1..r] til R\n  legg en vaktpost stoerre enn alle elementer bakerst i L og i R\n  i = 1\n  j = 1\n  for k = p to r\n      if L[i] <= R[j]\n          A[k] = L[i]\n          i = i + 1\n      else\n          A[k] = R[j]\n          j = j + 1\n  Kjoeretid: Theta(r - p + 1)\n```\n\n**Invarianten i én setning:** rett før hver runde med indeks `k` inneholder\n`A[p..k-1]` de $k-p$ minste elementene fra `L` og `R`, i sortert rekkefølge,\nog `L[i]` og `R[j]` er de minste elementene som ennå ikke er kopiert tilbake.\n\n**Merk `<=` og ikke `<` i testen.** Ved likhet plukkes elementet fra\n**venstre** bunke først. Det er den lille detaljen som gjør `Merge-Sort`\n**stabil**: like elementer beholder sin innbyrdes rekkefølge, fordi venstre\nbunke lå først i arrayet.\n\n**Kjøretid:** hver runde i for-løkka plasserer nøyaktig ett element, og det er\n$r-p+1$ elementer å plassere — altså $\\Theta(r-p+1)$, lineært i lengden på\ndelen som flettes."
+    },
+    {
+      "id": "tdt4120-2-1-fig-13",
+      "type": "image",
+      "src": "/images/textbook/tdt4120/merge-steget.svg",
+      "alt": "To sorterte bunker flettes til en. Venstre bunke inneholder 2, 5 og 9. Hoyre bunke inneholder 3, 4 og 11. Under staar utfallet 2, 3, 4, 5, 9, 11 med plassnummer 1 til 6. En note sier at hvert steg sammenligner ett element fra hver bunke og tar det minste, og at seks elementer ut koster seks plasseringer og fem sammenligninger.",
+      "caption": "Flettesteget fra Eksempel 2: de to sorterte halvdelene `2, 5, 9` og `3, 4, 11` blir til `2, 3, 4, 5, 9, 11`. Bare toppen av hver bunke er i spill om gangen."
+    },
+    {
+      "id": "tdt4120-2-1-eks-14",
+      "type": "example",
+      "title": "Eksempel 2: Flettesteget, sammenligning for sammenligning",
+      "problem": "To sorterte halvdeler skal flettes: venstre er `2, 5, 9`, høyre er\n`3, 4, 11`.\n\nUtfør `Merge` og oppgi hvilken sammenligning som gjøres i hvert steg, og hvor\nmange sammenligninger flettingen koster til sammen.",
+      "solution": "| Steg | Sammenligning | Plukket | `A` etter steget |\n|---|---|---|---|\n| 1 | 2 mot 3 | 2 (venstre) | `2` |\n| 2 | 5 mot 3 | 3 (høyre) | `2, 3` |\n| 3 | 5 mot 4 | 4 (høyre) | `2, 3, 4` |\n| 4 | 5 mot 11 | 5 (venstre) | `2, 3, 4, 5` |\n| 5 | 9 mot 11 | 9 (venstre) | `2, 3, 4, 5, 9` |\n| 6 | venstre bunke tom | 11 (høyre) | `2, 3, 4, 5, 9, 11` |\n\n**Sluttilstanden: `2, 3, 4, 5, 9, 11`.**\n\nSeks elementer ut, men bare **fem** sammenligninger: det siste steget trenger\ningen, fordi den ene bunken er tom og resten kan kopieres rett over. Generelt\nkoster fletting av $n$ elementer høyst $n-1$ sammenligninger og nøyaktig $n$\nplasseringer — begge deler $\\Theta(n)$.\n\nLegg merke til at ingen sammenligning noen gang involverer to elementer fra\nsamme bunke. De er allerede innbyrdes sortert, og den informasjonen kastes\nikke bort. Det er hele gevinsten ved splitt og hersk."
+    },
+    {
+      "id": "tdt4120-2-1-thm-15",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `Merge-Sort`",
+      "content": "**Antagelser om representasjon.** Arrayet er `A[1..n]`, indeks fra 1. Kallet\nutenfra er `Merge-Sort(A, 1, A.length)`. Rutinen krever hjelpeplass på\n$\\Theta(n)$ celler til flettingen, og går derfor **ikke** på stedet.\n\n**Prebetingelse:** `p <= r`, og `A[p..r]` inneholder elementene som skal\nsorteres.\n**Postbetingelse:** `A[p..r]` er sortert stigende.\n\n```text\nMerge-Sort(A, p, r)\n  Input:  array A[p..r]\n  Output: A[p..r] sortert stigende\n  if p < r\n      q = floor((p + r) / 2)\n      Merge-Sort(A, p, q)\n      Merge-Sort(A, q+1, r)\n      Merge(A, p, q, r)\n  Kjoeretid: Theta(n lg n)\n```\n\n**Grunnideen i én setning:** en del med ett element er sortert per definisjon,\nog to sorterte deler kan flettes til én sortert del i lineær tid — altså\nholder det å halvere seg ned til enkeltelementer og flette seg opp igjen.\n\n**Kjøretid:** delingen koster konstant tid, de to rekursive kallene er hver på\nhalvparten så stor input, og flettingen koster $\\Theta(n)$. Det gir\n\n$$T(n) = 2T(n/2) + \\Theta(n)$$\n\nHer er $a = 2$ og $b = 2$, så $n^{\\log_b a} = n^{\\log_2 2} = n^1$. Siden\n$f(n) = \\Theta(n) = \\Theta(n^{\\log_b a}\\lg^{0} n)$, treffer vi **tilfelle 2**\ni masterteoremet med $k = 0$, og svaret blir $T(n) = \\Theta(n^{1}\\lg^{1} n) = \\Theta(n\\lg n)$. Ingen input gjør den raskere, og ingen gjør den tregere:\ngrensen er tett begge veier."
+    },
+    {
+      "id": "tdt4120-2-1-tip-16",
+      "type": "tip",
+      "title": "Tilfelle 2 gjelder også når $k = 0$",
+      "content": "Det er lett å tro at logaritmefaktoren i tilfelle 2 må være der fra før for at\ntilfellet skal gjelde. Det må den ikke.\n\nPensumvarianten av tilfelle 2 er $f(n) = \\Theta(n^{\\log_b a}\\lg^{k} n)$ med\n**$k \\ge 0$** — ikke-negativ, altså. `Merge-Sort` har $k = 0$, og faller midt\ninne i tilfellet. Svaret får da nøyaktig én logaritmefaktor: $\\lg^{k+1} n = \\lg n$.\n\nDet dokumenterte unntaket går den andre veien: en rekurrens som svarer til\n**negativ** $k$, for eksempel $T(n) = 2T(n/2) + n/\\lg n$, faller utenfor\npensumvarianten. Se [kap. 1.4](/tdt4120/tdt4120-1-4)."
+    },
+    {
+      "id": "tdt4120-2-1-oppg-17",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-2-1-oppg-17-inner",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger B — rekurrensløsning med navngitt metode, altså at du\nsier hvilken metode du bruker og oppgir svaret på riktig form.)\n\nEn sorteringsrutine deler arrayet i **tre** like store deler, sorterer hver av\ndem rekursivt, og fletter de tre sorterte delene i lineær tid.\n\n**a)** Sett opp rekurrensen.\n**b)** Løs den, og navngi metoden.",
+        "solution": "**a)** $T(n) = 3T(n/3) + \\Theta(n)$.\n\n**b)** Masterteoremet. Med $a = 3$ og $b = 3$ er $n^{\\log_b a} = n^{\\log_3 3} = n$. Siden $f(n) = \\Theta(n) = \\Theta(n^{\\log_b a}\\lg^0 n)$, er vi i\n**tilfelle 2** med $k = 0$, og\n\n$$T(n) = \\Theta(n\\lg n)$$\n\nSamme svar som `Merge-Sort`. Å dele i tre i stedet for to endrer bare\nkonstanten, ikke veksten — noe som er verdt å huske neste gang noen foreslår\nen «raskere» variant som deler i flere biter.",
+        "hints": [
+          "Formen er $aT(n/b) + f(n)$. Les av $a$ og $b$ fra oppgaveteksten.",
+          "Regn ut $\\log_b a$ først, og sammenlign så $f(n)$ med $n^{\\log_b a}$."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-2-1-oppg-18",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-2-1-oppg-18-inner",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger F — «stemmer dette?», altså ja eller nei først og\nderetter én presis setning.)\n\nTa stilling til hver av påstandene:\n\n**a)** `Merge-Sort` sorterer på stedet.\n**b)** `Merge-Sort` er stabil.\n**c)** `Merge-Sort` er raskere på et allerede sortert array enn på et\ntilfeldig array.",
+        "solution": "**a)** **Nei.** Flettingen kopierer elementene ut i hjelpearrayer, og trenger\n$\\Theta(n)$ ekstra plass.\n\n**b)** **Ja.** Ved likhet plukker `Merge` fra venstre bunke først, og venstre\nbunke inneholder elementene som lå først i arrayet.\n\n**c)** **Nei.** Delingen og flettingen gjør nøyaktig like mye arbeid uansett\ninput; kjøretiden er $\\Theta(n\\lg n)$ i alle tilfeller. Det er\n`Insertion-Sort` som blir raskere på sortert input.",
+        "hints": [
+          "Se etter hvilke hjelpestrukturer `Merge` oppretter.",
+          "For punkt c: finnes det noen test i pseudokoden som kan avbryte arbeidet tidlig?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-2-1-t-19",
+      "type": "text",
+      "content": "## `Quicksort` og pivotens rolle (~13 min)\n\n`Merge-Sort` deler alltid midt på, og betaler for det med hjelpeplass.\n`Quicksort` snur det: den deler **etter verdi** i stedet for etter posisjon, og\nslipper dermed flettingen helt. Prisen er at delingen kan bli skjev.\n\nDelingen gjøres av `Partition`. Den velger et element som **pivot** — et\nskilleelement — og stokker om delen slik at alt som er mindre enn eller lik\npivoten havner til venstre for den, og alt som er større havner til høyre.\nEtterpå står pivoten på sin endelige plass, og de to sidene kan sorteres\nuavhengig. Mekanikken i `Partition` tas i detalj i\n[kap. 2.3](/tdt4120/tdt4120-2-3); her trenger du kontrakten."
+    },
+    {
+      "id": "tdt4120-2-1-def-20",
+      "type": "definition",
+      "title": "Pivot",
+      "content": "Et **pivot** er skilleelementet en partisjonering deler om.\n\nEtter `Partition(A, p, r)` står pivoten på en indeks `q` slik at alt i\n`A[p..q-1]` er mindre enn eller lik pivoten, og alt i `A[q+1..r]` er større.\nPivoten selv er da ferdig plassert og røres aldri igjen.\n\nI denne boka velger `Partition` **siste element** i delen som pivot, slik CLRS\ngjør. `Randomized-Partition` bytter først et tilfeldig element inn på siste\nplass, og kaller så `Partition`."
+    },
+    {
+      "id": "tdt4120-2-1-thm-21",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `Quicksort`",
+      "content": "**Antagelser om representasjon.** Arrayet er `A[1..n]`, indeks fra 1. Kallet\nutenfra er `Quicksort(A, 1, A.length)`. `Partition(A, p, r)` bruker siste\nelement `A[r]` som pivot og returnerer pivotens sluttindeks `q`. Sorteringen\ngår **på stedet**.\n\n**Prebetingelse:** `A[p..r]` inneholder elementene som skal sorteres.\n**Postbetingelse:** `A[p..r]` er sortert stigende.\n\n```text\nQuicksort(A, p, r)\n  Input:  array A[p..r]\n  Output: A[p..r] sortert stigende, paa stedet\n  if p < r\n      q = Partition(A, p, r)\n      Quicksort(A, p, q-1)\n      Quicksort(A, q+1, r)\n  Kjoeretid: Theta(n lg n) forventet, Theta(n^2) verste\n```\n\n**Grunnideen i én setning:** når pivoten står på sin endelige plass, er\nproblemet redusert til to uavhengige, mindre sorteringsproblemer — og ingen\nfletting trengs etterpå, fordi rekkefølgen mellom de to sidene allerede er\nriktig.\n\n**Kjøretid:** partisjoneringen av en del med $m$ elementer koster\n$\\Theta(m)$. Blir delingen jevn, får vi $T(n) = 2T(n/2) + \\Theta(n) = \\Theta(n\\lg n)$. Blir den maksimalt skjev — pivoten er alltid det største\neller minste elementet — får vi $T(n) = T(n-1) + \\Theta(n)$, som gir\n$\\Theta(n^2)$. Det verste tilfellet inntreffer nettopp på et **allerede\nsortert** array når pivoten er siste element."
+    },
+    {
+      "id": "tdt4120-2-1-eks-22",
+      "type": "example",
+      "title": "Eksempel 3: `Quicksort` kall for kall",
+      "problem": "Sju ordrenumre ligger i mottaksrekkefølge: `A = 26, 9, 41, 17, 33, 12, 22`\n(indeks fra 1).\n\nKjør `Quicksort(A, 1, 7)` med siste element som pivot. Oppgi arrayet etter\nhver partisjonering, og hvor dypt rekursjonen går.",
+      "solution": "Bare kall som faktisk partisjonerer er tatt med; kall på deler med null eller\nett element gjør ingenting.\n\n| Kall | Del | Pivot | `q` | Array etter partisjoneringen |\n|---|---|---|---|---|\n| `Quicksort(A, 1, 7)` | `A[1..7]` | 22 | 4 | `9, 17, 12, 22, 33, 41, 26` |\n| `Quicksort(A, 1, 3)` | `A[1..3]` | 12 | 2 | `9, 12, 17, 22, 33, 41, 26` |\n| `Quicksort(A, 5, 7)` | `A[5..7]` | 26 | 5 | `9, 12, 17, 22, 26, 41, 33` |\n| `Quicksort(A, 6, 7)` | `A[6..7]` | 33 | 6 | `9, 12, 17, 22, 26, 33, 41` |\n\n**Sluttilstanden: `9, 12, 17, 22, 26, 33, 41`.**\n\nDybden er 3: kallet på hele arrayet, deretter på `A[5..7]`, deretter på\n`A[6..7]`. Fire partisjoneringer til sammen på sju elementer.\n\n**Legg merke til den første delingen.** Pivoten 22 havnet på indeks 4, altså\nnesten midt på — det er den heldige varianten. Hadde arrayet vært\n`9, 12, 17, 22, 26, 33, 41` fra start, ville hver pivot vært det største\nelementet i sin del, hver deling ville skilt av nøyaktig ett element, og\ndybden ville blitt 6 i stedet for 3."
+    },
+    {
+      "id": "tdt4120-2-1-oppg-23",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-2-1-oppg-23-inner",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger E — kjøretidskunnskap.)\n\n**a)** Hva er verste-tilfelle-kjøretiden til `Quicksort` med siste element som\npivot, og på hvilken input oppstår den?\n**b)** Hva er kjøretiden i det vanlige tilfellet, og hvilket symbol hører til\ndet svaret?",
+        "solution": "**a)** $\\Theta(n^2)$, og den oppstår blant annet på et **allerede sortert**\narray: da er siste element størst i hver del, hver partisjonering skiller av\nnøyaktig ett element, og rekurrensen blir $T(n) = T(n-1) + \\Theta(n)$.\n\n**b)** $\\Theta(n\\lg n)$ **forventet**. Ordet «forventet» må stå: det er ikke\nen garanti, men et gjennomsnitt over inputene. Skriver du bare\n«$\\Theta(n\\lg n)$» uten forbeholdet, har du oppgitt en garanti algoritmen ikke\ngir.\n\nDet ironiske er verdt å merke seg: den inputen som ser mest ordnet ut, er den\nverste for denne pivotregelen.",
+        "hints": [
+          "Tenk på hva `Partition` gjør når pivoten er det største elementet i delen.",
+          "Skriv opp rekurrensen for den maksimalt skjeve delingen, og løs den."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-2-1-t-24",
+      "type": "text",
+      "content": "## `Randomized-Quicksort` (~6 min)\n\nProblemet med `Quicksort` er ikke at det finnes en dårlig input — det er at\nden dårlige inputen er *vanlig*. Sorterte og nesten sorterte data dukker opp\noveralt.\n\nLøsningen er å flytte tilfeldigheten fra inputen til algoritmen. I stedet for\nalltid å ta siste element som pivot, trekker `Randomized-Partition` et\ntilfeldig element i delen, bytter det til siste plass, og partisjonerer som\nfør."
+    },
+    {
+      "id": "tdt4120-2-1-thm-25",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `Randomized-Quicksort`",
+      "content": "**Antagelser om representasjon.** Som `Quicksort`: `A[1..n]`, indeks fra 1, på\nstedet. `Random(p, r)` returnerer et tilfeldig heltall i `[p, r]`, hvert like\nsannsynlig.\n\n**Prebetingelse:** `A[p..r]` inneholder elementene som skal sorteres.\n**Postbetingelse:** `A[p..r]` er sortert stigende. Resultatet er alltid\nriktig; det er bare kjøretiden som avhenger av de tilfeldige trekkene.\n\n```text\nRandomized-Partition(A, p, r)\n  Input:  array A[p..r]\n  Output: pivotens sluttindeks q\n  i = Random(p, r)\n  bytt A[i] og A[r]\n  return Partition(A, p, r)\n\nRandomized-Quicksort(A, p, r)\n  if p < r\n      q = Randomized-Partition(A, p, r)\n      Randomized-Quicksort(A, p, q-1)\n      Randomized-Quicksort(A, q+1, r)\n  Kjoeretid: Theta(n lg n) forventet, uansett input\n```\n\n**Grunnideen i én setning:** når pivoten trekkes tilfeldig, er sannsynligheten\nfor en rimelig jevn deling stor i hvert kall, og forventningen over alle\ntrekkene blir $\\Theta(n\\lg n)$ — uten at noen bestemt input kan framtvinge det\ndårlige tilfellet.\n\n**Kjøretid:** $\\Theta(n\\lg n)$ **forventet, for enhver input**. Verste\ntilfelle er fortsatt $\\Theta(n^2)$ — trekker du uheldig hver eneste gang, går\ndet like galt — men nå er «uheldig» et spørsmål om terningkast, ikke om hvem\nsom leverte dataene."
+    },
+    {
+      "id": "tdt4120-2-1-warn-26",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "De to første koster hele oppgaven.\n\n- **Å oppgi feil kjøretidsfakta.** Dette er felle **#9** — å bomme på et tall\n  som skal kunnes utenat. De to hyppigste er å påstå at `Insertion-Sort` har\n  $\\Omega(n\\lg n)$ i beste tilfelle (den er $\\Theta(n)$), og å oppgi\n  `Quicksort`s forventede kjøretid som svar på et spørsmål om verste tilfelle.\n  Kontrollen: les spørsmålet én gang til og finn ordet «beste», «verste» eller\n  «forventet».\n- **Å blande garantert og inputavhengig.** `Merge-Sort` er $\\Theta(n\\lg n)$\n  uansett; `Quicksort` er $\\Theta(n\\lg n)$ forventet. Ordet «forventet» er\n  ikke en høflighetsfrase — det er forskjellen mellom en garanti og et\n  gjennomsnitt.\n- **Å tro at `Merge-Sort` går på stedet.** Flettingen krever hjelpearrayer på\n  $\\Theta(n)$ celler. `Quicksort`, `Heapsort` og `Insertion-Sort` går på\n  stedet; `Merge-Sort` gjør det ikke.\n- **Å bruke $\\Omega(n\\lg n)$-grensen på alt.** Grensen gjelder **bare**\n  sorteringer som avgjør rekkefølgen ved å sammenligne elementer med\n  hverandre. [Kap. 2.2](/tdt4120/tdt4120-2-2) viser sorteringer som går i\n  lineær tid fordi de bruker nøkkelverdiene direkte.\n- **Å påstå at `Randomized-Quicksort` er garantert $\\Theta(n\\lg n)$.** Verste\n  tilfelle er fortsatt $\\Theta(n^2)$. Det som er nytt, er at ingen input kan\n  framtvinge det.\n\nOg den gjennomgående: **å oppgi $\\Theta$ der bare $O$ er vist**. Har du bare\nbegrunnet en øvre grense, skriv $O$."
+    },
+    {
+      "id": "tdt4120-2-1-t-27",
+      "type": "text",
+      "content": "## Den nedre grensen for sammenligningssortering (~10 min)\n\nAlle fire algoritmene over har det til felles at de bare stiller ett slags\nspørsmål om dataene: «er dette elementet mindre enn hint?» De kan flytte\nelementer rundt, men de kan aldri se på verdien og regne ut hvor den hører\nhjemme. Slike algoritmer kalles **sammenligningsbaserte**.\n\nDet setter en grense som ingen smartere idé kan komme under, og grensen er\nverdt å kunne argumentere for på tre linjer."
+    },
+    {
+      "id": "tdt4120-2-1-def-28",
+      "type": "definition",
+      "title": "Sammenligningsbasert sortering",
+      "content": "En sortering er **sammenligningsbasert** når den bare bruker sammenligninger\nmellom elementpar — «er $a_i \\le a_j$?» — til å avgjøre rekkefølgen.\n\n`Insertion-Sort`, `Merge-Sort`, `Quicksort` og `Heapsort` er alle\nsammenligningsbaserte. De vet ingenting om hva elementene *er*, bare hvordan\nde forholder seg til hverandre.\n\nSorteringene i [kap. 2.2](/tdt4120/tdt4120-2-2) er ikke sammenligningsbaserte:\nde bruker nøkkelverdien som en indeks, og er derfor ikke bundet av grensen\nunder."
+    },
+    {
+      "id": "tdt4120-2-1-thm-29",
+      "type": "theorem",
+      "title": "Nedre grense: $\\Omega(n\\lg n)$ for sammenligningssortering",
+      "content": "**Påstanden.** Enhver sammenligningsbasert sortering bruker $\\Omega(n\\lg n)$\nsammenligninger i verste tilfelle.\n\n**Argumentet, kort.** Kjøringen kan tegnes som et **beslutningstre**: hver\nindre node er én sammenligning, og de to grenene er de to svarene. Hver\nløvnode er én mulig utgangsrekkefølge av elementene.\n\nMed $n$ forskjellige elementer finnes $n!$ mulige rekkefølger, og algoritmen\nmå kunne ende opp i hver av dem — ellers finnes en input den sorterer feil.\nAltså har treet minst $n!$ løvnoder.\n\nEt binært tre med høyde $h$ har høyst $2^h$ løvnoder. Da må $2^h \\ge n!$,\naltså $h \\ge \\lg(n!)$. Og $\\lg(n!) = \\Theta(n\\lg n)$: minst halvparten av\nfaktorene i $n!$ er større enn $n/2$, så $n! \\ge (n/2)^{n/2}$, som gir\n$\\lg(n!) \\ge (n/2)\\lg(n/2) = \\Omega(n\\lg n)$.\n\n**Høyden er antall sammenligninger i verste tilfelle**, altså er den\n$\\Omega(n\\lg n)$.\n\n**Hva grensen ikke sier.** Den sier ingenting om sorteringer som ikke\nsammenligner, og den sier ingenting om beste tilfelle for en enkelt\nalgoritme. `Merge-Sort` og `Heapsort` **når** grensen, og er dermed\nasymptotisk optimale blant sammenligningssorteringene."
+    },
+    {
+      "id": "tdt4120-2-1-fig-30",
+      "type": "image",
+      "src": "/images/textbook/tdt4120/beslutningstre.svg",
+      "alt": "Et beslutningstre for sortering av tre elementer a, b og c. Rota er sammenligningen a mot b. Hver indre node er en ny sammenligning, og de seks lovnodene er de seks mulige rekkefolgene abc, acb, bac, bca, cab og cba. En note under sier at n elementer gir n fakultet lovnoder, at et binaert tre med saa mange lov maa ha hoyde minst lg av n fakultet, og at hoyden er antall sammenligninger i verste fall.",
+      "caption": "Beslutningstreet for tre elementer: seks mulige svar krever minst tre sammenligninger i verste fall. Det er den samme tellingen som gir $\\Omega(n\\lg n)$ for generell $n$."
+    },
+    {
+      "id": "tdt4120-2-1-oppg-31",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-2-1-oppg-31-inner",
+        "number": 6,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger F — «stemmer dette?».)\n\nEn kandidat skriver i besvarelsen sin: «Siden enhver sortering bruker minst\n$\\Omega(n\\lg n)$ tid, kan ingen sortering være lineær.»\n\nEr utsagnet riktig? Svar ja eller nei, og forklar kort.",
+        "solution": "**Nei.**\n\nGrensen gjelder bare **sammenligningsbaserte** sorteringer, altså de som\nutelukkende bruker sammenligninger mellom elementpar til å bestemme\nrekkefølgen. En sortering som bruker selve nøkkelverdien som indeks, faller\nutenfor argumentet — beslutningstreet finnes ikke, fordi valgene ikke er\nbinære sammenligninger.\n\n`Counting-Sort` er nettopp en slik, og den er $\\Theta(n+k)$ på heltallsnøkler\ni området $[0..k]$. Se [kap. 2.2](/tdt4120/tdt4120-2-2).",
+        "hints": [
+          "Se nøye på hvilken klasse av algoritmer beslutningstre-argumentet handler om.",
+          "Hvilken informasjon bruker en sortering som ikke sammenligner?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-2-1-oppg-32",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-2-1-oppg-32-inner",
+        "number": 7,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger E.)\n\nFyll ut tabellen for de fire algoritmene i dette kapitlet.\n\n| Algoritme | Beste | Verste | På stedet? | Stabil? |\n|---|---|---|---|---|\n| `Insertion-Sort` | | | | |\n| `Merge-Sort` | | | | |\n| `Quicksort` | | | | |\n| `Randomized-Quicksort` | | | | |",
+        "solution": "| Algoritme | Beste | Verste | På stedet? | Stabil? |\n|---|---|---|---|---|\n| `Insertion-Sort` | $\\Theta(n)$ | $\\Theta(n^2)$ | ja | ja |\n| `Merge-Sort` | $\\Theta(n\\lg n)$ | $\\Theta(n\\lg n)$ | nei | ja |\n| `Quicksort` | $\\Theta(n\\lg n)$ | $\\Theta(n^2)$ | ja | nei |\n| `Randomized-Quicksort` | $\\Theta(n\\lg n)$ | $\\Theta(n^2)$ | ja | nei |\n\nFor de to siste er $\\Theta(n\\lg n)$ **forventet**, ikke garantert — og for\n`Randomized-Quicksort` gjelder forventningen for enhver input.\n\n`Quicksort` er ikke stabil fordi `Partition` bytter elementer over lange\navstander, og to like nøkler kan bytte innbyrdes rekkefølge underveis.",
+        "hints": [
+          "Skill mellom «beste tilfelle» og «forventet» — de er ikke det samme.",
+          "Stabilitet henger sammen med om algoritmen flytter elementer forbi like elementer."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-2-1-oppg-33",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-2-1-oppg-33-inner",
+        "number": 8,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger F.)\n\nEn kollega foreslår å forbedre `Quicksort` slik: «Før vi partisjonerer,\nsjekker vi om delen allerede er sortert. Er den det, hopper vi over hele\nrekursjonen. Da blir verste tilfelle $\\Theta(n\\lg n)$.»\n\nStemmer konklusjonen? Svar ja eller nei, og begrunn.",
+        "solution": "**Nei.**\n\nSjekken fjerner riktignok det ene bestemte verste tilfellet — allerede sortert\ninput — men den koster $\\Theta(m)$ i hvert kall på en del med $m$ elementer,\nog den fanger ikke de andre skjeve inputene.\n\nEt motbevis: la arrayet være `1, 2, 3, ..., n-1` etterfulgt av et element som\ner mindre enn alle de andre. Delen er ikke sortert, så sjekken slår ikke inn.\nFørste partisjonering med siste element som pivot skiller av null elementer på\nvenstre side og $n-1$ på høyre. Resten av kjøringen møter samme situasjon om\nigjen, og rekurrensen blir $T(n) = T(n-1) + \\Theta(n) = \\Theta(n^2)$.\n\nRiktig grep er `Randomized-Quicksort`: den fjerner ikke det verste tilfellet,\nmen gjør at ingen input kan framtvinge det.",
+        "hints": [
+          "En sjekk som løser ett bestemt tilfelle, må testes mot de nabotilfellene den ikke dekker.",
+          "Konstruér en input som er nesten sortert, men ikke helt."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-2-1-oppg-34",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-2-1-oppg-34-inner",
+        "number": 9,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger H — åpen algoritmedesign, altså at du skisserer en\nalgoritme kort: hvilket kjent problem det er, hvilket paradigme du bruker,\nkonstruksjonen, hvordan du henter ut selve svaret, og kjøretiden.)\n\nEt laboratorium har $n$ prøverør med hver sin måleverdi. Du skal finne ut om\n**to** av rørene har nøyaktig samme verdi, og i så fall hvilke to.\n\nBeskriv en algoritme som bruker $\\Theta(n\\lg n)$ tid, og forklar hvorfor\nkjøretiden holder.",
+        "solution": "**Det klassiske problemet.** Dette er duplikatsøk i en mengde, og det løses\nved først å bringe like verdier ved siden av hverandre.\n\n**Paradigmet.** Sortering etterfulgt av ett lineært gjennomløp.\n\n**Konstruksjonen.** Sorter verdiene med `Merge-Sort`, men ta med rørets\nopprinnelige nummer som en merkelapp på hvert element, slik at du kan peke\ntilbake etterpå. Gå deretter gjennom det sorterte arrayet én gang og\nsammenlign hvert element med naboen til venstre.\n\n**Rekonstruksjon av selve svaret.** Finner du et par naboer med lik verdi, er\nmerkelappene deres de to rørnumrene du skal oppgi. Merkelappene følger\nelementene gjennom sorteringen, så oppslaget koster ingenting ekstra.\n\n**Kjøretid.** $\\Theta(n\\lg n)$ for sorteringen pluss $\\Theta(n)$ for\ngjennomløpet, altså $\\Theta(n\\lg n)$ til sammen.\n\nVelg `Merge-Sort` og ikke `Quicksort` her: kjøretiden skal være en garanti, og\n`Quicksort` gir bare en forventning.",
+        "hints": [
+          "Hvilken egenskap ved et sortert array gjør duplikater lette å oppdage?",
+          "Husk at oppgaven ber om *hvilke* to rør, ikke bare om det finnes et par."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-2-1-t-35",
+      "type": "text",
+      "content": "## Kjøretidene samlet\n\nDette er kapitlets puggeflate. Eksamen er hjelpemiddelfri, så tabellen må ligge\ni hodet.\n\n| Algoritme | Beste | Verste | Forventet | Krav / egenskap |\n|---|---|---|---|---|\n| `Insertion-Sort` | $\\Theta(n)$ | $\\Theta(n^2)$ | $\\Theta(n^2)$ | på stedet, stabil; beste tilfelle er ferdigsortert input |\n| `Merge-Sort` | $\\Theta(n\\lg n)$ | $\\Theta(n\\lg n)$ | $\\Theta(n\\lg n)$ | **ikke** på stedet ($\\Theta(n)$ hjelpeplass), stabil |\n| `Quicksort` | $\\Theta(n\\lg n)$ | $\\Theta(n^2)$ | $\\Theta(n\\lg n)$ | på stedet, ustabil; verste tilfelle på sortert input |\n| `Randomized-Quicksort` | $\\Theta(n\\lg n)$ | $\\Theta(n^2)$ | $\\Theta(n\\lg n)$ **for enhver input** | på stedet, ustabil |\n| `Merge` (ett flettesteg) | $\\Theta(m)$ | $\\Theta(m)$ | $\\Theta(m)$ | $m$ = antall elementer som flettes; krever to sorterte deler |\n| `Partition` (ett steg) | $\\Theta(m)$ | $\\Theta(m)$ | $\\Theta(m)$ | ett gjennomløp, på stedet |\n\n`Heapsort` hører også hjemme i denne oversikten: den er $\\Theta(n\\lg n)$\ngarantert, går på stedet og er **ustabil**. Haugstrukturen den bygger på, tas i\n[kap. 3.1](/tdt4120/tdt4120-3-1).\n\n**Én presisering som er verdt å ta med seg.** Ingen av de fire kan komme under\n$\\Omega(n\\lg n)$ i verste tilfelle, og `Merge-Sort` når grensen. Det betyr\nikke at `Merge-Sort` alltid er det beste valget i praksis — `Quicksort` har\nmindre konstanter og trenger ikke hjelpeplass — men på eksamen er det den\nasymptotiske garantien som teller."
+    },
+    {
+      "id": "tdt4120-2-1-t-36",
+      "type": "text",
+      "content": "### Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp\nhar lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet\ngjelder kjernestoffet."
+    },
+    {
+      "id": "tdt4120-2-1-def-37",
+      "type": "definition",
+      "title": "`Insertion-Sort`",
+      "content": "sorterer `A[1..n]` ved å ta ett element av gangen og skyve det bakover til sin\nplass i den allerede sorterte delen til venstre.\n\nKjøretid $\\Theta(n)$ beste (ferdigsortert input), $\\Theta(n^2)$ verste\n(synkende sortert input).\n\n**Går på stedet og er stabil.** Den eneste av de fire i dette kapitlet som\nfaktisk blir raskere når inputen er pen."
+    },
+    {
+      "id": "tdt4120-2-1-def-38",
+      "type": "definition",
+      "title": "`Merge`",
+      "content": "fletter to sorterte deler `A[p..q]` og `A[q+1..r]` til én sortert del ved å\nplukke det minste av de to fremste elementene om gangen.\n\nKjøretid $\\Theta(r-p+1)$, altså lineært i antallet elementer som flettes.\n\n**Krever at begge delene allerede er sortert.** Ved likhet plukkes fra venstre\ndel — det er det som gjør `Merge-Sort` stabil."
+    },
+    {
+      "id": "tdt4120-2-1-def-39",
+      "type": "definition",
+      "title": "`Merge-Sort`",
+      "content": "sorterer ved splitt og hersk: del i to like halvdeler, sorter hver rekursivt,\nflett resultatene.\n\nKjøretid $\\Theta(n\\lg n)$ i alle tilfeller — ingen input gjør den raskere eller\ntregere.\n\n**Ikke på stedet:** flettingen krever $\\Theta(n)$ hjelpeplass. Til gjengjeld er\nden stabil, og garantien er tett."
+    },
+    {
+      "id": "tdt4120-2-1-def-40",
+      "type": "definition",
+      "title": "`Partition`",
+      "content": "stokker `A[p..r]` om pivoten slik at alt mindre enn eller lik pivoten står til\nvenstre for den og alt større til høyre, og returnerer pivotens sluttindeks\n`q`.\n\nKjøretid $\\Theta(r-p+1)$ — ett gjennomløp, på stedet.\n\n**Pivoten er ferdig plassert etterpå** og røres aldri igjen. I denne boka er\npivoten siste element i delen."
+    },
+    {
+      "id": "tdt4120-2-1-def-41",
+      "type": "definition",
+      "title": "`Quicksort`",
+      "content": "partisjonerer `A[p..r]` om et pivot og sorterer de to sidene rekursivt. Ingen\nfletting trengs, fordi rekkefølgen mellom sidene allerede er riktig.\n\nKjøretid $\\Theta(n\\lg n)$ forventet, $\\Theta(n^2)$ verste.\n\n**Går på stedet, men er ustabil.** Verste tilfelle inntreffer på allerede\nsortert input når pivoten er siste element."
+    },
+    {
+      "id": "tdt4120-2-1-def-42",
+      "type": "definition",
+      "title": "`Randomized-Quicksort`",
+      "content": "samme algoritme, men pivoten trekkes tilfeldig i hvert kall før\npartisjoneringen.\n\nKjøretid $\\Theta(n\\lg n)$ **forventet for enhver input**; verste tilfelle er\nfortsatt $\\Theta(n^2)$.\n\n**Forskjellen er hvem som bestemmer.** Ingen input kan lenger framtvinge det\ndårlige tilfellet — det avhenger bare av terningkastene."
+    },
+    {
+      "id": "tdt4120-2-1-def-43",
+      "type": "definition",
+      "title": "Løkkeinvariant",
+      "content": "en påstand om tilstanden som gjelder rett før hver runde i en løkke, og som\nbrukes til å vise at algoritmen er riktig.\n\nHar tre ledd: initialisering, vedlikehold og terminering.\n\n**For `Insertion-Sort`:** rett før runde `j` er `A[1..j-1]` sortert og\ninneholder de samme elementene som fra start."
+    },
+    {
+      "id": "tdt4120-2-1-def-44",
+      "type": "definition",
+      "title": "På stedet (*in-place*)",
+      "content": "en algoritme går **på stedet** når den bare bruker et konstant antall\nhjelpevariabler utenom selve inputen — altså $O(1)$ ekstra plass.\n\n`Insertion-Sort`, `Quicksort` og `Heapsort` går på stedet; `Merge-Sort` gjør\ndet ikke.\n\n**Rekursjonsstakken telles vanligvis ikke med** i denne bokas bruk av\nbegrepet."
+    },
+    {
+      "id": "tdt4120-2-1-def-45",
+      "type": "definition",
+      "title": "Stabil sortering",
+      "content": "en sortering er **stabil** når to elementer med lik nøkkel beholder sin\ninnbyrdes rekkefølge fra input til output.\n\n`Insertion-Sort` og `Merge-Sort` er stabile; `Quicksort` og `Heapsort` er det\nikke.\n\n**Egenskapen er avgjørende** når du sorterer etter én nøkkel om gangen, slik\n`Radix-Sort` gjør. Se [kap. 2.2](/tdt4120/tdt4120-2-2)."
+    },
+    {
+      "id": "tdt4120-2-1-def-46",
+      "type": "definition",
+      "title": "Splitt og hersk",
+      "content": "designteknikken der problemet deles i mindre deler av **samme type**, delene\nløses rekursivt, og delløsningene settes sammen.\n\nKjøretiden blir en rekurrens på formen $T(n) = aT(n/b) + f(n)$, som løses med\nmasterteoremet.\n\n**Delproblemene overlapper ikke** — det er det som skiller teknikken fra\ndynamisk programmering."
+    },
+    {
+      "id": "tdt4120-2-1-def-47",
+      "type": "definition",
+      "title": "Beslutningstre for sortering",
+      "content": "en modell av en sammenligningsbasert sortering der hver indre node er én\nsammenligning og hver løvnode er én mulig utgangsrekkefølge.\n\nTreet må ha minst $n!$ løvnoder, og et binært tre med så mange løv har høyde\nminst $\\lg(n!) = \\Theta(n\\lg n)$.\n\n**Høyden er antall sammenligninger i verste tilfelle** — derav den nedre\ngrensen."
+    },
+    {
+      "id": "tdt4120-2-1-def-48",
+      "type": "definition",
+      "title": "$\\Omega(n\\lg n)$-grensen",
+      "content": "ingen sammenligningsbasert sortering kan bruke færre enn $\\Omega(n\\lg n)$\nsammenligninger i verste tilfelle.\n\nFølger av beslutningstre-argumentet.\n\n**Gjelder bare sammenligningsbaserte sorteringer**, og bare verste tilfelle.\n`Merge-Sort` og `Heapsort` når grensen og er dermed asymptotisk optimale i den\nklassen."
+    },
+    {
+      "id": "tdt4120-2-1-def-49",
+      "type": "definition",
+      "title": "Sammenligningsbasert sortering",
+      "content": "en sortering som bare bruker sammenligninger mellom elementpar til å avgjøre\nrekkefølgen, og som aldri regner på selve nøkkelverdien.\n\nDe fire algoritmene i dette kapitlet er alle sammenligningsbaserte, og det er\n`Heapsort` også.\n\n**Konsekvensen er $\\Omega(n\\lg n)$ i verste tilfelle.** Sorteringer som bruker\nnøkkelen som indeks, faller utenfor."
+    },
+    {
+      "id": "tdt4120-2-1-def-50",
+      "type": "definition",
+      "title": "Pivot",
+      "content": "skilleelementet en partisjonering deler om.\n\nEtter partisjoneringen står pivoten på sin endelige plass, med alt mindre eller\nlikt til venstre og alt større til høyre.\n\n**Pivotvalget avgjør kjøretiden.** Siste element som pivot gir $\\Theta(n^2)$ på\nsortert input; tilfeldig valgt pivot gir $\\Theta(n\\lg n)$ forventet uansett."
+    },
+    {
+      "id": "tdt4120-2-1-def-51",
+      "type": "definition",
+      "title": "Verste tilfelle",
+      "content": "den lengste kjøretiden over alle inputer av størrelse $n$.\n\nOppgis med $\\Theta$ når grensen er tett, og med $O$ når bare en øvre grense er\nvist.\n\n**Dette er standardsvaret** når en oppgave sier «kjøretid» uten å presisere\nnoe."
+    },
+    {
+      "id": "tdt4120-2-1-def-52",
+      "type": "definition",
+      "title": "Forventet kjøretid",
+      "content": "gjennomsnittet av kjøretiden over de tilfeldige valgene algoritmen selv gjør,\neller over en antatt fordeling av inputene.\n\n`Randomized-Quicksort` er $\\Theta(n\\lg n)$ forventet for enhver input.\n\n**Forventet er ikke garantert.** Ordet må stå i svaret; utelates det, har du\nlovet noe algoritmen ikke holder."
+    },
+    {
+      "id": "tdt4120-2-1-def-53",
+      "type": "definition",
+      "title": "Beste tilfelle",
+      "content": "den korteste kjøretiden over alle inputer av størrelse $n$.\n\nBare `Insertion-Sort` har et beste tilfelle som er asymptotisk bedre enn\nverste: $\\Theta(n)$ mot $\\Theta(n^2)$.\n\n**Felle #9 bor her:** å oppgi $\\Omega(n\\lg n)$ som beste tilfelle for\n`Insertion-Sort`. Riktig svar er $\\Theta(n)$."
+    },
+    {
+      "id": "tdt4120-2-1-def-54",
+      "type": "definition",
+      "title": "Rekurrensen $T(n) = 2T(n/2) + \\Theta(n)$",
+      "content": "`Merge-Sort`-rekurrensen: to halvdeler, hver av størrelse $n/2$, pluss lineært\narbeid til flettingen.\n\nLøses med masterteoremets tilfelle 2 ($k = 0$) og gir $\\Theta(n\\lg n)$.\n\n**Den samme rekurrensen** beskriver `Quicksort` når delingen er jevn."
+    },
+    {
+      "id": "tdt4120-2-1-def-55",
+      "type": "definition",
+      "title": "Rekurrensen $T(n) = T(n-1) + \\Theta(n)$",
+      "content": "`Quicksort`s verste tilfelle: hver partisjonering skiller av nøyaktig ett\nelement.\n\nLøses med iterasjon og gir $\\Theta(n^2)$, siden $n + (n-1) + \\dots + 1 = n(n+1)/2$.\n\n**Masterteoremet gjelder ikke her** — rekurrensen er ikke på formen\n$aT(n/b) + f(n)$."
+    },
+    {
+      "id": "tdt4120-2-1-def-56",
+      "type": "definition",
+      "title": "Vaktpost i `Merge`",
+      "content": "et hjelpeelement større enn alle virkelige elementer, lagt bakerst i begge\nhjelpearrayene.\n\nDet gjør at flettingen slipper å teste om en av bunkene er tom i hver runde —\nbunken med vaktposten taper alltid sammenligningen.\n\n**Ren forenkling av koden.** Kjøretiden blir den samme uten den."
+    },
+    {
+      "id": "tdt4120-2-1-def-57",
+      "type": "definition",
+      "title": "Sjanger E — kjøretidskunnskap",
+      "content": "oppgavetypen der du oppgir kjøretiden til en navngitt algoritme.\n\nSvarformen er ett uttrykk, i det strammeste som er riktig, med $\\Theta$ der\ngrensen er tett og $O$ der bare øvre grense er vist.\n\n**Les alltid om spørsmålet gjelder beste, verste eller forventet.** Det er der\npoengene faller."
+    },
+    {
+      "id": "tdt4120-2-1-def-58",
+      "type": "definition",
+      "title": "Sjanger C — håndkjøring",
+      "content": "oppgavetypen der du utfører en navngitt algoritme steg for steg på papir og\noppgir sluttilstanden.\n\nSvarformen er **kun sluttilstanden**, i det formatet oppgaven ber om.\n\n**Ingen ekstra uttelling for å forklare algoritmen.** Drillen ligger i\n[kap. 2.4](/tdt4120/tdt4120-2-4)."
+    },
+    {
+      "id": "tdt4120-2-1-def-59",
+      "type": "definition",
+      "title": "Sjanger F — «stemmer dette?»",
+      "content": "oppgavetypen der du får en påstand og skal ta stilling til den.\n\nSvarformen er **ja eller nei først**, deretter én presis setning som\nbegrunner.\n\n**Et motbevis er en fullgod begrunnelse** når svaret er nei — én konkret input\nder påstanden svikter, holder."
+    },
+    {
+      "id": "tdt4120-2-1-coll-61",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tdt4120-2-1-ct-60",
+          "type": "text",
+          "content": "Fem korte spørsmål fra kapitlene dette bygger på. Svar i hodet først, så\nsammenlign.\n\n**1.** Hva betyr $f(n) = O(g(n))$, og hvorfor står det likhetstegn der?\n\n*Svar:* at $f$ vokser høyst så fort som $g$, opp til en konstant faktor og for\nstore nok $n$. Likhetstegnet er CLRS-konvensjon og leses «tilhører mengden».\nSe [kap. 1.1](/tdt4120/tdt4120-1-1).\n\n**2.** Forenkle $3n^2 + 100n\\lg n + 5000$ til ett strammeste uttrykk.\n\n*Svar:* $\\Theta(n^2)$. Se [kap. 1.2](/tdt4120/tdt4120-1-2).\n\n**3.** Løs $T(n) = 2T(n/2) + n$ med masterteoremet, og oppgi tilfellet.\n\n*Svar:* $a=2$, $b=2$, $n^{\\log_b a} = n$, og $f(n) = \\Theta(n)$ — tilfelle 2\nmed $k = 0$, altså $T(n) = \\Theta(n\\lg n)$. Se\n[kap. 1.4](/tdt4120/tdt4120-1-4).\n\n**4.** Hvor mange nivåer har rekursjonstreet til $T(n) = 2T(n/2) + n$?\n\n*Svar:* $\\Theta(\\lg n)$ — hver halvering er ett nivå.\n\n**5.** Hva er forskjellen på $O(g)$ og $\\Theta(g)$?\n\n*Svar:* $O(g)$ er bare øvre grense; $\\Theta(g)$ er øvre og nedre samtidig.\nDerfor skriver vi $\\Theta(n\\lg n)$ for `Merge-Sort`, men bare «forventet\n$\\Theta(n\\lg n)$» for `Quicksort`.\n\n**Videre:** [kap. 2.2](/tdt4120/tdt4120-2-2) viser sorteringene som slipper\nunna $\\Omega(n\\lg n)$-grensen ved ikke å sammenligne i det hele tatt."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

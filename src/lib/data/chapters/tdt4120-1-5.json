@@ -1,0 +1,371 @@
+{
+  "id": "tdt4120-1-5",
+  "courseId": "tdt4120",
+  "chapterNumber": "1.5",
+  "title": "Rekurrenser — iterasjon, substitusjon og splitt-og-hersk",
+  "description": "Iterasjonsmetoden for **eksakte** svar, substitusjonsmetoden for induksjonsverifikasjon, og splitt-og-hersk-paradigmet (binærsøk) som gir rekurrensene.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "kunne løse en rekurrens med iterasjonsmetoden og oppgi et eksakt uttrykk, ikke en asymptotisk grense",
+    "kunne verifisere et gjettet svar med substitusjonsmetoden ved å føre induksjonssteget",
+    "kunne sette opp rekurrensen til en splitt-og-hersk-algoritme og si hvor mange nivåer rekursjonstreet har",
+    "kunne velge riktig metode ut fra hva oppgaven ber om, og navngi metoden i svaret"
+  ],
+  "content": [
+    {
+      "id": "tdt4120-1-5-tip-1",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Rekurrenser er registrert i 13 av de 17 settene i grunnlaget (76 %), og\nsplitt-og-hersk-analyse i 12 av 17 (71 %).** Grunnlaget er de 17 settene fra\naugust 2015 til august 2023 som er gjennomgått tema for tema — det er nevneren\nhver gang boka oppgir en prosent.\n\nSjangeren er den samme som i [kap. 1.4](/tdt4120/tdt4120-1-4):\n\n- **Sjanger B — rekurrensløsning med navngitt metode**, altså at du sier\n  hvilken metode du bruker og oppgir svaret på den formen oppgaven ber om. Det\n  siste er avgjørende: **iterasjon gir et eksakt uttrykk**, masterteoremet gir\n  en asymptotisk grense. Blander du de to formene, svarer du på feil spørsmål.\n\n**Høyeste prioritet — dette må sitte** for iterasjon og substitusjon.\nSplitt-og-hersk som designidé er ett hakk lavere: **bør sitte**.\n\n**Det du skal kunne skille mellom etter dette kapitlet:**\n\n| Oppgaven sier | Metode | Svarform |\n|---|---|---|\n| «finn et eksakt uttrykk» | iterasjon | et lukket uttrykk, for eksempel $n(n+1)/2$ |\n| «vis at $T(n) = O(\\dots)$» | substitusjon | induksjonssteget ført ferdig |\n| «løs rekurrensen» på $aT(n/b)+f(n)$-form | masterteoremet | $\\Theta(\\dots)$ med tilfellet oppgitt |\n| «hvor mange nivåer?» | rekursjonstreet | $\\Theta(\\log_b n)$ |\n\n**Slik er kapitlet lagt opp (55 min):**\n\n| Innhold | Tid |\n|---|---|\n| Iterasjonsmetoden og de eksakte svarene | ca. 18 min |\n| Substitusjonsmetoden | ca. 15 min |\n| Splitt og hersk, og binærsøk | ca. 16 min |\n| Antall nivåer, og hvilken metode når | ca. 6 min |"
+    },
+    {
+      "id": "tdt4120-1-5-t-2",
+      "type": "text",
+      "content": "## Forkunnskaper\n\n- [kap. 1.4](/tdt4120/tdt4120-1-4) — masterteoremet. Dette sto der: en rekurrens\n  på formen $T(n) = aT(n/b) + f(n)$ løses ved å sammenligne $f(n)$ med\n  $n^{\\log_b a}$, og tilfelle 2 gjelder når $f(n) = \\Theta(n^{\\log_b a}\\lg^k n)$\n  med $k \\ge 0$. Teoremet gir alltid et **asymptotisk** svar. Dette kapitlet\n  handler om de to metodene som tar over der teoremet ikke rekker.\n- [kap. 1.1](/tdt4120/tdt4120-1-1) — de asymptotiske symbolene, og at\n  $\\lg n = \\log_2 n$.\n\n**Summeformler** brukes i hvert eneste iterasjonssvar. Er de ustøe:\n[Rekker og summasjon](/r2/r2-1-4) for $1 + 2 + \\dots + n = n(n+1)/2$, og\n[Geometriske følger og rekker](/s2/s2-7-2) for\n$1 + 2 + 4 + \\dots + 2^{n-1} = 2^n - 1$.\n\n**Induksjon** er hele substitusjonsmetoden. Grundig gjennomgang:\n[Induksjonsbevis](/r2/r2-1-6). Mykere første møte:\n[Induksjon](/r1/r1-9-2).\n\nEr rekursjon som ferdighet fersk, er\n[Rekursjon — spore og skrive](/tdt4110/tdt4110-5-2) et godt sted å begynne, og\n[Søking: sekvensielt søk og binærsøk](/tdt4110/tdt4110-6-2) viser binærsøket i\nkode før vi analyserer det her."
+    },
+    {
+      "id": "tdt4120-1-5-coll-4",
+      "type": "collapsible",
+      "title": "Notasjons- og pseudokodeliste",
+      "buttonText": "Vis notasjon og pseudokode",
+      "content": [
+        {
+          "id": "tdt4120-1-5-ct-3",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et algoritmefag: den lister kjøretidsuttrykk og pseudokode-operasjoner i stedet for bare greske bokstaver.\n\n| Symbol | Betydning |\n|---|---|\n| $T(n)$ | kjøretiden, eller antall operasjoner, på input av størrelse $n$ |\n| $a$ | antall rekursive kall i en splitt-og-hersk-rekurrens |\n| $b$ | faktoren inputen krymper med i hvert kall |\n| $f(n)$ | arbeidet utenom de rekursive kallene |\n| $\\Theta(g(n))$ | tett grense: både øvre og nedre |\n| $O(g(n))$ | bare øvre grense |\n| $\\lg n$ | $\\log_2 n$ |\n| $\\log_b n$ | logaritmen til $n$ med grunntall $b$ |\n| $\\lfloor x \\rfloor$ | gulvfunksjonen: rund ned til nærmeste heltall |\n| $c$ | en positiv konstant, typisk den man gjetter på i substitusjonsmetoden |\n\n| Algoritme/operasjon | Kontrakt | Kjøretid |\n|---|---|---|\n| `Bisect(A, v)` | binærsøk i det sorterte arrayet `A[1..n]` etter verdien `v` | $\\Theta(\\lg n)$ verste |\n| `Merge-Sort(A, p, r)` | splitt-og-hersk-sortering: del i to, sorter hver del, flett | $\\Theta(n\\lg n)$ |\n| `Merge(A, p, q, r)` | kombinasjonssteget i `Merge-Sort` | $\\Theta(n)$ |\n\n**Formler i dette delkapitlet:**\n\n$$1 + 2 + 3 + \\dots + n = \\frac{n(n+1)}{2}$$\n\nDen aritmetiske summen. Dukker opp hver gang rekurrensen legger til $n$ i hvert steg.\n\n$$1 + 2 + 4 + \\dots + 2^{n-1} = 2^n - 1$$\n\nDen geometriske summen med kvotient 2. Dukker opp når arbeidet dobles nedover.\n\n$$1 + \\tfrac{1}{2} + \\tfrac{1}{4} + \\dots < 2$$\n\nDen geometriske summen med kvotient under 1 — den konvergerer, og derfor blir totalen lineær.\n\n$$T(n) = T(n/2) + \\Theta(1) \\;\\Rightarrow\\; T(n) = \\Theta(\\lg n)$$\n\nBinærsøkets rekurrens.\n\n$$\\text{antall nivåer} = \\Theta(\\log_b n)$$\n\nDybden i rekursjonstreet til $T(n) = aT(n/b) + f(n)$ — uavhengig av $a$.\n"
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-1-5-t-5",
+      "type": "text",
+      "content": "## Iterasjonsmetoden og de eksakte svarene (~18 min)\n\nMasterteoremet er raskt, men det kan bare to ting: kjenne igjen formen\n$aT(n/b) + f(n)$, og gi et asymptotisk svar. Kommer oppgaven med en rekurrens\nder størrelsen krymper ved **subtraksjon** — $T(n) = T(n-1) + \\text{noe}$ —\nfaller den utenfor. Og ber oppgaven om et **eksakt** uttrykk, er masterteoremet\nubrukelig uansett form.\n\nDa bruker du **iterasjonsmetoden**: du setter rekurrensen inn i seg selv\ngjentatte ganger, ser mønsteret, og summerer."
+    },
+    {
+      "id": "tdt4120-1-5-def-6",
+      "type": "definition",
+      "title": "Iterasjonsmetoden",
+      "content": "**Iterasjonsmetoden** løser en rekurrens ved å sette den inn i seg selv igjen\nog igjen, til mønsteret er tydelig, og deretter summere leddene.\n\nFramgangsmåten har fire steg: (1) skriv ut de tre–fire første innsettingene,\n(2) skriv opp det generelle leddet etter $i$ innsettinger, (3) finn hvilken $i$\nsom treffer grunntilfellet, og (4) summer.\n\n**Metoden gir et eksakt uttrykk**, ikke en asymptotisk grense — og det er\nnettopp derfor den etterspørres. Svarer du $\\Theta(n^2)$ der oppgaven ba om et\neksakt uttrykk, har du ikke svart på spørsmålet."
+    },
+    {
+      "id": "tdt4120-1-5-eks-7",
+      "type": "example",
+      "title": "Eksempel 1: Et eksakt uttrykk ved teleskopering",
+      "problem": "Løs $T(n) = T(n-1) + n$ med grunntilfellet $T(0) = 0$. Finn et **eksakt**\nuttrykk for $T(n)$.",
+      "solution": "**Steg 1 — sett inn i seg selv.**\n\n$$T(n) = T(n-1) + n$$\n$$T(n) = \\big(T(n-2) + (n-1)\\big) + n = T(n-2) + (n-1) + n$$\n$$T(n) = T(n-3) + (n-2) + (n-1) + n$$\n\n*Intuisjon:* hver innsetting flytter oss ett hakk nedover og etterlater ett\nledd på gulvet. Leddene som blir liggende igjen, er nettopp tallene $n$,\n$n-1$, $n-2$ og så videre.\n\n**Steg 2 — det generelle leddet.** Etter $i$ innsettinger:\n\n$$T(n) = T(n-i) + (n-i+1) + (n-i+2) + \\dots + n$$\n\n*Intuisjon:* argumentet er sunket med $i$, og vi har samlet opp de $i$ største\ntallene opp til $n$.\n\n**Steg 3 — treff grunntilfellet.** Vi vil ha $T(n-i) = T(0)$, altså $i = n$. Da\nblir\n\n$$T(n) = T(0) + 1 + 2 + \\dots + n = 0 + \\sum_{j=1}^{n} j$$\n\n*Intuisjon:* iterasjonen stopper når argumentet når bunnen. Er\ngrunntilfellet $T(0)=0$, bidrar det ingenting til summen.\n\n**Steg 4 — summer.**\n\n$$T(n) = \\frac{n(n+1)}{2}$$\n\n**Svaret oppgaven ber om:** $T(n) = \\dfrac{n(n+1)}{2}$.\n\nKontroll: $T(1) = 1$, $T(2) = 3$, $T(3) = 6$ — og rekurrensen gir\n$T(1) = T(0)+1 = 1$, $T(2) = 1+2 = 3$, $T(3) = 3+3 = 6$. Stemmer.\n\n**Merk hva som skjer hvis oppgaven i stedet ba om en asymptotisk grense.** Da\ner svaret $\\Theta(n^2)$, og det er en helt annen svarform. Les spørsmålet."
+    },
+    {
+      "id": "tdt4120-1-5-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-1-5-oppg-8-inner",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave, sjanger B — rekurrensløsning med navngitt metode, altså at du\nsier hvilken metode du bruker og oppgir svaret på riktig form.)\n\nLøs $T(n) = T(n-1) + 3$ med $T(0) = 5$. Finn et **eksakt** uttrykk.",
+        "solution": "**Metode:** iterasjon.\n\nHver innsetting legger til 3, og det skjer $n$ ganger før vi når $T(0)$:\n\n$$T(n) = T(0) + 3n = 3n + 5$$\n\n**Svar:** $T(n) = 3n + 5$.\n\nKontroll: $T(0) = 5$, $T(1) = 8$, $T(2) = 11$. Stemmer.\n\nMerk at grunntilfellet her **betyr noe**: hadde $T(0)$ vært 0, ville svaret\nvært $3n$. Ved eksakte svar er grunntilfellet en del av regnestykket.",
+        "hints": [
+          "Hvor mange ganger legges det til 3 før du treffer grunntilfellet?",
+          "Grunntilfellet er ikke null her — det må med i uttrykket."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-1-5-eks-9",
+      "type": "example",
+      "title": "Eksempel 2: Når arbeidet dobles nedover",
+      "problem": "Løs $T(n) = T(n-1) + 2^{n-1}$ med $T(0) = 0$. Finn et **eksakt** uttrykk.",
+      "solution": "**Steg 1 — sett inn.**\n\n$$T(n) = T(n-1) + 2^{n-1}$$\n$$T(n) = T(n-2) + 2^{n-2} + 2^{n-1}$$\n$$T(n) = T(n-3) + 2^{n-3} + 2^{n-2} + 2^{n-1}$$\n\n*Intuisjon:* leddene som blir liggende igjen, er potenser av 2 — og de\nhalveres for hvert hakk nedover.\n\n**Steg 2 — det generelle leddet.** Etter $i$ innsettinger:\n\n$$T(n) = T(n-i) + 2^{n-i} + 2^{n-i+1} + \\dots + 2^{n-1}$$\n\n**Steg 3 — treff grunntilfellet.** Med $i = n$ får vi $T(0) = 0$, og summen\nblir alle potensene fra $2^0$ til $2^{n-1}$.\n\n**Steg 4 — summer den geometriske rekken.**\n\n$$T(n) = \\sum_{j=0}^{n-1} 2^{j} = 2^n - 1$$\n\n*Intuisjon:* summen av alle potenser opp til $2^{n-1}$ er nøyaktig én mindre\nenn den neste potensen — det er den geometriske rekken med kvotient 2.\n\n**Svaret oppgaven ber om:** $T(n) = 2^n - 1$.\n\nKontroll: $T(1) = 1$, $T(2) = 3$, $T(3) = 7$, $T(4) = 15$. Rekurrensen gir\n$T(1) = 0 + 1 = 1$, $T(2) = 1 + 2 = 3$, $T(3) = 3 + 4 = 7$, $T(4) = 7+8 = 15$.\nStemmer.\n\nAsymptotisk er dette $\\Theta(2^n)$ — men det var ikke det oppgaven spurte om."
+    },
+    {
+      "id": "tdt4120-1-5-oppg-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-1-5-oppg-10-inner",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger B.)\n\nLøs $T(n) = 2T(n-1) + 1$ med $T(0) = 0$. Finn et **eksakt** uttrykk, og navngi\nmetoden.",
+        "solution": "**Metode:** iterasjon.\n\n$$T(n) = 2T(n-1) + 1 = 2\\big(2T(n-2)+1\\big) + 1 = 4T(n-2) + 2 + 1$$\n$$T(n) = 8T(n-3) + 4 + 2 + 1$$\n\nEtter $i$ innsettinger: $T(n) = 2^{i}T(n-i) + 2^{i-1} + \\dots + 2 + 1$.\n\nMed $i = n$: $T(n) = 2^n \\cdot 0 + (2^{n-1} + \\dots + 2 + 1) = 2^n - 1$.\n\n**Svar:** $T(n) = 2^n - 1$.\n\nKontroll: $T(1) = 1$, $T(2) = 3$, $T(3) = 7$. Stemmer.\n\nMerk at faktoren 2 foran $T$ gjør at koeffisienten dobles for hvert hakk —\ndet er derfor summen blir geometrisk her også, selv om det bare legges til 1\nper steg.",
+        "hints": [
+          "Skriv ut de tre første innsettingene og hold styr på faktoren foran $T$.",
+          "Summen $1 + 2 + 4 + \\dots + 2^{n-1}$ har et lukket uttrykk."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-1-5-oppg-11",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-1-5-oppg-11-inner",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger B.)\n\nEn rutine kaller seg selv på et array som er to elementer kortere, og gjør $n$\nenheter arbeid i hvert kall: $T(n) = T(n-2) + n$ for like $n$, med $T(0) = 0$.\n\nFinn et **eksakt** uttrykk for like $n$.",
+        "solution": "**Metode:** iterasjon.\n\nLeddene som blir liggende igjen er $n, n-2, n-4, \\dots, 2$ — altså alle like\ntall opp til $n$. Med $n = 2m$ er det\n\n$$T(n) = 2 + 4 + \\dots + 2m = 2(1 + 2 + \\dots + m) = 2\\cdot\\frac{m(m+1)}{2} = m(m+1)$$\n\nSett inn $m = n/2$:\n\n$$T(n) = \\frac{n}{2}\\left(\\frac{n}{2}+1\\right) = \\frac{n(n+2)}{4}$$\n\n**Svar:** $T(n) = \\dfrac{n(n+2)}{4}$ for like $n$.\n\nKontroll: $T(2) = 2$, $T(4) = 6$, $T(6) = 12$. Rekurrensen gir $T(2) = 0+2 = 2$,\n$T(4) = 2+4 = 6$, $T(6) = 6+6 = 12$. Stemmer.\n\nAsymptotisk er dette $\\Theta(n^2)$ — halvparten så mange ledd som i Eksempel 1,\nmen samme vekstklasse.",
+        "hints": [
+          "Skriv ned hvilke tall som blir liggende igjen som ledd, og se at det bare er annethvert.",
+          "Sett $n = 2m$ og bruk den aritmetiske summen på $m$."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-1-5-t-12",
+      "type": "text",
+      "content": "## Substitusjonsmetoden (~15 min)\n\nDen andre metoden svarer på et annet spørsmål. Iterasjon **finner** et svar;\nsubstitusjon **verifiserer** et svar du allerede har gjettet.\n\nDet høres bakvendt ut, men det er en fullverdig bevismetode — og det er den\noppgaven ber om når den sier «vis at $T(n) = O(n\\lg n)$»."
+    },
+    {
+      "id": "tdt4120-1-5-def-13",
+      "type": "definition",
+      "title": "Substitusjonsmetoden",
+      "content": "**Substitusjonsmetoden** løser en rekurrens i to trekk: gjett formen på\nsvaret, og bevis det ved **induksjon**.\n\nInduksjonsbeviset har to deler: **grunntilfellet** (påstanden holder for de\nminste $n$-ene, med en passende konstant), og **induksjonssteget** (antar du at\npåstanden holder for alle mindre argumenter, følger den for $n$).\n\n**Det er induksjonssteget som gir uttelling.** Å gjette riktig uten å føre\nsteget, er et halvt svar."
+    },
+    {
+      "id": "tdt4120-1-5-thm-14",
+      "type": "theorem",
+      "title": "Induksjonssteget, ledd for ledd",
+      "content": "**Påstanden vi vil vise:** $T(n) \\le c\\,n\\lg n$ for en konstant $c > 0$ og\nalle $n \\ge n_0$, gitt rekurrensen $T(n) = 2T(n/2) + n$.\n\n**Induksjonshypotesen:** anta at påstanden holder for alle argumenter mindre\nenn $n$, spesielt for $n/2$:\n\n$$T(n/2) \\le c\\,\\frac{n}{2}\\lg\\frac{n}{2}$$\n\n**Steget:**\n\n$$T(n) = 2T(n/2) + n \\le 2c\\,\\frac{n}{2}\\lg\\frac{n}{2} + n = c\\,n\\lg\\frac{n}{2} + n$$\n\n*Intuisjon:* vi har byttet ut det vi ikke kjenner, $T(n/2)$, med det\nhypotesen lover om det. Det er hele trikset.\n\n$$= c\\,n(\\lg n - \\lg 2) + n = c\\,n\\lg n - c\\,n + n$$\n\n*Intuisjon:* logaritmeregelen $\\lg(n/2) = \\lg n - 1$ gjør at det faller ut et\nhelt ledd $-c\\,n$. Det leddet er reserven vår.\n\n$$\\le c\\,n\\lg n \\quad\\text{når}\\quad -c\\,n + n \\le 0, \\text{ altså når } c \\ge 1$$\n\n*Intuisjon:* vi er i mål så snart reserven $c\\,n$ er minst like stor som det\nekstra arbeidet $n$ på dette nivået.\n\n**Grunntilfellet:** for $n = 2$ er $T(2) = 2T(1) + 2$. Med $T(1)$ konstant kan\nvi velge $c$ stor nok til at $T(2) \\le c\\cdot 2\\lg 2 = 2c$. Merk at $n = 1$\nikke duger som grunntilfelle: $c\\cdot 1 \\cdot \\lg 1 = 0$, og $T(1) > 0$.\n\n**Konklusjon:** $T(n) = O(n\\lg n)$.\n\n**Numerisk kontroll:** for $c = 2$ og $T(1) = 1$ er $T(n) \\le 2n\\lg n$ for alle\n$n$ fra 2 til 4999 — sjekket ved å regne ut begge sider."
+    },
+    {
+      "id": "tdt4120-1-5-oppg-15",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-1-5-oppg-15-inner",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger B.)\n\nVis ved substitusjon at $T(n) = T(n-1) + n$ gir $T(n) = O(n^2)$.\n\nFør induksjonssteget ferdig.",
+        "solution": "**Metode:** substitusjon.\n\n**Påstand:** $T(n) \\le c\\,n^2$ for en konstant $c > 0$ og alle $n \\ge 1$.\n\n**Induksjonshypotese:** $T(n-1) \\le c(n-1)^2$.\n\n**Steget:**\n\n$$T(n) = T(n-1) + n \\le c(n-1)^2 + n = c(n^2 - 2n + 1) + n$$\n$$= c\\,n^2 - 2cn + c + n = c\\,n^2 - (2c-1)n + c$$\n\nDette er $\\le c\\,n^2$ så snart $(2c-1)n \\ge c$, altså for eksempel for\n$c = 1$ og alle $n \\ge 1$.\n\n**Grunntilfelle:** $T(1) = T(0) + 1$, som er en konstant, og med $c$ stor nok\ner $T(1) \\le c\\cdot 1^2$.\n\n**Konklusjon:** $T(n) = O(n^2)$.\n\nMerk at vi her viste en **øvre** grense, altså $O$. Fra Eksempel 1 vet vi at\ndet eksakte svaret er $n(n+1)/2$, som gjør grensen tett — men det er en annen\npåstand, og den krever et eget argument.",
+        "hints": [
+          "Sett inn hypotesen $T(n-1) \\le c(n-1)^2$ i rekurrensen og gang ut.",
+          "Samle leddene og finn betingelsen på $c$ som gjør at resten er $\\le 0$."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-1-5-oppg-16",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-1-5-oppg-16-inner",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger B, med en felle.)\n\nEn kandidat vil vise at $T(n) = 2T(n/2) + n$ gir $T(n) = O(n)$, og skriver:\n\n«Anta $T(n/2) \\le c\\,(n/2)$. Da er $T(n) \\le 2c(n/2) + n = cn + n = O(n)$.»\n\nEr beviset gyldig? Svar ja eller nei, og forklar nøyaktig hvor det svikter.",
+        "solution": "**Nei.**\n\nFeilen ligger i det siste steget. Induksjonen krever at vi ender opp med\n**nøyaktig** $c\\,n$, altså den samme formen vi antok — ikke $cn + n$. Skrivemåten\n«$= O(n)$» skjuler at konstanten har vokst med $n$ i hvert nivå, og etter\n$\\lg n$ nivåer er den ikke lenger en konstant.\n\nAt påstanden i tillegg er **gal**, ser du av masterteoremet: $a = b = 2$ gir\n$n^{\\log_b a} = n$, og $f(n) = \\Theta(n)$ treffer tilfelle 2 med $k = 0$, altså\n$T(n) = \\Theta(n\\lg n)$. En $O(n)$-grense finnes ikke.\n\n**Regelen:** i substitusjonsmetoden må induksjonssteget ende på den eksakte\nformen du antok. Blir det et restledd du ikke får bort, er gjetningen for\noptimistisk.",
+        "hints": [
+          "Sammenlign formen på det du antok med formen på det du endte opp med.",
+          "Prøv å løse rekurrensen med masterteoremet og se om påstanden i det hele tatt kan stemme."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-1-5-t-17",
+      "type": "text",
+      "content": "## Splitt og hersk, og binærsøk (~16 min)\n\nRekurrensene kommer ikke fra ingenting. De kommer fra en bestemt måte å bygge\nalgoritmer på, og den er verdt å ha et navn på."
+    },
+    {
+      "id": "tdt4120-1-5-def-18",
+      "type": "definition",
+      "title": "Splitt og hersk",
+      "content": "**Splitt og hersk** er designteknikken der problemet deles i mindre deler av\n**samme type**, delene løses rekursivt, og delløsningene settes sammen til et\nsvar på det opprinnelige problemet.\n\nDe tre stegene heter **del**, **hersk** og **kombiner**. Kjøretiden blir en\nrekurrens $T(n) = aT(n/b) + f(n)$, der $a$ er antall delkall, $b$ er hvor mye\ninputen krymper, og $f(n)$ er del- og kombinasjonsarbeidet.\n\n**Delproblemene overlapper ikke** — hvert delproblem løses nøyaktig én gang.\nDet er dette som skiller teknikken fra dynamisk programmering, der de samme\ndelproblemene dukker opp igjen og igjen."
+    },
+    {
+      "id": "tdt4120-1-5-thm-19",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `Bisect`",
+      "content": "**Antagelser om representasjon.** Arrayet er `A[1..n]`, indeks fra 1, og det er\n**sortert stigende**. Rutinen er skrevet iterativt med to grenser `lo` og `hi`;\nden rekursive varianten gjør nøyaktig det samme.\n\n**Prebetingelse:** `A[1..n]` er sortert.\n**Postbetingelse:** rutinen returnerer en indeks `i` med `A[i] = v` hvis `v`\nfinnes i arrayet, og `NIL` ellers.\n\n```text\nBisect(A, v)\n  Input:  sortert array A[1..n] og en verdi v\n  Output: en indeks i med A[i] = v, ellers NIL\n  lo = 1\n  hi = A.length\n  while lo <= hi\n      mid = floor((lo + hi) / 2)\n      if A[mid] == v\n          return mid\n      else if A[mid] < v\n          lo = mid + 1\n      else\n          hi = mid - 1\n  return NIL\n  Kjoeretid: Theta(lg n) verste\n```\n\n**Invarianten i én setning:** hvis `v` finnes i arrayet, ligger den i\n`A[lo..hi]`.\n\n**Kjøretid:** hver runde halverer intervallet, og arbeidet per runde er\nkonstant, altså\n\n$$T(n) = T(n/2) + \\Theta(1) \\;\\Rightarrow\\; T(n) = \\Theta(\\lg n)$$\n\nHer er $a = 1$ og $b = 2$, så $n^{\\log_2 1} = n^0 = 1$, og $f(n) = \\Theta(1) = \\Theta(n^0\\lg^0 n)$ treffer **tilfelle 2 med $k = 0$**. Svaret blir\n$\\Theta(\\lg^1 n) = \\Theta(\\lg n)$.\n\n**Numerisk kontroll:** verste antall runder er nøyaktig\n$\\lfloor \\lg n\\rfloor + 1$ — kontrollert for alle $n$ fra 1 til 1999 ved å\nregne ut den dypeste stien i søket.\n\n**Legg merke til at bare ÉN av de to halvdelene besøkes.** Det er derfor\n$a = 1$, og det er derfor binærsøk er logaritmisk mens `Merge-Sort`, som må\ninn i begge halvdelene, er $\\Theta(n\\lg n)$."
+    },
+    {
+      "id": "tdt4120-1-5-eks-20",
+      "type": "example",
+      "title": "Eksempel 3: Tre splitt-og-hersk-algoritmer, tre rekurrenser",
+      "problem": "For hver av de tre: sett opp rekurrensen og løs den. Oppgi metoden.\n\n**a)** Binærsøk i et sortert array: én halvdel besøkes, konstant arbeid per\nnivå.\n**b)** `Merge-Sort`: begge halvdelene besøkes, lineær fletting.\n**c)** En rutine som deler inputen i fire like deler, løser alle fire\nrekursivt, og bruker lineær tid på å sette sammen.",
+      "solution": "**a)** $T(n) = T(n/2) + \\Theta(1)$.\n\nMetode: masterteoremet. $a = 1$, $b = 2$, $n^{\\log_2 1} = 1$, og\n$f(n) = \\Theta(1)$ — tilfelle 2 med $k = 0$.\n\n$$T(n) = \\Theta(\\lg n)$$\n\n**b)** $T(n) = 2T(n/2) + \\Theta(n)$.\n\nMetode: masterteoremet. $a = 2$, $b = 2$, $n^{\\log_2 2} = n$, og\n$f(n) = \\Theta(n)$ — tilfelle 2 med $k = 0$.\n\n$$T(n) = \\Theta(n\\lg n)$$\n\n**c)** $T(n) = 4T(n/4) + \\Theta(n)$.\n\nMetode: masterteoremet. $a = 4$, $b = 4$, $n^{\\log_4 4} = n$, og\n$f(n) = \\Theta(n)$ — tilfelle 2 med $k = 0$.\n\n$$T(n) = \\Theta(n\\lg n)$$\n\n**Det som er verdt å legge merke til:** b) og c) gir samme svar. Å dele i fire\ni stedet for to endrer bare konstanten, ikke veksten. Det som *virkelig*\nskiller a) fra de to andre, er at a) besøker **én** del i stedet for alle — og\ndet ser du på $a$, ikke på $b$.\n\n**Svarformen på eksamen:** rekurrensen, metodenavnet, tilfellet og svaret. Fire\nkorte linjer per deloppgave."
+    },
+    {
+      "id": "tdt4120-1-5-oppg-21",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-1-5-oppg-21-inner",
+        "number": 6,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger B.)\n\nEn rutine deler inputen i to halvdeler, går rekursivt inn i **begge**, og\nbruker $\\Theta(n^2)$ på å kombinere.\n\n**a)** Sett opp rekurrensen.\n**b)** Løs den med masterteoremet, og oppgi tilfellet.",
+        "solution": "**a)** $T(n) = 2T(n/2) + \\Theta(n^2)$.\n\n**b)** $a = 2$, $b = 2$, altså $n^{\\log_2 2} = n$. Her vokser\n$f(n) = \\Theta(n^2)$ strengt raskere enn $n$ — vi har\n$f(n) = \\Omega(n^{1+\\varepsilon})$ med $\\varepsilon = 1$ — så vi er i\n**tilfelle 3**.\n\nRegularitetsbetingelsen: $2f(n/2) = 2(n/2)^2 = n^2/2 \\le c\\,n^2$ for\n$c = 1/2 < 1$. Den holder.\n\n$$T(n) = \\Theta(n^2)$$\n\nKombinasjonssteget dominerer så kraftig at rekursjonen ikke betyr noe\nasymptotisk.",
+        "hints": [
+          "Les av $a$ og $b$ fra beskrivelsen, og sammenlign $f(n)$ med $n^{\\log_b a}$.",
+          "I tilfelle 3 må regularitetsbetingelsen sjekkes — skriv den ut på én linje."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-1-5-oppg-22",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-1-5-oppg-22-inner",
+        "number": 7,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger H — åpen algoritmedesign, altså at du skisserer en\nalgoritme kort: hvilket kjent problem det er, hvilket paradigme du bruker,\nkonstruksjonen, hvordan du henter ut selve svaret, og kjøretiden.)\n\nEt sortert array `A[1..n]` inneholder $n$ **forskjellige** heltall, som kan\nvære både negative og positive. Du skal avgjøre om det finnes en indeks $i$\nmed `A[i] = i`, og i så fall oppgi en slik indeks.\n\nBeskriv en algoritme som bruker $O(\\lg n)$ tid.",
+        "solution": "**Det klassiske problemet.** Dette er et søk i et sortert materiale, og løses\nmed binærsøk — ikke etter en verdi, men etter et **fortegnsskifte**.\n\n**Paradigmet.** Splitt og hersk, i den varianten der bare én halvdel besøkes.\n\n**Konstruksjonen.** Se på hjelpefunksjonen $g(i) =$ `A[i]` $- i$. Siden\ntallene i `A` er forskjellige heltall i stigende rekkefølge, vokser `A[i]` med\nminst 1 for hvert steg, mens $i$ vokser med nøyaktig 1. Altså er $g$\n**ikke-synkende**. Vi leter etter en $i$ med $g(i) = 0$, og en ikke-synkende\nfunksjon kan søkes binært: er $g(\\text{mid}) < 0$, må svaret ligge til høyre;\ner det $> 0$, må det ligge til venstre.\n\n**Rekonstruksjon av selve svaret.** Treffer søket $g(\\text{mid}) = 0$,\nreturnerer du `mid` — det er indeksen oppgaven ber om, ikke bare et ja. Stopper\nsøket uten treff, finnes ingen slik indeks.\n\n**Kjøretid.** $T(n) = T(n/2) + \\Theta(1) = \\Theta(\\lg n)$, altså $O(\\lg n)$\nsom krevd.\n\n**Merk forutsetningen.** Kravet om at tallene er **forskjellige** er det som\ngjør $g$ ikke-synkende. Med gjentakelser tillatt kan $g$ gå både opp og ned, og\nbinærsøk virker ikke lenger — da må du gjennom hele arrayet, i $\\Theta(n)$.",
+        "hints": [
+          "Se på differansen mellom elementets verdi og dens indeks. Hvordan oppfører den seg langs arrayet?",
+          "Hvilken egenskap ved en funksjon gjør at du kan søke binært i den?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-1-5-t-23",
+      "type": "text",
+      "content": "## Antall nivåer, og hvilken metode når (~6 min)\n\nEt fast delspørsmål er «hvor mange nivåer har rekursjonstreet?» — eller, i\nnoen formuleringer, «hvor mange ganger kalles rutinen på hverandre før den\nstopper?»"
+    },
+    {
+      "id": "tdt4120-1-5-def-24",
+      "type": "definition",
+      "title": "Antall nivåer i rekursjonstreet",
+      "content": "Dybden i rekursjonstreet til $T(n) = aT(n/b) + f(n)$ er $\\Theta(\\log_b n)$:\ndet er hvor mange ganger $n$ kan deles på $b$ før du er nede på en konstant.\n\nTallet avhenger **bare av $b$**, ikke av $a$. Antall delkall $a$ styrer hvor\nbredt treet blir — antall løvnoder er $n^{\\log_b a}$ — men ikke hvor dypt.\n\n**For rekurrenser som krymper ved subtraksjon** er dybden i stedet\n$\\Theta(n)$: $T(n) = T(n-1) + f(n)$ trenger $n$ nivåer for å komme ned."
+    },
+    {
+      "id": "tdt4120-1-5-oppg-25",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-1-5-oppg-25-inner",
+        "number": 8,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger B.)\n\nFor hver rekurrens: hvor mange nivåer har rekursjonstreet, og hvilken metode\nville du valgt for å løse den?\n\n**a)** $T(n) = 3T(n/3) + n$\n**b)** $T(n) = T(n-1) + \\lg n$\n**c)** $T(n) = 2T(n/4) + 1$",
+        "solution": "**a)** Dybde $\\Theta(\\log_3 n) = \\Theta(\\lg n)$. Metode: masterteoremet.\n($a = b = 3$ gir $n^{\\log_3 3} = n$, og $f(n) = \\Theta(n)$ — tilfelle 2 med\n$k = 0$, altså $\\Theta(n\\lg n)$.)\n\n**b)** Dybde $\\Theta(n)$ — argumentet krymper med 1 om gangen. Metode:\niterasjon, eventuelt substitusjon hvis en grense skal verifiseres.\nMasterteoremet gjelder **ikke**, siden formen ikke er $aT(n/b) + f(n)$.\n\n**c)** Dybde $\\Theta(\\log_4 n) = \\Theta(\\lg n)$. Metode: masterteoremet.\n($n^{\\log_4 2} = n^{1/2} = \\sqrt{n}$, og $f(n) = \\Theta(1)$ vokser strengt\nlangsommere — tilfelle 1, altså $\\Theta(\\sqrt{n})$.)\n\nLegg merke til at logaritmer med ulikt grunntall skiller seg med bare en\nkonstant faktor, så $\\Theta(\\log_3 n)$, $\\Theta(\\log_4 n)$ og $\\Theta(\\lg n)$\ner samme klasse.",
+        "hints": [
+          "Dybden avhenger av hvor mye argumentet krymper i hvert steg, ikke av hvor mange kall som gjøres.",
+          "Masterteoremet krever formen $aT(n/b) + f(n)$ med $b > 1$."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-1-5-warn-26",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "Den første koster hele oppgaven.\n\n- **Å oppgi en asymptotisk grense der oppgaven ber om et eksakt svar.** Ber\n  oppgaven om «et eksakt uttrykk», er $\\Theta(n^2)$ feil svar selv om det er\n  sant. Riktig er $n(n+1)/2$. Motsatt: ber den om en asymptotisk grense, skal\n  du ikke bruke plass på det eksakte uttrykket.\n- **Å teleskopere med feil grunntilfelle.** Iterasjonen stopper når argumentet\n  treffer grunntilfellet, og grunntilfellets verdi skal med i det eksakte\n  uttrykket. Med $T(0) = 5$ i stedet for $T(0) = 0$ blir svaret et annet.\n- **Å gjette riktig i substitusjon uten å føre induksjonssteget.** Gjetningen\n  er ikke beviset. Uttellingen ligger i steget der hypotesen settes inn og\n  restleddet håndteres.\n- **Å ende induksjonssteget på feil form.** Kommer du fram til $cn + n$ når du\n  antok $cn$, har du **ikke** vist påstanden — konstanten har vokst. Dette er\n  den vanligste substitusjonsfeilen.\n- **Å bruke masterteoremet der formen ikke passer.** $T(n) = T(n-1) + n$ er\n  ikke på formen $aT(n/b) + f(n)$. Å si høyt at teoremet ikke gjelder, gir\n  uttelling; å tvinge det på, gir et svar som ser riktig ut og er galt. Dette\n  er felle **#5** — feil bruk av masterteoremet.\n- **Å tro at splitt-og-hersk-delproblemer overlapper.** De gjør ikke det. Hvert\n  delproblem løses nøyaktig én gang, og derfor hjelper det ikke å lagre svar.\n  Overlappende delproblemer er kjennetegnet på dynamisk programmering.\n\nOg den gjennomgående: **å ikke navngi metoden**. Sjanger B ber eksplisitt om\nmetoden, og navnet er ett ord."
+    },
+    {
+      "id": "tdt4120-1-5-t-27",
+      "type": "text",
+      "content": "## Metodevalget samlet\n\n| Rekurrensens form | Oppgaven ber om | Metode | Svarform |\n|---|---|---|---|\n| $aT(n/b) + f(n)$ | asymptotisk grense | masterteoremet | $\\Theta(\\dots)$ + tilfellet |\n| $T(n-c) + f(n)$ | asymptotisk eller eksakt | iterasjon | lukket uttrykk, evt. $\\Theta(\\dots)$ |\n| hvilken som helst | «finn et **eksakt** uttrykk» | iterasjon | lukket uttrykk |\n| hvilken som helst | «**vis at** $T(n) = O(g)$» | substitusjon | induksjonssteget ført ferdig |\n| hvilken som helst | «hvor mange nivåer?» | rekursjonstreet | $\\Theta(\\log_b n)$ eller $\\Theta(n)$ |\n\nDe faste summene du trenger:\n\n$$1 + 2 + \\dots + n = \\frac{n(n+1)}{2}, \\qquad\n1 + 2 + 4 + \\dots + 2^{n-1} = 2^n - 1$$\n\n$$1 + \\frac{1}{2} + \\frac{1}{4} + \\dots + \\frac{1}{2^{n}} < 2$$\n\nDen siste er grunnen til at $T(n) = T(n/2) + \\Theta(n)$ blir $\\Theta(n)$ og\nikke $\\Theta(n\\lg n)$: arbeidet halveres nedover, og summen konvergerer."
+    },
+    {
+      "id": "tdt4120-1-5-t-28",
+      "type": "text",
+      "content": "### Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp\nhar lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet\ngjelder kjernestoffet."
+    },
+    {
+      "id": "tdt4120-1-5-def-29",
+      "type": "definition",
+      "title": "Iterasjonsmetoden",
+      "content": "løser en rekurrens ved gjentatt innsetting i seg selv, til mønsteret er\ntydelig, og summerer så leddene.\n\nGir et **eksakt** uttrykk, ikke en asymptotisk grense.\n\n**Krever at grunntilfellet tas med** — det er en del av det eksakte svaret."
+    },
+    {
+      "id": "tdt4120-1-5-def-30",
+      "type": "definition",
+      "title": "Teleskopering",
+      "content": "navnet på at leddene i en iterasjon legger seg på rad slik at summen kan skrives\ni lukket form.\n\n$T(n) = T(n-1) + n$ teleskoperer til $1 + 2 + \\dots + n$.\n\n**Kjenn igjen summen** — er det den aritmetiske eller den geometriske? Det er\ndet eneste regnetrikset metoden krever."
+    },
+    {
+      "id": "tdt4120-1-5-def-31",
+      "type": "definition",
+      "title": "Substitusjonsmetoden",
+      "content": "gjett svaret, og bevis det ved induksjon.\n\nBestår av grunntilfelle og induksjonssteg; det er steget som gir uttelling.\n\n**Induksjonssteget må ende på nøyaktig den formen du antok.** Blir det et\nrestledd igjen, er gjetningen for optimistisk."
+    },
+    {
+      "id": "tdt4120-1-5-def-32",
+      "type": "definition",
+      "title": "Induksjonshypotesen",
+      "content": "antagelsen om at påstanden holder for alle argumenter mindre enn $n$.\n\nI substitusjon settes den inn i rekurrensen der det ukjente $T$-uttrykket står.\n\n**Det er hele trikset:** bytt ut det du ikke kjenner med det hypotesen lover om\ndet."
+    },
+    {
+      "id": "tdt4120-1-5-def-33",
+      "type": "definition",
+      "title": "Splitt og hersk",
+      "content": "designteknikken del, hersk og kombiner: problemet deles i mindre deler av samme\ntype, delene løses rekursivt, og delløsningene settes sammen.\n\nGir rekurrensen $T(n) = aT(n/b) + f(n)$.\n\n**Delproblemene overlapper ikke** — hvert løses nøyaktig én gang. Det skiller\nteknikken fra dynamisk programmering."
+    },
+    {
+      "id": "tdt4120-1-5-def-34",
+      "type": "definition",
+      "title": "`Bisect` (binærsøk)",
+      "content": "søker etter en verdi i et **sortert** array ved å halvere søkeintervallet i\nhver runde.\n\nKjøretid $\\Theta(\\lg n)$ i verste tilfelle; verste antall runder er\n$\\lfloor \\lg n\\rfloor + 1$.\n\n**Krever at arrayet er sortert.** Det er den eneste forutsetningen — og uten\nden er svaret verdiløst."
+    },
+    {
+      "id": "tdt4120-1-5-def-35",
+      "type": "definition",
+      "title": "Rekurrensen $T(n) = T(n/2) + \\Theta(1)$",
+      "content": "binærsøkets rekurrens: ett rekursivt kall på halve inputen, konstant arbeid per\nnivå.\n\nLøsning $\\Theta(\\lg n)$, ved masterteoremets tilfelle 2 med $k = 0$.\n\n**Merk $a = 1$:** bare én av de to halvdelene besøkes, og det er det som gjør\nsøket logaritmisk."
+    },
+    {
+      "id": "tdt4120-1-5-def-36",
+      "type": "definition",
+      "title": "Rekurrensen $T(n) = T(n-1) + n$",
+      "content": "den vanligste subtraksjonsrekurrensen: argumentet krymper med 1, arbeidet er\nlineært.\n\nEksakt løsning $n(n+1)/2$ med $T(0) = 0$; asymptotisk $\\Theta(n^2)$.\n\n**Masterteoremet gjelder ikke** — formen er ikke $aT(n/b) + f(n)$."
+    },
+    {
+      "id": "tdt4120-1-5-def-37",
+      "type": "definition",
+      "title": "Rekurrensen $T(n) = 2T(n-1) + 1$",
+      "content": "dobling i hvert steg: koeffisienten foran $T$ dobles for hvert hakk nedover.\n\nEksakt løsning $2^n - 1$ med $T(0) = 0$; asymptotisk $\\Theta(2^n)$.\n\n**Eksponentiell vekst kommer av $a = 2$ kombinert med subtraksjon** — ikke av\narbeidet per steg, som her bare er 1."
+    },
+    {
+      "id": "tdt4120-1-5-def-38",
+      "type": "definition",
+      "title": "Den aritmetiske summen",
+      "content": "$1 + 2 + 3 + \\dots + n = \\dfrac{n(n+1)}{2}$.\n\nDukker opp hver gang en iterasjon legger til et ledd som vokser lineært.\n\n**Asymptotisk $\\Theta(n^2)$** — men i et eksakt svar skal hele brøken stå."
+    },
+    {
+      "id": "tdt4120-1-5-def-39",
+      "type": "definition",
+      "title": "Den geometriske summen",
+      "content": "$1 + 2 + 4 + \\dots + 2^{n-1} = 2^n - 1$, og mer generelt\n$\\sum_{j=0}^{m} r^j = \\dfrac{r^{m+1}-1}{r-1}$ for $r \\ne 1$.\n\nMed kvotient under 1 konvergerer summen: $1 + \\tfrac12 + \\tfrac14 + \\dots < 2$.\n\n**Den konvergente varianten** er grunnen til at halverende arbeid gir lineær\ntotal, ikke $n\\lg n$."
+    },
+    {
+      "id": "tdt4120-1-5-def-40",
+      "type": "definition",
+      "title": "Antall nivåer i rekursjonstreet",
+      "content": "$\\Theta(\\log_b n)$ for $T(n) = aT(n/b) + f(n)$, og $\\Theta(n)$ for\n$T(n) = T(n-c) + f(n)$.\n\nAvhenger bare av hvor mye argumentet krymper, ikke av antall delkall.\n\n**Antall løvnoder er derimot $n^{\\log_b a}$**, og der teller $a$."
+    },
+    {
+      "id": "tdt4120-1-5-def-41",
+      "type": "definition",
+      "title": "Grunntilfellet i en rekurrens",
+      "content": "verdien rekursjonen stopper på, typisk $T(1)$ eller $T(0)$.\n\nFor asymptotiske svar antas $T(k) = \\Theta(1)$ for en konstant $k$, og den\noppgitte verdien betyr som regel ingenting.\n\n**For eksakte svar betyr den alt** — den er et ledd i uttrykket."
+    },
+    {
+      "id": "tdt4120-1-5-def-42",
+      "type": "definition",
+      "title": "Eksakt mot asymptotisk svar",
+      "content": "et **eksakt** uttrykk gir verdien til $T(n)$ for hver $n$; en **asymptotisk**\ngrense gir bare vekstklassen.\n\n$n(n+1)/2$ er eksakt; $\\Theta(n^2)$ er asymptotisk.\n\n**Les oppgaveteksten:** ordet «eksakt» eller «lukket uttrykk» styrer hvilken av\nde to som er riktig svar."
+    },
+    {
+      "id": "tdt4120-1-5-def-43",
+      "type": "definition",
+      "title": "Felle #5 — feil bruk av masterteoremet",
+      "content": "å bruke masterteoremet på en rekurrens som ikke er på formen\n$aT(n/b) + f(n)$, eller å velge feil tilfelle.\n\nTypisk: å tvinge teoremet på $T(n) = T(n-1) + n$, eller å glemme\nlogaritmefaktoren i tilfelle 2.\n\n**Å påpeke at teoremet ikke gjelder, gir uttelling.** Å bruke det likevel gir\net svar som ser riktig ut og er galt."
+    },
+    {
+      "id": "tdt4120-1-5-def-44",
+      "type": "definition",
+      "title": "Sjanger B — rekurrensløsning med navngitt metode",
+      "content": "oppgavetypen der du får en rekurrens og skal løse den.\n\nSvarformen er **metodens navn** pluss svaret på riktig form — asymptotisk eller\neksakt — og for masterteoremet også hvilket tilfelle.\n\n**Metodenavnet er ett ord**, og det er en del av det som gir uttelling."
+    },
+    {
+      "id": "tdt4120-1-5-coll-46",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tdt4120-1-5-ct-45",
+          "type": "text",
+          "content": "Fem korte spørsmål fra kapitlene dette bygger på. Svar i hodet først, så\nsammenlign.\n\n**1.** Hva er de tre tilfellene i masterteoremet, kort sagt?\n\n*Svar:* rekursjonen dominerer ($\\Theta(n^{\\log_b a})$), de er like store\n($\\Theta(n^{\\log_b a}\\lg^{k+1} n)$ med $k \\ge 0$), eller toppen dominerer\n($\\Theta(f(n))$, med regularitetsbetingelsen sjekket). Se\n[kap. 1.4](/tdt4120/tdt4120-1-4).\n\n**2.** Hva er $n^{\\log_b a}$ for $a = 2$, $b = 2$?\n\n*Svar:* $n^{\\log_2 2} = n^1 = n$.\n\n**3.** Hva betyr $f(n) = O(g(n))$?\n\n*Svar:* at $f$ vokser høyst så fort som $g$, opp til en konstant faktor og for\nstore nok $n$. Se [kap. 1.1](/tdt4120/tdt4120-1-1).\n\n**4.** Forenkle $n^2 + 100n\\lg n$ til ett strammeste uttrykk.\n\n*Svar:* $\\Theta(n^2)$. Se [kap. 1.2](/tdt4120/tdt4120-1-2).\n\n**5.** Hvorfor er $\\Theta(\\log_3 n)$ og $\\Theta(\\lg n)$ samme klasse?\n\n*Svar:* logaritmer med ulikt grunntall skiller seg bare med en konstant\nfaktor, og konstanter forsvinner i asymptotisk notasjon. Er logaritmereglene\nustøe: [Potenser og logaritmer](/r1/r1-1-2).\n\n**Videre:** [kap. 1.6](/tdt4120/tdt4120-1-6) driller hele sjanger B — velg\nriktig metode, løs, og oppgi svaret på riktig form."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

@@ -1,0 +1,397 @@
+{
+  "id": "tdt4120-4-2",
+  "courseId": "tdt4120",
+  "chapterNumber": "4.2",
+  "title": "Minimale spenntrær — Prim og Kruskal",
+  "description": "`MST-Prim` og `MST-Kruskal`, snittegenskapen og hvorfor en letteste kant over et snitt er **trygg**.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "kunne definere spenntre og minimalt spenntre, og avgjøre om en gitt kantmengde er et spenntre",
+    "kunne formulere snittegenskapen med betingelsen om at snittet respekterer valgene, og forklare hva en trygg kant er",
+    "kunne kjøre `MST-Kruskal` og `MST-Prim` for hånd og oppgi kantene i den rekkefølgen de velges",
+    "kunne begrunne kjøretiden $O(E\\lg V)$ for begge algoritmene, og si hvilket steg som dominerer"
+  ],
+  "content": [
+    {
+      "id": "tdt4120-4-2-tip-1",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "Et fiberselskap skal knytte sammen sju grender. De har kostnadsanslag for hver\nmulige trasé, og ett krav: alle grendene skal henge sammen, og totalregningen\nskal bli minst mulig. Det er hele problemet dette kapitlet løser — og det løses\nav to algoritmer som ser helt ulike ut, men som bygger på nøyaktig samme\nprinsipp.\n\n**Hvor ofte kommer det?** Minimale spenntrær er belagt i **82 % (14 av de 17\nsettene i grunnlaget)**. Grunnlaget er de 17 settene fra august 2015 til august\n2023 som er gjennomgått tema for tema.\n\n**Sjangrene du møter her**, med kodene skrevet ut:\n\n- **sjanger C — håndkjøring**, altså at du utfører algoritmen steg for steg og\n  oppgir bare sluttilstanden. Her: kjør `MST-Kruskal` og list kantene i den\n  rekkefølgen de legges til.\n- **sjanger D — definisjon med egne ord**, altså én presis setning med\n  hovedpoenget først. Snittegenskapen og ordet **trygg** er en fast\n  definisjonsoppgave.\n- **sjanger F — stemmer dette?**, altså ja eller nei først og så én setning.\n  Den faste fella her er «det minimale spenntreet er entydig» (nei — ikke når\n  kantvekter er like).\n\n**Prioritet: bør sitte.** Kruskal-håndkjøring er nesten gratis poeng når du har\ngjort den fem ganger, og snittegenskapen er den ene setningen som forklarer\nhvorfor både Prim og Kruskal virker.\n\n**Slik er kapitlet lagt opp (55 min):**\n\n| # | Innhold | Tid |\n|---|---|---|\n| 1 | Spenntre og minimalt spenntre | ca. 10 min |\n| 2 | Snittegenskapen og hva «trygg» betyr | ca. 14 min |\n| 3 | `MST-Kruskal` med `Union-Find` | ca. 14 min |\n| 4 | `MST-Prim` med prioritetskø | ca. 12 min |\n| 5 | Entydighet, kjøretidstabell og repetisjon | ca. 5 min |"
+    },
+    {
+      "id": "tdt4120-4-2-t-forkunn",
+      "type": "text",
+      "content": "## Forkunnskaper\n\n- [kap. 4.1](/tdt4120/tdt4120-4-1) — grafer, nabolister og traversering. Her\n  får kantene i tillegg en **vekt**, altså et tall som sier hva kanten koster.\n- [kap. 3.5](/tdt4120/tdt4120-3-5) — **disjunkte mengder**, som `MST-Kruskal`\n  bruker til å svare på «henger disse to nodene allerede sammen?».\n\nFra [kap. 3.5](/tdt4120/tdt4120-3-5) trenger du disse tre operasjonene, som\ntil sammen kalles `Union-Find`. Dette sto der:\n\n| Operasjon | Hva den gjør | Kjøretid |\n|---|---|---|\n| `Make-Set(x)` | lager en ny mengde som bare inneholder `x`; `x` blir sin egen representant | $O(1)$ |\n| `Find-Set(x)` | returnerer representanten for mengden `x` ligger i. To elementer er i samme mengde nøyaktig når `Find-Set` gir samme svar | nesten konstant |\n| `Union(x, y)` | slår sammen mengdene til `x` og `y` til én | nesten konstant |\n\nStrukturen er en **skog**: hver mengde er et tre der hver node peker på\nforelderen sin, og roten er representanten. `Find-Set` går oppover til roten;\n`Union` henger den ene rota under den andre. Med de to standardgrepene — å\nhenge det lave treet under det høye, og å la `Find-Set` peke alle nodene den\npasserer rett på rota — blir en følge av $m$ operasjoner så nær $O(m)$ at vi i\nkjøretidsregnskapet under behandler hver operasjon som en konstant.\n\n**Slik brukes det i `MST-Kruskal`:** hver node får sin egen mengde med\n`Make-Set`. En kant mellom `u` og `v` lager en sykel nøyaktig når\n`Find-Set(u) == Find-Set(v)`, altså når de allerede henger sammen. Legger vi\nkanten til, kaller vi `Union(u, v)`.\n\n- [Potenser og logaritmer](/r1/r1-1-2) — hvis $\\lg$ i uttrykket $O(E\\lg V)$\n  fortsatt kjennes uvant. $\\lg n$ betyr $\\log_2 n$, altså toerlogaritmen."
+    },
+    {
+      "id": "tdt4120-4-2-coll-notasjon",
+      "type": "collapsible",
+      "title": "Notasjons- og pseudokodeliste",
+      "buttonText": "Vis notasjon og pseudokode",
+      "content": [
+        {
+          "id": "tdt4120-4-2-nt-1",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et algoritmefag: den lister kjøretidsuttrykk\nog pseudokode-operasjoner i stedet for bare greske bokstaver.\n\n| Symbol | Betydning |\n|---|---|\n| $G = (V, E)$ | den urettede, sammenhengende grafen: noder $V$, kanter $E$ |\n| $w(u,v)$ | vekten på kanten mellom $u$ og $v$ — kostnad, lengde eller tid |\n| $V$, $E$ | antall noder og antall kanter, brukt rett i kjøretidsuttrykk |\n| $A$ | kantmengden algoritmen har valgt så langt; vokser til den er et helt spenntre |\n| $(S, T)$ | snittet: en oppdeling av $V$ i to ikke-tomme deler uten felles noder |\n| $O(E\\lg V)$ | kjøretiden til både `MST-Prim` og `MST-Kruskal` |\n| $\\lg V$ | $\\log_2 V$ — CLRS-konvensjonen for toerlogaritmen |\n| $u.key$ | i `MST-Prim`: vekten på den letteste kjente kanten fra treet til $u$ |\n| $u.\\pi$ | forgjengeren: den enden av kanten som allerede er i treet |"
+        },
+        {
+          "id": "tdt4120-4-2-nt-2",
+          "type": "text",
+          "content": "| Algoritme/operasjon | Kontrakt | Kjøretid |\n|---|---|---|\n| `MST-Kruskal(G, w)` | sorterer alle kanter stigende og legger til hver kant som ikke lager sykel, målt med `Union-Find` | $O(E\\lg V)$ |\n| `MST-Prim(G, w, r)` | vokser ett sammenhengende tre fra rota `r` ved alltid å ta den letteste kanten ut av treet, med prioritetskø | $O(E\\lg V)$ |\n| `Make-Set(v)`, `Find-Set(v)`, `Union(u, v)` | `Union-Find` fra [kap. 3.5](/tdt4120/tdt4120-3-5) — «henger disse sammen?» og «slå dem sammen» | nesten konstant hver |\n| `Extract-Min(Q)` | tar ut noden med lavest `key` fra prioritetskøen | $O(\\lg V)$ med binærhaug |\n| `Decrease-Key(Q, v, k)` | senker `key` til en node som allerede står i køen | $O(\\lg V)$ med binærhaug |\n\n**Formler i dette delkapitlet:**\n\n$$w(T) = \\sum_{(u,v) \\in T} w(u,v)$$\n\nVekten til et spenntre er summen av kantvektene i det. Et minimalt spenntre er\net spenntre der denne summen er minst mulig.\n\n$$|T| = V - 1$$\n\nEt spenntre over $V$ noder har alltid nøyaktig $V - 1$ kanter — verken flere\neller færre. Én kant mindre, og grafen faller fra hverandre; én kant mer, og du\nhar en sykel.\n\n$$O(E\\lg V)$$\n\nKjøretiden til begge algoritmene. For `MST-Kruskal` kommer den fra sorteringen\nav kantene; for `MST-Prim` fra $E$ mulige `Decrease-Key`-operasjoner à\n$O(\\lg V)$ med binærhaug."
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-4-2-t-1",
+      "type": "text",
+      "content": "## Billigst mulig nett som likevel henger sammen (~10 min)\n\nFiberselskapet har målt opp elleve mulige traseer mellom de sju grendene, med\nhver sin gravekostnad. De trenger ikke alle. De trenger akkurat så mange at\nsignalet kommer fram overalt — og ikke én meter mer enn nødvendig.\n\nLegg merke til at problemet har to krav som trekker mot hverandre. Alt skal\nhenge sammen, som presser antall traseer **opp**. Regningen skal være lav, som\npresser den **ned**. Det viser seg at det finnes et eksakt svar på hvor de to\nmøtes: nettet skal være et **tre**, og det skal være det letteste treet som\nfinnes.\n\nOrdet «tre» er ikke tilfeldig. Har du sju grender og bygger åtte traseer, har du\nminst én rundtur — og en rundtur betyr at minst én trasé kan fjernes uten at noe\nmister forbindelsen. Har du bare fem, faller nettet i to biter. Seks, altså\n$V - 1$, er svaret."
+    },
+    {
+      "id": "tdt4120-4-2-def-1",
+      "type": "definition",
+      "title": "Spenntre",
+      "content": "Et tre som består av kanter fra grafen selv, og som når **alle** nodene.\n\nTo ting sitter i den setningen. For det første at kantene skal være grafens\n**egne** — du kan ikke oppfinne en trasé som ikke er målt opp. For det andre at\nalle nodene skal være med, ikke bare noen. Et spenntre over $V$ noder har\nnøyaktig $V - 1$ kanter og ingen sykel. En graf har et spenntre nøyaktig når den\ner sammenhengende; er den delt i to, finnes det ingen."
+    },
+    {
+      "id": "tdt4120-4-2-def-2",
+      "type": "definition",
+      "title": "Minimalt spenntre (MST)",
+      "content": "Et spenntre der summen av kantvektene er minst mulig\n(*minimum spanning tree*, MST).\n\nVekten skrives $w(T) = \\sum_{(u,v) \\in T} w(u,v)$, og «minimalt» gjelder denne\nsummen — ikke antall kanter, som uansett er $V - 1$ for alle spenntrær, og ikke\nden lengste enkeltkanten. To algoritmer finner et MST i $O(E\\lg V)$:\n`MST-Kruskal` og `MST-Prim`. Merk formuleringen «**et** MST»: ved like\nkantvekter kan grafen ha flere forskjellige minimale spenntrær, alle med samme\ntotale vekt."
+    },
+    {
+      "id": "tdt4120-4-2-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Er dette et spenntre?",
+      "problem": "Fiberselskapets sju grender heter A til G, og de elleve mulige traseene med\nkostnad i hundre tusen kroner er:\n\n```text\nA-B 4    A-C 2    B-C 5    B-D 10\nC-D 3    C-E 8    D-E 6    D-F 11\nE-F 7    E-G 9    F-G 1\n```\n\nEn saksbehandler foreslår disse fem traseene: A–C, C–D, A–B, D–E og E–F.\n\n**a)** Er forslaget et spenntre?\n**b)** Hva om han i tillegg tar med B–C?",
+      "solution": "**a) Nei.** Forslaget har fem kanter, og et spenntre over sju noder må ha\n$V - 1 = 6$. Følger du kantene, får du A, B, C, D, E og F knyttet sammen, men\n**G henger utenfor** — ingen av de fem kantene rører G. Grenda ville stått uten\nfiber.\n\n**b) Nei, og nå av motsatt grunn.** Med B–C har forslaget seks kanter, altså\nriktig antall, men de gale kantene: A–C, C–D, A–B og B–C danner rundturen\nA, B, C, A. Da er det ikke et tre, og G er fortsatt ikke med.\n\n**Den korte kontrollen du kan gjøre på papiret:** tell kantene, og sjekk at\ntallet er $V - 1$. Stemmer det ikke, er svaret nei uten mer arbeid. Stemmer det,\nmå du i tillegg sjekke at alt henger sammen — for $V - 1$ kanter er\nnødvendig, men ikke tilstrekkelig."
+    },
+    {
+      "id": "tdt4120-4-2-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-4-2-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave, sjanger D — definisjon med egne ord, altså én presis setning\nmed hovedpoenget først.)\n\n**a)** Hva er et spenntre?\n**b)** Hvor mange kanter har et spenntre i en graf med 12 noder?\n**c)** En graf har 12 noder og 11 kanter, og henger sammen. Hva vet du da om\nden?",
+        "solution": "**a)** Et spenntre er et tre av grafens **egne** kanter som når alle nodene.\n\n**b)** $V - 1 = 11$ kanter.\n\n**c)** Da **er** grafen selv et tre, og dermed sitt eget eneste spenntre. En\nsammenhengende graf med nøyaktig $V - 1$ kanter kan ikke ha en sykel: hadde den\ndet, kunne du fjernet en kant fra sykelen og fortsatt hatt alt sammenhengende\nmed færre enn $V - 1$ kanter, og det er umulig.",
+        "hints": [
+          "Trekk fram de to kravene: hvilke kanter du får lov å bruke, og hvor mange noder som må nås.",
+          "For c): hva er det minste antallet kanter som kan holde 12 noder sammenhengende?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-4-2-t-2",
+      "type": "text",
+      "content": "## Snittegenskapen: når er en kant trygg? (~14 min)\n\nBegge MST-algoritmene bygger opp svaret én kant om gangen. Da trenger de en\nregel som sier: *denne kanten kan du legge til nå, uten fare for at du senere\nangrer.* Den regelen heter **snittegenskapen**, og den er kapitlets viktigste\nsetning.\n\nTenk deg at du deler grendene i to grupper — hvilke som helst to grupper, så\nlenge begge er ikke-tomme og ingen grend er i begge. Den delingen kalles et\n**snitt**. Noen traseer går innad i en gruppe; de bryr vi oss ikke om. Andre går\n**over** delingen, fra den ene gruppen til den andre. Nettet må ha minst én slik\ntrasé, ellers henger ikke gruppene sammen.\n\nSnittegenskapen sier: den **letteste** av traseene som krysser, kan du trygt\nbygge. Men det gjelder bare hvis snittet er valgt slik at ingen av traseene du\nallerede har bestemt deg for, krysser det. Den betingelsen er ikke pynt — uten\nden er påstanden gal, og vi viser et konkret moteksempel om litt."
+    },
+    {
+      "id": "tdt4120-4-2-def-3",
+      "type": "definition",
+      "title": "Snitt og kryssende kant",
+      "content": "Et **snitt** $(S, T)$ er en oppdeling av nodemengden i to deler der begge er\nikke-tomme, ingen node er i begge, og alle noder er i én av dem.\n\nEn kant **krysser** snittet når den ene enden ligger i $S$ og den andre i $T$.\nSnittet trenger ikke dele grafen i to like store deler — $S$ kan godt bestå av\nén eneste node. Du velger snittet selv, og i en sammenhengende graf krysser det\nalltid minst én kant. Merk at snittet ikke er en operasjon på grafen: ingenting\nfjernes, det er bare en måte å dele nodene i to grupper på for å resonnere om\ndem."
+    },
+    {
+      "id": "tdt4120-4-2-def-4",
+      "type": "definition",
+      "title": "Snitt som respekterer en kantmengde",
+      "content": "Et snitt $(S, T)$ **respekterer** en kantmengde $A$ når **ingen** kant i $A$\nkrysser snittet.\n\nMed andre ord: alt du har valgt så langt ligger trygt inne i $S$ eller inne i\n$T$, ingenting går på tvers. Dette er betingelsen i snittegenskapen, og den er\nikke en formalitet — uten den er setningen om trygge kanter usann. Både\n`MST-Prim` og `MST-Kruskal` er konstruert nettopp slik at snittet de bruker,\nalltid respekterer de kantene de har valgt."
+    },
+    {
+      "id": "tdt4120-4-2-def-5",
+      "type": "definition",
+      "title": "Trygg kant",
+      "content": "En kant som kan legges til en kantmengde $A$ uten at $A$ slutter å være en del\nav et minimalt spenntre.\n\nPresist: hvis $A$ er en delmengde av et MST, og kanten $(u,v)$ er trygg for $A$,\nså er $A \\cup \\{(u,v)\\}$ også en delmengde av et MST. «Trygg» betyr altså **ikke\nangre senere**: du kan bygge videre og fortsatt havne på et optimalt tre. Hele\nMST-teorien er ett spørsmål gjentatt $V - 1$ ganger: hvilken kant er trygg nå?"
+    },
+    {
+      "id": "tdt4120-4-2-thm-1",
+      "type": "theorem",
+      "title": "Snittegenskapen",
+      "content": "**La** $G = (V, E)$ være en sammenhengende, urettet og vektet graf, og la $A$\nvære en kantmengde som er del av et minimalt spenntre for $G$.\n\n**La** $(S, T)$ være et snitt som **respekterer** $A$ — altså der ingen kant i\n$A$ krysser snittet.\n\n**La** $(u,v)$ være en letteste kant som krysser snittet, altså en kant med\nminst mulig vekt blant alle som går mellom $S$ og $T$.\n\n**Da er** $(u,v)$ **trygg for** $A$: mengden $A \\cup \\{(u,v)\\}$ er fortsatt del\nav et minimalt spenntre.\n\n**Ideen bak, i tre setninger.** Anta at $A$ ligger i et MST $T^{*}$ som ikke\ninneholder $(u,v)$. Legger du $(u,v)$ til $T^{*}$, får du en sykel, og den\nsykelen må krysse snittet minst én gang til — la den andre kryssende kanten\nhete $(x,y)$. Bytt $(x,y)$ ut med $(u,v)$: det er fortsatt et spenntre, det\ninneholder fortsatt hele $A$ siden $(x,y)$ ikke lå i $A$ (snittet respekterer\n$A$), og vekten er ikke større fordi $(u,v)$ var en letteste kryssende kant.\n\n**Betingelsen er ufravikelig.** Sløyfer du «som respekterer $A$», er setningen\nrett og slett usann — se moteksempelet i Eksempel 2. Det er også det\nløsningsforslagene ser etter i en definisjonsoppgave om trygge kanter: nevner du\nikke betingelsen, mangler hovedpoenget.\n\n**Både Prim og Kruskal er denne setningen i praksis.** De velger bare snittet\nsitt på hver sin måte: Prim lar $S$ være nodene i treet som vokser, Kruskal lar\n$S$ være komponenten til den ene enden av kanten den vurderer."
+    },
+    {
+      "id": "tdt4120-4-2-fig-1",
+      "type": "image",
+      "src": "/images/textbook/tdt4120/4-2-snitt-trygg-kant.svg",
+      "alt": "En vektet urettet graf med sju noder merket A til G. En stiplet loddrett linje deler nodene i to grupper: S med A, C og D til venstre, og T med B, E, F og G til hoyre. Seks kanter krysser linjen. Kanten mellom A og B med vekt 4 er tegnet tykk og gronn og merket som trygg kant.",
+      "caption": "Snittet $S = \\{A, C, D\\}$, $T = \\{B, E, F, G\\}$ i fibergrafen. Seks kanter krysser: A–B (4), B–C (5), D–E (6), C–E (8), B–D (10) og D–F (11). Den letteste er A–B med vekt 4, og den ligger i det minimale spenntreet."
+    },
+    {
+      "id": "tdt4120-4-2-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Snittegenskapen — og hva som skjer uten betingelsen",
+      "problem": "**a)** I fibergrafen fra Eksempel 1 har du så langt valgt traseene A–C (2) og\nC–D (3). Sett $S = \\{A, C, D\\}$ og $T = \\{B, E, F, G\\}$. Respekterer snittet\nvalgene dine? Hvilken kant er trygg?\n\n**b)** Vis med et konkret eksempel at påstanden «den letteste kanten som krysser\net snitt er trygg» blir **gal** hvis vi dropper kravet om at snittet må\nrespektere valgene så langt.",
+      "solution": "**a) Ja, snittet respekterer valgene.** Både A–C og C–D har begge endene inne i\n$S$, så ingen valgt kant krysser.\n\nDe kryssende kantene er A–B (4), B–C (5), D–E (6), C–E (8), B–D (10) og\nD–F (11). Den letteste er **A–B med vekt 4**, og den er derfor trygg: du kan\nlegge den til uten å ødelegge muligheten for å ende på et minimalt spenntre.\nGrafen har nøyaktig ett minimalt spenntre — A–C (2), C–D (3), A–B (4), D–E (6),\nE–F (7), F–G (1), med total vekt 23 — og A–B ligger i det.\n\n**b) Moteksempelet.** Fire målestasjoner K, L, M og N med disse fem strekningene:\n\n```text\nK-L 5    K-M 5    K-N 7    L-M 10    M-N 7\n```\n\nGrafen har to minimale spenntrær, begge med vekt 17: $\\{K–L, K–M, M–N\\}$ og\n$\\{K–L, K–M, K–N\\}$.\n\nAnta at du har valgt $A = \\{K–M\\ (5),\\ K–N\\ (7)\\}$ — en lovlig start, siden den\ner del av det siste av de to trærne. Velg nå snittet $S = \\{K, L, M\\}$,\n$T = \\{N\\}$. Dette snittet **respekterer ikke** $A$: kanten K–N krysser det.\n\nDe kryssende kantene er K–N (7) og M–N (7). Begge er letteste kryssende kant.\nVelger du M–N, får du $A \\cup \\{M–N\\} = \\{K–M, K–N, M–N\\}$ — og det er ingen\ndelmengde av noe spenntre i det hele tatt, for de tre kantene danner rundturen\nK, M, N, K.\n\n**Poenget i én linje:** uten betingelsen kan «letteste kryssende kant» være\nnettopp den kanten som lukker en sykel med noe du allerede har valgt. Det er\nderfor både Prim og Kruskal er nøye med hvilket snitt de bruker."
+    },
+    {
+      "id": "tdt4120-4-2-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-4-2-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger D.) Forklar MST-snittstrategien med egne ord.\n\n**a)** Hva vil det si at en kant er **trygg**?\n**b)** Formulér snittegenskapen presist, med alle betingelsene.\n**c)** Hvorfor kan ikke betingelsen om at snittet respekterer valgene, sløyfes?",
+        "solution": "**a)** En kant er trygg for en kantmengde $A$ når $A \\cup \\{\\text{kanten}\\}$\nfortsatt er del av et minimalt spenntre — altså når du kan legge den til uten å\nmåtte angre senere.\n\n**b)** La $A$ være del av et MST, la $(S, T)$ være et snitt som **respekterer**\n$A$, og la $(u,v)$ være en letteste kant som krysser snittet. Da er $(u,v)$\ntrygg for $A$.\n\n**c)** Fordi kanten ellers kan lukke en sykel med noe som allerede ligger i\n$A$. Krysser en valgt kant snittet, kan den letteste kryssende kanten gå mellom\nto noder som allerede henger sammen gjennom $A$, og da er $A$ pluss kanten ikke\nengang et skogsfragment lenger — langt mindre del av et spenntre.",
+        "hints": [
+          "Start med hva «trygg» beskytter mot: hvilken fremtidig situasjon vil vi unngå?",
+          "Betingelsen handler om hvor kantene i $A$ ligger i forhold til delelinja."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-4-2-thm-2",
+      "type": "theorem",
+      "title": "Når er det minimale spenntreet entydig?",
+      "content": "**Er alle kantvektene i grafen forskjellige, har grafen nøyaktig ett minimalt\nspenntre.** Er to eller flere kantvekter like, kan den ha flere — alle med samme\ntotale vekt.\n\n**Det motsatte gjelder ikke:** like kantvekter *kan* gi flere minimale\nspenntrær, men trenger ikke. En graf med to like vekter som ikke ligger på noen\nfelles sykel, har fortsatt ett eneste MST.\n\n**Et eksempel med to svar.** Fire pumpestasjoner i en firkant, med\nstrekningene K–L (1), L–M (2), M–N (1) og K–N (2). Et spenntre må droppe\nnøyaktig én av de fire kantene, og for å få minst mulig vekt må den som droppes\nha vekt 2. Det gir to forskjellige minimale spenntrær:\n\n- K–L (1), L–M (2), M–N (1) — vekt 4\n- K–L (1), K–N (2), M–N (1) — vekt 4\n\nBegge er riktige svar. Blir du bedt om «et minimalt spenntre», leverer du ett av\ndem; blir du bedt om «det minimale spenntreet» i en graf med like vekter, er\nselve spørsmålet upresist, og du bør skrive at treet ikke er entydig.\n\n**På eksamen:** påstanden «MST-et er entydig» er en klassisk sjanger F-oppgave.\nRiktig svar er **nei**, med betingelsen: entydige kantvekter gir entydig\nminimalt spenntre."
+    },
+    {
+      "id": "tdt4120-4-2-fig-2",
+      "type": "image",
+      "src": "/images/textbook/tdt4120/4-2-to-mst-like-vekter.svg",
+      "alt": "To like firkantede grafer side om side med nodene K, L, M og N og kantvektene 1, 2, 1 og 2. I venstre figur er kantene K-L, L-M og M-N tegnet tykt og gronn, i hoyre figur kantene K-L, K-N og M-N. Den kanten som ikke er valgt er stiplet i begge figurene.",
+      "caption": "Samme graf, to minimale spenntrær. Begge dropper en kant med vekt 2 og lander på total vekt $1 + 2 + 1 = 4$. Det er dette som gjør «det minimale spenntreet er entydig» til et galt svar."
+    },
+    {
+      "id": "tdt4120-4-2-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-4-2-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger F — «stemmer dette?», altså ja eller nei først og så én presis\nsetning.) En kandidat skriver: «En sammenhengende graf har alltid nøyaktig ett\nminimalt spenntre.»\n\n**a)** Stemmer dette? Svar ja eller nei først.\n**b)** Gi et moteksempel med tall.\n**c)** Under hvilken betingelse er påstanden riktig?",
+        "solution": "**a) Nei.**\n\n**b)** Firkanten med kantene K–L (1), L–M (2), M–N (1) og K–N (2) har to\nminimale spenntrær, begge med vekt 4: $\\{K–L, L–M, M–N\\}$ og\n$\\{K–L, K–N, M–N\\}$. Du må droppe én kant med vekt 2, og det er to å velge\nmellom.\n\n**c)** Påstanden er riktig når **alle kantvektene er forskjellige**. Da er det\nminimale spenntreet entydig. Merk at den totale vekten alltid er entydig, også\nmed like kantvekter — det er bare hvilke kanter som velges, som kan variere.",
+        "hints": [
+          "Se etter en sykel der to av kantene har samme vekt.",
+          "Skill mellom «hvilke kanter» og «hvor mye det koster til sammen»."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-4-2-t-3",
+      "type": "text",
+      "content": "## Kruskal: billigste kant først, hopp over dem som lukker en ring (~14 min)\n\n— naturlig pausepunkt —\n\nDen første av de to algoritmene tenker som en innkjøper: sorter alle traseene\netter pris, og gå gjennom lista fra billigst til dyrest. For hver trasé stiller\ndu ett spørsmål — *henger disse to grendene allerede sammen?* Gjør de det, er\ntraseen unødvendig, og du hopper over den. Gjør de det ikke, bygger du den.\n\nUnderveis har du altså ikke ett tre, men en samling atskilte biter som gradvis\nsmelter sammen. Det er nøyaktig det `Union-Find` fra\n[kap. 3.5](/tdt4120/tdt4120-3-5) er laget for: `Find-Set` svarer på om to noder\ner i samme bit, `Union` slår to biter sammen.\n\nSnittegenskapen forklarer hvorfor det er riktig. Når `MST-Kruskal` vurderer den\nletteste gjenværende kanten mellom to biter, kan du sette $S$ til den ene biten\nog $T$ til resten. Alle kanter valgt så langt ligger inne i biter, så snittet\nrespekterer dem — og kanten er den letteste som krysser, siden alle lettere\nkanter allerede er behandlet."
+    },
+    {
+      "id": "tdt4120-4-2-thm-3",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `MST-Kruskal`",
+      "content": "**Antagelser om representasjon.** $G = (V, E)$ er urettet, sammenhengende og\nvektet med $w(u,v)$. Kantene ligger i en liste som kan sorteres. `Union-Find`\ner en skog av disjunkte mengder, én mengde per node i starten. Kanter med lik\nvekt sorteres i en fast, oppgitt rekkefølge, slik at håndkjøringen blir\nentydig — i denne boka alfabetisk på nodenavn.\n\n**Prebetingelse:** grafen er sammenhengende. **Postbetingelse:** `A` er et\nminimalt spenntre med nøyaktig $V - 1$ kanter.\n\n```text\nMST-Kruskal(G, w)\n  Input:  urettet sammenhengende vektet graf G = (V, E)\n  Output: A, et minimalt spenntre\n  A = tom mengde\n  for hver node v i V\n      Make-Set(v)\n  sorter kantene i E stigende etter vekt w(u,v)\n  for hver kant (u,v) i E, i sortert rekkefolge\n      if Find-Set(u) != Find-Set(v)\n          A = A forent med {(u,v)}\n          Union(u, v)\n  return A\n  Kjoretid: O(E lg V)\n```\n\n**Invarianten i én setning:** før hver runde er `A` en delmengde av et minimalt\nspenntre, og `Union-Find`-mengdene er nøyaktig komponentene `A` deler grafen i.\n\n**Kjøretid $O(E\\lg V)$:** sorteringen av $E$ kanter koster $O(E\\lg E)$, og siden\n$E \\le V^2$ er $\\lg E \\le 2\\lg V$, så $O(E\\lg E) = O(E\\lg V)$. De $V$ kallene til\n`Make-Set` og de $O(E)$ kallene til `Find-Set` og `Union` koster til sammen\nmindre enn dette. **Sorteringen dominerer** — det er det svaret en\nkjøretidsoppgave er ute etter."
+    },
+    {
+      "id": "tdt4120-4-2-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Kruskal på fibernettet",
+      "problem": "Kjør `MST-Kruskal` på fibergrafen med de elleve traseene:\n\n```text\nA-B 4    A-C 2    B-C 5    B-D 10\nC-D 3    C-E 8    D-E 6    D-F 11\nE-F 7    E-G 9    F-G 1\n```\n\nKanter med lik vekt behandles alfabetisk. **Oppgaven ber om kantene i den\nrekkefølgen de legges til, ikke om en forklaring av algoritmen.**",
+      "solution": "**Kantene sortert stigende:**\n\nF–G (1), A–C (2), C–D (3), A–B (4), B–C (5), D–E (6), E–F (7), C–E (8),\nE–G (9), B–D (10), D–F (11)\n\n**Sporingstavlen.** Én rad per kant i sortert rekkefølge, uten unntak — også de\nsom forkastes.\n\n| Steg | Kant | Vekt | Avgjørelse | Komponentene etter steget |\n|---|---|---|---|---|\n| 1 | F–G | 1 | **legges til** | {A} {B} {C} {D} {E} {F,G} |\n| 2 | A–C | 2 | **legges til** | {A,C} {B} {D} {E} {F,G} |\n| 3 | C–D | 3 | **legges til** | {A,C,D} {B} {E} {F,G} |\n| 4 | A–B | 4 | **legges til** | {A,B,C,D} {E} {F,G} |\n| 5 | B–C | 5 | forkastes — lager sykel | {A,B,C,D} {E} {F,G} |\n| 6 | D–E | 6 | **legges til** | {A,B,C,D,E} {F,G} |\n| 7 | E–F | 7 | **legges til** | {A,B,C,D,E,F,G} |\n| 8 | C–E | 8 | forkastes — lager sykel | {A,B,C,D,E,F,G} |\n| 9 | E–G | 9 | forkastes — lager sykel | {A,B,C,D,E,F,G} |\n| 10 | B–D | 10 | forkastes — lager sykel | {A,B,C,D,E,F,G} |\n| 11 | D–F | 11 | forkastes — lager sykel | {A,B,C,D,E,F,G} |\n\n**På eksamen leverer du bare linjene under — tavlen er her for å vise hvordan du\nkommer dit.**\n\nKantene i den rekkefølgen de legges til: **F–G (1), A–C (2), C–D (3), A–B (4),\nD–E (6), E–F (7)**\n\nForkastet, i den rekkefølgen de vurderes: B–C (5), C–E (8), E–G (9), B–D (10),\nD–F (11)\n\nTotal vekt: $1 + 2 + 3 + 4 + 6 + 7 = 23$\n\n**Legg merke til to ting.** For det første at treet er ferdig etter steg 7 — da\nhar det $V - 1 = 6$ kanter — men algoritmen går videre gjennom lista og forkaster\nresten. En implementasjon kan gjerne stoppe der; håndkjøringen din bør likevel\nvise hvorfor de gjenværende kantene ikke kan brukes. For det andre at B–C (5)\nforkastes selv om den er lettere enn både D–E (6) og E–F (7): rekkefølgen i\nlista avgjør ikke alene, sykeltesten gjør.\n\n**Fellenote.** Fellen er å oppgi alle kantene, også de forkastede, uten å merke\ndem — eller å legge til en kant som lager en sykel. Sjekk til slutt at du har\nnøyaktig $V - 1$ kanter."
+    },
+    {
+      "id": "tdt4120-4-2-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-4-2-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C — håndkjøring.) Et strømnett har seks\ntransformatorpunkter og disse ni mulige linjene, med kostnad i millioner:\n\n```text\nA-B 7    A-C 3    B-C 5    B-D 2\nC-D 8    C-E 6    D-E 9    D-F 4\nE-F 1\n```\n\nKjør `MST-Kruskal`. **Oppgaven ber om kantene i den rekkefølgen de legges til,\nsamt hvilke som forkastes.**",
+        "solution": "**Kantene sortert stigende:** E–F (1), B–D (2), A–C (3), D–F (4), B–C (5),\nC–E (6), A–B (7), C–D (8), D–E (9)\n\n| Steg | Kant | Vekt | Avgjørelse | Komponentene etter steget |\n|---|---|---|---|---|\n| 1 | E–F | 1 | **legges til** | {A} {B} {C} {D} {E,F} |\n| 2 | B–D | 2 | **legges til** | {A} {B,D} {C} {E,F} |\n| 3 | A–C | 3 | **legges til** | {A,C} {B,D} {E,F} |\n| 4 | D–F | 4 | **legges til** | {A,C} {B,D,E,F} |\n| 5 | B–C | 5 | **legges til** | {A,B,C,D,E,F} |\n| 6 | C–E | 6 | forkastes — lager sykel | {A,B,C,D,E,F} |\n| 7 | A–B | 7 | forkastes — lager sykel | {A,B,C,D,E,F} |\n| 8 | C–D | 8 | forkastes — lager sykel | {A,B,C,D,E,F} |\n| 9 | D–E | 9 | forkastes — lager sykel | {A,B,C,D,E,F} |\n\n**Sluttilstanden, som er svaret:**\n\nLagt til, i rekkefølge: **E–F (1), B–D (2), A–C (3), D–F (4), B–C (5)**\n\nForkastet: C–E (6), A–B (7), C–D (8), D–E (9)\n\nTotal vekt: $1 + 2 + 3 + 4 + 5 = 15$. Fem kanter, og $V - 1 = 5$ — det stemmer.\n\n**Der delpoenget faller:** legger du til C–E (6) fordi du glemte at C og E\nallerede henger sammen via A–C, D–F, B–D og B–C, får du seks kanter og en sykel.\nSkriv opp komponentene etter hvert steg, så ser du det.",
+        "hints": [
+          "Sorter alle ni kantene stigende før du begynner — det er første halvdel av jobben.",
+          "Før opp hvilke noder som henger sammen etter hvert steg, så blir sykeltesten mekanisk."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-4-2-t-4",
+      "type": "text",
+      "content": "## Prim: ett tre som vokser utover (~12 min)\n\nDen andre algoritmen tenker som en entreprenør med én gravemaskin. Han starter i\nén grend og bygger seg utover: i hver runde velger han den billigste traseen som\ngår fra **det ferdige nettet** til en grend som ennå ikke har fiber.\n\nForskjellen fra Kruskal er at Prim aldri har flere biter samtidig. Det er alltid\nett sammenhengende tre som vokser. Til gjengjeld må han hele tiden vite hvilken\nnode utenfor treet som er billigst å hente inn, og det er en jobb for en\n**prioritetskø**: hver node utenfor treet har et felt `key` med vekten på den\nletteste kjente kanten inn til treet, og `Extract-Min` gir noden med lavest\n`key`.\n\nSnittegenskapen igjen: la $S$ være nodene i treet og $T$ resten. Ingen valgt\nkant krysser, siden alle valgte kanter ligger inne i treet — så snittet\nrespekterer valgene, og den letteste kryssende kanten er trygg. Det er nøyaktig\nden kanten `Extract-Min` peker ut."
+    },
+    {
+      "id": "tdt4120-4-2-thm-4",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `MST-Prim`",
+      "content": "**Antagelser om representasjon.** $G = (V, E)$ er urettet, sammenhengende og\nvektet, gitt som nabolister. Hver node `v` har feltene `v.key` og `v.pi`. `Q` er\nen prioritetskø over nodene, ordnet etter `key`, med `Extract-Min` og\n`Decrease-Key` i $O(\\lg V)$ hver med binærhaug. Ved lik `key` bryter vi likhet\nalfabetisk på nodenavn, slik at håndkjøringen blir entydig.\n\n**Prebetingelse:** grafen er sammenhengende, og `r` er en node i den.\n**Postbetingelse:** `pi`-feltene beskriver et minimalt spenntre: kantene\n$(v, v.\\pi)$ for alle $v$ unntatt rota `r`.\n\n```text\nMST-Prim(G, w, r)\n  Input:  urettet sammenhengende vektet graf G, rotnode r\n  Output: v.pi for hver node, som til sammen gir et minimalt spenntre\n  for hver node u i V\n      u.key = uendelig\n      u.pi  = NIL\n  r.key = 0\n  Q = alle noder i V\n  while Q ikke er tom\n      u = Extract-Min(Q)\n      for hver v i Adj[u]\n          if v er i Q og w(u,v) < v.key\n              v.pi  = u\n              Decrease-Key(Q, v, w(u,v))\n  Kjoretid: O(E lg V)\n```\n\n**Invarianten i én setning:** før hver runde er kantene $(v, v.\\pi)$ for nodene\nsom *ikke* står i `Q`, del av et minimalt spenntre, og `v.key` er vekten på den\nletteste kanten fra treet til `v` for alle `v` som fortsatt står i `Q`.\n\n**Kjøretid $O(E\\lg V)$:** `Extract-Min` kalles $V$ ganger à $O(\\lg V)$, altså\n$O(V\\lg V)$, og `Decrease-Key` kalles høyst én gang per kantpost, altså\n$O(E)$ ganger à $O(\\lg V)$. Summen er $O(V\\lg V + E\\lg V) = O(E\\lg V)$ for en\nsammenhengende graf, der $E \\ge V - 1$.\n\n**Rota spiller ingen rolle for svaret.** Starter du et annet sted, får du\nkantene i en annen rekkefølge, men — når kantvektene er entydige — det samme\ntreet."
+    },
+    {
+      "id": "tdt4120-4-2-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: Prim på fibernettet, med rot A",
+      "problem": "Kjør `MST-Prim` på fibergrafen fra Eksempel 1 med rota `A`. Oppgi hvilken node\n`Extract-Min` gir i hver runde, hvilken kant som blir med i treet, og\n`key`-verdiene underveis.\n\n```text\nA-B 4    A-C 2    B-C 5    B-D 10\nC-D 3    C-E 8    D-E 6    D-F 11\nE-F 7    E-G 9    F-G 1\n```",
+      "solution": "**Sporingstavlen.** `key`-kolonnen viser verdiene rett etter runden; en strek\nbetyr at noden er tatt ut av køen.\n\n| Runde | `Extract-Min` gir | Kant som blir med i treet | Oppdateringer | `key` for nodene som fortsatt står i køen |\n|---|---|---|---|---|\n| 1 | `A` | - | `B.key`: uendelig til 4, `B.pi` = A; `C.key`: uendelig til 2, `C.pi` = A | A=-, B=4, C=2, D=uendelig, E=uendelig, F=uendelig, G=uendelig |\n| 2 | `C` | A–C (2) | `D.key`: uendelig til 3, `D.pi` = C; `E.key`: uendelig til 8, `E.pi` = C | A=-, B=4, C=-, D=3, E=8, F=uendelig, G=uendelig |\n| 3 | `D` | C–D (3) | `E.key`: 8 til 6, `E.pi` = D; `F.key`: uendelig til 11, `F.pi` = D | A=-, B=4, C=-, D=-, E=6, F=11, G=uendelig |\n| 4 | `B` | A–B (4) | ingen | A=-, B=-, C=-, D=-, E=6, F=11, G=uendelig |\n| 5 | `E` | D–E (6) | `F.key`: 11 til 7, `F.pi` = E; `G.key`: uendelig til 9, `G.pi` = E | A=-, B=-, C=-, D=-, E=-, F=7, G=9 |\n| 6 | `F` | E–F (7) | `G.key`: 9 til 1, `G.pi` = F | A=-, B=-, C=-, D=-, E=-, F=-, G=1 |\n| 7 | `G` | F–G (1) | ingen | A=-, B=-, C=-, D=-, E=-, F=-, G=- |\n\n**På eksamen leverer du bare linjene under — tavlen er her for å vise hvordan du\nkommer dit.**\n\nKantene i den rekkefølgen Prim legger dem til: **A–C (2), C–D (3), A–B (4),\nD–E (6), E–F (7), F–G (1)**\n\nForgjengerne: `A.pi` = NIL, `B.pi` = A, `C.pi` = A, `D.pi` = C, `E.pi` = D,\n`F.pi` = E, `G.pi` = F\n\nTotal vekt: $2 + 3 + 4 + 6 + 7 + 1 = 23$\n\n**Samme tre, annen rekkefølge.** Kruskal i Eksempel 3 fant nøyaktig de samme\nseks kantene, men i rekkefølgen F–G, A–C, C–D, A–B, D–E, E–F. Det er ventet:\ngrafen har entydige kantvekter, og da er det minimale spenntreet entydig.\nRekkefølgen kantene *velges* i, er derimot algoritmens egen.\n\n**Legg merke til runde 6.** Da `F` ble hentet inn, falt `G.key` fra 9 til 1,\nfordi F–G koster 1. Prim ser ikke framover — den oppdaget den billigste kanten i\nhele grafen først i nest siste runde. Kruskal tok den først. Begge lander likevel\npå 23, og det er snittegenskapen som garanterer det.\n\n**Fellenote.** Fellen er å oppdatere `key` for en node som allerede er tatt ut av\nkøen. Testen i pseudokoden er `if v er i Q`, ikke bare «hvis vekten er lavere» —\nen node som er hentet inn i treet, er ferdig."
+    },
+    {
+      "id": "tdt4120-4-2-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-4-2-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C.) Bruk strømnettet fra oppgave 4:\n\n```text\nA-B 7    A-C 3    B-C 5    B-D 2\nC-D 8    C-E 6    D-E 9    D-F 4\nE-F 1\n```\n\nKjør `MST-Prim` med rota `A`. **Oppgaven ber om rekkefølgen `Extract-Min`\nhenter nodene i, og kantene som velges — ikke om en forklaring av algoritmen.**",
+        "solution": "| Runde | `Extract-Min` gir | Kant som blir med i treet | Oppdateringer | `key` for nodene som fortsatt står i køen |\n|---|---|---|---|---|\n| 1 | `A` | - | `B.key`: uendelig til 7, `B.pi` = A; `C.key`: uendelig til 3, `C.pi` = A | A=-, B=7, C=3, D=uendelig, E=uendelig, F=uendelig |\n| 2 | `C` | A–C (3) | `B.key`: 7 til 5, `B.pi` = C; `D.key`: uendelig til 8, `D.pi` = C; `E.key`: uendelig til 6, `E.pi` = C | A=-, B=5, C=-, D=8, E=6, F=uendelig |\n| 3 | `B` | B–C (5) | `D.key`: 8 til 2, `D.pi` = B | A=-, B=-, C=-, D=2, E=6, F=uendelig |\n| 4 | `D` | B–D (2) | `F.key`: uendelig til 4, `F.pi` = D | A=-, B=-, C=-, D=-, E=6, F=4 |\n| 5 | `F` | D–F (4) | `E.key`: 6 til 1, `E.pi` = F | A=-, B=-, C=-, D=-, E=1, F=- |\n| 6 | `E` | E–F (1) | ingen | A=-, B=-, C=-, D=-, E=-, F=- |\n\n**Sluttilstanden, som er svaret:**\n\nNodene hentes i rekkefølgen **A, C, B, D, F, E**.\n\nKantene som velges: **A–C (3), B–C (5), B–D (2), D–F (4), E–F (1)**\n\nTotal vekt: $3 + 5 + 2 + 4 + 1 = 15$ — samme kantmengde og samme sum som Kruskal\nfant i oppgave 4, som ventet når kantvektene er entydige.\n\n**Der delpoenget faller:** i runde 2 må `B.key` senkes fra 7 til 5, fordi B–C\ner lettere enn A–B. Glemmer du den oppdateringen, henter du E før B og får en\nannen — og gal — kantmengde.",
+        "hints": [
+          "Sett `key` til uendelig for alle unntatt rota, og oppdater først etter at en node er hentet ut.",
+          "En node som allerede er hentet ut av køen, skal aldri få ny `key`."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-4-2-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-4-2-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger E — kjøretidskunnskap, altså at svaret er ett uttrykk med `\\Theta` eller\n`O` bevisst valgt.)\n\n**a)** Hva er kjøretiden til `MST-Kruskal`, og hvilket steg dominerer?\n**b)** Hva er kjøretiden til `MST-Prim` med binærhaug, og hvilke to\noperasjonene utgjør den?\n**c)** Hvorfor holder det ikke å bruke en vanlig usortert liste i stedet for\n`Union-Find` i Kruskal?",
+        "solution": "**a)** $O(E\\lg V)$. **Sorteringen** av kantene dominerer: $O(E\\lg E)$, og siden\n$E \\le V^2$ er $\\lg E \\le 2\\lg V$, så $O(E\\lg E) = O(E\\lg V)$.\n`Union-Find`-operasjonene koster til sammen mindre.\n\n**b)** $O(E\\lg V)$. `Extract-Min` kalles $V$ ganger à $O(\\lg V)$, og\n`Decrease-Key` høyst $E$ ganger à $O(\\lg V)$. Summen $O(V\\lg V + E\\lg V)$\nforenkles til $O(E\\lg V)$ når grafen er sammenhengende, siden $E \\ge V - 1$.\n\n**c)** Fordi sykeltesten «henger `u` og `v` allerede sammen?» da måtte gjøres\nved å traversere den delvis bygde skogen for hver kant, altså $O(V)$ per kant og\n$O(VE)$ til sammen — som er dyrere enn sorteringen og ville ødelagt kjøretiden.\n`Union-Find` gjør testen nesten konstant.",
+        "hints": [
+          "Skriv opp hva algoritmen faktisk gjør, steg for steg, og prising hvert steg for seg.",
+          "For c): hvor mange ganger stilles sykelspørsmålet i løpet av et helt Kruskal-løp?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-4-2-warn-1",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Å tro at det minimale spenntreet er entydig.** Det er det bare når alle\n  kantvektene er forskjellige. Skriv betingelsen — det er nettopp den som\n  skiller et fullt svar fra et halvt.\n- **Å legge til en kant som lager sykel i Kruskal.** Kontrollen er `Find-Set(u)`\n  mot `Find-Set(v)`, ikke øyemål på tegningen. Tell til slutt: har du flere enn\n  $V - 1$ kanter, har du lagt til minst én for mye.\n- **Å liste alle kantene uten å merke de forkastede.** Håndkjøringsoppgaven ber\n  om kantene i den rekkefølgen de **legges til**. Tar du med de forkastede uten\n  å merke dem, er svaret galt.\n- **Å hevde snittegenskapen uten betingelsen.** «Den letteste kanten over et\n  snitt er trygg» er en ufullstendig — og som Eksempel 2 viser, gal — påstand.\n  Snittet må **respektere** kantene du har valgt.\n- **Å blande spenntre med et vilkårlig tre.** Kantene må være grafens egne, og\n  alle noder må være med. En «snarvei» mellom to noder som ikke har en kant\n  mellom seg, finnes ikke.\n- **Å oppdatere `key` i Prim for en node som er tatt ut av køen.** Testen er\n  `if v er i Q`. En node som er hentet inn i treet, har fått sin endelige kant."
+    },
+    {
+      "id": "tdt4120-4-2-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-4-2-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger C.) Fire pumpestasjoner er knyttet sammen slik:\n\n```text\nK-L 1    L-M 2    M-N 1    K-N 2\n```\n\n**a)** Kjør `MST-Kruskal` med alfabetisk likhetsbryting, og oppgi kantene i den\nrekkefølgen de legges til.\n**b)** Hvor mange minimale spenntrær har grafen, og hva er vekten til hvert av\ndem?\n**c)** Hva ville skjedd med svaret ditt i a) hvis likhetsbrytingen hadde vært\nmotsatt alfabetisk?",
+        "solution": "**a) Kantene sortert stigende** (lik vekt brytes alfabetisk): K–L (1), M–N (1),\nK–N (2), L–M (2)\n\n| Steg | Kant | Vekt | Avgjørelse | Komponentene etter steget |\n|---|---|---|---|---|\n| 1 | K–L | 1 | **legges til** | {K,L} {M} {N} |\n| 2 | M–N | 1 | **legges til** | {K,L} {M,N} |\n| 3 | K–N | 2 | **legges til** | {K,L,M,N} |\n| 4 | L–M | 2 | forkastes — lager sykel | {K,L,M,N} |\n\n**Sluttilstanden:** K–L (1), M–N (1), K–N (2). Total vekt 4.\n\n**b)** **To** minimale spenntrær, begge med vekt 4: $\\{K–L, M–N, K–N\\}$ og\n$\\{K–L, M–N, L–M\\}$. Et spenntre må droppe nøyaktig én av de fire kantene, og\nden som droppes må ha vekt 2 for at summen skal bli minst mulig — og det er to\nkanter med vekt 2 å velge mellom.\n\n**c)** Da ville L–M (2) blitt vurdert før K–N (2), og svaret blitt K–L (1),\nM–N (1), L–M (2). **Begge svar er riktige** — det er det entydighet handler om.\nNår en oppgave oppgir en likhetsbryting, er det for at fasiten skal være\nentydig, ikke fordi det andre treet er galt.",
+        "hints": [
+          "Sorter kantene først, og skriv opp hvilken regel du bruker når to vekter er like.",
+          "For b): hvor mange kanter må et spenntre over fire noder ha, og hvilke kan du droppe?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-4-2-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-4-2-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger C.) Fem grender skal knyttes sammen med fiber. Traseene\nog kostnadene er:\n\n```text\nA-B 2    A-C 6    B-C 3    B-D 8\nC-D 5    C-E 9    D-E 7\n```\n\nKommunen har allerede gravd grøfta mellom C og E, så den traseen **må** være med\ni nettet uansett hva den koster.\n\n**a)** Hva er det billigste nettet uten den bindingen?\n**b)** Hvordan kan du bruke `MST-Kruskal` til å finne det billigste nettet som\ninneholder C–E, uten å endre algoritmen? Kjør det.\n**c)** Hva koster bindingen?",
+        "solution": "**a) Fritt Kruskal-løp.** Kantene sortert: A–B (2), B–C (3), C–D (5), A–C (6),\nD–E (7), B–D (8), C–E (9)\n\n| Steg | Kant | Vekt | Avgjørelse | Komponentene etter steget |\n|---|---|---|---|---|\n| 1 | A–B | 2 | **legges til** | {A,B} {C} {D} {E} |\n| 2 | B–C | 3 | **legges til** | {A,B,C} {D} {E} |\n| 3 | C–D | 5 | **legges til** | {A,B,C,D} {E} |\n| 4 | A–C | 6 | forkastes — lager sykel | {A,B,C,D} {E} |\n| 5 | D–E | 7 | **legges til** | {A,B,C,D,E} |\n| 6 | B–D | 8 | forkastes — lager sykel | {A,B,C,D,E} |\n| 7 | C–E | 9 | forkastes — lager sykel | {A,B,C,D,E} |\n\nBilligste nett: **A–B (2), B–C (3), C–D (5), D–E (7)**, total vekt **17**.\n\n**b) Grepet:** legg C–E i `A` og kall `Union(C, E)` **før** løkka starter, og\nkjør deretter `MST-Kruskal` helt uendret på de øvrige kantene. Da vil enhver\nkant som ville laget sykel med C–E, bli forkastet av den vanlige sykeltesten.\n\n| Steg | Kant | Vekt | Avgjørelse | Komponentene etter steget |\n|---|---|---|---|---|\n| 0 | C–E | 9 | **legges til først (påkrevd)** | {A} {B} {C,E} {D} |\n| 1 | A–B | 2 | **legges til** | {A,B} {C,E} {D} |\n| 2 | B–C | 3 | **legges til** | {A,B,C,E} {D} |\n| 3 | C–D | 5 | **legges til** | {A,B,C,D,E} |\n| 4 | A–C | 6 | forkastes — lager sykel | {A,B,C,D,E} |\n| 5 | D–E | 7 | forkastes — lager sykel | {A,B,C,D,E} |\n| 6 | B–D | 8 | forkastes — lager sykel | {A,B,C,D,E} |\n\nBilligste nett med C–E: **C–E (9), A–B (2), B–C (3), C–D (5)**, total vekt\n**19**.\n\nKjøretiden er uendret, $O(E\\lg V)$: du har lagt til én `Union` før løkka.\n\n**c)** Bindingen koster $19 - 17 = 2$. Merk at D–E (7) forsvant ut av treet:\nmed C–E på plass er E allerede knyttet til, og D nås billigere via C–D (5).",
+        "hints": [
+          "Snittegenskapen sier at en trygg kant kan legges til når som helst — også som aller første steg.",
+          "Kjør Kruskal to ganger: én gang fritt, én gang med den påkrevde kanten allerede i skogen."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-4-2-t-5",
+      "type": "text",
+      "content": "## Kjøretidene samlet (~5 min)\n\n| Algoritme/operasjon | Kjøretid | Hva som dominerer | Krav og egenskap |\n|---|---|---|---|\n| `MST-Kruskal` | $O(E\\lg V)$ | sorteringen av kantene | trenger `Union-Find`; bygger flere biter som smelter sammen |\n| `MST-Prim` med binærhaug | $O(E\\lg V)$ | $E$ kall til `Decrease-Key` | trenger prioritetskø; bygger ett sammenhengende tre |\n| `Make-Set`, `Find-Set`, `Union` | nesten konstant hver | — | fra [kap. 3.5](/tdt4120/tdt4120-3-5); svarer på «henger disse sammen?» |\n| `Extract-Min`, `Decrease-Key` | $O(\\lg V)$ hver | — | binærhaug fra [kap. 3.1](/tdt4120/tdt4120-3-1) |\n| Sjekk om en kantmengde er et spenntre | $\\Theta(V + E)$ | én traversering | tell kantene ($V-1$) og sjekk at alt henger sammen |\n\n**Begge algoritmene er $O(E\\lg V)$**, så kjøretiden alene skiller dem ikke.\nForskjellen er praktisk: Kruskal vil ha kantene i en liste som kan sorteres,\nPrim vil ha nabolister og en prioritetskø. Er kantene allerede sortert, er\nKruskal raskere; er grafen tett, gjør Prim færre operasjoner på hver node.\n\n**Merk `O` framfor `\\Theta`.** Vi skriver $O(E\\lg V)$ fordi begge algoritmene\nkan stoppe tidlig i heldige tilfeller — Kruskal når treet har $V - 1$ kanter,\nlenge før lista er gjennomgått. Uttrykket er en øvre grense som alltid holder,\nog det er det svaret en kjøretidsoppgave er ute etter."
+    },
+    {
+      "id": "tdt4120-4-2-t-bank",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har\nlest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder\nkjernestoffet."
+    },
+    {
+      "id": "tdt4120-4-2-def-6",
+      "type": "definition",
+      "title": "`MST-Kruskal`",
+      "content": "Finner et minimalt spenntre ved å sortere alle kantene stigende og legge til\nhver kant som ikke lager en sykel.\n\nKjøretid $O(E\\lg V)$, der **sorteringen dominerer**. **Krever `Union-Find`** for\nsykeltesten: kanten forkastes når `Find-Set(u)` og `Find-Set(v)` gir samme svar.\nUnderveis har algoritmen en skog av flere biter, ikke ett tre. Svaret er kantene\ni den rekkefølgen de legges til, med de forkastede merket."
+    },
+    {
+      "id": "tdt4120-4-2-def-7",
+      "type": "definition",
+      "title": "`MST-Prim`",
+      "content": "Finner et minimalt spenntre ved å vokse ett sammenhengende tre fra en rot, og\nalltid ta den letteste kanten ut av treet.\n\nKjøretid $O(E\\lg V)$ med binærhaug. **Krever prioritetskø** med `Extract-Min` og\n`Decrease-Key`. Hver node utenfor treet har `key` = vekten på den letteste kjente\nkanten inn til treet. Rota kan velges fritt: rekkefølgen på kantene endres, men\ntreet blir det samme når kantvektene er entydige."
+    },
+    {
+      "id": "tdt4120-4-2-def-8",
+      "type": "definition",
+      "title": "`Union-Find` (disjunkte mengder)",
+      "content": "Datastrukturen som holder styr på hvilke elementer som ligger i samme mengde,\nuten at mengdene overlapper.\n\nFra [kap. 3.5](/tdt4120/tdt4120-3-5). Representeres som en **skog**: ett tre per\nmengde, hver node peker på forelderen, roten er representanten. Med de to\nstandardgrepene — å henge det lave treet under det høye, og å la `Find-Set`\npeke nodene rett på rota — er en følge av operasjoner så nær lineær at hver\noperasjon regnes som nesten konstant. I `MST-Kruskal` er den sykeltesten."
+    },
+    {
+      "id": "tdt4120-4-2-def-9",
+      "type": "definition",
+      "title": "`Make-Set`, `Find-Set` og `Union`",
+      "content": "De tre operasjonene på disjunkte mengder.\n\n`Make-Set(x)` lager en ny mengde med bare `x`. `Find-Set(x)` gir representanten\nfor mengden `x` ligger i — to elementer er i samme mengde nøyaktig når svarene er\nlike. `Union(x, y)` slår de to mengdene sammen. I `MST-Kruskal` kalles\n`Make-Set` én gang per node, `Find-Set` to ganger per kant og `Union` én gang per\nvalgt kant."
+    },
+    {
+      "id": "tdt4120-4-2-def-10",
+      "type": "definition",
+      "title": "Prioritetskø",
+      "content": "En kø der elementet med lavest nøkkel tas ut først, uansett når det kom inn.\n\nImplementeres som en binærhaug fra [kap. 3.1](/tdt4120/tdt4120-3-1):\n`Extract-Min` i $O(\\lg V)$, `Decrease-Key` i $O(\\lg V)$. `MST-Prim` bruker den\ntil å finne den letteste kanten ut av treet uten å lete gjennom alle kantene\nhver runde. Det er den ene datastrukturen som gjør Prim raskere enn en naiv\n$O(V \\cdot E)$-gjennomgang."
+    },
+    {
+      "id": "tdt4120-4-2-def-11",
+      "type": "definition",
+      "title": "`key`- og `pi`-feltene i Prim",
+      "content": "De to feltene hver node har under `MST-Prim`.\n\n`v.key` er vekten på den letteste **kjente** kanten fra treet til `v`, og er\n$\\infty$ helt til treet får en nabo av `v`. `v.pi` er noden i treet den kanten\ngår fra. Når `v` hentes ut av køen, blir kanten $(v, v.\\pi)$ med i spenntreet.\nFelles for begge: de skal **aldri** oppdateres for en node som allerede er tatt\nut av køen."
+    },
+    {
+      "id": "tdt4120-4-2-def-12",
+      "type": "definition",
+      "title": "Skog",
+      "content": "En samling trær — altså en graf uten sykler, som ikke behøver å henge sammen.\n\nEt spenntre er en skog med nøyaktig én komponent. `MST-Kruskal` har en skog\ngjennom hele kjøringen: den starter med $V$ enkeltnoder, og hver kant som legges\ntil reduserer antall trær med én. Etter $V - 1$ vellykkede kanter er det ett\nigjen, og det er svaret."
+    },
+    {
+      "id": "tdt4120-4-2-def-13",
+      "type": "definition",
+      "title": "Sammenhengende graf",
+      "content": "En graf der det finnes en sti mellom hvert par av noder.\n\nDette er kravet for at et spenntre i det hele tatt skal finnes — er grafen delt\ni to, kan ingen kantmengde nå alle nodene. Testen er én traversering fra en\nvilkårlig node, i $\\Theta(V + E)$ etter [kap. 4.1](/tdt4120/tdt4120-4-1): nås\nalle nodene, henger grafen sammen. Både `MST-Prim` og `MST-Kruskal` forutsetter\ndet."
+    },
+    {
+      "id": "tdt4120-4-2-def-14",
+      "type": "definition",
+      "title": "Vektfunksjonen $w(u,v)$",
+      "content": "Tallet som er festet til kanten mellom $u$ og $v$: kostnad, lengde, tid eller\nkapasitet.\n\nI MST-sammenheng kan vektene være negative uten at noe går galt — algoritmene\nsammenligner bare kanter med hverandre, og en negativ vekt gjør bare kanten mer\nattraktiv. Det er en viktig kontrast til korteste vei i\n[kap. 4.3](/tdt4120/tdt4120-4-3), der negative vekter er et reelt problem for\n`Dijkstra`."
+    },
+    {
+      "id": "tdt4120-4-2-def-15",
+      "type": "definition",
+      "title": "Antall kanter i et tre",
+      "content": "Et tre med $V$ noder har nøyaktig $V - 1$ kanter.\n\nDette er den billigste kontrollregningen i kapitlet. Har svaret ditt flere enn\n$V - 1$ kanter, har du lagt til en kant som lager en sykel. Har det færre, henger\nikke alle nodene sammen. Motsatt vei: en sammenhengende graf med nøyaktig\n$V - 1$ kanter **er** et tre, og dermed sitt eget minimale spenntre."
+    },
+    {
+      "id": "tdt4120-4-2-def-16",
+      "type": "definition",
+      "title": "Grådig algoritme",
+      "content": "En algoritme som tar det beste valget her og nå, uten å gå tilbake på det\nsenere.\n\nBåde `MST-Prim` og `MST-Kruskal` er grådige: de tar alltid den letteste\ntilgjengelige kanten. Grådighet gir ikke alltid riktig svar — for de fleste\nproblemer gjør den ikke det — men her gjør den det, og **snittegenskapen er\nbeviset**. Den sier nøyaktig at det grådige valget er trygt."
+    },
+    {
+      "id": "tdt4120-4-2-def-17",
+      "type": "definition",
+      "title": "Entydighet av minimalt spenntre",
+      "content": "Et minimalt spenntre er entydig når alle kantvektene i grafen er forskjellige.\n\nEr to kantvekter like, **kan** grafen ha flere minimale spenntrær — alle med\nsamme totale vekt. Den totale vekten er alltid entydig; det er utvalget av\nkanter som kan variere. Derfor sier oppgavetekster «finn **et** minimalt\nspenntre», og derfor oppgir håndkjøringsoppgaver en likhetsbryting."
+    },
+    {
+      "id": "tdt4120-4-2-def-18",
+      "type": "definition",
+      "title": "Letteste kryssende kant",
+      "content": "Blant alle kantene som krysser et snitt, en av dem med minst vekt.\n\nOrdet «en av dem» er med vilje: er det uavgjort mellom to kanter, er begge en\nletteste kryssende kant, og begge er trygge. Det er dette som gjør at en graf\nmed like kantvekter kan ha flere minimale spenntrær. `MST-Prim` finner den med\n`Extract-Min`; `MST-Kruskal` finner den ved at kantene behandles i sortert\nrekkefølge."
+    },
+    {
+      "id": "tdt4120-4-2-coll-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tdt4120-4-2-rep-1",
+          "type": "text",
+          "content": "Fem korte spørsmål fra det kapitlet bygger på. Svar i hodet, og sjekk deretter.\n\n**1.** Hvilke tre operasjoner har en `Union-Find`-struktur, og hva svarer hver\nav dem på?\n\n*Svar:* `Make-Set(x)` lager en ny mengde med bare `x`. `Find-Set(x)` gir\nrepresentanten for mengden `x` ligger i — to elementer er i samme mengde\nnøyaktig når svarene er like. `Union(x, y)` slår mengdene sammen. Fra\n[kap. 3.5](/tdt4120/tdt4120-3-5).\n\n**2.** Hva er kjøretiden til `Extract-Min` og `Decrease-Key` i en binærhaug, og\nhvorfor?\n\n*Svar:* $O(\\lg V)$ hver. Begge flytter ett element langs én vei mellom rota og et\nløv, og høyden i en binærhaug med $V$ elementer er $\\lfloor \\lg V \\rfloor$.\n\n**3.** Hva er kjøretiden til en traversering av en graf gitt som nabolister, og\nhva brukes den til her?\n\n*Svar:* $\\Theta(V + E)$, fra [kap. 4.1](/tdt4120/tdt4120-4-1). Her brukes den\ntil å sjekke om grafen henger sammen — altså om et spenntre i det hele tatt\nfinnes.\n\n**4.** Hvorfor er $O(E\\lg E)$ det samme som $O(E\\lg V)$?\n\n*Svar:* fordi $E \\le V^2$ i en enkel graf, så $\\lg E \\le \\lg V^2 = 2\\lg V$.\nKonstanten 2 forsvinner i $O$-notasjonen. Det er dette skrittet som gjør at\nKruskals sortering oppgis som $O(E\\lg V)$ og ikke $O(E\\lg E)$.\n\n**5.** En graf er lagret som nabomatrise. Hva koster det å liste alle kantene\nmed vektene sine, slik Kruskal trenger dem?\n\n*Svar:* $\\Theta(V^2)$ — du må lese hver celle. Med naboliste koster det\n$\\Theta(V + E)$. Det er en av grunnene til at naboliste er standardvalget i\n[kap. 4.1](/tdt4120/tdt4120-4-1)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

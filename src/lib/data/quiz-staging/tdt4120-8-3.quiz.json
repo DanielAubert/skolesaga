@@ -1,0 +1,162 @@
+[
+  {
+    "question": "Hva er kjøretiden til `Build-Max-Heap` på et array med $n$ elementer?",
+    "options": [
+      "$\\Theta(n)$, fordi de aller fleste nodene ligger nær bunnen og siver svært kort",
+      "$\\Theta(n\\lg n)$, fordi det gjøres omtrent $n$ kall til `Max-Heapify` med $O(\\lg n)$ hver",
+      "$\\Theta(\\lg n)$, fordi høyden på en binærhaug med $n$ elementer er logaritmisk",
+      "$\\Theta(n^2)$, fordi hvert element i verste fall må sammenlignes med alle de andre"
+    ],
+    "explanation": "Summen av sivedybdene over alle nodene teleskoperer til en konvergent rekke, så byggingen er lineær. Alternativet som oppgir $\\Theta(n\\lg n)$, ganger antall kall med den maksimale høyden — det er en gyldig øvre grense, men ikke en tett en, for bare rotnoden kan sive hele høyden."
+  },
+  {
+    "question": "Hvilken kombinasjon av egenskaper har `Heapsort`?",
+    "options": [
+      "$\\Theta(n\\lg n)$ i verste tilfelle, sorterer på stedet, og er ikke stabil",
+      "$\\Theta(n\\lg n)$ i verste tilfelle, sorterer på stedet, og er dessuten stabil",
+      "$\\Theta(n\\lg n)$ i verste tilfelle, trenger ekstra array, og er stabil",
+      "$\\Theta(n^2)$ i verste tilfelle, sorterer på stedet, og er ikke stabil"
+    ],
+    "explanation": "`Heapsort` bygger haugen i $\\Theta(n)$ og gjør deretter $n-1$ uttrekk med $O(\\lg n)$ hver, alt i selve arrayet. Alternativet som kaller den stabil, overser at byttet mellom rota og siste haugelement flytter like nøkler forbi hverandre uten å holde orden på hvem som kom først."
+  },
+  {
+    "question": "Du skal sortere $n$ heltall som alle ligger mellom $0$ og $n^3$. Hva blir kjøretiden til `Counting-Sort` her?",
+    "options": [
+      "$\\Theta(n^3)$, fordi kjøretiden er $\\Theta(n+k)$ og $k$ her er $n^3$",
+      "$\\Theta(n)$, fordi `Counting-Sort` alltid sorterer i lineær tid",
+      "$\\Theta(n\\lg n)$, fordi ingen sortering kan være raskere enn dette",
+      "$\\Theta(n^2)$, fordi telletabellen må gjennomløpes én gang per element"
+    ],
+    "explanation": "`Counting-Sort` er $\\Theta(n+k)$ der $k$ er nøkkelområdets størrelse, og med $k = n^3$ dominerer telletabellen fullstendig. Alternativet som sier at algoritmen alltid er lineær, glemmer betingelsen $k = O(n)$ — uten den er `Merge-Sort` med $\\Theta(n\\lg n)$ det bedre valget."
+  },
+  {
+    "question": "Hva er kjøretiden til `Randomized-Select` i verste tilfelle?",
+    "options": [
+      "$\\Theta(n^2)$, fordi pivotvalget kan dele arrayet svært skjevt hver gang",
+      "$\\Theta(n)$, fordi algoritmen forkaster halve arrayet i hvert steg",
+      "$\\Theta(n\\lg n)$, fordi den i praksis oppfører seg som `Quicksort`",
+      "$\\Theta(\\lg n)$, fordi den halverer søkeområdet slik binærsøk gjør"
+    ],
+    "explanation": "Forventningen $\\Theta(n)$ er tatt over algoritmens egne tilfeldige pivotvalg, ikke over inputen, og en uheldig rekke valg gir kvadratisk tid. Alternativet som oppgir $\\Theta(n)$, forveksler forventet kjøretid med garantert kjøretid — den garantien får du bare fra `Select` med median av medianer."
+  },
+  {
+    "question": "Hva skriver `Inorder-Tree-Walk` ut, og hva koster gjennomløpet?",
+    "options": [
+      "Nøklene i sortert rekkefølge, i $\\Theta(n)$ tid",
+      "Nøklene i den rekkefølgen de ble satt inn, i $\\Theta(n)$ tid",
+      "Nøklene nivå for nivå, i $\\Theta(n)$ tid",
+      "Nøklene i sortert rekkefølge, i $\\Theta(n\\lg n)$ tid"
+    ],
+    "explanation": "Søketreegenskapen gir at venstre deltre kommer først, så noden, så høyre deltre, og hver node besøkes én gang. Alternativet om innsettingsrekkefølgen er den vanligste feilen: den rekkefølgen finnes ikke lagret noe sted i treet etter at det er bygget."
+  },
+  {
+    "question": "Rekurrensen $T(n) = 3T(n/4) + n\\lg n$ løses med masterteoremet. Hvilket tilfelle og hvilket svar?",
+    "options": [
+      "Tilfelle 3, og $T(n) = \\Theta(n\\lg n)$, siden $\\log_4 3$ er mindre enn $1$",
+      "Tilfelle 1, og $T(n) = \\Theta(n^{\\log_4 3})$, siden det er tre delkall",
+      "Tilfelle 2, og $T(n) = \\Theta(n\\lg^2 n)$, siden $f(n)$ har en $\\lg$-faktor",
+      "Masterteoremet gjelder ikke her, siden $f(n)$ ikke er et rent polynom"
+    ],
+    "explanation": "$n^{\\log_4 3}$ vokser saktere enn $n$, så $f(n) = n\\lg n$ dominerer polynomisk, og regularitetsbetingelsen holder med $c = 3/4$. Alternativet som velger tilfelle 2, ser bare $\\lg$-faktoren i $f(n)$ og glemmer å sammenligne $f(n)$ med $n^{\\log_b a}$ først."
+  },
+  {
+    "question": "Hvilket krav stiller `Dijkstra` til grafen, og hva er kjøretiden med binærhaug?",
+    "options": [
+      "Ikke-negative kantvekter, og $O(E\\lg V)$ med binærhaug som prioritetskø",
+      "Ingen krav til kantvektene, og $O(E\\lg V)$ med binærhaug som prioritetskø",
+      "Ikke-negative kantvekter, og $\\Theta(VE)$ med binærhaug som prioritetskø",
+      "At grafen er asyklisk, og $\\Theta(V+E)$ med binærhaug som prioritetskø"
+    ],
+    "explanation": "En node som er tatt ut av køen, regnes som ferdig, og med en negativ kant kan avstanden dens fortsatt bli mindre etterpå. Alternativet som sier at det ikke er noe krav til vektene, beskriver `Bellman-Ford`, som tåler negative kanter og koster $\\Theta(VE)$."
+  },
+  {
+    "question": "Hvordan er kapasiteten til et snitt $(S,T)$ i et flytnett definert?",
+    "options": [
+      "Summen av $c(u,v)$ over alle kanter med $u \\in S$ og $v \\in T$",
+      "Summen av $c(u,v)$ over alle kanter mellom $S$ og $T$, i begge retninger",
+      "Summen av $c(u,v)$ over kanter fra $S$ til $T$, minus kantene fra $T$ til $S$",
+      "Summen av $c(u,v)$ over alle kanter som starter i en node som ligger i $S$"
+    ],
+    "explanation": "Bare de framoverrettede kantene teller, og de teller med full kapasitet uansett hvor mye flyt som går i dem. Alternativet som trekker fra tilbakekantene, beskriver nettoflyten over snittet — den er lik flytverdien, ikke lik kapasiteten."
+  },
+  {
+    "question": "Hva sier heltallsteoremet for maksimal flyt?",
+    "options": [
+      "Er alle kapasitetene heltall, finnes det en maksimal flyt med heltallig flyt på hver kant",
+      "Er alle kapasitetene heltall, har hver maksimal flyt heltallig flyt på hver kant",
+      "Er alle kapasitetene heltall, kjører `Ford-Fulkerson` i polynomisk tid i antall bits",
+      "Er alle kapasitetene heltall, er den maksimale flyten entydig bestemt av nettet"
+    ],
+    "explanation": "Teoremet garanterer at én slik heltallig maksimal flyt finnes, og at `Ford-Fulkerson` finner en av dem — det er dette som gjør at flytmodeller kan brukes på tilordninger av hele personer. Alternativet som sier at hver maksimal flyt er heltallig, går for langt: med flere maksimale flyter kan andre av dem godt ha brøkverdier."
+  },
+  {
+    "question": "Hvorfor kalles `Ford-Fulkerson` pseudopolynomisk?",
+    "options": [
+      "Kjøretiden avhenger av kapasitetenes tallverdi, ikke bare av antall bits i inputen",
+      "Kjøretiden avhenger av hvor mange noder og kanter nettet har, ikke av kapasitetene",
+      "Kjøretiden er polynomisk bare når nettet er bipartitt og kapasitetene er $1$",
+      "Kjøretiden er polynomisk i teorien, men algoritmen er umulig å implementere raskt"
+    ],
+    "explanation": "Hver forøkende sti øker flyten med minst $1$, så antallet iterasjoner kan bli så stort som selve flytverdien, og den kan skrives med få bits. At dette er dyrt, sier ingenting om at problemet er vanskelig — `Edmonds-Karp` løser samme problem i $O(VE^2)$, så maksimal flyt ligger i P."
+  },
+  {
+    "question": "Hva betyr $A \\le_p B$?",
+    "options": [
+      "At $A$ reduseres til $B$, og at $B$ dermed er minst like vanskelig som $A$",
+      "At $A$ reduseres til $B$, og at $A$ dermed er minst like vanskelig som $B$",
+      "At $B$ reduseres til $A$, og at $B$ dermed er minst like vanskelig som $A$",
+      "At $A$ og $B$ reduseres til hverandre, og altså er nøyaktig like vanskelige"
+    ],
+    "explanation": "Har du en polynomisk algoritme for $B$, får du en for $A$ ved å oversette først, så $B$ kan ikke være lettere enn $A$. Alternativet som snur konklusjonen, er nettopp den reverserte reduksjonsretningen: å redusere sitt eget problem TIL et NP-komplett problem beviser ingenting om at ens eget problem er vanskelig."
+  },
+  {
+    "question": "Du har en korrekt polynomisk reduksjon fra 3-CNF-SAT til problemet $X$. Hva har du vist?",
+    "options": [
+      "At $X$ er NP-hardt, men ikke at $X$ ligger i NP",
+      "At $X$ er NP-komplett, siden 3-CNF-SAT selv er NP-komplett",
+      "At $X$ ligger i NP, men ikke at $X$ er NP-hardt",
+      "At $X$ kan løses i polynomisk tid dersom 3-CNF-SAT kan det"
+    ],
+    "explanation": "Retningen fra et kjent NP-hardt problem til $X$ gir en nedre grense på vanskeligheten, og NP-hardhet er nettopp det. Alternativet som konkluderer med NP-komplett, hopper over det andre kravet: at $X$ selv ligger i NP, altså har et sertifikat som kan verifiseres i polynomisk tid."
+  },
+  {
+    "question": "Hva vil det si at et avgjørelsesproblem ligger i NP?",
+    "options": [
+      "At et sertifikat av polynomisk størrelse kan verifiseres i polynomisk tid",
+      "At problemet ikke kan løses i polynomisk tid, men bare i eksponentiell tid",
+      "At problemet kan løses i polynomisk tid av en algoritme som trekker tilfeldig",
+      "At ethvert annet problem i klassen kan reduseres til det i polynomisk tid"
+    ],
+    "explanation": "NP handler om å kontrollere et framlagt ja-svar raskt, ikke om å finne det. Alternativet som sier at problemet ikke kan løses i polynomisk tid, gjør en vanlig forveksling: alt i P ligger også i NP, for da kan du bare regne ut svaret og ignorere sertifikatet."
+  },
+  {
+    "question": "Hvilken påstand om `Gale-Shapley` stemmer?",
+    "options": [
+      "Den terminerer alltid og gir alltid en stabil matching, men matchingen er ikke nødvendigvis entydig",
+      "Den terminerer alltid og gir alltid den entydige stabile matchingen for de gitte preferansene",
+      "Den terminerer alltid, men gir bare en stabil matching når begge sider har like preferanselister",
+      "Den kan i uheldige tilfeller løpe evig, og gir da ingen matching i det hele tatt"
+    ],
+    "explanation": "Algoritmen er frier-optimal: siden som frir, får sitt beste mulige stabile utfall, og den andre siden sitt dårligste — så orienteringen kan gi to forskjellige, begge stabile, matchinger. Alternativet som kaller matchingen entydig, overser nettopp dette, og det er derfor svaret må oppgi hvilken side som fridde."
+  },
+  {
+    "question": "Hva koster det å rekonstruere selve løsningen fra en fylt DP-tabell, i forhold til å regne ut bare optimalverdien?",
+    "options": [
+      "Ingenting asymptotisk, når hvert delproblem lagrer valget som ga optimum",
+      "En faktor $n$ ekstra, siden tabellen må gjennomløpes på nytt for hvert steg",
+      "Ingenting i det hele tatt, siden løsningen alltid kan leses rett av tabellen",
+      "En faktor $\\lg n$ ekstra, siden valgene må sorteres før de kan settes sammen"
+    ],
+    "explanation": "Lagres valget underveis, går tilbakesporingen ett steg per beslutning og koster lineær tid i antall delproblemer, som forsvinner i kjøretiden for å fylle tabellen. Alternativet som sier at det ikke koster noe i det hele tatt, hopper over at valgene faktisk må lagres — uten dem må hvert steg regnes ut på nytt."
+  },
+  {
+    "question": "En algoritme har kjøretidsfunksjonen $f(n) = 6n\\lg n + 3n^2 + 250$. Hva er det strammeste asymptotiske uttrykket?",
+    "options": [
+      "$\\Theta(n^2)$, siden det kvadratiske leddet dominerer de to andre",
+      "$O(n^2)$, siden det kvadratiske leddet gir en øvre grense for veksten",
+      "$\\Theta(n\\lg n)$, siden $n\\lg n$ er det leddet som står først i uttrykket",
+      "$\\Theta(3n^2)$, siden konstanten foran det dominerende leddet skal med"
+    ],
+    "explanation": "Både $6n\\lg n$ og konstantleddet vokser saktere enn $n^2$, og forholdet $f(n)/n^2$ nærmer seg $3$, så grensen er tett i begge retninger. Alternativet som oppgir $O(n^2)$, er sant, men ikke strammest — når en tett grense finnes, er $\\Theta$ svaret oppgaven ber om."
+  }
+]

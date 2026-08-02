@@ -1,0 +1,162 @@
+[
+  {
+    "question": "Hva er det strammeste $\\Theta$-uttrykket for $7n^2\\lg^3 n + 4n^{5/2} + n^3/\\lg^2 n$?",
+    "options": [
+      "$\\Theta(n^3/\\lg^2 n)$",
+      "$\\Theta(n^3)$",
+      "$\\Theta(n^{5/2})$",
+      "$\\Theta(n^2\\lg^3 n)$"
+    ],
+    "explanation": "Både $n^2\\lg^3 n$ og $n^{5/2}$ er dominert av $n^3/\\lg^2 n$, siden enhver potens av $\\lg n$ taper mot enhver positiv potens av $n$. $\\Theta(n^3)$ er direkte galt: $n^3/\\lg^2 n$ er strengt mindre enn $n^3$, og å oppgi en løsere grense enn du kan gi, er felle #4."
+  },
+  {
+    "question": "Hvilke to av disse vokser like fort: $n^{\\lg 3}$, $3^{\\lg n}$, $n\\lg^2 n$, $2^{\\sqrt n}$?",
+    "options": [
+      "$n^{\\lg 3}$ og $3^{\\lg n}$ — de er samme funksjon skrevet på to måter",
+      "$n\\lg^2 n$ og $n^{\\lg 3}$ — begge er polynomiske av grad under 2 i variabelen $n$",
+      "$3^{\\lg n}$ og $2^{\\sqrt n}$ — begge er eksponentialfunksjoner",
+      "$n\\lg^2 n$ og $2^{\\sqrt n}$ — begge vokser langsommere enn $n^2$"
+    ],
+    "explanation": "Omskrivingen $3^{\\lg n} = 2^{\\lg 3 \\cdot \\lg n} = n^{\\lg 3}$ viser at de er identiske. Regelen $a^{\\lg n} = n^{\\lg a}$ er verdt å kunne kaldt — den kommer igjen i rangeringsoppgaver."
+  },
+  {
+    "question": "Du kjører `Insertion-Sort` og deretter `Merge-Sort`. Hva er total kjøretid i verste tilfelle?",
+    "options": [
+      "$\\Theta(n^2)$ — det første steget alene kan koste så mye",
+      "$\\Theta(n\\lg n)$ — det siste steget dominerer og er tett begge veier",
+      "$\\Theta(n)$ — arrayet er nesten sortert når `Merge-Sort` starter",
+      "$\\Theta(n^2\\lg n)$ — de to kjøretidene ganges sammen"
+    ],
+    "explanation": "To steg etter hverandre legges sammen, og $\\Theta(n^2) + \\Theta(n\\lg n)$ domineres av det kvadratiske leddet. `Merge-Sort` blir ikke raskere av at inputen er pen — det er `Insertion-Sort` som er den inputfølsomme, og derfor skal den kjøres sist."
+  },
+  {
+    "question": "Hva er verste-tilfelle-kjøretiden til `Randomized-Select`, og er grensen tett?",
+    "options": [
+      "$\\Theta(n^2)$, og grensen er tett",
+      "$\\Theta(n)$, og grensen er tett",
+      "$O(n\\lg n)$, og grensen er bare øvre",
+      "$\\Theta(n\\lg n)$, og grensen er tett"
+    ],
+    "explanation": "Med maksimalt skjeve pivotvalg blir rekurrensen $T(n) = T(n-1) + \\Theta(n)$, altså kvadratisk. $\\Theta(n)$ er **forventet** kjøretid — å oppgi den som verste tilfelle er felle #9 i sin vanligste form."
+  },
+  {
+    "question": "Hva er svarformatet når en oppgave ber om «maksimal flytverdi og et min-snitt»?",
+    "options": [
+      "Begge deler — flytverdien og snittet med de kryssende kantene",
+      "Bare flytverdien, siden snittkapasiteten alltid er lik den",
+      "Bare snittet, siden flytverdien kan leses ut av det",
+      "Hele flyttabellen med $f/c$ for hver eneste kant i nettet"
+    ],
+    "explanation": "Er begge etterspurt, teller begge — og snittet koster ingenting ekstra, siden det leses av med én `BFS` i det siste restnettet. At tallene er like, er dessuten kontrollen på at kjøringen er ferdig."
+  },
+  {
+    "question": "Du har vist 3-CNF-SAT $\\le_p$ RUTEPLAN. Hva mangler for at RUTEPLAN skal være NP-komplett?",
+    "options": [
+      "Medlemskapsdelen — at RUTEPLAN ligger i NP, vist med et sertifikat",
+      "Hardhetsdelen — at alle problemene i NP kan reduseres polynomisk til RUTEPLAN",
+      "En reduksjon den motsatte veien, altså RUTEPLAN $\\le_p$ 3-CNF-SAT",
+      "En polynomisk algoritme for RUTEPLAN, som viser at det er løsbart"
+    ],
+    "explanation": "Reduksjonen har allerede gitt hardheten; det som gjenstår, er et sertifikat som kan kontrolleres i polynomisk tid. En reduksjon den motsatte veien ville også vist medlemskap, men sertifikatet er som regel den enkleste veien."
+  },
+  {
+    "question": "«LAGERFLYT $\\le_p$ SUBSET-SUM, og SUBSET-SUM er NP-komplett, altså er LAGERFLYT NP-hardt.» Hva er galt?",
+    "options": [
+      "Retningen — den viser bare at LAGERFLYT ligger i NP, ikke at det er hardt",
+      "Ingenting — argumentet er korrekt slik det står",
+      "At oversettelsen må være lineær og ikke bare polynomisk for i det hele tatt å telle",
+      "At SUBSET-SUM ikke er NP-komplett, men bare NP-hardt"
+    ],
+    "explanation": "Pilen peker mot det som er minst like vanskelig, og her er det SUBSET-SUM — så LAGERFLYT arver ingen hardhet. Hvert eneste problem i NP kan reduseres til et NPC-problem, så retningen skiller ingenting; dette er felle #1."
+  },
+  {
+    "question": "Noen finner en $O(n^7)$-algoritme for VERTEX-COVER. Hva følger?",
+    "options": [
+      "$P = NP$, siden VERTEX-COVER er NP-komplett",
+      "$P \\ne NP$, siden ett problem da skiller seg fra de andre",
+      "At VERTEX-COVER ikke var NP-komplett likevel",
+      "Ingenting — $O(n^7)$ er for tregt til å regnes som polynomisk"
+    ],
+    "explanation": "Ethvert $A \\in NP$ kan reduseres til VERTEX-COVER i polynomisk tid, og sammensetningen av to polynomiske algoritmer er polynomisk. $O(n^7)$ er polynomisk — konstanten i eksponenten spiller ingen rolle for klassifiseringen."
+  },
+  {
+    "question": "I et flytnett skal hvert vaktdøgn dekkes av **to** leger. Hva er måltallet for maksimal flyt?",
+    "options": [
+      "$2m$, der $m$ er antall vaktdøgn",
+      "$m$, der $m$ er antall vaktdøgn",
+      "$4n$, der $n$ er antall leger som kan ta høyst fire vakter",
+      "$n + m$, altså summen av leger og vaktdøgn i nettet"
+    ],
+    "explanation": "Hver slukkant har kapasitet 2, og alle døgnene er dekket nøyaktig når alle slukkantene er mettet. $4n$ er den øvre grensen kildesiden setter — er $2m > 4n$, er svaret nei uten at algoritmen behøver å kjøre."
+  },
+  {
+    "question": "Hvorfor må midtkanten lege–døgn ha kapasitet 1 og ikke 2 i vaktlisteoppgaven?",
+    "options": [
+      "Ellers kunne samme lege dekket begge vaktene på ett døgn",
+      "Ellers ville kjøretiden til `Edmonds-Karp` doble seg",
+      "Ellers ville heltallsteoremet ikke lenger gjelde for nettet",
+      "Ellers ville min-snittet bli umulig å lese av til slutt"
+    ],
+    "explanation": "Kapasiteten på midtkanten begrenser hvor mye én bestemt lege kan bidra på ett bestemt døgn, og to vakter fra samme person er ikke en gyldig vaktliste. Heltallsteoremet gjelder for enhver heltallig kapasitet — det er ikke der problemet ligger."
+  },
+  {
+    "question": "Hvorfor trengs nodesplitting i brannbelte-oppgaven?",
+    "options": [
+      "Fordi kostnaden ligger på **ruter**, mens snittkapasitet bare kan ligge på kanter",
+      "Fordi rutenettet ellers ville inneholde sykler som ødelegger for maks-flyt",
+      "Fordi superkilden og supersluket ellers ikke kan kobles til flere ruter",
+      "Fordi `Edmonds-Karp` ellers ikke kan kjøres på en urettet graf"
+    ],
+    "explanation": "Etter splittingen må all flyt gjennom en rute passere den indre kanten, så kapasiteten der **er** rutens ryddekostnad. Uten splittingen ville snittet plukket ut overganger mellom ruter i stedet for rutene selv."
+  },
+  {
+    "question": "Hva må du argumentere for i oppgaven om korteste vei med flest mellomstasjoner?",
+    "options": [
+      "At korteste-vei-grafen er syklusfri, siden $d$ vokser strengt langs hver kant",
+      "At `Dijkstra` gir riktig svar også i de tilfellene der noen kjøretider er negative",
+      "At lengste vei kan løses i polynomisk tid i enhver rettet graf",
+      "At antall korteste veier fra $s$ til $t$ er polynomisk i antall noder"
+    ],
+    "explanation": "Lengste vei er NP-hardt i en generell graf, så hele løsningen hviler på at $G'$ er en DAG — og det følger av at alle kjøretidene er positive. Var noen kjøretider null, kunne $G'$ inneholdt sykler, og argumentet ville falt."
+  },
+  {
+    "question": "Hvorfor kjører du `Gale-Shapley` i **begge** orienteringer for å svare på «kan disse to bli paret?»",
+    "options": [
+      "Fordi de to kjøringene rammer inn hva hver part kan få i en stabil matching",
+      "Fordi én enkelt kjøring kan gi en ustabil matching hvis rekkefølgen tilfeldigvis er uheldig",
+      "Fordi algoritmen ellers ikke terminerer når preferansene er motstridende",
+      "Fordi kjøretiden halveres når begge sidene frir samtidig i nettet"
+    ],
+    "explanation": "Den frier-optimale kjøringen gir hver frier sitt beste stabile utfall og den mottaker-optimale hennes dårligste, så alt mulig ligger mellom dem på listen. Én kjøring gir bare **én** av flere mulige stabile matchinger og kan derfor ikke besvare spørsmålet."
+  },
+  {
+    "question": "Hva er den vanligste grunnen til at en ellers riktig designbesvarelse havner i midtsjiktet?",
+    "options": [
+      "At rekonstruksjonen av selve løsningen mangler",
+      "At kjøretiden er oppgitt med $O$ i stedet for $\\Theta$",
+      "At pseudokoden ikke er skrevet ut i sin helhet",
+      "At korrektheten ikke er bevist formelt for algoritmen"
+    ],
+    "explanation": "Oppgaven ber om en plan, en fordeling eller en inndeling, og et svar som stopper ved optimalverdien, er felle #6 — det er ett helt ledd av fem. Full pseudokode og formelt korrekthetsbevis er ikke etterspurt i sjanger H, og ville dessuten sprengt tidsbudsjettet."
+  },
+  {
+    "question": "Hva betyr «kjøretid i problemets egne størrelser» i et designsvar?",
+    "options": [
+      "At du sier hva $V$ og $E$ er i **din** konstruksjon, ikke bare skriver $O(VE^2)$",
+      "At du oppgir kjøretiden i sekunder for en typisk instans av det aktuelle problemet",
+      "At du bruker $n$ og $m$ i stedet for $V$ og $E$ i alle uttrykk",
+      "At du oppgir både beste, verste og forventet kjøretid for algoritmen"
+    ],
+    "explanation": "«$O(VE^2)$ med $V = n+m+2$ og $E = O(n+m+k)$» lar den som retter, se at konstruksjonen din faktisk gir grensen. Uten den linjen er kjøretidsleddet bare halvveis besvart, og den koster under ti sekunder å skrive."
+  },
+  {
+    "question": "Hvor mange oppgaver i dette settet er åpne designoppgaver eller NP-argumenter?",
+    "options": [
+      "Åtte — fem designoppgaver og tre reduksjons- og NP-argumenter",
+      "Fem — bare de åpne designoppgavene helt til slutt i settet",
+      "Tre — bare reduksjons- og NP-argumentene midt i settet",
+      "Tolv — alle oppgavene fra og med håndkjøringene og utover i hele resten av settet"
+    ],
+    "explanation": "Settet er bevisst designtungt: åtte av tjue oppgaver krever at du selv velger verktøyet, mot rundt fem i et typisk sett. Det er nettopp der A- og B-karakteren avgjøres, og det er derfor tempoet på grunnoppgavene betyr så mye."
+  }
+]

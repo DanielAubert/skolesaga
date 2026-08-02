@@ -1,0 +1,377 @@
+{
+  "id": "tdt4120-6-2",
+  "courseId": "tdt4120",
+  "chapterNumber": "6.2",
+  "title": "DP-klassikere — stavkapping, LCS og ryggsekk",
+  "description": "Rod-Cutting (stavkapping), LCS (lengste felles delsekvens) og 0-1-Knapsack (ryggsekk) — de navngitte DP-problemene og deres rekurrenser.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "kunne sette opp rekurrensen og grunntilfellene for stavkapping, lengste felles delsekvens og 0-1-ryggsekk ved å se på ett valg om gangen",
+    "kunne fylle en DP-tabell for hånd og lese av både optimalverdien og selve løsningen fra de lagrede valgene",
+    "kunne begrunne kjøretidene og forklare hvorfor 0-1-ryggsekkens uttrykk er pseudopolynomisk og ikke polynomisk",
+    "kunne gjenkjenne et sekvens- eller utvalgsproblem i ny innpakning og peke på hvilken av de tre malene som passer"
+  ],
+  "content": [
+    {
+      "id": "tdt4120-6-2-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**De navngitte DP-problemene hører til et tema som er registrert i 94 % (16 av de 17 settene i grunnlaget)** — de 17 settene fra august 2015 til august 2023 som er gjennomgått tema for tema. Nevneren er den samme hver gang boka oppgir en prosent.\n\nTo sjangre henter herfra, og de skrives ut i klarspråk:\n\n- **Sjanger C — håndkjøring**: du utfører algoritmen steg for steg og leverer **bare sluttilstanden** i det formatet oppgaven ber om. For dette kapitlet betyr det som regel en utfylt tabell, en lengde eller en oppdeling.\n- **Sjanger H — åpen algoritmedesign**: du får et problem i ny innpakning og skisserer en algoritme på fem–ti linjer. De tre problemene her er malene du gjenkjenner innpakningene mot.\n\nEtt faktum går igjen som et rent kunnskapsspørsmål, og det er verdt å merke seg allerede nå: **0-1-ryggsekk løses i $\\Theta(nm)$, og det er ikke det samme som polynomisk tid.** Uttrykket kalles *pseudopolynomisk*, og begrepet innføres i dette kapitlet — det er koblingen videre til teorien om vanskelige problemer i Del 7.\n\nPrioritet: **bør sitte**. Rekurrensene her er korte nok til å pugges, men det er ikke poenget: du skal kunne utlede dem ved å se på det **siste valget**, for det er den ferdigheten en designoppgave faktisk måler."
+    },
+    {
+      "id": "tdt4120-6-2-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper\n\nDette kapitlet forutsetter mekanikken fra **[kap. 6.1](/tdt4120/tdt4120-6-1)**: optimal substruktur, overlappende delproblemer, skillet mellom memoisering og utfylling nedenfra og opp, og at rekonstruksjon krever en lagret valgtabell. Alle tre problemene her er den mekanikken anvendt på et navngitt problem.\n\nI tillegg trenger du:\n\n- **[kap. 1.1](/tdt4120/tdt4120-1-1)** — $\\Theta$ mot $O$, og hvorfor det er et bevisst valg hvilken du skriver.\n- **[kap. 1.5](/tdt4120/tdt4120-1-5)** — å summere en rekke. Stavkapping gir summen $1 + 2 + \\dots + n = n(n+1)/2$, og den skal du kjenne igjen.\n\nOrdet **pseudopolynomisk** dukker også opp om `Ford-Fulkerson` i [kap. 5.2](/tdt4120/tdt4120-5-2), men du trenger ikke ha lest det kapitlet: begrepet bygges opp fra grunnen av her, i den formen ryggsekkproblemet krever."
+    },
+    {
+      "id": "tdt4120-6-2-notasjon",
+      "type": "collapsible",
+      "title": "Notasjons- og pseudokodeliste",
+      "buttonText": "Vis notasjon og pseudokode",
+      "content": [
+        {
+          "id": "tdt4120-6-2-notasjon-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et algoritmefag: den lister kjøretidsuttrykk og pseudokode-operasjoner i stedet for bare greske bokstaver.\n\n| Symbol | Betydning |\n|---|---|\n| $n$ | stavens lengde, lengden på den første sekvensen, eller antall gjenstander |\n| $m$ | lengden på den andre sekvensen, eller ryggsekkens kapasitet |\n| $p_i$ | prisen for et stavstykke av lengde $i$ |\n| $r_j$ | den største inntekten en stav av lengde $j$ kan gi |\n| $s[j]$ | valgtabellen i stavkapping: lengden på det første stykket i en optimal oppdeling av $j$ |\n| $X$, $Y$ | de to sekvensene i LCS, med lengde $m$ og $n$ |\n| $c[i,j]$ | lengden på lengste felles delsekvens av de $i$ første tegnene i $X$ og de $j$ første i $Y$ |\n| $b[i,j]$ | retningstabellen i LCS: $\\nwarrow$, $\\uparrow$ eller $\\leftarrow$ |\n| $w_i$, $v_i$ | vekten og verdien til gjenstand $i$ i ryggsekkproblemet |\n| $K[i,j]$ | den beste verdien av de $i$ første gjenstandene med kapasitet $j$ til rådighet |\n| $\\Theta(nm)$ | tett grense: arbeidet er proporsjonalt med produktet av de to størrelsene |\n\n| Algoritme/operasjon | Kontrakt | Kjøretid |\n|---|---|---|\n| `Bottom-Up-Cut-Rod(p, n)` | fyller `r[0..n]` og gir største inntekt for en stav av lengde `n` | $\\Theta(n^2)$ |\n| `Extended-Bottom-Up-Cut-Rod(p, n)` | samme, men fyller også valgtabellen `s[1..n]` | $\\Theta(n^2)$ |\n| `Print-Cut-Rod-Solution(p, n)` | leser `s` og skriver ut selve oppdelingen | $O(n)$ |\n| `LCS-Length(X, Y)` | fyller tabellene `c[0..m, 0..n]` og `b[1..m, 1..n]` | $\\Theta(nm)$ |\n| `Print-LCS(b, X, i, j)` | leser retningstabellen baklengs og skriver ut selve delsekvensen | $O(m+n)$ |\n| `Knapsack-01(w, v, n, m)` | fyller `K[0..n, 0..m]` og gir største verdi innenfor kapasiteten | $\\Theta(nm)$, pseudopolynomisk |\n\n**Formler i dette delkapitlet:**\n\n$$r_j = \\max_{1 \\le i \\le j}\\big(p_i + r_{j-i}\\big), \\qquad r_0 = 0$$\n\nStavkapping: prøv alle lengder på det **første** stykket, og legg til den beste inntekten for resten.\n\n$$c[i,j] = \\begin{cases} 0 & \\text{hvis } i = 0 \\text{ eller } j = 0 \\\\ c[i-1,j-1] + 1 & \\text{hvis } x_i = y_j \\\\ \\max\\big(c[i-1,j],\\, c[i,j-1]\\big) & \\text{ellers}\\end{cases}$$\n\nLCS: enten matcher de to siste tegnene og teller med, eller så må minst ett av dem droppes.\n\n$$K[i,j] = \\begin{cases} 0 & \\text{hvis } i = 0 \\\\ K[i-1,j] & \\text{hvis } w_i > j \\\\ \\max\\big(K[i-1,j],\\; v_i + K[i-1,\\, j-w_i]\\big) & \\text{ellers}\\end{cases}$$\n\n0-1-ryggsekk: enten lar du gjenstand $i$ ligge, eller så tar du den og bruker opp $w_i$ av kapasiteten.\n\n$$1 + 2 + \\dots + n = \\frac{n(n+1)}{2} = \\Theta(n^2)$$\n\nSummen som gir stavkappingens kjøretid: delproblem $j$ sammenligner $j$ kandidater."
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-6-2-bolk1-tittel",
+      "type": "text",
+      "content": "## Stavkapping — når oppdelingen er verdt mer enn hele (~15 min)"
+    },
+    {
+      "id": "tdt4120-6-2-bolk1-anker",
+      "type": "text",
+      "content": "Et metallverksted kjøper aluminiumsprofiler i åtte meters lengder og selger dem videre i standardlengder. Prisen per lengde er ikke proporsjonal med lengden: korte biter er dyre per meter fordi kundene kjøper dem enkeltvis, og de lengste er billige per meter fordi de er tunge å håndtere. Spørsmålet verkstedet stiller hver morgen er: **hvordan skal denne profilen kappes for å gi mest mulig?**\n\nDette er **stavkapping** (*rod cutting*), og det er det enkleste av de navngitte DP-problemene. Grepet er det samme som i [kap. 6.1](/tdt4120/tdt4120-6-1): se på **ett** valg, og la resten være et mindre delproblem av samme type.\n\nDet naturlige valget her er lengden på det **første** stykket. Kapper du først av $i$ meter, får du $p_i$ for det stykket, og resten er en stav av lengde $j - i$ som du løser på nøyaktig samme måte. Prøver du alle lovlige $i$, har du rekurrensen:\n\n$$r_j = \\max_{1 \\le i \\le j}\\big(p_i + r_{j-i}\\big), \\qquad r_0 = 0$$\n\n**Intuisjon:** det finnes ingen grunn til å behandle det første stykket spesielt — vi kunne like gjerne sett på det siste. Poenget er at ett valg deler problemet i «et stykke vi tar betalt for nå» og «et mindre stavkappingsproblem». Grunntilfellet $r_0 = 0$ sier at en stav med lengde null er verdt ingenting, og det er det du trenger for å stoppe rekursjonen.\n\nLegg merke til at «ikke kappe i det hele tatt» er med som et lovlig valg: $i = j$ gir $p_j + r_0 = p_j$. Det er ikke en detalj — for enkelte prislister er hele staven faktisk best."
+    },
+    {
+      "id": "tdt4120-6-2-def-stavkapping",
+      "type": "definition",
+      "title": "Stavkapping",
+      "content": "Problemet der en stav av heltallslengde $n$ skal deles i heltallsbiter, og hver bit av lengde $i$ selges for $p_i$, slik at samlet inntekt blir størst mulig.\n\nKappene er gratis, og du kan bruke like mange biter av samme lengde som du vil. Det er et rent optimeringsproblem, og det har både optimal substruktur (en optimal oppdeling av resten inngår i en optimal oppdeling av helheten) og overlappende delproblemer (den samme reststaven dukker opp fra mange forskjellige første kapp).\n\nLøses med dynamisk programmering i $\\Theta(n^2)$ tid og $\\Theta(n)$ plass."
+    },
+    {
+      "id": "tdt4120-6-2-def-stavrekurrens",
+      "type": "definition",
+      "title": "Stavkapping-rekurrensen",
+      "content": "Regelen som sier at du prøver alle lengder på det første stykket og tar den beste kombinasjonen:\n\n$$r_j = \\max_{1 \\le i \\le j}\\big(p_i + r_{j-i}\\big), \\qquad r_0 = 0$$\n\nI ord: inntekten for en stav av lengde $j$ er den største av «pris for et stykke på $i$ pluss den beste inntekten for resten», over alle lovlige $i$.\n\nKjøretiden følger direkte: delproblem $j$ sammenligner $j$ kandidater, og $1 + 2 + \\dots + n = n(n+1)/2$, altså $\\Theta(n^2)$."
+    },
+    {
+      "id": "tdt4120-6-2-teo-cutrod",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `Extended-Bottom-Up-Cut-Rod`",
+      "content": "**1. Antagelser om representasjon.** Prislisten er `p[1..n]`, indeksert fra 1, med `p[i]` som prisen for et stykke av lengde `i`. Alle lengder er heltall. To tabeller fylles: `r[0..n]` med inntektene og `s[1..n]` med valgene.\n\n**2. Pre-/postbetingelse.** Før: `n >= 0` og `p[1..n]` er gitt. Etter: `r[j]` er den største oppnåelige inntekten for en stav av lengde `j`, for hver `j`, og `s[j]` er lengden på det første stykket i en optimal oppdeling av `j`.\n\n**3. Pseudokoden.**\n\n```text\nExtended-Bottom-Up-Cut-Rod(p, n)\n  Input:  prislisten p[1..n]\n  Output: inntektstabellen r[0..n] og valgtabellen s[1..n]\n  la r[0..n] og s[1..n] vaere nye tabeller\n  r[0] = 0\n  for j = 1 to n\n      q = -uendelig\n      for i = 1 to j\n          if q < p[i] + r[j-i]\n              q = p[i] + r[j-i]\n              s[j] = i\n      r[j] = q\n  return r, s\n\nPrint-Cut-Rod-Solution(p, n)\n  Input:  prislisten p og stavlengden n\n  Output: lengdene i en optimal oppdeling\n  (r, s) = Extended-Bottom-Up-Cut-Rod(p, n)\n  while n > 0\n      skriv ut s[n]\n      n = n - s[n]\n```\n\n**4. Invarianten i én setning.** Før hver runde av den ytre løkka med telleverdi `j` inneholder `r[0..j-1]` de riktige optimalverdiene — derfor er hver `r[j-i]` den indre løkka slår opp i, allerede ferdig.\n\n**5. Kjøretid.** Den indre løkka går `j` runder for hver `j`, så antall sammenligninger er $1 + 2 + \\dots + n = n(n+1)/2$, altså $\\Theta(n^2)$. `Print-Cut-Rod-Solution` gjør høyst `n` runder à konstant arbeid, altså $O(n)$ — rekonstruksjonen øker dermed ikke den asymptotiske kjøretiden."
+    },
+    {
+      "id": "tdt4120-6-2-eks-1",
+      "type": "example",
+      "title": "Eksempel 1: Åtte meter aluminium",
+      "problem": "Verkstedet har denne prislisten, i hundre kroner per stykke:\n\n| Lengde $i$ | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |\n|---|---|---|---|---|---|---|---|---|\n| Pris $p_i$ | 4 | 10 | 16 | 18 | 21 | 24 | 29 | 39 |\n\nFyll tabellene $r$ og $s$ for $j = 1, \\dots, 8$, og oppgi den beste inntekten for en åtte meters profil sammen med **hvilken oppdeling** som gir den.",
+      "solution": "**Utfyllingen, lengde for lengde.** For hver $j$ sammenlignes kandidatene $p_i + r_{j-i}$ for $i = 1, \\dots, j$:\n\n| $j$ | Kandidater $p_i + r_{j-i}$ | $r_j$ | $s_j$ |\n|---|---|---|---|\n| 1 | $4+0=4$ | **4** | 1 |\n| 2 | $4+4=8$, $10+0=10$ | **10** | 2 |\n| 3 | $4+10=14$, $10+4=14$, $16+0=16$ | **16** | 3 |\n| 4 | $4+16=20$, $10+10=20$, $16+4=20$, $18+0=18$ | **20** | 1 |\n| 5 | $4+20=24$, $10+16=26$, $16+10=26$, $18+4=22$, $21+0=21$ | **26** | 2 |\n| 6 | $4+26=30$, $10+20=30$, $16+16=32$, $18+10=28$, $21+4=25$, $24+0=24$ | **32** | 3 |\n| 7 | $4+32=36$, $10+26=36$, $16+20=36$, $18+16=34$, $21+10=31$, $24+4=28$, $29+0=29$ | **36** | 1 |\n| 8 | $4+36=40$, $10+32=42$, $16+26=42$, $18+20=38$, $21+16=37$, $24+10=34$, $29+4=33$, $39+0=39$ | **42** | 2 |\n\n$r[0..8] = [0, 4, 10, 16, 20, 26, 32, 36, 42]$ og $s[1..8] = [1, 2, 3, 1, 2, 3, 1, 2]$.\n\n**Rekonstruksjonen.** Start på $n = 8$. $s[8] = 2$, så kapp av 2 meter og fortsett med 6. $s[6] = 3$, kapp av 3 og fortsett med 3. $s[3] = 3$, kapp av 3 og fortsett med 0. Ferdig.\n\n**Svaret:**\n\n- Beste inntekt: **42** (altså 4 200 kroner).\n- Oppdelingen: **2 + 3 + 3**.\n\n**Merk hva som skjer her.** Å selge profilen hel gir bare $p_8 = 39$. Oppdelingen er verdt 3 mer, og det er ikke synlig fra prislisten uten å regne. Merk også at oppgaven ber om **selve oppdelingen**, ikke bare inntekten — uten valgtabellen $s$ hadde du bare hatt tallet 42.\n\nNår likhet oppstår, som ved $j = 4$ der tre kandidater alle gir 20, låser pseudokoden seg på den første som ble funnet ($i = 1$). Det er et vilkårlig, men **deterministisk** valg: en annen tie-break gir en annen oppdeling med samme verdi, og begge er riktige svar."
+    },
+    {
+      "id": "tdt4120-6-2-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-6-2-oppg-1-inner",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger E — kjøretid.)\n\nOppgi kjøretiden til `Extended-Bottom-Up-Cut-Rod` på strammest mulig form, og skriv den ene setningen som begrunner den.",
+        "solution": "$\\Theta(n^2)$.\n\nDet finnes $n$ delproblemer, og delproblem $j$ sammenligner $j$ kandidater, så det totale antallet sammenligninger er $1 + 2 + \\dots + n = n(n+1)/2 = \\Theta(n^2)$. Grensen er tett fordi begge løkkene alltid går fullt ut, uansett prisliste.",
+        "hints": [
+          "Bruk regelen «antall delproblemer ganger arbeid per delproblem» — men her varierer arbeidet med $j$.",
+          "Summér arbeidet i stedet for å gange: hvor mange kandidater har delproblem $j$?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-6-2-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-6-2-oppg-2-inner",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C — håndkjøring.)\n\nEn trelastbedrift har denne prislisten for planker:\n\n| Lengde $i$ | 1 | 2 | 3 | 4 | 5 |\n|---|---|---|---|---|---|\n| Pris $p_i$ | 2 | 6 | 7 | 10 | 13 |\n\nOppgi tabellen $r[0..5]$ og den optimale oppdelingen av en plank på 5 meter.",
+        "solution": "$r[0..5] = [0, 2, 6, 8, 12, 14]$\n\nOptimal oppdeling av lengde 5: **1 + 2 + 2**, med inntekt **14**.\n\nValgtabellen som gir den, er $s[1..5] = [1, 2, 1, 2, 1]$: $s[5]=1$ gir et stykke på 1 og rest 4, $s[4]=2$ gir 2 og rest 2, $s[2]=2$ gir det siste stykket.\n\nOppgaven ber om tabellen og oppdelingen — sluttilstanden, ikke en gjennomgang av hvert kandidatoppslag.",
+        "hints": [
+          "Fyll $r$ fra $r_0 = 0$ og oppover; hver $r_j$ trenger bare verdier du allerede har.",
+          "Noter for hver $j$ hvilken $i$ som vant. Det er den noteringen du leser baklengs til slutt."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-6-2-bolk2-tittel",
+      "type": "text",
+      "content": "## Lengste felles delsekvens (~20 min)"
+    },
+    {
+      "id": "tdt4120-6-2-bolk2-anker",
+      "type": "text",
+      "content": "Når et redigeringsverktøy viser hva som er endret mellom to versjoner av en tekst, gjør det i praksis dette: det finner den lengste biten av innhold som står i **begge** versjoner, i samme rekkefølge, og markerer alt annet som lagt til eller fjernet. Den lengste felles biten trenger ikke være sammenhengende — hopper du over et avsnitt i midten, teller resten fortsatt med.\n\nDet er problemet **lengste felles delsekvens** (*longest common subsequence*, LCS), og det er den mest brukte DP-malen i faget. Får du en oppgave om å sammenligne to sekvenser — tekst, gensekvenser, hendelseslogger, ruter — er dette mønsteret du gjenkjenner den mot.\n\nGrepet er igjen å se på **ett** valg, og her er det det siste tegnet i hver sekvens. La $X = x_1x_2\\dots x_m$ og $Y = y_1y_2\\dots y_n$, og la $c[i,j]$ være lengden på lengste felles delsekvens av de $i$ første tegnene i $X$ og de $j$ første i $Y$. Da er det to tilfeller:\n\n- **Er $x_i = y_j$**, kan du ta med det tegnet, og resten av problemet er $c[i-1, j-1]$.\n- **Er de forskjellige**, kan ikke begge være med som siste tegn. Da må minst ett av dem droppes, og du tar det beste av å droppe $x_i$ eller å droppe $y_j$.\n\n$$c[i,j] = \\begin{cases} 0 & \\text{hvis } i = 0 \\text{ eller } j = 0 \\\\ c[i-1,j-1] + 1 & \\text{hvis } x_i = y_j \\\\ \\max\\big(c[i-1,j],\\, c[i,j-1]\\big) & \\text{ellers}\\end{cases}$$\n\n**Intuisjon:** i det første tilfellet er det aldri dumt å ta med et tegn som matcher — det kan bevises med et bytteargument, og det er derfor rekurrensen ikke trenger å sammenligne med noe annet der. I det andre tilfellet vet vi bare at minst ett av de to tegnene ikke kan brukes som siste tegn, og da må begge muligheter prøves.\n\nTabellen har $(m+1)(n+1)$ celler og hver celle koster konstant tid, altså $\\Theta(nm)$."
+    },
+    {
+      "id": "tdt4120-6-2-def-delsekvens",
+      "type": "definition",
+      "title": "Delsekvens",
+      "content": "En **delsekvens** av en sekvens er det du får ved å stryke null eller flere elementer og beholde rekkefølgen på resten.\n\n`PRG` er en delsekvens av `SPRANG`, fordi tegnene står i den rekkefølgen der — men de står ikke ved siden av hverandre. Det er forskjellen fra en **delstreng**, som må være sammenhengende.\n\nEn sekvens av lengde $n$ har $2^n$ delsekvenser, og det er derfor uttømmende søk ikke er aktuelt: for to sekvenser av lengde 30 hver ville det bety over en milliard sammenligninger."
+    },
+    {
+      "id": "tdt4120-6-2-def-lcs",
+      "type": "definition",
+      "title": "Lengste felles delsekvens (LCS)",
+      "content": "Den lengste sekvensen som er delsekvens av **begge** de to inputsekvensene.\n\nLøses med dynamisk programmering i $\\Theta(nm)$ tid og $\\Theta(nm)$ plass, der $m$ og $n$ er lengdene. Vil du bare ha lengden og ikke selve sekvensen, holder det med to rader av tabellen, altså $\\Theta(\\min(m,n))$ plass — men da mister du muligheten til å rekonstruere.\n\nLCS er ikke nødvendigvis entydig: to forskjellige delsekvenser kan ha samme maksimale lengde, og begge er riktige svar."
+    },
+    {
+      "id": "tdt4120-6-2-def-lcsrekurrens",
+      "type": "definition",
+      "title": "LCS-rekurrensen",
+      "content": "Regelen som ser på det siste tegnet i hver sekvens:\n\n$$c[i,j] = \\begin{cases} 0 & \\text{hvis } i = 0 \\text{ eller } j = 0 \\\\ c[i-1,j-1] + 1 & \\text{hvis } x_i = y_j \\\\ \\max\\big(c[i-1,j],\\, c[i,j-1]\\big) & \\text{ellers}\\end{cases}$$\n\nI ord: matcher tegnene, teller du dem med og går skrått opp til venstre. Matcher de ikke, tar du det beste av å stryke det siste tegnet i den ene eller i den andre sekvensen.\n\nGrunntilfellene er hele rad 0 og hele kolonne 0, som alle er null: en tom sekvens har ingen felles delsekvens med noe."
+    },
+    {
+      "id": "tdt4120-6-2-teo-lcs",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `LCS-Length`",
+      "content": "**1. Antagelser om representasjon.** Sekvensene er `X[1..m]` og `Y[1..n]`, indeksert fra 1. Verditabellen er `c[0..m, 0..n]` og retningstabellen `b[1..m, 1..n]`. Retningene skrives `SKRA` (opp til venstre), `OPP` og `VENSTRE`, og svarer til $\\nwarrow$, $\\uparrow$ og $\\leftarrow$ i figuren under.\n\n**2. Pre-/postbetingelse.** Før: `m, n >= 0`. Etter: `c[i,j]` er lengden på lengste felles delsekvens av `X[1..i]` og `Y[1..j]` for alle `i, j`, og `b[i,j]` peker på cellen den verdien kom fra. Svaret på hele problemet står i `c[m,n]`.\n\n**3. Pseudokoden.**\n\n```text\nLCS-Length(X, Y)\n  Input:  sekvensene X[1..m] og Y[1..n]\n  Output: tabellene c[0..m, 0..n] og b[1..m, 1..n]\n  la c[0..m, 0..n] og b[1..m, 1..n] vaere nye tabeller\n  for i = 0 to m\n      c[i, 0] = 0\n  for j = 0 to n\n      c[0, j] = 0\n  for i = 1 to m\n      for j = 1 to n\n          if X[i] == Y[j]\n              c[i, j] = c[i-1, j-1] + 1\n              b[i, j] = SKRA\n          else if c[i-1, j] >= c[i, j-1]\n              c[i, j] = c[i-1, j]\n              b[i, j] = OPP\n          else\n              c[i, j] = c[i, j-1]\n              b[i, j] = VENSTRE\n  return c, b\n```\n\n**4. Invarianten i én setning.** Når løkkene når celle `(i, j)`, er alle tre cellene den leser — `(i-1, j-1)`, `(i-1, j)` og `(i, j-1)` — allerede ferdig utfylt, fordi tabellen fylles rad for rad ovenfra og venstre mot høyre.\n\n**5. Kjøretid.** Tabellen har $(m+1)(n+1)$ celler, og hver celle koster konstant tid: $\\Theta(nm)$. Plassbruken er også $\\Theta(nm)$ når `b` skal beholdes til rekonstruksjon."
+    },
+    {
+      "id": "tdt4120-6-2-teo-printlcs",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `Print-LCS`",
+      "content": "**1. Antagelser om representasjon.** Retningstabellen `b` er ferdig utfylt av `LCS-Length`, og `X[1..m]` er tilgjengelig. Rutinen kalles med `i = m`, `j = n`.\n\n**2. Pre-/postbetingelse.** Før: `b` er fylt ut for alle celler med `i >= 1` og `j >= 1`. Etter: rutinen har skrevet ut én lengste felles delsekvens, i riktig rekkefølge fra venstre mot høyre, og tabellene er urørt.\n\n**3. Pseudokoden.**\n\n```text\nPrint-LCS(b, X, i, j)\n  Input:  retningstabellen b, sekvensen X, og en celle (i, j)\n  Output: en lengste felles delsekvens av X[1..i] og Y[1..j]\n  if i == 0 or j == 0\n      return\n  if b[i, j] == SKRA\n      Print-LCS(b, X, i-1, j-1)\n      skriv ut X[i]\n  else if b[i, j] == OPP\n      Print-LCS(b, X, i-1, j)\n  else\n      Print-LCS(b, X, i, j-1)\n```\n\n**4. Grunnideen i én setning.** Hvert kall flytter seg minst ett hakk mot celle `(0, 0)`, og skriver ut et tegn nøyaktig når retningen er `SKRA` — altså nøyaktig når de to tegnene matchet.\n\n**5. Kjøretid.** Hvert kall reduserer `i + j` med minst 1, så antall kall er høyst $m + n$, og hvert kall gjør konstant arbeid: $O(m+n)$. Det er mindre enn $\\Theta(nm)$, så **rekonstruksjonen øker ikke den asymptotiske kjøretiden** — men den krever at `b` faktisk ble lagret."
+    },
+    {
+      "id": "tdt4120-6-2-eks-2",
+      "type": "example",
+      "title": "Eksempel 2: SPRANG mot PARKING",
+      "problem": "Finn lengste felles delsekvens av $X = $ `SPRANG` og $Y = $ `PARKING`. Fyll tabellen $c$, oppgi lengden, og oppgi selve delsekvensen.",
+      "solution": "**Tabellen $c$** (rader er `SPRANG`, kolonner er `PARKING`):\n\n| | $j=0$ | 1 (P) | 2 (A) | 3 (R) | 4 (K) | 5 (I) | 6 (N) | 7 (G) |\n|---|---|---|---|---|---|---|---|---|\n| **$i=0$** | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |\n| **1 (S)** | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |\n| **2 (P)** | 0 | 1 | 1 | 1 | 1 | 1 | 1 | 1 |\n| **3 (R)** | 0 | 1 | 1 | 2 | 2 | 2 | 2 | 2 |\n| **4 (A)** | 0 | 1 | 2 | 2 | 2 | 2 | 2 | 2 |\n| **5 (N)** | 0 | 1 | 2 | 2 | 2 | 2 | 3 | 3 |\n| **6 (G)** | 0 | 1 | 2 | 2 | 2 | 2 | 3 | 4 |\n\n**Retningstabellen $b$**, som er det rekonstruksjonen leser:\n\n| | 1 (P) | 2 (A) | 3 (R) | 4 (K) | 5 (I) | 6 (N) | 7 (G) |\n|---|---|---|---|---|---|---|---|\n| **1 (S)** | $\\uparrow$ | $\\uparrow$ | $\\uparrow$ | $\\uparrow$ | $\\uparrow$ | $\\uparrow$ | $\\uparrow$ |\n| **2 (P)** | $\\nwarrow$ | $\\leftarrow$ | $\\leftarrow$ | $\\leftarrow$ | $\\leftarrow$ | $\\leftarrow$ | $\\leftarrow$ |\n| **3 (R)** | $\\uparrow$ | $\\uparrow$ | $\\nwarrow$ | $\\leftarrow$ | $\\leftarrow$ | $\\leftarrow$ | $\\leftarrow$ |\n| **4 (A)** | $\\uparrow$ | $\\nwarrow$ | $\\uparrow$ | $\\uparrow$ | $\\uparrow$ | $\\uparrow$ | $\\uparrow$ |\n| **5 (N)** | $\\uparrow$ | $\\uparrow$ | $\\uparrow$ | $\\uparrow$ | $\\uparrow$ | $\\nwarrow$ | $\\leftarrow$ |\n| **6 (G)** | $\\uparrow$ | $\\uparrow$ | $\\uparrow$ | $\\uparrow$ | $\\uparrow$ | $\\uparrow$ | $\\nwarrow$ |\n\n**Rekonstruksjonen.** Start i celle $(6,7)$, som er $\\nwarrow$: `G` er med, gå til $(5,6)$. Der står $\\nwarrow$: `N` er med, gå til $(4,5)$. Der står $\\uparrow$: gå til $(3,5)$, som er $\\leftarrow$ — videre til venstre til $(3,3)$, som er $\\nwarrow$: `R` er med, gå til $(2,2)$. Der står $\\leftarrow$, videre til $(2,1)$, som er $\\nwarrow$: `P` er med. Så er vi i $(1,0)$ og stopper.\n\nTegnene skrives ut i den rekkefølgen kallene returnerer, altså framlengs — `P`, `R`, `N`, `G`.\n\n**Svaret:**\n\n- Lengde: $c[6,7] = $ **4**.\n- Lengste felles delsekvens: **PRNG**.\n\nMerk at `PRNG` ikke står sammenhengende i noen av de to ordene — det er en delsekvens, ikke en delstreng. Merk også at hele rad 1 er null: `S` finnes ikke i `PARKING` i det hele tatt.\n\n**Kjøretid:** $6 \\cdot 7 = 42$ celler fylles, hver på konstant tid, altså $\\Theta(nm)$. Rekonstruksjonen bruker 9 kall, godt innenfor grensen $O(m+n) = O(13)$."
+    },
+    {
+      "id": "tdt4120-6-2-fig-1",
+      "type": "image",
+      "src": "/images/textbook/tdt4120/lcs-tabell-rekonstruksjon.svg",
+      "alt": "Tabellen for lengste felles delsekvens av ordene SPRANG og PARKING. Radene er bokstavene S, P, R, A, N, G og kolonnene er P, A, R, K, I, N, G. Hver celle viser et tall og en pil: skra pil opp til venstre der bokstavene matcher, ellers pil opp eller pil til venstre. Nederste hoyre celle er 4. En stiplet ramme markerer stien fra nederste hoyre hjorne tilbake til starten, og de fire skra pilene langs stien gir bokstavene P, R, N og G. Under tabellen staar at lengste felles delsekvens er PRNG med lengde 4.",
+      "caption": "Tabellen fra Eksempel 2, med retningspekerne tegnet inn og rekonstruksjonsstien stiplet. De fire cellene med skrå peker langs stien er nøyaktig tegnene i svaret $PRNG$."
+    },
+    {
+      "id": "tdt4120-6-2-warn-typiske",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**Å blande delsekvens med delstreng.** En delsekvens trenger ikke være sammenhengende. `LAK` er en delsekvens av `FLASKE`, men ingen delstreng. Blander du dem, får du et helt annet — og enklere — problem, og feil rekurrens.\n\n**Av-én-feil i indeksene.** Tabellen har rad 0 og kolonne 0, mens sekvensene er indeksert fra 1. Cellen $c[i,j]$ handler om `X[1..i]` og `Y[1..j]`, altså om tegnene $x_i$ og $y_j$ — ikke om `X[i+1]`. Sjekk alltid det minste tilfellet: $c[1,1]$ skal være 1 hvis de to første tegnene er like, ellers 0.\n\n**Felle #6 — å påstå at rekonstruksjon fra en DP-tabell er «trivielt gratis».** Verditabellen $c$ gir deg lengden, ikke sekvensen. Skal du ut med selve delsekvensen, må retningstabellen $b$ lagres — eller retningen leses tilbake ved å sammenligne nabocellene i $c$. Det koster $O(m+n)$, altså ingen asymptotisk økning, men leddet må stå i svaret.\n\n**Felle #7 — å blande pseudopolynomisk med NP-hardt.** Den kommer for fullt i neste avsnitt: at 0-1-ryggsekk løses i $\\Theta(nm)$ betyr verken at problemet er lett i teoretisk forstand, eller at det er bevist vanskelig.\n\n**Å tro at LCS er entydig.** To ulike delsekvenser kan ha samme maksimale lengde. Retningstabellens tie-break avgjør hvilken du får ut, og et annet valg er like riktig."
+    },
+    {
+      "id": "tdt4120-6-2-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-6-2-oppg-3-inner",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C — håndkjøring.)\n\nFinn lengste felles delsekvens av $X = $ `LAKS` og $Y = $ `FLASKE`. Oppgi tabellen $c$ og selve delsekvensen.",
+        "solution": "**Tabellen $c$:**\n\n| | $j=0$ | 1 (F) | 2 (L) | 3 (A) | 4 (S) | 5 (K) | 6 (E) |\n|---|---|---|---|---|---|---|---|\n| **$i=0$** | 0 | 0 | 0 | 0 | 0 | 0 | 0 |\n| **1 (L)** | 0 | 0 | 1 | 1 | 1 | 1 | 1 |\n| **2 (A)** | 0 | 0 | 1 | 2 | 2 | 2 | 2 |\n| **3 (K)** | 0 | 0 | 1 | 2 | 2 | 3 | 3 |\n| **4 (S)** | 0 | 0 | 1 | 2 | 3 | 3 | 3 |\n\nLengde: $c[4,6] = $ **3**. Delsekvensen `LAK` er én lengste felles delsekvens.\n\n`LAS` har også lengde 3 og er like riktig — LCS er ikke entydig. Legg merke til at ingen av dem står sammenhengende i `FLASKE`.",
+        "hints": [
+          "Sett opp tabellen med en rad 0 og en kolonne 0 fylt med nuller.",
+          "For hver celle: matcher tegnene, går du skrått; ellers tar du det største av cellen over og cellen til venstre."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-6-2-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-6-2-oppg-4-inner",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger F — «stemmer dette?», altså at du svarer ja eller nei først og deretter gir én presis setning.)\n\nTa stilling til hver påstand.\n\n**a)** Kjøretiden til `LCS-Length` er $\\Theta(nm)$ uansett hvor mange tegn de to sekvensene har felles.\n**b)** Vil du bare ha **lengden** på lengste felles delsekvens, klarer du deg med plass proporsjonal med den korteste sekvensen.\n**c)** Bytter du om på hvilken sekvens som er $X$ og hvilken som er $Y$, kan lengden bli en annen.",
+        "solution": "**a)** Ja. Begge løkkene går fullt ut uansett innhold, så alle $(m+1)(n+1)$ cellene fylles: $\\Theta(nm)$, ikke bare $O(nm)$.\n\n**b)** Ja. Hver rad leser bare raden over og cellen til venstre, så to rader holder — plassen faller til $\\Theta(\\min(m,n))$ hvis du lar den korteste sekvensen styre radlengden. Prisen er at du ikke lenger kan rekonstruere selve delsekvensen.\n\n**c)** Nei. Lengste felles delsekvens er symmetrisk i de to sekvensene, så lengden er den samme. Tabellen blir transponert, og rekonstruksjonen kan gi en annen delsekvens hvis flere har maksimal lengde — men lengden endres ikke.",
+        "hints": [
+          "For a): ser løkkene i pseudokoden på innholdet før de bestemmer hvor mange runder de skal gå?",
+          "For b): hvilke celler leser rekurrensen når den fyller rad $i$?",
+          "For c): skriv opp definisjonen av «felles delsekvens» og se om den nevner hvilken sekvens som er først."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-6-2-bolk3-tittel",
+      "type": "text",
+      "content": "## 0-1-ryggsekk og hva pseudopolynomisk betyr (~20 min)"
+    },
+    {
+      "id": "tdt4120-6-2-bolk3-anker",
+      "type": "text",
+      "content": "Du skal på en kajakktur og har plass til ni kilo i den vanntette pakksekken. Hver gjenstand har en vekt og en nytteverdi, og du kan ikke ta med en halv soveppose — enten er den med, eller så er den ikke. Hva pakker du?\n\nDette er **0-1-ryggsekkproblemet**, og navnet kommer av nettopp den todelingen: hver gjenstand får verdien 0 eller 1, aldri noe imellom. Igjen ser vi på **ett** valg — gjenstand $i$ — og lar resten være et mindre delproblem:\n\n- **Lar du gjenstand $i$ ligge**, har du de $i-1$ første gjenstandene og hele kapasiteten $j$ igjen.\n- **Tar du den med** (mulig bare når $w_i \\le j$), får du verdien $v_i$ pluss det beste du kan få av de $i-1$ første med kapasitet $j - w_i$.\n\n$$K[i,j] = \\begin{cases} 0 & \\text{hvis } i = 0 \\\\ K[i-1,j] & \\text{hvis } w_i > j \\\\ \\max\\big(K[i-1,j],\\; v_i + K[i-1,\\, j-w_i]\\big) & \\text{ellers}\\end{cases}$$\n\n**Intuisjon:** delproblemet må ha to parametre. Med bare «de $i$ første gjenstandene» vet du ikke hvor mye plass som er brukt opp, og da kan du ikke avgjøre om gjenstand $i$ får plass. Restkapasiteten er den andre dimensjonen, og det er derfor tabellen blir todimensjonal.\n\nTabellen har $n$ rader og $m+1$ kolonner, hver celle koster konstant tid, altså $\\Theta(nm)$. Og her ligger fellen som gjør dette problemet interessant helt inn i Del 7."
+    },
+    {
+      "id": "tdt4120-6-2-def-ryggsekk",
+      "type": "definition",
+      "title": "0-1-ryggsekk",
+      "content": "Problemet der $n$ gjenstander med vekt $w_i$ og verdi $v_i$ skal velges ut, slik at samlet vekt er høyst kapasiteten $m$ og samlet verdi er størst mulig — og hver gjenstand enten tas hel eller ikke i det hele tatt.\n\nLøses med dynamisk programmering i $\\Theta(nm)$ tid og $\\Theta(nm)$ plass. Kjøretiden er **pseudopolynomisk**, ikke polynomisk, fordi $m$ er en tallverdi i inputen og ikke en telling av elementer.\n\nKan ikke løses grådig: å ta gjenstandene i synkende verdi per kilo gir ikke alltid optimum, og det er lett å konstruere et moteksempel."
+    },
+    {
+      "id": "tdt4120-6-2-def-ryggsekkrekurrens",
+      "type": "definition",
+      "title": "Ryggsekk-rekurrensen",
+      "content": "Regelen som ser på gjenstand $i$ og spør om den er med:\n\n$$K[i,j] = \\max\\big(K[i-1,j],\\; v_i + K[i-1,\\, j-w_i]\\big) \\quad \\text{når } w_i \\le j$$\n\nog $K[i,j] = K[i-1,j]$ når gjenstanden er for tung, med $K[0,j] = 0$ for alle $j$.\n\nI ord: enten lar du gjenstanden ligge og beholder hele kapasiteten, eller så tar du den, betaler $w_i$ av kapasiteten og legger til verdien $v_i$. Tabellen fylles rad for rad, fordi hver rad bare leser raden over."
+    },
+    {
+      "id": "tdt4120-6-2-eks-3",
+      "type": "example",
+      "title": "Eksempel 3: Ni kilo i pakksekken",
+      "problem": "Du har fem gjenstander og kapasitet $m = 9$ kilo:\n\n| $i$ | Gjenstand | Vekt $w_i$ | Verdi $v_i$ |\n|---|---|---|---|\n| 1 | telt | 5 | 12 |\n| 2 | sovepose | 4 | 10 |\n| 3 | primus | 3 | 6 |\n| 4 | kikkert | 2 | 5 |\n| 5 | matpakke | 1 | 2 |\n\nFyll tabellen $K$, oppgi den største oppnåelige verdien, og oppgi **hvilke gjenstander** som skal med. Sammenlign til slutt med det du ville fått ved å pakke grådig etter verdi per kilo.",
+      "solution": "**Tabellen $K$**, én rad per gjenstand, én kolonne per kapasitet fra 0 til 9:\n\n| Rad $i$ / kapasitet $j$ | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |\n|---|---|---|---|---|---|---|---|---|---|---|\n| **0 (ingen)** | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |\n| **1 (telt)** | 0 | 0 | 0 | 0 | 0 | 12 | 12 | 12 | 12 | 12 |\n| **2 (sovepose)** | 0 | 0 | 0 | 0 | 10 | 12 | 12 | 12 | 12 | 22 |\n| **3 (primus)** | 0 | 0 | 0 | 6 | 10 | 12 | 12 | 16 | 18 | 22 |\n| **4 (kikkert)** | 0 | 0 | 5 | 6 | 10 | 12 | 15 | 17 | 18 | 22 |\n| **5 (matpakke)** | 0 | 2 | 5 | 7 | 10 | 12 | 15 | 17 | 19 | 22 |\n\n**Rekonstruksjonen.** Start i $K[5,9] = 22$ og gå oppover. Er $K[i,j]$ lik $K[i-1,j]$, ble gjenstand $i$ ikke tatt; er de forskjellige, ble den tatt, og du trekker $w_i$ fra kapasiteten.\n\n- $K[5,9] = 22 = K[4,9]$: matpakken er ikke med.\n- $K[4,9] = 22 = K[3,9]$: kikkerten er ikke med.\n- $K[3,9] = 22 = K[2,9]$: primusen er ikke med.\n- $K[2,9] = 22 \\ne K[1,9] = 12$: soveposen **er** med. Ny kapasitet: $9 - 4 = 5$.\n- $K[1,5] = 12 \\ne K[0,5] = 0$: teltet **er** med. Ny kapasitet: $5 - 5 = 0$.\n\n**Svaret:**\n\n- Største verdi: **22**.\n- Pakkelisten: **telt og sovepose**, samlet vekt 9 kilo.\n\n**Sammenligningen med grådighet.** Verdi per kilo er 2,4 for teltet, 2,5 for soveposen, 2,0 for primusen, 2,5 for kikkerten og 2,0 for matpakken. Pakker du grådig etter den rangeringen, tar du sovepose (4 kg), kikkert (2 kg) og primus (3 kg) — akkurat ni kilo — til en samlet verdi på $10 + 5 + 6 = 21$. Det er **dårligere enn 22**, og det er et konkret moteksempel mot å løse 0-1-ryggsekk grådig.\n\n**Kjøretid:** $n \\cdot m = 5 \\cdot 9 = 45$ celler i selve kjernen, hver på konstant tid, altså $\\Theta(nm)$. Rekonstruksjonen går én rad om gangen oppover, altså $O(n)$, og øker ikke kjøretiden."
+    },
+    {
+      "id": "tdt4120-6-2-bolk3-pseudopoly",
+      "type": "text",
+      "content": "Nå til det som gjør dette problemet spesielt. Kjøretiden $\\Theta(nm)$ *ser* polynomisk ut — det er et produkt av to tall fra oppgaven, ikke noe eksponentielt. Men det er den ikke, og forskjellen er verdt å bruke et par minutter på.\n\nNår vi måler kjøretid i dette faget, måler vi den mot **størrelsen på inputen**. For et array med $n$ tall er $n$ en grei størrelse: arrayet består av $n$ elementer, så det tar plass proporsjonal med $n$. Kapasiteten $m$ er noe helt annet. Den er **ett tall**, og et tall på $m$ skrives med omtrent $\\lg m$ siffer. Skal du skrive kapasiteten 1 000 000, bruker du sju siffer — ikke en million.\n\nKonsekvensen: en algoritme som bruker $\\Theta(nm)$ tid, bruker tid som vokser **eksponentielt i antall siffer** i $m$. Legger du til ett siffer på kapasiteten, blir problemet ti ganger så tungt, selv om inputen bare ble ett tegn lengre. Tabellen under er kjørt for et fast lite antall gjenstander:\n\n| Kapasitet $m$ | Siffer i $m$ | Celler $n \\cdot m$ med $n = 3$ |\n|---|---|---|\n| 10 | 2 | 30 |\n| 100 | 3 | 300 |\n| 1 000 | 4 | 3 000 |\n| 10 000 | 5 | 30 000 |\n| 100 000 | 6 | 300 000 |\n\nDet er dette som kalles **pseudopolynomisk**: polynomisk i tallverdiene, men ikke i lengden på inputen. Er kapasitetene små, er algoritmen helt utmerket i praksis — og det er nettopp derfor den brukes. Er de store, hjelper den ikke.\n\n**Hva dette IKKE betyr.** At kjøretiden er pseudopolynomisk, er ikke et bevis for at problemet er vanskelig, og «pseudopolynomisk» er ikke et synonym for «NP-hardt». Det er en egenskap ved **algoritmen**, ikke en dom over **problemet**. Det motsatte forholdet gjelder heller ikke: at vi har en pseudopolynomisk algoritme, betyr ikke at problemet er lett. Skillet er felle #7 — å blande pseudopolynomisk og NP-hardt — og det er en av de feilene som oftest skiller riktig fra galt i Del 7. Samme skille gjelder `Ford-Fulkerson` i [kap. 5.2](/tdt4120/tdt4120-5-2), der kjøretiden avhenger av kapasitetenes størrelse på nøyaktig samme måte."
+    },
+    {
+      "id": "tdt4120-6-2-def-pseudopolynomisk",
+      "type": "definition",
+      "title": "Pseudopolynomisk kjøretid",
+      "content": "En kjøretid som er polynomisk i **tallverdiene** i inputen, men ikke i lengden på inputen målt i siffer eller bits.\n\n0-1-ryggsekkens $\\Theta(nm)$ er standardeksempelet: $m$ er kapasiteten, altså ett tall, og et tall på $m$ skrives med omtrent $\\lg m$ siffer. Dobler du $m$, dobler du arbeidet — men inputen ble bare ett bit lengre.\n\nMerk hva begrepet **ikke** sier: det er en egenskap ved algoritmen, ikke en påstand om at problemet er NP-hardt, og heller ikke en påstand om at problemet er lett."
+    },
+    {
+      "id": "tdt4120-6-2-def-fraksjonell",
+      "type": "definition",
+      "title": "Fraksjonell ryggsekk",
+      "content": "Varianten der gjenstandene kan deles: du kan ta 40 % av en sekk sand og få 40 % av verdien.\n\nTil forskjell fra 0-1-varianten løses den **grådig**: sortér etter verdi per vektenhet, fyll med den beste først, og del den siste gjenstanden slik at sekken blir akkurat full. Algoritmen og bytteargumentet som viser at den er optimal, hører til [kap. 6.4](/tdt4120/tdt4120-6-4).\n\nKontrasten er poenget her: den lille endringen fra «hel eller ingenting» til «kan deles» flytter problemet fra dynamisk programmering til grådighet. På pakkelisten i Eksempel 3 ville den fraksjonelle varianten gitt 22,2 mot 0-1-variantens 22."
+    },
+    {
+      "id": "tdt4120-6-2-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-6-2-oppg-5-inner",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger D — definisjon, hovedpoenget først.)\n\nForklar med egne ord hva det betyr at kjøretiden $\\Theta(nm)$ til 0-1-ryggsekk er **pseudopolynomisk**, og si i én setning hva begrepet ikke sier.",
+        "solution": "Kjøretiden er polynomisk i tallverdiene i inputen, men ikke i lengden på inputen: $m$ er kapasiteten, altså ett tall som skrives med omtrent $\\lg m$ siffer, så arbeidet vokser eksponentielt i antall siffer i $m$.\n\nBegrepet sier **ikke** at problemet er NP-hardt — det er en egenskap ved algoritmen, ikke en dom over problemet.",
+        "hints": [
+          "Spør deg hvor mange tegn det trengs for å skrive ned kapasiteten $m$.",
+          "Sammenlign med $n$: hvor mange tegn trengs for å skrive ned $n$ gjenstander?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-6-2-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-6-2-oppg-6-inner",
+        "number": 6,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C — håndkjøring.)\n\nTre gjenstander skal pakkes i en sekk med kapasitet $m = 8$:\n\n| $i$ | Vekt $w_i$ | Verdi $v_i$ |\n|---|---|---|\n| 1 | 3 | 9 |\n| 2 | 4 | 10 |\n| 3 | 5 | 12 |\n\nOppgi siste rad i tabellen $K$, den største oppnåelige verdien og hvilke gjenstander som velges.",
+        "solution": "Siste rad, for $j = 0, 1, \\dots, 8$:\n\n$K[3, 0..8] = [0,\\; 0,\\; 0,\\; 9,\\; 10,\\; 12,\\; 12,\\; 19,\\; 21]$\n\nStørste verdi: **21**. Gjenstandene som velges: **1 og 3** (vekt $3 + 5 = 8$, verdi $9 + 12 = 21$).\n\nMerk at grådig utvelgelse etter verdi per kilo ville tatt gjenstand 1 (3,0 per kilo) og deretter gjenstand 2 (2,5 per kilo), til sammen 7 kilo og verdi 19 — dårligere enn 21.\n\nOppgaven ber om sluttilstanden og utvalget, ikke om hele tabellen.",
+        "hints": [
+          "Fyll rad for rad; hver rad leser bare raden over.",
+          "For rekonstruksjonen: sammenlign $K[i,j]$ med $K[i-1,j]$ — er de like, ble gjenstand $i$ ikke tatt."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-6-2-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-6-2-oppg-7-inner",
+        "number": 7,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger F — «stemmer dette?».)\n\nTa stilling til påstandene. Ja eller nei først, deretter én setning.\n\n**a)** Fordi 0-1-ryggsekk løses i $\\Theta(nm)$, er problemet løst i polynomisk tid.\n**b)** Fraksjonell ryggsekk kan løses grådig.\n**c)** Å ta gjenstandene i synkende verdi per vektenhet gir alltid optimal løsning på 0-1-ryggsekk.",
+        "solution": "**a)** Nei. $\\Theta(nm)$ er pseudopolynomisk: $m$ er en tallverdi som skrives med omtrent $\\lg m$ siffer, så kjøretiden er eksponentiell i lengden på inputen.\n\n**b)** Ja. Når gjenstandene kan deles, holder det å ta dem i synkende verdi per vektenhet og dele den siste — algoritmen og begrunnelsen hører til [kap. 6.4](/tdt4120/tdt4120-6-4).\n\n**c)** Nei. Pakkelisten i Eksempel 3 er et moteksempel: den grådige rekkefølgen gir 21, mens optimum er 22.",
+        "hints": [
+          "For a): hvor mange tegn trengs for å skrive ned tallet $m$?",
+          "For b) og c): hva er den ene forskjellen mellom de to ryggsekkvariantene?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-6-2-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-6-2-oppg-8-inner",
+        "number": 8,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger H — åpen algoritmedesign, altså at du skisserer en algoritme på noen få linjer i stedet for å skrive den ut.)\n\nTo turgrupper har hver ført dagbok over hvilke hytter de overnattet på, i den rekkefølgen de kom dit. Den ene lista har $m$ oppføringer, den andre $n$. Turlaget vil vite **den lengste rekkefølgen av hytter begge gruppene besøkte i samme rekkefølge**, og vil ha selve hyttelista, ikke bare hvor lang den er. Gruppene kan ha vært på hytter den andre ikke besøkte, og de kan ha brukt ulikt antall dager.\n\nBeskriv en algoritme. Svar i designformatet: hvilket klassisk problem dette er, paradigmet, konstruksjonen, rekonstruksjonen og kjøretiden.",
+        "solution": "**Det klassiske problemet.** Dette er lengste felles delsekvens: to sekvenser, felles elementer i samme rekkefølge, ikke nødvendigvis sammenhengende. At gruppene har vært på ulike hytter og brukt ulikt antall dager, er nettopp det som gjør at vi trenger en delsekvens og ikke en delstreng.\n\n**Paradigmet.** Dynamisk programmering. Problemet har optimal substruktur (en lengste felles delsekvens av prefiksene inngår i en lengste felles delsekvens av helheten) og overlappende delproblemer (samme par av prefikser nås fra mange kanter).\n\n**Konstruksjonen.** La $X[1..m]$ og $Y[1..n]$ være de to hyttelistene, og la $c[i,j]$ være lengden på lengste felles delsekvens av $X[1..i]$ og $Y[1..j]$. Rekurrensen ser på det siste elementet i hver:\n\n$$c[i,j] = \\begin{cases} 0 & \\text{hvis } i = 0 \\text{ eller } j = 0 \\\\ c[i-1,j-1] + 1 & \\text{hvis } X[i] = Y[j] \\\\ \\max\\big(c[i-1,j],\\, c[i,j-1]\\big) & \\text{ellers}\\end{cases}$$\n\nGrunntilfellene er hele rad 0 og kolonne 0. Fyll tabellen rad for rad; svaret på hele problemet står i $c[m,n]$. Lagre samtidig retningen i $b[i,j]$: skrått når hyttene matcher, ellers opp eller til venstre etter hvilken nabocelle som vant.\n\n**Rekonstruksjonen.** Start i $b[m,n]$ og følg pekerne. Hver gang retningen er skrå, hører hytta $X[i]$ med i svaret; ellers flytter du deg opp eller til venstre. Skriv ut hyttene i den rekkefølgen kallene returnerer, så kommer de i riktig kronologisk orden. Dette koster $O(m+n)$ og **øker ikke den asymptotiske kjøretiden**.\n\n**Kjøretid.** $\\Theta(nm)$ tid og $\\Theta(nm)$ plass, der $m$ og $n$ er antall oppføringer i de to dagbøkene. Trenger turlaget bare lengden, kan plassen kuttes til to rader — men da forsvinner muligheten til å rekonstruere selve hyttelista.",
+        "hints": [
+          "Spør deg om rekkefølgen må være sammenhengende, eller bare bevart.",
+          "Se på det siste elementet i hver av de to listene: hva skjer hvis de er like, og hva hvis de ikke er det?",
+          "Oppgaven ber om selve hyttelista, ikke bare lengden — hvilken ekstra tabell trengs da?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-6-2-kjoretidstabell",
+      "type": "text",
+      "content": "## Kjøretidene i dette kapitlet samlet\n\n| Algoritme | Beste | Verste | Forventet | Krav/egenskap |\n|---|---|---|---|---|\n| `Bottom-Up-Cut-Rod(p, n)` | $\\Theta(n^2)$ | $\\Theta(n^2)$ | $\\Theta(n^2)$ | begge løkkene går alltid fullt ut; gir bare inntekten |\n| `Extended-Bottom-Up-Cut-Rod(p, n)` | $\\Theta(n^2)$ | $\\Theta(n^2)$ | $\\Theta(n^2)$ | fyller også valgtabellen `s`; nødvendig for å få oppdelingen |\n| `Print-Cut-Rod-Solution(p, n)` | $O(n)$ | $O(n)$ | $O(n)$ | krever utfylt `s`; øker ikke kjøretiden |\n| `LCS-Length(X, Y)` | $\\Theta(nm)$ | $\\Theta(nm)$ | $\\Theta(nm)$ | alle celler fylles uansett innhold; $\\Theta(nm)$ plass med `b` |\n| `Print-LCS(b, X, m, n)` | $O(m+n)$ | $O(m+n)$ | $O(m+n)$ | krever utfylt retningstabell `b` |\n| `Knapsack-01(w, v, n, m)` | $\\Theta(nm)$ | $\\Theta(nm)$ | $\\Theta(nm)$ | **pseudopolynomisk** — $m$ er en tallverdi, ikke en telling |\n| Fraksjonell ryggsekk | $O(n\\lg n)$ | $O(n\\lg n)$ | $O(n\\lg n)$ | grådig etter verdi per vektenhet; sorteringen dominerer ([kap. 6.4](/tdt4120/tdt4120-6-4)) |\n\nDe tre DP-radene følger samme regel: antall delproblemer ganger arbeidet per delproblem. Stavkapping har $n$ delproblemer med voksende arbeid, altså en sum som gir $\\Theta(n^2)$. LCS og ryggsekk har $nm$ delproblemer med konstant arbeid, altså $\\Theta(nm)$. Kan du de to regnestykkene, trenger du ikke pugge tallene."
+    },
+    {
+      "id": "tdt4120-6-2-begrepsbank-notis",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "tdt4120-6-2-def-cutrod",
+      "type": "definition",
+      "title": "`Extended-Bottom-Up-Cut-Rod`",
+      "content": "Rutinen som fyller inntektstabellen $r$ og valgtabellen $s$ for stavkapping.\n\nDen går gjennom lengdene $j = 1, \\dots, n$ og prøver for hver av dem alle lovlige lengder på det første stykket. Kjøretid $\\Theta(n^2)$, plass $\\Theta(n)$.\n\nKravet den stiller: prislisten må være indeksert fra 1 og lengdene må være heltall. Uten valgtabellen $s$ får du bare inntekten, ikke oppdelingen."
+    },
+    {
+      "id": "tdt4120-6-2-def-lcslength",
+      "type": "definition",
+      "title": "`LCS-Length`",
+      "content": "Rutinen som fyller lengdetabellen $c$ og retningstabellen $b$ for to sekvenser.\n\nDen går rad for rad og kolonne for kolonne, og hver celle avgjøres av tre naboer: skrått opp til venstre når tegnene matcher, ellers den største av cellen over og cellen til venstre. Kjøretid $\\Theta(nm)$, plass $\\Theta(nm)$.\n\nKravet den stiller: sekvensene må være indeksert fra 1, og tabellene må ha en rad 0 og en kolonne 0 med nuller — grunntilfellene."
+    },
+    {
+      "id": "tdt4120-6-2-def-printlcs",
+      "type": "definition",
+      "title": "`Print-LCS`",
+      "content": "Rutinen som leser retningstabellen $b$ baklengs fra celle $(m,n)$ og skriver ut selve delsekvensen.\n\nDen skriver ut et tegn nøyaktig når retningen er skrå, og flytter seg ellers opp eller til venstre. Kjøretid $O(m+n)$, altså mindre enn utfyllingen — rekonstruksjonen øker ikke den asymptotiske kjøretiden.\n\nKravet den stiller: retningstabellen $b$ må faktisk være lagret. Har du bare $c$, kan retningen leses tilbake ved å sammenligne nabocellene, men da må du si det."
+    },
+    {
+      "id": "tdt4120-6-2-def-valgtabell-stav",
+      "type": "definition",
+      "title": "Valgtabellen `s` i stavkapping",
+      "content": "Tabellen der `s[j]` er lengden på det **første** stykket i en optimal oppdeling av en stav på $j$.\n\nDen fylles samtidig med inntektstabellen `r`, uten ekstra asymptotisk kostnad. Oppdelingen leses ut ved å skrive ut `s[n]`, sette `n = n - s[n]` og gjenta til `n` er null.\n\nUten `s` har du bare inntekten. Ber oppgaven om selve oppdelingen — og det gjør den ofte — er tabellen påkrevd."
+    },
+    {
+      "id": "tdt4120-6-2-def-inputstorrelse",
+      "type": "definition",
+      "title": "Inputstørrelse målt i bits",
+      "content": "Målestokken kjøretid egentlig sammenlignes mot: hvor mange tegn eller bits som trengs for å skrive ned hele inputen.\n\nEn liste med $n$ tall har størrelse omtrent $n$. Ett enkelt tall $m$ har størrelse omtrent $\\lg m$ bits — kapasiteten 1 000 000 skrives med sju siffer, ikke en million. Det er hele grunnen til at $\\Theta(nm)$ ikke er polynomisk.\n\nRegelen å huske: **teller inputen elementer, er tallet en størrelse; er inputen ett tall, er verdien noe helt annet enn størrelsen.**"
+    },
+    {
+      "id": "tdt4120-6-2-def-delsekvens-delstreng",
+      "type": "definition",
+      "title": "Delsekvens mot delstreng",
+      "content": "En **delsekvens** bevarer rekkefølgen, men trenger ikke være sammenhengende. En **delstreng** må være sammenhengende.\n\n`LAK` er en delsekvens av `FLASKE`, men ikke en delstreng. `LAS` er også en delsekvens. `ASK` er en delstreng av `FLASKE`, og dermed også en delsekvens.\n\nBlander du dem, løser du feil problem: lengste felles delstreng har en annen rekurrens, og LCS-tabellen gir feil svar på det."
+    },
+    {
+      "id": "tdt4120-6-2-def-gradig-feiler",
+      "type": "definition",
+      "title": "Hvorfor grådighet feiler på 0-1-ryggsekk",
+      "content": "Fordi den beste gjenstanden per vektenhet kan blokkere en kombinasjon som fyller sekken bedre.\n\nPakkelisten i Eksempel 3 viser det: grådig etter verdi per kilo velger sovepose, kikkert og primus til verdi 21, mens telt og sovepose gir 22. Uten muligheten til å dele gjenstander blir «restplassen» avgjørende, og den ser den grådige regelen ikke.\n\nDen fraksjonelle varianten har ikke problemet: der fylles restplassen alltid opp av en bit av neste gjenstand, og da er grådighet optimal."
+    },
+    {
+      "id": "tdt4120-6-2-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tdt4120-6-2-rep-tekst",
+          "type": "text",
+          "content": "Fem korte oppgaver fra kapitlene dette bygger på. De tar noen minutter til sammen.\n\n**R1.** ([kap. 6.1](/tdt4120/tdt4120-6-1)) Hvilke to egenskaper må et problem ha for at dynamisk programmering skal være riktig verktøy?\n\n*Svar:* Optimal substruktur og overlappende delproblemer. Mangler den første, er rekurrensen gal; mangler den andre, er splitt-og-hersk like raskt og enklere.\n\n**R2.** ([kap. 6.1](/tdt4120/tdt4120-6-1)) Hva er kjøretidsregelen for en dynamisk programmering?\n\n*Svar:* Antall delproblemer ganger arbeidet per delproblem. Varierer arbeidet med delproblemets indeks, summerer du i stedet for å gange.\n\n**R3.** ([kap. 6.1](/tdt4120/tdt4120-6-1)) Gir en verditabell alene deg selve løsningen?\n\n*Svar:* Nei. Den gir optimalverdien. Selve løsningen krever lagrede valg — eller at valget leses tilbake ved å sammenligne nabocellene. Kostnaden er $O(n)$, altså ingen asymptotisk økning.\n\n**R4.** ([kap. 1.5](/tdt4120/tdt4120-1-5)) Hva er $1 + 2 + \\dots + n$, og hvilken asymptotisk klasse ligger summen i?\n\n*Svar:* $n(n+1)/2$, altså $\\Theta(n^2)$. Det er nøyaktig regnestykket bak stavkappingens kjøretid.\n\n**R5.** ([kap. 1.1](/tdt4120/tdt4120-1-1)) Når skriver du $\\Theta$ og når skriver du $O$?\n\n*Svar:* $\\Theta$ når grensen er tett i begge retninger, $O$ når bare en øvre grense er vist. `LCS-Length` fyller alltid alle cellene, så der er $\\Theta(nm)$ riktig; `Print-LCS` gjør høyst $m+n$ kall, så der er $O(m+n)$ det ærlige svaret."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

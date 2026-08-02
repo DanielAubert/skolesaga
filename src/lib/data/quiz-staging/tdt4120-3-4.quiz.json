@@ -1,0 +1,142 @@
+[
+  {
+    "question": "Hva er lastfaktoren $\\alpha$ i en hashtabell?",
+    "options": [
+      "$\\alpha = n/m$ — antall lagrede nøkler delt på antall bøtter, altså snittlengden på en kjede",
+      "$\\alpha = m/n$ — antall bøtter delt på antall lagrede nøkler, altså hvor romslig tabellen er",
+      "$\\alpha$ = lengden på den lengste kjeden i tabellen, altså det verste tilfellet for et søk",
+      "$\\alpha$ = andelen bøtter som er i bruk, et tall mellom 0 og 1 som måler fyllingsgraden"
+    ],
+    "explanation": "$\\alpha$ er gjennomsnittlig antall nøkler per bøtte, og den kan godt være større enn 1 — legger du 30 nøkler i 10 bøtter, er $\\alpha = 3$. Derfor er beskrivelsen «andel bøtter i bruk» feil: den ville låst $\\alpha$ til intervallet fra 0 til 1. Den lengste kjeden er et verste-tilfelle-mål, ikke et gjennomsnitt."
+  },
+  {
+    "question": "Hva er forventet søketid i en hashtabell med kjeding?",
+    "options": [
+      "$\\Theta(1+\\alpha)$ — én hashutregning pluss gjennomgang av kjeden i bøtta",
+      "$\\Theta(\\alpha)$ — bare gjennomgangen av kjeden teller, siden hashingen er gratis",
+      "$\\Theta(1)$ — hashfunksjonen peker rett på nøkkelen uansett hvor mange nøkler som er lagret",
+      "$\\Theta(\\lg n)$ — kjedene holdes sorterte, slik at hver bøtte kan gjennomsøkes binært"
+    ],
+    "explanation": "Ettallet er hashutregningen og oppslaget i tabellen, og $\\alpha$ er den forventede kjedelengden — begge må med, for er $\\alpha$ nær null, koster søket likevel den ene hashutregningen. Uttrykket forutsetter enkel uniform hashing. Kjedene holdes ikke sortert; de er lenkede lister som gjennomsøkes lineært."
+  },
+  {
+    "question": "Hva er søketiden i en hashtabell med kjeding i **verste** tilfelle?",
+    "options": [
+      "$\\Theta(n)$ — alle nøklene kan ha havnet i den samme bøtta",
+      "$\\Theta(1+\\alpha)$ — den forventede tiden er samtidig et tak på den verste",
+      "$\\Theta(\\lg n)$ — kjedene kan aldri bli lengre enn tabellens høyde tillater",
+      "$\\Theta(m)$ — i verste fall må hver eneste bøtte i tabellen undersøkes"
+    ],
+    "explanation": "Ingenting hindrer en hashfunksjon i å sende alle $n$ nøklene til samme bøtte, og da er tabellen degenerert til én lenket liste. $\\Theta(1+\\alpha)$ gjelder **forventet** tid under enkel uniform hashing, ikke verste tilfelle — å blande de to er den vanligste feilen i et hashing-svar. Et søk ser dessuten bare på én bøtte, aldri på alle."
+  },
+  {
+    "question": "Hva er kjøretiden til `Chained-Hash-Insert`, og hva gjør operasjonen?",
+    "options": [
+      "$O(1)$ — den legger elementet fremst i kjeden og sjekker ikke om nøkkelen finnes fra før",
+      "$O(1)$ — den legger elementet bakerst i kjeden etter å ha gått gjennom hele lista først",
+      "$\\Theta(1+\\alpha)$ — den må gå gjennom kjeden for å sjekke at nøkkelen ikke er der allerede",
+      "$O(\\lg n)$ — den setter elementet inn på riktig plass i den sorterte kjeden i bøtta"
+    ],
+    "explanation": "Innsetting fremst i en lenket liste er konstant arbeid, og det er nettopp fordi rutinen ikke leter etter duplikater at den er $O(1)$ i verste tilfelle. Skulle den garantere unike nøkler, måtte den søke først, og da ville den arvet søketiden $\\Theta(1+\\alpha)$."
+  },
+  {
+    "question": "Hva er antagelsen om enkel uniform hashing?",
+    "options": [
+      "At hver nøkkel er like sannsynlig å havne i hver av de $m$ bøttene, uavhengig av de andre nøklene",
+      "At hashfunksjonen aldri sender to ulike nøkler til den samme bøtta, slik at kollisjoner ikke oppstår",
+      "At nøklene som skal lagres, er trukket uniformt fra hele universet av mulige nøkkelverdier",
+      "At alle bøttene inneholder nøyaktig like mange nøkler når alle innsettingene er gjennomført"
+    ],
+    "explanation": "Antagelsen handler om **fordelingen** hashfunksjonen gir, og den er forutsetningen bak $\\Theta(1+\\alpha)$. Den lover ikke at kollisjoner uteblir — kollisjoner er uunngåelige når universet er større enn $m$ — og den garanterer heller ikke et jevnt resultat i den enkelte kjøringen, bare i forventning."
+  },
+  {
+    "question": "Hvilken verdi av $m$ bør unngås i divisjonsmetoden $h(k) = k \\bmod m$?",
+    "options": [
+      "En potens av 2 — da ser $h$ bare på de nederste bitene i nøkkelen og ignorerer resten",
+      "Et primtall — primtall gir uheldige rester når nøklene er jevnt fordelt over universet",
+      "Et oddetall — oddetall gir systematisk skjeve rester for nøkler som selv er partall",
+      "En verdi som er større enn antall nøkler $n$ — da blir tabellen unødig glissen og treg"
+    ],
+    "explanation": "Er $m = 2^p$, blir $k \\bmod m$ nøyaktig de $p$ nederste bitene i $k$, og all struktur lenger opp i nøkkelen kastes bort. Anbefalingen er tvert imot et primtall som ligger langt fra en toerpotens. Og $m > n$ er helt greit — det holder bare $\\alpha$ lav."
+  },
+  {
+    "question": "Hvorfor er kollisjoner uunngåelige i en hashtabell?",
+    "options": [
+      "Fordi universet av mulige nøkler er større enn antall bøtter, så to nøkler må dele bøtte",
+      "Fordi hashfunksjoner er tilfeldige, og tilfeldigheten gjør at treff av og til faller sammen",
+      "Fordi lastfaktoren alltid overstiger 1 i praksis, og da har hver bøtte mer enn én nøkkel",
+      "Fordi lenkede lister ikke kan holdes sortert, og usorterte lister får overlappende nøkler"
+    ],
+    "explanation": "Argumentet er rent teoretisk: en funksjon fra en stor mengde til en liten kan ikke være injektiv. Derfor må enhver hashtabell ha en strategi for kollisjoner — kjeding eller åpen adressering. Lastfaktoren kan godt være under 1 og likevel gi kollisjoner, og selve hashfunksjonen er deterministisk, ikke tilfeldig."
+  },
+  {
+    "question": "Hvor mye plass bruker en hashtabell med kjeding?",
+    "options": [
+      "$\\Theta(m+n)$ — selve tabellen med $m$ bøtter, pluss de $n$ lagrede nøklene",
+      "$\\Theta(m)$ — bare selve tabellen teller, siden nøklene ligger utenfor den",
+      "$\\Theta(n)$ — bare de lagrede nøklene teller, siden tomme bøtter ikke bruker plass",
+      "$\\Theta(mn)$ — hver bøtte må ha plass til alle nøklene i verste tilfelle"
+    ],
+    "explanation": "Både arrayet av bøtter og listeelementene må betales for, og de to leddene legges sammen. Tomme bøtter bruker plass akkurat som fulle — det er nettopp derfor $m$ ikke bør velges vilkårlig stort. En bøtte er dessuten en peker til en liste, ikke et forhåndsreservert område for alle nøkler."
+  },
+  {
+    "question": "Under hvilke forutsetninger er `Chained-Hash-Delete` en $O(1)$-operasjon?",
+    "options": [
+      "Når kjedene er dobbeltlenkede og elementet allerede er funnet, slik at bare pekerne må kobles om",
+      "Når kjedene er enkeltlenkede, siden en enkeltlenket liste har færre pekere å oppdatere",
+      "Når tabellen er stor nok til at lastfaktoren er under 1, slik at hver kjede har høyst ett element",
+      "Alltid — sletting er den eneste hashoperasjonen som er konstant i alle tilfeller"
+    ],
+    "explanation": "Med en dobbeltlenket liste kjenner elementet både forgjengeren og etterfølgeren sin, og fjerningen er ren pekermanipulasjon. I en enkeltlenket liste må du først finne forgjengeren, og da arver du søketiden. Har du bare nøkkelen og ikke elementet, må du dessuten søke først — og det koster $\\Theta(1+\\alpha)$."
+  },
+  {
+    "question": "Nøklene $10,\\ 22,\\ 31,\\ 4,\\ 15,\\ 28$ settes inn i en tabell $T[0..6]$ med $h(k) = k \\bmod 7$. Hvor mange bøtter blir stående tomme?",
+    "options": [
+      "3",
+      "2",
+      "4",
+      "0"
+    ],
+    "explanation": "Restene er $10 \\to 3$, $22 \\to 1$, $31 \\to 3$, $4 \\to 4$, $15 \\to 1$ og $28 \\to 0$, så bøttene 0, 1, 3 og 4 er i bruk — fire av sju. De tomme er 2, 5 og 6. At seks nøkler bare treffer fire bøtter, er kollisjonene i praksis: bøtte 1 og bøtte 3 har to nøkler hver."
+  },
+  {
+    "question": "Hva må gjelde for at forventet søketid i en hashtabell skal være $\\Theta(1)$?",
+    "options": [
+      "At $\\alpha$ holdes konstant, altså at $m$ vokser proporsjonalt med $n$ etter hvert som nøkler kommer inn",
+      "At $m$ holdes fast mens $n$ vokser, slik at tabellen fylles og bøttene brukes effektivt",
+      "At hashfunksjonen er injektiv på de nøklene som faktisk lagres, slik at ingen kjede blir lengre enn én",
+      "At nøklene settes inn i sortert rekkefølge, slik at kjedene bygges opp jevnt fra bunnen av"
+    ],
+    "explanation": "$\\Theta(1+\\alpha)$ er konstant nøyaktig når $\\alpha = n/m$ er begrenset av en konstant, og det krever at antall bøtter følger antall nøkler — i praksis ved å doble tabellen når den blir for full. Holdes $m$ fast, vokser $\\alpha$ lineært med $n$, og søket blir lineært. Innsettingsrekkefølgen påvirker ingenting, siden hver nøkkel plasseres av $h$ alene."
+  },
+  {
+    "question": "Hva mister du ved å velge en hashtabell framfor et binært søketre?",
+    "options": [
+      "Den sorterte rekkefølgen — spørsmål som «minste nøkkel» eller «alle nøkler mellom 10 og 20» blir dyre",
+      "Konstant forventet søketid — et søketre gir raskere oppslag enn en hashtabell for store datamengder",
+      "Muligheten til å sette inn nye nøkler etter at strukturen er bygget, siden tabellstørrelsen er låst",
+      "Garantien mot duplikater — et søketre nekter å lagre den samme nøkkelen to ganger, en hashtabell ikke"
+    ],
+    "explanation": "Hashfunksjonen sprer nøklene med vilje, så all informasjon om orden er borte: å finne minimum krever gjennomgang av hele tabellen, mens et søketre gjør det på $O(h)$. Til gjengjeld er hashtabellens forventede oppslag $\\Theta(1)$ mot søketreets $O(h)$ — det er hashtabellen som er raskest, og det er nettopp derfor byttet er verdt det når du bare skal slå opp."
+  },
+  {
+    "question": "Hva er fordelen med multiplikasjonsmetoden framfor divisjonsmetoden?",
+    "options": [
+      "Verdien av $m$ er ikke kritisk — den kan gjerne være en toerpotens, som gjør utregningen rask",
+      "Den unngår kollisjoner helt, siden multiplikasjon sprer nøklene jevnere enn divisjon gjør",
+      "Den gir sortert rekkefølge i bøttene, slik at hver kjede kan gjennomsøkes binært etterpå",
+      "Den krever ingen hashutregning i det hele tatt, siden nøkkelen brukes direkte som indeks"
+    ],
+    "explanation": "Metoden ganger nøkkelen med en konstant, tar brøkdelen og skalerer opp til $m$ — og fordi spredningen kommer fra multiplikasjonen, står du fritt til å velge et $m$ som er lett å regne med. Ingen hashfunksjon kan unngå kollisjoner så lenge universet er større enn $m$. Å bruke nøkkelen direkte som indeks er `Counting-Sort`s idé, ikke hashing."
+  },
+  {
+    "question": "«En hashtabell med kjeding gir $O(1)$ søk i verste tilfelle.» Stemmer dette?",
+    "options": [
+      "Nei — verste tilfelle er $\\Theta(n)$; det er det **forventede** søket som er $\\Theta(1+\\alpha)$",
+      "Ja — hashfunksjonen regnes ut på konstant tid, og oppslaget i tabellen er ett arrayoppslag",
+      "Ja — men bare når lastfaktoren holdes under 1, som er standardantagelsen i faget",
+      "Nei — verste tilfelle er $\\Theta(\\lg n)$, siden kjedene aldri blir lengre enn treets høyde"
+    ],
+    "explanation": "Havner alle nøklene i samme bøtte, må søket gå gjennom hele kjeden, og det er lineært. Hashutregningen er riktignok konstant, men den er bare det første av to steg. Formuleringen «$O(1)$ i verste tilfelle» er nettopp den påstanden en sjanger F-oppgave er ute etter at du avviser — og retterlinjen krever at du sier hvilket tilfelle uttrykket faktisk gjelder for."
+  }
+]

@@ -1,0 +1,182 @@
+[
+  {
+    "question": "Hvilken betingelse definerer $f(n) = O(g(n))$?",
+    "options": [
+      "Det finnes positive konstanter $c$ og $n_0$ slik at $0 \\le f(n) \\le c\\,g(n)$ for alle $n \\ge n_0$",
+      "For hver positive konstant $c$ finnes et $n_0$ slik at $0 \\le f(n) < c\\,g(n)$ for alle $n \\ge n_0$",
+      "Det finnes positive konstanter $c$ og $n_0$ slik at $0 \\le c\\,g(n) \\le f(n)$ for alle $n \\ge n_0$",
+      "Det finnes positive konstanter $c_1$, $c_2$, $n_0$ slik at $0 \\le c_1 g(n) \\le f(n) \\le c_2 g(n)$ for $n \\ge n_0$"
+    ],
+    "explanation": "$O$ er et tak, og kravet er **eksistens**: det holder at én eneste konstant $c$ virker fra et sted og utover. Svaret som krever ulikheten for hver positive $c$, definerer $o$, ikke $O$ — det er en strengere påstand, og den er usann for $3n^2 = O(n^2)$. Svaret med $c\\,g(n) \\le f(n)$ er $\\Omega$, og det med to konstanter er $\\Theta$."
+  },
+  {
+    "question": "Hva er den avgjørende forskjellen mellom definisjonen av $O$ og definisjonen av $o$?",
+    "options": [
+      "$O$ krever at det finnes **én** konstant $c$ som virker, mens $o$ krever at ulikheten holder for **hver** positive $c$",
+      "$O$ krever at ulikheten holder for **hver** positive $c$, mens $o$ bare krever at det finnes **én** slik $c$",
+      "$O$ gjelder bare fra en grense $n_0$ og utover, mens $o$ må gjelde for alle $n$ helt fra $n = 1$ av",
+      "$O$ sammenligner de to funksjonene verdi for verdi, mens $o$ sammenligner forholdet mellom dem med tallet 1 for hver $n$"
+    ],
+    "explanation": "Hele forskjellen sitter i kvantoren foran $c$: $O$ er eksistens («det finnes en $c$»), $o$ er allkvantor («for hver $c$»). Svaret som snur kvantorene, er nettopp den byttefeilen som oftest gjør et definisjonssvar galt. Begge symbolene bruker et $n_0$, så påstanden om at $o$ må gjelde fra $n = 1$, er også feil."
+  },
+  {
+    "question": "Hva krever definisjonen av $f(n) = \\Theta(g(n))$?",
+    "options": [
+      "To konstanter $c_1$ og $c_2$ pluss en $n_0$, slik at $g$ klemmer $f$ både nedenfra og ovenfra fra $n_0$ og utover",
+      "Én konstant $c$ pluss en $n_0$, slik at $f$ holder seg under $c\\,g(n)$ for alle $n$ fra $n_0$ og utover",
+      "At forholdet $f(n)/g(n)$ nærmer seg tallet 1 når $n$ vokser, slik at de to funksjonene blir like store",
+      "At $f$ og $g$ er nøyaktig den samme funksjonen bortsett fra ledd av lavere orden, uten noen konstantfaktor mellom seg"
+    ],
+    "explanation": "$\\Theta$ er den doble grensen: $0 \\le c_1 g(n) \\le f(n) \\le c_2 g(n)$, altså $O$ og $\\Omega$ samtidig, og det krever to konstanter, ikke én. Svaret med bare én konstant og ett tak er definisjonen av $O$. Kravet om at forholdet skal gå mot 1, er langt strengere enn $\\Theta$ — $3n^2 = \\Theta(n^2)$ har forhold 3, ikke 1."
+  },
+  {
+    "question": "Hva er rollen til $n_0$ i de asymptotiske definisjonene?",
+    "options": [
+      "Grensen der påstanden begynner å gjelde — alt som skjer for mindre $n$, er uten betydning for om den er sann",
+      "Den minste inputstørrelsen algoritmen i det hele tatt kan kjøre på, gitt av datastrukturen den arbeider i",
+      "Punktet der de to funksjonene krysser hverandre for aller første gang, og som derfor må regnes ut eksakt i et definisjonssvar",
+      "Antall elementer i inputen, altså nøyaktig den samme størrelsen som $n$ står for i kjøretidsuttrykket"
+    ],
+    "explanation": "Asymptotisk notasjon uttaler seg bare om oppførselen for store $n$, og $n_0$ er stedet der «stor nok» begynner. Svaret som gjør $n_0$ til et krysningspunkt, er galt fordi funksjonene godt kan krysse flere ganger før $n_0$ — definisjonen krever bare at ulikheten holder **etter** $n_0$, ikke at det er første gang den gjør det."
+  },
+  {
+    "question": "Er $2^{n+1} = O(2^n)$?",
+    "options": [
+      "Ja — $2^{n+1} = 2 \\cdot 2^n$, og konstantfaktoren 2 svelges av $c$ i definisjonen",
+      "Nei — eksponenten er én større, og eksponentiell vekst tåler ingen konstantfaktor",
+      "Nei — forholdet $2^{n+1}/2^n$ vokser uten grense, så det finnes ingen gyldig $c$",
+      "Ja — men bare fordi begge funksjonene i tillegg er $O(n!)$, ikke på grunn av forholdet"
+    ],
+    "explanation": "Forholdet $2^{n+1}/2^n$ er konstant lik 2, og $c = 2$ med $n_0 = 1$ er vitner som oppfyller definisjonen. Svaret som hevder at forholdet vokser uten grense, regner feil: det er $2^{2n}/2^n = 2^n$ som vokser, ikke $2^{n+1}/2^n$. At begge er $O(n!)$ er sant, men irrelevant for påstanden."
+  },
+  {
+    "question": "Er $2^{2n} = O(2^n)$?",
+    "options": [
+      "Nei — $2^{2n}/2^n = 2^n$ vokser uten grense, så ingen konstant $c$ kan holde taket",
+      "Ja — eksponenten er bare doblet, og en faktor 2 i eksponenten er en konstantfaktor",
+      "Ja — begge funksjonene er eksponentielle, og eksponentielle funksjoner er $O$ av hverandre",
+      "Nei — men $2^{2n} = \\Theta(2^n)$ holder likevel, siden $\\Theta$ er mildere enn $O$"
+    ],
+    "explanation": "$2^{2n} = (2^n)^2$, så forholdet mellom de to er $2^n$, som passerer enhver konstant. En faktor i **eksponenten** er ikke en konstantfaktor foran uttrykket — det er den forvekslingen som gjør $2^{2n} = O(2^n)$ til en fristende, men gal påstand. Og $\\Theta$ er strengere enn $O$, ikke mildere: $\\Theta$ krever $O$ i tillegg til $\\Omega$."
+  },
+  {
+    "question": "Symmetriregelen mellom de løse symbolene sier at $f(n) = O(g(n))$ gjelder nøyaktig når:",
+    "options": [
+      "$g(n) = \\Omega(f(n))$ — det er det samme taket sett fra den andre funksjonens side",
+      "$g(n) = O(f(n))$ — relasjonen virker begge veier, slik $\\Theta$ gjør det",
+      "$g(n) = \\Theta(f(n))$ — de to funksjonene vokser da nødvendigvis like fort, både nedenfra og ovenfra",
+      "$f(n) = \\omega(g(n))$ — det er den strenge varianten av den samme påstanden"
+    ],
+    "explanation": "«$f$ ligger under $g$» og «$g$ ligger over $f$» er samme utsagn lest fra hver sin kant, altså $f = O(g) \\iff g = \\Omega(f)$. Svaret $g = O(f)$ ville gjøre relasjonen symmetrisk, og det er den ikke: $n = O(n^2)$ er sant, mens $n^2 = O(n)$ er usant. $\\omega$ er dessuten en nedre grense, ikke en øvre."
+  },
+  {
+    "question": "Hvilke egenskaper har relasjonen $f(n) = \\Theta(g(n))$?",
+    "options": [
+      "Den er refleksiv, symmetrisk og transitiv — altså en ekvivalensrelasjon på funksjonene",
+      "Den er refleksiv og transitiv, men ikke symmetrisk, slik $\\le$ er på tallene",
+      "Den er symmetrisk og transitiv, men ikke refleksiv, siden $f = \\Theta(f)$ er innholdsløst",
+      "Den er bare transitiv; de to andre egenskapene gjelder for $O$ og $\\Omega$ i stedet"
+    ],
+    "explanation": "$f = \\Theta(f)$ (refleksiv), $f = \\Theta(g) \\Rightarrow g = \\Theta(f)$ (symmetrisk) og transitivitet holder alle tre, så $\\Theta$ deler funksjonene inn i vekstklasser. Svaret som sammenligner med $\\le$, beskriver $O$: den er refleksiv og transitiv, men ikke symmetrisk. Og $f = \\Theta(f)$ er triviell, men fullt gyldig — refleksivitet krever ikke at påstanden er interessant."
+  },
+  {
+    "question": "Hvilken av disse fire funksjonene vokser raskest asymptotisk?",
+    "options": [
+      "$n!$ — fakultetsfunksjonen",
+      "$2^n$ — ren eksponentiell vekst",
+      "$n^{100}$ — polynom av grad hundre",
+      "$n^2\\lg n$ — kvadratisk med logaritmefaktor"
+    ],
+    "explanation": "Vekstordningen er $n^2\\lg n < n^{100} < 2^n < n!$: ethvert polynom taper mot enhver eksponentiell, og $n!$ vokser raskere enn $2^n$ fordi $n!$ ganger med stadig større faktorer mens $2^n$ ganger med 2 hver gang. At eksponenten 100 er et stort tall endrer ingenting — det er formen $n^k$ mot $k^n$ som avgjør."
+  },
+  {
+    "question": "Hva betyr likhetstegnet i skrivemåten $f(n) = O(g(n))$?",
+    "options": [
+      "«tilhører» — $O(g(n))$ er en mengde funksjoner, og $f$ er ett av medlemmene i den",
+      "«er lik» i vanlig forstand — de to sidene betegner nøyaktig den samme funksjonen",
+      "«nærmer seg» — forskjellen mellom venstre og høyre side går mot null når $n$ vokser",
+      "«defineres som» — venstre side er et navn som innføres for uttrykket på høyre side"
+    ],
+    "explanation": "Skrivemåten er en innarbeidet forkortelse for $f(n) \\in O(g(n))$, og det forklarer hvorfor den ikke virker begge veier: $n = O(n^2)$ er meningsfullt, mens $O(n^2) = n$ ikke er det. Leser du tegnet som vanlig likhet, ender du med å «snu» påstander som ikke tåler å snus."
+  },
+  {
+    "question": "Hvorfor spiller ikke grunntallet i en logaritme noen rolle i asymptotisk notasjon?",
+    "options": [
+      "Fordi $\\log_a n$ og $\\log_b n$ skiller seg bare med den konstante faktoren $\\log_a b$, som forsvinner i $\\Theta$",
+      "Fordi alle logaritmer vokser så langsomt at forskjellen mellom dem forsvinner helt når $n$ blir stor",
+      "Fordi asymptotisk notasjon per definisjon regner om alle logaritmer til grunntall 2 før sammenligningen",
+      "Fordi $\\log_a n$ og $\\log_b n$ krysser hverandre i ett punkt, og fra og med krysningen er de to like store for all senere $n$"
+    ],
+    "explanation": "Basebyttet gir $\\log_b n = \\log_a n / \\log_a b$, altså en fast multiplikativ konstant, og konstanter svelges av $c$-en i definisjonene. Forklaringen om at forskjellen «forsvinner» fordi logaritmer vokser sakte, er feil: forskjellen er en fast faktor som aldri forsvinner, den er bare irrelevant for vekstklassen."
+  },
+  {
+    "question": "En algoritme oppgis å ha kjøretid $O(n^2)$ i verste tilfelle. Hva sier det om kjøretiden på en vilkårlig input av størrelse $n$?",
+    "options": [
+      "At den aldri overstiger en konstant ganger $n^2$ for store $n$ — men den kan godt være mye lavere",
+      "At den er en konstant ganger $n^2$ for store $n$, både som øvre og som nedre grense for tiden",
+      "At den er minst en konstant ganger $n^2$ for store $n$, siden verste tilfelle er en garanti nedenfra",
+      "At den er $n^2$ på nøyaktig én input og lavere på alle de andre inputene av samme størrelse"
+    ],
+    "explanation": "$O$ i verste tilfelle er et tak over alle inputer av størrelsen: ingen input koster mer, men mange kan koste langt mindre. Svaret som gjør uttrykket til en nedre grense, bytter $O$ mot $\\Omega$ — det er den samme feilen som å påstå at `Insertion-Sort` bruker $\\Omega(n\\lg n)$ i beste tilfelle, når den faktisk bruker $\\Theta(n)$ på et sortert array."
+  },
+  {
+    "question": "Hva skiller polynomisk fra eksponentiell vekst, og hvorfor er skillet viktig?",
+    "options": [
+      "Polynomisk er $n^k$ med $k$ konstant og eksponentiell er $k^n$; enhver $k^n$ med $k>1$ passerer ethvert polynom",
+      "Polynomisk er $n^k$ og eksponentiell er $k^n$; hvilken som vinner avhenger av hvor stor konstanten $k$ er",
+      "Polynomisk vokser med en konstant faktor per steg og eksponentiell med et konstant tillegg per steg",
+      "Polynomisk er alt som er $O(n^2)$, og alt som vokser raskere enn $n^2$ regnes fra da av som eksponentiell vekst"
+    ],
+    "explanation": "Uansett hvor stor $k$ er i $n^k$, og hvor nær 1 grunntallet i $k^n$ ligger, passerer den eksponentielle funksjonen polynomet fra et punkt av — derfor er $n^{100}$ asymptotisk mindre enn $1{,}1^n$. Svaret som gjør utfallet avhengig av konstantens størrelse, går glipp av nettopp dette. Og $n^3$ er polynomisk, ikke eksponentiell."
+  },
+  {
+    "question": "Hvilken betingelse definerer $f(n) = \\omega(g(n))$?",
+    "options": [
+      "For hver positive konstant $c$ finnes et $n_0$ slik at $0 \\le c\\,g(n) < f(n)$ for alle $n \\ge n_0$",
+      "Det finnes positive konstanter $c$ og $n_0$ slik at $0 \\le c\\,g(n) \\le f(n)$ for alle $n \\ge n_0$",
+      "For hver positive konstant $c$ finnes et $n_0$ slik at $0 \\le f(n) < c\\,g(n)$ for alle $n \\ge n_0$",
+      "Det finnes positive konstanter $c$ og $n_0$ slik at $f(n) > g(n)$ holder for alle $n$ over $n_0$"
+    ],
+    "explanation": "$\\omega$ er den strenge nedre grensen: forholdet $f(n)/g(n)$ skal vokse uten grense, og det uttrykkes ved at ulikheten holder for **hver** $c$. Formen med «det finnes en $c$» definerer $\\Omega$, og formen med $f$ på den lille siden definerer $o$. Kravet $f(n) > g(n)$ uten noen konstant er hverken av delene og utelukker for eksempel $2n = \\omega(n)$ — som forresten er usant."
+  },
+  {
+    "question": "Er $n\\lg n = \\omega(n)$?",
+    "options": [
+      "Ja — forholdet $(n\\lg n)/n = \\lg n$ vokser uten grense, så ingen konstant $c$ kan holde $c \\cdot n$ over uttrykket",
+      "Nei — begge uttrykkene er tilnærmet lineære, og en logaritme er for liten til å skille to vekstklasser",
+      "Nei — $\\omega$ krever et gap på minst en hel potens av $n$, og en logaritmefaktor er ikke nok til det",
+      "Det finnes positive konstanter $c$ og $n_0$ slik at ulikheten $f(n) > g(n)$ holder for alle verdier av $n$ over $n_0$"
+    ],
+    "explanation": "$\\omega$-testen er om forholdet vokser mot uendelig, og $\\lg n$ gjør det — sakte, men uten tak. Kravet om et gap på en hel potens av $n$ hører hjemme i masterteoremets $\\varepsilon$, ikke i definisjonen av $\\omega$. Og $n\\lg n$ er ikke $\\Theta(n^2)$: forholdet $(n\\lg n)/n^2 = (\\lg n)/n$ går mot null."
+  },
+  {
+    "question": "Hva sier transitivitetsregelen for asymptotisk notasjon?",
+    "options": [
+      "Er $f = O(g)$ og $g = O(h)$, så er $f = O(h)$ — og det samme mønsteret gjelder for $\\Omega$, $\\Theta$, $o$ og $\\omega$",
+      "Er $f = O(g)$ og $g = O(h)$, så er $f = \\Theta(h)$ — de to trinnene til sammen gir en tett grense",
+      "Er $f = O(g)$ og $g = \\Omega(h)$, så er $f = O(h)$ — grensene kan settes sammen på tvers av symbolene",
+      "Ja — men bare fordi $n\\lg n$ i tillegg er $\\Theta(n^2)$, og $n^2$ er strengt større enn $n$ i vekstordningen"
+    ],
+    "explanation": "Transitivitet betyr at samme symbol kan kjedes: to tak på rad gir ett tak. Å konkludere med $\\Theta$ etter to $O$-steg er galt — $n = O(n^2)$ og $n^2 = O(n^3)$ gir $n = O(n^3)$, og $n = \\Theta(n^3)$ er usant. Å blande $O$ og $\\Omega$ i en kjede gir heller ingen konklusjon, og kjeden kan ikke leses baklengs."
+  },
+  {
+    "question": "Hva er det strammeste asymptotiske uttrykket for $T(n) = 100n + 0{,}001n^2$?",
+    "options": [
+      "$\\Theta(n^2)$",
+      "$\\Theta(n)$",
+      "$O(n^3)$",
+      "$\\Theta(n^2 \\lg n)$"
+    ],
+    "explanation": "Konstantfaktorene er uten betydning uansett hvor små de er: $0{,}001n^2$ passerer $100n$ ved $n = 100{,}000$, og fra da av dominerer kvadratleddet. $O(n^3)$ er en sann påstand, men ikke den strammeste — å nøye seg med den er felle #4, og den gir sjelden full uttelling. $\\Theta(n)$ ser bare på leddet med størst konstant, ikke på leddet med størst vekst."
+  },
+  {
+    "question": "Hva står $n$ for i kjøretidsfunksjonen $T(n)$?",
+    "options": [
+      "Størrelsen på inputen, målt i den enheten problemet oppgir — antall elementer, noder eller bits",
+      "Antall steg algoritmen utfører, slik at $T(n)$ egentlig teller det samme to ganger",
+      "Antall sekunder algoritmen bruker på en gitt maskin, omregnet til en maskinuavhengig skala",
+      "Den største tallverdien som forekommer i inputen, siden store tall koster mer å behandle enn små tall gjør"
+    ],
+    "explanation": "$T(n)$ er antall elementære steg som funksjon av **inputstørrelsen**, og hva størrelsen måles i, må oppgaven si: antall elementer i et array, $V$ og $E$ i en graf, eller antall bits i et tall. Å la $n$ være den største tallverdien er nettopp forvekslingen som gjør at 0-1-ryggsekk ser polynomisk ut når den er pseudopolynomisk."
+  }
+]

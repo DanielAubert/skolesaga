@@ -1,0 +1,414 @@
+{
+  "id": "tdt4120-1-1",
+  "courseId": "tdt4120",
+  "chapterNumber": "1.1",
+  "title": "Asymptotisk notasjon — de fem symbolene",
+  "description": "De fem asymptotiske symbolene `O, Ω, Θ, o, ω` med formelle definisjoner — grunnlaget alle kjøretidssvar hviler på.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "kunne skrive ned de formelle definisjonene av $O$, $\\Omega$, $\\Theta$, $o$ og $\\omega$ uten hjelpemidler",
+    "kunne avgjøre hvilke av de fem symbolene som gjelder mellom to gitte funksjoner, og begrunne svaret med konkrete verdier for $c$ og $n_0$",
+    "kunne rangere standardfunksjonene etter vekst og bruke rangeringen til å velge det strammeste symbolet",
+    "kunne forklare hva likhetstegnet i $f(n) = O(g(n))$ betyr, og hvorfor påstanden ikke kan snus"
+  ],
+  "content": [
+    {
+      "id": "tdt4120-1-1-tip-1",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "De fem symbolene $O$, $\\Omega$, $\\Theta$, $o$ og $\\omega$ er tema i\n**100 % (17 av de 17 settene i grunnlaget)**. Ingen annen enkeltbit av pensum er\nlike forutsigbar, og ingen annen er like billig å sikre seg.\n\nSymbolene kommer i tre sjangre, og alle tre skrives ut i klarspråk her:\n\n- **Sjanger D — definisjon**, altså at du blir bedt om å skrive ned den presise\n  definisjonen av ett av symbolene. Dette er et fast, direkte krav.\n- **Sjanger A — asymptotisk forenkling**, altså at du skal koke et sammensatt\n  uttrykk ned til ett strammeste svar. Den trenes for fullt i neste kapittel,\n  men hviler helt på definisjonene du lærer her.\n- **Sjanger E — kjøretid**, altså at du skal oppgi kjøretiden til en algoritme i\n  ett uttrykk. Her avgjør det om du velger $O$ eller $\\Theta$.\n\nAlle tre er **kortsvarsoppgaver**: du får noen få linjer til rådighet, og det er\nsvaret som teller, ikke veien dit. Eksamen har dessuten **hjelpemiddelkode E**,\nsom er kodeordet for at ingen hjelpemidler er tillatt — verken bok, formelark\neller kalkulator. Definisjonene under må derfor kunnes utenat, ordrett nok til at\ndu kan skrive dem ned uten å tenke deg om.\n\n**Prioritet: høyeste prioritet — dette må sitte.**\n\n**Slik er kapitlet lagt opp (45 min):** først et konkret anker for hva\n«asymptotisk» egentlig betyr, så de fem definisjonene én etter én med en oppgave\nrett etter hver bit, deretter vekstordningen du bruker til å sammenligne\nfunksjoner i hodet, og til slutt de tre reglene som lar deg kombinere påstander.\nBegrepsbanken helt nederst er repetisjonsstoff."
+    },
+    {
+      "id": "tdt4120-1-1-t-forkunn",
+      "type": "text",
+      "content": "## Forkunnskaper\n\nDette er bokas første faglige kapittel, og det forutsetter ingen andre kapitler.\nAlt som brukes, forklares her.\n\nTo oppslag fra videregående gjør lesningen lettere. Begge er valgfrie:\n\n- [Potenser og logaritmer](/r1/r1-1-2) — hva en logaritme er, og hvorfor\n  grunntallet bare er en konstant faktor. Vi bruker $\\lg n$ hele veien.\n- [Mengdelære](/1t/1t-1-7) — $O(g(n))$ er egentlig navnet på en **mengde** av\n  funksjoner, og ordet «tilhører» er nøyaktig det du trenger for å lese\n  notasjonen riktig.\n\nHar du aldri sett en kjøretid skrevet som $O(\\text{noe})$ før, er\n[Algoritmedefinisjon, pseudokode og kompleksitet (Big-O)](/tdt4110/tdt4110-6-3)\net mykere første møte. Den boka nøyer seg med $O$; her skal du lære alle fem."
+    },
+    {
+      "id": "tdt4120-1-1-coll-notasjon",
+      "type": "collapsible",
+      "title": "Notasjons- og pseudokodeliste",
+      "buttonText": "Vis notasjon og pseudokode",
+      "content": [
+        {
+          "id": "tdt4120-1-1-nt-1",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et algoritmefag: den lister kjøretidsuttrykk\nog pseudokode-operasjoner i stedet for bare greske bokstaver.\n\n| Symbol | Betydning |\n|---|---|\n| $n$ | størrelsen på inndataene, for eksempel antall elementer i et array |\n| $T(n)$ | kjøretidsfunksjonen: antall grunnoperasjoner algoritmen bruker på input av størrelse $n$ |\n| $f(n)$, $g(n)$ | to funksjoner som sammenlignes; $g$ er som regel den enkle «malen» ($n$, $n^2$, $n\\lg n$) |\n| $c$, $c_1$, $c_2$ | positive konstanter som skjuler maskinhastighet og faste faktorer |\n| $n_0$ | grensen påstanden gjelder fra: ulikheten kreves bare for $n \\ge n_0$ |\n| $\\lg n$ | toerlogaritmen $\\log_2 n$ — CLRS-konvensjonen, og den fasitene bruker |\n| $O(g(n))$ | funksjonene som vokser høyst like fort som $g$ |\n| $\\Omega(g(n))$ | funksjonene som vokser minst like fort som $g$ |\n| $\\Theta(g(n))$ | funksjonene som vokser nøyaktig like fort som $g$ |\n| $o(g(n))$ | funksjonene som vokser strengt saktere enn $g$ |\n| $\\omega(g(n))$ | funksjonene som vokser strengt fortere enn $g$ |\n| $n!$ | $n$-fakultet, $1 \\cdot 2 \\cdots n$ — den raskest voksende funksjonen i vekstordningen vår |"
+        },
+        {
+          "id": "tdt4120-1-1-nt-2",
+          "type": "text",
+          "content": "| Algoritme/operasjon | Kontrakt | Kjøretid |\n|---|---|---|\n| `Maximum(A)` | returnerer det største elementet i `A[1..n]` ved ett gjennomløp | $\\Theta(n)$ |\n| `Insertion-Sort(A)` | sorterer `A[1..n]` stigende på stedet ved å skyve hvert nytt element inn i et ferdig sortert prefiks | $\\Theta(n)$ beste, $\\Theta(n^2)$ verste |\n| `Merge-Sort(A)` | sorterer `A[1..n]` stigende ved å dele arrayet i to, sortere hver halvdel og flette dem sammen | $\\Theta(n\\lg n)$ i alle tilfeller |\n\nDe to sorteringene brukes her bare som konkrete kjøretider å sammenligne — de\nhører hjemme i del 2 av boka, og du trenger ikke kunne dem for å lese dette\nkapitlet.\n\n**Formler i dette delkapitlet:**\n\n$$0 \\le f(n) \\le c\\,g(n) \\quad \\text{for alle } n \\ge n_0$$\n\nDefinisjonen av $O$: det holder å finne **én** konstant $c > 0$ som virker.\n\n$$0 \\le c\\,g(n) \\le f(n) \\quad \\text{for alle } n \\ge n_0$$\n\nDefinisjonen av $\\Omega$: samme form, men ulikheten peker motsatt vei.\n\n$$0 \\le c_1 g(n) \\le f(n) \\le c_2 g(n) \\quad \\text{for alle } n \\ge n_0$$\n\nDefinisjonen av $\\Theta$: to konstanter klemmer $f$ inne fra begge sider.\n\n$$0 \\le f(n) < c\\,g(n) \\quad \\text{for } \\textbf{hver} \\ c > 0, \\ n \\ge n_0(c)$$\n\nDefinisjonen av $o$: her må ulikheten holde uansett hvor liten $c$ er, og $n_0$\nfår lov til å avhenge av $c$. Definisjonen av $\\omega$ er den samme med\nulikheten snudd.\n\n$$1 < \\lg n < n < n\\lg n < n^2 < n^3 < 2^n < n!$$\n\nStandard vekstordning. Den avgjør nesten alle klassifiseringsspørsmål på\nsekunder."
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-1-1-t-1",
+      "type": "text",
+      "content": "## Hvorfor vi teller vekst og ikke sekunder\n\nSe for deg at en nettbutikk skal finne den dyreste varen i katalogen sin. Med\n1 000 varer merker ingen at programmet i det hele tatt kjørte. Med 10 millioner\nvarer merker alle det. Spørsmålet som betyr noe er ikke «hvor mange sekunder tok\ndet på min maskin?», men «hva skjer når katalogen blir ti ganger så stor?».\n\nDet er nettopp det spørsmålet **asymptotisk analyse** svarer på. Vi teller ikke\nsekunder — sekunder avhenger av maskinen, av programmeringsspråket og av hvor\nmye annet som kjørte samtidig. Vi teller hvordan arbeidsmengden **vokser** med\nstørrelsen på inndataene, og vi kaller den størrelsen $n$.\n\nArbeidet skriver vi som en funksjon $T(n)$. Å gå gjennom et array med $n$\nelementer én gang gir $T(n) = n$ sammenligninger, kanskje $T(n) = 3n + 20$ hvis\ndu teller med oppstart og bokføring. Poenget med asymptotisk notasjon er at de\nto uttrykkene skal behandles likt: begge dobler seg når $n$ dobles, og det er\nden egenskapen som overlever bytte av maskin."
+    },
+    {
+      "id": "tdt4120-1-1-def-asymp",
+      "type": "definition",
+      "title": "Asymptotisk vekst",
+      "content": "Ordet **asymptotisk** betyr «når $n$ blir stor nok». En asymptotisk påstand sier\ningenting om hva som skjer for små inndata — den beskriver bare hvordan\narbeidsmengden utvikler seg etter hvert som inndataene vokser.\n\nDerfor har alle definisjonene i dette kapitlet to konstanter i seg: en faktor $c$\nsom lar oss se bort fra hvor rask maskinen er, og en grense $n_0$ som lar oss se\nbort fra alt som skjer for $n$ under den grensen. Kravet er at ulikheten holder\nfor **alle** $n \\ge n_0$ — ikke bare for noen få."
+    },
+    {
+      "id": "tdt4120-1-1-th-maks",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `Maximum`",
+      "content": "**Antagelser om representasjon.** Arrayet er `A[1..n]` med indeks fra 1, slik\nCLRS skriver det. Elementene kan sammenlignes to og to.\n\n**Prebetingelse:** `A` har minst ett element. **Postbetingelse:** returverdien er\ndet største elementet i `A[1..n]`, og `A` er uendret.\n\n```text\nMaximum(A)\n  Input:  array A[1..n], n >= 1\n  Output: det storste elementet i A[1..n]\n  storst = A[1]\n  for i = 2 to A.length\n      if A[i] > storst\n          storst = A[i]\n  return storst\n  Kjoretid: Theta(n)\n```\n\n**Grunnideen i én setning:** etter at løkka har behandlet indeks $i$, er `storst`\nlik det største elementet i `A[1..i]`, så når løkka er ferdig gjelder det for\nhele arrayet.\n\n**Kjøretid:** løkka kjører nøyaktig $n-1$ runder uansett hvordan tallene ligger,\nog hver runde koster en fast mengde arbeid, altså $T(n) = \\Theta(n)$.\n\nDette er den enkleste kjøretiden som finnes, og den er et godt anker: alt annet i\nkapitlet handler om hvordan man sier presist at én slik funksjon vokser fortere\neller saktere enn en annen."
+    },
+    {
+      "id": "tdt4120-1-1-t-2",
+      "type": "text",
+      "content": "## Det første symbolet: et tak\n\nAnta at du har talt opp arbeidet i et program og fått $T(n) = 3n + 20$. Du vil si\nnoe kort og sant om det. Den svakeste, men mest brukte påstanden er: **det vokser\nhøyst like fort som $n$**.\n\nPresist betyr det at du kan finne en konstant å gange $n$ med, slik at $3n + 20$\nholder seg under den fra et punkt av. Med $c = 5$ er $5n$ større enn $3n + 20$\nså snart $n \\ge 10$: $3 \\cdot 10 + 20 = 50$ og $5 \\cdot 10 = 50$, og for større\n$n$ vokser $5n$ fortest. Det er hele innholdet i $O$."
+    },
+    {
+      "id": "tdt4120-1-1-def-O",
+      "type": "definition",
+      "title": "$O(g(n))$ — øvre grense",
+      "content": "$O(g(n))$ er mengden av funksjoner som fra et punkt av holder seg **under**\n$g(n)$, når vi først har fått lov til å gange $g$ med en konstant. Det er en\nøvre grense — et tak — og ikke noe mer.\n\nFormelt: $f(n) = O(g(n))$ betyr at det finnes konstanter $c > 0$ og $n_0 > 0$\nslik at\n\n$$0 \\le f(n) \\le c\\,g(n) \\quad \\text{for alle } n \\ge n_0.$$\n\nDet holder å finne **én** $c$ som virker, og du får selv velge $n_0$ etterpå.\nMerk hva $O$ **ikke** lover: den sier ingenting om at $f$ faktisk er like stor\nsom $g$. $3n + 20 = O(n^{100})$ er en helt sann, men helt ubrukelig påstand."
+    },
+    {
+      "id": "tdt4120-1-1-fig-o",
+      "type": "image",
+      "src": "/images/textbook/tdt4120/o-definisjonen.svg",
+      "alt": "Diagram med to rette linjer i samme koordinatsystem: funksjonen f av n lik 3n pluss 20, og linja c ganger g av n lik 5n. Til venstre for n lik 10 ligger den forste linja over den andre. Ved n lik 10 krysser de hverandre, og deretter ligger 5n hoyest.",
+      "caption": "Definisjonen av $O$ med kapitlets egne tall: $f(n) = 3n + 20$, $c = 5$ og\n$g(n) = n$. Til venstre for $n_0 = 10$ ligger $f$ over $5n$, og det spiller\ningen rolle — definisjonen krever ingenting der. Ved $n_0 = 10$ er begge lik 50,\nog fra det punktet og videre er $3n + 20 \\le 5n$. Paret $(c, n_0) = (5, 10)$ er\naltså et gyldig vitne for $3n + 20 = O(n)$."
+    },
+    {
+      "id": "tdt4120-1-1-def-vitne",
+      "type": "definition",
+      "title": "Vitnene $c$ og $n_0$",
+      "content": "Å vise en asymptotisk påstand er å legge fram et **vitne**: ett konkret tallpar\n$(c, n_0)$ som gjør ulikheten sann for alle $n \\ge n_0$.\n\nVitnet trenger ikke være det minste eller peneste mulige. For $3n + 20 = O(n)$\nvirker $(c, n_0) = (5, 10)$, men $(4, 20)$ og $(23, 1)$ virker like godt. På\neksamen holder det å oppgi ett par og vise at ulikheten holder — du skal ikke\nlete etter det optimale."
+    },
+    {
+      "id": "tdt4120-1-1-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-1-1-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave, sjanger D — definisjon, altså at du skriver ned den presise\ndefinisjonen av et symbol.)\n\n**a)** Skriv definisjonen av $f(n) = O(g(n))$ med egne ord, og få med både $c$\nog $n_0$.\n**b)** Vis at $7n + 100 = O(n)$ ved å oppgi ett gyldig vitne $(c, n_0)$.",
+        "solution": "**a)** $f(n) = O(g(n))$ betyr at det finnes en konstant $c > 0$ og en grense\n$n_0 > 0$ slik at $0 \\le f(n) \\le c\\,g(n)$ for alle $n \\ge n_0$. Med ord: fra et\npunkt av holder $f$ seg under $g$ ganget med en fast konstant.\n\n**b)** Velg $c = 8$. Da er $7n + 100 \\le 8n$ nøyaktig når $100 \\le n$, så\n$n_0 = 100$ virker. Vitnet $(c, n_0) = (8, 100)$ holder.\n\nEt hvilket som helst annet gyldig par er like riktig — for eksempel $(107, 1)$,\nsiden $7n + 100 \\le 7n + 100n = 107n$ for alle $n \\ge 1$.",
+        "hints": [
+          "Definisjonen har formen «det finnes $c > 0$ og $n_0 > 0$ slik at …».",
+          "For b): still opp ulikheten $7n + 100 \\le c\\,n$ og se hva den krever av $n$ når du har valgt en $c$ som er større enn 7."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-1-1-t-3",
+      "type": "text",
+      "content": "## De to neste: et gulv, og begge deler samtidig\n\n$O$ alene er ofte for lite. Sier du at en algoritme bruker $O(n^2)$ tid, har du\nikke utelukket at den egentlig er ferdig på $\\Theta(n)$ — du har bare lovet at\nden ikke er verre enn kvadratisk. For å si at noe faktisk **koster** så mye,\ntrenger du et gulv i tillegg til taket.\n\nGulvet heter $\\Omega$, og det er den samme definisjonen med ulikheten snudd. Har\ndu både tak og gulv med samme $g$, sier du at $f$ vokser nøyaktig som $g$ — og\ndet symbolet heter $\\Theta$."
+    },
+    {
+      "id": "tdt4120-1-1-def-Omega",
+      "type": "definition",
+      "title": "$\\Omega(g(n))$ — nedre grense",
+      "content": "$\\Omega(g(n))$ er mengden av funksjoner som fra et punkt av holder seg **over**\n$g(n)$, når vi først har fått lov til å gange $g$ med en konstant. Det er en\nnedre grense — et gulv.\n\nFormelt: $f(n) = \\Omega(g(n))$ betyr at det finnes konstanter $c > 0$ og\n$n_0 > 0$ slik at\n\n$$0 \\le c\\,g(n) \\le f(n) \\quad \\text{for alle } n \\ge n_0.$$\n\nOgså her holder det med **én** $c$. Legg merke til $n_0$: $\\Omega$ betyr ikke at\n$f(n) \\ge g(n)$ for hver eneste $n$ — bare fra et punkt av, og bare opp til en\nkonstant faktor. Å definere $\\Omega$ som «$f$ er minst like stor som $g$» uten\n$n_0$ er et av de vanligste trekkene som koster poeng."
+    },
+    {
+      "id": "tdt4120-1-1-def-Theta",
+      "type": "definition",
+      "title": "$\\Theta(g(n))$ — tett grense",
+      "content": "$\\Theta(g(n))$ er mengden av funksjoner som vokser **nøyaktig** like fort som\n$g(n)$: de klemmes inne mellom to konstantganger av $g$. Dette er det strammeste\nav de tre «vanlige» symbolene, og det er det du skal svare når du kan.\n\nFormelt: $f(n) = \\Theta(g(n))$ betyr at det finnes konstanter $c_1 > 0$,\n$c_2 > 0$ og $n_0 > 0$ slik at\n\n$$0 \\le c_1 g(n) \\le f(n) \\le c_2 g(n) \\quad \\text{for alle } n \\ge n_0.$$\n\nEkvivalent, og ofte lettere å bruke: $f(n) = \\Theta(g(n))$ hvis og bare hvis\n$f(n) = O(g(n))$ **og** $f(n) = \\Omega(g(n))$. Å vise en tett grense er altså å\ngjøre to jobber, ikke én."
+    },
+    {
+      "id": "tdt4120-1-1-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: $3n^2 + 5n = \\Theta(n^2)$ med eksplisitte vitner",
+      "problem": "Vis at $3n^2 + 5n = \\Theta(n^2)$ ved å oppgi konkrete konstanter $c_1$, $c_2$ og\n$n_0$.",
+      "solution": "Vi må klemme $3n^2 + 5n$ mellom to konstantganger av $n^2$.\n\n**Nedre grense.** Leddet $5n$ er positivt for alle $n \\ge 1$, så\n\n$$3n^2 + 5n \\ge 3n^2 \\quad \\text{for alle } n \\ge 1.$$\n\nDet gir $c_1 = 3$ og $n_0 = 1$.\n\n**Øvre grense.** Vi vil ha $3n^2 + 5n \\le c_2 n^2$. Prøv $c_2 = 4$: ulikheten\nblir $5n \\le n^2$, altså $5 \\le n$. Så\n\n$$3n^2 + 5n \\le 4n^2 \\quad \\text{for alle } n \\ge 5.$$\n\n**Sett sammen.** Med $c_1 = 3$, $c_2 = 4$ og $n_0 = 5$ gjelder begge ulikhetene\nsamtidig:\n\n$$3n^2 \\le 3n^2 + 5n \\le 4n^2 \\quad \\text{for alle } n \\ge 5.$$\n\nAltså er $3n^2 + 5n = \\Theta(n^2)$.\n\n**Kortsvarsformen:** på eksamen skriver du én linje — $\\Theta(n^2)$, med\n$c_1 = 3$, $c_2 = 4$, $n_0 = 5$ — og ikke hele utledningen. Utregningen over er\nundervisning, ikke svar.\n\n**Intuisjon:** legg merke til at $n_0 = 5$ ikke er noe magisk tall. Hadde vi\nvalgt $c_2 = 8$, ville $5n \\le 5n^2$ holdt allerede fra $n = 1$. Konstantene og\ngrensen henger sammen, og du får velge dem som passer deg."
+    },
+    {
+      "id": "tdt4120-1-1-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-1-1-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger A — asymptotisk forenkling, altså at du oppgir det strammeste\nuttrykket for en gitt funksjon.)\n\nAvgjør for hver av påstandene om den er sann eller gal, og begrunn hver med én\nsetning.\n\n**a)** $6n^2 + 3n + 9 = \\Theta(n^2)$\n**b)** $6n^2 + 3n + 9 = O(n^3)$\n**c)** $6n^2 + 3n + 9 = \\Theta(n^3)$",
+        "solution": "**a)** Sann. Med $c_1 = 6$ (siden $3n + 9 > 0$) og $c_2 = 7$ for $n \\ge 4$ er\nfunksjonen klemt inne mellom $6n^2$ og $7n^2$, altså tett grense $n^2$.\n\n**b)** Sann. En $\\Theta(n^2)$-funksjon vokser saktere enn $n^3$, så $n^3$ er et\ngyldig tak. Påstanden er sann, men løs: den kaster bort informasjonen om at\n$\\Theta(n^2)$ finnes.\n\n**c)** Gal. $\\Theta(n^3)$ krever også en nedre grense $c_1 n^3$, og forholdet\n$(6n^2 + 3n + 9)/n^3$ går mot null når $n$ vokser. Ingen positiv konstant $c_1$\nkan da holde stand.\n\n**Oppgaven ber om sant/galt med begrunnelse**, ikke om vitner. Én setning per\npunkt er nok.",
+        "hints": [
+          "Sammenlign graden av det høyeste leddet med graden i $g(n)$.",
+          "$\\Theta$ krever begge veier; $O$ krever bare taket."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-1-1-t-4",
+      "type": "text",
+      "content": "## De to strenge: $o$ og $\\omega$\n\nDe tre symbolene så langt sammenligner opp til en konstant. $3n^2$ og $5n^2$ er\n$\\Theta$ av hverandre — konstanten 3 mot 5 spiller ingen rolle. Noen ganger vil\ndu si noe sterkere: at $f$ virkelig blir liten i forhold til $g$, uansett hvor\nmye du får lov til å gange $g$ ned med.\n\nDet er nettopp der $o$ og $\\omega$ kommer inn, og forskjellen fra $O$ og $\\Omega$\nligger i ett eneste ord. Der $O$ sier «det finnes en $c$», sier $o$ «for hver\n$c$». Klarer du å holde de to fra hverandre, har du sikret deg mot den vanligste\nfeilen i sjanger D."
+    },
+    {
+      "id": "tdt4120-1-1-def-o",
+      "type": "definition",
+      "title": "$o(g(n))$ — strengt mindre",
+      "content": "$o(g(n))$ er mengden av funksjoner som vokser **strengt saktere** enn $g(n)$:\nuansett hvor kraftig du krymper $g$, blir $f$ til slutt mindre.\n\nFormelt: $f(n) = o(g(n))$ betyr at det for **hver** konstant $c > 0$ finnes en\ngrense $n_0 > 0$ slik at\n\n$$0 \\le f(n) < c\\,g(n) \\quad \\text{for alle } n \\ge n_0.$$\n\nLegg merke til to ting. For det første: kvantoren er «for hver $c$», ikke «det\nfinnes en $c$». For det andre: $n_0$ får lov til å avhenge av $c$ — jo mindre\n$c$ er, jo lenger ut må du gå. $3n^2 + 5n = o(n^3)$ krever $n \\ge 5$ for\n$c = 1$, men $n \\ge 30\\,002$ for $c = 0{,}0001$."
+    },
+    {
+      "id": "tdt4120-1-1-def-omega",
+      "type": "definition",
+      "title": "$\\omega(g(n))$ — strengt større",
+      "content": "$\\omega(g(n))$ er mengden av funksjoner som vokser **strengt fortere** enn\n$g(n)$: uansett hvor kraftig du blåser opp $g$, blir $f$ til slutt større.\n\nFormelt: $f(n) = \\omega(g(n))$ betyr at det for **hver** konstant $c > 0$ finnes\nen grense $n_0 > 0$ slik at\n\n$$0 \\le c\\,g(n) < f(n) \\quad \\text{for alle } n \\ge n_0.$$\n\n$\\omega$ er speilbildet av $o$: $f(n) = \\omega(g(n))$ hvis og bare hvis\n$g(n) = o(f(n))$. Og som for $o$ er kravet «for hver $c$» — det er dette som\ngjør $\\omega$ strengere enn $\\Omega$."
+    },
+    {
+      "id": "tdt4120-1-1-def-kvantor",
+      "type": "definition",
+      "title": "«For hver $c$» kontra «det finnes en $c$»",
+      "content": "Dette ene ordet er hele skillet mellom de løse og de strenge symbolene, og det\ner det som oftest blir borte i en definisjon skrevet under tidspress.\n\n- $O$ og $\\Omega$ krever bare at **én** konstant $c$ virker. Du får lov til å\n  velge den etter at du har sett på $f$ og $g$.\n- $o$ og $\\omega$ krever at ulikheten holder for **hver** $c > 0$, uansett hvor\n  liten eller stor. Til gjengjeld får $n_0$ avhenge av $c$.\n\nKonsekvensen er at $f(n) = \\Theta(g(n))$ og $f(n) = o(g(n))$ aldri kan være sant\nsamtidig, og at ingen funksjon er $o$ eller $\\omega$ av seg selv. $n\\lg n$ er\n$O(n\\lg n)$, men ikke $o(n\\lg n)$."
+    },
+    {
+      "id": "tdt4120-1-1-warn-1",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**Å blande $O$ og $\\Theta$.** Har du vist et tak, har du vist $O$. $\\Theta$\nkrever gulv i tillegg. Skriver du $\\Theta(n^2)$ etter bare å ha vist\n$3n^2 + 5n \\le 4n^2$, har du påstått mer enn du har belegg for.\n\n**Å gi en løsere grense enn nødvendig — felle #4, altså å oppgi en løs\nasymptotisk grense der en strammere finnes.** $6n^2 + 3n + 9 = O(n^3)$ er sant,\nmen et svar som kaster bort informasjon. Kan du vise $\\Theta(n^2)$, er det\n$\\Theta(n^2)$ som er svaret. Regelen er kort: oppgi alltid det strammeste\nuttrykket du kan forsvare.\n\n**Å glemme «for hver $c$» i $o$ og $\\omega$.** En definisjon av $o$ som bare\nsier «det finnes en $c$» beskriver $O$, ikke $o$, og gir ikke uttelling som\ndefinisjon av $o$.\n\n**Å definere $\\Omega$ uten $n_0$.** «$f$ er minst like stor som $g$» er ikke\ndefinisjonen. Ulikheten kreves bare for $n \\ge n_0$, og bare opp til konstanten\n$c$. Uten $n_0$ ville $n^2 = \\Omega(n)$ vært galt, siden $n^2 < n$ er usant bare\nfor $n = 0$ og $n = 1$ — grensen finnes nettopp for å slippe å tenke på slike\ntilfeller.\n\n**Å bytte om venstre- og høyreside.** Du skriver $f(n) = O(g(n))$, aldri\n$O(g(n)) = f(n)$. Notasjonen leses fra venstre mot høyre og kan ikke snus."
+    },
+    {
+      "id": "tdt4120-1-1-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: alle fem symbolene på samme funksjon",
+      "problem": "La $f(n) = 3n^2 + 5n$. Avgjør for hver av $g(n) = n$, $g(n) = n^2$ og\n$g(n) = n^3$ hvilke av de fem symbolene som gjelder.",
+      "solution": "Metoden er alltid den samme: se på forholdet $f(n)/g(n)$ når $n$ vokser. Går det\nmot null, er $f = o(g)$. Går det mot uendelig, er $f = \\omega(g)$. Holder det seg\nmellom to positive konstanter, er $f = \\Theta(g)$.\n\n**Mot $g(n) = n^2$.** Forholdet er $3 + 5/n$, som nærmer seg 3. Det er verken\nnull eller uendelig, så\n\n$$3n^2 + 5n = \\Theta(n^2), \\quad \\text{og dermed også } O(n^2) \\text{ og } \\Omega(n^2).$$\n\nVerken $o(n^2)$ eller $\\omega(n^2)$ gjelder — de utelukkes av $\\Theta$.\n\n**Mot $g(n) = n^3$.** Forholdet er $3/n + 5/n^2$, som går mot null. Da er\n\n$$3n^2 + 5n = o(n^3), \\quad \\text{og dermed også } O(n^3).$$\n\n$\\Omega(n^3)$, $\\Theta(n^3)$ og $\\omega(n^3)$ er alle gale.\n\n**Mot $g(n) = n$.** Forholdet er $3n + 5$, som vokser uten grense. Da er\n\n$$3n^2 + 5n = \\omega(n), \\quad \\text{og dermed også } \\Omega(n).$$\n\n$O(n)$, $\\Theta(n)$ og $o(n)$ er alle gale.\n\n**Legg merke til mønsteret.** $o$ trekker alltid $O$ med seg, og $\\omega$ trekker\nalltid $\\Omega$ med seg — men aldri motsatt vei. Det strammeste svaret er alltid\n$\\Theta$ der $\\Theta$ finnes, og her finnes den bare mot $n^2$."
+    },
+    {
+      "id": "tdt4120-1-1-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-1-1-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger D og A blandet.) Bruk forholdet $f(n)/g(n)$ til å avgjøre påstandene.\n\n**a)** Er $100n = o(n^2)$?\n**b)** Er $n\\lg n = o(n^2)$?\n**c)** Er $n\\lg n = O(n^2)$?\n**d)** Er $n\\lg n = o(n\\lg n)$?",
+        "solution": "**a)** Ja. Forholdet er $100/n$, som går mot null. Konstanten 100 hjelper ikke —\nden blir spist av kravet «for hver $c$».\n\n**b)** Ja. Forholdet er $\\lg n / n$, som går mot null: logaritmen vokser\nlangsommere enn enhver positiv potens av $n$.\n\n**c)** Ja, og det følger direkte av b): $o$ medfører alltid $O$. Men $O(n^2)$ er\ndet løsere av de to svarene, så hvis oppgaven ber om det strammeste, er $o(n^2)$\nriktig — eller enda bedre $\\Theta(n\\lg n)$, som er den tette grensen.\n\n**d)** Nei. Ingen funksjon er $o$ av seg selv. Kravet «for hver $c$» faller\nallerede for $c = 1$: $n\\lg n < 1 \\cdot n\\lg n$ er aldri sant.",
+        "hints": [
+          "Regn ut $f(n)/g(n)$ og spør hva forholdet gjør når $n$ vokser.",
+          "Husk at $o$ medfører $O$, men at $O$ ikke medfører $o$.",
+          "For d): sett $c = 1$ i definisjonen av $o$ og se hva ulikheten krever."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-1-1-t-5",
+      "type": "text",
+      "content": "## Symbolene som ulikhetstegn\n\nNår definisjonene sitter, er det verdt å ha en kortversjon i hodet også. De fem\nsymbolene oppfører seg som fem ulikhetstegn mellom vekstratene til $f$ og $g$:\n\n| Symbol | Leses som | Ulikhetstegnet det minner om |\n|---|---|---|\n| $f = O(g)$ | «$f$ vokser høyst like fort som $g$» | mindre enn eller lik |\n| $f = \\Omega(g)$ | «$f$ vokser minst like fort som $g$» | større enn eller lik |\n| $f = \\Theta(g)$ | «$f$ vokser nøyaktig like fort som $g$» | lik |\n| $f = o(g)$ | «$f$ vokser strengt saktere enn $g$» | strengt mindre enn |\n| $f = \\omega(g)$ | «$f$ vokser strengt fortere enn $g$» | strengt større enn |\n\nTabellen er en huskeregel, ikke en definisjon, og den har én viktig svakhet: for\ntall gjelder at enten er $a \\le b$ eller $b \\le a$. For funksjoner finnes det par\nder ingen av delene gjelder — $n$ og $n^{1 + \\sin n}$ krysser hverandre i det\nuendelige. Slike par dukker ikke opp i dette faget, men skriv aldri tabellen som\nom den var definisjonen. **På et definisjonsspørsmål er det $\\exists c, n_0$-formen\nsom gir uttelling.**"
+    },
+    {
+      "id": "tdt4120-1-1-fig-vekst",
+      "type": "image",
+      "src": "/images/textbook/tdt4120/vekstordning.svg",
+      "alt": "Diagram der kurvene for lg n, n, n ganger lg n, n i andre og 2 opphoyd i n er tegnet i samme koordinatsystem for n opp til 16. Kurvene ligger tett sammen for sma n og skiller lag raskt, og kurven for 2 opphoyd i n forsvinner ut av toppen av diagrammet.",
+      "caption": "Vekstordningen tegnet opp for $n$ opp til 16. Ved $n = 16$ er $\\lg n = 4$,\n$n = 16$, $n\\lg n = 64$ og $n^2 = 256$, mens $2^n = 65\\,536$ for lengst har\nforlatt diagrammet. Legg merke til hvor tett kurvene ligger for små $n$: det er\nnettopp derfor definisjonene har et $n_0$, og derfor «asymptotisk» betyr «når\n$n$ blir stor nok»."
+    },
+    {
+      "id": "tdt4120-1-1-t-6",
+      "type": "text",
+      "content": "## Rangeringen du bruker i hodet\n\nNesten alle klassifiseringsspørsmål på eksamen løses ved å plassere de to\nfunksjonene i denne rekkefølgen:\n\n$$1 < \\lg n < n < n\\lg n < n^2 < n^3 < 2^n < n!$$\n\nLigger $f$ til venstre for $g$, er $f = o(g)$. Ligger de på samme plass, er\n$f = \\Theta(g)$. Ligger $f$ til høyre, er $f = \\omega(g)$.\n\nTallene gjør poenget tydelig. For $n = 1024$:\n\n| Funksjon | Verdi ved $n = 1024$ |\n|---|---|\n| $1$ | 1 |\n| $\\lg n$ | 10 |\n| $n$ | 1 024 |\n| $n\\lg n$ | 10 240 |\n| $n^2$ | 1 048 576 |\n| $n^3$ | 1 073 741 824 |\n| $2^n$ | astronomisk |\n| $n!$ | enda større |\n\nTre ting er verdt å merke seg. **Konstanter forsvinner:** $n/2$, $5n$ og\n$100n + 7$ er alle $\\Theta(n)$. **Grunntallet i en logaritme forsvinner også:**\n$\\log_{10} n = \\lg n / \\lg 10$, og $\\lg 10$ er bare en konstant, så\n$\\log_{10} n = \\Theta(\\lg n)$. **Og en logaritme inne i en potens blir en\nkonstantfaktor:** $\\lg(n^3) = 3\\lg n = \\Theta(\\lg n)$."
+    },
+    {
+      "id": "tdt4120-1-1-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-1-1-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger A.) Sorter disse sju funksjonene fra langsomst til raskest voksende, og\noppgi for hvert nabopar hvilket symbol som knytter dem sammen.\n\n$$n^3, \\quad \\lg n, \\quad n!, \\quad n\\lg n, \\quad n^2\\lg n, \\quad 2^n, \\quad n$$",
+        "solution": "Rekkefølgen fra langsomst til raskest voksende er\n\n$$\\lg n, \\quad n, \\quad n\\lg n, \\quad n^2\\lg n, \\quad n^3, \\quad 2^n, \\quad n!$$\n\nog hvert nabopar er knyttet sammen av $o$ den ene veien og $\\omega$ den andre:\n\n- $\\lg n = o(n)$ — logaritmen vokser saktere enn enhver positiv potens av $n$.\n- $n = o(n\\lg n)$ — forholdet er $1/\\lg n$, som går mot null.\n- $n\\lg n = o(n^2\\lg n)$ — forholdet er $1/n$.\n- $n^2\\lg n = o(n^3)$ — forholdet er $\\lg n / n$, som går mot null.\n- $n^3 = o(2^n)$ — enhver potens taper mot en eksponentialfunksjon. Ved $n = 16$\n  er $n^3 = 4\\,096$ og $2^n = 65\\,536$.\n- $2^n = o(n!)$ — forholdet $n!/2^n$ vokser uten grense. Ved $n = 20$ er\n  $n!$ omtrent $2{,}4 \\cdot 10^{18}$ og $2^n$ omtrent $10^6$.\n\n**Fellen her er $n^2\\lg n$ mot $n^3$.** Logaritmen ser stor ut, men den taper mot\nden ekstra faktoren $n$: $n^2\\lg n / n^3 = \\lg n / n \\to 0$.",
+        "hints": [
+          "Bruk standardordningen $1 < \\lg n < n < n\\lg n < n^2 < n^3 < 2^n < n!$ og plasser de sammensatte uttrykkene i den.",
+          "For $n^2\\lg n$ mot $n^3$: forkort brøken $n^2\\lg n / n^3$ før du vurderer den."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-1-1-t-7",
+      "type": "text",
+      "content": "## Regler du får bruke uten å bevise dem\n\nSymbolene oppfører seg som ulikhetstegn også når du setter påstander sammen. De\ntre reglene under brukes fritt i fasitene, og du trenger ikke bevise dem — men du\nmå vite at de finnes, og hvilken vei de går."
+    },
+    {
+      "id": "tdt4120-1-1-th-trans",
+      "type": "theorem",
+      "title": "Transitivitet, symmetri og $\\Theta$ som ekvivalensrelasjon",
+      "content": "**Transitivitet.** Alle fem symbolene er transitive. Er $f = O(g)$ og\n$g = O(h)$, så er $f = O(h)$. Det samme gjelder for $\\Omega$, $\\Theta$, $o$ og\n$\\omega$ hver for seg. Dette er grunnen til at vekstordningen fungerer som en\nkjede: har du plassert to funksjoner i den, vet du hvordan de forholder seg til\nalle de andre.\n\n**Symmetriregelen mellom $O$ og $\\Omega$.** Det gjelder at\n\n$$f(n) = O(g(n)) \\iff g(n) = \\Omega(f(n)).$$\n\nSamme sak sett fra hver sin side. Tilsvarende er $f = o(g)$ det samme som\n$g = \\omega(f)$.\n\n**$\\Theta$ er en ekvivalensrelasjon.** Den er refleksiv ($f = \\Theta(f)$),\nsymmetrisk (er $f = \\Theta(g)$, så er $g = \\Theta(f)$) og transitiv. Praktisk\nbetyr det at «vokser like fort som» deler funksjonene inn i klasser: $n/2$, $5n$\nog $100n + 7$ havner i samme klasse, og du kan bytte fritt mellom dem inne i et\nasymptotisk uttrykk. Vi bruker egenskapen; vi beviser den ikke.\n\nMerk at $O$ og $\\Omega$ **ikke** er symmetriske: $n = O(n^2)$ er sant, mens\n$n^2 = O(n)$ er galt."
+    },
+    {
+      "id": "tdt4120-1-1-def-likhet",
+      "type": "definition",
+      "title": "Likhetstegnet i asymptotisk notasjon",
+      "content": "$O(g(n))$ er en **mengde** av funksjoner, og $f(n) = O(g(n))$ betyr strengt tatt\nat $f$ **tilhører** denne mengden. Likhetstegnet er en konvensjon, ikke en\nlikhet.\n\nCLRS — Cormen, Leiserson, Rivest og Stein, som er pensumlitteraturen i faget —\nskriver likhetstegn, og det gjør oppgavesettene og fasitene også. Derfor gjør vi\ndet her. To konsekvenser du må kjenne:\n\n- Påstanden leses fra venstre mot høyre. Du skriver $f(n) = O(g(n))$, aldri\n  $O(g(n)) = f(n)$.\n- Den kan ikke snus som en vanlig likhet. At $n = O(n^2)$ og $n^2 = O(n^2)$ gir\n  deg ikke lov til å konkludere at $n = n^2$."
+    },
+    {
+      "id": "tdt4120-1-1-def-lg",
+      "type": "definition",
+      "title": "$\\lg n$ — toerlogaritmen",
+      "content": "$\\lg n$ betyr $\\log_2 n$, altså logaritmen med grunntall 2. Det er CLRS-\nkonvensjonen, og den notasjonen oppgavene og fasitene i dette faget bruker. Skriv\n$\\lg n$, ikke $\\log n$, når du svarer.\n\nAsymptotisk spiller grunntallet ingen rolle, fordi\n$\\log_b n = \\lg n / \\lg b$ og $\\lg b$ er en konstant. Derfor er\n$\\log_{10} n = \\Theta(\\lg n) = \\Theta(\\ln n)$. Grunnen til at nettopp 2 er\nstandard, er at algoritmene i faget deler problemet i to om og om igjen — og da\ner det antall halveringer som teller."
+    },
+    {
+      "id": "tdt4120-1-1-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-1-1-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger F — «stemmer dette?», altså at du svarer ja eller nei først og\nbegrunner med én setning.)\n\nAvgjør om hver påstand stemmer.\n\n**a)** Hvis $f = O(g)$ og $g = O(h)$, så er $f = O(h)$.\n**b)** Hvis $f = O(g)$, så er $g = O(f)$.\n**c)** Hvis $f = \\Theta(g)$, så er $g = \\Theta(f)$.\n**d)** Hvis $f = O(g)$, så er $g = \\Omega(f)$.",
+        "solution": "**a)** Ja. $O$ er transitiv, og det er nettopp denne regelen som lar deg bruke\nvekstordningen som en kjede.\n\n**b)** Nei. $O$ er ikke symmetrisk. Moteksempel: $n = O(n^2)$, men $n^2 = O(n)$\ner galt, siden forholdet $n^2/n = n$ vokser uten grense.\n\n**c)** Ja. $\\Theta$ er symmetrisk — det er en av de tre egenskapene som gjør den\ntil en ekvivalensrelasjon.\n\n**d)** Ja. Dette er symmetriregelen mellom $O$ og $\\Omega$: de to påstandene er\nden samme observasjonen sett fra hver sin side.\n\n**Oppgaven ber om ja eller nei med én setnings begrunnelse**, ikke om bevis.",
+        "hints": [
+          "Tre av påstandene er standardregler; én av dem er en felle.",
+          "Test den mistenkelige med et konkret par, for eksempel $f(n) = n$ og $g(n) = n^2$."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-1-1-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: eksamensnivå — definisjon og klassifisering i ett",
+      "problem": "**a)** Definér $\\omega(g(n))$ presist, og forklar med én setning hva som skiller\ndet fra $\\Omega(g(n))$.\n\n**b)** Avgjør om $n\\lg n = \\omega(n)$ og om $n\\lg n = \\omega(n\\lg n)$.\n\n**c)** En algoritme har kjøretid $T(n)$, og du har vist at $T(n) \\le 4n^2$ for\nalle $n \\ge 8$. Hvilket av de fem symbolene har du belegg for?",
+      "solution": "**a)** $f(n) = \\omega(g(n))$ betyr at det for **hver** konstant $c > 0$ finnes en\ngrense $n_0 > 0$ slik at $0 \\le c\\,g(n) < f(n)$ for alle $n \\ge n_0$.\n\nForskjellen fra $\\Omega$: $\\Omega$ krever bare at ulikheten holder for **én**\nkonstant $c$, mens $\\omega$ krever at den holder for hver eneste $c$, uansett hvor\nstor.\n\n**b)** $n\\lg n = \\omega(n)$ er sant: forholdet er $\\lg n$, som vokser uten grense,\nså uansett hvor stor $c$ er finnes det en $n_0$ der $\\lg n$ passerer den.\n\n$n\\lg n = \\omega(n\\lg n)$ er galt. Ingen funksjon er $\\omega$ av seg selv —\nallerede $c = 1$ gir ulikheten $n\\lg n < n\\lg n$, som aldri holder.\n\n**c)** Du har belegg for $T(n) = O(n^2)$, med vitnet $(c, n_0) = (4, 8)$, og\ningenting mer. En øvre grense alene gir ikke $\\Theta$: den utelukker ikke at\nalgoritmen egentlig er ferdig på $\\Theta(n)$. For $\\Theta(n^2)$ måtte du i tillegg\nha vist en nedre grense $c_1 n^2 \\le T(n)$.\n\n**Slik ser svaret ut på arket:** a) definisjonen i én setning med kvantoren\ntydelig. b) «Ja» og «Nei», hver med en halv linjes begrunnelse. c) «$O(n^2)$ —\nbare øvre grense er vist.» Ikke mer."
+    },
+    {
+      "id": "tdt4120-1-1-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-1-1-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger D.) Skriv ned de formelle definisjonene av $O(g(n))$,\n$\\Omega(g(n))$ og $\\Theta(g(n))$, slik du ville gjort det på et ark uten\nhjelpemidler.\n\nForklar deretter med én setning hvorfor $\\Theta$ alltid er det svaret du bør gi\nnår du kan.",
+        "solution": "**Definisjonene.** For alle tre gjelder at $f$ og $g$ er ikke-negative for store\nnok $n$.\n\n$f(n) = O(g(n))$: det finnes $c > 0$ og $n_0 > 0$ slik at\n$0 \\le f(n) \\le c\\,g(n)$ for alle $n \\ge n_0$.\n\n$f(n) = \\Omega(g(n))$: det finnes $c > 0$ og $n_0 > 0$ slik at\n$0 \\le c\\,g(n) \\le f(n)$ for alle $n \\ge n_0$.\n\n$f(n) = \\Theta(g(n))$: det finnes $c_1 > 0$, $c_2 > 0$ og $n_0 > 0$ slik at\n$0 \\le c_1 g(n) \\le f(n) \\le c_2 g(n)$ for alle $n \\ge n_0$.\n\n**Hvorfor $\\Theta$.** $\\Theta$ er den strammeste av de tre og gir både tak og\ngulv, mens $O$ alene lar spørsmålet om hvor mye arbeid algoritmen faktisk gjør,\nstå åpent.\n\n**Hovedpoenget først:** i et definisjonssvar skal setningen «det finnes $c$ og\n$n_0$ slik at ulikheten holder for alle $n \\ge n_0$» komme først. Kommer den\nsist, etter en lang innledning, risikerer du at poenget drukner.",
+        "hints": [
+          "Alle tre definisjonene har samme skjelett: «det finnes … slik at … for alle $n \\ge n_0$».",
+          "$\\Theta$ trenger to konstanter, ikke én."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-1-1-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-1-1-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger A.) Vis at $2n^2 + n\\lg n = \\Theta(n^2)$ ved å oppgi\neksplisitte konstanter, og avgjør deretter om uttrykket også er $o(n^3)$ og om\ndet er $\\omega(n\\lg n)$.",
+        "solution": "**Tett grense.** Nedre: $n\\lg n > 0$ for $n \\ge 2$, så $2n^2 + n\\lg n \\ge 2n^2$.\nDet gir $c_1 = 2$.\n\nØvre: siden $\\lg n \\le n$ for alle $n \\ge 1$, er $n\\lg n \\le n^2$, og dermed\n$2n^2 + n\\lg n \\le 3n^2$. Det gir $c_2 = 3$.\n\nBegge holder fra $n_0 = 1$, så\n\n$$2n^2 \\le 2n^2 + n\\lg n \\le 3n^2 \\quad \\text{for alle } n \\ge 1,$$\n\naltså $2n^2 + n\\lg n = \\Theta(n^2)$.\n\n**Er det $o(n^3)$?** Ja. Forholdet er $2/n + \\lg n / n^2$, og begge leddene går\nmot null. Siden uttrykket er $\\Theta(n^2)$ og $n^2 = o(n^3)$, følger det også av\ntransitivitet.\n\n**Er det $\\omega(n\\lg n)$?** Ja. Deler vi uttrykket på $n\\lg n$, sitter vi igjen\nmed $2n/\\lg n + 1$, og det vokser uten grense fordi $n$ vokser fortere enn\n$\\lg n$.\n\n**Strammeste svar er $\\Theta(n^2)$.** De to andre påstandene er sanne, men\nløsere — de kaster bort informasjon (felle #4).",
+        "hints": [
+          "Til den øvre grensen: hvor stor kan $n\\lg n$ bli sammenlignet med $n^2$?",
+          "Bruk at $\\lg n \\le n$ for alle $n \\ge 1$.",
+          "Når du har den tette grensen, følger de to andre spørsmålene av vekstordningen og transitivitet."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-1-1-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-1-1-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger F.) Et forslag til svar på et definisjonsspørsmål lyder\nslik:\n\n> «$f(n) = o(g(n))$ betyr at det finnes en konstant $c > 0$ og en $n_0$ slik at\n> $f(n) < c\\,g(n)$ for alle $n \\ge n_0$.»\n\n**a)** Er dette definisjonen av $o$? Svar ja eller nei, og pek på nøyaktig hva\nsom er galt.\n**b)** Hvilket symbol beskriver setningen faktisk?\n**c)** Gi et konkret funksjonspar som setningen godtar, men som ikke er $o$.",
+        "solution": "**a)** Nei. Feilen er kvantoren: setningen sier «det finnes en konstant $c$», mens\ndefinisjonen av $o$ krever at ulikheten holder for **hver** $c > 0$. Alt annet i\nsetningen er riktig.\n\n**b)** Den beskriver $O(g(n))$ — bortsett fra at ulikheten er skrevet strengt.\nDen strenge ulikheten endrer ingenting her: kan du finne en $c$ som gir\n$f(n) \\le c\\,g(n)$, virker $2c$ med streng ulikhet.\n\n**c)** $f(n) = 3n^2$ og $g(n) = n^2$. Med $c = 4$ er $3n^2 < 4n^2$ for alle\n$n \\ge 1$, så setningen godtas. Men $3n^2 = \\Theta(n^2)$, og ingen funksjon kan\nvære både $\\Theta$ og $o$ av det samme: for $c = 1$ måtte $3n^2 < n^2$ ha holdt,\nog det gjør den aldri.\n\n**Kortsvarsformen:** «Nei — kvantoren er feil: $o$ krever for hver $c > 0$, ikke\nfor én. Setningen definerer $O$. Moteksempel: $3n^2$ mot $n^2$.» Tre linjer.",
+        "hints": [
+          "Sammenlign ord for ord med definisjonen av $o$ — det er ett ord som skiller.",
+          "Til c): let etter et par der $f$ og $g$ vokser like fort."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-1-1-t-bank",
+      "type": "text",
+      "content": "### Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har\nlest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder\nkjernestoffet."
+    },
+    {
+      "id": "tdt4120-1-1-bank-1",
+      "type": "definition",
+      "title": "Intuisjonstabellen for de fem symbolene",
+      "content": "De fem symbolene oppfører seg som fem ulikhetstegn mellom vekstratene: $O$ svarer\ntil «mindre enn eller lik», $\\Omega$ til «større enn eller lik», $\\Theta$ til\n«lik», $o$ til «strengt mindre enn» og $\\omega$ til «strengt større enn».\n\nTabellen er en huskeregel for klassifisering, ikke en definisjon. På et\ndefinisjonsspørsmål er det $c$-og-$n_0$-formen som gir uttelling."
+    },
+    {
+      "id": "tdt4120-1-1-bank-2",
+      "type": "definition",
+      "title": "Standard vekstordning",
+      "content": "Rekkefølgen du sammenligner funksjoner mot, fra langsomst til raskest voksende:\n\n$$1 < \\lg n < n < n\\lg n < n^2 < n^3 < 2^n < n!$$\n\nLigger $f$ til venstre for $g$ i denne kjeden, er $f = o(g)$; ligger den til\nhøyre, er $f = \\omega(g)$; ligger de på samme plass, er $f = \\Theta(g)$. Ved\n$n = 1024$ er $\\lg n = 10$, $n\\lg n = 10\\,240$ og $n^2$ litt over en million."
+    },
+    {
+      "id": "tdt4120-1-1-bank-3",
+      "type": "definition",
+      "title": "Transitivitet",
+      "content": "Alle fem symbolene er transitive: er $f = O(g)$ og $g = O(h)$, så er $f = O(h)$,\nog tilsvarende for $\\Omega$, $\\Theta$, $o$ og $\\omega$.\n\nDette er regelen som gjør vekstordningen brukbar. Har du plassert to funksjoner i\nkjeden, kan du lese av forholdet mellom dem uten å regne på nytt."
+    },
+    {
+      "id": "tdt4120-1-1-bank-4",
+      "type": "definition",
+      "title": "$\\Theta$ som ekvivalensrelasjon",
+      "content": "$\\Theta$ er refleksiv, symmetrisk og transitiv, og deler dermed funksjonene inn i\nklasser av «vokser like fort».\n\nPraktisk konsekvens: inne i et asymptotisk uttrykk kan du bytte $5n$ med $n$,\n$n/2$ med $n$ og $\\log_{10} n$ med $\\lg n$ uten at noe endres. $O$ og $\\Omega$ er\nderimot **ikke** symmetriske — $n = O(n^2)$ er sant, mens $n^2 = O(n)$ er galt."
+    },
+    {
+      "id": "tdt4120-1-1-bank-5",
+      "type": "definition",
+      "title": "Symmetriregelen mellom de løse symbolene",
+      "content": "$f(n) = O(g(n))$ hvis og bare hvis $g(n) = \\Omega(f(n))$, og $f(n) = o(g(n))$\nhvis og bare hvis $g(n) = \\omega(f(n))$.\n\nDet er én og samme observasjon sett fra hver sin side, og den er nyttig når en\noppgave gir deg påstanden «feil vei» av det du trenger."
+    },
+    {
+      "id": "tdt4120-1-1-bank-6",
+      "type": "definition",
+      "title": "Strammeste grense",
+      "content": "Blant flere sanne asymptotiske påstander om samme funksjon er den strammeste den\nsom gir mest informasjon: $\\Theta$ foran $O$, og $O(n^2)$ foran $O(n^3)$.\n\nLøsningsforslagene forventer det strammeste uttrykket. $6n^2 + 3n + 9 = O(n^3)$\ner sant, men et svar som kaster bort informasjon — dette er felle #4, altså å\noppgi en løs grense der en strammere finnes."
+    },
+    {
+      "id": "tdt4120-1-1-bank-7",
+      "type": "definition",
+      "title": "Konstanter og lavere ordens ledd",
+      "content": "Konstantfaktorer og alle ledd av lavere orden forsvinner i et asymptotisk\nuttrykk: $5n^2 + 100n + 3000 = \\Theta(n^2)$.\n\nBegrunnelsen ligger i definisjonen: konstanten $5$ kan absorberes i $c_1$ og\n$c_2$, og leddene $100n$ og $3000$ blir små i forhold til $n^2$ når $n$ er stor\nnok. Det er nettopp derfor asymptotisk analyse ikke avhenger av maskinen."
+    },
+    {
+      "id": "tdt4120-1-1-bank-8",
+      "type": "definition",
+      "title": "Logaritmens grunntall er en konstant",
+      "content": "$\\log_b n = \\lg n / \\lg b$, og $\\lg b$ er en konstant. Derfor er alle logaritmer\n$\\Theta$ av hverandre: $\\log_{10} n = \\Theta(\\lg n) = \\Theta(\\ln n)$.\n\nAv samme grunn er $\\lg(n^3) = 3\\lg n = \\Theta(\\lg n)$. En potens inne i en\nlogaritme blir en konstantfaktor utenfor — det er en fast liten felle i\nklassifiseringsoppgaver."
+    },
+    {
+      "id": "tdt4120-1-1-bank-9",
+      "type": "definition",
+      "title": "Kjøretidsfunksjonen $T(n)$",
+      "content": "$T(n)$ er antall grunnoperasjoner en algoritme utfører på input av størrelse $n$.\nDet er denne funksjonen de asymptotiske symbolene beskriver.\n\n$n$ må alltid være definert: for sortering er det antall elementer, for grafer\nantall noder og kanter, for et tall som skal faktoriseres antall bit. Et\nkjøretidssvar uten en klar $n$ er ikke et fullstendig svar."
+    },
+    {
+      "id": "tdt4120-1-1-bank-10",
+      "type": "definition",
+      "title": "Beste, verste og forventet tilfelle",
+      "content": "Kjøretiden avhenger ofte av hvilke data algoritmen får. **Verste tilfelle** er\nden største kjøretiden over alle input av størrelse $n$, **beste tilfelle** den\nminste, og **forventet tilfelle** et gjennomsnitt over tilfeldige valg eller\ntilfeldig input.\n\nDe tre er uavhengige av valget mellom $O$, $\\Omega$ og $\\Theta$. `Insertion-Sort`\nhar for eksempel $\\Theta(n)$ i beste tilfelle og $\\Theta(n^2)$ i verste — begge er\ntette grenser, hver for sitt tilfelle."
+    },
+    {
+      "id": "tdt4120-1-1-bank-11",
+      "type": "definition",
+      "title": "Polynomisk mot eksponentiell vekst",
+      "content": "Enhver potens $n^k$ med fast $k$ vokser strengt saktere enn $2^n$: $n^k = o(2^n)$\nfor hver konstant $k$. Og $2^n = o(n!)$.\n\nTallene viser hvor brutalt skillet er. Ved $n = 32$ er $n^3$ omtrent $33\\,000$,\nmens $2^n$ er over fire milliarder. Det er dette skillet som gjør at et\neksponentielt program er ubrukelig lenge før et kubisk begynner å svette."
+    },
+    {
+      "id": "tdt4120-1-1-bank-12",
+      "type": "definition",
+      "title": "Hvorfor $O$ alene ikke er nok",
+      "content": "$O$ gir bare et tak. Sier du at en algoritme bruker $O(n^2)$ tid, har du ikke\nutelukket at den er ferdig på $\\Theta(n)$ — påstanden er sann uansett.\n\nDerfor krever et fullstendig kjøretidssvar $\\Theta$ der den tette grensen er\nkjent. Bruk $O$ bevisst, når bare den øvre grensen er vist, og «forventet» der\nkjøretiden er et gjennomsnitt over tilfeldige valg."
+    },
+    {
+      "id": "tdt4120-1-1-coll-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tdt4120-1-1-rep-1",
+          "type": "text",
+          "content": "Fem korte oppgaver på regnestoffet dette kapitlet hviler på. De hører hjemme i\n[Potenser og logaritmer](/r1/r1-1-2) og [Mengdelære](/1t/1t-1-7), og de tar til\nsammen noen minutter.\n\n**1.** Hva er $\\lg 1024$?\n\n**2.** Skriv $\\log_{10} n$ ved hjelp av $\\lg n$.\n\n**3.** Regn ut $16\\lg 16$.\n\n**4.** Forenkl $\\lg(n^3)$.\n\n**5.** Hva betyr det at et element $x$ tilhører en mengde $M$, og hvorfor er det\nden riktige måten å lese $f(n) = O(g(n))$ på?\n\n---\n\n**Fasit.**\n\n**1.** $\\lg 1024 = 10$, siden $2^{10} = 1024$.\n\n**2.** $\\log_{10} n = \\lg n / \\lg 10$. Faktoren $1/\\lg 10$ er en konstant, så de\nto logaritmene er $\\Theta$ av hverandre.\n\n**3.** $\\lg 16 = 4$, så $16\\lg 16 = 64$. Sammenlign med $16^2 = 256$: det viser\nhvor mye saktere $n\\lg n$ vokser enn $n^2$.\n\n**4.** $\\lg(n^3) = 3\\lg n$, altså $\\Theta(\\lg n)$. Potensen inne i logaritmen\nblir en konstantfaktor utenfor.\n\n**5.** At $x$ er ett av elementene i mengden $M$. $O(g(n))$ er navnet på mengden\nav alle funksjoner som holder seg under $c\\,g(n)$ fra et punkt av, og\n$f(n) = O(g(n))$ sier at $f$ er én av dem. Derfor kan påstanden ikke snus."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

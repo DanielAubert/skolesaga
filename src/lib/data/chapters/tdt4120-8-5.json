@@ -1,0 +1,343 @@
+{
+  "id": "tdt4120-8-5",
+  "courseId": "tdt4120",
+  "chapterNumber": "8.5",
+  "title": "Øvingseksamen 3 — designtungt topp-sett",
+  "description": "Komplett sett med et vanskeligere toppsjikt: flere åpne designoppgaver og reduksjonsargumenter, der A/B-karakteren skilles.",
+  "estimatedMinutes": 240,
+  "competenceGoals": [
+    "kunne gjennomføre et komplett firetimers sett på tid, uten hjelpemidler, med riktig svarform i hver sjanger",
+    "kunne skrive fem fullstendige designsvar med alle de fem obligatoriske leddene, inkludert rekonstruksjonen",
+    "kunne argumentere for reduksjonsretning tre ganger på rad uten å snu pilen"
+  ],
+  "content": [
+    {
+      "id": "tdt4120-8-5-tip-1",
+      "type": "tip",
+      "title": "Slik tar du dette settet",
+      "content": "Dette er et **komplett, nyskrevet eksamenssett** i samme form som NTNU bruker i\nTDT4120. Vi har skrevet det selv og lagt oss tett opp til mønsteret i fagets\negne sett — det er ikke et gjengitt sett fra en tidligere eksamen.\n\n**Rammene:**\n\n- **Fire timer**, én sammenhengende skriftlig eksamen.\n- **20 kortsvarsoppgaver som teller likt.** Hver oppgave er 5 % av karakteren,\n  og du har **rundt 12 minutter per oppgave** i snitt.\n- **Ingen hjelpemidler** — det NTNU kaller **hjelpemiddelkode E**. Alt du\n  bruker her, skal sitte i hodet.\n- **Delvis uttelling** betyr at et svar som treffer hovedpoenget, men mangler\n  en detalj, gir en del av poengene. Skriv derfor alltid ned det du er sikker\n  på, framfor å levere blankt.\n\n**Dette settet er designtungt.** Fem av de tjue oppgavene er åpne\ndesignoppgaver (sjanger H), og tre er reduksjons- og NP-argumenter (sjanger G).\nTil sammen er det åtte oppgaver der du selv må velge verktøyet — mot fem i et\ntypisk sett. Det er nettopp der A- og B-karakteren avgjøres, og det er derfor\ndette settet finnes.\n\n**Vær oppmerksom på tidsbudsjettet.** Åtte tunge oppgaver på 12 minutter hver\ner stramt. Grunnoppgavene 1–12 bør derfor gå raskt: de er ren gjenkalling og\nmekanikk, og hvert minutt du sparer der, er et minutt du får bruke bak.\n\n**Du kan trygt dele settet over flere kvelder.** Det står et naturlig pausepunkt\nmellom bolkene. Men minst ett av de tre settene i\n[kap. 8.3](/tdt4120/tdt4120-8-3), [kap. 8.4](/tdt4120/tdt4120-8-4) og dette\nbør du ta på tid i ett strekk — fire timer med tjue oppgaver er også en\ntempoferdighet.\n\n**Løsningsforslagene ligger i egne bokser under settet**, én per oppgave. Til\nslutt følger to modellbesvarelser på oppgave 18 og en selvdiagnose. Løs hele\nsettet før du åpner noen av dem."
+    },
+    {
+      "id": "tdt4120-8-5-t-2",
+      "type": "text",
+      "content": "## Forkunnskaper\n\nDette settet trekker på hele boka. De delene som veier tyngst:\n\n- [kap. 5.3](/tdt4120/tdt4120-5-3) og [kap. 8.2](/tdt4120/tdt4120-8-2) —\n  flytmodellering og designoppskriften med de fem leddene.\n- [kap. 6.3](/tdt4120/tdt4120-6-3) — DP-design og rekonstruksjon.\n- [kap. 7.2](/tdt4120/tdt4120-7-2) og [kap. 7.4](/tdt4120/tdt4120-7-4) —\n  reduksjonsretning og NP-argumenter.\n- [kap. 6.5](/tdt4120/tdt4120-6-5) — `Gale-Shapley` og begge orienteringene.\n- [kap. 1.2](/tdt4120/tdt4120-1-2), [kap. 1.5](/tdt4120/tdt4120-1-5),\n  [kap. 2.4](/tdt4120/tdt4120-2-4), [kap. 3.3](/tdt4120/tdt4120-3-3) og\n  [kap. 4.5](/tdt4120/tdt4120-4-5) — grunnoppgavene.\n\nHar du ikke tatt [kap. 8.3](/tdt4120/tdt4120-8-3) og\n[kap. 8.4](/tdt4120/tdt4120-8-4) ennå, ta dem først. Dette settet er det\nvanskeligste av de tre."
+    },
+    {
+      "id": "tdt4120-8-5-t-3",
+      "type": "text",
+      "content": "## Oppgave 1–6: asymptotikk, rekurrens og kjøretid (~60 min)\n\n**Oppgave 1.** (Sjanger A — asymptotisk forenkling, altså at du gir det\nstrammeste uttrykket og ingenting mer.) Oppgi det strammeste\n$\\Theta$-uttrykket for\n\n$$f(n) = 7n^2\\lg^3 n + 4n^{5/2} + \\frac{n^3}{\\lg^2 n}.$$\n\nSvar med ett uttrykk.\n\n**Oppgave 2.** (Sjanger A.) Ranger de fem funksjonene under etter voksende\nasymptotisk vekst, og marker eksplisitt hvilke to som vokser like fort:\n\n$$g_1(n) = n^{\\lg 3},\\qquad g_2(n) = 3^{\\lg n},\\qquad g_3(n) = n\\lg^2 n,\n\\qquad g_4(n) = 2^{\\sqrt{n}},\\qquad g_5(n) = n!\\,.$$\n\nSkriv svaret som én kjede med $<$ og $=$.\n\n**Oppgave 3.** (Sjanger B — rekurrensløsning med navngitt metode, altså at du\nsier hvilken metode du bruker og hva den gir.) Løs rekurrensen\n\n$$T(1) = 2,\\qquad T(n) = T(n-1) + 3n - 1 \\quad \\text{for } n \\ge 2$$\n\nved **iterasjon**. Oppgi et **eksakt** uttrykk for $T(n)$ — ikke en asymptotisk\ngrense.\n\n**Oppgave 4.** (Sjanger E — kjøretidskunnskap, altså at du oppgir kjøretiden\ndirekte og velger mellom $\\Theta$ og $O$ med vitende og vilje.) Du kjører først\n`Insertion-Sort` på hele arrayet, og deretter `Merge-Sort` på resultatet. Oppgi\ntotal kjøretid i verste tilfelle, og oppgi hva totalen ville blitt i motsatt\nrekkefølge. Begrunn hver av dem på én linje.\n\n**Oppgave 5.** (Sjanger E.) Oppgi kjøretiden til `Build-Max-Heap`, til\n`Heapsort` og til `Randomized-Select` i verste tilfelle. For hver: si om\ngrensen er tett eller bare øvre.\n\n**Oppgave 6.** (Sjanger E.) `Radix-Sort` sorterer $n$ nøkler med $d$ siffer\nhver, i et tallsystem med grunntall $k$. Oppgi kjøretiden, oppgi hvilken\negenskap delsorteringen må ha, og oppgi under hvilken betingelse `Radix-Sort`\ner asymptotisk raskere enn `Merge-Sort`.\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "tdt4120-8-5-t-4",
+      "type": "text",
+      "content": "## Oppgave 7–12: håndkjøring, definisjoner og ja/nei (~65 min)\n\n**Oppgave 7.** (Sjanger C — håndkjøring, altså at du utfører algoritmen steg\nfor steg og oppgir bare sluttilstanden.) Sett inn nøklene\n\n```text\n54, 29, 73, 16, 41, 66, 88, 35\n```\n\ni denne rekkefølgen i et tomt binært søketre. Oppgi\n`Inorder-Tree-Walk`-utskriften og treets høyde.\n\n**Oppgave 8.** (Sjanger C.) Et flytnett har nodene $s$, $a$, $b$, $c$, $d$, $t$\nog kapasitetene\n\n```text\nc(s,a) = 11    c(s,b) = 7     c(a,b) = 3    c(a,c) = 6\nc(b,d) = 9     c(c,t) = 8     c(c,d) = 4    c(d,t) = 10\n```\n\nKjør `Edmonds-Karp` fra nullflyten, med naboene i alfabetisk rekkefølge. Oppgi\n**maksimal flytverdi og et min-snitt**.\n\n**Oppgave 9.** (Sjanger D — definisjon med egne ord, altså én presis setning med\nhovedpoenget først.) Definér **restkapasitet** og **ryggkant**, og forklar med\nén setning hvorfor ryggkanten er nødvendig.\n\n**Oppgave 10.** (Sjanger D.) Definér et **blokkerende par**, og forklar hva det\nbetyr at en matching er **stabil**.\n\n**Oppgave 11.** (Sjanger F — «stemmer dette?», altså at du svarer ja eller nei\nførst og deretter gir én presis setning.) En kandidat skriver: «Vi bruker\n`Dijkstra` fordi nettet har noen strekninger med negativ kostnad, og\n`Dijkstra` er raskest.» Stemmer resonnementet?\n\n**Oppgave 12.** (Sjanger F.) Stemmer dette: «`Ford-Fulkerson` er\npseudopolynomisk, og maks-flyt er derfor sannsynligvis NP-hardt.»\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "tdt4120-8-5-t-5",
+      "type": "text",
+      "content": "## Oppgave 13–15: reduksjoner og NP-argumenter (~35 min)\n\n**Oppgave 13.** (Sjanger G — reduksjon og argument om vanskelighet, altså at du\nsier hvilken vei argumentet går, hva det viser, og hva det **ikke** viser.) Du\nhar vist 3-CNF-SAT $\\le_p$ RUTEPLAN.\n\n**a)** Hva forteller det om RUTEPLAN?\n**b)** Hva mangler for at RUTEPLAN skal være NP-komplett, og hvordan vises\ndet?\n\n**Oppgave 14.** (Sjanger G.) En kandidat skriver: «Problemet mitt LAGERFLYT kan\noversettes til SUBSET-SUM i lineær tid, og SUBSET-SUM er NP-komplett. Altså er\nLAGERFLYT NP-hardt.» Er argumentet gyldig? Svar, og forklar nøyaktig hva som er\ngalt.\n\n**Oppgave 15.** (Sjanger G.) Et forskningsmiljø kunngjør at de har funnet en\nalgoritme som løser VERTEX-COVER i $O(n^7)$.\n\n**a)** Hvilken konsekvens har det, hvis kunngjøringen stemmer?\n**b)** Hva ville den samme kunngjøringen om et **NP-hardt, men ikke\nNP-komplett** problem gitt?"
+    },
+    {
+      "id": "tdt4120-8-5-t-6",
+      "type": "text",
+      "content": "## Oppgave 16–20: åpen algoritmedesign (~80 min)\n\nAlle fem oppgavene besvares med en **kort designskisse**: hvilket klassisk\nproblem det er, hvilket paradigme du bruker, konstruksjonen, hvordan du henter\nut selve løsningen, og kjøretiden. Fem til ti linjer per oppgave.\n\n**Oppgave 16.** (Sjanger H — åpen algoritmedesign.) En sykehusavdeling har $n$\nleger og $m$ vaktdøgn. Hver lege har oppgitt hvilke døgn hun kan ta, og kan ta\nhøyst fire. Hvert vaktdøgn trenger nøyaktig to leger. Beskriv hvordan du\navgjør om alle døgnene kan dekkes, og hvordan du finner en konkret vaktliste.\n\n**Oppgave 17.** (Sjanger H.) En kommune vil hindre at en skogbrann sprer seg\nfra et industriområde til et boligfelt. Kartet er et rutenett; å rydde\nbrannbelte i en rute koster et oppgitt beløp. Finn den billigste samlingen\nruter som gjør spredning umulig, og oppgi hvilke ruter det er.\n\n**Oppgave 18.** (Sjanger H.) Et forlag skal dele en manusfil på $n$ avsnitt inn\ni kapitler. Et kapittel som består av avsnittene $i$ til $j$, har en oppgitt\nubalansekostnad $K(i,j)$ som kan slås opp i konstant tid. Summen av\nkostnadene skal minimeres. Beskriv en algoritme som finner både den laveste\ntotalkostnaden og **selve kapittelinndelingen**.\n\n**Oppgave 19.** (Sjanger H.) Tre studenter og tre veiledningsgrupper har rangert\nhverandre slik:\n\n```text\nAina:  Sild, Rev, Torsk        Rev:    Cato, Bror, Aina\nBror:  Sild, Rev, Torsk        Sild:   Cato, Bror, Aina\nCato:  Torsk, Sild, Rev        Torsk:  Aina, Bror, Cato\n```\n\nAina spør om hun kan bli tildelt Sild i en stabil fordeling. Beskriv hvordan du\navgjør det, gjennomfør avgjørelsen, og oppgi svaret.\n\n**Oppgave 20.** (Sjanger H, den vanskeligste.) Et jernbaneselskap har et nett\nmed $V$ stasjoner og $E$ strekninger, hver med en positiv kjøretid. Blant\n**alle** ruter fra hovedstasjonen $s$ til endestasjonen $t$ som har **minst\nmulig samlet kjøretid**, vil selskapet finne den som har **flest\nmellomstasjoner** — flere stopp gir flere reisende. Beskriv en algoritme, og\noppgi kjøretiden."
+    },
+    {
+      "id": "tdt4120-8-5-coll-8",
+      "type": "collapsible",
+      "title": "Løsningsforslag — oppgave 1: asymptotisk forenkling",
+      "buttonText": "Vis løsningsforslag 1",
+      "content": [
+        {
+          "id": "tdt4120-8-5-ct-7",
+          "type": "text",
+          "content": "**Svar:** $\\Theta\\!\\left(\\dfrac{n^3}{\\lg^2 n}\\right)$.\n\n**Slik kommer du dit.** Tre ledd; finn det som vokser raskest.\n\n- $\\dfrac{7n^2\\lg^3 n}{n^3/\\lg^2 n} = \\dfrac{7\\lg^5 n}{n} \\to 0$ — første ledd\n  er dominert. Enhver potens av $\\lg n$ taper mot $n$.\n- $\\dfrac{4n^{5/2}}{n^3/\\lg^2 n} = \\dfrac{4\\lg^2 n}{\\sqrt{n}} \\to 0$ — andre\n  ledd er også dominert, siden $\\sqrt{n}$ vokser raskere enn enhver potens av\n  $\\lg n$.\n\nDa står $n^3/\\lg^2 n$ igjen alene.\n\n**Uttelling:** hovedpoenget er det ene strammeste uttrykket. $O(n^3)$ er sant,\nmen løst, og gir ikke full uttelling; $\\Theta(n^3)$ er **galt**, fordi\n$n^3/\\lg^2 n$ er strengt mindre enn $n^3$. Dette er felle #4 — å oppgi en\nløsere grense enn den du kan gi."
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-8-5-coll-10",
+      "type": "collapsible",
+      "title": "Løsningsforslag — oppgave 2: rangering av vekstrater",
+      "buttonText": "Vis løsningsforslag 2",
+      "content": [
+        {
+          "id": "tdt4120-8-5-ct-9",
+          "type": "text",
+          "content": "**Svar:**\n\n$$g_3(n) = n\\lg^2 n \\;<\\; g_1(n) = g_2(n) \\;<\\; g_4(n)\\text{?}$$\n\nNei — her må du regne, ikke gjette. Ta dem én for én:\n\n- $g_1(n) = n^{\\lg 3} \\approx n^{1{,}585}$.\n- $g_2(n) = 3^{\\lg n}$. Skriv $3 = 2^{\\lg 3}$, så\n  $3^{\\lg n} = 2^{\\lg 3 \\cdot \\lg n} = (2^{\\lg n})^{\\lg 3} = n^{\\lg 3}$.\n  **Altså er $g_1$ og $g_2$ nøyaktig like store.**\n- $g_3(n) = n\\lg^2 n$ vokser langsommere enn $n^{1{,}585}$, siden\n  $\\lg^2 n = o(n^{0{,}585})$.\n- $g_4(n) = 2^{\\sqrt{n}}$ vokser raskere enn enhver polynomfunksjon.\n- $g_5(n) = n!$ vokser raskere enn $2^{\\sqrt{n}}$ — og raskere enn $2^n$.\n\n**Svaret:**\n\n$$g_3 \\;<\\; g_1 = g_2 \\;<\\; g_4 \\;<\\; g_5$$\n\n**Uttelling:** likheten $g_1 = g_2$ er hovedpoenget, og den er det oppgaven ber\ndeg markere eksplisitt. Omskrivingen $a^{\\lg n} = n^{\\lg a}$ er verdt å kunne\nkaldt — den kommer igjen."
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-8-5-coll-12",
+      "type": "collapsible",
+      "title": "Løsningsforslag — oppgave 3: rekurrens ved iterasjon",
+      "buttonText": "Vis løsningsforslag 3",
+      "content": [
+        {
+          "id": "tdt4120-8-5-ct-11",
+          "type": "text",
+          "content": "**Metode:** iterasjon.\n\n$$T(n) = T(n-1) + 3n - 1 = T(n-2) + (3(n-1)-1) + (3n-1) = \\dots$$\n\nEtter $n-1$ innsettinger treffer vi $T(1) = 2$, og leddene som blir liggende\nigjen, er $3i - 1$ for $i = 2, 3, \\dots, n$:\n\n$$T(n) = 2 + \\sum_{i=2}^{n}(3i - 1) = 2 + 3\\!\\left(\\frac{n(n+1)}{2} - 1\\right) - (n-1)$$\n\n$$= 2 + \\frac{3n^2 + 3n - 6}{2} - n + 1 = \\frac{3n^2 + n}{2}$$\n\n**Svar:** $T(n) = \\dfrac{n(3n+1)}{2}$.\n\n**Kontroll:** $T(1) = 4/2 = 2$ ✓, $T(2) = 2\\cdot 7/2 = 7$, og rekurrensen gir\n$T(2) = 2 + 5 = 7$ ✓. $T(5) = 5\\cdot 16/2 = 40$, og rekurrensen gir\n$2+5+8+11+14 = 40$ ✓.\n\n**Uttelling:** oppgaven ba om et **eksakt** uttrykk. $\\Theta(n^2)$ er sant, men\ner ikke svaret på spørsmålet, og gir null. Metodenavnet «iterasjon» er ett ord\nog hører med."
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-8-5-coll-14",
+      "type": "collapsible",
+      "title": "Løsningsforslag — oppgave 4: kombinasjonsspørsmålet",
+      "buttonText": "Vis løsningsforslag 4",
+      "content": [
+        {
+          "id": "tdt4120-8-5-ct-13",
+          "type": "text",
+          "content": "**Svar:** $\\Theta(n^2)$ i den oppgitte rekkefølgen, og $\\Theta(n\\lg n)$ i\nmotsatt rekkefølge.\n\n**`Insertion-Sort` først:** den er $\\Theta(n^2)$ i verste tilfelle, og\n`Merge-Sort` etterpå koster $\\Theta(n\\lg n)$. Summen domineres av det\nkvadratiske leddet:\n\n$$\\Theta(n^2) + \\Theta(n\\lg n) = \\Theta(n^2)$$\n\n**Motsatt rekkefølge:** `Merge-Sort` koster $\\Theta(n\\lg n)$, og etterpå er\narrayet sortert. Da treffer `Insertion-Sort` sitt beste tilfelle og koster\n$\\Theta(n)$:\n\n$$\\Theta(n\\lg n) + \\Theta(n) = \\Theta(n\\lg n)$$\n\n**Regelen bak:** `Insertion-Sort` er den eneste inputfølsomme sorteringen i\npensum, og den skal derfor kjøres **sist**, på en input som passer den.\n\n**Uttelling:** begge tallene og begrunnelsen på én linje hver. Å svare\n$\\Theta(n\\lg n)$ på begge rekkefølgene er den klassiske feilen — den overser at\n`Merge-Sort` ikke blir raskere av at inputen er pen."
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-8-5-coll-16",
+      "type": "collapsible",
+      "title": "Løsningsforslag — oppgave 5: haug- og utvelgelsesfakta",
+      "buttonText": "Vis løsningsforslag 5",
+      "content": [
+        {
+          "id": "tdt4120-8-5-ct-15",
+          "type": "text",
+          "content": "**Svar:**\n\n| Operasjon | Verste tilfelle | Tett eller bare øvre? |\n|---|---|---|\n| `Build-Max-Heap` | $\\Theta(n)$ | **tett** |\n| `Heapsort` | $\\Theta(n\\lg n)$ | **tett** |\n| `Randomized-Select` | $\\Theta(n^2)$ | **tett** |\n\n**Begrunnelsene, én linje hver.**\n\n`Build-Max-Heap`: halvparten av nodene er blader og gjør ingenting, og summen\nav arbeidet nivå for nivå holder seg under $2n$. Grensen er tett, og\n$\\Theta(n\\lg n)$ er felle **#9** — en gyldig øvre grense, men ikke stram.\n\n`Heapsort`: bygging i $\\Theta(n)$ pluss $n-1$ uthentinger à $\\Theta(\\lg n)$.\nIngen input gjør den raskere, så grensen er tett.\n\n`Randomized-Select`: $\\Theta(n)$ er **forventet** kjøretid, ikke verste. Med\nmaksimalt skjeve pivotvalg blir rekurrensen $T(n) = T(n-1) + \\Theta(n)$, altså\n$\\Theta(n^2)$. Å svare $\\Theta(n)$ her er felle #9 i sin vanligste form.\n\n**Uttelling:** tre tall og tre ettordssvar på tetthet. Ingen utledning\netterspurt."
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-8-5-coll-18",
+      "type": "collapsible",
+      "title": "Løsningsforslag — oppgave 6: Radix-Sort",
+      "buttonText": "Vis løsningsforslag 6",
+      "content": [
+        {
+          "id": "tdt4120-8-5-ct-17",
+          "type": "text",
+          "content": "**Svar:** $\\Theta(d(n+k))$.\n\n**Kravet til delsorteringen:** den må være **stabil**. Uten stabilitet går\nrekkefølgen fra de foregående sifferrundene tapt for elementer med likt siffer i\nden aktuelle runden, og resultatet blir galt — ikke bare tregere.\n\n**Betingelsen for at `Radix-Sort` slår `Merge-Sort`:**\n\n$$d(n+k) = o(n\\lg n)$$\n\nDen praktiske varianten: hold $k = O(n)$, slik at $n + k = \\Theta(n)$. Da\nreduseres kravet til $d = o(\\lg n)$ — antall siffer må vokse langsommere enn\nlogaritmen av antall nøkler.\n\n**Uttelling:** tre korte svar. Ordet «stabil» er hovedpoenget i det andre; en\nbetingelse uten ulikhet er et halvt svar i det tredje."
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-8-5-coll-20",
+      "type": "collapsible",
+      "title": "Løsningsforslag — oppgave 7: Tree-Insert og Inorder-Tree-Walk",
+      "buttonText": "Vis løsningsforslag 7",
+      "content": [
+        {
+          "id": "tdt4120-8-5-ct-19",
+          "type": "text",
+          "content": "**Svar:**\n\n**Inorder-utskrift: `16, 29, 35, 41, 54, 66, 73, 88`. Høyde: 3.**\n\n**Treet:**\n\n```text\n                  54\n          29              73\n      16      41      66      88\n            35\n```\n\n**Slik kommer du dit.** Hver nøkkel går én vei per sammenligning, fra rota og\nnedover, og legges inn som blad der stien tar slutt:\n\n| Nøkkel | Vei | Havner som |\n|---|---|---|\n| 54 | — | rot |\n| 29 | $29 < 54$ | venstre barn av 54 |\n| 73 | $73 > 54$ | høyre barn av 54 |\n| 16 | $16 < 54$, $16 < 29$ | venstre barn av 29 |\n| 41 | $41 < 54$, $41 > 29$ | høyre barn av 29 |\n| 66 | $66 > 54$, $66 < 73$ | venstre barn av 73 |\n| 88 | $88 > 54$, $88 > 73$ | høyre barn av 73 |\n| 35 | $35 < 54$, $35 > 29$, $35 < 41$ | venstre barn av 41 |\n\n**Kontrollen er gratis:** inorder-utskriften skal være sortert, og den skal\ninneholde nøyaktig de åtte nøklene. Er den ikke sortert, er det en regnefeil.\n\nHøyden er 3 — den lengste stien er 54–29–41–35, med tre kanter.\n\n**Uttelling:** utskriften er hovedpoenget. Å levere en tegning av treet uten\nutskriften gir ikke full uttelling; oppgaven ba om begge, og høyden er ett\ntall."
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-8-5-coll-22",
+      "type": "collapsible",
+      "title": "Løsningsforslag — oppgave 8: Edmonds-Karp med min-snitt",
+      "buttonText": "Vis løsningsforslag 8",
+      "content": [
+        {
+          "id": "tdt4120-8-5-ct-21",
+          "type": "text",
+          "content": "**Svar: maksimal flyt $\\lvert f^*\\rvert = 15$. Min-snitt:\n$S = \\{a, b, s\\}$,\n$T = \\{c, d, t\\}$, med\n$c(S,T) = 6 + 9 = 15$.**\n\n**Kjøringen:**\n\n| Runde | Forøkende sti | Flaskehals | Flytverdi etterpå |\n|---|---|---|---|\n| 1 | $s \\to a \\to c \\to t$ | 6 | 6 |\n| 2 | $s \\to b \\to d \\to t$ | 7 | 13 |\n| 3 | $s \\to a \\to b \\to d \\to t$ | 2 | 15 |\n| 4 | ingen sti finnes i $G_f$ | — | **15** |\n\n**Den endelige flyten:**\n\n```text\nf(s,a) = 8/11    f(s,b) = 7/7     f(a,b) = 2/3     f(a,c) = 6/6\nf(b,d) = 9/9     f(c,t) = 6/8     f(c,d) = 0/4     f(d,t) = 9/10\n```\n\n**Slik leses min-snittet av.** Når algoritmen stopper, kjør én `BFS` fra $s$ i\nrestnettet. Nodene den når, utgjør $S$. Her nås $a$ og $b$, men ikke $c$, $d$\neller $t$ — kantene $a \\to c$ og $b \\to d$ er begge mettet.\n\n**Kontrollen tar fem sekunder:** snittkapasiteten er\n15 og flytverdien er 15.\nLike tall betyr at kjøringen er ferdig og riktig.\n\n**Uttelling:** begge deler var etterspurt, og begge teller. Å levere bare\nflytverdien gir typisk delvis uttelling — snittet koster ingenting ekstra når\ndu først har kjørt algoritmen ferdig."
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-8-5-coll-24",
+      "type": "collapsible",
+      "title": "Løsningsforslag — oppgave 9: restkapasitet og ryggkant",
+      "buttonText": "Vis løsningsforslag 9",
+      "content": [
+        {
+          "id": "tdt4120-8-5-ct-23",
+          "type": "text",
+          "content": "**Svar:**\n\n**Restkapasitet** er hvor mye mer flyt en kant kan bære:\n$c_f(u,v) = c(u,v) - f(u,v)$.\n\n**Ryggkant** er restkanten den motsatte veien, med\n$c_f(v,u) = f(u,v)$ — altså like mye som kanten allerede bærer.\n\n**Hvorfor ryggkanten er nødvendig:** den lar algoritmen **trekke tilbake** flyt\nsom ble sendt en uheldig vei tidligere, og uten den vil `Ford-Fulkerson` kunne\nstoppe på en flyt som ikke er maksimal.\n\n**Uttelling:** hovedpoenget i hver definisjon står først, og de er to formler.\nDen tredje setningen er det som skiller et helt fra et halvt svar — mange\ngjengir formlene uten å si hva ryggkanten er **til for**."
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-8-5-coll-26",
+      "type": "collapsible",
+      "title": "Løsningsforslag — oppgave 10: blokkerende par og stabilitet",
+      "buttonText": "Vis løsningsforslag 10",
+      "content": [
+        {
+          "id": "tdt4120-8-5-ct-25",
+          "type": "text",
+          "content": "**Svar:**\n\nEt **blokkerende par** er et par som ikke er sammen i matchingen, men der\n**begge** foretrekker hverandre framfor sine egne tildelinger.\n\nEn matching er **stabil** når det ikke finnes noe blokkerende par — altså når\ningen to parter har et felles motiv for å bryte ut.\n\n**Uttelling:** kravet om at **begge** foretrekker, er hovedpoenget. En\ndefinisjon der bare den ene parten er misfornøyd, er gal: da ville nesten enhver\nmatching vært ustabil, siden noen alltid ikke får førstevalget sitt.\n\nMerk at stabilitet **ikke** betyr at alle er fornøyde. En stabil matching kan\ngi noen deres tredjevalg — den lover bare at ingen to kan forbedre seg\nsammen."
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-8-5-coll-28",
+      "type": "collapsible",
+      "title": "Løsningsforslag — oppgave 11: Dijkstra på negative kanter",
+      "buttonText": "Vis løsningsforslag 11",
+      "content": [
+        {
+          "id": "tdt4120-8-5-ct-27",
+          "type": "text",
+          "content": "**Svar: nei, resonnementet er galt — på begge punktene.**\n\n**Første feil:** `Dijkstra` **krever ikke-negative kantvekter**. Med én eneste\nnegativ kant kan algoritmen gi feil svar, fordi den låser en node som ferdig\nstraks den plukkes fra prioritetskøen, og en senere negativ kant kan gjøre den\nlåste verdien for høy. Dette er felle **#8**.\n\n**Andre feil:** «raskest» er ikke et gyldig utvelgelseskriterium når algoritmen\ner ulovlig for inputen. Riktighet kommer først.\n\n**Riktig valg:** `Bellman-Ford`, $\\Theta(VE)$, som tåler negative kanter og\ni tillegg **oppdager** negative sykler. Er nettet i tillegg syklusfritt, er\n`DAG-Shortest-Path` bedre igjen: $\\Theta(V+E)$, og den bryr seg heller ikke om\nfortegnet.\n\n**Uttelling:** «nei» først, deretter kravet om ikke-negative vekter, og til\nslutt navnet på den riktige algoritmen. Tre korte ledd."
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-8-5-coll-30",
+      "type": "collapsible",
+      "title": "Løsningsforslag — oppgave 12: pseudopolynomisk mot NP-hardt",
+      "buttonText": "Vis løsningsforslag 12",
+      "content": [
+        {
+          "id": "tdt4120-8-5-ct-29",
+          "type": "text",
+          "content": "**Svar: nei.**\n\nAt `Ford-Fulkerson` er pseudopolynomisk, er en egenskap ved **algoritmen**:\nkjøretiden $O(E\\cdot\\lvert f^*\\rvert)$ er polynomisk i tallverdiene, men ikke i\ninputens lengde.\n\nDet sier **ingenting** om problemets vanskelighet. Maks-flyt ligger i **P**,\nfordi `Edmonds-Karp` løser det i $O(VE^2)$ — et uttrykk uten tallverdier. Et\nproblem er lett så snart **minst én** polynomisk algoritme finnes, ikke først\nnår alle er polynomiske.\n\nDette er felle **#7**, og den går i begge retninger: SUBSET-SUM har en\npseudopolynomisk $\\Theta(n\\,t)$-algoritme og er likevel NP-komplett.\n\n**Uttelling:** «nei» først, deretter skillet mellom algoritme og problem, og\ntil slutt `Edmonds-Karp` som motbevis. Tre linjer."
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-8-5-coll-32",
+      "type": "collapsible",
+      "title": "Løsningsforslag — oppgave 13: hva reduksjonen viser",
+      "buttonText": "Vis løsningsforslag 13",
+      "content": [
+        {
+          "id": "tdt4120-8-5-ct-31",
+          "type": "text",
+          "content": "**a)** 3-CNF-SAT $\\le_p$ RUTEPLAN betyr at RUTEPLAN er **minst like vanskelig\nsom** 3-CNF-SAT — altså **NP-hardt**. Hadde RUTEPLAN hatt en polynomisk\nalgoritme, kunne 3-CNF-SAT løses polynomisk ved å oversette og kjøre den.\n\n**Hva det ikke viser:** at RUTEPLAN er NP-komplett, og heller ikke at problemet\ner umulig å løse. Det finnes eksakte algoritmer; de er bare ikke polynomiske\nmed mindre $P = NP$.\n\n**b)** **Medlemskapsdelen mangler:** at RUTEPLAN ligger i **NP**.\n\nDen vises ved å gi et **sertifikat** — en foreslått løsning — og en\n**verifikasjonsalgoritme** som kontrollerer i polynomisk tid at sertifikatet\nfaktisk er en gyldig ja-løsning. For et ruteplanproblem ville sertifikatet være\nselve ruteplanen, og verifikasjonen ville sjekke at alle kravene er oppfylt.\n\nEr begge deler på plass, er RUTEPLAN NP-komplett.\n\n**Uttelling:** retningen, konsekvensen, forbeholdet, og de to leddene i et\nNPC-bevis. Fire korte påstander."
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-8-5-coll-34",
+      "type": "collapsible",
+      "title": "Løsningsforslag — oppgave 14: feil reduksjonsretning",
+      "buttonText": "Vis løsningsforslag 14",
+      "content": [
+        {
+          "id": "tdt4120-8-5-ct-33",
+          "type": "text",
+          "content": "**Svar: nei, argumentet er ikke gyldig.**\n\nReduksjonen går **feil vei**. LAGERFLYT $\\le_p$ SUBSET-SUM viser at LAGERFLYT\n**ikke er vanskeligere enn** SUBSET-SUM — altså at LAGERFLYT ligger i NP, siden\nSUBSET-SUM gjør det.\n\nFor å vise at LAGERFLYT er **hardt**, må reduksjonen gå den andre veien:\nSUBSET-SUM $\\le_p$ LAGERFLYT. Da arver LAGERFLYT hardheten.\n\n**Hvor lite argumentet gir:** **hvert eneste** problem i NP kan reduseres til et\nNP-komplett problem. Retningen kandidaten har vist, er derfor sann for alle\nNP-problemer og skiller ingenting.\n\nDette er felle **#1** — reversert reduksjonsretning, den mest fremhevede feilen\ni faget.\n\n**Uttelling:** «nei» først, deretter hvilken vei den viste og hva den faktisk\nbeviser, og til slutt hvilken vei som kreves. Kontrollen du bruker selv: les\npilen høyt — «jeg reduserer FRA det kjente vanskelige TIL mitt problem»."
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-8-5-coll-36",
+      "type": "collapsible",
+      "title": "Løsningsforslag — oppgave 15: P=NP-konsekvensen",
+      "buttonText": "Vis løsningsforslag 15",
+      "content": [
+        {
+          "id": "tdt4120-8-5-ct-35",
+          "type": "text",
+          "content": "**a)** VERTEX-COVER er **NP-komplett**. En polynomisk algoritme for ett\nNP-komplett problem gir polynomiske algoritmer for **alle** problemer i NP:\nethvert $A \\in NP$ kan reduseres til VERTEX-COVER i polynomisk tid, og\nsammensetningen av de to polynomiske algoritmene er polynomisk.\n\nDa ligger hele NP i P, og sammen med $P \\subseteq NP$ gir det\n\n$$P = NP$$\n\nKonsekvensen ville vært at alle de NP-komplette problemene — SAT, CLIQUE,\nHAM-CYCLE, TSP, SUBSET-SUM — kunne løses i polynomisk tid.\n\n**b)** **Ingenting tilsvarende.** Et NP-hardt problem som **ikke** ligger i NP,\ner ikke selv medlem av klassen, og en rask algoritme for det gir ingen\nautomatisk oversettelse av NP-problemer til noe som kan kjøres.\n\nSagt annerledes: $P{=}NP$-argumentet bruker at problemet er **både** hardt og i\nNP. Faller det andre leddet bort, faller konklusjonen.\n\n**Uttelling:** i a) er hovedpoenget selve konsekvensen $P = NP$ pluss\nreduksjonsargumentet i én setning. I b) er hovedpoenget at NPC-statusen — ikke\nhardheten alene — er det som driver argumentet."
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-8-5-coll-38",
+      "type": "collapsible",
+      "title": "Løsningsforslag — oppgave 16: vaktlisten som maks-flyt",
+      "buttonText": "Vis løsningsforslag 16",
+      "content": [
+        {
+          "id": "tdt4120-8-5-ct-37",
+          "type": "text",
+          "content": "**Ledd 1 — det klassiske problemet.** Vaktdøgn skal fordeles på leger, hver part\nhar en grense, og bare visse par er tillatt. Dette er et **tilordningsproblem\nmed kapasiteter**.\n\n**Ledd 2 — paradigmet.** Maksimal flyt i et firelagsnett.\n\n**Ledd 3 — konstruksjonen.**\n\n- Kilde $s$ og sluk $t$.\n- Én node per lege, med kant $s \\to \\text{lege}$ og kapasitet **4** — «høyst\n  fire vakter hver».\n- Én node per vaktdøgn, med kant $\\text{døgn} \\to t$ og kapasitet **2** —\n  «nøyaktig to leger per døgn».\n- Kant $\\text{lege} \\to \\text{døgn}$ med kapasitet **1** for hvert par legen\n  har oppgitt. Kapasiteten 1 hindrer at samme lege telles to ganger på samme\n  døgn.\n\nKjør `Edmonds-Karp`. Alle døgnene kan dekkes hvis og bare hvis maksimal flyt er\n$2m$ — altså at hver av slukkantene er mettet.\n\n**Ledd 4 — rekonstruksjonen.** Midtkantene som bærer flyt 1, **er** vaktlisten:\nlege $i$ har vakt på døgn $j$. **Heltallsteoremet** garanterer at en maksimal\nflyt kan velges heltallig, så hver midtkant bærer 0 eller 1 og avlesningen er\nentydig. Den koster $O(E)$ og **øker ikke den asymptotiske kjøretiden**.\n\n**Ledd 5 — kjøretiden.** $V = n + m + 2$ og $E = O(n + m + q)$, der $q$ er\nantall oppgitte lege–døgn-par. `Edmonds-Karp` gir $O(VE^2)$.\n\n**Uttelling.** Tre detaljer skiller topp fra midtsjikt her:\n\n1. At måltallet er $2m$ og ikke $m$ — hvert døgn trenger **to** leger.\n2. At midtkanten har kapasitet 1 og ikke 2. Med kapasitet 2 kunne samme lege\n   dekket begge vaktene på ett døgn, og det er ikke en gyldig vaktliste.\n3. Rekonstruksjonen med heltallsteoremet nevnt.\n\n**En rask kontroll å nevne:** $n$ leger à fire vakter gir høyst $4n$\nvaktdekninger, så trengs det $2m > 4n$, er svaret nei uten at algoritmen\nbehøver å kjøre."
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-8-5-coll-40",
+      "type": "collapsible",
+      "title": "Løsningsforslag — oppgave 17: brannbeltet som min-snitt",
+      "buttonText": "Vis løsningsforslag 17",
+      "content": [
+        {
+          "id": "tdt4120-8-5-ct-39",
+          "type": "text",
+          "content": "**Ledd 1 — det klassiske problemet.** «Billigste samling som gjør det umulig å\nkomme fra X til Y» er mønsteret for **min-snitt**.\n\n**Ledd 2 — paradigmet.** Min-snitt, beregnet ved å kjøre maks-flyt og lese av\nsnittet.\n\n**Ledd 3 — konstruksjonen.**\n\n- Én node per rute, og kanter mellom naboruter.\n- Superkilde $s$ med **uendelig**-kanter til hver industrirute, og supersluk\n  $t$ med uendelig-kanter fra hver boligrute.\n- Kostnaden ligger på **ruter**, ikke på overganger. Del derfor hver rute i\n  $v_{\\text{inn}}$ og $v_{\\text{ut}}$ med en indre kant som bærer\n  ryddekostnaden. Alle nabokanter går inn i $v_{\\text{inn}}$ og ut av\n  $v_{\\text{ut}}$, med uendelig kapasitet.\n\nKjør `Edmonds-Karp`. Min-snittet kan bare bestå av indre kanter, siden alle\nandre er uendelige — og hver indre kant tilsvarer nøyaktig én rute.\n\n**Ledd 4 — rekonstruksjonen.** Kjør én `BFS` fra $s$ i det siste restnettet.\nDe **indre** kantene som krysser fra $S$ til $T$, er rutene som skal ryddes.\nKostnaden er snittkapasiteten, altså maksimal flytverdi. Avlesningen koster\n$O(V+E)$.\n\n**Ledd 5 — kjøretiden.** Med $r$ ruter har nettet $O(r)$ noder og $O(r)$\nkanter, siden hver rute har høyst fire naboer. `Edmonds-Karp` gir\n$O(VE^2) = O(r^3)$.\n\n**Uttelling.** **Nodesplittingen er hele oppgaven.** Uten den ligger kostnaden\npå feil sted, og snittet ville plukket ut overganger i stedet for ruter. Et\nsvar som kjører maks-flyt uten splitting, treffer riktig paradigme, men løser\net annet problem — det gir typisk midtsjiktuttelling.\n\nAt oppgaven ber om **hvilke ruter**, og ikke bare kostnaden, gjør\navlesningsleddet obligatorisk."
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-8-5-coll-42",
+      "type": "collapsible",
+      "title": "Løsningsforslag — oppgave 18: kapittelinndelingen som dynamisk programmering",
+      "buttonText": "Vis løsningsforslag 18",
+      "content": [
+        {
+          "id": "tdt4120-8-5-ct-41",
+          "type": "text",
+          "content": "**Ledd 1 — det klassiske problemet.** Manuset skal **deles opp** i biter, og\nhver bit har en kostnad. Det er oppdelingsmønsteret.\n\n**Ledd 2 — paradigmet.** Dynamisk programmering.\n\n**Ledd 3 — konstruksjonen.** La $c[j]$ være den minste samlede\nubalansekostnaden ved å dele de **$j$ første avsnittene** i kapitler.\n\n$$c[j] = \\min_{0 \\le i < j}\\big(c[i] + K(i{+}1,\\, j)\\big), \\qquad c[0] = 0$$\n\nTolkningen: det **siste** kapitlet består av avsnittene $i+1$ til $j$, og\nresten er allerede delt optimalt. Fylleorden er stigende $j$ fra 1 til $n$.\n\n**Ledd 4 — rekonstruksjonen.** Lagre $s[j]$ = den $i$ som ga minimum. Les\nbaklengs fra $j = n$: siste kapittel er avsnittene $s[n]+1$ til $n$, neste\nkapittel slutter på $s[n]$, og så videre til du treffer 0. Snu listen. Dette\nkoster $O(n)$ og **øker ikke den asymptotiske kjøretiden**.\n\n**Ledd 5 — kjøretiden.** $n$ delproblemer à $O(n)$ arbeid — for hver $j$ prøves\ninntil $j$ verdier av $i$ — altså $\\Theta(n^2)$. Hvert oppslag i $K$ koster\nkonstant tid.\n\n**Uttelling.** Rekonstruksjonen er det som skiller topp fra midtsjikt: oppgaven\nba eksplisitt om **selve kapittelinndelingen**, ikke bare totalkostnaden. Å\nstoppe ved $c[n]$ er felle **#6**.\n\nDelproblemet må formuleres med ord før rekurrensen kommer. «La $c[j]$ være den\nbeste verdien» uten å si **for hva**, er ikke nok."
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-8-5-coll-44",
+      "type": "collapsible",
+      "title": "Løsningsforslag — oppgave 19: Gale-Shapley i begge orienteringer",
+      "buttonText": "Vis løsningsforslag 19",
+      "content": [
+        {
+          "id": "tdt4120-8-5-ct-43",
+          "type": "text",
+          "content": "**Ledd 1 — det klassiske problemet.** Begge sider har rangert hverandre, og\nfordelingen skal være **stabil**. Dette er stabil matching.\n\n**Ledd 2 — paradigmet.** `Gale-Shapley`, kjørt i **begge** orienteringer.\n\n**Ledd 3 — hvorfor begge.** Den studentorienterte kjøringen gir hver student\nsitt **beste** mulige stabile utfall; den gruppeorienterte gir hver student sitt\n**dårligste**. Alt en student kan få i en stabil matching, ligger mellom disse\nto på hennes liste.\n\n**Ledd 4 — gjennomføringen.**\n\n*Studentene frir:* Aina og Bror frir begge til Sild. Sild rangerer Bror over\nAina og beholder Bror; Aina går videre til Rev, som er ledig. Cato frir til\nTorsk, som er ledig.\n\n**Resultat: Aina–Rev, Bror–Sild, Cato–Torsk.**\n\n*Gruppene frir:* Rev og Sild frir begge til Cato. Cato rangerer Torsk høyest,\nmen han kan bare ta imot tilbud — og han beholder det beste av dem som kommer.\nKjøringen ender i\n\n**Aina–Torsk, Bror–Rev, Cato–Sild.**\n\n**Ledd 5 — svaret på spørsmålet.** Aina får **Rev** i den\nstudentorienterte kjøringen og **Torsk** i den\ngruppeorienterte. På Ainas liste — Sild, Rev, Torsk — ligger de to utfallene på\nplass 2 og 3.\n\n**Sild står på plass 1, altså bedre enn hennes beste stabile utfall.**\n\n**Svar: nei, Aina kan ikke bli tildelt Sild i noen stabil fordeling.**\n\n**Kjøretid:** to kjøringer à $O(n^2)$, altså $O(n^2)$.\n\n**Uttelling.** Hovedpoenget er innsikten om at de to orienteringene **rammer\ninn** hva som er mulig — én kjøring alene ville bare gitt én av flere mulige\nstabile matchinger og kunne ikke besvart spørsmålet. Selve håndkjøringene er\nmekanikk."
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-8-5-coll-46",
+      "type": "collapsible",
+      "title": "Løsningsforslag — oppgave 20: korteste vei med flest mellomstasjoner",
+      "buttonText": "Vis løsningsforslag 20",
+      "content": [
+        {
+          "id": "tdt4120-8-5-ct-45",
+          "type": "text",
+          "content": "**Ledd 1 — det klassiske problemet.** To krav i prioritert rekkefølge: først\nminst samlet kjøretid, deretter flest kanter blant dem som oppnår det. Dette er\nkorteste vei **pluss** en lengste-vei-i-DAG.\n\n**Ledd 2 — paradigmet.** `Dijkstra` etterfulgt av lengste vei i korteste-vei-\ngrafen.\n\n**Ledd 3 — konstruksjonen, i tre steg.**\n\n1. Kjør `Dijkstra` fra $s$. Alle kjøretidene er positive, så kravet er oppfylt.\n   Det gir $d[v]$ for hver stasjon.\n2. Bygg **korteste-vei-grafen** $G'$: ta med kanten $(u,v)$ hvis og bare hvis\n\n   $$d[u] + w(u,v) = d[v]$$\n\n   Disse kantene er nøyaktig de som ligger på **en eller annen** korteste vei,\n   og $G'$ er **syklusfri**: langs enhver kant i $G'$ vokser $d$ strengt, siden\n   alle vektene er positive.\n3. Finn den **lengste** stien fra $s$ til $t$ i $G'$, målt i **antall kanter**.\n   Siden $G'$ er en DAG, gjøres det med topologisk sortering og én runde med\n   slakking der hver kant har vekt $-1$ — eller ekvivalent ved å maksimere\n   $\\ell[v] = \\max_{(u,v) \\in G'}(\\ell[u] + 1)$ i topologisk rekkefølge.\n\n**Ledd 4 — rekonstruksjonen.** Lagre en forgjenger $\\pi'[v]$ i steg 3 hver gang\n$\\ell[v]$ forbedres. Les $\\pi'$ baklengs fra $t$; det gir selve ruten. Koster\n$O(V)$ og **øker ikke den asymptotiske kjøretiden**.\n\n**Ledd 5 — kjøretiden.** `Dijkstra` med binærhaug: $O(E\\lg V)$. Å bygge $G'$:\n$\\Theta(V+E)$. Topologisk sortering og slakking: $\\Theta(V+E)$. Totalt\n$O(E\\lg V)$.\n\n**Uttelling.** Tre ting skiller topp fra midtsjikt:\n\n1. **Å se at $G'$ er syklusfri.** Uten det argumentet er lengste vei ikke\n   løsbart i polynomisk tid — lengste vei i en generell graf er NP-hardt.\n2. **Å ikke prøve å løse det i én kjøring.** En vanlig feil er å endre\n   kantvektene til $w(u,v) - \\varepsilon$ og kjøre `Dijkstra` én gang. Det\n   virker for små instanser, men $\\varepsilon$ må være mindre enn den minste\n   forskjellen mellom to summer, og den er ikke kjent på forhånd. Nevner du\n   grepet, si også hvorfor det er skjørt.\n3. **Rekonstruksjonen** — oppgaven ber om ruten, ikke om antall stopp.\n\n**En ærlig merknad som gir uttelling:** var noen kjøretider null, ville $G'$\nkunne inneholde sykler, og argumentet i punkt 1 ville falle. Oppgaven sier at\nalle kjøretidene er positive, og det er nettopp den forutsetningen som gjør\nløsningen gyldig."
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-8-5-coll-48",
+      "type": "collapsible",
+      "title": "Besvarelse som lander skarpt (A) — oppgave 18",
+      "buttonText": "Vis A-besvarelsen",
+      "content": [
+        {
+          "id": "tdt4120-8-5-ct-47",
+          "type": "text",
+          "content": "> Dette er et oppdelingsproblem: manuset skal deles i sammenhengende biter, og\n> hver bit har en kostnad. Det løses med **dynamisk programmering**.\n>\n> La $c[j]$ være minste samlede ubalansekostnad for de $j$ første avsnittene.\n> Da er\n>\n> $$c[j] = \\min_{0 \\le i < j}\\big(c[i] + K(i{+}1, j)\\big), \\qquad c[0] = 0,$$\n>\n> siden det siste kapitlet må bestå av avsnittene $i+1$ til $j$ for en eller\n> annen $i$, og resten er delt optimalt. Tabellen fylles med stigende $j$.\n>\n> For å få **selve inndelingen** lagrer jeg $s[j]$ = den $i$ som ga minimum. Fra\n> $j = n$ leser jeg baklengs: siste kapittel er $s[n]+1 \\dots n$, neste slutter\n> på $s[n]$, og så videre til 0. Listen snus til slutt. Dette koster $O(n)$ og\n> øker ikke den asymptotiske kjøretiden.\n>\n> Kjøretid: $n$ delproblemer à $O(n)$ arbeid, altså $\\Theta(n^2)$. Oppslag i\n> $K$ er konstant.\n\n**Hvorfor denne lander.** Alle fem leddene er der, og de er korte. Delproblemet\ner formulert med ord **før** rekurrensen. Grunntilfellet står i formelen.\nRekonstruksjonen er beskrevet konkret nok til at den kan programmeres, og\nsetningen om at den ikke øker kjøretiden er med. Kjøretiden er begrunnet med\nDP-regelen i én linje.\n\n**Lengden er sju linjer.** Det er hele poenget med kortsvarssjangeren: det\nfinnes ikke noe å trekke for, og ingenting er overflødig."
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-8-5-coll-50",
+      "type": "collapsible",
+      "title": "Midtnivåbesvarelse (C) — oppgave 18",
+      "buttonText": "Vis C-besvarelsen",
+      "content": [
+        {
+          "id": "tdt4120-8-5-ct-49",
+          "type": "text",
+          "content": "> Jeg bruker dynamisk programmering. La $c[j]$ være den beste verdien for de\n> første $j$ avsnittene. Da er\n>\n> $$c[j] = \\min_i \\big(c[i] + K(i, j)\\big).$$\n>\n> Jeg fyller tabellen fra venstre og leser av $c[n]$ til slutt. Kjøretiden blir\n> $\\Theta(n^2)$ siden det er $n$ celler og hver koster $O(n)$.\n\n**Hva som er riktig.** Paradigmet er riktig identifisert, rekurrensen har riktig\nform, fylleorden er riktig, og kjøretiden er riktig med riktig begrunnelse. Det\ner mer enn halve oppgaven.\n\n**Hva som mangler, punkt for punkt.**\n\n1. **Delproblemet er ikke definert.** «Den beste verdien for de første $j$\n   avsnittene» sier ikke *best for hva* — er det kostnaden ved å dele dem, eller\n   noe annet? Én setning til hadde løst det.\n2. **Grunntilfellet mangler.** Uten $c[0] = 0$ er tabellen ikke definert, og\n   summeringen har ikke noe å starte fra.\n3. **Indeksene i $K$ er upresise.** Rekurrensen skriver $K(i,j)$ der det skal\n   stå $K(i{+}1, j)$, og grensen $0 \\le i < j$ er ikke oppgitt. Det er en liten\n   feil, men den gjør rekurrensen tvetydig.\n4. **Rekonstruksjonen mangler helt.** Oppgaven ba om **selve\n   kapittelinndelingen**, og svaret gir bare $c[n]$ — altså tallet. Dette er\n   felle **#6**, og det er det tyngste enkeltpunktet.\n\n**Hvor karakteren ligger.** Punkt 1 til 3 er detaljer som hver koster litt.\nPunkt 4 er et helt ledd av fem. En besvarelse som denne treffer midtsjiktet:\nden viser at kandidaten kan verktøyet, men ikke at hun leste hva oppgaven\nfaktisk ba om.\n\n**Det billigste løftet** er de to setningene om rekonstruksjonen. De tar under\net minutt å skrive, og de er forskjellen mellom en C og en solid B på denne\noppgaven."
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-8-5-t-51",
+      "type": "text",
+      "content": "## Hva skiller de to besvarelsene (~10 min)\n\nBegge kandidatene valgte riktig paradigme, skrev en rekurrens med riktig form,\nog fikk kjøretiden riktig. Likevel ligger de et helt karaktertrinn fra\nhverandre, og forskjellen er **fire setninger**:\n\n| Ledd | A | C |\n|---|---|---|\n| Navngir problemet og paradigmet | ja | halvveis — paradigmet, ikke problemet |\n| Definerer delproblemet med ord | ja | nei — «den beste verdien» uten å si for hva |\n| Rekurrens med grunntilfelle og indeksgrenser | ja | rekurrensen, men uten grunntilfelle |\n| **Rekonstruksjon av selve løsningen** | ja | **nei** |\n| Kjøretid med begrunnelse | ja | ja |\n\n**Det som er verdt å merke seg:** ingen av manglene skyldes at C-kandidaten\nkunne mindre. Alle fire kan skrives på under et minutt hver, og de krever ingen\nny innsikt — bare at man går gjennom listen før man går videre til neste\noppgave.\n\n**Derfor er kontrollen så billig:** tell leddene. Fem?"
+    },
+    {
+      "id": "tdt4120-8-5-t-52",
+      "type": "text",
+      "content": "## Selvdiagnose (~15 min)\n\nGå gjennom listen med ditt eget besvarelsesark foran deg. Kryss av det du\nfaktisk gjorde, ikke det du mente å gjøre.\n\n☐ Oppga du bare det som ble etterspurt, uten å legge til en forklaring ingen ba\nom?\n\n☐ Er hvert kjøretidssvar det **strammeste** uttrykket du kan gi — sto det\n$\\Theta(n^3/\\lg^2 n)$ og ikke $O(n^3)$ i oppgave 1?\n\n☐ Markerte du eksplisitt hvilke to funksjoner som vokser **like fort** i\noppgave 2?\n\n☐ Ga du et **eksakt** uttrykk i oppgave 3, og ikke en asymptotisk grense?\n\n☐ Sto ordet «forventet» der det hørte hjemme i oppgave 5, og oppga du\n$\\Theta(n^2)$ og ikke $\\Theta(n)$ som verste tilfelle for `Randomized-Select`?\n\n☐ Er `Inorder-Tree-Walk`-utskriften i oppgave 7 sortert stigende? Er den ikke\ndet, er det en regnefeil.\n\n☐ Leverte du **både** flytverdien og min-snittet i oppgave 8 — og kontrollerte\ndu at de to tallene er like?\n\n☐ Sto ordet «nei» først i oppgave 11, 12 og 14, før begrunnelsen?\n\n☐ Sa du i oppgave 13 og 14 hva reduksjonen **ikke** viser, og ikke bare hva den\nviser?\n\n☐ Gikk reduksjonen i oppgave 14 **fra** det kjente vanskelige problemet **til**\ndet nye i din rettelse?\n\n☐ Har hvert av de fem designsvarene (16–20) alle fem leddene? Tell dem, ett\nsvar om gangen.\n\n☐ Rekonstruerte du **selve løsningen** i oppgave 16, 17, 18 og 20 — vaktlisten,\nrutene, kapittelinndelingen og ruten — og ikke bare verdien?\n\n☐ Nevnte du **heltallsteoremet** i oppgave 16?\n\n☐ Nevnte du **nodesplittingen** i oppgave 17, og sa du hvorfor den trengs?\n\n☐ Sa du i oppgave 19 hvilken **orientering** hver kjøring hadde?\n\n☐ Argumenterte du i oppgave 20 for at korteste-vei-grafen er **syklusfri**?\n\n☐ Oppga du kjøretidene i **problemets egne størrelser** — hva $V$ og $E$ er i\ndin konstruksjon — og ikke bare «$O(VE^2)$»?\n\n### Oppgraderingsmenyen for dette settet\n\nKommer du til bunns i grunnoppgavene 1–12, ligger avstanden opp mot toppen fire\nkonkrete steder. Alle fire kan trenes, og alle fire koster under et minutt hver\npå selve eksamen:\n\n1. **Rekonstruksjonen i hvert designsvar.** Fire av de fem designoppgavene ber\n   om selve løsningen. To setninger per oppgave — hva som leses av, og at det\n   ikke øker kjøretiden.\n2. **Reduksjonsretningen, tre ganger på rad.** Oppgave 13, 14 og 15 tester det\n   samme fra tre vinkler. Les pilen høyt hver gang.\n3. **Kjøretid i problemets egne størrelser.** «$O(VE^2)$ med $V = n+m+2$» er ett\n   ledd; «$O(VE^2)$» er et halvt.\n4. **De små forbeholdene.** Heltallsteoremet i flytmodelleringen,\n   syklusfriheten i oppgave 20, kravet om stabil delsortering i oppgave 6. Det\n   er disse som gjør et riktig svar til et fullstendig svar.\n\n**Og et råd om tempo:** klarte du ikke alle fem designoppgavene på 80 minutter,\ner det ikke kunnskapen som mangler — det er rutinen. Ta\n[kap. 8.2](/tdt4120/tdt4120-8-2) en gang til, med klokke."
+    }
+  ],
+  "exercises": []
+}

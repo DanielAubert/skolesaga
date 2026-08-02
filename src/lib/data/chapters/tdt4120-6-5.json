@@ -1,0 +1,340 @@
+{
+  "id": "tdt4120-6-5",
+  "courseId": "tdt4120",
+  "chapterNumber": "6.5",
+  "title": "Stabil matching — Gale-Shapley",
+  "description": "`Gale-Shapley`-algoritmen, blokkerende par, stabil matching og mann-/kvinneorientert kjøring — en fremvoksende gjenganger.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "kunne definere et blokkerende par og avgjøre om en gitt matching er stabil",
+    "kunne kjøre `Gale-Shapley` for hånd og oppgi den ferdige matchingen sammen med hvilken orientering som ble kjørt",
+    "kunne avgjøre om to bestemte parter kan være paret i en stabil matching, ved å kjøre begge orienteringene"
+  ],
+  "content": [
+    {
+      "id": "tdt4120-6-5-tip-1",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Stabil matching er registrert i 2 av de 17 settene i grunnlaget — men\nverifisert til stede i 6 av de 7 settene med dagens hjelpemiddelkode E (des\n2022 til aug 2025), fraværende bare i des 2025. Regn med at den kommer.**\n\nDe 17 settene fra august 2015 til august 2023 er grunnlaget for alle\nprosentene i denne boka, og de stopper i august 2023. Tallet 2 av 17 er derfor\net historisk tall, og det undervurderer temaet kraftig: i settene med dagens\neksamensordning er `Gale-Shapley` nesten fast inventar.\n\nPrioritet i skjelettet er **kjenne til**, men behandle den som noe du **må\nkunne**. Kapitlet er kort, og gevinsten er stor.\n\nTre sjangre henter fra kapitlet, og de skrives ut i klarspråk her:\n\n- **Sjanger D — definisjon med egne ord**, altså én presis setning med\n  hovedpoenget først. «Definér et blokkerende par» er den klassiske.\n- **Sjanger C — håndkjøring**, altså at du utfører algoritmen steg for steg og\n  oppgir bare sluttilstanden. Svarformen er **den ferdige matchingen**, og\n  **hvilken orientering du kjørte** — det siste avgjør hvilken matching du får.\n- **Sjanger H — åpen algoritmedesign**, altså en kort skisse. Den klassiske\n  her: «kan disse to være paret i en stabil matching?»\n\n**Slik er kapitlet lagt opp (50 min):**\n\n| Innhold | Tid |\n|---|---|\n| Stabil matching og blokkerende par | ca. 12 min |\n| `Gale-Shapley`, steg for steg | ca. 16 min |\n| Egenskapene: terminering, stabilitet og frier-optimalitet | ca. 12 min |\n| Å bruke algoritmen som designverktøy | ca. 10 min |"
+    },
+    {
+      "id": "tdt4120-6-5-t-2",
+      "type": "text",
+      "content": "## Forkunnskaper\n\n- [kap. 6.4](/tdt4120/tdt4120-6-4) — grådighet. `Gale-Shapley` er grådig i\n  ånden: hver frier går alltid til den beste som ennå ikke har avvist henne, og\n  det valget angres aldri. Argumentet for at det virker, ligner\n  **bytteargumentet** derfra.\n- [kap. 1.1](/tdt4120/tdt4120-1-1) — de asymptotiske symbolene. Kjøretiden er\n  $O(n^2)$, og tellingen er kort nok til å gjøres i hodet.\n\nIngen andre forkunnskaper trengs. Dette kapitlet er selvstendig, og det er en\ndel av grunnen til at det er verdt å ta tidlig hvis du er i tidsnød.\n\n**Merk at flyt ikke brukes her.** Stabil matching er et annet problem enn den\nmaksimale matchingen i [kap. 5.3](/tdt4120/tdt4120-5-3): der handler det om\n**hvor mange** som kan pares, her om **hvem** som pares med hvem, gitt\npreferanser."
+    },
+    {
+      "id": "tdt4120-6-5-coll-4",
+      "type": "collapsible",
+      "title": "Notasjons- og pseudokodeliste",
+      "buttonText": "Vis notasjon og pseudokode",
+      "content": [
+        {
+          "id": "tdt4120-6-5-ct-3",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et algoritmefag: den lister kjøretidsuttrykk og pseudokode-operasjoner i stedet for bare greske bokstaver.\n\n| Symbol | Betydning |\n|---|---|\n| $n$ | antall parter på hver side; til sammen $2n$ deltakere |\n| $M$ | en matching: en parvis tilordning mellom de to sidene |\n| $M(x)$ | den $x$ er paret med i matchingen $M$ |\n| «frier» | den siden som tar initiativ i algoritmen — den som frir |\n| «mottaker» | den siden som tar imot og eventuelt bytter |\n| «orientering» | hvilken av de to sidene som frir; valget avgjør utfallet |\n| $O(n^2)$ | kjøretiden til `Gale-Shapley` |\n\n| Algoritme/operasjon | Kontrakt | Kjøretid |\n|---|---|---|\n| `Gale-Shapley(F, M)` | friere frir i preferanserekkefølge; mottakere beholder sitt beste tilbud | $O(n^2)$ |\n| `Neste(f)` | den neste på frierens liste som ennå ikke har avvist henne | $\\Theta(1)$ |\n| `Foretrekker(m, f, g)` | slår opp om mottakeren $m$ rangerer $f$ foran $g$ | $\\Theta(1)$ med en rangtabell |\n\n**Formler i dette delkapitlet:**\n\n$$\\text{stabil} \\iff \\text{ingen blokkerende par finnes}$$\n\nDefinisjonen av stabilitet, uttrykt ved fraværet av det ene som kan ødelegge den.\n\n$$(f, m) \\text{ blokkerer} \\iff f \\text{ foretrekker } m \\text{ framfor } M(f) \\text{ og } m \\text{ foretrekker } f \\text{ framfor } M(m)$$\n\nEt **blokkerende par**: begge to vil heller ha hverandre enn det de har.\n\n$$\\text{antall frierier} \\le n^2$$\n\nHver frier frir til hver mottaker høyst én gang — det er hele kjøretidsanalysen.\n"
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-6-5-t-5",
+      "type": "text",
+      "content": "## Stabil matching og blokkerende par (~12 min)\n\nHvert år søker tusenvis av studenter opptak til studieplasser. Studentene har\nen rangert liste over studier, og studiene har en rangert liste over søkere. Å\nfordele plassene handler ikke bare om å få flest mulig plassert — det handler\nom å plassere dem slik at ingen to parter har grunn til å hoppe av avtalen.\n\nDet er nettopp den siste egenskapen som kalles **stabilitet**, og den er\noverraskende presis."
+    },
+    {
+      "id": "tdt4120-6-5-def-6",
+      "type": "definition",
+      "title": "Matching",
+      "content": "en **matching** er en parvis tilordning mellom to like store sider, der hver\ndeltaker er paret med nøyaktig én på den andre siden.\n\nVi skriver $M(x)$ for den $x$ er paret med.\n\n**Antallet er ikke problemet her.** Med $n$ på hver side kan alle alltid pares\npå en eller annen måte — spørsmålet er **hvordan**."
+    },
+    {
+      "id": "tdt4120-6-5-def-7",
+      "type": "definition",
+      "title": "Blokkerende par",
+      "content": "et par $(f, m)$ som **ikke** er paret i matchingen, men der **begge** foretrekker\nhverandre framfor sin egen tildeling:\n\n$f$ foretrekker $m$ framfor $M(f)$, **og** $m$ foretrekker $f$ framfor $M(m)$.\n\n**Begge må foretrekke.** At den ene er misfornøyd, holder ikke — den andre må\nvære villig til å bytte. Det er derfor «blokkerende» er et strengt begrep, og\ndet er derfor stabile matchinger i det hele tatt finnes."
+    },
+    {
+      "id": "tdt4120-6-5-def-8",
+      "type": "definition",
+      "title": "Stabil matching",
+      "content": "en matching er **stabil** når det ikke finnes noe blokkerende par.\n\nDa har ingen to parter et felles motiv for å bryte ut av tildelingene sine.\n\n**Stabil betyr ikke optimal for alle.** En stabil matching kan gi noen deres\ntredjevalg; den lover bare at ingen to kan forbedre seg **sammen**."
+    },
+    {
+      "id": "tdt4120-6-5-fig-9",
+      "type": "image",
+      "src": "/images/textbook/tdt4120/blokkerende-par.svg",
+      "alt": "Fire soekere merket Alma, Birk, Cora og Dag til venstre, og fire lag merket Ravn, Solve, Tind og Ulv til hoyre. Heltrukne linjer viser de tildelte parene, blant annet Alma til Tind og Cora til Ravn. En tykk stiplet linje mellom Alma og Ravn viser et blokkerende par. Under staar forklaringen at Alma foretrekker Ravn framfor Tind, og at Ravn foretrekker Alma framfor Cora, saa de to hopper av og matchingen er ustabil.",
+      "caption": "Et blokkerende par, konkret. Alma er tildelt Tind, men vil heller ha Ravn; Ravn er tildelt Cora, men vil heller ha Alma. Begge vil bytte, og matchingen faller."
+    },
+    {
+      "id": "tdt4120-6-5-eks-10",
+      "type": "example",
+      "title": "Eksempel 1: Er denne matchingen stabil?",
+      "problem": "Fire søkere og fire lag har disse preferanselistene, best først:\n\n```text\nAlma:  Ravn, Solve, Tind, Ulv        Ravn:  Birk, Alma, Dag, Cora\nBirk:  Solve, Ravn, Ulv, Tind        Solve: Alma, Cora, Birk, Dag\nCora:  Ravn, Tind, Solve, Ulv        Tind:  Cora, Dag, Alma, Birk\nDag:   Solve, Tind, Ravn, Ulv        Ulv:   Dag, Birk, Cora, Alma\n```\n\nEr matchingen `Alma–Tind`, `Birk–Solve`, `Cora–Ravn`, `Dag–Ulv` stabil?",
+      "solution": "Framgangsmåten er mekanisk: gå gjennom hver søker, se på alle lagene hun\nrangerer **høyere** enn sitt eget, og sjekk om noen av dem rangerer henne\nhøyere enn sitt eget.\n\n| Søker | Har | Foretrekker | Vil laget bytte? |\n|---|---|---|---|\n| Alma | Tind | Ravn, Solve | **Ravn har Cora og rangerer Alma foran Cora — ja** |\n| Birk | Solve | — (Solve er førstevalget) | — |\n| Cora | Ravn | — (Ravn er førstevalget) | — |\n| Dag | Ulv | Solve, Tind, Ravn | **Tind har Alma og rangerer Dag foran Alma — ja** |\n\n**Svaret: nei, matchingen er ikke stabil.**\n\nDen blokkeres blant annet av paret **(Alma, Ravn)**: Alma foretrekker Ravn\nframfor Tind, og Ravn foretrekker Alma framfor Cora. Ett slikt par er nok.\n\nFullstendig finnes 4 blokkerende par her:\n(Alma, Ravn), (Alma, Solve), (Dag, Tind), (Dag, Ravn).\n\n**Legg merke til at Birk og Cora begge har fått førstevalget sitt.** Det hjelper\nikke — stabilitet er en egenskap ved **hele** matchingen, ikke ved den enkelte.\n\n**Svarformen på eksamen:** «Nei — (Alma, Ravn) er et blokkerende par, fordi\nAlma foretrekker Ravn framfor Tind og Ravn foretrekker Alma framfor Cora.» To\nlinjer. Du trenger ikke liste alle de blokkerende parene når oppgaven bare\nspør om matchingen er stabil."
+    },
+    {
+      "id": "tdt4120-6-5-oppg-11",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-6-5-oppg-11-inner",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave, sjanger D — definisjon med egne ord, altså én presis setning\nmed hovedpoenget først.)\n\nDefinér et **blokkerende par**, og forklar med én setning hva det betyr at en\nmatching er stabil.",
+        "solution": "Et **blokkerende par** er et par som ikke er sammen i matchingen, men der\n**begge** foretrekker hverandre framfor sine egne tildelinger.\n\nEn matching er **stabil** når det ikke finnes noe blokkerende par — altså når\ningen to parter har et felles motiv for å bryte ut.\n\nMerk kravet om at **begge** må foretrekke. At én part er misfornøyd, er ikke\nnok: den andre må være villig til å bytte for at paret skal blokkere.",
+        "hints": [
+          "Hva må gjelde for **begge** partene i paret?",
+          "Stabilitet er definert ved fraværet av noe — hva?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-6-5-t-12",
+      "type": "text",
+      "content": "## `Gale-Shapley`, steg for steg (~16 min)\n\nDet bemerkelsesverdige er at en stabil matching **alltid** finnes, uansett\nhvordan preferanselistene ser ut — og at den kan finnes med en algoritme som\ner enkel nok til å håndkjøres på fem minutter."
+    },
+    {
+      "id": "tdt4120-6-5-thm-13",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `Gale-Shapley`",
+      "content": "**Antagelser om representasjon.** To sider med $n$ deltakere hver. Hver\ndeltaker har en **fullstendig** rangering av alle på den andre siden. Den ene\nsiden utpekes som **friere**, den andre som **mottakere** — dette valget kalles\n**orienteringen**, og det er en del av oppgaven.\n\n**Prebetingelse:** begge sider har fullstendige preferanselister.\n**Postbetingelse:** algoritmen returnerer en matching som er **stabil**, og som\ner den beste mulige for **hver eneste frier** blant alle stabile matchinger.\n\n```text\nGale-Shapley(F, M)\n  Input:  friere F og mottakere M med fullstendige preferanselister\n  Output: en stabil matching\n  alle i F og M er ledige\n  while det finnes en ledig frier f som ikke har fridd til alle\n      m = den hoeyest rangerte paa f sin liste som ikke har avvist f\n      if m er ledig\n          par f og m\n      else if m foretrekker f framfor sin naavaerende g\n          par f og m\n          g blir ledig igjen\n      else\n          m avviser f\n  return matchingen\n  Kjoeretid: O(n^2)\n```\n\n**Invarianten i én setning:** en mottaker som først har blitt paret, forblir\nparet resten av kjøringen — og hun bytter bare **oppover** på sin egen liste.\n\n**Legg merke til asymmetrien.** Frierne beveger seg **nedover** på listene sine:\nhver gang de blir avvist, går de til neste. Mottakerne beveger seg **oppover**:\nde bytter bare når et bedre tilbud kommer. Det er denne asymmetrien som gjør at\norienteringen betyr noe.\n\n**Kjøretid:** $O(n^2)$. Hver frier frir til hver mottaker **høyst én gang** —\nen avvisning er endelig — så det finnes høyst $n^2$ frierier, og hvert koster\nkonstant tid med en rangtabell."
+    },
+    {
+      "id": "tdt4120-6-5-fig-14",
+      "type": "image",
+      "src": "/images/textbook/tdt4120/gale-shapley-preferanser.svg",
+      "alt": "Til venstre staar de aatte preferanselistene for soekerne Alma, Birk, Cora og Dag og for lagene Ravn, Solve, Tind og Ulv. Til hoyre staar to matchinger tegnet som linjer mellom de to sidene. Den oeverste, der soekerne frir, gir Alma til Ravn og Birk til Solve. Den nederste, der lagene frir, gir Alma til Solve og Birk til Ravn. Cora til Tind og Dag til Ulv er like i begge. En note sier at begge er stabile, og at det bare er de to oeverste parene som bytter plass.",
+      "caption": "De samme preferansene, to ulike stabile matchinger. Øverst kjøringen i Eksempel 2, der søkerne frir; nederst den motsatte orienteringen fra Eksempel 3. Cora og Dag får det samme uansett."
+    },
+    {
+      "id": "tdt4120-6-5-eks-15",
+      "type": "example",
+      "title": "Eksempel 2: `Gale-Shapley` med søkerne som friere",
+      "problem": "Bruk preferanselistene fra Eksempel 1.\n\nKjør `Gale-Shapley` med **søkerne** som friere. Ledige friere behandles i\nalfabetisk rekkefølge.\n\nOppgi den ferdige matchingen.",
+      "solution": "| Steg | Frieri | Hva som skjer |\n|---|---|---|\n| 1 | Alma frir til Ravn | Ravn var ledig og tar imot |\n| 2 | Birk frir til Solve | Solve var ledig og tar imot |\n| 3 | Cora frir til Ravn | Ravn beholder Alma — Cora frir videre |\n| 4 | Cora frir til Tind | Tind var ledig og tar imot |\n| 5 | Dag frir til Solve | Solve beholder Birk — Dag frir videre |\n| 6 | Dag frir til Tind | Tind beholder Cora — Dag frir videre |\n| 7 | Dag frir til Ravn | Ravn beholder Alma — Dag frir videre |\n| 8 | Dag frir til Ulv | Ulv var ledig og tar imot |\n\n**Sluttilstanden — det du ville levert på eksamen:**\n\n**Matchingen er **Alma–Ravn**, **Birk–Solve**, **Cora–Tind**, **Dag–Ulv**,\nkjørt med søkerne som friere.**\n\n**Tre ting er verdt å studere i tavlen.**\n\nFor det første: Cora blir avvist av Ravn i steg 3 og går videre til Tind. Hun\nkommer aldri tilbake til Ravn — en avvisning er endelig, og det er nettopp det\nsom gir kjøretiden $O(n^2)$.\n\nFor det andre: Dag frir fire ganger før han lander. Han er sist ute og møter\nlag som allerede har bedre tilbud. Det er ikke urettferdig, det er\npreferanselistene.\n\nFor det tredje: ingen mottaker byttet ut noen underveis i denne kjøringen —\nalle avvisningene skjedde ved at mottakeren beholdt den hun hadde. Det skjer\nikke alltid, men det gjør tavlen kort her.\n\n**Kontrollen før du leverer:** fire par, alle fire søkere og alle fire lag\nbrukt nøyaktig én gang. Og — hvis du har tid — sjekk raskt at ingen blokkerende\npar finnes."
+    },
+    {
+      "id": "tdt4120-6-5-oppg-16",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-6-5-oppg-16-inner",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C — håndkjøring, altså at du utfører algoritmen steg for\nsteg og oppgir bare sluttilstanden.)\n\nTre studenter og tre veiledere har disse preferanselistene, best først:\n\n```text\nIben:  Sol, Nord, Vest        Sol:   Kian, Iben, Lea\nKian:  Sol, Vest, Nord        Nord:  Iben, Lea, Kian\nLea:   Nord, Sol, Vest        Vest:  Lea, Kian, Iben\n```\n\nKjør `Gale-Shapley` med **studentene** som friere, i alfabetisk rekkefølge.\n\nOppgi den ferdige matchingen.",
+        "solution": "| Steg | Frieri | Hva som skjer |\n|---|---|---|\n| 1 | Iben frir til Sol | Sol var ledig og tar imot |\n| 2 | Kian frir til Sol | Sol foretrekker Kian framfor Iben — Iben blir ledig igjen |\n| 3 | Iben frir til Nord | Nord var ledig og tar imot |\n| 4 | Lea frir til Nord | Nord beholder Iben — Lea frir videre |\n| 5 | Lea frir til Sol | Sol beholder Kian — Lea frir videre |\n| 6 | Lea frir til Vest | Vest var ledig og tar imot |\n\n**Matchingen er Iben–Nord, Kian–Sol, Lea–Vest, kjørt med studentene som\nfriere.**\n\nLegg merke til steg 2: her byttet Sol faktisk ut Iben, og Iben måtte ut i\nmarkedet igjen. Det er den ene mekanismen som gjør algoritmen mer enn en enkel\nførstemann-til-mølla.",
+        "hints": [
+          "Behandle ledige friere i alfabetisk rekkefølge, og la hver frier gå nedover sin egen liste.",
+          "En mottaker bytter bare når det nye tilbudet står høyere på hennes egen liste."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-6-5-t-17",
+      "type": "text",
+      "content": "## Egenskapene: terminering, stabilitet og frier-optimalitet (~12 min)\n\nTre påstander skal sitte, og de er alle korte nok til å skrives på én linje\nhver på eksamen."
+    },
+    {
+      "id": "tdt4120-6-5-thm-18",
+      "type": "theorem",
+      "title": "De tre egenskapene til `Gale-Shapley`",
+      "content": "**1. Algoritmen terminerer, og alle blir paret.**\n\nHver frier frir til hver mottaker høyst én gang, så det finnes høyst $n^2$\nfrierier og løkka må stoppe. At **alle** blir paret følger av et lite argument:\nvar en frier ledig til slutt, ville hun ha fridd til alle $n$ mottakerne og\nblitt avvist av hver. Men en mottaker som har blitt fridd til, forblir paret\nresten av kjøringen — så alle $n$ mottakerne ville vært opptatt, og da måtte\nalle $n$ frierne vært paret. Selvmotsigelse.\n\n**2. Matchingen er alltid stabil.**\n\nAnta at $(f, m)$ blokkerer: $f$ foretrekker $m$ framfor sin egen, og $m$\nforetrekker $f$ framfor sin egen. Siden $f$ foretrekker $m$, må $f$ ha fridd\ntil $m$ tidligere — friere går strengt nedover listen. Da må $m$ ha avvist $f$\neller byttet henne ut senere, og mottakere bytter bare **oppover**. Altså står\n$m$ nå med noen hun rangerer **over** $f$ — i strid med antagelsen.\n\n**3. Matchingen er frier-optimal.**\n\nHver eneste frier får den **beste** partneren hun kan få i noen som helst\nstabil matching. Samtidig får hver mottaker den **dårligste** hun kan få i noen\nstabil matching. Fordelen ligger altså hos den som frir.\n\n**Konsekvensen for eksamen:** matchingen er **ikke entydig**. Bytter du\norientering, kan du få en annen — og begge er stabile. Derfor skal svaret på en\nhåndkjøring alltid si **hvilken orientering** du kjørte."
+    },
+    {
+      "id": "tdt4120-6-5-eks-19",
+      "type": "example",
+      "title": "Eksempel 3: Den motsatte orienteringen",
+      "problem": "Bruk de samme preferanselistene som i Eksempel 1 og 2, men kjør nå\n`Gale-Shapley` med **lagene** som friere, i alfabetisk rekkefølge.\n\n**a)** Oppgi matchingen.\n**b)** Sammenlign med resultatet fra Eksempel 2.",
+      "solution": "**a)**\n\n| Steg | Frieri | Hva som skjer |\n|---|---|---|\n| 1 | Ravn frir til Birk | Birk var ledig og tar imot |\n| 2 | Solve frir til Alma | Alma var ledig og tar imot |\n| 3 | Tind frir til Cora | Cora var ledig og tar imot |\n| 4 | Ulv frir til Dag | Dag var ledig og tar imot |\n\n**Matchingen er **Alma–Solve**, **Birk–Ravn**, **Cora–Tind**, **Dag–Ulv**,\nkjørt med lagene som friere.**\n\nIngen avvisninger i det hele tatt: hvert lag fridde til sitt førstevalg, og alle\nfire var ledige. Det er ikke typisk, men det er hva disse listene gir.\n\n**b)** Sammenligningen:\n\n| Søker | Søkerne frir | Lagene frir |\n|---|---|---|\n| Alma | Ravn | Solve |\n| Birk | Solve | Ravn |\n| Cora | Tind | Tind |\n| Dag | Ulv | Ulv |\n\n**Alma og Birk bytter plass; Cora og Dag får det samme uansett.**\n\nOg det er nøyaktig som forventet av frier-optimaliteten. Alma har Ravn som\nførstevalg og får ham når hun selv frir; når lagene frir, får hun Solve — som\ner hennes **andrevalg**. Ravn har Birk som førstevalg og får ham når lagene\nfrir.\n\n**Begge matchingene er stabile.** Det kan du kontrollere ved å lete etter\nblokkerende par i begge — det finnes ingen.\n\n**Fellen her er å tro at matchingen er entydig.** Det er den ikke, og derfor er\norienteringen en del av svaret."
+    },
+    {
+      "id": "tdt4120-6-5-oppg-20",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-6-5-oppg-20-inner",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger F — «stemmer dette?», altså ja eller nei først og\nderetter én presis setning.)\n\nTa stilling til hver av påstandene om `Gale-Shapley`:\n\n**a)** Algoritmen kan i noen tilfeller ende opp uten å pare alle.\n**b)** Matchingen algoritmen finner, er entydig bestemt av preferanselistene.\n**c)** Algoritmen er $O(n^2)$.\n**d)** Hver mottaker får sin best mulige partner blant alle stabile\nmatchinger.",
+        "solution": "**a)** **Nei.** Alle blir alltid paret. Var en frier ledig til slutt, måtte hun\nha blitt avvist av alle $n$ mottakerne — men da ville alle mottakerne vært\nopptatt, og dermed alle frierne paret. Selvmotsigelse.\n\n**b)** **Nei.** Matchingen avhenger av **orienteringen**: hvilken side som\nfrir. Begge kjøringene gir stabile matchinger, men de kan være forskjellige.\n\n**c)** **Ja.** Hver frier frir til hver mottaker høyst én gang, altså høyst\n$n^2$ frierier, hvert med konstant arbeid.\n\n**d)** **Nei — det er motsatt.** Hver **frier** får sin best mulige partner\nblant alle stabile matchinger; hver **mottaker** får sin dårligst mulige. Det\ner frier-optimaliteten, og fordelen ligger hos den som tar initiativ.\n\nPunkt d) er den enkeltpåstanden som oftest snus feil vei.",
+        "hints": [
+          "For a: hva skjer med en mottaker som har blitt fridd til én gang?",
+          "For d: hvilken side beveger seg nedover på listene sine, og hvilken beveger seg oppover?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-6-5-t-21",
+      "type": "text",
+      "content": "## Å bruke algoritmen som designverktøy (~10 min)\n\nDen siste sjangeren er den mest krevende, og den kommer som en kort\ndesignoppgave: **kan disse to være paret i en stabil matching?**\n\nSvaret bygger på frier-optimaliteten, og oppskriften er kort."
+    },
+    {
+      "id": "tdt4120-6-5-def-22",
+      "type": "definition",
+      "title": "Å avgjøre om et bestemt par er mulig",
+      "content": "kjør `Gale-Shapley` **begge veier** og se hva partene får i hver av de to.\n\nDen frier-optimale kjøringen gir hver frier sitt **beste** mulige stabile\nutfall; den mottaker-optimale gir hver frier sitt **dårligste**. Alt en frier\nkan få i en stabil matching, ligger mellom disse to på hennes liste.\n\n**Konsekvensen:** er en bestemt partner dårligere for frieren enn det\nmottaker-orienterte utfallet, eller bedre enn det frier-orienterte, kan paret\nikke inngå i noen stabil matching. De to kjøringene rammer altså inn hele\nrommet av muligheter, og de koster $O(n^2)$ hver."
+    },
+    {
+      "id": "tdt4120-6-5-oppg-23",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-6-5-oppg-23-inner",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger H — åpen algoritmedesign, altså at du skisserer en\nalgoritme kort: hvilket kjent problem det er, hvilket paradigme du bruker,\nkonstruksjonen, hvordan du henter ut selve svaret, og kjøretiden.)\n\nBruk preferanselistene fra Eksempel 1.\n\nKan **Alma** og **Tind** være paret i en stabil matching? Begrunn.",
+        "solution": "**Det klassiske problemet.** Dette er et spørsmål om stabil matching.\n\n**Paradigmet.** `Gale-Shapley`, kjørt i **begge** orienteringer.\n\n**Konstruksjonen.** Kjør algoritmen med søkerne som friere, og deretter med\nlagene som friere. Fra Eksempel 2 og 3:\n\n- søkerne frir: Alma får Ravn — hennes **førstevalg**;\n- lagene frir: Alma får Solve — hennes **andrevalg**.\n\n**Avlesningen av svaret.** Alt Alma kan få i en stabil matching, ligger mellom\ndisse to på listen hennes, altså mellom Ravn og Solve. Tind står som hennes\n**tredjevalg**, altså dårligere enn Solve.\n\n**Svar: nei.** Alma og Tind kan ikke være paret i noen stabil matching.\n\nKontrollen bekrefter det: i Eksempel 1 var nettopp `Alma–Tind` en del av\nmatchingen, og den var **ustabil** — blokkert av (Alma, Ravn).\n\n**Kjøretid.** To kjøringer à $O(n^2)$, altså $O(n^2)$.",
+        "hints": [
+          "Hva gir de to orienteringene hver av partene, og hva sier frier-optimaliteten om rommet mellom dem?",
+          "Hvor på Almas liste står Tind, sammenlignet med det hun får i de to kjøringene?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-6-5-oppg-24",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-6-5-oppg-24-inner",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger F og D.)\n\nEn kandidat skriver: «Stabil matching og maksimal matching er det samme\nproblemet — begge parer to sider med hverandre, så begge kan løses med\nmaks-flyt.»\n\nEr utsagnet riktig? Svar ja eller nei, og forklar forskjellen.",
+        "solution": "**Nei.**\n\n**Maksimal matching** spør *hvor mange* som kan pares når bare visse par er\ntillatt. Det løses med maks-flyt, som i [kap. 5.3](/tdt4120/tdt4120-5-3): alle\nkapasiteter 1, og svaret er flytverdien.\n\n**Stabil matching** spør *hvem* som skal pares med hvem, gitt at alle parter har\n**rangert** hverandre. Antallet er ikke problemet — med $n$ på hver side kan\nalle alltid pares. Problemet er å unngå blokkerende par, og det krever\npreferansene, som et flytnett ikke har noe sted å lagre.\n\n**Motbevis i én linje:** i eksemplene i dette kapitlet er **enhver** parvis\ntilordning en maksimal matching (fire par, uansett hvordan du kobler dem), men\nbare noen av dem er stabile.\n\nRiktig formulering: de to problemene har samme *form* — to sider som skal\nkobles — men helt ulikt *spørsmål*, og de løses av helt ulike algoritmer.",
+        "hints": [
+          "Hva er det maksimal matching faktisk maksimerer?",
+          "Hvor i et flytnett ville du lagret informasjonen om hvem som foretrekker hvem?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-6-5-oppg-25",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-6-5-oppg-25-inner",
+        "number": 6,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger C, med en variant.)\n\nBruk preferanselistene fra oppgave 2 (Iben, Kian, Lea mot Sol, Nord, Vest).\n\n**a)** Kjør `Gale-Shapley` med **veilederne** som friere.\n**b)** Får noen et annet resultat enn i oppgave 2?",
+        "solution": "**a)**\n\n| Steg | Frieri | Hva som skjer |\n|---|---|---|\n| 1 | Sol frir til Kian | Kian var ledig og tar imot |\n| 2 | Nord frir til Iben | Iben var ledig og tar imot |\n| 3 | Vest frir til Lea | Lea var ledig og tar imot |\n\n**Matchingen er Iben–Nord, Kian–Sol, Lea–Vest, kjørt med veilederne som\nfriere.**\n\n**b)** **Nei — resultatet er nøyaktig det samme** som i oppgave 2.\n\nDet er ikke en selvmotsigelse mot frier-optimaliteten. Når det finnes bare\n**én** stabil matching, må begge orienteringene finne den, og da er «beste\nmulige» og «dårligste mulige» det samme.\n\nLegg merke til at kjøringen her ble mye kortere: tre frierier mot seks. Antall\nsteg avhenger av listene, ikke bare av $n$.",
+        "hints": [
+          "Kjør algoritmen med den andre siden som friere, og sammenlign resultatet.",
+          "Hva betyr det for de to orienteringene hvis det bare finnes én stabil matching?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-6-5-warn-26",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "De to første koster hele oppgaven.\n\n- **Å tro at matchingen er entydig.** Orienteringen avgjør: den siden som frir,\n  får sitt beste mulige stabile utfall, den andre sitt dårligste. Svaret på en\n  håndkjøring skal derfor si **hvilken orientering** du kjørte.\n- **Å snu frier-optimaliteten.** Det er **frierne** som kommer best ut, ikke\n  mottakerne. Mottakerne bytter bare oppover, men de får likevel sitt dårligst\n  mulige stabile utfall.\n- **Å blande stabil matching med maksimal matching.** Maksimal matching spør\n  *hvor mange*, og løses med maks-flyt. Stabil matching spør *hvem*, og krever\n  preferanser.\n- **Å tro at ett blokkerende par må gjøre begge misfornøyde med alt.** Kravet\n  er bare at **begge** foretrekker hverandre framfor sine egne tildelinger. At\n  én er misfornøyd, holder ikke.\n- **Å la en frier gå tilbake til en som har avvist henne.** En avvisning er\n  endelig. Det er nettopp det som gir grensen på $n^2$ frierier.\n- **Å la en mottaker bytte nedover.** Mottakere bytter bare til noen de\n  rangerer **høyere** enn den de har.\n- **Å oppgi $O(n)$ som kjøretid.** Den er $O(n^2)$: hver av de $n$ frierne kan\n  fri til hver av de $n$ mottakerne.\n\nOg den gjennomgående: **å skrive en lang forklaring når svaret er en\nmatching**. Fire par på én linje, pluss orienteringen. Det er hele svaret."
+    },
+    {
+      "id": "tdt4120-6-5-t-27",
+      "type": "text",
+      "content": "## Kjøretidene samlet\n\nDette er kapitlets puggeflate. Eksamen er hjelpemiddelfri, så tabellen må ligge\ni hodet.\n\n| Operasjon | Kjøretid | Krav / egenskap |\n|---|---|---|\n| `Gale-Shapley` | $O(n^2)$ | krever fullstendige preferanselister på begge sider |\n| Ett frieri | $\\Theta(1)$ | med en rangtabell for oppslag av «foretrekker» |\n| Antall frierier | høyst $n^2$ | hver frier frir til hver mottaker høyst én gang |\n| Å sjekke om en matching er stabil | $O(n^2)$ | gå gjennom alle par og se etter blokkerende par |\n| Begge orienteringer | $O(n^2)$ | to kjøringer; rammer inn hele rommet av stabile utfall |\n| Maksimal matching via flyt | $O(VE^2)$ | et **annet** problem — se [kap. 5.3](/tdt4120/tdt4120-5-3) |\n\n**Én presisering som er verdt å ta med seg.** `Gale-Shapley` er den eneste\nalgoritmen i denne boka som svarer på et spørsmål om **preferanser**. Alle de\nandre optimerer et tall — lengde, vekt, verdi, flyt. Her er det ingen\nmålfunksjon å maksimere; kravet er bare fraværet av blokkerende par."
+    },
+    {
+      "id": "tdt4120-6-5-t-28",
+      "type": "text",
+      "content": "### Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp\nhar lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet\ngjelder kjernestoffet."
+    },
+    {
+      "id": "tdt4120-6-5-def-29",
+      "type": "definition",
+      "title": "Stabil matching",
+      "content": "en parvis tilordning mellom to like store sider der det ikke finnes noe\nblokkerende par.\n\nFinnes alltid, og finnes av `Gale-Shapley` i $O(n^2)$.\n\n**Ikke entydig:** de to orienteringene kan gi ulike stabile matchinger."
+    },
+    {
+      "id": "tdt4120-6-5-def-30",
+      "type": "definition",
+      "title": "Blokkerende par",
+      "content": "et par som ikke er sammen, men der **begge** foretrekker hverandre framfor sine\negne tildelinger.\n\nEtt eneste blokkerende par gjør matchingen ustabil.\n\n**Kravet om at begge foretrekker** er det som gjør stabile matchinger mulige i\ndet hele tatt."
+    },
+    {
+      "id": "tdt4120-6-5-def-31",
+      "type": "definition",
+      "title": "`Gale-Shapley`",
+      "content": "friere frir i preferanserekkefølge; mottakere beholder alltid sitt beste\ntilbud og bytter bare oppover.\n\nKjøretid $O(n^2)$. Terminerer alltid og gir alltid en stabil matching.\n\n**Er frier-optimal:** hver frier får sitt beste mulige stabile utfall, hver\nmottaker sitt dårligste."
+    },
+    {
+      "id": "tdt4120-6-5-def-32",
+      "type": "definition",
+      "title": "Orientering",
+      "content": "hvilken av de to sidene som frir.\n\nValget avgjør hvilken stabil matching du får, og det skal oppgis i svaret på en\nhåndkjøring.\n\n**Finnes bare én stabil matching**, gir begge orienteringene den samme — og da\ner «best» og «dårligst» det samme."
+    },
+    {
+      "id": "tdt4120-6-5-def-33",
+      "type": "definition",
+      "title": "Frier-optimalitet",
+      "content": "hver frier får den beste partneren hun kan få i noen som helst stabil matching.\n\nSamtidig får hver mottaker den dårligste hun kan få i noen stabil matching.\n\n**Fordelen ligger hos den som tar initiativ** — det er den setningen som oftest\nsnus feil vei på eksamen."
+    },
+    {
+      "id": "tdt4120-6-5-def-34",
+      "type": "definition",
+      "title": "Terminering av `Gale-Shapley`",
+      "content": "hver frier frir til hver mottaker høyst én gang, så det finnes høyst $n^2$\nfrierier.\n\nEn avvisning er endelig; frieren går aldri tilbake.\n\n**Alle blir paret:** en ledig frier til slutt ville betydd at alle mottakere var\nopptatt, og da var alle friere paret."
+    },
+    {
+      "id": "tdt4120-6-5-def-35",
+      "type": "definition",
+      "title": "Stabilitetsargumentet",
+      "content": "anta at $(f,m)$ blokkerer. Siden $f$ foretrekker $m$ framfor sin egen, må $f$\nha fridd til $m$ tidligere.\n\nDa har $m$ enten avvist $f$ eller byttet henne ut — og mottakere bytter bare\noppover, så $m$ står nå med noen hun rangerer over $f$.\n\n**Selvmotsigelse**, altså finnes ingen blokkerende par."
+    },
+    {
+      "id": "tdt4120-6-5-def-36",
+      "type": "definition",
+      "title": "Mottakerens byttestrategi",
+      "content": "en mottaker beholder alltid det beste tilbudet hun har fått, og bytter bare til\nnoen hun rangerer **høyere**.\n\nDerfor forblir hun paret resten av kjøringen når hun først har fått et tilbud.\n\n**Hun beveger seg bare oppover** — mens frierne beveger seg nedover på sine\nlister."
+    },
+    {
+      "id": "tdt4120-6-5-def-37",
+      "type": "definition",
+      "title": "Frierens strategi",
+      "content": "frieren går strengt nedover sin egen liste: neste frieri går alltid til den\nhøyest rangerte som ennå ikke har avvist henne.\n\nHun går aldri tilbake til noen som har avvist henne.\n\n**Det er dette som gir grensen på $n^2$ frierier** — og dermed kjøretiden."
+    },
+    {
+      "id": "tdt4120-6-5-def-38",
+      "type": "definition",
+      "title": "Stabil mot maksimal matching",
+      "content": "**maksimal matching** spør hvor mange som kan pares, og løses med maks-flyt.\n**Stabil matching** spør hvem som pares med hvem, gitt preferanser.\n\nI stabil matching er antallet ikke noe problem — alle kan alltid pares.\n\n**Et flytnett har ingen plass til rangeringer**, og derfor kan ikke stabil\nmatching løses med flyt."
+    },
+    {
+      "id": "tdt4120-6-5-def-39",
+      "type": "definition",
+      "title": "Preferanseliste",
+      "content": "en fullstendig rangering av alle deltakerne på den andre siden, best først.\n\nBåde friere og mottakere har en.\n\n**Fullstendigheten er en forutsetning** for at algoritmen skal kunne pare\nalle."
+    },
+    {
+      "id": "tdt4120-6-5-def-40",
+      "type": "definition",
+      "title": "Sjanger C — håndkjøring",
+      "content": "oppgavetypen der du utfører algoritmen steg for steg og oppgir sluttilstanden.\n\nSvarformen her er **den ferdige matchingen og hvilken orientering du kjørte**.\n\n**Kontrollen:** alle på begge sider skal være brukt nøyaktig én gang."
+    },
+    {
+      "id": "tdt4120-6-5-def-41",
+      "type": "definition",
+      "title": "Sjanger D — definisjon med egne ord",
+      "content": "oppgavetypen der du forklarer et begrep presist og kort.\n\n«Definér et blokkerende par» er den klassiske fra dette kapitlet.\n\n**Hovedpoenget først:** at **begge** foretrekker hverandre framfor sine egne\ntildelinger."
+    },
+    {
+      "id": "tdt4120-6-5-def-42",
+      "type": "definition",
+      "title": "Sjanger H — «kan disse to være paret?»",
+      "content": "designoppgaven fra dette kapitlet: kjør begge orienteringene, og se om det\netterspurte paret ligger innenfor rommet de rammer inn.\n\nKjøretid $O(n^2)$.\n\n**Svarformen er ja eller nei med begrunnelsen i to linjer** — ikke en\ngjennomgang av begge kjøringene."
+    },
+    {
+      "id": "tdt4120-6-5-coll-44",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tdt4120-6-5-ct-43",
+          "type": "text",
+          "content": "Fem korte spørsmål fra kapitlene dette bygger på. Svar i hodet først, så\nsammenlign.\n\n**1.** Hva er et bytteargument, og hva brukes det til?\n\n*Svar:* å vise at en optimal løsning kan gjøres om til den grådige uten å bli\ndårligere — brukes til å bevise at et grådig valg er trygt. Se\n[kap. 6.4](/tdt4120/tdt4120-6-4).\n\n**2.** Hva er kjøretiden til `Huffman`?\n\n*Svar:* $O(n\\lg n)$, dominert av prioritetskøen.\n\n**3.** Hva løser maksimal matching, og med hvilket verktøy?\n\n*Svar:* hvor mange par som kan dannes når bare visse par er tillatt — løses med\nmaks-flyt, alle kapasiteter 1. Se [kap. 5.3](/tdt4120/tdt4120-5-3).\n\n**4.** Hva sier heltallsteoremet?\n\n*Svar:* med heltallige kapasiteter finnes en heltallig maksimal flyt. Se\n[kap. 5.1](/tdt4120/tdt4120-5-1).\n\n**5.** Hva betyr $O(n^2)$?\n\n*Svar:* kjøretiden vokser høyst som kvadratet av $n$, opp til en konstant\nfaktor. Se [kap. 1.1](/tdt4120/tdt4120-1-1).\n\n**Videre:** [kap. 7.1](/tdt4120/tdt4120-7-1) begynner på den siste delen —\nhva som skiller problemer vi kan løse raskt fra problemer ingen vet hvordan\nskal løses raskt."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

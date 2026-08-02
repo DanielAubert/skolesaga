@@ -1,0 +1,142 @@
+[
+  {
+    "question": "Hva vil det si at et problem $X$ er NP-hardt?",
+    "options": [
+      "At hvert problem i $NP$ kan reduseres polynomisk til $X$ — $X$ er minst like vanskelig som alt i $NP$",
+      "At $X$ ligger i $NP$ og i tillegg er det vanskeligste problemet blant dem som ligger der",
+      "At $X$ kan reduseres polynomisk til et kjent NP-komplett problem, og at $X$ dermed arver vanskeligheten derfra",
+      "At det ikke finnes noen algoritme for $X$ i det hele tatt, uansett hvor mye tid du gir den"
+    ],
+    "explanation": "NP-hardhet sier bare noe om vanskelighet, ikke om medlemskap: et NP-hardt problem trenger ikke selv ligge i $NP$ og kan til og med være uavgjørbart. Reduksjonen den andre veien — fra $X$ til noe kjent — viser bare at $X$ ikke er verre, og beviser ingenting. Og NP-harde problemer har fullt brukbare algoritmer, de er bare ikke kjent polynomiske."
+  },
+  {
+    "question": "Hva kreves for at et problem $X$ skal være NP-komplett?",
+    "options": [
+      "Både at $X \\in NP$ og at $X$ er NP-hardt — to påstander som må vises hver for seg",
+      "Bare at $X$ er NP-hardt; medlemskapet i $NP$ følger automatisk av reduksjonen",
+      "Bare at $X \\in NP$ og at ingen polynomisk algoritme for $X$ er kjent i dag",
+      "At $X$ kan reduseres polynomisk til hvert eneste av de øvrige problemene i katalogen"
+    ],
+    "explanation": "De NP-komplette problemene er de vanskeligste **inne i** $NP$, og begge leddene er nødvendige. Har du bare hardheten, har du vist NP-hardhet; har du bare medlemskapet, har du ikke sagt noe om vanskelighet — alt i $P$ ligger jo også i $NP$. At ingen polynomisk algoritme er funnet, er en observasjon, ikke et bevis."
+  },
+  {
+    "question": "Hvordan ser et fullstendig NP-komplett-bevis for et problem $X$ ut?",
+    "options": [
+      "Del 1: oppgi sertifikat og polynomisk verifikasjon. Del 2: gi en reduksjon $Y \\le_p X$ fra et kjent NPC-problem $Y$",
+      "Del 1: oppgi sertifikat og polynomisk verifikasjon. Del 2: gi en reduksjon $X \\le_p Y$ til et kjent NPC-problem $Y$",
+      "Del 1: vis at ingen polynomisk algoritme finnes. Del 2: gi en eksponentiell algoritme som løser $X$",
+      "Én del: gi en reduksjon fra et kjent NP-komplett problem, siden medlemskapet følger av reduksjonen"
+    ],
+    "explanation": "Retningen i del 2 er avgjørende — reduksjonen går **fra** det kjente vanskelige **til** ditt problem, og det er den setningen du leser høyt for å kontrollere deg selv. Snur du den, har du vist at $X$ ikke er verre enn $Y$, som er et svar på et helt annet spørsmål. Medlemskapet må vises for seg med sitt eget sertifikat."
+  },
+  {
+    "question": "Hva er spesielt med beviset for at CIRCUIT-SAT er NP-komplett?",
+    "options": [
+      "Hardheten vises direkte mot definisjonen av $NP$, ikke ved reduksjon fra et annet NP-komplett problem",
+      "Hardheten vises ved reduksjon fra 3-CNF-SAT, som er det egentlig første NP-komplette problemet",
+      "Medlemskapet er det vanskelige leddet, siden en krets med $n$ innganger har $2^n$ mulige inputkombinasjoner",
+      "Beviset viser bare NP-hardhet; medlemskapet i $NP$ er fortsatt et åpent spørsmål for CIRCUIT-SAT"
+    ],
+    "explanation": "Det fantes ingenting å redusere fra, så beviset tar et vilkårlig $A \\in NP$, henter fram verifikasjonsalgoritmen og skriver den om til en krets av polynomisk størrelse. Medlemskapet er derimot det lette leddet: evaluér kretsen på den foreslåtte inputen, lineært i antall porter. Reduksjonskjeden går **fra** CIRCUIT-SAT til SAT til 3-CNF-SAT, ikke motsatt."
+  },
+  {
+    "question": "Hva spør CIRCUIT-SAT om?",
+    "options": [
+      "Om det finnes en tilordning av 0 og 1 til inngangene som får kretsen til å gi 1 på utgangen",
+      "Om kretsen gir 1 på utgangen for hver eneste mulige tilordning av 0 og 1 til inngangene",
+      "Om kretsen kan bygges om til en mindre krets med færre logiske porter og nøyaktig samme oppførsel",
+      "Om det finnes en sløyfe i kretsen, altså en vei fra en utgang tilbake til en inngang"
+    ],
+    "explanation": "Spørsmålet er om kretsen er **oppfyllbar**, altså om minst én input gir 1 ut — sertifikatet er nettopp den inputen. Spørsmålet om **alle** tilordninger gir 1, er tautologiproblemet, som ligger i $\\text{co-}NP$. En kombinatorisk krets har per definisjon ingen sløyfer."
+  },
+  {
+    "question": "Hva kjennetegner en formel i 3-CNF-SAT?",
+    "options": [
+      "Den er på konjunktiv normalform, og hver eneste klausul har nøyaktig tre literaler",
+      "Den er på konjunktiv normalform, og hele formelen har nøyaktig tre klausuler",
+      "Den har nøyaktig tre variabler, som hver kan opptre i vilkårlig mange klausuler",
+      "Den er på disjunktiv normalform, og hver konjunksjon har nøyaktig tre literaler"
+    ],
+    "explanation": "Konjunktiv normalform betyr klausuler koblet med AND, der hver klausul er literaler koblet med OR — og i 3-CNF er hver klausul nøyaktig tre lang. Antall klausuler og antall variabler er derimot fri. Standardformen er nettopp det som gjør problemet til arbeidshesten videre i kjeden: den er ryddig nok til å bygge grafkonstruksjoner ut av."
+  },
+  {
+    "question": "Hva spør CLIQUE om?",
+    "options": [
+      "Om grafen har en delmengde på **minst** $k$ noder der alle er parvis naboer",
+      "Om grafen har en delmengde på **høyst** $k$ noder der alle er parvis naboer",
+      "Om grafen har en delmengde på **minst** $k$ noder der ingen er naboer med hverandre",
+      "Om grafen har en delmengde på **minst** $k$ kanter som til sammen danner en komplett delgraf"
+    ],
+    "explanation": "CLIQUE er maksimeringssiden: du leter etter noe stort, og terskelen er en nedre grense. Med «høyst $k$» blir spørsmålet trivielt, siden én enkelt node alltid er en klikk. Mengden uten kanter mellom seg er en uavhengig mengde, som er det motsatte begrepet, og kravet stilles til noder, ikke til kanter."
+  },
+  {
+    "question": "Hva spør VERTEX-COVER om?",
+    "options": [
+      "Om grafen har en delmengde på **høyst** $k$ noder slik at hver kant har minst ett endepunkt i mengden",
+      "Om grafen har en delmengde på **minst** $k$ noder slik at hver kant har minst ett endepunkt i mengden",
+      "Om grafen har en delmengde på **høyst** $k$ kanter slik at hver node er endepunkt for minst én av dem",
+      "Om grafen har en delmengde på **høyst** $k$ noder som er parvis naboer med hverandre"
+    ],
+    "explanation": "VERTEX-COVER er minimeringssiden — motsatt av CLIQUE — og kravet stilles til **kantene**: hver kant skal treffes. Å be om **minst** $k$ noder gjør spørsmålet trivielt, siden hele $V$ alltid er et nodedekke. Et krav om parvis naboskap er definisjonen av en klikk, ikke av et dekke."
+  },
+  {
+    "question": "Et definisjonssvar lyder: «Et nodedekke er en mengde noder som er parvis naboer.» Hva er galt?",
+    "options": [
+      "Det er definisjonen av en klikk — et nodedekke stiller krav til **kantene**, ikke til naboskapet mellom nodene",
+      "Det er riktig, men ufullstendig — svaret mangler bare kravet om at mengden skal ha høyst $k$ noder",
+      "Det er definisjonen av en uavhengig mengde — et nodedekke krever tvert imot at ingen noder er naboer",
+      "Det er riktig for urettede grafer, men et nodedekke i en rettet graf krever i tillegg at kantretningen respekteres"
+    ],
+    "explanation": "De to begrepene stiller krav til helt ulike ting: klikken krever at alle par av valgte noder har en kant mellom seg, mens nodedekket krever at hver kant i grafen treffes av minst én valgt node. Et definisjonssvar med feil objekt er galt, ikke omtrentlig riktig — og dette paret står for flere tapte poeng enn noe annet i katalogen."
+  },
+  {
+    "question": "Hvilken sammenheng knytter CLIQUE og VERTEX-COVER sammen?",
+    "options": [
+      "$C$ er en klikk i komplementgrafen $\\bar{G}$ nøyaktig når $V \\setminus C$ er et nodedekke i $G$",
+      "$C$ er en klikk i $G$ nøyaktig når $V \\setminus C$ er et nodedekke i den samme grafen $G$",
+      "Den største klikken og det minste nodedekket i en graf har alltid nøyaktig like mange noder",
+      "En klikk på $k$ noder i $G$ svarer alltid til et nodedekke på nøyaktig $k$ noder i den samme grafen $G$"
+    ],
+    "explanation": "Klikk i $\\bar{G}$ er det samme som uavhengig mengde i $G$, og komplementet av en uavhengig mengde er nettopp et nodedekke — derfor svarer en klikk på $k$ noder i $\\bar{G}$ til et nodedekke på $n-k$ noder i $G$. Å tro at de to størrelsene henger sammen på **samme** graf, er en av de tre faste feilene i dette paret."
+  },
+  {
+    "question": "Hva er en uavhengig mengde i en graf?",
+    "options": [
+      "En delmengde av nodene uten en eneste kant mellom to av dem",
+      "En delmengde av nodene der alle er parvis naboer",
+      "En delmengde av kantene der ingen to kanter deler et endepunkt",
+      "En delmengde av nodene som ikke er nådd av noen sti fra resten av grafen"
+    ],
+    "explanation": "$I$ er uavhengig nøyaktig når $I$ er en klikk i komplementgrafen, og nøyaktig når $V \\setminus I$ er et nodedekke i $G$ — de tre begrepene er tre synsvinkler på det samme. Delmengden av kanter uten felles endepunkt er en matching, som er et annet begrep."
+  },
+  {
+    "question": "Hva skiller en hamiltonsk sykel fra en eulersk tur?",
+    "options": [
+      "Den hamiltonske besøker hver **node** én gang; den eulerske bruker hver **kant** én gang",
+      "Den hamiltonske bruker hver **kant** én gang; den eulerske besøker hver **node** én gang",
+      "Den hamiltonske er lukket og ender der den startet; den eulerske må ende i en annen node",
+      "Den hamiltonske finnes bare i rettede grafer; den eulerske finnes bare i urettede grafer"
+    ],
+    "explanation": "Forskjellen er hva som skal brukes opp — noder eller kanter — og den er avgjørende: eulersk tur avgjøres i lineær tid ved å se på nodegradene, mens HAM-CYCLE er NP-komplett. En node med grad 1 utelukker umiddelbart en hamiltonsk sykel, siden en sykel må både inn og ut av hver node."
+  },
+  {
+    "question": "Hvordan arves hardheten til TSP fra HAM-CYCLE?",
+    "options": [
+      "Gi kostnad 0 til kantene som finnes i originalgrafen og 1 til de øvrige, og spør om en rundtur med kostnad høyst 0",
+      "Gi kostnad 1 til alle kantene i originalgrafen, og spør om en rundtur med samlet kostnad høyst antall noder",
+      "Fjern alle kanter som ikke inngår i noen hamiltonsk sykel, og spør om den gjenværende grafen er komplett",
+      "Løs TSP med en polynomisk algoritme, og bruk deretter svaret til å avgjøre om en hamiltonsk sykel finnes i grafen"
+    ],
+    "explanation": "Konstruksjonen lager en komplett graf der de opprinnelige kantene er gratis, og en rundtur koster 0 nøyaktig når den bare bruker opprinnelige kanter — altså nøyaktig når en hamiltonsk sykel finnes. Reduksjonen går fra det kjente vanskelige til TSP, og den bruker ingen algoritme for TSP underveis; en reduksjon er en omskriving av instansen, ikke en løsning."
+  },
+  {
+    "question": "SUBSET-SUM løses av en tabellalgoritme på $\\Theta(nt)$ tid. Hva følger av det?",
+    "options": [
+      "Ingenting om at problemet er lett — $t$ er en tallverdi, og algoritmen er pseudopolynomisk, ikke polynomisk",
+      "At SUBSET-SUM ligger i $P$, og dermed at $P = NP$, siden problemet også er NP-komplett",
+      "At SUBSET-SUM ikke er NP-komplett, siden et NP-komplett problem ikke kan ha en tabellalgoritme",
+      "At $t$ må være liten i alle praktiske instanser, siden algoritmen ellers ikke ville blitt publisert i det hele tatt"
+    ],
+    "explanation": "Kjøretid måles i **inputlengden i bit**, og måltallet $t$ skrives med om lag $\\lceil \\lg t \\rceil$ bit — er $t = 10^9$, tar tallet 30 bit, mens tabellen har en milliard kolonner. Uttrykket $\\Theta(nt)$ er derfor eksponentielt i inputlengden. Å lese det som polynomisk og konkludere med $P = NP$ er felle #7."
+  }
+]

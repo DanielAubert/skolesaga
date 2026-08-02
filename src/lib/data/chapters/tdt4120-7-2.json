@@ -1,0 +1,363 @@
+{
+  "id": "tdt4120-7-2",
+  "courseId": "tdt4120",
+  "chapterNumber": "7.2",
+  "title": "Polynomiske reduksjoner og reduksjonsretning",
+  "description": "Polynomisk reduksjon `≤ₚ`, den kritiske **retningen** (`A ≤ₚ B` ⇒ B minst like vanskelig), NP-hardt vs. NP-komplett, og `P=NP`-konsekvensen.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "kunne forklare hva en polynomisk reduksjon er, og hvilke tre krav den må oppfylle",
+    "kunne avgjøre hvilken vei en reduksjon må gå for å vise at et problem er vanskelig, og si hva den motsatte veien beviser",
+    "kunne skille NP-hardt fra NP-komplett, og pseudopolynomisk fra polynomisk"
+  ],
+  "content": [
+    {
+      "id": "tdt4120-7-2-tip-1",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**NP-teori og reduksjoner er registrert i alle de 17 settene i grunnlaget\n(100 %).** Grunnlaget er de 17 settene fra august 2015 til august 2023 som er\ngjennomgått tema for tema — det er nevneren hver gang boka oppgir en prosent.\nBare to andre temaer er like sikre: asymptotisk notasjon og sortering.\n\nOg innenfor dette temaet finnes ett spørsmål som går igjen mer enn noe annet:\n**hvilken vei går reduksjonen, og hva beviser den?**\n\nSjangeren er én:\n\n- **Sjanger G — reduksjon og argument om vanskelighet**, altså at du sier\n  hvilken vei et argument går, hva det viser, og — like viktig — hva det\n  **ikke** viser. Svarformen er to til fire linjer.\n\n**Høyeste prioritet — dette må sitte.** Løsningsforslagene fremhever\nreduksjonsretningen som skillet mellom riktig og galt oftere enn noe annet\nenkeltpunkt i faget.\n\n**Regelen i én linje, før vi begynner:** for å vise at ditt problem er\nvanskelig, reduserer du **FRA** et kjent vanskelig problem **TIL** ditt. Går\npilen motsatt vei, har du bevist ingenting om at ditt problem er vanskelig.\n\n**Slik er kapitlet lagt opp (55 min):**\n\n| Innhold | Tid |\n|---|---|\n| Hva en polynomisk reduksjon er | ca. 14 min |\n| Retningen — kapitlets kjerne | ca. 16 min |\n| NP-hardt og NP-komplett | ca. 12 min |\n| Pseudopolynomisk mot eksponentiell | ca. 13 min |"
+    },
+    {
+      "id": "tdt4120-7-2-t-2",
+      "type": "text",
+      "content": "## Forkunnskaper\n\n- [kap. 7.1](/tdt4120/tdt4120-7-1) — P, NP og sertifikat. Fra det kapitlet:\n  et **avgjørelsesproblem** har ja/nei-svar. Klassen **P** er de problemene som\n  kan **løses** i polynomisk tid; klassen **NP** er de der et ja-svar kan\n  **kontrolleres** i polynomisk tid, gitt et sertifikat. Det er kjent at\n  $P \\subseteq NP$, og det er åpent om de er like.\n- [kap. 5.2](/tdt4120/tdt4120-5-2) — pseudopolynomisk. Dette sto der: en\n  algoritme er **pseudopolynomisk** når kjøretiden er polynomisk i\n  **tallverdiene** i inputen, men ikke i inputens **lengde**.\n  `Ford-Fulkerson` er $O(E\\cdot\\lvert f^*\\rvert)$, og en kapasitet på $10^9$\n  tar 30 binære siffer å skrive, men kan gi en milliard runder. **Det sier\n  ingenting om at maks-flyt er vanskelig** — `Edmonds-Karp` løser problemet i\n  $O(VE^2)$. Vi henter det skillet fram igjen mot slutten av kapitlet, i en\n  situasjon der konklusjonen blir en annen.\n- [kap. 6.2](/tdt4120/tdt4120-6-2) — 0-1-ryggsekk med $\\Theta(nW)$, der $W$ er\n  en tallverdi.\n\nEtt nytt problem innføres underveis, **SUBSET-SUM**, fordi det er det klareste\neksempelet på skillet mellom pseudopolynomisk og eksponentiell. Katalogen over\nde øvrige NP-komplette problemene kommer i\n[kap. 7.3](/tdt4120/tdt4120-7-3)."
+    },
+    {
+      "id": "tdt4120-7-2-coll-4",
+      "type": "collapsible",
+      "title": "Notasjons- og pseudokodeliste",
+      "buttonText": "Vis notasjon og pseudokode",
+      "content": [
+        {
+          "id": "tdt4120-7-2-ct-3",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et algoritmefag: den lister kjøretidsuttrykk og pseudokode-operasjoner i stedet for bare greske bokstaver.\n\n| Symbol | Betydning |\n|---|---|\n| $A \\le_p B$ | «A reduseres polynomisk til B» — les alltid retningen høyt |\n| $P$ | problemene som kan løses i polynomisk tid |\n| $NP$ | problemene der et ja-svar kan kontrolleres i polynomisk tid |\n| $NPC$ | de NP-komplette problemene |\n| $x$ | en instans av problemet $A$ |\n| $f(x)$ | instansen av $B$ som $x$ oversettes til |\n| $n$ | inputstørrelsen, altså antall symboler som trengs for å skrive instansen |\n| $\\subseteq$ | «er en delmengde av» |\n\n| Algoritme/operasjon | Kontrakt | Kjøretid |\n|---|---|---|\n| `Reduser(x)` | oversetter en $A$-instans $x$ til en $B$-instans $f(x)$ i polynomisk tid | polynomisk i $\\lvert x\\rvert$ |\n| `Loes-B(y)` | en antatt polynomisk algoritme for $B$ | polynomisk |\n| `Loes-A(x)` | `Loes-B(Reduser(x))` — den sammensatte algoritmen for $A$ | polynomisk |\n| `Verify-B(y, s)` | kontrollerer et sertifikat $s$ for ja-instansen $y$ | polynomisk |\n\n**Formler i dette delkapitlet:**\n\n$$A \\le_p B \\;\\Longrightarrow\\; B \\text{ er minst like vanskelig som } A$$\n\n**Retningsregelen.** Den er hele kapitlet, og den leses fra venstre mot høyre.\n\n$$A \\le_p B \\;\\text{og}\\; B \\in P \\;\\Longrightarrow\\; A \\in P$$\n\nReduksjonen flytter *lettheten* bakover: er $B$ lett, er $A$ lett.\n\n$$A \\le_p B \\;\\text{og}\\; A \\notin P \\;\\Longrightarrow\\; B \\notin P$$\n\nKontrapositivt: den flytter *vanskeligheten* framover. Det er slik den brukes i praksis.\n\n$$X \\in NPC \\;\\text{og}\\; X \\in P \\;\\Longrightarrow\\; P = NP$$\n\n$P{=}NP$-konsekvensen: én polynomisk algoritme for ett NP-komplett problem velter hele skillet.\n"
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-7-2-t-5",
+      "type": "text",
+      "content": "## Hva en polynomisk reduksjon er (~14 min)\n\nEn kommune har allerede et fungerende system for å sette opp vaktlister. Så\nkommer et nytt problem: å fordele møterom. I stedet for å bygge noe nytt\noversetter de romproblemet til et vaktlisteproblem, kjører det gamle systemet,\nog oversetter svaret tilbake.\n\nDet er nøyaktig en **reduksjon**. Du løser $A$ ved hjelp av en løser for $B$,\nog prisen er oversettelsen.\n\nDet avgjørende for oss er ikke at teknikken er praktisk. Det er hva den\n**forteller** om de to problemene når oversettelsen er billig."
+    },
+    {
+      "id": "tdt4120-7-2-def-6",
+      "type": "definition",
+      "title": "Polynomisk reduksjon",
+      "content": "$A \\le_p B$ betyr at det finnes en funksjon $f$ som kan regnes ut i polynomisk\ntid, slik at for **hver** instans $x$ av $A$:\n\n$$x \\text{ er en ja-instans av } A \\iff f(x) \\text{ er en ja-instans av } B$$\n\nTre krav må være oppfylt, og alle tre er ledd som gir uttelling:\n\n1. **$f$ regnes ut i polynomisk tid** i inputstørrelsen.\n2. **Svarbevaring begge veier** — «hvis og bare hvis». Ja skal bli ja, og nei\n   skal bli nei.\n3. **$f$ er definert for alle instanser** av $A$, ikke bare for noen spesielle.\n\n**Merk at reduksjonen oversetter instanser, ikke algoritmer.** Du skriver ikke\nom løsningsmetoden — du skriver om problemteksten."
+    },
+    {
+      "id": "tdt4120-7-2-def-7",
+      "type": "definition",
+      "title": "Hva reduksjonen gir deg",
+      "content": "har du $A \\le_p B$ og en polynomisk algoritme for $B$, får du en polynomisk\nalgoritme for $A$ gratis: oversett med $f$, kjør $B$-løseren.\n\nSammensetningen av to polynomiske algoritmer er polynomisk — også når\noversettelsen gjør instansen større, så lenge veksten er polynomisk.\n\n**Det er dette som gjør reduksjonen til et argument om vanskelighet:** den\nsier at $A$ ikke kan være vanskeligere enn $B$, opp til polynomisk arbeid."
+    },
+    {
+      "id": "tdt4120-7-2-eks-8",
+      "type": "example",
+      "title": "Eksempel 1: En reduksjon, ledd for ledd",
+      "problem": "**KLIKK-3** er problemet: gitt en urettet graf $G$, finnes det tre noder som\nalle er parvis forbundet med hverandre?\n\n**TREKANT** er problemet: gitt en urettet graf $G$, inneholder $G$ en trekant?\n\nVis at KLIKK-3 $\\le_p$ TREKANT, og gjennomgå de tre kravene.",
+      "solution": "**Oversettelsen.** $f(G) = G$. Grafen sendes videre uendret.\n\nDet ser ut som juks, men det er en helt gyldig reduksjon — og den illustrerer\nkravene tydelig nettopp fordi oversettelsen er triviell.\n\n**Krav 1 — polynomisk tid.** Å kopiere grafen koster $\\Theta(V+E)$. Oppfylt.\n\n**Krav 2 — svarbevaring begge veier.** Tre noder som er parvis forbundet, **er**\nen trekant, og en trekant **er** tre parvis forbundne noder. Altså:\n\n$$G \\text{ har en 3-klikk} \\iff G \\text{ har en trekant}$$\n\nOppfylt, og legg merke til at begge retningene må sjekkes. Hadde $f$ bare\ngarantert den ene veien, kunne en nei-instans blitt oversatt til en ja-instans,\nog svaret ville vært galt.\n\n**Krav 3 — definert for alle instanser.** Enhver graf kan sendes videre.\nOppfylt.\n\n**Hva reduksjonen forteller.** TREKANT kan løses i $O(V^3)$ ved å prøve alle\ntripler av noder. Siden KLIKK-3 $\\le_p$ TREKANT, arver KLIKK-3 den samme\ngrensen: oversett i lineær tid, kjør TREKANT-løseren.\n\n**Konklusjonen går altså denne veien:** $B$ er lett, derfor er $A$ lett.\n\n**Det motsatte følger ikke.** At KLIKK-3 reduseres til TREKANT, sier ingenting\nom at TREKANT skulle være vanskelig. Det er nettopp den forvekslingen resten av\nkapitlet handler om."
+    },
+    {
+      "id": "tdt4120-7-2-oppg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-7-2-oppg-9-inner",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave, sjanger D — definisjon med egne ord, altså én presis setning\nmed hovedpoenget først.)\n\nForklar hva $A \\le_p B$ betyr, og list de tre kravene til en gyldig reduksjon.",
+        "solution": "$A \\le_p B$ betyr at hver instans av $A$ kan oversettes til en instans av $B$ i\npolynomisk tid, slik at svaret bevares: ja blir ja, og nei blir nei.\n\nDe tre kravene:\n\n1. Oversettelsen $f$ regnes ut i **polynomisk tid**.\n2. Svaret bevares **begge veier** — $x$ er en ja-instans av $A$ hvis og bare\n   hvis $f(x)$ er en ja-instans av $B$.\n3. $f$ er definert for **alle** instanser av $A$.\n\nKonsekvensen er at $B$ er **minst like vanskelig** som $A$: har du en\npolynomisk løser for $B$, har du en for $A$ også.",
+        "hints": [
+          "Hovedpoenget er hva som skjer med **svaret** når instansen oversettes.",
+          "Ett av kravene handler om tiden, ett om svaret, og ett om hvilke instanser som dekkes."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-7-2-t-10",
+      "type": "text",
+      "content": "## Retningen — kapitlets kjerne (~16 min)\n\nNå kommer det ene punktet dette kapitlet finnes for.\n\nReduksjonen $A \\le_p B$ er **ikke symmetrisk**. Den sier noe om forholdet mellom\nde to problemene, og den sier det i én bestemt retning."
+    },
+    {
+      "id": "tdt4120-7-2-thm-11",
+      "type": "theorem",
+      "title": "Retningsregelen",
+      "content": "**Påstanden.** $A \\le_p B$ betyr at **$B$ er minst like vanskelig som $A$**.\n\n**Hvorfor.** Reduksjonen gir deg en oppskrift: løs $A$ ved å oversette og kjøre\n$B$-løseren. Er $B$ lett, blir $A$ lett. Altså kan ikke $A$ være vanskeligere\nenn $B$ — opp til polynomisk arbeid.\n\n**De to leserettene.**\n\n$$A \\le_p B \\;\\text{og}\\; B \\in P \\;\\Longrightarrow\\; A \\in P\n\\qquad\\text{(lettheten flyter bakover)}$$\n\n$$A \\le_p B \\;\\text{og}\\; A \\notin P \\;\\Longrightarrow\\; B \\notin P\n\\qquad\\text{(vanskeligheten flyter framover)}$$\n\nDen andre er den kontrapositive formen av den første, og den er **den du\nbruker**: for å vise at et problem $X$ er vanskelig, viser du\n$A \\le_p X$ for et kjent vanskelig $A$.\n\n**Regelen for eksamen, i én setning:**\n\n> For å vise at **X er vanskelig**, reduserer du **FRA** et kjent vanskelig\n> problem **TIL X**.\n\n**Og den motsatte veien?** $X \\le_p A$ med $A$ kjent vanskelig, viser at $X$\n**ikke er vanskeligere** enn $A$. Det er en øvre grense, og den er nesten\nalltid uinteressant — for eksempel er **ethvert** problem i NP reduserbart til\net NP-komplett problem, så påstanden er triviell.\n\n**Dette er felle #1** — den mest fremhevede feilen i hele faget."
+    },
+    {
+      "id": "tdt4120-7-2-fig-12",
+      "type": "image",
+      "src": "/images/textbook/tdt4120/reduksjonsretning.svg",
+      "alt": "To rader som viser den samme reduksjonen tegnet begge veier. Overste rad har en pil fra boksen merket KJENT VANSKELIG med 3-CNF-SAT til boksen merket DITT PROBLEM med X, og under staar at dette beviser at X er minst like vanskelig som 3-CNF-SAT, altsaa NP-hardt. Nederste rad har pilen motsatt vei, fra ditt problem X til 3-CNF-SAT, og under staar at denne veien beviser ingenting om at X er vanskelig, bare at X ikke er vanskeligere enn 3-CNF-SAT.",
+      "caption": "Retningsregelen i én figur. Øverste rad er den du skal skrive når oppgaven ber deg vise at et problem er vanskelig; nederste rad er den som gir null uttelling."
+    },
+    {
+      "id": "tdt4120-7-2-eks-13",
+      "type": "example",
+      "title": "Eksempel 2: Fire påstander, fire ulike svar",
+      "problem": "For hver av påstandene: hva følger, og hva følger **ikke**? Anta at 3-CNF-SAT\ner kjent NP-komplett.\n\n**a)** «Jeg har vist 3-CNF-SAT $\\le_p$ X.»\n**b)** «Jeg har vist X $\\le_p$ 3-CNF-SAT.»\n**c)** «Jeg har vist X $\\le_p$ Y, og Y kan løses i $O(n^3)$.»\n**d)** «Jeg har vist 3-CNF-SAT $\\le_p$ X **og** at X ligger i NP.»",
+      "solution": "**a)** **X er NP-hardt.** Reduksjonen går fra et kjent vanskelig problem til X,\nså X er minst like vanskelig som 3-CNF-SAT.\n\n*Følger ikke:* at X er NP-komplett. Det krever i tillegg at X ligger i NP, og\ndet er en egen påstand som må vises for seg.\n\n**b)** **Ingenting om at X er vanskelig.** Reduksjonen viser at X ikke er\nvanskeligere enn 3-CNF-SAT — altså at X ligger i NP, siden 3-CNF-SAT gjør det.\n\n*Merk hvor svak påstanden er:* **hvert eneste** problem i NP kan reduseres til\net NP-komplett problem. Å vise denne retningen er derfor nesten alltid\nbortkastet.\n\n**c)** **X kan løses i polynomisk tid.** Lettheten flyter bakover: oversett i\npolynomisk tid, kjør Y-løseren. Den samlede kjøretiden er polynomisk.\n\n*Følger ikke:* noe om Y sin vanskelighet. At noe kan reduseres til Y, gjør ikke\nY hardt.\n\n**d)** **X er NP-komplett.** Dette er et fullstendig NPC-bevis: NP-hardhet fra\nreduksjonen, og medlemskap i NP fra den andre delen.\n\n**Mønsteret å ta med seg:** reduksjonspilen peker alltid mot det som er\n**minst like vanskelig**. Les den høyt: «jeg reduserer fra det vanskelige til\nmitt problem, altså er mitt problem minst like vanskelig»."
+    },
+    {
+      "id": "tdt4120-7-2-oppg-14",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-7-2-oppg-14-inner",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger G — reduksjon og argument om vanskelighet, altså at du\nsier hvilken vei argumentet går, hva det viser, og hva det **ikke** viser.)\n\nDu har vist SAT $\\le_p$ X.\n\n**a)** Hva forteller det om X sin vanskelighet?\n**b)** Hva forteller det **ikke**?\n**c)** Hva mangler for at X skal være NP-komplett?",
+        "solution": "**a)** X er **minst like vanskelig som SAT**, altså **NP-hardt**. Hadde X hatt\nen polynomisk algoritme, kunne SAT løses polynomisk ved å oversette og kjøre\nden.\n\n**b)** Det forteller **ikke** at X ligger i NP, og dermed ikke at X er\nNP-komplett. Et NP-hardt problem kan være mye vanskeligere enn NP — det kan til\nog med være uavgjørbart.\n\nDet forteller heller ikke at X er *umulig* å løse, bare at ingen polynomisk\nalgoritme kan finnes med mindre $P = NP$.\n\n**c)** **Medlemskapsdelen:** at X ligger i NP. Den vises ved å gi et\n**sertifikat** som kan kontrolleres i polynomisk tid — se\n[kap. 7.1](/tdt4120/tdt4120-7-1).\n\nEt fullstendig NPC-bevis har alltid disse to delene, og de er uavhengige av\nhverandre.",
+        "hints": [
+          "Les reduksjonen høyt: fra hva til hva, og hvem blir da minst like vanskelig?",
+          "NP-komplett består av to påstander. Hvilken av dem har du vist?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-7-2-oppg-15",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-7-2-oppg-15-inner",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger G — «er argumentet gyldig?».)\n\nEn kandidat skriver: «Jeg har vist at problemet mitt SKIFTPLAN kan reduseres\ntil 3-CNF-SAT. Siden 3-CNF-SAT er NP-komplett, er SKIFTPLAN NP-hardt.»\n\nEr argumentet gyldig? Svar ja eller nei, og forklar hva som er galt.",
+        "solution": "**Nei.**\n\nReduksjonen går **feil vei**. SKIFTPLAN $\\le_p$ 3-CNF-SAT viser at SKIFTPLAN\n**ikke er vanskeligere enn** 3-CNF-SAT — altså at SKIFTPLAN ligger i NP, siden\n3-CNF-SAT gjør det.\n\nFor å vise at SKIFTPLAN er **hardt**, må reduksjonen gå den andre veien:\n3-CNF-SAT $\\le_p$ SKIFTPLAN. Da arver SKIFTPLAN hardheten.\n\nMerk hvor lite argumentet faktisk gir: **hvert eneste** problem i NP kan\nreduseres til et NP-komplett problem. Retningen kandidaten har vist, er derfor\nsann for alle NP-problemer og skiller ingenting.\n\nDette er felle **#1** — reversert reduksjonsretning, den mest fremhevede feilen\ni faget.",
+        "hints": [
+          "Skriv opp reduksjonen med pil, og les den høyt: hvem blir minst like vanskelig?",
+          "Hvor mange problemer i NP kan reduseres til et NP-komplett problem?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-7-2-t-16",
+      "type": "text",
+      "content": "## NP-hardt og NP-komplett (~12 min)\n\nDe to begrepene brukes om hverandre i dagligtale, og det er en av de tre\nfeilene løsningsforslagene retter oftest. Skillet er enkelt når det først er\nsagt."
+    },
+    {
+      "id": "tdt4120-7-2-def-17",
+      "type": "definition",
+      "title": "NP-hardt",
+      "content": "et problem $X$ er **NP-hardt** når **alle** problemer i NP kan reduseres\npolynomisk til $X$: $A \\le_p X$ for hver $A \\in NP$.\n\nI praksis viser du det ved å redusere **ett** kjent NP-komplett problem til\n$X$ — hardheten arves videre gjennom kjeden.\n\n**$X$ trenger ikke selv ligge i NP.** Et NP-hardt problem kan være langt\nvanskeligere, og det trenger ikke engang være et avgjørelsesproblem."
+    },
+    {
+      "id": "tdt4120-7-2-def-18",
+      "type": "definition",
+      "title": "NP-komplett",
+      "content": "et problem er **NP-komplett** (NPC) når det er **NP-hardt og ligger i NP**.\n\nDe NP-komplette problemene er de vanskeligste i NP, og de står og faller\nsammen: løser du ett i polynomisk tid, løser du alle.\n\n**Et NPC-bevis har alltid to deler**, og de er uavhengige: medlemskapsdelen\n(gi et sertifikat) og hardhetsdelen (reduser fra et kjent NPC-problem)."
+    },
+    {
+      "id": "tdt4120-7-2-thm-19",
+      "type": "theorem",
+      "title": "$P=NP$-konsekvensen",
+      "content": "**Påstanden.** Finnes det en polynomisk algoritme for **ett eneste**\nNP-komplett problem $X$, så er $P = NP$.\n\n**Argumentet, kort.** La $A$ være et vilkårlig problem i NP. Siden $X$ er\nNP-hardt, finnes en polynomisk reduksjon $A \\le_p X$. Sett sammen: oversett\n$A$-instansen i polynomisk tid, kjør den polynomiske $X$-algoritmen. Det gir en\npolynomisk algoritme for $A$. Siden $A$ var vilkårlig, ligger hele NP i P, og\nsammen med $P \\subseteq NP$ fra [kap. 7.1](/tdt4120/tdt4120-7-1) gir det\n$P = NP$.\n\n**Den kontrapositive formen er den nyttige:** tror du $P \\ne NP$, tror du også\nat ingen NP-komplett problemer har polynomiske algoritmer. Det er derfor et\nNPC-bevis i praksis leses som «slutt å lete etter en rask eksakt algoritme».\n\n**Hva teoremet ikke sier.** Det sier ingenting om hvorvidt $P = NP$ er sant.\nSpørsmålet er åpent."
+    },
+    {
+      "id": "tdt4120-7-2-oppg-20",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-7-2-oppg-20-inner",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger F — «stemmer dette?», altså ja eller nei først og\nderetter én presis setning.)\n\nTa stilling til hver av påstandene:\n\n**a)** Ethvert NP-hardt problem er NP-komplett.\n**b)** Ethvert NP-komplett problem er NP-hardt.\n**c)** Finner noen en polynomisk algoritme for CLIQUE, følger $P = NP$.\n**d)** Et NP-hardt problem må være et avgjørelsesproblem.",
+        "solution": "**a)** **Nei.** NP-komplett krever i tillegg **medlemskap i NP**. Et NP-hardt\nproblem kan ligge langt utenfor NP — det finnes NP-harde problemer som ikke er\navgjørbare i det hele tatt.\n\n**b)** **Ja.** NP-komplett er per definisjon «NP-hardt **og** i NP», så\nhardheten følger direkte.\n\n**c)** **Ja.** CLIQUE er NP-komplett, og $P{=}NP$-konsekvensen sier at én\npolynomisk algoritme for ett NPC-problem gir $P = NP$.\n\n**d)** **Nei.** NP-hardhet er definert ved reduksjoner **inn** til problemet, og\ndet stiller ingen krav til problemets egen form. Optimeringsvarianter av\nNP-komplette problemer er typisk NP-harde uten å være avgjørelsesproblemer.\n\nPunkt a) og b) er den ene halvparten av forvekslingen; punkt d) er den andre.",
+        "hints": [
+          "Skriv ned definisjonen av NP-komplett — hvor mange ledd har den?",
+          "Stiller definisjonen av NP-hardt noe krav til problemet selv?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-7-2-t-21",
+      "type": "text",
+      "content": "## Pseudopolynomisk mot eksponentiell (~13 min)\n\nTil slutt et skille som ser ut som en teknikalitet, men som er et av fagets\nfaste innsiktsspørsmål — og som er lett å trekke feil konklusjon av i **begge**\nretninger."
+    },
+    {
+      "id": "tdt4120-7-2-def-22",
+      "type": "definition",
+      "title": "SUBSET-SUM",
+      "content": "gitt en mengde heltall $S$ og et måltall $t$: finnes det en delmengde av $S$ med\nsum nøyaktig $t$?\n\nProblemet er **NP-komplett**. Det står i katalogen i\n[kap. 7.3](/tdt4120/tdt4120-7-3), og det tas med her fordi det er det klareste\neksempelet på det neste skillet.\n\n**Merk at problemet handler om tall.** Det er nettopp derfor spørsmålet om\nhvordan tallene *skrives ned* blir avgjørende."
+    },
+    {
+      "id": "tdt4120-7-2-def-23",
+      "type": "definition",
+      "title": "Inputstørrelse for tallproblemer",
+      "content": "**inputstørrelsen** er antall symboler som trengs for å skrive instansen ned —\nikke tallverdiene i den.\n\nEt tall $t$ skrevet **binært** tar $\\lceil\\lg t\\rceil$ siffer. Skrevet i\n**entallssystem** — én strek per enhet — tar det $t$ siffer.\n\n**Det er her hele skillet ligger.** Den samme algoritmen kan være polynomisk i\nden ene skrivemåten og eksponentiell i den andre, uten at én linje kode er\nendret."
+    },
+    {
+      "id": "tdt4120-7-2-def-24",
+      "type": "definition",
+      "title": "Pseudopolynomisk",
+      "content": "kjøretiden er polynomisk i **tallverdiene** i inputen, men ikke i inputens\n**lengde**.\n\nSUBSET-SUM har en DP-algoritme med kjøretid $\\Theta(n\\,t)$ — samme mønster som\n0-1-ryggsekk i [kap. 6.2](/tdt4120/tdt4120-6-2). Med $t$ skrevet binært er\n$t = 2^{\\lceil\\lg t\\rceil}$, altså eksponentielt i inputlengden.\n\n**Konsekvensen:** SUBSET-SUM er NP-komplett **selv om** den har en\n$\\Theta(n\\,t)$-algoritme. De to utsagnene er ikke i konflikt, fordi $t$ ikke er\ninputstørrelsen."
+    },
+    {
+      "id": "tdt4120-7-2-warn-25",
+      "type": "warning",
+      "title": "Felle #7 — pseudopolynomisk sier ingenting om vanskelighet i seg selv",
+      "content": "Dette er felle **#7**, og den er nummer to på løsningsforslagenes liste over\ngjentatte feil.\n\nFellen går i **begge** retninger, og begge er feil:\n\n- **«Algoritmen er pseudopolynomisk, altså er problemet NP-hardt.»** Galt.\n  `Ford-Fulkerson` er pseudopolynomisk, men maks-flyt ligger i P — se\n  [kap. 5.2](/tdt4120/tdt4120-5-2). Egenskapen ved *algoritmen* sier ingenting\n  om *problemet*.\n- **«Problemet har en $\\Theta(nt)$-algoritme, altså kan det ikke være\n  NP-komplett.»** Også galt. SUBSET-SUM har nettopp en slik algoritme og er\n  likevel NP-komplett, fordi $t$ ikke er inputstørrelsen.\n\n**Den riktige måten å si det på:**\n\n> Algoritmen er pseudopolynomisk: kjøretiden er polynomisk i tallverdiene, men\n> ikke i inputens lengde. Om problemet er hardt, avgjøres av et helt annet\n> argument — en reduksjon.\n\n**Kontrollen:** står ordet «pseudopolynomisk» i svaret ditt, skal setningen\netter handle om **algoritmen**, ikke om problemet."
+    },
+    {
+      "id": "tdt4120-7-2-eks-26",
+      "type": "example",
+      "title": "Eksempel 3: Samme algoritme, to konklusjoner",
+      "problem": "To problemer har hver sin DP-algoritme der en **tallverdi** inngår i\nkjøretiden:\n\n- **maks-flyt** med `Ford-Fulkerson`: $O(E\\cdot\\lvert f^*\\rvert)$;\n- **SUBSET-SUM** med DP over målsummen: $\\Theta(n\\,t)$.\n\nBegge algoritmene er pseudopolynomiske. Likevel ligger det ene problemet i P og\ndet andre er NP-komplett.\n\nForklar hvorfor det ikke er en selvmotsigelse.",
+      "solution": "**Det de har felles.** Begge kjøretidene inneholder en **tallverdi** —\n$\\lvert f^*\\rvert$ og $t$ — som kan være enorm selv når instansen er kort å\nskrive ned. Begge algoritmene er derfor pseudopolynomiske, og begge kan bruke\neksponentiell tid målt i inputens lengde.\n\n**Hvorfor maks-flyt likevel ligger i P.** Fordi det finnes en **annen**\nalgoritme: `Edmonds-Karp` med $O(VE^2)$, der ingen tallverdi inngår. Et problem\nligger i P så snart **minst én** polynomisk algoritme finnes — det kreves ikke\nat alle er polynomiske.\n\n**Hvorfor SUBSET-SUM er NP-komplett.** Fordi 3-CNF-SAT reduseres til det (se\n[kap. 7.3](/tdt4120/tdt4120-7-3)), og fordi det ligger i NP. Ingen har funnet\nen algoritme uten tallverdien i kjøretiden — og finner noen én, følger\n$P = NP$.\n\n**Det som avgjør, er altså ikke algoritmen, men reduksjonen.**\n\n$$\\text{pseudopolynomisk algoritme} \\;\\not\\Longrightarrow\\; \\text{hardt problem}$$\n$$\\text{pseudopolynomisk algoritme} \\;\\not\\Longrightarrow\\; \\text{lett problem}$$\n\n**Svarformen på eksamen:** to til fire linjer. «Pseudopolynomisk er en egenskap\nved algoritmen: kjøretiden er polynomisk i tallverdiene, ikke i inputens\nlengde. Problemets vanskelighet avgjøres av reduksjoner, ikke av at én\nalgoritme tilfeldigvis har denne formen — maks-flyt ligger i P til tross for\n`Ford-Fulkerson`, og SUBSET-SUM er NP-komplett til tross for\n$\\Theta(n\\,t)$-algoritmen.»"
+    },
+    {
+      "id": "tdt4120-7-2-oppg-27",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-7-2-oppg-27-inner",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger G.)\n\nEn kandidat skriver: «SUBSET-SUM kan løses i $\\Theta(n\\,t)$ med dynamisk\nprogrammering. Det er polynomisk i $n$ og $t$, så SUBSET-SUM ligger i P. Altså\nhar jeg vist at $P = NP$.»\n\nHvor svikter argumentet? Svar presist.",
+        "solution": "Argumentet svikter i det andre leddet: **$\\Theta(n\\,t)$ er ikke polynomisk i\ninputstørrelsen**.\n\nInputstørrelsen er antall symboler som trengs for å skrive instansen. Måltallet\n$t$ skrives binært med $\\lceil\\lg t\\rceil$ siffer, så\n$t = 2^{\\lceil\\lg t\\rceil}$ — altså **eksponentielt** i den delen av inputen.\nAlgoritmen er derfor **pseudopolynomisk**, ikke polynomisk.\n\nMed $t$ skrevet i **entallssystem** ville inputen selv vært $t$ symboler lang,\nog da ville algoritmen faktisk vært polynomisk i inputlengden. Men det er en\nannen — og kunstig — måte å kode problemet på, og det er ikke den standarden\nNP-teorien bruker.\n\n**Konklusjonen:** SUBSET-SUM ligger fortsatt i NP uten at noen vet om det\nligger i P, og $P = NP$ er like åpent som før.\n\nDette er felle **#7**, i den varianten der en pseudopolynomisk algoritme\nforveksles med en polynomisk.",
+        "hints": [
+          "Hva er inputstørrelsen til et tall $t$ som skrives binært?",
+          "Sammenlign $t$ med antall siffer i $t$ — hvordan vokser den ene i forhold til den andre?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-7-2-oppg-28",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-7-2-oppg-28-inner",
+        "number": 6,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger G, med to ledd som skal holdes fra hverandre.)\n\nEt firma har problemet PAKKEPLAN: gitt $n$ pakker med heltallsvekter og $k$\nbiler med lik kapasitet, kan alle pakkene fordeles på bilene?\n\n**a)** Skisser hvordan du ville vist at PAKKEPLAN er NP-hardt.\n**b)** Skisser medlemskapsdelen.\n**c)** En kollega finner en DP-algoritme med kjøretid $\\Theta(n\\,W)$, der $W$\ner kapasiteten. Motsier det a)?",
+        "solution": "**a) Hardhetsdelen.** Reduser **FRA** et kjent NP-komplett problem **TIL**\nPAKKEPLAN. SUBSET-SUM er et naturlig valg, siden begge handler om å dele opp\ntallmengder.\n\nSkissen: gitt en SUBSET-SUM-instans med mengde $S$ og mål $t$, la summen av\nalle tallene være $\\Sigma$. Lag en PAKKEPLAN-instans med de samme tallene som\npakkevekter, $k = 2$ biler og kapasitet $\\max(t, \\Sigma - t)$. Da finnes en\ngyldig fordeling hvis og bare hvis en delmengde summerer til $t$.\n\nOversettelsen er lineær, og svaret bevares begge veier. Altså\nSUBSET-SUM $\\le_p$ PAKKEPLAN, og PAKKEPLAN er NP-hardt.\n\n**b) Medlemskapsdelen.** Sertifikatet er selve fordelingen — hvilken bil hver\npakke havner i. Verifikasjonen summerer vektene per bil og sjekker at ingen\noverstiger kapasiteten. Det koster $O(n)$, altså polynomisk. Dermed ligger\nPAKKEPLAN i NP, og sammen med a) er det NP-komplett.\n\n**c) Nei, det motsier ingenting.** $W$ er en **tallverdi**, ikke\ninputstørrelsen: kapasiteten skrives binært med $\\lceil\\lg W\\rceil$ siffer.\nAlgoritmen er derfor **pseudopolynomisk**, akkurat som DP-algoritmen for\n0-1-ryggsekk i [kap. 6.2](/tdt4120/tdt4120-6-2) og for SUBSET-SUM.\n\nEn pseudopolynomisk algoritme er fullt forenlig med at problemet er\nNP-komplett. Skulle a) vært motsagt, måtte kollegaen funnet en algoritme som er\npolynomisk i **inputens lengde** — og da ville $P = NP$ fulgt.",
+        "hints": [
+          "Hvilken vei må pilen gå for å vise hardhet, og hvilket kjent problem ligner mest på dette?",
+          "For c: er $W$ inputstørrelsen, eller er det et tall som står skrevet i inputen?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-7-2-warn-29",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "Den første er fagets mest fremhevede feil.\n\n- **Å reversere reduksjonsretningen.** Dette er felle **#1**. For å vise at X\n  er vanskelig, reduserer du **FRA** et kjent vanskelig problem **TIL X**. Den\n  motsatte veien viser bare at X ikke er vanskeligere — og det er sant for\n  hvert eneste problem i NP.\n- **Å blande NP-hardt og NP-komplett.** NP-komplett er «NP-hardt **og** i NP».\n  Et NPC-bevis har to uavhengige deler, og reduksjonen dekker bare den ene.\n- **Å blande pseudopolynomisk og NP-hardt.** Felle **#7**, i begge retninger.\n  Egenskapen ved algoritmen sier ingenting om problemet.\n- **Å glemme at reduksjonen må bevare svaret begge veier.** «Hvis og bare\n  hvis». En oversettelse som bare garanterer den ene retningen, kan gjøre en\n  nei-instans om til en ja-instans.\n- **Å glemme at oversettelsen må være polynomisk.** Er $f$ dyr å regne ut,\n  faller hele argumentet — sammensetningen er ikke lenger polynomisk.\n- **Å redusere et spesialtilfelle.** Å vise at ditt problem løser en *spesiell*\n  variant av et NPC-problem, holder ikke. Reduksjonen må dekke **alle**\n  instanser.\n- **Å konkludere at et NP-hardt problem er umulig å løse.** Det finnes\n  eksakte algoritmer, de er bare ikke polynomiske. Og\n  approksimasjonsalgoritmer finnes for mange av dem.\n\nOg den gjennomgående: **å ikke si hva reduksjonen ikke viser**. I sjanger G er\ndet halve svaret."
+    },
+    {
+      "id": "tdt4120-7-2-t-30",
+      "type": "text",
+      "content": "## Oppslagstabellen for sjanger G\n\n| Du har vist | Da følger | Da følger **ikke** |\n|---|---|---|\n| $A \\le_p X$ med $A$ NP-komplett | X er NP-hardt | at X er NP-komplett (medlemskap mangler) |\n| $X \\le_p A$ med $A$ NP-komplett | X ligger i NP | noe som helst om at X er hardt |\n| $A \\le_p X$ og X i NP | X er NP-komplett | at X er umulig å løse |\n| $X \\le_p Y$ og Y i P | X ligger i P | noe om Y sin vanskelighet |\n| X er NP-komplett og X i P | $P = NP$ | at $P = NP$ faktisk er sant |\n| Algoritmen for X er pseudopolynomisk | ingenting om X sin vanskelighet | verken at X er hardt eller lett |\n\n**Én presisering som er verdt å ta med seg.** Alle radene leses fra venstre mot\nhøyre, og alle bygger på den samme ene setningen: pilen peker mot det som er\nminst like vanskelig. Kan du lese pilen riktig, kan du hele tabellen."
+    },
+    {
+      "id": "tdt4120-7-2-t-31",
+      "type": "text",
+      "content": "### Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp\nhar lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet\ngjelder kjernestoffet."
+    },
+    {
+      "id": "tdt4120-7-2-def-32",
+      "type": "definition",
+      "title": "Polynomisk reduksjon",
+      "content": "$A \\le_p B$: hver $A$-instans oversettes til en $B$-instans i polynomisk tid,\nmed svaret bevart begge veier.\n\nTre krav: polynomisk oversettelse, svarbevaring «hvis og bare hvis», og\ndefinert for alle instanser.\n\n**Oversetter instanser, ikke algoritmer.** Du skriver om problemteksten, ikke\nløsningsmetoden."
+    },
+    {
+      "id": "tdt4120-7-2-def-33",
+      "type": "definition",
+      "title": "Retningsregelen",
+      "content": "$A \\le_p B$ betyr at **$B$ er minst like vanskelig som $A$**.\n\nFor å vise at X er vanskelig, reduserer du **FRA** et kjent vanskelig problem\n**TIL X**.\n\n**Felle #1 er å snu dette.** Den motsatte veien er sann for hvert eneste\nproblem i NP og skiller derfor ingenting."
+    },
+    {
+      "id": "tdt4120-7-2-def-34",
+      "type": "definition",
+      "title": "Hva en reduksjon ikke viser",
+      "content": "$X \\le_p A$ med $A$ hardt viser **ikke** at X er hardt — bare at X ikke er\nvanskeligere enn $A$.\n\n$A \\le_p X$ viser **ikke** at X er NP-komplett — medlemskapet i NP mangler.\n\n**Å si hva reduksjonen ikke viser, er halve svaret** i sjanger G."
+    },
+    {
+      "id": "tdt4120-7-2-def-35",
+      "type": "definition",
+      "title": "NP-hardt",
+      "content": "alle problemer i NP kan reduseres polynomisk til problemet.\n\nVises i praksis ved å redusere **ett** kjent NP-komplett problem til det.\n\n**Trenger ikke selv ligge i NP** — et NP-hardt problem kan være mye\nvanskeligere, og trenger ikke være et avgjørelsesproblem."
+    },
+    {
+      "id": "tdt4120-7-2-def-36",
+      "type": "definition",
+      "title": "NP-komplett",
+      "content": "NP-hardt **og** i NP.\n\nDe vanskeligste problemene i NP; de står og faller sammen.\n\n**Beviset har to uavhengige deler:** sertifikat og verifikasjon for\nmedlemskapet, og en reduksjon for hardheten."
+    },
+    {
+      "id": "tdt4120-7-2-def-37",
+      "type": "definition",
+      "title": "$P=NP$-konsekvensen",
+      "content": "en polynomisk algoritme for **ett** NP-komplett problem gir polynomiske\nalgoritmer for **alle** problemer i NP, og dermed $P = NP$.\n\nArgumentet: reduser vilkårlig $A \\in NP$ til det NPC-problemet, og sett sammen\nde to polynomiske algoritmene.\n\n**Sier ingenting om hvorvidt $P = NP$ er sant.** Spørsmålet er åpent."
+    },
+    {
+      "id": "tdt4120-7-2-def-38",
+      "type": "definition",
+      "title": "De tre kravene til en reduksjon",
+      "content": "1. oversettelsen regnes ut i polynomisk tid; 2. svaret bevares **begge veier**;\n3. den er definert for **alle** instanser.\n\nAlle tre er ledd som gir uttelling.\n\n**Krav 3 er den skjulte fellen:** en reduksjon som bare dekker et\nspesialtilfelle, beviser ingenting."
+    },
+    {
+      "id": "tdt4120-7-2-def-39",
+      "type": "definition",
+      "title": "Kontrapositiv bruk",
+      "content": "$A \\le_p B$ og $A \\notin P$ gir $B \\notin P$.\n\nDet er den formen reduksjonen brukes i når du skal vise hardhet: vanskeligheten\nflyter framover langs pilen.\n\n**Lettheten flyter bakover:** $A \\le_p B$ og $B \\in P$ gir $A \\in P$."
+    },
+    {
+      "id": "tdt4120-7-2-def-40",
+      "type": "definition",
+      "title": "SUBSET-SUM",
+      "content": "gitt en mengde heltall og et måltall: finnes det en delmengde med sum nøyaktig\nlik målet?\n\nNP-komplett, men med en DP-algoritme på $\\Theta(n\\,t)$.\n\n**Det klareste eksempelet på pseudopolynomisk kjøretid**, fordi $t$ er en\ntallverdi og ikke inputstørrelsen."
+    },
+    {
+      "id": "tdt4120-7-2-def-41",
+      "type": "definition",
+      "title": "Inputstørrelse",
+      "content": "antall symboler som trengs for å skrive instansen ned.\n\nEt tall $t$ skrevet binært tar $\\lceil\\lg t\\rceil$ siffer; skrevet i\nentallssystem tar det $t$ siffer.\n\n**All kompleksitetsteori måles i inputstørrelse**, og det er derfor\ntallverdiene i en kjøretid er mistenkelige."
+    },
+    {
+      "id": "tdt4120-7-2-def-42",
+      "type": "definition",
+      "title": "Pseudopolynomisk",
+      "content": "kjøretiden er polynomisk i tallverdiene i inputen, men ikke i inputens lengde.\n\nEksempler: `Ford-Fulkerson` med $O(E\\cdot\\lvert f^*\\rvert)$, 0-1-ryggsekk med\n$\\Theta(nW)$, SUBSET-SUM med $\\Theta(n\\,t)$.\n\n**Sier ingenting om problemets vanskelighet** — det ene av eksemplene ligger i\nP, de to andre er NP-komplette."
+    },
+    {
+      "id": "tdt4120-7-2-def-43",
+      "type": "definition",
+      "title": "Felle #1 — reversert reduksjonsretning",
+      "content": "å redusere **til** et NP-komplett problem og tro at det viser at ditt problem\ner hardt.\n\nDet viser bare at ditt problem ligger i NP — sant for hvert eneste\nNP-problem.\n\n**Fagets mest fremhevede feil.** Les pilen høyt før du leverer."
+    },
+    {
+      "id": "tdt4120-7-2-def-44",
+      "type": "definition",
+      "title": "Felle #7 — pseudopolynomisk mot NP-hardt",
+      "content": "å slutte fra en pseudopolynomisk algoritme til et hardt problem, eller fra en\npseudopolynomisk algoritme til et lett problem.\n\nBegge slutningene er ugyldige.\n\n**Problemets vanskelighet avgjøres av reduksjoner**, aldri av at én algoritme\ntilfeldigvis har en tallverdi i kjøretiden."
+    },
+    {
+      "id": "tdt4120-7-2-def-45",
+      "type": "definition",
+      "title": "Sjanger G — reduksjon og argument om vanskelighet",
+      "content": "oppgavetypen der du skal si hvilken vei et argument går, hva det viser, og hva\ndet ikke viser.\n\nSvarformen er to til fire linjer: retningen, konsekvensen, og forbeholdet.\n\n**Registrert i alle de 17 settene i grunnlaget** — dette er den sikreste\nsjangeren i faget."
+    },
+    {
+      "id": "tdt4120-7-2-def-46",
+      "type": "definition",
+      "title": "Å lese reduksjonen høyt",
+      "content": "kontrollen du gjør før du leverer: «jeg reduserer FRA <kjent vanskelig> TIL\n<mitt problem>, altså er mitt problem minst like vanskelig».\n\nStemmer ikke setningen, går pilen feil vei.\n\n**Tar fem sekunder** og redder fagets dyreste feil."
+    },
+    {
+      "id": "tdt4120-7-2-coll-48",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tdt4120-7-2-ct-47",
+          "type": "text",
+          "content": "Fem korte spørsmål fra kapitlene dette bygger på. Svar i hodet først, så\nsammenlign.\n\n**1.** Hva er forskjellen på klassen P og klassen NP?\n\n*Svar:* P er problemene som kan **løses** i polynomisk tid; NP er de der et\nja-svar kan **kontrolleres** i polynomisk tid, gitt et sertifikat. Se\n[kap. 7.1](/tdt4120/tdt4120-7-1).\n\n**2.** Hva er et sertifikat?\n\n*Svar:* et bevis for at svaret er ja, som kan kontrolleres raskt — for eksempel\nselve syklusen i et hamiltonsk-sykel-problem.\n\n**3.** Er `Ford-Fulkerson` polynomisk?\n\n*Svar:* nei, den er pseudopolynomisk. Men maks-flyt ligger i P, fordi\n`Edmonds-Karp` er $O(VE^2)$. Se [kap. 5.2](/tdt4120/tdt4120-5-2).\n\n**4.** Hvorfor er 0-1-ryggsekk med $\\Theta(nW)$ pseudopolynomisk?\n\n*Svar:* fordi $W$ er en tallverdi, ikke inputstørrelsen. Se\n[kap. 6.2](/tdt4120/tdt4120-6-2).\n\n**5.** Hva er et avgjørelsesproblem?\n\n*Svar:* et problem med ja/nei-svar. NP-teorien er formulert for slike. Se\n[kap. 7.1](/tdt4120/tdt4120-7-1).\n\n**Videre:** [kap. 7.3](/tdt4120/tdt4120-7-3) gir katalogen over de\nNP-komplette problemene du skal kunne — og kjeden som binder dem sammen."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

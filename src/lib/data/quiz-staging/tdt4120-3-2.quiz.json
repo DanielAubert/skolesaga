@@ -1,0 +1,162 @@
+[
+  {
+    "question": "Et tre har rot 46, venstre barn 25, og 25 har høyre barn 50. Hvilken regel er brutt?",
+    "options": [
+      "Søketreegenskapen — 50 ligger i rotas venstre deltre, men er større enn 46",
+      "Ingen — 25 er mindre enn 46, og 50 er større enn 25, så alt stemmer",
+      "Haugegenskapen — forelderen 25 er mindre enn barnet 50 i dette treet",
+      "Balansekravet — venstre deltre er dypere enn høyre deltre etter innsettingen"
+    ],
+    "explanation": "Søketreegenskapen gjelder **hele** deltreet, ikke bare det nærmeste barnet, og alt til venstre for 46 må derfor være $\\le 46$. Kontrollen er inorder: den ville gitt `25, 50, 46`, som ikke er sortert — og et søketre uten balansekrav er helt lovlig, så det er ikke der feilen ligger."
+  },
+  {
+    "question": "Hva gir `Inorder-Tree-Walk` på et binært søketre?",
+    "options": [
+      "Nøklene i **sortert** rekkefølge, i $\\Theta(n)$ tid",
+      "Nøklene i den rekkefølgen de ble satt inn, i $\\Theta(n)$ tid",
+      "Nøklene nivå for nivå ovenfra og ned, i $\\Theta(n)$ tid",
+      "Nøklene i sortert rekkefølge, men bare i $O(h)$ tid"
+    ],
+    "explanation": "Venstre deltre skrives ut før noden og høyre deltre etter, og søketreegenskapen gjør at det gir stigende rekkefølge. Innsettingsrekkefølgen er ikke lagret noe sted i treet — bare formen bærer spor av den, og den kan ikke leses av som en liste."
+  },
+  {
+    "question": "Hva er kjøretiden til `Tree-Insert`?",
+    "options": [
+      "$O(h)$, der $h$ er treets høyde — innsettingen følger én sti nedover",
+      "$\\Theta(\\lg n)$, siden treet halverer søkeområdet i hvert eneste steg",
+      "$\\Theta(n)$, siden alle nodene må sammenlignes med den nye nøkkelen",
+      "$O(1)$, siden den nye noden bare henges på som et blad til slutt"
+    ],
+    "explanation": "Løkka går ett nivå ned per runde og gjør konstant arbeid, så kostnaden er begrenset av høyden. Svaret $\\Theta(\\lg n)$ forutsetter et balansert tre, og ingenting i søketreegenskapen garanterer det — høyden kan bli $n-1$."
+  },
+  {
+    "question": "Hva blir høyden hvis du setter inn `8, 15, 23, 34, 42, 56` i et tomt søketre i denne rekkefølgen?",
+    "options": [
+      "$h = 5$ — hver innsetting går til høyre, og treet blir en lenket liste",
+      "$h = 2$ — treet blir balansert siden nøklene er jevnt fordelt i verdi",
+      "$h = 3$ — treet blir nesten balansert, med ett ekstra nivå til høyre",
+      "$h = 6$ — én node per nivå, og seks noder gir seks nivåer i alt"
+    ],
+    "explanation": "Hver ny nøkkel er større enn alle de foregående, så innsettingen går til høyre hele veien, og høyden blir $n-1 = 5$. Høyde måles i **kanter**, ikke i noder — en kjede med seks noder har fem kanter fra rota til det dypeste bladet."
+  },
+  {
+    "question": "Hva er kjøretiden til `Inorder-Tree-Walk`?",
+    "options": [
+      "$\\Theta(n)$ — hver node besøkes nøyaktig én gang, uansett treets form",
+      "$O(h)$ — traverseringen følger den lengste stien fra rota og nedover",
+      "$\\Theta(n\\lg n)$ — utskriften er sortert, og sortering koster minst så mye",
+      "$\\Theta(\\lg n)$ — bare stien ned til det dypeste bladet må gjennomløpes"
+    ],
+    "explanation": "Alle nøklene skal skrives ut, så arbeidet er proporsjonalt med antall noder, og grensen er tett i begge retninger. At utskriften er sortert, koster ingenting ekstra — ordenen ligger allerede i treets struktur."
+  },
+  {
+    "question": "Hvor ligger den minste nøkkelen i et binært søketre?",
+    "options": [
+      "Helt til venstre — følg `left`-pekerne til de tar slutt",
+      "I rota, siden søketreegenskapen ordner nøklene ovenfra og ned",
+      "Helt til høyre — følg `right`-pekerne til de tar slutt",
+      "I et vilkårlig blad — treet sier ingenting om hvor minimum ligger"
+    ],
+    "explanation": "Søketreegenskapen sier at alt til venstre for en node er mindre, så den minste nøkkelen har ingen venstre barn. Alternativet «vilkårlig blad» beskriver en **maks-haug**, der minimum kan ligge hvor som helst blant bladene og krever $\\Theta(n)$ leting."
+  },
+  {
+    "question": "To studenter setter inn de samme nøklene i ulik rekkefølge. Hva blir likt?",
+    "options": [
+      "`Inorder-Tree-Walk`-utskriften — den avhenger bare av hvilke nøkler treet inneholder",
+      "Treets form — søketreegenskapen bestemmer entydig hvor hver nøkkel skal ligge",
+      "Treets høyde — antall noder bestemmer hvor dypt treet må bli, uansett rekkefølge",
+      "Rotas nøkkel — det er alltid medianen av nøklene som havner øverst i treet"
+    ],
+    "explanation": "Inorder gir den sorterte rekkefølgen, og den er den samme uansett hvordan nøklene ble ordnet underveis. Formen, høyden og rota avhenger derimot fullstendig av innsettingsrekkefølgen — rota er alltid den **først** innsatte nøkkelen."
+  },
+  {
+    "question": "Hva er forventet høyde for et søketre bygget med $n$ nøkler i tilfeldig rekkefølge?",
+    "options": [
+      "$\\Theta(\\lg n)$ forventet, men $\\Theta(n)$ i verste tilfelle",
+      "$\\Theta(\\lg n)$ garantert, uansett hvilken rekkefølge nøklene kommer i",
+      "$\\Theta(n)$ forventet, siden de fleste rekkefølger gir skjeve trær",
+      "$\\Theta(\\sqrt{n})$ forventet, som et kompromiss mellom de to ytterpunktene"
+    ],
+    "explanation": "Forventningen er over alle innsettingsrekkefølger, og den sier ingenting om det enkelte treet ditt. Å svare $\\Theta(\\lg n)$ på et spørsmål om **verste** tilfelle er derfor galt — sortert input gir en kjede med høyde $n-1$."
+  },
+  {
+    "question": "Hvilken traversering starter alltid med rotas nøkkel?",
+    "options": [
+      "Preorder — den skriver ut noden før begge deltrærne",
+      "Inorder — noden kommer mellom deltrærne",
+      "Postorder — den skriver ut noden etter begge deltrærne",
+      "Alle tre — rota er utgangspunktet for enhver traversering"
+    ],
+    "explanation": "Preorder besøker noden selv først, så rota kommer alltid ut som første element. Inorder starter med den minste nøkkelen og postorder med et blad — begge besøker rota, men skriver den ikke ut først."
+  },
+  {
+    "question": "Du bygger et søketre av $n$ tall og skriver dem ut med inorder. Hva er verste kjøretid?",
+    "options": [
+      "$\\Theta(n^2)$, når tallene kommer sortert og treet blir en kjede",
+      "$\\Theta(n\\lg n)$, siden det er den nedre grensen for all sortering",
+      "$\\Theta(n)$, siden traverseringen alene bestemmer den totale kjøretiden",
+      "$\\Theta(n\\lg n)$ forventet, og det er også garantien i verste tilfelle"
+    ],
+    "explanation": "På sortert input går innsetting nummer $j$ helt ned til bunnen av en kjede med $j-1$ noder, og summen $1 + 2 + \\dots + (n-1)$ er kvadratisk. Traverseringen er riktignok $\\Theta(n)$, men den kommer i tillegg til byggingen — og det er byggingen som dominerer."
+  },
+  {
+    "question": "Hva er kjøretiden til `Tree-Search` i et degenerert søketre med $n$ noder?",
+    "options": [
+      "$\\Theta(n)$, siden høyden er $n-1$ og søket må helt ned",
+      "$\\Theta(\\lg n)$, siden hver sammenligning utelukker halve treet",
+      "$\\Theta(1)$, siden kjeden gjennomløpes direkte",
+      "$\\Theta(n\\lg n)$, siden hver node må sammenlignes med alle de andre"
+    ],
+    "explanation": "Søk er $O(h)$, og i et degenerert tre er $h = n-1$, så et søk etter det dypeste elementet berører hver eneste node. Alternativet som lover $\\Theta(\\lg n)$ forutsetter balanse, og det er nettopp det en kjede ikke har."
+  },
+  {
+    "question": "Hvor havner en ny nøkkel som settes inn med `Tree-Insert`?",
+    "options": [
+      "Som et blad, på den plassen et søk etter nøkkelen ville stoppet",
+      "I rota, slik at den nyeste nøkkelen alltid er raskest å finne igjen",
+      "På det nivået som gjør treet mest balansert etter innsettingen",
+      "Som forelder til den noden som har den nærmeste nøkkelverdien"
+    ],
+    "explanation": "Løkka følger nøyaktig samme sti som et søk ville fulgt, og henger noden på der stien tar slutt. Ingen eksisterende node flyttes — det er derfor treet ikke rebalanserer seg selv, og derfor formen avhenger helt av innsettingsrekkefølgen."
+  },
+  {
+    "question": "Hvilket utsagn om maks-haug mot binært søketre stemmer?",
+    "options": [
+      "Maksimum koster $\\Theta(1)$ i en maks-haug og $O(h)$ i et søketre",
+      "Minimum koster $\\Theta(1)$ i en maks-haug og $O(h)$ i et søketre",
+      "Begge strukturene gir sortert utskrift i $\\Theta(n)$ tid uten videre arbeid",
+      "Begge strukturene garanterer at høyden holder seg på $\\Theta(\\lg n)$ nivåer"
+    ],
+    "explanation": "En maks-haug har alltid maksimum på `A[1]`, mens søketreet må helt ut til høyre. Minimum er derimot det motsatte: $O(h)$ i søketreet, men $\\Theta(n)$ i haugen, siden det kan ligge i hvilket som helst blad."
+  },
+  {
+    "question": "Et tre har rot 50, venstre barn 30, og 30 har høyre barn 60. Er det et binært søketre?",
+    "options": [
+      "Nei — 60 ligger i rotas venstre deltre, men er større enn 50",
+      "Ja — 30 er mindre enn 50, og 60 er større enn 30, så begge reglene holder",
+      "Ja — søketreegenskapen gjelder bare mellom en node og dens direkte barn",
+      "Nei — treet er ubalansert"
+    ],
+    "explanation": "Egenskapen gjelder hele deltreet: alt til venstre for 50 må være $\\le 50$, og 60 bryter det selv om forholdet mellom 30 og 60 er riktig. Kontrollen er inorder — den ville gitt `30, 60, 50`, som ikke er sortert."
+  },
+  {
+    "question": "Hvilket svarformat forventes på «sett inn disse nøklene og oppgi resultatet»?",
+    "options": [
+      "`Inorder-Tree-Walk`-utskriften, og rotverdien hvis den er spurt om",
+      "En tegning av hele treet med alle nodene og pekerne inntegnet",
+      "Innsettingsrekkefølgen på nytt, som bekreftelse på at alt kom med",
+      "Antall sammenligninger hver innsetting krevde, oppsummert til slutt"
+    ],
+    "explanation": "Sluttilstanden for et søketre leveres som inorder-linja — det er den entydige formen, og den er lett å rette. En tegning gir ikke ekstra uttelling med mindre oppgaven ber om den, og den tar tid nitten andre oppgaver trenger."
+  },
+  {
+    "question": "Hvorfor er søketreoperasjonene oppgitt som $O(h)$ og ikke $\\Theta(h)$?",
+    "options": [
+      "Fordi et søk kan stoppe tidlig, for eksempel med én gang i rota",
+      "Fordi høyden $h$ ikke er kjent på forhånd, og $\\Theta$ krever en kjent grense",
+      "Fordi $O$ alltid brukes om datastrukturer, mens $\\Theta$ brukes om algoritmer",
+      "Fordi operasjonene i praksis er raskere enn høyden skulle tilsi i store trær"
+    ],
+    "explanation": "$\\Theta$ krever at grensen er tett i begge retninger, og her finnes input som er langt billigere enn $h$ — et søk etter rotas nøkkel koster konstant tid. `Inorder-Tree-Walk` er derimot $\\Theta(n)$, nettopp fordi den aldri kan slippe billigere unna."
+  }
+]

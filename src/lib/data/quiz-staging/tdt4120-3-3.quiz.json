@@ -1,0 +1,202 @@
+[
+  {
+    "question": "Du kjører `Build-Max-Heap` på $A[1..5] = \\langle 3,\\ 9,\\ 2,\\ 8,\\ 5 \\rangle$ (indeks fra 1). Hva blir arrayet etterpå?",
+    "options": [
+      "$\\langle 9,\\ 8,\\ 2,\\ 3,\\ 5 \\rangle$",
+      "$\\langle 9,\\ 8,\\ 5,\\ 3,\\ 2 \\rangle$",
+      "$\\langle 9,\\ 5,\\ 2,\\ 8,\\ 3 \\rangle$",
+      "$\\langle 8,\\ 9,\\ 2,\\ 3,\\ 5 \\rangle$"
+    ],
+    "explanation": "Løkka går fra $i = \\lfloor 5/2 \\rfloor = 2$ ned til 1. Ved $i = 2$ er 9 allerede større enn barna 8 og 5, så ingenting skjer. Ved $i = 1$ bytter 3 med det største barnet 9, og den siver videre ned og bytter med 8. Det sorterte svaret er en vanlig felle: en maks-haug er ikke et sortert array, bare et array der hver forelder er størst i sitt eget par."
+  },
+  {
+    "question": "Maks-haugen $A[1..5] = \\langle 9,\\ 8,\\ 2,\\ 3,\\ 5 \\rangle$ har `A.heap-size` $=5$. Hva blir tilstanden etter **én** iterasjon av sorteringsløkka i `Heapsort`?",
+    "options": [
+      "$\\langle 8,\\ 5,\\ 2,\\ 3,\\ 9 \\rangle$ med `A.heap-size` $=4$",
+      "$\\langle 8,\\ 5,\\ 2,\\ 3,\\ 9 \\rangle$ med `A.heap-size` $=5$",
+      "$\\langle 2,\\ 3,\\ 5,\\ 8,\\ 9 \\rangle$ med `A.heap-size` $=0$",
+      "$\\langle 5,\\ 8,\\ 2,\\ 3,\\ 9 \\rangle$ med `A.heap-size` $=4$"
+    ],
+    "explanation": "Iterasjonen bytter $A[1]$ og $A[5]$, krymper haugen til 4 og kaller `Max-Heapify(A, 1)`: 5 siver ned og bytter med 8. Haugstørrelsen er en del av svaret, ikke en detalj — uten den kan ikke sensor se at 9 er lagt utenfor haugen. Det ferdigsorterte arrayet er svaret på hele `Heapsort`, ikke på én iterasjon."
+  },
+  {
+    "question": "Arrayet $A[1..5] = \\langle 4,\\ 9,\\ 7,\\ 1,\\ 3 \\rangle$ er **ikke** en maks-haug, men `A.heap-size` $=5$. Du kjører `Heap-Extract-Max(A)`. Hva blir arrayet og haugstørrelsen?",
+    "options": [
+      "$\\langle 9,\\ 3,\\ 7,\\ 1,\\ 3 \\rangle$ med `A.heap-size` $=4$",
+      "$\\langle 9,\\ 4,\\ 7,\\ 1,\\ 3 \\rangle$ med `A.heap-size` $=4$",
+      "$\\langle 7,\\ 3,\\ 4,\\ 1,\\ 9 \\rangle$ med `A.heap-size` $=4$",
+      "$\\langle 9,\\ 4,\\ 7,\\ 1,\\ 3 \\rangle$ med `A.heap-size` $=5$"
+    ],
+    "explanation": "Algoritmen kjøres mekanisk: $A[1]$ leses av, det siste haugelementet 3 flyttes til rota, haugen krymper til 4, og `Max-Heapify(A, 1)` bytter 3 med det største barnet 9. Å kjøre `Build-Max-Heap` først for å «reparere» inputen er felle #10 — da svarer du på en annen oppgave, og både returverdien og sluttarrayet blir andre."
+  },
+  {
+    "question": "Nøklene $50,\\ 30,\\ 70,\\ 20,\\ 40,\\ 60,\\ 80$ settes inn i den rekkefølgen med `Tree-Insert` i et tomt binært søketre. Hva skriver `Inorder-Tree-Walk` ut?",
+    "options": [
+      "$20,\\ 30,\\ 40,\\ 50,\\ 60,\\ 70,\\ 80$",
+      "$50,\\ 30,\\ 70,\\ 20,\\ 40,\\ 60,\\ 80$",
+      "$50,\\ 30,\\ 20,\\ 40,\\ 70,\\ 60,\\ 80$",
+      "$20,\\ 40,\\ 30,\\ 60,\\ 80,\\ 70,\\ 50$"
+    ],
+    "explanation": "`Inorder-Tree-Walk` besøker venstre deltre, noden selv og så høyre deltre, og resultatet er derfor alltid sortert stigende — uansett hvilken rekkefølge nøklene ble satt inn i. Det er samtidig kontrollen din: kommer tallene ikke stigende, har du satt inn feil vei et sted. Utskriften som gjengir innsettingsrekkefølgen, er preorder, og den bakerste er postorder."
+  },
+  {
+    "question": "Nøklene $8,\\ 3,\\ 10,\\ 1,\\ 6,\\ 14,\\ 4,\\ 7,\\ 13$ settes inn i den rekkefølgen i et tomt søketre. Hvilken nøkkel er forelder til 7?",
+    "options": [
+      "6",
+      "3",
+      "8",
+      "4"
+    ],
+    "explanation": "7 sammenlignes med 8 (går til venstre), så med 3 (går til høyre), så med 6 (går til høyre) — og der er høyre barn ledig, så 7 blir hengt på 6. Nøkkelen 4 ligger som venstre barn av 6 og er dermed søsken til 7, ikke forelder."
+  },
+  {
+    "question": "Hva sier søketreegenskapen?",
+    "options": [
+      "Alt i venstre deltre er mindre enn eller lik noden, og alt i høyre deltre er større enn eller lik den — for hver node",
+      "Venstre barn er mindre enn eller lik noden, og høyre barn er større enn eller lik den — kravet gjelder bare de to barna",
+      "Hver forelder er større enn eller lik begge barna sine, og det finnes ingen orden mellom to søsken i treet",
+      "Nøklene ligger i innsettingsrekkefølge langs stien fra rota, slik at rota alltid er den først innsatte nøkkelen"
+    ],
+    "explanation": "Kravet gjelder hele deltrær, ikke bare de to barna: et tre der hver node bare er ordnet mot sine egne barn, kan bryte egenskapen lenger nede. Beskrivelsen med forelder over begge barn og ingen orden mellom søsken, er haugegenskapen — å blande de to er felle #2 og den dyreste enkeltfeilen i denne drillen."
+  },
+  {
+    "question": "Hva skal svaret inneholde når en oppgave ber om **én** iterasjon av `Heapsort`?",
+    "options": [
+      "Hele arrayet etter iterasjonen, med haugstørrelsen oppgitt i tillegg",
+      "Hele det ferdigsorterte arrayet, siden `Heapsort` alltid kjøres til ende",
+      "Bare det elementet som ble lagt på plass bakerst i arrayet i denne runden",
+      "En tegning av haugen som tre, siden treet er den offisielle representasjonen"
+    ],
+    "explanation": "Det ferdigsorterte elementet ligger igjen bakerst og er en del av svaret, og haugstørrelsen viser hvor grensen mellom haug og sortert hale går. Den vanligste tabben er å kjøre hele sorteringen når bare én iterasjon ble etterspurt — da har du brukt tid på noe som ikke gir uttelling. Treet er et hjelpemiddel underveis, ikke svaret; arrayet er den offisielle representasjonen."
+  },
+  {
+    "question": "Hva skal svaret inneholde når en oppgave ber om tilstanden til en maks-haug etter en operasjon?",
+    "options": [
+      "Hele arrayet, kommaseparert og med indeks fra 1 — pluss haugstørrelsen hvis den er endret",
+      "Bare de indeksene som faktisk ble endret av operasjonen, siden resten er uendret fra før",
+      "En tegning av treet med nøklene i nodene, siden det er slik haugen er ment å leses",
+      "Rotelementet alene, siden det er det eneste haugegenskapen sier noe entydig om"
+    ],
+    "explanation": "Arrayet er den offisielle representasjonen, og et delvis riktig array gir delvis uttelling — et tomt svarfelt gir ingenting. Å bare oppgi de endrede indeksene tvinger sensor til å rekonstruere resten, og et tegnet tre er et arbeidsverktøy underveis, ikke svarformatet."
+  },
+  {
+    "question": "Hva gjør `Tree-Maximum`, og hva koster det?",
+    "options": [
+      "Følger høyre barn så langt det går og returnerer nøkkelen der; $O(h)$ med $h$ som treets høyde",
+      "Følger venstre barn så langt det går og returnerer nøkkelen der; $O(h)$ med $h$ som treets høyde",
+      "Går gjennom alle nodene og holder styr på den største nøkkelen underveis; $\\Theta(n)$",
+      "Leser av rotnoden, siden den største nøkkelen alltid ligger i rota; $\\Theta(1)$"
+    ],
+    "explanation": "Søketreegenskapen garanterer at alt større ligger til høyre, så du trenger aldri se på venstre side. Å lese av rota er haugens regel, ikke søketreets — i et søketre er rota bare den først innsatte nøkkelen. Svaret er også alltid det siste tallet i `Inorder-Tree-Walk`-utskriften."
+  },
+  {
+    "question": "Kan du lese innsettingsrekkefølgen ut av `Inorder-Tree-Walk`-utskriften?",
+    "options": [
+      "Nei — utskriften er alltid sortert, og informasjonen om rekkefølgen er borte når treet først er bygget",
+      "Ja — utskriften gjengir nøklene i den rekkefølgen de ble satt inn, siden hver node henges på som blad",
+      "Ja, men bare når treet er balansert; i et skjevt tre er sammenhengen mellom de to rekkefølgene brutt",
+      "Nei — men rotnoden alene røper hele rekkefølgen, siden hver innsetting flytter rota ett hakk videre"
+    ],
+    "explanation": "Mange ulike innsettingsrekkefølger gir samme sorterte utskrift, så avbildningen kan ikke snus. Rotnoden røper riktignok hvilken nøkkel som kom først — `Tree-Insert` flytter aldri en eksisterende node — men resten av rekkefølgen er tapt. En preorder-utskrift ville derimot bevart nok til å rekonstruere treet."
+  },
+  {
+    "question": "Hva er kjøretiden til `Inorder-Tree-Walk` på et søketre med $n$ noder?",
+    "options": [
+      "$\\Theta(n)$ — hver node besøkes nøyaktig én gang",
+      "$O(h)$ — bare én sti gjennom treet følges",
+      "$\\Theta(n\\lg n)$ — sorteringen av utskriften koster",
+      "$\\Theta(\\lg n)$ — utskriften følger treets høyde"
+    ],
+    "explanation": "Gjennomløpet berører hver node én gang og gjør konstant arbeid per node, uansett hvordan treet er formet. At utskriften kommer sortert, koster ingenting ekstra: sorteringen ligger allerede i treets struktur, den utføres ikke underveis. $O(h)$ er kostnaden for `Tree-Search`, `Tree-Minimum` og `Tree-Maximum`, som følger én sti."
+  },
+  {
+    "question": "Hvor mange kall til `Max-Heapify` gjør selve for-løkka i `Build-Max-Heap` på et array med 9 elementer?",
+    "options": [
+      "4",
+      "9",
+      "5",
+      "8"
+    ],
+    "explanation": "Løkka går fra $i = \\lfloor 9/2 \\rfloor = 4$ og nedover til 1, altså for $i = 4, 3, 2, 1$. Indeksene 5 til 9 er blader og trenger ingen behandling — de er hauger på ett element hver. Rekursive kall inne i `Max-Heapify` kommer i tillegg, men de er ikke løkkas kall."
+  },
+  {
+    "question": "Hvor mange blader har en maks-haug med $n = 9$ elementer, og hvilke indekser har de?",
+    "options": [
+      "5 blader, på indeksene 5 til 9",
+      "4 blader, på indeksene 6 til 9",
+      "5 blader, på indeksene 1 til 5",
+      "3 blader, på indeksene 7 til 9"
+    ],
+    "explanation": "En node har barn nøyaktig når $2i \\le n$, altså for $i \\le \\lfloor 9/2 \\rfloor = 4$ — resten er blader. Det er også grunnen til at `Build-Max-Heap` starter på indeks $\\lfloor n/2 \\rfloor$: alt fra og med $\\lfloor n/2 \\rfloor + 1$ er allerede gyldige hauger på ett element."
+  },
+  {
+    "question": "Er et array som er sortert **synkende**, alltid en gyldig maks-haug?",
+    "options": [
+      "Ja — hver forelder står foran begge barna sine i arrayet og er derfor minst like stor",
+      "Nei — haugegenskapen krever i tillegg at treet er komplett, og et sortert array er ikke det",
+      "Nei — et synkende array bryter kravet om at det ikke skal være orden mellom to søsken",
+      "Ja, men bare når $n$ er en potens av 2, slik at det siste nivået i treet blir helt fullt"
+    ],
+    "explanation": "Forelderen til $i$ ligger på $\\lfloor i/2 \\rfloor < i$, og i et synkende sortert array er alt som står tidligere, større eller likt — så $A[\\lfloor i/2\\rfloor] \\ge A[i]$ holder for hver $i$. Haugegenskapen **forbyr** ikke orden mellom søsken, den bare krever den ikke. Og et array-basert tre er komplett per konstruksjon, uansett hva $n$ er."
+  },
+  {
+    "question": "I en gyldig maks-haug med 7 elementer: hvor kan det nest største elementet ligge?",
+    "options": [
+      "I $A[2]$ eller $A[3]$ — det må være et av rotas to barn",
+      "I $A[2]$ — venstre barn er alltid det nest største i haugen",
+      "Hvor som helst utenom $A[1]$ — haugegenskapen sier ingenting mer",
+      "I $A[6]$ eller $A[7]$ — de største elementene siver ned mot bunnen"
+    ],
+    "explanation": "Alt som ligger under en node, er mindre eller likt den, så det nest største kan ikke ha noen forelder utenom rota — og da må det stå i et av rotas barn. Hvilket av de to som er størst, sier haugegenskapen ingenting om: det finnes ingen orden mellom søsken, og derfor kan svaret ikke snevres inn til $A[2]$."
+  },
+  {
+    "question": "Hva koster det å avgjøre om et gitt array $A[1..n]$ er en gyldig maks-haug?",
+    "options": [
+      "$\\Theta(n)$ — hver indeks sammenlignes med forelderen sin én gang",
+      "$\\Theta(n\\lg n)$ — hver indeks må følges opp hele stien til rota",
+      "$O(\\lg n)$ — det holder å sjekke stien fra rota ned til det dypeste bladet",
+      "$\\Theta(n^2)$ — hvert par av elementer må sammenlignes med hverandre"
+    ],
+    "explanation": "Kontrollen er én sammenligning per indeks fra 2 til $n$: er $A[\\lfloor i/2 \\rfloor] \\ge A[i]$? Å følge hele stien til rota for hver node er unødvendig, fordi transitiviteten allerede er sikret når hvert forelder–barn-par holder. Å sjekke bare én sti finner ikke brudd som ligger i en annen gren."
+  },
+  {
+    "question": "Hva er den avgjørende forskjellen mellom haugegenskapen og søketreegenskapen?",
+    "options": [
+      "Haugen ordner oppover uten orden mellom søsken; søketreet ordner sidelengs gjennom hele deltrær",
+      "Haugen ordner sidelengs gjennom hele deltrær; søketreet ordner oppover uten orden mellom søsken",
+      "Haugen krever et komplett tre, mens søketreet krever at treet er balansert etter hver innsetting",
+      "Haugen lagres alltid i et array, mens søketreet per definisjon aldri kan lagres i et array"
+    ],
+    "explanation": "Haugen sier bare noe om forhold mellom en node og barna dens, og ingenting om venstre mot høyre — derfor er en maks-haug ikke sortert. Søketreet sier tvert imot alt om venstre mot høyre, gjennom hele deltrær, og derfor kommer `Inorder-Tree-Walk` sortert. Å bytte om de to er felle #2."
+  },
+  {
+    "question": "Hvor plasserer `Tree-Insert` en ny nøkkel?",
+    "options": [
+      "Som et nytt blad, funnet ved å følge én sti fra rota; ingen eksisterende node flyttes",
+      "I rota, slik at den sist innsatte nøkkelen alltid ligger øverst i treet",
+      "På den plassen som holder treet balansert, ved å rotere noder underveis ved behov",
+      "I det deltreet som har færrest noder, slik at høyden holdes så lav som mulig"
+    ],
+    "explanation": "Algoritmen sammenligner seg nedover til den treffer en `NIL`-peker og henger noden på der. Ingen rebalansering skjer — det er derfor rekkefølgen nøklene kommer i, avgjør treets form, og derfor rota alltid er den først innsatte nøkkelen."
+  },
+  {
+    "question": "Du setter inn $1, 2, 3, \\ldots, n$ i stigende rekkefølge i et tomt binært søketre. Hva blir høyden, og hva koster den siste innsettingen?",
+    "options": [
+      "Høyde $n-1$, og den siste innsettingen koster $\\Theta(n)$",
+      "Høyde $\\lfloor \\lg n \\rfloor$, og den siste innsettingen koster $\\Theta(\\lg n)$",
+      "Høyde $n-1$, men den siste innsettingen koster likevel bare $\\Theta(\\lg n)$",
+      "Høyde $\\lfloor \\lg n \\rfloor$, fordi `Tree-Insert` balanserer treet underveis"
+    ],
+    "explanation": "Hver ny nøkkel er større enn alt som er satt inn før, så den havner lengst til høyre — treet degenererer til en lenket liste av høyde $n-1$, og siste innsetting følger hele kjeden. $O(h)$-grensene for søketreoperasjoner er derfor bare $O(\\lg n)$ når treet tilfeldigvis er balansert; `Tree-Insert` gjør ingenting for å sikre det."
+  },
+  {
+    "question": "Hva er den vanligste disiplinfeilen i en håndkjøringsoppgave (sjanger C)?",
+    "options": [
+      "Å levere mer enn det oppgaven ba om — for eksempel hele sorteringen når bare ett steg var etterspurt",
+      "Å levere for lite forklaring, siden sensor trenger å se resonnementet bak hvert enkelt bytte",
+      "Å bruke en sporingstavle underveis, siden bare den endelige tilstanden skal stå på arket",
+      "Å tegne haugen som tre før du begynner, siden arrayet er den offisielle representasjonen"
+    ],
+    "explanation": "Sjangeren krever et korrekt resultat i riktig format og ingen forklaring — ekstra arbeid gir ikke uttelling, men koster tid du trenger andre steder. Sporingstavlen og tretegningen er derimot anbefalte arbeidsverktøy: de skal bare ikke være det du leverer."
+  }
+]
