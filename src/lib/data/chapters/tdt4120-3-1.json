@@ -1,0 +1,488 @@
+{
+  "id": "tdt4120-3-1",
+  "courseId": "tdt4120",
+  "chapterNumber": "3.1",
+  "title": "Hauger og Heapsort",
+  "description": "Maks-haugen som array, `Max-Heapify`, `Build-Max-Heap`, `Heap-Extract-Max` og `Heapsort` — inkludert at `Build-Max-Heap` er `Θ(n)`, ikke `Θ(n\\lg n)`.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "kunne regne ut forelder- og barneindeksene i en maks-haug som ligger som array med indeks fra 1, og avgjøre om et gitt array oppfyller haugegenskapen",
+    "kunne håndkjøre siving, bygging, uthenting av maksimum og sortering med haug, og oppgi sluttilstanden som hele arrayet",
+    "kunne begrunne hvorfor det å bygge en maks-haug tar lineær tid og ikke n ganger lg n, ved å telle arbeidet nivå for nivå",
+    "kunne gjengi kjøretidene og egenskapene til haugoperasjonene, inkludert at haugsortering går på stedet og ikke er stabil"
+  ],
+  "content": [
+    {
+      "id": "tdt4120-3-1-tip-1",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Hauger og binære søketrær er den sikreste håndkjøringskandidaten i faget.**\nTemaet er registrert i **16 av de 17 settene i grunnlaget (94 %)**, og\nsorteringstemaet som `Heapsort` hører til, i **17 av de 17 settene (100 %)**.\n\nTemaet testes på to måter, og de krever helt ulike ferdigheter:\n\n- **Sjanger C — håndkjøring**, altså at du utfører algoritmen steg for steg på\n  papir og oppgir **bare sluttilstanden**. Du får et array og et algoritmenavn,\n  og skal levere arrayet etterpå. Ikke en forklaring, ikke en tegning: arrayet.\n- **Sjanger E — kjøretidskunnskap**, altså at du oppgir kjøretiden til en\n  navngitt operasjon i det strammeste uttrykket som er riktig. Her ligger\n  fagets mest brukte felle: at `Build-Max-Heap` skulle være $\\Theta(n\\lg n)$.\n  Den er $\\Theta(n)$, og du får se tellingen som beviser det.\n\n**Høyeste prioritet — dette må sitte.** Eksamen er hjelpemiddelfri, så både\nindeksformlene og kjøretidene må ligge i hodet.\n\n**Tre ting er verdt å merke seg med én gang:**\n\n1. **Arrayet er `A[1..n]`, med rota på indeks 1.** Forelderen til $i$ er\n   $\\lfloor i/2\\rfloor$, og barna er $2i$ og $2i+1$. Dette er konvensjonen\n   CLRS bruker, og den NTNU bruker i oppgavene og løsningsforslagene. Blander\n   du inn en annen indekseringsvane, blir hver eneste indeks feil.\n2. **Haugegenskapen er ikke søketreegenskapen.** En maks-haug ordner\n   opp–ned; et binært søketre ordner venstre–høyre. Forvekslingen er den mest\n   fremhevede datastrukturfeilen i faget, og den koster hele oppgaven.\n3. **Du utfører algoritmen mekanisk, også når inputen er ugyldig.** Ber\n   oppgaven deg kjøre en haugoperasjon på et array som ikke er en gyldig haug,\n   skal du gjøre nøyaktig det algoritmen sier — ikke reparere først.\n\n**Slik er kapitlet lagt opp (55 min):**\n\n| # | Innhold | Tid |\n|---|---|---|\n| 1 | Haugegenskapen og arrayet | ca. 12 min |\n| 2 | `Max-Heapify` — å sive ett element ned | ca. 12 min |\n| 3 | `Build-Max-Heap`, og hvorfor den er lineær | ca. 14 min |\n| 4 | `Heap-Extract-Max` og prioritetskøen | ca. 9 min |\n| 5 | `Heapsort` | ca. 8 min |"
+    },
+    {
+      "id": "tdt4120-3-1-t-forkunn",
+      "type": "text",
+      "content": "## Forkunnskaper\n\n- [kap. 2.1](/tdt4120/tdt4120-2-1) — sammenligningsbaserte sorteringer.\n  `Heapsort` er en av dem, og den måles mot de andre. Dette sto der:\n  `Merge-Sort` er $\\Theta(n\\lg n)$ men bruker ekstra plass, `Insertion-Sort`\n  er $\\Theta(n^2)$ i verste tilfelle, og ingen sortering som bare sammenligner\n  elementer kan gjøre det bedre enn $\\Omega(n\\lg n)$ i verste tilfelle.\n- [kap. 1.1](/tdt4120/tdt4120-1-1) — asymptotisk notasjon. Du trenger\n  forskjellen mellom $O$ (bare øvre grense vist) og $\\Theta$ (tett grense,\n  både øvre og nedre), fordi kapitlet her bruker begge bevisst.\n\nEr logaritmen fersk: [Potenser og logaritmer](/r1/r1-1-2). I hele denne boka\nbetyr $\\lg n$ det samme som $\\log_2 n$, altså «hvor mange ganger må du halvere\n$n$ før du er nede på 1». Det er den samme konvensjonen CLRS bruker.\n\nVil du se sortering konkret i kode først:\n[Sortering: boblesortering, `.sort()` og gitt `sort_list`](/tdt4110/tdt4110-6-1)."
+    },
+    {
+      "id": "tdt4120-3-1-coll-notasjon",
+      "type": "collapsible",
+      "title": "Notasjons- og pseudokodeliste",
+      "buttonText": "Vis notasjon og pseudokode",
+      "content": [
+        {
+          "id": "tdt4120-3-1-nt-1",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et algoritmefag: den lister\nkjøretidsuttrykk og pseudokode-operasjoner i stedet for bare greske\nbokstaver.\n\n| Symbol | Betydning |\n|---|---|\n| $n$ | antall elementer i arrayet |\n| `A[1..n]` | arrayet, med **indeks fra 1**: rota i haugen ligger på `A[1]` |\n| $i$ | en indeks i arrayet |\n| $\\lfloor x \\rfloor$ | nedrunding — heltallsdelen av $x$; $\\lfloor 4{,}5 \\rfloor = 4$ |\n| `A.heap-size` | hvor mange av arrayets elementer som er med i haugen akkurat nå |\n| $h$ | høyden til haugen, altså antall kanter fra rota ned til det dypeste bladet |\n| $\\lg n$ | $\\log_2 n$ — CLRS-konvensjonen, brukt gjennom hele boka |\n| $O(g)$ | øvre grense: det går ikke saktere enn $g$ |\n| $\\Theta(g)$ | tett grense: både øvre og nedre grense er $g$ |"
+        },
+        {
+          "id": "tdt4120-3-1-nt-2",
+          "type": "text",
+          "content": "| Algoritme/operasjon | Kontrakt | Kjøretid |\n|---|---|---|\n| `Parent(i)` | indeksen til forelderen: $\\lfloor i/2\\rfloor$ | $\\Theta(1)$ |\n| `Left(i)` / `Right(i)` | indeksene til barna: $2i$ og $2i+1$ | $\\Theta(1)$ |\n| `Max-Heapify(A, i)` | lar `A[i]` sive ned mot det **største** barnet så lenge et barn er større, forutsatt at begge deltrærne allerede er gyldige maks-hauger | $O(\\lg n)$ |\n| `Build-Max-Heap(A)` | gjør et vilkårlig array om til en maks-haug på stedet ved å kalle `Max-Heapify` nedenfra og opp | $\\Theta(n)$ — **ikke** $\\Theta(n\\lg n)$ |\n| `Heap-Maximum(A)` | leser det største elementet uten å fjerne det; det ligger alltid på `A[1]` | $\\Theta(1)$ |\n| `Heap-Extract-Max(A)` | fjerner og returnerer `A[1]`, flytter siste element til rota, krymper haugen og reparerer med `Max-Heapify` | $O(\\lg n)$ |\n| `Max-Heap-Insert(A, x)` | legger `x` bakerst og lar det stige oppover mot rota | $O(\\lg n)$ |\n| `Heapsort(A)` | bygger en maks-haug og plukker største element bakerst $n-1$ ganger | $\\Theta(n\\lg n)$, på stedet, **ustabil** |\n\n**Formler i dette delkapitlet:**\n\n$$\\text{forelder}(i) = \\lfloor i/2 \\rfloor$$\n\nIndeksen til forelderen. Rota ligger på indeks 1 og har ingen forelder.\n\n$$\\text{venstre}(i) = 2i, \\qquad \\text{høyre}(i) = 2i+1$$\n\nIndeksene til de to barna. Er $2i > n$, er noden et blad; er $2i+1 > n$, har\nden bare venstre barn.\n\n$$h = \\lfloor \\lg n \\rfloor$$\n\nHøyden til en haug med $n$ elementer. Treet er alltid fylt nivå for nivå, så\nhøyden er den lavest mulige — og det er derfor alle stiene opp og ned er\n$O(\\lg n)$.\n\n$$\\sum_{h=0}^{\\lfloor \\lg n\\rfloor} \\left\\lceil \\frac{n}{2^{h+1}} \\right\\rceil \\cdot O(h) = O(n)$$\n\nTellingen bak $\\Theta(n)$ for `Build-Max-Heap`: det er få noder høyt oppe der\narbeidet er stort, og mange noder nederst der arbeidet er null."
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-3-1-t-1",
+      "type": "text",
+      "content": "## Haugegenskapen og arrayet (~12 min)\n\nSe for deg vaktlista på en legevakt. Pasientene står ikke i den rekkefølgen de\nkom; den mest alvorlige skal alltid tas først. Du trenger derfor en struktur\nsom gjør én ting veldig godt: **gi meg den viktigste akkurat nå**, og la meg\nlegge til nye pasienter underveis uten å sortere hele lista på nytt.\n\nEn sortert liste ville løst det, men den er dyr å holde ved like: hver\ninnsetting må skyve resten. En **maks-haug** gir deg det viktigste elementet\numiddelbart, og betaler bare en logaritmisk pris per endring. Prisen er at\nresten av strukturen er nesten usortert — og det er nettopp det som gjør den\nbillig.\n\nDet smarte er at haugen ikke trenger pekere i det hele tatt. Den ER et vanlig\narray. Treet du tegner på papiret finnes bare i hodet ditt; på maskinen ligger\nalt etter hverandre, nivå for nivå."
+    },
+    {
+      "id": "tdt4120-3-1-def-1",
+      "type": "definition",
+      "title": "Haugegenskapen (maks-haug)",
+      "content": "I en maks-haug er **hver forelder større enn eller lik begge barna sine**.\n\nOrdningen går **opp og ned**, aldri sideveis. Det står ingenting om forholdet\nmellom to søsken: venstre barn kan godt være større enn høyre barn, og to\nnoder på samme nivå kan stå i hvilken som helst rekkefølge.\n\nKonsekvensen er at det **største** elementet garantert ligger på rota — og\nbare det. Resten av arrayet er så godt som usortert, og det er meningen: en\nhaug er billig nettopp fordi den lover lite.\n\nFormelt, for hver indeks $i$ som har barn: $A[\\lfloor i/2\\rfloor] \\ge A[i]$."
+    },
+    {
+      "id": "tdt4120-3-1-def-2",
+      "type": "definition",
+      "title": "Array-representasjonen med indeks fra 1",
+      "content": "En maks-haug lagres som et helt vanlig array `A[1..n]`, fylt nivå for nivå\novenfra og ned, og venstre før høyre innenfor hvert nivå. Rota ligger på\n`A[1]`.\n\nDenne boka indekserer **fra 1**, slik CLRS gjør, og slik oppgavene og\nløsningsforslagene i TDT4120 gjør. Det er ikke en smakssak: hele\nindeksregningen under henger på det, og en formel fra en annen\nindekseringsvane gir feil node hver eneste gang.\n\nFordi treet alltid fylles nivå for nivå uten hull, er høyden $\\lfloor \\lg n \\rfloor$ — den lavest mulige for $n$ noder. Alt som koster «én sti opp eller\nned» er derfor $O(\\lg n)$."
+    },
+    {
+      "id": "tdt4120-3-1-def-3",
+      "type": "definition",
+      "title": "Forelder- og barneindeksene",
+      "content": "Fra en indeks $i$ finner du hele familien med tre regnestykker, uten å tegne\nnoe:\n\nforelderen ligger på $\\lfloor i/2\\rfloor$, venstre barn på $2i$ og høyre barn\npå $2i+1$.\n\n**Kanttilfellene er der oppgaver felles.** Indeks 1 er rota og har ingen\nforelder. Er $2i > n$, har noden ingen barn i det hele tatt — den er et blad.\nEr $2i \\le n$ men $2i+1 > n$, har den bare venstre barn, og da skal du bare\nsammenligne med det ene.\n\nAlle tre regnestykkene er $\\Theta(1)$: konstant tid, uansett hvor stor haugen\ner."
+    },
+    {
+      "id": "tdt4120-3-1-def-4",
+      "type": "definition",
+      "title": "Haugstørrelsen `A.heap-size`",
+      "content": "`A.heap-size` er hvor mange av arrayets elementer som teller som en del av\nhaugen akkurat nå. Den er ikke det samme som arrayets lengde.\n\nSkillet finnes fordi to av operasjonene krymper haugen uten å krympe arrayet:\n`Heap-Extract-Max` flytter siste haugelement til rota og setter `A.heap-size`\nned med én, og `Heapsort` legger det største elementet bakerst i arrayet og\ntar det ut av haugen ved å gjøre det samme.\n\nPraktisk konsekvens for håndkjøring: elementene bak `A.heap-size` ligger\nfortsatt i arrayet, men de er **usynlige** for `Max-Heapify`. Oppgaven ber\nsom regel om hele arrayet, og da skal de med — men de skal ikke sammenlignes."
+    },
+    {
+      "id": "tdt4120-3-1-img-1",
+      "type": "image",
+      "src": "/images/textbook/tdt4120/3-1-haug-tre-og-array.svg",
+      "alt": "En maks-haug med ni tall tegnet som et binart tre og som en rad med ni arrayceller under. Treet har 41 pa toppen med indeks 1, deretter 27 og 33 med indeks 2 og 3, deretter 19, 22, 12 og 30 med indeks 4 til 7, og nederst 7 og 15 med indeks 8 og 9. Arrayraden under viser de samme ni tallene i samme rekkefolge med indeksene 1 til 9. Noden med indeks 4 er markert i rodt, og forelderen med indeks 2 og barna med indeks 8 og 9 er markert i gronn. Mellom treet og arrayet star regnestykkene for forelderindeksen og de to barneindeksene til indeks 4.",
+      "caption": "Haugen fra Eksempel 1, tegnet både som tre og som array. Den røde noden er $i=4$; de grønne er familien du finner med $\\lfloor i/2\\rfloor$, $2i$ og $2i+1$. Legg merke til at $A[4]=19$ er mindre enn søskenet $A[5]=22$ — det er helt lov, for haugen ordner bare opp og ned."
+    },
+    {
+      "id": "tdt4120-3-1-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Familien til hver indeks",
+      "problem": "Arrayet `A = 41, 27, 33, 19, 22, 12, 30, 7, 15` er oppgitt med indeks fra 1.\n\n**a)** Er det en gyldig maks-haug?\n\n**b)** Sett opp forelderen og de to barna for hver indeks, og oppgi hvilke\nindekser som er blader.",
+      "solution": "**a) Ja.** Kontrollen er mekanisk: for hver indeks $i$ med barn, sjekk at\n$A[i]$ er større enn eller lik begge barna.\n\n$A[1]=41 \\ge 27, 33$. $A[2]=27 \\ge 19, 22$. $A[3]=33 \\ge 12, 30$.\n$A[4]=19 \\ge 7, 15$. Indeksene 5 til 9 har ingen barn, siden $2 \\cdot 5 = 10 > 9$. Ingen brudd, altså gyldig.\n\n**b)** Med $\\lfloor i/2\\rfloor$, $2i$ og $2i+1$:\n\n| $i$ | `A[i]` | forelder $\\lfloor i/2\\rfloor$ | venstre $2i$ | høyre $2i+1$ |\n|---|---|---|---|---|\n| 1 | 41 | ingen (rot) | `A[2] = 27` | `A[3] = 33` |\n| 2 | 27 | `A[1] = 41` | `A[4] = 19` | `A[5] = 22` |\n| 3 | 33 | `A[1] = 41` | `A[6] = 12` | `A[7] = 30` |\n| 4 | 19 | `A[2] = 27` | `A[8] = 7` | `A[9] = 15` |\n| 5 | 22 | `A[2] = 27` | ingen | ingen |\n| 6 | 12 | `A[3] = 33` | ingen | ingen |\n| 7 | 30 | `A[3] = 33` | ingen | ingen |\n| 8 | 7 | `A[4] = 19` | ingen | ingen |\n| 9 | 15 | `A[4] = 19` | ingen | ingen |\n\nBladene er indeksene **5, 6, 7, 8 og 9** — alle $i$ med $2i > 9$, altså alle\n$i > \\lfloor 9/2 \\rfloor = 4$.\n\nTegnet som tre ser den samme haugen slik ut:\n\n```text\n                               41\n                               (1)\n               27                              33\n               (2)                             (3)\n       19              22              12              30\n       (4)             (5)             (6)             (7)\n    7      15\n   (8)     (9)\n```\n\n**Legg merke til to ting som ofte forvirrer.** `A[4] = 19` er mindre enn\nsøskenet `A[5] = 22`, og `A[7] = 30` er større enn `A[2] = 27` som ligger et\nnivå høyere. Begge deler er helt greit: haugegenskapen sier bare noe om\nforelder mot barn, ikke noe om søsken og ikke noe om noder i ulike grener."
+    },
+    {
+      "id": "tdt4120-3-1-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-3-1-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger D — definisjon med egne ord, og E — indeksregning.)\n\nBruk haugen `A = 41, 27, 33, 19, 22, 12, 30, 7, 15` fra Eksempel 1.\n\n**a)** Hvilken indeks ligger forelderen til `A[7]` på, og hvilken verdi står\nder?\n\n**b)** Har `A[3]` to barn, ett barn eller ingen barn? Begrunn med\nindeksregning.\n\n**c)** Forklar med én setning hvorfor `A[5] = 22` godt kan være større enn\n`A[4] = 19` uten at haugegenskapen er brutt.",
+        "solution": "**a)** Forelderen til indeks 7 ligger på $\\lfloor 7/2 \\rfloor = 3$, altså\n`A[3] = 33`.\n\n**b)** To barn. Venstre barn er indeks $2 \\cdot 3 = 6$ og høyre barn er\nindeks $2 \\cdot 3 + 1 = 7$. Begge er mindre enn eller lik $n = 9$, så begge\nfinnes.\n\n**c)** Haugegenskapen ordner bare forelder mot barn — den sier ingenting om\nrekkefølgen mellom to søsken, og `A[4]` og `A[5]` er søsken.",
+        "hints": [
+          "Forelderindeksen er $\\lfloor i/2\\rfloor$, altså heltallsdelen av $i/2$.",
+          "Et barn finnes bare hvis indeksen er mindre enn eller lik $n$.",
+          "Tenk gjennom hvilken retning haugegenskapen ordner i: opp–ned eller sideveis?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-3-1-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-3-1-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger F — «stemmer dette?», altså ja/nei først og så én presis setning.)\n\nAvgjør for hvert array om det er en gyldig maks-haug med indeks fra 1. Svar\nja eller nei, og oppgi det første bruddet du finner.\n\n**a)** `48, 35, 40, 12, 30, 21, 9`\n**b)** `48, 35, 40, 12, 30, 44, 9`\n**c)** `9, 12, 21, 30, 35, 40, 48`\n**d)** `50, 50, 22, 18, 50, 7`",
+        "solution": "**a) Ja.** Alle foreldre er større enn eller lik begge barna: $48 \\ge 35, 40$;\n$35 \\ge 12, 30$; $40 \\ge 21, 9$.\n\n**b) Nei.** Bruddet er `A[3]=40 < A[6]=44`. Indeks 6 er venstre barn av indeks\n3, fordi $2 \\cdot 3 = 6$.\n\n**c) Nei.** Første brudd er `A[1]=9 < A[2]=12`. Et stigende sortert array med\ndistinkte verdier er aldri en maks-haug for $n \\ge 2$ — rota er da det minste\nelementet, ikke det største.\n\n**d) Ja.** Like verdier er ingen hindring, for haugegenskapen krever «større\nenn **eller lik**». $50 \\ge 50, 22$; $50 \\ge 18, 50$; $22 \\ge 7$.\n\n**Merk hva oppgaven ber om:** ja eller nei og ett brudd — ikke en reparasjon\nav arrayene.",
+        "hints": [
+          "Gå gjennom $i$ fra 1 til $\\lfloor n/2\\rfloor$; bare de indeksene har barn.",
+          "For hver $i$: sammenlign `A[i]` med `A[2i]` og med `A[2i+1]` hvis de finnes.",
+          "Husk at haugegenskapen bruker «større enn eller lik», ikke «strengt større enn»."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-3-1-t-2",
+      "type": "text",
+      "content": "## `Max-Heapify` — å sive ett element ned (~12 min)\n\nAlle haugoperasjonene bygger på én eneste reparasjonsrutine. Situasjonen den\ntakler er alltid den samme: **ett** element står på feil plass, og alt under\ndet er i orden.\n\nDet er en veldig spesifikk kontrakt, og den er verdt å lese to ganger.\n`Max-Heapify(A, i)` forutsetter at de to deltrærne under `A[i]` allerede er\ngyldige maks-hauger. Bare `A[i]` selv kan være for liten. Rutinen lar da det\nelementet synke nedover langs én sti til det finner plassen sin.\n\nRetningen er hele poenget: elementet bytter med det **største** av de to\nbarna. Bytter du med det minste, lager du et nytt brudd rett under deg — og\nda har du ikke reparert noe, bare flyttet feilen."
+    },
+    {
+      "id": "tdt4120-3-1-th-1",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `Max-Heapify`",
+      "content": "**Antagelser om representasjon.** Arrayet er `A[1..n]`, indeks fra 1.\n`A.heap-size` sier hvor mange elementer som er med i haugen. Divisjonen\n`floor(i/2)` er heltallsdivisjon.\n\n**Prebetingelse:** deltrærne med rot i `2i` og `2i+1` er begge gyldige\nmaks-hauger; bare `A[i]` kan bryte haugegenskapen.\n**Postbetingelse:** deltreet med rot i `i` er en gyldig maks-haug, og det\ninneholder nøyaktig de samme elementene som før.\n\n```text\nMax-Heapify(A, i)\n  Input:  array A[1..n], indeks i der begge deltrarne allerede er maks-hauger\n  Output: deltreet med rot i i er en gyldig maks-haug\n  l = 2*i\n  r = 2*i + 1\n  storst = i\n  if l <= A.heap-size and A[l] > A[storst]\n      storst = l\n  if r <= A.heap-size and A[r] > A[storst]\n      storst = r\n  if storst != i\n      bytt A[i] og A[storst]\n      Max-Heapify(A, storst)\n  Kjoeretid: O(lg n)\n```\n\n**Grunnideen i én setning:** når det største av de tre elementene `A[i]`,\n`A[2i]` og `A[2i+1]` er løftet opp til `i`, kan det eneste gjenværende\nbruddet ligge i deltreet vi nettopp byttet med — og der løser det samme\nkallet problemet på nytt, ett nivå lenger ned.\n\n**Legg merke til `l <= A.heap-size` som første ledd i begge testene.** Uten\nden ville rutinen lese utenfor haugen. Rekkefølgen er ikke likegyldig:\ngrensesjekken må stå først, slik at sammenligningen aldri utføres på en\nindeks som ikke finnes.\n\n**Kjøretid:** $O(\\lg n)$, der $n$ er antall elementer i haugen. Elementet\nflytter seg høyst ett nivå per bytte, og treet har $\\lfloor \\lg n\\rfloor$\nnivåer — én sti nedover, ingen forgrening. Kontrollert numerisk: over 20 000\ntilfeldige hauger gjorde ingen kjøring flere enn $\\lfloor \\lg n\\rfloor$\nbytter."
+    },
+    {
+      "id": "tdt4120-3-1-img-2",
+      "type": "image",
+      "src": "/images/textbook/tdt4120/3-1-max-heapify-siving.svg",
+      "alt": "To binare traer ved siden av hverandre. Til venstre, merket For, star 16 pa toppen med barna 38 og 29, og 38 har barna 31 og 20 mens 29 har barna 11 og 9. Stien fra 16 via 38 til 31 er tegnet med rode stiplede linjer. Til hoyre, merket Etter, star 38 pa toppen med barna 31 og 29, og 31 har barna 16 og 20. Under traerne ligger de to arrayene: 16, 38, 29, 31, 20, 11, 9 for og 38, 31, 29, 16, 20, 11, 9 etter, begge med indeksene 1 til 7.",
+      "caption": "Sivingen i Eksempel 2. Elementet 16 bytter først med 38 og så med 31 — alltid med det største barnet. Etter to bytter står det på indeks 4, som ikke har barn, og stien stopper."
+    },
+    {
+      "id": "tdt4120-3-1-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Én `Max-Heapify`",
+      "problem": "Utfør `Max-Heapify(A, 1)` på arrayet `A = 16, 38, 29, 31, 20, 11, 9`\n(indeks fra 1, `A.heap-size` = 7). Oppgi arrayet etterpå.",
+      "solution": "Start: `16, 38, 29, 31, 20, 11, 9` med $n = 7$. Gyldig maks-haug: **nei** — men\nprebetingelsen er oppfylt, for begge deltrærne under rota er i orden. Bare\n`A[1]` bryter.\n\n| Steg | Kall | Sammenligning | Array etter steget | Handling |\n|---|---|---|---|---|\n| 1 | `Max-Heapify(A, 1)` | `A[1]=16` mot venstre barn `A[2]=38`, mot høyre barn `A[3]=29` | `38, 16, 29, 31, 20, 11, 9` | bytt `A[1]` og `A[2]` |\n| 2 | `Max-Heapify(A, 2)` | `A[2]=16` mot venstre barn `A[4]=31`, mot høyre barn `A[5]=20` | `38, 31, 29, 16, 20, 11, 9` | bytt `A[2]` og `A[4]` |\n| 3 | `Max-Heapify(A, 4)` | indeks 4 har ingen barn (`2*4 = 8 > 7`) | `38, 31, 29, 16, 20, 11, 9` | stopp |\n\nPå eksamen leverer du bare linja under — tavlen er her for å vise hvordan du\nkommer dit.\n\n**`38, 31, 29, 16, 20, 11, 9`**\n\n**Steg 1 er hele poenget.** Elementet 16 har barna 38 og 29. Hadde vi byttet\nmed **høyre** barn 29, ville arrayet blitt `29, 38, 16, 31, 20, 11, 9`, og der\ner $29 < 38$ — altså et nytt brudd i rota. `Max-Heapify` bytter **alltid** med\ndet største barnet, nettopp for å unngå det.\n\n**Steg 3 er sjekken oppgaven egentlig tester.** Etter det andre byttet står 16\npå indeks 4. Venstre barn ville vært indeks $2 \\cdot 4 = 8$, men haugen har\nbare sju elementer. Indeks 8 finnes ikke, og rutinen stopper. Uten\ngrensesjekken ville algoritmen lest utenfor arrayet.\n\n**Kontroll som tar ti sekunder:** haugen hadde sju elementer og har fortsatt\nsju, alle de opprinnelige tallene er med, ingen er duplisert, og hver forelder\ner nå større enn eller lik begge barna."
+    },
+    {
+      "id": "tdt4120-3-1-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-3-1-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C — håndkjøring.)\n\nUtfør `Max-Heapify(A, 1)` på arrayet `A = 10, 33, 27, 12, 25, 6, 21` (indeks\nfra 1, `A.heap-size` = 7).\n\nOppgi arrayet etterpå. Oppgaven ber om output, ikke om en forklaring av\nalgoritmen.",
+        "solution": "Start: `10, 33, 27, 12, 25, 6, 21` med $n = 7$. Begge deltrærne under rota er\ngyldige maks-hauger, så prebetingelsen holder.\n\n| Steg | Kall | Sammenligning | Array etter steget | Handling |\n|---|---|---|---|---|\n| 1 | `Max-Heapify(A, 1)` | `A[1]=10` mot venstre barn `A[2]=33`, mot høyre barn `A[3]=27` | `33, 10, 27, 12, 25, 6, 21` | bytt `A[1]` og `A[2]` |\n| 2 | `Max-Heapify(A, 2)` | `A[2]=10` mot venstre barn `A[4]=12`, mot høyre barn `A[5]=25` | `33, 25, 27, 12, 10, 6, 21` | bytt `A[2]` og `A[5]` |\n| 3 | `Max-Heapify(A, 5)` | indeks 5 har ingen barn (`2*5 = 10 > 7`) | `33, 25, 27, 12, 10, 6, 21` | stopp |\n\nPå eksamen leverer du bare linja under — tavlen er her for å vise hvordan du\nkommer dit.\n\n**`33, 25, 27, 12, 10, 6, 21`**\n\n**Steg 2 er der de fleste bommer.** Elementet 10 har barna 12 og 25. Det\nstørste er 25, som står som **høyre** barn. `Max-Heapify` bryr seg ikke om\nhvilken side barnet står på, bare om verdien. Hadde du byttet med 12 fordi det\nstår først, ville resultatet blitt `33, 12, 27, 10, 25, 6, 21`, og der er\n$12 < 25$.\n\nFellenoten: fellen her er **#2** — å blande haugegenskapen med søketreets\nvenstre-før-høyre-ordning. En haug har ingen sideveis orden, så «venstre\nførst» er ikke en regel her.",
+        "hints": [
+          "Skriv opp begge barneindeksene før du sammenligner: $2i$ og $2i+1$.",
+          "Elementet bytter med det største barnet, uansett hvilken side det står på.",
+          "Stopp når indeksen du står på ikke har noen barn, altså når $2i > n$."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-3-1-warn-1",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "De to første koster hele oppgaven, og begge sitter i sivingen.\n\n- **Å sive mot feil barn.** `Max-Heapify` går mot det **største** barnet, ikke\n  mot venstre barn og ikke mot det minste. Bytter du med det minste, lager du\n  et nytt brudd rett under deg. Kontrollen: gikk du noen gang forbi et barn\n  som var større enn det du byttet med?\n- **Å forveksle haugegenskapen med søketreegenskapen.** Dette er felle **#2** —\n  å blande de to strukturene. En maks-haug ordner **opp–ned**: forelder $\\ge$\n  begge barn, og ingenting er sagt om venstre mot høyre. Et binært søketre\n  ordner **venstre–høyre**. I en haug kan venstre barn godt være større enn\n  høyre barn, og arrayet er ikke sortert.\n- **Å reparere en ugyldig haug før du kjører operasjonen.** Dette er felle\n  **#10** — å «hjelpe» algoritmen i gang. Ber oppgaven deg kjøre\n  `Heap-Extract-Max` på et array som ikke er en gyldig maks-haug, skal du\n  utføre trinnene mekanisk, akkurat slik pseudokoden sier. Du får da et annet\n  svar enn om du hadde reparert først, og det er det svaret oppgaven vil ha.\n- **Å påstå at `Build-Max-Heap` er $\\Theta(n\\lg n)$.** Dette er felle **#9** —\n  å oppgi feil kjøretidsfakta. Den er $\\Theta(n)$, og du får se tellingen i\n  neste avsnitt. Det er selve `Heapsort` som er $\\Theta(n\\lg n)$, fordi de\n  $n-1$ uthentingene etterpå koster $O(\\lg n)$ hver.\n- **Å bruke indeksformler fra en annen indekseringsvane.** Denne boka bruker\n  $\\lfloor i/2\\rfloor$, $2i$ og $2i+1$ med rot på indeks 1. Kontroll: rota skal\n  ikke ha noen forelder, og `A[1]` skal være det største elementet i en gyldig\n  maks-haug.\n- **Å levere treet i stedet for arrayet.** Svarformatet for en\n  haug-håndkjøring er **hele arrayet**, kommaseparert, med indeks fra 1. En\n  pent tegnet trefigur uten arrayet under gir ikke full uttelling.\n\nOg den gjennomgående: **å bruke $n$ uten å si hva det er**. Skriv i samme\nsetning at $n$ er antall elementer i haugen."
+    },
+    {
+      "id": "tdt4120-3-1-t-3",
+      "type": "text",
+      "content": "## `Build-Max-Heap`, og hvorfor den er lineær (~14 min)\n\nNå har vi en rutine som reparerer ett brudd. Spørsmålet er hvordan man gjør et\nhelt vilkårlig array om til en maks-haug.\n\nSvaret er å kalle `Max-Heapify` **nedenfra og opp**. Retningen er\nnødvendig: `Max-Heapify(A, i)` forutsetter at deltrærne under $i$ allerede er\ni orden, og den forutsetningen er bare oppfylt hvis du har behandlet alle\nindekser større enn $i$ først.\n\nOg du kan hoppe over den nederste halvparten helt. Alle indekser $i > \\lfloor n/2 \\rfloor$ har $2i > n$, altså ingen barn. En node uten barn er per\ndefinisjon allerede en gyldig maks-haug med ett element. Derfor starter løkka\npå $\\lfloor n/2 \\rfloor$ og teller nedover til 1."
+    },
+    {
+      "id": "tdt4120-3-1-th-2",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `Build-Max-Heap`",
+      "content": "**Antagelser om representasjon.** Arrayet er `A[1..n]`, indeks fra 1, med\nvilkårlig innhold. `A.length` er $n$.\n\n**Prebetingelse:** ingen — arrayet kan være i hvilken som helst tilstand.\n**Postbetingelse:** hele `A[1..n]` oppfyller haugegenskapen, og inneholder\nnøyaktig de samme elementene som før. Omorganiseringen skjer **på stedet**,\naltså uten et hjelpearray.\n\n```text\nBuild-Max-Heap(A)\n  Input:  vilkaarlig array A[1..n]\n  Output: A omorganisert til en maks-haug, paa stedet\n  A.heap-size = A.length\n  for i = floor(A.length / 2) downto 1\n      Max-Heapify(A, i)\n  Kjoeretid: Theta(n)\n```\n\n**Invarianten i én setning:** ved starten av hver runde er hver node med\nindeks større enn $i$ rota i en gyldig maks-haug — så når løkka når $i = 1$,\ner hele arrayet en maks-haug.\n\n**Hvorfor løkka teller nedover:** `Max-Heapify(A, i)` krever at deltrærne\nunder $i$ allerede er i orden. Teller du oppover, er den forutsetningen brutt\nfra første kall, og resultatet blir en haug som ser riktig ut på toppen og er\nødelagt lenger nede.\n\n**Kjøretid:** $\\Theta(n)$. Den løse tellingen «$n/2$ kall à $O(\\lg n)$» gir\n$O(n\\lg n)$, og den er riktig som øvre grense — men den er ikke stram. Den\nstramme analysen står i neste avsnitt, og forskjellen er et fast eksamenspoeng."
+    },
+    {
+      "id": "tdt4120-3-1-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: `Build-Max-Heap` på ti tall",
+      "problem": "En vaktliste registrerer ti hastegrader i den rekkefølgen pasientene meldte\nseg: `A = 4, 19, 7, 23, 11, 30, 6, 15, 28, 9` (indeks fra 1).\n\nKjør `Build-Max-Heap(A)` og oppgi arrayet etterpå.",
+      "solution": "Start: `4, 19, 7, 23, 11, 30, 6, 15, 28, 9` med $n = 10$. Gyldig maks-haug:\nnei.\n\nLøkka starter på $i = \\lfloor 10/2 \\rfloor = 5$ og teller ned til 1.\nIndeksene 6 til 10 er blader og trenger ingen behandling.\n\n| Steg | Kall | Sammenligning | Array etter steget | Handling |\n|---|---|---|---|---|\n| 1 | `Max-Heapify(A, 5)` | `A[5]=11` mot venstre barn `A[10]=9` | `4, 19, 7, 23, 11, 30, 6, 15, 28, 9` | ingen bytte, stopp |\n| 2 | `Max-Heapify(A, 4)` | `A[4]=23` mot venstre barn `A[8]=15`, mot høyre barn `A[9]=28` | `4, 19, 7, 28, 11, 30, 6, 15, 23, 9` | bytt `A[4]` og `A[9]` |\n| 3 | `Max-Heapify(A, 9)` | indeks 9 har ingen barn (`2*9 = 18 > 10`) | `4, 19, 7, 28, 11, 30, 6, 15, 23, 9` | stopp |\n| 4 | `Max-Heapify(A, 3)` | `A[3]=7` mot venstre barn `A[6]=30`, mot høyre barn `A[7]=6` | `4, 19, 30, 28, 11, 7, 6, 15, 23, 9` | bytt `A[3]` og `A[6]` |\n| 5 | `Max-Heapify(A, 6)` | indeks 6 har ingen barn (`2*6 = 12 > 10`) | `4, 19, 30, 28, 11, 7, 6, 15, 23, 9` | stopp |\n| 6 | `Max-Heapify(A, 2)` | `A[2]=19` mot venstre barn `A[4]=28`, mot høyre barn `A[5]=11` | `4, 28, 30, 19, 11, 7, 6, 15, 23, 9` | bytt `A[2]` og `A[4]` |\n| 7 | `Max-Heapify(A, 4)` | `A[4]=19` mot venstre barn `A[8]=15`, mot høyre barn `A[9]=23` | `4, 28, 30, 23, 11, 7, 6, 15, 19, 9` | bytt `A[4]` og `A[9]` |\n| 8 | `Max-Heapify(A, 9)` | indeks 9 har ingen barn (`2*9 = 18 > 10`) | `4, 28, 30, 23, 11, 7, 6, 15, 19, 9` | stopp |\n| 9 | `Max-Heapify(A, 1)` | `A[1]=4` mot venstre barn `A[2]=28`, mot høyre barn `A[3]=30` | `30, 28, 4, 23, 11, 7, 6, 15, 19, 9` | bytt `A[1]` og `A[3]` |\n| 10 | `Max-Heapify(A, 3)` | `A[3]=4` mot venstre barn `A[6]=7`, mot høyre barn `A[7]=6` | `30, 28, 7, 23, 11, 4, 6, 15, 19, 9` | bytt `A[3]` og `A[6]` |\n| 11 | `Max-Heapify(A, 6)` | indeks 6 har ingen barn (`2*6 = 12 > 10`) | `30, 28, 7, 23, 11, 4, 6, 15, 19, 9` | stopp |\n\nPå eksamen leverer du bare linja under — tavlen er her for å vise hvordan du\nkommer dit.\n\n**`30, 28, 7, 23, 11, 4, 6, 15, 19, 9`**\n\nTegnet som tre:\n\n```text\n                               30\n                               (1)\n               28                               7\n               (2)                             (3)\n       23              11               4               6\n       (4)             (5)             (6)             (7)\n   15      19       9\n   (8)     (9)    (10)\n\n```\n\n**Tell byttene.** Elleve rader i tavlen, men bare fem av dem er faktiske\nbytter: steg 2, 4, 6, 7, 9 og 10 — seks bytter. Med $n = 10$ er $n\\lg n \\approx 33$. Seks er ikke i nærheten, og det er ingen tilfeldighet: se neste\navsnitt.\n\n**Legg merke til at det første kallet ikke gjorde noe.** `Max-Heapify(A, 5)`\nfant at $11 \\ge 9$ og stoppet umiddelbart. Det er typisk: nodene nederst har\nlite arbeid å gjøre, og det er dem det er flest av."
+    },
+    {
+      "id": "tdt4120-3-1-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-3-1-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C — håndkjøring.)\n\nKjør `Build-Max-Heap(A)` på arrayet `A = 7, 3, 22, 14, 9, 30, 5, 12` (indeks\nfra 1).\n\n**a)** Hvilken indeks starter løkka på, og hvorfor?\n\n**b)** Oppgi arrayet etter at hele `Build-Max-Heap` er utført.",
+        "solution": "**a)** På $i = \\lfloor 8/2 \\rfloor = 4$. Indeksene 5 til 8 har alle\n$2i > 8$, altså ingen barn, og en node uten barn er allerede en gyldig\nmaks-haug.\n\n**b)** Sporingen:\n\n| Steg | Kall | Sammenligning | Array etter steget | Handling |\n|---|---|---|---|---|\n| 1 | `Max-Heapify(A, 4)` | `A[4]=14` mot venstre barn `A[8]=12` | `7, 3, 22, 14, 9, 30, 5, 12` | ingen bytte, stopp |\n| 2 | `Max-Heapify(A, 3)` | `A[3]=22` mot venstre barn `A[6]=30`, mot høyre barn `A[7]=5` | `7, 3, 30, 14, 9, 22, 5, 12` | bytt `A[3]` og `A[6]` |\n| 3 | `Max-Heapify(A, 6)` | indeks 6 har ingen barn (`2*6 = 12 > 8`) | `7, 3, 30, 14, 9, 22, 5, 12` | stopp |\n| 4 | `Max-Heapify(A, 2)` | `A[2]=3` mot venstre barn `A[4]=14`, mot høyre barn `A[5]=9` | `7, 14, 30, 3, 9, 22, 5, 12` | bytt `A[2]` og `A[4]` |\n| 5 | `Max-Heapify(A, 4)` | `A[4]=3` mot venstre barn `A[8]=12` | `7, 14, 30, 12, 9, 22, 5, 3` | bytt `A[4]` og `A[8]` |\n| 6 | `Max-Heapify(A, 8)` | indeks 8 har ingen barn (`2*8 = 16 > 8`) | `7, 14, 30, 12, 9, 22, 5, 3` | stopp |\n| 7 | `Max-Heapify(A, 1)` | `A[1]=7` mot venstre barn `A[2]=14`, mot høyre barn `A[3]=30` | `30, 14, 7, 12, 9, 22, 5, 3` | bytt `A[1]` og `A[3]` |\n| 8 | `Max-Heapify(A, 3)` | `A[3]=7` mot venstre barn `A[6]=22`, mot høyre barn `A[7]=5` | `30, 14, 22, 12, 9, 7, 5, 3` | bytt `A[3]` og `A[6]` |\n| 9 | `Max-Heapify(A, 6)` | indeks 6 har ingen barn (`2*6 = 12 > 8`) | `30, 14, 22, 12, 9, 7, 5, 3` | stopp |\n\nPå eksamen leverer du bare linja under — tavlen er her for å vise hvordan du\nkommer dit.\n\n**`30, 14, 22, 12, 9, 7, 5, 3`**\n\n**Kontroll:** åtte elementer inn, åtte ut, ingen tapt og ingen duplisert. Rota\ner 30, som er det største tallet i inputen. Hver forelder er større enn eller\nlik begge barna.\n\nFellenoten: fellen her er **#10** — å reparere før du kjører. Løkka skal\nutføres nøyaktig som pseudokoden sier, fra $\\lfloor n/2\\rfloor$ og nedover,\nogså når du «ser» hva svaret burde bli.",
+        "hints": [
+          "Løkka starter på $\\lfloor n/2\\rfloor$ og teller nedover til 1.",
+          "Behandle én indeks helt ferdig — inkludert videre siving nedover — før du går til neste.",
+          "Etter hvert kall: sjekk at deltreet du nettopp var i, faktisk oppfyller haugegenskapen."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-3-1-th-3",
+      "type": "theorem",
+      "title": "`Build-Max-Heap` er $\\Theta(n)$ — med tellingen",
+      "content": "En kjøretidspåstand uten telling er verre enn ingen påstand, så her er\ntellingen.\n\n**Steg 1 — hvor mange noder har en gitt høyde?** I et tre som fylles nivå for\nnivå har høyst $\\lceil n/2^{h+1} \\rceil$ noder høyde $h$, der høyden til en\nnode er antall kanter ned til det dypeste bladet under den. Bladene har\nhøyde 0, foreldrene deres høyde 1, og så videre.\n\n*Intuisjon:* omtrent halvparten av alle noder er blader, en firedel ligger ett\nnivå over, en åttedel to nivåer over. Antallet halveres for hvert nivå du går\noppover.\n\n**Steg 2 — hvor mye arbeid gjør `Max-Heapify` fra en node med høyde $h$?**\nHøyst $h$ bytter, for elementet kan ikke synke lenger enn til bunnen av sitt\neget deltre. Kostnaden er altså $O(h)$.\n\n*Intuisjon:* arbeidet vokser med **én** per nivå oppover, mens antallet noder\n**halveres**. Halvering slår en økning på én.\n\n**Steg 3 — gang sammen og summer:**\n\n$$\\sum_{h=0}^{\\lfloor \\lg n\\rfloor} \\left\\lceil \\frac{n}{2^{h+1}} \\right\\rceil \\cdot O(h) = O\\!\\left(n \\sum_{h=0}^{\\infty} \\frac{h}{2^{h}}\\right) = O(2n) = O(n)$$\n\n*Intuisjon:* summen $\\sum h/2^h$ konvergerer mot 2 — den blir ikke større\nuansett hvor mange ledd du tar med. Derfor er totalarbeidet under $2n$, ikke\n$n\\lg n$.\n\n**Tellingen for tre konkrete størrelser** (regnet ut med formelen over):\n\n| $n$ | høyde | sum av arbeidet | $2n$ | $n\\lg n$ | sum$/n$ |\n|---|---|---|---|---|---|\n| 15 | 3 | 11 | 30 | 58 | 0,73 |\n| 31 | 4 | 26 | 62 | 153 | 0,84 |\n| 63 | 5 | 57 | 126 | 376 | 0,91 |\n| 127 | 6 | 120 | 254 | 887 | 0,95 |\n| 1 000 | 9 | 998 | 2 000 | 9 965 | 1,00 |\n| 1 000 000 | 19 | 1 000 069 | 2 000 000 | 19 931 568 | 1,00 |\n\nForholdet sum$/n$ kryper mot 1 og stopper der. Det gjør ikke $n\\lg n/n = \\lg n$, som vokser uten grense. Det er hele forskjellen.\n\n**Og nedre grense:** hver av de $n$ elementene må i det minste leses, så\narbeidet er også $\\Omega(n)$. Øvre og nedre grense møtes, og derfor skriver vi\n$\\Theta(n)$ — ikke bare $O(n)$.\n\n**Avgrensningen, som er like viktig:** `Heapsort` er likevel $\\Theta(n\\lg n)$.\nIkke fordi byggingen koster det, men fordi de $n-1$ uthentingene etterpå\nkoster $O(\\lg n)$ hver. Det er blandingen av de to fasene som skaper felle\n**#9**."
+    },
+    {
+      "id": "tdt4120-3-1-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-3-1-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger E — kjøretid.)\n\n**a)** Hva er kjøretiden til `Build-Max-Heap` på et array med $n$ elementer?\nOppgi det strammeste riktige uttrykket.\n\n**b)** Den løse analysen sier: «$n/2$ kall til `Max-Heapify`, hver\n$O(\\lg n)$, altså $O(n\\lg n)$». Forklar med to setninger hvorfor denne\ngrensen er riktig, men ikke stram.\n\n**c)** Hva er kjøretiden til `Heapsort`, og hvorfor er den ikke den samme som\ntil `Build-Max-Heap`?",
+        "solution": "**a)** $\\Theta(n)$.\n\n**b)** Grensen er riktig fordi ingen enkelt `Max-Heapify` koster mer enn\n$O(\\lg n)$, så summen kan ikke overstige $O(n\\lg n)$. Den er ikke stram fordi\nden later som om **alle** kallene koster maksimalt, mens sannheten er at\nhalvparten av nodene er blader med null arbeid og bare de få nodene nær rota\nhar full høyde å sive gjennom — summerer du nivå for nivå, ender du under\n$2n$.\n\n**c)** `Heapsort` er $\\Theta(n\\lg n)$. Byggingen koster $\\Theta(n)$, men\netterpå gjør algoritmen $n-1$ uthentinger, og hver av dem kaller\n`Max-Heapify` fra rota, der stien faktisk er full høyde. Det er den fasen som\ndominerer.\n\n**Merk hva oppgaven ber om:** ett uttrykk i **a)**, ikke en utledning.\nUtledningen hører hjemme i **b)**, der den blir spurt om.",
+        "hints": [
+          "Skillet mellom $O$ og $\\Theta$ er poenget: hvilken av dem uttrykker en tett grense?",
+          "Tenk på hvor mange noder som ligger på hvert nivå, og hvor langt et element kan sive derfra.",
+          "`Heapsort` har to faser med ulik kostnad — hvilken av dem dominerer?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-3-1-t-4",
+      "type": "text",
+      "content": "## `Heap-Extract-Max` og prioritetskøen (~9 min)\n\n— naturlig pausepunkt —\n\nTilbake til legevakta. Nå skal den mest alvorlige pasienten inn, og haugen\nskal fortsatt være en haug etterpå.\n\nÅ lese ut det største er gratis: det ligger på `A[1]`. Problemet er hullet som\noppstår. Løsningen er å fylle hullet med det **siste** elementet i haugen,\nkrympe `A.heap-size` med én, og så la det nye rotelementet sive ned med\n`Max-Heapify`. Da er prebetingelsen oppfylt: begge deltrærne er urørt og\ndermed fortsatt gyldige, og bare rota kan være for liten.\n\nEn struktur som støtter «gi meg det viktigste» og «legg til et nytt element»\nkalles en **prioritetskø**. Haugen er standardimplementasjonen, og du møter\nden igjen som motor i `Dijkstra` og i `MST-Prim` senere i boka — der er det\nnettopp «hvilken node er nærmest nå?» som skal besvares millioner av ganger."
+    },
+    {
+      "id": "tdt4120-3-1-th-4",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `Heap-Extract-Max`",
+      "content": "**Antagelser om representasjon.** Arrayet er `A[1..n]`, indeks fra 1, og\n`A[1..A.heap-size]` er en gyldig maks-haug.\n\n**Prebetingelse:** `A.heap-size >= 1`.\n**Postbetingelse:** det største elementet er returnert og fjernet fra haugen,\n`A.heap-size` er redusert med én, og resten er fortsatt en gyldig maks-haug.\n\n```text\nHeap-Extract-Max(A)\n  Input:  maks-haug A[1..A.heap-size]\n  Output: det storste elementet, fjernet fra haugen\n  if A.heap-size < 1\n      feil: haugen er tom\n  maks = A[1]\n  A[1] = A[A.heap-size]\n  A.heap-size = A.heap-size - 1\n  Max-Heapify(A, 1)\n  return maks\n  Kjoeretid: O(lg n)\n```\n\n**Grunnideen i én setning:** ved å fylle hullet i rota med det siste\nhaugelementet holder treet seg fylt nivå for nivå, og siden bare rota kan ha\nblitt for liten, er nøyaktig ett `Max-Heapify`-kall nok.\n\n**Kjøretid:** $O(\\lg n)$. Alt bortsett fra `Max-Heapify` er konstant arbeid,\nog `Max-Heapify` følger én sti fra rota og ned, altså høyst $\\lfloor \\lg n\\rfloor$ nivåer.\n\n**Merk rekkefølgen.** `A.heap-size` reduseres **før** `Max-Heapify` kalles.\nGjør du det motsatt, sammenligner reparasjonen med et element som ikke lenger\ner en del av haugen — og da får du et annet svar. Ved håndkjøring er det\ndenne detaljen som skiller riktig fra nesten riktig."
+    },
+    {
+      "id": "tdt4120-3-1-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: `Heap-Extract-Max` på et array som ikke er en gyldig haug",
+      "problem": "Utfør `Heap-Extract-Max(A)` én gang på arrayet `A = 5, 21, 13, 4, 18`\n(indeks fra 1, `A.heap-size` = 5). Arrayet er **ikke** en gyldig maks-haug.\n\nFølg algoritmen mekanisk. Oppgi hvilket element som returneres, og haugen\netterpå.",
+      "solution": "Start: `5, 21, 13, 4, 18` med $n = 5$. Gyldig maks-haug: **nei** — $A[1]=5$ er\nmindre enn begge barna.\n\nVi reparerer ikke først. Algoritmen leser `A[1]`, uansett hva som står der.\n\n| Steg | Kall | Sammenligning | Array etter steget | Handling |\n|---|---|---|---|---|\n| 1 | `Heap-Extract-Max` | les `A[1] = 5` | `5, 21, 13, 4, 18` | ta vare på maks = 5 |\n| 2 | `Heap-Extract-Max` | flytt siste element til rota, `heap-size` = 4 | `18, 21, 13, 4` | krymp haugen |\n| 3 | `Max-Heapify(A, 1)` | `A[1]=18` mot venstre barn `A[2]=21`, mot høyre barn `A[3]=13` | `21, 18, 13, 4` | bytt `A[1]` og `A[2]` |\n| 4 | `Max-Heapify(A, 2)` | `A[2]=18` mot venstre barn `A[4]=4` | `21, 18, 13, 4` | ingen bytte, stopp |\n\nPå eksamen leverer du bare de to linjene under — tavlen er her for å vise\nhvordan du kommer dit.\n\n**Returnert: `5`**\n**Haugen etterpå (`A.heap-size` = 4): `21, 18, 13, 4`**\n\n**Det som skjer i steg 1 er hele poenget.** Algoritmen returnerer 5, selv om\n21 er det største tallet i arrayet. `Heap-Extract-Max` er skrevet under\nforutsetningen at rota ER maksimum; er den ikke det, gir algoritmen feil\nelement. Det er ikke en feil i håndkjøringen din — det er svaret.\n\nFellenoten: fellen her er **#10** — å «reparere» en ugyldig haug før du\nutfører operasjonen. Hadde du først kjørt `Build-Max-Heap` og deretter\nuthentingen, ville du returnert 21 og fått en helt annen slutthaug. Det er et\nannet spørsmål enn det som ble stilt.\n\n**Kontroll:** fem elementer inn, ett returnert, fire igjen i haugen. Etter\nuthentingen er `21, 18, 13, 4` en gyldig maks-haug — reparasjonen virket, selv\nom utgangspunktet var ugyldig."
+    },
+    {
+      "id": "tdt4120-3-1-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-3-1-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C — håndkjøring.)\n\nUtfør `Heap-Extract-Max(A)` én gang på arrayet `A = 9, 40, 17, 6, 35` (indeks\nfra 1, `A.heap-size` = 5). Arrayet er ikke en gyldig maks-haug — følg\nalgoritmen mekanisk.\n\n**a)** Hvilket element returneres?\n\n**b)** Oppgi haugen etterpå.",
+        "solution": "Start: `9, 40, 17, 6, 35` med $n = 5$. Gyldig maks-haug: nei.\n\n| Steg | Kall | Sammenligning | Array etter steget | Handling |\n|---|---|---|---|---|\n| 1 | `Heap-Extract-Max` | les `A[1] = 9` | `9, 40, 17, 6, 35` | ta vare på maks = 9 |\n| 2 | `Heap-Extract-Max` | flytt siste element til rota, `heap-size` = 4 | `35, 40, 17, 6` | krymp haugen |\n| 3 | `Max-Heapify(A, 1)` | `A[1]=35` mot venstre barn `A[2]=40`, mot høyre barn `A[3]=17` | `40, 35, 17, 6` | bytt `A[1]` og `A[2]` |\n| 4 | `Max-Heapify(A, 2)` | `A[2]=35` mot venstre barn `A[4]=6` | `40, 35, 17, 6` | ingen bytte, stopp |\n\nPå eksamen leverer du bare de to linjene under — tavlen er her for å vise\nhvordan du kommer dit.\n\n**a) Returnert: `9`**\n\n**b) Haugen etterpå (`A.heap-size` = 4): `40, 35, 17, 6`**\n\nElementet 9 blir returnert selv om det er det nest minste tallet i arrayet.\nAlgoritmen leser `A[1]` uten å kontrollere at rota faktisk er maksimum, og\ndet er nettopp den mekaniske lydigheten oppgaven tester.\n\nFellenoten: fellen her er **#10**. Hadde du reparert først, ville svaret blitt\n40 — og det ville vært galt her.",
+        "hints": [
+          "Skriv ned de fire linjene i pseudokoden i rekkefølge, og utfør dem én for én.",
+          "`A.heap-size` reduseres FØR `Max-Heapify` kalles — det avgjør hvilke elementer som sammenlignes.",
+          "Ikke sjekk om arrayet er en gyldig haug først; algoritmen gjør ikke det."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-3-1-t-5",
+      "type": "text",
+      "content": "## `Heapsort` (~8 min)\n\nHar du en maks-haug, har du nesten en sortering. Det største elementet ligger\npå `A[1]`, og den siste plassen i arrayet er nøyaktig der det skal ende opp.\nBytt de to, krymp haugen med én, reparer rota — og gjenta.\n\nEtter $n-1$ runder ligger arrayet stigende sortert, og du har ikke brukt en\neneste ekstra celle. Det er det som menes med **på stedet** (*in-place*): all\nomorganisering skjer inne i det arrayet du fikk, med bare et par\nhjelpevariabler ved siden av. `Merge-Sort` klarer ikke det, og det er\n`Heapsort`s viktigste fortrinn.\n\nPrisen er at sorteringen ikke er **stabil**. En stabil sortering beholder den\ninnbyrdes rekkefølgen til elementer med lik nøkkel — sorterer du en vaktliste\netter hastegrad, kommer de som meldte seg først fortsatt først blant de like\nalvorlige. `Heapsort` gir ingen slik garanti, fordi byttene flytter elementer\nover lange avstander i arrayet."
+    },
+    {
+      "id": "tdt4120-3-1-th-5",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `Heapsort`",
+      "content": "**Antagelser om representasjon.** Arrayet er `A[1..n]`, indeks fra 1, med\nvilkårlig innhold.\n\n**Prebetingelse:** ingen.\n**Postbetingelse:** `A[1..n]` er stigende sortert, og inneholder de samme\nelementene som før. Ingen hjelpearray er brukt.\n\n```text\nHeapsort(A)\n  Input:  vilkaarlig array A[1..n]\n  Output: A stigende sortert, paa stedet\n  Build-Max-Heap(A)\n  for i = A.length downto 2\n      bytt A[1] og A[i]\n      A.heap-size = A.heap-size - 1\n      Max-Heapify(A, 1)\n  Kjoeretid: Theta(n lg n)\n```\n\n**Invarianten i én setning:** ved starten av hver runde er `A[i+1..n]` de\n$n-i$ største elementene, ferdig sortert på plass, og `A[1..i]` er en gyldig\nmaks-haug med resten.\n\n**Kjøretid:** $\\Theta(n\\lg n)$. Byggingen er $\\Theta(n)$, og deretter gjøres\n$n-1$ runder à $O(\\lg n)$. At grensen er **tett** og ikke bare øvre, kommer av\nat sorteringen gjør like mye arbeid uansett input — det finnes ingen «heldig»\nrekkefølge som gjør `Heapsort` raskere, slik ferdigsortert input gjør\n`Insertion-Sort` rask.\n\n**Egenskapene du skal kunne uten å tenke:** $\\Theta(n\\lg n)$, **på stedet**,\n**ustabil**."
+    },
+    {
+      "id": "tdt4120-3-1-ex-5",
+      "type": "example",
+      "title": "Eksempel 5: `Heapsort` fra start til slutt",
+      "problem": "Kjør `Heapsort(A)` på `A = 12, 26, 5, 31, 18, 8` (indeks fra 1).\n\n**a)** Oppgi arrayet rett etter `Build-Max-Heap`.\n\n**b)** Oppgi arrayet etter den **første** iterasjonen av for-løkka, med\nhaugstørrelsen.\n\n**c)** Oppgi det ferdig sorterte arrayet.",
+      "solution": "Start: `12, 26, 5, 31, 18, 8` med $n = 6$.\n\nSteg 1 til 7 nedenfor er byggefasen; fra steg 8 begynner sorteringsfasen.\n\n| Steg | Kall | Sammenligning | Array etter steget | Handling |\n|---|---|---|---|---|\n| 1 | `Max-Heapify(A, 3)` | `A[3]=5` mot venstre barn `A[6]=8` | `12, 26, 8, 31, 18, 5` | bytt `A[3]` og `A[6]` |\n| 2 | `Max-Heapify(A, 6)` | indeks 6 har ingen barn (`2*6 = 12 > 6`) | `12, 26, 8, 31, 18, 5` | stopp |\n| 3 | `Max-Heapify(A, 2)` | `A[2]=26` mot venstre barn `A[4]=31`, mot høyre barn `A[5]=18` | `12, 31, 8, 26, 18, 5` | bytt `A[2]` og `A[4]` |\n| 4 | `Max-Heapify(A, 4)` | indeks 4 har ingen barn (`2*4 = 8 > 6`) | `12, 31, 8, 26, 18, 5` | stopp |\n| 5 | `Max-Heapify(A, 1)` | `A[1]=12` mot venstre barn `A[2]=31`, mot høyre barn `A[3]=8` | `31, 12, 8, 26, 18, 5` | bytt `A[1]` og `A[2]` |\n| 6 | `Max-Heapify(A, 2)` | `A[2]=12` mot venstre barn `A[4]=26`, mot høyre barn `A[5]=18` | `31, 26, 8, 12, 18, 5` | bytt `A[2]` og `A[4]` |\n| 7 | `Max-Heapify(A, 4)` | indeks 4 har ingen barn (`2*4 = 8 > 6`) | `31, 26, 8, 12, 18, 5` | stopp |\n| 8 | `Heapsort`-iterasjon 1 | bytt `A[1] = 31` og `A[6] = 5` | `5, 26, 8, 12, 18, 31` | største element på plass bakerst |\n| 9 | `Max-Heapify(A, 1)` | `A[1]=5` mot venstre barn `A[2]=26`, mot høyre barn `A[3]=8` | `26, 5, 8, 12, 18, 31` | bytt `A[1]` og `A[2]` |\n| 10 | `Max-Heapify(A, 2)` | `A[2]=5` mot venstre barn `A[4]=12`, mot høyre barn `A[5]=18` | `26, 18, 8, 12, 5, 31` | bytt `A[2]` og `A[5]` |\n| 11 | `Max-Heapify(A, 5)` | indeks 5 har ingen barn (`2*5 = 10 > 5`) | `26, 18, 8, 12, 5, 31` | stopp (`heap-size` = 5) |\n| 12 | `Heapsort`-iterasjon 2 | bytt `A[1] = 26` og `A[5] = 5` | `5, 18, 8, 12, 26, 31` | største element på plass bakerst |\n| 13 | `Max-Heapify(A, 1)` | `A[1]=5` mot venstre barn `A[2]=18`, mot høyre barn `A[3]=8` | `18, 5, 8, 12, 26, 31` | bytt `A[1]` og `A[2]` |\n| 14 | `Max-Heapify(A, 2)` | `A[2]=5` mot venstre barn `A[4]=12` | `18, 12, 8, 5, 26, 31` | bytt `A[2]` og `A[4]` |\n| 15 | `Max-Heapify(A, 4)` | indeks 4 har ingen barn (`2*4 = 8 > 4`) | `18, 12, 8, 5, 26, 31` | stopp (`heap-size` = 4) |\n| 16 | `Heapsort`-iterasjon 3 | bytt `A[1] = 18` og `A[4] = 5` | `5, 12, 8, 18, 26, 31` | største element på plass bakerst |\n| 17 | `Max-Heapify(A, 1)` | `A[1]=5` mot venstre barn `A[2]=12`, mot høyre barn `A[3]=8` | `12, 5, 8, 18, 26, 31` | bytt `A[1]` og `A[2]` |\n| 18 | `Max-Heapify(A, 2)` | indeks 2 har ingen barn (`2*2 = 4 > 3`) | `12, 5, 8, 18, 26, 31` | stopp (`heap-size` = 3) |\n| 19 | `Heapsort`-iterasjon 4 | bytt `A[1] = 12` og `A[3] = 8` | `8, 5, 12, 18, 26, 31` | største element på plass bakerst |\n| 20 | `Max-Heapify(A, 1)` | `A[1]=8` mot venstre barn `A[2]=5` | `8, 5, 12, 18, 26, 31` | ingen bytte, stopp (`heap-size` = 2) |\n| 21 | `Heapsort`-iterasjon 5 | bytt `A[1] = 8` og `A[2] = 5` | `5, 8, 12, 18, 26, 31` | største element på plass bakerst |\n| 22 | `Max-Heapify(A, 1)` | indeks 1 har ingen barn (`2*1 = 2 > 1`) | `5, 8, 12, 18, 26, 31` | stopp (`heap-size` = 1) |\n\nPå eksamen leverer du bare de tre linjene under — tavlen er her for å vise\nhvordan du kommer dit.\n\n**a) Etter `Build-Max-Heap`: `31, 26, 8, 12, 18, 5`**\n\n**b) Etter første iterasjon (`heap-size` = 5): `26, 18, 8, 12, 5, 31`**\n\n**c) Ferdig sortert: `5, 8, 12, 18, 26, 31`**\n\n**Se hvordan halen vokser.** Etter iterasjon 1 er `A[6] = 31` ferdig. Etter\niterasjon 2 er `A[5..6] = 26, 31` ferdig. Den sorterte halen bakerst blir én\nlengre for hver runde, og haugen foran den blir én kortere. Ingen ekstra\nplass er brukt — derfor «på stedet».\n\n**Merk hva delspørsmålene ber om.** **b)** spør bare om én iterasjon. Kjører\ndu hele sorteringen når bare første iterasjon var spurt, har du svart på et\nannet spørsmål — og brukt tid du trengte på de andre oppgavene."
+    },
+    {
+      "id": "tdt4120-3-1-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-3-1-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C — håndkjøring.)\n\nArrayet `A = 45, 28, 39, 14, 21, 33, 8` (indeks fra 1) er allerede en gyldig\nmaks-haug med `A.heap-size` = 7.\n\nUtfør **én** iterasjon av for-løkka i `Heapsort`. Oppgi hele arrayet etterpå,\nog hva `A.heap-size` er da. Oppgaven ber om én iterasjon, ikke hele\nsorteringen.",
+        "solution": "Start: `45, 28, 39, 14, 21, 33, 8` med $n = 7$. Gyldig maks-haug: ja.\n\n| Steg | Kall | Sammenligning | Array etter steget | Handling |\n|---|---|---|---|---|\n| 1 | `Heapsort`-iterasjon 1 | bytt `A[1] = 45` og `A[7] = 8` | `8, 28, 39, 14, 21, 33, 45` | største element på plass bakerst |\n| 2 | `Max-Heapify(A, 1)` | `A[1]=8` mot venstre barn `A[2]=28`, mot høyre barn `A[3]=39` | `39, 28, 8, 14, 21, 33, 45` | bytt `A[1]` og `A[3]` |\n| 3 | `Max-Heapify(A, 3)` | `A[3]=8` mot venstre barn `A[6]=33` | `39, 28, 33, 14, 21, 8, 45` | bytt `A[3]` og `A[6]` |\n| 4 | `Max-Heapify(A, 6)` | indeks 6 har ingen barn (`2*6 = 12 > 6`) | `39, 28, 33, 14, 21, 8, 45` | stopp (`heap-size` = 6) |\n\nPå eksamen leverer du bare linja under — tavlen er her for å vise hvordan du\nkommer dit.\n\n**`39, 28, 33, 14, 21, 8, 45` med `A.heap-size` = 6**\n\n**Legg merke til steg 3.** Etter det første byttet står 8 på indeks 3, som har\nvenstre barn på indeks 6. Den indeksen er fortsatt innenfor haugen, siden\n`heap-size` nå er 6 — derfor sammenlignes de. Høyre barn ville vært indeks 7,\nsom ligger utenfor haugen: det er 45, som allerede er ferdig sortert på plass\nog ikke lenger med i sammenligningene.\n\n**Kontroll:** `A[7] = 45` er det største tallet i inputen, og `A[1..6]` er en\ngyldig maks-haug.",
+        "hints": [
+          "Én iterasjon består av tre ting: ett bytte, én reduksjon av `A.heap-size`, ett `Max-Heapify`-kall.",
+          "Elementet som er lagt bakerst, er ikke lenger en del av haugen og skal ikke sammenlignes.",
+          "Oppgi hele arrayet, også den sorterte halen."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-3-1-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-3-1-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger C — håndkjøring, med flere ledd.)\n\nArrayet `A = 6, 17, 3, 25, 11, 20, 14, 2` (indeks fra 1) skal sorteres med\n`Heapsort`.\n\n**a)** Oppgi arrayet rett etter `Build-Max-Heap`.\n\n**b)** Oppgi arrayet og `A.heap-size` etter de to **første** iterasjonene av\nfor-løkka.",
+        "solution": "Start: `6, 17, 3, 25, 11, 20, 14, 2` med $n = 8$.\n\nSteg 1 til 8 er byggefasen; fra steg 9 begynner sorteringsfasen.\n\n| Steg | Kall | Sammenligning | Array etter steget | Handling |\n|---|---|---|---|---|\n| 1 | `Max-Heapify(A, 4)` | `A[4]=25` mot venstre barn `A[8]=2` | `6, 17, 3, 25, 11, 20, 14, 2` | ingen bytte, stopp |\n| 2 | `Max-Heapify(A, 3)` | `A[3]=3` mot venstre barn `A[6]=20`, mot høyre barn `A[7]=14` | `6, 17, 20, 25, 11, 3, 14, 2` | bytt `A[3]` og `A[6]` |\n| 3 | `Max-Heapify(A, 6)` | indeks 6 har ingen barn (`2*6 = 12 > 8`) | `6, 17, 20, 25, 11, 3, 14, 2` | stopp |\n| 4 | `Max-Heapify(A, 2)` | `A[2]=17` mot venstre barn `A[4]=25`, mot høyre barn `A[5]=11` | `6, 25, 20, 17, 11, 3, 14, 2` | bytt `A[2]` og `A[4]` |\n| 5 | `Max-Heapify(A, 4)` | `A[4]=17` mot venstre barn `A[8]=2` | `6, 25, 20, 17, 11, 3, 14, 2` | ingen bytte, stopp |\n| 6 | `Max-Heapify(A, 1)` | `A[1]=6` mot venstre barn `A[2]=25`, mot høyre barn `A[3]=20` | `25, 6, 20, 17, 11, 3, 14, 2` | bytt `A[1]` og `A[2]` |\n| 7 | `Max-Heapify(A, 2)` | `A[2]=6` mot venstre barn `A[4]=17`, mot høyre barn `A[5]=11` | `25, 17, 20, 6, 11, 3, 14, 2` | bytt `A[2]` og `A[4]` |\n| 8 | `Max-Heapify(A, 4)` | `A[4]=6` mot venstre barn `A[8]=2` | `25, 17, 20, 6, 11, 3, 14, 2` | ingen bytte, stopp |\n| 9 | `Heapsort`-iterasjon 1 | bytt `A[1] = 25` og `A[8] = 2` | `2, 17, 20, 6, 11, 3, 14, 25` | største element på plass bakerst |\n| 10 | `Max-Heapify(A, 1)` | `A[1]=2` mot venstre barn `A[2]=17`, mot høyre barn `A[3]=20` | `20, 17, 2, 6, 11, 3, 14, 25` | bytt `A[1]` og `A[3]` |\n| 11 | `Max-Heapify(A, 3)` | `A[3]=2` mot venstre barn `A[6]=3`, mot høyre barn `A[7]=14` | `20, 17, 14, 6, 11, 3, 2, 25` | bytt `A[3]` og `A[7]` |\n| 12 | `Max-Heapify(A, 7)` | indeks 7 har ingen barn (`2*7 = 14 > 7`) | `20, 17, 14, 6, 11, 3, 2, 25` | stopp (`heap-size` = 7) |\n| 13 | `Heapsort`-iterasjon 2 | bytt `A[1] = 20` og `A[7] = 2` | `2, 17, 14, 6, 11, 3, 20, 25` | største element på plass bakerst |\n| 14 | `Max-Heapify(A, 1)` | `A[1]=2` mot venstre barn `A[2]=17`, mot høyre barn `A[3]=14` | `17, 2, 14, 6, 11, 3, 20, 25` | bytt `A[1]` og `A[2]` |\n| 15 | `Max-Heapify(A, 2)` | `A[2]=2` mot venstre barn `A[4]=6`, mot høyre barn `A[5]=11` | `17, 11, 14, 6, 2, 3, 20, 25` | bytt `A[2]` og `A[5]` |\n| 16 | `Max-Heapify(A, 5)` | indeks 5 har ingen barn (`2*5 = 10 > 6`) | `17, 11, 14, 6, 2, 3, 20, 25` | stopp (`heap-size` = 6) |\n\nPå eksamen leverer du bare de to linjene under — tavlen er her for å vise\nhvordan du kommer dit.\n\n**a) Etter `Build-Max-Heap`: `25, 17, 20, 6, 11, 3, 14, 2`**\n\n**b) Etter to iterasjoner (`A.heap-size` = 6): `17, 11, 14, 6, 2, 3, 20, 25`**\n\n**Legg merke til steg 11.** Elementet 2 står på indeks 3 og har barna\n`A[6] = 3` og `A[7] = 14`. Det største er 14, som står som **høyre** barn.\nBytter du med 3 fordi det står først, får du `20, 17, 3, 6, 11, 2, 14, 25`,\nog der bryter $3 < 14$ haugegenskapen.\n\n**Kontroll:** de to største tallene, 25 og 20, ligger nå bakerst i riktig\nrekkefølge, og `A[1..6]` er en gyldig maks-haug med rot 17.\n\nFellenoten: fellen her er **#2** igjen — å forvente en venstre-før-høyre-orden\nsom ikke finnes i en haug.",
+        "hints": [
+          "Gjør byggefasen helt ferdig før du starter sorteringsfasen — de er to atskilte faser.",
+          "Etter hvert bytte i sorteringsfasen er `A.heap-size` én mindre, og elementet bakerst er ute av haugen.",
+          "Skriv opp begge barneindeksene hver gang, og velg det største barnet."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-3-1-oppg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-3-1-o9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger F — «stemmer dette?», med et konkret motbevis.)\n\nEn medstudent påstår: «`Heapsort` er en stabil sortering, siden den bare\nbytter elementer og aldri kopierer dem til et hjelpearray.»\n\n**a)** Stemmer påstanden? Svar ja eller nei.\n\n**b)** Gi et konkret motbevis eller et konkret argument, og oppgi hva som blir\nresultatet.\n\nArrayet `A = 3a, 3b, 1c` har tre elementer der tallet er nøkkelen som\nsorteres på, og bokstaven bare er en merkelapp som viser hvilket element det\ner. `3a` står altså foran `3b` i inputen.",
+        "solution": "**a) Nei.** `Heapsort` er ikke stabil.\n\n**b)** Kjøringen på `A = 3a, 3b, 1c` med $n = 3$:\n\n| Steg | Handling | Arrayet etter steget |\n|---|---|---|\n| 1 | `Build-Max-Heap` ferdig — ingen bytter var nødvendige | `3a, 3b, 1c` |\n| 2 | `Heapsort`: bytt `A[1]` og `A[3]` | `1c, 3b, 3a` |\n| 3 | `Max-Heapify`: bytt `A[1]` og `A[2]` | `3b, 1c, 3a` |\n| 4 | `Heapsort`: bytt `A[1]` og `A[2]` | `1c, 3b, 3a` |\n\n**Resultat: `1c, 3b, 3a`.** En stabil sortering ville gitt `1c, 3a, 3b`. De to\nelementene med nøkkel 3 har byttet innbyrdes rekkefølge, og det er nøyaktig\ndet stabilitet skal forhindre.\n\n**Hvorfor byggefasen ikke gjorde noe:** `Max-Heapify(A, 1)` sammenligner\n`A[1] = 3a` med `A[2] = 3b`, og testen er `A[l] > A[storst]` — **strengt**\nstørre. $3 > 3$ er usant, så det byttes ikke. Arrayet var allerede en gyldig\nmaks-haug.\n\n**Feilen i argumentet:** at en algoritme bytter i stedet for å kopiere, sier\ningenting om stabilitet. Det som ødelegger stabiliteten, er at byttene flytter\nelementer over **lange avstander**: i steg 2 hoppet `3a` fra indeks 1 helt\nbakerst, forbi `3b`. En stabil sortering flytter aldri et element forbi et\nannet med lik nøkkel.\n\n**Til sammenligning:** `Merge-Sort` er stabil, men bruker et hjelpearray og er\nderfor ikke på stedet. `Heapsort` er på stedet, men ustabil. Du får ikke\nbegge deler gratis — se [kap. 2.1](/tdt4120/tdt4120-2-1).",
+        "hints": [
+          "Definer stabilitet presist først: hva skal gjelde for to elementer med lik nøkkel?",
+          "Kjør `Heapsort` mekanisk på det oppgitte arrayet, og hold styr på merkelappene a, b og c.",
+          "Vær nøye med sammenligningen i `Max-Heapify`: den er strengt større enn, ikke større enn eller lik."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-3-1-t-6",
+      "type": "text",
+      "content": "## Kjøretidene samlet\n\nDette er kapitlets puggeflate. Eksamen er hjelpemiddelfri, så tabellen må\nligge i hodet.\n\n| Operasjon | Beste | Verste | Krav / egenskap |\n|---|---|---|---|\n| `Parent`, `Left`, `Right` | $\\Theta(1)$ | $\\Theta(1)$ | ren indeksregning, ingen leting |\n| `Heap-Maximum` | $\\Theta(1)$ | $\\Theta(1)$ | maksimum ligger alltid på `A[1]` |\n| `Max-Heapify` | $\\Theta(1)$ | $O(\\lg n)$ | krever at begge deltrærne allerede er maks-hauger |\n| `Build-Max-Heap` | $\\Theta(n)$ | $\\Theta(n)$ | på stedet; **ikke** $\\Theta(n\\lg n)$ |\n| `Heap-Extract-Max` | $\\Theta(1)$ | $O(\\lg n)$ | krever `A.heap-size` $\\ge 1$ |\n| `Max-Heap-Insert` | $\\Theta(1)$ | $O(\\lg n)$ | nytt element legges bakerst og stiger |\n| `Heapsort` | $\\Theta(n\\lg n)$ | $\\Theta(n\\lg n)$ | på stedet, **ustabil**; ingen input gjør den raskere |\n| Finne **minimum** i en maks-haug | $\\Theta(n)$ | $\\Theta(n)$ | haugen sier ingenting om hvor det minste ligger |\n\nDen siste raden overrasker mange. En maks-haug lover bare at maksimum ligger\npå toppen. Det minste elementet kan ligge hvor som helst blant bladene, og du\nmå lete gjennom dem alle.\n\n**Én presisering som er verdt å ta med seg:** `Build-Max-Heap` er asymptotisk\nraskere enn å bygge haugen med $n$ kall til `Max-Heap-Insert`, som gir\n$O(n\\lg n)$. Men på en **enkelt** liten input kan de to gjøre like mange\nbytter, og innsettingsvarianten kan til og med gjøre færre. Det er derfor\npåstanden hører hjemme som en asymptotisk påstand, ikke som «`Build-Max-Heap`\ngjør alltid færre bytter»."
+    },
+    {
+      "id": "tdt4120-3-1-t-bank",
+      "type": "text",
+      "content": "### Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp\nhar lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet\ngjelder kjernestoffet."
+    },
+    {
+      "id": "tdt4120-3-1-def-5",
+      "type": "definition",
+      "title": "`Max-Heapify`",
+      "content": "reparerer ett brudd på haugegenskapen ved å la elementet på indeks $i$ sive\nnedover mot det **største** barnet så lenge et barn er større.\n\nKjøretid $O(\\lg n)$ — én sti fra $i$ og ned, aldri forgrening.\n\n**Krever** at begge deltrærne under $i$ allerede er gyldige maks-hauger. Er\nden betingelsen brutt, reparerer rutinen ikke hele treet."
+    },
+    {
+      "id": "tdt4120-3-1-def-6",
+      "type": "definition",
+      "title": "`Build-Max-Heap`",
+      "content": "gjør et vilkårlig array om til en maks-haug på stedet ved å kalle\n`Max-Heapify` for hver indeks fra $\\lfloor n/2\\rfloor$ og nedover til 1.\n\nKjøretid $\\Theta(n)$ — **ikke** $\\Theta(n\\lg n)$. Den løse tellingen «$n/2$\nkall à $O(\\lg n)$» er en gyldig øvre grense, men ikke stram: halvparten av\nnodene er blader med null arbeid.\n\n**Retningen er et krav.** Løkka må telle nedover, ellers er `Max-Heapify`s\nprebetingelse brutt."
+    },
+    {
+      "id": "tdt4120-3-1-def-7",
+      "type": "definition",
+      "title": "`Heap-Extract-Max`",
+      "content": "fjerner og returnerer det største elementet: leser `A[1]`, flytter det siste\nhaugelementet dit, reduserer `A.heap-size` med én og kaller `Max-Heapify(A, 1)`.\n\nKjøretid $O(\\lg n)$ — alt bortsett fra reparasjonen er konstant arbeid.\n\n**Krever `A.heap-size` $\\ge 1$.** Og merk: rutinen kontrollerer ikke at rota\nfaktisk er maksimum. Er inputen ikke en gyldig haug, returnerer den likevel\n`A[1]`."
+    },
+    {
+      "id": "tdt4120-3-1-def-8",
+      "type": "definition",
+      "title": "`Heap-Maximum`",
+      "content": "leser det største elementet uten å fjerne det.\n\nKjøretid $\\Theta(1)$, fordi maksimum per definisjon ligger på `A[1]` i en\ngyldig maks-haug.\n\nDet er denne operasjonen som gjør haugen til en prioritetskø: «hva er det\nviktigste akkurat nå?» besvares uten å lete."
+    },
+    {
+      "id": "tdt4120-3-1-def-9",
+      "type": "definition",
+      "title": "`Max-Heap-Insert`",
+      "content": "setter inn et nytt element ved å legge det bakerst i haugen og la det stige\noppover mot rota så lenge forelderen er mindre.\n\nKjøretid $O(\\lg n)$ — én sti fra bladet og opp.\n\nRetningen er motsatt av `Max-Heapify`: her siles det **oppover**, og\nsammenligningen går bare mot forelderen, ikke mot søsken."
+    },
+    {
+      "id": "tdt4120-3-1-def-10",
+      "type": "definition",
+      "title": "`Heapsort`",
+      "content": "sorterer stigende ved å bygge en maks-haug og deretter bytte `A[1]` med\nsiste haugelement, krympe haugen og reparere rota — $n-1$ ganger.\n\nKjøretid $\\Theta(n\\lg n)$ i alle tilfeller. **På stedet**, og **ustabil**.\n\nAt grensen er tett og ikke bare øvre, kommer av at ingen input gjør\n`Heapsort` raskere: den bygger og tømmer haugen likt uansett."
+    },
+    {
+      "id": "tdt4120-3-1-def-11",
+      "type": "definition",
+      "title": "Haugegenskapen",
+      "content": "kravet som gjør et array til en maks-haug: hver forelder er større enn eller\nlik **begge** barna sine, altså $A[\\lfloor i/2\\rfloor] \\ge A[i]$ for alle $i \\ge 2$.\n\nOrdningen er **opp–ned**. Det finnes **ingen** venstre–høyre-orden: to søsken\nkan stå i hvilken som helst rekkefølge.\n\nKonsekvensen er at bare maksimum har en garantert plass. Resten av arrayet er\ntilnærmet usortert."
+    },
+    {
+      "id": "tdt4120-3-1-def-12",
+      "type": "definition",
+      "title": "Array-representasjonen `A[1..n]`",
+      "content": "haugen lagres som et vanlig array, fylt nivå for nivå ovenfra og ned og\nvenstre før høyre. Rota ligger på `A[1]`.\n\nKostnaden for å finne familien til en node er $\\Theta(1)$: ingen pekere, bare\nregning.\n\n**Indeks fra 1 er konvensjonen i denne boka**, og den som brukes i TDT4120s\noppgaver og løsningsforslag."
+    },
+    {
+      "id": "tdt4120-3-1-def-13",
+      "type": "definition",
+      "title": "Forelder- og barneindeksene",
+      "content": "tre regnestykker som erstatter pekere: forelderen ligger på $\\lfloor i/2\\rfloor$, venstre barn på $2i$ og høyre barn på $2i+1$.\n\nAlle tre er $\\Theta(1)$.\n\n**Kanttilfellene:** indeks 1 har ingen forelder. Er $2i > n$, er noden et\nblad. Er $2i \\le n$ men $2i+1 > n$, har noden bare venstre barn."
+    },
+    {
+      "id": "tdt4120-3-1-def-14",
+      "type": "definition",
+      "title": "`A.heap-size`",
+      "content": "antall elementer som teller som en del av haugen akkurat nå — ikke det samme\nsom arrayets lengde.\n\nSkillet koster ingenting å vedlikeholde ($\\Theta(1)$ per endring), men det er\navgjørende ved håndkjøring.\n\n`Heap-Extract-Max` og `Heapsort` krymper haugen uten å krympe arrayet.\nElementene bak `A.heap-size` ligger fortsatt der, men er usynlige for\n`Max-Heapify`."
+    },
+    {
+      "id": "tdt4120-3-1-def-15",
+      "type": "definition",
+      "title": "Høyden til en maks-haug",
+      "content": "antall kanter fra rota ned til det dypeste bladet.\n\nFor en haug med $n$ elementer er høyden $\\lfloor \\lg n\\rfloor$, altså\n$\\Theta(\\lg n)$.\n\nGrunnen er at treet alltid fylles nivå for nivå uten hull. Det er denne\nhøyden som gjør `Max-Heapify`, `Heap-Extract-Max` og `Max-Heap-Insert` til\n$O(\\lg n)$-operasjoner."
+    },
+    {
+      "id": "tdt4120-3-1-def-16",
+      "type": "definition",
+      "title": "Prioritetskø",
+      "content": "en datastruktur som støtter «gi meg det viktigste elementet» og «legg til et\nnytt element», uten å holde alt sortert.\n\nMed en maks-haug koster oppslaget $\\Theta(1)$ og de to endringene $O(\\lg n)$\nhver.\n\nDu møter den igjen som motor i `Dijkstra` og `MST-Prim` i Del 4, der\nspørsmålet «hvilken node er nærmest nå?» stilles om og om igjen."
+    },
+    {
+      "id": "tdt4120-3-1-def-17",
+      "type": "definition",
+      "title": "På stedet (*in-place*)",
+      "content": "en algoritme er på stedet når den omorganiserer inputarrayet direkte og bare\nbruker et konstant antall hjelpevariabler ved siden av.\n\nEkstra plassbruk: $\\Theta(1)$.\n\n`Heapsort` og `Build-Max-Heap` er på stedet. `Merge-Sort` er det ikke — den\ntrenger et hjelpearray på $\\Theta(n)$ celler."
+    },
+    {
+      "id": "tdt4120-3-1-def-18",
+      "type": "definition",
+      "title": "Stabil sortering — og at `Heapsort` ikke er det",
+      "content": "en sortering er stabil når to elementer med **lik** nøkkel beholder den\ninnbyrdes rekkefølgen de hadde i inputen.\n\n`Heapsort` er **ustabil**. Motbevis: `3a, 3b, 1c` sorteres til `1c, 3b, 3a`,\nmens en stabil sortering ville gitt `1c, 3a, 3b`.\n\nGrunnen er at byttene flytter elementer over lange avstander i arrayet — i\nførste runde hopper rota helt bakerst, forbi alt som ligger imellom."
+    },
+    {
+      "id": "tdt4120-3-1-def-19",
+      "type": "definition",
+      "title": "Siving mot det største barnet",
+      "content": "regelen som styrer hvilken vei `Max-Heapify` går: elementet bytter med det\n**største** av de to barna, ikke med venstre barn og ikke med det minste.\n\nDet koster én ekstra sammenligning per nivå, altså fortsatt $O(\\lg n)$.\n\nBytter du med det minste barnet, står du igjen med et nytt brudd rett under\ndeg — feilen er flyttet, ikke rettet."
+    },
+    {
+      "id": "tdt4120-3-1-def-20",
+      "type": "definition",
+      "title": "Hvorfor `Build-Max-Heap` starter på $\\lfloor n/2\\rfloor$",
+      "content": "alle indekser $i > \\lfloor n/2\\rfloor$ har $2i > n$ og dermed ingen barn. En\nnode uten barn er allerede en gyldig maks-haug med ett element.\n\nÅ hoppe over dem sparer omtrent halvparten av kallene, men endrer ikke\nkjøretiden: den er $\\Theta(n)$ uansett.\n\nDet er derimot en fast kilde til feil i håndkjøring å starte på $n$ eller på\n1 i stedet."
+    },
+    {
+      "id": "tdt4120-3-1-def-21",
+      "type": "definition",
+      "title": "Bladene i en maks-haug",
+      "content": "nodene uten barn, altså alle indekser $i$ med $2i > n$. De utgjør omtrent\nhalvparten av haugen.\n\nAntallet er $\\lceil n/2 \\rceil$.\n\nDe er nøkkelen til $\\Theta(n)$-analysen: halvparten av nodene gjør **null**\narbeid under `Build-Max-Heap`, og en firedel gjør høyst ett bytte."
+    },
+    {
+      "id": "tdt4120-3-1-def-22",
+      "type": "definition",
+      "title": "Maks-haug kontra binært søketre",
+      "content": "to strukturer som forveksles systematisk, og som ordner i hver sin retning.\n\nBegge har $\\Theta(\\lg n)$ som naturlig arbeidsmengde per operasjon, men de\nsvarer på ulike spørsmål.\n\nMaks-haugen ordner **opp–ned** (forelder $\\ge$ begge barn) og gir deg\nmaksimum i $\\Theta(1)$. Søketreet ordner **venstre–høyre** og lar deg søke\netter en bestemt nøkkel. En haug kan ikke søke effektivt; et søketre kan ikke\nlove deg maksimum uten å gå til høyre spiss."
+    },
+    {
+      "id": "tdt4120-3-1-def-23",
+      "type": "definition",
+      "title": "Den mekaniske håndkjøringsregelen",
+      "content": "når en oppgave ber deg utføre en haugoperasjon, følger du pseudokoden linje\nfor linje — også når inputen ikke er en gyldig maks-haug.\n\nKostnaden er den samme som ellers; det er svaret som blir et annet.\n\nReparerer du først, svarer du på et annet spørsmål enn det som ble stilt.\nDette er felle #10 i bokas feilregister."
+    },
+    {
+      "id": "tdt4120-3-1-def-24",
+      "type": "definition",
+      "title": "Svarformatet for en haug-håndkjøring",
+      "content": "svaret på en haugoppgave er **hele arrayet**, kommaseparert, med indeks fra\n1 — og `A.heap-size` når haugen er krympet.\n\nDet tar ett sekund å skrive og gir full uttelling.\n\nEt pent tegnet tre uten arrayet under gjør det ikke, og heller ikke «bare de\nelementene som ble flyttet»."
+    },
+    {
+      "id": "tdt4120-3-1-def-25",
+      "type": "definition",
+      "title": "Sjanger C — håndkjøring",
+      "content": "oppgavetypen der du utfører en navngitt algoritme steg for steg på papir og\noppgir sluttilstanden.\n\nDen er den hyppigste håndkjøringssjangeren i faget, og hauger og søketrær er\nde to vanligste strukturene: temaet er registrert i 16 av de 17 settene i\ngrunnlaget.\n\nSvarformen er **kun sluttilstanden**, i det formatet oppgaven ber om. En\nforklaring av hvordan algoritmen virker, gir ingen ekstra uttelling."
+    },
+    {
+      "id": "tdt4120-3-1-def-26",
+      "type": "definition",
+      "title": "Sjanger E — kjøretidskunnskap",
+      "content": "oppgavetypen der du oppgir kjøretiden til en navngitt operasjon.\n\nSvarformen er ett uttrykk, i det strammeste som er riktig — og med $\\Theta$\nder grensen er tett og $O$ der bare øvre grense er vist.\n\nHer ligger felle #9: å skrive $\\Theta(n\\lg n)$ for `Build-Max-Heap`, som er\n$\\Theta(n)$."
+    },
+    {
+      "id": "tdt4120-3-1-coll-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tdt4120-3-1-rep-1",
+          "type": "text",
+          "content": "Fem korte spørsmål fra kapitlene dette bygger på. Svar i hodet først, så\nsammenlign.\n\n**1.** Hva er kjøretiden til `Merge-Sort`, og er den på stedet?\n\n*Svar:* $\\Theta(n\\lg n)$, og **nei** — den trenger et hjelpearray på\n$\\Theta(n)$ celler. Se [kap. 2.1](/tdt4120/tdt4120-2-1).\n\n**2.** Hva er beste tilfelle for `Insertion-Sort`, og på hvilken input?\n\n*Svar:* $\\Theta(n)$, på et allerede sortert array. Å svare $\\Omega(n\\lg n)$\ner felle #9 — feil kjøretidsfakta.\n\n**3.** Hvorfor kan ingen sortering som bare sammenligner elementer, gjøre det\nbedre enn $\\Omega(n\\lg n)$ i verste tilfelle?\n\n*Svar:* fordi et beslutningstre med $n!$ mulige utfall må ha dybde minst\n$\\lg(n!) = \\Omega(n\\lg n)$. Se [kap. 2.1](/tdt4120/tdt4120-2-1).\n`Heapsort` når nettopp denne grensen.\n\n**4.** Hva er forskjellen på $O(g)$ og $\\Theta(g)$?\n\n*Svar:* $O(g)$ er bare en øvre grense; $\\Theta(g)$ er både øvre og nedre,\naltså tett. Derfor er `Max-Heapify` $O(\\lg n)$ — den kan stoppe med én gang —\nmens `Heapsort` er $\\Theta(n\\lg n)$, siden ingen input gjør den raskere. Se\n[kap. 1.1](/tdt4120/tdt4120-1-1).\n\n**5.** Hva betyr $\\lg n$ i denne boka?\n\n*Svar:* $\\log_2 n$ — hvor mange ganger $n$ må halveres for å komme ned til 1.\nEr logaritmereglene ustøe: [Potenser og logaritmer](/r1/r1-1-2).\n\n**Videre:** [kap. 3.2](/tdt4120/tdt4120-3-2) tar det binære søketreet, som\nordner i den andre retningen — og den kontrasten er halve poenget med Del 3."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

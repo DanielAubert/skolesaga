@@ -1,0 +1,426 @@
+{
+  "id": "tdt4120-8-1",
+  "courseId": "tdt4120",
+  "chapterNumber": "8.1",
+  "title": "Kortsvarssjangeren — å skrive presise, korte svar",
+  "description": "Selve eksamensdisiplinen: svar med det etterspurte og ikke mer, sikre grunnpoengene først, og budsjettér tiden over 20 likt vektede oppgaver.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "kunne avgjøre hva en eksamensoppgave faktisk ber om, og levere svaret i den formen oppgaven krever",
+    "kunne skrive en definisjon der hovedpoenget står i første setning, slik at et avbrutt svar likevel gir uttelling",
+    "kunne budsjettere fire timer over tjue likt vektede oppgaver, og vite når en oppgave skal forlates",
+    "kunne skrive om et langt og upresist utkast til det korte svaret som treffer ferdigheten oppgaven tester"
+  ],
+  "content": [
+    {
+      "id": "tdt4120-8-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette kapitlet handler ikke om ett tema — det handler om hvordan du svarer på alle de andre.**\n\nEksamen i TDT4120 er én skriftlig prøve på fire timer med **hjelpemiddelkode E**, som betyr at du ikke får ha med deg noe som helst: ingen bok, ingen formelark, ingen kalkulator. Settet består av om lag **20 kortsvarsoppgaver som teller like mye**. Fire timer fordelt på 20 oppgaver gir **12 minutter per oppgave**, og hver oppgave er verdt om lag 5 prosent av karakteren.\n\nOppgavetypene går igjen fra sett til sett, og denne boka gir dem merkelappene **sjanger A til H**. Merkelappene er våre, ikke NTNUs — de er en huskeliste, og hver enkelt blir skrevet ut i klarspråk der den innføres nedenfor. Et eksempel på hva de betyr: **sjanger C** er håndkjøring, altså at du utfører algoritmen steg for steg på papiret og oppgir bare sluttilstanden. **Sjanger H** — åpen algoritmedesign, der du skal finne på en algoritme selv — står i hvert ordinært sett som de siste 3 til 5 oppgavene.\n\n**Prioritet: høyeste prioritet — dette må sitte.** Kapitlet gir ingen nye algoritmer, men det påvirker uttellingen på hver eneste oppgave du skriver."
+    },
+    {
+      "id": "tdt4120-8-1-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper\n\nDette kapitlet krever ingen ny teori, og det kan leses når som helst — gjerne tidlig, slik at du trener riktig form fra første oppgave.\n\nDet bygger på eksamenskartet i [kap. 0.1](/tdt4120/tdt4120-0-1), som presenterer sjangerkatalogen og feilkatalogen. Sjangrene trenes hver for seg gjennom boka: asymptotisk forenkling i [kap. 1.3](/tdt4120/tdt4120-1-3), rekurrenser i [kap. 1.6](/tdt4120/tdt4120-1-6), håndkjøring i [kap. 3.3](/tdt4120/tdt4120-3-3) og [kap. 4.5](/tdt4120/tdt4120-4-5), reduksjoner og NP-argumenter i [kap. 7.4](/tdt4120/tdt4120-7-4), og åpen algoritmedesign i [kap. 8.2](/tdt4120/tdt4120-8-2).\n\nEksemplene nedenfor bruker kjøretidsfakta fra [kap. 3.1](/tdt4120/tdt4120-3-1), [kap. 4.1](/tdt4120/tdt4120-4-1) og [kap. 6.2](/tdt4120/tdt4120-6-2), men bare som materiale — poenget her er formen på svaret, ikke faget i svaret."
+    },
+    {
+      "id": "tdt4120-8-1-notasjonsliste",
+      "type": "collapsible",
+      "title": "Notasjons- og pseudokodeliste",
+      "buttonText": "Vis notasjon og pseudokode",
+      "content": [
+        {
+          "id": "tdt4120-8-1-notasjonsliste-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et algoritmefag: den lister kjøretidsuttrykk og pseudokode-operasjoner i stedet for bare greske bokstaver.\n\n| Symbol | Betydning |\n|---|---|\n| $n$ | størrelsen på inndata, for eksempel antall elementer i et array |\n| $O(g(n))$ | øvre grense: kjøretiden er høyst proporsjonal med $g(n)$ for store $n$ |\n| $\\Omega(g(n))$ | nedre grense: kjøretiden er minst proporsjonal med $g(n)$ |\n| $\\Theta(g(n))$ | tett grense: både øvre og nedre samtidig |\n| $\\lg n$ | logaritmen med grunntall 2, altså $\\log_2 n$ |\n| $V$ og $E$ | antall noder og antall kanter i en graf $G=(V,E)$ |\n| $m$ | en tallverdi i inndata, for eksempel ryggsekkens kapasitet |\n| $A \\le_p B$ | $A$ reduseres i polynomisk tid til $B$, altså er $B$ minst like vanskelig som $A$ |\n\n| Algoritme/operasjon | Kontrakt | Kjøretid |\n|---|---|---|\n| `Build-Max-Heap(A)` | bygger en maks-haug av `A[1..n]` på stedet, nedenfra og opp | $\\Theta(n)$ |\n| `Merge-Sort(A, p, r)` | sorterer `A[p..r]` ved splitt og hersk; stabil, men ikke på stedet | $\\Theta(n\\lg n)$ |\n| `Counting-Sort(A, B, k)` | sorterer heltall i området `0..k` ved telling; stabil | $\\Theta(n+k)$ |\n| `BFS(G, s)` | besøker nodene lagvis fra `s` og gir færrest kanter til hver node | $\\Theta(V+E)$ |\n| `Dijkstra(G, w, s)` | korteste vei fra `s`; krever at ingen kantvekt er negativ | $O(E\\lg V)$ med binærhaug |\n| `Edmonds-Karp(G, s, t)` | maks-flyt der hver forøkende sti velges som korteste sti i restnettet | $O(VE^2)$ |\n| 0-1-`Knapsack(v, w, m)` | største verdi med kapasitet `m`, hver gjenstand høyst én gang | $\\Theta(nm)$ |\n\n**Formler i dette delkapitlet:**\n\n$$T(n) = aT(n/b) + f(n)$$\n\nFormen en splitt-og-hersk-rekurrens skrives på: $a$ delkall på inndata av størrelse $n/b$, pluss $f(n)$ arbeid utenom kallene.\n\n$$f(n) = \\Theta\\!\\left(n^{\\log_b a}\\lg^k n\\right),\\quad k \\ge 0 \\;\\Longrightarrow\\; T(n) = \\Theta\\!\\left(n^{\\log_b a}\\lg^{k+1} n\\right)$$\n\nMasterteoremets midterste tilfelle: når arbeidet utenom kallene er like tungt som delkallene, får svaret én logaritmefaktor mer enn $f$ hadde.\n\n$$1 < \\lg n < n < n\\lg n < n^2 < n^3 < 2^n < n!$$\n\nVekstordningen. Den avgjør hvilket ledd som overlever i en asymptotisk forenkling, og dermed hva det strammeste uttrykket er.\n\n$$\\frac{240 \\text{ minutter}}{20 \\text{ oppgaver}} = 12 \\text{ minutter per oppgave}$$\n\nTidsbudsjettet settet gir deg."
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-8-1-avsnitt-1",
+      "type": "text",
+      "content": "## Hva eksamen faktisk ber om (~10 min)"
+    },
+    {
+      "id": "tdt4120-8-1-anker",
+      "type": "text",
+      "content": "Se for deg eksamenslokalet klokka 13.40. Du har sittet i førti minutter, og du er fremdeles på oppgave 3 — en åpen designoppgave der du har skissert to modeller, forkastet den ene og begynt å skrive ut et bevis for at den andre virker. Du er nok inne på riktig spor. Men du har brukt over tre oppgavebudsjetter på én oppgave som teller nøyaktig like mye som de 19 andre, og 17 av dem er urørte.\n\nDet er dette kapitlet handler om: ikke hva du kan, men hva du rekker å vise at du kan, og i hvilken form.\n\nEksamenssettet er **frisvar**, ikke flervalg: det står ingen alternativer å velge mellom, du skriver svaret selv. Det gjør formen på svaret til din egen beslutning — og dermed til noe du kan trene på."
+    },
+    {
+      "id": "tdt4120-8-1-def-kortsvarsoppgave",
+      "type": "definition",
+      "title": "Kortsvarsoppgave",
+      "content": "En oppgave som ber om ett bestemt svar — ett uttrykk, én sluttilstand, én presis setning eller én kort designskisse — og som teller like mye som hver av de andre oppgavene i settet. Svarformen er frisvar: du formulerer svaret selv, uten alternativer å velge mellom.\n\nEt sett har om lag 20 slike oppgaver på fire timer. Det gir **12 minutter per oppgave** i snitt og om lag **5 prosent av karakteren** per oppgave. Kravet er at svaret er *presist og fullstendig for det som er spurt om* — ikke at det er langt."
+    },
+    {
+      "id": "tdt4120-8-1-disiplinen",
+      "type": "text",
+      "content": "I settene fra 2015 til 2018 sto det svart på hvitt på oppgavearket: lange svar teller ikke positivt. Setningen sto trykt i seks terminer, og den er borte fra hvert sett fra august 2019.\n\nDisiplinen forsvant likevel ikke — den flyttet inn i oppgaveteksten. Dagens oppgaver sier det direkte der de stiller spørsmålet: «du skal her kun svare med output fra algoritmen», «oppgi svaret i $\\Theta$-notasjon», «forklar kort». Og løsningsforslagene svarer i samme ånd. Den aller første fasiten i settet fra desember 2025 er ett eneste uttrykk, og det er hele svaret.\n\nOg skulle du glemme begge deler, holder det strukturelle argumentet alene: 20 oppgaver teller likt på fire timer. Hvert minutt du bruker på en utledning ingen har bedt om, er et minutt du tar fra 19 andre oppgaver som teller like mye. Det argumentet trenger ingen kilde — det er ren aritmetikk."
+    },
+    {
+      "id": "tdt4120-8-1-tip-nyanse",
+      "type": "tip",
+      "title": "Kortsvar gjelder svarene — ikke undervisningen",
+      "content": "Denne boka bruker gjerne to sider på å utlede hvorfor `Build-Max-Heap` er $\\Theta(n)$ og ikke $\\Theta(n\\lg n)$. Eksamenssvaret på det samme spørsmålet er ett uttrykk pluss én linje begrunnelse. Det er ingen selvmotsigelse.\n\n**I undervisningen skal metoden forklares helt ut** — det er slik du får den til å sitte, og det er derfor teoridelen i hvert kapittel ser ut som den gjør. **Kortsvarsdisiplinen gjelder svarene på eksamen**, der jobben er en annen: å vise at du har ferdigheten, på minst mulig plass.\n\nSagt kort: du må forstå mye mer enn du skriver. Men du skal ikke skrive alt du forstår."
+    },
+    {
+      "id": "tdt4120-8-1-def-kortsvarsdisiplin",
+      "type": "definition",
+      "title": "Kortsvarsdisiplinen",
+      "content": "Regelen om at et eksamenssvar skal inneholde nøyaktig det oppgaven ber om, og ikke mer. Den handler om *svarene*, ikke om læringen: metoden skal du kunne fullt ut, men på papiret leverer du bare den delen oppgaven spør etter.\n\nDisiplinen har tre kilder: setningen om at lange svar ikke teller positivt, som sto trykt i seks terminer fra 2015 til 2018; formuleringene i dagens oppgavetekster («kun output», «oppgi svaret i $\\Theta$-notasjon», «forklar kort»); og aritmetikken, som gjelder uansett — 20 likt vektede oppgaver på 240 minutter."
+    },
+    {
+      "id": "tdt4120-8-1-tip-losningsforslag",
+      "type": "tip",
+      "title": "Løsningsforslagene er eksempler, ikke fasitord",
+      "content": "NTNU publiserer offisielle løsningsforslag for TDT4120, og de finnes for hver eneste av de 45 terminene fra desember 2003 til desember 2025. Det gir deg et uvanlig godt bilde av hva et godkjent svar ser ut som.\n\nOg her kommer den mest beroligende opplysningen faget har: **løsningsforslagene sier selv at svarene deres bare er eksempler på svar som gir uttelling**, og at mange beslektede svar godtas. Du behøver altså ikke treffe formuleringen. Du må treffe *innholdet*: riktig uttrykk, riktig sluttilstand, riktig hovedpoeng, riktig retning på reduksjonen.\n\nDet betyr også at du ikke skal skrive langt for å «dekke deg inn» i tilfelle formuleringen din ikke er den rette. Presisjon dekker deg inn. Lengde gjør det ikke."
+    },
+    {
+      "id": "tdt4120-8-1-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-8-1-ex-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Forbedre svaret — sjanger E, altså en oppgave som spør etter en kjøretid.) Oppgaven lyder: «Hva er kjøretiden til `Build-Max-Heap` på et array med $n$ elementer? Oppgi svaret i $\\Theta$-notasjon.»\n\nDu har skrevet dette utkastet på kladdearket:\n\n«`Build-Max-Heap` kaller `Max-Heapify` på alle nodene fra $\\lfloor n/2 \\rfloor$ og nedover til 1. `Max-Heapify` er $O(\\lg n)$ fordi den siver ett element nedover treet, og treet har høyde $\\lg n$. Siden vi kaller den omtrent $n/2$ ganger, kan vi tenke oss at kjøretiden blir $n/2$ ganger $\\lg n$, altså $O(n\\lg n)$. Men det viser seg at dette er en for løs grense, for de fleste nodene ligger langt nede i treet og har liten høyde, så summen blir mindre.»\n\nSkriv om til svaret oppgaven ber om.",
+        "solution": "$\\Theta(n)$.\n\nBegrunnelsen i én linje, om oppgaven ber om begrunnelse: nesten alle nodene ligger nederst og har konstant høyde, og summen $\\sum_h n/2^{h+1}\\cdot O(h)$ konvergerer til $O(n)$.\n\nOppgaven ber om kjøretiden i $\\Theta$-notasjon, ikke om hvordan du kom fram til den. Utkastet lander dessuten aldri på et svar: det ender med $O(n\\lg n)$ og en observasjon om at grensen er for løs. Det er felle #4 — å oppgi en løsere asymptotisk grense enn den strammeste du kan gi — og her er den ekstra dyr, fordi $\\Theta(n)$ nettopp er poenget med spørsmålet.",
+        "hints": [
+          "Oppgaven ber om ett uttrykk i $\\Theta$-notasjon.",
+          "Er $O(n\\lg n)$ det strammeste du kan si om `Build-Max-Heap`?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-8-1-avsnitt-2",
+      "type": "text",
+      "content": "## Svarformen sjanger for sjanger (~12 min)"
+    },
+    {
+      "id": "tdt4120-8-1-sjangertabell",
+      "type": "text",
+      "content": "Hver oppgavetype har sin egen svarform. Å kjenne formen er halve jobben: da vet du når svaret er ferdig, og du slutter å skrive.\n\n| Sjanger | Hva oppgaven ber om | Svarform | Typisk lengde |\n|---|---|---|---|\n| **A** asymptotisk forenkling | forenkle et uttrykk til strammeste form | ett uttrykk | 1 linje |\n| **B** rekurrensløsning | løs $T(n) = aT(n/b) + f(n)$ med navngitt metode | metodens navn, svaret, og hvilket masterteorem-tilfelle | 1–3 linjer |\n| **C** håndkjøring | kjør algoritmen på gitte data | kun sluttilstanden, i det formatet oppgaven ber om | sluttilstanden alene |\n| **D** definisjon | forklar et begrep med egne ord | én presis setning, hovedpoenget først | 1–2 setninger |\n| **E** kjøretid | oppgi kjøretiden til en algoritme eller operasjon | uttrykket, med $\\Theta$ eller $O$ bevisst valgt | 1 linje |\n| **F** «stemmer dette?» | avgjør om en påstand holder | ja eller nei først, så én presis setning | 2 linjer |\n| **G** reduksjon og NP | argumentér om et problems vanskelighet | retningen, hva den beviser, og hva den ikke beviser | 2–4 linjer |\n| **H** åpen algoritmedesign | konstruér en algoritme for et nytt problem | fem ledd (se kortet nedenfor) | 5–10 linjer |\n\nDet finnes også en **sjanger I** — nivådelt essay. Den dukket bare opp i de hjemmeeksamensbaserte settene under pandemien, er ikke representativ for dagens eksamen, og omtales bare i [kap. 0.1](/tdt4120/tdt4120-0-1). Regn ikke med den.\n\nKortene under er de åtte sjangrene i pugbar form."
+    },
+    {
+      "id": "tdt4120-8-1-def-sjanger-a",
+      "type": "definition",
+      "title": "Sjanger A — asymptotisk forenkling",
+      "content": "Oppgaven gir et sammensatt uttrykk og ber deg forenkle det til den strammeste asymptotiske formen. Du skal droppe konstanter og lavere ordens ledd, og beholde det leddet som vokser raskest.\n\n**Svarform:** ett uttrykk, én linje. **Fellen:** å levere en korrekt, men løsere grense enn den du kunne gitt. Er svaret $\\Theta(n^2)$, er $O(n^3)$ sant og likevel utilstrekkelig."
+    },
+    {
+      "id": "tdt4120-8-1-def-sjanger-b",
+      "type": "definition",
+      "title": "Sjanger B — rekurrensløsning med navngitt metode",
+      "content": "Oppgaven gir en rekurrens av typen $T(n) = aT(n/b) + f(n)$ og ber om den asymptotiske løsningen. Metoden skal navngis: masterteoremet, iterasjon eller substitusjon.\n\n**Svarform:** metodens navn, svaret på riktig form, og hvilket masterteorem-tilfelle du havnet i — til sammen 1 til 3 linjer. **Fellen:** å oppgi svaret uten å si hvilket tilfelle, eller å glemme logaritmefaktoren i det midterste tilfellet."
+    },
+    {
+      "id": "tdt4120-8-1-def-sjanger-c",
+      "type": "definition",
+      "title": "Sjanger C — håndkjøring",
+      "content": "Oppgaven gir konkrete data og ber deg utføre en navngitt algoritme steg for steg. Underveis fører du en tavle på kladdearket, men det er ikke tavlen som skal leveres.\n\n**Svarform:** kun sluttilstanden, i akkurat det formatet oppgaven ber om — hele arrayet for en maks-haug, utskriften fra `Inorder-Tree-Walk` for et binært søketre, hele tabellen inkludert døde celler for en kø, kantene i tilleggsrekkefølge for `Kruskal`. **Fellen:** å levere hele sporet i stedet for sluttilstanden, eller å «reparere» inndata som ser feil ut i stedet for å kjøre mekanisk."
+    },
+    {
+      "id": "tdt4120-8-1-def-sjanger-d",
+      "type": "definition",
+      "title": "Sjanger D — definisjon med egne ord",
+      "content": "Oppgaven ber deg forklare et begrep: spenntre, stabil sortering, restkapasitet, blokkerende par. Den ber ikke om en historie om begrepet.\n\n**Svarform:** én presis setning med **hovedpoenget først**, eventuelt én setning til med det avgrensende kravet. **Fellen:** å bygge opp mot poenget i stedet for å begynne med det. Rekker du bare én setning, skal den ene setningen være den som teller."
+    },
+    {
+      "id": "tdt4120-8-1-def-sjanger-e",
+      "type": "definition",
+      "title": "Sjanger E — kjøretidskunnskap",
+      "content": "Oppgaven spør hva en algoritme eller en operasjon koster, ofte i beste, verste eller forventet tilfelle, og gjerne i sammenligning med en annen.\n\n**Svarform:** ett uttrykk, med $\\Theta$ når grensen er tett og $O$ når bare den øvre grensen er vist eller kjent. Legg ved én linje utregning hvis oppgaven ber om begrunnelse. **Fellen:** å skrive $O$ der du faktisk kan garantere $\\Theta$, eller å oppgi et forventet tall som om det var verste tilfelle."
+    },
+    {
+      "id": "tdt4120-8-1-def-sjanger-f",
+      "type": "definition",
+      "title": "Sjanger F — «stemmer dette?»",
+      "content": "Oppgaven legger fram en påstand — ofte en som nesten stemmer — og ber deg avgjøre om den holder.\n\n**Svarform:** **ja eller nei først**, deretter én presis setning som sier hvorfor, helst med et konkret moteksempel når svaret er nei. Til sammen to linjer. **Fellen:** å drøfte i tre setninger og aldri konkludere. Et svar uten ja eller nei har ikke besvart oppgaven."
+    },
+    {
+      "id": "tdt4120-8-1-def-sjanger-g",
+      "type": "definition",
+      "title": "Sjanger G — reduksjon og NP-argument",
+      "content": "Oppgaven ber deg argumentere for at et problem er vanskelig, eller vurdere om et gitt argument holder. Kjernen er alltid **retningen**: for å vise at ditt problem $X$ er vanskelig, reduserer du **fra** et kjent vanskelig problem **til** $X$.\n\n**Svarform:** hvilken vei reduksjonen går, hva den beviser, og hva den **ikke** beviser — 2 til 4 linjer. **Fellen:** å redusere den andre veien. Å redusere fra $X$ til et NP-komplett problem viser bare at $X$ ikke er verre enn det, og beviser ingenting om at $X$ er vanskelig."
+    },
+    {
+      "id": "tdt4120-8-1-def-sjanger-h",
+      "type": "definition",
+      "title": "Sjanger H — åpen algoritmedesign",
+      "content": "Oppgaven beskriver et nytt problem i en hverdagslig innpakning og ber deg konstruere en algoritme. Dette er settets siste 3 til 5 oppgaver.\n\n**Svarform — fem ledd, 5 til 10 linjer:** (1) navngi det klassiske problemet innpakningen skjuler, (2) navngi paradigmet — grådig, dynamisk programmering, splitt og hersk, grafsøk, flyt eller stabil matching, (3) beskriv konstruksjonen (noder, kanter og kapasiteter, eller delproblem, rekurrens og grunntilfeller), (4) forklar hvordan du **rekonstruerer selve løsningen**, ikke bare verdien, og at det ikke øker den asymptotiske kjøretiden, (5) oppgi kjøretiden med alle symboler definert. **Fellen:** å stoppe etter ledd 3."
+    },
+    {
+      "id": "tdt4120-8-1-eks-1",
+      "type": "example",
+      "title": "Eksempel 1: Samme oppgave, tre utkast (sjanger F)",
+      "problem": "«Stemmer det at `Dijkstra` finner korteste vei i enhver rettet graf med reelle kantvekter? Begrunn kort.»\n\nTre utkast ligger på kladdearket. Hvilket av dem er svaret oppgaven ber om?\n\n**Utkast 1:** «`Dijkstra` er en grådig algoritme som holder et sett av ferdigbehandlede noder og gjentatte ganger plukker den ubehandlede noden med minst $d$-verdi fra en prioritetskø, og slakker alle kanter ut fra den. Med binærhaug er kjøretiden $O(E\\lg V)$. Algoritmen ligner på `Prim`, som bygger et minimalt spenntre.»\n\n**Utkast 2:** «Det kommer an på grafen. I mange grafer virker den fint, men det finnes tilfeller der den ikke gjør det, særlig hvis vektene oppfører seg spesielt.»\n\n**Utkast 3:** «Nei. `Dijkstra` krever ikke-negative kantvekter; med en negativ kant kan en node bli erklært ferdig før den korteste veien til den er funnet. `Bellman-Ford` tåler negative kanter og kjører på $\\Theta(VE)$.»",
+      "solution": "**Utkast 3** er svaret.\n\nUtkast 1 er faglig korrekt og fullstendig irrelevant: det forklarer hvordan `Dijkstra` virker, mens oppgaven spør om den *alltid* virker. Ingen del av utkastet svarer ja eller nei. Utkast 2 svarer heller ikke — «det kommer an på» er ingen konklusjon, og «hvis vektene oppfører seg spesielt» navngir ikke betingelsen.\n\nUtkast 3 har sjanger F-formen: **nei** først, så én setning som navngir betingelsen som brytes, og et alternativ som ikke bryter den. To linjer, ferdig.\n\nLegg merke til hva som gjør utkast 1 farlig: det *ser* grundig ut. Det inneholder mer riktig fagstoff enn utkast 3. Men oppgaven ba om en avgjørelse, og en avgjørelse står det ikke noe om."
+    },
+    {
+      "id": "tdt4120-8-1-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-8-1-ex-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Forbedre svaret — sjanger D, definisjon med egne ord.) Oppgaven lyder: «Forklar med egne ord hva et minimalt spenntre er.»\n\nUtkastet ditt:\n\n«Spenntrær er et sentralt tema i grafteorien og brukes blant annet i nettverksplanlegging. Man kan finne dem med `Prim` eller `Kruskal`, som begge er grådige algoritmer, og `Kruskal` bruker `Union-Find` for å oppdage sykler. Et spenntre er et tre, og et tre er en sammenhengende graf uten sykler. Når grafen har vekter på kantene, kan vi lete etter det spenntreet som har lavest total vekt.»\n\nSkriv om til svaret oppgaven ber om.",
+        "solution": "Et minimalt spenntre er et **asyklisk, sammenhengende delsett av kantene som når alle nodene, og som har minst mulig samlet kantvekt** blant alle slike delsett.\n\nOppgaven ber om definisjonen, ikke om hvordan man finner treet. Utkastet plasserer dessuten hovedpoenget — minst mulig samlet vekt — i den aller siste setningen, og som en løs mulighet («kan vi lete etter»), ikke som definisjonen. Stopper leseren etter første setning, har hun fått vite hvor spenntrær brukes, og ingenting om hva de er.",
+        "hints": [
+          "Hva er et spenntre, og hva gjør akkurat dette spenntreet minimalt?",
+          "Sett kravet om minst mulig samlet kantvekt i den første setningen."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-8-1-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-8-1-ex-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Forbedre svaret — sjanger C, håndkjøring.) Oppgaven lyder: «Sett inn nøklene 8, 3, 11, 1, 6 i denne rekkefølgen i et tomt binært søketre. Oppgi utskriften fra `Inorder-Tree-Walk` på det ferdige treet.»\n\nUtkastet ditt:\n\n«Først settes 8 inn som rot. Så kommer 3, som er mindre enn 8 og går til venstre. Så 11, som er større enn 8 og går til høyre. Så 1, som er mindre enn 8 og mindre enn 3, altså venstre barn av 3. Så 6, som er mindre enn 8 og større enn 3, altså høyre barn av 3. Treet er da bygget, og en `Inorder-Tree-Walk` besøker venstre deltre, så roten, så høyre deltre.»\n\nSkriv om til svaret oppgaven ber om.",
+        "solution": "`1 3 6 8 11`\n\nOppgaven ber om utskriften, ikke om innsettingssporet. Sporet hører hjemme på kladdearket — det er slik du *finner* svaret — men det som leveres, er sluttilstanden i det formatet oppgaven navngir. Utkastet beskriver til og med hva en `Inorder-Tree-Walk` gjør, uten noen gang å utføre den.\n\n(Legg for øvrig merke til at svaret er sortert stigende. Det er ikke en tilfeldighet: en `Inorder-Tree-Walk` på et binært søketre gir alltid nøklene i sortert rekkefølge, og det er en grei egenkontroll.)",
+        "hints": [
+          "Hva er formatet oppgaven ber om — sporet eller utskriften?",
+          "Bygg treet på kladdearket, og skriv bare den ferdige utskriften på besvarelsen."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-8-1-avsnitt-3",
+      "type": "text",
+      "content": "## Hovedpoenget først — slik sikrer du delvis uttelling (~8 min)"
+    },
+    {
+      "id": "tdt4120-8-1-delvis-uttelling",
+      "type": "text",
+      "content": "**Delvis uttelling** betyr at et svar som er riktig så langt det rekker, gir poeng for den delen som er riktig, selv om svaret ikke er komplett. Du får altså ikke null for et halvferdig svar — du får uttelling for halvparten som står der.\n\nDet har en direkte konsekvens for hvordan du bør ordne setningene dine: **det viktigste skal stå først.** Løsningsforslagene i faget viser gjennomgående samme mønster — hovedpoenget kommer i første setning, presiseringen i den andre. Skriver du motsatt vei, og tiden tar deg midt i svaret, har du levert oppvarmingen og ikke poenget.\n\nDette gjelder alle sjangrene, men slår hardest ut i tre av dem:\n\n- **Definisjon (sjanger D):** kravet som gjør begrepet til nettopp det begrepet, kommer i første setning.\n- **«Stemmer dette?» (sjanger F):** ja eller nei står helt først, før begrunnelsen.\n- **Åpen design (sjanger H):** navnet på det klassiske problemet og paradigmet står før konstruksjonen. Rekker du ikke å skrive ut hele konstruksjonen, har du likevel vist at du kjente igjen problemet."
+    },
+    {
+      "id": "tdt4120-8-1-def-delvis-uttelling",
+      "type": "definition",
+      "title": "Delvis uttelling",
+      "content": "Prinsippet om at et ufullstendig svar gir uttelling for de delene som er riktige, i stedet for null. Det betyr at rekkefølgen på setningene dine har betydning for karakteren.\n\n**Praktisk regel:** skriv hovedpoenget i første setning, presiseringen i den andre, og eventuelle eksempler til slutt. Blir du avbrutt av klokka, har du da mistet det minst viktige. Skriver du motsatt vei, mister du det viktigste."
+    },
+    {
+      "id": "tdt4120-8-1-eks-2",
+      "type": "example",
+      "title": "Eksempel 2: Samme innhold, to rekkefølger (sjanger D)",
+      "problem": "«Forklar hva det vil si at en sorteringsalgoritme er **stabil**.»\n\nTo svar inneholder nøyaktig det samme fagstoffet, men i motsatt rekkefølge.\n\n**Svar A:** «Når vi sorterer, kan flere elementer ha samme nøkkel. Det er for eksempel tilfellet når vi sorterer en liste over ansatte etter avdeling, og flere jobber i samme avdeling. Da kan man spørre seg hva som skjer med rekkefølgen mellom dem. Noen algoritmer beholder den, andre gjør det ikke. De som beholder den, kaller vi stabile.»\n\n**Svar B:** «En sorteringsalgoritme er stabil hvis elementer med lik nøkkel beholder sin innbyrdes rekkefølge fra inndata. Det er egenskapen radikssortering hviler på: den sorterer siffer for siffer og trenger at hvert delsorteringssteg ikke ødelegger arbeidet fra det forrige.»",
+      "solution": "**Svar B** er formen oppgaven ber om.\n\nBegge svarene sier til slutt det samme. Forskjellen er hvor definisjonen står. I svar A kommer den i siste setning, etter tre setninger oppvarming — og den kommer indirekte («de som beholder den, kaller vi stabile»). I svar B står den i den første setningen, direkte, og den andre setningen legger til noe som viser at du vet hvorfor egenskapen betyr noe.\n\nSvar B er dessuten kortere. Det er ingen tilfeldighet: når hovedpoenget står først, faller behovet for opptrapping bort av seg selv."
+    },
+    {
+      "id": "tdt4120-8-1-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-8-1-ex-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Forbedre svaret — sjanger F.) Oppgaven lyder: «Stemmer det at 0-1-ryggsekkproblemet kan løses i polynomisk tid med dynamisk programmering, siden algoritmen kjører på $\\Theta(nm)$ der $n$ er antall gjenstander og $m$ er kapasiteten? Begrunn kort.»\n\nUtkastet ditt:\n\n«Dynamisk programmering løser 0-1-ryggsekk ved å fylle en tabell med én rad per gjenstand og én kolonne per kapasitetsverdi fra 0 til $m$. Hver celle regnes ut i konstant tid fra to celler i raden over, så samlet kjøretid er $\\Theta(nm)$. Det er et produkt av to tall fra inndata, og produkter av inndatastørrelser pleier å være polynomiske, så da må jo svaret være ja.»\n\nSkriv om til svaret oppgaven ber om.",
+        "solution": "**Nei.** $\\Theta(nm)$ er **pseudopolynomisk**, ikke polynomisk: $m$ er en *tallverdi* i inndata, og et tall med $b$ binærsiffer kan være så stort som $2^b$. Kjøretiden er derfor eksponentiell i lengden på inndata, som er det polynomisk tid måles mot.\n\nOppgaven ber om ja eller nei først. Utkastet konkluderer riktignok, men helt til slutt, og på et resonnement som ikke holder: «produkter av inndatastørrelser pleier å være polynomiske» blander sammen *antall* elementer ($n$, som teller elementer) og *verdien* av et tall ($m$, som er ett tall). Det er felle #7 — å blande pseudopolynomisk med polynomisk. Merk samtidig hva svaret ikke sier: at 0-1-ryggsekk er NP-hardt, betyr ikke at $\\Theta(nm)$-algoritmen er ubrukelig. Er $m$ liten, er den utmerket.",
+        "hints": [
+          "Skriv ja eller nei i første ord.",
+          "Hvor mange binærsiffer trengs for å skrive tallet $m$?",
+          "Hva er forskjellen på antall gjenstander og verdien av kapasiteten?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-8-1-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-8-1-ex-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Forbedre svaret — sjanger B, rekurrens.) Oppgaven lyder: «Løs rekurrensen $T(n) = 2T(n/2) + n$ med en navngitt metode.»\n\nUtkastet ditt:\n\n«Vi kan tegne rekursjonstreet. På toppnivået gjør vi $n$ arbeid. På nivået under har vi to delproblemer av størrelse $n/2$, som gir $n/2 + n/2 = n$ arbeid. På nivået under det har vi fire delproblemer av størrelse $n/4$, som også gir $n$ arbeid. Slik fortsetter det nedover. Treet har mange nivåer, og hvert nivå koster $n$, så totalen blir stor. Svaret blir noe i nærheten av $n$ ganger antall nivåer.»\n\nSkriv om til svaret oppgaven ber om.",
+        "solution": "**Masterteoremet, tilfelle 2:** $a = 2$, $b = 2$, så $n^{\\log_b a} = n$. Her er $f(n) = n = \\Theta(n^{\\log_b a}\\lg^k n)$ med $k = 0$, og svaret blir $T(n) = \\Theta(n\\lg n)$.\n\nOppgaven ber om metodens navn og svaret. Utkastet navngir aldri metoden (rekursjonstreet er riktig verktøy, men ordet står ikke der), og lander aldri på et uttrykk: «noe i nærheten av $n$ ganger antall nivåer» er et hint til deg selv, ikke et svar. Antall nivåer er $\\lg n$, og da er svaret $\\Theta(n\\lg n)$.\n\nLegg merke til at $k = 0$ er helt i orden i tilfelle 2 — kravet er $k \\ge 0$. Nettopp `Merge-Sort`-rekurrensen faller her.",
+        "hints": [
+          "Skriv opp $a$, $b$ og $n^{\\log_b a}$ først.",
+          "Sammenlign $f(n) = n$ med $n^{\\log_b a}$ — er de like tunge?",
+          "Navnet på metoden og hvilket tilfelle du havnet i, er en del av svaret."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-8-1-avsnitt-4",
+      "type": "text",
+      "content": "## Tidsbudsjettet over fire timer (~8 min)"
+    },
+    {
+      "id": "tdt4120-8-1-tidsbudsjett",
+      "type": "text",
+      "content": "Regnestykket er kort: 240 minutter delt på 20 oppgaver er **12 minutter per oppgave**, og hver oppgave er verdt **5 prosent**. Setter du av et kvarter til gjennomlesing på slutten, blir snittet 11,25 minutter.\n\nDet interessante er hva som skjer når du overskrider budsjettet på én oppgave:\n\n| Tid brukt på én oppgave | Andel av ett oppgavebudsjett | Igjen per oppgave for de 19 andre |\n|---|---|---|\n| 12 min | 1,00 | 12,0 min |\n| 20 min | 1,67 | 11,6 min |\n| 30 min | 2,50 | 11,1 min |\n| 40 min | 3,33 | 10,5 min |\n\nÉn overskridelse er billig. Det er ikke den som velter settet. Det som velter settet, er at overskridelsene kommer flere ganger, og at de kommer på de vanskeligste oppgavene — slik at du bruker mest tid der uttellingen er minst sannsynlig, og til slutt ikke rekker de siste oppgavene i det hele tatt.\n\nOg siste oppgave er ikke en bonusoppgave. To ubesvarte oppgaver er 10 prosentpoeng av 100, uansett hvor de sto i settet."
+    },
+    {
+      "id": "tdt4120-8-1-def-tidsbudsjett",
+      "type": "definition",
+      "title": "Tidsbudsjettet på eksamen",
+      "content": "Fordelingen av fire timer over om lag 20 likt vektede oppgaver: 12 minutter per oppgave i snitt, eller 11,25 minutter hvis du reserverer et kvarter til gjennomlesing.\n\nBudsjettet er et *tak*, ikke et mål. De fleste oppgavene i sjangrene A, D, E og F tar to til fem minutter når stoffet sitter, og den tiden du sparer der, er tiden designoppgavene i sjanger H skal ha. **Regel:** ingen oppgave får koste mer enn omtrent to budsjetter i første runde."
+    },
+    {
+      "id": "tdt4120-8-1-tip-forlate",
+      "type": "tip",
+      "title": "Slik forlater du en oppgave uten å miste den",
+      "content": "Å hoppe videre er ikke å gi opp. Gjør det i tre trinn, så koster det nesten ingenting å komme tilbake:\n\n1. **Skriv ned det du allerede vet.** Selv på en designoppgave du ikke har løst: «Dette er et tilordningsproblem, og jeg vil modellere det som maks-flyt.» Det er ledd 1 og 2 av svaret, og de gir uttelling i seg selv.\n2. **Sett et merke i margen** og noter i én linje hvor du står fast — «mangler kapasitetene på kantene inn mot sluket».\n3. **Gå videre, og kom tilbake når du har vært gjennom hele settet.** Hjernen jobber videre på det i mellomtiden, og du kommer ofte tilbake med svaret ferdig.\n\nRekkefølgen på settet er ikke bindende. Er oppgave 4 en definisjon du kan, og oppgave 3 en designoppgave du ikke ser løsningen på, tar du oppgave 4 først. De teller like mye."
+    },
+    {
+      "id": "tdt4120-8-1-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-8-1-ex-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Tidsbudsjett.) Et sett har 20 likt vektede oppgaver og fire timer. Du har brukt 2 timer og 10 minutter, og har besvart 11 oppgaver. Av de 9 som gjenstår, er 4 korte definisjons- og kjøretidsoppgaver du kjenner godt igjen, 3 er håndkjøringer, og 2 er åpne designoppgaver.\n\n**a)** Hvor mange minutter har du igjen per gjenstående oppgave i snitt?\n\n**b)** Foreslå en rekkefølge og en grov tidsfordeling for de 9 oppgavene, og begrunn den i én setning.",
+        "solution": "**a)** $240 - 130 = 110$ minutter igjen på 9 oppgaver, altså i underkant av 12,2 minutter per oppgave. Du ligger så vidt foran skjema.\n\n**b)** Ta de 4 korte først (om lag 3 minutter hver, til sammen 12), deretter de 3 håndkjøringene (om lag 10 minutter hver, til sammen 30), og bruk resten — om lag 68 minutter, altså rundt 30 på hver — på de 2 designoppgavene. Begrunnelsen: de korte oppgavene har høyest uttelling per minutt og gjør at ingen sikre poeng står ubesvart hvis tiden skulle ryke, og de frigjør nettopp den tiden designoppgavene trenger for å komme helt gjennom alle fem leddene.",
+        "hints": [
+          "Regn først ut hvor mange minutter som faktisk gjenstår.",
+          "Hvilke av de 9 oppgavene gir mest uttelling per minutt?",
+          "Designoppgavene skal ha den tiden som blir til overs, ikke den tiden de vil ha."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-8-1-avsnitt-5",
+      "type": "text",
+      "content": "## Å treffe læringsmålet oppgaven tester (~7 min)"
+    },
+    {
+      "id": "tdt4120-8-1-laeringsmaal",
+      "type": "text",
+      "content": "Et **læringsmål** er en setning som sier hva du skal kunne etter et emne — for eksempel «kunne kjøretiden til de sentrale algoritmene, og forstå utregningen av dem». Fra rundt 2016 oppgir løsningsforslagene i TDT4120 hvilket læringsmål hver enkelt oppgave tester.\n\nDet er nyttigere enn det høres ut. Læringsmålene bruker gjennomgående tre ulike verb, og hvert verb ber om sin egen svarform:\n\n| Verbet i læringsmålet | Hva oppgaven vil se | Hva som ikke hjelper |\n|---|---|---|\n| **definere** et begrep | den avgrensende egenskapen, i én setning | eksempler på hvor begrepet brukes |\n| **utføre** en algoritme | sluttilstanden i riktig format | en forklaring av hvordan algoritmen virker |\n| **kjenne kjøretiden og forstå utregningen** | uttrykket, og eventuelt den ene linjen som gir det | en gjennomgang av algoritmens oppbygning |\n| **bruke kjente algoritmer på nye problemer** | modellering, konstruksjon, rekonstruksjon og kjøretid | en gjentakelse av hva algoritmen gjør |\n\nKolonnen til høyre er verdt et øyeblikk. Alt som står der, er faglig riktig stoff. Det er bare svar på et annet spørsmål enn det som ble stilt — og det er nettopp derfor det er så lett å skrive."
+    },
+    {
+      "id": "tdt4120-8-1-def-laeringsmaal",
+      "type": "definition",
+      "title": "Læringsmål-treff",
+      "content": "Å svare på nøyaktig den ferdigheten oppgaven tester, i stedet for å skrive alt du kan om temaet. Løsningsforslagene i faget oppgir fra rundt 2016 hvilket læringsmål hver oppgave hører til, og verbet i målet forteller deg svarformen.\n\n**Praktisk regel:** finn verbet i oppgaveteksten før du skriver. «Oppgi» og «hva er» vil ha ett uttrykk. «Utfør» og «kjør» vil ha en sluttilstand. «Forklar» og «hva vil det si» vil ha én presis setning. «Beskriv en algoritme som» vil ha de fem leddene i en designskisse."
+    },
+    {
+      "id": "tdt4120-8-1-eks-3",
+      "type": "example",
+      "title": "Eksempel 3: En designoppgave besvart i kortsvarsform (sjanger H)",
+      "problem": "«Et bibliotek skal fordele et antall lesesalsplasser mellom studenter. Hver student har oppgitt hvilke av lesesalene hun kan bruke, og hver lesesal har et gitt antall plasser. Beskriv en effektiv algoritme som finner en fordeling der flest mulig studenter får plass. Oppgi kjøretiden.»\n\nDette er settets nest siste oppgave. Du har 12 minutter.",
+      "solution": "**Svaret, slik det leveres:**\n\n1. Dette er et **tilordningsproblem med kapasiteter** — et bipartitt matchingsproblem der den ene siden har kapasitet mer enn 1.\n2. **Paradigme: maksimal flyt.**\n3. **Konstruksjonen:** lag en kilde $s$ og et sluk $t$. Én node per student, én node per lesesal. Kant fra $s$ til hver student med kapasitet 1. Kant fra student til lesesal med kapasitet 1 for hver lesesal studenten kan bruke. Kant fra hver lesesal til $t$ med kapasitet lik antall plasser på salen. Kjør `Edmonds-Karp` fra $s$ til $t$.\n4. **Rekonstruksjon:** fordelingen leses rett av flyten — student $u$ får sal $v$ nøyaktig når kanten $(u,v)$ fører én enhet flyt. Siden alle kapasitetene er heltall, gir **heltallsteoremet** at maks-flyten kan velges heltallig, så hver slik kant fører 0 eller 1 og fordelingen er entydig lesbar. Avlesningen går gjennom kantene én gang og koster $O(E)$, som ikke øker den asymptotiske kjøretiden.\n5. **Kjøretid:** $O(VE^2)$ med `Edmonds-Karp`, der $V$ er antall noder i flytnettet (studenter, saler og de to ekstra) og $E$ er antall kanter, altså summen av antall studenter, antall saler og antall student–sal-par.\n\n**Slik faller uttellingen.** Ledd 1 og 2 er det som skiller «har ingenting» fra «er på riktig spor»: en besvarelse som bare sier «dette modelleres som maks-flyt med kilde og sluk» har allerede sikret en del av oppgaven. Ledd 3 er tyngdepunktet — det er der kapasitetene faktisk avgjør om modellen løser problemet, og en modell uten kapasitet 1 ut fra hver student ville latt én student få to saler. Ledd 4 er det leddet flest hopper over: oppgaven ber om en *fordeling*, ikke om et *antall*, og uten heltallsteoremet er det ikke opplagt at flyten i det hele tatt kan leses som en fordeling. Ledd 5 er billig når de fire første står.\n\nLegg merke til hva som ikke står i svaret: ingen forklaring av hva et restnett er, ingen gjennomgang av hvordan `Edmonds-Karp` finner forøkende stier, intet bevis for maks-flyt/min-snitt-teoremet. Alt det er pensum, og ingenting av det ble spurt om."
+    },
+    {
+      "id": "tdt4120-8-1-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-8-1-ex-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Forbedre svaret — sjanger G, reduksjon.) Oppgaven lyder: «En student vil vise at problemet $X$ er NP-hardt, og gir følgende argument: *Jeg viser at $X$ kan reduseres i polynomisk tid til 3-CNF-SAT. Siden 3-CNF-SAT er NP-komplett, er $X$ dermed NP-hardt.* Er argumentet gyldig? Begrunn kort.»\n\nUtkastet ditt:\n\n«Reduksjoner er en måte å sammenligne vanskelighetsgrad på. Hvis vi har en polynomisk reduksjon mellom to problemer, kan vi bruke en algoritme for det ene til å løse det andre, med bare polynomisk ekstraarbeid. 3-CNF-SAT er et av de mest brukte problemene å redusere fra, fordi det er NP-komplett, og det er ganske fleksibelt. Studenten har brukt 3-CNF-SAT, som er et fornuftig valg.»\n\nSkriv om til svaret oppgaven ber om.",
+        "solution": "**Nei, argumentet er ugyldig — retningen er snudd.** Studenten har vist $X \\le_p 3\\text{-CNF-SAT}$, og det beviser bare at $X$ **ikke er vanskeligere enn** 3-CNF-SAT. For å vise at $X$ er NP-hardt må reduksjonen gå den andre veien: fra 3-CNF-SAT **til** $X$, altså $3\\text{-CNF-SAT} \\le_p X$.\n\nMerk også hva den riktige reduksjonen ikke ville bevist: at $X$ er NP-**komplett**. Til det trengs i tillegg at $X$ selv ligger i NP, altså at et forslag til løsning kan verifiseres i polynomisk tid.\n\nOppgaven ber om en avgjørelse og en begrunnelse. Utkastet gir en generell innføring i reduksjoner, roser valget av 3-CNF-SAT, og sier aldri om argumentet holder. Dette er felle #1 — reversert reduksjonsretning — og den er det enkeltpunktet løsningsforslagene i faget oftest fremhever som skillet mellom riktig og galt.",
+        "hints": [
+          "Skriv ja eller nei først.",
+          "Hva betyr $A \\le_p B$ om hvilket av de to problemene som er minst like vanskelig?",
+          "Hvilken vei må reduksjonen gå for å vise at ditt eget problem er vanskelig?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-8-1-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-8-1-ex-8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Forbedre svaret — sjanger H, åpen design.) Oppgaven lyder: «En strømleverandør skal dele en lang kabel i biter. For hver mulig bitlengde er det oppgitt hva biten selges for. Beskriv en effektiv algoritme som finner den oppdelingen som gir høyest samlet salgsverdi. Oppgi kjøretiden.»\n\nUtkastet ditt:\n\n«Dette er et optimeringsproblem. Vi kan bruke dynamisk programmering, som er en teknikk der man løser små delproblemer først og setter sammen svarene, i motsetning til splitt og hersk, der delproblemene ikke overlapper. Vi lager en tabell og fyller den ut nedenfra og opp. Til slutt står den beste verdien i den siste cellen. Kjøretiden blir kvadratisk.»\n\nSkriv om til det femleddede designsvaret.",
+        "solution": "1. **Det klassiske problemet:** stavkapping (`Rod-Cutting`) — en lengde skal deles i biter med oppgitte priser per lengde.\n2. **Paradigme:** dynamisk programmering.\n3. **Konstruksjonen:** la $p[i]$ være prisen for en bit av lengde $i$, og la $r[j]$ være høyest oppnåelig verdi av en kabel med lengde $j$. Grunntilfelle $r[0] = 0$, og rekurrensen $r[j] = \\max_{1 \\le i \\le j}\\left(p[i] + r[j-i]\\right)$. Fyll $r[1], r[2], \\ldots, r[n]$ nedenfra og opp.\n4. **Rekonstruksjon:** lagre samtidig $s[j]$ = den $i$ som ga maksimum for $r[j]$. Selve oppdelingen leses så av ved å skrive ut $s[n]$, deretter $s[n - s[n]]$, og så videre til lengden er 0. Det er én ekstra tilordning per celle under utfyllingen og høyst $n$ steg under avlesningen, så rekonstruksjonen **øker ikke den asymptotiske kjøretiden**.\n5. **Kjøretid:** $\\Theta(n^2)$, der $n$ er kabelens lengde: $n$ delproblemer, og hvert av dem prøver høyst $n$ førstebiter.\n\nOppgaven ber om selve oppdelingen, ikke bare den høyeste verdien. Utkastet gjør tre ting galt: det navngir aldri det klassiske problemet, det bruker halve svaret på å forklare hva dynamisk programmering er (det ble ikke spurt om), og det stopper ved verdien i siste celle. Å tro at oppdelingen «bare kan leses ut» av verditabellen er felle #6 — rekonstruksjon er billig, men den er ikke gratis: den krever at beslutningen ble lagret mens tabellen ble fylt.",
+        "hints": [
+          "Hvilket navngitt DP-problem er dette en innpakning av?",
+          "Skriv opp rekurrensen for $r[j]$ og grunntilfellet før du skriver noe annet.",
+          "Hva må lagres underveis for at selve oppdelingen skal kunne leses ut til slutt?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-8-1-oppg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-8-1-ex-9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Forbedre svaret — sjanger A og E i kombinasjon.) Oppgaven lyder: «En algoritme sorterer først $n$ heltall i området fra 0 til $n^2$ med `Counting-Sort`, og kjører deretter et binærsøk $n$ ganger på det sorterte arrayet. Oppgi samlet kjøretid i $\\Theta$-notasjon, som ett strammest mulig uttrykk.»\n\nUtkastet ditt:\n\n«`Counting-Sort` er $\\Theta(n+k)$ der $k$ er størrelsen på verdiområdet, og den er stabil, som er nyttig i radikssortering. Binærsøk er $O(\\lg n)$ per søk fordi søkeområdet halveres hver gang. Vi gjør $n$ søk, så det blir $O(n\\lg n)$ til sammen. Samlet får vi $\\Theta(n+k) + O(n\\lg n)$, og siden begge leddene er med, kan vi si at kjøretiden er $O(n + k + n\\lg n)$.»\n\nSkriv om til svaret oppgaven ber om.",
+        "solution": "$\\Theta(n^2)$.\n\nUtregningen på én linje: her er $k = n^2$, så sorteringen er $\\Theta(n + n^2) = \\Theta(n^2)$, og $n$ binærsøk er $\\Theta(n\\lg n)$. Summen domineres av $n^2$, siden $n\\lg n$ vokser langsommere enn $n^2$.\n\nOppgaven ber om **ett** uttrykk i $\\Theta$-notasjon. Utkastet leverer et uttrykk med tre ledd og en $k$ som aldri blir satt inn, selv om oppgaven oppgir verdiområdet eksplisitt. Det er felle #4 — å oppgi en løsere grense enn den strammeste du kan gi — i sin dyreste form: her er hele poenget med oppgaven å se at $k = n^2$ gjør `Counting-Sort` kvadratisk, og at den lineære sorteringen derfor mister fordelen sin. Legg også merke til at $\\Theta$ er riktig og ikke $O$: begge grensene er tette.",
+        "hints": [
+          "Sett inn verdien oppgaven oppgir for $k$ før du forenkler.",
+          "Sammenlign $n\\lg n$ og $n^2$ i vekstordningen.",
+          "Oppgaven ber om ett uttrykk, og om $\\Theta$ framfor $O$."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-8-1-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "De fire feilene under er formfeil: de koster uttelling selv når fagstoffet i svaret er riktig.\n\n- **Å skrive langt i stedet for presist.** Et langt svar gir ingen ekstra uttelling, og det koster minutter du trenger på de andre oppgavene. Verre: jo mer du skriver, desto større er sjansen for at noe av det er galt, og et galt tillegg trekker.\n- **Å svare på mer enn det etterspurte.** Å forklare hvordan `Dijkstra` virker når oppgaven spør om den *alltid* virker, er å besvare et annet spørsmål. Sjekk verbet i oppgaveteksten før du skriver.\n- **Å utelate hovedpoenget i en definisjon.** Bygger du opp mot poenget og blir avbrutt, står oppvarmingen igjen alene. Hovedpoenget først, alltid.\n- **Å henge fast på én oppgave.** Ingen oppgave er verdt mer enn de andre. Skriv ned det du vet, sett et merke i margen, gå videre.\n\nTo innholdsfeller viser seg særlig tydelig i korte svar, fordi det ikke er noe rundt dem å gjemme seg bak:\n\n- **Felle #4 — løs asymptotisk grense der en strammere finnes.** $O(n^2)$ er sant om en algoritme som er $\\Theta(n)$, og likevel utilstrekkelig. Er grensen tett, skriv $\\Theta$.\n- **Felle #6 — å påstå at rekonstruksjon fra en dynamisk programmering er trivielt gratis.** Den koster ingen ekstra asymptotisk kjøretid, men den krever at beslutningene ble lagret underveis, og den setningen må stå i svaret."
+    },
+    {
+      "id": "tdt4120-8-1-tip-karakter",
+      "type": "tip",
+      "title": "Om karakterer: C er en god karakter",
+      "content": "Faget bruker skalaen A til F, og hele karakteren avgjøres av denne ene fire timers eksamenen.\n\n**C er en god og vanlig karakter.** Den nås av den som har grunnferdighetene på plass: riktige kjøretidsfakta, riktig håndkjøring, standarddefinisjonene formulert presist, og riktig retning på reduksjonsspørsmål. Det er ikke et minimum man så vidt klarer — det er en solid besvarelse.\n\nSkal du høyere, er det ikke fordi det er noe galt med en C-besvarelse. Det er fordi det står igjen en meny av oppgraderinger, og du kan plukke fra den i den rekkefølgen du vil:\n\n- komplette svar på de åpne designoppgavene, med alle fem leddene og ikke bare de tre første;\n- riktig retning på reduksjonen, hver gang, og en setning om hva reduksjonen *ikke* beviser;\n- rekonstruksjon av selve løsningen i DP-oppgaver, ikke bare optimalverdien;\n- finessene: heltallsteoremet i flytmodellering, kravet om **korteste** forøkende sti i `Edmonds-Karp`, og skillet mellom pseudopolynomisk og polynomisk.\n\nFire punkter. Det er hele gapet, og hvert av dem kan trenes hver for seg."
+    },
+    {
+      "id": "tdt4120-8-1-kjoretidstabell",
+      "type": "text",
+      "content": "## Kjøretidsfakta som skal kunne stå alene i et svar\n\nSjanger E-oppgaver ber om ett uttrykk. Da må uttrykket sitte, og det må sitte sammen med kravet eller egenskapen som hører til — det er ofte den ene linjen begrunnelse oppgaven ber om i tillegg.\n\n| Algoritme | Beste | Verste | Forventet | Krav/egenskap |\n|---|---|---|---|---|\n| `Merge-Sort` | $\\Theta(n\\lg n)$ | $\\Theta(n\\lg n)$ | $\\Theta(n\\lg n)$ | stabil, men ikke på stedet |\n| `Heapsort` | $\\Theta(n\\lg n)$ | $\\Theta(n\\lg n)$ | $\\Theta(n\\lg n)$ | på stedet, ustabil |\n| `Counting-Sort` | $\\Theta(n+k)$ | $\\Theta(n+k)$ | $\\Theta(n+k)$ | stabil; krever heltall i området $0$ til $k$ |\n| `Build-Max-Heap` | $\\Theta(n)$ | $\\Theta(n)$ | $\\Theta(n)$ | ikke $\\Theta(n\\lg n)$ — nesten alle noder har liten høyde |\n| `Randomized-Select` | $\\Theta(n)$ | $\\Theta(n^2)$ | $\\Theta(n)$ | forventningen er over algoritmens egne tilfeldige valg |\n| `Select` (median av medianer) | $\\Theta(n)$ | $\\Theta(n)$ | $\\Theta(n)$ | lineær også i verste tilfelle |\n| Hashing med kjeding | $\\Theta(1)$ | $\\Theta(n)$ | $\\Theta(1+\\alpha)$ | $\\alpha$ er lastfaktoren, altså elementer per kurv |\n| `BFS` | $\\Theta(V+E)$ | $\\Theta(V+E)$ | $\\Theta(V+E)$ | gir færrest kanter, ikke minst vekt |\n| `Dijkstra` (binærhaug) | $O(E\\lg V)$ | $O(E\\lg V)$ | $O(E\\lg V)$ | krever ikke-negative kantvekter |\n| `Bellman-Ford` | $\\Theta(VE)$ | $\\Theta(VE)$ | $\\Theta(VE)$ | tåler negative kanter, oppdager negative sykler |\n| `Floyd-Warshall` | $\\Theta(V^3)$ | $\\Theta(V^3)$ | $\\Theta(V^3)$ | alle-til-alle korteste vei |\n| `Edmonds-Karp` | $O(VE^2)$ | $O(VE^2)$ | $O(VE^2)$ | krever korteste forøkende sti |\n| `Ford-Fulkerson` | — | avhenger av kapasitetenes størrelse | — | pseudopolynomisk |\n| `Huffman` | $O(n\\lg n)$ | $O(n\\lg n)$ | $O(n\\lg n)$ | gir en optimal prefikskode |\n| `Gale-Shapley` | $O(n^2)$ | $O(n^2)$ | $O(n^2)$ | terminerer alltid, gir alltid en stabil matching, frier-optimal |\n| LCS med DP | $\\Theta(nm)$ | $\\Theta(nm)$ | $\\Theta(nm)$ | $n$ og $m$ er lengdene på de to sekvensene |\n| 0-1-`Knapsack` med DP | $\\Theta(nm)$ | $\\Theta(nm)$ | $\\Theta(nm)$ | pseudopolynomisk — $m$ er en tallverdi, ikke et antall |"
+    },
+    {
+      "id": "tdt4120-8-1-begrepsbank-intro",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "tdt4120-8-1-def-kode-e",
+      "type": "definition",
+      "title": "Hjelpemiddelkode E",
+      "content": "NTNUs kode for eksamen **uten noen hjelpemidler i det hele tatt**: ingen bok, ingen egne notater, ingen formelsamling, ingen kalkulator.\n\nKonsekvensen for lesingen din er direkte: kjøretidstabellen, definisjonene og masterteoremets tre tilfeller må sitte i hodet. «Det kan jeg slå opp» er ikke en tilgjengelig strategi på denne eksamen."
+    },
+    {
+      "id": "tdt4120-8-1-def-strammeste",
+      "type": "definition",
+      "title": "Strammeste asymptotiske uttrykk",
+      "content": "Den mest presise asymptotiske beskrivelsen du faktisk kan forsvare for en kjøretid. Er både øvre og nedre grense kjent og like, er det strammeste uttrykket et $\\Theta$-uttrykk; er bare den øvre grensen kjent, er det et $O$-uttrykk.\n\nLøsere grenser er ikke *gale* — $O(n^2)$ er en sann påstand om en algoritme som er $\\Theta(n)$ — men de er utilstrekkelige som svar, fordi de kaster bort informasjon oppgaven ba om. Det er nettopp derfor oppgavetekstene så ofte sier «oppgi svaret i $\\Theta$-notasjon»."
+    },
+    {
+      "id": "tdt4120-8-1-def-sluttilstand",
+      "type": "definition",
+      "title": "Sluttilstand som svarform",
+      "content": "Det ferdige resultatet av en håndkjøring, levert i det formatet oppgaven navngir — og ingenting av sporet som førte fram til det.\n\nFormatene som går igjen: **maks-haug** oppgis som hele arrayet med indeks fra 1; **binært søketre** som utskriften fra `Inorder-Tree-Walk`; **FIFO-kø** som hele tabellen inkludert de døde cellene, pluss `head` og `tail`; **`Kruskal`** som kantene i den rekkefølgen de ble lagt til; **maks-flyt** som flytverdien, og et min-snitt i tillegg når begge er spurt om; **`Huffman`** som kodelengden per tegn; **`Gale-Shapley`** som den ferdige matchingen, med angivelse av hvilken orientering som ble kjørt."
+    },
+    {
+      "id": "tdt4120-8-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tdt4120-8-1-rep-tekst",
+          "type": "text",
+          "content": "Fem korte oppgaver fra stoffet dette kapitlet bygger på. Skriv svaret i kortsvarsform før du åpner fasiten — det er nettopp formen som trenes her.\n\n**R1.** (Fra [kap. 3.1](/tdt4120/tdt4120-3-1)) Hva er kjøretiden til `Build-Max-Heap`, og hvorfor er den ikke $\\Theta(n\\lg n)$?\n\n**R2.** (Fra [kap. 4.3](/tdt4120/tdt4120-4-3)) Stemmer det at `Dijkstra` alltid finner korteste vei i en rettet graf uten negative sykler?\n\n**R3.** (Fra [kap. 4.1](/tdt4120/tdt4120-4-1)) Hva bruker topologisk sortering fra dybde-først-søket: starttid eller finish-tid?\n\n**R4.** (Fra [kap. 7.2](/tdt4120/tdt4120-7-2)) Hva betyr $A \\le_p B$ om hvilket av de to problemene som er minst like vanskelig?\n\n**R5.** (Fra [kap. 6.2](/tdt4120/tdt4120-6-2)) Hva er kjøretiden til dynamisk programmering på 0-1-ryggsekk, og hvorfor kalles den pseudopolynomisk?"
+        },
+        {
+          "id": "tdt4120-8-1-rep-fasit",
+          "type": "text",
+          "content": "**Fasit, i kortsvarsform:**\n\n**R1.** $\\Theta(n)$. Nesten alle nodene ligger nederst i haugen og har konstant høyde, så summen av sivedybdene blir lineær, ikke $n\\lg n$.\n\n**R2.** Nei. `Dijkstra` krever ikke-negative *kantvekter*; en enkelt negativ kant er nok til at svaret kan bli galt, selv uten negativ sykel. `Bellman-Ford` tåler negative kanter og kjører på $\\Theta(VE)$.\n\n**R3.** Synkende **finish-tid**. Å bruke starttid er felle #11.\n\n**R4.** At $B$ er minst like vanskelig som $A$: enhver løser for $B$ gir en løser for $A$ med bare polynomisk ekstraarbeid.\n\n**R5.** $\\Theta(nm)$, der $n$ er antall gjenstander og $m$ er kapasiteten. Den kalles pseudopolynomisk fordi $m$ er en *tallverdi* i inndata, ikke et antall elementer: et tall med $b$ binærsiffer kan være så stort som $2^b$, så kjøretiden er eksponentiell i lengden på inndata."
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-8-1-oppsummering",
+      "type": "text",
+      "content": "## Kort oppsummert\n\n- Settet er om lag 20 likt vektede kortsvarsoppgaver på fire timer: **12 minutter per oppgave**, om lag 5 prosent hver.\n- **Kortsvarsdisiplinen gjelder svarene, ikke læringen.** Du må forstå mye mer enn du skriver — men ikke skrive alt du forstår.\n- **Hver sjanger har sin form.** Ett uttrykk (A, E), metode og tilfelle (B), sluttilstand (C), én presis setning (D), ja eller nei først (F), retning og konsekvens (G), fem ledd (H).\n- **Hovedpoenget først.** Delvis uttelling belønner rekkefølgen din.\n- **Finn verbet i oppgaveteksten før du skriver.** «Oppgi», «utfør», «forklar» og «beskriv en algoritme som» ber om fire forskjellige svar.\n- **Ingen oppgave er verdt mer enn de andre.** Skriv ned det du vet, sett et merke i margen, gå videre.\n\nNeste kapittel, [kap. 8.2](/tdt4120/tdt4120-8-2), tar den sjangeren som er vanskeligst å levere kort og fullstendig samtidig: de åpne designoppgavene."
+    }
+  ],
+  "exercises": []
+}

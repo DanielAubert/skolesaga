@@ -1,0 +1,440 @@
+{
+  "id": "tdt4120-7-3",
+  "courseId": "tdt4120",
+  "chapterNumber": "7.3",
+  "title": "NP-komplette problemer",
+  "description": "De navngitte NPC-problemene og beviset for at CIRCUIT-SAT er NP-komplett (kretsen simulerer en verifikator).",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "kunne skrive den formelle definisjonen av CIRCUIT-SAT, SAT, 3-CNF-SAT, CLIQUE, VERTEX-COVER, HAM-CYCLE, TSP og SUBSET-SUM som avgjørelsesproblemer",
+    "kunne forklare hovedideen i at CIRCUIT-SAT er NP-komplett, altså at kretsen simulerer verifikasjonsalgoritmen og at sertifikatet er kretsens input",
+    "kunne skille CLIQUE fra VERTEX-COVER på både ulikhetstegn og hva kravet gjelder",
+    "kunne bruke reduksjonskjeden til å forklare hvordan et nytt problem vises NP-komplett, og hvilke to deler et slikt bevis alltid har"
+  ],
+  "content": [
+    {
+      "id": "tdt4120-7-3-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**NP-katalogen er den delen av pensum som kommer igjen oftest av alt.**\n\n- **Sjanger D — definisjon med egne ord**, altså at du gir én presis setning som fanger hovedpoenget først, og **sjanger G — reduksjon og NP-argument**, altså at du oppgir hvilken vei reduksjonen går og hva den beviser, er begge til stede i **100 % (17 av de 17 settene i grunnlaget)**.\n- Dette kapitlet har **høyeste prioritet — dette må sitte**.\n\nDet du trenes på her, er én ting: å kunne skrive ned den **formelle** definisjonen av hvert av de åtte navngitte problemene, som et ja/nei-spørsmål. Løsningsforslagene godtar mange formuleringer, men de godtar ikke et svar som bare gjentar navnet. Skriver du «CLIQUE handler om å finne en klikk», har du sagt null. Skriver du «gitt en graf $G=(V,E)$ og et tall $k$: finnes det en mengde på minst $k$ noder der alle er parvis naboer?», har du svart.\n\nRegn med **to til fire** oppgaver per sett som treffer stoffet i dette kapitlet, spredt på definisjoner og på spørsmål om hva en reduksjon beviser. De er blant de billigste sikre poengene i hele faget, fordi svaret er kort og fasiten entydig."
+    },
+    {
+      "id": "tdt4120-7-3-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper\n\nDette kapitlet bygger på [kap. 7.1](/tdt4120/tdt4120-7-1) og [kap. 7.2](/tdt4120/tdt4120-7-2). Dette sto der, og det brukes på hver eneste side under:\n\n- **NP** er klassen av avgjørelsesproblemer der et ja-svar kan **verifiseres** i polynomisk tid gitt et **sertifikat** — et forslag til løsning som en verifikasjonsalgoritme sjekker. NP sier ingenting om hvor lang tid det tar å *finne* løsningen. Og $P \\subseteq NP$: alt du kan løse raskt, kan du også verifisere raskt.\n- En **polynomisk reduksjon** $A \\le_p B$ er en funksjon som gjør om enhver $A$-instans til en $B$-instans i polynomisk tid, slik at svaret er det samme: ja blir ja, og nei blir nei. Retningen betyr at **$B$ er minst like vanskelig som $A$**.\n- Derfor: for å vise at et problem $X$ er vanskelig, reduserer du **fra** et kjent vanskelig problem **til** $X$. Motsatt vei beviser ingenting om $X$ sin vanskelighet.\n\nTrenger du å friske opp mengdenotasjonen bak $G=(V,E)$ og $C \\subseteq V$, ligger den i [Mengdelære](/1t/1t-1-7)."
+    },
+    {
+      "id": "tdt4120-7-3-notasjon",
+      "type": "collapsible",
+      "title": "Notasjons- og pseudokodeliste",
+      "buttonText": "Vis notasjon og pseudokode",
+      "content": [
+        {
+          "id": "tdt4120-7-3-notasjon-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et algoritmefag: den lister kjøretidsuttrykk og pseudokode-operasjoner i stedet for bare greske bokstaver.\n\n| Symbol | Betydning |\n|---|---|\n| $G=(V,E)$ | en graf med nodemengde $V$ og kantmengde $E$ |\n| $n$ | antall noder eller antall elementer i inputen |\n| $k$ | terskelen i et avgjørelsesproblem — det tallet ja/nei-spørsmålet måles mot |\n| $C \\subseteq V$ | en delmengde av nodene, for eksempel en klikk eller et nodedekke |\n| $\\lvert C \\rvert$ | antall elementer i mengden $C$ |\n| $\\bar{G}$ | komplementgrafen: samme noder, og kant nøyaktig der $G$ ikke har kant |\n| $\\varphi$ | en boolsk formel |\n| $A \\le_p B$ | $A$ reduseres polynomisk til $B$, altså er $B$ minst like vanskelig som $A$ |\n| $P$, $NP$ | klassen av problemer som kan løses, henholdsvis verifiseres, i polynomisk tid |\n| $w(u,v)$ | vekten (kostnaden) på kanten mellom $u$ og $v$ |\n\n| Algoritme/operasjon | Kontrakt | Kjøretid |\n|---|---|---|\n| `Verify-Clique(G, k, V')` | tar en graf, en terskel og et sertifikat `V'`; svarer 1 hvis `V'` er en klikk med minst `k` noder | $O(n^2)$ oppslag i nabomatrisen |\n| `Verify-Vertex-Cover(G, k, C)` | svarer 1 hvis `C` har høyst `k` noder og treffer hver kant | $O(n^2)$ |\n| `Verify-3-CNF-SAT(phi, tilordning)` | setter inn tilordningen og sjekker at hver klausul har minst én sann literal | $\\Theta(m)$ for $m$ literaler |\n| `Verify-Subset-Sum(S, t, S')` | summerer `S'` og sammenligner med `t` | $\\Theta(n)$ addisjoner |\n| Reduksjonsfunksjonen `F` | gjør om en instans av det kjente problemet til en instans av det nye, uten å endre ja/nei-svaret | må være polynomisk i inputstørrelsen |\n\n**Formler i dette delkapitlet:**\n\n$$A \\le_p B \\quad \\text{betyr at } B \\text{ er minst like vanskelig som } A$$\nPilen peker fra det du allerede vet er vanskelig, mot det du vil vise er vanskelig.\n\n$$X \\text{ er NP-komplett} \\iff X \\in NP \\text{ og } X \\text{ er NP-hardt}$$\nTo ledd, ikke ett. Et NPC-bevis har alltid to deler.\n\n$$\\lvert V \\rvert - \\lvert C \\rvert$$\nEr $C$ et nodedekke i $G$, er resten av nodene en uavhengig mengde — og omvendt."
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-7-3-anker",
+      "type": "text",
+      "content": "## Åtte problemer du skal kunne definere (~10 min)\n\nEn kommune skal sette sammen et vurderingspanel. Noen av de aktuelle fagpersonene har jobbet så tett sammen at de er inhabile overfor hverandre; resten kan sitte sammen. Spørsmålet fra rådmannen er enkelt nok: *finnes det et panel på minst fem personer der ingen to er inhabile overfor hverandre?*\n\nIngen i den samtalen sier ordet «graf». Men spørsmålet er allerede et av de åtte problemene i dette kapitlet, formulert med andre ord. Det er hele poenget med katalogen: noen få abstrakte ja/nei-spørsmål dukker opp igjen og igjen i praktiske kledninger, og når du kjenner den formelle formen, kjenner du dem igjen.\n\nAlle åtte er skrevet som **avgjørelsesproblemer** — spørsmål med svaret ja eller nei. Det er ikke en tilfeldighet. Klassene $P$ og $NP$ er definert for ja/nei-spørsmål, så et optimeringsproblem («hva er den *største* klikken?») må først skrives om med en terskel $k$ («finnes det en klikk på minst $k$ noder?») før det i det hele tatt gir mening å spørre om det er i $NP$."
+    },
+    {
+      "id": "tdt4120-7-3-def-avgjorelsesform",
+      "type": "definition",
+      "title": "Avgjørelsesform med terskel",
+      "content": "Et optimeringsproblem gjøres om til et ja/nei-spørsmål ved å legge til et ekstra inputtall $k$ og spørre om det finnes en løsning som er minst (eller høyst) så god.\n\n«Finn den største klikken» blir «finnes det en klikk på minst $k$ noder?». «Finn den billigste rundturen» blir «finnes det en rundtur med kostnad høyst $k$?». Terskelen $k$ er en del av inputen, på lik linje med grafen.\n\nAvgjørelsesvarianten er **aldri vanskeligere** enn optimeringsvarianten: kan du finne den beste løsningen, kan du sammenligne den med $k$. Derfor er det nok å vise at avgjørelsesvarianten er vanskelig — da er optimeringsvarianten det også."
+    },
+    {
+      "id": "tdt4120-7-3-def-np-hardt",
+      "type": "definition",
+      "title": "NP-hardt",
+      "content": "Et problem $X$ er NP-hardt hvis **hvert** problem i $NP$ kan reduseres polynomisk til $X$ — altså $A \\le_p X$ for alle $A \\in NP$.\n\nNP-hardt sier bare noe om **vanskelighet**: $X$ er minst like vanskelig som alt i $NP$. Det sier ingenting om at $X$ selv ligger i $NP$. Et NP-hardt problem kan være mye verre — det kan til og med være uavgjørbart.\n\nI praksis viser du aldri dette for alle $A \\in NP$ direkte. Du reduserer fra **ett** kjent NP-hardt problem, og lar transitiviteten gjøre resten: er $A \\le_p B$ og $B \\le_p X$, så er $A \\le_p X$."
+    },
+    {
+      "id": "tdt4120-7-3-def-npc",
+      "type": "definition",
+      "title": "NP-komplett (NPC)",
+      "content": "Et problem $X$ er NP-komplett hvis det oppfyller **to** krav samtidig: $X \\in NP$, **og** $X$ er NP-hardt.\n\nFørste ledd er medlemskapet: det finnes et sertifikat og en verifikasjonsalgoritme som sjekker det i polynomisk tid. Andre ledd er hardheten: alt i $NP$ reduseres til $X$.\n\nDe NP-komplette problemene er dermed de **vanskeligste problemene i $NP$**. Finner noen en polynomisk algoritme for ett eneste av dem, følger $P = NP$ — og alle de andre faller samtidig."
+    },
+    {
+      "id": "tdt4120-7-3-def-npc-bevis",
+      "type": "definition",
+      "title": "NPC-bevis i to deler",
+      "content": "Standardoppskriften for å vise at et problem $X$ er NP-komplett består alltid av to atskilte deler, og begge må stå der.\n\n**Del 1 — medlemskap:** vis at $X \\in NP$ ved å oppgi et sertifikat og argumentere for at det kan verifiseres i polynomisk tid.\n**Del 2 — hardhet:** velg et problem $Y$ du allerede vet er NP-komplett, og gi en polynomisk reduksjon $Y \\le_p X$ — altså **fra** $Y$ **til** $X$.\n\nHar du bare del 2, har du vist at $X$ er NP-hardt, ikke at $X$ er NP-komplett. Har du bare del 1, har du ikke vist noe om vanskelighet i det hele tatt."
+    },
+    {
+      "id": "tdt4120-7-3-eks-1",
+      "type": "example",
+      "title": "Eksempel 1: Fra optimering til avgjørelse",
+      "problem": "Et transportselskap skal innom fem terminaler `P`, `Q`, `R`, `S` og `T` én gang hver og tilbake til utgangspunktet. Kostnadene mellom terminalene er:\n\n| | P | Q | R | S | T |\n|---|---|---|---|---|---|\n| **P** | — | 12 | 19 | 25 | 14 |\n| **Q** | 12 | — | 10 | 21 | 17 |\n| **R** | 19 | 10 | — | 11 | 23 |\n| **S** | 25 | 21 | 11 | — | 13 |\n| **T** | 14 | 17 | 23 | 13 | — |\n\n**a)** Skriv om spørsmålet «hva er den billigste rundturen?» til et avgjørelsesproblem.\n**b)** Hva er svaret på avgjørelsesspørsmålet for $k = 59$ og for $k = 60$?",
+      "solution": "**a)** Avgjørelsesvarianten er: *gitt kostnadene og et tall $k$ — finnes det en rundtur som besøker hver terminal nøyaktig én gang og ender der den startet, med samlet kostnad høyst $k$?* Terskelen $k$ er en del av inputen.\n\n**b)** Med fem terminaler finnes det $(5-1)! = 24$ rundturer å sammenligne. Den billigste er\n\n```text\nP - Q - R - S - T - P   med kostnad 12 + 10 + 11 + 13 + 14 = 60\n```\n\n$k = 59$: **nei**. $k = 60$: **ja**.\n\nLegg merke til hva som skjedde: det opprinnelige spørsmålet hadde et *tall* som svar, avgjørelsesvarianten har *ja eller nei*. Det er den formen klassene $P$ og $NP$ er definert for, og derfor den formen alle de åtte problemene i dette kapitlet skrives på."
+    },
+    {
+      "id": "tdt4120-7-3-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-7-3-oppg-1-e",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamensnivå, sjanger D — definisjon med egne ord: én presis setning der hovedpoenget står først.)\n\nEt sykehus vil vite hvor få vaktposter det holder å bemanne for at hver korridor skal ha bemanning i minst én av endene sine. Korridorene går mellom vaktposter.\n\n**a)** Hvilket av katalogproblemene er dette?\n**b)** Skriv problemet som et avgjørelsesproblem, med grafnotasjon.",
+        "solution": "**a)** VERTEX-COVER (nodedekke). Vaktpostene er noder, korridorene er kanter, og kravet «minst én av endene bemannet» er nøyaktig kravet om at hver kant skal ha minst ett endepunkt i den valgte mengden.\n\n**b)** Gitt en graf $G=(V,E)$ og et tall $k$: finnes det en delmengde $C \\subseteq V$ med $\\lvert C \\rvert \\le k$ slik at hver kant $(u,v) \\in E$ har $u \\in C$ eller $v \\in C$?\n\nOppgaven ber om definisjonen som ja/nei-spørsmål, ikke om en algoritme.",
+        "hints": [
+          "Tegn opp situasjonen som en graf: hva blir noder, og hva blir kanter?",
+          "Kravet gjelder hver **kant**, ikke hver node. Hvilket av de to grafproblemene i katalogen har krav knyttet til kantene?",
+          "Optimeringsspørsmålet «hvor få?» må gjøres om med en terskel $k$ før det er et avgjørelsesproblem."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-7-3-krets-intro",
+      "type": "text",
+      "content": "## CIRCUIT-SAT — der kjeden begynner (~12 min)\n\nAlle de andre problemene i katalogen har fått NP-hardheten sin arvet fra et problem som allerede var kjent vanskelig. Men det første problemet kunne ikke arve noe — det fantes ingenting å arve fra. Det måtte bevises fra bunnen, direkte mot definisjonen av $NP$.\n\nDet problemet er CIRCUIT-SAT, og ideen bak beviset er verdt å kunne fortelle i tre setninger. Selve beviset er langt og teknisk, og det spørres det ikke om. Hovedideen spørres det om."
+    },
+    {
+      "id": "tdt4120-7-3-def-krets",
+      "type": "definition",
+      "title": "Boolsk kombinatorisk krets",
+      "content": "En krets satt sammen av logiske porter — AND, OR og NOT — koblet slik at signalene bare går én vei, uten sløyfer tilbake. Den har $n$ inngangsledninger som hver settes til 0 eller 1, og nøyaktig én utgang.\n\nKretsen er en ren funksjon av inngangene: gitt verdiene på inngangene, er utgangen entydig bestemt, og den kan regnes ut på tid proporsjonal med antall porter. En krets med $n$ innganger har $2^n$ mulige inputkombinasjoner — det er derfor det er lett å *evaluere* en krets, men ikke opplagt lett å *søke* gjennom alle inputene."
+    },
+    {
+      "id": "tdt4120-7-3-def-circuit-sat",
+      "type": "definition",
+      "title": "CIRCUIT-SAT",
+      "content": "Spørsmålet er om det finnes en måte å sette inngangene på som får kretsen til å gi 1 ut.\n\n**Formelt:** gitt en boolsk kombinatorisk krets $C$ med $n$ innganger — finnes det en tilordning av 0 og 1 til inngangene slik at $C$ gir 1 på utgangen? Er svaret ja, kalles kretsen **oppfyllbar**.\n\nSertifikatet er selve inputkombinasjonen, og verifikasjonen er å evaluere kretsen én gang — lineært i antall porter. CIRCUIT-SAT ligger derfor i $NP$, og problemet er NP-komplett."
+    },
+    {
+      "id": "tdt4120-7-3-teorem-circuit-sat",
+      "type": "theorem",
+      "title": "Hovedideen: hvorfor CIRCUIT-SAT er NP-komplett",
+      "content": "**Påstanden:** CIRCUIT-SAT er NP-komplett. Medlemskapet i $NP$ er lett (evaluér kretsen på den foreslåtte inputen). Det interessante er hardheten, og den bevises **ikke** ved å redusere fra et annet NP-komplett problem — det fantes ikke noe å redusere fra.\n\n**Ideen i tre setninger.** La $A$ være et hvilket som helst problem i $NP$. Da finnes det per definisjon en verifikasjonsalgoritme $V$ som, gitt en instans $x$ og et sertifikat $y$, svarer 1 eller 0 på polynomisk tid. En algoritme som kjører i polynomisk tid på en datamaskin, kan skrives om til en **krets** av polynomisk størrelse som regner ut det samme: maskinen er tross alt bygget av logiske porter, og et polynomisk antall regneskritt gir et polynomisk antall porter.\n\n**Konstruksjonen.** For en gitt instans $x$ bygger vi kretsen som simulerer $V$ med $x$ **fastspikret** i portene, og lar **sertifikatet $y$ være kretsens innganger**. Da gjelder:\n\n$$x \\text{ er en ja-instans av } A \\iff \\text{kretsen er oppfyllbar}$$\n\nFor er $x$ en ja-instans, finnes et sertifikat som får $V$ til å svare 1, og nettopp den inputen gjør kretsen oppfyllbar. Og finnes en input som gjør kretsen oppfyllbar, er den inputen et sertifikat som får $V$ til å godta $x$.\n\n**Konsekvensen.** Dette er en polynomisk reduksjon $A \\le_p$ CIRCUIT-SAT, og den fungerer for **hvert** $A \\in NP$. Altså er CIRCUIT-SAT NP-hardt, og siden det også ligger i $NP$, er det NP-komplett.\n\n**Setningen du skal kunne skrive på eksamen:** kretsen simulerer verifikasjonsalgoritmen, og sertifikatet er kretsens input — derfor er kretsen oppfyllbar nøyaktig når instansen har et gyldig sertifikat."
+    },
+    {
+      "id": "tdt4120-7-3-eks-2",
+      "type": "example",
+      "title": "Eksempel 2: Er kretsen oppfyllbar?",
+      "problem": "To små kretser:\n\n```text\nC(a, b, c) = ((a AND NOT b) OR (b XOR c)) AND (NOT a OR c)\nD(a, b)    = (a OR b) AND (NOT a) AND (NOT b)\n```\n\nAvgjør for hver av dem om den er oppfyllbar, og oppgi et sertifikat der svaret er ja.",
+      "solution": "Med tre innganger er det $2^3 = 8$ kombinasjoner å prøve for `C`:\n\n```text\n  a b c | C\n  0 0 0 | 0\n  0 0 1 | 1\n  0 1 0 | 1\n  0 1 1 | 0\n  1 0 0 | 0\n  1 0 1 | 1\n  1 1 0 | 0\n  1 1 1 | 0\n```\n\n`C` er **oppfyllbar**. Sertifikat: $a=0,\\ b=0,\\ c=1$. Verifikasjonen er å sette inn de tre verdiene og evaluere de fire portene — det tar konstant tid her, og lineær tid i antall porter generelt.\n\nFor `D` er alle fire kombinasjonene 0:\n\n```text\n  a b | D\n  0 0 | 0\n  0 1 | 0\n  1 0 | 0\n  1 1 | 0\n```\n\n`D` er **ikke oppfyllbar**. Merk asymmetrien: ja-svaret har et kort sertifikat som lar seg sjekke lynraskt, mens nei-svaret her krevde at vi gikk gjennom alle kombinasjonene. Det er nøyaktig denne asymmetrien definisjonen av $NP$ bygger på."
+    },
+    {
+      "id": "tdt4120-7-3-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-7-3-oppg-2-e",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamensnivå, sjanger G — reduksjon og NP-argument: oppgi retningen, hva den beviser, og hva den ikke beviser.)\n\nBeviset for at CIRCUIT-SAT er NP-komplett skiller seg fra alle de andre NPC-bevisene i katalogen.\n\n**a)** På hvilken måte skiller det seg?\n**b)** Hva er sertifikatet i beviset, og hva er det kretsen simulerer?",
+        "solution": "**a)** Det reduserer ikke fra et annet NP-komplett problem — det fantes ingen å redusere fra. Beviset går direkte mot **definisjonen av $NP$**: det viser $A \\le_p$ CIRCUIT-SAT for et vilkårlig $A \\in NP$, ved å bruke at $A$ per definisjon har en polynomisk verifikasjonsalgoritme.\n\n**b)** Kretsen simulerer **verifikasjonsalgoritmen** til $A$, med instansen $x$ fastspikret. **Sertifikatet er kretsens input.** Dermed er kretsen oppfyllbar nøyaktig når det finnes et sertifikat som får verifikatoren til å godta $x$.\n\nDet beviset **ikke** gjør, er å si noe om hvor lang tid det tar å avgjøre CIRCUIT-SAT. Det sier bare at problemet er minst like vanskelig som alt annet i $NP$.",
+        "hints": [
+          "Alle de andre bevisene starter med et problem som allerede er kjent NP-komplett. Hva hadde man tilgjengelig aller først?",
+          "Definisjonen av $NP$ gir deg én ting gratis for hvert problem i klassen. Hva er det?",
+          "Tenk på hva som er variabelt og hva som er fast når kretsen bygges: den ene av instansen og sertifikatet er innebygd, den andre er input."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-7-3-advarsel-1",
+      "type": "warning",
+      "title": "Typiske feil: CIRCUIT-SAT-beviset",
+      "content": "**Felle #1 — reversert reduksjonsretning**, altså å redusere fra sitt eget problem til et kjent vanskelig problem og tro at det beviser at ens eget problem er vanskelig. Den slår inn her i en egen variant: å tro at CIRCUIT-SAT-beviset reduserer **fra** CIRCUIT-SAT **til** noe annet, eller at det reduserer fra et annet NP-komplett problem. Ingen av delene. Beviset går fra et vilkårlig $A \\in NP$ til CIRCUIT-SAT.\n\nTo andre feil i samme område:\n\n- **Å hoppe over medlemskapet.** «Vi reduserer fra CIRCUIT-SAT, altså er problemet NP-komplett» er et halvt bevis. Reduksjonen gir NP-hardhet; NP-kompletthet krever i tillegg at problemet ligger i $NP$.\n- **Å blande sertifikat og løsning.** Sertifikatet er *forslaget* som verifiseres, ikke svaret verifikatoren gir. I CIRCUIT-SAT er sertifikatet inputkombinasjonen, ikke bittet 1 på utgangen."
+    },
+    {
+      "id": "tdt4120-7-3-kjede-tekst",
+      "type": "text",
+      "content": "## Reduksjonskjeden — slik arves hardheten videre (~14 min)\n\nNår først ett problem er kjent NP-komplett, blir de neste billigere. Er $Y$ NP-komplett og du greier å vise $Y \\le_p X$, arver $X$ hardheten: alt i $NP$ reduseres til $Y$, og $Y$ reduseres til $X$, så alt i $NP$ reduseres til $X$. Det er transitiviteten som gjør katalogen mulig.\n\nKjeden i pensum ser slik ut:\n\n```text\nCIRCUIT-SAT -> SAT -> 3-CNF-SAT -> CLIQUE -> VERTEX-COVER -> HAM-CYCLE -> TSP\n                      3-CNF-SAT -> SUBSET-SUM\n```\n\nPilene peker **fra det som allerede er kjent vanskelig, til det nye**. Leser du en pil feil vei, har du snudd hele argumentet. Merk også at hver pil bare gir NP-**hardhet** videre: at hvert av problemene også ligger i $NP$, må vises for seg, med sitt eget sertifikat."
+    },
+    {
+      "id": "tdt4120-7-3-fig-kjede",
+      "type": "image",
+      "src": "/images/textbook/tdt4120/npc-reduksjonskjede.svg",
+      "alt": "Diagram over reduksjonskjeden for NP-komplette problemer. En vannrett rekke med piler går fra CIRCUIT-SAT til SAT, videre til 3-CNF-SAT, deretter til CLIQUE, så til VERTEX-COVER, så til HAM-CYCLE og til slutt til TSP. En egen pil går ned fra 3-CNF-SAT til SUBSET-SUM. Under diagrammet står det at pilen går fra det som allerede er kjent vanskelig til det nye problemet, at CIRCUIT-SAT er startpunktet fordi kretsen simulerer verifikasjonsalgoritmen med sertifikatet som input, og at hver pil arver NP-hardheten videre mens medlemskap i NP må vises separat for hvert problem.",
+      "caption": "Kjeden i pensum. CIRCUIT-SAT er det eneste leddet som ikke arver hardheten fra noen — det bevises direkte mot definisjonen av $NP$."
+    },
+    {
+      "id": "tdt4120-7-3-def-cnf",
+      "type": "definition",
+      "title": "Literal, klausul og konjunktiv normalform",
+      "content": "Tre navn på delene en boolsk formel bygges av.\n\nEn **literal** er en variabel eller negasjonen av en variabel: $x_2$ eller $\\neg x_2$. En **klausul** er flere literaler koblet med OR: $(x_1 \\vee \\neg x_2 \\vee x_3)$. En formel er på **konjunktiv normalform** (CNF) når den er flere klausuler koblet med AND.\n\nEn CNF-formel er sann nøyaktig når **hver** klausul har minst én sann literal. Det gjør verifikasjonen triviell: sett inn tilordningen og gå gjennom klausulene én gang, i tid lineær i antall literaler."
+    },
+    {
+      "id": "tdt4120-7-3-def-sat",
+      "type": "definition",
+      "title": "SAT (formeloppfyllbarhet)",
+      "content": "Spørsmålet er om en boolsk formel kan gjøres sann.\n\n**Formelt:** gitt en boolsk formel $\\varphi$ over variablene $x_1,\\dots,x_n$, bygget av AND, OR og NOT — finnes det en tilordning av sannhetsverdier til variablene som gjør $\\varphi$ sann?\n\nSertifikatet er tilordningen; verifikasjonen er å evaluere formelen én gang. SAT er NP-komplett, og hardheten arves fra CIRCUIT-SAT: en krets skrives om til en formel ved å innføre én variabel per port."
+    },
+    {
+      "id": "tdt4120-7-3-def-3cnf",
+      "type": "definition",
+      "title": "3-CNF-SAT",
+      "content": "Samme spørsmål som SAT, men med formelen på en stram standardform.\n\n**Formelt:** gitt en boolsk formel $\\varphi$ på konjunktiv normalform der **hver klausul har nøyaktig tre literaler** — finnes det en tilordning som gjør $\\varphi$ sann?\n\nStandardformen gjør 3-CNF-SAT til arbeidshesten i katalogen: den er ryddig nok til å bygge grafkonstruksjoner ut av, og derfor går de fleste videre reduksjonene ut fra nettopp den. 3-CNF-SAT er NP-komplett, og hardheten arves fra SAT."
+    },
+    {
+      "id": "tdt4120-7-3-eks-3",
+      "type": "example",
+      "title": "Eksempel 3: Sertifikat og verifikasjon i 3-CNF-SAT",
+      "problem": "Gitt formelen\n\n$$\\varphi = (x_1 \\vee \\neg x_2 \\vee x_3) \\wedge (\\neg x_1 \\vee x_2 \\vee x_3) \\wedge (\\neg x_1 \\vee \\neg x_2 \\vee \\neg x_3) \\wedge (x_1 \\vee x_2 \\vee \\neg x_3)$$\n\n**a)** Er $\\varphi$ på 3-CNF-form? Hvor mange klausuler og literaler har den?\n**b)** Er $\\varphi$ oppfyllbar? Oppgi i så fall et sertifikat, og vis hvordan verifikasjonen kjøres.",
+      "solution": "**a)** Ja. Fire klausuler, hver med nøyaktig tre literaler — til sammen 12 literaler, over tre variabler.\n\n**b)** Ja, $\\varphi$ er oppfyllbar. Med tre variabler finnes det åtte tilordninger, og fire av dem gjør formelen sann:\n\n```text\n  x1 x2 x3\n   0  0  0\n   0  1  1\n   1  0  1\n   1  1  0\n```\n\nSertifikat: $x_1 = 1,\\ x_2 = 0,\\ x_3 = 1$. Verifikasjonen går klausul for klausul:\n\n```text\n  klausul 1: (x1 OR NOT x2 OR x3)        x1 = 1        -> sann\n  klausul 2: (NOT x1 OR x2 OR x3)        x3 = 1        -> sann\n  klausul 3: (NOT x1 OR NOT x2 OR NOT x3) NOT x2 = 1   -> sann\n  klausul 4: (x1 OR x2 OR NOT x3)        x1 = 1        -> sann\n```\n\nAlle fire klausulene er sanne, så verifikatoren svarer 1. Arbeidet er lineært i antall literaler, altså $\\Theta(m)$ for $m$ literaler — og det er nettopp det som plasserer 3-CNF-SAT i $NP$.\n\nLegg merke til hva sertifikatet **ikke** er: det er ikke en oppskrift på å finne tilordningen. Å finne den er det vanskelige; å sjekke den er billig."
+    },
+    {
+      "id": "tdt4120-7-3-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-7-3-oppg-3-e",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger D og C — definisjon og håndkjøring: oppgi bare det som etterspørres.)\n\nGitt formelen\n\n$$\\psi = (y_1 \\vee y_2 \\vee \\neg y_3) \\wedge (\\neg y_1 \\vee y_2 \\vee y_3) \\wedge (y_1 \\vee \\neg y_2 \\vee y_3) \\wedge (\\neg y_1 \\vee \\neg y_2 \\vee \\neg y_3) \\wedge (y_1 \\vee y_2 \\vee y_3)$$\n\n**a)** Hvor mange klausuler og literaler har $\\psi$, og er den på 3-CNF-form?\n**b)** Oppgi ett sertifikat som viser at $\\psi$ er en ja-instans av 3-CNF-SAT.\n**c)** Hvor mange av de åtte mulige tilordningene gjør $\\psi$ sann?",
+        "solution": "**a)** Fem klausuler, 15 literaler, tre variabler. Ja, hver klausul har nøyaktig tre literaler, så $\\psi$ er på 3-CNF-form.\n\n**b)** For eksempel $y_1 = 1,\\ y_2 = 1,\\ y_3 = 0$. Kontroll: klausul 1 er sann via $y_1$, klausul 2 via $y_2$, klausul 3 via $y_1$, klausul 4 via $\\neg y_3$, klausul 5 via $y_1$.\n\n**c)** Tre av åtte:\n\n```text\n  y1 y2 y3\n   0  1  1\n   1  0  1\n   1  1  0\n```\n\nEtt sertifikat er nok til å svare ja — deloppgave b) ber om ett, ikke om alle.",
+        "hints": [
+          "Tell literalene klausul for klausul før du gjør noe annet.",
+          "Prøv å sette to av variablene til 1 og se hvilken klausul som først blir problematisk.",
+          "Klausulen med tre negerte literaler kan ikke ha alle tre variablene satt til 1 samtidig."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-7-3-graf-tekst",
+      "type": "text",
+      "content": "## CLIQUE og VERTEX-COVER — de to som forveksles (~14 min)\n\nNå er vi tilbake ved panelet fra åpningen. De to neste problemene i kjeden handler begge om å velge ut noder i en graf, og de forveksles oftere enn noe annet par i katalogen. Forskjellen er verdt å skrive ned i klartekst før definisjonene kommer:\n\n- **CLIQUE** ser på **nodene innbyrdes**: alle de valgte skal være naboer med hverandre. Du vil ha **minst** $k$ noder — jo flere, jo bedre.\n- **VERTEX-COVER** ser på **kantene**: hver kant i hele grafen skal ha minst én ende blant de valgte. Du vil klare deg med **høyst** $k$ noder — jo færre, jo bedre.\n\nÉn av dem er et maksimeringsproblem med et krav på innsiden av utvalget, den andre er et minimeringsproblem med et krav på utsiden. Ulikhetstegnet peker derfor motsatt vei i de to definisjonene, og det er det aller lettest å bomme på."
+    },
+    {
+      "id": "tdt4120-7-3-def-klikk",
+      "type": "definition",
+      "title": "Klikk (clique)",
+      "content": "En delmengde av nodene der **alle** er parvis naboer.\n\nFormelt: $C \\subseteq V$ er en klikk i $G=(V,E)$ hvis $(u,v) \\in E$ for alle par $u \\ne v$ i $C$. Med andre ord: $C$ spenner ut en komplett delgraf.\n\nÉn node er alltid en klikk, og to naboer er alltid en klikk. Det interessante er hvor stor den største klikken er — og å avgjøre det er vanskelig."
+    },
+    {
+      "id": "tdt4120-7-3-def-clique",
+      "type": "definition",
+      "title": "CLIQUE",
+      "content": "Spørsmålet er om grafen har en stor nok gruppe der alle kjenner alle.\n\n**Formelt:** gitt en graf $G=(V,E)$ og et tall $k$ — finnes det en delmengde $C \\subseteq V$ med $\\lvert C \\rvert \\ge k$ slik at $(u,v) \\in E$ for alle par av ulike noder $u, v \\in C$?\n\nMerk **minst** $k$: dette er maksimeringssiden. Sertifikatet er nodemengden $C$, og verifikasjonen sjekker de høyst $\\lvert C \\rvert^2$ parene, altså $O(n^2)$ oppslag. CLIQUE er NP-komplett, og hardheten arves fra 3-CNF-SAT."
+    },
+    {
+      "id": "tdt4120-7-3-def-nodedekke",
+      "type": "definition",
+      "title": "Nodedekke (vertex cover)",
+      "content": "En delmengde av nodene som treffer **hver** kant i grafen.\n\nFormelt: $C \\subseteq V$ er et nodedekke i $G=(V,E)$ hvis hver kant $(u,v) \\in E$ har $u \\in C$ eller $v \\in C$ (eller begge).\n\nHele nodemengden $V$ er alltid et nodedekke. Det interessante er hvor lite dekket kan gjøres. En nyttig sammenheng: $C$ er et nodedekke nøyaktig når resten, $V \\setminus C$, er en **uavhengig mengde** — en mengde uten en eneste kant mellom seg."
+    },
+    {
+      "id": "tdt4120-7-3-def-vertex-cover",
+      "type": "definition",
+      "title": "VERTEX-COVER",
+      "content": "Spørsmålet er om få nok noder kan holde oppsyn med alle kantene.\n\n**Formelt:** gitt en graf $G=(V,E)$ og et tall $k$ — finnes det en delmengde $C \\subseteq V$ med $\\lvert C \\rvert \\le k$ slik at hver kant $(u,v) \\in E$ har minst ett endepunkt i $C$?\n\nMerk **høyst** $k$: dette er minimeringssiden, motsatt av CLIQUE. Sertifikatet er mengden $C$, og verifikasjonen går gjennom kantene én gang. VERTEX-COVER er NP-komplett, og hardheten arves fra CLIQUE."
+    },
+    {
+      "id": "tdt4120-7-3-def-komplementgraf",
+      "type": "definition",
+      "title": "Komplementgrafen",
+      "content": "Samme noder som originalen, men med kant nøyaktig der originalen mangler kant.\n\nFormelt: $\\bar{G} = (V, \\bar{E})$ der $(u,v) \\in \\bar{E}$ hvis og bare hvis $u \\ne v$ og $(u,v) \\notin E$. Å bygge $\\bar{G}$ tar $\\Theta(n^2)$ tid, altså polynomisk — den er derfor lovlig å bruke inne i en reduksjon.\n\nKomplementgrafen binder de to grafproblemene sammen: $C$ er en klikk i $\\bar{G}$ nøyaktig når $C$ er en uavhengig mengde i $G$, og da er $V \\setminus C$ et nodedekke i $G$. En klikk på $k$ noder i $\\bar{G}$ svarer altså til et nodedekke på $n - k$ noder i $G$."
+    },
+    {
+      "id": "tdt4120-7-3-eks-4",
+      "type": "example",
+      "title": "Eksempel 4: Samme graf, to spørsmål",
+      "problem": "En graf $G$ med seks noder:\n\n```text\n  V = {a, b, c, d, e, f}\n  E = {(a,b), (a,c), (b,c), (b,d), (c,d), (d,e), (d,f), (e,f)}\n```\n\n**a)** Er `(G, k=3)` en ja-instans av CLIQUE?\n**b)** Er `(G, k=3)` en ja-instans av VERTEX-COVER?\n**c)** Hva er svaret for VERTEX-COVER med $k = 4$?",
+      "solution": "**a)** **Ja.** Nodene `{b, c, d}` er parvis naboer: `(b,c)`, `(b,d)` og `(c,d)` ligger alle i $E$. Det er en klikk på tre noder, og CLIQUE spør om **minst** $k$.\n\n**b)** **Nei.** Grafen har åtte kanter, og ingen tre noder treffer alle. Det ser man raskest slik: kantene `(a,b)`, `(c,d)` og `(e,f)` er parvis disjunkte — de deler ingen endepunkt. Et dekke må ha minst én node fra hver av dem, men da er alle tre brukt opp, og kanten `(a,c)` er fortsatt udekket med mindre en av de tre valgte er `a` eller `c`. Uttømmende gjennomgang bekrefter det: det finnes ingen nodedekker med tre noder.\n\n**c)** **Ja.** `{b, c, d, f}` dekker alle åtte kantene:\n\n```text\n  (a,b) -> b     (a,c) -> c     (b,c) -> b,c   (b,d) -> b,d\n  (c,d) -> c,d   (d,e) -> d     (d,f) -> d,f   (e,f) -> f\n```\n\nUttømmende gjennomgang av alle delmengder gir dette bildet:\n\n| $k$ | antall klikker med $k$ noder | antall nodedekker med $k$ noder |\n|---|---|---|\n| 1 | 6 | 0 |\n| 2 | 8 | 0 |\n| 3 | 3 | 0 |\n| 4 | 0 | 7 |\n| 5 | 0 | 6 |\n| 6 | 0 | 1 |\n\nStørste klikk er altså 3, minste nodedekke er 4 — **på samme graf**. Det er den beste illustrasjonen av at de to problemene spør om helt forskjellige ting. Legg også merke til at $6 - 4 = 2$, og at største uavhengige mengde i $G$ nettopp er 2 noder (`{c, f}`)."
+    },
+    {
+      "id": "tdt4120-7-3-teorem-verify-clique",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `Verify-Clique`",
+      "content": "**1. Antagelser om representasjon.** Grafen $G=(V,E)$ er gitt som nabomatrise, slik at `E[u][v]` kan slås opp i konstant tid. Nodene er nummerert `1..n`. Sertifikatet `V'` er en liste av nodenummer uten gjentakelser.\n\n**2. Pre- og postbetingelse.** Før: `k` er et heltall mellom 0 og `n`, og `V'` er en liste av noder fra `V`. Etter: returverdien er 1 hvis og bare hvis `V'` er en klikk i $G$ med minst `k` noder. Grafen endres ikke.\n\n**3. Pseudokoden.**\n\n```text\nVerify-Clique(G, k, V')\n  Input:  graf G = (V, E) som nabomatrise, terskel k, sertifikat V'\n  Output: 1 hvis V' er en klikk i G med minst k noder, ellers 0\n  if length(V') < k\n      return 0\n  for hver node u i V'\n      if u ikke i V\n          return 0\n  for hver node u i V'\n      for hver node v i V' med v != u\n          if E[u][v] = 0\n              return 0\n  return 1\n```\n\n**4. Grunnideen.** Verifikatoren gjør ingen søking. Den tar imot et ferdig forslag og sjekker de to kravene i definisjonen av CLIQUE hver for seg: at utvalget er stort nok, og at hvert par i utvalget er en kant.\n\n**5. Kjøretid.** Den doble løkken går over høyst $\\lvert V' \\rvert^2 \\le n^2$ par, og hvert oppslag i nabomatrisen tar konstant tid, altså $O(n^2)$ — polynomisk i inputstørrelsen. Det er nettopp dette som viser at CLIQUE $\\in NP$."
+    },
+    {
+      "id": "tdt4120-7-3-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-7-3-oppg-4-e",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C — håndkjøring: oppgi bare sluttsvaret i det formatet oppgaven ber om.)\n\nGitt grafen\n\n```text\n  V = {p, q, r, s, t, u}\n  E = {(p,q), (p,r), (p,u), (q,r), (q,t), (r,s), (s,t), (t,u)}\n```\n\n**a)** Oppgi størrelsen på den største klikken, og hvilke noder den består av.\n**b)** Oppgi størrelsen på det minste nodedekket, og hvilke noder det består av.\n**c)** Er `(G, k=3)` en ja-instans av CLIQUE? Av VERTEX-COVER?",
+        "solution": "**a)** Største klikk har **3** noder: `{p, q, r}`. Kantene `(p,q)`, `(p,r)` og `(q,r)` ligger alle i $E$, og ingen fire noder er parvis naboer.\n\n**b)** Minste nodedekke har **3** noder: `{p, r, t}`. Kontroll:\n\n```text\n  (p,q) -> p     (p,r) -> p,r   (p,u) -> p     (q,r) -> r\n  (q,t) -> t     (r,s) -> r     (s,t) -> t     (t,u) -> t\n```\n\n**c)** **Ja** på begge. Her er de to tallene tilfeldigvis like — men det er tilfeldig for akkurat denne grafen, ikke en regel. På grafen i Eksempel 4 var største klikk 3 og minste nodedekke 4.\n\nOppgaven ber om størrelsen og nodemengden, ikke om en algoritme for å finne dem.",
+        "hints": [
+          "Se etter trekanter først: en klikk på tre noder er nettopp en trekant.",
+          "For nodedekket: finn kanter som ikke deler endepunkter. Hver av dem tvinger fram minst én node i dekket, og gir deg en nedre grense.",
+          "Node `t` har høy grad — sjekk hvor mange kanter du dekker ved å ta den med."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-7-3-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-7-3-oppg-5-e",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger D — definisjon med egne ord.)\n\n**a)** Definér CLIQUE og VERTEX-COVER som avgjørelsesproblemer, med grafnotasjon.\n**b)** Pek ut de to stedene definisjonene skiller lag.\n**c)** En klikk på $k$ noder i komplementgrafen $\\bar{G}$ svarer til hva i $G$?",
+        "solution": "**a)**\nCLIQUE: gitt $G=(V,E)$ og et tall $k$ — finnes det $C \\subseteq V$ med $\\lvert C \\rvert \\ge k$ slik at alle par av ulike noder i $C$ er en kant i $E$?\nVERTEX-COVER: gitt $G=(V,E)$ og et tall $k$ — finnes det $C \\subseteq V$ med $\\lvert C \\rvert \\le k$ slik at hver kant i $E$ har minst ett endepunkt i $C$?\n\n**b)** For det første **ulikhetstegnet**: CLIQUE vil ha minst $k$ noder, VERTEX-COVER høyst $k$. For det andre **hva kravet gjelder**: CLIQUE stiller krav til parene *inne i* utvalget, VERTEX-COVER stiller krav til *alle kantene i grafen*.\n\n**c)** En uavhengig mengde på $k$ noder i $G$ — og dermed et nodedekke på $n - k$ noder i $G$, der $n = \\lvert V \\rvert$.",
+        "hints": [
+          "Skriv de to definisjonene rett under hverandre og se på ulikhetstegnet.",
+          "Spør deg: hvilke objekter i grafen stiller hver definisjon krav til — nodeparene i utvalget, eller kantene i hele grafen?",
+          "For c): en kant i $\\bar{G}$ er nettopp en ikke-kant i $G$."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-7-3-advarsel-2",
+      "type": "warning",
+      "title": "Typiske feil: CLIQUE mot VERTEX-COVER",
+      "content": "Dette paret står for flere tapte poeng enn noe annet i katalogen. Tre konkrete feil:\n\n- **Snudd ulikhetstegn.** Å skrive «finnes det et nodedekke med minst $k$ noder?» gjør spørsmålet trivielt — hele $V$ er alltid et dekke. Et definisjonssvar med feil ulikhetstegn er galt, ikke omtrentlig riktig.\n- **Krav på feil objekt.** «Et nodedekke er en mengde noder som er parvis naboer» er definisjonen av en klikk. Nodedekket stiller krav til **kantene**.\n- **Å tro at største klikk og minste nodedekke henger sammen på samme graf.** De gjør det ikke. Sammenhengen går via **komplementgrafen**: klikk i $\\bar{G}$ svarer til uavhengig mengde i $G$, som svarer til komplementet av et nodedekke i $G$. På grafen i Eksempel 4 var største klikk 3 og minste nodedekke 4, uten noen sammenheng mellom tallene."
+    },
+    {
+      "id": "tdt4120-7-3-rundtur-tekst",
+      "type": "text",
+      "content": "## HAM-CYCLE, TSP og SUBSET-SUM (~10 min)\n\nDe tre siste i katalogen. To av dem handler om rundturer og henger tett sammen; den tredje handler om tall, og den skal du være ekstra våken på — den er kilden til den vanligste sammenblandingen i hele Del 7."
+    },
+    {
+      "id": "tdt4120-7-3-def-hamsykel",
+      "type": "definition",
+      "title": "Hamiltonsk sykel",
+      "content": "En lukket rundtur i en graf som besøker **hver node nøyaktig én gang** og ender der den startet.\n\nFormelt: en sykel i $G=(V,E)$ som inneholder hver node i $V$ nøyaktig én gang. Merk kontrasten til en Eulersk tur, som skal bruke hver **kant** én gang — den kan avgjøres i lineær tid, mens den hamiltonske varianten ikke kan det (så vidt vi vet).\n\nEn node med grad 1 utelukker umiddelbart at grafen har en hamiltonsk sykel: en sykel må komme inn og ut av hver node, altså kreves grad minst 2."
+    },
+    {
+      "id": "tdt4120-7-3-def-ham-cycle",
+      "type": "definition",
+      "title": "HAM-CYCLE",
+      "content": "Spørsmålet er om grafen har en rundtur innom alt.\n\n**Formelt:** gitt en graf $G=(V,E)$ — finnes det en hamiltonsk sykel i $G$, altså en lukket sti som besøker hver node i $V$ nøyaktig én gang?\n\nMerk at HAM-CYCLE ikke har noen terskel $k$: spørsmålet er allerede ja/nei. Sertifikatet er rekkefølgen nodene besøkes i, og verifikasjonen sjekker at listen inneholder alle noder én gang og at hvert etterfølgende par er en kant, i $O(n)$ oppslag. HAM-CYCLE er NP-komplett, med hardheten arvet fra VERTEX-COVER."
+    },
+    {
+      "id": "tdt4120-7-3-def-tsp",
+      "type": "definition",
+      "title": "TSP (handelsreisendes problem)",
+      "content": "Spørsmålet er om det finnes en rundtur innom alle byene som er billig nok.\n\n**Formelt:** gitt en komplett graf $G=(V,E)$ med en heltallig kostnad $w(u,v) \\ge 0$ på hver kant, og et tall $k$ — finnes det en rundtur som besøker hver node nøyaktig én gang og har samlet kostnad høyst $k$?\n\nTSP er HAM-CYCLE med prislapp. Sertifikatet er rekkefølgen, verifikasjonen summerer $n$ kostnader og sammenligner med $k$. TSP er NP-komplett, med hardheten arvet fra HAM-CYCLE: gi kostnad 0 til kantene som finnes i originalgrafen og 1 til de øvrige, og spør om det finnes en rundtur med kostnad høyst 0."
+    },
+    {
+      "id": "tdt4120-7-3-def-subset-sum",
+      "type": "definition",
+      "title": "SUBSET-SUM",
+      "content": "Spørsmålet er om noen av tallene kan plukkes ut slik at de summerer seg nøyaktig til et mål.\n\n**Formelt:** gitt en endelig mengde positive heltall $S = \\{s_1, \\dots, s_n\\}$ og et måltall $t$ — finnes det en delmengde $S' \\subseteq S$ med $\\sum_{s \\in S'} s = t$?\n\nSertifikatet er delmengden, verifikasjonen er én summering i $\\Theta(n)$. SUBSET-SUM er NP-komplett, med hardheten arvet direkte fra 3-CNF-SAT. **Advarsel:** det finnes en tabellalgoritme som løser problemet i $\\Theta(nt)$ tid, men $t$ er en **tallverdi**, ikke en inputlengde — og algoritmen er derfor pseudopolynomisk, ikke polynomisk."
+    },
+    {
+      "id": "tdt4120-7-3-advarsel-3",
+      "type": "warning",
+      "title": "Typiske feil: pseudopolynomisk mot NP-hardt",
+      "content": "**Felle #7 — å blande pseudopolynomisk og NP-hardt.** Den utløses nesten alltid av SUBSET-SUM eller 0-1-ryggsekk, og den går slik: «Det finnes en algoritme som er $\\Theta(nt)$, altså er problemet i $P$, altså er det ikke NP-hardt.» Det er galt, og feilen sitter i hva $t$ er.\n\nKjøretiden til en algoritme måles i **lengden av inputen i bit**. Et måltall $t$ skrives med $\\lceil \\lg t \\rceil$ bit. Er $t = 10^9$, tar tallet 30 bit å skrive ned, men tabellen har en milliard kolonner. Kjøretiden er altså **eksponentiell i inputlengden**, selv om uttrykket $\\Theta(nt)$ ser polynomisk ut.\n\nEn algoritme som er polynomisk i tallenes **verdi**, men eksponentiell i tallenes **lengde**, kalles **pseudopolynomisk**. Den er nyttig når tallene er små, og den motbeviser ingenting om NP-hardhet. Samme resonnement gjelder `Ford-Fulkerson`: den er pseudopolynomisk fordi kjøretiden avhenger av kapasitetenes størrelse, og det gjør ikke maks-flyt til et vanskelig problem."
+    },
+    {
+      "id": "tdt4120-7-3-eks-5",
+      "type": "example",
+      "title": "Eksempel 5: To eksamenssvar i kortsvarsform",
+      "problem": "**a)** Definér SUBSET-SUM, og avgjør om $S = \\{3, 8, 11, 17, 22\\}$ med $t = 30$ er en ja-instans.\n**b)** En reduksjon 3-CNF-SAT $\\le_p$ CLIQUE er gitt. Hva beviser den, og hva beviser den ikke?",
+      "solution": "**a)** Gitt en mengde positive heltall $S$ og et måltall $t$: finnes det en delmengde av $S$ som summerer seg til nøyaktig $t$?\n\nJa-instans. Sertifikat: $\\{8, 22\\}$, siden $8 + 22 = 30$. Verifikasjonen er én summering.\n\nTil sammenligning er $t = 21$ en nei-instans for samme $S$: ingen delmengde treffer 21 nøyaktig.\n\n**b)** Retningen er **fra** 3-CNF-SAT **til** CLIQUE. Siden 3-CNF-SAT er NP-komplett, beviser reduksjonen at **CLIQUE er NP-hardt** — CLIQUE er minst like vanskelig som 3-CNF-SAT.\n\nDen beviser **ikke** at CLIQUE er NP-komplett: til det trengs i tillegg at CLIQUE ligger i $NP$, som vises separat med nodemengden som sertifikat. Og den sier ingenting om at 3-CNF-SAT skulle være lett — en reduksjon oppover i vanskelighet forteller ingenting om kilden.\n\nLegg merke til lengden på svarene. Deloppgave a) er én setning pluss ett sertifikat; b) er tre linjer. Det er den formen fasitene bruker, og mer tekst gir ikke mer uttelling."
+    },
+    {
+      "id": "tdt4120-7-3-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-7-3-oppg-6-e",
+        "number": 6,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger D og F — definisjon og ja/nei-vurdering: svar ja eller nei først, deretter én presis setning.)\n\n**a)** Definér HAM-CYCLE og TSP som avgjørelsesproblemer.\n**b)** Hvorfor trenger TSP et tall $k$ i inputen, mens HAM-CYCLE ikke gjør det?\n**c)** Grafen $H$ har nodene `{A, B, C, D, E}` og kantene `(A,B)`, `(B,C)`, `(C,D)`, `(D,E)`, `(A,C)`, `(B,D)`. Er $H$ en ja-instans av HAM-CYCLE?",
+        "solution": "**a)**\nHAM-CYCLE: gitt en graf $G=(V,E)$ — finnes det en sykel som besøker hver node i $V$ nøyaktig én gang?\nTSP: gitt en komplett graf med heltallige kantkostnader $w(u,v) \\ge 0$ og et tall $k$ — finnes det en rundtur innom hver node nøyaktig én gang med samlet kostnad høyst $k$?\n\n**b)** HAM-CYCLE spør om **eksistens**, og det er allerede et ja/nei-spørsmål. TSP spør om **billigst mulig** rundtur, som er et optimeringsspørsmål — det må gjøres om til ja/nei med en terskel før $P$ og $NP$ i det hele tatt kan brukes på det.\n\n**c)** **Nei.** Node `E` har grad 1 (bare kanten `(D,E)`). En sykel må både komme inn i og ut av hver node den besøker, så en node med grad 1 kan ikke ligge på noen sykel.",
+        "hints": [
+          "Skriv ned hva inputen består av for hvert av de to problemene, før du skriver spørsmålet.",
+          "Det ene problemet spør «finnes det?», det andre «finnes det en billig nok?». Hvilket av dem er allerede ja/nei?",
+          "For c): tell graden til hver node før du prøver å konstruere en rundtur."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-7-3-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-7-3-oppg-7-e",
+        "number": 7,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger F — stemmer dette? Svar ja eller nei først, deretter én presis setning.)\n\nEn student skriver: «SUBSET-SUM kan løses med en tabell i $\\Theta(nt)$ tid, der $n$ er antall tall og $t$ er måltallet. $\\Theta(nt)$ er et polynom, altså er SUBSET-SUM i $P$.»\n\n**a)** Stemmer konklusjonen?\n**b)** Hva heter fenomenet, og hvor sitter feilen presist?",
+        "solution": "**a)** **Nei.**\n\n**b)** Algoritmen er **pseudopolynomisk**. Feilen sitter i hva kjøretiden måles mot: den måles mot inputens **lengde i bit**, og måltallet $t$ skrives med omtrent $\\lg t$ bit. Tabellen har $t$ kolonner, altså om lag $2^{\\lg t}$ — eksponentielt i lengden av det tallet. Med $t = 10^9$ tar måltallet 30 bit å skrive ned, mens tabellen har en milliard kolonner. Uttrykket $\\Theta(nt)$ er derfor polynomisk i tallenes *verdi*, ikke i inputens *lengde*.\n\nDette er felle #7 — å blande pseudopolynomisk med NP-hardt. Algoritmen er utmerket når tallene er små, og den motbeviser ingenting.",
+        "hints": [
+          "Spør deg hva kjøretiden til en algoritme egentlig måles mot.",
+          "Hvor mange bit trengs for å skrive ned tallet $t$?",
+          "Sammenlign antall tabellkolonner med antall bit i inputen — vokser de like fort?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-7-3-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-7-3-oppg-8-e",
+        "number": 8,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger G — reduksjon og NP-argument.)\n\nFor å vise at TSP er NP-hardt brukes denne konstruksjonen: ta en graf $G=(V,E)$, bygg en komplett graf på de samme nodene, gi kostnad 0 til kantene som finnes i $E$ og kostnad 1 til de øvrige, og spør om det finnes en rundtur med kostnad høyst 0.\n\n**a)** Hvilken vei går reduksjonen? Skriv den med $\\le_p$-notasjon.\n**b)** Hvorfor er konstruksjonen svarbevarende begge veier?\n**c)** Hva ville det ha bevist hvis noen i stedet hadde vist TSP $\\le_p$ HAM-CYCLE?",
+        "solution": "**a)** HAM-CYCLE $\\le_p$ TSP. Vi reduserer **fra** HAM-CYCLE, som allerede er kjent NP-komplett, **til** TSP — altså er TSP minst like vanskelig som HAM-CYCLE, og dermed NP-hardt. Konstruksjonen tar $\\Theta(n^2)$ tid og er derfor polynomisk.\n\n**b)** Har $G$ en hamiltonsk sykel, bruker den bare kanter fra $E$, og den samme rundturen koster $0$ i den nye grafen — altså høyst 0. Motsatt: koster en rundtur i den nye grafen høyst 0, må hver eneste kant i den ha kostnad 0, siden alle kostnader er 0 eller 1. Da ligger alle kantene i $E$, og rundturen er en hamiltonsk sykel i $G$. Ja gir ja, og nei gir nei.\n\n**c)** Det ville ha bevist at **HAM-CYCLE er minst like vanskelig som TSP** — altså feil vei for formålet. Om målet var å vise at TSP er vanskelig, beviser den retningen **ingenting**. Den ville bare fortalt at TSP ikke er vanskeligere enn HAM-CYCLE.\n\nTil slutt: reduksjonen viser NP-**hardhet**. At TSP også ligger i $NP$ må vises for seg, med rundturens rekkefølge som sertifikat.",
+        "hints": [
+          "Hvilket av de to problemene var kjent NP-komplett fra før, og hvilket er det som skal vises vanskelig?",
+          "En svarbevarende reduksjon må kontrolleres i begge retninger: ja gir ja, og nei gir nei. Skriv opp begge.",
+          "Kostnadene er bare 0 og 1. Hva må gjelde for hver enkelt kant hvis totalsummen skal bli høyst 0?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-7-3-oppg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-7-3-oppg-9-e",
+        "number": 9,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger D og G — gjenkjenning og NP-argument.)\n\nEn festivalsjef skal sette sammen et kveldsprogram. Hun har en liste over artister, og for hvert par vet hun om de har sagt ja til å opptre samme kveld. Hun vil vite om det finnes et program med minst åtte artister der **alle** har sagt ja til alle de andre.\n\nSamtidig skal teknisk sjef bemanne lydsjekkene. Hver kabelstrekk mellom to scener må ha en tekniker i minst én av endene, og han vil vite om fem teknikere holder.\n\n**a)** Hvilket katalogproblem er hvert av de to spørsmålene?\n**b)** Skriv begge formelt, med den grafen du velger å bygge.\n**c)** Festivalsjefen sier: «Siden jeg klarte å oversette mitt problem til CLIQUE, må mitt problem være NP-komplett.» Er det et gyldig argument?",
+        "solution": "**a)** Festivalsjefens spørsmål er **CLIQUE**. Teknisk sjefs spørsmål er **VERTEX-COVER**.\n\n**b)** For festivalen: la $G=(V,E)$ ha én node per artist, og kant mellom to artister hvis de har sagt ja til hverandre. Spørsmålet er om det finnes $C \\subseteq V$ med $\\lvert C \\rvert \\ge 8$ der alle par av ulike noder i $C$ er en kant.\nFor lydsjekkene: la $G'=(V',E')$ ha én node per scene og én kant per kabelstrekk. Spørsmålet er om det finnes $C' \\subseteq V'$ med $\\lvert C' \\rvert \\le 5$ slik at hver kant har minst ett endepunkt i $C'$.\n\n**c)** **Nei — argumentet er ugyldig slik det står.** Å oversette sitt eget problem *til* CLIQUE er retningen FESTIVAL $\\le_p$ CLIQUE, og den viser bare at festivalproblemet **ikke er vanskeligere enn** CLIQUE. Det er felle #1: reversert reduksjonsretning.\n\nHer er oversettelsen riktignok en ren omdøping som virker begge veier, og da holder også CLIQUE $\\le_p$ FESTIVAL. Men det må sies eksplisitt — det er den retningen som gir NP-hardheten. Og NP-kompletthet krever i tillegg at festivalproblemet ligger i $NP$, med artistlisten som sertifikat.",
+        "hints": [
+          "Se på hvem kravet gjelder: parene inne i utvalget, eller alle forbindelsene i grafen?",
+          "Skriv ned hva som blir noder og hva som blir kanter i hvert av de to tilfellene — de er ikke den samme grafen.",
+          "For c): oversett påstanden til $\\le_p$-notasjon før du bedømmer den, og spør hvilken side av pilen som må være kjent vanskelig."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-7-3-katalogtabell",
+      "type": "text",
+      "content": "## Katalogen samlet (~4 min)\n\nAlle åtte, med input, ja/nei-spørsmål, sertifikat og hvor hardheten kommer fra. Dette er kapitlets puggeflate — eksamen er hjelpemiddelfri, så tabellen skal sitte i hodet, ikke i en perm.\n\n| Problem | Input | Ja-spørsmålet | Sertifikat | Hardhet arvet fra |\n|---|---|---|---|---|\n| CIRCUIT-SAT | boolsk krets $C$ | finnes en input som gir 1 ut? | inputkombinasjonen | ingen — bevist direkte mot definisjonen av $NP$ |\n| SAT | boolsk formel $\\varphi$ | finnes en tilordning som gjør $\\varphi$ sann? | tilordningen | CIRCUIT-SAT |\n| 3-CNF-SAT | CNF-formel, tre literaler per klausul | finnes en tilordning som gjør $\\varphi$ sann? | tilordningen | SAT |\n| CLIQUE | graf $G$, tall $k$ | finnes $C$ med $\\lvert C \\rvert \\ge k$ der alle er parvis naboer? | nodemengden $C$ | 3-CNF-SAT |\n| VERTEX-COVER | graf $G$, tall $k$ | finnes $C$ med $\\lvert C \\rvert \\le k$ som treffer hver kant? | nodemengden $C$ | CLIQUE |\n| HAM-CYCLE | graf $G$ | finnes en sykel innom hver node nøyaktig én gang? | rekkefølgen | VERTEX-COVER |\n| TSP | komplett graf med kostnader, tall $k$ | finnes en rundtur med kostnad høyst $k$? | rekkefølgen | HAM-CYCLE |\n| SUBSET-SUM | tallmengde $S$, måltall $t$ | finnes en delmengde med sum nøyaktig $t$? | delmengden | 3-CNF-SAT |\n\nVerifikasjonstidene er alle polynomiske: $\\Theta(n)$ for de tre nederste, $O(n^2)$ for de to grafproblemene i midten, og lineært i antall porter eller literaler for de tre øverste. Det er den ene halvparten av hvert NPC-bevis. Den andre halvparten er kolonnen helt til høyre."
+    },
+    {
+      "id": "tdt4120-7-3-begrepsbank-notis",
+      "type": "text",
+      "content": "## Begrepsbank (~4 min)\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "tdt4120-7-3-def-uavhengig-mengde",
+      "type": "definition",
+      "title": "Uavhengig mengde (independent set)",
+      "content": "En delmengde av nodene uten en eneste kant mellom seg.\n\nFormelt: $I \\subseteq V$ er uavhengig i $G=(V,E)$ hvis ingen kant i $E$ har begge endepunktene sine i $I$. Den er den nøyaktige motsatsen til en klikk: $I$ er uavhengig i $G$ hvis og bare hvis $I$ er en klikk i komplementgrafen $\\bar{G}$.\n\nSammenhengen med nodedekke er like stram: $I$ er uavhengig i $G$ hvis og bare hvis $V \\setminus I$ er et nodedekke i $G$. Største uavhengige mengde har derfor $n$ minus størrelsen på det minste nodedekket."
+    },
+    {
+      "id": "tdt4120-7-3-def-kjeden",
+      "type": "definition",
+      "title": "Reduksjonskjeden i pensum",
+      "content": "Rekkefølgen NP-kompletthet er bevist i, og oppskriften på hvordan nye bevis bygges.\n\nKjeden er CIRCUIT-SAT til SAT til 3-CNF-SAT til CLIQUE til VERTEX-COVER til HAM-CYCLE til TSP, og i tillegg en gren fra 3-CNF-SAT til SUBSET-SUM. Hver pil er en polynomisk reduksjon **fra** det kjente **til** det nye.\n\nKjeden gir bare NP-**hardhet** videre. Medlemskap i $NP$ må vises for hvert problem for seg, med sitt eget sertifikat og sin egen verifikasjonsalgoritme."
+    },
+    {
+      "id": "tdt4120-7-3-def-forste-npc",
+      "type": "definition",
+      "title": "Det første NP-komplette problemet",
+      "content": "CIRCUIT-SAT er problemet hele katalogen henger på, fordi det ble bevist NP-komplett uten å låne hardhet fra noe annet problem.\n\nBeviset går direkte mot definisjonen av $NP$: for et vilkårlig $A \\in NP$ finnes en polynomisk verifikasjonsalgoritme, den skrives om til en krets av polynomisk størrelse med instansen fastspikret, og sertifikatet blir kretsens input.\n\nKonsekvensen er at $A \\le_p$ CIRCUIT-SAT for **hvert** $A \\in NP$. Derfor er CIRCUIT-SAT NP-hardt, og siden det også ligger i $NP$, er det NP-komplett — og alle senere bevis kan nøye seg med én reduksjon fra ett kjent problem."
+    },
+    {
+      "id": "tdt4120-7-3-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tdt4120-7-3-repetisjon-tekst",
+          "type": "text",
+          "content": "Fem korte spørsmål fra [kap. 7.1](/tdt4120/tdt4120-7-1) og [kap. 7.2](/tdt4120/tdt4120-7-2). Svar i hodet før du åpner fasiten under.\n\n**R1.** Hva er et sertifikat, og hva vil det si at et problem ligger i $NP$?\n**R2.** Hva betyr $A \\le_p B$ om vanskeligheten til $A$ og $B$?\n**R3.** Hva er forskjellen på NP-hardt og NP-komplett?\n**R4.** Hvorfor er $P \\subseteq NP$?\n**R5.** Hva følger hvis noen finner en polynomisk algoritme for ett NP-komplett problem?\n\n---\n\n**Fasit.**\n\n**R1.** Et sertifikat er et forslag til løsning som følger med instansen. Et problem ligger i $NP$ hvis hvert ja-svar har et sertifikat som en verifikasjonsalgoritme kan godkjenne i polynomisk tid. $NP$ handler om verifikasjon, ikke om løsning.\n\n**R2.** At $B$ er minst like vanskelig som $A$. En polynomisk algoritme for $B$ gir umiddelbart en polynomisk algoritme for $A$.\n\n**R3.** NP-hardt betyr at alt i $NP$ reduseres til problemet. NP-komplett betyr NP-hardt **og** i $NP$. Et NP-hardt problem trenger ikke selv ligge i $NP$.\n\n**R4.** Kan du løse et problem i polynomisk tid, kan du også verifisere det i polynomisk tid — du ignorerer bare sertifikatet og løser instansen selv.\n\n**R5.** Da er $P = NP$. Alt i $NP$ reduseres polynomisk til det problemet, og en polynomisk løsning på det gir dermed en polynomisk løsning på alt i $NP$."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

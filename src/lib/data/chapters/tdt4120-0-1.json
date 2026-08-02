@@ -1,0 +1,306 @@
+{
+  "id": "tdt4120-0-1",
+  "courseId": "tdt4120",
+  "chapterNumber": "0.1",
+  "title": "Eksamenskartet — slik testes TDT4120",
+  "description": "Eksamensformen (én firetimers hjelpemiddelfri kortsvarseksamen), temafrekvensene, sjangerkatalogen A–I og lesestrategien som styrer hele boka.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "kunne gjøre rede for eksamensformen i TDT4120 og hva hjelpemiddelkode E betyr for hvordan du forbereder deg",
+    "kunne bruke temafrekvensene til å prioritere lesingen, og forklare hvorfor ingen del av pensum kan velges bort",
+    "kunne kjenne igjen de ni oppgavetypene og si hvilken svarform hver av dem krever",
+    "kunne legge en realistisk leseplan ut fra tiden du faktisk har"
+  ],
+  "content": [
+    {
+      "id": "tdt4120-0-1-orientering",
+      "type": "tip",
+      "title": "Slik leser du denne boka",
+      "content": "Dette kapitlet er et **kart**, ikke pensum. Det viser deg hvordan TDT4120\nfaktisk testes, slik at du vet hva du skal bruke tiden på. Ingenting her krever\nat du kan noe fra før.\n\n**Karakterskalaen er A–F, og hele karakteren settes av én skriftlig eksamen.**\n**C er en god og helt vanlig karakter.** Den som kan grunnoppgavene — riktige\ntall på asymptotikk, riktig utført håndkjøring, standarddefinisjonene og riktig\nretning på reduksjonsspørsmål — er trygt over bestått-terskelen. A skiller seg\nut på de åpne designoppgavene helt til slutt.\n\n**Eksamensformen i tre linjer:**\n\n- Fire timer, skriftlig, teller 100 % av karakteren.\n- Rundt 20 korte frisvarsoppgaver som teller **likt** — ingen enkeltoppgave kan\n  redde eller ødelegge settet alene.\n- **Ingen hjelpemidler.** Alt du skal bruke, må du ha i hodet.\n\n**Oppgavetypene har fått bokstaver A til I** i denne boka, som en huskeliste:\nA asymptotisk forenkling, B rekurrenser, C håndkjøring, D definisjoner,\nE kjøretider, F «stemmer dette?», G reduksjoner og NP, H åpen\nalgoritmedesign og I essay (bare på korona-settene). Hver bokstav forklares på\nnytt i klarspråk første gang den dukker opp i et kapittel, så du trenger ikke\nlære dem utenat nå.\n\n**De vanligste feilene har fått numre #1 til #11.** De er ikke skrivefeil, men\ntankefeil som går igjen — for eksempel å tro at `Build-Max-Heap` bruker\n$\\Theta(n\\lg n)$ tid når den bruker $\\Theta(n)$. Du finner hele registeret\nlenger nede i kapitlet, og hver felle blir forklart der den kan ramme deg.\n\n**Om symbolene du møter senere:** du trenger ikke forstå $T(n)=aT(n/b)+f(n)$,\n$c_f(u,v)=c(u,v)-f(u,v)$ eller $A \\le_p B$ ennå. De forklares der de brukes,\nfra bunnen av. Det eneste symbolet det er verdt å ta med seg herfra, er\n$\\lg n$, som i dette faget alltid betyr $\\log_2 n$ — altså toerlogaritmen."
+    },
+    {
+      "id": "tdt4120-0-1-apning",
+      "type": "text",
+      "content": "## Hva dette kapitlet gir deg\n\nTDT4120 har hatt en påfallende stabil eksamen i over et tiår. Det er en fordel\ndu kan utnytte: når mønsteret er stabilt, kan du forberede deg presist i stedet\nfor å lese alt like grundig.\n\nDet er likevel én ting du **ikke** kan gjøre i dette faget, og som fungerer i\nmange andre: du kan ikke droppe et tema og satse på at det ikke kommer.\nPensumbolkene er få og store, og de dukker opp igjen og igjen. Bredden er selve\neksamensformen. Denne boka er bygget for nettopp det — å dekke alt, men med\ntyngden lagt der oppgavene faktisk kommer.\n\nNedenfor finner du eksamensformen, hvor ofte hvert tema har kommet, hvilke\noppgavetyper som finnes, hva løsningsforslagene premierer, og tre ferdige\nleseplaner. Bruk 35 minutter her, så vet du hva de neste 60 timene skal gå\ntil."
+    },
+    {
+      "id": "tdt4120-0-1-notasjon",
+      "type": "collapsible",
+      "title": "Notasjons- og pseudokodeliste",
+      "buttonText": "Vis notasjon og pseudokode",
+      "content": [
+        {
+          "id": "tdt4120-0-1-nt-1",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et algoritmefag: den lister kjøretidsuttrykk\nog pseudokode-operasjoner i stedet for bare greske bokstaver.\n\n| Symbol | Betydning |\n|---|---|\n| $n$ | størrelsen på input — antall elementer, noder eller tegn |\n| $\\lg n$ | toerlogaritmen $\\log_2 n$. Dette faget skriver alltid $\\lg$, aldri $\\log_2$ |\n| $O(g(n))$ | øvre grense: arbeidet vokser ikke fortere enn $g(n)$ |\n| $\\Omega(g(n))$ | nedre grense: arbeidet vokser minst så fort som $g(n)$ |\n| $\\Theta(g(n))$ | tett grense: både øvre og nedre — arbeidet vokser nøyaktig som $g(n)$ |\n| $o(g(n))$, $\\omega(g(n))$ | strengt mindre og strengt større enn $g(n)$ |\n| $V$, $E$ | antall noder og antall kanter i en graf |\n| $T(n)$ | kjøretiden til en algoritme på input av størrelse $n$ |\n| $A \\le_p B$ | «$A$ reduseres til $B$» — og dermed at $B$ er minst like vanskelig som $A$ |\n\nAlle disse forklares fra bunnen der de først brukes: de fem første i\n[kap. 1.1](/tdt4120/tdt4120-1-1), $T(n)$ og rekurrensene i\n[kap. 1.4](/tdt4120/tdt4120-1-4), grafsymbolene i Del 4 og\nreduksjonspilen i Del 7."
+        },
+        {
+          "id": "tdt4120-0-1-nt-2",
+          "type": "text",
+          "content": "| Uttrykk | Hva det betyr i praksis | Hvor du møter det |\n|---|---|---|\n| $\\Theta(1)$ | konstant tid — like raskt uansett hvor stor input er | oppslag i et array |\n| $\\Theta(\\lg n)$ | halverer problemet hver runde | binærsøk, [kap. 1.5](/tdt4120/tdt4120-1-5) |\n| $\\Theta(n)$ | ser på hvert element én gang | `Counting-Sort`, [kap. 2.2](/tdt4120/tdt4120-2-2) |\n| $\\Theta(n\\lg n)$ | den beste garantien for sammenligningsbasert sortering | `Merge-Sort`, [kap. 2.1](/tdt4120/tdt4120-2-1) |\n| $\\Theta(n^2)$ | to nøstede gjennomganger av input | `Insertion-Sort` i verste tilfelle |\n| $\\Theta(2^n)$ | dobler arbeidet for hvert nytt element — uframkommelig for store $n$ | uttømmende søk, Del 7 |\n\n**Formler i dette delkapitlet:**\n\n$$1 < \\lg n < n < n\\lg n < n^2 < n^3 < 2^n < n!$$\n\nVekstordningen. Står to uttrykk i en sum, er det uttrykket lengst til høyre i\ndenne rekka som bestemmer kjøretiden.\n\n$$T(n) = aT(n/b) + f(n)$$\n\nFormen en splitt-og-hersk-algoritme får: $a$ delproblemer av størrelse $n/b$,\npluss $f(n)$ arbeid på å dele opp og sette sammen igjen. Masterteoremet i\n[kap. 1.4](/tdt4120/tdt4120-1-4) løser den."
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-0-1-form",
+      "type": "text",
+      "content": "## Eksamensformen: fire timer, tjue oppgaver, ingen hjelpemidler\n\nVurderingen er én skriftlig skoleeksamen på **fire timer** som teller 100 % av\nkarakteren. Det er ingen midtsemesterprøve som teller inn.\n\nSettet består av rundt **20 korte frisvarsoppgaver som teller likt** — i\npraksis 5 % hver. «Frisvar» betyr at du skriver svaret selv; det er ingen\navkryssing. «Kort» betyr virkelig kort: ett tall, ett uttrykk, én sluttilstand,\nén setning.\n\n**Hjelpemiddelkode E** er NTNUs kode for «ingen trykte eller håndskrevne\nhjelpemidler, og ingen kalkulator». Den har stått på alle de sju settene fra\ndesember 2022 til desember 2025. Konsekvensen er enkel og ubehagelig: kjøretider,\ndefinisjoner og pseudokode må sitte i hodet. Denne boka er bygget for det — hvert\nkapittel ender i en begrepsbank som blir til flashcards, og quizen er ren\ngjenkalling.\n\nOppgavene stiger løst i vanskelighet gjennom settet, og **de siste tre til fem\ner åpne designoppgaver**: «hvordan vil du gå fram for å løse dette problemet?».\nDet er der toppkarakteren avgjøres.\n\nTallene over er hentet fra NTNUs emneside og fra eksamenssettene selv. Sjekk\nemnesiden for ditt eget semester — vurderingsordning og hjelpemidler kan\nendres."
+    },
+    {
+      "id": "tdt4120-0-1-hjelpemiddelkode-e",
+      "type": "definition",
+      "title": "Hjelpemiddelkode E",
+      "content": "NTNUs kode for eksamen **uten hjelpemidler**: ingen bok, ingen formelark, ingen\nkalkulator. Den har vært gjeldende for TDT4120 på alle sju settene fra desember\n2022 til desember 2025.\n\nPraktisk betydning: alt du skal bruke må kunnes utenat — de fem asymptotiske\nsymbolene, masterteoremets tre tilfeller, kjøretidene til pensumalgoritmene og\nkravene hver av dem stiller. «Det kan jeg slå opp» er ikke en holdning som\noverlever dette faget."
+    },
+    {
+      "id": "tdt4120-0-1-kortsvarsoppgave",
+      "type": "definition",
+      "title": "Kortsvarsoppgave",
+      "content": "En oppgave som besvares med det etterspurte og ikke mer: ett tall, ett uttrykk,\nén sluttilstand eller én presis setning. Du skriver svaret selv — det er ikke\navkryssing.\n\nRundt 20 slike oppgaver utgjør hele eksamen, og de teller likt. Derfor er tid\nbrukt på overflødig utledning i én oppgave tid tatt fra de nitten andre. I\nsettene fra 2015 til 2018 sto det til og med svart på hvitt på oppgavearket:\nlange svar teller ikke positivt."
+    },
+    {
+      "id": "tdt4120-0-1-korona-settene",
+      "type": "definition",
+      "title": "Korona-settene (hjelpemiddelkode A)",
+      "content": "De fem terminene fra august 2020 til august 2022 var hjemmeeksamener med **alle\nhjelpemidler tillatt** (hjelpemiddelkode A), delvis med bestått/ikke bestått, og\nmed færre og bredere essayoppgaver.\n\nDe er **ikke representative** for dagens eksamen og skal ikke brukes som mal for\nverken form eller tempo. Essaysjangeren derfra er nyttig som treningsverktøy for\nå forklare *hvorfor* noe virker, men ingen bør regne med å møte den."
+    },
+    {
+      "id": "tdt4120-0-1-frekvens",
+      "type": "text",
+      "content": "## Hva som faktisk kommer — tema for tema\n\nTallene under er telt i **17 eksamenssett fra august 2015 til august 2023**, som\ner gjennomgått tema for tema. Det er nevneren hver gang du ser en prosent i\ndenne boka.\n\n| Tema | Frekvens | Hvor i boka |\n|---|---|---|\n| Asymptotisk notasjon og forenkling | **100 % (17 av 17)** | Del 1 |\n| Sortering | **100 % (17 av 17)** | Del 2 |\n| NP-kompletthet og reduksjoner | **100 % (17 av 17)** | Del 7 |\n| Binære søketrær og hauger | **94 % (16 av 17)** | Del 3 |\n| Maksimal flyt | **94 % (16 av 17)** | Del 5 |\n| Dynamisk programmering | **94 % (16 av 17)** | Del 6 |\n| Traversering (`BFS`/`DFS`) | 82 % (14 av 17) | Del 4 |\n| Minimale spenntrær | 82 % (14 av 17) | Del 4 |\n| Korteste vei fra én kilde | 76 % (13 av 17) | Del 4 |\n| Rekurrenser | 76 % (13 av 17) | Del 1 |\n| Splitt og hersk | 71 % (12 av 17) | Del 1 |\n| Alle-til-alle korteste vei | 65 % (11 av 17) | Del 4 |\n| Grådige algoritmer | 65 % (11 av 17) | Del 6 |\n| Utvelgelse (`Select`) | 47 % (8 av 17) | Del 2 |\n| Hashing | 41 % (7 av 17), voksende | Del 3 |\n| Topologisk sortering | 41 % (7 av 17) | Del 4 |\n| Køer og stakker | 29 % (5 av 17) | Del 3 |\n| Amortisert analyse og disjunkte mengder | 29 % (5 av 17) | Del 3 |\n| Stabil matching (`Gale-Shapley`) | 12 % (2 av 17), voksende | Del 6 |\n\n**Les tabellen riktig.** De seks øverste temaene har kommet på nesten hvert\neneste sett i grunnlaget. Det er ikke et tips om hva du bør prioritere — det er\nen beskjed om at de kommer.\n\nTo rader fortjener et forbehold. **Hashing** står på 41 % samlet, men var med i\nalle de tre settene fra 2022 og 2023. **Stabil matching** står på bare 2 av de\n17 settene, men er verifisert til stede i 6 av de 7 settene med dagens\nhjelpemiddelkode E (desember 2022 til august 2025), og manglet bare i desember\n2025. Begge er på vei opp. Regn med at de kommer.\n\nDe fem nyeste settene i arkivet (desember 2023 til desember 2025) er lest for\nform og eksamensordning, men ikke temaregistrert. De inngår altså ikke i\nprosentene over."
+    },
+    {
+      "id": "tdt4120-0-1-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-0-1-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave.) Eksamen har rundt 20 oppgaver som teller likt, og varer i\nfire timer.\n\n**a)** Hvor mange minutter har du i snitt per oppgave?\n\n**b)** Du står fast på én åpen designoppgave. Hvor lenge bør du maksimalt jobbe\nmed den før du går videre, og hvorfor?\n\n**c)** Hva er den samlede verdien av de nitten andre oppgavene, målt mot den ene\ndu står fast på?",
+        "solution": "**a)** $240 / 20 = 12$ minutter per oppgave.\n\n**b)** Rundt 12 minutter, altså din egen andel av tiden — og så videre. Grunnen\ner at oppgavene teller likt: den vanskeligste designoppgaven er verdt nøyaktig\nlike mye som det billigste kjøretidsspørsmålet. Har du brukt tjue minutter uten\nå komme videre, koster hvert nye minutt deg et minutt på en oppgave du kanskje\nkan svare på blindt.\n\n**c)** Nitten ganger så mye. Det er hele argumentet for kortsvarsdisiplinen i\ndette faget, og det holder uansett hvordan settet ser ut.\n\nSkriv gjerne ned det du **har** på den vanskelige oppgaven før du går videre —\ndelvis riktig svar gir delvis uttelling — og kom tilbake hvis du får tid til\novers.",
+        "hints": [
+          "Fire timer er 240 minutter.",
+          "Spør deg selv hva én oppgave er verdt i prosent, og hva de nitten andre er verdt til sammen."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-0-1-sjangre",
+      "type": "text",
+      "content": "## De ni oppgavetypene\n\nEksamen er frisvar, men oppgavene kommer i et lite antall gjenkjennelige\ninnpakninger. Denne boka gir dem bokstaver, slik at hvert kapittel kan si\npresist hvilken type det trener. Bokstavene skrives alltid ut i klarspråk der de\nbrukes — du skal ikke pugge dem.\n\n| Kode | Oppgavetype | Hva svaret ditt skal være | Hvor ofte |\n|---|---|---|---|\n| **A** | asymptotisk forenkling og notasjon | ett strammeste uttrykk | 100 % (17 av 17), ofte 2–3 oppgaver per sett |\n| **B** | rekurrensløsning med **navngitt** metode | metodens navn + svaret på riktig form | 76 % (13 av 17) |\n| **C** | håndkjøring av en navngitt algoritme | kun sluttilstanden, i det formatet det spørres om | nær hvert sett; søketrær og hauger hyppigst |\n| **D** | definisjon «med egne ord» | én presis setning, hovedpoenget først | flere per sett |\n| **E** | kjøretidskunnskap og -sammenligning | uttrykket, med $\\Theta$ eller $O$ bevisst valgt | innbakt i sortering (100 %) og korteste vei (76 %) |\n| **F** | «stemmer dette?» | ja eller nei **først**, så én setning | 41–76 % avhengig av tema |\n| **G** | reduksjoner og NP-kompletthet | retningen + hva den beviser, og hva den ikke beviser | 100 % (17 av 17) |\n| **H** | åpen algoritmedesign | kort designskisse i fem faste ledd | hvert ordinært sett, de siste 3–5 oppgavene |\n| **I** | nivådelt essay | lengre tekst | kun korona-settene — ikke representativt |\n\nDe åtte første er de du skal trene. Sjanger I nevnes bare her, og bare fordi du\nvil se den hvis du blar i settene fra 2020 til 2022."
+    },
+    {
+      "id": "tdt4120-0-1-sjangerkort",
+      "type": "collapsible",
+      "title": "Sjangerkortet — hele eksamen på én side",
+      "buttonText": "Vis sjangerkortet",
+      "content": [
+        {
+          "id": "tdt4120-0-1-sk-1",
+          "type": "text",
+          "content": "Skriv ut denne siden, eller skriv den av for hånd. Den er ment å fungere alene.\n\n| Type | Oppskriften i én linje | Typisk antall | Vanligste felle |\n|---|---|---|---|\n| **A** asymptotisk forenkling | finn det raskest voksende leddet, sjekk om en $\\omega$- eller $\\Omega$-term sprenger den øvre grensen, oppgi det strammeste uttrykket | 2–3 | å oppgi en løsere grense enn du kunne (felle #4) |\n| **B** rekurrens | er den på $aT(n/b)+f(n)$-form? bruk masterteoremet og oppgi tilfellet. Bedt om et eksakt svar? bruk iterasjon. Skal et gitt svar verifiseres? bruk substitusjon | 1 | feil tilfelle, særlig glemt logaritmefaktor (felle #5) |\n| **C** håndkjøring | utfør algoritmen mekanisk, steg for steg, og lever **bare** sluttilstanden i det formatet det spørres om | 1–2 | å reparere en ugyldig struktur før du begynner (felle #10) |\n| **D** definisjon | én setning, hovedpoenget først, betingelsen med | 3–4 | å blande haugegenskapen og søketre-egenskapen (felle #2) |\n| **E** kjøretid | hent faktumet, og velg $\\Theta$ eller $O$ bevisst | 2–3 | feil kjøretidsfakta (felle #9) |\n| **F** «stemmer dette?» | ja eller nei først, så én setning med betingelsen | 1–3 | å svare på begrunnelsen uten å svare ja eller nei |\n| **G** reduksjon og NP | si retningen, si hva den beviser, og si hva den **ikke** beviser | 2–3 | å redusere feil vei (felle #1) |\n| **H** åpen design | (1) navngi det klassiske problemet, (2) navngi paradigmet, (3) beskriv konstruksjonen, (4) rekonstruer selve løsningen, (5) oppgi kjøretiden | 3–5 | å oppgi verdien uten å rekonstruere løsningen (felle #6) |\n\n**Fem ledd er hele designoppgaven.** Mangler ett av dem, mangler svaret et\npoeng. Det er den mest lærbare delen av eksamen, og den som skiller mest."
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-0-1-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-0-1-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Refleksjonsoppgave.) Se på frekvenstabellen over, og på prognosen for et\ntypisk sett.\n\n**a)** Rangér disse fem temaene etter hvor mange oppgaver du forventer på neste\nsett: alle-til-alle korteste vei, asymptotisk notasjon, stabil matching,\nsortering, hashing.\n\n**b)** Hvilke to av de fem ville du lest sist hvis du bare hadde tre dager\nigjen?",
+        "solution": "**a)** Asymptotisk notasjon (100 %, ofte 2–3 oppgaver) og sortering (100 %) ligger\nøverst og omtrent likt. Deretter alle-til-alle korteste vei (65 %), så hashing\n(41 %, men med i alle tre settene fra 2022–23), og til slutt stabil matching\n(2 av de 17 settene i grunnlaget).\n\n**b)** Hashing og stabil matching. Begge er nivå 3-temaer med kompakte kapitler,\nog begge er billigere å lese sent enn de tre andre.\n\nMen merk forbeholdet: begge de to er i vekst. Stabil matching var med i 6 av de\n7 settene med dagens hjelpemiddelkode E. «Les sist» betyr her «les sist», ikke\n«hopp over».",
+        "hints": [
+          "Frekvenstabellen har alle fem tallene — les dem med nevneren 17.",
+          "Tenk på hva som er billigst å lære sent: et kompakt kapittel eller et som andre kapitler bygger på?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-0-1-metaregler",
+      "type": "text",
+      "content": "## Fem ting løsningsforslagene forteller oss\n\nNTNU publiserer offisielle løsningsforslag til hver eneste eksamen i dette\nfaget. Det er uvanlig, og det er verdifullt: i stedet for å gjette på hva som\ngir uttelling, kan vi lese det. Fem mønstre går igjen.\n\n**1. Presisjon slår lengde.** I settene fra 2015 til 2018 sto det trykt på\noppgavearket at lange svar ikke teller positivt. Den formuleringen er borte fra\nde nyere settene, men disiplinen står igjen — nå formulert i selve oppgavene:\n«oppgi svaret i $\\Theta$-notasjon», «forklar kort», «du skal her kun svare med\nutdataene fra algoritmen». Og fasitene svarer deretter. Ett av dem består i sin\nhelhet av uttrykket $\\Theta(n)$.\n\n**2. Svar bare på det du blir spurt om.** «Oppgi utdataene» er ikke det samme\nsom «forklar algoritmen». «Oppgi hele tabellen» er ikke det samme som «oppgi den\nlogiske køen». Hver eneste løsning i denne boka markerer hva oppgaven faktisk\nber om når det er en felle der.\n\n**3. Delvis uttelling er regelen, ikke unntaket.** Løsningsforslagene sier ting\nsom «her gis det 1 poeng» og «det gis uansett bare 4 av 5 poeng». En halvferdig\nhåndkjøringstabell er verdt langt mer enn en tom rute. Skriv hovedpoenget først\ni definisjoner, så får du uttelling for det selv om resten halter.\n\n**4. Hver oppgave tester et navngitt læringsmål.** Fra 2016 og framover oppgir\nløsningsforslagene hvilket mål hver oppgave måler — «kunne løse rekurrenser med\nmasterteoremet», for eksempel. Et godt svar treffer nøyaktig den ferdigheten, og\nikke noe annet.\n\n**5. Fasiten er et eksempel, ikke en mal.** Løsningsforslagene sier det selv:\nsvarene deres er *eksempler* på svar som gir uttelling, og mange beslektede svar\ngodtas — særlig på forklaringsoppgaver. Du trenger altså ikke treffe en bestemt\nformulering. Du trenger å treffe poenget.\n\nArkivet inneholder oppgavesett og løsningsforslag — ikke noe eget dokument som\nforklarer hvordan sensuren settes, og ingen offentlig karakterstatistikk. Alt\nover kommer fra løsningsforslagene selv."
+    },
+    {
+      "id": "tdt4120-0-1-delvis-uttelling",
+      "type": "definition",
+      "title": "Delvis uttelling",
+      "content": "At du får poeng for de riktige delene av et svar selv om helheten ikke er\nkomplett. Løsningsforslagene i dette faget dokumenterer det flere ganger, med\nformuleringer som «her gis det 1 poeng» og «det gis uansett bare 4 av 5 poeng».\n\nTo praktiske følger: en håndkjøringstabell med én feil rad er verdt mye mer enn\nen blank rute, og en definisjon bør åpne med hovedpoenget — det som gir mest\nuttelling — før betingelsene og nyansene."
+    },
+    {
+      "id": "tdt4120-0-1-laeringsmal",
+      "type": "definition",
+      "title": "Læringsmål (slik løsningsforslagene bruker begrepet)",
+      "content": "Den ene ferdigheten en oppgave er laget for å måle. Fra 2016 og framover oppgir\nløsningsforslagene dette eksplisitt for hver oppgave, i formen «kunne løse\nrekurrenser med masterteoremet» eller «kunne definere restkapasitet».\n\nDet er en gave til den som forbereder seg: hvert svar bør treffe nøyaktig den\nferdigheten oppgaven navngir, og ikke bruke plass på tilstøtende stoff. Denne\nbokas læringsmål er formulert i samme ånd."
+    },
+    {
+      "id": "tdt4120-0-1-bredden",
+      "type": "definition",
+      "title": "Bredden som eksamensform",
+      "content": "At faget ikke har én kjerneoppgave du kan satse på, men en kjernepensumliste der\nalle bolkene kommer igjen år etter år.\n\nI de 17 settene i grunnlaget har asymptotikk, sortering og NP-teori vært med i\nalle 17, og søketrær/hauger, maksimal flyt og dynamisk programmering i 16 av 17.\nKonsekvensen for lesingen er konkret: du kan ikke hoppe over en del og håpe.\nDu kan derimot lese en nivå 3-del kompakt."
+    },
+    {
+      "id": "tdt4120-0-1-kortsvarssjangeren",
+      "type": "definition",
+      "title": "Kortsvarssjangeren",
+      "content": "Denne bokas navn på stilen eksamen krever: svar med det etterspurte — ett tall,\nett uttrykk, én sluttilstand, én kort setning — uten overflødig utledning.\n\nBegrunnelsen er strukturell og gjelder uansett hvordan settet er formulert: 20\noppgaver teller likt på fire timer, så et halvsides resonnement på én oppgave er\ntid tatt fra nitten andre. Merk at dette gjelder **svarene dine**, ikke\nundervisningen: kapitlene i denne boka forklarer metodene fullt ut, fordi det er\nslik du lærer dem."
+    },
+    {
+      "id": "tdt4120-0-1-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil — de som koster mest på selve eksamensdagen",
+      "content": "Dette er metafeilene: de som ikke handler om et enkelt tema, men om hvordan du\nmøter settet.\n\n**Å skrive langt.** Et avsnitt med korrekt grunnidé slår ikke ett riktig\nuttrykk. Det koster tid, og tid er den knappe ressursen når 20 oppgaver teller\nlikt.\n\n**Å satse på at et tema ikke kommer.** Frekvenstabellen over gjør det umulig.\nSeks temaer har vært med i 16 eller 17 av de 17 settene i grunnlaget.\n\n**Å øve på korona-settene som om de var vanlige.** Settene fra august 2020 til\naugust 2022 var hjemmeeksamener med alle hjelpemidler og essayformat. De er ikke\nrepresentative for verken form eller tempo.\n\n**Å planlegge for å slå opp.** Hjelpemiddelkode E betyr ingen hjelpemidler i det\nhele tatt. Kjøretider og definisjoner må være pugget, ikke tilgjengelige.\n\n**Å la en rute stå tom.** Delvis uttelling er dokumentert. Et halvferdig svar er\nverdt noe; et blankt er verdt null."
+    },
+    {
+      "id": "tdt4120-0-1-feilregister",
+      "type": "text",
+      "content": "## Registeret over de elleve fellene\n\nDisse elleve går igjen. De er nummerert én gang for hele boka, og hver av dem\nblir forklart i klarspråk der den kan ramme deg — du trenger ikke huske numrene.\n\n| # | Fellen | Forklares i |\n|---|---|---|\n| **#1** | reversert reduksjonsretning: å redusere *til* et NP-komplett problem beviser ingenting om ditt eget problems vanskelighet | kap. 7.2, 7.4 og 8.2 |\n| **#2** | å blande søketre-egenskapen (venstre $\\le$ rot $\\le$ høyre) med haugegenskapen (forelder $\\ge$ begge barn, ingen orden mellom søsken) | kap. 3.1, 3.2 og 3.3 |\n| **#3** | køfeil ved håndkjøring: bytte om `head` og `tail`, glemme at køen går rundt, eller oppgi bare den logiske køen i stedet for hele tabellen | kap. 3.5 og 3.3 |\n| **#4** | å oppgi en løs asymptotisk grense når en strammere finnes | [kap. 1.1](/tdt4120/tdt4120-1-1), [kap. 1.2](/tdt4120/tdt4120-1-2) og [kap. 1.3](/tdt4120/tdt4120-1-3) |\n| **#5** | feil masterteorem-tilfelle, særlig å glemme logaritmefaktoren | [kap. 1.4](/tdt4120/tdt4120-1-4) og [kap. 1.6](/tdt4120/tdt4120-1-6) |\n| **#6** | å påstå at det er gratis å rekonstruere selve løsningen fra en dynamisk programmering — det krever lagrede beslutninger, men øker ikke kjøretiden | kap. 6.1, 6.3 og 8.2 |\n| **#7** | å blande pseudopolynomisk og NP-hardt | kap. 5.2, 7.2 og 7.4 |\n| **#8** | å bruke `Dijkstra` på negative kantvekter | kap. 4.3 og 4.5 |\n| **#9** | feil kjøretidsfakta: `Build-Max-Heap` oppgitt som $\\Theta(n\\lg n)$ når den er $\\Theta(n)$, eller `Insertion-Sort` sitt beste tilfelle oppgitt som $\\Omega(n\\lg n)$ når det er $\\Theta(n)$ | [kap. 2.1](/tdt4120/tdt4120-2-1), kap. 3.1 og [kap. 2.4](/tdt4120/tdt4120-2-4) |\n| **#10** | å «reparere» en ugyldig struktur før du håndkjører på den — du skal utføre trinnene mekanisk | kap. 3.1 og 3.3 |\n| **#11** | å blande topologisk sortering med starttid — den bruker synkende ferdigtid | kap. 4.1 og 4.5 |\n\nFire av dem — #1, #2, #9 og #10 — er de løsningsforslagene fremhever oftest."
+    },
+    {
+      "id": "tdt4120-0-1-prognose",
+      "type": "text",
+      "content": "## Hvordan et typisk sett ser ut\n\nUt fra de 17 settene i grunnlaget, og formen på de sju nyeste settene med\nhjelpemiddelkode E, kan du regne med noe i nærheten av dette på rundt 20 likt\nvektede oppgaver:\n\n- **2–3 oppgaver på asymptotisk forenkling og notasjon** (type A). De billigste\n  og sikreste poengene i hele settet.\n- **1 rekurrens** (type B), nesten alltid med krav om å navngi metoden.\n- **2–3 kjøretidsspørsmål** (type E), ofte om sortering.\n- **1–2 håndkjøringer** (type C): et binært søketre eller en haug, og gjerne én\n  graf- eller matrisealgoritme.\n- **3–4 definisjoner** (type D).\n- **2–3 oppgaver om NP og reduksjoner** (type G), der minst én handler om\n  retningen på reduksjonen.\n- **3–5 åpne designoppgaver** til slutt (type H), oftest med maksimal flyt eller\n  dynamisk programmering som verktøy, og muligens én om stabil matching.\n\nDette er en prognose bygget på mønsteret, ikke et løfte. Poenget er\nproporsjonene: over halvparten av settet er korte, faktabaserte oppgaver du kan\ngjøre nesten uten å tenke — hvis du har pugget. Resten avgjør toppen."
+    },
+    {
+      "id": "tdt4120-0-1-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-0-1-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Refleksjonsoppgave.) Du har lest prognosen over.\n\n**a)** Anslå hvor mange av de rundt 20 oppgavene som kan besvares med ren\ngjenkalling — altså et pugget faktum, uten regning eller design.\n\n**b)** Hva sier svaret ditt om hvordan du bør bruke de siste tre dagene før\neksamen?\n\n**c)** Hvorfor er det likevel ikke nok å pugge?",
+        "solution": "**a)** Rundt 8–11: de 2–3 asymptotikkoppgavene, de 2–3 kjøretidsspørsmålene og\nde 3–4 definisjonene. Det er nær halve settet.\n\n**b)** At de siste dagene bør gå til flashcards og quiz, ikke til å lese ny\nteori. Gjenkallingsstoffet er både det som forsvinner raskest og det som er\nbilligst å hente tilbake.\n\n**c)** Fordi de siste 3–5 designoppgavene og håndkjøringene ikke kan pugges. De\nkrever at du har gjort dem med hånden før — modellert et flytproblem, ført en\nhaug gjennom en operasjon, satt opp en rekurrens. Pugging tar deg trygt over\nbestått-terskelen; det er øvingen som tar deg videre derfra.",
+        "hints": [
+          "Gå gjennom prognosen linje for linje og merk hvilke typer som er ren gjenkalling.",
+          "Tenk på hva de siste 3–5 oppgavene i settet krever av deg som et faktum ikke dekker."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-0-1-oppslagskort",
+      "type": "collapsible",
+      "title": "Det du må kunne utenat — og resten kan du utlede",
+      "buttonText": "Vis oppslagskortet",
+      "content": [
+        {
+          "id": "tdt4120-0-1-ok-1",
+          "type": "text",
+          "content": "Eksamen er hjelpemiddelfri. Dette kortet er minimumet som må ligge i hodet;\nalt annet i faget kan du utlede fra det. Det er ment å fungere alene, og det tåler\nå bli skrevet av for hånd.\n\n**1. De fem asymptotiske symbolene**\n\n| Symbol | Betyr | Hverdagsordet |\n|---|---|---|\n| $f = O(g)$ | $f$ vokser ikke fortere enn $g$ | «høyst» |\n| $f = \\Omega(g)$ | $f$ vokser minst så fort som $g$ | «minst» |\n| $f = \\Theta(g)$ | begge deler samtidig | «nøyaktig» |\n| $f = o(g)$ | $f$ vokser strengt saktere | «strengt mindre» |\n| $f = \\omega(g)$ | $f$ vokser strengt fortere | «strengt større» |\n\nVekstordningen: $1 < \\lg n < n < n\\lg n < n^2 < n^3 < 2^n < n!$\n\n**2. Masterteoremet** for $T(n) = aT(n/b) + f(n)$ med $a \\ge 1$ og $b > 1$.\nSammenlign $f(n)$ med $n^{\\log_b a}$:\n\n$$\\text{tilfelle 1: } f(n) = O(n^{\\log_b a - \\varepsilon}) \\Rightarrow T(n) = \\Theta(n^{\\log_b a})$$\n$$\\text{tilfelle 2: } f(n) = \\Theta(n^{\\log_b a}\\lg^{k} n),\\; k \\ge 0 \\Rightarrow T(n) = \\Theta(n^{\\log_b a}\\lg^{k+1} n)$$\n$$\\text{tilfelle 3: } f(n) = \\Omega(n^{\\log_b a + \\varepsilon}) \\text{ og regularitet} \\Rightarrow T(n) = \\Theta(f(n))$$\n\nMerk at $k$ skal være **ikke-negativ**. Strammes kravet til en strengt positiv $k$, faller `Merge-Sort` utenfor tilfelle 2 — den har nettopp $k = 0$."
+        },
+        {
+          "id": "tdt4120-0-1-ok-2",
+          "type": "text",
+          "content": "**3. Kjøretidene** — hele pensumlista samlet\n\n| Algoritme | Kjøretid | Krav eller egenskap |\n|---|---|---|\n| `Insertion-Sort` | $\\Theta(n)$ beste, $\\Theta(n^2)$ verste | på stedet, stabil |\n| `Merge-Sort` | $\\Theta(n\\lg n)$ | ikke på stedet, stabil |\n| `Quicksort` | $\\Theta(n\\lg n)$ forventet, $\\Theta(n^2)$ verste | på stedet, ustabil |\n| `Heapsort` | $\\Theta(n\\lg n)$ | på stedet, ustabil |\n| `Counting-Sort` | $\\Theta(n+k)$ | heltallsnøkler i $[0..k]$, stabil |\n| `Radix-Sort` | $\\Theta(d(n+k))$ | krever stabil delsortering |\n| `Build-Max-Heap` | $\\Theta(n)$ | ikke $\\Theta(n\\lg n)$ |\n| `Max-Heapify`, `Heap-Extract-Max` | $O(\\lg n)$ | — |\n| `Randomized-Select` | $\\Theta(n)$ forventet, $\\Theta(n^2)$ verste | — |\n| `Select` (median av medianer) | $\\Theta(n)$ verste | garantert |\n| Hashing med kjeding | $\\Theta(1+\\alpha)$ forventet, $\\Theta(n)$ verste | ikke garantert konstant |\n| `BFS`, `DFS`, topologisk sortering | $\\Theta(V+E)$ | — |\n| `Dijkstra` med binærhaug | $O(E\\lg V)$ | krever ikke-negative kantvekter |\n| `Bellman-Ford` | $\\Theta(VE)$ | tåler negative kanter, oppdager negative sykler |\n| `MST-Prim`, `MST-Kruskal` | $O(E\\lg V)$ | — |\n| `Floyd-Warshall` | $\\Theta(V^3)$ | — |\n| `Edmonds-Karp` | $O(VE^2)$ | krever korteste forøkende sti |\n| `Ford-Fulkerson` | pseudopolynomisk | avhenger av kapasitetenes størrelse |\n| `Huffman` | $O(n\\lg n)$ | — |\n| `Gale-Shapley` | $O(n^2)$ | terminerer alltid, gir alltid stabil matching |\n| 0-1-`Knapsack` | $\\Theta(nm)$ | pseudopolynomisk |\n\n**4. De tre definisjonene som kommer oftest**\n\n- **Spenntre:** et tre som består av grafens **egne** kanter og dekker alle\n  nodene. Minimalt spenntre: det med minst samlet kantvekt.\n- **Stabil sortering:** like elementer beholder sin innbyrdes rekkefølge.\n- **Restkapasitet:** $c_f(u,v) = c(u,v) - f(u,v)$ — hvor mye mer som får plass\n  på kanten, pluss muligheten til å trekke tilbake flyt motsatt vei.\n\n**5. Reduksjonsretningen, i én linje**\n\n$A \\le_p B$ betyr at $A$ reduseres til $B$, altså at $B$ er **minst like\nvanskelig** som $A$. Skal du vise at ditt problem er vanskelig, reduserer du\n**fra** et kjent vanskelig problem **til** ditt eget. Aldri motsatt."
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-0-1-lite-tid",
+      "type": "tip",
+      "title": "Lite tid?",
+      "content": "Hele boka er anslått til **3 680 minutter, altså rundt 61 timer**. Det tallet er\n**lesetid**. Den som faktisk håndkjører algoritmene og skriver svarene selv, bør\nlegge på omtrent 50 % — og det er den som håndkjører som får uttelling.\n\n**Har du tre til fem dager igjen**, ta dette, i rekkefølge:\n\n1. **Dette kapitlet** (35 min) — så vet du hva du prioriterer bort.\n2. **Del 1, asymptotikk** ([kap. 1.1](/tdt4120/tdt4120-1-1),\n   [kap. 1.2](/tdt4120/tdt4120-1-2) og drillen i\n   [kap. 1.3](/tdt4120/tdt4120-1-3), til sammen 175 min). Dette er 2–3 garanterte\n   oppgaver på hvert eneste sett, og det billigste stoffet i faget.\n3. **Del 2, sortering** ([kap. 2.1](/tdt4120/tdt4120-2-1) og\n   [kap. 2.2](/tdt4120/tdt4120-2-2), 100 min) — kjøretidene og stabilitet. Alle\n   17 settene i grunnlaget har hatt sortering.\n4. **Reduksjonsretningen** (kap. 7.2 og drillen i 7.4). NP-stoffet er på alle 17\n   settene, og retningen er det enkeltpunktet løsningsforslagene fremhever mest.\n5. **Håndkjøring av haug og binært søketre** (kap. 3.3) — den sikreste\n   håndkjøringskandidaten, med 94 % (16 av de 17 settene).\n6. **Én øvingseksamen på tid** (kap. 8.3), uten hjelpemidler.\n\nDet er rundt 12 timer og dekker de tre 100 %-temaene pluss den sikreste\nhåndkjøringen. Alt annet er bonus i denne situasjonen.\n\n**Har du én dag igjen:** flashcards og quiz fra Del 1, 2 og 7, pluss\noppslagskortet over. Ikke start på et nytt tema."
+    },
+    {
+      "id": "tdt4120-0-1-deltidsrute",
+      "type": "text",
+      "content": "## Ruten over et helt semester\n\nHar du 10–12 uker og kan sette av 5–6 timer i uka, går hele boka inn med god\nmargin.\n\n| Uke | Innhold | Omtrent |\n|---|---|---|\n| 1 | Del 0 og Del 1 (asymptotikk) — de billige, garanterte poengene | 6 t |\n| 2 | Del 1 ferdig (rekurrenser) + prøvene til del 1 | 5 t |\n| 3 | Del 2 (sortering og utvelgelse) + prøvene til del 2 | 6 t |\n| 4 | Del 3 (hauger, søketrær, hashing) | 5 t |\n| 5 | Del 3 ferdig + prøvene til del 3. **Håndkjør på papir.** | 5 t |\n| 6 | Del 4 (grafalgoritmer) | 6 t |\n| 7 | Del 4 ferdig + prøvene til del 4 | 5 t |\n| 8 | Del 5 (maksimal flyt) + prøvene til del 5 | 5 t |\n| 9 | Del 6 (dynamisk programmering, grådighet, stabil matching) | 6 t |\n| 10 | Del 6 ferdig + prøvene til del 6 | 5 t |\n| 11 | Del 7 (NP og reduksjoner) + prøvene til del 7 | 5 t |\n| 12 | Del 8: kortsvarssjangeren, designdrillen, og de tre øvingseksamenene | 8 t |\n\n**Legg de tre øvingseksamenene på tre ulike helger**, ikke i siste uke. Hver av\ndem tar fire timer, og de er bygget for å tas på tid. Poenget med dem er ikke\nbare å sjekke hva du kan — det er å øve på å fordele fire timer over 20\noppgaver."
+    },
+    {
+      "id": "tdt4120-0-1-lese-skrive",
+      "type": "tip",
+      "title": "Hvis du helst leser og skriver lite",
+      "content": "Det er en helt legitim måte å bruke denne boka på, og den fungerer bedre i dette\nfaget enn i de fleste andre — fordi svarene er så korte at du kan formulere dem i\nhodet.\n\nRuten er: **les oppgaven, formuler svaret i én setning eller ett uttrykk i hodet, og\nles så fasiten som om du var den som skulle rette den.** Spør hvert eneste sted:\nhva er det minste svaret som ville fått full uttelling her? Det trener nøyaktig\nden disiplinen eksamen belønner.\n\nMen to ting kan ikke leses. **Håndkjør minst én haug og ett binært søketre på\npapir**, og **gjennomfør minst én øvingseksamen på tid, uten hjelpemidler.** Fire\ntimer med 20 oppgaver er også en tempoferdighet, og den finnes ikke i lesingen."
+    },
+    {
+      "id": "tdt4120-0-1-kildenote",
+      "type": "text",
+      "content": "## Hvor tallene i denne boka kommer fra\n\nPrioriteringene i denne boka bygger på NTNUs eget eksamensarkiv for TDT4120.\n**NTNU publiserer offisielle løsningsforslag til hver eneste eksamen i dette\nfaget** — arkivet vårt har 45 eksamensterminer fra desember 2003 til desember\n2025, og alle 45 har fasit. Det er uvanlig godt, og det er grunnen til at vi kan\nsi noe presist om hva som faktisk gir uttelling i stedet for å gjette.\n\n**Frekvenstallene** du møter i kapitlene («100 %», «94 %») er telt i de **17\nsettene fra august 2015 til august 2023** som er gjennomgått tema for tema — det\ner nevneren hver gang. De fem nyeste settene, fra desember 2023 til desember\n2025, er lest for form og eksamensordning, men ikke temaregistrert, så de inngår\nikke i prosentene.\n\n**Arkivet har ingen sensorveiledninger** — det vi vet om hva som premieres,\nkommer fra løsningsforslagene selv, som fra 2016 og framover oppgir hvilket\nlæringsmål hver oppgave tester. Løsningsforslagene sier dessuten selv at svarene\nderes bare er *eksempler* på svar som gir uttelling, og at mange beslektede svar\ngodtas.\n\n**Forbehold:** settene fra 2020 til august 2022 var hjemmeeksamener med alle\nhjelpemidler og en annen oppgaveform. De er ikke representative, og det sier vi\nhver gang de nevnes. Alle oppgaver, tall, grafer, navn og løsningsforslag i\ndenne boka er nyskrevet av oss.\n\nPensumlitteraturen er Cormen, Leiserson, Rivest og Stein, *Introduction to\nAlgorithms* — kjent som CLRS. Det er grunnen til at algoritmene i denne boka\nheter `Merge-Sort` og `Build-Max-Heap` og ikke noe annet, og til at arrayene\nindekseres fra 1 og ikke fra 0: oppgavene og fasitene bruker den notasjonen, og\nforventer at du kjenner den igjen.\n\nDenne boka er laget av Skolesaga. Den er ikke utgitt av eller tilknyttet NTNU,\nog den kan ikke love deg noe bestemt eksamensresultat."
+    },
+    {
+      "id": "tdt4120-0-1-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-0-1-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Refleksjonsoppgave.) Du leser i en fasit at et svar «gir 4 av 5 poeng» fordi\nhovedpoenget mangler, selv om alt som står er riktig.\n\n**a)** Hva sier det om hvordan du bør bygge opp en definisjonsoppgave?\n\n**b)** Du rekker ikke å fullføre en håndkjøring. Hva leverer du?\n\n**c)** Du er usikker på om svaret ditt treffer den formuleringen fasiten bruker.\nBør du skrive flere alternative formuleringer for sikkerhets skyld?",
+        "solution": "**a)** Hovedpoenget først, betingelsene etterpå. Rekker du bare én setning, skal\nden setningen være den som bærer uttellingen.\n\n**b)** Det du har. Delvis riktig håndkjøring gir delvis uttelling, og en tabell\nmed tre av fem riktige rader er verdt langt mer enn en tom rute. Marker gjerne\nhvor langt du kom.\n\n**c)** Nei. Løsningsforslagene sier selv at svarene deres bare er eksempler, og\nat beslektede korrekte svar godtas. Flere alternative formuleringer koster tid\nog kan i verste fall inneholde noe galt ved siden av det riktige. Skriv ett\npresist svar.",
+        "hints": [
+          "Tenk på hvilken setning i en definisjon som bærer mest uttelling.",
+          "Hva er verdien av en blank rute, sammenlignet med en halvferdig tabell?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-0-1-bank-intro",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har\nlest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder\nkjernestoffet."
+    },
+    {
+      "id": "tdt4120-0-1-bank-frekvens",
+      "type": "definition",
+      "title": "Temafrekvens",
+      "content": "Hvor stor andel av eksamenssettene i grunnlaget et tema har vært med i. I denne\nboka er nevneren alltid **17 sett, fra august 2015 til august 2023** — de settene\nsom er gjennomgått tema for tema.\n\nTallet forteller deg hvor sikkert et tema kommer, ikke hvor mange poeng det er\nverdt. Asymptotikk står på 100 % (17 av 17) og gir typisk 2–3 oppgaver; stabil\nmatching står på 12 % (2 av 17) og gir typisk én, når den først kommer."
+    },
+    {
+      "id": "tdt4120-0-1-handkjoring",
+      "type": "definition",
+      "title": "Håndkjøring",
+      "content": "Å utføre en navngitt algoritme for hånd, steg for steg, på et lite eksempel — og\noppgi sluttilstanden. Det er oppgavetype C, og den forekommer på nær hvert sett;\nbinære søketrær og hauger er de hyppigste strukturene, med 94 % (16 av de 17\nsettene i grunnlaget).\n\nTo regler gjelder alltid. Du **utfører trinnene mekanisk**, også når input bryter\nstrukturens egenskaper — du reparerer ikke først. Og du **leverer bare det som\netterspørres**, i det formatet oppgaven ber om: hele arrayet, hele tabellen, eller\nett tall."
+    },
+    {
+      "id": "tdt4120-0-1-apen-designoppgave",
+      "type": "definition",
+      "title": "Åpen designoppgave",
+      "content": "Oppgavetype H: «hvordan vil du gå fram for å løse dette problemet?». De siste\ntre til fem oppgavene på et ordinært sett er av denne typen, og det er der\ntoppkarakteren avgjøres.\n\nEt fullstendig svar har fem ledd: navngi det klassiske problemet, navngi\nparadigmet (grådig, dynamisk programmering, splitt og hersk, grafsøk, flyt),\nbeskriv konstruksjonen, forklar hvordan du rekonstruerer selve løsningen — ikke\nbare verdien — og oppgi kjøretiden. Mangler ett ledd, mangler svaret et poeng."
+    },
+    {
+      "id": "tdt4120-0-1-reduksjonsretning",
+      "type": "definition",
+      "title": "Reduksjonsretning",
+      "content": "Hvilken vei en reduksjon går, skrevet $A \\le_p B$: «$A$ reduseres til $B$»,\nsom betyr at $B$ er **minst like vanskelig** som $A$.\n\nFor å vise at et problem er vanskelig, reduserer du **fra** et kjent vanskelig\nproblem **til** ditt eget. Å redusere den andre veien beviser ingenting om ditt\nproblem. Dette er det enkeltpunktet løsningsforslagene oftest fremhever som\nskillet mellom riktig og galt, og det får et eget drillkapittel i Del 7."
+    },
+    {
+      "id": "tdt4120-0-1-gjenganger",
+      "type": "definition",
+      "title": "Gjenganger",
+      "content": "Et tema eller en oppgavetype som kommer igjen på nesten hvert sett, slik at det\ner trygt å regne med at den dukker opp.\n\nI TDT4120 er gjengangerne uvanlig mange og uvanlig tydelige: seks temaer har vært\nmed i 16 eller 17 av de 17 settene i grunnlaget. Det er derfor denne boka bruker\nfrekvens til å styre omfanget på hvert kapittel, ikke til å velge bort noe."
+    },
+    {
+      "id": "tdt4120-0-1-robust-sensur",
+      "type": "definition",
+      "title": "Robust sensur",
+      "content": "At en tvilsom oppgave håndteres til kandidatens fordel. Det er dokumentert to\nganger i løsningsforslagene til dette faget: én rekurrens ble tatt ut av sensur\nfordi den falt utenfor pensumvarianten av masterteoremet, og én skrivefeil i en\npseudokodelinje ble det tatt hensyn til under sensuren.\n\nDet er beroligende å vite. Det er ikke noe å planlegge etter — du kan ikke vite\npå forhånd hvilken oppgave det eventuelt gjelder."
+    },
+    {
+      "id": "tdt4120-0-1-frisvar",
+      "type": "definition",
+      "title": "Frisvar",
+      "content": "At du formulerer svaret selv, i stedet for å krysse av blant ferdige\nalternativer. Hele TDT4120-eksamen er frisvar.\n\nDet er verdt å merke seg når du bruker quizen i denne boka: quizen er flervalg\nfordi den er laget for rask gjenkalling, mens eksamen krever at du produserer\nuttrykket, definisjonen eller sluttilstanden selv. Presisjonen trenes derfor i\noppgavene og drillkapitlene, ikke i quizen."
+    },
+    {
+      "id": "tdt4120-0-1-pensumanker",
+      "type": "definition",
+      "title": "CLRS",
+      "content": "Kortformen for Cormen, Leiserson, Rivest og Stein, *Introduction to Algorithms*\n— pensumboka i TDT4120 gjennom hele perioden dette arkivet dekker.\n\nDen er grunnen til at algoritmenavnene i denne boka er som de er\n(`Merge-Sort`, `Build-Max-Heap`, `Ford-Fulkerson`), at arrayer indekseres fra 1,\nog at $\\lg n$ brukes for toerlogaritmen. Oppgavene og løsningsforslagene bruker\nden notasjonen og forventer gjenkjenning, så denne boka gjør det samme."
+    },
+    {
+      "id": "tdt4120-0-1-delproblem-bredde",
+      "type": "definition",
+      "title": "De tre temaene som alltid kommer",
+      "content": "Asymptotisk notasjon, sortering og NP-kompletthet med reduksjoner. Alle tre står\npå 100 % (17 av de 17 settene i grunnlaget).\n\nDe er også de tre billigste å sikre seg, fordi de i stor grad testes med korte\nfaktaspørsmål og definisjoner. Er du presset på tid, er dette rekkefølgen: disse\ntre først, deretter håndkjøring av haug og binært søketre."
+    },
+    {
+      "id": "tdt4120-0-1-designryggraden",
+      "type": "definition",
+      "title": "De tre designtemaene",
+      "content": "Maksimal flyt, dynamisk programmering og håndkjøring av datastrukturer — alle tre\npå 94 % (16 av de 17 settene i grunnlaget).\n\nMaksimal flyt og dynamisk programmering er verktøyene de åpne designoppgavene\noftest ber om, og det er der karakteren skilles i toppen. De to har hvert sitt\ndrillkapittel, og den tverrgående designdrillen i Del 8 kombinerer dem."
+    }
+  ],
+  "exercises": []
+}

@@ -1,0 +1,382 @@
+{
+  "id": "tdt4120-7-1",
+  "courseId": "tdt4120",
+  "chapterNumber": "7.1",
+  "title": "P, NP og co-NP — sertifikat og verifikasjon",
+  "description": "Klassene P, NP og co-NP, verifikasjonsalgoritme og sertifikat, og skillet avgjørelses- vs. optimeringsproblem.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "kunne definere klassene P og NP presist, og forklare at NP handler om å verifisere et foreslått svar raskt, ikke om å finne det",
+    "kunne oppgi et sertifikat og en verifikasjonsalgoritme for et konkret problem og begrunne at verifikasjonen er polynomisk",
+    "kunne skille et avgjørelsesproblem fra et optimeringsproblem og skrive om fra det ene til det andre med en terskelverdi",
+    "kunne gjøre rede for hva som er kjent og hva som er åpent om forholdet mellom P, NP og co-NP"
+  ],
+  "content": [
+    {
+      "id": "tdt4120-7-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**NP-teori er en fullstendig gjenganger: temaet er registrert i 100 % av grunnlaget — 17 av de 17 settene fra august 2015 til august 2023.** Ingen andre temaer i faget slår det. Dette er **høyeste prioritet — dette må sitte.**\n\nTre oppgavesjangre henter fra dette kapitlet, og her er de i klarspråk:\n\n- **Sjanger D — definisjon «med egne ord»:** du blir bedt om å forklare et begrep, og svaret er *én presis setning med hovedpoenget først*. «Hva er et sertifikat?» er en typisk D-oppgave.\n- **Sjanger F — «stemmer dette?»:** du får et utsagn og svarer **ja eller nei først**, deretter én setning som begrunner. «Alle problemer i NP krever eksponentiell tid å løse — stemmer dette?»\n- **Sjanger G — reduksjon og NP-argument:** du oppgir hvilken vei en reduksjon går og hva den beviser. Selve reduksjonsmaskineriet kommer i [kap. 7.2](/tdt4120/tdt4120-7-2), men grunnbegrepene som G-oppgavene hviler på — hva NP *er* — bygges her.\n\nEksamen er hjelpemiddelfri. NTNU bruker koden **E** for det, og den betyr rett og slett at ingen hjelpemidler er tillatt: definisjonene i dette kapitlet må sitte i hodet, ikke i et ark.\n\nDen gode nyheten er at dette er **puggbart og billig**. Definisjonene er korte, de endrer seg ikke fra år til år, og løsningsforslagene premierer den presise setningen framfor den lange. Én time her er noe av det best betalte du gjør i hele faget."
+    },
+    {
+      "id": "tdt4120-7-1-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper\n\nDette kapitlet bygger på fire ting du har møtt tidligere i boka:\n\n- **Asymptotisk notasjon** fra [kap. 1.1](/tdt4120/tdt4120-1-1) og [kap. 1.2](/tdt4120/tdt4120-1-2). Du må kunne lese $O(n^3)$ og $\\Theta(n\\lg n)$ og vite at $\\lg n$ betyr $\\log_2 n$.\n- **Grafer og grafnotasjonen** $G=(V,E)$ fra [kap. 4.1](/tdt4120/tdt4120-4-1) — noder, kanter, nabolister og nabomatrise.\n- **Maks-flyt** fra [kap. 5.1](/tdt4120/tdt4120-5-1) og [kap. 5.2](/tdt4120/tdt4120-5-2). Vi bruker `Edmonds-Karp` som eksempel på et problem vi *kan* løse raskt.\n- **Mengdelære** — union, snitt og delmengde. Trenger du en oppfriskning, ligger den i [Mengdelære](/1t/1t-1-7).\n\nDu trenger **ingen** forkunnskaper om reduksjoner, NP-komplette problemer eller SAT. Alt det kommer i [kap. 7.2](/tdt4120/tdt4120-7-2) og [kap. 7.3](/tdt4120/tdt4120-7-3), og bygger på nettopp det du leser her."
+    },
+    {
+      "id": "tdt4120-7-1-notasjon",
+      "type": "collapsible",
+      "title": "Notasjons- og pseudokodeliste",
+      "buttonText": "Vis notasjon og pseudokode",
+      "content": [
+        {
+          "id": "tdt4120-7-1-notasjon-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et algoritmefag: den lister kjøretidsuttrykk og pseudokode-operasjoner i stedet for bare greske bokstaver.\n\n| Symbol | Betydning |\n|---|---|\n| $n$ | størrelsen på inputen, målt i antall symboler (bits) — ikke antall objekter |\n| $x$ | en **instans**: selve inputen til problemet, f.eks. den konkrete grafen |\n| $y$ | et **sertifikat**: den foreslåtte løsningen som skal kontrolleres |\n| $A(x,y)$ | verifikasjonsalgoritmen — svarer 1 hvis $y$ beviser at $x$ er en ja-instans |\n| $P$ | klassen av avgjørelsesproblemer som kan **løses** i polynomisk tid |\n| $NP$ | klassen av avgjørelsesproblemer som kan **verifiseres** i polynomisk tid |\n| $\\text{co-}NP$ | klassen der **nei**-svaret kan verifiseres i polynomisk tid |\n| $O(n^k)$ | polynomisk kjøretid for en konstant $k$ |\n| $2^n$ | eksponentiell vekst — det uttømmende søket |\n| $G=(V,E)$ | graf med nodemengde $V$ og kantmengde $E$ |\n| $\\lg n$ | $\\log_2 n$, CLRS-konvensjonen som brukes gjennom hele boka |\n\n| Algoritme/operasjon | Kontrakt | Kjøretid |\n|---|---|---|\n| `Verify-Ham-Cycle(G, y)` | tar en graf og en foreslått nodesekvens; svarer 1 hvis sekvensen er en hamiltonsykel i grafen | $\\Theta(V)$ kontroller med nabomatrise |\n| `Merge-Sort(A, p, r)` | sorterer `A[p..r]` stigende, ikke på stedet, stabilt | $\\Theta(n\\lg n)$ |\n| `Dijkstra(G, w, s)` | korteste vei fra kilden `s`; krever ikke-negative kantvekter | $O(E\\lg V)$ med binærhaug |\n| `MST-Kruskal(G, w)` | et minimalt spenntre i en sammenhengende, vektet graf | $O(E\\lg V)$ |\n| `Edmonds-Karp(G, s, t)` | maksimal flyt fra `s` til `t` via korteste forøkende sti | $O(VE^2)$ |\n\n**Formler i dette delkapitlet:**\n\n$$P \\subseteq NP$$\n\nAlt vi kan løse raskt, kan vi også kontrollere raskt — derfor ligger $P$ helt inne i $NP$.\n\n$$P \\subseteq NP \\cap \\text{co-}NP$$\n\nEt problem i $P$ kan avgjøres raskt begge veier, så både ja-svaret og nei-svaret er raskt å kontrollere.\n\n$$1 < \\lg n < n < n\\lg n < n^2 < n^3 < 2^n < n!$$\n\nVekstordningen. Alt til venstre for $2^n$ i denne rekka er polynomisk; $2^n$ og $n!$ er det ikke."
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-7-1-okt1-overskrift",
+      "type": "text",
+      "content": "## Å lage en løsning mot å kontrollere en (~10 min)\n\nPå en sengepost settes vaktlista for neste måned. Reglene er mange: ingen jobber to nattevakter på rad, hver vakt trenger minst én sykepleier med spesialkompetanse, og ingen skal over 160 timer. Å **lage** en slik liste fra bunnen kan ta en avdelingsleder flere dager. Å **kontrollere** en ferdig liste tar en halvtime: du går gjennom vaktene én etter én og krysser av mot reglene.\n\nDenne forskjellen — vanskelig å lage, lett å kontrollere — er hele grunnlaget for kapitlet. Kompleksitetsteorien tar den intuisjonen og gjør den presis. Klassen $P$ handler om hva vi klarer å *lage*. Klassen $NP$ handler om hva vi klarer å *kontrollere*.\n\nFør vi kan definere klassene, må vi rydde i én ting: hva slags spørsmål de handler om."
+    },
+    {
+      "id": "tdt4120-7-1-def-avgjorelsesproblem",
+      "type": "definition",
+      "title": "Avgjørelsesproblem",
+      "content": "Et problem der svaret alltid er **ja** eller **nei** — ingenting annet. «Finnes det en vaktliste som oppfyller alle reglene?» er et avgjørelsesproblem; «hvilken vaktliste er best?» er det ikke.\n\nHele kompleksitetsteorien er bygd på avgjørelsesproblemer, fordi et ja/nei-svar er lett å sammenligne på tvers av problemer. Når du ser $P$ og $NP$ definert, er det alltid mengder av avgjørelsesproblemer.\n\nEn **instans** av problemet er én konkret input — den konkrete grafen, den konkrete tallmengden. Instansen kalles en **ja-instans** hvis svaret er ja, og en **nei-instans** hvis svaret er nei."
+    },
+    {
+      "id": "tdt4120-7-1-def-optimeringsproblem",
+      "type": "definition",
+      "title": "Optimeringsproblem",
+      "content": "Et problem der du søker den **beste** løsningen etter et mål: den korteste ruta, det letteste spenntreet, den største flyten. Svaret er en løsning eller en verdi, ikke ja/nei.\n\nDe fleste problemene du har møtt i boka så langt er optimeringsproblemer: korteste vei, minimalt spenntre, maksimal flyt. Kompleksitetsteorien håndterer dem indirekte, gjennom avgjørelsesvarianten under."
+    },
+    {
+      "id": "tdt4120-7-1-def-avgjorelsesvariant",
+      "type": "definition",
+      "title": "Avgjørelsesvarianten av et optimeringsproblem",
+      "content": "Du gjør et optimeringsproblem om til et avgjørelsesproblem ved å legge til en **terskelverdi** $k$ i inputen og spørre om målet kan nås:\n\n- optimering: «hva er den korteste rundturen?»\n- avgjørelse: «finnes det en rundtur med lengde høyst $k$?»\n\nKoblingen går begge veier og er poenget med grepet: **er avgjørelsesvarianten vanskelig, er optimeringsvarianten minst like vanskelig.** Kunne du regne ut den korteste rundturen raskt, ville du også kunne svare på terskelspørsmålet raskt — bare sammenlign svaret med $k$. Derfor holder det å studere avgjørelsesvarianten."
+    },
+    {
+      "id": "tdt4120-7-1-eks-1",
+      "type": "example",
+      "title": "Eksempel 1: Fra optimering til avgjørelse",
+      "problem": "En budbil skal innom tre utleveringspunkter og tilbake til hovedlageret. Avstandene i kilometer er:\n\n| | Hovedlageret | Nordbakken | Sjøkanten | Vestmarka |\n|---|---|---|---|---|\n| **Hovedlageret** | — | 90 | 130 | 70 |\n| **Nordbakken** | 90 | — | 60 | 150 |\n| **Sjøkanten** | 130 | 60 | — | 110 |\n| **Vestmarka** | 70 | 150 | 110 | — |\n\n**a)** Skriv optimeringsproblemet «finn den korteste rundturen» om til et avgjørelsesproblem.\n**b)** Er instansen med terskel $k = 350$ en ja-instans? Er den med $k = 320$ det?",
+      "solution": "**a)** Avgjørelsesvarianten: *gitt avstandstabellen og et tall $k$ — finnes det en rundtur som besøker hvert punkt nøyaktig én gang, ender der den startet, og har samlet lengde høyst $k$?* Inputen er tabellen **pluss** terskelen $k$; svaret er ja eller nei.\n\n**b)** De tre distinkte rundturene har lengdene 330 km, 410 km og 480 km (de seks rekkefølgene faller sammen to og to, siden en rundtur og dens speilvending er like lange). Korteste rundtur er altså **330 km**, via Hovedlageret – Nordbakken – Sjøkanten – Vestmarka – Hovedlageret.\n\n- $k = 350$: **ja-instans**, fordi $330 \\le 350$.\n- $k = 320$: **nei-instans**, fordi ingen rundtur er kortere enn 330 km.\n\nLegg merke til hva svaret *ikke* er: oppgaven spør om ja eller nei, ikke om hvilken rute som er kortest. Ja/nei er hele svaret på et avgjørelsesproblem."
+    },
+    {
+      "id": "tdt4120-7-1-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-7-1-oppg-1-e",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamensnivå, sjanger D — definisjon med egne ord.) Fem målestasjoner skal knyttes sammen med kabel. Kabelstrekkene som er mulige, har lengdene: 1–2: 4 km, 1–3: 7 km, 2–3: 3 km, 2–4: 9 km, 3–4: 5 km, 3–5: 8 km, 4–5: 6 km.\n\n**a)** Skriv om optimeringsproblemet «finn det billigste nettet som knytter alle fem stasjonene sammen» til et avgjørelsesproblem.\n**b)** Det minimale spenntreet har samlet lengde 18 km. Er instansen med terskel $k = 20$ en ja-instans? Hva med $k = 17$?",
+        "solution": "**a)** *Gitt de mulige kabelstrekkene med lengder og et tall $k$ — finnes det et spenntre med samlet lengde høyst $k$?* Terskelen $k$ er en del av inputen.\n\n**b)** $k = 20$: **ja-instans** ($18 \\le 20$). $k = 17$: **nei-instans**, siden intet spenntre er lettere enn 18 km, og 18 er større enn 17.",
+        "hints": [
+          "Avgjørelsesvarianten lages ved å legge en terskelverdi til inputen og spørre om målet kan nås.",
+          "Sammenlign den optimale verdien med terskelen — det er hele avgjørelsen når optimum er oppgitt."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-7-1-okt2-overskrift",
+      "type": "text",
+      "content": "## Klassen P — det vi klarer å regne ut (~8 min)\n\nNesten alle algoritmene i denne boka er raske i en helt bestemt forstand: kjøretiden er begrenset av inputstørrelsen opphøyd i en fast potens. `Merge-Sort` bruker $\\Theta(n\\lg n)$, `MST-Kruskal` bruker $O(E\\lg V)$, `Edmonds-Karp` bruker $O(VE^2)$. Alle tre vokser som et polynom i inputstørrelsen. Det er nettopp den egenskapen klassen $P$ fanger."
+    },
+    {
+      "id": "tdt4120-7-1-def-polynomisk-tid",
+      "type": "definition",
+      "title": "Polynomisk tid",
+      "content": "En algoritme kjører i **polynomisk tid** hvis kjøretiden er $O(n^k)$ for en konstant $k$ som ikke avhenger av inputen. Her er $n$ **størrelsen på inputen**, altså hvor mange symboler den fyller — ikke hvor store tallene i den er.\n\n$n$, $n\\lg n$, $n^2$ og $n^3$ er polynomiske. $2^n$ og $n!$ er det ikke: der vokser kjøretiden raskere enn et hvilket som helst polynom. Forskjellen er ikke akademisk. For $n = 50$ er $n^3 = 125\\,000$, mens $2^n$ er over $1{,}1 \\cdot 10^{15}$ — en faktor på mer enn ni milliarder.\n\nFaggrensen mellom «håndterbart» og «ikke håndterbart» settes ved polynomisk tid. Det er en tommelfingerregel, ikke en naturlov: en algoritme på $n^{100}$ er polynomisk og likevel ubrukelig. Men i praksis har de polynomiske algoritmene vi faktisk finner, små eksponenter, og skillet har vist seg å være det nyttigste vi har."
+    },
+    {
+      "id": "tdt4120-7-1-def-p",
+      "type": "definition",
+      "title": "Klassen P",
+      "content": "Mengden av alle avgjørelsesproblemer som kan **løses** av en algoritme i polynomisk tid. «Løses» betyr her at algoritmen selv finner ja/nei-svaret — den får ingen hjelp.\n\nAlle grafalgoritmene i Del 4 og flytalgoritmene i Del 5 vitner om problemer i $P$: «finnes det en vei fra `s` til `t` med lengde høyst $k$?» ligger i $P$ fordi `Dijkstra` løser optimeringsvarianten i $O(E\\lg V)$. Tilsvarende for spenntre og maksimal flyt.\n\n$P$ er den klassen som svarer til det vi vil kalle en *effektiv* algoritme."
+    },
+    {
+      "id": "tdt4120-7-1-eks-2",
+      "type": "example",
+      "title": "Eksempel 2: Hvorfor tre kjente problemer ligger i P",
+      "problem": "Begrunn kort at hvert av disse avgjørelsesproblemene ligger i $P$:\n\n**a)** Finnes det et spenntre med samlet vekt høyst $k$?\n**b)** Finnes det en flyt fra `s` til `t` med verdi minst $k$?\n**c)** Er arrayet `A[1..n]` sortert stigende?",
+      "solution": "**a)** Ja. Kjør `MST-Kruskal` i $O(E\\lg V)$, som gir det **minimale** spenntreets vekt, og sammenlign med $k$. Er minimum høyst $k$, er svaret ja; ellers nei. Sammenligningen er ett steg, så totalen er fortsatt $O(E\\lg V)$ — polynomisk.\n\n**b)** Ja. Kjør `Edmonds-Karp` i $O(VE^2)$, som gir maksimal flytverdi, og sammenlign med $k$. `Edmonds-Karp` velger alltid **korteste** forøkende sti, og det er nettopp derfor kjøretiden er polynomisk og ikke avhenger av kapasitetenes tallverdi.\n\n**c)** Ja. Én gjennomgang som sammenligner `A[i]` med `A[i+1]` for $i = 1, \\ldots, n-1$ avgjør det i $\\Theta(n)$.\n\nFellesnevneren er formen på svaret: **oppgi algoritmen, oppgi kjøretiden, og si at den er polynomisk.** Det er hele begrunnelsen en slik oppgave ber om."
+    },
+    {
+      "id": "tdt4120-7-1-okt3-overskrift",
+      "type": "text",
+      "content": "## Sertifikat, verifikasjon og klassen NP (~15 min)\n\nTilbake til vaktlista. Den som skal kontrollere den, får to ting: **reglene og bemanningsbehovet** (selve problemet) og **den ferdige lista** (den foreslåtte løsningen). Kontrolløren trenger ikke gjenskape arbeidet — hun trenger bare å krysse av.\n\nKompleksitetsteorien gir de to tingene navn. Den første er **instansen** $x$. Den andre er **sertifikatet** $y$. Og den som krysser av, er en **verifikasjonsalgoritme**."
+    },
+    {
+      "id": "tdt4120-7-1-def-sertifikat",
+      "type": "definition",
+      "title": "Sertifikat",
+      "content": "Et **sertifikat** er den foreslåtte løsningen som følger med instansen når svaret skal kontrolleres — beviset for at svaret er ja.\n\nFor «finnes det en rundtur som besøker hver by én gang?» er sertifikatet selve rekkefølgen av byer. For «finnes det en delmengde med sum 45?» er sertifikatet delmengden. For vaktlista er sertifikatet den ferdige lista.\n\nSertifikatet må ha **polynomisk lengde** i inputstørrelsen. Uten det kravet ville definisjonen av $NP$ vært tom for innhold: du kunne levert en tabell over alle mulige svar som «sertifikat», og kontrollen ville vært et oppslag. Det er kravet om kort sertifikat som gjør at kontrollen faktisk er billigere enn søket.\n\nMerk at et sertifikat bare finnes for **ja**-instanser. Er svaret nei, er det ingenting å legge fram."
+    },
+    {
+      "id": "tdt4120-7-1-def-verifikasjonsalgoritme",
+      "type": "definition",
+      "title": "Verifikasjonsalgoritme",
+      "content": "En algoritme $A(x,y)$ som tar to argumenter — instansen $x$ og et sertifikat $y$ — og svarer 1 hvis $y$ beviser at $x$ er en ja-instans, ellers 0.\n\nAlgoritmen **verifiserer** problemet hvis det gjelder: $x$ er en ja-instans nøyaktig når det finnes minst ett sertifikat $y$ slik at $A(x,y) = 1$.\n\nEn verifikasjonsalgoritme løser ikke problemet. Den avgjør bare om et foreslått svar holder. Det er hele forskjellen mellom å planlegge vaktlista og å kontrollere den."
+    },
+    {
+      "id": "tdt4120-7-1-def-np",
+      "type": "definition",
+      "title": "Klassen NP",
+      "content": "Mengden av alle avgjørelsesproblemer der et **ja**-svar kan **verifiseres** i polynomisk tid, gitt et sertifikat av polynomisk lengde.\n\nLes den setningen én gang til, og legg merke til hva som *ikke* står der. Det står ingenting om hvor lang tid det tar å **finne** løsningen. $NP$ handler om kontroll, ikke om søk. Et problem kan ligge i $NP$ og samtidig ha en lynrask løsningsalgoritme — sortering er et banalt eksempel.\n\nNavnet forvirrer med vilje dårlig: **N-en står ikke for «not»**. Den står for *nondeterministisk*, fra en eldre, likeverdig definisjon der en tenkt maskin gjetter sertifikatet og kontrollerer det. Utfallet er det samme; verifikasjonsformen er den du skal kunne skrive ned."
+    },
+    {
+      "id": "tdt4120-7-1-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil i dette kapitlet",
+      "content": "**«NP betyr at problemet ikke kan løses i polynomisk tid.»** Dette er den mest utbredte feilen på hele pensum, og den er dobbelt gal. For det første sier definisjonen ingenting om løsning — bare om **verifikasjon**. For det andre ligger hele $P$ inne i $NP$, så alle problemene vi *kan* løse raskt, ligger også i $NP$. Sier du dette på eksamen, har du forkastet definisjonen du ble bedt om å gjengi.\n\n**«$P \\ne NP$ er bevist.»** Nei. Det er et åpent problem. Vi vet at $P \\subseteq NP$; om inklusjonen er streng, vet ingen. Skriv aldri noe som forutsetter at spørsmålet er avgjort.\n\n**Å blande avgjørelses- og optimeringsvarianten.** «Hva er den korteste rundturen?» er ikke et avgjørelsesproblem, og hører derfor strengt tatt ikke hjemme i $P$ eller $NP$ i det hele tatt. Legg til terskelen $k$ først.\n\n**Å glemme kravet om polynomisk sertifikatlengde.** Uten det kan hva som helst «verifiseres», og definisjonen kollapser."
+    },
+    {
+      "id": "tdt4120-7-1-teorem-p-subseteq-np",
+      "type": "theorem",
+      "title": "P er en delmengde av NP",
+      "content": "$$P \\subseteq NP$$\n\n**Hvorfor:** la et problem ligge i $P$, med en algoritme som avgjør det i polynomisk tid. Lag en verifikasjonsalgoritme $A(x,y)$ som rett og slett **kaster sertifikatet** og kjører løsningsalgoritmen på $x$. Den svarer 1 nøyaktig for ja-instansene, og den bruker samme polynomiske tid som løsningsalgoritmen. Kravet om sertifikat er oppfylt av det tomme sertifikatet, som åpenbart har polynomisk lengde.\n\nAltså: alt som kan løses raskt, kan verifiseres raskt. **Motsatt vei er det store åpne spørsmålet** — om alt som kan verifiseres raskt, også kan løses raskt. Det er nøyaktig spørsmålet «er $P = NP$?», og det er ubesvart."
+    },
+    {
+      "id": "tdt4120-7-1-teorem-verify-ham",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `Verify-Ham-Cycle`",
+      "content": "En **hamiltonsykel** i en graf er en sykel som besøker hver node nøyaktig én gang og ender der den startet. Avgjørelsesproblemet «har $G$ en hamiltonsykel?» kalles HAM-CYCLE og får sin formelle definisjon i [kap. 7.3](/tdt4120/tdt4120-7-3). Her bruker vi det bare til å vise hvordan en verifikasjonsalgoritme ser ut.\n\n**1. Antagelser om representasjon.** Grafen $G=(V,E)$ er urettet og gitt som nabomatrise, slik at «finnes kanten $(u,v)$?» er ett oppslag i konstant tid. Sertifikatet `y[1..V]` er en sekvens av noder, indeksert fra 1.\n\n**2. Pre-/postbetingelse.** Før: `y` er en vilkårlig nodesekvens — den kan være hva som helst, også søppel. Etter: returverdien er 1 nøyaktig når `y` er en hamiltonsykel i `G`, ellers 0. Grafen endres ikke.\n\n**3. Pseudokoden.**\n\n```text\nVerify-Ham-Cycle(G, y)\n  Input:  graf G = (V, E) som nabomatrise; sekvens y[1..V] av noder\n  Output: 1 hvis y er en hamiltonsykel i G, ellers 0\n  if y.length != |V|\n      return 0\n  la sett[1..|V|] vaere en boolsk tabell med alle verdier FALSE\n  for i = 1 to |V|\n      if sett[y[i]] == TRUE\n          return 0                  // node besoekt to ganger\n      sett[y[i]] = TRUE\n  for i = 1 to |V| - 1\n      if (y[i], y[i+1]) not in E\n          return 0                  // manglende kant i stien\n  if (y[|V|], y[1]) not in E\n      return 0                      // sykelen lukkes ikke\n  return 1\n```\n\n**4. Grunnideen i én setning.** En nodesekvens er en hamiltonsykel nøyaktig når den inneholder hver node én gang og hvert nabopar i sekvensen — inkludert paret som lukker sykelen — er en kant.\n\n**5. Kjøretid.** Den første løkka gjør $|V|$ oppslag i en boolsk tabell, den andre gjør $|V|$ oppslag i nabomatrisen, alle i konstant tid, så kontrollen er $\\Theta(V)$ — polynomisk i inputstørrelsen. Til sammenligning ville et uttømmende søk måtte prøve $(|V|-1)!$ sekvenser."
+    },
+    {
+      "id": "tdt4120-7-1-eks-3",
+      "type": "example",
+      "title": "Eksempel 3: Sertifikat og verifikasjon i praksis",
+      "problem": "Et vedlikeholdsnett har seks stasjoner nummerert 1–6, og disse ni forbindelsene:\n\n$$\\{1,2\\},\\ \\{1,3\\},\\ \\{1,6\\},\\ \\{2,3\\},\\ \\{2,4\\},\\ \\{3,5\\},\\ \\{4,5\\},\\ \\{4,6\\},\\ \\{5,6\\}$$\n\nEn inspektør skal kjøre en runde som innom hver stasjon nøyaktig én gang og ender der hun startet.\n\n**a)** Oppgi et sertifikat for at en slik runde finnes, og vis at `Verify-Ham-Cycle` godtar det.\n**b)** En kollega foreslår runden 1–2–3–4–5–6–1. Hva svarer verifikatoren, og hvorfor?\n**c)** Hva ville et uttømmende søk kostet på samme instans?",
+      "solution": "**a)** Sertifikatet er sekvensen $y = (1, 2, 3, 5, 4, 6)$.\n\nVerifikatoren kontrollerer først at alle seks stasjonene forekommer nøyaktig én gang — det gjør de. Deretter slår den opp de seks nabo-parene: $\\{1,2\\}$, $\\{2,3\\}$, $\\{3,5\\}$, $\\{5,4\\}$, $\\{4,6\\}$ og til slutt $\\{6,1\\}$ som lukker sykelen. Alle seks står i kantlista, så den returnerer 1. Til sammen 6 distinkthetssjekker og 6 kantoppslag: **12 konstanttidsoperasjoner**.\n\n**b)** Verifikatoren returnerer **0**. Kontrollen av nabo-parene stopper på $\\{3,4\\}$, som ikke er en forbindelse i nettet. At de fem andre parene er kanter, hjelper ikke — ett brudd er nok.\n\n**c)** Et uttømmende søk ville måttet prøve alle rekkefølger av de fem øvrige stasjonene etter stasjon 1, altså $5! = 120$ sekvenser. Med 20 stasjoner ville tallet vært $19!$, som er over $10^{17}$. **Det er nettopp dette gapet klassen $NP$ setter ord på:** kontrollen er lineær, søket er eksponentielt."
+    },
+    {
+      "id": "tdt4120-7-1-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-7-1-oppg-2-e",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamensnivå, sjanger D — definisjon med egne ord.)\n\n**a)** Hva er et sertifikat?\n**b)** Hva vil det si at et problem ligger i $NP$?",
+        "solution": "**a)** Et sertifikat er en foreslått løsning som følger med instansen, og som kan kontrolleres — beviset for at svaret er ja. Det må ha lengde som er polynomisk i inputstørrelsen.\n\n**b)** Et problem ligger i $NP$ hvis et ja-svar kan **verifiseres** i polynomisk tid gitt et slikt sertifikat. Definisjonen sier ingenting om hvor lang tid det tar å finne løsningen.\n\nHovedpoenget står først i begge svarene: *foreslått løsning som kan kontrolleres*, og *verifikasjon i polynomisk tid*. Det er den formen en definisjonsoppgave ber om.",
+        "hints": [
+          "Begge svarene handler om kontroll av et foreslått svar, ikke om å finne det.",
+          "Husk kravet til sertifikatets lengde — uten det er definisjonen tom."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-7-1-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-7-1-oppg-3-e",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger D — definisjon med egne ord.) Tallene 7, 11, 15, 23 og 31 er gitt, sammen med målet 45. Spørsmålet er om noen delmengde av tallene summerer nøyaktig til målet.\n\n**a)** Oppgi et sertifikat for at 45 er en ja-instans.\n**b)** Beskriv verifikasjonsalgoritmen og oppgi kjøretiden dens.\n**c)** Er 44 en ja-instans? Begrunn.",
+        "solution": "**a)** Sertifikatet er delmengden $\\{7, 15, 23\\}$, som summerer til $7 + 15 + 23 = 45$.\n\n**b)** Verifikatoren tar tallene og den foreslåtte delmengden, sjekker at hvert element i delmengden faktisk står i tallmengden, summerer dem og sammenligner summen med målet. Med $n$ tall er det høyst $n$ addisjoner og $n$ oppslag, altså $\\Theta(n)$ — polynomisk. På denne instansen er det høyst 5 addisjoner.\n\n**c)** **Nei.** Ingen delmengde av $\\{7, 11, 15, 23, 31\\}$ summerer til 44. Det ser du ved å gå gjennom de $2^5 = 32$ delmengdene, som er en uttømmende gjennomgang — og nettopp derfor er *søket* dyrt selv om *kontrollen* er billig.",
+        "hints": [
+          "Sertifikatet er selve delmengden, ikke summen.",
+          "Verifikatoren må også kontrollere at de foreslåtte tallene virkelig hører til inputen."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-7-1-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-7-1-oppg-4-e",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger F — «stemmer dette?». Svar ja eller nei først, deretter én setning.)\n\n**a)** «Et problem i $NP$ kan ikke løses i polynomisk tid.»\n**b)** «Sortering av $n$ tall ligger i $NP$.»\n**c)** «Hvis et problem ligger i $P$, ligger det også i $NP$.»",
+        "solution": "**a)** **Nei.** $NP$ er definert ved at ja-svaret kan *verifiseres* raskt, og siden $P \\subseteq NP$, ligger alle raskt løsbare problemer i $NP$.\n\n**b)** **Ja.** Avgjørelsesvarianten («er `A[1..n]` sortert stigende?») ligger i $P$, og $P$ er en delmengde av $NP$.\n\n**c)** **Ja.** Verifikatoren kan kaste sertifikatet og bare kjøre løsningsalgoritmen, som er polynomisk.\n\nOppgaven ber om ja/nei og én setning — ikke om et bevis. Lengre svar gir ingen ekstra uttelling.",
+        "hints": [
+          "Alle tre punktene henger på forholdet mellom P og NP.",
+          "Slå opp hva definisjonen av NP faktisk krever — verifikasjon eller løsning?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-7-1-okt4-overskrift",
+      "type": "text",
+      "content": "## co-NP og det åpne spørsmålet (~10 min)\n\nSertifikatet i forrige avsnitt beviste alltid et **ja**. Inspektøren la fram en runde, og verifikatoren sa «denne holder». Men hva med nei-svaret? Hvordan beviser du kort at det **ikke** finnes noen slik runde?\n\nDet er ikke opplagt at det går an. Å legge fram alle rundene som ikke virker, er ikke et kort bevis. Denne asymmetrien har fått sitt eget navn."
+    },
+    {
+      "id": "tdt4120-7-1-def-komplementproblem",
+      "type": "definition",
+      "title": "Komplementproblem",
+      "content": "Komplementet til et avgjørelsesproblem er det samme spørsmålet med **ja og nei byttet om**. Komplementet til «har grafen en hamiltonsykel?» er «har grafen *ingen* hamiltonsykel?».\n\nInstansene er de samme; det er svarene som snus. En ja-instans i det opprinnelige problemet er en nei-instans i komplementet, og omvendt."
+    },
+    {
+      "id": "tdt4120-7-1-def-conp",
+      "type": "definition",
+      "title": "Klassen co-NP",
+      "content": "Mengden av avgjørelsesproblemer der **komplementet** ligger i $NP$ — altså der **nei**-svaret kan verifiseres i polynomisk tid med et sertifikat.\n\nEt eksempel: «er dette logiske uttrykket sant for alle mulige tilordninger av sannhetsverdier?» ligger i $\\text{co-}NP$. Er svaret nei, kan du bevise det kort ved å legge fram **én** tilordning som gjør uttrykket usant — den tilordningen er sertifikatet for nei-svaret.\n\n$NP$ og $\\text{co-}NP$ er ikke det samme som «$NP$ og alt utenfor $NP$». De er to klasser som overlapper: alt i $P$ ligger i begge. Om $NP = \\text{co-}NP$, er et **åpent** spørsmål, akkurat som $P = NP$."
+    },
+    {
+      "id": "tdt4120-7-1-conp-utdyping",
+      "type": "text",
+      "content": "**Intuisjon:** de to klassene måler hvor lett det er å bevise hvert av de to svarene. I $NP$ er ja-et lett å bevise. I $\\text{co-}NP$ er nei-et lett å bevise. Ligger et problem i begge, har du korte bevis uansett hva svaret blir.\n\nAlt i $P$ ligger i begge, og begrunnelsen er den samme som for $P \\subseteq NP$: kan du regne ut svaret raskt, trenger du ikke noe sertifikat i noen retning. Det gir\n\n$$P \\subseteq NP \\cap \\text{co-}NP$$\n\nUtover dette er kartet uferdig. Vi vet ikke om $P = NP$. Vi vet ikke om $NP = \\text{co-}NP$. Én sammenheng er derimot lett å se: **hvis $P = NP$, så er $NP = \\text{co-}NP$.** Grunnen er at $P$ er lukket under komplement — snu bare svaret fra løsningsalgoritmen — så en likhet mellom $P$ og $NP$ ville dratt begge klassene sammen.\n\nDette er ikke pynt. På eksamen kommer det som ja/nei-utsagn av typen «det er bevist at $P \\ne NP$» (nei) eller «$P$ ligger i $\\text{co-}NP$» (ja)."
+    },
+    {
+      "id": "tdt4120-7-1-eks-4",
+      "type": "example",
+      "title": "Eksempel 4: Fem utsagn om klassene",
+      "problem": "(Eksamensnivå.) Avgjør for hvert utsagn om det er sant eller usant, og begrunn med én setning.\n\n**a)** $P \\subseteq NP$.\n**b)** Det er bevist at $P \\ne NP$.\n**c)** Et problem i $NP$ har alltid et kort bevis for nei-svaret.\n**d)** Hvis et problem ligger i $P$, ligger komplementet også i $P$.\n**e)** Klassen $NP$ inneholder bare problemer som er vanskelige å løse.",
+      "solution": "**a) Sant.** En verifikator kan kaste sertifikatet og kjøre den polynomiske løsningsalgoritmen.\n\n**b) Usant.** Spørsmålet er åpent. Vi vet bare at $P \\subseteq NP$.\n\n**c) Usant.** $NP$ garanterer et kort bevis for **ja**-svaret. Korte bevis for nei-svaret er det $\\text{co-}NP$ handler om, og om de to klassene er like, er ukjent.\n\n**d) Sant.** Kjør løsningsalgoritmen og snu svaret; det koster ett ekstra steg, så kjøretiden er fortsatt polynomisk.\n\n**e) Usant.** $P$ ligger inne i $NP$, så alle de raskt løsbare problemene — sortering, korteste vei, maksimal flyt — ligger også i $NP$.\n\nFormen er verdt å legge merke til: **sant/usant først, deretter én setning.** Ingen av delsvarene trenger mer."
+    },
+    {
+      "id": "tdt4120-7-1-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-7-1-oppg-5-e",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger D — definisjon med egne ord.) Betrakt problemet «har grafen $G$ en hamiltonsykel?».\n\n**a)** Formulér komplementproblemet.\n**b)** Forklar hvorfor et sertifikat for det opprinnelige problemet er lett å oppgi, mens det ikke er opplagt hva et sertifikat for komplementet skulle være.",
+        "solution": "**a)** Komplementet er: «har $G$ **ingen** hamiltonsykel?» — samme graf, motsatt svar.\n\n**b)** For det opprinnelige problemet er sertifikatet selve nodesekvensen, og verifikatoren kontrollerer den i $\\Theta(V)$. For komplementet må sertifikatet overbevise om at **ingen** av de $(|V|-1)!$ sekvensene virker. Å liste alle er ikke et kort bevis, og noe kortere er ikke kjent. Det er nettopp derfor $\\text{co-}NP$ er en egen klasse, og derfor spørsmålet om $NP = \\text{co-}NP$ fortsatt er åpent.",
+        "hints": [
+          "Komplementet snur ja og nei, men lar instansen stå.",
+          "Tenk på hva et sertifikat må gjøre: overbevise en kontrollør raskt. Hvor mange muligheter må utelukkes?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-7-1-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-7-1-oppg-6-e",
+        "number": 6,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger F — «stemmer dette?». Svar ja eller nei først, deretter én setning.)\n\n«Alle problemer i $P$ ligger både i $NP$ og i $\\text{co-}NP$.»",
+        "solution": "**Ja.** Kan svaret regnes ut i polynomisk tid, kan både ja-et og nei-et verifiseres i polynomisk tid ved å kjøre løsningsalgoritmen og eventuelt snu svaret — altså $P \\subseteq NP \\cap \\text{co-}NP$.",
+        "hints": [
+          "Se på hvordan verifikatoren for et problem i P ble laget.",
+          "Hva skjer hvis du kjører den samme algoritmen og snur svaret?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-7-1-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-7-1-oppg-7-e",
+        "number": 7,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger D — definisjon med egne ord.) Definisjonen av $NP$ krever at sertifikatet har **polynomisk lengde** i inputstørrelsen.\n\n**a)** Forklar hvorfor kravet er nødvendig.\n**b)** Beskriv hva som ville skjedd med definisjonen uten det.",
+        "solution": "**a)** Kravet er det som gjør verifikasjonen billigere enn søket. En verifikasjonsalgoritme må i det minste lese sertifikatet sitt; er sertifikatet kort, er lesingen billig, og kontrollen kan holdes innenfor polynomisk tid.\n\n**b)** Uten lengdekravet kunne sertifikatet vært en fullstendig oppramsing av alle kandidatløsninger — for hamiltonsykel altså alle $(|V|-1)!$ sekvenser med et hakekryss ved den som virker. «Verifikasjonen» ville da vært et oppslag, og **hvert eneste** avgjørelsesproblem ville havnet i $NP$. Klassen ville ikke skilt noe fra noe, og hele teorien ville vært innholdsløs.",
+        "hints": [
+          "Verifikatoren må lese sertifikatet sitt. Hva koster det hvis sertifikatet er eksponentielt langt?",
+          "Prøv å konstruere et absurd «sertifikat» for hamiltonsykel og se hva kontrollen da ville bestått i."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-7-1-okt5-overskrift",
+      "type": "text",
+      "content": "## Abstrakte og konkrete problemer (~5 min)\n\nDette avsnittet er **kjenne til**-stoff: det er randstoff i faget, og det er nok at du kjenner igjen ordene hvis de dukker opp i en oppgavetekst. Har du kort tid, hopp videre til begrepsbanken.\n\nSå langt har vi snakket om «problemer» uten å si hva et problem *er* matematisk. Den presise varianten går slik. Et **abstrakt problem** er en tilordning fra instanser til svar — for et avgjørelsesproblem: fra hver instans til ja eller nei. Men en algoritme leser ikke abstrakte objekter; den leser en bitstreng. Derfor **kodes** instansen som en streng av symboler, og resultatet kalles et **konkret problem**. Da blir et avgjørelsesproblem det samme som mengden av alle strenger som koder en ja-instans, og en slik mengde kalles et **formelt språk**.\n\nDet er derfor du kan se $P$ og $NP$ definert som mengder av *språk*, og skrivemåten $L \\in NP$ i stedet for «problemet ligger i $NP$». Det er samme sak i annen drakt.\n\n**Hvorfor det er verdt fem minutter:** kodingen er ikke uskyldig. Størrelsen $n$ er antall symboler i den kodede instansen, og et tall som skrives binært fyller langt færre symboler enn det samme tallet skrevet som en lang strek av ettall. Den forskjellen ser harmløs ut nå, men den er selve grunnen til at 0-1-ryggsekk kalles pseudopolynomisk i [kap. 7.2](/tdt4120/tdt4120-7-2)."
+    },
+    {
+      "id": "tdt4120-7-1-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-7-1-oppg-8-e",
+        "number": 8,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger F — «stemmer dette?». Svar ja eller nei først, deretter én setning per punkt.)\n\n**a)** «Klassen $NP$ er definert som problemene som *ikke* kan løses i polynomisk tid.»\n**b)** «Et sertifikat for at grafen har en hamiltonsykel, er selve nodesekvensen.»\n**c)** «Optimeringsproblemet ‘finn den korteste rundturen’ er et avgjørelsesproblem.»\n**d)** «Størrelsen $n$ i uttrykket $O(n^k)$ er antall objekter i inputen.»",
+        "solution": "**a) Nei.** $NP$ er definert ved at ja-svaret kan **verifiseres** i polynomisk tid gitt et sertifikat; klassen inneholder blant annet hele $P$.\n\n**b) Ja.** Verifikatoren kontrollerer at sekvensen inneholder hver node én gang og at alle nabopar — inkludert paret som lukker sykelen — er kanter, i $\\Theta(V)$.\n\n**c) Nei.** Det er et optimeringsproblem; avgjørelsesvarianten får du ved å legge til en terskel $k$ og spørre om det finnes en rundtur med lengde høyst $k$.\n\n**d) Nei.** $n$ er størrelsen på den **kodede** inputen, altså antall symboler den fyller. Skillet er uvesentlig når objektene har fast størrelse, men avgjørende når inputen inneholder store tall.",
+        "hints": [
+          "Tre av påstandene er varianter av de fire feilene i «Typiske feil»-boksen.",
+          "For punkt d): tenk på hvordan et stort tall skrives ned, og hvor mange symboler det fyller."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-7-1-kjoretidstabell",
+      "type": "text",
+      "content": "## Oppslagstabell: problemer vi vet ligger i P (~2 min)\n\nAlle radene under er avgjørelsesvarianter av problemer du har møtt tidligere i boka. De ligger i $P$ fordi vi har en polynomisk algoritme som avgjør dem — og de ligger dermed også i $NP$.\n\n| Problem (avgjørelsesvariant) | Algoritme som avgjør det | Kjøretid | Krav/egenskap |\n|---|---|---|---|\n| Finnes en vei fra `s` til `t`? | `BFS` | $\\Theta(V+E)$ | ingen |\n| Finnes en vei fra `s` til `t` med vekt høyst $k$? | `Dijkstra` | $O(E\\lg V)$ | krever ikke-negative kantvekter |\n| Samme, med negative kanter tillatt | `Bellman-Ford` | $\\Theta(VE)$ | oppdager negative sykler |\n| Finnes et spenntre med vekt høyst $k$? | `MST-Kruskal` | $O(E\\lg V)$ | grafen må være sammenhengende |\n| Finnes en flyt med verdi minst $k$? | `Edmonds-Karp` | $O(VE^2)$ | krever korteste forøkende sti |\n| Er `A[1..n]` sortert stigende? | én gjennomgang | $\\Theta(n)$ | ingen |\n| Kan `A[1..n]` sorteres på $\\Theta(n\\lg n)$? | `Merge-Sort` | $\\Theta(n\\lg n)$ | ikke på stedet, stabil |\n\nPoenget med tabellen er kontrasten som kommer: HAM-CYCLE, som du så i dette kapitlet, har **ingen** slik rad. Vi kan verifisere svaret i $\\Theta(V)$, men vi kjenner ingen polynomisk algoritme som *finner* det. Hvorfor det er slik — og hva vi likevel kan bevise — er [kap. 7.2](/tdt4120/tdt4120-7-2) og [kap. 7.3](/tdt4120/tdt4120-7-3)."
+    },
+    {
+      "id": "tdt4120-7-1-begrepsbank-intro",
+      "type": "text",
+      "content": "## Begrepsbank (~5 min)\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "tdt4120-7-1-bb-instans",
+      "type": "definition",
+      "title": "Instans",
+      "content": "Én konkret input til et problem: den bestemte grafen, den bestemte tallmengden, den bestemte avstandstabellen sammen med terskelen.\n\nProblemet er regelen; instansen er tilfellet. Når vi skriver $x$ i definisjonene av $NP$, er $x$ en instans."
+    },
+    {
+      "id": "tdt4120-7-1-bb-ja-nei-instans",
+      "type": "definition",
+      "title": "Ja-instans og nei-instans",
+      "content": "En instans der svaret på avgjørelsesproblemet er ja, kalles en **ja-instans**; er svaret nei, er det en **nei-instans**.\n\nSkillet er verktøyet du bruker når du skal vise at en transformasjon mellom to problemer er riktig: den må sende ja-instanser til ja-instanser og nei-instanser til nei-instanser. Den egenskapen heter **svarbevarende** og er selve kjernen i [kap. 7.2](/tdt4120/tdt4120-7-2)."
+    },
+    {
+      "id": "tdt4120-7-1-bb-inputstorrelse",
+      "type": "definition",
+      "title": "Inputstørrelse",
+      "content": "Antall symboler den kodede inputen fyller — ikke antall objekter i den.\n\nFor en graf gitt som nabomatrise er inputstørrelsen omtrent $|V|^2$ bits. For en liste med $n$ tall er den summen av tallenes bitlengder: tallet $m$ fyller $\\lfloor \\lg m \\rfloor + 1$ bits. Skillet virker pedantisk til du møter et problem der kjøretiden avhenger av en **tallverdi** i inputen framfor av antall symboler — da bestemmer det alt."
+    },
+    {
+      "id": "tdt4120-7-1-bb-uttommende-sok",
+      "type": "definition",
+      "title": "Uttømmende søk",
+      "content": "Å prøve alle kandidatløsninger etter tur og se om noen holder. Kalles også *brute force*.\n\nUttømmende søk løser nesten alle problemene i dette kapitlet — bare altfor sakte. For hamiltonsykel i en graf med $|V|$ noder er det $(|V|-1)!$ sekvenser; for en delmengde av $n$ tall er det $2^n$ delmengder. Med 5 tall er $2^n = 32$, med 50 tall er det over $10^{15}$."
+    },
+    {
+      "id": "tdt4120-7-1-bb-superpolynomisk",
+      "type": "definition",
+      "title": "Superpolynomisk kjøretid",
+      "content": "En kjøretid som vokser raskere enn ethvert polynom: $2^n$, $n!$, $n^{\\lg n}$.\n\nKontrasten til $O(n^k)$ er skarpere enn tallene antyder. For $n = 50$ er $n^3 = 125\\,000$, mens $2^n$ overstiger $1{,}1 \\cdot 10^{15}$ — over ni milliarder ganger større. Det er derfor grensen mellom håndterbart og ikke settes ved polynomisk tid."
+    },
+    {
+      "id": "tdt4120-7-1-bb-nondeterministisk",
+      "type": "definition",
+      "title": "Bokstavene i NP",
+      "content": "$NP$ står for **nondeterministisk polynomisk tid**, ikke for «ikke polynomisk».\n\nDen eldre definisjonen tenker seg en maskin som *gjetter* et sertifikat og deretter kontrollerer det i polynomisk tid. Den er likeverdig med verifikasjonsdefinisjonen, og verifikasjonsformen er den du skal kunne skrive ned. Feillesningen «N for *not*» er direkte årsak til den vanligste feilen på eksamen."
+    },
+    {
+      "id": "tdt4120-7-1-bb-abstrakt-problem",
+      "type": "definition",
+      "title": "Abstrakt problem",
+      "content": "En tilordning fra instanser til svar, uten noen antagelse om hvordan instansen skrives ned. For et avgjørelsesproblem: fra hver instans til ja eller nei.\n\nNyttig å kjenne til, men randstoff i dette faget."
+    },
+    {
+      "id": "tdt4120-7-1-bb-konkret-problem",
+      "type": "definition",
+      "title": "Konkret problem og formelt språk",
+      "content": "Et **konkret problem** er et abstrakt problem der instansene er kodet som strenger av symboler — det en algoritme faktisk kan lese.\n\nDa blir et avgjørelsesproblem det samme som mengden av alle strenger som koder en ja-instans, og en slik mengde kalles et **formelt språk**, gjerne skrevet $L$. Det er derfor du kan se $P$ og $NP$ definert som mengder av språk og skrivemåten $L \\in NP$. Randstoff, men verdt å kjenne igjen."
+    },
+    {
+      "id": "tdt4120-7-1-bb-p-vs-np",
+      "type": "definition",
+      "title": "P = NP-spørsmålet",
+      "content": "Det åpne spørsmålet om alt som kan **verifiseres** raskt, også kan **løses** raskt.\n\nStatus i dag: $P \\subseteq NP$ er bevist og enkelt. Om inklusjonen er streng — altså om det finnes et problem i $NP$ som ikke er i $P$ — vet ingen. Skriv aldri at $P \\ne NP$ er bevist, og skriv aldri at $P = NP$ er bevist. Det eneste riktige svaret er at spørsmålet er åpent."
+    },
+    {
+      "id": "tdt4120-7-1-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tdt4120-7-1-repetisjon-tekst",
+          "type": "text",
+          "content": "Fem korte oppgaver fra kapitlene dette bygger på. Svarene står under hver oppgave.\n\n**R1.** Hva betyr $\\lg n$, og hvorfor brukes den skrivemåten i denne boka? *(fra [kap. 1.1](/tdt4120/tdt4120-1-1))*\n\n> $\\lg n$ er $\\log_2 n$. Det er CLRS-konvensjonen, og den brukes gjennomgående i faget og i løsningsforslagene.\n\n**R2.** Oppgi kjøretiden til `Dijkstra` med binærhaug, og det ene kravet algoritmen stiller til grafen. *(fra [kap. 4.3](/tdt4120/tdt4120-4-3))*\n\n> $O(E\\lg V)$. Den krever **ikke-negative** kantvekter; med én negativ kant kan svaret bli galt, og da må du bruke `Bellman-Ford`.\n\n**R3.** Hva er kjøretiden til `Edmonds-Karp`, og hva er den ene tingen algoritmen gjør annerledes enn `Ford-Fulkerson`? *(fra [kap. 5.2](/tdt4120/tdt4120-5-2))*\n\n> $O(VE^2)$. Den velger alltid **korteste** forøkende sti, målt i antall kanter.\n\n**R4.** Hva er kjøretiden til `BFS`, og hva forutsetter uttrykket om grafrepresentasjonen? *(fra [kap. 4.1](/tdt4120/tdt4120-4-1))*\n\n> $\\Theta(V+E)$, med grafen gitt som nabolister — hver node og hver kant besøkes én gang.\n\n**R5.** Sett i vekstordning: $n\\lg n$, $2^n$, $n^2$, $\\lg n$, $n!$. *(fra [kap. 1.2](/tdt4120/tdt4120-1-2))*\n\n> $\\lg n < n\\lg n < n^2 < 2^n < n!$"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

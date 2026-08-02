@@ -1,0 +1,420 @@
+{
+  "id": "tdt4120-7-4",
+  "courseId": "tdt4120",
+  "chapterNumber": "7.4",
+  "title": "DRILL — Reduksjonsretning og NP-argumenter",
+  "description": "Full drill på sjanger G med fokus på det dokumenterte skillepunktet: hvilken vei reduserer du, og hva beviser det.",
+  "estimatedMinutes": 85,
+  "competenceGoals": [
+    "kunne avgjøre hvilken vei en reduksjon må gå for å vise at et problem er vanskelig, og skrive retningen presist",
+    "kunne skille de tre påstandene i NP, NP-hardt og NP-komplett, og vite hvilket bevis hver av dem krever",
+    "kunne vurdere om et ferdig NP-argument holder, ved å kontrollere polynomisk konstruksjonstid, lovlig instans og svarbevaring begge veier",
+    "kunne skille en pseudopolynomisk kjøretid fra et utsagn om at problemet er vanskelig"
+  ],
+  "content": [
+    {
+      "id": "tdt4120-7-4-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er kapitlet som avgjør flest poeng per side i hele boka.**\n\n- **Sjanger G — reduksjon og NP-argument**, altså at du oppgir hvilken vei reduksjonen går, hva den beviser og hva den ikke beviser, er til stede i **100 % (17 av de 17 settene i grunnlaget)**. Sjanger F — ja/nei-vurdering av et utsagn, med ja eller nei først og deretter én presis setning — kommer i tillegg.\n- Dette kapitlet har **høyeste prioritet — dette må sitte**.\n\nReduksjonsretningen er det enkeltpunktet løsningsforslagene oftest fremhever som skillet mellom riktig og galt svar. En besvarelse som reduserer feil vei, får ikke delvis uttelling for å ha nevnt de riktige problemene — argumentet beviser da bokstavelig talt ingenting om problemet det handler om.\n\nKapitlet er en **treningsbank**: det er ingen ny teori her, bare en oppskrift, én gjennomarbeidet case og tretten oppgaver på eksamensnivå. Regn 85 minutter, og del det gjerne på to økter — det er lagt inn pausepunkter underveis."
+    },
+    {
+      "id": "tdt4120-7-4-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper\n\nKapitlet bygger på [kap. 7.1](/tdt4120/tdt4120-7-1), [kap. 7.2](/tdt4120/tdt4120-7-2) og [kap. 7.3](/tdt4120/tdt4120-7-3). Fire resultater derfra brukes i hver eneste oppgave under, og de står her ferdig oppfrisket:\n\n1. **$NP$ handler om verifikasjon.** Et problem er i $NP$ hvis hvert ja-svar har et **sertifikat** — et forslag til løsning — som en verifikasjonsalgoritme godkjenner i polynomisk tid.\n2. **Retningsregelen.** $A \\le_p B$ betyr at $A$ reduseres til $B$, og at **$B$ er minst like vanskelig som $A$**. For å vise at et problem $X$ er vanskelig, reduserer du **fra** noe kjent vanskelig **til** $X$.\n3. **NP-hardt mot NP-komplett.** NP-hardt betyr at alt i $NP$ reduseres til problemet. NP-komplett betyr NP-hardt **og** i $NP$ — to ledd, ikke ett.\n4. **Katalogen.** De åtte navngitte NP-komplette problemene er CIRCUIT-SAT, SAT, 3-CNF-SAT, CLIQUE, VERTEX-COVER, HAM-CYCLE, TSP og SUBSET-SUM. Kjenner du ikke den formelle definisjonen av dem, kan du ikke bruke dem som utgangspunkt for en reduksjon — repeter [kap. 7.3](/tdt4120/tdt4120-7-3) først.\n\nFra [kap. 5.2](/tdt4120/tdt4120-5-2) og [kap. 6.2](/tdt4120/tdt4120-6-2) hentes to fakta som brukes i oppgavene: `Ford-Fulkerson` er **pseudopolynomisk**, og 0-1-`Knapsack` løses i $\\Theta(nm)$ der $m$ er ryggsekkens kapasitet — en tallverdi, ikke en inputlengde."
+    },
+    {
+      "id": "tdt4120-7-4-notasjon",
+      "type": "collapsible",
+      "title": "Notasjons- og pseudokodeliste",
+      "buttonText": "Vis notasjon og pseudokode",
+      "content": [
+        {
+          "id": "tdt4120-7-4-notasjon-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et algoritmefag: den lister kjøretidsuttrykk og pseudokode-operasjoner i stedet for bare greske bokstaver.\n\n| Symbol | Betydning |\n|---|---|\n| $A \\le_p B$ | $A$ reduseres polynomisk til $B$; $B$ er minst like vanskelig som $A$ |\n| $X$, $Y$ | problemet du skal si noe om, og problemet du reduserer fra |\n| $F$ | reduksjonsfunksjonen: gjør en $Y$-instans om til en $X$-instans |\n| $x$, $y$ | en instans og et sertifikat |\n| $n$ | inputstørrelsen, målt i **bit** |\n| $t$, $m$, $W$ | tallverdier i inputen: måltall, kapasitet, grense — skrives med om lag $\\lg t$ bit |\n| $\\sigma$ | summen av tallene i en tallmengde |\n| $S \\setminus S'$ | elementene i $S$ som ikke er i $S'$ |\n| $P$, $NP$ | klassen av problemer som kan løses, henholdsvis verifiseres, i polynomisk tid |\n\n| Algoritme/operasjon | Kontrakt | Kjøretid |\n|---|---|---|\n| Reduksjonsfunksjonen `F(y)` | tar en instans av det kjente problemet og gir en instans av det nye, med samme ja/nei-svar | må være polynomisk i inputlengden |\n| `Verify-Likdeling(S, S')` | svarer 1 hvis `S'` og resten av `S` har nøyaktig lik sum | $\\Theta(n)$ addisjoner |\n| `Verify-Subset-Sum(S, t, S')` | summerer `S'` og sammenligner med `t` | $\\Theta(n)$ |\n| `Verify-Vertex-Cover(G, k, C)` | svarer 1 hvis `C` har høyst `k` noder og treffer hver kant | $O(n^2)$ |\n| Tabellalgoritmen for SUBSET-SUM | fyller en tabell med én kolonne per verdi opp til `t` | $\\Theta(nt)$ — **pseudopolynomisk** |\n\n**Formler i dette delkapitlet:**\n\n$$Y \\le_p X \\text{ og } Y \\text{ NP-hardt} \\implies X \\text{ NP-hardt}$$\nTransitiviteten er hele grunnen til at én reduksjon holder.\n\n$$X \\le_p Y \\text{ og } Y \\in P \\implies X \\in P$$\nDen kontrapositive lesningen: er $X$ vanskelig, er $Y$ det også.\n\n$$S' = S \\cup \\{2\\sigma - t,\\ \\sigma + t\\}, \\qquad \\sigma = \\sum_{s \\in S} s$$\nKonstruksjonen i den gjennomarbeidede casen: to nye tall gjør et SUBSET-SUM-spørsmål om til et spørsmål om å dele i to like halvdeler."
+        }
+      ]
+    },
+    {
+      "id": "tdt4120-7-4-oppskrift-tekst",
+      "type": "text",
+      "content": "## Fem steg som avgjør hvert NP-spørsmål (~15 min)\n\nAlle NP-oppgaver i faget kan besvares med den samme oppskriften. Den er kort med vilje: eksamen har rundt 20 likt vektede oppgaver på fire timer, og du har ikke tid til å tenke deg fram til strukturen hver gang."
+    },
+    {
+      "id": "tdt4120-7-4-oppskriften",
+      "type": "theorem",
+      "title": "Løsningsoppskriften for NP-spørsmål",
+      "content": "**1. Hva slags påstand er det?** Les oppgaven og avgjør hvilket av tre spørsmål som faktisk stilles: *er $X$ i $NP$?*, *er $X$ NP-hardt?*, eller *er $X$ NP-komplett?* De tre har helt forskjellige svar, og den vanligste tapte poengen er å svare på et annet enn det som ble spurt om.\n\n**2. Skal du vise vanskelighet (NP-hardt), reduserer du FRA et kjent NP-komplett problem TIL $X$.** Aldri motsatt. Velg det katalogproblemet som ligner mest i form — tallmengder mot SUBSET-SUM, nodeutvalg mot CLIQUE eller VERTEX-COVER, rundturer mot HAM-CYCLE. Skriv retningen eksplisitt som $Y \\le_p X$, og les den høyt: *jeg reduserer fra det kjente vanskelige til mitt problem, altså er mitt problem minst like vanskelig.* Reduksjonen må oppfylle tre krav: den må kjøre i polynomisk tid, den må gi en lovlig $X$-instans, og den må bevare svaret **begge veier** — ja gir ja, og nei gir nei.\n\n**3. Skal du vise medlemskap i $NP$, oppgir du et sertifikat og en polynomisk verifikasjon.** Si konkret hva sertifikatet er (en nodemengde, en tilordning, en rekkefølge, en delmengde), hva verifikasjonsalgoritmen sjekker, og hvor lang tid den bruker. To linjer holder.\n\n**4. Skal du si noe om konsekvensen, går den via $P = NP$.** En polynomisk algoritme for ett NP-komplett problem gir polynomiske algoritmer for **alle** problemer i $NP$, altså $P = NP$. Motsatt vei: er $X \\le_p Y$ og $Y \\in P$, så er $X \\in P$.\n\n**5. Skill pseudopolynomisk fra NP-hardt.** En kjøretid som $\\Theta(nt)$ eller $\\Theta(nm)$, der $t$ eller $m$ er en **tallverdi** i inputen og ikke en lengde, er pseudopolynomisk. Den gjør ikke problemet polynomisk løsbart, og den motbeviser ingen NP-hardhet.\n\n**Og alltid, til slutt:** skriv én setning om hva argumentet **ikke** beviser. Det er halve poenget i sjanger G, og det er den setningen som viser at du har forstått retningen og ikke bare pugget den."
+    },
+    {
+      "id": "tdt4120-7-4-fig-retning",
+      "type": "image",
+      "src": "/images/textbook/tdt4120/reduksjonsretning.svg",
+      "alt": "Diagram med to rader. Øverste rad viser en pil fra boksen KJENT VANSKELIG, merket 3-CNF-SAT, til boksen DITT PROBLEM, merket X, med teksten reduseres til på pilen. Under står det at dette beviser at X er minst like vanskelig som 3-CNF-SAT, altså NP-hardt. Nederste rad viser pilen motsatt vei, fra DITT PROBLEM X til KJENT VANSKELIG 3-CNF-SAT, og under står det at denne veien ikke beviser noe om at X er vanskelig, men bare viser at X ikke er vanskeligere enn 3-CNF-SAT.",
+      "caption": "Steg 2 i oppskriften, i én figur. Øverste rad er den du skal skrive; nederste rad er den fasitene fremhever som feil. Behold figuren i hodet mens du løser oppgavene i dette kapitlet."
+    },
+    {
+      "id": "tdt4120-7-4-advarsel-1",
+      "type": "warning",
+      "title": "Typiske feil i NP-argumenter",
+      "content": "Fire feil står for nesten alle tapte poeng i sjanger G. De er verdt å kunne kjenne igjen på et halvt sekund.\n\n- **Felle #1 — reversert reduksjonsretning**, altså å redusere fra sitt eget problem til et kjent vanskelig problem og tro at det beviser at ens eget problem er vanskelig. Å vise $X \\le_p$ TSP forteller bare at $X$ ikke er vanskeligere enn TSP. Det er ikke et delvis riktig svar; det er et svar på et annet spørsmål.\n- **Å forveksle «i $NP$» med «NP-hardt».** «Problemet er i $NP$, altså er det vanskelig» er galt: alt i $P$ ligger også i $NP$, og sortering er ikke vanskelig. Medlemskap sier at ja-svar er lette å **sjekke**.\n- **Å stoppe etter én av de to delene.** Reduksjonen alene gir NP-hardhet. Sertifikatet alene gir medlemskap. NP-kompletthet krever begge.\n- **Felle #7 — å blande pseudopolynomisk og NP-hardt.** «Ryggsekk løses i $\\Theta(nm)$, altså er det ikke NP-hardt» er galt fordi $m$ er en tallverdi. Og motsatt: at `Ford-Fulkerson` er pseudopolynomisk, gjør ikke maks-flyt vanskelig — maks-flyt løses i polynomisk tid av `Edmonds-Karp` i $O(VE^2)$."
+    },
+    {
+      "id": "tdt4120-7-4-case-tekst",
+      "type": "text",
+      "content": "## Gjennomarbeidet case med margnotater (~20 min)\n\nEt idrettslag har fått en bunke regninger etter en sesong og vil vite om utgiftene kan deles i to like store deler, slik at de to eierklubbene betaler nøyaktig like mye hver. Ingen regning kan splittes.\n\nDet spørsmålet har et navn i katalogspråket. Vi kaller problemet **LIKDELING**: gitt en endelig mengde positive heltall $S$ — kan $S$ deles i to disjunkte delmengder med nøyaktig lik sum?\n\nOppgaven er den typiske: **vis at LIKDELING er NP-komplett.** Under er hele svaret, med margnotater om hvorfor hvert steg står der det står, og hvor delpoengene ligger."
+    },
+    {
+      "id": "tdt4120-7-4-eks-1",
+      "type": "example",
+      "title": "Eksempel 1: LIKDELING er NP-komplett",
+      "problem": "**LIKDELING.** Gitt en endelig mengde positive heltall $S = \\{s_1, \\dots, s_n\\}$ — finnes det en delmengde $S' \\subseteq S$ slik at\n\n$$\\sum_{s \\in S'} s = \\sum_{s \\in S \\setminus S'} s\\ ?$$\n\nVis at LIKDELING er NP-komplett.",
+      "solution": "**Steg 1 — hva slags påstand er dette?**\n\n«NP-komplett» er to påstander i én: LIKDELING $\\in NP$, og LIKDELING er NP-hardt. Svaret må derfor ha to atskilte deler.\n\n*Margnotat: å skrive «to deler» først koster én linje og sikrer at du ikke glemmer den ene. En besvarelse som bare gir reduksjonen, har vist NP-hardhet — ikke NP-kompletthet.*\n\n---\n\n**Steg 2 — del 1: medlemskap i $NP$.**\n\nSertifikatet er delmengden $S'$ selv. Verifikasjonsalgoritmen summerer $S'$, summerer resten, og sammenligner de to tallene. Det er $\\Theta(n)$ addisjoner på tall som allerede står i inputen, altså polynomisk i inputlengden. Altså LIKDELING $\\in NP$.\n\n*Margnotat: to linjer er nok, men de to linjene må være der. Fasitene krever at sertifikatet navngis konkret — «en delmengde» — og at verifikasjonstiden oppgis.*\n\n---\n\n**Steg 3 — del 2: velg problem og retning.**\n\nVi velger **SUBSET-SUM**, som er kjent NP-komplett og har samme form: tallmengder og summer. Retningen er\n\n$$\\text{SUBSET-SUM} \\le_p \\text{LIKDELING}$$\n\nLest høyt: *jeg reduserer fra SUBSET-SUM, som jeg vet er vanskelig, til LIKDELING, altså er LIKDELING minst like vanskelig som SUBSET-SUM.*\n\n*Margnotat: skriv pilen med $\\le_p$ og skriv setningen. Det er nettopp her feil retning gir null uttelling, og det er også her en riktig retning sikrer poenget selv om konstruksjonen skulle halte.*\n\n---\n\n**Steg 4 — konstruksjonen.**\n\nLa $(S, t)$ være en vilkårlig SUBSET-SUM-instans, og la $\\sigma = \\sum_{s \\in S} s$. Vi bygger LIKDELING-instansen\n\n$$S' = S \\cup \\{\\,2\\sigma - t,\\ \\sigma + t\\,\\}$$\n\nSummen av $S'$ er $\\sigma + (2\\sigma - t) + (\\sigma + t) = 4\\sigma$, så en likdeling må gi $2\\sigma$ i hver halvdel.\n\n**Polynomisk tid:** vi legger til to tall, hvert på høyst $\\lceil \\lg (2\\sigma) \\rceil + 1$ bit, og $\\sigma$ er summen av tall som allerede står i inputen. Konstruksjonen er $\\Theta(n)$ addisjoner.\n\n**Ja gir ja:** finnes $A \\subseteq S$ med sum $t$, så har $A \\cup \\{2\\sigma - t\\}$ summen $t + 2\\sigma - t = 2\\sigma$, og resten har summen $(\\sigma - t) + (\\sigma + t) = 2\\sigma$. Altså er $S'$ en ja-instans.\n\n**Nei gir nei (vist kontrapositivt):** anta at $S'$ kan deles i to halvdeler à $2\\sigma$. De to nye tallene kan ikke ligge i samme halvdel, for $(2\\sigma - t) + (\\sigma + t) = 3\\sigma > 2\\sigma$. Se på halvdelen som inneholder $2\\sigma - t$: resten av den halvdelen er en delmengde av $S$ med sum $2\\sigma - (2\\sigma - t) = t$. Altså er $(S, t)$ en ja-instans av SUBSET-SUM.\n\n*Margnotat: begge retninger må stå. En reduksjon som bare viser «ja gir ja» er ikke svarbevarende — den kan gjøre nei-instanser om til ja-instanser, og da beviser den ingenting.*\n\n---\n\n**Kontroll på tall.** Med $S = \\{4, 7, 9, 12\\}$ og $t = 13$ er $\\sigma = 32$, og de to nye tallene blir $2\\sigma - t = 51$ og $\\sigma + t = 45$:\n\n```text\n  SUBSET-SUM:  S = {4, 7, 9, 12},  t = 13   ->  JA, delmengden {4, 9}\n  LIKDELING:   S' = {4, 7, 9, 12, 51, 45},  sum = 128, halvparten = 64\n               deling: {4, 9, 51} = 64   og   {7, 12, 45} = 64   ->  JA\n\n  SUBSET-SUM:  S = {4, 7, 9, 12},  t = 14   ->  NEI\n  LIKDELING:   S' = {4, 7, 9, 12, 50, 46},  sum = 128, halvparten = 64\n               ingen deling gir 64 og 64                        ->  NEI\n```\n\n---\n\n**Steg 5 — konklusjon, og hva argumentet ikke beviser.**\n\nLIKDELING er i $NP$ og NP-hardt, altså **NP-komplett**.\n\nArgumentet beviser **ikke** at LIKDELING er uløselig i praksis: det finnes en tabellalgoritme i $\\Theta(n\\sigma)$ tid, akkurat som for SUBSET-SUM. Den er **pseudopolynomisk**, siden $\\sigma$ er en tallverdi og ikke en inputlengde, og den motsier derfor ikke NP-hardheten.\n\nDet beviser heller **ikke** noe om at SUBSET-SUM skulle være lett. Reduksjonen går oppover i vanskelighet, og sier ingenting om kilden.\n\n*Margnotat: siste avsnitt er ofte det som skiller et fullt svar fra et halvt. Sjanger G ber alltid om både hva reduksjonen beviser og hva den ikke beviser.*"
+    },
+    {
+      "id": "tdt4120-7-4-verify-likdeling",
+      "type": "theorem",
+      "title": "Pseudokode-kontrakt: `Verify-Likdeling`",
+      "content": "**1. Antagelser om representasjon.** Tallmengden er gitt som et array `S[1..n]` av positive heltall, indeks fra 1. Sertifikatet `S'` er gitt som et array `valg[1..n]` av 0 og 1, der `valg[i] = 1` betyr at `S[i]` havner i den første halvdelen.\n\n**2. Pre- og postbetingelse.** Før: `S` er ikke tom, og `valg` har samme lengde som `S`. Etter: returverdien er 1 hvis og bare hvis de to halvdelene `valg` beskriver, har nøyaktig lik sum. `S` og `valg` endres ikke.\n\n**3. Pseudokoden.**\n\n```text\nVerify-Likdeling(S, valg)\n  Input:  array S[1..n] av positive heltall, array valg[1..n] med 0/1\n  Output: 1 hvis de to delene har lik sum, ellers 0\n  venstre = 0\n  hoyre = 0\n  for i = 1 to n\n      if valg[i] = 1\n          venstre = venstre + S[i]\n      else\n          hoyre = hoyre + S[i]\n  if venstre = hoyre\n      return 1\n  return 0\n```\n\n**4. Invarianten.** Etter iterasjon $j$ er `venstre` summen av de valgte tallene blant `S[1..j]`, og `hoyre` summen av de øvrige blant `S[1..j]`. Ved $j = n$ er de to tallene summene av de to halvdelene.\n\n**5. Kjøretid.** Én gjennomgang av arrayet med konstant arbeid per element gir $\\Theta(n)$ addisjoner — polynomisk i inputlengden. Det er nøyaktig dette som viser at LIKDELING $\\in NP$."
+    },
+    {
+      "id": "tdt4120-7-4-pause-1",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\nOppskriften og casen er kjernestoffet. Resten av kapitlet er trening, og den tåler å bli tatt i en egen økt. Før du går videre: lukk boka og skriv ned de fem stegene og retningsregelen fra hukommelsen. Får du dem ned, er du klar for oppgavene."
+    },
+    {
+      "id": "tdt4120-7-4-drill1-tekst",
+      "type": "text",
+      "content": "## Hvilken vei, og hva beviser den (~25 min)\n\nÅtte oppgaver som trener steg 1 til 4 i oppskriften. Skriv svaret ferdig før du åpner fasiten — det er den korte, presise formuleringen som trenes her, ikke gjenkjennelsen."
+    },
+    {
+      "id": "tdt4120-7-4-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-7-4-oppg-1-e",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamensnivå, sjanger G — reduksjon og NP-argument: retningen, hva den beviser, og hva den ikke beviser.)\n\nDu skal vise at problemet PANELVALG er NP-hardt. PANELVALG spør, gitt en liste over fagpersoner, en oversikt over hvilke par som kan sitte sammen, og et tall $k$: finnes det et panel på minst $k$ personer der alle par kan sitte sammen? Du har CLIQUE tilgjengelig som kjent NP-komplett problem.\n\n**a)** Skriv reduksjonen med $\\le_p$-notasjon, i riktig retning.\n**b)** Beskriv konstruksjonen i én setning.\n**c)** Hva beviser reduksjonen, og hva beviser den ikke?",
+        "solution": "**a)** CLIQUE $\\le_p$ PANELVALG.\n\n**b)** Gitt en CLIQUE-instans $(G, k)$ med $G=(V,E)$: la hver node bli en fagperson, og la to fagpersoner kunne sitte sammen nøyaktig når det går en kant mellom nodene deres. Terskelen $k$ beholdes. Konstruksjonen er en ren omdøping og tar $\\Theta(V+E)$ tid.\n\n**c)** Den beviser at **PANELVALG er minst like vanskelig som CLIQUE**, altså NP-hardt. Den beviser **ikke** at PANELVALG er NP-komplett — til det trengs i tillegg at problemet ligger i $NP$, med panelet som sertifikat og en $O(n^2)$ sjekk av alle par. Og den sier ingenting om at CLIQUE skulle være lett.",
+        "hints": [
+          "Hvilket av de to problemene vet du allerede er vanskelig, og hvilket er det du skal si noe om?",
+          "Skriv setningen «jeg reduserer fra det kjente vanskelige til mitt problem» og se hvilket navn som havner på hver side av pilen.",
+          "NP-hardt og NP-komplett er ikke det samme — sjekk hvilket av de to oppgaven ber om."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-7-4-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-7-4-oppg-2-e",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamensnivå, sjanger F — stemmer dette? Svar ja eller nei først, deretter én presis setning per utsagn.)\n\nAvgjør for hvert utsagn om det er sant eller usant.\n\n**a)** Alle problemer i $NP$ er NP-komplette.\n**b)** $P \\subseteq NP$.\n**c)** Et problem i $NP$ kan ikke løses i polynomisk tid.\n**d)** Finner noen en polynomisk algoritme for VERTEX-COVER, følger $P = NP$.\n**e)** Et NP-hardt problem må selv ligge i $NP$.",
+        "solution": "**a)** **Usant.** Sortering med sammenligninger er i $P$ og dermed i $NP$, men det er ikke NP-komplett så lenge $P \\ne NP$. De NP-komplette er de vanskeligste problemene i $NP$, ikke alle.\n\n**b)** **Sant.** Kan du løse et problem i polynomisk tid, kan du også verifisere det i polynomisk tid: ignorer sertifikatet og løs instansen selv.\n\n**c)** **Usant.** $NP$ handler om at ja-svar kan **verifiseres** raskt. Alt i $P$ ligger også i $NP$, og de problemene løses jo nettopp i polynomisk tid.\n\n**d)** **Sant.** VERTEX-COVER er NP-komplett, altså reduseres alt i $NP$ polynomisk til det. En polynomisk algoritme for VERTEX-COVER gir dermed en polynomisk algoritme for alt i $NP$.\n\n**e)** **Usant.** NP-hardt sier bare at alt i $NP$ reduseres til problemet. Problemet kan være mye verre enn alt i $NP$, og trenger ikke ha noe kort sertifikat i det hele tatt.",
+        "hints": [
+          "Gå gjennom utsagnene med definisjonene i hånden: hva sier $NP$ egentlig — noe om å løse, eller noe om å sjekke?",
+          "Ett av utsagnene handler om forholdet mellom to klasser, og det følger direkte av at du kan ignorere sertifikatet.",
+          "To av utsagnene blander sammen «i $NP$», «NP-hardt» og «NP-komplett». Skriv de tre definisjonene ned før du bedømmer dem."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-7-4-signal-1",
+      "type": "tip",
+      "title": "Hva oppgaven over testet",
+      "content": "Utsagnene c) og e) er de to varslene i denne oppgaven. c) fanger den klassiske definisjonsfeilen — å lese $NP$ som «ikke-polynomisk» i stedet for «verifiserbar i polynomisk tid». e) fanger skillet NP-hardt mot NP-komplett, som eksamen spør om i nesten hver termin.\n\nSvarformen er verdt å merke seg: **sant eller usant først**, deretter én setning. Ikke to avsnitt. Ja/nei-oppgaver er blant de raskeste poengene i settet, og de er lette å ødelegge ved å skrive for mye."
+    },
+    {
+      "id": "tdt4120-7-4-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-7-4-oppg-3-e",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamensnivå, sjanger G — reduksjon og NP-argument.)\n\nEn student har vist at hennes problem KRETSPLAN reduseres polynomisk til 3-CNF-SAT, altså KRETSPLAN $\\le_p$ 3-CNF-SAT.\n\n**a)** Hva forteller det om vanskeligheten til KRETSPLAN?\n**b)** Hva forteller det **ikke**?\n**c)** Er det noe nyttig i det hele tatt hun kan konkludere med?",
+        "solution": "**a)** At KRETSPLAN **ikke er vanskeligere enn** 3-CNF-SAT. Retningen $A \\le_p B$ sier at $B$ er minst like vanskelig som $A$, og her er 3-CNF-SAT $B$-siden.\n\n**b)** Den forteller **ikke** at KRETSPLAN er NP-hardt eller NP-komplett. Det er felle #1 — reversert reduksjonsretning: å redusere til et NP-komplett problem beviser ingenting om ens eget problems vanskelighet.\n\n**c)** Ja, én ting: siden 3-CNF-SAT $\\in NP$ og $NP$ er lukket under polynomiske reduksjoner, følger det at **KRETSPLAN $\\in NP$**. Hun har altså gratis fått halvparten av et NPC-bevis — medlemskapsdelen. Skulle hun i tillegg vise NP-hardhet, må hun snu pilen: finne en reduksjon 3-CNF-SAT $\\le_p$ KRETSPLAN.",
+        "hints": [
+          "Skriv opp retningsregelen: hvilken side av $\\le_p$ er den vanskelige?",
+          "Spør hva som ville skjedd hvis noen fant en rask algoritme for 3-CNF-SAT — hva ville det ha betydd for KRETSPLAN?",
+          "En reduksjon til et problem i $NP$ gir mer enn ingenting. Tenk på hva verifikatoren for 3-CNF-SAT da kan brukes til."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-7-4-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-7-4-oppg-4-e",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger G — reduksjon og NP-argument.)\n\nProblemet SPORPLAN: gitt et jernbanenett med $n$ stasjoner, en liste over hvilke stasjonspar som er direkte forbundet, og et tall $k$ — finnes det en inspeksjonsrunde som starter og ender på samme stasjon og besøker hver stasjon nøyaktig én gang, med høyst $k$ direkteforbindelser i bruk?\n\n**a)** Vis at SPORPLAN $\\in NP$. Oppgi sertifikat, hva verifikatoren sjekker, og kjøretiden.\n**b)** Hvilket katalogproblem ville du redusert fra for å vise at SPORPLAN er NP-hardt, og i hvilken retning?",
+        "solution": "**a)** Sertifikatet er **rekkefølgen stasjonene besøkes i**, som en liste $v_1, v_2, \\dots, v_n$. Verifikatoren sjekker tre ting: at listen inneholder hver stasjon nøyaktig én gang, at hvert par $(v_i, v_{i+1})$ og paret $(v_n, v_1)$ er en direkteforbindelse, og at antallet forbindelser i bruk er høyst $k$. Med nabomatrise er dette $\\Theta(n)$ oppslag, altså polynomisk. Dermed SPORPLAN $\\in NP$.\n\n**b)** **HAM-CYCLE**, i retningen HAM-CYCLE $\\le_p$ SPORPLAN. En hamiltonsk sykel i en graf med $n$ noder bruker nøyaktig $n$ kanter, så konstruksjonen er å gi grafen videre uendret og sette $k = n$. Da er SPORPLAN-instansen en ja-instans nøyaktig når grafen har en hamiltonsk sykel — ja gir ja, og nei gir nei.\n\nRetningen lest høyt: fra HAM-CYCLE, som er kjent NP-komplett, til SPORPLAN — altså er SPORPLAN minst like vanskelig.",
+        "hints": [
+          "Et sertifikat skal være noe kort som beviser ja-svaret. Hva er den naturlige tingen å vise fram her?",
+          "Tell hvor mange kanter en rundtur innom $n$ noder faktisk bruker.",
+          "Hvilket katalogproblem har nøyaktig samme spørsmål, bare uten terskelen $k$?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-7-4-pause-2",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\nFire oppgaver unnagjort. De neste fire trener konsekvensledd og skillet mot pseudopolynomiske kjøretider — den andre halvparten av det eksamen spør om i dette temaet."
+    },
+    {
+      "id": "tdt4120-7-4-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-7-4-oppg-5-e",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger F — stemmer dette? Svar ja eller nei først, deretter én presis setning.)\n\n0-1-`Knapsack` løses med dynamisk programmering i $\\Theta(nm)$ tid, der $n$ er antall gjenstander og $m$ er ryggsekkens kapasitet.\n\n**a)** Er $\\Theta(nm)$ en polynomisk kjøretid for dette problemet?\n**b)** Følger det at 0-1-ryggsekk er i $P$?\n**c)** Hva heter kjøretidsklassen presist?",
+        "solution": "**a)** **Nei.** $m$ er en **tallverdi** i inputen, ikke en inputlengde. Kapasiteten skrives med om lag $\\lg m$ bit, så $\\Theta(nm)$ er eksponentiell i lengden av det tallet.\n\n**b)** **Nei.** Med $m = 10^9$ tar kapasiteten 30 bit å skrive ned, mens tabellen har en milliard kolonner. Algoritmen er utmerket når kapasiteten er liten, men den plasserer ikke problemet i $P$.\n\n**c)** **Pseudopolynomisk** — polynomisk i tallenes verdi, eksponentiell i tallenes lengde.\n\nDette er felle #7 — å blande pseudopolynomisk med NP-hardt. Merk hva svaret **ikke** påstår: algoritmen er ikke feil, og den er ikke ubrukelig. Den er bare ikke polynomisk.",
+        "hints": [
+          "Hva måles kjøretiden til en algoritme mot — antall tall i inputen, eller antall bit?",
+          "Hvor mange bit trengs for å skrive ned kapasiteten $m$?",
+          "Sammenlign veksten i antall tabellceller med veksten i antall bit i inputen."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-7-4-signal-2",
+      "type": "tip",
+      "title": "Hva oppgaven over testet",
+      "content": "Oppgaven tester felle #7 i sin reneste form. Den kommer igjen i tre forkledninger på eksamen: 0-1-ryggsekk med kapasitet $m$, SUBSET-SUM med måltall $t$, og `Ford-Fulkerson` med kapasiteter. Alle tre har samme svar: kjøretiden er polynomisk i en **tallverdi**, ikke i inputens lengde.\n\nVær presis på hva du **ikke** påstår. `Ford-Fulkerson` er pseudopolynomisk, men maks-flyt er ikke et vanskelig problem — `Edmonds-Karp` løser det i $O(VE^2)$, som er polynomisk. Å bruke pseudopolynomisk kjøretid som argument for at et problem er NP-hardt, er en av de tydeligste feilene et svar kan inneholde."
+    },
+    {
+      "id": "tdt4120-7-4-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-7-4-oppg-6-e",
+        "number": 6,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger F og G — vurdering og NP-argument.)\n\nEn student skriver: «`Ford-Fulkerson` er pseudopolynomisk. Altså er maks-flyt-problemet NP-hardt.»\n\n**a)** Stemmer konklusjonen?\n**b)** Hvor sitter feilen presist?\n**c)** Hva er den korrekte statusen til maks-flyt?",
+        "solution": "**a)** **Nei.**\n\n**b)** Feilen er å bruke en enkelt algoritmes kjøretid som argument for et problems vanskelighet. At **én** algoritme er pseudopolynomisk, sier ingenting om at det ikke finnes en polynomisk algoritme for samme problem. NP-hardhet vises med en reduksjon fra et kjent NP-hardt problem, aldri ved å peke på en treg algoritme.\n\n**c)** Maks-flyt er i $P$. `Edmonds-Karp` er `Ford-Fulkerson` med korteste forøkende sti valgt av `BFS`, og den kjører i $O(VE^2)$ — polynomisk, uavhengig av kapasitetenes størrelse.\n\nDette er felle #7, sett fra motsatt side av oppgaven foran: der ble en pseudopolynomisk kjøretid brukt til å hevde at problemet var **lett**, her til å hevde at det er **vanskelig**. Begge deler er ugyldige.",
+        "hints": [
+          "Kan kjøretiden til én bestemt algoritme si noe endelig om problemet den løser?",
+          "Finnes det en annen algoritme for maks-flyt, med en kjøretid som ikke nevner kapasitetene?",
+          "Hvordan viser man egentlig at et problem er NP-hardt? Sammenlign med oppskriftens steg 2."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-7-4-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-7-4-oppg-7-e",
+        "number": 7,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger G — reduksjon og NP-argument.)\n\nAnta at noen i morgen publiserer en algoritme som løser VERTEX-COVER i $O(n^7)$ tid.\n\n**a)** Hva følger for TSP?\n**b)** Hva følger for problemet «finnes det en sti fra $s$ til $t$ i en graf?»\n**c)** Formulér konsekvensen i én setning.",
+        "solution": "**a)** TSP kan da også løses i polynomisk tid. TSP er i $NP$, og VERTEX-COVER er NP-komplett, så alt i $NP$ reduseres polynomisk til VERTEX-COVER. Kjør reduksjonen og deretter den nye algoritmen: summen av to polynomer i inputstørrelsen er et polynom.\n\n**b)** Ingenting nytt. Stieksistens løses allerede i $\\Theta(V+E)$ med `BFS` — problemet ligger i $P$ fra før, og en ny algoritme for et NP-komplett problem gjør det ikke raskere.\n\n**c)** $P = NP$.\n\nMerk hva som **ikke** følger: at den nye algoritmen ville være rask i praksis. $O(n^7)$ er polynomisk, men et sjuendegradspolynom er upraktisk for store $n$. Klassen $P$ er en teoretisk grense, ikke et løfte om ytelse.",
+        "hints": [
+          "Hva betyr det at VERTEX-COVER er NP-komplett — hvilke problemer reduseres til det?",
+          "Sjekk om problemet i b) i det hele tatt trenger hjelp fra en ny algoritme.",
+          "Et polynom satt inn i et polynom er fortsatt et polynom. Hva betyr det for kjøretiden når du først reduserer og så løser?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-7-4-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-7-4-oppg-8-e",
+        "number": 8,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger G — reduksjon og NP-argument.)\n\nProblemet DELESTASJON: gitt en mengde positive heltall $S$ og et tall $t$ — finnes det en delmengde av $S$ med sum **minst** $t$ og **høyst** $t$?\n\n**a)** Hvilket katalogproblem er dette i forkledning?\n**b)** Skriv reduksjonen med $\\le_p$-notasjon og forklar hvorfor konstruksjonen er polynomisk.\n**c)** Én student svarer: «Jeg reduserte DELESTASJON til SUBSET-SUM, altså er DELESTASJON NP-komplett.» Hva mangler i argumentet?",
+        "solution": "**a)** SUBSET-SUM. «Minst $t$ og høyst $t$» er nøyaktig «lik $t$».\n\n**b)** SUBSET-SUM $\\le_p$ DELESTASJON. Konstruksjonen er å levere instansen videre uendret — inputene har samme form, og kravene er logisk like. Det tar $\\Theta(n)$ tid å kopiere inputen, altså polynomisk.\n\n**c)** To ting. For det første er retningen studenten oppgir, feil vei: DELESTASJON $\\le_p$ SUBSET-SUM viser bare at DELESTASJON ikke er vanskeligere enn SUBSET-SUM (felle #1). For det andre mangler medlemskapsdelen: NP-kompletthet krever i tillegg et sertifikat — delmengden — og en polynomisk verifikasjon, som her er én summering i $\\Theta(n)$.\n\nHer er begge reduksjonene riktignok gyldige, siden problemene er identiske. Men det må sies eksplisitt hvilken retning som brukes til hva: den ene gir medlemskap, den andre gir hardhet.",
+        "hints": [
+          "Les kravet i DELESTASJON på nytt og forenkle det før du gjør noe annet.",
+          "Når to problemer er identiske, går reduksjonen begge veier — men hver retning brukes til sitt formål.",
+          "Tell antall deler i studentens argument, og sammenlign med de to delene et NPC-bevis alltid har."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-7-4-fig-kjede",
+      "type": "image",
+      "src": "/images/textbook/tdt4120/npc-reduksjonskjede.svg",
+      "alt": "Diagram over reduksjonskjeden for NP-komplette problemer. En vannrett rekke med piler går fra CIRCUIT-SAT til SAT, videre til 3-CNF-SAT, deretter til CLIQUE, så til VERTEX-COVER, så til HAM-CYCLE og til slutt til TSP. En egen pil går ned fra 3-CNF-SAT til SUBSET-SUM. Under diagrammet står det at pilen går fra det som allerede er kjent vanskelig til det nye problemet, at CIRCUIT-SAT er startpunktet fordi kretsen simulerer verifikasjonsalgoritmen med sertifikatet som input, og at hver pil arver NP-hardheten videre mens medlemskap i NP må vises separat for hvert problem.",
+      "caption": "Katalogen du velger fra i steg 2. Står problemet ditt om tallmengder, sikt mot SUBSET-SUM; om nodeutvalg, mot CLIQUE eller VERTEX-COVER; om rundturer, mot HAM-CYCLE."
+    },
+    {
+      "id": "tdt4120-7-4-drill2-tekst",
+      "type": "text",
+      "content": "## Er argumentet gyldig? (~25 min)\n\nDe fem siste oppgavene har samme form: et ferdig NPC-argument står der, og du skal avgjøre om det holder. Noen av dem gjør det. Feilene i de øvrige er små — de sitter i ett ledd, ikke i hele resonnementet, og det er nettopp slik de kommer på eksamen.\n\nLes hvert argument mot de tre kravene til en gyldig reduksjon: **polynomisk tid**, **lovlig instans ut**, og **svarbevaring begge veier**. Og mot de to delene et NPC-bevis alltid har."
+    },
+    {
+      "id": "tdt4120-7-4-oppg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-7-4-oppg-9-e",
+        "number": 9,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger G — vurdering av et NP-argument. Svar ja eller nei først, deretter hva som eventuelt er galt.)\n\nProblemet BRETTDEKNING: gitt et rutebrett bestående av $t$ ruter på rekke, og en liste med brikkelengder $s_1, \\dots, s_n$ — kan noen av brikkene legges etter hverandre slik at de dekker brettet nøyaktig, uten overlapp og uten hull? Brettet er gitt som en tegning, rute for rute.\n\nEn student argumenterer:\n\n«Jeg reduserer FRA SUBSET-SUM TIL BRETTDEKNING. Gitt en SUBSET-SUM-instans $(S, t)$ tegner jeg opp et brett med $t$ ruter og lager én brikke av lengde $s_i$ for hvert tall $s_i$ i $S$. En delmengde med sum $t$ finnes hvis og bare hvis brikkene kan dekke brettet nøyaktig. Retningen er riktig — fra det kjente vanskelige til mitt problem — så BRETTDEKNING er NP-hardt.»\n\nEr argumentet gyldig?",
+        "solution": "**Nei.**\n\nRetningen er riktig, og svarbevaringen holder begge veier: en delmengde med sum $t$ gir en nøyaktig dekning, og en nøyaktig dekning gir en delmengde med sum $t$. Feilen sitter et helt annet sted — i kravet om at **reduksjonen skal kjøre i polynomisk tid**.\n\nMåltallet $t$ står i inputen som et tall, skrevet med om lag $\\lg t$ bit. Men konstruksjonen tegner opp brettet **rute for rute**, altså $t$ ruter. Med $t = 10^9$ er inputen 30 bit og outputen en milliard ruter. Reduksjonen bruker tid og plass som er **eksponentiell i inputlengden**, og er derfor ikke en polynomisk reduksjon i det hele tatt.\n\nDette er samme mekanisme som gjør en pseudopolynomisk algoritme ikke-polynomisk: et tall som skrives kompakt, men behandles ledd for ledd. Merk hvor lett feilen er å overse — de to leddene studenten faktisk nevner, retning og svarbevaring, er begge korrekte.\n\n**Rettelsen:** la brettet være beskrevet av tallet $t$ i vanlig tallnotasjon i stedet for som en tegning. Da er konstruksjonen $\\Theta(n)$, reduksjonen er polynomisk, og argumentet holder.",
+        "hints": [
+          "Gå gjennom de tre kravene til en polynomisk reduksjon i tur og orden — studenten har bare kontrollert to av dem.",
+          "Hvor mange bit tar det å skrive ned tallet $t$, og hvor stor blir instansen reduksjonen produserer?",
+          "Sammenlign med hvorfor tabellalgoritmen for SUBSET-SUM kalles pseudopolynomisk."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-7-4-signal-3",
+      "type": "tip",
+      "title": "Hva oppgaven over testet",
+      "content": "Oppgaven trener den vanskeligste varianten av sjanger G: et argument der retningen er **riktig**, og der svarbevaringen også er riktig. De to tingene de fleste sjekker, er i orden — og likevel er argumentet ugyldig.\n\nLærdommen er å bruke alle tre kravene hver gang: polynomisk tid, lovlig instans ut, svarbevaring begge veier. Kravet om polynomisk tid gjelder **konstruksjonen**, og det brytes nesten alltid på samme måte: et tall i inputen skrives ut ledd for ledd i outputen. Kjenner du igjen det mønsteret, har du en sjekk som virker på alle slike oppgaver."
+    },
+    {
+      "id": "tdt4120-7-4-oppg-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-7-4-oppg-10-e",
+        "number": 10,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger G — vurdering av et NP-argument.)\n\n2-CNF-SAT er samme problem som 3-CNF-SAT, bortsett fra at hver klausul har nøyaktig **to** literaler i stedet for tre.\n\nEn student argumenterer:\n\n«2-CNF-SAT er et spesialtilfelle av SAT, og SAT er NP-komplett. Enhver 2-CNF-formel er jo også en helt vanlig boolsk formel, så jeg kan levere den rett inn i SAT. Altså er 2-CNF-SAT NP-komplett.»\n\n**a)** Er argumentet gyldig?\n**b)** Hvilken reduksjon har studenten faktisk beskrevet, og hva beviser den?",
+        "solution": "**a)** **Nei.**\n\n**b)** Studenten har beskrevet 2-CNF-SAT $\\le_p$ SAT — å levere formelen videre uendret er nettopp en reduksjon fra spesialtilfellet til det generelle problemet. Den beviser at **2-CNF-SAT ikke er vanskeligere enn SAT**, som er felle #1: reversert retning i forhold til det som skulle vises.\n\nEt spesialtilfelle kan være strengt lettere enn det generelle problemet, og her er det nettopp tilfellet: 2-CNF-SAT kan avgjøres i polynomisk tid. Med to literaler per klausul er hver klausul en implikasjon i begge retninger, og oppfyllbarhet kan avgjøres ved å propagere konsekvenser i en graf.\n\nFor å vise at et *begrenset* problem er NP-hardt, må reduksjonen gå **inn i** begrensningen: det er nettopp det reduksjonen SAT $\\le_p$ 3-CNF-SAT gjør, og den er reell arbeidsinnsats — hver klausul må skrives om til klausuler med nøyaktig tre literaler.",
+        "hints": [
+          "Skriv om studentens setning til $\\le_p$-notasjon før du bedømmer den. Hvilket problem havner på hvilken side?",
+          "Er det opplagt at et spesialtilfelle må være like vanskelig som det generelle problemet? Tenk på sortering av tall mot sortering av vilkårlige objekter.",
+          "Sammenlign med hvordan kjeden faktisk går fra SAT til 3-CNF-SAT — hvem gjør arbeidet der?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-7-4-oppg-11",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-7-4-oppg-11-e",
+        "number": 11,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger G — vurdering av et NP-argument.)\n\nEn student skal vise at problemet BALANSE er NP-komplett, og skriver:\n\n«Jeg har vist to reduksjoner: BALANSE $\\le_p$ 3-CNF-SAT og 3-CNF-SAT $\\le_p$ BALANSE. Begge kjører i polynomisk tid og bevarer svaret begge veier. Altså er BALANSE NP-komplett.»\n\n**a)** Er argumentet gyldig?\n**b)** Begrunn ledd for ledd hvilken av de to reduksjonene som gjør hvilken jobb.",
+        "solution": "**a)** **Ja.** Argumentet holder.\n\n**b)**\nBALANSE $\\le_p$ 3-CNF-SAT gir **medlemskapet**: 3-CNF-SAT ligger i $NP$, og $NP$ er lukket under polynomiske reduksjoner, så BALANSE $\\in NP$. (Konkret: gjør om BALANSE-instansen til en 3-CNF-instans og bruk 3-CNF-SAT sin verifikator, med tilordningen som sertifikat.)\n3-CNF-SAT $\\le_p$ BALANSE gir **hardheten**: 3-CNF-SAT er NP-komplett, altså reduseres alt i $NP$ til det, og ved transitivitet reduseres alt i $NP$ videre til BALANSE. Dermed er BALANSE NP-hardt.\n\nBegge deler er på plass, så konklusjonen er riktig. Dette er verdt å merke seg: det er lett å bli så oppøvd i å lete etter feil retning at man avviser et korrekt argument. Nøkkelen er å knytte hver reduksjon til den delen av beviset den faktisk leverer.\n\nDet argumentet **ikke** viser, er hvordan de to konstruksjonene ser ut. På eksamen ville du måtte oppgi dem — men gyldigheten av bevisstrukturen er den saken oppgaven spør om.",
+        "hints": [
+          "Ikke let etter feil før du har spurt hva hver av de to reduksjonene kan brukes til.",
+          "Et NPC-bevis har to deler. Er begge dekket her, og av hvilken reduksjon?",
+          "Hva følger av $X \\le_p Y$ når $Y \\in NP$?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-7-4-signal-4",
+      "type": "tip",
+      "title": "Hva oppgaven over testet",
+      "content": "Denne oppgaven er en motvekt. Etter tre oppgaver med feil i, er det fristende å svare «nei, feil retning» refleksmessig. Argumentet her er korrekt, og det testes om du kan si **hvorfor** — altså koble hver reduksjon til den delen av beviset den leverer.\n\nSjekklisten som virker: (1) er retningen på hardhetsreduksjonen fra det kjente vanskelige til det nye problemet? (2) er medlemskapet i $NP$ etablert, enten via et sertifikat eller via en reduksjon til noe som allerede er i $NP$? Er begge på plass, er argumentet gyldig — uansett hvor uvant det ser ut."
+    },
+    {
+      "id": "tdt4120-7-4-oppg-12",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-7-4-oppg-12-e",
+        "number": 12,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger G — vurdering av et NP-argument.)\n\nProblemet TSP-EKSAKT: gitt en komplett graf med heltallige kantkostnader og et tall $k$ — er kostnaden til den **billigste** rundturen nøyaktig lik $k$?\n\nEn student skriver:\n\n«Jeg reduserer FRA HAM-CYCLE TIL TSP-EKSAKT, i riktig retning og i polynomisk tid, og konstruksjonen bevarer svaret begge veier. Altså er TSP-EKSAKT NP-komplett.»\n\n**a)** Er argumentet gyldig?\n**b)** Hva er den sterkeste konklusjonen argumentet faktisk gir?",
+        "solution": "**a)** **Nei.**\n\n**b)** Reduksjonen er i riktig retning og gir **NP-hardhet** — det er den sterkeste konklusjonen som følger. NP-kompletthet krever i tillegg at TSP-EKSAKT ligger i $NP$, og det har studenten ikke sagt ett ord om.\n\nOg her er det ikke en formalitet. For TSP holder det å vise fram en rundtur med kostnad høyst $k$ — sertifikatet beviser ja-svaret alene. For TSP-EKSAKT må du overbevise om **to** ting: at det finnes en rundtur som koster $k$, og at **ingen** rundtur koster mindre. Den andre halvparten er en «for alle»-påstand, og en slik lar seg ikke uten videre pakke i et kort sertifikat. Det er ikke opplagt at TSP-EKSAKT er i $NP$ i det hele tatt.\n\nLærdommen: sjekk medlemskapet særskilt når problemet spør om noe **eksakt** eller om et **optimum**, i stedet for om en terskel. Det er nettopp derfor katalogproblemene er formulert med «minst $k$» eller «høyst $k$».",
+        "hints": [
+          "Tell delene i studentens argument, og sammenlign med de to delene et NPC-bevis skal ha.",
+          "Prøv å skrive ned et sertifikat for et ja-svar i TSP-EKSAKT. Hva må det overbevise om?",
+          "Hva er forskjellen på å vise at noe finnes, og å vise at ingenting bedre finnes?"
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-7-4-oppg-13",
+      "type": "exercise",
+      "exercise": {
+        "id": "tdt4120-7-4-oppg-13-e",
+        "number": 13,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger G — fullt NP-argument i to deler.)\n\nProblemet VAKTPOSTER: en fabrikk har $n$ kryss og et sett med korridorer mellom kryssene. Ledelsen vil vite om det holder å bemanne $k$ kryss for at hver korridor skal ha bemanning i minst ett av kryssene sine.\n\nSkriv et fullstendig argument for at VAKTPOSTER er NP-komplett. Ta med begge delene, konstruksjonen, svarbevaringen begge veier, kjøretiden på reduksjonen, og én setning om hva argumentet ikke beviser.",
+        "solution": "**Del 1 — medlemskap i $NP$.** Sertifikatet er mengden bemannede kryss. Verifikatoren sjekker at mengden har høyst $k$ elementer, og går deretter gjennom korridorene én gang og kontrollerer at hver har minst ett endepunkt i mengden. Det er $O(n^2)$ oppslag med nabomatrise, altså polynomisk. Dermed VAKTPOSTER $\\in NP$.\n\n**Del 2 — NP-hardhet.** Vi reduserer\n\n$$\\text{VERTEX-COVER} \\le_p \\text{VAKTPOSTER}$$\n\naltså **fra** VERTEX-COVER, som er kjent NP-komplett, **til** VAKTPOSTER — så VAKTPOSTER er minst like vanskelig.\n\n**Konstruksjonen.** Gitt en VERTEX-COVER-instans $(G, k)$ med $G=(V,E)$: la hvert kryss svare til en node i $V$, og legg en korridor mellom to kryss nøyaktig når det går en kant mellom nodene. Terskelen $k$ beholdes uendret.\n\n**Kjøretid på reduksjonen.** Vi leser $V$ og $E$ én gang og skriver ut like mange kryss og korridorer, altså $\\Theta(V+E)$ — polynomisk i inputstørrelsen.\n\n**Svarbevaring.** Er $C$ et nodedekke med høyst $k$ noder, gir de samme kryssene en lovlig bemanning: hver korridor svarer til en kant, og hver kant har et endepunkt i $C$. Motsatt gir enhver lovlig bemanning på høyst $k$ kryss et nodedekke på høyst $k$ noder, ved samme korrespondanse. Ja gir ja, og nei gir nei.\n\n**Konklusjon.** VAKTPOSTER er i $NP$ og NP-hardt, altså NP-komplett.\n\n**Hva argumentet ikke beviser.** Det beviser ikke at ingen algoritme kan løse VAKTPOSTER på små eller spesielle fabrikker — bare at ingen polynomisk algoritme kan løse alle instanser med mindre $P = NP$. Og det sier ingenting om at VERTEX-COVER skulle være lett.",
+        "hints": [
+          "Les kravet «hver korridor skal ha bemanning i minst ett av kryssene sine» og sammenlign det med de to grafproblemene i katalogen.",
+          "Bygg grafen først: hva blir noder, og hva blir kanter? Skriv det ned før du skriver reduksjonen.",
+          "Et fullstendig svar har to nummererte deler. Sjekk at du har begge før du går videre til konstruksjonen."
+        ]
+      }
+    },
+    {
+      "id": "tdt4120-7-4-begrepsbank-notis",
+      "type": "text",
+      "content": "## Begrepsbank (~4 min)\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "tdt4120-7-4-def-retningsregelen",
+      "type": "definition",
+      "title": "Retningsregelen",
+      "content": "For å vise at et problem er vanskelig, reduserer du fra noe kjent vanskelig til problemet ditt — aldri motsatt.\n\n$A \\le_p B$ leses «$A$ reduseres til $B$» og betyr at **$B$ er minst like vanskelig som $A$**. Setningen du sier høyt hver gang: *jeg reduserer FRA det kjente vanskelige TIL mitt problem, altså er mitt problem minst like vanskelig.*\n\nMotsatt retning, $X \\le_p Y$ der $Y$ er det kjente vanskelige, beviser ingenting om at $X$ er vanskelig — den sier bare at $X$ ikke er vanskeligere enn $Y$."
+    },
+    {
+      "id": "tdt4120-7-4-def-tre-krav",
+      "type": "definition",
+      "title": "De tre kravene til en gyldig reduksjon",
+      "content": "En polynomisk reduksjon må oppfylle tre ting samtidig, og et argument som glipper på ett av dem, er ugyldig.\n\n**(1) Polynomisk tid:** konstruksjonen må kjøre i tid polynomisk i **inputlengden i bit**. **(2) Lovlig instans ut:** det du produserer, må være en gyldig instans av målproblemet. **(3) Svarbevaring begge veier:** ja skal bli ja, og nei skal bli nei.\n\nKrav (1) er det som oftest brytes usynlig: et tall $t$ i inputen skrives ut ledd for ledd i outputen, og instansen blir eksponentielt stor."
+    },
+    {
+      "id": "tdt4120-7-4-def-medlemskap",
+      "type": "definition",
+      "title": "Medlemskapsdelen — sertifikat og verifikasjon",
+      "content": "Å vise at et problem ligger i $NP$ er å oppgi to ting: hva sertifikatet er, og hvordan det sjekkes.\n\nSertifikatet er et konkret objekt — en nodemengde, en delmengde, en tilordning, en rekkefølge — som følger med ja-instansen. Verifikasjonsalgoritmen tar instansen og sertifikatet og svarer 1 eller 0 i polynomisk tid i instansens lengde.\n\nTo linjer holder på eksamen, men begge må stå: navngi sertifikatet, og oppgi verifikasjonstiden. En reduksjon erstatter ikke denne delen."
+    },
+    {
+      "id": "tdt4120-7-4-def-hardt-vs-komplett",
+      "type": "definition",
+      "title": "NP-hardt mot NP-komplett i praksis",
+      "content": "NP-hardt er én påstand; NP-komplett er to.\n\nEn reduksjon fra et kjent NP-komplett problem gir **NP-hardhet**, og bare det. Legger du til sertifikat og polynomisk verifikasjon, har du **NP-kompletthet**. Et NP-hardt problem trenger ikke ligge i $NP$ — det kan være strengt verre.\n\nPå eksamen betyr dette: les hva som spørres om. Blir du bedt om å vise NP-hardhet, er sertifikatet overflødig. Blir du bedt om å vise NP-kompletthet, er en reduksjon alene et halvt svar."
+    },
+    {
+      "id": "tdt4120-7-4-def-ikke-beviser",
+      "type": "definition",
+      "title": "Hva en reduksjon ikke beviser",
+      "content": "Tre ting en riktig reduksjon aldri sier noe om, og som fasitene ber deg skrive eksplisitt.\n\nDen sier ikke at kildeproblemet er lett — pilen går oppover i vanskelighet og forteller ingenting om det du reduserte fra. Den sier ikke at problemet er uløselig i praksis — små eller spesielle instanser kan være greie. Og den sier ikke at problemet er NP-komplett, med mindre medlemskapet i $NP$ også er vist.\n\nÉn setning om dette avslutter hvert sjanger G-svar. Det er ofte den setningen som skiller et fullt svar fra et halvt."
+    },
+    {
+      "id": "tdt4120-7-4-def-kontrapositiv",
+      "type": "definition",
+      "title": "Kontrapositiv bruk av en reduksjon",
+      "content": "Samme reduksjon leses to veier, og den andre lesningen er den nyttigste når du vil bevise at noe er **lett**.\n\nEr $X \\le_p Y$ og $Y \\in P$, så er $X \\in P$: kjør reduksjonen og deretter den polynomiske algoritmen for $Y$. Snudd om: er $X$ vanskelig, må $Y$ være minst like vanskelig.\n\nSamme mekanisme gir at $NP$ er lukket under polynomiske reduksjoner: er $X \\le_p Y$ og $Y \\in NP$, så er $X \\in NP$. Det er derfor en reduksjon **til** et katalogproblem likevel gir deg medlemskapsdelen gratis."
+    },
+    {
+      "id": "tdt4120-7-4-def-pnp-konsekvens",
+      "type": "definition",
+      "title": "P=NP-konsekvensen",
+      "content": "En polynomisk algoritme for ett eneste NP-komplett problem velter hele klassen.\n\nEr $X$ NP-komplett og $X \\in P$, så er $P = NP$: alt i $NP$ reduseres polynomisk til $X$, og en polynomisk løsning på $X$ gir dermed en polynomisk løsning på alt i $NP$. Et polynom satt inn i et polynom er fortsatt et polynom.\n\nSpørsmålet om $P = NP$ er **åpent**. Boka påstår verken at de er like eller ulike — men alle NP-komplette problemer står og faller sammen."
+    },
+    {
+      "id": "tdt4120-7-4-def-pseudopolynomisk",
+      "type": "definition",
+      "title": "Pseudopolynomisk",
+      "content": "En kjøretid som er polynomisk i tallenes **verdi**, men eksponentiell i tallenes **lengde**.\n\nTabellalgoritmen for SUBSET-SUM er $\\Theta(nt)$ og 0-1-`Knapsack` er $\\Theta(nm)$. Både $t$ og $m$ er tallverdier som skrives med om lag $\\lg t$ og $\\lg m$ bit, så antall tabellceller er eksponentielt i inputlengden. `Ford-Fulkerson` er pseudopolynomisk av samme grunn — kjøretiden avhenger av kapasitetenes størrelse.\n\nPseudopolynomisk er verken et tegn på at problemet er lett eller på at det er NP-hardt. Det er en observasjon om én algoritme, ikke om problemet. `Edmonds-Karp` løser maks-flyt i $O(VE^2)$, og maks-flyt er i $P$."
+    },
+    {
+      "id": "tdt4120-7-4-def-unar",
+      "type": "definition",
+      "title": "Unær utskriving — reduksjonens usynlige feil",
+      "content": "Når en reduksjon skriver ut et tall fra inputen ledd for ledd, blir instansen eksponentielt stor, og reduksjonen slutter å være polynomisk.\n\nEt tall $t$ tar om lag $\\lg t$ bit i vanlig tallnotasjon, men $t$ tegn hvis det skrives som $t$ streker. En konstruksjon som lager $t$ ruter, $t$ noder eller $t$ kolonner ut av tallet $t$, bruker altså eksponentiell tid i inputlengden.\n\nFeilen er lumsk fordi retningen og svarbevaringen kan være helt korrekte. Sjekk derfor alltid kravet om polynomisk tid separat, ved å sammenligne **outputens størrelse** med **inputens lengde i bit**."
+    },
+    {
+      "id": "tdt4120-7-4-def-spesialtilfelle",
+      "type": "definition",
+      "title": "Spesialtilfelle-fellen",
+      "content": "At et problem er et spesialtilfelle av et NP-komplett problem, gjør det ikke NP-komplett.\n\nÅ levere en begrenset instans rett inn i det generelle problemet er reduksjonen SPESIALTILFELLE $\\le_p$ GENERELT, og den viser bare at spesialtilfellet **ikke er vanskeligere**. Et spesialtilfelle kan være strengt lettere: 2-CNF-SAT avgjøres i polynomisk tid, mens 3-CNF-SAT er NP-komplett.\n\nFor å vise at et begrenset problem er NP-hardt, må reduksjonen gå **inn i** begrensningen — slik SAT $\\le_p$ 3-CNF-SAT gjør, ved å skrive om hver klausul til klausuler med nøyaktig tre literaler."
+    }
+  ],
+  "exercises": []
+}
