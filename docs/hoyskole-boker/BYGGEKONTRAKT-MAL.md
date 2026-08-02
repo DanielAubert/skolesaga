@@ -75,21 +75,28 @@ C, og `fil1001-2-1` viste til et avsnitt om det Machianske svaret der
 innholdet gjaldt Leibniz. Nummererte kryssreferanser råtner stille — det
 er selve grunnen til at de skal være navn.
 
-## Deloppgaver i prøvekapitler: bruk (i) (ii) (iii), ikke a) b) c)
+## Ja/nei-lister i prøvekapitler kan feilmåles som flervalg
 
-Statiske flervalg måles av `sjekk-statiskflervalg.py`, som kjenner igjen et
+⚠ **Produkteierregelen står ved lag:** deloppgaver merkes **a), b), c)** med
+liten bokstav, på egen linje og i fet — se README «Listemerking med små
+bokstaver» og «Deloppgaver på egen linje». Den regelen er ufravikelig, og
+ingenting her overstyrer den.
+
+Men vær oppmerksom på ett tilfelle: `sjekk-statiskflervalg.py` kjenner igjen et
 flervalg på at det står `a)` `b)` `c)` `d)` under et nummerert spørsmål. En
-**ja/nei-liste** eller en **deloppgave-rekke** merket a)–e) blir da lest som et
-flervalg — og siden det første punktet ofte er «ja», måles «ja» som fasit i
-alle. Porten rapporterer da en skjevhet som ikke finnes, og du bruker tid på å
-«rette» noe som er riktig.
+**ja/nei-liste** merket a)–e) i et prøvekapittel kan derfor bli lest som et
+flervalg — og hvis prøven har en kompakt fasitliste («1b · 2d · 3a») som
+tilfeldigvis parer, måles «ja» som fasit i alle.
 
-**Skriv derfor deloppgaver og ja/nei-punkter som (i), (ii), (iii).** Da er
-hvert eneste målte flervalg et ekte flervalg, og tallet porten gir er sant.
+**Der en slik liste er et sett med selvstendige påstander og ikke deloppgaver
+av én oppgave, er romertall (i), (ii), (iii) et gyldig valg** — det er ikke
+listemerking av deloppgaver, men nummerering av påstander. Vurder det når du
+skriver ja/nei-drill.
 
-Dette gjelder alle bøker, ikke bare regnefag. Regelen kom fra en agent som
-merket at porten ville feilmåle listene den skulle til å skrive, og valgte
-notasjon deretter i stedet for å levere tall den ikke kunne stå inne for.
+Hvis du beholder a)–e): sjekk tallet porten gir mot en manuell telling før du
+«retter» noe. En agent oppdaget dette ved å merke at porten *ville* feilmåle
+listene den skulle skrive, og sa fra i stedet for å levere tall den ikke kunne
+stå inne for.
 
 ## Linjeskift midt i inline-matte gir rå LaTeX til leseren
 
