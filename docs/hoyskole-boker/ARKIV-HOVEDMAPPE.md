@@ -102,6 +102,28 @@ veiledningsfila har ingen årstall i navnet, og oppgavesettet står ikke i
 underestimert. Tell mappa når tallet skal inn i en bok, og bruk indeksen som
 utgangspunkt — ikke som fasit.
 
+**3. Rotårsaken: sesongfeltet er tomt i mange rader — og da faller fila ut av
+terminen sin.** (Funnet 3. august 2026, verifisert i `INDEKS.csv`.)
+
+For JFEXFAC04 har **13 av 89 rader tom eller «U» sesong**, og fire mangler
+også årstall. Det forklarer både defekt 1 og 2 over, og gir en tredje følge
+som er verre enn begge: **filer som finnes, teller som fravær.**
+
+Verifisert tilfelle: raden for **V2019 sier `har_fasit=nei`**, mens arkivet
+inneholder V2019-sensorveiledningen
+(`19-1-jfexfac04-sensorveil-utkast.pdf`). Fila står i indeksen — men uten
+sesong, så den ble aldri knyttet til V2019-terminen. Samme mekanisme gjør at
+indeksen oppgir **null oppgavefiler for V2016, V2018, V2020, V2022, H2022 og
+V2024** selv om filene ligger i mappa.
+
+**Konsekvens:** `har_fasit=nei` er ikke belegg for at noe MANGLER. Kolonnen
+kan bare brukes til å finne kandidater, aldri til å skrive «N terminer uten
+veiledning». Det tallet må telles i mappa.
+
+⚠ Og: **20 av 109 JFEXFAC04-filer står ikke i `INDEKS.csv` i det hele tatt**
+(19 md5-duplikater + V2017-oppgavesettet). Indeksen er et utgangspunkt for
+søk, ikke en fasit over hva arkivet inneholder.
+
 ## Tre regler som gjelder alt arbeid med arkivet
 
 **Termin, ikke fil.** TMA4110 har over 200 filer og 34 terminer. Enhver
