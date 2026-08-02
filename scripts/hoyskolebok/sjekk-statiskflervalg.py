@@ -63,11 +63,26 @@ FASIT = re.compile(
     r"\*{0,2}(?:Oppgave|Spørsmål)?\s*(\d{1,2})[.)]\*{0,2}\s*"
     r"(?:[^\n]{0,40}?)(?:Riktig|Rett|Korrekt)?\s*[Ss]var(?:et)?\s*(?:er)?\s*[:—-]?\s*"
     r"\*{0,2}([a-eA-E])\)")
+# Fjerde form: «**Oppgave 1 — riktig: c.**» — bokstaven UTEN sluttparentes.
+# mat1100-3-prove hadde ni flervalg som aldri ble målt av denne grunn.
+# Nøkkelordet må stå umiddelbart foran, ellers ville en hvilken som helst
+# bokstav etter et oppgavenummer blitt lest som fasit.
+FASIT_BAR = re.compile(
+    r"\*{0,2}(?:Oppgave|Spørsmål)\s*(\d{1,2})\s*[—–:-]\s*"
+    r"(?:riktig|rett|korrekt)(?:\s+svar)?\s*[:：]\s*\*{0,2}([a-eA-E])\b", re.I)
 # Kompaktlista: minst tre «<tall><bokstav>» på rad, skilt av ·/,/;/mellomrom.
 # Kravet om tre på rad hindrer at løpende prosa som «i 3a og 4b» treffer.
+#
+# ⚠ TRE skrivemåter, ikke to. Første versjon krevde tall og bokstav inntil
+# hverandre («1b · 2d») og så derfor ikke «**1 c** · **2 a** · **3 d**» — med
+# mellomrom og fete markører. fil1001-3-prove hadde 12 flervalg som ALDRI ble
+# målt, og porten sa ingenting, fordi filer uten parede spørsmål bare forsvant
+# fra rapporten. Begge feilene er rettet: formen er med, og uparede filer
+# rapporteres nå eksplisitt.
 KOMPAKT_LISTE = re.compile(
-    r"(?:\b\d{1,2}[a-eA-E]\b[\s·,;]+){2,}\b\d{1,2}[a-eA-E]\b")
-KOMPAKT_PAR = re.compile(r"\b(\d{1,2})([a-eA-E])\b")
+    r"(?:\*{0,2}\b\d{1,2}\s?[a-eA-E]\b\*{0,2}[\s·,;]+){2,}"
+    r"\*{0,2}\b\d{1,2}\s?[a-eA-E]\b")
+KOMPAKT_PAR = re.compile(r"\b(\d{1,2})\s?([a-eA-E])\b")
 
 
 def _strenger(o):
@@ -106,6 +121,8 @@ def _oppgaver(tekst):
 
 def _fasiter(tekst):
     ut = {n: b.lower() for n, b in FASIT.findall(tekst)}
+    for n, b in FASIT_BAR.findall(tekst):
+        ut.setdefault(n, b.lower())
     for m in KOMPAKT_LISTE.finditer(tekst):
         for nr, bok in KOMPAKT_PAR.findall(m.group(0)):
             ut.setdefault(nr, bok.lower())
@@ -191,9 +208,19 @@ def rapporter(emne, vis=False):
     filer = sorted(glob.glob(f"{CH}/{emne}-*.json"))
     rader, sum_n = [], 0
     verste = 0.0
+    forbigatt = []          # filer med for få målbare spørsmål
+    uparede = []            # filer der noe ikke lot seg pare
     for f in filer:
         n, lengst, kortest, synlig, eks = mal_fil(f)
+        løs, tot = ukoblet(f)
+        if løs:
+            uparede.append((os.path.basename(f)[:-5], løs, tot))
         if n < MIN_N:
+            # ⚠ Disse ble tidligere hoppet over UTEN et ord i rapporten, så
+            # en fil med 6 målbare flervalg så ut som en fil uten flervalg.
+            # tdt4120-5-prove hadde 32 alternativlinjer og forsvant helt.
+            if n:
+                forbigatt.append((os.path.basename(f)[:-5], n))
             continue
         sum_n += n
         pl, pk, ps = lengst / n, kortest / n, synlig / n
@@ -209,6 +236,15 @@ def rapporter(emne, vis=False):
                   f"dette som at boka er ren.")
         return None, 0.0
     print(f"\n{emne}: {sum_n} statiske flervalg i {len(rader)} filer")
+    if forbigatt:
+        print(f"   ⚠ IKKE MÅLT — under {MIN_N} målbare flervalg, for få til å "
+              f"dømme etter, men de FINNES:")
+        for cid, n in forbigatt:
+            print(f"       {cid:26} {n} flervalg")
+    if uparede:
+        print(f"   ⚠ IKKE PARET — flervalg uten gjenkjent fasit:")
+        for cid, løs, tot in uparede:
+            print(f"       {cid:26} {løs} av {tot}")
     for cid, n, pl, pk, ps, eks in sorted(rader, key=lambda r: -r[4]):
         flagg = "  ⚠" if ps > TAK else ""
         print(f"   {cid:26} n={n:3}  lengst {pl:5.0%}  kortest {pk:5.0%}"
