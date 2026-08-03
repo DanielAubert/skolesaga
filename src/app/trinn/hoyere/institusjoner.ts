@@ -38,6 +38,7 @@ export const INSTITUSJONER: Institusjon[] = [
       imageHero: '/images/institusjoner/uio-hero.webp',
     subjects: [
       { courseId: 'svmet1010', name: 'SVMET1010 Kvalitative metoder', icon: '🔍', color: 'from-slate-500 to-slate-700' },
+      { courseId: 'jfexfac04', name: 'JFEXFAC04 Examen facultatum, rettsvitenskapelig variant', icon: '📜', color: 'from-slate-500 to-slate-700' },
       { courseId: 'utv1000', name: 'UTV1000 Innføring i utviklingsstudier og bærekraft', icon: '🌍', color: 'from-slate-500 to-slate-700' },
       { courseId: 'sos1004', name: 'SOS1004 Innføring i sosiologi', icon: '👥', color: 'from-slate-500 to-slate-700' },
       { courseId: 'stv1200', name: 'STV1200 Internasjonal politikk', icon: '🌐', color: 'from-slate-500 to-slate-700' },
