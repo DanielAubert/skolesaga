@@ -278,6 +278,23 @@ ferdig.
 traff ingen av delene — Lovdata-forbeholdet ville falt bort på et emne der
 lovtekstanalyse er signaturoppgaven.
 
+⚠⚠ **Og ordgrensen biter hardere enn den ser ut.** «JUROFF1500 **Strafferett**
+for ikke-jurister» treffer HELLER IKKE — `\brett` krever ordgrense, og i
+«Strafferett» står «rett» rett etter en «e». En strafferettsbok ville altså
+mistet Lovdata-forbeholdet sitt. Løsningen der ble å skrive «… — juridisk
+innføring for ikke-jurister», som treffer på `juridisk`.
+
+**Test tittelen mot regexen, ikke mot magefølelsen:**
+
+```python
+import re
+erJus = lambda cid, t: bool(re.search(r'^jus', cid, re.I)
+                            or re.search(r'\brett(s\w*)?\b|juridisk', t, re.I))
+```
+
+Endrer noen tittelen senere, forsvinner forbeholdet stille — ingen port
+fanger det.
+
 ## SKJELETT.md må være v3 — tre feller wire-bok stopper på (nytt 2. august 2026)
 
 `wire-bok.py` parser skjelettet med to mønstre, og finner den ingen kapitler,
