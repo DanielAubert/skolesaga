@@ -88,13 +88,13 @@ er noe annet enn en kalibrert mot tretti.
 | **SVMET1010** Kvalitative metoder | 32 | 44 | ✅ **BOK LIVE** (39 kap) |
 | **MAT3500** Topologi | 30 | 28 | ⚠ ingenting |
 | **SOS4020** Kvantitativ metode | 30 | 34 | skjelett |
-| **JUROFF1500** Strafferett for ikke-jurister | **34** | 48 | ✅ analyse |
+| **JUROFF1500** Strafferett for ikke-jurister | **34** | 48 | 🔨 bygges (47 filer) |
 | **ECON4925** Resource Economics | 29 | 45 | ⚠ ingenting |
 | **ECON4415** | 27 | 49 | ⚠ ingenting |
 | **SGO2500** | 26 | 37 | ⚠ ingenting |
 | **SOS4010** Kvalitativ metode | 26 | 26 | skjelett |
 | **SGO2200** | 25 | 30 | ⚠ ingenting |
-| **SVEXFAC03** Examen facultatum, samfunnsvitenskap | 22 | 29 | ✅ skjelett (44 kap) |
+| **SVEXFAC03** Examen facultatum, samfunnsvitenskap | 22 | 29 | ✅ **BOK LIVE** (53 kap) |
 
 **ECON1220 har dypest arkiv av alle høstemnene** — 40 terminer — og skjelettet
 finnes. Den er det opplagte valget utenfor jusløpet.
@@ -132,8 +132,8 @@ undervisningsår**. Åpen produkteierbeslutning.
 |---|---|
 | **SVMET1010** | ✅ **FERDIG OG LIVE** — 39 kap, 538 flashcards, 546 quiz, alle porter grønne, verifisert mot prod |
 | **JFEXFAC04** | ✅ **FERDIG OG LIVE** — 41 kap, 681 flashcards, 712 quiz, alle porter grønne, verifisert mot prod |
-| **JUROFF1500** | analyse ✅, skjelett ✅ (40 kap, 774 quiz). Kontrakt under arbeid |
-| **SVEXFAC03** | analyse ✅, skjelett ✅, kontrakt ✅ — 53 filer **bygges nå** (6 agenter) |
+| **JUROFF1500** | analyse ✅, skjelett ✅, kontrakt ✅ — 47 filer **bygges nå** (5 agenter) |
+| **SVEXFAC03** | ✅ **FERDIG OG LIVE** — 53 kap, 864 flashcards, 910 quiz, verifisert mot prod |
 
 Neste ut når disse lander: **JUS1211** (tier 1, samme kull som alt leser
 JUS1111 og EXPHIL03 hos oss), **ECON1220** (40 terminer, dypest av alle
