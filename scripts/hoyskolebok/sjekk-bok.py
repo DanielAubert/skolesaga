@@ -231,8 +231,21 @@ for f in files:
     # «Her er fire nyskrevne oppgaveformuleringer. Hva bestiller hver av dem?
     # (i) Gjør kort rede for … (ii) Utform et forskningsopplegg …». Stammen
     # avslører det: spør den om «hver av dem», er leddene eksemplarer.
-    LISTESTAMME = re.compile(r"\bhver[t]?\s+av\b|\bfor\s+hver[t]?\b"
-                             r"|\bhvert?\s+enkelt\b", re.I)
+    #
+    # ⚠ Og ett signal til: stammen KUNNGJØR en samling siterte ledd. «Du har
+    # lastet ned et gammelt sett og ser disse fire spørsmålene: (i) … (ii) …»
+    # er fire EKSEMPLARER leseren skal behandle, ikke fire deloppgaver — og
+    # oppgaven har gjerne sine egne a)–d) på nivået over. juroff1500-1-5 og
+    # -8-1 gjengir 1902-sett på nøyaktig den formen.
+    TELL = r"(?:to|tre|fire|fem|seks|sju|åtte|ni|ti|\d+)"
+    TING = (r"spørsmål|oppgav\w*|utdrag|formuleringer|påstand\w*|utsagn"
+            r"|sitat\w*|situasjon\w*|eksempl\w*|setning\w*|besvarelse\w*")
+    LISTESTAMME = re.compile(
+        r"\bhver[t]?\s+av\b|\bfor\s+hver[t]?\b|\bhvert?\s+enkelt\b"
+        rf"|\b(?:disse|følgende|under står|her er|står)\s+(?:\w+\s+)?{TELL}\s+"
+        rf"(?:\w+\s+)?(?:{TING})"
+        rf"|\b{TELL}\s+(?:\w+\s+)?(?:{TING})\s+(?:står|følger|er gjengitt)",
+        re.I)
 
     def _er_deloppgaver(felt):
         biter = LEDD.split(felt)
