@@ -2555,7 +2555,7 @@ bestått-på-marginen-besvarelser** som viser terskelen nedenfra.
    nødverge/nødrett · straffrihet/straffritak/straffbortfall · ekte/uekte
    unnlatelsesdelikt · forsett/uaktsomhet · ideal-/realkonkurrens ·
    kroppskrenkelse/kroppsskade. Speiler quiz-distraktorene.
-7. **Domskanonen** — de sytten avgjørelsene i del 4, hver med kallenavn, kort
+7. **Domskanonen** — de **tjue** avgjørelsene i del 4 (rettet 3. august 2026: skjelettets egen tabell summerer til 20, ikke 17 — 5+2+3+2+1+5+2. Teller du 17 og finner 20, er det tellingen som er feil, ikke boka), hver med kallenavn, kort
    faktum og hva den brukes til. Ingen andre dommer.
 8. **Sjangerkortet på én side** — KORT, ANA, PRAK, TEO og SYST med
    oppskrift og tidsbudsjett for hver.
@@ -2660,7 +2660,7 @@ metoderådet bakerst.
       **§§ 271–273**, **§ 275**, **§ 281**, **§ 282**, **§§ 291 og 297** (sjekk
       om endret etter NOU 2022: 21), **§§ 321–322**, **§§ 327–328**, **§ 231**,
       og **barnevernsloven 2021 § 6-2**.
-- [ ] **Domsreferanser mot Lovdata:** hele domskanonen i del 4 (sytten
+- [ ] **Domsreferanser mot Lovdata:** hele domskanonen i del 4 (tjue
       avgjørelser) sjekkes for riktig Rt./HR-nummer, og **hver dom har 1–2
       setningers faktum ved første omtale**. **Ingen dommer utenfor kanonen** —
       særlig ikke for medvirkning, uaktsomhet, nødverge, nødrett, rus eller

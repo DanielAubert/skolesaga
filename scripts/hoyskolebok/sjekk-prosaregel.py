@@ -14,6 +14,10 @@ kvadratisk — det tok 17 GB RAM på byggemaskinen 25. juli 2026 og måtte drepe
 Dette skriptet leser JSON-strukturen i stedet, bruker ingenting, og viser
 hvilket felt treffet står i.
 
+`--streng` krever rammen ved HVER forekomst (ingen kapittelvid fallback).
+Bruk den for regler der en ramme i innledningen ikke dekker resten — f.eks.
+kravet om at hver utgått paragraf står sammen med «1902».
+
 Eksempler:
   python3 scripts/hoyskolebok/sjekk-prosaregel.py in1000 \
       "rekursj" "utenfor pensum|ikke pensum|uønsket"
@@ -46,9 +50,11 @@ def strenger(o, sti=""):
 
 
 def main():
-    if len(sys.argv) < 4:
+    argv = [a for a in sys.argv[1:] if a != "--streng"]
+    streng = "--streng" in sys.argv
+    if len(argv) < 3:
         sys.exit(__doc__)
-    emne, treff_rx, unntak_rx = sys.argv[1], sys.argv[2], sys.argv[3]
+    emne, treff_rx, unntak_rx = argv[0], argv[1], argv[2]
     treff = re.compile(treff_rx, re.I)
     unntak = re.compile(unntak_rx, re.I)
 
@@ -73,7 +79,14 @@ def main():
         # derfor avvik i tdt4110-8-3/8-5/8-7 der hvert kapittel var korrekt
         # rammet inn i åpningsblokken. Slik støy får en port til å bli ignorert,
         # og da fanger den ikke de ekte bruddene heller.
-        rammet_i_kapitlet = any(unntak.search(s) for _, s in strenger(d))
+        # ⚠ MEN fallbacken gjør porten ubrukelig for regler der rammen må stå
+        # ved HVER forekomst. JUROFF1500 krever at hver «§ 257» har «1902» i
+        # samme setning — og kap. 7.1 nevner 1902 i innledningen uansett, så
+        # med fallbacken ville hver bare paragraf i resten av kapitlet passert.
+        # `--streng` slår den av. Standard er uendret, så ingen eksisterende
+        # regel blir strengere av dette.
+        rammet_i_kapitlet = (not streng) and any(
+            unntak.search(s) for _, s in strenger(d))
 
         for sti, s in strenger(d):
             for m in treff.finditer(s):
