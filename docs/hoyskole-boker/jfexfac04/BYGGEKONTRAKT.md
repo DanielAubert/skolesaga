@@ -1878,9 +1878,26 @@ offisielle navn. **Ikke kort den ned.**
     tallet 43 står bare som filtall i kildenoten; H2016 omtales bare som
     manglende; tallet 24 for samlekategorien står alltid sammen med de fem
     moderne terminene.
-16. **De tre spriktallene (§6.2):** grep i alle `jfexfac04-*.json` etter
-    `24 av 40`, `9 terminer` og `6 av de siste 8` — null treff. Riktige tall er
-    **22 av 40 terminer**, **7 terminer** og **5 av de 8 siste terminene**.
+16. **De tre spriktallene (§6.2).** ⚠ **Rettet 3. august 2026 — første versjon
+    av dette punktet motsa §6.2.** «24 av 40» er RIKTIG for samlekategorien
+    rett/samfunn/rettsstat i kap. 6.1 (rad 6.1 er merket ✓), og FEIL som
+    vektingspåstand i kap. 0.2 (der er tallet 22 av 40 terminer). Et blindt
+    grep etter strengen ville derfor tvunget bort et obligatorisk tall.
+    Sjekken må se på KONTEKSTEN:
+
+    ```bash
+    # feil: vekting oppgitt i 24 terminer  →  skal være 22
+    grep -rn "24 av 40" src/lib/data/chapters/jfexfac04-*.json \
+      | grep -iE "vekting|vektet|oppgitt i oppgaveteksten|poengfordeling"
+    # feil: trekløveret i «9 terminer»     →  skal være 7
+    grep -rn "9 terminer" src/lib/data/chapters/jfexfac04-*.json
+    # feil: «6 av de siste 8»              →  skal være 5 av de 8 siste
+    grep -rn "6 av de siste 8" src/lib/data/chapters/jfexfac04-*.json
+    ```
+
+    Alle tre skal gi **null treff**. Og der `24 av 40` står lovlig (kap. 6.1 og
+    Del 0-frekvenstabellen), skal de fem moderne terminene stå i samme avsnitt
+    — jf. kalibreringsnoten i §6.2.
 17. **Nøytralitet (§8):** omstridte spørsmål har minst to posisjoner med sin
     sterkeste begrunnelse; etablerte fagregler er presentert som fagregler, ikke
     pakket inn i «noen mener»; ingen policyanbefalinger i bokas egen stemme;
