@@ -91,7 +91,7 @@ for d in sorted(by_del, key=int):
         dt = del_titles.get(d, f"Del {d}").strip()
         full.append({"id": f"{emne}-{d}-prove", "number": f"{d}.P",
                      "title": f"Prøver til del {d}: {dt}",
-                     "desc": f"Fire prøver som dekker del {d} ({dt.lower()}) på eksamensnivå, med fulle løsningsforslag.",
+                     "desc": f"Fire prøver som dekker del {d} ({dt.lower()}) på eksamensnivå, med fullstendige løsninger skrevet av oss.",
                      "min": 120, "prereq": [by_del[d][-1]["id"]]})
 
 # --- Verifiser filer + tell oppgaver ---
