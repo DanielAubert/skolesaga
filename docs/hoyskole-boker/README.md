@@ -298,7 +298,7 @@ Status: **analyse** = EKSAMENSANALYSE.md ferdig · **skjelett** = SKJELETT.md
 ferdig (= rammeverk komplett, klart for Opus-bygging via BYGGEKONTRAKT-MAL) ·
 **bok** = bygget og wiret i plattformen.
 
-Generert fra disken: **40** **bok** (live) · **1** ⚠ siste år — **bok** · **2** ⚠ siste år · **1** skjelett + **kontrakt** · **4** ⚠ avklar først · **150** skjelett · **2** analyse · **11** — · **1** ⛔ nedlagt (live bok) · **34** ⛔ nedlagt.
+Generert fra disken: **41** **bok** (live) · **1** ⚠ siste år — **bok** · **2** ⚠ siste år · **4** ⚠ avklar først · **150** skjelett · **2** analyse · **11** — · **1** ⛔ nedlagt (live bok) · **34** ⛔ nedlagt.
 
 | Emne | Arketype | Status |
 |---|---|---|
@@ -317,6 +317,7 @@ Generert fra disken: **40** **bok** (live) · **1** ⚠ siste år — **bok** ·
 | IN2010 Algoritmer og datastrukturer (UiO) | regnefag | **bok** (live) |
 | INTER1000 Innføringsemne i internasjonale studier (UiO) | drøfting/tverrfaglig | **bok** (live) |
 | JFEXFAC04 Examen facultatum, rettsvitenskapelig variant (UiO) | — | **bok** (live) |
+| JUROFF1500 Strafferett — juridisk innføring for ikke-jurister (UiO) | — | **bok** (live) |
 | JUS1111 Privatrett I (UiO) | jus | **bok** (live) |
 | LING1100 Innføring i semantikk og pragmatikk (UiO) | formell-hybrid | **bok** (live) |
 | MA1301 Tallteori (NTNU) | regnefag/bevis | **bok** (live) |
@@ -345,7 +346,6 @@ Generert fra disken: **40** **bok** (live) · **1** ⚠ siste år — **bok** ·
 | TMA4135 Matematikk 4D (NTNU) | regnefag | ⚠ siste år — **bok** |
 | PSY1300 Kognitiv psykologi (UiO) | — | ⚠ siste år |
 | SOSANT1400 Antropologi og religion (UiO) | drøfting | ⚠ siste år |
-| JUROFF1500 Strafferett — juridisk innføring for ikke-jurister (UiO) | — | skjelett + **kontrakt** |
 | MET 1190 Statistikk | — | ⚠ avklar først |
 | SOS4010 Kvalitativ metode — eksamensrettet lærebok (UiO, master) | — | ⚠ avklar først |
 | SOS4020 Kvantitativ metode — eksamensrettet lærebok (UiO, master) | — | ⚠ avklar først |
