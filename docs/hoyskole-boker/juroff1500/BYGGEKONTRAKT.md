@@ -1073,13 +1073,21 @@ Tallet er 20, telt ut av skjelettets egen tabell i §4.
 
 | tema | avgjørelser | lovlig i kapitlene |
 |---|---|---|
-| Legalitetsprinsippets utvikling (de fem som ble gjennomgått på forelesning, H2022) | Rt. 1973 s. 433 (Passbåt) · Rt. 1995 s. 1734 (Elvebåt) · Rt. 2009 s. 780 (Derivat) · Rt. 2011 s. 469 · Rt. 2012 s. 1211 (Ekstrembloggerkjennelsen) | 1.3, 8.6 |
-| Legalitet — nevnt som mulig problematisering (H2022) | HR-2017-2333-U · HR-2022-2089-U | 1.3, 8.6 |
-| Forsøkets nedre grense (H2022, H2023) | **Rt. 2008 s. 867 avsnitt 20** (hovedavgjørelsen) · Rt. 1939 s. 890 · Rt. 1995 s. 17 | 4.1, 4-prove, 8.5, 8.7 |
-| Tilbaketreden fra forsøk (H2022, H2023) | **HR-2019-47-A** · Rt. 1988 s. 18 | 4.2, 4-prove, 8.5 |
-| Utjenlig forsøk (H2022) | Rt. 2010 s. 287 | 4.2, 4-prove |
-| Mishandling i nære relasjoner (alle H2025) | Rt. 2013 s. 879 · Rt. 2010 s. 129 · Rt. 2012 s. 835 · Rt. 2013 s. 329 · HR-2017-667-A | 7.3, 7-prove |
-| Forvaring av barn (H2024) | HR-2019-832-A · HR-2017-290-A | 6.3, 6-prove |
+| Legalitetsprinsippets utvikling (de fem som ble gjennomgått på forelesning, H2022) | Rt. 1973 s. 433 (Passbåt) · Rt. 1995 s. 1734 (Elvebåt) · Rt. 2009 s. 780 (Derivat) · Rt. 2011 s. 469 · Rt. 2012 s. 1211 (Ekstrembloggerkjennelsen) | 1.3, 1.P, 8.6, 8.7 |
+| Legalitet — nevnt som mulig problematisering (H2022) | HR-2017-2333-U · HR-2022-2089-U | 1.3, 1.P, 8.6, 8.7 |
+| Forsøkets nedre grense (H2022, H2023) | **Rt. 2008 s. 867 avsnitt 20** (hovedavgjørelsen) · Rt. 1939 s. 890 · Rt. 1995 s. 17 | 4.1, 4.P, 8.5, 8.7 |
+| Tilbaketreden fra forsøk (H2022, H2023) | **HR-2019-47-A** · Rt. 1988 s. 18 | 4.2, 4.P, 8.5, 8.7 |
+| Utjenlig forsøk (H2022) | Rt. 2010 s. 287 | 4.2, 4.P, 8.7 |
+| Mishandling i nære relasjoner (alle H2025) | Rt. 2013 s. 879 · Rt. 2010 s. 129 · Rt. 2012 s. 835 · Rt. 2013 s. 329 · HR-2017-667-A | 7.3, 7.P, 8.7 |
+| Forvaring av barn (H2024) | HR-2019-832-A · HR-2017-290-A | 6.3, 6.P, 8.7 |
+
+**Hvorfor prøvekapitlene står i kolonnen:** skjelettets §7 bestiller domsbruk i
+tre av dem — del 1-prøve 3 krever uttrykkelig at **minst én dom brukes
+argumentativt og at vekten av den kommenteres**, del 4-prøve 1 og 2 driller
+forsøkets nedre grense og tilbaketreden, del 6-prøve 3 barn og straff, og del
+7-prøve 3 mishandling. **Kap. 8.7 har hele kanonen tilgjengelig**, fordi
+generalprøven speiler et helt sett og skjelettet lar oppgave 2 velge fritt blant
+straffebudene i del 7.
 
 Kap. **0.2** har lov til å bruke **Rt. 2008 s. 867** og **HR-2019-47-A** som
 eksempler på *domsnavnets form* (Norsk Retstidende med side og årgang, mot
@@ -1135,19 +1143,24 @@ kap. 4.1.
 python3 - <<'EOF'
 # PORT C — JUROFF1500: domskanonen er uttømmende, og hjemlet per kapittel.
 import glob, json, os, re, sys
+LEG  = {"1-3", "1-prove", "8-6", "8-7"}          # legalitetsprinsippet
+FORS = {"4-1", "4-prove", "8-5", "8-7"}          # forsøkets nedre grense
+TILB = {"4-2", "4-prove", "8-5", "8-7"}          # tilbaketreden og utjenlig forsøk
+MISH = {"7-3", "7-prove", "8-7"}                 # mishandling i nære relasjoner
+BARN = {"6-3", "6-prove", "8-7"}                 # forvaring av barn
 KANON = {
-    "Rt. 1973 s. 433":  {"1-3", "0-2", "8-6"}, "Rt. 1995 s. 1734": {"1-3", "8-6"},
-    "Rt. 2009 s. 780":  {"1-3", "8-6"},        "Rt. 2011 s. 469":  {"1-3", "8-6"},
-    "Rt. 2012 s. 1211": {"1-3", "8-6"},        "HR-2017-2333-U":   {"1-3", "8-6"},
-    "HR-2022-2089-U":   {"1-3", "8-6"},
-    "Rt. 2008 s. 867":  {"4-1", "0-2", "8-5", "8-7", "4-prove"},
-    "Rt. 1939 s. 890":  {"4-1", "4-prove"},    "Rt. 1995 s. 17":   {"4-1", "4-prove"},
-    "HR-2019-47-A":     {"4-2", "0-2", "8-5", "4-prove"},
-    "Rt. 1988 s. 18":   {"4-2", "4-prove"},    "Rt. 2010 s. 287":  {"4-2", "4-prove"},
-    "Rt. 2013 s. 879":  {"7-3", "7-prove"},    "Rt. 2010 s. 129":  {"7-3", "7-prove"},
-    "Rt. 2012 s. 835":  {"7-3", "7-prove"},    "Rt. 2013 s. 329":  {"7-3", "7-prove"},
-    "HR-2017-667-A":    {"7-3", "7-prove"},
-    "HR-2019-832-A":    {"6-3", "6-prove"},    "HR-2017-290-A":    {"6-3", "6-prove"},
+    "Rt. 1973 s. 433":  LEG | {"0-2"},         "Rt. 1995 s. 1734": LEG,
+    "Rt. 2009 s. 780":  LEG,                   "Rt. 2011 s. 469":  LEG,
+    "Rt. 2012 s. 1211": LEG,                   "HR-2017-2333-U":   LEG,
+    "HR-2022-2089-U":   LEG,
+    "Rt. 2008 s. 867":  FORS | {"0-2"},        "Rt. 1939 s. 890":  FORS,
+    "Rt. 1995 s. 17":   FORS,
+    "HR-2019-47-A":     TILB | {"0-2"},        "Rt. 1988 s. 18":   TILB,
+    "Rt. 2010 s. 287":  TILB,
+    "Rt. 2013 s. 879":  MISH,                  "Rt. 2010 s. 129":  MISH,
+    "Rt. 2012 s. 835":  MISH,                  "Rt. 2013 s. 329":  MISH,
+    "HR-2017-667-A":    MISH,
+    "HR-2019-832-A":    BARN,                  "HR-2017-290-A":    BARN,
 }
 DOM = re.compile(r"Rt\.\s*\d{4}\s*s\.\s*\d+|HR-\d{4}-\d+-[A-ZÆØÅ]+")
 def strenger(o):
