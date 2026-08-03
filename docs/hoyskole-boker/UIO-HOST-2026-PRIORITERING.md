@@ -46,7 +46,7 @@ høst 2026.**
 | 1 | EXPHIL03 + **JUS1111** Privatrett I | 29 | 130 | ✅ **bok live** |
 | 2 | **JUS1211** Privatrett II | 26 | 116 | skjelett |
 | 3 | **JUS2111** Statsforfatningsrett, folkerett og MR | 28 | 115 | skjelett |
-| 3 | **JFEXFAC04** Examen facultatum | **40** | 109 | ✅ skjelett (34 kap) |
+| 3 | **JFEXFAC04** Examen facultatum | **40** | 109 | ✅ **BOK LIVE** (41 kap) |
 | 4 | **JUS2211** Forvaltningsrett og EØS-rett | 22 | 88 | skjelett |
 | 5 | **JUS3112** Formuerett I | 10 | 29 | skjelett |
 | 5 | **JUS3220** Rettshistorie | 21 | 47 | ⚠ ingenting |
@@ -131,9 +131,9 @@ undervisningsår**. Åpen produkteierbeslutning.
 | emne | hvor langt |
 |---|---|
 | **SVMET1010** | ✅ **FERDIG OG LIVE** — 39 kap, 538 flashcards, 546 quiz, alle porter grønne, verifisert mot prod |
-| **JFEXFAC04** | analyse ✅, skjelett ✅, kontrakt ✅ — 41 filer **bygges nå** (6 agenter) |
-| **JUROFF1500** | analyse ✅ — 34 terminer, 20 av dem på straffeloven 1902. Skjelett under arbeid |
-| **SVEXFAC03** | analyse ✅, skjelett ✅, kontrakt ✅ — 53 filer, 910 quiz, 857 fc. **Byggeklar** |
+| **JFEXFAC04** | ✅ **FERDIG OG LIVE** — 41 kap, 681 flashcards, 712 quiz, alle porter grønne, verifisert mot prod |
+| **JUROFF1500** | analyse ✅, skjelett ✅ (40 kap, 774 quiz). Kontrakt under arbeid |
+| **SVEXFAC03** | analyse ✅, skjelett ✅, kontrakt ✅ — 53 filer **bygges nå** (6 agenter) |
 
 Neste ut når disse lander: **JUS1211** (tier 1, samme kull som alt leser
 JUS1111 og EXPHIL03 hos oss), **ECON1220** (40 terminer, dypest av alle

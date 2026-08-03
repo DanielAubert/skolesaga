@@ -298,7 +298,7 @@ Status: **analyse** = EKSAMENSANALYSE.md ferdig · **skjelett** = SKJELETT.md
 ferdig (= rammeverk komplett, klart for Opus-bygging via BYGGEKONTRAKT-MAL) ·
 **bok** = bygget og wiret i plattformen.
 
-Generert fra disken: **38** **bok** (live) · **1** ⚠ siste år — **bok** · **2** ⚠ siste år · **1** skjelett + **kontrakt** · **4** ⚠ avklar først · **151** skjelett · **3** analyse · **11** — · **1** ⛔ nedlagt (live bok) · **34** ⛔ nedlagt.
+Generert fra disken: **39** **bok** (live) · **1** ⚠ siste år — **bok** · **2** ⚠ siste år · **1** skjelett + **kontrakt** · **4** ⚠ avklar først · **151** skjelett · **2** analyse · **11** — · **1** ⛔ nedlagt (live bok) · **34** ⛔ nedlagt.
 
 | Emne | Arketype | Status |
 |---|---|---|
@@ -316,6 +316,7 @@ Generert fra disken: **38** **bok** (live) · **1** ⚠ siste år — **bok** ·
 | IN1900 Introduksjon til programmering med vitenskapelige anvendelser (UiO) | regnefag/kodefag | **bok** (live) |
 | IN2010 Algoritmer og datastrukturer (UiO) | regnefag | **bok** (live) |
 | INTER1000 Innføringsemne i internasjonale studier (UiO) | drøfting/tverrfaglig | **bok** (live) |
+| JFEXFAC04 Examen facultatum, rettsvitenskapelig variant (UiO) | — | **bok** (live) |
 | JUS1111 Privatrett I (UiO) | jus | **bok** (live) |
 | LING1100 Innføring i semantikk og pragmatikk (UiO) | formell-hybrid | **bok** (live) |
 | MA1301 Tallteori (NTNU) | regnefag/bevis | **bok** (live) |
@@ -343,7 +344,7 @@ Generert fra disken: **38** **bok** (live) · **1** ⚠ siste år — **bok** ·
 | TMA4135 Matematikk 4D (NTNU) | regnefag | ⚠ siste år — **bok** |
 | PSY1300 Kognitiv psykologi (UiO) | — | ⚠ siste år |
 | SOSANT1400 Antropologi og religion (UiO) | drøfting | ⚠ siste år |
-| JFEXFAC04 Examen facultatum, rettsvitenskapelig variant (UiO) | — | skjelett + **kontrakt** |
+| SVEXFAC03 Examen facultatum, samfunnsvitenskapelig variant (UiO) | — | skjelett + **kontrakt** |
 | MET 1190 Statistikk | — | ⚠ avklar først |
 | SOS4010 Kvalitativ metode — eksamensrettet lærebok (UiO, master) | — | ⚠ avklar først |
 | SOS4020 Kvantitativ metode — eksamensrettet lærebok (UiO, master) | — | ⚠ avklar først |
@@ -382,6 +383,7 @@ Generert fra disken: **38** **bok** (live) · **1** ⚠ siste år — **bok** ·
 | ITD15020 Kalkulus (Høgskolen i Østfold, ingeniørmatematikk) | — | skjelett |
 | ITF10705 Diskret matematikk (Høgskolen i Østfold) | — | skjelett |
 | JUR 3420 Forretningsjus (BI) | — | skjelett |
+| JUROFF1500 Strafferett — juridisk innføring for ikke-jurister (UiO) | — | skjelett |
 | JUS1211 Privatrett II (UiO) | jus | skjelett |
 | JUS2111 Statsforfatningsrett og folkerett (UiO) | jus | skjelett |
 | JUS2211 Forvaltningsrett og EØS-rett (UiO) | jus | skjelett |
@@ -447,7 +449,6 @@ Generert fra disken: **38** **bok** (live) · **1** ⚠ siste år — **bok** ·
 | STK2100 Maskinlæring og statistiske metoder (UiO) | regnefag/drøfting | skjelett |
 | STV1020 Politisk analyse 2 (UiO) | drøfting/hybrid | skjelett |
 | STV2110 Politisk filosofi — eksamensrettet lærebok (UiO) | — | skjelett |
-| SVEXFAC03 Examen facultatum, samfunnsvitenskapelig variant | — | skjelett |
 | SØK 3500 Samfunnsøkonomi II (Handelshøyskolen BI) | — | skjelett |
 | SØK1001 Matematikk for økonomer | — | skjelett |
 | SØK1004 Statistikk for økonomer | — | skjelett |
@@ -501,7 +502,6 @@ Generert fra disken: **38** **bok** (live) · **1** ⚠ siste år — **bok** ·
 | TTT4120 Digital signalbehandling (NTNU) | regnefag | skjelett |
 | ECON2200 Matematikk 1/mikro (UiO) | — | analyse |
 | IN2080 | — | analyse |
-| JUROFF1500 | — | analyse |
 | FIGUR-MANIFESTS-TEKSTFAG | — | — |
 | HIS1100 | — | — |
 | SGO3500 | — | — |
