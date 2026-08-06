@@ -85,6 +85,9 @@ export default function HomePage() {
           <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto">
             Velg ditt nivå — fra 8. trinn til universitetet. Gratis å lese.
           </p>
+          <p className="mt-3 text-sm text-white/70 max-w-2xl mx-auto">
+            KI-generert, kan inneholde feil og mangler.
+          </p>
         </div>
       </div>
 
