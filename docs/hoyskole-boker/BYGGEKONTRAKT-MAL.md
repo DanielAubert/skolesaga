@@ -316,6 +316,18 @@ korteste alternativet.
 - **Roter hvilket alternativ som er lengst.** Da lander banken på 25 % begge
   veier — verifisert.
 
+⚠ **Rotårsaken, målt i EXFAC03-SPR:** skjevheten er ikke tilfeldig. Distraktorene
+får gjerne en påhengt begrunnelsesklausul («…, siden leddsetningen sier noe om
+under hvilke omstendigheter vedtaket ble fattet»), mens fasiten skrives stramt —
+ofte som en bar etikett («SUBJEKT», «ADVERBIAL»). Da blir fasiten kortest nesten
+per konstruksjon.
+
+**Hovedgrepet er derfor å fjerne fyll fra distraktorene**, ikke å blåse opp
+fasiten. Klausulene gjør sjelden nær-feilen mer troverdig. Der fasiten likevel
+er for knapp, fyll den med ekte fagstoff hentet fra forklaringen som allerede
+står der: «SUBJEKT» → «SUBJEKT, siden hele leddsetningen kan byttes mot «det»
+foran verbalet».
+
 Mål begge tall per fil før ferdigmelding. `quiz-lengdesjekk.mjs` leser
 `quiz-data-<emne>.ts` og virker først etter wiring, så bruk et staging-skript
 med samme metrikk under bygging.
