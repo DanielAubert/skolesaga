@@ -20,7 +20,7 @@ import {
 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import type { TextbookChapterMeta } from '@/lib/types/textbook';
-import { getFlashcardDefinitionCount } from '@/lib/data/flashcard-definitions';
+import { getFlashcardDefinitionCount } from '@/lib/data/flashcard-counts';
 import { hasQuizQuestions } from '@/lib/data/quiz-data';
 import { getKildegrunnlag } from '@/lib/data/kildegrunnlag';
 import { HoyskoleDisclaimer } from '@/components/textbook/hoyskole-disclaimer';

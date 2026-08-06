@@ -79,6 +79,72 @@ for (const id of registry.chapterIds) {
   }
 }
 
+// ---------------------------------------------------------------------------
+// _quiz-counts.json — antall quizspørsmål per kapittel.
+//
+// Kapittelsiden viste en «Ta quiz»-knapp ved å kalle hasQuizQuestions(), som
+// importerer HELE quizlaget: 24 MB quiz-data + 8,7 MB nynorsk-quiz. Den ene
+// boolske sjekken la 33 MB i ruta, som endte på 260,7 MB — over Vercels
+// 250 MB-grense.
+//
+// ⚠ Terskelen MÅ være identisk med hasQuizQuestions(): minst 4 spørsmål.
+// Filene er håndskrevet over lang tid og varierer i form. Skanneren under er
+// verifisert mot quiz-lengdesjekk.mjs på ALLE 189 bøkene — 0 avvik — etter at
+// tre formvarianter felte tidligere utkast: doble anførselstegn ("id": [),
+// norske bokstaver i nøkkelen ('økonomi-ledelse-1') og nøkler uten innrykk.
+// Endrer du regexen, kjør den verifiseringen på nytt.
+const quizDir = path.join(__dirname, '..', 'src', 'lib', 'data');
+const NOKKEL = /^\s{0,4}['"]([a-zæøå0-9][a-zæøå0-9._-]*)['"]:\s*\[/;
+const SPM = /^\s*\{?\s*question:/;
+const quizCounts = {};
+for (const fil of fs.readdirSync(quizDir)) {
+  if (!fil.startsWith('quiz-data-') || !fil.endsWith('.ts')) continue;
+  let nå = null;
+  for (const linje of fs.readFileSync(path.join(quizDir, fil), 'utf-8').split('\n')) {
+    const m = NOKKEL.exec(linje);
+    if (m) { nå = m[1]; quizCounts[nå] = quizCounts[nå] ?? 0; continue; }
+    if (nå && SPM.test(linje)) quizCounts[nå]++;
+  }
+}
+fs.writeFileSync(
+  path.join(dir, '_quiz-counts.json'),
+  JSON.stringify(quizCounts)
+);
+console.log(
+  `Quizspørsmål talt i ${Object.keys(quizCounts).length} kapitler ` +
+  `til _quiz-counts.json`
+);
+
+// ---------------------------------------------------------------------------
+// _definition-counts.json — antall definisjonsblokker per kapittel.
+//
+// Samme begrunnelse som _dates.json over, men utløst av en annen grense:
+// kursforsiden viste «Flashcards (N definisjoner)» ved å kalle
+// getFlashcardDefinitions(), som leser HVERT kapittels innhold. Den ene
+// badgen dro dermed _all.json (215 MB) inn i /[courseId], som havnet på
+// 259,8 MB — over Vercels 250 MB-grense.
+//
+// Tellingen er ren JSON-aggregering og hører hjemme her. Summen per kurs
+// gjøres i flashcard-counts.ts, som slår opp i kursmetadataen.
+//
+// Regelen MÅ være identisk med getFlashcardDefinitions(): alle blokker med
+// type 'definition'. Narrative versjoner hoppes over der, ikke her — det er
+// et metadata-spørsmål (isNarrativeVersion), og telles bort ved summeringen.
+const defCounts = {};
+for (const [id, kap] of Object.entries(chapters)) {
+  let n = 0;
+  for (const block of kap.content ?? []) if (block.type === 'definition') n++;
+  if (n) defCounts[id] = n;
+}
+fs.writeFileSync(
+  path.join(dir, '_definition-counts.json'),
+  JSON.stringify(defCounts)
+);
+console.log(
+  `Definisjoner talt i ${Object.keys(defCounts).length} kapitler ` +
+  `til _definition-counts.json`
+);
+
 fs.writeFileSync(path.join(dir, '_dates.json'), JSON.stringify(dates));
 console.log(
   `Datoer for ${Object.keys(dates).length} kapitler til _dates.json ` +
