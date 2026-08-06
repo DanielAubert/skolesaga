@@ -56,6 +56,10 @@ dagens arkiv.
 ⚠ **Størst uttelling per bok: EXFAC03-familien.** Fire varianter mangler —
 `EXFAC03-SPR` (6 rader), `-HARK` (4), `-NORD` (3), `-EAST` (2).
 
+✅ **`EXFAC03-SPR` er bygget og live** (6. august 2026): 57 kapitler, 857
+flashcards, 894 quiz. De tre andre har ferdig analyse, skjelett, kontrakt og
+byggetre — se `GJENOPPTAK-EXFAC03.md`.
+
 **Rekkevidden er 12 UNIKE studieløp, ikke 15.** Radsummen er 15, men
 «Nordiske studier» ligger i både SPR og NORD, og to rader er studieretninger
 innenfor samme program. Tell unike programnavn, ikke rader — samme
