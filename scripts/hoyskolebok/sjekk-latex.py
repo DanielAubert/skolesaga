@@ -48,6 +48,13 @@ RA_LATEX = re.compile(
     r"|infty|lfloor|lceil|quad|qquad)\b"
     r"|\\[,;!]")
 
+# Enhver `\ord{`-konstruksjon utenfor matte. Se begrunnelsen ved bruksstedet.
+UKJENT_MAKRO = re.compile(r"\\[a-zA-Z]{2,}\s*\{")
+# ⚠ Krever TO bokstaver. Med én treffer den `\n{` i Python-f-strenger
+# («print(f"…\n{x}")»), som er vanlig i kodefagene — 4 falske positive
+# i in1000 alene. Prisen er at énbokstavs LaTeX som `\v{s}` slipper
+# gjennom; målt over katalogen finnes det null slike utenfor matte.
+
 # Kjente LaTeX-kommandoer, brukt av sjekk 0 (enkel backslash i quiz-TS).
 # Lista er bevisst konservativ: bare navn som ALDRI er noe annet enn LaTeX.
 # `n` står IKKE her — `\n` er ekte linjeskift i kodeeksempler. En blank regel
@@ -343,6 +350,29 @@ def main():
                 avvik.append(
                     f"RÅ LaTeX UTENFOR MATTE i {navn}{sti}: {tr.group(0)!r} "
                     f"(rendres ikke — leseren ser kommandoen bokstavelig)")
+            # ⚠ RA_LATEX er en HVITLISTE, og var derfor blind for alt den ikke
+            # kjente. Målt 6. august 2026: `\textipa{}`, `\ipa{}`, `\v{s}`,
+            # `\qtree` og `$/fɑ/$` passerte alle porten. `\textipa` slapp
+            # unna fordi mønsteret har `text` med ordgrense, og i «textipa»
+            # følger «ipa» rett etter.
+            #
+            # `\<bokstaver>{` er entydig LaTeX-formet og treffer ikke `\n` i
+            # kodestrenger (ingen klamme). Målt over hele katalogen ga den 384
+            # treff, hvorav 374 sto i DEDIKERTE mattefelt (`latex`, `label`,
+            # `expression`) eller i `code` — de er lovlige og hoppes over her.
+            # De ti gjenværende var ekte: `{\color{blue}blått}` i BRØDTEKST i
+            # 1t-1-5 og bi-okonomi-1-5, der leseren så kommandoen i selve
+            # forklaringen på hva fargene betyr.
+            # `_meta.tm` er oversettelsesminnet i nynorsk-sidecaren — en
+            # kopi av kildeteksten, ikke noe leseren ser. `code` er
+            # kodeblokker som legitimt inneholder backslash.
+            if siste != "code" and "._meta" not in sti:
+                for tr in UKJENT_MAKRO.finditer("".join(mk)):
+                    avvik.append(
+                        f"UKJENT LaTeX-KOMMANDO UTENFOR MATTE i {navn}{sti}: "
+                        f"{tr.group(0)!r} — porten kjenner den ikke, og "
+                        f"leseren ser den bokstavelig. Skriv ren tekst, eller "
+                        f"flytt uttrykket inn i $…$")
 
     # 6. PROSA SATT SOM MATTE. Punkt 5 fanger bare oddetall $. To valutabeløp på
     #    samme linje er PARTALL og slipper gjennom — men rendreren parrer dem og

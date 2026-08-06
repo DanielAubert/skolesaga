@@ -239,13 +239,16 @@ Alle tre mappeoppgavene er **essays**. De skrives over lengre tid, med
 tilbakemelding, og én av dem i gruppe — men sjangeren er den samme.
 
 **Derfor:** boka kalibreres mot **regime 2** for form, omfang, arbeidsmåte og
-digitale krav, og bruker **regime 1s ni oppgavetekster som sjangerbank** for
+digitale krav, og bruker **regime 1s åtte oppgavetekster (6 unike) som sjangerbank** for
 skrivehåndverket. Begge deler skal stå eksplisitt i kap. 0.1, med nevnerne
 oppgitt.
 
 **Hva regime 1 gir og ikke gir:**
 
-- Det gir **ni oppgavetekster** til sjangerbanken, og de bærer Del 7.
+- Det gir **åtte oppgaveteksts­forekomster, 6 unike**, til sjangerbanken, og de
+  bærer Del 7. ⚠ Tallet **ni** er totalen for ALLE regimer (6 unike fra regime 1
+  + H2024s 3 mappeoppgaver) — bruker du det om regime 1, tilskriver du dagens
+  format til det utgåtte. Rettet 6. august 2026.
 - Det gir **ikke** eksamensform, omfang, arbeidsmåte eller tidsramme. ⚠ **Om
   regime 1 var hjemme- eller skoleeksamen står ikke i noen fil.** PDF-levering,
   krav om forside og 3–5 sider peker mot hjemmeeksamen, men det er en slutning.
@@ -2219,7 +2222,7 @@ nærlesning mot fjernlesning, brudd mot kontinuitet, begivenhets- mot
 samfunnshistorie) · gadamerbegrep ↔ hva det gjør i en analyse · fag ↔ tidfesting
 ↔ hva som skjedde i humaniora samtidig · verk ↔ forfatter ↔ hvilket begrep det
 bærer. ⚠ **Ingen flashcards på utgått stoff:** eksamensform, omfang eller
-arbeidsmåte fra regime 1 skal ikke pugges — bare de ni oppgavetekstene brukes,
+arbeidsmåte fra regime 1 skal ikke pugges — bare de åtte oppgavetekstene brukes,
 og de brukes som sjanger.
 
 **Quiz-profil:** flervalg med **nabobegrep-distraktorer**, fordi det er der
@@ -2355,7 +2358,7 @@ leseren leser fasiten.
    Formålet er å trene **fordelingen** mellom arbeidene, som er den ferdigheten
    mappeformatet krever og ingen enkeltoppgave trener.
 4. **Øvingsmappe C — sjangerbanken fra det utgåtte regimet.** Fire bestillinger
-   bygget på de ni oppgavetekstene fra regime 1: en epokekarakteristikk, en
+   bygget på de åtte oppgavetekstene fra regime 1: en epokekarakteristikk, en
    avgrensningsoppgave, en lang linje fram til ca. 1800 og en lang linje over
    1900-tallet. ⚠ **Prøven sier eksplisitt til leseren hva den er:** formen er
    fra et regime som ikke finnes lenger, men håndverket er det samme, og
