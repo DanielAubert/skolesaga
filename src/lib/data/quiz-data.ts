@@ -7,7 +7,7 @@
 
 import * as fs from 'fs';
 import * as path from 'path';
-import { getChapterContent } from './textbook-content';
+import { TEXTBOOK_COURSES } from './textbook-courses';
 import type { Malform } from './textbook-content';
 
 export interface QuizQuestion {
@@ -563,16 +563,41 @@ function getGradeName(grade: string): string {
   return grade.toUpperCase();
 }
 
+// Kapittel-id → tittel, bygget av METADATAEN og ikke av kapittelinnholdet.
+//
+// ⚠ Denne slo tidligere opp i `getChapterContent()`, som leser `_all.json`
+// (215 MB bokmålskatalog). Den statiske importen dro hele katalogen inn i
+// HVER rute som importerte noe fra denne fila — også
+// `[courseId]/[chapterId]/quiz`, som bare trenger spørsmålene. Ruta sprakk
+// Vercels 250 MB-grense 3. august 2026 og blokkerte alle deployer.
+//
+// Tittelen ligger i metadataen uansett, og DET er tittelen resten av
+// plattformen viser (kapittelsiden og kursoversikten bruker begge
+// `chapterMeta.title`). Målt på 900 kapitler avvek innholdsfilas tittel fra
+// metadataens i 145 — så oppslaget her ga også en annen tittel enn siden ved
+// siden av.
+let tittelKart: Map<string, string> | null = null;
+function getTittel(chapterId: string): string | undefined {
+  if (!tittelKart) {
+    tittelKart = new Map();
+    for (const kurs of TEXTBOOK_COURSES) {
+      for (const kap of kurs.chapters ?? []) {
+        if (kap.id && kap.title) tittelKart.set(kap.id, kap.title);
+      }
+    }
+  }
+  return tittelKart.get(chapterId);
+}
+
 function getChapterDisplayName(chapterId: string, chapter: string): string {
-  // First, try to get the actual chapter title from textbook content
-  const textbookChapter = getChapterContent(chapterId);
-  if (textbookChapter?.title) {
+  const tittel = getTittel(chapterId);
+  if (tittel) {
     // Return "X.Y: Title" format for better readability
     const parts = chapter.split('-');
     if (parts.length === 2) {
-      return `${parts[0]}.${parts[1]}: ${textbookChapter.title}`;
+      return `${parts[0]}.${parts[1]}: ${tittel}`;
     }
-    return `${chapter}: ${textbookChapter.title}`;
+    return `${chapter}: ${tittel}`;
   }
 
   // Fallback to generic "Kapittel X.Y" format

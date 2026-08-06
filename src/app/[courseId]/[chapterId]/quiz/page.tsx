@@ -1,5 +1,4 @@
 import { notFound } from "next/navigation";
-import { getChapterContentLocalized } from "@/lib/data/textbook-content";
 import { getCourse, getChapterMeta } from "@/lib/data/textbook-courses";
 import { QuizClient } from "./quiz-client";
 import { getQuizQuestions } from "@/lib/data/quiz-data";
@@ -46,12 +45,22 @@ export default async function QuizPage({ params }: PageProps) {
   const { courseId, chapterId } = await params;
   const malform = await getMalform();
 
-  // Get chapter and course data
-  const chapter = await getChapterContentLocalized(chapterId, malform);
+  // ⚠ Denne ruta henter IKKE kapittelinnholdet, og skal ikke gjøre det.
+  //
+  // Den gjorde det fram til 6. august 2026, og brukte de 215 MB i `_all.json`
+  // til nøyaktig to ting: en eksistenssjekk og `chapter.title`. Importen
+  // bundlet hele bokmålskatalogen inn i quiz-funksjonen, som dermed passerte
+  // Vercels 250 MB-grense og blokkerte alle deployer.
+  //
+  // Tittelen ligger allerede i metadataen — og DET er tittelen resten av
+  // plattformen viser: både kapittelsiden (`[chapterId]/page.tsx`) og
+  // kursoversikten bruker `chapterMeta.title`. Målt på 900 kapitler avvek
+  // innholdsfilas tittel fra metadataens i 145 av dem, så quizsiden viste en
+  // annen tittel enn siden studenten nettopp kom fra. Byttet retter begge deler.
   const course = getCourse(courseId);
   const chapterMeta = getChapterMeta(courseId, chapterId, malform);
 
-  if (!chapter || !course || !chapterMeta) {
+  if (!course || !chapterMeta) {
     notFound();
   }
 
@@ -83,7 +92,7 @@ export default async function QuizPage({ params }: PageProps) {
       courseId={courseId}
       chapterId={chapterId}
       courseTitle={course.title}
-      chapterTitle={chapter.title}
+      chapterTitle={chapterMeta.title}
       chapterNumber={chapterMeta.number}
       questions={quizQuestions}
     />
