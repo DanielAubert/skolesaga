@@ -309,11 +309,15 @@ studenten **velge** land.
 
 | Land | Antall av de 21 spørsmålene der landet er navngitt | Belegg |
 |---|---|---|
-| **Japan** | **7** | V2021-3, V2022-2, V2022u-2, V2022u-3, V2023-1, V2023u-2, V2024-1, V2024-3 |
-| **Folkerepublikken Kina** | **7** | V2021-3, V2022-2, V2022u-2, V2022u-3, V2023-1, V2023-3, V2023u-2, V2024-1, V2024-3 |
+| **Japan** | **8** | V2021-3, V2022-2, V2022u-2, V2022u-3, V2023-1, V2023u-2, V2024-1, V2024-3 |
+| **Folkerepublikken Kina** | **9** | V2021-3, V2022-2, V2022u-2, V2022u-3, V2023-1, V2023-3, V2023u-2, V2024-1, V2024-3 |
 | **Sør-Korea (ROK)** | **5** | V2022-2, V2022u-2, V2023-3, V2023u-2, V2024-3 |
 | **Nord-Korea (DPRK)** | **4** | V2022-2, V2022u-2, V2023-3, V2023u-2 |
 | **Taiwan** | **2** | V2023-1, V2023-3 |
+
+⚠ **Japan og Kina sto opprinnelig oppført med 7 hver — rettet 6. august 2026.** Belegglistene inneholder 8 og 9 spørsmål, og tallet 7 stemte under ingen lesning: talt i TERMINER er begge 6. Feilen ble funnet av skjelettagenten, som nektet å tallfeste dem før lista og tallet stemte overens. Kontrollregnet: 8 + 9 + 5 + 4 + 2 teller navngivelser, ikke spørsmål — flere spørsmål navngir mer enn ett land.
+
+⚠ **Taiwans to spørsmål er fra SAMME termin** (V2023). Talt i terminer er Taiwan 1 av 8, ikke 2 — bruk enheten som står i kolonneoverskriften, og skriv den alltid ut.
 
 ⚠ **Tellingen over er en opptelling av navngivning i spørsmålstekst, ikke en
 klyngefordeling — radene overlapper og summerer seg ikke til 21.** Japan og

@@ -615,10 +615,17 @@ spørsmålene (regional sammenheng; kjønnsrelasjoner og statens rolle) handler 
 dem. **Boka sier dette til leseren** i kap. 0.1, slik at hun ser at skjevheten er
 et trekk ved eksamen og ikke ved forfatteren.
 
-⚠ **Landtellingen i analysens § 3.5 er internt inkonsistent, og boka skal derfor
-ikke tallfeste Japan og Kina.** Tabellen påstår 7 spørsmål for Japan, men lister 8
-belegg; den påstår 7 for Folkerepublikken Kina, men lister 9. **Boka oppgir intet
-tall for Japan eller Kina** — den sier at de er kjerneparet og navngis oftest.
+⚠ **Landtellingen var internt inkonsistent — RETTET i analysen 6. august 2026,
+og boka KAN nå tallfeste alle fem.** Tabellen påstod 7 spørsmål for både Japan og
+Kina; belegglistene inneholder 8 og 9, og 7 stemte under ingen lesning (talt i
+terminer er begge 6). Analysens § 3.5 er rettet til **Japan 8 av 21** og
+**Folkerepublikken Kina 9 av 21**, med belegglistene uendret.
+
+Feilen ble funnet av skjelettagenten, som nektet å tallfeste før liste og tall
+stemte overens — samme disiplin som fanget «6 av de 9 settene» i inter1000.
+
+⚠ Og enheten må skrives ut: **Taiwans to spørsmål er fra SAMME termin** (V2023),
+så talt i terminer er Taiwan 1 av 8, ikke 2. Kolonnen teller SPØRSMÅL av 21.
 Tallene som stemmer med sine belegglister, og som derfor kan skrives:
 **Sør-Korea 5 av 21** (V2022-2, V2022u-2, V2023-3, V2023u-2, V2024-3) ·
 **Nord-Korea 4 av 21** (V2022-2, V2022u-2, V2023-3, V2023u-2) ·
