@@ -34,7 +34,33 @@ målt på filnavn fordi de ikke har indeks). De eldre mappene ga et reelt tilleg
 `MAT-INF1100` finnes *bare* der, og `PSY1250`, `PSYC1220`, `STV1010`, `IN1140`,
 `FIL1005` og `PSYC1230` fikk påfyll derfra.
 
-## Dekning per 31. juli 2026
+## Dekning per 6. august 2026
+
+| kildegrunnlag | emner | andel |
+|---|---|---|
+| Ferdig bok | **23** | **17 %** |
+| Solid grunnlag (≥5 eksamensterminer), ingen bok | 31 | 23 % |
+| Tynt grunnlag (2–4 terminer) | 20 | 15 % |
+| Svært tynt (0–1 termin) | 20 | 15 % |
+| Ingen kilder i det hele tatt | 42 | 31 % |
+
+**113 av 136 emner mangler bok.** Av dem er **31 byggeklare nå** (solid
+grunnlag), 20 har tynt grunnlag, og **62 kan ikke bygges kalibrert** med
+dagens arkiv.
+
+| mål | bok i dag | bok + solid | + tynt |
+|---|---|---|---|
+| Løp der ALLE 1.-semesteremner er dekket | 11 av 103 (11 %) | 23 (22 %) | 38 (37 %) |
+| Løp der minst ett emne er dekket | 70 (68 %) | 87 (84 %) | 93 (90 %) |
+
+⚠ **Størst uttelling per bok: EXFAC03-familien.** Fire varianter mangler —
+`EXFAC03-SPR` (6 løp), `-HARK` (4), `-NORD` (3), `-EAST` (2) — til sammen
+**15 studieløp**, alle med solid grunnlag. Vi har allerede bygget to søsken
+(`SVEXFAC03`, `JFEXFAC04`), så arketypen og kontraktsmalen er på plass.
+
+⚠ `HON1000` treffer 10 løp, men har **null kilder** i arkivet.
+
+## Dekning per 31. juli 2026 (historisk)
 
 | kildegrunnlag | emner | andel |
 |---|---|---|
