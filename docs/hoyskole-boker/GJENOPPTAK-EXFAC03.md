@@ -1,96 +1,79 @@
 # Gjenopptak: de fire EXFAC03-variantene
 
-Skrevet 6. august 2026 da arbeidet ble satt på pause. **Alt er committet og
-pushet. Ingen fil er halvskrevet** — de fire agentene ble stoppet kontrollert
-rett før de begynte på skjelettene.
+Oppdatert 6. august 2026. **Alt er committet og pushet, ingenting halvskrevet.**
 
 ## Hvor vi står
 
-| variant | analyse | skjelett | kontrakt | bygg |
-|---|---|---|---|---|
-| `exfac03-spr` | ✅ 1038 linjer | — | — | — |
-| `exfac03-hark` | ✅ 1079 linjer | — | — | — |
-| `exfac03-nord` | ✅ 850 linjer | — | — | — |
-| `exfac03-east` | ✅ 1050 linjer | — | — | — |
+| variant | analyse | skjelett | kontrakt | config | bygg |
+|---|---|---|---|---|---|
+| `exfac03-spr` | ✅ | ✅ 47 kap | ✅ | ✅ | ✅ **LIVE** — 57 filer, 857 fc, 894 quiz |
+| `exfac03-hark` | ✅ | ✅ 38 kap | ✅ | ✅ | — byggetre klart |
+| `exfac03-nord` | ✅ | ✅ 48 kap | ✅ | ✅ | — byggetre klart |
+| `exfac03-east` | ✅ | ✅ 40 kap | ✅ | ✅ | — byggetre klart |
 
-## Neste steg: fire skjeletter
+Byggetrærne finnes allerede: `.claude/worktrees/bok-exfac03-{hark,nord,east}`,
+hver på sin gren `bok/exfac03-*`.
 
-Én agent per variant. Analysen ligger i
-`docs/hoyskole-boker/<emne>/EKSAMENSANALYSE.md` og er grunnlaget.
+## Neste steg: bygg de tre gjenstående
 
-Krav som må stå i hver brief (alle er lærdommer som har kostet oss noe før):
+**Én bok om gangen, 4–6 agenter.** 22 agenter samtidig staller på API-overlast.
+SPR ble bygget med fem agenter fordelt på deler, og det fungerte.
 
-- **v3-format**, ellers stopper `wire-bok.py` på assert:
-  ```
-  #### Kapittel 3.1: Tittelen
-  **id:** `exfac03-spr-3-1` · **number:** 3.1 · **estimatedMinutes:** 75 · **prerequisites:** `exfac03-spr-1-1`
+Filantall: HARK 38+7 = 45 · NORD 48+9 = 57 · EAST 40+8 = 48.
 
-  - **Kapitteltype:** tema.
-  - **Description:** Én til tre setninger, REN TEKST.
+Hver byggeagent trenger i briefen:
+- kontrakt + skjelett + analyse som lesning, og en ferdig bok som strukturmal
+- **LENGDE-TELL i BEGGE retninger.** Rotasjon, ikke retning: fasiten lengst i
+  ca. én av fire, kortest i ca. én av fire. Rotårsaken er at distraktorene får
+  en påhengt begrunnelsesklausul mens fasiten står som bar etikett — fjern
+  fyllet fra distraktorene. Mål selv på staging; `quiz-lengdesjekk.mjs` virker
+  først etter wiring.
+- quizforklaringer skal aldri vise til et alternativs plassering
+- `description` ren tekst · «Sist du var her» forbudt · byggespråk forbudt ·
+  `difficulty` = `lett|middels|vanskelig` · deloppgaver a), b), c)
+- **hvert prøvekapittel MÅ ha fire prøver** (wire-bok hardkoder teksten)
 
-  **Belegg:** …
-  ```
-- `prerequisites` MÅ stå i backticks. **Tom linje etter Description**, ellers
-  blør den inn i Belegg-blokka. Aldri prosa-forkunnskaper.
-- **Hvert prøvekapittel MÅ ha FIRE prøver** — `wire-bok.py` hardkoder
-  «Fire prøver …» i beskrivelsen.
-- `description` er ren tekst: ingen `$matte$`, `**fet**` eller backticks.
-- «Sist du var her» forbudt, også i overskrifter. «## Løkke 3» forbudt.
-- Minst 500 quiz og 500 flashcards per bok.
-- Kjør `python3 scripts/hoyskolebok/sjekk-skjelett.py <emne>` før ferdigmelding.
+## Variantspesifikt — det som skiller dem
 
-## ⚠ Det viktigste å ikke glemme
+**HARK.** Emnet la om fra essay til **mappe**, og bare ÉN termin (H2024)
+dokumenterer dagens form. Fem av seks terminer er det utgåtte essayformatet.
+Kontrakten har hard port på formrammen. Ingen oppgave er «skriv dette på 45
+minutter» — mappa er reviderte tekster, så alle øvelser har avgrensningstrinn
+og revisjonsrunde. Del 6 er bevisst overdimensjonert mot frekvens (1 av 6
+terminer, men 2 av mappas 3 oppgaver) — ikke «rett» den ned.
 
-**Dette er fire ULIKE fag, ikke varianter av ett.** De deler emnekodefamilie og
-rollen som obligatorisk examen facultatum, men:
+**NORD.** Mappe med **bestått / ikke bestått — ingen gradert skala**. Det snur
+husets karakterregel: «godkjent er målet, ikke perfeksjon», med en
+bestått-på-marginen-besvarelse og registrene *ikke godkjent / godkjent
+(minstekravet) / klart over minstekravet*. `A-besvarelse`, `karakterskala` og
+`fire timer` er forbudte termer. Prøvekapitlene er **mappeøvelser**, ikke
+eksamenssett.
 
-| variant | faget | terminer |
-|---|---|---|
-| SPR | fonetikk og fonologi, transkripsjon | 6 |
-| HARK | humanioras idéhistorie og periodisering | 6 |
-| NORD | nordiske studier (mappevurdering) | 6 |
-| EAST | Øst-Asia som region, IR, kjønn i Japan/Kina | 8 |
+**EAST.** Tre spørsmål à **400–800 ord** som teller likt — ordgrensen er bokas
+ryggrad, og alle prøver og modellbesvarelser skal oppgi ordtall. Skjerpet
+nøytralitet (Kina, Japans krigshistorie, Taiwan, Korea) med fem vippe-case og
+en uttømmende robust-liste som ikke skal balanseres bort. Landbalansen er
+strukturell: ett kapittel per land, identisk quizkvote.
 
-`svexfac03/BYGGEKONTRAKT.md` er **formmal, ikke innholdskilde**.
-
-**Arkivene er tynne** (6–10 filer hver, mot 40 terminer for JFEXFAC04). Hver
-bok må si hva den er kalibrert mot og aldri antyde bredere dekning. For HARK
-er eksamen **én essayoppgave per termin**, så sjangertrening veier tyngre enn
-temabredde.
-
-**Variantspesifikke hensyn analysene har dokumentert:**
-
-- **SPR:** IPA-tegn må overleve i JSON og skal IKKE ligge i `$…$` —
-  `sjekk-latex.py` slår ut på løs backslash. Analysen har en egen seksjon.
-- **NORD:** mappevurdering, ikke skoleeksamen. Det endrer hele sjangertreningen.
-- **EAST:** går om VÅREN (de andre om høsten), oppgavene har fast ordgrense
-  (400–800 ord × 3 spørsmål), og veiledningene finnes på både norsk og engelsk.
-  Nøytralitetskravet er skjerpet — Kina, Japans krigshistorie, Taiwan, Korea.
-
-## Etter skjelettene
-
-Kontrakt per variant (mal: `svexfac03/BYGGEKONTRAKT.md` og
-`juroff1500/BYGGEKONTRAKT.md`), så bygg i eget worktree per bok:
+## Etter bygging, per bok
 
 ```bash
-git worktree add .claude/worktrees/bok-<emne> -b bok/<emne>
-# … agenter skriver kapitler + quiz-staging …
 python3 scripts/hoyskolebok/wire-bok.py <emne>
 rm -rf src/lib/data/quiz-staging
 python3 scripts/hoyskolebok/sjekk-bok.py <emne>
+# merge til main:
+python3 scripts/hoyskolebok/los-bokmerge.py && npx tsc --noEmit && npm run build
 ```
 
 ⚠ **Tell quiz-staging mot antall temakapitler FØR wiring.** JUROFF1500 ble
-wiret med 750 av 774 spørsmål fordi ett kapittels quizfil ble skrevet etter
-wiringen — og bokporten var grønn likevel, siden 750 er godt over minstekravet
-på 500.
-
-⚠ Ved merge til main: `python3 scripts/hoyskolebok/los-bokmerge.py` løser de
-fem wiringkonfliktene. Kjør `npx tsc --noEmit` etterpå.
+wiret med 750 av 774 spørsmål fordi én quizfil ble skrevet etter wiringen — og
+bokporten var grønn likevel, siden 750 er over minstekravet på 500.
 
 ## Kontekst
 
-Kartleggingen i `UIO-FORSTESEMESTER-KARTLEGGING.md`: 23 av 136
-1.-semesteremner har bok. Disse fire dekker til sammen **15 studieløp** og er
-den billigste veien videre. Målt på nytt med
-`python3 scripts/hoyskolebok/mal-forstesemester.py`.
+`UIO-FORSTESEMESTER-KARTLEGGING.md`: 23 av 136 1.-semesteremner har bok. De
+fire EXFAC03-variantene dekker **12 unike studieløp** (ikke 15 — radsummen
+dobbelttelte «Nordiske studier» og to studieretninger).
+
+⚠ De fire er IKKE varianter av samme emne. `SVEXFAC03`- og
+`JFEXFAC04`-kontraktene er **formmal, ikke innholdskilde**.
