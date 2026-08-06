@@ -295,6 +295,31 @@ erJus = lambda cid, t: bool(re.search(r'^jus', cid, re.I)
 Endrer noen tittelen senere, forsvinner forbeholdet stille — ingen port
 fanger det.
 
+## LENGDE-TELL måler skjevhet i BEGGE retninger (nytt 6. august 2026)
+
+Fasiten skal verken være systematisk **lengst** eller systematisk **kortest**.
+Sjansenivået er 25 % ved fire alternativer; taket er 35 % — i hver retning.
+
+⚠ **Rådet «forleng distraktorene» er utilstrekkelig alene, og kan gjøre skaden
+verre.** Målt i EXFAC03-SPR: agentene fulgte rådet, boka havnet på 21 %
+fasit-lengst — men **ni filer lå over taket i motsatt retning**, opptil 80 %
+fasit-kortest. En student kunne scoret langt over sjansenivå ved å velge det
+korteste alternativet.
+
+**Det operasjonelle kravet er rotasjon, ikke retning:**
+
+- Metrikken teller **strengt** lengste og strengt korteste. Å skrive
+  distraktorene «nesten like lange» hjelper ikke — et forsøk der fasiten var
+  8 tegn lengre ga fortsatt 100 %.
+- Sikt mot at fasiten er lengst i omtrent én av fire spørsmål, kortest i
+  omtrent én av fire, og i midten resten.
+- **Roter hvilket alternativ som er lengst.** Da lander banken på 25 % begge
+  veier — verifisert.
+
+Mål begge tall per fil før ferdigmelding. `quiz-lengdesjekk.mjs` leser
+`quiz-data-<emne>.ts` og virker først etter wiring, så bruk et staging-skript
+med samme metrikk under bygging.
+
 ## SKJELETT.md må være v3 — tre feller wire-bok stopper på (nytt 2. august 2026)
 
 `wire-bok.py` parser skjelettet med to mønstre, og finner den ingen kapitler,
