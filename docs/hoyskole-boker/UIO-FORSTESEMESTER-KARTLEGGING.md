@@ -54,9 +54,18 @@ dagens arkiv.
 | Løp der minst ett emne er dekket | 70 (68 %) | 87 (84 %) | 93 (90 %) |
 
 ⚠ **Størst uttelling per bok: EXFAC03-familien.** Fire varianter mangler —
-`EXFAC03-SPR` (6 løp), `-HARK` (4), `-NORD` (3), `-EAST` (2) — til sammen
-**15 studieløp**, alle med solid grunnlag. Vi har allerede bygget to søsken
-(`SVEXFAC03`, `JFEXFAC04`), så arketypen og kontraktsmalen er på plass.
+`EXFAC03-SPR` (6 rader), `-HARK` (4), `-NORD` (3), `-EAST` (2).
+
+**Rekkevidden er 12 UNIKE studieløp, ikke 15.** Radsummen er 15, men
+«Nordiske studier» ligger i både SPR og NORD, og to rader er studieretninger
+innenfor samme program. Tell unike programnavn, ikke rader — samme
+dobbelttellingsfelle som «6 av de 9 settene» i inter1000.
+
+⚠ Og de fire er IKKE varianter av samme emne. De deler emnekodefamilie og
+rollen som obligatorisk examen facultatum, men innholdet er fire ulike fag:
+SPR er fonetikk og fonologi, HARK er humanioras idéhistorie, NORD er nordisk
+språk og litteratur, EAST er Øst-Asia som region. `SVEXFAC03`- og
+`JFEXFAC04`-kontraktene er FORMMAL, ikke innholdskilder.
 
 ⚠ `HON1000` treffer 10 løp, men har **null kilder** i arkivet.
 
