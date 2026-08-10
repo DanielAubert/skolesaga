@@ -166,7 +166,7 @@ const quizData_r2: Record<string, QuizQuestion[]> = {
   'r2-1-7': [
   {
     question: 'Hvorfor må en rekursiv funksjon i Python ha et basistilfelle?',
-    options: ['For at rekursjonen skal stoppe — uten basistilfelle kaller funksjonen seg selv i det uendelige', 'For at funksjonen skal kjøre raskere', 'Fordi Python krever minst to return-setninger', 'For å unngå avrundingsfeil'],
+    options: ['For at rekursjonen skal stoppe — uten basistilfelle kaller funksjonen seg selv i det uendelige', 'For at funksjonen skal kjøre raskere enn en tilsvarende løsning skrevet med en vanlig løkke', 'Fordi Python krever at enhver rekursiv funksjon har minst to ulike return-setninger i seg', 'For å unngå avrundingsfeil'],
     explanation: 'Basistilfellet er stoppbetingelsen. Uten det ville funksjonen kalt seg selv uten ende, og programmet krasjer med "maximum recursion depth exceeded".',
   },
   {
@@ -186,7 +186,7 @@ const quizData_r2: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er hovedproblemet med en naiv rekursiv implementasjon av Fibonacci i Python?',
-    options: ['Den beregner de samme verdiene mange ganger, så kjøretiden vokser eksplosivt med $n$', 'Den gir feil svar for store $n$', 'Python støtter ikke rekursjon', 'Den bruker for lite minne'],
+    options: ['Den beregner de samme verdiene mange ganger, så kjøretiden vokser eksplosivt med $n$', 'Den gir feil svar for store $n$', 'Python støtter ikke rekursjon i funksjoner uten at man først slår på en egen innstilling', 'Den bruker for lite minne til å kunne mellomlagre de resultatene den regner ut underveis'],
     explanation: 'fib(n) kaller både fib(n-1) og fib(n-2), som igjen gjør egne kall — antall kall vokser omtrent eksponentielt. En løkke (iterativ løsning) er mye mer effektiv.',
   },
   ],
@@ -274,7 +274,7 @@ const quizData_r2: Record<string, QuizQuestion[]> = {
   'r2-2-4': [
   {
     question: 'Hva er en Riemannsum?',
-    options: ['En sum av rektangelarealer som tilnærmer arealet under en graf', 'Summen av en uendelig geometrisk rekke', 'Differansen mellom to antideriverte', 'Arealet av et trapes under grafen'],
+    options: ['En sum av rektangelarealer som tilnærmer arealet under en graf', 'Summen av en uendelig geometrisk rekke med kvotient mindre enn én', 'Differansen mellom to antideriverte i endepunktene av intervallet', 'Arealet av ett enkelt trapes tegnet under grafen på intervallet'],
     explanation: 'Vi deler intervallet i $n$ delintervaller og summerer arealene av rektangler med høyde lik funksjonsverdien i et punkt i hvert delintervall.',
   },
   {
@@ -289,7 +289,7 @@ const quizData_r2: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvordan defineres det bestemte integralet $\\int_a^b f(x) \\, dx$?',
-    options: ['Som grenseverdien av Riemannsummer når antall delintervaller går mot uendelig', 'Som $F(b) - F(a)$ per definisjon', 'Som arealet av det største rektangelet under grafen', 'Som gjennomsnittet av over- og undersummen for $n = 10$'],
+    options: ['Som grenseverdien av Riemannsummer når antall delintervaller går mot uendelig', 'Som $F(b) - F(a)$ per definisjon', 'Som arealet av det aller største rektangelet som får plass under grafen på intervallet', 'Som gjennomsnittet av over- og undersummen for $n = 10$'],
     explanation: 'Definisjonen er $\\int_a^b f(x)\\,dx = \\lim_{n \\to \\infty} \\sum_{i=1}^{n} f(x_i)\\Delta x$. At dette kan beregnes som $F(b) - F(a)$ er innholdet i fundamentalsetningen — et teorem, ikke definisjonen.',
   },
   {
@@ -328,7 +328,7 @@ const quizData_r2: Record<string, QuizQuestion[]> = {
   'r2-2-6': [
   {
     question: 'Hva blir det bestemte integralet av en funksjon på et intervall der grafen ligger under $x$-aksen?',
-    options: ['Negativt — integralet regner arealet med fortegn', 'Positivt — integraler er alltid positive', 'Null', 'Udefinert'],
+    options: ['Negativt — integralet regner arealet med fortegn', 'Positivt — bestemte integraler er alltid positive', 'Null', 'Udefinert'],
     explanation: 'Det bestemte integralet er et fortegnsareal: områder under $x$-aksen bidrar negativt. Vil vi ha det geometriske arealet, må vi ta absoluttverdi av bidragene.',
   },
   {
@@ -338,7 +338,7 @@ const quizData_r2: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvordan finner du det absolutte arealet mellom grafen til $f$ og $x$-aksen når $f$ skifter fortegn på intervallet?',
-    options: ['Del opp intervallet i nullpunktene og summer absoluttverdiene av integralene over hver del', 'Integrer over hele intervallet og ta absoluttverdien av svaret', 'Integrer bare der funksjonen er positiv', 'Bruk $|f(b) - f(a)|$'],
+    options: ['Del opp intervallet i nullpunktene og summer absoluttverdiene av integralene over hver del', 'Integrer over hele intervallet under ett og ta til slutt absoluttverdien av det svaret du får', 'Integrer bare der funksjonen er positiv', 'Bruk $|f(b) - f(a)|$'],
     explanation: 'Positive og negative bidrag kan utlikne hverandre. Derfor må vi finne nullpunktene, integrere hver del for seg, og summere absoluttverdiene.',
   },
   {
@@ -348,7 +348,7 @@ const quizData_r2: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'En bil har fart $v(t)$ (i m/s) ved tiden $t$. Hva representerer $\\int_0^{10} v(t) \\, dt$ når $v(t) \\geq 0$?',
-    options: ['Strekningen bilen kjører i løpet av de 10 første sekundene', 'Bilens akselerasjon etter 10 sekunder', 'Bilens gjennomsnittsfart', 'Bilens fart etter 10 sekunder'],
+    options: ['Strekningen bilen kjører i løpet av de 10 første sekundene', 'Bilens akselerasjon målt ved slutten av de 10 første sekundene', 'Bilens gjennomsnittsfart gjennom hele det målte tidsrommet', 'Bilens momentane fart i det øyeblikket klokken viser 10 sekunder'],
     explanation: 'Integralet av farten gir tilbakelagt strekning — arealet under fartsgrafen. Dette er en sentral praktisk tolkning av integralet.',
   },
   ],
@@ -463,7 +463,7 @@ const quizData_r2: Record<string, QuizQuestion[]> = {
   'r2-3-4': [
   {
     question: 'Hva er ideen bak trapesmetoden for numerisk integrasjon?',
-    options: ['Tilnærme arealet under grafen med trapeser, der grafen erstattes av rette linjestykker mellom punktene', 'Tilnærme arealet med rektangler med høyde lik venstre endepunkt', 'Tilnærme grafen med parabler gjennom tre og tre punkter', 'Velge tilfeldige punkter og telle hvor mange som ligger under grafen'],
+    options: ['Tilnærme arealet under grafen med trapeser, der grafen erstattes av rette linjestykker mellom punktene', 'Tilnærme arealet med rektangler med høyde lik venstre endepunkt', 'Tilnærme grafen med parabler gjennom tre og tre punkter', 'Velge helt tilfeldige punkter i et rektangel rundt grafen og telle hvor mange av dem som havner under grafen'],
     explanation: 'Trapesmetoden forbinder punktene på grafen med rette linjer og summerer trapesarealene. Parabeltilnærming er Simpsons metode, og tilfeldige punkter er Monte Carlo.',
   },
   {
@@ -981,17 +981,17 @@ const quizData_r2: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvorfor beskrives linjer i rommet med parameterframstilling og ikke med én likning som i planet?',
-    options: ['Én lineær likning i rommet beskriver et plan, ikke en linje', 'Det er bare en konvensjon', 'Linjer i rommet har ingen retningsvektor', 'Likningsformen finnes ikke for skrå linjer'],
+    options: ['Én lineær likning i rommet beskriver et plan, ikke en linje', 'Det er bare en konvensjon som lærebøkene har blitt enige om', 'Linjer i rommet har ingen entydig retningsvektor å regne med', 'Likningsformen finnes ikke for skrå linjer'],
     explanation: 'I rommet gir én lineær likning $ax + by + cz + d = 0$ et helt plan. En linje (et endimensjonalt objekt) trenger parameterform — eller to plan-likninger samtidig.',
   },
   {
     question: 'Hva kjennetegner to vindskjeve linjer?',
-    options: ['De er ikke parallelle og skjærer hverandre ikke', 'De skjærer hverandre i nøyaktig ett punkt', 'De er parallelle, men ikke sammenfallende', 'De ligger i samme plan'],
+    options: ['De er ikke parallelle og skjærer hverandre ikke', 'De skjærer hverandre i nøyaktig ett felles punkt i rommet', 'De er parallelle, men ikke sammenfallende noe sted', 'De ligger begge i ett og samme plan i rommet uten å møtes'],
     explanation: 'Vindskjeve linjer finnes bare i rommet: de hverken møtes eller er parallelle, og de ligger ikke i noe felles plan.',
   },
   {
     question: 'Hvordan finner du vinkelen mellom to linjer i rommet?',
-    options: ['Bruk skalarproduktformelen på retningsvektorene: $\\cos\\theta = \\frac{|\\vec{u} \\cdot \\vec{v}|}{|\\vec{u}||\\vec{v}|}$', 'Beregn avstanden mellom linjene', 'Bruk kryssproduktet av punktene på linjene', 'Finn skjæringspunktet og mål vinkelen der med gradskive'],
+    options: ['Bruk skalarproduktformelen på retningsvektorene: $\\cos\\theta = \\frac{|\\vec{u} \\cdot \\vec{v}|}{|\\vec{u}||\\vec{v}|}$', 'Beregn avstanden mellom linjene', 'Bruk kryssproduktet av punktene på linjene', 'Finn først skjæringspunktet mellom de to linjene, og mål deretter vinkelen mellom dem der med en gradskive på papiret'],
     explanation: 'Vinkelen mellom linjer bestemmes av retningsvektorene. Absoluttverdien sørger for at vi får den spisse vinkelen mellom linjene.',
   },
   {
@@ -1018,7 +1018,7 @@ const quizData_r2: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvordan finner du avstanden mellom to PARALLELLE plan?',
-    options: ['Velg et punkt i det ene planet og beregn avstanden fra punktet til det andre planet', 'Trekk konstantleddene fra hverandre direkte', 'Avstanden er alltid null', 'Beregn vinkelen mellom normalvektorene'],
+    options: ['Velg et punkt i det ene planet og beregn avstanden fra punktet til det andre planet', 'Trekk konstantleddene i de to planlikningene fra hverandre direkte og bruk differansen som avstand', 'Avstanden mellom to parallelle plan er alltid null, uansett hvor langt fra hverandre de ligger', 'Beregn vinkelen mellom normalvektorene'],
     explanation: 'Siden planene er parallelle, er avstanden lik overalt. Vi velger derfor et vilkårlig punkt i det ene planet og bruker punkt-plan-formelen.',
   },
   {
@@ -1111,12 +1111,12 @@ const quizData_r2: Record<string, QuizQuestion[]> = {
   'r2-6-4': [
   {
     question: 'Hva kjennetegner en logistisk vekstmodell i forhold til en eksponentiell?',
-    options: ['Veksten flater ut mot en øvre grense (bæreevnen)', 'Veksten er konstant hele tiden', 'Veksten øker raskere og raskere uten grense', 'Modellen kan bare beskrive avtakende størrelser'],
+    options: ['Veksten flater ut mot en øvre grense (bæreevnen)', 'Veksten holder seg helt konstant hele tiden uten å endre seg', 'Veksten øker raskere og raskere helt uten noen øvre grense', 'Modellen kan bare beskrive størrelser som avtar over tid'],
     explanation: 'Logistisk vekst starter omtrent eksponentielt, men bremses etter hvert og nærmer seg bæreevnen. Ren eksponentiell vekst fortsetter ubegrenset.',
   },
   {
     question: 'En bakteriekultur følger $N(t) = N_0 \\cdot e^{kt}$. Hva betyr det at $k > 0$?',
-    options: ['Kulturen vokser eksponentielt', 'Kulturen dør ut', 'Antallet er konstant', 'Veksten er lineær'],
+    options: ['Kulturen vokser eksponentielt', 'Kulturen dør gradvis ut over tid', 'Antallet holder seg helt konstant', 'Veksten er helt lineær over tid'],
     explanation: 'Konstanten $k$ er den relative vekstraten. Positiv $k$ gir eksponentiell vekst; negativ $k$ gir eksponentiell nedbrytning.',
   },
   {
@@ -1131,7 +1131,7 @@ const quizData_r2: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er et naturlig FØRSTE steg i modelleringsprosessen når du har et reelt problem?',
-    options: ['Forenkle problemet og identifisere de viktigste variablene', 'Velge en tilfeldig formel og justere den etterpå', 'Beregne den deriverte', 'Tegne grafen til en sinusfunksjon'],
+    options: ['Forenkle problemet og identifisere de viktigste variablene', 'Velge en helt tilfeldig formel og justere den litt i etterkant', 'Beregne den deriverte', 'Tegne grafen til en sinusfunksjon'],
     explanation: 'Modellering starter med å forenkle virkeligheten: Hvilke størrelser er viktige, og hva kan ignoreres? Deretter velges modelltype, parametere bestemmes, og modellen vurderes mot data.',
   },
   ],
@@ -1165,7 +1165,7 @@ const quizData_r2: Record<string, QuizQuestion[]> = {
   'r2-6-6': [
   {
     question: 'Hvilken bevisteknikk brukes i det klassiske beviset for at $\\sqrt{2}$ er irrasjonal?',
-    options: ['Motsigelsesbevis: anta at $\\sqrt{2} = \\frac{p}{q}$ er en forkortet brøk, og utled en selvmotsigelse', 'Induksjonsbevis over $n$', 'Direkte utregning av desimalene', 'Et moteksempel'],
+    options: ['Motsigelsesbevis: anta at $\\sqrt{2} = \\frac{p}{q}$ er en forkortet brøk, og utled en selvmotsigelse', 'Induksjonsbevis over $n$', 'Direkte utregning av alle desimalene i kvadratroten helt til man ser at mønsteret gjentar seg selv igjen', 'Et moteksempel'],
     explanation: 'Vi antar det motsatte av påstanden — at $\\sqrt{2}$ er rasjonal — og viser at både $p$ og $q$ da må være partall, i strid med at brøken var forkortet.',
   },
   {
@@ -1175,12 +1175,12 @@ const quizData_r2: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er ideen i Euklids bevis for at det finnes uendelig mange primtall?',
-    options: ['Anta endelig mange primtall, og se på produktet av alle pluss $1$ — det gir en motsigelse', 'List opp alle primtall under en million', 'Vis at hvert partall er summen av to primtall', 'Bruk induksjon på antall primtall'],
+    options: ['Anta endelig mange primtall, og se på produktet av alle pluss $1$ — det gir en motsigelse', 'List opp alle primtall under en million og vis at ingen av dem kan være det aller siste primtallet', 'Vis at hvert eneste partall kan skrives som summen av nøyaktig to primtall, uansett hvor stort det er', 'Bruk induksjon på antall primtall'],
     explanation: 'Tallet $N = p_1 p_2 \\cdots p_n + 1$ gir rest 1 ved divisjon med hvert av primtallene i listen, så det må ha en primfaktor utenfor listen — motsigelse.',
   },
   {
     question: 'Hva er den raskeste måten å MOTBEVISE en generell påstand som "alle tall på formen $n^2 + n + 41$ er primtall"?',
-    options: ['Finne ett moteksempel, f.eks. $n = 41$, som gir $41^2 + 41 + 41 = 41 \\cdot 43$', 'Bevise påstanden ved induksjon', 'Sjekke de 10 første verdiene av $n$', 'Vise at formelen vokser raskt'],
+    options: ['Finne ett moteksempel, f.eks. $n = 41$, som gir $41^2 + 41 + 41 = 41 \\cdot 43$', 'Bevise påstanden ved induksjon over alle naturlige tall etter tur, fra og med $n = 1$', 'Sjekke de 10 første verdiene av $n$', 'Vise at formelen vokser raskt'],
     explanation: 'Ett eneste moteksempel feller en allmenn påstand. For $n = 41$ er $n^2 + n + 41 = 41(41 + 1 + 1) = 41 \\cdot 43$, som ikke er et primtall.',
   },
   {
