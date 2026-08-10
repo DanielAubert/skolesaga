@@ -111,13 +111,25 @@ er borte. Tidligere ryddebølger fjernet akkurat det porten kjente igjen. Når d
 skjerper en port, mål alltid katalogen på nytt: «OK» fra en snever port er ikke
 belegg for at bøkene er rene.
 
+⚠ **Samme dag ble en beslektet blindsone målt i `sjekk-latex.py`.** Bøker bygges
+i git-arbeidstrær (`.claude/worktrees/bok-*`), og de har ikke `node_modules` —
+bare hovedtreet har det. Porten hoppet derfor stille over KaTeX-rendringen
+**nøyaktig der bøkene skrives**, og skrev «N matteuttrykk kontrollert» som om alt
+var sjekket. Målt mot `tma4110` fra et arbeidstre: 20 250 uttrykk rapportert
+kontrollert, null faktisk rendret. Den finner nå hovedtreets `node_modules` via
+`git rev-parse --git-common-dir`.
+
+**Generaliseringen er verdt å ta med videre:** en port som *degraderer stille* når
+en forutsetning mangler, er farligere enn en som feiler. Får du «OK» fra en port,
+sjekk at den faktisk kjørte det den sier den kjørte.
+
 ---
 
 ## E. Teknisk hygiene
 
 | # | Krav | Port |
 |---|---|---|
-| E1 | Ingen rå LaTeX-kommandoer i prosa (leseren ser `\color{blue}`). | ✅ `sjekk-latex.py` |
+| E1 | Ingen rå LaTeX-kommandoer i prosa (leseren ser `\color{blue}`), og all matte skal faktisk rendre i KaTeX. | ✅ `sjekk-latex.py` *(worktree-fiks 10. aug)* |
 | E2 | Ingen døde kryssbok-lenker; «kap. X.Y» er markdown-lenke, aldri død tekst. | ✅ `sjekk-bok.py` |
 | E3 | Figurer må lastes opp til Supabase Storage — ligger de bare i git, gir de 404 i produksjon. | ✅ `sjekk-figurer.py` |
 | E4 | Ber en oppgave om figur, SKAL løsningen vise faktisk SVG. | — les selv |
