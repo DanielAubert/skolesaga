@@ -35,6 +35,22 @@ lengre distraktor — og da ble «fasiten er nest lengst» det nye signalet.
 **Målet er derfor ikke en retning, men variasjon:** antallet distraktorer som er
 lengre enn fasiten skal fordele seg fritt på 0, 1, 2 og 3, ca. 25 % hver.
 
+## Hypotese: tvillingene kan VÆRE årsaken
+
+Flere agenter har uavhengig rapportert samme mønster i filene de retter:
+distraktor `[1]` er ofte en kort utgave av samme påstand som `[2]` eller `[3]`
+— «En vulkansk landform» ved siden av «En vulkansk landform bygget opp av
+størknet lava og aske».
+
+Ligger den korte tvillingen fast som `[1]` og den lange som `[2]`/`[3]`, får
+spørsmålet automatisk to distraktorer lengre enn fasiten, altså rang 3. Det ville
+forklare hvorfor `sosiologi-full`, `entrebed`, `helseoppvekst` og `geofag` alle
+klumper seg nettopp der.
+
+⚠ **Dette er en hypotese, ikke et målt funn.** Den er ikke etterprøvd mot
+katalogen. `sjekk-tvilling.mjs` kan brukes til å teste den: samvarierer
+tvillingraten med hvilken rang en fil klumper seg på?
+
 ## Verktøyet
 
 ```bash
