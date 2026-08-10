@@ -9,12 +9,16 @@ Oppdatert 6. august 2026. **Alt er committet og pushet, ingenting halvskrevet.**
 | `exfac03-spr` | ✅ | ✅ 47 kap | ✅ | ✅ | ✅ **LIVE** — 57 filer, 857 fc, 894 quiz |
 | `exfac03-east` | ✅ | ✅ 40 kap | ✅ | ✅ | ✅ **LIVE** — 48 filer |
 | `exfac03-hark` | ✅ | ✅ 38 kap | ✅ | ✅ | ✅ **LIVE** — 45 filer, 705 fc, 747 quiz |
-| `exfac03-nord` | ✅ | ✅ 48 kap | ✅ | ✅ | ⏳ bygges (6 agenter, 57 filer) |
+| `exfac03-nord` | ✅ | ✅ 48 kap | ✅ | ✅ | ✅ **LIVE** — 57 filer, 831 fc, 926 quiz |
 
-Katalogen står på **44 live bøker** etter HARK (10. august 2026).
+**ALLE FIRE VARIANTENE ER LIVE.** Katalogen står på **45 bøker** (10. august 2026).
 
-Byggetreet for NORD: `.claude/worktrees/bok-exfac03-nord` på gren
-`bok/exfac03-nord`.
+NORD var den første boka bygget med rang- og stubbekravet i agentbriefen fra
+start, og forskjellen er målbar: hele boka landet på 26 % fasit lengst,
+21 % kortest, rang 27/27/24/22 og 0 % stubber — **ingen fil over noe tak**,
+uten en eneste rettrunde fra koordinatoren. HARK trengte tre.
+
+
 
 ## Neste steg: bygg de tre gjenstående
 

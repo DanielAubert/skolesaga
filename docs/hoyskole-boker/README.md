@@ -298,7 +298,7 @@ Status: **analyse** = EKSAMENSANALYSE.md ferdig · **skjelett** = SKJELETT.md
 ferdig (= rammeverk komplett, klart for Opus-bygging via BYGGEKONTRAKT-MAL) ·
 **bok** = bygget og wiret i plattformen.
 
-Generert fra disken: **44** **bok** (live) · **1** ⚠ siste år — **bok** · **2** ⚠ siste år · **1** skjelett + **kontrakt** · **4** ⚠ avklar først · **150** skjelett · **2** analyse · **11** — · **1** ⛔ nedlagt (live bok) · **34** ⛔ nedlagt.
+Generert fra disken: **45** **bok** (live) · **1** ⚠ siste år — **bok** · **2** ⚠ siste år · **4** ⚠ avklar først · **150** skjelett · **2** analyse · **11** — · **1** ⛔ nedlagt (live bok) · **34** ⛔ nedlagt.
 
 | Emne | Arketype | Status |
 |---|---|---|
@@ -309,6 +309,7 @@ Generert fra disken: **44** **bok** (live) · **1** ⚠ siste år — **bok** ·
 | ECON2310 Makroøkonomi 2 (UiO) | regnefag | **bok** (live) |
 | EXFAC03-EAST Examen facultatum for Øst-Asia-studier (UiO) | — | **bok** (live) |
 | EXFAC03-HARK Examen facultatum for historie, arkeologi og konservering (UiO) | — | **bok** (live) |
+| EXFAC03-NORD Examen facultatum, nordiske studier (UiO) | — | **bok** (live) |
 | EXFAC03-SPR Examen facultatum, språkvitenskap (UiO) | — | **bok** (live) |
 | EXPHIL03 Examen philosophicum (UiO) | — | **bok** (live) |
 | FIL1001 Innføring i metafysikk og bevissthetsfilosofi (UiO) | drøfting | **bok** (live) |
@@ -349,7 +350,6 @@ Generert fra disken: **44** **bok** (live) · **1** ⚠ siste år — **bok** ·
 | TMA4135 Matematikk 4D (NTNU) | regnefag | ⚠ siste år — **bok** |
 | PSY1300 Kognitiv psykologi (UiO) | — | ⚠ siste år |
 | SOSANT1400 Antropologi og religion (UiO) | drøfting | ⚠ siste år |
-| EXFAC03-NORD Examen facultatum, nordiske studier (UiO) | — | skjelett + **kontrakt** |
 | MET 1190 Statistikk | — | ⚠ avklar først |
 | SOS4010 Kvalitativ metode — eksamensrettet lærebok (UiO, master) | — | ⚠ avklar først |
 | SOS4020 Kvantitativ metode — eksamensrettet lærebok (UiO, master) | — | ⚠ avklar først |
