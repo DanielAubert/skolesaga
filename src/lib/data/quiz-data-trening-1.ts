@@ -4,12 +4,12 @@ const quizData_trening_1: Record<string, QuizQuestion[]> = {
   'trening-1-1-1': [
   {
     question: 'Hva er treningslære?',
-    options: ["Læren om hvordan kroppen tilpasser seg trening, og hvordan trening planlegges og gjennomføres", "Læren om hvordan man planlegger oppvarming og bevegelighet før en idrettskonkurranse starter", "Læren om hvilke idrettsgrener som passer best til ulike kroppstyper og fysiske forutsetninger", "Læren om hvilket kosthold og kaloriinntak en utøver bør ha for å prestere best mulig i konkurranse"],
+    options: ["Læren om hvordan kroppen tilpasser seg trening, og hvordan trening planlegges og gjennomføres", "Læren om hvordan man planlegger oppvarming og bevegelighet før en idrettskonkurranse starter", "Læren om hvilke idrettsgrener som passer best til ulike kroppstyper og fysiske forutsetninger", "Læren om hvilket kosthold en utøver bør ha for å prestere best"],
     explanation: 'Treningslære bygger på fysiologi og bevegelseslære for å forstå treningseffekt.',
   },
   {
     question: 'Hva er forskjellen på fysisk aktivitet og trening?',
-    options: ["Trening er planlagt og målrettet fysisk aktivitet for å bedre form eller prestasjon", "Fysisk aktivitet er alltid hardere enn trening", "Fysisk aktivitet er alltid hardere og mer intens enn trening, som bare er lett og rolig bevegelse", "Trening er all bevegelse i hverdagen, mens fysisk aktivitet krever et bestemt mål og en fast plan"],
+    options: ["Trening er planlagt og målrettet fysisk aktivitet for å bedre form eller prestasjon", "Fysisk aktivitet er alltid hardere enn trening, og krever derfor langt mer restitusjon etterpå", "Fysisk aktivitet er alltid hardere og mer intens enn trening, som bare er lett og rolig bevegelse", "Trening er all bevegelse i hverdagen, mens fysisk aktivitet krever et bestemt mål og en fast plan"],
     explanation: 'All trening er fysisk aktivitet, men ikke all fysisk aktivitet er trening.',
   },
   {
@@ -19,19 +19,19 @@ const quizData_trening_1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvorfor er kunnskap om treningslære nyttig?',
-    options: ["Den gjør at man kan trene smartere, tryggere og mer effektivt", "Den erstatter selve treningen", "Den erstatter selve treningen, slik at kunnskap alene gir framgang uten at man behøver å trene", "Den har ingen praktisk verdi"],
+    options: ["Den gjør at man kan trene smartere, tryggere og mer effektivt", "Den erstatter selve treningen", "Den erstatter selve treningen, slik at kunnskap alene gir framgang uten at man behøver å trene", "Den har ingen praktisk verdi, ettersom kroppen tilpasser seg helt av seg selv"],
     explanation: 'Forståelse av prinsipper gir bedre planlegging og resultater.',
   },
   {
     question: 'Hvilke fagfelt bygger treningslære på?',
-    options: ["Anatomi, fysiologi og bevegelseslære", "Bare matematikk", "Bare idrettshistorie og hvordan ulike treningsmetoder har utviklet seg gjennom tidene", "Bare historie"],
+    options: ["Anatomi, fysiologi og bevegelseslære", "Bare matematikk", "Bare idrettshistorie og hvordan ulike treningsmetoder har utviklet seg gjennom tidene", "Bare historie og filosofiske ideer om kroppsidealer"],
     explanation: 'Treningslære kombinerer kunnskap om kroppens bygning og funksjon.',
   },
 ],
   'trening-1-1-2': [
   {
     question: 'Hva sier overbelastningsprinsippet?',
-    options: ["Kroppen må utsettes for en belastning høyere enn den er vant til for å utvikle seg", "Man bør alltid trene med samme belastning", "Full hvile og lite belastning gir best effekt, fordi kroppen bygger seg opp uten å bli utfordret", "Lett aktivitet som er lavere enn det kroppen er vant til, gir størst og raskest framgang over tid"],
+    options: ["Kroppen må utsettes for en belastning høyere enn den er vant til for å utvikle seg", "Man bør alltid trene med samme belastning, slik at kroppen får ro til å tilpasse seg over tid", "Full hvile og lite belastning gir best effekt, fordi kroppen bygger seg opp uten å bli utfordret", "Lett aktivitet som er lavere enn det kroppen er vant til, gir størst og raskest framgang over tid"],
     explanation: 'Tilpasning krever at belastningen overstiger det kroppen er vant til.',
   },
   {
@@ -41,17 +41,17 @@ const quizData_trening_1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva beskriver reversibilitetsprinsippet?',
-    options: ["At treningseffekten gradvis forsvinner når man slutter å trene", "At man blir sterkere av lang hvile", "At treningseffekten varer evig når den først er oppnådd, selv om man slutter helt å trene", "At man faktisk blir sterkere og bedre trent av lange perioder med full hvile uten belastning"],
+    options: ["At treningseffekten gradvis forsvinner når man slutter å trene", "At man blir sterkere av lang hvile, fordi musklene bygges opp mens man hviler", "At treningseffekten varer evig når den først er oppnådd, selv om man slutter helt å trene", "At man faktisk blir sterkere og bedre trent av lange perioder med full hvile uten belastning"],
     explanation: '«Use it or lose it» – formen går tilbake uten vedlikehold.',
   },
   {
     question: 'Hva er kjernen i progresjonsprinsippet?',
-    options: ["Belastningen må økes gradvis etter hvert som kroppen tilpasser seg", "Man skal øke belastningen så raskt som mulig", "Belastningen skal økes så raskt og bratt som mulig, slik at kroppen tvinges til å utvikle seg fort", "Belastningen skal være konstant for alltid"],
+    options: ["Belastningen må økes gradvis etter hvert som kroppen tilpasser seg", "Man skal øke belastningen så raskt som mulig", "Belastningen skal økes bratt hver eneste økt", "Belastningen skal være konstant for alltid"],
     explanation: 'Gradvis progresjon gir fortsatt utvikling og lavere skaderisiko.',
   },
   {
     question: 'Hvorfor er variasjonsprinsippet viktig?',
-    options: ["Variasjon gir nye stimuli og motvirker stagnasjon og overbelastning", "Variasjon hindrer all framgang", "Man bør aldri variere treningen, siden gjentakelse av nøyaktig samme økt gir den sikreste utviklingen", "Variasjon øker skaderisikoen kraftig, fordi kroppen stadig utsettes for helt nye og ukjente belastninger"],
+    options: ["Variasjon gir nye stimuli og motvirker stagnasjon og overbelastning", "Variasjon hindrer all framgang, fordi kroppen aldri får tilpasset seg én type belastning", "Man bør aldri variere treningen, siden gjentakelse av nøyaktig samme økt gir den sikreste utviklingen", "Variasjon øker skaderisikoen kraftig, fordi kroppen stadig utsettes for helt nye og ukjente belastninger"],
     explanation: 'Variasjon i øvelser og belastning holder utviklingen i gang.',
   },
 ],
@@ -68,17 +68,17 @@ const quizData_trening_1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva skjer hvis man trener neste økt for tidlig, gang på gang?',
-    options: ["Man risikerer stagnasjon og overtrening", "Man får alltid raskere framgang", "Skaderisikoen synker tydelig, fordi musklene hele tiden holdes varme og godt trente mellom øktene", "Kroppen blir aldri sliten"],
+    options: ["Man risikerer stagnasjon og overtrening", "Man får alltid raskere framgang", "Skaderisikoen synker tydelig, fordi musklene hele tiden holdes varme og godt trente mellom øktene", "Kroppen blir aldri sliten så lenge man trener jevnlig"],
     explanation: 'For tett trening uten nok restitusjon gir akkumulert tretthet.',
   },
   {
     question: 'Hvordan utnytter man superkompensasjon best?',
-    options: ["Ved å legge neste økt på toppen av superkompensasjonen", "Ved å aldri øke belastningen", "Ved å droppe all restitusjon og heller legge inn ekstra økter, slik at framgangen kommer raskere", "Ved å droppe restitusjon"],
+    options: ["Ved å legge neste økt på toppen av superkompensasjonen", "Ved å aldri øke belastningen", "Ved å droppe all restitusjon og heller legge inn ekstra økter, slik at framgangen kommer raskere", "Ved å droppe restitusjon og heller trene hver eneste dag uten pause"],
     explanation: 'Riktig timing av ny belastning bygger formen trinnvis oppover.',
   },
   {
     question: 'Hva skjer hvis hvilen mellom øktene blir for lang?',
-    options: ["Superkompensasjonen avtar, og man får mindre framgang", "Man blir alltid sterkere", "Kroppen overtrener av for lang hvile, fordi den mister vanen med å håndtere belastning og stress", "Effekten varer evig"],
+    options: ["Superkompensasjonen avtar, og man får mindre framgang", "Man blir alltid sterkere", "Kroppen overtrener av for lang hvile, fordi den mister vanen med å håndtere belastning og stress", "Effekten varer evig, uansett hvor lang tid det går mellom øktene"],
     explanation: 'Venter man for lenge, faller formen tilbake mot utgangsnivået.',
   },
 ],
@@ -90,12 +90,12 @@ const quizData_trening_1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvordan beregnes volum i styrketrening?',
-    options: ["Antall sett × repetisjoner × vekt", "Bare hvor lang pause man tar", "Bare hvor lang pause man tar mellom settene, siden lengre pauser gir mer total arbeidsmengde", "Bare hvor tungt man løfter"],
+    options: ["Antall sett × repetisjoner × vekt", "Bare hvor lang pause man tar", "Bare lengden på pausene", "Bare hvor tungt man løfter"],
     explanation: 'Volumbelastning er den totale mengden arbeid i økta.',
   },
   {
     question: 'Hva er treningsfrekvens?',
-    options: ["Hvor ofte man trener, vanligvis antall økter per uke", "Hvor mange repetisjoner per sett", "Hvor mange repetisjoner man gjennomfører i hvert sett før muskelen blir helt utmattet", "Hvor lang pause man tar"],
+    options: ["Hvor ofte man trener, vanligvis antall økter per uke", "Hvor mange repetisjoner per sett", "Hvor mange repetisjoner man gjennomfører i hvert sett før muskelen blir helt utmattet", "Hvor lang pause man tar mellom hvert sett i løpet av en treningsøkt"],
     explanation: 'Frekvens kan gjelde totalt antall økter eller per muskelgruppe.',
   },
   {
@@ -105,14 +105,14 @@ const quizData_trening_1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvordan påvirker pauselengden treningseffekten?',
-    options: ["Den avgjør hvor mye energisystemene rekker å restituere mellom sett", "Lange pauser gir alltid dårligere effekt", "Den har ingen betydning for effekten, siden det bare er selve arbeidet i settene som teller", "Pauselengden påvirker bare humøret og motivasjonen, ikke hvordan energisystemene restituerer seg"],
+    options: ["Den avgjør hvor mye energisystemene rekker å restituere mellom sett", "Lange pauser gir alltid dårligere effekt, uansett hvilken type trening man gjør", "Den har ingen betydning for effekten, siden det bare er selve arbeidet i settene som teller", "Pauselengden påvirker bare humøret og motivasjonen, ikke hvordan energisystemene restituerer seg"],
     explanation: 'Korte pauser gir mer metabolsk stress, lange pauser mer full kraft.',
   },
 ],
   'trening-1-1-5': [
   {
     question: 'Hva er hovedmålet med utholdenhetstrening?',
-    options: ["Å forbedre kroppens evne til å arbeide over tid", "Å løfte maksimalt tungt én gang", "Å øke bevegelsesutslaget i ett bestemt ledd slik at man blir mer smidig og bevegelig der", "Å øke bevegeligheten i ett ledd"],
+    options: ["Å forbedre kroppens evne til å arbeide over tid", "Å løfte maksimalt tungt én gang", "Å bli mer smidig i ett bestemt ledd", "Å øke bevegeligheten i ett ledd"],
     explanation: 'Utholdenhet handler om å opprettholde arbeid over lengre tid.',
   },
   {
@@ -122,17 +122,17 @@ const quizData_trening_1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er koordinasjon som treningsform?',
-    options: ["Samspillet mellom nervesystem og muskler for presise bevegelser", "Aerob utholdenhet", "Aerob utholdenhet, altså kroppens evne til å arbeide over lang tid ved hjelp av oksygen", "Maksimal styrke, altså den største kraften musklene klarer å utvikle mot en tung motstand"],
+    options: ["Samspillet mellom nervesystem og muskler for presise bevegelser", "Aerob utholdenhet, som først og fremst trenes gjennom lange og rolige økter", "Aerob utholdenhet, altså kroppens evne til å arbeide over lang tid ved hjelp av oksygen", "Maksimal styrke, altså den største kraften musklene klarer å utvikle mot en tung motstand"],
     explanation: 'God koordinasjon gir flyt og presisjon i bevegelser.',
   },
   {
     question: 'Hva er bevegelighet?',
-    options: ["Bevegelsesutslaget i et ledd", "Hvor lenge man kan trene", "Hvor lenge man klarer å holde et arbeid gående før musklene blir helt utmattet", "Hvor sterk en muskel er"],
+    options: ["Bevegelsesutslaget i et ledd", "Hvor lenge man kan trene", "Musklenes utholdenhet", "Hvor sterk en muskel er"],
     explanation: 'Bevegelighet handler om hvor stort utslag leddet har.',
   },
   {
     question: 'Hva avgjør hurtighet?',
-    options: ["Evnen til å utføre bevegelser raskest mulig, blant annet via nervesystemet", "Bare maksimal utholdenhet", "Bare aerob kapasitet, altså hjertets og lungenes evne til å forsyne musklene med oksygen over tid", "Bare bevegeligheten i leddene, altså hvor stort bevegelsesutslag man har når man utfører en øvelse"],
+    options: ["Evnen til å utføre bevegelser raskest mulig, blant annet via nervesystemet", "Bare maksimal utholdenhet, altså hvor lenge man klarer å holde farten oppe i et løp", "Bare aerob kapasitet, altså hjertets og lungenes evne til å forsyne musklene med oksygen over tid", "Bare bevegeligheten i leddene, altså hvor stort bevegelsesutslag man har når man utfører en øvelse"],
     explanation: 'Hurtighet avhenger blant annet av nervesystem og muskelfibertype.',
   },
 ],
@@ -144,12 +144,12 @@ const quizData_trening_1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er diafysen i et rørknokkel?',
-    options: ["Den lange midtdelen (skaftet) av knokkelen", "Endene av knokkelen", "De to fortykkede endene av knokkelen, som er dekket av leddbrusk og danner selve leddflaten", "En type ledd"],
+    options: ["Den lange midtdelen (skaftet) av knokkelen", "Endene av knokkelen", "De fortykkede endene med leddbrusk", "En type ledd"],
     explanation: 'Epifysene er endene, mens diafysen er den lange midtdelen.',
   },
   {
     question: 'Hvor produseres blodceller i kroppen?',
-    options: ["I den røde benmargen i enkelte knokler", "I leddbåndene", "I bruskvevet som dekker leddflatene og gjør at knoklene kan bevege seg mykt mot hverandre", "I bruskvevet"],
+    options: ["I den røde benmargen i enkelte knokler", "I leddbåndene", "I bruskvevet på leddflatene", "I bruskvevet"],
     explanation: 'Benmargen er stedet for produksjon av blodceller.',
   },
   {
@@ -166,7 +166,7 @@ const quizData_trening_1: Record<string, QuizQuestion[]> = {
   'trening-1-2-2': [
   {
     question: 'Hvilke tre muskeltyper finnes i kroppen?',
-    options: ["Skjelettmuskulatur, hjertemuskulatur og glatt muskulatur", "Bare hjerte- og glatt muskulatur", "Bare hjertemuskulatur og glatt muskulatur, som begge arbeider automatisk uten viljestyring", "Bare hurtige og langsomme fibre"],
+    options: ["Skjelettmuskulatur, hjertemuskulatur og glatt muskulatur", "Bare hjerte- og glatt muskulatur", "Bare muskler som arbeider uten viljestyring", "Bare hurtige og langsomme fibre"],
     explanation: 'De tre muskeltypene har ulik funksjon og styring.',
   },
   {
@@ -186,14 +186,14 @@ const quizData_trening_1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva kjennetegner hurtige (type II) muskelfibre?',
-    options: ["De utvikler stor kraft raskt, men blir fort slitne", "De produserer ikke kraft", "De arbeider lenge uten å bli slitne fordi de har mange mitokondrier", "De aktiveres kun ved lav intensitet og rolig utholdenhetsarbeid over tid"],
+    options: ["De utvikler stor kraft raskt, men blir fort slitne", "De produserer ikke kraft, men holder bare leddene på plass", "De arbeider lenge uten å bli slitne fordi de har mange mitokondrier", "De aktiveres kun ved lav intensitet og rolig utholdenhetsarbeid over tid"],
     explanation: 'Type II-fibre egner seg til kraft og hurtighet, type I til utholdenhet.',
   },
 ],
   'trening-1-2-3': [
   {
     question: 'Hva er en agonist i en bevegelse?',
-    options: ["Muskelen som hovedsakelig utfører bevegelsen", "Muskelen som motvirker bevegelsen", "Muskelen som virker motsatt og bremser eller motvirker bevegelsen", "Hjelpemuskelen som stabiliserer leddet uten selv å skape bevegelsen"],
+    options: ["Muskelen som hovedsakelig utfører bevegelsen", "Muskelen som motvirker bevegelsen", "Muskelen som bremser bevegelsen", "Hjelpemuskelen som stabiliserer leddet uten selv å skape bevegelsen"],
     explanation: 'Agonisten er hovedmuskelen, mens antagonisten virker motsatt.',
   },
   {
@@ -208,12 +208,12 @@ const quizData_trening_1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva gjør hamstrings (baksiden av låret) hovedsakelig?',
-    options: ["Bøyer kneet og strekker hofta", "Strekker kneet", "Bøyer albuleddet i overarmen kraftig", "Roterer hodet og stabiliserer nakken"],
+    options: ["Bøyer kneet og strekker hofta", "Strekker kneet og bøyer i hofteleddet", "Bøyer albuleddet i overarmen kraftig", "Roterer hodet og stabiliserer nakken"],
     explanation: 'Hamstrings er antagonist til quadriceps i kneleddet.',
   },
   {
     question: 'Hvorfor er det viktig å trene både agonister og antagonister?',
-    options: ["For å oppnå muskelbalanse og redusere skaderisiko", "For å bare trene én side av kroppen", "For å kunne trene bare den ene siden av kroppen mest mulig ensidig", "Fordi balanse mellom musklene ikke har betydning for skaderisikoen"],
+    options: ["For å oppnå muskelbalanse og redusere skaderisiko", "For å bare trene én side av kroppen", "For å trene mest mulig ensidig", "Fordi balanse mellom musklene ikke har betydning for skaderisikoen"],
     explanation: 'Muskelbalanse mellom motspillere beskytter ledd og kroppsholdning.',
   },
 ],
@@ -225,7 +225,7 @@ const quizData_trening_1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er ROM (Range of Motion)?',
-    options: ["Bevegelsesutslaget i et ledd", "Maksimal styrke", "Den største kraften en muskel kan utvikle i én sammentrekning", "Aerob kapasitet"],
+    options: ["Bevegelsesutslaget i et ledd", "Maksimal styrke", "Muskelens største kraft", "Aerob kapasitet"],
     explanation: 'ROM beskriver hvor stort utslag leddet kan bevege seg gjennom.',
   },
   {
@@ -240,51 +240,51 @@ const quizData_trening_1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er et bevegelsesplan?',
-    options: ["Et tenkt plan som beskriver retningen en bevegelse skjer i", "En treningsplan på papir", "En samling muskler som samarbeider om å utføre den samme bevegelsen", "En nedskrevet oversikt over hvilke øvelser man skal gjøre på trening"],
+    options: ["Et tenkt plan som beskriver retningen en bevegelse skjer i", "En treningsplan på papir som viser hvilke dager i uka man skal trene", "En samling muskler som samarbeider om å utføre den samme bevegelsen", "En nedskrevet oversikt over hvilke øvelser man skal gjøre på trening"],
     explanation: 'Bevegelser beskrives ofte i sagittal-, frontal- og transversalplanet.',
   },
 ],
   'trening-1-2-5': [
   {
     question: 'Hva står PRICE for ved akutt skade?',
-    options: ["Protection, Rest, Ice, Compression, Elevation", "Protect, Rotate, Ice, Climb, Exercise", "Push, Run, Intensity, Climb, Endurance (aktiv opptrening etter skade)", "Press, Rest, Increase, Cool, Eat"],
+    options: ["Protection, Rest, Ice, Compression, Elevation", "Protect, Rotate, Ice, Climb, Exercise", "Push, Run, Intensity, Climb, Endurance", "Press, Rest, Increase, Cool, Eat"],
     explanation: 'PRICE: beskytt, hvil, is, kompresjon og hev for å redusere hevelse.',
   },
   {
     question: 'Hva er forskjellen på en akutt skade og en belastningsskade?',
-    options: ["Akutt skade oppstår plutselig, belastningsskade utvikles gradvis", "Belastningsskade oppstår alltid plutselig", "Belastningsskade oppstår alltid momentant ved én enkelt hard bevegelse", "De betyr det samme, siden begge oppstår som følge av ett kraftig traume"],
+    options: ["Akutt skade oppstår plutselig, belastningsskade utvikles gradvis", "Belastningsskade oppstår alltid plutselig", "Skaden oppstår ved én enkelt hard bevegelse", "De betyr det samme, siden begge oppstår som følge av ett kraftig traume"],
     explanation: 'Akutte skader skjer momentant, belastningsskader over tid.',
   },
   {
     question: 'Hvorfor brukes is (Ice) like etter en akutt skade?',
-    options: ["For å redusere hevelse og smerte", "For å øke blodtilførselen", "For å varme opp og løsne muskelen slik at den blir mer bevegelig", "For å varme opp muskelen"],
+    options: ["For å redusere hevelse og smerte", "For å øke blodtilførselen", "For å gjøre muskelen mykere", "For å varme opp muskelen"],
     explanation: 'Kjøling trekker sammen blodårer og demper blødning og hevelse.',
   },
   {
     question: 'Hvordan kan skader forebygges?',
-    options: ["God oppvarming, riktig teknikk og gradvis progresjon", "Å øke belastningen brått", "Ved å øke treningsmengden brått fra økt til økt for rask framgang", "Ved å hoppe over oppvarmingen og gå rett på den harde belastningen"],
+    options: ["God oppvarming, riktig teknikk og gradvis progresjon", "Å øke belastningen brått, siden kroppen tåler mest når den overraskes", "Ved å øke treningsmengden brått fra økt til økt for rask framgang", "Ved å hoppe over oppvarmingen og gå rett på den harde belastningen"],
     explanation: 'Fornuftig belastningsstyring og teknikk reduserer skaderisiko.',
   },
   {
     question: 'Hva forårsaker ofte belastningsskader?',
-    options: ["For rask økning i treningsmengde eller gjentatt overbelastning", "For god oppvarming", "Ett enkelt kraftig fall eller sammenstøt som skjer helt plutselig", "For god og grundig oppvarming som overbelaster leddene før hovedøkta"],
+    options: ["For rask økning i treningsmengde eller gjentatt overbelastning", "For god oppvarming, som gjør musklene så myke at de mister støtten de trenger", "Ett enkelt kraftig fall eller sammenstøt som skjer helt plutselig", "For god og grundig oppvarming som overbelaster leddene før hovedøkta"],
     explanation: 'Belastningsskader skyldes ofte for stor eller for rask progresjon.',
   },
 ],
   'trening-1-3-1': [
   {
     question: 'Hva er ATP?',
-    options: ["Kroppens umiddelbare energivaluta som muskelcellene bruker", "Et næringsstoff i mat", "Et næringsstoff vi får i oss gjennom karbohydratrik kost i maten", "En type hurtig muskelfiber som brukes ved eksplosivt kraftarbeid"],
+    options: ["Kroppens umiddelbare energivaluta som muskelcellene bruker", "Et næringsstoff i mat som må spises i store mengder før hard trening", "Et næringsstoff vi får i oss gjennom karbohydratrik kost i maten", "En type hurtig muskelfiber som brukes ved eksplosivt kraftarbeid"],
     explanation: 'Når en fosfatbinding i ATP brytes, frigjøres energi til arbeid.',
   },
   {
     question: 'Hvilket energisystem dominerer ved maksimal innsats under 10 sekunder?',
-    options: ["Kreatinfosfatsystemet", "Proteinforbrenning", "Aerob forbrenning med oksygen som gir energi over lang tid", "Aerob forbrenning"],
+    options: ["Kreatinfosfatsystemet", "Proteinforbrenning alene", "Aerob forbrenning med oksygen som gir energi over lang tid", "Aerob forbrenning i muskelcellene"],
     explanation: 'Kreatinfosfatsystemet gir umiddelbar energi, men tømmes etter 6-10 sekunder.',
   },
   {
     question: 'Hva er laktat (melkesyre) et biprodukt av?',
-    options: ['Anaerob glykolyse', 'Aerob fettforbrenning', 'Proteinsyntese', 'Oksygenopptak i lungene'],
+    options: ['Anaerob glykolyse', 'Fettforbrenning', 'Proteinsyntese', 'Oksygenopptak i lungene'],
     explanation: 'Når energi produseres uten nok oksygen, dannes laktat.',
   },
   {
@@ -294,7 +294,7 @@ const quizData_trening_1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvor lang tid tar det å bygge opp igjen kreatinfosfatlagrene etter maksimal innsats?',
-    options: ["Omtrent 2-5 minutter med hvile", "Mindre enn ett sekund", "Flere timer med fullstendig hvile og hvile fra all aktivitet", "Et helt døgn"],
+    options: ["Omtrent 2-5 minutter med hvile", "Mindre enn ett sekund", "Flere timer med fullstendig hvile og hvile fra all aktivitet", "Et helt døgn, uansett hva man gjør i mellomtiden"],
     explanation: 'Full gjenoppbygging av kreatinfosfat tar noen minutter med hvile.',
   },
 ],
@@ -306,29 +306,29 @@ const quizData_trening_1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er slagvolum?',
-    options: ["Mengden blod hjertet pumper ut per hjerteslag", "Mengden oksygen i lufta", "Hvor stor mengde oksygen som finnes i lufta vi puster inn", "Antall ganger hjertet trekker seg sammen i løpet av ett minutt"],
+    options: ["Mengden blod hjertet pumper ut per hjerteslag", "Mengden oksygen i lufta som rekker å nå fram til musklene", "Hvor stor mengde oksygen som finnes i lufta vi puster inn", "Antall ganger hjertet trekker seg sammen i løpet av ett minutt"],
     explanation: 'Minuttvolum = slagvolum × hjertefrekvens.',
   },
   {
     question: 'Hva skjer med hvilepulsen etter en lang periode med utholdenhetstrening?',
-    options: ["Den synker fordi hjertet pumper mer effektivt per slag", "Den forblir alltid uendret", "Den øker kraftig fordi hjertet må jobbe hardere for å pumpe blodet", "Den forblir helt uendret siden trening ikke påvirker hjertet i hvile"],
+    options: ["Den synker fordi hjertet pumper mer effektivt per slag", "Den forblir alltid uendret, ettersom hvilepulsen er bestemt av arv", "Den øker kraftig fordi hjertet må jobbe hardere for å pumpe blodet", "Den forblir helt uendret siden trening ikke påvirker hjertet i hvile"],
     explanation: 'Et veltrent hjerte har større slagvolum og trenger færre slag i hvile.',
   },
   {
     question: 'Hvilke blodkar fører blodet bort fra hjertet?',
-    options: ["Arteriene (pulsårene)", "Kapillærene alene", "Venene, som fører blodet tilbake mot hjertet", "Lymfekarene"],
+    options: ["Arteriene (pulsårene)", "Kapillærene alene, ute i vevet", "Venene, som fører blodet tilbake mot hjertet", "Lymfekarene, som fører lymfevæske"],
     explanation: 'Arterier fører blod fra hjertet, vener fører det tilbake.',
   },
   {
     question: 'Hvor skjer utvekslingen av oksygen og næring til cellene?',
-    options: ["I kapillærene (hårrørsårene)", "I de store arteriene", "I de store venene, der blodet føres tilbake mot hjertet", "I de store venene"],
+    options: ["I kapillærene (hårrørsårene)", "I de store arteriene", "I de store venene, der blodet føres tilbake mot hjertet", "I de store venene som ligger nær hjertet"],
     explanation: 'Kapillærenes tynne vegger muliggjør utveksling med vevet.',
   },
 ],
   'trening-1-3-3': [
   {
     question: 'Hva er respirasjon i denne sammenhengen?',
-    options: ["Pust og gassutveksling der oksygen tas opp og CO₂ avgis", "En type muskelkontraksjon som får oss til å bevege oss", "Bare hjertets pumping av blod rundt i kroppens kretsløp", "Kroppens lagring av energi til bruk under fysisk aktivitet"],
+    options: ["Pust og gassutveksling der oksygen tas opp og CO₂ avgis", "En type muskelkontraksjon som får oss til å bevege oss", "Bare hjertets pumping av blod rundt i kroppens kretsløp", "Kroppens lagring av energi til aktivitet"],
     explanation: 'Respirasjon sørger for oksygentilførsel og fjerning av karbondioksid.',
   },
   {
@@ -348,7 +348,7 @@ const quizData_trening_1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvordan kan VO₂max påvirkes av trening?',
-    options: ["Utholdenhetstrening kan øke VO₂max betydelig", "Bare styrketrening øker VO₂max", "Bare tung styrketrening kan øke VO₂max varig", "Kun anaerob intervalltrening kan senke VO₂max noe"],
+    options: ["Utholdenhetstrening kan øke VO₂max betydelig", "Bare styrketrening øker VO₂max", "Bare tung styrketrening kan øke VO₂max varig", "Kun anaerob trening kan senke VO₂max"],
     explanation: 'Aerob trening forbedrer hjertets og kretsløpets evne til å levere oksygen.',
   },
 ],
@@ -365,12 +365,12 @@ const quizData_trening_1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er en viktig nevral tilpasning de første ukene av styrketrening?',
-    options: ["Bedre rekruttering og koordinering av motoriske enheter", "Et raskt tap av muskelmasse fordi kroppen brytes ned", "Umiddelbar og betydelig muskelvekst gjennom rask hypertrofi", "Lavere kraftutvikling fordi musklene blir slitne av trening"],
+    options: ["Bedre rekruttering og koordinering av motoriske enheter", "Et raskt tap av muskelmasse fordi kroppen brytes ned av belastningen", "Umiddelbar og betydelig muskelvekst gjennom rask hypertrofi", "Lavere kraftutvikling fordi musklene blir slitne av trening"],
     explanation: 'Tidlig styrkeøkning skyldes mest nervesystemet, ikke muskelvekst.',
   },
   {
     question: 'Hva er motorisk læring?',
-    options: ["Prosessen med å lære og automatisere bevegelser", "En type styrketrening", "En vanlig skadetype som oppstår ved feil bevegelse", "En energiform som musklene bruker under hardt arbeid"],
+    options: ["Prosessen med å lære og automatisere bevegelser", "En type styrketrening der man trener med svært lette vekter", "En vanlig skadetype som oppstår ved feil bevegelse", "En energiform som musklene bruker under hardt arbeid"],
     explanation: 'Gjennom øving blir bevegelser mer presise og etter hvert automatiserte.',
   },
   {
@@ -387,7 +387,7 @@ const quizData_trening_1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er kortisol ofte forbundet med?',
-    options: ["Stress og nedbrytende (katabolske) prosesser", "Avslapning og søvn alene", "Dyp avslapning, god søvn og fullstendig restitusjon", "Ren muskeloppbygging og oppbyggende (anabole) prosesser"],
+    options: ["Stress og nedbrytende (katabolske) prosesser", "Avslapning og søvn alene, uten kobling til belastning", "Dyp avslapning, god søvn og fullstendig restitusjon", "Ren muskeloppbygging og oppbyggende (anabole) prosesser"],
     explanation: 'Kortisol er et stresshormon som blant annet kan virke nedbrytende.',
   },
   {
@@ -414,12 +414,12 @@ const quizData_trening_1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er eksplosiv styrke (hurtigstyrke)?',
-    options: ["Evnen til å utvikle mest mulig kraft på kort tid", "Evnen til å løfte sakte", "Statisk bevegelighet og bevegelsesutslaget i et ledd i ro", "Evnen til å løfte tungt svært sakte og kontrollert over lang tid"],
+    options: ["Evnen til å utvikle mest mulig kraft på kort tid", "Evnen til å løfte sakte, med jevn fart gjennom hele bevegelsen", "Statisk bevegelighet og bevegelsesutslaget i et ledd i ro", "Evnen til å løfte tungt svært sakte og kontrollert over lang tid"],
     explanation: 'Eksplosiv styrke er avgjørende i hopp, kast og spurt.',
   },
   {
     question: 'Hvilken belastning og repetisjonsmengde brukes typisk for maksimal styrke?',
-    options: ['85-100 % av 1RM med 1-5 repetisjoner', '50 % av 1RM med 20 repetisjoner', '30 % av 1RM med 50 repetisjoner', 'Lett vekt med svært mange repetisjoner'],
+    options: ['85-100 % av 1RM med 1-5 repetisjoner', '50 % av 1RM med 20 repetisjoner i hvert eneste sett', '30 % av 1RM med 50 repetisjoner', 'Lett vekt med svært mange repetisjoner'],
     explanation: 'Tunge belastninger med få repetisjoner gir nevral tilpasning og maksimal styrke.',
   },
   {
@@ -429,14 +429,14 @@ const quizData_trening_1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er styrkeutholdenhet?',
-    options: ["Evnen til å gjenta muskelarbeid over tid uten å bli utmattet", "Aerob langkjøring med jevn og lav intensitet over lang tid", "Evnen til å utvikle størst mulig kraft i ett enkelt maksimalt løft", "Statisk tøying der muskelen holdes strukket uten bevegelse"],
+    options: ["Evnen til å gjenta muskelarbeid over tid uten å bli utmattet", "Aerob langkjøring med jevn og lav intensitet gjennom hele økta over lang tid", "Evnen til å utvikle størst mulig kraft i ett enkelt maksimalt løft", "Statisk tøying der muskelen holdes strukket uten bevegelse"],
     explanation: 'Styrkeutholdenhet trenes med lettere belastning og mange repetisjoner.',
   },
 ],
   'trening-1-4-2': [
   {
     question: 'Hva er hypertrofi?',
-    options: ["Økning i muskelmasse (muskelvekst)", "Tap av muskelmasse", "Lavere hvilepuls som følge av trening", "Tap av muskelmasse over tid (muskelsvinn)"],
+    options: ["Økning i muskelmasse (muskelvekst)", "Tap av muskelmasse som følge av inaktivitet", "Lavere hvilepuls som følge av trening", "Tap av muskelmasse over tid (muskelsvinn)"],
     explanation: 'Hypertrofitrening øker muskeltverrsnittet.',
   },
   {
@@ -446,12 +446,12 @@ const quizData_trening_1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er viktig for at hypertrofitrening skal gi resultater?',
-    options: ["Tilstrekkelig volum, progresjon og restitusjon", "Å aldri øke belastningen", "Å holde belastningen helt lik og aldri øke motstanden", "Å trene kontinuerlig uten hvile eller pauser mellom øktene"],
+    options: ["Tilstrekkelig volum, progresjon og restitusjon", "Å aldri øke belastningen, slik at kroppen får ro til å tilpasse seg", "Å holde belastningen helt lik og aldri øke motstanden", "Å trene kontinuerlig uten hvile eller pauser mellom øktene"],
     explanation: 'Progressivt volum kombinert med restitusjon og kosthold gir vekst.',
   },
   {
     question: 'Hvorfor brukes ofte flere sett per øvelse i hypertrofitrening?',
-    options: ["Økt totalvolum stimulerer muskelvekst", "Ett sett gir alltid mer vekst", "Ett eneste sett gir alltid mest muskelvekst", "Treningsvolum har ingen betydning for vekst"],
+    options: ["Økt totalvolum stimulerer muskelvekst", "Ett sett gir alltid mer vekst enn å gjøre flere sett", "Ett eneste sett gir alltid mest muskelvekst", "Treningsvolum har ingen betydning for vekst"],
     explanation: 'Et visst treningsvolum er en viktig driver for hypertrofi.',
   },
   {
@@ -473,17 +473,17 @@ const quizData_trening_1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvorfor er god teknikk viktig i styrkeøvelser?',
-    options: ["Det reduserer skaderisiko og gir bedre treningseffekt", "Det gjør at man kan droppe oppvarming", "Det gjør at man trygt kan droppe oppvarming før hard trening", "Teknikk har ingen betydning så lenge belastningen er tung nok"],
+    options: ["Det reduserer skaderisiko og gir bedre treningseffekt", "Det gjør at man kan droppe oppvarming og likevel unngå skader", "Det gjør at man trygt kan droppe oppvarming før hard trening", "Teknikk har ingen betydning så lenge belastningen er tung nok"],
     explanation: 'Riktig teknikk belaster musklene hensiktsmessig og beskytter ledd.',
   },
   {
     question: 'Hva bør man prioritere når man lærer en ny øvelse?',
-    options: ['God teknikk med lett belastning før man øker vekten', 'Maksimal vekt fra start', 'Å hoppe over oppvarming', 'Å gjøre flest mulig repetisjoner med dårlig teknikk'],
+    options: ['God teknikk med lett belastning før man øker vekten', 'Maksimal vekt fra start, slik at kroppen venner seg til tung belastning', 'Å hoppe over oppvarming', 'Å gjøre flest mulig repetisjoner med dårlig teknikk'],
     explanation: 'Teknikk før belastning gir trygg og effektiv progresjon.',
   },
   {
     question: 'Hva er en fordel med flerleddsøvelser sammenlignet med isolasjonsøvelser?',
-    options: ["De trener flere muskler samtidig og har stor overføringsverdi", "De passer bare for nybegynnere og gir erfarne ingen effekt", "De isolerer alltid kun én muskel gjennom bevegelse i ett ledd", "De gir aldri økt styrke, kun bedre bevegelighet i leddene"],
+    options: ["De trener flere muskler samtidig og har stor overføringsverdi", "De passer bare for nybegynnere og gir erfarne ingen effekt", "De isolerer alltid kun én muskel gjennom bevegelse i ett ledd", "De gir aldri økt styrke, kun bedre bevegelighet i leddene som er involvert"],
     explanation: 'Flerleddsøvelser er tidseffektive og funksjonelle.',
   },
 ],
@@ -495,22 +495,22 @@ const quizData_trening_1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er en deload-periode?',
-    options: ["En periode med redusert belastning for å fremme restitusjon", "En grundig oppvarming som gjennomføres før hver styrkeøkt", "En periode med maksimal belastning for å presse fram framgang", "En viktig konkurranse der utøveren tester sin maksimale styrke"],
+    options: ["En periode med redusert belastning for å fremme restitusjon", "En grundig oppvarming som gjennomføres før hver eneste styrkeøkt i uka", "En periode med maksimal belastning for å presse fram framgang", "En viktig konkurranse der utøveren tester sin maksimale styrke"],
     explanation: 'Deload gir kroppen tid til å hente seg inn og superkompensere.',
   },
   {
     question: 'Hvorfor varierer man belastningen i en periodisert plan?',
-    options: ["For å gi nye stimuli, unngå stagnasjon og redusere overtreningsrisiko", "For å gjøre treningen helt tilfeldig og uforutsigbar fra økt til økt", "For å sikre at man aldri trenger å øke belastningen over tid", "For å hindre framgang slik at kroppen ikke blir overbelastet"],
+    options: ["For å gi nye stimuli, unngå stagnasjon og redusere overtreningsrisiko", "For å gjøre treningen helt tilfeldig og uforutsigbar fra økt til økt", "For å sikre at man aldri trenger å øke belastningen over tid, uansett hvilket nivå man er på", "For å hindre framgang slik at kroppen ikke blir overbelastet"],
     explanation: 'Variasjon i belastning lar kroppen tilpasse seg og fortsette å utvikle seg.',
   },
   {
     question: 'Hva er hensikten med en avlastningsperiode før en styrketest eller konkurranse?',
-    options: ["Å være uthvilt og prestere på topp gjennom superkompensasjon", "Å øke belastningen maksimalt rett før", "Å trene hardest mulig dagen før for å toppe formen maksimalt", "Å droppe all trening i flere måneder før testen gjennomføres"],
+    options: ["Å være uthvilt og prestere på topp gjennom superkompensasjon", "Å øke belastningen maksimalt rett før, slik at kroppen er godt oppvarmet", "Å trene hardest mulig dagen før for å toppe formen maksimalt", "Å droppe all trening i flere måneder før testen gjennomføres"],
     explanation: 'Redusert belastning før testing gir bedre prestasjon.',
   },
   {
     question: 'Hva kan skje hvis man aldri legger inn variasjon eller avlastning?',
-    options: ["Stagnasjon og økt risiko for overtrening og skade", "Garantert konstant framgang", "Man blir alltid gradvis sterkere uansett hvordan man trener", "Garantert jevn og konstant framgang uten noen form for stopp"],
+    options: ["Stagnasjon og økt risiko for overtrening og skade", "Garantert konstant framgang så lenge man møter opp på trening", "Man blir alltid gradvis sterkere uansett hvordan man trener", "Garantert jevn og konstant framgang uten noen form for stopp"],
     explanation: 'Uten variasjon og restitusjon stopper framgangen ofte opp.',
   },
 ],
@@ -522,29 +522,29 @@ const quizData_trening_1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er sarkopeni?',
-    options: ["Aldersrelatert tap av muskelmasse og -styrke", "En vanlig type belastningsskade i muskel", "En energiform musklene bruker ved arbeid", "Økt muskelmasse og -styrke med alderen"],
+    options: ["Aldersrelatert tap av muskelmasse og -styrke", "En vanlig type belastningsskade i muskel", "En energiform musklene bruker ved arbeid", "Økt muskelmasse og -styrke med alderen, uten at man trener"],
     explanation: 'Styrketrening er viktig for å motvirke sarkopeni hos eldre.',
   },
   {
     question: 'Hvorfor bør styrketrening for barn tilpasses?',
-    options: ["Fordi de er under vekst og bør prioritere teknikk og allsidighet framfor tunge maksløft", "Fordi barn ikke tåler noen form for styrketrening før puberteten", "Fordi alder ikke betyr noe når man legger opp et treningsprogram", "Fordi de bør løfte tyngst mulig for å utnytte veksten maksimalt"],
+    options: ["Fordi de er under vekst og bør prioritere teknikk og allsidighet framfor tunge maksløft", "Fordi barn ikke tåler noen form for styrketrening før puberteten", "Fordi alder ikke betyr noe når man legger opp et treningsprogram", "Fordi de bør løfte tyngst mulig for å utnytte veksten maksimalt mens skjelettet fortsatt vokser"],
     explanation: 'Barn kan trene styrke trygt med fokus på teknikk og kroppsvekt/lett belastning.',
   },
   {
     question: 'Hvorfor er styrketrening spesielt viktig for eldre?',
-    options: ["Det motvirker sarkopeni og bevarer funksjon og selvstendighet", "Det har ingen effekt på muskelmasse eller funksjon hos eldre", "Det er direkte farlig for alle eldre og bør derfor unngås helt", "Det gjelder egentlig bare unge og har lite for seg for eldre"],
+    options: ["Det motvirker sarkopeni og bevarer funksjon og selvstendighet", "Det har ingen effekt på muskelmasse eller funksjon når man først er blitt eldre", "Det er direkte farlig for alle eldre og bør derfor unngås helt", "Det gjelder egentlig bare unge og har lite for seg for eldre"],
     explanation: 'Styrketrening bremser muskeltap og opprettholder funksjonell kapasitet.',
   },
   {
     question: 'Hva er et godt prinsipp for tilpasset styrketrening?',
-    options: ["Å tilpasse belastning og øvelser til individets forutsetninger og mål", "Å alltid bruke maksvekt slik at treningen gir raskest framgang", "Å gi alle nøyaktig samme program uansett nivå, alder og helse", "Å ignorere alder og helsetilstand og la belastningen være lik"],
+    options: ["Å tilpasse belastning og øvelser til individets forutsetninger og mål", "Å alltid bruke maksvekt slik at treningen gir raskest framgang", "Å gi alle nøyaktig samme treningsprogram uansett nivå, alder og helsetilstand", "Å ignorere alder og helsetilstand, og la belastningen være nøyaktig den samme for alle"],
     explanation: 'Individualisering gjør styrketrening trygg og effektiv for ulike grupper.',
   },
 ],
   'trening-1-5-1': [
   {
     question: 'Hva er aerob utholdenhet?',
-    options: ["Evnen til å arbeide over tid med oksygentilførsel som dekker energibehovet", "Bevegelighet i hofta", "Evnen til å bevege ledd gjennom et stort bevegelsesutslag under langvarig fysisk aktivitet", "Evnen til å opprettholde arbeid over tid der energien kommer uten oksygen fra opphopning av melkesyre"],
+    options: ["Evnen til å arbeide over tid med oksygentilførsel som dekker energibehovet", "Bevegelighet i hofta", "Evnen til å bevege ledd gjennom et stort utslag", "Evnen til å opprettholde arbeid over tid der energien kommer uten oksygen fra opphopning av melkesyre"],
     explanation: 'Aerob utholdenhet avhenger blant annet av VO₂max og terskel.',
   },
   {
@@ -554,7 +554,7 @@ const quizData_trening_1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvilken energiproduksjon dominerer ved aerob utholdenhetsarbeid?',
-    options: ["Aerob forbrenning med oksygen", "Proteinforbrenning alene", "Kun anaerob glykolyse med opphopning av melkesyre", "Bare anaerob glykolyse"],
+    options: ["Aerob forbrenning med oksygen", "Proteinforbrenning alene", "Kun melkesyreproduksjon", "Bare anaerob glykolyse"],
     explanation: 'Ved moderat intensitet over tid dominerer aerob forbrenning.',
   },
   {
@@ -564,19 +564,19 @@ const quizData_trening_1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er VO₂max et mål på?',
-    options: ["Kroppens maksimale oksygenopptak per minutt", "Antall repetisjoner", "Det største bevegelsesutslaget man har i et sentralt ledd", "Antall repetisjoner man klarer før muskelen blir utmattet"],
+    options: ["Kroppens maksimale oksygenopptak per minutt", "Antall repetisjoner man rekker å gjennomføre på ett minutt", "Det største bevegelsesutslaget man har i et sentralt ledd", "Antall repetisjoner man klarer før muskelen blir utmattet"],
     explanation: 'VO₂max er en sentral markør for aerob kapasitet.',
   },
 ],
   'trening-1-5-2': [
   {
     question: 'Hva er anaerob utholdenhet?',
-    options: ["Evnen til å arbeide med høy intensitet uten tilstrekkelig oksygentilførsel", "Evnen til å arbeide rolig over lang tid", "Evnen til å arbeide rolig og jevnt over svært lang tid med god oksygentilførsel", "Evnen til å bevege et ledd gjennom et stort utslag uten at bevegeligheten begrenses"],
+    options: ["Evnen til å arbeide med høy intensitet uten tilstrekkelig oksygentilførsel", "Evnen til å arbeide rolig over lang tid", "Evnen til å arbeide rolig og jevnt over svært lang tid med god oksygentilførsel", "Evnen til å bevege et ledd gjennom et stort utslag"],
     explanation: 'Anaerob utholdenhet er viktig ved kortvarig, høyintensivt arbeid.',
   },
   {
     question: 'Hva er bufferkapasitet?',
-    options: ["Kroppens evne til å motvirke forsuring (lavere pH) ved opphopning av laktat", "Bevegelighet i ledd", "Den høyeste pulsen hjertet klarer å slå under maksimalt anstrengende arbeid", "Kroppens evne til å lagre fett som langvarig energireserve for utholdenhetsarbeid"],
+    options: ["Kroppens evne til å motvirke forsuring (lavere pH) ved opphopning av laktat", "Bevegelighet i ledd", "Den høyeste pulsen hjertet klarer å slå under maksimalt anstrengende arbeid", "Kroppens evne til å lagre fett som energireserve"],
     explanation: 'God bufferkapasitet lar utøveren tåle mer laktat før prestasjonen faller.',
   },
   {
@@ -586,29 +586,29 @@ const quizData_trening_1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva begrenser arbeidet ved svært høy intensitet over noen minutter?',
-    options: ["Opphopning av laktat og forsuring i muskulaturen", "For lite oppvarming alene", "For lav puls som gir utilstrekkelig blodtilførsel til musklene", "For høyt oksygenopptak som overbelaster musklene under arbeidet"],
+    options: ["Opphopning av laktat og forsuring i muskulaturen", "For lite oppvarming alene, slik at musklene ikke er klare", "For lav puls som gir utilstrekkelig blodtilførsel til musklene", "For høyt oksygenopptak som overbelaster musklene under arbeidet"],
     explanation: 'Akkumulert laktat og forsuring fører til utmattelse.',
   },
   {
     question: 'Hvordan kan anaerob utholdenhet trenes?',
-    options: ["Med harde intervaller på høy intensitet med ufullstendig pause", "Med kun maksimal styrketrening", "Med statisk tøying av musklene holdt i ro over lengre perioder", "Med rolig og jevn langkjøring på lav intensitet over lengre tid"],
+    options: ["Med harde intervaller på høy intensitet med ufullstendig pause", "Med kun maksimal styrketrening", "Med statisk tøying av musklene holdt i ro over lengre perioder", "Med rolig og jevn langkjøring på lav intensitet"],
     explanation: 'Høyintensive intervaller utvikler anaerob kapasitet og bufferkapasitet.',
   },
 ],
   'trening-1-5-3': [
   {
     question: 'Hva kjennetegner langkjøring (kontinuerlig trening)?',
-    options: ["Jevn, moderat intensitet over lengre tid som bygger aerob grunnkapasitet", "Korte intervaller med lang pause", "Bare statisk arbeid der muskelen holdes anspent uten bevegelse over lengre tid", "Korte og harde intervaller med svært lang pause mellom hvert enkelt drag i økta"],
+    options: ["Jevn, moderat intensitet over lengre tid som bygger aerob grunnkapasitet", "Korte intervaller med lang pause", "Bare statisk arbeid uten bevegelse", "Korte og harde intervaller med svært lang pause mellom hvert enkelt drag i økta"],
     explanation: 'Langkjøring legger grunnlaget for den aerobe kapasiteten.',
   },
   {
     question: 'Hva er intervalltrening?',
-    options: ["Veksling mellom perioder med høy intensitet og pauser/lav intensitet", "Helt jevn rolig trening", "Statisk tøying der muskelen holdes i en fast strekkstilling over tid", "Helt jevn og rolig trening på lav intensitet uten pauser gjennom økta"],
+    options: ["Veksling mellom perioder med høy intensitet og pauser/lav intensitet", "Helt jevn rolig trening", "Statisk tøying der muskelen holdes i en fast strekkstilling over tid", "Jevn trening på lav intensitet uten pauser"],
     explanation: 'Intervaller lar deg samle mer tid på høy intensitet enn ved kontinuerlig arbeid.',
   },
   {
     question: 'Hva er fartlek?',
-    options: ["«Fartslek» – fri veksling mellom ulike tempo under en økt", "En fast intervallprotokoll med eksakte tider", "En fast intervallprotokoll med nøyaktig fastsatte tider og pauser", "En form for tung styrketrening med maksimale løft og lange hvilepauser"],
+    options: ["«Fartslek» – fri veksling mellom ulike tempo under en økt", "En fast intervallprotokoll med eksakte tider", "Faste tider og pauser satt på forhånd", "En form for tung styrketrening med maksimale løft og lange hvilepauser"],
     explanation: 'Fartlek blander rolige og raske partier på en variert og leken måte.',
   },
   {
@@ -618,7 +618,7 @@ const quizData_trening_1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvilken metode egner seg best for å bygge aerob grunnkapasitet?',
-    options: ["Rolig langkjøring over tid", "Bare korte maksspurter", "Utelukkende statisk tøying av de store muskelgruppene", "Bare statisk tøying"],
+    options: ["Rolig langkjøring over tid", "Bare korte maksspurter", "Tøying av store muskler", "Bare statisk tøying"],
     explanation: 'Kontinuerlig trening på moderat intensitet bygger det aerobe grunnlaget.',
   },
 ],
@@ -640,24 +640,24 @@ const quizData_trening_1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er en fordel med felttester i praksis?',
-    options: ["De er enkle, rimelige og kan gjøres i det vanlige treningsmiljøet", "De krever alltid avansert laboratorium", "De kan ikke brukes på trente utøvere, kun på helt ferske nybegynnere", "De er alltid unøyaktige og kan derfor ikke brukes til å følge utvikling"],
+    options: ["De er enkle, rimelige og kan gjøres i det vanlige treningsmiljøet", "De krever alltid avansert laboratorium", "De kan ikke brukes på trente utøvere", "De er alltid unøyaktige og kan derfor ikke brukes til å følge utvikling"],
     explanation: 'Felttester gjør det enkelt å teste mange og ofte.',
   },
   {
     question: 'Hva brukes resultatene fra utholdenhetstester til?',
-    options: ["Å vurdere form, planlegge trening og følge utvikling", "Å erstatte all trening", "Å måle bevegelsesutslaget i de viktigste leddene i kroppen", "Å fastslå utøverens biologiske alder ut fra formen som måles"],
+    options: ["Å vurdere form, planlegge trening og følge utvikling", "Å erstatte all trening, slik at testen i seg selv gir framgang", "Å måle bevegelsesutslaget i de viktigste leddene i kroppen", "Å fastslå utøverens biologiske alder ut fra formen som måles"],
     explanation: 'Testresultater gir grunnlag for å justere og evaluere treningen.',
   },
 ],
   'trening-1-5-5': [
   {
     question: 'Hva innebærer spesifisitetsprinsippet i utholdenhetstrening?',
-    options: ["Treningen bør ligne aktiviteten man vil bli bedre i, i bevegelse og intensitet", "All utholdenhetstrening gir lik effekt uansett", "Spesifisitet har ingen betydning så lenge man trener utholdenhet ofte og lenge nok", "Man bør utelukkende løpe fordi løping er den eneste formen som utvikler utholdenhet"],
+    options: ["Treningen bør ligne aktiviteten man vil bli bedre i, i bevegelse og intensitet", "All utholdenhetstrening gir lik effekt uansett", "Spesifisitet har ingen betydning så lenge man trener ofte", "Man bør utelukkende løpe, uansett hvilken idrett man driver"],
     explanation: 'En syklist bør trene mye på sykkel, en svømmer i vann, osv.',
   },
   {
     question: 'Hvorfor varierer utholdenhetskravene mellom ulike idretter?',
-    options: ["Idrettene har ulik varighet, intensitet og arbeidsform", "Alle idretter krever nøyaktig samme utholdenhet", "Alle idretter krever nøyaktig samme type utholdenhet uansett arbeidsform", "Utholdenhet er egentlig irrelevant i idrett, det er bare styrke som teller"],
+    options: ["Idrettene har ulik varighet, intensitet og arbeidsform", "Alle idretter krever nøyaktig samme utholdenhet", "Alle idretter krever nøyaktig samme type utholdenhet uansett arbeidsform", "Utholdenhet er egentlig irrelevant i idrett"],
     explanation: 'En maratonløper og en fotballspiller har ulike utholdenhetsbehov.',
   },
   {
@@ -667,19 +667,19 @@ const quizData_trening_1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er en fordel med å trene spesifikt for sin idrett?',
-    options: ["Tilpasningene blir mest mulig relevante for prestasjonen", "Det gjelder bare nybegynnere", "Det gir minst mulig effekt fordi treningen blir for ensidig og lite variert", "Det gjelder bare helt ferske nybegynnere og ikke erfarne konkurranseutøvere"],
+    options: ["Tilpasningene blir mest mulig relevante for prestasjonen", "Det gjelder bare nybegynnere, som ennå ikke har valgt seg en idrett", "Det gir minst mulig effekt fordi treningen blir for ensidig og lite variert", "Det gjelder bare helt ferske nybegynnere og ikke erfarne konkurranseutøvere"],
     explanation: 'Spesifikk trening gir best overføring til konkurransesituasjonen.',
   },
   {
     question: 'Hvorfor kan grunntrening (langkjøring) likevel være nyttig for de fleste utholdenhetsidretter?',
-    options: ["Den bygger en aerob base som de fleste idretter har nytte av", "Den passer bare maratonløpere", "Den passer utelukkende maratonløpere og har ingen verdi for andre idretter", "Den er aldri nyttig fordi bare spesifikk trening gir overføring til idretten"],
+    options: ["Den bygger en aerob base som de fleste idretter har nytte av", "Den passer bare maratonløpere, ettersom bare de trenger å arbeide lenge", "Den passer utelukkende maratonløpere og har ingen verdi for andre idretter", "Den er aldri nyttig fordi bare spesifikk trening gir overføring til idretten"],
     explanation: 'En god aerob base er et fundament man bygger spesifikk trening på.',
   },
 ],
   'trening-1-6-1': [
   {
     question: 'Hva er bevegelighet?',
-    options: ["Bevegelsesutslaget i et ledd", "Hvor lenge man kan trene", "Hvor raskt man klarer å løpe over en gitt distanse", "Hvor sterk en muskel er"],
+    options: ["Bevegelsesutslaget i et ledd", "Hvor lenge man kan trene", "Hvor raskt man løper", "Hvor sterk en muskel er"],
     explanation: 'Bevegelighet handler om hvor stort utslag leddet har.',
   },
   {
@@ -694,7 +694,7 @@ const quizData_trening_1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvorfor er god bevegelighet nyttig?',
-    options: ["Den kan bedre teknikk og redusere risiko for enkelte skader", "Den senker alltid prestasjonen", "Den har ingen verdi og påvirker verken teknikk eller skaderisiko", "Den gjelder bare turnere og har ingen betydning i andre idretter"],
+    options: ["Den kan bedre teknikk og redusere risiko for enkelte skader", "Den senker alltid prestasjonen, ettersom musklene da blir for slappe", "Den har ingen verdi og påvirker verken teknikk eller skaderisiko", "Den gjelder bare turnere og har ingen betydning i andre idretter"],
     explanation: 'Tilstrekkelig bevegelighet gir gunstige bevegelsesutslag i mange idretter.',
   },
   {
@@ -706,12 +706,12 @@ const quizData_trening_1: Record<string, QuizQuestion[]> = {
   'trening-1-6-2': [
   {
     question: 'Hva er statisk tøyning?',
-    options: ["Å holde en tøyestilling i ro over tid", "Å tøye med svingbevegelser", "Å tøye musklene med raske svingbevegelser og fart i utslaget", "En type styrketrening"],
+    options: ["Å holde en tøyestilling i ro over tid", "Å tøye med svingbevegelser", "Å tøye med fart i utslaget", "En type styrketrening"],
     explanation: 'Statisk tøyning holdes rolig og egner seg ofte etter trening.',
   },
   {
     question: 'Hva er dynamisk tøyning?',
-    options: ["Tøying med kontrollerte bevegelser gjennom bevegelsesbanen", "Tøying som holdes helt i ro", "Tøying der man holder leddet helt i ro i ytterstilling over lengre tid", "Tøying som utføres passivt av en partner som presser leddet til grensen"],
+    options: ["Tøying med kontrollerte bevegelser gjennom bevegelsesbanen", "Tøying som holdes helt i ro, og som varer like lenge i hver stilling", "Tøying der man holder leddet helt i ro i ytterstilling over lengre tid", "Tøying som utføres passivt av en partner som presser leddet til grensen"],
     explanation: 'Dynamisk tøyning egner seg godt i oppvarming.',
   },
   {
@@ -721,7 +721,7 @@ const quizData_trening_1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvilken tøyemetode egner seg best i oppvarmingen?',
-    options: ['Dynamisk tøyning', 'Langvarig statisk tøyning', 'Ingen bevegelse i det hele tatt', 'Maksimale løft'],
+    options: ['Dynamisk tøyning', 'Langvarig statisk tøyning', 'Ingen bevegelse i det hele tatt', 'Maksimale løft med tung vekt'],
     explanation: 'Dynamiske bevegelser holder musklene varme og aktive før aktivitet.',
   },
   {
@@ -733,12 +733,12 @@ const quizData_trening_1: Record<string, QuizQuestion[]> = {
   'trening-1-6-3': [
   {
     question: 'Hva er hovedhensikten med oppvarming?',
-    options: ["Å forberede kropp og sinn og redusere skaderisiko", "Å senke kroppstemperaturen", "Å erstatte selve treningen når man ikke har tid til en full økt", "Å slite ut musklene på forhånd slik at de yter mindre under selve økta"],
+    options: ["Å forberede kropp og sinn og redusere skaderisiko", "Å senke kroppstemperaturen slik at musklene sparer energi", "Å erstatte selve treningen når man ikke har tid til en full økt", "Å slite ut musklene på forhånd slik at de yter mindre under selve økta"],
     explanation: 'Oppvarming øker temperatur, blodgjennomstrømning og bevegelighet.',
   },
   {
     question: 'Hva skjer i kroppen under god oppvarming?',
-    options: ["Kroppstemperatur og puls øker, og musklene blir mer elastiske", "Pulsen synker til hvilenivå", "Musklene blir stivere og mindre elastiske fordi de spennes opp", "Blodtilførselen til musklene reduseres slik at de belastes mindre"],
+    options: ["Kroppstemperatur og puls øker, og musklene blir mer elastiske", "Pulsen synker til hvilenivå, mens blodet trekker seg vekk fra musklene", "Musklene blir stivere og mindre elastiske fordi de spennes opp", "Blodtilførselen til musklene reduseres slik at de belastes mindre"],
     explanation: 'Høyere temperatur gjør musklene mer elastiske og reaksjonene raskere.',
   },
   {
@@ -753,7 +753,7 @@ const quizData_trening_1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er en god struktur på oppvarmingen før hard trening?',
-    options: ["Gradvis økende intensitet med dynamiske, spesifikke bevegelser", "Langvarig statisk tøying alene", "Maksimale løft fra start uten noen gradvis oppbygging av intensitet", "Kun rolig gange som verken varmer opp musklene eller øker pulsen nok"],
+    options: ["Gradvis økende intensitet med dynamiske, spesifikke bevegelser", "Langvarig statisk tøying alene, uten at pulsen får stige i det hele tatt", "Maksimale løft fra start uten noen gradvis oppbygging av intensitet", "Kun rolig gange som verken varmer opp musklene eller øker pulsen nok"],
     explanation: 'Generell oppvarming etterfulgt av spesifikke bevegelser forbereder kroppen godt.',
   },
 ],
@@ -765,7 +765,7 @@ const quizData_trening_1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er fascia?',
-    options: ["Bindevevshinner som omslutter og forbinder muskler og organer", "En type knokkel", "En energiform som lagres i musklene og frigjøres under hardt arbeid", "En type knokkel som gir feste til musklene og beskytter indre organer"],
+    options: ["Bindevevshinner som omslutter og forbinder muskler og organer", "En type knokkel som ligger inne i en sene og bedrer senens arbeidsvinkel", "En energiform som lagres i musklene og frigjøres under hardt arbeid", "En type knokkel som gir feste til musklene og beskytter indre organer"],
     explanation: 'Fascia er bindevev som påvirker bevegelse og kan behandles med mobilitetsarbeid.',
   },
   {
@@ -814,12 +814,12 @@ const quizData_trening_1: Record<string, QuizQuestion[]> = {
   'trening-1-7-1': [
   {
     question: 'Hvilke tre stoffer er makronæringsstoffer?',
-    options: ["Karbohydrater, fett og protein", "Vitaminer, mineraler og vann", "Vitaminer, mineraler og vann som kroppen trenger i små mengder", "Fiber, salt og sukker"],
+    options: ["Karbohydrater, fett og protein", "Vitaminer, mineraler og vann i kosten", "Vitaminer og mineraler", "Fiber, salt og sukker"],
     explanation: 'Makronæringsstoffene gir energi, ulikt mikronæringsstoffer.',
   },
   {
     question: 'Hva er mikronæringsstoffer?',
-    options: ["Vitaminer og mineraler som trengs i små mengder uten å gi energi", "Vann og fiber, som er nødvendige for væskebalanse og fordøyelse", "Bare protein, som gir byggesteiner til reparasjon av muskelvevet", "Karbohydrater og fett som er kroppens viktigste kilder til energi"],
+    options: ["Vitaminer og mineraler som trengs i små mengder uten å gi energi", "Vann og fiber, som er nødvendige for væskebalanse og fordøyelse", "Bare protein, som gir byggesteiner til reparasjon av muskelvevet etter trening", "Karbohydrater og fett, som er kroppens viktigste energikilder i kosten"],
     explanation: 'Mikronæringsstoffer er livsnødvendige selv om de ikke gir energi.',
   },
   {
@@ -829,7 +829,7 @@ const quizData_trening_1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er en hovedfunksjon til protein for en som trener?',
-    options: ["Byggesteiner til reparasjon og oppbygging av muskelvev", "Hovedenergikilde under høy intensitet", "Direkte erstatning for væsketap gjennom svetting under harde økter", "Å senke pulsen etter økta slik at kroppen kommer raskere til hvile"],
+    options: ["Byggesteiner til reparasjon og oppbygging av muskelvev", "Hovedenergikilde under høy intensitet", "Direkte erstatning for væsketap ved svetting", "Å senke pulsen etter økta slik at kroppen kommer raskere til hvile"],
     explanation: 'Aminosyrer fra protein brukes til muskelproteinsyntese.',
   },
   {
@@ -856,19 +856,19 @@ const quizData_trening_1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva inngår i kroppens totale daglige energiforbruk?',
-    options: ["Basalstoffskifte, fysisk aktivitet og termisk effekt av mat", "Bare basalstoffskiftet", "Bare den fysiske aktiviteten man utfører i løpet av dagen og økta", "Bare basalstoffskiftet, altså energien kroppen bruker i full hvile"],
+    options: ["Basalstoffskifte, fysisk aktivitet og termisk effekt av mat", "Bare basalstoffskiftet, ettersom trening ikke øker det daglige forbruket", "Bare den fysiske aktiviteten man utfører i løpet av dagen og økta", "Bare basalstoffskiftet, altså energien kroppen bruker i full hvile"],
     explanation: 'Totalt forbruk er summen av hvileforbruk, aktivitet og fordøyelse.',
   },
   {
     question: 'Hva må til for å gå ned i vekt over tid?',
-    options: ["Et kalorisk underskudd der forbruket overstiger inntaket", "Et kalorisk overskudd", "Mer søvn alene, siden hvilen i seg selv forbrenner ekstra fett", "Et kalorisk overskudd der inntaket er større enn det man forbruker"],
+    options: ["Et kalorisk underskudd der forbruket overstiger inntaket", "Et kalorisk overskudd, ettersom kroppen trenger ekstra energi for å forbrenne fett", "Mer søvn alene, siden hvilen i seg selv forbrenner ekstra fett", "Et kalorisk overskudd der inntaket er større enn det man forbruker"],
     explanation: 'Vekttap krever at man forbruker mer energi enn man tar inn.',
   },
 ],
   'trening-1-7-3': [
   {
     question: 'Hva er hensikten med en næringsstrategi for idrettsutøvere?',
-    options: ["Å tilpasse kostholdet til trening, restitusjon og prestasjon", "Å kutte alle karbohydrater", "Å spise minst mulig slik at kroppsvekten holdes så lav som mulig", "Å kutte alle karbohydrater for at kroppen kun skal forbrenne fett"],
+    options: ["Å tilpasse kostholdet til trening, restitusjon og prestasjon", "Å kutte alle karbohydrater", "Å spise minst mulig for å holde vekten lav", "Å kutte alle karbohydrater for at kroppen kun skal forbrenne fett"],
     explanation: 'God ernæring støtter både prestasjon og gjenoppbygging.',
   },
   {
@@ -883,19 +883,19 @@ const quizData_trening_1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvorfor er protein viktig etter styrketrening?',
-    options: ["Det gir byggesteiner til reparasjon og oppbygging av muskelvev", "Det gir mest energi under selve økta", "Det erstatter væsketapet man får gjennom svetting under styrkeøkta", "Det senker pulsen etter økta og gir en roligere overgang til hvile"],
+    options: ["Det gir byggesteiner til reparasjon og oppbygging av muskelvev", "Det gir mest energi under selve økta", "Det erstatter væsketapet fra svetting", "Det senker pulsen etter økta og gir en roligere overgang til hvile"],
     explanation: 'Protein bidrar med aminosyrer til muskelproteinsyntesen.',
   },
   {
     question: 'Hva er et godt generelt prinsipp for idrettskosthold?',
-    options: ["Tilstrekkelig og variert kost tilpasset treningsmengden", "Å kutte alle karbohydrater", "Ensidig og karbohydratfri kost uavhengig av treningsmengden", "Minst mulig mat slik at kroppen tvinges til å hente energi fra fett"],
+    options: ["Tilstrekkelig og variert kost tilpasset treningsmengden", "Å kutte alle karbohydrater fullstendig, uansett hvor mye man trener", "Ensidig og karbohydratfri kost uavhengig av treningsmengden", "Minst mulig mat slik at kroppen tvinges til å hente energi fra fett"],
     explanation: 'Et variert kosthold med nok energi støtter prestasjon og helse.',
   },
 ],
   'trening-1-7-4': [
   {
     question: 'Hva er restitusjon?',
-    options: ["Kroppens gjenoppbygging og tilpasning etter trening", "En type kosttilskudd", "Selve den harde treningsøkta der kroppen brytes maksimalt ned", "En konkurranseform der utøverne testes i utholdenhet og styrke"],
+    options: ["Kroppens gjenoppbygging og tilpasning etter trening", "En type kosttilskudd", "Selve den harde treningsøkta", "En konkurranseform der utøverne testes i utholdenhet og styrke"],
     explanation: 'God restitusjon er en forutsetning for framgang.',
   },
   {
@@ -905,17 +905,17 @@ const quizData_trening_1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er en søvnsyklus?',
-    options: ["En gjentakende veksling mellom ulike søvnstadier gjennom natten", "En type kosttilskudd", "Et konsentrert kosttilskudd man tar for å komme raskere inn i dyp søvn", "En fast treningsøvelse man gjennomfører like før man legger seg om kvelden"],
+    options: ["En gjentakende veksling mellom ulike søvnstadier gjennom natten", "En type kosttilskudd som tas i faste doser gjennom hele natten for å bygge muskler", "Et konsentrert kosttilskudd man tar for å komme raskere inn i dyp søvn", "En fast treningsøvelse man gjennomfører like før man legger seg om kvelden"],
     explanation: 'En natt består av flere sykluser med lett søvn, dyp søvn og REM-søvn.',
   },
   {
     question: 'Hva kan skje hvis man over tid sover for lite?',
-    options: ["Dårligere restitusjon, prestasjon og økt skaderisiko", "Lavere skaderisiko", "Raskere framgang fordi kroppen får ekstra tid til å trene om natten", "Ingen målbar effekt så lenge man spiser variert og trener regelmessig"],
+    options: ["Dårligere restitusjon, prestasjon og økt skaderisiko", "Lavere skaderisiko, ettersom kroppen får hvile på andre måter", "Raskere framgang fordi kroppen får ekstra tid til å trene om natten", "Ingen målbar effekt så lenge man spiser variert og trener regelmessig"],
     explanation: 'Søvnmangel svekker både fysisk og mental kapasitet.',
   },
   {
     question: 'Hva er et godt råd for bedre søvn (søvnhygiene)?',
-    options: ["Faste leggetider og redusert skjermbruk før leggetid", "Drikke kaffe rett før leggetid", "Drikke sterk kaffe rett før leggetid for å slappe bedre av i sengen", "Trene maksimalt hardt rett før søvn slik at kroppen blir riktig sliten"],
+    options: ["Faste leggetider og redusert skjermbruk før leggetid", "Drikke kaffe rett før leggetid, siden koffein virker beroligende", "Drikke sterk kaffe rett før leggetid for å slappe bedre av i sengen", "Trene maksimalt hardt rett før søvn slik at kroppen blir riktig sliten"],
     explanation: 'Regelmessighet og ro før leggetid fremmer god søvn.',
   },
 ],
@@ -937,19 +937,19 @@ const quizData_trening_1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva bør man vurdere før man bruker kosttilskudd?',
-    options: ["Om man faktisk har behov, og om produktet er trygt og rent", "At alle tilskudd alltid er nødvendige", "At tilskudd kan erstatte selve treningen dersom man tar nok av dem", "At alle kosttilskudd alltid er nødvendige for å prestere på et høyt nivå"],
+    options: ["Om man faktisk har behov, og om produktet er trygt og rent", "At alle tilskudd alltid er nødvendige", "At tilskudd kan erstatte selve treningen", "At alle kosttilskudd alltid er nødvendige for å prestere på et høyt nivå"],
     explanation: 'De fleste får nok næring fra et variert kosthold; noen tilskudd kan være forurenset.',
   },
   {
     question: 'Hva er en mulig helserisiko ved bruk av anabole steroider (doping)?',
-    options: ["Hjerteproblemer, leverskade og psykiske bivirkninger", "Bedre helse på alle måter", "Bedre helse på alle måter fordi kroppen bygger mer muskel raskt", "Ingen bivirkninger så lenge man trener riktig og spiser variert"],
+    options: ["Hjerteproblemer, leverskade og psykiske bivirkninger", "Bedre helse på alle måter, både fysisk og psykisk, over lang tid", "Bedre helse på alle måter fordi kroppen bygger mer muskel raskt", "Ingen bivirkninger så lenge man trener riktig og spiser variert"],
     explanation: 'Doping kan gi alvorlige og varige helseskader.',
   },
 ],
   'trening-1-8-1': [
   {
     question: 'Hva er periodisering?',
-    options: ["Systematisk variasjon av treningsbelastning over tid for å nå mål", "Å trene helt likt fra dag til dag uten å variere belastningen", "En enkelt sammensatt øvelse som trener flere muskelgrupper samtidig", "En rolig type oppvarming man gjør før hver enkelt treningsøkt"],
+    options: ["Systematisk variasjon av treningsbelastning over tid for å nå mål", "Å trene helt likt fra dag til dag uten å variere belastningen", "En sammensatt øvelse for flere muskelgrupper", "En rolig type oppvarming man gjør før hver enkelt treningsøkt"],
     explanation: 'Periodisering deler treningen inn i faser med ulik belastning og fokus.',
   },
   {
@@ -959,12 +959,12 @@ const quizData_trening_1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er en mikrosyklus?',
-    options: ["Den korteste planleggingsenheten, ofte én uke", "En enkelt øvelse", "En enkelt sammensatt øvelse som gjentas flere ganger i hver økt", "Et helt treningsår delt inn i faser med ulik belastning og fokus"],
+    options: ["Den korteste planleggingsenheten, ofte én uke", "En enkelt øvelse som utgjør hele treningsøkta helt alene", "En enkelt sammensatt øvelse som gjentas flere ganger i hver økt", "Et helt treningsår delt inn i faser med ulik belastning og fokus"],
     explanation: 'Mikrosykluser bygger opp mesosyklusene, som igjen utgjør makrosyklusen.',
   },
   {
     question: 'Hvorfor varierer man belastningen gjennom en periodisert plan?',
-    options: ["For å gi tilpasning, unngå stagnasjon og redusere overtreningsrisiko", "For å gjøre treningen tilfeldig", "For å aldri måtte øke belastningen og dermed slippe unna hard trening", "For bevisst å unngå framgang slik at man holder seg på samme nivå lenge"],
+    options: ["For å gi tilpasning, unngå stagnasjon og redusere overtreningsrisiko", "For å gjøre treningen tilfeldig, slik at utøveren aldri vet hva som kommer neste økt", "For å aldri måtte øke belastningen og dermed slippe unna hard trening", "For bevisst å unngå framgang slik at man holder seg på samme nivå lenge"],
     explanation: 'Variasjon gir nye stimuli og lar kroppen restituere og utvikle seg.',
   },
   {
@@ -976,22 +976,22 @@ const quizData_trening_1: Record<string, QuizQuestion[]> = {
   'trening-1-8-2': [
   {
     question: 'Hva er et helkroppsprogram?',
-    options: ["Et program som trener hele kroppen i hver økt", "Et program som bare trener bein", "Et program helt uten styrketrening, kun basert på utholdenhet", "Et program uten styrketrening"],
+    options: ["Et program som trener hele kroppen i hver økt", "Et program som bare trener bein", "Et program kun basert på utholdenhet", "Et program uten styrketrening"],
     explanation: 'Helkroppsprogram passer ofte godt for nybegynnere og ved få økter per uke.',
   },
   {
     question: 'Hva er et delt program (split)?',
-    options: ["Et program som deler treningen på ulike muskelgrupper på ulike dager", "Et program som trener hele kroppen samlet i hver eneste treningsøkt", "En enkelt sammensatt øvelse som trener flere muskelgrupper på én gang", "Et program helt uten progresjon der belastningen aldri endres over tid"],
+    options: ["Et program som deler treningen på ulike muskelgrupper på ulike dager", "Et program som trener hele kroppen samlet i hver eneste treningsøkt", "En sammensatt øvelse for flere muskelgrupper på én gang", "Et program helt uten progresjon der belastningen aldri endres over tid"],
     explanation: 'Splittprogram lar hver muskelgruppe trenes med høyere volum per økt.',
   },
   {
     question: 'Hva bør et godt treningsprogram inneholde?',
-    options: ["Tydelige mål, progresjon, variasjon og plan for restitusjon", "Maksimal belastning hver dag", "Bare tilfeldig valgte øvelser uten mål, plan eller tanke på hvile", "Maksimal belastning i hver eneste økt uten noen form for restitusjon"],
+    options: ["Tydelige mål, progresjon, variasjon og plan for restitusjon", "Maksimal belastning hver dag, med de samme øvelsene i samme rekkefølge", "Bare tilfeldig valgte øvelser uten mål, plan eller tanke på hvile", "Maksimal belastning i hver eneste økt uten noen form for restitusjon"],
     explanation: 'Et strukturert program med progresjon og hvile gir best framgang.',
   },
   {
     question: 'For hvem passer ofte et helkroppsprogram best?',
-    options: ["Nybegynnere eller de som trener 2-3 ganger i uka", "De som aldri vil ha framgang", "De som bare ønsker å trene én enkelt muskelgruppe om gangen", "Bare erfarne eliteutøvere som trener flere harde økter hver dag"],
+    options: ["Nybegynnere eller de som trener 2-3 ganger i uka", "De som aldri vil ha framgang og bare vil holde seg i gang", "De som bare ønsker å trene én enkelt muskelgruppe om gangen", "Bare erfarne eliteutøvere som trener flere harde økter hver dag"],
     explanation: 'Med få økter rekker man hele kroppen oftere med et helkroppsprogram.',
   },
   {
@@ -1008,7 +1008,7 @@ const quizData_trening_1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva betyr reliabilitet ved en test?',
-    options: ["At testen gir pålitelige og gjentakbare resultater", "At testen måler riktig egenskap", "At testen er morsom og motiverende å gjennomføre for utøverne", "At testen er kort og enkel så den ikke tar mye tid av treningen"],
+    options: ["At testen gir pålitelige og gjentakbare resultater", "At testen måler riktig egenskap", "At testen er morsom og motiverende", "At testen er kort og enkel så den ikke tar mye tid av treningen"],
     explanation: 'En reliabel test gir samme resultat ved gjentakelse under like forhold.',
   },
   {
@@ -1018,7 +1018,7 @@ const quizData_trening_1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva brukes testresultater til i treningsarbeid?',
-    options: ["Å vurdere form, sette mål og evaluere om treningen virker", "Å erstatte all trening", "Å erstatte all treningen slik at selve testen blir treningsøkta", "Ingenting av betydning, siden resultatene sjelden sier noe nyttig"],
+    options: ["Å vurdere form, sette mål og evaluere om treningen virker", "Å erstatte all trening, slik at man bare trenger å møte opp på testdagene", "Å erstatte all treningen slik at selve testen blir treningsøkta", "Ingenting av betydning, siden resultatene sjelden sier noe nyttig"],
     explanation: 'Tester gir objektive data som grunnlag for å justere treningen.',
   },
   {
@@ -1035,7 +1035,7 @@ const quizData_trening_1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er hovedmålet med hypertrofitrening?',
-    options: ['Å øke muskelmassen', 'Å forbedre aerob utholdenhet', 'Å øke bevegeligheten', 'Å senke pulsen'],
+    options: ['Å øke muskelmassen', 'Å forbedre aerob utholdenhet', 'Å øke bevegeligheten', 'Å senke hvilepulsen'],
     explanation: 'Hypertrofi handler om å bygge større muskler.',
   },
   {
@@ -1045,7 +1045,7 @@ const quizData_trening_1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvorfor bør man tilpasse treningen til målet sitt?',
-    options: ["Fordi ulike mål krever ulik belastning, volum og intensitet", "Fordi alle mål nås med samme program", "Fordi tilpasning til målet i praksis bare hindrer framgang over tid", "Fordi alle treningsmål uansett nås med nøyaktig det samme programmet"],
+    options: ["Fordi ulike mål krever ulik belastning, volum og intensitet", "Fordi alle mål nås med samme program", "Fordi tilpasning til målet bare hindrer framgang", "Fordi alle treningsmål uansett nås med nøyaktig det samme programmet"],
     explanation: 'Målet styrer hvordan treningsvariablene bør settes.',
   },
   {
@@ -1062,7 +1062,7 @@ const quizData_trening_1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er indre motivasjon?',
-    options: ["Motivasjon som kommer av glede og interesse for aktiviteten selv", "Motivasjon fra ytre belønninger", "Motivasjon som kommer av ytre belønninger som premier, ros eller anerkjennelse", "Motivasjon som drives av frykt for straff eller for å tape ansikt overfor andre"],
+    options: ["Motivasjon som kommer av glede og interesse for aktiviteten selv", "Motivasjon fra ytre belønninger som penger, poeng eller plassering på en liste", "Motivasjon som kommer av ytre belønninger som premier, ros eller anerkjennelse", "Motivasjon som drives av frykt for straff eller for å tape ansikt overfor andre"],
     explanation: 'Indre motivasjon er ofte mer varig og knyttet til mestring og glede.',
   },
   {
@@ -1072,7 +1072,7 @@ const quizData_trening_1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvordan kan en veileder styrke utøveres motivasjon?',
-    options: ["Ved å gi mestringsopplevelser, medbestemmelse og realistiske mål", "Ved å sette umulige mål", "Ved å bare kritisere feil og peke på svakheter uten å gi ros eller anerkjennelse", "Ved å sette svært høye og urealistiske mål som utøveren nesten aldri kan nå selv"],
+    options: ["Ved å gi mestringsopplevelser, medbestemmelse og realistiske mål", "Ved å sette umulige mål og la utøveren stå helt alene om å prøve å nå dem", "Ved å bare kritisere feil og peke på svakheter uten å gi ros eller anerkjennelse", "Ved å sette svært høye og urealistiske mål som utøveren nesten aldri kan nå selv"],
     explanation: 'Autonomi, mestring og tilhørighet fremmer indre motivasjon.',
   },
   {

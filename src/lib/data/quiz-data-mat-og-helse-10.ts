@@ -9,12 +9,12 @@ const quizData_mat_og_helse_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er essensielle næringsstoffer?",
-      options: ["Næringsstoffer kroppen ikke kan lage selv, og som må komme fra maten", "Næringsstoffer kroppen alltid lager selv", "Næringsstoffer kroppen alltid klarer å lage selv ut fra fett og sukker", "Næringsstoffer som smaker godt, men ikke har noen betydning for helsen"],
+      options: ["Næringsstoffer kroppen ikke kan lage selv, og som må komme fra maten", "Næringsstoffer kroppen alltid lager selv, helt uavhengig av hva slags mat man spiser", "Næringsstoffer kroppen alltid klarer å lage selv ut fra fett og sukker", "Næringsstoffer som smaker godt, men ikke har noen betydning for helsen"],
       explanation: "Essensielle næringsstoffer kan ikke produseres av kroppen og må tilføres gjennom kosten — blant annet ni aminosyrer, to fettsyrer, 13 vitaminer og flere mineraler.",
     },
     {
       question: "Hvordan beregner man det totale daglige energibehovet?",
-      options: ["BMR multiplisert med en aktivitetsfaktor (PAL)", "Antall kalorier i frokosten ganget med tre", "BMR delt på hvor mange måltider man spiser i løpet av dagen", "Antall kalorier i frokosten ganget med tre store hovedmåltider"],
+      options: ["BMR multiplisert med en aktivitetsfaktor (PAL)", "Antall kalorier i frokosten ganget med tre, uansett aktivitetsnivå", "BMR delt på hvor mange måltider man spiser i løpet av dagen", "Antall kalorier i frokosten ganget med tre store hovedmåltider"],
       explanation: "Totalt energibehov = BMR × PAL-faktor. PAL (Physical Activity Level) justerer for hvor fysisk aktiv man er.",
     },
     {
@@ -36,17 +36,17 @@ const quizData_mat_og_helse_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvor ofte oppdateres de nordiske næringsstoffanbefalingene (NNR)?",
-      options: ["Omtrent hvert tiende år", "Hver måned", "Hver eneste sommer, altså én helt ny versjon per år", "Hvert år"],
+      options: ["Omtrent hvert tiende år", "Hver måned", "Hver eneste sommer, altså én helt ny versjon per år", "Hvert år, i forbindelse med nyttår"],
       explanation: "NNR utarbeides av eksperter fra de nordiske landene og oppdateres omtrent hvert tiende år. Den nyeste versjonen er NNR 2023.",
     },
     {
       question: "Hvordan deles tallerkenen i tallerkenmodellen?",
-      options: ["1/3 grønnsaker, 1/3 karbohydrater og 1/3 proteinkilde", "1/4 grønnsaker og 3/4 protein", "1/4 grønnsaker og hele 3/4 proteinkilde som kjøtt eller fisk", "1/2 rødt kjøtt og 1/2 kokte poteter, uten plass til grønnsaker"],
+      options: ["1/3 grønnsaker, 1/3 karbohydrater og 1/3 proteinkilde", "1/4 grønnsaker og 3/4 protein, uten plass til poteter eller pasta", "1/4 grønnsaker og hele 3/4 proteinkilde som kjøtt eller fisk", "1/2 rødt kjøtt og 1/2 kokte poteter, uten plass til grønnsaker"],
       explanation: "Tallerkenmodellen deler måltidet i tre like deler: grønnsaker, karbohydrater og proteinkilde, for et balansert måltid.",
     },
     {
       question: "Hva kjennetegner pålitelige kostholdsråd?",
-      options: ["De bygger på forskning og kommer fra uavhengige fagmiljøer", "De lover raske resultater og selger et produkt", "De forbyr hele matvaregrupper helt uten noen faglig begrunnelse bak", "De lover raske og garanterte resultater og selger et bestemt produkt"],
+      options: ["De bygger på forskning og kommer fra uavhengige fagmiljøer", "De lover raske resultater og selger et produkt du må kjøpe hos dem", "De forbyr hele matvaregrupper helt uten noen faglig begrunnelse bak", "De lover raske og garanterte resultater og selger et bestemt produkt"],
       explanation: "Pålitelige råd er forskningsbaserte, balanserte og kommer fra uavhengige kilder. Råd som lover mirakler eller selger produkter, bør man være kritisk til.",
     },
     {
@@ -63,12 +63,12 @@ const quizData_mat_og_helse_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er kalsium ekstra viktig i ungdomsårene?",
-      options: ["Skjelettet bygges opp og når sin maksimale beintetthet", "Det hindrer at man blir sulten", "Fordi kalsium bare trengs av eldre mennesker med svakt skjelett", "Fordi kalsium er næringsstoffet som gir kroppen aller mest energi"],
+      options: ["Skjelettet bygges opp og når sin maksimale beintetthet", "Det hindrer at man blir sulten mellom måltidene i løpet av dagen", "Fordi kalsium bare trengs av eldre mennesker med svakt skjelett", "Fordi kalsium er næringsstoffet som gir kroppen aller mest energi"],
       explanation: "I ungdomsårene legges grunnlaget for et sterkt skjelett resten av livet. Nok kalsium, sammen med vitamin D, bygger sterke knokler.",
     },
     {
       question: "Hvilket næringsstoff anbefales gravide å få nok av tidlig i svangerskapet for å beskytte fosterets nervesystem?",
-      options: ["Folat (folsyre)", "Mettet fett", "Vitamin K, for god blodlevring", "Vitamin K"],
+      options: ["Folat (folsyre)", "Mettet fett", "Vitamin K, for god blodlevring", "Vitamin K, som styrker synet"],
       explanation: "Folat (folsyre) er avgjørende tidlig i svangerskapet for normal utvikling av fosterets nervesystem og forebygger nevralrørsdefekter.",
     },
     {
@@ -78,7 +78,7 @@ const quizData_mat_og_helse_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner spedbarns ernæring de første månedene?",
-      options: ["Morsmelk eller morsmelkerstatning dekker hele næringsbehovet", "Spedbarn trenger fast føde fra fødselen", "Spedbarn trenger fast føde som grøt og potet helt fra fødselen av", "Spedbarn trenger ikke jern det første leveåret og klarer seg uten"],
+      options: ["Morsmelk eller morsmelkerstatning dekker hele næringsbehovet", "Spedbarn trenger fast føde fra fødselen for å få nok næring til å vokse", "Spedbarn trenger fast føde som grøt og potet helt fra fødselen av", "Spedbarn trenger ikke jern det første leveåret og klarer seg uten"],
       explanation: "De første månedene dekker morsmelk (eller erstatning) hele behovet. Fast føde introduseres gradvis fra rundt seks måneder, og jern blir da viktig.",
     },
   ],
@@ -122,12 +122,12 @@ const quizData_mat_og_helse_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor kan stabilt blodsukker være bra for konsentrasjonen i en skoletime?",
-      options: ["Raske blodsukkerfall kan gi tretthet og dårlig konsentrasjon", "Lavt blodsukker gir alltid bedre fokus", "Fordi lavt blodsukker alltid gir bedre fokus og skarpere tenkning i timen", "Fordi hjernen ikke bruker glukose, men får energien sin fra fett i stedet"],
+      options: ["Raske blodsukkerfall kan gi tretthet og dårlig konsentrasjon", "Lavt blodsukker gir alltid bedre fokus, uansett hva man har spist til frokost", "Fordi lavt blodsukker alltid gir bedre fokus og skarpere tenkning i timen", "Fordi hjernen ikke bruker glukose, men får energien sin fra fett i stedet"],
       explanation: "Hjernen går på glukose. Et raskt blodsukkerfall etter sukkerrik mat kan gi tretthet og uro, mens jevnt blodsukker støtter konsentrasjon.",
     },
     {
       question: "Hvilken mat fremmer en sunn tarmflora?",
-      options: ["Fiber og fermentert mat", "Mye tilsatt sukker", "Ferdigmat med mange tilsetningsstoffer", "Brus og godteri"],
+      options: ["Fiber og fermentert mat", "Mye tilsatt sukker", "Ferdigmat med mange tilsetningsstoffer", "Brus og godteri mellom måltidene"],
       explanation: "Fiber gir næring til de gode tarmbakteriene, og fermentert mat tilfører nyttige bakterier. Mye sukker kan derimot forstyrre tarmfloraen.",
     },
     {
@@ -176,12 +176,12 @@ const quizData_mat_og_helse_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr «best før»-datoen?",
-      options: ["Maten holder best kvalitet til datoen, men kan ofte spises etterpå", "Maten må kastes nøyaktig på datoen", "At datoen viser akkurat når maten ble produsert og pakket på fabrikken", "At maten må kastes nøyaktig på selve datoen, uansett hvordan den ser ut"],
+      options: ["Maten holder best kvalitet til datoen, men kan ofte spises etterpå", "Maten må kastes nøyaktig på datoen, selv om den er uåpnet og godt oppbevart", "At datoen viser akkurat når maten ble produsert og pakket på fabrikken", "At maten må kastes nøyaktig på selve datoen, uansett hvordan den ser ut"],
       explanation: "«Best før» er en kvalitetsdato. Mat kan ofte spises etter datoen hvis den ser, lukter og smaker normalt. «Siste forbruksdag» må derimot respekteres.",
     },
     {
       question: "Hva er restemat?",
-      options: ["Mat laget av matrester eller ingredienser man har til overs", "Mat som er gått ut på dato", "Mat som nettopp har gått ut på dato og derfor må spises raskt", "Mat som alltid bør kastes fordi den er for gammel til å brukes"],
+      options: ["Mat laget av matrester eller ingredienser man har til overs", "Mat som er gått ut på dato og derfor ikke lenger kan selges i butikk", "Mat som nettopp har gått ut på dato og derfor må spises raskt", "Mat som alltid bør kastes fordi den er for gammel til å brukes"],
       explanation: "Restemat, som pyttipanne og restewok, lages av rester og overskuddsingredienser. Det er et viktig og tradisjonsrikt tiltak mot matsvinn.",
     },
     {
@@ -193,7 +193,7 @@ const quizData_mat_og_helse_10: Record<string, QuizQuestion[]> = {
   "mat-10-2-3": [
     {
       question: "Hva er de viktigste kildene til planteprotein?",
-      options: ["Belgfrukter som linser, bønner, erter og kikerter", "Frukt og bær", "Søt frukt og saftige bær, som eple, banan og blåbær", "Hvitt loff og lyst brød laget av finmalt siktet mel"],
+      options: ["Belgfrukter som linser, bønner, erter og kikerter", "Frukt og bær, som inneholder mest protein av alle matvarer", "Søt frukt og saftige bær, som eple, banan og blåbær", "Hvitt loff og lyst brød laget av finmalt siktet mel"],
       explanation: "Belgfrukter er de viktigste planteproteinkildene, sammen med soyaprodukter, nøtter, frø og fullkorn.",
     },
     {
@@ -220,7 +220,7 @@ const quizData_mat_og_helse_10: Record<string, QuizQuestion[]> = {
   "mat-10-2-4": [
     {
       question: "Hva er kortreist mat?",
-      options: ["Mat produsert i nærheten av der den selges og spises", "Mat som er rask å tilberede", "Mat som har svært kort holdbarhet og må spises samme dag", "Mat som er rask og enkel å tilberede på under ti minutter"],
+      options: ["Mat produsert i nærheten av der den selges og spises", "Mat som er rask å tilberede og som lett kan tas med på farten", "Mat som har svært kort holdbarhet og må spises samme dag", "Mat som er rask og enkel å tilberede på under ti minutter"],
       explanation: "Kortreist mat er produsert i nærområdet, ofte i samme region eller fylke, og har dermed kort transportvei.",
     },
     {
@@ -247,17 +247,17 @@ const quizData_mat_og_helse_10: Record<string, QuizQuestion[]> = {
   "mat-10-2-5": [
     {
       question: "Hva er en varedeklarasjon?",
-      options: ["Den lovpålagte merkingen på ferdigpakkede matvarer", "En kvittering fra butikken", "Produsentens årsrapport med regnskap og salgstall for året", "En reklametekst produsenten lager for å selge produktet bedre"],
+      options: ["Den lovpålagte merkingen på ferdigpakkede matvarer", "En kvittering fra butikken som viser hva du har betalt for varen", "Produsentens årsrapport med regnskap og salgstall for året", "En reklametekst produsenten lager for å selge produktet bedre"],
       explanation: "Varedeklarasjonen er obligatorisk merking med ingredienser, næringsinnhold, allergener, oppbevaring, datomerking og produsentinformasjon.",
     },
     {
       question: "I hvilken rekkefølge står ingrediensene i en ingrediensliste?",
-      options: ["Synkende rekkefølge etter vekt", "Alfabetisk", "Etter pris, slik at de dyreste ingrediensene står øverst", "Etter pris"],
+      options: ["Synkende rekkefølge etter vekt", "Alfabetisk etter navnet på ingrediensen", "Etter pris, slik at de dyreste ingrediensene står øverst", "Etter pris"],
       explanation: "Ingrediensen det er mest av står først. Står sukker tidlig i listen, inneholder produktet mye sukker.",
     },
     {
       question: "Hva betyr Nøkkelhullsmerket?",
-      options: ["Produktet er et sunnere valg innenfor sin produktgruppe", "Produktet er helt sukkerfritt", "Produktet er laget i Norge av norske råvarer fra norske gårder", "Produktet er helt fritt for sukker og inneholder ingen søtstoffer"],
+      options: ["Produktet er et sunnere valg innenfor sin produktgruppe", "Produktet er helt sukkerfritt, og man kan spise så mye man vil av det", "Produktet er laget i Norge av norske råvarer fra norske gårder", "Produktet er helt fritt for sukker og inneholder ingen søtstoffer"],
       explanation: "Nøkkelhullet betyr at produktet har mindre fett, sukker og salt og mer fiber enn lignende produkter — ikke at det er «sunt» i seg selv.",
     },
     {
@@ -267,7 +267,7 @@ const quizData_mat_og_helse_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva bør gjøre deg skeptisk når et produkt er merket «naturlig»?",
-      options: ["Ordet er vagt og lite regulert og sier lite om reelt innhold", "Det betyr alltid at produktet er økologisk", "Det betyr at produktet er Fairtrade-merket og rettferdig handlet", "Det garanterer at produktet er helt sukkerfritt og uten søtstoffer"],
+      options: ["Ordet er vagt og lite regulert og sier lite om reelt innhold", "Det betyr alltid at produktet er økologisk og dyrket uten sprøytemidler", "Det betyr at produktet er Fairtrade-merket og rettferdig handlet", "Det garanterer at produktet er helt sukkerfritt og uten søtstoffer"],
       explanation: "Vage markedsføringsord som «naturlig» og «ren» er lite regulert. Sjekk alltid ingrediensliste og næringsdeklarasjon for det fulle bildet.",
     },
   ],
@@ -284,7 +284,7 @@ const quizData_mat_og_helse_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er rakfisk?",
-      options: ["Fermentert ferskvannsfisk, vanligvis ørret eller røye", "Røkt makrell", "Grillet laks som krydres og stekes raskt over glødende kull", "Tørket torsk som henges til tørk i friluft gjennom hele vinteren"],
+      options: ["Fermentert ferskvannsfisk, vanligvis ørret eller røye", "Røkt makrell som først legges i lake og deretter røykes over glør", "Grillet laks som krydres og stekes raskt over glødende kull", "Tørket torsk som henges til tørk i friluft gjennom hele vinteren"],
       explanation: "Rakfisk er ferskvannsfisk som saltes og fermenteres i 2–12 måneder. Den har sterk smak og lukt og stammer fra fjellbygdene i Valdres og omegn.",
     },
     {
@@ -294,7 +294,7 @@ const quizData_mat_og_helse_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er pinnekjøtt?",
-      options: ["Saltet og tørket lammeribbe som dampes møre over pinner", "Grillspyd med svinekjøtt", "Røkt reinsdyrkjøtt som saltes og henges over kald røyk lenge", "Grillspyd med biter av svinekjøtt som stekes over åpen ild ute"],
+      options: ["Saltet og tørket lammeribbe som dampes møre over pinner", "Grillspyd med svinekjøtt og grønnsaker som marineres før grilling", "Røkt reinsdyrkjøtt som saltes og henges over kald røyk lenge", "Grillspyd med biter av svinekjøtt som stekes over åpen ild ute"],
       explanation: "Pinnekjøtt er saltet og tørket lammeribbe som vannes ut og dampkokes over bjørkepinner. Det er en tradisjonell julerett fra Vestlandet.",
     },
   ],
@@ -311,17 +311,17 @@ const quizData_mat_og_helse_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan virker tørking som konservering av reinkjøtt?",
-      options: ["Vannet fjernes, så bakterier ikke kan vokse", "Salt erstattes med sukker", "Alt saltet byttes ut med sukker som trekker bakteriene ut", "Kjøttet fryses så hardt at alle bakteriene dør helt av kulden"],
+      options: ["Vannet fjernes, så bakterier ikke kan vokse", "Salt erstattes med sukker, som konserverer kjøttet i stedet", "Alt saltet byttes ut med sukker som trekker bakteriene ut", "Kjøttet fryses så hardt at alle bakteriene dør helt av kulden"],
       explanation: "Ved tørking skjæres kjøttet i tynne skiver og henges i kald, tørr luft. Når vannet fjernes, kan ikke bakteriene vokse, og kjøttet blir holdbart.",
     },
     {
       question: "Hva er gáhkku?",
-      options: ["Et tradisjonelt samisk brød", "En samisk kjøttgryte", "En varm samisk drikk laget av kokte fjellbær og urter", "Tørket reinkjøtt"],
+      options: ["Et tradisjonelt samisk brød", "En samisk kjøttgryte", "En varm samisk drikk", "Tørket reinkjøtt"],
       explanation: "Gáhkku er et samisk brød som ofte stekes i panne. Det er en viktig del av samisk mattradisjon, gjerne servert til kjøtt og suppe.",
     },
     {
       question: "Hva kjennetegner den tradisjonelle samiske utnyttelsen av reinsdyret?",
-      options: ["Hele dyret brukes — kjøtt, innmat, skinn og bein", "Bare det beste kjøttet brukes, resten kastes", "Bare det aller beste kjøttet brukes, mens resten av dyret kastes", "Reinen brukes ikke til mat i det hele tatt, kun til pels og skinn"],
+      options: ["Hele dyret brukes — kjøtt, innmat, skinn og bein", "Bare det beste kjøttet brukes, resten kastes", "Bare det aller beste kjøttet brukes, mens resten av dyret kastes", "Reinen brukes bare til pels og skinn"],
       explanation: "I samisk tradisjon utnyttes hele reinsdyret: kjøtt og innmat til mat, skinn til klær og bein til redskaper — et eksempel på bærekraftig ressursbruk.",
     },
   ],
@@ -333,17 +333,17 @@ const quizData_mat_og_helse_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor regnes middelhavsdietten som et av verdens sunneste kosthold?",
-      options: ["Den er rik på grønnsaker, fullkorn, fisk og umettet fett", "Den inneholder mye mettet fett og sukker", "Den inneholder mye mettet fett fra smør og mye sukker fra dessert", "Den består hovedsakelig av rødt kjøtt som spises til hvert måltid"],
+      options: ["Den er rik på grønnsaker, fullkorn, fisk og umettet fett", "Den inneholder mye mettet fett og sukker", "Den inneholder mye mettet fett fra smør og mye sukker fra dessert", "Den består hovedsakelig av rødt kjøtt"],
       explanation: "Mye plantekost, fisk og umettet fett fra olivenolje, og lite rødt kjøtt og sukker, gir et kosthold knyttet til lavere risiko for hjerte- og karsykdom.",
     },
     {
       question: "Hva betyr det franske begrepet «terroir»?",
-      options: ["Hvordan jord, klima og sted preger råvarens smak", "En matlagingsteknikk", "En kraftig fransk saus som lages av fløte, smør og hvitvin", "En fransk matlagingsteknikk der maten kokes lenge på lav varme"],
+      options: ["Hvordan jord, klima og sted preger råvarens smak", "En matlagingsteknikk der maten stekes raskt på sterk varme", "En kraftig fransk saus som lages av fløte, smør og hvitvin", "En fransk matlagingsteknikk der maten kokes lenge på lav varme"],
       explanation: "Terroir beskriver hvordan stedets jord, klima og forhold preger råvarens smak og karakter — et sentralt begrep i fransk matkultur, særlig for vin og ost.",
     },
     {
       question: "Hva kjennetegner det italienske kjøkkenet?",
-      options: ["Enkelhet og ferske, lokale råvarer", "Tunge, fløtebaserte sauser i alle retter", "Mest mulig krydder i hver rett", "Ingen regionale forskjeller"],
+      options: ["Enkelhet og ferske, lokale råvarer", "Tunge, fløtebaserte sauser", "Mest mulig krydder i hver rett", "Ingen regionale forskjeller"],
       explanation: "Italiensk matkultur legger vekt på enkelhet og kvaliteten på ferske, lokale råvarer, med store regionale forskjeller fra nord til sør.",
     },
     {
@@ -365,17 +365,17 @@ const quizData_mat_og_helse_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er injera?",
-      options: ["Et etiopisk surdeigsflatbrød man spiser maten på", "En marokkansk gryterett", "En krydret marokkansk gryterett som kokes sakte i en leirgryte", "En type klebrig ris som kokes og serveres til asiatiske retter"],
+      options: ["Et etiopisk surdeigsflatbrød man spiser maten på", "En marokkansk gryterett med lam, aprikoser og sterke krydder", "En krydret marokkansk gryterett som kokes sakte i en leirgryte", "En type klebrig ris som kokes og serveres til asiatiske retter"],
       explanation: "Injera er et fermentert, svampaktig surdeigsbrød fra Etiopia. Maten legges oppå brødet, og man bruker biter av injera til å plukke opp maten.",
     },
     {
       question: "Hva er curry i indisk matlaging egentlig?",
-      options: ["En fellesbetegnelse på krydrede gryteretter med saus", "Ett bestemt krydder", "Ett bestemt gult krydder som gir maten farge og sterk smak", "En type langkornet ris som kokes og serveres til krydret mat"],
+      options: ["En fellesbetegnelse på krydrede gryteretter med saus", "Ett bestemt krydder som males av tørkede frø, blader og røtter", "Ett bestemt gult krydder som gir maten farge og sterk smak", "En type langkornet ris som kokes og serveres til krydret mat"],
       explanation: "Curry er ikke ett krydder, men en samlebetegnelse på krydrede retter med saus. Indisk mat bruker krydderblandinger som varierer mellom regionene.",
     },
     {
       question: "Hva er jollof rice?",
-      options: ["En populær krydret risrett fra Vest-Afrika", "En type japansk sushi", "En søt indisk dessert laget av melk, sukker og sterke krydder", "Et tynt nordafrikansk flatbrød som stekes og spises til gryter"],
+      options: ["En populær krydret risrett fra Vest-Afrika", "En type japansk sushi som lages med rå fisk og eddikris", "En søt indisk dessert laget av melk, sukker og sterke krydder", "Et tynt nordafrikansk flatbrød som stekes og spises til gryter"],
       explanation: "Jollof rice er en kjent vestafrikansk rett med ris kokt i en krydret tomatbase. Den er en festrett og en stolthet i flere vestafrikanske land.",
     },
   ],
@@ -392,12 +392,12 @@ const quizData_mat_og_helse_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan kan mat fungere som brobygger mellom kulturer?",
-      options: ["Ved at man deler retter og blir kjent med hverandres tradisjoner", "Ved at alle spiser nøyaktig samme mat", "Ved at alle blir enige om å spise nøyaktig den samme retten hver dag", "Ved at man holder seg til kjent mat og unngår å smake på ukjente retter"],
+      options: ["Ved at man deler retter og blir kjent med hverandres tradisjoner", "Ved at alle spiser nøyaktig samme mat", "Ved at alle blir enige om å spise nøyaktig den samme retten hver dag", "Ved at man holder seg til kjent mat"],
       explanation: "Å dele og smake på hverandres tradisjonsretter skaper nysgjerrighet, forståelse og fellesskap på tvers av kulturer.",
     },
     {
       question: "Hva er fredagstacoen et eksempel på?",
-      options: ["Hvordan en utenlandsk rett har blitt en del av norsk matidentitet", "En tradisjonell meksikansk rett uten endringer", "En fermentert rett der bakterier og gjær bygger opp smaken over lang tid", "En eldgammel norsk tradisjonsrett som har vært spist her i flere hundre år"],
+      options: ["Hvordan en utenlandsk rett har blitt en del av norsk matidentitet", "En tradisjonell meksikansk rett uten endringer", "En fermentert rett der bakterier bygger smaken", "En eldgammel norsk tradisjonsrett som har vært spist her i flere hundre år"],
       explanation: "Taco kom fra Mexico, men «fredagstaco» har blitt en fast norsk tradisjon med egne tilpasninger — et eksempel på hvordan matidentitet endrer seg.",
     },
     {
@@ -424,19 +424,19 @@ const quizData_mat_og_helse_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er «faresonen» for bakterievekst?",
-      options: ["Temperaturer mellom ca. 5 °C og 60 °C", "Temperaturer over 100 °C", "Temperaturer over 100 °C der maten koker og bakteriene trives best", "Temperaturer under 0 °C"],
+      options: ["Temperaturer mellom ca. 5 °C og 60 °C", "Temperaturer over 100 °C", "Temperaturer der maten koker", "Temperaturer under 0 °C"],
       explanation: "Bakterier formerer seg raskest mellom ca. 5 og 60 °C. Derfor skal kald mat holdes under 5 °C og varm mat over 60 °C.",
     },
     {
       question: "Hva er det viktigste å gjøre ved matforgiftning?",
-      options: ["Drikke mye væske og hvile", "Spise mye fet mat", "Trene hardt", "Ta antibiotika uten å kontakte lege"],
+      options: ["Drikke mye væske og hvile", "Spise mye fet mat", "Trene hardt", "Ta antibiotika selv"],
       explanation: "Ved matforgiftning mister kroppen mye væske gjennom oppkast og diaré. Det viktigste er å erstatte væsken og hvile, og oppsøke lege hvis det ikke går over.",
     },
   ],
   "mat-10-4-2": [
     {
       question: "Hva står HACCP for?",
-      options: ["Et system for mattrygghet som finner og kontrollerer farer i matproduksjon", "Et merke for økologisk mat", "En stor samling med oppskrifter som proffkjøkken bruker for å lage lik mat", "En spesiell type stekeovn som holder helt jevn temperatur under matlagingen"],
+      options: ["Et system for mattrygghet som finner og kontrollerer farer i matproduksjon", "Et merke for økologisk mat", "En stor samling med oppskrifter som proffkjøkken bruker for å lage lik mat", "En spesiell type stekeovn med helt jevn temperatur"],
       explanation: "HACCP (Hazard Analysis and Critical Control Points) identifiserer, vurderer og kontrollerer farer som kan gjøre mat utrygg. Det brukes i all profesjonell matproduksjon.",
     },
     {
@@ -451,12 +451,12 @@ const quizData_mat_og_helse_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvor i kjøleskapet bør rått kjøtt oppbevares?",
-      options: ["Nederst, så det ikke drypper på annen mat", "Øverst, ved siden av brødet", "Øverst i kjøleskapet, ved siden av brødet, der lufta er varmest og tørrest", "Det spiller ingen rolle"],
+      options: ["Nederst, så det ikke drypper på annen mat", "Øverst, ved siden av brødet", "Der lufta er varmest og tørrest", "Det spiller ingen rolle"],
       explanation: "Rått kjøtt bør stå nederst i kjøleskapet, slik at kjøttsaft ikke drypper ned på ferdig mat og forårsaker kryssforurensning.",
     },
     {
       question: "Hva er et kritisk kontrollpunkt (CCP) i HACCP?",
-      options: ["Et trinn der man må kontrollere en fare for å gjøre maten trygg", "Tidspunktet for servering", "Et bestemt sted på kjøkkenet der man alltid rydder og vasker etter matlagingen", "Navnet man gir en oppskrift når den er kvalitetssikret og godkjent av kjøkkensjefen"],
+      options: ["Et trinn der man må kontrollere en fare for å gjøre maten trygg", "Tidspunktet for servering, altså klokkeslettet da maten settes fram på bordet", "Et bestemt sted på kjøkkenet der man alltid rydder og vasker etter matlagingen", "Navnet man gir en oppskrift når den er kvalitetssikret og godkjent av kjøkkensjefen"],
       explanation: "Et kritisk kontrollpunkt er et trinn der en fare kan forebygges eller fjernes, for eksempel gjennomsteking av kylling til 75 °C.",
     },
   ],
@@ -473,7 +473,7 @@ const quizData_mat_og_helse_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den tryggeste måten å tine frossen mat på?",
-      options: ["I kjøleskapet", "På kjøkkenbenken i romtemperatur", "I solen", "I varmt vann over flere timer"],
+      options: ["I kjøleskapet", "På kjøkkenbenken i romtemperatur", "I solen på en varm sommerdag", "I varmt vann over flere timer"],
       explanation: "Tining i kjøleskap holder maten kald hele veien, slik at bakteriene ikke får vokse. Tining i romtemperatur er utrygt fordi overflaten blir varm.",
     },
     {
@@ -483,7 +483,7 @@ const quizData_mat_og_helse_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor kan man ikke alltid stole på lukt og smak ved vurdering av mat?",
-      options: ["Noen farlige bakterier gir verken lukt, smak eller synlig endring", "Maten endrer alltid farge når den er dårlig", "Farlige bakterier lukter alltid surt og vondt, slik at nesa lett kjenner faren", "Lukt og smak er alltid helt pålitelige, så du kan trygt smake deg frem hver gang"],
+      options: ["Noen farlige bakterier gir verken lukt, smak eller synlig endring", "Maten endrer alltid farge når den er dårlig", "Farlige bakterier lukter alltid surt og vondt", "Lukt og smak er alltid helt pålitelige, så du kan trygt smake deg frem hver gang"],
       explanation: "Bakterier som listeria og salmonella endrer ofte verken lukt, smak eller utseende. Derfor må man også følge datomerking og oppbevaringsregler.",
     },
   ],
@@ -495,22 +495,22 @@ const quizData_mat_og_helse_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er pasteurisering?",
-      options: ["Mild varmebehandling som dreper de fleste sykdomsfremkallende bakteriene", "Rask nedfrysing av melk til minusgrader for å drepe skadelige bakterier", "Å tørke bort alt vannet fra kjøtt og melk slik at maten blir holdbar lenge", "Å tilsette store mengder salt slik at bakteriene i melka ikke kan formere seg"],
+      options: ["Mild varmebehandling som dreper de fleste sykdomsfremkallende bakteriene", "Rask nedfrysing av melk til minusgrader for å drepe skadelige bakterier", "Å tørke bort alt vannet fra kjøtt og melk", "Å tilsette store mengder salt slik at bakteriene i melka ikke kan formere seg"],
       explanation: "Pasteurisering, oppkalt etter Louis Pasteur, varmer for eksempel melk til 72–75 °C i noen sekunder for å drepe de fleste skadelige bakteriene.",
     },
     {
       question: "Hvordan konserverer tørking maten?",
-      options: ["Vannet fjernes, så mikroorganismer ikke kan vokse", "Oksygenet erstattes med salt", "Alt oksygenet i maten byttes ut med salt som stopper mikroorganismene", "pH-verdien i maten økes kraftig så miljøet blir for basisk for bakteriene"],
+      options: ["Vannet fjernes, så mikroorganismer ikke kan vokse", "Oksygenet erstattes med salt som trekker fuktighet inn i maten", "Alt oksygenet i maten byttes ut med salt som stopper mikroorganismene", "pH-verdien i maten økes kraftig så miljøet blir for basisk for bakteriene"],
       explanation: "Mikroorganismer trenger vann for å vokse. Ved tørking fjernes vannet, slik at tørrfisk og andre tørkede varer blir holdbare lenge.",
     },
     {
       question: "Hvilken konserveringsmetode brukes til å lage sylteagurk?",
-      options: ["Sylting i eddiklake (lav pH)", "Langsom tørking i romvarme", "Rask frysing til minusgrader", "Kaldrøyking over glødende flis"],
+      options: ["Sylting i eddiklake (lav pH)", "Langsom tørking i romvarme", "Rask frysing til minusgrader", "Kaldrøyking over flis"],
       explanation: "Sylting legger maten i en sur eddiklake. Den lave pH-en hindrer bakterievekst og gir agurken den karakteristiske syrlige smaken.",
     },
     {
       question: "Hva er forskjellen på kaldrøyking og varmrøyking?",
-      options: ["Kaldrøyking skjer ved 15–25 °C, varmrøyking ved 60–80 °C", "Kaldrøyking bruker høyere temperatur", "Kaldrøyking bruker en mye høyere temperatur enn varmrøyking gjør", "De to metodene er helt like og skiller seg bare på hvilket navn de har"],
+      options: ["Kaldrøyking skjer ved 15–25 °C, varmrøyking ved 60–80 °C", "Kaldrøyking bruker høyere temperatur", "Kaldrøyking bruker en mye høyere temperatur enn varmrøyking gjør", "De to metodene er i praksis helt like"],
       explanation: "Kaldrøyking foregår ved lav temperatur (15–25 °C) uten å koke maten, mens varmrøyking ved 60–80 °C også varmebehandler den.",
     },
   ],
@@ -522,17 +522,17 @@ const quizData_mat_og_helse_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr det at et stoff har et E-nummer?",
-      options: ["At det er vurdert og godkjent som trygt i EU/EØS", "At det er forbudt i Norge", "At stoffet er farlig og bør unngås så mye som overhodet mulig i kosten", "At stoffet er helt forbudt å bruke i mat som selges og lages her i Norge"],
+      options: ["At det er vurdert og godkjent som trygt i EU/EØS", "At det er forbudt i Norge, men tillatt i andre europeiske land", "At stoffet er farlig og bør unngås så mye som overhodet mulig i kosten", "At stoffet er helt forbudt å bruke i mat som selges og lages her i Norge"],
       explanation: "E-nummer betyr at stoffet er vurdert og godkjent som trygt av EFSA. Mange ufarlige stoffer har E-nummer, som E300 (vitamin C).",
     },
     {
       question: "Hva er konserveringsmidler (E200–E299) til for?",
-      options: ["Å forlenge holdbarheten ved å hemme vekst av bakterier, gjær og sopp", "Å gjøre maten tykkere", "Å gjøre tynne sauser og supper tykkere og mer fyldige uten å endre smaken", "Å gi maten en sterkere og mer innbydende farge som gjør den fristende å spise"],
+      options: ["Å forlenge holdbarheten ved å hemme vekst av bakterier, gjær og sopp", "Å gjøre maten tykkere, slik at den blir enklere å øse opp og servere pent på fat", "Å gjøre tynne sauser og supper tykkere og mer fyldige uten å endre smaken", "Å gi maten en sterkere og mer innbydende farge som gjør den fristende å spise"],
       explanation: "Konserveringsmidler som sorbinsyre (E200) og benzoesyre (E210) hemmer mikroorganismer og forlenger holdbarheten.",
     },
     {
       question: "Hva er MSG (E621)?",
-      options: ["En smaksforsterker som gir umami", "Et konserveringsmiddel", "Et kunstig søtningsmiddel uten kalorier i seg", "Et søtningsmiddel"],
+      options: ["En smaksforsterker som gir umami", "Et konserveringsmiddel", "Et kunstig søtningsmiddel", "Et søtningsmiddel"],
       explanation: "Mononatriumglutamat (MSG, E621) er en smaksforsterker som gir umami-smak. Glutamat finnes også naturlig i mat som tomat og parmesan.",
     },
     {
@@ -544,12 +544,12 @@ const quizData_mat_og_helse_10: Record<string, QuizQuestion[]> = {
   "mat-10-5-1": [
     {
       question: "Hva er konduksjon i varmeoverføring?",
-      options: ["Varme som overføres ved direkte kontakt, som steking i panne", "Varme som overføres gjennom væske", "Kulde som overføres fra maten til fryseren når den fryses ned til minusgrader", "Varme som overføres som stråling gjennom lufta uten at maten rører varmekilden"],
+      options: ["Varme som overføres ved direkte kontakt, som steking i panne", "Varme som overføres gjennom væske eller luft som beveger seg i sirkler", "Kulde som overføres fra maten til fryseren når den fryses ned til minusgrader", "Varme som overføres som stråling gjennom lufta uten at maten rører varmekilden"],
       explanation: "Konduksjon er varmeoverføring ved direkte kontakt, for eksempel mellom panne og kjøtt. Konveksjon skjer gjennom væske eller luft, og stråling uten kontakt.",
     },
     {
       question: "Hva er Maillardreaksjonen?",
-      options: ["Bruningsreaksjonen som gir stekt mat farge, smak og aroma", "En reaksjon som kjøler maten", "En type konservering som gjør maten holdbar mye lenger enn vanlig", "En kjemisk reaksjon som kjøler maten ned og senker temperaturen i den"],
+      options: ["Bruningsreaksjonen som gir stekt mat farge, smak og aroma", "En reaksjon som kjøler maten raskt ned etter at den er tatt ut av ovnen", "En type konservering som gjør maten holdbar mye lenger enn vanlig", "En kjemisk reaksjon som kjøler maten ned og senker temperaturen i den"],
       explanation: "Maillardreaksjonen oppstår mellom aminosyrer og sukker ved høy varme. Den gir stekt kjøtt og brød den gylne fargen og den rike smaken.",
     },
     {
@@ -559,19 +559,19 @@ const quizData_mat_og_helse_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en fordel med damping sammenlignet med koking?",
-      options: ["Maten beholder mer av næringsstoffene", "Maten blir alltid sprøere", "Maten blir alltid mye sprøere og får en tydelig knasende skorpe utenpå", "Det går alltid raskere"],
+      options: ["Maten beholder mer av næringsstoffene", "Maten blir alltid sprøere", "Maten blir alltid mye sprøere og får en tydelig knasende skorpe utenpå", "Det går alltid mye raskere enn å koke maten i kjele"],
       explanation: "Ved damping kommer ikke maten i direkte kontakt med vannet, så færre vannløselige vitaminer og mineraler lekker ut enn ved koking.",
     },
     {
       question: "Hvorfor bør du tørke av kjøtt og ikke overfylle pannen ved steking?",
-      options: ["Fuktighet og overfylling senker temperaturen så maten koker i stedet for å brune seg", "Man tørker av kjøttet bare for å spare litt tid, ikke fordi det påvirker stekingen", "Fuktighet og overfylling gjør maten kaldere, men gir den samme fine bruningen", "Fuktighet og mengden mat i pannen har egentlig ingen betydning for resultatet"],
+      options: ["Fuktighet og overfylling senker temperaturen så maten koker i stedet for å brune seg", "Man tørker av kjøttet bare for å spare litt tid, ikke fordi det påvirker stekingen", "Fuktighet og overfylling gjør maten kaldere, men gir likevel den samme fine bruningen som ellers", "Fuktighet og mengden mat i pannen har egentlig ingen betydning for resultatet"],
       explanation: "Vann og for mye mat i pannen senker temperaturen. Da damp-koker maten i stedet for å steke, og man får ikke den ønskede Maillard-bruningen.",
     },
   ],
   "mat-10-5-2": [
     {
       question: "Hva er sauteering?",
-      options: ["Rask steking av småskåret mat i litt fett ved høy temperatur", "Langsom koking i vann", "Langsom koking av store kjøttstykker i mye vann over lang tid ved lav varme", "Sakte baking av retten inne i ovnen ved jevn og moderat temperatur i lang tid"],
+      options: ["Rask steking av småskåret mat i litt fett ved høy temperatur", "Langsom koking i vann helt til maten faller fra hverandre av seg selv", "Langsom koking av store kjøttstykker i mye vann over lang tid ved lav varme", "Sakte baking av retten inne i ovnen ved jevn og moderat temperatur i lang tid"],
       explanation: "Sauteering kommer fra fransk «sauter» (å hoppe). Maten kuttes i biter og stekes raskt i litt fett ved høy varme mens den ristes i pannen.",
     },
     {
@@ -581,17 +581,17 @@ const quizData_mat_og_helse_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er sous vide?",
-      options: ["Vakuumpakket mat tilberedt i et vannbad med presis temperatur", "Røyking av fisk", "Røyking av fisk over glødende trekull slik at den får røyksmak og blir holdbar", "Baking av maten inne i en varm ovn på et brett til den blir gjennomstekt og fin"],
+      options: ["Vakuumpakket mat tilberedt i et vannbad med presis temperatur", "Røyking av fisk i en lukket ovn til den får gyllen farge og fast kjøtt", "Røyking av fisk over glødende trekull slik at den får røyksmak og blir holdbar", "Baking av maten inne i en varm ovn på et brett til den blir gjennomstekt og fin"],
       explanation: "Sous vide (fransk for «under vakuum») er tilberedning av vakuumpakket mat i et temperaturstyrt vannbad, ofte 50–85 °C, over lang tid.",
     },
     {
       question: "Hva er en ulempe med sous vide?",
-      options: ["Maten får ingen bruning, så den må ofte stekes etterpå", "Det er umulig å styre temperaturen", "Krydder trekker ikke inn i maten når den ligger i pose", "Vitaminene forsvinner fordi vannbadet koker maten sterkt"],
+      options: ["Maten får ingen bruning, så den må ofte stekes etterpå", "Det er umulig å styre temperaturen nøyaktig når maten ligger i vannbad", "Krydder trekker ikke inn i maten når den ligger i pose", "Vitaminene forsvinner fordi vannbadet koker maten sterkt"],
       explanation: "Sous vide gir jevn, saftig tilberedning, men ingen Maillard-bruning. Derfor stekes for eksempel en sous vide-biff raskt i panne til slutt for stekeskorpe.",
     },
     {
       question: "Hvorfor kombinerer man ofte sous vide med pannesteking?",
-      options: ["Sous vide gir jevn kjerne, mens panna gir sprø, brunet overflate", "Kombinasjonen gjør at maten kan spises helt uten hvile etterpå", "Steking i panne først dreper bakterier som sous vide savner", "Panna varmer opp vannbadet så kjernen blir jevnere stekt"],
+      options: ["Sous vide gir jevn kjerne, mens panna gir sprø, brunet overflate", "Kombinasjonen gjør at maten kan spises helt uten hvile etterpå", "Steking i panne først dreper bakterier som sous vide savner", "Panna varmer opp vannbadet slik at kjernen i maten blir jevnere stekt hele veien"],
       explanation: "Sous vide gir presis og saftig kjerne, men mangler stekeskorpe. En rask pannesteking til slutt gir den brune, smakfulle overflaten.",
     },
   ],
@@ -603,7 +603,7 @@ const quizData_mat_og_helse_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er glutens funksjon i en deig?",
-      options: ["Å danne et elastisk nettverk som fanger gassboblene", "Å gi deigen søt smak og en tydelig gyllen farge", "Å bryte ned stivelsen slik at deigen blir helt flytende", "Å hindre at hevemidlene lager gass i deigen"],
+      options: ["Å danne et elastisk nettverk som fanger gassboblene", "Å gi deigen søt smak og en tydelig gyllen farge", "Å bryte ned stivelsen slik at deigen blir helt flytende", "Å hindre at hevemidlene lager gass, slik at deigen holder seg flat"],
       explanation: "Gluten dannes når hvetemel bearbeides med væske. Det elastiske proteinnettverket fanger gassboblene fra hevemidlene og gir struktur.",
     },
     {
@@ -618,19 +618,19 @@ const quizData_mat_og_helse_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en sorbet?",
-      options: ["En frossen dessert uten meieriprodukter, laget av fruktsaft eller puré", "En frossen dessert laget av pisket kremfløte og sukker", "En bakt dessert med egg, mel og frukt fra ovnen", "En varm fruktsuppe som serveres rett fra kjelen"],
+      options: ["En frossen dessert uten meieriprodukter, laget av fruktsaft eller puré", "En frossen dessert laget av pisket kremfløte og sukker", "En bakt dessert av egg, mel og frukt som stekes i ovnen til overflaten blir gyllen", "En varm fruktsuppe som serveres rett fra kjelen"],
       explanation: "Sorbet er en frossen dessert basert på fruktsaft, vann og sukker, uten melk eller fløte. Iskrem inneholder derimot meieriprodukter.",
     },
   ],
   "mat-10-5-4": [
     {
       question: "Hva er béchamel?",
-      options: ["En hvit grunnsaus av smør, mel og melk", "En kald majones", "En kald saus av eggeplomme, olje og sitron", "En rød grunnsaus av tomat, løk og olivenolje"],
+      options: ["En hvit grunnsaus av smør, mel og melk", "En kald majones med friske urter og hvitløk rørt inn", "En kald saus av eggeplomme, olje og sitron", "En rød grunnsaus av tomat, løk og olivenolje"],
       explanation: "Béchamel er en av de fem franske grunnsausene — en hvit saus laget av en jevning (roux) av smør og mel, spedd med melk.",
     },
     {
       question: "Hva er en roux?",
-      options: ["En jevning av smør og mel som tykner sausen", "En krydderblanding", "En kald emulsjon av egg og olje som majones", "En blanding av tørket krydder som strøs på maten"],
+      options: ["En jevning av smør og mel som tykner sausen", "En krydderblanding som røres ut i litt vann før bruk", "En kald emulsjon av egg og olje som majones", "En blanding av tørket krydder som strøs på maten"],
       explanation: "En roux lages ved å smelte smør og røre inn mel. Den brukes som jevningsmiddel for sauser som béchamel og velouté.",
     },
     {
@@ -640,12 +640,12 @@ const quizData_mat_og_helse_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en emulsjon?",
-      options: ["En stabil blanding av to væsker som normalt ikke blander seg, som olje og vann", "En frossen dessert laget uten fløte og meieriprodukter", "En grønnsak som er kokt lenge og deretter most fin", "En type finmalt mel brukt til å tykne sauser"],
+      options: ["En stabil blanding av to væsker som normalt ikke blander seg, som olje og vann", "En frossen dessert laget uten fløte og meieriprodukter", "En grønnsak som er kokt lenge og deretter most fin", "En type finmalt mel som brukes til å tykne sauser og gjøre dem glatte, tykke og fyldige"],
       explanation: "En emulsjon er en stabil blanding av for eksempel olje og vann/eddik. En emulgator, som eggeplomme i majones, holder blandingen sammen.",
     },
     {
       question: "Hvilken emulgator brukes i majones?",
-      options: ["Eggeplomme", "Hvetemel", "Hvetemel som binder olje og syre i en tykk saus", "Sukker"],
+      options: ["Eggeplomme", "Hvetemel rørt ut i vann", "Hvetemel som binder olje og syre i en tykk saus", "Sukker og salt"],
       explanation: "Eggeplomme inneholder lecitin, som binder olje og syre sammen til en stabil, tykk kald emulsjon — majones.",
     },
   ],
@@ -667,12 +667,12 @@ const quizData_mat_og_helse_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor brukes ofte en hvit tallerken til anretning?",
-      options: ["Den er nøytral og fremhever matens farger", "Maten smaker bedre på hvitt", "Maten smaker faktisk bedre når den ligger på hvitt", "Den er nesten alltid det billigste valget i butikken"],
+      options: ["Den er nøytral og fremhever matens farger", "Maten smaker bedre på hvitt enn på farget tallerken", "Maten smaker faktisk bedre når den ligger på hvitt", "Den er nesten alltid det billigste valget i butikken"],
       explanation: "En hvit tallerken fungerer som et nøytralt lerret som lar matens farger og former tre tydelig frem.",
     },
     {
       question: "Hva kjennetegner et godt garnityr?",
-      options: ["Det er spiselig og tilfører farge, smak eller tekstur", "Det bør alltid være grått for å passe til all mat", "Jo mer garnityr man legger på, desto bedre blir retten", "Det er uspiselig pynt som kun skal se fint ut"],
+      options: ["Det er spiselig og tilfører farge, smak eller tekstur", "Det bør alltid være grått for å passe til all mat", "Jo mer garnityr man legger på, desto bedre blir retten", "Det er uspiselig pynt som bare skal se fint ut på selve tallerkenen"],
       explanation: "Garnityr skal være spiselig og passe til retten. Friske urter eller sprø elementer tilfører farge, smak eller tekstur — ikke bare dekorasjon.",
     },
   ],
@@ -699,7 +699,7 @@ const quizData_mat_og_helse_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor lønner det seg å bruke sesongvarer i planleggingen?",
-      options: ["De er ofte billigere, ferskere og mer smakfulle", "De har høyere klimaavtrykk", "De er nesten alltid importert langveisfra og gir god smak", "De har mindre næring fordi de høstes tidlig og lagres lenge"],
+      options: ["De er ofte billigere, ferskere og mer smakfulle", "De har høyere klimaavtrykk fordi de alltid dyrkes i drivhus", "De er nesten alltid importert langveisfra og gir god smak", "De har mindre næring fordi de høstes tidlig og lagres lenge"],
       explanation: "Sesongvarer høstes når de er modne, og er derfor billigere, ferskere og mer smakfulle, samtidig som de ofte har lavere klimaavtrykk.",
     },
   ],
@@ -726,7 +726,7 @@ const quizData_mat_og_helse_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er mise en place?",
-      options: ["Å gjøre klar alle ingredienser og redskaper før man begynner", "Å smake til og krydre maten helt til slutt før servering", "Å rydde og vaske opp hele kjøkkenet etter måltidet", "Å dekke bordet pent med duk, glass og bestikk"],
+      options: ["Å gjøre klar alle ingredienser og redskaper før man begynner", "Å smake til og krydre maten helt til slutt før servering", "Å rydde og vaske opp hele kjøkkenet etter måltidet", "Å dekke bordet pent med duk, glass og bestikk før gjestene setter seg"],
       explanation: "Mise en place («alt på plass») betyr å måle opp ingredienser, kutte grønnsaker og finne frem redskaper før selve matlagingen starter.",
     },
   ],
@@ -765,7 +765,7 @@ const quizData_mat_og_helse_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva bør en god frokost inneholde?",
-      options: ["Fullkorn, protein og gjerne frukt eller grønnsaker", "Bare sukkerholdig blanding", "Bare en kopp kaffe uten noe å spise til, for å spare tid", "Mest mulig raske karbohydrater fra hvitt brød og syltetøy"],
+      options: ["Fullkorn, protein og gjerne frukt eller grønnsaker", "Bare sukkerholdig blanding som gir rask energi om morgenen", "Bare en kopp kaffe uten noe å spise til, for å spare tid", "Mest mulig raske karbohydrater fra hvitt brød og syltetøy"],
       explanation: "En god frokost med fullkorn, protein og frukt eller grønnsaker gir jevnt blodsukker og energi til konsentrasjon utover formiddagen.",
     },
     {
@@ -775,12 +775,12 @@ const quizData_mat_og_helse_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilket mellommåltid er et godt valg?",
-      options: ["Frukt, grønnsaker eller en håndfull nøtter", "En bolle med sukkerglasur", "En pose potetgull med mye salt og mettet fett i seg", "En stor sjokoladeplate og en flaske sukkerholdig brus"],
+      options: ["Frukt, grønnsaker eller en håndfull nøtter", "En bolle med sukkerglasur og et glass saft ved siden av", "En pose potetgull med mye salt og mettet fett i seg", "En stor sjokoladeplate og en flaske sukkerholdig brus"],
       explanation: "Gode mellommåltider gir jevnt blodsukker uten mye tilsatt sukker — som frukt, grønnsaker, nøtter eller en yoghurt, i stedet for godteri og brus.",
     },
     {
       question: "Hva er «overnight oats»?",
-      options: ["Havregrøt som settes kaldt over natten og er klar om morgenen", "Havre som stekes i panne", "Havregryn som stekes helt sprø i stekepanne med smør og sukker", "Et varmt kveldsmåltid med kokt havregrøt servert rykende varmt"],
+      options: ["Havregrøt som settes kaldt over natten og er klar om morgenen", "Havre som stekes i panne og serveres varm rett fra pannen om morgenen", "Havregryn som stekes helt sprø i stekepanne med smør og sukker", "Et varmt kveldsmåltid med kokt havregrøt servert rykende varmt"],
       explanation: "Overnight oats er havregryn bløtlagt i melk eller yoghurt over natten. Det er en rask, næringsrik frokost å forberede kvelden før på travle morgener.",
     },
   ],
@@ -792,39 +792,39 @@ const quizData_mat_og_helse_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken rett er typisk 17. mai-mat?",
-      options: ["Pølser med lompe eller brød, is og kake", "Pinnekjøtt", "Pinnekjøtt med kålrotstappe og poteter som festmiddag", "Rakfisk med lefse, løk og rømme som tradisjonell rett"],
+      options: ["Pølser med lompe eller brød, is og kake", "Pinnekjøtt med sennep, flatbrød og tyttebær til", "Pinnekjøtt med kålrotstappe og poteter som festmiddag", "Rakfisk med lefse, løk og rømme som tradisjonell rett"],
       explanation: "På nasjonaldagen er pølser med lompe eller brød, is og kake selve klassikerne, gjerne med 17. mai-bløtkake som høydepunkt.",
     },
     {
       question: "Hvorfor varierer julemiddagen mellom landsdelene i Norge?",
-      options: ["Ulike regioner har ulike tradisjoner — ribbe, pinnekjøtt eller lutefisk", "Alle spiser nøyaktig det samme", "Alle familier i hele landet spiser nøyaktig den samme julemiddagen hvert år", "Det er bestemt ved en egen lov nøyaktig hvilken julemat hver landsdel må spise"],
+      options: ["Ulike regioner har ulike tradisjoner — ribbe, pinnekjøtt eller lutefisk", "Alle spiser nøyaktig det samme, og oppskriftene har vært uendret i mange hundre år", "Alle familier i hele landet spiser nøyaktig den samme julemiddagen hvert år", "Det er bestemt ved en egen lov nøyaktig hvilken julemat hver landsdel må spise"],
       explanation: "Julematen følger regionale tradisjoner: ribbe er vanlig på Østlandet, pinnekjøtt på Vestlandet, og lutefisk og torsk flere steder.",
     },
     {
       question: "Hva symboliserer mandelen i julegrøten?",
-      options: ["Den som finner mandelen får en premie, ofte en marsipangris", "At grøten er ødelagt", "At grøten er ødelagt og ikke lenger trygg å spise opp for noen", "At den som får mandelen i grøten sin må ta all oppvasken etterpå"],
+      options: ["Den som finner mandelen får en premie, ofte en marsipangris", "At grøten er ødelagt, og at mandelen er lagt i som en advarsel til gjestene", "At grøten er ødelagt og ikke lenger trygg å spise opp for noen", "At den som får mandelen i grøten sin må ta all oppvasken etterpå"],
       explanation: "En skåldet mandel gjemmes i julegrøten, og den som finner den får en premie — tradisjonelt en marsipangris.",
     },
     {
       question: "Hvilken funksjon har høytidsmat utover å mette?",
-      options: ["Den markerer fellesskap, identitet og kulturarv", "Den er alltid sunnere enn hverdagsmat", "Den er alltid mye sunnere og lettere enn vanlig hverdagsmat", "Den har ingen funksjon utover næring"],
+      options: ["Den markerer fellesskap, identitet og kulturarv", "Den er alltid sunnere enn hverdagsmat", "Den er alltid mye sunnere og lettere enn vanlig hverdagsmat", "Den har ingen funksjon utover næring og en god metthetsfølelse"],
       explanation: "Høytidsmat har en viktig symbolsk funksjon: Den skaper fellesskap, bærer tradisjoner videre mellom generasjoner og er en del av identiteten vår.",
     },
   ],
   "mat-10-7-1": [
     {
       question: "Hva er livsstilssykdommer?",
-      options: ["Sykdommer som i stor grad skyldes levevaner som kosthold og aktivitet", "Arvelige sykdommer man ikke kan påvirke", "Arvelige sykdommer i genene som man selv ikke kan påvirke i det hele tatt", "Smittsomme sykdommer som spres fra person til person med bakterier og virus"],
+      options: ["Sykdommer som i stor grad skyldes levevaner som kosthold og aktivitet", "Arvelige sykdommer man ikke kan påvirke", "Arvelige sykdommer i genene som man selv ikke kan påvirke i det hele tatt", "Smittsomme sykdommer som spres fra person til person"],
       explanation: "Livsstilssykdommer som diabetes type 2 og hjerte- og karsykdom henger sammen med levevaner som kosthold, fysisk aktivitet, røyking og alkohol.",
     },
     {
       question: "Hvilket kostholdsgrep senker risikoen for diabetes type 2?",
-      options: ["Mer fiber og grove kornprodukter, mindre tilsatt sukker", "Mer sukkerholdig drikke", "Mindre grønnsaker og frukt, og heller mer hvitt mel i kosten", "Mer sukkerholdig brus og saft, siden kroppen trenger rask energi"],
+      options: ["Mer fiber og grove kornprodukter, mindre tilsatt sukker", "Mer sukkerholdig drikke til hvert eneste måltid i løpet av dagen", "Mindre grønnsaker og frukt, og heller mer hvitt mel i kosten", "Mer sukkerholdig brus og saft, siden kroppen trenger rask energi"],
       explanation: "Fiber og grove kornprodukter gir jevnere blodsukker, mens mye tilsatt sukker og overvekt øker risikoen for diabetes type 2.",
     },
     {
       question: "Hva er forskjellen på LDL- og HDL-kolesterol?",
-      options: ["LDL er «dårlig» og HDL er «godt» kolesterol", "LDL er «godt» og HDL er «dårlig»", "LDL og HDL er nøyaktig det samme, bare med to ulike navn", "Både LDL og HDL er like skadelige og bør holdes helt lave"],
+      options: ["LDL er «dårlig» og HDL er «godt» kolesterol", "LDL er «godt» og HDL er «dårlig»", "LDL og HDL er nøyaktig det samme", "Både LDL og HDL er like skadelige og bør holdes helt lave"],
       explanation: "Høyt LDL-kolesterol («dårlig») øker risikoen for åreforkalkning, mens HDL («godt») frakter kolesterol bort fra blodårene.",
     },
     {
@@ -834,7 +834,7 @@ const quizData_mat_og_helse_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor regnes middelhavskostholdet som hjertevennlig?",
-      options: ["Det er rikt på grønnsaker, fisk og umettet fett og lavt på rødt kjøtt og sukker", "Det inneholder mye mettet fett", "Det inneholder mye mettet fett fra smør, fløte, fett kjøtt og bakevarer, og lite fisk", "Det utelukker fisk og sjømat helt, og bygger i stedet på kjøtt og fete meieriprodukter"],
+      options: ["Det er rikt på grønnsaker, fisk og umettet fett og lavt på rødt kjøtt og sukker", "Det inneholder mye mettet fett og svært lite av de umettede fettsyrene som kroppen trenger", "Det inneholder mye mettet fett fra smør, fløte, fett kjøtt og bakevarer, og lite fisk", "Det utelukker fisk og sjømat helt, og bygger i stedet på kjøtt og fete meieriprodukter"],
       explanation: "Middelhavskostholdet, med mye plantekost, fisk og olivenolje, er knyttet til lavere risiko for hjerte- og karsykdom.",
     },
   ],
@@ -846,12 +846,12 @@ const quizData_mat_og_helse_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner anoreksi?",
-      options: ["Ekstrem matrestriksjon, kraftig vekttap og forstyrret kroppsbilde", "Overspising etterfulgt av oppkast", "Et helt sunt, avslappet og trygt forhold til både mat, kropp og egen vekt", "En allergisk reaksjon mot gluten i hvete, bygg og rug som er i mange matvarer"],
+      options: ["Ekstrem matrestriksjon, kraftig vekttap og forstyrret kroppsbilde", "Overspising etterfulgt av oppkast eller annen form for kompenserende atferd", "Et helt sunt, avslappet og trygt forhold til både mat, kropp og egen vekt", "En allergisk reaksjon mot gluten i hvete, bygg og rug som er i mange matvarer"],
       explanation: "Anoreksi kjennetegnes av sterk matbegrensning, kraftig vekttap, intens redsel for å gå opp i vekt og et forvrengt bilde av egen kropp.",
     },
     {
       question: "Hva er kroppspress?",
-      options: ["Press om å se ut på en bestemt måte, ofte forsterket av sosiale medier", "Press i magesekken etter et måltid", "Et mål på hvor høyt blodtrykket er når hjertet pumper blodet rundt i kroppen", "Presset og verkingen man kjenner i musklene etter en hard og lang treningsøkt"],
+      options: ["Press om å se ut på en bestemt måte, ofte forsterket av sosiale medier", "Press i magesekken etter et stort måltid, slik at man kjenner seg oppblåst og tung", "Et mål på hvor høyt blodtrykket er når hjertet pumper blodet rundt i kroppen", "Presset og verkingen man kjenner i musklene etter en hard og lang treningsøkt"],
       explanation: "Kroppspress er opplevelsen av forventninger om å ha en bestemt kropp. Sosiale medier, reklame og jevnaldrende kan forsterke dette presset.",
     },
     {
@@ -861,7 +861,7 @@ const quizData_mat_og_helse_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvor kan man få hjelp ved en spiseforstyrrelse?",
-      options: ["Helsesykepleier, fastlege eller ROS (Rådgivning om spiseforstyrrelser)", "Gjennom slankeprodukter", "Ingen steder, for det finnes dessverre ikke hjelp mot spiseforstyrrelser", "Bare ved å vente hjemme og håpe at det hele går over av seg selv over tid"],
+      options: ["Helsesykepleier, fastlege eller ROS (Rådgivning om spiseforstyrrelser)", "Gjennom slankeprodukter og kosttilskudd som markedsføres og selges fritt på nett", "Ingen steder, for det finnes dessverre ikke hjelp mot spiseforstyrrelser", "Bare ved å vente hjemme og håpe at det hele går over av seg selv over tid"],
       explanation: "Det finnes hjelp å få. Helsesykepleier på skolen, fastlege og organisasjoner som ROS kan gi støtte og behandling.",
     },
   ],
@@ -873,12 +873,12 @@ const quizData_mat_og_helse_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er markedsføring rettet mot ungdom på sosiale medier effektiv?",
-      options: ["Den treffer der unge er, og bruker influencere de stoler på", "Den er forbudt og forekommer ikke", "Unge kjøper ikke mat selv, så reklamen når aldri fram til dem", "Unge ser aldri reklame fordi de bruker lite tid på sosiale medier"],
+      options: ["Den treffer der unge er, og bruker influencere de stoler på", "Den er forbudt og forekommer ikke", "Unge kjøper ikke mat selv i butikken", "Unge ser aldri reklame fordi de bruker lite tid på sosiale medier"],
       explanation: "Sosiale medier når ungdom direkte, og influencere oppleves som personlige og troverdige. Det gjør reklamen vanskeligere å gjennomskue.",
     },
     {
       question: "Hvorfor kan påstanden «uten tilsatt sukker» være villedende?",
-      options: ["Produktet kan likevel inneholde mye naturlig sukker eller søtstoffer", "Det betyr alltid at produktet er sunt", "Det er ulovlig å skrive dette på matvarer, så det står aldri på pakker", "Det betyr alltid at hele produktet er sunt og helt trygt å spise mye av"],
+      options: ["Produktet kan likevel inneholde mye naturlig sukker eller søtstoffer", "Det betyr alltid at produktet er sunt", "Det er ulovlig å skrive dette på matvarer", "Det betyr alltid at hele produktet er sunt og helt trygt å spise mye av"],
       explanation: "«Uten tilsatt sukker» betyr ikke sukkerfritt — produktet kan inneholde naturlig sukker fra for eksempel frukt eller juice, eller søtstoffer.",
     },
     {
@@ -895,17 +895,17 @@ const quizData_mat_og_helse_10: Record<string, QuizQuestion[]> = {
   "mat-10-7-4": [
     {
       question: "Hva betyr matsikkerhet ifølge FN?",
-      options: ["At alle til enhver tid har tilgang til nok, trygg og næringsrik mat", "At maten er fri for bakterier", "At all maten alltid er helt fri for bakterier og aldri kan bli dårlig", "At man har låst kjøleskapet sitt godt så ingen andre kan stjele maten"],
+      options: ["At alle til enhver tid har tilgang til nok, trygg og næringsrik mat", "At maten er fri for bakterier, sopp og andre mikroorganismer som kan gjøre folk syke", "At all maten alltid er helt fri for bakterier og aldri kan bli dårlig", "At man har låst kjøleskapet sitt godt så ingen andre kan stjele maten"],
       explanation: "Matsikkerhet (food security) betyr at alle mennesker har fysisk, sosial og økonomisk tilgang til tilstrekkelig, trygg og næringsrik mat.",
     },
     {
       question: "Hva er hovedårsaken til sult i verden?",
-      options: ["Fattigdom, konflikt og urettferdig fordeling", "At det produseres for lite mat globalt", "At mange mennesker rett og slett ikke vil spise den maten som finnes", "At mat ikke kan fraktes noe sted"],
+      options: ["Fattigdom, konflikt og urettferdig fordeling", "At det produseres for lite mat globalt", "At mange ikke vil spise maten", "At mat ikke kan fraktes noe sted"],
       explanation: "Verden produserer nok mat til alle, men fattigdom, krig, klimaendringer og skjev fordeling gjør at hundrevis av millioner likevel sulter.",
     },
     {
       question: "Hvordan truer klimaendringer matproduksjonen?",
-      options: ["Med tørke, ekstremvær og temperaturstigning som ødelegger avlinger", "Klimaendringer påvirker ikke mat", "Ved at all mat i verden plutselig blir gratis og lett tilgjengelig", "Ved at det blir altfor mye god matjord som ingen klarer å bruke opp"],
+      options: ["Med tørke, ekstremvær og temperaturstigning som ødelegger avlinger", "Klimaendringer påvirker ikke mat", "Ved at all mat i verden plutselig blir gratis og lett tilgjengelig", "Ved at det blir altfor mye god matjord"],
       explanation: "Tørke, flom, ekstremvær og høyere temperaturer reduserer avlinger og truer matproduksjonen, særlig i sårbare områder.",
     },
     {
@@ -915,19 +915,19 @@ const quizData_mat_og_helse_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Omtrent hvor stor andel av all mat som produseres i verden går tapt eller kastes?",
-      options: ["Om lag en tredjedel", "Nesten ingenting", "Godt under 5 prosent av all mat i verden", "Tre fjerdedeler"],
+      options: ["Om lag en tredjedel", "Nesten ingenting", "Under 5 prosent", "Tre fjerdedeler"],
       explanation: "Cirka en tredjedel av all mat som produseres globalt går tapt eller kastes — et paradoks i en verden der mange sulter.",
     },
   ],
   "mat-10-7-5": [
     {
       question: "Hvorfor regnes insekter som en mulig bærekraftig matkilde?",
-      options: ["De gir mye protein med lavt klimaavtrykk, lite vann og lite areal", "De gir høyere utslipp enn kjøtt", "De inneholder nesten ingen næring og svært lite protein å snakke om", "De gir mye høyere klimagassutslipp enn både rødt kjøtt og fisk gjør"],
+      options: ["De gir mye protein med lavt klimaavtrykk, lite vann og lite areal", "De gir høyere utslipp enn kjøtt, fordi de må holdes varme gjennom hele året", "De inneholder nesten ingen næring og svært lite protein å snakke om", "De gir mye høyere klimagassutslipp enn både rødt kjøtt og fisk gjør"],
       explanation: "Insekter omdanner fôr effektivt og krever lite vann og plass. Sammenlignet med storfekjøtt gir de langt lavere klimagassutslipp.",
     },
     {
       question: "Hva er laboratoriedyrket kjøtt (labkjøtt)?",
-      options: ["Ekte kjøtt dyrket fra dyreceller uten å slakte dyr", "Kjøtt fra ville dyr som er jaktet i skog og fjell", "En plantebasert kjøtterstatning laget av soya og erter", "Soyabønner som er fermentert med sopp til en fast masse"],
+      options: ["Ekte kjøtt dyrket fra dyreceller uten å slakte dyr", "Kjøtt fra ville dyr som er jaktet i skog og fjell", "En plantebasert kjøtterstatning", "Soyabønner som er fermentert med sopp til en fast masse"],
       explanation: "Labkjøtt dyrkes fra dyreceller i en bioreaktor og blir ekte kjøtt uten slakting. Teknologien er fortsatt under utvikling og kostbar.",
     },
     {
@@ -942,7 +942,7 @@ const quizData_mat_og_helse_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er hovedmålet med å utvikle ny matteknologi for framtiden?",
-      options: ["Å sikre nok bærekraftig mat til en voksende verdensbefolkning", "Å erstatte alle grønnsaker", "Å erstatte alle grønnsaker med kunstige og syntetiske råvarer", "Å gjøre maten dyrere så færre mennesker har råd til å kjøpe den"],
+      options: ["Å sikre nok bærekraftig mat til en voksende verdensbefolkning", "Å erstatte alle grønnsaker", "Å erstatte alle grønnsaker med kunstige og syntetiske råvarer", "Å gjøre maten dyrere for forbrukerne"],
       explanation: "Befolkningen vokser samtidig som klimaavtrykket må ned. Nye matkilder som labkjøtt, insekter og alger skal bidra til bærekraftig matsikkerhet.",
     },
   ],
@@ -991,12 +991,12 @@ const quizData_mat_og_helse_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan kan mat og helse kobles til naturfag?",
-      options: ["Gjennom fordøyelse, kjemi i matlaging og mikroorganismer", "Det finnes ingen kobling", "Det finnes ingen kobling mellom mat og helse og naturfaget", "Bare gjennom gym og kroppsøving når man beveger seg og trener"],
+      options: ["Gjennom fordøyelse, kjemi i matlaging og mikroorganismer", "Det finnes ingen kobling, siden matlaging er et rent praktisk fag", "Det finnes ingen kobling mellom mat og helse og naturfaget", "Bare gjennom gym og kroppsøving når man beveger seg og trener"],
       explanation: "Mat og helse overlapper med naturfag i temaer som fordøyelsessystemet, kjemiske reaksjoner i matlaging og mikroorganismers rolle.",
     },
     {
       question: "Hvordan bidrar mat og helse til bærekraftig utvikling?",
-      options: ["Gjennom kunnskap om klimaavtrykk, matsvinn og bærekraftige matvalg", "Bare gjennom å kaste mer mat så butikkene får solgt ferske varer", "Det har ingen sammenheng med bærekraft eller miljø i det hele tatt", "Bare ved å oppfordre alle elever til å spise mer kjøtt til hvert måltid"],
+      options: ["Gjennom kunnskap om klimaavtrykk, matsvinn og bærekraftige matvalg", "Bare gjennom å kaste mer mat, slik at butikkene får solgt flere ferske varer", "Det har ingen sammenheng med bærekraft eller miljø i det hele tatt", "Bare ved å oppfordre alle elever til å spise mer kjøtt til hvert måltid"],
       explanation: "Faget gir kunnskap om matens miljøpåvirkning, matsvinn og hvordan egne matvalg kan bidra til en mer bærekraftig framtid.",
     },
   ],
@@ -1013,17 +1013,17 @@ const quizData_mat_og_helse_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken gruppe er spesielt utsatt for jernmangel?",
-      options: ["Unge jenter på grunn av menstruasjon", "Toppidrettsutøvere generelt", "Eldre menn som spiser mye rødt kjøtt hver eneste dag", "Små barn over to år som har begynt å spise vanlig mat"],
+      options: ["Unge jenter på grunn av menstruasjon", "Toppidrettsutøvere generelt, uansett kjønn og alder", "Eldre menn som spiser mye rødt kjøtt hver eneste dag", "Små barn over to år som har begynt å spise vanlig mat"],
       explanation: "Unge jenter taper blod ved menstruasjon og er derfor spesielt utsatt for jernmangel. Jern trengs for å lage hemoglobin.",
     },
     {
       question: "Hva betyr energibalanse?",
-      options: ["At energiinntaket tilsvarer energiforbruket", "At man bare spiser karbohydrater", "At man bare spiser karbohydrater og kutter ut alt annet", "At all energien kroppen får kommer fra fett i kostholdet"],
+      options: ["At energiinntaket tilsvarer energiforbruket", "At man bare spiser karbohydrater tidligere på dagen enn ellers", "At man bare spiser karbohydrater og kutter ut alt annet", "At all energien kroppen får kommer fra fett i kostholdet"],
       explanation: "Energibalanse betyr at energien fra maten tilsvarer det kroppen forbruker. Over tid gir overskudd vektøkning og underskudd vekttap.",
     },
     {
       question: "Hva bør man være ekstra oppmerksom på ved vegansk kosthold?",
-      options: ["Å få nok vitamin B12, jern, kalsium og omega-3", "Å spise mest mulig sukker", "Å unngå alle grønnsaker fordi de gir for lite energi", "Å spise mest mulig sukker for å få nok rask energi hver dag"],
+      options: ["Å få nok vitamin B12, jern, kalsium og omega-3", "Å spise mest mulig sukker og minst mulig frukt og grønnsaker", "Å unngå alle grønnsaker fordi de gir for lite energi", "Å spise mest mulig sukker for å få nok rask energi hver dag"],
       explanation: "Vegansk kosthold krever bevissthet om B12 (tilskudd), jern, kalsium, omega-3 og protein, som lettere kan bli mangelfulle uten animalske produkter.",
     },
   ],
@@ -1035,7 +1035,7 @@ const quizData_mat_og_helse_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvor i verdikjeden kastes mest mat i Norge?",
-      options: ["I husholdningene", "I industrien", "Hos bonden ute på jordene der maten dyrkes og høstes", "Hos bonden"],
+      options: ["I husholdningene", "I industrien", "Hos bonden ute på jordene der maten dyrkes og høstes", "Hos bonden under lagring"],
       explanation: "Husholdningene står for det største matsvinnet i Norge. Derfor har den enkeltes vaner stor betydning for å redusere svinnet.",
     },
     {
@@ -1045,12 +1045,12 @@ const quizData_mat_og_helse_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner økologisk landbruk?",
-      options: ["Ingen syntetiske sprøytemidler eller kunstgjødsel", "Ingen krav til dyrevelferd", "At all dyrking foregår innendørs i store lukkede veksthus", "Mest mulig kunstgjødsel for å få avlingene til å vokse raskt"],
+      options: ["Ingen syntetiske sprøytemidler eller kunstgjødsel", "Ingen krav til dyrevelferd eller til hvordan dyrene fôres", "At all dyrking foregår innendørs i store lukkede veksthus", "Mest mulig kunstgjødsel for å få avlingene til å vokse raskt"],
       explanation: "Økologisk landbruk bruker naturlige metoder som vekstskifte og kompostering, uten syntetiske sprøytemidler eller kunstgjødsel. I Norge merkes det med Ø-merket (Debio).",
     },
     {
       question: "Hvorfor kan god emballasje noen ganger være positivt for miljøet?",
-      options: ["Den kan forlenge holdbarheten og dermed redusere matsvinn", "Emballasje er alltid bare negativt", "Den fjerner alle klimagassutslipp fra produksjonen av maten", "Den gjør maten inni sunnere og mer næringsrik enn den var før"],
+      options: ["Den kan forlenge holdbarheten og dermed redusere matsvinn", "Emballasje er alltid bare negativt, uansett hva den blir brukt til", "Den fjerner alle klimagassutslipp fra produksjonen av maten", "Den gjør maten inni sunnere og mer næringsrik enn den var før"],
       explanation: "Selv om emballasje gir avfall, kan riktig emballasje beskytte maten og forlenge holdbarheten, slik at mindre mat kastes — en avveining mot matsvinn.",
     },
   ],
@@ -1067,7 +1067,7 @@ const quizData_mat_og_helse_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er vurderingskriterier ved eksamen?",
-      options: ["De konkrete punktene sensorene bedømmer deg etter", "Hvor mange retter du lager", "Hvor fort du jobber helt alene uten hjelp fra noen andre", "Hvor mange ulike retter du klarer å lage i løpet av tiden"],
+      options: ["De konkrete punktene sensorene bedømmer deg etter", "Hvor mange retter du lager, uavhengig av kvaliteten på dem", "Hvor fort du jobber helt alene uten hjelp fra noen andre", "Hvor mange ulike retter du klarer å lage i løpet av tiden"],
       explanation: "Vurderingskriterier er punktene sensorene bedømmer, som planlegging, praktiske ferdigheter, hygiene, resultat og evne til å begrunne og reflektere.",
     },
     {

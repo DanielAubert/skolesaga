@@ -4,7 +4,7 @@ const quizData_psykologi_1: Record<string, QuizQuestion[]> = {
   "psykologi-1-1-1": [
     {
       question: "Hvordan defineres psykologi som fag?",
-      options: ["Den vitenskapelige studien av atferd og mentale prosesser", "Studien av kroppens fysiske sykdommer", "Den filosofiske læren om samfunnets strukturer og hvordan grupper påvirker hverandre", "Læren om samfunnets strukturer"],
+      options: ["Den vitenskapelige studien av atferd og mentale prosesser", "Studien av kroppens fysiske sykdommer", "Læren om hvordan grupper påvirker hverandre", "Læren om samfunnets strukturer"],
       explanation: "Psykologi er den vitenskapelige studien av atferd (det som kan observeres) og mentale prosesser (indre opplevelser som tanker og følelser).",
     },
     {
@@ -19,7 +19,7 @@ const quizData_psykologi_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er de fire hovedmålene i psykologien?",
-      options: ["Beskrive, forklare, forutsi og påvirke atferd", "Måle, telle, registrere og publisere", "Diagnostisere, behandle, forebygge og rehabilitere", "Observere, intervjue, teste og evaluere"],
+      options: ["Beskrive, forklare, forutsi og påvirke atferd", "Måle, telle, registrere og publisere", "Diagnostisere, behandle og forebygge", "Observere, intervjue, teste og evaluere"],
       explanation: "Psykologiens fire mål er å beskrive atferd, forklare hvorfor vi handler som vi gjør, forutsi fremtidig atferd og påvirke/endre atferd.",
     },
     {
@@ -41,7 +41,7 @@ const quizData_psykologi_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er dualisme, slik Descartes beskrev det?",
-      options: ["Oppfatningen om at kropp og sinn er to adskilte substanser", "Ideen om at mennesket har to personligheter", "Læren om at alt som finnes egentlig er fysisk materie, og at sinnet bare er hjerneaktivitet", "Teorien om at hjernen har to halvdeler"],
+      options: ["Oppfatningen om at kropp og sinn er to adskilte substanser", "Ideen om at mennesket har to personligheter", "Læren om at alt egentlig er fysisk materie", "Teorien om at hjernen har to halvdeler"],
       explanation: "Dualisme er oppfatningen om at kropp (fysisk) og sinn/sjel (ikke-fysisk) er to adskilte substanser.",
     },
     {
@@ -73,7 +73,7 @@ const quizData_psykologi_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva innebærer en eklektisk tilnærming i psykologien?",
-      options: ["Å kombinere ideer og metoder fra flere ulike perspektiver", "Å bare bruke det biologiske perspektivet", "Å velge ett enkelt perspektiv og anvende det konsekvent på alle psykologiske spørsmål", "Å bare bruke ett perspektiv konsekvent"],
+      options: ["Å kombinere ideer og metoder fra flere ulike perspektiver", "Å bare bruke det biologiske perspektivet", "Å anvende ett perspektiv på alle spørsmål", "Å bare bruke ett perspektiv konsekvent"],
       explanation: "En eklektisk tilnærming kombinerer ideer, teorier og metoder fra flere perspektiver for å få en mer fullstendig forståelse.",
     },
     {
@@ -90,7 +90,7 @@ const quizData_psykologi_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den uavhengige variabelen i et eksperiment?",
-      options: ["Variabelen som manipuleres (antatt årsak)", "Variabelen som måles (antatt virkning)", "Variabelen som forskeren måler og registrerer, altså den antatte virkningen i studien", "Variabelen som holdes konstant"],
+      options: ["Variabelen som manipuleres (antatt årsak)", "Variabelen som måles (antatt virkning)", "Variabelen forskeren registrerer", "Variabelen som holdes konstant"],
       explanation: "Den uavhengige variabelen (UV) er den forskeren manipulerer – den antatte årsaken. Den avhengige variabelen er det som måles.",
     },
     {
@@ -105,7 +105,7 @@ const quizData_psykologi_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er informert samtykke i forskningsetikk?",
-      options: ["At deltakerne får vite hva studien innebærer og frivillig sier ja", "At deltakerne betaler for å delta", "At deltakerne selv betaler et gebyr for å få lov til å delta i forskningsprosjektet", "At forskeren mottar tilstrekkelig lønn og finansiering før studien kan settes i gang"],
+      options: ["At deltakerne får vite hva studien innebærer og frivillig sier ja", "At deltakerne betaler for å delta, og at betalingen regnes som samtykke til studien", "At deltakerne selv betaler et gebyr for å få lov til å delta i forskningsprosjektet", "At forskeren mottar tilstrekkelig lønn og finansiering før studien kan settes i gang"],
       explanation: "Informert samtykke innebærer at deltakerne får tilstrekkelig informasjon om studien og frivillig samtykker til å delta.",
     },
   ],
@@ -127,12 +127,12 @@ const quizData_psykologi_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er replikasjon i vitenskapen?",
-      options: ["Å gjennomføre en studie på nytt for å se om man får samme resultat", "Å kopiere en annens forskning ulovlig", "Å kopiere en annen forskers arbeid uten tillatelse og utgi det som sitt eget resultat", "Å øke utvalgsstørrelsen i en pågående studie for å oppnå sterkere statistisk signifikans"],
+      options: ["Å gjennomføre en studie på nytt for å se om man får samme resultat", "Å kopiere en annens forskning ulovlig, slik at kilden ikke oppgis i publikasjonen", "Å kopiere en annen forskers arbeid uten tillatelse og utgi det som sitt eget resultat", "Å øke utvalgsstørrelsen i en pågående studie for å oppnå sterkere statistisk signifikans"],
       explanation: "Replikasjon betyr å gjenta en studie for å se om resultatene holder. En studie som ikke kan gjenskapes, er lite troverdig.",
     },
     {
       question: "Hva kjennetegner kvalitativ forskning?",
-      options: ["Den samler dyptgående, ikke-numeriske data om opplevelser og mening", "Den samler kun tall og statistikk", "Den samler utelukkende tall og statistikk som analyseres med matematiske og statistiske metoder", "Den benytter alltid kontrollerte eksperimenter med manipulering av uavhengige variabler i laboratorium"],
+      options: ["Den samler dyptgående, ikke-numeriske data om opplevelser og mening", "Den samler kun tall og statistikk, og utelukker alt som ikke lar seg måle i tall", "Den samler utelukkende tall og statistikk som analyseres med matematiske og statistiske metoder", "Den benytter alltid kontrollerte eksperimenter med manipulering av uavhengige variabler i laboratorium"],
       explanation: "Kvalitativ forskning samler dyptgående data om opplevelser og mening (f.eks. gjennom intervju), mens kvantitativ forskning samler numeriske data.",
     },
   ],
@@ -149,17 +149,17 @@ const quizData_psykologi_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et nevron?",
-      options: ["Den grunnleggende byggestenen i nervesystemet (nervecellen)", "Et kjemisk stoff i blodet", "En sentral nervebane som forbinder hjernen med ryggmargen og resten av nervesystemet", "Et kjemisk signalstoff i blodet som regulerer stoffskiftet og kroppens ulike organer"],
+      options: ["Den grunnleggende byggestenen i nervesystemet (nervecellen)", "Et kjemisk stoff i blodet som frigjøres av kjertler og fraktes rundt i kroppen", "En sentral nervebane som forbinder hjernen med ryggmargen og resten av nervesystemet", "Et kjemisk signalstoff i blodet som regulerer stoffskiftet og kroppens ulike organer"],
       explanation: "Et nevron er nervecellen – den grunnleggende byggestenen i nervesystemet som kommuniserer med andre nevroner.",
     },
     {
       question: "Hva er et aksjonspotensial?",
-      options: ["Det elektriske signalet som sendes langs aksonet når nevronet aktiveres", "Et hvilende nevron", "Et nevron i hviletilstand som venter passivt på å bli tilstrekkelig stimulert til å fyre", "Et kjemisk hormon som frigjøres til blodbanen og påvirker organer langt unna nervecellen"],
+      options: ["Det elektriske signalet som sendes langs aksonet når nevronet aktiveres", "Et hvilende nevron der ladningsforskjellen over cellemembranen holdes helt stabil", "Et nevron i hviletilstand som venter passivt på å bli tilstrekkelig stimulert til å fyre", "Et kjemisk hormon som frigjøres til blodbanen og påvirker organer langt unna nervecellen"],
       explanation: "Aksjonspotensialet er det elektriske signalet (nerveimpulsen) som sendes langs aksonet når nevronet aktiveres.",
     },
     {
       question: "Hva er en synapse?",
-      options: ["Kontaktpunktet mellom to nevroner der signaler overføres", "Cellekjernen i et nevron", "En type kjemisk hormon som skilles ut i blodet og påvirker kroppens fjerne organer", "Cellekjernen inne i nevronet som inneholder arvestoffet og styrer cellens funksjoner"],
+      options: ["Kontaktpunktet mellom to nevroner der signaler overføres", "Cellekjernen i et nevron, altså den delen som styrer celledelingen", "En type kjemisk hormon som skilles ut i blodet og påvirker kroppens fjerne organer", "Cellekjernen inne i nevronet som inneholder arvestoffet og styrer cellens funksjoner"],
       explanation: "En synapse er kontaktpunktet mellom to nevroner, der signalet overføres – ofte ved hjelp av nevrotransmittere.",
     },
   ],
@@ -181,7 +181,7 @@ const quizData_psykologi_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr hjernens plastisitet?",
-      options: ["Hjernens evne til å endre seg gjennom hele livet", "At hjernen ikke kan endre seg etter barndommen", "At hjernen gradvis krymper og mister forbindelser i takt med at man blir eldre", "At hjernen krymper med alderen"],
+      options: ["Hjernens evne til å endre seg gjennom hele livet", "At hjernen ikke kan endre seg etter barndommen", "At hjernen mister forbindelser med alderen", "At hjernen krymper med alderen"],
       explanation: "Neuroplastisitet er hjernens evne til å endre seg – danne nye forbindelser og tilpasse seg – gjennom hele livet.",
     },
     {
@@ -193,12 +193,12 @@ const quizData_psykologi_1: Record<string, QuizQuestion[]> = {
   "psykologi-1-2-3": [
     {
       question: "Hva er en nevrotransmitter?",
-      options: ["Et kjemisk stoff som overfører signaler mellom nevroner", "En del av cellekroppen", "En sentral del av selve cellekroppen som inneholder nevronets kjerne og arvestoff", "Et kjemisk hormon i blodet som transporteres til fjerne organer og regulerer kroppen"],
+      options: ["Et kjemisk stoff som overfører signaler mellom nevroner", "En del av cellekroppen som produserer energien nervecellen trenger", "En sentral del av selve cellekroppen som inneholder nevronets kjerne og arvestoff", "Et kjemisk hormon i blodet som transporteres til fjerne organer og regulerer kroppen"],
       explanation: "Nevrotransmittere er kjemiske budbringere som frigjøres fra et nevron og overfører signaler til neste nevron i synapsen.",
     },
     {
       question: "Hva er hovedforskjellen mellom nevrotransmittere og hormoner?",
-      options: ["Nevrotransmittere virker raskt og lokalt, hormoner saktere og mer utbredt via blodet", "Hormoner virker langt raskere og mer lokalt enn nevrotransmittere gjør i synapsene", "De to typene budbringere er i praksis helt identiske og har nøyaktig samme virkemåte", "Nevrotransmittere transporteres rundt i hele kroppen via blodbanen slik hormoner gjør"],
+      options: ["Nevrotransmittere virker raskt og lokalt, hormoner saktere og mer utbredt via blodet", "Hormoner virker langt raskere og mer lokalt enn nevrotransmittere gjør i synapsene", "De to typene budbringere er i praksis helt identiske og har nøyaktig samme virkemåte", "Nevrotransmittere fraktes rundt i kroppen via blodbanen"],
       explanation: "Nevrotransmittere virker raskt og lokalt mellom nevroner, mens hormoner virker saktere og mer utbredt fordi de transporteres via blodbanen.",
     },
     {
@@ -208,7 +208,7 @@ const quizData_psykologi_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er HPA-aksen?",
-      options: ["Kroppens hovedsystem for å håndtere langvarig stress", "Et område i ryggmargen", "Et avgrenset område nederst i ryggmargen som styrer reflekser og enkle bevegelser", "En sentral del av synssansen som bearbeider synsinntrykk i hjernens bakre synsbark"],
+      options: ["Kroppens hovedsystem for å håndtere langvarig stress", "Et område i ryggmargen som formidler smertesignaler videre opp", "Et avgrenset område nederst i ryggmargen som styrer reflekser og enkle bevegelser", "En sentral del av synssansen som bearbeider synsinntrykk i hjernens bakre synsbark"],
       explanation: "HPA-aksen (Hypothalamus-Hypofyse-Binyre) er kroppens hovedsystem for å håndtere langvarig stress og regulere kortisol.",
     },
     {
@@ -225,12 +225,12 @@ const quizData_psykologi_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva søker evolusjonspsykologien å forklare?",
-      options: ["Hvordan menneskelig atferd og psykologi har utviklet seg gjennom evolusjon", "Hvordan man behandler psykiske lidelser", "Hvordan hjernen og nervesystemet gradvis modnes og utvikler seg hos barn gjennom oppveksten", "Hvordan samfunn styres politisk og hvordan sosiale institusjoner påvirker menneskers atferd"],
+      options: ["Hvordan menneskelig atferd og psykologi har utviklet seg gjennom evolusjon", "Hvordan man behandler psykiske lidelser med samtaleterapi og medisiner i klinisk praksis", "Hvordan hjernen og nervesystemet gradvis modnes og utvikler seg hos barn gjennom oppveksten", "Hvordan samfunn styres politisk og hvordan sosiale institusjoner påvirker menneskers atferd"],
       explanation: "Evolusjonspsykologi forklarer menneskelig atferd, tanker og følelser ut fra hvordan disse egenskapene har utviklet seg gjennom evolusjon.",
     },
     {
       question: "Hvilke seks emosjoner identifiserte Paul Ekman som universelle?",
-      options: ["Glede, tristhet, frykt, sinne, overraskelse og avsky", "Kjærlighet, hat, håp, sorg, sjalusi og stolthet", "Lykke, suksess, tap, seier, ærefrykt og mot som gjenkjennes likt på tvers av kulturer", "Glede, sult, tørst, smerte, kulde og varme"],
+      options: ["Glede, tristhet, frykt, sinne, overraskelse og avsky", "Kjærlighet, hat, håp, sorg, sjalusi og stolthet", "Lykke, suksess, tap, seier, ærefrykt og mot", "Glede, sult, tørst, smerte, kulde og varme"],
       explanation: "Paul Ekman identifiserte seks universelle emosjoner som gjenkjennes på tvers av kulturer: glede, tristhet, frykt, sinne, overraskelse og avsky.",
     },
     {
@@ -240,14 +240,14 @@ const quizData_psykologi_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er kjemp-eller-flykt-responsen et eksempel på?",
-      options: ["En evolusjonspsykologisk tilpasning til fare", "En lært vane fra skolen", "En innlært vane som barn tilegner seg gjennom skolegang og gjentatt øving over tid", "En psykisk lidelse"],
+      options: ["En evolusjonspsykologisk tilpasning til fare", "En lært vane fra skolen", "En innlært vane som barn tilegner seg gjennom skolegang og gjentatt øving over tid", "En psykisk lidelse som krever behandling hos spesialist"],
       explanation: "Kjemp-eller-flykt-responsen er en automatisk kroppslig respons på fare og et arketypisk eksempel på en evolusjonspsykologisk tilpasning.",
     },
   ],
   "psykologi-1-2-5": [
     {
       question: "Hvordan virker rusmidler på hjernen?",
-      options: ["De forstyrrer normal nevrotransmitterfunksjon", "De øker antall hormoner i blodet uten effekt", "De tilfører hjernen helt nye nevroner som styrker signaloverføringen", "De påvirker bare kroppen, ikke hjernen"],
+      options: ["De forstyrrer normal nevrotransmitterfunksjon", "De øker antall hormoner i blodet uten effekt", "De tilfører hjernen helt nye nevroner", "De påvirker bare kroppen, ikke hjernen"],
       explanation: "Rusmidler virker ved å forstyrre normal nevrotransmitterfunksjon, for eksempel ved å øke frigjøring eller blokkere gjenopptak.",
     },
     {
@@ -257,7 +257,7 @@ const quizData_psykologi_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr toleranse i forbindelse med rusmidler?",
-      options: ["At det trengs mer av stoffet for å oppnå samme effekt", "At stoffet ikke lenger virker i det hele tatt", "At man gradvis lærer seg å tåle andres rusbruk i sosiale situasjoner", "At stoffet mister all virkning og ikke gir noen effekt uansett mengde"],
+      options: ["At det trengs mer av stoffet for å oppnå samme effekt", "At stoffet ikke lenger virker i det hele tatt", "At man gradvis lærer seg å tåle andres rusbruk", "At stoffet mister all virkning og ikke gir noen effekt uansett mengde"],
       explanation: "Toleranse betyr at kroppen tilpasser seg rusmiddelet slik at det trengs mer for å oppnå samme effekt.",
     },
     {
@@ -267,14 +267,14 @@ const quizData_psykologi_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan ser moderne nevrovitenskap på avhengighet?",
-      options: ["Som en kronisk hjernesykdom, ikke bare et moralsk valg", "Som en forbigående fase uten konsekvenser", "Som ren latskap og manglende viljestyrke hos den som ruser seg", "Som noe rent kroppslig som ikke setter spor eller endringer i hjernen"],
+      options: ["Som en kronisk hjernesykdom, ikke bare et moralsk valg", "Som en forbigående fase uten konsekvenser for verken kropp eller hjerne", "Som ren latskap og manglende viljestyrke hos den som ruser seg", "Som noe rent kroppslig som ikke setter spor eller endringer i hjernen"],
       explanation: "Moderne nevrovitenskap ser avhengighet som en kronisk hjernesykdom med varige forandringer i belønningssystemet, ikke bare et moralsk svikt.",
     },
   ],
   "psykologi-1-3-1": [
     {
       question: "Hva er forskjellen mellom sensasjon og persepsjon?",
-      options: ["Sensasjon er sanseorganenes registrering, persepsjon er hjernens tolkning", "Sensasjon er tolkning, persepsjon er registrering", "De to begrepene beskriver nøyaktig samme prosess, bare med ulike faguttrykk", "Sensasjon skjer kun under søvn, mens persepsjon bare foregår i våken tilstand"],
+      options: ["Sensasjon er sanseorganenes registrering, persepsjon er hjernens tolkning", "Sensasjon er tolkning, persepsjon er registrering", "De to begrepene beskriver samme prosess", "Sensasjon skjer kun under søvn, mens persepsjon bare foregår i våken tilstand"],
       explanation: "Sensasjon er sanseorganenes registrering av stimuli, mens persepsjon er den psykologiske prosessen der hjernen tolker og gir mening til informasjonen.",
     },
     {
@@ -289,19 +289,19 @@ const quizData_psykologi_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva sier gestaltprinsippene om hvordan vi oppfatter?",
-      options: ["Hjernen organiserer sanseinntrykk i meningsfulle helheter og mønstre", "Vi ser bare enkeltdeler, aldri helheter", "At all persepsjon utelukkende er bottom-up og styres av rene sansedata alene", "At hjernen oppfatter alt vi ser som tilfeldig rot uten struktur eller mønster"],
+      options: ["Hjernen organiserer sanseinntrykk i meningsfulle helheter og mønstre", "Vi ser bare enkeltdeler, aldri helheter, og må sette dem sammen bevisst etterpå", "At all persepsjon utelukkende er bottom-up og styres av rene sansedata alene", "At hjernen oppfatter alt vi ser som tilfeldig rot uten struktur eller mønster"],
       explanation: "Gestaltprinsippene (nærhet, likhet osv.) viser at hjernen organiserer sanseinntrykk i meningsfulle helheter, ikke bare enkeltelementer.",
     },
     {
       question: "Hva er top-down-prosessering?",
-      options: ["Når persepsjon styres av kunnskap, forventninger og erfaring", "Når vi bare bruker rådata fra sansene", "Når sanseorganene svikter og hjernen fyller inn med tilfeldige gjetninger", "Når vi kun bruker rådata fra sansene og bygger forståelsen opp fra detaljene"],
+      options: ["Når persepsjon styres av kunnskap, forventninger og erfaring", "Når vi bare bruker rådata fra sansene, uten at tidligere erfaring spiller inn", "Når sanseorganene svikter og hjernen fyller inn med tilfeldige gjetninger", "Når vi kun bruker rådata fra sansene og bygger forståelsen opp fra detaljene"],
       explanation: "Top-down-prosessering starter med kunnskap og forventninger som styrer hvordan vi tolker sanseinntrykk.",
     },
   ],
   "psykologi-1-3-2": [
     {
       question: "Hva er selektiv oppmerksomhet?",
-      options: ["Evnen til å fokusere på ett stimulus mens man ignorerer andre", "Å være oppmerksom på alt samtidig", "Evnen til å være fullt oppmerksom på alle stimuli i omgivelsene samtidig", "Evnen til å huske absolutt alt man ser og hører uten å filtrere noe bort"],
+      options: ["Evnen til å fokusere på ett stimulus mens man ignorerer andre", "Å være oppmerksom på alt samtidig, slik at ingenting i omgivelsene går tapt", "Evnen til å være fullt oppmerksom på alle stimuli i omgivelsene samtidig", "Evnen til å huske absolutt alt man ser og hører uten å filtrere noe bort"],
       explanation: "Selektiv oppmerksomhet er evnen til å fokusere på ett stimulus og filtrere bort andre, siden hjernen ikke kan behandle alt samtidig.",
     },
     {
@@ -321,19 +321,19 @@ const quizData_psykologi_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er \"change blindness\"?",
-      options: ["Å ikke legge merke til endringer i det visuelle miljøet", "Å huske alle endringer perfekt", "En sterk frykt eller angst for forandringer og nye situasjoner i livet", "Å oppfatte langt flere endringer i synsfeltet enn det som faktisk finnes"],
+      options: ["Å ikke legge merke til endringer i det visuelle miljøet", "Å huske alle endringer perfekt, også dem man bare så et kort øyeblikk", "En sterk frykt eller angst for forandringer og nye situasjoner i livet", "Å oppfatte langt flere endringer i synsfeltet enn det som faktisk finnes"],
       explanation: "Change blindness er å ikke legge merke til selv store endringer i synsfeltet, særlig når oppmerksomheten avbrytes.",
     },
   ],
   "psykologi-1-3-3": [
     {
       question: "Hva er de tre hovedsystemene i hukommelsen?",
-      options: ["Sensorisk hukommelse, korttidshukommelse og langtidshukommelse", "Bevisst, ubevisst og førbevisst hukommelse", "Visuell hukommelse, auditiv hukommelse og taktil hukommelse for berøring", "Bevisst hukommelse, ubevisst hukommelse og førbevisst hukommelse etter Freud"],
+      options: ["Sensorisk hukommelse, korttidshukommelse og langtidshukommelse", "Bevisst, ubevisst og førbevisst hukommelse", "Visuell, auditiv og taktil hukommelse", "Bevisst hukommelse, ubevisst hukommelse og førbevisst hukommelse etter Freud"],
       explanation: "Hukommelsen består av sensorisk hukommelse (kort), korttidshukommelse (sekunder) og langtidshukommelse (permanent).",
     },
     {
       question: "Hva er arbeidshukommelse ifølge Baddeley?",
-      options: ["Et system for aktiv prosessering av informasjon, ikke bare passiv lagring", "En egen hukommelse kun for arbeidsoppgaver og praktiske gjøremål på jobb", "Den sensoriske hukommelsen som holder på sanseinntrykk i brøkdeler av et sekund", "Bare et annet ord for langtidshukommelsen der minnene lagres permanent"],
+      options: ["Et system for aktiv prosessering av informasjon, ikke bare passiv lagring", "En egen hukommelse kun for arbeidsoppgaver og praktiske gjøremål på jobb", "Den sensoriske hukommelsen for korte sanseinntrykk", "Bare et annet ord for langtidshukommelsen der minnene lagres permanent"],
       explanation: "Baddeleys arbeidshukommelse er en utvidelse av korttidshukommelsen som aktivt prosesserer informasjon gjennom flere komponenter.",
     },
     {
@@ -348,7 +348,7 @@ const quizData_psykologi_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken type repetisjon gir best langtidslæring?",
-      options: ["Elaborativ repetisjon (koble ny info til eksisterende kunnskap)", "Maintenance rehearsal (enkel mekanisk repetisjon)", "Å lese teksten grundig gjennom én gang og stole på at hjernen lagrer det selv", "Å skrive av hele teksten ordrett flere ganger til man kan den utenat mekanisk"],
+      options: ["Elaborativ repetisjon (koble ny info til eksisterende kunnskap)", "Maintenance rehearsal, altså å gjenta det samme mekanisk uten å knytte det til noe", "Å lese teksten grundig gjennom én gang og stole på at hjernen lagrer det selv", "Å skrive av hele teksten ordrett flere ganger til man kan den utenat mekanisk"],
       explanation: "Elaborativ repetisjon, der man kobler ny informasjon til eksisterende kunnskap, gir dypere og mer varig læring enn enkel mekanisk repetisjon.",
     },
   ],
@@ -370,7 +370,7 @@ const quizData_psykologi_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva innebærer det at hukommelse er en rekonstruksjon?",
-      options: ["Vi bygger minner på nytt hver gang, og de kan endres", "Minner lagres som perfekte videoopptak", "At minner lagres som perfekte videoopptak vi kan spille av helt uforandret", "At vi husker alle detaljer helt nøyaktig slik de faktisk skjedde i øyeblikket"],
+      options: ["Vi bygger minner på nytt hver gang, og de kan endres", "Minner lagres som perfekte videoopptak som ikke påvirkes av senere hendelser", "At minner lagres som perfekte videoopptak vi kan spille av helt uforandret", "At vi husker alle detaljer helt nøyaktig slik de faktisk skjedde i øyeblikket"],
       explanation: "Hukommelse er ikke et videoopptak, men en aktiv rekonstruksjon – vi setter sammen minnet på nytt hver gang, noe som gjør det sårbart for feil.",
     },
     {
@@ -397,29 +397,29 @@ const quizData_psykologi_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen mellom en algoritme og en heuristikk?",
-      options: ["En algoritme garanterer løsning, en heuristikk er en rask snarvei uten garanti", "De to begrepene betyr det samme og beskriver samme systematiske fremgangsmåte", "En heuristikk garanterer alltid en riktig løsning, mens algoritmen bare er en snarvei", "En algoritme er alltid raskere enn en heuristikk fordi den hopper over trinn"],
+      options: ["En algoritme garanterer løsning, en heuristikk er en rask snarvei uten garanti", "De to begrepene betyr det samme og beskriver samme systematiske fremgangsmåte", "En heuristikk garanterer alltid riktig løsning", "En algoritme er alltid raskere enn en heuristikk fordi den hopper over trinn"],
       explanation: "En algoritme er en systematisk prosedyre som garanterer løsning (men kan være treg), mens en heuristikk er en rask snarvei uten garanti for riktig svar.",
     },
     {
       question: "Hva er divergent tenkning?",
-      options: ["Å generere mange ulike, kreative løsninger på et problem", "Å finne den ene riktige løsningen", "Å avvise og forkaste alle ideer man kommer på uten å vurdere dem nærmere", "Å følge logiske regler og faste prosedyrer strengt uten rom for nye ideer"],
+      options: ["Å generere mange ulike, kreative løsninger på et problem", "Å finne den ene riktige løsningen ved å snevre inn mulighetene trinn for trinn", "Å avvise og forkaste alle ideer man kommer på uten å vurdere dem nærmere", "Å følge logiske regler og faste prosedyrer strengt uten rom for nye ideer"],
       explanation: "Divergent tenkning innebærer å produsere mange ulike, originale ideer – sentralt i kreativitet – i motsetning til konvergent tenkning som søker én løsning.",
     },
   ],
   "psykologi-1-4-1": [
     {
       question: "Hva er klassisk betinging?",
-      options: ["Læring der en nøytral stimulus kobles til en respons via assosiasjon", "Læring gjennom belønning og straff", "Læring som skjer ved å observere og etterligne andres atferd og handlinger", "Læring som oppstår plutselig gjennom innsikt og forståelse av sammenhenger"],
+      options: ["Læring der en nøytral stimulus kobles til en respons via assosiasjon", "Læring gjennom belønning og straff, der konsekvensene avgjør om atferden gjentas", "Læring som skjer ved å observere og etterligne andres atferd og handlinger", "Læring som oppstår plutselig gjennom innsikt og forståelse av sammenhenger"],
       explanation: "Klassisk betinging er læring der en opprinnelig nøytral stimulus, gjennom kobling, utløser en respons (som hos Pavlovs hunder).",
     },
     {
       question: "Hva viste Watson og Rayner med \"Little Albert\"-eksperimentet?",
-      options: ["At fobier kan læres gjennom klassisk betinging", "At barn ikke kan betinges", "At fobier og frykt er medfødte og ikke kan læres gjennom betinging", "At små barn ikke lar seg betinge fordi hjernen ikke er moden nok ennå"],
+      options: ["At fobier kan læres gjennom klassisk betinging", "At barn ikke kan betinges, verken til frykt eller til andre reaksjoner", "At fobier og frykt er medfødte og ikke kan læres gjennom betinging", "At små barn ikke lar seg betinge fordi hjernen ikke er moden nok ennå"],
       explanation: "\"Little Albert\"-eksperimentet viste at frykt/fobier kan utvikles gjennom klassisk betinging ved å koble et objekt til en skremmende lyd.",
     },
     {
       question: "I klassisk betinging: hva er en betinget respons?",
-      options: ["En lært respons på en tidligere nøytral stimulus", "En medfødt, automatisk respons", "En medfødt, automatisk reaksjon som utløses uten forutgående læring", "En fysisk refleks fra fødselen"],
+      options: ["En lært respons på en tidligere nøytral stimulus", "En medfødt, automatisk respons", "En reaksjon som utløses uten læring", "En fysisk refleks fra fødselen"],
       explanation: "En betinget respons er en lært respons som utløses av en betinget (tidligere nøytral) stimulus etter gjentatt kobling.",
     },
     {
@@ -436,12 +436,12 @@ const quizData_psykologi_1: Record<string, QuizQuestion[]> = {
   "psykologi-1-4-2": [
     {
       question: "Hva er operant betinging?",
-      options: ["Læring der atferd formes av konsekvensene (forsterkning og straff)", "Læring ved kobling av stimuli", "Læring der en nøytral stimulus kobles til en annen stimulus over tid", "Medfødt atferd som utløses automatisk uten at konsekvenser spiller inn"],
+      options: ["Læring der atferd formes av konsekvensene (forsterkning og straff)", "Læring ved kobling av stimuli, der en signalstimulus varsler om noe som følger", "Læring der en nøytral stimulus kobles til en annen stimulus over tid", "Medfødt atferd som utløses automatisk uten at konsekvenser spiller inn"],
       explanation: "Operant betinging er læring der atferd formes av konsekvensene den får – forsterkning øker atferd, straff reduserer den.",
     },
     {
       question: "Hva er positiv forsterkning?",
-      options: ["Å tilføre noe positivt for å øke en atferd", "Å fjerne noe ubehagelig", "Å fjerne noe ubehagelig slik at atferden gjentas oftere", "Å gi en ubehagelig konsekvens for å svekke en uønsket atferd"],
+      options: ["Å tilføre noe positivt for å øke en atferd", "Å fjerne noe ubehagelig som en reaksjon på uønsket atferd", "Å fjerne noe ubehagelig slik at atferden gjentas oftere", "Å gi en ubehagelig konsekvens for å svekke en uønsket atferd"],
       explanation: "Positiv forsterkning er å tilføre noe positivt (f.eks. ros eller belønning) etter en atferd, slik at atferden gjentas oftere.",
     },
     {
@@ -463,7 +463,7 @@ const quizData_psykologi_1: Record<string, QuizQuestion[]> = {
   "psykologi-1-4-3": [
     {
       question: "Hva er sosial-kognitiv læring?",
-      options: ["Læring ved å observere og etterligne andre (modeller)", "Læring kun gjennom egen erfaring med straff", "Læring som skjer kun gjennom egen erfaring med straff og ubehag", "Medfødt atferd som utløses automatisk uten påvirkning fra andre mennesker"],
+      options: ["Læring ved å observere og etterligne andre (modeller)", "Læring kun gjennom egen erfaring med straff", "Læring som skjer kun gjennom ubehag", "Medfødt atferd som utløses automatisk uten påvirkning fra andre mennesker"],
       explanation: "Sosial-kognitiv læring (sosial læringsteori) handler om at vi lærer ved å observere og etterligne andre menneskers atferd.",
     },
     {
@@ -473,7 +473,7 @@ const quizData_psykologi_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke prosesser er nødvendige for observasjonslæring?",
-      options: ["Oppmerksomhet, hukommelse, gjengivelse og motivasjon", "Bare belønning", "Kun straff som svekker atferden man observerer hos en modell", "Kun belønning som følger direkte etter at man utfører atferden"],
+      options: ["Oppmerksomhet, hukommelse, gjengivelse og motivasjon", "Bare belønning gitt av den man observerer, uten andre forutsetninger", "Kun straff som svekker atferden man observerer hos en modell", "Kun belønning som følger direkte etter at man utfører atferden"],
       explanation: "Banduras modell krever oppmerksomhet til modellen, at man husker atferden, kan gjengi den, og er motivert til å utføre den.",
     },
     {
@@ -510,7 +510,7 @@ const quizData_psykologi_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor kan en pause hjelpe i problemløsning ifølge kognitiv læring?",
-      options: ["Hjernen kan bearbeide problemet og gi plutselig innsikt", "Pauser fjerner all kunnskap", "Fordi pauser aldri har noen som helst effekt på problemløsningen", "Fordi pauser fjerner all kunnskap slik at man starter helt på nytt"],
+      options: ["Hjernen kan bearbeide problemet og gi plutselig innsikt", "Pauser fjerner all kunnskap, slik at man må lære stoffet på nytt etterpå", "Fordi pauser aldri har noen som helst effekt på problemløsningen", "Fordi pauser fjerner all kunnskap slik at man starter helt på nytt"],
       explanation: "En pause kan la hjernen bearbeide problemet ubevisst, slik at man får plutselig innsikt – et typisk trekk ved kognitiv (innsikts)læring.",
     },
   ],
@@ -532,7 +532,7 @@ const quizData_psykologi_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva innebærer aktiv gjenkalling som studieteknikk?",
-      options: ["Å hente frem stoffet fra hukommelsen uten å se på teksten", "Å markere teksten med farger", "Å markere teksten med ulike farger etter hvor viktig den er", "Å lese teksten høyt for seg selv flere ganger til den sitter"],
+      options: ["Å hente frem stoffet fra hukommelsen uten å se på teksten", "Å markere teksten med farger og lese gjennom markeringene før prøven", "Å markere teksten med ulike farger etter hvor viktig den er", "Å lese teksten høyt for seg selv flere ganger til den sitter"],
       explanation: "Aktiv gjenkalling er å forsøke å hente frem informasjonen fra hukommelsen (f.eks. skrive ned alt du husker) før du sjekker svaret.",
     },
     {
@@ -571,27 +571,27 @@ const quizData_psykologi_1: Record<string, QuizQuestion[]> = {
   "psykologi-1-5-2": [
     {
       question: "Hva er mestringstro (self-efficacy) ifølge Bandura?",
-      options: ["Troen på egen evne til å lykkes i bestemte situasjoner", "Andres vurdering av deg", "En vedvarende frykt for å mislykkes i oppgaver man står overfor", "Andres vurdering av dine evner og hva de forventer at du klarer"],
+      options: ["Troen på egen evne til å lykkes i bestemte situasjoner", "Andres vurdering av deg", "En vedvarende frykt for å mislykkes", "Andres vurdering av dine evner og hva de forventer at du klarer"],
       explanation: "Mestringstro (self-efficacy) er troen på egen evne til å lykkes i spesifikke situasjoner eller oppgaver – ikke det samme som generell selvtillit.",
     },
     {
       question: "Hva betyr internalt kontrollfokus (locus of control)?",
-      options: ["Troen på at egne handlinger styrer det som skjer i livet", "Troen på at flaks og skjebne styrer alt", "En generell mangel på selvtillit og tro på egne evner og valg", "Troen på at flaks, tilfeldigheter og skjebne styrer det som skjer"],
+      options: ["Troen på at egne handlinger styrer det som skjer i livet", "Troen på at flaks og skjebne styrer alt", "En generell mangel på selvtillit", "Troen på at flaks, tilfeldigheter og skjebne styrer det som skjer"],
       explanation: "Internalt kontrollfokus (Rotter) er troen på at egne handlinger og valg styrer utfallet, mens eksternalt fokus tilskriver utfall til ytre krefter.",
     },
     {
       question: "Hva er lært hjelpeløshet (Seligman)?",
-      options: ["Når man blir passiv fordi man har erfart at man ikke har kontroll", "Et tydelig tegn på god mestring og sterk tro på egen kontroll", "Når man gjennom erfaring lærer å hjelpe og støtte andre mennesker", "En medfødt egenskap man er født med og ikke kan endre ved erfaring"],
+      options: ["Når man blir passiv fordi man har erfart at man ikke har kontroll", "Et tydelig tegn på god mestring og sterk tro på egen kontroll", "Når man gjennom erfaring lærer å hjelpe og støtte andre mennesker", "En medfødt egenskap som ikke kan endres"],
       explanation: "Lært hjelpeløshet oppstår når organismer utsatt for ukontrollerbare negative hendelser blir passive, selv når kontroll senere blir mulig.",
     },
     {
       question: "Hva kjennetegner et \"vekst-tankesett\" (growth mindset) ifølge Dweck?",
-      options: ["Troen på at evner kan utvikles gjennom innsats og læring", "Troen på at evner er medfødte og faste", "En vedvarende mangel på motivasjon til å ta fatt på nye oppgaver", "En grunnleggende frykt for utfordringer som kan avsløre svakheter"],
+      options: ["Troen på at evner kan utvikles gjennom innsats og læring", "Troen på at evner er medfødte og faste", "En vedvarende mangel på motivasjon", "En grunnleggende frykt for utfordringer som kan avsløre svakheter"],
       explanation: "Et vekst-tankesett innebærer troen på at intelligens og evner kan utvikles gjennom innsats, i motsetning til et fast tankesett.",
     },
     {
       question: "Hva er \"grit\" ifølge Angela Duckworth?",
-      options: ["Kombinasjonen av pasjon og vedvarende innsats mot langsiktige mål", "En type intelligens", "En medfødt form for intelligens som avgjør hvor raskt man lærer nye ferdigheter", "Frykten for å mislykkes som driver noen til å yte maksimalt for å unngå nederlag"],
+      options: ["Kombinasjonen av pasjon og vedvarende innsats mot langsiktige mål", "En type intelligens som viser hvor godt man løser oppgaver man aldri har sett før", "En medfødt form for intelligens som avgjør hvor raskt man lærer nye ferdigheter", "Frykten for å mislykkes som driver noen til å yte maksimalt for å unngå nederlag"],
       explanation: "Grit er kombinasjonen av lidenskap og utholdende innsats over tid mot langsiktige mål, til tross for tilbakeslag.",
     },
   ],
@@ -603,7 +603,7 @@ const quizData_psykologi_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva hevder James-Lange-teorien om emosjoner?",
-      options: ["Emosjoner er opplevelsen av kroppslige forandringer", "Emosjoner kommer før kroppslige reaksjoner", "Emosjoner er rene tankeprosesser som foregår uavhengig av kroppslige forandringer", "Emosjoner er uavhengige av kroppen"],
+      options: ["Emosjoner er opplevelsen av kroppslige forandringer", "Emosjoner kommer før kroppslige reaksjoner", "Emosjoner er rene tankeprosesser", "Emosjoner er uavhengige av kroppen"],
       explanation: "James-Lange-teorien hevder at emosjoner ER opplevelsen av kroppslige forandringer – vi er redde fordi vi skjelver, ikke omvendt.",
     },
     {
@@ -618,14 +618,14 @@ const quizData_psykologi_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke komponenter inngår i en emosjon ifølge moderne forståelse?",
-      options: ["Fysiologisk aktivering, kognitiv vurdering og atferd/uttrykk", "Kun fysiologi", "Kun kognitive vurderinger og tolkninger av situasjonen, uten kroppslige forandringer", "Utelukkende fysiologisk aktivering som pulsøkning og svetting, uten tanker eller atferd"],
+      options: ["Fysiologisk aktivering, kognitiv vurdering og atferd/uttrykk", "Kun fysiologi, ettersom emosjoner ikke er annet enn kroppens egne reaksjoner", "Kun kognitive vurderinger og tolkninger av situasjonen, uten kroppslige forandringer", "Utelukkende fysiologisk aktivering som pulsøkning og svetting, uten tanker eller atferd"],
       explanation: "Moderne forståelse ser emosjoner som multi-komponent fenomener: fysiologisk aktivering, kognitiv vurdering, atferd og subjektiv opplevelse.",
     },
   ],
   "psykologi-1-5-4": [
     {
       question: "Hvilke tre faser har Selyes generelle tilpasningssyndrom (GAS)?",
-      options: ["Alarmreaksjon, motstand og utmattelse", "Begynnelse, midt og slutt", "Frykt, flukt og hvile som avløser hverandre", "Fornektelse, sinne og aksept ved påkjenning"],
+      options: ["Alarmreaksjon, motstand og utmattelse", "Begynnelse, midt og slutt", "Frykt, flukt og hvile", "Fornektelse, sinne og aksept ved påkjenning"],
       explanation: "Selyes GAS-modell beskriver tre faser i kroppens respons på langvarig stress: alarmreaksjon, motstand og utmattelse.",
     },
     {
@@ -640,12 +640,12 @@ const quizData_psykologi_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er problemfokusert mestring?",
-      options: ["Mestring rettet mot å løse eller endre selve problemet", "Mestring rettet mot egne følelser", "Mestring rettet mot å dempe egne følelser og reaksjoner fremfor selve situasjonen", "Å resignere og gi opp fordi man vurderer at situasjonen ikke lar seg endre uansett"],
+      options: ["Mestring rettet mot å løse eller endre selve problemet", "Mestring rettet mot egne følelser gjennom avledning og bearbeiding", "Mestring rettet mot å dempe egne følelser og reaksjoner fremfor selve situasjonen", "Å resignere og gi opp fordi man vurderer at situasjonen ikke lar seg endre uansett"],
       explanation: "Problemfokusert mestring (Lazarus og Folkman) er rettet mot å løse eller endre problemet som skaper stress, gjennom planlegging og handling.",
     },
     {
       question: "Hvorfor er sosial støtte viktig ved stress?",
-      options: ["Den fungerer som en buffer mot stressets negative effekter", "Den fjerner alle problemer", "Den forsterker stressopplevelsen fordi andres bekymring smitter over på den som er belastet", "Den fjerner selve problemene som skaper stress, slik at belastningen forsvinner fullstendig"],
+      options: ["Den fungerer som en buffer mot stressets negative effekter", "Den fjerner alle problemer, slik at det ikke er noe igjen å mestre", "Den forsterker stressopplevelsen fordi andres bekymring smitter over på den som er belastet", "Den fjerner selve problemene som skaper stress, slik at belastningen forsvinner fullstendig"],
       explanation: "Sosial støtte – emosjonell, praktisk og informasjonell hjelp fra andre – er en av de viktigste bufferne mot stress.",
     },
   ],
@@ -667,12 +667,12 @@ const quizData_psykologi_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva viste Emmy Werners Kauai-studie?",
-      options: ["At mange høyrisikobarn klarte seg bra takket være beskyttelsesfaktorer", "At alle høyrisikobarn fikk problemer", "At samtlige høyrisikobarn i utvalget utviklet alvorlige psykiske og sosiale problemer", "At risikofaktorer i oppveksten ikke har noen betydning for hvordan det senere går med barn"],
+      options: ["At mange høyrisikobarn klarte seg bra takket være beskyttelsesfaktorer", "At alle høyrisikobarn fikk problemer, uansett hvilke forhold de vokste opp under", "At samtlige høyrisikobarn i utvalget utviklet alvorlige psykiske og sosiale problemer", "At risikofaktorer i oppveksten ikke har noen betydning for hvordan det senere går med barn"],
       explanation: "Werners langvarige Kauai-studie fulgte høyrisikobarn og viste at mange klarte seg bra på grunn av beskyttelsesfaktorer som støttende relasjoner.",
     },
     {
       question: "Hva er posttraumatisk vekst (PTG)?",
-      options: ["Positiv psykologisk utvikling etter en traumatisk opplevelse", "Manglende reaksjon på traume", "En varig psykologisk forverring og funksjonssvikt som følger etter en traumatisk hendelse", "Fullstendig fravær av reaksjon på et traume fordi personen fortrenger hele opplevelsen bort"],
+      options: ["Positiv psykologisk utvikling etter en traumatisk opplevelse", "Manglende reaksjon på traume, slik at hendelsen ikke setter noen spor", "En varig psykologisk forverring og funksjonssvikt som følger etter en traumatisk hendelse", "Fullstendig fravær av reaksjon på et traume fordi personen fortrenger hele opplevelsen bort"],
       explanation: "Posttraumatisk vekst (Tedeschi og Calhoun) er positiv psykologisk utvikling som noen opplever etter å ha mestret traumer.",
     },
   ],
@@ -694,12 +694,12 @@ const quizData_psykologi_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva sammenligner tverrsnittsstudier?",
-      options: ["Ulike aldersgrupper på samme tidspunkt", "Samme personer over mange år", "De samme personene fulgt over mange år", "Utviklingen hos ett enkelt individ over tid"],
+      options: ["Ulike aldersgrupper på samme tidspunkt", "Samme personer over mange år", "De samme personene fulgt over mange år", "Utviklingen hos ett individ"],
       explanation: "Tverrsnittsstudier sammenligner ulike aldersgrupper på samme tid, mens longitudinelle studier følger de samme personene over tid.",
     },
     {
       question: "Hva sier debatten om kontinuerlig vs. trinnvis utvikling?",
-      options: ["Om utvikling skjer gradvis og jevnt eller i avgrensede stadier", "Om utvikling skyldes arv eller miljø", "Om utvikling først og fremst skyldes arvelige anlegg eller påvirkning fra miljøet", "Om barn i det hele tatt er i stand til å lære nye ferdigheter uten voksen veiledning"],
+      options: ["Om utvikling skjer gradvis og jevnt eller i avgrensede stadier", "Om utvikling skyldes arv eller miljø, og hvilken av dem som betyr mest", "Om utvikling først og fremst skyldes arvelige anlegg eller påvirkning fra miljøet", "Om barn i det hele tatt er i stand til å lære nye ferdigheter uten voksen veiledning"],
       explanation: "Debatten handler om utvikling skjer kontinuerlig (gradvis og jevnt) eller trinnvis (i avgrensede, kvalitative stadier).",
     },
   ],
@@ -726,7 +726,7 @@ const quizData_psykologi_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den proksimale utviklingssonen (ZPD) ifølge Vygotsky?",
-      options: ["Avstanden mellom hva barnet klarer alene og med hjelp", "Et stadium i Piagets teori", "Et av de fire kognitive stadiene som Piaget mente barn går gjennom", "Området i hjernen som vokser raskest i ungdomsårene og styrer motivasjon"],
+      options: ["Avstanden mellom hva barnet klarer alene og med hjelp", "Et stadium i Piagets teori der barnet begynner å tenke abstrakt", "Et av de fire kognitive stadiene som Piaget mente barn går gjennom", "Området i hjernen som vokser raskest i ungdomsårene og styrer motivasjon"],
       explanation: "Den proksimale utviklingssonen (ZPD) er gapet mellom hva barnet kan klare alene og hva det kan klare med støtte (stillasbygging).",
     },
   ],
@@ -748,24 +748,24 @@ const quizData_psykologi_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner et barn med trygg tilknytning i \"fremmedrom-situasjonen\"?",
-      options: ["Bruker omsorgspersonen som trygg base og lar seg trøste ved gjenforening", "Reagerer ikke når omsorgspersonen forsvinner", "Viser ingen reaksjon når omsorgspersonen forlater rommet og ignorerer den ved retur", "Avviser og skyver bort omsorgspersonen fullstendig både ved adskillelse og gjenforening"],
+      options: ["Bruker omsorgspersonen som trygg base og lar seg trøste ved gjenforening", "Reagerer ikke når omsorgspersonen forsvinner", "Viser ingen reaksjon når omsorgspersonen forlater rommet og ignorerer den ved retur", "Avviser omsorgspersonen både ved adskillelse og gjenforening"],
       explanation: "Et trygt tilknyttet barn bruker omsorgspersonen som trygg base, kan bli lei seg ved adskillelse, men lar seg trøste ved gjenforening.",
     },
     {
       question: "Hvordan endres vennskap utover i barndommen?",
-      options: ["Fra å være basert på delt aktivitet til mer gjensidig forståelse og tillit", "Det blir mindre viktig med alderen", "Vennskap forblir helt uforandret hele livet og er like ustabilt i voksen alder som i førskolen", "Vennskap forsvinner nesten helt i ungdomstiden fordi jevnaldrende da mister sin betydning brått"],
+      options: ["Fra å være basert på delt aktivitet til mer gjensidig forståelse og tillit", "Det blir mindre viktig med alderen, og betyr aller minst for de eldste barna i skolen", "Vennskap forblir helt uforandret hele livet og er like ustabilt i voksen alder som i førskolen", "Vennskap forsvinner nesten helt i ungdomstiden fordi jevnaldrende da mister sin betydning brått"],
       explanation: "Vennskap utvikler seg fra å være basert på nærhet og delt aktivitet i førskolealder til å handle mer om gjensidig forståelse, tillit og lojalitet.",
     },
   ],
   "psykologi-1-6-4": [
     {
       question: "Hva er den sentrale konflikten i ungdomstiden ifølge Erikson?",
-      options: ["Identitet vs. rolleforvirring", "Generativitet vs. stagnasjon", "Tillit vs. mistillit i spedbarnstiden", "Intimitet vs. isolasjon"],
+      options: ["Identitet vs. rolleforvirring", "Generativitet vs. stagnasjon", "Tillit vs. mistillit", "Intimitet vs. isolasjon"],
       explanation: "Ifølge Erikson er ungdomstidens sentrale konflikt identitet vs. rolleforvirring – å utvikle en sammenhengende forståelse av hvem man er.",
     },
     {
       question: "Hvilke to dimensjoner bruker Marcia for å beskrive identitetsstatuser?",
-      options: ["Utforskning og forpliktelse", "Tillit og mistillit", "Arvelige anlegg og miljøpåvirkning", "Belønning og straff"],
+      options: ["Utforskning og forpliktelse", "Tillit og mistillit", "Arvelige anlegg og miljø", "Belønning og straff"],
       explanation: "James Marcia bruker dimensjonene utforskning (har man undersøkt alternativer?) og forpliktelse (har man tatt et valg?).",
     },
     {
@@ -780,14 +780,14 @@ const quizData_psykologi_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen mellom biologisk kjønn (sex) og kjønnsidentitet?",
-      options: ["Biologisk kjønn er fysiske kjennetegn, kjønnsidentitet er den indre opplevelsen", "Kjønnsidentitet er fysiske kjennetegn", "Kjønnsidentitet er de fysiske kjennetegnene, mens biologisk kjønn er den indre opplevelsen av eget kjønn", "Biologisk kjønn og kjønnsidentitet er alltid det samme og bestemmes utelukkende av kromosomene ved fødselen"],
+      options: ["Biologisk kjønn er fysiske kjennetegn, kjønnsidentitet er den indre opplevelsen", "Kjønnsidentitet er fysiske kjennetegn, og kan derfor avgjøres av lege uten at personen selv spørres", "Kjønnsidentitet er de fysiske kjennetegnene, mens biologisk kjønn er den indre opplevelsen av eget kjønn", "Biologisk kjønn og kjønnsidentitet er alltid det samme og bestemmes utelukkende av kromosomene ved fødselen"],
       explanation: "Biologisk kjønn refererer til fysiske kjennetegn (kromosomer, hormoner, anatomi), mens kjønnsidentitet er den indre opplevelsen av eget kjønn.",
     },
   ],
   "psykologi-1-6-5": [
     {
       question: "Hva er livsløpsperspektivet (life-span perspective)?",
-      options: ["At utvikling fortsetter gjennom hele livet, ikke bare barndom og ungdom", "At utvikling stopper i voksen alder", "At det bare er barn og ungdom som utvikler seg, mens voksne og eldre forblir uendret gjennom livet", "At eldre mennesker ikke lenger endrer seg, fordi all vesentlig utvikling er avsluttet før voksenlivet"],
+      options: ["At utvikling fortsetter gjennom hele livet, ikke bare barndom og ungdom", "At utvikling stopper i voksen alder", "At det bare er barn og ungdom som utvikler seg", "At eldre mennesker ikke lenger endrer seg, fordi all vesentlig utvikling er avsluttet før voksenlivet"],
       explanation: "Livsløpsperspektivet vektlegger at mennesker fortsetter å utvikle seg gjennom hele livet – i voksenlivet, gjennom aldring og helt frem til døden.",
     },
     {
@@ -797,29 +797,29 @@ const quizData_psykologi_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen mellom flytende og krystallisert intelligens?",
-      options: ["Flytende er evnen til ny problemløsning, krystallisert er opparbeidet kunnskap", "Krystallisert avtar raskest med alderen", "Flytende og krystallisert intelligens er egentlig det samme og måler den samme evnen til problemløsning", "Flytende intelligens øker jevnt hele livet, mens krystallisert intelligens er medfødt og aldri kan endres"],
+      options: ["Flytende er evnen til ny problemløsning, krystallisert er opparbeidet kunnskap", "Krystallisert intelligens avtar raskest med alderen, mens flytende intelligens holder seg", "Flytende og krystallisert intelligens er egentlig det samme og måler den samme evnen til problemløsning", "Flytende intelligens øker jevnt hele livet, mens krystallisert intelligens er medfødt og aldri kan endres"],
       explanation: "Flytende intelligens (rask problemløsning, tilpasning) avtar med alderen, mens krystallisert intelligens (kunnskap og erfaring) forblir stabil eller øker.",
     },
     {
       question: "Hva kjennetegner vellykket aldring ifølge Rowe og Kahns modell?",
-      options: ["Lav sykdomsrisiko, høy funksjon og aktivt engasjement i livet", "Total tilbaketrekning fra samfunnet", "Kun god fysisk helse og fravær av sykdom, uavhengig av kognitiv funksjon og sosialt engasjement", "Fravær av alle nære relasjoner og sosiale bånd, kombinert med et rolig og tilbaketrukket levesett"],
+      options: ["Lav sykdomsrisiko, høy funksjon og aktivt engasjement i livet", "Total tilbaketrekning fra samfunnet og fra alle tidligere aktiviteter", "Kun god fysisk helse og fravær av sykdom, uavhengig av kognitiv funksjon og sosialt engasjement", "Fravær av alle nære relasjoner og sosiale bånd, kombinert med et rolig og tilbaketrukket levesett"],
       explanation: "Rowe og Kahns modell for vellykket aldring inkluderer lav risiko for sykdom, høy kognitiv/fysisk funksjon og aktivt engasjement i livet.",
     },
     {
       question: "Hva viser forskning om kognitiv funksjon og aldring?",
-      options: ["Noen evner svekkes, men andre forblir stabile eller forbedres", "Alle kognitive evner svekkes likt", "At alle kognitive evner svekkes likt og i samme tempo etter hvert som mennesket blir eldre", "All kognitiv funksjon forbedres"],
+      options: ["Noen evner svekkes, men andre forblir stabile eller forbedres", "Alle kognitive evner svekkes likt", "At svekkelsen skjer i samme tempo for alle evner", "All kognitiv funksjon forbedres"],
       explanation: "Aldring fører ikke til generell kognitiv nedgang – noen evner (som flytende intelligens) svekkes, mens andre (som kunnskap) forblir stabile eller forbedres.",
     },
   ],
   "psykologi-1-7-1": [
     {
       question: "Hvordan defineres personlighet?",
-      options: ["Et individs karakteristiske og relativt stabile mønster av tanker, følelser og atferd", "Bare det man lærer i skolen", "Utelukkende de egenskapene man er født med, uten at miljø og erfaring har noen påvirkning på den", "En forbigående stemning eller sinnstilstand som skifter fra dag til dag ut fra situasjonen man er i"],
+      options: ["Et individs karakteristiske og relativt stabile mønster av tanker, følelser og atferd", "Bare det man lærer i skolen", "Utelukkende de egenskapene man er født med", "En forbigående stemning eller sinnstilstand som skifter fra dag til dag ut fra situasjonen man er i"],
       explanation: "Personlighet er et individs karakteristiske og relativt stabile mønster av tanker, følelser og atferd som skiller oss fra andre.",
     },
     {
       question: "Hva er forskjellen mellom et trekk og en tilstand?",
-      options: ["Et trekk er en varig disposisjon, en tilstand er midlertidig", "Et trekk er midlertidig, en tilstand er varig", "Et trekk er en midlertidig følelse akkurat nå, mens en tilstand er en varig disposisjon over tid", "Et trekk og en tilstand er egentlig det samme og beskriver begge stabile mønstre i personligheten"],
+      options: ["Et trekk er en varig disposisjon, en tilstand er midlertidig", "Et trekk er midlertidig, en tilstand er varig", "Et trekk er en midlertidig følelse akkurat nå, mens en tilstand er en varig disposisjon over tid", "Et trekk og en tilstand er egentlig det samme"],
       explanation: "Personlighetstrekk er varige disposisjoner som er stabile over tid, mens tilstander er midlertidige (som å være nervøs akkurat nå).",
     },
     {
@@ -851,29 +851,29 @@ const quizData_psykologi_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en forsvarsmekanisme ifølge Freud?",
-      options: ["En ubevisst strategi ego bruker for å redusere angst", "En bevisst beslutning", "En type belønning superego gir ego når det klarer å balansere kravene fra id og virkeligheten godt", "En type belønning"],
+      options: ["En ubevisst strategi ego bruker for å redusere angst", "En bevisst beslutning", "En belønning superego gir ego", "En type belønning"],
       explanation: "Forsvarsmekanismer er ubevisste psykologiske strategier ego bruker for å redusere angst fra konflikter mellom id og superego.",
     },
     {
       question: "Hva er fortrengning (repression)?",
-      options: ["Å skyve uakseptable tanker ut av bevisstheten", "Å uttrykke følelser åpent", "En type belønning ego opplever når det lykkes i å dempe angsten som oppstår mellom id og superego", "Å huske alt nøyaktig"],
+      options: ["Å skyve uakseptable tanker ut av bevisstheten", "Å uttrykke følelser åpent", "En belønning ego får ved dempet angst", "Å huske alt nøyaktig"],
       explanation: "Fortrengning er den mest grunnleggende forsvarsmekanismen, der uakseptable tanker og minner skyves ut av bevisstheten.",
     },
     {
       question: "Hva er en hovedkritikk mot Freuds teori?",
-      options: ["Mange av begrepene er vanskelige eller umulige å teste empirisk", "Den bygger kun på dyreforsøk", "At teorien er altfor matematisk og bygger utelukkende på statistiske beregninger av store utvalg", "At teorien fullstendig ignorerer barndommens betydning og kun vektlegger opplevelser i voksenlivet"],
+      options: ["Mange av begrepene er vanskelige eller umulige å teste empirisk", "Den bygger kun på dyreforsøk, og lar seg derfor ikke overføre til mennesker", "At teorien er altfor matematisk og bygger utelukkende på statistiske beregninger av store utvalg", "At teorien fullstendig ignorerer barndommens betydning og kun vektlegger opplevelser i voksenlivet"],
       explanation: "En sentral kritikk er at mange av Freuds konsepter er umulige å teste empirisk og baserer seg på casestudier av et lite, spesielt utvalg pasienter.",
     },
   ],
   "psykologi-1-7-3": [
     {
       question: "Hva fokuserer trekkteoretikere på?",
-      options: ["Å beskrive og måle observerbare personlighetstrekk", "Ubevisste konflikter", "Hjernekjemien alene, der personlighet forklares fullt ut ut fra nivåer av signalstoffer og hormoner", "Belønning og straff"],
+      options: ["Å beskrive og måle observerbare personlighetstrekk", "Ubevisste konflikter", "Hjernekjemien alene og hormonnivåene", "Belønning og straff"],
       explanation: "Trekkteoretikere fokuserer på å beskrive og måle observerbare personlighetstrekk – konsistente tendenser i tanke, følelse og handling.",
     },
     {
       question: "Hvilke fem dimensjoner inngår i Big Five-modellen (OCEAN)?",
-      options: ["Åpenhet, planmessighet, ekstroversjon, medmenneskelighet og nevrotisisme", "Synet, hørselen, smaken, lukten og følelsen", "Id, ego, superego, lystprinsippet og realitetsprinsippet, som til sammen styrer personligheten", "Synet, hørselen, smaken, lukten og følelsen, altså de fem sansene mennesket bruker for å oppfatte"],
+      options: ["Åpenhet, planmessighet, ekstroversjon, medmenneskelighet og nevrotisisme", "Synet, hørselen, smaken, lukten og følelsen", "Id, ego, superego, lystprinsippet og realitetsprinsippet", "Synet, hørselen, smaken, lukten og følelsen, altså de fem sansene mennesket bruker for å oppfatte"],
       explanation: "Big Five (OCEAN) består av åpenhet, planmessighet (samvittighetsfullhet), ekstroversjon, medmenneskelighet og nevrotisisme.",
     },
     {
@@ -888,7 +888,7 @@ const quizData_psykologi_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva viser forskning om personlighetens stabilitet gjennom livet?",
-      options: ["Den viser både stabilitet (rangering) og systematisk endring med alder", "Personlighet endrer seg helt tilfeldig", "At personligheten er ferdig utviklet allerede i barndommen og deretter er låst for videre endring", "At personligheten endrer seg helt tilfeldig fra år til år, uten noe systematisk mønster med alderen"],
+      options: ["Den viser både stabilitet (rangering) og systematisk endring med alder", "Personlighet endrer seg helt tilfeldig, og lar seg derfor ikke måle på nytt senere", "At personligheten er ferdig utviklet allerede i barndommen og deretter er låst for videre endring", "At personligheten endrer seg helt tilfeldig fra år til år, uten noe systematisk mønster med alderen"],
       explanation: "Big Five viser både rangsordenskonsistens (du beholder din relative plassering) og systematisk endring, der stabiliteten øker med alderen.",
     },
   ],
@@ -900,12 +900,12 @@ const quizData_psykologi_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er ubetinget positiv respekt ifølge Rogers?",
-      options: ["Å bli verdsatt og akseptert uten betingelser", "Aksept kun når man presterer", "Å motta belønning for gode prestasjoner, slik at aksepten fra andre er betinget av det man oppnår", "Straff for dårlig oppførsel"],
+      options: ["Å bli verdsatt og akseptert uten betingelser", "Aksept kun når man presterer", "Å motta belønning for prestasjoner", "Straff for dårlig oppførsel"],
       explanation: "Ubetinget positiv respekt er å bli verdsatt og akseptert uansett, i motsetning til betinget respekt (\"jeg aksepterer deg hvis...\").",
     },
     {
       question: "Hva er reciprokal determinisme ifølge Bandura?",
-      options: ["Gjensidig påvirkning mellom person, atferd og miljø", "At personen alene bestemmer alt", "At all atferd er medfødt og biologisk fastlagt, slik at verken person eller miljø kan endre den", "At miljøet alene bestemmer alt"],
+      options: ["Gjensidig påvirkning mellom person, atferd og miljø", "At personen alene bestemmer alt", "At all atferd er medfødt og biologisk fastlagt", "At miljøet alene bestemmer alt"],
       explanation: "Reciprokal determinisme er Banduras idé om at personlighet er resultat av gjensidig påvirkning mellom person (kognisjon), atferd og miljø.",
     },
     {
@@ -915,14 +915,14 @@ const quizData_psykologi_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva var Maslows hovedbidrag til personlighetspsykologien?",
-      options: ["Studien av selvaktualisering – realisering av eget potensial", "Teorien om forsvarsmekanismer", "Oppdagelsen av klassisk betinging og hvordan atferd læres gjennom kobling mellom stimuli og responser", "Teorien om forsvarsmekanismer og hvordan ego ubevisst beskytter seg mot angst i vanskelige situasjoner"],
+      options: ["Studien av selvaktualisering – realisering av eget potensial", "Teorien om forsvarsmekanismer, utviklet gjennom arbeid med pasienter i terapi", "Oppdagelsen av klassisk betinging og hvordan atferd læres gjennom kobling mellom stimuli og responser", "Teorien om forsvarsmekanismer og hvordan ego ubevisst beskytter seg mot angst i vanskelige situasjoner"],
       explanation: "Maslows bidrag til personlighetspsykologien ligger i studien av selvaktualisering – menneskets streben etter å realisere sitt potensial.",
     },
   ],
   "psykologi-1-7-5": [
     {
       question: "Hva er selvkonsept (self-concept)?",
-      options: ["Den organiserte, sammenhengende oppfatningen av oss selv", "En forbigående stemning", "Andres mening om oss og hvordan omgivelsene oppfatter og bedømmer våre egenskaper og handlinger", "Andres mening om oss"],
+      options: ["Den organiserte, sammenhengende oppfatningen av oss selv", "En forbigående stemning", "Hvordan omgivelsene bedømmer oss", "Andres mening om oss"],
       explanation: "Selvkonsept er den organiserte, sammenhengende oppfatningen av oss selv – hva vi vet om egne egenskaper, evner og roller.",
     },
     {
@@ -932,7 +932,7 @@ const quizData_psykologi_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er sosial identitet?",
-      options: ["Den delen av selvkonseptet som kommer fra gruppemedlemskap", "Den unike personligheten din", "Andres atferd og handlinger rettet mot deg, altså måten omgivelsene og gruppene behandler deg på", "En forbigående følelse"],
+      options: ["Den delen av selvkonseptet som kommer fra gruppemedlemskap", "Den unike personligheten din", "Andres atferd og handlinger rettet mot deg", "En forbigående følelse"],
       explanation: "Sosial identitet (Tajfel) er den delen av selvkonseptet som kommer fra gruppene vi tilhører, som nasjonalitet, religion eller kjønn.",
     },
     {
@@ -986,34 +986,34 @@ const quizData_psykologi_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er kognitiv dissonans (Festinger)?",
-      options: ["Ubehag når holdninger og atferd ikke stemmer overens", "Når man er enig med seg selv", "Gleden og selvtilliten vi opplever når vi får bekreftet at vi hadde rett", "En form for korttidshukommelse der motstridende tanker lagres midlertidig"],
+      options: ["Ubehag når holdninger og atferd ikke stemmer overens", "Når man er enig med seg selv, og holdning og handling peker samme vei", "Gleden og selvtilliten vi opplever når vi får bekreftet at vi hadde rett", "En form for korttidshukommelse der motstridende tanker lagres midlertidig"],
       explanation: "Kognitiv dissonans er den ubehagelige spenningen vi føler når holdninger og atferd ikke stemmer overens, eller når vi har motstridende holdninger.",
     },
     {
       question: "Hva er forskjellen mellom stereotypi, fordom og diskriminering?",
-      options: ["Stereotypi er tanke, fordom er følelse, diskriminering er handling", "Diskriminering er en tanke", "Stereotypi, fordom og diskriminering betyr i praksis nøyaktig det samme fenomenet", "Fordom er selve handlingen, mens stereotypi og diskriminering er følelser man har"],
+      options: ["Stereotypi er tanke, fordom er følelse, diskriminering er handling", "Diskriminering er en tanke, mens stereotypi og fordom er handlinger man utfører", "Stereotypi, fordom og diskriminering betyr i praksis nøyaktig det samme fenomenet", "Fordom er selve handlingen, mens stereotypi og diskriminering er følelser man har"],
       explanation: "Stereotypi er den kognitive komponenten (tanker), fordom er den affektive (følelser), og diskriminering er den atferdsmessige (handlinger).",
     },
     {
       question: "Hva foreslår kontakthypotesen (Allport)?",
-      options: ["Fordommer kan reduseres gjennom kontakt mellom grupper under visse betingelser", "At kontakt alltid øker fordommer", "At kontakt mellom grupper er helt irrelevant for hvordan fordommer utvikler seg", "At fordommer er så dypt forankret at de aldri kan reduseres eller endres over tid"],
+      options: ["Fordommer kan reduseres gjennom kontakt mellom grupper under visse betingelser", "At kontakt alltid øker fordommer, uansett hvilke betingelser møtet mellom gruppene skjer under", "At kontakt mellom grupper er helt irrelevant for hvordan fordommer utvikler seg", "At fordommer er så dypt forankret at de aldri kan reduseres eller endres over tid"],
       explanation: "Kontakthypotesen foreslår at fordommer kan reduseres gjennom kontakt mellom grupper – men kun under betingelser som lik status og felles mål.",
     },
   ],
   "psykologi-1-8-3": [
     {
       question: "Hva kjennetegner en gruppe i sosialpsykologisk forstand?",
-      options: ["Interaksjon, felles mål og en følelse av tilhørighet", "At folk er i samme rom tilfeldig", "At mennesker befinner seg i samme rom av ren tilfeldighet uten felles formål", "Bare at folk står nær hverandre"],
+      options: ["Interaksjon, felles mål og en følelse av tilhørighet", "At folk er i samme rom tilfeldig", "At mennesker er samlet uten felles formål", "Bare at folk står nær hverandre"],
       explanation: "En gruppe kjennetegnes av interaksjon mellom medlemmene, felles mål eller formål, og en følelse av tilhørighet – ikke bare tilfeldig samling.",
     },
     {
       question: "Hva er sosial dovenskap (social loafing)?",
-      options: ["Tendensen til å yte mindre når man jobber i gruppe enn alene", "Å jobbe hardere i gruppe", "Å ta rollen som leder og fordele arbeidsoppgavene til de andre i gruppen", "Tendensen til å yte klart mer innsats når man jobber i gruppe enn helt alene"],
+      options: ["Tendensen til å yte mindre når man jobber i gruppe enn alene", "Å jobbe hardere i gruppe fordi de andre ser nøyaktig hva man får gjort", "Å ta rollen som leder og fordele arbeidsoppgavene til de andre i gruppen", "Tendensen til å yte klart mer innsats når man jobber i gruppe enn helt alene"],
       explanation: "Sosial dovenskap er tendensen til å yte mindre innsats når man jobber i gruppe enn når man jobber alene.",
     },
     {
       question: "Hva er gruppetenkning (groupthink)?",
-      options: ["Når ønsket om harmoni i en gruppe fører til dårlige beslutninger", "Når en gruppe tenker svært kritisk", "Når alle i gruppen er uenige og diskusjonen ender uten noen felles beslutning", "En kreativ prosess der gruppen bevisst søker mange ulike og motstridende ideer"],
+      options: ["Når ønsket om harmoni i en gruppe fører til dårlige beslutninger", "Når en gruppe tenker svært kritisk og prøver ut alle innvendinger systematisk", "Når alle i gruppen er uenige og diskusjonen ender uten noen felles beslutning", "En kreativ prosess der gruppen bevisst søker mange ulike og motstridende ideer"],
       explanation: "Gruppetenkning (Janis) er når ønsket om harmoni og enighet i en gruppe overstyrer realistisk vurdering og fører til dårlige beslutninger.",
     },
     {
@@ -1023,7 +1023,7 @@ const quizData_psykologi_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er deindividuering?",
-      options: ["Tap av selvbevissthet og ansvarsfølelse i gruppesituasjoner", "Å bli mer seg selv i grupper", "En form for lederskap der én person tar fullt ansvar for gruppens handlinger", "Sterk selvbevissthet og økt ansvarsfølelse som gjør atferden mer kontrollert"],
+      options: ["Tap av selvbevissthet og ansvarsfølelse i gruppesituasjoner", "Å bli mer seg selv i grupper, slik at egenarten kommer tydeligere fram", "En form for lederskap der én person tar fullt ansvar for gruppens handlinger", "Sterk selvbevissthet og økt ansvarsfølelse som gjør atferden mer kontrollert"],
       explanation: "Deindividuering er tap av selvbevissthet og ansvarsfølelse i gruppesituasjoner, særlig ved anonymitet, som kan føre til impulsiv atferd.",
     },
   ],
@@ -1040,34 +1040,34 @@ const quizData_psykologi_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen mellom fiendtlig og instrumentell aggresjon?",
-      options: ["Fiendtlig har skade som mål, instrumentell bruker skade som middel til noe annet", "Fiendtlig og instrumentell aggresjon er to navn på nøyaktig det samme fenomenet", "Instrumentell aggresjon har skaden i seg selv som mål, mens fiendtlig er planlagt", "Fiendtlig aggresjon er alltid nøye planlagt, mens instrumentell skjer i affekt"],
+      options: ["Fiendtlig har skade som mål, instrumentell bruker skade som middel til noe annet", "Fiendtlig og instrumentell aggresjon er to navn på nøyaktig det samme fenomenet", "Instrumentell aggresjon har skaden som mål i seg selv", "Fiendtlig aggresjon er alltid nøye planlagt, mens instrumentell skjer i affekt"],
       explanation: "Fiendtlig aggresjon har skaden i seg selv som mål (i raseri), mens instrumentell aggresjon bruker skade som et middel for å oppnå noe annet.",
     },
     {
       question: "Hva sier forskning om katarsis-hypotesen (å \"slippe ut\" aggresjon)?",
-      options: ["Å uttrykke aggresjon øker den, ikke reduserer den", "Å slå i en pute fjerner sinne effektivt", "Å slå i en pute fjerner sinnet effektivt og gir varig følelsesmessig lettelse", "Katarsis er det beste mot sinne"],
+      options: ["Å uttrykke aggresjon øker den, ikke reduserer den", "Å slå i en pute fjerner sinne effektivt", "Å slå i en pute gir varig lettelse", "Katarsis er det beste mot sinne"],
       explanation: "Forskning støtter IKKE katarsis-hypotesen – å uttrykke aggresjon (som å slå i en pute) øker faktisk aggresjon i stedet for å redusere den.",
     },
     {
       question: "Hvilken faktor øker sannsynligheten for at vi hjelper noen?",
-      options: ["At personen ligner oss eller at vi er i godt humør", "At det er mange andre tilskuere", "At vi har svært dårlig tid og er stresset på vei til en viktig avtale", "At personen er en fremmed"],
+      options: ["At personen ligner oss eller at vi er i godt humør", "At det er mange andre tilskuere", "At vi har svært dårlig tid og er stresset", "At personen er en fremmed"],
       explanation: "Vi hjelper mer når personen ligner oss, når vi er i godt humør, og når vi kjenner personen – mens mange tilskuere reduserer hjelp (tilskuereffekten).",
     },
   ],
   "psykologi-1-8-5": [
     {
       question: "Hva er holdning-atferd-gapet i klimasammenheng?",
-      options: ["Avstanden mellom hva vi mener om klima og hva vi faktisk gjør", "At alle handler i tråd med sine holdninger", "At ingen mennesker egentlig bryr seg om klima eller viser bekymring for miljøet", "At alle mennesker konsekvent handler i tråd med de holdningene de gir uttrykk for"],
+      options: ["Avstanden mellom hva vi mener om klima og hva vi faktisk gjør", "At alle handler i tråd med sine holdninger", "At ingen mennesker egentlig bryr seg om klima", "At alle mennesker konsekvent handler i tråd med de holdningene de gir uttrykk for"],
       explanation: "Holdning-atferd-gapet er avstanden mellom hva vi mener (f.eks. klimabekymring) og hva vi faktisk gjør (fly, spise kjøtt osv.).",
     },
     {
       question: "Hva er nudging (Thaler og Sunstein)?",
-      options: ["Å designe valgsituasjoner så ønsket valg blir lettere, uten å fjerne valgfrihet", "Å tvinge folk til å ta bestemte valg gjennom lovpålegg og strenge regler", "Å straffe folk økonomisk hver gang de tar et valg myndighetene mener er uheldig", "Å forby de dårlige valgene helt slik at bare de gunstige alternativene er lovlige"],
+      options: ["Å designe valgsituasjoner så ønsket valg blir lettere, uten å fjerne valgfrihet", "Å tvinge folk til å ta bestemte valg gjennom lovpålegg og strenge regler", "Å straffe folk økonomisk hver gang de tar et valg myndighetene mener er uheldig", "Å forby de dårlige valgene slik at bare gunstige alternativer står igjen"],
       explanation: "Nudging handler om å designe valgsituasjoner slik at de gunstige valgene blir lettere å ta, uten å fjerne valgfriheten.",
     },
     {
       question: "Hvorfor er klimaendringer psykologisk vanskelige å handle på?",
-      options: ["De oppleves som fjerne i tid og rom (psykologisk avstand)", "Fordi de er nære og konkrete", "Fordi de oppleves som svært nære og konkrete i vår egen hverdag akkurat nå", "Fordi klimaendringene i realiteten ikke finnes og bare er en innbilt trussel"],
+      options: ["De oppleves som fjerne i tid og rom (psykologisk avstand)", "Fordi de er nære og konkrete, og derfor krever handling med en gang", "Fordi de oppleves som svært nære og konkrete i vår egen hverdag akkurat nå", "Fordi klimaendringene i realiteten ikke finnes og bare er en innbilt trussel"],
       explanation: "Klimaendringer føles psykologisk fjerne i tid og rom, noe som svekker motivasjonen til å handle her og nå.",
     },
     {
@@ -1084,22 +1084,22 @@ const quizData_psykologi_1: Record<string, QuizQuestion[]> = {
   "psykologi-1-9-1": [
     {
       question: "Hvordan definerer WHO psykisk helse?",
-      options: ["En tilstand av velvære der individet kan realisere muligheter og håndtere stress", "En vedvarende følelse av å alltid være glad og fornøyd uansett hva som skjer", "En tilstand der individet aldri opplever tristhet, motgang eller vanskelige følelser", "Utelukkende fravær av diagnostiserbar psykisk sykdom og påvisbare symptomer"],
+      options: ["En tilstand av velvære der individet kan realisere muligheter og håndtere stress", "En vedvarende følelse av å alltid være glad og fornøyd uansett hva som skjer", "En tilstand der individet aldri opplever tristhet", "Utelukkende fravær av diagnostiserbar psykisk sykdom og påvisbare symptomer"],
       explanation: "WHO definerer psykisk helse som en tilstand av velvære der individet kan realisere sine muligheter, håndtere normalt stress og bidra i samfunnet – ikke bare fravær av sykdom.",
     },
     {
       question: "Hva innebærer helsekontinuumet?",
-      options: ["Psykisk helse er en glidende skala fra god helse til alvorlig lidelse", "Man er enten helt frisk eller helt syk", "At man enten er fullstendig frisk eller fullstendig syk, uten noe imellom", "At den psykiske helsen er fastlåst og ikke kan endres i løpet av et menneskeliv"],
+      options: ["Psykisk helse er en glidende skala fra god helse til alvorlig lidelse", "Man er enten helt frisk eller helt syk", "At man enten er fullstendig frisk eller fullstendig syk, uten noe imellom", "At den psykiske helsen er fastlåst og ikke kan endres"],
       explanation: "Helsekontinuumet ser psykisk helse som en glidende skala, der alle kan bevege seg opp og ned gjennom livet, ikke som et enten/eller.",
     },
     {
       question: "Hva er statistisk normalitet?",
-      options: ["Det som er vanlig i befolkningen", "Det som er moralsk riktig", "Det legen eller fagpersonen bestemmer at skal regnes som friskt og normalt", "Det legen bestemmer"],
+      options: ["Det som er vanlig i befolkningen", "Det som er moralsk riktig", "Det fagpersonen bestemmer", "Det legen bestemmer"],
       explanation: "Statistisk normalitet definerer det vanlige i befolkningen som normalt, og det sjeldne som avvikende.",
     },
     {
       question: "Hvor vanlige er psykiske lidelser i Norge?",
-      options: ["Ca. 1 av 3 vil oppleve en psykisk lidelse i løpet av livet", "Svært sjeldne, under 1 prosent", "Så godt som ingen i Norge rammes fordi levestandarden her er så høy og god", "Svært sjeldne, under 1 prosent av befolkningen rammes noen gang i løpet av livet"],
+      options: ["Ca. 1 av 3 vil oppleve en psykisk lidelse i løpet av livet", "Svært sjeldne, under 1 prosent, og da nesten bare blant de aller eldste", "Så godt som ingen i Norge rammes fordi levestandarden her er så høy og god", "Svært sjeldne, under 1 prosent av befolkningen rammes noen gang i løpet av livet"],
       explanation: "Psykiske lidelser er svært vanlige – ca. 1 av 3 nordmenn vil oppleve en psykisk lidelse i løpet av livet, og angst og depresjon er vanligst.",
     },
     {
@@ -1126,12 +1126,12 @@ const quizData_psykologi_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner bipolar lidelse?",
-      options: ["Svingninger mellom depresjon og mani/hypomani", "Kun nedstemthet", "Utelukkende vedvarende nedstemthet og tungsinn uten noen oppløftede perioder", "Utelukkende sterk angst og bekymring uten svingninger i stemningsleiet ellers"],
+      options: ["Svingninger mellom depresjon og mani/hypomani", "Kun nedstemthet, uten at stemningsleiet svinger over tid", "Utelukkende vedvarende nedstemthet og tungsinn uten noen oppløftede perioder", "Utelukkende sterk angst og bekymring uten svingninger i stemningsleiet ellers"],
       explanation: "Bipolar lidelse kjennetegnes av svingninger mellom depressive episoder og maniske/hypomane episoder med oppløftet stemning og økt energi.",
     },
     {
       question: "Hvilken forklaring har angstlidelser og depresjon ifølge moderne psykologi?",
-      options: ["Flere årsaker virker sammen: biologiske, psykologiske og sosiale", "Kun dårlig oppdragelse", "Utelukkende sosiale forhold som ensomhet, mobbing og fattigdom er den eneste forklaringen på lidelsen", "Utelukkende biologiske årsaker: gener og ubalanse i hjernens signalstoffer forklarer lidelsen fullt ut"],
+      options: ["Flere årsaker virker sammen: biologiske, psykologiske og sosiale", "Kun dårlig oppdragelse, slik at hele ansvaret ligger hos foreldrene alene", "Utelukkende sosiale forhold som ensomhet, mobbing og fattigdom er den eneste forklaringen på lidelsen", "Utelukkende biologiske årsaker: gener og ubalanse i hjernens signalstoffer forklarer lidelsen fullt ut"],
       explanation: "Både angstlidelser og depresjon har flere sammenvirkende årsaker – biologiske (gener, hjernekjemi), psykologiske og sosiale faktorer.",
     },
   ],
@@ -1148,12 +1148,12 @@ const quizData_psykologi_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skiller bulimi fra overspisingslidelse?",
-      options: ["Bulimi har kompenserende atferd (f.eks. oppkast), overspisingslidelse har det ikke", "Overspisingslidelse har kompenserende atferd", "Bulimi innebærer ingen episoder med overspising, kun streng faste og selvpålagt sulting over tid", "De to lidelsene er i praksis helt like og skilles bare av hvor mye mat personen inntar per episode"],
+      options: ["Bulimi har kompenserende atferd (f.eks. oppkast), overspisingslidelse har det ikke", "Overspisingslidelse har kompenserende atferd som oppkast, mens bulimi ikke har noen slik atferd", "Bulimi innebærer ingen episoder med overspising, kun streng faste og selvpålagt sulting over tid", "De to lidelsene er i praksis helt like og skilles bare av hvor mye mat personen inntar per episode"],
       explanation: "Bulimi innebærer overspising fulgt av kompenserende atferd (oppkast, trening), mens overspisingslidelse er overspising uten slik kompensering.",
     },
     {
       question: "Hva kjennetegner avhengighet?",
-      options: ["Tap av kontroll, toleranse og fortsatt bruk tross negative konsekvenser", "Ett enkelt forsøk med et stoff", "Et helt normalt og kontrollert forbruk der personen enkelt kan slutte når som helst uten problemer", "Et enkelt engangsforsøk med et rusmiddel som verken gir toleranse, abstinens eller tap av kontroll"],
+      options: ["Tap av kontroll, toleranse og fortsatt bruk tross negative konsekvenser", "Ett enkelt forsøk med et stoff, uansett hvordan personen reagerer på det etterpå", "Et helt normalt og kontrollert forbruk der personen enkelt kan slutte når som helst uten problemer", "Et enkelt engangsforsøk med et rusmiddel som verken gir toleranse, abstinens eller tap av kontroll"],
       explanation: "Avhengighet kjennetegnes av tap av kontroll, toleranseutvikling, abstinens og fortsatt bruk til tross for negative konsekvenser.",
     },
     {
@@ -1165,7 +1165,7 @@ const quizData_psykologi_1: Record<string, QuizQuestion[]> = {
   "psykologi-1-9-4": [
     {
       question: "Hvilken behandlingsform er best dokumentert for de fleste psykiske lidelser?",
-      options: ["Kognitiv atferdsterapi (KBT)", "Gestaltterapi", "Klassisk psykoanalyse der man over flere år utforsker fortrengte konflikter fra tidlig barndom", "Psykoanalyse"],
+      options: ["Kognitiv atferdsterapi (KBT)", "Gestaltterapi", "Klassisk psykoanalyse", "Psykoanalyse"],
       explanation: "Kognitiv atferdsterapi (KBT) er den mest utbredte og best dokumenterte behandlingsformen for de fleste psykiske lidelser.",
     },
     {
@@ -1175,7 +1175,7 @@ const quizData_psykologi_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er eksponering i KBT?",
-      options: ["Gradvis konfrontasjon med det man frykter for å redusere angsten", "Å unngå det man frykter", "Å hjelpe pasienten med å unngå og holde seg helt borte fra situasjoner som utløser frykt og ubehag", "Å utforske og snakke grundig om barndomsopplevelser for å finne den skjulte roten til dagens angst"],
+      options: ["Gradvis konfrontasjon med det man frykter for å redusere angsten", "Å unngå det man frykter, slik at ubehaget aldri får anledning til å bygge seg opp", "Å hjelpe pasienten med å unngå og holde seg helt borte fra situasjoner som utløser frykt og ubehag", "Å utforske og snakke grundig om barndomsopplevelser for å finne den skjulte roten til dagens angst"],
       explanation: "Eksponering er gradvis konfrontasjon med det man frykter (etter et angsthierarki), som over tid reduserer angsten gjennom habituering.",
     },
     {
@@ -1197,12 +1197,12 @@ const quizData_psykologi_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva avgjør utfallet ifølge risiko- og beskyttelsesfaktor-modellen?",
-      options: ["Balansen mellom risikofaktorer og beskyttelsesfaktorer", "Kun antall risikofaktorer", "Kun personens medfødte gener, siden arvelig sårbarhet alene bestemmer hvem som blir psykisk syke", "Kun tilfeldigheter"],
+      options: ["Balansen mellom risikofaktorer og beskyttelsesfaktorer", "Kun antall risikofaktorer", "Kun personens medfødte gener og sårbarhet", "Kun tilfeldigheter"],
       explanation: "Det er balansen mellom risiko- og beskyttelsesfaktorer som avgjør hvem som utvikler psykiske problemer og hvem som ikke gjør det.",
     },
     {
       question: "Hva er primærforebygging (universell forebygging)?",
-      options: ["Tiltak rettet mot hele befolkningen for å hindre at problemer oppstår", "Behandling av etablert sykdom", "Behandling og oppfølging av mennesker som allerede har utviklet en etablert psykisk lidelse", "Tiltak som utelukkende rettes mot dem som allerede er syke for å hindre at tilstanden forverres"],
+      options: ["Tiltak rettet mot hele befolkningen for å hindre at problemer oppstår", "Behandling av etablert sykdom hos den enkelte pasienten i spesialisthelsetjenesten", "Behandling og oppfølging av mennesker som allerede har utviklet en etablert psykisk lidelse", "Tiltak som utelukkende rettes mot dem som allerede er syke for å hindre at tilstanden forverres"],
       explanation: "Primærforebygging (universell forebygging) retter seg mot hele befolkningen for å hindre at psykiske problemer oppstår.",
     },
     {
@@ -1219,27 +1219,27 @@ const quizData_psykologi_1: Record<string, QuizQuestion[]> = {
   "psykologi-1-10-1": [
     {
       question: "Hva gjør kliniske psykologer?",
-      options: ["Forstår, diagnostiserer og behandler psykiske lidelser", "Jobber bare med organisasjoner", "Forsker utelukkende på dyr i laboratorium for å forstå læring, uten kontakt med pasienter", "Forsker kun på dyr"],
+      options: ["Forstår, diagnostiserer og behandler psykiske lidelser", "Jobber bare med organisasjoner", "Forsker på dyr i laboratorium for å forstå læring", "Forsker kun på dyr"],
       explanation: "Kliniske psykologer arbeider med å forstå, diagnostisere og behandle psykiske lidelser hos mennesker som sliter.",
     },
     {
       question: "Hva arbeider arbeids- og organisasjonspsykologer (A&O) med?",
-      options: ["Å anvende psykologisk kunnskap i arbeidsliv og organisasjoner", "Behandling av barn", "Utredning og behandling av barn med psykiske vansker og forsinket utvikling over tid", "Kartlegging av hjerneskader og sammenhengen mellom skadet hjernevev og endret atferd"],
+      options: ["Å anvende psykologisk kunnskap i arbeidsliv og organisasjoner", "Behandling av barn", "Utredning og behandling av barn med psykiske vansker", "Kartlegging av hjerneskader og sammenhengen mellom skadet hjernevev og endret atferd"],
       explanation: "Arbeids- og organisasjonspsykologer anvender psykologisk kunnskap i arbeidslivet – rekruttering, ledelse, trivsel og produktivitet.",
     },
     {
       question: "Hva spesialiserer nevropsykologer seg på?",
-      options: ["Sammenhengen mellom hjernefunksjon og atferd", "Idrettsprestasjoner alene", "Hvordan psykologisk kunnskap kan brukes i markedsføring for å påvirke forbrukernes kjøpsvalg", "Markedsføring"],
+      options: ["Sammenhengen mellom hjernefunksjon og atferd", "Idrettsprestasjoner alene", "Markedsføring og forbrukernes kjøpsvalg", "Markedsføring"],
       explanation: "Nevropsykologer spesialiserer seg på sammenhengen mellom hjernefunksjon og atferd, og arbeider ofte med pasienter med hjerneskader.",
     },
     {
       question: "Hva er det første steget på veien til å bli psykolog i Norge?",
-      options: ["Profesjonsstudium / grunnutdanning i psykologi ved universitet", "Å starte egen klinikk direkte", "Å åpne egen klinikk med en gang og ta imot klienter mens man samtidig lærer faget i praksis", "Å fullføre et kort nettkurs i psykologi før man begynner å tilby samtaler og enkel behandling"],
+      options: ["Profesjonsstudium / grunnutdanning i psykologi ved universitet", "Å starte egen klinikk direkte, ettersom yrket ikke er beskyttet i Norge", "Å åpne egen klinikk med en gang og ta imot klienter mens man samtidig lærer faget i praksis", "Å fullføre et kort nettkurs i psykologi før man begynner å tilby samtaler og enkel behandling"],
       explanation: "For å bli psykolog i Norge må man gjennomføre en lang universitetsutdanning (profesjonsstudium), ikke bare et kort kurs.",
     },
     {
       question: "Hva jobber idrettspsykologer med?",
-      options: ["Å optimalisere prestasjon og trivsel hos utøvere", "Diagnostisering av hjerneskader", "Å utforme reklame og kampanjer basert på kunnskap om hva som påvirker menneskers valg", "Rettssaker"],
+      options: ["Å optimalisere prestasjon og trivsel hos utøvere", "Diagnostisering av hjerneskader", "Å utforme reklame og kampanjer", "Rettssaker"],
       explanation: "Idrettspsykologer arbeider med utøvere, trenere og lag for å optimalisere prestasjon og fremme trivsel i idretten.",
     },
   ],
@@ -1256,24 +1256,24 @@ const quizData_psykologi_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken effekt har fysisk aktivitet på mental helse?",
-      options: ["Den har dokumentert positiv effekt på mental helse", "Den forverrer mental helse", "Den har en klart negativ virkning og forverrer mental helse ved å tappe kroppen for energi", "Den påvirker bare kroppen"],
+      options: ["Den har dokumentert positiv effekt på mental helse", "Den forverrer mental helse", "Den tapper kroppen for energi", "Den påvirker bare kroppen"],
       explanation: "Det er solid forskningsmessig støtte for at fysisk aktivitet har positive effekter på mental helse.",
     },
     {
       question: "Hvorfor er søvn viktig psykologisk sett?",
-      options: ["Den er avgjørende for mental helse, læring og prestasjon", "Den har ingen psykologisk betydning", "Fordi søvn i praksis ikke har noen psykologisk betydning og bare gir kroppen hvile og restitusjon", "Den er bare viktig for muskler"],
+      options: ["Den er avgjørende for mental helse, læring og prestasjon", "Den har ingen psykologisk betydning", "Fordi søvn bare gir kroppen hvile", "Den er bare viktig for muskler"],
       explanation: "Søvn er avgjørende for mental helse, læring og prestasjon, og mange sliter med å få nok god søvn.",
     },
     {
       question: "Hva er prokrastinering?",
-      options: ["Å utsette oppgaver til tross for negative konsekvenser", "Å fullføre oppgaver tidlig", "Å fullføre oppgaver god tid før fristen og planlegge arbeidet svært nøye på forhånd", "God og strukturert planlegging der man deler oppgaver opp og løser dem litt etter litt"],
+      options: ["Å utsette oppgaver til tross for negative konsekvenser", "Å fullføre oppgaver tidlig, alltid i god tid før fristen nærmer seg", "Å fullføre oppgaver god tid før fristen og planlegge arbeidet svært nøye på forhånd", "God og strukturert planlegging der man deler oppgaver opp og løser dem litt etter litt"],
       explanation: "Prokrastinering er å utsette oppgaver man bør gjøre, ofte til tross for at man vet det får negative konsekvenser.",
     },
   ],
   "psykologi-1-10-3": [
     {
       question: "Hvorfor er psykologi relevant i rettssystemet?",
-      options: ["Fordi rettssystemet bygger på antakelser om hukommelse, persepsjon og beslutninger", "Fordi psykologi ikke har noe med rett å gjøre", "Fordi psykologer selv avsier dommer og bestemmer straffen til den tiltalte i rettssaker", "Fordi psykologer utformer og skriver lovene som domstolen bruker når den dømmer i en sak"],
+      options: ["Fordi rettssystemet bygger på antakelser om hukommelse, persepsjon og beslutninger", "Fordi psykologi ikke har noe med rett å gjøre", "Fordi psykologer selv avsier dommer og bestemmer straffen", "Fordi psykologer utformer og skriver lovene som domstolen bruker når den dømmer i en sak"],
       explanation: "Rettssystemet bygger på antakelser om menneskets hukommelse, persepsjon og beslutningstaking, noe psykologisk forskning kan belyse (f.eks. om vitners pålitelighet).",
     },
     {
@@ -1288,24 +1288,24 @@ const quizData_psykologi_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva handler trafikkpsykologi om?",
-      options: ["Menneskelig oppmerksomhet, risikopersepsjon og beslutninger i trafikken", "Værforhold alene", "Bilens motor og tekniske egenskaper, som gir raskere og tryggere kjøring i tett trafikk", "Veiens asfalt og fysiske utforming, der veidekket avgjør hvor sikker trafikken faktisk blir"],
+      options: ["Menneskelig oppmerksomhet, risikopersepsjon og beslutninger i trafikken", "Værforhold alene, ettersom føre og sikt avgjør hvor mange ulykker som skjer i trafikken", "Bilens motor og tekniske egenskaper, som gir raskere og tryggere kjøring i tett trafikk", "Veiens asfalt og fysiske utforming, der veidekket avgjør hvor sikker trafikken faktisk blir"],
       explanation: "Trafikkpsykologi handler om de menneskelige faktorene i trafikksikkerhet: oppmerksomhet, risikopersepsjon og beslutningstaking.",
     },
     {
       question: "Hva er et eksempel på nudging i organdonasjon?",
-      options: ["Å gjøre organdonasjon til standardvalg (opt-out) for å øke deltakelse", "Å straffe dem som ikke donerer", "Å innføre et forbud mot organdonasjon slik at ingen kan melde seg som donor i utgangspunktet", "Å straffe og bøtelegge de innbyggerne som velger ikke å registrere seg som organdonorer i systemet"],
+      options: ["Å gjøre organdonasjon til standardvalg (opt-out) for å øke deltakelse", "Å straffe dem som ikke donerer, slik at valget i praksis ikke lenger er frivillig", "Å innføre et forbud mot organdonasjon slik at ingen kan melde seg som donor i utgangspunktet", "Å straffe og bøtelegge de innbyggerne som velger ikke å registrere seg som organdonorer i systemet"],
       explanation: "Land med opt-out-system (man er donor med mindre man aktivt melder seg av) har langt høyere donasjonsrater – et klassisk eksempel på nudging.",
     },
   ],
   "psykologi-1-10-4": [
     {
       question: "Hva er pseudovitenskap?",
-      options: ["Påstander som utgir seg for å være vitenskapelige uten å oppfylle vitenskapens krav", "Den nyeste vitenskapen", "En egen gren av vitenskapen som utelukkende studerer psykologiske fenomener og menneskets sinn", "Den aller nyeste og mest oppdaterte vitenskapen, som ennå ikke er alminnelig akseptert av fagfeltet"],
+      options: ["Påstander som utgir seg for å være vitenskapelige uten å oppfylle vitenskapens krav", "Den nyeste vitenskapen", "En egen gren av vitenskapen som studerer sinnet", "Den aller nyeste og mest oppdaterte vitenskapen, som ennå ikke er alminnelig akseptert av fagfeltet"],
       explanation: "Pseudovitenskap er påstander eller praksiser som utgir seg for å være vitenskapelige, men som ikke oppfyller vitenskapens krav til evidens og testbarhet.",
     },
     {
       question: "Hva er et eksempel på en utbredt psykologimyte?",
-      options: ["At vi bare bruker 10 prosent av hjernen", "At stress påvirker helsen", "At følelser utelukkende styres av hjertet og ikke av hjernens aktivitet", "At hjernen har nevroner"],
+      options: ["At vi bare bruker 10 prosent av hjernen", "At stress påvirker helsen", "At følelser styres av hjertet", "At hjernen har nevroner"],
       explanation: "En kjent myte er at vi bare bruker 10 % av hjernen – det er ikke sant; vi bruker hele hjernen, om enn ulike deler til ulike oppgaver.",
     },
     {
@@ -1315,19 +1315,19 @@ const quizData_psykologi_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er bekreftelsesskjevhet (confirmation bias)?",
-      options: ["Tendensen til å søke og huske informasjon som bekrefter det man tror", "Å være helt objektiv", "Tendensen til å endre standpunkt hver gang man møter en ny og ukjent påstand", "En anerkjent forskningsmetode for å samle inn og bekrefte objektive fakta systematisk"],
+      options: ["Tendensen til å søke og huske informasjon som bekrefter det man tror", "Å være helt objektiv og vurdere alle opplysninger uten å la egne antakelser styre", "Tendensen til å endre standpunkt hver gang man møter en ny og ukjent påstand", "En anerkjent forskningsmetode for å samle inn og bekrefte objektive fakta systematisk"],
       explanation: "Bekreftelsesskjevhet er tendensen til å søke, tolke og huske informasjon som bekrefter eksisterende oppfatninger, og overse motstridende informasjon.",
     },
     {
       question: "Hvorfor er kritisk tenkning viktig i møte med psykologipåstander i media?",
-      options: ["Fordi medierapportering ofte forenkler eller overdriver forskningsfunn", "Fordi forskning aldri er relevant", "Fordi vitenskapelige studier sjelden har noen relevans for folks hverdag og dagligliv", "Fordi journalister som regel har grundig fagutdanning innen psykologisk forskningsmetode"],
+      options: ["Fordi medierapportering ofte forenkler eller overdriver forskningsfunn", "Fordi forskning aldri er relevant, uansett hvordan funnene blir gjengitt i media", "Fordi vitenskapelige studier sjelden har noen relevans for folks hverdag og dagligliv", "Fordi journalister som regel har grundig fagutdanning innen psykologisk forskningsmetode"],
       explanation: "Kritisk tenkning er viktig fordi medier ofte forenkler, overdriver eller feiltolker forskning, og mange \"psykologiske fakta\" er upålitelige.",
     },
   ],
   "psykologi-1-10-5": [
     {
       question: "Hva er positiv psykologi?",
-      options: ["Studiet av hva som gjør livet verdt å leve, som velvære og styrker", "En metode for å være alltid glad", "Studiet av alvorlige psykiske lidelser og hvordan de kan diagnostiseres og behandles", "En terapeutisk metode som lærer mennesker å undertrykke og skjule vanskelige følelser"],
+      options: ["Studiet av hva som gjør livet verdt å leve, som velvære og styrker", "En metode for å være alltid glad", "Studiet av alvorlige psykiske lidelser", "En terapeutisk metode som lærer mennesker å undertrykke og skjule vanskelige følelser"],
       explanation: "Positiv psykologi, popularisert av Martin Seligman, studerer hva som gjør livet verdt å leve – velvære, styrker og positive emosjoner.",
     },
     {
@@ -1342,7 +1342,7 @@ const quizData_psykologi_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en etisk utfordring psykologien møter i fremtiden?",
-      options: ["Personvern og data fra digital teknologi", "At det ikke finnes flere lidelser", "At det etter hvert ikke vil finnes psykiske lidelser igjen å forske videre på", "At forskning er forbudt"],
+      options: ["Personvern og data fra digital teknologi", "At det ikke finnes flere lidelser", "At det ikke blir mer å forske på", "At forskning er forbudt"],
       explanation: "En sentral etisk utfordring er personvern – hvordan håndtere de store mengdene sensitive data som digital teknologi genererer.",
     },
     {
