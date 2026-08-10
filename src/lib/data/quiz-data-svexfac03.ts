@@ -4,32 +4,32 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
   'svexfac03-0-1': [
     {
       question: "Hvor mange skriftlige oppgaver tilbys på eksamen i gjeldende regime, og hvor mange skal besvares?",
-      options: ["Fem tilbys, og tre av dem skal besvares", "Fire tilbys, og to av dem skal besvares", "Seks tilbys, og tre av dem skal besvares", "Tre tilbys, og alle tre skal besvares"],
+      options: ["Fem tilbys, og tre av dem skal besvares", "Fire tilbys, og to av dem skal besvares", "Seks tilbys, tre skal besvares", "Tre tilbys, og alle tre skal besvares; ingen kan velges bort"],
       explanation: "I gjeldende regime får kandidaten fem oppgaver og skal besvare tre av dem, hver til 25 % av karakteren. De øvrige tallene beskriver former som ikke er i bruk. Å svare på flere enn tre er feil #16 i bokas register, og den koster tid uten å gi uttelling.",
     },
     {
       question: "Hva er poengsystemet i flervalgsdelen?",
-      options: ["+1 for riktig, −0,33 for galt og 0 for blankt", "+1 for riktig, −1 for galt og 0 for blankt", "+1 for riktig og 0 for både galt og blankt", "+2 for riktig, −0,5 for galt og 0 for blankt, slik at gjetting straffes hardt"],
+      options: ["+1 for riktig, −0,33 for galt og 0 for blankt", "+1 for riktig, −1 for galt og 0 for blankt, og galt svar nuller ut riktig", "+1 for riktig og 0 for både galt og blankt", "+2 for riktig, −0,5 for galt og 0 for blankt, slik at gjetting straffes hardt"],
       explanation: "Poengsystemet er +1 / −0,33 / 0. Det er nettopp den lave straffen for galt svar som gjør at det lønner seg å gjette når du kan utelukke minst ett alternativ, og å la stå blankt når du ikke kan utelukke noe.",
     },
     {
       question: "Hva består de doble beståkravene i?",
-      options: ["Begge delene må bestås hver for seg, og minst to av de tre besvarte skriftlige oppgavene må ha E eller bedre", "Begge delene må bestås hver for seg, og alle de tre besvarte skriftlige oppgavene må ha karakteren E eller bedre", "Samlet karakter må være E eller bedre, og flervalgsdelen må ha minst halv poengsum", "Flervalgsdelen må bestås, mens de skriftlige oppgavene bare vurderes samlet"],
+      options: ["Begge delene må bestås hver for seg, og minst to av de tre besvarte skriftlige oppgavene må ha E eller bedre", "Begge delene må bestås hver for seg, og alle de tre besvarte skriftlige oppgavene må ha E eller bedre", "Samlet karakter må være E eller bedre, og flervalgsdelen må ha minst halv poengsum", "Flervalgsdelen må bestås, mens de skriftlige oppgavene bare vurderes samlet"],
       explanation: "Kravet har to ledd: hver del for seg, og et minstekrav om at to av de tre besvarte skriftlige oppgavene holder E eller bedre. Det er derfor et hoppet ledd i én oppgave kan bli dyrt, og det er derfor flervalgsdelen har vetorett selv om den bare teller 25 %.",
     },
     {
       question: "Hvorfor beskrives flervalgsdelen som den billigste måten å stryke på?",
-      options: ["Fordi den må bestås for seg selv, selv om den bare teller en fjerdedel av karakteren", "Fordi den teller mer enn de tre skriftlige oppgavene gjør til sammen, og dermed avgjør karakteren", "Fordi den rettes strengere enn den skriftlige delen blir rettet", "Fordi den ikke kan tas om igjen senere i samme semester"],
+      options: ["Fordi den må bestås for seg selv, selv om den bare teller en fjerdedel av karakteren", "Fordi den teller mer enn de tre skriftlige oppgavene gjør til sammen, og dermed avgjør karakteren", "Fordi den rettes strengere enn den skriftlige delen blir rettet, slik at terskelen for å bestå ligger høyere der", "Fordi den ikke kan tas om igjen senere i samme semester"],
       explanation: "Delen teller 25 %, men har vetorett: stryker du der, hjelper det ikke at de skriftlige oppgavene er gode. En kandidat som planlegger bort Del I til slutten av eksamenstiden, tar derfor en unødig stor risiko.",
     },
     {
       question: "Hva er den viktigste endringen som skjedde med eksamensformen fra og med V2023?",
-      options: ["Kandidaten gikk fra ett langt essay til tre korte, komplette besvarelser", "Flervalgsdelen ble innført for første gang i emnets historie", "Antall tilbudte skriftlige oppgaver ble redusert fra fem til to valgfrie oppgaver", "Eksamen gikk fra å være skoleeksamen til å bli hjemmeeksamen"],
+      options: ["Kandidaten gikk fra ett langt essay til tre korte, komplette besvarelser", "Flervalgsdelen ble innført for første gang i emnets historie, og fantes ikke i det forrige regimet", "Antall tilbudte skriftlige oppgaver ble redusert fra fem til to valgfrie oppgaver", "Eksamen gikk fra å være skoleeksamen til å bli hjemmeeksamen"],
       explanation: "Overgangen fra ett langt essay til tre korte, valgt blant fem oppgaver fra ulike deler av pensum, er den endringen som betyr mest for lesestrategien: bredde slår nå dybde. Flervalgsdelen fantes også i det forrige regimet, men veide mer der.",
     },
     {
       question: "Hva er en temaklynge i denne boka?",
-      options: ["En gruppe eksamensoppgaver som spør om det samme pensumområdet, selv om formuleringene varierer", "En samling kapitler som deler samme pensumforfatter som avsender", "En gruppe oppgaver som er gitt i samme eksamenstermin, og som derfor vurderes under ett av sensor", "En liste over begreper som ofte forveksles med hverandre på eksamen"],
+      options: ["En gruppe eksamensoppgaver som spør om det samme pensumområdet, selv om formuleringene varierer", "En samling kapitler som deler samme pensumforfatter som avsender", "En gruppe oppgaver som er gitt i samme eksamenstermin, og som derfor vurderes under ett", "En liste over begreper som ofte forveksles med hverandre på eksamen"],
       explanation: "Klyngen er bokas hovedenhet fordi den svarer på hvordan et sett settes sammen: de fem oppgavene hentes nesten alltid fra fem forskjellige klynger. Det er temaet som binder klyngen sammen, ikke terminen, forfatteren eller forvekslingsfaren.",
     },
     {
@@ -39,12 +39,12 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et kjennetegn ved oppgaveheftet eksamensoppgavene hentes fra?",
-      options: ["Det inneholder 18 oppgaver og har vært tilgjengelig hele semesteret", "Det inneholder 35 oppgaver og offentliggjøres først på eksamensdagen", "Det inneholder 25 oppgaver og fornyes fullstendig hvert semester", "Det inneholder 5 oppgaver og trekkes tilfeldig fra et større arkiv"],
+      options: ["Det inneholder 18 oppgaver og har vært tilgjengelig hele semesteret", "Det inneholder 35 oppgaver og offentliggjøres først på eksamensdagen", "Det inneholder 25 oppgaver og fornyes fullstendig hvert semester", "Det inneholder 5 oppgaver og trekkes tilfeldig fra et større arkiv ingen ser på forhånd"],
       explanation: "Heftet har 18 oppgaver, har vært tilgjengelig hele semesteret og fornyes bare delvis. Tallet 35 er antall skriftlige oppgaver i gjeldende regime, og 25 er antall spørsmål i flervalgsdelen — begge er andre størrelser.",
     },
     {
       question: "Hva er en oppgavefamilie?",
-      options: ["En oppgaveformulering som er gitt flere ganger, ord for ord eller med små justeringer", "En gruppe oppgaver som handler om samme pensumforfatter og derfor kan forberedes samlet", "En oppgave som består av flere ledd med hver sin sjanger", "En samling oppgaver som er gitt i samme termin"],
+      options: ["En oppgaveformulering som er gitt flere ganger, ord for ord eller med små justeringer", "En gruppe oppgaver som handler om samme pensumforfatter og forberedes samlet", "En oppgave som består av flere ledd med hver sin sjanger", "En samling oppgaver som er gitt i samme termin"],
       explanation: "Familien er en gjentatt formulering, ikke et tema og ikke et oppgavesett. Arkivet dokumenterer tolv slike familier i de to nyeste eksamensordningene, og det er derfor trening på gamle oppgaveformuleringer er direkte relevant.",
     },
     {
@@ -54,29 +54,29 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor kan et tall med nevner 21 terminer ikke sammenlignes direkte med et tall med nevner 35 oppgaver?",
-      options: ["Fordi enhetene er ulike, og fordi de tre eksamensordningene tilbød ulikt antall oppgaver per termin", "Fordi det ene tallet er talt opp mens det andre bare er anslått", "Fordi tallet 21 gjelder antall skriftlige oppgaver, mens tallet 35 gjelder spørsmålene i flervalgsdelen", "Fordi de to tallene gjelder ulike fakulteter ved samme universitet"],
+      options: ["Fordi enhetene er ulike, og fordi de tre eksamensordningene tilbød ulikt antall oppgaver per termin", "Fordi det ene tallet er talt opp mens det andre bare er anslått", "Fordi tallet 21 gjelder skriftlige oppgaver, mens tallet 35 gjelder flervalgsdelen", "Fordi de to tallene gjelder ulike fakulteter ved samme universitet"],
       explanation: "Det ene teller terminer over hele arkivet, det andre oppgaver i gjeldende regime, og ordningene tilbød henholdsvis fire korte spørsmål med én lang oppgave, to essayvalg og fem oppgaver per termin. Begge tallene er talt opp; det er sammenligningen som er ugyldig.",
     },
     {
       question: "Hva viser funksjonalismens historie i eksamensarkivet?",
-      options: ["At et lavfrekvent tema kan ligge nede i mange år og likevel komme tilbake", "At temaer som er utfaset, aldri kommer tilbake på eksamen", "At de mest frekvente temaene alltid har vært de samme siden 2012", "At sensorveiledningene systematisk varsler på forhånd når et tema skal komme tilbake"],
+      options: ["At et lavfrekvent tema kan ligge nede i mange år og likevel komme tilbake", "At temaer som er utfaset, aldri kommer tilbake på eksamen", "At de mest frekvente temaene alltid har vært de samme siden 2012, og utgjør en fast pensumkjerne", "At sensorveiledningene systematisk varsler på forhånd når et tema skal komme tilbake"],
       explanation: "Funksjonalismen ble prøvd i H2013, lå deretter nede i elleve år og kom tilbake i H2024. Lavfrekvens er derfor en grunn til å bruke færre minutter på et tema, aldri en grunn til å hoppe over det.",
     },
   ],
   'svexfac03-0-2': [
     {
       question: "Hva er de fire trinnene i et redegjørelsesledd?",
-      options: ["Avgrens, definer med avsender, sett opp mot kontrastbegrepet, presiser grensetilfellet", "Definer begrepet, gi et eksempel, drøft det kort, og konkluder med et forbehold til slutt", "Introduser, gjengi teorien, gjengi kritikken, oppsummer", "Velg posisjon, forsvar den, nevn innvendingen, avvis den"],
+      options: ["Avgrens, definer med avsender, sett opp mot kontrastbegrepet, presiser grensetilfellet", "Definer begrepet, gi et eksempel, drøft det kort, og konkluder med et forbehold", "Introduser, gjengi teorien, gjengi kritikken, oppsummer", "Velg posisjon, forsvar den, nevn innvendingen, avvis den"],
       explanation: "Redegjørelsesleddet har fire trinn i denne rekkefølgen, og bestillingen er nesten alltid et begrepspar. De øvrige beskrivelsene passer på andre sjangre: eksempeloppgaven, et referat og drøftingsleddet.",
     },
     {
       question: "Hva er trinn tre og fire i en eksempeloppgave, altså de to som skiller besvarelsene?",
-      options: ["Å si hvilken mekanisme som svarer til hvilket ledd i begrepet, og hva som ville gjort eksempelet dårlig", "Å gi to eksempler i stedet for ett, og å velge det beste av dem", "Å hente eksempelet fra pensumlitteraturen, og å oppgi hvilken tekst og hvilken forfatter det er hentet fra", "Å knytte eksempelet til en teoretiker, og å nevne en motstander"],
+      options: ["Å si hvilken mekanisme som svarer til hvilket ledd i begrepet, og hva som ville gjort eksempelet dårlig", "Å gi to eksempler i stedet for ett, og å velge det beste av dem", "Å hente eksempelet fra pensumlitteraturen, og å oppgi hvilken tekst og hvilken forfatter", "Å knytte eksempelet til en teoretiker, og å nevne en motstander"],
       explanation: "Trinn én og to — å navngi begrepet og gi eksempelet — klarer nesten alle. Forskjellen ligger i å skrive ut koblingen og i å si hva som ville gjort eksempelet til et dårlig eksempel, og det er dette en sensorveiledning fra H2021 ber sensor kontrollere.",
     },
     {
       question: "Hva sier sensorveiledningene om saksfeltet i en anvendelsesoppgave?",
-      options: ["At det ikke gir uttelling i seg selv, og at det er apparatet som måles", "At det bør beskrives grundig, siden analysen hviler på det", "At det teller like mye som apparatet når casen er kompleks", "At det bør erstattes med et eksempel fra pensum overalt der det lar seg gjøre"],
+      options: ["At det ikke gir uttelling i seg selv, og at det er apparatet som måles", "At det bør beskrives grundig, siden analysen hviler på det, og at detaljkunnskap gir uttelling", "At det teller like mye som apparatet når casen er kompleks", "At det bør erstattes med et eksempel fra pensum overalt der det lar seg gjøre"],
       explanation: "Tre veiledninger sier dette uttrykkelig: oppgaven er ikke en oppgave om saken, klimarelatert kunnskap skal ikke vektlegges i seg selv, og detaljkunnskap skal ikke telle. Saksbeskrivelsen skal derfor være akkurat lang nok til å bære analysen.",
     },
     {
@@ -86,169 +86,169 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner C-nivået i sensorveiledningenes beskrivelse?",
-      options: ["Tilfredsstillende gjengivelse, jevnt god forståelse og en viss selvstendighet", "Presis gjengivelse, svært god forståelse og høy grad av selvstendighet i anvendelsen", "Varierende kunnskaper, med anvendelse som røper variabel forståelse", "Noe kunnskap, med anvendelse som røper svak forståelse"],
+      options: ["Tilfredsstillende gjengivelse, jevnt god forståelse og en viss selvstendighet", "Presis gjengivelse, svært god forståelse og høy grad av selvstendighet i anvendelsen", "Varierende kunnskaper, med anvendelse som røper variabel forståelse fra ett avsnitt til det neste", "Noe kunnskap, med anvendelse som røper svak forståelse"],
       explanation: "C beskrives med jevnt god forståelse og en viss selvstendighet, og er en god og vanlig karakter. Beskrivelsene med svært god forståelse, varierende kunnskaper og svak forståelse hører til henholdsvis A, D og E.",
     },
     {
       question: "Hva skiller A-nivået fra C-nivået, ifølge veiledningene?",
-      options: ["Hva kandidaten gjør med kunnskapen, altså anvendelse og selvstendighet", "Hvor mange begreper og teoretikere besvarelsen rekker å nevne innenfor tiden", "Hvor lang besvarelsen er, gitt tiden som er til rådighet", "Hvor mange av momentene i veiledningens liste som er dekket"],
+      options: ["Hva kandidaten gjør med kunnskapen, altså anvendelse og selvstendighet", "Hvor mange begreper og teoretikere besvarelsen rekker å nevne innenfor tiden", "Hvor lang besvarelsen er, gitt tiden som er til rådighet", "Hvor mange av momentene i veiledningens liste som er dekket, siden full dekning alene gir A"],
       explanation: "Gjengivelse er en forutsetning på alle nivåer, og det som varierer er anvendelsen og selvstendigheten. Å tvinge inn alle momentene fra en liste gir tvert imot en dårligere besvarelse, ifølge en veiledning fra H2020.",
     },
     {
       question: "Hva skjer med en oppgave der minimumskriteriene ikke er innfridd på ett av leddene?",
-      options: ["De øvrige leddene må være klart innfridd for at oppgaven skal unngå stryk", "Oppgaven strykes automatisk, uansett hvor sterke de øvrige leddene i besvarelsen er", "Leddet trekkes fra, og oppgaven vurderes ut fra de resterende leddene", "Det får ingen konsekvens så lenge helheten holder E-nivå"],
+      options: ["De øvrige leddene må være klart innfridd for at oppgaven skal unngå stryk", "Oppgaven strykes automatisk, uansett hvor sterke de øvrige leddene i besvarelsen er", "Leddet trekkes fra, og oppgaven vurderes ut fra de resterende leddene som om det ikke var etterspurt", "Det får ingen konsekvens så lenge helheten holder E-nivå"],
       explanation: "En veiledning fra V2022 har den mest presise formuleringen: svikter to ledd, stryker kandidaten på oppgaven, og svikter ett, må de øvrige være klart innfridd. Oppgaven vurderes altså ikke som en sum der et sterkt ledd kompenserer for et tomt.",
     },
     {
       question: "Hva betyr bokas mantra «anvendelse slår mengde»?",
-      options: ["At et avsnitt som bruker kunnskapen er verdt mer enn et som legger til kunnskap", "At en kort besvarelse alltid vurderes høyere enn en lang, uansett hva den inneholder", "At eksempler teller mer enn definisjoner i alle sjangre", "At teori bør utelates til fordel for konkrete caser"],
+      options: ["At et avsnitt som bruker kunnskapen er verdt mer enn et som legger til kunnskap", "At en kort besvarelse alltid vurderes høyere enn en lang besvarelse", "At eksempler teller mer enn definisjoner i alle sjangre", "At teori bør utelates til fordel for konkrete caser"],
       explanation: "Mantraet er en beskrivelse av karakterskalaen: gjengivelse er forutsatt på alle nivåer, mens anvendelse og selvstendighet er det som flytter kandidaten oppover. Det sier ingenting om at kort er bedre enn langt, eller at teori bør vike.",
     },
     {
       question: "Hva er den skarpeste nye kvalitetsskranken i materialet, fra og med V2025?",
-      options: ["At besvarelsen skal vise at kandidaten har lest pensum, ikke bare fulgt undervisningen", "At alle oppgaver må besvares med minst to teoretikere", "At drøftingsleddet må inneholde en eksplisitt konklusjon", "At egne eksempler alltid må hentes fra kandidatens eget fagområde og ikke fra hverdagen"],
+      options: ["At besvarelsen skal vise at kandidaten har lest pensum, ikke bare fulgt undervisningen", "At alle oppgaver må besvares med minst to teoretikere", "At drøftingsleddet må inneholde en eksplisitt konklusjon", "At egne eksempler alltid må hentes fra kandidatens eget fagområde"],
       explanation: "Setningen står under hver av de fem oppgavene i V2025 og er løftet til generell regel for hele den skriftlige delen i H2025 og V2026. Motstykket som straffes, er å parafrasere forelesningen eller ramse opp fra undervisningsplansjer.",
     },
     {
       question: "Hva sier en sensorveiledning fra H2020 om lister av begreper i oppgaveteksten?",
-      options: ["At de er forslag som kan, men ikke må, benyttes", "At de er obligatoriske momenter som må dekkes for å bestå", "At de skal behandles i den rekkefølgen de står oppført", "At de bare gjelder kandidater som velger den lengste besvarelsesformen"],
+      options: ["At de er forslag som kan, men ikke må, benyttes", "At alle momentene må dekkes for å bestå", "At de skal behandles i den rekkefølgen de står oppført", "At de bare gjelder kandidater som velger den lengste besvarelsesformen"],
       explanation: "Veiledningen sier uttrykkelig at listen er forslag, og at å tvinge inn alle punktene gir en dårligere besvarelse. Å lese listen som en sjekkliste er feil #3 i bokas register.",
     },
     {
       question: "Hva er den vanligste formen for feil #12 i en besvarelse?",
-      options: ["At eksempelet er relevant, men at koblingen til begrepet bare konstateres", "At eksempelet er hentet fra pensum i stedet for å være kandidatens eget arbeid", "At det gis flere eksempler enn oppgaven ber om", "At eksempelet er for langt i forhold til redegjørelsen"],
+      options: ["At eksempelet er relevant, men at koblingen til begrepet bare konstateres", "At eksempelet er hentet fra pensum i stedet for fra kandidaten", "At det gis flere eksempler enn oppgaven ber om", "At eksempelet er for langt i forhold til redegjørelsen"],
       explanation: "Feilen er at begrunnelsen mangler, ikke at eksempelet er galt. Veiledningene beskriver besvarelser på D-nivå nettopp slik: eksemplene er relevante, men begrunnelsene svake.",
     },
     {
       question: "Hva vurderes positivt ifølge en sensorveiledning fra H2020, når oppgaven er åpen?",
-      options: ["At kandidaten tolker oppgaven eksplisitt i innledningen", "At kandidaten velger en annen oppgave enn den åpne", "At kandidaten dekker alle mulige tolkninger av oppgaven etter tur", "At kandidaten venter med tolkningen til konklusjonen"],
+      options: ["At kandidaten tolker oppgaven eksplisitt i innledningen", "At kandidaten velger en annen oppgave enn den åpne", "At kandidaten dekker alle mulige tolkninger av oppgaven etter tur", "At kandidaten venter med tolkningen til konklusjonen, slik at drøftingen holdes åpen"],
       explanation: "Veiledningen framhever at gode besvarelser selv bidrar til å definere kriteriene ved å si hvordan de leser oppgaven. Å dekke alle tolkninger er derimot en variant av sjekklistefella.",
     },
     {
       question: "Hva er hovedforskjellen på eksempeloppgaven og anvendelsesoppgaven?",
-      options: ["I eksempeloppgaven lager du casen selv, mens anvendelsesoppgaven gir deg den", "I eksempeloppgaven skal du drøfte, mens anvendelsesoppgaven bare krever gjengivelse", "I eksempeloppgaven er avsenderen viktigst, mens anvendelsesoppgaven krever flere teoretikere", "I eksempeloppgaven teller saksfeltet, mens anvendelsesoppgaven måler apparatet"],
+      options: ["I eksempeloppgaven lager du casen selv, mens anvendelsesoppgaven gir deg den", "I eksempeloppgaven drøfter du, i anvendelsesoppgaven gjengir du", "I eksempeloppgaven er avsenderen viktigst, mens anvendelsesoppgaven krever flere teoretikere", "I eksempeloppgaven teller saksfeltet, mens anvendelsesoppgaven måler apparatet"],
       explanation: "Skillet ligger i hvor casen kommer fra: du konstruerer den selv i eksempeloppgaven, og får den utlevert i anvendelsesoppgaven. Saksfeltet gir uttelling i ingen av dem — det er nettopp derfor den utleverte casen er en felle.",
     },
     {
       question: "Hva bør drøftingsleddet trekke på?",
-      options: ["Kandidatens eget redegjørelsesledd fra samme oppgave", "En annen oppgave i settet, for å vise bredde", "Ett nytt begrep som ikke er nevnt tidligere i besvarelsen", "En oppsummering av det som allerede er sagt i redegjørelsen"],
+      options: ["Kandidatens eget redegjørelsesledd fra samme oppgave", "En annen oppgave i settet, for å vise bredde på tvers av pensumdelene", "Ett nytt begrep som ikke er nevnt tidligere i besvarelsen", "En oppsummering av det som allerede er sagt i redegjørelsen"],
       explanation: "Drøftingen skal bygge på det kandidaten selv har etablert, og aldri starte på nytt. Men den skal si noe nytt — en oppsummering av redegjørelsen er ikke en drøfting.",
     },
     {
       question: "Hvordan bør tiden fordeles i en oppgave der første ledd sier «gjør kort rede for» og siste ledd sier «drøft»?",
-      options: ["Skjevt mot drøftingsleddet, siden «kort» er en instruks", "Jevnt mellom leddene, siden begge teller like mye", "Skjevt mot redegjørelsen, siden den bærer resten av svaret", "Etter hvor mange begreper hvert ledd nevner i oppgaveteksten"],
+      options: ["Skjevt mot drøftingsleddet, siden «kort» er en instruks", "Jevnt mellom leddene, siden begge teller like mye uansett hvordan de er formulert", "Skjevt mot redegjørelsen, siden den bærer resten av svaret", "Etter hvor mange begreper hvert ledd nevner i oppgaveteksten"],
       explanation: "Ordet «kort» er en instruks, ikke en høflighet, og en veiledning fra H2022 straffer den som ikke følger oppgavens egen disponering. En veiledning fra V2020 sier tilsvarende at den som får noe ut av det mest krevende leddet, ligger an til toppkarakter.",
     },
     {
       question: "Hva er E-nivået i sensorveiledningenes beskrivelse?",
-      options: ["Noe kunnskap, med anvendelse som røper svak forståelse og liten selvstendighet", "Store hull i kunnskapen, med anvendelse som røper manglende forståelse", "Varierende kunnskaper, med anvendelse som røper variabel forståelse", "Tilfredsstillende gjengivelse, med jevnt god forståelse og en viss selvstendighet"],
+      options: ["Noe kunnskap, med anvendelse som røper svak forståelse og liten selvstendighet", "Store hull i kunnskapen, med anvendelse som røper manglende forståelse av det sentrale stoffet", "Varierende kunnskaper, med anvendelse som røper variabel forståelse", "Tilfredsstillende gjengivelse, med jevnt god forståelse og en viss selvstendighet"],
       explanation: "E er bestått, og beskrives med noe kunnskap og svak forståelse. Beskrivelsene med store hull, varierende kunnskaper og tilfredsstillende gjengivelse hører til henholdsvis F, D og C — og E er langt fra verdiløs, siden to av tre oppgaver må holde minst dette nivået.",
     },
   ],
   'svexfac03-1-1': [
     {
       question: "Hva er en menneskemodell?",
-      options: ["En forenklet antakelse om hva som driver mennesker, brukt i forskning og politikk", "En moralsk forestilling om hva mennesket bør være og strebe etter", "En statistisk beskrivelse av hvordan folk i gjennomsnitt oppfører seg i en befolkning", "En teori som gjør krav på å si hva mennesket egentlig er"],
+      options: ["En forenklet antakelse om hva som driver mennesker, brukt i forskning og politikk", "En moralsk forestilling om hva mennesket bør være og strebe etter", "En statistisk beskrivelse av hvordan folk i gjennomsnitt oppfører seg", "En teori som gjør krav på å si hva mennesket egentlig er"],
       explanation: "Modellen er en arbeidsantakelse laget for å forklare eller påvirke, ikke en påstand om menneskets natur. Begrepet er hentet fra Balsvik, og forenklingen er dens definisjon — ikke dens svakhet.",
     },
     {
       question: "Hva skiller en menneskemodell fra et menneskesyn?",
-      options: ["Modellen er en avgrenset arbeidsantakelse, mens menneskesynet er bredere og verdiladet", "Modellen er individuell, mens menneskesynet gjelder samfunnet som helhet", "Modellen er empirisk etterprøvbar, mens menneskesynet er en ren spekulasjon uten belegg", "Modellen brukes i politikk, mens menneskesynet bare brukes i forskning"],
+      options: ["Modellen er en avgrenset arbeidsantakelse, mens menneskesynet er bredere og verdiladet", "Modellen er individuell, mens menneskesynet gjelder samfunnet som helhet, og de skiller seg i analysenivå", "Modellen er empirisk etterprøvbar, mens menneskesynet er en ren spekulasjon uten belegg", "Modellen brukes i politikk, mens menneskesynet bare brukes i forskning"],
       explanation: "Menneskesynet er en bredere forestilling om hva mennesket er og bør være; modellen er laget for å løse en bestemt oppgave. Klassikernes menneskesyn er et eget eksamenstema, mens en avgift hviler på en modell.",
     },
     {
       question: "Hva kjennetegner en aktiv menneskemodell?",
-      options: ["At handlingen forklares ved at personen vurderer og velger", "At personen framstilles som energisk og handlekraftig av natur", "At tiltaket krever aktiv deltakelse fra den det retter seg mot", "At forklaringen viser til krefter som personen ikke rår over"],
+      options: ["At handlingen forklares ved at personen vurderer og velger", "At personen framstilles som energisk av natur", "At tiltaket krever aktiv deltakelse fra den det retter seg mot", "At forklaringen viser til krefter som personen ikke rår over"],
       explanation: "Den aktive modellen lar forklaringen gå gjennom personens egne vurderinger. Det handler ikke om personlighet eller om hvor mye innsats tiltaket krever, og den siste beskrivelsen gjelder den passive modellen.",
     },
     {
       question: "Hva kjennetegner en passiv menneskemodell?",
-      options: ["At atferden forklares ved krefter utenfor eller under personens kontroll", "At personen framstilles som viljeløs og uten evne til å bestemme noe selv i det hele tatt", "At tiltaket er tvingende og ikke gir noe reelt valg", "At forklaringen bygger på biologi framfor på sosiale forhold"],
+      options: ["At atferden forklares ved krefter utenfor eller under personens kontroll", "At personen framstilles som viljeløs og uten evne til å bestemme noe selv i det hele tatt", "At tiltaket er tvingende og ikke gir noe reelt valg", "At forklaringen bygger på biologi framfor på sosiale forhold, slik at arv og kjemi bærer forklaringen"],
       explanation: "Forklaringen går ikke veien om personens overveielser, men det betyr ikke at hun er viljeløs. Tvang er en annen akse, og biologi er bare den ene av to familier passive modeller.",
     },
     {
       question: "Hva er testen på hvilken menneskemodell et tiltak forutsetter?",
-      options: ["Om tiltaket kan virke uten at noen tar stilling til noe", "Om tiltaket er frivillig eller tvingende for dem det gjelder", "Om tiltaket er utformet av myndigheter eller av private aktører", "Om tiltaket virker raskt eller først etter lengre tid"],
+      options: ["Om tiltaket kan virke uten at noen tar stilling til noe", "Om tiltaket er frivillig eller tvingende", "Om tiltaket er utformet av myndigheter eller av private aktører", "Om tiltaket virker raskt eller først etter lengre tid, siden tempoet avgjør modellen"],
       explanation: "Kan tiltaket virke uten at noen vurderer noe, forutsetter det en passiv modell. Frivillighet er en annen akse: et forbud er tvingende og forutsetter likevel en aktiv modell, siden det virker gjennom en avveining av risiko.",
     },
     {
       question: "Hvilken menneskemodell forutsetter en informasjonskampanje?",
-      options: ["En aktiv modell, siden kampanjen bare virker gjennom mottakerens vurdering", "En passiv modell, siden mottakeren ikke selv har bedt om informasjonen", "En passiv modell, siden kampanjen påvirker uten at mottakeren merker at hun påvirkes", "Ingen av delene, siden informasjon er nøytral med hensyn til modell"],
+      options: ["En aktiv modell, siden kampanjen bare virker gjennom mottakerens vurdering", "En passiv modell, siden mottakeren ikke selv har bedt om informasjonen og møter budskapet uoppfordret", "En passiv modell, siden kampanjen påvirker uten at mottakeren merker at hun påvirkes", "Ingen av delene, siden informasjon er nøytral med hensyn til modell"],
       explanation: "Kampanjen har ingen annen kanal enn at mottakeren tar inn opplysningen, mener at den angår henne og endrer noe. Testen er hva kampanjen gjør med en som er likegyldig til saken — svaret er ingenting.",
     },
     {
       question: "Hvilken menneskemodell forutsetter det å flytte varer til en annen plass i butikken?",
-      options: ["En passiv modell, siden tiltaket endrer hva som er lett å gjøre", "En aktiv modell, siden kunden fortsatt velger fritt mellom varene", "En aktiv modell, siden plasseringen gir kunden ny informasjon", "En passiv modell, siden kunden fratas muligheten til å velge"],
+      options: ["En passiv modell, siden tiltaket endrer hva som er lett å gjøre", "En aktiv modell, siden kunden fortsatt velger fritt mellom varene", "En aktiv modell, siden plasseringen gir kunden ny informasjon om hva butikken anbefaler", "En passiv modell, siden kunden fratas muligheten til å velge"],
       explanation: "Tiltaket virker uten at noen tar stilling til noe: det endrer tilgjengelighet, ikke oppfatninger. At kunden fortsatt kan velge fritt, endrer ikke dette — friheten er intakt, men mekanismen går ikke gjennom en overveielse.",
     },
     {
       question: "Hva skiller en sosial fra en biologisk passiv menneskemodell?",
-      options: ["Om kreftene er tillærte og samfunnsskapte, eller kroppslige og evolusjonære", "Om modellen gjelder grupper eller enkeltpersoner", "Om forklaringen er kvalitativ eller bygger på tallmateriale", "Om modellen forklarer handlinger med grunner eller bare beskriver dem utenfra"],
+      options: ["Om kreftene er tillærte og samfunnsskapte, eller kroppslige og evolusjonære", "Om modellen gjelder grupper eller enkeltpersoner", "Om forklaringen er kvalitativ eller bygger på tallmateriale", "Om modellen forklarer handlinger med grunner eller beskriver dem"],
       explanation: "Begge er passive: forklaringen går ikke gjennom personens vurderinger. Forskjellen ligger i hvor kreftene plasseres, og den praktiske konsekvensen er at sosiale krefter kan endre seg raskt mens biologiske ikke gjør det.",
     },
     {
       question: "Hva er forskjellen på en grunn og en årsak i denne sammenhengen?",
-      options: ["Grunnen gjør handlingen forståelig fra personens ståsted, årsaken virker uavhengig av det", "Grunnen er subjektiv og derfor uvitenskapelig, mens årsaken kan måles", "Grunnen gjelder enkelthandlinger hos den enkelte, mens årsaken gjelder mønstre på samfunnsnivå", "Grunnen kommer før handlingen, mens årsaken virker etterpå"],
+      options: ["Grunnen gjør handlingen forståelig fra personens ståsted, årsaken virker uavhengig av det", "Grunnen er subjektiv og derfor uvitenskapelig, mens årsaken kan måles", "Grunnen gjelder enkelthandlinger, mens årsaken gjelder mønstre på samfunnsnivå", "Grunnen kommer før handlingen, mens årsaken virker etterpå"],
       explanation: "Skillet er det samme som mellom aktiv og passiv modell, sett fra forklaringens side. At en grunn er subjektiv, gjør den ikke uvitenskapelig — samfunnsvitenskapen studerer nettopp begrunnede handlinger.",
     },
     {
       question: "Hvorfor er «frivillig mot tvungent» en annen akse enn «aktiv mot passiv»?",
-      options: ["Fordi et forbud er tvingende og likevel virker gjennom en avveining hos den enkelte", "Fordi frivillighet bare gjelder private tiltak, mens menneskemodellen gjelder offentlige", "Fordi tvang alltid forutsetter en passiv modell av mennesket", "Fordi frivillige tiltak alltid forutsetter en aktiv modell av mennesket"],
+      options: ["Fordi et forbud er tvingende og likevel virker gjennom en avveining hos den enkelte", "Fordi frivillighet bare gjelder private tiltak, mens menneskemodellen gjelder offentlige", "Fordi tvang alltid forutsetter en passiv modell av mennesket", "Fordi frivillige tiltak alltid forutsetter en aktiv modell av mennesket, som selv må velge å la seg påvirke"],
       explanation: "Alle fire kombinasjonene finnes: en kampanje er frivillig og aktiv, valgomgivelser er frivillige og passive, et forbud med bot er tvingende og aktivt. Å bruke tvang som kriterium er den vanligste enkeltfeilen i eksempelleddet.",
     },
     {
       question: "Hva menes med et blandingstiltak?",
-      options: ["Et tiltak som virker gjennom både en vurdering og en endring av omgivelsene", "Et tiltak som kombinerer virkemidler fra flere myndigheter i én og samme pakke", "Et tiltak som virker forskjellig på ulike grupper i befolkningen", "Et tiltak som er delvis frivillig og delvis tvingende å følge"],
+      options: ["Et tiltak som virker gjennom både en vurdering og en endring av omgivelsene", "Et tiltak som kombinerer virkemidler fra flere myndigheter i én og samme pakke", "Et tiltak som virker forskjellig på ulike grupper i befolkningen, med sterkest virkning i noen av dem", "Et tiltak som er delvis frivillig og delvis tvingende å følge"],
       explanation: "De fleste virkelige tiltak virker gjennom begge kanaler samtidig — en avgift endrer både hva som lønner seg og hva som oppleves som normalt. Å skrive ut blandingen og deretter si hvilken kanal som bærer mest, er en av de sikreste A-markørene i temaet.",
     },
     {
       question: "Hvorfor er det ikke i seg selv en innvending mot en modell at den er forenklet?",
-      options: ["Fordi forenklingen er modellens definisjon, og en modell som fikk med alt ville ikke vært et verktøy", "Fordi alle vitenskapelige påstander er forenklinger av virkeligheten på ett eller annet punkt uansett", "Fordi modellen bare brukes på grupper og ikke på enkeltpersoner", "Fordi forenklingen kan rettes opp ved å legge til flere variabler"],
+      options: ["Fordi forenklingen er modellens definisjon, og en modell som fikk med alt ville ikke vært et verktøy", "Fordi alle vitenskapelige påstander er forenklinger av virkeligheten på ett eller annet punkt", "Fordi modellen bare brukes på grupper og ikke på enkeltpersoner", "Fordi forenklingen kan rettes opp ved å legge til flere variabler"],
       explanation: "En innvending må peke på hvilken utelatelse som gjør skade, og til hvilket bruk. Skillet mellom en forenkling og en karikatur ligger nettopp i om det som er beholdt, er relevant for oppgaven modellen skal løse.",
     },
     {
       question: "Hva innebærer det at en menneskemodell har begrenset rekkevidde?",
-      options: ["At den sier noe om mønstre i mange tilfeller, ikke om hva en bestemt person gjør", "At den bare gjelder innenfor ett bestemt fagfelt, og ikke kan overføres til andre felt", "At den må erstattes så snart et unntak er observert", "At den bare kan brukes på tiltak, ikke på forskning"],
+      options: ["At den sier noe om mønstre i mange tilfeller, ikke om hva en bestemt person gjør", "At den bare gjelder innenfor ett bestemt fagfelt, og ikke kan overføres", "At den må erstattes så snart et unntak er observert", "At den bare kan brukes på tiltak, ikke på forskning"],
       explanation: "Modellen påstår ikke at alle er slik, men at atferden i gjennomsnitt lar seg forklare og påvirke som om de var det. Derfor treffer motargumentet «jeg kjenner en som ikke er slik» sjelden.",
     },
     {
       question: "Hvor plasseres ansvaret når en passiv menneskemodell legges til grunn for politikk?",
-      options: ["Hos den som utformer omgivelsene, siden det er der forklaringen sitter", "Hos den enkelte, siden hun fortsatt kan velge å handle annerledes enn tiltaket legger opp til", "Hos fagfolkene som har utformet selve modellen", "Ingen steder, siden modellen ikke tar stilling til ansvar"],
+      options: ["Hos den som utformer omgivelsene, siden det er der forklaringen sitter", "Hos den enkelte, siden hun fortsatt kan velge å handle annerledes enn tiltaket legger opp til", "Hos fagfolkene som har utformet selve modellen", "Ingen steder, siden modellen beskriver hva som forklarer atferden og ikke tar stilling til ansvar"],
       explanation: "Forklaringen ligger i omgivelsene, og ansvaret følger forklaringen. Modellen sier ikke at den enkelte er uten moralsk ansvar — den sier at forklaringen på mønsteret ligger et annet sted enn i hennes overveielse.",
     },
     {
       question: "Hva er det sterkeste argumentet for å legge en passiv menneskemodell til grunn for politikk?",
-      options: ["At tiltaket virker også på dem som ikke bryr seg eller ikke har tid", "At tiltaket alltid er billigere å innføre enn et informasjonstiltak", "At tiltaket behandler folk som myndige borgere som kan bestemme selv", "At tiltaket kan innføres uten at noen vedtar det politisk"],
+      options: ["At tiltaket virker også på dem som ikke bryr seg eller ikke har tid", "At tiltaket alltid er billigere å innføre enn et informasjonstiltak", "At tiltaket behandler folk som myndige borgere", "At tiltaket kan innføres uten at noen vedtar det politisk, siden det bare endrer omgivelsene"],
       explanation: "Argumentet er at virkningen ikke forutsetter oppmerksomhet, som er en knapp og ulikt fordelt ressurs. Å behandle folk som myndige er derimot argumentet for den aktive modellen, og et passivt tiltak må vedtas som ethvert annet.",
     },
     {
       question: "Hva er legitimitetsinnvendingen mot passive tiltak?",
-      options: ["At tiltaket kan virke uten at noen har fått anledning til å være uenig", "At tiltaket er mindre effektivt enn et informasjonstiltak ville vært på samme område", "At tiltaket alltid er dyrere å gjennomføre enn alternativene", "At tiltaket bare virker på dem som allerede er enige i målet"],
+      options: ["At tiltaket kan virke uten at noen har fått anledning til å være uenig", "At tiltaket er mindre effektivt enn et informasjonstiltak ville vært på samme område", "At tiltaket alltid er dyrere å gjennomføre enn alternativene, fordi omgivelsene må bygges om", "At tiltaket bare virker på dem som allerede er enige i målet"],
       explanation: "Innvendingen gjelder ikke virkningen, som ofte er god, men at valget ikke er lagt fram som et argument den enkelte kan avvise. Den siste beskrivelsen er tvert imot svakheten ved aktive tiltak.",
     },
     {
       question: "Hva menes med robusthet i vurderingen av et tiltak?",
-      options: ["Hva som skjer med atferden dersom tiltaket avvikles", "Hvor stor andel av befolkningen tiltaket faktisk treffer", "Hvor lenge det tar før tiltaket begynner å virke", "Hvor mye tiltaket koster å gjennomføre over tid"],
+      options: ["Hva som skjer med atferden dersom tiltaket avvikles", "Hvor stor andel av befolkningen tiltaket faktisk treffer", "Hvor lenge det tar før tiltaket begynner å virke etter at det er innført", "Hvor mye tiltaket koster å gjennomføre over tid"],
       explanation: "Robusthet og effektstørrelse er to ulike ting: et tiltak kan ha stor virkning og lav robusthet samtidig. Et strukturtiltak tar som regel virkningen med seg når det fjernes, mens et tiltak som har endret oppfatninger etterlater seg noe.",
     },
     {
       question: "Hva er en billig og virkningsfull A-markør i eksempelleddet i dette temaet?",
-      options: ["Å si hva som ville gjort eksempelet til et dårlig eksempel", "Å gi to eksempler i stedet for ett på hver av de to modellene", "Å nevne flere teoretikere enn oppgaven ber om", "Å beskrive tiltaket grundigere enn oppgaveteksten gjør"],
+      options: ["Å si hva som ville gjort eksempelet til et dårlig eksempel", "Å gi to eksempler i stedet for ett på hver av de to modellene", "Å nevne flere teoretikere enn oppgaven ber om", "Å beskrive tiltaket grundigere enn oppgaveteksten gjør, med flere detaljer om virkemåten"],
       explanation: "Setningen viser at du kjenner grensen for begrepet og ikke bare midten av det, og den koster én setning. Flere eksempler og flere navn legger til mengde uten å legge til anvendelse.",
     },
     {
       question: "Hva er hovedsvakheten ved tiltak som forutsetter en aktiv menneskemodell?",
-      options: ["At de treffer bare dem som allerede er oppmerksomme, og dermed kan forsterke forskjeller", "At de alltid er mer inngripende overfor den enkelte enn tiltak som endrer valgomgivelsene er", "At de bare kan brukes av private aktører, ikke av myndigheter", "At de gir en virkning som forsvinner så snart tiltaket avvikles"],
+      options: ["At de treffer bare dem som allerede er oppmerksomme, og dermed kan forsterke forskjeller", "At de alltid er mer inngripende overfor den enkelte enn andre tiltak", "At de bare kan brukes av private aktører, ikke av myndigheter", "At de gir en virkning som forsvinner så snart tiltaket avvikles"],
       explanation: "Oppmerksomhet er en knapp ressurs som er ulikt fordelt, og de som lettest følger opp er ofte de som trengte tiltaket minst. Den siste beskrivelsen er tvert imot svakheten ved passive tiltak.",
     },
     {
       question: "Hva er forskjellen på et informasjonstiltak og et strukturtiltak?",
-      options: ["Informasjonstiltaket endrer hva folk vet eller mener, strukturtiltaket hva som er lett å gjøre", "Informasjonstiltaket er frivillig å følge, mens strukturtiltaket er tvingende for alle det gjelder", "Informasjonstiltaket virker raskt, mens strukturtiltaket virker langsomt", "Informasjonstiltaket er offentlig, mens strukturtiltaket er skjult"],
+      options: ["Informasjonstiltaket endrer hva folk vet eller mener, strukturtiltaket hva som er lett å gjøre", "Informasjonstiltaket er frivillig å følge, mens strukturtiltaket er tvingende", "Informasjonstiltaket virker raskt, mens strukturtiltaket virker langsomt", "Informasjonstiltaket er offentlig, mens strukturtiltaket er skjult"],
       explanation: "Skillet gjelder hvilken kanal tiltaket virker gjennom, og det er derfor de forutsetter hver sin menneskemodell. Et strukturtiltak kan være fullt offentlig kjent og likevel virke.",
     },
     {
       question: "Hva er et forbud, klassifisert etter menneskemodell?",
-      options: ["Et aktivt tiltak, siden det virker gjennom en avveining av risikoen for sanksjon", "Et passivt tiltak, siden det fjerner valgmuligheten helt fra den enkelte det gjelder", "Et blandingstiltak, siden det både informerer og tvinger", "Et strukturtiltak, siden det endrer omgivelsene rundt valget"],
+      options: ["Et aktivt tiltak, siden det virker gjennom en avveining av risikoen for sanksjon", "Et passivt tiltak, siden det fjerner valgmuligheten helt fra den enkelte", "Et blandingstiltak, siden det både informerer og tvinger", "Et strukturtiltak, siden det endrer omgivelsene rundt valget"],
       explanation: "Forbudet virker fordi den enkelte vurderer risikoen for å bli tatt, og det går altså gjennom en overveielse. Å klassifisere det som passivt fordi det oppleves som tvang, er å bytte akse midt i svaret.",
     },
     {
@@ -258,34 +258,34 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et kjennetegn ved kritikk som treffer en menneskemodell?",
-      options: ["At den peker på hvilken utelatelse som gjør skade, og til hvilket bruk", "At den viser til et enkelttilfelle der modellen ikke stemmer", "At den påviser at modellen er forenklet på flere punkter", "At den erstatter modellen med en beskrivelse som ikke inneholder forenklinger"],
+      options: ["At den peker på hvilken utelatelse som gjør skade, og til hvilket bruk", "At den viser til et enkelttilfelle der modellen ikke stemmer, og dermed regner den som motbevist", "At den påviser at modellen er forenklet på flere punkter", "At den erstatter modellen med en beskrivelse som ikke inneholder forenklinger"],
       explanation: "Modellen tåler unntak, siden den gjelder mønstre i mange tilfeller. En kritikk som bare påpeker forenkling eller enkelttilfeller, treffer derfor ingenting bestemt.",
     },
     {
       question: "Hva er den vanligste karikaturen av den passive menneskemodellen?",
-      options: ["At den framstiller mennesket som viljeløst og uten evne til å bestemme selv", "At den bygger på biologiske forklaringer og dermed er en form for determinisme", "At den bare brukes av myndigheter som vil styre befolkningen", "At den er utviklet for å rettferdiggjøre inngripende tiltak"],
+      options: ["At den framstiller mennesket som viljeløst og uten evne til å bestemme selv", "At den bygger på biologiske forklaringer og dermed er determinisme", "At den bare brukes av myndigheter som vil styre befolkningen", "At den er utviklet for å rettferdiggjøre inngripende tiltak"],
       explanation: "Modellen sier at forklaringen ikke går veien om personens overveielser, ikke at hun mangler vilje. Karikaturen gjør drøftingen verdiløs, fordi innvendingene da treffer en posisjon ingen holder.",
     },
     {
       question: "Hva er hovedspørsmålet i drøftingsaksen i dette temaet?",
-      options: ["Hva vi vinner og taper ved å behandle mennesker som det ene eller det andre i politikken", "Hvilken av de to modellene som best beskriver hvordan mennesker faktisk fungerer i praksis", "Om samfunnsvitenskapen bør bruke modeller i det hele tatt", "Hvilken modell som gir størst målbar effekt av tiltak"],
+      options: ["Hva vi vinner og taper ved å behandle mennesker som det ene eller det andre i politikken", "Hvilken av de to modellene som best beskriver hvordan mennesker fungerer", "Om samfunnsvitenskapen bør bruke modeller i det hele tatt", "Hvilken modell som gir størst målbar effekt av tiltak"],
       explanation: "Ingen av modellene er sann; begge er verktøy. Aksen gjelder derfor hva slags forhold politikken skal ha til borgeren, og både effekt og legitimitet hører med i vurderingen.",
     },
     {
       question: "Hvorfor kan et strukturtiltak være både offentlig kjent og fortsatt virksomt?",
-      options: ["Fordi det virker gjennom tilgjengelighet og vaner, ikke gjennom å være skjult", "Fordi folk glemmer at tiltaket finnes så snart det er innført og har vært i bruk en stund", "Fordi kjennskap til tiltaket bare når fram til et fåtall uansett", "Fordi virkningen skyldes tvang og ikke kan velges bort"],
+      options: ["Fordi det virker gjennom tilgjengelighet og vaner, ikke gjennom å være skjult", "Fordi folk glemmer at tiltaket finnes så snart det er innført og har vært i bruk en stund", "Fordi kjennskap til tiltaket bare når fram til et fåtall uansett, slik at flertallet handler som før", "Fordi virkningen skyldes tvang og ikke kan velges bort"],
       explanation: "Mekanismen er hva som er lett å gjøre, ikke hemmelighold. Det gir et brukbart legitimitetskriterium: et tiltak som mister effekten idet det forklares, står svakere enn ett som virker like godt når det er kjent.",
     },
   ],
   'svexfac03-1-2': [
     {
       question: "Hva menes med den naturalistiske vendingen?",
-      options: ["At samfunnsvitenskapene i økende grad tar inn kunnskap og forklaringer fra biologien", "At naturvitenskapene i økende grad tar i bruk samfunnsvitenskapelige metoder og begreper", "At samfunnsvitenskapene forlater teoretiske modeller til fordel for rent beskrivende arbeid", "At forskere legger vekt på naturlige omgivelser framfor laboratoriet når de samler inn data"],
+      options: ["At samfunnsvitenskapene i økende grad tar inn kunnskap og forklaringer fra biologien", "At naturvitenskapene i økende grad tar i bruk samfunnsvitenskapelige metoder", "At samfunnsvitenskapene forlater teoretiske modeller til fordel for rent beskrivende arbeid", "At forskere legger vekt på naturlige omgivelser framfor laboratoriet når de samler inn data"],
       explanation: "Vendingen betegner at biologisk kunnskap får større plass i samfunnsvitenskapene, og begrepet er hentet fra Aakvaag. De øvrige beskrivelsene gjelder helt andre utviklingstrekk, og ingen av dem har med grensen mellom biologiske og sosiale forklaringer å gjøre.",
     },
     {
       question: "Hvem er avsenderen for begrepet den naturalistiske vendingen i dette emnet?",
-      options: ["Aakvaag, i kapitlet om samfunnsvitenskap og biologi", "Balsvik, i kapitlet om mennesket i samfunnsvitenskapene", "Nyborg, i kapitlet om den økonomiske modellen av mennesket", "Solli, i kapitlet om spørsmålet om sosial orden i samfunnet"],
+      options: ["Aakvaag, i kapitlet om samfunnsvitenskap og biologi", "Balsvik, i kapitlet om mennesket i samfunnet", "Nyborg, i kapitlet om den økonomiske modellen av mennesket", "Solli, i kapitlet om spørsmålet om sosial orden i samfunnet"],
       explanation: "Aakvaag eier framstillingen av den naturalistiske vendingen og av de biologiske modellene. Balsvik eier menneskemodell-begrepet, Nyborg eksperimentene og Solli ordensperspektivene — å bytte om på dem er en tilskrivningsfeil sensor merker umiddelbart.",
     },
     {
@@ -295,27 +295,27 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner en biologisk passiv menneskemodell?",
-      options: ["At atferden forklares av kroppslige eller evolusjonære disposisjoner", "At atferden forklares av sosialisering, klasseposisjon og strukturer i samfunnet", "At personen framstilles som styrt av instinkter hun ikke kan gjøre noe med i det hele tatt", "At forklaringen bygger på biologiske målinger framfor på intervjuer"],
+      options: ["At atferden forklares av kroppslige eller evolusjonære disposisjoner", "At atferden forklares av sosialisering og samfunnsstrukturer", "At personen framstilles som styrt av instinkter hun ikke kan gjøre noe med i det hele tatt", "At forklaringen bygger på biologiske målinger av kroppen framfor på intervjuer med den enkelte"],
       explanation: "Modellen er passiv fordi forklaringen ikke går gjennom personens overveielser, og biologisk fordi kreftene plasseres i kroppen og artens historie. Sosialisering og struktur hører til den sosiale passive modellen, og modellen sier ingenting om hvilke måleinstrumenter forskeren bruker.",
     },
     {
       question: "Hva er den praktiske forskjellen mellom sosiale og biologiske passive modeller?",
-      options: ["At sosiale krefter kan endre seg raskt, mens biologiske ikke gjør det på få tiår", "At sosiale krefter virker på grupper, mens biologiske krefter bare virker på enkeltpersoner", "At sosiale krefter kan måles presist, mens biologiske krefter bare kan anslås omtrentlig", "At sosiale krefter forklarer handlinger, mens biologiske krefter forklarer ren refleksatferd"],
+      options: ["At sosiale krefter kan endre seg raskt, mens biologiske ikke gjør det på få tiår", "At sosiale krefter virker på grupper, biologiske bare på enkeltpersoner", "At sosiale krefter kan måles presist, mens biologiske krefter bare kan anslås omtrentlig", "At sosiale krefter forklarer handlinger, mens biologiske krefter forklarer ren refleksatferd"],
       explanation: "Fordi samfunn endrer seg raskt og biologi ikke gjør det, er variasjon over tid og mellom land en prøvestein mellom de to. De øvrige forskjellene finnes ikke: begge modelltypene brukes både på grupper og enkeltpersoner.",
     },
     {
       question: "Hva svarer en evolusjonspsykologisk forklaring på?",
-      options: ["Hvorfor en tilbøyelighet finnes i arten i det hele tatt", "Hvorfor en bestemt person handlet slik hun gjorde i en bestemt situasjon", "Hvorfor et samfunn har endret seg i en bestemt retning over noen tiår", "Hvorfor et trekk oppleves som meningsfullt av den enkelte"],
+      options: ["Hvorfor en tilbøyelighet finnes i arten i det hele tatt", "Hvorfor en bestemt person handlet slik hun gjorde", "Hvorfor et samfunn har endret seg i en bestemt retning over noen tiår", "Hvorfor et trekk oppleves som meningsfullt av den enkelte"],
       explanation: "Forklaringen gjelder tilbøyelighetens opphav, ikke enkelthandlingen, samfunnsendringen eller opplevelsen. Nettopp derfor er den ikke et alternativ til en forklaring med grunner — de to ligger på ulike nivåer og kan begge være riktige.",
     },
     {
       question: "Hva er forskjellen på en disposisjon og en determinasjon?",
-      options: ["Disposisjonen gjør et utfall mer sannsynlig, mens determinasjonen avgjør det", "Disposisjonen er medfødt, mens determinasjonen er noe som utvikles gjennom oppvekst", "Disposisjonen gjelder enkeltpersoner, mens determinasjonen gjelder hele befolkninger", "Disposisjonen er en påstand om fortiden, mens determinasjonen er en påstand om framtiden"],
+      options: ["Disposisjonen gjør et utfall mer sannsynlig, mens determinasjonen avgjør det", "Disposisjonen er medfødt, mens determinasjonen er noe som læres", "Disposisjonen gjelder enkeltpersoner, mens determinasjonen gjelder hele befolkninger", "Disposisjonen er en påstand om fortiden, mens determinasjonen er en påstand om framtiden"],
       explanation: "Biologiske menneskemodeller i pensum arbeider med tilbøyeligheter, ikke med tvang. Derfor er «biologisk forklart» og «uforanderlig» ikke samme sak, og å bytte ut disposisjon med determinasjon er å karikere posisjonen man skal kritisere.",
     },
     {
       question: "Hva er en gjennomsnittsforklaring?",
-      options: ["En forklaring på et nivå eller en gjennomgående forskjell", "En forklaring som gjelder for de fleste, men ikke for alle", "En forklaring som bygger på beregnede gjennomsnitt i et større tallmateriale", "En forklaring som er middels sterk og derfor må suppleres med andre forklaringer"],
+      options: ["En forklaring på et nivå eller en gjennomgående forskjell", "En forklaring som gjelder de fleste, men ikke alle", "En forklaring som bygger på beregnede gjennomsnitt i et større tallmateriale", "En forklaring som er middels sterk og derfor må suppleres med andre forklaringer"],
       explanation: "Gjennomsnittsforklaringen svarer på hvorfor noe finnes eller hvorfor en forskjell finnes overhodet. Det er en type spørsmål, ikke et mål på hvor sterk eller hvor utbredt forklaringen er.",
     },
     {
@@ -335,7 +335,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er nivåfeilen i denne sammenhengen?",
-      options: ["Å slutte fra en gruppeforskjell til en påstand om en enkeltperson", "Å blande sammen forklaringer på artsnivå og forklaringer på individnivå", "Å bruke tall fra ett land som om de gjaldt alle andre land", "Å måle et fenomen på et for grovt nivå til at variasjonen kommer fram"],
+      options: ["Å slutte fra en gruppeforskjell til en påstand om en enkeltperson", "Å blande sammen forklaringer på artsnivå og individnivå", "Å bruke tall fra ett land som om de gjaldt alle andre land, uten å sjekke om forholdene er like", "Å måle et fenomen på et for grovt nivå til at variasjonen kommer fram"],
       explanation: "Fordi fordelingene overlapper, er slutningen ugyldig selv når gruppeforskjellen er reell og godt målt. Feilen er ikke biologiens: «folk fra dette området gjør sånn» er nøyaktig samme slutning med sosiale premisser.",
     },
     {
@@ -350,7 +350,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kreves for at en påstand om at to forklaringer utfyller hverandre skal være mer enn en unnvikelse?",
-      options: ["At det sies hvilken del av materialet hver av dem bærer", "At begge forklaringene er formulert av navngitte pensumforfattere", "At det oppgis hvilken av dem som er viktigst", "At begge forklaringene støttes av tall fra samme undersøkelse"],
+      options: ["At det sies hvilken del av materialet hver av dem bærer", "At begge er formulert av pensumforfattere", "At det oppgis hvilken av dem som er viktigst, slik at leseren vet hva som veier mest", "At begge forklaringene støttes av tall fra samme undersøkelse"],
       explanation: "Komplementaritet er en påstand som må begrunnes med en arbeidsdeling. «Det er nok litt av begge deler» sier ingenting, og ligger tett på fella der «det kommer an på» erstatter argumentet i stedet for å ramme det inn.",
     },
     {
@@ -360,17 +360,17 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva innebærer posisjonen «biologi som betingelse»?",
-      options: ["At biologien setter rammer uten å bestemme hva som skjer innenfor dem", "At biologiske forklaringer bare gjelder når sosiale forklaringer er utelukket først", "At biologiske forhold må måles før en samfunnsanalyse kan begynne", "At biologien forklarer det stabile, mens kulturen bare forklarer det overfladiske"],
+      options: ["At biologien setter rammer uten å bestemme hva som skjer innenfor dem", "At biologi bare forklarer når sosiale forklaringer er utelukket", "At biologiske forhold må kartlegges og måles før en samfunnsanalyse i det hele tatt kan begynne", "At biologien forklarer det stabile, mens kulturen bare forklarer det overfladiske"],
       explanation: "Posisjonen tar biologien på alvor og lar samtidig det samfunnsskapte gjøre forklaringsarbeidet der variasjonen er. Merk at den må begrunnes som enhver annen posisjon — den er ikke et kompromiss man kan velge fordi den ligger i midten.",
     },
     {
       question: "Hvorfor er en biologisk forklaring ikke i seg selv et forsvar for det den forklarer?",
-      options: ["Fordi slutningen fra er til bør mangler en verdipremiss som må begrunnes for seg", "Fordi biologiske forklaringer sjelden er godt nok dokumentert til å bære noen konklusjon", "Fordi verdispørsmål tilhører filosofien og ikke samfunnsvitenskapen som fagområde", "Fordi det som er utbredt i naturen sjelden er ønskelig i et moderne samfunn"],
+      options: ["Fordi slutningen fra er til bør mangler en verdipremiss som må begrunnes for seg", "Fordi biologiske forklaringer sjelden er godt nok dokumentert til å bære noen konklusjon", "Fordi verdispørsmål tilhører filosofien og ikke samfunnsvitenskapen som fagområde", "Fordi det som er utbredt i naturen sjelden er ønskelig i et moderne samfunn med helt andre levekår"],
       explanation: "Poenget er logisk, ikke politisk: en forklaring sier hvorfor noe er slik, en rettferdiggjøring sier hvorfor det bør være slik. Feilen finnes i to varianter — både å bruke naturlighet som forsvar, og å avvise en forklaring fordi man frykter at forsvaret følger.",
     },
     {
       question: "Hva er det som faktisk prøves i eksamensoppgaver om biologiske forklaringer?",
-      options: ["Grensen mellom forklaringstypene, og hvordan man avgjør hvor den går", "Hvor godt kandidaten kjenner til forskningen på det aktuelle saksfeltet", "Om kandidaten kan gjengi hovedtrekkene i evolusjonsteorien korrekt", "Hvilken av de to forklaringstypene kandidaten selv mener er riktigst"],
+      options: ["Grensen mellom forklaringstypene, og hvordan man avgjør hvor den går", "Hvor godt kandidaten kjenner forskningen på saksfeltet", "Om kandidaten kan gjengi hovedtrekkene i evolusjonsteorien korrekt", "Hvilken av de to forklaringstypene kandidaten selv mener er riktigst"],
       explanation: "Det er grensedragningen som er faget her, ikke biologien og ikke saksfeltet. En veiledning fra V2021 sier uttrykkelig at detaljkunnskap om saksfeltet ikke skal telle, bare om kunnskapen brukes til å vise forståelse av pensum.",
     },
     {
@@ -380,19 +380,19 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den vanligste karikaturen av evolusjonspsykologiske forklaringer?",
-      options: ["At de skulle hevde at atferden vår er bestemt av genene", "At de skulle bygge på observasjoner gjort i laboratorier framfor i felt", "At de skulle gjelde bare menn og ikke kvinner i de samme befolkningene", "At de skulle være uenige med alle sosiale forklaringer"],
+      options: ["At de skulle hevde at atferden vår er bestemt av genene", "At de skulle bygge på observasjoner gjort i laboratorier framfor i felt", "At de skulle gjelde bare menn og ikke kvinner i de samme befolkningene", "At de skulle være uenige med alle sosiale forklaringer av den samme atferden"],
       explanation: "Forklaringene hevder noe om tilbøyeligheter i gjennomsnitt, om fordeler i fortidige omgivelser, og ingenting om hva som er ønskelig. Kritikk som retter seg mot den folkelige versjonen, treffer ikke posisjonen — og gir dermed ingen brukbare argumenter.",
     },
     {
       question: "Hvorfor er det et faglig krav og ikke bare et høflighetskrav å framstille en posisjon presist?",
-      options: ["Fordi sensorveiledningene belønner argumenter begge veier, og en karikert posisjon gir ingen brukbare argumenter", "Fordi kandidaten ellers risikerer å bli trukket for manglende respekt for de pensumforfatterne oppgaven faktisk gjelder", "Fordi en presis framstilling tar mindre plass enn en upresis gjør i en kort besvarelse", "Fordi sensor gjerne selv har arbeidet med den posisjonen kandidaten skriver om"],
+      options: ["Fordi sensorveiledningene belønner argumenter begge veier, og en karikert posisjon gir ingen brukbare argumenter", "Fordi kandidaten ellers risikerer å bli trukket for manglende respekt for pensumforfatterne", "Fordi en presis framstilling tar mindre plass enn en upresis gjør i en kort besvarelse", "Fordi sensor gjerne selv har arbeidet med den posisjonen kandidaten skriver om"],
       explanation: "Drøftingsleddet krever at innvendingen faktisk besvares, og det forutsetter at posisjonen er gjengitt slik en tilhenger ville kjent seg igjen i den. En stråmann i egen tekst svekker derfor kandidatens eget svar.",
     },
   ],
   'svexfac03-1-3': [
     {
       question: "Hva betyr rasjonalitet som paraplybegrep i dette emnet?",
-      options: ["At handlingen har en begrunnelse som gjør den forståelig fra aktørens ståsted", "At handlingen er klok, veloverveid og bygger på riktige oppfatninger om verden", "At handlingen kan forklares ut fra et regnestykke der kostnader veies mot fordeler", "At handlingen følger av regler aktøren har lært seg gjennom oppvekst og utdanning"],
+      options: ["At handlingen har en begrunnelse som gjør den forståelig fra aktørens ståsted", "At handlingen er klok, veloverveid og bygger på riktige oppfatninger", "At handlingen kan forklares ut fra et regnestykke der kostnader veies mot fordeler", "At handlingen følger av regler aktøren har lært seg gjennom oppvekst og utdanning"],
       explanation: "Å kalle en handling rasjonell er ikke å rose den: det er å si at det finnes et svar på hvorfor hun gjorde det. Regnestykket er bare den ene formen, og innlærte regler hører til den tradisjonelle handlingstypen.",
     },
     {
@@ -402,12 +402,12 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner en verdirasjonell handling?",
-      options: ["At begrunnelsen ligger i handlingen selv og holder selv om utfallet uteblir", "At aktøren handler av hensyn til andre framfor av hensyn til seg selv", "At handlingen springer ut av sterke følelser i den situasjonen aktøren står i", "At handlingen følger et mønster aktøren har fulgt så lenge hun kan huske"],
+      options: ["At begrunnelsen ligger i handlingen selv og holder selv om utfallet uteblir", "At aktøren handler av hensyn til andre framfor av hensyn til seg selv", "At handlingen springer ut av sterke følelser i situasjonen", "At handlingen følger et mønster aktøren har fulgt så lenge hun kan huske"],
       explanation: "Kjennetegnet er utfallsuavhengigheten. Å handle av hensyn til andre er en annen akse — man kan handle verdirasjonelt og egennyttig — mens følelser og vane hører til den affektuelle og den tradisjonelle typen.",
     },
     {
       question: "Hva er begrunnelsestesten på en handling?",
-      options: ["Å spørre hva som ville fått aktøren til å slutte", "Å spørre hva aktøren selv oppgir som grunn", "Å spørre om handlingen faktisk førte til det aktøren ønsket seg", "Å spørre om handlingen ville blitt gjentatt under de samme forholdene"],
+      options: ["Å spørre hva som ville fått aktøren til å slutte", "Å spørre hva aktøren selv oppgir som grunn når hun blir bedt om å forklare seg", "Å spørre om handlingen faktisk førte til det aktøren ønsket seg", "Å spørre om handlingen ville blitt gjentatt under de samme forholdene"],
       explanation: "Testen er kontrafaktisk: slutter hun når fordelen forsvinner, lå begrunnelsen i utfallet. Det aktøren oppgir, er ikke nødvendigvis det som bærer handlingen, siden folk gjerne oppgir verdibegrunnelser for det som lønner seg.",
     },
     {
@@ -417,27 +417,27 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skiller en verdirasjonell fra en affektuell handling?",
-      options: ["At den verdirasjonelle er begrunnet, og at aktøren kan gjøre rede for begrunnelsen", "At den verdirasjonelle er rettet mot andre, mens den affektuelle bare gjelder aktøren selv", "At den verdirasjonelle er planlagt i forkant, mens den affektuelle skjer på stedet", "At den verdirasjonelle har gode konsekvenser, mens den affektuelle ofte har dårlige"],
+      options: ["At den verdirasjonelle er begrunnet, og at aktøren kan gjøre rede for begrunnelsen", "At den verdirasjonelle er rettet mot andre, mens den affektuelle ikke er det", "At den verdirasjonelle er planlagt i forkant, mens den affektuelle skjer på stedet", "At den verdirasjonelle har gode konsekvenser, den affektuelle dårlige"],
       explanation: "Den verdirasjonelle handlingen er fullt begrunnet — begrunnelsen ligger bare i handlingen selv og ikke i utfallet. Tidsforløp og konsekvenser er ikke det som skiller de to, og forvekslingen ødelegger presisjonen i hele resten av svaret.",
     },
     {
       question: "Hva er en idealtype?",
-      options: ["En begrepsmessig rendyrking laget for å gjøre sammenligning mulig", "En beskrivelse av det mest typiske tilfellet i et større materiale", "Et gjennomsnitt regnet ut fra mange observerte enkelttilfeller", "En norm for hvordan et fenomen bør se ut i et velfungerende samfunn"],
+      options: ["En begrepsmessig rendyrking laget for å gjøre sammenligning mulig", "En beskrivelse av det mest typiske tilfellet i materialet", "Et gjennomsnitt regnet ut fra mange observerte enkelttilfeller i det samme materialet", "En norm for hvordan et fenomen bør se ut i et velfungerende samfunn"],
       explanation: "Idealtypen er et målestokk-begrep, ikke et gjennomsnitt og ikke et ideal. Begrepet framstilles hos Aakvaag, og det er grunnen til at det ikke er en innvending mot Webers handlingstyper at virkelige handlinger har innslag av flere.",
     },
     {
       question: "Hvem eier skillet mellom formålsrasjonell og verdirasjonell handling?",
-      options: ["Weber, i den framstillingen Balsvik gir av ham", "Balsvik, som utviklet skillet i sin egen framstilling", "Elster, som skilte handlingstypene i sin normteori", "Aakvaag, som innførte skillet gjennom idealtypebegrepet"],
+      options: ["Weber, i den framstillingen Balsvik gir av ham", "Balsvik, som selv utviklet skillet", "Elster, som skilte handlingstypene i sin normteori", "Aakvaag, som innførte skillet gjennom idealtypebegrepet"],
       explanation: "Begrepene tilhører Weber, mens framstillingen som brukes i dette emnet er Balsviks. Elster eier normtypene og Aakvaag idealtypen — å bytte om på dette er en tilskrivningsfeil sensor merker umiddelbart.",
     },
     {
       question: "Hva innebærer det at også målet veies i en formålsrasjonell handling?",
-      options: ["At målet holdes opp mot andre mål og mot kostnadene ved å nå det", "At målet må være realistisk og oppnåelig innenfor aktørens rammer", "At målet må være akseptert av andre enn aktøren selv for å telle", "At målet endres underveis dersom det viser seg å være for krevende"],
+      options: ["At målet holdes opp mot andre mål og mot kostnadene ved å nå det", "At målet må være realistisk og oppnåelig for aktøren", "At målet må være akseptert av andre enn aktøren selv for å telle", "At målet endres underveis dersom det blir for krevende"],
       explanation: "Dette er det leddet som gjør formålsrasjonaliteten til en fullstendig praktisk fornuft: aktøren spør både hva som virker og om det er verdt det. En definisjon som bare sier «handler for å nå et mål», har mistet halve begrepet.",
     },
     {
       question: "Hva viser en verdirasjonell handling når insentivet fjernes?",
-      options: ["Handlingen fortsetter, siden begrunnelsen ikke lå i fordelen", "Handlingen faller bort, siden aktøren mister grunnen sin til å handle", "Handlingen endrer form, men beholder omtrent samme omfang som før", "Handlingen kan ikke lenger klassifiseres, siden situasjonen er endret"],
+      options: ["Handlingen fortsetter, siden begrunnelsen ikke lå i fordelen", "Handlingen faller bort, siden aktøren mister grunnen", "Handlingen endrer form, men beholder omtrent samme omfang som før", "Handlingen kan ikke lenger klassifiseres, siden situasjonen er endret"],
       explanation: "Robusthetstesten er nettopp dette: fjern fordelen og se om handlingen består. At handlingen faller bort, er derimot kjennetegnet på en formålsrasjonell begrunnelse.",
     },
     {
@@ -447,7 +447,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen på rasjonell handling og rasjonelt valg?",
-      options: ["Valgbegrepet forutsetter i tillegg at alternativene lar seg rangere mot hverandre", "Handlingsbegrepet gjelder enkeltpersoner, mens valgbegrepet gjelder grupper og organisasjoner", "Valgbegrepet gjelder bare økonomiske beslutninger, mens handlingsbegrepet gjelder alt annet", "Handlingsbegrepet er Webers, mens valgbegrepet stammer fra en annen tradisjon"],
+      options: ["Valgbegrepet forutsetter i tillegg at alternativene lar seg rangere mot hverandre", "Handlingsbegrepet gjelder enkeltpersoner, valgbegrepet gjelder grupper", "Valgbegrepet gjelder bare økonomiske beslutninger, mens handlingsbegrepet gjelder alt annet", "Handlingsbegrepet er Webers, mens valgbegrepet stammer fra en annen tradisjon og ikke kan brukes sammen med det"],
       explanation: "Valgbegrepet er smalere, og det passer derfor best på formålsrasjonelle handlinger: en verdirasjonell handling er vanskelig å presse inn i en rangering. Oppgaver som ber om begge deler, har to ledd — og et hoppet ledd er dyrt.",
     },
     {
@@ -457,7 +457,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er irrasjonalitet i denne sammenhengen?",
-      options: ["At handlingen ikke lar seg begrunne ut fra aktørens egne grunner", "At handlingen bygger på verdier andre ikke deler eller kan godta", "At handlingen fører til et dårlig utfall for aktøren selv på sikt", "At handlingen skjer uten at aktøren har tenkt gjennom den på forhånd"],
+      options: ["At handlingen ikke lar seg begrunne ut fra aktørens egne grunner", "At handlingen bygger på verdier andre ikke deler eller kan godta", "At handlingen fører til et dårlig utfall for aktøren", "At handlingen skjer uten at aktøren har tenkt gjennom den"],
       explanation: "Irrasjonalitet er en indre inkonsistens, ikke en dom over målene og ikke en vurdering av utfallet. At du er uenig i aktørens mål, gjør ikke handlingen irrasjonell.",
     },
     {
@@ -472,7 +472,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skiller en tradisjonell handling fra en verdirasjonell?",
-      options: ["At spørsmålet om hva som er riktig aldri er stilt i den tradisjonelle handlingen", "At den tradisjonelle handlingen alltid er gammel, mens den verdirasjonelle er ny", "At den tradisjonelle handlingen gjøres i fellesskap, mens den verdirasjonelle gjøres alene", "At den tradisjonelle handlingen er ubevisst, mens den verdirasjonelle er planlagt i detalj"],
+      options: ["At spørsmålet om hva som er riktig aldri er stilt i den tradisjonelle handlingen", "At den tradisjonelle handlingen alltid er gammel, mens den verdirasjonelle er ny", "At tradisjonelle handlinger gjøres i fellesskap, verdirasjonelle alene", "At tradisjonelle handlinger er ubevisste, verdirasjonelle planlagte"],
       explanation: "Den tradisjonelle handlingen gjøres fordi det er slik man gjør, uten at riktighetsspørsmålet er stilt. Grensen er reell og ofte uskarp, og den er verdt å bruke som grensetilfelle i den presiserende setningen.",
     },
     {
@@ -487,17 +487,17 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner et insentivtiltak?",
-      options: ["At det virker ved å endre hva som lønner seg for den enkelte", "At det virker ved å endre hva som er lett tilgjengelig i omgivelsene", "At det virker ved å endre hva den enkelte mener er riktig å gjøre", "At det virker ved å fjerne det alternativet myndighetene ikke ønsker"],
+      options: ["At det virker ved å endre hva som lønner seg for den enkelte", "At det virker ved å endre hva som er lett tilgjengelig", "At det virker ved å endre hva den enkelte mener er riktig å gjøre", "At det virker ved å fjerne det alternativet myndighetene ikke ønsker"],
       explanation: "Insentivtiltaket appellerer til formålsrasjonalitet gjennom en avveining av kostnad mot nytte. De øvrige beskrivelsene gjelder henholdsvis strukturtiltak, appelltiltak og forbud.",
     },
     {
       question: "Hva er hovedsvakheten ved insentivtiltak?",
       options: ["At virkningen varer bare så lenge insentivet består", "At de bare treffer dem som allerede er enige i målet med tiltaket", "At de er langsomme og krever gjentatt påvirkning over tid", "At de forutsetter en passiv modell av mennesket og derfor er omstridte"],
-      explanation: "Insentivet endrer regnestykket, og forsvinner det, forsvinner grunnen til å handle. De to neste beskrivelsene er svakheter ved appelltiltak, og insentivtiltaket forutsetter tvert imot en aktiv modell.",
+      explanation: "Insentivet endrer regnestykket, og forsvinner det, forsvinner grunnen til å handle. At tiltaket bare treffer dem som alt er enige, og at det er langsomt og krever gjentatt påvirkning, er svakheter ved appelltiltak; og insentivtiltaket forutsetter tvert imot en aktiv modell av mennesket.",
     },
     {
       question: "Hva kjennetegner et appelltiltak?",
-      options: ["At det virker ved å endre hva folk mener er riktig å gjøre", "At det virker ved å belønne den atferden myndighetene ønsker seg", "At det virker ved å gjøre det ønskede alternativet til standardvalget", "At det virker ved å gjøre uønsket atferd dyrere enn før"],
+      options: ["At det virker ved å endre hva folk mener er riktig å gjøre", "At det virker ved å belønne den atferden myndighetene ønsker seg", "At det virker ved å gjøre det ønskede alternativet til standardvalget", "At det virker ved å gjøre uønsket atferd dyrere enn før for den som velger den"],
       explanation: "Appelltiltaket søker å etablere en begrunnelse som holder uavhengig av utfallet, og appellerer dermed til verdirasjonalitet. De tre øvrige beskrivelsene gjelder tiltak som virker gjennom fordeler, omgivelser eller kostnader.",
     },
     {
@@ -524,7 +524,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
   'svexfac03-1-4': [
     {
       question: "Hva er homo oeconomicus?",
-      options: ["En modell av mennesket som velger det alternativet som best fremmer egne interesser", "En teori om at mennesker i det moderne samfunnet er blitt mer egoistiske enn før i tiden", "Et ideal for hvordan en aktør bør opptre i markeder med mange tilbydere", "En beskrivelse av hvordan økonomer selv treffer beslutninger i sitt eget arbeid"],
+      options: ["En modell av mennesket som velger det alternativet som best fremmer egne interesser", "En teori om at mennesker i moderne samfunn er blitt mer egoistiske", "Et ideal for hvordan en aktør bør opptre i markeder med mange tilbydere", "En beskrivelse av hvordan økonomer selv treffer beslutninger i sitt eget arbeid"],
       explanation: "Modellen er en idealisering laget for å gjøre systematisk analyse mulig, ikke et portrett og ikke et ideal. Å lese den normativt er en utbredt feil også utenfor faget.",
     },
     {
@@ -564,12 +564,12 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Er avvisningen i ultimatumspillet irrasjonell?",
-      options: ["Nei, den kan forstås som maksimering av noe annet enn penger", "Ja, siden deltakeren velger et dårligere utfall for seg selv", "Ja, siden handlingen ikke lar seg forklare med noen preferanse", "Nei, siden deltakeren ikke har full informasjon om motpartens motiver"],
+      options: ["Nei, den kan forstås som maksimering av noe annet enn penger", "Ja, siden deltakeren velger et dårligere utfall for seg selv", "Ja, siden ingen preferanse kan forklare handlingen", "Nei, siden deltakeren ikke kjenner motpartens motiver"],
       explanation: "Har mottakeren en preferanse for å ikke bli behandlet urimelig, er avvisningen fullt konsistent med hennes egne mål. Det er dette som gjør at funnet kan leses både som en presisering og som en svekkelse av modellen.",
     },
     {
       question: "Hva er den beste innvendingen mot at spilleksperimentene feller modellen?",
-      options: ["At situasjonen er kunstig: små beløp, fremmede deltakere og ingen framtid i spillet", "At eksperimenter aldri kan si noe om hvordan mennesker oppfører seg i virkeligheten", "At deltakerne i slike eksperimenter som regel er studenter og dermed ikke representative", "At funnene ikke er gjentatt tilstrekkelig mange ganger til å regnes som sikre"],
+      options: ["At situasjonen er kunstig: små beløp, fremmede deltakere og ingen framtid i spillet", "At eksperimenter aldri kan si noe om hvordan mennesker oppfører seg i virkeligheten", "At deltakerne som regel er studenter og dermed ikke representative", "At funnene ikke er gjentatt tilstrekkelig mange ganger til å regnes som sikre"],
       explanation: "Laboratoriet gir kontroll og mister virkelighetsnærhet, og det er en reell innvending. Men den kan ikke brukes til å avfeie funnene: avvikene er systematiske og går samme vei i mange land.",
     },
     {
@@ -655,7 +655,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er svakheten ved en ren prispolitikk, sett i lys av dette kapitlet?",
       options: ["At den virker dårlig der valget er vanepreget eller informasjonen uoversiktlig", "At den bare treffer dem som allerede er opptatt av saken fra før", "At den er langsom og krever gjentatt påvirkning over lang tid", "At den forutsetter en passiv menneskemodell, og derfor er faglig omstridt i dag"],
-      explanation: "Prispolitikk forutsetter at valget er en regneoppgave, og treffer derfor dårlig der oppmerksomheten ikke aktiveres. De to neste beskrivelsene gjelder appelltiltak, og prispolitikk forutsetter tvert imot en aktiv modell.",
+      explanation: "Prispolitikk forutsetter at valget er en regneoppgave, og treffer derfor dårlig der oppmerksomheten ikke aktiveres. At tiltaket bare treffer dem som alt er opptatt av saken, og at det er langsomt og krever gjentatt påvirkning, gjelder appelltiltak; og prispolitikk forutsetter tvert imot en aktiv menneskemodell.",
     },
     {
       question: "Hva er feil #4 i bokas register?",
@@ -803,17 +803,17 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen på praksis og lønnsarbeid hos Marx?",
-      options: ["Praksis er all planlagt bearbeiding av naturen, mens lønnsarbeid er én historisk form for den", "Praksis er arbeid man gjør frivillig, mens lønnsarbeid alltid utføres under en eller annen form for tvang", "Praksis gjelder åndelig virksomhet, mens lønnsarbeid gjelder produksjon av fysiske ting", "Praksis er arbeid i fellesskap, mens lønnsarbeid utføres av den enkelte for egen regning"],
+      options: ["Praksis er all planlagt bearbeiding av naturen, mens lønnsarbeid er én historisk form for den", "Praksis er arbeid man gjør frivillig, mens lønnsarbeid alltid utføres under en eller annen form for tvang", "Praksis gjelder åndelig virksomhet, mens lønnsarbeid gjelder produksjon av fysiske ting", "Praksis er arbeid utført i fellesskap med andre, mens lønnsarbeid utføres av den enkelte alene og for egen regning"],
       explanation: "Skillet er viktig fordi menneskesynet kan forsvares uavhengig av kapitalismekritikken: praksis finnes også der ingen får lønn. Svaret om frivillighet og tvang gjør et historisk skille om til et psykologisk, og svaret om åndelig mot fysisk innfører en motsetning Marx ikke bruker.",
     },
     {
       question: "Hva menes med objektivering hos Marx?",
-      options: ["At mennesket legger noe av seg selv inn i det det lager, slik at resultatet uttrykker egne evner", "At arbeideren behandles som en gjenstand av den som eier produksjonsmidlene i den virksomheten hun jobber i", "At forskeren beskriver samfunnet nøkternt og uten å la egne verdier prege framstillingen", "At et produkt får en pris i markedet og dermed kan sammenlignes med alle andre produkter"],
+      options: ["At mennesket legger noe av seg selv inn i det det lager, slik at resultatet uttrykker egne evner", "At arbeideren behandles som en gjenstand av den som eier produksjonsmidlene i den virksomheten hun jobber i", "At forskeren beskriver samfunnet nøkternt og uten å la egne verdier prege framstillingen av det han studerer", "At et produkt får en pris i markedet og dermed kan sammenlignes med alle andre produkter"],
       explanation: "Objektivering er den normale, positive siden av arbeidet, og fremmedgjøring er det som skjer når den slår om. Svaret om at arbeideren behandles som en gjenstand er en nær distraktor, men beskriver et resultat av bestemte forhold og ikke selve begrepet. Svaret om nøktern framstilling forveksler begrepet med objektivitet i vitenskapsteoretisk forstand.",
     },
     {
       question: "Hva er artsvesenet hos Marx?",
-      options: ["De evnene som gjør mennesket til menneske, brukt som målestokk for faktiske arbeidsforhold", "Den biologiske arven som setter grenser for hva mennesker kan lære og utrette i et samfunn", "Fellesskapet av alle arbeidende, som Marx mener bør overta eierskapet til produksjonsmidlene", "De behovene alle mennesker deler uansett hvilken historisk epoke de tilfeldigvis lever i"],
+      options: ["De evnene som gjør mennesket til menneske, brukt som målestokk for faktiske arbeidsforhold", "Den biologiske arven som setter grenser for hva mennesker kan lære og utrette i et samfunn", "Fellesskapet av alle arbeidende, som Marx mener bør overta produksjonsmidlene", "De behovene alle mennesker deler uansett historisk epoke, og som lar seg kartlegge empirisk på tvers av samfunn"],
       explanation: "Artsvesenet er en målestokk for hva et menneskeliv kunne vært, ikke en beskrivelse av hvordan folk faktisk har det. Svaret om biologisk arv forveksler begrepet med en naturgitt begrensning, og svaret om felles behov gjør målestokken om til en empirisk påstand — da blir fremmedgjøringsdiagnosen selvmotsigende.",
     },
     {
@@ -823,7 +823,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilket ledd i fremmedgjøringsbegrepet gjelder eierskapet til resultatet av arbeidet?",
-      options: ["Fremmedgjøring fra produktet, der det som lages tilhører noen andre enn den som lagde det", "Fremmedgjøring fra arbeidsprosessen, der tempo og metode er bestemt av noen andre enn deg", "Fremmedgjøring fra artsvesenet, der arbeidet blir et rent middel til å skaffe seg utkomme", "Fremmedgjøring fra andre mennesker, der de andre først og fremst framstår som konkurrenter"],
+      options: ["Fremmedgjøring fra produktet, der det som lages tilhører noen andre enn den som lagde det", "Fremmedgjøring fra arbeidsprosessen, der tempo og metode er bestemt av noen andre enn deg", "Fremmedgjøring fra artsvesenet, der arbeidet blir et rent middel til å skaffe seg utkomme", "Fremmedgjøring fra andre mennesker, der de andre framstår som konkurrenter"],
       explanation: "Produkt-leddet handler om hvem resultatet tilhører. Prosess-leddet gjelder kontrollen over virksomheten, artsvesen-leddet er konsekvensen av de to første, og det siste leddet gjelder relasjonene. Alle fire er reelle ledd — poenget er å kunne si hvilket et gitt tilfelle treffer.",
     },
     {
@@ -838,7 +838,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva gjelder leddet «fremmedgjøring fra andre mennesker»?",
-      options: ["At måten arbeidet er organisert på, gjør andre til midler eller hindringer i stedet for til fellesskap", "At arbeideren mister kontakten med familien sin fordi arbeidstiden legger beslag på det aller meste av dagen", "At produktet selges til ukjente kjøpere som arbeideren aldri får møte eller vite noe som helst om", "At samfunnets felles verdier svekkes når stadig flere yrker krever helt ulik kompetanse av folk"],
+      options: ["At måten arbeidet er organisert på, gjør andre til midler eller hindringer i stedet for til fellesskap", "At arbeideren mister kontakten med familien sin fordi arbeidstiden legger beslag på det aller meste av dagen", "At produktet selges til ukjente kjøpere som arbeideren aldri får møte, fordi varen forsvinner ut i et marked ingen har oversikt over", "At samfunnets felles verdier svekkes når stadig flere yrker krever helt ulik kompetanse av folk"],
       explanation: "Leddet gjelder relasjonene mellom mennesker, og mekanismen er at organiseringen gjør dem til konkurrenter. Svaret om familien flytter poenget til arbeidstid, svaret om ukjente kjøpere ligger nærmere produkt-leddet, og svaret om felles verdier beskriver Durkheims problemstilling og ikke Marx'.",
     },
     {
@@ -848,12 +848,12 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan vurderer Marx og Durkheim den samme arbeidsdelingen?",
-      options: ["Marx ser den som fremmedgjørende, mens Durkheim ser den som en kilde til gjensidig avhengighet", "Begge ser den som fremmedgjørende, men Marx knytter den til eierskapet og Durkheim til moralen i samfunnet", "Marx ser den som integrerende, mens Durkheim mener den løser opp båndene mellom mennesker", "Begge ser den som integrerende, men de er uenige om hvor raskt den brer seg i samfunnet"],
+      options: ["Marx ser den som fremmedgjørende, mens Durkheim ser den som en kilde til gjensidig avhengighet", "Begge ser den som fremmedgjørende, men Marx knytter den til eierskapet og Durkheim til moralen i samfunnet", "Marx ser den som integrerende, mens Durkheim mener den løser opp båndene fordi spesialiseringen gir færre felles erfaringer", "Begge ser den som integrerende, men de er uenige om hvor raskt den brer seg i samfunnet"],
       explanation: "De to er ikke uenige om hva som skjer, men om hva det betyr, fordi de måler mot ulike målestokker: menneskets selvrealisering hos Marx, samfunnets integrasjon hos Durkheim. Svaret som snur de to er den vanligste forvekslingen, og svaret om at begge ser den som fremmedgjørende overser at Durkheim regner den som limet i moderne samfunn.",
     },
     {
       question: "Hva innebærer det at arbeidskraften er en vare?",
-      options: ["At arbeideren selger disposisjonsretten over egen tid, ikke et ferdig resultat av arbeidet", "At lønnen fastsettes av tilbud og etterspørsel i stedet for av avtaler mellom partene", "At arbeidsgiveren kan si opp arbeideren når som helst når det passer virksomheten best rent økonomisk", "At arbeidet kan utføres av hvem som helst fordi ingen spesiell kompetanse er nødvendig"],
+      options: ["At arbeideren selger disposisjonsretten over egen tid, ikke et ferdig resultat av arbeidet", "At lønnen fastsettes av tilbud og etterspørsel i stedet for av avtaler mellom partene", "At arbeidsgiveren kan si opp arbeideren når som helst når det passer virksomheten best rent økonomisk", "At arbeidet kan utføres av hvem som helst fordi ingen spesiell kompetanse er nødvendig, og derfor kan kjøpes billig"],
       explanation: "Skillet mellom å selge et produkt og å selge arbeidsevne er det som binder sammen de to første fremmedgjøringsleddene: kjøperen bestemmer i det avtalte tidsrommet. Svaret om lønnsdannelse beskriver et marked, men ikke selve begrepet, og svaret om oppsigelse gjelder stillingsvernet.",
     },
     {
@@ -868,22 +868,22 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skiller utbytting fra fremmedgjøring?",
-      options: ["Utbytting gjelder fordelingen av verdien, fremmedgjøring gjelder forholdet til virksomheten", "Utbytting gjelder bare fysisk arbeid, mens fremmedgjøring bare rammer arbeid av mer åndelig karakter", "Utbytting er et moralsk begrep hos Marx, mens fremmedgjøring er et rent økonomisk begrep", "Utbytting rammer enkeltpersoner, mens fremmedgjøring bare kan ramme hele yrkesgrupper"],
+      options: ["Utbytting gjelder fordelingen av verdien, fremmedgjøring gjelder forholdet til virksomheten", "Utbytting gjelder bare fysisk arbeid, mens fremmedgjøring bare rammer arbeid av mer åndelig karakter", "Utbytting er et moralsk begrep hos Marx om urettferdig behandling, mens fremmedgjøring er et rent økonomisk begrep", "Utbytting rammer enkeltpersoner, mens fremmedgjøring bare kan ramme hele yrkesgrupper"],
       explanation: "En arbeider kan i prinsippet være godt betalt og likevel fremmedgjort, og derfor må de to diagnosene holdes fra hverandre. Svaret om moralsk mot økonomisk snur det på hodet: utbytting er hos Marx et analytisk begrep om en systematisk mekanisme, ikke en påstand om at noen er slemme.",
     },
     {
       question: "Hvorfor legger Marx vekt på at kapitalismen er en historisk produksjonsmåte?",
-      options: ["Fordi en ordning som har blitt til, også kan forandres — og det er premisset for kritikken", "Fordi den etter hans mening er den siste samfunnsformen menneskeheten noensinne kommer til å utvikle", "Fordi den oppsto tidligere enn andre samfunnsformer og derfor har hatt lengst tid på seg", "Fordi historiske forhold er lettere å undersøke empirisk enn forhold som gjelder i dag"],
+      options: ["Fordi en ordning som har blitt til, også kan forandres — og det er premisset for kritikken", "Fordi den etter hans mening er den siste samfunnsformen menneskeheten noensinne kommer til å utvikle", "Fordi den oppsto tidligere enn andre samfunnsformer og derfor har hatt lengst tid på seg til å prege menneskene i den", "Fordi historiske forhold er lettere å undersøke empirisk enn forhold som gjelder i dag"],
       explanation: "Historisiteten er forutsetningen for at diagnosen kan ha kritiske ambisjoner: er ordningen naturgitt, er kritikk meningsløs. Svaret om den siste samfunnsformen er en påstand Marx nettopp ikke gjør om kapitalismen, og svaret om at den oppsto tidligst er historisk galt.",
     },
     {
       question: "Hvem eier framstillingen av ideologi, klasse og stand som mekanismer for sosial orden?",
-      options: ["Solli, i framstillingen av konfliktperspektivet blant de fire perspektivene på sosial orden", "Aakvaag, i framstillingen av de tre klassikernes menneskesyn og deres samtidsdiagnoser", "Balsvik, i framstillingen av menneskemodeller og av rasjonalitetsantakelser i faget", "Malnes, i framstillingen av Hobbes og Hume som konflikt- og harmonitenkere i samfunnsfilosofien"],
+      options: ["Solli, i framstillingen av konfliktperspektivet blant de fire perspektivene på sosial orden", "Aakvaag, i framstillingen av de tre klassikernes menneskesyn og av samtidsdiagnosene deres over det moderne samfunnet", "Balsvik, i framstillingen av menneskemodeller og av rasjonalitetsantakelser i faget", "Malnes, i framstillingen av Hobbes og Hume som konflikt- og harmonitenkere i samfunnsfilosofien"],
       explanation: "De fire perspektivene på sosial orden tilhører Sollis framstilling, og der brukes ideologi, klasse og stand som ordensmekanismer under konfliktperspektivet. Aakvaag eier menneskesynene og samtidsdiagnosene, Balsvik eier menneskemodellene, og Malnes eier Hobbes og Hume — å bytte om er en tilskrivningsfeil sensor merker umiddelbart.",
     },
     {
       question: "Hva menes med formell frihet?",
-      options: ["Friheten som ligger i rettigheter og fravær av forbud: du har lov til å velge og til å nekte", "Friheten som ligger i å ha ressurser nok til at valget mellom alternativene betyr noe", "Friheten til å velge hvilke mål man selv vil sette seg, uavhengig av hva systemene rundt legger opp til", "Friheten fra sosiale normer som ellers ville bestemt hva man kan forvente seg av livet"],
+      options: ["Friheten som ligger i rettigheter og fravær av forbud: du har lov til å velge og til å nekte", "Friheten som ligger i å ha ressurser nok til at valget mellom alternativene betyr noe", "Friheten til å velge hvilke mål man selv vil sette seg, uavhengig av hva systemene rundt legger opp til", "Friheten fra sosiale normer som ellers ville bestemt hva man kan forvente seg av livet, og som holder begjæret i tømme"],
       explanation: "Formell frihet sier hva du har lov til; reell frihet sier hva du faktisk kan gjøre. Svaret om ressurser er nettopp reell frihet, svaret om å velge mål er Webers frihetsbegrep, og svaret om fravær av normer er den friheten Durkheim mener kan bli for mye.",
     },
     {
@@ -898,12 +898,12 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvem framstiller de tre klassikernes menneskesyn i pensum?",
-      options: ["Aakvaag, som også framstiller samtidsdiagnosene og de fire kravene til en slik diagnose", "Solli, som framstiller de fire perspektivene på sosial orden og aktør- og strukturbegrepet", "Balsvik, som framstiller menneskemodeller og rasjonalitetsantakelser i samfunnsvitenskapene", "Grimen, som framstiller verdifrihetslæren og skillet mellom erkjennelse og vurdering"],
+      options: ["Aakvaag, som også framstiller samtidsdiagnosene og de fire kravene til en slik diagnose", "Solli, som framstiller de fire perspektivene på sosial orden og aktør- og strukturbegrepet", "Balsvik, som framstiller menneskemodeller og rasjonalitetsantakelser i samfunnsvitenskapene", "Grimen, som framstiller verdifrihetslæren og skillet mellom erkjennelse og vurdering i samfunnsforskningen"],
       explanation: "Menneskesynene til Marx, Weber og Durkheim tilhører Aakvaags framstilling, sammen med samtidsdiagnosens fire krav. De tre andre er reelle avsendere i emnet, men eier andre begreper — og en feilplassert avsender er noe av det sensor legger merke til raskest i et redegjørelsesledd.",
     },
     {
       question: "Hva ber menneskesyn-oppgaven først og fremst om?",
-      options: ["En framstilling av hva slags vesen mennesket er, ikke en gjennomgang av kapitalismens virkemåte", "En framstilling av hvordan kapitalismen fungerer i praksis, med menneskesynet som en kort innledning", "En vurdering av om klassikernes teorier er empirisk holdbare i lys av nyere forskning", "En sammenligning av hvordan de tre klassikerne så på metode og vitenskapelig fremgangsmåte"],
+      options: ["En framstilling av hva slags vesen mennesket er, ikke en gjennomgang av kapitalismens virkemåte", "En framstilling av hvordan kapitalismen fungerer i praksis, med menneskesynet som en kort innledning", "En vurdering av om klassikernes teorier er empirisk holdbare i lys av nyere forskning", "En sammenligning av hvordan de tre klassikerne så på metode, og av hva hver av dem regnet som gyldig kunnskap"],
       explanation: "Oppgaven spør om menneskesyn, og en besvarelse som glir over i samfunnsteori bruker tid på noe det ikke ble spurt om. Svaret om empirisk holdbarhet hører til drøftingen av samtidsdiagnoser, og svaret om metode gjelder en annen del av pensum helt.",
     },
     {
@@ -913,12 +913,12 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En kandidat skal gjøre rede for Marx' menneskesyn, og skriver en halv side om merverdi og klassekamp. Hvilken feil er dette nærmest?",
-      options: ["Å beskrive teorien i stedet for å svare på det oppgaven faktisk spurte om, altså feil 14", "Å gi eksempler uten begrunnelse, altså den feilen som har nummer 12 i registeret", "Å lese stikkordslista i oppgaveteksten som en sjekkliste, altså feil nummer 3", "Å hoppe over relevans-i-dag-leddet i oppgaver om samtidsdiagnosen, altså feil nummer 11 i registeret"],
+      options: ["Å beskrive teorien i stedet for å svare på det oppgaven faktisk spurte om, altså feil 14", "Å gi eksempler uten å begrunne hvorfor de illustrerer begrepet, altså den feilen som har nummer 12 i registeret", "Å lese stikkordslista i oppgaveteksten som en sjekkliste, altså feil nummer 3", "Å hoppe over relevans-i-dag-leddet i oppgaver om samtidsdiagnosen, altså feil nummer 11 i registeret"],
       explanation: "Feil nummer 14 gjelder å beskrive Marx' teori i stedet for å vise det oppgaven ber om, og denne besvarelsen gjør nettopp det. De tre andre feilene er reelle koder i registeret, men gjelder eksempelbegrunnelse, sjekklistelesing og et hoppet oppgaveledd.",
     },
     {
       question: "Hvilke fire trinn består et redegjørelsesledd av?",
-      options: ["Avgrens spørsmålet, definer med avsender, sett opp mot kontrastbegrepet, presiser grensetilfellet", "Innled bredt, gjengi teorien i sin helhet, gi flere eksempler, og oppsummer det viktigste til slutt", "Ta standpunkt, gi argument for, gi argument mot, konkluder med et forbehold om usikkerhet", "Beskriv saken kort, velg ett apparat, bruk det helt, si hva apparatet ikke får med seg"],
+      options: ["Avgrens spørsmålet, definer med avsender, sett opp mot kontrastbegrepet, presiser grensetilfellet", "Innled bredt, gjengi teorien i sin helhet, gi flere eksempler, og oppsummer det viktigste til slutt", "Ta standpunkt tidlig, gi det sterkeste argumentet for, gi det sterkeste imot, og konkluder med et forbehold om usikkerhet", "Beskriv saken kort, velg ett apparat, bruk det helt, si hva apparatet ikke får med seg"],
       explanation: "De fire trinnene er avgrensning, definisjon med avsender, kontrast og presisering. Svaret med standpunkt og argumenter er drøftingsleddets form, og svaret om sak og apparat er anvendelsesoppgavens fire grep — begge er riktige oppskrifter, men på andre sjangre.",
     },
     {
@@ -930,12 +930,12 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
   'svexfac03-2-2': [
     {
       question: "Hva er Webers menneskesyn, slik Aakvaag framstiller det?",
-      options: ["Mennesket er frihets- og meningssøkende og må velge mellom verdier vitenskapen ikke kan rangere", "Mennesket er et arbeidende vesen som realiserer seg gjennom å bearbeide naturen etter en plan", "Mennesket er samfunnsskapt, slik at også behovene og begjærene formes utenfra gjennom oppveksten", "Mennesket er en beregnende aktør som velger de midlene som gir størst mulig egen nytte"],
-      explanation: "Weber plasserer det menneskelige i meningen og i verdivalget. De to første distraktorene er Marx' og Durkheims menneskesyn, som ofte forveksles med Webers i sammenligningsledd, og den siste er homo oeconomicus-modellen, som ikke er et klassikermenneskesyn.",
+      options: ["Mennesket er frihets- og meningssøkende og må velge mellom verdier vitenskapen ikke kan rangere", "Mennesket er et arbeidende vesen som realiserer seg gjennom å bearbeide naturen etter en plan det selv har lagt", "Mennesket er samfunnsskapt, slik at også behovene og begjærene formes utenfra gjennom oppveksten", "Mennesket er en beregnende aktør som velger de midlene som gir størst mulig egen nytte"],
+      explanation: "Weber plasserer det menneskelige i meningen og i verdivalget. Det arbeidende vesenet er Marx' menneskesyn og det samfunnsskapte er Durkheims, og begge forveksles ofte med Webers i sammenligningsledd; den beregnende aktøren er homo oeconomicus-modellen, som ikke er et klassikermenneskesyn.",
     },
     {
       question: "Hva er forskjellen på mening og årsak hos Weber?",
-      options: ["Mening er en begrunnelse aktøren selv kan gi, mens en årsak gjelder enten hun vet om den eller ei", "Mening gjelder følelser og stemninger hos den enkelte, mens årsaker gjelder det som kan observeres utenfra", "Mening er noe samfunnsfagene studerer, mens årsaker hører hjemme i naturvitenskapelige fag", "Mening er alltid individuell, mens årsaker alltid gjelder grupper og aldri enkeltpersoner"],
+      options: ["Mening er en begrunnelse aktøren selv kan gi, mens en årsak gjelder enten hun vet om den eller ei", "Mening gjelder følelser og stemninger hos den enkelte, mens årsaker gjelder det som kan observeres utenfra", "Mening er noe samfunnsfagene studerer, mens årsaker hører hjemme i naturvitenskapelige fag der lovmessigheter kan måles", "Mening er alltid individuell, mens årsaker alltid gjelder grupper og aldri enkeltpersoner"],
       explanation: "Skillet gjelder om påstanden gjengir aktørens egen begrunnelse eller en sammenheng som gjelder uavhengig av den. Svaret om følelser gjør mening til en stemning, og svaret om at årsaker bare hører hjemme i naturvitenskapen er galt — Weber vil at samfunnsfagene skal ha begge deler.",
     },
     {
@@ -950,7 +950,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva innebærer Webers verdipluralisme?",
-      options: ["At vitenskapen ikke kan rangere verdier for oss, slik at valget mellom dem er vårt eget", "At alle verdier er like gyldige, slik at det ikke er noe poeng i å diskutere dem videre", "At samfunnet består av grupper med ulike verdier, som derfor kommer i konflikt med hverandre", "At verdier endrer seg over tid, slik at det som var riktig før kan være galt i dag"],
+      options: ["At vitenskapen ikke kan rangere verdier for oss, slik at valget mellom dem er vårt eget", "At alle verdier er like gyldige, slik at det ikke er noe poeng i å diskutere dem videre", "At samfunnet består av grupper med ulike verdier, som kommer i konflikt", "At verdier endrer seg over tid, slik at det som var riktig før kan være galt i dag når samfunnet er et annet"],
       explanation: "Verdipluralismen er en påstand om vitenskapens grenser, ikke om at verdier er vilkårlige. Svaret om at alt er like gyldig er nettopp feillesningen som gjør Weber til relativist. Svarene om gruppekonflikt og historisk endring er sanne observasjoner, men beskriver ikke hva begrepet betyr.",
     },
     {
@@ -960,7 +960,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan henger rasjonalisering sammen med formålsrasjonell handling?",
-      options: ["Rasjonalisering er at formålsrasjonaliteten bygges inn i ordninger, slik at systemet regner for oss", "Rasjonalisering er at stadig flere mennesker begynner å handle verdirasjonelt i stedet for vanemessig", "Rasjonalisering er at handlingstypene blandes, slik at skillet mellom dem blir mindre nyttig", "Rasjonalisering er at formålsrasjonelle handlinger blir sjeldnere fordi reglene overtar"],
+      options: ["Rasjonalisering er at formålsrasjonaliteten bygges inn i ordninger, slik at systemet regner for oss", "Rasjonalisering er at stadig flere mennesker begynner å handle verdirasjonelt i stedet for vanemessig", "Rasjonalisering er at handlingstypene blandes, slik at skillet mellom dem blir mindre nyttig som analytisk verktøy", "Rasjonalisering er at formålsrasjonelle handlinger blir sjeldnere fordi reglene overtar"],
       explanation: "Når beregningen av midler mot mål er bygget inn i organisasjoner og regelverk, trenger ikke den enkelte lenger å regne. Svaret om verdirasjonalitet snur retningen, og svaret om at formålsrasjonelle handlinger blir sjeldnere overser at ordningene nettopp **er** formålsrasjonalitet i institusjonalisert form.",
     },
     {
@@ -975,17 +975,17 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er byråkratiets bur et bilde på?",
-      options: ["At de rasjonaliserte ordningene er blitt så omfattende at ingen kan velge dem bort", "At ansatte i store organisasjoner er bundet av lojalitetsplikt overfor arbeidsgiveren sin", "At noen få personer med makt bevisst har bygget systemer som holder andre nede", "At regelverket i moderne stater er blitt for komplisert til at folk flest kan forstå det"],
+      options: ["At de rasjonaliserte ordningene er blitt så omfattende at ingen kan velge dem bort", "At ansatte i store organisasjoner er bundet av lojalitetsplikt overfor arbeidsgiveren sin", "At noen få personer med makt bevisst har bygget systemer som holder andre nede, og som de selv kan tre ut av", "At regelverket i moderne stater er blitt for komplisert til at folk flest kan forstå det"],
       explanation: "Buret er en påstand om utilsiktede konsekvenser: summen av mange fornuftige valg blir en ordning ingen av dem valgte. Svaret om noen få med makt gjør bildet til en konspirasjon, og svaret om komplisert regelverk gjør det til et spørsmål om språk og oversikt.",
     },
     {
       question: "Hva menes med avfortrylling?",
-      options: ["At verden framstår som noe som i prinsippet kan forklares og beherskes gjennom kunnskap", "At folk flest har mistet troen på at tilværelsen har noen mening ut over den de selv gir den", "At alle i et moderne samfunn faktisk vet hvordan teknologien rundt dem virker i praksis", "At religionen forsvinner helt fra samfunnet etter hvert som utdanningsnivået stiger"],
+      options: ["At verden framstår som noe som i prinsippet kan forklares og beherskes gjennom kunnskap", "At folk flest har mistet troen på at tilværelsen har noen mening i seg selv", "At alle i et moderne samfunn faktisk vet hvordan teknologien rundt dem virker i praksis", "At religionen forsvinner helt fra samfunnet etter hvert som utdanningsnivået stiger og vitenskapen overtar plassen"],
       explanation: "Avfortryllingen gjelder tilliten til at kunnskapen finnes og kan hentes, ikke at hver enkelt har den — det er nettopp svaret om at alle faktisk vet, som er fella. Svaret om at religionen forsvinner helt er en sterkere påstand enn begrepet innebærer.",
     },
     {
       question: "Hva består meningstapet i rasjonaliseringen av?",
-      options: ["At spørsmålet om hvilke mål vi bør ha, blir hjemløst når ordningene er bygget for måloppnåelse", "At arbeidet oppleves som ensformig fordi de samme oppgavene gjentar seg dag etter dag", "At arbeideren ikke lenger eier resultatet av arbeidet sitt, som tilfaller virksomheten", "At felles verdier svekkes fordi folk i moderne samfunn gjør stadig mer forskjellige ting fra hverandre"],
+      options: ["At spørsmålet om hvilke mål vi bør ha, blir hjemløst når ordningene er bygget for måloppnåelse", "At arbeidet oppleves som ensformig fordi de samme oppgavene gjentar seg dag etter dag", "At arbeideren ikke lenger eier resultatet av arbeidet sitt, som tilfaller virksomheten som eier maskinene", "At felles verdier svekkes fordi folk i moderne samfunn gjør stadig mer forskjellige ting fra hverandre"],
       explanation: "Meningstapet gjelder forholdet mellom mennesket og målene, forankret i organisasjonsformen. Svaret om eierskapet til resultatet er Marx' fremmedgjøring, og svaret om svekkede felles verdier er Durkheims problemstilling — de tre diagnosene har ulike forankringer og skal ikke brukes om hverandre.",
     },
     {
@@ -995,7 +995,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er Webers frihetsdiagnose for det moderne samfunnet?",
-      options: ["At friheten reduseres til å velge mellom alternativer ordningene allerede har definert", "At friheten er blitt for stor fordi de normene som ga retning, er svekket over tid", "At friheten er formelt sikret, men reelt ulikt fordelt fordi eierskapet er skjevt fordelt", "At friheten trues av at staten griper inn på stadig flere områder av privatlivet"],
+      options: ["At friheten reduseres til å velge mellom alternativer ordningene allerede har definert", "At friheten er blitt for stor fordi de normene som ga retning, er svekket, og den enkelte står alene med valget", "At friheten er formelt sikret, men reelt ulikt fordelt fordi eierskapet er skjevt fordelt", "At friheten trues av at staten griper inn på stadig flere områder av privatlivet"],
       explanation: "Webers mekanisme er organisatorisk: alternativene er definert på forhånd. Svaret om svekkede normer er Durkheims anomidiagnose, og svaret om skjevt eierskap er Marx' — alle tre kritiserer moderniteten, men med hver sin mekanisme.",
     },
     {
@@ -1010,12 +1010,12 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva menes med ensidig framheving i konstruksjonen av en idealtype?",
-      options: ["At forskeren velger ut noen trekk og forsterker dem, styrt av hva hun vil undersøke", "At forskeren utelater alle trekk som ikke lar seg måle med tall i et gitt materiale", "At forskeren bare tar med de trekkene som støtter den hypotesen hun har formulert", "At forskeren beskriver et fenomen fra ett faglig ståsted uten å trekke inn andre fag"],
+      options: ["At forskeren velger ut noen trekk og forsterker dem, styrt av hva hun vil undersøke", "At forskeren utelater alle trekk som ikke lar seg måle med tall i et gitt materiale", "At forskeren bare tar med de trekkene som støtter den hypotesen hun har formulert, og siler bort resten", "At forskeren beskriver et fenomen fra ett faglig ståsted uten andre fag"],
       explanation: "Ensidigheten er tilsiktet, og kritikken mot idealtyper gjelder derfor ikke at de forenkler, men at utvalget av trekk kan skjule et verdipremiss. Svaret om å velge trekk som støtter hypotesen beskriver en metodefeil, ikke idealtypens konstruksjon.",
     },
     {
       question: "Hva er den viktigste feilbruken av en idealtype?",
-      options: ["Å bruke den som sjekkliste, slik at konklusjonen blir at fenomenet passer eller ikke passer", "Å bruke den på et fenomen som ligger langt fra det den opprinnelig ble konstruert for", "Å bruke den uten å oppgi hvilken forsker som først formulerte den aktuelle modellen", "Å bruke den i et drøftingsledd i stedet for i et redegjørelsesledd, der den egentlig hører hjemme"],
+      options: ["Å bruke den som sjekkliste, slik at konklusjonen blir at fenomenet passer eller ikke passer", "Å bruke den på et fenomen som ligger langt fra det den opprinnelig ble konstruert for, som en annen historisk epoke", "Å bruke den uten å oppgi hvilken forsker som først formulerte den aktuelle modellen", "Å bruke den i et drøftingsledd i stedet for i et redegjørelsesledd, der den egentlig hører hjemme"],
       explanation: "Idealtypen er en målestokk, og avviket er selve funnet — derfor er sjekklistebruken feilen. Svaret om avstand fra opprinnelig bruksområde er ikke i seg selv galt: modeller kan flyttes, så lenge man sier hva som ikke passer.",
     },
     {
@@ -1025,7 +1025,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skiller en idealtype fra en stereotypi?",
-      options: ["Idealtypen gjør avviket til et funn, mens stereotypien avviser avviket som et unntak", "Idealtypen er utviklet av forskere, mens stereotypien oppstår i dagligtalen blant folk flest", "Idealtypen gjelder institusjoner, mens stereotypien alltid gjelder grupper av mennesker", "Idealtypen er nøytralt formulert, mens stereotypien alltid har et negativt fortegn"],
+      options: ["Idealtypen gjør avviket til et funn, mens stereotypien avviser avviket som et unntak", "Idealtypen er utviklet av forskere, mens stereotypien oppstår i dagligtalen blant folk flest", "Idealtypen gjelder institusjoner, mens stereotypien alltid gjelder grupper av mennesker", "Idealtypen er nøytralt formulert, mens stereotypien alltid har et negativt fortegn og nedvurderer gruppen"],
       explanation: "Forskjellen ligger i hva som gjøres med avviket. Svaret om hvem som lager dem er en sosiologisk observasjon uten begrepslig innhold, og svaret om negativt fortegn er galt — også positive stereotypier slutter fra gruppe til enkeltperson.",
     },
     {
@@ -1035,17 +1035,17 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvor hører Weber hjemme i Sollis framstilling av perspektivene på sosial orden?",
-      options: ["Under konfliktperspektivet, der orden forklares med ideologi, klasse, stand og politisk makt", "Under integrasjonsperspektivet, der orden forklares med felles verdier og kollektiv bevissthet", "Under handlings- og bytteperspektivet, der orden forklares med at aktører velger og bytter", "Under interaksjonsperspektivet, der orden forklares med hverdagsritualer og inntrykksmestring"],
+      options: ["Under konfliktperspektivet, der orden forklares med ideologi, klasse, stand og politisk makt", "Under integrasjonsperspektivet, der orden forklares med felles verdier og kollektiv bevissthet", "Under handlings- og bytteperspektivet, der orden forklares med at aktører velger og bytter ut fra hva som lønner seg", "Under interaksjonsperspektivet, der orden forklares med hverdagsritualer og inntrykksmestring"],
       explanation: "Weber står under konfliktperspektivet sammen med Marx. De tre andre perspektivene er reelle og hører til henholdsvis Durkheim, den rasjonelle aktør-tradisjonen og Goffman — og handlings- og bytteperspektivet er nettopp der Webers **handlingstyper** brukes, uten at Weber selv plasseres der.",
     },
     {
       question: "Hvilken avsender eier framstillingen av formålsrasjonell og verdirasjonell handling i pensum?",
-      options: ["Balsvik, i framstillingen av rasjonalitetsantakelser, selv om begrepene tilhører Weber", "Aakvaag, i framstillingen av klassikernes menneskesyn og deres samtidsdiagnoser", "Solli, i framstillingen av de fire perspektivene på spørsmålet om sosial orden", "Nyborg, i framstillingen av eksperimentene som utfordrer antakelsen om ren egoisme hos aktører"],
+      options: ["Balsvik, i framstillingen av rasjonalitetsantakelser, selv om begrepene tilhører Weber", "Aakvaag, i framstillingen av klassikernes menneskesyn og deres samtidsdiagnoser, der de to handlingstypene inngår", "Solli, i framstillingen av de fire perspektivene på spørsmålet om sosial orden", "Nyborg, i framstillingen av eksperimentene som utfordrer antakelsen om ren egoisme hos aktører"],
       explanation: "Skillet mellom teoriens opphavsmann og framstillingen i pensum er noe sensor legger merke til: begrepene er Webers, framstillingen emnet prøver deg i, er Balsviks. De tre andre er ekte avsendere i emnet, men eier andre deler av pensum.",
     },
     {
       question: "Hva er Webers samtidsdiagnose i ett ord?",
-      options: ["Rasjonalisering, med byråkratiseringen som organisatorisk form og meningstapet som pris", "Fremmedgjøring, med arbeidsdelingen som mekanisme og artsvesenet som målestokk", "Anomi, med svekket moralsk regulering som mekanisme og grenseløse forventninger som følge", "Individualisering, med svekkede fellesskap som mekanisme og ensomhet som konsekvens"],
+      options: ["Rasjonalisering, med byråkratiseringen som organisatorisk form og meningstapet som pris", "Fremmedgjøring, med arbeidsdelingen som mekanisme og artsvesenet som målestokk", "Anomi, med svekket moralsk regulering som mekanisme og grenseløse forventninger som følge", "Individualisering, med svekkede fellesskap som mekanisme og ensomhet som konsekvens i det moderne samfunnet"],
       explanation: "Rasjonaliseringen er Webers diagnose. Fremmedgjøring er Marx' og anomi er Durkheims — de tre brukes ofte om hverandre i sammenligningsledd. Individualisering er ikke en av de tre klassikerdiagnosene i pensum.",
     },
     {
@@ -1062,8 +1062,8 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
   'svexfac03-2-3': [
     {
       question: "Hva er Durkheims menneskesyn, slik Aakvaag framstiller det?",
-      options: ["Mennesket er samfunnsskapt: språk, moral og til og med ønskene våre kommer fra fellesskapet", "Mennesket er et arbeidende vesen som realiserer seg gjennom å forme naturen etter en plan", "Mennesket er frihets- og meningssøkende og må velge mellom verdier ingen kan rangere for det", "Mennesket er styrt av medfødte drifter som samfunnet må holde i sjakk gjennom institusjoner"],
-      explanation: "Durkheim går lengst i å gjøre det individuelle til et sosialt produkt. De to første distraktorene er Marx' og Webers menneskesyn, som forveksles med Durkheims i sammenligningsledd, og svaret om medfødte drifter er en biologisk modell — ikke Durkheims posisjon.",
+      options: ["Mennesket er samfunnsskapt: språk, moral og til og med ønskene våre kommer fra fellesskapet", "Mennesket er et arbeidende vesen som realiserer seg gjennom å forme naturen etter en plan", "Mennesket er frihets- og meningssøkende og må velge mellom verdier selv", "Mennesket er styrt av medfødte drifter som samfunnet må holde i sjakk gjennom institusjoner"],
+      explanation: "Durkheim går lengst i å gjøre det individuelle til et sosialt produkt. Det arbeidende vesenet er Marx' menneskesyn og det frihets- og meningssøkende er Webers, og begge forveksles med Durkheims i sammenligningsledd; svaret om medfødte drifter er en biologisk modell — ikke Durkheims posisjon.",
     },
     {
       question: "Hva er Durkheims skjerpede påstand om menneskets ønsker?",
@@ -1177,8 +1177,8 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er Durkheims posisjon oppsummert på én linje?",
-      options: ["Samfunnsskapt menneske, anomi som diagnose, og for mye uregulert frihet i moderniteten", "Arbeidende menneske, fremmedgjøring som diagnose, og for lite reell frihet i moderniteten", "Meningssøkende menneske, rasjonalisering som diagnose, og for lite frihet i moderniteten", "Beregnende menneske, begrenset rasjonalitet som diagnose, og frihet gjennom flere valg"],
-      explanation: "Repetisjonskortet skal sitte som én enhet: menneskesyn, diagnose, frihetsdiagnose. De to neste svarene er Marx' og Webers linjer, og det siste beskriver en modell fra rasjonalitetslitteraturen, ikke en klassikerposisjon.",
+      options: ["Samfunnsskapt menneske, anomi som diagnose, og for mye uregulert frihet i moderniteten", "Arbeidende menneske, fremmedgjøring som diagnose, og for lite reell frihet", "Meningssøkende menneske, rasjonalisering som diagnose, og for lite frihet", "Beregnende menneske, begrenset rasjonalitet som diagnose, og frihet gjennom flere valg"],
+      explanation: "Repetisjonskortet skal sitte som én enhet: menneskesyn, diagnose, frihetsdiagnose. Linjen om fremmedgjøring er Marx' og linjen om rasjonalisering er Webers, mens linjen om begrenset rasjonalitet beskriver en modell fra rasjonalitetslitteraturen, ikke en klassikerposisjon.",
     },
   ],
   'svexfac03-2-4': [
@@ -1299,7 +1299,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er de tre klassikernes diagnoser oppsummert?",
-      options: ["Fremmedgjøring hos Marx, rasjonalisering hos Weber og anomi hos Durkheim", "Fremmedgjøring hos Marx, anomi hos Weber og rasjonalisering hos Durkheim", "Rasjonalisering hos Marx, fremmedgjøring hos Weber og individualisering hos Durkheim", "Anomi hos Marx, byråkratisering hos Weber og arbeidsdeling hos Durkheim"],
+      options: ["Fremmedgjøring hos Marx, rasjonalisering hos Weber og anomi hos Durkheim", "Fremmedgjøring hos Marx, anomi hos Weber og rasjonalisering hos Durkheim", "Rasjonalisering hos Marx og individualisering hos Durkheim", "Anomi hos Marx, byråkratisering hos Weber og arbeidsdeling hos Durkheim"],
       explanation: "Koblingen mellom navn og diagnose må sitte automatisk, siden sammenligningsleddet hviler på den. De tre andre svarene bytter om på diagnosene, og byttet mellom anomi og rasjonalisering er den vanligste forvekslingen i denne klyngen.",
     },
   ],
@@ -1361,7 +1361,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvor plasseres handlings- og bytteperspektivet på dimensjonen struktur mot aktør og på dimensjonen passiv mot aktiv menneskemodell?",
-      options: ["Aktørorientert, og med en aktiv menneskemodell der personen vurderer og velger", "Strukturorientert, og med en passiv menneskemodell der posisjonen styrer valget", "Aktørorientert, og med en passiv menneskemodell der vanen styrer det som skjer", "Strukturorientert, og med en aktiv menneskemodell der vurderingen står sentralt"],
+      options: ["Aktørorientert, og med en aktiv menneskemodell der personen vurderer og velger", "Strukturorientert, med en passiv menneskemodell der posisjonen styrer", "Aktørorientert, og med en passiv menneskemodell der vanen styrer det som skjer", "Strukturorientert, med en aktiv menneskemodell der vurderingen teller"],
       explanation: "Riktig svar er at perspektivet er aktørorientert og bygger på en aktiv menneskemodell, siden handlingen forklares med at aktøren veier alternativer mot hverandre. Den nære fella er å kombinere aktørorientering med en passiv modell; en slik kombinasjon ville gjort selve valget uinteressant, og da faller grunnlaget bort for å forklare mønstre som utilsiktede resultater av valg. Struktur kommer inn som rammer, men forklaringen begynner hos den handlende.",
     },
     {
@@ -1371,7 +1371,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Integrasjonsperspektivet og konfliktperspektivet deler både struktursiden og den passive menneskemodellen. Hva skiller dem da fra hverandre?",
-      options: ["Dimensjonen konflikt mot harmoni, altså om samordningen hviler på enighet eller på makt", "Dimensjonen struktur mot aktør, altså om forklaringen begynner hos den enkelte eller ikke", "Dimensjonen passiv mot aktiv, altså om personen vurderer og velger eller styres utenfra", "Skillet mellom beskrivende og normativ framstilling av hvordan samfunnet bør innrettes"],
+      options: ["Dimensjonen konflikt mot harmoni, altså om samordningen hviler på enighet eller på makt", "Dimensjonen struktur mot aktør, altså om forklaringen begynner hos den enkelte", "Dimensjonen passiv mot aktiv, altså om personen vurderer og velger eller styres utenfra", "Skillet mellom beskrivende og normativ framstilling av hvordan samfunnet bør innrettes"],
       explanation: "Riktig svar er at de to perspektivene skiller lag på dimensjonen konflikt mot harmoni. Fella er å gripe til struktur mot aktør, som er en reell dimensjon i kartet, men som her nettopp er felles for de to. Dette viser hvorfor det trengs tre dimensjoner: to perspektiver kan falle sammen på to av dem og likevel gi helt ulike svar.",
     },
     {
@@ -1381,7 +1381,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva menes med begrepet «struktur» i begrepsparet aktør og struktur?",
-      options: ["Mønstre som ligger utenfor den enkelte og som former hvilket handlingsrom hun har", "Summen av de valgene enkeltpersoner faktisk gjør i en gitt situasjon over lengre tid", "De uttalte reglene som er nedfelt i lover og skriftlige avtaler i et gitt samfunn", "De målene en aktør setter seg og som gir retning til handlingene hennes over tid"],
+      options: ["Mønstre som ligger utenfor den enkelte og som former hvilket handlingsrom hun har", "Summen av de valgene enkeltpersoner faktisk gjør i en gitt situasjon", "De uttalte reglene som er nedfelt i lover og skriftlige avtaler i et gitt samfunn", "De målene en aktør setter seg og som gir retning til handlingene hennes over tid"],
       explanation: "Riktig svar er at struktur er mønstre som ligger utenfor den enkelte og former handlingsrommet hennes. Den nære fella er å begrense struktur til nedskrevne regler; uskrevne normer, maktforhold og økonomiske posisjoner er struktur selv om ingen har formulert dem i en lovtekst. Struktur er heller ikke bare summen av valg, for da ville begrepet falt sammen med aktørsiden.",
     },
     {
@@ -1401,7 +1401,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "I en havneby får de største rederiene alltid de beste kaiplassene, og de mindre finner seg i det fordi ingen av dem makter å endre ordningen. Hva sier dette tilfellet om begrepet sosial orden?",
-      options: ["Det er en sosial orden, siden samhandlingen er samordnet selv om den bygger på ulik makt", "Det er ingen sosial orden, siden en orden krever at deltakerne er enige om ordningen", "Det er ingen sosial orden, siden samfunnet her verken er fredfylt eller preget av harmoni", "Det er en sosial orden bare dersom rederiene også deler et felles verdisyn om havnedrift"],
+      options: ["Det er en sosial orden, siden samhandlingen er samordnet selv om den bygger på ulik makt", "Det er ingen sosial orden, siden en orden krever at deltakerne er enige om ordningen", "Det er ingen sosial orden, siden samfunnet her ikke er preget av harmoni", "Det er en sosial orden bare dersom rederiene også deler et felles verdisyn om havnedrift"],
       explanation: "Riktig svar er at dette er en sosial orden, fordi samhandlingen faktisk er samordnet og forutsigbar. Den nære fella er kravet om enighet blant deltakerne; det ville gjort begrepet ubrukelig for alle ordninger som hviler på makt, tvang eller ideologi, og nettopp slike ordninger er konfliktperspektivets kjerneområde. Orden sier hvordan samhandlingen henger sammen, ikke om ordningen er god eller rettferdig.",
     },
   ],
@@ -1413,22 +1413,22 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken rolle spiller sosialisering i integrasjonsperspektivet?",
-      options: ["Den er prosessen der samfunnets verdier og normer blir en del av den enkelte selv", "Den er prosessen der de mektigste gruppene får gjennomslag for interessene sine over tid", "Den er prosessen der aktørene lærer å regne ut hva de tjener på i ulike bytter", "Den er prosessen der en avtale får rettslig bindende kraft mellom to parter"],
+      options: ["Den er prosessen der samfunnets verdier og normer blir en del av den enkelte selv", "Den er prosessen der de mektigste gruppene får gjennomslag for interessene sine over tid", "Den er prosessen der aktørene lærer å regne ut hva de tjener på i ulike bytter, og velge det som lønner seg", "Den er prosessen der en avtale får rettslig bindende kraft mellom to parter"],
       explanation: "Riktig svar er at sosialisering er måten verdiene og normene blir den enkeltes egne på, slik at de virker innenfra og ikke bare som ytre press. Den nære fella er å beskrive sosialisering som maktbruk fra sterke gruppers side; det ville gjort forklaringen til en konfliktforklaring i stedet. I integrasjonsperspektivet er poenget at folk følger normene fordi de opplever dem som riktige.",
     },
     {
       question: "Hva er forskjellen mellom å ha internalisert en norm og å bare rette seg etter den utad?",
-      options: ["Internalisert betyr at normen oppleves som ens egen, mens ytre etterlevelse skjer av frykt", "Internalisert betyr at normen er nedfelt i lov, mens ytre etterlevelse hviler på sedvane", "Internalisert betyr at normen er kjent for alle, mens ytre etterlevelse er ukjent for de fleste", "Internalisert betyr at normen gjelder i familien, mens ytre etterlevelse gjelder i arbeidslivet"],
+      options: ["Internalisert betyr at normen oppleves som ens egen, mens ytre etterlevelse skjer av frykt", "Internalisert betyr at normen er nedfelt i lov, mens ytre etterlevelse hviler på sedvane uten lovs kraft", "Internalisert betyr at normen er kjent for alle, mens ytre etterlevelse er ukjent for de fleste", "Internalisert betyr at normen gjelder i familien, mens ytre etterlevelse gjelder i arbeidslivet"],
       explanation: "Riktig svar er at internalisering betyr at normen er gjort til ens egen, slik at man følger den også når ingen ser på. Den nære fella er å knytte skillet til lov mot sedvane; en norm kan være internalisert uten å stå i noen lov, og en lovfestet regel kan følges rent utvendig av frykt for straff. Nettopp derfor er internalisering avgjørende for integrasjonsperspektivets ordensforklaring.",
     },
     {
       question: "Hva menes med Durkheims begrep «kollektiv bevissthet»?",
-      options: ["Summen av felles forestillinger og følelser som virker som en kraft utenfor den enkelte", "Summen av det hver enkelt innbygger tenker og mener, lagt sammen til et gjennomsnitt for alle", "Summen av de reglene et samfunn har vedtatt gjennom sine folkevalgte organer", "Summen av de interessene ulike grupper forsvarer i kampen om godene i samfunnet"],
+      options: ["Summen av felles forestillinger og følelser som virker som en kraft utenfor den enkelte", "Summen av det hver enkelt innbygger tenker og mener, lagt sammen til et gjennomsnitt for alle", "Summen av de reglene et samfunn har vedtatt gjennom sine folkevalgte organer", "Summen av de interessene ulike grupper forsvarer i kampen om godene i samfunnet og om posisjonene som gir makt"],
       explanation: "Riktig svar er at kollektiv bevissthet er de felles forestillingene og følelsene i et samfunn, forstått som en kraft som virker på den enkelte utenfra. Den nære fella er å lese begrepet som et gjennomsnitt av det hver enkelt tenker; da forsvinner nettopp det Durkheim vil fram til, at den felles bevisstheten har en egen tyngde som den enkelte møter som en ytre realitet. Begrepet er derfor et strukturbegrep, ikke et sammendrag av enkeltmeninger.",
     },
     {
       question: "Hvorfor er det feil å si at kollektiv bevissthet er summen av det hver enkelt person tenker?",
-      options: ["Fordi den virker på den enkelte som en ytre kraft og ikke lar seg redusere til enkeltmeninger", "Fordi den bare finnes i små samfunn der alle kjenner hverandre og deler de samme oppgavene", "Fordi den viser til myndighetenes offisielle syn og ikke til det befolkningen faktisk mener til enhver tid", "Fordi den skifter så raskt at ingen på et gitt tidspunkt kan si hva den består av"],
+      options: ["Fordi den virker på den enkelte som en ytre kraft og ikke lar seg redusere til enkeltmeninger", "Fordi den bare finnes i små samfunn der alle kjenner hverandre og deler de samme oppgavene og den samme troen", "Fordi den viser til myndighetenes offisielle syn og ikke til det befolkningen faktisk mener til enhver tid", "Fordi den skifter så raskt at ingen på et gitt tidspunkt kan si hva den består av"],
       explanation: "Riktig svar er at kollektiv bevissthet er noe annet enn et sammendrag av enkeltmeninger, siden den møter den enkelte som en ytre kraft hun må forholde seg til. Den nære fella er å begrense begrepet til små samfunn; Durkheim beskriver riktignok en sterkere kollektiv bevissthet i enkle samfunn, men begrepet er ikke forbeholdt dem. Poenget er nivåforskjellen mellom samfunnet og den enkelte, ikke samfunnets størrelse.",
     },
     {
@@ -1448,12 +1448,12 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "To naboer avtaler å bytte på å måke fellesinnkjørselen, uten skriftlig avtale og uten noen sanksjon om noen svikter. Hva illustrerer dette best?",
-      options: ["Prekontraktuell solidaritet, siden avtalen bare virker fordi tilliten er der på forhånd", "Dysfunksjon, siden ordningen kan svekke de andre oppgavene naboene har seg imellom", "En manifest funksjon, siden begge naboene har snørydding som uttalt mål med avtalen", "AGIL, siden alle de fire funksjonskravene her løses innenfor et lite og oversiktlig system"],
+      options: ["Prekontraktuell solidaritet, siden avtalen bare virker fordi tilliten er der på forhånd", "Dysfunksjon, siden ordningen kan svekke de andre oppgavene naboene har seg imellom", "En manifest funksjon, siden begge naboene har snørydding som uttalt mål med avtalen og oppnår det de sikter mot", "AGIL, siden alle de fire funksjonskravene her løses innenfor et lite og oversiktlig system"],
       explanation: "Riktig svar er at avtalen illustrerer prekontraktuell solidaritet: den forplikter fordi naboene alt deler en tillit og en normorden som avtalen bygger videre på. Den nære fella er å kalle snørydding en manifest funksjon; det er riktig at målet er uttalt, men spørsmålet her gjelder hva som gjør avtalen bindende, ikke hvilken virkning den har for en større helhet. Dysfunksjon og AGIL hører til andre begrepspar.",
     },
     {
       question: "Hvem står bak AGIL-skjemaet?",
-      options: ["Parsons, som setter opp fire funksjonskrav ethvert sosialt system må løse", "Durkheim, som setter opp fire former for solidaritet i moderne samfunn", "Merton, som setter opp fire typer virkninger en ordning kan ha for helheten", "Solli, som setter opp fire perspektiver på hvordan sosial orden kan forklares"],
+      options: ["Parsons, som setter opp fire funksjonskrav ethvert sosialt system må løse", "Durkheim, som setter opp fire former for solidaritet i moderne samfunn, to for hver samfunnstype", "Merton, som setter opp fire typer virkninger en ordning kan ha for helheten", "Solli, som setter opp fire perspektiver på hvordan sosial orden kan forklares"],
       explanation: "Riktig svar er at AGIL er Parsons' skjema over fire funksjonskrav. De nære fellene bytter ut avsenderen med andre som også opererer med firedelinger: Solli deler ordensperspektivene i fire, mens Durkheim og Merton eier henholdsvis solidaritetsbegrepet og skillet mellom manifeste og latente funksjoner. Å tilskrive AGIL til Durkheim eller Merton er en av de vanligste forvekslingene i dette stoffet.",
     },
     {
@@ -1463,12 +1463,12 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilket funksjonskrav i AGIL dekker forholdet mellom systemet og omgivelsene rundt det?",
-      options: ["Tilpasning, altså å skaffe og fordele de ressursene systemet trenger utenfra", "Måloppnåelse, altså å sette felles mål og bruke kreftene på å nå dem", "Integrasjon, altså å holde de ulike delene i systemet sammen over tid", "Mønsteropprettholdelse, altså å bevare verdiene og motivasjonen hos deltakerne"],
+      options: ["Tilpasning, altså å skaffe og fordele de ressursene systemet trenger utenfra", "Måloppnåelse, altså å sette felles mål og bruke kreftene på å nå dem", "Integrasjon, altså å holde de ulike delene i systemet sammen over tid uten at de trekker fra hverandre", "Mønsteropprettholdelse, altså å bevare verdiene og motivasjonen hos deltakerne"],
       explanation: "Riktig svar er tilpasning, som gjelder å hente inn og fordele ressurser fra omgivelsene. De øvrige svarene er de tre andre kravene i skjemaet og er riktige beskrivelser av dem, men ingen av dem handler om forholdet utover mot omgivelsene. Fella er å blande sammen hvilket krav som dekker hva, siden alle fire er formulert på samme abstraksjonsnivå.",
     },
     {
       question: "Hvilket funksjonskrav i AGIL handler om å holde de ulike delene av systemet sammen?",
-      options: ["Integrasjon, altså å samordne delene slik at de ikke trekker i hver sin retning", "Tilpasning, altså å hente inn de ressursene systemet trenger fra omgivelsene", "Måloppnåelse, altså å prioritere mellom mål og sette inn kreftene mot dem", "Mønsteropprettholdelse, altså å føre verdiene videre og holde motivasjonen hos deltakerne oppe"],
+      options: ["Integrasjon, altså å samordne delene slik at de ikke trekker i hver sin retning", "Tilpasning, altså å hente inn de ressursene systemet trenger fra omgivelsene og fordele dem internt", "Måloppnåelse, altså å prioritere mellom mål og sette inn kreftene mot dem", "Mønsteropprettholdelse, altså å føre verdiene videre og holde motivasjonen hos deltakerne oppe"],
       explanation: "Riktig svar er integrasjon, som gjelder samordningen mellom delene i systemet. Den nære fella er mønsteropprettholdelse, som også handler om noe som varer over tid; forskjellen er at mønsteropprettholdelse gjelder verdier og motivasjon hos deltakerne, mens integrasjon gjelder forholdet mellom delene. Navnet på dette kravet er også lett å forveksle med integrasjonsperspektivet, som er noe annet.",
     },
     {
@@ -1493,12 +1493,12 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skiller integrasjonsperspektivet fra handlings- og bytteperspektivet?",
-      options: ["Der orden følger av felles verdier i det ene, er den et utilsiktet resultat av mange valg i det andre", "Der orden følger av felles verdier i det ene, er den et resultat av åpen tvang i det andre", "Der orden følger av felles verdier i det ene, er den et resultat av tolkning i møtet i det andre", "Der orden følger av felles verdier i det ene, er den et resultat av rettslig bindende avtaler i det andre"],
+      options: ["Der orden følger av felles verdier i det ene, er den et utilsiktet resultat av mange valg i det andre", "Der orden følger av felles verdier i det ene, er den et resultat av åpen tvang i det andre", "Der orden følger av felles verdier i det ene, er den et resultat av tolkning i møtet ansikt til ansikt i det andre", "Der orden følger av felles verdier i det ene, er den et resultat av rettslig bindende avtaler i det andre"],
       explanation: "Riktig svar er at handlings- og bytteperspektivet forklarer orden som et mønster ingen har villet, men som følger av mange enkeltvalg. Den nære fella er å tilskrive dette perspektivet tolkningen i møtet, som hører til interaksjonsperspektivet. Forskjellen mot integrasjonsperspektivet ligger både i at forklaringen begynner hos aktøren, og i at fellesverdier ikke trengs for å få mønsteret.",
     },
     {
       question: "Hvorfor er det feil å tro at integrasjonsperspektivet forutsetter at det ikke finnes strid i samfunnet?",
-      options: ["Fordi perspektivet forklarer samordningen med delte verdier, ikke med at uenighet er fraværende", "Fordi perspektivet regner med at striden alltid vil ende med at én gruppes verdier vinner fram", "Fordi perspektivet bare gjelder for små grupper, der strid uansett sjelden rekker å bygge seg opp", "Fordi perspektivet ser strid som selve kilden til de verdiene medlemmene etter hvert kommer til å dele"],
+      options: ["Fordi perspektivet forklarer samordningen med delte verdier, ikke med at uenighet er fraværende", "Fordi perspektivet regner med at striden alltid vil ende med at én gruppes verdier vinner fram på bekostning av de andre", "Fordi perspektivet bare gjelder for små grupper, der strid uansett sjelden rekker å bygge seg opp", "Fordi perspektivet ser strid som selve kilden til de verdiene medlemmene etter hvert kommer til å dele"],
       explanation: "Riktig svar er at perspektivet forklarer hvordan samordning er mulig, og det utelukker verken uenighet eller åpne konflikter innenfor en delt verdiramme. Den nære fella er å lese harmoniorienteringen som en påstand om at strid ikke finnes; harmoniorientering betyr at forklaringen legger vekt på det som binder sammen, ikke at bindingen aldri utfordres. Perspektivet er heller ikke begrenset til små grupper.",
     },
     {
@@ -1513,24 +1513,24 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forholdet mellom Durkheims kollektive bevissthet og Parsons' AGIL i integrasjonsperspektivet?",
-      options: ["Begge peker på at samordning krever noe felles over den enkelte, men bare AGIL er et skjema over funksjonskrav", "Begge er skjemaer over funksjonskrav, men bare kollektiv bevissthet dekker forholdet til omgivelsene rundt", "Begge beskriver hvordan makt fordeles i et samfunn, men bare AGIL sier noe om verdier og motivasjon", "Begge beskriver hva som skjer i møtet mellom to parter, men bare kollektiv bevissthet er et rent strukturbegrep"],
+      options: ["Begge peker på at samordning krever noe felles over den enkelte, men bare AGIL er et skjema over funksjonskrav", "Begge er skjemaer over funksjonskrav, men bare kollektiv bevissthet dekker forholdet til omgivelsene rundt det sosiale systemet", "Begge beskriver hvordan makt fordeles i et samfunn, men bare AGIL sier noe om verdier og motivasjon", "Begge beskriver hva som skjer i møtet mellom to parter, men bare kollektiv bevissthet er et rent strukturbegrep"],
       explanation: "Riktig svar er at begge hører hjemme i integrasjonsperspektivet og peker på noe felles over den enkelte, mens bare AGIL er et skjema over fire funksjonskrav. Den nære fella er å gjøre kollektiv bevissthet til et skjema den også; det er et begrep om felles forestillinger og følelser, ikke en oppstilling av krav et system må løse. Ingen av dem handler om møtet ansikt til ansikt.",
     },
     {
       question: "Hva svarer integrasjonsperspektivet dersom noen spør hvorfor folk holder avtalene sine også når det ikke lønner seg?",
-      options: ["At normen om å holde avtaler er internalisert og virker uavhengig av hva det koster", "At kostnaden ved brudd i praksis alltid er høyere enn den umiddelbart ser ut til å være", "At de som ikke holder avtaler blir straffet av dem som har mest makt i samfunnet", "At partene i situasjonen forhandler seg fram til hva avtalen egentlig skulle bety"],
+      options: ["At normen om å holde avtaler er internalisert og virker uavhengig av hva det koster", "At kostnaden ved brudd i praksis alltid er høyere enn den umiddelbart ser ut til å være", "At de som ikke holder avtaler blir straffet av dem som har mest makt i samfunnet", "At partene i situasjonen forhandler seg fram til hva avtalen egentlig skulle bety hver gang den settes på prøve"],
       explanation: "Riktig svar er at normen om å holde avtaler virker innenfra og derfor ikke er avhengig av en nytteberegning. Den nære fella er å regne om lojaliteten til en skjult lønnsomhet; det er handlings- og bytteperspektivets måte å redde forklaringen på, og den forutsetter nettopp det integrasjonsperspektivet avviser. Prekontraktuell solidaritet er begrepet som fanger denne forutgående forpliktelsen.",
     },
     {
       question: "Hvilken beskrivelse fanger integrasjonsperspektivets plassering på alle tre dimensjonene?",
-      options: ["Strukturorientert, harmoniorientert, og bygget på en passiv menneskemodell", "Strukturorientert, konfliktorientert, og bygget på en passiv menneskemodell", "Aktørorientert, harmoniorientert, og bygget på en aktiv menneskemodell", "Strukturorientert, harmoniorientert, og bygget på en aktiv menneskemodell"],
+      options: ["Strukturorientert, harmoniorientert, og bygget på en passiv menneskemodell", "Strukturorientert, konfliktorientert, og bygget på en passiv menneskemodell", "Aktørorientert, harmoniorientert, og bygget på en aktiv menneskemodell", "Strukturorientert, harmoniorientert, og bygget på en aktiv menneskemodell der verdiene velges fritt"],
       explanation: "Riktig svar er at integrasjonsperspektivet er strukturorientert og harmoniorientert og hviler på en passiv menneskemodell. Den nære fella kombinerer riktig struktur- og harmoniplassering med en aktiv menneskemodell; det ville gjort verdiene til noe den enkelte velger, mens perspektivets poeng er at de er lært inn og virker som en ytre orden. Alle tre dimensjonene må stemme for at plasseringen skal være riktig.",
     },
   ],
   'svexfac03-3-3': [
     {
       question: "Hva kjennetegner en funksjonalistisk forklaring av en samfunnsordning?",
-      options: ["Ordningen forklares ved den virkningen den har for helheten den inngår i", "Ordningen forklares ved de motivene de som innførte den opprinnelig hadde", "Ordningen forklares ved den maktkampen som ligger bak at den ble innført", "Ordningen forklares ved hvordan deltakerne tolker den i konkrete situasjoner"],
+      options: ["Ordningen forklares ved den virkningen den har for helheten den inngår i", "Ordningen forklares ved motivene til dem som innførte den", "Ordningen forklares ved den maktkampen som ligger bak at den ble innført", "Ordningen forklares ved hvordan deltakerne tolker den"],
       explanation: "Riktig svar er at funksjonalismen forklarer en ordning ved virkningen den har for den helheten den inngår i. Den nære fella er å vise til motivene til dem som innførte ordningen; da har man gitt en forklaring ved hensikt, og det er nettopp det en funksjonsforklaring ikke er. Virkning og hensikt kan falle sammen, men de trenger ikke gjøre det.",
     },
     {
@@ -1560,7 +1560,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Et bibliotek innfører lengre åpningstider for at flere skal få lånt bøker. Etter en stund viser det seg at lokalet er blitt et fast oppholdssted for folk som ellers ville sittet alene hjemme. Hva er den latente funksjonen?",
-      options: ["At biblioteket demper ensomhet, siden dette verken var målet eller noe man regnet med", "At flere låner bøker, siden dette er den virkningen ordningen faktisk hadde i praksis", "At biblioteket får høyere besøkstall, siden dette kan telles i den løpende statistikken", "At kommunen får bedre omdømme, siden lengre åpningstider ble omtalt som et framskritt"],
+      options: ["At biblioteket demper ensomhet, siden dette verken var målet eller noe man regnet med", "At flere låner bøker, siden dette er den virkningen ordningen faktisk hadde i praksis", "At biblioteket får høyere besøkstall, siden dette kan telles i statistikken", "At kommunen får bedre omdømme, siden lengre åpningstider ble omtalt som et framskritt"],
       explanation: "Riktig svar er at dempingen av ensomhet er den latente funksjonen, fordi den er utilsiktet og ikke erkjent på forhånd. Den nære fella er utlånstallene; det er en reell virkning, men den var nettopp formålet med tiltaket og er derfor manifest. Latent og manifest skilles på hva deltakerne har som mål og er klar over, ikke på hvor viktig virkningen er.",
     },
     {
@@ -1570,7 +1570,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvem står bak skillet mellom manifeste og latente funksjoner?",
-      options: ["Merton, som bruker det til å skille tilsiktede fra utilsiktede virkninger", "Parsons, som bruker det til å skille de fire funksjonskravene fra hverandre", "Durkheim, som bruker det til å skille to former for solidaritet i samfunn", "Tufte, som bruker det til å skille forklaringstyper fra hverandre i faget"],
+      options: ["Merton, som bruker det til å skille tilsiktede fra utilsiktede virkninger", "Parsons, som bruker det til å skille de fire funksjonskravene", "Durkheim, som bruker det til å skille to former for solidaritet i samfunn", "Tufte, som bruker det til å skille forklaringstyper fra hverandre i faget"],
       explanation: "Riktig svar er at skillet er Mertons. De nære fellene er avsendere som eier tilgrensende begreper: Parsons står bak AGIL, Durkheim bak solidaritetsformene, og Tufte bak oversikten over forklaringstyper. Merton er også opphavet til dysfunksjon og til kritikken av antakelsen om funksjonell enhet.",
     },
     {
@@ -1622,12 +1622,12 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
   'svexfac03-3-4': [
     {
       question: "Hva er kjernepåstanden i konfliktperspektivet slik Solli framstiller det?",
-      options: ["Orden består fordi noen har makt til å opprettholde den ordningen som gjelder", "Orden består fordi medlemmene deler verdier de har gjort til sine egne", "Orden består fordi enkeltaktører gjør bytter som lønner seg for dem hver for seg", "Orden består fordi partene bygger en felles forståelse i møtet ansikt til ansikt"],
+      options: ["Orden består fordi noen har makt til å opprettholde den ordningen som gjelder", "Orden består fordi medlemmene deler verdier de har gjort til sine egne gjennom sosialiseringen", "Orden består fordi enkeltaktører gjør bytter som lønner seg for dem hver for seg", "Orden består fordi partene bygger en felles forståelse i møtet ansikt til ansikt"],
       explanation: "Riktig svar er at konfliktperspektivet forklarer orden med makt: noen er i stand til å holde ordningen på plass. Den nære fella er integrasjonsperspektivets svar om delte verdier; begge perspektivene er strukturorienterte, men de peker på helt ulike mekanismer bak samordningen. De to øvrige svarene hører til handlings- og bytteperspektivet og til interaksjonsperspektivet.",
     },
     {
       question: "Hvorfor er det nyttig at sosial orden ikke betyr harmoni når man arbeider med konfliktperspektivet?",
-      options: ["Fordi et samfunn preget av undertrykkelse da fortsatt kan analyseres som en orden", "Fordi de undertrykte da regnes som tilhengere av ordningen på linje med andre", "Fordi analysen da kan si noe om hvorvidt en samfunnsordning er rettferdig eller ikke", "Fordi striden mellom gruppene da må ha stilnet før man kan snakke om orden i det hele tatt"],
+      options: ["Fordi et samfunn preget av undertrykkelse da fortsatt kan analyseres som en orden", "Fordi de undertrykte da regnes som tilhengere av ordningen på linje med dem som tjener på den", "Fordi analysen da kan si noe om hvorvidt en samfunnsordning er rettferdig eller ikke", "Fordi striden mellom gruppene da må ha stilnet før man kan snakke om orden i det hele tatt"],
       explanation: "Riktig svar er at et samfunn med undertrykkelse og strid fortsatt er samordnet og forutsigbart, og dermed en orden i faglig forstand. Den nære fella er å tro at begrepet krever at striden har stilnet; det ville stengt konfliktperspektivet ute fra ordensdebatten helt. Begrepet sier heller ingenting om ordningen er rettferdig, siden det er beskrivende og ikke vurderende.",
     },
     {
@@ -1637,12 +1637,12 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den avgjørende forskjellen mellom å forstå ideologi som et meningssett og som en ordensmekanisme?",
-      options: ["Som mekanisme forklarer ideologien hvorfor ordningen består, ikke bare hva noen mener om den", "Som mekanisme viser ideologien hvilke partier folk stemmer på, ikke hva de tenker om samfunnet", "Som mekanisme gjelder ideologien bare for dem med makt, ikke for de underordnede", "Som mekanisme handler ideologien om hva som er sant, ikke om hva folk tilfeldigvis tror er sant"],
+      options: ["Som mekanisme forklarer ideologien hvorfor ordningen består, ikke bare hva noen mener om den", "Som mekanisme viser ideologien hvilke partier folk stemmer på, ikke hva de tenker om samfunnet", "Som mekanisme gjelder ideologien bare for dem med makt og ikke for de underordnede, som ikke deler forestillingene", "Som mekanisme handler ideologien om hva som er sant, ikke om hva folk tilfeldigvis tror er sant"],
       explanation: "Riktig svar er at ideologien som mekanisme inngår i forklaringen på at ordenen holder, fordi den demper motstanden fra dem som taper på den. Den nære fella er å begrense ideologien til dem som har makten; kraften ligger nettopp i at også de underordnede deler forestillingene. Et meningssett alene forklarer ikke noe, det er virkningen av forestillingene som gjør arbeidet.",
     },
     {
       question: "I en bransje er det vanlig å si at «slik har det alltid vært» om at de nyansatte får de tyngste vaktene. De nyansatte sier det samme selv. Hva illustrerer dette?",
-      options: ["Ideologi som ordensmekanisme, siden de som taper på ordningen selv ser den som naturlig", "En manifest funksjon, siden fordelingen av vakter er en uttalt og erkjent hensikt hos ledelsen", "Prekontraktuell solidaritet, siden ordningen bygger på en tillit ingen har avtalt seg fram til", "En aktiv menneskemodell, siden de nyansatte har vurdert ordningen og valgt å godta den"],
+      options: ["Ideologi som ordensmekanisme, siden de som taper på ordningen selv ser den som naturlig", "En manifest funksjon, siden fordelingen av vakter er en uttalt og erkjent hensikt hos ledelsen", "Prekontraktuell solidaritet, siden ordningen bygger på en tillit ingen har avtalt seg fram til", "En aktiv menneskemodell, siden de nyansatte har vurdert ordningen opp mot alternativene og valgt å godta den"],
       explanation: "Riktig svar er at dette er ideologi som ordensmekanisme: de som bærer kostnaden ved ordningen oppfatter den selv som selvsagt, og motstanden uteblir. Den nære fella er å kalle det en aktiv menneskemodell fordi de nyansatte «godtar» ordningen; en aktiv modell krever at handlingen forklares med en reell avveining, mens poenget her er at alternativet knapt framstår som tenkelig. Ideologi virker altså uten at noen behøver å true med sanksjoner.",
     },
     {
@@ -1657,7 +1657,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva bestemmer en persons «stand» hos Weber?",
-      options: ["Den sosiale anseelsen og livsstilen som omgivelsene knytter til personen", "Den plassen personen har i produksjonen og forholdet til produksjonsmidlene", "Den formelle stillingen personen har i et politisk parti eller i forvaltningen", "Den formuen personen rår over og inntekten den kaster av seg årlig"],
+      options: ["Den sosiale anseelsen og livsstilen som omgivelsene knytter til personen", "Den plassen personen har i produksjonen og forholdet til produksjonsmidlene", "Den formelle stillingen personen har i et politisk parti eller i forvaltningen", "Den formuen personen rår over og inntekten den kaster av seg årlig, målt i kroner og ikke i anseelse"],
       explanation: "Riktig svar er at stand bestemmes av sosial anseelse og livsstil. Den nære fella er forholdet til produksjonsmidlene, som er Marx' klassebegrep; Weber holder de to fra hverandre nettopp fordi anseelse ikke alltid følger økonomisk posisjon. Stand er dermed en sosial rangering, ikke en økonomisk plassering.",
     },
     {
@@ -1667,7 +1667,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forholdet mellom klasse og stand i Webers framstilling?",
-      options: ["De kan falle sammen, men de behøver ikke gjøre det, siden de bygger på ulike kriterier", "De faller alltid sammen, siden økonomisk posisjon på sikt bestemmer anseelsen i samfunnet", "De utelukker hverandre, siden en person enten plasseres etter økonomi eller etter anseelse", "De er to navn på det samme, og Weber bruker dem om hverandre i sin egen framstilling"],
+      options: ["De kan falle sammen, men de behøver ikke gjøre det, siden de bygger på ulike kriterier", "De faller alltid sammen, siden økonomisk posisjon på sikt bestemmer anseelsen i samfunnet", "De utelukker hverandre, siden en person enten plasseres etter økonomi eller etter anseelse", "De er to navn på det samme, og Weber bruker dem om hverandre i sin egen framstilling uten å skille kriteriene"],
       explanation: "Riktig svar er at de to kan falle sammen, men ikke behøver det, fordi de hviler på ulike kriterier. Den nære fella er at økonomisk posisjon alltid trekker anseelsen etter seg; en nyrik forretningsdrivende kan mangle anseelse, og en fattig embetsslekt kan ha den i behold. Nettopp derfor trenger Weber to begreper der Marx klarte seg med ett.",
     },
     {
@@ -1682,7 +1682,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er partienes plass i Webers maktbilde?",
-      options: ["De er organiserte forsøk på å skaffe seg politisk makt, uavhengig av klasse og stand", "De er uttrykk for stand, siden medlemmene deler livsstil og anseelse med hverandre", "De er uttrykk for klasse, siden partitilslutning alltid følger av økonomisk posisjon", "De er uten betydning for maktanalysen, siden makt hos Weber er et rent økonomisk forhold"],
+      options: ["De er organiserte forsøk på å skaffe seg politisk makt, uavhengig av klasse og stand", "De er uttrykk for stand, siden medlemmene deler livsstil og anseelse med hverandre", "De er uttrykk for klasse, siden partitilslutning alltid følger av økonomisk posisjon", "De er uten betydning for maktanalysen, siden makt hos Weber er rent økonomisk"],
       explanation: "Riktig svar er at partier er organiserte forsøk på å vinne politisk makt, og at de utgjør en egen dimensjon ved siden av klasse og stand. Den nære fella er å utlede partitilslutning direkte av klasseposisjonen; det ville føre den politiske dimensjonen tilbake til den økonomiske og fjerne selvstendigheten Weber gir den. Makt hos Weber er nettopp ikke et rent økonomisk forhold.",
     },
     {
@@ -1707,7 +1707,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan viderefører kritisk teori konfliktperspektivet?",
-      options: ["Ved å undersøke hvordan herredømme også holdes ved like gjennom kultur og forestillinger", "Ved å vise at maktforholdene i samfunnet i hovedsak har mistet betydning i vår egen tid", "Ved å flytte oppmerksomheten fra strukturene og over til det som skjer i det enkelte møtet", "Ved å regne alle konflikter tilbake til enkeltaktørers beregninger av hva som lønner seg"],
+      options: ["Ved å undersøke hvordan herredømme også holdes ved like gjennom kultur og forestillinger", "Ved å vise at maktforholdene i samfunnet i hovedsak har mistet betydning i vår egen tid", "Ved å flytte oppmerksomheten fra strukturene og over til det enkelte møtet", "Ved å regne alle konflikter tilbake til enkeltaktørers beregninger av hva som lønner seg"],
       explanation: "Riktig svar er at kritisk teori følger opp konfliktperspektivet ved å undersøke hvordan herredømme opprettholdes også gjennom kultur, forestillinger og det som framstår som selvsagt. Den nære fella er å tro at videreføringen består i å flytte blikket til det konkrete møtet; det ville vært en overgang til interaksjonsperspektivet. Tradisjonen tar altså ideologimekanismen på alvor i stedet for å forlate den.",
     },
     {
@@ -1732,7 +1732,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Et kollektiv har en fast ordning der den som flyttet inn sist alltid tar oppvasken. Hvordan ser konfliktperspektivet på ordningen?",
-      options: ["Som en ordning båret av at de etablerte har makt til å holde den ved like overfor de nye", "Som en ordning båret av at alle i kollektivet deler en verdi om at ansiennitet skal telle", "Som en ordning båret av at hver enkelt har regnet ut at oppvask er den billigste plikten", "Som en ordning båret av at partene forhandler om rollene sine hver gang de møtes på kjøkkenet"],
+      options: ["Som en ordning båret av at de etablerte har makt til å holde den ved like overfor de nye", "Som en ordning båret av at alle i kollektivet deler en verdi om ansiennitet", "Som en ordning båret av at hver enkelt har regnet ut at oppvask er den billigste plikten", "Som en ordning båret av at partene forhandler om rollene sine hver gang de møtes"],
       explanation: "Riktig svar er at konfliktperspektivet leser ordningen som et maktforhold mellom etablerte og nye beboere. Den nære fella er lesningen om en delt verdi om ansiennitet; det er en fullt forsvarlig integrasjonslesning av samme tilfelle, men det er ikke konfliktperspektivets lesning. Nettopp derfor må man si hvilket perspektiv man bruker og hvorfor.",
     },
     {
@@ -1754,7 +1754,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er bytteteoriens forklaring på at et samhandlingsforhold varer over tid?",
-      options: ["At begge parter kommer bedre ut av forholdet enn de ville gjort uten det", "At begge parter har lovet hverandre å holde ut i forholdet uansett kostnad", "At den ene parten har makt til å tvinge den andre til å bli værende i det", "At partene har vokst opp med de samme verdiene og derfor liker hverandre"],
+      options: ["At begge parter kommer bedre ut av forholdet enn de ville gjort uten det", "At begge parter har lovet hverandre å holde ut i forholdet", "At den ene parten har makt til å tvinge den andre til å bli i det", "At partene har vokst opp med de samme verdiene og derfor liker hverandre"],
       explanation: "Riktig svar er at forholdet varer fordi begge parter er tjent med det. Distraktoren om makt og tvang ligger nær, for tvang finnes også i samfunnet, men da er det ikke lenger bytteteorien som forklarer at forholdet består. Bytteteorien forutsetter at begge parter kunne trukket seg og likevel velger å bli.",
     },
     {
@@ -1769,12 +1769,12 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner en gratispassasjer?",
-      options: ["En aktør som nyter godt av et fellesgode uten selv å bidra til at godet blir skapt", "En aktør som bidrar mer til fellesgodet enn de andre og dermed bærer en urimelig kostnad", "En aktør som nekter å ta imot fellesgoder fordi han er uenig i måten de fordeles på", "En aktør som betaler for et fellesgode han selv aldri kommer til å få bruk for"],
+      options: ["En aktør som nyter godt av et fellesgode uten selv å bidra til at godet blir skapt", "En aktør som bidrar mer til fellesgodet enn de andre og dermed bærer en urimelig kostnad", "En aktør som nekter å ta imot fellesgoder fordi han er uenig i måten de fordeles på", "En aktør som betaler for et fellesgode han selv aldri kommer til å få bruk for, uten selv å høste noe av det"],
       explanation: "Riktig svar er at en gratispassasjer høster fellesgodet uten å bidra til at det blir skapt. Den nærmeste distraktoren snur forholdet: den som bærer en uforholdsmessig stor del av kostnaden, er tvert imot den gratispassasjeren lever på. Begrepet peker på plasseringen i situasjonen, ikke på hvor mye aktøren får.",
     },
     {
       question: "Hva er riktig om begrepet gratispassasjer slik det brukes i faget?",
-      options: ["Det er et analytisk begrep om en handlingssituasjon, ikke en moralsk dom over personen", "Det er et skjellsord forskere bruker om folk som oppfører seg uansvarlig i fellesskap", "Det er en juridisk term for personer som er dømt for å ha unndratt seg skatt og avgifter", "Det er en betegnelse som bare kan brukes om aktører som handler helt bevisst og planmessig"],
+      options: ["Det er et analytisk begrep om en handlingssituasjon, ikke en moralsk dom over personen", "Det er et skjellsord forskere bruker om folk som oppfører seg uansvarlig i fellesskap, og innebærer en moralsk dom", "Det er en juridisk term for personer som er dømt for å ha unndratt seg skatt og avgifter", "Det er en betegnelse som bare kan brukes om aktører som handler helt bevisst og planmessig"],
       explanation: "Riktig svar er at gratispassasjer er et analytisk begrep om en bestemt handlingssituasjon. Distraktoren om bevisst og planmessig handling ligger nær, for gratispassasjerer kan godt kalkulere, men begrepet krever ikke det: situasjonen er den samme om aktøren aldri har tenkt over saken. At begrepet ikke er et skjellsord, er nettopp det som gjør det brukbart i analyse.",
     },
     {
@@ -1789,7 +1789,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva menes med at individuell rasjonalitet kan komme i konflikt med kollektiv rasjonalitet?",
-      options: ["At det som lønner seg for hver enkelt aktør, kan gi et samlet utfall som alle taper på", "At det som lønner seg for fellesskapet, alltid vil lønne seg for hver enkelt aktør også", "At noen aktører er mer fornuftige enn andre og derfor bør bestemme over fellesskapet", "At kollektive beslutninger tar lengre tid enn de beslutningene enkeltpersoner tar alene"],
+      options: ["At det som lønner seg for hver enkelt aktør, kan gi et samlet utfall som alle taper på", "At det som lønner seg for fellesskapet, alltid vil lønne seg for hver enkelt aktør også", "At noen aktører er mer fornuftige enn andre og derfor bør bestemme over fellesskapet når valgene får følger for alle", "At kollektive beslutninger tar lengre tid enn de beslutningene enkeltpersoner tar alene"],
       explanation: "Riktig svar er at summen av individuelt fornuftige valg kan gi et utfall ingen av aktørene ønsket. Den nærmeste fella er å tro at det som er bra for fellesskapet automatisk er bra for hver enkelt; nettopp fordi det ikke stemmer, oppstår problemet. Begrepsparet handler om utfall, ikke om hvem som er klokest.",
     },
     {
@@ -1819,7 +1819,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hos hvem møter leseren gratispassasjerproblemet og allmenningens tragedie?",
-      options: ["Balsvik, som bruker dem til å vise hva rasjonalitetsantakelser gjør med forklaringen", "Solli, som bruker dem til å vise hvordan møter ansikt til ansikt skaper sosial orden", "Malnes, som bruker dem til å vise hvorfor en felles statsmakt er nødvendig for orden", "Elster, som bruker dem til å vise forskjellen mellom de tre typene normer han skiller"],
+      options: ["Balsvik, som bruker dem til å vise hva rasjonalitetsantakelser gjør med forklaringen", "Solli, som bruker dem til å vise hvordan møter ansikt til ansikt skaper sosial orden", "Malnes, som bruker dem til å vise hvorfor en felles statsmakt er nødvendig for orden", "Elster, som bruker dem til å vise forskjellen mellom de tre normtypene"],
       explanation: "Riktig svar er at begge problemene framstilles hos Balsvik, i sammenheng med rasjonalitetsantakelser. Malnes-distraktoren ligger nær fordi begge problemene faktisk kan brukes som argument for en håndhevende myndighet, og Malnes drøfter slike spørsmål. Men selve framstillingen av gratispassasjer og allmenning er Balsviks.",
     },
     {
@@ -1829,7 +1829,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner verdirasjonell handling?",
-      options: ["At begrunnelsen ligger i handlingen selv, slik at aktøren fortsetter selv om utfallet uteblir", "At begrunnelsen ligger i utfallet, slik at aktøren slutter så snart målet viser seg uoppnåelig", "At begrunnelsen ligger i en vane, slik at aktøren aldri stiller spørsmål ved hva han gjør", "At begrunnelsen ligger i en ordre, slik at aktøren handler fordi noen med makt har bestemt det"],
+      options: ["At begrunnelsen ligger i handlingen selv, slik at aktøren fortsetter selv om utfallet uteblir", "At begrunnelsen ligger i utfallet, slik at aktøren slutter så snart målet viser seg uoppnåelig", "At begrunnelsen ligger i en vane, slik at aktøren gjentar handlingen og aldri stiller spørsmål ved hva han gjør", "At begrunnelsen ligger i en ordre, slik at aktøren handler fordi noen med makt har bestemt det"],
       explanation: "Riktig svar er at verdirasjonell handling begrunnes i handlingen selv, og derfor holdes ved lag også når den ikke fører fram. Distraktoren om utfall beskriver formålsrasjonell handling og er den nærmeste nabo. Legg merke til at verdirasjonell handling er rasjonell: aktøren har en grunn, den ligger bare et annet sted enn i resultatet.",
     },
     {
@@ -1844,12 +1844,12 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva ligger i at handlings- og bytteperspektivet bygger på en aktiv menneskemodell?",
-      options: ["At mennesket ses som en handlende aktør som velger mellom muligheter ut fra egne mål", "At mennesket ses som formet av strukturer og roller det har lært seg gjennom oppveksten", "At mennesket ses som styrt av følelser som skifter raskt fra situasjon til situasjon", "At mennesket ses som avhengig av at en myndighet forteller det hva som er tillatt å gjøre"],
+      options: ["At mennesket ses som en handlende aktør som velger mellom muligheter ut fra egne mål", "At mennesket ses som formet av strukturer og roller det har lært seg", "At mennesket ses som styrt av følelser som skifter raskt fra situasjon til situasjon", "At mennesket ses som avhengig av at en myndighet sier hva som er tillatt"],
       explanation: "Riktig svar er at mennesket forstås som en velgende aktør med egne mål. Distraktoren om strukturer og innlærte roller beskriver en passiv menneskemodell, og den er den nærmeste nabo i kartet. Skillet handler ikke om hvor frie menneskene faktisk er, men om hvilken modell forklaringen bygger på.",
     },
     {
       question: "Hva skiller gavebytte fra et vanlig markedsbytte?",
-      options: ["I gavebytte er motytelsen uspesifisert i tid og innhold, mens markedsbyttet gjør opp med en gang", "I gavebytte er motytelsen fastsatt i tid og innhold, mens markedsbyttet lar begge deler stå åpne", "I gavebytte finnes det ingen motytelse i det hele tatt, mens markedsbyttet alltid har en motytelse", "I gavebytte kommer begge parter dårligere ut, mens begge parter i markedsbyttet kommer bedre ut"],
+      options: ["I gavebytte er motytelsen uspesifisert i tid og innhold, mens markedsbyttet gjør opp med en gang", "I gavebytte er motytelsen fastsatt i tid og innhold, mens markedsbyttet lar begge deler stå åpne", "I gavebytte finnes det ingen motytelse, mens markedsbyttet alltid har en motytelse", "I gavebytte kommer begge parter dårligere ut, mens begge parter i markedsbyttet kommer bedre ut"],
       explanation: "Riktig svar er at gavebyttets motytelse er uspesifisert i tid og innhold, mens markedsbyttet gjøres opp der og da. Distraktoren om at gavebytte mangler motytelse, ligger nær hverdagsforståelsen av en gave, men da faller hele ordensmekanismen bort. Forpliktelsen finnes, den er bare ubestemt.",
     },
     {
@@ -1859,19 +1859,19 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En forsker forklarer at et velfungerende bruktmarked har oppstått uten at noen har planlagt det, fordi kjøpere og selgere hver for seg har søkt en god handel. Hvilket perspektiv arbeider forskeren innenfor?",
-      options: ["Handlings- og bytteperspektivet, der orden er et utilsiktet resultat av aktørenes egne valg", "Integrasjonsperspektivet, der orden hviler på verdier deltakerne har tatt opp i seg gjennom oppdragelsen", "Konfliktperspektivet, der orden hviler på at noen grupper har makt til å holde de andre nede", "Interaksjonsperspektivet, der orden hviler på hvordan deltakerne opptrer i konkrete møter"],
+      options: ["Handlings- og bytteperspektivet, der orden er et utilsiktet resultat av aktørenes egne valg", "Integrasjonsperspektivet, der orden hviler på verdier deltakerne har tatt opp i seg gjennom oppdragelsen", "Konfliktperspektivet, der orden hviler på at noen grupper har makt til å holde de andre nede", "Interaksjonsperspektivet, der orden hviler på hvordan deltakerne opptrer i konkrete møter og følger møtets egne regler"],
       explanation: "Riktig svar er handlings- og bytteperspektivet, siden forklaringen bygger på at hver aktør søker egen vinning og at ordenen ingen har villet, likevel oppstår. Interaksjonsperspektivet ligger nær, for handelen skjer jo i møter mellom mennesker, men forskeren forklarer ikke ved hjelp av møtets regler og roller. Han forklarer med kalkulerende valg.",
     },
   ],
   'svexfac03-3-6': [
     {
       question: "Hva er kjernen i interaksjonsperspektivets forklaring på sosial orden?",
-      options: ["At orden produseres og reproduseres i konkrete møter mellom mennesker, ansikt til ansikt", "At orden produseres og opprettholdes av institusjoner som står over de enkelte møtene mellom folk", "At orden produseres av et felles verdisett som deltakerne har med seg inn i møtene", "At orden produseres av byttene aktørene gjør når de beregner egen vinning i møtene"],
+      options: ["At orden produseres og reproduseres i konkrete møter mellom mennesker, ansikt til ansikt", "At orden produseres og opprettholdes av institusjoner som står over de enkelte møtene mellom folk", "At orden produseres av et felles verdisett som deltakerne har med seg inn i møtene lenge før de traff hverandre", "At orden produseres av byttene aktørene gjør når de beregner egen vinning i møtene"],
       explanation: "Riktig svar er at ordenen blir til i selve møtet mellom mennesker og holdes ved like ved at møtene gjentas. Distraktoren om beregning av vinning ligger nær, siden også den plasserer forklaringen hos aktørene, men den tilhører handlings- og bytteperspektivet. Interaksjonsperspektivet ser på møtets egne former og regler, ikke på kalkylen bak.",
     },
     {
       question: "Hvem er hovedreferansen når interaksjonsperspektivet presenteres, og hvem plasserer perspektivet inn i ordenskartet?",
-      options: ["Goffman er hovedreferansen, og det er Solli som plasserer perspektivet inn i kartet", "Goffman er hovedreferansen, og det er Balsvik som plasserer perspektivet inn i kartet", "Hobbes er hovedreferansen, og det er Malnes som plasserer perspektivet inn i kartet", "Durkheim er hovedreferansen, og det er Elster som plasserer perspektivet inn i kartet"],
+      options: ["Goffman er hovedreferansen, og det er Solli som plasserer perspektivet inn i kartet", "Goffman er hovedreferansen, mens Balsvik står for plasseringen", "Hobbes er hovedreferansen, og det er Malnes som plasserer perspektivet inn i kartet", "Durkheim er hovedreferansen, og Elster plasserer perspektivet inn i kartet"],
       explanation: "Riktig svar er at Goffman er hovedreferansen for interaksjonsperspektivet, mens det er Solli som setter perspektivet inn i kartet over forklaringer på sosial orden. Den nærmeste fella bytter ut Solli med Balsvik; Balsvik skriver om rasjonalitetsantakelser og om Adam Smith, ikke om ordenskartet. Riktig tilskrivning er selve poenget her.",
     },
     {
@@ -1881,7 +1881,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en situasjonsdefinisjon?",
-      options: ["Deltakernes felles forståelse av hva som foregår og hvem de er for hverandre akkurat der", "Den enkelte deltakerens private oppfatning av hva som foregår, uavhengig av de andre", "Forskerens beskrivelse av situasjonen slik den ser ut fra utsiden av samhandlingen", "Den formelle beskrivelsen av hva som skal skje, slik den er nedfelt i regler og faste rutiner"],
+      options: ["Deltakernes felles forståelse av hva som foregår og hvem de er for hverandre akkurat der", "Den enkelte deltakerens private oppfatning av hva som foregår, uavhengig av om de andre i møtet deler den eller ikke", "Forskerens beskrivelse av situasjonen slik den ser ut fra utsiden av samhandlingen", "Den formelle beskrivelsen av hva som skal skje, slik den er nedfelt i regler og faste rutiner"],
       explanation: "Riktig svar er at situasjonsdefinisjonen er en felles forståelse mellom deltakerne av hva slags situasjon de er i. Distraktoren om den enkeltes private oppfatning er den nærmeste, men det avgjørende er nettopp at forståelsen deles: uten felles definisjon bryter samhandlingen sammen. En privat oppfatning kan avvike uten at noe stopper opp.",
     },
     {
@@ -1891,7 +1891,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva menes med inntrykksmestring?",
-      options: ["At vi arbeider aktivt for å styre det inntrykket andre får av oss i en gitt situasjon", "At vi tolker de inntrykkene andre gir oss, og bruker dem til å bedømme hvem de er", "At vi undertrykker inntrykk som er ubehagelige, slik at de ikke påvirker oss videre", "At vi holder fast ved det aller første inntrykket av en person i lang tid etter at vi møtte dem"],
+      options: ["At vi arbeider aktivt for å styre det inntrykket andre får av oss i en gitt situasjon", "At vi tolker de inntrykkene andre gir oss, og bruker dem til å bedømme hvem de er", "At vi undertrykker inntrykk som er ubehagelige, slik at de ikke påvirker oss videre i møtet med den andre", "At vi holder fast ved det aller første inntrykket av en person i lang tid etter at vi møtte dem"],
       explanation: "Riktig svar er at inntrykksmestring er det aktive arbeidet med å styre inntrykket andre får av oss. Den nærmeste distraktoren snur retningen: å tolke andres inntrykk er noe annet enn å forme sitt eget uttrykk. Begrepet peker på hva den opptredende gjør, ikke på hva publikum leser ut av opptredenen.",
     },
     {
@@ -1906,12 +1906,12 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En servitør snakker rolig og vennlig med gjestene i lokalet, men veksler raske og freidige kommentarer med kollegene inne på kjøkkenet. Hva illustrerer dette?",
-      options: ["Skillet mellom front stage og back stage, der rollen holdes oppe ett sted og slippes et annet", "Skillet mellom formålsrasjonell og verdirasjonell handling i den enkelte servitørens arbeid", "Skillet mellom individuell og kollektiv rasjonalitet i måten kjøkkenet organiserer arbeidet på", "Skillet mellom formelle og uformelle sanksjoner som kollegene bruker mot hverandre i arbeidet"],
+      options: ["Skillet mellom front stage og back stage, der rollen holdes oppe ett sted og slippes et annet", "Skillet mellom formålsrasjonell og verdirasjonell handling, der servitøren veksler mellom å tjene et mål og følge en verdi", "Skillet mellom individuell og kollektiv rasjonalitet i måten kjøkkenet jobber på", "Skillet mellom formelle og uformelle sanksjoner som kollegene bruker mot hverandre i arbeidet"],
       explanation: "Riktig svar er skillet mellom front stage og back stage: lokalet har publikum, kjøkkenet har det ikke. Distraktoren om formelle og uformelle sanksjoner ligger nær, siden kollegene sikkert også regulerer hverandre, men eksempelet beskriver ingen reaksjon på et normbrudd. Det beskriver et skifte av opptreden når publikum forsvinner.",
     },
     {
       question: "Hvor plasseres interaksjonsperspektivet på dimensjonene i ordenskartet?",
-      options: ["Aktørorientert med en aktiv menneskemodell, og uten tydelig vekt på verken konflikt eller harmoni", "Systemorientert med en passiv menneskemodell, og med tydelig vekt på konflikt mellom grupper", "Aktørorientert med en passiv menneskemodell, og med tydelig vekt på harmoni og på deltakernes felles verdier", "Systemorientert med en aktiv menneskemodell, og med tydelig vekt på konflikt om knappe goder"],
+      options: ["Aktørorientert med en aktiv menneskemodell, og uten tydelig vekt på verken konflikt eller harmoni", "Systemorientert med en passiv menneskemodell, og med tydelig vekt på konflikt mellom grupper med ulike interesser", "Aktørorientert med en passiv menneskemodell, og med tydelig vekt på harmoni og på deltakernes felles verdier", "Systemorientert med en aktiv menneskemodell, og med tydelig vekt på konflikt om knappe goder"],
       explanation: "Riktig svar er aktørorientert med en aktiv menneskemodell, uten at perspektivet lener seg mot verken konflikt eller harmoni. Den nærmeste fella beholder aktørorienteringen, men gjør menneskemodellen passiv og legger til harmoni; da forsvinner nettopp det arbeidet deltakerne gjør for å holde møtet i gang.",
     },
     {
@@ -1921,12 +1921,12 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skiller interaksjonsperspektivet fra handlings- og bytteperspektivet?",
-      options: ["Interaksjonsperspektivet ser på møtet og reglene som gjelder der, ikke på aktørenes kalkulerende valg", "Interaksjonsperspektivet ser på aktørenes kalkulerende valg, ikke på møtet og reglene som gjelder der", "Interaksjonsperspektivet ser på hvordan store institusjoner formes, ikke på hva som skjer i små møter", "Interaksjonsperspektivet ser på hvordan verdier overføres i oppdragelsen, ikke på hva folk gjør sammen"],
+      options: ["Interaksjonsperspektivet ser på møtet og reglene som gjelder der, ikke på aktørenes kalkulerende valg", "Interaksjonsperspektivet ser på aktørenes kalkulerende valg, ikke på møtet og reglene som gjelder der", "Interaksjonsperspektivet ser på hvordan store institusjoner formes, ikke på hva som skjer i små møter", "Interaksjonsperspektivet ser på hvordan verdier overføres, ikke på hva folk gjør sammen"],
       explanation: "Riktig svar er at interaksjonsperspektivet undersøker møtet og de formene som gjelder der, mens handlings- og bytteperspektivet undersøker aktørenes kalkyler. Den nærmeste distraktoren bytter om de to. Begge perspektivene er aktørorienterte, og det er nettopp derfor de er lette å forveksle.",
     },
     {
       question: "I en kø ved en billettluke lar de som står bak, en tydelig luft mellom seg og den foran, og alle flytter seg fram etter tur uten at noen sier noe. Hva er dette et eksempel på?",
-      options: ["Et hverdagsritual som gjør samhandlingen forutsigbar uten at noen har vedtatt noen regel", "En formell prosedyre som er fastsatt av dem som driver billettluken, og som gjelder alle", "Et gavebytte der de som venter, gir hverandre plass og forventer å få det gjengjeldt siden", "En allmenning der en felles ressurs blir brukt opp fordi alle vil ha en del av den samtidig"],
+      options: ["Et hverdagsritual som gjør samhandlingen forutsigbar uten at noen har vedtatt noen regel", "En formell prosedyre som er fastsatt av dem som driver billettluken, og som gjelder alle", "Et gavebytte der de som venter, gir hverandre plass og venter det gjengjeldt", "En allmenning der en felles ressurs blir brukt opp fordi alle vil ha en del"],
       explanation: "Riktig svar er at køens avstand og turtaking er et hverdagsritual: en gjentatt form som ingen har vedtatt, men som alle utfører. Distraktoren om en formell prosedyre ligger nær, for køordninger kan være regulert, men eksempelet sier uttrykkelig at ingen sier noe og at formen holder seg av seg selv.",
     },
     {
@@ -1936,12 +1936,12 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "På et venterom setter en person seg helt inntil en annen selv om alle de andre stolene er ledige. Den som allerede satt der, blir stiv i kroppen og flytter seg litt vekk. Hva viser eksempelet?",
-      options: ["At en brutt situasjonsdefinisjon utløser en stille reaksjon som markerer hva som gjelder her", "At en formell regel om avstand mellom stoler er brutt, og at reaksjonen er en straffesanksjon", "At den som flyttet seg, opptrer som gratispassasjer på fellesgodet stillhet i venterommet", "At begge parter kalkulerer nytten av en samtale mot kostnaden ved å sitte tett, og velger avstand"],
+      options: ["At en brutt situasjonsdefinisjon utløser en stille reaksjon som markerer hva som gjelder her", "At en formell regel om avstand mellom stoler er brutt, og at reaksjonen er en straffesanksjon", "At den som flyttet seg, opptrer som gratispassasjer på fellesgodet stillhet i venterommet, og nyter roen uten å bidra", "At begge parter kalkulerer nytten av en samtale mot kostnaden ved å sitte tett, og velger avstand"],
       explanation: "Riktig svar er at bruddet på den vanlige forståelsen av et venterom utløser en kroppslig, ordløs reaksjon som gjenoppretter formen. Distraktoren om en formell regel er nær, for slike normer virker regelaktige, men ingen har vedtatt hvor tett man kan sette seg. Reaksjonen kommer fra den andre gjesten, ikke fra en myndighet.",
     },
     {
       question: "I en gruppetime venter studentene til den som snakker er ferdig, før neste tar ordet, og den som avbryter, får et par korte blikk. Hvilke to begreper fanger dette best?",
-      options: ["Hverdagsritual for turtaking, håndhevet gjennom mikrosanksjoner fra de andre i gruppen", "Formell møteledelse, håndhevet gjennom sanksjoner fra den som leder gruppetimen den dagen", "Gavebytte om taletid, håndhevet gjennom en avtale studentene har inngått med hverandre", "Kollektiv rasjonalitet, håndhevet gjennom at hver enkelt beregner hva taletiden er verdt"],
+      options: ["Hverdagsritual for turtaking, håndhevet gjennom mikrosanksjoner fra de andre i gruppen", "Formell møteledelse, håndhevet gjennom sanksjoner fra den som leder gruppetimen", "Gavebytte om taletid, håndhevet gjennom en avtale studentene har inngått med hverandre", "Kollektiv rasjonalitet, håndhevet gjennom at hver enkelt veier taletidens verdi"],
       explanation: "Riktig svar er at turtakingen er et hverdagsritual, og at blikkene er mikrosanksjoner uten formell myndighet bak seg. Distraktoren om formell møteledelse ligger nær, siden gruppetimer ofte har en leder, men i eksempelet er det medstudentene som reagerer, og ingen har fått myndighet til å gjøre det.",
     },
     {
@@ -1951,17 +1951,17 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva ligger i uttrykket presentasjon av selvet?",
-      options: ["At vi framstiller oss selv på en bestemt måte overfor andre i den situasjonen vi står i", "At vi gradvis avdekker vår sanne og uforstilte personlighet for dem vi omgås over tid", "At vi presenterer oss med navn og bakgrunn når vi møter noen vi ikke har truffet før", "At vi utvikler et stabilt selvbilde som holder seg likt uansett hvilken situasjon vi er i"],
+      options: ["At vi framstiller oss selv på en bestemt måte overfor andre i den situasjonen vi står i", "At vi gradvis avdekker vår sanne og uforstilte personlighet for dem vi omgås, etter hvert som fortroligheten vokser", "At vi presenterer oss med navn og bakgrunn når vi møter noen vi ikke har truffet før", "At vi utvikler et stabilt selvbilde som holder seg likt uansett hvilken situasjon vi er i"],
       explanation: "Riktig svar er at vi framstiller oss på bestemte måter overfor andre, tilpasset situasjonen vi står i. Distraktoren om et stabilt selvbilde ligger nær, men den flytter oppmerksomheten fra det som skjer i møtet til noe indre og situasjonsuavhengig. Interaksjonsperspektivet er opptatt av framstillingen, ikke av et fast indre selv.",
     },
     {
       question: "Hvem plasserer Goffmans begrepsapparat inn i kartet over perspektiver på sosial orden?",
-      options: ["Solli, som bruker Goffman som hovedreferanse for interaksjonsperspektivet i kartet sitt", "Balsvik, som bruker Goffman til å vise hvordan rasjonalitetsantakelser kan svekkes noe", "Malnes, som bruker Goffman til å vise hvordan konvensjoner kan vokse fram uten vedtak", "Elster, som bruker Goffman til å skille mellom de tre typene normer i framstillingen sin"],
+      options: ["Solli, som bruker Goffman som hovedreferanse for interaksjonsperspektivet i kartet sitt", "Balsvik, som bruker Goffman til å vise hvordan rasjonalitetsantakelsene i økonomifaget kan svekkes noe", "Malnes, som bruker Goffman til å vise hvordan konvensjoner kan vokse fram uten vedtak", "Elster, som bruker Goffman til å skille mellom de tre typene normer i framstillingen sin"],
       explanation: "Riktig svar er at det er Solli som gir Goffmans apparat plass i ordenskartet, som hovedreferanse for interaksjonsperspektivet. Malnes-distraktoren ligger nær fordi konvensjoner som vokser fram uten vedtak, minner om hverdagsritualer, men Malnes framstiller Hobbes og Hume, ikke Goffman.",
     },
     {
       question: "Hva er interaksjonsperspektivet dårlig egnet til å forklare?",
-      options: ["Hvorfor ressurser og makt er fordelt slik de er mellom ulike grupper i samfunnet", "Hvordan deltakerne holder en samtale i gang når noe uventet oppstår underveis", "Hvordan små reaksjoner kan håndheve normer uten at noen har formell myndighet", "Hvordan et møte kan bryte sammen når deltakerne forstår situasjonen på ulike måter"],
+      options: ["Hvorfor ressurser og makt er fordelt slik de er mellom ulike grupper i samfunnet", "Hvordan deltakerne holder en samtale i gang når noe uventet oppstår underveis og formen må reddes", "Hvordan små reaksjoner kan håndheve normer uten at noen har formell myndighet", "Hvordan et møte kan bryte sammen når deltakerne forstår situasjonen på ulike måter"],
       explanation: "Riktig svar er at perspektivet ikke har noe godt svar på hvorfor makt og ressurser er fordelt som de er. De tre andre svaralternativene beskriver nettopp det perspektivet er sterkt på, nemlig hva som skjer i møtet. Grensen går ved spørsmål om fordeling, som hører hjemme på et annet analysenivå.",
     },
     {
@@ -1978,7 +1978,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
   'svexfac03-3-7': [
     {
       question: "Hva kjennetegner naturtilstanden slik Hobbes beskriver den?",
-      options: ["En tilværelse uten felles makt, der ingen kan stole på at andre holder avtalene sine", "En tilværelse uten eiendom, der alle deler likt og derfor lever fredelig med hverandre", "En tilværelse uten arbeid, der menneskene lever av det naturen gir uten anstrengelse", "En tilværelse uten språk, der menneskene ikke kan inngå avtaler med hverandre i det hele tatt"],
+      options: ["En tilværelse uten felles makt, der ingen kan stole på at andre holder avtalene sine", "En tilværelse uten eiendom, der alle deler likt og derfor lever fredelig", "En tilværelse uten arbeid, der menneskene lever av det naturen gir uten anstrengelse", "En tilværelse uten språk, der menneskene ikke kan inngå avtaler"],
       explanation: "Riktig svar er at naturtilstanden mangler en felles makt, slik at ingen kan stole på at avtaler blir holdt. Distraktoren om manglende språk ligger nær, siden avtaler også der blir umulige, men Hobbes forutsetter at menneskene kan avtale; problemet er at avtalen ikke er verdt noe uten en håndhever.",
     },
     {
@@ -1988,7 +1988,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan løser en felles myndighet problemet Hobbes beskriver?",
-      options: ["Ved å kunne håndheve avtaler, slik at det blir rasjonelt for hver enkelt å holde sin del", "Ved å oppdra borgerne til felles verdier, slik at ingen lenger ønsker å bryte en avtale", "Ved å fjerne behovet for avtaler, siden myndigheten fordeler alle goder direkte til borgerne", "Ved å gjøre menneskene gode, slik at frykten for hverandre til slutt forsvinner fra samfunnet"],
+      options: ["Ved å kunne håndheve avtaler, slik at det blir rasjonelt for hver enkelt å holde sin del", "Ved å oppdra borgerne til felles verdier, slik at ingen lenger ønsker å bryte en avtale de har inngått", "Ved å fjerne behovet for avtaler, siden myndigheten fordeler alle goder direkte til borgerne", "Ved å gjøre menneskene gode, slik at frykten for hverandre til slutt forsvinner fra samfunnet"],
       explanation: "Riktig svar er at myndigheten gjør avtalebrudd kostbart, og at det dermed blir fornuftig for hver enkelt å holde sin del. Distraktoren om oppdragelse til felles verdier ligger nær og beskriver en reell ordensmekanisme, men den hører hjemme i integrasjonsperspektivet. Hobbes' løsning virker uten at noen skifter verdier.",
     },
     {
@@ -2187,8 +2187,8 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner en eksplorerende problemstilling?",
-      options: ["Den stilles når feltet er så lite kjent at kategoriene ikke er gitt på forhånd", "Den spør om hvor utbredt et fenomen er i en nærmere avgrenset gruppe mennesker", "Den påstår at én bestemt faktor er årsaken til et mønster som allerede er målt", "Den er formulert så vidt at den kan besvares med et hvilket som helst materiale"],
-      explanation: "Riktig svar er at den eksplorerende problemstillingen stilles når kategoriene ikke er kjent, og at den derfor krever et fleksibelt opplegg. Å spørre om utbredelse er beskrivende, og å påstå en årsak er forklarende. Den siste distraktoren tester en nær misforståelse: eksplorerende betyr ikke uklar, det betyr at kategoriene skal produseres av undersøkelsen.",
+      options: ["Den stilles når feltet er så lite kjent at kategoriene ikke er gitt på forhånd", "Den spør om hvor utbredt et fenomen er i en nærmere avgrenset gruppe mennesker", "Den påstår at én bestemt faktor er årsaken til et mønster som allerede er målt", "Den er formulert så vidt at den kan besvares med alt slags materiale"],
+      explanation: "Riktig svar er at den eksplorerende problemstillingen stilles når kategoriene ikke er kjent, og at den derfor krever et fleksibelt opplegg. Å spørre om utbredelse er beskrivende, og å påstå en årsak er forklarende. Svaret om en problemstilling formulert så vidt at alt slags materiale duger, tester en nær misforståelse: eksplorerende betyr ikke uklar, det betyr at kategoriene skal produseres av undersøkelsen.",
     },
     {
       question: "Hva er statistisk generalisering?",
@@ -2223,7 +2223,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er metodetriangulering?",
       options: ["At samme problemstilling belyses med flere strategier som dekker hverandres svakheter", "At samme datamateriale analyseres på nytt av tre uavhengige forskere i samme prosjekt", "At forskeren bruker tre ulike utvalg for å øke antallet enheter i den samme undersøkelsen", "At to metoder brukes på hver sin problemstilling innenfor det samme forskningsprosjektet"],
-      explanation: "Riktig svar er at flere strategier belyser samme spørsmål, slik at hver dekker den andres svakhet. Den siste distraktoren er den nære: to metoder på to spørsmål er bare to undersøkelser, ikke triangulering. Poenget er uavhengige innganger til samme spørsmål.",
+      explanation: "Riktig svar er at flere strategier belyser samme spørsmål, slik at hver dekker den andres svakhet. Svaret om to metoder brukt på hver sin problemstilling er den nære fella: to metoder på to spørsmål er bare to undersøkelser, ikke triangulering. Poenget er uavhengige innganger til samme spørsmål.",
     },
     {
       question: "Hva er galt med begrunnelsen «det kommer an på hva man vil vite» alene?",
@@ -2319,7 +2319,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et strategisk utvalg?",
-      options: ["Et utvalg som er satt sammen for å dekke den variasjonen problemstillingen krever", "Et utvalg der deltakerne er trukket tilfeldig fra en liste over alle aktuelle enheter", "Et utvalg som er stort nok til at tilfeldige feil ikke lenger påvirker konklusjonen", "Et utvalg av dem som var tilgjengelige og villige til å delta da studien startet"],
+      options: ["Et utvalg som er satt sammen for å dekke den variasjonen problemstillingen krever", "Et utvalg der deltakerne er trukket tilfeldig fra en liste over alle aktuelle enheter", "Et utvalg som er stort nok til at tilfeldige feil ikke lenger påvirker konklusjonen", "Et utvalg av dem som var tilgjengelige og villige til å delta da studien startet, og som meldte seg selv"],
       explanation: "Riktig svar er dekning av den variasjonen spørsmålet krever. Tilfeldig trekning hører til representative utvalg med et annet formål, og de tilgjengelige og villige utgjør et tilgjengelighetsutvalg — som kan være forsvarlig, men da må begrensningen skrives ut.",
     },
     {
@@ -2354,18 +2354,18 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva menes med kontekstforståelse hos Wikan?",
-      options: ["At et forhold får sin betydning fra livssammenhengen det inngår i", "At forskeren må kjenne landets historie før feltarbeidet", "At utsagn skal tolkes i lys av hvem som var til stede da de ble sagt", "At funn fra ett felt bare kan overføres til felt med samme kulturelle bakgrunn"],
+      options: ["At et forhold får sin betydning fra livssammenhengen det inngår i", "At forskeren må kjenne landets historie og politiske utvikling før feltarbeidet kan begynne", "At utsagn skal tolkes i lys av hvem som var til stede da de ble sagt", "At funn fra ett felt bare kan overføres til felt med samme kulturelle bakgrunn"],
       explanation: "Riktig svar er at forholdet må forstås i sammenhengen det leves i, ikke som en isolert egenskap ved enkeltpersoner. Å tolke utsagn i lys av situasjonen er kontekstualisering, som er et beslektet, men snevrere grep i selve analysen.",
     },
     {
       question: "Hva bestemmer utvalgsstørrelsen i et intensivt opplegg?",
-      options: ["Hvilken variasjon problemstillingen krever, veid mot dybden ressursene tillater", "En fast tommelfingerregel om at mellom ti og femten informanter er tilstrekkelig", "Beregningen av hvor stor usikkerhet forskeren er villig til å akseptere i anslaget", "Hvor mange informanter forskeren klarer å rekruttere innenfor prosjektperioden"],
+      options: ["Hvilken variasjon problemstillingen krever, veid mot dybden ressursene tillater", "En fast tommelfingerregel om at mellom ti og femten informanter er tilstrekkelig", "Beregningen av hvor stor usikkerhet forskeren er villig til å akseptere i anslaget", "Hvor mange informanter forskeren klarer å rekruttere innenfor prosjektperioden og budsjettet"],
       explanation: "Riktig svar er dekningen av variasjon veid mot dybde. Usikkerhetsberegning hører til ekstensive opplegg, og en fast regel finnes ikke — antallet skal begrunnes. Hvor mange som lar seg rekruttere er en praktisk skranke, ikke et faglig kriterium.",
     },
     {
       question: "Hva skiller et kvalitativt intervju fra en spørreundersøkelse?",
       options: ["Spørsmålene er forskerens i begge, men i intervjuet er også svarene informantens", "Intervjuet varer lenger, og gir derfor mer utfyllende svar på de samme spørsmålene", "Intervjuet gjennomføres ansikt til ansikt, mens undersøkelsen sendes ut skriftlig", "Intervjuet gir forståelse, mens spørreundersøkelsen bare gir tall uten mening bak"],
-      explanation: "Riktig svar er graden av standardisering: i undersøkelsen er også svarkategoriene forskerens. Varighet og kanal er ikke det avgjørende, og den siste distraktoren er en stråmann — et skjema gir fordelinger av kategorier fastsatt på forhånd, ikke meningsløse tall.",
+      explanation: "Riktig svar er graden av standardisering: i undersøkelsen er også svarkategoriene forskerens. Varighet og kanal er ikke det avgjørende, og påstanden om at spørreundersøkelsen bare gir tall uten mening bak, er en stråmann — et skjema gir fordelinger av kategorier fastsatt på forhånd, ikke meningsløse tall.",
     },
     {
       question: "Hva er en riktig innvending mot å bruke foreliggende dokumenter som datakilde?",
@@ -2416,7 +2416,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
   'svexfac03-4-3': [
     {
       question: "Hva er en metodeforklaring på et funn?",
-      options: ["At mønsteret skyldes hvordan undersøkelsen ble gjort, ikke forhold i verden", "At mønsteret skyldes en tredje faktor som påvirker begge de to forholdene", "At mønsteret skyldes at forskeren har valgt en uegnet metode for problemstillingen", "At mønsteret skyldes tilfeldig variasjon som forsvinner med et større utvalg"],
+      options: ["At mønsteret skyldes hvordan undersøkelsen ble gjort, ikke forhold i verden", "At mønsteret skyldes en bakenforliggende tredje faktor som påvirker begge de to forholdene", "At mønsteret skyldes at forskeren har valgt en uegnet metode for problemstillingen", "At mønsteret skyldes tilfeldig variasjon som forsvinner med et større utvalg"],
       explanation: "Riktig svar er at funnet er et trekk ved målingen: spørsmålets formulering, hvem som svarte, kategoriseringen eller valget av statistisk mål. En tredje faktor bak begge er spuriøsitet, som er noe annet, og tilfeldig variasjon er usikkerhet og ikke en metodeforklaring.",
     },
     {
@@ -2426,7 +2426,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner et ledende spørsmål?",
-      options: ["Det inneholder, antyder eller forutsetter allerede det svaret man vil ha", "Det er formulert med fagord som mange av deltakerne ikke forstår", "Det tvinger deltakeren til å velge mellom to alternativer som begge er negative", "Det stilles til slutt i undersøkelsen, når deltakeren er blitt sliten av å svare"],
+      options: ["Det inneholder, antyder eller forutsetter allerede det svaret man vil ha", "Det er formulert med fagord som mange av deltakerne ikke forstår, slik at de gjetter seg til et svar", "Det tvinger deltakeren til å velge mellom to alternativer som begge er negative", "Det stilles til slutt i undersøkelsen, når deltakeren er blitt sliten av å svare"],
       explanation: "Riktig svar er at svaret er bygd inn, ofte gjennom en begrunnelse som følger med eller et premiss som tas for gitt. Vanskelige fagord gir tilfeldig støy, ikke en skjevhet med retning, og plassering til slutt er en rekkefølgevirkning.",
     },
     {
@@ -2446,12 +2446,12 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er sosialt ønskelige svar?",
-      options: ["At deltakeren svarer det som er akseptabelt, snarere enn det hun faktisk gjør", "At deltakeren svarer det hun tror forskeren ønsker å høre om sin egen hypotese", "At deltakeren unnlater å svare på spørsmål som oppleves som for nærgående", "At intervjueren tolker et uklart svar i den retningen som passer undersøkelsen"],
+      options: ["At deltakeren svarer det som er akseptabelt, snarere enn det hun faktisk gjør", "At deltakeren svarer det hun tror forskeren ønsker å høre om sin egen hypotese", "At deltakeren unnlater å svare på spørsmål som oppleves som for nærgående, og hopper videre i skjemaet", "At intervjueren tolker et uklart svar i den retningen som passer undersøkelsen"],
       explanation: "Riktig svar er tilpasningen til hva som er respektabelt, og den er en normal sosial reaksjon, ikke uærlighet. Å tolke uklare svar er intervjuereffekt, som oppstår hos den som spør, mens sosialt ønskelige svar oppstår hos den som svarer.",
     },
     {
       question: "Hvorfor er svarprosenten en av de viktigste opplysningene om en undersøkelse?",
-      options: ["Fordi frafallet sjelden er tilfeldig, og de som mangler, skiller seg fra resten", "Fordi en høy svarprosent gjør at tilfeldig usikkerhet forsvinner helt fra anslaget", "Fordi svarprosenten viser hvor godt spørsmålene var formulert av forskeren", "Fordi kravet til svarprosent avgjør om undersøkelsen kan publiseres i et tidsskrift"],
+      options: ["Fordi frafallet sjelden er tilfeldig, og de som mangler, skiller seg fra resten", "Fordi en høy svarprosent gjør at tilfeldig usikkerhet forsvinner helt fra anslaget", "Fordi svarprosenten viser hvor godt spørsmålene var formulert av forskeren, og dermed kvaliteten på skjemaet", "Fordi kravet til svarprosent avgjør om undersøkelsen kan publiseres i et tidsskrift"],
       explanation: "Riktig svar er at frafallet er systematisk skjevt etter alder, interesse for temaet og tilgang til kanalen. Høy svarprosent fjerner ikke tilfeldig usikkerhet, som følger av utvalgsstørrelsen, og en lav svarprosent kan skyldes mye annet enn dårlige spørsmål.",
     },
     {
@@ -2466,7 +2466,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er rekkefølgevirkning i et spørreskjema?",
-      options: ["At svaret på et spørsmål påvirkes av hvilke spørsmål som kom rett før det", "At deltakerne blir mindre nøyaktige jo lenger ut i skjemaet de kommer", "At spørsmål plassert til slutt oftere står ubesvart enn spørsmål plassert først", "At forskeren endrer rekkefølgen underveis når skjemaet viser seg å fungere dårlig"],
+      options: ["At svaret på et spørsmål påvirkes av hvilke spørsmål som kom rett før det", "At deltakerne blir mindre nøyaktige jo lenger ut i skjemaet de kommer, fordi de blir slitne av å svare", "At spørsmål plassert til slutt oftere står ubesvart enn spørsmål plassert først", "At forskeren endrer rekkefølgen underveis når skjemaet viser seg å fungere dårlig"],
       explanation: "Riktig svar er at sammenstillingen påvirker svaret selv når hvert spørsmål er nøytralt formulert. Nettopp derfor holder det ikke å lese spørsmålene ett for ett. Trøtthet og ubesvarte spørsmål er reelle problemer, men de er noe annet.",
     },
     {
@@ -2481,7 +2481,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva innebærer det at Helleviks krav og kravene til en årsaksslutning er to porter etter hverandre?",
-      options: ["En dårlig måling kan ikke reddes av kontroll, og en god måling kan gi spuriøsitet", "En god måling er tilstrekkelig for å kunne trekke en velbegrunnet årsaksslutning", "Kravene til måling gjelder kvantitative opplegg, mens årsakskravene gjelder alle opplegg", "Kravene må oppfylles samtidig, siden begge gjelder det samme trinnet i undersøkelsen"],
+      options: ["En dårlig måling kan ikke reddes av kontroll, og en god måling kan gi spuriøsitet", "En god måling er tilstrekkelig for å kunne trekke en velbegrunnet årsaksslutning, uten videre kontroll", "Kravene til måling gjelder kvantitative opplegg, mens årsakskravene gjelder alle opplegg", "Kravene må oppfylles samtidig, siden begge gjelder det samme trinnet i undersøkelsen"],
       explanation: "Riktig svar viser at portene er uavhengige og kommer i rekkefølge: faller målingen, er årsaksspørsmålet uten gjenstand, men en perfekt måling garanterer ingen årsak. V2021 honorerer uttrykkelig den som ser dette overlappet.",
     },
     {
@@ -2501,7 +2501,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En undersøkelse viser at ansatte i avdeling A er mer fornøyde enn i avdeling B. Skjemaet i A ble besvart på et fellesmøte med lederen til stede. Hva er dette?",
-      options: ["En metodeforklaring, siden svarsituasjonen trekker mot sosialt ønskelige svar", "En substansiell forklaring, siden ledelsen i A tydeligvis er tettere på de ansatte", "En spuriøs sammenheng, siden avdelingstilhørighet påvirker både trivsel og svar", "En tilfeldig feil, siden det varierer hvem som møter opp på et fellesmøte"],
+      options: ["En metodeforklaring, siden svarsituasjonen trekker mot sosialt ønskelige svar", "En substansiell forklaring, siden ledelsen i A tydeligvis er tettere på de ansatte", "En spuriøs sammenheng, siden avdelingstilhørighet påvirker både trivsel og svar", "En tilfeldig feil, siden det varierer hvem som møter opp på et fellesmøte, og feilen jevner seg ut"],
       explanation: "Riktig svar er at innsamlingssituasjonen er ulik, og at forskjellen derfor kan være et trekk ved målingen. Skjevheten har kjent retning: å svare mens lederen ser på, trekker mot det akseptable. Dette er ikke tilfeldig variasjon, siden virkningen går samme vei for alle i den avdelingen.",
     },
     {
@@ -2521,7 +2521,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kan et funn om at to formuleringer gir svært ulike svarfordelinger, brukes til?",
-      options: ["Å vise at oppslutningen avhenger av hvordan saken rammes inn i spørsmålet", "Å fastslå hvilken av de to formuleringene som gir det sanne bildet av holdningene", "Å beregne hvor stor den tilfeldige usikkerheten i den opprinnelige målingen var", "Å avvise begge målingene, siden de umulig kan være riktige på samme tid"],
+      options: ["Å vise at oppslutningen avhenger av hvordan saken rammes inn i spørsmålet", "Å fastslå hvilken av de to formuleringene som gir det sanne bildet av holdningene", "Å beregne hvor stor den tilfeldige usikkerheten i den opprinnelige målingen var", "Å avvise begge målingene, siden de umulig kan være riktige på samme tid, og måle holdningen på nytt"],
       explanation: "Riktig svar er at forskjellen selv er et funn om verden: innrammingen betyr noe. Ingen av formuleringene gir et sant bilde uavhengig av spørsmålet, og å avvise begge ville kaste bort nettopp den innsikten sammenligningen gir.",
     },
   ],
@@ -2670,7 +2670,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
   'svexfac03-4-5': [
     {
       question: "Hva gjør en mekanismeforklaring som en statistisk sammenheng ikke gjør?",
-      options: ["Den viser trinnene fra årsak til virkning, ikke bare at sammenhengen finnes", "Den fastslår at sammenhengen ikke skyldes en tredje bakenforliggende faktor", "Den gjør det mulig å generalisere funnet til en større gruppe med kjent usikkerhet", "Den viser at årsaken kom før virkningen i tid, slik at retningen er avgjort"],
+      options: ["Den viser trinnene fra årsak til virkning, ikke bare at sammenhengen finnes", "Den fastslår at sammenhengen ikke skyldes en tredje bakenforliggende faktor", "Den gjør det mulig å generalisere funnet til en større gruppe", "Den viser at årsaken kom før virkningen i tid, slik at retningen er avgjort"],
       explanation: "Riktig svar er at veien mellom årsak og virkning skrives ut. Kontroll for tredje variabel og årsaksretning er krav fra forrige kapittel, og generalisering hviler på utvalget — ingen av delene løses av at mekanismen beskrives.",
     },
     {
@@ -2680,12 +2680,12 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er de tre leddene i Colemans badekarmodell?",
-      options: ["Situasjonen for den enkelte, den enkeltes handling, og det samlede utfallet", "Hypotesen, den utledede konsekvensen, og testen som avgjør om den holder", "Samvariasjon, årsaksretning, og kontroll for eventuelle bakenforliggende forhold", "Den manifeste funksjonen, den latente funksjonen, og eventuelle dysfunksjoner"],
+      options: ["Situasjonen for den enkelte, den enkeltes handling, og det samlede utfallet", "Hypotesen, den logisk utledede konsekvensen, og testen som avgjør om den holder mot data", "Samvariasjon, årsaksretning, og kontroll for eventuelle bakenforliggende forhold", "Den manifeste funksjonen, den latente funksjonen, og eventuelle dysfunksjoner"],
       explanation: "Riktig svar er nivåene modellen beveger seg gjennom: ned til den enkeltes situasjon, bortover til handlingen, og opp igjen til et samlet utfall. De andre alternativene er andre tredelinger i pensum, og å blande dem er en vanlig presisjonsfeil.",
     },
     {
       question: "Hva kjennetegner situasjonsleddet i badekarmodellen?",
-      options: ["Et forhold i samfunnet endrer hva den enkelte står overfor, ikke hva hun gjør", "Den enkelte vurderer alternativene sine og velger den handlingen som lønner seg mest", "Mange enkelthandlinger legger seg sammen til et utfall på samfunnsnivå", "Forskeren beskriver konteksten så grundig at leseren kan vurdere overførbarheten"],
+      options: ["Et forhold i samfunnet endrer hva den enkelte står overfor, ikke hva hun gjør", "Den enkelte vurderer alternativene sine og velger den handlingen som lønner seg mest", "Mange enkelthandlinger legger seg sammen til et utfall på samfunnsnivå som ingen av dem har villet", "Forskeren beskriver konteksten så grundig at leseren kan vurdere overførbarheten"],
       explanation: "Riktig svar skiller situasjonen fra handlingen: prisen, tilgangen eller forventningen endres, uten at noen ennå har gjort noe. Blandes de to sammen, forsvinner nettopp det stedet der et tiltak kan gripe inn.",
     },
     {
@@ -2705,7 +2705,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva svarer en formålsforklaring på?",
-      options: ["Hvilken hensikt gjorde handlingen fornuftig for den som utførte den", "Hvilke trinn førte fra det utløsende forholdet fram til det endelige utfallet", "Hvilken virkning ordningen har for det systemet den inngår i", "Hvilken generell lov utfallet kan utledes av, gitt de konkrete betingelsene"],
+      options: ["Hvilken hensikt gjorde handlingen fornuftig for den som utførte den", "Hvilke trinn førte fra det utløsende forholdet fram til det endelige utfallet", "Hvilken virkning ordningen har for det systemet den inngår i, uavhengig av hva noen har ment", "Hvilken generell lov utfallet kan utledes av, gitt de konkrete betingelsene"],
       explanation: "Riktig svar er hensikten hos aktøren. De tre andre beskriver mekanismeforklaring, funksjonsforklaring og den deduktivt-nomologiske modellen — fire ulike svar på et «hvorfor», og skillet mellom dem er selve redegjørelseskravet her.",
     },
     {
@@ -2735,7 +2735,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva tilfører Mertons begrep om dysfunksjon?",
-      options: ["At ordninger kan ha virkninger som svekker helheten, og likevel bestå", "At alle deler i et system til slutt viser seg å tjene helheten på en eller annen måte", "At virkninger må måles i tall før de kan kalles funksjoner eller dysfunksjoner", "At ordninger som ikke virker, alltid blir avviklet innen rimelig tid"],
+      options: ["At ordninger kan ha virkninger som svekker helheten, og likevel bestå", "At alle deler i et system til slutt viser seg å tjene helheten på en eller annen måte", "At virkninger må måles i tall før de kan kalles funksjoner eller dysfunksjoner", "At ordninger som ikke virker, alltid blir avviklet innen rimelig tid, fordi systemet luker dem ut"],
       explanation: "Riktig svar er korrektivet mot en fremstilling der alt som finnes, viser seg å være nyttig. Merk at «for helheten» alltid må presiseres — dysfunksjonell for hvem, målt mot hvilket mål?",
     },
     {
@@ -2745,7 +2745,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er aggregeringsleddet i badekarmodellen?",
-      options: ["Hvordan de mange enkelthandlingene legger seg sammen til et samlet utfall", "Hvordan forskeren samler inn opplysninger fra mange enheter i samme undersøkelse", "Hvordan et forhold i samfunnet endrer situasjonen for den enkelte deltakeren", "Hvordan flere ulike mekanismer settes sammen til én samlet forklaring"],
+      options: ["Hvordan de mange enkelthandlingene legger seg sammen til et samlet utfall", "Hvordan forskeren samler inn opplysninger fra mange enheter i samme undersøkelse", "Hvordan et forhold i samfunnet endrer situasjonen for den enkelte deltakeren", "Hvordan flere ulike mekanismer settes sammen til én samlet forklaring av det enkelte tilfellet"],
       explanation: "Riktig svar er veien opp igjen til samfunnsnivå. Leddet er ikke en ren summering: handlinger kan forsterke eller motvirke hverandre, og det er her utilsiktede virkninger dukker opp.",
     },
     {
@@ -2780,7 +2780,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den skarpeste innvendingen mot en detaljert mekanismeangivelse?",
-      options: ["Detaljene kan være tenkt ut i ettertid, og virker troverdige fordi de er mange", "Detaljene gjør fremstillingen for lang til å få plass innenfor tiden på eksamen", "Detaljene gjør at forklaringen ikke lenger kan overføres til andre tilfeller", "Detaljene forutsetter et kvalitativt materiale, som ikke kan bære årsakspåstander"],
+      options: ["Detaljene kan være tenkt ut i ettertid, og virker troverdige fordi de er mange", "Detaljene gjør fremstillingen for lang til å få plass innenfor tiden på eksamen", "Detaljene gjør at forklaringen ikke lenger kan overføres til andre tilfeller enn det studerte", "Detaljene forutsetter et kvalitativt materiale, som ikke kan bære årsakspåstander"],
       explanation: "Riktig svar peker på samme risiko som ved etterrasjonalisering: en kjede som bare er tenkt ut, har byttet etterprøvd kunnskap mot en fortelling. Kravet om å utpeke det avgjørende leddet er nettopp motgiften, siden det tvinger fram en påstand som kan være gal.",
     },
     {
@@ -2812,12 +2812,12 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er «koking» av data?",
-      options: ["Å prøve mange analyser og bare rapportere den som ga et tydelig utslag", "Å regne om tall til prosent slik at forskjellene ser større ut enn de er", "Å slå sammen flere datasett uten å opplyse om at de er samlet inn ulikt", "Å presentere andres analyser som om man hadde gjennomført dem selv"],
+      options: ["Å prøve mange analyser og bare rapportere den som ga et tydelig utslag", "Å regne om tall til prosent slik at forskjellene ser større ut enn de er", "Å slå sammen flere datasett uten å opplyse om at de er samlet inn ulikt", "Å presentere andres analyser som om man hadde gjennomført dem selv, uten å oppgi hvem som gjorde dem"],
       explanation: "Riktig svar er den selektive rapporteringen. Merk hvor lumsk formen er: alt som står, er sant, og hver enkelt analyse kan være legitim — det som mangler, er alt det andre som ble prøvd. Å presentere andres arbeid som sitt eget er plagiat.",
     },
     {
       question: "Hva er Mertons forklaring på at forskningsetiske normer faktisk følges?",
-      options: ["At virksomheten er innrettet slik at brudd oppdages og får store konsekvenser", "At forskere gjennom lang utdanning utvikler en sterkere moral enn andre yrkesgrupper", "At normene er nedfelt i lov, slik at brudd kan straffes av rettsapparatet", "At forskere har sikre stillinger og derfor ikke trenger å ta snarveier i arbeidet"],
+      options: ["At virksomheten er innrettet slik at brudd oppdages og får store konsekvenser", "At forskere gjennom lang utdanning utvikler en sterkere moral enn andre yrkesgrupper", "At normene er nedfelt i lov, slik at brudd kan straffes av rettsapparatet med bøter eller fengsel", "At forskere har sikre stillinger og derfor ikke trenger å ta snarveier i arbeidet"],
       explanation: "Riktig svar er den institusjonelle kontrollen. Poenget er nettopp at forklaringen ikke hviler på at forskere er bedre mennesker — og den har en testbar konsekvens: der kontrollen er svak, bør bruddene være flere.",
     },
     {
@@ -2847,12 +2847,12 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er hovedsvakheten ved fagfellevurdering som kontrollordning?",
-      options: ["Den vurderer manuskriptet og resonnementet, ikke som regel datamaterialet", "Den gjennomføres av forskere som konkurrerer med forfatteren om finansiering", "Den tar så lang tid at viktige funn blir foreldet før de kommer på trykk", "Den er frivillig, og mange tidsskrifter velger å publisere uten slik vurdering"],
+      options: ["Den vurderer manuskriptet og resonnementet, ikke som regel datamaterialet", "Den gjennomføres av forskere som konkurrerer med forfatteren om finansiering", "Den tar så lang tid at viktige funn blir foreldet før de kommer på trykk, ofte etter mange måneder", "Den er frivillig, og mange tidsskrifter velger å publisere uten slik vurdering"],
       explanation: "Riktig svar peker på hva ordningen ikke fanger: den avdekker svake slutninger langt bedre enn fabrikkerte data. Dette er samtidig det sterkeste argumentet mot at institusjonell kontroll alene forklarer at normene følges.",
     },
     {
       question: "Hva kjennetegner gråsonen av diskutabel forskningspraksis?",
-      options: ["Hvert tilfelle kan bortforklares, og den håndheves av kultur snarere enn sanksjoner", "Den omfatter handlinger som er lovlige, men som bryter fagets skrevne retningslinjer", "Den gjelder bare uerfarne forskere som ennå ikke er sosialisert inn i normene", "Den er mindre utbredt enn de klare bruddene, men får større konsekvenser når den avsløres"],
+      options: ["Hvert tilfelle kan bortforklares, og den håndheves av kultur snarere enn sanksjoner", "Den omfatter handlinger som er lovlige, men som bryter fagets skrevne retningslinjer", "Den gjelder bare uerfarne forskere som ennå ikke er sosialisert inn i normene, og forsvinner etter få år i faget", "Den er mindre utbredt enn de klare bruddene, men får større konsekvenser når den avsløres"],
       explanation: "Riktig svar peker på at gråsonen er stor og vanskelig å håndheve. Den er langt mer utbredt enn de klare bruddene, ikke mindre — og nettopp derfor er den så viktig i drøftingen av om kontroll er nok.",
     },
     {
@@ -2872,12 +2872,12 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er det sterkeste argumentet mot at institusjonell kontroll forklarer at normene følges?",
-      options: ["Den samme institusjonen belønner også mengde og oppsiktsvekkende funn", "Forskere er sosialisert inn i normene og følger dem uansett hvem som ser på", "Kontrollen er kostbar og gjennomføres derfor sjeldnere enn den burde", "Normene er så generelt formulert at de vanskelig kan håndheves i praksis"],
+      options: ["Den samme institusjonen belønner også mengde og oppsiktsvekkende funn", "Forskere er sosialisert inn i normene og følger dem uansett hvem som ser på", "Kontrollen er kostbar i tid og penger og gjennomføres derfor sjeldnere enn den burde", "Normene er så generelt formulert at de vanskelig kan håndheves i praksis"],
       explanation: "Riktig svar bruker Mertons egen tankegang: motkraften er også institusjonell, og derfor rammer den forklaringen på dens eget premiss. At forskere er sosialisert inn i normene, er tvert imot et argument som utfyller Merton snarere enn å motsi ham.",
     },
     {
       question: "Hva innebærer fellesskapsnormen i Mertons etos?",
-      options: ["At resultater tilhører fellesskapet, og at den enkelte belønnes med anerkjennelse", "At forskning skal utføres i grupper, siden enkeltforskere lettere gjør feil", "At alle forskere har plikt til å vurdere kollegers manuskripter når de blir bedt om det", "At forskningsresultater skal formidles til allmennheten og ikke bare til fagfeller"],
+      options: ["At resultater tilhører fellesskapet, og at den enkelte belønnes med anerkjennelse", "At forskning skal utføres i grupper, siden enkeltforskere lettere gjør feil ingen andre fanger opp underveis", "At alle forskere har plikt til å vurdere kollegers manuskripter når de blir bedt om det", "At forskningsresultater skal formidles til allmennheten og ikke bare til fagfeller"],
       explanation: "Riktig svar knytter normen til eiendomsforholdet: kunnskapen gis bort, og lønnen er kreditering. Det er nettopp derfor krediteringsnormen er så viktig — og det er denne normen som kommer under press i oppdragsforskning.",
     },
     {
@@ -2892,7 +2892,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er riktig om forholdet mellom Balsviks inndeling og Mertons etos?",
-      options: ["De svarer på ulike spørsmål: hvem normene beskytter, og hvorfor de følges", "De er to konkurrerende inndelinger av det samme normverket i forskningsetikken", "Balsviks inndeling gjelder samfunnsfag, mens Mertons etos gjelder naturvitenskap", "Mertons etos er en eldre versjon som Balsviks tredeling har erstattet"],
+      options: ["De svarer på ulike spørsmål: hvem normene beskytter, og hvorfor de følges", "De er to konkurrerende inndelinger av det samme normverket i forskningsetikken", "Balsviks inndeling gjelder samfunnsfag, mens Mertons etos gjelder naturvitenskap", "Mertons etos er en eldre versjon som Balsviks tredeling har erstattet, siden den er fra 1940-tallet"],
       explanation: "Riktig svar er at de to utfyller hverandre. Balsvik deler feltet etter hvem normen beskytter; Merton beskriver hva som kjennetegner vitenskap som institusjon og hvorfor normene overholdes. Å si dette eksplisitt er et gratis poeng.",
     },
     {
@@ -2934,7 +2934,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva menes med samtykke som prosess?",
-      options: ["At samtykket fornyes når prosjektet endrer retning underveis i arbeidet", "At deltakeren først samtykker muntlig og deretter bekrefter det skriftlig", "At samtykket innhentes gjennom en portvakt som kjenner miljøet fra før", "At deltakeren får lese den ferdige rapporten før den blir publisert"],
+      options: ["At samtykket fornyes når prosjektet endrer retning underveis i arbeidet", "At deltakeren først samtykker muntlig og deretter bekrefter det skriftlig", "At samtykket innhentes gjennom en portvakt som kjenner miljøet fra før og har deltakernes tillit", "At deltakeren får lese den ferdige rapporten før den blir publisert"],
       explanation: "Riktig svar er fornyelsen underveis, som er den vanligste løsningen på at fleksible design endrer seg. Merk at den har en pris: relasjonen er blitt nær, og et nei kan være dyrere å si enn på den første dagen.",
     },
     {
@@ -2949,12 +2949,12 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvem er tredjepersoner i et forskningsmateriale?",
-      options: ["Personer som omtales av deltakerne, men som aldri har samtykket til noe", "Forskere som får tilgang til materialet etter at prosjektet er avsluttet", "Personer som har takket nei til å delta, men som likevel er i miljøet", "Representanter for oppdragsgiveren som følger prosjektet underveis"],
+      options: ["Personer som omtales av deltakerne, men som aldri har samtykket til noe", "Forskere som får tilgang til materialet etter at prosjektet er avsluttet", "Personer som har takket nei til å delta, men som likevel er i miljøet forskeren observerer", "Representanter for oppdragsgiveren som følger prosjektet underveis"],
       explanation: "Riktig svar er de omtalte som aldri ble spurt. De er ofte de mest utsatte, nettopp fordi verken informasjon eller mulighet til å si nei har vært aktuelt, og hensynet til dem må ivaretas av forskeren alene.",
     },
     {
       question: "Hvorfor er belastningen ved deltakelse ujevnt fordelt?",
-      options: ["Den treffer hardest dem som forteller mest, altså dem forskningen har mest nytte av", "Den treffer hardest dem som ble rekruttert sist og fikk minst tid til å forberede seg", "Den treffer hardest dem som har minst erfaring med å bli intervjuet av forskere", "Den treffer hardest dem som deltar i flere prosjekter i samme tidsrom"],
+      options: ["Den treffer hardest dem som forteller mest, altså dem forskningen har mest nytte av", "Den treffer hardest dem som ble rekruttert sist og fikk minst tid til å forberede seg", "Den treffer hardest dem som har minst erfaring med å bli intervjuet av forskere, og som ikke vet hva de går til", "Den treffer hardest dem som deltar i flere prosjekter i samme tidsrom"],
       explanation: "Riktig svar peker på den ubehagelige sammenhengen: den som forteller mest, risikerer mest, og bidrar mest. Observasjonen gir en drøfting retning, fordi den peker mot dem som har minst å tjene på deltakelsen.",
     },
     {
@@ -2964,12 +2964,12 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor skjerpes de eksterne normene i lukkede miljøer?",
-      options: ["Konsekvensene av å bli gjenkjent er større, og tilgangen gis av noen som risikerer noe", "Deltakerne er som regel mindre utdannede og forstår derfor informasjonen dårligere", "Forskeren må være til stede lenger, og lang tid i felt gir automatisk større belastning", "Slike miljøer er som regel underlagt egne regler om taushetsplikt og innsyn"],
+      options: ["Konsekvensene av å bli gjenkjent er større, og tilgangen gis av noen som risikerer noe", "Deltakerne er som regel mindre utdannede og forstår derfor informasjonen dårligere enn deltakere i åpne miljøer gjør", "Forskeren må være til stede lenger, og lang tid i felt gir automatisk større belastning", "Slike miljøer er som regel underlagt egne regler om taushetsplikt og innsyn"],
       explanation: "Riktig svar knytter skjerpingen til risiko og til relasjonen som oppstår når noen slipper forskeren inn. Utdanningsnivå og feltarbeidets lengde er ikke det som gjør situasjonen særegen.",
     },
     {
       question: "Hva er hovedbegrunnelsen for skjult observasjon som metode?",
-      options: ["At kunnskap om å bli studert endrer atferden, slik at åpen observasjon svikter", "At det er praktisk vanskelig å informere alle som befinner seg i et offentlig rom", "At deltakerne ellers ville krevd godtgjørelse for tiden de bruker på studien", "At forskeren får bedre tilgang til miljøet når hun ikke må forklare hensikten"],
+      options: ["At kunnskap om å bli studert endrer atferden, slik at åpen observasjon svikter", "At det er praktisk vanskelig å informere alle som befinner seg i et offentlig rom", "At deltakerne ellers ville krevd godtgjørelse for tiden de bruker på studien", "At forskeren får bedre tilgang til miljøet når hun ikke må forklare hensikten for en portvakt først"],
       explanation: "Riktig svar er det metodiske argumentet om at observasjon endrer det observerte. Merk at argumentet ikke avgjør spørsmålet: jo mer privat rommet er, og jo større konsekvensene av å bli gjenkjent, desto tyngre veier samtykkekravet.",
     },
     {
@@ -2979,7 +2979,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er publiseringsfasen forskningsetisk viktig?",
-      options: ["Det er da beskrivelsen kommer tilbake til feltet og kan oppleves som en dom", "Det er da forskeren mister kontrollen over hvem som får tilgang til materialet", "Det er da deltakerne får anledning til å trekke samtykket sitt tilbake", "Det er da eventuelle feil i analysen blir oppdaget av fagfeller i miljøet"],
+      options: ["Det er da beskrivelsen kommer tilbake til feltet og kan oppleves som en dom", "Det er da forskeren mister kontrollen over hvem som får tilgang til materialet", "Det er da deltakerne får anledning til å trekke samtykket sitt tilbake", "Det er da eventuelle feil i analysen blir oppdaget av fagfeller i miljøet og kan rettes opp i ettertid"],
       explanation: "Riktig svar er tilbakeføringen til feltet: et prosjekt kan være forsvarlig gjennom hele innsamlingen og likevel gjøre skade når det publiseres. Merk at dette gjelder også når ingen kan identifiseres — det handler om hva det gjør med folk å bli beskrevet.",
     },
     {
@@ -2994,7 +2994,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er problemet med å løse et konfidensialitetsdilemma ved å «anonymisere»?",
-      options: ["Anonymisering fjerner navn, men ikke den gjenkjennbarheten konteksten gir", "Anonymisering krever teknisk kompetanse som de fleste forskere mangler", "Anonymisering er i strid med kravet om at forskningen skal være etterprøvbar", "Anonymisering forutsetter at deltakerne har samtykket til at navnene endres"],
+      options: ["Anonymisering fjerner navn, men ikke den gjenkjennbarheten konteksten gir", "Anonymisering krever teknisk kompetanse som de fleste forskere mangler, og må derfor kjøpes eksternt", "Anonymisering er i strid med kravet om at forskningen skal være etterprøvbar", "Anonymisering forutsetter at deltakerne har samtykket til at navnene endres"],
       explanation: "Riktig svar er at tiltaket ikke treffer problemet: i små miljøer identifiserer rollen alene. Anonymisering er ett virkemiddel mot konfidensialitetsbrudd, ikke selve målet — og det er ofte utilstrekkelig.",
     },
     {
@@ -3004,22 +3004,22 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr det at et signert skjema ikke er nok for gyldig samtykke?",
-      options: ["Samtykke er en forståelse av hva man sier ja til, ikke en formell underskrift", "Skjemaet må i tillegg være godkjent av en forskningsetisk komité på forhånd", "Skjemaet må fornyes hver sjette måned så lenge prosjektet pågår", "Underskriften må bevitnes av en tredjeperson for å være forskningsetisk gyldig"],
+      options: ["Samtykke er en forståelse av hva man sier ja til, ikke en formell underskrift", "Skjemaet må i tillegg være godkjent av en forskningsetisk komité på forhånd for at samtykket skal gjelde", "Skjemaet må fornyes hver sjette måned så lenge prosjektet pågår", "Underskriften må bevitnes av en tredjeperson for å være forskningsetisk gyldig"],
       explanation: "Riktig svar er at forståelsen er kravet. En deltaker som har krysset av uten å ha forstått hva materialet skal brukes til, har ikke samtykket i normens forstand — og et langt skriv med fagord kan gi dårligere samtykke enn en kort muntlig forklaring.",
     },
     {
       question: "Når kan en påstand om at et prosjekt er etisk forsvarlig, ikke støtte seg på at det er meldt og godkjent?",
-      options: ["Alltid: godkjenning fanger det forutsigbare, mens ansvaret ligger hos forskeren", "Bare når prosjektet er endret etter at meldingen ble sendt inn til vurdering", "Bare når prosjektet omfatter sårbare deltakere eller sensitive personopplysninger", "Bare når prosjektet gjennomføres i et annet land enn der godkjenningen ble gitt"],
+      options: ["Alltid: godkjenning fanger det forutsigbare, mens ansvaret ligger hos forskeren", "Bare når prosjektet er endret etter at meldingen ble sendt inn til vurdering, slik at vedtaket ikke passer", "Bare når prosjektet omfatter sårbare deltakere eller sensitive personopplysninger", "Bare når prosjektet gjennomføres i et annet land enn der godkjenningen ble gitt"],
       explanation: "Riktig svar er at forhåndsvurderingen ikke kan fange dilemmaene som oppstår i felt, og at ansvaret ligger hos forskeren og ikke hos ordningen. Endring og sårbarhet skjerper poenget, men de skaper det ikke.",
     },
     {
       question: "Hva er den vanligste formen for feil #9 i et svar om ekstern forskningsetikk?",
-      options: ["Å kalle et brudd på samtykkekravet internt fordi troverdigheten svekkes", "Å nevne de eksterne normene uten å oppgi Balsvik som avsender for inndelingen", "Å behandle konfidensialitet og privatliv som to helt atskilte normkrav", "Å hevde at samfunnets interesse i kunnskap aldri kan veie tyngre enn samtykkekravet"],
+      options: ["Å kalle et brudd på samtykkekravet internt fordi troverdigheten svekkes", "Å nevne de eksterne normene uten å oppgi Balsvik som avsender for inndelingen", "Å behandle konfidensialitet og privatliv som to helt atskilte normkrav med hver sin begrunnelse", "Å hevde at samfunnets interesse i kunnskap aldri kan veie tyngre enn samtykkekravet"],
       explanation: "Riktig svar beskriver forvekslingen mellom kriteriet og ringvirkningene. Alle brudd svekker troverdigheten, men kriteriet er hvem normen beskytter — og det er nettopp derfor huskeregelen er ett spørsmål og ikke to lister.",
     },
     {
       question: "Hva bør et forslag til tiltak i et forskningsetisk dilemma alltid inneholde?",
-      options: ["En setning om hva tiltaket koster, og hvem kostnaden faller på", "En henvisning til det regelverket tiltaket er hjemlet i", "En vurdering av hvor mye ekstra tid tiltaket vil kreve av forskeren", "En bekreftelse fra deltakeren på at tiltaket oppleves som tilstrekkelig"],
+      options: ["En setning om hva tiltaket koster, og hvem kostnaden faller på", "En henvisning til det regelverket tiltaket er hjemlet i, med paragraf og ledd oppgitt", "En vurdering av hvor mye ekstra tid tiltaket vil kreve av forskeren", "En bekreftelse fra deltakeren på at tiltaket oppleves som tilstrekkelig"],
       explanation: "Riktig svar er prisen og hvem den rammer. Et tiltak uten pris er et hakekryss i en sjekkliste, ikke en drøfting — og det er nettopp avveiningen sensor er ute etter i denne sjangeren.",
     },
   ],
@@ -3036,7 +3036,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er publiseringsretten kalt prøvesteinen?",
-      options: ["Den avgjør om et ubehagelig funn i det hele tatt blir kjent for andre", "Den er den eneste grensen som er nedfelt i lov og kan håndheves rettslig", "Den er den klausulen oppdragsgivere oftest forsøker å forhandle bort", "Den avgjør hvem som har opphavsrett til rapporten når prosjektet er ferdig"],
+      options: ["Den avgjør om et ubehagelig funn i det hele tatt blir kjent for andre", "Den er den eneste grensen som er nedfelt i lov og kan håndheves rettslig", "Den er den klausulen oppdragsgivere oftest forsøker å forhandle bort under kontraktsforhandlingene", "Den avgjør hvem som har opphavsrett til rapporten når prosjektet er ferdig"],
       explanation: "Riktig svar er at de andre grensene kan formuleres pent i en kontrakt og likevel omgås, mens denne ikke kan det. Uten publisering finnes funnet i praksis ikke, uansett hvor korrekt undersøkelsen ble gjennomført.",
     },
     {
@@ -3046,7 +3046,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den vanskeligste formen for styring i oppdragsforskning?",
-      options: ["Å bestemme hvem som skal inngå i utvalget, uten å røre ved noen tolkning", "Å kreve at rapporten skrives på et bestemt språk eller i et bestemt format", "Å be om at rapporten leveres tidligere enn opprinnelig avtalt i kontrakten", "Å nekte å betale den siste delen av honoraret før rapporten er godkjent"],
+      options: ["Å bestemme hvem som skal inngå i utvalget, uten å røre ved noen tolkning", "Å kreve at rapporten skrives på et bestemt språk eller i et bestemt format", "Å be om at rapporten leveres tidligere enn opprinnelig avtalt i kontrakten", "Å nekte å betale den siste delen av honoraret før rapporten er godkjent av oppdragsgiverens ledelse"],
       explanation: "Riktig svar er den indirekte styringen gjennom utvalget: hvem som er med, avgjør hva undersøkelsen kan finne. Den er langt vanskeligere å oppdage enn en vetoklausul og like alvorlig — og koblingen til utvalgets betydning i metodedelen er et A-grep.",
     },
     {
@@ -3101,7 +3101,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva gjelder kravet om etterprøvbarhet i oppdragsforskning?",
-      options: ["Framgangsmåten og grunnlaget, men ikke nødvendigvis selve råmaterialet", "Alt materiale skal offentliggjøres samtidig med den ferdige rapporten", "Bare de delene av arbeidet som oppdragsgiveren har godkjent for publisering", "Bare oppdrag finansiert av offentlige midler, ikke oppdrag fra private aktører"],
+      options: ["Framgangsmåten og grunnlaget, men ikke nødvendigvis selve råmaterialet", "Alt materiale skal offentliggjøres samtidig med den ferdige rapporten, også intervjuutskriftene", "Bare de delene av arbeidet som oppdragsgiveren har godkjent for publisering", "Bare oppdrag finansiert av offentlige midler, ikke oppdrag fra private aktører"],
       explanation: "Riktig svar skiller mellom de to nivåene: det er som regel mulig å beskrive utvalg, spørsmål og analyse fullt ut uten å røpe noe fortrolig. Kravet gjelder uansett hvem som betaler, og full offentliggjøring av materialet ville kollidert med konfidensialiteten.",
     },
     {
@@ -3123,12 +3123,12 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er kjennetegnet på en erkjennelsespåstand?",
-      options: ["Den sier hvordan noe er, og den kan i prinsippet etterprøves av andre", "Den sier hva som bør gjøres, og den kan begrunnes overfor andre mennesker", "Den bedømmer noe som godt eller dårlig ut fra et oppgitt verdipremiss", "Den er fri for begreper som bærer en vurdering i seg fra fagets side"],
+      options: ["Den sier hvordan noe er, og den kan i prinsippet etterprøves av andre", "Den sier hva som bør gjøres, og den kan begrunnes overfor andre mennesker", "Den bedømmer noe som godt eller dårlig ut fra et oppgitt verdipremiss", "Den er fri for begreper som bærer en vurdering i seg fra fagets side, og bruker bare nøytrale ord"],
       explanation: "Erkjennelse handler om å finne ut hvordan noe er, og resultatet er påstander andre kan kontrollere. Å bedømme noe som godt eller dårlig er en vurdering. At påstanden er fri for verdiimpregnerte begreper, er ikke et krav — samfunnsvitenskapelige erkjennelsespåstander bruker slike begreper hele tiden.",
     },
     {
       question: "Hva menes med verdirelatert temavalg?",
-      options: ["At valget av hva som skal studeres, er styrt av hva noen mener er viktig", "At forskeren lar sitt eget syn avgjøre hvilke funn som blir rapportert", "At begrepene forskeren bruker, allerede bærer en vurdering i seg", "At konklusjonen inneholder en anbefaling framstilt som et forskningsresultat"],
+      options: ["At valget av hva som skal studeres, er styrt av hva noen mener er viktig", "At forskeren lar sitt eget syn avgjøre hvilke funn som blir rapportert, og hvilke som blir utelatt", "At begrepene forskeren bruker, allerede bærer en vurdering i seg", "At konklusjonen inneholder en anbefaling framstilt som et forskningsresultat"],
       explanation: "Verdirelatert temavalg gjelder spørsmålsvalget, ikke behandlingen av svaret, og idealet tillater det. Verdiimpregnering og konklusjonsladning ligger andre steder i kjeden, og av dem er det bare konklusjonsladningen som er et brudd på idealet.",
     },
     {
@@ -3143,22 +3143,22 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen på verdifrihet og verdinøytralitet?",
-      options: ["Verdifrihet er en regel om hva som får framstilles som sant, verdinøytralitet en påstand om forskerens indre liv", "Verdifrihet gjelder metoden som er brukt, mens verdinøytralitet gjelder valget av forskningstema og finansieringskilde", "Verdifrihet gjelder samfunnsvitenskap, mens verdinøytralitet er naturvitenskapens strengere variant", "Verdifrihet gjelder publiserte funn, mens verdinøytralitet gjelder rådene forskeren gir til oppdragsgiver"],
+      options: ["Verdifrihet er en regel om hva som får framstilles som sant, verdinøytralitet en påstand om forskerens indre liv", "Verdifrihet gjelder metoden som er brukt, mens verdinøytralitet gjelder valget av forskningstema og finansieringskilde", "Verdifrihet gjelder samfunnsvitenskap, mens verdinøytralitet er naturvitenskapens strengere variant", "Verdifrihet gjelder de publiserte funnene, mens verdinøytralitet gjelder rådene forskeren gir oppdragsgiveren etter at rapporten er levert"],
       explanation: "Skillet er nettopp at det ene kan kontrolleres i en tekst og det andre ikke kan kontrolleres i det hele tatt. De fleste innvendinger som framføres mot verdifrihet, treffer egentlig verdinøytralitet, og å si det er et selvstendig poeng i drøftingen.",
     },
     {
       question: "Hvilket av disse stedene rammes av verdifrihetsidealet som et brudd?",
-      options: ["At en anbefaling presenteres som om den fulgte direkte av undersøkelsens funn", "At forskeren valgte temaet fordi hun selv mener problemet er samfunnsviktig", "At et av begrepene i undersøkelsen bærer en vurdering med seg inn i målingen", "At oppdragsgiveren har en politisk interesse av at prosjektet blir gjennomført"],
+      options: ["At en anbefaling presenteres som om den fulgte direkte av undersøkelsens funn", "At forskeren valgte temaet fordi hun selv mener problemet er samfunnsviktig", "At et av begrepene i undersøkelsen bærer en vurdering med seg inn i selve målingen av det som skal telles", "At oppdragsgiveren har en politisk interesse av at prosjektet blir gjennomført"],
       explanation: "Riktig svar er konklusjonsladningen: der framstilles en vurdering som et resultat. Temavalg og impregnering er uunngåelige og skal håndteres med åpenhet, og oppdragsgiverens interesse er et forskningsetisk spørsmål snarere enn et verdifrihetsspørsmål.",
     },
     {
       question: "Hva innebærer objektivitet forstått som upartiskhet?",
-      options: ["At materialet behandles likt uansett hva det viser, også når funnene taler mot hypotesen", "At framgangsmåten er beskrevet så nøye at en annen forsker kan gjenta hele undersøkelsen på egen hånd", "At forskerens egne vurderinger holdes helt utenfor det som presenteres som funn", "At forskeren ikke har noen personlig interesse av hvordan undersøkelsen faller ut"],
+      options: ["At materialet behandles likt uansett hva det viser, også når funnene taler mot hypotesen", "At framgangsmåten er beskrevet så nøye at en annen forsker kan gjenta hele undersøkelsen på egen hånd", "At forskerens egne vurderinger holdes helt utenfor det som presenteres som funn", "At forskeren ikke har noen personlig interesse av hvordan undersøkelsen faller ut, verken økonomisk eller faglig"],
       explanation: "Upartiskhet gjelder behandlingen av materialet og kan kontrolleres i en publikasjon. Beskrivelsen av framgangsmåten hører til intersubjektiv etterprøvbarhet, og fravær av forskerens vurderinger er den strengeste av de tre betydningene.",
     },
     {
       question: "Hva er kjernen i objektivitet forstått som intersubjektiv etterprøvbarhet?",
-      options: ["At arbeidet er lagt fram slik at andre, med andre verdier, kan kontrollere det", "At flertallet av forskerne på feltet er kommet fram til det samme resultatet", "At forskeren har lykkes i å legge sine egne verdidommer helt til side", "At undersøkelsen er gjennomført uten kontakt med dem som har interesser i saken"],
+      options: ["At arbeidet er lagt fram slik at andre, med andre verdier, kan kontrollere det", "At flertallet av forskerne på feltet er kommet fram til det samme resultatet og står samlet bak konklusjonen", "At forskeren har lykkes i å legge sine egne verdidommer helt til side", "At undersøkelsen er gjennomført uten kontakt med dem som har interesser i saken"],
       explanation: "Objektiviteten flyttes fra personen til fellesskapet: kravet gjelder teksten og institusjonen, ikke forskerens sinnstilstand. Enighet er ikke det samme som etterprøvbarhet — poenget er nettopp at uenige forskere skal kunne gå hverandre etter i sømmene.",
     },
     {
@@ -3168,12 +3168,12 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er intersubjektivitet, slik begrepet brukes her?",
-      options: ["At noe kan kontrolleres og bekreftes av flere uavhengige personer", "At forskere på samme felt deler et sett av grunnleggende verdier", "At forskeren og deltakerne blir enige om hvordan situasjonen skal forstås", "At påstanden er formulert slik at den ikke kan bestrides av noen"],
+      options: ["At noe kan kontrolleres og bekreftes av flere uavhengige personer", "At forskere på samme felt deler et sett av grunnleggende verdier som holder fagmiljøet samlet", "At forskeren og deltakerne blir enige om hvordan situasjonen skal forstås", "At påstanden er formulert slik at den ikke kan bestrides av noen"],
       explanation: "Riktig svar er den uavhengige kontrollen. Alternativet om delte verdier snur poenget på hodet — kontrollen er verdifull nettopp fordi kontrollørene ikke deler forskerens verdier. Enighet mellom forsker og deltaker er en helt annen sak, som hører hjemme i kvalitativ metode.",
     },
     {
       question: "Hva vil det si at verdifrihet kan forstås som et regulativt ideal?",
-      options: ["At idealet ikke kan nås fullt ut, men gjør arbeidet bedre jo mer det styrer det", "At idealet er nedfelt i regelverk som forskningsinstitusjonene plikter å følge", "At idealet gjelder for publisering, men ikke for arbeidet som ligger forut for den", "At idealet bare gjelder for forskere som uttaler seg offentlig om politiske spørsmål"],
+      options: ["At idealet ikke kan nås fullt ut, men gjør arbeidet bedre jo mer det styrer det", "At idealet er nedfelt i regelverk som forskningsinstitusjonene plikter å følge, med sanksjoner ved brudd", "At idealet gjelder for publisering, men ikke for arbeidet som ligger forut for den", "At idealet bare gjelder for forskere som uttaler seg offentlig om politiske spørsmål"],
       explanation: "Et regulativt ideal måles i om det styrer, ikke i om det er nådd. Ordet «regulativt» viser til styring, ikke til regelverk — det er den nære distraktoren her, og den er verdt å merke seg fordi ordet trekker tanken mot forskrifter.",
     },
     {
@@ -3203,12 +3203,12 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er kjennetegnet på en vurdering, i motsetning til en erkjennelse?",
-      options: ["Uenigheten består selv når partene er enige om alle fakta i saken", "Påstanden bygger på et lite utvalg og lar seg derfor ikke generalisere", "Påstanden gjelder framtiden og kan derfor ikke kontrolleres i dag", "Påstanden er formulert av en forsker som selv er berørt av saken"],
+      options: ["Uenigheten består selv når partene er enige om alle fakta i saken", "Påstanden bygger på et lite utvalg og lar seg derfor ikke generalisere", "Påstanden gjelder framtiden og kan derfor ikke kontrolleres i dag", "Påstanden er formulert av en forsker som selv er berørt av saken og vil vinne på konklusjonen"],
       explanation: "Testen er nettopp om enigheten om fakta oppløser uenigheten. Gjør den ikke det, hviler striden på et verdipremiss. Alternativene om utvalg og framtid beskriver empirisk usikkerhet, som er noe helt annet enn en vurdering.",
     },
     {
       question: "Hva sier verdifrihetsidealet om forskerens rett til å ha politiske meninger?",
-      options: ["Ingenting — idealet gjelder hva som framstilles som sant, ikke hva forskeren mener", "At meningene hennes må oppgis i en egen interesseerklæring i alle arbeider som publiseres", "At forskeren bør unngå å forske på felt der hun har sterke standpunkter", "At meningene er tillatt så lenge de ikke er kjent for dem som leser arbeidet"],
+      options: ["Ingenting — idealet gjelder hva som framstilles som sant, ikke hva forskeren mener", "At meningene hennes må oppgis i en egen interesseerklæring i alle arbeider som publiseres", "At forskeren bør unngå å forske på felt der hun har sterke standpunkter", "At meningene er tillatt så lenge de ikke er kjent for dem som leser arbeidet eller vurderer det som fagfeller"],
       explanation: "Riktig svar er at idealet ikke regulerer forskerens meninger i det hele tatt. Å lese det som et krav om meningsløshet er kapitlets hovedfeil, og den flytter besvarelsen over på et spørsmål oppgaven ikke stilte.",
     },
     {
@@ -3238,7 +3238,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er det sterkeste argumentet for at verdifrihet er praktisk mulig?",
-      options: ["At verdier kan gjøres til forskningsobjekt uten at forskerens eget syn kommer inn", "At erfarne forskere lærer seg å legge sine personlige oppfatninger til side", "At fagfellevurdering fjerner de arbeidene som er farget av forfatterens standpunkt", "At kvantitative data ikke kan tolkes i mer enn én retning når analysen er korrekt"],
+      options: ["At verdier kan gjøres til forskningsobjekt uten at forskerens eget syn kommer inn", "At erfarne forskere lærer seg å legge sine personlige oppfatninger til side gjennom lang trening i faget", "At fagfellevurdering fjerner de arbeidene som er farget av forfatterens standpunkt", "At kvantitative data ikke kan tolkes i mer enn én retning når analysen er korrekt"],
       explanation: "Argumentet holder fordi det peker på en type undersøkelse der skillet faktisk lar seg gjennomføre. De tre andre hviler på antakelser om forskeres selvbeherskelse, om at kontrollordninger er feilfrie, eller om at tall tolker seg selv.",
     },
     {
@@ -3265,22 +3265,22 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er sterk objektivitet?",
-      options: ["Kravet om at også forskerposisjonens egne forutsetninger skal granskes", "Kravet om at funn må bekreftes av minst to uavhengige forskergrupper", "Kravet om at forskeren skal legge sine personlige verdidommer helt til side", "Kravet om at et forskningsfelt skal rekruttere fra flere sosiale grupper"],
+      options: ["Kravet om at også forskerposisjonens egne forutsetninger skal granskes", "Kravet om at funn må bekreftes av minst to uavhengige forskergrupper før de kan regnes som holdbare", "Kravet om at forskeren skal legge sine personlige verdidommer helt til side", "Kravet om at et forskningsfelt skal rekruttere fra flere sosiale grupper"],
       explanation: "Sterk objektivitet utvider kontrollflaten med ett punkt: forutsetningene som fulgte med forskerposisjonen. Harding kaller den vanlige objektiviteten svak nettopp fordi antakelser som deles av alle, aldri blir kontrollert av noen.",
     },
     {
       question: "Hvorfor kaller Harding det vanlige objektivitetsidealet svakt?",
-      options: ["Fordi antakelser som deles av hele forskerfellesskapet, aldri blir kontrollert av noen", "Fordi kravet ikke er nedfelt i forskningsetiske retningslinjer og derfor ikke håndheves", "Fordi det bare gjelder kvantitativ forskning og ikke fanger opp kvalitative studier", "Fordi kontrollen av data i praksis utføres av forskeren selv og ikke av noen andre"],
+      options: ["Fordi antakelser som deles av hele forskerfellesskapet, aldri blir kontrollert av noen", "Fordi kravet ikke er nedfelt i forskningsetiske retningslinjer og derfor ikke håndheves", "Fordi det bare gjelder kvantitativ forskning og ikke fanger opp kvalitative studier av mening og erfaring", "Fordi kontrollen av data i praksis utføres av forskeren selv og ikke av noen andre"],
       explanation: "Det svake punktet er de felles forutsetningene, ikke håndhevingen eller metodetypen. Er alle enige om noe uten å ha undersøkt det, blir enigheten forvekslet med kunnskap.",
     },
     {
       question: "Hva menes med situert kunnskap?",
-      options: ["At all kunnskap er produsert fra et bestemt sted, og at stedet skal oppgis", "At kunnskap må prøves i den situasjonen den er ment å skulle brukes i", "At kunnskapen om et fenomen er avhengig av hvilken metode som er brukt", "At forskeren skal tilbringe tid i feltet for å forstå deltakernes situasjon"],
+      options: ["At all kunnskap er produsert fra et bestemt sted, og at stedet skal oppgis", "At kunnskap må prøves i den situasjonen den er ment å skulle brukes i", "At kunnskapen om et fenomen er avhengig av hvilken metode som er brukt til å samle inn materialet", "At forskeren skal tilbringe tid i feltet for å forstå deltakernes situasjon"],
       explanation: "Situering handler om ståstedet kunnskapen er sett fra, og om kravet om å oppgi det. Distraktoren om tid i feltet trekker mot deltakende observasjon, som er en metode og noe helt annet.",
     },
     {
       question: "Hva er poenget med uttrykket «outsidere på innsiden»?",
-      options: ["At fortrinnet krever både nærhet til systemet og avstand fra sentrum i det", "At forskere bør rekrutteres utenfra for å unngå å bli farget av fagmiljøet", "At den som står helt utenfor et samfunn, ser det klarest og mest uhildet", "At marginaliserte grupper bør delta i forskning som informanter og ikke som forskere"],
+      options: ["At fortrinnet krever både nærhet til systemet og avstand fra sentrum i det", "At forskere bør rekrutteres utenfra for å unngå å bli farget av fagmiljøet", "At den som står helt utenfor et samfunn, ser det klarest fordi ingen bindinger forstyrrer blikket", "At marginaliserte grupper bør delta i forskning som informanter og ikke som forskere"],
       explanation: "Man kjenner reglene fordi man må følge dem, og ser dem fordi de ikke er ens egne. Den som står helt utenfor, ser ikke systemet i det hele tatt — og det er derfor teorien ikke gjelder hvem som helst utenfor makten.",
     },
     {
@@ -3290,13 +3290,13 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er «bedre kunnskap» en sterkere påstand enn «annen kunnskap»?",
-      options: ["Fordi den rangerer utsiktspunkter og dermed sier noe om kunnskapens kvalitet", "Fordi den forutsetter at kunnskapen er samlet inn med en mer pålitelig metode", "Fordi den innebærer at flere grupper har vært involvert i forskningsarbeidet", "Fordi den forutsetter at forskeren selv tilhører den marginaliserte gruppa"],
+      options: ["Fordi den rangerer utsiktspunkter og dermed sier noe om kunnskapens kvalitet", "Fordi den forutsetter at kunnskapen er samlet inn med en mer pålitelig metode", "Fordi den innebærer at flere grupper har vært involvert i forskningsarbeidet", "Fordi den forutsetter at forskeren selv tilhører den marginaliserte gruppa som studeres i prosjektet"],
       explanation: "Rangeringen er hele det omstridte i teorien. At ulike grupper ser ulike ting, er alle enige i, og en besvarelse som stopper der, har beskrevet noe uomtvistet i stedet for å svare på oppgaven.",
     },
     {
       question: "Hva er relativisme-innvendingen mot standpunktteorien?",
-      options: ["At teorien undergraver seg selv hvis all kunnskap er formet av posisjon", "At teorien behandler grupper som om alle i dem hadde samme erfaring", "At marginale posisjoner er mange og ser ulike ting som motsier hverandre", "At teorien i praksis brukes til å avvise motargumenter uten å svare på dem"],
-      explanation: "Relativisme-innvendingen gjelder teoriens egen status. De to neste alternativene er essensialisme-innvendingen og innvendingen om hvilket standpunkt, som er andre og delvis sterkere innvendinger.",
+      options: ["At teorien undergraver seg selv hvis all kunnskap er formet av posisjon", "At teorien behandler grupper som om alle i dem hadde samme erfaring, uansett hvor ulikt de er stilt", "At marginale posisjoner er mange og ser ulike ting som motsier hverandre", "At teorien i praksis brukes til å avvise motargumenter uten å svare på dem"],
+      explanation: "Relativisme-innvendingen gjelder teoriens egen status. Svaret om at grupper behandles som om alle i dem hadde samme erfaring, er essensialisme-innvendingen, og svaret om at marginale posisjoner ser ulike ting, er innvendingen om hvilket standpunkt — begge andre og delvis sterkere innvendinger.",
     },
     {
       question: "Hvilken innvending regnes her som den sterkeste mot standpunktteorien?",
@@ -3305,12 +3305,12 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor regnes Harding som konfliktteoretiker?",
-      options: ["Fordi kunnskapsfordelingen forklares ved maktforhold og motsatte interesser", "Fordi teorien ble utviklet i uttalt opposisjon til det etablerte forskningsmiljøet", "Fordi den beskriver vitenskapen som et system av gjensidig avhengige deler", "Fordi den ser felles verdier som det som holder et fagfellesskap sammen"],
+      options: ["Fordi kunnskapsfordelingen forklares ved maktforhold og motsatte interesser", "Fordi teorien ble utviklet i uttalt opposisjon til det etablerte forskningsmiljøet", "Fordi den beskriver vitenskapen som et system av gjensidig avhengige deler som holder helheten i gang", "Fordi den ser felles verdier som det som holder et fagfellesskap sammen"],
       explanation: "Forklaringsfiguren er konfliktperspektivets: makt, motsatte interesser og ideologi. Alternativene om gjensidig avhengige deler og felles verdier beskriver funksjonalismen og integrasjonsperspektivet.",
     },
     {
       question: "Hva er ideologikritikk i denne sammenhengen?",
-      options: ["Å vise at forestillinger som framstår som allmenne, tjener bestemte posisjoner", "Å avdekke at en forsker har latt sitt eget politiske standpunkt farge konklusjonen", "Å undersøke hvordan politiske ideologier oppstår og spres i en befolkning", "Å vurdere om et forskningsprosjekt er finansiert av en part med interesser"],
+      options: ["Å vise at forestillinger som framstår som allmenne, tjener bestemte posisjoner", "Å avdekke at en forsker har latt sitt eget politiske standpunkt farge konklusjonen", "Å undersøke hvordan politiske ideologier oppstår og spres i en befolkning", "Å vurdere om et forskningsprosjekt er finansiert av en part med interesser i hva undersøkelsen viser"],
       explanation: "Ideologi brukes analytisk om ideer som får et samfunnsforhold til å framstå som naturlig. Å studere ideologiers utbredelse er et helt annet prosjekt, og å avdekke en enkelt forskers politiske farging er verdifrihetsstoff.",
     },
     {
@@ -3325,12 +3325,12 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er essensialisme-innvendingen?",
-      options: ["At teorien behandler en gruppe som om alle i den hadde samme erfaring og blikk", "At teorien forutsetter at kunnskap har en kjerne som er uavhengig av posisjon", "At teorien gir marginale posisjoner et fortrinn den ikke kan begrunne uten sirkelslutning", "At teorien overser at også dominerende posisjoner kan ha verdifull innsikt"],
+      options: ["At teorien behandler en gruppe som om alle i den hadde samme erfaring og blikk", "At teorien forutsetter at kunnskap har en kjerne som er uavhengig av posisjonen den er sett fra", "At teorien gir marginale posisjoner et fortrinn den ikke kan begrunne uten sirkelslutning", "At teorien overser at også dominerende posisjoner kan ha verdifull innsikt"],
       explanation: "Innvendingen gjelder gruppetenkningen. Hardings svar er at et standpunkt oppnås gjennom kritisk bearbeiding, så innvendingen treffer den populære versjonen — men den kan omformuleres til en innvending mot hvordan teorien faktisk brukes.",
     },
     {
       question: "Hva sier standpunktteorien om Webers skille mellom er og bør?",
-      options: ["At skillet blir vanskeligere å trekke i praksis fordi begrepene er formet av makt", "At skillet er uholdbart i prinsippet og bør forlates som vitenskapelig ideal", "At skillet gjelder for naturvitenskap, men ikke for samfunnsvitenskapelig forskning", "At skillet er uproblematisk så lenge forskeren oppgir sine egne verdipremisser"],
+      options: ["At skillet blir vanskeligere å trekke i praksis fordi begrepene er formet av makt", "At skillet er uholdbart i prinsippet og bør forlates som vitenskapelig ideal", "At skillet gjelder for naturvitenskap, men ikke for samfunnsvitenskapelig forskning", "At skillet er uproblematisk så lenge forskeren oppgir sine egne verdipremisser i innledningen til teksten"],
       explanation: "Teorien opphever ikke skillet, men gir en forklaring på hvorfor det er vanskelig: posisjon styrer hvilke spørsmål som stilles og hvilke begreper som brukes. Det ligger tett på Grimens innvending, og koblingen er verdt å skrive ut.",
     },
     {
@@ -3360,7 +3360,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan kan et drøftingsledd om standpunktteorien lande uten å bli en unnvikelse?",
-      options: ["Ved å skille en sterk og en svak versjon, og si hvilken innvendingen feller", "Ved å konstatere at både teorien og innvendingene har noe for seg", "Ved å vise til at pensum selv er delt i synet på hvor sterk teorien er", "Ved å konkludere med at spørsmålet er politisk og derfor ikke lar seg avgjøre faglig"],
+      options: ["Ved å skille en sterk og en svak versjon, og si hvilken innvendingen feller", "Ved å konstatere at både teorien og innvendingene har noe for seg", "Ved å vise til at pensum selv er delt i synet på hvor sterk teorien er, og la uenigheten stå som svar", "Ved å konkludere med at spørsmålet er politisk og derfor ikke lar seg avgjøre faglig"],
       explanation: "En delt konklusjon er fullgod når delingen er begrunnet: den sterke versjonen rangerer posisjoner og felles av innvendingen om hvilket standpunkt, mens den svake overlever som et krav om sterk objektivitet. «Det kommer an på» uten grunner er derimot en egen post i feilregisteret.",
     },
     {
@@ -3372,12 +3372,12 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
   'svexfac03-7-1': [
     {
       question: "Hva er en struktur i samfunnsvitenskapelig forstand?",
-      options: ["Mønstre utenfor den enkelte som fordeler muligheter og kostnader ulikt", "En organisasjon med formelle stillinger, vedtekter og et definert ansvar", "Summen av holdningene til dem som til enhver tid er med i en gruppe", "Et sett av vaner som den enkelte har lagt seg til gjennom oppveksten"],
+      options: ["Mønstre utenfor den enkelte som fordeler muligheter og kostnader ulikt", "En organisasjon med formelle stillinger, vedtekter og et definert ansvar", "Summen av holdningene til dem som til enhver tid er med i en gruppe", "Et sett av vaner som den enkelte har lagt seg til gjennom oppveksten, og som følger personen videre"],
       explanation: "Strukturen er fordelinger, posisjoner, regler og forventninger — ikke en organisasjon og ikke summen av holdninger. Alternativet om vaner beskriver noe som ligger i personen, og det er nettopp motsatsen til struktur.",
     },
     {
       question: "Hva er en aktør i denne sammenhengen?",
-      options: ["Den handlende, som har mål, oppfatninger og et handlingsrom å velge i", "Den som har formell myndighet til å fatte beslutninger i en sak", "Et menneske som lar seg påvirke lite av forholdene rundt seg", "En person som er seg bevisst hvilken sosial posisjon hun selv befinner seg i"],
+      options: ["Den handlende, som har mål, oppfatninger og et handlingsrom å velge i", "Den som har formell myndighet til å fatte beslutninger i en sak, og som derfor kan binde andre", "Et menneske som lar seg påvirke lite av forholdene rundt seg", "En person som er seg bevisst hvilken sosial posisjon hun selv befinner seg i"],
       explanation: "Aktørbegrepet forutsetter bare at noen handler og kunne ha handlet annerledes. Verken formell myndighet, uavhengighet av omgivelsene eller bevissthet om egen posisjon er en del av begrepet.",
     },
     {
@@ -3387,7 +3387,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva sier metodologisk holisme?",
-      options: ["At noen egenskaper tilhører helheten og ikke lar seg redusere til delene", "At samfunnet må studeres i sin helhet før man kan si noe om enkeltdeler", "At individers handlinger ikke har betydning for samfunnsmessige utfall", "At forskeren bør bruke flere metoder samtidig for å få et fullstendig bilde"],
+      options: ["At noen egenskaper tilhører helheten og ikke lar seg redusere til delene", "At samfunnet må studeres i sin helhet før man kan si noe om enkeltdeler, som en regel for rekkefølgen", "At individers handlinger ikke har betydning for samfunnsmessige utfall", "At forskeren bør bruke flere metoder samtidig for å få et fullstendig bilde"],
       explanation: "Holismen gjelder hvilke egenskaper som kan bære en forklaring. Den benekter ikke at folk handler, og den er ikke et krav om metodetriangulering — det siste er et metodespørsmål, ikke et metodologisk standpunkt.",
     },
     {
@@ -3397,7 +3397,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en emergent egenskap?",
-      options: ["En egenskap som oppstår på helhetens nivå og ikke finnes i noen av delene", "En egenskap som først viser seg etter at et fenomen har vart en tid", "En egenskap som forskeren oppdager underveis i stedet for å ha planlagt å måle den", "En egenskap som bare kan måles indirekte gjennom andre observasjoner"],
+      options: ["En egenskap som oppstår på helhetens nivå og ikke finnes i noen av delene", "En egenskap som først viser seg etter at et fenomen har vart en tid", "En egenskap som forskeren oppdager underveis i stedet for å ha planlagt å måle den", "En egenskap som bare kan måles indirekte gjennom andre observasjoner, fordi den ikke kan registreres"],
       explanation: "Et rykte, en markedspris og en kultur finnes ikke i noen enkeltperson, men virker likevel. Distraktorene handler om tid, om forskningsprosessen og om måling, som er noe helt annet enn nivået egenskapen finnes på.",
     },
     {
@@ -3407,7 +3407,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en nivåfeil?",
-      options: ["Å forklare en egenskap ved helheten med den samme egenskapen hos delene", "Å bruke data fra ett forvaltningsnivå til å si noe om et annet nivå", "Å blande sammen hva en teori sier og hva den empiriske undersøkelsen viste", "Å sammenligne to land uten å ta hensyn til forskjeller i størrelse"],
+      options: ["Å forklare en egenskap ved helheten med den samme egenskapen hos delene", "Å bruke data fra ett forvaltningsnivå til å si noe om et annet nivå, som fra kommune til stat", "Å blande sammen hva en teori sier og hva den empiriske undersøkelsen viste", "Å sammenligne to land uten å ta hensyn til forskjeller i størrelse"],
       explanation: "At et samfunn er aggressivt fordi menneskene er det, er en nivåfeil: egenskapen kopieres nedover i stedet for å bli forklart. En organisasjon kan være treg med utelukkende raske ansatte, hvis beslutningsveiene er lange.",
     },
     {
@@ -3422,7 +3422,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva menes med aggregering?",
-      options: ["Hvordan mange enkelthandlinger blir til et kollektivt utfall", "Hvordan flere datasett slås sammen til én felles analysefil", "Hvordan en gruppe blir enige om et felles standpunkt i en sak", "Hvordan et utvalg vektes for å ligne befolkningen det er trukket fra"],
+      options: ["Hvordan mange enkelthandlinger blir til et kollektivt utfall", "Hvordan flere datasett slås sammen til én felles analysefil før analysen kan begynne", "Hvordan en gruppe blir enige om et felles standpunkt i en sak", "Hvordan et utvalg vektes for å ligne befolkningen det er trukket fra"],
       explanation: "Aggregering er sjelden enkel addisjon: at mange kjøper litt mer strøm, kan gi en prisøkning som endrer alles regnestykke. Distraktorene beskriver databehandling og beslutningsprosesser, som er andre ting.",
     },
     {
@@ -3432,7 +3432,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er poenget med å skille posisjonene lest som påstand om verden fra posisjonene lest som arbeidsregel?",
-      options: ["At de fleste innvendingene treffer den harde versjonen og ikke arbeidsregelen", "At bare den ene av dem har støtte i pensumlitteraturen for dette emnet", "At arbeidsregelen gjelder kvalitativ forskning og påstanden gjelder kvantitativ", "At påstanden om verden er en filosofisk sak som samfunnsvitenskapen ikke berører"],
+      options: ["At de fleste innvendingene treffer den harde versjonen og ikke arbeidsregelen", "At bare den ene av dem har støtte i pensumlitteraturen for dette emnet, slik at den andre kan avvises", "At arbeidsregelen gjelder kvalitativ forskning og påstanden gjelder kvantitativ", "At påstanden om verden er en filosofisk sak som samfunnsvitenskapen ikke berører"],
       explanation: "En drøfting som ikke skiller versjonene, ender med å angripe et standpunkt ingen forsvarer. Skillet er det grepet som gjør drøftingen presis i stedet for polemisk.",
     },
     {
@@ -3442,7 +3442,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et handlingsrom?",
-      options: ["Settet av handlinger som faktisk er åpne for aktøren i en gitt situasjon", "Den friheten en person har til å bestemme over sitt eget liv i moralsk forstand", "Det fysiske og sosiale rommet der samhandlingen mellom aktørene foregår", "Den delen av en organisasjon der beslutninger tas uten formell forankring"],
+      options: ["Settet av handlinger som faktisk er åpne for aktøren i en gitt situasjon", "Den friheten en person har til å bestemme over sitt eget liv i moralsk forstand", "Det fysiske og sosiale rommet der samhandlingen mellom aktørene foregår, som møtelokalet eller arenaen", "Den delen av en organisasjon der beslutninger tas uten formell forankring"],
       explanation: "Handlingsrommet er broen mellom struktur og aktør: strukturen gjør rommet trangt eller vidt, aktøren velger innenfor det. Det sier hva som var mulig, ikke hva som var riktig.",
     },
     {
@@ -3457,7 +3457,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er holismens svakeste punkt?",
-      options: ["At et makrobegrep lett brukes som forklaring på seg selv uten mekanisme", "At den ikke klarer å forklare hvorfor mønstre er stabile over lange tidsrom", "At den forutsetter at alle i en gruppe tenker og handler på samme måte", "At den bare lar seg bruke på fenomener som kan telles og måles"],
+      options: ["At et makrobegrep lett brukes som forklaring på seg selv uten mekanisme", "At den ikke klarer å forklare hvorfor mønstre er stabile over lange tidsrom", "At den forutsetter at alle i en gruppe tenker og handler på samme måte, og dermed overser variasjon", "At den bare lar seg bruke på fenomener som kan telles og måles"],
       explanation: "«Kulturen forklarer hvorfor ingen sier fra» sier ikke mer enn at ingen sier fra, med mindre man kan si hva kulturen består av og hvordan den virker. Stabilitet er derimot holismens styrke, ikke dens svakhet.",
     },
     {
@@ -3477,17 +3477,17 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et godt tegn på at et fenomen egner seg for en holistisk forklaring?",
-      options: ["At egenskapen består selv om alle deltakerne blir skiftet ut over tid", "At fenomenet er så stort at det ikke kan undersøkes med intervjuer", "At det finnes offentlig statistikk som dekker fenomenet over mange år", "At de involverte selv beskriver fenomenet som noe utenfor deres kontroll"],
+      options: ["At egenskapen består selv om alle deltakerne blir skiftet ut over tid", "At fenomenet er så stort at det ikke kan undersøkes med intervjuer eller andre nære metoder", "At det finnes offentlig statistikk som dekker fenomenet over mange år", "At de involverte selv beskriver fenomenet som noe utenfor deres kontroll"],
       explanation: "Utskiftingstesten er den mest brukbare: et rykte eller en yrkesstatus som varer mens menneskene skifter, er vanskelig å forklare med enkeltvalg alene. At de involverte opplever noe som utenfor sin kontroll, er en opplevelse og ikke et bevis.",
     },
     {
       question: "Hva bør et svar på «forklar fenomenet nedenfra og ovenfra» inneholde til slutt?",
-      options: ["En sammenligning av hva hver forklaring får med seg og hva den mister", "En konklusjon om hvilken av de to forklaringene som er den riktige", "En vurdering av hvilke data som ville trengs for å teste begge to", "En redegjørelse for hvilke teoretikere som står bak hver av forklaringene"],
+      options: ["En sammenligning av hva hver forklaring får med seg og hva den mister", "En konklusjon om hvilken av de to forklaringene som er den riktige, med et tydelig valg av vinner", "En vurdering av hvilke data som ville trengs for å teste begge to", "En redegjørelse for hvilke teoretikere som står bak hver av forklaringene"],
       explanation: "Sammenligningsleddet er det oppgaven faktisk belønner, og det er også det leddet svake besvarelser lar ligge. Å kåre en vinner er sjelden mulig, fordi de to svarer på ulike spørsmål.",
     },
     {
       question: "Hvordan virker strukturen på aktøren, ifølge metodologisk individualisme?",
-      options: ["Gjennom aktørene selv, ved at noen håndhever regelen og andre tilpasser seg", "Direkte, ved at strukturen begrenser hva som i det hele tatt er fysisk mulig", "Ved at strukturen former aktørenes personlighet gjennom oppveksten", "Den virker ikke — individualismen benekter at strukturer har virkninger"],
+      options: ["Gjennom aktørene selv, ved at noen håndhever regelen og andre tilpasser seg", "Direkte, ved at strukturen begrenser hva som i det hele tatt er fysisk mulig", "Ved at strukturen former aktørenes personlighet gjennom oppveksten", "Den virker ikke — individualismen benekter at strukturer har virkninger, og godtar bare enkeltvalg"],
       explanation: "Individualismen benekter ikke at strukturer virker, den sier at virkningen går gjennom aktørene: en regel som ingen håndhever og ingen retter seg etter, virker ikke. Å tro at posisjonen benekter strukturer, er en vanlig forenkling.",
     },
   ],
@@ -3544,7 +3544,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er livsverden hos Habermas?",
-      options: ["Bakgrunnen av selvfølgeligheter som gjør at folk kan forstå hverandre", "Den delen av samfunnet som ikke er regulert av marked eller forvaltning", "Summen av erfaringer et enkeltmenneske har gjort seg gjennom livet", "De materielle forholdene mennesker lever under i et bestemt samfunn"],
+      options: ["Bakgrunnen av selvfølgeligheter som gjør at folk kan forstå hverandre", "Den delen av samfunnet som ikke er regulert av marked eller forvaltning", "Summen av erfaringer et enkeltmenneske har gjort seg gjennom livet", "De materielle forholdene mennesker lever under i et bestemt samfunn, som bolig, arbeid og inntekt"],
       explanation: "Livsverdenen er et lager av det som ikke trenger sies, og den blir først synlig når den svikter. Den er verken en samfunnssektor, en personlig biografi eller et sett materielle forhold.",
     },
     {
@@ -3554,7 +3554,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvor plasserer de tre teoretikerne overskridelsen?",
-      options: ["Giddens i strukturen, Bourdieu i aktøren, Habermas i samhandlingen", "Giddens i aktøren, Bourdieu i samhandlingen, Habermas i strukturen", "Giddens i samhandlingen, Bourdieu i strukturen, Habermas i aktøren", "Alle tre i samhandlingen, men med tre ulike syn på hva som samordner"],
+      options: ["Giddens i strukturen, Bourdieu i aktøren, Habermas i samhandlingen", "Giddens i aktøren, Bourdieu i samhandlingen, Habermas i strukturen", "Giddens i samhandlingen, Bourdieu i strukturen, Habermas i aktøren", "Alle tre i samhandlingen, med tre ulike syn på samordning"],
       explanation: "Dette kartet er det korteste svaret på hva som skiller de tre: strukturen finnes bare i praksis, det som velger er selv formet, og i den forståelsesorienterte samtalen kan premissene endres.",
     },
     {
@@ -3564,7 +3564,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er endringsproblemet hos Bourdieu?",
-      options: ["At det blir uklart hva som skal til for at noen bryter med mønsteret", "At habitus endrer seg for raskt til å kunne forklare stabile mønstre", "At begrepet ikke sier noe om hvordan sosial bakgrunn måles i praksis", "At teorien ikke skiller mellom endring hos individet og endring i samfunnet"],
+      options: ["At det blir uklart hva som skal til for at noen bryter med mønsteret", "At habitus endrer seg for raskt til å kunne forklare stabile mønstre", "At begrepet ikke sier noe om hvordan sosial bakgrunn måles i praksis", "At teorien ikke skiller individets endring fra samfunnets"],
       explanation: "Er også det som velger formet, blir brudd vanskelig å forklare. Svaret som finnes i begrepet selv, er at habitus er formet av en historie som fortsetter, og at møtet med et nytt felt kan gi et misforhold der refleksjon oppstår.",
     },
     {
@@ -3672,7 +3672,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er kjernen i normargumentet FOR sivil ulydighet?",
       options: ["At noen plikter veier tyngre enn plikten til å følge loven", "At aksjonene historisk har ført til endringer som senere er blitt akseptert", "At oppmerksomheten en aksjon skaper, er verdt kostnaden ved lovbruddet", "At loven i praksis ikke håndheves likt overfor alle grupper i samfunnet"],
-      explanation: "Argumentets styrke er at det står selv om aksjonen ikke fører fram — riktigheten ligger i handlingens art. De to neste alternativene er konsekvensargumenter, og det siste er en faktapåstand.",
+      explanation: "Argumentets styrke er at det står selv om aksjonen ikke fører fram — riktigheten ligger i handlingens art. Svarene om at aksjoner historisk har ført til endringer, og om at oppmerksomheten er verdt kostnaden, er konsekvensargumenter; svaret om ulik håndheving er en faktapåstand.",
     },
     {
       question: "Hva er den sterkeste innvendingen mot normargumentet for sivil ulydighet?",
@@ -3728,7 +3728,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
   'svexfac03-8-2': [
     {
       question: "Hva er stridsspørsmålet i bærekraftsdebatten slik dette emnet framstiller den?",
-      options: ["Om økonomisk vekst er forenlig med å holde seg innenfor jordas tålegrenser", "Om klimaendringene er menneskeskapte eller skyldes naturlige svingninger", "Om ansvaret for kutt ligger hos myndighetene eller hos den enkelte forbruker", "Om hvor raskt utslippene må reduseres for at temperaturmålene skal nås"],
+      options: ["Om økonomisk vekst er forenlig med å holde seg innenfor jordas tålegrenser", "Om klimaendringene er menneskeskapte eller skyldes naturlige svingninger i klimasystemet over tid", "Om ansvaret for kutt ligger hos myndighetene eller hos den enkelte forbruker", "Om hvor raskt utslippene må reduseres for at temperaturmålene skal nås"],
       explanation: "Uenigheten gjelder verken årsaksforholdet, ansvarsplasseringen eller tempoet, men om det finnes en vei der velstandsvekst og utslippskutt går sammen. En besvarelse som ikke treffer akkurat det, har skrevet generelt om et viktig tema.",
     },
     {
@@ -3738,22 +3738,22 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er typeeksempelet på økomodernismens strategi?",
-      options: ["Karbonfangst og lagring, som fjerner utslippet mens aktiviteten fortsetter", "Kvotehandel, som setter en samlet grense og lar markedet fordele kuttene mellom aktørene", "Krav om at nye bygg skal oppføres i gjenbrukte og lokale materialer", "Avgifter som gjør de mest forurensende varene dyrere for forbrukeren"],
+      options: ["Karbonfangst og lagring, som fjerner utslippet mens aktiviteten fortsetter", "Kvotehandel, som setter en samlet grense og lar markedet fordele kuttene mellom aktørene", "Krav om at nye bygg skal oppføres i gjenbrukte og lokale materialer", "Avgifter som gjør de mest forurensende varene dyrere for forbrukeren og dermed vrir etterspørselen"],
       explanation: "Karbonfangst er eksempelet fordi det tillater aktiviteten å fortsette uendret. Kvotehandel og avgifter er virkemidler begge posisjoner kan bruke, og gjenbrukskrav trekker mot den vekstfrie siden.",
     },
     {
       question: "Hva kjennetegner vekstfri utvikling?",
-      options: ["At fortsatt vekst vil overskride tålegrensene uansett hvor effektiv teknologien blir", "At all økonomisk aktivitet må reduseres kraftig i alle land uavhengig av inntektsnivået deres", "At markedet ikke kan brukes som virkemiddel i klimapolitikken i det hele tatt", "At teknologisk utvikling bør stanses inntil miljøkonsekvensene er utredet"],
+      options: ["At fortsatt vekst vil overskride tålegrensene uansett hvor effektiv teknologien blir", "At all økonomisk aktivitet må reduseres kraftig i alle land uavhengig av inntektsnivået deres", "At markedet ikke kan brukes som virkemiddel i klimapolitikken i det hele tatt, verken kvoter eller avgifter", "At teknologisk utvikling bør stanses inntil miljøkonsekvensene er utredet"],
       explanation: "Posisjonen gjelder planlagt reduksjon i rike land, ikke en generell stans i all aktivitet eller i teknologiutvikling. Å framstille den som en tilbake-til-naturen-posisjon er en karikatur som gir en verdiløs drøfting.",
     },
     {
       question: "Hva er vekstfri utviklings sterkeste argument?",
-      options: ["At effektivisering har pågått lenge mens det samlede forbruket likevel har økt", "At vekst i seg selv gjør menneskene mindre lykkelige enn de var tidligere", "At markedsøkonomien historisk har ført til større ulikhet mellom land", "At teknologi som ikke finnes ennå, ikke kan regnes med i noen som helst troverdig plan"],
+      options: ["At effektivisering har pågått lenge mens det samlede forbruket likevel har økt", "At vekst i seg selv gjør menneskene mindre lykkelige enn de var tidligere, tross høyere materiell standard", "At markedsøkonomien historisk har ført til større ulikhet mellom land", "At teknologi som ikke finnes ennå, ikke kan regnes med i noen som helst troverdig plan"],
       explanation: "Argumentet peker på noe som faktisk har skjedd: billigere varer kjøpes det mer av, slik at effektiviseringsgevinsten spises opp. De andre alternativene er enten andre debatter eller for absolutte til å være posisjonens beste form.",
     },
     {
       question: "Hva er forskjellen på relativ og absolutt frikobling?",
-      options: ["Relativ gjelder utslipp per enhet, absolutt gjelder totalen mens økonomien vokser", "Relativ gjelder ett land, mens absolutt gjelder verdensøkonomien under ett", "Relativ gjelder bare klimagasser, mens absolutt også omfatter arealbruk og avfallsmengder", "Relativ gjelder kortsiktige mål, mens absolutt gjelder mål fram mot 2050"],
+      options: ["Relativ gjelder utslipp per enhet, absolutt gjelder totalen mens økonomien vokser", "Relativ gjelder ett land, mens absolutt gjelder verdensøkonomien under ett, slik at skillet er geografisk", "Relativ gjelder bare klimagasser, mens absolutt også omfatter arealbruk og avfallsmengder", "Relativ gjelder kortsiktige mål, mens absolutt gjelder mål fram mot 2050"],
       explanation: "At hver enhet blir renere, er ubestridt. Striden gjelder om totalen kan falle mens økonomien vokser, og hvor raskt. Dette er kapitlets viktigste faktapremiss, og det er nettopp derfor uenigheten delvis er empirisk.",
     },
     {
@@ -3783,7 +3783,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er det viktig å si hva de to posisjonene er enige om?",
-      options: ["Fordi det viser hvor uenigheten faktisk begynner, og gjør framstillingen presis", "Fordi det gjør besvarelsen mer balansert og dermed mer sympatisk å lese for sensor", "Fordi enigheten er større enn uenigheten og derfor viktigst å få fram", "Fordi det er den eneste måten å unngå å ta stilling i et politisk spørsmål"],
+      options: ["Fordi det viser hvor uenigheten faktisk begynner, og gjør framstillingen presis", "Fordi det gjør besvarelsen mer balansert og dermed mer sympatisk å lese for sensor", "Fordi enigheten er større enn uenigheten og derfor viktigst å få fram", "Fordi det er den eneste måten å unngå å ta stilling i et politisk spørsmål forskeren ikke bør mene noe om"],
       explanation: "En framstilling der de to er uenige om alt, er en karikatur, og en karikert posisjon gir en verdiløs drøfting. Poenget er presisjon, ikke balanse som virkemiddel.",
     },
     {
@@ -3803,17 +3803,17 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva menes med jordas tålegrenser?",
-      options: ["Grenser for hvor mye belastning natursystemene tåler før de endrer tilstand", "Grenser for hvor mange mennesker jorda kan brødfø med dagens teknologi", "Grenser for hvor mye av en ikke-fornybar ressurs det er igjen å utvinne på jorda", "Grenser for hvor høy temperaturen kan bli før tiltakene blir for dyre"],
+      options: ["Grenser for hvor mye belastning natursystemene tåler før de endrer tilstand", "Grenser for hvor mange mennesker jorda kan brødfø med dagens teknologi og matproduksjon", "Grenser for hvor mye av en ikke-fornybar ressurs det er igjen å utvinne på jorda", "Grenser for hvor høy temperaturen kan bli før tiltakene blir for dyre"],
       explanation: "Poenget er systemenes tilstand, ikke lagerbeholdningen. Tar man grensene som absolutte, blir spørsmålet om aktivitetsnivå uunngåelig; ser man dem som fleksible, blir teknologi et rimeligere svar.",
     },
     {
       question: "Hvorfor er ordet «planlagt» avgjørende i vekstfri utvikling?",
-      options: ["Fordi posisjonen skiller seg fra en økonomisk krise ved at nedgangen er villet og fordelt", "Fordi reduksjonen må vedtas i nasjonalforsamlingen før den i det hele tatt kan gjennomføres", "Fordi nedgangen skal skje over lang tid og ikke som et brått brudd", "Fordi det er myndighetene og ikke markedet som skal styre omstillingen"],
+      options: ["Fordi posisjonen skiller seg fra en økonomisk krise ved at nedgangen er villet og fordelt", "Fordi reduksjonen må vedtas i nasjonalforsamlingen før den i det hele tatt kan gjennomføres", "Fordi nedgangen skal skje over lang tid og ikke som et brått brudd", "Fordi det er myndighetene og ikke markedet som skal styre omstillingen, ved å bestemme hvilke næringer som trappes ned"],
       explanation: "En ustyrt nedgang rammer de svakeste først, og det er ikke det posisjonen argumenterer for. Fordelingen er en del av selve forslaget, ikke en tilleggsbetraktning.",
     },
     {
       question: "Hva er hovedinnvendingen mot vekstfri utvikling som strategi?",
-      options: ["At omfordelingen forutsetter en politisk gjennomføringsevne det er lite grunnlag for å anta", "At den vil føre til at klimaendringene rammer de fattigste landene enda hardere enn de gjør i dag", "At den bygger på en misforståelse av hva økonomisk vekst faktisk måler", "At den ikke tar hensyn til at teknologi historisk har løst mange miljøproblemer"],
+      options: ["At omfordelingen forutsetter en politisk gjennomføringsevne det er lite grunnlag for å anta", "At den vil føre til at klimaendringene rammer de fattigste landene enda hardere enn de gjør i dag", "At den bygger på en misforståelse av hva økonomisk vekst faktisk måler", "At den ikke tar hensyn til at teknologi historisk har løst mange miljøproblemer, fra sur nedbør til hullet i ozonlaget"],
       explanation: "En politikk som ikke får flertall, kutter ingen utslipp — og det er økomodernismens skarpeste kort. Innvendingen om teknologiens historikk er relevant, men svakere, siden vekstkritikerne ikke benekter at teknologi virker.",
     },
     {
@@ -3828,12 +3828,12 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den beste måten å strukturere en drøfting av vekstspørsmålet på?",
-      options: ["Ved å skille faktastriden om frikobling fra verdistriden om hvilken risiko som er verst", "Ved å gjennomgå argumentene til hver av posisjonene i tur og orden uten å koble dem sammen", "Ved å begynne med en beskrivelse av klimaendringenes omfang og alvor", "Ved å vise til hva de mest anerkjente forskerne på området har konkludert med"],
+      options: ["Ved å skille faktastriden om frikobling fra verdistriden om hvilken risiko som er verst", "Ved å gjennomgå argumentene til hver av posisjonene i tur og orden uten å koble dem sammen", "Ved å begynne med en beskrivelse av klimaendringenes omfang og alvor", "Ved å vise til hva de mest anerkjente forskerne på området har konkludert med, og la det avgjøre også verdispørsmålet"],
       explanation: "Den ene delen kan i prinsippet undersøkes, den andre kan bare begrunnes — og å si det er nettopp den koblingen mellom pensumdeler som gir uttelling. En parallell gjennomgang uten kobling er referat, ikke drøfting.",
     },
     {
       question: "Hva sier bærekraftens tre hensyn ingenting om?",
-      options: ["Hva som skal vike når de miljømessige, økonomiske og sosiale hensynene kolliderer", "Hvilke av hensynene som er viktigst å måle i en offentlig utredning", "Hvordan ansvaret for hensynene skal fordeles mellom stat, kommune og privat sektor", "Hvor lang tidshorisont man skal legge til grunn i en kommunal plan"],
+      options: ["Hva som skal vike når de miljømessige, økonomiske og sosiale hensynene kolliderer", "Hvilke av hensynene som er viktigst å måle i en offentlig utredning, og hvilke indikatorer som skal brukes", "Hvordan ansvaret for hensynene skal fordeles mellom stat, kommune og privat sektor", "Hvor lang tidshorisont man skal legge til grunn i en kommunal plan"],
       explanation: "Inndelingen gjør synlig at bærekraft er mer enn natur, men prioriteringen mangler — og nettopp der ligger striden. En besvarelse som stopper ved de tre hensynene, har levert det vage begrepet i stedet for å analysere det.",
     },
   ],
@@ -3952,7 +3952,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
   'svexfac03-8-4': [
     {
       question: "Hva skiller det å bruke en kilde fra det å referere den?",
-      options: ["Et brukt begrep bærer et ledd i analysen, mens et referat kan strykes uten følger", "En brukt kilde er lest i sin helhet, mens et referat bygger på et sammendrag", "En brukt kilde nevnes inne i teksten, mens et referat står i en egen litteraturliste", "Et referat gjengir kildens egne ord, mens bruk innebærer å omskrive dem"],
+      options: ["Et brukt begrep bærer et ledd i analysen, mens et referat kan strykes uten følger", "En brukt kilde er lest i sin helhet, mens et referat bygger på et sammendrag av kildens hovedpoenger", "En brukt kilde nevnes inne i teksten, mens et referat står i en egen litteraturliste", "Et referat gjengir kildens egne ord, mens bruk innebærer å omskrive dem"],
       explanation: "Testen er å stryke setningen der kilden nevnes: står analysen igjen uendret, var det et referat. Forskjellen ligger i om kilden gjør arbeid, ikke i hvor grundig den er lest eller hvordan den er formulert.",
     },
     {
@@ -3967,12 +3967,12 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken menneskemodell forutsetter nudging som virkemiddel?",
-      options: ["En passiv modell, fordi tiltaket virker uten at noen tar stilling til noe", "En aktiv modell, fordi den enkelte må vurdere alternativene og velge", "En biologisk passiv modell, fordi tiltaket virker på medfødte disposisjoner", "Ingen bestemt modell, siden nudging bare handler om hvordan valg presenteres"],
+      options: ["En passiv modell, fordi tiltaket virker uten at noen tar stilling til noe", "En aktiv modell, fordi den enkelte må vurdere alternativene og velge det mest miljøvennlige selv", "En biologisk passiv modell, fordi tiltaket virker på medfødte disposisjoner", "Ingen bestemt modell, siden nudging bare handler om hvordan valg presenteres"],
       explanation: "Nudging endrer hva som er lett å gjøre, ikke hva folk mener, og det er nettopp kjennetegnet på den passive modellen. En informasjonskampanje ville derimot forutsatt en aktiv modell — det er den nære distraktoren her.",
     },
     {
       question: "Hva er selvpersepsjonsteori?",
-      options: ["At vi delvis slutter oss til våre egne holdninger ved å observere det vi gjør", "At vi oppfatter oss selv som atskillig mer miljøvennlige enn vi faktisk er i praksis", "At vi vurderer egne handlinger mildere enn vi vurderer andres handlinger", "At selvbildet vårt bestemmes av hvilken gruppe vi opplever å tilhøre"],
+      options: ["At vi delvis slutter oss til våre egne holdninger ved å observere det vi gjør", "At vi oppfatter oss selv som atskillig mer miljøvennlige enn vi faktisk er i praksis", "At vi vurderer egne handlinger mildere enn vi vurderer andres handlinger, fordi vi kjenner motivene våre", "At selvbildet vårt bestemmes av hvilken gruppe vi opplever å tilhøre"],
       explanation: "Rekkefølgen er snudd i forhold til en vanlig holdningsforklaring: handlingen kommer først og holdningen etter. De tre andre alternativene beskriver andre og velkjente psykologiske mekanismer.",
     },
     {
@@ -3982,7 +3982,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva menes med fordelingsvirkninger av et klimatiltak?",
-      options: ["At tiltaket treffer ulike grupper ulikt, målt mot hva de har fra før", "At utslippskuttene fordeles mellom sektorer etter hvor de er billigst", "At kostnaden fordeles mellom stat og kommune etter en fast nøkkel", "At virkningene av tiltaket først kommer etter flere år er gått"],
+      options: ["At tiltaket treffer ulike grupper ulikt, målt mot hva de har fra før", "At utslippskuttene fordeles mellom sektorer etter hvor de er billigst", "At kostnaden fordeles mellom stat og kommune etter en fast nøkkel vedtatt i statsbudsjettet", "At virkningene av tiltaket først kommer etter flere år er gått"],
       explanation: "En avgift som er lik for alle i kroner, utgjør en større andel av inntekten for dem som har minst. Dette er anstendighetsgulvet fra klimarettferdighetskapitlet brukt innad i et land i stedet for mellom land.",
     },
     {
@@ -3992,12 +3992,12 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva sier begrepet skalaforskjeller om klimapolitikk?",
-      options: ["At et tiltak som gir mening lokalt, kan gi motsatt virkning globalt", "At store land må gjøre mer enn små land for at målene skal nås", "At kostnaden ved kutt faller når tiltakene gjennomføres i stor skala", "At måleusikkerheten øker jo mindre geografisk område man ser på"],
+      options: ["At et tiltak som gir mening lokalt, kan gi motsatt virkning globalt", "At store land må gjøre mer enn små land for at målene skal nås", "At kostnaden ved kutt faller når tiltakene gjennomføres i stor skala", "At måleusikkerheten øker jo mindre geografisk område man ser på, slik at lokale tall blir usikre"],
       explanation: "Folk lever i den lokale skalaen mens problemet er i den globale, og det er en av grunnene til at tiltak oppleves ulikt av dem som gjennomfører dem og dem som vurderer dem utenfra.",
     },
     {
       question: "Hvilket problem beskriver statsvitenskapens bidrag til klimastoffet?",
-      options: ["En kollektiv handlingssituasjon der hver stat tjener på at de andre kutter", "At internasjonale avtaler krever enstemmighet og derfor gjennomgående blir utvannet", "At klimapolitikk taper mot andre saker i nasjonale valgkamper", "At stater mangler pålitelige tall om hverandres faktiske utslipp"],
+      options: ["En kollektiv handlingssituasjon der hver stat tjener på at de andre kutter", "At internasjonale avtaler krever enstemmighet og derfor gjennomgående blir utvannet", "At klimapolitikk taper mot andre saker i nasjonale valgkamper", "At stater mangler pålitelige tall om hverandres faktiske utslipp, og ikke kan kontrollere avtalte kutt"],
       explanation: "Dette er gratispassasjerproblemet flyttet fra enkeltpersoner til stater. Strukturen er den samme som i handlings- og bytteperspektivet, men sanksjonsmulighetene er svakere fordi det ikke finnes noen overordnet myndighet.",
     },
     {
@@ -4007,7 +4007,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er samfunnsgeografiens perspektiv på omstilling mer enn et spørsmål om produksjon?",
-      options: ["Fordi arbeidsplassene også bærer bosetting, kompetanse og hva stedet er", "Fordi geografiske avstander gjør omstilling dyrere i distriktene enn i byene", "Fordi utslippene må måles der de skjer og ikke der varene forbrukes", "Fordi klimaendringene rammer ulike landsdeler på ulike måter"],
+      options: ["Fordi arbeidsplassene også bærer bosetting, kompetanse og hva stedet er", "Fordi geografiske avstander gjør omstilling dyrere i distriktene enn i byene", "Fordi utslippene må måles der de skjer og ikke der varene forbrukes, og stedet dermed får ansvaret", "Fordi klimaendringene rammer ulike landsdeler på ulike måter"],
       explanation: "En næring som legges om, endrer også hva et sted er. Det gjør at motstand mot omlegging ikke uten videre lar seg forklare som ren egeninteresse, og det er nettopp der perspektivet gir noe de andre fagene ikke gir.",
     },
     {
@@ -4017,17 +4017,17 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr regelen om at saksfeltet ikke gir uttelling i seg selv?",
-      options: ["At klimakunnskap bare teller når den brukes til å vise forståelse av pensum", "At oppgaver om klima vurderes mildere enn oppgaver om andre temaer", "At kandidaten ikke bør bruke eksempler fra klimafeltet i det hele tatt", "At faktafeil om klima ikke trekker nevneverdig ned så lenge apparatet er riktig brukt"],
+      options: ["At klimakunnskap bare teller når den brukes til å vise forståelse av pensum", "At oppgaver om klima vurderes mildere enn oppgaver om andre temaer", "At kandidaten ikke bør bruke eksempler fra klimafeltet i det hele tatt, men hente dem fra andre saksfelt", "At faktafeil om klima ikke trekker nevneverdig ned så lenge apparatet er riktig brukt"],
       explanation: "En besvarelse full av korrekte tall om utslipp og temperaturmål kan få lav uttelling hvis apparatet mangler. Regelen sier ikke at faktafeil er greit, men at faktakunnskap alene ikke er det som måles.",
     },
     {
       question: "Hva er det korteste tegnet på at en besvarelse refererer i stedet for å bruke en podkast?",
-      options: ["Setningen om podkasten kan strykes uten at analysen endrer seg", "Podkasten nevnes bare én gang, og da i innledningen av besvarelsen", "Kandidaten oppgir ikke hvilken fagretning podkasten tilhører", "Podkastens innhold gjengis med kandidatens egne ord i stedet for kildens"],
+      options: ["Setningen om podkasten kan strykes uten at analysen endrer seg", "Podkasten nevnes bare én gang, og da i innledningen av besvarelsen", "Kandidaten oppgir ikke hvilken fagretning podkasten tilhører, og plasserer den ikke i pensum", "Podkastens innhold gjengis med kandidatens egne ord i stedet for kildens"],
       explanation: "Strykningstesten er både rask og treffsikker. At innholdet er omskrevet, gjør det ikke til bruk — et referat med egne ord er fortsatt et referat.",
     },
     {
       question: "Hvorfor gir de seks fagene ulike svar på det samme problemet?",
-      options: ["Fordi de spør om ulike ting og leter etter mekanismer på ulike nivåer", "Fordi de bygger på ulike data om hvor alvorlig klimaproblemet er", "Fordi de er uenige om hvilke tiltak som politisk lar seg gjennomføre", "Fordi fagene har ulike syn på hvor mye vekt forskning bør ha i politikken"],
+      options: ["Fordi de spør om ulike ting og leter etter mekanismer på ulike nivåer", "Fordi de bygger på ulike data om hvor alvorlig klimaproblemet er", "Fordi de er uenige om hvilke tiltak som politisk lar seg gjennomføre, og anbefaler ulike løsninger", "Fordi fagene har ulike syn på hvor mye vekt forskning bør ha i politikken"],
       explanation: "Fagene skiller seg først og fremst i hva de spør om, ikke i hva de mener. Det er forklaringstypene og forklaringsnivåene demonstrert på ett og samme problem.",
     },
     {
@@ -4042,7 +4042,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er prising av utslipp ment å gjøre?",
-      options: ["Å gjøre kostnaden ved utslipp synlig for den som slipper ut", "Å finansiere klimatiltak gjennom inntektene fra avgiften", "Å gjøre det mulig å sammenligne utslipp på tvers av ulike sektorer", "Å sette et tak på hvor mye hver aktør kan slippe ut totalt"],
+      options: ["Å gjøre kostnaden ved utslipp synlig for den som slipper ut", "Å finansiere klimatiltak gjennom inntektene fra avgiften", "Å gjøre det mulig å sammenligne utslipp på tvers av ulike sektorer", "Å sette et tak på hvor mye hver aktør kan slippe ut totalt, og forby utslipp over taket"],
       explanation: "Mekanismen forutsetter en aktiv menneskemodell: tiltaket virker ved at noen regner om. Inntektene er en bivirkning, og et tak er en kvoteordning, som virker på en annen måte.",
     },
     {
@@ -4208,12 +4208,12 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
   'svexfac03-9-3': [
     {
       question: "Hva sier saksfeltregelen om kunnskap om saken en caseoppgave handler om?",
-      options: ["At den ikke gir uttelling i seg selv, men bare når den brukes til å vise forståelse av pensum", "At den er forbudt å bruke, fordi oppgaven skal besvares utelukkende med pensumbegreper alene", "At den vektes med en fjerdedel, slik at et velinformert bakteppe gir en målbar bonus i seg selv", "At den bare teller når saken er hentet fra klimafeltet, som rammer inn de fleste av oppgavene"],
+      options: ["At den ikke gir uttelling i seg selv, men bare når den brukes til å vise forståelse av pensum", "At den er forbudt å bruke, fordi oppgaven skal besvares med pensumbegreper alene, slik at saksstoff trekker ned", "At den vektes med en fjerdedel, slik at et velinformert bakteppe gir en målbar bonus i seg selv", "At den bare teller når saken er hentet fra klimafeltet, som rammer inn de fleste av oppgavene"],
       explanation: "Riktig svar er at saksstoffet er ubetalt inntil det gjør arbeid for analysen. V2021-veiledningen sier det mest presist. Saksstoff er altså ikke forbudt, og det finnes ingen egen vekting av det — heller ikke for klimarelatert kunnskap, som H2021 uttrykkelig sier ikke skal vektlegges i seg selv.",
     },
     {
       question: "Hva er forskjellen på premisset og apparatet i en anvendelsesoppgave?",
-      options: ["Premisset er det oppgaven ber deg legge til grunn, apparatet er begrepene du analyserer med", "Premisset er den teorien du velger, mens apparatet er de metodene teorien gir deg tilgang til", "Premisset er innledningen i besvarelsen, mens apparatet er selve analysedelen lenger ute", "Premisset er sensorveiledningens forventning, mens apparatet er kandidatens egen disposisjon"],
+      options: ["Premisset er det oppgaven ber deg legge til grunn, apparatet er begrepene du analyserer med", "Premisset er den teorien du velger, mens apparatet er de metodene teorien gir deg tilgang til", "Premisset er innledningen i besvarelsen, mens apparatet er selve analysedelen som følger lenger ute i teksten", "Premisset er sensorveiledningens forventning, mens apparatet er kandidatens egen disposisjon"],
       explanation: "Riktig svar er at premisset er det gitte og apparatet er begrepene. Blander du dem, ender du med å bestride hva som skjedde i stedet for å analysere det. De andre svarene forveksler begrepsparet med teori og metode, med tekstens deler, eller med vurderingssituasjonen.",
     },
     {
@@ -4223,17 +4223,17 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor lønner det seg å bruke ett apparat helt framfor tre apparater halvveis?",
-      options: ["Fordi bredden allerede måles i flervalgsdelen, mens denne delen måler om du kan bruke ett", "Fordi tre apparater tar mer tid enn de ti minuttene et anvendelsesledd realistisk får", "Fordi oppgavetekstene alltid oppgir hvilket ett apparat kandidaten skal bruke i besvarelsen", "Fordi apparatene i pensum motsier hverandre, og en besvarelse ikke kan romme motsigelser"],
+      options: ["Fordi bredden allerede måles i flervalgsdelen, mens denne delen måler om du kan bruke ett", "Fordi tre apparater tar mer tid enn de ti minuttene et anvendelsesledd realistisk får", "Fordi oppgavetekstene alltid oppgir hvilket ett apparat kandidaten skal bruke i besvarelsen", "Fordi apparatene i pensum motsier hverandre, og en besvarelse ikke kan romme motsigelser mellom dem"],
       explanation: "Riktig svar er arbeidsdelingen mellom de to eksamensdelene: breddekunnskapen måles i Del I, og langsvaret måler anvendelse. Tidsargumentet er sant, men er ikke hovedgrunnen. Oppgavene ber ofte kandidaten velge selv, og apparatene utelukker ikke hverandre — de ser ulike sider.",
     },
     {
       question: "Hva er apparatets blindsone?",
-      options: ["Det ved saken som det valgte perspektivet ikke kan se, navngitt konkret og ikke generelt", "De begrepene i perspektivet som kandidaten ikke rakk å bruke innenfor den tiden som var", "Den delen av pensum som ikke er dekket av noen av de ti temaklyngene boka er bygget rundt", "Det forbeholdet enhver besvarelse bør ta om at framstillingen nødvendigvis er forenklet"],
+      options: ["Det ved saken som det valgte perspektivet ikke kan se, navngitt konkret og ikke generelt", "De begrepene i perspektivet som kandidaten ikke rakk å bruke innenfor den tiden som var til rådighet", "Den delen av pensum som ikke er dekket av noen av de ti temaklyngene boka er bygget rundt", "Det forbeholdet enhver besvarelse bør ta om at framstillingen nødvendigvis er forenklet"],
       explanation: "Riktig svar er det saken inneholder som perspektivet ikke fanger — for eksempel at integrasjonsperspektivet ikke ser interessene under enigheten. Et generelt forenklingsforbehold navngir ingenting, og blindsonen handler om saken, ikke om tidsbruk eller pensumdekning.",
     },
     {
       question: "Hva sier H2020-veiledningen om å problematisere premisset i en oppgavetekst?",
-      options: ["At det vurderes positivt når kandidaten spør om oppgavens egen betegnelse er dekkende", "At det trekker ned, fordi kandidaten da svarer på en annen oppgave enn den som er gitt", "At det er nødvendig for å bestå, siden alle oppgavetekster inneholder en uklar betegnelse", "At det bare er tillatt i drøftingsleddet, og aldri i innledningen til en besvarelse"],
+      options: ["At det vurderes positivt når kandidaten spør om oppgavens egen betegnelse er dekkende", "At det trekker ned, fordi kandidaten da svarer på en annen oppgave enn den som er gitt", "At det er nødvendig for å bestå, siden alle oppgavetekster inneholder en uklar betegnelse", "At det bare er tillatt i drøftingsleddet, og aldri i innledningen, der premisset skal legges til grunn"],
       explanation: "Riktig svar er at det vurderes positivt. Det er et av få steder materialet belønner motstand mot oppgaveteksten. Forutsetningen er at problematiseringen er kort og at analysen kommer etterpå — erstatter den analysen, har kandidaten byttet oppgave.",
     },
     {
@@ -4248,7 +4248,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken praktisk prøve avslører om et anvendelsesledd har blitt en tekst om saken?",
-      options: ["Stryk alle setninger uten pensumbegrep, og se om det som står igjen fortsatt er en analyse", "Tell antall avsnitt, og kontroller at analysedelen har flere avsnitt enn saksbeskrivelsen", "Sjekk at hvert avsnitt begynner med et pensumbegrep i stedet for med en opplysning om saken", "Se om besvarelsen nevner minst tre pensumforfattere ved navn i løpet av analysedelen"],
+      options: ["Stryk alle setninger uten pensumbegrep, og se om det som står igjen fortsatt er en analyse", "Tell antall avsnitt, og kontroller at analysedelen har flere avsnitt enn saksbeskrivelsen, så analysen veier tyngst", "Sjekk at hvert avsnitt begynner med et pensumbegrep i stedet for med en opplysning om saken", "Se om besvarelsen nevner minst tre pensumforfattere ved navn i løpet av analysedelen"],
       explanation: "Riktig svar er strykeprøven. Er det som står igjen bare overskrifter, er teksten skrevet om saken. Avsnittstelling og førstesetninger er formaliteter som lett kan innfris uten at analysen finnes, og antall navn er ikke noe kriterium.",
     },
     {
@@ -4258,7 +4258,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen på funksjon og hensikt i en funksjonsanalyse?",
-      options: ["Funksjonen er en virkning ordningen har for helheten, hensikten er noe noen har villet", "Funksjonen er den virkningen som er ønsket, mens hensikten er den som faktisk inntreffer", "Funksjonen gjelder på systemnivå, mens hensikten alltid gjelder på individnivå alene", "Funksjonen kan måles empirisk, mens hensikten bare kan rekonstrueres gjennom intervjuer"],
+      options: ["Funksjonen er en virkning ordningen har for helheten, hensikten er noe noen har villet", "Funksjonen er den virkningen som er ønsket, mens hensikten er den som faktisk inntreffer", "Funksjonen gjelder på systemnivå, mens hensikten alltid gjelder på individnivå alene, slik at skillet gjelder nivå", "Funksjonen kan måles empirisk, mens hensikten bare kan rekonstrueres gjennom intervjuer"],
       explanation: "Riktig svar er at funksjonen er en virkning, ikke en intensjon. Det er nettopp derfor latente funksjoner finnes: virkninger for helheten som ingen har villet. De andre svarene bytter om begrepene eller gjør skillet til et spørsmål om nivå eller målemetode.",
     },
     {
@@ -4326,7 +4326,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     {
       question: "Hvilken av disse er en gyldig konklusjon med forbehold?",
       options: ["«Jeg lander på X. Hadde fordelingsvirkningene vært jevne, ville jeg landet motsatt.»", "«Jeg lander på X, men det finnes selvsagt gode argumenter på begge sider av saken.»", "«Det er vanskelig å konkludere, siden argumentene er sterke i begge retninger her.»", "«Jeg lander på X, slik også flertallet av forskerne på feltet ser ut til å gjøre.»"],
-      explanation: "Riktig svar er den som navngir en betingelse som ville snudd vurderingen. De to neste uttrykker usikkerhet uten å feste den til noe, og den siste erstatter begrunnelse med en henvisning til hva andre mener.",
+      explanation: "Riktig svar er den som navngir en betingelse som ville snudd vurderingen. Formuleringene om gode argumenter på begge sider og om at det er vanskelig å konkludere, uttrykker usikkerhet uten å feste den til noe, mens henvisningen til hva flertallet av forskerne mener, erstatter begrunnelse med autoritet.",
     },
     {
       question: "Hva kreves av standpunktet i et drøftingsledd?",
@@ -4418,7 +4418,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     {
       question: "Hvilken situasjon i flervalgsdelen er farligst?",
       options: ["Der du føler deg trygg, men det riktige alternativet har et nabobegrep du forveksler det med", "Der du ikke har sett noen av de fire ordene før og må la spørsmålet stå helt blankt", "Der to alternativer er åpenbart gale og du må velge mellom de to som er igjen", "Der spørsmålet handler om et tema som sjelden kommer i langsvarsdelen av eksamen"],
-      explanation: "Riktig svar er den falske tryggheten ved nabobegreper. De to neste er håndterbare med regelen om utelukkelse, og temafrekvensen i langsvarsdelen sier ingenting om hva Del I dekker.",
+      explanation: "Riktig svar er den falske tryggheten ved nabobegreper. Å ikke kjenne noen av de fire ordene, og å sitte igjen med to alternativer etter å ha strøket to åpenbart gale, er begge håndterbare med regelen om utelukkelse; og temafrekvensen i langsvarsdelen sier ingenting om hva Del I dekker.",
     },
     {
       question: "Hvorfor bør ikke lesingen fram mot flervalgsdelen følge frekvensrangeringen av temaene?",
@@ -4454,17 +4454,17 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
   'svexfac03-9-6': [
     {
       question: "Hva uttrykker sensorveiledningene, og hva betyr det for feilregisteret?",
-      options: ["Forhåndsforventninger, siden de er skrevet før besvarelsene er lest av noen sensor", "Observerte feil, siden de er skrevet etter at sensorene har vurdert alle besvarelsene", "Karakterstatistikk, siden de oppsummerer hvordan kullet gjorde det på hver oppgave", "Fasitsvar, siden de angir hva som skal stå i en besvarelse for å få full uttelling"],
+      options: ["Forhåndsforventninger, siden de er skrevet før besvarelsene er lest av noen sensor", "Observerte feil, siden de er skrevet etter at besvarelsene er vurdert", "Karakterstatistikk, siden de oppsummerer hvordan kullet gjorde det på hver oppgave", "Fasitsvar, siden de angir hva som skal stå i en besvarelse for å få full uttelling"],
       explanation: "Riktig svar er forhåndsforventninger. Registeret er derfor hva veiledningene sier skal trekke, ikke en rapport om hva kandidater faktisk gjorde. Arkivet inneholder verken karakterstatistikk eller fasit for dette emnet.",
     },
     {
       question: "Hvilken feil er den eneste som er hjemlet i et observert mønster, og hvordan?",
-      options: ["Feil #1, fordi V2020-veiledningen bruker ordet erfaringsvis om forvekslingen av orden og harmoni", "Feil #12, fordi H2021-veiledningen sier at eksempler uten begrunnelse er svært utbredt blant kandidater", "Feil #16, fordi flere veiledninger rapporterer at kandidater besvarer for mange oppgaver hver termin", "Feil #13, fordi tre ulike veiledninger gjentar advarselen mot å behandle korrelasjon som årsak"],
+      options: ["Feil #1, fordi V2020-veiledningen bruker ordet erfaringsvis om forvekslingen av orden og harmoni", "Feil #12, fordi H2021-veiledningen sier at eksempler uten begrunnelse er svært utbredt blant kandidater", "Feil #16, fordi flere veiledninger rapporterer at kandidater besvarer for mange oppgaver hver termin", "Feil #13, fordi tre ulike veiledninger gjentar advarselen mot å behandle korrelasjon som årsak, og gjentakelsen er et mønster"],
       explanation: "Riktig svar er feil #1 og ordet «erfaringsvis» i V2020-veiledningen. Det er det eneste stedet i materialet en veiledning rapporterer et faktisk mønster. At feil #13 er nevnt i tre veiledninger, gjør den hyppig omtalt, men fortsatt en forventning — og feil #16 er utledet av formatet.",
     },
     {
       question: "Hvilken feilkode er utledet av eksamensformatet i stedet for å være hentet fra en veiledning?",
-      options: ["Feil #16, om å svare på fire eller fem oppgaver i stedet for de tre som skal besvares", "Feil #11, om å hoppe over relevans-i-dag-leddet i oppgaver om samtidsdiagnosen", "Feil #3, om å lese stikkordslista i oppgaveteksten som en sjekkliste som må krysses av", "Feil #10, om å svare på spørsmål om metodevalg med at det kommer an på hva man vil vite"],
+      options: ["Feil #16, om å svare på fire eller fem oppgaver i stedet for de tre som skal besvares", "Feil #11, om å hoppe over relevans-i-dag-leddet i oppgaver om samtidsdiagnosen, som følger av oppgavens faste mal", "Feil #3, om å lese stikkordslista i oppgaveteksten som en sjekkliste som må krysses av", "Feil #10, om å svare på spørsmål om metodevalg med at det kommer an på hva man vil vite"],
       explanation: "Riktig svar er feil #16, som følger av at eksamen ber om tre av fem oppgaver. De tre andre er hjemlet i navngitte veiledninger: #11 i H2022, #3 i H2020 og #10 i H2025.",
     },
     {
@@ -4479,7 +4479,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En kandidat skriver at et samfunn med sosial orden er et samfunn der konfliktnivået er lavt. Hvilken feil er dette?",
-      options: ["Feil #1 — orden er forvekslet med harmoni, mens orden betyr samordnet samhandling", "Feil #2 — kandidaten har plassert et perspektiv under feil teoretiker i framstillingen", "Feil #3 — kandidaten har hentet formuleringen fra stikkordslista i oppgaveteksten", "Feil #14 — kandidaten beskriver en teori uten å vise at den er en samtidsdiagnose"],
+      options: ["Feil #1 — orden er forvekslet med harmoni, mens orden betyr samordnet samhandling", "Feil #2 — kandidaten har plassert et perspektiv under feil teoretiker", "Feil #3 — kandidaten har hentet formuleringen fra stikkordslista i oppgaveteksten", "Feil #14 — kandidaten beskriver en teori uten å vise at den er en samtidsdiagnose"],
       explanation: "Riktig svar er feil #1. Orden betyr at handlinger henger sammen forutsigbart, og sier ingenting om hvor behagelig samordningen er — en orden kan hvile på tvang, makt eller ideologi. Det er nettopp derfor både Hobbes og Marx står i ordenslitteraturen.",
     },
     {
@@ -4489,12 +4489,12 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva mangler i en besvarelse som forklarer nåtidsskjevhet som at folk utsetter ting?",
-      options: ["Koblingen til forutsetningen om framtidsorientering og selvkontroll i modellen", "Et konkret eksempel som viser hvordan utsettelsen arter seg i praksis for aktøren", "En henvisning til Nyborg som avsender for de eksperimentelle funnene på feltet", "En avgrensning mot begrenset rasjonalitet, som beskriver et beslektet fenomen"],
+      options: ["Koblingen til forutsetningen om framtidsorientering og selvkontroll i modellen", "Et konkret eksempel som viser hvordan utsettelsen arter seg i praksis for aktøren", "En henvisning til Nyborg som avsender for de eksperimentelle funnene på feltet", "En avgrensning mot begrenset rasjonalitet, som beskriver et beslektet fenomen, og lett forveksles med det"],
       explanation: "Riktig svar er modellkoblingen — det er feil #4. Poenget er ikke at folk utsetter ting, men at funnet treffer en bestemt forutsetning i homo oeconomicus-modellen. Eksempel og avsender er nyttige tillegg, men de retter ikke feilen.",
     },
     {
       question: "Hva mangler i formuleringen «standpunktteorien viser at forskere med ulik bakgrunn ser ulike sider av virkeligheten»?",
-      options: ["At den marginaliserte posisjonen hevdes å gi bedre kunnskap, ikke bare en annen utsikt", "At Haraway og den situerte kunnskapen nevnes ved siden av Hardings standpunktteori", "At kjønnsbalansekritikken skilles fra standpunktteorien som to ulike former for kritikk", "At objektivitetsbegrepet defineres før teorien introduseres i besvarelsens innledning"],
+      options: ["At den marginaliserte posisjonen hevdes å gi bedre kunnskap, ikke bare en annen utsikt", "At Haraway og den situerte kunnskapen nevnes ved siden av Hardings standpunktteori", "At kjønnsbalansekritikken skilles fra standpunktteorien som to ulike former for kritikk", "At objektivitetsbegrepet defineres før teorien introduseres i besvarelsens innledning, så begrepet er avklart først"],
       explanation: "Riktig svar er påstanden om bedre kunnskap, som er kjernen i sterk objektivitet — feil #5 er nettopp å redusere teorien til perspektivmangfold. De andre punktene er relevante utdypinger, men uten maktkoblingen er teorien fortsatt uthulet.",
     },
     {
@@ -4505,7 +4505,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     {
       question: "Hvilket ledd mangler oftest når Adam Smiths argument gjengis?",
       options: ["At markedets størrelse setter grensen for hvor langt spesialiseringen kan drives", "At arbeidsdeling gir spesialisering, som igjen gir høyere produktivitet i bedriften", "At den usynlige hånd gjør at egeninteressen kan komme fellesskapet til gode", "At Smith også skrev om moralske følelser, og ikke bare om økonomiske forhold"],
-      explanation: "Riktig svar er det siste leddet om markedets størrelse. Det er dette som gjør kjeden til et argument mot merkantilismen, og feil #8 er nettopp å gjengi konklusjonen uten kjeden. De to neste leddene er som regel med, og teorien om moralske følelser er en annen sak.",
+      explanation: "Riktig svar er leddet om markedets størrelse. Det er dette som gjør kjeden til et argument mot merkantilismen, og feil #8 er nettopp å gjengi konklusjonen uten kjeden. Leddet om arbeidsdeling og produktivitet og leddet om den usynlige hånd er som regel med, og teorien om moralske følelser er en annen sak.",
     },
     {
       question: "Hva sier veiledningene om samvariasjon, årsaksretning og kontroll for tredje variabel?",
@@ -4514,7 +4514,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er minimumskravet når Marx skal presenteres som samtidsdiagnostiker?",
-      options: ["Å forklare hvorfor teorien gir en helhetlig fortolkning med kritiske ambisjoner", "Å gjenfortelle kapitalismeteorien med utbytting og klassemotsetninger som kjerne", "Å plassere Marx i forhold til Weber og Durkheim på alle de tre dimensjonene", "Å vise at teorien er empirisk testet, som er det tyngste av Aakvaags fire krav"],
+      options: ["Å forklare hvorfor teorien gir en helhetlig fortolkning med kritiske ambisjoner", "Å gjenfortelle kapitalismeteorien med utbytting og klassemotsetninger som kjerne", "Å plassere Marx i forhold til Weber og Durkheim på alle de tre dimensjonene", "Å vise at teorien er empirisk testet, som er det tyngste av Aakvaags fire krav til en samtidsdiagnose"],
       explanation: "Riktig svar er den helhetlige fortolkningen med kritiske ambisjoner, slik H2023- og H2025-veiledningene formulerer det. Å gjenfortelle kapitalismeteorien er nettopp feil #14. Det empiriske kravet er ett av fire og ikke utpekt som det tyngste.",
     },
     {
@@ -4524,12 +4524,12 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er varsellampen for feil #10, om metodevalg besvart med at det kommer an på?",
-      options: ["Setningen om at begge metodene har sine styrker og svakheter, uten at de navngis", "Setningen om at valget av metode må følge av problemstillingen og ikke av vane", "Setningen om at kvalitativ metode gir dybde mens kvantitativ metode gir bredde", "Setningen om at metodene kan kombineres for å få et mer helhetlig bilde av feltet"],
-      explanation: "Riktig svar er den ubestemte styrke-og-svakhet-setningen. Den er sann og sier ingenting. De to neste er derimot skritt i riktig retning, siden de begynner å konkretisere, og kombinasjon er et eget spørsmål.",
+      options: ["Setningen om at begge metodene har sine styrker og svakheter, uten at de navngis", "Setningen om at valget av metode må følge av problemstillingen og ikke av vane, som gjelder for enhver oppgave", "Setningen om at kvalitativ metode gir dybde mens kvantitativ metode gir bredde", "Setningen om at metodene kan kombineres for å få et mer helhetlig bilde av feltet"],
+      explanation: "Riktig svar er den ubestemte styrke-og-svakhet-setningen. Den er sann og sier ingenting. Setningen om at metodevalget må følge av problemstillingen, og setningen om dybde mot bredde, er derimot skritt i riktig retning, siden de begynner å konkretisere; og kombinasjon er et eget spørsmål.",
     },
     {
       question: "Hvorfor er en omskriving som blir kortere enn originalen et godt tegn?",
-      options: ["Fordi det viser at feilen er rettet og ikke at det bare er lagt til mer stoff", "Fordi korte besvarelser generelt vurderes høyere enn lange i dette emnet", "Fordi tiden på eksamen er knapp, og enhver innsparing gir plass til flere ledd", "Fordi sensor ifølge veiledningene legger vekt på at framstillingen er konsis"],
+      options: ["Fordi det viser at feilen er rettet og ikke at det bare er lagt til mer stoff", "Fordi korte besvarelser generelt vurderes høyere enn lange i dette emnet", "Fordi tiden på eksamen er knapp, og enhver innsparing gir plass til flere ledd", "Fordi sensor ifølge veiledningene legger vekt på at framstillingen er konsis, og trekker for unødig stoff"],
       explanation: "Riktig svar er at rettingen skiller seg fra tilføyelsen. Å legge til flere begreper er ofte feil #3 i ny drakt. Lengde er ikke et kriterium i seg selv, men disponeringen skal følge oppgavens egne instrukser om kort og grundig.",
     },
     {
@@ -4539,14 +4539,14 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den kalde banken i dette kapitlet?",
-      options: ["Oppgaver uten hint, der fasiten er en ren momentliste og du må mobilisere alt selv", "Oppgaver hentet fra de klyngene som sjeldnest kommer igjen i langsvarsdelen av eksamen", "Oppgaver som skal løses uten notater, men som fortsatt har hint til hvert enkelt punkt", "Oppgaver med kort svarfrist, der poenget er å trene tempo framfor å trene innhold"],
+      options: ["Oppgaver uten hint, der fasiten er en ren momentliste og du må mobilisere alt selv", "Oppgaver hentet fra de klyngene som sjeldnest kommer igjen i langsvarsdelen av eksamen", "Oppgaver som skal løses uten notater, men som fortsatt har hint til hvert enkelt punkt", "Oppgaver med kort svarfrist, der poenget er å trene tempo framfor å trene innhold, slik at du rekker alle tre"],
       explanation: "Riktig svar er oppgavene uten hint og uten stillas. Det er bokas eneste unntak fra kravet om at hver oppgave skal ha utfylte hint, og den er ment brukt sent i lesingen — tas den for tidlig, måler den bare at du ikke er ferdig å lese.",
     },
   ],
   'svexfac03-9-7': [
     {
       question: "Hva avgjør hvilken menneskemodell et tiltak forutsetter?",
-      options: ["Om tiltaket trenger at noen tar stilling til noe for at det skal virke i det hele tatt", "Om tiltaket er vedtatt av et folkevalgt organ eller innført av en administrativ enhet", "Om tiltaket retter seg mot enkeltpersoner eller mot virksomheter og organisasjoner", "Om tiltaket har en økonomisk komponent, altså om det innebærer en avgift eller et tilskudd"],
+      options: ["Om tiltaket trenger at noen tar stilling til noe for at det skal virke i det hele tatt", "Om tiltaket er vedtatt av et folkevalgt organ eller innført av en administrativ enhet, siden vedtaksformen avgjør", "Om tiltaket retter seg mot enkeltpersoner eller mot virksomheter og organisasjoner", "Om tiltaket har en økonomisk komponent, altså om det innebærer en avgift eller et tilskudd"],
       explanation: "Riktig svar er om tiltaket trenger et valg for å virke. Det er skillekriteriet mellom aktiv og passiv modell, og det er den ene setningen som gjør resten av oppgaven mulig. Vedtaksform, målgruppe og økonomi sier ingenting om hvor virkningen oppstår.",
     },
     {
@@ -4561,12 +4561,12 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan gjør verdirasjonalitet arbeid i drøftingen av passive tiltak?",
-      options: ["Den forklarer hvorfor en handling fortsetter når gevinsten forsvinner, og dermed tiltakenes skjørhet", "Den viser at passive tiltak er umoralske, siden de omgår den enkeltes egne verdivalg", "Den erstatter skillet mellom aktive og passive modeller med et skille mellom to typer motiver hos aktøren", "Den beviser at verdibaserte tiltak alltid er mer effektive enn tiltak som bygger på pris"],
+      options: ["Den forklarer hvorfor en handling fortsetter når gevinsten forsvinner, og dermed tiltakenes skjørhet", "Den viser at passive tiltak er umoralske, siden de omgår den enkeltes egne verdivalg", "Den erstatter skillet mellom aktive og passive modeller med et skille mellom to typer motiver hos aktøren", "Den beviser at verdibaserte tiltak alltid er mer effektive enn tiltak som bygger på pris, og at kommunen bør velge kampanje"],
       explanation: "Riktig svar er robustheten: den verdirasjonelle handlingen begrunnes i handlingen selv og overlever derfor at insentivet fjernes. Å definere begrepet uten å bruke det på denne måten, er å hoppe over instruksen i oppgaveteksten.",
     },
     {
       question: "Hva kjennetegner en dybdebesvarelse i denne oppgavemalen?",
-      options: ["To tiltak ført helt inn i modellens forutsetninger, framfor fire tiltak nevnt kort", "En besvarelse som bruker lengre tid på a-leddet enn på b- og c-leddet til sammen", "En besvarelse som trekker inn flere teoretikere enn oppgaveteksten selv nevner", "En besvarelse som drøfter alle de fire ordensperspektivene før den velger ett av dem"],
+      options: ["To tiltak ført helt inn i modellens forutsetninger, framfor fire tiltak nevnt kort", "En besvarelse som bruker lengre tid på a-leddet enn på b- og c-leddet til sammen, siden begrepene bærer resten", "En besvarelse som trekker inn flere teoretikere enn oppgaveteksten selv nevner", "En besvarelse som drøfter alle de fire ordensperspektivene før den velger ett av dem"],
       explanation: "Riktig svar er to tiltak ført helt gjennom. En breddebesvarelse med fire kortere begrunnelser ville vært like A-verdig — H2020-veiledningen sier at å tvinge inn alle forslag gir et dårligere svar. Å bruke mest tid på a er derimot en disponeringsfeil.",
     },
     {
@@ -4583,7 +4583,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan leser konfliktperspektivet et rolig forløp i en sak med skjev fordeling?",
-      options: ["Som at ideologimekanismen har gjort utfallet til noe som framstår som uunngåelig", "Som at partene faktisk deler verdier, siden ingen har protestert mot vedtaket", "Som at saken ikke egner seg for konfliktanalyse, siden det ikke finnes noen konflikt", "Som at makten er fraværende, siden orden uten strid ikke krever noen maktutøvelse"],
+      options: ["Som at ideologimekanismen har gjort utfallet til noe som framstår som uunngåelig", "Som at partene faktisk deler verdier, siden ingen har protestert mot vedtaket, og at fordelingen er akseptert", "Som at saken ikke egner seg for konfliktanalyse, siden det ikke finnes noen konflikt", "Som at makten er fraværende, siden orden uten strid ikke krever noen maktutøvelse"],
       explanation: "Riktig svar er ideologimekanismen: ordenen holdes oppe av at de underordnede oppfatter ordningen som naturlig. Nettopp fravær av protest er det konfliktperspektivet mener begrepet forklarer. Den andre lesningen er integrasjonsperspektivets, og den er også forsvarlig.",
     },
     {
@@ -4598,7 +4598,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor kan en skarp konklusjon likevel være en A-besvarelse?",
-      options: ["Fordi forbehold er et verktøy og ikke garnityr, når begge sider først er skrevet ut", "Fordi sensorveiledningene foretrekker tydelige standpunkter framfor avveiende svar", "Fordi en skarp konklusjon viser at kandidaten har brukt mindre tid på tvil og mer på analyse", "Fordi drøftingsleddet uansett vurderes etter antall argumenter og ikke etter landingen"],
+      options: ["Fordi forbehold er et verktøy og ikke garnityr, når begge sider først er skrevet ut", "Fordi sensorveiledningene foretrekker tydelige standpunkter framfor avveiende svar med mange forbehold", "Fordi en skarp konklusjon viser at kandidaten har brukt mindre tid på tvil og mer på analyse", "Fordi drøftingsleddet uansett vurderes etter antall argumenter og ikke etter landingen"],
       explanation: "Riktig svar er at forbehold er et verktøy. Kravet er at begge sider er skrevet ut i sin sterkeste form, at veiingen gjør noe, og at forbeholdet navngir en betingelse. Ingen veiledning uttrykker noen preferanse for konklusjonsform, og antall argumenter er bare ett av kriteriene.",
     },
     {
@@ -4610,7 +4610,7 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
   'svexfac03-9-9': [
     {
       question: "Hva er skillekriteriet mellom intern og ekstern forskningsetikk?",
-      options: ["Hvem normen beskytter: kunnskapen og forskerfellesskapet, eller deltakerne og samfunnet", "Hvor normbruddet finner sted: inne i forskningsinstitusjonen eller ute i felten", "Hvor mange mennesker normen berører direkte når den brytes i et konkret prosjekt", "Om normen er nedfelt i skriftlige forskningsetiske retningslinjer eller bare finnes i faglig praksis"],
+      options: ["Hvem normen beskytter: kunnskapen og forskerfellesskapet, eller deltakerne og samfunnet", "Hvor normbruddet finner sted: inne i forskningsinstitusjonen eller ute i felten", "Hvor mange mennesker normen berører direkte når den brytes i et konkret prosjekt, der få berørte gjør det internt", "Om normen er nedfelt i skriftlige forskningsetiske retningslinjer eller bare finnes i faglig praksis"],
       explanation: "Riktig svar er hvem normen beskytter. Derfor er kreditering intern selv om den gjelder andre mennesker, og samtykke eksternt selv om det gjelder forskningens gjennomføring. Å bruke sted eller omfang som kriterium er feil #9.",
     },
     {
@@ -4625,17 +4625,17 @@ const quizData_svexfac03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er rekruttering gjennom oppdragsgiverens egen liste et eksternt problem?",
-      options: ["Fordi både konfidensialiteten og frivilligheten i samtykket blir truet for deltakerne", "Fordi utvalget blir skjevt, og skjevhet i utvalg er alltid et etisk og ikke et metodisk problem", "Fordi oppdragsgiveren dermed har påvirket forskningsprosessen på en utilbørlig måte", "Fordi listen er samlet inn til et annet formål enn forskning, og derfor ikke kan brukes"],
+      options: ["Fordi både konfidensialiteten og frivilligheten i samtykket blir truet for deltakerne", "Fordi utvalget blir skjevt, og skjevhet i utvalg er alltid et etisk og ikke et metodisk problem", "Fordi oppdragsgiveren dermed har påvirket forskningsprosessen på en utilbørlig måte og brutt uavhengighetsnormen", "Fordi listen er samlet inn til et annet formål enn forskning, og derfor ikke kan brukes"],
       explanation: "Riktig svar er trusselen mot konfidensialitet og frivillighet: en deltaker som vet at oppdragsgiver kjenner navnet hennes, sier ikke nødvendigvis nei like fritt eller svarer like ærlig. Skjevt utvalg er også et problem, men det er først og fremst metodisk.",
     },
     {
       question: "Hva kjennetegner en breddebesvarelse i denne oppgaven?",
-      options: ["Alle problemene og begge kategorier dekket, uten at noen av dem drives ekstremt dypt", "En besvarelse som nevner flest mulig av de forskningsetiske normene i a-leddet før caset behandles", "En besvarelse som bruker like mye plass på hvert av de tre oppgaveleddene", "En besvarelse som trekker inn både Balsvik, Merton og Fangen i samtlige ledd"],
+      options: ["Alle problemene og begge kategorier dekket, uten at noen av dem drives ekstremt dypt", "En besvarelse som nevner flest mulig av de forskningsetiske normene i a-leddet før caset behandles", "En besvarelse som bruker like mye plass på hvert av de tre oppgaveleddene", "En besvarelse som trekker inn både Balsvik, Merton og Fangen i samtlige ledd, slik at pensumdekningen blir synlig"],
       explanation: "Riktig svar er full dekning uten ekstrem dybde. En dybdebesvarelse som tok to problemer og førte dem lengre, ville vært like A-verdig — profilen er et valg. Å nevne flest mulig normer er derimot feil #3 i en ny drakt.",
     },
     {
       question: "Hva er det gode selvstendige poenget i midtnivåbesvarelsen?",
-      options: ["At publiseringsretten er testen, fordi en rapport som kunne vært stoppet ikke er troverdig", "At oppdragsgiveren betaler, og at forskeren derfor må ta hensyn til kundens interesser", "At forskningsetikken deles i intern og ekstern etikk, og at Balsvik er avsender for skillet", "At bedriftens godkjenning av spørreskjemaet er det klart verste av alle problemene i caset"],
+      options: ["At publiseringsretten er testen, fordi en rapport som kunne vært stoppet ikke er troverdig", "At oppdragsgiveren betaler, og at forskeren derfor må ta hensyn til kundens interesser når rapporten skrives", "At forskningsetikken deles i intern og ekstern etikk, og at Balsvik er avsender for skillet", "At bedriftens godkjenning av spørreskjemaet er det klart verste av alle problemene i caset"],
       explanation: "Riktig svar er poenget om publiseringsretten som test, med begrunnelsen om at en rapport som kunne vært stoppet, ikke er til å stole på uansett innhold. Det står ikke i pensum i den formen, og det er nettopp selvstendighet. De øvrige svarene er korrekt gjengivelse, ikke selvstendig tenkning.",
     },
   ],

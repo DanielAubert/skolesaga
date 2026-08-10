@@ -4,32 +4,32 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
   'exfac03-spr-0-1': [
     {
       question: "Hvor mange eksamensterminer er dokumentert i grunnlaget for denne boka?",
-      options: ["Seks terminer, alle om høsten, i spennet fra 2011 til og med 2025", "Sju terminer, altså én for hvert av de sju dokumentene UiO har publisert for emnet", "Femten terminer i spennet fra 2011 til 2025", "Elleve terminer, jevnt fordelt utover perioden"],
+      options: ["Seks terminer, alle om høsten, i spennet fra 2011 til og med 2025", "Sju terminer, én for hvert dokument UiO har publisert", "Femten terminer i spennet fra 2011 til 2025", "Elleve terminer, jevnt fordelt utover perioden"],
       explanation: "Grunnlaget er seks dokumenterte terminer, og alle seks er høstterminer. Tallet sju er et filtall — tre oppgavesett og fire sensorveiledninger — og aldri et terminantall; brukt som nevner ville det overdrevet dekningen. Femten er antall høstterminer i selve spennet, og av dem mangler ni helt.",
     },
     {
       question: "Hvilken nevner skal brukes når boka sier noe om hva sensor belønner eller trekker for?",
-      options: ["4 sensorveiledninger, siden bare fire av terminene har en veiledning", "6 terminer, siden hver av de seks terminene i arkivet har sin egen veiledning fra sensor", "45 spørsmål", "2 terminer, siden bare de to har oppgitt karakterskala"],
+      options: ["4 sensorveiledninger, siden bare fire av terminene har en veiledning", "6 terminer, siden hver av de seks terminene i arkivet har sin egen veiledning fra sensor", "45 spørsmål, siden hvert spørsmål er vurdert for seg", "2 terminer, siden bare de to har oppgitt karakterskala"],
       explanation: "Bare fire av de seks terminene har sensorveiledning, så enhver påstand om hva sensor belønner, har nevner fire. To terminer har oppgavesett uten veiledning, og ingen sensorpåstand kan bygge på dem. Nevneren 2 terminer gjelder karakterskala og terskler, ikke sensorkrav.",
     },
     {
       question: "Hvor stor del av poengene ligger i strukturfagene fonetikk og fonologi, morfologi og syntaks?",
-      options: ["80 av 114 poeng, altså 70,2 prosent", "45 av 114 poeng, som er litt under halvparten av poengene i de to poengsatte terminene", "29 av 114 poeng, som er det saksområdet som alene har flest poeng", "114 av 114 poeng"],
+      options: ["80 av 114 poeng, altså 70,2 prosent", "45 av 114 poeng, som er litt under halvparten av poengene i de to poengsatte terminene", "29 av 114 poeng, som er det saksområdet som alene har flest poeng", "114 av 114 poeng, siden hele settet er strukturfag"],
       explanation: "De tre strukturfagene er 29, 26 og 25 av 114 poeng, til sammen 80 av 114 poeng. Tallet 45 er antall spørsmål i arkivet og ikke en poengsum, og 29 av 114 poeng er bare fonetikk og fonologi alene. Andelen er praktisk talt uendret over to helt ulike sett.",
     },
     {
       question: "Hva kreves for karakteren C i den nyeste dokumenterte skalaen?",
-      options: ["45,5 til 51,5 av 65 poeng, altså 70 til 79 prosent av settet", "30,0 til 38,5 av 65 poeng, som er det intervallet der besvarelsen så vidt kommer gjennom", "52,0 til 58,0 av 65 poeng", "20 av 49 poeng, terskelen i den todelte skalaen"],
+      options: ["45,5 til 51,5 av 65 poeng, altså 70 til 79 prosent av settet", "30,0 til 38,5 av 65 poeng, som er det intervallet der besvarelsen så vidt kommer gjennom", "52,0 til 58,0 av 65 poeng, fra 80 prosent og oppover", "20 av 49 poeng, terskelen i den todelte skalaen"],
       explanation: "C ligger på 45,5 til 51,5 av 65 poeng og er en god og vanlig karakter. Intervallet 30,0 til 38,5 av 65 poeng er E, og 52,0 til 58,0 av 65 poeng er B. Terskelen på 20 av 49 poeng hører til den todelte skalaen i den eldste poengsatte terminen.",
     },
     {
       question: "Hva har UiO publisert av løsninger for dette emnet?",
-      options: ["Ingenting — verken løsningsforslag eller fasitark finnes for emnet", "Fire løsningsforslag, ett for hver av de terminene som også har en sensorveiledning", "Tre fasitark, ett per oppgavesett", "Ett samlet fasitark for alle seks terminene"],
+      options: ["Ingenting — verken løsningsforslag eller fasitark finnes for emnet", "Fire løsningsforslag, ett per termin med sensorveiledning", "Tre fasitark, ett per oppgavesett", "Ett samlet fasitark for alle seks terminene"],
       explanation: "Det finnes null løsningsforslag og null fasitark for emnet. Det som finnes, er fire sensorveiledninger, og tre av dem inneholder utskrevne modellsvar — men en sensorveiledning er skrevet for den som retter, ikke for studenten. Alle løsninger i denne boka er derfor skrevet av oss.",
     },
     {
       question: "Hvordan skal de to hjemmeeksamenene i materialet forstås?",
-      options: ["Som et unntak under korona, ikke som en varig reform av eksamensformen", "Som en varig omlegging av eksamensformen som gjelder fram til i dag i dette emnet", "Som et forsøk emnet gjentok annethvert år", "Som den formen boka kalibreres mot"],
+      options: ["Som et unntak under korona, ikke som en varig reform av eksamensformen", "Som en varig omlegging av eksamensformen fram til i dag", "Som et forsøk emnet gjentok annethvert år", "Som den formen boka kalibreres mot"],
       explanation: "Veiledningen fra den ene hjemmeterminen skriver at studentene «denne gangen» satt hjemme med lærebok og pdf-er, og ordet er hele belegget for at det var et unntak. Terminen etter er tilbakevendingen til campus uten hjelpemidler. Den nyeste terminen er dokumentert digital, men verken varighet eller hjelpemidler er oppgitt for den.",
     },
     {
@@ -54,12 +54,12 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er faren ved å lese kapitlene i LING1100 i stedet for kapitlene i dette emnet?",
-      options: ["LING1100 dekker bare 22 prosent av poengene her, og går dypere enn dette emnet prøver", "LING1100 dekker de samme temaene, men er skrevet for et lavere nivå enn dette emnet", "LING1100 dekker strukturfagene, men mangler semantikken", "LING1100 er ikke ferdig bygget ennå"],
+      options: ["LING1100 dekker bare 22 prosent av poengene her, og går dypere enn dette emnet prøver", "LING1100 dekker de samme temaene, men er skrevet for et lavere nivå enn dette emnet", "LING1100 dekker strukturfagene, men mangler semantikken", "LING1100 er ikke ferdig bygget som lærebok ennå"],
       explanation: "Overlappet treffer bare semantikk og pragmatikk, til sammen 25 av 114 poeng, altså 22 prosent — og det er de letteste delene her. Strukturfagene, som er 80 av 114 poeng, dekkes ikke der i det hele tatt. LING1100 går dessuten dypere enn dette emnet prøver, så tiden gir dårlig avkastning.",
     },
     {
       question: "Hva betyr mantraet om at ordene er nye hver gang?",
-      options: ["Ordene som skal transkriberes og segmenteres, skifter fra termin til termin, mens fenomenene er de samme", "Oppgavetypene skifter fra termin til termin, så det er ingen vits i å trene på en fast prosedyre i det hele tatt", "Trening på gamle sett gjør at du kjenner igjen ordene", "Ordene er hentet fra ulike dialekter hver gang"],
+      options: ["Ordene som skal transkriberes og segmenteres, skifter fra termin til termin, mens fenomenene er de samme", "Oppgavetypene skifter fra termin til termin, så det er ingen vits i å trene på en fast prosedyre", "Trening på gamle sett gjør at du kjenner igjen ordene", "Ordene er hentet fra ulike dialekter hver gang"],
       explanation: "Fenomenene ordene er konstruert for å tvinge fram, gjentar seg, men selve ordene er forskjellige i hver eneste termin. Derfor gir det null å pugge ferdige transkripsjoner, og alt å kunne prosedyren. Mantraet lover uttrykkelig ikke gjenkjennelse av ordene — bare at oppgavetypen er stabil.",
     },
     {
@@ -69,14 +69,14 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva gjelder tidsanslagene i kapitteloverskriftene i denne boka?",
-      options: ["Lesetid, altså tiden det tar å lese kapitlet og gjøre oppgavene i det", "Den tiden tilsvarende oppgave ville fått under selve eksamen med fire timers ramme", "Skrivetid for hånd", "Samlet tid inkludert prøvekapitler og øvingseksamener"],
+      options: ["Lesetid, altså tiden det tar å lese kapitlet og gjøre oppgavene i det", "Den tiden tilsvarende oppgave ville fått under selve eksamen med fire timers ramme", "Skrivetid for hånd, med faktoren 1,5 innbakt", "Samlet tid inkludert prøvekapitler og øvingseksamener"],
       explanation: "Anslagene er lesetid, altså tiden det tar å lese kapitlet og gjøre oppgavene i det. Skriver du besvarelser for hånd, ganger du med omtrent 1,5. Tidsbudsjettene i sjangerkapitlene er noe annet: de er regnet i skrivetid under eksamen og ser derfor mye strengere ut.",
     },
   ],
   'exfac03-spr-0-2': [
     {
       question: "Hvordan fordeles poengene i en klassifiseringsoppgave i den nyeste terminen?",
-      options: ["1 poeng for riktig svar og 3 poeng for forklaringen", "3 poeng for riktig svar og 1 poeng for forklaringen, siden svaret er det oppgaven spør etter", "2 poeng for hver av delene, altså likt fordelt mellom konklusjon og begrunnelse", "4 poeng for svaret, uten egne poeng for begrunnelsen"],
+      options: ["1 poeng for riktig svar og 3 poeng for forklaringen", "3 poeng for riktig svar og 1 poeng for forklaringen, siden svaret er det oppgaven spør etter", "2 poeng for hver av delene, altså likt fordelt mellom konklusjon og begrunnelse", "4 poeng for svaret, ingen for begrunnelsen"],
       explanation: "Forklaringen er verdt tre ganger så mye som konklusjonen, og veiledningen begrunner det uttrykkelig med at det er femti prosent sjanse for å gjette riktig. Fordelingen er hele hjemmelen for mantraet om begrunnelsen før konklusjonen. En jevn fordeling ville gjort gjetting til en holdbar strategi, og det er nettopp det oppgaven er konstruert for å hindre.",
     },
     {
@@ -101,7 +101,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke to trinn i firetrinnsformen for et eget eksempel er det som faktisk skiller besvarelser?",
-      options: ["Trinn 3 og 4 — bindingen til definisjonen og setningen om hva som ville ødelagt eksempelet", "Trinn 1 og 2 — å navngi fenomenet og å gi selve eksempelet, siden det er der innholdet ligger", "Trinn 2 og 3 — å gi eksempelet og å binde det til definisjonen med en egen setning", "Trinn 1 og 4 — navngivingen og avslutningen"],
+      options: ["Trinn 3 og 4 — bindingen til definisjonen og setningen om hva som ville ødelagt eksempelet", "Trinn 1 og 2 — å navngi fenomenet og å gi eksempelet, siden innholdet ligger der", "Trinn 2 og 3 — å gi eksempelet og å binde det til definisjonen med en egen setning", "Trinn 1 og 4 — navngivingen og avslutningen"],
       explanation: "Å navngi fenomenet og gi et eksempel klarer nesten alle, så de to første trinnene skiller lite. Bindingen mellom eksempel og definisjon er beviset for at eksempelet passer, og setningen om hva som ville ødelagt det, viser at valget er prøvd. Uten trinn 3 har du overlatt koblingen til sensor.",
     },
     {
@@ -116,7 +116,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvor lang tid skal et spørsmål verdt 2 poeng ha etter bokas tidsmodell?",
-      options: ["Rundt seks minutter, altså tre minutter per poeng", "Rundt tjue minutter, siden korte spørsmål ofte krever mest presisjon i formuleringen", "Så lang tid du trenger, så lenge du rekker resten av settet innen tiden er ute", "Rundt tolv minutter"],
+      options: ["Rundt seks minutter, altså tre minutter per poeng", "Rundt tjue minutter, siden korte spørsmål ofte krever mest presisjon i formuleringen", "Så lang tid du trenger, så lenge du rekker resten av settet innen tiden er ute", "Rundt tolv minutter, siden modellen gir seks minutter per poeng"],
       explanation: "Modellen er rundt tre minutter per poeng, så 2 poeng gir rundt seks minutter. Å bruke tjuefem minutter på en slik oppgave gir bort rundt seks poeng et annet sted i settet, uten at oppgaven kan gi mer enn 2 poeng. Ordet «kort» i en oppgavetekst er en instruks om lengde, ikke en høflighetsfrase.",
     },
     {
@@ -141,7 +141,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er det siste trinnet i alle de tre tunge prosedyrene?",
-      options: ["En kontroll av at ingenting står umerket eller inkonsistent", "En begrunnelse av de valgene som avviker fra hovedmønsteret i analysen", "En oppsummering av hva analysen har vist, skrevet i to eller tre setninger", "En henvisning til den fagtermen oppgaven krever"],
+      options: ["En kontroll av at ingenting står umerket eller inkonsistent", "En begrunnelse av valgene som avviker fra mønsteret", "En oppsummering av hva analysen har vist, skrevet i to eller tre setninger", "En henvisning til den fagtermen oppgaven krever"],
       explanation: "Transkripsjonen, segmenteringen og trebyggingen ender alle med en kontrollrunde. Det er ikke tilfeldig: alle tre har trekk på 0,5 poeng per feil i den nyeste terminen, og to minutters kontroll er den billigste forsikringen i settet. Begrunnelseslinjer og termkrav hører hjemme underveis, ikke som siste trinn.",
     },
     {
@@ -151,7 +151,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er feil nummer 7?",
-      options: ["Å gi færre eksempler enn oppgaven uttrykkelig ber om, altså ren telling", "Å gi et eksempel uten begrunnelse", "Å bruke lærebokas eksempler i stedet for å lage sine egne fra bunnen", "Å gi eksempler som er riktige, men som ikke oppfyller spesifikasjonen i oppgaven"],
+      options: ["Å gi færre eksempler enn oppgaven uttrykkelig ber om, altså ren telling", "Å gi et eksempel uten begrunnelse", "Å bruke lærebokas eksempler i stedet for å lage sine egne fra bunnen", "Å gi eksempler som er riktige, men bryter spesifikasjonen"],
       explanation: "Feil nummer 7 er ren telling: ber oppgaven om tre ord, skal det stå tre ord. Eksempel uten begrunnelse er nummer 6, og lærebokas eksempler er nummer 15. Et eksempel som bryter spesifikasjonen — for eksempel for få stavelser — er en nær slektning av nummer 7, og motgiften er den samme: les bestillingen på nytt og tell det den ber deg telle.",
     },
   ],
@@ -178,7 +178,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr forleddet lamino- i en sammensatt stedsangivelse?",
-      options: ["Tungebladet rett bak tungespissen er den aktive artikulatoren", "Tungespissen er bøyd bakover mot området like bak alveolarkanten", "Tungeryggen er den aktive artikulatoren i lyden", "Lyden lages med begge leppene mot hverandre"],
+      options: ["Tungebladet rett bak tungespissen er den aktive artikulatoren", "Tungespissen er bøyd bakover bak alveolarkanten", "Tungeryggen er den aktive artikulatoren i lyden", "Lyden lages med begge leppene mot hverandre"],
       explanation: "Forleddene navngir hvilken del av tungen som gjør jobben: apiko- er spissen, lamino- er bladet, dorso- er ryggen. Bøyd tungespiss beskriver en retrofleks artikulasjon, og begge leppene er bilabialt — ingen av delene er lamino-. Forleddet er nødvendig fordi ulike deler av tungen mot samme punkt gir hørbart ulike lyder.",
     },
     {
@@ -188,12 +188,12 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen på en plosiv og en nasal?",
-      options: ["Begge har full stenging i munnen, men nasalen slipper luften ut gjennom nesen", "Plosiven har full stenging, mens nasalen bare har en trang passasje luften freser gjennom", "Plosiven er alltid ustemt, mens nasalen alltid er stemt", "Plosiven kan holdes ut, mens nasalen ikke kan det"],
+      options: ["Begge har full stenging i munnen, men nasalen slipper luften ut gjennom nesen", "Plosiven har full stenging, mens nasalen bare har en trang passasje", "Plosiven er alltid ustemt, mens nasalen alltid er stemt", "Plosiven kan holdes ut, mens nasalen ikke kan det"],
       explanation: "Stengingen i munnen er den samme; det som skiller, er om den myke ganen er senket så nesepassasjen åpnes. Derfor kan en nasal holdes ut, mens en plosiv ikke kan — det er slippet som er lyden. At alle norske nasaler er stemte, er sant, men det er ikke definisjonen på nasal.",
     },
     {
       question: "Hva kjennetegner en frikativ?",
-      options: ["Passasjen er trang nok til at luftstrømmen blir turbulent og lager hørbart støy", "Luftstrømmen stenges helt og slippes deretter brått ut i et lite smell", "Artikulatorene nærmer seg hverandre uten at det oppstår friksjonsstøy i det hele tatt", "Luften ledes ut langs den ene eller begge sidene av tungen"],
+      options: ["Passasjen er trang nok til at luftstrømmen blir turbulent og lager hørbart støy", "Luftstrømmen stenges helt og slippes deretter brått ut i et lite smell", "Artikulatorene nærmer seg hverandre uten at det oppstår friksjonsstøy", "Luften ledes ut langs den ene eller begge sidene av tungen"],
       explanation: "Friksjonsstøyet er selve lyden i en frikativ. Full stenging med brått slipp er en plosiv, tilnærming uten støy er en approksimant, og luft langs tungesidene er en lateral. Grensen mellom frikativ og approksimant er glidende, og den norske v-en ligger nettopp der.",
     },
     {
@@ -218,7 +218,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er feil nummer 4?",
-      options: ["Å nevne fagtermer uten å forklare systematikken bak dem", "Å beskrive en lyd så løst at beskrivelsen passer på flere lyder samtidig", "Å bytte om på den aktive og den passive artikulatoren i et sammensatt stedsnavn", "Å gi færre eksempler enn oppgaven ber om"],
+      options: ["Å nevne fagtermer uten å forklare systematikken bak dem", "Å beskrive en lyd så løst at flere lyder passer", "Å bytte om på den aktive og den passive artikulatoren i et sammensatt stedsnavn", "Å gi færre eksempler enn oppgaven ber om"],
       explanation: "Feil nummer 4 er å ramse opp termer uten å si hva de gjør, og dette kapitlet er feilens hovedhjem — en veiledning krever uttrykkelig at systematikken forklares for full uttelling. For løs beskrivelse er feil nummer 16, og for få eksempler er nummer 7. Å bytte om artikulatorene er en ekte feil, men den har ingen egen kode.",
     },
     {
@@ -233,7 +233,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en approksimant?",
-      options: ["En lyd der artikulatorene nærmer seg hverandre uten å gi friksjonsstøy", "En lyd der artikulatorene lager en så trang passasje at det oppstår turbulens", "En lyd der stengingen er total og luften går ut gjennom nesen i stedet", "En lyd som er en plosiv i første fase og en frikativ i andre"],
+      options: ["En lyd der artikulatorene nærmer seg hverandre uten å gi friksjonsstøy", "En lyd der passasjen er så trang at det oppstår turbulens", "En lyd der stengingen er total og luften går ut gjennom nesen i stedet", "En lyd som er en plosiv i første fase og en frikativ i andre"],
       explanation: "Approksimanten har tilnærming, men åpningen er for vid til å gi støy — j er den tydeligste norske. Turbulens gir frikativ, stenging med neseluft gir nasal, og den todelte lyden er en affrikat. Approksimanten ligner akustisk på en vokal, og skillet mot vokalen er funksjonelt: den står i randen av stavelsen, ikke i kjernen.",
     },
     {
@@ -280,12 +280,12 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
   'exfac03-spr-1-2': [
     {
       question: "Hvor mange akser beskrives en vokal på?",
-      options: ["Fire akser — tungehøyde, horisontal plassering, rundethet og lengde", "Tre, akkurat som konsonantene, siden lengde regnes som en egenskap ved stavelsen", "To, altså tungehøyde og plassering, siden de to alene gir hele vokalfirkanten", "Fem, siden også trykk hører med"],
+      options: ["Fire akser — tungehøyde, horisontal plassering, rundethet og lengde", "Tre, akkurat som konsonantene, siden lengde regnes som en egenskap ved stavelsen", "To, altså tungehøyde og plassering, siden de to alene gir hele vokalfirkanten", "Fem akser, siden også trykk regnes som en egen akse ved siden av de fire andre"],
       explanation: "Vokalene har fire akser, altså én mer enn konsonantene. Lengde er en egen akse og er betydningsskillende i norsk, som i tak mot takk. Trykk gjelder stavelsen og ikke vokalen, og hører derfor ikke inn i beskrivelsen av selve vokalen.",
     },
     {
       question: "Hvilken akse skiller i fra y?",
-      options: ["Rundethet, altså om leppene formes til en ring", "Tungehøyde, siden den ene lyden lages med tungen høyere enn den andre", "Horisontal plassering, siden den ene er fremre og den andre midtre", "Lengde, siden bare den ene kan være lang i norsk"],
+      options: ["Rundethet, altså om leppene formes til en ring", "Tungehøyde, siden den ene lyden lages med tungen høyere enn den andre", "Horisontal plassering, siden den ene er fremre og den andre midtre", "Lengde, siden bare den ene kan være lang"],
       explanation: "Tungen står i samme posisjon i begge; det eneste som skjer, er at leppene rundes. Begge er trange og fremre, og begge kan være lange. Nettopp fordi rundethet alene skiller dem, er den aksen norsk trenger mest — språket har tre slike par.",
     },
     {
@@ -300,7 +300,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken vokal svarer til beskrivelsen «rundet, trang-midtre, fremre»?",
-      options: ["ø, den fremre rundede vokalen i rad to", "y, som er rundet og fremre, men ett trinn høyere i vokalfirkanten", "œ, som er rundet og fremre, men ett trinn lavere", "o, som er rundet og trang-midtre, men bakre"],
+      options: ["ø, den fremre rundede vokalen i rad to", "y, som er rundet og fremre, men ett trinn høyere i vokalfirkanten", "œ, som er rundet og fremre, men ett trinn lavere", "o, som er rundet, men bakre"],
       explanation: "De tre akseverdiene treffer nøyaktig én rute i firkanten, og der bor ø. y ligger over, œ ligger under, og o ligger i samme rad men i den bakre kolonnen. Denne oppgaveformen — fra beskrivelse til symbol — er belagt i materialet og løses raskest ved å stryke ut én akse om gangen.",
     },
     {
@@ -335,7 +335,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken vokal er åpen, bakre og urundet?",
-      options: ["ɑ, som er alene i sitt hjørne av firkanten", "æ, som også er åpen og urundet, men som lages lenger fram i munnen", "ɔ, som er bakre, men både rundet og ett trinn høyere i firkanten", "o, som er bakre og rundet"],
+      options: ["ɑ, som er alene i sitt hjørne av firkanten", "æ, som også er åpen og urundet, men som lages lenger fram i munnen", "ɔ, som er bakre, men både rundet og ett trinn høyere i firkanten", "o, som er bakre og rundet, men ligger i det trang-midtre høydetrinnet"],
       explanation: "ɑ er alene i sitt hjørne av firkanten og derfor en av de letteste vokalene å beskrive entydig. æ er åpen og urundet, men fremre. Legg merke til at ɑ bryter mønsteret blant de bakre vokalene: u, o og ɔ er alle rundede, mens ɑ ikke er det.",
     },
     {
@@ -345,17 +345,17 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva står bokstaven o oftest for i norsk uttale?",
-      options: ["Lyden u, altså den trange bakre rundede vokalen", "Lyden o, altså den trang-midtre bakre rundede vokalen, i de aller fleste ord", "Lyden ɔ, altså den åpen-midtre bakre rundede vokalen", "Lyden ʉ, den midtre trange"],
+      options: ["Lyden u, altså den trange bakre rundede vokalen", "Lyden o, altså den trang-midtre bakre rundede vokalen, i de aller fleste ord", "Lyden ɔ, den åpen-midtre bakre vokalen", "Lyden ʉ, den midtre trange"],
       explanation: "I ord som sol og bok står bokstaven o for lyden u, mens lyden o oftest skrives med bokstaven å. Skriftbildet er ikke lydskrift, og å transkribere etter rettskrivingen i stedet for etter uttalen er en feilkilde som slår ut i hele transkripsjonsdelen.",
     },
     {
       question: "Hvilke to vokaler skilles bare av tungehøyde?",
-      options: ["o og ɔ, som begge er bakre og rundede", "i og y, som ligger i samme rute i firkanten men skiller seg i lepperunding", "y og ʉ, som begge er trange og rundede men lages på ulikt sted", "æ og ɑ"],
+      options: ["o og ɔ, som begge er bakre og rundede", "i og y, som ligger i samme rute i firkanten men skiller seg i lepperunding", "y og ʉ, som begge er trange og rundede men lages på ulikt sted", "æ og ɑ, som begge er åpne og urundede men ligger i ulik høyde"],
       explanation: "o og ɔ er begge bakre og rundede, og det er bare høydetrinnet som skiller dem. i og y skilles av rundethet, mens y og ʉ og likeså æ og ɑ skilles av horisontal plassering. Å kunne si hvilken akse som skiller to naboer, er samtidig å vite hvilken akseverdi som må stå i beskrivelsen.",
     },
     {
       question: "Hva er trinn 3 i prosedyren for å oppfylle skillekravet?",
-      options: ["Å prøve beskrivelsen mot naboene i vokalfirkanten", "Å skrive beskrivelsen i fast rekkefølge og legge ved et eksempelord", "Å plassere vokalen i riktig rute i firkanten før du leser av aksene", "Å oppgi lengden, siden den er betydningsskillende i norsk"],
+      options: ["Å prøve beskrivelsen mot naboene i vokalfirkanten", "Å skrive beskrivelsen i fast rekkefølge og legge ved et eksempelord", "Å plassere vokalen i riktig rute i firkanten før du leser av aksene", "Å oppgi lengden, som er betydningsskillende"],
       explanation: "Nabokontrollen er trinn 3, og den er hele forskjellen mellom en sann beskrivelse og en som gir poeng. Å plassere vokalen er trinn 1, og fast rekkefølge med eksempelord er trinn 5. Lengden er én av akseverdiene du leser av i trinn 2.",
     },
     {
@@ -380,7 +380,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skjer om du utelater rundetheten i en beskrivelse av ø?",
-      options: ["Beskrivelsen passer også på e, som bare skiller seg i rundethet", "Beskrivelsen passer også på o, siden de to ligger i samme rad i vokalfirkanten", "Beskrivelsen passer også på y, som ligger ett trinn over i den samme kolonnen", "Ingenting — rundetheten er underforstått for fremre vokaler"],
+      options: ["Beskrivelsen passer også på e, som bare skiller seg i rundethet", "Beskrivelsen passer også på o, som ligger i samme rad", "Beskrivelsen passer også på y, som ligger ett trinn over i den samme kolonnen", "Ingenting — rundetheten er underforstått for fremre vokaler"],
       explanation: "e er trang-midtre og fremre akkurat som ø, og bare rundetheten skiller dem. o ville falt bort på plasseringen og y på høyden, så de to utelukkes av andre akseverdier. Og rundethet er aldri underforstått i norsk: språket har både rundede og urundede fremre vokaler i tre høydetrinn.",
     },
     {
@@ -402,12 +402,12 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er det som IKKE endrer seg når en lyd blir retrofleks?",
-      options: ["Stemtheten og artikulasjonsmåten", "Artikulasjonsstedet, som holdes alveolart gjennom hele prosessen", "Stavelsesgrensen, som alltid går rett før den retroflekse lyden", "Trykkmønsteret i ordet"],
+      options: ["Stemtheten og artikulasjonsmåten", "Artikulasjonsstedet, som holdes alveolart gjennom hele prosessen", "Stavelsesgrensen, som alltid går rett før den retroflekse lyden", "Trykkmønsteret i ordet, som avgjør om lyden kan bli retrofleks"],
       explanation: "t er ustemt plosiv både før og etter, n er stemt nasal både før og etter; det eneste som endres, er stedet — fra alveolar til retrofleks. Nettopp derfor kan hele retroflekstabellen utledes fra konsonantkartet i stedet for å pugges.",
     },
     {
       question: "Virker retrofleksregelen over ordgrensen i en sammensetning?",
-      options: ["Ja — regelen krysser både morfemgrenser og ordgrensen i en sammensetning", "Nei, siden de to leddene er selvstendige ord med hver sin egen lydstruktur og sitt eget trykk", "Bare når det første leddet er enstavet og hovedtrykket ligger på det leddet", "Bare i skrift, ikke i uttale"],
+      options: ["Ja — regelen krysser både morfemgrenser og ordgrensen i en sammensetning", "Nei, siden de to leddene er selvstendige ord med hver sin egen lydstruktur og sitt eget trykk", "Bare når det første leddet er enstavet og hovedtrykket ligger på det leddet", "Bare i skrift, ikke i uttale, siden sammenskrivingen er en rettskrivingsregel uten følger i talen"],
       explanation: "Regelen virker på lydstrømmen, og lydstrømmen kjenner ikke skriftens ordgrenser. Dette er den dyreste fella i kapitlet, fordi eksamensordet nesten alltid er sammensatt og fugen ofte ligger nettopp der r møter en alveolar lyd. Antall stavelser i første ledd spiller ingen rolle.",
     },
     {
@@ -422,7 +422,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan skal du behandle sammenfallet mellom lydene i kjole og sjø?",
-      options: ["Som en ekte variantregel du oppgir og deretter følger konsekvent", "Som en uttalefeil du bør rette opp før du transkriberer besvarelsen din", "Som en regel som gjelder alle norske talere uansett hvilken dialektbakgrunn de har", "Som noe som ikke trenger å nevnes, siden sensor kjenner fenomenet"],
+      options: ["Som en ekte variantregel du oppgir og deretter følger konsekvent", "Som en uttalefeil du bør rette opp før du transkriberer", "Som en regel for alle norske talere, uansett dialekt", "Som noe som ikke trenger å nevnes, siden sensor kjenner fenomenet"],
       explanation: "Sammenfallet er en utbredt og fullt gyldig norsk uttale, og en transkripsjon som konsekvent bruker den ene lyden begge steder, teller fullt så lenge bakgrunnen er oppgitt. Det som straffes, er å veksle uten system — da er transkripsjonen ikke konsistent med noen oppgitt bakgrunn, og det er feil nummer 2.",
     },
     {
@@ -432,12 +432,12 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skjer med aspirasjonen når en plosiv står rett etter s?",
-      options: ["Den blokkeres helt, som i skole og spill", "Den forsterkes, siden s-en gir ekstra luft inn i plosiven", "Den er uendret, siden s-en tilhører en annen stavelse enn plosiven", "Den erstattes av stemthet"],
+      options: ["Den blokkeres helt, som i skole og spill", "Den forsterkes, siden s-en gir ekstra luft inn i plosiven", "Den er uendret, siden s-en tilhører en annen stavelse enn plosiven", "Den erstattes av stemthet, slik at plosiven uttales som b, d eller g"],
       explanation: "Etter s er plosiven uaspirert, og regelen er helt regelmessig. Sammenlign pil med spill, eller tak med stakk, og kjenn etter med håndflaten foran munnen. Nettopp fordi regelen er så konkret, gir den en av de sikreste forklaringssetningene i en transkripsjonsoppgave.",
     },
     {
       question: "Kan aspirasjon skille to norske ord fra hverandre?",
-      options: ["Nei — aspirasjonen er helt forutsigbar av omgivelsen og bærer derfor ingen kontrast", "Ja, på nøyaktig samme måte som lengde skiller ordet tak fra ordet takk i norsk uttale", "Ja, men bare i importord med trykk på siste stavelse", "Bare for talere som har alveolar r"],
+      options: ["Nei — aspirasjonen er helt forutsigbar av omgivelsen og bærer derfor ingen kontrast", "Ja, på nøyaktig samme måte som lengde skiller tak fra takk i norsk", "Ja, men bare i importord med trykk på siste stavelse", "Bare for talere som har alveolar r"],
       explanation: "En lydforskjell som kan regnes ut fra omgivelsen, kan ikke bære et valg, og et valg er nettopp det som trengs for å skille to ord. Det finnes ikke noe norsk ordpar der aspirasjon er den eneste forskjellen. Lengde kan derimot skille ord, og det er akkurat der de to fenomenene er ulike.",
     },
     {
@@ -452,22 +452,22 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en stavelsesbærende konsonant?",
-      options: ["En konsonant som fyller kjernen i stavelsen alene, uten vokal", "En konsonant som står aller først i en trykksterk stavelse og derfor bærer trykket i ordet", "En konsonant som gjentas over en stavelsesgrense og hører til begge stavelsene", "En konsonant som uttales lengre enn vanlig"],
+      options: ["En konsonant som fyller kjernen i stavelsen alene, uten vokal", "En konsonant som står aller først i en trykksterk stavelse og derfor bærer trykket i ordet", "En konsonant som gjentas på tvers av en stavelsesgrense", "En konsonant som uttales lengre enn vanlig"],
       explanation: "Rollen som normalt fylles av en vokal, er overtatt av konsonanten — som i den trykksvake endelsen i sykkel for mange talere. Stavelsen har altså like mange deler som ellers. Konsonanten som står først i stavelsen, står i randen og ikke i kjernen.",
     },
     {
       question: "Hvordan skrives en stavelsesbærende n?",
-      options: ["Som grunntegnet n med et lite loddrett merke under", "Som to n-er etter hverandre, siden lyden i denne posisjonen holdes lenger enn vanlig", "Som n med lengdetegn etter, altså på samme måte som en lang vokal", "Som n med aspirasjonstegn"],
+      options: ["Som grunntegnet n med et lite loddrett merke under", "Som to n-er etter hverandre, siden lyden i denne posisjonen holdes lenger enn vanlig", "Som n med lengdetegn etter, altså på samme måte som en lang vokal", "Som n med aspirasjonstegn, en liten hevet h like etter grunntegnet"],
       explanation: "Tegnet er grunntegnet pluss et kombinerende merke under, altså to skrifttegn som til sammen viser én lyd. Lengdetegnet gjelder varighet og ikke stavelsesrolle, og aspirasjonstegnet hører til ustemte plosiver. Merket må alltid skrives sammen med grunntegnet — står det alene etter et mellomrom, forsvinner det visuelt.",
     },
     {
       question: "Hva er alternativet til en stavelsesbærende konsonant i en trykksvak endelse?",
-      options: ["En reduksjonsvokal foran konsonanten", "En full vokal med samme kvalitet som i den trykksterke stavelsen foran", "En lang vokal, siden endelsen da må bære sin egen tyngde", "En diftong"],
+      options: ["En reduksjonsvokal foran konsonanten", "En full vokal med samme kvalitet som i den trykksterke stavelsen foran", "En lang vokal, siden endelsen da må bære sin egen tyngde", "En diftong, der endelsen får to vokalkvaliteter i samme stavelse"],
       explanation: "Endelsen kan enten ha reduksjonsvokal pluss konsonant, eller konsonanten alene som kjerne. Begge er ekte norske uttalevarianter, og valget mellom dem er noe du oppgir og deretter følger. En full eller lang vokal i en trykksvak endelse ville brutt med at bare trykksterke stavelser har full vokalkvalitet.",
     },
     {
       question: "Hva er forskjellen på ɭ og ɽ?",
-      options: ["ɭ oppstår av r pluss l, mens ɽ er en selvstendig dialektlyd uten r i forhistorien", "ɭ er en selvstendig dialektlyd, mens ɽ oppstår av r pluss l i selve uttaleøyeblikket", "De to er ulike skrivemåter for samme lyd i norsk uttale", "ɭ er ustemt, mens ɽ er stemt"],
+      options: ["ɭ oppstår av r pluss l, mens ɽ er en selvstendig dialektlyd uten r i forhistorien", "ɭ er en selvstendig dialektlyd, mens ɽ oppstår av r pluss l i selve uttaleøyeblikket", "De to er ulike skrivemåter for samme lyd i norsk uttale", "ɭ er ustemt, mens ɽ er stemt, og stemtheten skiller dem"],
       explanation: "ɭ er en retrofleks lateral som oppstår når r møter l. Tjukk l finnes uavhengig av noen r og er et dialekttrekk du enten har eller ikke har. Begge er stemte, og de er to ulike lyder — å blande dem er en vanlig feil i transkripsjoner.",
     },
     {
@@ -487,7 +487,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilket fenomen står i veien når en r møter en ç?",
-      options: ["Ingenting skjer — ç er ikke alveolar, så retrofleksregelen utløses ikke", "Det oppstår en retrofleks frikativ, siden alle frikativer etter r blir retroflekse", "R-en faller bort uten å sette spor, slik den gjør foran alle frikativer", "Det oppstår nasalassimilasjon i stedet"],
+      options: ["Ingenting skjer — ç er ikke alveolar, så retrofleksregelen utløses ikke", "Alle frikativer etter r blir retroflekse, også denne", "R-en faller bort uten å sette spor, slik den gjør foran alle frikativer", "Det oppstår nasalassimilasjon i stedet"],
       explanation: "Regelen krever at lyden etter r-en er alveolar, og ç er palatal. Fella er å se en r og automatisk skrive retrofleks. Nasalassimilasjon gjelder nasaler foran labiodentale og velare lyder og har ingenting med dette å gjøre.",
     },
     {
@@ -497,7 +497,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva bør en forklaringssetning i transkripsjonsoppgaven inneholde?",
-      options: ["Ett konkret tegn og den konkrete omgivelsen tegnet står i", "En generell formulering av regelen, siden en slik formulering viser at du kjenner hele systemet", "En henvisning til hvilket kapittel i pensum regelen er hentet fra", "En vurdering av om uttalen din er normal eller avvikende"],
+      options: ["Ett konkret tegn og den konkrete omgivelsen tegnet står i", "En generell formulering av regelen, siden en slik formulering viser at du kjenner hele systemet", "En henvisning til hvilket kapittel regelen står i", "En vurdering av om uttalen din er normal eller avvikende"],
       explanation: "Malen er ett tegn, én omgivelse, én setning. Den nyeste veiledningen avviser uttrykkelig et generelt utsagn i denne oppgavetypen — det er riktig, og det gir null poeng. Å svare generelt der oppgaven ber om konkret er feil nummer 3.",
     },
     {
@@ -514,22 +514,22 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
   'exfac03-spr-1-4': [
     {
       question: "Hva er grunnprinsippet i lydskrift?",
-      options: ["Ett tegn står for én lyd, uansett hvordan lyden skrives i rettskrivingen", "Ett tegn står for én bokstav i rettskrivingen, slik at transkripsjonen kan leses tilbake", "Hvert språk har sitt eget sett med tegn, tilpasset det språkets skrifttradisjon", "Hvert tegn står for en stavelse"],
+      options: ["Ett tegn står for én lyd, uansett hvordan lyden skrives i rettskrivingen", "Ett tegn står for én bokstav i rettskrivingen, slik at transkripsjonen kan leses tilbake", "Hvert språk har sitt eget sett med tegn, tilpasset det språkets skrifttradisjon", "Hvert tegn står for en stavelse, slik at et ord med tre stavelser skrives med tre lydtegn"],
       explanation: "Lydskriften er et måleredskap, ikke en avtale om skrivemåte. Derfor kan ett bokstavtegn stå for flere lyder i norsk, mens ett lydtegn aldri gjør det. Og nettopp fordi tegnene er språkuavhengige, betyr samme tegn samme lyd på tvers av språk.",
     },
     {
       question: "Hvordan er konsonanttabellen bygget opp?",
-      options: ["Sted løper vannrett fra leppene til strupehodet, måte løper loddrett", "Måte løper vannrett og sted loddrett, med stemthet som egen rad nederst i tabellen", "Tegnene står alfabetisk, slik at du raskt kan slå opp et symbol du allerede kjenner", "Stemthet løper vannrett og sted loddrett"],
+      options: ["Sted løper vannrett fra leppene til strupehodet, måte løper loddrett", "Måte løper vannrett og sted loddrett, stemthet i egen rad nederst", "Tegnene står alfabetisk, slik at du raskt kan slå opp et symbol du allerede kjenner", "Stemthet løper vannrett og sted loddrett"],
       explanation: "Kolonnene er artikulasjonssteder i rekkefølge innover i munnen, radene er artikulasjonsmåter, og stemtheten leses av på plasseringen inne i cellen. Oppsettet gjør at du kan gå begge veier — fra tegn til beskrivelse og fra beskrivelse til tegn — som er de to retningene beskrivelsesoppgaven prøves i.",
     },
     {
       question: "Hva betyr det at en celle i konsonantkartet er tom?",
-      options: ["At norsk ikke har noen lyd med den kombinasjonen av sted og måte", "At lyden finnes, men bare i importord og derfor ikke regnes med i kjerneinventaret", "At lyden er umulig å lage med menneskelig taleapparat i det hele tatt", "At lyden mangler et eget tegn i lydskriften"],
+      options: ["At norsk ikke har noen lyd med den kombinasjonen av sted og måte", "At lyden bare finnes i importord, ikke i kjerneinventaret", "At lyden er umulig å lage med menneskelig taleapparat i det hele tatt", "At lyden mangler et eget tegn i lydskriften"],
       explanation: "Kartet viser det norske inventaret, ikke alt som finnes i verdens språk. En tom celle sier derfor bare at norsk ikke bruker den kombinasjonen; andre språk kan godt gjøre det. Alle lyder som finnes, har dessuten sitt eget tegn i lydskriften.",
     },
     {
       question: "Hvor mange celler i den norske frikativraden har både en ustemt og en stemt lyd?",
-      options: ["Én — den labiodentale, med f og v", "Tre, altså den labiodentale, den alveolare og den postalveolare cellen i tabellen", "Alle, siden hver frikativ i norsk har en stemt eller ustemt partner", "Ingen"],
+      options: ["Én — den labiodentale, med f og v", "Tre, altså den labiodentale, den alveolare og den postalveolare cellen i tabellen", "Alle, siden hver frikativ i norsk har en stemt eller ustemt partner", "Ingen — ikke én frikativcelle i norsk har et stemthetspar"],
       explanation: "Bare f og v danner et stemthetspar blant frikativene. s, ʃ, ʂ, ç og h står alene som ustemte, og ʁ står alene som stemt. Det betyr at «ustemt» ofte gir lite informasjon i en frikativbeskrivelse — men verdien skal likevel stå, siden det ikke gis delpoeng.",
     },
     {
@@ -549,12 +549,12 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skjer om du setter et mellomrom mellom grunntegnet og et kombinerende merke?",
-      options: ["Merket fester seg på mellomrommet og forsvinner visuelt", "Merket blir stående tydeligere, og transkripsjonen blir lettere å lese for sensor", "Merket flytter seg automatisk til neste tegn i strengen", "Ingenting — mellomrom har ingen betydning i en transkripsjon"],
+      options: ["Merket fester seg på mellomrommet og forsvinner visuelt", "Merket blir stående tydeligere, og transkripsjonen blir lettere å lese for sensor", "Merket flytter seg automatisk til neste tegn i strengen", "Ingenting — mellomrom har ingen betydning"],
       explanation: "Et kombinerende merke fester seg alltid på tegnet rett foran. Er det et mellomrom der, havner merket på mellomrommet, og du har skrevet noe annet enn du trodde. Merket skal derfor alltid stå umiddelbart etter grunntegnet.",
     },
     {
       question: "Hva viser klammer i en transkripsjon?",
-      options: ["Den fonetiske formen, altså hva som faktisk uttales", "Den fonemiske formen, altså enhetene i lydsystemet uten forutsigbare detaljer", "Den ortografiske formen, altså hvordan ordet skrives i vanlig rettskriving", "Betydningen til ordet"],
+      options: ["Den fonetiske formen, altså hva som faktisk uttales", "Den fonemiske formen, altså enhetene i lydsystemet uten forutsigbare detaljer", "Den ortografiske formen, altså hvordan ordet skrives i vanlig rettskriving", "Betydningen til ordet, det innholdet en ordbok fører opp for oppslaget"],
       explanation: "Klammer rammer inn observasjonen: aspirasjon, retroflekser, reduksjonsvokal og trykk hører hjemme der. Skråstreker rammer inn analysen, altså systemenhetene. Ortografi skrives i kursiv og betydning i enkle anførselstegn — fire skrivemåter for fire ulike spørsmål om samme ord.",
     },
     {
@@ -564,7 +564,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva markerer kursiv i denne boka?",
-      options: ["Den ortografiske formen, altså hvordan ordet skrives", "Den fonetiske formen, altså hvordan ordet faktisk uttales av taleren", "At ordet er et fremmedord eller et importord i norsk", "At ordet er en fagterm som skal forklares"],
+      options: ["Den ortografiske formen, altså hvordan ordet skrives", "Den fonetiske formen, hvordan ordet uttales", "At ordet er et fremmedord eller et importord i norsk", "At ordet er en fagterm som skal forklares"],
       explanation: "Kursiv viser skriften, klammer viser uttalen, skråstreker viser systemenhetene og enkle anførselstegn viser betydningen. Et ord uten markering leses som løpende tekst, og da vet ikke leseren hvilket av de fire du snakker om.",
     },
     {
@@ -579,7 +579,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvor mange tegn i norsk transkripsjon mangler på et vanlig norsk tastatur?",
-      options: ["Over tjue, medregnet alle diakritikaene", "Under fem, siden de fleste lydene skrives med vanlige bokstaver i norsk transkripsjon", "Ingen — hele inventaret finnes hvis du bruker riktig tastaturoppsett i systemet", "Nøyaktig ti"],
+      options: ["Over tjue, medregnet alle diakritikaene", "Under fem, siden de fleste lydene skrives med vanlige bokstaver i norsk transkripsjon", "Ingen — hele inventaret finnes hvis du bruker riktig tastaturoppsett i systemet", "Nøyaktig ti, og alle er konsonanttegn uten diakritika"],
       explanation: "Tastaturet dekker de vanlige bokstavene pluss æ, ø og å, men mangler retrofleksene, de fremre frikativene, de fleste vokaltegnene og samtlige diakritika. Til sammen er det over tjue tegn, og de mangler i nettopp de gruppene du bruker oftest.",
     },
     {
@@ -589,12 +589,12 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilket ledd av transkripsjonsoppgaven bør skrives før du perfeksjonerer selve transkripsjonen?",
-      options: ["Forklaringsleddet, siden det ikke krever spesialtegn i det hele tatt", "Den fonemiske formen, siden den er kortest og raskest å skrive ferdig", "Den fonetiske formen, siden den er den som teller mest i poengregnskapet", "Oppgitt språklig bakgrunn, siden den skal stå aller først i besvarelsen"],
+      options: ["Forklaringsleddet, siden det ikke krever spesialtegn i det hele tatt", "Den fonemiske formen, siden den er kortest å skrive", "Den fonetiske formen, siden den teller mest i poengregnskapet", "Oppgitt språklig bakgrunn, siden den skal stå aller først i besvarelsen"],
       explanation: "Den dyreste enkeltfeilen i oppgaven er å bruke all tiden på transkripsjonen og aldri komme til forklaringen. Transkripsjonen har trekk på 0,5 poeng per feil, mens et ubesvart forklaringsledd står helt tomt. Bakgrunnen skal riktignok stå først, men den tar bare én setning.",
     },
     {
       question: "Hva vet materialet om hvordan analysetrær leveres på en digital eksamen?",
-      options: ["Ingenting — leveranseformen for trær står ikke i noen av dokumentene", "At de skal tegnes for hånd og lastes opp som bilde i besvarelsen", "At de skal skrives med innrykk i tekstfeltet, på samme måte som i denne boka", "At de kan utelates hvis kandidaten beskriver strukturen i ord i stedet"],
+      options: ["Ingenting — leveranseformen for trær står ikke i noen av dokumentene", "At de skal tegnes for hånd og lastes opp som bilde i besvarelsen", "At de skal skrives med innrykk i tekstfeltet, som i boka", "At de kan utelates hvis kandidaten beskriver strukturen i ord i stedet"],
       explanation: "At den nyeste terminen er digital og at lydtegn limes inn, er dokumentert; leveranseformen for trær er det ikke. Boka påstår derfor ingenting om det. Det du kan gjøre, er å øve på en form som er lesbar uansett — og et tre beskrevet i ord er uansett ikke et svar.",
     },
     {
@@ -604,17 +604,17 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er systematikken bak retroflekskolonnen i kartet?",
-      options: ["Stemthet og måte holdes fra den alveolare kolonnen, bare stedet flyttes", "Stedet holdes fra den alveolare kolonnen, mens stemtheten snus om for hver lyd", "Hver retrofleks lyd er en helt selvstendig enhet uten noen alveolar partner", "Retrofleksene er alle ustemte, i motsetning til sine alveolare partnere"],
+      options: ["Stemthet og måte holdes fra den alveolare kolonnen, bare stedet flyttes", "Stedet holdes fra den alveolare kolonnen, stemtheten snus om", "Hver retrofleks lyd er selvstendig, uten alveolar partner", "Retrofleksene er alle ustemte, i motsetning til sine alveolare partnere"],
       explanation: "ʈ er ustemt plosiv akkurat som t, ɳ er stemt nasal akkurat som n. Bare stedet er flyttet, og derfor kan hele kolonnen leses av fra den alveolare i stedet for å pugges. Retrofleksene har både stemte og ustemte medlemmer, som partnerne sine.",
     },
     {
       question: "Hva viser lengdetegnet i motsetning til merket for stavelsesbærende konsonant?",
-      options: ["Lengdetegnet viser varighet, merket viser hvilken rolle lyden har i stavelsen", "Lengdetegnet viser hvilken rolle lyden har i stavelsen, merket viser varighet", "Begge viser varighet, men lengdetegnet brukes om vokaler og merket om konsonanter", "Begge viser stavelsesrolle, men på hvert sitt nivå i transkripsjonen"],
+      options: ["Lengdetegnet viser varighet, merket viser hvilken rolle lyden har i stavelsen", "Lengdetegnet viser hvilken rolle lyden har i stavelsen, merket viser varighet", "Begge viser varighet, men lengdetegnet brukes om vokaler", "Begge viser stavelsesrolle, men på hvert sitt nivå i transkripsjonen"],
       explanation: "Lengde gjelder hvor lenge lyden varer; stavelsesbærende gjelder at konsonanten fyller kjernen i stavelsen alene. En stavelsesbærende konsonant er ikke nødvendigvis lang, og en lang lyd er ikke nødvendigvis stavelsesbærende. De to opplysningene er uavhengige.",
     },
     {
       question: "Hvorfor er vokalfirkanten mer omtrentlig enn konsonanttabellen?",
-      options: ["Firkanten er kontinuerlig, mens tabellen har diskrete celler", "Firkanten har færre akser enn tabellen, så beskrivelsen blir grovere av seg selv", "Vokalene varierer mindre mellom talere enn konsonantene gjør", "Firkanten mangler en akse for stemthet"],
+      options: ["Firkanten er kontinuerlig, mens tabellen har diskrete celler", "Firkanten har færre akser enn tabellen og blir grovere", "Vokalene varierer mindre mellom talere enn konsonantene gjør", "Firkanten mangler en akse for stemthet"],
       explanation: "Mellom to høydetrinn finnes uendelig mange mellomposisjoner, og hvor grensene går, varierer mellom talere og dialekter. En konsonant er derimot enten alveolar eller postalveolar. Vokalene har flere akser enn konsonantene, ikke færre, og de varierer mer mellom talere.",
     },
     {
@@ -636,7 +636,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
   'exfac03-spr-1-5': [
     {
       question: "Hva er trinn 2 i beskrivelsesprosedyren?",
-      options: ["Å prøve beskrivelsen mot nabolydene og legge til akseverdier til ingen nabo passer", "Å skrive beskrivelsen i fast rekkefølge, med stemthet først for konsonanter", "Å legge ved et norsk eksempelord der lyden faktisk forekommer", "Å plassere lyden på alle aksene"],
+      options: ["Å prøve beskrivelsen mot nabolydene og legge til akseverdier til ingen nabo passer", "Å skrive beskrivelsen i fast rekkefølge, med stemthet først for konsonanter", "Å legge ved et norsk eksempelord der lyden faktisk forekommer", "Å plassere lyden på alle aksene: sted, måte og stemthet"],
       explanation: "Nabolydskontrollen er trinn 2, og det er trinnet som gjør en sann beskrivelse til en skillende beskrivelse. Plassering på aksene er trinn 1, fast rekkefølge er trinn 3 og eksempelordet trinn 4. Uten trinn 2 leverer du en beskrivelse som er sann og som likevel ikke peker på noen bestemt lyd.",
     },
     {
@@ -656,7 +656,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er beskrivelsen «retrofleks lyd» spesielt svak?",
-      options: ["Den oppgir bare sted, og passer derfor på seks ulike norske lyder", "Den oppgir bare måte, og passer derfor på flere lyder i samme rad", "Den er direkte usann, siden norsk ikke har retroflekse lyder", "Den mangler bare eksempelordet"],
+      options: ["Den oppgir bare sted, og passer derfor på seks ulike norske lyder", "Den oppgir bare måte, og passer derfor på flere lyder i samme rad", "Den er direkte usann, siden norsk ikke har retroflekse lyder", "Den mangler bare eksempelordet som skulle fulgt med"],
       explanation: "Hele retroflekskolonnen deler sted, så stedet alene skiller ingenting der. Både stemthet og måte mangler, og beskrivelsen passer på ʈ, ɖ, ɳ, ɭ, ʂ og ɽ. Merk dessuten at ordet «lyd» ikke er en akseverdi i det hele tatt.",
     },
     {
@@ -686,7 +686,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva bør du svare hvis en oppgave ber om tre norske ord som begynner med ʂ?",
-      options: ["Forklare hvorfor lyden ikke kan stå først i et norsk ord", "Finne tre ord der lyden står inne i ordet, og merke at posisjonen er en annen", "Hoppe over deloppgaven og bruke tiden på de andre leddene i settet", "Skrive tre ord som begynner med bokstaven s"],
+      options: ["Forklare hvorfor lyden ikke kan stå først i et norsk ord", "Finne tre ord der lyden står inne i ordet, og merke at posisjonen er en annen", "Hoppe over deloppgaven og bruke tiden ellers", "Skrive tre ord som begynner med bokstaven s"],
       explanation: "Lyden oppstår av r pluss s, og en r kan ikke stå foran s i ordstart, så oppgaven lar seg ikke besvare som stilt. Å forklare hvorfor er et bedre svar enn tre gale ord, og det viser at du kjenner fordelingen. Å hoppe over leddet ville vært feil nummer 5.",
     },
     {
@@ -696,7 +696,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skiller o fra ɔ?",
-      options: ["Tungehøyden — den ene er trang-midtre, den andre åpen-midtre", "Rundetheten — den ene er rundet og den andre urundet i norsk uttale", "Horisontal plassering — den ene er bakre og den andre midtre i firkanten", "Lengden — den ene er alltid lang og den andre alltid kort"],
+      options: ["Tungehøyden — den ene er trang-midtre, den andre åpen-midtre", "Rundetheten — den ene er rundet, den andre urundet", "Horisontal plassering — den ene er bakre og den andre midtre i firkanten", "Lengden — den ene er alltid lang og den andre alltid kort"],
       explanation: "Begge er bakre og rundede, så bare høydetrinnet skiller dem. I norsk opptrer ɔ typisk som kort og o typisk som lang, men lengden er en egen akse og kan ikke erstatte høydeangivelsen i beskrivelsen.",
     },
     {
@@ -711,7 +711,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner en kald bank i denne boka?",
-      options: ["Oppgavene kommer uten hint, og fasiten er en ren momentliste", "Oppgavene er merket som ekstra vanskelige og teller dobbelt i poengregnskapet", "Oppgavene er hentet fra tidligere eksamenssett i emnet uten endringer", "Oppgavene har fasit, men ingen begrunnelse"],
+      options: ["Oppgavene kommer uten hint, og fasiten er en ren momentliste", "Oppgavene er merket vanskelige og teller dobbelt", "Oppgavene er hentet fra tidligere eksamenssett i emnet uten endringer", "Oppgavene har fasit, men ingen begrunnelse"],
       explanation: "Poenget med en kald bank er å trene gjenkjenning uten oppvarming, akkurat som på eksamen, og derfor står den uten hint. Alle oppgaver i boka er nyskrevne, og fasiten har fortsatt begrunnelse — den er bare kortere og strammere.",
     },
     {
@@ -733,12 +733,12 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er vurderingskriteriet i transkripsjonsoppgaven?",
-      options: ["Intern konsistens med den bakgrunnen kandidaten selv har oppgitt", "Likhet med den østnorske normaluttalen, siden det er den varianten sensorveiledningene bruker som utgangspunkt for sine egne forslag", "At transkripsjonen kan leses av en sensor uten kjennskap til kandidatens dialekt eller talemålsbakgrunn", "Flest mulig diakritiske tegn i formen"],
+      options: ["Intern konsistens med den bakgrunnen kandidaten selv har oppgitt", "Likhet med den østnorske normaluttalen, siden det er den varianten sensorveiledningene bruker som utgangspunkt for sine egne forslag", "At transkripsjonen kan leses av en sensor uten kjennskap til kandidatens dialekt eller talemålsbakgrunn", "Flest mulig diakritiske tegn i formen, siden detaljnivået i seg selv gir uttelling"],
       explanation: "Siden kandidaten skal transkribere sin egen uttale, godtas ulike varianter så lenge de er en mulig uttale gitt den oppgitte bakgrunnen. Den østnorske transkripsjonen som finnes i materialet, kalles uttrykkelig et forslag og er ikke en norm. Detaljnivå i seg selv gir ikke poeng — presisjonen måles mot bakgrunnen.",
     },
     {
       question: "En kandidat skriver: «Fonemisk transkripsjon utelater allofonisk variasjon.» Hva er problemet?",
-      options: ["Utsagnet er riktig, men generelt, og forklaringen skal navngi konkrete tegn og omgivelser", "Utsagnet er galt, fordi den fonemiske formen er den som inneholder de allofoniske detaljene i en transkripsjon", "Utsagnet blander sammen fonemisk transkripsjon med ortografisk gjengivelse av ordet slik det staves", "Utsagnet mangler henvisning til hvilken termin regelen står i"],
+      options: ["Utsagnet er riktig, men generelt, og forklaringen skal navngi konkrete tegn og omgivelser", "Utsagnet er galt, fordi den fonemiske formen inneholder de allofoniske detaljene", "Utsagnet blander sammen fonemisk transkripsjon med ortografisk gjengivelse av ordet slik det staves", "Utsagnet mangler henvisning til hvilken termin regelen står i"],
       explanation: "Formuleringen er faglig riktig, og den er likevel avvist som svar: den nyeste sensorveiledningen krever at forklaringen tar for seg konkrete tegn i den konkrete omgivelsen de oppstår i. Det er den fonetiske formen, ikke den fonemiske, som bærer de allofoniske detaljene.",
     },
     {
@@ -748,7 +748,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva bør et bakgrunnsledd faktisk inneholde?",
-      options: ["Hvilken varietet du transkriberer, og hvilke uttalevalg det låser", "Fødested, oppvekststed og hvor lenge du har bodd på hvert av dem, slik at sensor kan vurdere dialektbakgrunnen selv", "En liste over alle IPA-tegnene du kommer til å bruke i besvarelsen, med artikulatorisk beskrivelse av hvert", "Hvor nær uttalen din ligger en norm"],
+      options: ["Hvilken varietet du transkriberer, og hvilke uttalevalg det låser", "Fødested, oppvekststed og hvor lenge du har bodd på hvert av dem, slik at sensor kan vurdere dialektbakgrunnen selv", "En liste over alle IPA-tegnene du kommer til å bruke i besvarelsen, med artikulatorisk beskrivelse av hvert", "Hvor nær uttalen din ligger en norm, og på hvilke punkter den avviker fra normen"],
       explanation: "Poenget er ikke biografien, men hvilke valg bakgrunnen forplikter deg til: r-typen, retroflekser og skillet mellom de to frikativene. Sensor skal kunne måle transkripsjonen mot noe. En symbolliste er ikke en bakgrunn, og en sammenlikning med en norm er ikke bestilt.",
     },
     {
@@ -758,22 +758,22 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor slår et sammenfall mellom to frikativer inn på begge transkripsjonsnivåer?",
-      options: ["Fordi taleren mangler skillet i systemet, ikke bare i uttalen av enkeltord", "Fordi sammenfall regnes som en uttalefeil, og feil skal markeres på begge nivåer for at sensor skal se dem", "Fordi den fonemiske formen alltid gjengir den fonetiske formen tegn for tegn når to lyder ligner hverandre", "Fordi sammenfallet er betinget av omgivelsen, slik aspirasjon er det"],
+      options: ["Fordi taleren mangler skillet i systemet, ikke bare i uttalen av enkeltord", "Fordi sammenfall er en uttalefeil, og feil markeres på begge nivåer", "Fordi den fonemiske formen alltid gjengir den fonetiske formen tegn for tegn når to lyder ligner hverandre", "Fordi sammenfallet er betinget av omgivelsen, slik aspirasjon er det"],
       explanation: "Når to fonemer er blitt ett, finnes ikke skillet i talerens system, og da står den samme lyden både i klammer og mellom skråstreker. Aspirasjon og nasalassimilasjon er derimot betinget av omgivelsen og hører bare hjemme i klammer.",
     },
     {
       question: "Hva sier rekkefølgeregelen om forklaringsleddet?",
-      options: ["Det skal skrives selv om transkripsjonen ikke er ferdig", "Det skal skrives helt til slutt, etter at hvert enkelt tegn i begge transkripsjonene er kontrollert to ganger", "Det kan sløyfes når transkripsjonen er så detaljert at forskjellene mellom nivåene er synlige for sensor", "Det skal stå før bakgrunnsleddet"],
+      options: ["Det skal skrives selv om transkripsjonen ikke er ferdig", "Det skal skrives helt til slutt, etter at hvert enkelt tegn i begge transkripsjonene er kontrollert to ganger", "Det kan sløyfes når transkripsjonen er så detaljert at forskjellene mellom nivåene er synlige for sensor", "Det skal stå før bakgrunnsleddet, siden forklaringen bestemmer hva bakgrunnen dekker"],
       explanation: "Den dyreste disponeringsfeilen i oppgaven er å gi opp forklaringen fordi tegnene tok all tiden, og derfor skal forklaringen skrives uansett. Bakgrunnen kommer først, fordi den er kort og fordi resten måles mot den.",
     },
     {
       question: "Hva koster fire feiltegn i transkripsjonen, med trekkregelen fra den nyeste terminen?",
-      options: ["2 poeng, siden hvert enkelt feiltegn koster et halvt poeng i denne oppgaven", "0,5 poeng, siden trekket gjelder besvarelsen som helhet og ikke det enkelte tegnet i transkripsjonen", "4 poeng, siden hvert feiltegn koster ett poeng i oppgaver der trekk er oppgitt av sensorveiledningen", "Ingenting, når leddene er på plass"],
+      options: ["2 poeng, siden hvert enkelt feiltegn koster et halvt poeng i denne oppgaven", "0,5 poeng, siden trekket gjelder besvarelsen som helhet og ikke det enkelte tegnet i transkripsjonen", "4 poeng, siden hvert feiltegn koster ett poeng i oppgaver der trekk er oppgitt av sensorveiledningen", "Ingenting, siden trekket bortfaller når bakgrunnsleddet og forklaringsleddet er på plass"],
       explanation: "Trekket er 0,5 poeng per feil, og fire feil gir dermed 2 poeng i trekk. Trekket er knyttet til det enkelte tegnet, og et godt bakgrunnsledd fjerner ikke trekket — men det avgjør hvilke tegn som i det hele tatt regnes som feil.",
     },
     {
       question: "Hvilken av disse setningene er en brukbar forklaringssetning?",
-      options: ["Her står velar nasal i klammer og dental nasal mellom skråstreker, fordi nasalen står foran k", "Her har jeg brukt de riktige IPA-tegnene og markert både trykk, bitrykk og lengde slik konvensjonen krever", "Her viser den fonetiske formen flere detaljer enn den fonemiske, slik den alltid gjør i norsk", "Her er transkripsjonen gjort etter min egen uttale, og den avviker derfor fra den uttalen ordbøkene oppgir"],
+      options: ["Her står velar nasal i klammer og dental nasal mellom skråstreker, fordi nasalen står foran k", "Her har jeg brukt de riktige IPA-tegnene og markert trykk, bitrykk og lengde", "Her viser den fonetiske formen flere detaljer enn den fonemiske, slik den alltid gjør i norsk", "Her er transkripsjonen gjort etter min egen uttale, og avviker fra ordbøkenes"],
       explanation: "En forklaringssetning navngir ett tegn og den omgivelsen som utløser det. De tre andre sier noe om arbeidet eller om transkripsjon generelt, og ingen av dem peker på et tegn i ordet.",
     },
     {
@@ -788,7 +788,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den vanligste konsekvensen av å hoppe over bakgrunnsleddet?",
-      options: ["Sensor kan ikke avgjøre om transkripsjonen er en sannsynlig uttale, og kriteriet faller bort", "Transkripsjonen blir automatisk vurdert mot østnorsk uttale, slik at alle avvik fra den regnes som feil", "Kandidaten mister alle poengene i oppgaven, siden bakgrunnen er nevnt først i alle bestillingene", "Forklaringsleddet blir umulig å skrive uten en oppgitt omgivelse"],
+      options: ["Sensor kan ikke avgjøre om transkripsjonen er en sannsynlig uttale, og kriteriet faller bort", "Transkripsjonen blir automatisk vurdert mot østnorsk uttale, og avvik regnes som feil", "Kandidaten mister alle poengene i oppgaven, siden bakgrunnen er nevnt først i alle bestillingene", "Forklaringsleddet blir umulig å skrive uten en oppgitt omgivelse"],
       explanation: "Uten bakgrunnen har sensor ikke noe å måle transkripsjonen mot, og hele vurderingsregelen faller bort. Det er ikke slik at besvarelsen automatisk måles mot en norm, og forklaringsleddet kan fortsatt skrives — men oppgavens eget kriterium er borte.",
     },
     {
@@ -805,7 +805,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken rekkefølge skal akseverdiene stå i for en konsonant?",
-      options: ["Stemthet, artikulasjonssted, artikulasjonsmåte", "Artikulasjonsmåte, artikulasjonssted og til slutt stemthet, slik at måten står først i setningen", "Sted, stemthet, måte", "Rekkefølgen er fri, så lenge alle tre aksene er nevnt et sted i beskrivelsen"],
+      options: ["Stemthet, artikulasjonssted, artikulasjonsmåte", "Artikulasjonsmåte, artikulasjonssted og til slutt stemthet, slik at måten står først i setningen", "Artikulasjonssted først, så stemthet, så artikulasjonsmåte", "Rekkefølgen er fri, så lenge alle tre aksene er nevnt et sted i beskrivelsen"],
       explanation: "Boka bruker stemthet, sted, måte for konsonanter og høyde, plassering, rundethet, lengde for vokaler. Rekkefølgen er ikke bare konvensjon: den virker som en sjekkliste, slik at du selv oppdager en manglende akse.",
     },
     {
@@ -830,7 +830,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva krever sensorveiledningen når en sammensatt term skal forklares?",
-      options: ["At systematikken bak termen er forklart, ikke bare nevnt", "At kandidaten oppgir hvilket kapittel i pensum termen er hentet fra, og hvordan den er definert der", "At termen oversettes til norsk med et hverdagslig uttrykk som en leser uten fagbakgrunn forstår", "Minst fem eksempelord per lyd"],
+      options: ["At systematikken bak termen er forklart, ikke bare nevnt", "At kandidaten oppgir hvilket kapittel i pensum termen er hentet fra, og hvordan den er definert der", "At termen oversettes til norsk med et hverdagslig uttrykk som en leser uten fagbakgrunn forstår", "At det gis minst fem eksempelord per lyd, uansett hva bestillingen ber om"],
       explanation: "Kravet er at kandidaten viser hva leddene i termen gjør, ikke bare at hun kan gjengi dem. En oversettelse til hverdagsspråk er ikke det samme som å forklare systemet, og antallet eksempler bestemmes av bestillingen i den enkelte oppgaven.",
     },
     {
@@ -840,7 +840,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En kandidat skriver «k er en ustemt velar plosiv» og stopper der. Hva mangler for full uttelling i den formen som ber om systematikken?",
-      options: ["En forklaring av hva hvert ledd i termen betyr", "En fonemisk transkripsjon av eksempelordet, slik at sensor kan se lyden i sin naturlige omgivelse", "En opplysning om kandidatens språklige bakgrunn, siden lyden varierer mellom talemålene", "En henvisning til veiledningen"],
+      options: ["En forklaring av hva hvert ledd i termen betyr", "En fonemisk transkripsjon av eksempelordet, slik at sensor kan se lyden i sin naturlige omgivelse", "En opplysning om kandidatens språklige bakgrunn, siden lyden varierer mellom talemålene", "En henvisning til sensorveiledningens definisjon av termen"],
       explanation: "Beskrivelsen er riktig, men den er gjengitt og ikke forklart. Bakgrunnsleddet hører til transkripsjonsoppgaven, og en fonemisk transkripsjon er ikke bestilt her.",
     },
     {
@@ -850,34 +850,34 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Bestillingen ber om tre ord som begynner med en gitt lyd. Kandidaten leverer to. Hva skjer?",
-      options: ["Leddet regnes som ufullstendig, og det er den billigste feilen i emnet å unngå", "Ingenting, så lenge de to ordene er riktige og hentet fra kandidatens egen uttale av lyden", "Hele oppgaven regnes som ubesvart, siden antallet eksempler er en del av selve bestillingen", "Kandidaten får trekk på et halvt poeng"],
+      options: ["Leddet regnes som ufullstendig, og det er den billigste feilen i emnet å unngå", "Ingenting, så lenge de to ordene er riktige og hentet fra kandidatens egen uttale av lyden", "Hele oppgaven regnes som ubesvart, siden antallet eksempler er en del av selve bestillingen", "Kandidaten får trekk på et halvt poeng, slik trekkregelen for manglende eksempler i bestillingen sier"],
       explanation: "Å gi færre eksempler enn bestilt er hjemlet som en egen feil, og den koster sin andel av oppgaven — verken mer eller mindre. Trekk på et halvt poeng gjelder transkripsjon, segmentering og setningsledd, ikke antall eksempler.",
     },
     {
       question: "Hvilken beskrivelse oppfyller skillekravet?",
-      options: ["Stemt retrofleks nasal, altså en nasal laget med tungespissen bøyd bakover", "Ustemt frikativ, laget med tungen et sted i den fremre delen av munnen, med tydelig friksjonsstøy", "Bakre, rundet vokal, med tungen trukket bakover og leppene tydelig avrundet under hele lyden", "Plosiv laget med tungespissen, altså med et fullstendig lukke som slippes brått"],
-      explanation: "Bare den første oppgir alle tre aksene og lander på én lyd. De to neste passer på flere lyder hver, og den siste mangler stemthet og passiv artikulator, slik at både den stemte og den ustemte retroflekse plosiven passer.",
+      options: ["Stemt retrofleks nasal, altså en nasal laget med tungespissen bøyd bakover", "Ustemt frikativ, laget med tungen i den fremre delen av munnen", "Bakre, rundet vokal, med tungen trukket bakover og leppene rundet", "Plosiv laget med tungespissen, altså med et fullstendig lukke som slippes brått"],
+      explanation: "Bare beskrivelsen av den stemte retroflekse nasalen oppgir alle tre aksene og lander på én lyd. Den ustemte frikativen og den bakre, rundede vokalen passer på flere lyder hver, og plosivbeskrivelsen mangler stemthet og passiv artikulator, slik at både den stemte og den ustemte retroflekse plosiven passer.",
     },
     {
       question: "Hva er den vanligste grunnen til at skillekravet ikke er oppfylt?",
-      options: ["At en av aksene mangler, oftest stedet for konsonanter og rundetheten for vokalenes vedkommende", "At kandidaten har brukt en engelsk term i stedet for den norske, slik at sensor må gjette hva som menes", "At kandidaten har beskrevet lyden slik den uttales i sin egen dialekt og ikke slik den står i tabellen", "For mange akseverdier i beskrivelsen"],
+      options: ["At en av aksene mangler, oftest stedet for konsonanter og rundetheten for vokalenes vedkommende", "At kandidaten har brukt en engelsk term i stedet for den norske, slik at sensor må gjette hva som menes", "At kandidaten har beskrevet lyden slik den uttales i sin egen dialekt og ikke slik den står i tabellen", "At beskrivelsen har for mange akseverdier, slik at de overflødige trekkene peker mot flere lyder samtidig"],
       explanation: "En manglende akse er den typiske årsaken, og oftest er det stedet for konsonanter og rundetheten for vokaler. For mange akseverdier er ikke et problem i seg selv — det er for få som koster poenget.",
     },
     {
       question: "Hvor mange av de seks dokumenterte terminene har beskrivelsesoppgaven?",
-      options: ["3 av 6 terminer, altså halvparten av de dokumenterte terminene", "6 av 6 terminer, siden fonetikk og fonologi som saksområde er prøvd i samtlige dokumenterte terminer", "4 av 6 terminer, samme antall som transkripsjonsoppgaven og treoppgaven har i det samme materialet", "2 av 6 terminer"],
+      options: ["3 av 6 terminer, altså halvparten av de dokumenterte terminene", "6 av 6 terminer, siden fonetikk og fonologi som saksområde er prøvd i samtlige dokumenterte terminer", "4 av 6 terminer, samme antall som transkripsjonsoppgaven og treoppgaven har i det samme materialet", "2 av 6 terminer, siden beskrivelsesoppgaven bare er prøvd i de to nyeste terminene"],
       explanation: "Beskrivelsesoppgaven står i 3 av 6 terminer. Saksområdet fonetikk og fonologi står riktignok i 6 av 6, men nevneren for et saksområde er ikke nevneren for en enkelt oppgavetype.",
     },
   ],
   'exfac03-spr-10-3': [
     {
       question: "Hvordan skiller du en fugemorf fra en genitivsendelse?",
-      options: ["Fugemorfen har en rot etter seg, mens genitivs-s står ytterst i ordet", "Fugemorfen er alltid en e, mens genitivsendelsen alltid er en s i norske sammensetninger", "Fugemorfen uttales med bitrykk, mens genitivsendelsen alltid er trykklett i uttalen", "Det er ingen forskjell"],
+      options: ["Fugemorfen har en rot etter seg, mens genitivs-s står ytterst i ordet", "Fugemorfen er alltid en e, mens genitivsendelsen alltid er en s i norske sammensetninger", "Fugemorfen uttales med bitrykk, mens genitivsendelsen alltid er trykklett i uttalen", "Det er ingen forskjell: fugemorfen er den samme genitivs-s-en, bare plassert inne i sammensetningen"],
       explanation: "Testen er hva som kommer etter: kommer det en ny rot, er s-en en fuge. Både -s- og -e- forekommer som fuge, og trykk avgjør ingenting her. De to har helt ulik funksjon, så det siste svaret er galt.",
     },
     {
       question: "Hva er trekket per feil i segmenteringsoppgaven, og hva er hvert ord verdt?",
-      options: ["Trekk 0,5 poeng per feil, og 2 poeng per ord", "Trekk 1 poeng per feil, og 2 poeng per ord, slik at to feil tømmer uttellingen for det ordet", "Trekk 0,5 poeng per feil, og 5 poeng per ord, siden oppgaven er den tyngste i morfologidelen", "Ingen trekk i denne oppgavetypen"],
+      options: ["Trekk 0,5 poeng per feil, og 2 poeng per ord", "Trekk 1 poeng per feil, og 2 poeng per ord, slik at to feil tømmer uttellingen for det ordet", "Trekk 0,5 poeng per feil, og 5 poeng per ord, siden oppgaven er den tyngste i morfologidelen", "Ingen trekk i denne oppgavetypen, siden trekk bare gjelder transkripsjonen"],
       explanation: "Den nyeste poengsatte terminen oppgir 2 poeng per ord og trekk 0,5 poeng per feil i segmenteringen. Trekk er oppgitt for tre ulike oppgavetyper i den terminen, ikke bare for transkripsjonen.",
     },
     {
@@ -892,22 +892,22 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En kandidat lar to fugemorfer stå umerket i et ord på 2 poeng. Hva koster det?",
-      options: ["1 poeng, altså halvparten av det ordet var verdt", "Ingenting, så lenge selve delingen av ordet i morfer er riktig gjennomført", "2 poeng, siden merkingen må være fullstendig for at analysen skal telle i det hele tatt", "0,5 poeng per ord"],
+      options: ["1 poeng, altså halvparten av det ordet var verdt", "Ingenting, så lenge selve delingen av ordet i morfer er riktig gjennomført", "2 poeng, siden merkingen må være fullstendig for at analysen skal telle i det hele tatt", "0,5 poeng per ord, siden trekket regnes per ord og ikke per umerket morf"],
       explanation: "Trekket er 0,5 poeng per feil, og en umerket morf regnes som en feil. To umerkede morfer koster altså 1 poeng av 2. Trekket regnes per feil, ikke per ord, og hele ordet går ikke tapt.",
     },
     {
       question: "Hva er forskjellen på rot og stamme?",
-      options: ["Rota er den leksikalske kjernen, stammen er det bøyningsformativet fester seg til", "Rota er den første morfen i ordet, mens stammen er den siste morfen før den bestemte artikkelen kommer", "Rota finnes bare i sammensatte ord, mens stammen er den formen enkle ord har når de står ubøyd", "De to termene betyr det samme"],
+      options: ["Rota er den leksikalske kjernen, stammen er det bøyningsformativet fester seg til", "Rota er den første morfen i ordet, mens stammen er den siste morfen før den bestemte artikkelen kommer", "Rota finnes bare i sammensatte ord, mens stammen er den formen enkle ord har når de står ubøyd", "De to termene betyr det samme, og valget mellom dem er bare et spørsmål om hvilken tradisjon boka følger"],
       explanation: "Stammen kan bestå av rot pluss avledninger, slik at rota i uvennligheten er venn mens stammen er uvennlighet. Plasseringen i ordet avgjør ingenting, og termene er ikke synonyme.",
     },
     {
       question: "Hva godtar den nyeste sensorveiledningen i grensetilfeller?",
-      options: ["Alternative analyser, når analysen er begrunnet", "Bare den analysen som er brukt i undervisningen, siden en eksamensbesvarelse skal gjenspeile det som er gjennomgått i emnet", "At kandidaten hopper over grensetilfellet og analyserer de øvrige morfene i ordet fullstendig", "At begge føres opp uten valg"],
+      options: ["Alternative analyser, når analysen er begrunnet", "Bare den analysen som er brukt i undervisningen, siden en eksamensbesvarelse skal gjenspeile det som er gjennomgått i emnet", "At kandidaten hopper over grensetilfellet og analyserer de øvrige morfene i ordet fullstendig", "At begge analysene føres opp uten valg, slik at sensor kan godta den ene"],
       explanation: "Veiledningen godtar uttrykkelig at det samme segmentet analyseres på to måter når kandidaten begrunner. Å hoppe over segmentet er derimot en umerket morf, og å unnlate å velge er svakere enn å velge og begrunne.",
     },
     {
       question: "Hva er -er i lærerne?",
-      options: ["Et avledningsformativ som lager et substantiv om den som utfører handlingen", "Et bøyningsformativ som uttrykker flertall, slik -er gjør i de fleste norske substantiver", "En fugemorf mellom verbstammen og den bestemte flertallsendelsen i ordet", "En del av rota"],
+      options: ["Et avledningsformativ som lager et substantiv om den som utfører handlingen", "Et bøyningsformativ som uttrykker flertall, slik -er gjør i de fleste norske substantiver", "En fugemorf mellom verbstammen og den bestemte flertallsendelsen i ordet", "En del av rota, som ikke kan skilles ut som egen morf"],
       explanation: "Formen lærer er et eget oppslagsord, og det er testen på avledning. Flertallet uttrykkes av -ne ytterst. En fuge ville hatt en rot etter seg.",
     },
     {
@@ -934,7 +934,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
   'exfac03-spr-10-4': [
     {
       question: "Hva sier den nyeste sensorveiledningen om trær som ikke er helt korrekte?",
-      options: ["At et tre som er nær korrekt får full uttelling, med trekk et halvt poeng per feilanalysert ledd", "At treet må være fullstendig riktig for å telle", "At trær vurderes samlet med de øvrige syntaksoppgavene, slik at feil ett sted kan veies opp et annet sted", "At kandidaten bør levere leddanalyse i stedet når hun er usikker på strukturen i setningen"],
+      options: ["At et tre som er nær korrekt får full uttelling, med trekk et halvt poeng per feilanalysert ledd", "At treet må være fullstendig riktig for å telle", "At trær vurderes samlet med de øvrige syntaksoppgavene, slik at feil kan veies opp", "At kandidaten bør levere leddanalyse i stedet når hun er usikker på strukturen i setningen"],
       explanation: "Veiledningen slår fast at perfekte trær er sjeldne og at et nær korrekt tre gir full uttelling, med trekk 0,5 poeng per feilanalysert ledd. Det er nettopp derfor oppgaven er lønnsom å forsøke seg på.",
     },
     {
@@ -954,7 +954,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen på funksjon og frasekategori i treet?",
-      options: ["Funksjonen er rollen leddet spiller, frasekategorien er hva leddet er bygd av", "Funksjonen bestemmes av hodet i frasen, mens frasekategorien bestemmes av hvilken plass leddet har i setningsskjemaet", "Funksjonen skrives nederst i treet ved siden av ordklassen, mens frasekategorien står øverst under helsetningen", "De er to navn på det samme"],
+      options: ["Funksjonen er rollen leddet spiller, frasekategorien er hva leddet er bygd av", "Funksjonen bestemmes av hodet i frasen, mens frasekategorien bestemmes av hvilken plass leddet har i setningsskjemaet", "Funksjonen skrives nederst i treet ved siden av ordklassen, mens frasekategorien står øverst under helsetningen", "De er to navn på det samme, og etikettene kan brukes om hverandre"],
       explanation: "Funksjonen står over, frasekategorien under, og ordklassen nederst. Det er hodet som bestemmer frasekategorien, ikke funksjonen — og å skrive NP der SUBJEKT skulle stått, er den vanligste enkeltfeilen i oppgaven.",
     },
     {
@@ -969,12 +969,12 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den dyreste feilen i treoppgaven?",
-      options: ["Å hoppe over hele oppgaven, siden et nær korrekt tre gir full uttelling og et blankt svar gir null", "Å merke feil frasekategori nederst i treet", "Å tegne treet ovenfra og ned i stedet for nedenfra og opp, slik at strukturen ikke får plass på arket", "Å bruke etiketten leddsetning uten å oppgi hvilken type leddsetning det er"],
+      options: ["Å hoppe over hele oppgaven, siden et nær korrekt tre gir full uttelling og et blankt svar gir null", "Å merke feil frasekategori nederst i treet, der trekket er størst", "Å tegne treet ovenfra og ned i stedet for nedenfra og opp, slik at strukturen ikke får plass på arket", "Å bruke etiketten leddsetning uten å oppgi hvilken type leddsetning det er"],
       explanation: "Oppgaven er verdt 10 av 65 poeng, og et nær korrekt tre gir full uttelling — så et blankt svar er det eneste som garantert gir null. De øvrige feilene koster et halvt poeng hver, eller ingenting.",
     },
     {
       question: "Hva skiller leddanalysen uten tre fra treoppgaven?",
-      options: ["Leddanalysen viser bare det øverste laget, med innleiringene som ett ledd hver", "Leddanalysen krever at kandidaten oppgir frasekategori for hvert ledd, mens treet bare krever funksjonsetiketter på leddene", "Leddanalysen har ikke trekk for feil, siden den er en billigere oppgave enn treoppgaven i den samme terminen", "Leddanalysen gjelder bare setninger uten leddsetninger"],
+      options: ["Leddanalysen viser bare det øverste laget, med innleiringene som ett ledd hver", "Leddanalysen krever at kandidaten oppgir frasekategori for hvert ledd, mens treet bare krever funksjonsetiketter på leddene", "Leddanalysen har ikke trekk for feil, siden den er en billigere oppgave", "Leddanalysen gjelder bare setninger uten leddsetninger"],
       explanation: "Leddanalysen merker leddene på helsetningsnivå, og en innleiring nevnes som ett ledd med sin funksjon i stedet for å brettes ut. Trekket er det samme, og setninger med innleiring kan godt analyseres på denne måten.",
     },
     {
@@ -984,7 +984,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva bør du gjøre først hvis du er i tvil om du rekker hele treet?",
-      options: ["Skrive leddanalysen på helsetningsnivå, og bygge treet utover fra den", "Tegne så mye av treet du rekker ovenfra og ned, og markere tydelig hvor analysen stopper opp i setningen", "Hoppe over oppgaven og bruke tiden på de redegjørende oppgavene, som er raskere å skrive ferdig", "Beskrive strukturen i ord i stedet for å tegne den"],
+      options: ["Skrive leddanalysen på helsetningsnivå, og bygge treet utover fra den", "Tegne så mye av treet du rekker ovenfra og ned, og markere tydelig hvor analysen stopper opp i setningen", "Hoppe over oppgaven og bruke tiden på redegjørende oppgaver", "Beskrive strukturen i ord i stedet for å tegne den"],
       explanation: "Med leddanalysen på plass har du et fullstendig svar på det øverste laget etter et par minutter, og alt du rekker etterpå er gevinst. En strukturbeskrivelse i ord er ikke et svar der et tre er bestilt.",
     },
     {
@@ -994,7 +994,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan skiller du et subjektspredikativ fra et direkte objekt?",
-      options: ["Predikativet sier noe om subjektet og kan ikke passiveres", "Predikativet står alltid sist i setningen, mens det direkte objektet står umiddelbart etter det finitte verbalet", "Predikativet er alltid en adjektivfrase, mens det direkte objektet alltid er en nominalfrase i setningen", "Predikativet kan flyttes fremst i setningen"],
+      options: ["Predikativet sier noe om subjektet og kan ikke passiveres", "Predikativet står alltid sist i setningen, mens det direkte objektet står umiddelbart etter det finitte verbalet", "Predikativet er alltid en adjektivfrase, mens det direkte objektet alltid er en nominalfrase i setningen", "Predikativet kan flyttes fritt fremst, objektet ikke"],
       explanation: "Testen er passivering og hva leddet sier noe om. Både predikativ og objekt kan være nominalfraser, rekkefølgen varierer, og et ledd som fritt kan flyttes fremst, er typisk et adverbial.",
     },
     {
@@ -1031,7 +1031,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En besvarelse forklarer performativer godt, men nevner aldri talerens autorisasjon. Hva skjer?",
-      options: ["Omtrent halve uttellingen faller bort, siden oppgaven har to halvdeler med hver sin obligatoriske komponent", "Ingenting, så lenge termen performativ er brukt og forklart med egne eksempler underveis", "Hele oppgaven regnes som ubesvart", "Det trekkes 0,5 poeng, slik trekkregelen fungerer i de andre oppgavetypene i den samme terminen"],
+      options: ["Omtrent halve uttellingen faller bort, siden oppgaven har to halvdeler med hver sin obligatoriske komponent", "Ingenting, så lenge termen performativ er brukt og forklart med egne eksempler underveis", "Hele oppgaven regnes som ubesvart når en obligatorisk term mangler", "Det trekkes 0,5 poeng, slik trekkregelen fungerer i de andre oppgavetypene i den samme terminen"],
       explanation: "Uttellingen er delt i to halvdeler med hvert sitt krav, og en manglende komponent koster sin halvdel. Trekk på et halvt poeng gjelder transkripsjon, segmentering og setningsledd, ikke manglende termer.",
     },
     {
@@ -1041,17 +1041,17 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er det tredje trinnet i firetrinnsformen?",
-      options: ["Å sette definisjonen opp mot kontrastbegrepet", "Å gi minst tre egne eksempler på begrepet, slik at sensor ser at kandidaten kan bruke det selv", "Å oppgi hvilket kapittel i emnet begrepet hører hjemme i, slik at avgrensningen blir tydelig", "Å konkludere"],
+      options: ["Å sette definisjonen opp mot kontrastbegrepet", "Å gi minst tre egne eksempler på begrepet, slik at sensor ser at kandidaten kan bruke det selv", "Å oppgi hvilket kapittel i emnet begrepet hører hjemme i, slik at avgrensningen blir tydelig", "Å konkludere, slik at redegjørelsen ender med et tydelig standpunkt"],
       explanation: "Trinnene er avgrens, definer, sett opp mot kontrastbegrepet, presiser ett grensetilfelle. Egne eksempler hører til egeneksempel-sjangeren, og en redegjørelse har ingen konklusjon å ta feil av.",
     },
     {
       question: "Hvor mange poeng gir den korteste redegjørelsen i materialet, og hvilken er det?",
-      options: ["2 av 49 poeng, for forskjellen mellom synkroni og diakroni", "5 av 49 poeng, for redegjørelsen om samarbeidsprinsippet og de fire maksimene, med ett poeng per maksime", "8 av 65 poeng, for spørsmålet om språkhandlinger og de betingelsene som må være oppfylt", "1 poeng, for hver enkelt fonembeskrivelse"],
+      options: ["2 av 49 poeng, for forskjellen mellom synkroni og diakroni", "5 av 49 poeng, for redegjørelsen om samarbeidsprinsippet og de fire maksimene, med ett poeng per maksime", "8 av 65 poeng, for spørsmålet om språkhandlinger og de betingelsene som må være oppfylt", "1 poeng, for hver enkelt fonembeskrivelse i oppgaven om artikulatoriske trekk"],
       explanation: "Synkroni mot diakroni er den korteste og gir 2 av 49 poeng. Maksimene gir 5 av 49 poeng, pragmatikkoppgaven 8 av 65, og fonembeskrivelsene hører til beskrivelsessjangeren.",
     },
     {
       question: "Hva er hjemmelen for at begrunnelsen skal stå før konklusjonen?",
-      options: ["Poengfordelingen selv, som gir mer for forklaringen enn for svaret", "En anbefaling om akademisk skrivestil som står i innledningen til alle de fire sensorveiledningene i materialet", "At sensor leser besvarelsene i tilfeldig rekkefølge og trenger konklusjonen sist for å huske den", "At oppgavetekstene formulerer seg slik"],
+      options: ["Poengfordelingen selv, som gir mer for forklaringen enn for svaret", "En anbefaling om akademisk skrivestil som står i innledningen til alle de fire sensorveiledningene i materialet", "At sensor leser besvarelsene i tilfeldig rekkefølge og trenger konklusjonen sist for å huske den", "At oppgavetekstene selv formulerer seg i denne rekkefølgen"],
       explanation: "I den nyeste terminen fordeles 1 poeng for svaret og 3 for forklaringen i typologioppgaven, og flere konklusjoner godtas når de er godt begrunnet. Det er en vektingsregel, ikke en stilanbefaling.",
     },
     {
@@ -1061,12 +1061,12 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvor mange obligatoriske termer har materialet, og hva er nevneren for sensorkrav?",
-      options: ["Seks termer, og nevneren er 4 sensorveiledninger", "Seks termer, og nevneren er 6 terminer, siden hver termin har sin egen obligatoriske term i settet", "Fire termer, én per sensorveiledning i materialet, slik at hver veiledning bidrar med nøyaktig én", "Seksten termer"],
+      options: ["Seks termer, og nevneren er 4 sensorveiledninger", "Seks termer, og nevneren er 6 terminer, siden hver termin har sin egen obligatoriske term i settet", "Fire termer, én per sensorveiledning i materialet, slik at hver veiledning bidrar med nøyaktig én", "Seksten termer, og nevneren er feilkodene"],
       explanation: "De seks termene er hjemlet i navngitte sensorveiledninger, og nevneren for alt som gjelder hva sensor belønner eller straffer, er de 4 veiledningene. Tallet seksten er antallet feilkoder, ikke termer.",
     },
     {
       question: "Hva er det beste grepet når du oppdager at du har skrevet en side på en to-poengs oppgave?",
-      options: ["Gå videre umiddelbart, og bruk minuttene på den dyreste ubesvarte oppgaven", "Stryk halvparten av teksten, slik at svaret får den lengden poengsummen tilsier, og skriv det om på nytt", "Fortsett i samme lengde på de øvrige oppgavene, slik at besvarelsen blir jevn i formen hele veien", "Legg til en konklusjon"],
+      options: ["Gå videre umiddelbart, og bruk minuttene på den dyreste ubesvarte oppgaven", "Stryk halvparten av teksten, slik at svaret får den lengden poengsummen tilsier, og skriv det om på nytt", "Fortsett i samme lengde på de øvrige oppgavene, slik at besvarelsen blir jevn i formen hele veien", "Legg til en konklusjon som binder det lange svaret sammen"],
       explanation: "Tiden er allerede brukt, og den henter du ikke inn ved å redigere. Kostnaden ligger i oppgaven du ennå ikke har skrevet, og den er ofte verdt fem ganger så mye.",
     },
     {
@@ -1078,12 +1078,12 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
   'exfac03-spr-10-6': [
     {
       question: "Hva er trinn 3 i egeneksempel-formen?",
-      options: ["Å si eksplisitt hvilken del av eksempelet som svarer til hvilken del av definisjonen", "Å gi minst to eksempler på hvert punkt, siden bestillingene i materialet nesten alltid ber om flere enn ett", "Å oppgi hvilket saksområde eksempelet er hentet fra, slik at sensor ser at kandidaten dekker bredden", "Å konkludere"],
+      options: ["Å si eksplisitt hvilken del av eksempelet som svarer til hvilken del av definisjonen", "Å gi minst to eksempler på hvert punkt, siden bestillingene i materialet nesten alltid ber om flere enn ett", "Å oppgi hvilket saksområde eksempelet er hentet fra, slik at sensor ser at kandidaten dekker bredden", "Å trekke en konklusjon om hva eksempelet viser, slik at svaret avsluttes før neste punkt i bestillingen begynner"],
       explanation: "Trinnene er navngi, gi, koble og motprøve, og koblingssetningen er trinn 3. Antall eksempler styres av bestillingen, ikke av formen, og en egeneksempel-oppgave har ingen konklusjon å trekke.",
     },
     {
       question: "Hva sier en av de fire sensorveiledningene om begrunnelse av egne eksempler?",
-      options: ["At begrunnede eksempler teller litt mer, også når begrunnelse ikke er bedt om", "At begrunnelse bare teller når oppgaveteksten uttrykkelig ber om den, siden kandidaten ellers svarer på noe annet enn bestillingen", "At begrunnelser bør holdes korte, siden eksempelet i seg selv viser om kandidaten har forstått fenomenet", "At egne eksempler teller mindre enn eksempler fra undervisningen"],
+      options: ["At begrunnede eksempler teller litt mer, også når begrunnelse ikke er bedt om", "At begrunnelse bare teller når oppgaveteksten uttrykkelig ber om den, siden kandidaten ellers svarer på noe annet enn bestillingen", "At begrunnelser bør holdes korte, siden eksempelet viser forståelsen", "At egne eksempler teller mindre enn eksempler fra undervisningen"],
       explanation: "Veiledningen sier at svar med begrunnelse av egne eksempler teller litt mer selv når begrunnelse ikke er bedt om, fordi kandidaten da viser sin forståelse. Egne eksempler er dessuten det bestillingen etterspør, ikke det motsatte.",
     },
     {
@@ -1103,37 +1103,37 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er det risikabelt å bruke eksemplene fra undervisningen?",
-      options: ["Fordi bestillingen ofte ber om et ord du velger selv, og en veiledning ber om egne formuleringer", "Fordi eksemplene fra undervisningen som regel er konstruert for et annet formål enn det oppgaven spør etter, og derfor sjelden passer", "Fordi sensor kjenner igjen eksemplene og trekker for manglende originalitet i besvarelsen som helhet", "Fordi de er for enkle"],
+      options: ["Fordi bestillingen ofte ber om et ord du velger selv, og en veiledning ber om egne formuleringer", "Fordi eksemplene fra undervisningen som regel er konstruert for et annet formål enn det oppgaven spør etter, og derfor sjelden passer", "Fordi sensor kjenner igjen eksemplene og trekker for manglende originalitet i besvarelsen som helhet", "Fordi de er for enkle til at et svar bygd på dem kan vise mer enn det laveste faglige nivået oppgaven etterspør"],
       explanation: "Bestillingen «et ord du velger selv» går igjen i fem av de seks terminene, og en av veiledningene ber uttrykkelig om egne formuleringer. Det handler om bestillingen, ikke om at eksemplene er dårlige.",
     },
     {
       question: "Hva bør du gjøre først i en punktlisteoppgave med fem punkter?",
-      options: ["Skrive ett kort svar med én begrunnelseslinje på hvert punkt, og forbedre etterpå", "Skrive det beste mulige svaret på det første punktet, slik at sensor får et godt inntrykk av besvarelsen med en gang", "Velge ut de tre punktene du kan best, og bruke tiden på dem i stedet for å spre den tynt utover", "Lese hele settet på nytt"],
+      options: ["Skrive ett kort svar med én begrunnelseslinje på hvert punkt, og forbedre etterpå", "Skrive det beste mulige svaret på det første punktet, slik at sensor får et godt inntrykk av besvarelsen med en gang", "Velge ut de tre punktene du kan best, og bruke tiden på dem i stedet for å spre den tynt utover", "Lese hele settet på nytt fra begynnelsen, så du er sikker på at du har forstått alle de fem punktene"],
       explanation: "Et ubesvart punkt koster hele sin andel, mens et kort svar henter det meste av den. Å velge bort punkter er den dyreste varianten av å levere færre svar enn bestilt.",
     },
     {
       question: "Hvilket av disse er et minimalt par?",
       options: ["takk og tikk", "hus og huset", "løpe og løper", "bar i betydningen skjenkested og bar som verbform i fortid"],
-      explanation: "I takk og tikk er alt likt bortsett fra vokalen, og ordene betyr ulike ting. De to neste skiller seg ved et helt morfem, og det siste paret er ett og samme ordbilde med to betydninger.",
+      explanation: "I takk og tikk er alt likt bortsett fra vokalen, og ordene betyr ulike ting. Parene hus/huset og løpe/løper skiller seg ved et helt morfem, mens bar mot bar er ett og samme ordbilde med to betydninger.",
     },
     {
       question: "Hva viser et ord med to ulike allofoner av samme fonem?",
-      options: ["At den samme betydningsskillende enheten realiseres ulikt i ulike omgivelser", "At ordet inneholder to fonemer som ligner hverandre så mye at de er vanskelige å skille i vanlig tale", "At kandidaten kan transkribere ordet på to ulike måter, avhengig av hvilken bakgrunn hun oppgir", "At ordet er sammensatt"],
+      options: ["At den samme betydningsskillende enheten realiseres ulikt i ulike omgivelser", "At ordet inneholder to fonemer som ligner hverandre så mye at de er vanskelige å skille i vanlig tale", "At kandidaten kan transkribere ordet på to ulike måter, avhengig av hvilken bakgrunn hun oppgir", "At ordet er sammensatt, siden de to ulike lydene stammer fra hver sin del av sammensetningen"],
       explanation: "Poenget er at én enhet i systemet har flere realiseringer, hver bundet til sin omgivelse. To lyder som ligner hverandre, kan godt være to ulike fonemer, og sammensetning er en morfologisk egenskap.",
     },
     {
       question: "Hva er det vanligste problemet med et eksempel som «ser riktig ut»?",
-      options: ["At det oppfyller noen av kravene i spesifikasjonen, men ikke alle", "At det er hentet fra et annet saksområde enn det oppgaven gjelder, slik at koblingen til definisjonen blir umulig å skrive", "At det er for kort til at sensor kan se hvilken del av ordet som skal svare til hvilken del av definisjonen", "At det mangler kilde"],
+      options: ["At det oppfyller noen av kravene i spesifikasjonen, men ikke alle", "At det er hentet fra et annet saksområde enn det oppgaven gjelder, slik at koblingen til definisjonen blir umulig å skrive", "At det er for kort til at sensor kan se hvilken del av ordet som skal svare til hvilken del av definisjonen", "At det mangler kilde, slik at sensor ikke kan kontrollere hvor eksempelet er hentet fra"],
       explanation: "En spesifikasjon med tre krav er tre ting eksempelet må klare samtidig, og det er lett å finne noe som klarer to. Derfor lønner det seg å stryke under kravene og kontrollere ett om gangen.",
     },
     {
       question: "Hva er forskjellen på homofoni og homografi?",
-      options: ["Homofoni er lik uttale og ulik skrivemåte, homografi er lik skrivemåte og ulik uttale", "Homofoni gjelder ord med samme opprinnelse, mens homografi gjelder ord som tilfeldigvis er blitt like i skrift over tid", "Homofoni gjelder to betydninger av samme ord, mens homografi gjelder to ord som har smeltet sammen til én form", "De to termene betyr det samme"],
+      options: ["Homofoni er lik uttale og ulik skrivemåte, homografi er lik skrivemåte og ulik uttale", "Homofoni gjelder ord med samme opprinnelse, mens homografi gjelder ord som tilfeldigvis er blitt like i skrift over tid", "Homofoni gjelder to betydninger av samme ord, mens homografi gjelder to ord som har smeltet sammen til én form", "De to termene betyr det samme og kan brukes om hverandre fritt"],
       explanation: "Skillet går på hvilket medium likheten gjelder. Opprinnelse er kriteriet som skiller homonymi fra polysemi, og de to termene er ikke synonyme.",
     },
     {
       question: "Hva bør du gjøre når du forkaster et eksempel underveis?",
-      options: ["Skrive ned det forkastede eksempelet og hvorfor det ikke holdt", "Stryke det helt, siden en besvarelse med forkastede eksempler virker uryddig og trekker ned helhetsinntrykket", "La det stå uten kommentar, slik at sensor selv kan vurdere om det likevel oppfyller spesifikasjonen", "Bytte til et enklere punkt"],
+      options: ["Skrive ned det forkastede eksempelet og hvorfor det ikke holdt", "Stryke det helt, siden en besvarelse med forkastede eksempler virker uryddig og trekker ned helhetsinntrykket", "La det stå uten kommentar, slik at sensor selv kan vurdere om det likevel oppfyller spesifikasjonen", "Bytte til et enklere punkt og la det forkastede ligge"],
       explanation: "Et forkastet eksempel med begrunnelse viser testen i arbeid og er et argument, ikke en feil. Et eksempel som står uten kommentar, leses derimot som et forsøk på å oppfylle spesifikasjonen.",
     },
   ],
@@ -1145,7 +1145,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva sier den nyeste sensorveiledningen om ulike konklusjoner i synonymioppgaven?",
-      options: ["At flere ulike svar kan aksepteres når de er godt begrunnet", "At bare den konklusjonen som veiledningen selv oppgir, gir full uttelling, siden oppgaven ellers ikke ville vært mulig å vurdere likt", "At kandidaten bør unngå å konkludere, og heller sette opp argumentene for hvert alternativ ved siden av hverandre", "At konklusjonen teller mer enn diskusjonen"],
+      options: ["At flere ulike svar kan aksepteres når de er godt begrunnet", "At bare den konklusjonen som veiledningen selv oppgir, gir full uttelling, siden oppgaven ellers ikke ville vært mulig å vurdere likt", "At kandidaten bør unngå å konkludere, og heller sette opp argumentene for hvert alternativ ved siden av hverandre", "At konklusjonen teller mer enn diskusjonen, siden det er svaret sensor krysser av for"],
       explanation: "Veiledningen sier at diskusjonen er viktigere enn hvilken konklusjon kandidaten lander på. Det er likevel ikke en invitasjon til å la være å konkludere — kravet er at konklusjonen er en av de forsvarlige.",
     },
     {
@@ -1155,7 +1155,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er falsifiseringssetningen?",
-      options: ["Setningen som sier hva som ville fått deg til å konkludere motsatt", "Setningen der du avviser den kategorien som er lettest å forveksle med den du har valgt, med en test som viser hvorfor", "Setningen der du oppgir hvor sikker du er på konklusjonen din, slik at sensor kan vekte svaret ditt riktig", "Setningen som innleder svaret"],
+      options: ["Setningen som sier hva som ville fått deg til å konkludere motsatt", "Setningen der du avviser den kategorien som er lettest å forveksle med den du har valgt, med en test som viser hvorfor", "Setningen der du oppgir hvor sikker du er på konklusjonen din, slik at sensor kan vekte svaret ditt riktig", "Setningen som innleder svaret og varsler sensor om hvilken kategori du kommer til å velge"],
       explanation: "Den sier hva som ville endret konklusjonen, og viser dermed at konklusjonen henger på et kriterium. Å avvise en nabokategori er noe annet — det hører til trinn 2 og 3.",
     },
     {
@@ -1165,17 +1165,17 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor lønner det seg å skrive argumentet for den kategorien du forkaster?",
-      options: ["Fordi diskusjonen er det som vurderes, og den viser at du kjente begge sidene", "Fordi sensor da kan gi delvis uttelling for den andre kategorien dersom konklusjonen din viser seg å være feil", "Fordi et svar med to kategorier alltid regnes som mer fullstendig enn et svar med bare én kategori", "Fordi det fyller ut svaret"],
+      options: ["Fordi diskusjonen er det som vurderes, og den viser at du kjente begge sidene", "Fordi sensor da kan gi delvis uttelling for den andre kategorien dersom konklusjonen din viser seg å være feil", "Fordi et svar med to kategorier alltid regnes som mer fullstendig enn et svar med bare én kategori", "Fordi det fyller ut svaret, slik at besvarelsen når den lengden en klassifiseringsoppgave krever"],
       explanation: "Veiledningen sier at diskusjonen er viktigere enn konklusjonen, og en gjennomgang av begge kategoriene er nettopp diskusjonen. Det er ikke en forsikringsordning mot feil svar.",
     },
     {
       question: "I hvor mange terminer står klassifiseringsoppgaven, og hvor mange belegg har den?",
-      options: ["3 av 6 terminer, med fire belegg, siden den nyeste terminen har to av dem", "4 av 6 terminer, med fire belegg, ett i hver av de fire terminene som har oppgavetypen dokumentert", "6 av 6 terminer, siden klassifisering inngår i de fleste saksområdene i materialet på en eller annen måte", "2 av 6 terminer"],
+      options: ["3 av 6 terminer, med fire belegg, siden den nyeste terminen har to av dem", "4 av 6 terminer, med fire belegg, ett i hver av de fire terminene som har oppgavetypen dokumentert", "6 av 6 terminer, siden klassifisering inngår i de fleste saksområdene i materialet på en eller annen måte", "2 av 6 terminer, med fire belegg, siden begge disse terminene har oppgavetypen to ganger"],
       explanation: "Nevneren er terminer, og en termin med to forekomster teller én gang. Derfor er det riktige tallet 3 av 6 terminer, med fire belegg — og det er en feil å skrive fire av seks terminer om denne oppgaven.",
     },
     {
       question: "Hva skiller «testen skrevet ut» fra «testen nevnt»?",
-      options: ["Den utskrevne testen viser hva testen gir når den kjøres på dataene", "Den utskrevne testen er formulert som en generell regel, mens den nevnte testen bare peker på hvilket kapittel regelen står i", "Den utskrevne testen står før konklusjonen, mens den nevnte testen står etter den i besvarelsen", "Det er ingen forskjell"],
+      options: ["Den utskrevne testen viser hva testen gir når den kjøres på dataene", "Den utskrevne testen er formulert som en generell regel, mens den nevnte testen bare peker på hvilket kapittel regelen står i", "Den utskrevne testen står før konklusjonen, mens den nevnte testen står etter den i besvarelsen", "Det er ingen forskjell; begge viser at testen er brukt"],
       explanation: "«Jeg har brukt strykningstesten» er en opplysning om metode; resultatet av å kjøre den på setningen er begrunnelsen. Det er resultatet som bærer poengene.",
     },
     {
@@ -1195,19 +1195,19 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor står boksen om at flere svar kan være riktige, etter de første oppgavene i dette kapitlet?",
-      options: ["Fordi den lest først kunne blitt en invitasjon til vaghet", "Fordi rekkefølgen i kapitlet følger rekkefølgen i sensorveiledningen, der regelen omtales til slutt i vurderingen", "Fordi den bare gjelder de oppgavetypene som er behandlet i de to første oppgavene i kapitlet", "Fordi den er mindre viktig enn oppgavene"],
+      options: ["Fordi den lest først kunne blitt en invitasjon til vaghet", "Fordi rekkefølgen i kapitlet følger rekkefølgen i sensorveiledningen, der regelen omtales til slutt i vurderingen", "Fordi den bare gjelder de oppgavetypene som er behandlet i de to første oppgavene i kapitlet", "Fordi den er mindre viktig enn oppgavene i kapitlet"],
       explanation: "Regelen skal leses av en som allerede har ført to klassifiseringer selv, slik at den blir en presisering og ikke en unnskyldning. Kravet om å konkludere skarpt står ved lag.",
     },
   ],
   'exfac03-spr-10-8': [
     {
       question: "Hva uttrykker de fire sensorveiledningene om feil?",
-      options: ["Sensors forhåndsforventninger, ikke observerte studentfeil", "Erfaringer fra tidligere sensur, samlet opp over flere terminer og gjengitt som en oversikt over hva kandidatene pleier å gjøre galt", "En statistisk oversikt over hvilke feil som forekom oftest i den terminen veiledningen gjelder for", "Krav som må være oppfylt for å bestå"],
+      options: ["Sensors forhåndsforventninger, ikke observerte studentfeil", "Erfaringer fra tidligere sensur, samlet opp over flere terminer og gjengitt som en oversikt over hva kandidatene pleier å gjøre galt", "En statistisk oversikt over hvilke feil som forekom oftest i den terminen veiledningen gjelder for", "Krav som må være oppfylt for å bestå, listet opp som minstemål for hver enkelt oppgave"],
       explanation: "Ikke ett sted i materialet rapporterer en sensor hva kandidatene faktisk gjorde. Registeret er hva veiledningene sier skal trekke. Det finnes heller ingen statistikk i materialet, og kodene er ikke beståkrav.",
     },
     {
       question: "Hvor mange koder har feilregisteret, og hva er nevneren for hjemlene?",
-      options: ["Seksten koder, hjemlet i 4 sensorveiledninger", "Seksten koder, hjemlet i 6 terminer, siden hver av de dokumenterte terminene bidrar med minst én kode til registeret", "Fjorten koder, hjemlet i de to terminene som oppgir poeng og karakterskala i materialet", "Seks koder"],
+      options: ["Seksten koder, hjemlet i 4 sensorveiledninger", "Seksten koder, hjemlet i 6 terminer, siden hver av de dokumenterte terminene bidrar med minst én kode til registeret", "Fjorten koder, hjemlet i de to terminene som oppgir poeng og karakterskala i materialet", "Seks koder, én for hver av de seks dokumenterte terminene"],
       explanation: "Registeret er lukket på seksten, og nevneren for alt om hva sensor trekker for, er de fire veiledningene. To terminer har oppgavesett uten veiledning, og ingen sensorpåstand kan bygge på dem.",
     },
     {
@@ -1217,7 +1217,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den enkleste varsellampen for kode #7?",
-      options: ["Skriv tallet oppgaven ber om i margen, og tell eksemplene dine", "Les gjennom eksemplene og vurder om hvert av dem er hentet fra din egen erfaring eller fra undervisningen i emnet", "Sjekk om hvert eksempel har en begrunnelseslinje under seg, slik at sensor ser hvorfor det passer", "Tell tegnene i forklaringen"],
+      options: ["Skriv tallet oppgaven ber om i margen, og tell eksemplene dine", "Les gjennom eksemplene og vurder om hvert av dem er hentet fra din egen erfaring eller fra undervisningen i emnet", "Sjekk om hvert eksempel har en begrunnelseslinje under seg, slik at sensor ser hvorfor det passer", "Tell tegnene i forklaringen, slik at svaret ikke blir lengre enn oppgaven gir uttelling for"],
       explanation: "Kode #7 gjelder antall eksempler, og telling er hele kontrollen. Egne eksempler er kode #15, begrunnelseslinjer er #6, og tegntelling hører til #3.",
     },
     {
@@ -1232,17 +1232,17 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er metafeilen kapitlet advarer mot?",
-      options: ["Å lese registeret som en liste over ting andre gjør galt", "Å lære seg kodene utenat i stedet for å forstå det faglige innholdet som ligger bak hver av dem i emnet", "Å bruke for mye tid på feilregisteret i stedet for på de tunge strukturfagene, som bærer sytti prosent av poengene", "Å tro at registeret er fullstendig"],
+      options: ["Å lese registeret som en liste over ting andre gjør galt", "Å lære seg kodene utenat i stedet for å forstå det faglige innholdet som ligger bak hver av dem i emnet", "Å bruke for mye tid på feilregisteret i stedet for på de tunge strukturfagene, som bærer sytti prosent av poengene", "Å tro at registeret er fullstendig, og slutte å lete etter feil som ikke har fått kode"],
       explanation: "De fleste kodene rammer besvarelser der fagkunnskapen er på plass — det er derfor de er dyre. Registeret er dessuten lukket på seksten koder, så det er ikke en feil å tro at registeret er fullstendig.",
     },
     {
       question: "Hvilken kontroll fanger flest koder på kortest tid?",
-      options: ["Å telle leddene i oppgaveteksten mot avsnittene i svaret", "Å lese hele besvarelsen høyt for seg selv til slutt, slik at formuleringer som henger dårlig sammen, blir hørbare", "Å kontrollere at alle IPA-tegnene er riktig limt inn fra det vedlagte dokumentet før innlevering", "Å telle ordene i hvert svar"],
+      options: ["Å telle leddene i oppgaveteksten mot avsnittene i svaret", "Å lese hele besvarelsen høyt for seg selv til slutt, slik at formuleringer som henger dårlig sammen, blir hørbare", "Å kontrollere at alle IPA-tegnene er riktig limt inn fra det vedlagte dokumentet før innlevering", "Å telle ordene i hvert svar, slik at ingen av svarene blir mye lengre enn de andre"],
       explanation: "Tellingen tar et par minutter og fanger både manglende oppgaveledd og for få eksempler. Høytlesing og tegnkontroll er nyttige, men de fanger ingen bestemt kode; ordtelling fanger ingenting.",
     },
     {
       question: "Hva er kode #9?",
-      options: ["Å tro at et klassifiseringsspørsmål har ett riktig svar", "Å svare på et klassifiseringsspørsmål uten begrunnelse, slik at bare det ene av de fire poengene i oppgaven kan hentes", "Å konkludere skarpt i stedet for å veie de to kategoriene mot hverandre i en drøfting", "Å gjengi lærebokas eksempler"],
+      options: ["Å tro at et klassifiseringsspørsmål har ett riktig svar", "Å svare på et klassifiseringsspørsmål uten begrunnelse, slik at bare det ene av de fire poengene i oppgaven kan hentes", "Å konkludere skarpt i stedet for å veie de to kategoriene mot hverandre i en drøfting", "Å gjengi lærebokas eksempler når oppgaven ber om et ord du velger selv"],
       explanation: "Kode #9 er troen på at bare ett svar godtas; den nyeste veiledningen godtar flere konklusjoner når de er begrunnet. Manglende begrunnelse er #8, og en skarp begrunnet konklusjon er et fullgodt toppsvar.",
     },
     {
@@ -1252,7 +1252,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner utdragene i den kalde banken til slutt i kapitlet?",
-      options: ["De fleste av dem er faglig riktige, og det er nettopp derfor de er farlige", "De inneholder faglige feil som er vanskelige å oppdage uten at man kjenner det aktuelle saksområdet svært godt", "De er hentet fra ekte besvarelser, slik at leseren møter formuleringer som faktisk er skrevet på eksamen", "De bryter to koder hver"],
+      options: ["De fleste av dem er faglig riktige, og det er nettopp derfor de er farlige", "De inneholder faglige feil som er vanskelige å oppdage uten at man kjenner det aktuelle saksområdet svært godt", "De er hentet fra ekte besvarelser, slik at leseren møter formuleringer som faktisk er skrevet på eksamen", "De bryter to koder hver, slik at feilene forsterker hverandre"],
       explanation: "Poenget er at svarhåndverket svikter selv om fagkunnskapen er på plass. Alle utdrag i denne boka er skrevet av oss, og i den kalde banken bryter hvert utdrag én kode.",
     },
     {
@@ -1262,22 +1262,22 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er det minste grepet som retter kode #10?",
-      options: ["Å sette fellesbetegnelsen inn i den siste setningen i svaret", "Å omtale hver av lydendringene med både typenavn og omgivelse, slik at forklaringen blir fullstendig for hver av dem", "Å legge til et eget eksempel på hver av de fire endringstypene som er nevnt i oppgaveteksten", "Å bytte ut typenavnene"],
+      options: ["Å sette fellesbetegnelsen inn i den siste setningen i svaret", "Å omtale hver av lydendringene med både typenavn og omgivelse, slik at forklaringen blir fullstendig for hver av dem", "Å legge til et eget eksempel på hver av de fire endringstypene som er nevnt i oppgaveteksten", "Å bytte ut typenavnene med mer presise fagtermer"],
       explanation: "Kode #10 er den manglende fellesbetegnelsen, og botemiddelet er to ord i siste setning. Omgivelser og egne eksempler styrker svaret, men de erstatter ikke termen.",
     },
     {
       question: "Hvorfor er termfeilene beskrevet som de mest irriterende i registeret?",
-      options: ["Fordi innholdet ofte er riktig, og uttellingen likevel reduseres", "Fordi de rammer de dyreste oppgavene i settet, og derfor koster flere poeng enn noen av de andre kodene gjør", "Fordi de er umulige å oppdage i egen tekst uten at man har lest sensorveiledningene selv", "Fordi de forekommer oftest"],
+      options: ["Fordi innholdet ofte er riktig, og uttellingen likevel reduseres", "Fordi de rammer de dyreste oppgavene i settet, og derfor koster flere poeng enn noen av de andre kodene gjør", "Fordi de er umulige å oppdage i egen tekst uten at man har lest sensorveiledningene selv", "Fordi de forekommer oftest av alle kodene i registeret"],
       explanation: "En kandidat kan beskrive ordstillingen helt korrekt og likevel miste uttelling fordi to ord ikke står der. De kan dessuten oppdages på fem sekunder med en understrekingskontroll, og hvor ofte de forekommer, vet vi ingenting om.",
     },
     {
       question: "Hva er kode #15, og hva er botemiddelet?",
-      options: ["Å gjengi lærebokas eksempler i stedet for egne, og botemiddelet er forberedelse", "Å bruke for mange egne eksempler i stedet for de standardeksemplene som er gjennomgått i undervisningen i emnet", "Å gi eksempler uten begrunnelse, og botemiddelet er å legge til én linje under hvert eksempel i svaret", "Å levere færre eksempler enn bestilt"],
+      options: ["Å gjengi lærebokas eksempler i stedet for egne, og botemiddelet er forberedelse", "Å bruke for mange egne eksempler i stedet for de standardeksemplene som er gjennomgått i undervisningen i emnet", "Å gi eksempler uten begrunnelse, og botemiddelet er å legge til én linje under hvert eksempel i svaret", "Å levere færre eksempler enn oppgaveteksten faktisk ber om"],
       explanation: "Bestillingen «et ord du velger selv» går igjen i fem av de seks terminene. Botemiddelet er å ha to eller tre egne eksempler klare per saksområde før eksamen, siden det er de gjennomgåtte som sitter løsest under press.",
     },
     {
       question: "Hva er hensikten med omskrivingsøvelsen?",
-      options: ["Å vise hvor lite som skal til for å rette feilen", "Å gi leseren en ferdig formulering som kan brukes ordrett i besvarelsen når den samme oppgavetypen dukker opp", "Å teste om leseren kan gjenkjenne hvilken sensorveiledning kravet i hver enkelt passasje er hentet fra", "Å øve inn de seksten kodenes numre"],
+      options: ["Å vise hvor lite som skal til for å rette feilen", "Å gi leseren en ferdig formulering som kan brukes ordrett i besvarelsen når den samme oppgavetypen dukker opp", "Å teste om leseren kan gjenkjenne hvilken sensorveiledning kravet i hver enkelt passasje er hentet fra", "Å øve inn numrene på de seksten kodene så de kan gjengis utenat"],
       explanation: "Den sterke versjonen er den samme besvarelsen med ett grep lagt til, ikke en fasit å kopiere. Poenget er at rettelsene er små, ikke at formuleringene skal gjenbrukes.",
     },
   ],
@@ -1289,7 +1289,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er nivåene i dette kapitlet definert av poengsum og ikke av prosa?",
-      options: ["Fordi ingen av de fire sensorveiledningene har en kvalitativ karakterbeskrivelse", "Fordi poengsummer er lettere å sammenlikne mellom besvarelser enn beskrivelser av hva en besvarelse viser", "Fordi de to nyeste terminene bruker samme poengskala, slik at grensene kan overføres direkte mellom dem", "Fordi boka er kalibrert mot seks terminer"],
+      options: ["Fordi ingen av de fire sensorveiledningene har en kvalitativ karakterbeskrivelse", "Fordi poengsummer er lettere å sammenlikne mellom besvarelser enn beskrivelser av hva en besvarelse viser", "Fordi de to nyeste terminene bruker samme poengskala, slik at grensene kan overføres direkte mellom dem", "Fordi boka er kalibrert mot seks terminer, og poeng er den eneste enheten som går igjen i alle seks"],
       explanation: "Materialet skiller karakterer med poeng, ikke med prosa, og en kvalitativ skala boka ikke har belegg for, kan den ikke oppfinne. De to poengsatte terminene har dessuten ulike skalaer.",
     },
     {
@@ -1299,12 +1299,12 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva gjorde at besvarelsen på marginen kom over terskelen?",
-      options: ["At den forsøkte treoppgaven, der et nær korrekt tre gir full uttelling", "At den svarte kort men fullstendig på alle ni spørsmålene i settet, slik at ingen deloppgave sto helt tom", "At den prioriterte de redegjørende oppgavene, som er raskere å skrive enn analyseoppgavene i settet", "At den brukte alle de obligatoriske termene"],
+      options: ["At den forsøkte treoppgaven, der et nær korrekt tre gir full uttelling", "At den svarte kort men fullstendig på alle ni spørsmålene i settet, slik at ingen deloppgave sto helt tom", "At den prioriterte de redegjørende oppgavene, som er de raskeste", "At den brukte alle de obligatoriske termene"],
       explanation: "Den hentet 5 poeng av ti mulige på et grovt tre, på fem minutters arbeid. Den lot to segmenteringsord stå ubesvart, hoppet over forklaringsleddet i transkripsjonen og manglet en obligatorisk term.",
     },
     {
       question: "Hva er en oppgraderingsmeny?",
-      options: ["En liste over hva som skiller en besvarelse fra den over, med poengverdi på hvert punkt", "En oversikt over de temaene kandidaten bør lese mer om før neste eksamen, sortert etter hvor mye de er verdt i settet", "Sensors kommentarkolonne, der det står hva poengene i hvert delspørsmål faktisk er gitt for", "En liste over feilkodene i besvarelsen"],
+      options: ["En liste over hva som skiller en besvarelse fra den over, med poengverdi på hvert punkt", "En oversikt over de temaene kandidaten bør lese mer om før neste eksamen, sortert etter hvor mye de er verdt i settet", "Sensors kommentarkolonne, der det står hva poengene i hvert delspørsmål faktisk er gitt for", "En liste over feilkodene besvarelsen bryter, med nummer og navn på hver kode som er funnet i den"],
       explanation: "Menyen viser hvilke grep som er tilgjengelige og hva hvert av dem er verdt, og rammes inn som valg framfor mangler. I begge de to menyene i kapitlet er hvert eneste punkt svarhåndverk, ikke nytt fagstoff.",
     },
     {
@@ -1314,12 +1314,12 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den viktigste forskjellen mellom A-besvarelsens svar på spørsmål 1 og spørsmål 4?",
-      options: ["Konklusjonen er skarp i klassifiseringen, mens transkripsjonen viser at to ulike svar begge er riktige", "Klassifiseringen er begrunnet, mens transkripsjonen er ført uten begrunnelse fordi tegnene taler for seg selv", "Klassifiseringen bruker en obligatorisk term, mens transkripsjonsoppgaven ikke har noen slik term knyttet til seg", "Den ene er lengre enn den andre"],
+      options: ["Konklusjonen er skarp i klassifiseringen, mens transkripsjonen viser at to ulike svar begge er riktige", "Klassifiseringen er begrunnet, mens transkripsjonen er ført uten begrunnelse fordi tegnene taler for seg selv", "Klassifiseringen bruker en obligatorisk term, mens transkripsjonsoppgaven ikke har noen slik term knyttet til seg", "Svaret på klassifiseringen er vesentlig lengre enn svaret på transkripsjonen, og lengden er det eneste som skiller dem"],
       explanation: "Klassifiseringsoppgaven belønner en skarp, begrunnet konklusjon, mens transkripsjonsoppgaven vurderes på konsistens med egen oppgitt bakgrunn — og der er nettopp poenget at flere svar er fullt tellende.",
     },
     {
       question: "Hva sier den nyeste terminen om poenggrensene for karakterene?",
-      options: ["At de er veiledende, fordi helhetsinntrykket av besvarelsen også teller", "At de er absolutte, slik at et halvt poeng under grensen alltid gir den lavere karakteren uansett hvordan besvarelsen ellers ser ut", "At de bare gjelder for den terminen de er oppgitt i, og må regnes om for hvert nytt sett med ny poengsum", "At de gjelder for begge de poengsatte terminene"],
+      options: ["At de er veiledende, fordi helhetsinntrykket av besvarelsen også teller", "At de er absolutte, slik at et halvt poeng under grensen alltid gir den lavere karakteren uansett hvordan besvarelsen ellers ser ut", "At de bare gjelder for den terminen de er oppgitt i, og må regnes om for hvert nytt sett med ny poengsum", "At de gjelder uendret for begge de poengsatte terminene"],
       explanation: "Terminen presiserer at helhetsinntrykket teller og at sensors skjønn kan gi justeringer. Den andre poengsatte terminen hadde dessuten en helt annen skala, med bestått fra 20 av 49 poeng.",
     },
   ],
@@ -1336,17 +1336,17 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken notasjon skal en allofon stå i?",
-      options: ["I klammer, fordi en allofon er en fon og ikke et fonem", "Mellom skråstreker, fordi en allofon hører til fonemsystemet i språket", "I kursiv, som den ortografiske formen av ordet", "I enkle anførselstegn, slik betydningen av et ord skrives i faglitteraturen"],
+      options: ["I klammer, fordi en allofon er en fon og ikke et fonem", "Mellom skråstreker, fordi allofonen er et fonem", "I kursiv, som den ortografiske formen av ordet", "I enkle anførselstegn, slik betydningen av et ord skrives i faglitteraturen"],
       explanation: "Riktig svar er at allofoner skrives i klammer. En allofon er en fysisk variant, altså en fon, og skråstreker er reservert for fonemer. Skriver du aspirasjon inne i skråstreker, har du påstått at aspirasjonen er betydningsskillende i norsk. Kursiv er ortografi og enkle anførselstegn er betydning.",
     },
     {
       question: "Hvorfor er *hage* og *hakke* ikke et minimalt par?",
-      options: ["Fordi ordene skiller seg i mer enn ett forhold, blant annet i lengdeforholdet", "Fordi begge ordene inneholder den samme konsonanten i midten av ordet og derfor ikke kan kontrastere", "Fordi ordene tilhører ulike ordklasser, og et minimalt par må bestå av to ord i samme ordklasse", "Fordi bokstaven g og bokstaven k er to forskjellige bokstaver, og et minimalt par må ha samme skrivemåte"],
+      options: ["Fordi ordene skiller seg i mer enn ett forhold, blant annet i lengdeforholdet", "Fordi begge ordene inneholder den samme konsonanten i midten av ordet", "Fordi ordene tilhører ulike ordklasser, og et minimalt par må bestå av to ord i samme ordklasse", "Fordi bokstaven g og bokstaven k er to forskjellige bokstaver, og et minimalt par må ha samme skrivemåte"],
       explanation: "Riktig svar er at paret skiller seg i mer enn ett forhold: både i konsonantens stemthet og i fordelingen av lengde mellom vokal og konsonant. Ordklasse og skrivemåte er uten betydning for testen — det er ikke bokstaver, men lyder, som byttes, og et minimalt par kan godt bestå av ord i ulike ordklasser.",
     },
     {
       question: "Hva viser paret *tak* og *takk*?",
-      options: ["At lengde alene kan skille to ord i norsk, uten at noe segment er byttet", "At de to ordene har helt ulike segmenter", "At skriftbildet med dobbel konsonant alltid svarer til en lang konsonant i uttalen av ordet", "At vokalkvaliteten er den eneste egenskapen som kan bære en betydningsforskjell i norsk"],
+      options: ["At lengde alene kan skille to ord i norsk, uten at noe segment er byttet", "At de to ordene har helt ulike segmenter", "At skriftbildet med dobbel konsonant alltid svarer til lang uttale", "At vokalkvaliteten er den eneste egenskapen som kan bære en betydningsforskjell i norsk"],
       explanation: "Riktig svar er at paret viser at lengde er distinktiv i norsk: ingen segmenter er byttet ut, bare fordelingen av lengde mellom vokal og konsonant. Distraktoren om skriftbildet blander ortografi og uttale, og distraktoren om vokalkvalitet utelukker nettopp det paret beviser.",
     },
     {
@@ -1356,22 +1356,22 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et allofonforhold mellom to lyder?",
-      options: ["At de er to varianter av samme fonem og aldri kan skille to ord", "At de begge kan brukes til å skille ord fra hverandre i minst én posisjon i ordet", "At de uttales med nøyaktig samme artikulasjonssted, men med ulik stemthet og lengde", "At de veksler helt fritt, slik at valget mellom dem alltid er opp til den enkelte taleren"],
+      options: ["At de er to varianter av samme fonem og aldri kan skille to ord", "At de begge kan brukes til å skille ord fra hverandre", "At de uttales med nøyaktig samme artikulasjonssted, men med ulik stemthet og lengde", "At de veksler helt fritt, slik at valget mellom dem alltid er opp til den enkelte taleren"],
       explanation: "Riktig svar er at allofoner er varianter av samme fonem uten betydningsskillende kraft. Distraktoren om å skille ord beskriver tvert imot to ulike fonemer. Fri veksling er bare én av flere måter allofoner kan fordele seg på, og den vanligste er at omgivelsen bestemmer hvilken variant som kommer.",
     },
     {
       question: "Hva betyr det at *kjære* og *skjære* kan være et minimalt par for én taler og ikke for en annen?",
-      options: ["At fonemsystemet hører til en varietet, ikke til norsk som helhet", "At den ene av de to talerne uttaler minst ett av ordene feil i forhold til rettskrivingen", "At minimale par bare gjelder i skriftspråket, mens talespråket varierer fritt fra person til person", "At de to ordene ikke har ulik betydning, og at et minimalt par derfor ikke kan settes opp for dem"],
+      options: ["At fonemsystemet hører til en varietet, ikke til norsk som helhet", "At den ene av to talerne uttaler minst ett av ordene feil", "At minimale par bare gjelder i skriftspråket, mens talespråket varierer fritt fra person til person", "At de to ordene ikke har ulik betydning, og at et minimalt par derfor ikke kan settes opp for dem"],
       explanation: "Riktig svar er at fonemsystemet hører til en varietet. Den som skiller de to frikativene, har et minimalt par; den som har latt dem falle sammen, har to homofone ord. Ingen av delene er en uttalefeil, og forskjellen har ingenting med skriftspråket å gjøre — ordene har ulik betydning i begge varietetene.",
     },
     {
       question: "Hvorfor er *sal* og *las* ikke et minimalt par?",
-      options: ["Fordi lydene står i ulik rekkefølge i stedet for at én lyd er byttet i én posisjon", "Fordi de to ordene inneholder nøyaktig de samme lydene og derfor må være homofone", "Fordi det ene ordet er et substantiv og det andre kan brukes som en verbform i tillegg", "Fordi vokalen i de to ordene ikke har nøyaktig samme lengde når ordene sies etter hverandre"],
+      options: ["Fordi lydene står i ulik rekkefølge i stedet for at én lyd er byttet i én posisjon", "Fordi de to ordene inneholder nøyaktig de samme lydene og derfor må være homofone", "Fordi det ene ordet er et substantiv og det andre en verbform", "Fordi vokalen i de to ordene ikke har nøyaktig samme lengde når ordene sies etter hverandre"],
       explanation: "Riktig svar er at rekkefølgen er endret, ikke ett segment i én posisjon. Kravet i et minimalt par er at byttet står på samme plass i begge ordene. Ordene er ikke homofone — de uttales tydelig ulikt — og ordklasse er irrelevant for testen.",
     },
     {
       question: "Hva er forholdet mellom den aspirerte og den uaspirerte t-en i norsk?",
-      options: ["De er to allofoner av samme fonem, fordelt etter posisjon i ordet", "De er to ulike fonemer, siden en norsktalende uten videre hører forskjell på dem", "De er samme fon, men skrives med ulike tegn", "De er to ulike segmenter som begge må skrives inn i den fonemiske formen av ordet"],
+      options: ["De er to allofoner av samme fonem, fordelt etter posisjon i ordet", "De er to ulike fonemer, siden forskjellen er hørbar", "De er samme fon, men skrives med ulike tegn", "De er to ulike segmenter som begge må skrives inn i den fonemiske formen av ordet"],
       explanation: "Riktig svar er at de er allofoner av samme fonem: ingen norske ord skilles av bare den forskjellen. At forskjellen er hørbar når den påpekes, avgjør ingenting, og aspirasjonen er forutsigbar fra omgivelsen og skal derfor ikke stå mellom skråstreker.",
     },
     {
@@ -1381,12 +1381,12 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En besvarelse skriver bare «*fin* og *vin*» som svar på hva et minimalt par er. Hvilken typisk feil er dette?",
-      options: ["Å gi et eksempel uten å begrunne hvorfor det er et minimalt par", "Å gi færre eksempler enn oppgaven uttrykkelig ber om i punktlisten sin", "Å nevne en fagterm uten å forklare den", "Å transkribere uten å ha oppgitt hvilken språklig bakgrunn transkripsjonen bygger på"],
+      options: ["Å gi et eksempel uten å begrunne hvorfor det er et minimalt par", "Å gi færre eksempler enn oppgaven uttrykkelig ber om", "Å nevne en fagterm uten å forklare den", "Å transkribere uten å ha oppgitt hvilken språklig bakgrunn transkripsjonen bygger på"],
       explanation: "Riktig svar er at eksempelet er gitt uten begrunnelse — feil #6. Paret er korrekt, men ingenting er sagt om hva det viser, og det er nettopp koblingen mellom eksempel og definisjon som betales. De andre alternativene er reelle feil i emnet, men de gjelder andre situasjoner enn denne.",
     },
     {
       question: "Hva er homofone ord?",
-      options: ["Ord som uttales likt, men har ulik betydning, som *hjul* og *jul*", "Ord som skrives likt, men uttales forskjellig", "Ord som skiller seg i nøyaktig én lyd i én posisjon, mens alt annet i ordene er likt", "Ord som har samme betydning, men som tilhører hvert sitt talemål innenfor det samme språket"],
+      options: ["Ord som uttales likt, men har ulik betydning, som *hjul* og *jul*", "Ord som skrives likt, men uttales forskjellig", "Ord som skiller seg i nøyaktig én lyd i én posisjon i ordet", "Ord som har samme betydning, men som tilhører hvert sitt talemål innenfor det samme språket"],
       explanation: "Riktig svar er at homofone ord uttales likt og betyr ulike ting. Distraktoren om ett byttet segment beskriver et minimalt par, som er homofoniens motstykke: lik betydningsforskjell, men ulik uttale. Ord som skrives likt og uttales ulikt, er et annet fenomen.",
     },
     {
@@ -1406,22 +1406,22 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en posisjon i et minimalt par?",
-      options: ["Plassen i ordet der byttet skjer, som må være den samme i begge ordene", "Hvilken av de to lydene som er den mest vanlige i språket sett under ett", "Om lyden står i den trykksterke eller i den trykksvake delen av ordet", "Rekkefølgen de to ordene settes opp i når paret skrives ned i besvarelsen"],
+      options: ["Plassen i ordet der byttet skjer, som må være den samme i begge ordene", "Hvilken av de to lydene som er mest vanlig i språket", "Om lyden står i den trykksterke eller i den trykksvake delen av ordet", "Rekkefølgen de to ordene settes opp i når paret skrives ned i besvarelsen"],
       explanation: "Riktig svar er at posisjonen er plassen i ordet der byttet skjer, og at den må være den samme i begge ordene. Uten det kravet ville ord med samme lyder i ulik rekkefølge telt som minimale par, og de beviser ingenting om opposisjonen mellom lydene.",
     },
     {
       question: "Hvilket av disse er et minimalt par som viser at to vokaler er ulike fonemer?",
-      options: ["*lys* og *lus*, der bare vokalen er byttet og alt annet er likt", "*sol* og *solen*, der den ene formen har fått en endelse i tillegg til stammen", "*bok* og *bøker*, der både vokalen og endelsen skiller de to ordformene fra hverandre", "*hus* og *huset*, der det ene ordet er en stavelse lengre"],
+      options: ["*lys* og *lus*, der bare vokalen er byttet og alt annet er likt", "*sol* og *solen*, der den ene formen har fått en endelse", "*bok* og *bøker*, der både vokalen og endelsen skiller de to ordformene fra hverandre", "*hus* og *huset*, der det ene ordet er en stavelse lengre"],
       explanation: "Riktig svar er *lys* og *lus*, der bare vokalen er byttet og alt annet er likt. De tre andre parene har fått lagt til materiale, og et tillegg er ikke et bytte — da varierer mer enn én ting, og paret kan ikke isolere vokalforskjellen.",
     },
     {
       question: "Hvilken rekkefølge gir best uttelling i et fonologisk klassifiseringssvar?",
-      options: ["Kontrollen først, konklusjonen sist, slik at svaret viser hvordan du kom fram", "Konklusjonen først, slik at sensor raskt ser hva kandidaten har landet på i oppgaven", "Eksempelet først og alene, siden et godt valgt ordpar taler for seg selv uten kommentar", "Definisjonen av alle tre grunnbegrepene først"],
+      options: ["Kontrollen først, konklusjonen sist, slik at svaret viser hvordan du kom fram", "Konklusjonen først, slik at sensor raskt ser hva du har landet på", "Eksempelet først og alene, siden et godt valgt ordpar taler for seg selv uten kommentar", "Definisjonen av alle tre grunnbegrepene først"],
       explanation: "Riktig svar er begrunnelsen før konklusjonen. Poengfordelingen i emnet betaler for veien til svaret: i den nyeste poengsatte terminen gir en klassifiseringsoppgave 1 poeng for svaret og 3 for forklaringen. Et ordpar uten kommentar er feil #6, og en full begrepsgjennomgang som ikke ble bedt om, koster tid uten å gi noe.",
     },
     {
       question: "Hvilket par viser at de to labiodentale frikativene er ulike fonemer i norsk?",
-      options: ["*fin* og *vin*, der bare stemtheten i den første lyden er byttet", "*fem* og *femte*, der det ene ordet har en ekstra stavelse", "*fatt* og *fat*, der bare fordelingen av lengde mellom vokal og konsonant er endret", "*vase* og *fase*, som skiller seg både i første lyd og i trykkplasseringen inne i ordet"],
+      options: ["*fin* og *vin*, der bare stemtheten i den første lyden er byttet", "*fem* og *femte*, der det ene ordet har en ekstra stavelse", "*fatt* og *fat*, der bare fordelingen av lengde er endret", "*vase* og *fase*, som skiller seg både i første lyd og i trykkplasseringen inne i ordet"],
       explanation: "Riktig svar er *fin* og *vin*: ulik betydning, ett bytte i første posisjon, alt annet likt. Distraktoren med den ekstra stavelsen er et tillegg og ikke et bytte, og lengdeparet viser noe annet enn en opposisjon mellom to konsonanter.",
     },
     {
@@ -1438,7 +1438,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
   'exfac03-spr-2-2': [
     {
       question: "Hva betyr det at to lyder står i komplementær distribusjon?",
-      options: ["At de aldri opptrer i samme omgivelse: der den ene kan stå, kan den andre ikke", "At de aldri opptrer i samme ord, uansett hvor i ordet de to lydene måtte stå", "At de begge kan stå i samme omgivelse uten at ordet blir et annet ord med annen betydning", "At de forekommer omtrent like ofte i vanlig norsk tekst og tale, altså med samme frekvens"],
+      options: ["At de aldri opptrer i samme omgivelse: der den ene kan stå, kan den andre ikke", "At de aldri opptrer i samme ord, uansett hvor i ordet de to lydene måtte stå", "At de begge kan stå i samme omgivelse uten betydningsforskjell", "At de forekommer omtrent like ofte i vanlig norsk tekst og tale, altså med samme frekvens"],
       explanation: "Riktig svar er at fordelingene ikke overlapper: der den ene kan stå, kan den andre ikke. Kravet gjelder omgivelsen, ikke ordet — to allofoner kan godt stå i samme ord, som den aspirerte og den uaspirerte t-en gjør i uttalen av *tastatur*. Der begge kan stå i samme omgivelse uten betydningsforskjell, er det fri variasjon, som er noe annet.",
     },
     {
@@ -1448,7 +1448,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er det første trinnet i en distribusjonsanalyse?",
-      options: ["Å liste alle omgivelsene hver av lydene opptrer i", "Å slå fast om de to lydene er allofoner eller ulike fonemer i den varieteten som beskrives", "Å lete etter et minimalt par der de to lydene er byttet mot hverandre i samme posisjon", "Å navngi hovedallofonen med én gang"],
+      options: ["Å liste alle omgivelsene hver av lydene opptrer i", "Å slå fast om de to lydene er allofoner eller ulike fonemer i den varieteten som beskrives", "Å lete etter et minimalt par der de to lydene er byttet mot hverandre i samme posisjon", "Å navngi hovedallofonen med én gang, uten liste"],
       explanation: "Riktig svar er at listene settes opp først. Konklusjonen om allofoni og utpekingen av hovedallofonen er trinn i analysen, ikke inngangen til den. Leter du etter et minimalt par, driver du fonemtesten, som svarer på det motsatte spørsmålet.",
     },
     {
@@ -1508,7 +1508,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En besvarelse skriver «disse to er allofoner» uten å sette opp omgivelsene. Hva er problemet?",
-      options: ["Konklusjonen mangler belegg, og det er nettopp den formen for svar som trekker", "Ordet allofon er feil brukt, siden det bare kan brukes om vokaler i trykksvake stavelser", "Svaret er for langt i forhold til poengverdien på oppgaven det besvarer", "Konklusjonen er faglig gal, siden to lyder aldri kan være allofoner av samme fonem"],
+      options: ["Konklusjonen mangler belegg, og det er nettopp den formen for svar som trekker", "Ordet allofon er feil brukt, siden det bare gjelder trykksvake vokaler", "Svaret er for langt i forhold til poengverdien på oppgaven det besvarer", "Konklusjonen er faglig gal, siden to lyder aldri kan være allofoner av samme fonem"],
       explanation: "Riktig svar er at belegget mangler. Å påstå komplementær distribusjon uten å ha listet omgivelsene er å bruke termen uten å vise noe, og det er feil #8 i praksis: å svare på et klassifiseringsspørsmål uten begrunnelse.",
     },
     {
@@ -1533,7 +1533,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den velare nasalens omgivelse i nasalassimilasjonen?",
-      options: ["Rett foran k eller g, altså foran en velar konsonant", "Rett foran f eller v, altså foran en konsonant laget med underleppa mot fortennene", "Rett etter en r, på samme måte som de øvrige retroflekse konsonantene oppstår", "Sist i ordet, etter en kort vokal"],
+      options: ["Rett foran k eller g, altså foran en velar konsonant", "Rett foran f eller v, altså foran en konsonant laget med underleppa mot fortennene", "Rett etter en r, på samme måte som de øvrige retroflekse konsonantene oppstår", "Sist i ordet, i kodaen etter en kort vokal"],
       explanation: "Riktig svar er stillingen foran velar konsonant. Foran f og v blir nasalen labiodental i stedet, og etter r blir den retrofleks. At den velare nasalen også finnes sist i ord som *lang*, er en egen sak — og nettopp derfor er analysen av den omdiskutert.",
     },
     {
@@ -1550,12 +1550,12 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
   'exfac03-spr-2-3': [
     {
       question: "Hvilken av stavelsens tre plasser er obligatorisk?",
-      options: ["Kjernen, siden en stavelse ikke kan uttales uten et sonoritetstoppunkt", "Ansatsen, siden en stavelse må begynne på en konsonant", "Kodaen, siden en stavelse må avsluttes for at neste stavelse skal kunne begynne", "Både ansatsen og kjernen, siden en stavelse må ha både en begynnelse og et toppunkt"],
+      options: ["Kjernen, siden en stavelse ikke kan uttales uten et sonoritetstoppunkt", "Ansatsen, siden en stavelse må begynne på en konsonant", "Kodaen, siden en stavelse må avsluttes før den neste begynner", "Både ansatsen og kjernen, siden en stavelse må ha både en begynnelse og et toppunkt"],
       explanation: "Riktig svar er kjernen: den er stavelsens toppunkt av åpning, og uten et toppunkt er det ingen stavelse. Ansats og koda kan begge stå tomme, og ordet *å* viser at begge kan være tomme samtidig.",
     },
     {
       question: "Hva skiller en åpen fra en lukket stavelse?",
-      options: ["Om stavelsen har koda eller ikke: åpen ender på vokal, lukket på konsonant", "Om ansatsen er fylt med én eller med flere konsonanter foran kjernen i stavelsen", "Om kjernen består av en lang vokal eller av en kort vokal med etterfølgende konsonant", "Om stavelsen bærer hovedtrykket i ordet eller ikke"],
+      options: ["Om stavelsen har koda eller ikke: åpen ender på vokal, lukket på konsonant", "Om ansatsen er fylt med én eller med flere konsonanter", "Om kjernen består av en lang vokal eller av en kort vokal med etterfølgende konsonant", "Om stavelsen bærer hovedtrykket i ordet eller ikke"],
       explanation: "Riktig svar er kodaen: åpen stavelse har ingen, lukket har. Ansatsens innhold er et annet spørsmål og påvirker ikke saken — en stavelse med tre konsonanter i ansats og ingen koda er åpen. Trykk og vokallengde er egne akser.",
     },
     {
@@ -1580,12 +1580,12 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvor ligger bruddet på sonoritetsprinsippet i *spurt*?",
-      options: ["I overgangen fra s til p i ansatsen, der sonoriteten faller i stedet for å stige", "I overgangen fra kjernen til r, siden r er en likvid og ligger høyere enn en vokal", "I overgangen fra r til t i kodaen, der sonoriteten stiger i stedet for å falle", "Det finnes ikke noe brudd i dette ordet, siden alle lydene står i lovlig rekkefølge"],
+      options: ["I overgangen fra s til p i ansatsen, der sonoriteten faller i stedet for å stige", "I overgangen fra kjernen til r, siden r ligger høyere enn vokalen", "I overgangen fra r til t i kodaen, der sonoriteten stiger i stedet for å falle", "Det finnes ikke noe brudd i dette ordet, siden alle lydene står i lovlig rekkefølge"],
       explanation: "Riktig svar er overgangen fra frikativ til plosiv i ansatsen. Kodaen er uproblematisk: fra vokal til likvid til plosiv faller sonoriteten som den skal. Likvider ligger lavere enn vokaler, ikke høyere.",
     },
     {
       question: "Hvorfor er *strikk* likevel et velformet norsk ord, selv om sonoritetsprinsippet er brutt?",
-      options: ["Fordi norsk tillater s foran plosiv i ansats som et systematisk unntak", "Fordi bruddet er så lite at det ikke lar seg høre uten teknisk måling av lydbølgene", "Fordi prinsippet bare gjelder ord med mer enn én stavelse i seg", "Fordi ordet er lånt inn fra et annet språk og derfor ikke følger norske regler"],
+      options: ["Fordi norsk tillater s foran plosiv i ansats som et systematisk unntak", "Fordi bruddet er så lite at det ikke lar seg høre uten måling", "Fordi prinsippet bare gjelder ord med mer enn én stavelse i seg", "Fordi ordet er lånt inn fra et annet språk og derfor ikke følger norske regler"],
       explanation: "Riktig svar er at s foran plosiv er et systematisk unntak, som i *ski*, *stein* og *spade*. Sonoritetsprinsippet er en sterk tendens, ikke en lov uten unntak. Prinsippet gjelder alle stavelser, uavhengig av ordlengde og opphav.",
     },
     {
@@ -1610,7 +1610,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er kodaen i *vekst*?",
-      options: ["kst, siden hele konsonantgruppen etter kjernen hører til kodaen", "st, siden kodaen bare kan bestå av de to siste lydene i en norsk stavelse", "ɛ, siden kodaen er den delen som bærer klangen", "v, siden kodaen er den konsonanten som står lengst fra kjernen i stavelsen"],
+      options: ["kst, siden hele konsonantgruppen etter kjernen hører til kodaen", "st, siden kodaen bare kan bestå av de to siste lydene", "ɛ, siden kodaen er den delen som bærer klangen", "v, siden kodaen er den konsonanten som står lengst fra kjernen i stavelsen"],
       explanation: "Riktig svar er hele konsonantgruppen etter kjernen. Kjernen er vokalen, og alt etter den er koda. Konsonanten før kjernen er ansats, uansett hvor langt fra kjernen den står.",
     },
     {
@@ -1620,7 +1620,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En oppgave ber om en lukket stavelse med velar lukkelyd og likvid i ansatsen. Hvilket ord oppfyller alle tre kravene?",
-      options: ["*klang*, som har k som velar lukkelyd, l som likvid og ŋ som koda", "*bre*, som har plosiv og likvid i ansatsen, men ingen koda", "*strikk*, som har en lukket stavelse, men en frikativ først i den tredelte ansatsen", "*natt*, som er en lukket stavelse med en nasal foran kjernen og en plosiv etter den"],
+      options: ["*klang*, som har k som velar lukkelyd, l som likvid og ŋ som koda", "*bre*, som har plosiv og likvid i ansatsen, men ingen koda", "*strikk*, som er lukket, men har frikativ først i ansatsen", "*natt*, som er en lukket stavelse med en nasal foran kjernen og en plosiv etter den"],
       explanation: "Riktig svar er *klang*: den velare lukkelyden og likviden står i ansatsen, og kodaen lukker stavelsen. *Bre* har riktig ansats, men er åpen. *Strikk* har riktig lukking, men frikativ først. *Natt* mangler både velar og likvid.",
     },
     {
@@ -1640,7 +1640,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvor ligger bruddet på sonoritetsprinsippet i *klaps*?",
-      options: ["I overgangen fra p til s i kodaen, der sonoriteten stiger i stedet for å falle", "I overgangen fra k til l i ansatsen, der sonoriteten stiger for raskt før kjernen", "I overgangen fra kjernen til p, siden en plosiv ikke kan følge rett etter en vokal", "Det finnes ikke noe brudd, siden alle konsonantene i ordet er lovlige i norsk"],
+      options: ["I overgangen fra p til s i kodaen, der sonoriteten stiger i stedet for å falle", "I overgangen fra k til l i ansatsen, der sonoriteten stiger for raskt", "I overgangen fra kjernen til p, siden en plosiv ikke kan følge rett etter en vokal", "Det finnes ikke noe brudd, siden alle konsonantene i ordet er lovlige i norsk"],
       explanation: "Riktig svar er kodaen: fra plosiv opp til frikativ går sonoriteten feil vei etter kjernen. Ansatsen er derimot mønstergyldig — fra plosiv til likvid stiger sonoriteten, akkurat som prinsippet krever. En plosiv rett etter en vokal er helt vanlig.",
     },
     {
@@ -1652,17 +1652,17 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
   'exfac03-spr-2-4': [
     {
       question: "Hva er førstegrepet i en oppgave om minimale par?",
-      options: ["Å skrive begge ordene fonemisk under hverandre, posisjon for posisjon", "Å slå fast om de to lydene i utgangspunktet er allofoner eller ulike fonemer i språket", "Å telle antall bokstaver i hvert av de to ordene", "Å avgjøre hvilket av de to ordene som er mest vanlig i norsk språkbruk i dag"],
+      options: ["Å skrive begge ordene fonemisk under hverandre, posisjon for posisjon", "Å slå fast om de to lydene er allofoner eller ulike fonemer", "Å telle antall bokstaver i hvert av de to ordene", "Å avgjøre hvilket av de to ordene som er mest vanlig i norsk språkbruk i dag"],
       explanation: "Riktig svar er å sette opp formene. Sammenligningen posisjon for posisjon blir da mekanisk, og lengdeforskjeller blir synlige. Konklusjonen om fonemstatus er resultatet av kontrollen, ikke inngangen til den.",
     },
     {
       question: "Hva er førstegrepet i en oppgave om distribusjon?",
-      options: ["Å skrive tre ekte ord per lyd og notere omgivelsen rundt hver forekomst", "Å avgjøre hvilken av de to lydene som er hovedallofonen i den varieteten som beskrives", "Å lete etter et minimalt par der de to lydene byttes mot hverandre", "Å slå opp lydene i en fonetisk tabell og notere artikulasjonssted for hver av dem"],
+      options: ["Å skrive tre ekte ord per lyd og notere omgivelsen rundt hver forekomst", "Å avgjøre hvilken av de to lydene som er hovedallofonen", "Å lete etter et minimalt par der de to lydene byttes mot hverandre", "Å slå opp lydene i en fonetisk tabell og notere artikulasjonssted for hver av dem"],
       explanation: "Riktig svar er å skaffe materialet: listene over omgivelser kan ikke settes opp uten ord å hente dem fra. Utpekingen av hovedallofonen kommer senere i prosedyren, og et minimalt par hører til den andre framgangsmåten, som svarer på det motsatte spørsmålet.",
     },
     {
       question: "En besvarelse svarer «ja, det er et minimalt par» uten oppsett. Hva er levert?",
-      options: ["Konklusjonen, men ikke kontrollen posisjon for posisjon, som er belegget", "Både konklusjonen og begrunnelsen, siden ja-svaret forutsetter at kontrollen er gjort", "Begrunnelsen, men ikke konklusjonen, som må formuleres mer bestemt", "Et fullstendig svar, siden oppgaven bare ba om en avgjørelse mellom to muligheter"],
+      options: ["Konklusjonen, men ikke kontrollen posisjon for posisjon, som er belegget", "Konklusjonen og begrunnelsen, siden ja-svaret forutsetter kontroll", "Begrunnelsen, men ikke konklusjonen, som må formuleres mer bestemt", "Et fullstendig svar, siden oppgaven bare ba om en avgjørelse mellom to muligheter"],
       explanation: "Riktig svar er at bare konklusjonen er levert. Kontrollen posisjon for posisjon er det som viser at du kan noe, og den er ikke underforstått. Dette er feil #8 i praksis: å svare på et klassifiseringsspørsmål uten begrunnelse.",
     },
     {
@@ -1672,7 +1672,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den praktiske testen på hvilken variant som er biallofon?",
-      options: ["At betingelsen for forekomsten kan skrives som én hel setning uten unntak", "At den forekommer i færre ord enn den andre varianten når man teller opp i en ordbok", "At den skrives med et eget grunntegn i alfabetet i stedet for med et diakritisk tegn", "At den er lettest å høre for en lytter som ikke kjenner språket fra før"],
+      options: ["At betingelsen for forekomsten kan skrives som én hel setning uten unntak", "At den forekommer i færre ord enn den andre varianten i ordboka", "At den skrives med et eget grunntegn i alfabetet i stedet for med et diakritisk tegn", "At den er lettest å høre for en lytter som ikke kjenner språket fra før"],
       explanation: "Riktig svar er at betingelsen skal kunne skrives i én setning. Går det ikke, har du enten byttet om på variantene eller så er fordelingen ikke komplementær. Frekvens, skrivemåte og hørbarhet er alle irrelevante kriterier.",
     },
     {
@@ -1692,7 +1692,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva viser det at listene over omgivelser ikke overlapper?",
-      options: ["At fordelingen er komplementær, og at lydene derfor er allofoner av samme fonem", "At de to lydene er ulike fonemer, siden de aldri kan opptre på samme sted i ordet", "At analysen er ufullstendig, siden alle lyder må kunne stå i minst én felles omgivelse", "At den ene av de to lydene er en fon og den andre et fonem i språksystemet"],
+      options: ["At fordelingen er komplementær, og at lydene derfor er allofoner av samme fonem", "At de to lydene er ulike fonemer, siden de aldri opptrer samme sted", "At analysen er ufullstendig, siden alle lyder må kunne stå i minst én felles omgivelse", "At den ene av de to lydene er en fon og den andre et fonem i språksystemet"],
       explanation: "Riktig svar er komplementær distribusjon og dermed allofoni: der lydene aldri møtes, kan de heller aldri skille to ord. Overlappende lister peker mot enten opposisjon eller fri variasjon, avhengig av om byttet gir et annet ord.",
     },
     {
@@ -1707,12 +1707,12 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skjer fonetisk med nasalen i uttalen av *sandkasse*?",
-      options: ["Den tar velart artikulasjonssted etter den følgende lukkelyden", "Den faller bort sammen med dentalen etter seg", "Den blir stavelsesbærende, siden vokalen foran den er kort og trykksvak", "Den blir retrofleks, siden den står i grensen mellom to ledd i et sammensatt ord"],
+      options: ["Den tar velart artikulasjonssted etter den følgende lukkelyden", "Den faller bort sammen med dentalen etter seg", "Den blir stavelsesbærende, siden vokalen foran er kort", "Den blir retrofleks, siden den står i grensen mellom to ledd i et sammensatt ord"],
       explanation: "Riktig svar er nasalassimilasjon: nasalen tar sted etter den følgende velaren. Det er dentalen som faller bort, ikke nasalen — to forskjellige fenomener i samme ord. Retroflekser krever en r, som ikke finnes her.",
     },
     {
       question: "Hva er forskjellen på et bortfall og en assimilasjon?",
-      options: ["I et bortfall er lyden borte; i en assimilasjon er den der, men endret", "Et bortfall skjer bare over en ordgrense, mens en assimilasjon bare skjer inne i et ord", "Bortfall gjelder konsonanter, mens assimilasjon gjelder vokaler", "Et bortfall skrives i den fonemiske formen, mens en assimilasjon bare skrives fonetisk"],
+      options: ["I et bortfall er lyden borte; i en assimilasjon er den der, men endret", "Bortfall skjer bare over en ordgrense, assimilasjon inne i ord", "Bortfall gjelder konsonanter, mens assimilasjon gjelder vokaler", "Et bortfall skrives i den fonemiske formen, mens en assimilasjon bare skrives fonetisk"],
       explanation: "Riktig svar er om lyden er borte eller endret. I uttalen av *sandkasse* skjer begge deler samtidig. Begge fenomenene finnes både inne i ord og over grenser, gjelder både vokaler og konsonanter, og begge er forutsigbare og skrives derfor ikke i den fonemiske formen.",
     },
     {
@@ -1722,7 +1722,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den riktige måten å formulere en fonologisk betingelse på?",
-      options: ["I lyder, trykk og posisjon i ordet, slik at betingelsen kan etterprøves", "I bokstaver og skrivemåter, slik ordene står i teksten", "I ordklasser, siden det er ordets grammatiske type som avgjør uttalen av det", "I betydninger, siden det er betydningsforskjellen som er det avgjørende kriteriet"],
+      options: ["I lyder, trykk og posisjon i ordet, slik at betingelsen kan etterprøves", "I bokstaver og skrivemåter, slik ordene står i teksten", "I ordklasser, siden ordets grammatiske type avgjør uttalen", "I betydninger, siden det er betydningsforskjellen som er det avgjørende kriteriet"],
       explanation: "Riktig svar er lyder, trykk og posisjon. En betingelse formulert i bokstaver er en påstand om ortografi, og den fanger ikke det som faktisk styrer uttalen. Betydning avgjør fonemstatus, men ikke hvilken variant som kommer i en gitt omgivelse.",
     },
     {
@@ -1769,17 +1769,17 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva utløser retrofleksjon i norsk?",
-      options: ["En dental rett etter en r, hos en taler som har tungespiss-r", "En dental rett foran en r, uansett hvordan taleren uttaler r-en sin", "En trykksterk stavelse der lukkelyden står først i ordet", "En sammensetningsfuge, uavhengig av hvilke lyder som møtes der"],
+      options: ["En dental rett etter en r, hos en taler som har tungespiss-r", "En dental rett foran en r, uansett r-typen hos taleren", "En trykksterk stavelse der lukkelyden står først i ordet", "En sammensetningsfuge, uavhengig av hvilke lyder som møtes der"],
       explanation: "Riktig svar er dentalen etter r-en, og forutsetningen om tungespiss-r er ikke en detalj: en uvular r kan ikke smelte sammen med en følgende dental. Rekkefølgen er avgjørende, og fugen i seg selv utløser ingenting — den er bare et sted der slike møter ofte oppstår.",
     },
     {
       question: "Hvorfor er det verdt å nevne fugen eksplisitt i forklaringsleddet?",
-      options: ["Fordi det viser at regelen virker over ordgrensen i en sammensetning", "Fordi fugen alltid er stedet der hovedtrykket i ordet faller", "Fordi ordet ellers ville blitt lest som to selvstendige ord av sensor", "Fordi fugen er den eneste plassen i ordet der reduksjonsvokal kan stå"],
+      options: ["Fordi det viser at regelen virker over ordgrensen i en sammensetning", "Fordi fugen alltid er stedet der hovedtrykket i ordet faller", "Fordi ordet ellers ville blitt lest som to selvstendige ord", "Fordi fugen er den eneste plassen i ordet der reduksjonsvokal kan stå"],
       explanation: "Riktig svar er at regelen krysser ordgrensen, og det er nettopp derfor eksamensordene er lange og sammensatte. Hovedtrykket ligger normalt i førsteleddet, ikke i fugen, og reduksjonsvokalen kan stå i enhver trykksvak stavelse.",
     },
     {
       question: "En kandidat skriver de to formene helt likt, bortsett fra klammene og skråstrekene. Hva er problemet?",
-      options: ["Da er det ingen forskjell å forklare, og et helt ledd av bestillingen faller bort", "Da har kandidaten brukt for mye tid på den fonetiske formen og for lite på den fonemiske", "Da har kandidaten glemt å oppgi sin språklige bakgrunn før transkripsjonen", "Da er den fonemiske formen for detaljert til å kunne kalles fonemisk i det hele tatt"],
+      options: ["Da er det ingen forskjell å forklare, og et helt ledd av bestillingen faller bort", "Da har kandidaten brukt for mye tid på den fonetiske formen av ordet", "Da har kandidaten glemt å oppgi sin språklige bakgrunn før transkripsjonen", "Da er den fonemiske formen for detaljert til å kunne kalles fonemisk i det hele tatt"],
       explanation: "Riktig svar er at forklaringsleddet blir umulig å skrive. Oppgaven ber om hva forskjellene skyldes, og finnes det ingen forskjeller, er det heller ingenting å forklare. Det er et selvstendig problem uavhengig av tidsbruk og bakgrunn.",
     },
     {
@@ -1799,7 +1799,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skjer med nasalen foran en labiodental konsonant?",
-      options: ["Den tar labiodentalt artikulasjonssted, altså samme sted som f og v", "Den blir stavelsesbærende og overtar kjernen i stavelsen", "Den faller bort helt, slik at bare den følgende konsonanten står igjen", "Den blir retrofleks, på samme måte som en dental etter en r blir det"],
+      options: ["Den tar labiodentalt artikulasjonssted, altså samme sted som f og v", "Den blir stavelsesbærende og overtar kjernen i stavelsen", "Den faller bort helt, slik at bare konsonanten står igjen", "Den blir retrofleks, på samme måte som en dental etter en r blir det"],
       explanation: "Riktig svar er assimilasjonen: nasalen tar sted etter konsonanten som følger. Bortfall er et annet fenomen, stavelsesbærende nasal krever en trykksvak endelse, og retrofleksjon krever en r foran.",
     },
     {
@@ -1824,7 +1824,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er aspirasjonen borte i lukkelyden i *skole*?",
-      options: ["Fordi lukkelyden står rett etter s, som blokkerer aspirasjonen", "Fordi ordet har to stavelser og aspirasjon bare finnes i enstavelsesord", "Fordi lukkelyden er stemt og stemte lukkelyder aldri aspireres i norsk", "Fordi stavelsen er trykksvak og aspirasjon krever trykk"],
+      options: ["Fordi lukkelyden står rett etter s, som blokkerer aspirasjonen", "Fordi aspirasjon bare finnes i enstavelsesord i norsk", "Fordi lukkelyden er stemt og stemte lukkelyder aldri aspireres i norsk", "Fordi stavelsen er trykksvak og aspirasjon krever trykk"],
       explanation: "Riktig svar er stillingen etter s. Aspirasjonen kommer i trykksterk ansats uten s foran, og her er nettopp den betingelsen ikke oppfylt. Stavelsen bærer faktisk hovedtrykket, så trykk er ikke forklaringen, og lukkelyden er ustemt.",
     },
     {
@@ -1851,7 +1851,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er det første trinnet i uttalekontrakten?",
-      options: ["Å oppgi bakgrunnen, altså hvilken uttale transkripsjonen skal måles mot", "Å skrive den fonetiske formen av ordet, siden det er den som er mest detaljert av de to", "Å skrive den fonemiske formen, siden den er kortest og derfor raskest å komme i gang med", "Å forsvare de valgene som avviker fra normaluttalen"],
+      options: ["Å oppgi bakgrunnen, altså hvilken uttale transkripsjonen skal måles mot", "Å skrive den fonetiske formen, siden den er mest detaljert", "Å skrive den fonemiske formen, siden den er kortest og derfor raskest å komme i gang med", "Å forsvare de valgene som avviker fra normaluttalen"],
       explanation: "Riktig svar er bakgrunnsleddet. Det er premissen de to andre trinnene hviler på: uten en oppgitt bakgrunn er transkripsjonen umulig å vurdere, og forsvaret i trinn tre har ingenting å forsvare seg mot.",
     },
     {
@@ -1871,12 +1871,12 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er svakheten ved bakgrunnsleddet «jeg er fra Østlandet»?",
-      options: ["Det låser ingen tegn, og gir derfor ikke noe å måle transkripsjonen mot", "Det er for langt, og bakgrunnsleddet skal være på under fem ord", "Det oppgir en landsdel i stedet for en kommune, og bør være mer nøyaktig geografisk", "Det bruker første person, og en besvarelse skal skrives i tredje person"],
+      options: ["Det låser ingen tegn, og gir derfor ikke noe å måle transkripsjonen mot", "Det er for langt, og bakgrunnsleddet skal være på under fem ord", "Det oppgir en landsdel og ikke en kommune, og er for upresist", "Det bruker første person, og en besvarelse skal skrives i tredje person"],
       explanation: "Riktig svar er at opplysningen ikke er operativ. Et bakgrunnsledd skal si hva valget låser: r-type, frikativene, tjukk l, endelsesvokal. Geografisk presisjon uten lydopplysninger hjelper ikke, og førsteperson er helt på sin plass her.",
     },
     {
       question: "Hvor regnes trekket i en transkripsjonsoppgave?",
-      options: ["Innenfor den bakgrunnen kandidaten selv oppga, ikke mot en normaluttale", "På tvers av alle mulige bakgrunner, slik at det tegnet flest talere ville brukt, er fasit", "Bare i den fonetiske formen, siden den fonemiske er feilfri", "Bare der kandidaten avviker fra den transkripsjonen som står i sensorveiledningen"],
+      options: ["Innenfor den bakgrunnen kandidaten selv oppga, ikke mot en normaluttale", "På tvers av alle bakgrunner, slik at flertallets tegn er fasit", "Bare i den fonetiske formen, siden den fonemiske er feilfri", "Bare der kandidaten avviker fra den transkripsjonen som står i sensorveiledningen"],
       explanation: "Riktig svar er innenfor bakgrunnen. Et tegn er ikke en feil fordi det avviker fra en annen kandidats svar, bare hvis det avviker fra kontrakten det står i. Begge transkripsjonsnivåene kan inneholde feil.",
     },
     {
@@ -1891,7 +1891,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor kan to helt ulike transkripsjoner av samme ord begge få full uttelling?",
-      options: ["Fordi hver av dem er konsistent med den bakgrunnen den selv oppgir", "Fordi sensor ikke har anledning til å avgjøre hvilken uttale som er den riktige", "Fordi transkripsjonsoppgaven vurderes samlet og ikke tegn for tegn", "Fordi begge kandidatene har levert like mange tegn i besvarelsene sine"],
+      options: ["Fordi hver av dem er konsistent med den bakgrunnen den selv oppgir", "Fordi sensor ikke kan avgjøre hvilken uttale som er riktig", "Fordi transkripsjonsoppgaven vurderes samlet og ikke tegn for tegn", "Fordi begge kandidatene har levert like mange tegn"],
       explanation: "Riktig svar er konsistenskriteriet. Det er ikke to alternativer der ett er riktigst, men to besvarelser som hver oppfyller kriteriet. Oppgaven vurderes tvert imot tegn for tegn, med trekk per feil.",
     },
     {
@@ -1911,7 +1911,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er det dyrt å bruke to r-systemer i samme besvarelse?",
-      options: ["Fordi inkonsistensen rammer flere oppgaver på samme sett samtidig", "Fordi de to systemene bruker tegn som ikke kan stå i samme transkripsjon rent teknisk", "Fordi sensor da må velge hvilket av systemene som skal legges til grunn, og velger det strengeste", "Fordi kandidaten da har oppgitt to bakgrunner"],
+      options: ["Fordi inkonsistensen rammer flere oppgaver på samme sett samtidig", "Fordi de to systemene bruker tegn som ikke kan kombineres", "Fordi sensor da må velge hvilket av systemene som skal legges til grunn, og velger det strengeste", "Fordi kandidaten da har oppgitt to bakgrunner"],
       explanation: "Riktig svar er rekkevidden: kontrakten gjelder hele besvarelsen, også senere oppgaver på samme sett. En glipp i r-systemet i én oppgave gjør besvarelsen inkonsistent med seg selv på tvers av oppgaver.",
     },
     {
@@ -1926,7 +1926,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er feil nummer 1 i denne oppgavetypen?",
-      options: ["Å transkribere uten å oppgi hvilken språklig bakgrunn du har", "Å transkribere ortografien i stedet for uttalen av ordet", "Å forklare nivåforskjellen med en generell frase i stedet for med konkrete tegn", "Å bruke reduksjonsvokal der uttalen har en stavelsesbærende konsonant"],
+      options: ["Å transkribere uten å oppgi hvilken språklig bakgrunn du har", "Å transkribere ortografien i stedet for uttalen av ordet", "Å forklare nivåforskjellen med bare en generell frase", "Å bruke reduksjonsvokal der uttalen har en stavelsesbærende konsonant"],
       explanation: "Riktig svar er den manglende bakgrunnen. De tre andre er reelle feil i emnet, men de rammer utførelsen; denne rammer premissen, og uten den kan ingen av de andre leddene vurderes i det hele tatt.",
     },
     {
@@ -1948,7 +1948,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den dyreste enkeltdisponeringsfeilen i transkripsjonsoppgaven?",
-      options: ["Å gi opp forklaringsleddet fordi transkripsjonen tok all tiden", "Å bruke for mye tid på å velge hvilken språklig bakgrunn du skal oppgi", "Å skrive den fonemiske formen før den fonetiske i besvarelsen", "Å markere stavelsesgrenser som ingen har bedt om i oppgaveteksten"],
+      options: ["Å gi opp forklaringsleddet fordi transkripsjonen tok all tiden", "Å bruke for mye tid på å velge språklig bakgrunn", "Å skrive den fonemiske formen før den fonetiske i besvarelsen", "Å markere stavelsesgrenser som ingen har bedt om i oppgaveteksten"],
       explanation: "Riktig svar er det uskrevne forklaringsleddet. Grunnen er regnskapet: transkripsjonen har trekk per feil, mens forklaringsleddet bare har uttelling. Et halvferdig forklaringsledd er derfor verdt mer enn de siste tegnene i en transkripsjon.",
     },
     {
@@ -2003,12 +2003,12 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er ordene i transkripsjonsoppgaven alltid lange og sammensatte?",
-      options: ["Fordi fugen er stedet der flest av fenomenene oppstår samtidig", "Fordi lange ord er vanskeligere og derfor gir flere poeng enn korte", "Fordi bare lange ord kan inneholde både vokaler og konsonanter", "Fordi sensor da lettere kan telle antall tegn i besvarelsen"],
+      options: ["Fordi fugen er stedet der flest av fenomenene oppstår samtidig", "Fordi lange ord er vanskeligere og gir flere poeng", "Fordi bare lange ord kan inneholde både vokaler og konsonanter", "Fordi sensor da lettere kan telle antall tegn i besvarelsen"],
       explanation: "Riktig svar er fugen: retrofleksregelen virker over den, reduksjonsvokalen står gjerne i fugestavelsen, og bitrykket markerer den. Tre av de hyppigste fenomenene oppstår altså på ett og samme punkt i ordet.",
     },
     {
       question: "Hva betyr det at ordene gjentar seg aldri, men formen alltid?",
-      options: ["At oppgavetypen er stabil, mens de konkrete ordene er nye hver termin", "At de samme ordene brukes om igjen i nye kombinasjoner fra termin til termin", "At transkripsjonen alltid skal skrives i samme rekkefølge uansett ord", "At kandidaten kan regne med å kjenne igjen ordene fra tidligere sett"],
+      options: ["At oppgavetypen er stabil, mens de konkrete ordene er nye hver termin", "At de samme ordene brukes om igjen i nye kombinasjoner", "At transkripsjonen alltid skal skrives i samme rekkefølge uansett ord", "At kandidaten kan regne med å kjenne igjen ordene fra tidligere sett"],
       explanation: "Riktig svar er at oppgavetypen er stabil og ordene nye. Konsekvensen er at det ikke nytter å pugge ferdige transkripsjoner. Boka lover ikke at trening på gamle sett gir gjenkjennelse — bare at bestillingen og fenomenene er de samme.",
     },
     {
@@ -2050,7 +2050,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
   'exfac03-spr-4-1': [
     {
       question: "Hva er en morf?",
-      options: ["Det konkrete segmentet i et ord, altså en avgrensbar bit du kan peke på i akkurat denne ordformen", "Den abstrakte enheten med innhold, som kan opptre med flere ulike former i ulike omgivelser i språket", "Én av flere former den samme abstrakte enheten kan ha, valgt av en betingelse som lar seg formulere", "Den minste enheten som skiller to ord fra hverandre uten selv å bære noe innhold i det hele tatt"],
+      options: ["Det konkrete segmentet i et ord, altså en avgrensbar bit du kan peke på i akkurat denne ordformen", "Den abstrakte enheten med innhold, som kan opptre med flere ulike former i språket", "Én av flere former den samme abstrakte enheten kan ha, valgt av en betingelse som lar seg formulere", "Den minste enheten som skiller to ord fra hverandre uten selv å bære noe innhold i det hele tatt"],
       explanation: "Morfen er den konkrete formen slik den står i ordet, og den er det du deler ordet opp i. Distraktorene beskriver morfemet, allomorfen og fonemet: morfemet er den abstrakte enheten bak morfen, allomorfen er én av flere former det samme morfemet kan ha, og enheten som skiller ord uten selv å ha innhold, er fonemet i fonologien.",
     },
     {
@@ -2085,7 +2085,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en nullmorf?",
-      options: ["En morf uten uttrykksside: plassen i paradigmet har innhold, men ingenting er lagt til formen", "En morf som har uttrykk, men ikke noe innhold, og som derfor bare fyller ut ordet rytmisk", "En form som mangler i paradigmet fordi ordet ikke bøyes i den grammatiske kategorien i det hele tatt", "En morf som er valgfri, slik at ordformen er like korrekt med og uten den i alle sammenhenger"],
+      options: ["En morf uten uttrykksside: plassen i paradigmet har innhold, men ingenting er lagt til formen", "En morf som har uttrykk, men ikke noe innhold, og som derfor bare fyller ut ordet rytmisk", "En form som mangler i paradigmet fordi ordet ikke bøyes i den grammatiske kategorien", "En morf som er valgfri, slik at ordformen er like korrekt med og uten den i alle sammenhenger"],
       explanation: "Nullmorfen er en påstand om en fylt plass uten lyd, ikke om en tom plass. Ville plassen i paradigmet manglet helt, ville det ikke vært noe innhold å knytte nullmorfen til, og analysen hadde vært tom. En morf uten innhold, eller en morf som er valgfri, er noe helt annet enn en nullmorf.",
     },
     {
@@ -2110,7 +2110,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er stavelsesgrensen et dårlig verktøy for å finne morfgrenser?",
-      options: ["Fordi stavelsen deler ordet etter rytme, mens morfen deles etter innhold, og de to sjelden faller sammen", "Fordi stavelsesgrensen alltid ligger inne i en morf, og en morfgrense derfor aldri kan være en stavelsesgrense", "Fordi stavelser bare finnes i talespråket, mens morfene bare kan avgrenses i den skrevne formen av ordet", "Fordi antall stavelser varierer med dialekten, mens antall morfer er det samme i alle norske varieteter"],
+      options: ["Fordi stavelsen deler ordet etter rytme, mens morfen deles etter innhold, og de to sjelden faller sammen", "Fordi stavelsesgrensen alltid ligger inne i en morf, og derfor aldri kan være en morfgrense", "Fordi stavelser bare finnes i talespråket, mens morfene bare kan avgrenses i den skrevne formen av ordet", "Fordi antall stavelser varierer med dialekten, mens antall morfer er det samme i alle norske varieteter"],
       explanation: "Stavelsen er en rytmisk enhet, morfen en meningsbærende enhet, og i et ord som hyllene deler de to prinsippene ordet på ulike steder. De faller riktignok noen ganger sammen, men aldri pålitelig nok til å brukes som argument. Morfer finnes både i tale og skrift, og påstanden om at stavelsesgrensen alltid ligger inne i en morf, er rett og slett usann.",
     },
     {
@@ -2135,7 +2135,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er skrivemåten et dårlig argument når du skal avgjøre morfemidentitet?",
-      options: ["Fordi skriftbildet er en historisk konvensjon, mens morfemidentiteten hviler på innhold og fordeling", "Fordi skrivemåten varierer mellom målformene, og bare den ene av dem regnes som gyldig i analysen", "Fordi to morfer som skrives likt, alltid tilhører ulike morfemer, slik at skrivemåten fører deg feil hver gang", "Fordi morfer ikke har noen skriftlig form i det hele tatt, og bare kan avgrenses i den uttalte formen"],
+      options: ["Fordi skriftbildet er en historisk konvensjon, mens morfemidentiteten hviler på innhold og fordeling", "Fordi skrivemåten varierer mellom målformene, og bare den ene av dem regnes som gyldig i analysen", "Fordi to morfer som skrives likt, alltid tilhører ulike morfemer, og skrivemåten fører feil", "Fordi morfer ikke har noen skriftlig form i det hele tatt, og bare kan avgrenses i den uttalte formen"],
       explanation: "Skriftbildet kan lure deg begge veier: det slår sammen morfer som -er i biler og -er i baker, og det skiller former som -ne og -ene, som hører sammen. Det er ikke slik at formlike morfer alltid tilhører ulike morfemer — noen ganger gjør de det, noen ganger ikke, og det er nettopp derfor skrivemåten ikke duger som prøve.",
     },
     {
@@ -2172,7 +2172,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "I hvilke ord faller rota og stammen sammen?",
-      options: ["I ord som verken er avledet eller sammensatt, slik at stammen består av nøyaktig én morf", "I alle ord som har et bøyningsformativ, siden bøyningen alltid fester seg direkte på rota", "I sammensetninger, siden begge røttene der inngår i den delen bøyningen fester seg til", "I ord med prefiks, siden prefikset regnes med i rota når det står foran den leksikalske kjernen"],
+      options: ["I ord som verken er avledet eller sammensatt, slik at stammen består av nøyaktig én morf", "I alle ord som har et bøyningsformativ, siden bøyningen alltid fester seg på rota", "I sammensetninger, siden begge røttene der inngår i den delen bøyningen fester seg til", "I ord med prefiks, siden prefikset regnes med i rota når det står foran den leksikalske kjernen"],
       explanation: "Faller de to sammen, er det fordi stammen bare inneholder én morf — som bygd i bygdene. I en sammensetning inneholder stammen minst to røtter og er dermed ikke identisk med noen av dem, og et prefiks regnes aldri som en del av rota.",
     },
     {
@@ -2202,7 +2202,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva sier rekkefølgeregelen?",
-      options: ["Bøyningsformativet står ytterst i ordet, og avledningsformativene ligger innenfor, nærmere rota", "Avledningsformativet står ytterst, og bøyningen ligger innenfor, rett utenpå den leksikalske rota", "Fugemorfen står ytterst i ordet, siden den binder sammen hele stammen med bøyningsformativet", "Rota står alltid først i ordet, og alle formativene følger etter den i den rekkefølgen de ble lagt til"],
+      options: ["Bøyningsformativet står ytterst i ordet, og avledningsformativene ligger innenfor, nærmere rota", "Avledningsformativet står ytterst, og bøyningen ligger innenfor, rett utenpå rota", "Fugemorfen står ytterst i ordet, siden den binder sammen hele stammen med bøyningsformativet", "Rota står alltid først i ordet, og alle formativene følger etter den i den rekkefølgen de ble lagt til"],
       explanation: "Bøyningen legges på til slutt og ligger derfor ytterst, med avledningene innenfor. Regelen er brukbar som kontroll: står det noe etter en morf du har merket som bøyningsformativ, er analysen feil et sted. Rota står heller ikke alltid først, siden prefikser står foran den.",
     },
     {
@@ -2287,7 +2287,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Oppgaven ber om fire ord som hver oppfyller sin egen morfologiske spesifikasjon, og kandidaten leverer tre. Hva er konsekvensen?",
-      options: ["Det trekker som feil #7, å gi færre eksempler enn oppgaven ber om, uansett hvor gode de tre er", "Det trekker ikke, så lenge de tre ordene som er levert, er riktig segmentert og fullstendig merket", "Det trekker bare hvis oppgaveteksten uttrykkelig oppgir hvor mange poeng hvert av punktene gir", "Det trekker som feil #4, siden et manglende punkt leses som manglende forståelse av systematikken"],
+      options: ["Det trekker som feil #7, å gi færre eksempler enn oppgaven ber om, uansett hvor gode de tre er", "Det trekker ikke, så lenge de tre ordene som er levert, er riktig segmentert", "Det trekker bare hvis oppgaveteksten uttrykkelig oppgir hvor mange poeng hvert av punktene gir", "Det trekker som feil #4, siden et manglende punkt leses som manglende forståelse"],
       explanation: "Fullstendighet er halve poenget i denne oppgaveformen, og et manglende punkt er et tapt punkt uansett kvaliteten på resten. Feil #4 gjelder noe helt annet, nemlig å nevne termer uten å forklare systematikken bak dem.",
     },
     {
@@ -2304,7 +2304,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er første trinn i segmenteringsprosedyren?",
-      options: ["Å finne rota eller røttene ved å lete etter det som bærer den leksikalske betydningen", "Å skrelle av bøyningsformativet ytterst, siden det alltid står lengst ut og derfor er lettest å kjenne igjen med en gang", "Å dele ordet i stavelser først", "Å merke fugemorfene først, fordi det er de som oftest blir stående umerket i en ferdig besvarelse"],
+      options: ["Å finne rota eller røttene ved å lete etter det som bærer den leksikalske betydningen", "Å skrelle av bøyningsformativet ytterst, siden det alltid står lengst ut og derfor er lettest å kjenne igjen med en gang", "Å dele ordet i stavelser først og bruke grensene som morfgrenser", "Å merke fugemorfene først, fordi det er de som oftest blir stående umerket i en ferdig besvarelse"],
       explanation: "Rota er utgangspunktet: finner du de leksikalske kjernene først, vet du med en gang om ordet er en sammensetning, og resten av lagene ordner seg utover derfra. Bøyningen skrelles av i trinn 2 og fugene merkes i trinn 4 — begge er riktige handlinger på feil plass i rekkefølgen. Stavelsesdeling er ikke en del av prosedyren i det hele tatt, fordi stavelsesgrenser og morfgrenser nesten aldri faller sammen.",
     },
     {
@@ -2314,7 +2314,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er -s- i arbeidsplassene?",
-      options: ["Et sammensetningsformativ, altså en fugemorf uten egen betydning", "Et bøyningsformativ som markerer eiendom, siden plassen hører til arbeidet som utføres der", "Et avledningsformativ som lager et nytt leksem av rota arbeid og skifter dens ordklasse", "En del av rota arbeids"],
+      options: ["Et sammensetningsformativ, altså en fugemorf uten egen betydning", "Et bøyningsformativ som markerer eiendom, siden plassen hører til arbeidet som utføres der", "Et avledningsformativ som lager et nytt leksem av rota arbeid og skifter dens ordklasse", "En del av rota arbeids, som er førsteleddets grunnform"],
       explanation: "Fugemorfen binder to røtter og betyr ingenting selv — den uttrykker verken eiendom eller flertall, selv om den ser ut som morfer som gjør nettopp det. Distraktoren om eiendom er den nære: formen er identisk med eieformens s, men arbeidet eier ikke plassen. Rota er arbeid, ikke arbeids.",
     },
     {
@@ -2324,12 +2324,12 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan segmenteres bakeriet?",
-      options: ["bak som rot, -eri som avledningsformativ og -et som bøyningsformativ", "bak som rot og -eriet som ett bøyningsformativ, siden hele enden uttrykker bestemt form entall av ordet", "bakeri som rot og -et som bøyningsformativ, siden bakeri ikke kan brytes ned i mindre deler med egen betydning", "bake som rot og -riet som bøyningsformativ"],
+      options: ["bak som rot, -eri som avledningsformativ og -et som bøyningsformativ", "bak som rot og -eriet som ett bøyningsformativ, siden hele enden uttrykker bestemt form entall av ordet", "bakeri som rot og -et som bøyningsformativ, siden bakeri ikke kan brytes ned i mindre deler med egen betydning", "bake som verbrot og -riet som ett samlet bøyningsformativ"],
       explanation: "Ordet har tre morfer: verbrota bak-, avledningen -eri som lager stedsbetegnelsen, og bøyningen -et. Fella med -eriet er å lese ordbildet som én ende, mens det er to morfer med hver sin funksjon. Og bakeri kan brytes ned, siden -eri lager stedsbetegnelser systematisk, som i trykkeri og gartneri.",
     },
     {
       question: "Hva er forskjellen på -er i lærerne og -er i skoger?",
-      options: ["I lærerne lager -er en personbetegnelse og er en avledning; i skoger uttrykker -er flertall og er bøyning", "I lærerne er -er en del av rota, mens -er i skoger er et bøyningsformativ som uttrykker ubestemt form flertall av substantivet", "Ingen — det er den samme morfen i begge ordene, og den merkes derfor likt uansett hvilket ord den står i", "I lærerne er -er et bøyningsformativ, og i skoger er det et sammensetningsformativ som binder to røtter sammen"],
+      options: ["I lærerne lager -er en personbetegnelse og er en avledning; i skoger uttrykker -er flertall og er bøyning", "I lærerne er -er en del av rota, mens -er i skoger er et bøyningsformativ som uttrykker flertall", "Ingen — det er den samme morfen i begge ordene, og den merkes derfor likt uansett hvilket ord den står i", "I lærerne er -er et bøyningsformativ, og i skoger er det et sammensetningsformativ som binder to røtter sammen"],
       explanation: "Formene er identiske, men funksjonene er ulike, og det er funksjonen som bestemmer merkelappen. Den nære fella er å behandle like former som samme morf; da mister man skillet mellom en personbetegnelse som er et nytt ordbokord, og en flertallsform av det samme ordet.",
     },
     {
@@ -2344,12 +2344,12 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Et ord gir 2 poeng, og trekket er 0,5 per feil. Hva sitter du igjen med etter tre feil i det ordet?",
-      options: ["0,5 poeng, altså en fjerdedel av det ordet kunne gitt", "1,5 poeng", "0 poeng, siden mer enn to feil i samme ord nuller uttellingen for det ordet i sin helhet", "1 poeng, siden trekket regnes av hele oppgavens sum og ikke av det enkelte ordet"],
+      options: ["0,5 poeng, altså en fjerdedel av det ordet kunne gitt", "1,5 poeng, siden trekket regnes én gang per ord", "0 poeng, siden mer enn to feil i samme ord nuller uttellingen for det ordet i sin helhet", "1 poeng, siden trekket regnes av hele oppgavens sum og ikke av det enkelte ordet"],
       explanation: "Tre feil trekker 1,5 poeng fra 2, og det gir 0,5 poeng igjen; fire feil nuller ordet. Fellene er å tro at trekket regnes én gang per ord, eller at det regnes av oppgavesummen — det regnes per feil, og et langt ord har derfor flere steder å tape på enn et kort.",
     },
     {
       question: "Hva er riktig om skolebibliotekene?",
-      options: ["Det er en sammensetning uten fugemorf, og -e-en i skole hører til rota", "Det er en sammensetning der -e- mellom skole og bibliotek er et sammensetningsformativ som binder de to røttene sammen", "Det er en avledning med skole- som prefiks", "Det er en sammensetning der -ene er et sammensetningsformativ og -e et bøyningsformativ i bestemt form"],
+      options: ["Det er en sammensetning uten fugemorf, og -e-en i skole hører til rota", "Det er en sammensetning der -e- mellom skole og bibliotek er et sammensetningsformativ som binder de to røttene sammen", "Det er en avledning med skole- som prefiks foran rota bibliotek", "Det er en sammensetning der -ene er et sammensetningsformativ og -e et bøyningsformativ i bestemt form"],
       explanation: "Mange sammensetninger har ingen fuge i det hele tatt, og da skal man ikke oppfinne en: skole slutter på -e i sin egen grunnform. Den nære fella er å lese den siste bokstaven i førsteleddet som en fugemorf, en feil som gir samme antall morfer, men gal merking på to av dem.",
     },
     {
@@ -2364,7 +2364,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er -dom i ungdomsskolelærerne?",
-      options: ["Et avledningsformativ som gjør adjektivet ung om til substantivet ungdom", "En rot, siden dom er et eget norsk ord", "Et bøyningsformativ som uttrykker en grammatisk kategori knyttet til alder hos den som omtales", "Et sammensetningsformativ som binder ung til det etterfølgende leddet i den lange sammensetningen"],
+      options: ["Et avledningsformativ som gjør adjektivet ung om til substantivet ungdom", "En rot, siden dom er et eget norsk ord", "Et bøyningsformativ som uttrykker en grammatisk kategori for alder", "Et sammensetningsformativ som binder ung til det etterfølgende leddet i den lange sammensetningen"],
       explanation: "Ungdom er et nytt leksem laget av adjektivet ung, og -dom er derfor en avledning. Den nære fella er at det finnes et selvstendig ord dom, men det betyr noe helt annet enn morfen i ungdom, sykdom og visdom, og formlikhet er ikke morfemidentitet. Fugen i ordet er -s-, ikke -dom.",
     },
     {
@@ -2374,7 +2374,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er poenget med å merke et ord som omstridt med begge lesninger skrevet ut?",
-      options: ["Å vise at man har sett problemet, siden begge analysene gir uttelling når begrunnelsen står der", "Å ta forbehold slik at man ikke kan trekkes for noen av de to analysene, uansett hvilken sensuren måtte foretrekke i det enkelte tilfellet", "Å slippe å velge, siden en oppgave som inneholder et grensetilfelle, ikke kan kreve at kandidaten konkluderer", "Å fylle svaret med mer tekst"],
+      options: ["Å vise at man har sett problemet, siden begge analysene gir uttelling når begrunnelsen står der", "Å ta forbehold slik at man ikke kan trekkes for noen av de to analysene, uansett hvilken sensuren måtte foretrekke i det enkelte tilfellet", "Å slippe å velge, siden en oppgave som inneholder et grensetilfelle, ikke kan kreve at kandidaten konkluderer", "Å fylle svaret med mer tekst, slik at besvarelsen ser grundigere ut"],
       explanation: "Grensetilfellet er ikke et sted å gjette, men et sted å vise arbeidet: du velger én analyse og sier hvorfor, og nevner at den andre også kan forsvares. Fella er å lese det som et forbehold man gjemmer seg bak — poenget er begrunnelsen, ikke garderingen, og en umerket morf er fortsatt et tap.",
     },
     {
@@ -2384,7 +2384,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skal en begrunnelseslinje inneholde?",
-      options: ["Hvorfor morfen fikk akkurat den merkelappen, i konkrete ord om betydning eller ordklasse", "En gjentakelse av merkelappen i en fullstendig setning, slik at analysen kan leses sammenhengende uten tabellen", "En henvisning til hvilket trinn i prosedyren merkingen ble gjort i, slik at framgangsmåten kan følges", "En opplysning om hvor mange morfer ordet har"],
+      options: ["Hvorfor morfen fikk akkurat den merkelappen, i konkrete ord om betydning eller ordklasse", "En gjentakelse av merkelappen i en fullstendig setning som kan leses uten tabellen", "En henvisning til hvilket trinn i prosedyren merkingen ble gjort i, slik at framgangsmåten kan følges", "En opplysning om hvor mange morfer ordet har"],
       explanation: "Begrunnelseslinjen svarer på hvorfor, mens merkingen svarer på hva: at -het gjør et adjektiv om til et substantiv, er en begrunnelse, mens at -het avleder, er bare merkelappen sagt om igjen. Tellingen er en nyttig kontroll, men den er ikke en begrunnelse for noen enkelt merking.",
     },
     {
@@ -2394,7 +2394,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er feil #5 i denne oppgavetypen?",
-      options: ["Å merke noen morfer og hoppe over resten, typisk fugene og de korteste endelsene", "Å dele ordet etter skrivemåten i stedet for etter morfene, slik at grensene havner der ordet ville blitt delt ved linjeskift", "Å skrive begrunnelseslinjer på alle morfene i ordet, også der merkingen er helt opplagt for enhver leser", "Å velge tabell i stedet for lineær merking"],
+      options: ["Å merke noen morfer og hoppe over resten, typisk fugene og de korteste endelsene", "Å dele ordet etter skrivemåten i stedet for etter morfene, slik at grensene havner der ordet ville blitt delt ved linjeskift", "Å skrive begrunnelseslinjer på alle morfene i ordet, også der merkingen er helt opplagt for enhver leser", "Å velge tabell i stedet for lineær merking av morfene i ordet"],
       explanation: "Feil #5 er å hoppe over et av oppgavens ledd, og i segmenteringen ser den ut som en analyse der røttene er navngitt og de små morfene står nakne. Ortografisk deling er også en typisk feil her, men den er en annen feil. Å velge tabell eller lineær merking er aldri en feil, siden oppsettet er fritt.",
     },
     {
@@ -2404,14 +2404,14 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Du er i tvil om merkelappen på en morf du har delt riktig ut. Hva lønner seg?",
-      options: ["Å skrive den merkelappen du tror mest på, og legge ved en begrunnelseslinje", "Å la merkelappen stå tom", "Å skrive begge merkelappene med skråstrek mellom, siden en dobbel merking aldri kan regnes som feil av sensuren", "Å stryke morfen fra analysen, slik at ordet får færre morfer og dermed færre steder å tape poeng"],
+      options: ["Å skrive den merkelappen du tror mest på, og legge ved en begrunnelseslinje", "Å la merkelappen stå tom, siden et blankt felt ikke kan bli feil", "Å skrive begge merkelappene med skråstrek mellom, siden en dobbel merking aldri kan regnes som feil av sensuren", "Å stryke morfen fra analysen, slik at ordet får færre morfer og dermed færre steder å tape poeng"],
       explanation: "En umerket morf koster like mye som en feilmerket, så det tomme feltet taper garantert, mens en begrunnet gjetning har en sjanse til full uttelling og viser hvordan du tenker. Å stryke morfen fjerner ikke tapet, den flytter det: delingen blir da gal i tillegg.",
     },
   ],
   'exfac03-spr-4-4': [
     {
       question: "Hva er forskjellen på trygghet og tryggere?",
-      options: ["Trygghet er et nytt leksem dannet av trygg, mens tryggere bare er en form av det samme ordet", "Begge er nye leksemer, men det ene er dannet med suffiks og det andre med et prefiks som ikke skifter ordklassen", "Trygghet er en form av trygg, mens tryggere er et nytt leksem fordi komparativen har sin egen betydning", "Ingen prinsipiell forskjell mellom dem"],
+      options: ["Trygghet er et nytt leksem dannet av trygg, mens tryggere bare er en form av det samme ordet", "Begge er nye leksemer, men det ene er dannet med suffiks og det andre med et prefiks som ikke skifter ordklassen", "Trygghet er en form av trygg, mens tryggere er et nytt leksem fordi komparativen har sin egen betydning", "Ingen prinsipiell forskjell mellom dem, siden begge består av rota trygg pluss en endelse som legges til på slutten"],
       explanation: "Testen er om ordet ville stått som eget oppslag i ordboka: trygghet ville det, tryggere ikke. Det første er orddanning, det andre er bøyning. Fella er å se på formen — begge er rot pluss endelse — i stedet for på statusen, og formlikheten er nettopp det som gjør paret verdt å nevne i et svar.",
     },
     {
@@ -2421,7 +2421,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor heter det et båthus, men en husbåt?",
-      options: ["Fordi genus arves fra hodet, og hodet er det siste leddet i begge ordene", "Fordi genus i sammensetninger bestemmes av det leddet som er lengst, målt i antall stavelser i uttalen", "Fordi genus i sammensetninger følger det første leddet, som er det som avgrenser betydningen av ordet", "Fordi de har fått ulikt genus i ordboka"],
+      options: ["Fordi genus arves fra hodet, og hodet er det siste leddet i begge ordene", "Fordi genus i sammensetninger bestemmes av det lengste av leddene", "Fordi genus i sammensetninger følger det første leddet, som er det som avgrenser betydningen av ordet", "Fordi de har fått ulikt genus i ordboka"],
       explanation: "Hodet står sist og gir ordet både ordklasse og genus: det heter et hus, altså et båthus, og en båt, altså en husbåt. Fella er å knytte genus til førsteleddet eller til lengden; ingen av delene har noe med saken å gjøre, og paret er nettopp derfor et så tydelig eksempel.",
     },
     {
@@ -2431,12 +2431,12 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Har kirkegård en fugemorf?",
-      options: ["Nei — kirke slutter på -e i sin egen grunnform, så det er ingen bindende morf mellom leddene", "Ja, -e- mellom kirke og gård er et sammensetningsformativ på samme måte som -e- i hestesko er det", "Ja, men den er et bøyningsformativ, siden -e er den bestemte formen av substantivet kirke i eldre norsk", "Nei, fordi ord med to stavelser i førsteleddet aldri tar fugemorf i norsk"],
+      options: ["Nei — kirke slutter på -e i sin egen grunnform, så det er ingen bindende morf mellom leddene", "Ja, -e- mellom kirke og gård er et sammensetningsformativ, som -e- i hestesko", "Ja, men den er et bøyningsformativ, siden -e er den bestemte formen av substantivet kirke i eldre norsk", "Nei, fordi ord med to stavelser i førsteleddet aldri tar fugemorf i norsk"],
       explanation: "Testen er om førsteleddet ser likedan ut alene: kirke er kirke også i kirkegård, mens hest blir heste- i hestesko. Den nære fella er å lese den siste bokstaven i førsteleddet som en fuge — en feil som gir riktig antall morfer, men gal merking på to av dem. Stavelsestall styrer ingenting her.",
     },
     {
       question: "Hva skiller en sammensetning fra en avledning?",
-      options: ["I sammensetningen kan begge leddene stå alene som ord; i avledningen kan bare det ene", "I sammensetningen skifter ordet alltid ordklasse, mens avledningen bare endrer betydningen uten å flytte ordet", "Sammensetningen er alltid lengre enn to stavelser, mens avledninger i norsk er systematisk kortere enn det", "Sammensetningen gir nytt oppslag, avledningen ny form"],
+      options: ["I sammensetningen kan begge leddene stå alene som ord; i avledningen kan bare det ene", "I sammensetningen skifter ordet alltid ordklasse, det gjør ikke avledningen", "Sammensetningen er alltid lengre enn to stavelser, mens avledninger i norsk er systematisk kortere enn det", "Sammensetningen gir nytt oppslag, avledningen ny form"],
       explanation: "Kjennetegnet er selvstendigheten: sommer og ferie kan begge stå alene, men -het og u- kan ikke. Fella om ordklasseskifte er snudd på hodet — det er avledningen som ofte skifter klasse, mens sammensetningen aldri gjør det. Og begge deler er orddanning, så begge gir nye oppslag.",
     },
     {
@@ -2446,27 +2446,27 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva gjør suffikset -het?",
-      options: ["Det gjør et adjektiv om til et substantiv, som når trygg blir trygghet", "Det gjør et substantiv om til et adjektiv, som når konge blir kongelig, og hører derfor til de klasseskiftende suffiksene", "Det gjør et verb om til en personbetegnelse, slik at den som utfører handlingen, får et eget navn", "Det gir bare en ny form av adjektivet"],
+      options: ["Det gjør et adjektiv om til et substantiv, som når trygg blir trygghet", "Det gjør et substantiv om til et adjektiv, som når konge blir kongelig, og hører derfor til de klasseskiftende suffiksene", "Det gjør et verb om til en personbetegnelse, slik at den som utfører handlingen, får et eget navn", "Det gir bare en ny form av adjektivet, slik gradbøyning gjør"],
       explanation: "-het er en nominalisering: adjektivet blir substantiv, og resultatet er et nytt oppslag i ordboka. De nære distraktorene beskriver andre suffikser — -lig går motsatt vei, og -er lager personbetegnelser av verb. Og påstanden om at -het bare gir en ny form av adjektivet, ville gjort suffikset til bøyning, som det ikke er.",
     },
     {
       question: "Hva er en nominalisering?",
-      options: ["En avledning som gjør et verb eller et adjektiv om til et substantiv", "En sammensetning der hodet er et substantiv, slik at hele ordet blir et substantiv uansett hva utfyllingen er", "En bøyningsform av et substantiv i bestemt form, som brukes når handlingen omtales som en ting", "Et annet navn på konversjon"],
+      options: ["En avledning som gjør et verb eller et adjektiv om til et substantiv", "En sammensetning der hodet er et substantiv, slik at hele ordet blir et substantiv uansett hva utfyllingen er", "En bøyningsform av et substantiv i bestemt form, som brukes når handlingen omtales som en ting", "Et annet navn på konversjon, der ingen morf legges til"],
       explanation: "Bygging, bevegelse og trygghet er nominaliseringer: et verb eller adjektiv er gjort om til et substantiv med et suffiks. Den nære fella er konversjonen — et hopp er også et substantiv laget av et verb, men der er ingen morf lagt til, og nominalisering brukes om avledningen. Bruker du ordet i et svar, si hvilket suffiks som gjør jobben.",
     },
     {
       question: "Hva betyr det at -dom er et uproduktivt avledningsformativ?",
-      options: ["At det finnes i eksisterende ord som visdom og ungdom, men ikke brukes til å lage nye ord", "At det ikke lenger skal skilles ut som egen morf i en segmentering, siden det ikke danner ord i moderne norsk", "At ordene som inneholder det, er lite brukt i moderne norsk og derfor regnes som foreldede oppslag", "At det bare kan festes til adjektiver"],
+      options: ["At det finnes i eksisterende ord som visdom og ungdom, men ikke brukes til å lage nye ord", "At det ikke lenger skal skilles ut som egen morf i en segmentering, siden det ikke danner ord i moderne norsk", "At ordene som inneholder det, er lite brukt i moderne norsk og derfor regnes som foreldede oppslag", "At det bare kan festes til adjektiver, aldri til substantiver"],
       explanation: "Produktivitet handler om dannelsen, ikke om ordene: visdom og ungdom er hverdagsord, men ingen lager nye ord på -dom. Den farligste distraktoren er den om segmenteringen — et uproduktivt formativ skal fortsatt skilles ut og merkes, siden det har gjort jobben sin en gang.",
     },
     {
       question: "Hva skiller forkorting fra sammentrekning?",
-      options: ["Forkortingen kapper ett ord, mens sammentrekningen smelter sammen deler av to", "Forkortingen fjerner det som ser ut som en avledning, mens sammentrekningen kapper en vilkårlig bit av ordet", "Forkorting dekker bare initialord", "Forkortingen gir et nytt leksem, mens sammentrekningen bare gir en uformell variant av et ord som finnes"],
+      options: ["Forkortingen kapper ett ord, mens sammentrekningen smelter sammen deler av to", "Forkortingen fjerner det som ser ut som en avledning, mens sammentrekningen kapper en vilkårlig bit av ordet", "Forkorting dekker bare initialord dannet av forbokstavene", "Forkortingen gir et nytt leksem, mens sammentrekningen bare gir en uformell variant av et ord som finnes"],
       explanation: "App er en bit av applikasjon, mens motell er deler av motor og hotell smeltet sammen — antall kildeord er det som skiller. Den nære fella er tilbakedanning, som også gjør ordet kortere, men som fjerner nøyaktig det som ser ut som en avledning. Initialord er en undertype av forkorting, ikke hele den.",
     },
     {
       question: "Hva er SFO et eksempel på?",
-      options: ["Et initialord, altså en forkortingstype dannet av forbokstavene i et flerordsuttrykk", "En sammentrekning, siden deler av flere ord er smeltet sammen til én kortere enhet som uttales som ett ord", "En konversjon, siden et flerordsuttrykk er tatt i bruk som ett enkelt substantiv uten at noe er lagt til", "En sammensetning, siden ordet består av flere selvstendige ledd satt etter hverandre"],
+      options: ["Et initialord, altså en forkortingstype dannet av forbokstavene i et flerordsuttrykk", "En sammentrekning, siden deler av flere ord er smeltet sammen til én enhet", "En konversjon, siden et flerordsuttrykk er tatt i bruk som ett substantiv", "En sammensetning, siden ordet består av flere selvstendige ledd satt etter hverandre"],
       explanation: "Initialordet bygger på forbokstavene, og det er en undertype av forkorting. Sammentrekningen smelter derimot sammen biter av ord, som i motell, og konversjonen forutsetter et ordklasseskifte uten tilføyd morf. Ingen av leddene i SFO er selvstendige ord, så en sammensetning er det ikke.",
     },
     {
@@ -2476,22 +2476,22 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er skyskraper et eksempel på?",
-      options: ["Et oversettelseslån, der byggemåten og ikke lydformen er hentet fra et annet språk", "Et lån i vanlig forstand, siden ordet er hentet inn fra engelsk med sin opprinnelige lydform i behold", "En ren norsk sammensetning uten noe lån i historien, siden begge leddene er arvede norske ord", "En tilbakedanning av et lengre engelsk uttrykk som er kortet ned i norsk"],
+      options: ["Et oversettelseslån, der byggemåten og ikke lydformen er hentet fra et annet språk", "Et lån i vanlig forstand, siden ordet er hentet fra engelsk med lydformen", "En ren norsk sammensetning uten noe lån i historien, siden begge leddene er arvede norske ord", "En tilbakedanning av et lengre engelsk uttrykk som er kortet ned i norsk"],
       explanation: "Delene er norske, men mønsteret er kopiert fra et engelsk ord — det er nettopp definisjonen på et oversettelseslån. Å svare sammensetning er ikke galt om formen, men det svarer ikke på hvor ordet kommer fra, og det er spørsmålet i en oppgave om orddanningsmåte.",
     },
     {
       question: "Hvordan er verbet å nødlande dannet?",
-      options: ["Ved tilbakedanning: -ing er fjernet fra substantivet nødlanding", "Ved sammensetning: substantivet nød er satt sammen med verbet lande, slik norske sammensetninger vanligvis dannes", "Ved konversjon: substantivet nødlanding er tatt i bruk som verb uten at noen morf er endret i ordet", "Ved avledning fra rota land"],
+      options: ["Ved tilbakedanning: -ing er fjernet fra substantivet nødlanding", "Ved sammensetning: substantivet nød er satt sammen med verbet lande, slik norske sammensetninger vanligvis dannes", "Ved konversjon: substantivet nødlanding er tatt i bruk som verb uten at noen morf er endret i ordet", "Ved avledning fra rota land, med nød som forstavelse"],
       explanation: "Substantivet er eldst, og verbet er laget ved at det som ser ut som avledningsformativet -ing, er tatt bort — altså motsatt retning av vanlig avledning. Den nære fella er sammensetning: ordet ser sammensatt ut, men rekkefølgen i historien er den motsatte. Konversjon forutsetter at ingenting fjernes.",
     },
     {
       question: "Oppgaven ber om to eksempler på hver orddanningsmåte, og du gir ett. Hva skjer?",
-      options: ["Punktet gir redusert uttelling, siden færre eksempler enn bestilt trekker", "Ingenting, så lenge det ene eksempelet er riktig og begrunnet med en fullstendig setning under hvert punkt", "Hele oppgaven regnes som ubesvart, siden et ledd som ikke er fullt besvart, ikke telles med i det hele tatt", "Antallet teller ikke i vurderingen"],
+      options: ["Punktet gir redusert uttelling, siden færre eksempler enn bestilt trekker", "Ingenting, så lenge det ene eksempelet er riktig og begrunnet med en fullstendig setning under hvert punkt", "Hele oppgaven regnes som ubesvart, siden et ledd som ikke er fullt besvart, ikke telles med i det hele tatt", "Antallet teller ikke i vurderingen, bare kvaliteten på svaret"],
       explanation: "Feil #7 er å gi færre eksempler enn oppgaven ber om, og H2018 sier uttrykkelig at det trekker. Det er den billigste feilen i emnet, fordi den ikke skyldes manglende kunnskap, men manglende telling. Et godt begrunnet enkelteksempel reparerer ikke antallet.",
     },
     {
       question: "Hva sier H2020 om egne eksempler som er begrunnet?",
-      options: ["At de teller litt mer, også når oppgaven ikke uttrykkelig ber om noen begrunnelse", "At de bare teller når oppgaven eksplisitt ber om en forklaring, og ellers regnes som overflødig tekst i besvarelsen", "At de erstatter kravet om antall, slik at ett grundig begrunnet eksempel kan stå i stedet for to enkle", "At de teller mer enn klassifiseringen"],
+      options: ["At de teller litt mer, også når oppgaven ikke uttrykkelig ber om noen begrunnelse", "At de bare teller når oppgaven eksplisitt ber om en forklaring, og ellers regnes som overflødig tekst i besvarelsen", "At de erstatter kravet om antall, slik at ett grundig begrunnet eksempel kan stå i stedet for to enkle", "At de teller mer enn klassifiseringen av orddanningsmåten"],
       explanation: "Begrunnede egeneksempler teller litt mer selv når begrunnelsen ikke er bedt om, og det gjør setningen til en billig investering. Fellene er å tro at den erstatter antallskravet, eller at klassifiseringen er verdiløs — begge deler telles, og det er summen som gir uttellingen.",
     },
     {
@@ -2506,7 +2506,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor står hodet til høyre i norske sammensetninger noe boka trekker fram som et typologisk poeng?",
-      options: ["Fordi hodeplassering er et trekk ved det enkelte språket, og dermed noe språk kan sammenlignes på", "Fordi alle språk plasserer hodet til høyre i sammensetninger, slik at trekket kan brukes som en universell regel", "Fordi hodeplasseringen i norsk varierer fra ord til ord, og variasjonen må derfor forklares typologisk", "Fordi sammensetning finnes i alle språk"],
+      options: ["Fordi hodeplassering er et trekk ved det enkelte språket, og dermed noe språk kan sammenlignes på", "Fordi alle språk plasserer hodet til høyre i sammensetninger, slik at trekket kan brukes som en universell regel", "Fordi hodeplasseringen i norsk varierer fra ord til ord, og variasjonen må derfor forklares typologisk", "Fordi sammensetning finnes i alle språk og derfor må forklares likt"],
       explanation: "Regelen gjelder så godt som unntaksfritt i norsk, men den er ikke universell — nettopp derfor er den en parameter språk kan sammenlignes på. Fella er å gjøre den til en universell regel; da forsvinner hele poenget med å sammenligne. Og hodeplasseringen i norsk varierer ikke, den er stabil.",
     },
   ],
@@ -2518,12 +2518,12 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hus og eple er begge intetkjønn, men bøyes ulikt i flertall. Hva viser det?",
-      options: ["At genus ikke alene bestemmer bøyningsklassen, siden ordene får henholdsvis nullendelse og -er", "At det ene ordet egentlig ikke er intetkjønn, siden intetkjønnsord alltid har lik form i entall og flertall i norsk", "At flertallsformen er et stilvalg i norsk, slik at begge formene er tillatt for begge ordene i skrift", "At eple hører til en annen ordklasse enn hus"],
+      options: ["At genus ikke alene bestemmer bøyningsklassen, siden ordene får henholdsvis nullendelse og -er", "At det ene ordet egentlig ikke er intetkjønn, siden intetkjønnsord alltid har lik form i entall og flertall i norsk", "At flertallsformen er et stilvalg i norsk, slik at begge formene er tillatt for begge ordene i skrift", "At eple hører til en annen ordklasse enn hus, og derfor bøyes ulikt"],
       explanation: "Begge er intetkjønn og får -et i bestemt entall, men bare det ene får -er i flertall, og genus alene avgjør derfor ikke klassen. Fella om ordklasse er nær: ordklassen er felles for begge, det er bøyningsklassen som skiller dem. Og flertallsformen her er ikke valgfri.",
     },
     {
       question: "Hvorfor er paradigmet, og ikke oppslagsformen, grunnlaget for å plassere et ord i en bøyningsklasse?",
-      options: ["Fordi oppslagsformen er ett punkt i paradigmet og sier lite om hvilke formativer ordet tar ellers", "Fordi oppslagsformen er den eneste formen som er normert, mens de øvrige formene varierer mellom talemålene", "Fordi paradigmet viser ordets betydning, og bøyningsklassene i norsk er inndelt etter betydning", "Fordi oppslagsformen alltid er identisk i alle klassene, slik at den ikke kan skille noe som helst"],
+      options: ["Fordi oppslagsformen er ett punkt i paradigmet og sier lite om hvilke formativer ordet tar ellers", "Fordi oppslagsformen er den eneste formen som er normert, mens de øvrige formene varierer", "Fordi paradigmet viser ordets betydning, og bøyningsklassene i norsk er inndelt etter betydning", "Fordi oppslagsformen alltid er identisk i alle klassene, slik at den ikke kan skille noe som helst"],
       explanation: "Bil, bok og hus ser like ut som oppslagsord, og det er flertallsformen som skiller dem — derfor må formene settes opp før man konkluderer. Fellene er å tro at klassene er inndelt etter betydning, eller at oppslagsformen aldri skiller noe; den skiller av og til, den er bare ikke pålitelig alene.",
     },
     {
@@ -2533,7 +2533,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er omlyden i bok og bøker?",
-      options: ["Et vokalskifte i selve rota, ikke en morf som er lagt til", "Et bøyningsformativ som uttrykker flertall, og som kommer i tillegg til flertallsendelsen -er i ordet", "Et avledningsformativ, siden vokalskiftet gir et nytt leksem med sin egen betydning i ordboka", "En ren skrivemåteforskjell"],
+      options: ["Et vokalskifte i selve rota, ikke en morf som er lagt til", "Et bøyningsformativ som uttrykker flertall, og som kommer i tillegg til flertallsendelsen -er i ordet", "Et avledningsformativ, siden vokalskiftet gir et nytt leksem med sin egen betydning i ordboka", "En ren skrivemåteforskjell uten følger for uttalen"],
       explanation: "Ingen morf er lagt til; det er rota selv som skifter form, og endelsen -er kommer i tillegg og gjør sin egen jobb. Fella er å kalle vokalskiftet et formativ — formativer er morfer, og her er det snakk om to former av samme rot, altså allomorfer. Skrivemåten følger uttalen her.",
     },
     {
@@ -2543,7 +2543,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et referanseord?",
-      options: ["Et ord du kan bøyningen av fra før, og som du sammenligner det ukjente ordet med", "Det ordet i en klasse som er mest brukt, og som derfor har gitt klassen navnet den er kjent under", "Det ordet oppgaveteksten selv oppgir som utgangspunkt for analysen av de øvrige ordene", "Et ord som viser til noe utenfor teksten"],
+      options: ["Et ord du kan bøyningen av fra før, og som du sammenligner det ukjente ordet med", "Det ordet i en klasse som er mest brukt, og som har gitt klassen navnet", "Det ordet oppgaveteksten selv oppgir som utgangspunkt for analysen av de øvrige ordene", "Et ord som viser til noe utenfor teksten"],
       explanation: "Referanseordet er en representant for klassen, ikke en definisjon av den: bil for den store hankjønnsgruppen, bok for omlydsgruppen, kaste for a-verbene. Grepet gjør sammenligningen konkret og gir deg formuleringen «bøyes som X og ikke som Y». Alternativet om ord som viser til noe utenfor teksten, beskriver referanse i semantikken, som er en helt annen sak.",
     },
     {
@@ -2553,7 +2553,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner et sterkt verb?",
-      options: ["Preteritum dannes ved vokalskifte i rota, uten d- eller t-endelse", "Preteritum dannes med en endelse som inneholder d eller t, og rotvokalen står urørt gjennom hele paradigmet", "Verbet er høyfrekvent og gammelt, og hører derfor til den delen av ordforrådet som er arvet fra norrønt", "Verbet mangler infinitivsendelse"],
+      options: ["Preteritum dannes ved vokalskifte i rota, uten d- eller t-endelse", "Preteritum dannes med en endelse som inneholder d eller t, og rotvokalen står urørt gjennom hele paradigmet", "Verbet er høyfrekvent og gammelt, og hører derfor til den delen av ordforrådet som er arvet fra norrønt", "Verbet mangler infinitivsendelse på -e i grunnformen"],
       explanation: "Skrive, skrev, har skrevet: ingen dental endelse i preteritum, men skiftende vokal. Distraktoren om endelse beskriver de svake verbene, og den om manglende infinitivsendelse beskriver kortverbene. At de sterke verbene er gamle og hyppige, er sant nok, men det er en observasjon om gruppen, ikke kjennetegnet man klassifiserer etter.",
     },
     {
@@ -2563,7 +2563,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken form er den avgjørende for adjektiver?",
-      options: ["Komparativen, siden den viser om gradbøyningen skjer med endelse eller med et eget ord foran", "Intetkjønnsformen, siden det er der man ser om adjektivet i det hele tatt lar seg samsvarsbøye i norsk", "Flertallsformen på -e, siden den er felles for flertall og bestemt form og dermed dekker to kategorier", "Positivformen, siden det er den formen adjektivet står i når det slås opp i en ordbok"],
+      options: ["Komparativen, siden den viser om gradbøyningen skjer med endelse eller med et eget ord foran", "Intetkjønnsformen, siden det er der man ser om adjektivet lar seg samsvarsbøye", "Flertallsformen på -e, siden den er felles for flertall og bestemt form og dermed dekker to kategorier", "Positivformen, siden det er den formen adjektivet står i når det slås opp i en ordbok"],
       explanation: "Fin gir finere, mens interessant gir mer interessant — der skiller mønstrene lag. Intetkjønnsformen er interessant og verdt å kommentere, men den skiller færre ord, og positivformen skiller ingen. Å peke på riktig rute er kortere og skarpere enn å ramse opp hele paradigmet.",
     },
     {
@@ -2573,22 +2573,22 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "På hvilken måte er et klasseskille også et allomorfiskille?",
-      options: ["Fordi -et, -te og -de alle uttrykker preteritum, og klassen er betingelsen som velger mellom dem", "Fordi hver bøyningsklasse har sitt eget morfem for preteritum, slik at klassene uttrykker litt ulike ting om tid", "Fordi allomorfer per definisjon er former som kan byttes fritt, slik at ethvert verb kan ta enhver av endelsene", "Fordi det er røttene som er allomorfer"],
+      options: ["Fordi -et, -te og -de alle uttrykker preteritum, og klassen er betingelsen som velger mellom dem", "Fordi hver bøyningsklasse har sitt eget morfem for preteritum, slik at klassene uttrykker litt ulike ting om tid", "Fordi allomorfer per definisjon er former som kan byttes fritt, slik at ethvert verb kan ta enhver av endelsene", "Fordi det er røttene, ikke endelsene, som er allomorfer her"],
       explanation: "Formene uttrykker samme innhold, står i utfyllende fordeling og velges av en formulerbar betingelse — det er nettopp definisjonen på allomorfer. Fella om ulike morfemer snur det på hodet: hadde de vært ulike morfemer, ville de uttrykt ulikt innhold. Og allomorfer kan ikke byttes fritt; det ville vært fri variasjon.",
     },
     {
       question: "Hva er feil #8 i denne oppgavetypen?",
-      options: ["Å plassere ordet i en klasse uten å begrunne plasseringen", "Å sette opp hele paradigmet i svaret i stedet for bare å oppgi den formen som avgjør klassetilhørigheten", "Å bruke et referanseord som leseren ikke kan forventes å kjenne bøyningen av fra før av", "Å oppgi genus i tillegg"],
+      options: ["Å plassere ordet i en klasse uten å begrunne plasseringen", "Å sette opp hele paradigmet i svaret i stedet for bare å oppgi den formen som avgjør klassetilhørigheten", "Å bruke et referanseord som leseren ikke kan forventes å kjenne bøyningen av fra før av", "Å oppgi genus i tillegg til bøyningsklassen i svaret"],
       explanation: "Konklusjonen alene er den delen som er lettest å gjette, og derfor er det forklaringen som veier tyngst i klassifiseringsspørsmål. Å sette opp hele paradigmet er ikke en feil, bare mindre skarpt enn å peke på den avgjørende ruta, og genus kan godt nevnes som ett av flere kjennetegn.",
     },
     {
       question: "Hva er galt med svaret «ordet er et e-verb», uten mer?",
-      options: ["Det navngir klassen uten å si hva som definerer den, som er feil #4", "Det bruker et klassenavn som ikke finnes i norsk grammatikk, siden de svake verbene bare deles i to grupper", "Det oppgir konklusjonen først, mens rekkefølgen i denne sjangeren skal være paradigme, referanseord og deretter navn", "Det mangler opplysning om genus"],
+      options: ["Det navngir klassen uten å si hva som definerer den, som er feil #4", "Det bruker et klassenavn som ikke finnes i norsk grammatikk, siden de svake verbene bare deles i to grupper", "Det oppgir konklusjonen først, mens rekkefølgen i denne sjangeren skal være paradigme, referanseord og deretter navn", "Det mangler opplysning om genus, som svaret også må oppgi"],
       explanation: "Setningen som mangler, er kort: at klassen får -te eller -de i preteritum, og at partisippet er kortere enn preteritumsformen. Feil #4 er nettopp å nevne fagtermer uten å forklare systematikken bak dem. Klassenavnet finnes, og genus er ikke en kategori for verb.",
     },
     {
       question: "Hvor godt dokumentert er bøyningsklasser som eksamenstema i dette materialet?",
-      options: ["Temaet er dokumentert i 1 av 6 terminer og gir 5 av 65 poeng der det står", "Temaet står i flere terminer, men er bare poengsatt i den nyeste av dem, og vekten er derfor kjent for én termin", "Temaet er dokumentert i alle terminene med kjent temafordeling, men med ulik poengvekt fra gang til gang", "Temaet er ikke dokumentert i materialet"],
+      options: ["Temaet er dokumentert i 1 av 6 terminer og gir 5 av 65 poeng der det står", "Temaet står i flere terminer, men er bare poengsatt i den nyeste av dem, og vekten er derfor kjent for én termin", "Temaet er dokumentert i alle terminene med kjent temafordeling, men med ulik poengvekt fra gang til gang", "Temaet er ikke dokumentert i noen av terminene i materialet"],
       explanation: "Ett spørsmål i én termin er et tynt belegg, og boka sier det høyt i stedet for å la temaet se mer etablert ut enn det er. Distraktorene overdriver dekningen i hver sin retning; temaet finnes i materialet, men bare én gang, og det er derfor kapitlet er kort.",
     },
     {
@@ -2598,7 +2598,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hunkjønnsordet bok kan bøyes både som ei bok og boka og som en bok og boken. Hva er det viktigste kravet til en besvarelse som bruker slike ord?",
-      options: ["At bøyningen er konsekvent gjennom hele svaret, siden begge mønstrene er tillatt", "At hunkjønnsformen brukes, siden ordet er hunkjønn og hankjønnsbøyning derfor er en tilnærming som ikke er presis", "At hankjønnsformen brukes, siden den er den mest utbredte i moderne skriftlig bokmål og dermed den nøytrale", "At begge formene oppgis hver gang"],
+      options: ["At bøyningen er konsekvent gjennom hele svaret, siden begge mønstrene er tillatt", "At hunkjønnsformen brukes, siden ordet er hunkjønn og hankjønnsbøyning derfor er en tilnærming som ikke er presis", "At hankjønnsformen brukes, siden den er den mest utbredte i moderne skriftlig bokmål og dermed den nøytrale", "At begge formene oppgis hver gang ordet nevnes i svaret"],
       explanation: "Valget er et stilvalg, ikke et spørsmål om rett og galt, og det som betyr noe, er at du holder deg til det du valgte. Distraktorene gjør det ene mønsteret obligatorisk, hver sin vei, og den siste gjør et enkelt valg til en dobbeltføring som bare stjeler plass.",
     },
   ],
@@ -2610,12 +2610,12 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilket kriterium står sterkest når ordklassen til et ord skal bestemmes?",
-      options: ["Formkriteriet, altså hvilke bøyningsformer ordet kan ha, siden formene lar seg etterprøve", "Betydningskriteriet, siden innholdet i ordet er det man legger merke til først og lettest kan beskrive", "Funksjonskriteriet, siden plassen i setningen alltid avgjør hva slags ord man har med å gjøre", "Alle tre veier likt, og man velger fritt"],
+      options: ["Formkriteriet, altså hvilke bøyningsformer ordet kan ha, siden formene lar seg etterprøve", "Betydningskriteriet, siden innholdet i ordet er det man legger merke til først og lettest kan beskrive", "Funksjonskriteriet, siden plassen i setningen alltid avgjør hva slags ord man har med å gjøre", "Alle tre kriteriene veier likt, og man kan velge fritt mellom dem"],
       explanation: "Formkriteriet er sterkest fordi bøyningsformer er etterprøvbare: du setter ordet inn i paradigmet og ser om det passer. Betydning er den vanligste fella, fordi den ofte peker riktig og likevel ikke tåler et motargument — «løping» betegner en handling og er substantiv. Funksjonskriteriet er nest sterkest og brukes der bøyningen svikter.",
     },
     {
       question: "Hva er hodet i frasen «bak den gamle låven»?",
-      options: ["Preposisjonen «bak», som er det eneste ordet i frasen som ikke lar seg stryke", "Substantivet «låven», som bærer mest innhold i frasen og derfor er den delen leseren merker seg", "Adjektivet «gamle», som gjør frasen mer presis", "Determinativet «den»"],
+      options: ["Preposisjonen «bak», som er det eneste ordet i frasen som ikke lar seg stryke", "Substantivet «låven», som bærer mest innhold i frasen og derfor er den delen leseren merker seg", "Adjektivet «gamle», som gjør frasen mer presis", "Determinativet «den», som avgrenser frasen"],
       explanation: "Stryker du «bak», faller hele frasen ut av setningen, mens de andre ordene kan strykes. Fella er å velge det ordet som bærer mest innhold: «låven» er hodet i nominalfrasen «den gamle låven», men den nominalfrasen er bare utfylling inne i preposisjonsfrasen.",
     },
     {
@@ -2635,7 +2635,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skiller et determinativ fra et pronomen?",
-      options: ["Determinativet står til et substantiv, mens pronomenet står i stedet for hele nominalfrasen", "Determinativet er alltid ubøyelig", "Determinativet kan bare stå først i setningen, mens pronomenet kan stå hvor som helst i den", "Determinativet hører til de åpne ordklassene, mens pronomenet hører til de lukkede klassene i språket"],
+      options: ["Determinativet står til et substantiv, mens pronomenet står i stedet for hele nominalfrasen", "Determinativet er alltid ubøyelig, mens pronomenet bøyes", "Determinativet kan bare stå først i setningen, mens pronomenet kan stå hvor som helst i den", "Determinativet hører til de åpne ordklassene, mens pronomenet hører til de lukkede klassene i språket"],
       explanation: "Prøven er om ordet har et substantiv ved siden av seg: «denne kuben» har determinativ, mens «denne» brukt alene er pronomen. Fella er å skille på bøyning, som ikke gir noe klart svar her. Nettopp fordi pronomenet dekker hele frasen, er det det beste verktøyet i erstatningstesten.",
     },
     {
@@ -2650,7 +2650,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skiller et adjektiv fra et adverb i praksis?",
-      options: ["Adjektivet kan stå foran et substantiv og samsvarsbøyes med det, slik adverbet ikke kan gjøre", "Adjektivet gradbøyes, mens adverbet aldri lar seg gradbøye i noen form for norsk skriftspråk", "Adjektivet står alltid etter verbet, mens adverbet må stå foran verbet i en fortellende setning", "Adjektivet er hode i en frase, mens adverbet aldri kan være hode i noen frase i det hele tatt"],
+      options: ["Adjektivet kan stå foran et substantiv og samsvarsbøyes med det, slik adverbet ikke kan gjøre", "Adjektivet gradbøyes, mens adverbet aldri lar seg gradbøye i noen form for norsk skriftspråk", "Adjektivet står alltid etter verbet, mens adverbet må stå foran verbet i setningen", "Adjektivet er hode i en frase, mens adverbet aldri kan være hode i noen frase i det hele tatt"],
       explanation: "«Den ivrige birøkteren» går, mens «den fort birøkteren» ikke gjør det, og det er samsvarsbøyningen som avgjør. Fella er gradbøyning: noen adverb gradbøyes faktisk, som «ofte — oftere — oftest». Adverb er dessuten hode i adverbfraser, så det siste kriteriet holder ikke.",
     },
     {
@@ -2665,7 +2665,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner en nominalfrase?",
-      options: ["Den har et substantiv eller et pronomen som hode", "Den inneholder alltid et determinativ", "Den står alltid først i setningen, siden nominalfraser er de vanligste subjektene i norsk", "Den kan ikke inneholde andre fraser inne i seg, for da regnes den som en sammensatt konstruksjon"],
+      options: ["Den har et substantiv eller et pronomen som hode", "Den inneholder alltid et determinativ i seg", "Den står alltid først i setningen, siden nominalfraser er de vanligste subjektene i norsk", "Den kan ikke inneholde andre fraser inne i seg, for da regnes den som en sammensatt konstruksjon"],
       explanation: "Kategorien følger av hodet, og både «bikubene» og «nabolagets ivrigste birøkter» er nominalfraser. Fella er å kreve utfyllinger: en nominalfrase kan bestå av hodet alene. Nominalfraser kan i tillegg romme både adjektivfraser og preposisjonsfraser.",
     },
     {
@@ -2700,7 +2700,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en konstituent?",
-      options: ["En sammenhengende bit av setningen som hører sammen og fungerer som én enhet i den", "Enhver rekke av ord som står ved siden av hverandre", "Det minste ordet i en frase", "Et ledd som er nødvendig for at setningen skal være grammatisk"],
+      options: ["En sammenhengende bit av setningen som hører sammen og fungerer som én enhet i den", "Enhver rekke av ord som står ved siden av hverandre", "Det minste enkeltordet som inngår i en frase", "Et ledd som er nødvendig for at setningen skal være grammatisk"],
       explanation: "«Til Vangsnes» er en konstituent, mens «ferja til» bare er en ordrekke, og det er testene som skiller de to. Fella er å regne alle nabo-ord som en enhet. Konstituenten trenger heller ikke være obligatorisk i setningen — adverbialer er ofte frie og likevel konstituenter.",
     },
     {
@@ -2717,7 +2717,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
   'exfac03-spr-5-2': [
     {
       question: "Hvilket verb er det finitte verbalet når en setning har flere verb?",
-      options: ["Det første verbet, altså det som er tidsbøyd og forandrer seg når setningen skifter tid", "Det siste verbet i rekka", "Det verbet som bærer innholdet", "Det verbet som står nærmest objektet"],
+      options: ["Det første verbet, altså det som er tidsbøyd og forandrer seg når setningen skifter tid", "Det siste verbet i rekka av verb i setningen", "Det verbet som bærer innholdet", "Det verbet som står nærmest objektet"],
       explanation: "I «Kollegaen har ringt kundene» blir fortidsformen «hadde ringt», og det er «har» som forandrer seg. Den nære fella er å velge det verbet som bærer innholdet, altså hovedverbet — men det er infinitt verbal, ikke finitt. Prøven er alltid å skifte tid på hele setningen.",
     },
     {
@@ -2742,7 +2742,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er innholdsregelen «subjektet er den som gjør noe» utilstrekkelig?",
-      options: ["Fordi den bommer på passivsetninger, på ekspletive subjekter og på setninger med kopulaverb", "Fordi den bare gjelder i skriftspråket, mens subjektet i muntlig norsk kan stå på helt andre plasser i setningen", "Fordi subjektet i norsk alltid står først i setningen, slik at plasseringen alene er nok til å avgjøre saken", "Fordi den forutsetter at setningen har et objekt"],
+      options: ["Fordi den bommer på passivsetninger, på ekspletive subjekter og på setninger med kopulaverb", "Fordi den bare gjelder i skriftspråket, mens subjektet i muntlig norsk står fritt", "Fordi subjektet i norsk alltid står først i setningen, slik at plasseringen alene er nok til å avgjøre saken", "Fordi den forutsetter at setningen har et objekt"],
       explanation: "I «Kollegaen fikk kjeft» gjør ikke subjektet noe, og i «Det regnet hele natta» finnes det ingen handlende i det hele tatt. Fella er å tro at subjektet alltid står først — det gjør det ikke når setningen åpner med et adverbial. Bruk plassering ved spørsmål og pronomenerstatning i stedet.",
     },
     {
@@ -2772,12 +2772,12 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva slags verb er «bli» i «Den nye kollegaen ble avdelingsleder»?",
-      options: ["Et kopulaverb, som knytter subjektet til et predikativ uten å betegne noen handling", "Et handlingsverb med objekt", "Et hjelpeverb uten eget innhold", "Et infinitt verbal"],
+      options: ["Et kopulaverb, som knytter subjektet til et predikativ uten å betegne noen handling", "Et handlingsverb med objekt", "Et hjelpeverb uten eget innhold", "Et infinitt verbal uten tidsbøyning"],
       explanation: "Kopulaverbet betegner ingen handling, men krever et predikativ ved siden av seg for at setningen skal være fullstendig. Fella er å lese leddet etter verbet som objekt: her viser leddet til det samme som subjektet, og passiveringstesten mislykkes. «Ble» er dessuten tidsbøyd og dermed finitt verbal.",
     },
     {
       question: "Hvilket ledd merkes ordet «ikke» som?",
-      options: ["ADVERBIAL, siden nektingen sier noe om hele setningen", "SUBJEKTSPREDIKATIV, siden det sier noe om forholdet mellom subjektet og resten av setningen", "En egen kategori utenfor leddanalysen", "INFINITT VERBAL, siden nektingen hører sammen med verbet den står ved siden av i setningen"],
+      options: ["ADVERBIAL, siden nektingen sier noe om hele setningen", "SUBJEKTSPREDIKATIV, siden det sier noe om forholdet mellom subjektet og resten av setningen", "En egen kategori utenfor leddanalysen, uten merke", "INFINITT VERBAL, siden nektingen hører sammen med verbet den står ved siden av i setningen"],
       explanation: "Nektingsadverbialet er et adverbial med en fast plass: i en fortellende helsetning står det etter det finitte verbalet. Fella er å la det stå umerket fordi det er et lite ord — umerkede ledd trekker like mye som feilmerkede. Plassen ordet har, brukes senere i setningsanalysen.",
     },
     {
@@ -2792,7 +2792,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan merkes et ledd fullstendig i denne bokas etikettsett?",
-      options: ["Funksjonen i versaler med frasekategorien i parentes bak, som i SUBJEKT (NP)", "Frasekategorien først og funksjonen etterpå", "Bare med funksjonen, siden frasekategorien er underforstått av hvilken funksjon leddet har", "Med ordklassen til hodet i leddet, siden det er hodet som bestemmer hva leddet kan brukes til"],
+      options: ["Funksjonen i versaler med frasekategorien i parentes bak, som i SUBJEKT (NP)", "Frasekategorien først og funksjonen etterpå", "Bare med funksjonen, siden frasekategorien er underforstått", "Med ordklassen til hodet i leddet, siden det er hodet som bestemmer hva leddet kan brukes til"],
       explanation: "De to lagene skal begge fram: rollen i versaler og formen i parentes. Fella er å nøye seg med funksjonen — da mangler det laget som viser at du kan holde form og funksjon fra hverandre. Ordklassen hører til det nederste laget og gjelder enkeltord.",
     },
     {
@@ -2839,12 +2839,12 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
   'exfac03-spr-5-3': [
     {
       question: "Hvordan finner du ut hvor mange setninger en lang setning består av?",
-      options: ["Du teller de finitte verbalene, siden ett tidsbøyd verb svarer til én setning", "Du teller kommaene", "Du teller subjunksjonalene", "Du teller nominalfrasene"],
+      options: ["Du teller de finitte verbalene, siden ett tidsbøyd verb svarer til én setning", "Du teller kommaene, ett komma per setning", "Du teller subjunksjonalene", "Du teller nominalfrasene"],
       explanation: "Tidsbøyde verb er det eneste pålitelige grunnlaget: «Kommunen vedtok at biblioteket skulle holde åpent» har to finitte verbal og ingen kommaer. Den nære fella er tegnsettingen, som både kan mangle foran en leddsetning og stå inne i én enkelt setning ved oppramsing. Infinitiver og partisipper skal krysses ut før du teller.",
     },
     {
       question: "Hva skiller en leddsetning fra en helsetning?",
-      options: ["Leddsetningen fyller en leddfunksjon inne i en annen setning og kan ikke stå alene", "Leddsetningen mangler eget finitt verbal, mens helsetningen alltid har et tidsbøyd verb i seg", "Leddsetningen er alltid kortere enn helsetningen", "Leddsetningen står alltid etter helsetningen, siden den utdyper det som allerede er sagt"],
+      options: ["Leddsetningen fyller en leddfunksjon inne i en annen setning og kan ikke stå alene", "Leddsetningen mangler eget finitt verbal, mens helsetningen har det", "Leddsetningen er alltid kortere enn helsetningen", "Leddsetningen står alltid etter helsetningen, siden den utdyper det som allerede er sagt"],
       explanation: "Begge har eget finitt verbal; forskjellen er selvstendigheten. «At bussen kom for sent» kan ikke stå alene som ytring, mens «Bussen kom for sent» kan det. Fella er å tro at leddsetningen mangler tidsbøyd verb — det er infinitivssetningen som gjør det.",
     },
     {
@@ -3016,7 +3016,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva slags frase er «hvert år» i «at isbreen krympet hvert år», og hvilken funksjon har den?",
-      options: ["En nominalfrase med adverbialfunksjon, siden hodet er substantivet år mens jobben i setningen er adverbialets", "En preposisjonsfrase med adverbialfunksjon", "En nominalfrase med funksjonen direkte objekt, siden den følger rett etter verbalet", "En adverbfrase, siden funksjonen bestemmer hvilken frasekategori leddet får"],
+      options: ["En nominalfrase med adverbialfunksjon, siden hodet er substantivet år mens jobben i setningen er adverbialets", "En preposisjonsfrase med adverbialfunksjon, siden den sier når", "En nominalfrase med funksjonen direkte objekt, siden den følger rett etter verbalet", "En adverbfrase, siden funksjonen bestemmer hvilken frasekategori leddet får"],
       explanation: "Frasen har substantivet år som hode og er derfor en nominalfrase, samtidig som den gjør adverbialjobben. At funksjon og kategori kan trekke i hver sin retning, er hele grunnen til at de står som to lag i treet.",
     },
     {
@@ -3056,7 +3056,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken etikett får «utenfor fare» i «pasienten var utenfor fare»?",
-      options: ["SUBJEKTSPREDIKATIV (PP), fordi var er et koplingsverb", "ADVERBIAL (PP), siden en preposisjonsfrase etter verbalet som regel forteller hvor noe befinner seg", "DIREKTE OBJEKT (PP), siden leddet står rett etter det finitte verbalet", "SUBJEKTSPREDIKATIV (AdjP)"],
+      options: ["SUBJEKTSPREDIKATIV (PP), fordi var er et koplingsverb", "ADVERBIAL (PP), siden en preposisjonsfrase etter verbalet som regel forteller hvor noe befinner seg", "DIREKTE OBJEKT (PP), siden leddet står rett etter det finitte verbalet", "SUBJEKTSPREDIKATIV (AdjP), fordi fare er adjektiv"],
       explanation: "Koplingsverbet var binder subjektet til en tilstand, så funksjonen er subjektspredikativ, og frasen har preposisjonen utenfor som hode, altså PP. Her trekker funksjon og kategori i hver sin retning, og begge skal likevel stå.",
     },
   ],
@@ -3068,7 +3068,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er temaposisjonen?",
-      options: ["Den første plassen i en fortellende helsetning, den som ett valgfritt ledd fyller", "Den plassen der subjektet alltid står", "Den plassen der setningsadverbialet står i en fortellende helsetning, altså rett bak det finitte verbalet", "En egen plass som bare finnes i setninger der noe er tematisert"],
+      options: ["Den første plassen i en fortellende helsetning, den som ett valgfritt ledd fyller", "Den plassen der subjektet alltid står", "Den plassen der setningsadverbialet står i en fortellende helsetning", "En egen plass som bare finnes i setninger der noe er tematisert"],
       explanation: "Temaposisjonen er den første plassen, og den finnes i enhver fortellende helsetning — også når subjektet står der og ingenting er tematisert. Subjektet er det vanligste innholdet, men langt fra det eneste.",
     },
     {
@@ -3088,7 +3088,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvor mange ledd kan stå foran det finitte verbalet i en fortellende helsetning?",
-      options: ["Ett, uansett hvor langt det leddet er — det kan til og med være en hel leddsetning", "Så mange setningen trenger", "To, nemlig subjektet og ett tematisert ledd", "Ingen, siden det finitte verbalet alltid innleder setningen"],
+      options: ["Ett, uansett hvor langt det leddet er — det kan til og med være en hel leddsetning", "Så mange setningen trenger for å bli forstått", "To, nemlig subjektet og ett tematisert ledd", "Ingen, siden det finitte verbalet alltid innleder setningen"],
       explanation: "Temaposisjonen rommer nøyaktig ett ledd, uansett hvor langt det leddet er — det kan til og med være en hel leddsetning. Å telle leddene foran det finitte verbalet er derfor en rask og mekanisk prøve på om setningen holder.",
     },
     {
@@ -3195,7 +3195,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "I setningen Familien bor i en gammel trebygning — hva er preposisjonsfrasen?",
-      options: ["Et argument, fordi verbet bo krever et sted for at setningen skal være fullstendig", "Et adjunkt, fordi frasen sier hvor", "Et adjunkt, fordi leddet har form som et adverbial og adverbialer er lagt til av taleren", "Et argument, fordi enhver preposisjonsfrase som følger rett etter verbet, er bestilt av verbet"],
+      options: ["Et argument, fordi verbet bo krever et sted for at setningen skal være fullstendig", "Et adjunkt, fordi frasen sier hvor og stedsangivelser er frie", "Et adjunkt, fordi leddet har form som et adverbial og adverbialer er lagt til av taleren", "Et argument, fordi enhver preposisjonsfrase som følger rett etter verbet, er bestilt av verbet"],
       explanation: "Stryk frasen, og du sitter igjen med Familien bor, som ikke er ferdig: verbet krever et sted, og frasen er derfor et argument. Formen adverbial avgjør ingenting — den samme frasen er et adjunkt i Familien spiser i en gammel trebygning, og plasseringen rett etter verbet er heller ingen regel.",
     },
     {
@@ -3215,7 +3215,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken rolle har Nøkkelen i setningen Nøkkelen åpnet døra?",
-      options: ["Instrument, siden nøkkelen blir brukt for å utføre handlingen", "Agens, siden leddet står i subjektsplassen og subjektet utfører handlingen i setningen", "Erfarer, siden leddet er det som er nærmest handlingen og merker den først av alt", "Patiens, siden nøkkelen blir brukt"],
+      options: ["Instrument, siden nøkkelen blir brukt for å utføre handlingen", "Agens, siden leddet står i subjektsplassen og subjektet utfører handlingen i setningen", "Erfarer, siden leddet merker handlingen først av alt", "Patiens, siden nøkkelen blir brukt"],
       explanation: "Nøkkelen blir brukt for å utføre handlingen, og omskrivingen ved hjelp av nøkkelen går fint — det er testen på instrument. At leddet står som subjekt, gjør det ikke til agens: agens handler bevisst, og en nøkkel velger ingenting. Patiens er det som endrer tilstand, og her er det døra.",
     },
     {
@@ -3235,7 +3235,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva viser setningen Det regner i Bergen om forholdet mellom setningsledd og semantisk rolle?",
-      options: ["At et ledd kan være subjekt uten å ha en semantisk rolle i det hele tatt", "At subjektet i en norsk setning alltid har rollen agens, også når handlingen ikke er bevisst styrt", "At det formelle subjektet er et adjunkt", "At semantiske roller bare kan tildeles ledd som består av en nominalfrase med et substantiv i"],
+      options: ["At et ledd kan være subjekt uten å ha en semantisk rolle i det hele tatt", "At subjektet alltid har rollen agens, også ved ubevisst handling", "At det formelle subjektet er et adjunkt", "At semantiske roller bare kan tildeles ledd som består av en nominalfrase med et substantiv i"],
       explanation: "Det kan ikke strykes og er dermed et argument, men det peker ikke på noen deltaker — det er ingen som regner. Hadde hvert setningsledd hatt en fast rolle, ville et slikt subjekt vært umulig. Leddet er nettopp ikke et adjunkt, og roller tildeles ledd av mange former, ikke bare nominalfraser.",
     },
     {
@@ -3250,7 +3250,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvor mange argumenter har verbet i setningen Sola smeltet isen på taket?",
-      options: ["To, siden på taket kan strykes og dermed er et adjunkt", "Tre, siden setningen har tre ledd", "Ett, siden smelte er det samme verbet som i Isen smeltet, og det krever bare ett argument", "To, siden ethvert verb med et direkte objekt har nøyaktig to argumenter uansett setning"],
+      options: ["To, siden på taket kan strykes og dermed er et adjunkt", "Tre, siden setningen har tre ledd som alle teller", "Ett, siden smelte er det samme verbet som i Isen smeltet, og det krever bare ett argument", "To, siden ethvert verb med et direkte objekt har nøyaktig to argumenter uansett setning"],
       explanation: "Sola og isen er krevd av verbet, mens på taket kan strykes uten tap og altså er et adjunkt. Å telle alle ledd gir feil svar nettopp fordi adjunkter ikke teller. Og samme verbform kan ha to argumentstrukturer: Isen smeltet har ett argument, Sola smeltet isen har to — det er ikke ett verb som får et ekstra ledd.",
     },
     {
@@ -3270,7 +3270,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan bør du behandle et ledd der strykningstesten og gjentakelsestesten peker hver sin vei?",
-      options: ["Skriv ut begge lesningene, velg én av dem, og si hva som ville endret valget ditt", "Velg alltid det strykningstesten gir", "Hopp over leddet i besvarelsen, siden et uavklart ledd ikke kan gi poeng i en klassifiseringsoppgave", "Oppgi begge svarene uten å velge, siden oppgavetypen uttrykkelig godtar flere ulike konklusjoner"],
+      options: ["Skriv ut begge lesningene, velg én av dem, og si hva som ville endret valget ditt", "Velg alltid det strykningstesten gir, siden den er den sikreste", "Hopp over leddet i besvarelsen, siden et uavklart ledd ikke kan gi poeng i en klassifiseringsoppgave", "Oppgi begge svarene uten å velge, siden oppgavetypen uttrykkelig godtar flere ulike konklusjoner"],
       explanation: "Grensetilfellet merkes i denne boka (omstridt — begge forsvarlige), og uttellingen ligger i at begge analysene er skrevet ut og at valget er begrunnet. At flere konklusjoner godtas, betyr at de skal være godt begrunnet — ikke at du slipper å velge. Å hoppe over leddet er å hoppe over et oppgaveledd, som er en egen feil.",
     },
     {
@@ -3307,7 +3307,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er subjektskontroll?",
-      options: ["At subjektet i oversetningen kontrollerer PRO, som ved love og nekte", "At PRO selv står i subjektsplassen inne i den infinitivssetningen som analyseres", "At infinitivssetningen selv er subjekt", "At kontrolløren står først i setningen, uansett hvilken funksjon det leddet har der"],
+      options: ["At subjektet i oversetningen kontrollerer PRO, som ved love og nekte", "At PRO selv står i subjektsplassen i infinitivssetningen", "At infinitivssetningen selv er subjekt", "At kontrolløren står først i setningen, uansett hvilken funksjon det leddet har der"],
       explanation: "Subjektskontroll sier hvilket ledd i oversetningen som er kontrollør, som ved love og nekte. At PRO står i subjektsplassen, gjelder alle infinitivssetninger og skiller ingenting. Og at infinitivssetningen selv er subjekt, er en tredje ting igjen, som i Å rydde garderoben tar under ti minutter.",
     },
     {
@@ -3322,12 +3322,12 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva viser paret Gutten lovte å være snill mot Guttene lovte å være snille?",
-      options: ["At adjektivet inne i infinitivssetningen samsvarer med et subjekt som ikke er synlig", "At infinitivssetningen får sitt eget finitte verbal når subjektet i oversetningen står i flertall", "At infinitivsmerket å bøyes i tall", "At kontrolløren må stå i entall for at samsvarsbøyingen inne i infinitivssetningen skal være mulig"],
+      options: ["At adjektivet inne i infinitivssetningen samsvarer med et subjekt som ikke er synlig", "At infinitivssetningen får sitt eget finitte verbal når subjektet i oversetningen står i flertall", "At infinitivsmerket å bøyes i tall etter subjektet i oversetningen", "At kontrolløren må stå i entall for at samsvarsbøyingen inne i infinitivssetningen skal være mulig"],
       explanation: "Adjektivet bøyes i tall og retter seg etter noe, men det finnes ingenting synlig inne i infinitivssetningen som kan styre bøyingen — et usynlig subjekt som viser til guttene, forklarer den. Infinitivssetningen har fortsatt ikke noe finitt verbal, og infinitivsmerket bøyes ikke.",
     },
     {
       question: "Hva skiller PRO fra et vanlig pronomen?",
-      options: ["PRO uttales aldri, og hvem det viser til, kan ikke velges fritt av den som snakker", "PRO viser alltid til det nærmeste leddet", "PRO står i infinitivssetninger og pronomen i helsetninger, men de oppfører seg ellers helt likt", "PRO har ingen semantisk rolle, mens et pronomen alltid har rollen agens i sin egen setning"],
+      options: ["PRO uttales aldri, og hvem det viser til, kan ikke velges fritt av den som snakker", "PRO viser alltid til det nærmeste leddet", "PRO står i infinitivssetninger og pronomen i helsetninger, ellers er de like", "PRO har ingen semantisk rolle, mens et pronomen alltid har rollen agens i sin egen setning"],
       explanation: "I at-varianten kan et pronomen vise til flere personer avhengig av sammenhengen; i infinitivsvarianten er svaret låst av verbet. Nærhet styrer ingen av delene, PRO fyller en argumentplass og får rolle som andre subjekter, og forskjellen er langt større enn hvilken setningstype de opptrer i.",
     },
     {
@@ -3352,7 +3352,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er infinitivsmerket å i analysen?",
-      options: ["Innlederen i infinitivssetningen, plassert på subjunksjonalplassen i treet", "En preposisjon som styrer frasen etter seg", "En del av verbformen, som skrives særskilt av rettskrivingshensyn men analyseres med verbet", "Etiketten på det usynlige subjektet i en infinitivssetning, som ikke kan uttales i norsk"],
+      options: ["Innlederen i infinitivssetningen, plassert på subjunksjonalplassen i treet", "En preposisjon som styrer frasen etter seg", "En del av verbformen, skrevet særskilt, men analysert med verbet", "Etiketten på det usynlige subjektet i en infinitivssetning, som ikke kan uttales i norsk"],
       explanation: "Infinitivsmerket gjør samme jobb som at og som: det markerer at det følger en innleid setning. Det er ikke en preposisjon, det slås ikke sammen med verbet i analysen, og det er noe helt annet enn PRO, som står på subjektsplassen.",
     },
     {
@@ -3367,7 +3367,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan bør du bruke det at temaet ikke har vært prøvd på flere terminer?",
-      options: ["Som grunn til å bruke mindre tid på kapitlet, ikke som grunn til å hoppe over det", "Som grunn til å hoppe over kapitlet, siden arkivet viser at temaet er på vei ut av emnet", "Som grunn til å bruke mer tid enn på de andre kapitlene, siden det da er tur til at det kommer", "En opplysning uten betydning"],
+      options: ["Som grunn til å bruke mindre tid på kapitlet, ikke som grunn til å hoppe over det", "Som grunn til å hoppe over kapitlet, siden arkivet viser at temaet er på vei ut av emnet", "Som grunn til å bruke mer tid enn på de andre kapitlene, siden det da er tur til at det kommer", "En opplysning uten betydning for hvordan du leser til eksamen"],
       explanation: "Lav frekvens gir færre minutter, aldri stryking: temaet står i 2 av 6 terminer, kravet er presist og kort, og arkivet har ni manglende høstterminer ingen kjenner innholdet i. Å lese fraværet som en spådom i noen retning — verken som utfasing eller som at det er tur — er å lese mer ut av seks terminer enn de bærer.",
     },
   ],
@@ -3444,7 +3444,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er hyponymi?",
-      options: ["Relasjonen mellom et underbegrep og et overbegrep", "Relasjonen mellom en del og den helheten delen inngår i", "Relasjonen mellom ord på samme nivå under samme overbegrep", "Relasjonen mellom ord som betyr det samme overalt"],
+      options: ["Relasjonen mellom et underbegrep og et overbegrep", "Relasjonen mellom en del og en helhet", "Relasjonen mellom ord med samme overbegrep", "Relasjonen mellom ord som betyr det samme overalt"],
       explanation: "Riktig svar er relasjonen mellom underbegrep og overbegrep, som mellom rose og blomst. Den nærmeste fellen er meronymi, som gjelder del og helhet. Skillet avgjøres ved å kjøre begge malene mot hverandre.",
     },
     {
@@ -3486,7 +3486,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
   'exfac03-spr-6-2': [
     {
       question: "Hva er polysemi?",
-      options: ["Én form med flere beslektede betydninger", "Én form med flere betydninger som ikke lar seg knytte sammen på noen måte", "To ord som uttales likt, men skrives ulikt, slik at bare tale gir forveksling", "Ett ord med uskarpe kanter"],
+      options: ["Én form med flere beslektede betydninger", "Én form med flere betydninger som ikke lar seg knytte sammen på noen måte", "To ord som uttales likt, men skrives ulikt, slik at bare tale gir forveksling", "Ett ord med uskarpe kanter i bruken"],
       explanation: "Riktig svar er én form med flere beslektede betydninger, der overføringen mellom dem lar seg identifiseres. Den nærmeste fellen er homonymi, der betydningene nettopp ikke lar seg knytte sammen.",
     },
     {
@@ -3511,12 +3511,12 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er relaterbarhetstesten?",
-      options: ["Å prøve om broen mellom betydningene lar seg skrive ut", "Å sjekke om de to formene kommer fra samme ord historisk sett", "Å slå opp om ordboka fører formen som ett eller to oppslag", "Å bruke begge i én setning"],
+      options: ["Å prøve om broen mellom betydningene lar seg skrive ut", "Å sjekke om de to formene kommer fra samme ord", "Å slå opp om ordboka fører formen som ett eller to oppslag", "Å bruke begge i én setning"],
       explanation: "Riktig svar er å prøve om broen mellom betydningene lar seg skrive ut som en overføring språkbrukere kjenner igjen. De tre andre er reelle tilleggskriterier, men de avgjør ikke saken alene slik relaterbarhetstesten gjør.",
     },
     {
       question: "Hva skiller metaforisk fra metonymisk betydningsoverføring?",
-      options: ["Metaforen bygger på likhet, metonymien på nærhet", "Metaforen gjelder konkrete ord, mens metonymien bare gjelder abstrakte ord", "Metaforen er alltid fersk, mens metonymien alltid er leksikalisert i språket", "Metaforen hører til skrift"],
+      options: ["Metaforen bygger på likhet, metonymien på nærhet", "Metaforen gjelder konkrete ord, mens metonymien bare gjelder abstrakte ord", "Metaforen er alltid fersk, mens metonymien alltid er leksikalisert i språket", "Metaforen hører til skriftspråket alene"],
       explanation: "Riktig svar er at metaforen bygger på likhet mellom ulike områder, som foten av et fjell, mens metonymien bygger på nærhet innenfor samme sak, som skolen om bygningen og elevene. Fellen er å knytte skillet til hva slags ord det gjelder.",
     },
     {
@@ -3531,7 +3531,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er kryssetesten god for?",
-      options: ["Å avsløre om to betydninger er skarpt skilt fra hverandre", "Å avgjøre om to former har samme opprinnelse i språkhistorien", "Å avgjøre hvilken av betydningene som er grunnbetydningen", "Å måle hvor mange oppslag ordboka fører formen under"],
+      options: ["Å avsløre om to betydninger er skarpt skilt fra hverandre", "Å avgjøre om to former har samme opprinnelse", "Å avgjøre hvilken av betydningene som er grunnbetydningen", "Å måle hvor mange oppslag ordboka fører formen under"],
       explanation: "Riktig svar er at testen avslører om betydningene er skarpt skilt: setningen om å passere banken og deretter banken blir komisk. Fellen er å tro at testen sier noe om opprinnelse, som er et helt annet kriterium.",
     },
     {
@@ -3546,7 +3546,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er grunnbetydningen til et polysemt ord?",
-      options: ["Den betydningen de andre lar seg utlede fra", "Den betydningen som er mest brukt i dagligtale akkurat nå", "Den betydningen ordboka fører først under oppslaget", "Den eldste kjente bruken"],
+      options: ["Den betydningen de andre lar seg utlede fra", "Den betydningen som er mest brukt i dagligtale akkurat nå", "Den betydningen ordboka fører først", "Den eldste kjente bruken"],
       explanation: "Riktig svar er den betydningen de andre lar seg utlede fra, siden det er den som gir overføringen en retning. Fellen er å regne bruksfrekvens som avgjørende, men et ord kan godt brukes oftest i en avledet betydning.",
     },
     {
@@ -3695,7 +3695,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvor ligger det deiktiske sentrumet som hovedregel?",
-      options: ["Hos taleren, på talestedet, i taleøyeblikket", "Hos mottakeren, der ytringen tolkes", "I det punktet samtalen dreier seg om, uavhengig av hvor deltakerne befinner seg fysisk", "I den institusjonen eller rollen avsenderen representerer når ytringen blir framført"],
+      options: ["Hos taleren, på talestedet, i taleøyeblikket", "Hos mottakeren, i det ytringen blir tolket", "I det punktet samtalen dreier seg om, uavhengig av hvor deltakerne befinner seg fysisk", "I den institusjonen eller rollen avsenderen representerer når ytringen blir framført"],
       explanation: "Riktig svar er at sentrum som hovedregel er taleren, talestedet og taleøyeblikket. Fellen er å tro at sentrum ligger hos mottakeren: det skjer, men bare når det er flyttet dit, slik en bruksanvisning gjør når den skriver skru til høyre. At sentrum kan flyttes, er nettopp det som gjør begrepet verdt å nevne i et svar.",
     },
     {
@@ -3735,7 +3735,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva peker et diskursdeiktisk uttrykk som *som nevnt over* på?",
-      options: ["Et sted i teksten eller samtalen selv", "Det antesedenten viser til", "Talerens eget ståsted i rommet, slik andre stedsdeiktiske uttrykk også gjør det", "En forutsetning som er felles for begge parter og som derfor ikke trenger å gjentas"],
+      options: ["Et sted i teksten eller samtalen selv", "Det antesedenten viser til, slik et anaforisk pronomen gjør", "Talerens eget ståsted i rommet, slik andre stedsdeiktiske uttrykk også gjør det", "En forutsetning som er felles for begge parter og som derfor ikke trenger å gjentas"],
       explanation: "Riktig svar er at diskursdeiksis peker på deler av teksten eller samtalen som språklig objekt. Den nærmeste fellen er anaforen: den henter innholdet sitt fra antesedenten og viser til det samme som den, mens diskursdeiksisen peker på selve tekststykket. I «Han sa at han kom. Det var en løgn» gjelder *det* utsagnet, ikke personen.",
     },
     {
@@ -3745,12 +3745,12 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er feil #5 i denne sammenhengen, altså å hoppe over ett av oppgavens ledd?",
-      options: ["Å behandle to av tre kontekstnivåer når oppgaven ber om alle", "Å gi eksempler uten å si hva de viser", "Å bruke ordet kontekst som samlebetegnelse i stedet for å navngi det aktuelle nivået", "Å forveksle et deiktisk uttrykk med et ord som har flere leksikalske betydninger"],
+      options: ["Å behandle to av tre kontekstnivåer når oppgaven ber om alle", "Å gi eksempler uten å si hva de viser", "Å bruke ordet kontekst som samlebetegnelse i stedet for å navngi det aktuelle nivået", "Å forveksle et deiktisk uttrykk med et flertydig ord"],
       explanation: "Riktig svar er å behandle to av tre nivåer, og det er kulturkonteksten som oftest ryker fordi den er usynlig når den virker. Den nærmeste fellen er feil #6, å gi eksempler uten begrunnelse — det er en annen svakhet, som gjelder kvaliteten på leddene du faktisk leverte, ikke at et ledd mangler.",
     },
     {
       question: "Hvorfor holder det ikke å skrive at «betydningen avhenger av konteksten»?",
-      options: ["Påstanden er sann om enhver ytring og skiller derfor ingenting fra noe annet", "Påstanden er faglig uriktig", "Påstanden hører hjemme i semantikken og er derfor plassert i feil del av faget", "Påstanden mangler et eksempel, og et eksempel er obligatorisk i enhver redegjørelse"],
+      options: ["Påstanden er sann om enhver ytring og skiller derfor ingenting fra noe annet", "Påstanden er faglig uriktig: betydningen ligger fast", "Påstanden hører hjemme i semantikken og er derfor plassert i feil del av faget", "Påstanden mangler et eksempel, og et eksempel er obligatorisk i enhver redegjørelse"],
       explanation: "Riktig svar er at utsagnet gjelder alt og derfor ikke forklarer noe. Den nærmeste fellen er å kalle det uriktig: det er faktisk sant, og det er nettopp derfor det er verdiløst som svar. Ordet kontekst er navnet på spørsmålet, og svaret er hvilket nivå som gjorde arbeidet.",
     },
     {
@@ -3770,7 +3770,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke tre jobber gjør konteksten i tolkningen av en ytring?",
-      options: ["Den fyller ut tomme uttrykk, velger mellom flere betydninger og legger til usagt innhold", "Den oversetter, presiserer og korrigerer det taleren har sagt, slik at ytringen blir entydig", "Den skaper betydning, formidler betydning og lagrer betydning for senere bruk i samtalen", "Den binder ytringen til teksten, til situasjonen og til den kulturen deltakerne tilhører"],
+      options: ["Den fyller ut tomme uttrykk, velger mellom flere betydninger og legger til usagt innhold", "Den oversetter, presiserer og korrigerer det sagte, slik at ytringen blir entydig", "Den skaper betydning, formidler betydning og lagrer betydning for senere bruk i samtalen", "Den binder ytringen til teksten, til situasjonen og til den kulturen deltakerne tilhører"],
       explanation: "Riktig svar er utfylling, valg og tillegg. Den nærmeste fellen er alternativet som ramser opp de tre nivåene i stedet for de tre jobbene — nivåene sier hvor opplysningen kommer fra, jobbene sier hva den brukes til. Bare tillegget er valgfritt for forståelsen, og nettopp det er inngangen til samarbeidsprinsippet.",
     },
     {
@@ -3792,7 +3792,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en konstativ ytring?",
-      options: ["En ytring som beskriver et saksforhold og kan være sann eller usann", "En ytring som bekrefter noe taleren tidligere har lovt eller erklært overfor mottakeren", "En ytring uten performativt verb", "En ytring som slår fast en regel eller et forhold som gjelder fra det øyeblikket den sies"],
+      options: ["En ytring som beskriver et saksforhold og kan være sann eller usann", "En ytring som bekrefter noe taleren tidligere har lovt eller erklært overfor mottakeren", "En ytring uten performativt verb i hovedsetningen", "En ytring som slår fast en regel eller et forhold som gjelder fra det øyeblikket den sies"],
       explanation: "Riktig svar er at den konstative beskriver et saksforhold og kan prøves mot verden. Den nærmeste fellen er å definere den negativt som «uten performativt verb» — også setninger uten et slikt verb kan være performative, slik en dommers *Du er ute* er det. Skillet går på om ytringen kan bestrides som usann.",
     },
     {
@@ -3802,7 +3802,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva prøver herved-prøven?",
-      options: ["Om ytringen er en eksplisitt performativ", "Om taleren har den autorisasjonen som handlingen i ytringen forutsetter for å virke", "Om ytringen kan bestrides av mottakeren som usann eller ugyldig i den gitte situasjonen", "Om ytringen er performativ"],
+      options: ["Om ytringen er en eksplisitt performativ", "Om taleren har den autorisasjonen som handlingen i ytringen forutsetter for å virke", "Om ytringen kan bestrides av mottakeren som usann eller ugyldig i den gitte situasjonen", "Om ytringen er performativ, også når den er implisitt"],
       explanation: "Riktig svar er at prøven avgjør om ytringen er en eksplisitt performativ: blir setningen naturlig med ordet *herved* satt inn, er den det. Den nærmeste fellen er å tro at prøven fanger alle performativer — den fanger bare de eksplisitte, og en implisitt performativ som *Du er ute* består den ikke.",
     },
     {
@@ -3827,12 +3827,12 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor virker oppriktighetsbetingelsen annerledes enn de fire kjernebetingelsene?",
-      options: ["Handlingen blir til likevel, men den er hul", "Den gjelder bare for uformelle performativer som løfter og beklagelser, ikke for formelle vedtak", "Den kan ikke kontrolleres av andre, og derfor har den ingen betydning for om ytringen lykkes", "Den må være oppfylt før ytringen sies"],
+      options: ["Handlingen blir til likevel, men den er hul", "Den gjelder bare for uformelle performativer som løfter og beklagelser, ikke for formelle vedtak", "Den kan ikke kontrolleres av andre, og derfor har den ingen betydning for om ytringen lykkes", "Den må være oppfylt før ytringen sies, ellers blir handlingen ugyldig"],
       explanation: "Riktig svar er at handlingen blir til selv om oppriktigheten svikter, og at den da er hul framfor mislykket. Den nærmeste fellen er å si at betingelsen er uten betydning fordi den ikke kan kontrolleres — den har stor betydning, siden det er nettopp den som skiller et brutt løfte fra et løfte som aldri ble gitt.",
     },
     {
       question: "En møteleder erklærer et forslag vedtatt mens stemmene fortsatt telles. Hvilken betingelse svikter?",
-      options: ["Betingelsen om korrekt og fullstendig utførelse", "Betingelsen om riktig person", "Betingelsen om en anerkjent framgangsmåte, fordi det ikke finnes noen ordning for å vedta forslag slik", "Oppriktighetsbetingelsen, ettersom møtelederen ikke kan vite om resultatet blir slik hun sier"],
+      options: ["Betingelsen om korrekt og fullstendig utførelse", "Betingelsen om riktig person med myndighet", "Betingelsen om en anerkjent framgangsmåte, fordi det ikke finnes noen ordning for å vedta forslag slik", "Oppriktighetsbetingelsen, ettersom møtelederen ikke kan vite om resultatet blir slik hun sier"],
       explanation: "Riktig svar er utførelsesbetingelsen: et ledd i framgangsmåten, den avsluttede opptellingen, er hoppet over. Den nærmeste fellen er personbetingelsen — møtelederen har autorisasjonen, og det er nettopp derfor svikten ligger i gjennomføringen. Vedtaket er ikke fattet uansett hvilken vei opptellingen ender.",
     },
     {
@@ -3842,7 +3842,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en perlokusjon?",
-      options: ["Virkningen ytringen har på mottakeren etterpå", "Den handlingen taleren utfører ved å ytre setningen i den aktuelle situasjonen", "Den delen av ytringen som avgjør om det er en ordre, et løfte eller en forutsigelse", "Den responsen mottakeren må gi"],
+      options: ["Virkningen ytringen har på mottakeren etterpå", "Den handlingen taleren utfører ved å ytre setningen i den aktuelle situasjonen", "Den delen av ytringen som avgjør om det er en ordre, et løfte eller en forutsigelse", "Den responsen mottakeren må gi taleren"],
       explanation: "Riktig svar er virkningen på mottakeren, som å bli overbevist, skremt eller trøstet. Den nærmeste fellen er mottakerens medvirkning, som i et veddemål faktisk er en del av framgangsmåten — perlokusjonen kan derimot utebli helt uten at handlingen mislykkes.",
     },
     {
@@ -3899,7 +3899,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en implikatur?",
-      options: ["Innhold som kommuniseres uten å bli sagt, og som lytteren regner seg fram til", "Innhold som følger logisk av det som er sagt, og som derfor ikke kan trekkes tilbake", "Den betydningen taleren egentlig hadde i tankene, uavhengig av om lytteren fanget den opp", "En privat assosiasjon hos leseren"],
+      options: ["Innhold som kommuniseres uten å bli sagt, og som lytteren regner seg fram til", "Innhold som følger logisk av det som er sagt, og som derfor ikke kan trekkes tilbake", "Den betydningen taleren egentlig hadde i tankene, uavhengig av om lytteren fanget den opp", "En privat assosiasjon hos leseren, ulik fra person til person"],
       explanation: "Riktig svar er innhold som kommuniseres uten å bli sagt og som regnes ut av lytteren. Den nærmeste fellen er den logiske følgen: den kan ikke kanselleres, mens implikaturen kan. En privat assosiasjon hos leseren faller utenfor, fordi den ikke oppfyller kravet om beregnelighet.",
     },
     {
@@ -3944,7 +3944,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en maksimekollisjon?",
-      options: ["To maksimer kan ikke innfris samtidig, og taleren må ofre den ene", "To samtalepartnere har ulik oppfatning av hva som er et relevant bidrag i situasjonen", "En ytring bryter to maksimer på én gang", "En maksime brytes så ofte i en samtale at lytteren slutter å forvente at den overholdes"],
+      options: ["To maksimer kan ikke innfris samtidig, og taleren må ofre den ene", "Samtalepartnere har ulik oppfatning av hva som er relevant", "En ytring bryter to maksimer på én gang", "En maksime brytes så ofte i en samtale at lytteren slutter å forvente at den overholdes"],
       explanation: "Riktig svar er at to maksimer ikke lar seg innfri samtidig, typisk kvantitet mot kvalitet: du blir bedt om et presist tall du ikke har belegg for. Implikaturen gjelder da talerens kunnskapsgrunnlag, ikke saken selv — og det skillet er verdt å skrive ut i et svar.",
     },
     {
@@ -3959,7 +3959,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er feil #7?",
-      options: ["Å gi færre eksempler enn oppgaven ber om", "Å gi et eksempel uten å begrunne det", "Å svare på et klassifiseringsspørsmål uten å oppgi noen begrunnelse for konklusjonen", "Å hoppe over ett av leddene i en oppgave som har flere deler enn kandidaten har lagt merke til"],
+      options: ["Å gi færre eksempler enn oppgaven ber om", "Å gi et eksempel uten å begrunne hvilken maksime det bryter", "Å svare på et klassifiseringsspørsmål uten å oppgi noen begrunnelse for konklusjonen", "Å hoppe over ett av leddene i en oppgave som har flere deler enn kandidaten har lagt merke til"],
       explanation: "Riktig svar er å gi færre eksempler enn oppgaven ber om, og i dette stoffet har den én bestemt form: tre av fire maksimer. Den nærmeste fellen er feil #6, som gjelder eksempler uten begrunnelse — der er antallet riktig, men koblingen mangler.",
     },
     {
@@ -4071,7 +4071,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken test hjelper deg best når intuisjonen drar mot substantivet i en preposisjonsfrase?",
-      options: ["Kategoritesten, som spør hvilket ledd det er som avgjør hvor frasen kan stå i setningen", "Frekvenstesten, som spør hvilket av leddene som er vanligst i norske tekster totalt sett", "Betydningstesten, som spør hvilket av leddene som bærer mest av frasens samlede innhold", "Lengdetesten, som spør hvilket av leddene som består av flest stavelser og bokstaver"],
+      options: ["Kategoritesten, som spør hvilket ledd det er som avgjør hvor frasen kan stå i setningen", "Frekvenstesten, som spør hvilket av leddene som er vanligst i norske tekster", "Betydningstesten, som spør hvilket av leddene som bærer mest av frasens samlede innhold", "Lengdetesten, som spør hvilket av leddene som består av flest stavelser og bokstaver"],
       explanation: "Riktig svar er kategoritesten. Den avslører at *bak gjerdet* oppfører seg som en stedsangivelse og ikke som en substantivfrase, og at hodet dermed er preposisjonen.",
     },
     {
@@ -4101,7 +4101,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor henger rekkefølgen verb–objekt og adposisjonstypen så tett sammen?",
-      options: ["Fordi begge konstruksjonene har et hode som tar en substantivfrase som dependent, altså samme struktur", "Fordi verbet og adposisjonen har felles opphav i språkhistorien, og derfor arver den samme plasseringen", "Fordi objektet og komplementet er samme setningsledd, bare med to ulike navn i to ulike tradisjoner", "Fordi begge konstruksjonene er obligatoriske i alle setninger, og ingen setning kan mangle noen av dem"],
+      options: ["Fordi begge konstruksjonene har et hode som tar en substantivfrase som dependent, altså samme struktur", "Fordi verbet og adposisjonen har felles opphav i språkhistorien og derfor arver plasseringen", "Fordi objektet og komplementet er samme setningsledd, bare med to ulike navn i to ulike tradisjoner", "Fordi begge konstruksjonene er obligatoriske i alle setninger, og ingen setning kan mangle noen av dem"],
       explanation: "Riktig svar er at de to konstruksjonene er bygget likt: hode pluss substantivfrase. Når to konstruksjoner har samme struktur, er det ikke overraskende at språket behandler dem likt — men det er fortsatt en tendens.",
     },
   ],
@@ -4128,7 +4128,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilket ledd er umarkert i paret lærer mot lærerinne?",
-      options: ["Lærer, siden formen mangler avledningsleddet og dekker det videre bruksområdet", "Lærerinne, fordi den formen gir mer presis informasjon om hvem som omtales i setningen", "Ingen av dem, siden markerthet bare gjelder grammatiske kategorier og aldri avledede ord", "Begge, siden formene brukes om hverandre"],
+      options: ["Lærer, siden formen mangler avledningsleddet og dekker det videre bruksområdet", "Lærerinne, fordi formen gir mer presis informasjon om hvem som omtales", "Ingen av dem, siden markerthet bare gjelder grammatiske kategorier og aldri avledede ord", "Begge, siden formene brukes om hverandre"],
       explanation: "Riktig svar er *lærer*. Både formkriteriet og distribusjonskriteriet peker samme vei: avledningen er grunnordet pluss et ledd, og grunnordet dekker et videre område.",
     },
     {
@@ -4153,7 +4153,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er mengdeikonisitet?",
-      options: ["At mer innhold gir mer form, slik flertallsendelsen legger form til grunnordet", "At ord for store ting har flere stavelser enn ord for små ting, i alle språk som er godt beskrevet", "At hyppige ord blir korte", "At antall ledd i en setning svarer til antall deltakere i den situasjonen setningen beskriver"],
+      options: ["At mer innhold gir mer form, slik flertallsendelsen legger form til grunnordet", "At ord for store ting har flere stavelser enn ord for små ting, i alle språk som er godt beskrevet", "At ord som brukes ofte, slipes ned til kortere former", "At antall ledd i en setning svarer til antall deltakere i den situasjonen setningen beskriver"],
       explanation: "Riktig svar er at mer innhold gir mer form. *Hund* mot *hunder* og *snill* mot *snillere* viser mønsteret. At hyppige ord blir korte, er økonomiprinsippet, som trekker motsatt vei.",
     },
     {
@@ -4173,7 +4173,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er korthetstendensen?",
-      options: ["At det som brukes hyppig, har en tendens til å være kort", "At korte ord er lettere å huske enn lange", "At skriftspråk over tid utvikler kortere ord enn talespråk, fordi skriving er mer arbeidskrevende", "At forkortelser sprer seg raskere enn andre nyord, siden de er enkle å skrive i uformelle sammenhenger"],
+      options: ["At det som brukes hyppig, har en tendens til å være kort", "At korte ord huskes og hentes fram lettere enn lange", "At skriftspråk over tid utvikler kortere ord enn talespråk, fordi skriving er mer arbeidskrevende", "At forkortelser sprer seg raskere enn andre nyord, siden de er enkle å skrive i uformelle sammenhenger"],
       explanation: "Riktig svar er at det hyppige blir kort. Tendensen er en del av økonomiprinsippet, og den er noe annet enn markerthetskriteriet frekvens: det ene forklarer, det andre tester.",
     },
     {
@@ -4183,7 +4183,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Norske intetkjønnsord med én stavelse har samme form i entall og ubestemt flertall, som ett fjell og flere fjell. Hvilket prinsipp har fått viljen sin?",
-      options: ["Økonomien, siden markøren spares og sammenhengen i setningen bærer opplysningen om tall i stedet", "Ikonisiteten, siden fravær av endelse i seg selv er en form som svarer til innholdet i flertallet", "Ingen av dem, siden nullflertallet er en tilfeldig arv fra eldre språktrinn uten noen forklaring", "Begge to samtidig, siden formen både er kort og speiler innholdet like presist som en endelse ville gjort"],
+      options: ["Økonomien, siden markøren spares og sammenhengen i setningen bærer opplysningen om tall i stedet", "Ikonisiteten, siden fravær av endelse i seg selv er en form som svarer til innholdet", "Ingen av dem, siden nullflertallet er en tilfeldig arv fra eldre språktrinn uten noen forklaring", "Begge to samtidig, siden formen både er kort og speiler innholdet like presist"],
       explanation: "Riktig svar er økonomien. Mengdeikonisiteten ville forventet en endelse, men den kommer ikke, fordi sammenhengen som regel gjør tallet klart uansett — kostnaden er flyttet, ikke fjernet.",
     },
     {
@@ -4337,7 +4337,7 @@ const quizData_exfac03spr: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skiller analogi fra lydendring?",
-      options: ["Lydendring rammer alle ord med samme lydomgivelse, analogi rammer ord som ligner grammatisk", "Analogi er en bevisst prosess hos språkbrukerne, mens lydendring skjer helt uten oppmerksomhet", "Analogi kan bare påvises i skriftlige kilder, mens lydendring må sluttes indirekte fra formene", "Analogi rammer bare verbbøyingen, mens lydendring kan ramme ord i alle ordklasser i språket"],
+      options: ["Lydendring rammer alle ord med samme lydomgivelse, analogi rammer ord som ligner grammatisk", "Analogi er en bevisst prosess hos språkbrukerne, mens lydendring skjer ubevisst", "Analogi kan bare påvises i skriftlige kilder, mens lydendring sluttes indirekte", "Analogi rammer bare verbbøyingen, mens lydendring kan ramme ord i alle ordklasser i språket"],
       explanation: "Riktig svar er at de to har hvert sitt nedslagsfelt: lyd mot grammatisk likhet. Fellen om bevissthet er utbredt, men uholdbar — ingen av prosessene er bevisste valg hos språkbrukerne.",
     },
     {
