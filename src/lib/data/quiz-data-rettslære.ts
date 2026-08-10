@@ -4,7 +4,7 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
   "rettslære-1-1": [
     {
       question: "Hva er maktfordelingsprinsippet?",
-      options: ["At makten er delt mellom lovgivende, utøvende og dømmende myndighet", "At folket stemmer i alle saker", "At domstolene både vedtar nye lover og fører dem ut i praktisk forvaltning av samfunnet", "At folket ved direkte folkeavstemning avgjør alle enkeltsaker uten et folkevalgt Storting"],
+      options: ["At makten er delt mellom lovgivende, utøvende og dømmende myndighet","At Stortinget både vedtar lovene og selv dømmer i enkeltsakene etter dem","At domstolene både vedtar nye lover og fører dem ut i praktisk forvaltning av samfunnet","At folket ved direkte folkeavstemning avgjør alle enkeltsaker uten et folkevalgt Storting"],
       explanation: "Maktfordelingsprinsippet sikrer at ingen har all makt. Stortinget lager lover (lovgivende), regjeringen utfører dem (utøvende), og domstolene dømmer (dømmende).",
     },
     {
@@ -36,22 +36,22 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forarbeider?",
-      options: ["Dokumenter laget under utarbeidelsen av en lov", "Juridiske lærebøker", "Eldre rettsavgjørelser fra domstolene som skaper bindende prejudikat for senere saker", "Arbeidskontrakter"],
+      options: ["Dokumenter laget under utarbeidelsen av en lov","Juridiske lærebøker og artikler skrevet av rettsvitere","Eldre rettsavgjørelser fra domstolene som skaper bindende prejudikat for senere saker","Arbeidskontrakter og andre avtaler mellom private parter"],
       explanation: "Forarbeider inkluderer NOU-er, proposisjoner og innstillinger som forklærer lovens formål og hvordan den skal forstås.",
     },
     {
       question: "Hvor starter man vanligvis ved lovtolkning?",
-      options: ["Med ordlyden i loven", "Med dømmer fra Høyesterett", "Med juridisk teori", "Med forskriftene"],
+      options: ["Med ordlyden i loven","Med dømmer fra Høyesterett","Med juridisk teori i lærebøker","Med forskriftene til loven"],
       explanation: "Lovtolkning starter alltid med ordlyden - den naturlige språklige forståelsen av lovens tekst.",
     },
     {
       question: "Hva er forskjellen mellom lover og forskrifter?",
-      options: ["Lover vedtas av Stortinget, forskrifter gis av regjeringen med hjemmel i lov", "Forskrifter har høyere rang enn lover", "Forskrifter har høyere rang enn lover og går foran ved motstrid mellom regelsettene", "Lover gjelder bare innenfor Oslos grenser, mens forskrifter gjelder for hele landet"],
+      options: ["Lover vedtas av Stortinget, forskrifter gis av regjeringen med hjemmel i lov","Forskrifter vedtas av Stortinget, mens lover gis av regjeringen uten hjemmelskrav","Forskrifter har høyere rang enn lover og går foran ved motstrid mellom regelsettene","Lover gjelder bare innenfor Oslos grenser, mens forskrifter gjelder for hele landet"],
       explanation: "Lover vedtas av Stortinget og gir hovedreglene. Forskrifter gis av regjeringen og utfyller lovene med detaljerte regler.",
     },
     {
       question: "Hva betyr teleologisk lovtolkning?",
-      options: ["Å tolke loven i lys av dens formål", "Å se på hva domstolene har sagt", "Å tolke lovens ordlyd helt bokstavelig uten hensyn til hva lovgiver ville oppnå", "Å tolke loven bokstavelig"],
+      options: ["Å tolke loven i lys av dens formål","Å se på hva domstolene har sagt","Å tolke ordlyden helt bokstavelig","Å tolke loven bokstavelig"],
       explanation: "Teleologisk (formålsrettet) tolkning betyr å tolke loven i lys av hva lovgiver ønsket å oppnå med bestemmelsen.",
     },
   ],
@@ -68,7 +68,7 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvor kan norske borgere klage ved brudd på menneskerettighetene?",
-      options: ["Den europeiske menneskerettsdomstolen (EMD)", "Regjeringen", "Kommunen der borgeren bor, som er nærmeste offentlige klageinstans i slike saker", "Stortinget"],
+      options: ["Den europeiske menneskerettsdomstolen (EMD)","Regjeringen ved departementet","Kommunen der borgeren bor","Stortinget som lovgiver"],
       explanation: "EMD i Strasbourg kan behandle klager mot Norge etter at nasjonale rettsmidler er uttømt.",
     },
     {
@@ -78,7 +78,7 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kreves for at inngrep i menneskerettigheter skal være lovlige?",
-      options: ["Lovhjemmel, legitimt formål og nødvendighet i et demokratisk samfunn", "At EMD godkjenner det på forhånd", "At Den europeiske menneskerettsdomstolen på forhånd har gitt sin skriftlige godkjenning", "Kun at myndighetene selv ønsker inngrepet ut fra en løpende vurdering av samfunnets behov"],
+      options: ["Lovhjemmel, legitimt formål og nødvendighet i et demokratisk samfunn","At inngrepet er vedtatt av kommunestyret i den kommunen der personen bor","At Den europeiske menneskerettsdomstolen på forhånd har gitt sin skriftlige godkjenning","Kun at myndighetene selv ønsker inngrepet ut fra en løpende vurdering av samfunnets behov"],
       explanation: "Inngrep må være fastsatt i lov, forfølge et legitimt formål og være nødvendige og proporsjonale.",
     },
   ],
@@ -90,7 +90,7 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva sier avtaleloven § 36?",
-      options: ["Urimelige avtaler kan settes til side", "Mindreårige kan inngå alle avtaler", "At enhver bindende avtale mellom parter må inngås skriftlig for å være gyldig", "Alle avtaler må være skriftlige"],
+      options: ["Urimelige avtaler kan settes til side","Mindreårige kan inngå alle avtaler","At enhver avtale må inngås skriftlig","Alle avtaler må være skriftlige"],
       explanation: "Avtaleloven § 36 er en generalklausul som sier at en avtale kan settes til side hvis den vil virke urimelig.",
     },
     {
@@ -100,7 +100,7 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skjer hvis en aksept inneholder endringer?",
-      options: ["Det regnes som et nytt tilbud (modifisert aksept)", "Begge parter blir bundet", "Avtalen anses inngått på tilbudets opprinnelige vilkår, og endringene ses bort fra", "Avtalen blir ugyldig"],
+      options: ["Det regnes som et nytt tilbud (modifisert aksept)","Begge parter blir bundet","Avtalen anses inngått på tilbudets vilkår","Avtalen blir ugyldig"],
       explanation: "En aksept med endringer kalles modifisert aksept og regnes som et nytt tilbud som den opprinnelige tilbyderen kan velge å akseptere.",
     },
     {
@@ -132,24 +132,24 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen mellom retting og omlevering?",
-      options: ["Retting er reparasjon, omlevering er ny vare", "Omlevering krever at varen er farlig", "Det er to ord for nøyaktig det samme beføyelsen, uten noen rettslig forskjell mellom dem", "Retting gjelder bare elektronikk"],
+      options: ["Retting er reparasjon, omlevering er ny vare","Omlevering krever at varen er farlig","Det er to ord for nøyaktig det samme","Retting gjelder bare elektronikk"],
       explanation: "Retting betyr at selger reparerer den defekte varen. Omlevering betyr at forbrukeren får en ny, tilsvarende vare.",
     },
   ],
   "rettslære-1-6": [
     {
       question: "Hva er culpa?",
-      options: ["Uaktsomhet eller skyld", "Årsakssammenheng", "Bevisst vilje til å volde skade", "Økonomisk tap"],
+      options: ["Uaktsomhet eller skyld","Årsakssammenheng mellom handling og skade","Bevisst vilje til å volde skade","Økonomisk tap hos skadelidte"],
       explanation: "Culpa betyr uaktsomhet eller skyld. Culpaansvåret er hovedregelen for erstatning.",
     },
     {
       question: "Hva er de tre vilkårene for erstatning?",
-      options: ["Ansvarsgrunnlag, økonomisk tap og årsakssammenheng", "Vilje, handling og resultat", "Vilje til å handle, en ytre handling og et konkret resultat av handlingen som skjer", "Skyld, dom og betaling"],
+      options: ["Ansvarsgrunnlag, økonomisk tap og årsakssammenheng","Forsett, uaktsomhet og nødverge","Vilje til å handle, en handling og et resultat","Skyld, dom og betaling"],
       explanation: "For å få erstatning må alle tre vilkårene være oppfylt: ansvarsgrunnlag, økonomisk tap og årsakssammenheng.",
     },
     {
       question: "Hva er objektivt ansvar?",
-      options: ["Ansvar uten krav om skyld", "Ansvar med krav om forsett", "Ansvar for kontraktsbrudd", "Ansvar for andres handlinger"],
+      options: ["Ansvar uten krav om skyld","Ansvar med krav om forsett","Ansvar for brudd på en kontrakt","Ansvar for andres handlinger"],
       explanation: "Objektivt ansvar betyr at man er ansvårlig uavhengig av skyld. Det gjelder for særlig farlig virksomhet.",
     },
     {
@@ -171,7 +171,7 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er hovedregelen for skyldkrav i strafferetten?",
-      options: ["Forsett kreves for straff", "Uaktsomhet er alltid nok", "At skyld ikke er nødvendig i det hele tatt, ettersom selve den ulovlige handlingen er nok", "Skyld er ikke nødvendig"],
+      options: ["Forsett kreves for straff","Uaktsomhet er alltid nok til straff","At skyld ikke er nødvendig, ettersom selve handlingen er nok","Bare handlingens følge avgjør straffen"],
       explanation: "Hovedregelen er at forsett kreves for straff. Uaktsomhet er bare nok når loven uttrykkelig sier det.",
     },
     {
@@ -193,7 +193,7 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
   "rettslære-1-8": [
     {
       question: "Hvor mange feriedager har man krav på i Norge?",
-      options: ["25 virkedager (5 uker)", "21 virkedager", "21 virkedager (om lag fire uker)", "30 virkedager"],
+      options: ["25 virkedager (5 uker)","28 virkedager (om lag seks uker)","21 virkedager (om lag fire uker)","30 virkedager (seks uker)"],
       explanation: "Ferieloven gir rett til 25 virkedager (ca. 5 uker) ferie. De over 60 år har én uke ekstra.",
     },
     {
@@ -203,7 +203,7 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen mellom oppsigelse og avskjed?",
-      options: ["Ved avskjed opphører arbeidsforholdet umiddelbart", "Avskjed gir rett til feriepenger", "Det er ingen rettslig forskjell mellom de to, og begrepene brukes om hverandre om samme forhold", "Det er ingen forskjell"],
+      options: ["Ved avskjed opphører arbeidsforholdet umiddelbart","Avskjed gir rett til feriepenger","Det er ingen rettslig forskjell mellom de to","Avskjed krever ett års varsel"],
       explanation: "Ved oppsigelse jobber man ut oppsigelsestiden. Ved avskjed må man gå på dagen, og det krever grovt pliktbrudd.",
     },
     {
@@ -235,7 +235,7 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kreves for å opprette et gyldig testament?",
-      options: ["Skriftlig med to vitner", "Bare muntlig erklæring", "Det gjelder ingen særskilte formkrav, slik at en løs lapp uten vitner er fullt bindende", "Notarius publicus"],
+      options: ["Skriftlig med to vitner","Bare en muntlig erklæring for to vitner","Det gjelder ingen særskilte formkrav","Bekreftelse hos notarius publicus"],
       explanation: "Testament må være skriftlig og undertegnet med to vitner til stede. Vitnene kan ikke være arvinger.",
     },
     {
@@ -247,12 +247,12 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
   "rettslære-1-10": [
     {
       question: "Hva er forliksrådet?",
-      options: ["Laveste rettsinstans for sivile tvister", "En privat meklingstjeneste", "En privat meklingstjeneste som partene selv betaler for å bruke", "En del av politiet"],
+      options: ["Laveste rettsinstans for sivile tvister","Et rådgivende utvalg i kommunen","En privat meklingstjeneste med gebyr","En egen avdeling i politiet"],
       explanation: "Forliksrådet er den laveste rettsinstansen for sivile tvister og behandler mange saker før de kan gå til tingretten.",
     },
     {
       question: "Hva er beviskravet i straffesaker?",
-      options: ["Utover enhver rimelig tvil", "Sannsynlighetsovervekt", "Alminnelig sannsynlighetsovervekt for at tiltalte er skyldig", "75% sannsynlighet"],
+      options: ["Utover enhver rimelig tvil","Overvekt av tekniske bevis i saken","Alminnelig sannsynlighetsovervekt for at tiltalte er skyldig","75 % sannsynlighet for skyld"],
       explanation: "I straffesaker må påtalemyndigheten bevise skyld utover enhver rimelig tvil. I sivile saker er det nok med sannsynlighetsovervekt.",
     },
     {
@@ -262,7 +262,7 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen mellom mekling og voldgift?",
-      options: ["Meklæren avgjør ikke tvisten, voldgiftsretten avgjør bindende", "Mekling er bare for familiesaker", "Det er ingen reell forskjell; begge avgjør tvisten bindende for partene", "Voldgift er alltid gratis, mens mekling koster partene et betydelig gebyr"],
+      options: ["Meklæren avgjør ikke tvisten, voldgiftsretten avgjør bindende","Mekling er bare tillatt i familiesaker mellom foreldre med felles barn","Det er ingen reell forskjell; begge avgjør tvisten bindende for partene","Voldgift er alltid gratis, mens mekling koster partene et betydelig gebyr"],
       explanation: "Ved mekling hjelper meklæren partene å finne løsning selv. Ved voldgift avgjør en privat voldgiftsrett tvisten bindende.",
     },
     {
@@ -274,7 +274,7 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
   "rettslære-2-1": [
     {
       question: "Hvilken skyldgrad kreves normalt for at en handling skal være straffbar?",
-      options: ["Forsett, med mindre loven fastsetter at uaktsomhet er tilstrekkelig", "Grov uaktsomhet, altså et markert avvik fra forsvarlig handlemåte", "Hensiktsforsett, altså at gjerningspersonen direkte tilsiktet følgen", "Simpel uaktsomhet, altså at man har opptrådt uforsiktig på vanlig vis"],
+      options: ["Forsett, med mindre loven fastsetter at uaktsomhet er tilstrekkelig","Grov uaktsomhet, altså et markert avvik fra forsvarlig handlemåte i situasjonen","Hensiktsforsett, altså at gjerningspersonen direkte tilsiktet følgen","Simpel uaktsomhet, altså at man har opptrådt uforsiktig på vanlig vis"],
       explanation: "Hovedregelen er at det kreves forsett for straffansvar. Uaktsomhet er bare tilstrekkelig når loven uttrykkelig sier det.",
     },
     {
@@ -294,14 +294,14 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en skjerpende omstendighet ved straffeutmåling?",
-      options: ["At lovbruddet er begått mot en forsvarsløs person", "At gjerningspersonen har avgitt tilståelse", "At det har gått svært lang tid siden lovbruddet ble begått", "At det har gått lang tid siden lovbruddet"],
+      options: ["At lovbruddet er begått mot en forsvarsløs person","At gjerningspersonen har avgitt tilståelse","At det har gått svært lang tid siden lovbruddet","At gjerningspersonen var under 18 år"],
       explanation: "Skjerpende omstendigheter inkluderer lovbrudd mot forsvarsløse, organisert kriminalitet og hatmotiv.",
     },
   ],
   "rettslære-2-2": [
     {
       question: "Hva er den første fasen i den klassiske hvitvaskingsprosessen?",
-      options: ["Plassering", "Tilsløring", "Integrering", "Konvertering"],
+      options: ["Plassering","Tilsløring av sporene","Integrering","Konvertering"],
       explanation: "Plassering er den første fasen, der de kriminelle midlene føres inn i det finansielle systemet.",
     },
     {
@@ -338,7 +338,7 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er folkerettens primære kilder?",
-      options: ["Internasjonale konvensjoner, sedvanerett og alminnelige rettsprinsipper", "Utelukkende den enkelte stats egen nasjonale lovgivning på området", "Utelukkende resolusjoner vedtatt av FNs sikkerhetsråd og generalforsamling", "Utelukkende skriftlige traktater som er inngått og ratifisert mellom stater"],
+      options: ["Internasjonale konvensjoner, sedvanerett og alminnelige rettsprinsipper","Utelukkende den enkelte stats egen nasjonale lovgivning på det aktuelle området","Utelukkende resolusjoner vedtatt av FNs sikkerhetsråd og generalforsamling","Utelukkende skriftlige traktater som er inngått og ratifisert mellom stater"],
       explanation: "Folkerettens primære kilder er traktater, internasjonal sedvane og alminnelige rettsprinsipper anerkjent av siviliserte nasjoner.",
     },
     {
@@ -370,7 +370,7 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er virkningen av EØS-loven § 2?",
-      options: ["EØS-regler har forrang ved motstrid med annen norsk lov", "EØS-regler må godkjennes av Stortinget", "Norsk lov går alltid foran EØS-regler ved motstrid mellom reglene", "EØS-regler gjelder bare for bedrifter og ikke for private borgere"],
+      options: ["EØS-regler har forrang ved motstrid med annen norsk lov","EØS-regler må godkjennes av Stortinget i hver enkelt sak","Norsk lov går alltid foran EØS-regler ved motstrid mellom reglene","EØS-regler gjelder bare for bedrifter og ikke for private borgere"],
       explanation: "EØS-loven § 2 sikrer at gjennomførte EØS-regler har forrang ved motstrid med annen norsk lovgivning.",
     },
     {
@@ -446,7 +446,7 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner naturrett i motsetning til positiv rett?",
-      options: ["Naturrett bygger på overordnede rettigheter som står over menneskeskapt lov", "Naturrett er forskrifter gitt av regjeringen", "Naturrett er forskrifter og enkeltvedtak gitt av regjeringen med hjemmel i formell lov", "Naturrett er retten som er formelt vedtatt av Stortinget og nedfelt i skrevne lovtekster"],
+      options: ["Naturrett bygger på overordnede rettigheter som står over menneskeskapt lov","Naturrett er sedvane som har utviklet seg gjennom langvarig og fast praksis i samfunnet","Naturrett er forskrifter og enkeltvedtak gitt av regjeringen med hjemmel i formell lov","Naturrett er retten som er formelt vedtatt av Stortinget og nedfelt i skrevne lovtekster"],
       explanation: "Naturrett hevder at det finnes overordnede rettigheter uavhengig av hva mennesker vedtar. Positiv rett (rettspositivisme) hevder at retten er det som faktisk er vedtatt av lovgivende myndighet.",
     },
     {
@@ -456,14 +456,14 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilket av disse er et eksempel på privatrett?",
-      options: ["Avtalerett", "Strafferett", "Forvaltningsrett", "Statsrett"],
+      options: ["Avtalerett","Strafferett","Forvaltningsrett","Statsforfatningsrett"],
       explanation: "Avtalerett regulerer forholdet mellom private parter og hører til privatretten. Strafferett, forvaltningsrett og statsrett hører til offentlig rett.",
     },
   ],
   "rettslaere-1-1-2": [
     {
       question: "Hvem utviklet maktfordelingsprinsippet?",
-      options: ["Charles de Montesquieu", "Jean-Jacques Rousseau", "Karl Marx, som la grunnlaget for teorien i sitt hovedverk «Kapitalen»", "John Locke"],
+      options: ["Charles de Montesquieu","Filosofen Jean-Jacques Rousseau","Karl Marx, forfatteren av «Kapitalen»","Den engelske filosofen John Locke"],
       explanation: "Den franske filosofen Charles de Montesquieu utviklet maktfordelingsprinsippet i verket «Om lovenes ånd» (1748).",
     },
     {
@@ -483,7 +483,7 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er konstitusjonell kontroll (prøvingsretten)?",
-      options: ["Domstolenes rett til å prøve om lover er i samsvar med Grunnloven", "Stortingets kontroll med regjeringen", "Stortingets parlamentariske kontroll med at regjeringen følger opp vedtatt politikk", "Politiets myndighet til å kontrollere at borgerne overholder gjeldende lover og regler"],
+      options: ["Domstolenes rett til å prøve om lover er i samsvar med Grunnloven","Domstolenes plikt til å følge Høyesteretts tidligere avgjørelser i like saker","Stortingets parlamentariske kontroll med at regjeringen følger opp vedtatt politikk","Politiets myndighet til å kontrollere at borgerne overholder gjeldende lover og regler"],
       explanation: "Konstitusjonell kontroll, lovfestet i Grunnloven § 89, er domstolenes rett og plikt til å prøve om en lov strider mot Grunnloven, og eventuelt sette den til side.",
     },
   ],
@@ -544,12 +544,12 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
   "rettslaere-1-1-5": [
     {
       question: "Hva er det primære tolkningsprinsippet i norsk rett?",
-      options: ["Ordlydstolkning", "Analogisk tolkning", "Antitetisk tolkning", "Formålstolkning"],
+      options: ["Ordlydstolkning","Analogisk tolkning","Antitetisk tolkning","Formålsrettet tolkning"],
       explanation: "Ordlydstolkning er det primære tolkningsprinsippet. Utgangspunktet er alltid hva lovteksten sier, forstått slik en alminnelig person ville forstå ordene.",
     },
     {
       question: "Hva innebærer formålstolkning?",
-      options: ["Man tolker lovteksten i lys av formålet loven skal ivareta", "Man anvender loven på lignende tilfeller", "Man anvender loven analogisk på lignende tilfeller den ikke direkte regulerer", "Man slutter motsetningsvis fra ordlyden"],
+      options: ["Man tolker lovteksten i lys av formålet loven skal ivareta","Man tolker ordlyden strengt etter alminnelig språkbruk","Man anvender loven analogisk på lignende tilfeller","Man slutter motsetningsvis fra ordlyden"],
       explanation: "Formålstolkning (teleologisk tolkning) betyr at man tolker lovteksten ut fra hva lovgiveren ønsket å oppnå med bestemmelsen.",
     },
     {
@@ -564,7 +564,7 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er analogisk tolkning til skade for tiltalte forbudt i strafferetten?",
-      options: ["På grunn av legalitetsprinsippet i Grunnloven § 96", "Fordi strafferetten ikke har lover", "Fordi dommere etter loven mangler kompetanse til å lese og tolke lovtekster selv", "Fordi det er for tidkrevende"],
+      options: ["På grunn av legalitetsprinsippet i Grunnloven § 96","Fordi strafferetten ikke har lover","Fordi dommere ikke kan tolke lovtekster","Fordi det er for tidkrevende"],
       explanation: "Legalitetsprinsippet (Grunnloven § 96) krever at ingen kan straffes uten hjemmel i lov. Derfor er analogisk tolkning til skade for tiltalte forbudt.",
     },
   ],
@@ -586,7 +586,7 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kalles de to delene en rettsregel typisk har?",
-      options: ["Vilkårsside og rettsfølgeside", "Innledning og avslutning", "En objektiv forside og en subjektiv bakside som utfyller hverandre i regelen", "Forside og bakside"],
+      options: ["Vilkårsside og rettsfølgeside","Innledning, hoveddel og avslutning","En objektiv forside og en subjektiv bakside som utfyller hverandre i regelen","Et straffebud og en straffeutmåling"],
       explanation: "En rettsregel har en vilkårsside (betingelsene som må være oppfylt) og en rettsfølgeside (konsekvensen som inntrer hvis vilkårene er oppfylt).",
     },
     {
@@ -598,27 +598,27 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
   "rettslaere-1-1-7": [
     {
       question: "Hva er EMK?",
-      options: ["Den europeiske menneskerettskonvensjonen", "En internasjonal handelsavtale", "En internasjonal handelsavtale som regulerer tollsatser og frihandel mellom stater", "Et norsk departement"],
+      options: ["Den europeiske menneskerettskonvensjonen","Et organ under Europarådet","En internasjonal handelsavtale om toll","Et norsk departement"],
       explanation: "EMK er Den europeiske menneskerettskonvensjonen, vedtatt av Europarådet i 1950 og gjort til norsk lov gjennom menneskerettsloven.",
     },
     {
       question: "Hvilken stilling har EMK i norsk rett?",
-      options: ["Den har forrang foran annen norsk lov ved motstrid", "Den er underordnet alle norske lover", "Den er underordnet alle andre norske lover og viker ved enhver form for motstrid", "Den gjelder bare for utlendinger"],
+      options: ["Den har forrang foran annen norsk lov ved motstrid","Den gjelder bare for straffesaker","Den er underordnet alle andre norske lover","Den gjelder bare for utlendinger"],
       explanation: "EMK er gjort til norsk lov gjennom menneskerettsloven § 2 og har forrang foran annen norsk lov ved motstrid (menneskerettsloven § 3).",
     },
     {
       question: "Hvor kan borgere klage dersom de mener staten har krenket deres rettigheter etter EMK?",
-      options: ["Den europeiske menneskerettsdomstolen (EMD) i Strasbourg", "EU-domstolen i Luxembourg", "EU-domstolen i Luxembourg, som håndhever menneskerettighetene på vegne av borgerne", "FNs sikkerhetsråd, som behandler individklager om brudd på grunnleggende rettigheter"],
+      options: ["Den europeiske menneskerettsdomstolen (EMD) i Strasbourg","Norges Høyesterett, først etter at alle nasjonale rettsmidler er uttømt","EU-domstolen i Luxembourg, som håndhever menneskerettighetene på vegne av borgerne","FNs sikkerhetsråd, som behandler individklager om brudd på grunnleggende rettigheter"],
       explanation: "Borgere kan klage til Den europeiske menneskerettsdomstolen (EMD) i Strasbourg etter at de har uttømt nasjonale rettsmidler.",
     },
     {
       question: "Hva er et sentralt prinsipp i FNs barnekonvensjon?",
-      options: ["Barnets beste skal være et grunnleggende hensyn", "Barn har ingen egne rettigheter", "At barn under ingen omstendighet skal høres i avgjørelser som direkte berører dem", "Barn kan straffes som voksne"],
+      options: ["Barnets beste skal være et grunnleggende hensyn","Barn har ingen egne rettigheter","At barn aldri skal høres i slike avgjørelser","Barn kan straffes som voksne"],
       explanation: "Barnets beste (art. 3) skal være et grunnleggende hensyn i alle avgjørelser som berører barn. Barnet har også rett til å bli hørt (art. 12).",
     },
     {
       question: "Hva er indirekte diskriminering?",
-      options: ["En tilsynelatende nøytral regel som i praksis rammer en bestemt gruppe uforholdsmessig hardt", "Når noen åpent behandles dårligere på grunn av kjønn", "Når en lov eller regel gjelder helt likt for alle borgere uten noe unntak eller særbehandling", "Når noen helt åpent og bevisst behandles dårligere enn andre utelukkende på grunn av sitt kjønn"],
+      options: ["En tilsynelatende nøytral regel som i praksis rammer en bestemt gruppe uforholdsmessig hardt","Når en regel er utformet for å ramme en bestemt gruppe, og det uttrykkelig framgår av ordlyden","Når en lov eller regel gjelder helt likt for alle borgere uten noe unntak eller særbehandling","Når noen helt åpent og bevisst behandles dårligere enn andre utelukkende på grunn av sitt kjønn"],
       explanation: "Indirekte diskriminering er en tilsynelatende nøytral regel eller praksis som i praksis rammer en bestemt gruppe uforholdsmessig hardt.",
     },
   ],
@@ -630,12 +630,12 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva innebærer at avtaleloven er deklaratorisk?",
-      options: ["Partene kan avtale andre løsninger enn det loven legger opp til", "Loven gjelder bare for staten", "At loven er ufravikelig og aldri kan fravikes gjennom avtale mellom partene", "At loven er ugyldig og uten rettslig virkning fordi den ikke er formelt vedtatt"],
+      options: ["Partene kan avtale andre løsninger enn det loven legger opp til","Loven gjelder bare for avtaler der staten selv er part i forholdet","At loven er ufravikelig og aldri kan fravikes gjennom avtale mellom partene","At loven er ugyldig og uten rettslig virkning fordi den ikke er formelt vedtatt"],
       explanation: "Deklaratorisk (fravikelig) betyr at partene kan avtale andre løsninger enn det loven legger opp til. Loven fungerer som et sikkerhetsnett.",
     },
     {
       question: "Hva er IKKE en del av avtalefriheten?",
-      options: ["Plikt til å inngå avtaler med alle som ønsker det", "Frihet til å velge avtalepartner", "Friheten til selv å velge hvem man vil inngå avtale med blant flere mulige avtaleparter", "Frihet til å bestemme innholdet"],
+      options: ["Plikt til å inngå avtaler med alle som ønsker det","Frihet til å velge muntlig eller skriftlig form","Friheten til selv å velge avtalepart","Frihet til å bestemme innholdet"],
       explanation: "Avtalefriheten innebærer frihet til å inngå avtaler, velge partner, bestemme innhold og velge form. Ingen kan tvinges til å inngå en avtale.",
     },
     {
@@ -657,22 +657,22 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skjer dersom en «aksept» inneholder endringer eller tillegg?",
-      options: ["Den regnes som et avslag og et nytt tilbud", "Avtalen er likevel bindende", "Den opprinnelige tilbyderen må betale erstatning", "Aksepten er ugyldig"],
+      options: ["Den regnes som et avslag og et nytt tilbud","Avtalen er likevel bindende","Tilbyderen må betale erstatning","Aksepten er ugyldig"],
       explanation: "En aksept med endringer eller forbehold regnes ikke som en aksept, men som et nytt tilbud (motbud), jf. avtaleloven § 6.",
     },
     {
       question: "Hvordan må et muntlig tilbud uten akseptfrist besvares?",
-      options: ["Umiddelbart, ellers faller det bort", "Skriftlig innen en måned", "Innen 14 dager, som er den alminnelige akseptfristen etter avtalelovens hovedregel", "Innen 14 dager"],
+      options: ["Umiddelbart, ellers faller det bort","Skriftlig innen en måned","Innen 14 dager etter avtaleloven","Innen rimelig tid etter mottak"],
       explanation: "Etter avtaleloven § 3 må et muntlig tilbud (også telefon, videomøte) aksepteres umiddelbart, ellers faller det bort.",
     },
     {
       question: "Hva sier re integra-regelen i avtaleloven § 7?",
-      options: ["Et tilbud kan kalles tilbake hvis tilbakekallet kommer frem før eller samtidig med tilbudet", "Et tilbud kan aldri kalles tilbake", "At et tilbud under ingen omstendighet kan kalles tilbake når det først er kommet frem til mottakeren", "At et tilbud alltid må være både skriftlig og signert for at det senere skal kunne kalles tilbake igjen"],
+      options: ["Et tilbud kan kalles tilbake hvis tilbakekallet kommer frem før eller samtidig med tilbudet","At et tilbud faller bort av seg selv dersom mottakeren ikke har svart innen tre virkedager etter mottak","At et tilbud under ingen omstendighet kan kalles tilbake når det først er kommet frem til mottakeren","At et tilbud alltid må være både skriftlig og signert for at det senere skal kunne kalles tilbake igjen"],
       explanation: "Re integra-regelen (avtaleloven § 7) sier at et tilbud eller en aksept kan kalles tilbake dersom tilbakekallet kommer frem før eller samtidig med at erklæringen kommer til mottakerens kunnskap.",
     },
     {
       question: "Fra hvilket tidspunkt er et tilbud bindende for tilbyderen?",
-      options: ["Fra det er kommet til mottakerens kunnskap", "Fra mottakeren har akseptert", "Fra tilbudet er sendt av gårde, uavhengig av om det er mottatt", "Fra mottakeren har akseptert tilbudet og aksepten er kommet frem"],
+      options: ["Fra det er kommet til mottakerens kunnskap","Fra tilbudet er undertegnet av tilbyderen selv","Fra tilbudet er sendt av gårde, uavhengig av om det er mottatt","Fra mottakeren har akseptert tilbudet og aksepten er kommet frem"],
       explanation: "Et tilbud er bindende for tilbyderen fra det øyeblikk det er kommet til mottakerens kunnskap, jf. avtaleloven § 7.",
     },
   ],
@@ -694,7 +694,7 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skjer som hovedregel når fullmektigen handler utenfor fullmaktens grenser?",
-      options: ["Fullmaktsgiveren er ikke bundet av avtalen", "Fullmaktsgiveren er alltid bundet", "Fullmaktsgiveren blir alltid fullt bundet av avtalen fullmektigen inngikk", "Avtalen blir automatisk gyldig"],
+      options: ["Fullmaktsgiveren er ikke bundet av avtalen","Fullmektigen blir personlig eier av varen","Fullmaktsgiveren blir alltid fullt bundet","Avtalen blir automatisk gyldig"],
       explanation: "Ved overskridelse av fullmakten er fullmaktsgiveren som hovedregel ikke bundet (avtaleloven § 11), men tredjepersonen kan kreve erstatning fra fullmektigen.",
     },
     {
@@ -706,7 +706,7 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
   "rettslaere-1-2-4": [
     {
       question: "Hva slags ugyldighet gir grov tvang etter avtaleloven § 28?",
-      options: ["Sterk ugyldighet – ugyldig overfor alle, også tredjepersoner i god tro", "Midlertidig ugyldighet", "Svak ugyldighet – avtalen er bare ugyldig overfor parter som var i ond tro", "Ingen ugyldighet – avtalen står ved lag, men den utsatte kan kreve erstatning"],
+      options: ["Sterk ugyldighet – ugyldig overfor alle, også tredjepersoner i god tro","Midlertidig ugyldighet – avtalen er ugyldig inntil den blir bekreftet på nytt","Svak ugyldighet – avtalen er bare ugyldig overfor parter som var i ond tro","Ingen ugyldighet – avtalen står ved lag, men den utsatte kan kreve erstatning"],
       explanation: "Grov tvang (§ 28) ved vold eller trusler om vold gir sterk ugyldighet – avtalen er ugyldig overfor alle, også tredjepersoner i god tro.",
     },
     {
@@ -726,14 +726,14 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er avtaleloven § 36 ofte kalt?",
-      options: ["Generalklausulen eller sikkerhetsventilen", "Myndighetsparagrafen", "Svikparagrafen, som rammer avtaler fremkalt ved bevisst villedning og løgn", "Tvangsparagrafen"],
+      options: ["Generalklausulen eller sikkerhetsventilen","Myndighetsparagrafen","Svikparagrafen mot bevisst villedning","Tvangsparagrafen om trusler"],
       explanation: "Avtaleloven § 36 kalles generalklausulen – en sikkerhetsventil som lar domstolene sette urimelige avtaler helt eller delvis til side.",
     },
   ],
   "rettslaere-1-2-5": [
     {
       question: "For hvilke kjøp gjelder kjøpsloven?",
-      options: ["Kjøp mellom privatpersoner og mellom næringsdrivende", "Bare kjøp av fast eiendom", "Bare internasjonale kjøp der partene holder til i to forskjellige land", "Bare kjøp og salg av fast eiendom mellom to privatpersoner eller bedrifter"],
+      options: ["Kjøp mellom privatpersoner og mellom næringsdrivende","Bare forbrukerkjøp der en næringsdrivende selger til en privatperson","Bare internasjonale kjøp der partene holder til i to forskjellige land","Bare kjøp og salg av fast eiendom mellom to privatpersoner eller bedrifter"],
       explanation: "Kjøpsloven gjelder for kjøp mellom to privatpersoner og mellom to næringsdrivende. Den gjelder ikke forbrukerkjøp (forbrukerkjøpsloven) eller fast eiendom (avhendingslova).",
     },
     {
@@ -760,7 +760,7 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
   "rettslaere-1-2-6": [
     {
       question: "Når gjelder forbrukerkjøpsloven?",
-      options: ["Når en forbruker kjøper fra en næringsdrivende", "Når to privatpersoner handler med hverandre", "Når en forbruker eller næringsdrivende kjøper fast eiendom eller bolig", "Når to bedrifter handler"],
+      options: ["Når en forbruker kjøper fra en næringsdrivende","Når to privatpersoner handler med hverandre","Når det kjøpes fast eiendom eller bolig","Når to bedrifter handler"],
       explanation: "Forbrukerkjøpsloven gjelder når en forbruker (privatperson til privat bruk) kjøper fra en næringsdrivende.",
     },
     {
@@ -780,7 +780,7 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Kan selgeren ta «solgt som den er»-forbehold i forbrukerkjøp?",
-      options: ["Nei, slike forbehold er ugyldige", "Bare ved kjøp over 10 000 kr", "Ja, men et slikt forbehold gjelder utelukkende ved netthandel og fjernsalg", "Bare ved netthandel"],
+      options: ["Nei, slike forbehold er ugyldige","Bare ved kjøp over 10 000 kroner totalt","Ja, men et slikt forbehold gjelder utelukkende ved netthandel og fjernsalg","Ja, dersom kjøperen har sett varen først"],
       explanation: "I motsetning til kjøpsloven kan selgeren ikke ta «solgt som den er»-forbehold i forbrukerkjøp (§ 17). Slike forbehold er ugyldige.",
     },
   ],
@@ -792,7 +792,7 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva innebærer prisavslag som misligholdsbeføyelse?",
-      options: ["Kjøpesummen reduseres, men kjøperen beholder varen", "Selgeren betaler erstatning", "Den mangelfulle varen byttes ut med en ny og mangelfri vare fra selgeren", "Varen byttes ut med en ny"],
+      options: ["Kjøpesummen reduseres, men kjøperen beholder varen","Selgeren betaler erstatning","Den mangelfulle varen byttes ut med en ny vare","Avtalen heves og pengene betales tilbake"],
       explanation: "Prisavslag innebærer at kjøpesummen reduseres for å kompensere for mangelen. Kjøperen beholder varen, men betaler en lavere pris.",
     },
     {
@@ -807,7 +807,7 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva slags ansvar har selgeren for direkte tap ved mangel i forbrukerkjøp?",
-      options: ["Objektivt ansvar – ansvarlig uavhengig av skyld", "Ansvar bare ved grov uaktsomhet", "Ansvar bare når selgeren har handlet forsettlig og med vitende og vilje", "Ansvar bare ved forsett"],
+      options: ["Objektivt ansvar – ansvarlig uavhengig av skyld","Ansvar bare ved grov uaktsomhet","Ansvar bare ved forsett fra selgeren","Ansvar bare når kjøperen klager innen 14 dager"],
       explanation: "I forbrukerkjøp har selgeren objektivt ansvar for direkte tap (§ 33) – han er ansvarlig uavhengig av om han visste om mangelen.",
     },
   ],
@@ -824,12 +824,12 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skjer med angrefristen dersom selgeren ikke har opplyst om angreretten?",
-      options: ["Den forlenges med inntil 12 måneder", "Den faller helt bort", "Ingenting endres – fristen er fortsatt 14 dager selv uten slik opplysning", "Den blir på 7 dager"],
+      options: ["Den forlenges med inntil 12 måneder","Den faller helt bort","Fristen er fortsatt 14 dager","Den blir på 7 dager"],
       explanation: "Dersom selgeren ikke har opplyst om angreretten, forlenges angrefristen med inntil 12 måneder (§ 21 tredje ledd).",
     },
     {
       question: "Hvilken av disse er unntatt fra angreretten?",
-      options: ["Spesialtilpassede varer laget etter forbrukerens spesifikasjoner", "En mobiltelefon kjøpt på nett", "En bok som forbrukeren har bestilt fra en nettbutikk og fått levert hjem", "En mobiltelefon kjøpt på nett som forbrukeren har pakket ut og tatt i bruk"],
+      options: ["Spesialtilpassede varer laget etter forbrukerens spesifikasjoner","En jakke som forbrukeren har prøvd på og angret på etter to dager","En bok som forbrukeren har bestilt fra en nettbutikk og fått levert hjem","En mobiltelefon kjøpt på nett som forbrukeren har pakket ut og tatt i bruk"],
       explanation: "Spesialtilpassede varer (f.eks. gravering, spesialsydd dress) er unntatt fra angreretten (§ 22 bokstav c).",
     },
     {
@@ -846,7 +846,7 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er det viktigste formålet med erstatningsretten?",
-      options: ["Reparasjon (gjenoppretting av tapet)", "Å straffe skadevolder hardt", "Å skaffe staten inntekter gjennom bøter og gebyrer fra skadevolderne", "Å skaffe staten inntekter"],
+      options: ["Reparasjon (gjenoppretting av tapet)","Å straffe skadevolder hardt","Å skaffe staten inntekter via bøter","Å premiere aktsomme borgere"],
       explanation: "Det viktigste formålet er reparasjon – å gjenopprette skadelidtes tap slik at vedkommende stilles som om skaden ikke hadde skjedd. I tillegg virker erstatningsretten preventivt.",
     },
     {
@@ -856,7 +856,7 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke tre grunnvilkår må være oppfylt for erstatning?",
-      options: ["Ansvarsgrunnlag, årsakssammenheng og økonomisk tap", "Tilbud, aksept og betaling", "Forsett hos skadevolder, økonomisk vinning og en form for ulovlig tvang", "Bindende tilbud, samsvarende aksept og gjennomført betaling mellom partene"],
+      options: ["Ansvarsgrunnlag, årsakssammenheng og økonomisk tap","Skade, gyldig forsikring og politianmeldelse av forholdet","Forsett hos skadevolder, økonomisk vinning og en form for ulovlig tvang","Bindende tilbud, samsvarende aksept og gjennomført betaling mellom partene"],
       explanation: "For erstatning må tre vilkår være oppfylt samtidig: ansvarsgrunnlag, årsakssammenheng og økonomisk tap. Mangler ett, foreligger ikke erstatningsplikt.",
     },
     {
@@ -883,7 +883,7 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva må foreligge mellom uaktsomheten og skaden for erstatningsansvar?",
-      options: ["Årsakssammenheng", "En skriftlig avtale", "Et tilbud og en aksept", "En straffedom"],
+      options: ["Årsakssammenheng","En skriftlig avtale","Et tilbud og en aksept","En rettskraftig straffedom"],
       explanation: "Det må foreligge årsakssammenheng – den uaktsomme handlingen må ha forårsaket skaden. Tenkes handlingen bort, ville skaden ikke oppstått.",
     },
     {
@@ -905,7 +905,7 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kreves for ulovfestet objektivt ansvar etter rettspraksis?",
-      options: ["En stadig, typisk og ekstraordinær risiko", "En enkeltstående tilfeldig hendelse", "At skadevolder har handlet med forsett eller kvalifisert skyld", "At skadevolder har forsett"],
+      options: ["En stadig, typisk og ekstraordinær risiko","En enkeltstående tilfeldig hendelse","At skadevolder har handlet med forsett","At skaden er dekket av forsikring"],
       explanation: "Det ulovfestede objektive ansvaret gjelder ved en stadig, typisk og ekstraordinær risiko knyttet til en virksomhet, utviklet gjennom Høyesteretts praksis.",
     },
     {
@@ -922,7 +922,7 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
   "rettslaere-1-3-4": [
     {
       question: "Hva er hovedspørsmålet i betingelseslæren?",
-      options: ["Ville skaden ha oppstått dersom handlingen tenkes borte?", "Var handlingen forsettlig?", "Hvem av partene i saken har best økonomisk evne til å bære tapet", "Hvor stort det samlede økonomiske tapet skadelidte har lidt faktisk er"],
+      options: ["Ville skaden ha oppstått dersom handlingen tenkes borte?","Var handlingen forsettlig eller bare uaktsom fra skadevolders side?","Hvem av partene i saken har best økonomisk evne til å bære tapet","Hvor stort det samlede økonomiske tapet skadelidte har lidt faktisk er"],
       explanation: "Betingelseslæren (conditio sine qua non) spør om skaden ville ha oppstått dersom den ansvarsbetingende handlingen tenkes borte. Hvis nei, foreligger årsakssammenheng.",
     },
     {
@@ -954,7 +954,7 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan beregnes erstatning ved totalskade på en gjenstand?",
-      options: ["Etter gjenanskaffelsesverdi med fradrag for alder og slitasje", "Etter nyprisen uten fradrag", "Etter full nypris for en tilsvarende gjenstand uten noe fradrag", "Det gis ingen erstatning fordi gjenstanden er fullstendig ødelagt"],
+      options: ["Etter gjenanskaffelsesverdi med fradrag for alder og slitasje","Etter det beløpet gjenstanden opprinnelig ble kjøpt for, uten justering","Etter full nypris for en tilsvarende gjenstand uten noe fradrag","Det gis ingen erstatning fordi gjenstanden er fullstendig ødelagt"],
       explanation: "Ved totaltap erstattes gjenanskaffelsesverdien for en tilsvarende gjenstand i tilsvarende stand. Det gjøres fradrag for alder, slitasje og bruk (elde-fradrag).",
     },
     {
@@ -964,7 +964,7 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva slags skyld kreves for oppreisning etter skadeserstatningsloven § 3-5?",
-      options: ["Forsett eller grov uaktsomhet", "Objektivt ansvar uten skyld", "At objektivt ansvar uten noen form for skyld er nok", "Simpel uaktsomhet er nok"],
+      options: ["Forsett eller grov uaktsomhet","Uaktsomhet fra skadelidte","At objektivt ansvar er nok","Simpel uaktsomhet er nok"],
       explanation: "Oppreisning krever kvalifisert skyld – skadevolder må ha handlet forsettlig eller grovt uaktsomt. Simpel uaktsomhet er ikke tilstrekkelig.",
     },
     {
@@ -981,7 +981,7 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den vanligste virkningen av medvirkning?",
-      options: ["En prosentvis avkorting av erstatningen", "At skadelidte må betale skadevolder", "At skadelidte selv må betale erstatning til skadevolder", "At skadevolder straffes"],
+      options: ["En prosentvis avkorting av erstatningen","At erstatningen dobles for skadevolder","At skadelidte må betale erstatning","At skadevolder straffes"],
       explanation: "Medvirkning gir normalt en prosentvis avkorting i erstatningen, fastsatt etter en helhetsvurdering av skadelidtes skyld og forholdene ellers.",
     },
     {
@@ -1003,7 +1003,7 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
   "rettslaere-1-4-1": [
     {
       question: "Hvem forfølger og straffer lovbrytere i et moderne rettssamfunn?",
-      options: ["Staten gjennom påtalemyndigheten", "Forsikringsselskapene", "Kommunen der lovbruddet ble begått", "Den fornærmede selv gjennom privat søksmål"],
+      options: ["Staten gjennom påtalemyndigheten","Forsikringsselskapene som dekker tapet","Kommunen der lovbruddet ble begått","Den fornærmede selv gjennom privat søksmål"],
       explanation: "Strafferetten er offentlig rett – det er staten (påtalemyndigheten) som forfølger og straffer lovbrytere, ikke den fornærmede.",
     },
     {
@@ -1035,7 +1035,7 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kalles det første, objektive straffbarhetsvilkåret?",
-      options: ["At handlingen oppfyller gjerningsbeskrivelsen i et straffebud", "At gjerningspersonen er tilregnelig", "At det subjektivt sett er utvist forsett om følgen av handlingen", "At gjerningspersonen var over den strafferettslige lavalderen på 15 år"],
+      options: ["At handlingen oppfyller gjerningsbeskrivelsen i et straffebud","At gjerningspersonen er tilregnelig og ikke psykotisk ved handlingen","At det subjektivt sett er utvist forsett om følgen av handlingen","At gjerningspersonen var over den strafferettslige lavalderen på 15 år"],
       explanation: "Det første (objektive) vilkåret er at handlingen må oppfylle gjerningsbeskrivelsen i et straffebud – alle elementene i beskrivelsen må være dekket.",
     },
     {
@@ -1153,12 +1153,12 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Når kan unge under 18 år idømmes ubetinget fengsel?",
-      options: ["Bare når det er «særlig påkrevd»", "Bare ved første lovbrudd", "Alltid ved tyveri, uansett verdien av det som er stjålet", "Alltid ved tyveri"],
+      options: ["Bare når det er «særlig påkrevd»","Bare ved første lovbrudd","Alltid ved tyveri uansett verdi","Bare med foreldrenes samtykke"],
       explanation: "Etter straffeloven § 33 kan den som var under 18 år bare idømmes fengselsstraff når det er «særlig påkrevd», fordi fengsel kan være skadelig for utviklingen.",
     },
     {
       question: "Hvilket prinsipp bygger ungdomsstraffen på?",
-      options: ["Gjenopprettende rett (restorative justice)", "Maksimal frihetsberøvelse", "Streng gjengjeldelse som skal svare til lovbruddets alvor", "Maksimal frihetsberøvelse for å beskytte samfunnet best mulig"],
+      options: ["Gjenopprettende rett (restorative justice)","Rask straffesaksbehandling for lovbrytere under 18 år","Streng gjengjeldelse som skal svare til lovbruddets alvor","Maksimal frihetsberøvelse for å beskytte samfunnet best mulig"],
       explanation: "Ungdomsstraffen bygger på prinsippet om restorative justice (gjenopprettende rett), der fokuset er på å reparere skaden lovbruddet har forårsaket.",
     },
   ],
@@ -1192,7 +1192,7 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
   "rettslaere-1-5-1": [
     {
       question: "Hvilken lov regulerer arbeidsforholdet i Norge?",
-      options: ["Arbeidsmiljøloven", "Straffeloven", "Kjøpsloven om kjøp av varer", "Avtaleloven"],
+      options: ["Arbeidsmiljøloven","Straffeloven om lovbrudd","Kjøpsloven om kjøp av varer","Avtaleloven om avtaleinngåelse"],
       explanation: "Arbeidsmiljøloven (lov 17. juni 2005 nr. 62) regulerer arbeidsmiljø, arbeidstid og stillingsvern i norske arbeidsforhold.",
     },
     {
@@ -1202,7 +1202,7 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Er det krav om skriftlig arbeidsavtale?",
-      options: ["Ja, i alle arbeidsforhold (aml. § 14-5)", "Nei, en muntlig avtale holder alltid", "Bare for ledere og andre nøkkelpersoner", "Bare ved fast ansettelse, ikke midlertidig"],
+      options: ["Ja, i alle arbeidsforhold (aml. § 14-5)","Nei, en muntlig avtale holder alltid","Bare for ledere og nøkkelpersoner","Bare ved fast ansettelse"],
       explanation: "Det skal inngås skriftlig arbeidsavtale i alle arbeidsforhold, uavhengig av om stillingen er fast eller midlertidig, heltid eller deltid (aml. § 14-5).",
     },
     {
@@ -1234,12 +1234,12 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvor mange virkedager ferie har alle arbeidstakere rett til etter ferieloven?",
-      options: ["25 virkedager (4 uker og 1 dag)", "20 virkedager", "30 virkedager, altså fem fulle uker", "15 virkedager, altså tre fulle uker"],
+      options: ["25 virkedager (4 uker og 1 dag)","20 virkedager, altså fire fulle uker","30 virkedager, altså fem fulle uker","15 virkedager, altså tre fulle uker"],
       explanation: "Alle arbeidstakere har rett til 25 virkedager (4 uker og 1 dag) ferie per år (ferieloven § 5). Arbeidstakere over 60 år har en ekstra uke.",
     },
     {
       question: "I hvilken periode kan arbeidstakeren kreve å få hovedferien (3 uker)?",
-      options: ["1. juni–30. september", "1. januar–1. mars", "Hele året rundt fritt", "Bare i romjulen i desember"],
+      options: ["1. juni–30. september","1. januar–1. mars om vinteren","Når som helst hele året rundt","Bare i romjulen i desember"],
       explanation: "Arbeidstakeren kan kreve at hovedferien (18 virkedager / 3 uker) gis i perioden 1. juni–30. september, jf. ferieloven § 7.",
     },
   ],
@@ -1261,7 +1261,7 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er minste gjensidige oppsigelsestid som hovedregel?",
-      options: ["Én måned", "En uke", "Tre måneder", "Seks måneder"],
+      options: ["Én måned","En hel uke","Tre måneder","Seks måneder"],
       explanation: "Hovedregelen er minst én måned gjensidig oppsigelsestid (aml. § 15-3). Fristene øker med ansiennitet og alder.",
     },
     {
@@ -1278,7 +1278,7 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken standard skal arbeidsmiljøet oppfylle etter aml. § 4-1?",
-      options: ["Det skal være «fullt forsvarlig»", "Det skal være billigst mulig", "Det skal være maksimalt produktivt", "Det er ingen krav"],
+      options: ["Det skal være «fullt forsvarlig»","Det skal være billigst mulig for bedriften","Det skal være maksimalt produktivt","Det stilles ingen krav til arbeidsmiljøet"],
       explanation: "Arbeidsmiljøet skal være «fullt forsvarlig» (aml. § 4-1) – en dynamisk standard som utvikler seg med ny kunnskap og teknologi.",
     },
     {
@@ -1288,7 +1288,7 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvem er statens tilsynsmyndighet for arbeidsmiljø?",
-      options: ["Arbeidstilsynet", "Datatilsynet", "Forbrukertilsynet", "Politiet"],
+      options: ["Arbeidstilsynet","Datatilsynet for personvern","Forbrukertilsynet","Politiet i det enkelte distrikt"],
       explanation: "Arbeidstilsynet er statens tilsynsmyndighet for arbeidsmiljø (aml. § 18-1). De kan gjennomføre inspeksjoner og gi pålegg, tvangsmulkt mv.",
     },
     {
@@ -1310,7 +1310,7 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en ektepakt?",
-      options: ["En avtale mellom ektefeller om formuesordningen", "En skilsmissesøknad", "En leiekontrakt om felles bolig som må tinglyses for å få rettsvern overfor tredjeparter", "En leiekontrakt"],
+      options: ["En avtale mellom ektefeller om formuesordningen","En skilsmissesøknad","En leiekontrakt om felles bolig","En avtale om samboerskap"],
       explanation: "En ektepakt er en avtale mellom ektefeller om formuesordningen, f.eks. om særeie. Den må være skriftlig, signert av begge og tinglyses.",
     },
     {
@@ -1327,7 +1327,7 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
   "rettslaere-1-5-6": [
     {
       question: "Finnes det en egen samboerlov i Norge?",
-      options: ["Nei, samboeres rettigheter er spredt i ulike lover", "Ja, den er lik ekteskapsloven", "Ja, og den gir samboere de samme rettighetene som ektefeller når de har bodd sammen i over fem år", "Nei, samboerskap er ulovlig"],
+      options: ["Nei, samboeres rettigheter er spredt i ulike lover","Ja, den er lik ekteskapsloven","Ja, og den gir samboere ektefellers rettigheter","Nei, samboerskap er ulovlig"],
       explanation: "Det finnes ingen egen samboerlov i Norge. Samboeres rettigheter er spredt i ulike lover og er vesentlig svakere enn ektefellers.",
     },
     {
@@ -1337,7 +1337,7 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke samboere har en begrenset lovfestet arverett?",
-      options: ["Samboere med felles barn", "Alle samboere", "Ingen samboere", "Bare samboere som har bodd sammen i 20 år"],
+      options: ["Samboere med felles barn","Alle samboere uten unntak","Ingen samboere i det hele tatt","Bare samboere som har bodd sammen i 20 år"],
       explanation: "Samboere med felles barn har rett til arv tilsvarende 4G og begrenset uskifterett. Samboere uten felles barn har ingen lovfestet arverett.",
     },
     {
@@ -1354,12 +1354,12 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
   "rettslaere-1-5-7": [
     {
       question: "Hvem utgjør første arveklasse etter arveloven?",
-      options: ["Avdødes livsarvinger (barn, barnebarn osv.)", "Avdødes ektefelle alene", "Avdødes søsken og deres barn, som deler arven likt seg imellom etter reglene om istederett", "Avdødes foreldre"],
+      options: ["Avdødes livsarvinger (barn, barnebarn osv.)","Avdødes ektefelle alene","Avdødes søsken og deres barn","Avdødes foreldre og deres arvinger"],
       explanation: "Første arveklasse er avdødes livsarvinger (barn, barnebarn, oldebarn). Barna arver likt, og er et barn dødt, trer barnets barn inn (istedenprinsippet).",
     },
     {
       question: "Hvor stor er pliktdelsarven etter arveloven § 50?",
-      options: ["2/3 av arven, begrenset til 15 G per barnelinje", "Halvparten av arven", "Halvparten av arven etter arvelateren, med et fast tak på 10 G for hver enkelt livsarving", "1/4 av arven"],
+      options: ["2/3 av arven, begrenset til 15 G per barnelinje","Hele arven, uten noe tak","Halvparten av arven, med et tak på 10 G","1/4 av arven, uten noe beløpstak"],
       explanation: "Pliktdelen utgjør 2/3 av arven etter arvelateren, begrenset oppad til 15 G (ca. 1,86 mill. kr i 2024) per barnelinje. Den nye arveloven hevet beløpsgrensen fra den gamle på 1 million.",
     },
     {
@@ -1369,7 +1369,7 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva innebærer uskiftet bo?",
-      options: ["Gjenlevende ektefelle overtar avdødes formue uten å gjøre opp arven med øvrige arvinger", "At staten overtar boet", "At all gjeld i boet automatisk slettes, slik at gjenlevende ektefelle overtar eiendelene helt gjeldfritt", "At staten midlertidig overtar hele boet inntil arvingene er blitt enige om hvordan verdiene skal fordeles"],
+      options: ["Gjenlevende ektefelle overtar avdødes formue uten å gjøre opp arven med øvrige arvinger","At arvingene må skifte boet straks, og at gjenlevende ektefelle bare får sin egen andel utbetalt","At all gjeld i boet automatisk slettes, slik at gjenlevende ektefelle overtar eiendelene helt gjeldfritt","At staten midlertidig overtar hele boet inntil arvingene er blitt enige om hvordan verdiene skal fordeles"],
       explanation: "Uskiftet bo innebærer at gjenlevende ektefelle overtar avdødes formue uten å gjøre opp arven. Oppgjøret utsettes til gjenlevende dør eller ønsker å skifte.",
     },
     {
@@ -1381,7 +1381,7 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
   "rettslaere-1-5-8": [
     {
       question: "Hva er barnerettens grunnprinsipp?",
-      options: ["Barnets beste skal være et grunnleggende hensyn", "Barn har ingen rettigheter", "At foreldrene fritt bestemmer alle forhold som gjelder barnet, uten at barnet selv har rett til å bli hørt", "Foreldrene bestemmer alt"],
+      options: ["Barnets beste skal være et grunnleggende hensyn","Barn har ingen rettigheter","At foreldrene fritt bestemmer alt om barnet","Domstolen avgjør alle spørsmål om barn"],
       explanation: "Barnerettens grunnprinsipp er at barnets beste skal være et grunnleggende hensyn i alle avgjørelser som berører barnet, forankret i barnekonvensjonen art. 3 og Grunnloven § 104.",
     },
     {
@@ -1391,7 +1391,7 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva innebærer foreldreansvar?",
-      options: ["Rett og plikt til å ta avgjørelser for barnet i personlige spørsmål", "Bare å betale barnebidrag", "Bare en plikt til å betale barnebidrag hver måned inntil barnet fyller 18 år eller avslutter utdanningen", "Bare retten til samvær med barnet i helger og ferier når foreldrene ikke lenger bor sammen etter et brudd"],
+      options: ["Rett og plikt til å ta avgjørelser for barnet i personlige spørsmål","Bare en plikt til å møte i foreldresamtaler og følge opp skolegangen til barnet","Bare en plikt til å betale barnebidrag hver måned inntil barnet fyller 18 år eller avslutter utdanningen","Bare retten til samvær med barnet i helger og ferier når foreldrene ikke lenger bor sammen etter et brudd"],
       explanation: "Foreldreansvar innebærer en rett og plikt til å ta avgjørelser for barnet i personlige spørsmål som bosted, utdanning, helse og religion, innenfor barnets medbestemmelsesrett.",
     },
     {
@@ -1413,12 +1413,12 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken lov regulerer den sivile rettsprosessen?",
-      options: ["Tvisteloven", "Straffeprosessloven", "Avtaleloven", "Forvaltningsloven"],
+      options: ["Tvisteloven","Straffeprosessloven","Avtaleloven om avtaler","Forvaltningsloven"],
       explanation: "Den sivile rettsprosessen er regulert av tvisteloven (lov 17. juni 2005 nr. 90 om mekling og rettergang i sivile tvister).",
     },
     {
       question: "Hva er forliksrådets to hovedoppgaver?",
-      options: ["Å mekle mellom partene og avsi dom i saker under 200 000 kr", "Å etterforske straffesaker", "Å etterforske straffesaker og innhente bevis før saken oversendes påtalemyndigheten for avgjørelse", "Å utarbeide og vedta nye lover på områder der Stortinget har delegert myndighet til lokale organer"],
+      options: ["Å mekle mellom partene og avsi dom i saker under 200 000 kr","Å føre tilsyn med advokater og behandle klager på deres arbeid","Å etterforske straffesaker og innhente bevis før saken oversendes påtalemyndigheten for avgjørelse","Å utarbeide og vedta nye lover på områder der Stortinget har delegert myndighet til lokale organer"],
       explanation: "Forliksrådet forsøker å mekle mellom partene, og kan avsi dom i saker med tvistesum under 200 000 kr dersom mekling ikke fører frem (tvisteloven § 6-10).",
     },
     {
@@ -1462,7 +1462,7 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
   "rettslaere-1-6-3": [
     {
       question: "Hva er prinsippet om fri bevisvurdering?",
-      options: ["Dommeren vurderer fritt hvilken vekt hvert enkelt bevis skal ha", "Partene bestemmer dommens innhold", "At partene selv i fellesskap bestemmer hvilket faktum retten skal legge til grunn, og dermed dommens innhold", "Vitnebevis har alltid forrang"],
+      options: ["Dommeren vurderer fritt hvilken vekt hvert enkelt bevis skal ha","Bevis må legges fram skriftlig for retten","At partene selv bestemmer faktum retten legger til grunn","Vitnebevis har alltid forrang"],
       explanation: "Fri bevisvurdering betyr at dommeren fritt vurderer hvilken vekt hvert bevis skal ha – ingen bevistype har automatisk forrang.",
     },
     {
@@ -1509,7 +1509,7 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva dekker en rettshjelpsforsikring typisk?",
-      options: ["Advokatkostnader og rettsgebyr i sivile tvister", "Bøter i straffesaker", "Skatter, avgifter og gebyrer den forsikrede skylder til det offentlige", "Bøter og saksomkostninger den tiltalte ilegges i straffesaker for domstolene"],
+      options: ["Advokatkostnader og rettsgebyr i sivile tvister","Egenandelen ved skade på egen bolig og eget innbo","Skatter, avgifter og gebyrer den forsikrede skylder til det offentlige","Bøter og saksomkostninger den tiltalte ilegges i straffesaker for domstolene"],
       explanation: "Rettshjelpsforsikring (ofte inkludert i innbo-/villaforsikring) dekker advokatkostnader og rettsgebyr i sivile tvister som nabokonflikter og kjøpstvister, men ikke familiesaker eller straffesaker.",
     },
   ],
@@ -1531,7 +1531,7 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et rettsforlik?",
-      options: ["Et forlik inngått i retten som har virkning som en rettskraftig dom", "En vanlig avtale uten rettsvirkning", "En anke over dommen til nærmeste overordnede domstol i rettssystemet", "En straffedom avsagt av retten etter at tiltalte er funnet skyldig i saken"],
+      options: ["Et forlik inngått i retten som har virkning som en rettskraftig dom","En helt vanlig avtale mellom partene som ikke har noen rettslig virkning","En anke over dommen til nærmeste overordnede domstol i rettssystemet","En straffedom avsagt av retten etter at tiltalte er funnet skyldig i saken"],
       explanation: "Et rettsforlik er et forlik inngått i retten eller forliksrådet (tvisteloven § 19-11). Det har virkning som en rettskraftig dom og kan tvangsfullbyrdes.",
     },
     {
@@ -1590,7 +1590,7 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva viser at Grunnloven er et levende dokument?",
-      options: ["Den har blitt endret over 300 ganger siden 1814", "Den gjelder bare for Stortinget", "Den har aldri blitt endret og står ordrett slik den ble vedtatt i 1814", "Den har aldri blitt endret"],
+      options: ["Den har blitt endret over 300 ganger siden 1814","Den gjelder bare for Stortinget","Den har aldri blitt endret siden 1814","Den kan endres med simpelt flertall"],
       explanation: "Grunnloven av 1814 har blitt endret over 300 ganger og gjenspeiler samfunnsutviklingen – fra parlamentarisme og kvinnelig stemmerett til menneskerettighetskatalogen i 2014.",
     },
   ],
@@ -1624,12 +1624,12 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
   "rettslaere-2-2": [
     {
       question: "Hva er hvitvasking?",
-      options: ["Å bidra til å sikre utbytte fra straffbare handlinger", "Å gi gaver til veldedighet", "Å vaske og rengjøre fysiske pengesedler som er blitt skitne eller ødelagte", "Å betale skatt og avgifter av inntekt fra en helt lovlig næringsvirksomhet"],
+      options: ["Å bidra til å sikre utbytte fra straffbare handlinger","Å gi gaver til veldedige organisasjoner og få skattefradrag","Å vaske og rengjøre fysiske pengesedler som er blitt skitne eller ødelagte","Å betale skatt og avgifter av inntekt fra en helt lovlig næringsvirksomhet"],
       explanation: "Hvitvasking (straffeloven § 337) innebærer å gjøre penger eller verdier fra kriminell virksomhet tilsynelatende lovlige gjennom ulike transaksjoner.",
     },
     {
       question: "Hvilke tre faser har hvitvaskingsprosessen tradisjonelt?",
-      options: ["Plassering, tilsløring og integrering", "Anmeldelse, etterforskning og dom", "Innskudd, uttak og overføring mellom ulike bankkontoer i inn- og utland", "Innskudd, uttak og overføring"],
+      options: ["Plassering, tilsløring og integrering","Anmeldelse, etterforskning, tiltale og dom","Innskudd, uttak og overføring mellom ulike bankkontoer i inn- og utland","Kontantsalg, kortbetaling og fakturering"],
       explanation: "Hvitvasking har tre faser: plassering (midlene føres inn i det finansielle systemet), tilsløring (sporene skjules) og integrering (midlene fremstår som lovlige).",
     },
     {
@@ -1688,7 +1688,7 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken modell har Norge valgt for gjennomføring av EØS-regler?",
-      options: ["En dualistisk modell der EØS-regler må gjennomføres i norsk lov", "En monistisk modell der EØS-regler gjelder direkte", "En modell der EU-kommisjonen vedtar reglene direkte i norsk rett", "En modell uten rettslig binding, der EØS-regler kun er anbefalinger"],
+      options: ["En dualistisk modell der EØS-regler må gjennomføres i norsk lov","En monistisk modell der EØS-regler gjelder direkte uten gjennomføring","En modell der EU-kommisjonen vedtar reglene direkte i norsk rett","En modell uten rettslig binding, der EØS-regler kun er anbefalinger"],
       explanation: "Norge har en dualistisk modell, som betyr at EØS-regler må gjennomføres i norsk lov (gjennom inkorporasjon eller transformasjon) for å få virkning.",
     },
     {
@@ -1786,7 +1786,7 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
   "rettslaere-2-8": [
     {
       question: "Hva er eiendomsrett?",
-      options: ["Den mest omfattende rådigheten man kan ha over en ting", "En rett som bare staten har", "Utelukkende retten til å leie ut tingen mot vederlag til andre", "En begrenset bruksrett tildelt av eieren for et bestemt formål"],
+      options: ["Den mest omfattende rådigheten man kan ha over en ting","En rett som bare staten og kommunene kan ha over fast eiendom","Utelukkende retten til å leie ut tingen mot vederlag til andre","En begrenset bruksrett tildelt av eieren for et bestemt formål"],
       explanation: "Eiendomsrett er den mest omfattende rådigheten man kan ha over en ting. Eieren kan bruke, endre, selge eller gi bort eiendommen og nekte andre å bruke den, innenfor lovens grenser.",
     },
     {
@@ -1806,7 +1806,7 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva beskytter den som kjøper i god tro og stoler på grunnboken?",
-      options: ["Vern mot eldre utinglyste rettigheter (ekstinksjon)", "Fritak fra eiendomsskatt", "Vern mot naboklager og krav etter naboloven om ulemper", "Fullt fritak fra eiendomsskatt de første årene etter kjøpet"],
+      options: ["Vern mot eldre utinglyste rettigheter (ekstinksjon)","Rett til å kreve at selgeren utbedrer alle skjulte mangler","Vern mot naboklager og krav etter naboloven om ulemper","Fullt fritak fra eiendomsskatt de første årene etter kjøpet"],
       explanation: "Grunnbokens troverdighet innebærer at den som kjøper i god tro og stoler på grunnboken, er beskyttet mot eldre utinglyste rettigheter (ekstinksjon).",
     },
   ],
@@ -1828,7 +1828,7 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
     },
     {
       question: "I hvilke saker er familierettsmekling obligatorisk?",
-      options: ["Ved samlivsbrudd med barn", "Ved arbeidskonflikter", "I alle straffesaker der fornærmede og tiltalte ønsker det", "I alle straffesaker"],
+      options: ["Ved samlivsbrudd med barn","Ved konflikter mellom arbeidsgiver og fagforening","I alle straffesaker der fornærmede og tiltalte ønsker det","Ved tvist om arv etter et dødsfall"],
       explanation: "Familierettsmekling er obligatorisk ved samlivsbrudd med barn. Megling brukes også i sivile tvister og mellom arbeidsgiver og fagforeninger.",
     },
     {
@@ -1840,7 +1840,7 @@ const quizData_rettslaere: Record<string, QuizQuestion[]> = {
   "rettslaere-2-10": [
     {
       question: "Hva handler rettsfilosofi om?",
-      options: ["Rettens grunnlag, natur og formål", "Bare hvordan man skriver lover", "Bare de folkerettslige reglene som styrer internasjonal handel", "Bare internasjonal handel"],
+      options: ["Rettens grunnlag, natur og formål","Bare hvordan man skriver lover","Bare folkerettens handelsregler","Bare domstolenes organisering"],
       explanation: "Rettsfilosofi handler om rettens grunnlag, natur og formål – sentrale spørsmål er hva rett er, hva som gjør en lov gyldig, og hva rettferdighet er.",
     },
     {

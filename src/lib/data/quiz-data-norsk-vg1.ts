@@ -4,7 +4,7 @@ const quizData_norsk_vg1: Record<string, QuizQuestion[]> = {
   "norsk-vg1-1-1": [
     {
       question: "Hva er kairos i retorikken?",
-      options: ["A si rett ting til rett tid - timing og kontekst", "Appell til troverdighet", "Talerens troverdighet og faglige autoritet i saken", "Å bygge argumentet på fornuft, fakta og logisk resonnement"],
+      options: ["A si rett ting til rett tid - timing og kontekst","Å bygge argumentet på tilhørernes følelser og stemninger","Talerens troverdighet og faglige autoritet i saken","Å bygge argumentet på fornuft, fakta og logisk resonnement"],
       explanation: "Kairos handler om timing - a tilpasse budskapet til den rette situasjonen og det rette øyeblikket for a fa maksimal effekt.",
     },
     {
@@ -31,12 +31,12 @@ const quizData_norsk_vg1: Record<string, QuizQuestion[]> = {
   "norsk-vg1-1-2": [
     {
       question: "Hva er en primerkilde?",
-      options: ["Originale dokumenter, forskning eller oyenvitneskildringer", "En lærebok eller Wikipedia-artikkel", "Et blogginnlegg der forfatteren gir sin egen mening om andres funn", "En lærebok eller et oppslagsverk som forklarer og oppsummerer et emne"],
+      options: ["Originale dokumenter, forskning eller oyenvitneskildringer","En muntlig gjenfortelling av noe man har hørt fra andre igjen","Et blogginnlegg der forfatteren gir sin egen mening om andres funn","En lærebok eller et oppslagsverk som forklarer og oppsummerer et emne"],
       explanation: "Primaerkilder er originalmateriale som forskningsdata, historiske dokumenter eller førstehandsberetninger - ikke tolkninger av disse.",
     },
     {
       question: "Hva star TRAFO for i kildekritikk?",
-      options: ["Troverdighet, Relevans, Aktualitet, Formal og Objektivitet", "Tekst, Referanse, Analyse, Fakta og Oppsummering", "Tekst, Referanse, Analyse, Fakta og Oppsummering av innholdet i kilden", "Tema, Resultat, Argument, Forskjell og Oversikt"],
+      options: ["Troverdighet, Relevans, Aktualitet, Formal og Objektivitet","Tittel, Redaktør, Alder, Format og Opphav","Tekst, Referanse, Analyse, Fakta og Oppsummering","Tema, Resultat, Argument, Forskjell og Oversikt"],
       explanation: "TRAFO er en modell for kildekritikk: Troverdighet (hvem?), Relevans (passer det?), Aktualitet (nar?), Formal (hvorfor?) og Objektivitet (balansert?).",
     },
     {
@@ -68,7 +68,7 @@ const quizData_norsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er analepse i fortelleteknikk?",
-      options: ["Tilbakeblikk - nårfortellingen hopper tilbake i tid", "Frempek - antydning om hva som skal skje", "Frempek - en antydning tidlig i teksten om hva som skal skje senere", "Klimaks - selve høydepunktet der spenningen i fortellingen er på topp"],
+      options: ["Tilbakeblikk - nårfortellingen hopper tilbake i tid","Ellipse - når fortellingen hopper over et tidsrom uten å fortelle om det","Frempek - en antydning tidlig i teksten om hva som skal skje senere","Klimaks - selve høydepunktet der spenningen i fortellingen er på topp"],
       explanation: "Analepse (tilbakeblikk/flashback) er nårfortellingen hopper tilbake til hendelser som skjedde for hovedhandlingen.",
     },
     {
@@ -95,7 +95,7 @@ const quizData_norsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilket virkemiddel brukes i \"Fjellene stod som vakter ved kysten\"?",
-      options: ["Sammenligning (simile) - bruker \"som\"", "Metafor - uten \"som\"", "Metafor - et bildespråk som sammenligner uten å bruke ordet \"som\"", "Personifikasjon"],
+      options: ["Sammenligning (simile) - bruker \"som\"","Gjentakelse av samme lyd","Metafor - bildespråk uten «som»","Personifikasjon av naturen"],
       explanation: "Dette er en sammenligning (simile) fordi det brukes \"som\" til a sammenligne fjellene med vakter.",
     },
     {
@@ -105,7 +105,7 @@ const quizData_norsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et haiku?",
-      options: ["Et japansk diktform med tre linjer (5-7-5 stavelser)", "Et langt episk dikt", "Et langt episk dikt som forteller en sammenhengende heltehistorie", "En norsk folkevise med gjentatt omkved og fast strofisk oppbygning"],
+      options: ["Et japansk diktform med tre linjer (5-7-5 stavelser)","En sonett på fjorten linjer med et strengt fast rimmønster","Et langt episk dikt som forteller en sammenhengende heltehistorie","En norsk folkevise med gjentatt omkved og fast strofisk oppbygning"],
       explanation: "Haiku er en japansk diktform med tre linjer og et fast stavelseantall: 5 stavelser, 7 stavelser, 5 stavelser.",
     },
   ],
@@ -117,7 +117,7 @@ const quizData_norsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er øyekontakt viktig i muntlig presentasjon?",
-      options: ["Det skaper kontakt med publikum og viser selvtillit", "Det gjør deg mindre nervoes", "Det gjør deg mindre nervøs fordi du slipper å se ned i manuset ditt", "Det er et obligatorisk krav som læreren vurderer i muntlig fremføring"],
+      options: ["Det skaper kontakt med publikum og viser selvtillit","Det gjør at du rekker å lese hele manuset ordrett høyt","Det gjør deg mindre nervøs fordi du slipper å se ned i manuset ditt","Det er et obligatorisk krav som læreren vurderer i muntlig fremføring"],
       explanation: "Øyekontakt skaper forbindelse med publikum, viser at du er trygg påstoffet, og gjør at tilhørerne føler seg inkludert.",
     },
     {
@@ -149,7 +149,7 @@ const quizData_norsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et frempek (prolepse) i en fortelling?",
-      options: ["En antydning om hva som skal skje senere i historien", "Introduksjonen av karakterene", "Selve høydepunktet i fortellingen der konflikten når sitt toppunkt", "Innledningen der personene og situasjonen blir presentert for leseren"],
+      options: ["En antydning om hva som skal skje senere i historien","En sidehandling som løper parallelt med hovedhandlingen","Selve høydepunktet i fortellingen der konflikten når sitt toppunkt","Innledningen der personene og situasjonen blir presentert for leseren"],
       explanation: "Frempek (prolepse) er hint eller antydninger om hendelser som kommer til a skje senere, noe som skaper spenning og forventning.",
     },
     {
@@ -159,7 +159,7 @@ const quizData_norsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva menes med \"cliffhanger\" i en fortelling?",
-      options: ["En avslutning som lar leseren henge i spenning", "Begynnelsen av historien", "En scene der en karakter bokstavelig talt faller ned fra en høyde", "Selve begynnelsen av historien der spenningen bygges opp fra starten"],
+      options: ["En avslutning som lar leseren henge i spenning","Et sammendrag av handlingen på baksiden av boka","En scene der en karakter bokstavelig talt faller ned fra en høyde","Selve begynnelsen av historien der spenningen bygges opp fra starten"],
       explanation: "En cliffhanger er en spenningsfylt avslutning (av et kapittel eller en episode) som lar leseren i uvisshet og lyst til a lese videre.",
     },
   ],
@@ -176,7 +176,7 @@ const quizData_norsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en idiolekt?",
-      options: ["Din personlige, unike måte a snakke pa", "Et offisielt skriftspråk", "En regional dialekt knyttet til et bestemt geografisk område", "En regional dialekt"],
+      options: ["Din personlige, unike måte a snakke pa","Et offisielt skriftspråk","En regional dialekt i et område","Et fagspråk for et bestemt yrke"],
       explanation: "Idiolekt er din personlige språkvarietet - den unike kombinasjonen av dialekt, sosiolekt og personlige spraetrekk som gjør deg gjenkjennelig.",
     },
     {
@@ -186,7 +186,7 @@ const quizData_norsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor har dialekter hoey status i Norge sammenlignet med andre land?",
-      options: ["Det er akseptert å bruke dialekt i alle sammenhenger, inkludert offentligheten", "Det stemmer ikke at dialekter har hoey status", "Fordi Stortinget vedtok en språklov som påla alle nordmenn å snakke sin lokale dialekt i det offentlige", "Fordi Norge har svært få dialekter, slik at alle egentlig snakker nesten likt uansett hvor de kommer fra"],
+      options: ["Det er akseptert å bruke dialekt i alle sammenhenger, inkludert offentligheten","Det stemmer ikke at dialekter har hoey status, for de blir bare brukt hjemme og privat","Fordi Stortinget vedtok en språklov som påla alle nordmenn å snakke sin lokale dialekt i det offentlige","Fordi Norge har svært få dialekter, slik at alle egentlig snakker nesten likt uansett hvor de kommer fra"],
       explanation: "I Norge er det normalt å bruke dialekt i alle sammenhenger - påjobb, i medier og i det offentlige. Dette er uvanlig i internasjonal sammenheng.",
     },
   ],
@@ -198,7 +198,7 @@ const quizData_norsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er FOMO?",
-      options: ["Fear Of Missing Out - redsel for å gå glipp av noe", "En type sosiale medier", "En hashtag som brukes for å samle innlegg om et bestemt aktuelt tema", "En type sosiale medier der brukerne deler korte videoklipp med hverandre"],
+      options: ["Fear Of Missing Out - redsel for å gå glipp av noe","Et uttrykk for at man bevisst kobler seg helt av nettet","En hashtag som brukes for å samle innlegg om et bestemt aktuelt tema","En type sosiale medier der brukerne deler korte videoklipp med hverandre"],
       explanation: "FOMO (Fear Of Missing Out) er sosial angst for å gå glipp av opplevelser eller informasjon, ofte forsterket av sosiale medier.",
     },
     {
@@ -208,7 +208,7 @@ const quizData_norsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr det at modaliteter \"forsterker\" hverandre i en sammensatt tekst?",
-      options: ["At tekst, bilde og lyd støtter og underbygger samme budskap", "At de motssier hverandre", "At tekst, bilde og lyd motsier hverandre og gir leseren helt ulike budskap", "At tekst, bilde og lyd formidler nøyaktig det samme og dermed er byttbare med hverandre"],
+      options: ["At tekst, bilde og lyd støtter og underbygger samme budskap","At bare én av modalitetene bærer budskapet mens de andre er pynt","At tekst, bilde og lyd motsier hverandre og gir leseren helt ulike budskap","At tekst, bilde og lyd formidler nøyaktig det samme og dermed er byttbare med hverandre"],
       explanation: "Nårmodaliteter forsterker hverandre, jobber tekst, bilde, lyd osv. sammen for a kommunisere samme budskap påen kraftfull måte.",
     },
     {
@@ -225,7 +225,7 @@ const quizData_norsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner romantikken som litteraer epoke?",
-      options: ["Foelelser, natur, det nasjonale og det individuelle", "Samfunnskritikk og realisme", "Fornuft, vitenskap og kritikk av autoriteter og tradisjon", "Religiøse temaer, dødstanker og tanker om forgjengelighet"],
+      options: ["Foelelser, natur, det nasjonale og det individuelle","Samfunnskritikk og realistisk skildring av samtidens problemer","Fornuft, vitenskap og kritikk av autoriteter og tradisjon","Religiøse temaer, dødstanker og tanker om forgjengelighet"],
       explanation: "Romantikken (ca. 1800-1850) var en reaksjon mot opplysningstidens fornuft, med fokus påfølelser, fantasi, natur og det nasjonale.",
     },
     {
@@ -252,7 +252,7 @@ const quizData_norsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken struktur bør en fagartikkel ha?",
-      options: ["Innledning med problemstilling, hoveddel med argumenter, og konklusjon", "Bare en lang tekst uten avsnitt", "En helt fri og tilfeldig struktur der rekkefølgen på temaene bestemmes underveis", "Bare bilder og overskrifter som leseren selv må tolke og sette sammen til en helhet"],
+      options: ["Innledning med problemstilling, hoveddel med argumenter, og konklusjon","Bare én lang, sammenhengende tekst uten avsnitt, overskrifter eller mellomtitler","En helt fri og tilfeldig struktur der rekkefølgen på temaene bestemmes underveis","Bare bilder og overskrifter som leseren selv må tolke og sette sammen til en helhet"],
       explanation: "En fagartikkel bør ha klar struktur: innledning som presenterer tema og problemstilling, hoveddel med organiserte argumenter, og avslutning med konklusjon.",
     },
     {
@@ -284,17 +284,17 @@ const quizData_norsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er tesen i et debattinnlegg?",
-      options: ["Hovedpåstanden du argumenterer for", "Oppsummeringen i avslutningen", "Det aller første motargumentet som blir presentert i innlegget", "Det første motargumentet"],
+      options: ["Hovedpåstanden du argumenterer for","Oppsummeringen i avslutningen","Motargumentet som kommer først","Kildelisten til slutt i teksten"],
       explanation: "Tesen er den sentrale påstanden eller hovedsynspunktet som hele debattinnlegget argumenterer for.",
     },
     {
       question: "En debattant skriver: «Enten forbyr vi mobiler helt på skolen, eller så vil elevene aldri lære noe.» Hvilken feilslutning er dette?",
-      options: ["Falsk dilemma - bare to alternativer presenteres når flere finnes", "Stråmann - motstanderens argument forvrenges", "Personangrep - selve debattanten angripes i stedet for argumentene", "Stråmann - motstanderens argument forvrenges før det angripes hardt"],
+      options: ["Falsk dilemma - bare to alternativer presenteres når flere finnes","Autoritetsargument - påstanden godtas fordi en kjent person sier den","Personangrep - selve debattanten angripes i stedet for argumentene","Stråmann - motstanderens argument forvrenges før det angripes hardt"],
       explanation: "Falsk dilemma presenterer kun to ytterpunkter som de eneste mulighetene, selv om det finnes mange mellomløsninger.",
     },
     {
       question: "Hvorfor bør du møte motargumenter i hoveddelen av et debattinnlegg?",
-      options: ["Det viser at du forstår andres synspunkt og styrker din egen troverdighet", "Det er et formelt krav for å få innlegget publisert", "Det gjør teksten lengre, og lengre debattinnlegg oppfattes alltid som bedre av leseren", "Det er bare nødvendig i vitenskapelige artikler, ikke i vanlige debattinnlegg i avisene"],
+      options: ["Det viser at du forstår andres synspunkt og styrker din egen troverdighet","Det er et formelt krav fra redaksjonen for å få innlegget publisert i avisa","Det gjør teksten lengre, og lengre debattinnlegg oppfattes alltid som bedre av leseren","Det er bare nødvendig i vitenskapelige artikler, ikke i vanlige debattinnlegg i avisene"],
       explanation: "Ved å imøtegå motargumenter viser du at du kjenner debatten, og argumentasjonen din fremstår mer gjennomtenkt og troverdig.",
     },
   ],
@@ -316,12 +316,12 @@ const quizData_norsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor anbefales aktiv stemme («Regjeringen bør handle») fremfor passiv («Det bør handles») i avissjangre?",
-      options: ["Aktiv stemme gjør språket klarere og viser tydelig hvem som skal gjøre hva", "Passiv stemme kan bare brukes i skjønnlitteratur", "Passiv stemme er strengt forbudt i norske aviser og kan aldri brukes i noen sjanger", "Aktiv stemme gjør teksten betydelig lengre, og lengre tekster oppfattes som mer troverdige"],
+      options: ["Aktiv stemme gjør språket klarere og viser tydelig hvem som skal gjøre hva","Passiv stemme kan bare brukes i skjønnlitteratur og aldri i sakprosatekster","Passiv stemme er strengt forbudt i norske aviser og kan aldri brukes i noen sjanger","Aktiv stemme gjør teksten betydelig lengre, og lengre tekster oppfattes som mer troverdige"],
       explanation: "Aktiv stemme gir klart og direkte språk der det kommer tydelig frem hvem som er ansvarlig for handlingen.",
     },
     {
       question: "Hva er en god «krok» i innledningen av en kronikk?",
-      options: ["Et grep som fanger leserens oppmerksomhet, som et retorisk spørsmål eller en provoserende påstand", "En lang historisk gjennomgang av temaet", "En detaljert og fullstendig kildeliste som viser all forskningen og litteraturen teksten bygger på", "En lang og grundig historisk gjennomgang av temaet helt tilbake til de aller tidligste begynnelsene"],
+      options: ["Et grep som fanger leserens oppmerksomhet, som et retorisk spørsmål eller en provoserende påstand","En punktvis liste over alle motargumentene som teksten skal tilbakevise, plassert før innledningen","En detaljert og fullstendig kildeliste som viser all forskningen og litteraturen teksten bygger på","En lang og grundig historisk gjennomgang av temaet helt tilbake til de aller tidligste begynnelsene"],
       explanation: "Kroken skal fange leserens interesse fra første setning - for eksempel med en provoserende påstand, et retorisk spørsmål, en personlig historie eller en aktuell hendelse.",
     },
   ],
@@ -348,7 +348,7 @@ const quizData_norsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er det første trinnet i en retorisk analyse?",
-      options: ["Kartlegge den retoriske situasjonen: avsender, mottaker, anledning og medium", "Skrive en oppsummering av konklusjonen", "Vurdere med en gang om du selv er enig eller uenig med avsenderens synspunkter", "Telle nøyaktig hvor mange metaforer og andre språklige bilder teksten inneholder"],
+      options: ["Kartlegge den retoriske situasjonen: avsender, mottaker, anledning og medium","Skrive en oppsummering av konklusjonen din før du har lest hele teksten grundig","Vurdere med en gang om du selv er enig eller uenig med avsenderens synspunkter","Telle nøyaktig hvor mange metaforer og andre språklige bilder teksten inneholder"],
       explanation: "En retorisk analyse starter med å kartlegge situasjonen - hvem som taler, til hvem, i hvilken anledning og gjennom hvilket medium - før man analyserer appellformer og virkemidler.",
     },
   ],
@@ -387,7 +387,7 @@ const quizData_norsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en soliloquy (enesamtale)?",
-      options: ["En monolog der karakteren snakker «til seg selv» og avslører tankene sine for publikum", "Forfatterens instruksjoner om scenen", "En avsluttende sang eller epilog der koret oppsummerer stykkets moral for publikum til slutt", "En replikkveksling mellom to karakterer på scenen som driver handlingen framover gjennom konflikt"],
+      options: ["En monolog der karakteren snakker «til seg selv» og avslører tankene sine for publikum","Forfatterens skriftlige instruksjoner om scenen, lyssettingen og skuespillernes bevegelser","En avsluttende sang eller epilog der koret oppsummerer stykkets moral for publikum til slutt","En replikkveksling mellom to karakterer på scenen som driver handlingen framover gjennom konflikt"],
       explanation: "I en soliloquy taler karakteren alene og gir publikum innsikt i sine indre tanker - et viktig grep siden drama mangler fortellerstemme.",
     },
     {
@@ -409,7 +409,7 @@ const quizData_norsk_vg1: Record<string, QuizQuestion[]> = {
   "norsk-vg1-2-4": [
     {
       question: "Hva kjennetegner en allvitende forteller?",
-      options: ["Fortelleren kjenner alle karakterenes tanker og følelser", "Fortelleren vet bare det hovedpersonen vet", "Fortelleren er selv en karakter i historien og forteller bare det han eller hun opplever", "Fortelleren er en karakter i historien"],
+      options: ["Fortelleren kjenner alle karakterenes tanker og følelser","Fortelleren vet bare det hovedpersonen vet","Fortelleren er selv en karakter i historien","Fortelleren henvender seg direkte til leseren"],
       explanation: "En allvitende forteller har full innsikt i alle karakterers tanker, i motsetning til jeg-fortelleren og den begrensede tredjepersonsfortelleren.",
     },
     {
@@ -419,7 +419,7 @@ const quizData_norsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen på direkte og indirekte karakterisering?",
-      options: ["Direkte: fortelleren beskriver karakteren; indirekte: karakteren vises gjennom handling og replikker", "Direkte: karakteren snakker selv; indirekte: fortelleren beskriver", "Direkte: karakteren snakker selv og røper trekk; indirekte: fortelleren beskriver personen eksplisitt", "Direkte karakterisering brukes bare i drama og film, mens indirekte kun forekommer i romaner og noveller"],
+      options: ["Direkte: fortelleren beskriver karakteren; indirekte: karakteren vises gjennom handling og replikker","Direkte: teksten oppgir alder og yrke; indirekte: leseren må slutte seg til alt selv uten holdepunkter","Direkte: karakteren snakker selv og røper trekk; indirekte: fortelleren beskriver personen eksplisitt","Direkte karakterisering brukes bare i drama og film, mens indirekte kun forekommer i romaner og noveller"],
       explanation: "Ved direkte karakterisering forteller fortelleren eksplisitt hvordan karakteren er, mens indirekte karakterisering lar leseren slutte seg til karaktertrekk gjennom handlinger og dialog.",
     },
     {
@@ -446,7 +446,7 @@ const quizData_norsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er dramatisk ironi?",
-      options: ["Når leseren eller publikum vet mer enn karakterene", "Når karakterene snakker ironisk til hverandre", "Når karakterene snakker spydig og ironisk til hverandre gjennom hele replikkvekslingen", "Når forfatteren gjør narr av leseren"],
+      options: ["Når leseren eller publikum vet mer enn karakterene","Når slutten blir det motsatte av det man ventet","Når karakterene snakker spydig til hverandre","Når forfatteren gjør narr av leseren"],
       explanation: "Dramatisk ironi oppstår når publikum sitter med kunnskap karakterene mangler - som når Romeo tror Julie er død, mens publikum vet at hun lever.",
     },
     {
@@ -456,7 +456,7 @@ const quizData_norsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en allusjon?",
-      options: ["En hentydning til en kjent tekst, myte eller historisk hendelse uten direkte sitat", "En direkte gjengivelse av en annen tekst", "En komisk og overdrevet etterlikning av en stil eller sjanger med hensikt om å gjøre narr", "En ordrett og direkte gjengivelse av en annen tekst, satt i anførselstegn med kildehenvisning"],
+      options: ["En hentydning til en kjent tekst, myte eller historisk hendelse uten direkte sitat","En kortfattet oppsummering av handlingen i et annet verk, plassert i forordet til boka","En komisk og overdrevet etterlikning av en stil eller sjanger med hensikt om å gjøre narr","En ordrett og direkte gjengivelse av en annen tekst, satt i anførselstegn med kildehenvisning"],
       explanation: "Allusjonen er en indirekte henvisning - sitat er direkte gjengivelse, parodi er komisk etterlikning og adaptasjon er en ny versjon av et verk.",
     },
   ],
@@ -468,7 +468,7 @@ const quizData_norsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et onomatopoetikon?",
-      options: ["Et lydmalende ord som «bang» eller «splash»", "En rute i en tegneserie", "En helt ordløs bildebok uten tekst overhodet", "En innrammet rute eller panel i en tegneserie"],
+      options: ["Et lydmalende ord som «bang» eller «splash»","Et sammensatt ord bygd av to selvstendige ord","En helt ordløs bildebok uten tekst overhodet","En innrammet rute eller panel i en tegneserie"],
       explanation: "Onomatopoetika er lydmalende ord som etterligner lyder - et typisk virkemiddel i tegneserier.",
     },
     {
@@ -505,7 +505,7 @@ const quizData_norsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner Jon Fosses dramatikk?",
-      options: ["Minimalistisk stil med pauser og repetisjon, om temaer som venting og ensomhet", "Overdådige kulisser og store ensembler", "Politisk satire bygd på typekarakterer og en tydelig moralsk brodd mot samfunnet", "Overdådige kulisser og store ensembler med rask, replikkrik og handlingsmettet dialog"],
+      options: ["Minimalistisk stil med pauser og repetisjon, om temaer som venting og ensomhet","Historiske skuespill om konger og store slag, gjennomført skrevet på bunden versform","Politisk satire bygd på typekarakterer og en tydelig moralsk brodd mot samfunnet","Overdådige kulisser og store ensembler med rask, replikkrik og handlingsmettet dialog"],
       explanation: "Fosse er kjent for minimalisme, pauser og repetisjon, og utforsker eksistensielle temaer som venting og ensomhet.",
     },
     {
@@ -517,17 +517,17 @@ const quizData_norsk_vg1: Record<string, QuizQuestion[]> = {
   "norsk-vg1-2-8": [
     {
       question: "Hva er en adaptasjon?",
-      options: ["Overføring av et verk fra ett medium til et annet, for eksempel fra roman til film", "En oversettelse fra ett språk til et annet", "En direkte og ordrett kopi av en bok, gjengitt i nøyaktig samme medium som originalen", "En oversettelse av et verk fra ett språk til et annet, med samme innhold og form bevart"],
+      options: ["Overføring av et verk fra ett medium til et annet, for eksempel fra roman til film","En selvstendig fortsettelse av et verk der de samme personene opptrer i en ny handling","En direkte og ordrett kopi av en bok, gjengitt i nøyaktig samme medium som originalen","En oversettelse av et verk fra ett språk til et annet, med samme innhold og form bevart"],
       explanation: "Adaptasjon er gjenskapelse i et nytt medium - ikke bare oversettelse, men en ny tolkning av verket.",
     },
     {
       question: "Hva kjennetegner en fri adaptasjon?",
-      options: ["Den beholder grunnideen, men kan endre tid, sted eller perspektiv", "Den bruker bare dialogen fra originalen", "Den følger kildeteksten ord for ord og gjengir handlingen nøyaktig slik den var", "Den bruker bare dialogen fra originalen og utelater all beskrivelse og handling ellers"],
+      options: ["Den beholder grunnideen, men kan endre tid, sted eller perspektiv","Den skifter språk, men beholder handlingen og personene helt uendret","Den følger kildeteksten ord for ord og gjengir handlingen nøyaktig slik den var","Den bruker bare dialogen fra originalen og utelater all beskrivelse og handling ellers"],
       explanation: "En fri adaptasjon tar seg friheter med kildeteksten - som «10 Things I Hate About You», som flytter Shakespeare til en moderne high school.",
     },
     {
       question: "Hvilken utfordring er spesielt vanskelig når en roman skal bli film?",
-      options: ["Indre monolog og karakterenes tanker er vanskelige å vise i film", "Skuespillere kan ikke fremføre dialog fra bøker", "Filmer kan ikke bruke musikk eller lyd for å understøtte stemning slik en roman kan", "Film kan ikke vise landskap eller omgivelser slik en roman kan beskrive dem i detalj"],
+      options: ["Indre monolog og karakterenes tanker er vanskelige å vise i film","Skuespillere kan ikke fremføre dialog som er hentet direkte fra bøker","Filmer kan ikke bruke musikk eller lyd for å understøtte stemning slik en roman kan","Film kan ikke vise landskap eller omgivelser slik en roman kan beskrive dem i detalj"],
       explanation: "Litteraturen har direkte tilgang til karakterenes tanker, mens filmen må vise følelser gjennom bilder, skuespill og lyd.",
     },
     {
@@ -564,7 +564,7 @@ const quizData_norsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilket tema går igjen i samisk litteratur når det gjelder forholdet mellom menneske og natur?",
-      options: ["Naturen er deltaker med egenverdi, ikke bare kulisse", "Naturen er uten betydning for fortellingene", "Naturen skal beseires og temmes av mennesket som står over den i et klart hierarki", "Naturen skal beseires av mennesket"],
+      options: ["Naturen er deltaker med egenverdi, ikke bare kulisse","Naturen er uten betydning for fortellingene","Naturen skal beseires og temmes av mennesket","Naturen er bare et vakkert bakteppe"],
       explanation: "I samisk litteratur er mennesket del av et større hele der dyr, landskap og naturkrefter har egenverdi og agens.",
     },
   ],
@@ -598,7 +598,7 @@ const quizData_norsk_vg1: Record<string, QuizQuestion[]> = {
   "norsk-vg1-3-5": [
     {
       question: "Hva er klimafiksjon (cli-fi)?",
-      options: ["Skjønnlitteratur som tematiserer klimaendringer og miljøkrise", "Litteratur som bare handler om vær", "Sakprosa og faktabøker som formidler resultater fra klimaforskning til allmennheten", "Underholdningslitteratur som utelukkende skildrer vær, årstider og naturopplevelser"],
+      options: ["Skjønnlitteratur som tematiserer klimaendringer og miljøkrise","Teknisk faglitteratur om klimamodeller og beregninger av utslipp","Sakprosa og faktabøker som formidler resultater fra klimaforskning til allmennheten","Underholdningslitteratur som utelukkende skildrer vær, årstider og naturopplevelser"],
       explanation: "Klimafiksjon er skjønnlitteratur der klimaendringer er hovedtema eller viktig bakgrunn - realistisk eller spekulativ.",
     },
     {
@@ -613,7 +613,7 @@ const quizData_norsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke former kan litterær samfunnskritikk ta?",
-      options: ["Sosialrealisme, satire, dystopi og dokumentariske blandingsformer", "Kun leserinnlegg i aviser", "Reklametekster og annonser som skal selge produkter til en bred målgruppe", "Utelukkende politiske taler holdt fra Stortingets talerstol av folkevalgte"],
+      options: ["Sosialrealisme, satire, dystopi og dokumentariske blandingsformer","Kun leserinnlegg og kronikker som står på trykk i papiraviser og nettaviser","Reklametekster og annonser som skal selge produkter til en bred målgruppe","Utelukkende politiske taler holdt fra Stortingets talerstol av folkevalgte"],
       explanation: "Forfattere kritiserer samfunnet gjennom blant annet realistisk skildring av samfunnsproblemer, satire, dystopiske advarsler og blandinger av fakta og fiksjon.",
     },
     {
@@ -662,7 +662,7 @@ const quizData_norsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en sosiolekt?",
-      options: ["En språkvarietet knyttet til sosiale grupper, ikke geografi", "Et skriftspråk for sosiale medier", "Et eget skriftspråk som har utviklet seg for bruk på sosiale medier", "En dialekt som snakkes på Sørlandet, kjennetegnet av bløte konsonanter"],
+      options: ["En språkvarietet knyttet til sosiale grupper, ikke geografi","Den enkelte talerens helt personlige og unike måte å snakke på","Et eget skriftspråk som har utviklet seg for bruk på sosiale medier","En dialekt som snakkes på Sørlandet, kjennetegnet av bløte konsonanter"],
       explanation: "Sosiolekter henger sammen med faktorer som alder, sosial bakgrunn, utdanning og interesser - i motsetning til dialekter, som er geografiske.",
     },
     {
@@ -684,7 +684,7 @@ const quizData_norsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et nyord (neologisme)?",
-      options: ["Et ord som skapes for nye fenomener, som «nettbrett» og «strømming»", "Et gammelt ord som har gått ut av bruk", "Et gammelt og foreldet ord som har gått helt ut av bruk i dagligtalen vår", "Et ord som har flere ulike betydninger avhengig av sammenhengen det står i"],
+      options: ["Et ord som skapes for nye fenomener, som «nettbrett» og «strømming»","Et ord som er lånt uendret inn fra et annet språk, som for eksempel «weekend»","Et gammelt og foreldet ord som har gått helt ut av bruk i dagligtalen vår","Et ord som har flere ulike betydninger avhengig av sammenhengen det står i"],
       explanation: "Nyord oppstår når språket trenger betegnelser for nye fenomener - som nettbrett, influenser og podkast.",
     },
     {
@@ -694,7 +694,7 @@ const quizData_norsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er purisme i språksammenheng?",
-      options: ["Ønsket om å bevare språket «rent» og fritt for fremmed påvirkning", "En metode for å lære fremmedspråk", "En pedagogisk metode for effektivt å lære seg fremmedspråk gjennom lytting", "Det systematiske arbeidet med å skape og innføre nye lånord fra andre språk"],
+      options: ["Ønsket om å bevare språket «rent» og fritt for fremmed påvirkning","Kravet om at alle skal skrive nøyaktig samme form av hvert eneste ord","En pedagogisk metode for effektivt å lære seg fremmedspråk gjennom lytting","Det systematiske arbeidet med å skape og innføre nye lånord fra andre språk"],
       explanation: "Purisme er motstand mot lånord og fremmed påvirkning - et tilbakevendende standpunkt i debatten om for eksempel anglisismer.",
     },
     {
@@ -706,7 +706,7 @@ const quizData_norsk_vg1: Record<string, QuizQuestion[]> = {
   "norsk-vg1-5-3": [
     {
       question: "Hva er en problemstilling i en fagartikkel?",
-      options: ["Spørsmålet eller temaet artikkelen skal undersøke og besvare", "Den siste setningen i avslutningen", "En fullstendig alfabetisk liste over alle kildene som er brukt", "Den aller siste setningen som runder av avslutningen i artikkelen"],
+      options: ["Spørsmålet eller temaet artikkelen skal undersøke og besvare","Overskriften som står øverst på den første siden av artikkelen","En fullstendig alfabetisk liste over alle kildene som er brukt","Den aller siste setningen som runder av avslutningen i artikkelen"],
       explanation: "Problemstillingen styrer hele fagartikkelen: innledningen presenterer den, hoveddelen undersøker den, og avslutningen besvarer den.",
     },
     {
@@ -748,7 +748,7 @@ const quizData_norsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor anbefales det å la teksten hvile før du vurderer den?",
-      options: ["Du ser teksten med friske øyne, og feil og forbedringsmuligheter blir tydeligere", "Teksten forbedrer og retter seg selv automatisk mens den ligger urørt en stund", "Det er et formelt og lovfestet krav fra Utdanningsdirektoratet ved skriftlig eksamen", "Datamaskinen trenger nødvendig tid til å lagre og sikkerhetskopiere dokumentet ordentlig"],
+      options: ["Du ser teksten med friske øyne, og feil og forbedringsmuligheter blir tydeligere","Teksten forbedrer og retter seg selv helt automatisk mens den ligger urørt en stund","Det er et formelt og lovfestet krav fra Utdanningsdirektoratet ved skriftlig eksamen","Datamaskinen trenger nødvendig tid til å lagre og sikkerhetskopiere dokumentet ordentlig"],
       explanation: "Avstand i tid gjør at du leser teksten mer som en leser enn som forfatter, og oppdager svakheter lettere.",
     },
     {
@@ -780,7 +780,7 @@ const quizData_norsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er feil med sitatbruken her: «Novellen handler om fattigdom. 'Hun frøs og var sulten.'»?",
-      options: ["Sitatet står alene uten analyse av hva det viser", "Man kan ikke sitere noveller i analyser", "Sitatet burde vært parafrasert og gjengitt med egne ord", "Sitatet mangler nøyaktig sidetall og henvisning til kilden"],
+      options: ["Sitatet står alene uten analyse av hva det viser","Man kan ikke sitere fra noveller i litterære analyser","Sitatet burde vært parafrasert og gjengitt med egne ord","Sitatet mangler nøyaktig sidetall og henvisning til kilden"],
       explanation: "Sitater må integreres og kommenteres - leseren skal ikke måtte gjette hvorfor sitatet er relevant for tolkningen.",
     },
   ],
@@ -814,7 +814,7 @@ const quizData_norsk_vg1: Record<string, QuizQuestion[]> = {
   "norsk-vg1-6-1": [
     {
       question: "Hva er en modalitet i sammensatte tekster?",
-      options: ["En uttrykksform, som skrift, bilde, lyd eller video", "En sjelden skrifttype", "En sammenheng mellom avsender og mottaker i en tekst", "En overordnet holdning eller stemning teksten formidler"],
+      options: ["En uttrykksform, som skrift, bilde, lyd eller video","En sjelden skrifttype som bare blir brukt i trykte bøker","En sammenheng mellom avsender og mottaker i en tekst","En overordnet holdning eller stemning teksten formidler"],
       explanation: "Modaliteter er de ulike uttrykksformene en sammensatt (multimodal) tekst kombinerer - for eksempel skrift, bilde, lyd og layout.",
     },
     {
@@ -829,7 +829,7 @@ const quizData_norsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er reklame et godt eksempel på sammensatt tekst?",
-      options: ["Reklame bruker bevisst flere modaliteter - bilde, tekst, farger og logo - for å påvirke", "Reklame henvender seg alltid til hele befolkningen på nøyaktig samme måte", "Reklame er en ren verbaltekst uten visuelle eller grafiske virkemidler", "Reklame bruker kun én modalitet om gangen for å unngå å forvirre"],
+      options: ["Reklame bruker bevisst flere modaliteter - bilde, tekst, farger og logo - for å påvirke","Reklame henvender seg alltid til hele befolkningen på nøyaktig samme måte, uansett produkt","Reklame er en ren verbaltekst uten visuelle eller grafiske virkemidler","Reklame bruker kun én modalitet om gangen for å unngå å forvirre"],
       explanation: "Reklame kombinerer målrettet visuelle og verbale virkemidler for å skape assosiasjoner og påvirke målgruppen.",
     },
     {
@@ -841,7 +841,7 @@ const quizData_norsk_vg1: Record<string, QuizQuestion[]> = {
   "norsk-vg1-6-2": [
     {
       question: "Hva er et nærbilde (close-up) best egnet til å vise?",
-      options: ["Følelser og reaksjoner i et ansikt", "Handlingen i full bredde", "Hele kroppen i bevegelse", "Samspillet mellom flere"],
+      options: ["Følelser og reaksjoner i et ansikt","Handlingen i full bredde med hele miljøet","Hele kroppen i bevegelse","Samspillet mellom flere"],
       explanation: "Nærbildet viser ansikt eller detaljer og brukes for å formidle følelser, mens totalbildet etablerer omgivelsene.",
     },
     {
@@ -868,7 +868,7 @@ const quizData_norsk_vg1: Record<string, QuizQuestion[]> = {
   "norsk-vg1-6-3": [
     {
       question: "Hva er en filterboble?",
-      options: ["At algoritmer viser deg innhold basert på hva du har likt og klikket på før", "En feilmelding som dukker opp når nettsiden ikke laster", "En chattefunksjon der bare venner kan se det du skriver", "En innstilling som skjuler upassende innhold for barn"],
+      options: ["At algoritmer viser deg innhold basert på hva du har likt og klikket på før","En feilmelding som dukker opp i nettleseren når nettsiden ikke laster ferdig","En lukket chattefunksjon der bare vennene dine kan se det du skriver til gruppa","En innstilling som skjuler upassende innhold for barn"],
       explanation: "Algoritmer velger ut innhold basert på din tidligere aktivitet, slik at du i stor grad ser mer av det du allerede liker og mener.",
     },
     {
@@ -883,7 +883,7 @@ const quizData_norsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er influencer-markedsføring?",
-      options: ["Reklame formidlet gjennom profilerte personligheter, ofte skjult som vanlig innhold", "Betalt annonsering plassert synlig øverst i søkeresultatene på nett", "Nøytral produktinformasjon skrevet av uavhengige forbrukertester", "Reklamefilmer vist mellom innslagene i vanlige TV-sendinger"],
+      options: ["Reklame formidlet gjennom profilerte personligheter, ofte skjult som vanlig innhold","Betalt annonsering som blir plassert godt synlig helt øverst i søkeresultatene på nett","Nøytral produktinformasjon skrevet av uavhengige forbrukertester og faglige tidsskrifter","Reklamefilmer vist mellom innslagene i vanlige TV-sendinger"],
       explanation: "Influencer-markedsføring bruker kjente profiler til å fremme produkter, og reklamen kan være vanskelig å skille fra vanlig innhold.",
     },
     {
@@ -910,7 +910,7 @@ const quizData_norsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et fornuftig første steg når du møter en oppsiktsvekkende påstand på sosiale medier?",
-      options: ["Stopp opp og ikke del videre før du har sjekket originalkilden", "Godta påstanden som sann hvis den er delt av mange du kjenner", "Skriv en sint kommentar om at avsenderen sprer løgner med vilje", "Del påstanden straks videre til vennene dine slik at flere kan advares"],
+      options: ["Stopp opp og ikke del videre før du har sjekket originalkilden","Godta påstanden som sann dersom den er delt av mange du kjenner","Skriv en sint kommentar om at avsenderen sprer løgner med vilje","Del påstanden straks videre til vennene dine slik at flere kan advares"],
       explanation: "Faktasjekk starter med å stoppe opp: sterke følelsesreaksjoner er et varselsignal, og påstander bør kryssjekkes mot flere kilder.",
     },
     {
@@ -986,7 +986,7 @@ const quizData_norsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er språkforvaltningsområdet for samisk?",
-      options: ["Kommuner der samisk og norsk er likestilte språk i offentlig forvaltning", "Områder der bare samisk er tillatt", "Et sentralt statlig kontor i Oslo som oversetter alle norske lover og skjemaer til samisk", "Områder der bare samisk er tillatt i skole og forvaltning, og norsk regnes som fremmedspråk"],
+      options: ["Kommuner der samisk og norsk er likestilte språk i offentlig forvaltning","Et eget fylke der samiske kommuner har fått fullt indre selvstyre i språkspørsmål","Et sentralt statlig kontor i Oslo som oversetter alle norske lover og skjemaer til samisk","Områder der bare samisk er tillatt i skole og forvaltning, og norsk regnes som fremmedspråk"],
       explanation: "I kommunene i forvaltningsområdet for samisk språk har innbyggerne rett til å bruke samisk i møte med offentlige organer.",
     },
     {
@@ -996,14 +996,14 @@ const quizData_norsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et språkreir?",
-      options: ["En barnehage der all kommunikasjon foregår på det truede språket", "Et eget rom på skolen for stille lesing", "En ordbok-app som oversetter mellom det truede språket og majoritetsspråket i sanntid", "Et eget stillerom på skolen der elever kan lese tekster på minoritetsspråket i fred og ro"],
+      options: ["En barnehage der all kommunikasjon foregår på det truede språket","Et digitalt arkiv der opptak av eldre språkbrukere blir tatt vare på","En ordbok-app som oversetter mellom det truede språket og majoritetsspråket i sanntid","Et eget stillerom på skolen der elever kan lese tekster på minoritetsspråket i fred og ro"],
       explanation: "Språkreir er en revitaliseringsmetode utviklet etter maorimodellen fra New Zealand: barna «bades» i språket gjennom lek og daglige aktiviteter.",
     },
   ],
   "norsk-vg1-7-4": [
     {
       question: "Hvilke fem grupper er anerkjent som nasjonale minoriteter i Norge?",
-      options: ["Kvener, rom, romanifolket/tatere, skogfinner og jøder", "Kvener, samer, skogfinner, islendinger og tyskere", "Rom, romanifolket, samer, jøder og polakker som utgjør de eldste minoritetene i landet", "Rom, romanifolket, samer, jøder og polakker"],
+      options: ["Kvener, rom, romanifolket/tatere, skogfinner og jøder","Kvener, samer, skogfinner, islendinger og tyskere","Rom, romanifolket, samer, jøder og polakker","Samer, kvener, finlendere, russere og svensker"],
       explanation: "De fem nasjonale minoritetene er kvener/norskfinner, rom, romanifolket/tatere, skogfinner og jøder. Samene har status som urfolk, ikke nasjonal minoritet.",
     },
     {
@@ -1018,7 +1018,7 @@ const quizData_norsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skjedde med skogfinnenes finske språk?",
-      options: ["Det er tapt - ingen talere er igjen, men kulturarven lever videre", "Det snakkes fortsatt av flere tusen", "Det snakkes fortsatt flytende av flere tusen mennesker i skogsbygdene på Østlandet", "Det ble på 1900-tallet vedtatt som eget offisielt forvaltningsspråk i Hedmark fylke"],
+      options: ["Det er tapt - ingen talere er igjen, men kulturarven lever videre","Det ble skriftfestet på 1800-tallet og brukes fortsatt i kirkelige tekster","Det snakkes fortsatt flytende av flere tusen mennesker i skogsbygdene på Østlandet","Det ble på 1900-tallet vedtatt som eget offisielt forvaltningsspråk i Hedmark fylke"],
       explanation: "Skogfinnene, etterkommere av finske innvandrere på 1600-tallet, har mistet det finske språket, men bevart kulturarv som bygninger, stedsnavn og tradisjoner.",
     },
     {
@@ -1057,7 +1057,7 @@ const quizData_norsk_vg1: Record<string, QuizQuestion[]> = {
   "norsk-vg1-8-2": [
     {
       question: "Hva er tekstbinding (kohesjon)?",
-      options: ["Teknikker som skaper sammenheng mellom setninger og avsnitt", "Limet som holder boksider sammen", "Limet og trådene som fysisk holder sidene i en trykt bok sammen i ryggen", "En strukturert innholdsfortegnelse som binder kapitlene i en tekst sammen"],
+      options: ["Teknikker som skaper sammenheng mellom setninger og avsnitt","Reglene for hvordan avsnitt skal skilles med innrykk og linjeskift","Limet og trådene som fysisk holder sidene i en trykt bok sammen i ryggen","En strukturert innholdsfortegnelse som binder kapitlene i en tekst sammen"],
       explanation: "Tekstbinding er de språklige teknikkene som gjør at setningene henger logisk sammen, slik at teksten blir lett å følge.",
     },
     {
@@ -1099,12 +1099,12 @@ const quizData_norsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr det å være konsekvent i valgfrie former på bokmål?",
-      options: ["Å holde seg til samme form gjennom hele teksten, f.eks. enten «boka» eller «boken»", "Å alltid velge de konservative formene", "Å bruke flest mulig ulike valgfrie former i samme tekst for å vise språklig bredde", "Å alltid velge de mest konservative, tradisjonelle formene som «boken» og «kastet»"],
+      options: ["Å holde seg til samme form gjennom hele teksten, f.eks. enten «boka» eller «boken»","Å bruke bare ord som finnes i både bokmål og nynorsk","Å bruke flest mulig ulike valgfrie former i samme tekst","Å alltid velge de mest konservative formene som «boken» og «kastet»"],
       explanation: "Bokmål har stor valgfrihet (kastet/kasta, boka/boken), men du bør velge én form og bruke den konsekvent.",
     },
     {
       question: "Hvilke ord skal ha stor forbokstav på norsk?",
-      options: ["Egennavn som Per, Oslo og Stortinget", "Ukedager som mandag og tirsdag", "Ukedager som mandag og tirsdag, siden de regnes som egennavn på faste dager", "Språk som norsk og engelsk"],
+      options: ["Egennavn som Per, Oslo og Stortinget","Måneder som januar og februar","Ukedager, som er faste dagsnavn","Språk som norsk og engelsk"],
       explanation: "Norsk bruker stor forbokstav i egennavn, men liten i ukedager, måneder, språk og religioner - i motsetning til engelsk.",
     },
   ],
@@ -1143,12 +1143,12 @@ const quizData_norsk_vg1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Når brukes kolon?",
-      options: ["Før oppramsing, forklaring eller direkte tale", "I stedet for punktum i lange setninger", "I stedet for punktum midt i svært lange setninger for å gi leseren en naturlig pause", "Mellom subjekt og verbal"],
+      options: ["Før oppramsing, forklaring eller direkte tale","Etter hilsen i starten av et brev","I stedet for punktum i svært lange setninger","Mellom subjekt og verbal"],
       explanation: "Kolon introduserer noe som utdyper det foregående: en oppramsing, en forklaring eller et sitat/direkte tale.",
     },
     {
       question: "Når kan semikolon brukes?",
-      options: ["Mellom to nært beslektede setninger som kunne stått alene", "Etter tiltaleord som «Kari»", "Rett etter tiltaleord som «Kari» og «du» for å skille dem fra resten av setningen", "I stedet for spørsmålstegn på slutten av spørresetninger som krever ekstra ettertanke"],
+      options: ["Mellom to nært beslektede setninger som kunne stått alene","Foran en oppramsing av flere ledd som hører sammen i setningen","Rett etter tiltaleord som «Kari» og «du» for å skille dem fra resten av setningen","I stedet for spørsmålstegn på slutten av spørresetninger som krever ekstra ettertanke"],
       explanation: "Semikolon binder sammen to selvstendige setninger som hører tett sammen: «Solen skinte; fuglene sang.»",
     },
     {

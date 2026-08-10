@@ -19,7 +19,7 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke kulturer regnes som de eldste kjente i Norge?",
-      options: ["Fosna- og Komsa-kulturen", "Traktbegerkulturen og stridsøkskulturen", "Sumer og Akkad", "Lascaux- og Altamira-kulturen"],
+      options: ["Fosna- og Komsa-kulturen","Traktbegerkulturen og stridsøkskulturen","Sumer og Akkad i Mesopotamia","Lascaux- og Altamira-kulturen"],
       explanation: "Fosna-kulturen (Vestlandet) og Komsa-kulturen (Nord-Norge) er de eldste kjente kulturene i Norge, ca. 9500--8000 f.Kr., da isen trakk seg tilbake.",
     },
     {
@@ -41,7 +41,7 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken konsekvens fikk overgangen til jordbruk?",
-      options: ["Bofasthet, befolkningsvekst og sterkere sosial lagdeling", "Slutt på all sosial ulikhet mellom mennesker", "Slutt på all sosial ulikhet og likere fordeling av mat mellom alle", "Mindre befolkning, mer nomadisk livsstil og flatere sosial struktur"],
+      options: ["Bofasthet, befolkningsvekst og sterkere sosial lagdeling","Slutt på all sosial ulikhet, slik at alle eide like mye jord","Slutt på all sosial ulikhet og likere fordeling av mat mellom alle","Mindre befolkning, mer nomadisk livsstil og flatere sosial struktur"],
       explanation: "Jordbruket ga bofasthet, matoverskudd og befolkningsvekst, men også sosial lagdeling, nye sykdommer og ofte mer ensidig kost enn jeger-sanker-livet.",
     },
     {
@@ -73,12 +73,12 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor skiller historiefaget seg fra naturvitenskap?",
-      options: ["Vi kan ikke gjenta fortiden for å teste teoriene våre", "Historikere bruker aldri systematiske metoder", "Historie bygger ikke på noen form for bevis, bare på synsing", "Naturvitenskap handler aldri om årsaker, kun om beskrivelser"],
+      options: ["Vi kan ikke gjenta fortiden for å teste teoriene våre","Historikere bruker aldri systematiske metoder når de tolker kilder","Historie bygger ikke på noen form for bevis, bare på synsing","Naturvitenskap handler aldri om årsaker, kun om beskrivelser"],
       explanation: "I motsetning til naturvitenskap kan vi aldri gjenta fortiden for å teste teoriene. Historikere må tolke bevis fra fortiden uten å kunne gjenta eksperimentet.",
     },
     {
       question: "Hvilket av disse er et hovedspørsmål i historiefaget?",
-      options: ["Hvorfor skjedde det, og hva ble konsekvensene?", "Hvilke kjemiske stoffer består fortiden av?", "Hvordan kan vi med sikkerhet forutsi neste års vær og klima?", "Hvordan kan vi forutsi neste års vær?"],
+      options: ["Hvorfor skjedde det, og hva ble konsekvensene?","Hvilke kjemiske stoffer består fortiden av?","Hvordan blir neste års vær og klima?","Hvem i fortiden fortjener mest sympati?"],
       explanation: "Historiefagets hovedspørsmål er hva som skjedde og når, hvorfor det skjedde, hva konsekvensene ble, og hvordan dette påvirker oss i dag.",
     },
   ],
@@ -95,7 +95,7 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen mellom en levning og en beretning?",
-      options: ["En levning er et direkte spor fra fortiden, en beretning forteller om noe", "En levning er alltid skriftlig, en beretning alltid muntlig", "En levning er alltid en skriftlig tekst, mens en beretning alltid er muntlig fortalt", "En levning stammer alltid fra middelalderen, mens en beretning stammer fra nyere tid"],
+      options: ["En levning er et direkte spor fra fortiden, en beretning forteller om noe","En levning er framstillingen historikeren skriver i ettertid, mens en beretning er selve gjenstanden fra fortiden","En levning er alltid en skriftlig tekst, mens en beretning alltid er muntlig fortalt","En levning stammer alltid fra middelalderen, mens en beretning stammer fra nyere tid"],
       explanation: "En levning er et direkte spor fra fortiden (en gjenstand, en bygning), mens en beretning er en kilde som forteller om noe (en dagbok, et vitnesbyrd).",
     },
     {
@@ -112,7 +112,7 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
   "historie-1-3": [
     {
       question: "Hva betyr periodisering i historiefaget?",
-      options: ["Å dele den lange fortiden inn i mindre epoker eller perioder", "Å datere hver enkelt historisk kilde så nøyaktig som mulig", "Å samle alle hendelser i én lang tidslinje uten noen inndeling", "Å samle alle hendelser i én lang tidslinje uten inndeling"],
+      options: ["Å dele den lange fortiden inn i mindre epoker eller perioder","Å datere hver enkelt historisk kilde så nøyaktig som mulig","Å samle alle hendelser i én tidslinje uten inndeling","Å regne om alle årstall til vår egen tidsregning"],
       explanation: "Periodisering er å dele historien inn i mindre perioder eller epoker for å gjøre den oversiktlig og lettere å forstå og kommunisere om.",
     },
     {
@@ -132,7 +132,7 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner tidlig moderne tid (ca. 1500--1800)?",
-      options: ["Renessanse, reformasjon, opplysningstid og de store oppdagelsene", "De første høykulturene i Egypt og Mesopotamia", "De aller første høykulturene i Egypt og Mesopotamia langs elvene", "Føydalsamfunn, riddervesen og kirkens enerådende åndelige dominans"],
+      options: ["Renessanse, reformasjon, opplysningstid og de store oppdagelsene","Jeger-sankernes vandringer før jordbruket oppsto","De første høykulturene langs elvene i Egypt og Mesopotamia","Føydalsamfunn, riddervesen og kirkens åndelige dominans"],
       explanation: "Tidlig moderne tid (ca. 1500--1800) omfatter renessanse, reformasjon og opplysningstid, samt de store oppdagelsene og tidlig kolonialisme.",
     },
   ],
@@ -166,7 +166,7 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
   "historie-2-1": [
     {
       question: "Hva kjennetegner en god problemstilling i historiefaget?",
-      options: ["Den er avgrenset, undersøkbar, åpen og relevant", "Den krever ingen kilder for å besvares", "Den er så vid og altomfattende som overhodet mulig", "Den krever ingen kilder for å kunne besvares grundig"],
+      options: ["Den er avgrenset, undersøkbar, åpen og relevant","Den er formulert som et ja/nei-spørsmål med ett opplagt svar","Den er så vid og altomfattende som overhodet mulig","Den krever ingen kilder for å kunne besvares grundig"],
       explanation: "En god problemstilling er avgrenset (ikke for vid), undersøkbar (mulig å finne kilder til), åpen (ikke ja/nei) og relevant.",
     },
     {
@@ -181,7 +181,7 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvor kan en historiker finne primærkilder?",
-      options: ["I arkiver som Riksarkivet og Digitalarkivet", "Utelukkende på sosiale medier", "Utelukkende på sosiale medier og nettsteder på internett", "Kun i skjønnlitterære romaner og historiske fortellinger"],
+      options: ["I arkiver som Riksarkivet og Digitalarkivet","Kun i lærebøker skrevet av historikere i vår egen tid","Utelukkende på sosiale medier og nettsteder på internett","Kun i skjønnlitterære romaner og historiske fortellinger"],
       explanation: "Arkiver (Riksarkivet, statsarkivene, Digitalarkivet), biblioteker og museer er sentrale steder for å finne primærkilder til en historisk undersøkelse.",
     },
     {
@@ -193,12 +193,12 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
   "historie-2-2": [
     {
       question: "Hvorfor kan samme historiske hendelse framstilles på ulike måter?",
-      options: ["Ulike kilder, spørsmål, bakgrunn og verdier påvirker framstillingen", "Fordi historikere som regel finner på fakta som passer deres syn", "Fordi det bare finnes én eneste riktig framstilling som alle er enige om", "Fordi det bare finnes én riktig framstilling alle er enige om"],
+      options: ["Ulike kilder, spørsmål, bakgrunn og verdier påvirker framstillingen","Fordi historikere som regel finner på fakta som passer deres syn","Fordi det bare finnes én eneste riktig framstilling","Fordi myndighetene godkjenner hver framstilling"],
       explanation: "Framstillinger varierer fordi ulike kilder gir ulik informasjon, historikere stiller ulike spørsmål, og politisk og kulturell bakgrunn samt samfunnets verdier påvirker.",
     },
     {
       question: "Hva menes med et \"nedenfra-perspektiv\" i historie?",
-      options: ["Historie sett fra vanlige folk, arbeidere, kvinner og barn", "Historie sett fra konger og makthavere", "Historie sett fra konger, keisere og andre mektige makthavere", "Historie som utelukkende er skrevet av utenlandske forfattere"],
+      options: ["Historie sett fra vanlige folk, arbeidere, kvinner og barn","Historie fortalt utelukkende gjennom statistikk og tallmateriale","Historie sett fra konger, keisere og andre mektige makthavere","Historie som utelukkende er skrevet av utenlandske forfattere"],
       explanation: "Et nedenfra-perspektiv ser hendelsene fra vanlige folks ståsted -- arbeidere, kvinner, barn -- i motsetning til ovenfra-perspektivet som ser fra makthavernes side.",
     },
     {
@@ -220,17 +220,17 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
   "historie-2-3": [
     {
       question: "Hva menes med brudd (diskontinuitet) i historien?",
-      options: ["Dramatiske endringer som bryter med det som var før", "Det som fortsetter uendret over lang tid", "Selve nedskrivingen og bevaringen av historiske hendelser i kilder", "Det som fortsetter tilnærmet uendret over svært lang tid i historien"],
+      options: ["Dramatiske endringer som bryter med det som var før","Små, gradvise justeringer som samtiden knapt legger merke til","Selve nedskrivingen og bevaringen av historiske hendelser i kilder","Det som fortsetter tilnærmet uendret over svært lang tid i historien"],
       explanation: "Brudd er dramatiske endringer som bryter med det som var før, som revolusjoner, kriger som endrer maktforhold, teknologiske gjennombrudd eller pandemier.",
     },
     {
       question: "Hva er kontinuitet i historien?",
-      options: ["Det som fortsetter på tross av endringer, som språk og tradisjoner", "En type primærkilde som forteller direkte om hendelser i samtiden", "At alt i et samfunn forandrer seg samtidig og i nøyaktig samme tempo", "Bare de mest dramatiske vendepunktene og bruddene som endrer maktforhold"],
+      options: ["Det som fortsetter på tross av endringer, som språk og tradisjoner","En type primærkilde som forteller direkte om hendelser i sin egen samtid","At alt i et samfunn forandrer seg samtidig og i nøyaktig samme tempo","Bare de mest dramatiske vendepunktene og bruddene som endrer maktforhold"],
       explanation: "Kontinuitet er det som varer ved på tross av endringer -- kulturelle tradisjoner, språk, religion, sosiale strukturer og geografiske forhold.",
     },
     {
       question: "Hvorfor kan brudd og kontinuitet skje samtidig?",
-      options: ["Store brudd på ett område kan skje samtidig med kontinuitet på andre", "Fordi alt alltid endrer seg likt overalt", "Fordi alt på alle samfunnsområder alltid endrer seg helt likt overalt", "Fordi brudd og kontinuitet i praksis betyr nøyaktig det samme i historien"],
+      options: ["Store brudd på ett område kan skje samtidig med kontinuitet på andre","Fordi et samfunn bare kan endre seg på ett område om gangen, aldri på flere","Fordi alt på alle samfunnsområder alltid endrer seg helt likt overalt","Fordi brudd og kontinuitet i praksis betyr nøyaktig det samme i historien"],
       explanation: "Den franske revolusjon endret politikken radikalt (brudd), men bøndenes dagligliv endret seg mye saktere (kontinuitet). Endring skjer i ulikt tempo på ulike områder.",
     },
     {
@@ -247,7 +247,7 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
   "historie-2-4": [
     {
       question: "Hva er minnekultur?",
-      options: ["Måten et samfunn husker og markerer fortiden på", "Den vitenskapelige dateringen av kilder", "En bevisst metode et samfunn bruker for å glemme og fortrenge fortiden", "En metode for å glemme fortiden"],
+      options: ["Måten et samfunn husker og markerer fortiden på","Den vitenskapelige dateringen av kilder","En bevisst metode for å glemme fortiden","Reglene for hvordan arkiver skal ordnes"],
       explanation: "Minnekultur (kollektiv erindring) er måten et samfunn husker og markerer fortiden -- gjennom monumenter, minnedager, museer og fortellinger.",
     },
     {
@@ -257,7 +257,7 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner nasjonalt minne?",
-      options: ["En felles historieforståelse som binder en nasjon sammen", "Bare stedsspesifikke historier fra én bygd", "Historie som ingen i samfunnet lenger husker eller markerer på noe vis", "Utelukkende privat familiehistorie fortalt videre gjennom generasjoner"],
+      options: ["En felles historieforståelse som binder en nasjon sammen","Bare stedsspesifikke historier fra én enkelt bygd eller grend","Historie som ingen i samfunnet lenger husker eller markerer på noe vis","Utelukkende privat familiehistorie fortalt videre gjennom generasjoner"],
       explanation: "Nasjonalt minne er den felles historieforståelsen som binder en nasjon sammen, som grunnleggende myter (1814, 1905, 1945) og nasjonale helter.",
     },
     {
@@ -289,7 +289,7 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen mellom et sitat og en parafrase?",
-      options: ["Et sitat gjengir ordrett, en parafrase gjengir innholdet med egne ord", "Et sitat er alltid usant, en parafrase alltid sant", "Det finnes ingen reell forskjell på et sitat og en parafrase i fagtekster", "Et sitat er alltid usant, mens en parafrase alltid gjengir det som er sant"],
+      options: ["Et sitat gjengir ordrett, en parafrase gjengir innholdet med egne ord","Et sitat krever kildehenvisning, mens en parafrase kan brukes fritt uten","Det finnes ingen reell forskjell på et sitat og en parafrase i fagtekster","Et sitat er alltid usant, mens en parafrase alltid gjengir det som er sant"],
       explanation: "Et direkte sitat gjengir nøyaktig det kilden sier (med anførselstegn), mens en parafrase gjengir innholdet med egne ord -- men begge krever kildehenvisning.",
     },
     {
@@ -321,7 +321,7 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva bør man gjøre når man lytter kritisk til en framstilling av historie?",
-      options: ["Vurdere hvilke kilder som brukes og hvilke perspektiver som mangler", "Akseptere alt som blir sagt uten spørsmål", "Akseptere alt som blir sagt uten spørsmål, siden taleren framstår som ekspert", "Ignorere framstillingens bruk av retoriske virkemidler og appell til følelser"],
+      options: ["Vurdere hvilke kilder som brukes og hvilke perspektiver som mangler","Bare vurdere om framstillingen er underholdende og lett å følge med på","Akseptere alt som blir sagt uten spørsmål, siden taleren framstår som ekspert","Ignorere framstillingens bruk av retoriske virkemidler og appell til følelser"],
       explanation: "Kritisk lytting innebærer å vurdere framstillingens budskap, hvilke kilder og bevis som brukes, hvilke perspektiver som mangler, og om den er balansert eller ensidig.",
     },
   ],
@@ -338,7 +338,7 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva var Hammurabis lov?",
-      options: ["En av verdens eldste skrevne lovsamlinger fra Babylon", "Det egyptiske skriftsystemet", "En romersk handelsavtale som regulerte handelen rundt Middelhavet", "En gresk styreform der frie borgere selv vedtok lover i forsamling"],
+      options: ["En av verdens eldste skrevne lovsamlinger fra Babylon","Det egyptiske skriftsystemet med hieroglyfer på tempelvegger","En romersk handelsavtale som regulerte handelen rundt Middelhavet","En gresk styreform der frie borgere selv vedtok lover i forsamling"],
       explanation: "Hammurabis lovsamling (ca. 1750 f.Kr.) fra Babylon er en av verdens eldste lovsamlinger og et viktig eksempel på tidlig skreven rett.",
     },
     {
@@ -375,7 +375,7 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor brukte athenerne loddtrekning til mange verv?",
-      options: ["Det sikret at makten ble fordelt og ikke monopolisert av eliten", "Det ga de rikeste mest makt", "Det var en langt raskere måte å fylle verv på enn omstendelige valg", "Det ga de aller rikeste og mest innflytelsesrike borgerne mest makt"],
+      options: ["Det sikret at makten ble fordelt og ikke monopolisert av eliten","Det gjorde det mulig å velge de best kvalifiserte fagfolkene til hvert verv","Det var en langt raskere måte å fylle verv på enn omstendelige valg","Det ga de aller rikeste og mest innflytelsesrike borgerne mest makt"],
       explanation: "Loddtrekning var sentralt i Aten fordi det sikret at makten ble fordelt blant borgerne og ikke monopolisert av eliten, blant annet til Rådet (Boule) og domstolene.",
     },
   ],
@@ -387,7 +387,7 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva var senatet i den romerske republikken?",
-      options: ["En forsamling av eldre adelsmenn med stor innflytelse", "Folkeforsamlingen for alle borgere", "En domstol der medlemmene ble valgt ut ved loddtrekning hvert år", "Keiserens personlige livvakt som beskyttet ham og holdt orden i Roma"],
+      options: ["En forsamling av eldre adelsmenn med stor innflytelse","Folkeforsamlingen der alle romerske borgere hadde stemmerett","En domstol der medlemmene ble valgt ut ved loddtrekning hvert år","Keiserens personlige livvakt som beskyttet ham og holdt orden i Roma"],
       explanation: "Senatet var en forsamling av ca. 300 eldre adelsmenn med rådgivende makt, men stor innflytelse over finanser og utenrikspolitikk.",
     },
     {
@@ -397,12 +397,12 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva var Pax Romana?",
-      options: ["En periode på ca. 200 år med relativ fred og stabilitet i Romerriket", "En fredsavtale mellom Roma og Kartago", "En formell fredsavtale inngått mellom Roma og rivalen Kartago etter krig", "Det romerske rettssystemet med lover som gjaldt i hele Middelhavsområdet"],
+      options: ["En periode på ca. 200 år med relativ fred og stabilitet i Romerriket","Den årlige folkeforsamlingen der romerske borgere valgte to nye konsuler","En formell fredsavtale inngått mellom Roma og rivalen Kartago etter krig","Det romerske rettssystemet med lover som gjaldt i hele Middelhavsområdet"],
       explanation: "Pax Romana (Den romerske freden) var ca. 200 år med relativ fred og stabilitet (fra 27 f.Kr.) der handel og kultur blomstret og veier og byer ble bygget.",
     },
     {
       question: "Hvilke faktorer bidro til Vestromerrikets fall i 476?",
-      options: ["Ytre press fra germanske folk, indre svakhet og militære problemer", "At folket valgte å oppløse riket frivillig", "Kun én enkelt naturkatastrofe som med ett rammet og la hele riket øde", "At det romerske folket selv valgte å oppløse riket helt frivillig i 476"],
+      options: ["Ytre press fra germanske folk, indre svakhet og militære problemer","At kristendommen alene, uten andre årsaker, gjorde riket ute av stand til å forsvare seg","Kun én enkelt naturkatastrofe som med ett rammet og la hele riket øde","At det romerske folket selv valgte å oppløse riket helt frivillig i 476"],
       explanation: "Mange faktorer bidro: ytre press fra germanske folk, indre svakhet (korrupsjon, økonomi), militære problemer med å forsvare grensene og politisk ustabilitet.",
     },
   ],
@@ -424,12 +424,12 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skjedde under keiser Theodosius i 380?",
-      options: ["Kristendommen ble statsreligion i Romerriket", "Kristne ble forfulgt for første gang", "De kristne ble forfulgt og henrettet for aller første gang i riket", "Jerusalem ble erobret av muslimene"],
+      options: ["Kristendommen ble statsreligion i Romerriket","Konstantins toleranseedikt ble opphevet","De kristne ble forfulgt for første gang","Jerusalem ble erobret av muslimene"],
       explanation: "Under Theodosius (380) ble kristendommen statsreligion. Tidligere hadde Konstantins toleranseedikt (313) tillatt kristendommen.",
     },
     {
       question: "Hvorfor spredte kristendommen seg raskt i Romerriket?",
-      options: ["Budskap om frelse for alle, fellesskap og romernes veier og felles språk", "Fordi den var forbeholdt eliten", "Fordi den var forbeholdt den romerske eliten og krevde høy betaling for medlemskap", "Fordi keiserne fra første stund gjorde den til statsreligion og forbød alle andre kulter"],
+      options: ["Budskap om frelse for alle, fellesskap og romernes veier og felles språk","Fordi den krevde at man ga avkall på all eiendom og forlot familien sin for godt","Fordi den var forbeholdt den romerske eliten og krevde høy betaling for medlemskap","Fordi keiserne fra første stund gjorde den til statsreligion og forbød alle andre kulter"],
       explanation: "Kristendommen spredte seg på grunn av budskapet om frelse for alle, fellesskap og omsorg for fattige, løftet om evig liv, og romernes veier og felles språk.",
     },
   ],
@@ -456,14 +456,14 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken ny institusjon vokste fram i middelalderen?",
-      options: ["Universitetet", "Den industrielle fabrikken", "Det moderne parlamentet", "Sentralbanken"],
+      options: ["Universitetet","Den industrielle fabrikken","Det moderne parlamentet","Den moderne sentralbanken"],
       explanation: "Middelalderen så fremveksten av universitetene (Bologna ca. 1088, Paris, Oxford), som ble sentre for lærdom og skapte en ny sosial gruppe: de lærde.",
     },
   ],
   "historie-4-2": [
     {
       question: "Hva var rikssamlingen i Norge?",
-      options: ["Prosessen der Norge ble samlet fra mange småriker til ett kongedømme", "Innføringen av eneveldet i 1660", "Innføringen av det dansk-norske eneveldet i 1660, da kongen fikk all makt samlet", "Gjennomføringen av reformasjonen i 1537, da Norge ble et rent lydrike under Danmark"],
+      options: ["Prosessen der Norge ble samlet fra mange småriker til ett kongedømme","Oppdelingen av det samlede kongedømmet i mange selvstendige småriker igjen","Innføringen av det dansk-norske eneveldet i 1660, da kongen fikk all makt samlet","Gjennomføringen av reformasjonen i 1537, da Norge ble et rent lydrike under Danmark"],
       explanation: "Rikssamlingen var prosessen der Norge gradvis ble samlet fra mange småriker til ett kongedømme, tradisjonelt regnet fra Harald Hårfagre.",
     },
     {
@@ -490,7 +490,7 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
   "historie-4-3": [
     {
       question: "Hvorfor var kirken så mektig i middelalderen?",
-      options: ["Den hadde monopol på frelse, eide mye jord og var en overnasjonal organisasjon", "Den drev verken utdanning eller skriftkultur", "Den var underlagt kongen i alle saker og kunne verken kreve tiende eller eie jord", "Den hadde ingen økonomisk makt og var helt avhengig av almisser fra fattige bønder"],
+      options: ["Den hadde monopol på frelse, eide mye jord og var en overnasjonal organisasjon","Den drev verken utdanning eller skriftkultur, og holdt seg borte fra skoler og bokverksteder","Den var underlagt kongen i alle saker og kunne verken kreve tiende eller eie jord","Den hadde ingen økonomisk makt og var helt avhengig av almisser fra fattige bønder"],
       explanation: "Kirkens makt hvilte på monopol på frelse, kontroll over utdanning og skriftkultur, enorme jordeiendommer og en overnasjonal organisasjon.",
     },
     {
@@ -500,12 +500,12 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva var korstogene?",
-      options: ["Militære ekspedisjoner for å erobre Det hellige land fra muslimsk kontroll", "Pilegrimsreiser uten militært preg", "Ubevæpnede pilegrimsreiser til Jerusalem uten noe militært eller erobrende preg", "Nordiske vikingferder over Atlanterhavet for å oppdage og kolonisere Nord-Amerika"],
+      options: ["Militære ekspedisjoner for å erobre Det hellige land fra muslimsk kontroll","Handelsekspedisjoner der italienske kjøpmenn kjøpte krydder i Det hellige land","Ubevæpnede pilegrimsreiser til Jerusalem uten noe militært eller erobrende preg","Nordiske vikingferder over Atlanterhavet for å oppdage og kolonisere Nord-Amerika"],
       explanation: "Korstogene (1096--1291) var militære ekspedisjoner satt i gang av paven der europeiske kristne forsøkte å erobre og forsvare Det hellige land (Palestina).",
     },
     {
       question: "Hva skjedde under det fjerde korstoget (1202--1204)?",
-      options: ["Korsfarerne plyndret det kristne Konstantinopel", "Jerusalem ble erobret for første gang", "Muslimene under Saladin gjenerobret hele Midtøsten og drev korsfarerne ut av regionen", "Muslimene gjenerobret hele Midtøsten"],
+      options: ["Korsfarerne plyndret det kristne Konstantinopel","Jerusalem ble erobret for første gang","Muslimene under Saladin gjenerobret Midtøsten","Paven avlyste korstoget før avreise fra Europa"],
       explanation: "Under det fjerde korstoget plyndret korsfarerne det kristne Konstantinopel i stedet for å nå Det hellige land, noe som svekket det bysantinske riket.",
     },
     {
@@ -527,7 +527,7 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva eksporterte Norge gjennom hanseatene?",
-      options: ["Tørrfisk, tran, huder og pelsverk", "Klede fra Flandern", "Ferdigvevd klede fra Flandern, som var Norges mest ettertraktede eksportvare", "Vin fra Sør-Europa"],
+      options: ["Tørrfisk, tran, huder og pelsverk","Korn, øl og salt fra Østersjøen","Ferdigvevd klede fra Flandern","Vin fra Sør-Europa"],
       explanation: "Norge eksporterte tørrfisk, tran, huder og pelsverk gjennom hanseatene, og importerte korn, øl, salt og klede.",
     },
     {
@@ -537,7 +537,7 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva var Champagne-messene kjent for?",
-      options: ["De var middelalderens viktigste internasjonale handelsarena", "De var slag mellom franske og engelske hærer", "De var kirkemøter der biskopene samlet seg for å avgjøre viktige trosspørsmål", "De var kirkemøter for å avgjøre trosspørsmål"],
+      options: ["De var middelalderens viktigste internasjonale handelsarena","De var slag mellom franske og engelske hærer","De var kirkemøter der biskopene avgjorde trosspørsmål","De var årlige turneringer for riddere fra hele Europa"],
       explanation: "Champagne-messene i Frankrike var middelalderens viktigste internasjonale handelsarena, der kjøpmenn fra hele Europa møttes og nye finansielle instrumenter utviklet seg.",
     },
   ],
@@ -564,19 +564,19 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva innebar det heliosentriske verdensbildet som Kopernikus la fram?",
-      options: ["At jorden og planetene kretser rundt solen", "At jorden er universets sentrum", "At universet er uendelig stort og at jorden bare er én av utallige bebodde kloder", "At universet er uendelig stort"],
+      options: ["At jorden og planetene kretser rundt solen","At jorden er universets sentrum","At universet er uendelig stort og evig","At månen er en planet på linje med jorden"],
       explanation: "Kopernikus argumenterte i 1543 for det heliosentriske verdensbildet -- at jorden og de andre planetene kretser rundt solen, i strid med det geosentriske synet.",
     },
   ],
   "historie-5-2": [
     {
       question: "Hva var reformasjonen?",
-      options: ["Den religiøse omveltningen på 1500-tallet som splittet kristenheten i katolikker og protestanter", "Gjenoppdagelsen av antikkens kunst", "Gjenoppdagelsen av antikkens kunst og litteratur som preget de italienske bystatene på 1400-tallet", "Innføringen av folkestyre og demokratiske forsamlinger som samlet borgerne i store deler av Europa"],
+      options: ["Den religiøse omveltningen på 1500-tallet som splittet kristenheten i katolikker og protestanter","Den store bølgen av oppdagelsesreiser som førte europeiske skip til Amerika og rundt Afrika på 1400-tallet","Gjenoppdagelsen av antikkens kunst og litteratur som preget de italienske bystatene på 1400-tallet","Innføringen av folkestyre og demokratiske forsamlinger som samlet borgerne i store deler av Europa"],
       explanation: "Reformasjonen var den religiøse omveltningen på 1500-tallet som splittet den vestlige kristenheten, med start i Martin Luthers kritikk av kirken i 1517.",
     },
     {
       question: "Hva kritiserte Martin Luther særlig i sine 95 teser?",
-      options: ["Avlatshandelen -- salg av tilgivelse for synder", "Det heliosentriske verdensbildet", "Det heliosentriske verdensbildet, som han fordømte som kjettersk og bibelstridig", "Boktrykkerkunsten"],
+      options: ["Avlatshandelen -- salg av tilgivelse for synder","At messen ble holdt på folkets eget språk","Det heliosentriske verdensbildet som kjetteri","Boktrykkerkunsten og de nye trykte bøkene"],
       explanation: "Luthers 95 teser fra 1517 var først og fremst en kritikk av avlatshandelen, der kirken solgte tilgivelse for synder.",
     },
     {
@@ -586,19 +586,19 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken krig endte med Westfalerfreden i 1648?",
-      options: ["Trettiårskrigen", "De franske religionskrigene", "Hundreårskrigen", "Den spanske arvefølgekrigen"],
+      options: ["Trettiårskrigen","De franske religionskrigene","Hundreårskrigen mot England","Den spanske arvefølgekrigen"],
       explanation: "Trettiårskrigen (1618--1648) startet som en religionskonflikt og endte med Westfalerfreden, som etablerte at hver fyrste bestemte religionen i sitt territorium.",
     },
     {
       question: "Hva var motreformasjonen?",
-      options: ["Den katolske kirkens reformbevegelse som svar på protestantismen", "En allianse mellom Luther og paven", "En ny protestantisk retning som gikk enda lenger enn Luther i å bryte med Roma", "En allianse mellom Luther og paven for å reformere kirken i fellesskap innenfra"],
+      options: ["Den katolske kirkens reformbevegelse som svar på protestantismen","De nordiske fyrstenes beslutning om å innføre luthersk lære i sine riker","En ny protestantisk retning som gikk enda lenger enn Luther i å bryte med Roma","En allianse mellom Luther og paven for å reformere kirken i fellesskap innenfra"],
       explanation: "Motreformasjonen var den katolske kirkens svar på reformasjonen, med Tridentinerkonsilet, jesuittordenen og inkvisisjonen som viktige virkemidler.",
     },
   ],
   "historie-5-3": [
     {
       question: "Hva var en viktig årsak til oppdagelsesreisene?",
-      options: ["Ønsket om å finne sjøveien til India og krydderøyene i Asia", "Ønsket om å kolonisere Norden", "Ønsket om å kolonisere de nordiske landene og legge deres ressurser under seg", "Ønsket om å unngå all handel med Østen og gjøre Europa fullstendig selvforsynt"],
+      options: ["Ønsket om å finne sjøveien til India og krydderøyene i Asia","Ønsket om å finne nye fiskebanker og hvalfangstfelt i Nord-Atlanteren","Ønsket om å kolonisere de nordiske landene og legge deres ressurser under seg","Ønsket om å unngå all handel med Østen og gjøre Europa fullstendig selvforsynt"],
       explanation: "Oppdagelsesreisene var bl.a. drevet av ønsket om å finne sjøveien til Asias krydder, etter at osmannerne gjorde landveien vanskeligere, samt ny teknologi som kompasset.",
     },
     {
@@ -608,7 +608,7 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva var det columbianske byttet?",
-      options: ["Utvekslingen av planter, dyr, sykdommer og mennesker mellom den gamle og nye verden", "En fredsavtale mellom Spania og Portugal", "En ny type raskt seilskip som ble utviklet spesielt for de lange oppdagelsesreisene", "En fredsavtale mellom Spania og Portugal som delte de nyoppdagede landområdene mellom dem"],
+      options: ["Utvekslingen av planter, dyr, sykdommer og mennesker mellom den gamle og nye verden","Byttehandelen mellom hanseatene og norske kjøpmenn i Bergen","En ny type raskt seilskip utviklet for de lange oppdagelsesreisene","En fredsavtale mellom Spania og Portugal om de nyoppdagede landområdene"],
       explanation: "Det columbianske byttet var utvekslingen av planter, dyr, sykdommer og mennesker mellom den gamle og nye verden etter 1492.",
     },
     {
@@ -640,7 +640,7 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva var merkantilisme?",
-      options: ["En økonomisk politikk der staten skulle eksportere mer enn den importerte", "Et system med fri handel uten toll", "En religiøs reformbevegelse som ville rense kirken og gjøre handel og pengeutlån mer moralsk", "En økonomisk politikk basert på fri handel uten toll, der markedet selv skulle styre vareflyten"],
+      options: ["En økonomisk politikk der staten skulle eksportere mer enn den importerte","Et system der jorda var den eneste kilden til rikdom, og handel skapte ingenting","En religiøs reformbevegelse som ville rense kirken og gjøre handel og pengeutlån mer moralsk","En økonomisk politikk basert på fri handel uten toll, der markedet selv skulle styre vareflyten"],
       explanation: "Merkantilismen var de eneveldige statenes økonomiske politikk: målet var å bli rik ved å eksportere mer enn man importerte, med toll, monopoler og kolonier.",
     },
     {
@@ -657,7 +657,7 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr at Norge ble et lydrike etter 1536/37?",
-      options: ["Norge mistet sitt riksråd og ble formelt underordnet Danmark", "Norge fikk full selvstendighet", "Norge fikk full selvstendighet med eget riksråd, egen konge og egen utenrikspolitikk igjen", "Norge ble skilt fra Danmark og lagt inn under svensk styre som en del av det svenske riket"],
+      options: ["Norge mistet sitt riksråd og ble formelt underordnet Danmark","Norge beholdt riksrådet sitt, men mistet retten til å utnevne biskoper","Norge fikk full selvstendighet med eget riksråd, egen konge og egen utenrikspolitikk igjen","Norge ble skilt fra Danmark og lagt inn under svensk styre som en del av det svenske riket"],
       explanation: "Lydrike betyr et rike som \"lyder\" et annet. Etter 1536/37 mistet Norge sitt riksråd og ble styrt fra København, men beholdt egne lover og kirkeorganisasjon.",
     },
     {
@@ -711,7 +711,7 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betydde slagordet \"No taxation without representation\"?",
-      options: ["At det var urettferdig å skattlegge kolonistene uten at de var representert i parlamentet", "At kolonistene ville betale dobbelt skatt", "At britiske borgere i moderlandet skulle slippe all skatt så lenge koloniene betalte i stedet", "At all beskatning burde avskaffes helt, slik at hverken koloniene eller Storbritannia betalte"],
+      options: ["At det var urettferdig å skattlegge kolonistene uten at de var representert i parlamentet","At kolonistene krevde å få betale dobbelt så mye skatt som de britiske borgerne i moderlandet","At britiske borgere i moderlandet skulle slippe all skatt så lenge koloniene betalte i stedet","At all beskatning burde avskaffes helt, slik at hverken koloniene eller Storbritannia betalte"],
       explanation: "Slagordet betydde \"ingen skatt uten representasjon\" -- kolonistene mente det var urettferdig å betale skatt til en regjering der de ikke var representert.",
     },
     {
@@ -726,7 +726,7 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva etablerte den amerikanske grunnloven fra 1787?",
-      options: ["En føderal republikk med maktfordeling og checks and balances", "Et rent direkte demokrati uten ledere", "Et enevelde ledet av en amerikansk konge som samlet all makt hos seg etter europeisk mønster", "Et rent direkte demokrati uten valgte ledere, der alle borgere stemte over hver enkelt lov selv"],
+      options: ["En føderal republikk med maktfordeling og checks and balances","En løs allianse av selvstendige stater uten felles regjering eller domstol","Et enevelde ledet av en amerikansk konge som samlet all makt hos seg etter europeisk mønster","Et rent direkte demokrati uten valgte ledere, der alle borgere stemte over hver enkelt lov selv"],
       explanation: "Grunnloven fra 1787 etablerte en føderal republikk med maktfordeling mellom Kongressen, presidenten og høyesterett, og et system med checks and balances.",
     },
   ],
@@ -738,12 +738,12 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skjedde 14. juli 1789?",
-      options: ["En folkemengde stormet festningen Bastillen i Paris", "Grunnloven på Eidsvoll ble vedtatt", "Kong Ludvig XVI ble stilt for retten og henrettet i giljotinen på en plass midt i Paris", "Ludvig XVI ble henrettet"],
+      options: ["En folkemengde stormet festningen Bastillen i Paris","Grunnloven på Eidsvoll ble vedtatt","Ludvig XVI ble stilt for retten og henrettet","Erklæringen om menneskerettighetene ble vedtatt"],
       explanation: "14. juli 1789 stormet en folkemengde Bastillen for å skaffe våpen. Bastillens fall ble symbolet på revolusjonen og feires som Frankrikes nasjonaldag.",
     },
     {
       question: "Hva fastslo Erklæringen om menneskets og borgerens rettigheter (1789)?",
-      options: ["At alle mennesker er født frie og like i rettigheter", "At bare adelen hadde rettigheter", "At kirken og dens biskoper skulle styre Frankrike og våke over borgernes tro og moral", "At kirken skulle styre Frankrike"],
+      options: ["At alle mennesker er født frie og like i rettigheter","At bare adelen hadde rettigheter","At kirken og biskopene skulle styre Frankrike","At kongen fikk tilbake sin uinnskrenkede makt"],
       explanation: "Erklæringen fra 1789 slo fast at alle mennesker er født frie og like i rettigheter, og garanterte ytringsfrihet, religionsfrihet og eiendomsrett.",
     },
     {
@@ -753,7 +753,7 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skjedde med revolusjonens arv under Napoleon?",
-      options: ["Han beholdt mange reformer, men avskaffet demokratiet og ytringsfriheten", "Han gjeninnførte alle føydale privilegier", "Han avskaffet prinsippet om likhet for loven og lot fødsel og stand avgjøre folks rettigheter", "Han gjeninnførte alle de gamle føydale privilegiene og ga adel og geistlighet skattefrihet igjen"],
+      options: ["Han beholdt mange reformer, men avskaffet demokratiet og ytringsfriheten","Han innførte alminnelig stemmerett og lot nasjonalforsamlingen styre landet","Han avskaffet prinsippet om likhet for loven og lot fødsel og stand avgjøre folks rettigheter","Han gjeninnførte alle de gamle føydale privilegiene og ga adel og geistlighet skattefrihet igjen"],
       explanation: "Napoleon beholdt reformer som likhet for loven (Code civil) og karriere åpen for talent, men avskaffet demokratiet og ytringsfriheten og kronet seg til keiser.",
     },
   ],
@@ -802,12 +802,12 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva var hjemmeindustri (putting-out system) før fabrikkene?",
-      options: ["Folk spant og vevde hjemme, ofte ved siden av gårdsarbeidet", "Statlige verksteder styrt av kongen", "Statlige verksteder styrt direkte av kongen, der arbeiderne var ansatt av staten mot fast lønn", "Arbeid utelukkende utført av barn"],
+      options: ["Folk spant og vevde hjemme, ofte ved siden av gårdsarbeidet","Store maskinhaller der alle arbeidet på faste tider","Statlige verksteder styrt direkte av kongen","Arbeid utelukkende utført av barn"],
       explanation: "I hjemmeindustrien leverte en handelsmann råvarer til folk som spant og vevde hjemme. Med fabrikkene måtte arbeiderne i stedet møte opp på faste tider ved maskinene.",
     },
     {
       question: "Hvordan endret fabrikkene arbeidernes liv?",
-      options: ["De måtte møte til faste tider og arbeidstakten ble bestemt av maskinene", "De kunne fritt bestemme egen arbeidstid", "De sluttet helt å arbeide mot lønn og forsørget seg i stedet ved selvberging på egen jord", "De fikk merkbart kortere arbeidsdager enn før og mer fritid til familie og eget gårdsarbeid"],
+      options: ["De måtte møte til faste tider og arbeidstakten ble bestemt av maskinene","De kunne fritt bestemme egen arbeidstid og gå hjem når arbeidet var gjort","De sluttet helt å arbeide mot lønn og forsørget seg i stedet ved selvberging på egen jord","De fikk merkbart kortere arbeidsdager enn før og mer fritid til familie og eget gårdsarbeid"],
       explanation: "I fabrikkene måtte arbeiderne møte til faste tider og jobbe 12--16 timer, og arbeidstakten ble bestemt av maskinene, ikke av arbeideren selv.",
     },
   ],
@@ -873,7 +873,7 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva beskriver den demografiske overgangen?",
-      options: ["Overgangen fra høy til lav fødsels- og dødsrate", "Befolkningens utvandring til Amerika", "Befolkningens samlede utvandring fra Europa til Nord-Amerika", "Overgangen fra jordbrukssamfunn til jakt- og sankekultur igjen"],
+      options: ["Overgangen fra høy til lav fødsels- og dødsrate","Overgangen fra små familier til svært store barneflokker","Befolkningens samlede utvandring fra Europa til Nord-Amerika","Overgangen fra jordbrukssamfunn til jakt- og sankekultur igjen"],
       explanation: "Den demografiske overgangen beskriver overgangen fra høy til lav fødsels- og dødsrate. I overgangsfasen synker dødsraten først, noe som gir rask befolkningsvekst.",
     },
     {
@@ -915,7 +915,7 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva var nasjonalismens skyggeside?",
-      options: ["Ekskludering av minoriteter og aggressiv utenrikspolitikk", "Slutt på all rivalisering mellom stater", "Økt toleranse og fulle rettigheter for alle etniske minoriteter", "Slutt på all rivalisering og maktkamp mellom de europeiske statene"],
+      options: ["Ekskludering av minoriteter og aggressiv utenrikspolitikk","Rask og fredelig oppløsning av alle flernasjonale imperier i Europa","Økt toleranse og fulle rettigheter for alle etniske minoriteter","Slutt på all rivalisering og maktkamp mellom de europeiske statene"],
       explanation: "Nasjonalismen kunne bli ekskluderende og aggressiv: minoriteter ble diskriminert, og rivalisering mellom stormaktene bidro til første verdenskrig.",
     },
   ],
@@ -942,7 +942,7 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvem ble valgt til norsk konge i 1905?",
-      options: ["Den danske prinsen Carl, som tok navnet Haakon VII", "Christian Frederik", "Den svenske kongen Gustav Vasa fra det gamle Vasa-dynastiet", "Christian Frederik, som var valgt til norsk konge alt i 1814"],
+      options: ["Den danske prinsen Carl, som tok navnet Haakon VII","En norsk statsminister som ble utropt til konge av Stortinget","Den svenske kongen Gustav Vasa fra det gamle Vasa-dynastiet","Christian Frederik, som var valgt til norsk konge alt i 1814"],
       explanation: "Etter at nordmennene valgte monarki i en folkeavstemning, ble den danske prinsen Carl valgt til konge og tok navnet Haakon VII. Norge var endelig fullt uavhengig.",
     },
   ],
@@ -976,7 +976,7 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
   "historie-8-4": [
     {
       question: "Omtrent hvor mange nordmenn utvandret til Amerika på 1800-tallet?",
-      options: ["Ca. 800 000 -- omtrent en tredjedel av befolkningen", "Ca. 2 millioner", "Ca. 10 000 -- nesten ingen sammenlignet med andre land", "Ca. 2 millioner -- rundt to tredjedeler av befolkningen"],
+      options: ["Ca. 800 000 -- omtrent en tredjedel av befolkningen","Ca. 100 000 -- om lag en tjuendedel av hele befolkningen","Ca. 10 000 -- nesten ingen sammenlignet med andre land","Ca. 2 millioner -- rundt to tredjedeler av befolkningen"],
       explanation: "Ca. 800 000 nordmenn utvandret til Amerika på 1800-tallet -- omtrent en tredjedel av befolkningen. Norge hadde den nest høyeste utvandringsraten i Europa etter Irland.",
     },
     {
@@ -986,7 +986,7 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken push-faktor drev nordmenn til å forlate Norge?",
-      options: ["Fattigdom og jordhunger på grunn av befolkningsvekst", "Religiøs toleranse i Norge", "Full religiøs frihet og toleranse som holdt folk igjen i Norge", "Rikelig tilgang på gratis, dyrkbar jord for alle bønder i Norge"],
+      options: ["Fattigdom og jordhunger på grunn av befolkningsvekst","Full stemmerett og innflytelse for alle voksne nordmenn","Full religiøs frihet og toleranse som holdt folk igjen i Norge","Rikelig tilgang på gratis, dyrkbar jord for alle bønder i Norge"],
       explanation: "Push-faktorer (det som drev folk bort) var bl.a. fattigdom og jordhunger -- befolkningsveksten gjorde at det ikke var nok jord til alle -- samt klasseskiller og nød.",
     },
     {
@@ -996,7 +996,7 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvor slo de fleste norske utvandrere seg ned i USA?",
-      options: ["I Midtvesten -- Wisconsin, Minnesota, Iowa og Dakota", "På østkysten i New York", "I sørstatene, der de arbeidet på store bomullsplantasjer", "På østkysten i storbyer som New York og Boston med fabrikkarbeid"],
+      options: ["I Midtvesten -- Wisconsin, Minnesota, Iowa og Dakota","I California, der de arbeidet i gruvene under gullrushet","I sørstatene, der de arbeidet på store bomullsplantasjer","På østkysten i storbyer som New York og Boston med fabrikkarbeid"],
       explanation: "De fleste norske utvandrere slo seg ned i Midtvesten (Wisconsin, Minnesota, Iowa, Nord- og Sør-Dakota), der de ryddet prærien og dyrket hvete.",
     },
   ],
@@ -1030,7 +1030,7 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
   "historie-9-2": [
     {
       question: "Hva kalles den raske koloniseringen av Afrika fra 1870 til 1914?",
-      options: ["Kapløpet om Afrika (Scramble for Africa)", "Den industrielle revolusjon", "Den store utvandringen fra Europa til oversjøiske områder", "Den andre industrielle revolusjon med stål og elektrisitet"],
+      options: ["Kapløpet om Afrika (Scramble for Africa)","Den europeiske avkoloniseringen av Afrika","Den store utvandringen fra Europa til oversjøiske områder","Den andre industrielle revolusjon med stål og elektrisitet"],
       explanation: "Kapløpet om Afrika beskriver hvordan europeiske makter på få tiår gikk fra å kontrollere ca. 10 % til over 90 % av kontinentet (1870--1914).",
     },
     {
@@ -1067,7 +1067,7 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva handlet opiumskrigene om?",
-      options: ["Storbritannias salg av opium til Kina, som Kina forsøkte å stoppe", "En krig om krydderhandelen i India", "En territorial konflikt mellom Japan og Kina om innflytelse i Korea", "Kinas mislykkede forsøk på å invadere og kolonisere det britiske India"],
+      options: ["Storbritannias salg av opium til Kina, som Kina forsøkte å stoppe","En krig om kontrollen over krydderhandelen mellom India og europeiske kjøpmenn","En territorial konflikt mellom Japan og Kina om innflytelse i Korea","Kinas mislykkede forsøk på å invadere og kolonisere det britiske India"],
       explanation: "Storbritannia solgte opium fra India til Kina for å balansere handelen. Da Kina forsøkte å stoppe importen, svarte Storbritannia med krig og vant (1839--42).",
     },
     {
@@ -1084,7 +1084,7 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
   "historie-9-4": [
     {
       question: "Hvordan formet kolonialismen koloniene økonomisk?",
-      options: ["De ble utviklet for å eksportere råvarer, ikke for å dekke egne behov", "De sluttet helt med all handel og ble lukkede selvforsynte økonomier", "De ble raskt industrialisert med egne fabrikker og selvstendig produksjon", "De oppnådde full økonomisk selvstendighet og frigjorde seg fra Europa tidlig"],
+      options: ["De ble utviklet for å eksportere råvarer, ikke for å dekke egne behov","De sluttet helt med all utenrikshandel og ble lukkede, selvforsynte økonomier","De ble raskt industrialisert med egne fabrikker og selvstendig produksjon","De oppnådde full økonomisk selvstendighet og frigjorde seg fra Europa tidlig"],
       explanation: "Koloniene ble eksportøkonomier utviklet for å levere råvarer til Europa, ikke for å dekke egne behov. Infrastrukturen ble bygget for å frakte råvarer ut, ikke binde landet sammen.",
     },
     {
@@ -1099,7 +1099,7 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en kulturell konsekvens av kolonialismen som fortsatt merkes?",
-      options: ["Europeiske språk er offisielle språk i mange tidligere kolonier", "Ingen bruker lenger europeiske språk", "De lokale språkene ble enerådende og fortrengte alle europeiske språk", "Ingen mennesker bruker lenger europeiske språk i de tidligere koloniene"],
+      options: ["Europeiske språk er offisielle språk i mange tidligere kolonier","Koloniene innførte europeiske rettssystemer, men ingen europeiske språk","De lokale språkene ble enerådende og fortrengte alle europeiske språk","Ingen mennesker bruker lenger europeiske språk i de tidligere koloniene"],
       explanation: "Europeiske språk (engelsk, fransk, portugisisk) ble offisielle språk i mange tidligere kolonier og brukes fortsatt i utdanning og administrasjon.",
     },
     {
@@ -1138,7 +1138,7 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
   "historie-10-2": [
     {
       question: "Hva kjennetegnet tidlig verdenshandel som Silkeveien?",
-      options: ["Handel med luksusvarer, lang reisetid og høy risiko", "Massehandel med billige industrivarer", "Massehandel med billige industrivarer produsert i store fabrikker", "Handel som utelukkende foregikk innenfor grensene til ett enkelt land"],
+      options: ["Handel med luksusvarer, lang reisetid og høy risiko","Rask og risikofri transport med faste ruteplaner og lave kostnader","Massehandel med billige industrivarer produsert i store fabrikker","Handel som utelukkende foregikk innenfor grensene til ett enkelt land"],
       explanation: "Tidlig verdenshandel handlet om luksusvarer (krydder, silke, edelstener) med lang reisetid, høy risiko og begrenset volum, ofte via mange mellomledd.",
     },
     {
@@ -1158,7 +1158,7 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegnet den \"første globaliseringen\" (1870--1914)?",
-      options: ["Rask vekst i verdenshandel, investeringer og migrasjon", "Full stans i all internasjonal handel", "En brå slutt på all migrasjon på tvers av landegrenser og hav", "En fullstendig stans i all internasjonal handel mellom verdensdelene"],
+      options: ["Rask vekst i verdenshandel, investeringer og migrasjon","Sterk vekst i handelen, men nesten ingen kapitalflyt over grensene","En brå slutt på all migrasjon på tvers av landegrenser og hav","En fullstendig stans i all internasjonal handel mellom verdensdelene"],
       explanation: "Den første globaliseringen (1870--1914) var en periode med rask vekst i verdenshandel, investeringer og migrasjon. Handelen nådde ikke samme nivå igjen før 1970-tallet.",
     },
   ],
@@ -1180,7 +1180,7 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en fare ved monokulturer?",
-      options: ["De er effektive, men sårbare for sykdommer og prisfall", "De gir alltid lavere avlinger", "De gir alltid systematisk lavere avlinger enn variert småskala dyrking", "De krever ingen form for arbeidskraft eller innsatsfaktorer for å drives"],
+      options: ["De er effektive, men sårbare for sykdommer og prisfall","De gjør jorda mer fruktbar år for år uten bruk av gjødsel","De gir alltid systematisk lavere avlinger enn variert småskala dyrking","De krever ingen form for arbeidskraft eller innsatsfaktorer for å drives"],
       explanation: "Monokultur (dyrking av én avling over store områder) er effektivt, men sårbart. Da poteten sviktet i Irland (1845--52), døde over én million mennesker.",
     },
     {
@@ -1197,7 +1197,7 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilket syn på naturen har dominert i Vesten siden opplysningstiden?",
-      options: ["Natur som ressurs som skal utnyttes til menneskers beste", "At mennesket er underlagt naturen helt", "At naturen ikke har noen egenverdi og bør ignoreres av samfunnet helt", "At mennesket er fullstendig underlagt naturen og ikke kan påvirke den"],
+      options: ["Natur som ressurs som skal utnyttes til menneskers beste","Natur som hellig, der inngrep krever tillatelse fra prestene","At naturen ikke har noen egenverdi og bør ignoreres av samfunnet helt","At mennesket er fullstendig underlagt naturen og ikke kan påvirke den"],
       explanation: "Synet på natur som ressurs har dominert siden opplysningstiden. Francis Bacon mente \"viten er makt\" over naturen. Romantikken reagerte senere mot dette.",
     },
     {
@@ -1224,7 +1224,7 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke to alliansesystemer delte Europa før første verdenskrig?",
-      options: ["Trippelalliansen og Trippelententen", "Aksemaktene og de allierte", "Aksemaktene og de allierte, slik det var under andre verdenskrig", "NATO og Warszawapakten"],
+      options: ["Trippelalliansen og Trippelententen","Hansaforbundet og Kalmarunionen","Aksemaktene og de allierte","NATO og Warszawapakten"],
       explanation: "Europa var delt i Trippelalliansen (Tyskland, Østerrike-Ungarn, Italia) og Trippelententen (Frankrike, Russland, Storbritannia).",
     },
     {
@@ -1234,7 +1234,7 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva var den utløsende årsaken til første verdenskrig?",
-      options: ["Attentatet på erkehertug Franz Ferdinand i Sarajevo 28. juni 1914", "Stormingen av Bastillen", "Det tyske angrepet på Polen som markerte begynnelsen på storkrigen", "Stormingen av Bastillen i Paris som satte i gang en blodig revolusjon"],
+      options: ["Attentatet på erkehertug Franz Ferdinand i Sarajevo 28. juni 1914","Den tyske invasjonen av det nøytrale Belgia i august 1914, som trakk Storbritannia inn","Det tyske angrepet på Polen som markerte begynnelsen på storkrigen","Stormingen av Bastillen i Paris som satte i gang en blodig revolusjon"],
       explanation: "Attentatet i Sarajevo 28. juni 1914, der Gavrilo Princip skjøt erkehertug Franz Ferdinand av Østerrike-Ungarn, ble den utløsende årsaken til krigen.",
     },
     {
@@ -1278,7 +1278,7 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor var norsk nøytralitet i praksis britiskvennlig?",
-      options: ["Norge var avhengig av import via britisk-kontrollerte sjøruter og fraktet varer for Ententen", "Norge hadde ingen handel med utlandet", "Norge kuttet all utenrikshandel og var derfor helt uavhengig av både britiske og tyske sjøruter", "Norge nektet konsekvent å handle med noen av de stridende partene for å beskytte sin nøytralitet"],
+      options: ["Norge var avhengig av import via britisk-kontrollerte sjøruter og fraktet varer for Ententen","Norge inngikk en formell forsvarsallianse med Storbritannia som forpliktet landet til å delta i krigen","Norge kuttet all utenrikshandel og var derfor helt uavhengig av både britiske og tyske sjøruter","Norge nektet konsekvent å handle med noen av de stridende partene for å beskytte sin nøytralitet"],
       explanation: "Norge var avhengig av import (mat, kull) via britisk-kontrollerte sjøruter, og norsk skipsfart fraktet varer for Ententen. Tyskland så Norge som reelt alliert med Storbritannia.",
     },
     {
@@ -1305,7 +1305,7 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke fire imperier kollapset som følge av første verdenskrig?",
-      options: ["Det tyske, Østerrike-Ungarn, Det osmanske og Det russiske", "Det britiske, franske, spanske og portugisiske", "Romerriket, Bysants, Persarriket og det gamle Egypt falt samtidig sammen", "Det britiske, franske, spanske og portugisiske koloniriket gikk i oppløsning"],
+      options: ["Det tyske, Østerrike-Ungarn, Det osmanske og Det russiske","Det spanske, portugisiske, nederlandske og danske kolonirike falt","Romerriket, Bysants, Persarriket og det gamle Egypt falt samtidig sammen","Det britiske, franske, spanske og portugisiske koloniriket gikk i oppløsning"],
       explanation: "Fire imperier kollapset: Det tyske keiserriket, Østerrike-Ungarn, Det osmanske riket og Det russiske tsarriket (revolusjon 1917). Nye stater oppsto.",
     },
     {
@@ -1332,7 +1332,7 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva utløste den store depresjonen i 1929?",
-      options: ["Børskrakket på Wall Street (\"svart tirsdag\")", "Første verdenskrigs utbrudd", "Berlinmurens fall og den påfølgende krisen i verdensøkonomien", "Det japanske angrepet på flåtebasen Pearl Harbor høsten samme år"],
+      options: ["Børskrakket på Wall Street (\"svart tirsdag\")","Første verdenskrigs utbrudd og mobiliseringen i 1914","Berlinmurens fall og den påfølgende krisen i verdensøkonomien","Det japanske angrepet på flåtebasen Pearl Harbor høsten samme år"],
       explanation: "Børskrakket på Wall Street, med \"svart tirsdag\" 29. oktober 1929, utløste en global økonomisk krise -- den store depresjonen -- som varte til slutten av 1930-tallet.",
     },
     {
@@ -1391,7 +1391,7 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvem grunnla Nasjonal Samling (NS) i 1933?",
-      options: ["Vidkun Quisling", "Johan Nygaardsvold", "Einar Gerhardsen", "Marcus Thrane"],
+      options: ["Vidkun Quisling","Johan Nygaardsvold","Einar Gerhardsen","Marcus Thrane, arbeiderleder"],
       explanation: "Vidkun Quisling grunnla Nasjonal Samling (NS) i 1933 etter fascistisk modell. Partiet fikk aldri mer enn 2 % ved valg, men ble viktig under okkupasjonen.",
     },
     {
@@ -1413,12 +1413,12 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva var appeasement-politikken?",
-      options: ["Å gi etter for Hitlers aggressive krav for å unngå krig", "Å erklære krig mot Tyskland tidlig", "Å gjeninnføre alle de harde vilkårene fra Versailles-traktaten", "Å erklære krig mot Tyskland tidlig for å stanse Hitlers opprustning"],
+      options: ["Å gi etter for Hitlers aggressive krav for å unngå krig","Å bygge opp store hærer for å avskrekke Hitler fra angrep","Å gjeninnføre alle de harde vilkårene fra Versailles-traktaten","Å erklære krig mot Tyskland tidlig for å stanse Hitlers opprustning"],
       explanation: "Appeasement var politikken med å gi etter for aggressive krav for å unngå krig, forbundet med den britiske statsministeren Neville Chamberlain.",
     },
     {
       question: "Hva ble bestemt på München-konferansen i 1938?",
-      options: ["Hitler fikk Sudetenland uten at Tsjekkoslovakia var invitert", "Tyskland måtte gi fra seg Østerrike", "At Tyskland måtte gi fra seg Østerrike igjen etter Anschluss", "At de allierte omsider erklærte krig mot Nazi-Tyskland i 1938"],
+      options: ["Hitler fikk Sudetenland uten at Tsjekkoslovakia var invitert","At Polen ble delt mellom Tyskland og Sovjet","At Tyskland måtte gi fra seg Østerrike etter Anschluss","At de allierte erklærte krig mot Nazi-Tyskland i 1938"],
       explanation: "På München-konferansen (1938) ga Chamberlain og Daladier etter for Hitlers krav om Sudetenland, uten at Tsjekkoslovakia var invitert. Seks måneder senere okkuperte Hitler resten av landet.",
     },
     {
@@ -1467,7 +1467,7 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegnet nazistenes antisemittisme?",
-      options: ["Den var rasistisk -- de mente jøder var biologisk underlegne", "Den var økonomisk, men ikke rasistisk", "Den bygde på gammel europeisk overtro og hadde ingen forbindelse til nazistenes egen ideologi", "Den var i hovedsak økonomisk motivert og handlet ikke om påstander om biologiske raseforskjeller"],
+      options: ["Den var rasistisk -- de mente jøder var biologisk underlegne","Den rettet seg mot alle religiøse minoriteter likt, uten å skille ut noen gruppe","Den bygde på gammel europeisk overtro og hadde ingen forbindelse til nazistenes egen ideologi","Den var i hovedsak økonomisk motivert og handlet ikke om påstander om biologiske raseforskjeller"],
       explanation: "Nazistenes antisemittisme var rasistisk -- de mente jøder var biologisk underlegne og en trussel mot den \"ariske rasen\", i motsetning til eldre religiøs antisemittisme.",
     },
     {
@@ -1499,12 +1499,12 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva var holdningskampen?",
-      options: ["Den sivile motstanden mot nazifisering av det norske samfunnet", "Samarbeidet med okkupasjonsmakten", "En rekke væpnede motstandsaksjoner med sabotasje og direkte angrep på tyske militærmål", "Det aktive samarbeidet der nordmenn stilte seg lojalt til disposisjon for okkupasjonsmakten"],
+      options: ["Den sivile motstanden mot nazifisering av det norske samfunnet","Kampen mellom NS og andre norske partier om plassene i Stortinget","En rekke væpnede motstandsaksjoner med sabotasje og direkte angrep på tyske militærmål","Det aktive samarbeidet der nordmenn stilte seg lojalt til disposisjon for okkupasjonsmakten"],
       explanation: "Holdningskampen var den sivile motstanden mot nazifisering. Eksempler er lærernes nei til nazistisk lærerorganisasjon, kirkens protest og idrettsstreiken.",
     },
     {
       question: "Hva skjedde med de norske jødene under okkupasjonen?",
-      options: ["773 ble deportert til Auschwitz, og bare 38 overlevde", "Ingen ble berørt av forfølgelsen", "Så godt som alle ble reddet i tide og fraktet trygt over grensen til nøytrale Sverige", "Alle ble reddet til Sverige"],
+      options: ["773 ble deportert til Auschwitz, og bare 38 overlevde","Ingen ble berørt av forfølgelsen","Så godt som alle ble reddet i tide til Sverige","Deportasjonene skjedde uten norsk medvirkning"],
       explanation: "Fra høsten 1942 ble norske jøder systematisk arrestert. 773 ble deportert til Auschwitz med skipet Donau, og bare 38 overlevde. Norsk politi deltok aktivt, mens motstandsfolk hjalp ca. 900 til Sverige.",
     },
     {
@@ -1526,12 +1526,12 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken sabotasjeaksjon i 1943 rammet det tyske atomprogrammet?",
-      options: ["Tungtvannsaksjonen på Vemork", "Angrepet på Pearl Harbor", "Senkingen av den tyske krysseren Blücher i Oslofjorden ved invasjonen i april 1940", "Senkingen av Blücher"],
+      options: ["Tungtvannsaksjonen på Vemork","Angrepet på Pearl Harbor","Senkingen av krysseren Blücher i Oslofjorden","Slaget om Narvik våren 1940"],
       explanation: "Tungtvannsaksjonen (1943), der norske kommandosoldater ødela tungtvannsproduksjonen på Vemork, regnes som en av krigens viktigste sabotasjeaksjoner.",
     },
     {
       question: "Hva var utefronten?",
-      options: ["Nordmenn som kjempet mot tyskerne utenfor Norge", "Et illegalt nettverk av aviser", "Den sivile motstanden som foregikk hjemme i Norge mot nazifiseringen av samfunnet", "Den sivile motstanden hjemme"],
+      options: ["Nordmenn som kjempet mot tyskerne utenfor Norge","Et illegalt nettverk av aviser","Den sivile motstanden hjemme mot nazifisering","Tyske avdelinger stasjonert i Norge"],
       explanation: "Utefronten var nordmenn som kjempet utenfor Norge -- handelsflåten i konvoier, militære avdelinger, Kompani Linge og flyskvadroner i RAF. Over 4000 mistet livet, de fleste sjøfolk.",
     },
     {
@@ -1543,12 +1543,12 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
   "historie-13-5": [
     {
       question: "Hva var Nürnbergprosessen (1945--1946)?",
-      options: ["Rettsoppgjøret mot ledende nazister etter krigen", "En fredskonferanse i Tyskland", "En stor fredskonferanse i Tyskland der stormaktene forhandlet fram etterkrigsordningen", "Det norske landssvikoppgjøret"],
+      options: ["Rettsoppgjøret mot ledende nazister etter krigen","Opprettelsen av De forente nasjoner","En stor fredskonferanse mellom stormaktene","Det norske landssvikoppgjøret"],
       explanation: "Nürnbergprosessen var rettsoppgjøret mot 24 ledende nazister. Den etablerte prinsippet om individuelt ansvar for krigsforbrytelser, og \"jeg fulgte bare ordre\" ble avvist som forsvar.",
     },
     {
       question: "Hvorfor ble FN grunnlagt i 1945?",
-      options: ["For å hindre nye verdenskriger og bevare internasjonal fred", "For å straffe alle tyskere", "For å erstatte forsvarsalliansen NATO, som var blitt for svak til å hindre nye konflikter", "For å fremme de europeiske stormaktenes kolonivelde og sikre deres kontroll over koloniene"],
+      options: ["For å hindre nye verdenskriger og bevare internasjonal fred","For å straffe alle tyskere med krigsskadeerstatninger og okkupasjon","For å erstatte forsvarsalliansen NATO, som var blitt for svak til å hindre nye konflikter","For å fremme de europeiske stormaktenes kolonivelde og sikre deres kontroll over koloniene"],
       explanation: "De forente nasjoner (FN) ble grunnlagt i 1945 for å hindre nye verdenskriger, bevare internasjonal fred og sikkerhet, og fremme samarbeid og menneskerettigheter.",
     },
     {
@@ -1558,7 +1558,7 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva var Verdenserklæringen om menneskerettigheter (1948) et svar på?",
-      options: ["Holocaust og andre verdenskrig", "Den industrielle revolusjon", "Spenningen i den kalde krigen mellom supermaktene USA og Sovjetunionen etter 1947", "Den kalde krigen"],
+      options: ["Holocaust og andre verdenskrig","Den industrielle revolusjon","Den kalde krigens spenning","Den franske revolusjon"],
       explanation: "Verdenserklæringen om menneskerettigheter, vedtatt av FN 10. desember 1948, var et direkte svar på Holocaust og andre verdenskrig.",
     },
     {
@@ -1590,19 +1590,19 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr MAD (Mutual Assured Destruction)?",
-      options: ["Begge sider hadde nok atomvåpen til å utslette hverandre -- en terrorbalanse", "En avtale om å avskaffe atomvåpen", "En bindende avtale mellom supermaktene om å avskaffe alle atomvåpen fullstendig", "Et nytt alliansesystem som bandt de vestlige landene sammen i felles forsvar mot øst"],
+      options: ["Begge sider hadde nok atomvåpen til å utslette hverandre -- en terrorbalanse","En doktrine om at den siden som slår først med atomvåpen, vinner krigen raskt","En bindende avtale mellom supermaktene om å avskaffe alle atomvåpen fullstendig","Et nytt alliansesystem som bandt de vestlige landene sammen i felles forsvar mot øst"],
       explanation: "MAD (Mutual Assured Destruction) betyr at begge sider bygde opp så mange atomvåpen at en krig ville utslette begge. Denne terrorbalansen kan ha forhindret direkte krig.",
     },
   ],
   "historie-14-2": [
     {
       question: "Hva er en stedfortrederkrig?",
-      options: ["En væpnet konflikt der stormakter kjemper indirekte ved å støtte lokale parter", "En direkte krig mellom to supermakter", "En direkte og åpen krig der to supermakter møtes ansikt til ansikt på slagmarken", "En intern borgerkrig som utspiller seg helt uten innblanding eller støtte fra utlandet"],
+      options: ["En væpnet konflikt der stormakter kjemper indirekte ved å støtte lokale parter","En konflikt der FN sender inn fredsbevarende styrker i stedet for stridende parter","En direkte og åpen krig der to supermakter møtes ansikt til ansikt på slagmarken","En intern borgerkrig som utspiller seg helt uten innblanding eller støtte fra utlandet"],
       explanation: "En stedfortrederkrig er en konflikt der stormaktene unngår direkte konfrontasjon og i stedet støtter lokale parter med våpen, penger og rådgivere. Eksempler: Korea, Vietnam, Afghanistan.",
     },
     {
       question: "Hvordan endte Koreakrigen (1950--1953)?",
-      options: ["Med våpenhvile, men ingen fredsavtale -- Korea forble delt", "Med at Korea ble samlet under Sør-Korea", "Med at Nord-Korea vant en full seier og erobret hele halvøya under kommunistisk styre", "Med at Nord-Korea erobret hele halvøya"],
+      options: ["Med våpenhvile, men ingen fredsavtale -- Korea forble delt","Med at Korea ble samlet under Sør-Korea","Med at Nord-Korea vant en full seier over hele halvøya","Med at Kina overtok kontrollen over hele Korea"],
       explanation: "Koreakrigen endte med våpenhvile i 1953, men ingen fredsavtale. Korea er fortsatt delt langs 38. breddegrad i dag.",
     },
     {
@@ -1617,7 +1617,7 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva var Cuba-krisen (1962)?",
-      options: ["Den kalde krigens farligste øyeblikk, da USA oppdaget sovjetiske atomraketter på Cuba", "En handelsavtale mellom USA og Cuba", "USAs mislykkede invasjonsforsøk i Grisebukta, som skulle velte Castros nye styre på øya", "Fidel Castros vellykkede maktovertakelse på Cuba, der han styrtet det gamle regimet ved kysten"],
+      options: ["Den kalde krigens farligste øyeblikk, da USA oppdaget sovjetiske atomraketter på Cuba","En handelsavtale mellom USA og Cuba om sukkereksport og amerikanske investeringer på øya","USAs mislykkede invasjonsforsøk i Grisebukta, som skulle velte Castros nye styre på øya","Fidel Castros vellykkede maktovertakelse på Cuba, der han styrtet det gamle regimet ved kysten"],
       explanation: "Cuba-krisen (oktober 1962) var den kalde krigens farligste øyeblikk. USA oppdaget sovjetiske atomraketter på Cuba, og etter 13 dager med spenning ble det inngått et kompromiss.",
     },
   ],
@@ -1639,12 +1639,12 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva var brobyggingspolitikken?",
-      options: ["Norges forsøk på å kombinere NATO-medlemskap med gode relasjoner til Sovjet", "En politikk for å bygge broer i Norge", "Norges forsøk på å melde seg ut av NATO og heller slutte seg til Warszawapakten", "En plan for å bygge fysiske broer og veier mellom Norge og Sovjetunionen i nord"],
+      options: ["Norges forsøk på å kombinere NATO-medlemskap med gode relasjoner til Sovjet","Norges forsøk på å megle mellom USA og Sovjet under forhandlingene om atomvåpen","Norges forsøk på å melde seg ut av NATO og heller slutte seg til Warszawapakten","En plan for å bygge fysiske broer og veier mellom Norge og Sovjetunionen i nord"],
       explanation: "Brobyggingspolitikken var Norges forsøk på å kombinere NATO-medlemskap med gode relasjoner til Sovjet -- Norge ville være en \"lojal, men ikke lydig\" alliert.",
     },
     {
       question: "Hvorfor var Norge strategisk viktig for NATO?",
-      options: ["Norge grenset til Sovjet og overvåket sovjetisk aktivitet i nordområdene", "Norge hadde verdens største hær", "Norge hadde verdens største stående hær og kunne forsvare hele Vest-Europa alene", "Norge lå trygt langt fra all konflikt og var derfor et fredelig bakland for NATO"],
+      options: ["Norge grenset til Sovjet og overvåket sovjetisk aktivitet i nordområdene","Norge kontrollerte innseilingen til Østersjøen og kunne stenge den for Sovjet","Norge hadde verdens største stående hær og kunne forsvare hele Vest-Europa alene","Norge lå trygt langt fra all konflikt og var derfor et fredelig bakland for NATO"],
       explanation: "Norge var en frontlinjestat med grense til Sovjet. Norge overvåket sovjetisk aktivitet, inkludert nordflåten på Kolahalvøya, og var \"øyne og ører\" for NATO i nord.",
     },
   ],
@@ -1666,7 +1666,7 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor grep ikke Sovjet militært inn i Øst-Europa i 1989?",
-      options: ["Gorbatsjov aksepterte at østeuropeerne valgte sin egen vei", "Sovjet hadde ingen militærmakt", "Sovjet hadde ingen militærmakt igjen etter å ha tapt en krig mot Kina samme år", "USA forbød uttrykkelig enhver sovjetisk innblanding gjennom et FN-vedtak i 1989"],
+      options: ["Gorbatsjov aksepterte at østeuropeerne valgte sin egen vei","Warszawapakten var allerede formelt oppløst før høsten 1989","Sovjet hadde ingen militærmakt igjen etter å ha tapt en krig mot Kina samme år","USA forbød uttrykkelig enhver sovjetisk innblanding gjennom et FN-vedtak i 1989"],
       explanation: "I motsetning til i Ungarn (1956) og Tsjekkoslovakia (1968) grep ikke Sovjet inn militært. Gorbatsjov aksepterte at østeuropeerne valgte sin egen vei.",
     },
     {
@@ -1688,7 +1688,7 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva var Marshall-hjelpen?",
-      options: ["Amerikansk økonomisk hjelp til gjenreisningen av Europa (1948--1952)", "Et lån fra Sovjetunionen", "Et stort lån fra Sovjetunionen til gjenreisning av Øst- og Vest-Europa etter krigen", "En norsk særskatt på olje- og gassvirksomheten som skulle finansiere velferdsstaten"],
+      options: ["Amerikansk økonomisk hjelp til gjenreisningen av Europa (1948--1952)","Et felles europeisk hjelpefond finansiert av de vesteuropeiske landene selv","Et stort lån fra Sovjetunionen til gjenreisning av Øst- og Vest-Europa etter krigen","En norsk særskatt på olje- og gassvirksomheten som skulle finansiere velferdsstaten"],
       explanation: "Marshall-hjelpen (1948--1952) var amerikansk økonomisk hjelp til gjenreisningen. Norge mottok ca. 3 milliarder kroner. Den knyttet Norge tettere til Vest og var del av den kalde krigens politikk.",
     },
     {
@@ -1698,7 +1698,7 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilket parti dominerte norsk politikk i perioden 1945--1965?",
-      options: ["Arbeiderpartiet", "Bondepartiet", "Høyre, borgerlig", "Venstre, liberalt"],
+      options: ["Arbeiderpartiet","Bondepartiet, senere Senterpartiet","Høyre, borgerlig","Venstre, liberalt"],
       explanation: "Arbeiderpartiet dominerte perioden 1945--1965 med rent flertall på Stortinget 1945--1961, og Einar Gerhardsen som statsminister mesteparten av tiden.",
     },
   ],
@@ -1720,12 +1720,12 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken endring skjedde med grunnskolen i 1969?",
-      options: ["Den 7-årige folkeskolen ble utvidet til 9-årig grunnskole", "Grunnskolen ble avskaffet", "Skolen ble helt privatisert, og familiene måtte betale skolepenger for hvert barn", "Grunnskolen ble avskaffet og erstattet av privat hjemmeundervisning i regi av kirken"],
+      options: ["Den 7-årige folkeskolen ble utvidet til 9-årig grunnskole","Den 7-årige folkeskolen ble kortet ned til fem obligatoriske år","Skolen ble helt privatisert, og familiene måtte betale skolepenger for hvert barn","Grunnskolen ble avskaffet og erstattet av privat hjemmeundervisning i regi av kirken"],
       explanation: "I 1969 ble den 7-årige folkeskolen utvidet til 9-årig obligatorisk grunnskole med standardisert læreplan over hele landet.",
     },
     {
       question: "Hva var Husbankens (1946) rolle?",
-      options: ["Statlig bank som ga gunstige lån til boligbygging", "En bank for å finansiere oljeleting", "En statlig bank opprettet for å finansiere oljeleting og utbygging på sokkelen", "En bank kun for de rikeste"],
+      options: ["Statlig bank som ga gunstige lån til boligbygging","En privat sparebank for byggmestere","En statlig bank for oljeleting på sokkelen","En bank kun for de rikeste"],
       explanation: "Husbanken (1946) var en statlig bank for boligfinansiering som ga gunstige lån og gjorde at vanlige familier kunne eie bolig. Norge ble et land av selveiere.",
     },
   ],
@@ -1747,7 +1747,7 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er formålet med oljefondet (Statens pensjonsfond utland)?",
-      options: ["Å bevare oljerikdommen for fremtidige generasjoner og unngå overoppheting", "Å bruke opp alle oljepenger raskt", "Å finansiere norske og allierte militæroperasjoner og kriger i utlandet direkte", "Å bruke opp alle oljepengene raskt på økt offentlig forbruk og lavere skatter nå"],
+      options: ["Å bevare oljerikdommen for fremtidige generasjoner og unngå overoppheting","Å eie aksjer i norske oljeselskaper slik at staten får kontroll over næringen","Å finansiere norske og allierte militæroperasjoner og kriger i utlandet direkte","Å bruke opp alle oljepengene raskt på økt offentlig forbruk og lavere skatter nå"],
       explanation: "Oljefondet (opprettet 1990) investerer statens oljeinntekter i utlandet. Bare avkastningen brukes, for å bevare rikdommen for fremtiden og unngå \"hollandsk syke\".",
     },
     {
@@ -1791,7 +1791,7 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva gjorde Asbjørnsen og Moe i nasjonalromantikkens tjeneste?",
-      options: ["De samlet inn norske folkeeventyr", "De komponerte nasjonalsangen", "De malte kjente bilder av norsk natur og bønder på setrene i høyfjellet", "De malte norsk natur"],
+      options: ["De samlet inn norske folkeeventyr","De komponerte nasjonalsangen","De malte bilder av norsk natur","De skrev Norges første grunnlov"],
       explanation: "Asbjørnsen og Moe samlet norske folkeeventyr på 1800-tallet, som del av nasjonalromantikkens søken etter det særegent norske i folkekulturen.",
     },
     {
@@ -1806,24 +1806,24 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva var en skyggeside ved den norske nasjonsbyggingen?",
-      options: ["Samene og kvener ble ikke inkludert i det nasjonale prosjektet", "Den styrket alle minoriteters rettigheter", "Den styrket rettighetene til alle minoriteter og gjorde samer og kvener likeverdige", "Den fjernet fullstendig behovet for demokrati og innførte kongelig enevelde på nytt"],
+      options: ["Samene og kvener ble ikke inkludert i det nasjonale prosjektet","Den bygde på import av kultur fra Danmark og Tyskland framfor norsk folkekultur","Den styrket rettighetene til alle minoriteter og gjorde samer og kvener likeverdige","Den fjernet fullstendig behovet for demokrati og innførte kongelig enevelde på nytt"],
       explanation: "En skyggeside var at samer og kvener ikke ble inkludert i det nasjonale prosjektet -- \"det norske\" ble definert på måter som ekskluderte noen, og enhet kunne nedtone mangfold.",
     },
   ],
   "historie-16-2": [
     {
       question: "Hva var målet med fornorskingspolitikken?",
-      options: ["At alle som bodde i Norge skulle bli norske i språk og kultur", "Å verne samisk og kvensk kultur", "Å verne og styrke samisk og kvensk språk og kultur gjennom egne skoler og lover", "Å gi de samiske og kvenske minoritetene indre selvstyre og egne folkevalgte organer"],
+      options: ["At alle som bodde i Norge skulle bli norske i språk og kultur","Å gjøre samisk til offisielt språk ved siden av norsk i hele landet","Å verne og styrke samisk og kvensk språk og kultur gjennom egne skoler og lover","Å gi de samiske og kvenske minoritetene indre selvstyre og egne folkevalgte organer"],
       explanation: "Fornorskingspolitikken (ca. 1850--1960) var statens systematiske forsøk på å assimilere samer, kvener og andre minoriteter til norsk språk og kultur.",
     },
     {
       question: "Hvilket virkemiddel var sentralt i fornorskingen?",
-      options: ["Forbud mot samisk og kvensk språk i skolen, ofte med internatdrift", "Gratis undervisning i samisk", "Opprettelsen av egne samiske universiteter og høyskoler for å fremme samisk forskning", "Gratis og obligatorisk undervisning i samisk språk for alle barn i de nordlige fylkene"],
+      options: ["Forbud mot samisk og kvensk språk i skolen, ofte med internatdrift","Fri rett for foreldrene til å velge undervisningsspråk for barna sine","Opprettelsen av egne samiske universiteter og høyskoler for å fremme samisk forskning","Gratis og obligatorisk undervisning i samisk språk for alle barn i de nordlige fylkene"],
       explanation: "Skolen var et sentralt virkemiddel: samisk og kvensk var forbudt, og internatsystemet brøt båndet mellom barn og foreldre som normalt overfører språk og kultur.",
     },
     {
       question: "Hvilken ideologi lå bak fornorskingspolitikken?",
-      options: ["Nasjonalisme og evolusjonistisk tenkning om at kulturer kunne rangeres", "Vern av kulturelt mangfold", "Internasjonal solidaritet og en tanke om at alle folk og kulturer er likeverdige", "Vern av kulturelt mangfold der staten aktivt støttet samisk og kvensk språk og skikk"],
+      options: ["Nasjonalisme og evolusjonistisk tenkning om at kulturer kunne rangeres","Marxistisk klasseanalyse der språk og kultur ble regnet som uvesentlige","Internasjonal solidaritet og en tanke om at alle folk og kulturer er likeverdige","Vern av kulturelt mangfold der staten aktivt støttet samisk og kvensk språk og skikk"],
       explanation: "Politikken bygde på nasjonalisme (ett folk, ett språk), evolusjonistisk tenkning som rangerte kulturer, sikkerhetspolitiske hensyn og sosialdarwinisme.",
     },
     {
@@ -1845,7 +1845,7 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva fastslår Grunnlovens § 108 (1988)?",
-      options: ["At staten skal legge til rette for samisk språk, kultur og samfunnsliv", "At Norge skal melde seg ut av FN", "At bruk av samisk språk skal forbys i offentlig forvaltning og i skoleverket i nord", "At den samiske folkegruppen ikke har noen særskilte rettigheter etter norsk lovgivning"],
+      options: ["At staten skal legge til rette for samisk språk, kultur og samfunnsliv","At Norge skal melde seg ut av FN og alle andre internasjonale organisasjoner","At bruk av samisk språk skal forbys i offentlig forvaltning og i skoleverket i nord","At den samiske folkegruppen ikke har noen særskilte rettigheter etter norsk lovgivning"],
       explanation: "Grunnlovens § 108 (1988) forplikter staten til å legge forholdene til rette for at den samiske folkegruppen kan sikre og utvikle sitt språk, sin kultur og sitt samfunnsliv.",
     },
     {
@@ -1887,7 +1887,7 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan begynte den moderne arbeidsinnvandringen til Norge?",
-      options: ["Med arbeidsinnvandring fra Pakistan, Tyrkia og Marokko på 1960--70-tallet", "Med flyktninger fra Syria på 2010-tallet", "Med en stor bølge flyktninger fra Syria under borgerkrigen der på 2010-tallet", "Med fri arbeidsinnvandring fra Øst-Europa etter EU-utvidelsen tidlig på 2000-tallet"],
+      options: ["Med arbeidsinnvandring fra Pakistan, Tyrkia og Marokko på 1960--70-tallet","Med svenske og danske håndverkere som kom til norske byer alt på 1800-tallet","Med en stor bølge flyktninger fra Syria under borgerkrigen der på 2010-tallet","Med fri arbeidsinnvandring fra Øst-Europa etter EU-utvidelsen tidlig på 2000-tallet"],
       explanation: "Den moderne innvandringen startet med arbeidsinnvandring fra bl.a. Pakistan, Tyrkia og Marokko på 1960--70-tallet. Senere kom flyktninger og EØS-arbeidsinnvandring. Ca. 18 % har innvandrerbakgrunn (2024).",
     },
   ],
@@ -1926,12 +1926,12 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en push-faktor for migrasjon?",
-      options: ["Krig, forfølgelse og fattigdom som driver folk bort", "Arbeidsmuligheter i mottakerlandet", "Et velutbygd velferdssystem i mottakerlandet som gjør det attraktivt å flytte dit", "Velferdssystem i mottakerlandet"],
+      options: ["Krig, forfølgelse og fattigdom som driver folk bort","Arbeidsmuligheter i mottakerlandet","Et velutbygd velferdssystem i mottakerlandet","Familiegjenforening i det nye landet"],
       explanation: "Push-faktorer er det som driver folk bort fra hjemlandet: krig, konflikt, forfølgelse, fattigdom, naturkatastrofer og politisk ustabilitet. Pull-faktorer trekker folk til et nytt land.",
     },
     {
       question: "Hva fastslår FNs flyktningkonvensjon (1951)?",
-      options: ["At flyktninger ikke skal returneres til forfølgelse (non-refoulement)", "At flyktninger ikke har noen rettigheter", "At alle migranter uansett årsak skal regnes som flyktninger med krav på beskyttelse", "At land fritt kan returnere flyktninger til hjemlandet også der de risikerer forfølgelse"],
+      options: ["At flyktninger ikke skal returneres til forfølgelse (non-refoulement)","At flyktninger ikke har noen rettigheter ut over det hvert enkelt land selv gir dem","At alle migranter uansett årsak skal regnes som flyktninger med krav på beskyttelse","At land fritt kan returnere flyktninger til hjemlandet også der de risikerer forfølgelse"],
       explanation: "Flyktningkonvensjonen (1951) definerer flyktningbegrepet og fastslår non-refoulement -- forbudet mot å returnere flyktninger til forfølgelse -- samt rett til arbeid og utdanning.",
     },
     {
@@ -1963,7 +1963,7 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skjedde 11. september 2001?",
-      options: ["Al-Qaida kapret fire fly i USA og drepte ca. 3000 mennesker", "Sovjetunionen ble oppløst", "Berlinmuren falt og delte Tyskland ble på ny samlet til én felles nasjonalstat", "Sovjetunionen ble oppløst og de tidligere sovjetrepublikkene ble selvstendige stater"],
+      options: ["Al-Qaida kapret fire fly i USA og drepte ca. 3000 mennesker","USA invaderte Irak og styrtet regimet i Bagdad etter en kort krig","Berlinmuren falt og delte Tyskland ble på ny samlet til én felles nasjonalstat","Sovjetunionen ble oppløst og de tidligere sovjetrepublikkene ble selvstendige stater"],
       explanation: "11. september 2001 kapret al-Qaida fire fly. To traff World Trade Center, ett Pentagon, og ett styrtet i Pennsylvania. Ca. 3000 ble drept, og \"krigen mot terror\" begynte.",
     },
     {
@@ -1980,7 +1980,7 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr begrepet antropocen?",
-      options: ["Menneskets tidsalder -- en epoke der menneskets aktivitet former jordkloden", "En geologisk epoke uten menneskelig påvirkning", "En avgrenset periode med istid der store deler av jordkloden var dekket av is og snø", "Tiden lenge før mennesket i det hele tatt fantes, i jordens tidlige geologiske historie"],
+      options: ["Menneskets tidsalder -- en epoke der menneskets aktivitet former jordkloden","En geologisk epoke helt uten menneskelig påvirkning på klima, hav og landskap","En avgrenset periode med istid der store deler av jordkloden var dekket av is og snø","Tiden lenge før mennesket i det hele tatt fantes, i jordens tidlige geologiske historie"],
       explanation: "Antropocen (menneskets tidsalder) er en foreslått geologisk epoke der menneskets aktivitet -- klimaendringer, masseutryddelse, forurensning -- har blitt den dominerende kraften som former jorden.",
     },
     {
@@ -2012,7 +2012,7 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er historiemisbruk?",
-      options: ["Når historien forvrenges eller forfalskes for å tjene bestemte formål", "Vitenskapelig historieforskning", "All faglig formidling og undervisning av historie i skoleverket og på universitetene", "Å sammenligne og vekte flere uavhengige kilder mot hverandre for å finne det sannsynlige"],
+      options: ["Når historien forvrenges eller forfalskes for å tjene bestemte formål","Vitenskapelig historieforskning som følger anerkjente kildekritiske metoder","All faglig formidling og undervisning av historie i skoleverket og på universitetene","Å sammenligne og vekte flere uavhengige kilder mot hverandre for å finne det sannsynlige"],
       explanation: "Historiemisbruk er når historien forvrenges, forfalskes eller brukes på faglig uholdbare måter, som Holocaust-benektelse eller nasjonalistisk historieskriving, for å tjene bestemte formål.",
     },
     {
@@ -2022,7 +2022,7 @@ const quizData_historie: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken forsiktighetsregel nevnes om å bruke historien?",
-      options: ["Historien gjentar seg ikke eksakt, og lettvinte paralleller kan villede", "Alle historiske paralleller er presise", "At alle historiske paralleller er presise og pålitelige, og derfor trygt kan overføres direkte", "At historien alltid gjentar seg helt nøyaktig, slik at fortiden gir presise oppskrifter for i dag"],
+      options: ["Historien gjentar seg ikke eksakt, og lettvinte paralleller kan villede","At kilder fra fortiden alltid taler for seg selv og ikke trenger tolkning","At alle historiske paralleller er presise og pålitelige, og derfor trygt kan overføres direkte","At historien alltid gjentar seg helt nøyaktig, slik at fortiden gir presise oppskrifter for i dag"],
       explanation: "En viktig forsiktighetsregel er at historien ikke gjentar seg eksakt, at lettvinte paralleller kan villede, og at kontekst er avgjørende når man trekker lærdommer.",
     },
   ],

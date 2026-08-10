@@ -4,7 +4,7 @@ const quizData_norsk_vg2: Record<string, QuizQuestion[]> = {
   "norsk-vg2-1-1": [
     {
       question: "Hvem startet \"det moderne gjennombrudd\" i nordisk litteratur?",
-      options: ["Georg Brandes med sine førelesninger i 1871", "Bjornstjerne Bjornson med nasjonalsangen", "Alexander Kielland med sin debutroman Garman & Worse", "Alexander Kielland med Garman & Worse"],
+      options: ["Georg Brandes med sine førelesninger i 1871","Bjornstjerne Bjornson med nasjonalsangen","Alexander Kielland med sin debutroman Garman & Worse","Camilla Collett med Amtmandens Døtre"],
       explanation: "Georg Brandes holdt førelesninger i Koebenhavn i 1871 der han krevde at litteraturen skulle \"saette problemer under debatt\".",
     },
     {
@@ -24,7 +24,7 @@ const quizData_norsk_vg2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner Alexander Kiellands stil?",
-      options: ["Elegant, ironisk prosa med samfunnskritikk gjennom satire", "Tung, moraliserende fortelling", "Tung, moraliserende fortelling med tydelig oppbyggelig hensikt", "Romantisk, idealiserende stil som forskjønner virkeligheten sterkt"],
+      options: ["Elegant, ironisk prosa med samfunnskritikk gjennom satire","Knappe, muntlige replikker helt uten kommenterende forteller","Tung, moraliserende fortelling med tydelig oppbyggelig hensikt","Romantisk, idealiserende stil som forskjønner virkeligheten sterkt"],
       explanation: "Kielland var kjent for sin elegante, ironiske stil og brukte satire for åkritisere borgerlig hykleri og sosial urettferdighet.",
     },
   ],
@@ -90,7 +90,7 @@ const quizData_norsk_vg2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva var samnorsk-politikken?",
-      options: ["Forsøk på å smelte bokmål og nynorsk sammen til ett språk", "Åinnføre engelsk som hovedspråk", "Å innføre engelsk som hovedspråk i skolen og forvaltningen i Norge", "Å fjerne begge skriftspråkene og innføre svensk som felles fellesspråk"],
+      options: ["Forsøk på å smelte bokmål og nynorsk sammen til ett språk","Å gjøre dansk til offisielt skriftspråk i Norge en gang til","Å innføre engelsk som hovedspråk i skolen og forvaltningen i Norge","Å fjerne begge skriftspråkene og innføre svensk som felles fellesspråk"],
       explanation: "Samnorsk var en språkpolitikk som tok sikte på å nærme bokmål og nynorsk til hverandre gjennom reformer, men den ble oppgitt i 2002.",
     },
     {
@@ -100,7 +100,7 @@ const quizData_norsk_vg2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva menes med \"domenetap\" i språkdebatten?",
-      options: ["At engelsk tar over i visse områder, som forskning og næringsliv", "At nynorsk tar over for bokmål", "At de gamle dialektene forsvinner og erstattes av et felles bymål", "At nynorsk gradvis tar over for bokmål som det viktigste skriftspråket"],
+      options: ["At engelsk tar over i visse områder, som forskning og næringsliv","At norske ord systematisk blir erstattet av nye ord laget av Språkrådet","At de gamle dialektene forsvinner og erstattes av et felles bymål","At nynorsk gradvis tar over for bokmål som det viktigste skriftspråket"],
       explanation: "Domenetap betyr at engelsk gradvis overtar i visse områder av samfunnet, for eksempel i akademia og internasjonalt næringsliv.",
     },
     {
@@ -112,7 +112,7 @@ const quizData_norsk_vg2: Record<string, QuizQuestion[]> = {
   "norsk-vg2-3-2": [
     {
       question: "Hva er inventio i retorikkens fem arbeidsfaser?",
-      options: ["Åfinne og samle argumenter og materiale", "Åformulære teksten", "Å ordne og strukturere stoffet i en god rekkefølge", "Å formulere teksten språklig med passende stil og ord"],
+      options: ["Åfinne og samle argumenter og materiale","Å framføre teksten for tilhørerne med stemme og gester","Å ordne og strukturere stoffet i en god rekkefølge","Å formulere teksten språklig med passende stil og ord"],
       explanation: "Inventio er den første fasen der du samler argumenter, analyserer publikum og velger hovedbudskap.",
     },
     {
@@ -193,12 +193,12 @@ const quizData_norsk_vg2: Record<string, QuizQuestion[]> = {
   "norsk-vg2-1-4": [
     {
       question: "Hvor og når ble islendingesagaene skrevet ned?",
-      options: ["På Island på 1200- og 1300-tallet", "På Grønland på 1000-tallet", "I Danmark på 1500-tallet, i tida rundt reformasjonen", "I Danmark på 1500-tallet"],
+      options: ["På Island på 1200- og 1300-tallet","På Grønland på 1000-tallet","I Danmark på 1500-tallet, i tida rundt reformasjonen","I Norge på 1800-tallet"],
       explanation: "Sagaene ble nedskrevet på Island på 1200- og 1300-tallet, men handler om «sagatiden» ca. 930-1030.",
     },
     {
       question: "Hva kjennetegner den objektive fortellerstilen i sagaene?",
-      options: ["Fortelleren holder seg i bakgrunnen og kommenterer ikke karakterene moralsk", "Fortelleren forklarer hele tiden hva karakterene tenker og føler", "Fortelleren er alltid selv hovedpersonen og skildrer hendelsene ut fra sitt eget følelsesliv", "Fortelleren henvender seg stadig direkte til leseren og deler sine egne synspunkter på handlingen"],
+      options: ["Fortelleren holder seg i bakgrunnen og kommenterer ikke karakterene moralsk","Fortelleren forklarer hele tiden hva karakterene tenker og føler innerst inne","Fortelleren er alltid selv hovedpersonen og skildrer hendelsene ut fra sitt eget følelsesliv","Fortelleren henvender seg stadig direkte til leseren og deler sine egne synspunkter på handlingen"],
       explanation: "Sagastilen er kjennetegnet av en forteller som aldri feller moralske dommer - karakterene vises gjennom handling og dialog.",
     },
     {
@@ -225,7 +225,7 @@ const quizData_norsk_vg2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen på eldre og yngre futhark?",
-      options: ["Eldre futhark hadde 24 tegn, yngre futhark ble forenklet til 16 tegn", "Eldre futhark hadde 16 tegn, yngre hadde 24", "Eldre futhark ble utelukkende brukt til innskrifter inne i kirkene av lærde munker og prester", "Eldre futhark hadde bare 16 tegn, mens den yngre futharken senere ble utvidet til hele 24 runer"],
+      options: ["Eldre futhark hadde 24 tegn, yngre futhark ble forenklet til 16 tegn","Eldre futhark ble ristet i tre, mens yngre futhark bare ble hogd i stein","Eldre futhark ble utelukkende brukt til innskrifter inne i kirkene av lærde munker og prester","Eldre futhark hadde bare 16 tegn, mens den yngre futharken senere ble utvidet til hele 24 runer"],
       explanation: "Eldre futhark (ca. 150-700) hadde 24 runer, mens yngre futhark (ca. 700-1100), brukt i vikingtiden, var forenklet til 16 tegn.",
     },
     {
@@ -267,7 +267,7 @@ const quizData_norsk_vg2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor var reformasjonen også en språklig revolusjon?",
-      options: ["Kravet om at folk skulle lese Bibelen på sitt eget språk styrket folkespråkene", "Den innførte latin som dagligspråk i Norden", "Den gjorde gammelgresk til det offisielle kirkespråket i store deler av Nord-Europa", "Den innførte latin som felles dagligtale i hele Norden og fortrengte folkespråkene helt"],
+      options: ["Kravet om at folk skulle lese Bibelen på sitt eget språk styrket folkespråkene","Den avskaffet all lesing av religiøse tekster utenfor kirkens egne rom og bygninger","Den gjorde gammelgresk til det offisielle kirkespråket i store deler av Nord-Europa","Den innførte latin som felles dagligtale i hele Norden og fortrengte folkespråkene helt"],
       explanation: "Da Luther krevde at folk skulle lese Bibelen på morsmålet, ble folkespråkene oppvurdert på bekostning av latin - en prosess som endret europeisk kultur.",
     },
   ],
@@ -321,7 +321,7 @@ const quizData_norsk_vg2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken historisk bakgrunn preget barokkens livsfølelse?",
-      options: ["Religionskriger, pest og massedød gjorde forgjengelighet til et hovedtema", "En lang fredsperiode med økonomisk vekst", "Oppdagelsen av Amerika og de store oppdagelsesreisene som åpnet en helt ny og lys verden", "En lang og stabil fredsperiode med sterk økonomisk vekst og allmenn optimisme i befolkningen"],
+      options: ["Religionskriger, pest og massedød gjorde forgjengelighet til et hovedtema","En rask industrialisering som flyttet folk fra bygdene inn til de nye byene","Oppdagelsen av Amerika og de store oppdagelsesreisene som åpnet en helt ny og lys verden","En lang og stabil fredsperiode med sterk økonomisk vekst og allmenn optimisme i befolkningen"],
       explanation: "Barokken oppsto i en urolig tid med religionskriger og pest - derfor ble dødsbevissthet og forgjengelighet sentrale temaer.",
     },
   ],
@@ -355,7 +355,7 @@ const quizData_norsk_vg2: Record<string, QuizQuestion[]> = {
   "norsk-vg2-2-6": [
     {
       question: "Hvem regnes som den største danske salmedikteren gjennom tidene?",
-      options: ["Thomas Kingo", "Petter Dass", "Ludvig Holberg", "Martin Luther"],
+      options: ["Thomas Kingo","Nordlendingen Petter Dass","Ludvig Holberg","Martin Luther"],
       explanation: "Thomas Kingo (1634-1703) regnes som Danmarks største salmedikter, og salmene hans ble sunget i norske kirker i århundrer.",
     },
     {
@@ -365,7 +365,7 @@ const quizData_norsk_vg2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en botssalme?",
-      options: ["En salme som uttrykker anger over synder", "En salme som hyller Guds storhet", "En salme skrevet særskilt for julehøytiden og feiringen av Kristi fødsel", "En salme for julehøytiden"],
+      options: ["En salme som uttrykker anger over synder","En salme som hyller Guds storhet","En salme skrevet særskilt for julehøytiden og feiringen av Kristi fødsel","En salme som er skrevet på latin"],
       explanation: "Botssalmer uttrykker anger, mens lovprisningssalmer hyller Gud, trøstesalmer gir håp, og høytidssalmer hører til jul, påske og pinse.",
     },
     {
@@ -382,7 +382,7 @@ const quizData_norsk_vg2: Record<string, QuizQuestion[]> = {
   "norsk-vg2-2-7": [
     {
       question: "Hva satte opplysningstiden (ca. 1700-1800) i høysetet?",
-      options: ["Fornuften - alt skulle prøves mot fornuftens dom", "Kongens uinnskrenkede makt", "Følelsene og fantasien, som ble sett på som veien til dypere innsikt og sannhet", "Følelsene og fantasien"],
+      options: ["Fornuften - alt skulle prøves mot fornuftens dom","Kongens uinnskrenkede makt","Følelsene og fantasien som veien til dypere innsikt","Kirkens lære og tradisjon"],
       explanation: "Opplysningsfilosofene mente mennesket gjennom fornuft og vitenskap kunne frigjøres fra overtro, undertrykkelse og uvitenhet.",
     },
     {
@@ -392,12 +392,12 @@ const quizData_norsk_vg2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er deisme?",
-      options: ["Troen på en gud som skapte verden, men ikke griper inn i den", "Troen på at naturen er Gud", "Troen på at naturen selv er guddommelig og at Gud er til stede i alt som finnes", "Troen på mange ulike guder som hver rår over sin del av naturen og menneskelivet"],
+      options: ["Troen på en gud som skapte verden, men ikke griper inn i den","Troen på at all kunnskap om Gud må hentes fra åpenbaringen i Bibelen","Troen på at naturen selv er guddommelig og at Gud er til stede i alt som finnes","Troen på mange ulike guder som hver rår over sin del av naturen og menneskelivet"],
       explanation: "Deismen var forenlig med fornuften: Gud har skapt verden som et urverk, men styrer den ikke aktivt.",
     },
     {
       question: "Hva var Encyklopedien?",
-      options: ["Det store franske oppslagsverket som skulle samle all kunnskap", "En lovbok for det franske kongehuset", "En satirisk komedie av Ludvig Holberg om en innbilsk og lærd tåpe", "En innflytelsesrik samling salmer for kirkeåret utgitt i Frankrike"],
+      options: ["Det store franske oppslagsverket som skulle samle all kunnskap","En lovbok for det franske kongehuset og adelens gamle privilegier","En satirisk komedie av Ludvig Holberg om en innbilsk og lærd tåpe","En innflytelsesrik samling salmer for kirkeåret utgitt i Frankrike"],
       explanation: "Den franske Encyklopedien (1751-72) var opplysningstidens storprosjekt: all verdens kunnskap samlet og tilgjengeliggjort.",
     },
     {
@@ -419,7 +419,7 @@ const quizData_norsk_vg2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er satire?",
-      options: ["Bruk av ironi, overdrivelse og humor for å kritisere samfunnsforhold", "En sørgelig fortelling om kjærlighet", "En høytidelig lovtale som hyller kongens visdom, storhet og gudgitte rett til å herske", "En sørgelig og følelsesladd fortelling om ulykkelig kjærlighet mellom to unge mennesker"],
+      options: ["Bruk av ironi, overdrivelse og humor for å kritisere samfunnsforhold","En nøytral og saklig gjengivelse av hendelser slik de faktisk fant sted","En høytidelig lovtale som hyller kongens visdom, storhet og gudgitte rett til å herske","En sørgelig og følelsesladd fortelling om ulykkelig kjærlighet mellom to unge mennesker"],
       explanation: "Satiren bruker humor som våpen: gjennom latterliggjøring kritiseres laster, dumhet og maktmisbruk.",
     },
     {
@@ -468,12 +468,12 @@ const quizData_norsk_vg2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner essayet som sjanger?",
-      options: ["En personlig, resonnerende tekst som utforsker et tema", "En kort, anonym kampskrift", "En kort, anonym kampskrift som angriper en motstander i en aktuell politisk strid", "Et strengt rimet dikt der formen følger et fast mønster av verselinjer og strofer"],
+      options: ["En personlig, resonnerende tekst som utforsker et tema","En systematisk lærebok som gjennomgår et fag fra grunnen av","En kort, anonym kampskrift som angriper en motstander i en aktuell politisk strid","Et strengt rimet dikt der formen følger et fast mønster av verselinjer og strofer"],
       explanation: "Essayet kombinerer kunnskap med personlig refleksjon. Holbergs Epistler er kjente eksempler.",
     },
     {
       question: "Hva er en pamflett?",
-      options: ["En kort, polemisk tekst i en aktuell debatt, ofte anonym", "En lang vitenskapelig avhandling", "En samling personlige dikt der forfatteren utforsker følelser gjennom rim og rytme", "En lang og systematisk vitenskapelig avhandling som utreder et emne grundig og upartisk"],
+      options: ["En kort, polemisk tekst i en aktuell debatt, ofte anonym","En privat dagbok som først blir utgitt lenge etter forfatterens død","En samling personlige dikt der forfatteren utforsker følelser gjennom rim og rytme","En lang og systematisk vitenskapelig avhandling som utreder et emne grundig og upartisk"],
       explanation: "Pamfletten var opplysningstidens debattinnlegg: kort, skarp og ofte anonym, brukt til politisk agitasjon.",
     },
     {
@@ -495,7 +495,7 @@ const quizData_norsk_vg2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er «Jammersminde»?",
-      options: ["Leonora Christina Ulfeldts selvbiografiske skildring av 22 år i fengsel", "En salmesamling av Dorothe Engelbretsdatter", "Camilla Colletts samfunnskritiske debattbok om kvinners kår i borgerskapet", "Et eddadikt fra norrøn tid om gudenes strid og verdens undergang i ragnarok"],
+      options: ["Leonora Christina Ulfeldts selvbiografiske skildring av 22 år i fengsel","En salmesamling av Dorothe Engelbretsdatter om sorg og trøst i hverdagen","Camilla Colletts samfunnskritiske debattbok om kvinners kår i borgerskapet","Et eddadikt fra norrøn tid om gudenes strid og verdens undergang i ragnarok"],
       explanation: "Leonora Christina Ulfeldt (1621-1698), datter av Christian IV, skrev «Jammersminde» om fangenskapet - utgitt først i 1869.",
     },
     {
@@ -510,7 +510,7 @@ const quizData_norsk_vg2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegnet kvinners mulighet for litterær virksomhet på 1600-tallet?",
-      options: ["Begrenset utdanning og krav om at de måtte forsvare sin rett til å skrive", "Full likestilling med mannlige forfattere", "Full likestilling med mannlige forfattere når det gjaldt utdanning og utgivelse", "Egne kvinneforlag i alle større byer som utelukkende ga ut bøker skrevet av kvinner"],
+      options: ["Begrenset utdanning og krav om at de måtte forsvare sin rett til å skrive","Fri adgang til universitetene og til å ta doktorgrad på lik linje med menn","Full likestilling med mannlige forfattere når det gjaldt utdanning og utgivelse","Egne kvinneforlag i alle større byer som utelukkende ga ut bøker skrevet av kvinner"],
       explanation: "Kvinner hadde begrenset tilgang til utdanning og offentlighet, og de få som skrev, måtte forsvare selve retten til å skrive.",
     },
   ],
@@ -522,7 +522,7 @@ const quizData_norsk_vg2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilket parti i kulturstriden representerte Welhaven?",
-      options: ["Intelligenspartiet, som ville bevare kulturelle bånd til Europa og Danmark", "Patriotene, som ville bryte med dansk kulturarv", "Patriotene, som ville bryte fullstendig med dansk kulturarv og dyrke det norske", "Arbeiderpartiet, som kjempet for de fattige bøndenes og arbeidernes rettigheter"],
+      options: ["Intelligenspartiet, som ville bevare kulturelle bånd til Europa og Danmark","Bondevennene, som ville gi bøndene større innflytelse på Stortinget enn embetsmennene","Patriotene, som ville bryte fullstendig med dansk kulturarv og dyrke det norske","Arbeiderpartiet, som kjempet for de fattige bøndenes og arbeidernes rettigheter"],
       explanation: "Welhavens krets («Intelligensen») vektla europeisk dannelse, mens Wergelands patrioter dyrket det spesifikt norske.",
     },
     {
@@ -532,7 +532,7 @@ const quizData_norsk_vg2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken stilling fikk Welhaven i 1846?",
-      options: ["Professor i filosofi", "Biskop i Bergen", "Biskop i Bergen stift", "Statsråd i regjeringen"],
+      options: ["Professor i filosofi","Rektor ved katedralskolen","Biskop i Bergen stift","Statsråd i regjeringen"],
       explanation: "Welhaven ble professor i filosofi i 1846 og hadde stor innflytelse på norsk kulturliv som både dikter og kritiker.",
     },
     {
@@ -544,7 +544,7 @@ const quizData_norsk_vg2: Record<string, QuizQuestion[]> = {
   "norsk-vg2-3-4": [
     {
       question: "Hva er panteisme?",
-      options: ["Forestillingen om at Gud er til stede i alt i naturen", "Troen på at naturen er en maskin", "Læren om dyrenes atferd og hvordan de tilpasser seg og overlever i naturen", "En fullstendig avvisning av alt guddommelig til fordel for ren fornuftstro"],
+      options: ["Forestillingen om at Gud er til stede i alt i naturen","Troen på at naturen er en maskin som følger faste lover","Læren om dyrenes atferd og hvordan de tilpasser seg og overlever i naturen","En fullstendig avvisning av alt guddommelig til fordel for ren fornuftstro"],
       explanation: "For romantikerne var naturen guddommelig - panteismen ser Gud i alt, fra fjell til bekker.",
     },
     {
@@ -559,12 +559,12 @@ const quizData_norsk_vg2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva menes med korrespondanse i romantisk lyrikk?",
-      options: ["Sammenhengen mellom natur og sjel - landskapet speiler menneskets indre", "At diktet er skrevet som svar på et annet dikt", "At diktet er skrevet som et direkte poetisk svar på et annet dikt i striden", "At sluttrimene i strofene svarer nøyaktig til hverandre etter et fast mønster"],
+      options: ["Sammenhengen mellom natur og sjel - landskapet speiler menneskets indre","At brevvekslingen mellom to diktere blir samlet og utgitt som en egen bok","At diktet er skrevet som et direkte poetisk svar på et annet dikt i striden","At sluttrimene i strofene svarer nøyaktig til hverandre etter et fast mønster"],
       explanation: "Korrespondansetanken innebærer at ytre natur og indre sjelsliv henger sammen: et mørkt landskap kan uttrykke sorg.",
     },
     {
       question: "Hva er synestesi?",
-      options: ["At sanseinntrykk blandes, som «mørke klanger» og «lyse toner»", "Gjentakelse av samme konsonant", "Et fast rimmønster som binder verselinjene sammen i regelmessige strofer", "Gjentakelse av samme konsonantlyd i begynnelsen av flere ord, som i «vill vind»"],
+      options: ["At sanseinntrykk blandes, som «mørke klanger» og «lyse toner»","At samme vokal gjentas i trykksterke stavelser gjennom verselinjen","Et fast rimmønster som binder verselinjene sammen i regelmessige strofer","Gjentakelse av samme konsonantlyd i begynnelsen av flere ord, som i «vill vind»"],
       explanation: "Synestesi blander sansene - lyder får farge, farger får klang - og skaper suggestive stemninger i lyrikken.",
     },
   ],
@@ -576,7 +576,7 @@ const quizData_norsk_vg2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er folkeånd (Volksgeist)?",
-      options: ["Ideen om at hvert folk har en egen «ånd» som uttrykkes i språk og kultur", "Navnet på Norges første grunnlov", "Navnet på Norges aller første grunnlov, som ble vedtatt på Eidsvoll i 1814", "En bestemt type folkevise med omkved som ble sunget til dans i middelalderen"],
+      options: ["Ideen om at hvert folk har en egen «ånd» som uttrykkes i språk og kultur","Læren om at alle folkeslag utvikler seg gjennom nøyaktig de samme stadiene","Navnet på Norges aller første grunnlov, som ble vedtatt på Eidsvoll i 1814","En bestemt type folkevise med omkved som ble sunget til dans i middelalderen"],
       explanation: "Forestillingen om folkeånden, hentet fra tysk romantikk, lå bak innsamlingen av eventyr, viser og dialekter - de skulle uttrykke det norske folkets egenart.",
     },
     {
@@ -586,7 +586,7 @@ const quizData_norsk_vg2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken historisk hendelse i 1814 dannet bakgrunnen for det norske nasjonsbyggingsprosjektet?",
-      options: ["Norge fikk egen grunnlov og løsrev seg fra Danmark", "Norge ble selvstendig fra Sverige", "Svartedauden nådde Norge og la store deler av landets bygder øde", "Norge løsrev seg fra Sverige og ble en fullstendig selvstendig nasjon"],
+      options: ["Norge fikk egen grunnlov og løsrev seg fra Danmark","Norge fikk sitt eget universitet i hovedstaden Christiania","Svartedauden nådde Norge og la store deler av landets bygder øde","Norge løsrev seg fra Sverige og ble en fullstendig selvstendig nasjon"],
       explanation: "I 1814 fikk Norge grunnlov og gikk ut av unionen med Danmark (men inn i union med Sverige) - og trengte en nasjonal identitet.",
     },
     {
@@ -618,7 +618,7 @@ const quizData_norsk_vg2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan samlet Asbjørnsen og Moe eventyrene?",
-      options: ["De reiste rundt i bygdene og skrev ned fortellinger fra muntlige kilder", "De fant dem i gamle norrøne håndskrifter", "De diktet eventyrene selv etter mønster fra romantiske forfattere i utlandet", "De fant dem nedskrevet i gamle norrøne håndskrifter fra middelalderen på Island"],
+      options: ["De reiste rundt i bygdene og skrev ned fortellinger fra muntlige kilder","De samlet inn eventyrene ved å be lesere sende dem inn per brev til Christiania","De diktet eventyrene selv etter mønster fra romantiske forfattere i utlandet","De fant dem nedskrevet i gamle norrøne håndskrifter fra middelalderen på Island"],
       explanation: "De intervjuet bønder og tjenestefolk rundt om i bygdene og skrev ned eventyrene fra muntlig tradisjon.",
     },
   ],
@@ -635,12 +635,12 @@ const quizData_norsk_vg2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilket verk ga Aasen ut i 1848?",
-      options: ["«Det norske Folkesprogs Grammatik»", "«Norsk Ordbok for studenter»", "«Norsk Ordbok for studenter», en praktisk ordliste for skolebruk i byene", "«Norske Folkeeventyr»"],
+      options: ["«Det norske Folkesprogs Grammatik»","«Symra», en diktsamling","«Norsk Ordbok for studenter», en praktisk ordliste","«Norske Folkeeventyr» (1841)"],
       explanation: "Grammatikken kom i 1848 og ordboken «Ordbog over det norske Folkesprog» i 1850 - senere fulgte «Norsk Grammatik» (1864) og «Norsk Ordbog» (1873).",
     },
     {
       question: "Hva er en normalform i språksammenheng?",
-      options: ["Et standardisert skriftspråk basert på flere dialekter", "Den eldste formen av et ord", "En dialekt som er helt uten særtrekk og derfor er lett å forstå for alle", "Den aller eldste kjente formen et ord hadde i norrønt eller urnordisk språk"],
+      options: ["Et standardisert skriftspråk basert på flere dialekter","Formen av et ord slik det uttales i flest dialekter i landet","En dialekt som er helt uten særtrekk og derfor er lett å forstå for alle","Den aller eldste kjente formen et ord hadde i norrønt eller urnordisk språk"],
       explanation: "Aasen laget en normalform - en standardisert skriftnorm bygget på fellestrekkene i dialektene, ikke på én enkelt dialekt.",
     },
     {
@@ -679,7 +679,7 @@ const quizData_norsk_vg2: Record<string, QuizQuestion[]> = {
   "norsk-vg2-3-9": [
     {
       question: "Hva innebar jamstillingsvedtaket av 1885?",
-      options: ["At landsmål og riksmål ble likestilte offisielle språk", "At nynorsk ble eneste skolemål", "At alle elever i landet fra da av måtte lære samisk ved siden av norsk", "At dansk skriftspråk ble forbudt ved lov i alle norske skoler og kontorer"],
+      options: ["At landsmål og riksmål ble likestilte offisielle språk","At nynorsk ble det eneste tillatte skolemålet i hele landet","At alle elever i landet fra da av måtte lære samisk ved siden av norsk","At dansk skriftspråk ble forbudt ved lov i alle norske skoler og kontorer"],
       explanation: "Stortingets jamstillingsvedtak i 1885 ga landsmålet offisiell status ved siden av riksmålet - et avgjørende vendepunkt i språkstriden.",
     },
     {
@@ -706,7 +706,7 @@ const quizData_norsk_vg2: Record<string, QuizQuestion[]> = {
   "norsk-vg2-3-10": [
     {
       question: "Hva menes med en konstruert tradisjon (jf. Eric Hobsbawm)?",
-      options: ["En tradisjon som fremstår som urgammel, men er nyere enn vi tror", "En tradisjon som bare finnes i bøker", "En tradisjon som er nedfelt i norsk lov og derfor må følges av alle borgere", "En tradisjon som stammer helt fra antikken og er ført videre gjennom hundreår"],
+      options: ["En tradisjon som fremstår som urgammel, men er nyere enn vi tror","En tradisjon som bare finnes i bøker og aldri har vært praktisert av noen","En tradisjon som er nedfelt i norsk lov og derfor må følges av alle borgere","En tradisjon som stammer helt fra antikken og er ført videre gjennom hundreår"],
       explanation: "Mange «urgamle» tradisjoner er konstruert i nyere tid - bunaden, slik vi kjenner den, ble i stor grad skapt under nasjonalromantikken.",
     },
     {
@@ -733,7 +733,7 @@ const quizData_norsk_vg2: Record<string, QuizQuestion[]> = {
   "norsk-vg2-3-11": [
     {
       question: "Hva står bokstavene i analysemodellen SVIRP for?",
-      options: ["Sjanger, Virkemidler, Innhold, Relasjon/kontekst, Personlig tolkning", "Struktur, Vurdering, Innledning, Referat, Poeng", "Struktur, Vurdering, Innledning, Referat og Poeng i en drøftende tekst", "Symbol, Virkning, Idé, Rytme og Perspektiv i tolkningen av en lyrisk tekst"],
+      options: ["Sjanger, Virkemidler, Innhold, Relasjon/kontekst, Personlig tolkning","Setning, Verb, Innhold, Rytme og Poeng i en grammatisk analyse av teksten","Struktur, Vurdering, Innledning, Referat og Poeng i en drøftende tekst","Symbol, Virkning, Idé, Rytme og Perspektiv i tolkningen av en lyrisk tekst"],
       explanation: "SVIRP gir en systematisk tilnærming: Sjanger, Virkemidler, Innhold, Relasjon/kontekst og Personlig tolkning.",
     },
     {
@@ -743,7 +743,7 @@ const quizData_norsk_vg2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner en objektiv tredjepersonsforteller?",
-      options: ["Fortelleren bare observerer, uten innsyn i karakterenes tanker", "Fortelleren henvender seg til leseren med «du»", "Fortelleren vet alt om alle karakterer og har fullt innsyn i tankene deres", "Fortelleren er hovedpersonen selv og gjenforteller sin egen opplevelse i jeg-form"],
+      options: ["Fortelleren bare observerer, uten innsyn i karakterenes tanker","Fortelleren henvender seg direkte til leseren med «du» gjennom hele teksten","Fortelleren vet alt om alle karakterer og har fullt innsyn i tankene deres","Fortelleren er hovedpersonen selv og gjenforteller sin egen opplevelse i jeg-form"],
       explanation: "Den objektive fortelleren registrerer bare det ytre, mens den allvitende har tilgang til alle karakterers tanker.",
     },
     {
@@ -765,7 +765,7 @@ const quizData_norsk_vg2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr «l'art pour l'art»?",
-      options: ["«Kunst for kunstens skyld» - at kunst har verdi i seg selv", "At kunst skal opplyse folket", "At kunsten skal tjene staten og nasjonen ved å fremme fedrelandssinn og samhold", "At kunsten skal opplyse og danne folket gjennom lærerike og oppbyggelige budskap"],
+      options: ["«Kunst for kunstens skyld» - at kunst har verdi i seg selv","At kunsten skal etterlikne naturen så nøyaktig som overhodet mulig","At kunsten skal tjene staten og nasjonen ved å fremme fedrelandssinn og samhold","At kunsten skal opplyse og danne folket gjennom lærerike og oppbyggelige budskap"],
       explanation: "Ideen om kunstens egenverdi sto mot folkeopplysningstanken - ideen om at litteraturen skal utdanne folket.",
     },
     {
@@ -792,7 +792,7 @@ const quizData_norsk_vg2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva var «dannet dagligtale»?",
-      options: ["Talemålet til utdannede byfolk - dansk med norsk uttale", "Det norrøne talespråket", "Et samisk høytidsspråk som ble brukt ved seremonier og religiøse anledninger", "Bøndenes dialekter ute i bygdene, som Aasen samlet inn på sine reiser i landet"],
+      options: ["Talemålet til utdannede byfolk - dansk med norsk uttale","Det norrøne talespråket slik det ble brukt i middelalderen","Et samisk høytidsspråk som ble brukt ved seremonier og religiøse anledninger","Bøndenes dialekter ute i bygdene, som Aasen samlet inn på sine reiser i landet"],
       explanation: "Den dannede dagligtalen var overklassens talemål i byene: dansk skriftspråk uttalt med norske lyder - senere grunnlag for riksmålet.",
     },
     {
@@ -819,7 +819,7 @@ const quizData_norsk_vg2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er stød?",
-      options: ["En glottal lukkelyd som er karakteristisk for dansk", "Et norsk dialekttrekk fra Trøndelag", "En lang svensk vokallyd som skiller ordpar fra hverandre", "En form for enderim som binder verselinjer sammen i dikt"],
+      options: ["En glottal lukkelyd som er karakteristisk for dansk","Et norsk dialekttrekk som særlig er vanlig i Trøndelag","En lang svensk vokallyd som skiller ordpar fra hverandre","En form for enderim som binder verselinjer sammen i dikt"],
       explanation: "Stødet er en kort lukking i strupehodet, typisk for dansk - det høres ut som en liten pause midt i ordet.",
     },
     {
@@ -851,7 +851,7 @@ const quizData_norsk_vg2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en regiolekt?",
-      options: ["En regional standardvarietet som erstatter lokale dialekter", "Et skriftspråk for regioner", "Et eget skriftspråk utviklet for de ulike regionene i landet", "Et offisielt minoritetsspråk som er vernet gjennom språkloven"],
+      options: ["En regional standardvarietet som erstatter lokale dialekter","En uttalevariant som bare eldre språkbrukere i bygdene holder på","Et eget skriftspråk utviklet for de ulike regionene i landet","Et offisielt minoritetsspråk som er vernet gjennom språkloven"],
       explanation: "Regiolekter er utjevnede regionale talemål som vokser frem når lokale dialekttrekk svekkes.",
     },
     {
@@ -883,7 +883,7 @@ const quizData_norsk_vg2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva sier V2-regelen i skandinavisk syntaks?",
-      options: ["At det finitte verbet står på andre plass i hovedsetninger", "At subjektet alltid kommer først", "At subjektet alltid må stå først, foran verbet, i hovedsetninger", "At det finitte verbet alltid plasseres helt sist i hovedsetningen"],
+      options: ["At det finitte verbet står på andre plass i hovedsetninger","At leddsetninger alltid må komme etter hovedsetningen i en periode","At subjektet alltid må stå først, foran verbet, i hovedsetninger","At det finitte verbet alltid plasseres helt sist i hovedsetningen"],
       explanation: "Alle skandinaviske språk har V2: verbalet kommer som ledd nummer to i hovedsetninger, uansett hva som står først.",
     },
     {
@@ -937,7 +937,7 @@ const quizData_norsk_vg2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En innsamlingskampanje viser bilder av sultne barn og forteller en personlig historie. Hvilken appellform dominerer?",
-      options: ["Patos - appell til mottakerens følelser", "Etos - avsenderens troverdighet", "Etos - appell gjennom avsenderens egen troverdighet", "Logos - appell til fornuften"],
+      options: ["Patos - appell til mottakerens følelser","Kairos - det rette øyeblikket","Etos - appell gjennom avsenderens egen troverdighet","Logos - appell til fornuften"],
       explanation: "Sterke bilder og personlige historier er typiske patos-virkemidler som vekker empati og engasjement.",
     },
     {
@@ -949,7 +949,7 @@ const quizData_norsk_vg2: Record<string, QuizQuestion[]> = {
   "norsk-vg2-5-3": [
     {
       question: "Hva er et autoritetsargument?",
-      options: ["Et argument basert på eksperter eller respekterte kilder", "Et argument basert på verdier og moral", "Et argument som utelukkende bygger på avsenderens egne erfaringer", "Et argument som appellerer til felles verdier, moral og rettferdighet"],
+      options: ["Et argument basert på eksperter eller respekterte kilder","Et argument som bygger på tall og statistikk fra undersøkelser","Et argument som utelukkende bygger på avsenderens egne erfaringer","Et argument som appellerer til felles verdier, moral og rettferdighet"],
       explanation: "Autoritetsargumenter henter styrke fra eksperter eller anerkjente kilder, mens erfaringsargumenter bygger på egne eller andres opplevelser.",
     },
     {
@@ -964,7 +964,7 @@ const quizData_norsk_vg2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke elementer inngår i den retoriske situasjonen ved sakprosaanalyse?",
-      options: ["Avsender, mottaker, sak, kairos og formål", "Skrifttype, layout og papirkvalitet", "Rim, rytme, strofer og verselinjer i den enkelte teksten", "Rim, rytme, strofer og verselinjer"],
+      options: ["Avsender, mottaker, sak, kairos og formål","Skrifttype, layout og papirkvalitet","Rim, rytme, strofer og verselinjer i den enkelte teksten","Fortelleren, personene og miljøet"],
       explanation: "Analysen starter med å kartlegge hvem som skriver, til hvem, om hva, i hvilken situasjon og med hvilket formål.",
     },
     {
@@ -986,7 +986,7 @@ const quizData_norsk_vg2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "I «Norge vant gull» står «Norge» for landslaget. Hvilket virkemiddel er dette?",
-      options: ["Synekdoke - helhet for del", "Hyperbol - overdrivelse", "Hyperbol - bevisst overdrivelse for effekt", "Litotes - underdrivelse"],
+      options: ["Synekdoke - helhet for del","Ironi - motsatt mening","Hyperbol - bevisst overdrivelse for effekt","Litotes - underdrivelse"],
       explanation: "Synekdoke lar helheten stå for delen (Norge = landslaget), mens metonymien bruker et nærliggende begrep («kronen» = kongen).",
     },
     {
@@ -1008,7 +1008,7 @@ const quizData_norsk_vg2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skal innledningen i en fagartikkel gjøre?",
-      options: ["Presentere tema og problemstilling og avgrense hva du vil ta opp", "Liste opp alle kildene du har brukt underveis i teksten", "Konkludere med det ferdige svaret på problemstillingen med en gang", "Fortelle en lang personlig historie for å fange leserens interesse"],
+      options: ["Presentere tema og problemstilling og avgrense hva du vil ta opp","Liste opp alle kildene du har brukt underveis i selve teksten din","Konkludere med det ferdige svaret på problemstillingen med en gang","Fortelle en lang personlig historie for å fange leserens interesse"],
       explanation: "Innledningen etablerer tema, problemstilling og avgrensning - konklusjonen hører hjemme i avslutningen.",
     },
     {
@@ -1023,7 +1023,7 @@ const quizData_norsk_vg2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke signalord kan du bruke for å nøytralt gjengi andres syn i en drøfting?",
-      options: ["«Ifølge ...» og «X hevder at ...»", "«Bare dumme folk mener at ...»", "«Bare naive og dumme folk mener at ...» og «tullete ...»", "«Det er åpenbart feil at ...»"],
+      options: ["«Ifølge ...» og «X hevder at ...»","«Det sier seg selv at ...»","«Bare naive og dumme folk mener at ...» og «tullete ...»","«Det er åpenbart feil at ...»"],
       explanation: "Nøytrale formuleringer som «ifølge» og «hevder» viser tydelig at du gjengir andres syn uten å felle dom for tidlig.",
     },
   ],
@@ -1067,7 +1067,7 @@ const quizData_norsk_vg2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er bias?",
-      options: ["En systematisk tendens til å fremstille noe ensidig", "En type kildehenvisning", "Et anerkjent akademisk tidsskrift med fagfellevurdering", "En bestemt type kildehenvisning brukt i akademiske tekster"],
+      options: ["En systematisk tendens til å fremstille noe ensidig","En metode for å måle hvor mange som har lest en tekst","Et anerkjent akademisk tidsskrift med fagfellevurdering","En bestemt type kildehenvisning brukt i akademiske tekster"],
       explanation: "Bias (skjevhet) betyr at en kilde - bevisst eller ubevisst - fremstiller saken ensidig, for eksempel på grunn av interessekonflikter.",
     },
     {
@@ -1116,7 +1116,7 @@ const quizData_norsk_vg2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er hjemmelen (warrant) i Toulmins argumentasjonsmodell?",
-      options: ["Det underliggende prinsippet som kobler belegget til påstanden", "Ordene som viser hvor sikker taleren er på sin egen påstand", "Selve påstanden som taleren ønsker å få akseptert av mottakeren", "Faktaene og bevisene som direkte støtter argumentets konklusjon"],
+      options: ["Det underliggende prinsippet som kobler belegget til påstanden","Ordene som viser hvor sikker taleren selv er på sin egen påstand","Selve påstanden som taleren ønsker å få akseptert av mottakeren","Faktaene og bevisene som direkte støtter argumentets konklusjon"],
       explanation: "I Toulmins modell er hjemmelen broen mellom belegg og påstand - den generelle regelen som gjør at belegget faktisk støtter konklusjonen.",
     },
     {

@@ -4,7 +4,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
   "norsk-vg3-1-1": [
     {
       question: "Hvem formulerte kravet om at litteraturen skulle \"saette problemer under debatt\"?",
-      options: ["Georg Brandes i 1871", "Henrik Ibsen i 1879", "Bjoernstjerne Bjoernson i 1875", "Alexander Kielland i 1880"],
+      options: ["Georg Brandes i 1871","Henrik Ibsen i 1879, i Et dukkehjem","Bjoernstjerne Bjoernson i 1875","Alexander Kielland i 1880"],
       explanation: "Den danske litteraturkritikeren Georg Brandes formulerte dette kravet i sine førelesninger i Koebenhavn i 1871, noe som innledet det moderne gjennombrudd.",
     },
     {
@@ -19,7 +19,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvahandlet \"En hanske\" (1883) av Bjoernson om?",
-      options: ["Likestilling i seksualmoralen mellom menn og kvinner", "Ekonomisk krise", "Pressens makt og journalisters ansvar i det moderne samfunnet", "Den økonomiske krisen som rammet bøndene under industrialiseringen"],
+      options: ["Likestilling i seksualmoralen mellom menn og kvinner","Bøndenes kamp mot embetsmennenes makt i de norske bygdene","Pressens makt og journalisters ansvar i det moderne samfunnet","Den økonomiske krisen som rammet bøndene under industrialiseringen"],
       explanation: "\"En hanske\" tok opp seksuell dobbeltmoral og krevde at menn skulle holdes til samme moralske standard som kvinner.",
     },
     {
@@ -41,7 +41,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken romanserie av Sigrid Undset er satt i middelalderen?",
-      options: ["Kristin Lavransdatter", "Ida Elisabeth", "Jenny, kunstnerromanen fra 1911", "Gymnadenia, konverteringsromanen"],
+      options: ["Kristin Lavransdatter","Ida Elisabeth, samtidsromanen","Jenny, kunstnerromanen fra 1911","Gymnadenia, konverteringsromanen"],
       explanation: "\"Kristin Lavransdatter\" (1920-22) er en trilogi satt i norsk middelalder, kjent for historisk realisme og psykologisk dybde.",
     },
     {
@@ -58,7 +58,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
   "norsk-vg3-3-1": [
     {
       question: "Hva kjennetegner modernismen i litteraturen?",
-      options: ["Eksperimentell form, fragmentering og subjektiv virkelighetsoppfatning", "Tradisjonell fortelling", "Gjennomgående optimistisk livssyn preget av tro på fremskritt og harmoni", "Sterkt fokus på ytre samfunnskritikk og realistisk gjengivelse av virkeligheten"],
+      options: ["Eksperimentell form, fragmentering og subjektiv virkelighetsoppfatning","Tradisjonell fortelling med kronologisk handling og allvitende forteller","Gjennomgående optimistisk livssyn preget av tro på fremskritt og harmoni","Sterkt fokus på ytre samfunnskritikk og realistisk gjengivelse av virkeligheten"],
       explanation: "Modernismen bryter med tradisjonelle former og bruker bevissthetsstrøm, fragmentering og subjektive perspektiver.",
     },
     {
@@ -78,14 +78,14 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan paavirket andre verdenskrig litteraturen?",
-      options: ["Forfattere stilte spørsmål om hvordan man kunne skrive etter holocaust", "Litteraturen ble mer optimistisk", "Litteraturen ble mye mer optimistisk og feiret fremskritt og humanisme", "Den hadde ingen påvirkning, og litteraturen fortsatte helt uendret videre"],
+      options: ["Forfattere stilte spørsmål om hvordan man kunne skrive etter holocaust","Litteraturen vendte tilbake til nasjonalromantikken","Litteraturen ble mye mer optimistisk og feiret fremskritt","Den hadde ingen påvirkning, og litteraturen fortsatte helt uendret videre"],
       explanation: "Krigen og holocaust rystet troen påfremskritt og humanisme, og forfatterne maatte finne nye måter åuttrykke den fragmenterte virkeligheten paa.",
     },
   ],
   "norsk-vg3-4-1": [
     {
       question: "Hva kjennetegner postmodernismen?",
-      options: ["Skepsis til store fortellinger, ironi og lek med sjangre", "Tro påuniverselle sannheter", "Fast tro på universelle sannheter og objektiv kunnskap om virkeligheten", "Tradisjonell romanform med sammenhengende plott og allvitende forteller"],
+      options: ["Skepsis til store fortellinger, ironi og lek med sjangre","Streng troskap mot ett bestemt politisk program i all diktning","Fast tro på universelle sannheter og objektiv kunnskap om virkeligheten","Tradisjonell romanform med sammenhengende plott og allvitende forteller"],
       explanation: "Postmodernismen avviser store fortellinger og universelle sannheter, og leker med sjangre, ironi og selvreferanse.",
     },
     {
@@ -112,7 +112,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
   "norsk-vg3-5-1": [
     {
       question: "Hvilke hovedperioder deles norsk språkhistorie inn i?",
-      options: ["Urnordisk, norrønt, mellomnorsk, dansk skriftspråk og moderne norsk", "Gammelnorsk og nynorsk", "Runeperioden og latintiden, som de to sentrale epokene i norsk språk", "Bare to perioder: den norrøne middelalderen og den moderne norsktiden"],
+      options: ["Urnordisk, norrønt, mellomnorsk, dansk skriftspråk og moderne norsk","Gammelnorsk og nynorsk, med et skarpt skille ved reformasjonen i 1537","Runeperioden og latintiden, som de to sentrale epokene i norsk språk","Bare to perioder: den norrøne middelalderen og den moderne norsktiden"],
       explanation: "Norsk språkhistorie deles i urnordisk (200-700), norrønt (700-1350), mellomnorsk (1350-1525), dansketiden (1525-1814) og moderne norsk (1814-).",
     },
     {
@@ -139,7 +139,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
   "norsk-vg3-6-1": [
     {
       question: "Hva er tjukk l?",
-      options: ["En spesiell L-lyd i oestnorske og troenderske dialekter", "En konsonant fra nynorsk", "En lang, mørk vokallyd som særlig kjennetegner vestlandske målfører", "En hard konsonant som kun forekommer i skriftlig nynorsk rettskriving"],
+      options: ["En spesiell L-lyd i oestnorske og troenderske dialekter","En kort vokal som uttales med nesten lukket munn i indre bygder","En lang, mørk vokallyd som særlig kjennetegner vestlandske målfører","En hard konsonant som kun forekommer i skriftlig nynorsk rettskriving"],
       explanation: "Tjukk l er en L-lyd som ligner påen blanding av L og R, og finnes i oestnorske og troenderske dialekter.",
     },
     {
@@ -149,7 +149,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er multietnolekt?",
-      options: ["Spraakvariant i flerkulturelle bymiljøoer med trekk fra flere språk", "En gammel dialekt", "En egen skriftspråksnormal som brukes ved siden av bokmål og nynorsk", "Et rent fremmedspråk som innvandrere tar med seg uendret fra hjemlandet"],
+      options: ["Spraakvariant i flerkulturelle bymiljøoer med trekk fra flere språk","En gammel bygdedialekt som er i ferd med å dø ut blant de yngste talerne","En egen skriftspråksnormal som brukes ved siden av bokmål og nynorsk","Et rent fremmedspråk som innvandrere tar med seg uendret fra hjemlandet"],
       explanation: "Multietnolekt (også kalt kebabnorsk) er en språkvariant som har oppstått i flerkulturelle bymiljøoer, med trekk fra norsk og andre språk.",
     },
     {
@@ -159,7 +159,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor har Norge såstort dialektmangfold?",
-      options: ["Geografien med fjell og fjorder skapte isolerte samfunn", "Det ble vedtatt av Stortinget", "Mangfoldet ble innført ved et eget stortingsvedtak for å verne kulturarven", "Vi importerte mange ulike dialekter fra innvandrere gjennom hele historien"],
+      options: ["Geografien med fjell og fjorder skapte isolerte samfunn","Skriftspråket har alltid vært mer variert enn talespråket i Norge","Mangfoldet ble innført ved et eget stortingsvedtak for å verne kulturarven","Vi importerte mange ulike dialekter fra innvandrere gjennom hele historien"],
       explanation: "Norges fjell, daler og fjorder skapte naturlige barrierer som forte til at språket utviklet seg forskjellig i ulike områder.",
     },
   ],
@@ -176,7 +176,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan bygger man etos i en tale?",
-      options: ["Ved åvise kompetanse, aerrlighet og velvilje", "Ved åbruke sterke følelser", "Ved å vekke sterke og intense følelser hos tilhørerne underveis", "Ved å snakke høyt og kraftfullt for å virke myndig og troverdig"],
+      options: ["Ved åvise kompetanse, aerrlighet og velvilje","Ved å legge fram tall og statistikk fra forskningen","Ved å vekke sterke og intense følelser hos tilhørerne underveis","Ved å snakke høyt og kraftfullt for å virke myndig og troverdig"],
       explanation: "Etos bygges ved åvise at du er kompetent påområdet, ærlig i din fremstilling, og har tilhørernes beste i tankene.",
     },
     {
@@ -193,7 +193,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
   "norsk-vg3-1-2": [
     {
       question: "Hvilken hendelse i barndommen preget Henrik Ibsen dypt og ga ham erfaring med sosial deklassering?",
-      options: ["Farens konkurs i 1836", "Morens tidlige død", "En brann som ødela barndomshjemmet", "At familien emigrerte til Amerika"],
+      options: ["Farens konkurs i 1836","Morens tidlige død i barndommen","En brann som ødela barndomshjemmet","At familien emigrerte til Amerika"],
       explanation: "Ibsen ble født inn i en velstående kjøpmannsfamilie i Skien, men da han var åtte år gikk faren konkurs. Opplevelsen av sosialt fall preget forfatterskapet hans.",
     },
     {
@@ -220,7 +220,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
   "norsk-vg3-1-3": [
     {
       question: "Hva er «the well-made play» (det vellagede stykket) som Ibsen perfeksjonerte?",
-      options: ["En stram dramatisk struktur med eksposisjon, komplikasjon, krise og klimaks", "En komedie med lykkelig slutt", "Et løst oppbygd stykke uten egentlig handling der scenene kan settes i vilkårlig rekkefølge", "Et opphøyd versdrama i fem akter der replikkene følger et strengt metrisk mønster hele veien"],
+      options: ["En stram dramatisk struktur med eksposisjon, komplikasjon, krise og klimaks","En komedie med lykkelig slutt der alle forviklingene blir løst opp i siste akt","Et løst oppbygd stykke uten egentlig handling der scenene kan settes i vilkårlig rekkefølge","Et opphøyd versdrama i fem akter der replikkene følger et strengt metrisk mønster hele veien"],
       explanation: "Den vellagede strukturen ble utviklet av franske dramatikere som Eugène Scribe. Ibsen foredlet den til en kunstnerisk form med stram oppbygning og logisk handling.",
     },
     {
@@ -252,7 +252,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilket verk regnes som den første av Bjørnsons bondefortellinger?",
-      options: ["Synnøve Solbakken (1857)", "Fiskerjenten (1888)", "Romanen Fiskerjenten fra 1868", "Skuespillet En hanske fra 1883"],
+      options: ["Synnøve Solbakken (1857)","Arne, fortellingen fra 1859","Romanen Fiskerjenten fra 1868","Skuespillet En hanske fra 1883"],
       explanation: "«Synnøve Solbakken» fra 1857 innledet rekken av bondefortellinger, idylliserte skildringer av norsk bondeliv som ga Bjørnson stor suksess.",
     },
     {
@@ -274,7 +274,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
   "norsk-vg3-1-5": [
     {
       question: "Hvilken rolle hadde Kielland og Lie blant «de fire store»?",
-      options: ["De representerte prosakunsten, mens Ibsen og Bjørnson primært var dramatikere", "De var litteraturkritikere", "De skrev utelukkende skuespill for teateret, akkurat som Ibsen og Bjørnson på samme tid", "De var begge lyrikere som fornyet den norske diktekunsten med stemningsfulle naturbilder"],
+      options: ["De representerte prosakunsten, mens Ibsen og Bjørnson primært var dramatikere","De var litteraturkritikere som anmeldte de andres bøker i de store hovedstadsavisene","De skrev utelukkende skuespill for teateret, akkurat som Ibsen og Bjørnson på samme tid","De var begge lyrikere som fornyet den norske diktekunsten med stemningsfulle naturbilder"],
       explanation: "Mens Ibsen og Bjørnson først og fremst var dramatikere, var Kielland og Lie romanforfattere og novellister - prosaikere i det moderne gjennombruddet.",
     },
     {
@@ -284,7 +284,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner Kiellands litterære stil?",
-      options: ["Elegant, ironisk prosa med satire mot borgerlig hykleri", "Lyriske naturbeskrivelser uten samfunnskritikk", "Tung og omstendelig naturalistisk detaljskildring av arv, miljø og forfall i slektene", "Tung, naturalistisk detaljskildring"],
+      options: ["Elegant, ironisk prosa med satire mot borgerlig hykleri","Lyriske naturbeskrivelser uten samfunnskritikk","Tung og omstendelig naturalistisk detaljskildring av arv, miljø og forfall i slektene","Knappe, muntlige replikker uten fortellerstemme"],
       explanation: "Kielland var kjent for sin elegante og ironiske prosa, og han brukte satiren som våpen mot dobbeltmoral, skolevesen og embetsverk.",
     },
     {
@@ -294,14 +294,14 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken yrkesbakgrunn hadde både Kielland og Lie?",
-      options: ["Begge var utdannet jurister", "Begge var offiserer", "Begge var utdannede offiserer i hæren", "Begge var prester"],
+      options: ["Begge var utdannet jurister","Begge var sjøkapteiner","Begge var utdannede offiserer i hæren","Begge var prester"],
       explanation: "Både Kielland og Lie var utdannet jurister, men forlot jussen for litteraturen. Lie gikk dessuten konkurs som forretningsmann før han ble forfatter på heltid.",
     },
   ],
   "norsk-vg3-1-6": [
     {
       question: "Hvilken litterær retning forbindes Amalie Skram særlig med?",
-      options: ["Naturalismen", "Nyromantikken", "Symbolismen", "Postmodernismen"],
+      options: ["Naturalismen","Nyromantikken","Den franske symbolismen","Postmodernismen"],
       explanation: "Amalie Skram regnes som Norges fremste naturalist, med kompromissløse skildringer av ekteskap, arv og miljø.",
     },
     {
@@ -321,7 +321,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor var Amalie Skrams ekteskapsromaner kontroversielle i samtiden?",
-      options: ["De skildret kvinners erfaringer med seksualitet og ulykkelige ekteskap åpent og kritisk", "De forsvarte kirkens syn på ekteskapet", "De var skrevet på landsmål og provoserte derfor det dansk-norske borgerskapet i hovedstaden", "De forsvarte kirkens tradisjonelle syn på ekteskapet som en ukrenkelig og hellig institusjon"],
+      options: ["De skildret kvinners erfaringer med seksualitet og ulykkelige ekteskap åpent og kritisk","De handlet utelukkende om livet på landsbygda og unngikk enhver skildring av byborgerskapet","De var skrevet på landsmål og provoserte derfor det dansk-norske borgerskapet i hovedstaden","De forsvarte kirkens tradisjonelle syn på ekteskapet som en ukrenkelig og hellig institusjon"],
       explanation: "Skram brøt tabuer ved å skildre kvinners seksualitet, dobbeltmoral og maktforhold i ekteskapet med naturalistisk åpenhet, noe som provoserte det borgerlige publikummet.",
     },
   ],
@@ -338,7 +338,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke to faktorer bestemmer menneskers liv ifølge naturalismen?",
-      options: ["Arv og miljø", "Tro og vilje", "Skjebne og tilfeldighet", "Klasse og kjønn alene"],
+      options: ["Arv og miljø","Tro og fri vilje","Skjebne og tilfeldighet","Klasse og kjønn alene"],
       explanation: "Naturalismen hevder at mennesket er et produkt av arv (nedarvede egenskaper) og miljø (oppvekst og sosiale forhold) - ikke av fri vilje.",
     },
     {
@@ -375,7 +375,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken konsekvens får determinismen for menneskesynet i naturalistisk litteratur?",
-      options: ["Mennesket fremstilles som et produkt av krefter det ikke kontrollerer", "Mennesket fremstilles som fritt og skapende", "Mennesket fremstilles som en guddommelig skapning som hever seg over naturens lover", "Mennesket fremstilles som udelt lykkelig og i harmoni med både naturen og samfunnet"],
+      options: ["Mennesket fremstilles som et produkt av krefter det ikke kontrollerer","Mennesket fremstilles som fritt og skapende, herre over sin egen skjebne","Mennesket fremstilles som en guddommelig skapning som hever seg over naturens lover","Mennesket fremstilles som udelt lykkelig og i harmoni med både naturen og samfunnet"],
       explanation: "Når arv og miljø bestemmer alt, blir karakterene ofre for omstendighetene - de kan ikke unnslippe sin sosiale og biologiske skjebne.",
     },
   ],
@@ -402,7 +402,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan ble «Hellemyrsfolket» mottatt i samtiden?",
-      options: ["Verket vakte debatt på grunn av de mørke og kompromissløse skildringene", "Det ble umiddelbart pensum i skolen", "Det ble varmt hyllet av kirken og geistligheten for sitt oppbyggelige budskap", "Det ble umiddelbart tatt inn som obligatorisk pensum i skolen over hele landet"],
+      options: ["Verket vakte debatt på grunn av de mørke og kompromissløse skildringene","Det ble knapt lagt merke til og fikk ingen anmeldelser i samtidens aviser","Det ble varmt hyllet av kirken og geistligheten for sitt oppbyggelige budskap","Det ble umiddelbart tatt inn som obligatorisk pensum i skolen over hele landet"],
       explanation: "Skrams nådeløse skildringer av fattigdom, drikk og fornedrelse utfordret samtidens forventninger til litteraturen og vakte sterke reaksjoner.",
     },
   ],
@@ -414,7 +414,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke andre navn brukes om perioden rundt 1890-1910?",
-      options: ["Fin de siècle, dekadanse og symbolisme", "Barokk, rokokko og manierisme i stil", "Modernisme, futurisme og ekspresjonisme", "Opplysningstid, klassisisme og fornuftsdyrking"],
+      options: ["Fin de siècle, dekadanse og symbolisme","Barokk, rokokko og manierisme i billedkunsten","Modernisme, futurisme og ekspresjonisme","Opplysningstid, klassisisme og fornuftsdyrking"],
       explanation: "Perioden kalles også fin de siècle (århundreskiftet), dekadanse, og i lyrikken symbolisme - betegnelser som fanger ulike sider ved den samme strømningen.",
     },
     {
@@ -424,7 +424,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er symbolismen opptatt av?",
-      options: ["Virkeligheten bak det synlige, der symboler er veien til dypere sannhet", "Nøyaktige beskrivelser av samfunnsforhold", "Humor, ironi og satire som avslører menneskelige svakheter og dobbeltmoral", "Nøyaktige og etterprøvbare beskrivelser av sosiale samfunnsforhold og miljø"],
+      options: ["Virkeligheten bak det synlige, der symboler er veien til dypere sannhet","Et direkte og entydig språk der hvert ord bare har én eneste bestemt betydning","Humor, ironi og satire som avslører menneskelige svakheter og dobbeltmoral","Nøyaktige og etterprøvbare beskrivelser av sosiale samfunnsforhold og miljø"],
       explanation: "Symbolismen, som oppsto i Frankrike på 1880-tallet, søkte en høyere virkelighet bak den synlige og brukte symboler for å antyde det usigelige.",
     },
     {
@@ -473,7 +473,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilket filosofisk grunnlag bygger symbolismen på?",
-      options: ["Platonsk idealisme - en høyere virkelighet bak det synlige", "Positivisme - bare det målbare er virkelig", "Positivisme - bare det sansbare og målbare regnes som virkelig", "Utilitarisme - den samlede nytten for flest mulig avgjør verdien"],
+      options: ["Platonsk idealisme - en høyere virkelighet bak det synlige","Materialisme - bevisstheten er bare et resultat av kroppens kjemi","Positivisme - bare det sansbare og målbare regnes som virkelig","Utilitarisme - den samlede nytten for flest mulig avgjør verdien"],
       explanation: "Symbolistene trodde på en åndelig virkelighet bak den synlige verden, i tråd med platonsk idealisme, og brukte symboler for å ane denne virkeligheten.",
     },
     {
@@ -549,7 +549,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken utmerkelse fikk Sigrid Undset i 1928?",
-      options: ["Nobelprisen i litteratur", "Kritikerprisen", "Den nyinnstiftede Brageprisen", "Kritikerprisen for beste roman"],
+      options: ["Nobelprisen i litteratur","Den norske stats kunstnerlønn","Den nyinnstiftede Brageprisen","Kritikerprisen for beste roman"],
       explanation: "Undset fikk Nobelprisen i litteratur i 1928, særlig for de mektige skildringene av nordisk middelalderliv.",
     },
     {
@@ -581,7 +581,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilket sentralt tema utforsker Alberte-trilogien?",
-      options: ["Kvinnens kamp for frihet og selvstendig identitet", "Fiskerienes historie", "Krigen i Europa og dens følger for sivilbefolkningen", "Fiskeriets og kystnæringenes lange historie i Nord-Norge"],
+      options: ["Kvinnens kamp for frihet og selvstendig identitet","Livet i de norske klostrene gjennom hele middelalderen","Krigen i Europa og dens følger for sivilbefolkningen","Fiskeriets og kystnæringenes lange historie i Nord-Norge"],
       explanation: "Trilogien skildrer en kvinnes indre kamp for å frigjøre seg fra omgivelsenes forventninger og finne sin egen identitet som menneske og kunstner.",
     },
     {
@@ -603,7 +603,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken historisk situasjon preget mellomkrigstidens litteratur?",
-      options: ["Økonomisk krise, klassekamp og fremveksten av fascismen", "Den industrielle revolusjon", "Den industrielle revolusjonen med fabrikkvekst og urbanisering", "En periode med lang, ubrutt fred og stigende materiell velstand"],
+      options: ["Økonomisk krise, klassekamp og fremveksten av fascismen","Nasjonalromantikkens dyrking av bondekulturen og folkeeventyrene","Den industrielle revolusjonen med fabrikkvekst og urbanisering","En periode med lang, ubrutt fred og stigende materiell velstand"],
       explanation: "Mellomkrigstiden var preget av depresjon, arbeidsløshet og politisk polarisering mellom kommunisme og fascisme - en krisetid som politiserte litteraturen.",
     },
     {
@@ -630,7 +630,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er arbeiderlitteratur?",
-      options: ["Litteratur skrevet av, om eller for arbeiderklassen", "Litteratur om fabrikkledelse", "Praktiske håndbøker med regler og rutiner for arbeidslivet", "Anonym litteratur uten kjent forfatter eller opphavsperson"],
+      options: ["Litteratur skrevet av, om eller for arbeiderklassen","Litteratur om fabrikkledelse og effektiv organisering av produksjonen","Praktiske håndbøker med regler og rutiner for arbeidslivet","Anonym litteratur uten kjent forfatter eller opphavsperson"],
       explanation: "Arbeiderlitteraturen vokste frem med industrialiseringen og arbeiderbevegelsen og fikk sin storhetstid i mellomkrigstiden.",
     },
     {
@@ -640,7 +640,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner antifascistisk litteratur fra 1930-tallet?",
-      options: ["Den advarte mot nazismen og fascismens fremmarsj i Europa", "Den handlet bare om fortiden", "Den handlet utelukkende om en fjern fortid uten berøring med samtiden", "Den hyllet sterke, autoritære ledere som samlende nasjonale skikkelser"],
+      options: ["Den advarte mot nazismen og fascismens fremmarsj i Europa","Den unngikk politiske emner og skildret bare private kjærlighetsforhold","Den handlet utelukkende om en fjern fortid uten berøring med samtiden","Den hyllet sterke, autoritære ledere som samlende nasjonale skikkelser"],
       explanation: "Etter Hitlers maktovertakelse i 1933 brukte forfattere som Øverland og Grieg litteraturen til å advare mot fascismen og vekke folk fra likegyldigheten.",
     },
     {
@@ -662,7 +662,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva advarte «Du må ikke sove» mot?",
-      options: ["Likegyldighet overfor fascismens fremmarsj i Europa", "Industrialiseringens skadevirkninger", "Storindustriens hensynsløse skadevirkninger på arbeidere og natur", "Den tiltakende sammenblandingen av bokmål og nynorsk i skriftspråket"],
+      options: ["Likegyldighet overfor fascismens fremmarsj i Europa","Utvandringen til Amerika og tapet av unge arbeidsføre","Storindustriens hensynsløse skadevirkninger på arbeidere og natur","Den tiltakende sammenblandingen av bokmål og nynorsk i skriftspråket"],
       explanation: "Diktet er et rop om å våkne fra likegyldigheten mens fascismen vokste i Europa - skrevet flere år før krigen kom til Norge.",
     },
     {
@@ -684,7 +684,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilket virkemiddel preger oppbygningen av «Du må ikke sove»?",
-      options: ["Anaforisk gjentakelse av «Du må ikke», som hamrer inn budskapet", "Fri assosiasjon uten struktur", "Fri assosiasjon uten fast struktur, typisk for den rene modernismen", "Gjennomført ironisk distanse der taleren undergraver sitt eget budskap"],
+      options: ["Anaforisk gjentakelse av «Du må ikke», som hamrer inn budskapet","Streng sonettform med fjorten linjer og et fast rimmønster gjennom hele diktet","Fri assosiasjon uten fast struktur, typisk for den rene modernismen","Gjennomført ironisk distanse der taleren undergraver sitt eget budskap"],
       explanation: "Gjentakelsen av «Du må ikke» i strofeinnledningene er en anafor som skaper rytme og innstendighet i advarselen.",
     },
     {
@@ -694,7 +694,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner Øverland som lyriker rent formelt?",
-      options: ["Han var formbevisst og holdt fast på rim og fast rytme", "Han eksperimenterte med konkret poesi", "Han brukte gjennomgående prosadikt uten metrisk oppbygning eller rim", "Han skrev utelukkende frie vers uten rim, etter modernistisk forbilde"],
+      options: ["Han var formbevisst og holdt fast på rim og fast rytme","Han eksperimenterte med konkret poesi og typografiske virkemidler","Han brukte gjennomgående prosadikt uten metrisk oppbygning eller rim","Han skrev utelukkende frie vers uten rim, etter modernistisk forbilde"],
       explanation: "Øverland var tradisjonalist i formen: klar tale, fast rytme og rim. Han ble senere en skarp kritiker av modernistisk lyrikk.",
     },
     {
@@ -733,7 +733,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
   "norsk-vg3-2-7-ext": [
     {
       question: "Hvilken dramatiker påvirket Nordahl Griegs teaterstykker?",
-      options: ["Bertolt Brecht og hans episke teater", "William Shakespeare", "Ludvig Holberg og komedietradisjonen fra opplysningstida", "William Shakespeare og hans store elizabethanske tragedier"],
+      options: ["Bertolt Brecht og hans episke teater","Henrik Ibsen og det realistiske samtidsdramaet","Ludvig Holberg og komedietradisjonen fra opplysningstida","William Shakespeare og hans store elizabethanske tragedier"],
       explanation: "Grieg var påvirket av Brechts episke teater, blant annet ved å avbryte handlingen med sanger som kommenterer det som skjer.",
     },
     {
@@ -753,7 +753,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva het Griegs debutbok fra 1922?",
-      options: ["«Rundt Kap det Gode Haab»", "«Norge i våre hjerter»", "«Vår ære og vår makt», hans anklagende krigsdrama om rederne", "«Vår ære og vår makt»"],
+      options: ["«Rundt Kap det Gode Haab»","«Norge i våre hjerter»","«Vår ære og vår makt», hans krigsdrama om rederne","«Til ungdommen» fra 1936"],
       explanation: "Grieg debuterte i 1922 med diktsamlingen «Rundt Kap det Gode Haab», bygd på erfaringene som sjømann.",
     },
   ],
@@ -775,12 +775,12 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner Vesaas' modernistiske stil?",
-      options: ["Knapt, symboltungt språk der det usagte bærer meningen", "Lange, detaljerte miljøskildringer", "Åpen politisk agitasjon og direkte samfunnskritikk i handlingen", "Humoristisk overdrivelse og karikatur som bærende fortellergrep"],
+      options: ["Knapt, symboltungt språk der det usagte bærer meningen","Lange, detaljerte miljøskildringer av natur og interiør","Åpen politisk agitasjon og direkte samfunnskritikk i handlingen","Humoristisk overdrivelse og karikatur som bærende fortellergrep"],
       explanation: "Vesaas skriver konsentrert og antydende - symboler og det usagte bærer ofte mer mening enn det som sies direkte.",
     },
     {
       question: "Hvem var Tarjei Vesaas gift med?",
-      options: ["Lyrikeren Halldis Moren Vesaas", "Forfatteren Cora Sandel", "Skuespilleren Aase Bye ved Nationaltheatret i Oslo", "Skuespilleren Aase Bye"],
+      options: ["Lyrikeren Halldis Moren Vesaas","Forfatteren Cora Sandel","Skuespilleren Aase Bye ved Nationaltheatret i Oslo","Forfatteren Sigrid Undset"],
       explanation: "Vesaas var gift med lyrikeren Halldis Moren Vesaas, og sammen utgjorde de et av norsk litteraturhistories mest kjente forfatterpar.",
     },
   ],
@@ -802,7 +802,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva handler «Frihetens øyeblikk» (1966) blant annet om?",
-      options: ["Inkvisisjonen og hekseprosessene som del av ondskapens historie", "Det norske oljeeventyret og pengenes makt over samfunnet", "En dramatisk kjærlighetshistorie mellom to unge i mellomkrigstidas Paris", "Vikingenes herjinger og erobringstokter i det tidlige middelalder-Europa"],
+      options: ["Inkvisisjonen og hekseprosessene som del av ondskapens historie","Det norske oljeeventyret og pengenes makt over det moderne samfunnet","En dramatisk kjærlighetshistorie mellom to unge i mellomkrigstidas Paris","Vikingenes herjinger og erobringstokter i det tidlige middelalder-Europa"],
       explanation: "Første bind i trilogien tar blant annet for seg inkvisisjonen og hekseprosessene i Europas brutale historie.",
     },
     {
@@ -856,12 +856,12 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken tendens har preget norsk samtidslitteratur på 2000-tallet?",
-      options: ["Virkelighetslitteratur og autofiksjon, som Knausgårds «Min kamp»", "En retur til nasjonalromantikken", "At romanen langsomt forsvant som sjanger til fordel for lyrikken", "En bred retur til nasjonalromantikken og dyrkingen av det norske"],
+      options: ["Virkelighetslitteratur og autofiksjon, som Knausgårds «Min kamp»","Krimromanens fullstendige forsvinning fra bokhandlene","At romanen forsvant som sjanger til fordel for lyrikken","En bred retur til nasjonalromantikken og det norske"],
       explanation: "2000-tallet har vært preget av virkelighetslitteratur, der forfattere som Knausgård bruker eget liv som råstoff.",
     },
     {
       question: "Hva menes med sosialrealisme i 1970-tallslitteraturen?",
-      options: ["Realistisk litteratur som skildrer sosiale forhold med politisk hensikt", "Litteratur uten samfunnsskildring", "Modernistisk litteratur som bryter formen for å vise språkets grenser og krise", "Nyklassisk litteratur som følger strenge sjangerregler uten samfunnsengasjement"],
+      options: ["Realistisk litteratur som skildrer sosiale forhold med politisk hensikt","Litteratur uten samfunnsskildring, der bare det indre sjelelivet skildres","Modernistisk litteratur som bryter formen for å vise språkets grenser og krise","Nyklassisk litteratur som følger strenge sjangerregler uten samfunnsengasjement"],
       explanation: "Sosialrealismen ville vise klassesamfunnet og arbeidsfolks kår realistisk, ofte med marxistisk perspektiv og politisk hensikt.",
     },
   ],
@@ -895,7 +895,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
   "norsk-vg3-3-7": [
     {
       question: "Hvilken trilogi er Jan Kjærstad kjent for?",
-      options: ["Wergeland-trilogien: «Forføreren», «Erobreren» og «Oppdageren»", "Bestialitetens historie", "Beatles-trilogien om fire gutter i Oslo som vokser opp på 1960- og 70-tallet", "Bror min-trilogien om tre generasjoner på Vestlandet gjennom det tjuende århundre"],
+      options: ["Wergeland-trilogien: «Forføreren», «Erobreren» og «Oppdageren»","Bestialitetens historie, den store romanserien om ondskapen i Europa","Beatles-trilogien om fire gutter i Oslo som vokser opp på 1960- og 70-tallet","Bror min-trilogien om tre generasjoner på Vestlandet gjennom det tjuende århundre"],
       explanation: "Kjærstads trilogi om TV-mannen Jonas Wergeland (1993-1999) er hans hovedverk, kjent for sin lekne komposisjon med skiftende fortellere.",
     },
     {
@@ -932,7 +932,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor vakte «Min kamp» etisk debatt?",
-      options: ["Knausgård utleverte virkelige personer i familie og omgangskrets", "Boken inneholdt statshemmeligheter", "Knausgård gjenga hele passasjer fra andre forfattere uten å oppgi sine kilder", "Knausgård kritiserte kongehuset og satte statlige institusjoner i et vanærende lys"],
+      options: ["Knausgård utleverte virkelige personer i familie og omgangskrets","Boken inneholdt statshemmeligheter fra forfatterens tid i utenrikstjenesten","Knausgård gjenga hele passasjer fra andre forfattere uten å oppgi sine kilder","Knausgård kritiserte kongehuset og satte statlige institusjoner i et vanærende lys"],
       explanation: "Verket utleverer gjenkjennelige, virkelige personer - familie og venner - noe som utløste debatt om litteraturens etiske grenser.",
     },
     {
@@ -959,7 +959,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan har nye stemmer fornyet norsk litterært språk?",
-      options: ["Ved å bruke flerspråklighet, dialekt og sosiolekter som «kebabnorsk» litterært", "Ved å rendyrke et strengt normert bokmål uten spor av muntlighet og talespråk", "Ved å oversette klassiske verdensverk og innføre fremmede litterære former i norsk", "Ved å vende tilbake til et arkaisk, høytidelig skriftspråk hentet fra norrøn diktning"],
+      options: ["Ved å bruke flerspråklighet, dialekt og sosiolekter som «kebabnorsk» litterært","Ved å rendyrke et strengt normert bokmål helt uten spor av muntlighet og talespråk","Ved å oversette klassiske verdensverk og innføre fremmede litterære former i norsk","Ved å vende tilbake til et arkaisk, høytidelig skriftspråk hentet fra norrøn diktning"],
       explanation: "Forfattere med flerkulturell bakgrunn har tatt i bruk multietnolekt og muntlige språkformer og slik utvidet det litterære språket.",
     },
     {
@@ -976,7 +976,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
   "norsk-vg3-4-2": [
     {
       question: "Hva er frie vers?",
-      options: ["Dikt uten fast rim eller rytme, der rytmen følger innholdet", "Dikt som er gratis å lese", "Dikt med fast rimordning og et bestemt antall verselinjer, som i sonetten", "Dikt som følger et strengt bunden versemål med jevn takt og gjennomført rim"],
+      options: ["Dikt uten fast rim eller rytme, der rytmen følger innholdet","Dikt som er gratis å lese fordi de ligger fritt tilgjengelig på nettet","Dikt med fast rimordning og et bestemt antall verselinjer, som i sonetten","Dikt som følger et strengt bunden versemål med jevn takt og gjennomført rim"],
       explanation: "Frie vers (vers libre) har ingen fast verseform eller rimordning - linjelengde og rytme formes av innholdet.",
     },
     {
@@ -996,7 +996,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvem regnes som forløpere for modernistisk lyrikk i Norge?",
-      options: ["Sigbjørn Obstfelder og senere Kristofer Uppdal og Rolf Jacobsen", "Bjørnson og Welhaven", "Aasmund Olavsson Vinje og Ivar Aasen, som grunnleggere av den nynorske lyrikken", "Bjørnstjerne Bjørnson og Alexander Kielland, med sine realistiske samtidsromaner"],
+      options: ["Sigbjørn Obstfelder og senere Kristofer Uppdal og Rolf Jacobsen","Bjørnstjerne Bjørnson og Johan Sebastian Welhaven fra 1800-tallet","Aasmund Olavsson Vinje og Ivar Aasen, som grunnleggere av den nynorske lyrikken","Bjørnstjerne Bjørnson og Alexander Kielland, med sine realistiske samtidsromaner"],
       explanation: "Obstfelders frie vers på 1890-tallet og Rolf Jacobsens «Jord og jern» (1933) peker frem mot gjennombruddet for modernismen i norsk lyrikk.",
     },
   ],
@@ -1040,7 +1040,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er sceneanvisninger?",
-      options: ["Forfatterens instruksjoner om rom, bevegelser og spillemåte i dramateksten", "Skuespillernes improvisasjoner", "Kritikernes vurderinger av forestillingen slik de kommer til uttrykk i avisene", "Publikums og skuespillernes egne improvisasjoner utenom den skrevne dramateksten"],
+      options: ["Forfatterens instruksjoner om rom, bevegelser og spillemåte i dramateksten","Regissørens notater i programheftet om hvordan stykket skal forstås av publikum","Kritikernes vurderinger av forestillingen slik de kommer til uttrykk i avisene","Publikums og skuespillernes egne improvisasjoner utenom den skrevne dramateksten"],
       explanation: "Sceneanvisningene er teksten utenom replikkene, der dramatikeren beskriver scenerom, bevegelser og hvordan replikker skal fremføres.",
     },
     {
@@ -1089,17 +1089,17 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr det franske ordet «essai», som har gitt sjangeren navn?",
-      options: ["Forsøk", "Sannhet", "Tale", "Avhandling"],
+      options: ["Forsøk","Sannhet","Offentlig tale","Avhandling"],
       explanation: "«Essai» betyr forsøk - essayet er et tankeforsøk der forfatteren prøver ut ideer uten å måtte konkludere endelig.",
     },
     {
       question: "Hva kjennetegner essayet som sjanger?",
-      options: ["En utforskende, personlig og ofte assosiativ tekst om et saksforhold", "En fiktiv fortelling med oppdiktede personer", "En strengt objektiv nyhetsartikkel uten spor av forfatterens egen stemme", "En rent fiktiv fortelling med oppdiktede personer og et fast handlingsforløp"],
+      options: ["En utforskende, personlig og ofte assosiativ tekst om et saksforhold","En kortfattet argumentasjon som skal overbevise leseren om ett bestemt standpunkt","En strengt objektiv nyhetsartikkel uten spor av forfatterens egen stemme","En rent fiktiv fortelling med oppdiktede personer og et fast handlingsforløp"],
       explanation: "Essayet utforsker et emne med personlig stemme og frie assosiasjoner - det vandrer i tankene fremfor å bevise en tese.",
     },
     {
       question: "Hva er et godt råd når du skal skrive essay?",
-      options: ["Utforsk emnet åpent og ikke konkluder for tidlig", "Unngå alle personlige perspektiver", "Lås konklusjonen allerede i første setning og hold fast på den hele veien", "Lås konklusjonen i første setning"],
+      options: ["Utforsk emnet åpent og ikke konkluder for tidlig","Unngå alle personlige perspektiver","Lås konklusjonen allerede i første setning og hold fast på den hele veien","Bruk flest mulig fagbegreper i hver setning"],
       explanation: "Essayet lever av utforskning: La tankene vandre, følg assosiasjonene og vær åpen for at synspunktet kan endre seg underveis.",
     },
     {
@@ -1165,7 +1165,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
   "norsk-vg3-4-9": [
     {
       question: "Hva er forskjellen på troper og figurer i retorikken?",
-      options: ["Troper gir ordene overført betydning, figurer er mønstre i språkets form", "Figurer er alltid ment å være morsomme, mens troper alltid er alvorlige", "Troper brukes bare i lyrikk, mens figurer forekommer bare i muntlige taler", "Det er rett og slett to ulike ord som betegner nøyaktig det samme fenomenet"],
+      options: ["Troper gir ordene overført betydning, figurer er mønstre i språkets form","Figurer er alltid ment å være morsomme, mens troper alltid er helt alvorlige","Troper brukes bare i lyrikk, mens figurer forekommer bare i muntlige taler","Det er rett og slett to ulike ord som betegner nøyaktig det samme fenomenet"],
       explanation: "Troper (som metafor og ironi) endrer ordenes betydning, mens figurer (som anafor og antitese) ordner språket i mønstre.",
     },
     {
@@ -1175,7 +1175,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en antitese?",
-      options: ["Motsetninger som stilles mot hverandre for å skape kontrast", "En gjentakelse i slutten av setninger", "En gjentakelse av samme ord i slutten av flere setninger på rad", "En mild og skånsom omskrivning av noe ubehagelig eller vanskelig"],
+      options: ["Motsetninger som stilles mot hverandre for å skape kontrast","En sammenlikning som bruker ordet «som» til å knytte to bilder sammen","En gjentakelse av samme ord i slutten av flere setninger på rad","En mild og skånsom omskrivning av noe ubehagelig eller vanskelig"],
       explanation: "Antitesen setter motsetninger opp mot hverandre, som Dickens' «Det var den beste av tider, det var den verste av tider».",
     },
     {
@@ -1192,7 +1192,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
   "norsk-vg3-4-10": [
     {
       question: "Hva er nærlesing?",
-      options: ["Grundig analyse av tekstens språk, form og detaljer", "Å lese med boken tett inntil ansiktet", "Å lese bare et kort sammendrag i stedet for hele selve teksten", "Å lese teksten høyt for andre slik at man hører rytmen og klangen"],
+      options: ["Grundig analyse av tekstens språk, form og detaljer","Å lese med boken holdt tett inntil ansiktet for å se bedre","Å lese bare et kort sammendrag i stedet for hele selve teksten","Å lese teksten høyt for andre slik at man hører rytmen og klangen"],
       explanation: "Nærlesing er metodisk, detaljert lesning der man undersøker ordvalg, bilder, form og struktur i selve teksten.",
     },
     {
@@ -1224,7 +1224,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forforståelse?",
-      options: ["Forutsetningene vi har med oss når vi møter en tekst", "Tekstens første kapittel", "Å lese forordet og innledningen nøye før man går løs på teksten", "Tekstens aller første kapittel, som legger grunnlaget for resten"],
+      options: ["Forutsetningene vi har med oss når vi møter en tekst","Forfatterens egen forklaring av hva teksten er ment å bety","Å lese forordet og innledningen nøye før man går løs på teksten","Tekstens aller første kapittel, som legger grunnlaget for resten"],
       explanation: "Forforståelsen omfatter kunnskap om sjanger, historie og kultur samt personlige erfaringer - alt vi bringer med inn i lesningen.",
     },
     {
@@ -1251,7 +1251,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er apokope?",
-      options: ["Bortfall av endevokal, som når «å kaste» blir «å kast»", "En ekstra vokal i slutten av ord", "Tykk, retrofleks uttale av l-lyden, som i østnorsk «sol» og «blad»", "En toneforskjell i førstestavelsen som skiller ord med lik skrivemåte"],
+      options: ["Bortfall av endevokal, som når «å kaste» blir «å kast»","En ekstra vokal som legges til i slutten av ordet ved bøyning","Tykk, retrofleks uttale av l-lyden, som i østnorsk «sol» og «blad»","En toneforskjell i førstestavelsen som skiller ord med lik skrivemåte"],
       explanation: "Apokope er bortfall av trykklett endevokal og er typisk for dialektene i Nordland og deler av Trøndelag: «å kast», «å hopp».",
     },
     {
@@ -1261,7 +1261,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er tonem (tonelag) i norsk?",
-      options: ["Toneforskjeller som skiller betydning, som «bønder» og «bønner»", "Bruken av spørsmålsintonasjon", "Talehastigheten, altså hvor mange stavelser man rekker å si i sekundet", "Bruken av stigende spørsmålsintonasjon på slutten av setninger og ytringer"],
+      options: ["Toneforskjeller som skiller betydning, som «bønder» og «bønner»","Forskjellen mellom lange og korte vokaler, slik som i «tak» og «takk»","Talehastigheten, altså hvor mange stavelser man rekker å si i sekundet","Bruken av stigende spørsmålsintonasjon på slutten av setninger og ytringer"],
       explanation: "Norsk har to tonemer: Ordpar som «bønder» (tonem 1) og «bønner» (tonem 2) skilles bare av toneforløpet.",
     },
     {
@@ -1283,7 +1283,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner infinitiv i nynorsk?",
-      options: ["Infinitiv kan ende på -a eller -e, som «å vera» eller «å vere»", "Infinitiv må alltid ha «at» foran", "Infinitiv må alltid ha småordet «at» foran seg, slik man gjør i engelsk og dansk", "Infinitiv ender alltid på -er, på samme måte som presensformen av svake verb gjør"],
+      options: ["Infinitiv kan ende på -a eller -e, som «å vera» eller «å vere»","Infinitiv skrives uten infinitivsmerke, slik at «å» alltid faller bort","Infinitiv må alltid ha småordet «at» foran seg, slik man gjør i engelsk og dansk","Infinitiv ender alltid på -er, på samme måte som presensformen av svake verb gjør"],
       explanation: "Nynorsk tillater både a-infinitiv («å vera») og e-infinitiv («å vere»), men man bør være konsekvent.",
     },
     {
@@ -1293,7 +1293,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et godt grep for å bli bedre i sidemål?",
-      options: ["Å lese mye på sidemålet og trene systematisk på bøyningsmønstrene", "Å oversette ord for ord fra hovedmålet uten ordbok", "Å skyve sidemålet unna og heller vente helt til eksamen nærmer seg med å øve", "Å oversette tekster ord for ord fra hovedmålet uten å slå opp former i ordboka"],
+      options: ["Å lese mye på sidemålet og trene systematisk på bøyningsmønstrene","Å skrive bare på hovedmålet og oversette hele teksten helt til slutt","Å skyve sidemålet unna og heller vente helt til eksamen nærmer seg med å øve","Å oversette tekster ord for ord fra hovedmålet uten å slå opp former i ordboka"],
       explanation: "Jevn lesing på sidemålet og systematisk arbeid med substantiv- og verbbøyning bygger språkfølelse over tid.",
     },
   ],
@@ -1315,7 +1315,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken vanlig feil bør bokmålsbrukere unngå når de skriver nynorsk?",
-      options: ["Å bruke bokmålsord som «bare» og «hvorfor» i stedet for «berre» og «kvifor»", "Å skrive «ikkje» i stedet for «ikke»", "Å bøye de sterke verbene korrekt etter mønsteret i den nynorske rettskrivningen", "Å skrive nektingsordet «ikkje» i stedet for bokmålsformen «ikke» gjennom teksten"],
+      options: ["Å bruke bokmålsord som «bare» og «hvorfor» i stedet for «berre» og «kvifor»","Å bruke pronomenet «eg» i stedet for bokmålsformen «jeg» gjennom hele teksten","Å bøye de sterke verbene korrekt etter mønsteret i den nynorske rettskrivningen","Å skrive nektingsordet «ikkje» i stedet for bokmålsformen «ikke» gjennom teksten"],
       explanation: "En typisk feil er å overføre bokmålsord direkte. Nynorsk har «berre», «kvifor» og «korleis» - ikke «bare», «hvorfor» og «hvordan».",
     },
     {
@@ -1327,7 +1327,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
   "norsk-vg3-5-5": [
     {
       question: "Hva kjennetegner en kortsvarsoppgave på norskeksamen?",
-      options: ["Et kort, konsentrert svar med klar struktur og presis fagterminologi", "Et svar uten krav til struktur", "Et langt, utdypende svar på minst ti sider med bred drøfting av flere sider ved emnet", "Et fritt formulert svar uten noen krav til struktur eller bruk av presise fagbegreper"],
+      options: ["Et kort, konsentrert svar med klar struktur og presis fagterminologi","Et svar der man siterer så mye som mulig fra vedlegget uten egne kommentarer","Et langt, utdypende svar på minst ti sider med bred drøfting av flere sider ved emnet","Et fritt formulert svar uten noen krav til struktur eller bruk av presise fagbegreper"],
       explanation: "Kortsvaret skal være konsentrert og presist, med tydelig svar på oppgaven og riktig bruk av fagbegreper.",
     },
     {
@@ -1337,7 +1337,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner en god langsvarsbesvarelse?",
-      options: ["Klar disposisjon med innledning, sammenhengende drøfting og avslutning", "At alle tanker skrives ned i tilfeldig rekkefølge", "Flest mulig lange sitater fra kildene, satt etter hverandre uten egne kommentarer", "At teksten bevisst unngår alle fagbegreper og heller bruker et enkelt, hverdagslig språk"],
+      options: ["Klar disposisjon med innledning, sammenhengende drøfting og avslutning","At alle tanker skrives ned i den tilfeldige rekkefølgen de dukker opp i","Flest mulig lange sitater fra kildene, satt etter hverandre uten egne kommentarer","At teksten bevisst unngår alle fagbegreper og heller bruker et enkelt, hverdagslig språk"],
       explanation: "Langsvaret krever helhetlig struktur: en innledning som presenterer prosjektet, en sammenhengende hoveddel og en avslutning som samler trådene.",
     },
     {
@@ -1364,7 +1364,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er formålet med fagsamtalen?",
-      options: ["Å teste breddekunnskap, utdype presentasjonen og se om du kan reflektere faglig", "Å sjekke om du har pugget presentasjonen ordrett", "Å sjekke om du klarer å gjengi hele presentasjonen din helt ordrett og utenat på nytt", "Å diskutere hvilken karakter du fortjener og forhandle om vurderingen sammen med sensor"],
+      options: ["Å teste breddekunnskap, utdype presentasjonen og se om du kan reflektere faglig","Å la kandidaten holde en ny og helt annerledes presentasjon om et emne sensor velger","Å sjekke om du klarer å gjengi hele presentasjonen din helt ordrett og utenat på nytt","Å diskutere hvilken karakter du fortjener og forhandle om vurderingen sammen med sensor"],
       explanation: "I fagsamtalen stiller sensorene utdypende spørsmål for å teste forståelse, bredde og evnen til selvstendig refleksjon.",
     },
     {
@@ -1386,7 +1386,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken katastrofe innleder den mellomnorske perioden?",
-      options: ["Svartedauden i 1349-1350", "Unionen med Sverige", "Den store bybrannen i Bergen som la hansaens kontorer på Bryggen i aske", "Bybrannen i Bergen"],
+      options: ["Svartedauden i 1349-1350","Unionen med Sverige","Den store bybrannen i Bergen som la Bryggen i aske","Reformasjonen i 1537"],
       explanation: "Svartedauden tok livet av store deler av befolkningen, deriblant mange skriftkyndige, og svekket det norske skriftspråket avgjørende.",
     },
     {
@@ -1401,7 +1401,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken betydning fikk reformasjonen i 1537 for skriftspråket i Norge?",
-      options: ["Dansk ble kirke- og skriftspråk, blant annet gjennom den danske bibelen", "Norsk ble gjeninnført som skriftspråk", "Norge fikk sin egen norskspråklige bibeloversettelse allerede på 1500-tallet", "Norsk ble gjeninnført som offisielt skriftspråk i kirke, skole og forvaltning"],
+      options: ["Dansk ble kirke- og skriftspråk, blant annet gjennom den danske bibelen","Latin overtok som skriftspråk i kirken og fortrengte både dansk og norsk","Norge fikk sin egen norskspråklige bibeloversettelse allerede på 1500-tallet","Norsk ble gjeninnført som offisielt skriftspråk i kirke, skole og forvaltning"],
       explanation: "Med reformasjonen kom dansk bibel og liturgi, og dansk befestet seg som skriftspråket i Norge gjennom hele dansketiden.",
     },
   ],
@@ -1428,7 +1428,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva var hensikten med rettskrivningsreformene i 1917 og 1938?",
-      options: ["Å føre bokmål og nynorsk nærmere hverandre, med samnorsk som mål", "Å gjøre avstanden mellom målformene størst mulig", "Å gjeninnføre de gamle danske skriftformene som var i bruk gjennom hele dansketiden", "Å avskaffe nynorsken helt slik at bokmål ble stående som landets eneste skriftspråk"],
+      options: ["Å føre bokmål og nynorsk nærmere hverandre, med samnorsk som mål","Å gjøre avstanden mellom de to målformene størst mulig i skrift og tale","Å gjeninnføre de gamle danske skriftformene som var i bruk gjennom hele dansketiden","Å avskaffe nynorsken helt slik at bokmål ble stående som landets eneste skriftspråk"],
       explanation: "Reformene skulle nærme målformene til hverandre i håp om et fremtidig samlet samnorsk - en politikk som senere ble forlatt.",
     },
   ],
@@ -1455,7 +1455,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilket av disse trekkene kjennetegner «Min kamp»?",
-      options: ["Ekstrem ærlighet og detaljert skildring av det tilsynelatende trivielle", "Allegorisk fantasiverden", "En allegorisk fantasiverden der personer og steder står for noe helt annet", "En stram kriminalintrige med spenning, mistenkte og en oppklaring til slutt"],
+      options: ["Ekstrem ærlighet og detaljert skildring av det tilsynelatende trivielle","Et stramt komponert plott med overraskende vendinger og en tydelig slutt","En allegorisk fantasiverden der personer og steder står for noe helt annet","En stram kriminalintrige med spenning, mistenkte og en oppklaring til slutt"],
       explanation: "Knausgård kombinerer skamløs ærlighet om eget liv med omfattende skildringer av hverdagslige detaljer - og gir trivialiteten litterær ambisjon.",
     },
   ],
@@ -1472,7 +1472,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvem er Sumaya Jirde Ali?",
-      options: ["En poet og samfunnsdebattant med somalisk bakgrunn", "En dramatiker fra 1800-tallet", "En norrønfilolog som forsker på gammelnorske håndskrifter og sagalitteratur", "En svensk krimforfatter kjent for spenningsromaner oversatt til mange språk"],
+      options: ["En poet og samfunnsdebattant med somalisk bakgrunn","En dramatiker fra 1800-tallet som skrev om bondesamfunnet","En norrønfilolog som forsker på gammelnorske håndskrifter og sagalitteratur","En svensk krimforfatter kjent for spenningsromaner oversatt til mange språk"],
       explanation: "Sumaya Jirde Ali (f. 1996) er poet og samfunnsdebattant, en markant ny stemme i norsk offentlighet og litteratur.",
     },
     {
@@ -1489,7 +1489,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
   "norsk-vg3-8-1": [
     {
       question: "Hva er etos i retorikken?",
-      options: ["Appell gjennom avsenderens troverdighet og karakter", "Appell til følelsene", "Appell gjennom logiske argumenter, fakta og fornuftige slutninger", "Appell gjennom å vekke sterke følelser hos den lyttende mottakeren"],
+      options: ["Appell gjennom avsenderens troverdighet og karakter","Appell gjennom talerens kroppsspråk og stemmebruk på scenen","Appell gjennom logiske argumenter, fakta og fornuftige slutninger","Appell gjennom å vekke sterke følelser hos den lyttende mottakeren"],
       explanation: "Etos er overbevisning gjennom avsenderens troverdighet - kunnskap, ærlighet og velvilje overfor mottakeren.",
     },
     {
@@ -1531,7 +1531,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner essayets komposisjon?",
-      options: ["Fri struktur der avsnittene følger tankens bevegelser, ofte assosiativt", "En fast femavsnittsmodell med innledning, tre argumenter og avslutning", "Et strengt kronologisk handlingsreferat fra begynnelse til slutt i teksten", "Punktlister der konklusjonen alltid presenteres helt først og deretter belegg"],
+      options: ["Fri struktur der avsnittene følger tankens bevegelser, ofte assosiativt","En fast femavsnittsmodell med innledning, tre argumenter og en avslutning","Et strengt kronologisk handlingsreferat fra begynnelse til slutt i teksten","Punktlister der konklusjonen alltid presenteres helt først og deretter belegg"],
       explanation: "Essayet har ikke fast mal: Komposisjonen følger tankens vandring og kan være sirkulær eller assosiativ.",
     },
     {
@@ -1580,7 +1580,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva bør et handlingsreferat i en tolkningsoppgave være?",
-      options: ["Kort - bare det nødvendige for å følge analysen", "En ordrett gjengivelse av teksten", "Mesteparten av besvarelsen, gjerne over halve teksten", "En ordrett gjengivelse av teksten fra start til slutt"],
+      options: ["Kort - bare det nødvendige for å følge analysen","Plassert helt til slutt, etter tolkningen og konklusjonen","Mesteparten av besvarelsen, gjerne over halve teksten","En ordrett gjengivelse av teksten fra start til slutt"],
       explanation: "Referatet skal være kort og funksjonelt. Analysen og tolkningen er det som viser faglig kompetanse og gir uttelling.",
     },
     {
@@ -1602,7 +1602,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner lyrikken i nyromantikken og symbolismen (ca. 1890-1920)?",
-      options: ["Stemninger, sjeleliv og symboler fremfor samfunnsdebatt", "Rene naturvitenskapelige beskrivelser", "Politiske kampdikt med tydelige paroler og samfunnskritikk", "Sosialrealistiske skildringer av arbeiderklassens harde kår"],
+      options: ["Stemninger, sjeleliv og symboler fremfor samfunnsdebatt","Rene naturvitenskapelige beskrivelser av arv, miljø og samfunn","Politiske kampdikt med tydelige paroler og samfunnskritikk","Sosialrealistiske skildringer av arbeiderklassens harde kår"],
       explanation: "1890-tallslyrikken vendte seg innover mot stemninger, drømmer og det mystiske, med Obstfelder som sentral skikkelse.",
     },
     {
@@ -1671,14 +1671,14 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
     },
     {
       question: "I hvilket landskap er Vesaas' diktning rotfestet?",
-      options: ["Telemark, der han bodde på slektsgården i Vinje", "Finnmarksvidda", "Hardanger, der han drev gård og skrev naturlyrikk", "Setesdal, der de gamle folkevisene preget språket hans"],
+      options: ["Telemark, der han bodde på slektsgården i Vinje","Finnmarksvidda, der reindriftsmiljøet satte sitt preg","Hardanger, der han drev gård og skrev naturlyrikk","Setesdal, der de gamle folkevisene preget språket hans"],
       explanation: "Vesaas bodde hele livet i Vinje i Telemark, og naturlandskapet der gjennomsyrer romanene og lyrikken hans.",
     },
   ],
   "norsk-vg3-9-4": [
     {
       question: "Hvilke dramatikere markerer henholdsvis begynnelsen og slutten på linjen i norsk dramahistorie fra 1880 til i dag?",
-      options: ["Henrik Ibsen og Jon Fosse", "Heiberg og Bjørneboe", "Ludvig Holberg og Henrik Ibsen", "Gunnar Heiberg og Jens Bjørneboe"],
+      options: ["Henrik Ibsen og Jon Fosse","Ludvig Holberg og Jon Fosse","Ludvig Holberg og Henrik Ibsen","Gunnar Heiberg og Jens Bjørneboe"],
       explanation: "Linjen går fra Ibsens realistiske samtidsdramaer på 1880-tallet til Jon Fosses internasjonalt spilte minimalistiske drama i dag.",
     },
     {
@@ -1710,7 +1710,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner høy måloppnåelse (karakter 5-6) på muntlig eksamen?",
-      options: ["Bred fagkunnskap, presis begrepsbruk, selvstendig refleksjon og evne til å se sammenhenger", "Å gjengi lærebokens formuleringer ordrett uten egen refleksjon rundt stoffet", "Å unngå alle fagbegreper og heller forklare alt med enkle hverdagsord", "Å snakke lengst mulig og fylle tiden med løs oppramsing av årstall"],
+      options: ["Bred fagkunnskap, presis begrepsbruk, selvstendig refleksjon og evne til å se sammenhenger","Å gjengi lærebokens formuleringer ordrett uten egen refleksjon rundt stoffet","Å unngå alle fagbegreper og heller forklare alt med enkle hverdagsord","Å snakke lengst mulig og fylle tiden med løs oppramsing av årstall og titler uten sammenheng"],
       explanation: "Høy måloppnåelse krever sikker kunnskap, naturlig bruk av fagbegreper, selvstendig refleksjon, relevante eksempler og klar kommunikasjon.",
     },
     {
@@ -1720,7 +1720,7 @@ const quizData_norsk_vg3: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor bør du øve med simulering før muntlig eksamen?",
-      options: ["Å fremføre og svare på spørsmål under realistiske forhold gjør deg tryggere og avslører hull", "Fordi simulering kan erstatte all annen lesing og repetisjon før eksamen", "Fordi det ikke har noen effekt, men gir en falsk følelse av trygghet", "Fordi sensor krever videobevis på at du har øvd hjemme på forhånd"],
+      options: ["Å fremføre og svare på spørsmål under realistiske forhold gjør deg tryggere og avslører hull","Fordi simulering helt kan erstatte all annen lesing og repetisjon i ukene før selve eksamensdagen","Fordi det ikke har noen effekt, men gir en falsk følelse av trygghet","Fordi sensor krever videobevis på at du har øvd hjemme på forhånd, og vil se det før eksamen begynner"],
       explanation: "Å øve presentasjonen høyt og la noen stille oppfølgingsspørsmål trener både fremføring og fagsamtale - og avdekker hva du må repetere.",
     },
     {
