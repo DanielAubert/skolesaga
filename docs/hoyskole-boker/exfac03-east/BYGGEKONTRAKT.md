@@ -2224,8 +2224,17 @@ python3 scripts/hoyskolebok/sjekk-prosaregel.py exfac03-east \
     "historisk|skikkelse|reformist|ikke pensumforfatter|navngitt i veiledningen"
 
 # 11. KARAKTERPORTEN: A–F kun med forbeholdet
+#
+# ⚠ MØNSTERET ER FORANKRET, RETTET 10. august 2026. Første versjon var
+# "A–F|A-F", og porten kjøres case-insensitivt — den traff derfor «contr[a-f]lows»
+# (9 ganger i kap. 7.2 alene), «ultr[a-f]in» og «Kontr[a-F]aktisk». Ingen av dem
+# har med karakterskalaen å gjøre, og `contra-flows` er obligatorisk fagform
+# etter §9.3. En port som roper ulv, blir ignorert.
+#
+# Lookbehind-en krever at «A» ikke står inne i et ord. Verifisert: fanger
+# «A–F-skalaen» og «en A-F-vurdering», slipper de tre formene over.
 python3 scripts/hoyskolebok/sjekk-prosaregel.py exfac03-east --streng \
-    "A–F|A-F" \
+    "(?<![a-zæøåA-ZÆØÅ])A[–-]F\b" \
     "semesteroppgave|H2025|gjelder ikke trespørsmål|forbehold|ikke karakterskalaen for"
 
 # 12. KI-PORTEN: forbudet er belagt for H2025 alene
