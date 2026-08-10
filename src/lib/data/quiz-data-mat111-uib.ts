@@ -34,22 +34,22 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er «signaturoppgaven» i MAT111, og hvor ofte har den stått siste ti år?",
-      options: ["Kontinuitet/deriverbarhet i ett punkt — 79 % av settene siste tiår", "Full funksjonsdrøfting med asymptoter og fortegnsskjema — den står i nesten hvert eneste sett", "Bevis for skjæringssetningen — annethvert sett", "Konvergens av uendelige rekker — 79 % av settene"],
+      options: ["Kontinuitet/deriverbarhet i ett punkt — 79 % av settene siste tiår", "Full funksjonsdrøfting — i nesten hvert sett", "Bevis for skjæringssetningen — annethvert sett", "Konvergens av uendelige rekker — 79 % av settene"],
       explanation: "Oscillasjonsfamilien $x^k\\sin/\\cos(1/x^m)$ med skvis og differansekvotient er UiBs teoritunge gjenganger og den tydeligste karakterskilleren.",
     },
     {
       question: "Hvorfor dekker boka uendelige rekker når frekvensen etter 2005 er null?",
-      options: ["De står i emnebeskrivelsen for 2026 og er dermed pensumpliktige", "Fordi rekker er det hyppigste enkelttemaet i grunnkursene ved de andre norske universitetene", "De dekkes ikke — del 7 handler om noe annet", "Fordi rekker alltid kommer tilbake i vårsettene"],
+      options: ["De står i emnebeskrivelsen for 2026 og er dermed pensumpliktige", "Fordi rekker er det hyppigste enkelttemaet", "De dekkes ikke — del 7 handler om noe annet", "Fordi rekker alltid kommer tilbake i vårsettene"],
       explanation: "Frekvensstyringens ene unntak: pensumplikt trumfer arkivet. Del 7 dekker stoffet kompakt, med ærlighetsforbeholdet sagt rett ut.",
     },
     {
       question: "En kjedet deloppgave bygger på et delsvar du ikke fikk til. Hva er riktig grep?",
-      options: ["Anta/bruk det oppgitte delsvaret, si at du gjør det, og høst fremgangsmåtepoengene", "Hopp over hele oppgaven — uten første ledd er resten poengløs", "Regn første ledd på nytt helt til det stemmer, uansett hvor mye eksamenstid det skulle koste", "Svar bare med sluttformelen uten mellomregning"],
+      options: ["Anta/bruk det oppgitte delsvaret, si at du gjør det, og høst fremgangsmåtepoengene", "Hopp over hele oppgaven — uten riktig første ledd kan ingen av de senere leddene gi poeng for fremgangsmåte", "Regn første ledd på nytt helt til det stemmer, uansett hvor mye eksamenstid det skulle koste", "Svar bare med sluttformelen uten mellomregning, siden det er sluttsvaret og ikke fremgangsmåten som gir poeng"],
       explanation: "Poengene i hvert ledd deles ut for leddets egen fremgangsmåte. Å forlate en kjedet oppgave fordi første ledd røk, er en dyr metafeil.",
     },
     {
       question: "Hvilken av disse er en dokumentert tidsfelle i MAT111-arkivet?",
-      options: ["Å regne fire Newton-iterasjoner der oppgaven ber om én", "Å tegne en hjelpefigur med navngitte variabler i relaterte rater-oppgaver", "Å skrive konklusjonssetning med enhet", "Å navngi teoremene man bruker"],
+      options: ["Å regne fire Newton-iterasjoner der oppgaven ber om én", "Å tegne en hjelpefigur med navngitte variabler i relaterte rater-oppgaver", "Å skrive konklusjonssetning med enhet i stedet for å la sluttsvaret stå alene", "Å navngi teoremene man bruker i stedet for bare å vise selve utregningen"],
       explanation: "Ekstra iterasjoner (og unødvendige ensidige grenser) stjeler minutter uten å gi poeng. Figur, enhet og teoremnavn er derimot god føring.",
     },
   ],
@@ -76,7 +76,7 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Første steg for å skrive $z=a+bi$ på polarform bør være å:",
-      options: ["tegne punktet $(a,b)$ og finne kvadranten", "regne $\\arctan(b/a)$ direkte på kalkulator", "opphøye $z$ i andre for å finne $r$", "dele på $\\bar z$ for å normere $z$"],
+      options: ["tegne punktet $(a,b)$ og finne kvadranten", "regne $\\arctan(b/a)$ direkte på kalkulator", "opphøye $z$ i andre for å finne $r$", "dele på $\\bar z$ for å normere $z$ før argumentet leses av"],
       explanation: "Å tegne punktet avgjør kvadranten, slik at argumentet blir riktig. $\\arctan$ alene bommer i kvadrant 2 og 3.",
     },
     {
@@ -91,7 +91,7 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor holder det ikke å sette $\\theta=\\arctan(b/a)$ blindt?",
-      options: ["$\\arctan$ gir alltid svar i $(-\\tfrac{\\pi}{2},\\tfrac{\\pi}{2})$ og bommer i kvadrant 2 og 3", "$\\arctan$ gir alltid svar i $(0,2\\pi)$ og bommer i kvadrant 1", "$\\arctan(b/a)$ gir modulusen, ikke argumentet, til tallet", "$\\arctan$ er udefinert for alle rent imaginære tall $bi$"],
+      options: ["$\\arctan$ gir alltid svar i $(-\\tfrac{\\pi}{2},\\tfrac{\\pi}{2})$ og bommer i kvadrant 2 og 3", "$\\arctan$ gir alltid svar i $(0,2\\pi)$ og bommer i kvadrant 1, der man må trekke fra $\\pi$ for å få riktig vinkel", "$\\arctan(b/a)$ gir modulusen, ikke argumentet, til tallet, så vinkelen må finnes på en helt annen måte", "$\\arctan$ er udefinert for alle rent imaginære tall $bi$, så slike tall kan ikke skrives på polarform"],
       explanation: "$\\arctan$ har verdimengde $(-\\pi/2,\\pi/2)$, så for tall i 2. og 3. kvadrant må du legge til eller trekke fra $\\pi$ etter kvadrant.",
     },
     {
@@ -106,17 +106,17 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "På polarform: hva skjer med argumentene når du multipliserer $r_1e^{i\\theta_1}\\cdot r_2e^{i\\theta_2}$?",
-      options: ["de adderes, og modulusene multipliseres", "de multipliseres, og modulusene adderes", "de subtraheres, og modulusene divideres", "de blir uendret, kun modulusene endres"],
+      options: ["de adderes, og modulusene multipliseres", "de multipliseres, og modulusene adderes, slik at vinklene ganges sammen", "de subtraheres, og modulusene divideres", "de blir uendret, kun modulusene endres når faktorene ganges"],
       explanation: "$r_1e^{i\\theta_1}\\cdot r_2e^{i\\theta_2}=r_1r_2\\,e^{i(\\theta_1+\\theta_2)}$: modulus ganges, argument legges sammen.",
     },
     {
       question: "Hva er $|z-3i|=2$ geometrisk?",
-      options: ["en sirkel med sentrum $(0,3)$ og radius $2$", "en sirkel med sentrum $(0,-3)$ og radius $2$", "en midtnormal mellom $0$ og $3i$", "en linje gjennom $(0,3)$ med stigning $2$"],
+      options: ["en sirkel med sentrum $(0,3)$ og radius $2$", "en sirkel med sentrum $(0,-3)$ og radius $2$", "en midtnormal mellom $0$ og $3i$", "en linje gjennom $(0,3)$ med stigning $2$, altså en rett graf og ingen sirkel"],
       explanation: "$|z-3i|$ er avstanden til $3i=(0,3)$; «avstand lik $2$» gir sirkelen med sentrum $(0,3)$ og radius $2$.",
     },
     {
       question: "Mengden $|z-a|=|z-b|$ beskriver:",
-      options: ["midtnormalen til linjestykket mellom $a$ og $b$", "sirkelen med diameter fra $a$ til $b$", "linjestykket som forbinder $a$ og $b$", "ellipsen med brennpunkter $a$ og $b$"],
+      options: ["midtnormalen til linjestykket mellom $a$ og $b$", "sirkelen med diameter fra $a$ til $b$, altså randen rundt strekningen mellom dem", "linjestykket som forbinder $a$ og $b$", "ellipsen med brennpunkter $a$ og $b$, altså en lukket kurve rundt begge punktene"],
       explanation: "Punkter like langt fra $a$ og $b$ danner den vinkelrette halveringslinja — midtnormalen.",
     },
     {
@@ -183,7 +183,7 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er det vanligste feilgrepet som gir bare én rot i stedet for alle?",
-      options: ["å glemme $2k\\pi$-leddet i argumentet", "å glemme å opphøye modulusen", "å bruke normalform i stedet for polar", "å redusere argumentet for mye"],
+      options: ["å glemme $2k\\pi$-leddet i argumentet", "å glemme å opphøye modulusen, slik at bare én av røttene kommer fram", "å bruke normalform i stedet for polar", "å redusere argumentet for mye, slik at røttene faller sammen i én"],
       explanation: "Uten $2k\\pi$-leddet får du bare prinsipalroten. $(\\varphi+2k\\pi)/n$ for $k=0,\\dots,n-1$ gir alle.",
     },
     {
@@ -198,7 +198,7 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan ligger de $n$ røttene av $z^n=w$ i planet?",
-      options: ["jevnt fordelt på en sirkel med radius $R^{1/n}$", "jevnt fordelt på en rett linje ut fra origo", "samlet nær prinsipalroten på sirkelen", "på en spiral som vokser utover fra origo"],
+      options: ["jevnt fordelt på en sirkel med radius $R^{1/n}$", "jevnt fordelt på en rett linje ut fra origo, med lik avstand mellom nabo-røttene", "samlet nær prinsipalroten på sirkelen, i en klynge med små vinkelavstander", "på en spiral som vokser utover fra origo, slik at hver rot får større modulus"],
       explanation: "Røttene danner en regulær $n$-kant på sirkelen med radius $R^{1/n}$, med vinkelavstand $2\\pi/n$.",
     },
     {
@@ -218,7 +218,7 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan løser du en bikvadratisk likning $z^4+pz^2+q=0$?",
-      options: ["substituer $u=z^2$, løs for $u$, ta så kvadratrot", "del alt på $z^2$ og løs den resulterende lineære likningen", "sett $u=z^4$ og løs den lineære likningen", "deriver venstresiden og finn nullpunktene"],
+      options: ["substituer $u=z^2$, løs for $u$, ta så kvadratrot", "del alt på $z^2$ og løs den resulterende lineære likningen", "sett $u=z^4$ og løs den lineære likningen som da står igjen", "deriver venstresiden og finn nullpunktene til den deriverte"],
       explanation: "$u=z^2$ gir andregradslikningen $u^2+pu+q=0$; hver $u$ gir $z=\\pm\\sqrt{u}$, til sammen fire løsninger.",
     },
     {
@@ -270,7 +270,7 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
   'mat111-uib-1-3': [
     {
       question: "Hva forteller diskriminanten $D=b^2-4ac<0$ (reelle koeffisienter)?",
-      options: ["to komplekse konjugerte røtter", "én dobbel reell rot", "to forskjellige reelle røtter", "ingen røtter i det hele tatt, verken reelle eller komplekse"],
+      options: ["to komplekse konjugerte røtter", "én dobbel reell rot, altså to sammenfallende reelle løsninger", "to forskjellige reelle røtter, uten imaginærledd i noen av dem", "ingen røtter i det hele tatt, verken reelle eller komplekse"],
       explanation: "$D<0$ gir $\\sqrt D=i\\sqrt{|D|}$, altså to konjugerte komplekse røtter $\\alpha\\pm\\beta i$.",
     },
     {
@@ -300,12 +300,12 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva sier algebraens fundamentalteorem?",
-      options: ["grad $n$ gir nøyaktig $n$ røtter i $\\mathbb{C}$ (m/multiplisitet)", "grad $n$ gir nøyaktig $n$ reelle røtter når koeffisientene er reelle", "ethvert polynom har minst én reell rot", "komplekse røtter finnes bare for like grad"],
+      options: ["grad $n$ gir nøyaktig $n$ røtter i $\\mathbb{C}$ (m/multiplisitet)", "grad $n$ gir nøyaktig $n$ reelle røtter når koeffisientene er reelle", "ethvert polynom har minst én reell rot, uansett grad og uansett om koeffisientene er komplekse", "komplekse røtter finnes bare for like grad, mens oddegrad utelukkende gir reelle røtter"],
       explanation: "Et gradtall-$n$-polynom har nøyaktig $n$ komplekse røtter regnet med multiplisitet — derfor $n$ lineære faktorer over $\\mathbb{C}$.",
     },
     {
       question: "Hvordan ser faktoriseringen over $\\mathbb{R}$ ut for et reelt polynom?",
-      options: ["lineære faktorer og irreduserbare kvadratiske", "bare lineære faktorer", "bare kvadratiske faktorer", "lineære, kvadratiske og kubiske faktorer om hverandre"],
+      options: ["lineære faktorer og irreduserbare kvadratiske", "bare lineære faktorer, én for hver rot, også når røttene ikke er reelle", "bare kvadratiske faktorer", "lineære, kvadratiske og kubiske faktorer om hverandre"],
       explanation: "Over $\\mathbb{R}$: én lineær faktor per reell rot, én irreduserbar kvadratisk per konjugatpar.",
     },
     {
@@ -330,7 +330,7 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Etter polynomdivisjon: hvordan sjekker du raskt at faktoriseringen stemmer?",
-      options: ["gang faktorene sammen igjen og se om du får $p$", "deriver $p$ og sjekk at $p'$ har de samme nullpunktene", "sett $z=0$ i restfaktoren", "tell antall ledd i restfaktoren"],
+      options: ["gang faktorene sammen igjen og se om du får $p$", "deriver $p$ og sjekk at $p'$ har de samme nullpunktene", "sett $z=0$ i restfaktoren", "tell antall ledd i restfaktoren og se om tallet stemmer med graden"],
       explanation: "Gjenmultiplikasjon (eller å sette en kjent rot inn i restfaktoren) fanger regnefeil i divisjonen.",
     },
     {
@@ -345,7 +345,7 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor har hvert reelt tredjegradspolynom minst én reell rot?",
-      options: ["ikke-reelle røtter kommer i par, så oddegrad gir en reell", "tredjegradspolynomer har alltid tre forskjellige reelle røtter", "diskriminanten er alltid positiv for grad tre", "komplekse røtter finnes bare for grad fire og opp"],
+      options: ["ikke-reelle røtter kommer i par, så oddegrad gir en reell", "tredjegradspolynomer har alltid tre forskjellige reelle røtter", "diskriminanten er alltid positiv for grad tre, så røttene kan ikke bli komplekse", "komplekse røtter finnes bare for grad fire og opp"],
       explanation: "Ikke-reelle røtter opptrer parvis; et odde antall røtter kan derfor ikke være rent komplekst — minst én er reell.",
     },
     {
@@ -355,17 +355,17 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Er $z^2-iz$ et moteksempel mot konjugatrotsetningen?",
-      options: ["ja, koeffisientene er komplekse så setningen gjelder ikke", "nei, setningen gjelder for alle polynomer uansett koeffisienter", "ja, men bare fordi graden er to", "nei, $z^2-iz$ har ingen røtter"],
+      options: ["ja, koeffisientene er komplekse så setningen gjelder ikke", "nei, setningen gjelder for alle polynomer", "ja, men bare fordi graden er to", "nei, $z^2-iz$ har ingen røtter"],
       explanation: "$z^2-iz$ har røtter $0$ og $i$, men $\\bar i=-i$ er ikke rot — setningen krever reelle koeffisienter.",
     },
     {
       question: "En reell kvadratisk faktor $z^2+2z+4$ — er den ferdig faktorisert over $\\mathbb{C}$?",
-      options: ["nei, over $\\mathbb{C}$ må den splittes i to lineære faktorer", "ja, kvadratiske faktorer er alltid ferdige", "ja, siden diskriminanten er negativ", "nei, den må først skrives om som et produkt av tredjegradsfaktorer"],
+      options: ["nei, over $\\mathbb{C}$ må den splittes i to lineære faktorer", "ja, kvadratiske faktorer er alltid ferdige og kan ikke splittes opp videre", "ja, siden diskriminanten er negativ og negativ diskriminant stenger for oppdeling", "nei, den må først skrives om som et produkt av tredjegradsfaktorer"],
       explanation: "Over $\\mathbb{C}$ splittes den til $(z-(-1+\\sqrt3 i))(z-(-1-\\sqrt3 i))$. Irreduserbel gjelder bare over $\\mathbb{R}$.",
     },
     {
       question: "Hvordan går du fra ett kjent (ikke-reelt) rot $z_0$ til resten av faktoriseringen?",
-      options: ["lag reell faktor fra $z_0,\\bar z_0$ og del $p$ på den", "del $p$ på $(z-z_0)$ direkte med komplekse tall", "gjett de andre røttene og sjekk", "deriver $p$ og finn nullpunktene til $p'$, som gir resten av røttene"],
+      options: ["lag reell faktor fra $z_0,\\bar z_0$ og del $p$ på den", "del $p$ på $(z-z_0)$ direkte med komplekse tall og se bort fra konjugatet", "gjett de andre røttene og sjekk ved innsetting til alle stemmer", "deriver $p$ og finn nullpunktene til $p'$, som gir resten av røttene"],
       explanation: "Konjugatparet gir en reell kvadratisk faktor; polynomdivisjon med den gir restfaktoren og de øvrige røttene.",
     },
     {
@@ -375,7 +375,7 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en god sluttkontroll på at en faktorisering er komplett?",
-      options: ["summen av faktorenes grader er lik $\\deg p$", "at alle faktorene har positivt konstantledd og positiv ledende koeffisient", "at ingen faktor inneholder $i$", "at ledende koeffisient er fjernet"],
+      options: ["summen av faktorenes grader er lik $\\deg p$", "at alle faktorene har positivt konstantledd og positiv ledende koeffisient", "at ingen faktor inneholder $i$, uansett hvilket tallområde du faktoriserer over", "at ledende koeffisient er fjernet før faktorene skrives opp"],
       explanation: "Tell gradene: de skal summere til $\\deg p$, og ingen faktor skal kunne splittes videre over det aktuelle tallområdet.",
     },
   ],
@@ -437,17 +437,17 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Mengden $|z-1|=|z+3|$ er:",
-      options: ["den loddrette linja $x=-1$", "en sirkel om $(1,0)$", "den vannrette linja $y=-1$", "linjestykket fra $1$ til $-3$"],
+      options: ["den loddrette linja $x=-1$", "en sirkel om $(1,0)$", "den vannrette linja $y=-1$ i det komplekse planet", "linjestykket fra $1$ til $-3$"],
       explanation: "Midtnormalen mellom $(1,0)$ og $(-3,0)$: $-2x+1=6x+9\\Rightarrow x=-1$.",
     },
     {
       question: "Hva menes med at delpunktene i en åpningsoppgave er «kjedet»?",
-      options: ["et delsvar (f.eks. en faktorisering) gjenbrukes senere", "alle delpunktene har samme svar skrevet på ulike former", "du må løse dem i omvendt rekkefølge", "hvert delpunkt teller dobbelt så mye"],
+      options: ["et delsvar (f.eks. en faktorisering) gjenbrukes senere", "alle delpunktene har samme svar skrevet på ulike former", "du må løse dem i omvendt rekkefølge, altså begynne med det siste delpunktet", "hvert delpunkt teller dobbelt så mye"],
       explanation: "MAT111-åpninger gjenbruker ofte et tidligere delsvar; å se kjeden sparer regning.",
     },
     {
       question: "Når skal et polarform-svar skrives ut til normalform?",
-      options: ["når oppgaven eksplisitt ber om normalform", "alltid, uansett hva som spørres", "aldri — polarform er alltid nok", "bare når modulusen ikke er heltall"],
+      options: ["når oppgaven eksplisitt ber om normalform", "alltid, uansett hva som spørres om i oppgaveteksten", "aldri — polarform er alltid nok, uansett hva oppgaven ber om", "bare når modulusen ikke er heltall"],
       explanation: "Lever i den formen oppgaven ber om. Polarsvar der normalform er etterspurt gir trekk.",
     },
     {
@@ -462,7 +462,7 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Etter en polynomdivisjon i en faktoriseringsoppgave — hva bør du gjøre?",
-      options: ["gange faktorene sammen igjen som kontroll", "runde av alle koeffisientene", "droppe den reelle faktoren og bare oppgi de komplekse", "bytte til polarform"],
+      options: ["gange faktorene sammen igjen som kontroll", "runde av alle koeffisientene", "droppe den reelle faktoren og bare oppgi de komplekse", "bytte til polarform før faktorene skrives opp i svaret"],
       explanation: "Gjenmultiplikasjon (eller innsetting av en rot) fanger regnefeil i divisjonen — billig forsikring.",
     },
     {
@@ -474,7 +474,7 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
   'mat111-uib-2-1': [
     {
       question: "I ε-δ-definisjonen: hvilken størrelse gis først, og hvilken skal du velge etterpå?",
-      options: ["$\\varepsilon$ gis først; deretter velger du $\\delta$ (som får avhenge av $\\varepsilon$)", "$\\delta$ gis først; deretter velger du $\\varepsilon$ (som får avhenge av $\\delta$)", "Begge velges samtidig og uavhengig av hverandre", "$x$ gis først, deretter både $\\varepsilon$ og $\\delta$"],
+      options: ["$\\varepsilon$ gis først; deretter velger du $\\delta$ (som får avhenge av $\\varepsilon$)", "$\\delta$ gis først; deretter velger du $\\varepsilon$ (som får avhenge av $\\delta$), altså motsatt kvantorrekkefølge", "Begge velges samtidig og uavhengig av hverandre, slik at ingen av dem får lov til å avhenge av den andre", "$x$ gis først, deretter både $\\varepsilon$ og $\\delta$, slik at toleransen først velges når punktet er låst"],
       explanation: "Kvantorrekkefølgen er $\\forall\\varepsilon\\ \\exists\\delta$: toleransen $\\varepsilon$ er gitt, og du svarer med et $\\delta$ som avhenger av $\\varepsilon$.",
     },
     {
@@ -489,12 +489,12 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor bruker vi $\\delta=\\min\\{1,\\ \\varepsilon/K\\}$ og ikke bare $\\delta=\\varepsilon/K$?",
-      options: ["For at kontrollkravet $|x-a|<1$ også skal holde, slik at $|g(x)|\\le K$ er garantert", "Fordi $\\varepsilon/K$ alltid er negativt, og $\\delta$ må velges positivt for at definisjonen skal gi mening", "Fordi $\\delta$ må være et helt tall", "Det er ingen forskjell; $\\min$ er bare pynt"],
+      options: ["For at kontrollkravet $|x-a|<1$ også skal holde, slik at $|g(x)|\\le K$ er garantert", "Fordi $\\varepsilon/K$ alltid er negativt, og $\\delta$ må velges positivt for at definisjonen skal gi mening", "Fordi $\\delta$ må være et helt tall, og $\\min$ sørger for at valget lander på et heltall og ikke en brøk", "Det er ingen forskjell; $\\min$ er bare pynt, og $\\delta=\\varepsilon/K$ gjør nøyaktig samme nytte alene"],
       explanation: "Uten $|x-a|<1$ er ikke avgrensningen $|g(x)|\\le K$ sikret. $\\min$ tvinger begge kravene til å holde samtidig.",
     },
     {
       question: "Hva er det siste (avgjørende) steget i et ε-δ-bevis?",
-      options: ["Verifisere implikasjonen: anta $0<|x-a|<\\delta$ og vis at $|f(x)-L|<\\varepsilon$", "Oppgi et konkret tall for $\\delta$ og stoppe der — valget trenger ingen verifikasjon", "Regne ut grenseverdien $L$", "Tegne grafen til $f$"],
+      options: ["Verifisere implikasjonen: anta $0<|x-a|<\\delta$ og vis at $|f(x)-L|<\\varepsilon$", "Oppgi et konkret tall for $\\delta$ og stoppe der", "Regne ut grenseverdien $L$", "Tegne grafen til $f$"],
       explanation: "Selve verifikasjonen er beviset. Et $\\delta$-valg uten den fullførte implikasjonen er bare en påstand.",
     },
     {
@@ -519,7 +519,7 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En funksjon har $\\lim_{x\\to a}f(x)=L$ men er ikke definert i $a$. Er dette mulig?",
-      options: ["Ja — grensen avhenger bare av oppførselen i den punkterte omegnen, ikke av $f(a)$", "Nei — grensen krever at $f(a)=L$", "Nei — grensedefinisjonen krever at $f(a)$ finnes og brukes som sammenligningspunkt", "Bare hvis $L=0$"],
+      options: ["Ja — grensen avhenger bare av oppførselen i den punkterte omegnen, ikke av $f(a)$", "Nei — grensen krever at $f(a)=L$, så et punkt der $f$ ikke er definert, kan aldri ha noen grenseverdi", "Nei — grensedefinisjonen krever at $f(a)$ finnes og brukes som sammenligningspunkt", "Bare hvis $L=0$"],
       explanation: "Grensen og funksjonsverdien er to ulike ting. $\\frac{\\sin x}{x}$ har grense $1$ i $0$ uten å være definert der.",
     },
     {
@@ -529,12 +529,12 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken av disse er en gyldig $\\delta$ hvis $\\delta=\\min\\{1,\\varepsilon/4\\}$ virker for et bevis?",
-      options: ["Ethvert positivt tall $\\le \\min\\{1,\\varepsilon/4\\}$", "Bare nøyaktig $\\min\\{1,\\varepsilon/4\\}$ — ingen andre", "Et hvilket som helst større $\\delta$", "$\\delta$ må være det største mulige tallet"],
+      options: ["Ethvert positivt tall $\\le \\min\\{1,\\varepsilon/4\\}$", "Bare nøyaktig $\\min\\{1,\\varepsilon/4\\}$ — ingen andre", "Et hvilket som helst større $\\delta$, siden et større intervall fanger flere $x$-verdier", "$\\delta$ må være det største mulige tallet som virker; mindre valg er ikke gyldige"],
       explanation: "$\\delta$ er ikke entydig: virker ett $\\delta$, virker ethvert mindre positivt tall også.",
     },
     {
       question: "En kandidat skriver bare «$\\lim_{x\\to2}(3x^2-1)=11$ fordi jeg setter inn $x=2$». Hva mangler i en sjanger D-oppgave?",
-      options: ["Selve ε-δ-beviset — å velge $\\delta$ og verifisere implikasjonen", "Ingenting; å sette inn verdien er et fullstendig bevis for grensen", "En graf av funksjonen", "En tabell med funksjonsverdier"],
+      options: ["Selve ε-δ-beviset — å velge $\\delta$ og verifisere implikasjonen", "Ingenting; innsettingen er et fullstendig bevis", "En graf av funksjonen", "En tabell med funksjonsverdier"],
       explanation: "Sjanger D ber om et *bevis med definisjonen*, ikke en utregning. Innsetting viser bare hva grensen er, ikke at definisjonen er oppfylt.",
     },
     {
@@ -544,17 +544,17 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor velger vi ofte tallet $1$ i kontrollkravet $|x-a|<1$?",
-      options: ["Det er et bekvemt fast valg; enhver fast positiv radius kan brukes", "Fordi $\\delta$ alltid må være $1$", "Fordi grenseverdien bare er definert for de $x$ som oppfyller $|x-a|<1$", "Fordi $\\varepsilon$ alltid er $1$"],
+      options: ["Det er et bekvemt fast valg; enhver fast positiv radius kan brukes", "Fordi $\\delta$ alltid må være $1$, uansett hvilken $\\varepsilon$ som er gitt i beviset", "Fordi grenseverdien bare er definert for de $x$ som oppfyller $|x-a|<1$", "Fordi $\\varepsilon$ alltid er $1$"],
       explanation: "$1$ er bare praktisk. Man kunne like gjerne krevd $|x-a|<\\tfrac12$; da endres bare $K$.",
     },
     {
       question: "For et lineært uttrykk $f(x)=mx+b$ ($m\\neq0$): trengs $\\min\\{1,\\cdot\\}$-grepet?",
-      options: ["Nei — $|f(x)-L|=|m||x-a|$ har ingen restfaktor å avgrense, så $\\delta=\\varepsilon/|m|$ holder", "Ja — $\\min\\{1,\\cdot\\}$-grepet er obligatorisk i absolutt alle ε-δ-bevis, også for lineære funksjoner", "Nei — lineære grenser finnes ikke", "Ja — fordi $m$ må avgrenses"],
+      options: ["Nei — $|f(x)-L|=|m||x-a|$ har ingen restfaktor å avgrense, så $\\delta=\\varepsilon/|m|$ holder", "Ja — $\\min\\{1,\\cdot\\}$-grepet er obligatorisk i absolutt alle ε-δ-bevis, også for lineære funksjoner", "Nei — lineære grenser finnes ikke, så det er ingen restfaktor å avgrense og heller ikke noe ε-δ-bevis å føre", "Ja — fordi $m$ må avgrenses"],
       explanation: "Uten restfaktor er $\\delta=\\varepsilon/|m|$ direkte gyldig. $\\min$-grepet trengs bare når en $x$-avhengig restfaktor må avgrenses.",
     },
     {
       question: "Hva sier grensesetningene deg om $\\lim_{x\\to a}p(x)$ når $p$ er et polynom?",
-      options: ["$\\lim_{x\\to a}p(x)=p(a)$ (bygget fra $\\lim x=a$ og $\\lim k=k$)", "Grensen finnes aldri for polynomer", "$\\lim_{x\\to a}p(x)=0$ alltid", "Grensen er alltid den deriverte $p'(a)$, etter én bruk av L'Hôpitals regel"],
+      options: ["$\\lim_{x\\to a}p(x)=p(a)$ (bygget fra $\\lim x=a$ og $\\lim k=k$)", "Grensen finnes aldri for polynomer, fordi $\\lim x=a$ og $\\lim k=k$ ikke kan kombineres", "$\\lim_{x\\to a}p(x)=0$ alltid", "Grensen er alltid den deriverte $p'(a)$, etter én bruk av L'Hôpitals regel"],
       explanation: "Sum-/produktregelen på grunngrensene $\\lim x=a$ og $\\lim k=k$ gir $\\lim p(x)=p(a)$ for ethvert polynom.",
     },
     {
@@ -571,7 +571,7 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "På hvilke former kan L'Hôpital brukes DIREKTE?",
-      options: ["$[0/0]$ og $[\\infty/\\infty]$", "$1^\\infty$ og $0^0$", "$\\infty-\\infty$ og $0\\cdot\\infty$", "Alle syv ubestemte former"],
+      options: ["$[0/0]$ og $[\\infty/\\infty]$", "$1^\\infty$ og $0^0$", "$\\infty-\\infty$ og $0\\cdot\\infty$", "Alle syv ubestemte former, helt uten omskriving først"],
       explanation: "Bare de to brøkformene $[0/0]$ og $[\\infty/\\infty]$; de øvrige må skrives om til en av dem først.",
     },
     {
@@ -581,7 +581,7 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilket grep bruker du på $\\displaystyle\\lim_{x\\to\\infty}(\\sqrt{x^2+4x}-x)$ (form $\\infty-\\infty$)?",
-      options: ["Gange og dele med den konjugerte $\\sqrt{x^2+4x}+x$", "Bruke L'Hôpital direkte på differansen slik den står skrevet", "Ta logaritmen", "Sette $x=\\infty$ inn i hvert ledd"],
+      options: ["Gange og dele med den konjugerte $\\sqrt{x^2+4x}+x$", "Bruke L'Hôpital direkte på differansen slik den står skrevet", "Ta logaritmen", "Sette $x=\\infty$ inn i hvert ledd og lese av differansen direkte"],
       explanation: "Konjugattrikset fjerner røttene: differansen blir en brøk du kan behandle videre. $\\infty-\\infty$ er ikke klar for L'Hôpital.",
     },
     {
@@ -601,7 +601,7 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Vanligste feil i logaritmetrikset er å ...",
-      options: ["glemme å eksponentiere tilbake (svaret er $e^{\\lim\\ln y}$, ikke $\\lim\\ln y$)", "ta logaritmen i det hele tatt, siden trikset er helt unødvendig for $1^\\infty$-former", "bruke fellesnevner", "markere formen"],
+      options: ["glemme å eksponentiere tilbake (svaret er $e^{\\lim\\ln y}$, ikke $\\lim\\ln y$)", "ta logaritmen i det hele tatt, siden trikset er unødvendig", "bruke fellesnevner", "markere formen"],
       explanation: "Man finner $\\lim\\ln y=L$, men grensen av $y$ selv er $e^L$. Å stoppe ved $L$ er den klassiske feilen.",
     },
     {
@@ -616,12 +616,12 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Når bør du IKKE bruke L'Hôpital?",
-      options: ["Når uttrykket ikke er ubestemt, eller når svinging gjør $f'/g'$ grenseløs", "Alltid — L'Hôpital er universell", "Bare når nevneren er et polynom — for alle andre nevnere gjelder regelen alltid", "Når grensen er mot $0$"],
+      options: ["Når uttrykket ikke er ubestemt, eller når svinging gjør $f'/g'$ grenseløs", "Alltid — L'Hôpital er universell og gir riktig grense for ethvert uttrykk, ubestemt eller ikke", "Bare når nevneren er et polynom — for alle andre nevnere gjelder regelen alltid", "Når grensen er mot $0$ — regelen svikter så snart grenseverdien blir null, uansett hvilken form uttrykket har"],
       explanation: "L'Hôpital gjelder bare på ubestemt form; ved svinging ($\\sin\\frac1x$) eller ikke-ubestemte uttrykk brukes skvis/standardgrense.",
     },
     {
       question: "$\\displaystyle\\lim_{x\\to\\infty}\\frac{x^2}{e^x}=?$ (raskeste begrunnelse)",
-      options: ["$0$ — veksthierarkiet $x^p\\ll e^x$", "$\\infty$ — polynomet vokser fortest", "$1$ — teller og nevner balanserer", "finnes ikke"],
+      options: ["$0$ — veksthierarkiet $x^p\\ll e^x$", "$\\infty$ — polynomet vokser fortest", "$1$ — teller og nevner vokser like fort og balanserer hverandre", "finnes ikke"],
       explanation: "Eksponentialen slår ethvert polynom, så grensen er $0$. Raskere enn to runder L'Hôpital.",
     },
     {
@@ -646,7 +646,7 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva sier veksthierarkiet?",
-      options: ["$\\ln x \\ll x^p \\ll e^x$ når $x\\to\\infty$ (for $p>0$)", "$e^x \\ll x^p \\ll \\ln x$ når $x\\to\\infty$ (for alle $p>0$)", "Alle vokser like fort", "$x^p \\ll \\ln x \\ll e^x$"],
+      options: ["$\\ln x \\ll x^p \\ll e^x$ når $x\\to\\infty$ (for $p>0$)", "$e^x \\ll x^p \\ll \\ln x$ når $x\\to\\infty$ (for alle $p>0$)", "Alle vokser like fort — $\\ln x$, $x^p$ og $e^x$ har samme veksttakt når $x\\to\\infty$", "$x^p \\ll \\ln x \\ll e^x$"],
       explanation: "Logaritmen vokser langsomst, eksponentialen fortest; ethvert polynom ligger imellom.",
     },
     {
@@ -693,7 +693,7 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken forutsetning er nødvendig for ekstremalverdisetningen (Max–Min)?",
-      options: ["$f$ kontinuerlig på et lukket, begrenset intervall", "$f$ deriverbar på et åpent intervall", "$f$ kontinuerlig på et hvilket som helst intervall", "$f$ voksende"],
+      options: ["$f$ kontinuerlig på et lukket, begrenset intervall", "$f$ deriverbar på et åpent intervall — kontinuitet alene er ikke nok", "$f$ kontinuerlig på et hvilket som helst intervall, også åpne og ubegrensede", "$f$ voksende"],
       explanation: "Både lukket OG begrenset OG kontinuerlig kreves; ellers garanteres ikke ekstremalverdiene.",
     },
     {
@@ -703,7 +703,7 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "I en kontinuerlig utvidelse: hva er føringskravet ut over å regne grensen?",
-      options: ["Å koble grensen eksplisitt til $f(a)$: sette $c=f(a)=\\lim f$", "Å derivere funksjonen", "Å tegne grafen", "Å finne definisjonsmengden og vise at den kan utvides med punktet $a$"],
+      options: ["Å koble grensen eksplisitt til $f(a)$: sette $c=f(a)=\\lim f$", "Å derivere funksjonen", "Å tegne grafen", "Å finne definisjonsmengden og utvide den med $a$"],
       explanation: "Å bare regne grensen gir trekk; du må slå fast at $c=f(a)=L$ for kontinuitet.",
     },
     {
@@ -723,12 +723,12 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor må hver side regnes for seg i et skjøtepunkt for en stykkevis funksjon?",
-      options: ["Kontinuitet krever at begge ensidige grenser og $f$-verdien er like", "Fordi en stykkevis funksjon alltid er diskontinuerlig i selve skjøtepunktet", "Fordi grensen ikke finnes i skjøter", "Fordi $f(a)$ aldri er definert"],
+      options: ["Kontinuitet krever at begge ensidige grenser og $f$-verdien er like", "Fordi en stykkevis funksjon alltid er diskontinuerlig i selve skjøtepunktet", "Fordi grensen aldri finnes i et skjøtepunkt, uansett hvilke uttrykk grenene er gitt ved", "Fordi $f(a)$ aldri er definert i et skjøtepunkt, så bare de ensidige uttrykkene kan brukes"],
       explanation: "Venstre- og høyresiden er ulike uttrykk; kontinuitet krever at grensene fra begge og $f(a)$ faller sammen.",
     },
     {
       question: "En 'fjernbar diskontinuitet' (hull) kjennetegnes ved at ...",
-      options: ["grensen finnes, men $f(a)$ mangler eller avviker — kan fikses ved utvidelse", "venstre- og høyregrensen er ulike, slik at grafen gjør et hopp akkurat i punktet", "funksjonen går mot $\\pm\\infty$", "funksjonen ikke er definert noe sted"],
+      options: ["grensen finnes, men $f(a)$ mangler eller avviker — kan fikses ved utvidelse", "venstre- og høyregrensen er ulike, slik at grafen gjør et hopp akkurat i punktet", "funksjonen går mot $\\pm\\infty$ på hver side av punktet, slik at grafen har en loddrett asymptote der", "funksjonen ikke er definert noe sted, verken i punktet selv eller i noen omegn rundt det"],
       explanation: "Et hull har en eksisterende grense; å definere $f(a)=$ grensen lukker det (kontinuerlig utvidelse).",
     },
     {
@@ -738,29 +738,29 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan viser du at en likning har NØYAKTIG én løsning?",
-      options: ["Eksistens med skjæringssetningen + entydighet med strengt monotoni ($f'$ fast fortegn)", "Bare med skjæringssetningen — setningen gir både eksistens og entydighet i ett og samme steg", "Bare ved å sjekke ett punkt", "Med ekstremalverdisetningen"],
+      options: ["Eksistens med skjæringssetningen + entydighet med strengt monotoni ($f'$ fast fortegn)", "Bare med skjæringssetningen — setningen gir både eksistens og entydighet i ett og samme steg", "Bare ved å sjekke ett punkt der likningen stemmer — finner du én løsning, er den automatisk den eneste", "Med ekstremalverdisetningen"],
       explanation: "To atskilte leveranser: skjæring gir eksistens, monotoni gir at verdien treffes høyst én gang.",
     },
     {
       question: "Hvilke av disse er kontinuerlige overalt der de er definert?",
-      options: ["Polynomer, $\\sin$, $\\cos$, $e^x$, $\\ln x$ og alt bygget av disse", "Bare polynomer", "Bare lineære funksjoner og andre polynomer av grad høyst to er kontinuerlige", "Ingen brøkfunksjoner"],
+      options: ["Polynomer, $\\sin$, $\\cos$, $e^x$, $\\ln x$ og alt bygget av disse", "Bare polynomer", "Bare polynomer av grad høyst to er kontinuerlige", "Ingen brøkfunksjoner"],
       explanation: "De elementære funksjonene er kontinuerlige på sitt definisjonsområde, og kombinasjoner/sammensetninger arver det.",
     },
     {
       question: "Vis-at-oppgave: er $f(x)=\\frac{1}{x-2}$ dekket av ekstremalverdisetningen på $[3,5]$?",
-      options: ["Ja — $f$ er kontinuerlig på $[3,5]$ (nevner $\\neq0$), og intervallet er lukket og begrenset", "Nei — $f$ er aldri kontinuerlig", "Nei — intervallet er åpent", "Ja — men setningen garanterer bare den minste verdien; den største verdien må undersøkes separat"],
+      options: ["Ja — $f$ er kontinuerlig på $[3,5]$ (nevner $\\neq0$), og intervallet er lukket og begrenset", "Nei — $f$ er aldri kontinuerlig", "Nei — intervallet er åpent, og ekstremalverdisetningen krever et lukket og begrenset intervall for å gjelde", "Ja — men setningen garanterer bare den minste verdien; den største verdien må undersøkes separat"],
       explanation: "På $[3,5]$ er $x-2\\in[1,3]\\neq0$, så $f$ er kontinuerlig; lukket + begrenset ⇒ begge ekstremalverdier finnes.",
     },
     {
       question: "Hva er forskjellen mellom 'grensen finnes' og 'funksjonen er kontinuerlig' i $a$?",
-      options: ["Kontinuitet krever i tillegg at $f(a)$ finnes og er lik grensen", "Ingen forskjell", "Grensen finnes krever at $f$ er deriverbar", "Kontinuitet er et strengt svakere krav enn at grensen finnes i punktet"],
+      options: ["Kontinuitet krever i tillegg at $f(a)$ finnes og er lik grensen", "Ingen forskjell", "Grensen finnes krever at $f$ er deriverbar i $a$, altså et strengere krav enn kontinuitet", "Kontinuitet er et strengt svakere krav enn at grensen finnes i punktet"],
       explanation: "Et hull har grense uten kontinuitet; kontinuitet = grense finnes OG $f(a)$ finnes OG de er like.",
     },
   ],
   'mat111-uib-2-4': [
     {
       question: "I ε-δ-drillen: hva er riktig rekkefølge i malen?",
-      options: ["Faktoriser → avgrens restfaktoren → velg $\\delta=\\min$ → verifiser implikasjonen", "Velg $\\delta$ først → faktoriser deretter → avgrens restfaktoren → verifiser implikasjonen", "Avgrens restfaktoren → verifiser implikasjonen → faktoriser → velg $\\delta$", "Verifiser implikasjonen → velg $\\delta=\\min$ → faktoriser → avgrens"],
+      options: ["Faktoriser → avgrens restfaktoren → velg $\\delta=\\min$ → verifiser implikasjonen", "Velg $\\delta$ først → faktoriser deretter → avgrens restfaktoren → verifiser implikasjonen", "Avgrens restfaktoren → verifiser implikasjonen → faktoriser → velg $\\delta$ til slutt, når alt er ferdig ført", "Verifiser implikasjonen først → velg $\\delta=\\min$ → faktoriser → avgrens restfaktoren til slutt"],
       explanation: "Malen er fast: faktoriser $|f(x)-L|=|x-a||\\text{rest}|$, avgrens resten på et kontrollintervall, velg $\\delta=\\min\\{1,\\varepsilon/K\\}$, og verifiser. $\\delta$ kan ikke velges før skranken finnes.",
     },
     {
@@ -795,7 +795,7 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "$(1+2x)^{3/x}$ når $x\\to0^+$: hvilken form har uttrykket?",
-      options: ["$1^\\infty$ — ubestemt, bruk logaritmetrikset", "$\\infty^0$ — ubestemt, bruk konjugattrikset på basisen", "$0^0$ — ubestemt, deriver eksponenten", "Bestemt form — svaret er $1$ direkte"],
+      options: ["$1^\\infty$ — ubestemt, bruk logaritmetrikset", "$\\infty^0$ — ubestemt, bruk konjugattrikset på basisen", "$0^0$ — ubestemt, deriver eksponenten og sett inn direkte", "Bestemt form — basisen går mot $1$, så svaret er $1$ direkte"],
       explanation: "Basis $\\to1$ og eksponent $\\to\\infty$: formen $1^\\infty$ er ubestemt (svaret her blir $e^6$, ikke $1$). Logaritmetrikset er standardgrepet.",
     },
     {
@@ -825,17 +825,17 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva må stå EKSPLISITT til slutt i et ε-δ-bevis?",
-      options: ["Verifikasjonen: anta $0<|x-a|<\\delta$ og vis $|f(x)-L|<\\varepsilon$", "En verditabell som viser at $f(x)$ nærmer seg $L$ fra begge sider av $a$", "En figur av grafen med $\\varepsilon$-båndet tegnet inn", "Bare tallverdien av $\\delta$"],
+      options: ["Verifikasjonen: anta $0<|x-a|<\\delta$ og vis $|f(x)-L|<\\varepsilon$", "En verditabell som viser at $f(x)$ nærmer seg $L$", "En figur av grafen med $\\varepsilon$-båndet tegnet inn", "Bare tallverdien av $\\delta$"],
       explanation: "Minstekravet i fasitpraksis er at definisjonens betingelser vises oppfylt — implikasjonen må føres, ikke bare $\\delta$-valget.",
     },
     {
       question: "$\\lim_{x\\to0^+}\\left(\\dfrac{1}{x}-\\dfrac{1}{\\sin x}\\right)$: riktig første grep?",
-      options: ["Fellesnevner: $\\dfrac{\\sin x - x}{x\\sin x}$, som er $[0/0]$", "Trekk fra direkte: $\\infty-\\infty=0$, så grensen er $0$", "Konjugattriks: gang og del med den «konjugerte» $\\dfrac1x+\\dfrac{1}{\\sin x}$", "Logaritmetriks på hele differansen"],
+      options: ["Fellesnevner: $\\dfrac{\\sin x - x}{x\\sin x}$, som er $[0/0]$", "Trekk fra direkte: $\\infty-\\infty=0$, så grensen er $0$", "Konjugattriks: gang og del med den «konjugerte» $\\dfrac1x+\\dfrac{1}{\\sin x}$", "Logaritmetriks: ta $\\ln$ av hele differansen og regn grensen av logaritmen"],
       explanation: "$[\\infty-\\infty]$ med brøker ⇒ fellesnevner (konjugat er for røtter). $\\frac{\\sin x-x}{x\\sin x}$ er $[0/0]$; svaret blir $0$ — men det må VISES, «$\\infty-\\infty=0$» er ugyldig.",
     },
     {
       question: "Fasiten bemerker at «flere ulike gyldige $\\delta$ finnes». Hvorfor gir et mindre $\\delta$ enn malens aldri feil?",
-      options: ["Definisjonen krever bare at ETT $\\delta$ virker — krymper du $\\delta$, holder implikasjonen fortsatt", "Fordi $\\delta$ ikke inngår i selve verifikasjonen", "Det stemmer ikke — $\\delta$ skal velges størst mulig, og et mindre $\\delta$ koster full pott i føringen", "Fordi $\\delta$ alltid må settes lik $\\varepsilon$"],
+      options: ["Definisjonen krever bare at ETT $\\delta$ virker — krymper du $\\delta$, holder implikasjonen fortsatt", "Fordi $\\delta$ ikke inngår i selve verifikasjonen — implikasjonen kan føres helt uavhengig av hvilket tall du valgte", "Det stemmer ikke — $\\delta$ skal velges størst mulig, og et mindre $\\delta$ koster full pott i føringen", "Fordi $\\delta$ alltid må settes lik $\\varepsilon$"],
       explanation: "Kvantoren er $\\exists\\delta$: alt som kreves er ett fungerende $\\delta$, og ethvert mindre positivt tall arver implikasjonen. Ingen «optimal $\\delta$»-premie finnes i sjangeren.",
     },
   ],
@@ -862,7 +862,7 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Riktig rekkefølge når du undersøker deriverbarhet i et skjøtepunkt:",
-      options: ["Sjekk kontinuitet først, deretter ensidige differansekvotienter", "Regn ensidige deriverte først, og sjekk kontinuitet bare hvis de er like", "Deriver hver gren og sett inn — er verdiene like, er skjøten glatt", "Sjekk at begge grenene er definert i punktet, deretter derivér én av dem"],
+      options: ["Sjekk kontinuitet først, deretter ensidige differansekvotienter", "Regn ensidige deriverte først, sjekk kontinuitet etterpå", "Deriver hver gren og sett inn — er verdiene like, er skjøten glatt", "Sjekk at begge grenene er definert i punktet, deretter derivér én av dem"],
       explanation: "Ikke kontinuerlig ⇒ ikke deriverbar, så kontinuitetssjekken kommer først og kan avslutte oppgaven. Å «derivere hver gren og sette inn» hopper dessuten over definisjonen.",
     },
     {
@@ -882,7 +882,7 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Fasitpraksis i skjøtepunkt-oppgaver: hvorfor holder det ikke å regne bare høyresidig differansekvotient?",
-      options: ["Deriverbarhet i et indre punkt krever at begge ensidige grenser finnes og er like", "Fordi venstresiden alltid har en annen formel enn høyresiden i skjøten", "Det holder — høyregrensen bestemmer $f'(a)$ alene når funksjonen er kontinuerlig i punktet", "Fordi høyregrensen bare finnes når funksjonen er lineær på den siden"],
+      options: ["Deriverbarhet i et indre punkt krever at begge ensidige grenser finnes og er like", "Fordi venstresiden alltid har en annen formel enn høyresiden i skjøten", "Det holder — høyregrensen bestemmer $f'(a)$ alene", "Fordi høyregrensen bare finnes når funksjonen er lineær på den siden"],
       explanation: "Én side er et halvt svar: den tosidige grensen finnes bare når venstre og høyre grense begge finnes og er like. Kontinuitet endrer ikke det.",
     },
     {
@@ -902,7 +902,7 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "$f(x)=\\sqrt[3]{x}$ i $x=0$: differansekvotienten er $h^{-2/3}\\to+\\infty$. Hva betyr det?",
-      options: ["Ikke deriverbar — grafen har vertikal tangent i origo", "Deriverbar med $f'(0)=+\\infty$ som gyldig verdi", "Ikke deriverbar — grafen har et hjørne med to tangentretninger i origo", "Ikke kontinuerlig i $0$, og dermed ikke deriverbar"],
+      options: ["Ikke deriverbar — grafen har vertikal tangent i origo", "Deriverbar med $f'(0)=+\\infty$ som gyldig verdi", "Ikke deriverbar — grafen har et hjørne i origo", "Ikke kontinuerlig i $0$, og dermed ikke deriverbar"],
       explanation: "Grensen er uegentlig, så $f'(0)$ finnes ikke. Geometrien er uendelig bratthet (vertikal tangent), ikke et hjørne — og $\\sqrt[3]{x}$ er kontinuerlig i $0$.",
     },
     {
@@ -912,19 +912,19 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Når er derivasjonsreglene (og ikke definisjonen) lovlig verktøy?",
-      options: ["Der funksjonen er gitt ved én pen formel på et åpent intervall rundt punktet", "Alltid — derivasjonsreglene og definisjonen er likeverdige bevis i alle typer punkter", "Aldri i MAT111 — alle deriverte skal føres via differansekvotienten", "Bare når oppgaven eksplisitt oppgir at funksjonen er kontinuerlig"],
+      options: ["Der funksjonen er gitt ved én pen formel på et åpent intervall rundt punktet", "Alltid — derivasjonsreglene og definisjonen er likeverdige bevis i alle typer punkter", "Aldri i MAT111 — alle deriverte skal føres via differansekvotienten", "Bare når oppgaven eksplisitt oppgir at funksjonen er kontinuerlig — også midt i et åpent intervall med én formel"],
       explanation: "Reglene gjelder der forutsetningene deres holder — på åpne intervaller med én formel. I skjøte-/spesialpunkter, og der oppgaven ber om definisjonen, er differansekvotienten det som gjelder.",
     },
     {
       question: "En graf har entydig, ikke-vertikal tangent i $(a,f(a))$. Hvilket utsagn er riktig?",
-      options: ["Sekantene gjennom punktet dreier mot tangenten når det andre punktet nærmer seg", "Tangenten skjærer alltid grafen i nøyaktig ett punkt, nemlig tangeringspunktet selv", "Funksjonen må være deriverbar på et helt intervall rundt $a$", "Tangentens stigningstall er gjennomsnittet av de ensidige deriverte"],
+      options: ["Sekantene gjennom punktet dreier mot tangenten når det andre punktet nærmer seg", "Tangenten skjærer alltid grafen i nøyaktig ett punkt, nemlig tangeringspunktet selv", "Funksjonen må være deriverbar på et helt intervall rundt $a$, ikke bare i punktet $a$ selv", "Tangentens stigningstall er gjennomsnittet av de ensidige deriverte"],
       explanation: "Tangenten er per definisjon grensestillingen til sekantene. En tangent kan fint skjære grafen flere steder, og deriverbarhet i ett punkt sier ikke noe om nabopunktene.",
     },
   ],
   'mat111-uib-3-2': [
     {
       question: "Signaturoppgavens steg 1 (kontinuitet i $0$ for $x^k\\cos(1/x^m)$): hva SKAL stå i føringen?",
-      options: ["Begrensetheten $|\\cos(1/x^m)|\\le1$, skvisen mellom $\\pm|x|^k$, og koblingen til $f(0)$", "Grensen regnet ut med L'Hôpital etter markert $[0/0]$-form, og deretter koblingen til $f(0)$", "At $\\cos$ er kontinuerlig overalt, så sammensetningen er kontinuerlig i $0$", "En verditabell som viser at $f(x)$ nærmer seg $0$ fra begge sider av origo"],
+      options: ["Begrensetheten $|\\cos(1/x^m)|\\le1$, skvisen mellom $\\pm|x|^k$, og koblingen til $f(0)$", "Grensen regnet ut med L'Hôpital etter markert $[0/0]$-form, og deretter koblingen til $f(0)$", "At $\\cos$ er kontinuerlig overalt, så sammensetningen er kontinuerlig i $0$", "En verditabell som viser at $f(x)$ nærmer seg $0$ fra begge sider av origo, og som dermed erstatter skvisen"],
       explanation: "Skvis med uttalt begrensethet er malen — L'Hôpital passer ikke (ingen brøkform), og kontinuitet av cos hjelper ikke i origo der $1/x^m$ sprenger.",
     },
     {
@@ -984,7 +984,7 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Grense-av-derivert-setningen kan i signaturoppgavene brukes til å:",
-      options: ["Bekrefte deriverbarhet i skjøter der $f$ er kontinuerlig og $\\lim f'(x)$ finnes", "Avkrefte deriverbarhet i punkter der grensen av $f'$ ikke eksisterer fra noen av sidene", "Erstatte kontinuitetssjekken, siden setningen forutsetter mindre enn den", "Vise at $f'$ er kontinuerlig i punktet så snart $f'(a)$ eksisterer der"],
+      options: ["Bekrefte deriverbarhet i skjøter der $f$ er kontinuerlig og $\\lim f'(x)$ finnes", "Avkrefte deriverbarhet i punkter der grensen av $f'$ ikke eksisterer fra noen av sidene", "Erstatte kontinuitetssjekken, siden setningen forutsetter mindre enn den", "Vise at $f'$ er kontinuerlig i punktet så snart $f'(a)$ eksisterer der, uten å undersøke $\\lim f'(x)$"],
       explanation: "Setningen virker bare positivt: kontinuitet + eksisterende grense av $f'$ gir $f'(a)$. Den kan aldri avkrefte, og kontinuiteten er en av forutsetningene.",
     },
     {
@@ -1004,12 +1004,12 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "I oppgaven «bestem $a,b$ slik at $g(x)=ax^2+b$ ($x\\le1$), $\\ln x+2$ ($x>1$) blir deriverbar i $1$» inngår standardgrensen:",
-      options: ["$\\lim_{h\\to0}\\dfrac{\\ln(1+h)}{h}=1$, som gir høyresidig derivert $1$", "$\\lim_{h\\to0}\\dfrac{e^h-1}{h}=1$, som gir høyresidig derivert $1$", "$\\lim_{h\\to0}\\dfrac{\\ln(1+h)}{h}=0$, som gir høyresidig derivert $0$", "$\\lim_{h\\to0}\\dfrac{\\sin h}{h}=1$, som gir venstresidig derivert $1$"],
+      options: ["$\\lim_{h\\to0}\\dfrac{\\ln(1+h)}{h}=1$, som gir høyresidig derivert $1$", "$\\lim_{h\\to0}\\dfrac{e^h-1}{h}=1$, som gir høyresidig derivert $1$ for logaritmegrenen i skjøtepunktet", "$\\lim_{h\\to0}\\dfrac{\\ln(1+h)}{h}=0$, som gir høyresidig derivert $0$ og vannrett tangent fra høyre", "$\\lim_{h\\to0}\\dfrac{\\sin h}{h}=1$, som gir venstresidig derivert $1$ for annengradsgrenen i skjøten"],
       explanation: "Høyresidig differansekvotient blir $\\frac{\\ln(1+h)}{h}\\to1$. Likningene er $a+b=2$ og $2a=1$, så $a=\\frac12$, $b=\\frac32$.",
     },
     {
       question: "Tidsdisponering på eksamen: hva er lurest når (c)-spørsmålet «er $f'$ kontinuerlig i $0$?» dukker opp etter (a) og (b)?",
-      options: ["Regn $f'(x)$ med reglene for $x\\neq0$ og undersøk grensen — uten å endre svaret i (b)", "Gå tilbake og juster svaret i (b) slik at det stemmer overens med grensen av $f'$", "Svar med eksponentregnskapet alene — tabellen er gyldig føring i alle tre delspørsmål", "Dropp (c): delspørsmålet gir erfaringsmessig for få poeng i forhold til tidsbruken"],
+      options: ["Regn $f'(x)$ med reglene for $x\\neq0$ og undersøk grensen — uten å endre svaret i (b)", "Gå tilbake og juster svaret i (b) slik at det stemmer overens med grensen av $f'$ i skjøtepunktet", "Svar med eksponentregnskapet alene — tabellen er gyldig føring i alle tre delspørsmål, også i grensesjekken", "Dropp (c): delspørsmålet gir erfaringsmessig for få poeng i forhold til tidsbruken på grensen av $f'$"],
       explanation: "(c) er et selvstendig spørsmål om $\\lim f'(x)$ — reglene er lovlige utenfor punktet. (b) står uansett; tabellen er kontrollverktøy, ikke føring; og (c) er ofte selve karakterskillet.",
     },
   ],
@@ -1036,7 +1036,7 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Horisontal tangent på en implisitt kurve med $y'=\\frac{\\text{teller}}{\\text{nevner}}$ finnes der:",
-      options: ["Telleren er null, nevneren ikke — og punktet ligger på kurven", "Nevneren er null, telleren ikke — og punktet ligger på kurven", "Både teller og nevner er null samtidig i kurvepunktet", "Telleren er null — kurvelikningen trengs ikke i dette steget"],
+      options: ["Telleren er null, nevneren ikke — og punktet ligger på kurven", "Nevneren er null, telleren ikke — og punktet ligger på kurven", "Både teller og nevner er null samtidig i kurvepunktet, slik at brøken for $y'$ er udefinert der", "Telleren er null — $y'$-formelen alene gir punktene, så kurvelikningen trengs ikke i dette steget"],
       explanation: "Horisontal: teller null (og nevner ikke). Kandidatene MÅ settes inn i kurvelikningen — $y'$-formelen alene vet ikke hvor kurven er. Nevner null gir vertikal tangent.",
     },
     {
@@ -1091,7 +1091,7 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Fasit fører ofte rateoppgaver på 2–4 likeverdige måter. Hvilket par er et slikt gyldig metodevalg?",
-      options: ["Implisitt derivasjon av relasjonen, eller eksplisitt kjerneregel-oppsett der én variabel er løst ut", "Implisitt derivasjon, eller å sette inn øyeblikkstallene først og derivere etterpå", "Kjerneregel-oppsett, eller å estimere raten numerisk fra to nærliggende tidspunkter", "Implisitt derivasjon, eller å anta at ratene er proporsjonale med størrelsene"],
+      options: ["Implisitt derivasjon av relasjonen, eller eksplisitt kjerneregel-oppsett der én variabel er løst ut", "Implisitt derivasjon, eller å sette inn øyeblikkstallene først og derivere etterpå, siden tallene uansett gjelder i det aktuelle øyeblikket", "Kjerneregel-oppsett, eller å estimere raten numerisk fra to nærliggende tidspunkter", "Implisitt derivasjon, eller å anta at ratene er proporsjonale med størrelsene, slik at forholdet mellom dem er konstant over tid"],
       explanation: "Begge de første er eksakte og honoreres likt («Alternativt:»). Tall-før-derivasjon er den klassiske feilen, numerisk estimat er ikke eksakt føring, og proporsjonalitetsantakelsen er grunnløs.",
     },
     {
@@ -1108,7 +1108,7 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
   'mat111-uib-3-4': [
     {
       question: "Standardbegrunnelsen i fasit for at $f^{-1}$ finnes er:",
-      options: ["$f'$ har fast fortegn på intervallet, så $f$ er strengt monoton og dermed én-til-én", "$f$ er kontinuerlig på hele intervallet, så hver eneste verdi i verdimengden treffes minst én gang", "$f$ er deriverbar på intervallet, og deriverbare funksjoner har alltid invers", "$f(x)\\to\\pm\\infty$ i hver sin ende, så funksjonen dekker alle verdier"],
+      options: ["$f'$ har fast fortegn på intervallet, så $f$ er strengt monoton og dermed én-til-én", "$f$ er kontinuerlig på hele intervallet, så hver eneste verdi i verdimengden treffes minst én gang", "$f$ er deriverbar på intervallet, og deriverbare funksjoner har alltid invers", "$f(x)\\to\\pm\\infty$ i hver sin ende, så funksjonen dekker alle verdier og treffer dermed hver av dem nøyaktig én gang"],
       explanation: "Monotonikriteriet: fast fortegn på $f'$ over et intervall gir streng monotoni, som gir én-til-én. Kontinuitet/grenser gir bare verdimengden, ikke entydighet.",
     },
     {
@@ -1173,12 +1173,12 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "«$f(x)=x^5+4x-2$ er én-til-én» — hvilken føring er komplett?",
-      options: ["«$f'(x)=5x^4+4\\ge4>0$ for alle $x$, så $f$ er strengt voksende på $\\mathbb{R}$ og dermed én-til-én»", "«$f$ er et polynom av odde grad, og alle polynomer av odde grad er én-til-én på hele $\\mathbb{R}$»", "«Grafen består horisontallinjetesten, noe en skisse på kalkulatoren bekrefter»", "«$f(0)=-2$ og $f(1)=3$ har ulike fortegn, så $f$ treffer hver verdi nøyaktig én gang»"],
+      options: ["«$f'(x)=5x^4+4\\ge4>0$ for alle $x$, så $f$ er strengt voksende på $\\mathbb{R}$ og dermed én-til-én»", "«$f$ er et polynom av odde grad, og alle polynomer av odde grad er én-til-én på hele $\\mathbb{R}$»", "«Grafen består horisontallinjetesten, noe en skisse på kalkulatoren bekrefter, så noen begrunnelse med $f'$ trengs ikke»", "«$f(0)=-2$ og $f(1)=3$ har ulike fortegn, så $f$ treffer hver verdi nøyaktig én gang på veien mellom endepunktene»"],
       explanation: "Fast fortegn på $f'$ + monotonikriteriet er standardføringen. Odde grad er ikke nok ($x^3-x$ er odde og ikke én-til-én), skisse er ikke bevis, og fortegnsskifte gir eksistens av nullpunkt — ikke entydighet.",
     },
     {
       question: "$f(x)=x+e^x$: hvorfor kan $(f^{-1})'(1)$ regnes ut selv om $f^{-1}$ ikke har elementært uttrykk?",
-      options: ["Formelen trenger bare punktet $a$ med $f(a)=1$ — her $a=0$ — og verdien $f'(0)$", "Fordi $f^{-1}$ alltid kan tilnærmes numerisk med vilkårlig god presisjon i en omegn om $x=1$", "Det kan den ikke — uten uttrykk for $f^{-1}$ finnes ingen eksakt derivert", "Fordi $e^x$ kan erstattes med sin tangent i $0$, som gjør likningen løsbar"],
+      options: ["Formelen trenger bare punktet $a$ med $f(a)=1$ — her $a=0$ — og verdien $f'(0)$", "Fordi $f^{-1}$ alltid kan tilnærmes numerisk med vilkårlig god presisjon i en omegn om $x=1$", "Det kan den ikke — uten et elementært uttrykk for $f^{-1}$ finnes ingen eksakt derivert å regne på", "Fordi $e^x$ kan erstattes med sin tangent i $0$, som gjør likningen løsbar"],
       explanation: "$(f^{-1})'(1) = 1/f'(0) = 1/(1+e^0) = 1/2$ — formelen er punktvis og omgår hele uttrykksproblemet. Det er nettopp poenget med denne eksamenskonstruksjonen.",
     },
   ],
@@ -1230,7 +1230,7 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "For $f(x) = x^2e^{-x}$ på $\\mathbb{R}$ finnes ikke globalt maksimum. Hva er dokumentasjonen?",
-      options: ["$\\lim_{x\\to-\\infty} x^2e^{-x} = \\infty$ — funksjonen blir så stor den vil", "$f$ har to kritiske punkter, og ingen av dem kan være globale samtidig", "$\\lim_{x\\to\\infty} x^2e^{-x} = 0$, så funksjonen dør ut og blir flat på høyre side", "$f(2) = 4e^{-2}$ er bare et lokalt maksimum fordi $f''(2)$ er negativ"],
+      options: ["$\\lim_{x\\to-\\infty} x^2e^{-x} = \\infty$ — funksjonen blir så stor den vil", "$f$ har to kritiske punkter, og ingen av dem kan være globale samtidig, så ingen av dem gir globalt maksimum", "$\\lim_{x\\to\\infty} x^2e^{-x} = 0$, så funksjonen dør ut og blir flat på høyre side", "$f(2) = 4e^{-2}$ er bare et lokalt maksimum fordi $f''(2)$ er negativ, som utelukker globalt maksimum"],
       explanation: "Mot $-\\infty$ vokser begge faktorene — $f\\to\\infty$, så ingen verdi kan være størst. Grensen mot $+\\infty$ truer ikke maksimum, og lokale argumenter avgjør ikke det globale.",
     },
     {
@@ -1245,12 +1245,12 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er riktig rekkefølge i optimeringsoppskriften?",
-      options: ["Målfunksjon fra bibetingelse → deriver → kandidater → globalt-argument", "Deriver → målfunksjon fra bibetingelse → globalt-argument → kandidater", "Kandidater → deriver → målfunksjon fra bibetingelse → konklusjonssetning", "Målfunksjon fra bibetingelse → kandidater → deriver → svar med enhet"],
+      options: ["Målfunksjon fra bibetingelse → deriver → kandidater → globalt-argument", "Deriver → målfunksjon fra bibetingelse → globalt-argument → kandidater fra $f'=0$ og randen", "Kandidater → deriver → målfunksjon fra bibetingelse → konklusjonssetning", "Målfunksjon fra bibetingelse → kandidater → deriver → svar med enhet, uten eget globalt-argument"],
       explanation: "Bibetingelsen eliminerer variable FØR derivasjonen; kandidatene kommer av $f'=0$ pluss randen; globalt-argumentet avslutter. Uten siste steg er optimeringen uferdig.",
     },
     {
       question: "Optimering på et åpent, ubegrenset område som $(0,\\infty)$: hva kan globalt-argumentet være?",
-      options: ["Monotoni ($S' < 0$ før og $S' > 0$ etter kandidaten) eller grenser mot rendene", "Ekstremalverdisetningen — den sikrer eksistens også på åpne intervaller", "At kandidaten er det eneste stasjonære punktet i hele definisjonsområdet", "Andrederiverttesten i kandidaten, som viser at punktet er et lokalt minimum for $S$"],
+      options: ["Monotoni ($S' < 0$ før og $S' > 0$ etter kandidaten) eller grenser mot rendene", "Ekstremalverdisetningen — den sikrer eksistens også på åpne intervaller", "At kandidaten er det eneste stasjonære punktet i hele definisjonsområdet", "Andrederiverttesten i kandidaten, som gir lokalt minimum for $S$"],
       explanation: "EVS krever lukket, begrenset intervall. «Eneste kritiske punkt» og lokale tester løfter ikke alene til globalt — monotoni-/grenseargumentet gjør det.",
     },
     {
@@ -1265,12 +1265,12 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Når har en rasjonal funksjon skrå asymptote, og hvordan finnes den?",
-      options: ["Når tellergraden er én mer enn nevnergraden — polynomdivisjon gir $y = kx+m$, og resten dør ut", "Når teller og nevner har nøyaktig samme grad — asymptoten er forholdet mellom de to ledende leddene", "Når nevneren har et reelt nullpunkt — asymptoten går gjennom det tilhørende bruddpunktet", "Når funksjonen mangler horisontal asymptote — den skrå finnes da alltid ved derivasjon"],
+      options: ["Når tellergraden er én mer enn nevnergraden — polynomdivisjon gir $y = kx+m$, og resten dør ut", "Når teller og nevner har samme grad — asymptoten er forholdet mellom de ledende leddene", "Når nevneren har et reelt nullpunkt — asymptoten går gjennom det tilhørende bruddpunktet", "Når funksjonen mangler horisontal asymptote — den skrå finnes da alltid ved derivasjon"],
       explanation: "Tellergrad = nevnergrad + 1: divisjonen gir $f(x) = kx + m + r(x)$ med $r\\to0$. Lik grad gir horisontal asymptote, og nullpunkt i nevner gir vertikal — ikke skrå.",
     },
     {
       question: "I kapitlets eksempel 5 lå det lokale minimumet ($6$) HØYERE enn det lokale maksimumet ($2$). Hvorfor er det ingen selvmotsigelse?",
-      options: ["«Lokalt» sammenligner bare med en omegn — og grenene ligger på hver sin side av asymptoten", "Fordi funksjonen er rasjonal; for polynomer ligger lokale maksima alltid over lokale minima", "Det ER en selvmotsigelse, som viser at fortegnsskjemaet var satt opp galt i det eksemplet", "Fordi punktene er terrassepunkter, ikke ekte ekstremalpunkter, når verdiene kommer i feil orden"],
+      options: ["«Lokalt» sammenligner bare med en omegn — og grenene ligger på hver sin side av asymptoten", "Fordi funksjonen er rasjonal; for polynomer ligger lokale maksima alltid over lokale minima", "Det ER en selvmotsigelse, som viser at fortegnsskjemaet var satt opp galt i det eksemplet, så verdiene må bytte plass", "Fordi punktene er terrassepunkter, ikke ekte ekstremalpunkter, når verdiene kommer i feil orden"],
       explanation: "Lokale begreper gjelder i en omegn; $x=1$ og $x=3$ konkurrerer aldri i samme omegn siden asymptoten $x=2$ skiller grenene. Skjemaet i eksemplet er korrekt.",
     },
   ],
@@ -1317,12 +1317,12 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Mål: vis at det finnes $c$ med $f'(c) = -f(c)$, gitt $f(0) = f(1) = 0$. Hvilken $g$ gjør jobben?",
-      options: ["$g(x) = e^x f(x)$, siden $g' = e^x(f + f')$ og $e^c \\neq 0$ kan deles bort", "$g(x) = f(x) + x$, siden den deriverte da blir $f'(x) + 1$, og Rolle gir dermed direkte punktet der $f'(c) = -f(c)$", "$g(x) = -f(x)$, siden minustegnet i målet må inn i selve hjelpefunksjonen", "$g(x) = \\ln f(x)$, siden logaritmen gjør om produktet til en sum av ledd"],
+      options: ["$g(x) = e^x f(x)$, siden $g' = e^x(f + f')$ og $e^c \\neq 0$ kan deles bort", "$g(x) = f(x) + x$, siden den deriverte da blir $f'(x) + 1$, og Rolle gir dermed direkte punktet der $f'(c) = -f(c)$", "$g(x) = -f(x)$, siden minustegnet i målet må inn i selve hjelpefunksjonen", "$g(x) = \\ln f(x)$, siden logaritmen gjør om produktet til en sum av ledd som Rolle kan brukes på"],
       explanation: "$g = e^x f$ gir $g' = e^x(f + f')$; Rolle gir $g'(c) = 0$, og siden $e^c \\ne 0$ følger $f'(c) = -f(c)$. Mønster: mål av typen $f' + kf = 0$ løses med faktoren $e^{kx}$.",
     },
     {
       question: "Hva er første grep når du skal vise $\\ln(1+x) < x$ for $x > 0$ med sekantsetningen?",
-      options: ["Bruk MVT på $f(t) = \\ln(1+t)$ over $[0,x]$ og avgrens $f'(c) = \\frac{1}{1+c}$", "Derivér begge sider av ulikheten og sammenlikn de to deriverte direkte", "Sett inn $x = 1$ og $x = 2$ og vis at ulikheten stemmer i begge punktene", "Bruk Rolles teorem på $f(t) = \\ln(1+t) - t$ over intervallet $[0, x]$, siden endepunktverdiene der er like"],
+      options: ["Bruk MVT på $f(t) = \\ln(1+t)$ over $[0,x]$ og avgrens $f'(c) = \\frac{1}{1+c}$", "Derivér begge sider av ulikheten og sammenlikn de to deriverte direkte, uten å gå veien om MVT", "Sett inn $x = 1$ og $x = 2$ og vis at ulikheten stemmer i begge punktene", "Bruk Rolles teorem på $f(t) = \\ln(1+t) - t$ over intervallet $[0, x]$, siden endepunktverdiene der er like"],
       explanation: "Ulikhetsmaskinen: MVT på $[0,x]$ gir $\\ln(1+x) = \\frac{x}{1+c}$, og $\\frac{1}{1+c} < 1$ for $c > 0$. Talltesting beviser ingenting, og Rolle krever like endepunktverdier — som ikke foreligger her.",
     },
     {
@@ -1332,7 +1332,7 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilket estimat følger av MVT for $f(x) = \\sin x$, der $|\\cos c| \\le 1$?",
-      options: ["$|\\sin a - \\sin b| \\le |a - b|$ for alle reelle $a$ og $b$", "$|\\sin a - \\sin b| \\le |a| + |b|$ for alle reelle $a$ og $b$", "$|\\sin a - \\sin b| \\ge |a - b|$ for alle reelle $a$ og $b$", "$|\\sin a + \\sin b| \\le |a + b|$ for alle reelle $a$ og $b$"],
+      options: ["$|\\sin a - \\sin b| \\le |a - b|$ for alle reelle $a$ og $b$", "$|\\sin a - \\sin b| \\le |a| + |b|$ for alle reelle $a$ og $b$", "$|\\sin a - \\sin b| \\ge |a - b|$ for alle reelle $a$ og $b$ — altså minst avstanden mellom dem", "$|\\sin a + \\sin b| \\le |a + b|$ for alle reelle $a$ og $b$ — estimatet gjelder summene"],
       explanation: "MVT: $\\sin a - \\sin b = \\cos(c)(a-b)$, og begrensetheten $|\\cos c| \\le 1$ gir Lipschitz-estimatet med konstant $K = 1$. Retningen på ulikheten er «høyst», ikke «minst».",
     },
     {
@@ -1347,12 +1347,12 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Grove overslag i eksistens-steget («$e < 3$, så $f(1) = e - 3 < 0$»): hva er fasitpraksisens holdning?",
-      options: ["Full uttelling — testpunktene skal bare vise fortegnsskifte, ikke lokalisere roten presist", "Trekk — endepunktverdiene må regnes ut med minst to desimalers nøyaktighet", "Bare godkjent hvis overslaget suppleres med en kalkulatorverdi i en fotnote", "Underkjent — overslag er kun tillatt i entydighetssteget, ikke i eksistenssteget"],
+      options: ["Full uttelling — testpunktene skal bare vise fortegnsskifte, ikke lokalisere roten presist", "Trekk — endepunktverdiene må regnes ut med minst to desimalers nøyaktighet, også når fortegnene er åpenbare", "Bare godkjent hvis overslaget suppleres med en kalkulatorverdi i en fotnote, slik at fortegnet kan kontrolleres", "Underkjent — overslag er kun tillatt i entydighetssteget, ikke i eksistenssteget, der verdiene må være eksakte"],
       explanation: "Skjæringssetningen trenger bare motsatte fortegn, og et trygt overslag som $e < 3$ er fullgod matematikk. Presis lokalisering av roten er Newtons jobb i kap. 4.2.",
     },
     {
       question: "$f$ er to ganger deriverbar med $f(0) = f(1) = f(2) = 0$. Hvorfor har $f''$ et nullpunkt i $(0,2)$?",
-      options: ["Rolle to ganger: først på $f$ over $[0,1]$ og $[1,2]$ (gir $f'(c_1)=f'(c_2)=0$), så på $f'$ over $[c_1,c_2]$", "Skjæringssetningen på $f''$: den skifter fortegn fordi funksjonen har tre nullpunkter", "MVT på $f$ over $[0,2]$ gir direkte et punkt der den andrederiverte er lik null", "Tre nullpunkter betyr at $f$ er et tredjegradspolynom, og da er $f''$ lineær med ett nullpunkt"],
+      options: ["Rolle to ganger: først på $f$ over $[0,1]$ og $[1,2]$ (gir $f'(c_1)=f'(c_2)=0$), så på $f'$ over $[c_1,c_2]$", "Skjæringssetningen på $f''$: den skifter fortegn fordi funksjonen har tre nullpunkter, og et fortegnsskifte gir et nullpunkt i $(0,2)$", "MVT på $f$ over $[0,2]$ gir direkte et punkt der den andrederiverte er lik null, siden $f(0) = f(2) = 0$ gjør gjennomsnittsraten null", "Tre nullpunkter betyr at $f$ er et tredjegradspolynom, og da er $f''$ lineær med ett nullpunkt, som nødvendigvis ligger i $(0,2)$"],
       explanation: "Rolle i to etasjer: de to naboparene av nullpunkter gir to nullpunkter for $f'$, og Rolle på $f'$ mellom dem gir ett for $f''$. Generelt: $n+1$ nullpunkter for $f$ gir minst ett for $f^{(n)}$.",
     },
   ],
@@ -1389,7 +1389,7 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et fikspunkt for funksjonen $g$?",
-      options: ["Et tall $r$ med $g(r) = r$ — grafisk der $y = g(x)$ krysser diagonalen $y = x$", "Et tall $r$ med $g(r) = 0$ — grafisk der kurven $y = g(x)$ krysser den vannrette $x$-aksen", "Et tall $r$ med $g'(r) = 0$ — et punkt der tangenten til $g$ er vannrett", "Et tall $r$ med $g'(r) = 1$ — et punkt der $g$ vokser i nøyaktig takt med $x$"],
+      options: ["Et tall $r$ med $g(r) = r$ — grafisk der $y = g(x)$ krysser diagonalen $y = x$", "Et tall $r$ med $g(r) = 0$ — grafisk der kurven $y = g(x)$ krysser den vannrette $x$-aksen", "Et tall $r$ med $g'(r) = 0$ — et punkt der tangenten til $g$ er vannrett, og der iterasjonen derfor stanser", "Et tall $r$ med $g'(r) = 1$ — et punkt der $g$ vokser i nøyaktig takt med $x$"],
       explanation: "Fikspunkt = punkt $g$ lar stå i ro: $g(r) = r$. Nullpunkter og kritiske punkter er andre begreper — forveksling her koster hele fikspunktoppgaven.",
     },
     {
@@ -1399,7 +1399,7 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvor kommer sekantsetningen inn i kontraksjonsargumentet?",
-      options: ["Den skriver $g(x_n) - g(r) = g'(c)(x_n - r)$, som kobler ny feil til gammel feil via $|g'(c)|$", "Den viser at $g$ har et fikspunkt i intervallet, fordi sekanten mellom endepunktene må krysse diagonalen $y = x$", "Den gir at $g$ er kontinuerlig på intervallet, slik at grenseverdien blir et fikspunkt", "Den brukes ikke — kontraksjonsargumentet bygger utelukkende på skjæringssetningen"],
+      options: ["Den skriver $g(x_n) - g(r) = g'(c)(x_n - r)$, som kobler ny feil til gammel feil via $|g'(c)|$", "Den viser at $g$ har et fikspunkt i intervallet, fordi sekanten mellom endepunktene må krysse diagonalen $y = x$", "Den gir at $g$ er kontinuerlig på intervallet, slik at grenseverdien blir et fikspunkt", "Den brukes ikke — kontraksjonsargumentet bygger utelukkende på skjæringssetningen, som alene gir at feilen krymper geometrisk"],
       explanation: "MVT på $g$ over intervallet mellom $x_n$ og $r$: $x_{n+1} - r = g(x_n) - g(r) = g'(c)(x_n - r)$. Skranken $|g'(c)| \\le k$ gir så den geometriske feilkrympingen.",
     },
     {
@@ -1409,7 +1409,7 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner spindelvevet når $-1 < g'(r) < 0$?",
-      options: ["En spiral: iteratene hopper annenhver side av fikspunktet mens de nærmer seg", "En trapp: iteratene kryper ensidig og monotont innover mot fikspunktet fra én og samme side", "Et utovervendt vev: iteratene fjerner seg fra fikspunktet for hvert steg", "En lukket firkant: iteratene går i en evig sykel rundt fikspunktet"],
+      options: ["En spiral: iteratene hopper annenhver side av fikspunktet mens de nærmer seg", "En trapp: iteratene kryper ensidig og monotont innover mot fikspunktet fra én og samme side", "Et utovervendt vev: iteratene fjerner seg fra fikspunktet for hvert steg, selv om $|g'(r)|$ er mindre enn $1$", "En lukket firkant: iteratene går i en evig sykel rundt fikspunktet, uten å nærme seg det"],
       explanation: "Negativ derivert snur fortegnet på feilen i hvert steg (spiral); positiv derivert under 1 gir ensidig trapp; $|g'(r)| > 1$ gir utovervendt vev. Sykler er ikke standardtilfellene her.",
     },
     {
@@ -1429,12 +1429,12 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Full sjanger F-kjede på eksamen: hvilken rekkefølge har leveransene?",
-      options: ["Eksistens (skjæringssetningen) → entydighet (monotoni/Rolle) → iterér → feilens fortegn med krumning på hele intervallet", "Iterér til ønsket presisjon → sjekk krumningen i sluttpunktet → vis til slutt at roten finnes med skjæringssetningen", "Entydighet først (ellers er iterasjon meningsløst) → eksistens → krumning → til slutt selve iterasjonsstegene", "Krumningsargument → iterasjon → kontraksjonsvilkår → skjæringssetning, i nøyaktig denne faste rekkefølgen"],
+      options: ["Eksistens (skjæringssetningen) → entydighet (monotoni/Rolle) → iterér → feilens fortegn med krumning på hele intervallet", "Iterér til ønsket presisjon → sjekk krumningen i sluttpunktet → vis til slutt at roten finnes med skjæringssetningen som kontroll", "Entydighet først (ellers er iterasjon meningsløst) → eksistens → krumning → til slutt selve iterasjonsstegene, som gir tilnærmingen", "Krumningsargument → iterasjon → kontraksjonsvilkår → skjæringssetning, i nøyaktig denne faste rekkefølgen, uansett oppgavetekst"],
       explanation: "Kjeden speiler kapittelrekkefølgen: kap. 4.1 leverer at og hvor roten finnes (og at den er alene), deretter tilnærmer Newton, og krumningsargumentet feller dommen over feilens fortegn.",
     },
     {
       question: "Hvorfor krever Newton-formelen $f'(x_n) \\neq 0$?",
-      options: ["En vannrett tangent har ikke noe nullpunkt — steget er udefinert (og nær null slynges iteratet langt av gårde)", "Fordi $f'(x_n) = 0$ ville bety at $x_n$ allerede er roten, og da er metoden ferdig", "Fordi divisjon med små tall gir avrundingsfeil på kalkulatoren, som er forbudt i føringen", "Kravet er unødvendig — formelen fungerer like godt når den deriverte er null"],
+      options: ["En vannrett tangent har ikke noe nullpunkt — steget er udefinert (og nær null slynges iteratet langt av gårde)", "Fordi $f'(x_n) = 0$ ville bety at $x_n$ allerede er roten, og da er metoden ferdig — kravet er bare en stoppetest for iterasjonen", "Fordi divisjon med små tall gir avrundingsfeil på kalkulatoren, som er forbudt i føringen — kravet gjelder nøyaktigheten, ikke formelen", "Kravet er unødvendig — formelen fungerer like godt når den deriverte er null, og iterasjonen går videre uten problemer i det steget"],
       explanation: "Steget deler på $f'(x_n)$: null gir vannrett tangent uten nullpunkt. $f'(x_n) = 0$ betyr kritisk punkt for $f$, ikke rot — og nesten-null derivert gir enorme, upålitelige hopp.",
     },
   ],
@@ -1521,7 +1521,7 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er galt med føringen «$R_2$ er liten, så $P_2(5) \\approx \\sqrt5$ er godt nok»?",
-      options: ["«Liten» er ikke tallfestet — sjangeren krever eksplisitt skranke, intervall eller fortegn", "Ingenting — en kvalitativ vurdering av restleddet er nettopp det oppgaven ber om", "Feilen er at $R_2$ aldri er liten; tredjegradsrestledd er alltid av størrelsesorden én", "Ordet «restledd» skal ikke brukes; fasit omtaler feilen som «differanseleddet»"],
+      options: ["«Liten» er ikke tallfestet — sjangeren krever eksplisitt skranke, intervall eller fortegn", "Ingenting — en kvalitativ vurdering av restleddet er nettopp det oppgaven ber om, og noen tallfestet skranke kreves ikke", "Feilen er at $R_2$ aldri er liten; tredjegradsrestledd er alltid av størrelsesorden én, uansett hvilket intervall man ser på", "Ordet «restledd» skal ikke brukes; fasit omtaler feilen som «differanseleddet», så innvendingen gjelder ordvalget, ikke innholdet"],
       explanation: "Aktiv bruk = tall: skranke på $f'''$, tallintervall, feilfortegn. Restledd sitert-men-ikke-brukt er sjangerens hovedfelle og mister nøyaktig de poengene oppgaven er laget for å teste.",
     },
     {
@@ -1531,19 +1531,19 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken påstand om intervalleveransen er riktig?",
-      options: ["$f(x) \\in [P_n + R_{\\min},\\, P_n + R_{\\max}]$ — skrankene for restleddet legges direkte på polynomverdien", "$f(x) \\in [P_n - |R_{\\max}|,\\, P_n + |R_{\\max}|]$ — feilen legges symmetrisk til begge sider", "$f(x) \\in [R_{\\min},\\, R_{\\max}]$ — restleddskrankene er selv intervallet som fanger verdien", "$f(x) \\in [P_{n-1},\\, P_n]$ — to påfølgende polynomverdier sperrer alltid inne sannheten"],
+      options: ["$f(x) \\in [P_n + R_{\\min},\\, P_n + R_{\\max}]$ — skrankene for restleddet legges direkte på polynomverdien", "$f(x) \\in [P_n - |R_{\\max}|,\\, P_n + |R_{\\max}|]$ — feilen legges symmetrisk til begge sider, også når restleddet har fast fortegn", "$f(x) \\in [R_{\\min},\\, R_{\\max}]$ — restleddskrankene er selv intervallet som fanger verdien, uten at polynomverdien legges til", "$f(x) \\in [P_{n-1},\\, P_n]$ — to påfølgende polynomverdier sperrer alltid inne sannheten, så restleddskrankene blir overflødige"],
       explanation: "$f = P_n + R_n$ og $R_{\\min} \\le R_n \\le R_{\\max}$ gir intervallet direkte — usymmetrisk når restleddet har fast fortegn. Symmetrisering sløser bort halve skarpheten.",
     },
     {
       question: "Hvorfor er derivertetabellen (med eksakte verdier i $a$) en del av leveransen?",
-      options: ["Åpen bok-standarden: utregningen skal vises — også når formelen kunne vært slått opp", "Fordi kalkulatoren ikke håndterer brøkeksponenter og derfor ikke kan brukes her", "Tabellen er valgfri pynt; kun sluttpolynomet gir uttelling i løsningsforslagene", "Fordi tabellen trengs for å kunne tegne grafen til polynomet i besvarelsen"],
+      options: ["Åpen bok-standarden: utregningen skal vises — også når formelen kunne vært slått opp", "Fordi kalkulatoren ikke håndterer brøkeksponenter og derfor ikke kan brukes her, så verdiene i $a$ må regnes for hånd", "Tabellen er valgfri pynt; kun sluttpolynomet gir uttelling i løsningsforslagene, uansett hvor mye av utregningen som vises", "Fordi tabellen trengs for å kunne tegne grafen til polynomet i besvarelsen, og leveransen er dermed grafisk, ikke utledning"],
       explanation: "MAT111 er åpen bok-eksamen: fasitpraksis krever synlig utledning — derivertetabell med eksakte verdier, koeffisienter, polynom. Et oppslått eller ubegrunnet svar gir ikke uttelling.",
     },
   ],
   'mat111-uib-4-4': [
     {
       question: "Hva er riktig rekkefølge i et komplett induksjonsbevis for en $f^{(n)}$-formel?",
-      options: ["Basissteg for $n=1$, induksjonshypotese, induksjonstrinn med derivasjon, konklusjon", "Induksjonshypotese, basissteg for $n=1$, konklusjon, induksjonstrinn med derivasjon", "Gjettefase, verifikasjon for $n=1$, $n=2$ og $n=3$, og deretter direkte konklusjon", "Basissteg for $n=1$ og $n=2$, generell formelavlesning, avsluttende kontrollregning"],
+      options: ["Basissteg for $n=1$, induksjonshypotese, induksjonstrinn med derivasjon, konklusjon", "Induksjonshypotese, basissteg for $n=1$, konklusjon, induksjonstrinn med derivasjon — hypotesen settes opp før noe sjekkes", "Gjettefase, verifikasjon for $n=1$, $n=2$ og $n=3$, og deretter direkte konklusjon, uten noe eget induksjonstrinn i beviset", "Basissteg for $n=1$ og $n=2$, generell formelavlesning, avsluttende kontrollregning"],
       explanation: "Malen har fire faste ledd i denne rekkefølgen. Tre verifiserte tilfeller er gjettefase, ikke bevis — bare trinnet dekker alle $n$.",
     },
     {
@@ -1583,12 +1583,12 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Fakulteten i $f^{(n)}$-formelen for $\\dfrac{1}{(x+b)^2}$ er $(n+1)!$, ikke $(n-1)!$ som for $\\ln(ax+b)$. Hva er grunnen?",
-      options: ["Startpotensen er $2$: derivasjonene henter ned $2, 3, 4, \\dots$, som gir fakultet med forsprang", "Potensfunksjoner har alltid $(n+1)!$ i telleren, uavhengig av hvilken potens man starter med", "Kjernefaktoren $a^n$ smelter sammen med fakulteten når den indre funksjonen er lineær i $x$", "Fortegnsfaktoren $(-1)^n$ konverterer $(n-1)!$ til $(n+1)!$ i alle potens-typene av denne formen"],
+      options: ["Startpotensen er $2$: derivasjonene henter ned $2, 3, 4, \\dots$, som gir fakultet med forsprang", "Potensfunksjoner har alltid $(n+1)!$ i telleren, uavhengig av hvilken potens man starter med", "Kjernefaktoren $a^n$ smelter sammen med fakulteten når den indre funksjonen er lineær i $x$, slik at startpotensen ikke spiller inn", "Fortegnsfaktoren $(-1)^n$ konverterer $(n-1)!$ til $(n+1)!$ i alle potens-typene av denne formen"],
       explanation: "Nedhentede eksponenter er $2\\cdot3\\cdots(n+1) = (n+1)!$ når starten er $2$ — mot $1\\cdot2\\cdots(n-1)$ ett hakk bak for ln-typen. Fakultetsmønsteret leses av startnivået, aldri av en huskeregel.",
     },
     {
       question: "I Del 7-varianten av induksjon (rekursive følger, f.eks. $a_{n+1} = \\sqrt{2+a_n}$): hva er trinnets håndgrep?",
-      options: ["Mat hypotesen (f.eks. $a_n < 2$) inn i rekursjonsformelen og utled samme påstand for $a_{n+1}$", "Deriver rekursjonsformelen én gang med hensyn på $n$ og les av mønsteret for neste ledd", "Regn ut $a_2, a_3$ og $a_4$ numerisk og observer at verdiene nærmer seg en fast grense", "Løs rekursjonen eksplisitt som en formel i $n$ først; deretter følger skranken ved direkte innsetting"],
+      options: ["Mat hypotesen (f.eks. $a_n < 2$) inn i rekursjonsformelen og utled samme påstand for $a_{n+1}$", "Deriver rekursjonsformelen én gang med hensyn på $n$ og les av mønsteret for neste ledd", "Regn ut $a_2, a_3$ og $a_4$ numerisk og observer at verdiene nærmer seg en fast grense, så er skranken vist for alle $n$", "Løs rekursjonen eksplisitt som en formel i $n$ først; deretter følger skranken ved direkte innsetting"],
       explanation: "Samme mal, annet håndgrep: for følger brukes rekursjonen på hypotesen ($a_n < 2 \\Rightarrow a_{n+1} = \\sqrt{2+a_n} < \\sqrt4 = 2$). Derivasjon mhp. $n$ gir ikke mening, og numerikk beviser ikke.",
     },
   ],
@@ -1687,12 +1687,12 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor krever føringen at $u/v'$-valget skrives eksplisitt?",
-      options: ["Den viser at teknikken er valgt bevisst — kravet i åpen bok-formatet", "Uten den blir selve svaret matematisk galt, uansett hvor riktig regningen ellers er", "Den erstatter kontrollderivasjonen", "Det er bare en tradisjon uten poengverdi"],
+      options: ["Den viser at teknikken er valgt bevisst — kravet i åpen bok-formatet", "Uten den blir selve svaret matematisk galt, uansett hvor riktig regningen ellers er", "Den erstatter kontrollderivasjonen, slik at det ferdige uttrykket ikke trenger å deriveres for å sjekkes", "Det er bare en tradisjon uten poengverdi"],
       explanation: "I åpen bok-formatet er føringen selve prestasjonen: valglinjen dokumenterer teknikken. Svaret kan være riktig uten den — men gir da ikke full uttelling.",
     },
     {
       question: "Hva kjennetegner en «ensom» funksjon som $\\ln x$ i integrasjon?",
-      options: ["Den antideriveres ikke direkte, men deriveres lett — så vi integrerer delvis mot 1", "Den har ingen antiderivert i det hele tatt", "Den må alltid substitueres med $u=\\ln x$ før noen annen teknikk kan brukes på integralet", "Den kan bare integreres numerisk"],
+      options: ["Den antideriveres ikke direkte, men deriveres lett — så vi integrerer delvis mot 1", "Den har ingen antiderivert i det hele tatt", "Den må alltid substitueres med $u=\\ln x$ før noen annen teknikk kan brukes på integralet", "Den kan bare integreres numerisk, for verken delvis integrasjon eller substitusjon fører fram til et eksakt uttrykk"],
       explanation: "$\\ln x$ og $\\arctan x$ står ikke i grunnintegral-tabellen, men har enkle deriverte. Mot 1-trikset ($v'=1$) flytter alt arbeid over på derivasjonen.",
     },
     {
@@ -1707,7 +1707,7 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor må samme strategi brukes i begge rundene av et syklisk integral?",
-      options: ["Bytter du strategi, reverserer runde 2 runde 1 og gir $I=I$", "Fordi LIATE forbyr å derivere eksponentialer", "Fordi restintegralet ellers divergerer", "Det må den ikke — begge varianter fører like raskt fram til svaret i runde to"],
+      options: ["Bytter du strategi, reverserer runde 2 runde 1 og gir $I=I$", "Fordi LIATE forbyr å derivere eksponentialer", "Fordi restintegralet ellers divergerer, og runde 2 da ikke gir noe endelig uttrykk å løse for", "Det må den ikke — begge varianter fører like raskt fram til svaret i runde to"],
       explanation: "Med motsatt valg i runde 2 gjør du nøyaktig den omvendte operasjonen og ender med identiteten $I=I$ — sann, men ubrukelig.",
     },
     {
@@ -1717,7 +1717,7 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "I et ubestemt integral etter substitusjon står svaret som $\\frac{e^u}{3}+C$. Hva gjenstår?",
-      options: ["Tilbakebytting: sett inn $u=g(x)$", "Ingenting — svaret er ferdig", "Sette inn grensene", "Derivere svaret og legge til $C$"],
+      options: ["Tilbakebytting: sett inn $u=g(x)$", "Ingenting — svaret er ferdig slik det står i $u$", "Sette inn grensene for $x$ i svaruttrykket", "Derivere svaret som kontroll og legge til $C$ en gang til"],
       explanation: "Ubestemte integraler skal tilbake til den opprinnelige variabelen. Bestemte integraler slipper — der oversetter man i stedet grensene.",
     },
     {
@@ -1742,7 +1742,7 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En besvarelse skriver bare «$\\int x\\arctan x\\,dx = \\frac{x^2+1}{2}\\arctan x - \\frac x2 + C$ (tabelloppslag)». Hva skjer?",
-      options: ["Null uttelling — oppgaven krever grunnleggende teknikker, ikke oppslag", "Full uttelling — svaret er riktig", "Halv uttelling for riktig svar", "Full uttelling hvis svaret kontrollderiveres"],
+      options: ["Null uttelling — oppgaven krever grunnleggende teknikker, ikke oppslag", "Full uttelling — svaret er riktig, og et korrekt tabelloppslag teller som gyldig teknikk", "Halv uttelling for riktig svar, siden oppslaget dekker halvparten av det oppgaven ber om", "Full uttelling hvis svaret kontrollderiveres"],
       explanation: "Åpen bok-regelen: oppgaven ber eksplisitt om at teknikken vises. Riktig fasitsvar uten utledning gir null — føringen er det som måles.",
     },
     {
@@ -1752,14 +1752,14 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Når trengs gjentatt delvis integrasjon?",
-      options: ["Når polynomfaktoren har grad 2 eller høyere", "Når integranden er en brøk", "Bare i sykliske integraler", "Når substitusjonen ikke har matchende $u'$"],
+      options: ["Når polynomfaktoren har grad 2 eller høyere", "Når integranden er en brøk, uavhengig av polynomgraden", "Bare i sykliske integraler, der samme integral dukker opp igjen", "Når substitusjonen ikke har matchende $u'$"],
       explanation: "Én runde delvis senker polynomgraden med 1. Grad 2 krever to runder, grad 3 tre — med samme strategi hele veien.",
     },
   ],
   'mat111-uib-5-3': [
     {
       question: "Før delbrøkoppspalting av $\\dfrac{x^3+1}{x^2-1}$ må du …",
-      options: ["utføre polynomdivisjon, siden tellergraden ikke er lavere enn nevnergraden", "faktorisere telleren", "fullføre kvadratet i nevneren", "ingenting — brøken er en ekte rasjonal brøk og dermed klar for delbrøkoppspalting"],
+      options: ["utføre polynomdivisjon, siden tellergraden ikke er lavere enn nevnergraden", "faktorisere telleren", "fullføre kvadratet i nevneren, slik at $x^2-1$ skrives om før oppspaltingen kan gjøres", "ingenting — brøken er en ekte rasjonal brøk og dermed klar for delbrøkoppspalting"],
       explanation: "Tellergrad 3 ≥ nevnergrad 2 → uekte brøk. Delbrøk krever ekte brøk; divider først så resten får lavere grad enn nevneren.",
     },
     {
@@ -1784,7 +1784,7 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Når er en kvadratisk faktor «irreduserbar»?",
-      options: ["Når den mangler reelle røtter (negativ diskriminant)", "Når den ikke kan deriveres", "Når koeffisienten foran $x^2$ ikke er 1", "Når den har to like reelle røtter, altså når diskriminanten er lik null"],
+      options: ["Når den mangler reelle røtter (negativ diskriminant)", "Når den ikke kan deriveres, slik at faktoren blokkerer videre regning", "Når koeffisienten foran $x^2$ ikke er 1, altså når faktoren ikke er normalisert", "Når den har to like reelle røtter, altså når diskriminanten er lik null"],
       explanation: "Irreduserbar over de reelle tallene = kan ikke faktoriseres i reelle lineære faktorer = diskriminanten er negativ, som i $x^2+4x+13$.",
     },
     {
@@ -1794,7 +1794,7 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "$\\displaystyle\\int\\frac{2x+5}{x^2+4x+13}\\,dx$ splittes i to deler. Hvilke?",
-      options: ["$\\ln$-del med teller $2x+4$ og $\\arctan$-del med konstant teller", "To $\\ln$-deler", "$\\arctan$-del alene — nevneren er irreduserbar, så hele telleren følger med dit", "$\\ln$-del med teller $2x+5$ og en restdel"],
+      options: ["$\\ln$-del med teller $2x+4$ og $\\arctan$-del med konstant teller", "To $\\ln$-deler", "$\\arctan$-del alene — nevneren er irreduserbar, så hele telleren følger med dit", "$\\ln$-del med teller $2x+5$ og en restdel, siden hele telleren kan gå inn i logaritmen"],
       explanation: "Skriv $2x+5=(2x+4)+1$: nevnerens deriverte gir $\\ln(x^2+4x+13)$, konstanten gir via fullført kvadrat $(x+2)^2+9$ et arctan-ledd. Begge skal med.",
     },
     {
@@ -1804,7 +1804,7 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor kreves $\\theta\\in[-\\frac\\pi2,\\frac\\pi2]$ i substitusjonen $x=a\\sin\\theta$?",
-      options: ["Da er $\\cos\\theta\\ge0$, så $\\sqrt{a^2-x^2}=a\\cos\\theta$ uten fortegnsfeil, og $\\theta=\\arcsin\\frac xa$ er entydig", "Fordi sinusfunksjonen bare er definert for vinkler i intervallet $[-\\frac\\pi2,\\frac\\pi2]$ og ikke for noen vinkler utenfor det", "Fordi integralet ellers divergerer", "Det er valgfri konvensjon uten matematisk innhold"],
+      options: ["Da er $\\cos\\theta\\ge0$, så $\\sqrt{a^2-x^2}=a\\cos\\theta$ uten fortegnsfeil, og $\\theta=\\arcsin\\frac xa$ er entydig", "Fordi sinusfunksjonen bare er definert for vinkler i intervallet $[-\\frac\\pi2,\\frac\\pi2]$ og ikke for noen vinkler utenfor det", "Fordi integralet ellers divergerer, og kravet til $\\theta$ er dermed et konvergenskrav som sikrer at substitusjonen gir en endelig verdi", "Det er valgfri konvensjon uten matematisk innhold, så føringen er fullstendig selv om intervallet for $\\theta$ aldri blir oppgitt"],
       explanation: "Verdimengdekravet gjør to jobber: $\\sqrt{\\cos^2\\theta}=|\\cos\\theta|$ blir $\\cos\\theta$, og tilbaketransformasjonen blir veldefinert. Uten deklarert intervall er føringen ufullstendig.",
     },
     {
@@ -1851,7 +1851,7 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
   'mat111-uib-5-4': [
     {
       question: "Beslutningstreets første spørsmål til $\\displaystyle\\int\\frac{x^3+2}{x^2-1}\\,dx$?",
-      options: ["Rasjonal og uekte → polynomdivisjon først", "Rotuttrykk → trig-substitusjon", "Produkt → delvis integrasjon", "Kjerne → substitusjon $u=x^2-1$, siden $du=2x\\,dx$ matcher telleren direkte"],
+      options: ["Rasjonal og uekte → polynomdivisjon først", "Rotuttrykk → trig-substitusjon", "Produkt → delvis integrasjon, med teller og nevner som de to faktorene", "Kjerne → substitusjon $u=x^2-1$, siden $du=2x\\,dx$ matcher telleren direkte"],
       explanation: "Rasjonal integrand med tellergrad 3 ≥ nevnergrad 2: divider først, delbrøk på resten. ($u=x^2-1$ feiler: $du=2x\\,dx$ matcher ikke telleren.)",
     },
     {
@@ -1861,7 +1861,7 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er $x$-faktor-sjekken viktig før trig-substitusjon?",
-      options: ["Med en $x$-faktor i telleren er vanlig substitusjon ($u$ = radikanden) mye raskere", "Uten $x$-faktor er integralet uløselig", "Trig-substitusjon krever alltid en $x$-faktor i telleren for at $d\\theta$ skal matche", "$x$-faktoren endrer verdimengdekravet"],
+      options: ["Med en $x$-faktor i telleren er vanlig substitusjon ($u$ = radikanden) mye raskere", "Uten $x$-faktor er integralet uløselig", "Trig-substitusjon krever alltid en $x$-faktor i telleren for at $d\\theta$ skal matche", "$x$-faktoren endrer verdimengdekravet, og sjekken avgjør derfor hvilket intervall substitusjonen er gyldig på"],
       explanation: "$\\int\\frac{x\\,dx}{\\sqrt{9-x^2}}$ løses på tre linjer med $u=9-x^2$; trig-substitusjon gir samme svar med mye mer arbeid. Velg letteste gyldige vei.",
     },
     {
@@ -1886,12 +1886,12 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "«Alternativt:»-praksisen i løsningsforslagene betyr at …",
-      options: ["flere likeverdige veier gir full uttelling — velg den korteste", "bare den første metoden i fasit godkjennes", "alternative metoder gir halv uttelling", "man må vise to uavhengige metoder for å få full uttelling på oppgaven"],
+      options: ["flere likeverdige veier gir full uttelling — velg den korteste", "bare den første metoden i fasit godkjennes", "alternative metoder gir halv uttelling, mens bare hovedveien i fasit gir full", "man må vise to uavhengige metoder for å få full uttelling på oppgaven"],
       explanation: "Fasit fører gjerne to veier og honorerer begge. Du trenger bare én — men komplett ført.",
     },
     {
       question: "Hva er galt i denne føringen: «$\\int_0^{\\sqrt3}x\\sqrt{x^2+1}\\,dx = \\frac12\\int\\sqrt u\\,du = \\frac{u^{3/2}}{3} = \\frac{(x^2+1)^{3/2}}{3}$, innsatt: $\\frac{8-1}{3}=\\frac73$»?",
-      options: ["Grensene forsvant underveis — de skal bokføres i boksen eller stå på integralene hele veien", "Sluttsvaret $\\frac73$ er galt, siden tilbakebytting til $x$ aldri er tillatt i et bestemt integral", "Substitusjonen $u=x^2+1$ er ugyldig her", "Man kan ikke bytte tilbake til $x$ i et bestemt integral"],
+      options: ["Grensene forsvant underveis — de skal bokføres i boksen eller stå på integralene hele veien", "Sluttsvaret $\\frac73$ er galt, siden tilbakebytting til $x$ aldri er tillatt i et bestemt integral", "Substitusjonen $u=x^2+1$ er ugyldig her, og føringen faller sammen på valget av $u$, ikke på grensene", "Man kan ikke bytte tilbake til $x$ i et bestemt integral"],
       explanation: "Tallet stemmer, men de grenseløse mellomstegene er føringshull: enten nye grenser på $u$-integralet, eller tilbakebytting med $x$-grensene eksplisitt. Fasitpraksis krever at grensene aldri «flyter».",
     },
     {
@@ -1921,7 +1921,7 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor gir «fasitsvar uten synlig teknikk» null i sjanger B?",
-      options: ["Åpen bok gjør at svaret kan stå i permen — det som måles, er teknikken", "Fordi fasitsvarene i permen ofte er gale", "Fordi sensor ikke sjekker sluttsvar", "Det gir ikke null — bare litt trekk"],
+      options: ["Åpen bok gjør at svaret kan stå i permen — det som måles, er teknikken", "Fordi fasitsvarene i permen ofte er gale, så et oppslått svar kan ikke stoles på", "Fordi sensor ikke sjekker sluttsvar i det hele tatt, og svaret dermed er uten betydning", "Det gir ikke null — bare litt trekk for manglende føring, siden svaret uansett er riktig"],
       explanation: "Oppgavene sier eksplisitt «med grunnleggende teknikker, ikke ved oppslag». Uten utledning kan ikke besvarelsen skilles fra ren avskrift — derfor null.",
     },
     {
@@ -1958,17 +1958,17 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er $\\displaystyle\\int_1^\\infty \\frac{dx}{x}$?",
-      options: ["Divergerer — $p$-integralet med $p=1$", "Konvergerer med verdi $1$", "Konvergerer — mot verdien $\\ln 2$ i grensen", "Konvergerer med verdi $0$"],
+      options: ["Divergerer — $p$-integralet med $p=1$", "Konvergerer med verdi $1$, siden $p=1$ gir et endelig $p$-integral", "Konvergerer — mot verdien $\\ln 2$ i grensen", "Konvergerer med verdi $0$, fordi arealet krymper mot null"],
       explanation: "Antideriverten er $\\ln x$, og $\\ln b\\to\\infty$ når $b\\to\\infty$ — grensetilfellet $p=1$ faller på feil side.",
     },
     {
       question: "Full uttelling for en konvergensavgjørelse med sammenligning krever (H2014-fasitkravet) …",
-      options: ["uttalt ikke-negativitet OG navngitt majorant med endelig integral", "bare ulikheten $f(x)\\le g(x)$ på intervallet", "at integranden er kontinuerlig og begrenset på hele integrasjonsintervallet", "at majoranten er avtagende mot null"],
+      options: ["uttalt ikke-negativitet OG navngitt majorant med endelig integral", "bare ulikheten $f(x)\\le g(x)$ på intervallet, uten at fortegn eller majorant nevnes", "at integranden er kontinuerlig og begrenset på hele integrasjonsintervallet", "at majoranten er avtagende mot null, uten at integralet må være endelig"],
       explanation: "Begge premissene skal stå: $f\\ge 0$ og et navngitt sammenligningsintegral som konvergerer. Ulikheten alene er ikke et argument.",
     },
     {
       question: "Integranden i $\\displaystyle\\int_{-4}^{4}\\frac{dx}{x^2}$ er udefinert i $x=0$. Hva er riktig håndtering?",
-      options: ["Splitt i $x=0$; hver del får sin egen ensidige grense", "Integrer med antideriverten $-1/x$ rett fra $-4$ til $4$", "Fjern punktet $x=0$ og integrer resten under ett", "Bruk symmetrien og doble integralet fra $0$ til $4$"],
+      options: ["Splitt i $x=0$; hver del får sin egen ensidige grense", "Integrer med antideriverten $-1/x$ rett fra $-4$ til $4$", "Fjern punktet $x=0$ og integrer resten under ett, uten ensidige grenser", "Bruk symmetrien og doble integralet fra $0$ til $4$ uten videre grensebehandling"],
       explanation: "Indre singularitet krever splitting — begge delene må konvergere. Direkte innsetting gir det absurde svaret $-\\tfrac12$ av en positiv integrand. (Symmetrigrepet strander på samme problem: delen fra $0$ divergerer.)",
     },
     {
@@ -1988,7 +1988,7 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "For å vise at et uegentlig integral DIVERGERER med sammenligning, trenger du …",
-      options: ["en divergent minorant: $f\\ge g\\ge 0$ der $\\int g$ divergerer", "en divergent majorant: $f\\le g$ på intervallet, der $\\int g$ divergerer", "en konvergent majorant over integranden", "at integranden ikke går mot null"],
+      options: ["en divergent minorant: $f\\ge g\\ge 0$ der $\\int g$ divergerer", "en divergent majorant: $f\\le g$ på intervallet, der $\\int g$ divergerer", "en konvergent majorant over integranden, altså et endelig tak som tvinger fram divergens", "at integranden ikke går mot null, siden det alene sikrer divergens"],
       explanation: "Et divergent «gulv» presser integralet i været. En divergent majorant beviser ingenting — $f$ kan fint være liten under noe stort. (Og $f\\to 0$ hindrer ikke divergens: se $1/x$.)",
     },
     {
@@ -2008,7 +2008,7 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En besvarelse skriver «$\\int_2^\\infty f\\,dx = F(\\infty)-F(2)$» og setter $F(\\infty)=0$. Hva er innvendingen?",
-      options: ["$F(\\infty)$ er ikke et tall — grenseovergangen må skrives som $\\lim$", "Verdien blir feil — grensen skal alltid regnes på nytt med delbrøkoppspalting", "Ingen — notasjonen er grei når grensen finnes", "$F$ skal evalueres i $0$, ikke i $\\infty$"],
+      options: ["$F(\\infty)$ er ikke et tall — grenseovergangen må skrives som $\\lim$", "Verdien blir feil — grensen må regnes på nytt", "Ingen — notasjonen er grei når grensen finnes", "$F$ skal evalueres i $0$, ikke i $\\infty$"],
       explanation: "Selv når tallet blir riktig, underkjennes føringen: $\\infty$ er ikke et innsettingspunkt. Skriv $\\lim_{b\\to\\infty}\\big(F(b)-F(2)\\big)$.",
     },
     {
@@ -2045,7 +2045,7 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva mangler i «$V = 2\\pi\\int_0^1 h(x)\\,dx$» som skallformel?",
-      options: ["Radiusfaktoren $x$ i integranden", "Faktoren $\\pi$ — det skal være $\\pi^2$", "Kvadratet på høyden $h(x)$", "Ingenting — formelen er riktig"],
+      options: ["Radiusfaktoren $x$ i integranden", "Faktoren $\\pi$ — det skal være $\\pi^2$", "Kvadratet på høyden $h(x)$", "Ingenting — formelen er en fullstendig skallformel slik den står"],
       explanation: "Skallets volum er omkrets × høyde × tykkelse $= 2\\pi x\\,h(x)\\,dx$. Uten $x$ summerer du bare (skalerte) arealer.",
     },
     {
@@ -2055,17 +2055,17 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Kjapp sjekk på om et uttrykk er volum eller areal:",
-      options: ["Volumformlene bærer $\\pi$ eller $2\\pi$; arealet mellom kurver har ingen", "Volum har alltid større tallverdi enn areal", "Areal bruker bestemte integraler, volum bruker alltid ubestemte integraler", "Volum krever alltid to funksjoner, areal én"],
+      options: ["Volumformlene bærer $\\pi$ eller $2\\pi$; arealet mellom kurver har ingen", "Volum har alltid større tallverdi enn areal", "Areal bruker bestemte integraler, volum alltid ubestemte", "Volum krever alltid to funksjoner, areal én"],
       explanation: "Kjennetegnet sitter i formelen: $\\pi R^2$-skiver eller $2\\pi x$-skall mot $\\int(\\text{øvre}-\\text{nedre})$. H2016-fella var nettopp å levere det ene når det ble spurt om det andre.",
     },
     {
       question: "Gabriels horn — $y=\\frac1x$ for $x\\ge1$ dreid om $x$-aksen — har volum …",
-      options: ["$\\pi$, siden $\\int_1^\\infty x^{-2}dx$ konvergerer ($p=2$)", "uendelig, siden legemet strekker seg uendelig langt bortover aksen", "$2\\pi$, siden $\\int_1^\\infty x^{-2}dx = 2$", "$\\pi^2$, siden begge faktorene gir $\\pi$"],
+      options: ["$\\pi$, siden $\\int_1^\\infty x^{-2}dx$ konvergerer ($p=2$)", "uendelig, siden legemet er uendelig langt", "$2\\pi$, siden $\\int_1^\\infty x^{-2}dx = 2$", "$\\pi^2$, siden begge faktorene gir $\\pi$"],
       explanation: "$V=\\pi\\int_1^\\infty x^{-2}dx = \\pi\\cdot 1 = \\pi$. Uendelig utstrekning hindrer ikke endelig volum — det avgjøres av $p$-integralet.",
     },
     {
       question: "Snus hornet til $y=\\frac{1}{\\sqrt x}$ for $x\\ge 1$ (om $x$-aksen), blir volumet …",
-      options: ["uendelig — kvadreringen gir $p$-integralet med $p=1$", "$\\pi$ — nøyaktig samme verdi som for det opprinnelige $\\frac1x$-hornet", "$2\\pi$ — dobbelt så stort som for $\\frac1x$", "$\\frac{\\pi}{2}$ — halvparten av det forrige"],
+      options: ["uendelig — kvadreringen gir $p$-integralet med $p=1$", "$\\pi$ — nøyaktig samme verdi som for det opprinnelige $\\frac1x$-hornet", "$2\\pi$ — dobbelt så stort som for $\\frac1x$, fordi kvadratroten gjør radien større", "$\\frac{\\pi}{2}$ — halvparten av volumet til $\\frac1x$-hornet, siden roten halverer radien"],
       explanation: "$R^2 = \\frac1x$, og $\\int_1^\\infty\\frac{dx}{x}$ divergerer. Kvadreringen flytter $p$ — fra $\\tfrac12$ til $1$ — og $p=1$ er akkurat for tykt.",
     },
     {
@@ -2090,7 +2090,7 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "H2016-fasitten trakk kandidater som …",
-      options: ["skrev av et lærebokeksempel som lignet, uten å svare på oppgavens spørsmål", "førte begge metodene som likeverdige alternativer og fikk samme svar to ganger", "begrunnet metodevalget sitt før regningen", "tegnet en skisse med rotasjonsaksen markert"],
+      options: ["skrev av et lærebokeksempel som lignet, uten å svare på oppgavens spørsmål", "førte begge metodene som likeverdige alternativer og fikk samme svar to ganger", "begrunnet metodevalget sitt før regningen, altså skrev ned hvorfor skiver eller skall passet best for området", "tegnet en skisse med rotasjonsaksen markert"],
       explanation: "Avskrift av noe som ligner er ikke svar på DIN oppgave — radiene skal settes opp fra ditt område og din akse. De tre andre er god skikk som honoreres.",
     },
     {
@@ -2100,7 +2100,7 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "«Alternativt:»-føringen i volumoppgaver betyr at …",
-      options: ["begge metodene føres som likeverdige — og samsvaret er en innebygd kontroll", "den andre metoden nevnes bare ved navn helt til slutt i besvarelsen, uten regning", "man trekkes hvis man velger den tyngste metoden", "kun én metode kan gi full uttelling"],
+      options: ["begge metodene føres som likeverdige — og samsvaret er en innebygd kontroll", "den andre metoden nevnes bare ved navn helt til slutt i besvarelsen, uten regning", "man trekkes hvis man velger den tyngste metoden", "kun én metode kan gi full uttelling, og den andre metoden regnes som en omvei som ikke honoreres"],
       explanation: "Løsningsforslagene fører regelmessig skiver OG skall som likeverdige veier. Å velge tungt koster tid, ikke poeng — og navnedropp uten regning er ingen føring.",
     },
   ],
@@ -2137,7 +2137,7 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Skranken $K$ i feilformlene skal være …",
-      options: ["et begrunnet maksimum av $|f''|$ (hhv. $|f^{(4)}|$) på hele $[a,b]$", "verdien av $|f''|$ i midtpunktet av intervallet, der feilen er størst", "verdien av $|f''|$ i venstre endepunkt, alltid", "gjennomsnittet av $|f''|$ over intervallet"],
+      options: ["et begrunnet maksimum av $|f''|$ (hhv. $|f^{(4)}|$) på hele $[a,b]$", "verdien av $|f''|$ i midtpunktet av intervallet, der feilen er størst", "verdien av $|f''|$ i venstre endepunkt, alltid — uten å se på resten av $[a,b]$ eller på monotonien", "gjennomsnittet av $|f''|$ over intervallet, altså et snitt av verdiene på $[a,b]$ i stedet for et maksimum"],
       explanation: "Maksimum på HELE intervallet, med begrunnelse (typisk monotoni) — eller en begrunnet grov overskranke. Endepunktet er bare riktig når monotonien tilsier det.",
     },
     {
@@ -2147,7 +2147,7 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er Simpsons metode eksakt for tredjegradspolynomer?",
-      options: ["Fordi $f^{(4)}\\equiv 0$ gjør feilskranken til null for alle $n$", "Fordi parabler kan legges gjennom fire vilkårlige punkter i planet", "Fordi vektene $1,4,1$ summerer til 6", "Den er ikke eksakt — bare svært god"],
+      options: ["Fordi $f^{(4)}\\equiv 0$ gjør feilskranken til null for alle $n$", "Fordi parabler treffer fire vilkårlige punkter", "Fordi vektene $1,4,1$ summerer til 6", "Den er ikke eksakt — bare svært god"],
       explanation: "Grad $\\le 3$ gir $f^{(4)}\\equiv0$, så $K=0$ i skranken — feilen tvinges til null. (Parabler er grad 2; eksaktheten for grad 3 er symmetri-gratisgraden.)",
     },
     {
@@ -2172,7 +2172,7 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Et moteksempel der trapes slår Simpson (V2020-varianten) er …",
-      options: ["$\\cos(2\\pi x)$ på $[0,1]$ med $n=2$: $T_2=0$ (eksakt), $S_2=-\\tfrac13$", "$x^3$ på $[0,2]$ med $n=2$: der er trapes eksakt og Simpson bommer grovt", "$e^x$ på $[0,1]$ med stort $n$: trapes vinner alltid til slutt", "umulig — feilskrankene garanterer at Simpson alltid er nærmest"],
+      options: ["$\\cos(2\\pi x)$ på $[0,1]$ med $n=2$: $T_2=0$ (eksakt), $S_2=-\\tfrac13$", "$x^3$ på $[0,2]$ med $n=2$: der er trapes eksakt og Simpson bommer grovt", "$e^x$ på $[0,1]$ med stort $n$: trapes vinner alltid til slutt, uansett hvor mange noder Simpson får", "umulig — feilskrankene garanterer at Simpson alltid er nærmest"],
       explanation: "Tre noder ser en hel cosinus-periode: verdiene $1,-1,1$ gir $T_2=0$ (treff) og $S_2=-\\tfrac13$ (grov bom). For $x^3$ er det motsatt (Simpson eksakt), og skrankene er garantier ovenfra — ikke løfter om rangering.",
     },
     {
@@ -2182,7 +2182,7 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Forholdet mellom feilskranke og faktisk feil:",
-      options: ["Skranken er en garanti — den faktiske feilen er som regel mindre", "Skranken treffer den faktiske feilen eksakt", "Den faktiske feilen er alltid nøyaktig halvparten av den oppgitte skranken", "Skranken gjelder bare når $f$ er et polynom"],
+      options: ["Skranken er en garanti — den faktiske feilen er som regel mindre", "Skranken treffer den faktiske feilen eksakt, så tallet du regner ut i skranken ER feilen", "Den faktiske feilen er alltid nøyaktig halvparten av den oppgitte skranken", "Skranken gjelder bare når $f$ er et polynom; for andre funksjoner sier den ingenting om feilen"],
       explanation: "For $T_4$ på $\\int_1^2 dx/x$: skranke $0{,}0104$, faktisk feil $0{,}0039$. Garanti ovenfra — aldri fasit, og aldri gjenbrukbar som «skranke» i en annen oppgave.",
     },
   ],
@@ -2224,12 +2224,12 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Logistisk likning $y'=ky(M-y)$ med $0<y(0)<M$. Hva er $\\displaystyle\\lim_{x\\to\\infty}y(x)$?",
-      options: ["$M$ — løsningen vokser mot bæreevnen uten å nå den", "$M/2$ — nivået der veksten er størst", "$0$ — veksten dør ut når faktoren $M-y$ blir liten", "Grensen avhenger av $k$ og kan ikke avgjøres generelt"],
+      options: ["$M$ — løsningen vokser mot bæreevnen uten å nå den", "$M/2$ — nivået der veksten er størst, og der løsningen derfor stanser", "$0$ — veksten dør ut når faktoren $M-y$ blir liten", "Grensen avhenger av $k$ og kan ikke avgjøres generelt"],
       explanation: "Løsninger som starter i $(0,M)$ vokser mot metningsnivået $M$. $M/2$ er der veksten er raskest — ikke der den ender. $k$ styrer bare hvor fort det går.",
     },
     {
       question: "I logistisk vekst er veksten $y'$ størst når",
-      options: ["$y = M/2$ — produktet $y(M-y)$ maksimeres når faktorene balanserer", "$y$ er nær $0$ — der er det flest ressurser igjen, så totalveksten i bestanden er størst der", "$y$ er nær $M$ — der er bestanden størst", "$x = 0$ — veksten avtar alltid med tiden"],
+      options: ["$y = M/2$ — produktet $y(M-y)$ maksimeres når faktorene balanserer", "$y$ er nær $0$ — der er det flest ressurser igjen", "$y$ er nær $M$ — der er bestanden størst", "$x = 0$ — veksten avtar alltid med tiden"],
       explanation: "$y'$ er proporsjonal med produktet $y(M-y)$, som er størst i symmetripunktet $y=M/2$ (vendepunktet på løsningskurven). Nær $0$ og nær $M$ er én av faktorene liten.",
     },
     {
@@ -2244,22 +2244,22 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva består innsettingskontrollen (steg 5) av?",
-      options: ["Deriver svaret, sett $y$ og $y'$ inn i den opprinnelige likningen, og sjekk initialbetingelsen", "Sett svaret inn i den separerte formen $\\frac{dy}{h(y)}=g(x)\\,dx$ og sjekk at begge sider får samme konstant", "Sjekk at integrasjonskonstanten er entydig bestemt", "Regn ut $y$ i ett ekstra punkt og sammenlign med retningsfeltet"],
+      options: ["Deriver svaret, sett $y$ og $y'$ inn i den opprinnelige likningen, og sjekk initialbetingelsen", "Sett svaret inn i den separerte formen $\\frac{dy}{h(y)}=g(x)\\,dx$", "Sjekk at integrasjonskonstanten er entydig bestemt", "Regn ut $y$ i ett ekstra punkt og sammenlign med retningsfeltet"],
       explanation: "Kontrollen går mot den OPPRINNELIGE likningen (pluss initialbetingelsen) — den fanger fortegns-, delbrøk- og konstantfeil på under et minutt.",
     },
     {
       question: "$y^2 = x^2+4$ med $y(0)=2$. Hvordan velges fortegnet i $y=\\pm\\sqrt{x^2+4}$?",
-      options: ["Initialbetingelsen $y(0)=2>0$ velger plusstegnet", "Begge fortegn beholdes i sluttsvaret", "Plusstegnet velges alltid — rotuttrykk er per konvensjon positive", "Fortegnet bestemmes av fortegnet til $x$"],
+      options: ["Initialbetingelsen $y(0)=2>0$ velger plusstegnet", "Begge fortegn beholdes i sluttsvaret, som da er $y=\\pm\\sqrt{x^2+4}$", "Plusstegnet velges alltid — rotuttrykk er per konvensjon positive", "Fortegnet bestemmes av fortegnet til $x$"],
       explanation: "Én løsning skal ut, og det er startverdien som peker den ut: $y(0)=2$ passer bare plussgrenen. Konvensjonen om positiv kvadratrot handler om symbolet $\\sqrt{\\ }$, ikke om løsningsvalget.",
     },
     {
       question: "Hvorfor holder løsningen i eksempel 3 ($y(0)=1$, konstante løsninger $y\\equiv 0$ og $y\\equiv 3$) seg i intervallet $(0,3)$?",
-      options: ["Løsningskurver kan ikke krysse hverandre (entydighet) — de konstante løsningene sperrer", "Fordi delbrøkoppspaltingen bare er definert for $0<y<3$", "Fordi initialverdien er mindre enn bæreevnen, og logistiske løsninger alltid er voksende overalt der de finnes", "Fordi $\\ln$-uttrykkene ellers ville byttet fortegn"],
+      options: ["Løsningskurver kan ikke krysse hverandre (entydighet) — de konstante løsningene sperrer", "Fordi delbrøkoppspaltingen bare er definert for $0<y<3$", "Fordi initialverdien er mindre enn bæreevnen, og logistiske løsninger alltid er voksende overalt der de finnes", "Fordi $\\ln$-uttrykkene ellers ville byttet fortegn, og det er dette kravet som holder løsningen inne i $(0,3)$"],
       explanation: "Entydighetsteoremet gir at to løsningskurver aldri krysser — så en løsning som starter mellom de konstante løsningene, er fanget der. Det er dette som begrunner at absoluttverdiene kan sløyfes.",
     },
     {
       question: "Hva er spesielt med initialverdiproblemet $y'=\\sqrt{y}$, $y(0)=0$?",
-      options: ["Entydigheten svikter — både $y\\equiv 0$ og $y=x^2/4$ løser det for $x\\ge 0$", "Det har ingen løsninger i det hele tatt, siden $\\sqrt{y}$ ikke er deriverbar i $0$ og likningen bryter sammen der", "Det har nøyaktig én løsning, som alle andre initialverdiproblemer", "Likningen er ikke separabel når høyresiden er en rot"],
+      options: ["Entydigheten svikter — både $y\\equiv 0$ og $y=x^2/4$ løser det for $x\\ge 0$", "Det har ingen løsninger i det hele tatt, siden $\\sqrt{y}$ ikke er deriverbar i $0$ og likningen bryter sammen der", "Det har nøyaktig én løsning, som alle andre initialverdiproblemer — entydigheten gjelder uansett høyreside", "Likningen er ikke separabel når høyresiden er en rot, så separasjonsmalen kan ikke brukes på $y'=\\sqrt{y}$"],
       explanation: "$\\sqrt{y}$ endrer seg ikke glatt i $y=0$, så entydighetsteoremets forutsetning ryker — og to ulike løsninger passer. Eksamensoppgaver stilles med initialbetingelser der teorien holder.",
     },
     {
@@ -2269,12 +2269,12 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Løsningen $y=\\dfrac{1}{x+1}$ av $y'=-y^2$, $y(0)=1$: hva er riktig om definisjonsområdet?",
-      options: ["Løsningen lever på intervallet $x>-1$ — det som inneholder initialpunktet", "Den gjelder for alle $x\\neq -1$, forstått som to separate grener som til sammen utgjør én og samme løsning", "Den gjelder for alle $x$, siden likningen er definert overalt", "Den gjelder bare for $x>0$, der initialbetingelsen er gitt"],
+      options: ["Løsningen lever på intervallet $x>-1$ — det som inneholder initialpunktet", "Den gjelder for alle $x\\neq -1$, forstått som to separate grener som til sammen utgjør én og samme løsning", "Den gjelder for alle $x$, siden likningen er definert overalt, også på begge sider av $x=-1$", "Den gjelder bare for $x>0$, der initialbetingelsen er gitt, siden løsningen ikke kan strekke seg til negative $x$"],
       explanation: "En løsning lever på ETT intervall, og det er intervallet rundt initialpunktet $x=0$: altså $x>-1$. At selve likningen er snill overalt, hindrer ikke løsningen i å blåse opp.",
     },
     {
       question: "Likevekten $y\\equiv M$ i logistisk vekst er stabil fordi",
-      options: ["naboløsninger trekkes mot den — løsninger under $M$ vokser opp mot nivået", "den er den største av de konstante løsningene, og en større konstant betyr alltid sterkere stabilitet", "$y'$ er størst der, så løsningene suges inn", "initialbetingelsen alltid ligger under $M$"],
+      options: ["naboløsninger trekkes mot den — løsninger under $M$ vokser opp mot nivået", "den er den største av de konstante løsningene, og en større konstant betyr alltid sterkere stabilitet", "$y'$ er størst der, så løsningene suges inn mot nivået av den kraftige veksten i likevekten", "initialbetingelsen alltid ligger under $M$, og en løsning som starter der, kan ikke ende noe annet sted"],
       explanation: "Stabilitet handler om hva naboløsninger gjør: under $M$ er $y'>0$ (vokser mot $M$), rett over er $y'<0$. I kontrast er $y\\equiv 0$ ustabil — små bestander vokser VEKK fra null. ($y'$ er for øvrig null i likevekten, ikke stor.)",
     },
   ],
@@ -2296,7 +2296,7 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor skal linjen «$(\\mu y)' = \\mu q$» stå eksplisitt i føringen?",
-      options: ["Den ER gjenkjenningen av venstresiden som en produktderivert — og der ligger føringspoenget", "Fordi den erstatter innsettingskontrollen på slutten", "Fordi konstanten $C$ må bestemmes i akkurat den linjen", "Den er valgfri pynt — løsningsforslagene ser uansett bare på sluttformelen for $y$, ikke på mellomregningen"],
+      options: ["Den ER gjenkjenningen av venstresiden som en produktderivert — og der ligger føringspoenget", "Fordi den erstatter innsettingskontrollen på slutten — har du skrevet linjen, trenger du ikke sette svaret inn i likningen", "Fordi konstanten $C$ må bestemmes i akkurat den linjen, altså før integrasjonen — ikke etter at $y$ er isolert", "Den er valgfri pynt — løsningsforslagene ser uansett bare på sluttformelen for $y$, ikke på mellomregningen"],
       explanation: "Uten gjenkjenningslinjen blir venstresiden stående som to ledd som mange integrerer hver for seg — feil. Linjen viser at du forstår hvorfor metoden virker, og det er der løsningsforslagene legger poenget.",
     },
     {
@@ -2306,22 +2306,22 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Standardføringen bestemmer konstanten $C$",
-      options: ["etter at $y$ er isolert — innsetting i $\\mu y = \\int\\mu q\\,dx + C$ er feilutsatt siden $\\mu(x_0)\\neq 1$ generelt", "i linjen $\\mu y = \\int\\mu q\\,dx + C$, før divisjonen på $\\mu$ — det sparer regning og er derfor standardføringens anbefaling", "før integrasjonen, direkte fra initialbetingelsen", "aldri — den generelle løsningen er sluttsvaret"],
+      options: ["etter at $y$ er isolert — innsetting i $\\mu y = \\int\\mu q\\,dx + C$ er feilutsatt siden $\\mu(x_0)\\neq 1$ generelt", "i linjen $\\mu y = \\int\\mu q\\,dx + C$, før divisjonen på $\\mu$ — det sparer regning", "før integrasjonen, direkte fra initialbetingelsen", "aldri — den generelle løsningen er sluttsvaret"],
       explanation: "Begge tidspunkter er matematisk mulige, men å sette inn før $y$ er isolert krever at du husker $\\mu(x_0)$-faktoren — en klassisk glipp. Isolér $y$ først; da er innsettingen ren.",
     },
     {
       question: "$y' + 2y = e^{-2x}$: hva er «resonans-signalet» i utregningen?",
-      options: ["$\\mu q = e^{2x}e^{-2x} = 1$ blir konstant — forvent et $x$-ledd i svaret", "$\\mu$ blir konstant, så metoden bryter sammen", "Likningen slutter å være lineær i det øyeblikket og må i stedet løses separabelt", "Integralet $\\int\\mu q\\,dx$ divergerer"],
+      options: ["$\\mu q = e^{2x}e^{-2x} = 1$ blir konstant — forvent et $x$-ledd i svaret", "$\\mu$ blir konstant, så metoden bryter sammen og integrerende faktor kan ikke brukes her", "Likningen slutter å være lineær i det øyeblikket og må i stedet løses separabelt", "Integralet $\\int\\mu q\\,dx$ divergerer"],
       explanation: "Når $q$ har samme form som den homogene løsningen, blir $\\mu q$ konstant og integralet gir $x + C$: løsningen inneholder $xe^{-2x}$. Ingen ny teknikk trengs — malen håndterer det automatisk.",
     },
     {
       question: "I variasjon av parameter settes $y = u(x)e^{-\\int p\\,dx}$. Hva er kontrollen på at du har regnet riktig?",
-      options: ["Leddene med $u$ uten derivert kansellerer, og det står igjen $u' = \\mu q$", "Uttrykket for $u$ blir alltid et polynom", "$u$-leddene samler seg til $(\\mu u)' = q$", "Alle ledd som inneholder faktoren $e^{-\\int p\\,dx}$ forsvinner helt fra likningen"],
+      options: ["Leddene med $u$ uten derivert kansellerer, og det står igjen $u' = \\mu q$", "Uttrykket for $u$ blir alltid et polynom, og blir det ikke det, har du regnet feil i innsettingen", "$u$-leddene samler seg til $(\\mu u)' = q$", "Alle ledd som inneholder faktoren $e^{-\\int p\\,dx}$ forsvinner helt fra likningen"],
       explanation: "Innsettingen er skrudd sammen slik at $u$-leddene uten derivert skal kansellere — skjer ikke det, var homogenløsningen feil. Igjen står $u'e^{-\\int p\\,dx} = q$, altså $u'=\\mu q$.",
     },
     {
       question: "Fasitpraksisen for de to metodene (integrerende faktor / variasjon av parameter) er:",
-      options: ["Begge er likeverdige og honoreres likt; forslagene fører gjerne den andre som «Alternativt:»", "Integrerende faktor kreves alltid; variasjon av parameter gir bare delvis uttelling som skissemetode", "Variasjon av parameter kreves i oppgaver med variabel koeffisient", "Metodene gir litt forskjellige svar, så begge må alltid føres"],
+      options: ["Begge er likeverdige og honoreres likt; forslagene fører gjerne den andre som «Alternativt:»", "Integrerende faktor kreves alltid; variasjon av parameter gir bare delvis uttelling som skissemetode", "Variasjon av parameter kreves i oppgaver med variabel koeffisient", "Metodene gir litt forskjellige svar, så begge må alltid føres, og løsningsforslagene krever begge for full uttelling"],
       explanation: "Metodene er to veier til samme svar, og begge føringer gir full uttelling — velg den som gir minst regning. «Alternativt:»-merket i løsningsforslagene er nettopp dette.",
     },
     {
@@ -2331,7 +2331,7 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Strukturen på den generelle løsningen av $y'+py=q$ er",
-      options: ["én fast partikulærløsning pluss homogenløsningen: $y = y_p + Ce^{-\\int p\\,dx}$", "produktet av partikulær- og homogenløsningen", "homogenløsningen alene, med $C$ bestemt av $q$", "summen av to uavhengige partikulærløsninger, som hver får sin egen frie konstant"],
+      options: ["én fast partikulærløsning pluss homogenløsningen: $y = y_p + Ce^{-\\int p\\,dx}$", "produktet av partikulær- og homogenløsningen, altså de to løsningene ganget sammen til ett uttrykk", "homogenløsningen alene, med $C$ bestemt av $q$ — noen egen partikulærløsning trengs ikke i svaret", "summen av to uavhengige partikulærløsninger, som hver får sin egen frie konstant"],
       explanation: "Derfor har svarene alltid formen «noe bestemt $+\\ C\\cdot$noe eksponentielt», og differansen mellom to løsninger av samme likning er alltid en homogenløsning.",
     },
     {
@@ -2351,12 +2351,12 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En student ganger venstresiden med $\\mu$, men glemmer høyresiden. Hva blir konsekvensen?",
-      options: ["Likningen $(\\mu y)' = q$ er en ANNEN likning — alt etterpå løser feil problem", "Ingen — $\\mu$ forkortes uansett bort til slutt", "Bare konstanten $C$ blir feil til slutt; selve formen på løsningen består uendret", "Metoden gir da den homogene løsningen i stedet"],
+      options: ["Likningen $(\\mu y)' = q$ er en ANNEN likning — alt etterpå løser feil problem", "Ingen — $\\mu$ forkortes uansett bort til slutt, så svaret blir det samme enten høyresiden ganges eller ikke", "Bare konstanten $C$ blir feil til slutt; selve formen på løsningen består uendret", "Metoden gir da den homogene løsningen i stedet, siden høyresiden faller helt ut av regningen"],
       explanation: "$\\mu$ må ganges inn på BEGGE sider: gjenkjenningen gjelder likningen $(\\mu y)'=\\mu q$. Med $q$ uganget følger både form og konstant feil — og feilen synes først i innsettingskontrollen.",
     },
     {
       question: "$y' = 2-y$ kan løses både separabelt og lineært. Hva er riktig om de to veiene?",
-      options: ["Begge honoreres likt — men den separable veien krever setningen om den konstante løsningen $y\\equiv 2$", "Bare den lineære veien er gyldig når likningen har konstantledd", "Den separable veien er ugyldig fordi uttrykket $2-y$ ikke kan faktoriseres som $g(x)h(y)$ med ekte $x$-del", "De to veiene gir forskjellige løsningsfamilier"],
+      options: ["Begge honoreres likt — men den separable veien krever setningen om den konstante løsningen $y\\equiv 2$", "Bare den lineære veien er gyldig når likningen har konstantledd, så separasjon av $y'=2-y$ gir ikke uttelling", "Den separable veien er ugyldig fordi uttrykket $2-y$ ikke kan faktoriseres som $g(x)h(y)$ med ekte $x$-del", "De to veiene gir forskjellige løsningsfamilier, så svaret avhenger av om du separerer eller bruker integrerende faktor"],
       explanation: "Likninger på formen $y'=a(x)y+b(x)$ med konstant forhold mellom leddene er begge deler, og begge føringer gir full uttelling. Forskjellen er føringskravet: separasjon deler på $2-y$ og må derfor sjekke $y\\equiv 2$ først.",
     },
   ],
@@ -2373,12 +2373,12 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er klassifiseringssteget (separabel eller lineær?) med i modelleringsoppskriften?",
-      options: ["Det bestemmer hvilken løsningsmal du skal bruke fra kap. 6.1 eller 6.2", "Det avgjør hvor mange datapunkter du trenger for å bestemme konstantene i modellen", "Det er et rent formkrav uten praktisk funksjon", "Det avgjør om likevektsløsninger finnes"],
+      options: ["Det bestemmer hvilken løsningsmal du skal bruke fra kap. 6.1 eller 6.2", "Det avgjør hvor mange datapunkter du trenger for å bestemme konstantene i modellen", "Det er et rent formkrav uten praktisk funksjon, og det påvirker ikke hvordan du løser likningen", "Det avgjør om likevektsløsninger finnes, siden bare den ene av de to typene kan ha slike løsninger"],
       explanation: "Klassifiseringen velger verktøyet: separasjonsmalen (med konstant-løsnings-setningen) eller integrerende faktor. Datapunktbehovet styres av antall ukjente konstanter, og likevekter kan finnes i begge typer.",
     },
     {
       question: "Modellen er $T = 20 + Ae^{-kt}$ med to datapunkter: $T(0)=90$ og $T(5)=70$. Riktig rekkefølge:",
-      options: ["Startverdien gir $A=70$ først; deretter gir $T(5)=70$ konstanten $k$", "Datapunktet $T(5)=70$ gir $A$; startverdien gir $k$", "Begge konstantene finnes fra det ene punktet alene ved å derivere modellen én gang", "Rekkefølgen er likegyldig — sett inn begge samtidig og gjett"],
+      options: ["Startverdien gir $A=70$ først; deretter gir $T(5)=70$ konstanten $k$", "Datapunktet $T(5)=70$ gir $A$ direkte; startverdien $T(0)=90$ brukes så til å bestemme $k$", "Begge konstantene finnes fra det ene punktet alene ved å derivere modellen én gang", "Rekkefølgen er likegyldig — sett begge datapunktene inn samtidig og gjett deg fram til $A$ og $k$"],
       explanation: "Startverdien bestemmer $A$ (der er $e^{-kt}=1$, så $k$ ikke forstyrrer); det ANDRE punktet bestemmer $k$. Bland rekkefølgen, og begge blir gale — den dokumenterte konstantfeilen.",
     },
     {
@@ -2388,7 +2388,7 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Torricelli-kjeden: hvordan kommer $V(h)$ fra deloppgave a) inn i differensiallikningen?",
-      options: ["Via kjerneregelen: $\\dfrac{dV}{dt} = V'(h)\\,h'$, som likestilles med $-a\\sqrt{2gh}$", "Via $V(h)$ innsatt direkte for $h$ i Torricellis lov", "Via arealformelen $A(h) = V(h)/h$", "Den brukes ikke videre — likningen for $h$ settes opp helt uavhengig av deloppgave a)"],
+      options: ["Via kjerneregelen: $\\dfrac{dV}{dt} = V'(h)\\,h'$, som likestilles med $-a\\sqrt{2gh}$", "Via $V(h)$ innsatt direkte for $h$ i Torricellis lov, uten kjerneregel: volumstrømmen leses da av som høydeendringen", "Via arealformelen $A(h) = V(h)/h$", "Den brukes ikke videre — likningen for $h$ settes opp helt uavhengig av deloppgave a)"],
       explanation: "$V$ og $h$ er begge funksjoner av $t$; kjerneregelen omsetter volumstrøm til høydeendring. Vanligste kjedefeil er nettopp å svare på a) og så IKKE bruke $V(h)$ videre — kjeden er poenget.",
     },
     {
@@ -2398,12 +2398,12 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Minustegnet i $\\dfrac{dV}{dt} = -a\\sqrt{2gh}$ skal i føringen",
-      options: ["begrunnes med én setning: volumet avtar når vannet renner ut", "utelates helt — absoluttverdiene ordner retningen av seg selv", "flyttes over til $a$, som settes negativ", "begrunnes med at $\\sqrt{2gh}$ er negativ"],
+      options: ["begrunnes med én setning: volumet avtar når vannet renner ut", "utelates helt — absoluttverdiene ordner retningen av seg selv", "flyttes over til $a$, som settes negativ, slik at fortegnet ikke trenger noen egen begrunnelse", "begrunnes med at $\\sqrt{2gh}$ er negativ"],
       explanation: "Fasitpraksis er å si fortegnet i én setning, ikke la det dukke opp umotivert. $a$ er et areal (positivt), og en kvadratrot er aldri negativ.",
     },
     {
       question: "Halveringstiden for $y = y_0e^{-kt}$ er",
-      options: ["$T_{1/2} = \\dfrac{\\ln 2}{k}$ — uavhengig av startverdien", "$T_{1/2} = \\dfrac{k}{\\ln 2}$, proporsjonal med raten", "$T_{1/2} = \\dfrac{y_0}{2k}$ — avhengig av startverdien $y_0$", "$T_{1/2} = \\dfrac{1}{k}$, tidskonstanten"],
+      options: ["$T_{1/2} = \\dfrac{\\ln 2}{k}$ — uavhengig av startverdien", "$T_{1/2} = \\dfrac{k}{\\ln 2}$, proporsjonal med raten $k$ og altså lengre jo raskere henfallet er", "$T_{1/2} = \\dfrac{y_0}{2k}$ — avhengig av startverdien $y_0$", "$T_{1/2} = \\dfrac{1}{k}$, tidskonstanten"],
       explanation: "Løs $e^{-kT}=\\frac12$: $T = \\ln 2/k$. At den er uavhengig av $y_0$ er selve poenget: hver ny halvering tar like lang tid. Tidskonstanten $1/k$ er det litt lengre intervallet der avviket faller med $e^{-1}$.",
     },
     {
@@ -2418,7 +2418,7 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Langtidsnivået i tanken kan finnes uten å løse likningen, som",
-      options: ["$c_{\\text{inn}}\\cdot V$ — til slutt har alt vannet innløpskonsentrasjonen", "$c_{\\text{inn}}\\cdot r$ — innraten i kilo per minutt bestemmer nivået alene", "startmengden $y_0$, som bevares på lang sikt", "$V/r$ — tiden det tar å skifte ut vannet"],
+      options: ["$c_{\\text{inn}}\\cdot V$ — til slutt har alt vannet innløpskonsentrasjonen", "$c_{\\text{inn}}\\cdot r$ — innraten i kilo per minutt bestemmer nivået alene", "startmengden $y_0$, som bevares på lang sikt", "$V/r$ — tiden det tar å skifte ut vannet, som dermed også er saltmengden tanken ender på"],
       explanation: "Likevekten ($y'=0$) svarer til at tankvannet har innløpskonsentrasjonen: $c_{\\text{inn}}\\cdot V$ kg. Regn den først — den er både langtidssvar og kontroll på løsningen. ($V/r$ er en tid, ikke en saltmengde.)",
     },
     {
@@ -2428,12 +2428,12 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor sprer et rykte seg raskest når halvparten har hørt det?",
-      options: ["Raten $ky(1-y)$ er et produkt som maksimeres når faktorene balanserer — mange kan fortelle OG mange har ikke hørt", "Fordi $k$ er størst midtveis i forløpet", "Fordi løsningskurven er brattest ved start når nesten ingen har hørt det, og $y=\\frac12$ nås uansett veldig tidlig", "Det stemmer ikke — spredningen er raskest helt i starten"],
+      options: ["Raten $ky(1-y)$ er et produkt som maksimeres når faktorene balanserer — mange kan fortelle OG mange har ikke hørt", "Fordi $k$ er størst midtveis i forløpet: vekstkonstanten stiger mot en topp når halvparten har hørt ryktet, og faller av igjen etterpå", "Fordi løsningskurven er brattest ved start når nesten ingen har hørt det, og $y=\\frac12$ nås uansett veldig tidlig", "Det stemmer ikke — spredningen er raskest helt i starten"],
       explanation: "Produktet $y(1-y)$ toppes i symmetripunktet $y=\\frac12$. Før det er det få fortellere; etter er det få som ikke har hørt. $k$ er konstant, og logistisk vekst starter langsomt (få smittebærere).",
     },
     {
       question: "En kald brus ($5\\ ^\\circ$C) settes i et rom på $25\\ ^\\circ$C. Hvilken likning gjelder?",
-      options: ["Samme Newton-likning $T'=-k(T-25)$ — for $T<25$ blir $T'>0$ av seg selv", "$T'=+k(T-25)$, siden temperaturen nå øker", "$T'=-k(25-T)$, med differansen snudd fordi det nå er snakk om oppvarming", "Newtons lov gjelder bare avkjøling; oppvarming krever en annen modell"],
+      options: ["Samme Newton-likning $T'=-k(T-25)$ — for $T<25$ blir $T'>0$ av seg selv", "$T'=+k(T-25)$, siden temperaturen nå øker og fortegnet derfor må snus manuelt for oppvarming", "$T'=-k(25-T)$, med differansen snudd fordi det nå er snakk om oppvarming", "Newtons lov gjelder bare avkjøling; oppvarming av en kald brus krever en helt annen modell"],
       explanation: "Én og samme likning dekker begge retninger: faktoren $T-25$ er negativ når brusen er kaldest, så $-k(T-25)>0$ og temperaturen stiger. Å bytte fortegn manuelt ødelegger modellen for $T>25$. (Varianten $-k(25-T)$ gir $T'<0$ for kald brus — feil vei.)",
     },
     {
@@ -2455,7 +2455,7 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
   'mat111-uib-7-1': [
     {
       question: "Rekken inneholder fakulteter og $n$-te potenser ($n!$, $c^n$). Testvelgeren peker på",
-      options: ["forholdstesten — forhold mellom naboledd forenkler slikt", "integraltesten — fakulteter er lette å integrere", "grensesammenligning mot en $p$-rekke", "$n$-te-ledd-testen som endelig avgjørelse"],
+      options: ["forholdstesten — forhold mellom naboledd forenkler slikt", "integraltesten — fakulteter og $n$-te potenser er lette å integrere som funksjoner", "grensesammenligning mot en $p$-rekke, som passer fakulteter like godt som rasjonale uttrykk", "$n$-te-ledd-testen som endelig avgjørelse av om rekken med fakulteter konvergerer"],
       explanation: "Formen velger testen: $\\frac{(n+1)!}{n!}=n+1$ og $\\frac{c^{n+1}}{c^n}=c$ rydder opp av seg selv. Fakulteter kan ikke integreres, og $p$-sammenligning passer rasjonale uttrykk.",
     },
     {
@@ -2465,7 +2465,7 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke forutsetninger skal sjekkes eksplisitt før integraltesten brukes på $f$?",
-      options: ["$f$ er positiv, kontinuerlig og avtakende på intervallet", "$f$ er begrenset og har grense null i uendelig", "$f$ er deriverbar med $f'$ kontinuerlig", "$f$ er konveks og går mot null"],
+      options: ["$f$ er positiv, kontinuerlig og avtakende på intervallet", "$f$ er begrenset og har grense null i uendelig, som er nok til at trappesummen gjelder", "$f$ er deriverbar på hele intervallet, med $f'$ kontinuerlig i hvert punkt der", "$f$ er konveks på intervallet og går mot null når $x$ vokser mot uendelig"],
       explanation: "De tre forutsetningene (positiv, kontinuerlig, avtakende) er det som gjør trappesum-argumentet gyldig — å bruke testen uten å nevne dem er et føringstrekk. $a_n\\to 0$ alene beviser som kjent ingenting.",
     },
     {
@@ -2480,12 +2480,12 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Spørsmålet er «absolutt konvergent, betinget konvergent eller divergent?». Fast undersøkelsesrekkefølge:",
-      options: ["Først $\\sum|a_n|$; divergerer den, deretter Leibniz på originalen", "Først Leibniz; konvergerer originalen, er den absolutt konvergent", "Forholdstesten på originalen avgjør alle tre kategoriene", "$n$-te-ledd-testen avgjør først om klassifisering er mulig"],
+      options: ["Først $\\sum|a_n|$; divergerer den, deretter Leibniz på originalen", "Først Leibniz; konvergerer originalen, er den absolutt konvergent", "Forholdstesten på originalen avgjør alle tre kategoriene i én operasjon, uten egen absolutt-sjekk", "$n$-te-ledd-testen avgjør først om klassifisering er mulig"],
       explanation: "Absolutt-sjekken kommer først — konvergerer $\\sum|a_n|$, er du ferdig (absolutt). «Konvergent etter Leibniz» alene besvarer ikke klassifiseringsspørsmålet: betinget krever at absoluttrekken divergerer.",
     },
     {
       question: "Føringskravene i grensesammenligningstesten er:",
-      options: ["Navngi sammenligningsrekken $\\sum b_n$ (med status) og regn grensen $c = \\lim a_n/b_n \\in (0,\\infty)$ eksplisitt", "Vis at $a_n \\le b_n$ for alle $n$ fra et punkt av", "Vis at begge rekkene har samme sum", "Regn forholdet $a_{n+1}/a_n$ for begge rekkene"],
+      options: ["Navngi sammenligningsrekken $\\sum b_n$ (med status) og regn grensen $c = \\lim a_n/b_n \\in (0,\\infty)$ eksplisitt", "Vis at $a_n \\le b_n$ for alle $n$ fra et punkt av", "Vis at begge rekkene har samme sum, slik at $\\sum a_n$ arver konvergensstatusen til sammenligningsrekken $\\sum b_n$ direkte", "Regn forholdet $a_{n+1}/a_n$ for begge rekkene og sammenlign de to grensene; er de like, oppfører rekkene seg likt på lang sikt"],
       explanation: "Sammenligningsrekken (typisk en $p$-rekke plukket fra dominerende ledd) skal navngis, og grensen skal være et endelig, positivt tall. Leddvis ulikhet er den DIREKTE sammenligningstesten — en annen test.",
     },
     {
@@ -2505,12 +2505,12 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "«Avtakende»-kravet i Leibniz er ikke opplagt for $b_n = \\frac{n}{n^2+1}$. Standardføringen er å",
-      options: ["derivere $f(x) = \\frac{x}{x^2+1}$ og vise $f'(x)<0$ på intervallet", "regne ut de fem første leddene og se at de synker", "vise at $b_n \\to 0$, som medfører avtakende fra et punkt av", "bruke forholdstesten på $b_n$"],
+      options: ["derivere $f(x) = \\frac{x}{x^2+1}$ og vise $f'(x)<0$ på intervallet", "regne ut de fem første leddene av $b_n$ og se at de synker, som avgjør monotonien", "vise at $b_n \\to 0$, som i seg selv medfører at følgen er avtakende fra et punkt av", "bruke forholdstesten på $b_n$"],
       explanation: "Derivert-sjekken av den tilhørende funksjonen er standardargumentet når monotonien ikke er opplagt. Noen utregnede ledd er indikasjon, ikke bevis — og $b_n\\to 0$ medfører IKKE monotoni.",
     },
     {
       question: "I integraltesten regnes $\\int_2^\\infty \\frac{dx}{x\\ln x}$. Fasitkravet for selve integralet er",
-      options: ["$\\lim$-føring: $\\lim_{R\\to\\infty}\\big[\\ln\\ln x\\big]_2^R = \\infty$ — «sett inn $\\infty$» underkjennes", "innsetting av grensene direkte: $\\ln\\ln\\infty - \\ln\\ln 2$", "numerisk tilnærming med trapesmetoden", "en øvre skranke er nok — verdien trengs aldri"],
+      options: ["$\\lim$-føring: $\\lim_{R\\to\\infty}\\big[\\ln\\ln x\\big]_2^R = \\infty$ — «sett inn $\\infty$» underkjennes", "innsetting av grensene direkte: $\\ln\\ln\\infty - \\ln\\ln 2$, uten grenseføring — symbolet settes inn som et vanlig tall", "numerisk tilnærming med trapesmetoden, slik at integralet får en tallverdi uten at noen grenseverdi føres opp", "en øvre skranke er nok — verdien trengs aldri, siden testen uansett bare skal avgjøre om rekken konvergerer"],
       explanation: "Uegentlige integraler føres ALLTID med grenseverdi (kap. 5.5-regelen gjelder også inne i integraltesten). Her divergerer integralet, og rekken $\\sum\\frac{1}{n\\ln n}$ følger med.",
     },
   ],
@@ -2542,7 +2542,7 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "I $R_n\\to 0$-argumentet for $e^x$ brukes skranken $e^c \\le e^{|x|}$. Hva begrunner den?",
-      options: ["$c$ ligger strengt mellom $0$ og $x$, og $e^t$ er voksende", "$c$ er alltid mindre enn $1$", "$e^c$ er begrenset av $1$ for alle relevante $c$", "Restleddet krymper uansett, så skranken er valgfri"],
+      options: ["$c$ ligger strengt mellom $0$ og $x$, og $e^t$ er voksende", "$c$ er alltid mindre enn $1$, uansett hvilken $x$ restleddet regnes for", "$e^c$ er begrenset av $1$ for alle relevante $c$, siden eksponentialen aldri overstiger $1$", "Restleddet krymper uansett, så skranken på $e^c$ er valgfri og kan hoppes over"],
       explanation: "Restleddets $c$ er ukjent, men innesperret mellom $0$ og $x$ — så $e^c$ kan aldri overstige $e^{|x|}$, en KONSTANT når $x$ er fiksert. Deretter gjør $\\frac{|x|^{n+1}}{(n+1)!}\\to 0$ resten av jobben.",
     },
     {
@@ -2552,17 +2552,17 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "$\\sin(0{,}3)$ tilnærmes med $0{,}3 - \\frac{0{,}3^3}{3!}$. Leibniz-feilskranken er",
-      options: ["$\\dfrac{0{,}3^5}{5!}$ — det første utelatte leddet", "$\\dfrac{0{,}3^3}{3!}$ — det siste medregnede leddet", "$\\dfrac{0{,}3^4}{4!}$ — neste potens i rekken", "$0{,}3^5$ — potensen alene"],
+      options: ["$\\dfrac{0{,}3^5}{5!}$ — det første utelatte leddet", "$\\dfrac{0{,}3^3}{3!}$ — det siste medregnede leddet", "$\\dfrac{0{,}3^4}{4!}$ — neste potens i rekken etter det medregnede leddet", "$0{,}3^5$ — potensen alene"],
       explanation: "Skranken er første UTELATTE ledd i den alternerende rekken. Merk at $\\sin$-rekken bare har oddetallspotenser — neste ledd er $x^5/5!$, ikke $x^4/4!$. Fortegnet på det utelatte leddet gir attpåtil over-/underestimat.",
     },
     {
       question: "Hvilke konvergensmønstre kan en potensrekke ha?",
-      options: ["Nøyaktig ett av tre: bare i sentrum, hele tallinjen, eller et intervall med radius $R$", "Hvilken som helst delmengde av tallinjen kan forekomme", "Alltid et åpent intervall — endepunkter er aldri med", "Alltid et lukket intervall — konvergens er en lukket egenskap"],
+      options: ["Nøyaktig ett av tre: bare i sentrum, hele tallinjen, eller et intervall med radius $R$", "Hvilken som helst delmengde av tallinjen kan forekomme, også spredte flekker uten sammenhengende radius", "Alltid et åpent intervall — endepunktene er aldri med, så de trenger ingen egen undersøkelse", "Alltid et lukket intervall — konvergens er en lukket egenskap, så begge endepunktene hører alltid med"],
       explanation: "$R=0$ ($\\sum n!x^n$), $R=\\infty$ ($e^x$-rekken) eller endelig radius der HVERT endepunkt kan gå begge veier ($\\ln(1+x)$: $(-1,1]$). Spredte flekker finnes ikke — det er radiusstrukturens innhold.",
     },
     {
       question: "Potensrekken til $\\dfrac{1}{1+2x}$ om $0$ finnes raskest ved å",
-      options: ["sette $u=-2x$ inn i den geometriske rekken $\\frac{1}{1-u}=\\sum u^n$", "derivere funksjonen gjentatte ganger og bygge Taylorkoeffisientene", "bruke forholdstesten på funksjonen selv", "sette $u=2x$ inn i rekken for $\\ln(1+u)$"],
+      options: ["sette $u=-2x$ inn i den geometriske rekken $\\frac{1}{1-u}=\\sum u^n$", "derivere funksjonen gjentatte ganger og bygge Taylorkoeffisientene én for én, som er den korteste veien", "bruke forholdstesten på funksjonen $\\dfrac{1}{1+2x}$ selv, som gir rekken direkte", "sette $u=2x$ inn i rekken for $\\ln(1+u)$, siden nevneren $1+2x$ har samme form"],
       explanation: "Innsetting i den geometriske rekken gir $\\sum(-2x)^n = \\sum(-1)^n2^nx^n$ uten én eneste derivert — med gyldighet $2|x|<1$, altså $R=\\frac12$, på kjøpet. Derivasjonsveien gir samme svar, men er mye lengre.",
     },
   ],
@@ -2594,7 +2594,7 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "«Vis at likningen har nøyaktig én løsning» — hva er de to leveransene?",
-      options: ["Eksistens (skjæringssetningen) og entydighet (monotoni eller Rolle) som to steg", "Et fortegnsskifte i to punkter og en verifikasjon med Newtons metode etterpå", "En numerisk tilnærming av løsningen og en feilskranke for tilnærmingen", "Kontinuitet på intervallet og deriverbarhet i det indre — forutsetningene er selve leveransene"],
+      options: ["Eksistens (skjæringssetningen) og entydighet (monotoni eller Rolle) som to steg", "Et fortegnsskifte i to punkter og en verifikasjon med Newtons metode etterpå", "En numerisk tilnærming av løsningen og en feilskranke for tilnærmingen, som til sammen gir både eksistens og entydighet", "Kontinuitet på intervallet og deriverbarhet i det indre — forutsetningene er selve leveransene"],
       explanation: "Eksistens og entydighet føres som to atskilte steg: skjæringssetningen (fortegnsskifte + kontinuitet + navn) gir eksistens; monotoni eller Rolle-motsigelse gir entydighet.",
     },
     {
@@ -2614,17 +2614,17 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Før du deler på $h(y)$ i en separabel likning $y'=g(x)h(y)$, skal du:",
-      options: ["notere de konstante løsningene $h(y)=0$ og sjekke dem mot initialbetingelsen", "verifisere at $g$ og $h$ begge er kontinuerlige på hele definisjonsmengden", "bestemme integrasjonskonstanten fra initialbetingelsen i den gitte likningen", "klassifisere likningen som lineær og finne den integrerende faktoren først"],
+      options: ["notere de konstante løsningene $h(y)=0$ og sjekke dem mot initialbetingelsen", "verifisere at $g$ og $h$ begge er kontinuerlige på hele definisjonsmengden før likningen separeres", "bestemme integrasjonskonstanten fra initialbetingelsen i den gitte likningen, altså allerede før integrasjonen", "klassifisere likningen $y'=g(x)h(y)$ som lineær og finne den integrerende faktoren først"],
       explanation: "Konstante løsninger-sjekken: $h(y)=0$ gir løsninger som forsvinner når du deler — de noteres og avvises (eller beholdes) mot initialbetingelsen FØR separasjonen.",
     },
     {
       question: "Hva er galt med å levere svaret «$1{,}8$» i en relatert rate-oppgave?",
-      options: ["Konklusjonssetningen mangler: tolkning av fortegn og enhet er en del av svaret", "Tallet skulle vært oppgitt som eksakt brøk i stedet for som desimaltall", "Svaret skulle vært kontrollert med en alternativ metode i tillegg", "Ingenting — et riktig tall er et fullført svar i anvendte oppgaver"],
+      options: ["Konklusjonssetningen mangler: tolkning av fortegn og enhet er en del av svaret", "Tallet $1{,}8$ skulle vært oppgitt som eksakt brøk i stedet for som desimaltall — det er hele mangelen", "Svaret skulle vært kontrollert med en alternativ metode i tillegg, slik at tallet $1{,}8$ blir bekreftet", "Ingenting — et riktig tall er et fullført svar i anvendte oppgaver, og enhet og fortegn er unødvendig"],
       explanation: "Anvendte oppgaver avsluttes med hel setning: «avstanden øker med 1,8 m/s i det aktuelle øyeblikket» — tall, enhet og fortegnstolkning. Et nakent tall er et halvt svar.",
     },
     {
       question: "Du står fast på en deloppgave etter fem minutter over budsjett. Hva gjør du?",
-      options: ["Noterer fremgangsmåten du ville brukt, og går videre til neste deloppgave", "Fortsetter til deloppgaven er løst — påbegynte oppgaver bør alltid fullføres", "Hopper over uten å skrive noe, siden ufullstendige svar trekker ned", "Bytter til en annen metode og starter hele deloppgaven helt på nytt"],
+      options: ["Noterer fremgangsmåten du ville brukt, og går videre til neste deloppgave", "Fortsetter til deloppgaven er løst — påbegynte oppgaver bør alltid fullføres", "Hopper over uten å skrive noe, siden ufullstendige svar og halve fremgangsmåter trekker ned", "Bytter til en annen metode og starter hele deloppgaven helt på nytt, uansett hvor mye tid det tar"],
       explanation: "Alle deloppgaver er likt vektet, og fremgangsmåte gir poeng (eksplisitt fra 2019). Noter metoden du ville brukt, marker for retur, og hent poengene i de neste deloppgavene.",
     },
   ],
@@ -2646,7 +2646,7 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kreves for konklusjonen «$x_2$ er større enn løsningen» i 8b?",
-      options: ["At $g''>0$ på hele intervallet mellom roten og startpunktet, med begrunnelse", "At $g''(x_0)>0$ i startpunktet $x_0=1$, der den første tangenten legges an mot grafen", "At $x_1>x_2$, som viser at Newton-følgen er avtakende mot roten", "At $g(x_2)>0$, som viser at $x_2$ ligger til høyre for nullpunktet"],
+      options: ["At $g''>0$ på hele intervallet mellom roten og startpunktet, med begrunnelse", "At $g''(x_0)>0$ i startpunktet $x_0=1$, der den første tangenten legges an mot grafen", "At $x_1>x_2$, som alene viser at Newton-følgen er avtakende og dermed blir liggende over roten", "At $g(x_2)>0$, som viser at $x_2$ ligger til høyre for nullpunktet"],
       explanation: "Krumningsargumentet gjelder HELE intervallet: $g''=6x>0$ på $[c,1]$ gjør $g$ konveks der, så Newton-følgen fra høyre forblir til høyre. Ett-punkts-sjekk er utilstrekkelig. (At $g(x_2)>0$ er sant her, men uten konveksitetsargumentet forklarer det ikke hvorfor hele følgen forblir til høyre.)",
     },
     {
@@ -2668,17 +2668,17 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke vekter har trapesmetoden på måleverdiene i 6a?",
-      options: ["Halv vekt på de to endepunktene, full vekt på alle indre punkter", "Full vekt på de to endepunktene og halv vekt på alle de indre punktene", "Vektene $1, 4, 2, 4, 1$ delt på $3$, som i formelen for metoden", "Lik vekt på alle fem målepunktene, delt på antall intervaller"],
+      options: ["Halv vekt på de to endepunktene, full vekt på alle indre punkter", "Full vekt på de to endepunktene og halv vekt på alle de indre punktene", "Vektene $1, 4, 2, 4, 1$ delt på $3$, som i formelen for metoden", "Lik vekt på alle fem målepunktene i 6a, delt på antall intervaller — endepunktene teller fullt"],
       explanation: "Trapesformelen: $h[\\tfrac{v_0}2 + v_1 + \\dots + v_{n-1} + \\tfrac{v_n}2]$ — endepunktene teller halvt. Vektene $1,4,2,4,1$ hører til Simpsons metode.",
     },
     {
       question: "Hva må stå i føringen FØR L'Hôpital brukes i oppgave 2?",
-      options: ["Formmarkeringene: først $[1^\\infty]$ ved omskrivingen, så $[0/0]$ for kvotienten", "En verifikasjon av at grensen eksisterer, ved ensidige grenser fra begge sider", "Standardgrensen $\\sin x/x \\to 1$, som hele omskrivingen av grenseuttrykket bygger på her", "En substitusjonsboks som bytter variabelen $x$ ut med $1/n$ for heltall $n$"],
+      options: ["Formmarkeringene: først $[1^\\infty]$ ved omskrivingen, så $[0/0]$ for kvotienten", "En verifikasjon av at grensen eksisterer, ved ensidige grenser fra begge sider", "Standardgrensen $\\sin x/x \\to 1$, som hele omskrivingen av grenseuttrykket bygger på her", "En substitusjonsboks som bytter variabelen $x$ ut med $1/n$ for heltall $n$, i stedet for formmarkeringer"],
       explanation: "Formsjekk-disiplinen: $[1^\\infty]$ identifiseres og sendes via logaritmen; kvotienten markeres $[0/0]$ FØR L'Hôpital. Umarkert form er føringstrekk.",
     },
     {
       question: "Hva er den integrerende faktoren for $y' + \\tfrac{1}{100}y = 4$?",
-      options: ["$\\mu(t) = e^{t/100}$ — eksponentialen av $\\int p\\,dt$ med $p=\\tfrac1{100}$", "$\\mu(t) = e^{-t/100}$ — eksponentialen med negativt fortegn i eksponenten", "$\\mu(t) = \\tfrac{t}{100}$ — integralet av koeffisienten $p(t)$ direkte", "$\\mu(t) = e^{4t}$ — eksponentialen av høyresiden $q$ ganget med tiden"],
+      options: ["$\\mu(t) = e^{t/100}$ — eksponentialen av $\\int p\\,dt$ med $p=\\tfrac1{100}$", "$\\mu(t) = e^{-t/100}$ — eksponentialen av $\\int p\\,dt$ med negativt fortegn i eksponenten", "$\\mu(t) = \\tfrac{t}{100}$ — integralet av koeffisienten $p(t)$ direkte, uten eksponentialen utenpå", "$\\mu(t) = e^{4t}$ — eksponentialen av høyresiden $q=4$ ganget med tiden $t$, ikke av $p$"],
       explanation: "$\\mu = e^{\\int p\\,dt} = e^{t/100}$. Da blir venstresiden $(\\mu y)'$ — det er gjenkjenningssteget føringen skal vise. Feil fortegn i eksponenten er den vanligste glippen.",
     },
   ],
@@ -2690,22 +2690,22 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     },
     {
       question: "For at fikspunktiterasjonen i oppgave 6 skal konvergere, hva må vises om $g$?",
-      options: ["At $g'(x^*) = 0$ nøyaktig i selve fikspunktet $x^*$ som iterasjonen søker", "At $|g'| \\le K < 1$ på hele intervallet, med sekantsetningen som bro", "At $g' < 0$ overalt, slik at iteratene $x_n$ da alltid vil avta jevnt", "At $g$ har et indre lokalt maksimum et eller annet sted i intervallet"],
+      options: ["At $|g'| \\le K < 1$ på hele intervallet, med sekantsetningen som bro", "At $g'(x^*) = 0$ nøyaktig i selve fikspunktet $x^*$ som iterasjonen søker", "At $g' < 0$ overalt, slik at iteratene $x_n$ da alltid vil avta jevnt", "At $g$ har et indre lokalt maksimum et eller annet sted i intervallet"],
       explanation: "Kontraksjon krever $K = \\max|g'| < 1$ på HELE intervallet; sekantsetningen (MVT) gir da $|g(u)-g(v)| \\le K|u-v|$. Ett-punkts-sjekk holder ikke, og $g' < 0$ gir oscillasjon (ikke i seg selv konvergens).",
     },
     {
       question: "I oppgave 4 bestemmes $a, b$ ved grense-av-derivert. Hvilket vilkår glemmes lettest?",
-      options: ["At den andrederiverte $f''$ må stemme overens fra begge sidene av skjøten", "At $f'$ må være voksende på begge sider av skjøtepunktet $x = 2$", "At $f$ må være et polynom for at grense-av-derivert-setningen gjelder", "Kontinuitetslikningen i skjøten — setningen forutsetter $f$ kontinuerlig"],
+      options: ["At den andrederiverte $f''$ må stemme overens fra begge sidene av skjøten", "At $f'$ må være voksende på begge sider av skjøtepunktet $x = 2$, ikke bare eksistere der", "At $f$ må være et polynom på hver side for at grense-av-derivert-setningen skal gjelde", "Kontinuitetslikningen i skjøten — setningen forutsetter $f$ kontinuerlig i skjøtepunktet $x=2$"],
       explanation: "Setningen krever $f$ kontinuerlig i punktet OG at $\\lim f'$ fra hver side finnes og er like. Kontinuitetslikningen ($4a+2b=6$) er den ene av to ligninger — glemmes den, kan ikke $a$ og $b$ bestemmes.",
     },
     {
       question: "Hvorfor integrerer Simpsons metode ethvert tredjegradspolynom eksakt?",
-      options: ["Fordi metoden legger en tilpasset parabel gjennom de tre punktene på grafen", "Fordi feilleddet inneholder $f'''$, som blir konstant for alle kubiske polynom", "Fordi $\\int$ og $S$ er lineære og eksakte på basisen $1, x, x^2, x^3$", "Fordi de indre trapesleddene alltid kansellerer de kubiske bidragene parvis"],
+      options: ["Fordi $\\int$ og $S$ er lineære og eksakte på basisen $1, x, x^2, x^3$", "Fordi feilleddet inneholder $f'''$, som blir konstant for alle kubiske polynom", "Fordi metoden legger en tilpasset parabel gjennom de tre punktene på grafen", "Fordi de indre trapesleddene alltid kansellerer de kubiske bidragene parvis"],
       explanation: "Linearitet av både $\\int$ og $S$ + eksakthet på basisen $\\{1,x,x^2,x^3\\}$ gir eksakthet for alle kubiske. Feilleddet inneholder $f^{(4)}$ (ikke $f'''$), som er $0$ for kubiske. Parabel-svaret er sant om konstruksjonen, men forklarer ikke kubisk-eksaktheten.",
     },
     {
       question: "Hva er IKKE tilstrekkelig for å konkludere at $\\sum a_n$ konvergerer?",
-      options: ["At forholdet $a_{n+1}/a_n$ har en grenseverdi som ligger strengt under $1$", "At $a_n \\le b_n$ for en $b_n$ der $\\sum b_n$ er en konvergent majorant", "At $\\sqrt[n]{a_n}$ har en grenseverdi som er strengt mindre enn tallet $1$", "At leddene $a_n \\to 0$ — nødvendig, men langtfra tilstrekkelig alene"],
+      options: ["At forholdet $a_{n+1}/a_n$ har en grenseverdi som ligger strengt under $1$", "At $a_n \\le b_n$ for alle $n$, med en $b_n$ der $\\sum b_n$ er en konvergent majorant", "At $\\sqrt[n]{a_n}$ har en grenseverdi som er strengt mindre enn tallet $1$ i rottesten", "At leddene $a_n \\to 0$ — nødvendig, men langtfra tilstrekkelig, som $\\sum 1/n$ viser"],
       explanation: "$a_n \\to 0$ er nødvendig, men ikke tilstrekkelig: den harmoniske rekken $\\sum 1/n$ divergerer selv om leddene går mot $0$. Forholdstest ($L<1$), rottest ($L<1$) og sammenligning med konvergent majorant er derimot alle gyldige konvergenskriterier.",
     },
   ],

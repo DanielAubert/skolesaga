@@ -24,27 +24,27 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke to temaer er de sikreste gjengangerne på PSY1010-eksamen?",
-      options: ["Korrelasjon (20 av 29 sett) og hypotesetesting (19 av 29 sett).", "Etikk og fagfellevurdering.", "Cohens kappa (18 av 29 sett) og spørreskjemakonstruksjon (17 av 29 sett).", "Kvalitativ metode og normalfordeling."],
+      options: ["Korrelasjon (20 av 29 sett) og hypotesetesting (19 av 29 sett).", "Etikk og fagfellevurdering — temaene som går igjen i flest av de 29 settene fra 2008 til 2025.", "Cohens kappa (18 av 29 sett) og spørreskjemakonstruksjon (17 av 29 sett).", "Kvalitativ metode og normalfordeling — de to temaene som dukker opp i flest av de 29 settene."],
       explanation: "Opptellingen over 29 sett (2008–2025) viser korrelasjon i 20 sett og hypotesetesting i 19 — de to søylene eksamen bygger på.",
     },
     {
       question: "Hva er den viktigste innholdsendringen på eksamen fra og med 2023?",
-      options: ["Kvalitativ metode ble en fast egen oppgave, og regnekravet forsvant i praksis.", "Antallet oppgaver på eksamen økte fra fire til seks, og to av dem ble obligatoriske.", "Eksamen ble flyttet fra vår til høst.", "Korrelasjon ble tatt helt ut av pensum."],
+      options: ["Kvalitativ metode ble en fast egen oppgave, og regnekravet forsvant i praksis.", "Antallet oppgaver økte fra fire til seks, og to ble obligatoriske.", "Eksamen ble flyttet fra vår til høst.", "Korrelasjon ble tatt helt ut av pensum."],
       explanation: "Fra 2023 kom kvalitativ metode inn som fast oppgave med lave krav, og egen utregning ble erstattet av tolkning av oppgitte tall.",
     },
     {
       question: "Hvorfor er det å drille gamle oppgavesett den mest treffsikre forberedelsen i dette emnet?",
-      options: ["Fordi gjenbruk er normen — hele oppgaver resirkuleres med kosmetiske endringer.", "Fordi eksamen alltid gjentar nøyaktig samme tall og navn.", "Fordi sensor liker studenter som har sett settene før.", "Fordi pensum skifter helt hvert år, så bare de aller nyeste gamle settene er relevante."],
+      options: ["Fordi gjenbruk er normen — hele oppgaver resirkuleres med kosmetiske endringer.", "Fordi eksamen alltid gjentar nøyaktig samme tall og navn.", "Fordi sensor liker studenter som har sett settene før.", "Fordi pensum skifter helt hvert år, så bare de nyeste settene teller."],
       explanation: "Oppgaver og veiledningstekst resirkuleres fra år til år med kosmetiske endringer, så de faste oppgavetypene (T1–T8) er svært forutsigbare.",
     },
     {
       question: "En kandidat bruker 90 minutter på favorittoppgaven og 30 minutter på den siste. Hva er problemet?",
-      options: ["Alle tre oppgavene teller likt, så en halvferdig tredjeoppgave trekker snittet mer ned enn finpuss løfter det.", "Ingenting galt — det lønner seg alltid å perfeksjonere favorittoppgaven, siden den beste besvarelsen trekker snittet mest opp.", "Sensor gir bonus for den grundigste oppgaven.", "Den siste oppgaven teller uansett ikke."],
+      options: ["Alle tre oppgavene teller likt, så en halvferdig tredjeoppgave trekker snittet mer ned enn finpuss løfter det.", "Ingenting galt — det lønner seg alltid å perfeksjonere favorittoppgaven.", "Sensor gir bonus for den grundigste oppgaven.", "Den siste oppgaven teller uansett ikke."],
       explanation: "Siden de tre teller likt, er tidsfellen dyr: rundt 55 minutter per oppgave gir best snitt.",
     },
     {
       question: "Hva kjennetegner temafordelingen på de fire oppgavene i et typisk sett?",
-      options: ["Oppgavene er tematisk «rene» — én om korrelasjon/regresjon, én om hypotesetesting, én om design, én om måling/utvalg eller kvalitativ.", "Alle fire oppgavene handler om samme tema.", "Oppgavene blandes bevisst tematisk, slik at hver av de fire oppgavene dekker litt korrelasjon, litt hypotesetesting, litt design og litt måling om hverandre.", "To oppgaver handler alltid om etikk."],
+      options: ["Oppgavene er tematisk «rene» — én om korrelasjon/regresjon, én om hypotesetesting, én om design, én om måling/utvalg eller kvalitativ.", "Alle fire oppgavene handler om det samme temaet, slik at hele settet dreier seg om for eksempel korrelasjon, mens hypotesetesting, design og måling er ute.", "Oppgavene blandes bevisst tematisk, slik at hver av de fire oppgavene dekker litt korrelasjon, litt hypotesetesting, litt design og litt måling om hverandre.", "To av de fire oppgavene handler alltid om etikk, slik at bare de to øvrige er igjen til korrelasjon/regresjon, hypotesetesting, design og måling/utvalg."],
       explanation: "De fire oppgavene dekker hvert sitt hovedområde. Fordi de er «rene», kan du i praksis velge bort ett hovedtema — men bør ikke planlegge med det.",
     },
     {
@@ -71,54 +71,54 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva beskriver «C-kjerne + A-lag»-modellen?",
-      options: ["C-kjernen er kjernepoengene enhver bestått besvarelse må ha; A-laget er de ekstra grepene som løfter til topps.", "At C-svar alltid er dårlige og A-svar alltid er lange.", "At man skal skrive A-laget med begrunnelser og koblinger først, og deretter droppe C-kjernen hvis tiden blir knapp.", "At karakteren avgjøres av hvor mange sider du skriver."],
+      options: ["C-kjernen er kjernepoengene enhver bestått besvarelse må ha; A-laget er de ekstra grepene som løfter til topps.", "At C-svar alltid er dårlige og A-svar alltid er lange.", "At man skal skrive A-laget først og droppe C-kjernen hvis tiden blir knapp.", "At karakteren avgjøres av hvor mange sider du skriver."],
       explanation: "Bygg C-kjernen først (den sikrer bestått), og legg A-laget — begrunnelser, koblinger, case-tilpasning — oppå der du har tid.",
     },
     {
       question: "Hva skiller typisk en C-besvarelse fra en A-besvarelse i PSY1010?",
-      options: ["C treffer kjernepoengene men blir stående i definisjonene; A begrunner valg, knytter begreper sammen og case-tilpasser.", "C er alltid feil; A er alltid riktig.", "C er lang og A er kort.", "C-besvarelser bruker kalkulator på hvert eneste ledd, mens A-besvarelser bevisst løser alle utregninger uten noen hjelpemidler for hånd."],
+      options: ["C treffer kjernepoengene men blir stående i definisjonene; A begrunner valg, knytter begreper sammen og case-tilpasser.", "C er alltid feil; A er alltid riktig.", "C-besvarelser er lange, mens A-besvarelser er korte; det er lengden alene som avgjør karakteren.", "C-besvarelser bruker kalkulator på hvert eneste ledd, mens A-besvarelser regner alt for hånd."],
       explanation: "A/B løser også de vanskelige leddene og kobler begreper (f.eks. varians → SD → SE → p), mens C definerer riktig men mangler koblingene.",
     },
     {
       question: "Hvorfor er det viktig å vise utregningen i en regneoppgave?",
-      options: ["Fordi fremgangsmåten teller mest, og et galt sluttsvar fra en enkel regnefeil straffes mildt bare hvis metoden er synlig.", "Fordi sensor kun teller antall regneoperasjoner.", "Fordi selve tallutregningen alltid gir betydelig mer uttelling enn den avsluttende tolkningen av hva resultatet faktisk betyr for studien.", "Fordi kalkulator er forbudt på eksamen."],
+      options: ["Fordi fremgangsmåten teller mest, og et galt sluttsvar fra en enkel regnefeil straffes mildt bare hvis metoden er synlig.", "Fordi sensor kun teller antall regneoperasjoner.", "Fordi selve tallutregningen alltid gir mer uttelling enn tolkningen av hva resultatet betyr.", "Fordi kalkulator er forbudt på eksamen, og all utregning derfor må settes opp for hånd på arket."],
       explanation: "Usynlig utregning (feil #13) gjør at «riktig fremgangsmåte»-regelen ikke kan redde deg. Å forstå hva tallet betyr veier dessuten tyngre enn tallet.",
     },
     {
       question: "En kandidat lister alle utvalgsmetodene uten å velge og begrunne for det konkrete caset. Hva blir følgen?",
-      options: ["Et C-tak (feil #8) — oppgaven kan ikke gi bedre enn C uansett hvor komplett lista er.", "Full uttelling på deloppgaven, fordi absolutt alle utvalgsmetodene er korrekt nevnt og definert.", "Automatisk stryk på hele oppgaven.", "Pluss for bredde og fullstendighet."],
+      options: ["Et C-tak (feil #8) — oppgaven kan ikke gi bedre enn C uansett hvor komplett lista er.", "Full uttelling på deloppgaven, fordi absolutt alle utvalgsmetodene er korrekt nevnt og definert.", "Automatisk stryk på hele oppgaven, fordi en komplett liste over utvalgsmetodene uten begrunnet valg ikke kan vurderes.", "Pluss for bredde og fullstendighet, siden lista dekker samtlige utvalgsmetoder."],
       explanation: "Oppramsing uten begrunnelse (feil #8) gir et C-tak; det er de begrunnede, case-tilpassede valgene som løfter over C.",
     },
     {
       question: "Hvilket av disse er en A-markør som sensorveiledningene eksplisitt belønner?",
-      options: ["Å forklare at korrelasjon bygger på naturlig variasjon, i motsetning til eksperimentets påførte variasjon.", "Å skrive lengst mulig svar.", "Å gjenta oppgaveteksten i innledningen.", "Å definere systematisk alle sentrale begreper i hele faget, uavhengig av hva den enkelte deloppgaven spør om."],
+      options: ["Å forklare at korrelasjon bygger på naturlig variasjon, i motsetning til eksperimentets påførte variasjon.", "Å skrive lengst mulig svar, fordi det er lengden på besvarelsen sensorveiledningene eksplisitt trekker fram som A-markør.", "Å gjenta hele oppgaveteksten ordrett i innledningen før man begynner på selve svaret.", "Å definere systematisk alle sentrale begreper i hele faget, uavhengig av hva den enkelte deloppgaven spør om."],
       explanation: "Naturlig vs. påført variasjon er en navngitt A-markør — sammen med kausalmodell-ord, p fra utvalgsfordelingen, signifikans ≠ viktighet, power-resonnement m.fl.",
     },
     {
       question: "Hva er den beste strategien når du står fast på ett vanskelig ledd (f.eks. et ANCOVA-spørsmål)?",
-      options: ["Hopp videre, sikre C-kjernen på de andre leddene, og kom tilbake til det vanskelige til slutt.", "Bli sittende med det vanskelige leddet til du løser det, uansett hvor mange minutter det stjeler fra de andre.", "Hopp over hele oppgaven og velg en ny.", "Skriv alt du kan om et beslektet tema i stedet."],
+      options: ["Hopp videre, sikre C-kjernen på de andre leddene, og kom tilbake til det vanskelige til slutt.", "Bli sittende med det vanskelige leddet til du løser det, uansett hvor mange minutter det stjeler fra de andre.", "Hopp over hele oppgaven og velg en ny, selv om du allerede har sikret C-kjernen på flere av leddene i den.", "Skriv alt du kan om et beslektet tema i stedet, og la ANCOVA-leddet stå ubesvart."],
       explanation: "Sikre C-kjernen på alle ledd først (alt teller likt), og bruk resttid på A-skillene. Ikke la ett hardt ledd stjele en hel oppgave.",
     },
     {
       question: "Er C en dårlig karakter å sikte mot i PSY1010?",
-      options: ["Nei — C er en god og helt vanlig karakter som de fleste velfungerende kandidater lander på.", "Ja — alt under A regnes som stryk.", "Ja — en C betyr i praksis at besvarelsen er reelt tom og mangler nesten alt av faglig innhold og forståelse.", "C finnes ikke i norsk karakterskala."],
+      options: ["Nei — C er en god og helt vanlig karakter som de fleste velfungerende kandidater lander på.", "Ja — alt under A regnes som stryk, så en kandidat som lander på C, har i praksis ikke bestått emnet.", "Ja — en C betyr i praksis at besvarelsen er reelt tom og mangler nesten alt av faglig innhold og forståelse.", "C finnes ikke i norsk karakterskala, så en besvarelse på dette nivået må plasseres på enten B eller D i stedet."],
       explanation: "C er en solid, vanlig karakter. En C-besvarelse er ikke dårlig; den er god, men mangler de vanskeligste, koblende leddene.",
     },
     {
       question: "Hvorfor er «les mye, skriv lite» et godt råd for PSY1010?",
-      options: ["Fordi lengre svar ikke gir mer uttelling — sensor honorerer korte, presise svar, og utbrodering gir null.", "Fordi sensor i praksis hopper over og aldri rekker å lese de lengste besvarelsene, bare de aller korteste.", "Fordi man skal lese pensum, men aldri øve på å skrive.", "Fordi eksamen er en ren leseprøve."],
+      options: ["Fordi lengre svar ikke gir mer uttelling — sensor honorerer korte, presise svar, og utbrodering gir null.", "Fordi sensor i praksis hopper over og aldri rekker å lese de lengste besvarelsene, bare de aller korteste.", "Fordi man skal lese pensum bredt, men aldri øve på å skrive — selve skrivetreningen gir ingen uttelling på eksamen.", "Fordi eksamen er en ren leseprøve, der kandidaten måles på hvor mye pensum hun har lest, ikke på hva hun skriver ned."],
       explanation: "Sensor gir ikke ekstra for en halvside der tre presise setninger holder. Mål: forstå bredt, skriv kort og presist (definer → anvend → begrunn).",
     },
     {
       question: "En deloppgave ber om «logikken bak nullhypotesetesting», men kandidaten bare definerer H0 og H1. Hva er problemet?",
-      options: ["Oppgaven ber om resonnementet — den indirekte bevisføringen — og da gir definisjoner alene ikke full uttelling.", "Ingenting — definisjoner er alltid nok når begrepene er riktige.", "Kandidaten burde i stedet ha regnet ut en eksakt p-verdi for hånd og vist hele utregningen sin trinn for trinn med formler.", "Kandidaten burde ha skrevet mer om et helt annet tema."],
+      options: ["Oppgaven ber om resonnementet — den indirekte bevisføringen — og da gir definisjoner alene ikke full uttelling.", "Ingenting — definisjoner av H0 og H1 er alltid nok når begrepene er riktige, også når oppgaven uttrykkelig ber om logikken bak testen.", "Kandidaten burde i stedet ha regnet ut en eksakt p-verdi for hånd og vist hele utregningen sin trinn for trinn med formler.", "Kandidaten burde ha skrevet mer om et helt annet tema, for en deloppgave bedømmes på bredden i det kandidaten får med."],
       explanation: "Når oppgaven ber om logikken, holder ikke definisjoner alene — sensor vil ha resonnementet (hvorfor vi tester H0 og forkaster ved usannsynlige data), ikke bare begrepene.",
     },
   ],
   'psy1010-1-1': [
     {
       question: "Hva er hovedforskjellen mellom vitenskapelig metode og hverdagskunnskap?",
-      options: ["Vitenskapelig metode samler data systematisk og lar dem kunne motsi antakelsen", "Vitenskapelig metode bygger på magefølelse og erfaring", "Hverdagskunnskap er per definisjon alltid feil, mens vitenskapelig kunnskap alltid gir det riktige svaret", "Det er ingen reell forskjell"],
+      options: ["Vitenskapelig metode samler data systematisk og lar dem kunne motsi antakelsen", "Vitenskapelig metode bygger på magefølelse og erfaring", "Hverdagskunnskap er per definisjon alltid feil, mens vitenskapelig kunnskap alltid gir det riktige svaret", "Det er ingen reell forskjell — begge kommer fram til kunnskap på samme måte"],
       explanation: "Metodens kjerne er systematisk, etterprøvbar datainnsamling der antakelsen kan motbevises — nettopp korrektivet hverdagskunnskapen mangler.",
     },
     {
@@ -143,77 +143,77 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er operasjonalisering?",
-      options: ["Å gjøre et abstrakt fenomen målbart ved å bestemme hvordan det registreres", "Å velge den statistiske analysemetoden som passer best til dataenes målenivå", "Å rekruttere deltakere til studien", "Å skrive den endelige rapporten"],
+      options: ["Å gjøre et abstrakt fenomen målbart ved å bestemme hvordan det registreres", "Å velge den statistiske analysemetoden som passer dataene", "Å rekruttere deltakere til studien", "Å skrive den endelige rapporten"],
       explanation: "Operasjonalisering oversetter et abstrakt begrep («hukommelse») til en konkret målemetode («antall gjengitte ord»). De andre er senere trinn.",
     },
     {
       question: "Hva er riktig forhold mellom forskningsspørsmål og design?",
-      options: ["Forskningsspørsmålet styrer valget av design", "Designet velges først, så finner man et passende spørsmål", "De velges uavhengig av hverandre", "Designet er alltid et eksperiment"],
+      options: ["Forskningsspørsmålet styrer valget av design", "Designet velges før spørsmålet", "De velges uavhengig av hverandre", "Designet er alltid et eksperiment"],
       explanation: "En A-markør er å la spørsmålet styre designet: årsaksspørsmål krever eksperiment, utbredelsesspørsmål krever spørreundersøkelse. Å velge metode først er nybegynnerfeilen.",
     },
     {
       question: "Hva er funksjonen til en pilotstudie?",
-      options: ["Å prøvekjøre opplegget og avdekke problemer før hovedstudien", "Å samle inn de endelige dataene", "Å erstatte selve hovedstudien helt dersom den viser seg å bli for dyr å gjennomføre", "Å publisere de første resultatene"],
+      options: ["Å prøvekjøre opplegget og avdekke problemer før hovedstudien", "Å samle inn de endelige dataene", "Å erstatte hovedstudien helt når den blir for dyr", "Å publisere de første resultatene"],
       explanation: "Piloten er en prøvekjøring som luker ut praktiske problemer mens de er billige å rette. Dataene inngår ikke i den endelige analysen.",
     },
     {
       question: "Hva er forskjellen mellom en teori og en lov?",
-      options: ["Teorien forklarer hvorfor et fenomen skjer; loven beskriver at det skjer regelmessig", "En teori er en endelig bevist sannhet, mens en lov bare er en foreløpig antakelse man ennå ikke har bekreftet", "De betyr det samme", "En lov forklarer, en teori beskriver"],
+      options: ["Teorien forklarer hvorfor et fenomen skjer; loven beskriver at det skjer regelmessig", "En teori er en endelig bevist sannhet, mens en lov bare er en antakelse", "De betyr det samme — teori og lov er to ord for én og samme forklaring", "En lov forklarer, en teori beskriver"],
       explanation: "Teorien gir forklaringen (hvorfor), loven beskriver en velbekreftet regelmessighet (at). Å holde nivåene fra hverandre er en A-markør.",
     },
     {
       question: "Hva er en modell i forskningssammenheng?",
-      options: ["En forenklet framstilling som hjelper oss å tenke om et fenomen", "En velbekreftet, tallfestet regelmessighet", "Et sammenhengende sett antakelser som forklarer hvorfor et fenomen oppstår", "Den ferdige forskningsrapporten"],
+      options: ["En forenklet framstilling som hjelper oss å tenke om et fenomen", "En velbekreftet, tallfestet regelmessighet", "Antakelser som forklarer hvorfor et fenomen oppstår", "Den ferdige forskningsrapporten"],
       explanation: "En modell er en forenkling som gir et tenkeverktøy — ikke en lov (regelmessighet) eller en teori (forklaring).",
     },
     {
       question: "Hva skiller grunnforskning fra anvendt forskning?",
-      options: ["Grunnforskning søker kunnskap for kunnskapens skyld; anvendt forskning løser et praktisk problem", "Grunnforskning er per definisjon alltid kvantitativ, mens anvendt forskning alltid er rent kvalitativ", "Grunnforskning er dårligere enn anvendt forskning", "Anvendt forskning bruker ikke hypoteser"],
+      options: ["Grunnforskning søker kunnskap for kunnskapens skyld; anvendt forskning løser et praktisk problem", "Grunnforskning er per definisjon alltid kvantitativ, mens anvendt forskning alltid er rent kvalitativ", "Grunnforskning er dårligere enn anvendt forskning og holder gjennomgående lavere kvalitet", "Anvendt forskning bruker ikke hypoteser, men går rett på det praktiske problemet uten noe som skal testes"],
       explanation: "Skillet er et formålsskille, ikke et kvalitetsskille: kunnskap i seg selv vs. løsning på et konkret problem.",
     },
     {
       question: "Hva menes med at forskningsprosessen er syklisk?",
-      options: ["Resultatene føder nye spørsmål som starter et nytt forskningsløp", "Den må gjentas nøyaktig likt hver gang", "Den har verken en klar begynnelse eller en klar slutt for den enkelte studien som gjennomføres", "Den kan bare gjennomføres i sirkler av forskere"],
+      options: ["Resultatene føder nye spørsmål som starter et nytt forskningsløp", "Den må gjentas nøyaktig likt hver gang, med samme spørsmål og samme framgangsmåte", "Den har verken en klar begynnelse eller en klar slutt for den enkelte studien som gjennomføres", "Den kan bare gjennomføres i sirkler av forskere"],
       explanation: "Syklisk betyr at et funn åpner nye spørsmål i stedet for å avslutte feltet — prosessen tegnes som en ring. Å nevne dette er en A-markør.",
     },
     {
       question: "En kandidat ramser opp trinnene i forskningsprosessen uten å forklare hvert trinn. Hvilken feil er dette?",
-      options: ["Feil #8 — oppramsing uten begrunnelse (remsefeilen)", "Feil #1 — feil p-verdi-definisjon", "Feil #4 — å blande kasusstudie og N=1", "Feil #12 — å formulere hypoteser om utvalgsverdier i stedet for populasjonen"],
+      options: ["Feil #8 — oppramsing uten begrunnelse (remsefeilen)", "Feil #1 — feil p-verdi-definisjon, altså å lese p som sannsynligheten for at H0 er sann", "Feil #4 — å blande kasusstudie og N=1", "Feil #12 — å formulere hypoteser om utvalgsverdier i stedet for populasjonen"],
       explanation: "I prosessoppgaven gir en ren liste bare C-nivå; sensor vil se funksjonen til hvert trinn. Dette er feil #8 (remsefeilen). De andre feilene hører til helt andre temaer.",
     },
     {
       question: "Hva betyr det at et forskningsspørsmål er «empirisk testbart»?",
-      options: ["Det kan besvares ved å samle inn og undersøke data", "Det er nytt og ingen har stilt det før", "Det kan besvares fullstendig med ren logisk tenkning alene, uten data", "Det handler om hva man bør gjøre"],
+      options: ["Det kan besvares ved å samle inn og undersøke data", "Det er nytt og ingen har stilt det før", "Det kan besvares fullstendig med ren logisk tenkning alene, uten data", "Det handler om hva man bør gjøre, og svaret følger av verdivurdering, ikke av data"],
       explanation: "Empirisk testbart betyr at data kan gi svaret. Rent normative («bør»-) spørsmål kan ikke avgjøres empirisk alene.",
     },
     {
       question: "Hva er deduksjon i forskningssammenheng?",
-      options: ["Å utlede en konkret, testbar forutsigelse fra en generell teori", "Å generalisere induktivt fra mange enkeltobservasjoner opp til en bredere teori", "Å samle inn data uten forhåndsantakelser", "Å fjerne uteliggere fra datasettet"],
+      options: ["Å utlede en konkret, testbar forutsigelse fra en generell teori", "Å generalisere induktivt fra mange enkeltobservasjoner opp til en bredere teori", "Å samle inn data uten forhåndsantakelser", "Å fjerne uteliggere fra datasettet slik at de gjenværende observasjonene passer med teorien"],
       explanation: "Deduksjon går fra generell teori til konkret hypotese («hvis teorien stemmer, bør vi se dette»). Motsatt vei — fra enkeltobservasjoner til teori — er induksjon.",
     },
     {
       question: "Hvorfor gjennomfører man et litteratursøk tidlig i prosessen?",
-      options: ["For å unngå å gjenta det gjorte og forankre spørsmålet i eksisterende kunnskap", "For å samle inn de endelige dataene", "For å rekruttere deltakere", "For å kunne skrive hele diskusjonsdelen av den ferdige rapporten allerede før dataene er samlet inn"],
+      options: ["For å unngå å gjenta det gjorte og forankre spørsmålet i eksisterende kunnskap", "For å samle inn de endelige dataene, siden litteraturen leverer tallene studien senere skal analysere", "For å rekruttere deltakere, siden det er i litteratursøket man finner personene som skal være med i studien", "For å kunne skrive hele diskusjonsdelen av den ferdige rapporten allerede før dataene er samlet inn"],
       explanation: "Litteratursøket kartlegger hva som alt er kjent, så studien bygger videre i stedet for å gjenta og kan hente teori å utlede hypoteser fra.",
     },
     {
       question: "Hva er en operasjonell definisjon?",
-      options: ["Den konkrete beskrivelsen av hvordan en variabel måles i studien", "Den generelle, overordnede teorien som ligger bak selve fenomenet man studerer", "Antallet deltakere i utvalget", "Den statistiske analysen av dataene"],
+      options: ["Den konkrete beskrivelsen av hvordan en variabel måles i studien", "Den generelle, overordnede teorien som ligger bak selve fenomenet man studerer", "Antallet deltakere i utvalget, altså hvor mange målinger variabelen bygger på i studien", "Den statistiske analysen av dataene, altså hvilken test tallene for variabelen kjøres gjennom"],
       explanation: "En operasjonell definisjon sier eksakt hvordan variabelen registreres («hukommelse = antall gjengitte ord»). Samme begrep kan operasjonaliseres ulikt.",
     },
     {
       question: "Hva er hovedfunksjonen til fagfellevurdering?",
-      options: ["Uavhengige eksperter vurderer om metode og konklusjoner holder mål før publisering", "Å garantere at funnet er sant", "Å skaffe all nødvendig finansiering til studien lenge før selve datainnsamlingen kan settes i gang", "Å rekruttere deltakere"],
+      options: ["Uavhengige eksperter vurderer om metode og konklusjoner holder mål før publisering", "Å garantere at funnet er sant, slik at et publisert resultat ikke kan vise seg å være feil senere", "Å skaffe all nødvendig finansiering til studien lenge før selve datainnsamlingen kan settes i gang", "Å rekruttere deltakere, ved at fagfellene melder inn personer som kan være med i studien før publisering"],
       explanation: "Fagfellevurdering er kvalitetskontroll av uavhengige fagfeller — en sikring, ikke en garanti for sannhet.",
     },
     {
       question: "Hvilken struktur har en typisk forskningsrapport?",
-      options: ["Innledning, metode, resultater og diskusjon", "Sammendrag, hypotese, litteraturgjennomgang og endelig konklusjon", "Idé, design, utvalg", "Teori, lov, modell"],
+      options: ["Innledning, metode, resultater og diskusjon", "Sammendrag, hypotese, litteraturgjennomgang og endelig konklusjon", "Idé, design og utvalg — i den rekkefølgen kapitlene står i rapporten", "Teori, lov og modell — de tre kapitlene en rapport består av"],
       explanation: "Rapporten følger fast struktur (innledning–metode–resultater–diskusjon) nettopp for å gjøre studien etterprøvbar.",
     },
     {
       question: "Hvorfor er replikasjon viktig i vitenskapen?",
-      options: ["Et gjentatt funn er tryggere enn et enkeltfunn som kan skyldes tilfeldigheter", "Fordi det er billigere enn en ny studie", "Fordi det garanterer publisering", "Fordi en vellykket replikasjon helt erstatter behovet for uavhengig fagfellevurdering"],
+      options: ["Et gjentatt funn er tryggere enn et enkeltfunn som kan skyldes tilfeldigheter", "Fordi det er billigere enn en ny studie, og prisen avgjør hvilke funn som er verdt å etterprøve", "Fordi det garanterer publisering, ettersom tidsskriftene tar inn enhver studie som gjentar et tidligere funn", "Fordi en vellykket replikasjon helt erstatter behovet for uavhengig fagfellevurdering"],
       explanation: "Replikasjon tester om funnet holder når studien gjentas — et av vitenskapens viktigste korrektiver mot tilfeldige enkeltfunn.",
     },
   ],
@@ -225,17 +225,17 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er kjennetegnet på den avhengige variabelen (AV)?",
-      options: ["Den måles som utfall og antas å avhenge av UV", "Den er variabelen forskeren aktivt manipulerer og setter verdien på", "Den kan aldri måles", "Den er alltid nominal"],
+      options: ["Den måles som utfall og antas å avhenge av UV", "Den er variabelen forskeren aktivt manipulerer og setter verdien på", "Den kan aldri måles, bare antas teoretisk", "Den er alltid nominal"],
       explanation: "AV er utfallet som registreres for å se effekten av UV. Huskeregel: UV settes, AV måles.",
     },
     {
       question: "Hvorfor er kjønn en kvasi-UV og ikke en ekte UV?",
-      options: ["Fordi det ikke kan manipuleres — man kan bare sammenligne eksisterende grupper", "Fordi kjønn per definisjon alltid opptrer som den avhengige variabelen i en studie", "Fordi det er målt på forholdsnivå", "Fordi det ikke påvirker noe"],
+      options: ["Fordi det ikke kan manipuleres — man kan bare sammenligne eksisterende grupper", "Fordi kjønn per definisjon alltid opptrer som den avhengige variabelen i en studie", "Fordi det er målt på forholdsnivå", "Fordi kjønn ikke påvirker noe utfall og derfor ikke kan inngå som UV"],
       explanation: "En ekte UV må kunne manipuleres. Kjønn er en egenskap ved personen som ikke kan tildeles, derfor kvasi-UV.",
     },
     {
       question: "En kollega sier «vi manipulerte deltakernes alder». Hva er galt?",
-      options: ["Alder kan ikke manipuleres — det er en kvasi-UV", "Ingenting er galt — det er en helt korrekt og presis formulering", "Alder er en avhengig variabel", "Alder er alltid nominal"],
+      options: ["Alder kan ikke manipuleres — det er en kvasi-UV", "Ingenting er galt — det er en helt korrekt og presis formulering", "Alder er en avhengig variabel", "Alder er alltid målt på nominalnivå"],
       explanation: "Alder er en egenskap som ikke lar seg sette av forskeren; den er en kvasi-UV. Å kalle den manipulert røper en misforståelse av manipulasjon.",
     },
     {
@@ -250,7 +250,7 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Plassering i et løp (1., 2., 3.) er hvilket målenivå?",
-      options: ["Ordinal", "Nominal", "Intervall", "Forhold"],
+      options: ["Ordinal", "Nominal — plasseringene er bare merkelapper", "Intervall", "Forhold"],
       explanation: "Plassering er rangert, men avstandene er ikke like store (forspranget til 1. plass kan være helt annet enn mellom 2. og 3.) — ordinal.",
     },
     {
@@ -260,69 +260,69 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Antall bøker lest i fjor er hvilket målenivå?",
-      options: ["Forhold", "Intervall", "Ordinal", "Nominal"],
+      options: ["Forhold", "Intervall", "Ordinal, siden antallet bare kan rangeres", "Nominal"],
       explanation: "Antall har like avstander og et ekte nullpunkt (0 bøker = ingen bøker), så forholdstall er meningsfulle — forholdsnivå.",
     },
     {
       question: "Hvorfor er nullpunktet i celsius ikke et 'ekte' nullpunkt?",
-      options: ["Fordi 0 °C ikke betyr fravær av temperatur", "Fordi celsius ikke kan bli negativ", "Fordi celsius egentlig bare er en ordinal skala uten like avstander", "Fordi temperaturen alltid varierer"],
+      options: ["Fordi 0 °C ikke betyr fravær av temperatur", "Fordi celsius ikke kan bli negativ", "Fordi celsius er en ordinal skala", "Fordi temperaturen alltid varierer"],
       explanation: "Et ekte nullpunkt betyr «ingenting av egenskapen». 0 °C er bare et valgt utgangspunkt (frysepunktet), ikke fravær av varme — derfor intervall.",
     },
     {
       question: "Hvilket forbehold bør en A-kandidat nevne når en Likert-sumskår behandles som intervall?",
-      options: ["At det er en konvensjon — enkeltleddene er strengt tatt ordinale", "At Likert-skalaer i virkeligheten alltid utgjør ekte forholdstall med nullpunkt", "At sumskårer ikke kan analyseres", "At det er en naturlov"],
+      options: ["At det er en konvensjon — enkeltleddene er strengt tatt ordinale", "At Likert-skalaer alltid er ekte forholdstall", "At sumskårer ikke kan analyseres", "At det er en naturlov at Likert-ledd ligger på intervallnivå"],
       explanation: "Enkeltleddene er ordinale; å behandle summen som intervall er en konvensjon i psykologien, ikke en naturlov. Å nevne dette er en A-markør.",
     },
     {
       question: "Hva bestemmer målenivået i praksis?",
-      options: ["Hvilke statistiske mål som er meningsfulle å bruke", "Hvor mange deltakere man trenger for å oppnå tilstrekkelig statistisk styrke", "Om studien er etisk", "Hvilken hypotese man har"],
+      options: ["Hvilke statistiske mål som er meningsfulle å bruke", "Hvor mange deltakere man trenger", "Om studien er etisk", "Hvilken hypotese man har"],
       explanation: "Målenivået avgjør hvilke sentralmål og tester som er tillatt: modus (alle nivåer), median (fra ordinal), gjennomsnitt (fra intervall).",
     },
     {
       question: "Hvilket sentralmål krever minst intervallnivå for å være meningsfullt?",
-      options: ["Gjennomsnittet", "Modus", "Medianen", "Ingen — alle sentralmål kan brukes på alle målenivåer"],
+      options: ["Gjennomsnittet", "Modus, som forutsetter like avstander mellom verdiene", "Medianen", "Ingen — alle sentralmål kan brukes på alle målenivåer"],
       explanation: "Gjennomsnittet forutsetter like avstander mellom verdiene, altså minst intervall. Medianen krever bare ordinal, og modus kan brukes på alle nivåer.",
     },
     {
       question: "Et gruppenummer (1 = kontroll, 2 = eksperiment) er hvilket målenivå?",
-      options: ["Nominal", "Ordinal", "Intervall", "Forhold"],
+      options: ["Nominal", "Ordinal, fordi 2 rangeres over 1", "Intervall", "Forhold"],
       explanation: "Selv om tallene ser rangerte ut, er de bare merkelapper for kategorier — nominal. Spør alltid hva tallet representerer, ikke hvordan det ser ut.",
     },
     {
       question: "Hva menes med at UV/AV-rollene ved korrelasjon er 'et valg'?",
-      options: ["Dataene bestemmer ikke rollene; forskeren velger dem ut fra spørsmålet", "Rollene er alltid gitt av dataene", "Ved korrelasjon finnes det verken en uavhengig eller en avhengig variabel i det hele tatt", "Rollene bestemmes av målenivået"],
+      options: ["Dataene bestemmer ikke rollene; forskeren velger dem ut fra spørsmålet", "Rollene er alltid gitt av dataene", "Ved korrelasjon finnes verken uavhengig eller avhengig variabel", "Rollene bestemmes av målenivået"],
       explanation: "Ved ren korrelasjon er det ofte vilkårlig hvilken variabel man kaller uavhengig — en A-presisjon. Ved eksperiment er UV derimot gitt av manipulasjonen.",
     },
     {
       question: "Hva er en dikotom variabel?",
-      options: ["En variabel med bare to verdier", "En variabel målt på forholdsnivå", "En variabel som ikke kan måles", "En kontinuerlig variabel"],
+      options: ["En variabel med bare to verdier", "En variabel målt på forholdsnivå", "En variabel som ikke kan måles", "En kontinuerlig variabel som kan anta alle mellomverdier"],
       explanation: "En dikotom variabel har to verdier (ja/nei, bestått/ikke). Den er nominal, men får en egen rolle i noen korrelasjonsmål.",
     },
     {
       question: "Hva skiller en diskret fra en kontinuerlig variabel?",
-      options: ["Diskret har adskilte tellbare verdier; kontinuerlig kan ha alle mellomverdier", "Diskrete variabler er alltid på nominalnivå, mens kontinuerlige alltid er på forholdsnivå", "Diskret kan ikke måles", "Det er ingen forskjell"],
+      options: ["Diskret har adskilte tellbare verdier; kontinuerlig kan ha alle mellomverdier", "Diskrete variabler er alltid på nominalnivå, mens kontinuerlige alltid er på forholdsnivå", "Diskret kan ikke måles, så bare kontinuerlige variabler som høyde lar seg tallfeste og analyseres", "Det er ingen forskjell; antall barn og høyde er variabler av nøyaktig samme type og krever samme figurvalg"],
       explanation: "Antall barn er diskret (0, 1, 2 …); høyde er kontinuerlig (alle mellomverdier mulig). Skillet styrer figurvalg og statistikk.",
     },
     {
       question: "En kandidat skriver bare «utdanningsnivå er ordinal» uten begrunnelse. Hva mangler for full uttelling?",
-      options: ["Regelen: at verdiene kan rangeres, men avstandene ikke er like store", "Ingenting mangler — svaret er allerede helt komplett og trenger ingen begrunnelse", "Antall deltakere", "En hypotese"],
+      options: ["Regelen: at verdiene kan rangeres, men avstandene ikke er like store", "Ingenting mangler — svaret er allerede helt komplett og trenger ingen begrunnelse", "Antall deltakere, siden målenivået til utdanningsnivå avgjøres av hvor stort utvalget er", "En hypotese, siden en klassifisering av utdanningsnivå ikke teller uten en hypotese å teste"],
       explanation: "Sensor vil se klassifisering *med begrunnelse* (feil #8 hvis den mangler). Regelen bak merkelappen er poenget.",
     },
     {
       question: "Hvorfor kan samme fenomen operasjonaliseres på ulike målenivåer?",
-      options: ["Fordi valget av målemetode avgjør nivået — og hva man fanger og mister", "Fordi målenivået er tilfeldig", "Fordi alle fenomener er forholdstall", "Fordi selve operasjonaliseringen aldri påvirker hvilket målenivå variabelen havner på"],
+      options: ["Fordi valget av målemetode avgjør nivået — og hva man fanger og mister", "Fordi målenivået er tilfeldig og ikke har noe å gjøre med hvordan fenomenet måles", "Fordi alle fenomener egentlig er forholdstall, uansett hvordan de blir operasjonalisert", "Fordi selve operasjonaliseringen aldri påvirker hvilket målenivå variabelen havner på"],
       explanation: "«Lesekompetanse» kan måles som bestått/ikke (nominal), rangert (ordinal) eller ord per minutt (forhold). Valget avgjør informasjonsmengde og mulige analyser.",
     },
     {
       question: "Hva er en konstant, i motsetning til en variabel?",
-      options: ["En egenskap som ikke varierer i studien", "En egenskap som alltid måles på forholdsnivå med et ekte nullpunkt", "Den avhengige variabelen", "Et gjennomsnitt"],
+      options: ["En egenskap som ikke varierer i studien", "En egenskap som alltid måles på forholdsnivå med et ekte nullpunkt", "Den avhengige variabelen, som per definisjon er lik for alle deltakerne", "Et gjennomsnitt, altså en verdi som er den samme for hver enkelt deltaker"],
       explanation: "Er alle deltakerne kvinner, er kjønn en konstant, ikke en variabel. En variabel må per definisjon variere for å inngå i en sammenheng.",
     },
   ],
   'psy1010-1-3': [
     {
       question: "Hva er reliabilitet?",
-      options: ["En tests stabilitet og konsistens — gir den samme resultat under like forhold?", "Om testen faktisk måler nettopp det teoretiske begrepet den i utgangspunktet er ment å skulle måle", "Om studien kan generaliseres", "Om konklusjonen er kausal"],
+      options: ["En tests stabilitet og konsistens — gir den samme resultat under like forhold?", "Om testen faktisk måler nettopp det teoretiske begrepet den i utgangspunktet er ment å skulle måle", "Om studien kan generaliseres", "Om konklusjonen om årsak og virkning holder i studien"],
       explanation: "Reliabilitet handler om stabilitet: samme svar hver gang. Om testen måler riktig ting er validitet — et annet spørsmål.",
     },
     {
@@ -342,7 +342,7 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en svakhet ved test-retest-reliabilitet?",
-      options: ["Deltakerne kan huske svarene fra første gang", "Den kan bare brukes på rene flervalgstester, aldri på åpne oppgaver", "Den krever to bedømmere", "Den forutsetter et ustabilt fenomen"],
+      options: ["Deltakerne kan huske svarene fra første gang", "Den kan bare brukes på rene flervalgstester, aldri på åpne oppgaver", "Den krever to uavhengige bedømmere", "Den forutsetter et ustabilt fenomen"],
       explanation: "Hukommelseseffekten gjør samsvaret kunstig høyt. Parallelle former løser dette.",
     },
     {
@@ -352,72 +352,72 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva forutsetter split-half-reliabilitet?",
-      options: ["At testen er homogen — alle ledd måler det samme", "At testen gis to ganger", "At det er to uavhengige bedømmere som skårer besvarelsene hver for seg", "At egenskapen er ustabil"],
+      options: ["At testen er homogen — alle ledd måler det samme", "At testen gis to ganger", "At det er to uavhengige bedømmere", "At egenskapen er ustabil"],
       explanation: "Split-half deler testen i to og krever at halvdelene måler det samme, altså en homogen test.",
     },
     {
       question: "Hva tallfester Cronbachs alfa?",
-      options: ["Intern konsistens — hvor samstemte leddene er", "Enighet mellom bedømmere", "Om testen treffsikkert forutsier et framtidig utfall", "Signifikansnivået i en test"],
+      options: ["Intern konsistens — hvor samstemte leddene er", "Enighet mellom bedømmere som skårer de samme besvarelsene", "Om testen treffsikkert forutsier et framtidig utfall", "Signifikansnivået i en test"],
       explanation: "Alfa måler intern konsistens (0–1). Den er ikke interrater-mål og heller ikke signifikansnivået fra hypotesetesting.",
     },
     {
       question: "En skala har Cronbachs alfa = 0,98. Hva kan dette indikere?",
-      options: ["At leddene er nesten identiske og dermed delvis overflødige", "At testen er perfekt og bør brukes", "At testen er ustabil", "At testen fullstendig mangler enhver form for validitet og treffsikkerhet"],
+      options: ["At leddene er nesten identiske og dermed delvis overflødige", "At testen er perfekt og bør brukes", "At testen er ustabil og måler inkonsistent", "At testen fullstendig mangler validitet"],
       explanation: "Svært høy alfa kan bety redundante ledd — «høyere er bedre» har et tak. Det sier ikke noe om validitet.",
     },
     {
       question: "Når trengs interrater-reliabilitet?",
-      options: ["Når skåringen krever skjønn, som ved intervjuer eller observasjoner", "Ved rene, automatisk rettede flervalgstester der ingen bruker skjønn", "Når testen gis to ganger", "Når egenskapen er stabil"],
+      options: ["Når skåringen krever skjønn, som ved intervjuer eller observasjoner", "Ved rene, automatisk rettede flervalgstester", "Når testen gis to ganger", "Når egenskapen er stabil"],
       explanation: "Interrater måler enighet mellom bedømmere og trengs der skåring involverer skjønn — ikke ved automatisk rettede tester.",
     },
     {
       question: "Hva er testvaliditet?",
-      options: ["Om testen faktisk måler det den er ment å måle", "Om testen gir stabile og konsistente resultater ved gjentatt måling", "Om konklusjonen fra studien kan generaliseres", "Om årsakssammenhengen er sikker"],
+      options: ["Om testen faktisk måler det den er ment å måle", "Om testen gir stabile resultater", "Om konklusjonen fra studien kan generaliseres", "Om årsakssammenhengen er sikker"],
       explanation: "Testvaliditet gjelder om instrumentet treffer riktig begrep. De to siste gjelder slutningsvaliditet (studien), ikke testen.",
     },
     {
       question: "Hva er face-validitet?",
-      options: ["Om testen ser ut til å måle det den skal, ved en overflatevurdering", "Om testen dekker hele begrepets bredde", "Om testen forutsier et fremtidig utfall", "Om testen fanger opp hele det underliggende teoretiske konstruktet den bygger på"],
+      options: ["Om testen ser ut til å måle det den skal, ved en overflatevurdering", "Om testen dekker hele begrepets bredde", "Om testen forutsier et fremtidig utfall", "Om testen fanger det teoretiske konstruktet"],
       explanation: "Face-validitet er den svakeste formen — bygger bare på inntrykk. De andre er innholds-, prediktiv og begrepsvaliditet.",
     },
     {
       question: "Hva er dobbeltrollen til face-validitet?",
-      options: ["Den motiverer deltakere, men gjør testen lett å gjennomskue", "Den er både reliabel og valid", "Den måler samtidig både testens stabilitet og dens treffsikkerhet", "Den erstatter begrepsvaliditet"],
+      options: ["Den motiverer deltakere, men gjør testen lett å gjennomskue", "Den er både reliabel og valid, slik at et godt førsteinntrykk alene sikrer begge deler", "Den måler samtidig både testens stabilitet og dens treffsikkerhet", "Den erstatter begrepsvaliditet som validitetsmål"],
       explanation: "Høy face-validitet virker troverdig og motiverende, men gjør testen lett å manipulere. Noen ganger vil man bevisst ha lav face-validitet.",
     },
     {
       question: "Hva er innholdsvaliditet?",
-      options: ["Om testens innhold dekker hele bredden av begrepet", "Om testen ser troverdig ut", "Om testen samsvarer godt med et etablert ytre kriterium", "Om testen er stabil over tid"],
+      options: ["Om testens innhold dekker hele bredden av begrepet", "Om testen ser troverdig ut ved en rask overflatevurdering", "Om testen samsvarer godt med et etablert ytre kriterium", "Om testen er stabil over tid"],
       explanation: "Innholdsvaliditet handler om dekning av hele området. En matteprøve med bare addisjon har dårlig innholdsvaliditet for matteferdighet.",
     },
     {
       question: "Hva kjennetegner samtidig (concurrent) kriterievaliditet?",
-      options: ["Testen samsvarer med et kriterium målt samtidig", "Testen forutsier presist et bestemt utfall fram i tid", "Testen dekker hele begrepet", "Testen er stabil over tid"],
+      options: ["Testen samsvarer med et kriterium målt samtidig", "Testen forutsier presist et bestemt utfall fram i tid", "Testen dekker hele innholdet i begrepet", "Testen er stabil over tid, slik at samme person får samme skår ved ny måling"],
       explanation: "Samtidig validitet sammenligner med et kriterium *nå* (ny skala mot etablert). Prediktiv validitet ser derimot fremover.",
     },
     {
       question: "Hva kjennetegner prediktiv validitet?",
-      options: ["Testen forutsier et fremtidig utfall", "Testen samsvarer med et kriterium målt samtidig", "Testen ser ut til å måle riktig", "Testen har høy intern konsistens"],
+      options: ["Testen forutsier et fremtidig utfall", "Testen samsvarer med et kriterium målt samtidig", "Testen ser ut til å måle riktig ved en overflatevurdering", "Testen har høy intern konsistens"],
       explanation: "Prediktiv validitet handler om å forutsi noe senere (opptaksprøve → studieresultat). Samtidig validitet gjelder et kriterium målt nå.",
     },
     {
       question: "Hva er begrepsvaliditet?",
-      options: ["Om testen fanger det teoretiske konstruktet den påstår å måle", "Om testen ved første øyekast ser troverdig og relevant ut for deltakeren", "Om to bedømmere er enige", "Om testen er stabil"],
+      options: ["Om testen fanger det teoretiske konstruktet den påstår å måle", "Om testen ved første øyekast ser troverdig og relevant ut for deltakeren", "Om to uavhengige bedømmere gir samme skår", "Om testen er stabil, slik at den gir samme resultat når den blir gitt på nytt"],
       explanation: "Begrepsvaliditet er den mest overordnede formen — bygges over tid ved at testen oppfører seg som teorien forutsier.",
     },
     {
       question: "En oppgave ber deg vurdere validiteten til en ny test. En kandidat svarer med indre og ytre validitet. Hvilken feil er dette?",
-      options: ["Feil #5 — testvaliditet forvekslet med slutningsvaliditet", "Feil #1 — feil p-verdi-definisjon", "Feil #6 — SD forvekslet med SE", "Feil #9 — å behandle et bekvemmelighetsutvalg som om det var representativt"],
+      options: ["Feil #5 — testvaliditet forvekslet med slutningsvaliditet", "Feil #1 — en feil definisjon av p-verdien", "Feil #6 — SD forvekslet med SE, altså et spredningsmål forvekslet med et usikkerhetsmål", "Feil #9 — å behandle et bekvemmelighetsutvalg som om det var representativt"],
       explanation: "Indre/ytre validitet gjelder slutninger fra studier, ikke tester. Å bruke dem om en test er feil #5.",
     },
     {
       question: "Hva gjelder indre og ytre validitet?",
-      options: ["Holdbarheten av konklusjoner fra en studie", "Om en test måler riktig begrep", "Om en test er stabil", "Om de enkelte leddene i en test er innbyrdes samstemte"],
+      options: ["Holdbarheten av konklusjoner fra en studie", "Om en test måler riktig begrep, altså om instrumentet treffer konstruktet", "Om en test er stabil, altså om den gir samme skår ved gjentatt måling", "Om de enkelte leddene i en test er innbyrdes samstemte"],
       explanation: "Indre (kausalitet) og ytre (generalisering) validitet gjelder studieslutninger — det er slutningsvaliditet, ikke testvaliditet.",
     },
     {
       question: "Hva korrigerer Cohens kappa for?",
-      options: ["Enighet man ville fått ved ren tilfeldighet", "Manglende reliabilitet", "Systematisk skjevhet i måten utvalget er trukket på", "Manglende validitet"],
+      options: ["Enighet man ville fått ved ren tilfeldighet", "Manglende reliabilitet, slik at lav samstemthet blir regnet opp", "Systematisk skjevhet i måten utvalget er trukket på", "Manglende validitet, slik at et mål som treffer feil begrep, blir justert"],
       explanation: "Kappa trekker fra flaks-enigheten (Pc) slik at bare enighet utover tilfeldighet teller — et ærligere mål enn rå prosent enighet.",
     },
     {
@@ -427,22 +427,22 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor kan rå prosent enighet overvurdere samstemtheten mellom bedømmere?",
-      options: ["Noe av enigheten skyldes ren tilfeldighet", "Fordi bedømmerne alltid jukser", "Fordi ren prosentandel aldri lar seg regne ut på en meningsfull måte", "Fordi kappa alltid er høyere"],
+      options: ["Noe av enigheten skyldes ren tilfeldighet", "Fordi bedømmerne alltid jukser og avtaler skårene med hverandre på forhånd", "Fordi ren prosentandel aldri lar seg regne ut på en meningsfull måte", "Fordi kappa alltid er høyere enn den rå prosentandelen enighet"],
       explanation: "Ved gjetting vil bedømmere av og til være enige ved flaks. Kappa trekker fra denne tilfeldige enigheten.",
     },
     {
       question: "Hvorfor passer ikke test-retest for et fenomen som svinger fra dag til dag (som humør)?",
-      options: ["Lav samsvar kan skyldes ekte endring i fenomenet, ikke dårlig test", "Fordi humør ikke kan måles", "Fordi test-retest-metoden alltid forutsetter minst to uavhengige bedømmere", "Fordi humør alltid er stabilt"],
+      options: ["Lav samsvar kan skyldes ekte endring i fenomenet, ikke dårlig test", "Fordi humør ikke kan måles, og derfor heller ikke kan inngå i en test-retest", "Fordi test-retest-metoden alltid forutsetter minst to uavhengige bedømmere", "Fordi humør alltid er stabilt, slik at to målinger av samme person må gi samme skår"],
       explanation: "Test-retest forutsetter et stabilt fenomen. Svinger fenomenet, måler man ustabilitet i personen, ikke i instrumentet.",
     },
     {
       question: "Cronbachs alfa og signifikansnivået fra hypotesetesting bruker samme bokstav. Hva er forholdet mellom dem?",
-      options: ["De er helt ulike begreper som tilfeldigvis deler symbol", "De er to navn på det samme", "Cronbachs alfa er alltid nøyaktig lik signifikansnivået fra hypotesetestingen", "De kan regnes om til hverandre"],
+      options: ["De er helt ulike begreper som tilfeldigvis deler symbol", "De er to navn på det samme, slik at reliabilitet og signifikansnivå er én størrelse", "Cronbachs alfa er alltid nøyaktig lik signifikansnivået fra hypotesetestingen", "De kan regnes om til hverandre med en fast formel som knytter dem sammen"],
       explanation: "Cronbachs α (reliabilitet, 0–1) er ikke signifikansnivået α fra hypotesetesting. Samme bokstav, ulik betydning — en klassisk forvekslingsfelle.",
     },
     {
       question: "En kandidat lister opp alle validitetsformene uten å knytte dem til den konkrete testen. Hva blir konsekvensen?",
-      options: ["C-tak — sensor vil se formene anvendt på scenariet (feil #8)", "Karakteren A automatisk, fordi alle validitetsformene er korrekt nevnt i lista", "Stryk, fordi listen er feil", "Ingen konsekvens"],
+      options: ["C-tak — sensor vil se formene anvendt på scenariet (feil #8)", "Karakteren A automatisk, fordi alle validitetsformene er korrekt nevnt i lista", "Stryk, fordi listen er feil så lenge formene ikke er knyttet til den aktuelle testen", "Ingen konsekvens — en ren definisjonsremse gir full uttelling uansett scenario"],
       explanation: "En ren definisjonsremse gir C-tak (feil #8). Uttellingen ligger i å anvende hver form på den aktuelle testen.",
     },
   ],
@@ -454,7 +454,7 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en utvalgsramme?",
-      options: ["Den konkrete listen eller kilden man trekker utvalget fra", "Hele populasjonen", "De av deltakerne som faller fra og forlater studien et stykke underveis", "Antall deltakere i studien"],
+      options: ["Den konkrete listen eller kilden man trekker utvalget fra", "Hele populasjonen man vil generalisere til", "De av deltakerne som faller fra og forlater studien et stykke underveis", "Antall deltakere i studien"],
       explanation: "Utvalgsrammen er den praktiske lista (f.eks. et register). En mangelfull ramme gir skjevhet allerede før trekkingen.",
     },
     {
@@ -464,7 +464,7 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et enkelt tilfeldig utvalg?",
-      options: ["Et utvalg der hver enhet har lik sjanse for å bli trukket", "Et utvalg satt sammen av de enhetene som er lettest tilgjengelige for forskeren", "Et utvalg delt inn i strata", "Et utvalg av hele grupper"],
+      options: ["Et utvalg der hver enhet har lik sjanse for å bli trukket", "Et utvalg satt sammen av de enhetene som er lettest tilgjengelige for forskeren", "Et utvalg delt inn i strata", "Et utvalg der man trekker hele grupper"],
       explanation: "Ved enkelt tilfeldig utvalg har alle lik sjanse — gullstandarden for representativitet. Krever en fullstendig utvalgsramme.",
     },
     {
@@ -474,77 +474,77 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et systematisk utvalg?",
-      options: ["Man trekker hver k-te enhet fra en liste etter tilfeldig start", "Man deler populasjonen i strata", "Man tar rett og slett de enhetene som er lettest tilgjengelige å nå", "Man trekker hele grupper"],
+      options: ["Man trekker hver k-te enhet fra en liste etter tilfeldig start", "Man deler populasjonen i strata", "Man tar de enhetene som er lettest tilgjengelige", "Man trekker hele grupper"],
       explanation: "Systematisk utvalg tar hver k-te enhet. Det blir skjevt bare hvis lista har et mønster som treffer intervallet.",
     },
     {
       question: "Hva er et klyngeutvalg (cluster)?",
-      options: ["Man trekker tilfeldig hele grupper og undersøker alle i dem", "Man trekker enkeltpersoner tilfeldig én og én fra hele populasjonen", "Man tar de mest motiverte", "Man deler i strata"],
+      options: ["Man trekker tilfeldig hele grupper og undersøker alle i dem", "Man trekker enkeltpersoner tilfeldig én og én", "Man tar de mest motiverte", "Man deler populasjonen i strata før trekkingen"],
       explanation: "Klyngeutvalg trekker hele grupper (f.eks. skoleklasser). Praktisk ved spredning, men mindre presist fordi folk i samme klynge ligner hverandre.",
     },
     {
       question: "En studie rekrutterer via et spørreskjema delt ut på forskerens egen forelesning. Hva slags utvalg er dette?",
-      options: ["Bekvemmelighetsutvalg", "Enkelt tilfeldig utvalg", "Stratifisert utvalg", "Klyngeutvalg"],
+      options: ["Bekvemmelighetsutvalg", "Enkelt tilfeldig utvalg", "Stratifisert utvalg", "Klyngeutvalg, der hele grupper er trukket tilfeldig"],
       explanation: "«Spørreskjema på forelesning» skal utløse refleksen bekvemmelighetsutvalg — de lettest tilgjengelige er valgt.",
     },
     {
       question: "Hva er hovedproblemet med et bekvemmelighetsutvalg?",
-      options: ["De lettest tilgjengelige er sjelden representative for populasjonen", "Det er alltid for lite", "Det krever for mye tid", "Slike utvalg kan overhodet ikke analyseres med vanlige statistiske metoder i etterkant"],
+      options: ["De lettest tilgjengelige er sjelden representative for populasjonen", "Det er alltid for lite", "Det krever for mye tid", "Slike utvalg kan ikke analyseres statistisk"],
       explanation: "Bekvemmelighetsutvalg er praktisk, men skjevt: gruppen man når, ligner ikke populasjonen. Prisen er svekket generalisering.",
     },
     {
       question: "Hva er frivillighetsbias?",
-      options: ["De som melder seg frivillig skiller seg systematisk fra dem som ikke gjør det", "At det er forskeren selv som aktivt plukker ut deltakerne helt tilfeldig fra listen", "At utvalget er for stort", "At deltakerne får betalt"],
+      options: ["De som melder seg frivillig skiller seg systematisk fra dem som ikke gjør det", "At forskeren selv plukker ut deltakerne tilfeldig fra listen", "At utvalget blir for stort fordi for mange melder seg", "At deltakerne får betalt"],
       explanation: "Selvseleksjon: frivillige er ofte mer engasjerte eller har sterkere meninger, så funnene gjelder «de frivillige», ikke populasjonen.",
     },
     {
       question: "Hva er selektivt frafall?",
-      options: ["De som forlater studien skiller seg systematisk fra dem som blir", "At ingen melder seg", "At alle fullfører", "At hele utvalget fra starten av ble trukket helt tilfeldig fra populasjonen"],
+      options: ["De som forlater studien skiller seg systematisk fra dem som blir", "At ingen melder seg", "At alle deltakerne fullfører studien", "At utvalget ble trukket tilfeldig fra populasjonen"],
       explanation: "Selektivt frafall gjør gjenværende utvalg skjevt underveis, selv om starten var representativ (f.eks. de mest stressede slutter).",
     },
     {
       question: "Hvorfor er en lav responsrate et faresignal?",
-      options: ["Hvis bare en liten, spesiell del svarer, forsterkes frivillighetsbias", "Fordi det gjør analysen umulig", "Fordi en lav responsrate alltid betyr at man har fått altfor få deltakere", "Fordi responsrate ikke betyr noe"],
+      options: ["Hvis bare en liten, spesiell del svarer, forsterkes frivillighetsbias", "Fordi det gjør analysen umulig, siden statistiske tester ikke kan kjøres når få har svart", "Fordi en lav responsrate alltid betyr at man har fått altfor få deltakere", "Fordi responsraten ikke betyr noe for hvem som svarer"],
       explanation: "Lav responsrate betyr at bare en spesiell delgruppe svarte, som forsterker skjevheten. Høy responsrate reduserer risikoen.",
     },
     {
       question: "Hva er den viktigste konsekvensen av skjev seleksjon?",
-      options: ["Svekket generaliserbarhet og ytre validitet", "Høyere reliabilitet", "Klart bedre indre validitet og sikrere årsaksslutninger", "Mindre standardfeil"],
+      options: ["Svekket generaliserbarhet og ytre validitet", "Høyere reliabilitet, fordi et skjevt utvalg gir mer stabile målinger", "Klart bedre indre validitet og sikrere årsaksslutninger", "En mindre standardfeil i estimatet"],
       explanation: "Skjev seleksjon gjør utvalget til noe annet enn en miniatyrkopi, så funn kan ikke generaliseres — ytre validitet svekkes.",
     },
     {
       question: "En kandidat konkluderer at et forelesningsutvalg gjelder alle norske studenter. Hvilken feil er dette?",
-      options: ["Feil #9 — bekvemmelighetsutvalg behandlet som representativt", "Feil #5 — det å forveksle testvaliditet med slutningsvaliditet i en studie", "Feil #1 — feil p-verdi-definisjon", "Feil #3 — kausal tolkning av korrelasjon"],
+      options: ["Feil #9 — bekvemmelighetsutvalg behandlet som representativt", "Feil #5 — det å forveksle testvaliditet med slutningsvaliditet i en studie", "Feil #1 — feil p-verdi-definisjon, der p leses som sannsynligheten for at hypotesen er sann", "Feil #3 — kausal tolkning av korrelasjon"],
       explanation: "Å behandle et bekvemmelighetsutvalg som representativt er feil #9 — kapitlets hovedfelle.",
     },
     {
       question: "En kandidat lister alle utvalgsteknikkene, men velger ingen for scenariet. Hva er problemet?",
-      options: ["Feil #8 — sensor vil se et begrunnet valg, ikke en oppramsing", "Ingenting er galt — samtlige utvalgsteknikker er jo korrekt nevnt i svaret", "Feil #9 — bekvemmelighetsutvalg", "Svaret gir automatisk A"],
+      options: ["Feil #8 — sensor vil se et begrunnet valg, ikke en oppramsing", "Ingenting er galt — samtlige utvalgsteknikker er jo korrekt nevnt i svaret", "Feil #9 — et bekvemmelighetsutvalg brukt som representativt", "Svaret gir automatisk A, siden en fullstendig oppramsing av alle teknikkene viser bredde"],
       explanation: "Veiledningene ber sensor sjekke at kandidaten *velger og begrunner* en metode. En ren remse gir C-tak (feil #8).",
     },
     {
       question: "Hva er den viktigste forutsetningen for et enkelt tilfeldig utvalg?",
-      options: ["En fullstendig utvalgsramme", "At samtlige deltakere stiller opp helt frivillig i studien", "At utvalget er lite", "At man kjenner strataene"],
+      options: ["En fullstendig utvalgsramme", "At samtlige deltakere stiller opp helt frivillig i studien", "At utvalget er lite nok til å trekkes for hånd", "At man kjenner strataene i populasjonen på forhånd"],
       explanation: "Uten en fullstendig ramme kan noen aldri bli trukket, og utvalget blir skjevt før trekkingen. Strata trengs bare ved stratifisering.",
     },
     {
       question: "Hva er kjernespenningen ved valg av utvalgsmetode?",
-      options: ["Praktisk gjennomførbarhet vs. representativitet", "Avveiningen mellom en tests reliabilitet og dens validitet", "Indre vs. ytre validitet", "Nominal vs. ordinal"],
+      options: ["Praktisk gjennomførbarhet vs. representativitet", "Avveiningen mellom en tests reliabilitet og dens validitet", "Indre vs. ytre validitet — om årsaksslutningen eller rekkevidden skal prioriteres", "Nominal vs. ordinal — hvilket målenivå variablene skal registreres på"],
       explanation: "Bekvemmelighetsutvalg er praktisk gjennomførbare, men skjeve; sannsynlighetsutvalg er representative, men mer krevende. Det er avveiningen.",
     },
     {
       question: "Under hvilken betingelse kan et bekvemmelighetsutvalg forsvares?",
-      options: ["Ved eksplorerende studier/piloter eller grunnleggende prosesser som neppe varierer sterkt mellom grupper", "Alltid — et bekvemmelighetsutvalg er i praksis like representativt som et ekte tilfeldig sannsynlighetsutvalg", "Aldri, det er forbudt", "Bare hvis utvalget er stort nok"],
+      options: ["Ved eksplorerende studier/piloter eller grunnleggende prosesser som neppe varierer sterkt mellom grupper", "Alltid — et bekvemmelighetsutvalg er i praksis like representativt som et ekte tilfeldig sannsynlighetsutvalg", "Aldri, det er forbudt — et bekvemmelighetsutvalg kan ikke brukes i noen studie, heller ikke i eksplorerende piloter", "Bare hvis utvalget er stort nok — med mange nok deltakere forsvinner skjevheten uansett hvordan de ble rekruttert"],
       explanation: "Bekvemmelighetsutvalg kan forsvares ved piloter, ressursknapphet eller universelle prosesser — men da må generaliseringsbegrensningen nevnes.",
     },
     {
       question: "Hva er forskjellen mellom populasjon (N) og utvalg (n)?",
-      options: ["N er hele gruppen man vil uttale seg om; n er delen man undersøker", "N er utvalget, n er populasjonen", "De er det samme", "N betegner antall variabler i studien, mens n betegner antall grupper"],
+      options: ["N er hele gruppen man vil uttale seg om; n er delen man undersøker", "N er utvalget man faktisk måler, mens n er hele gruppen man vil uttale seg om", "De er det samme — både N og n betegner antallet deltakere man faktisk måler", "N betegner antall variabler i studien, mens n betegner antall grupper"],
       explanation: "N betegner populasjonen (hele målgruppen), n betegner utvalget (deltakerne man faktisk måler).",
     },
     {
       question: "Hvordan bør en forsker som brukte et bekvemmelighetsutvalg presentere funnene?",
-      options: ["Eksplisitt si at funnene primært gjelder den undersøkte gruppen, og at generalisering er usikker", "Presentere funnene direkte som om de utvilsomt gjelder for hele populasjonen, helt uten forbehold", "Skjule utvalgsmetoden", "Hevde at utvalget var tilfeldig"],
+      options: ["Eksplisitt si at funnene primært gjelder den undersøkte gruppen, og at generalisering er usikker", "Presentere funnene direkte som om de utvilsomt gjelder for hele populasjonen, helt uten forbehold", "Skjule utvalgsmetoden og la være å nevne hvordan deltakerne ble rekruttert, slik at leseren ikke stusser over gruppen", "Hevde at utvalget var tilfeldig trukket, slik at funnene uten videre kan presenteres som gyldige for hele populasjonen"],
       explanation: "A-kravet er ærlighet om skjevheten: funnene gjelder gruppen som ble nådd, og overføring er en åpen antakelse, ikke bevist.",
     },
   ],
@@ -556,17 +556,17 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er hovedfunksjonen til randomisert tilordning?",
-      options: ["Å fordele feilvariansen (individforskjeller) likt mellom gruppene", "Å sikre at hele utvalget blir representativt for den populasjonen man vil generalisere til", "Å skjule betingelsen for deltakerne", "Å gjøre fordelingen normal"],
+      options: ["Å fordele feilvariansen (individforskjeller) likt mellom gruppene", "Å sikre at hele utvalget blir representativt for den populasjonen man vil generalisere til", "Å skjule betingelsen for deltakerne", "Å gjøre fordelingen av målingene normalfordelt"],
       explanation: "Randomisering fordeler individforskjeller jevnt, så systematisk skjevhet blir til tilfeldig støy. Representativt utvalg er utvalgsteknikk, ikke tilordning; blinding er noe annet.",
     },
     {
       question: "En forsker lar deltakerne selv velge om de vil være i tiltaks- eller kontrollgruppen. Hvilket problem oppstår?",
-      options: ["Systematisk feilvarians — gruppene er forskjellige før tiltaket", "Den usystematiske, tilfeldige feilvariansen øker og skaper mer støy i dataene", "Lav testvaliditet", "For høy ytre validitet"],
+      options: ["Systematisk feilvarians — gruppene er forskjellige før tiltaket", "Den usystematiske, tilfeldige feilvariansen øker og skaper mer støy i dataene", "Lav testvaliditet i selve måleinstrumentet", "For høy ytre validitet"],
       explanation: "Selvseleksjon skaper systematiske forskjeller før tiltaket, som kan etterligne en effekt. Det er systematisk feilvarians, ikke bare støy.",
     },
     {
       question: "Hva er forskjellen på systematisk og usystematisk feilvarians?",
-      options: ["Systematisk trekker konsekvent i én retning i én gruppe; usystematisk er tilfeldig støy", "Systematisk er ønsket; usystematisk er uønsket", "Systematisk feilvarians skyldes selve manipulasjonen, mens usystematisk skyldes kontrollgruppen", "De er to navn på det samme"],
+      options: ["Systematisk trekker konsekvent i én retning i én gruppe; usystematisk er tilfeldig støy", "Systematisk er ønsket; usystematisk er uønsket", "Systematisk feilvarians skyldes selve manipulasjonen, mens usystematisk skyldes kontrollgruppen", "De er to navn på det samme — begge betyr tilfeldig støy i dataene"],
       explanation: "Systematisk feilvarians favoriserer én gruppe og kan forkles som effekt; usystematisk sprer seg jevnt og øker bare spredningen.",
     },
     {
@@ -576,77 +576,77 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er ytre validitet?",
-      options: ["Graden av generaliserbarhet til andre personer, situasjoner og tidspunkter", "Graden av holdbar årsaksslutning innenfor selve studien og det valgte eksperimentelle designet", "Om måleinstrumentet er reliabelt", "Om forskeren er blindet"],
+      options: ["Graden av generaliserbarhet til andre personer, situasjoner og tidspunkter", "Graden av holdbar årsaksslutning innenfor selve studien", "Om måleinstrumentet er reliabelt", "Om forskeren er blindet for hvilken betingelse deltakerne er i"],
       explanation: "Ytre validitet er rekkevidden utad. Årsaksslutning er indre validitet; reliabilitet og blinding er andre begreper.",
     },
     {
       question: "Hvorfor står indre og ytre validitet ofte i spenning?",
-      options: ["Mer laboratoriekontroll gir høyere indre, men gjør situasjonen mer kunstig (lavere ytre)", "Fordi de måler nøyaktig det samme", "Fordi høy ytre validitet alltid gir lav reliabilitet", "Fordi selve randomiseringen paradoksalt nok svekker både den indre og den ytre validiteten samtidig"],
+      options: ["Mer laboratoriekontroll gir høyere indre, men gjør situasjonen mer kunstig (lavere ytre)", "Fordi indre og ytre validitet måler nøyaktig det samme", "Fordi høy ytre validitet alltid gir lav reliabilitet", "Fordi selve randomiseringen svekker både indre og ytre validitet"],
       explanation: "Kontroll kjøper indre validitet med naturlighet. Streng lab-kontroll → høy indre, ofte lav ytre validitet.",
     },
     {
       question: "En student svarer «indre og ytre validitet» på spørsmål om hvorvidt en personlighetstest måler det den skal. Hva er feilen?",
-      options: ["Indre/ytre validitet gjelder slutninger fra studier, ikke om en test måler riktig (det er testvaliditet)", "Ingen feil — begrepene er synonyme", "Testvaliditet finnes ikke", "Studenten burde i stedet ha svart reliabilitet, siden det er reliabiliteten som avgjør om en test faktisk måler riktig"],
+      options: ["Indre/ytre validitet gjelder slutninger fra studier, ikke om en test måler riktig (det er testvaliditet)", "Ingen feil — begrepene er synonyme", "Testvaliditet finnes ikke som eget begrep — all validitet handler om studier", "Studenten burde ha svart reliabilitet, siden reliabiliteten avgjør om en test måler riktig"],
       explanation: "Dette er feil #5: å blande slutningsvaliditet (studier) med testvaliditet (måleinstrumenter).",
     },
     {
       question: "Hva beskytter blinding mot?",
-      options: ["Reaktivitet og forventningseffekter (demand characteristics)", "Systematisk og selektivt frafall av deltakere underveis i studien", "Lav statistisk styrke", "Feil målenivå"],
+      options: ["Reaktivitet og forventningseffekter (demand characteristics)", "Systematisk og selektivt frafall av deltakere", "Lav statistisk styrke", "Feil målenivå på den avhengige variabelen"],
       explanation: "Blinding skjuler betingelsen så forventninger ikke farger resultatet — beskytter mot reaktivitet og demand characteristics.",
     },
     {
       question: "Hva kjennetegner en venteliste-kontroll?",
-      options: ["Kontrollgruppen får tiltaket etter at studien er ferdig", "Kontrollgruppen får en virkningsløs narrepille (placebo) i stedet for tiltaket", "Ingen kontrollgruppe brukes", "Deltakerne velger selv gruppe"],
+      options: ["Kontrollgruppen får tiltaket etter at studien er ferdig", "Kontrollgruppen får en virkningsløs narrepille (placebo) i stedet for tiltaket", "Ingen kontrollgruppe brukes, alle deltakerne får tiltaket med en gang", "Deltakerne velger selv hvilken gruppe de vil være i"],
       explanation: "Venteliste-kontroll er en etisk variant: ingen nektes hjelpen permanent, men sammenligningsgrunnlaget beholdes under studien.",
     },
     {
       question: "Hva er hensikten med et Solomon firegruppedesign?",
-      options: ["Å sjekke om selve pretesten påvirket resultatet", "Å øke utvalgsstørrelsen", "Å blinde forskeren", "Å gjøre om hele studien til et kvasieksperiment uten randomisering"],
+      options: ["Å sjekke om selve pretesten påvirket resultatet", "Å øke utvalgsstørrelsen med to grupper til", "Å blinde forskeren for hvilken gruppe deltakeren tilhører", "Å gjøre om hele studien til et kvasieksperiment uten randomisering"],
       explanation: "Ved at bare halvparten får pretest, kan man skille tiltakets effekt fra en pretest-effekt.",
     },
     {
       question: "En studie i et lydisolert laboratorium med streng kontroll vil typisk ha:",
-      options: ["Høy indre og lavere ytre validitet", "Lav indre validitet, men til gjengjeld svært høy ytre validitet", "Lav indre og lav ytre validitet", "Høy testvaliditet"],
+      options: ["Høy indre og lavere ytre validitet", "Lav indre validitet, men til gjengjeld svært høy ytre validitet", "Lav indre og lav ytre validitet", "Høy testvaliditet, fordi kontrollen sikrer at testen måler riktig"],
       explanation: "Kontroll gir høy indre validitet, men den kunstige situasjonen svekker ofte den ytre (økologiske) validiteten.",
     },
     {
       question: "Hva er økologisk validitet?",
-      options: ["En form for ytre validitet: hvor godt studiesituasjonen likner virkelige forhold", "En underform av indre validitet som handler om holdbare årsaksslutninger i laboratoriet", "Om testen er reliabel", "Om utvalget er stort nok"],
+      options: ["En form for ytre validitet: hvor godt studiesituasjonen likner virkelige forhold", "En underform av indre validitet som handler om holdbare årsaksslutninger i laboratoriet", "Om testen er reliabel, altså om måleinstrumentet gir de samme skårene ved gjentatte målinger", "Om utvalget er stort nok til å bære en generalisering"],
       explanation: "Økologisk validitet er en underform av ytre validitet — likheten mellom studiesituasjon og virkelighet.",
     },
     {
       question: "Hva er «planlagt systematisk varians»?",
-      options: ["Variasjonen forskeren med vilje skaper ved å manipulere UV — selve effekten", "Tilfeldig målestøy", "Frafall som skjer systematisk", "De systematiske forskjellene som allerede finnes mellom deltakerne før tiltaket settes inn"],
+      options: ["Variasjonen forskeren med vilje skaper ved å manipulere UV — selve effekten", "Tilfeldig målestøy, altså de ukontrollerte variasjonene som gjør målingene upresise fra gang til gang", "Frafall som skjer systematisk i én av betingelsene", "De systematiske forskjellene som allerede finnes mellom deltakerne før tiltaket settes inn"],
       explanation: "Planlagt systematisk varians er den ønskede effekten fra manipulasjonen — ikke feilvarians.",
     },
     {
       question: "Hvilken av disse er IKKE et ekte eksperiment?",
-      options: ["En studie som sammenligner menn og kvinner uten randomisering", "En randomisert studie med placebokontroll", "En studie der deltakerne loddtrekkes tilfeldig til to ulike doser av et medikament", "En randomisert venteliste-kontrollert studie"],
+      options: ["En studie som sammenligner menn og kvinner uten randomisering", "En randomisert studie med placebokontroll, der deltakerne loddtrekkes til betingelsene", "En studie der deltakerne loddtrekkes tilfeldig til to ulike doser av et medikament", "En randomisert venteliste-kontrollert studie, der kontrollgruppen får tiltaket etterpå"],
       explanation: "Kjønn er en kvasi-UV som ikke kan manipuleres, og gruppene er ikke randomisert — det er et kvasieksperiment, ikke et ekte eksperiment.",
     },
     {
       question: "Hva menes med reaktivitet?",
-      options: ["At deltakere endrer atferd fordi de vet de blir studert", "At forskeren selv reagerer følelsesmessig på de resultatene som kommer inn", "At tiltaket virker raskt", "At utvalget reagerer likt"],
+      options: ["At deltakere endrer atferd fordi de vet de blir studert", "At forskeren selv reagerer følelsesmessig på de resultatene som kommer inn", "At tiltaket virker raskt, slik at endringen viser seg alt ved første måling", "At utvalget reagerer likt, slik at alle deltakerne får samme endring"],
       explanation: "Reaktivitet er endring i atferd som følge av å bli studert — en trussel mot indre validitet som blinding kan dempe.",
     },
     {
       question: "Hvorfor er en kontrollgruppe nødvendig for å slutte at et tiltak virker?",
-      options: ["Uten den vet vi ikke hva som ville skjedd uansett (historie, modning)", "Fordi den øker utvalget", "Fordi en ekstra kontrollgruppe alltid gjør at datafordelingen blir tilnærmet normal", "Fordi den blinder deltakerne"],
+      options: ["Uten den vet vi ikke hva som ville skjedd uansett (historie, modning)", "Fordi den øker utvalget, og flere deltakere er i seg selv nok til å vise at tiltaket virker", "Fordi en ekstra kontrollgruppe alltid gjør at datafordelingen blir tilnærmet normal", "Fordi den blinder deltakerne, slik at ingen av dem vet hvilken betingelse de er plassert i"],
       explanation: "Kontrollgruppen viser hva som skjer uten tiltaket, så vi kan skille tiltakseffekten fra historie og modning.",
     },
     {
       question: "Hva er forskjellen på randomisering og matching?",
-      options: ["Randomisering nøytraliserer alle individforskjeller (også ukjente); matching bare de målte", "Matching er alltid bedre for indre validitet", "Randomisering krever alltid et stort utvalg for å virke, mens matching fungerer helt uten", "De gir identiske resultater"],
+      options: ["Randomisering nøytraliserer alle individforskjeller (også ukjente); matching bare de målte", "Matching er alltid bedre for indre validitet", "Randomisering krever alltid et stort utvalg for å virke, mens matching fungerer helt uten", "De gir identiske resultater og kan brukes om hverandre"],
       explanation: "Randomisering sikrer forventet likhet på alt, også ukjente variabler; matching sikrer likhet kun på de egenskapene man matcher på.",
     },
     {
       question: "Et frivillig kurs viser lavere stress hos deltakerne enn hos ikke-deltakerne. Hovedsvakheten er:",
-      options: ["Selvseleksjon — deltakerne kan være systematisk forskjellige fra ikke-deltakerne", "For lav statistisk styrke", "At man har brukt et feilaktig målenivå på stressvariabelen gjennom hele analysen av dataene", "At kurset ikke ble blindet"],
+      options: ["Selvseleksjon — deltakerne kan være systematisk forskjellige fra ikke-deltakerne", "For lav statistisk styrke, slik at forskjellen mellom deltakerne og ikke-deltakerne ikke kan påvises", "At man har brukt et feilaktig målenivå på stressvariabelen gjennom hele analysen av dataene", "At kurset ikke ble blindet, slik at deltakerne visste at de var med på et stressreduserende kurs"],
       explanation: "Frivillig påmelding = selvseleksjon, som gir systematisk feilvarians. Uten randomisering kan effekten skyldes hvem som meldte seg.",
     },
     {
       question: "Hva er dobbel blinding?",
-      options: ["Verken deltaker eller den som måler/behandler vet hvilken betingelse deltakeren er i", "Deltakeren måles to ganger", "To kontrollgrupper brukes", "At forskeren gjennomfører hele randomiseringen to ganger på rad for å være ekstra sikker"],
+      options: ["Verken deltaker eller den som måler/behandler vet hvilken betingelse deltakeren er i", "Deltakeren måles to ganger, både før og etter tiltaket, slik at endringen kan regnes ut for hver enkelt", "To kontrollgrupper brukes i stedet for én, slik at tiltaksgruppen kan sammenlignes med to ulike grupper", "At forskeren gjennomfører hele randomiseringen to ganger på rad for å være ekstra sikker"],
       explanation: "Dobbel blinding stenger for både deltakerforventning og forskerforventning, i motsetning til enkel blinding.",
     },
   ],
@@ -658,7 +658,7 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er hovedkostnaden ved innengruppedesign?",
-      options: ["Overføringseffekter (rekkefølgeeffekter)", "Et stort behov for mange flere deltakere enn i et mellomgruppedesign", "Umulig å bruke kontrollgruppe", "Lav testvaliditet"],
+      options: ["Overføringseffekter (rekkefølgeeffekter)", "Et stort behov for mange flere deltakere enn i et mellomgruppedesign", "Umulig å bruke kontrollgruppe", "Lav testvaliditet på målingene"],
       explanation: "Fordi samme person møter flere betingelser, kan tidligere betingelser påvirke senere — overføringseffekter. Behov for mange deltakere er derimot mellomgruppens svakhet.",
     },
     {
@@ -668,7 +668,7 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva gjør motbalansering?",
-      options: ["Fordeler rekkefølgeeffekten likt så den nulles ut i gjennomsnittet", "Fjerner enhver form for overføringseffekt fullstendig fra samtlige betingelser", "Øker utvalgsstørrelsen", "Blinder deltakerne"],
+      options: ["Fordeler rekkefølgeeffekten likt så den nulles ut i gjennomsnittet", "Fjerner enhver form for overføringseffekt fullstendig fra samtlige betingelser", "Øker utvalgsstørrelsen", "Blinder deltakerne for hvilken betingelse de er i"],
       explanation: "Motbalansering fjerner ikke effekten, men fordeler den jevnt på betingelsene slik at den ikke systematisk favoriserer noen.",
     },
     {
@@ -678,67 +678,67 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Deltakeren blir sliten og presterer dårligere utover i studien. Dette er:",
-      options: ["Uttrøtting (fatigue)", "Trening", "Sensitivisering", "Adaptasjon fordi sansene gradvis venner seg til den gjentatte stimulusen"],
+      options: ["Uttrøtting (fatigue)", "Trening, altså at prestasjonen bedres med øvelse", "Sensitivisering", "Adaptasjon fordi sansene gradvis venner seg til den gjentatte stimulusen"],
       explanation: "Fallende prestasjon på grunn av tretthet = uttrøttingseffekt.",
     },
     {
       question: "En gjentatt stimulus utløser stadig svakere respons — man venner seg til den. Dette er:",
-      options: ["Habituering", "Sensitivisering", "Kontrast", "Trening"],
+      options: ["Habituering", "Sensitivisering", "Kontrast", "Trening, der gjentakelse gir bedre prestasjon"],
       explanation: "Svakere respons på gjentatt stimulus = habituering. Sensitivisering er det motsatte.",
     },
     {
       question: "Lunkent vann kjennes varmt rett etter iskaldt vann. Hvilken effekt er dette et eksempel på?",
-      options: ["Kontrasteffekt", "Habituering fordi responsen svekkes ved hver gjentakelse", "Trening", "Uttrøtting"],
+      options: ["Kontrasteffekt", "Habituering fordi responsen svekkes ved hver gjentakelse", "Trening, siden gjentatt øving forbedrer prestasjonen", "Uttrøtting"],
       explanation: "Betingelsen oppleves annerledes fordi den sammenlignes med den forrige = kontrast.",
     },
     {
       question: "Når er innengruppedesign uaktuelt, selv med motbalansering?",
-      options: ["Når effekten er irreversibel (f.eks. læring eller behandling)", "Når utvalget er lite", "Når det er to betingelser", "Når man ønsker å oppnå så høy statistisk styrke som overhodet mulig"],
+      options: ["Når effekten er irreversibel (f.eks. læring eller behandling)", "Når utvalget er for lite til å fylle alle betingelsene", "Når det er to betingelser", "Når man ønsker høyest mulig statistisk styrke"],
       explanation: "Irreversible effekter bryter rekkefølgesymmetrien; motbalansering forutsetter symmetriske rekkefølger, så da må man bruke mellomgruppe.",
     },
     {
       question: "Hva er full motbalansering?",
-      options: ["Bruk av alle mulige rekkefølger av betingelsene", "Bruk av bare én fast rekkefølge av betingelsene for alle deltakerne", "Å droppe kontrollgruppen", "Å måle rekkefølge som egen UV"],
+      options: ["Bruk av alle mulige rekkefølger av betingelsene", "Bruk av bare én fast rekkefølge for alle", "Å droppe kontrollgruppen", "Å måle rekkefølge som egen UV"],
       explanation: "Full motbalansering bruker alle rekkefølger; delvis (latinsk kvadrat) bruker et utvalg når full blir for mange.",
     },
     {
       question: "Hva er et latinsk kvadrat?",
-      options: ["Delvis motbalansering der hver betingelse forekommer én gang i hver posisjon", "Full motbalansering som tar i bruk samtlige mulige rekkefølger av alle betingelsene", "En type kontrollgruppe", "En analysemetode for interaksjon"],
+      options: ["Delvis motbalansering der hver betingelse forekommer én gang i hver posisjon", "Full motbalansering med samtlige mulige rekkefølger", "En type kontrollgruppe som brukes i innengruppedesign", "En analysemetode for interaksjon"],
       explanation: "Latinsk kvadrat er en økonomisk delvis motbalansering — hver betingelse i hver posisjon én gang.",
     },
     {
       question: "Hva er A-markøren når man drøfter overføringseffekter på eksamen?",
-      options: ["Å case-tilpasse — peke ut hvilke av de seks som truer akkurat dette scenariet", "Å liste opp alle de seks overføringseffektene i korrekt kronologisk rekkefølge", "Å definere hver effekt ordrett", "Å regne ut antall rekkefølger"],
+      options: ["Å case-tilpasse — peke ut hvilke av de seks som truer akkurat dette scenariet", "Å liste opp alle de seks overføringseffektene", "Å definere hver effekt ordrett", "Å regne ut antall rekkefølger"],
       explanation: "Sensor honorerer case-tilpasning; å ramse opp alle seks uten å knytte dem til scenariet gir C-tak (feil #8).",
     },
     {
       question: "Hvorfor gir innengruppedesign høyere statistisk styrke enn mellomgruppe med samme antall målinger?",
-      options: ["Fordi individforskjeller fjernes fra støyen, så effekten blir lettere å se", "Fordi et innengruppedesign alltid inkluderer langt flere deltakere enn et mellomgruppedesign", "Fordi det blinder forskeren", "Fordi det unngår kontrasteffekter"],
+      options: ["Fordi individforskjeller fjernes fra støyen, så effekten blir lettere å se", "Fordi et innengruppedesign alltid inkluderer langt flere deltakere enn et mellomgruppedesign", "Fordi det blinder forskeren, som dermed ikke vet hvilken betingelse deltakeren er i når målingen gjøres", "Fordi det unngår kontrasteffekter mellom betingelsene"],
       explanation: "Å fjerne den største støykilden (forskjeller mellom personer) gjør en gitt effekt mer synlig → mer styrke.",
     },
     {
       question: "Hva er kost-nytte-resonnementet i designvalg?",
-      options: ["Mellomgruppe sparer per-person-belastning men koster deltakere; innengruppe sparer deltakere men koster overføringseffekter", "At innengruppe alltid er billigst", "At mellomgruppe alltid gir best styrke", "At man i praksis alltid bør bruke full motbalansering av rekkefølgene, uansett hvor mange ulike betingelser selve designet faktisk inneholder"],
+      options: ["Mellomgruppe sparer per-person-belastning men koster deltakere; innengruppe sparer deltakere men koster overføringseffekter", "At innengruppe alltid er billigst, slik at man uten videre kan velge det designet i ethvert tilfelle, uansett hvor stor risikoen for overføringseffekter er", "At mellomgruppe alltid gir best statistisk styrke, slik at man kan velge det designet uten å veie kostnaden i antall deltakere opp mot noe annet", "At man i praksis alltid bør bruke full motbalansering av rekkefølgene, uansett hvor mange ulike betingelser selve designet faktisk inneholder"],
       explanation: "A-markøren er å veie de to designenes ulike priser mot hverandre for det konkrete tilfellet, ikke en fast regel.",
     },
     {
       question: "Hva er et blandet design (mixed design)?",
-      options: ["Et design med minst én mellomgruppefaktor og minst én innengruppefaktor", "Et eksperimentelt design som bevisst er satt opp helt uten noen form for kontrollgruppe", "Et design med bare kvasi-UV", "Et N=1-design med to faser"],
+      options: ["Et design med minst én mellomgruppefaktor og minst én innengruppefaktor", "Et eksperimentelt design som bevisst er satt opp helt uten noen form for kontrollgruppe", "Et design med bare kvasi-UV, der ingen av faktorene er manipulert, men bare målt på deltakerne", "Et N=1-design med to faser, der én enkelt deltaker først måles i baseline og så under tiltak"],
       explanation: "Blandet design kombinerer between- og within-faktorer — vanlig i praksis (f.eks. gruppe mellom personer, tid innen personer).",
     },
     {
       question: "Treningsrunder før måling brukes for å:",
-      options: ["Bruke opp treningseffekten før de egentlige betingelsene", "Blinde deltakerne", "Øke utvalget", "Måle selve rekkefølgen som en egen uavhengig variabel i designet"],
+      options: ["Bruke opp treningseffekten før de egentlige betingelsene", "Blinde deltakerne, slik at de ikke vet hvilken betingelse de får under målingen", "Øke utvalget, slik at flere deltakere bidrar med målinger i hver betingelse", "Måle selve rekkefølgen som en egen uavhengig variabel i designet"],
       explanation: "Øvingsforsøk før måling gjør at treningseffekten er «oppbrukt» og ikke lenger forbedrer skårene under selve studien.",
     },
     {
       question: "En gjentatt intens stimulus gir stadig sterkere reaksjon. Dette er:",
-      options: ["Sensitivisering", "Habituering", "Adaptasjon", "Kontrast fordi betingelsen sammenlignes med den forrige"],
+      options: ["Sensitivisering", "Habituering, siden responsen svekkes ved gjentakelse", "Adaptasjon, der sansesystemet demper signalet", "Kontrast fordi betingelsen sammenlignes med den forrige"],
       explanation: "Økt respons på gjentatt (ofte intens) stimulus = sensitivisering; habituering er det motsatte.",
     },
     {
       question: "Hvorfor blir full motbalansering upraktisk ved mange betingelser?",
-      options: ["Antall rekkefølger vokser som k! (fire betingelser = 24 rekkefølger)", "Fordi styrken faller", "Fordi individforskjellene øker", "Fordi selve kontrollgruppen forsvinner helt når man motbalanserer fullt ut"],
+      options: ["Antall rekkefølger vokser som k! (fire betingelser = 24 rekkefølger)", "Fordi den statistiske styrken faller for hver ekstra rekkefølge som legges til i designet", "Fordi individforskjellene mellom deltakerne øker for hver betingelse som legges til", "Fordi selve kontrollgruppen forsvinner helt når man motbalanserer fullt ut"],
       explanation: "Med k betingelser finnes k! rekkefølger; 4 betingelser gir 24, så delvis motbalansering (latinsk kvadrat) brukes i stedet.",
     },
   ],
@@ -750,57 +750,57 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvor leser du av en hovedeffekt i et faktorielt design?",
-      options: ["I marginalgjennomsnittene (rad- og kolonnegjennomsnitt)", "I cellemønsteret", "I selve krysningspunktet mellom linjene i linjediagrammet", "I standardavviket"],
+      options: ["I marginalgjennomsnittene (rad- og kolonnegjennomsnitt)", "I cellemønsteret, altså i gjennomsnittet for hver enkelt celle i tabellen", "I selve krysningspunktet mellom linjene i linjediagrammet", "I standardavviket, altså i hvor mye skårene sprer seg innenfor hver celle"],
       explanation: "Hovedeffekter = marginaler. Cellemønster og linjekryssing er derimot hvor man ser interaksjon.",
     },
     {
       question: "Hvordan leser du av en interaksjon?",
-      options: ["I cellemønsteret — endres effekten av én faktor når den andre skifter nivå?", "I marginalene", "I det samlede totalgjennomsnittet av alle de fire ulike cellene i hele designet", "I utvalgsstørrelsen"],
+      options: ["I cellemønsteret — endres effekten av én faktor når den andre skifter nivå?", "I marginalene, altså i rad- og kolonnegjennomsnittene", "I det samlede totalgjennomsnittet av alle de fire ulike cellene i hele designet", "I utvalgsstørrelsen"],
       explanation: "Interaksjon = cellemønster (simple effekter). Marginalene gir hovedeffekter, ikke interaksjon.",
     },
     {
       question: "Kan en interaksjon finnes uten noen hovedeffekt?",
-      options: ["Ja — kryssende linjer kan nulle ut marginalene mens cellene viser samspill", "Nei, en interaksjon forutsetter alltid at det finnes minst én signifikant hovedeffekt", "Bare i design med tre faktorer", "Bare hvis utvalget er stort"],
+      options: ["Ja — kryssende linjer kan nulle ut marginalene mens cellene viser samspill", "Nei, en interaksjon forutsetter alltid at det finnes minst én signifikant hovedeffekt", "Bare i design med tre faktorer", "Bare hvis utvalget er stort nok til å gi statistisk styrke"],
       explanation: "Dette er A-skillet: interaksjon (celler) og hovedeffekt (marginaler) er logisk uavhengige. Kryssende linjer gir interaksjon uten hovedeffekt.",
     },
     {
       question: "I et linjediagram betyr parallelle linjer:",
-      options: ["Ingen interaksjon — effekten av den ene faktoren er lik på alle nivåer av den andre", "En sterk interaksjon", "At begge hovedeffekter er null", "At hele det faktorielle designet i realiteten bare er et kvasieksperiment uten randomisering"],
+      options: ["Ingen interaksjon — effekten av den ene faktoren er lik på alle nivåer av den andre", "En sterk interaksjon mellom de to faktorene", "At begge hovedeffekter er null", "At det faktorielle designet bare er et kvasieksperiment"],
       explanation: "Parallelle linjer = additive effekter = ingen interaksjon. Kryssende/viftende linjer = interaksjon.",
     },
     {
       question: "Cellene er: Koffein/Lett=8, Koffein/Vanskelig=4, Uten/Lett=4, Uten/Vanskelig=8. Hva er hovedeffekten av koffein?",
-      options: ["0 (marginalene er begge 6)", "4", "−4", "8 (differansen mellom de to øverste cellene)"],
+      options: ["0 (marginalene er begge 6)", "4 (effekten på lette)", "−4", "8 (differansen mellom de to øverste cellene)"],
       explanation: "Koffein-marginal (8+4)/2=6; uten-marginal (4+8)/2=6; hovedeffekt = 6−6 = 0. Men det er en sterk interaksjon.",
     },
     {
       question: "Hva betyr det at koffeinets effekt er +4 på lette og −4 på vanskelige oppgaver?",
-      options: ["Det er en interaksjon — effekten av koffein snur med oppgavetype", "Det er to hovedeffekter", "Det betyr at koffein ikke har noen effekt i det hele tatt på prestasjonen", "Det er en kvasi-UV"],
+      options: ["Det er en interaksjon — effekten av koffein snur med oppgavetype", "Det er to hovedeffekter, én for hver faktor", "Det betyr at koffein ikke har noen effekt i det hele tatt på prestasjonen", "Det er en kvasi-UV, siden koffein da er en egenskap ved deltakerne og ikke er manipulert"],
       explanation: "At de simple effektene har motsatt fortegn, er selve definisjonen på en interaksjon.",
     },
     {
       question: "Hvorfor gir et faktorielt design mer enn to separate eksperimenter?",
-      options: ["Det avslører interaksjonen — hvordan faktorene samspiller — som separate forsøk ville midlet bort", "Det krever færre deltakere alltid", "Det gir alltid betydelig høyere ytre validitet enn to atskilte separate eksperimenter", "Det trenger ingen kontrollgruppe"],
+      options: ["Det avslører interaksjonen — hvordan faktorene samspiller — som separate forsøk ville midlet bort", "Det krever færre deltakere alltid", "Det gir alltid betydelig høyere ytre validitet enn to atskilte separate eksperimenter", "Det trenger ingen kontrollgruppe, siden faktorene kontrollerer hverandre"],
       explanation: "Interaksjonen er informasjonen bare det faktorielle designet gir; separate forsøk kan ikke oppdage den.",
     },
     {
       question: "Hvilken test brukes til å analysere et faktorielt design?",
-      options: ["Tofaktor-variansanalyse (ANOVA)", "En enkel t-test", "En vanlig Pearson-korrelasjon mellom de to faktorene", "Khikvadrat"],
+      options: ["Tofaktor-variansanalyse (ANOVA)", "En enkel t-test", "En vanlig Pearson-korrelasjon mellom de to faktorene", "Khikvadrat, som sammenligner frekvenser i kategorier"],
       explanation: "ANOVA tester hovedeffekter og interaksjon samtidig. En t-test sammenligner bare to grupper.",
     },
     {
       question: "Kjønn brukes som faktor i et 2×2. Hva er konsekvensen for slutningen?",
-      options: ["Kjønn er en kvasi-UV — man kan ikke trekke en ren kausal slutning om den", "Ingen konsekvens — kjønn kan randomiseres", "Da blir hele designet automatisk om til et rent innengruppedesign", "Man må droppe interaksjonen"],
+      options: ["Kjønn er en kvasi-UV — man kan ikke trekke en ren kausal slutning om den", "Ingen konsekvens — kjønn kan randomiseres", "Da blir hele designet automatisk om til et rent innengruppedesign", "Man må droppe interaksjonen fra analysen"],
       explanation: "Kjønn kan ikke manipuleres, så en «kjønnseffekt» kan bære konfunderende variabler; kausal slutning gjelder bare den manipulerte faktoren.",
     },
     {
       question: "En simpel effekt er:",
-      options: ["Effekten av én faktor innenfor ett bestemt nivå av den andre", "Gjennomsnittet av alle cellene", "Selve hovedeffekten midlet over begge de to faktorene samtidig", "Standardfeilen til en celle"],
+      options: ["Effekten av én faktor innenfor ett bestemt nivå av den andre", "Gjennomsnittet av alle cellene i designet", "Selve hovedeffekten midlet over begge de to faktorene samtidig", "Standardfeilen til en celle, altså hvor presist gjennomsnittet i den cellen er anslått"],
       explanation: "Simple effekter (effekt av B innen A1 vs. A2) er den direkte måten å avdekke interaksjon på.",
     },
     {
       question: "Hva er en vanlig feil ved tolkning av interaksjon?",
-      options: ["Å lese den som «begge faktorer virker» i stedet for «effekten av den ene avhenger av den andre»", "Å regne marginalene", "Å tegne opp et fullstendig linjediagram med begge faktorene inntegnet før man i det hele tatt tolker interaksjonen", "Å bruke ANOVA"],
+      options: ["Å lese den som «begge faktorer virker» i stedet for «effekten av den ene avhenger av den andre»", "Å regne ut marginalene, altså rad- og kolonnegjennomsnittene i tabellen", "Å tegne opp et fullstendig linjediagram med begge faktorene inntegnet før man i det hele tatt tolker interaksjonen", "Å bruke ANOVA, altså å teste hovedeffektene og interaksjonen i én og samme analyse i stedet for å tolke dem hver for seg"],
       explanation: "Interaksjon ≠ to hovedeffekter. Interaksjon betyr at effekten av én faktor avhenger av nivået på den andre.",
     },
     {
@@ -810,12 +810,12 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Effekter kalles additive når:",
-      options: ["Effekten av B er lik uansett nivå av A, så de bare legger seg oppå hverandre", "At linjene for de to faktorene alltid vil krysse hverandre et sted i linjediagrammet", "Begge hovedeffekter er null", "Det finnes en interaksjon"],
+      options: ["Effekten av B er lik uansett nivå av A, så de bare legger seg oppå hverandre", "At linjene for de to faktorene alltid vil krysse hverandre et sted i linjediagrammet", "Begge hovedeffekter er null, altså at verken faktor A eller faktor B gir noen forskjell i skårene", "Det finnes en interaksjon, altså at effekten av B endrer seg fra det ene nivået av A til det andre"],
       explanation: "Additive effekter = ingen interaksjon = parallelle linjer. Interaksjon er nettopp fravær av additivitet.",
     },
     {
       question: "Et 2×2×2-design har hvor mange celler?",
-      options: ["Åtte", "Fire", "Seks", "Tolv celler fordi man legger sammen 2, 2 og 2 nivåer"],
+      options: ["Åtte", "Fire, fordi den tredje faktoren ikke telles", "Seks, fordi to faktorer slås sammen til én", "Tolv celler fordi man legger sammen 2, 2 og 2 nivåer"],
       explanation: "Produktet av nivåtallene: 2·2·2 = 8 celler (høyereordens design).",
     },
   ],
@@ -827,7 +827,7 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er hovedtrusselen mot indre validitet i et kvasieksperiment?",
-      options: ["Seleksjon — gruppene kan være systematisk ulike fra start", "Reaktivitet", "Uttrøtting", "At studien har altfor høy statistisk styrke og power"],
+      options: ["Seleksjon — gruppene kan være systematisk ulike fra start", "Reaktivitet", "Uttrøtting hos deltakerne underveis i studien", "At studien har altfor høy statistisk styrke og power"],
       explanation: "Ikke-ekvivalente grupper gir en seleksjonstrussel: en forskjell kan skyldes at gruppene var ulike før tiltaket.",
     },
     {
@@ -842,7 +842,7 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er det avgjørende skillet mellom en kasusstudie og et N=1-eksperiment?",
-      options: ["Om noe manipuleres — N=1 manipulerer, kasusstudien bare beskriver", "Antall deltakere", "Om selve studien er publisert i et fagfellevurdert tidsskrift", "Om den bruker intervju"],
+      options: ["Om noe manipuleres — N=1 manipulerer, kasusstudien bare beskriver", "Antall deltakere som inngår i studien", "Om selve studien er publisert i et fagfellevurdert tidsskrift", "Om den bruker intervju"],
       explanation: "Begge har én person; skillet er manipulasjonen. Å blande dem er feil #4.",
     },
     {
@@ -852,72 +852,72 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor gir et N=1-design sterk indre, men svak ytre validitet?",
-      options: ["Personen er sin egen kontroll (sterk kausalitet for individet), men én person kan ikke bære en generalisering", "Fordi et N=1-design alltid innebærer en full randomisering av betingelsene", "Fordi det har mange deltakere", "Fordi det mangler manipulasjon"],
+      options: ["Personen er sin egen kontroll (sterk kausalitet for individet), men én person kan ikke bære en generalisering", "Fordi et N=1-design alltid innebærer en full randomisering av betingelsene", "Fordi det har mange deltakere i hver betingelse", "Fordi det mangler manipulasjon"],
       explanation: "Egenkontroll + reversering gir sterk individkausalitet; men med N=1 vet man ikke hvor typisk personen er.",
     },
     {
       question: "Hva krever et ABAB-design av baseline-fasen?",
-      options: ["At den er stabil (ligger rimelig flatt) før tiltaket settes inn", "At den stiger jevnt", "At den varer minst ett år", "At selve baseline-fasen bare måles én eneste gang helt før tiltaket settes inn"],
+      options: ["At den er stabil (ligger rimelig flatt) før tiltaket settes inn", "At den stiger jevnt før tiltaket settes inn", "At den varer minst ett år", "At selve baseline-fasen bare måles én eneste gang helt før tiltaket settes inn"],
       explanation: "En stabil baseline gir et klart sammenligningsgrunnlag; en drifting baseline svekker slutningen.",
     },
     {
       question: "Hvorfor gir flere reverseringer bedre indre validitet i et N=1-design?",
-      options: ["Det blir stadig mindre sannsynlig at noe annet enn tiltaket svinger i samme takt", "Fordi utvalget blir større", "Fordi flere reverseringer i praksis fungerer som en randomisering av selve deltakeren i studien", "Fordi baselinen driver mindre"],
+      options: ["Det blir stadig mindre sannsynlig at noe annet enn tiltaket svinger i samme takt", "Fordi utvalget blir større for hver reversering", "Fordi flere reverseringer i praksis fungerer som en randomisering av selve deltakeren i studien", "Fordi baselinen driver mindre"],
       explanation: "At atferden følger tiltaket av og på gjentatte ganger, gjør konkurrerende forklaringer usannsynlige.",
     },
     {
       question: "Hva er en ikke-ekvivalent gruppe?",
-      options: ["En gruppe dannet uten randomisering som kan skille seg systematisk fra sammenligningsgruppen", "En sammenligningsgruppe som består av færre enn ti deltakere totalt sett i hele studien", "En randomisert kontrollgruppe", "En gruppe uten avhengig variabel"],
+      options: ["En gruppe dannet uten randomisering som kan skille seg systematisk fra sammenligningsgruppen", "En sammenligningsgruppe som består av færre enn ti deltakere totalt sett i hele studien", "En randomisert kontrollgruppe, altså en gruppe trukket tilfeldig", "En gruppe uten avhengig variabel"],
       explanation: "Uten randomisering kan gruppene være ulike før tiltaket — kilden til seleksjonstrusselen i kvasidesign.",
     },
     {
       question: "Når er innengruppe/ABAB uaktuelt og man må velge et annet design?",
-      options: ["Når effekten er irreversibel (læring, varig behandling)", "Når baselinen er stabil", "Når man allerede har rekruttert svært mange deltakere til studien", "Når tiltaket er billig"],
+      options: ["Når effekten er irreversibel (læring, varig behandling)", "Når baselinen er stabil", "Når man allerede har rekruttert svært mange deltakere til studien", "Når tiltaket er billig å gjennomføre"],
       explanation: "Reversering forutsetter at atferden kan vende tilbake; irreversible effekter bryter dette → multiple baseline eller gruppedesign.",
     },
     {
       question: "Hvilken kunnskap kan en kasusstudie gi?",
-      options: ["Rik beskrivelse og hypotesegenerering — men ikke fastslå årsak", "Sikker kausal slutning", "En presis gjennomsnittseffekt som gjelder for hele populasjonen", "Statistisk styrke"],
+      options: ["Rik beskrivelse og hypotesegenerering — men ikke fastslå årsak", "Sikker kausal slutning om hva som forårsaket hva", "En presis gjennomsnittseffekt som gjelder for hele populasjonen", "Statistisk styrke, fordi en grundig beskrivelse av ett kasus veier opp for antallet"],
       explanation: "Deskriptive design beskriver og genererer hypoteser; bare eksperimentelle design kan slutte årsak.",
     },
     {
       question: "Hva er et felteksperiment?",
-      options: ["Et eksperiment i naturlige omgivelser, ofte kvasi, med høy ytre validitet", "Et rent laboratorieeksperiment som gjennomføres under svært streng eksperimentell kontroll", "En ren kasusstudie", "Et design uten uavhengig variabel"],
+      options: ["Et eksperiment i naturlige omgivelser, ofte kvasi, med høy ytre validitet", "Et rent laboratorieeksperiment som gjennomføres under svært streng eksperimentell kontroll", "En ren kasusstudie, der forskeren bare beskriver ett enkelt tilfelle uten å manipulere noe", "Et design uten uavhengig variabel, bare med avhengige mål"],
       explanation: "Felteksperimenter bytter noe indre validitet mot høyere økologisk (ytre) validitet.",
     },
     {
       question: "Hvilket er et klassisk ekte N=1-eksperiment fra pensum?",
-      options: ["Ebbinghaus' studier av egen hukommelse", "Freuds beskrivelse av Anna O.", "En stor spørreundersøkelse", "En stor tverrsnittstudie av eneggede tvillinger"],
+      options: ["Ebbinghaus' studier av egen hukommelse", "Freuds beskrivelse av Anna O.", "En stor spørreundersøkelse om hukommelse blant mange deltakere", "En stor tverrsnittstudie av eneggede tvillinger"],
       explanation: "Ebbinghaus manipulerte betingelser systematisk = N=1-eksperiment. Anna O. er en kasusstudie (beskrivende).",
     },
     {
       question: "Hva er et multiple baseline-design?",
-      options: ["En N=1-variant der tiltaket innføres til ulike tider på tvers av atferder/personer, uten reversering", "Et vanlig randomisert gruppedesign som benytter hele to atskilte kontrollgrupper på samme tid", "En kasusstudie med flere kilder", "Et faktorielt design"],
+      options: ["En N=1-variant der tiltaket innføres til ulike tider på tvers av atferder/personer, uten reversering", "Et vanlig randomisert gruppedesign som benytter hele to atskilte kontrollgrupper på samme tid, med tilfeldig fordeling av deltakerne", "En kasusstudie med flere kilder, der ett enkelt tilfelle beskrives fra flere hold uten at noe tiltak innføres til ulike tider", "Et faktorielt design, der to eller flere faktorer krysses med hverandre og hver kombinasjon av nivåer utgjør en egen celle"],
       explanation: "Multiple baseline brukes når effekten ikke kan reverseres; hver atferd endres først når dens tiltak settes inn.",
     },
     {
       question: "Hva er 'regresjon mot gjennomsnittet' som kvasitrussel?",
-      options: ["At ekstreme skårer ved første måling faller nærmere snittet ved neste, rent statistisk", "At tiltaket alltid virker", "At de to sammenligningsgruppene gradvis blir mer og mer like hverandre etter hvert som tiden går", "At baselinen driver oppover"],
+      options: ["At ekstreme skårer ved første måling faller nærmere snittet ved neste, rent statistisk", "At tiltaket alltid virker, slik at ekstreme skårer ved første måling nødvendigvis bedrer seg fordi behandlingen har effekt", "At de to sammenligningsgruppene gradvis blir mer og mer like hverandre etter hvert som tiden går", "At baselinen driver jevnt oppover gjennom hele måleperioden"],
       explanation: "Velger man grupper fordi de var ekstreme, kan de bedre seg statistisk uten tiltak — en kontrollgruppe avslører det.",
     },
     {
       question: "Hvorfor velges kvasi- eller N=1-design ofte av etiske grunner?",
-      options: ["Fordi det kan være uforsvarlig å randomisere folk til skadelige betingelser eller nekte behandling", "Fordi de alltid er billigere", "Fordi kvasi- og N=1-design nesten alltid gir vesentlig høyere statistisk styrke enn et ekte eksperiment", "Fordi de er lettere å publisere"],
+      options: ["Fordi det kan være uforsvarlig å randomisere folk til skadelige betingelser eller nekte behandling", "Fordi de alltid er billigere, slik at kostnaden og ikke hensynet til deltakernes sikkerhet er det som avgjør valget av design", "Fordi kvasi- og N=1-design nesten alltid gir vesentlig høyere statistisk styrke enn et ekte eksperiment", "Fordi de er lettere å få publisert enn et randomisert eksperiment"],
       explanation: "Randomisering lar seg ikke alltid forene med etikk; da er kvasi/N=1 det beste man forsvarlig kan få.",
     },
     {
       question: "Et rent AB-design (én baseline, ett tiltak) er svakt fordi:",
-      options: ["En enkelt endring kan skyldes noe annet som skjedde samtidig (historie)", "Det har for mange deltakere", "Et rent AB-design mangler helt en tydelig definert avhengig variabel å måle", "Det er et kvasieksperiment"],
+      options: ["En enkelt endring kan skyldes noe annet som skjedde samtidig (historie)", "Det har for mange deltakere, slik at endringen fra baseline til tiltak drukner i støy", "Et rent AB-design mangler helt en tydelig definert avhengig variabel å måle", "Det er et kvasieksperiment, siden deltakeren ikke er tilfeldig fordelt til baseline og tiltak"],
       explanation: "Uten reversering kan en historie-hendelse forklare endringen; ABAB styrker slutningen ved gjentatt av/på.",
     },
     {
       question: "Hva er forskjellen på individnivå- og gruppenivå-kausalitet?",
-      options: ["Individnivå (N=1) sier at tiltaket virker for én person; gruppenivå sier noe om en gjennomsnittseffekt", "De er det samme", "Individnivå gjelder bare kvasidesign", "Gruppenivå-kausalitet gjelder utelukkende for rene beskrivende kasusstudier med bare én enkelt deltaker involvert"],
+      options: ["Individnivå (N=1) sier at tiltaket virker for én person; gruppenivå sier noe om en gjennomsnittseffekt", "De er det samme, slik at et resultat fra én person og et gjennomsnitt fra en gruppe sier nøyaktig det samme om årsak", "Individnivå gjelder bare kvasidesign, slik at et N=1-design med systematisk manipulasjon aldri kan si noe om årsak for den ene personen", "Gruppenivå-kausalitet gjelder utelukkende for rene beskrivende kasusstudier med bare én enkelt deltaker involvert"],
       explanation: "N=1 gir individkausalitet men svak generalisering; gruppedesign gir gjennomsnittseffekt men lite om den enkelte.",
     },
     {
       question: "Påstanden 'Freuds Anna O. er et N=1-eksperiment' er:",
-      options: ["Feil — det er en kasusstudie (ingen systematisk manipulasjon med kontrollfaser)", "Riktig, nettopp fordi hele studien bare omfatter én eneste enkeltperson som følges", "Riktig, fordi den er grundig", "Umulig å avgjøre"],
+      options: ["Feil — det er en kasusstudie (ingen systematisk manipulasjon med kontrollfaser)", "Riktig, nettopp fordi hele studien bare omfatter én eneste enkeltperson som følges", "Riktig, fordi den er grundig, og en grundig beskrivelse av ett kasus gjør i seg selv studien til et eksperiment", "Umulig å avgjøre, siden man ikke kan vite om Freud manipulerte noe systematisk eller bare beskrev"],
       explanation: "Dette er nettopp feil #4: skillet er manipulasjon, ikke antall personer. Anna O. beskriver, manipulerer ikke.",
     },
   ],
@@ -939,7 +939,7 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor deler vi på n − 1 i stedet for n når vi regner varians fra et utvalg?",
-      options: ["Fordi utvalgsgjennomsnittet gjør kvadratsummen systematisk for liten, så n − 1 korrigerer og gir et forventningsrett estimat", "Fordi vi i praksis alltid mister nøyaktig én observasjon under selve målingen, og derfor må trekke denne ene fra antallet i nevneren", "Fordi n − 1 gjør tallet penere å regne med", "Fordi variansen ellers kan bli negativ"],
+      options: ["Fordi utvalgsgjennomsnittet gjør kvadratsummen systematisk for liten, så n − 1 korrigerer og gir et forventningsrett estimat", "Fordi vi i praksis alltid mister nøyaktig én observasjon under selve målingen, og derfor må trekke denne ene fra antallet i nevneren", "Fordi n − 1 gjør tallet penere å regne med", "Fordi variansen ellers kan bli negativ når vi deler på n, og n − 1 sikrer at kvadratsummen holder seg positiv"],
       explanation: "n − 1 er antall frihetsgrader. Siden vi bruker utvalgets eget snitt som referanse, undervurderer vi ellers populasjonsspredningen.",
     },
     {
@@ -954,12 +954,12 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilket spredningsmål er robust mot uteliggere?",
-      options: ["Interkvartilbredden (IQR)", "Variasjonsbredden (maks minus min)", "Standardavviket", "Variansen"],
+      options: ["Interkvartilbredden (IQR)", "Variasjonsbredden (maks minus min)", "Standardavviket", "Variansen, som bygger på kvadrerte avvik fra snittet"],
       explanation: "IQR kutter bort de 25 % laveste og høyeste verdiene, så uteliggere påvirker den lite. De tre andre bruker ytterpunkter eller alle avvik.",
     },
     {
       question: "Hva er variansens enhet hvis dataene måles i poeng?",
-      options: ["Poeng i annen (poeng²)", "Poeng", "Ingen enhet i det hele tatt, variansen er enhetsløs", "Prosent"],
+      options: ["Poeng i annen (poeng²)", "Poeng, altså samme enhet som de opprinnelige målingene", "Ingen enhet i det hele tatt, variansen er enhetsløs", "Prosent"],
       explanation: "Variansen er snittet av kvadrerte avvik, så enheten er kvadrert. Vi tar kvadratrota (SD) for å komme tilbake til poeng.",
     },
     {
@@ -974,12 +974,12 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En serie er 5, 6, 6, 7, 40. Hvilket sentralmål beskriver «den typiske verdien» best?",
-      options: ["Medianen (6), fordi 40 er en uteligger som drar gjennomsnittet", "Gjennomsnittet, fordi det er det eneste målet som bruker samtlige verdier i serien", "Modus, fordi den alltid er mest presis", "Variasjonsbredden, fordi den viser spennet"],
+      options: ["Medianen (6), fordi 40 er en uteligger som drar gjennomsnittet", "Gjennomsnittet, fordi det bruker alle verdiene", "Modus, fordi den alltid er mest presis", "Variasjonsbredden, fordi den viser spennet"],
       explanation: "Med en uteligger (40) trekkes gjennomsnittet (12,8) langt over klumpen. Medianen (6) beskriver den typiske verdien best.",
     },
     {
       question: "Hva forteller standardavviket deg?",
-      options: ["Hvor langt observasjonene i snitt ligger fra gjennomsnittet, i målingens egen enhet", "Den midterste verdien i fordelingen", "Den hyppigste verdien", "Selve forskjellen mellom den aller største og den aller minste verdien i hele datasettet"],
+      options: ["Hvor langt observasjonene i snitt ligger fra gjennomsnittet, i målingens egen enhet", "Den midterste verdien i fordelingen", "Den verdien som forekommer oftest blant observasjonene", "Forskjellen mellom den største og den minste verdien i datasettet"],
       explanation: "SD er den typiske avstanden fra gjennomsnittet, tilbake i samme enhet som målingen — derav navnet standard-avvik.",
     },
     {
@@ -989,7 +989,7 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilket par hører naturlig sammen?",
-      options: ["Median og IQR (robust duo)", "Median og standardavvik (en tilsynelatende robust kombinasjon)", "Gjennomsnitt og IQR", "Modus og varians"],
+      options: ["Median og IQR (robust duo)", "Median og standardavvik (en tilsynelatende robust kombinasjon)", "Gjennomsnitt og IQR (et følsomt mål paret med et robust)", "Modus og varians (hyppigste verdi paret med kvadrert spredning)"],
       explanation: "Robuste mål parres: median med IQR. Følsomme mål parres: gjennomsnitt med SD. Å blande dem er inkonsekvent rapportering.",
     },
     {
@@ -999,27 +999,27 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En kandidat regner s² = 65,4 og skriver «standardavviket er 65,4». Hvilken feil er dette?",
-      options: ["Han har glemt kvadratrota — SD = √65,4 ≈ 8,09, ikke 65,4", "Han har delt kvadratsummen på n i stedet for på n − 1 frihetsgrader", "Han har regnet medianen feil", "Han har brukt feil sentralmål"],
+      options: ["Han har glemt kvadratrota — SD = √65,4 ≈ 8,09, ikke 65,4", "Han har delt kvadratsummen på n i stedet for n − 1", "Han har regnet medianen feil", "Han har brukt feil sentralmål"],
       explanation: "s² = 65,4 er variansen. Standardavviket er kvadratrota: SD = √65,4 ≈ 8,09. Sjekk alltid enheten.",
     },
     {
       question: "Hvorfor kvadrerer vi avvikene når vi regner varians?",
-      options: ["For å hindre at negative og positive avvik kansellerer til null", "For å gjøre alle tallene mindre", "Fordi kvadrerte tall alltid blir penere og enklere å regne videre med", "For å gjøre om til prosent"],
+      options: ["For å hindre at negative og positive avvik kansellerer til null", "For å gjøre alle tallene mindre", "Fordi kvadrerte tall alltid blir enklere å regne med", "For å gjøre om til prosent"],
       explanation: "Uten kvadrering summerer avvikene til null. Kvadreringen gjør alle bidrag positive (og straffer store avvik ekstra).",
     },
     {
       question: "Hvilket målenivå kreves for at gjennomsnittet skal være meningsfullt?",
-      options: ["Minst intervallnivå", "Nominalnivå holder helt fint for å regne gjennomsnitt", "Bare ordinalnivå", "Ingen krav"],
+      options: ["Minst intervallnivå", "Nominalnivå holder helt fint for å regne gjennomsnitt", "Bare ordinalnivå, der verdiene bare er rangert i rekkefølge", "Ingen krav, gjennomsnittet er meningsfullt på ethvert nivå"],
       explanation: "Gjennomsnitt krever like avstander mellom verdiene, altså minst intervallnivå. På ordinale rangeringer er gjennomsnitt tvilsomt.",
     },
     {
       question: "En symmetrisk fordeling har typisk:",
-      options: ["Gjennomsnitt ≈ median ≈ modus", "Gjennomsnitt langt over median", "Modus mye høyere enn median", "Ingen entydig median"],
+      options: ["Gjennomsnitt ≈ median ≈ modus", "Gjennomsnitt langt over median", "Modus mye høyere enn median, slik at sentralmålene spriker", "Ingen entydig median, fordi symmetri gjør midtverdien ubestemt"],
       explanation: "Når ingen hale drar, faller de tre sentralmålene omtrent sammen. Sprik mellom dem signaliserer skjevhet.",
     },
     {
       question: "Hva skjer med variasjonsbredden hvis du legger til én ekstremt høy verdi?",
-      options: ["Den øker kraftig, fordi den bare avhenger av ytterpunktene", "Den forblir helt upåvirket, fordi variasjonsbredden er et robust mål", "Den halveres", "Den blir negativ"],
+      options: ["Den øker kraftig, fordi den bare avhenger av ytterpunktene", "Den forblir upåvirket, fordi målet er robust", "Den halveres, fordi ytterpunktene teller halvt", "Den blir negativ"],
       explanation: "Variasjonsbredden = maks − min, så en ny høy verdi endrer den direkte. IQR ville derimot vært nesten upåvirket.",
     },
   ],
@@ -1046,7 +1046,7 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Endrer en z-transformasjon formen på en skjev fordeling?",
-      options: ["Nei — den flytter bare senter til 0 og skala til SD 1; formen bevares", "Ja, en z-transformasjon gjør automatisk enhver skjev fordeling til en helt normalfordeling", "Ja, den fjerner alle uteliggere", "Nei, men den fjerner skjevheten"],
+      options: ["Nei — den flytter bare senter til 0 og skala til SD 1; formen bevares", "Ja, en z-transformasjon gjør automatisk enhver skjev fordeling til en helt normalfordeling", "Ja, den fjerner alle uteliggere, slik at fordelingen blir symmetrisk uansett hvordan rådataene så ut", "Nei, men den fjerner skjevheten, slik at prosenttolkning av z blir trygg uansett hvordan dataene ser ut"],
       explanation: "Standardisering endrer senter og skala, ikke form. En skjev fordeling forblir skjev — derfor krever prosent-tolkning av z at fordelingen allerede er normal.",
     },
     {
@@ -1066,12 +1066,12 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Ada har z = 1,5 på en test og z = 1,75 på en annen. Hvor gjorde hun det relativt best?",
-      options: ["På testen med z = 1,75, siden hun ligger flere SD over snittet der", "På testen med z = 1,5, siden en lavere z-verdi alltid betyr et bedre resultat", "Like godt, siden begge er positive", "Umulig å si uten råskårene"],
+      options: ["På testen med z = 1,75, siden hun ligger flere SD over snittet der", "På testen med z = 1,5, siden lavere z er bedre", "Like godt, siden begge er positive", "Umulig å si uten råskårene"],
       explanation: "Høyere z = lenger over snittet i standardavvik = relativt bedre. z gjør testene sammenlignbare selv om råskårene er ulike.",
     },
     {
       question: "Hva beholder et stem-and-leaf-diagram som et histogram mister?",
-      options: ["De eksakte tallverdiene", "Fargekoding", "Gjennomsnittet", "Standardavviket til hele fordelingen"],
+      options: ["De eksakte tallverdiene", "Fargekoding av de enkelte observasjonene", "Gjennomsnittet", "Standardavviket til hele fordelingen"],
       explanation: "Stem-and-leaf viser både formen OG de faktiske verdiene, så du kan lese av median og eksakte tall direkte.",
     },
     {
@@ -1081,29 +1081,29 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En z-skåre på −1,5 betyr at verdien ligger:",
-      options: ["1,5 standardavvik under gjennomsnittet", "Hele 1,5 standardavvik over selve gjennomsnittet", "1,5 enheter under gjennomsnittet", "På 15-persentilen uansett fordeling"],
+      options: ["1,5 standardavvik under gjennomsnittet", "Hele 1,5 standardavvik over selve gjennomsnittet", "1,5 enheter i variabelens egen skala under gjennomsnittet", "På 15-persentilen uansett fordeling"],
       explanation: "Negativ z = under snittet; størrelsen (1,5) er antall SD. Fortegnet gir retning, tallet gir avstand.",
     },
     {
       question: "Hvorfor er normalfordelingen «grunnmuren for parametrisk statistikk»?",
-      options: ["Fordi parametriske tester antar tilnærmet normale data eller utvalgsfordelinger, og normalfordelingen beskrives fullt av to parametre", "Fordi den er den eneste fordelingen som finnes i psykologi", "Fordi normalfordelingen i psykologiske data i praksis nesten alltid viser seg å være tydelig venstreskjev, og så godt som aldri helt symmetrisk", "Fordi den ikke har noe gjennomsnitt"],
+      options: ["Fordi parametriske tester antar tilnærmet normale data eller utvalgsfordelinger, og normalfordelingen beskrives fullt av to parametre", "Fordi den er den eneste fordelingen som finnes i psykologi", "Fordi normalfordelingen i psykologiske data nesten alltid viser seg å være tydelig venstreskjev", "Fordi den ikke har noe gjennomsnitt, og derfor ikke krever at vi estimerer parametre fra dataene"],
       explanation: "z-, t- og F-tester bygger på normalantakelsen. Normalfordelingen er bestemt av gjennomsnitt og SD alene.",
     },
     {
       question: "I et boksplott ligger medianstreken helt nede ved Q1. Hva antyder det?",
-      options: ["Fordelingens kjerne er høyreskjev", "At hele fordelingen er helt perfekt symmetrisk", "Det finnes ingen uteliggere", "Gjennomsnittet er lik medianen"],
+      options: ["Fordelingens kjerne er høyreskjev", "At hele fordelingen er helt perfekt symmetrisk", "Det finnes ingen uteliggere utenfor værhårene", "Gjennomsnittet er lik medianen"],
       explanation: "Medianstrek nær nedre kant + langt øvre værhår ⟹ hale mot høyre = høyreskjev kjerne.",
     },
     {
       question: "En verdi har z = +2 på både en IQ-test og en feilrate-test. Hva er forskjellen i tolkning?",
-      options: ["På IQ er +2 bra (blant de øverste); på feilrate er +2 dårlig (blant de med flest feil)", "Ingen forskjell i det hele tatt — en z-verdi på 2 betyr nøyaktig det samme uansett hva som måles", "På IQ er det dårlig, på feilrate bra", "z kan ikke sammenlignes mellom tester"],
+      options: ["På IQ er +2 bra (blant de øverste); på feilrate er +2 dårlig (blant de med flest feil)", "Ingen forskjell — z = +2 betyr det samme uansett hva som måles", "På IQ er det dårlig, på feilrate bra", "z kan ikke sammenlignes mellom tester"],
       explanation: "z sier bare avstand fra snittet, ikke om høyt er ønskelig. Retningen tolkes ut fra hva variabelen måler.",
     },
   ],
   'psy1010-3-3': [
     {
       question: "Hva er standardfeilen (SE) til gjennomsnittet?",
-      options: ["Standardavviket i utvalgsfordelingen — hvor mye et utvalgsgjennomsnitt typisk avviker fra populasjonsgjennomsnittet", "Rett og slett spredningen mellom de enkelte personene i selve rådataene, altså det vanlige standardavviket SD i utvalget", "Den gjennomsnittlige målefeilen på hver enkelt måling", "Forskjellen mellom største og minste verdi"],
+      options: ["Standardavviket i utvalgsfordelingen — hvor mye et utvalgsgjennomsnitt typisk avviker fra populasjonsgjennomsnittet", "Rett og slett spredningen mellom de enkelte personene i selve rådataene, altså det vanlige standardavviket SD i utvalget", "Den gjennomsnittlige målefeilen på hver enkelt måling, altså hvor mye instrumentet bommer per observasjon, uavhengig av hvor mange personer som er målt", "Forskjellen mellom største og minste verdi i utvalget, altså avstanden fra den laveste til den høyeste av de observerte råskårene"],
       explanation: "SE = SD/√n måler presisjonen i gjennomsnittsestimatet, altså spredningen i utvalgsfordelingen — ikke spredningen mellom personer (det er SD).",
     },
     {
@@ -1113,17 +1113,17 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen på SD og SE?",
-      options: ["SD er spredningen mellom personer i dataene; SE er presisjonen i gjennomsnittsestimatet", "De er to navn på det samme", "SD brukes utelukkende ved små utvalg, mens SE til gjengjeld bare brukes ved store utvalg", "SD er alltid mindre enn SE"],
+      options: ["SD er spredningen mellom personer i dataene; SE er presisjonen i gjennomsnittsestimatet", "De er to navn på det samme, slik at spredningen mellom personer og presisjonen i gjennomsnittet er ett og samme tall", "SD brukes utelukkende ved små utvalg, mens SE til gjengjeld bare brukes ved store utvalg", "SD er alltid mindre enn SE, slik at spredningen mellom personer alltid er trangere enn usikkerheten i snittet"],
       explanation: "SD beskriver folk (fast, uavhengig av n). SE beskriver hvor sikkert vi kjenner snittet (krymper med √n). Å blande dem er feil #6.",
     },
     {
       question: "Hvor mange ganger må du øke utvalget for å halvere standardfeilen?",
-      options: ["Firedoble det", "Doble det", "Åttedoble hele utvalget", "Halvere det"],
+      options: ["Firedoble det", "Doble det, siden SE synker like fort som n vokser", "Åttedoble hele utvalget", "Halvere det, slik at et mindre utvalg gir mindre SE"],
       explanation: "SE = SD/√n. Fordi n står under kvadratrot, må n firedobles (√4 = 2) for å halvere SE. Presisjon er dyr.",
     },
     {
       question: "Hva er utvalgsfordelingen?",
-      options: ["Den teoretiske fordelingen av gjennomsnitt fra uendelig mange tenkte utvalg av samme størrelse", "Fordelingen av enkeltverdiene i ett utvalg", "Rett og slett fordelingen av alle de enkelte rådataverdiene i hele populasjonen sett under ett", "En figur vi tegner av rådataene"],
+      options: ["Den teoretiske fordelingen av gjennomsnitt fra uendelig mange tenkte utvalg av samme størrelse", "Fordelingen av enkeltverdiene i ett utvalg", "Rett og slett fordelingen av alle de enkelte rådataverdiene i hele populasjonen sett under ett", "En figur vi tegner av rådataene, altså histogrammet over de observerte verdiene"],
       explanation: "Utvalgsfordelingen består av gjennomsnittene fra tenkte gjentatte utvalg. Den observeres aldri direkte — vi har bare ett utvalg — men er grunnlaget for all slutning.",
     },
     {
@@ -1133,7 +1133,7 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva sier sentralgrenseteoremet?",
-      options: ["Utvalgsfordelingen av gjennomsnittet blir tilnærmet normal når n er stor nok, uansett populasjonens form", "At absolutt alle populasjoner man overhodet kan tenke seg i naturen alltid er perfekt normalfordelte i seg selv", "Store utvalg gir alltid samme gjennomsnitt", "Standardfeilen blir null ved store utvalg"],
+      options: ["Utvalgsfordelingen av gjennomsnittet blir tilnærmet normal når n er stor nok, uansett populasjonens form", "At absolutt alle populasjoner i naturen alltid er perfekt normalfordelte i seg selv", "Store utvalg gir alltid samme gjennomsnitt", "Standardfeilen blir null ved store utvalg"],
       explanation: "Selv om rådataene er skjeve, blir fordelingen av gjennomsnitt tilnærmet normal ved stor n. Det lar oss bruke ±1,96 på utvalgssnitt — en A-markør.",
     },
     {
@@ -1143,12 +1143,12 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En kollega skriver «6,5 ± 0,5 timer» der 0,5 er SE, og kaller 0,5 for spredningen i søvn. Hvilken feil er dette?",
-      options: ["Feil #6 — hun forveksler standardfeil (presisjon i snittet) med standardavvik (spredning mellom personer)", "Feil #12 — hun formulerer hele hypotesen om utvalgssnittet og glemmer fullstendig den ukjente populasjonen", "Hun har regnet SE feil", "Ingen feil, dette er korrekt"],
+      options: ["Feil #6 — hun forveksler standardfeil (presisjon i snittet) med standardavvik (spredning mellom personer)", "Feil #12 — hun formulerer hypotesen om utvalgssnittet og glemmer populasjonen", "Hun har regnet SE feil, slik at 0,5 er blitt et for lite tall for standardfeilen", "Ingen feil, dette er korrekt"],
       explanation: "0,5 er SE (hvor presist snittet er), ikke SD (hvor mye folk sover ulikt). Å kalle SE for spredningen underdriver den ekte variasjonen dramatisk.",
     },
     {
       question: "Hva skjer med standardavviket (SD) når du øker utvalgsstørrelsen?",
-      options: ["Det endres ikke systematisk — SD beskriver den ekte variasjonen mellom personer", "Det halveres når n dobles", "Det krymper med √n", "Standardavviket nærmer seg etter hvert null når utvalget blir tilstrekkelig stort"],
+      options: ["Det endres ikke systematisk — SD beskriver den ekte variasjonen mellom personer", "Det halveres når n dobles", "Det krymper med √n, slik at spredningen mellom personer blir mindre", "Standardavviket nærmer seg null når utvalget blir stort nok"],
       explanation: "SD beskriver populasjonens/dataenes spredning og påvirkes ikke systematisk av n. Det er SE som krymper med større n.",
     },
     {
@@ -1158,22 +1158,22 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor avviker et utvalgsgjennomsnitt fra populasjonsgjennomsnittet selv i en feilfri studie?",
-      options: ["På grunn av tilfeldig utvalgsvariasjon — ethvert tilfeldig utvalg treffer ikke μ eksakt", "Fordi forskeren nesten alltid har gjort en eller annen systematisk målefeil et sted underveis", "Fordi utvalget alltid er for lite", "Fordi SD er regnet feil"],
+      options: ["På grunn av tilfeldig utvalgsvariasjon — ethvert tilfeldig utvalg treffer ikke μ eksakt", "Fordi forskeren nesten alltid har gjort en systematisk målefeil underveis", "Fordi utvalget alltid er for lite", "Fordi SD er regnet feil, og avviket fra μ skyldes den regnefeilen"],
       explanation: "Utvalgsvariasjon er en matematisk konsekvens av å måle en del i stedet for helheten, ikke en feil. SE kvantifiserer hvor mye.",
     },
     {
       question: "Et utvalgsgjennomsnitt ligger 3 standardfeil fra det antatte populasjonssnittet. Er det mye eller lite?",
-      options: ["Mye — i en normal utvalgsfordeling ligger 99,7 % innenfor ±3 SE, så det er svært usannsynlig hvis antakelsen stemmer", "Lite — hele 3 SE ligger fortsatt godt innenfor det som til vanlig regnes som helt normal og fullstendig forventet variasjon", "Umulig å si uten å kjenne SD", "Det avhenger bare av n"],
+      options: ["Mye — i en normal utvalgsfordeling ligger 99,7 % innenfor ±3 SE, så det er svært usannsynlig hvis antakelsen stemmer", "Lite — hele 3 SE ligger fortsatt godt innenfor det som til vanlig regnes som helt normal og fullstendig forventet variasjon", "Umulig å si uten å kjenne SD, siden avstanden i standardfeil ikke kan tolkes uten spredningen i rådataene", "Det avhenger bare av n — med stor nok n er 3 standardfeil fra det antatte populasjonssnittet helt vanlig, og med liten n er det mye"],
       explanation: "Med 68–95–99,7-regelen anvendt på utvalgsfordelingen er 3 SE ekstremt. Det peker mot at populasjonssnittet ikke er som antatt (lav p).",
     },
     {
       question: "Hva forteller SE = SD/√n oss om verdien av å samle mer data?",
-      options: ["Presisjonen øker med √n, så gevinsten avtar per ny deltaker", "Presisjonen i estimatet øker helt proporsjonalt med utvalgsstørrelsen n", "Mer data endrer ikke presisjonen", "Presisjonen øker med n²"],
+      options: ["Presisjonen øker med √n, så gevinsten avtar per ny deltaker", "Presisjonen i estimatet øker helt proporsjonalt med utvalgsstørrelsen n", "Mer data endrer ikke presisjonen, uansett hvor stor n blir", "Presisjonen øker med n², så hver nye deltaker gir stadig større gevinst"],
       explanation: "Fordi n står under kvadratrot, gir de første deltakerne mest, og enorme utvalg gir bare marginalt bedre presisjon.",
     },
     {
       question: "Kan en liten standardfeil redde et skjevt (ikke-tilfeldig) utvalg?",
-      options: ["Nei — SE måler presisjon, ikke om utvalget treffer riktig populasjon; systematisk skjevhet forsvinner ikke med større n", "Ja, en svært liten SE betyr i praksis alltid at man automatisk har fått et helt korrekt, godt og presist estimat av populasjonen", "Ja, hvis n er over 100", "Nei, men bare hvis SD også er liten"],
+      options: ["Nei — SE måler presisjon, ikke om utvalget treffer riktig populasjon; systematisk skjevhet forsvinner ikke med større n", "Ja, en svært liten SE betyr i praksis alltid at man automatisk har fått et helt korrekt, godt og presist estimat av populasjonen", "Ja, hvis n er over 100 — da blir standardfeilen så liten at også et skjevt utvalg likevel treffer riktig populasjonsgjennomsnitt", "Nei, men bare hvis SD også er liten — er SD stor, veier en liten SE likevel opp for skjevheten"],
       explanation: "Ved bekvemmelighetsutvalg/frivillighetsbias sentreres utvalgsfordelingen på feil sted. SE fanger tilfeldig variasjon, ikke systematisk skjevhet.",
     },
     {
@@ -1183,34 +1183,34 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En parameter og et estimat er:",
-      options: ["En sann ukjent populasjonsverdi (parameter) vs. tallet vi regner fra utvalget for å gjette den (estimat)", "Egentlig bare to helt forskjellige navn på nøyaktig det samme tallet, som brukes om hverandre i statistikken", "Estimatet er sant, parameteren er en gjetning", "Begge er alltid kjent på forhånd"],
+      options: ["En sann ukjent populasjonsverdi (parameter) vs. tallet vi regner fra utvalget for å gjette den (estimat)", "Egentlig bare to helt forskjellige navn på nøyaktig det samme tallet, som brukes om hverandre i statistikken", "Estimatet fra utvalget er den sanne verdien, mens parameteren er tallet vi gjetter", "Begge er alltid kjent på forhånd — både den sanne populasjonsverdien og tallet vi regner fra utvalget, ligger fast før studien"],
       explanation: "μ er en parameter (ukjent, fast); x̄ er et estimat (kjent, usikkert). SE forteller hvor mye estimatet bommer på parameteren.",
     },
     {
       question: "Hvorfor kan vi resonnere om utvalgsfordelingen når vi bare har ett utvalg?",
-      options: ["Fordi den er en teoretisk konstruksjon vi kan regne SE for, ikke noe vi trenger å observere direkte", "Fordi vi i selve virkeligheten faktisk trekker svært mange ulike utvalg gjentatte ganger i praksis når vi forsker", "Fordi den er identisk med datafordelingen", "Fordi den alltid har SE = SD"],
+      options: ["Fordi den er en teoretisk konstruksjon vi kan regne SE for, ikke noe vi trenger å observere direkte", "Fordi vi i selve virkeligheten faktisk trekker svært mange ulike utvalg gjentatte ganger i praksis når vi forsker", "Fordi den er identisk med datafordelingen i det ene utvalget vi har observert", "Fordi den alltid har SE = SD, slik at spredningen i utvalgsfordelingen kan leses rett av spredningen i rådataene"],
       explanation: "Utvalgsfordelingen er et tankeeksperiment om «uendelig mange gjentatte trekninger». Nettopp derfor kan matematikken (SE) gjelde selv med ett utvalg.",
     },
     {
       question: "SE for gjennomsnittet (SD/√n) er byggesteinen for hva i kap. 3.4?",
-      options: ["Standardfeilen for differansen mellom to gruppegjennomsnitt, SE(D)", "Selve standardavviket til hele den underliggende populasjonen man studerer", "Medianen i utvalget", "Variasjonsbredden"],
+      options: ["Standardfeilen for differansen mellom to gruppegjennomsnitt, SE(D)", "Selve standardavviket til hele den underliggende populasjonen man studerer", "Medianen i utvalget, altså den midterste råskåren blant de observerte verdiene", "Variasjonsbredden, altså avstanden fra den minste til den største observerte verdien"],
       explanation: "Når vi sammenligner to grupper (t-test), trenger vi SE for forskjellen mellom snittene, SE(D). Samme idé, bygget på SE.",
     },
     {
       question: "Datafordelingen og utvalgsfordelingen skiller seg ved at:",
-      options: ["Datafordelingen viser enkeltverdier (spredning SD); utvalgsfordelingen viser gjennomsnitt (spredning SE, alltid smalere)", "De to fordelingene er i praksis fullstendig identiske og kan uten videre brukes helt om hverandre i absolutt alle sammenhenger", "Utvalgsfordelingen er alltid bredere enn datafordelingen", "Datafordelingen er alltid normal"],
+      options: ["Datafordelingen viser enkeltverdier (spredning SD); utvalgsfordelingen viser gjennomsnitt (spredning SE, alltid smalere)", "De to fordelingene er i praksis fullstendig identiske og kan uten videre brukes helt om hverandre i absolutt alle sammenhenger", "Utvalgsfordelingen er alltid bredere enn datafordelingen, slik at spredningen mellom gjennomsnitt overgår spredningen mellom enkeltpersoner", "Datafordelingen er alltid normal uansett hva som måles, mens utvalgsfordelingen er den eneste av de to som kan ha en skjev form"],
       explanation: "For n > 1 er SE < SD, så utvalgsfordelingen er smalere og mer normal enn datafordelingen. Å holde dem fra hverandre er kjernen i kapitlet.",
     },
   ],
   'psy1010-3-4': [
     {
       question: "Hva måler t-observatoren?",
-      options: ["Forskjellen mellom to gruppegjennomsnitt målt i standardfeil-enheter", "Spredningen innad i én gruppe", "Selve sannsynligheten for at nullhypotesen H0 faktisk er sann", "Andelen forklart varians"],
+      options: ["Forskjellen mellom to gruppegjennomsnitt målt i standardfeil-enheter", "Spredningen innad i én gruppe", "Selve sannsynligheten for at nullhypotesen H0 faktisk er sann", "Andelen av variansen i utfallet som gruppene forklarer"],
       explanation: "t = (x̄₁ − x̄₂)/SE(D): differansen delt på standardfeilen for differansen — altså forskjellen målt i standardfeil.",
     },
     {
       question: "Hva står SE(D) for i t-kjeden?",
-      options: ["Standardfeilen for differansen mellom de to gjennomsnittene", "Standardavviket i gruppe 1", "Den samlede summen av begge de to gruppenes gjennomsnitt lagt sammen", "Differansen mellom variansene"],
+      options: ["Standardfeilen for differansen mellom de to gjennomsnittene", "Standardavviket i gruppe 1, altså spredningen mellom enkeltpersonene i den ene gruppen", "Den samlede summen av begge de to gruppenes gjennomsnitt lagt sammen", "Differansen mellom variansene, altså variansen i gruppe 1 minus variansen i gruppe 2"],
       explanation: "SE(D) = Sp·√(1/n₁ + 1/n₂) er den typiske tilfeldige variasjonen i forskjellen mellom to gruppesnitt.",
     },
     {
@@ -1225,7 +1225,7 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor deler vi på SE(D) og ikke på SD i t-formelen?",
-      options: ["Fordi vi tester forskjellen mellom gjennomsnitt, og SE(D) er den tilfeldige variasjonen i den forskjellen", "Fordi standardavviket SD nesten alltid er altfor stort til å kunne brukes på en fornuftig måte i selve t-formelen", "Fordi SE(D) er lettere å regne", "Det spiller ingen rolle hvilken vi bruker"],
+      options: ["Fordi vi tester forskjellen mellom gjennomsnitt, og SE(D) er den tilfeldige variasjonen i den forskjellen", "Fordi standardavviket SD nesten alltid er altfor stort til å kunne brukes på en fornuftig måte i selve t-formelen", "Fordi SE(D) er lettere å regne ut for hånd enn standardavviket", "Det spiller ingen rolle hvilken vi bruker"],
       explanation: "SD er spredning innad i en gruppe; SE(D) er usikkerheten i differansen. Å dele på SD er feil #6 (SD/SE-forveksling).",
     },
     {
@@ -1235,17 +1235,17 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor bør du runde av først i sluttsvaret, ikke underveis i t-kjeden?",
-      options: ["For å unngå avrundingskaskader der akkumulerte feil kan endre konklusjonen", "Fordi vanlige kalkulatorer rett og slett ikke tåler mange desimaler i mellomregningen", "Fordi mellomsvarene ikke betyr noe", "For å spare tid"],
+      options: ["For å unngå avrundingskaskader der akkumulerte feil kan endre konklusjonen", "Fordi vanlige kalkulatorer ikke tåler mange desimaler", "Fordi mellomsvarene ikke betyr noe", "For å spare tid, siden færre mellomregninger gir raskere svar"],
       explanation: "Runder du Sp, SE(D) og t hver for seg, hoper feilene seg opp og kan flytte t nok til å endre om p er under α.",
     },
     {
       question: "En stor t-verdi betyr at forskjellen er:",
-      options: ["Usannsynlig hvis H0 er sann — men ikke nødvendigvis stor eller viktig", "At forskjellen er både statistisk signifikant og samtidig praktisk viktig", "Alltid en effekt på minst 5 poeng", "Umulig å skyldes tilfeldigheter"],
+      options: ["Usannsynlig hvis H0 er sann — men ikke nødvendigvis stor eller viktig", "At forskjellen er både signifikant og praktisk viktig", "Alltid en effekt på minst 5 poeng", "Umulig å skyldes tilfeldigheter"],
       explanation: "Stor t = signifikant, ikke nødvendigvis viktig. Med store utvalg gir trivielle differanser stor t (signifikans ≠ viktighet).",
     },
     {
       question: "Med et svært stort utvalg blir SE(D) liten. Hva er konsekvensen?",
-      options: ["Selv bittesmå differanser kan gi en stor t og bli statistisk signifikante", "t blir alltid null", "At selve forskjellen mellom de to gruppene da automatisk også blir praktisk viktig", "p blir alltid over 0,05"],
+      options: ["Selv bittesmå differanser kan gi en stor t og bli statistisk signifikante", "t blir alltid null, uansett hvor stor differansen mellom de to gruppesnittene måtte være", "At selve forskjellen mellom de to gruppene da automatisk også blir praktisk viktig", "p blir alltid over 0,05, uansett hvor stor differansen er"],
       explanation: "t = differanse/SE(D). Liten SE(D) (stor n) forstørrer selv trivielle differanser — derfor er signifikans ikke det samme som viktighet.",
     },
     {
@@ -1255,12 +1255,12 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Oppgitt p = 0,03. Endres konklusjonen om α strammes fra 0,05 til 0,01?",
-      options: ["Ja — ved α = 0,05 forkastes H0, men ved α = 0,01 er 0,03 > 0,01, så H0 beholdes", "Nei, konklusjonen forblir nøyaktig den samme uansett hvilket av de to signifikansnivåene man bruker", "Ja, men bare hvis t er negativ", "Nei, p endres når α endres"],
+      options: ["Ja — ved α = 0,05 forkastes H0, men ved α = 0,01 er 0,03 > 0,01, så H0 beholdes", "Nei, konklusjonen forblir nøyaktig den samme uansett hvilket av de to signifikansnivåene man bruker", "Ja, men bare hvis t er negativ, siden fortegnet avgjør om H0 forkastes", "Nei, p endres når α endres, slik at p = 0,03 blir en annen verdi så snart terskelen settes til 0,01"],
       explanation: "0,03 < 0,05 (forkast) men 0,03 > 0,01 (behold). Et strengere α krever et mer ekstremt resultat for å forkaste.",
     },
     {
       question: "Hva er nullhypotesen (H0) i en togruppe-t-test?",
-      options: ["At de to populasjonsgjennomsnittene er like (μ₁ = μ₂)", "At de to observerte utvalgsgjennomsnittene er nøyaktig like store", "At variansene er ulike", "At forskjellen er viktig"],
+      options: ["At de to populasjonsgjennomsnittene er like (μ₁ = μ₂)", "At de to observerte utvalgsgjennomsnittene er nøyaktig like store", "At variansene i de to gruppene er ulike, altså at spredningen ikke er den samme i begge", "At forskjellen mellom gruppene er praktisk viktig"],
       explanation: "H0: μ₁ = μ₂ (ingen ekte forskjell i populasjonene). t-testen spør hvor usannsynlig den observerte differansen er hvis H0 er sann.",
     },
     {
@@ -1270,19 +1270,19 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er det siste, obligatoriske leddet i enhver t-løsning på eksamen?",
-      options: ["En konklusjon i ord: hva t og p betyr for studien (forkast/behold H0)", "Å regne p-verdien på nytt", "Å oppgi den ferdig utregnede variansen med minst fire desimalers nøyaktighet til slutt", "Å tegne utvalgsfordelingen"],
+      options: ["En konklusjon i ord: hva t og p betyr for studien (forkast/behold H0)", "Å regne p-verdien på nytt for å kontrollere at den første utregningen ga samme tall", "Å oppgi den ferdig utregnede variansen med minst fire desimalers nøyaktighet til slutt", "Å tegne utvalgsfordelingen og markere av hvor testobservatoren t havner i halen"],
       explanation: "Tolkningskravet: hvert regnestykke ender i prosa. «Differansen er X standardfeil; p < α, så vi forkaster H0» — ellers er svaret ufullstendig.",
     },
     {
       question: "SE(D) sammenlignet med SE for ett gjennomsnitt (kap. 3.3) er:",
-      options: ["Standardfeilen for forskjellen mellom to snitt, og arver usikkerhet fra begge grupper", "Nøyaktig det samme som SE", "Alltid vesentlig mindre enn hver enkelt av de to gruppenes egne separate standardfeil hver for seg", "Uavhengig av utvalgsstørrelsene"],
+      options: ["Standardfeilen for forskjellen mellom to snitt, og arver usikkerhet fra begge grupper", "Nøyaktig det samme som SE for ett gjennomsnitt, slik at det ikke spiller noen rolle hvilken av dem du bruker", "Alltid vesentlig mindre enn hver enkelt av de to gruppenes egne separate standardfeil hver for seg", "Uavhengig av utvalgsstørrelsene, slik at SE(D) blir den samme enten gruppene er små eller store"],
       explanation: "SE gjelder ett gjennomsnitt; SE(D) gjelder differansen mellom to og er større fordi den samler usikkerhet fra begge grupper.",
     },
   ],
   'psy1010-4-1': [
     {
       question: "Hva er den korrekte tolkningen av p = 0,03?",
-      options: ["Sannsynligheten for et minst like ekstremt resultat gitt at H0 er sann er 3 %.", "Det er 3 % sannsynlig at H0 er sann.", "Det er 3 % sannsynlig at H0 er feil.", "Det betyr at det er hele 97 % sannsynlig at selve alternativhypotesen H1 faktisk er sann."],
+      options: ["Sannsynligheten for et minst like ekstremt resultat gitt at H0 er sann er 3 %.", "Det er 3 % sannsynlig at H0 er sann, altså at det ikke finnes noen ekte forskjell i populasjonen.", "Det er 3 % sannsynlig at H0 er feil, altså at det bare er 3 % sjanse for at effekten er ekte.", "Det betyr at det er hele 97 % sannsynlig at selve alternativhypotesen H1 faktisk er sann."],
       explanation: "p er en betinget sannsynlighet: for dataene *gitt* H0, ikke for hypotesen. De tre gale er varianter av feil #1, som har eksplisitt trekk-instruks (H2018).",
     },
     {
@@ -1297,7 +1297,7 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En enhalet (retningsbestemt) test er tillatt når …",
-      options: ["retningen er begrunnet i teori/tidligere funn FØR dataene ble sett.", "p-verdien blir mindre enn med en tohalet test.", "forskeren først ser hvilken retning dataene faktisk peker i, og deretter velger halen.", "utvalget er lite."],
+      options: ["retningen er begrunnet i teori/tidligere funn FØR dataene ble sett.", "p-verdien blir mindre enn med en tohalet test.", "forskeren først ser hvilken retning dataene faktisk peker i, og deretter velger halen.", "utvalget er lite, slik at en tohalet test blir for streng."],
       explanation: "Enhalet krever forhåndsbegrunnet retning. Å velge den etter å ha sett dataene, for å presse p under grensen, er feil #11.",
     },
     {
@@ -1317,7 +1317,7 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr det å 'beholde H0' (ikke-signifikant resultat)?",
-      options: ["Vi fant ikke sterke nok bevis mot H0 — det er ikke bevis for at effekten mangler.", "At vi nå endelig har bevist sikkert at det ikke finnes noen effekt i det hele tatt.", "H1 er bevist feil.", "p-verdien er nøyaktig 0."],
+      options: ["Vi fant ikke sterke nok bevis mot H0 — det er ikke bevis for at effekten mangler.", "At vi nå endelig har bevist sikkert at det ikke finnes noen effekt i det hele tatt.", "H1 er bevist feil, slik at alternativhypotesen kan forkastes.", "p-verdien er nøyaktig 0."],
       explanation: "Fravær av bevis er ikke bevis på fravær. En ikke-signifikant test kan skyldes en ekte, men liten effekt, eller for lav power.",
     },
     {
@@ -1327,37 +1327,37 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Fra hva leses p-verdien?",
-      options: ["Utvalgsfordelingen (fordelingen av tenkte gjentatte utvalgssnitt).", "Selve datamatrisen.", "Populasjonens rådata.", "Utelukkende det observerte standardavviket i selve utvalget, helt alene."],
+      options: ["Utvalgsfordelingen (fordelingen av tenkte gjentatte utvalgssnitt).", "Selve datamatrisen med de observerte enkeltverdiene.", "Populasjonens rådata.", "Det observerte standardavviket i selve utvalget."],
       explanation: "p leses fra utvalgsfordelingen, hvis spredning er SE. Å nevne dette er en A-markør (kobling til kap. 3.3).",
     },
     {
       question: "Hva er signifikansnivået α?",
-      options: ["Terskelen p sammenlignes mot, og risikoen for å forkaste en sann H0.", "Selve sannsynligheten for at alternativhypotesen H1 faktisk viser seg å være sann.", "p-verdien vi observerer.", "Standardfeilen i utvalget."],
+      options: ["Terskelen p sammenlignes mot, og risikoen for å forkaste en sann H0.", "Sannsynligheten for at alternativhypotesen H1 er sann.", "p-verdien vi observerer i den enkelte testen.", "Standardfeilen i utvalget."],
       explanation: "α (ofte 0,05) er terskelen og samtidig Type I-risikoen (falsk alarm). Den velges FØR dataene ses.",
     },
     {
       question: "Hvorfor formulerer vi hypotesen om μ og ikke om x̄?",
-      options: ["Utvalgssnittet x̄ kjenner vi allerede; poenget er å slutte til det ukjente μ.", "μ er lettere å regne ut enn x̄.", "x̄ kan ikke være negativt.", "Utelukkende fordi selve eksamensformatet krever at man bruker greske bokstaver i svaret."],
+      options: ["Utvalgssnittet x̄ kjenner vi allerede; poenget er å slutte til det ukjente μ.", "μ er lettere å regne ut enn x̄.", "x̄ kan ikke være negativt, og er derfor uegnet i en hypotese.", "Fordi selve eksamensformatet krever greske bokstaver i svaret."],
       explanation: "En test slutter fra det vi ser (utvalget) til det vi ikke ser (populasjonen μ). Å teste et tall vi allerede kjenner gir ingen mening.",
     },
     {
       question: "Trinnene i en nullhypotesetest — hvilken rekkefølge er riktig?",
-      options: ["Formuler hypoteser → velg α → velg/utfør test → finn p → konkluder.", "Finn p → velg α → formuler hypoteser → konkluder.", "Velg α → konkluder → formuler hypoteser → finn p.", "Konkluder først → finn deretter p → velg så α → formuler til slutt hypotesene."],
+      options: ["Formuler hypoteser → velg α → velg/utfør test → finn p → konkluder.", "Finn p → velg α → formuler hypoteser → konkluder.", "Velg α → konkluder → formuler hypoteser → finn p.", "Konkluder → finn p → velg α → formuler hypoteser."],
       explanation: "α velges før dataene ses, og hypotesene formuleres først. På eksamen oppgis ofte p, så tolkningen (trinn 5) er hovedjobben.",
     },
     {
       question: "En kandidat skriver: 'p = 0,02, altså 98 % sikkert at behandlingen virker.' Hvilken feil?",
-      options: ["Feil #1 — p tolket som sannsynlighet for hypotesen.", "Feil #11 — å velge enhalet test helt uten forhåndsbegrunnelse.", "Feil #12 — hypotese om utvalget.", "Feil #6 — SD forvekslet med SE."],
+      options: ["Feil #1 — p tolket som sannsynlighet for hypotesen.", "Feil #11 — å velge enhalet test helt uten forhåndsbegrunnelse.", "Feil #12 — hypotese formulert om utvalget.", "Feil #6 — SD forvekslet med SE, altså spredning brukt der presisjon skulle stått."],
       explanation: "p er sannsynligheten for dataene gitt H0, ikke for hypotesen gitt dataene. Denne ombyttingen er feil #1, med trekk-instruks.",
     },
     {
       question: "Hva innebærer 'signifikans ≠ viktighet'?",
-      options: ["Et signifikant resultat kan gjelde en triviell effekt hvis utvalget er stort nok.", "Et signifikant resultat er alltid stort.", "At alle praktisk viktige effekter i naturen alltid også nødvendigvis vil være statistisk signifikante.", "Signifikans og viktighet er synonymer."],
+      options: ["Et signifikant resultat kan gjelde en triviell effekt hvis utvalget er stort nok.", "Et signifikant resultat betyr alltid at effekten er stor.", "At alle praktisk viktige effekter i naturen alltid også nødvendigvis vil være statistisk signifikante.", "Signifikans og viktighet er synonymer, slik at et signifikant resultat alltid også er en viktig effekt."],
       explanation: "Stort n gir liten SE, så selv bittesmå differanser blir signifikante. Signifikans svarer på 'trolig ekte?', ikke 'stor nok?'.",
     },
     {
       question: "Hvorfor er α = 0,05 en 'konvensjon, ikke en naturlov'?",
-      options: ["Grensen er en avtalt terskel; p = 0,049 og 0,051 er nesten like sterke resultater.", "Fordi selve grensen på 0,05 er matematisk bevist å være den eneste optimale terskelen som finnes.", "Fordi loven krever 5 %.", "Fordi SE alltid er 0,05."],
+      options: ["Grensen er en avtalt terskel; p = 0,049 og 0,051 er nesten like sterke resultater.", "Fordi selve grensen på 0,05 er matematisk bevist å være den eneste optimale terskelen som finnes.", "Fordi loven krever 5 %, slik at forskere er rettslig forpliktet til å bruke nettopp denne grensen.", "Fordi SE alltid er 0,05, slik at grensen følger av formelen."],
       explanation: "0,05 er en historisk konvensjon. At det ene 'passerer' og det andre ikke, betyr ikke at de er kvalitativt ulike. En A-kandidat nevner dette.",
     },
     {
@@ -1367,49 +1367,49 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en 'vippeverdi' for p?",
-      options: ["En p mellom 0,01 og 0,05 som gir ulik konklusjon avhengig av α-nivået.", "En p-verdi som viser seg å være lik nøyaktig null i hele den avsluttende utregningen.", "En p over 0,50.", "En p som er negativ."],
+      options: ["En p mellom 0,01 og 0,05 som gir ulik konklusjon avhengig av α-nivået.", "En p-verdi som viser seg å være lik nøyaktig null i hele den avsluttende utregningen.", "En p over 0,50, altså en verdi som er så høy at den vipper konklusjonen når α strammes.", "En p som er negativ, altså en verdi som ligger under null."],
       explanation: "Vippeverdier (f.eks. 0,017, 0,048) er signifikante ved α = 0,05 men ikke ved α = 0,01. Å snu konklusjonen ved α-skifte er et fast deloppgaveledd.",
     },
     {
       question: "Hva er kjernen i den korrekte p-definisjonen som ofte mangler i gale svar?",
-      options: ["Leddet 'gitt at H0 er sann'.", "Ordet 'signifikant'.", "Selve referansen til det aktuelle utvalget.", "Effektstørrelsen."],
+      options: ["Leddet 'gitt at H0 er sann'.", "Ordet 'signifikant'.", "Selve referansen til det aktuelle utvalget.", "Effektstørrelsen, altså hvor stor selve effekten er."],
       explanation: "p er en betinget sannsynlighet — for dataene forutsatt at H0 holder. Uten dette leddet blir tolkningen feil #1.",
     },
     {
       question: "Hvilken av disse er en A-markør sensor ser etter i en hypoteseoppgave?",
-      options: ["At du kan snu konklusjonen ved et strengere α og skille signifikans fra viktighet.", "At du regner p-verdien for hånd.", "At du konsekvent alltid velger en enhalet test i alle oppgaver uansett hvordan situasjonen er.", "At du bruker flest mulig formler."],
+      options: ["At du kan snu konklusjonen ved et strengere α og skille signifikans fra viktighet.", "At du regner p-verdien for hånd i stedet for å bruke den p-verdien som allerede er oppgitt i oppgaven.", "At du konsekvent alltid velger en enhalet test i alle oppgaver uansett hvordan situasjonen er.", "At du bruker flest mulig formler i selve utregningen."],
       explanation: "A-skillene er: hypoteser om μ, begrunnet enhalet, α-skifte, og signifikans ≠ viktighet — ikke regneteknikk (formler oppgis).",
     },
     {
       question: "Hva er en Type I-feil, uttrykt via α (frempek til kap. 4.2)?",
-      options: ["Å forkaste en sann H0 (falsk alarm), med risiko α.", "Å beholde en H0 som i virkeligheten er falsk.", "Å regne SE feil.", "Å velge feil test."],
+      options: ["Å forkaste en sann H0 (falsk alarm), med risiko α.", "Å beholde en H0 som i virkeligheten er falsk.", "Å regne SE feil når testobservatoren settes opp.", "Å velge feil test."],
       explanation: "Ved α = 0,05 aksepterer vi 5 % risiko for å forkaste en sann H0. Full dybde i kap. 4.2, men det henger direkte på hva α er.",
     },
     {
       question: "Hvorfor kalles nullhypotesetesting en 'indirekte' bevisføring?",
-      options: ["Vi tester H0 (antar ingen effekt) og forkaster den hvis dataene blir usannsynlige — vi beviser aldri H1 direkte.", "Fordi vi gjennom hele testen regner ut den direkte sannsynligheten for at alternativhypotesen H1 faktisk er sann.", "Vi hopper over H0 og går rett på konklusjonen.", "Vi bruker bare beskrivende statistikk."],
+      options: ["Vi tester H0 (antar ingen effekt) og forkaster den hvis dataene blir usannsynlige — vi beviser aldri H1 direkte.", "Fordi vi gjennom hele testen regner ut den direkte sannsynligheten for at alternativhypotesen H1 faktisk er sann.", "Vi hopper over H0 og går rett på konklusjonen, slik at vi slår fast at det finnes en effekt uten å ha formulert noen hypotese å teste mot.", "Vi bruker bare beskrivende statistikk, altså gjennomsnitt og spredning i utvalget, og leser konklusjonen om effekt rett ut av disse tallene."],
       explanation: "Logikken er en bevisføring ved selvmotsigelse: 'hvis ingen effekt, ville dette vært svært usannsynlig — altså tror vi det er en effekt'.",
     },
     {
       question: "En forsker gjorde en tohalet test, fikk p = 0,08, og halverte til 0,04 for å 'få signifikans'. Hva er galt?",
-      options: ["Enhalet halvering krever at retningen var begrunnet FØR dataene ble sett (feil #11).", "Ingenting er galt i det hele tatt — en slik halvering av p-verdien er alltid fullt tillatt uansett.", "p kan ikke halveres matematisk.", "Hun burde brukt α = 0,10."],
+      options: ["Enhalet halvering krever at retningen var begrunnet FØR dataene ble sett (feil #11).", "Ingenting er galt i det hele tatt — en slik halvering av p-verdien er alltid fullt tillatt uansett.", "p kan ikke halveres matematisk, for en sannsynlighet lar seg ikke dele på to slik forskeren gjorde her.", "Hun burde brukt α = 0,10, for da ville p = 0,08 ligget under terskelen uten at testen måtte endres."],
       explanation: "Å bytte til enhalet i etterkant for å presse p under grensen er feil #11 — retningsbestemt H1 uten forhåndsbegrunnelse.",
     },
     {
       question: "Hva sier en effektstørrelse som en p-verdi ikke sier?",
-      options: ["Hvor stor effekten er, uavhengig av utvalgsstørrelse.", "Om resultatet er signifikant.", "Hvor stor α er.", "Nøyaktig hvor mange deltakere som til sammen var med i studien."],
+      options: ["Hvor stor effekten er, uavhengig av utvalgsstørrelse.", "Om resultatet er signifikant, altså om p havner under terskelen α.", "Hvor stor α er, altså hvilken terskel forskeren valgte før dataene ble sett.", "Nøyaktig hvor mange deltakere som til sammen var med i studien."],
       explanation: "p sier 'trolig ekte?'; effektstørrelsen sier 'hvor mye?'. Fordi p avhenger av n, må effektstørrelsen rapporteres i tillegg.",
     },
     {
       question: "Hva er den logiske grunnen til at vi 'beholder' H0 heller enn å 'akseptere' den?",
-      options: ["H0-logikken er et falsifiseringsapparat — vi kan forkaste, men aldri bevise, H0.", "Fordi H0 alltid er sann.", "Fordi α forbyr aksept.", "Utelukkende fordi selve utvalget nesten alltid er altfor lite til å kunne bevise noe som helst."],
+      options: ["H0-logikken er et falsifiseringsapparat — vi kan forkaste, men aldri bevise, H0.", "Fordi H0 alltid er sann, og derfor bare kan beholdes og aldri forkastes på grunnlag av data.", "Fordi α forbyr aksept, altså fordi selve signifikansnivået er en regel om at H0 aldri kan aksepteres.", "Utelukkende fordi selve utvalget nesten alltid er altfor lite til å kunne bevise noe som helst."],
       explanation: "Vi kan falsifisere (forkaste) H0, men manglende bevis mot den beviser ikke at den holder. Derfor 'beholder' vi den.",
     },
   ],
   'psy1010-4-2': [
     {
       question: "Hva er en Type I-feil?",
-      options: ["Å forkaste en sann H0 (falsk alarm).", "Å beholde en falsk H0.", "Å regne standardfeilen feil.", "Å velge en helt feil statistisk test til dataene."],
+      options: ["Å forkaste en sann H0 (falsk alarm).", "Å beholde en falsk H0, altså å overse en ekte effekt.", "Å regne standardfeilen SE feil underveis i utregningen.", "Å velge en helt feil statistisk test til dataene."],
       explanation: "Type I = forkaste en sann H0 — se en effekt som ikke finnes. Risikoen er α.",
     },
     {
@@ -1419,7 +1419,7 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken risiko svarer til en Type I-feil?",
-      options: ["α (signifikansnivået).", "β.", "1 − β (selve teststyrken).", "SE."],
+      options: ["α (signifikansnivået).", "β (Type II-risikoen).", "1 − β (selve teststyrken).", "SE."],
       explanation: "Type I-risikoen ER α: med α = 0,05 forkastes en sann H0 5 % av gangene ved tilfeldighet.",
     },
     {
@@ -1439,47 +1439,47 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skjer med Type II-risikoen (β) hvis vi senker α fra 0,05 til 0,01?",
-      options: ["β øker (flere oversette effekter).", "β synker.", "β blir null.", "Da blir β nøyaktig lik selve signifikansnivået α."],
+      options: ["β øker (flere oversette effekter).", "β synker, slik at færre ekte effekter overses.", "β blir null.", "Da blir β nøyaktig lik selve signifikansnivået α."],
       explanation: "Lavere α gjør det vanskeligere å forkaste H0, så flere ekte effekter overses — β øker. Feiltypene trekker mot hverandre.",
     },
     {
       question: "Hvilken av disse øker en studies power?",
-      options: ["Å øke utvalgsstørrelsen n.", "Å redusere utvalgsstørrelsen.", "Å senke α til 0,001.", "Å øke standardavviket SD."],
+      options: ["Å øke utvalgsstørrelsen n.", "Å redusere utvalgsstørrelsen.", "Å senke α til 0,001, altså å stramme terskelen.", "Å øke standardavviket SD."],
       explanation: "Større n gir mindre SE og dermed høyere power. Lavere α og større SD trekker motsatt vei.",
     },
     {
       question: "Hvorfor gir et større utvalg høyere power?",
-      options: ["Mindre SE ⟹ ekte effekter gir større testobservator ⟹ lettere å forkaste falsk H0.", "Fordi SD krymper.", "Fordi α automatisk synker.", "Fordi selve den ekte effektstørrelsen ute i naturen automatisk øker når utvalget blir større."],
+      options: ["Mindre SE ⟹ ekte effekter gir større testobservator ⟹ lettere å forkaste falsk H0.", "Fordi SD krymper når n øker, slik at dataene blir mindre spredt.", "Fordi α automatisk synker.", "Fordi den ekte effektstørrelsen øker når utvalget blir større."],
       explanation: "Kjeden: større n ⟹ mindre SE = SD/√n ⟹ smalere utvalgsfordeling ⟹ større testobservator ⟹ mindre p ⟹ høyere power.",
     },
     {
       question: "Hva reduserer et større utvalg — SD eller SE?",
-      options: ["SE (presisjonen i gjennomsnittet).", "SD, altså selve spredningen mellom de enkelte personene.", "Begge like mye.", "Ingen av dem."],
+      options: ["SE (presisjonen i gjennomsnittet).", "SD, altså selve spredningen mellom de enkelte personene.", "Begge like mye.", "Ingen av dem, begge er upåvirket av utvalgsstørrelsen."],
       explanation: "Større n krymper SE, ikke SD. Å tro at n reduserer SD er en fast felle. Det er fallende SE som løfter power.",
     },
     {
       question: "Hva er 80 %-konvensjonen?",
-      options: ["Ønsket power = 0,80, altså β = 0,20.", "Ønsket α = 0,80.", "At 80 % av data må være normalfordelt.", "At 80 % av utvalget må svare."],
+      options: ["Ønsket power = 0,80, altså β = 0,20.", "Ønsket α = 0,80, altså en Type I-risiko på 80 %.", "At 80 % av data må være normalfordelt.", "At 80 % av utvalget må svare."],
       explanation: "Standarden er 80 % power (β = 0,20). Den godtar høyere Type II-risiko (20 %) enn Type I (5 %).",
     },
     {
       question: "Summerer α og β til 1?",
-      options: ["Nei — α gjelder når H0 er sann, β når H0 er falsk.", "Ja, alltid.", "Ja, men bare når utvalgsstørrelsen n er tilstrekkelig stor.", "Bare ved α = 0,05."],
+      options: ["Nei — α gjelder når H0 er sann, β når H0 er falsk.", "Ja, alltid — α og β summerer til 1.", "Ja, men bare når n er stor nok.", "Bare ved α = 0,05."],
       explanation: "α og β gjelder ulike verdener (sann vs. falsk H0) og summerer ikke. Det er β og power (1 − β) som summerer til 1.",
     },
     {
       question: "Ved screening for en alvorlig, behandlbar sykdom — hvilken feil er vanligvis verst?",
-      options: ["Type II (å overse syke personer).", "Type I (falsk alarm).", "Begge feiltypene er i praksis alltid nøyaktig like ille.", "Verken eller."],
+      options: ["Type II (å overse syke personer).", "Type I (falsk alarm), altså å kalle en frisk person inn til utredning.", "Begge feiltypene er i praksis alltid nøyaktig like ille.", "Verken eller — feiltypene er uten betydning ved screening."],
       explanation: "Ved screening vil man heller ha noen falske alarmer enn å overse syke. Da er Type II verst. Vurderingen er kontekstavhengig.",
     },
     {
       question: "Ved godkjenning av et nytt, dyrt medikament — hvilken feil er ofte mest alvorlig?",
-      options: ["Type I (godkjenne noe virkningsløst).", "Type II, altså å avvise et medikament som faktisk virker.", "Ingen av dem.", "Alltid Type II."],
+      options: ["Type I (godkjenne noe virkningsløst).", "Type II, altså å avvise et medikament som faktisk virker.", "Ingen av dem — hvilken feil man gjør, spiller ingen rolle her.", "Alltid Type II, uansett hva slags beslutning det gjelder."],
       explanation: "Å slippe et virkningsløst medikament på markedet (Type I) kan være farligere/dyrere. Motsatt av screening — konteksten avgjør.",
     },
     {
       question: "Hva betyr en Type I-feil KONKRET i en studie av en ny terapi mot angst (H0: ingen effekt)?",
-      options: ["Å konkludere at terapien virker når den egentlig ikke gjør det.", "Å konkludere med at terapien ikke virker, selv om den i virkeligheten gjør det.", "Å regne t feil.", "Å velge feil utvalg."],
+      options: ["Å konkludere at terapien virker når den egentlig ikke gjør det.", "Å konkludere at terapien ikke virker når den gjør det.", "Å regne ut t-verdien feil, slik at testen gir feil tall.", "Å velge feil utvalg."],
       explanation: "Type I ved sann H0 (terapien virker ikke): man tar i bruk en virkningsløs terapi. A-kravet er å si hva feilen betyr i scenariet.",
     },
     {
@@ -1489,22 +1489,22 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den vanligste tabben knyttet til feiltypene (feil #2)?",
-      options: ["Å blande Type I og Type II.", "Å regne SE feil.", "Å bruke en enhalet test uten forhåndsbegrunnelse.", "Å glemme kvadratrota."],
+      options: ["Å blande Type I og Type II.", "Å regne SE feil når standardfeilen skal rapporteres.", "Å bruke en enhalet test uten forhåndsbegrunnelse.", "Å glemme kvadratrota når standardfeilen regnes ut."],
       explanation: "V2024-veiledningen sier rett ut at studentene ofte blander de to. Huskeregel: Type I varsler brann uten røyk; Type II overser brannen.",
     },
     {
       question: "Hvilken faktor som påvirker power kan forskeren i praksis styre lettest?",
-      options: ["Utvalgsstørrelsen n.", "Den ekte effektstørrelsen i naturen.", "Populasjonens SD.", "Om H0 er sann."],
+      options: ["Utvalgsstørrelsen n.", "Den ekte effektstørrelsen i naturen.", "Populasjonens SD, som forskeren kan sette fritt.", "Om H0 er sann, som forskeren bestemmer selv."],
       explanation: "Effektstørrelsen i naturen er gitt; forskeren kan styre n (og til dels α). Derfor er å øke n det realistiske grepet for mer power.",
     },
     {
       question: "I beslutningsmatrisen — hvor ligger de riktige utfallene?",
-      options: ["På diagonalen (forkast falsk H0, behold sann H0).", "På motdiagonalen.", "Bare i øverste rad.", "Utelukkende nederst i selve beslutningsmatrisen."],
+      options: ["På diagonalen (forkast falsk H0, behold sann H0).", "På motdiagonalen (Type I- og Type II-feltene).", "Bare i øverste rad.", "Utelukkende nederst i selve beslutningsmatrisen."],
       explanation: "Riktige utfall: forkaste en falsk H0 (power) og beholde en sann H0. Feilene (Type I, Type II) ligger på motdiagonalen.",
     },
     {
       question: "Hva er huskeregelen for å skille feiltypene?",
-      options: ["Spør først om H0 i virkeligheten er sann (⟹ Type I) eller falsk (⟹ Type II).", "Se på p-verdien alene.", "Se på α alene.", "Rett og slett telle opp det totale antallet deltakere som var med i hele studien."],
+      options: ["Spør først om H0 i virkeligheten er sann (⟹ Type I) eller falsk (⟹ Type II).", "Se på p-verdien alene.", "Se på α alene og les feiltypen rett ut av signifikansnivået.", "Telle opp antallet deltakere som var med i studien."],
       explanation: "Nøkkelen er å avklare om H0 egentlig er sann eller falsk. Feil ved sann H0 = Type I; feil ved falsk H0 = Type II. Uten dette blander man (feil #2).",
     },
   ],
@@ -1521,7 +1521,7 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er familywise error?",
-      options: ["Den samlede sannsynligheten for minst én Type I-feil over flere tester.", "Den samlede sannsynligheten for å begå minst én Type II-feil over flere tester.", "Feilen ved å regne t feil.", "Feil i utvalgsrammen."],
+      options: ["Den samlede sannsynligheten for minst én Type I-feil over flere tester.", "Den samlede sannsynligheten for å begå minst én Type II-feil over flere tester.", "Feilen ved å regne t feil.", "Feil i utvalgsrammen, altså at deltakerne er trukket fra feil liste."],
       explanation: "Hver t-test har 5 % Type I-risiko; mange tester hoper opp risikoen. Med 10 tester blir samlet risiko ≈ 40 %.",
     },
     {
@@ -1531,72 +1531,72 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er kjernebegrunnelsen sensor krever for å velge ANOVA framfor mange t-tester?",
-      options: ["ANOVA holder den samlede (familywise) feilraten på α.", "ANOVA er raskere å regne.", "ANOVA gir alltid lavere p.", "ANOVA krever alltid vesentlig færre deltakere enn t-tester."],
+      options: ["ANOVA holder den samlede (familywise) feilraten på α.", "ANOVA er raskere å regne.", "ANOVA gir alltid lavere p.", "ANOVA krever færre deltakere enn t-tester."],
       explanation: "Begrunnelsen ER poenget: én samlet test unngår at Type I-risikoen eksploderer. Å bruke ANOVA uten å kunne dette er feil #7.",
     },
     {
       question: "Hva er en kovariat?",
-      options: ["En tilleggsvariabel korrelert med UV og AV som kontrolleres bort.", "En egen tilleggsvariabel som forskeren selv aktivt manipulerer og setter verdien på.", "Det samme som avhengig variabel.", "En feilkilde i målingen."],
+      options: ["En tilleggsvariabel korrelert med UV og AV som kontrolleres bort.", "En tilleggsvariabel som forskeren manipulerer.", "Det samme som avhengig variabel.", "En feilkilde i målingen."],
       explanation: "En kovariat henger sammen med både UV og AV; ANCOVA kontrollerer den bort for å isolere gruppeeffekten.",
     },
     {
       question: "Hva gjør en ANCOVA?",
-      options: ["En ANOVA som i tillegg kontrollerer bort en eller flere kovariater.", "En egen analyse som bare regner ut korrelasjonen mellom to ulike variabler.", "Sammenligner nøyaktig to grupper.", "Tester reliabiliteten til en skala."],
+      options: ["En ANOVA som i tillegg kontrollerer bort en eller flere kovariater.", "En analyse som regner ut korrelasjonen mellom to variabler.", "Sammenligner nøyaktig to grupper.", "Tester reliabiliteten til en skala."],
       explanation: "ANCOVA 'renser' AV for kovariatens innflytelse før gruppene sammenlignes — reduserer støy og fjerner systematisk skjevhet.",
     },
     {
       question: "Sensor kaller ANCOVA-leddet en oppgave 'ment å skille gode kandidater'. Hva er A-markøren?",
-      options: ["Å nevne ANCOVA/kovariat uoppfordret og forklare hva kovariaten gjør.", "Å regne ANCOVA for hånd.", "Å velge enhalet test.", "Å bruke så mange ulike statistiske formler som overhodet mulig i selve svaret."],
+      options: ["Å nevne ANCOVA/kovariat uoppfordret og forklare hva kovariaten gjør.", "Å regne ANCOVA for hånd.", "Å velge enhalet test i stedet for tohalet i besvarelsen.", "Å bruke så mange statistiske formler som mulig i svaret."],
       explanation: "ANCOVA er et uttalt A/B-skille: å bruke begrepet og forklare kontroll-bort-grepet skiller topp fra midt.",
     },
     {
       question: "En student kjørte ti t-tester ved fem grupper og fant to signifikante. Hvilken feil?",
-      options: ["Feil #7 — mange t-tester ved 3+ grupper.", "Feil #1 — p-verdi-feilen.", "Feil #12 — å formulere hypotesen om selve utvalget.", "Feil #6 — SD vs. SE."],
+      options: ["Feil #7 — mange t-tester ved 3+ grupper.", "Feil #1 — p-verdien er feiltolket.", "Feil #12 — å formulere hypotesen om selve utvalget.", "Feil #6 — SD vs. SE, altså at spredningsmålet er forvekslet."],
       explanation: "Ved 3+ grupper skal man bruke ANOVA. Ti t-tester gir ~40 % samlet falsk-alarm-risiko, så de to funnene kan være tilfeldige.",
     },
     {
       question: "Hva er forskjellen på å bruke en tilleggsvariabel som kovariat vs. som ekstra faktor?",
-      options: ["Kovariat (ANCOVA) kontrollerer den bort; ekstra faktor (toveis ANOVA) modellerer den.", "Det er ingen forskjell.", "En kovariat kan i praksis bare tas i bruk når man har nøyaktig to grupper å sammenligne.", "Faktor krever alltid regning."],
+      options: ["Kovariat (ANCOVA) kontrollerer den bort; ekstra faktor (toveis ANOVA) modellerer den.", "Det er ingen forskjell — kovariat og ekstra faktor gjør nøyaktig det samme.", "En kovariat kan bare brukes når man har nøyaktig to grupper.", "Faktor krever alltid regning."],
       explanation: "ANCOVA fjerner en forstyrrelse; toveis ANOVA studerer variabelens egen effekt og samspill. Forskningsspørsmålet avgjør.",
     },
     {
       question: "Når er en tilleggsvariabel i en toveis ANOVA en kvasi-UV?",
-      options: ["Når den er en egenskap som ikke kan manipuleres (kjønn, alder).", "Når den er kontinuerlig.", "Når den er kovariat.", "Hver gang variabelen korrelerer sterkt med den avhengige variabelen AV."],
+      options: ["Når den er en egenskap som ikke kan manipuleres (kjønn, alder).", "Når den er kontinuerlig og måles på en tallskala.", "Når den er kovariat, altså når den kontrolleres bort i stedet for å modelleres.", "Hver gang variabelen korrelerer sterkt med den avhengige variabelen AV."],
       explanation: "En ikke-manipulerbar egenskap brukt som faktor er en kvasi-UV (kobling til kap. 2.3).",
     },
     {
       question: "Kreves det at man regner ut ANOVA eller ANCOVA på eksamen?",
-      options: ["Nei — testvalget er en begrunnet drøfting, ikke et regnestykke.", "Ja, alltid.", "Bare ANCOVA.", "Ja, men bare i de tilfellene der man har nøyaktig fem grupper eller flere."],
+      options: ["Nei — testvalget er en begrunnet drøfting, ikke et regnestykke.", "Ja, alltid — testvalget godkjennes bare når regnestykket er ført fullt ut.", "Bare ANCOVA — den må regnes ut, ANOVA trenger ikke.", "Ja, men bare i de tilfellene der man har nøyaktig fem grupper eller flere."],
       explanation: "ANOVA-/ANCOVA-regning kreves aldri. Talleillustrasjonen (antall par) er bare illustrasjon; begrunnelsen er poenget.",
     },
     {
       question: "Hva er vilkårene for at en kovariat gir mening i en ANCOVA?",
-      options: ["Den må korrelere med AV og helst være målt før manipulasjonen.", "Den må manipuleres av forskeren.", "Den må være helt normalfordelt og nøyaktig lik i samtlige grupper.", "Den må være uavhengig av AV."],
+      options: ["Den må korrelere med AV og helst være målt før manipulasjonen.", "Den må manipuleres av forskeren i selve eksperimentet.", "Den må være helt normalfordelt og nøyaktig lik i samtlige grupper.", "Den må være uavhengig av AV, slik at den ikke deler variasjon med utfallet."],
       explanation: "En nyttig kovariat henger sammen med AV og er målt før/uavhengig av manipulasjonen, så den kan kontrolleres bort.",
     },
     {
       question: "Fire treningsprogrammer sammenlignes på kondisjon. Hvilken test og hvorfor?",
-      options: ["Enveis ANOVA — én samlet test holder familywise error nede.", "Uparet t-test, siden det egentlig bare handler om gjennomsnitt.", "ANCOVA — det er fire grupper.", "Korrelasjon — variablene henger sammen."],
+      options: ["Enveis ANOVA — én samlet test holder familywise error nede.", "Uparet t-test, siden det egentlig bare handler om gjennomsnitt.", "ANCOVA — det er fire grupper, og antallet grupper avgjør at en kovariat må inn.", "Korrelasjon — variablene henger sammen, så samvariasjonen mellom program og kondisjon måles."],
       explanation: "Fire grupper ⟹ ANOVA. Seks parvise t-tester ville blåst opp den samlede feilraten.",
     },
     {
       question: "Hvordan kan man komme nærmere en årsakskonklusjon i et korrelasjonsspørsmål uten RCT?",
-      options: ["Longitudinelle design, multippel regresjon med kontrollvariabler, eller gruppesammenligninger.", "Ved å øke α til 0,10.", "Ved å kjøre flere t-tester.", "Ved rett og slett å se helt bort fra samtlige mulige bakenforliggende tredjevariabler i hele analysen."],
+      options: ["Longitudinelle design, multippel regresjon med kontrollvariabler, eller gruppesammenligninger.", "Ved å øke α til 0,10, slik at flere sammenhenger blir signifikante og dermed kan tolkes som årsaksforhold.", "Ved å kjøre flere t-tester på de samme dataene, slik at gjentatte signifikante funn til sammen viser årsaksretningen.", "Ved rett og slett å se helt bort fra samtlige mulige bakenforliggende tredjevariabler i hele analysen."],
       explanation: "Flere veier finnes (V2024s 'tenk selv'-ledd). En A-besvarelse velger og begrunner ut fra caset, ramser ikke alt (feil #8).",
     },
     {
       question: "Hva er første spørsmål i beslutningstreet for testvalg?",
-      options: ["Hvor mange grupper/betingelser er det?", "Hva er p-verdien?", "Er dataene i det hele tatt tilnærmet normalfordelt?", "Hvor stort er α?"],
+      options: ["Hvor mange grupper/betingelser er det?", "Hva er p-verdien i analysen som allerede er kjørt?", "Er dataene i det hele tatt tilnærmet normalfordelt?", "Hvor stort er α satt til på forhånd i studien?"],
       explanation: "Antall grupper avgjør t-test (to) vs. ANOVA (tre+). Deretter vurderer man tilleggsvariabler (ANCOVA/toveis ANOVA).",
     },
     {
       question: "Er en uparet t-test to- eller enhalet som standard?",
-      options: ["Tohalet, med mindre en retningshypotese er begrunnet på forhånd.", "Alltid enhalet.", "Den er alltid tohalet, og skal aldri under noen omstendighet gjøres enhalet.", "Det spiller ingen rolle."],
+      options: ["Tohalet, med mindre en retningshypotese er begrunnet på forhånd.", "Alltid enhalet, uansett om det finnes en begrunnet retningshypotese eller ikke.", "Den er alltid tohalet, og skal aldri under noen omstendighet gjøres enhalet.", "Det spiller ingen rolle om testen er to- eller enhalet når den skal tolkes."],
       explanation: "t-testen er tohalet som standard; enhalet krever forhåndsbegrunnet retning (feil #11 ellers), jf. kap. 4.1.",
     },
     {
       question: "Hva blir problemet hvis man bare skriver 'jeg brukte ANOVA' uten videre?",
-      options: ["Man mangler begrunnelsen (familywise error) som er selve poenget.", "Ingenting — det holder.", "Da må man plutselig regne ut hele ANOVA-tabellen for hånd i tillegg.", "Man har brukt feil test."],
+      options: ["Man mangler begrunnelsen (familywise error) som er selve poenget.", "Ingenting — det holder å oppgi hvilken test som er brukt, uten noen begrunnelse.", "Da må man plutselig regne ut hele ANOVA-tabellen for hånd i tillegg.", "Man har brukt feil test, for ANOVA er ikke et gyldig valg ved flere grupper."],
       explanation: "Sensor honorerer hvorfor mer enn hvilken. Uten familywise-begrunnelsen gir svaret lite — begrunnelsen er A-kravet (feil #7).",
     },
   ],
@@ -1613,7 +1613,7 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr det at styrkegrensene (~0,3 moderat) er «konvensjoner»?",
-      options: ["De er avtalte og kontekstavhengige, ikke naturlover", "De er matematisk fastsatte konstanter og gjelder helt likt overalt", "De er feil og bør ikke brukes", "De gjelder bare i fysikk"],
+      options: ["De er avtalte og kontekstavhengige, ikke naturlover", "De er matematisk fastsatte konstanter og gjelder helt likt overalt", "De er feil og bør ikke brukes", "De gjelder bare i fysikk, ikke i psykologi"],
       explanation: "Grensene er avtaler; i psykologi kan r = 0,30 være substansielt, i fysikk svakt.",
     },
     {
@@ -1633,32 +1633,32 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor tillater «påført variasjon under kontroll» en kausal slutning?",
-      options: ["Manipulasjon + randomisering jevner ut tredjevariabler", "Fordi r blir større", "Fordi selve utvalget dermed blir langt mer representativt", "Fordi X og Y byttes om"],
+      options: ["Manipulasjon + randomisering jevner ut tredjevariabler", "Fordi r blir større når man manipulerer X", "Fordi selve utvalget dermed blir langt mer representativt", "Fordi X og Y byttes om"],
       explanation: "Randomisering fordeler tredjevariabler likt, så en sammenheng kan tolkes kausalt.",
     },
     {
       question: "Ved korrelasjon er valget av hvilken variabel som er X og hvilken Y",
-      options: ["vilkårlig — r er symmetrisk og uendret", "helt bestemt av hvilken av variablene som faktisk er årsaken", "bestemt av målenivået", "det samme som i regresjon"],
+      options: ["vilkårlig — r er symmetrisk og uendret", "helt bestemt av hvilken av variablene som faktisk er årsaken", "bestemt av målenivået til de to variablene som inngår", "det samme som i regresjon"],
       explanation: "r er symmetrisk; rollene er et fritt valg (til forskjell fra regresjon).",
     },
     {
       question: "Hva kan r ≈ 0 skjule?",
-      options: ["En sterk kurvlineær (buet) sammenheng", "At selve sammenhengen mellom X og Y er kausal", "At r er regnet feil", "At utvalget er for stort"],
+      options: ["En sterk kurvlineær (buet) sammenheng", "At selve sammenhengen mellom X og Y er kausal", "At r er regnet feil, siden en ekte sammenheng alltid gir r ulik 0", "At utvalget er for stort"],
       explanation: "r ≈ 0 utelukker bare en *lineær* sammenheng; en omvendt U gir også r nær null.",
     },
     {
       question: "De tre mulige forklaringene på en hvilken som helst korrelasjon er",
-      options: ["X→Y, Y→X, eller en tredjevariabel z påvirker begge", "kun X→Y", "problemer med reliabilitet, validitet og systematisk bias", "nominal, ordinal og intervall"],
+      options: ["X→Y, Y→X, eller en tredjevariabel z påvirker begge", "kun X→Y, ingen andre forklaringer er mulige", "problemer med reliabilitet og validitet", "nominal, ordinal og intervall"],
       explanation: "En korrelasjon alene kan ikke skille mellom disse tre.",
     },
     {
       question: "En A-besvarelse tolker r i en fast firedelt mal. Hvilke fire ledd?",
-      options: ["Retning, styrke m/forbehold, samvariasjon ≠ kausalitet, variasjonstype", "Middelverdi, median, modus, spredning", "Reliabilitet, validitet, valg av utvalg, og til slutt selve forskningsdesignet", "Nominal, ordinal, intervall, forhold"],
+      options: ["Retning, styrke m/forbehold, samvariasjon ≠ kausalitet, variasjonstype", "Middelverdi, median, modus, spredning", "Reliabilitet, validitet, valg av utvalg og forskningsdesign", "Nominal, ordinal, intervall, forhold"],
       explanation: "Den firedelte malen er kjernen i korrelasjonsoppgaven (T1).",
     },
     {
       question: "Hva skiller styrke fra retning ved tolkning av r?",
-      options: ["Styrke leses av tallverdien |r|, retning av fortegnet", "De er det samme", "Styrken leses av fortegnet, mens retningen leses av tallverdien |r|", "Begge leses av r²"],
+      options: ["Styrke leses av tallverdien |r|, retning av fortegnet", "De er det samme og leses av samme tall", "Styrken leses av fortegnet, retningen av |r|", "Begge leses av r²"],
       explanation: "|r| = styrke, fortegn = retning; å blande dem er et vanlig feilgrep.",
     },
     {
@@ -1668,49 +1668,49 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor kan man ikke si at r = 0,4 er «dobbelt så sterk» som r = 0,2?",
-      options: ["Fordi r bare kan rangeres; r² gir andeler som kan sammenlignes", "Fordi 0,4 er negativt", "Fordi begge er svake", "Fordi selve korrelasjonen r i praksis alltid er nøyaktig lik sin egen r²"],
+      options: ["Fordi r bare kan rangeres; r² gir andeler som kan sammenlignes", "Fordi 0,4 er negativt", "Fordi både 0,2 og 0,4 regnes som svake korrelasjoner", "Fordi r alltid er nøyaktig lik sin egen r²"],
       explanation: "r² = 0,16 vs. 0,04 — fire ganger så mye forklart varians, ikke dobbelt.",
     },
     {
       question: "En kandidat skriver: «r = 0,30, altså svakt, glem det.» Hva er problemet?",
-      options: ["Konvensjonsgrensen er kontekstavhengig; 0,30 kan være substansielt i psykologi", "Ingenting er galt i det hele tatt — en r på 0,30 er alltid helt neglisjerbar uansett hvilket fag", "r = 0,30 er negativt", "r kan ikke være 0,30"],
+      options: ["Konvensjonsgrensen er kontekstavhengig; 0,30 kan være substansielt i psykologi", "Ingenting er galt i det hele tatt — en r på 0,30 er alltid helt neglisjerbar uansett hvilket fag", "r = 0,30 er negativt, og et negativt fortegn gjør at sammenhengen ikke kan tolkes i det hele tatt", "r kan ikke være 0,30 — en slik verdi er utenfor skalaen til r"],
       explanation: "Å avfeie et moderat r uten forbehold mister A-poenget og kan være direkte feil.",
     },
     {
       question: "Hva er retningsproblemet?",
-      options: ["At kausaliteten kan gå motsatt vei (Y→X) av det man antar", "At r er negativt", "At utvalget er skjevt", "At de to variablene er målt på helt ulike målenivåer"],
+      options: ["At kausaliteten kan gå motsatt vei (Y→X) av det man antar", "At r er negativt og dermed peker feil vei", "At utvalget er skjevt", "At de to variablene er målt på helt ulike målenivåer"],
       explanation: "En korrelasjon er symmetrisk og peker ikke ut hvilken variabel som påvirker den andre.",
     },
     {
       question: "Hvilket utsagn om et korrelasjonsdesign er riktig?",
-      options: ["Begge variabler måles uten manipulasjon; det gir samvariasjon, ikke kausalitet", "Den ene variabelen manipuleres, samtidig som deltakerne randomiseres til grupper", "Det gir alltid kausal kunnskap", "r kan ikke regnes i et korrelasjonsdesign"],
+      options: ["Begge variabler måles uten manipulasjon; det gir samvariasjon, ikke kausalitet", "Den ene variabelen manipuleres, samtidig som deltakerne randomiseres til grupper", "Det gir alltid kausal kunnskap, fordi variablene måles slik de faktisk opptrer i naturen", "r kan ikke regnes i et korrelasjonsdesign, fordi ingen av variablene er manipulert av forskeren"],
       explanation: "Korrelasjonsdesignet måler; eksperimentet manipulerer og randomiserer.",
     },
     {
       question: "Hva betyr det at r er «enhetsløst»?",
-      options: ["r avhenger ikke av skalaene på X og Y og kan sammenlignes på tvers av mål", "Korrelasjonen r har alltid selve enheten prosent fast knyttet til tallverdien sin", "r måles i samme enhet som Y", "r er alltid mellom 0 og 100"],
+      options: ["r avhenger ikke av skalaene på X og Y og kan sammenlignes på tvers av mål", "Korrelasjonen r har alltid selve enheten prosent fast knyttet til tallverdien sin", "r måles i samme enhet som Y, og må derfor regnes om før to korrelasjoner kan sammenlignes", "r er alltid mellom 0 og 100, slik at tallverdien leses av som en poengsum på en fast skala"],
       explanation: "Enhetsløsheten lar korrelasjoner sammenlignes selv når variablene har helt ulike skalaer.",
     },
     {
       question: "En studie finner r = 0,55 mellom selvvalgt kursdeltakelse og velvære. Hvorfor holder ikke en kausal slutning?",
-      options: ["Fordi det er samvariasjon på naturlig, selvvalgt variasjon — tredjevariabler er ikke utelukket", "Fordi r er for lavt", "Fordi r er negativt", "Utelukkende fordi selve korrelasjonen r i seg selv allerede er en ferdig prosentandel av variasjonen"],
+      options: ["Fordi det er samvariasjon på naturlig, selvvalgt variasjon — tredjevariabler er ikke utelukket", "Fordi r er for lavt, og en kausal slutning ville holdt dersom sammenhengen mellom kursdeltakelse og velvære var sterkere", "Fordi r er negativt, og bare en positiv sammenheng mellom kursdeltakelse og velvære kunne vært tolket som årsak", "Utelukkende fordi selve korrelasjonen r i seg selv allerede er en ferdig prosentandel av variasjonen"],
       explanation: "Selvvalgt deltakelse betyr mulige konfundere; størrelsen på r endrer ikke dette.",
     },
     {
       question: "Hva er den mest presise beskrivelsen av hva en korrelasjon forteller?",
-      options: ["At to variabler samvarierer systematisk — ikke hvorfor", "At X forårsaker Y", "At Y forårsaker X", "At de to variablene i praksis er helt identiske med hverandre"],
+      options: ["At to variabler samvarierer systematisk — ikke hvorfor", "At X forårsaker Y, slik at samvariasjonen i seg selv fastslår årsaksretningen", "At Y forårsaker X, og at samvariasjonen dermed viser hvilken vei årsaken går", "At de to variablene i praksis er helt identiske med hverandre"],
       explanation: "Korrelasjon = samvariasjon (mønster), ikke forklaring (årsak).",
     },
   ],
   'psy1010-5-2': [
     {
       question: "Hvordan tegnes en konfunder?",
-      options: ["z → X og z → Y (z påvirker begge)", "X → z → Y", "z endrer selve styrken på sammenhengen X → Y", "Y → X"],
+      options: ["z → X og z → Y (z påvirker begge)", "X → z → Y", "z endrer selve styrken på sammenhengen X → Y", "Y → X (Y påvirker X)"],
       explanation: "Konfunderen påvirker både X og Y og skaper en (delvis) falsk sammenheng.",
     },
     {
       question: "Hvordan tegnes en mediator?",
-      options: ["X → z → Y (z er mekanismen)", "z → X og z → Y", "z endrer styrken på hele sammenhengen X → Y", "X → Y uten z"],
+      options: ["X → z → Y (z er mekanismen)", "z → X og z → Y", "z endrer styrken på hele sammenhengen X → Y", "X → Y uten z i modellen"],
       explanation: "Mediatoren ligger mellom X og Y — mekanismen X virker gjennom.",
     },
     {
@@ -1720,62 +1720,62 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Samme z: hva skiller en konfunder fra en mediator?",
-      options: ["Konfunder kommer før X (falsk sammenheng); mediator kommer etter X (ekte mekanisme)", "Ingenting — de er synonymer", "En konfunder gjelder utelukkende i rene randomiserte eksperimenter med kontrollgruppe", "Mediator gjør sammenhengen falsk"],
+      options: ["Konfunder kommer før X (falsk sammenheng); mediator kommer etter X (ekte mekanisme)", "Ingenting — konfunder og mediator er synonymer", "En konfunder gjelder utelukkende i rene randomiserte eksperimenter med kontrollgruppe", "Mediator gjør sammenhengen falsk"],
       explanation: "Test: kommer z før X (konfunder, kontroller bort) eller etter (mediator, ikke bort).",
     },
     {
       question: "Hva er en spuriøs sammenheng?",
-      options: ["En korrelasjon uten ekte, direkte forbindelse — drevet av konfunder eller tilfeldighet", "En sterk kausal sammenheng", "En sammenheng der r = 1", "En helt spesiell type korrelasjon som alltid viser seg å være sterkt og entydig negativ"],
+      options: ["En korrelasjon uten ekte, direkte forbindelse — drevet av konfunder eller tilfeldighet", "En sterk kausal sammenheng", "En sammenheng der r = 1, altså en perfekt korrelasjon", "En helt spesiell type korrelasjon som alltid viser seg å være sterkt og entydig negativ"],
       explanation: "Spuriøse sammenhenger er tilsynelatende; ofte forklart av en tredjevariabel.",
     },
     {
       question: "Is-salg og drukningsulykker korrelerer. Hva er tredjevariabelen?",
-      options: ["Varmt vær (som driver begge)", "Isen selv", "Antallet livreddere som er på vakt på stranden", "Tilfeldig støy"],
+      options: ["Varmt vær (som driver begge)", "Isen selv, som gjør de badende utsatt for drukning", "Antallet livreddere som er på vakt på stranden", "Tilfeldig støy"],
       explanation: "Varmt vær gir både mer is-salg og flere badende (og dermed ulykker) — en konfunder.",
     },
     {
       question: "De tre kanoniske grunnene til at korrelasjon ikke er kausalitet er",
-      options: ["retningsproblemet, tredjevariabler og spuriøse sammenhenger", "problemer med reliabilitet, validitet og systematisk skjevhet", "nominal, ordinal og intervall", "utvalg, måling og design"],
+      options: ["retningsproblemet, tredjevariabler og spuriøse sammenhenger", "reliabilitet, validitet og systematisk skjevhet", "nominal, ordinal og intervall", "utvalg, måling og design"],
       explanation: "Å nevne alle tre (ikke bare «en tredjevariabel») løfter svaret.",
     },
     {
       question: "Hva bør man gjøre med en konfunder z?",
-      options: ["Kontrollere for den (holde konstant / ta inn i multippel regresjon)", "Forsterke den", "Rett og slett ignorere den helt, siden den jo egentlig er selve mekanismen", "Bytte den med X"],
+      options: ["Kontrollere for den (holde konstant / ta inn i multippel regresjon)", "Forsterke den, slik at effekten blir tydeligere", "Ignorere den, siden den egentlig er selve mekanismen", "Bytte den med X"],
       explanation: "Kontroll tester om sammenhengen består når z holdes fast.",
     },
     {
       question: "Hvorfor skal man IKKE kontrollere bort en mediator?",
-      options: ["Fordi mediatoren er selve mekanismen — da forsvinner effekten man studerer", "Fordi den er falsk", "Fordi den ikke kan måles", "Fordi en mediator i virkeligheten nesten alltid samtidig også er en skjult konfunder"],
+      options: ["Fordi mediatoren er selve mekanismen — da forsvinner effekten man studerer", "Fordi mediatoren er en falsk sammenheng", "Fordi den ikke kan måles", "Fordi en mediator nesten alltid også er en skjult konfunder"],
       explanation: "Mediatoren forklarer en ekte sammenheng; å kontrollere den bort fjerner effekten.",
     },
     {
       question: "Hvilken feil begår en kandidat som bare skriver «det kan være en tredjevariabel» uten å navngi noen?",
-      options: ["Oppramsing uten case-tilpasning — nærmer seg C-tak", "Feil #6 (SD/SE)", "Feil #4 (kasus/N=1)", "Ingen feil i det hele tatt — en slik generell påpekning er alltid nok"],
+      options: ["Oppramsing uten case-tilpasning — nærmer seg C-tak", "Feil #6 (SD forvekslet med SE)", "Feil #4 (kasus/N=1)", "Ingen feil — en generell påpekning er nok"],
       explanation: "A-kravet er å case-tilpasse modellene til scenariets faktiske variabler.",
     },
     {
       question: "En rivaliserende hypotese er",
-      options: ["en alternativ forklaring dataene ikke kan utelukke", "en spesiell hypotese som alltid viser seg å være sann uansett", "det samme som nullhypotesen", "en feil i utvalget"],
+      options: ["en alternativ forklaring dataene ikke kan utelukke", "en spesiell hypotese som alltid viser seg å være sann uansett", "det samme som nullhypotesen man tester", "en feil i utvalget, altså at deltakerne er trukket skjevt fra populasjonen"],
       explanation: "I naturlige settinger finnes alltid rivaliserende hypoteser (konfunder, motsatt retning).",
     },
     {
       question: "Hva løser et longitudinelt design (måling over tid)?",
-      options: ["Fastslår tidsrekkefølge — X målt før Y utelukker Y→X", "Fjerner alle konfundere", "Gjør r større", "Erstatter fullstendig behovet for randomisering i studien"],
+      options: ["Fastslår tidsrekkefølge — X målt før Y utelukker Y→X", "Fjerner alle konfundere fra sammenhengen", "Gjør r større, siden gjentatte målinger av X og Y i seg selv styrker sammenhengen", "Erstatter fullstendig behovet for randomisering i studien"],
       explanation: "Tidsrekkefølge er et kausalkrav; longitudinelle data hjelper, men fjerner ikke konfundere.",
     },
     {
       question: "«Byer med flere kirker har flere barer.» Hva forklarer dette best?",
-      options: ["En konfunder: folketallet driver begge", "Kirker forårsaker barer", "Barer forårsaker kirker", "Bare ren tilfeldighet helt uten noen forklaring"],
+      options: ["En konfunder: folketallet driver begge", "Kirker forårsaker barer, slik at flere kirker i en by gir flere barer", "Barer forårsaker kirker", "Bare ren tilfeldighet helt uten noen forklaring"],
       explanation: "Store byer har mer av alt — folketall er en klassisk konfunder.",
     },
     {
       question: "Hva er en ren tilfeldig spuriøs sammenheng?",
-      options: ["En korrelasjon uten noen felles årsak, funnet ved å lete gjennom mange variabler", "En helt spesiell type sammenheng som er drevet av en enkelt bakenforliggende konfunder", "En sterk kausal sammenheng", "En mediert sammenheng"],
+      options: ["En korrelasjon uten noen felles årsak, funnet ved å lete gjennom mange variabler", "En helt spesiell type sammenheng som er drevet av en enkelt bakenforliggende konfunder", "En sterk kausal sammenheng mellom de to variablene", "En mediert sammenheng, der X virker på Y gjennom et mellomliggende ledd som forklarer koblingen"],
       explanation: "I store datamengder finner man alltid meningsløse samsvar — uten felles z.",
     },
     {
       question: "«Strengere skjermregler ↔ bedre karakterer.» Foreldreoppfølging som z passer best som",
-      options: ["konfunder (påvirker både regler og karakterer)", "mediator", "moderator", "en ren kriterievariabel i analysen"],
+      options: ["konfunder (påvirker både regler og karakterer)", "mediator (mellom regler og karakterer)", "moderator", "en ren kriterievariabel i analysen"],
       explanation: "Oppfølging ligger før reglene og påvirker begge — en konfunder.",
     },
     {
@@ -1785,39 +1785,39 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "«Lekselengde ↔ karakter er sterk for yngre, svak for eldre.» Alder er her en",
-      options: ["moderator", "mediator", "konfunder", "kriterievariabel"],
+      options: ["moderator", "mediator, altså leddet effekten går gjennom", "konfunder, altså en felles årsak til begge", "kriterievariabel"],
       explanation: "Alder endrer styrken på sammenhengen — «for hvem gjelder den».",
     },
     {
       question: "Hvorfor kan en tverrsnittskorrelasjon ikke skille X→Y fra Y→X?",
-      options: ["Den måler begge variabler samtidig, uten tidsrekkefølge eller randomisering", "Fordi r alltid er negativt", "Fordi utvalget er for lite", "Utelukkende fordi en tverrsnittskorrelasjon nesten alltid bygger på rene ordinaldata"],
+      options: ["Den måler begge variabler samtidig, uten tidsrekkefølge eller randomisering", "Fordi r alltid er negativt, og et negativt fortegn kan ikke peke ut hvilken vei årsaken går", "Fordi utvalget er for lite, og retningen mellom X og Y ville kommet fram med flere deltakere", "Utelukkende fordi en tverrsnittskorrelasjon nesten alltid bygger på rene ordinaldata"],
       explanation: "Uten tidsrekkefølge og randomisering er alle rivaliserende hypoteser forenlige med samme r.",
     },
     {
       question: "Hva må til for at X skal kunne forårsake Y (tidskravet)?",
-      options: ["X må komme før Y i tid", "X og Y må måles samtidig", "r må være over 0,5", "X må være dikotom"],
+      options: ["X må komme før Y i tid", "X og Y må måles samtidig", "r må være over 0,5, slik at styrken alene sikrer tidskravet", "X må være dikotom, altså ha bare to verdier å sammenligne"],
       explanation: "Tidsrekkefølge er et kausalkrav; tverrsnittsdata oppfyller det ikke.",
     },
     {
       question: "En kollega vil «kontrollere bort» en variabel som viser seg å være mekanismen (mediatoren). Hva er problemet?",
-      options: ["Da fjerner man nettopp effekten man ønsker å forklare", "Ingenting — det er alltid riktig", "Mediatoren er en konfunder", "Man kan i praksis aldri kontrollere statistisk for noe som helst"],
+      options: ["Da fjerner man nettopp effekten man ønsker å forklare", "Ingenting — det er alltid riktig å kontrollere for en variabel som henger sammen med X", "Mediatoren er en konfunder, altså en bakenforliggende felles årsak som må fjernes", "Man kan i praksis aldri kontrollere statistisk for noe som helst"],
       explanation: "Mediatorer skal forklares, ikke kontrolleres bort som konfundere.",
     },
   ],
   'psy1010-5-3': [
     {
       question: "I regresjonsligningen Ŷ = a + bX, hva er a?",
-      options: ["Interceptet: predikert Y når X = 0", "Endringen i Y per enhet X", "Selve korrelasjonen r mellom variablene X og Y", "Residualen"],
+      options: ["Interceptet: predikert Y når X = 0", "Endringen i Y per enhet X, altså hvor bratt linjen stiger", "Selve korrelasjonen r mellom variablene X og Y", "Residualen, altså avstanden mellom observert og predikert Y"],
       explanation: "a er linjens utgangspunkt (Y-akse-kryss), ikke «effekten av X».",
     },
     {
       question: "Hva er b i Ŷ = a + bX?",
-      options: ["Regresjonsvekten: endring i predikert Y per én enhets økning i X", "Predikert Y når X = 0", "Selve andelen av den totale variansen i Y som forklares av variabelen X", "Den observerte Y-verdien"],
+      options: ["Regresjonsvekten: endring i predikert Y per én enhets økning i X", "Predikert Y når X = 0, altså punktet der regresjonslinjen krysser Y-aksen", "Selve andelen av den totale variansen i Y som forklares av variabelen X", "Den observerte Y-verdien, altså den faktiske skåren før linjen brukes til prediksjon"],
       explanation: "b er stigningstallet; fortegnet følger r.",
     },
     {
       question: "Hva er Ŷ («Y-hatt»)?",
-      options: ["Den predikerte verdien av Y, lest av linjen", "Den faktisk observerte og målte verdien av Y", "Standardavviket til Y", "Korrelasjonen"],
+      options: ["Den predikerte verdien av Y, lest av linjen", "Den faktisk observerte og målte verdien av Y", "Standardavviket til Y", "Korrelasjonen mellom X og Y"],
       explanation: "Ŷ er modellens gjett; Y er den faktiske verdien.",
     },
     {
@@ -1827,7 +1827,7 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er r² tolket som?",
-      options: ["Andelen av variasjonen i Y som deles med (forklares av) X", "Rett og slett fortegnet til selve korrelasjonskoeffisienten r", "Det samme som r", "Regresjonsvekten b"],
+      options: ["Andelen av variasjonen i Y som deles med (forklares av) X", "Rett og slett fortegnet til selve korrelasjonskoeffisienten r", "Det samme som r, bare skrevet på en annen måte", "Regresjonsvekten b"],
       explanation: "r = 0,30 → r² = 0,09 = 9 % delt varians; resten skyldes annet.",
     },
     {
@@ -1837,27 +1837,27 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er r² nyttigere enn r for å sammenligne styrke?",
-      options: ["r kan bare rangeres; r² gir andeler som kan sammenlignes direkte", "r² er alltid negativt", "Fordi r² i motsetning til r fjerner problemet med kausalitet helt", "r² er lettere å regne"],
+      options: ["r kan bare rangeres; r² gir andeler som kan sammenlignes direkte", "r² er alltid negativt", "Fordi r² fjerner problemet med kausalitet", "r² er lettere å regne"],
       explanation: "r = 0,4 gir r² = 0,16 mot 0,04 for 0,2 — fire ganger, ikke dobbelt.",
     },
     {
       question: "Hva er en residual?",
-      options: ["Y − Ŷ: avstanden fra en faktisk verdi til linjen", "a + bX", "Nøyaktig det samme som regresjonsvekten b", "Korrelasjonen"],
+      options: ["Y − Ŷ: avstanden fra en faktisk verdi til linjen", "a + bX, altså selve regresjonslinjen", "Nøyaktig det samme som regresjonsvekten b", "Korrelasjonen"],
       explanation: "Residualen er modellens bomavstand for den enkelte personen.",
     },
     {
       question: "Hva minimerer minste kvadraters metode?",
-      options: ["Summen av de kvadrerte residualene", "Selve summen av alle X-verdiene i datasettet", "Korrelasjonen", "Antall punkter"],
+      options: ["Summen av de kvadrerte residualene", "Selve summen av alle X-verdiene i datasettet", "Korrelasjonen mellom X og Y, slik at r blir så liten som mulig", "Antall punkter"],
       explanation: "Linjen legges der de kvadrerte prediksjonsfeilene er minst mulig totalt.",
     },
     {
       question: "Hvilken feil begår en kandidat som tolker a som «effekten av X»?",
-      options: ["a er predikert Y når X = 0, ikke en effekt — effekten er b", "Ingen feil", "a er alltid null", "Konstanten a er egentlig det samme som residualen i modellen"],
+      options: ["a er predikert Y når X = 0, ikke en effekt — effekten er b", "Ingen feil — konstanten a kan uten videre leses som effekten av X på Y", "Konstanten a er alltid null, uansett hvilke data", "Konstanten a er egentlig det samme som residualen i modellen"],
       explanation: "a er utgangspunktet; b er endringen per X.",
     },
     {
       question: "Hva er ekstrapolering?",
-      options: ["Å predikere for X-verdier utenfor det observerte området", "Å regne r²", "Å plotte punktene", "Å velge selve minste kvadraters metode når man tegner linjen"],
+      options: ["Å predikere for X-verdier utenfor det observerte området", "Å regne r², altså å kvadrere korrelasjonen for å finne forklart varians", "Å plotte punktene i et spredningsdiagram", "Å velge selve minste kvadraters metode når man tegner linjen"],
       explanation: "Utenfor dataene kan sammenhengen bryte sammen; prediksjonen blir upålitelig.",
     },
     {
@@ -1867,42 +1867,42 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En person har Ŷ = 50 og faktisk Y = 47. Residualen er",
-      options: ["−3 (personen ligger under linjen)", "+3 (personen ligger over linjen)", "0", "50"],
+      options: ["−3 (personen ligger under linjen)", "+3 (personen ligger over linjen)", "0 (personen ligger på linjen)", "50"],
       explanation: "Residual = Y − Ŷ = 47 − 50 = −3; negativ = under linjen.",
     },
     {
       question: "Hva legger regresjon til, sammenlignet med korrelasjon?",
-      options: ["En prediksjonslinje — hvor mye Y endrer seg per X", "Kausalitet", "Et helt nytt signifikansnivå for testen", "Et nytt målenivå"],
+      options: ["En prediksjonslinje — hvor mye Y endrer seg per X", "Kausalitet — at X forårsaker endringen i Y", "Et helt nytt signifikansnivå for testen", "Et nytt målenivå"],
       explanation: "«Videreføring av korrelasjon»: samme sammenheng, nå med prediksjon — men ikke kausalitet.",
     },
     {
       question: "Hvorfor er prediktor/kriterium-rollene IKKE vilkårlige i regresjon?",
-      options: ["Minste kvadrater minimerer feilen i Y; bytter man om, får man en annen linje", "Fordi r er symmetrisk", "Fordi X alltid er årsak", "De er faktisk helt vilkårlige å velge, akkurat som rollene ved en vanlig korrelasjon"],
+      options: ["Minste kvadrater minimerer feilen i Y; bytter man om, får man en annen linje", "Fordi r er symmetrisk, og symmetrien gjør at regresjonslinjen blir nøyaktig den samme begge veier", "Fordi X alltid er årsaken til Y, og årsaken må stå som prediktor", "De er faktisk helt vilkårlige å velge, akkurat som rollene ved en vanlig korrelasjon"],
       explanation: "Til forskjell fra korrelasjon (symmetrisk r) er regresjonen asymmetrisk.",
     },
     {
       question: "En kandidat sier «r = 0,50, altså forklarer testen halvparten». Hva er feil?",
-      options: ["Den forklarte andelen er r² = 0,25 = 25 %, ikke r", "Ingenting", "r² = 0,50", "En korrelasjon r kan aldri anta verdien 0,50"],
+      options: ["Den forklarte andelen er r² = 0,25 = 25 %, ikke r", "Ingenting — r kan leses som andel forklart", "r² = 0,50", "En korrelasjon r kan aldri anta verdien 0,50"],
       explanation: "Å lese r som prosent dobler den forklarte variansen.",
     },
     {
       question: "Fortegnet til b følger",
-      options: ["fortegnet til r", "b er alltid positivt uansett fortegnet til r", "fortegnet til a", "målenivået"],
+      options: ["fortegnet til r", "b er alltid positivt uansett fortegnet til r", "fortegnet til a", "målenivået til variablene X og Y"],
       explanation: "Positiv korrelasjon gir positiv b; negativ gir negativ b.",
     },
     {
       question: "Hva forteller store residualer om modellen?",
-      options: ["At linjen forklarer lite (lav r²)", "At r² er høy", "At b er null", "At selve prediksjonen fra modellen er helt perfekt"],
+      options: ["At linjen forklarer lite (lav r²)", "At r² er høy, siden store residualer viser god tilpasning", "At b er null, siden store avvik gjør stigningstallet flatt", "At selve prediksjonen fra modellen er helt perfekt"],
       explanation: "Store residualer = dårlig tilpasning; små = god tilpasning (høy r²).",
     },
     {
       question: "Hvilken feil begår en kandidat som skriver bare sluttsvaret på en Ŷ-prediksjon?",
-      options: ["Feil #13 — usynlig utregning", "Feil #3 — kausal tolkning", "Feil #6 — SD/SE", "Feil #12 — å forveksle populasjon og utvalg"],
+      options: ["Feil #13 — usynlig utregning", "Feil #3 — kausal tolkning av en regresjonsvekt", "Feil #6 — å forveksle standardavvik og standardfeil", "Feil #12 — å forveksle populasjon og utvalg"],
       explanation: "Uten mellomregning (a + b·X) kan ikke sensor gi «riktig metode»-uttelling.",
     },
     {
       question: "Betyr b = 2,5 (i studietimer → skår) at én ekstra time FORÅRSAKER 2,5 poeng?",
-      options: ["Nei — det er predikert samvariasjon på korrelasjonsdata, ikke en kausal effekt", "Ja, alltid", "Ja, hvis r > 0,5", "Nei, fordi selve regresjonsvekten b i praksis alltid bare er et rent tilfeldig tall"],
+      options: ["Nei — det er predikert samvariasjon på korrelasjonsdata, ikke en kausal effekt", "Ja, alltid — en regresjonsvekt på 2,5 betyr at én ekstra studietime gir 2,5 poeng mer", "Ja, hvis r > 0,5 — da er samvariasjonen sterk nok til at 2,5 poeng blir en kausal effekt", "Nei, fordi selve regresjonsvekten b i praksis alltid bare er et rent tilfeldig tall"],
       explanation: "Regresjon predikerer uten å gi kausalitet (feil #3 lurer).",
     },
   ],
@@ -1929,42 +1929,42 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva forutsetter Pearsons r?",
-      options: ["Intervall/forhold-data på begge variabler og en lineær sammenheng", "Ordinaldata", "At begge variabler er dikotome", "At r er positiv"],
+      options: ["Intervall/forhold-data på begge variabler og en lineær sammenheng", "Ordinaldata på begge variabler, altså rangerte skårer", "At begge variabler er dikotome", "At r er positiv"],
       explanation: "Bryter forutsetningene, trengs Spearman, punkt-biserial eller phi.",
     },
     {
       question: "Hva er en kurvlineær sammenheng?",
-      options: ["En buet (ikke-lineær) sammenheng, f.eks. omvendt U", "En perfekt rett linje", "En sammenheng der r = 1", "En dikotom variabel"],
+      options: ["En buet (ikke-lineær) sammenheng, f.eks. omvendt U", "En perfekt rett linje gjennom alle punktene", "En sammenheng der r = 1", "En dikotom variabel, altså en variabel med bare to mulige verdier"],
       explanation: "Aktivering–prestasjon (opp så ned) er klassisk; Pearsons r fanger den dårlig.",
     },
     {
       question: "Hvorfor kan r ≈ 0 «lyve»?",
-      options: ["Fordi r bare fanger lineære sammenhenger — en sterk bue gir også r nær 0", "Fordi r alltid er feil ved 0", "Fordi r ≈ 0 betyr perfekt sammenheng", "Fordi ordinaldata gir r = 0"],
+      options: ["Fordi r bare fanger lineære sammenhenger — en sterk bue gir også r nær 0", "Fordi r alltid er feil ved 0, uansett hvordan punktene ligger", "Fordi r ≈ 0 betyr perfekt sammenheng", "Fordi ordinaldata gir r = 0, siden rangerte verdier ikke kan gi utslag i en korrelasjon"],
       explanation: "En symmetrisk omvendt U gir r nær null tross sterk sammenheng. Sjekk spredningsdiagram.",
     },
     {
       question: "Hva er statistisk kontroll?",
-      options: ["Å ta en tredjevariabel inn i en multippel regresjon og se om X–Y-sammenhengen består", "Å randomisere deltakere", "Å regne standardavviket", "Å kvadrere r"],
+      options: ["Å ta en tredjevariabel inn i en multippel regresjon og se om X–Y-sammenhengen består", "Å randomisere deltakere til betingelser, slik at fordelingen på gruppene avgjøres av tilfeldigheter", "Å regne standardavviket til X og Y, slik at spredningen holdes konstant", "Å kvadrere r, slik at man får andelen av variansen i Y som forklares, i stedet for selve korrelasjonen"],
       explanation: "Statistisk kontroll tester om sammenhengen holder når z holdes konstant.",
     },
     {
       question: "Hva kan statistisk kontroll IKKE fjerne?",
-      options: ["Umålte/ukjente tredjevariabler", "Målte tredjevariabler", "Selve regresjonslinjen", "Korrelasjonen"],
+      options: ["Umålte/ukjente tredjevariabler", "Målte tredjevariabler som allerede er registrert", "Selve regresjonslinjen", "Korrelasjonen mellom X og Y i utvalget"],
       explanation: "Bare randomisering jevner ut *alle* konfundere, også de umålte.",
     },
     {
       question: "Hva skiller eksperimentell fra statistisk kontroll?",
-      options: ["Randomisering jevner ut alle tredjevariabler; statistisk kontroll bare de målte", "Ingenting", "Statistisk kontroll er sterkest", "Eksperimentell kontroll krever ordinaldata"],
+      options: ["Randomisering jevner ut alle tredjevariabler; statistisk kontroll bare de målte", "Ingenting — randomisering og statistisk kontroll håndterer tredjevariabler på nøyaktig samme måte", "Statistisk kontroll er sterkest, siden den tar høyde for tredjevariabler randomisering ikke når", "Eksperimentell kontroll krever ordinaldata, statistisk kontroll intervalldata"],
       explanation: "Dette er hvorfor bare eksperimentet gir full kausal kontroll.",
     },
     {
       question: "Hva løser et longitudinelt design på vei mot kausalitet?",
-      options: ["Fastslår tidsrekkefølge (X målt før Y utelukker Y→X)", "Fjerner alle konfundere", "Gjør r større", "Erstatter Pearson med Spearman"],
+      options: ["Fastslår tidsrekkefølge (X målt før Y utelukker Y→X)", "Fjerner alle konfundere, slik at gjentatte målinger alene gir full kausal kontroll", "Gjør r større, fordi korrelasjonen mellom X og Y styrkes av at målingene gjentas", "Erstatter Pearsons r med Spearmans rangkorrelasjon"],
       explanation: "Tidsrekkefølge er et kausalkrav; longitudinelle data hjelper delvis.",
     },
     {
       question: "En forsker bruker Pearsons r på rangeringsdata. Hva er problemet?",
-      options: ["Rangdata (ordinal) krever Spearmans rho, ikke Pearson", "Ingenting", "Rangdata krever phi", "r blir alltid negativt"],
+      options: ["Rangdata (ordinal) krever Spearmans rho, ikke Pearson", "Ingenting — Pearsons r kan brukes uansett målenivå, også på rangeringsdata", "Rangdata krever phi, koeffisienten som er laget for å beskrive rangeringer", "r blir alltid negativt når den regnes ut på rangeringsdata i stedet for skårer"],
       explanation: "Å velge koeffisient uten å sjekke målenivå mister begrunnelsespoenget.",
     },
     {
@@ -1974,12 +1974,12 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Øverst på stigen mot kausal kontroll (uten RCT), hva gjenstår som forbehold?",
-      options: ["Umålte konfundere kan fortsatt drive sammenhengen", "Ingenting — konklusjonen er sikker", "At r er for lav", "At utvalget er ordinalt"],
+      options: ["Umålte konfundere kan fortsatt drive sammenhengen", "Ingenting — uten randomisering er den kausale konklusjonen like sikker", "At r er for lav til å bære en kausal konklusjon, uansett hvor godt designet er", "At utvalget er ordinalt, og at kausale slutninger krever et intervallutvalg"],
       explanation: "Uten randomisering må en kausal konklusjon forbeholdes; feil #3 lurer.",
     },
     {
       question: "En kandidat skriver «vi kontrollerte statistisk, altså er sammenhengen kausal». Hva er feil?",
-      options: ["Statistisk kontroll fjerner bare målte konfundere — ikke umålte", "Ingenting", "Statistisk kontroll er umulig", "Man kan aldri kontrollere for noe"],
+      options: ["Statistisk kontroll fjerner bare målte konfundere — ikke umålte", "Ingenting — statistisk kontroll for målte variabler er nok til å slå fast kausalitet", "Statistisk kontroll er umulig, så en kandidat kan aldri kontrollere for en tredjevariabel", "Man kan aldri kontrollere for noe, verken målte eller umålte variabler, i noe forskningsdesign"],
       explanation: "Å oversælge statistisk kontroll som kausalitet ignorerer umålte tredjevariabler.",
     },
   ],
@@ -2011,37 +2011,37 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er «Fører sosiale medier til ensomhet?» ikke et kvalitativt forskningsspørsmål?",
-      options: ["Det er hypoteseformet og kan besvares med ja/nei", "Det handler om sosiale medier", "Det er for kort", "Det inneholder ingen tall"],
+      options: ["Det er hypoteseformet og kan besvares med ja/nei", "Det handler om sosiale medier", "Det er for kort — kvalitative forskningsspørsmål må formuleres i flere setninger", "Det inneholder ingen tall eller målenheter"],
       explanation: "«Fører X til Y?» påstår en sammenheng (hypotese) og er ja/nei-besvarbart — den kvantitative, testende formen, ikke den kvalitative.",
     },
     {
       question: "Hvilken omskriving gjør «Reduserer meditasjon eksamensstress?» til et kvalitativt spørsmål?",
-      options: ["«Hvordan erfarer studenter at meditasjon virker inn på eksamensstresset deres?»", "«Hvor mye reduserer meditasjon eksamensstress?»", "«Er meditasjon effektivt mot eksamensstress?»", "«Hvor stor andel av studenter mediterer i eksamensperioden?»"],
+      options: ["«Hvordan erfarer studenter at meditasjon virker inn på eksamensstresset deres?»", "«Hvor mye reduserer meditasjon eksamensstress?»", "«Er meditasjon effektivt mot eksamensstress, slik studenter i eksamensperioden opplever det?»", "«Hvor stor andel av studenter mediterer i eksamensperioden?»"],
       explanation: "Omskrivingen må bytte til åpent spørreord og fjerne hypotesen. De tre andre er fortsatt tellende eller ja/nei-baserte.",
     },
     {
       question: "Når passer en kvalitativ tilnærming best?",
-      options: ["Når feltet er lite utforsket og du vil forstå en opplevelse eller prosess innenfra", "Når du vil telle hvor utbredt et fenomen er", "Når du vil teste en hypotese statistisk", "Når du trenger et stort, representativt utvalg for å generalisere"],
+      options: ["Når feltet er lite utforsket og du vil forstå en opplevelse eller prosess innenfra", "Når du vil telle hvor utbredt et fenomen er", "Når du vil teste en hypotese statistisk og avgjøre om en påstått sammenheng mellom to variabler holder", "Når du trenger et stort, representativt utvalg for å generalisere"],
       explanation: "Kvalitativt passer for mening/opplevelse og lite kartlagte felt. Utbredelse, hypotesetesting og generalisering peker mot kvantitativ metode.",
     },
     {
       question: "Hva er kvalitativ metodes særlige gevinst ved åpne spørsmål?",
-      options: ["Forskeren kan lære noe hun ikke kunne forutse — det uventede", "Raskere datainnsamling fra mange deltakere", "Enklere statistisk analyse", "Høyere sammenlignbarhet mellom svarene"],
+      options: ["Forskeren kan lære noe hun ikke kunne forutse — det uventede", "Raskere datainnsamling fra mange deltakere", "Enklere statistisk analyse, fordi åpne svar lar seg regne på uten videre bearbeiding", "Høyere sammenlignbarhet mellom svarene, siden alle deltakerne svarer på nøyaktig det samme"],
       explanation: "Åpne spørsmål lar det uventede komme frem — erfaringer forskeren ikke hadde tenkt å spørre om. Ferdige svaralternativer ville skjult dette.",
     },
     {
       question: "Hvilken påstand om forholdet mellom kvalitativ og kvantitativ metode er riktig?",
-      options: ["Ingen er «bedre» — hvilken som passer avgjøres av forskningsspørsmålet", "Kvalitativ metode er mer vitenskapelig fordi den går i dybden", "Kvantitativ metode er alltid å foretrekke fordi den gir tall", "De kan aldri kombineres i samme prosjekt"],
+      options: ["Ingen er «bedre» — hvilken som passer avgjøres av forskningsspørsmålet", "Kvalitativ metode er mer vitenskapelig fordi den går i dybden", "Kvantitativ metode er alltid å foretrekke fordi den gir tall, uansett hva forskningsspørsmålet ber om", "De kan aldri kombineres i samme prosjekt, fordi et prosjekt må velge én av tradisjonene helt"],
       explanation: "Metoden følger av spørsmålet. Begge tradisjoner er fullverdige, og mange prosjekter kombinerer dem — å rangere den ene over den andre er en karikatur.",
     },
     {
       question: "En student leverer «Hva slags strategier bruker studenter for å håndtere eksamensstress?». Er dette gyldig?",
-      options: ["Ja — åpent spørreord, ingen hypotese, ikke ja/nei", "Nei — det er hypoteseformet", "Nei — det kan besvares med ja/nei", "Nei — det mangler et spørreord"],
+      options: ["Ja — åpent spørreord, ingen hypotese, ikke ja/nei", "Nei — det er hypoteseformet og påstår at studenter håndterer eksamensstress", "Nei — det kan besvares med ja/nei", "Nei — det mangler et spørreord og åpner derfor ikke for en beskrivelse"],
       explanation: "«Hva slags strategier …» er et åpent spørreord, spørsmålet påstår ingenting og kan ikke besvares med ja/nei. Det er gyldig kvalitativt.",
     },
     {
       question: "Hva slags data gir en kvalitativ tilnærming typisk?",
-      options: ["Ord og beskrivelser (intervjuutskrifter, observasjonsnotater, dagbøker)", "Tall og standardiserte skårer", "Prosentandeler og korrelasjoner", "Frekvenstabeller fra store utvalg"],
+      options: ["Ord og beskrivelser (intervjuutskrifter, observasjonsnotater, dagbøker)", "Tall og standardiserte skårer, slik at hver deltakers svar kan føres inn som en verdi", "Prosentandeler og korrelasjoner som viser hvor utbredt fenomenet er og hvordan mål henger sammen", "Frekvenstabeller fra store utvalg, med opptelte svar"],
       explanation: "Kvalitative data er ord og beskrivelser; tall, prosenter og frekvenstabeller er kvantitative data.",
     },
     {
@@ -2051,12 +2051,12 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En oppgave ber om ett kvalitativt forskningsspørsmål. Hva bør du IKKE gjøre?",
-      options: ["Utbrodere med alt du kan om kvalitativ metode", "Bruke et åpent spørreord", "Sjekke at spørsmålet ikke er hypoteseformet", "Holde svaret kort og presist"],
+      options: ["Utbrodere med alt du kan om kvalitativ metode", "Bruke et åpent spørreord som «hva slags» eller «hvordan» i spørsmålet", "Sjekke at spørsmålet ikke er hypoteseformet og ikke kan besvares med ja/nei", "Holde svaret kort og presist, med ett gyldig spørsmål og ikke mer"],
       explanation: "Utbrodering gir null ekstra og stjeler tid (relevansfilteret, kap. 0.2). Kravet er lavt — lever ett gyldig spørsmål og gå videre.",
     },
     {
       question: "Hvorfor er «Hvor stor andel av nye foreldre opplever søvnmangel?» ikke et kvalitativt spørsmål?",
-      options: ["Det spør om utbredelse i tall (en andel) — en kvantitativ form", "Det er hypoteseformet", "Det kan besvares med ja/nei", "Det mangler et tema"],
+      options: ["Det spør om utbredelse i tall (en andel) — en kvantitativ form", "Det er hypoteseformet og påstår på forhånd at nye foreldre opplever søvnmangel", "Det kan besvares med ja/nei, siden det bare spør om nye foreldre opplever søvnmangel", "Det mangler et tema, og sier ikke hvilken gruppe eller hvilket fenomen det gjelder"],
       explanation: "«Hvor stor andel …» ber om et tall/en utbredelse. Det er ikke hypoteseformet eller ja/nei, men det er kvantitativt — feil datatype for et kvalitativt spørsmål.",
     },
   ],
@@ -2083,57 +2083,57 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva utgjør selve dataene i et kvalitativt forskningsintervju?",
-      options: ["Intervjupersonens subjektive erfaring, formidlet gjennom språket", "Antall ganger hvert tema nevnes", "Skårer på en holdningsskala", "Forskerens forhåndsdefinerte kategorier"],
+      options: ["Intervjupersonens subjektive erfaring, formidlet gjennom språket", "Antall ganger hvert tema nevnes i intervjuet", "Skårer på en holdningsskala, der intervjupersonen plasserer erfaringen sin på en tallverdi", "Forskerens forhåndsdefinerte kategorier"],
       explanation: "Den subjektive erfaringen, uttrykt i språk, er datagrunnlaget — ikke en feilkilde. Telling og skalaer hører til kvantitativ metode.",
     },
     {
       question: "Hva er galt med å beskrive det kvalitative intervjuet som «ustrukturert prat»?",
-      options: ["Det underspiller at intervjuet har både struktur og formål", "Det overdriver hvor lukket intervjuet er", "Det gjør intervjuet for likt et spørreskjema", "Ingenting — det er en presis beskrivelse"],
+      options: ["Det underspiller at intervjuet har både struktur og formål", "Det overdriver hvor lukket intervjuet er, og får det til å framstå som fast styrt", "Det gjør intervjuet for likt et spørreskjema", "Ingenting — det er en presis beskrivelse"],
       explanation: "Intervjuet HAR struktur og formål. «Ustrukturert prat» er en klassisk felle som mister Kvale & Brinkmanns kjernepoeng.",
     },
     {
       question: "Hva gir et spørreskjema som det kvalitative intervjuet ikke egner seg til?",
-      options: ["Utbredelse i et stort, sammenlignbart utvalg (standardiserte tall)", "Dybde og mening i personens egne ord", "Det uventede som forskeren ikke forutså", "Opplevelsen av et fenomen innenfra"],
+      options: ["Utbredelse i et stort, sammenlignbart utvalg (standardiserte tall)", "Dybde og mening i personens egne ord", "Det uventede som forskeren ikke forutså", "Opplevelsen av et fenomen innenfra, slik personen selv beskriver den med egne ord"],
       explanation: "Spørreskjemaet gir standardiserte, sammenlignbare tall og utbredelse. De tre andre er nettopp intervjuets styrker.",
     },
     {
       question: "En forskningsinteresse gjelder «hvordan pårørende opplever hverdagen». Hvilken metode passer best?",
-      options: ["Kvalitativt intervju — spørsmålet handler om mening og opplevelse", "Spørreskjema — det gir standardiserte tall", "Eksperiment med kontrollgruppe", "Registerstudie av store datamengder"],
+      options: ["Kvalitativt intervju — spørsmålet handler om mening og opplevelse", "Spørreskjema — det gir standardiserte tall", "Eksperiment med kontrollgruppe, der pårørendes hverdag sammenlignes med en kontrollbetingelse", "Registerstudie av store datamengder"],
       explanation: "«Hvordan oppleves …» handler om mening/opplevelse, som intervjuet fanger. Et spørreskjema ville presset opplevelsen inn i ferdige kategorier.",
     },
     {
       question: "Hva ville en forsker tape ved å bytte fra intervju til et lukket spørreskjema?",
-      options: ["Dybden, meningen og det uventede — bare det forskeren har tenkt på fanges", "Muligheten til å måle utbredelse", "Muligheten til å nå mange deltakere effektivt", "Sammenlignbarheten mellom svarene"],
+      options: ["Dybden, meningen og det uventede — bare det forskeren har tenkt på fanges", "Muligheten til å måle utbredelse, altså hvor mange i en gruppe som svarer det samme", "Muligheten til å nå mange deltakere effektivt", "Sammenlignbarheten mellom svarene, som gjør at deltakernes svar kan stilles side om side"],
       explanation: "Lukkede alternativer fanger bare det forskeren har tenkt på og mister det uventede. Utbredelse, mange deltakere og sammenlignbarhet er derimot skjemaets styrker.",
     },
     {
       question: "Hvilken struktureringsgrad har det kvalitative forskningsintervjuet typisk?",
-      options: ["Semistrukturert — en intervjuguide med temaer, men rom for oppfølging", "Fullt strukturert — faste spørsmål i fast rekkefølge", "Helt uten noen form for struktur", "Strukturert som et lukket spørreskjema"],
+      options: ["Semistrukturert — en intervjuguide med temaer, men rom for oppfølging", "Fullt strukturert — faste spørsmål i fast rekkefølge", "Helt uten noen form for struktur — verken intervjuguide, temaer eller formål på forhånd", "Strukturert som et lukket spørreskjema, med faste svaralternativer og uten rom for oppfølging"],
       explanation: "Forskningsintervjuet er typisk semistrukturert: nok struktur til å holde formålet, nok åpenhet til å fange det uventede.",
     },
     {
       question: "Hvorfor skal du ikke svare med intervjuets faghistorie på eksamen?",
-      options: ["Faghistorien er eksplisitt ikke forventet — den gir null (relevansfilteret)", "Faghistorien er feilaktig", "Faghistorien er ikke på pensum i det hele tatt", "Faghistorien trekker aktivt ned karakteren"],
+      options: ["Faghistorien er eksplisitt ikke forventet — den gir null (relevansfilteret)", "Faghistorien er feilaktig, og en framstilling av intervjuets bakgrunn vil derfor bli uriktig", "Faghistorien er ikke på pensum i det hele tatt", "Faghistorien trekker aktivt ned karakteren, slik at hver setning om den koster deg poeng"],
       explanation: "Pensumkapitlets faghistorie er eksplisitt ikke forventet; å gjengi den gir ingen uttelling og stjeler tid (relevansfilteret, kap. 0.2).",
     },
     {
       question: "En «kvalitativ» intervjuguide består bare av ja/nei-spørsmål. Hva er problemet?",
-      options: ["Da er det i praksis et muntlig spørreskjema, ikke et kvalitativt intervju", "Da blir intervjuet for langt", "Da mangler intervjuet et formål", "Ingenting — ja/nei-spørsmål er greit i intervjuer"],
+      options: ["Da er det i praksis et muntlig spørreskjema, ikke et kvalitativt intervju", "Da blir intervjuet for langt, fordi ja/nei-spørsmål krever langt flere spørsmål enn åpne gjør", "Da mangler intervjuet et formål, siden lukkede spørsmål ikke kan styres mot et kunnskapsmål", "Ingenting — ja/nei-spørsmål er greit i intervjuer, og det åpne formatet er ikke nødvendig"],
       explanation: "Det åpne formatet er det som gjør intervjuet kvalitativt. Bare lukkede ja/nei-spørsmål gjør det til et muntlig spørreskjema (slektning av feil #10).",
     },
     {
       question: "Hvilket par beskriver kontrasten intervju vs. spørreskjema riktig?",
-      options: ["Intervju: dybde/mening, få personer · Spørreskjema: utbredelse/tall, mange personer", "Intervju: tall, mange personer · Spørreskjema: mening, få personer", "Intervju: lukkede svar · Spørreskjema: åpne svar", "Intervju: høy sammenlignbarhet · Spørreskjema: lav sammenlignbarhet"],
+      options: ["Intervju: dybde/mening, få personer · Spørreskjema: utbredelse/tall, mange personer", "Intervju: tall og skårer, mange personer · Spørreskjema: mening og dybde, få personer i egne ord", "Intervju: lukkede svaralternativer · Spørreskjema: åpne svar formulert i deltakerens egne ord", "Intervju: høy sammenlignbarhet mellom svarene · Spørreskjema: lav sammenlignbarhet mellom svarene"],
       explanation: "Intervjuet gir dybde/mening fra få personer (lav sammenlignbarhet); spørreskjemaet gir utbredelse i tall fra mange (høy sammenlignbarhet).",
     },
     {
       question: "Hva er A-markøren når du sammenligner intervju og spørreskjema?",
-      options: ["Å vise at ingen er «bedre» — metoden følger av forskningsspørsmålet", "Å slå fast at intervjuet alltid gir rikere data", "Å påpeke at spørreskjemaet er overfladisk", "Å konkludere at intervjuet er mer vitenskapelig"],
+      options: ["Å vise at ingen er «bedre» — metoden følger av forskningsspørsmålet", "Å slå fast at intervjuet alltid gir rikere data, uansett hva forskningsspørsmålet er", "Å påpeke at spørreskjemaet er overfladisk og bare skraper i overflaten av et fenomen", "Å konkludere at intervjuet er mer vitenskapelig enn spørreskjemaet fordi det går i dybden"],
       explanation: "A-svaret framstiller begge metoder rettferdig og lar spørsmålet avgjøre. Å karikere spørreskjemaet som «overfladisk» trekker ned.",
     },
     {
       question: "Hvordan skiller forskningsintervjuet seg fra et avhør/forhør?",
-      options: ["Det har kunnskapsformål, søker personens egen forståelse og hviler på frivillighet", "Det har fastere spørsmål og strengere rekkefølge", "Det tillater ikke oppfølgingsspørsmål", "Det dokumenteres alltid ordrett"],
+      options: ["Det har kunnskapsformål, søker personens egen forståelse og hviler på frivillighet", "Det har fastere spørsmål og strengere rekkefølge enn et avhør, og følger en oppsatt liste ordrett", "Det tillater ikke oppfølgingsspørsmål, og forskeren må holde seg til det som er formulert på forhånd", "Det dokumenteres alltid ordrett, slik at gjengivelsen av hva som ble sagt er det som skiller det ut"],
       explanation: "Forskningsintervjuet har et kunnskapsformål, søker personens forståelse og bygger på frivillighet — til forskjell fra forhørets skjeve maktforhold og faktaavdekking (pluss-stoff).",
     },
   ],
@@ -2150,7 +2150,7 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen på anonymitet og konfidensialitet?",
-      options: ["Ved anonymitet finnes ingen kobling til person; ved konfidensialitet kan forskeren koble, men holder det fortrolig", "De betyr det samme", "Anonymitet gjelder bare kvalitative studier", "Konfidensialitet betyr at ingen får se dataene, heller ikke forskeren"],
+      options: ["Ved anonymitet finnes ingen kobling til person; ved konfidensialitet kan forskeren koble, men holder det fortrolig", "De betyr det samme: begge innebærer at ingen kan koble svar til person", "Anonymitet gjelder bare kvalitative studier", "Konfidensialitet betyr at ingen får se dataene, heller ikke forskeren"],
       explanation: "Anonymitet = ingen kan koble svar til person. Konfidensialitet = forskeren *kan* koble, men holder koblingen fortrolig.",
     },
     {
@@ -2160,32 +2160,32 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er debriefing?",
-      options: ["Samtalen etter deltakelsen der forskeren forklarer hva studien egentlig gjaldt og oppklarer eventuell deception", "Informasjonen deltakeren får før studien starter", "En sjekk av om utvalget er representativt", "Prosessen med å anonymisere data"],
+      options: ["Samtalen etter deltakelsen der forskeren forklarer hva studien egentlig gjaldt og oppklarer eventuell deception", "Informasjonen deltakeren får før studien starter", "En sjekk av om utvalget er representativt for populasjonen, gjort før analysen", "Prosessen med å anonymisere data, der forskeren fjerner navn og andre kjennetegn fra materialet før det lagres og analyseres"],
       explanation: "Debriefing kommer *etter* deltakelsen og gir tilbake informasjonen som ble holdt tilbake — obligatorisk ved deception.",
     },
     {
       question: "Hvorfor kan full informasjon noen ganger ødelegge en studie?",
-      options: ["Fordi deltakere som kjenner formålet tilpasser atferden (demand characteristics)", "Fordi informasjon alltid gjør deltakerne engstelige", "Fordi det tar for lang tid å informere", "Fordi informert samtykke er valgfritt"],
+      options: ["Fordi deltakere som kjenner formålet tilpasser atferden (demand characteristics)", "Fordi informasjon alltid gjør deltakerne engstelige", "Fordi det tar for lang tid å informere hver enkelt deltaker grundig", "Fordi informert samtykke er valgfritt, og forskeren derfor står fritt til å la være å informere deltakerne"],
       explanation: "Demand characteristics: kjennskap til formålet endrer atferden, og det er den metodiske grunnen til at deception noen ganger trengs.",
     },
     {
       question: "Hva er den bærende etiske avveiningen i forskning?",
-      options: ["Vitenskapelig gevinst mot deltakerbelastning", "Kostnad mot tidsbruk", "Reliabilitet mot validitet", "Kvantitativ mot kvalitativ metode"],
+      options: ["Vitenskapelig gevinst mot deltakerbelastning", "Kostnad mot tidsbruk, altså hva studien koster målt mot hvor lang tid den tar", "Reliabilitet mot validitet", "Kvantitativ mot kvalitativ metode"],
       explanation: "Jo større belastning, desto tyngre må gevinsten veie og desto strengere blir kravene til samtykke og oppfølging.",
     },
     {
       question: "Hvorfor er rekruttering av egne studenter via foreleseren etisk problematisk?",
-      options: ["Avhengighetsforholdet kan gjøre at et 'ja' skyldes press, ikke fritt valg", "Studenter forstår ikke forskning", "Foreleseren får da for mange deltakere", "Det er alltid forbudt å forske på studenter"],
+      options: ["Avhengighetsforholdet kan gjøre at et 'ja' skyldes press, ikke fritt valg", "Studenter forstår ikke forskning, og kan derfor ikke gi et gyldig samtykke til å delta", "Foreleseren får da for mange deltakere, slik at utvalget blir større enn studien trenger", "Det er alltid forbudt å forske på studenter"],
       explanation: "Et vurderingsforhold truer frivilligheten i samtykket — rekruttering bør skje uavhengig av relasjonen.",
     },
     {
       question: "Hva er den vanligste fellen i etikkoppgaver på eksamen (feil #16)?",
-      options: ["Å svare med moralprat uten fagbegrepene informert samtykke, konfidensialitet, trekk-rett, deception, debriefing", "Å bruke for mange fagbegreper", "Å regne feil på et talleksempel", "Å svare på for få deloppgaver"],
+      options: ["Å svare med moralprat uten fagbegrepene informert samtykke, konfidensialitet, trekk-rett, deception, debriefing", "Å bruke for mange fagbegreper, slik at informert samtykke, konfidensialitet og debriefing tar plassen fra den moralske drøftingen", "Å regne feil på et talleksempel, slik at utregningen i etikkoppgaven blir gal", "Å svare på for få deloppgaver, slik at etikkoppgaven bare besvares delvis og resten av deloppgavene blir stående ubesvart"],
       explanation: "Sensor vil ha fagforankring. Generelle moralske betraktninger uten fagbegrepene gir ikke uttelling.",
     },
     {
       question: "Hvordan løser venteliste-kontroll et etisk problem?",
-      options: ["Kontrollgruppen får behandlingen etter studien, så ingen nektes den — samtidig som man beholder en kontrollgruppe", "Man dropper kontrollgruppen helt", "Alle får placebo", "Man randomiserer ikke lenger"],
+      options: ["Kontrollgruppen får behandlingen etter studien, så ingen nektes den — samtidig som man beholder en kontrollgruppe", "Man dropper kontrollgruppen helt, slik at alle deltakerne får behandlingen med en gang", "Alle får placebo, slik at ingen deltakere utsettes for den virksomme behandlingen og alle gruppene dermed behandles helt likt", "Man randomiserer ikke lenger, men lar deltakerne velge selv om de vil ha behandlingen nå eller stå på venteliste til etterpå"],
       explanation: "Etikk som designpremiss: venteliste-kontroll forener det metodiske kravet om kontrollgruppe med det etiske kravet om ikke å nekte behandling.",
     },
     {
@@ -2195,34 +2195,34 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva krever dyreforskningsetikk (kjenne-nivå)?",
-      options: ["Særskilt begrunnelse, dyrevelferd og reduksjon (færrest mulig dyr)", "Informert samtykke fra dyrene", "Debriefing av dyrene etterpå", "At dyr aldri kan brukes i forskning"],
+      options: ["Særskilt begrunnelse, dyrevelferd og reduksjon (færrest mulig dyr)", "Informert samtykke innhentet fra dyrene selv, slik at hvert dyr sier ja til å delta", "Debriefing av dyrene etterpå, der de får forklart hva forsøket egentlig gikk ut på", "At dyr aldri kan brukes i forskning, uansett om kunnskapen ikke kan skaffes annerledes"],
       explanation: "Bruk av dyr krever begrunnelse for at kunnskapen ikke kan skaffes annerledes, velferdshensyn og reduksjon i antall.",
     },
     {
       question: "Hva skiller informert samtykke fra debriefing i tid?",
-      options: ["Samtykke gis før deltakelsen; debriefing skjer etter", "Begge skjer etter studien", "Begge skjer før studien", "Debriefing gis før og samtykke etter"],
+      options: ["Samtykke gis før deltakelsen; debriefing skjer etter", "Begge skjer etter studien, slik at også samtykket innhentes når deltakelsen er over", "Begge skjer før studien, slik at også debriefingen gis før deltakeren har vært med", "Debriefing gis før deltakelsen, og samtykket innhentes først etter at studien er ferdig"],
       explanation: "Samtykke er beslutningen deltakeren tar *før*; debriefing lukker sirkelen *etter* og gir tilbake tilbakeholdt informasjon.",
     },
     {
       question: "Hva løfter et etikksvar fra C-nivå til A-nivå?",
-      options: ["Å navngi fagbegrepet, anvende det på det konkrete caset og begrunne — ikke bare definere", "Å skrive lengst mulig", "Å nevne så mange rettigheter som mulig uten kobling", "Å unngå fagbegreper for å virke tilgjengelig"],
+      options: ["Å navngi fagbegrepet, anvende det på det konkrete caset og begrunne — ikke bare definere", "Å skrive lengst mulig, slik at omfanget i seg selv løfter svaret uten at fagbegrepet anvendes på caset", "Å nevne så mange rettigheter som mulig uten kobling til det konkrete caset, slik at svaret blir en løsrevet definisjonsremse", "Å unngå fagbegreper for å virke tilgjengelig, og heller beskrive etikken i dagligspråk uten å navngi begrepet"],
       explanation: "Mantraet 'definer — anvend på caset — begrunn' gjelder også etikk; en løsrevet definisjonsremse (feil #8) gir C-tak.",
     },
     {
       question: "En deltaker vil trekke data om seg selv etter at studien er ferdig. Hva gjelder?",
-      options: ["Trekk-retten omfatter også at allerede innsamlede data om deltakeren kan slettes", "Data kan aldri slettes når de er samlet inn", "Bare forskeren avgjør om data slettes", "Deltakeren mister trekk-retten når datainnsamlingen er over"],
+      options: ["Trekk-retten omfatter også at allerede innsamlede data om deltakeren kan slettes", "Data kan aldri slettes når de er samlet inn, så deltakeren har ingen mulighet til å be om sletting", "Bare forskeren avgjør om data slettes, og deltakerens ønske om sletting er uten betydning for avgjørelsen", "Deltakeren mister trekk-retten når datainnsamlingen er over, så frivilligheten gjelder bare mens studien pågår"],
       explanation: "Retten til å trekke seg omfatter å be om at innsamlede data om deltakeren slettes — frivilligheten gjelder også i etterkant.",
     },
   ],
   'psy1010-7-2': [
     {
       question: "Hva er HARKing?",
-      options: ["Å formulere hypotesen etter at man har sett resultatene, og presentere den som forhåndssatt", "Å pre-registrere hypotesen før datainnsamling", "Å gjøre en meta-analyse av mange studier", "Å kombinere flere måleinstrumenter"],
+      options: ["Å formulere hypotesen etter at man har sett resultatene, og presentere den som forhåndssatt", "Å pre-registrere hypotesen før datainnsamling, slik at den ligger fast før resultatene i det hele tatt er kjent", "Å gjøre en meta-analyse av mange studier, der resultatene fra flere undersøkelser kombineres til ett effektestimat", "Å kombinere flere måleinstrumenter i samme studie, slik at det samme begrepet blir målt på mer enn én måte"],
       explanation: "HARKing = Hypothesizing After the Results are Known — hypotesen dikkes rundt funnet i etterkant, i strid med at testlogikken forutsetter hypotese før data.",
     },
     {
       question: "Hvorfor er HARKing et problem for hypotesetesting?",
-      options: ["Testlogikken forutsetter at hypotesen kom før dataene; en p-verdi mister mening når hypotesen er skreddersydd til tallene", "Fordi det tar for lang tid", "Fordi eksplorative analyser er forbudt", "Fordi det krever for store utvalg"],
+      options: ["Testlogikken forutsetter at hypotesen kom før dataene; en p-verdi mister mening når hypotesen er skreddersydd til tallene", "Fordi det tar for lang tid å formulere hypotesen etter at dataene er samlet inn", "Fordi eksplorative analyser er forbudt", "Fordi det krever for store utvalg"],
       explanation: "P-verdien tolkes 'gitt at H0 er sann' og forutsetter en forhåndshypotese; skreddersøm i etterkant bryter premisset.",
     },
     {
@@ -2242,32 +2242,32 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er publikasjonsskjevhet?",
-      options: ["At signifikante funn publiseres oftere enn null-funn, så litteraturen overdriver effekter", "At tidsskrifter tar betalt for publisering", "At forskere favoriserer egne teorier", "At utvalget er skjevt rekruttert"],
+      options: ["At signifikante funn publiseres oftere enn null-funn, så litteraturen overdriver effekter", "At tidsskrifter tar betalt for publisering", "At forskere favoriserer egne teorier når de tolker funnene sine", "At utvalget er skjevt rekruttert, slik at deltakerne i den enkelte studien ikke speiler populasjonen funnet gjelder for"],
       explanation: "Negative resultater forblir i skuffen; publisert litteratur gir dermed et for optimistisk bilde.",
     },
     {
       question: "Hva skiller en review fra en meta-analyse?",
-      options: ["Review oppsummerer kvalitativt (i ord); meta-analyse kombinerer statistisk (ett effektestimat)", "Review bruker tall, meta-analyse bruker ord", "De er det samme", "Review samler nye data, meta-analyse ikke"],
+      options: ["Review oppsummerer kvalitativt (i ord); meta-analyse kombinerer statistisk (ett effektestimat)", "Review bruker tall, meta-analyse bruker ord", "De er det samme: review og meta-analyse er to navn på én og samme framgangsmåte for å oppsummere et forskningsfelt", "Review samler inn nye data fra deltakere, mens meta-analysen ikke gjør det"],
       explanation: "Begge oppsummerer et felt, men review tolker, meta-analyse regner.",
     },
     {
       question: "Hva kjennetegner en *systematisk* review?",
-      options: ["Eksplisitte, forhåndsbestemte kriterier for søk og seleksjon av studier", "At den bruker meta-analyse", "At den bare inkluderer én studie", "At den er skrevet av flere forfattere"],
+      options: ["Eksplisitte, forhåndsbestemte kriterier for søk og seleksjon av studier", "At den bruker meta-analyse, slik at systematikken ligger i den statistiske sammenslåingen av studiene", "At den bare inkluderer én studie, valgt som den beste", "At den er skrevet av flere forfattere"],
       explanation: "Systematikken ligger i at søk og inklusjon/eksklusjon er definert på forhånd, så seleksjonen ikke farges av forfatterens ønsker.",
     },
     {
       question: "Hvilket problem rammer BÅDE review og meta-analyse?",
-      options: ["Publikasjonsskjevhet — hvis bare signifikante studier er publisert, blir oppsummeringen for optimistisk", "At de aldri kan gi tall", "At de krever nye eksperimenter", "At de ikke kan fagfellevurderes"],
+      options: ["Publikasjonsskjevhet — hvis bare signifikante studier er publisert, blir oppsummeringen for optimistisk", "At de aldri kan gi tall, siden begge bare oppsummerer studier i ord og derfor ikke kan uttrykke funnene i et effektestimat", "At de krever at forskeren kjører nye eksperimenter før oppsummeringen", "At de ikke kan fagfellevurderes"],
       explanation: "Begge er avhengige av studiene som puttes inn; skjev publisering forplanter seg til oppsummeringen ('garbage in, garbage out').",
     },
     {
       question: "Hva er fagfellevurdering (peer review)?",
-      options: ["At uavhengige eksperter vurderer et manuskript før publisering", "At deltakerne vurderer studien", "At forfatteren vurderer sine egne data", "At publikum stemmer over resultatene"],
+      options: ["At uavhengige eksperter vurderer et manuskript før publisering", "At deltakerne som har vært med i studien vurderer manuskriptet før det kan publiseres", "At forfatteren vurderer sine egne data", "At publikum stemmer over resultatene"],
       explanation: "En kvalitetskontroll før publisering — men ikke feilfri; den fanger ikke all p-hacking eller svindel.",
     },
     {
       question: "Cohens kappa korrigerer prosent enighet for hva?",
-      options: ["Enigheten man ville fått ved ren tilfeldighet", "Manglende validitet", "Skjevt utvalg", "For få ledd i skalaen"],
+      options: ["Enigheten man ville fått ved ren tilfeldighet", "Manglende validitet, altså at kodeskjemaet ikke måler det begrepet det skal måle", "Skjevt utvalg, altså at de kodede deltakerne ikke speiler populasjonen", "For få ledd i skalaen"],
       explanation: "Kappa trekker fra forventet tilfeldig enighet ($P_c$) slik at bare enighet utover flaks teller.",
     },
     {
@@ -2277,54 +2277,54 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Et enkelt Likert-ledd (1–5) er strengt tatt hvilket målenivå?",
-      options: ["Ordinalt (rangert, men avstandene ikke definert like)", "Nominalt", "Intervall alltid", "Forhold"],
+      options: ["Ordinalt (rangert, men avstandene ikke definert like)", "Nominalt, siden tallene 1–5 bare er navn på kategorier uten innbyrdes rangering", "Intervall alltid, siden avstandene er like store", "Forhold, siden skalaen har et ekte nullpunkt og 4 er dobbelt så mye som 2"],
       explanation: "Et enkeltledd er ordinalt; en sumskår over flere ledd behandles etter konvensjon som intervall.",
     },
     {
       question: "Hva er en takeffekt?",
-      options: ["At mange skårer nær maksimum, så forskjeller på toppen ikke fanges", "At mange skårer nær minimum", "At testen har for mange ledd", "At utvalget er for lite"],
+      options: ["At mange skårer nær maksimum, så forskjeller på toppen ikke fanges", "At mange skårer nær minimum, så forskjeller i den nedre enden av skalaen ikke fanges", "At testen har for mange ledd, slik at den blir for lang", "At utvalget er for lite, så måleinstrumentet får for få deltakere til å skille dem fra hverandre"],
       explanation: "Takeffekt (en range-effekt) betyr at målet er for lett; reelle forskjeller på toppen skjules og sensitiviteten svekkes.",
     },
     {
       question: "Hva er sensitivitet ved et måleinstrument?",
-      options: ["Instrumentets evne til å fange opp forskjeller mellom deltakere som faktisk er ulike", "At instrumentet er kort og enkelt", "At det gir samme svar hver gang", "At det er billig å administrere"],
+      options: ["Instrumentets evne til å fange opp forskjeller mellom deltakere som faktisk er ulike", "At instrumentet er kort og enkelt å fylle ut for deltakerne", "At det gir samme svar hver gang det brukes på samme deltaker, uavhengig av om deltakerne faktisk er ulike", "At det er billig å administrere, slik at forskeren får målt mange deltakere uten store kostnader"],
       explanation: "Lav sensitivitet gjør at reelle effekter drukner; tak- og gulveffekt er trusler mot sensitiviteten.",
     },
     {
       question: "Hva er et 95 %-konfidensintervall omtrent?",
-      options: ["Estimatet ± 1,96 · SE — et presisjonsintervall rundt estimatet", "Estimatet ± SD", "En p-verdi under 0,05", "Et intervall som alltid inneholder alle observasjoner"],
+      options: ["Estimatet ± 1,96 · SE — et presisjonsintervall rundt estimatet", "Estimatet ± SD, altså spredningen i observasjonene lagt til og trukket fra estimatet", "En p-verdi under 0,05, altså at intervallet er selve terskelen for statistisk signifikans", "Et intervall som alltid inneholder alle observasjoner"],
       explanation: "KI kobler til ±1,96 ↔ 95 % og standardfeilen; smalt intervall = presist estimat.",
     },
     {
       question: "Hva kjennetegner en Bayesiansk tilnærming (kjenne-nivå)?",
-      options: ["Man oppdaterer sannsynligheter for hypoteser i lys av data, i stedet for å teste mot en fast H0 med p-verdier", "Man forbyr all hypotesetesting", "Man bruker bare kvalitative data", "Man regner alltid kappa"],
+      options: ["Man oppdaterer sannsynligheter for hypoteser i lys av data, i stedet for å teste mot en fast H0 med p-verdier", "Man forbyr all hypotesetesting, slik at hypoteser om psykologiske fenomener ikke kan prøves mot data i det hele tatt", "Man bruker bare kvalitative data, slik at tilnærmingen er forbeholdt intervjuer og tekst og aldri kan brukes på tallmateriale", "Man regner alltid kappa, slik at tilnærmingen handler om enighet mellom kodere framfor om sannsynligheter for hypoteser"],
       explanation: "Bayes er en alternativ statistikk-logikk nevnt i pensum, aldri krevd regnet — den kontrasterer p-verdi-logikken.",
     },
     {
       question: "Hva var V2025-trekket knyttet til åpen vitenskap?",
-      options: ["Å antyde at etterkant-endring av hypotesen uten åpenhet er greit", "Å bruke for mange fagbegreper om åpenhet", "Å regne konfidensintervall feil", "Å svare på for mange oppgaver"],
+      options: ["Å antyde at etterkant-endring av hypotesen uten åpenhet er greit", "Å bruke for mange fagbegreper om åpenhet, slik at framstillingen ble unødig teknisk", "Å regne konfidensintervall feil, slik at presisjonen i estimatet ble oppgitt uriktig", "Å svare på for mange oppgaver, slik at besvarelsen dekket mer enn det som var krevd"],
       explanation: "Sensor ga eksplisitt trekk for å framstille HARKing som uproblematisk uten å merke funnet som eksplorativt.",
     },
     {
       question: "Hva skiller en konfirmerende fra en eksplorativ analyse?",
-      options: ["Konfirmerende er planlagt på forhånd (p beholder mening); eksplorativ er utforskende i etterkant og må merkes", "Konfirmerende bruker kvalitative data", "Eksplorativ er alltid forbudt", "De er identiske"],
+      options: ["Konfirmerende er planlagt på forhånd (p beholder mening); eksplorativ er utforskende i etterkant og må merkes", "Konfirmerende bruker kvalitative data, mens eksplorativ bruker tall — skillet går altså på datatype og ikke på når hypotesen ble satt", "Eksplorativ er alltid forbudt, så funn man kommer over etter at data er sett kan aldri rapporteres, uansett hvordan de merkes", "De er identiske: det spiller ingen rolle om hypotesen ble satt før eller etter at data ble sett, så lenge analysen er riktig gjort"],
       explanation: "Skillet er om hypotesen kom før eller etter data; eksplorative funn er lov, men skal merkes, ikke maskeres.",
     },
     {
       question: "Hvorfor bør spørreskjemaledd unngå 'doble' spørsmål (double-barreled)?",
-      options: ["Fordi deltakeren ikke vet hvilken del av spørsmålet hun svarer på", "Fordi de er for korte", "Fordi de gir for høy reliabilitet", "Fordi de alltid er ledende"],
+      options: ["Fordi deltakeren ikke vet hvilken del av spørsmålet hun svarer på", "Fordi de er for korte til at deltakeren rekker å tenke seg om før hun avgir svaret sitt", "Fordi de gir for høy reliabilitet, slik at leddet måler det samme begrepet altfor konsistent", "Fordi de alltid er ledende og styrer deltakeren mot ett bestemt svar uansett hva hun mener"],
       explanation: "Et ledd som spør om to ting samtidig kan ikke tolkes entydig — god spørreskjemakonstruksjon krever ett tema per ledd.",
     },
   ],
   'psy1010-8-1': [
     {
       question: "Hva er den faste rekkefølgen i femtrinnsforløpet for korrelasjonsoppgaven (T1)?",
-      options: ["Tolk r → hvorfor ikke kausal → tegn kausalmodeller → spuriøst eksempel → regresjon som videreføring", "Regn r → test signifikans → tegn kausalmodeller → konkluder kausalt → regresjon", "Tegn kausalmodeller → tolk r → regn r² → spuriøst eksempel → power", "Formuler H0/H1 → tolk r → Type I/II → regresjon → spuriøst eksempel"],
+      options: ["Tolk r → hvorfor ikke kausal → tegn kausalmodeller → spuriøst eksempel → regresjon som videreføring", "Regn r for hånd → test om r er signifikant → tegn kausalmodeller → konkluder kausalt om X og Y → regresjon som videreføring", "Tegn kausalmodeller først → tolk r firedelt → regn r² for hånd → gi et spuriøst eksempel → vurder power i studien", "Formuler H0/H1 → tolk r firedelt → drøft Type I- og Type II-feil → regresjon som videreføring → gi et spuriøst eksempel"],
       explanation: "T1-forløpet er: (a) tolk r firedelt, (b) de tre kanoniske grunnene til at det ikke er kausalt, (c) tegn og case-tilpass kausalmodellene, (d) spuriøst eksempel, (e) regresjon som videreføring. r regnes aldri på eksamen (den er oppgitt), og hypotesetesting/power hører til T2.",
     },
     {
       question: "Hvilket ledd i korrelasjonsoppgaven er A-skilleren sensor ser etter?",
-      options: ["Å tegne og case-tilpasse kausalmodellene (konfunder, mediator, moderator) med et konkret z", "Å oppgi styrken etter konvensjonstabellen", "Å regne ut r fra rådataene", "Å nevne at r ligger mellom −1 og +1"],
+      options: ["Å tegne og case-tilpasse kausalmodellene (konfunder, mediator, moderator) med et konkret z", "Å oppgi styrken etter konvensjonstabellen", "Å regne ut r fra rådataene i oppgaveteksten", "Å nevne at r ligger mellom −1 og +1"],
       explanation: "Trinn (c) — å tegne alle tre modellene med et konkret z for scenariet — er A-skilleren. Å bare definere modellene uten case-tilpasning er C-taket (feil #8). r regnes aldri på eksamen.",
     },
     {
@@ -2334,27 +2334,27 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken av de tre kausalmodellene har pilstrukturen z → X og z → Y?",
-      options: ["Konfunder (bakenforliggende variabel)", "Mediator (mekanismen)", "Moderator (for hvem / når)", "Retningsproblemet"],
+      options: ["Konfunder (bakenforliggende variabel)", "Mediator (mekanismen)", "Moderator (for hvem / når)", "Retningsproblemet (pilen kan like gjerne gå fra Y til X)"],
       explanation: "Konfunderen påvirker BÅDE X og Y (z → X, z → Y) og skaper en spuriøs sammenheng. Mediatoren er X → z → Y; moderatoren endrer styrken på X → Y.",
     },
     {
       question: "Hva er forskjellen på en konfunder og en mediator i konklusjonen de gir?",
-      options: ["Konfunderen forklarer sammenhengen BORT (spuriøs); mediatoren FORKLARER den (ekte, via mekanisme)", "Konfunderen forklarer sammenhengen; mediatoren forklarer den bort", "Begge forklarer sammenhengen bort — de er synonymer", "Konfunderen gjelder eksperiment, mediatoren gjelder korrelasjon"],
+      options: ["Konfunderen forklarer sammenhengen BORT (spuriøs); mediatoren FORKLARER den (ekte, via mekanisme)", "Konfunderen forklarer sammenhengen; mediatoren forklarer den bort", "Begge forklarer sammenhengen bort — de er synonymer, så både z → begge og X → z → Y gjør sammenhengen spuriøs", "Konfunderen gjelder eksperiment, mediatoren gjelder korrelasjon"],
       explanation: "Samme z-plassering, motsatt konklusjon: konfunderen (z → begge) gjør sammenhengen spuriøs — X virker ikke egentlig. Mediatoren (X → z → Y) gjør sammenhengen ekte, men via en mekanisme.",
     },
     {
       question: "Hva kjennetegner en moderator?",
-      options: ["Den endrer styrken (eller retningen) på X → Y — svarer «for hvem / når?»", "Den påvirker både X og Y og skaper sammenhengen", "Den er mekanismen X virker gjennom (X → z → Y)", "Den er en tredje måling av samme variabel"],
+      options: ["Den endrer styrken (eller retningen) på X → Y — svarer «for hvem / når?»", "Den påvirker både X og Y og skaper sammenhengen", "Den er mekanismen X virker gjennom (X → z → Y)", "Den er en tredje måling av samme variabel, altså at X og Y måles en gang til med et annet instrument"],
       explanation: "Moderatoren justerer hvor sterk X → Y-sammenhengen er (sterk for noen, svak for andre). Den skaper ikke sammenhengen (konfunder) og formidler den ikke (mediator).",
     },
     {
       question: "Hvilket av disse er et RENT spuriøst eksempel egnet for trinn (d)?",
-      options: ["Is-salg og drukningsulykker korrelerer — begge drevet av varmt vær (z)", "Trening → bedre søvn → bedre humør", "Røyking forårsaker økt lungekreftrisiko", "Randomisert tildeling til to betingelser gir en kausal effekt"],
+      options: ["Is-salg og drukningsulykker korrelerer — begge drevet av varmt vær (z)", "Trening → bedre søvn → bedre humør, der sammenhengen mellom trening og humør går via søvnen", "Røyking forårsaker økt lungekreftrisiko, der røykingen virker direkte inn på risikoen for sykdom", "Randomisert tildeling til to betingelser gir en kausal effekt"],
       explanation: "Is-salg/drukning er klassisk spuriøst: en tredjevariabel (vær) driver begge, uten direkte årsakslenke. Trening→søvn→humør er en mediatorkjede (ekte), ikke spuriøs; de to andre er kausale.",
     },
     {
       question: "Hva legger regresjonen til utover korrelasjonen i trinn (e)?",
-      options: ["En prediksjonslinje (hvor mye Y endres per X) og r² — men IKKE kausalitet", "En kausal slutning fra X til Y", "Et signifikansnivå og en p-verdi", "En randomisert tildeling av deltakere"],
+      options: ["En prediksjonslinje (hvor mye Y endres per X) og r² — men IKKE kausalitet", "En kausal slutning fra X til Y, slik at linjen viser at X faktisk forårsaker endringen i Y", "Et signifikansnivå og en p-verdi, slik at regresjonen avgjør om sammenhengen mellom X og Y er signifikant", "En randomisert tildeling av deltakere til betingelser"],
       explanation: "Regresjon bruker samme sammenheng som r og legger til Ŷ = a + bX (prediksjon) og r² (delt varians). Den legger IKKE til kausalitet — det er fortsatt naturlig variasjon. Signifikans og randomisering hører til andre sjangre.",
     },
     {
@@ -2364,17 +2364,17 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor kan vi ikke konkludere kausalt fra r = 0,45 i en korrelasjonsstudie?",
-      options: ["Fordi minst tre forklaringer gjelder: retningsproblem, tredjevariabel og spuriøsitet — og r skiller ikke mellom dem", "Fordi r er for lavt til å være signifikant", "Fordi r ikke ble regnet ut for hånd", "Fordi utvalget alltid er for lite i korrelasjonsstudier"],
+      options: ["Fordi minst tre forklaringer gjelder: retningsproblem, tredjevariabel og spuriøsitet — og r skiller ikke mellom dem", "Fordi r = 0,45 er for lavt til å være signifikant, og en høyere korrelasjon ville gjort det mulig å konkludere kausalt om X og Y", "Fordi r ikke ble regnet ut for hånd, og en korrelasjon man selv har regnet fram ville gitt grunnlag for å slutte kausalt fra X til Y", "Fordi utvalget alltid er for lite i korrelasjonsstudier til å bære en kausal slutning"],
       explanation: "En korrelasjon kan alltid skyldes retningsproblem (Y→X), en tredjevariabel (z→begge) eller spuriøsitet. Størrelsen på r endrer ikke dette. Å nevne alle tre grunnene — ikke bare «en tredjevariabel» — er A-nivå.",
     },
     {
       question: "Med Ŷ = 45 + 3X, hva predikeres for X = 8 (innenfor observert område)?",
-      options: ["69 poeng (45 + 3·8 = 45 + 24)", "48 poeng (45 + 3)", "24 poeng (3·8)", "53 poeng (45 + 8)"],
+      options: ["69 poeng (45 + 3·8 = 45 + 24)", "48 poeng (45 + 3, konstantleddet pluss stigningstallet)", "24 poeng (3·8, stigningstallet ganget med X uten konstantleddet)", "53 poeng (45 + 8, konstantleddet pluss X uten stigningstallet)"],
       explanation: "Sett X = 8 inn: Ŷ = 45 + 3·8 = 45 + 24 = 69. Vis mellomregningen (feil #13 ellers). Siden 8 ligger innenfor det observerte området, er dette ikke ekstrapolering.",
     },
     {
       question: "Hvorfor er tidsbudsjett viktig i korrelasjonsoppgaven?",
-      options: ["Alle tre besvarte oppgaver teller likt, så tid brukt på ett A-skille her stjeler tid fra A-skiller i de andre oppgavene", "Fordi den siste oppgaven man leverer alltid teller dobbelt", "Fordi korrelasjonsoppgaven alltid er verdt flest poeng", "Fordi sensor trekker for oppgaver besvart for raskt"],
+      options: ["Alle tre besvarte oppgaver teller likt, så tid brukt på ett A-skille her stjeler tid fra A-skiller i de andre oppgavene", "Fordi den siste oppgaven man leverer alltid teller dobbelt, slik at mest mulig av tiden må settes av til å gjøre den utfyllende", "Fordi korrelasjonsoppgaven alltid er verdt flest poeng, slik at oppgavene er ulikt vektet og mest mulig av tiden bør brukes her", "Fordi sensor trekker for oppgaver besvart for raskt, slik at tiden må fordeles for å unngå trekk for en kort besvarelse i seg selv"],
       explanation: "På PSY1010 besvarer du 3 av 4 oppgaver, og alle teller likt (kap. 0.1). Trygghet i T1-forløpet frigjør tid til A-skillene i de andre oppgavene. Oppgavene er ikke ulikt vektet, og det er den SISTE oppgaven som ignoreres ved fire besvarelser, ikke telles dobbelt.",
     },
   ],
@@ -2391,12 +2391,12 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er sekstrinnsforløpet for hypotesetestingsoppgaven (T2)?",
-      options: ["H0/H1 med μ → trinnene + p-definisjon → konkluder + α-skifte → Type I/II på caset → power/n → ev. HARKing", "Tolk r → tegn kausalmodeller → regn r² → Type I/II → power → HARKing", "Velg design → randomiser → mål → analyser → rapporter → konkluder", "Regn snitt → varians → SD → SE → t → p"],
+      options: ["H0/H1 med μ → trinnene + p-definisjon → konkluder + α-skifte → Type I/II på caset → power/n → ev. HARKing", "Tolk r → tegn kausalmodeller → regn r² → Type I/II → power → HARKing", "Velg design → randomiser → mål → analyser → rapporter → konkluder", "Regn ut snittet → variansen → SD → SE → t-verdien → p-verdien"],
       explanation: "T2-forløpet er (a) hypoteser om μ, (b) trinnene med korrekt p-definisjon, (c) konkludér med α-skifte og halering, (d) Type I/II på caset, (e) power/n, (f) ev. HARKing-hale. De andre er T1, forskningsprosessen og t-kjeden.",
     },
     {
       question: "Hypotesene i en nullhypotesetest handler alltid om …",
-      options: ["populasjonsgjennomsnittet μ (det vi ikke vet)", "utvalgsgjennomsnittet x̄ (det vi har målt)", "standardavviket SD", "korrelasjonen r"],
+      options: ["populasjonsgjennomsnittet μ (det vi ikke vet)", "utvalgsgjennomsnittet x̄ (det vi har målt)", "standardavviket SD (spredningen i dataene)", "korrelasjonen r i utvalget (det vi allerede har regnet ut av dataene)"],
       explanation: "Hypotesene gjelder μ (populasjonen), ikke x̄ (utvalget vi allerede kjenner). Å skrive H0: x̄ = μ0 er feil #12 — vi tester det vi ikke vet.",
     },
     {
@@ -2406,64 +2406,64 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Et sykehus BEHOLDT H0 (p = 0,12). Hvilken feiltype KAN de i prinsippet ha begått?",
-      options: ["Type II-feil (de kan ha oversett en ekte effekt)", "Type I-feil (de kan ha slått falsk alarm)", "Begge samtidig", "Ingen — å beholde H0 kan aldri være feil"],
+      options: ["Type II-feil (de kan ha oversett en ekte effekt)", "Type I-feil (de kan ha slått falsk alarm)", "Begge samtidig (både falsk alarm og oversett ekte effekt er mulig her)", "Ingen — å beholde H0 kan aldri være feil"],
       explanation: "En Type I-feil er bare mulig når man FORKASTER H0. Siden de beholdt H0, kan de ha begått en Type II-feil (oversett en ekte effekt). «Ikke signifikant» er ikke bevis for at det ikke finnes en effekt.",
     },
     {
       question: "En tohalet test gir p = 0,048. Hva skjer ved α-skifte fra 0,05 til 0,01?",
-      options: ["Konklusjonen snur: forkast ved 0,05 (0,048 < 0,05), men behold ved 0,01 (0,048 > 0,01)", "Forkast ved begge nivåer", "Behold ved begge nivåer", "Forkast ved 0,01, men behold ved 0,05"],
+      options: ["Konklusjonen snur: forkast ved 0,05 (0,048 < 0,05), men behold ved 0,01 (0,048 > 0,01)", "Forkast H0 ved begge nivåer: 0,048 er mindre enn både 0,05 og 0,01, så konklusjonen står seg uendret", "Behold H0 ved begge nivåer: 0,048 er større enn både 0,05 og 0,01, så testen er ikke signifikant noe sted", "Forkast ved 0,01 (0,048 < 0,01), men behold ved 0,05 (0,048 > 0,05)"],
       explanation: "0,048 er en vippeverdi: den ligger under 0,05 (signifikant) men over 0,01 (ikke signifikant). Å snu konklusjonen ved α-skifte er et fast c-ledd.",
     },
     {
       question: "En tohalet test gir p = 0,036. Hva blir enhalet p, og under hvilken betingelse er halveringen tillatt?",
-      options: ["Enhalet p = 0,018; kun tillatt hvis retningen var begrunnet FØR dataene ble sett", "Enhalet p = 0,072; alltid tillatt", "Enhalet p = 0,018; alltid tillatt", "Enhalet p = 0,036; halvering gjelder aldri"],
+      options: ["Enhalet p = 0,018; kun tillatt hvis retningen var begrunnet FØR dataene ble sett", "Enhalet p = 0,072 fordi tohalet p = 0,036 dobles; halveringsregelen gjelder uansett når retningen ble valgt", "Enhalet p = 0,018 (0,036/2); halveringen er alltid tillatt, også når retningen velges etter at dataene er sett", "Enhalet p = 0,036; tohalet p brukes uendret, halvering gjelder aldri"],
       explanation: "Enhalet p = tohalet p / 2 = 0,036/2 = 0,018 (forutsatt at effekten går i predikert retning). Men den er kun gyldig med FORHÅNDSbegrunnet retning — å velge enhalet i etterkant for å presse p under grensen er feil #11.",
     },
     {
       question: "Hva er power?",
-      options: ["Sannsynligheten for å oppdage en ekte effekt (forkaste en falsk H0), power = 1 − β", "Sannsynligheten for en falsk alarm, altså α", "Sannsynligheten for at H0 er sann", "Standardfeilen delt på standardavviket"],
+      options: ["Sannsynligheten for å oppdage en ekte effekt (forkaste en falsk H0), power = 1 − β", "Sannsynligheten for en falsk alarm, altså α, slik at power = α", "Sannsynligheten for at H0 er sann, altså hvor trolig nullhypotesen er i lys av dataene i studien", "Standardfeilen delt på standardavviket, altså forholdstallet SE/SD, som angir hvor stor power testen har"],
       explanation: "Power = 1 − β er sannsynligheten for å forkaste en falsk H0 (oppdage en ekte effekt). Konvensjonen er 80 %. Den øker med større effekt, større n og mildere α.",
     },
     {
       question: "Hvordan påvirker det å øke utvalgsstørrelsen n testens power?",
-      options: ["Større n gir mindre SE = SD/√n → smalere utvalgsfordeling → høyere power", "Større n reduserer power fordi støyen øker", "n påvirker ikke power, bare α gjør det", "Større n øker β og senker power"],
+      options: ["Større n gir mindre SE = SD/√n → smalere utvalgsfordeling → høyere power", "Større n reduserer power fordi flere deltakere gir mer støy og dermed en bredere utvalgsfordeling", "n påvirker ikke power; bare valget av α gjør det, uansett hvor mange deltakere som er med", "Større n øker β, altså sjansen for å overse en ekte effekt, og senker dermed power"],
       explanation: "Større n gir mindre SE, altså en smalere utvalgsfordeling der ekte effekter stikker tydeligere fram — høyere power. n er faktoren forskeren lettest kan styre (V2024-leddet).",
     },
     {
       question: "Hva er HARKing?",
-      options: ["Å formulere hypotesen ETTER å ha sett dataene og utgi den for forhåndssatt", "Å teste flere hypoteser samtidig med Bonferroni-korreksjon", "Å regne t-verdien for hånd i stedet for med kalkulator", "Å bruke enhalet test med begrunnet retning"],
+      options: ["Å formulere hypotesen ETTER å ha sett dataene og utgi den for forhåndssatt", "Å teste flere hypoteser samtidig og justere signifikansnivået med Bonferroni-korreksjon", "Å regne t-verdien for hånd på papir i stedet for å bruke kalkulator eller statistikkprogram", "Å bruke enhalet test der retningen er begrunnet på forhånd, før dataene er samlet inn"],
       explanation: "HARKing (Hypothesizing After the Results are Known) er å skreddersy hypotesen til funnene i etterkant. Det bryter p-logikkens premiss om at hypotesen kom først. Pre-registrering (plan låst før data) forebygger det.",
     },
     {
       question: "En A-besvarelse i d-leddet (Type I/II) …",
-      options: ["sier hva hver feil ville BETY i det konkrete caset, ikke bare definerer dem", "definerer Type I og Type II presist og stopper der", "regner ut β eksakt fra oppgitte tall", "hopper over Type II fordi den er mindre viktig"],
+      options: ["sier hva hver feil ville BETY i det konkrete caset, ikke bare definerer dem", "definerer Type I og Type II presist etter læreboka og stopper der, uten å knytte dem til caset", "regner ut β eksakt fra tallene som er oppgitt i caset, og oppgir sannsynligheten med desimaler", "hopper over Type II og omtaler bare falsk alarm, fordi den oversette effekten betyr mindre"],
       explanation: "A-skilleren i d-leddet er å ANVENDE feiltypene på scenariet (hva ville en falsk alarm / en oversett effekt bety her?). Å bare definere er C-nivå. β regnes ikke på eksamen, og begge feiltyper hører med.",
     },
   ],
   'psy1010-8-3': [
     {
       question: "Hva er det obligatoriske siste trinnet i løsningsoppskriften for enhver regneoppgave (T3)?",
-      options: ["Å tolke resultatet i prosa — hva tallet betyr i studien", "Å runde svaret til to desimaler", "Å kontrollere med kalkulator én gang til", "Å skrive svaret med rød penn"],
+      options: ["Å tolke resultatet i prosa — hva tallet betyr i studien", "Å runde svaret til to desimaler og sette en strek under selve tallet", "Å kontrollere utregningen med kalkulator én gang til før innlevering", "Å skrive svaret med rød penn slik at sensor finner tallet raskt"],
       explanation: "Trinn 4 er å TOLKE tallet i ord — det sensor vekter tyngst. En utregning uten avsluttende prosatolkning er ikke ferdig. De tre andre er ikke oppskriftstrinn.",
     },
     {
       question: "Hvorfor deler vi på n − 1 (ikke n) når vi regner utvalgsvarians?",
-      options: ["Utvalget ligger tettere rundt sitt eget snitt enn rundt populasjonssnittet; n − 1 korrigerer for undervurderingen", "For å gjøre tallet større enn det egentlig er", "Fordi n alltid er et partall", "Fordi standardavviket krever et oddetall i nevneren"],
+      options: ["Utvalget ligger tettere rundt sitt eget snitt enn rundt populasjonssnittet; n − 1 korrigerer for undervurderingen", "For å gjøre tallet større enn det egentlig er, slik at spredningen i utvalget ser mer imponerende ut når den rapporteres", "Fordi n alltid er et partall når man teller opp et utvalg, og et partall i nevneren ville gjort utvalgsvariansen umulig å regne ut", "Fordi standardavviket krever et oddetall i nevneren, og n − 1 er regelen som sikrer at kvadratroten av variansen kan trekkes ut"],
       explanation: "Å dele på n ville systematisk undervurdere populasjonsvariansen fordi utvalget klumper seg rundt sitt eget snitt. n − 1 (frihetsgradene) gir et forventningsrett estimat.",
     },
     {
       question: "Verdiene 3, 4, 4, 5, 6, 7, 13 gir gjennomsnitt 6, median 5, modus 4. Hvorfor spriker de?",
-      options: ["Uteliggeren 13 drar gjennomsnittet opp; medianen er robust mot den", "Fordi det er et oddetall antall verdier", "Fordi modus alltid er lavest", "Fordi standardavviket er for høyt"],
+      options: ["Uteliggeren 13 drar gjennomsnittet opp; medianen er robust mot den", "Fordi det er et oddetall antall verdier, syv i alt, og da havner de tre målene automatisk på ulike tall", "Fordi modus alltid er det laveste av de tre målene, her 4, og gjennomsnittet alltid det høyeste", "Fordi standardavviket er for høyt i denne rekken, og et stort standardavvik skyver målene fra hverandre"],
       explanation: "Den ekstreme verdien 13 trekker gjennomsnittet (6) over medianen (5) og modus (4). Medianen er robust mot uteliggere og gir det mest rettferdige bildet av en «typisk» verdi.",
     },
     {
       question: "Et boksplott har Q1 = 30, median = 38, Q3 = 46. Hva er interkvartilbredden (IQR)?",
-      options: ["16 (Q3 − Q1 = 46 − 30)", "8 (median − Q1)", "38 (medianen)", "76 (Q1 + Q3)"],
+      options: ["16 (Q3 − Q1 = 46 − 30)", "8 (median − Q1)", "38 (medianen, altså strekens plassering inni boksen)", "76 (Q1 + Q3)"],
       explanation: "IQR = Q3 − Q1 = 46 − 30 = 16. Det er boksens bredde — spennet der de midterste 50 % av observasjonene ligger, robust mot uteliggere.",
     },
     {
       question: "Hvorfor vises ikke gjennomsnittet i et boksplott?",
-      options: ["Boksplottet bygger på rangorden (kvartiler/median), ikke på summen av tallverdiene", "Fordi gjennomsnittet alltid er lik medianen", "Fordi gjennomsnittet ikke kan regnes fra et boksplott", "Fordi gjennomsnittet er konfidensielt"],
+      options: ["Boksplottet bygger på rangorden (kvartiler/median), ikke på summen av tallverdiene", "Fordi gjennomsnittet alltid er lik medianen", "Fordi gjennomsnittet ikke kan regnes fra et boksplott", "Fordi gjennomsnittet er konfidensielt og ikke kan vises sammen med kvartilene uten at enkeltpersoner røpes"],
       explanation: "Boksplottet viser rangbaserte, robuste mål (kvartiler, median). Gjennomsnittet krever tallverdienes sum og påvirkes av uteliggere — derfor vises det bevisst ikke.",
     },
     {
@@ -2473,7 +2473,7 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen på SD og SE?",
-      options: ["SD = spredning mellom personer; SE = presisjonen i gjennomsnittsestimatet (SD/√n)", "SD og SE er to navn på det samme", "SE er alltid større enn SD", "SD gjelder utvalget, SE gjelder én enkelt person"],
+      options: ["SD = spredning mellom personer; SE = presisjonen i gjennomsnittsestimatet (SD/√n)", "SD og SE er to navn på det samme tallet, så SD/√n er overflødig", "SE er alltid større enn SD, fordi standardfeilen for gjennomsnittet vokser når utvalget blir større", "SD gjelder utvalget, SE gjelder én enkelt person"],
       explanation: "SD måler hvor mye ENKELTPERSONER varierer; SE = SD/√n måler hvor presist GJENNOMSNITTET er bestemt. Å bytte dem er feil #6. SE er alltid mindre enn SD (for n > 1).",
     },
     {
@@ -2483,12 +2483,12 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "I t-kjeden: hva deler man differansen (x̄₁ − x̄₂) på for å få t?",
-      options: ["SE(D) — standardfeilen for differansen", "SD — standardavviket i én gruppe", "s² — variansen", "n — utvalgsstørrelsen"],
+      options: ["SE(D) — standardfeilen for differansen", "SD — standardavviket i én gruppe", "s² — variansen, altså kvadratet av standardavviket i utvalget", "n — utvalgsstørrelsen, altså antall deltakere i de to gruppene"],
       explanation: "t = (x̄₁ − x̄₂)/SE(D). Å dele på SD i stedet for SE(D) er feil #6 (SD/SE-forveksling). SE(D) er standardfeilen for selve differansen.",
     },
     {
       question: "En skår er x = 85 der x̄ = 70 og SD = 10. Hva er z-skåren, og hva forteller den?",
-      options: ["z = 1,5 — skåren ligger 1,5 standardavvik over gjennomsnittet", "z = 15 — skåren ligger 15 poeng over gjennomsnittet", "z = 0,15 — skåren er nær gjennomsnittet", "z = 8,5 — skåren er x/SD"],
+      options: ["z = 1,5 — skåren ligger 1,5 standardavvik over gjennomsnittet", "z = 15 — skåren ligger 15 poeng over gjennomsnittet", "z = 0,15 — skåren ligger bare 0,15 standardavvik fra gjennomsnittet og er dermed helt nær snittet", "z = 8,5 — skåren er x delt på SD, altså 85 delt på 10, uten at gjennomsnittet trekkes fra først"],
       explanation: "z = (x − x̄)/SD = (85 − 70)/10 = 1,5. Skåren ligger 1,5 SD over snittet. Standardisering endrer IKKE fordelingens form — den normaliserer ikke en skjev fordeling.",
     },
     {
@@ -2498,7 +2498,7 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En studie finner r = 0,70. Hvor stor andel av variasjonen deles med X, og hva er feilen i «0,70 = 70 % forklart»?",
-      options: ["r² = 0,49 = 49 %; feilen er å lese r som prosent i stedet for å kvadrere", "70 %; ingen feil, r ER den forklarte andelen", "r² = 0,49, men feilen er at r² skulle vært √r", "35 %; r skal halveres"],
+      options: ["r² = 0,49 = 49 %; feilen er å lese r som prosent i stedet for å kvadrere", "70 %; ingen feil i påstanden, r = 0,70 kan leses direkte som andelen forklart variasjon", "r² = 0,49, men feilen er at r² skulle vært √r", "35 %; r = 0,70 skal halveres for å gi andelen delt variasjon, ikke kvadreres først"],
       explanation: "Delt varians er r² = 0,70² = 0,49 = 49 %, ikke r. Å lese r = 0,70 som «70 % forklart» overdriver — man må kvadrere først. r rangeres, r² sammenlignes.",
     },
   ],
@@ -2510,32 +2510,32 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Et leseprogram innføres ved to skoler; to naboskoler er sammenligning, uten randomisering. Hva slags design er dette?",
-      options: ["Kvasieksperiment med ikke-ekvivalente grupper", "Ekte eksperiment", "Kasusstudie", "N=1-eksperiment"],
+      options: ["Kvasieksperiment med ikke-ekvivalente grupper", "Ekte eksperiment", "Kasusstudie av leseprogrammet ved skolene", "N=1-eksperiment"],
       explanation: "Det finnes manipulasjon og en sammenligningsgruppe, men ingen randomisert tilordning — det gjør designet kvasi, med seleksjon som hovedtrussel.",
     },
     {
       question: "Hvorfor er selvseleksjon (deltakerne melder seg selv) en trussel mot indre validitet?",
-      options: ["De som melder seg kan være systematisk annerledes enn de som ikke gjør det, så forskjellen kan skyldes hvem de er", "Den gjør utvalget for lite", "Den reduserer den statistiske styrken automatisk", "Den påvirker bare den ytre validiteten, ikke den indre"],
+      options: ["De som melder seg kan være systematisk annerledes enn de som ikke gjør det, så forskjellen kan skyldes hvem de er", "Den gjør utvalget for lite, siden bare noen få melder seg", "Den reduserer den statistiske styrken automatisk", "Den påvirker bare den ytre validiteten, ikke den indre"],
       explanation: "Selvseleksjon er en seleksjonstrussel: gruppene skiller seg allerede før tiltaket, så en effekt kan reflektere gruppeforskjeller snarere enn tiltaket.",
     },
     {
       question: "Et forskningsspørsmål gjelder om en app senker eksamensstress, og deltakere kan tilordnes tilfeldig. Hvilket design passer best?",
-      options: ["Ekte eksperiment (RCT) med randomisering og kontrollgruppe", "Kasusstudie", "Kvasieksperiment med naturlige grupper", "Ren korrelasjonsstudie uten kontroll"],
+      options: ["Ekte eksperiment (RCT) med randomisering og kontrollgruppe", "Kasusstudie av noen få deltakere som bruker appen, uten kontrollgruppe å sammenligne med", "Kvasieksperiment med naturlige grupper", "Ren korrelasjonsstudie uten kontroll"],
       explanation: "Et årsaksspørsmål der UV kan manipuleres og tilordnes tilfeldig, kaller på et RCT — det gir den mest holdbare årsaksslutningen.",
     },
     {
       question: "Du vil studere om et belønningsopplegg virker mot negativ atferd hos ett enkelt barn. Hvilket design passer?",
-      options: ["N=1/single-subject-design (f.eks. ABAB)", "Kasusstudie", "Enveis ANOVA-design", "Tverrsnittsundersøkelse med spørreskjema"],
+      options: ["N=1/single-subject-design (f.eks. ABAB)", "Kasusstudie av barnets atferd", "Enveis ANOVA-design", "Tverrsnittsundersøkelse med spørreskjema"],
       explanation: "Med én person og en manipulert betingelse med kontrollfaser er ABAB riktig — det er et ekte eksperiment der barnet er sin egen kontroll.",
     },
     {
       question: "Hva er riktig test når to uavhengige grupper sammenlignes på ett kontinuerlig mål?",
-      options: ["Uparet t-test (tohalet med mindre retning er begrunnet)", "Enveis ANOVA", "ANCOVA", "Cohens kappa"],
+      options: ["Uparet t-test (tohalet med mindre retning er begrunnet)", "Enveis ANOVA, som sammenligner de to uavhengige gruppene på det kontinuerlige målet", "ANCOVA, der gruppeforskjellen på det kontinuerlige målet renses for en kovariat", "Cohens kappa mellom de to uavhengige gruppene"],
       explanation: "To grupper på ett kontinuerlig mål er t-testens standardtilfelle. Enhalet krever en forhåndsbegrunnet retning.",
     },
     {
       question: "Hvorfor bør fem grupper sammenlignes med ANOVA i stedet for mange parvise t-tester?",
-      options: ["Mange parvise t-tester blåser opp den samlede (familywise) feilraten; ANOVA holder den på α", "ANOVA er alltid enklere å regne ut for hånd", "t-tester kan ikke brukes på mer enn to grupper i det hele tatt", "ANOVA krever ikke at man velger et signifikansnivå"],
+      options: ["Mange parvise t-tester blåser opp den samlede (familywise) feilraten; ANOVA holder den på α", "ANOVA er alltid enklere å regne ut for hånd enn ti parvise t-tester, og regnearbeidet er det avgjørende hensynet", "t-tester kan ikke brukes på mer enn to grupper i det hele tatt", "ANOVA krever ikke at man velger et signifikansnivå på forhånd, mens hver enkelt parvis t-test må testes mot α"],
       explanation: "Fem grupper gir 10 par; ti tester à 5 % risiko gir en familywise-risiko langt over 5 %. Én samlet ANOVA holder feilraten nede.",
     },
     {
@@ -2545,22 +2545,22 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen på ANCOVA og toveis ANOVA når det gjelder samme tilleggsvariabel?",
-      options: ["ANCOVA kontrollerer variabelen bort som forstyrrelse; toveis ANOVA modellerer den som en egen faktor", "Det er ingen forskjell — begge kontrollerer variabelen bort", "ANCOVA kan bare brukes på to grupper", "Toveis ANOVA fjerner behovet for randomisering"],
+      options: ["ANCOVA kontrollerer variabelen bort som forstyrrelse; toveis ANOVA modellerer den som en egen faktor", "Det er ingen forskjell — begge kontrollerer variabelen bort", "ANCOVA kan bare brukes når det er to grupper, mens toveis ANOVA er den eneste som takler tilleggsvariabelen ved flere grupper", "Toveis ANOVA fjerner behovet for randomisering, fordi tilleggsvariabelen legges inn som faktor og dermed jevner ut gruppene"],
       explanation: "Samme variabel, ulikt grep: ANCOVA renser den bort, toveis ANOVA studerer den som fenomen. Valget følger forskningsspørsmålet.",
     },
     {
       question: "Et spørreskjema skal vurderes for om det faktisk måler det det skal. Hvilket begrep gjelder?",
-      options: ["Testvaliditet (face, innhold, kriterium, begrep)", "Indre validitet", "Ytre validitet", "Statistisk styrke (power)"],
+      options: ["Testvaliditet (face, innhold, kriterium, begrep)", "Indre validitet, altså om studien er skjermet mot forstyrrende variabler", "Ytre validitet, altså om funnene kan overføres til andre personer", "Statistisk styrke (power), altså sjansen for å oppdage en ekte effekt"],
       explanation: "Om et måleinstrument måler riktig, er testvaliditet. Indre/ytre validitet gjelder slutninger fra studier, ikke instrumenter (feil #5).",
     },
     {
       question: "Deltakere er rekruttert via en Facebook-annonse. Hva bør sies om generaliseringen?",
-      options: ["Det er et bekvemmelighetsutvalg med frivillighetsbias, så generalisering til hele populasjonen er usikker", "Utvalget er representativt så lenge det er stort nok", "Frivillige gir alltid det mest representative utvalget", "Rekrutteringsmåten har ingen betydning for ytre validitet"],
+      options: ["Det er et bekvemmelighetsutvalg med frivillighetsbias, så generalisering til hele populasjonen er usikker", "Utvalget er representativt så lenge annonsen gir nok svar, for et stort nettutvalg veier opp for måten det ble rekruttert på", "Frivillige som melder seg selv etter en Facebook-annonse, gir alltid det mest representative utvalget av populasjonen", "Rekrutteringsmåten har ingen betydning for den ytre validiteten, så generaliseringen kan skrives helt uten forbehold"],
       explanation: "Et selvvalgt nettutvalg er et bekvemmelighetsutvalg; å behandle det som representativt er feil #9. Gjør generaliseringen betinget.",
     },
     {
       question: "Hvilken kandidat er nærmest et A-svar i en klassifiseringsoppgave?",
-      options: ["Den som klassifiserer OG begrunner med kjennetegnene OG case-tilpasser truslene", "Den som setter riktig merkelapp uten begrunnelse", "Den som lister alle mulige designtrusler generelt", "Den som skriver mest om alle designtyper"],
+      options: ["Den som klassifiserer OG begrunner med kjennetegnene OG case-tilpasser truslene", "Den som setter riktig merkelapp på designet og lar den stå uten å begrunne den med kjennetegnene", "Den som lister alle mulige designtrusler generelt, uten å knytte noen av dem til caset i oppgaven", "Den som skriver mest mulig om alle designtypene, også dem som ikke er aktuelle i oppgaven"],
       explanation: "Merkelapp uten begrunnelse gir C-tak (feil #8). A-nivå krever begrunnet klassifisering og trusler knyttet til det konkrete caset.",
     },
   ],
@@ -2577,7 +2577,7 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den kvalitative oppgavens eneste stryk-felle?",
-      options: ["Å levere et hypoteseformet eller ja/nei-spørsmål der det bes om et kvalitativt", "Å bruke for få faguttrykk", "Å skrive for kort", "Å ikke nevne Kvale & Brinkmann"],
+      options: ["Å levere et hypoteseformet eller ja/nei-spørsmål der det bes om et kvalitativt", "Å bruke for få faguttrykk", "Å skrive for kort om kjennetegnene ved kvalitativ metode", "Å ikke nevne Kvale & Brinkmann"],
       explanation: "Feil #10 er den eneste stryk-fellen i T7; sensorveiledningen nevner den eksplisitt. Ellers har oppgaven lave krav.",
     },
     {
@@ -2587,49 +2587,49 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den viktigste forskjellen mellom et kvalitativt intervju og et spørreskjema?",
-      options: ["Intervjuet gir dybde og mening og åpner for det uforutsette; spørreskjemaet kvantifiserer utbredelse", "Intervjuet er alltid mer vitenskapelig enn spørreskjemaet", "Spørreskjemaet gir alltid mer pålitelige data", "Bare intervjuet kan brukes i psykologisk forskning"],
+      options: ["Intervjuet gir dybde og mening og åpner for det uforutsette; spørreskjemaet kvantifiserer utbredelse", "Intervjuet er alltid mer vitenskapelig enn spørreskjemaet", "Spørreskjemaet gir alltid mer pålitelige data enn intervjuet, uansett hvilket forskningsspørsmål som skal besvares", "Bare intervjuet kan brukes i psykologisk forskning"],
       explanation: "Begge er fullverdige og passer ulike spørsmål. Intervjuets styrke er det uforutsette; spørreskjemaets er utbredelse i tall.",
     },
     {
       question: "Hva er hovedfellen i prosessoppgaven (T8)?",
-      options: ["Å remse trinnene uten å forklare hvert trinns funksjon", "Å forklare for grundig hva hvert trinn gjør", "Å bruke fagbegreper i etikkdelen", "Å nevne at prosessen er syklisk"],
+      options: ["Å remse trinnene uten å forklare hvert trinns funksjon", "Å forklare for grundig hva hvert trinn gjør", "Å bruke fagbegreper i etikkdelen", "Å nevne at prosessen er syklisk og går tilbake til nye spørsmål"],
       explanation: "Feil #8: en ren trinnliste gir C-tak. Sensor honorerer forklaring av hva hvert trinn løser.",
     },
     {
       question: "Hvorfor er operasjonalisering et nødvendig trinn i forskningsprosessen?",
-      options: ["Den gjør et abstrakt fenomen målbart, slik at hypotesen kan testes", "Den bestemmer hvor mange deltakere man trenger", "Den erstatter behovet for et design", "Den avgjør hvilket signifikansnivå man skal bruke"],
+      options: ["Den gjør et abstrakt fenomen målbart, slik at hypotesen kan testes", "Den bestemmer hvor mange deltakere man trenger, og uten det tallet kan ikke innsamlingen starte", "Den erstatter behovet for å velge et design, siden målemåten alene avgjør hvordan studien gjennomføres", "Den avgjør hvilket signifikansnivå man skal bruke"],
       explanation: "Uten en operasjonell definisjon finnes ingen konkret måling å samle inn, og hypotesen kan ikke testes.",
     },
     {
       question: "En etikkdeloppgave besvares best ved å…",
-      options: ["…navngi og anvende fagbegrepene informert samtykke, konfidensialitet, trekk-rett, deception og debriefing", "…understreke at man må være snill mot deltakerne", "…beskrive hvor vondt det ville vært å delta", "…gjengi forskningsetikkens historie"],
+      options: ["…navngi og anvende fagbegrepene informert samtykke, konfidensialitet, trekk-rett, deception og debriefing", "…understreke at man må være snill mot deltakerne, uten å navngi fagbegrepene", "…beskrive med egne ord hvor vondt og ubehagelig det ville vært å delta i studien, uten å bruke etiske fagbegreper", "…gjengi forskningsetikkens historie fra de første retningslinjene og fram til i dag, i stedet for å drøfte caset"],
       explanation: "Feil #16: moralprat uten fagbegreper gir null. Anvend begrepene på caset.",
     },
     {
       question: "Hva er forskjellen på en (litteratur)review og en meta-analyse?",
-      options: ["Review tolker studiene kvalitativt; meta-analyse kombinerer resultatene statistisk til ett estimat", "Review er alltid grundigere enn meta-analyse", "Meta-analyse bruker bare én studie", "Det er ingen reell forskjell mellom dem"],
+      options: ["Review tolker studiene kvalitativt; meta-analyse kombinerer resultatene statistisk til ett estimat", "Review er alltid grundigere enn meta-analyse, uansett hvor mange studier som inngår", "Meta-analyse bygger bare på én enkelt studie, mens review er sjangeren som samler resultater fra flere studier", "Det er ingen reell forskjell mellom dem; begge oppsummerer et felt, og ordene brukes om hverandre om samme sjanger"],
       explanation: "Begge oppsummerer et felt, men meta-analysen tallfester ved statistisk kombinasjon. Å blande dem er et vanlig lettpoeng-tap.",
     },
     {
       question: "Hva er HARKing?",
-      options: ["Å formulere hypotesen etter å ha sett dataene og presentere den som om den kom først", "Å pre-registrere hypotesen før datainnsamling", "Å kombinere flere studier statistisk", "Å bruke enhalet test med begrunnelse"],
+      options: ["Å formulere hypotesen etter å ha sett dataene og presentere den som om den kom først", "Å pre-registrere hypotesen i et åpent register før datainnsamlingen starter, slik at planen ligger fast", "Å kombinere resultatene fra flere studier statistisk til ett samlet estimat for den felles effekten", "Å bruke enhalet test når retningen er begrunnet før dataene ble sett, i stedet for tohalet"],
       explanation: "HARKing (Hypothesizing After the Results are Known) bryter med at hypotesen skal komme før dataene; pre-registrering forebygger det.",
     },
     {
       question: "Hvordan bør et uventet undergruppe-funn håndteres riktig?",
-      options: ["Rapporter det som eksplorativt og pre-registrer en replikasjon som tester det på nye data", "Skriv om hypotesen slik at den passer funnet, og presenter den som opprinnelig", "Ignorer funnet fordi det ikke var forventet", "Publiser det som en bekreftet hovedhypotese"],
+      options: ["Rapporter det som eksplorativt og pre-registrer en replikasjon som tester det på nye data", "Skriv om hypotesen slik at den passer undergruppe-funnet, og presenter den i artikkelen som om den var satt på forhånd", "Ignorer undergruppe-funnet helt og la det stå urapportert, fordi det ikke var forventet på forhånd", "Publiser undergruppe-funnet som en bekreftet hovedhypotese, uten å nevne at det dukket opp i etterkant"],
       explanation: "Åpenhet er kjernen: merk etterkant-funn som eksplorative og test dem ordentlig i en pre-registrert replikasjon.",
     },
     {
       question: "Hvorfor bør du IKKE utbrodere den kvalitative oppgaven?",
-      options: ["Ekstra stoff gir ingen ekstra poeng og stjeler tid fra A-skillene i de andre oppgavene", "Fordi kvalitativ metode ikke er på pensum", "Fordi sensor trekker for hvert ekstra avsnitt", "Fordi lange svar alltid inneholder feil"],
+      options: ["Ekstra stoff gir ingen ekstra poeng og stjeler tid fra A-skillene i de andre oppgavene", "Fordi kvalitativ metode ikke er på pensum, og oppgaven derfor ikke kan gi poeng uansett hvor mye du skriver", "Fordi sensor trekker poeng for hvert ekstra avsnitt du skriver ut over de to–tre kjernepoengene", "Fordi lange svar alltid inneholder feil, og hver feil du får med, senker karakteren på hele oppgaven"],
       explanation: "T7 er billig, ikke gratis-å-utbrodere (feil #15). To–tre kjernepoenger per spørsmål er toppsvar; resten er tidstyv via relevansfilteret.",
     },
   ],
   'psy1010-8-6': [
     {
       question: "Hvilken formulering av p-verdien er korrekt?",
-      options: ["Sannsynligheten for et resultat minst så ekstremt som dette, gitt at H₀ er sann", "Sannsynligheten for at H₀ er sann", "Sannsynligheten for at H₁ er sann", "Sannsynligheten for at resultatet er en tilfeldighet uansett hypotese"],
+      options: ["Sannsynligheten for et resultat minst så ekstremt som dette, gitt at H₀ er sann", "Sannsynligheten for at H₀ er sann, altså hvor trolig nullhypotesen selv er i lys av dataene vi observerte", "Sannsynligheten for at H₁ er sann, altså hvor trolig alternativhypotesen selv er i lys av de observerte dataene", "Sannsynligheten for at resultatet skyldes en tilfeldighet uansett hypotese, altså uten å betinge på at H₀ er sann"],
       explanation: "Feil #1: p gjelder dataene gitt hypotesen, ikke hypotesen gitt dataene. Dette er den eneste feilen med eksplisitt trekk-instruks.",
     },
     {
@@ -2649,82 +2649,82 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skiller et N=1-eksperiment fra en kasusstudie?",
-      options: ["N=1 har manipulasjon og kontrollfaser (ekte eksperiment); kasusstudien er ren beskrivelse", "N=1 har alltid flere deltakere enn kasusstudien", "Kasusstudien har manipulasjon, N=1 har ikke", "De er to navn på det samme"],
+      options: ["N=1 har manipulasjon og kontrollfaser (ekte eksperiment); kasusstudien er ren beskrivelse", "N=1 har alltid flere deltakere enn kasusstudien", "Kasusstudien har manipulasjon, N=1 har ikke", "De er to navn på det samme designet, uansett om noe manipuleres"],
       explanation: "Feil #4: testen er «manipuleres noe?». Antall personer avgjør ingenting — begge kan ha én person.",
     },
     {
       question: "«Beskrivelsen av én pasient er et N=1-eksperiment fordi det er bare én person.» Hvilken feil?",
-      options: ["Feil #4 — kasusstudie forvekslet med N=1-eksperiment", "Feil #9 — bekvemmelighetsutvalg som representativt", "Feil #13 — usynlig utregning", "Ingen feil"],
+      options: ["Feil #4 — kasusstudie forvekslet med N=1-eksperiment", "Feil #9 — bekvemmelighetsutvalg som representativt", "Feil #13 — usynlig utregning", "Ingen feil — én person gjør det til N=1"],
       explanation: "Uten manipulasjon er det en kasusstudie, uansett antall deltakere. N=1 krever en manipulert betingelse med kontrollfaser.",
     },
     {
       question: "Et spørsmål gjelder om en TEST måler det den skal. Hvilket validitetsbegrep er riktig?",
-      options: ["Testvaliditet (face, innhold, kriterium, begrep)", "Indre validitet", "Ytre validitet", "Statistisk konklusjonsvaliditet"],
+      options: ["Testvaliditet (face, innhold, kriterium, begrep)", "Indre validitet (om årsaksslutningen holder)", "Ytre validitet, altså hvor godt funnene generaliserer til andre personer og situasjoner", "Statistisk konklusjonsvaliditet"],
       explanation: "Feil #5: indre/ytre validitet gjelder slutninger fra studier; om et instrument måler riktig, er testvaliditet.",
     },
     {
       question: "Hva er forskjellen på SD og SE?",
-      options: ["SD er spredningen mellom personer; SE er presisjonen i gjennomsnittet og krymper med √n", "De er to navn på samme størrelse", "SE beskriver spredningen, SD presisjonen", "SD krymper med større n, SE gjør ikke"],
+      options: ["SD er spredningen mellom personer; SE er presisjonen i gjennomsnittet og krymper med √n", "De er to navn på samme størrelse, så SD og SE er tallmessig like uansett hvor stor n er, og formelen SD/√n er uten betydning", "SE beskriver spredningen, SD presisjonen", "SD krymper med større n, SE gjør ikke, så spredningen mellom personer avtar"],
       explanation: "Feil #6: SE = SD/√n. Større n reduserer SE (presisjonen i snittet), ikke SD (den ekte spredningen).",
     },
     {
       question: "«Med større utvalg blir SD mindre, så dataene blir mindre spredt.» Hvilken feil?",
-      options: ["Feil #6 — SD forvekslet med SE", "Feil #2 — Type I/II-forveksling", "Feil #7 — mange t-tester", "Ingen feil"],
+      options: ["Feil #6 — SD forvekslet med SE", "Feil #2 — Type I/II-forveksling", "Feil #7 — mange t-tester", "Ingen feil — SD synker med n"],
       explanation: "Det er SE, ikke SD, som krymper med større n. SD beskriver den ekte spredningen mellom personer og endres ikke systematisk av n.",
     },
     {
       question: "Hvorfor bør fem grupper analyseres med ANOVA og ikke mange parvise t-tester?",
-      options: ["Mange parvise t-tester blåser opp den familywise feilraten; ANOVA holder den på α", "ANOVA gir alltid lavere p-verdier", "t-test kan bare brukes på ordinaldata", "ANOVA fjerner behovet for et signifikansnivå"],
+      options: ["Mange parvise t-tester blåser opp den familywise feilraten; ANOVA holder den på α", "ANOVA gir alltid lavere p-verdier enn de ti parvise t-testene fem grupper gir, så valget handler om å sikre signifikans", "t-test kan bare brukes på ordinaldata, uansett hvor mange grupper", "ANOVA fjerner behovet for et signifikansnivå"],
       explanation: "Feil #7: fem grupper gir 10 par; ti tester à 5 % gir samlet risiko langt over 5 %. Begrunnelsen (familywise) er selve poenget.",
     },
     {
       question: "En kandidat lister alle utvalgsmetodene uten å velge eller begrunne for caset. Hvilken feil, og hva blir konsekvensen?",
-      options: ["Feil #8 — oppramsing uten begrunnelse; det gir C-tak", "Feil #9 — bekvemmelighetsutvalg; det gir stryk", "Feil #15 — utbrodering; det trekker aktivt ned", "Ingen feil — en komplett liste er alltid bra"],
+      options: ["Feil #8 — oppramsing uten begrunnelse; det gir C-tak", "Feil #9 — bekvemmelighetsutvalg; det gir stryk selv om utvalgsmetodene er korrekt listet", "Feil #15 — utbrodering; det trekker aktivt ned", "Ingen feil — en komplett liste over utvalgsmetodene er alltid bra, også uten case-tilpasning"],
       explanation: "Feil #8 (remsefeilen): en komplett liste uten valg og case-tilpasning kan ikke nå over C uansett hvor fullstendig den er.",
     },
     {
       question: "Hvordan bør et bekvemmelighetsutvalg omtales i konklusjonen?",
-      options: ["Navngi det som bekvemmelighetsutvalg med frivillighetsbias og gjør generaliseringen betinget", "Behandle det som representativt hvis det er stort nok", "Anta at frivillige gir det mest representative bildet", "Utelate omtale av rekrutteringen"],
+      options: ["Navngi det som bekvemmelighetsutvalg med frivillighetsbias og gjør generaliseringen betinget", "Behandle det som representativt hvis det er stort nok, og generalisere til hele populasjonen uten å nevne frivillighetsbias", "Anta at frivillige gir det mest representative bildet av populasjonen", "Utelate omtale av rekrutteringen og la konklusjonen stå som om deltakerne var trukket tilfeldig fra populasjonen"],
       explanation: "Feil #9: å behandle et selvvalgt utvalg som en miniatyrkopi av populasjonen er en av de sikreste måtene å tape utvalgspoeng på.",
     },
     {
       question: "Oppgaven ber om et kvalitativt forskningsspørsmål, og kandidaten skriver «Reduserer meditasjon eksamensstress?». Hvilken feil?",
-      options: ["Feil #10 — hypoteseformet «kvalitativt» spørsmål", "Feil #3 — kausal tolkning av korrelasjon", "Feil #16 — moralprat", "Ingen feil"],
+      options: ["Feil #10 — hypoteseformet «kvalitativt» spørsmål", "Feil #3 — kausal tolkning av korrelasjon", "Feil #16 — moralprat, altså etiske betraktninger uten fagbegreper, ikke spørsmålsformen", "Ingen feil — «Reduserer meditasjon eksamensstress?» er et gyldig kvalitativt spørsmål"],
       explanation: "Feil #10: dette er hypoteseformet og ja/nei-besvarbart — T7s eneste stryk-felle. Riktig form har åpent spørreord.",
     },
     {
       question: "Når er en enhalet (retningsbestemt) test tillatt?",
-      options: ["Bare når retningen er faglig begrunnet før dataene ble sett", "Alltid, siden den gir lavere p-verdi", "Når utvalget er stort nok", "Aldri — man skal alltid bruke tohalet"],
+      options: ["Bare når retningen er faglig begrunnet før dataene ble sett", "Alltid, siden den halverer p-verdien og dermed gjør det lettere å oppnå signifikans", "Når utvalget er stort nok, uavhengig av om retningen var faglig begrunnet på forhånd", "Aldri — tohalet skal alltid brukes, uansett begrunnelse"],
       explanation: "Feil #11: å velge enhalet (og halvere p) uten forhåndsbegrunnelse trekker. I tvil: velg tohalet.",
     },
     {
       question: "Hvilken hypoteseformulering er korrekt?",
-      options: ["H₀: μ = 50 (om populasjonsgjennomsnittet)", "H₀: x̄ = 50 (om utvalgsgjennomsnittet)", "H₀: p = 50", "H₀: SD = 50"],
+      options: ["H₀: μ = 50 (om populasjonsgjennomsnittet)", "H₀: x̄ = 50 (om utvalgsgjennomsnittet)", "H₀: p = 50 (om p-verdien i testen)", "H₀: SD = 50"],
       explanation: "Feil #12: hypotesene gjelder populasjonen (det ukjente μ), ikke utvalgssnittet vi allerede har målt.",
     },
     {
       question: "Hvorfor er det et problem å oppgi «SD = 8,09» uten mellomregning?",
-      options: ["Uten synlig fremgangsmåte kan sensor ikke gi «riktig metode»-uttelling, og én tastefeil feller hele svaret", "Fordi svaret sannsynligvis er feil", "Fordi SD alltid skal oppgis som varians", "Fordi tall aldri skal med i besvarelsen"],
+      options: ["Uten synlig fremgangsmåte kan sensor ikke gi «riktig metode»-uttelling, og én tastefeil feller hele svaret", "Fordi et svar som «SD = 8,09» oppgitt uten mellomregning sannsynligvis er regnet feil, og sensor trekker for selve tallet", "Fordi SD alltid skal oppgis som varians, slik at «SD = 8,09» måtte vært skrevet om til kvadrert form før den kunne godkjennes", "Fordi tall aldri skal med i besvarelsen, så «SD = 8,09» burde vært utelatt"],
       explanation: "Feil #13 (usynlig utregning): «vis utregningen» er en fast eksamensregel. Sett opp alle ledd og avslutt med tolkning.",
     },
     {
       question: "Hvorfor bør du IKKE besvare alle fire eksamensoppgavene?",
-      options: ["Du skal velge tre; sensor ser bort fra den siste, så tiden på den er bortkastet", "Fordi den fjerde alltid er vanskeligst", "Fordi det gir automatisk stryk", "Fordi de fire oppgavene ikke teller likt"],
+      options: ["Du skal velge tre; sensor ser bort fra den siste, så tiden på den er bortkastet", "Fordi den fjerde oppgaven alltid er den vanskeligste, og et forsøk på den drar karakteren på de tre andre ned", "Fordi det å levere svar på alle fire oppgavene gir automatisk stryk, uansett hvor gode de tre beste svarene er", "Fordi de fire oppgavene ikke teller likt, slik at oppgaven som teller minst trekker helheten ned om du svarer"],
       explanation: "Feil #14: velg tre bevisst og bruk hele tiden på dem. Alle tre teller likt, så en halvferdig tredjeoppgave er dyr.",
     },
     {
       question: "En kandidat skriver tre avsnitt om kvalitativ metodes historie i en oppgave som ba om ett spørsmål. Hvilken feil?",
-      options: ["Feil #15 — «jeg kan også dette»-utbrodering", "Feil #10 — hypoteseformet spørsmål", "Feil #8 — oppramsing uten begrunnelse", "Ingen feil — grundighet lønner seg alltid"],
+      options: ["Feil #15 — «jeg kan også dette»-utbrodering", "Feil #10 — hypoteseformet spørsmål levert der oppgaven ba om et kvalitativt", "Feil #8 — oppramsing uten begrunnelse, altså en komplett liste uten valg", "Ingen feil — grundighet lønner seg alltid, også når stoffet ikke er etterspurt"],
       explanation: "Feil #15: relevansfilteret. Stoff som ikke besvarer spørsmålet gir null og stjeler tid — det trekker ikke ned, men koster minutter.",
     },
     {
       question: "Hvordan besvares en etikkdeloppgave med uttelling?",
-      options: ["Med fagbegreper: informert samtykke, konfidensialitet, trekk-rett, deception og debriefing, anvendt på caset", "Med generelle betraktninger om å behandle folk med respekt", "Ved å understreke at forskning er vanskelig", "Ved å gjengi etikkens filosofiske historie"],
+      options: ["Med fagbegreper: informert samtykke, konfidensialitet, trekk-rett, deception og debriefing, anvendt på caset", "Med generelle betraktninger om å behandle folk med respekt og ikke skade dem, uten å navngi informert samtykke eller konfidensialitet", "Ved å understreke at forskning er vanskelig og at etiske avveininger sjelden har fasitsvar, uten å knytte noe av det til caset", "Ved å gjengi etikkens filosofiske historie fram til dagens retningslinjer, i stedet for å anvende fagbegrepene på selve caset"],
       explanation: "Feil #16: moralprat uten fagbegreper gir ikke uttelling. Navngi og anvend begrepene.",
     },
     {
       question: "Hvilken av disse er den ENESTE feilen med en eksplisitt trekk-instruks i en sensorveiledning?",
-      options: ["Feil #1 — p-verdien tolket som sannsynligheten for at H₀ er sann/feil", "Feil #2 — Type I/II-forveksling", "Feil #8 — oppramsing uten begrunnelse", "Feil #14 — å svare på alle fire oppgaver"],
+      options: ["Feil #1 — p-verdien tolket som sannsynligheten for at H₀ er sann/feil", "Feil #2 — Type I/II-forveksling, som sensorveiledningen gir en eksplisitt trekk-instruks for", "Feil #8 — oppramsing uten begrunnelse, som H2018-veiledningen gir en eksplisitt trekk-instruks for", "Feil #14 — å svare på alle fire oppgavene, som veiledningen gir en eksplisitt trekk-instruks for"],
       explanation: "H2018-veiledningen har en eksplisitt trekk-instruks for den gale p-definisjonen. De øvrige er dokumenterte, men uten samme instruks.",
     },
   ],
@@ -2736,22 +2736,22 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En kandidat skriver: «$r = -0{,}28$ betyr at gaming senker skoleprestasjonene med 28 %.» Hvilke to feil er dette?",
-      options: ["$r$ lest som prosent (det gjelder $r^2 \\approx 8\\,\\%$) OG kausal tolkning av en korrelasjon (#3)", "Feil fortegn lest OG for lav styrke oppgitt", "Manglende konvensjonsforbehold OG feil $r^2$-utregning", "Enhalet i etterkant OG usynlig utregning"],
+      options: ["$r$ lest som prosent (det gjelder $r^2 \\approx 8\\,\\%$) OG kausal tolkning av en korrelasjon (#3)", "Feil fortegn lest (minus lest som pluss) OG for lav styrke oppgitt", "Manglende konvensjonsforbehold OG feil $r^2$-utregning", "Enhalet test valgt i etterkant OG usynlig utregning, altså at retningen ble bestemt etter dataene og at mellomregningen mangler"],
       explanation: "«28 %» leser $r$ som prosent — den forklarte andelen er $r^2 = (-0{,}28)^2 \\approx 8\\,\\%$. «Senker» er dessuten en kausal slutning fra naturlig variasjon (#3). De to andre alternativene beskriver feil som ikke er i utsagnet.",
     },
     {
       question: "Hva kjennetegner en ærlig C-besvarelse på korrelasjonsoppgaven (til forskjell fra en karikatur)?",
-      options: ["Den definerer begrepene korrekt, men blir stående uten å case-tilpasse dem (#8) — og gjør ellers ikke grove feil", "Den er full av grove faktafeil og misforståelser", "Den er identisk med A-besvarelsen bortsett fra lengden", "Den unnlater å svare på tre av fire deloppgaver"],
+      options: ["Den definerer begrepene korrekt, men blir stående uten å case-tilpasse dem (#8) — og gjør ellers ikke grove feil", "Den er full av grove faktafeil og misforståelser", "Den er identisk med A-besvarelsen bortsett fra lengden", "Den unnlater å svare på tre av fire deloppgaver, men lander likevel på C fordi definisjonene den rekker å gi, er korrekte"],
       explanation: "C er en god, vanlig karakter. Den ærlige C-en kan definisjonene og gjør ikke grove feil — den bare stopper der A begynner: ved å ANVENDE definisjonene på caset (#8, C-taket). Grove feil eller å hoppe over deloppgaver ville gitt lavere.",
     },
     {
       question: "Hvorfor er «regresjon er en videreføring av korrelasjon» en presis beskrivelse?",
-      options: ["Regresjon bruker samme sammenheng, men legger til en prediksjonslinje $\\hat{Y}=a+bX$ (hvor mye Y endrer seg per X) — uten å legge til kausalitet", "Regresjon beviser årsakssammenhengen som korrelasjonen bare antydet", "Regresjon gjør et negativt $r$ om til et positivt", "Regresjon erstatter $r$ med $r^2$ og fjerner behovet for å tolke retning"],
+      options: ["Regresjon bruker samme sammenheng, men legger til en prediksjonslinje $\\hat{Y}=a+bX$ (hvor mye Y endrer seg per X) — uten å legge til kausalitet", "Regresjon beviser årsakssammenhengen som korrelasjonen bare antydet, slik at stigningstallet $b$ i $\\hat{Y}=a+bX$ kan leses som årsakseffekten av X på Y", "Regresjon gjør et negativt $r$ om til et positivt, slik at prediksjonslinjen $\\hat{Y}=a+bX$ alltid får et stigningstall $b$ over null uansett retning i dataene", "Regresjon erstatter $r$ med $r^2$ og fjerner behovet for å tolke retning, slik at stigningstallet $b$ ikke trenger fortegn"],
       explanation: "Videreføring = samme sammenheng + en prediksjonslinje som gir «hvor mye». Den legger IKKE til kausalitet ($b$ er predikert samvariasjon, ikke årsakseffekt). Regresjon beviser ikke årsak, snur ikke fortegn, og fjerner ikke retningstolkningen.",
     },
     {
       question: "I A-besvarelsen lander konklusjonen SKARPT. Hva kjennetegner den skarpe landingen?",
-      options: ["En tydelig, veid konklusjon («ingen kausal slutning») som binder sammen styrke, variasjonstype og det manglende eksperimentet", "Et forsiktig «det kommer an på» som holder alle muligheter åpne", "En påstand om at gaming helt sikkert svekker prestasjonene", "En oppramsing av alt kandidaten kan om korrelasjon"],
+      options: ["En tydelig, veid konklusjon («ingen kausal slutning») som binder sammen styrke, variasjonstype og det manglende eksperimentet", "Et forsiktig «det kommer an på» som holder alle muligheter åpne, uten å ta stilling til om en kausal slutning holder eller hva som skulle til", "En påstand om at gaming helt sikkert svekker prestasjonene, altså en kausal slutning trukket skarpere enn styrken og variasjonstypen tillater", "En oppramsing av alt kandidaten kan om korrelasjon — styrke, retning og forbehold — lagt fram uten at noe av det veies opp mot hverandre"],
       explanation: "Den skarpe landingen er en tydelig, veid konklusjon — ikke et vagt kompromiss og ikke en overdreven påstand. Den sier klart at ingen kausal slutning holder, og hva som skulle til (et eksperiment). Oppramsing ville vært #15.",
     },
   ],
@@ -2763,22 +2763,22 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Med $\\bar{x}=42$, norm $\\mu_0=40$, $n=81$ og tohalet $p=0{,}046$ — hva blir konklusjonen ved henholdsvis $\\alpha=0{,}05$ og $\\alpha=0{,}01$?",
-      options: ["Forkast ved 0,05 (0,046 < 0,05), men behold ved 0,01 (0,046 > 0,01) — en vippeverdi", "Forkast ved begge nivåer", "Behold ved begge nivåer", "Behold ved 0,05, forkast ved 0,01"],
+      options: ["Forkast ved 0,05 (0,046 < 0,05), men behold ved 0,01 (0,046 > 0,01) — en vippeverdi", "Forkast ved begge nivåer (0,046 < 0,05 og 0,046 < 0,01)", "Behold ved begge nivåer, siden 0,046 er for stor til å forkaste både ved α = 0,05 og ved α = 0,01", "Behold ved 0,05, forkast ved 0,01"],
       explanation: "$0{,}046<0{,}05$ ⟹ forkast; $0{,}046>0{,}01$ ⟹ behold. Samme data, motsatt konklusjon avhengig av α satt på forhånd — en klassisk vippeverdi. Et strengere α gjør det aldri LETTERE å forkaste.",
     },
     {
       question: "Kollegaen vil halvere utvalget (fra 81 til ~40). Hva gjør det med testens styrke, og via hvilken kjede?",
-      options: ["Senker power: mindre $n$ ⟹ større $SE=SD/\\sqrt{n}$ ⟹ mindre testobservator ⟹ større p ⟹ vanskeligere å forkaste en falsk $H_0$", "Øker power fordi færre deltakere gir mindre støy", "Endrer ingenting, siden p allerede er oppgitt", "Senker power ved å redusere $SD$ (spredningen mellom personer)"],
+      options: ["Senker power: mindre $n$ ⟹ større $SE=SD/\\sqrt{n}$ ⟹ mindre testobservator ⟹ større p ⟹ vanskeligere å forkaste en falsk $H_0$", "Øker power fordi færre deltakere gir mindre støy, slik at $SE$ blir mindre, testobservatoren større og p-verdien lavere med ~40 deltakere", "Endrer ingenting, siden p-verdien allerede er oppgitt og dermed ligger fast enten utvalget er 81 eller ~40, uansett hva $SE$ måtte gjøre", "Senker power ved å redusere $SD$ (spredningen mellom personer), slik at testobservatoren blir mindre"],
       explanation: "Power = $1-\\beta$ synker fordi mindre $n$ gir STØRRE $SE$ (bredere utvalgsfordeling), mindre testobservator og større p. Det er $SE$, ikke $SD$, som endres — å tro $n$ krymper $SD$ er en fast felle.",
     },
     {
       question: "I f)-leddet foreslår en kollega å endre hypotesen etter at dataene er analysert. Hva heter dette, og hva forebygger det?",
-      options: ["HARKing (hypotese etter resultatet); forebygges av pre-registrering, som skiller konfirmerende fra eksplorative analyser", "Type II-feil; forebygges av et større utvalg", "Enhalet testing; forebygges av å velge tohalet", "Publikasjonsbias; forebygges av fagfellevurdering"],
+      options: ["HARKing (hypotese etter resultatet); forebygges av pre-registrering, som skiller konfirmerende fra eksplorative analyser", "Type II-feil; forebygges av et større utvalg, siden problemet med å endre hypotesen etter analysen er at testen manglet nok power", "Enhalet testing; forebygges av å velge tohalet, siden det å endre hypotesen etter analysen bare er å bestemme retningen i etterkant", "Publikasjonsbias; forebygges av fagfellevurdering, som luker ut hypoteser satt opp etter analysen"],
       explanation: "Å skreddersy hypotesen til tallene og utgi den for å ha vært der på forhånd er HARKing. Pre-registrering låser hypotese/analyseplan tidsstemplet FØR data, og skiller konfirmerende (planlagt) fra eksplorative (utforskende, men merkes) funn.",
     },
     {
       question: "Hvorfor gjelder hypotesene $\\mu$ (populasjonssnittet) og ikke $\\bar{x}$ (utvalgssnittet)?",
-      options: ["Utvalgssnittet kjenner vi allerede (42); poenget er å slutte til det ukjente populasjonssnittet — å skrive $H_0:\\bar{x}=40$ er feil #12", "Fordi $\\mu$ alltid er lik $\\bar{x}$ i store utvalg", "Fordi $\\bar{x}$ er en gresk bokstav og $\\mu$ er latinsk", "Fordi tohalet test krever $\\mu$, mens enhalet krever $\\bar{x}$"],
+      options: ["Utvalgssnittet kjenner vi allerede (42); poenget er å slutte til det ukjente populasjonssnittet — å skrive $H_0:\\bar{x}=40$ er feil #12", "Fordi $\\mu$ alltid er lik $\\bar{x}$ i store utvalg, slik at $H_0:\\mu=40$ og $H_0:\\bar{x}=40$ er samme hypotese når $n=81$, og symbolvalget bare er notasjon", "Fordi $\\bar{x}$ er en gresk bokstav og $\\mu$ er latinsk, og hypoteser skal etter konvensjonen alltid skrives med latinske symboler for populasjonen", "Fordi tohalet test krever $\\mu$, mens enhalet krever $\\bar{x}$, slik at symbolvalget i $H_0$ følger av antall haler og ikke av at $\\bar{x}=42$ er kjent"],
       explanation: "En test slutter fra det vi ser (utvalget, $\\bar{x}=42$) til det vi ikke vet (populasjonen, $\\mu$). Å teste et tall vi allerede kjenner er meningsløst; $H_0:\\bar{x}=40$ er feil #12. De andre påstandene er faktisk gale.",
     },
   ],
@@ -2790,22 +2790,22 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilket av disse er den ENE stryk-fellen (feil #10) på den kvalitative oppgaven?",
-      options: ["Å levere et hypoteseformet/ja-nei-spørsmål (f.eks. «Fører lesesalbruk til bedre karakterer?») der det bes om et kvalitativt", "Å bruke ordet «livsverden» upresist", "Å svare litt for kort på kjennetegnene", "Å nevne at spørsmålet styrer metoden"],
+      options: ["Å levere et hypoteseformet/ja-nei-spørsmål (f.eks. «Fører lesesalbruk til bedre karakterer?») der det bes om et kvalitativt", "Å bruke ordet «livsverden» upresist i redegjørelsen for kvalitativ metode, slik at hele oppgaven felles selv om forskningsspørsmålet er åpent", "Å svare litt for kort på kjennetegnene", "Å nevne at spørsmålet styrer metoden i redegjørelsen for kvalitativ metode"],
       explanation: "Feil #10 er den kvalitative oppgavens eneste stryk-felle: et hypoteseformet, ja/nei-besvarbart spørsmål levert der oppgaven ber om et åpent kvalitativt ett. De andre punktene koster på sin høyde en A-markør, ikke stryk.",
     },
     {
       question: "En kandidat fyller a)-leddet med tre avsnitt om kvalitativ metodes historie, koding og transkribering — alt riktig, men ikke det oppgaven spurte om. Hvilken feil er dette?",
-      options: ["Feil #15 — «jeg kan også dette»-utbrodering som gir null uttelling og stjeler tid (relevansfilteret)", "Feil #10 — hypoteseformet forskningsspørsmål", "Feil #1 — gal p-tolkning", "Feil #3 — kausal tolkning av korrelasjon"],
+      options: ["Feil #15 — «jeg kan også dette»-utbrodering som gir null uttelling og stjeler tid (relevansfilteret)", "Feil #10 — hypoteseformet forskningsspørsmål, altså at de tre avsnittene er ja/nei-besvarbare", "Feil #1 — gal p-tolkning, altså at avsnittene om historie, koding og transkribering leses som en påstand om p", "Feil #3 — kausal tolkning av korrelasjon, altså at riktig, men uetterspurt stoff regnes som en årsakspåstand"],
       explanation: "Riktig kunnskap som ikke svarer på spørsmålet er #15-utbrodering: den trekker ikke direkte ned, men gir null og stjeler tiden du trengte til A-skillene i de andre oppgavene. På fagets billigste oppgave er tidssløsing den dyreste feilen.",
     },
     {
       question: "Hva er de tre kjennetegnene ved et gyldig kvalitativt forskningsspørsmål?",
-      options: ["Åpent spørreord (hvordan/hva/hvilke), ikke en hypotese, ikke ja/nei", "Retning, styrke og forbehold", "Randomisering, kontrollgruppe og blinding", "Populasjon, utvalg og standardfeil"],
+      options: ["Åpent spørreord (hvordan/hva/hvilke), ikke en hypotese, ikke ja/nei", "Retning, styrke og forbehold, altså de tre leddene et korrelasjonsfunn skal tolkes med", "Randomisering, kontrollgruppe og blinding, altså de tre kjennetegnene ved et eksperiment", "Populasjon, utvalg og standardfeil, altså de tre størrelsene en hypotesetest hviler på"],
       explanation: "Et kvalitativt forskningsspørsmål har åpent spørreord, påstår ingenting (ikke hypotese) og kan ikke besvares med ja/nei. Malen «Hvordan opplever [gruppe] [fenomen]?» treffer alltid alle tre. De andre alternativene hører til andre oppgavetyper.",
     },
     {
       question: "Hva er den viktigste «oppgraderingen» på den kvalitative oppgaven — gitt at C-kjernen allerede er et toppsvar?",
-      options: ["Tidsdisiplin: bruk ~40 min her og invester de sparte minuttene i A-skillene i korrelasjons- og hypotesetestingsoppgaven", "Å skrive et mye lengre og mer detaljert svar", "Å ta med faghistorien for å vise bredde", "Å legge til en statistisk analyse av intervjudataene"],
+      options: ["Tidsdisiplin: bruk ~40 min her og invester de sparte minuttene i A-skillene i korrelasjons- og hypotesetestingsoppgaven", "Å skrive et mye lengre og mer detaljert svar enn C-kjernen, og heller bruke ekstra minutter her enn på selve korrelasjonsoppgaven", "Å ta med faghistorien for å vise bredde, slik at besvarelsen løftes godt over C-kjernen selv om oppgaven ikke ber om historikken", "Å legge til en statistisk analyse av intervjudataene, slik at det kvalitative svaret får den presisjonen som tallene kan gi det"],
       explanation: "Siden C-kjernen er full uttelling, ligger den største gevinsten i tidsstrategien: den kvalitative oppgaven skal gå raskt og frigjøre A-skille-tid til de andre oppgavene. Lengre svar, faghistorie (null uttelling) eller statistikk hjelper ikke.",
     },
   ],
