@@ -382,6 +382,40 @@ Mål begge tall per fil før ferdigmelding. `quiz-lengdesjekk.mjs` leser
 `quiz-data-<emne>.ts` og virker først etter wiring, så bruk et staging-skript
 med samme metrikk under bygging.
 
+## Fire regler som stopper lengdelekkasjen ved kilden (nytt 10. august 2026)
+
+Rettingen av 86 quizbanker avdekket at **byggeløypa selv produserer defekten**.
+Våre to nyeste bøker, `svexfac03` og `exfac03-spr`, hadde den like fullt. Målt i
+dem, og gyldig for alle bøker:
+
+**1. Trekk antallet lengre distraktorer per spørsmål — ikke ha én vane.**
+`svexfac03` la inn nøyaktig ÉN lengre distraktor i 40 % av spørsmålene;
+`exfac03-spr` nøyaktig TO i 41 %. Samme defekt, motsatt innstilling. Antallet
+skal variere fritt mellom 0 og 3, ca. 25 % hver.
+
+**2. Behandle alle fire alternativene likt.** Får fasiten et forklarende
+haleledd («…, siden …»), skal alle fire ha det — ellers ingen. I `exfac03-spr`
+satt **150 av 162 distraktor-stubber på `options[3]`**: malen ga to distraktorer
+et haleledd og lot den siste stå som bar etikett. Den ene vanen produserer
+*både* rangklyngen og stubbraten — to lange over fasiten, én bar under.
+
+**3. Skriv aldri en distraktor til fasitens NØYAKTIGE tegntall.** Det er ikke
+nøytralt. `svexfac03` hadde 189 av 910 spørsmål (21 %) med en distraktor på
+eksakt fasitlengde. Da den strikte fordelingen var eksakt 25/25/25/25, leste den
+tie-vektede målingen fortsatt 21/26/24/29 — uavgjort-vekten fordeles på flere
+ranger og trekker målingen oppover. Det tok 100 ekstra nedkortinger å lukke.
+⚠ Konsekvens: en fil kan se balansert ut i en rå telling og likevel felle porten.
+
+**4. Siter alternativets TEKST i forklaringen, aldri plasseringen.**
+16 forklaringer i de to bøkene sa «de to neste» eller «den siste distraktoren».
+Rekkefølgen stokkes ved kjøretid, så de peker på et tilfeldig alternativ.
+Rotårsaken er den samme som lengdevanen: forfatteren ser en rekkefølge leseren
+aldri får se.
+
+Portene som håndhever dette: `quiz-lengdesjekk.mjs` (ytterpunkt, rang, stubbe),
+`rangmaal.mjs` (rang per fil OG per kapittel), `sjekk-tvilling.mjs` (to
+alternativer som sier det samme), `sjekk-alternativref.py` (posisjonsreferanser).
+
 ## SKJELETT.md må være v3 — tre feller wire-bok stopper på (nytt 2. august 2026)
 
 `wire-bok.py` parser skjelettet med to mønstre, og finner den ingen kapitler,
