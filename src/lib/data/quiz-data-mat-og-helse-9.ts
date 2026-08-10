@@ -19,7 +19,7 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva viser glykemisk indeks (GI)?",
-      options: ["Hvor raskt karbohydrater øker blodsukkeret", "Proteininnhold", "Hvor mange kalorier maten inneholder totalt sett", "Hvor mye protein maten gir kroppen etter fordøyelse"],
+      options: ["Hvor raskt karbohydrater øker blodsukkeret", "Hvor lenge maten kan oppbevares før den blir dårlig", "Hvor mange kalorier maten inneholder totalt sett", "Hvor mye protein maten gir kroppen etter fordøyelse"],
       explanation: "GI viser hvor raskt karbohydrater fra mat tas opp og øker blodsukkeret. Lav GI gir jevnere energi.",
     },
     {
@@ -31,7 +31,7 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
   "mat-9-1-2": [
     {
       question: "Hva er hovedforskjellen mellom matallergi og intoleranse?",
-      options: ["Allergi involverer immunsystemet og kan være livstruende", "Intoleranse er farligere", "Intoleranse involverer immunsystemet og er alltid farligst", "Allergi gir kun litt utslett og er helt ufarlig for kroppen"],
+      options: ["Allergi involverer immunsystemet og kan være livstruende", "Intoleranse kan bare oppstå hos barn, mens allergi bare oppstår hos voksne", "Intoleranse involverer immunsystemet og er alltid farligst", "Allergi gir kun litt utslett og er helt ufarlig for kroppen"],
       explanation: "Ved allergi reagerer immunsystemet, noe som kan være livstruende (anafylaksi). Intoleranse gir ubehag i fordoyelsen men er ikke farlig.",
     },
     {
@@ -171,7 +171,7 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor utviklet nordmenn mange konserveringsmetoder som salting og roying?",
-      options: ["For a bevare mat til den lange vinteren", "Fordi de likte salt mat best", "Fordi kongen hadde bestemt at det var lovpålagt", "Fordi de rett og slett likte salt og røkt mat best"],
+      options: ["For a bevare mat til den lange vinteren", "Fordi ferskvare var billigere enn saltet mat om vinteren", "Fordi kongen hadde bestemt at det var lovpålagt", "Fordi de rett og slett likte salt og røkt mat best"],
       explanation: "Norge har lange, kalde vintre med begrenset tilgang påfersk mat. Salting, torking og roying var nødvendig for overlevelse.",
     },
     {
@@ -193,7 +193,7 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
   "mat-9-4-2": [
     {
       question: "Hva er første steg når du planlegger et selskap?",
-      options: ["Finne ut hvem gjestene er og deres behov (allergier, preferanser)", "Handle inn mat", "Å bestemme hvilken meny og hvilke retter du skal lage til gjestene", "Å handle inn all maten og drikken du trenger til hele selskapet ditt"],
+      options: ["Finne ut hvem gjestene er og deres behov (allergier, preferanser)", "Å dekke bordet og pynte det med servietter, lys og blomster til gjestene", "Å bestemme hvilken meny og hvilke retter du skal lage til gjestene", "Å handle inn all maten og drikken du trenger til hele selskapet ditt"],
       explanation: "Du måvite hvem som kommer og eventuelle allergier/preferanser for du planlegger menyen. Sikkerhet først!",
     },
     {
@@ -213,7 +213,7 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kan du gjøre for a nyte festen mer sammen med gjestene?",
-      options: ["Forberede så mye som mulig påforhand", "Lage alt rett for servering", "Vente med all planlegging til selve dagen selskapet er", "Bestille ferdigmat"],
+      options: ["Forberede så mye som mulig påforhand", "Lage alt rett for servering", "Vente med alt til selve dagen", "Bestille ferdigmat"],
       explanation: "Ved a lage forrett og dessert dagen for, og klargjøre grønnsaker påforhand, har du mer tid til a være sammen med gjestene.",
     },
   ],
@@ -225,12 +225,12 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr matsikkerhet?",
-      options: ["At alle mennesker har tilgang til nok, trygg og næringsrik mat", "At maten er last inne", "At all maten i butikkene deles helt gratis ut til alle mennesker", "At man alltid spiser store porsjoner mat for å bli ordentlig mett"],
+      options: ["At alle mennesker har tilgang til nok, trygg og næringsrik mat", "At maten oppbevares innelåst i lager slik at ingen kan stjele den", "At all maten i butikkene deles helt gratis ut til alle mennesker", "At man alltid spiser store porsjoner mat for å bli ordentlig mett"],
       explanation: "Matsikkerhet betyr at alle mennesker til enhver tid har tilgang til nok, trygg og næringsrik mat for et aktivt og sunt liv.",
     },
     {
       question: "Hva kjennetegner okologisk landbruk?",
-      options: ["Ingen syntetiske sprøytemidler eller kunstgjødsel", "Høyere avlinger enn vanlig", "At maten alltid blir billigere enn vanlig dyrket mat", "At man får mye høyere avlinger enn ved vanlig landbruk"],
+      options: ["Ingen syntetiske sprøytemidler eller kunstgjødsel", "At det brukes mer kunstgjødsel enn i vanlig jordbruk ellers", "At maten alltid blir billigere enn vanlig dyrket mat", "At man får mye høyere avlinger enn ved vanlig landbruk"],
       explanation: "Økologisk landbruk unngår syntetiske sprøytemidler og kunstgjødsel, og fokuserer pånaturlige metoder for a ta vare påjord og miljø.",
     },
     {
@@ -247,12 +247,12 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
   "mat-9-5-2": [
     {
       question: "Hva er grønnvasking?",
-      options: ["Nårselskaper gir inntrykk av a være mer miljøvennlige enn de er", "A bruke grønn emballasje", "Når et produkt selges i en emballasje som er laget av grønn plast", "Når man sorterer søpla si i grønne poser slik at den kan gjenvinnes"],
+      options: ["Nårselskaper gir inntrykk av a være mer miljøvennlige enn de er", "Når matvarer vaskes i klorvann før de blir lagt ut i butikkhyllene", "Når et produkt selges i en emballasje som er laget av grønn plast", "Når man sorterer søpla si i grønne poser slik at den kan gjenvinnes"],
       explanation: "Gronnvasking er villedende markedsforing der selskaper fremstar mer baerekraftige enn de faktisk er, ofte med vage påstander.",
     },
     {
       question: "Hvagåranterer Fairtrade-merket?",
-      options: ["Bedre betingelser for bonder og arbeidere i utviklingsland", "At maten er okologisk", "At maten er dyrket økologisk uten sprøytemidler og kunstgjødsel", "At maten er produsert i Norge av helt norske råvarer fra norske gårder"],
+      options: ["Bedre betingelser for bonder og arbeidere i utviklingsland", "At maten er fraktet med skip og ikke med fly på veien til Norge", "At maten er dyrket økologisk uten sprøytemidler og kunstgjødsel", "At maten er produsert i Norge av helt norske råvarer fra norske gårder"],
       explanation: "Fairtrade sikrer at bonder og arbeidere i utviklingsland fårbedre betalt og gode arbeidsforhold.",
     },
     {
@@ -294,7 +294,7 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor gir en frokost med havregrøt jevnere blodsukker enn cornflakes med sukker?",
-      options: ["Havregryn har lav GI og mye fiber, så glukosen frigjøres saktere", "Havregrøt inneholder ikke karbohydrater", "Havregrøt inneholder mye mer sukker enn cornflakes med sukker gjør", "Cornflakes har mye mer fiber, så glukosen derfra frigjøres saktere"],
+      options: ["Havregryn har lav GI og mye fiber, så glukosen frigjøres saktere", "Havregrøt inneholder ikke karbohydrater i det hele tatt, bare protein og fett", "Havregrøt inneholder mye mer sukker enn cornflakes med sukker gjør", "Cornflakes har mye mer fiber, så glukosen derfra frigjøres saktere"],
       explanation: "Fiberet i havregryn gjør at glukosen tas opp sakte og jevnt. Cornflakes med sukker har høy GI og gir en rask blodsukkertopp etterfulgt av et fall.",
     },
   ],
@@ -311,7 +311,7 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor får mange laktoseintolerante problemer med melk?",
-      options: ["De mangler nok av enzymet laktase som bryter ned melkesukkeret", "Immunforsvaret angriper melkeproteinet", "Melk inneholder gluten som mange laktoseintolerante ikke tåler", "Immunforsvaret angriper melkeproteinet og gir en allergisk reaksjon"],
+      options: ["De mangler nok av enzymet laktase som bryter ned melkesukkeret", "Melk inneholder for mye kalsium til at tarmen tåler det", "Melk inneholder gluten som mange laktoseintolerante ikke tåler", "Immunforsvaret angriper melkeproteinet og gir en allergisk reaksjon"],
       explanation: "Laktase bryter ned melkesukker (laktose). Uten nok laktase går laktosen ufordøyd til tarmen og gir oppblåsthet og magesmerter.",
     },
     {
@@ -338,7 +338,7 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor trenger eldre ofte like mye eller mer protein, selv om energibehovet synker?",
-      options: ["For å motvirke tap av muskelmasse (sarkopeni)", "Fordi eldre tåler mindre karbohydrater", "Fordi eldre mennesker tåler mindre karbohydrater enn før", "For å få ekstra mye energi til daglig trening og aktivitet"],
+      options: ["For å motvirke tap av muskelmasse (sarkopeni)", "Fordi eldre trenger mer protein for å holde kroppstemperaturen oppe", "Fordi eldre mennesker tåler mindre karbohydrater enn før", "For å få ekstra mye energi til daglig trening og aktivitet"],
       explanation: "Med alderen taper man muskelmasse (sarkopeni). Nok protein, sammen med aktivitet, bidrar til å bevare muskler og styrke.",
     },
     {
@@ -348,7 +348,7 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er lurt å spise innen 30–60 minutter etter hard trening?",
-      options: ["Karbohydrater og protein for restitusjon", "Ingenting før neste hovedmåltid", "Bare rent vann og litt salt for å erstatte svetten", "Ingenting før du spiser neste ordentlige hovedmåltid"],
+      options: ["Karbohydrater og protein for restitusjon", "Bare frukt, siden kroppen ikke tåler annen mat rett etter trening", "Bare rent vann og litt salt for å erstatte svetten", "Ingenting før du spiser neste ordentlige hovedmåltid"],
       explanation: "Etter trening trenger musklene å fylle på glykogenlagrene (karbohydrater) og bygge seg opp igjen (protein). Derfor er restitusjonsmat gunstig.",
     },
   ],
@@ -360,17 +360,17 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken effekt har syre når kjøtt eller fisk legges i en marinade?",
-      options: ["Den mørner overflaten og hjelper smaken å trenge inn", "Den koker maten helt gjennom", "Den koker maten helt gjennom, slik at den blir ferdig stekt", "Den fjerner alle bakterier, så maten blir helt trygg å spise"],
+      options: ["Den mørner overflaten og hjelper smaken å trenge inn", "Den gjør kjøttet fastere fordi saften trekkes helt ut av det", "Den koker maten helt gjennom, slik at den blir ferdig stekt", "Den fjerner alle bakterier, så maten blir helt trygg å spise"],
       explanation: "Syre (eddik, sitron, yoghurt) denaturerer proteinene på overflaten og mørner teksturen. Men for lang marinering i syre kan gjøre overflaten grøtaktig.",
     },
     {
       question: "Hvorfor tilsetter man sitronsaft på en oppskåret eple- eller avokadobit?",
-      options: ["Syren hemmer brunfargen (oksidasjon)", "Det får frukten til å mørne raskere", "Det øker pH-verdien og gjør frukten mer basisk", "Det får frukten til å mørne mye raskere enn ellers"],
+      options: ["Syren hemmer brunfargen (oksidasjon)", "Det gir frukten en søtere smak og lengre holdbarhet", "Det øker pH-verdien og gjør frukten mer basisk", "Det får frukten til å mørne mye raskere enn ellers"],
       explanation: "Sitronsaft er sur og virker som en oksidasjonshemmer. Den bremser de kjemiske reaksjonene som ellers gjør oppskåret frukt brun.",
     },
     {
       question: "Hvordan påvirker syre fargen på rødkål?",
-      options: ["Den gjør rødkålen klart rød", "Syre påvirker ikke farge", "Den gjør rødkålen helt klart grønn", "Den gjør rødkålen grønn"],
+      options: ["Den gjør rødkålen klart rød", "Syre påvirker ikke farge", "Den gjør rødkålen helt klart grønn", "Den gjør rødkålen hvit"],
       explanation: "Fargestoffene i rødkål er pH-følsomme. I surt miljø blir kålen klart rød, mens den blir blålig eller grønn i basisk miljø.",
     },
     {
@@ -382,7 +382,7 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
   "mat-9-2-4": [
     {
       question: "Hva er felles for alle konserveringsmetoder?",
-      options: ["De fjerner eller kontrollerer noe mikroorganismer trenger for å vokse", "De tilsetter alltid sukker", "De krever at maten fryses ned til minst tjue kuldegrader for å ha noen virkning", "De tilsetter alltid sukker og salt som gir mikroorganismene ekstra næring å vokse på"],
+      options: ["De fjerner eller kontrollerer noe mikroorganismer trenger for å vokse", "De dreper alle mikroorganismer i maten, uansett hvilken metode som blir brukt", "De krever at maten fryses ned til minst tjue kuldegrader for å ha noen virkning", "De tilsetter alltid sukker og salt som gir mikroorganismene ekstra næring å vokse på"],
       explanation: "Konservering virker ved å fjerne eller kontrollere vann, varme, oksygen, nøytral pH eller næring — de faktorene mikroorganismer trenger for å vokse.",
     },
     {
@@ -392,7 +392,7 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan konserverer tørking maten?",
-      options: ["Vannet fjernes, så mikroorganismer ikke kan vokse", "Oksygenet erstattes med salt", "Bakteriene i maten fryses ihjel av den lave temperaturen under selve tørkeprosessen", "Bakteriene fryses ihjel"],
+      options: ["Vannet fjernes, så mikroorganismer ikke kan vokse", "Oksygenet erstattes med salt", "Bakteriene i maten fryses ihjel av den lave temperaturen under selve tørkeprosessen", "Maten blir så sur at bakterier dør"],
       explanation: "Mikroorganismer trenger vann for å vokse. Tørrfisk og andre tørkede varer har så lav vannaktivitet at bakterier og mugg ikke trives.",
     },
     {
@@ -402,14 +402,14 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen på pasteurisering og sterilisering?",
-      options: ["Sterilisering bruker høyere temperatur og dreper flere mikroorganismer", "Pasteurisering bruker høyest temperatur", "De er egentlig to forskjellige ord som beskriver nøyaktig den samme oppvarmingsprosessen", "Pasteurisering bruker høyest temperatur og dreper alle mikroorganismer som finnes i maten"],
+      options: ["Sterilisering bruker høyere temperatur og dreper flere mikroorganismer", "Sterilisering brukes bare på melk, mens pasteurisering bare brukes på hermetikk", "De er egentlig to forskjellige ord som beskriver nøyaktig den samme oppvarmingsprosessen", "Pasteurisering bruker høyest temperatur og dreper alle mikroorganismer som finnes i maten"],
       explanation: "Pasteurisering varmer maten nok til å drepe sykdomsfremkallende bakterier, mens sterilisering bruker høyere temperatur og dreper nær sagt alle mikroorganismer.",
     },
   ],
   "mat-9-2-5": [
     {
       question: "Hva er fermentering?",
-      options: ["En prosess der mikroorganismer bryter ned næringsstoffer og lager nye stoffer", "Å tilsette kunstige fargestoffer", "En prosess der man varmer maten opp til hundre grader for å drepe alle bakteriene i den", "En teknikk der man tilsetter kunstige fargestoffer for å gjøre maten mer holdbar og fin"],
+      options: ["En prosess der mikroorganismer bryter ned næringsstoffer og lager nye stoffer", "En metode der maten røykes over åpen ild slik at røyksmaken trekker helt inn i den", "En prosess der man varmer maten opp til hundre grader for å drepe alle bakteriene i den", "En teknikk der man tilsetter kunstige fargestoffer for å gjøre maten mer holdbar og fin"],
       explanation: "Fermentering er en kontrollert prosess der bakterier, gjær eller mugg bryter ned næringsstoffer og produserer syrer, alkohol eller gasser — ofte uten oksygen.",
     },
     {
@@ -436,17 +436,17 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
   "mat-9-3-3": [
     {
       question: "Hva er glutennettverkets oppgave i en deig?",
-      options: ["Å fange gassbobler og gi bakverket struktur", "Å gjøre bakverket fettrikt", "Å gi bakverket en søt smak fordi glutenet inneholder mye naturlig sukker fra melet", "Å hindre at deigen hever"],
+      options: ["Å fange gassbobler og gi bakverket struktur", "Å gjøre bakverket fettrikt slik at det holder seg saftig", "Å gi bakverket en søt smak fordi glutenet inneholder mye naturlig sukker fra melet", "Å hindre at deigen hever"],
       explanation: "Gluten dannes når hvetemel bearbeides med væske. Det elastiske nettverket fanger gassboblene fra gjær eller bakepulver og gir struktur og tekstur.",
     },
     {
       question: "Hva er forskjellen på fransk og sveitsisk marengs?",
-      options: ["Sveitsisk piskes over vannbad mens fransk piskes kald", "Fransk inneholder ikke sukker", "Sveitsisk marengs bruker eggeplommer i stedet for eggehviter og blir derfor gul og kremet", "Sveitsisk bruker eggeplommer"],
+      options: ["Sveitsisk piskes over vannbad mens fransk piskes kald", "Fransk inneholder ikke sukker", "Fransk marengs stekes alltid i ovnen først", "Sveitsisk bruker eggeplommer"],
       explanation: "Fransk marengs piskes med rått sukker uten varme. Sveitsisk marengs piskes over et vannbad så sukkeret løses og massen blir stabil og blank.",
     },
     {
       question: "Hva oppnår man ved å temperere sjokolade?",
-      options: ["Stabile kakaosmørkrystaller som gir blank overflate og fin knekk", "At sjokoladen blir mørkere i fargen", "At sjokoladen aldri smelter igjen etterpå fordi krystallene binder seg helt fast i massen", "At sjokoladen blir mye mørkere i fargen fordi varmen brenner kakaoen litt under prosessen"],
+      options: ["Stabile kakaosmørkrystaller som gir blank overflate og fin knekk", "At sjokoladen får en tykkere konsistens og blir lettere å forme i hendene", "At sjokoladen aldri smelter igjen etterpå fordi krystallene binder seg helt fast i massen", "At sjokoladen blir mye mørkere i fargen fordi varmen brenner kakaoen litt under prosessen"],
       explanation: "Temperering styrer dannelsen av kakaosmørkrystaller. Riktig temperert sjokolade blir blank, knekker fint og smelter jevnt i munnen, uten matt gråskjær.",
     },
     {
@@ -463,7 +463,7 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
   "mat-9-3-4": [
     {
       question: "Hva kjennetegner fet fisk sammenlignet med mager fisk?",
-      options: ["Fet fisk har mer omega-3 og mørkere, rikere kjøtt", "Mager fisk har alltid mest omega-3", "Fet fisk har hvitt, fast kjøtt og lite fett, akkurat slik som torsk og sei som er magre", "Fet fisk har hvitt, fast kjøtt"],
+      options: ["Fet fisk har mer omega-3 og mørkere, rikere kjøtt", "Mager fisk har alltid mest omega-3", "Fet fisk må alltid kokes, aldri stekes", "Fet fisk har hvitt, fast kjøtt"],
       explanation: "Fet fisk (over 5 % fett) som laks og makrell er rik på sunne omega-3-fettsyrer. Mager fisk som torsk og sei (under 2 % fett) har hvitt, fast kjøtt.",
     },
     {
@@ -478,7 +478,7 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan vet du at blåskjell er trygge å spise etter koking?",
-      options: ["De som har åpnet seg under kokingen kan spises", "Alle skjell kan spises uansett", "Alle blåskjell kan trygt spises etter koking uansett, både de som åpner og de som er lukket", "De som forblir lukket er best"],
+      options: ["De som har åpnet seg under kokingen kan spises", "De som lukter friskt av sjø er trygge", "Alle blåskjell kan trygt spises etter koking uansett, både de som åpner og de som er lukket", "De som forblir lukket er best"],
       explanation: "Blåskjell som åpner seg under kokingen er friske og trygge. Skjell som forblir lukket etter koking bør kastes.",
     },
     {
@@ -490,17 +490,17 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
   "mat-9-3-5": [
     {
       question: "Hva er hovedmålet med god anretning?",
-      options: ["Å skape en gjennomtenkt, visuelt tiltalende komposisjon som styrker matopplevelsen", "Å fylle hele tallerkenen", "Å bruke så mye pynt og garnityr som mulig slik at tallerkenen virker rikelig og innbydende", "Å fylle hele tallerkenen helt ut til kanten slik at gjesten opplever å få mye mat for pengene"],
+      options: ["Å skape en gjennomtenkt, visuelt tiltalende komposisjon som styrker matopplevelsen", "Å servere alle komponentene på én gang, slik at gjesten selv kan velge i hvilken rekkefølge de spises", "Å bruke så mye pynt og garnityr som mulig slik at tallerkenen virker rikelig og innbydende", "Å fylle hele tallerkenen helt ut til kanten slik at gjesten opplever å få mye mat for pengene"],
       explanation: "Anretning handler om å plassere alle elementene med intensjon. God anretning er ikke bare pynt — den løfter selve matopplevelsen.",
     },
     {
       question: "Hva sier oddetallsregelen i anretning?",
-      options: ["Et oddetall elementer ser mer naturlig og interessant ut enn et partall", "Det skal være fem retter i en meny", "At tallerkenen alltid skal være rund, siden runde former oppleves som mest naturlige for øyet", "At maten alltid skal deles nøyaktig i to like store deler for at tallerkenen skal virke balansert"],
+      options: ["Et oddetall elementer ser mer naturlig og interessant ut enn et partall", "At en meny alltid skal bestå av nøyaktig fem retter som serveres etter hverandre", "At tallerkenen alltid skal være rund, siden runde former oppleves som mest naturlige for øyet", "At maten alltid skal deles nøyaktig i to like store deler for at tallerkenen skal virke balansert"],
       explanation: "Tre eller fem elementer oppleves som mer dynamisk og naturlig for øyet enn et partall, som lett virker stivt og symmetrisk.",
     },
     {
       question: "Hvilken regel gjelder for garnityr?",
-      options: ["Det skal være spiselig og tilføre smak, tekstur eller farge", "Det kan godt være uspiselig pynt", "Det kan godt være uspiselig pynt så lenge det ser fint ut og pynter opp kanten av tallerkenen", "Jo mer garnityr, desto bedre"],
+      options: ["Det skal være spiselig og tilføre smak, tekstur eller farge", "Det kan godt være uspiselig pynt", "Garnityret skal alltid ha samme farge som retten", "Jo mer garnityr, desto bedre"],
       explanation: "Garnityr skal alltid være spiselig og passe til retten. Det skal tilføre noe — friskhet, sprøhet eller farge — ikke bare ligge der som dekorasjon.",
     },
     {
@@ -510,19 +510,19 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et godt prinsipp for moderne anretning?",
-      options: ["Mindre er mer — la det være luft rundt maten", "Fyll hele tallerkenen helt til kanten", "Fyll hele tallerkenen helt ut til kanten, slik at gjesten opplever at porsjonen er rikelig stor", "Bland alle komponentene sammen"],
+      options: ["Mindre er mer — la det være luft rundt maten", "Fyll hele tallerkenen helt til kanten", "Bruk minst fem farger på hver tallerken", "Bland alle komponentene sammen"],
       explanation: "«Mindre er mer» betyr at man unngår å overfylle tallerkenen. Litt tom plass rundt maten skaper ro og fremhever komposisjonen.",
     },
   ],
   "mat-9-4-3": [
     {
       question: "Hva betyr at en matvare er halal?",
-      options: ["Den er tillatt etter islams matregler", "Den er forbudt i islam", "Den er strengt forbudt å spise etter reglene i islam, akkurat slik som svinekjøtt og alkohol er", "Den er upasteurisert"],
+      options: ["Den er tillatt etter islams matregler", "Den er forbudt i islam", "Den er velsignet av en imam", "Den er upasteurisert"],
       explanation: "Halal betyr «tillatt». Forbudt mat kalles haram, blant annet svinekjøtt, alkohol og blod. Halalslakting har egne regler.",
     },
     {
       question: "Hvilken regel er sentral i kosher-reglene i jødedommen?",
-      options: ["Kjøtt og melk skal ikke blandes", "Man kan bare spise om natten", "Man kan bare spise mat om natten, mens det er forbudt å innta noe som helst i løpet av dagen", "Bare svinekjøtt er tillatt"],
+      options: ["Kjøtt og melk skal ikke blandes", "Man kan bare spise om natten", "All mat må stekes i ovn", "Bare svinekjøtt er tillatt"],
       explanation: "I kosher holdes kjøtt og melk strengt adskilt. Bare dyr som tygger drøv og har klover (som ku og sau) er tillatt, mens svin og skalldyr er forbudt.",
     },
     {
@@ -537,14 +537,14 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er parve i jødisk matregel?",
-      options: ["Nøytral mat som verken er kjøtt eller melk, som egg, fisk, frukt og grønnsaker", "Mat som bare spises på sabbaten", "En type kjøttrett som tilberedes etter kosher-reglene og bare spises sammen med grønnsaker", "Mat som utelukkende spises på sabbaten, den jødiske hviledagen, og ikke er lov ellers i uken"],
+      options: ["Nøytral mat som verken er kjøtt eller melk, som egg, fisk, frukt og grønnsaker", "Et eget sett med kokekar og servise som bare brukes når man tilbereder kjøttretter", "En type kjøttrett som tilberedes etter kosher-reglene og bare spises sammen med grønnsaker", "Mat som utelukkende spises på sabbaten, den jødiske hviledagen, og ikke er lov ellers i uken"],
       explanation: "Parve er nøytral mat — egg, fisk, frukt, grønnsaker og korn — som kan kombineres med både kjøtt- og melkemåltider innenfor kosher-reglene.",
     },
   ],
   "mat-9-4-4": [
     {
       question: "Hva handler godt vertskap først og fremst om?",
-      options: ["Å få gjestene til å føle seg velkomne og ivaretatt", "Å lage så mange retter som mulig", "Å imponere gjestene med de dyreste og mest eksklusive råvarene man klarer å skaffe til måltidet", "Å imponere med dyreste råvarer"],
+      options: ["Å få gjestene til å føle seg velkomne og ivaretatt", "Å lage så mange retter som mulig", "Å holde en tale til hver enkelt gjest", "Å imponere med dyreste råvarer"],
       explanation: "God vertskap handler ikke om å imponere, men om at gjestene føler seg velkomne, inkludert og ivaretatt gjennom hele besøket.",
     },
     {
@@ -571,7 +571,7 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
   "mat-9-4-5": [
     {
       question: "Hvorfor er matminner ofte så sterke?",
-      options: ["Smak og lukt er tett knyttet til hukommelse og følelser i hjernen", "Fordi mat alltid smaker likt", "Fordi matminner egentlig er ganske svake og lett forsvinner igjen", "Fordi maten vi spiser stort sett smaker helt likt fra gang til gang"],
+      options: ["Smak og lukt er tett knyttet til hukommelse og følelser i hjernen", "Fordi hjernen lagrer smaker i nøyaktig samme område som språk og tall", "Fordi matminner egentlig er ganske svake og lett forsvinner igjen", "Fordi maten vi spiser stort sett smaker helt likt fra gang til gang"],
       explanation: "Lukt og smak prosesseres nær hjernens følelses- og hukommelsessentre. Derfor kan en bestemt smak eller lukt vekke sterke minner — den såkalte prousteffekten.",
     },
     {
@@ -586,19 +586,19 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan kan mat fungere som brobygger i et flerkulturelt samfunn?",
-      options: ["Ved at man deler retter og blir kjent med hverandres kulturer", "Ved at alle spiser nøyaktig samme mat", "Ved at mat egentlig ikke har noen sosial funksjon mellom folk", "Ved at absolutt alle spiser nøyaktig den samme maten hele tiden"],
+      options: ["Ved at man deler retter og blir kjent med hverandres kulturer", "Ved at hver kultur holder matlagingen sin strengt adskilt fra de andre", "Ved at mat egentlig ikke har noen sosial funksjon mellom folk", "Ved at absolutt alle spiser nøyaktig den samme maten hele tiden"],
       explanation: "Å dele mat og smake på hverandres tradisjonsretter skaper nysgjerrighet, forståelse og fellesskap på tvers av kulturer.",
     },
     {
       question: "Hva er tandoori-laks et eksempel på?",
-      options: ["Fusjonsmat — norsk råvare med indisk krydring", "En klassisk indisk rett uten endringer", "En rett som er fermentert over lang tid før servering", "En klassisk indisk rett laget helt uten noen endringer"],
+      options: ["Fusjonsmat — norsk råvare med indisk krydring", "En rett som bare kan lages av råvarer fra ett og samme land", "En rett som er fermentert over lang tid før servering", "En klassisk indisk rett laget helt uten noen endringer"],
       explanation: "Tandoori-laks kombinerer den norske råvaren laks med indisk tandoori-krydder og yoghurtmarinade — et godt eksempel på hvordan kulturer møtes i maten.",
     },
   ],
   "mat-9-5-3": [
     {
       question: "Hva er meze?",
-      options: ["En samling små retter som deles, vanlig i Midtøsten og rundt Middelhavet", "En type stort flatbrød", "En veldig sterk chilisaus som brukes til å krydre kjøtt og grønnsaker med", "En type stort og tynt flatbrød som bakes i en steinovn og deles ved bordet"],
+      options: ["En samling små retter som deles, vanlig i Midtøsten og rundt Middelhavet", "En grillspydrett av marinert lammekjøtt som stekes langsomt over glødende kull", "En veldig sterk chilisaus som brukes til å krydre kjøtt og grønnsaker med", "En type stort og tynt flatbrød som bakes i en steinovn og deles ved bordet"],
       explanation: "Meze er mange små retter — som hummus, falafel og tabbouleh — som deles ved bordet som forrett eller som et helt måltid.",
     },
     {
@@ -608,12 +608,12 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er injera?",
-      options: ["Et etiopisk surdeigsflatbrød med svampaktig tekstur", "En nordafrikansk krydderblanding", "En type couscous laget av små, dampede semulekorn av hvete", "En nordafrikansk krydderblanding med mange ulike krydder i"],
+      options: ["Et etiopisk surdeigsflatbrød med svampaktig tekstur", "En tykk linsegryte som spises sammen med ris eller brød", "En type couscous laget av små, dampede semulekorn av hvete", "En nordafrikansk krydderblanding med mange ulike krydder i"],
       explanation: "Injera er et fermentert, svampaktig surdeigsbrød fra Etiopia. Maten legges oppå brødet, og man bruker biter av injera til å plukke opp maten.",
     },
     {
       question: "Hva er tajine?",
-      options: ["En marokkansk gryterett oppkalt etter leirgryta den lages i", "En tyrkisk dessert", "En israelsk salat av finhakket tomat, agurk og løk med olje", "En søt tyrkisk dessert med nøtter og sukkerlake mellom lagene"],
+      options: ["En marokkansk gryterett oppkalt etter leirgryta den lages i", "En sterk paprikapasta fra Tyrkia", "En israelsk salat av finhakket tomat, agurk og løk med olje", "En søt tyrkisk dessert med nøtter og sukkerlake"],
       explanation: "Tajine er en nordafrikansk gryterett av kjøtt eller grønnsaker, krydret med blant annet ras el hanout, som langtidskokes i en kjegleformet leirgryte.",
     },
     {
@@ -625,7 +625,7 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
   "mat-9-5-4": [
     {
       question: "Hva var den columbianske utvekslingen?",
-      options: ["Overføringen av planter, dyr og mat mellom Amerika og resten av verden etter 1492", "En handelsavtale mellom Norge og Brasil", "En stor handelsavtale om kaffe og frukt inngått mellom Norge og Brasil på 1900-tallet", "Innføringen av kjøleskap og fryseboks som gjorde det mulig å lagre fersk mat mye lenger"],
+      options: ["Overføringen av planter, dyr og mat mellom Amerika og resten av verden etter 1492", "Innføringen av felles europeiske regler for handel med matvarer på slutten av 1800-tallet", "En stor handelsavtale om kaffe og frukt inngått mellom Norge og Brasil på 1900-tallet", "Innføringen av kjøleskap og fryseboks som gjorde det mulig å lagre fersk mat mye lenger"],
       explanation: "Etter 1492 ble mais, poteter, tomater, chili og kakao spredt fra Amerika til resten av verden, mens hvete, ris og husdyr kom motsatt vei.",
     },
     {
@@ -635,7 +635,7 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er guacamole laget av?",
-      options: ["Avokado, lime, løk og tomat", "Kokte bønner og ris", "Grillet mais blandet med revet ost og litt smør oppi", "Kikerter og tahini"],
+      options: ["Avokado, lime, løk og tomat", "Kokte bønner og ris", "Grillet mais med ost", "Kikerter og tahini"],
       explanation: "Guacamole er en meksikansk røre av moste avokadoer med lime, finhakket løk, tomat og gjerne koriander.",
     },
     {
@@ -645,14 +645,14 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er «the Three Sisters» i urbefolkningens jordbruk i Amerika?",
-      options: ["Mais, bønner og gresskar som dyrkes sammen og hjelper hverandre", "Tre kvinnelige kokker", "Tre ulike typer sterk chili som dyrkes tett ved siden av hverandre", "Tre forskjellige sorter bønner som plantes tett sammen i samme bed"],
+      options: ["Mais, bønner og gresskar som dyrkes sammen og hjelper hverandre", "Tre kvinnelige kokker som utviklet de tradisjonelle rettene i området", "Tre ulike typer sterk chili som dyrkes tett ved siden av hverandre", "Tre forskjellige sorter bønner som plantes tett sammen i samme bed"],
       explanation: "Mais gir bønnene noe å klatre på, bønnene tilfører jorden nitrogen, og gresskarbladene holder på fuktigheten — et genialt samdyrkingssystem.",
     },
   ],
   "mat-9-5-5": [
     {
       question: "Hva er forskjellen på vegetarisk og vegansk kost?",
-      options: ["Vegetarianere spiser egg og meieriprodukter, veganere unngår alle animalske produkter", "Veganere spiser fisk, vegetarianere ikke", "Veganere spiser både fisk og skalldyr, mens vegetarianere unngår all slags sjømat helt", "Vegetarianere spiser bare frukt og bær, mens veganere derimot kan spise alle grønnsaker"],
+      options: ["Vegetarianere spiser egg og meieriprodukter, veganere unngår alle animalske produkter", "Vegetarianere unngår all mat som er varmebehandlet, mens veganere bare spiser rå grønnsaker", "Veganere spiser både fisk og skalldyr, mens vegetarianere unngår all slags sjømat helt", "Vegetarianere spiser bare frukt og bær, mens veganere derimot kan spise alle grønnsaker"],
       explanation: "Vegetarianere unngår kjøtt og fisk, men kan spise egg og meieriprodukter. Veganere unngår alle animalske produkter, også egg, melk og honning.",
     },
     {
@@ -689,7 +689,7 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor brukes veksthus til grønnsaksproduksjon i Norge?",
-      options: ["For å dyrke grønnsaker også når klimaet ute er for kaldt", "Fordi grønnsaker ikke kan dyrkes på friland i Norge", "For å slippe å gjødsle jorda fordi veksthus gir egen næring", "Fordi grønnsaker overhodet ikke kan dyrkes på friland i Norge"],
+      options: ["For å dyrke grønnsaker også når klimaet ute er for kaldt", "For å kunne dyrke grønnsaker helt uten å bruke jord i det hele tatt", "For å slippe å gjødsle jorda fordi veksthus gir egen næring", "Fordi grønnsaker overhodet ikke kan dyrkes på friland i Norge"],
       explanation: "Det norske klimaet har kort vekstsesong. Oppvarmede veksthus gjør det mulig å dyrke for eksempel tomater og agurk gjennom store deler av året.",
     },
     {
@@ -699,7 +699,7 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en sentral utfordring for fremtidens matproduksjon?",
-      options: ["Å produsere nok mat til en voksende befolkning uten å ødelegge miljøet", "At det ikke finnes nok korn i verden i dag", "At det stadig blir altfor mye god matjord som ingen klarer å bruke opp", "At det rett og slett ikke finnes nok korn i hele verden i dag lenger nå"],
+      options: ["Å produsere nok mat til en voksende befolkning uten å ødelegge miljøet", "At det ikke finnes nok korn i verden i dag", "At det stadig blir altfor mye god matjord som ingen klarer å bruke opp", "At folk i verden spiser altfor lite kjøtt til å bli mette"],
       explanation: "Befolkningsvekst, klimaendringer, jordforringelse og vannmangel gjør det krevende å produsere nok mat på en bærekraftig måte i framtiden.",
     },
   ],
@@ -748,34 +748,34 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en berettiget kritikk mot merkeordninger?",
-      options: ["Mange ulike merker kan forvirre forbrukerne, og sertifisering koster", "De garanterer alltid full rettferdighet", "At de uten et eneste unntak gjør absolutt all mat i butikken mye dyrere", "At slike merkeordninger faktisk er helt forbudt å bruke på varer i Norge"],
+      options: ["Mange ulike merker kan forvirre forbrukerne, og sertifisering koster", "At de garanterer full rettferdighet for alle bønder i hele leverandørkjeden", "At de uten et eneste unntak gjør absolutt all mat i butikken mye dyrere", "At slike merkeordninger faktisk er helt forbudt å bruke på varer i Norge"],
       explanation: "Sertifisering koster penger, mange merker kan forvirre, kontroll er krevende, og merkene garanterer ikke nødvendigvis full rettferdighet. Likevel gir de forbrukere et verktøy.",
     },
     {
       question: "Hva er Debio-merket (Ø-merket) en garanti for?",
-      options: ["At maten er økologisk produsert", "At fisken er villfanget", "At maten er kortreist og produsert i nærområdet til forbrukeren", "At maten er Fairtrade"],
+      options: ["At maten er økologisk produsert", "At fisken er villfanget", "At maten er kortreist", "At maten er Fairtrade"],
       explanation: "Debio er kontrollorganet for økologisk produksjon i Norge. Ø-merket garanterer at maten er produsert etter de økologiske reglene.",
     },
   ],
   "mat-9-6-4": [
     {
       question: "Hva kjennetegner økologisk landbruk?",
-      options: ["Ingen syntetiske sprøytemidler eller kunstgjødsel", "Bruk av mest mulig kunstgjødsel", "At all dyrking foregår innendørs i veksthus med kunstig lys og varme", "Bruk av mest mulig kunstgjødsel for å oppnå de aller høyeste avlingene"],
+      options: ["Ingen syntetiske sprøytemidler eller kunstgjødsel", "At avlingene alltid blir større enn i konvensjonelt landbruk", "At all dyrking foregår innendørs i veksthus med kunstig lys og varme", "Bruk av mest mulig kunstgjødsel for å oppnå de aller høyeste avlingene"],
       explanation: "Økologisk landbruk bygger på naturlige kretsløp uten syntetiske sprøytemidler eller kunstgjødsel, med vekstskifte, naturgjødsel og strengere krav til dyrevelferd.",
     },
     {
       question: "Hva er en fordel med konvensjonelt (industrielt) jordbruk?",
-      options: ["Høyere avlinger og lavere matpriser", "Det gir alltid bedre dyrevelferd", "At det aldri brukes sprøytemidler i noen del av produksjonen", "Det bruker aldri sprøytemidler"],
+      options: ["Høyere avlinger og lavere matpriser", "Det gir alltid bedre dyrevelferd", "Det krever ingen maskiner", "Det bruker aldri sprøytemidler"],
       explanation: "Konvensjonelt jordbruk gir høye avlinger og rimeligere mat ved bruk av kunstgjødsel og sprøytemidler, men har utfordringer knyttet til miljø og sprøytemiddelrester.",
     },
     {
       question: "Hva sier forskningen om hvorvidt økologisk mat er sunnere?",
-      options: ["Det er små forskjeller i næringsinnhold, men mindre sprøytemiddelrester", "Økologisk mat er alltid mye sunnere", "Konvensjonell mat er alltid sunnere fordi den inneholder mer sprøytemidler", "Økologisk mat inneholder nesten ingen vitaminer sammenlignet med vanlig mat"],
+      options: ["Det er små forskjeller i næringsinnhold, men mindre sprøytemiddelrester", "At økologisk mat alltid er mye sunnere fordi den inneholder langt flere vitaminer", "Konvensjonell mat er alltid sunnere fordi den inneholder mer sprøytemidler", "Økologisk mat inneholder nesten ingen vitaminer sammenlignet med vanlig mat"],
       explanation: "Forskningen viser små forskjeller i næringsinnhold. Økologisk mat har mindre sprøytemiddelrester, men det viktigste for helsen er å spise variert og mye grønt.",
     },
     {
       question: "Hva er vekstskifte, en metode i økologisk jordbruk?",
-      options: ["Å dyrke ulike vekster på samme jorde fra år til år", "Å bruke kunstgjødsel annethvert år", "Å bytte hele gården sin med naboen for å få frisk og ny jord", "Å bruke syntetisk kunstgjødsel på jordet omtrent annethvert år"],
+      options: ["Å dyrke ulike vekster på samme jorde fra år til år", "Å la jordet ligge helt brakk i mange år uten å dyrke noe", "Å bytte hele gården sin med naboen for å få frisk og ny jord", "Å bruke syntetisk kunstgjødsel på jordet omtrent annethvert år"],
       explanation: "Vekstskifte betyr å variere hvilke vekster som dyrkes på et jorde fra år til år. Det hindrer utarming av jorda og reduserer skadedyr og sykdom naturlig.",
     },
     {
@@ -787,7 +787,7 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
   "mat-9-6-5": [
     {
       question: "Hva er forskjellen på fiskeri og havbruk?",
-      options: ["Fiskeri er fangst av vill fisk, havbruk er oppdrett i merder", "Fiskeri foregår bare i innsjøer", "Fiskeri foregår bare i innsjøer, mens havbruk skjer ute i det åpne havet", "Havbruk er fangst av villfisk, mens fiskeri er oppdrett i lukkede merder"],
+      options: ["Fiskeri er fangst av vill fisk, havbruk er oppdrett i merder", "Fiskeri og havbruk er egentlig to ord for nøyaktig den samme virksomheten", "Fiskeri foregår bare i innsjøer, mens havbruk skjer ute i det åpne havet", "Havbruk er fangst av villfisk, mens fiskeri er oppdrett i lukkede merder"],
       explanation: "Fiskeri er fangst av vill fisk og sjømat, mens havbruk (akvakultur) er oppdrett av fisk i kontrollerte omgivelser, oftest i merder i sjøen.",
     },
     {
@@ -802,7 +802,7 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er klippfisk?",
-      options: ["Saltet og tørket fisk, tradisjonelt torsk", "En type oppdrettsfisk", "Fisk som er røkt over glør for å få lang holdbarhet og røyksmak", "En type oppdrettsfisk som fôres opp i merder langs norskekysten"],
+      options: ["Saltet og tørket fisk, tradisjonelt torsk", "Fersk fisk som pakkes i is og selges allerede samme dag", "Fisk som er røkt over glør for å få lang holdbarhet og røyksmak", "En type oppdrettsfisk som fôres opp i merder langs norskekysten"],
       explanation: "Klippfisk er fisk (oftest torsk) som er saltet og tørket. Sammen med tørrfisk er det et tradisjonelt norsk fiskeprodukt med lange eksporttradisjoner.",
     },
     {
@@ -834,7 +834,7 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor kan norske drivhustomater i januar ha høyere klimaavtrykk enn importerte?",
-      options: ["Oppvarming av drivhus om vinteren krever mye energi", "Importerte tomater dyrkes uten energi", "Importerte tomater dyrkes helt uten bruk av energi eller oppvarming", "Norske tomater blir gjødslet mye mer enn de importerte tomatene blir"],
+      options: ["Oppvarming av drivhus om vinteren krever mye energi", "Importerte tomater blir alltid fraktet med fly hele veien til Norge", "Importerte tomater dyrkes helt uten bruk av energi eller oppvarming", "Norske tomater blir gjødslet mye mer enn de importerte tomatene blir"],
       explanation: "Å varme opp drivhus i den mørke, kalde norske vinteren krever mye energi. Tomater dyrket i naturlig varme og fraktet med skip kan derfor ha lavere avtrykk.",
     },
   ],
@@ -846,7 +846,7 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke tre dimensjoner har bærekraft?",
-      options: ["Miljømessig, sosial og økonomisk", "Lokal, regional og global", "Nivåene lokal, regional og global handel med matvarer", "Fortid, nåtid og framtid"],
+      options: ["Miljømessig, sosial og økonomisk", "Vann, luft og jordsmonn", "Nivåene lokal, regional og global handel med matvarer", "Fortid, nåtid og framtid"],
       explanation: "Bærekraft har tre dimensjoner: miljømessig (natur og klima), sosial (mennesker og rettferdighet) og økonomisk (levedyktig økonomi).",
     },
     {
@@ -915,7 +915,7 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er hovedmålet med å utvikle ny matteknologi som labkjøtt og insektprotein?",
-      options: ["Å sikre nok bærekraftig mat til en voksende verdensbefolkning", "Å erstatte alle grønnsaker", "Å gjøre maten dyrere slik at folk kjøper og kaster mindre av den", "Å erstatte alle grønnsaker i kostholdet med kjøtt og proteinrik mat"],
+      options: ["Å sikre nok bærekraftig mat til en voksende verdensbefolkning", "Å gjøre matlaging i vanlige husholdninger helt overflødig i framtiden", "Å gjøre maten dyrere slik at folk kjøper og kaster mindre av den", "Å erstatte alle grønnsaker i kostholdet med kjøtt og proteinrik mat"],
       explanation: "Verdens befolkning vokser, og samtidig må klimaavtrykket reduseres. Nye matkilder skal bidra til matsikkerhet på en mer bærekraftig måte.",
     },
   ],
@@ -927,12 +927,12 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Er kortreist mat alltid mest klimavennlig?",
-      options: ["Nei, produksjonsmåten betyr ofte mer enn transportavstanden", "Det har ingenting med klima å gjøre", "Nei, langreist mat er alltid best fordi den dyrkes i naturlig varme og sol", "Ja, kortreist mat har alltid lavest klimaavtrykk uansett hvordan den dyrkes"],
+      options: ["Nei, produksjonsmåten betyr ofte mer enn transportavstanden", "Nei, avstanden maten fraktes har ingenting med klimaavtrykket å gjøre", "Nei, langreist mat er alltid best fordi den dyrkes i naturlig varme og sol", "Ja, kortreist mat har alltid lavest klimaavtrykk uansett hvordan den dyrkes"],
       explanation: "Produksjonsmåten dominerer ofte klimaavtrykket. Norske drivhustomater om vinteren kan ha høyere avtrykk enn importerte tomater dyrket i naturlig varme.",
     },
     {
       question: "Hva er selvforsyningsgrad?",
-      options: ["Andelen av matforbruket et land dekker med egen produksjon", "Hvor mye mat et land eksporterer", "Andelen av matforbruket et land dekker med import fra utlandet", "Hvor stor del av maten som blir kastet i stedet for å bli spist"],
+      options: ["Andelen av matforbruket et land dekker med egen produksjon", "Hvor stor andel av maten et land produserer som blir eksportert ut", "Andelen av matforbruket et land dekker med import fra utlandet", "Hvor stor del av maten som blir kastet i stedet for å bli spist"],
       explanation: "Selvforsyningsgraden er andelen av matforbruket (ofte målt i kalorier) som dekkes av egen produksjon. Norge ligger på rundt 40–50 %.",
     },
     {
@@ -954,12 +954,12 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen på korrelasjon og kausalitet?",
-      options: ["Korrelasjon er at to ting opptrer sammen; kausalitet er at det ene forårsaker det andre", "Korrelasjon beviser alltid at det ene forårsaker det andre helt sikkert", "Kausalitet er et svakere bevis for årsak enn det korrelasjon er", "De to begrepene betyr egentlig akkurat det samme i forskningen"],
+      options: ["Korrelasjon er at to ting opptrer sammen; kausalitet er at det ene forårsaker det andre", "At korrelasjon alltid beviser årsak, slik at samvariasjon i seg selv er tilstrekkelig bevis", "Kausalitet er et svakere bevis for årsak enn det korrelasjon er", "De to begrepene betyr egentlig akkurat det samme i forskningen"],
       explanation: "At to ting korrelerer betyr ikke at det ene forårsaker det andre. Iskremsalg og drukninger korrelerer, men begge skyldes en tredje faktor: varmt vær.",
     },
     {
       question: "Hvem utarbeider de norske kostholdsrådene?",
-      options: ["Helsedirektoratet, basert på oppsummert forskning", "Den enkelte influencer", "Reklamebyråene, som lager rådene sammen med butikkene", "Matprodusentene selv, ut fra det de ønsker å selge mest av"],
+      options: ["Helsedirektoratet, basert på oppsummert forskning", "Den enkelte influenser, ut fra egne erfaringer med kosthold", "Reklamebyråene, som lager rådene sammen med butikkene", "Matprodusentene selv, ut fra det de ønsker å selge mest av"],
       explanation: "Helsedirektoratet utvikler kostholdsrådene basert på de nordiske næringsstoffanbefalingene (NNR), som igjen bygger på oppsummert forskning fra ekspertkomiteer.",
     },
     {
@@ -976,7 +976,7 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
   "mat-9-8-2": [
     {
       question: "Hva er en helsepåstand, og hvordan er den regulert?",
-      options: ["En påstand om at mat har positiv helseeffekt; bare dokumenterte og godkjente påstander er lov", "En påstand som bare kan brukes om kosttilskudd, aldri om vanlig mat i butikken", "En hvilken som helst reklametekst om mat, og den er helt uregulert av loven", "En påstand om mat som alltid er sann fordi den står på selve emballasjen"],
+      options: ["En påstand om at mat har positiv helseeffekt; bare dokumenterte og godkjente påstander er lov", "En påstand som bare kan brukes i markedsføring av kosttilskudd, aldri om vanlig mat i butikkhyllene", "En hvilken som helst reklametekst om mat, og den er helt uregulert av loven", "En påstand om mat som alltid er sann fordi den står på selve emballasjen"],
       explanation: "I EU og Norge kan bare helsepåstander som er vitenskapelig dokumentert og godkjent av EFSA brukes i markedsføring. Det skal beskytte forbrukerne mot villedning.",
     },
     {
@@ -996,14 +996,14 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en god strategi når du møter en viral helsepåstand?",
-      options: ["Sjekk hvem som står bak, hva bevisene er, og om det finnes interessekonflikter", "Stol helt på den så lenge videoen har mange visninger og seere", "Del den straks videre til alle vennene dine uten å sjekke noe", "Tro på den med en gang hvis den høres spennende og lovende ut"],
+      options: ["Sjekk hvem som står bak, hva bevisene er, og om det finnes interessekonflikter", "Stol helt på den så lenge videoen har mange visninger, delinger og positive kommentarer", "Del den straks videre til alle vennene dine uten å sjekke noe", "Tro på den med en gang hvis den høres spennende og lovende ut"],
       explanation: "Kildekritikk er nøkkelen: undersøk avsenderen, etterspør dokumentasjon, og se etter om noen tjener penger på påstanden.",
     },
   ],
   "mat-9-8-3": [
     {
       question: "Hva er matindustrien?",
-      options: ["Alle bedrifter som produserer, foredler, distribuerer og selger mat", "Bare dagligvarebutikkene som selger maten til folk", "Mattilsynet, som kontrollerer at maten er trygg", "Bare bøndene som dyrker maten på gårdene sine"],
+      options: ["Alle bedrifter som produserer, foredler, distribuerer og selger mat", "Bare dagligvarebutikkene og kjedene som selger den ferdige maten til forbrukerne", "Mattilsynet, som kontrollerer at maten er trygg", "Bare bøndene som dyrker maten på gårdene sine"],
       explanation: "Matindustrien spenner fra små lokale produsenter til store multinasjonale selskaper som Nestlé og Unilever, og dekker hele kjeden fra produksjon til salg.",
     },
     {
@@ -1040,7 +1040,7 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er kryssforurensning?",
-      options: ["At bakterier overføres fra rå mat til ferdig mat via for eksempel skjærefjøl", "At kjøleskapet er stilt inn for kaldt slik at maten fryser", "At maten blir altfor salt fordi du har brukt for mye salt", "At to ferdige retter blandes sammen på samme tallerken"],
+      options: ["At bakterier overføres fra rå mat til ferdig mat via for eksempel skjærefjøl", "At kjøleskapet er stilt inn så kaldt at maten fryser og mister både smak og tekstur", "At maten blir altfor salt fordi du har brukt for mye salt", "At to ferdige retter blandes sammen på samme tallerken"],
       explanation: "Kryssforurensning skjer når bakterier fra rå mat, som rå kylling, overføres til spiseklar mat via samme skjærefjøl, kniv eller hender uten vask.",
     },
     {
@@ -1062,12 +1062,12 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva viser havremelkens inntog i norske butikker?",
-      options: ["At forbrukernes etterspørsel kan skape et helt nytt marked", "At plantebasert mat aldri selger", "At plantebasert mat aldri selger godt nok til å bli i butikkene", "At det er butikkene som helt alene bestemmer hva som skal selges"],
+      options: ["At forbrukernes etterspørsel kan skape et helt nytt marked", "At nye matvarer bare kan lykkes hvis de blir reklamert for på TV", "At plantebasert mat aldri selger godt nok til å bli i butikkene", "At det er butikkene som helt alene bestemmer hva som skal selges"],
       explanation: "For ti år siden fantes knapt plantebaserte melkealternativer. Økt etterspørsel gjorde at havremelk og lignende nå har fast plass i butikkene — forbrukermakt i praksis.",
     },
     {
       question: "Hva er forskjellen på individuelle forbrukervalg og systemendring?",
-      options: ["Individuelle valg er hver enkelts kjøp; systemendring er politikk og regulering", "Individuelle valg krever alltid at det først vedtas en ny lov", "Systemendring gjøres bare av forbrukere, aldri av politikere", "De to begrepene betyr egentlig helt det samme i praksis"],
+      options: ["Individuelle valg er hver enkelts kjøp; systemendring er politikk og regulering", "At individuelle forbrukervalg alltid krever at Stortinget først har vedtatt en ny lov", "Systemendring gjøres bare av forbrukere, aldri av politikere", "De to begrepene betyr egentlig helt det samme i praksis"],
       explanation: "Individuelle valg er den enkeltes handlinger i butikken. Systemendring skjer gjennom politikk, avgifter og regulering. Begge deler trengs for varig endring.",
     },
     {

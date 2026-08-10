@@ -4,7 +4,7 @@ const quizData_kunst_10: Record<string, QuizQuestion[]> = {
   "kunst-10-1-1": [
     {
       question: "Hva innebærer frontalitetsprinsippet i egyptisk kunst?",
-      options: ["Hode og bein vises i profil, mens overkroppen vises forfra", "Figurene males uten omriss", "Hodet vises forfra mens overkroppen og beina dreies i profil mot bildets side", "Figurene fremstilles alltid bakfra, slik at man ser ryggen, nakken og hælene tydelig"],
+      options: ["Hode og bein vises i profil, mens overkroppen vises forfra", "Figurene males uten omriss, slik at fargeflatene glir over i hverandre", "Hodet vises forfra mens overkroppen og beina dreies i profil mot bildets side", "Figurene fremstilles alltid bakfra, slik at man ser ryggen, nakken og hælene tydelig"],
       explanation: "Egyptisk kunst fulgte strenge regler: hode og bein i profil, overkropp forfra. Dette kalles frontalitetsprinsippet.",
     },
     {
@@ -31,7 +31,7 @@ const quizData_kunst_10: Record<string, QuizQuestion[]> = {
   "kunst-10-1-2": [
     {
       question: "Hva er chiaroscuro, som Caravaggio var mester i?",
-      options: ["Dramatisk kontrast mellom lys og skygge", "Et italiensk perspektivsystem", "En type finslipt marmorskulptur med glatt og skinnende overflate", "Maling med kun lyse farger"],
+      options: ["Dramatisk kontrast mellom lys og skygge", "Et italiensk perspektivsystem", "En finslipt marmorskulptur", "Maling med kun lyse farger"],
       explanation: "Chiaroscuro er italiensk for \"lys-mørke\" og betegner barokkens dramatiske kontraster mellom lys og skygge.",
     },
     {
@@ -58,12 +58,12 @@ const quizData_kunst_10: Record<string, QuizQuestion[]> = {
   "kunst-10-1-3": [
     {
       question: "Hva var impresjonistene som Claude Monet mest opptatt av å fange?",
-      options: ["Lyset, atmosfæren og øyeblikket", "Nøyaktige detaljer i atelieret", "Politiske budskap om samtidens urett og sosiale forhold", "Religiøse fortellinger"],
+      options: ["Lyset, atmosfæren og øyeblikket", "Nøyaktige detaljer i atelieret", "Politiske budskap om urett", "Religiøse fortellinger"],
       explanation: "Impresjonistene malte ofte utendørs for å fange lysets og atmosfærens skiftninger i øyeblikket.",
     },
     {
       question: "Hva er det viktigste kjennetegnet ved kubismen?",
-      options: ["Motivet vises fra flere vinkler samtidig", "Helt naturtro gjengivelse", "Helt naturtro gjengivelse av motivet slik øyet ser det", "Bruk av kun runde sirkler og buede former i komposisjonen"],
+      options: ["Motivet vises fra flere vinkler samtidig", "Bruk av bare svart og hvitt uten farger i det hele tatt", "Helt naturtro gjengivelse av motivet slik øyet ser det", "Bruk av kun runde sirkler og buede former i komposisjonen"],
       explanation: "Kubistene Picasso og Braque brøt opp formen og viste motivet fra flere vinkler samtidig i samme bilde.",
     },
     {
@@ -73,7 +73,7 @@ const quizData_kunst_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken teknikk er Jackson Pollock kjent for?",
-      options: ["Drip painting - å dryppe og helle maling på lerretet", "Tresnitt", "Sfumato med myke, gradvise overganger mellom lys og skygge", "Mosaikk satt sammen av mange små, fargede steinbiter og glass"],
+      options: ["Drip painting - å dryppe og helle maling på lerretet", "Tresnitt der motivet skjæres ut i en treplate og trykkes på papir", "Sfumato med myke, gradvise overganger mellom lys og skygge", "Mosaikk satt sammen av mange små, fargede steinbiter og glass"],
       explanation: "Pollock la lerretet på gulvet og dryppet maling over det - såkalt drip painting eller action painting.",
     },
     {
@@ -90,12 +90,12 @@ const quizData_kunst_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er det sentrale i konseptkunst?",
-      options: ["Ideen bak verket er viktigere enn selve objektet", "Store, fargerike malerier", "Store, fargerike malerier som dekker en hel vegg", "Naturtro gjengivelse av motivet ned til minste detalj"],
+      options: ["Ideen bak verket er viktigere enn selve objektet", "Bruk av kun naturmaterialer", "Store, fargerike malerier som dekker en hel vegg", "Naturtro gjengivelse ned til minste detalj"],
       explanation: "I konseptkunst, fra ca. 1960, er ideen eller konseptet viktigere enn det fysiske objektet.",
     },
     {
       question: "Hva er en readymade?",
-      options: ["Et hverdagsobjekt som presenteres som kunst", "Et maleri laget på bestilling", "En rask skisse laget som forstudie før et ferdig verk", "Et maleri laget på bestilling etter kundens ønsker og mål"],
+      options: ["Et hverdagsobjekt som presenteres som kunst", "En kopi av et kjent kunstverk laget for museumsbutikken", "En rask skisse laget som forstudie før et ferdig verk", "Et maleri laget på bestilling etter kundens ønsker og mål"],
       explanation: "Marcel Duchamp innførte readymades - vanlige gjenstander som blir kunst ved at kunstneren velger dem og stiller dem ut.",
     },
     {
@@ -122,7 +122,7 @@ const quizData_kunst_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er Monolitten?",
-      options: ["En høy granittskulptur av Gustav Vigeland i Frognerparken", "Et maleri av Munch", "En kjent og bratt fjellformasjon som ligger ute i Lofoten", "Et stort ekspresjonistisk maleri malt av Edvard Munch i Oslo"],
+      options: ["En høy granittskulptur av Gustav Vigeland i Frognerparken", "En bronsestatue som står i Bergen", "En kjent og bratt fjellformasjon som ligger ute i Lofoten", "Et ekspresjonistisk maleri av Edvard Munch"],
       explanation: "Monolitten er den over 17 meter høye skulpturen av sammenslyngede menneskekropper i Vigelandsanlegget i Oslo.",
     },
     {
@@ -149,7 +149,7 @@ const quizData_kunst_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva går tredjedelsregelen ut på?",
-      options: ["Viktige elementer plasseres langs linjer som deler bildet i tre, både vannrett og loddrett", "Bildet skal deles i to like deler", "At bildeflaten deles i to nøyaktig like store deler av en linje midt gjennom motivet vannrett", "At motivet alltid skal stå helt sentrert i midten for å skape ro, balanse og symmetri i bildet"],
+      options: ["Viktige elementer plasseres langs linjer som deler bildet i tre, både vannrett og loddrett", "At motivet skal fylle nøyaktig en tredjedel av bildeflaten, verken mer eller mindre enn det", "At bildeflaten deles i to nøyaktig like store deler av en linje midt gjennom motivet vannrett", "At motivet alltid skal stå helt sentrert i midten for å skape ro, balanse og symmetri i bildet"],
       explanation: "Tredjedelsregelen deler bildet i ni felt, og viktige elementer plasseres langs linjene eller i krysspunktene for en dynamisk komposisjon.",
     },
     {
@@ -166,17 +166,17 @@ const quizData_kunst_10: Record<string, QuizQuestion[]> = {
   "kunst-10-2-2": [
     {
       question: "Hva skiller en seriff-skrift fra en sans-seriff-skrift?",
-      options: ["Seriff-skrifter har små \"føtter\" på bokstavene, sans-seriff har det ikke", "Sans-seriff kan bare brukes i overskrifter", "Seriff-skrifter finnes bare på trykt papir, mens sans-seriff kun brukes på skjerm", "Seriff-skrifter er alltid vesentlig større og tar mer plass enn sans-seriff-skrifter"],
+      options: ["Seriff-skrifter har små \"føtter\" på bokstavene, sans-seriff har det ikke", "Sans-seriff kan bare brukes i overskrifter og aldri i lengre partier med brødtekst", "Seriff-skrifter finnes bare på trykt papir, mens sans-seriff kun brukes på skjerm", "Seriff-skrifter er alltid vesentlig større og tar mer plass enn sans-seriff-skrifter"],
       explanation: "Seriffer er de små tverrstrekene på bokstavenes ender. Sans betyr \"uten\" - sans-seriff-skrifter mangler disse.",
     },
     {
       question: "Hva er visuelt hierarki i layout?",
-      options: ["At det viktigste innholdet fremheves med størrelse, farge og plassering", "At teksten alltid står øverst", "En nummerert liste over hvilke designere som har jobbet med et prosjekt sammen", "At all tekst alltid plasseres helt øverst på siden uansett hva den skal formidle"],
+      options: ["At det viktigste innholdet fremheves med størrelse, farge og plassering", "At alle elementene på siden skal ha nøyaktig samme størrelse, farge og vekt", "En nummerert liste over hvilke designere som har jobbet med et prosjekt sammen", "At all tekst alltid plasseres helt øverst på siden uansett hva den skal formidle"],
       explanation: "Visuelt hierarki styrer blikket til leseren ved å gi viktige elementer mer vekt gjennom størrelse, farge og plassering.",
     },
     {
       question: "Hvilken funksjon har hvitrom (tomrom) i et design?",
-      options: ["Det gir pusterom og fremhever viktige elementer", "Det er bortkastet plass som bør fylles", "Det er bortkastet og ubrukt plass som helst bør fylles med mest mulig innhold", "Det gjør designet billigere"],
+      options: ["Det gir pusterom og fremhever viktige elementer", "Det er bortkastet plass som bør fylles", "Det gjør designet vanskeligere å lese", "Det gjør designet billigere"],
       explanation: "Hvitrom er den tomme plassen mellom elementer. Det skaper ro, lesbarhet og fokus på det viktige.",
     },
     {
@@ -186,14 +186,14 @@ const quizData_kunst_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner en god plakat?",
-      options: ["Ett tydelig budskap som kommuniserer raskt på avstand", "Mange små detaljer man må studere lenge", "Mest mulig tekst og detaljert informasjon pakket tett sammen på flaten", "Mest mulig tekst og informasjon"],
+      options: ["Ett tydelig budskap som kommuniserer raskt på avstand", "Mange små detaljer man må studere lenge", "Bruk av minst fem ulike skrifttyper", "Mest mulig tekst og informasjon"],
       explanation: "En plakat skal kommunisere raskt og tydelig: ett hovedbudskap, sterk visuell attraksjon og lesbar tekst.",
     },
   ],
   "kunst-10-2-3": [
     {
       question: "Hva er \"den gylne timen\" i fotografi?",
-      options: ["Tiden rett etter soloppgang og før solnedgang med varmt, mykt lys", "Tiden det tar å fremkalle film", "Timen midt på natten da man må bruke lang lukkertid og blits for å få lys nok", "Den ene timen om dagen da automatisk hvitbalanse fungerer helt uten justering"],
+      options: ["Tiden rett etter soloppgang og før solnedgang med varmt, mykt lys", "Tiden det tar å fremkalle en filmrull i mørkerommet fra start til slutt", "Timen midt på natten da man må bruke lang lukkertid og blits for å få lys nok", "Den ene timen om dagen da automatisk hvitbalanse fungerer helt uten justering"],
       explanation: "Den gylne timen gir varmt og mykt lys med lange skygger, og er populær for portretter og landskap.",
     },
     {
@@ -203,7 +203,7 @@ const quizData_kunst_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skjer ofte med motivet når man fotograferer i baklys?",
-      options: ["Motivet kan bli en mørk silhuett mot lyset", "Fargene blir sterkere på motivet", "Alle skyggene på motivet forsvinner helt slik at bildet blir jevnt og flatt belyst", "Skyggene forsvinner helt"],
+      options: ["Motivet kan bli en mørk silhuett mot lyset", "Fargene blir sterkere på motivet", "Bildet blir helt hvitt og uten motiv", "Skyggene forsvinner helt"],
       explanation: "Baklys betyr at lyskilden er bak motivet. Da kan motivet bli en silhuett fordi kameraet eksponerer for det sterke lyset.",
     },
     {
@@ -230,12 +230,12 @@ const quizData_kunst_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner stop-motion-animasjon?",
-      options: ["Fysiske figurer flyttes litt mellom hvert enkeltbilde som fotograferes", "Bilder genereres av kunstig intelligens", "Alt tegnes rute for rute inne i datamaskinen slik at ingen fysiske figurer trengs", "Bildene genereres helt av kunstig intelligens ut fra en tekstbeskrivelse av scenen"],
+      options: ["Fysiske figurer flyttes litt mellom hvert enkeltbilde som fotograferes", "Hvert bilde tegnes for hånd på gjennomsiktige plastark som legges oppå hverandre", "Alt tegnes rute for rute inne i datamaskinen slik at ingen fysiske figurer trengs", "Bildene genereres helt av kunstig intelligens ut fra en tekstbeskrivelse av scenen"],
       explanation: "I stop-motion fotograferes fysiske figurer bilde for bilde mens de flyttes bittelitt, slik at de ser ut til å bevege seg.",
     },
     {
       question: "Hva er hensikten med et storyboard?",
-      options: ["Å planlegge filmens scener visuelt før innspilling", "Å skrive rulleteksten", "Å lage den ferdige filmplakaten som skal henge utenfor kinoen for å lokke publikum", "Å lage filmplakaten"],
+      options: ["Å planlegge filmens scener visuelt før innspilling", "Å skrive rulleteksten", "Å velge musikken til filmen", "Å lage filmplakaten"],
       explanation: "Et storyboard er en tegnet plan over scenene med kameravinkler, bevegelser og dialog - det sparer tid og forebygger problemer.",
     },
     {
@@ -247,7 +247,7 @@ const quizData_kunst_10: Record<string, QuizQuestion[]> = {
   "kunst-10-2-5": [
     {
       question: "Hva betyr patos i retorikken?",
-      options: ["Å appellere til mottakerens følelser", "Å overbevise med fakta og logikk", "Å bygge opp avsenderens egen troverdighet og faglige autoritet hos mottakeren", "Å bygge troverdighet"],
+      options: ["Å appellere til mottakerens følelser", "Å overbevise med fakta og logikk", "Å gjenta budskapet ofte", "Å bygge troverdighet"],
       explanation: "Patos er følelsesappell. Etos handler om troverdighet og logos om fakta og fornuft.",
     },
     {
@@ -306,7 +306,7 @@ const quizData_kunst_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner en sirkulær økonomi?",
-      options: ["Materialer holdes i kretsløp gjennom gjenbruk, reparasjon og resirkulering", "Alt produseres i sirkelformede fabrikker", "Forbrukerne oppfordres til å kjøpe bare runde produkter fordi de er lettere å resirkulere", "Alt produseres i store, sirkelformede fabrikker som er bygget for effektiv masseproduksjon"],
+      options: ["Materialer holdes i kretsløp gjennom gjenbruk, reparasjon og resirkulering", "At alle produkter skal selges videre til halv pris etter at de har vært brukt en stund", "Forbrukerne oppfordres til å kjøpe bare runde produkter fordi de er lettere å resirkulere", "Alt produseres i store, sirkelformede fabrikker som er bygget for effektiv masseproduksjon"],
       explanation: "I sirkulær økonomi designes produkter for lang levetid, reparasjon og resirkulering, slik at materialene går i kretsløp.",
     },
     {
@@ -316,12 +316,12 @@ const quizData_kunst_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er upcycling?",
-      options: ["Å gjøre om brukte materialer til noe med høyere verdi", "Å smelte om materialer til råstoff", "Å smelte om brukte materialer til rent råstoff som får lavere verdi enn før", "Å kaste ting i riktig søppelkasse"],
+      options: ["Å gjøre om brukte materialer til noe med høyere verdi", "Å smelte om materialer til råstoff", "Å kjøpe nye ting oftere enn før", "Å kaste ting i riktig søppelkasse"],
       explanation: "Upcycling betyr å gi brukte materialer eller produkter nytt liv med høyere verdi, f.eks. møbler av paller.",
     },
     {
       question: "Hva kjennetegner den lineære økonomimodellen?",
-      options: ["Utvinne, produsere, bruke og kaste", "Reparere og gjenbruke alt", "Å reparere og gjenbruke absolutt alt slik at ingenting noen gang ender som avfall", "Dele produkter med naboen"],
+      options: ["Utvinne, produsere, bruke og kaste", "Reparere og gjenbruke alt", "Alt produseres lokalt", "Dele produkter med naboen"],
       explanation: "Den lineære modellen går én vei: råvarer utvinnes, produkter lages, brukes og kastes - i motsetning til sirkulær økonomi.",
     },
   ],
@@ -338,7 +338,7 @@ const quizData_kunst_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor lager designere prototyper?",
-      options: ["For å teste og forbedre ideen før produktet settes i produksjon", "For å bruke opp restmaterialer", "For å bruke opp restmaterialer som ellers ville blitt kastet under produksjonen", "For å kunne selge prototypene direkte i butikken før det ferdige produktet er klart"],
+      options: ["For å teste og forbedre ideen før produktet settes i produksjon", "For å kunne søke om patent før konkurrentene rekker å kopiere ideen selv", "For å bruke opp restmaterialer som ellers ville blitt kastet under produksjonen", "For å kunne selge prototypene direkte i butikken før det ferdige produktet er klart"],
       explanation: "En prototype er en testversjon som avslører problemer tidlig - det er billigere å feile med en modell enn med ferdig produkt.",
     },
     {
@@ -360,12 +360,12 @@ const quizData_kunst_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken effekt har lyse farger i et rom?",
-      options: ["Rommet virker større og luftigere", "Rommet virker mindre og trangere", "Rommet virker mindre og trangere fordi de lyse fargene trekker veggene innover", "Rommet blir kaldere i temperatur"],
+      options: ["Rommet virker større og luftigere", "Rommet virker mindre og trangere", "Rommet blir dyrere å male", "Rommet blir kaldere i temperatur"],
       explanation: "Lyse farger reflekterer mer lys og får rom til å virke større og luftigere, mens mørke farger gjør rommet mer intimt.",
     },
     {
       question: "Hva kjennetegner varmt lys?",
-      options: ["Lav fargetemperatur med gulaktig, koselig lys", "Høy fargetemperatur med blålig lys", "Høy fargetemperatur med blålig, klart lys som minner om dagslys midt på dagen", "Lys som bare brukes om sommeren"],
+      options: ["Lav fargetemperatur med gulaktig, koselig lys", "Høy fargetemperatur med blålig lys", "Lys som skifter farge automatisk", "Lys som bare brukes om sommeren"],
       explanation: "Varmt lys har lav fargetemperatur og gulaktig tone, og skaper en koselig stemning - kaldt lys er blålig.",
     },
     {
@@ -382,22 +382,22 @@ const quizData_kunst_10: Record<string, QuizQuestion[]> = {
   "kunst-10-3-5": [
     {
       question: "Hva er fast fashion?",
-      options: ["Billige klær som produseres raskt i store mengder etter skiftende trender", "Klær laget av resirkulerte materialer", "Klær som utelukkende er laget av resirkulerte og økologiske materialer med lav miljøbelastning", "Solide klær av høy kvalitet som er sydd for å vare i mange tiår og gå i arv mellom generasjoner"],
+      options: ["Billige klær som produseres raskt i store mengder etter skiftende trender", "Klær som bare selges i én enkelt uke før de trekkes tilbake fra markedet igjen", "Klær som utelukkende er laget av resirkulerte og økologiske materialer med lav miljøbelastning", "Solide klær av høy kvalitet som er sydd for å vare i mange tiår og gå i arv mellom generasjoner"],
       explanation: "Fast fashion er rask og billig masseproduksjon av motebaserte klær, med store miljømessige og sosiale konsekvenser.",
     },
     {
       question: "Hva var Rana Plaza-ulykken?",
-      options: ["En tekstilfabrikk i Bangladesh kollapset og over tusen arbeidere døde", "En brann i et kjøpesenter i Norge", "Et skipsforlis der et lasteskip fullt av importerte klær sank på vei fra Asia til Europa", "En stor internasjonal motevisning i Paris som ble avlyst fordi ingen designere ville stille ut"],
+      options: ["En tekstilfabrikk i Bangladesh kollapset og over tusen arbeidere døde", "En brann i et norsk kjøpesenter som førte til strengere brannforskrifter", "Et skipsforlis der et lasteskip fullt av importerte klær sank på vei fra Asia til Europa", "En stor internasjonal motevisning i Paris som ble avlyst fordi ingen designere ville stille ut"],
       explanation: "I 2013 kollapset fabrikkbygningen Rana Plaza i Bangladesh. Ulykken satte søkelys på arbeidsforholdene i tekstilindustrien.",
     },
     {
       question: "Hva er et moodboard i motedesignprosessen?",
-      options: ["En samling bilder, farger og materialer som viser stemningen for kolleksjonen", "Et mønster for å sy plagg", "Et ferdig papirmønster som brukes til å klippe stoffet og sy sammen de enkelte plaggene", "En prøvedukke i menneskestørrelse som klærne festes på for å kontrollere passform og fall"],
+      options: ["En samling bilder, farger og materialer som viser stemningen for kolleksjonen", "En liste over hvilke butikker som skal selge kolleksjonen når den lanseres i markedet", "Et ferdig papirmønster som brukes til å klippe stoffet og sy sammen de enkelte plaggene", "En prøvedukke i menneskestørrelse som klærne festes på for å kontrollere passform og fall"],
       explanation: "Et moodboard samler inspirasjonsbilder, fargepaletter og materialprøver som definerer kolleksjonens uttrykk.",
     },
     {
       question: "Hvordan bidrar syntetiske tekstiler til mikroplastproblemet?",
-      options: ["De slipper ut små plastfibre når de vaskes", "De gjør ikke det - bare bomull gjør det", "De løser seg gradvis opp i regnvann og forsvinner helt uten å etterlate seg noe i naturen", "De tiltrekker seg plast fra havet"],
+      options: ["De slipper ut små plastfibre når de vaskes", "De gjør ikke det - bare bomull gjør det", "De løser seg gradvis opp i regnvann", "De tiltrekker seg plast fra havet"],
       explanation: "Tekstiler av polyester og andre syntetiske fibre slipper mikroplast ut i vannet ved vask.",
     },
     {
@@ -424,12 +424,12 @@ const quizData_kunst_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner brutalismen?",
-      options: ["Store bygg i rå, ubehandlet betong", "Glassfasader med gulldetaljer", "Slanke marmorsøyler og symmetriske fasader hentet rett fra den klassiske antikken", "Marmorsøyler i klassisk stil"],
+      options: ["Store bygg i rå, ubehandlet betong", "Glassfasader med gulldetaljer", "Fasader helt uten vinduer", "Marmorsøyler i klassisk stil"],
       explanation: "Brutalismen (ca. 1950-1975) brukte rå betong (\"béton brut\") i store, massive bygg som Barbican Centre.",
     },
     {
       question: "Hvilket palass er et hovedverk i barokkarkitekturen?",
-      options: ["Versailles-palasset i Frankrike", "Operaen i Oslo", "Operaen i Oslo, det skrå marmorbygget ved fjorden som du kan gå helt opp på taket av", "Villa Savoye"],
+      options: ["Versailles-palasset i Frankrike", "Operaen i Oslo", "Eiffeltårnet i Paris", "Villa Savoye"],
       explanation: "Versailles utenfor Paris, med sine enorme dimensjoner og overdådige interiører, er barokkens mest kjente palass.",
     },
   ],
@@ -456,7 +456,7 @@ const quizData_kunst_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke bygg ble reist i Oslo på 1800-tallet som del av nasjonsbyggingen?",
-      options: ["Slottet, Stortinget og Universitetet", "Operaen, Munchmuseet og Deichman", "Mjøstårnet og Powerhouse Brattørkaia, som er nyere norske symbolbygg innen bærekraft", "Mjøstårnet og Powerhouse"],
+      options: ["Slottet, Stortinget og Universitetet", "Operaen, Munchmuseet og Deichman", "Rådhuset og Frognerparken", "Mjøstårnet og Powerhouse"],
       explanation: "Etter 1814 trengte Norge nasjonale institusjoner, og Slottet, Stortinget og Universitetet i Oslo ble bygget på 1800-tallet.",
     },
   ],
@@ -490,7 +490,7 @@ const quizData_kunst_10: Record<string, QuizQuestion[]> = {
   "kunst-10-4-4": [
     {
       question: "Hva er den danske arkitekten Jan Gehl kjent for?",
-      options: ["Å sette mennesket i sentrum for byplanleggingen", "Å designe verdens høyeste skyskrapere", "Å tegne verdens aller høyeste skyskrapere og strekke byene så langt mot himmelen som mulig", "Å planlegge byer for biler"],
+      options: ["Å sette mennesket i sentrum for byplanleggingen", "Å designe verdens høyeste skyskrapere", "Å tegne moderne kirkebygg", "Å planlegge byer for biler"],
       explanation: "Jan Gehl argumenterer for byer i menneskelig skala: bygg for mennesker, ikke biler, med aktive fasader og gode oppholdssteder.",
     },
     {
@@ -500,7 +500,7 @@ const quizData_kunst_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva innebærer universell utforming av uterom?",
-      options: ["Trinnfri adkomst, taktile ledelinjer og god belysning så alle kan bruke rommet", "At rommet bare er for rullestolbrukere", "At alle benkene i rommet er nøyaktig like i form og farge slik at helheten virker ryddig", "At rommet utelukkende er tilrettelagt for rullestolbrukere og ikke tenkt for andre besøkende"],
+      options: ["Trinnfri adkomst, taktile ledelinjer og god belysning så alle kan bruke rommet", "At uterommet skal utformes nøyaktig likt i alle kommuner i hele landet, uten unntak", "At alle benkene i rommet er nøyaktig like i form og farge slik at helheten virker ryddig", "At rommet utelukkende er tilrettelagt for rullestolbrukere og ikke tenkt for andre besøkende"],
       explanation: "Universell utforming sikrer at alle kan bruke uterommet: trinnfritt, ledelinjer, lesbar skilting, sitteplasser og belysning - lovpålagt i Norge.",
     },
     {
@@ -510,19 +510,19 @@ const quizData_kunst_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva var drabantbyene et resultat av?",
-      options: ["Modernistisk byplanlegging med boligområder utenfor sentrum", "Hageby-bevegelsens småhus", "Middelalderens beskyttende bymurer, som tvang husene tett sammen innenfor de trange portene", "Hageby-bevegelsens frittliggende småhus med hager, plassert i grønne omgivelser rundt sentrum"],
+      options: ["Modernistisk byplanlegging med boligområder utenfor sentrum", "Et krav om at alle boliger skulle ligge innenfor gangavstand til sjøen", "Middelalderens beskyttende bymurer, som tvang husene tett sammen innenfor de trange portene", "Hageby-bevegelsens frittliggende småhus med hager, plassert i grønne omgivelser rundt sentrum"],
       explanation: "Drabantbyene ble bygget etter modernistiske planleggingsidealer på 1900-tallet, med boligblokker i egne soner utenfor sentrum.",
     },
   ],
   "kunst-10-4-5": [
     {
       question: "Hvilken fordel har 3D-printing i byggebransjen?",
-      options: ["Raskere bygging med mindre materialsvinn og mulighet for nye former", "Bygningene blir alltid billigere å varme opp", "Bygningene som printes blir alltid vesentlig billigere og enklere å varme opp om vinteren", "Hus som printes trenger verken fundament eller grunnmur, fordi de står stødig på selve bakken"],
+      options: ["Raskere bygging med mindre materialsvinn og mulighet for nye former", "Printede bygg trenger aldri vedlikehold etter at de er ferdig oppført", "Bygningene som printes blir alltid vesentlig billigere og enklere å varme opp om vinteren", "Hus som printes trenger verken fundament eller grunnmur, fordi de står stødig på selve bakken"],
       explanation: "3D-printing kan bygge raskt, redusere svinn og skape former som er vanskelige med tradisjonelle metoder.",
     },
     {
       question: "Hva er et smart bygg?",
-      options: ["Et bygg med sensorer og teknologi som styrer lys, varme og energi automatisk", "Et bygg tegnet av kunstig intelligens", "Et bygg som fra første strek er tegnet ferdig av kunstig intelligens uten hjelp fra arkitekter", "Et bygg som rommer mange skoler og klasserom under samme tak og derfor kalles smart av elevene"],
+      options: ["Et bygg med sensorer og teknologi som styrer lys, varme og energi automatisk", "Et bygg som settes sammen av moduler som er laget helt ferdig på fabrikk på forhånd", "Et bygg som fra første strek er tegnet ferdig av kunstig intelligens uten hjelp fra arkitekter", "Et bygg som rommer mange skoler og klasserom under samme tak og derfor kalles smart av elevene"],
       explanation: "Smarte bygg bruker sensorer og tilkoblet teknologi (IoT) til å optimalisere lys, varme, ventilasjon og energibruk.",
     },
     {
@@ -537,19 +537,19 @@ const quizData_kunst_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er parametrisk design?",
-      options: ["Design der datamaskinen genererer former ut fra regler og parametere", "Design med kun rette vinkler", "Design som bare tillater rette vinkler og firkantede former uten runde eller skrå linjer", "Håndtegnede fasadeskisser som arkitekten lager med blyant og linjal helt uten datamaskin"],
+      options: ["Design der datamaskinen genererer former ut fra regler og parametere", "Design der byggets mål regnes om til metriske enheter før tegningen lages", "Design som bare tillater rette vinkler og firkantede former uten runde eller skrå linjer", "Håndtegnede fasadeskisser som arkitekten lager med blyant og linjal helt uten datamaskin"],
       explanation: "I parametrisk design brukes algoritmer og parametere til å generere komplekse former som ville vært vanskelige å tegne for hånd.",
     },
   ],
   "kunst-10-5-1": [
     {
       question: "Hva er fordelen med vektorgrafikk fremfor pikselbasert grafikk?",
-      options: ["Den kan skaleres opp uten å miste kvalitet", "Den tar alltid mer lagringsplass", "Den ser mye mer ut som et ekte maleri med synlige penselstrøk og teksturer i bildet", "Den kan bare vises i svart-hvitt"],
+      options: ["Den kan skaleres opp uten å miste kvalitet", "Den tar alltid mer lagringsplass", "Den ser mer ut som et ekte maleri", "Den kan bare vises i svart-hvitt"],
       explanation: "Vektorgrafikk er bygget av matematiske kurver og kan forstørres uendelig uten å bli kornete, i motsetning til pikselbilder.",
     },
     {
       question: "Hva er hensikten med lag (layers) i digitale tegneprogrammer?",
-      options: ["Man kan jobbe med deler av bildet hver for seg uten å ødelegge resten", "De låser bildet for redigering", "De bestemmer automatisk hvilken pris det ferdige digitale kunstverket skal selges for", "De gjør bildefilen betydelig mindre i størrelse og sparer dermed mye plass på maskinen"],
+      options: ["Man kan jobbe med deler av bildet hver for seg uten å ødelegge resten", "De låser hele bildet for redigering slik at ingen kan endre det i ettertid", "De bestemmer automatisk hvilken pris det ferdige digitale kunstverket skal selges for", "De gjør bildefilen betydelig mindre i størrelse og sparer dermed mye plass på maskinen"],
       explanation: "Lag lar deg redigere bakgrunn, figurer og effekter separat - en stor fordel sammenlignet med tradisjonelt maleri.",
     },
     {
@@ -564,14 +564,14 @@ const quizData_kunst_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken mulighet har digital kunst som tradisjonelt maleri mangler?",
-      options: ["Uendelig angremulighet og enkel reproduksjon", "Mulighet for store formater", "Muligheten til å arbeide i svært store formater som dekker hele vegger eller flater", "Personlig uttrykk"],
+      options: ["Uendelig angremulighet og enkel reproduksjon", "Mulighet for store formater", "Muligheten til å bruke ekte oljemaling", "Mulighet for personlig uttrykk i verket"],
       explanation: "Digitale verktøy gir angremuligheter, lag og perfekt reproduksjon - mens et tradisjonelt maleri er ett unikt fysisk objekt.",
     },
   ],
   "kunst-10-5-2": [
     {
       question: "Hva er en prompt i AI-generert kunst?",
-      options: ["En tekstbeskrivelse som forteller AI-en hva den skal lage", "Navnet på kunstneren", "En feilmelding som dukker opp på skjermen når AI-modellen ikke klarer å lage et bilde", "En bestemt type digital pensel som brukeren velger for å male direkte i tegneprogrammet"],
+      options: ["En tekstbeskrivelse som forteller AI-en hva den skal lage", "Navnet på kunstneren som opprinnelig laget bildet AI-en lærte av", "En feilmelding som dukker opp på skjermen når AI-modellen ikke klarer å lage et bilde", "En bestemt type digital pensel som brukeren velger for å male direkte i tegneprogrammet"],
       explanation: "En prompt er tekstinstruksjonen brukeren skriver, som AI-modellen bruker til å generere bildet.",
     },
     {
@@ -586,7 +586,7 @@ const quizData_kunst_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en deepfake?",
-      options: ["Et AI-manipulert bilde eller video som ser ekte ut, men er falskt", "Et veldig dypt fotografi", "Et fotografi som er tatt på svært stort dyp under vann av en dykker", "Et bilde som er så høyoppløselig at man kan zoome uendelig langt inn"],
+      options: ["Et AI-manipulert bilde eller video som ser ekte ut, men er falskt", "Et bilde som er lagret i et filformat som ikke kan åpnes uten passord", "Et fotografi som er tatt på svært stort dyp under vann av en dykker", "Et bilde som er så høyoppløselig at man kan zoome uendelig langt inn"],
       explanation: "Deepfakes er AI-genererte bilder eller videoer som etterligner virkelige personer, og kan brukes til manipulasjon.",
     },
     {
@@ -608,7 +608,7 @@ const quizData_kunst_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken teknologi gjør at interaktive kunstverk kan reagere på publikum?",
-      options: ["Sensorer som registrerer bevegelse, lyd eller berøring", "Vanlige oljemalinger", "Vanlige oljemalinger som endrer farge når lyset i rommet skifter", "Tunge marmorblokker som publikum selv må flytte rundt på i rommet"],
+      options: ["Sensorer som registrerer bevegelse, lyd eller berøring", "Speil som kaster lyset i rommet tilbake mot den som ser på verket", "Vanlige oljemalinger som endrer farge når lyset i rommet skifter", "Tunge marmorblokker som publikum selv må flytte rundt på i rommet"],
       explanation: "Sensorer, ofte koblet til mikrokontrollere som Arduino, lar verket registrere og reagere på publikums bevegelser.",
     },
     {
@@ -618,14 +618,14 @@ const quizData_kunst_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner installasjonskunst?",
-      options: ["Den fyller et helt rom og oppleves med flere sanser", "Den henger alltid flatt på veggen", "Den henger alltid flatt på veggen i en tung og forgylt ramme", "Den er alltid laget av oljemaling påført et stort strukket lerret"],
+      options: ["Den fyller et helt rom og oppleves med flere sanser", "Den består alltid av en enkelt liten gjenstand i en glassmonter", "Den henger alltid flatt på veggen i en tung og forgylt ramme", "Den er alltid laget av oljemaling påført et stort strukket lerret"],
       explanation: "Installasjonskunst er romlig og fleresanslig - publikum beveger seg ofte inn i og rundt verket.",
     },
   ],
   "kunst-10-5-4": [
     {
       question: "Hva er spillmekanikk?",
-      options: ["Reglene og handlingene som styrer hva spilleren kan gjøre", "Reparasjon av ødelagte konsoller", "Prisen spillet selges for og hvordan man betaler for det på nett", "Reparasjon av ødelagte konsoller og bytte av slitte deler i maskinen"],
+      options: ["Reglene og handlingene som styrer hva spilleren kan gjøre", "Programkoden som utviklerne skriver for å få spillet til å kjøre", "Prisen spillet selges for og hvordan man betaler for det på nett", "Reparasjon av ødelagte konsoller og bytte av slitte deler i maskinen"],
       explanation: "Spillmekanikk er systemet av regler og handlinger - hoppe, bygge, samle - som definerer hvordan spillet spilles.",
     },
     {
@@ -652,7 +652,7 @@ const quizData_kunst_10: Record<string, QuizQuestion[]> = {
   "kunst-10-5-5": [
     {
       question: "Hva er selviscenesettelse i sosiale medier?",
-      options: ["Å bevisst velge og redigere hvordan man fremstiller seg selv", "Å sette opp en teaterforestilling", "Å sette opp og øve inn en ekte teaterforestilling på en scene", "Å slette hele kontoen sin og trekke seg helt fra sosiale medier"],
+      options: ["Å bevisst velge og redigere hvordan man fremstiller seg selv", "Å legge ut alt man gjør i løpet av dagen helt uten å redigere noe", "Å sette opp og øve inn en ekte teaterforestilling på en scene", "Å slette hele kontoen sin og trekke seg helt fra sosiale medier"],
       explanation: "Selviscenesettelse handler om de bevisste valgene - utvalg, vinkel, filter, tekst - som former hvordan andre ser oss.",
     },
     {
@@ -738,7 +738,7 @@ const quizData_kunst_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken teknikk er Banksy særlig kjent for?",
-      options: ["Stensiler (sjablonger) som gir raske, presise motiver", "Oljemaleri på lerret", "Fine akvareller der fargene flyter ut og blandes på vått papir", "Store skulpturer hugget ut av marmorblokker på offentlige plasser"],
+      options: ["Stensiler (sjablonger) som gir raske, presise motiver", "Oljemaleri på lerret i store, klassiske portrettformater med ramme", "Fine akvareller der fargene flyter ut og blandes på vått papir", "Store skulpturer hugget ut av marmorblokker på offentlige plasser"],
       explanation: "Banksy bruker stensiler, som gjør at motivet kan sprayes raskt på vegg - viktig når man jobber ulovlig i det offentlige rom.",
     },
     {
@@ -760,12 +760,12 @@ const quizData_kunst_10: Record<string, QuizQuestion[]> = {
   "kunst-10-6-4": [
     {
       question: "Hva er duodji?",
-      options: ["Tradisjonelt samisk håndverk", "Et samisk musikkinstrument", "En tradisjonell samisk dans som fremføres ved høytider og fester", "En type norsk folkemusikk"],
+      options: ["Tradisjonelt samisk håndverk", "Et samisk musikkinstrument", "En samisk dansetradisjon", "En type norsk folkemusikk"],
       explanation: "Duodji er samisk tradisjonshåndverk - knivmaking, tinnbroderi, skinnarbeid og mer - laget av materialer fra naturen.",
     },
     {
       question: "Hva er en gákti?",
-      options: ["Den samiske kofta, som viser hvor bæreren kommer fra", "En samisk kniv", "Det samiske teltet, som familien setter opp der reinflokken beiter om vinteren", "Den samiske joiken, sangen som forteller hvor bæreren og familien hører hjemme"],
+      options: ["Den samiske kofta, som viser hvor bæreren kommer fra", "Den samiske kniven som bæres i en slire festet til beltet", "Det samiske teltet, som familien setter opp der reinflokken beiter om vinteren", "Den samiske joiken, sangen som forteller hvor bæreren og familien hører hjemme"],
       explanation: "Gákti er den samiske kofta. Farger, snitt og dekor forteller hvilket område - og noen ganger hvilken familie - bæreren tilhører.",
     },
     {
@@ -780,29 +780,29 @@ const quizData_kunst_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner australsk aboriginsk kunst?",
-      options: ["Prikkemaleri og motiver knyttet til drømmetiden", "Oljemaleri av kongelige", "Fargerike glassmalerier i høye vinduer, som forteller bibelfortellinger med lys", "Gotiske katedraler"],
+      options: ["Prikkemaleri og motiver knyttet til drømmetiden", "Oljemaleri av kongelige", "Fargerike glassmalerier i høye kirkevinduer", "Høye gotiske katedraler i stein"],
       explanation: "Aboriginsk kunst er kjent for prikkemalerier som forteller historier fra drømmetiden, urfolkets skapelsesfortellinger.",
     },
   ],
   "kunst-10-6-5": [
     {
       question: "Hva innebærer kuratering av en utstilling?",
-      options: ["Å velge ut verk og bestemme hvordan de presenteres i rommet", "Å male alle verkene selv", "Å ta imot og selge billetter til publikum som kommer for å se utstillingen", "Å male og produsere alle kunstverkene i utstillingen selv, i sitt eget atelier"],
+      options: ["Å velge ut verk og bestemme hvordan de presenteres i rommet", "Å vaske og reparere skadde verk før de blir hengt opp i galleriet", "Å ta imot og selge billetter til publikum som kommer for å se utstillingen", "Å male og produsere alle kunstverkene i utstillingen selv, i sitt eget atelier"],
       explanation: "Kuratoren velger ut verk, plasserer dem i rommet og skriver tekster - valg som former publikums opplevelse.",
     },
     {
       question: "Hva menes med \"den hvite kuben\" i kunstverdenen?",
-      options: ["Det nøytrale, hvite gallerirom som skal la kunsten tale for seg selv", "Et oppbevaringsrom for kunst", "En kvadratisk minimalistisk skulptur i hvitt materiale, ofte laget av gips eller marmor", "Et klimastyrt oppbevaringsrom der museet lagrer verk som ikke er stilt ut for øyeblikket"],
+      options: ["Det nøytrale, hvite gallerirom som skal la kunsten tale for seg selv", "En hvitmalt trekasse som kunstverkene fraktes i mellom museer og gallerier", "En kvadratisk minimalistisk skulptur i hvitt materiale, ofte laget av gips eller marmor", "Et klimastyrt oppbevaringsrom der museet lagrer verk som ikke er stilt ut for øyeblikket"],
       explanation: "Den hvite kuben er idealet om det nøytrale utstillingsrommet med hvite vegger, der ingenting forstyrrer møtet med kunsten.",
     },
     {
       question: "Hva er en vernissage?",
-      options: ["Den festlige åpningen av en utstilling", "Et lag med lakk på maleriet", "En dekorativ og forgylt treramme som settes rundt maleriet før det henges opp på veggen", "En fransk maleteknikk"],
+      options: ["Den festlige åpningen av en utstilling", "Et lag med lakk på maleriet", "En forgylt treramme rundt maleriet", "En fransk maleteknikk"],
       explanation: "Vernissage er åpningsarrangementet for en utstilling, der inviterte gjester ser verkene først.",
     },
     {
       question: "Hvilken funksjon har utstillingstekster?",
-      options: ["De gir publikum kontekst og bakgrunn for å forstå verkene", "De erstatter kunstverkene", "De erstatter selve kunstverkene når disse er for skjøre eller verdifulle til å stilles ut", "De er kun dekorativ pynt på veggene og har ingen egentlig sammenheng med verkene i rommet"],
+      options: ["De gir publikum kontekst og bakgrunn for å forstå verkene", "De oppgir hvor mye hvert enkelt verk i utstillingen er verdt i kroner", "De erstatter selve kunstverkene når disse er for skjøre eller verdifulle til å stilles ut", "De er kun dekorativ pynt på veggene og har ingen egentlig sammenheng med verkene i rommet"],
       explanation: "Utstillingstekster gir informasjon om kunstner, teknikk og kontekst som hjelper publikum å tolke verkene.",
     },
     {
@@ -814,7 +814,7 @@ const quizData_kunst_10: Record<string, QuizQuestion[]> = {
   "kunst-10-7-1": [
     {
       question: "Hva er rosemaling?",
-      options: ["Norsk folkekunst med dekorative ranker og blomster malt på trevarer", "Maling av levende roser", "Store veggmalerier med bibelmotiver malt direkte på kirkevegger og under kuppeltak", "Maling av ekte, levende roser og andre blomster satt opp i vase, i realistisk stilleben-stil"],
+      options: ["Norsk folkekunst med dekorative ranker og blomster malt på trevarer", "Fargelegging av ferdig trykte mønsterark som selges i sett til barn og voksne", "Store veggmalerier med bibelmotiver malt direkte på kirkevegger og under kuppeltak", "Maling av ekte, levende roser og andre blomster satt opp i vase, i realistisk stilleben-stil"],
       explanation: "Rosemaling er en norsk dekormalingstradisjon med stiliserte ranker og blomster, ofte på boller, kister og skap.",
     },
     {
@@ -834,7 +834,7 @@ const quizData_kunst_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner japansk håndverkstradisjon?",
-      options: ["Stor respekt for materialer, presisjon og mesterlære gjennom mange år", "Raskest mulig produksjon", "Bruk av kun billig plast og syntetiske materialer i stedet for tre, leire og naturfibre", "Raskest mulig masseproduksjon der man lager flest mulig gjenstander på kortest mulig tid"],
+      options: ["Stor respekt for materialer, presisjon og mesterlære gjennom mange år", "At hver gjenstand skal se nøyaktig lik ut som alle de andre i samme serie", "Bruk av kun billig plast og syntetiske materialer i stedet for tre, leire og naturfibre", "Raskest mulig masseproduksjon der man lager flest mulig gjenstander på kortest mulig tid"],
       explanation: "Japansk håndverk er kjent for materialrespekt, presisjon og lange mesterlæretradisjoner, fra keramikk til tre.",
     },
   ],
@@ -846,7 +846,7 @@ const quizData_kunst_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er pølseteknikk (coiling) i keramikk?",
-      options: ["Å bygge opp formen med lange leirpølser lagt oppå hverandre", "Å trykke leiren flat med kjevle", "Å trykke leiren helt flat med kjevle og deretter skjære ut plater man setter sammen", "Å helle tyntflytende leirslikker i en gipsform og la den størkne mot formens vegger"],
+      options: ["Å bygge opp formen med lange leirpølser lagt oppå hverandre", "Å dreie leiren opp på en roterende dreieskive med begge hender våte", "Å trykke leiren helt flat med kjevle og deretter skjære ut plater man setter sammen", "Å helle tyntflytende leirslikker i en gipsform og la den størkne mot formens vegger"],
       explanation: "I pølseteknikk rulles lange pølser av leire som legges i ringer oppå hverandre og glattes sammen.",
     },
     {
@@ -856,7 +856,7 @@ const quizData_kunst_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen på å hugge og å modellere en skulptur?",
-      options: ["Hugging fjerner materiale (subtraktivt), modellering legger til (additivt)", "Modellering krever alltid maskiner", "Hugging brukes bare på myk leire, mens modellering alltid gjøres i hard stein eller marmor", "Modellering krever alltid store maskiner, mens hugging kan gjøres helt for hånd med meisel"],
+      options: ["Hugging fjerner materiale (subtraktivt), modellering legger til (additivt)", "Hugging gjøres alltid i full størrelse, mens modellering bare gjøres i miniatyr", "Hugging brukes bare på myk leire, mens modellering alltid gjøres i hard stein eller marmor", "Modellering krever alltid store maskiner, mens hugging kan gjøres helt for hånd med meisel"],
       explanation: "Å hugge i stein eller tre er subtraktivt - man tar bort. Å modellere i leire er additivt - man bygger opp.",
     },
     {
@@ -868,7 +868,7 @@ const quizData_kunst_10: Record<string, QuizQuestion[]> = {
   "kunst-10-7-3": [
     {
       question: "Hva er renning og innslag i veving?",
-      options: ["Renning er de langsgående trådene, innslag er trådene som flettes inn på tvers", "Renning er ull, innslag er bomull", "To ulike typer vevstoler, der renning er den store gulvveven og innslag den lille bordveven", "Navn på to tradisjonelle vevde mønstre, der renning er striper og innslag er ruter i stoffet"],
+      options: ["Renning er de langsgående trådene, innslag er trådene som flettes inn på tvers", "Renning er alltid tråd av ull, mens innslaget alltid er tråd av bomull i samme vev", "To ulike typer vevstoler, der renning er den store gulvveven og innslag den lille bordveven", "Navn på to tradisjonelle vevde mønstre, der renning er striper og innslag er ruter i stoffet"],
       explanation: "Renningen er trådene som spennes opp i veven, og innslaget er tråden som føres inn på tvers, over og under renningen.",
     },
     {
@@ -878,7 +878,7 @@ const quizData_kunst_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er broderi?",
-      options: ["Dekorativ søm med tråd på tekstil", "Å strikke gensere", "Å farge ferdig stoff med plantefarger eller syntetiske fargestoffer i et varmt fargebad", "Å farge stoff"],
+      options: ["Dekorativ søm med tråd på tekstil", "Å strikke gensere", "Å veve mønster i stoff", "Å farge stoff"],
       explanation: "Broderi er å sy dekorative mønstre på stoff med nål og tråd, kjent fra blant annet bunadene.",
     },
     {
@@ -905,12 +905,12 @@ const quizData_kunst_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er lodding?",
-      options: ["Å føye sammen metalldeler med smeltet tilsatsmetall", "Å bøye metall i vinkel", "Å varme opp og bøye et metallstykke i en skarp vinkel ved hjelp av tang og skruestikke", "Å slipe metall blankt"],
+      options: ["Å føye sammen metalldeler med smeltet tilsatsmetall", "Å bøye metall i vinkel", "Å støpe smeltet metall i en form", "Å slipe metall blankt"],
       explanation: "Ved lodding smeltes et tilsatsmetall (loddetinn) som binder metalldelene sammen når det størkner.",
     },
     {
       question: "Hva er en grunnleggende sikkerhetsregel i verkstedet?",
-      options: ["Bruk vernebriller og sikre arbeidsstykket før du sager eller borer", "Jobb alltid alene uten å si fra", "Jobb alltid alene i verkstedet uten å si fra til noen, så du får arbeide helt uforstyrret", "Ha gjerne løst, langt hår og hengende smykker på, slik at du kjenner deg fri i bevegelsene"],
+      options: ["Bruk vernebriller og sikre arbeidsstykket før du sager eller borer", "Bruk tykke hansker når du sager, slik at du får bedre grep om sagbladet", "Jobb alltid alene i verkstedet uten å si fra til noen, så du får arbeide helt uforstyrret", "Ha gjerne løst, langt hår og hengende smykker på, slik at du kjenner deg fri i bevegelsene"],
       explanation: "Vernebriller, sikret arbeidsstykke, samlet hår og ingen løse plagg er grunnregler for trygt verkstedarbeid.",
     },
     {
@@ -942,7 +942,7 @@ const quizData_kunst_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er gjenbruk i kunst og design bra for miljøet?",
-      options: ["Det reduserer avfall og behovet for nye råvarer", "Det gjør at fabrikkene produserer mer", "Det gjør at fabrikkene må produsere enda mer nytt for å dekke etterspørselen etter materialer", "Det er ikke bra for miljøet"],
+      options: ["Det reduserer avfall og behovet for nye råvarer", "Det gjør at fabrikkene produserer mer", "Det gjør produktene dyrere å lage", "Det er ikke bra for miljøet"],
       explanation: "Gjenbruk forlenger materialenes levetid, reduserer avfallsmengden og sparer ressursene som trengs til ny produksjon.",
     },
   ],
@@ -954,12 +954,12 @@ const quizData_kunst_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et naturlig første steg i et tverrfaglig prosjekt?",
-      options: ["Idéutvikling - finne tema og problemstilling", "Å presentere resultatet", "Å skrive den avsluttende konklusjonen og oppsummeringen før arbeidet egentlig er begynt", "Å skrive konklusjonen"],
+      options: ["Idéutvikling - finne tema og problemstilling", "Å presentere resultatet", "Å skrive den avsluttende konklusjonen og oppsummeringen før arbeidet egentlig er begynt", "Å levere inn det ferdige produktet"],
       explanation: "Prosjektet starter med idéutvikling, deretter avgrensning, planlegging, undersøkelse, skapende arbeid, dokumentasjon og presentasjon.",
     },
     {
       question: "Hvorfor er det lurt å fordele roller i gruppearbeid?",
-      options: ["Alle vet hva de har ansvar for, og arbeidet blir mer effektivt", "Roller gjør prosjektet tregere", "Da slipper noen i gruppa å jobbe, mens de andre gjør hele oppgaven på egen hånd", "Tydelige roller gjør faktisk prosjektet tregere, fordi alle må vente på hverandres deler"],
+      options: ["Alle vet hva de har ansvar for, og arbeidet blir mer effektivt", "Fordi læreren da kan gi karakter til hver enkelt uten å se på helheten", "Da slipper noen i gruppa å jobbe, mens de andre gjør hele oppgaven på egen hånd", "Tydelige roller gjør faktisk prosjektet tregere, fordi alle må vente på hverandres deler"],
       explanation: "Tydelige roller - prosjektleder, fagansvarlige, dokumentasjonsansvarlig - gir oversikt og effektivt samarbeid.",
     },
     {
@@ -969,14 +969,14 @@ const quizData_kunst_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan kan kunst og naturfag kombineres i et tverrfaglig prosjekt?",
-      options: ["Ved å visualisere naturvitenskapelige fenomener, som celler eller klima, kunstnerisk", "Ved å droppe alt naturfaglig innhold", "Ved å la naturfaget definere alle svar, slik at kunsten bare kopierer diagrammer nøyaktig som de er", "Ved å holde fagene helt adskilt, siden det estetiske og det målbare aldri kan belyse hverandre faglig"],
+      options: ["Ved å visualisere naturvitenskapelige fenomener, som celler eller klima, kunstnerisk", "Ved å droppe alt naturfaglig innhold og bare lage et bilde som ser fint ut på veggen hjemme", "Ved å la naturfaget definere alle svar, slik at kunsten bare kopierer diagrammer nøyaktig som de er", "Ved å holde fagene helt adskilt, siden det estetiske og det målbare aldri kan belyse hverandre faglig"],
       explanation: "Kunst kan visualisere og formidle naturvitenskap - fra vitenskapelige illustrasjoner til kunstprosjekter om klima.",
     },
   ],
   "kunst-10-8-2": [
     {
       question: "Hva er en portfolio i kunst og håndverk?",
-      options: ["En samling av dine arbeider og prosessdokumentasjon som viser utviklingen din", "En liste over karakterer", "En bestemt malemetode der man legger mange tynne lag lasur oppå hverandre for å bygge dybde", "En offisiell oversikt over alle karakterer og fravær du har fått gjennom hele skoleåret i faget"],
+      options: ["En samling av dine arbeider og prosessdokumentasjon som viser utviklingen din", "En mappe med alle de ferdige oppgavearkene læreren har delt ut gjennom skoleåret", "En bestemt malemetode der man legger mange tynne lag lasur oppå hverandre for å bygge dybde", "En offisiell oversikt over alle karakterer og fravær du har fått gjennom hele skoleåret i faget"],
       explanation: "En portfolio (mappe) samler dine beste arbeider og dokumentasjon av prosessen, og viser hvem du er som skaper.",
     },
     {
@@ -1035,7 +1035,7 @@ const quizData_kunst_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr serendipitet i skapende arbeid?",
-      options: ["Verdifulle, uventede oppdagelser som oppstår underveis, ofte gjennom \"feil\"", "En planlagt arbeidsmetode", "En bestemt type bred pensel som brukes for å legge store, jevne fargeflater raskt utover lerretet", "At alt går nøyaktig etter planen fra start til slutt, uten avvik, overraskelser eller tilfeldige funn"],
+      options: ["Verdifulle, uventede oppdagelser som oppstår underveis, ofte gjennom \"feil\"", "En metode for å blande farger systematisk etter en fast og nedskrevet oppskrift", "En bestemt type bred pensel som brukes for å legge store, jevne fargeflater raskt utover lerretet", "At alt går nøyaktig etter planen fra start til slutt, uten avvik, overraskelser eller tilfeldige funn"],
       explanation: "Serendipitet er lykkelige tilfeldigheter - når noe uventet, kanskje en feil, åpner for nye og bedre løsninger.",
     },
     {
@@ -1045,12 +1045,12 @@ const quizData_kunst_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen på prosessrefleksjon og resultatrefleksjon?",
-      options: ["Prosessrefleksjon skjer underveis i arbeidet, resultatrefleksjon etter at det er ferdig", "Resultatrefleksjon skjer før man begynner", "De er egentlig helt det samme, og begge betegner den vurderingen man gjør etter at arbeidet er ferdig", "Resultatrefleksjon skjer før man i det hele tatt begynner, mens prosessrefleksjon gjøres helt til slutt"],
+      options: ["Prosessrefleksjon skjer underveis i arbeidet, resultatrefleksjon etter at det er ferdig", "Prosessrefleksjon gjøres av læreren underveis, mens resultatrefleksjon gjøres av eleven selv", "De er egentlig helt det samme, og begge betegner den vurderingen man gjør etter at arbeidet er ferdig", "Resultatrefleksjon skjer før man i det hele tatt begynner, mens prosessrefleksjon gjøres helt til slutt"],
       explanation: "Underveis reflekterer man for å justere kursen (prosess), og etterpå vurderer man helheten og hva man lærte (resultat).",
     },
     {
       question: "Hvorfor er det verdifullt å tørre å ta sjanser i skapende arbeid?",
-      options: ["Eksperimentering kan føre til nye uttrykk man ellers ikke ville funnet", "Fordi det garanterer et perfekt resultat", "Fordi det garanterer et perfekt og feilfritt resultat hver eneste gang man våger å prøve noe nytt", "Det er egentlig ikke verdifullt, fordi trygge og velkjente valg alltid gir de mest originale uttrykkene"],
+      options: ["Eksperimentering kan føre til nye uttrykk man ellers ikke ville funnet", "Fordi sensor alltid gir høyere karakter til den som bruker dyrest materiale", "Fordi det garanterer et perfekt og feilfritt resultat hver eneste gang man våger å prøve noe nytt", "Det er egentlig ikke verdifullt, fordi trygge og velkjente valg alltid gir de mest originale uttrykkene"],
       explanation: "Å eksperimentere og risikere feil er ofte veien til originale løsninger - trygge valg gir sjelden ny utvikling.",
     },
   ],
@@ -1062,7 +1062,7 @@ const quizData_kunst_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva vurderes på eksamen i tillegg til det ferdige produktet?",
-      options: ["Den skapende prosessen, fagkunnskap og refleksjon", "Bare hvor pent produktet er", "Hvor dyrt og eksklusivt materialet du valgte var, siden kostbare råvarer regnes som et tegn på kvalitet", "Hvor dyrt materialet var"],
+      options: ["Den skapende prosessen, fagkunnskap og refleksjon", "Bare hvor pent produktet er", "Hvor lang tid du brukte på arbeidet", "Hvor dyrt materialet var"],
       explanation: "Sensor vurderer fagkunnskap, praktiske ferdigheter, prosess, refleksjon og formidling - ikke bare sluttresultatet.",
     },
     {
@@ -1077,7 +1077,7 @@ const quizData_kunst_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en god strategi i spørsmålsrunden på muntlig eksamen?",
-      options: ["Lytte nøye, tenke seg om og bruke fagbegreper i svarene", "Svare så raskt som mulig uten å tenke", "Å svare så raskt som overhodet mulig uten å tenke, slik at sensor ser at du kan faget helt på refleks", "Snakke om noe helt annet"],
+      options: ["Lytte nøye, tenke seg om og bruke fagbegreper i svarene", "Svare så raskt som mulig uten å tenke", "Bruke bare hverdagsord og unngå fagbegreper", "Snakke om noe helt annet"],
       explanation: "Ta deg tid til å forstå spørsmålet, og vis fagkunnskap ved å bruke begreper som komposisjon, valør og kontrast presist.",
     },
   ],

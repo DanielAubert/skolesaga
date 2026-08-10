@@ -14,7 +14,7 @@ const quizData_musikk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en dominant7-akkord?",
-      options: ["En durakkord med liten septim", "Den første akkorden i sangen", "En mollakkord med tillagt stor septim over grunntonen", "En akkord med bare to toner"],
+      options: ["En durakkord med liten septim", "Den første akkorden i sangen", "En mollakkord med septim", "En akkord med bare to toner"],
       explanation: "Dominant7 er en durakkord med tillagt liten septim (f.eks. G7).",
     },
     {
@@ -51,7 +51,7 @@ const quizData_musikk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva viser kvintakkelen?",
-      options: ["Sammenhengen mellom tonearter og fortegn", "Bare akkorder", "Sammenhengen mellom noteverdier og hvor lenge de klinger", "Sammenhengen mellom taktarter og hvor mange slag hver takt har"],
+      options: ["Sammenhengen mellom tonearter og fortegn", "Bare hvilke akkorder som hører sammen i en toneart", "Sammenhengen mellom noteverdier og hvor lenge de klinger", "Sammenhengen mellom taktarter og hvor mange slag hver takt har"],
       explanation: "Kvintakkelen viser hvilke tonearter som har hvor mange kryss eller b-er.",
     },
   ],
@@ -85,12 +85,12 @@ const quizData_musikk_9: Record<string, QuizQuestion[]> = {
   "musikk-9-2-2": [
     {
       question: "Hva er polyrtmikk?",
-      options: ["Flære kryssende rytmer samtidig", "Musikk uten rytme", "Rask veksling mellom to ulike tempoer i samme takt", "Veldig rask rytme"],
+      options: ["Flære kryssende rytmer samtidig", "Musikk helt uten fast rytme eller puls", "Rask veksling mellom to ulike tempoer i samme takt", "En veldig rask rytme"],
       explanation: "Polyrtmikk er når flere ulike rytmer spilles samtidig.",
     },
     {
       question: "Hva er en raga i indisk musikk?",
-      options: ["Et melodisk rammeverk med bestemte regler", "Et rytmisk mønster", "Et strengeinstrument som ligner en langhalset lutt", "En seremoniell dans som følger den religiøse musikken"],
+      options: ["Et melodisk rammeverk med bestemte regler", "Et rytmisk mønster som gjentas gjennom hele stykket", "Et strengeinstrument som ligner en langhalset lutt", "En seremoniell dans som følger den religiøse musikken"],
       explanation: "En raga er et melodisk system som musikeren improviserer innenfor.",
     },
     {
@@ -100,12 +100,12 @@ const quizData_musikk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er joik?",
-      options: ["Tradisjonell samisk sangform", "Et afrikansk instrument", "En tradisjonell japansk sangform med lang, langsom klang", "En spansk gitarteknikk"],
+      options: ["Tradisjonell samisk sangform", "Et afrikansk instrument", "En japansk sangform", "En spansk gitarteknikk"],
       explanation: "Joik er samisk sang som \"er\" tingen eller personen den joiker.",
     },
     {
       question: "Hva er call and response?",
-      options: ["Veksling mellom solist og gruppe", "Musikk uten sang", "Framføring der hele koret synger samme melodi samtidig", "Bare solosang"],
+      options: ["Veksling mellom solist og gruppe", "Musikk helt uten sang, bare instrumenter", "Framføring der hele koret synger samme melodi samtidig", "Solosang uten akkompagnement"],
       explanation: "Call and response er veksling mellom en leder og en gruppe.",
     },
   ],
@@ -154,12 +154,12 @@ const quizData_musikk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er reverb?",
-      options: ["En effekt som simulærer romklang", "En type synthesizer", "En billig type analog synthesizer fra 1970-tallet", "Et trommemønster"],
+      options: ["En effekt som simulærer romklang", "En type synthesizer", "En type mikrofon", "Et trommemønster"],
       explanation: "Reverb simulærer lyden av refleksjoner fra vegger i et rom.",
     },
     {
       question: "Hva er et filter i en synthesizer?",
-      options: ["Det former klangen ved å dempe visse frekvenser", "Det endrer tonehøyden", "Det endrer tonehøyden ved å transponere lyden opp", "Det legger til et gjentakende ekko bak grunnlyden"],
+      options: ["Det former klangen ved å dempe visse frekvenser", "Det gjør lyden gradvis svakere fram mot slutten av tonen", "Det endrer tonehøyden ved å transponere lyden opp", "Det legger til et gjentakende ekko bak grunnlyden"],
       explanation: "Filteret former klangen ved å slippe gjennom eller dempe frekvenser.",
     },
   ],
@@ -181,24 +181,24 @@ const quizData_musikk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor bør man ta opp bandøvinger?",
-      options: ["For å høre ting man ikke la merke til i øyeblikket", "For å legge ut på internett", "Først og fremst for å legge opptaket ut på internett", "Bare for å kunne slette det umiddelbart rett etterpå"],
+      options: ["For å høre ting man ikke la merke til i øyeblikket", "For å kunne selge opptaket videre til et plateselskap etterpå", "Først og fremst for å legge opptaket ut på internett", "Bare for å kunne slette det umiddelbart rett etterpå"],
       explanation: "Opptak avslører problemer du ikke legger merke til mens du spiller.",
     },
     {
       question: "Hva er viktig under en bandøving?",
-      options: ["Komme forberedt og jobbe i seksjoner", "Bare spille hele låten om igjen", "Å spille så høyt som overhodet mulig hele øvingen", "Spille så høyt som mulig"],
+      options: ["Komme forberedt og jobbe i seksjoner", "Bare spille hele låten om igjen", "Å komme uten instrument", "Spille så høyt som mulig"],
       explanation: "Effektiv øving inkluderer å jobbe med vanskelige deler separat.",
     },
   ],
   "musikk-9-4-2": [
     {
       question: "Hva bør du gjøre hvis du spiller feil på scenen?",
-      options: ["Fortsette som om ingenting skjedde", "Stoppe og starte på nytt", "Stoppe hele bandet og begynne låten på nytt fra start", "Be om unnskyldning"],
+      options: ["Fortsette som om ingenting skjedde", "Stoppe og starte på nytt", "Skylde på lydteknikeren", "Be om unnskyldning"],
       explanation: "Fortsett alltid - publikum legger ofte ikke merke til feil.",
     },
     {
       question: "Hva er soundcheck?",
-      options: ["Testing av lyd og utstyr før konserten", "Slutten av konserten", "Den siste låten som markerer slutten av konserten", "En egen musikksjanger med spesielt kraftig lydbilde"],
+      options: ["Testing av lyd og utstyr før konserten", "En bestemt type høyttaler laget for scenebruk", "Den siste låten som markerer slutten av konserten", "En egen musikksjanger med spesielt kraftig lydbilde"],
       explanation: "Soundcheck er lydprøven der alt utstyr sjekkes.",
     },
     {
@@ -208,12 +208,12 @@ const quizData_musikk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva bør en god setliste ta hensyn til?",
-      options: ["Energi og variasjon gjennom konserten", "Bare alfabetisk rekkefølge", "At låtene settes opp i streng alfabetisk rekkefølge", "Bare rolige låter først"],
+      options: ["Energi og variasjon gjennom konserten", "At alle låtene skal ha nøyaktig samme lengde", "At låtene settes opp i streng alfabetisk rekkefølge", "Bare rolige låter først"],
       explanation: "En god setliste planlegger energikurven gjennom konserten.",
     },
     {
       question: "Er scenefrykt normalt?",
-      options: ["Ja, selv profesjonelle er nervøse", "Nei, det betyr at man ikke kan", "Det gjelder bare for helt ferske nybegynnere på scenen", "Bare for nybegynnere"],
+      options: ["Ja, selv profesjonelle er nervøse", "Nei, det betyr at man ikke kan", "Nei, det er svært sjeldent", "Bare for nybegynnere"],
       explanation: "Scenefrykt er normalt - bruk nervøsiteten som energi.",
     },
   ],
@@ -235,19 +235,19 @@ const quizData_musikk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er sekvensering i melodiutvikling?",
-      options: ["Å gjenta et motiv på en annen tonehøyde", "Å sette låter i rekkefølge", "Å spille inn og lagre flere lydspor samtidig i et innspillingsprogram", "Å spille inn flere spor"],
+      options: ["Å gjenta et motiv på en annen tonehøyde", "Å sette låter i rekkefølge", "Å skrive ned melodien i noter", "Å spille inn flere spor"],
       explanation: "Sekvensering er å gjenta et melodisk motiv høyere eller lavere.",
     },
     {
       question: "Hva betyr \"vis, ikke fortell\" i låtskriving?",
-      options: ["Bruk konkrete bilder fremfor abstrakte beskrivelser", "Skriv så mye som mulig", "At man bare skal synge tonene og aldri bruke talestemme i framføringen", "At man skal skrive så mye tekst og så mange detaljer som overhodet mulig"],
+      options: ["Bruk konkrete bilder fremfor abstrakte beskrivelser", "At man alltid skal vise fram teksten på skjerm under konserten", "At man bare skal synge tonene og aldri bruke talestemme i framføringen", "At man skal skrive så mye tekst og så mange detaljer som overhodet mulig"],
       explanation: "Konkrete detaljer skaper sterkere følelser enn abstrakte utsagn.",
     },
   ],
   "musikk-9-5-2": [
     {
       question: "Hva er EQ?",
-      options: ["Et verktøy for å justere frekvensbalansen", "En type mikrofon", "En bestemt type mikrofon som brukes for å fange opp vokal i studio", "En egen musikksjanger som kjennetegnes av elektroniske lydeffekter"],
+      options: ["Et verktøy for å justere frekvensbalansen", "En digital lydfil som er komprimert for strømming", "En bestemt type mikrofon som brukes for å fange opp vokal i studio", "En egen musikksjanger som kjennetegnes av elektroniske lydeffekter"],
       explanation: "EQ (equalizer) justerer bass, mellomtone og diskant.",
     },
     {
@@ -257,7 +257,7 @@ const quizData_musikk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er panorering?",
-      options: ["Fordeling av lyd mellom venstre og høyre høyttaler", "Justering av tonehøyde", "En bestemt type reverb som legger romklang og dybde til lydbildet", "Justering av tonehøyden slik at melodien legges lysere eller mørkere"],
+      options: ["Fordeling av lyd mellom venstre og høyre høyttaler", "Å ta bort de aller laveste frekvensene fra et lydspor", "En bestemt type reverb som legger romklang og dybde til lydbildet", "Justering av tonehøyden slik at melodien legges lysere eller mørkere"],
       explanation: "Panorering plasserer lyden i stereobildet.",
     },
     {
@@ -267,7 +267,7 @@ const quizData_musikk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor bør man bruke referanselåter under miksing?",
-      options: ["For å sammenligne frekvensbalanse og lydnivå", "For å kopiere andre låter", "Det er egentlig helt unødvendig, og erfarne produsenter dropper det alltid", "For å slette egen musikk"],
+      options: ["For å sammenligne frekvensbalanse og lydnivå", "For å kopiere andre låter", "Det er egentlig helt unødvendig", "For å slette egen musikk"],
       explanation: "Referanselåter hjelper deg å vurdere kvaliteten på din egen miks.",
     },
   ],
@@ -289,7 +289,7 @@ const quizData_musikk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en kadens?",
-      options: ["En avsluttende akkordsekvens i en musikalsk frase", "En pause i musikken", "En pause og stillhet midt i musikken der ingen instrumenter spiller noe", "En bestemt type trommesolo som markerer overgangen mellom to musikkdeler"],
+      options: ["En avsluttende akkordsekvens i en musikalsk frase", "Et fast rytmemønster som gjentas gjennom hele stykket", "En pause og stillhet midt i musikken der ingen instrumenter spiller noe", "En bestemt type trommesolo som markerer overgangen mellom to musikkdeler"],
       explanation: "Kadensen fungerer som tegnsetting - den autentiske kadensen (V-I) gir sterk avslutning.",
     },
     {
@@ -301,7 +301,7 @@ const quizData_musikk_9: Record<string, QuizQuestion[]> = {
   "musikk-9-1-4": [
     {
       question: "Hva beskriver musikalsk form?",
-      options: ["Hvordan delene i et musikkstykke er organisert i tid", "Hvor høyt musikken spilles", "Hvilke ord og formuleringer teksten bruker for å formidle sangens budskap", "Selve den fysiske formen og fasongen på instrumentene som brukes i stykket"],
+      options: ["Hvordan delene i et musikkstykke er organisert i tid", "Hvor høyt musikken spilles, altså volumet gjennom stykket", "Hvilke ord og formuleringer teksten bruker for å formidle sangens budskap", "Selve den fysiske formen og fasongen på instrumentene som brukes i stykket"],
       explanation: "Formen beskriver rekkefølgen og forholdet mellom deler som vers, refreng og tema.",
     },
     {
@@ -311,7 +311,7 @@ const quizData_musikk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke tre hoveddeler består sonateformen av?",
-      options: ["Eksposisjon, gjennomføring og reprise", "Allegro, adagio og presto", "Allegro, adagio og presto som beskriver tempoet i tre ulike satser", "Intro, vers og refreng"],
+      options: ["Eksposisjon, gjennomføring og reprise", "Allegro, adagio og presto", "Solo, duett og kor", "Intro, vers og refreng"],
       explanation: "I sonateformen presenteres temaene (eksposisjon), bearbeides (gjennomføring) og vender tilbake (reprise).",
     },
     {
@@ -328,7 +328,7 @@ const quizData_musikk_9: Record<string, QuizQuestion[]> = {
   "musikk-9-1-5": [
     {
       question: "Hva betyr transponering?",
-      options: ["Å flytte et musikkstykke fra én toneart til en annen", "Å bytte instrument midt i låten", "Å gjøre musikken raskere ved å øke tempoet uten å endre tonene ellers", "Å bytte instrument midt i låten slik at klangen forandrer seg underveis"],
+      options: ["Å flytte et musikkstykke fra én toneart til en annen", "Å spille melodien baklengs, fra siste tone til den første", "Å gjøre musikken raskere ved å øke tempoet uten å endre tonene ellers", "Å bytte instrument midt i låten slik at klangen forandrer seg underveis"],
       explanation: "Ved transponering flyttes alle toner like mange halvtonetrinn slik at melodien låter lik, bare høyere eller lavere.",
     },
     {
@@ -365,7 +365,7 @@ const quizData_musikk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er call and response?",
-      options: ["En musiker spiller en frase og en annen svarer med en ny", "At publikum synger med på refrenget", "At hele publikum synger med på refrenget sammen med artisten på scenen", "En bestemt type lydeffekt som gjentar den siste tonen som et lite ekko"],
+      options: ["En musiker spiller en frase og en annen svarer med en ny", "At en og samme musiker gjentar den samme frasen flere ganger på rad", "At hele publikum synger med på refrenget sammen med artisten på scenen", "En bestemt type lydeffekt som gjentar den siste tonen som et lite ekko"],
       explanation: "Call and response (rop og svar) er en grunnleggende improvisasjonsteknikk med røtter i afrikansk musikk.",
     },
     {
@@ -375,14 +375,14 @@ const quizData_musikk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et godt råd for å komme i gang med improvisasjon?",
-      options: ["Start enkelt med få toner innenfor en trygg ramme", "Spill så mange toner som mulig med en gang", "Spill så mange toner som mulig med en gang for å vise alt du kan", "Vent til du kan alle skalaer perfekt"],
+      options: ["Start enkelt med få toner innenfor en trygg ramme", "Spill så mange toner som mulig med en gang", "Lær hele soloen utenat på forhånd", "Vent til du kan alle skalaer perfekt"],
       explanation: "Å starte med få toner i en gitt skala senker terskelen og bygger trygghet.",
     },
   ],
   "musikk-9-2-4": [
     {
       question: "Hva er koreografi?",
-      options: ["Kunsten å planlegge og utforme dansebevegelser", "En type musikkinstrument", "Læren om hvordan akkorder bygges opp og settes sammen i musikken", "En bestemt type musikkinstrument som brukes til å holde takten i dans"],
+      options: ["Kunsten å planlegge og utforme dansebevegelser", "Kunsten å sette sammen kostymer og scenebilde til en forestilling", "Læren om hvordan akkorder bygges opp og settes sammen i musikken", "En bestemt type musikkinstrument som brukes til å holde takten i dans"],
       explanation: "En koreograf lager bevegelsessekvenser som er koordinert med musikken.",
     },
     {
@@ -402,7 +402,7 @@ const quizData_musikk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor henger musikk og bevegelse tett sammen?",
-      options: ["Rytme i musikk vekker en naturlig kroppslig respons", "De har ingenting med hverandre å gjøre", "Musikk kan bare oppleves sittende helt i ro, og passer derfor dårlig til dans", "Musikk kan bare oppleves sittende"],
+      options: ["Rytme i musikk vekker en naturlig kroppslig respons", "De har ingenting med hverandre å gjøre", "Bevegelse forstyrrer lyttingen", "Musikk kan bare oppleves sittende"],
       explanation: "Mennesker reagerer kroppslig på rytme - vi nikker, tramper og danser nesten automatisk.",
     },
   ],
@@ -414,12 +414,12 @@ const quizData_musikk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et platå i en læringsprosess?",
-      options: ["En periode der det føles som om man ikke gjør fremskritt", "Når man har lært alt som er mulig", "Den fasen i øvingen der ferdighetene forbedrer seg aller raskest og jevnest", "En opphøyd scene eller estrade der musikere står under en konsertforestilling"],
+      options: ["En periode der det føles som om man ikke gjør fremskritt", "Når man har lært alt som er mulig å lære innenfor sjangeren", "Den fasen i øvingen der ferdighetene forbedrer seg aller raskest og jevnest", "En opphøyd scene eller estrade der musikere står under en konsertforestilling"],
       explanation: "Platåer er normale i ferdighetsutvikling og betyr ikke at man har sluttet å lære.",
     },
     {
       question: "Hva betyr progresjon i øvingssammenheng?",
-      options: ["Gradvis forbedring av ferdigheter over tid", "Å spille stadig høyere", "En fast rekke av akkorder som gjentas gjennom et helt musikkstykke", "Å bytte lærer ofte"],
+      options: ["Gradvis forbedring av ferdigheter over tid", "Å spille stadig høyere", "En fast rekke akkorder som gjentas", "Å bytte lærer ofte"],
       explanation: "Progresjon er fremgang over tid - den skjer sjelden jevnt, men i rykk og platåer.",
     },
     {
@@ -429,7 +429,7 @@ const quizData_musikk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er refleksjon viktig etter øving?",
-      options: ["Man lærer av hva som fungerte og hva som må jobbes mer med", "Det er bare nødvendig for nybegynnere", "Det forlenger den totale øvingstiden betydelig uten å gi noen faglig gevinst", "Det er bare nødvendig for helt ferske nybegynnere som ikke kan noteverdier ennå"],
+      options: ["Man lærer av hva som fungerte og hva som må jobbes mer med", "Det tar tid som heller kunne vært brukt til enda mer øving på instrumentet", "Det forlenger den totale øvingstiden betydelig uten å gi noen faglig gevinst", "Det er bare nødvendig for helt ferske nybegynnere som ikke kan noteverdier ennå"],
       explanation: "Refleksjon over egen øving hjelper deg å justere og målrette videre arbeid.",
     },
   ],
@@ -446,12 +446,12 @@ const quizData_musikk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en subkultur?",
-      options: ["En gruppe med egne verdier, normer og uttrykksmåter innenfor et større samfunn", "En musikksjanger uten tilhengere", "En kultur eller musikkscene som utelukkende foregår i kjellere og under bakkenivå", "Et lite uavhengig plateselskap som gir ut musikk for smale og alternative sjangre"],
+      options: ["En gruppe med egne verdier, normer og uttrykksmåter innenfor et større samfunn", "En musikksjanger som ikke lenger har noen tilhengere igjen og derfor har dødd helt ut", "En kultur eller musikkscene som utelukkende foregår i kjellere og under bakkenivå", "Et lite uavhengig plateselskap som gir ut musikk for smale og alternative sjangre"],
       explanation: "Subkulturer som punk og hip-hop uttrykker seg gjennom musikk, klesstil og holdninger.",
     },
     {
       question: "Hvilke fire elementer bygger hip-hop-kulturen på?",
-      options: ["MCing/rapping, DJing, breakdance og graffiti", "Tekst, melodi, harmoni og rytme", "Tekst, melodi, harmoni og rytme som er de grunnleggende byggesteinene i en låt", "Vers, refreng, bridge og outro"],
+      options: ["MCing/rapping, DJing, breakdance og graffiti", "Tekst, melodi, harmoni og rytme", "Sang, dans, teater og film", "Vers, refreng, bridge og outro"],
       explanation: "Hip-hop består av rapping, DJing, breakdance og graffiti.",
     },
     {
@@ -463,7 +463,7 @@ const quizData_musikk_9: Record<string, QuizQuestion[]> = {
   "musikk-9-3-4": [
     {
       question: "Hvilke komponenter er sentrale i en synthesizer?",
-      options: ["Oscillatorer, filtre og forsterkere", "Munnstykke, klaffer og ventiler", "Skinn, kjele og stikker, som er de viktigste delene i et trommesett", "Strenger, stol og lydhull"],
+      options: ["Oscillatorer, filtre og forsterkere", "Munnstykke, klaffer og ventiler", "Skinn, kjele og stikker", "Strenger, stol og lydhull"],
       explanation: "Oscillatoren skaper grunnlyden, filteret former klangen og forsterkeren styrer volumet.",
     },
     {
@@ -483,19 +483,19 @@ const quizData_musikk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skiller elektronisk musikk fra akustisk musikk?",
-      options: ["Lyden skapes primært med elektroniske instrumenter og teknologi", "Den kan ikke spilles live", "Den inneholder alltid sang og tekst, i motsetning til all akustisk musikk", "Den mangler alltid en tydelig rytme og har ingen fast puls i det hele tatt"],
+      options: ["Lyden skapes primært med elektroniske instrumenter og teknologi", "Den kan ikke spilles live, bare avspilles fra ferdige opptak på scenen", "Den inneholder alltid sang og tekst, i motsetning til all akustisk musikk", "Den mangler alltid en tydelig rytme og har ingen fast puls i det hele tatt"],
       explanation: "Elektronisk musikk lages med synther, trommemaskiner, samplere og datamaskiner.",
     },
   ],
   "musikk-9-3-5": [
     {
       question: "Hva er polyrytmikk?",
-      options: ["Flere ulike rytmiske mønstre spilt samtidig", "At alle spiller samme rytme", "En svært rask enkeltrytme som spilles i høyt tempo av én trommeslager alene", "En veldig rask rytme"],
+      options: ["Flere ulike rytmiske mønstre spilt samtidig", "At alle musikerne spiller nøyaktig samme rytme samtidig", "En svært rask enkeltrytme som spilles i høyt tempo av én trommeslager alene", "En veldig rask rytme"],
       explanation: "Polyrytmikk er sentralt i mye afrikansk musikk, der ulike trommer spiller forskjellige rytmer samtidig.",
     },
     {
       question: "Hva er verdensmusikk?",
-      options: ["Et samlebegrep for musikk fra kulturer utenfor den vestlige mainstream", "Musikk som spilles i hele verden", "All slags musikk som fremføres helt uten sangtekst, kun med instrumenter", "Musikk som spilles og lyttes til over hele verden av mange ulike folkeslag"],
+      options: ["Et samlebegrep for musikk fra kulturer utenfor den vestlige mainstream", "Musikk som er komponert spesielt for å bli brukt i FNs offisielle markeringer", "All slags musikk som fremføres helt uten sangtekst, kun med instrumenter", "Musikk som spilles og lyttes til over hele verden av mange ulike folkeslag"],
       explanation: "Begrepet oppsto på 1980-tallet, men er omdiskutert fordi det samler svært ulike tradisjoner.",
     },
     {
@@ -527,7 +527,7 @@ const quizData_musikk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken norsk jazzmusiker er særlig knyttet til ECM og den nordiske lyden?",
-      options: ["Jan Garbarek", "Edvard Grieg", "Kygo", "Morten Harket"],
+      options: ["Jan Garbarek", "Edvard Grieg", "Kygo, kjent for house-låter", "Morten Harket"],
       explanation: "Saksofonisten Jan Garbarek er en av Norges mest kjente jazzmusikere internasjonalt.",
     },
     {
@@ -554,7 +554,7 @@ const quizData_musikk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er kulturarv?",
-      options: ["Kulturelle verdier og tradisjoner som arves fra tidligere generasjoner", "Bare gamle bygninger", "Penger og eiendeler man arver fra tidligere generasjoner i familien sin", "Utelukkende gamle bygninger og monumenter som er fredet av myndighetene"],
+      options: ["Kulturelle verdier og tradisjoner som arves fra tidligere generasjoner", "Musikk og tradisjoner som bare kan fremføres av folk med formell utdanning", "Penger og eiendeler man arver fra tidligere generasjoner i familien sin", "Utelukkende gamle bygninger og monumenter som er fredet av myndighetene"],
       explanation: "Folkemusikk og nasjonalsanger er viktige deler av den musikalske kulturarven.",
     },
     {
@@ -564,7 +564,7 @@ const quizData_musikk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan kan musikk uttrykke identitet i moderne tid?",
-      options: ["Gjennom sjangervalg, språk og lokale uttrykk som dialektrap", "Identitet finnes ikke i moderne musikk", "Identitet finnes ikke lenger i moderne musikk fordi alt nå høres helt likt ut", "Kun gjennom nasjonalsanger som fremføres ved offisielle nasjonale markeringer"],
+      options: ["Gjennom sjangervalg, språk og lokale uttrykk som dialektrap", "Bare gjennom hvilke klær og hvilket utstyr artistene bruker på scenen", "Identitet finnes ikke lenger i moderne musikk fordi alt nå høres helt likt ut", "Kun gjennom nasjonalsanger som fremføres ved offisielle nasjonale markeringer"],
       explanation: "Også i dag uttrykker artister identitet, f.eks. ved å rappe på dialekt eller blande folkemusikk med pop.",
     },
   ],
@@ -591,7 +591,7 @@ const quizData_musikk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva har mange urfolks musikktradisjoner til felles?",
-      options: ["Muntlig overlevering og nær tilknytning til natur og ritualer", "De er alle skrevet ned i noter", "De er alle nøye skrevet ned i noter og bevart i skriftlige samlinger", "De bruker alle sammen elgitar som det bærende og sentrale instrumentet"],
+      options: ["Muntlig overlevering og nær tilknytning til natur og ritualer", "De er alle sammen bygd på det vestlige systemet med dur og moll", "De er alle nøye skrevet ned i noter og bevart i skriftlige samlinger", "De bruker alle sammen elgitar som det bærende og sentrale instrumentet"],
       explanation: "Urfolksmusikk overleveres muntlig og er ofte knyttet til natur, historie og seremonier.",
     },
   ],
@@ -625,7 +625,7 @@ const quizData_musikk_9: Record<string, QuizQuestion[]> = {
   "musikk-9-5-4": [
     {
       question: "Hva er kritisk lytting?",
-      options: ["Å lytte bevisst og analytisk for å forstå hva musikken gjør med oss", "Å kritisere all musikk man hører", "Å kritisere og finne feil ved all musikk man i det hele tatt hører på", "Å lytte til musikk med bare ett øre for å skjerpe konsentrasjonen sin"],
+      options: ["Å lytte bevisst og analytisk for å forstå hva musikken gjør med oss", "Å lytte til musikk mens man samtidig gjør noe helt annet ved siden av", "Å kritisere og finne feil ved all musikk man i det hele tatt hører på", "Å lytte til musikk med bare ett øre for å skjerpe konsentrasjonen sin"],
       explanation: "Kritisk lytting spør: Hvilke virkemidler brukes, og hvilke følelser skal de skape?",
     },
     {
@@ -635,7 +635,7 @@ const quizData_musikk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor bruker reklame musikk?",
-      options: ["Musikk påvirker følelsene våre og gjør budskapet mer minneverdig", "Musikk har ingen effekt i reklame", "For å fylle sendetiden mellom informasjonen om produktets pris og egenskaper", "Fordi musikk regnes som ren pynt uten reell effekt på hvordan budskapet oppfattes"],
+      options: ["Musikk påvirker følelsene våre og gjør budskapet mer minneverdig", "Musikk har ingen effekt i reklame og blir bare brukt av gammel vane", "For å fylle sendetiden mellom informasjonen om produktets pris og egenskaper", "Fordi musikk regnes som ren pynt uten reell effekt på hvordan budskapet oppfattes"],
       explanation: "Musikk vekker følelser og fester seg i hukommelsen - derfor er den et kraftig reklameverktøy.",
     },
     {
@@ -652,7 +652,7 @@ const quizData_musikk_9: Record<string, QuizQuestion[]> = {
   "musikk-9-5-5": [
     {
       question: "Hva er musikkjournalistikk?",
-      options: ["Et fagfelt som kombinerer journalistikk og musikkunnskap", "Å produsere musikkvideoer", "Et yrke der man skriver sangtekster og melodier på oppdrag for artister", "Å presentere og spille av ferdig musikk mellom innslagene i radioprogram"],
+      options: ["Et fagfelt som kombinerer journalistikk og musikkunnskap", "Å produsere og regissere musikkvideoer på oppdrag for artister", "Et yrke der man skriver sangtekster og melodier på oppdrag for artister", "Å presentere og spille av ferdig musikk mellom innslagene i radioprogram"],
       explanation: "Musikkjournalistikk omfatter anmeldelser, intervjuer, reportasjer og analyser.",
     },
     {
@@ -679,17 +679,17 @@ const quizData_musikk_9: Record<string, QuizQuestion[]> = {
   "musikk-9-6-1": [
     {
       question: "Hva er et motiv i komposisjon?",
-      options: ["Den korteste musikalske ideen med gjenkjennelig identitet", "Grunnen til at man komponerer", "En bestemt type taktart som angir tallet på slag i hver takt", "Hele den ferdige melodien slik den framstår i en fullstendig sang"],
+      options: ["Den korteste musikalske ideen med gjenkjennelig identitet", "Grunnen til at komponisten valgte å skrive nettopp dette stykket", "En bestemt type taktart som angir tallet på slag i hver takt", "Hele den ferdige melodien slik den framstår i en fullstendig sang"],
       explanation: "Motivet består av få toner med karakteristisk profil og er byggesteinen i større strukturer.",
     },
     {
       question: "Hva er sekvensering som komposisjonsteknikk?",
-      options: ["Å gjenta et motiv på høyere eller lavere tonehøyde", "Å spille motivet baklengs", "Å programmere trommer og rytmer i et digitalt lydredigeringsprogram", "Å fjerne motivet helt fra komposisjonen og erstatte det med en ny idé"],
+      options: ["Å gjenta et motiv på høyere eller lavere tonehøyde", "Å spille motivet baklengs, fra siste tone til den første", "Å programmere trommer og rytmer i et digitalt lydredigeringsprogram", "Å fjerne motivet helt fra komposisjonen og erstatte det med en ny idé"],
       explanation: "En stigende sekvens øker spenningen, en synkende senker den.",
     },
     {
       question: "Hva betyr komposisjon ordrett?",
-      options: ["Å sette sammen", "Å spille høyt", "Å skrive ned tonene", "Å skrive ned"],
+      options: ["Å sette sammen", "Å spille høyt", "Å skrive ned tonene", "Å telle takter"],
       explanation: "Komposisjon betyr å sette sammen - toner, rytmer og klanger organiseres i tid.",
     },
     {
@@ -699,7 +699,7 @@ const quizData_musikk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken av disse er en utviklingsteknikk for motiver?",
-      options: ["Inversjon - å snu motivet opp-ned", "Å slette motivet", "Å bytte til en helt annen sjanger", "Å slette motivet fra partituret helt"],
+      options: ["Inversjon - å snu motivet opp-ned", "Å slette motivet", "Å bytte til en helt annen sjanger", "Å bytte instrument på motivet"],
       explanation: "Motiver kan utvikles gjennom inversjon, sekvensering, augmentasjon og rytmisk variasjon.",
     },
   ],
@@ -726,7 +726,7 @@ const quizData_musikk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en praktisk start når du skal lage filmmusikk til en scene?",
-      options: ["Analysere scenens stemning og hva musikken skal forsterke", "Spille inn musikken før du ser scenen", "Å legge inn så mange forskjellige instrumenter i sporet som mulig", "Å spille inn hele musikken ferdig før du i det hele tatt ser scenen"],
+      options: ["Analysere scenens stemning og hva musikken skal forsterke", "Velge en kjent poplåt som publikum allerede kjenner igjen fra før", "Å legge inn så mange forskjellige instrumenter i sporet som mulig", "Å spille inn hele musikken ferdig før du i det hele tatt ser scenen"],
       explanation: "Musikkens oppgave er å støtte fortellingen - derfor starter man med scenens stemning og behov.",
     },
   ],
@@ -748,7 +748,7 @@ const quizData_musikk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan kan musikken forsterke tekstens budskap?",
-      options: ["Ved at stemning, melodi og dynamikk matcher tekstens innhold", "Musikken har ingen innvirkning på budskapet", "Ved å spille så høyt at den overdøver og skjuler selve teksten", "Ved konsekvent å bruke durtonearter uansett hva teksten handler om"],
+      options: ["Ved at stemning, melodi og dynamikk matcher tekstens innhold", "Musikken har ingen innvirkning på hvordan budskapet i teksten oppfattes", "Ved å spille så høyt at den overdøver og skjuler selve teksten", "Ved konsekvent å bruke durtonearter uansett hva teksten handler om"],
       explanation: "Når musikkens uttrykk støtter tekstens innhold, blir formidlingen sterkere.",
     },
     {
@@ -787,12 +787,12 @@ const quizData_musikk_9: Record<string, QuizQuestion[]> = {
   "musikk-9-6-5": [
     {
       question: "Hva er den skapende prosessen?",
-      options: ["Reisen fra første idé til ferdig kunstnerisk verk", "Å kopiere et eksisterende verk", "Utelukkende selve innspillingen av verket i et lydstudio", "Markedsføringen og lanseringen av en ferdig innspilt låt"],
+      options: ["Reisen fra første idé til ferdig kunstnerisk verk", "Å kopiere et eksisterende verk note for note fra partituret", "Utelukkende selve innspillingen av verket i et lydstudio", "Markedsføringen og lanseringen av en ferdig innspilt låt"],
       explanation: "Prosessen omfatter idéutvikling, utforskning, utforming, revisjon og ferdigstilling.",
     },
     {
       question: "Hva er revisjon i kreativt arbeid?",
-      options: ["Å gå tilbake til arbeidet og forbedre det", "Å begynne helt på nytt hver gang", "Å begynne fullstendig på nytt fra bunnen av hver eneste gang", "Å levere uten å lytte gjennom"],
+      options: ["Å gå tilbake til arbeidet og forbedre det", "Å begynne helt på nytt hver gang", "Å be andre om å fullføre", "Å levere uten å lytte gjennom"],
       explanation: "Revisjon betyr å lytte kritisk, finne hva som fungerer og gjøre endringer.",
     },
     {
@@ -819,12 +819,12 @@ const quizData_musikk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er automatisering i en DAW?",
-      options: ["Programmerte parameterendringer som skjer automatisk over tid", "Automatisk sikkerhetskopiering av prosjektet til skyen", "En robot som spiller de fysiske instrumentene for deg", "At DAW-en komponerer hele låten helt av seg selv"],
+      options: ["Programmerte parameterendringer som skjer automatisk over tid", "Automatisk sikkerhetskopiering av hele prosjektet til skylagring", "En robot som spiller de fysiske instrumentene for deg", "At DAW-en komponerer hele låten helt av seg selv"],
       explanation: "Du tegner kurver for volum, panorering eller effekter som endres mens låten spilles.",
     },
     {
       question: "Hva inneholder MIDI-data?",
-      options: ["Instruksjoner om noter, anslagsstyrke og varighet - ikke lyd", "Bilder og illustrasjoner av instrumentene", "Sangteksten og noter skrevet ut som tekst", "Ferdig innspilt lyd klar til avspilling"],
+      options: ["Instruksjoner om noter, anslagsstyrke og varighet - ikke lyd", "Bilder og illustrasjoner av alle instrumentene som er brukt i låten", "Sangteksten og notene skrevet ut som ren tekst under hver linje", "Ferdig innspilt lyd klar til avspilling"],
       explanation: "MIDI er instruksjoner som velocity og notelengde, ikke selve lyden.",
     },
     {
@@ -834,24 +834,24 @@ const quizData_musikk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen på et audiospor og et MIDI-spor?",
-      options: ["Audiospor inneholder lydopptak, MIDI-spor inneholder noteinstruksjoner", "Det finnes ingen reell forskjell mellom sportypene i praksis", "Audiospor er alltid stille og inneholder ingen faktisk lyd", "MIDI-spor kan utelukkende brukes til trommer og perkusjon"],
+      options: ["Audiospor inneholder lydopptak, MIDI-spor inneholder noteinstruksjoner", "Det finnes ingen reell forskjell mellom de to sportypene når man jobber i praksis", "Audiospor er alltid stille og inneholder ingen faktisk lyd", "MIDI-spor kan utelukkende brukes til trommer og perkusjon"],
       explanation: "Audio er innspilt lyd, MIDI er instruksjoner som spilles av et virtuelt instrument.",
     },
   ],
   "musikk-9-7-2": [
     {
       question: "Hva gjør en kompressor?",
-      options: ["Reduserer volumet automatisk når lyden overskrider en terskel", "Gjør lydfilene mindre i størrelse på harddisken", "Endrer tonehøyden slik at lyden blir lysere", "Legger til romklang og ekko på lydsignalet"],
+      options: ["Reduserer volumet automatisk når lyden overskrider en terskel", "Gjør lydfilene mindre i størrelse så de tar mindre plass på harddisken", "Endrer tonehøyden på hele sporet slik at lyden blir lysere enn før", "Legger til romklang og ekko på lydsignalet"],
       explanation: "Kompressoren jevner ut dynamikken - de høyeste delene blir lavere og helheten jevnere.",
     },
     {
       question: "Hva er en limiter?",
-      options: ["En kompressor med svært høy ratio som setter en absolutt volumgrense", "Et verktøy som begrenser hvor mange spor prosjektet kan ha", "Et filter som fjerner all bass fra det ferdige lydsignalet", "En spesiell type mikrofon som brukes til høye lydkilder"],
+      options: ["En kompressor med svært høy ratio som setter en absolutt volumgrense", "Et verktøy som begrenser hvor mange spor og effekter et prosjekt kan ha", "Et filter som fjerner all bass fra det ferdige lydsignalet", "En spesiell type mikrofon som brukes til høye lydkilder"],
       explanation: "Limiteren brukes i mastering for å øke volumet uten at lyden forvrenger.",
     },
     {
       question: "Hva brukes EQ til i miksing?",
-      options: ["Å justere volumet på spesifikke frekvensområder", "Å transponere hele låten til en ny toneart", "Å spille inn vokal og andre lydkilder", "Å endre tempoet i låten under miksing"],
+      options: ["Å justere volumet på spesifikke frekvensområder", "Å transponere hele låten opp eller ned til en ny toneart", "Å spille inn vokal og andre lydkilder gjennom mikrofon", "Å endre tempoet i låten under miksing"],
       explanation: "EQ booster eller demper bass, mellomtone og diskant for å gi hvert instrument sin plass.",
     },
     {
@@ -868,7 +868,7 @@ const quizData_musikk_9: Record<string, QuizQuestion[]> = {
   "musikk-9-7-3": [
     {
       question: "Hva er en mikrofon teknisk sett?",
-      options: ["En transducer som omdanner lydbølger til elektriske signaler", "En ferdig digital lydfil lagret på datamaskinen", "Et akustisk instrument som selv produserer lyd", "En liten høyttaler som sender ut lyd i rommet"],
+      options: ["En transducer som omdanner lydbølger til elektriske signaler", "En ferdig digital lydfil som ligger lagret på harddisken i datamaskinen", "Et akustisk instrument som selv produserer lyd når man spiller på det", "En liten høyttaler som sender ut lyd i rommet"],
       explanation: "Mikrofonen omdanner akustisk energi til elektriske signaler som kan spilles inn.",
     },
     {
@@ -888,7 +888,7 @@ const quizData_musikk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva gjør et lydkort (audio interface)?",
-      options: ["Konverterer analoge lydsignaler til digital data og omvendt", "Stemmer instrumentene automatisk til riktig tonehøyde", "Forsterker lyden slik at den fyller konsertsalen", "Lagrer de ferdige låtene som filer på disken"],
+      options: ["Konverterer analoge lydsignaler til digital data og omvendt", "Stemmer instrumentene automatisk til riktig tonehøyde før opptak", "Forsterker lyden slik at den fyller konsertsalen", "Lagrer de ferdige låtene som filer på disken"],
       explanation: "Lydkortet er broen mellom mikrofon/instrument og datamaskinen (AD/DA-konvertering).",
     },
   ],
@@ -905,17 +905,17 @@ const quizData_musikk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en trommemaskin?",
-      options: ["Et elektronisk instrument som spiller programmerte trommemønstre", "En vaskemaskin spesielt laget for å rengjøre trommeskinn", "En robot med armer som slår på ekte akustiske trommer", "Et justerbart stativ som holder trommene på plass"],
+      options: ["Et elektronisk instrument som spiller programmerte trommemønstre", "En vaskemaskin som er laget spesielt for å rengjøre skitne trommeskinn", "En robot med armer som slår på ekte akustiske trommer", "Et justerbart stativ som holder trommene på plass"],
       explanation: "Med trommemaskin programmeres rytmer trinn for trinn (step sequencing) eller i sanntid.",
     },
     {
       question: "Hva styrer en envelope (ADSR) i en synth?",
-      options: ["Lydens form over tid - attack, decay, sustain og release", "Hvilken utgangskanal lyden til slutt sendes til", "Fargen på lysene og displayet på synthen", "Antall tangenter og oktaver synthen har"],
+      options: ["Lydens form over tid - attack, decay, sustain og release", "Hvilken utgangskanal på lydkortet lyden til slutt sendes til", "Fargen på lysene og displayet på synthen", "Antall tangenter og oktaver synthen har"],
       explanation: "ADSR-envelopen styrer hvordan lyden starter, faller, holdes og slippes.",
     },
     {
       question: "Hvilke bølgeformer kan en oscillator typisk produsere?",
-      options: ["Sinus, firkant, sagtann og trekant", "Dur, moll og forminsket", "Vers, refreng og bridge", "Rund, oval og kvadrat"],
+      options: ["Sinus, firkant, sagtann og trekant", "Dur, moll, forminsket og forstørret treklang", "Vers, refreng, bridge og outro i en låt", "Rund, oval og kvadrat"],
       explanation: "De klassiske bølgeformene er sinus, firkant, sagtann, trekant og støy.",
     },
   ],
@@ -942,7 +942,7 @@ const quizData_musikk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kreves typisk for å lykkes i musikkproduksjon?",
-      options: ["Faglig dyktighet, utholdenhet og evne til samarbeid", "Kun å eie svært dyrt studioutstyr", "Bare rein flaks og tilfeldig tur", "At man nødvendigvis må bo i USA"],
+      options: ["Faglig dyktighet, utholdenhet og evne til samarbeid", "Kun å eie det aller dyreste og nyeste studioutstyret på markedet", "Bare rein flaks og tilfeldig tur", "At man nødvendigvis må bo i USA"],
       explanation: "Kompetanse, nettverk, samarbeidsevner og utholdenhet er avgjørende i bransjen.",
     },
   ],
@@ -969,7 +969,7 @@ const quizData_musikk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor kan musikk være et effektivt politisk verktøy?",
-      options: ["Den når mange, vekker følelser og samler folk om et budskap", "Den kan ikke påvirke noen", "Den er alltid politisk nøytral og kan derfor ikke ta noe standpunkt", "Den kan bare påvirke mennesker som allerede spiller instrumenter selv"],
+      options: ["Den når mange, vekker følelser og samler folk om et budskap", "Den kan ikke påvirke noen, fordi musikk bare er ren underholdning", "Den er alltid politisk nøytral og kan derfor ikke ta noe standpunkt", "Den kan bare påvirke mennesker som allerede spiller instrumenter selv"],
       explanation: "Musikk kombinerer emosjonell kraft med bred rekkevidde - derfor brukes den i protest og aktivisme.",
     },
   ],
@@ -981,7 +981,7 @@ const quizData_musikk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er TONO?",
-      options: ["Den norske opphavsrettsorganisasjonen for musikk", "Et norsk plateselskap", "Et norsk plateselskap som gir ut og markedsfører nye artister", "En norsk strømmetjeneste som konkurrerer med Spotify og Tidal"],
+      options: ["Den norske opphavsrettsorganisasjonen for musikk", "En stor musikkfestival som arrangeres i Norge hver sommer", "Et norsk plateselskap som gir ut og markedsfører nye artister", "En norsk strømmetjeneste som konkurrerer med Spotify og Tidal"],
       explanation: "TONO krever inn vederlag for komponister, tekstforfattere og musikkforlag når musikk spilles offentlig.",
     },
     {
@@ -1008,7 +1008,7 @@ const quizData_musikk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er piratkopiering av musikk?",
-      options: ["Å kopiere eller dele beskyttet musikk uten tillatelse", "Å låne en CD av en venn", "Å låne en original-CD av en venn og lytte til den hjemme selv", "Å kjøpe musikk lovlig når den er satt ned i pris under et salg"],
+      options: ["Å kopiere eller dele beskyttet musikk uten tillatelse", "Å kjøpe musikk fra en nettbutikk i et annet land enn Norge", "Å låne en original-CD av en venn og lytte til den hjemme selv", "Å kjøpe musikk lovlig når den er satt ned i pris under et salg"],
       explanation: "Piratkopiering er ulovlig deling eller nedlasting av opphavsrettslig beskyttet musikk.",
     },
     {
@@ -1030,7 +1030,7 @@ const quizData_musikk_9: Record<string, QuizQuestion[]> = {
   "musikk-9-8-4": [
     {
       question: "Hva handler mangfold i musikkbransjen om?",
-      options: ["At musikk og bransje gjenspeiler bredden av mennesker i samfunnet", "At bare store stjerner får plass", "At bare de aller største og mest kjente stjernene skal få slippe til", "At alle artister bør lage mest mulig lik musikk innenfor samme sjanger"],
+      options: ["At musikk og bransje gjenspeiler bredden av mennesker i samfunnet", "At alle plateselskaper i landet skal eies og drives av det offentlige", "At bare de aller største og mest kjente stjernene skal få slippe til", "At alle artister bør lage mest mulig lik musikk innenfor samme sjanger"],
       explanation: "Mangfold omfatter kulturell bakgrunn, kjønn, funksjonsevne og mer.",
     },
     {
@@ -1050,7 +1050,7 @@ const quizData_musikk_9: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan kan musikk fungere som kulturell brobygger?",
-      options: ["Den kan skape forståelse og fellesskap på tvers av kulturer", "Den fungerer bare innenfor ett land", "Den holder ulike kulturer strengt adskilt fra hverandre over tid", "Den fungerer bare innenfor grensene til ett enkelt land eller språkområde"],
+      options: ["Den kan skape forståelse og fellesskap på tvers av kulturer", "Den krever at alle først lærer seg å snakke det samme språket", "Den holder ulike kulturer strengt adskilt fra hverandre over tid", "Den fungerer bare innenfor grensene til ett enkelt land eller språkområde"],
       explanation: "Musikk krysser språkgrenser og kan bygge fellesskap mellom ulike grupper.",
     },
   ],

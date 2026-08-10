@@ -41,7 +41,7 @@ const quizData_komkult_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva legger den transaksjonelle modellen vekt på?",
-      options: ["Kommunikasjon som en gjensidig prosess", "Kommunikasjon kun i én retning", "At mottakeren forholder seg helt passiv til budskapet", "At budskapet aldri forstyrres"],
+      options: ["Kommunikasjon som en gjensidig prosess", "Kommunikasjon kun i én retning", "At mottakeren er helt passiv", "At budskapet aldri forstyrres"],
       explanation: "Den transaksjonelle modellen ser kommunikasjon som en gjensidig prosess der partene påvirker hverandre samtidig.",
     },
     {
@@ -51,14 +51,14 @@ const quizData_komkult_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er kjernen i den semiotiske kommunikasjonsmodellen?",
-      options: ["Kommunikasjon som tegn og tolkning", "Kommunikasjon som ren teknisk overføring", "Kommunikasjon uten mottaker", "Kommunikasjon kun gjennom tale"],
+      options: ["Kommunikasjon som tegn og tolkning", "Kommunikasjon som ren overføring", "Kommunikasjon uten mottaker", "Kommunikasjon kun gjennom tale"],
       explanation: "Den semiotiske modellen forstår kommunikasjon som bruk av tegn som må tolkes av mottakeren.",
     },
   ],
   "komkult-1-1-3": [
     {
       question: "Hva er koding i kommunikasjonsprosessen?",
-      options: ["Å oversette tanker til formidlbare tegn", "Å motta og tolke budskapet", "Å gi tilbakemelding på budskapet man har mottatt", "Å fjerne all støy som forstyrrer kommunikasjonen"],
+      options: ["Å oversette tanker til formidlbare tegn", "Å motta budskapet og tolke tegnene som ble sendt", "Å gi tilbakemelding på budskapet man har mottatt", "Å fjerne all støy som forstyrrer kommunikasjonen"],
       explanation: "Koding er prosessen der senderen oversetter tanker og idéer til tegn (ord, bilder, gester) som kan formidles.",
     },
     {
@@ -68,7 +68,7 @@ const quizData_komkult_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er kanalen i kommunikasjonsprosessen?",
-      options: ["Mediet budskapet formidles gjennom", "Innholdet i budskapet", "Mottakerens reaksjon og tilbakemelding", "Selve innholdet og meningen i budskapet"],
+      options: ["Mediet budskapet formidles gjennom", "Støyen som forstyrrer selve overføringen", "Mottakerens reaksjon og tilbakemelding", "Selve innholdet og meningen i budskapet"],
       explanation: "Kanalen er mediet eller veien budskapet formidles gjennom, for eksempel tale, e-post eller TV.",
     },
     {
@@ -78,7 +78,7 @@ const quizData_komkult_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er kontekstens rolle i kommunikasjonsprosessen?",
-      options: ["Den utgjør omstendighetene som påvirker tolkningen", "Den fjerner behovet for en sender", "Den fjerner behovet for en sender i kommunikasjonen", "Den har ingen reell betydning for hvordan noe tolkes"],
+      options: ["Den utgjør omstendighetene som påvirker tolkningen", "Den avgjør hvilket språk senderen er nødt til å bruke", "Den fjerner behovet for en sender i kommunikasjonen", "Den har ingen reell betydning for hvordan noe tolkes"],
       explanation: "Konteksten er omstendighetene rundt kommunikasjonen (tid, sted, relasjon, kultur) og påvirker hvordan budskapet tolkes.",
     },
   ],
@@ -90,12 +90,12 @@ const quizData_komkult_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en fordel ved skriftlig kommunikasjon sammenlignet med muntlig?",
-      options: ["Den er permanent og gjennomtenkt", "Den er rik på non-verbale signaler", "Den gir alltid umiddelbar tilbakemelding", "Den er forgjengelig"],
+      options: ["Den er permanent og gjennomtenkt", "Den er rik på non-verbale signaler", "Den gir alltid umiddelbar tilbakemelding", "Den er forgjengelig og forsvinner så snart den er sagt"],
       explanation: "Skriftlig kommunikasjon er permanent og kan gjennomtenkes, men mangler de non-verbale signalene som muntlig kommunikasjon har.",
     },
     {
       question: "Hva er en styrke ved muntlig kommunikasjon?",
-      options: ["Den er rik på non-verbale signaler", "Den kan ikke gi tilbakemelding", "Den kan ikke gi noen form for tilbakemelding", "Den er alltid permanent"],
+      options: ["Den er rik på non-verbale signaler", "Den kan ikke gi tilbakemelding", "Den er alltid nøytral i tonen", "Den er alltid permanent"],
       explanation: "Muntlig kommunikasjon er direkte og rik på non-verbale signaler som tonefall og kroppsspråk, men den er forgjengelig.",
     },
     {
@@ -105,7 +105,7 @@ const quizData_komkult_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en styrke ved visuell kommunikasjon?",
-      options: ["Den kan krysse språkbarrierer", "Den krever alltid lang tekst", "Den fungerer bare i muntlig, direkte samtale", "Den fungerer bare muntlig"],
+      options: ["Den kan krysse språkbarrierer", "Den krever alltid lang tekst", "Den krever alltid farger", "Den fungerer bare muntlig"],
       explanation: "Visuell kommunikasjon bruker bilder og grafikk og kan derfor krysse språkbarrierer.",
     },
   ],
@@ -122,7 +122,7 @@ const quizData_komkult_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner semantisk støy?",
-      options: ["Ulik tolkning av ord og tegn", "Ytre lyder i omgivelsene", "Stress og indre uro hos mottakeren", "Tekniske feil i kanalen"],
+      options: ["Ulik tolkning av ord og tegn", "Ytre lyder i omgivelsene", "Stress og indre uro", "Tekniske feil i kanalen"],
       explanation: "Semantisk støy oppstår når sender og mottaker tolker ord eller tegn ulikt.",
     },
     {
@@ -220,7 +220,7 @@ const quizData_komkult_1: Record<string, QuizQuestion[]> = {
   "komkult-1-2-4": [
     {
       question: "Hva er paralingvistikk?",
-      options: ["Hvordan stemmen brukes: tonefall, tempo, volum og pauser", "Selve ordene vi velger", "Kroppsholdning, gester og ansiktsuttrykk som følger med det vi sier", "Selve ordvalget og setningsbygningen vi bruker for å formidle innhold"],
+      options: ["Hvordan stemmen brukes: tonefall, tempo, volum og pauser", "Avstanden mellom mennesker når de står og snakker sammen ansikt til ansikt", "Kroppsholdning, gester og ansiktsuttrykk som følger med det vi sier", "Selve ordvalget og setningsbygningen vi bruker for å formidle innhold"],
       explanation: "Paralingvistikk handler om hvordan vi sier noe – tonefall, tempo, volum, pauser og stemmekvalitet – ikke selve ordene.",
     },
     {
@@ -230,17 +230,17 @@ const quizData_komkult_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan kan tonefall endre meningen i en setning?",
-      options: ["Stigende tonefall kan gjøre en påstand om til et spørsmål", "Tonefall har ingen effekt på mening", "Tonefall påvirker bare hvor høyt vi snakker, ikke selve meningen i utsagnet", "Tonefall endrer utelukkende hastigheten på talen, aldri budskapets betydning"],
+      options: ["Stigende tonefall kan gjøre en påstand om til et spørsmål", "Tonefall kan bare uttrykke sinne, aldri andre følelser eller nyanser", "Tonefall påvirker bare hvor høyt vi snakker, ikke selve meningen i utsagnet", "Tonefall endrer utelukkende hastigheten på talen, aldri budskapets betydning"],
       explanation: "Ved å endre tonefall kan samme setning få ulik mening – for eksempel kan stigende tonefall gjøre en påstand om til et spørsmål.",
     },
     {
       question: "Hva menes med utsagnet «Det er ikke hva du sier, men hvordan du sier det»?",
-      options: ["Måten noe sies på påvirker meningen sterkt", "Ordene er det eneste som betyr noe", "At bare den saklige informasjonen teller, ikke måten den blir sagt på", "Skriftlig form er viktigst"],
+      options: ["Måten noe sies på påvirker meningen sterkt", "Ordene er det eneste som betyr noe", "At bare den saklige informasjonen teller", "Skriftlig form er viktigst"],
       explanation: "Utsagnet understreker at paralingvistiske trekk som tonefall og tempo former meningen i det vi sier, ofte like mye som selve ordene.",
     },
     {
       question: "Hva kan trykk (betoning) på et bestemt ord i en setning gjøre?",
-      options: ["Det kan framheve hva som er viktig og endre fokuset", "Det gjelder bare skriftspråk", "Det fjerner all mening fra setningen og gjør den umulig å forstå for lytteren", "Det har ingen virkning på meningen, siden ordene betyr det samme uansett trykk"],
+      options: ["Det kan framheve hva som er viktig og endre fokuset", "Det gjelder bare i skriftspråk, der man kan bruke kursiv", "Det fjerner all mening fra setningen og gjør den umulig å forstå for lytteren", "Det har ingen virkning på meningen, siden ordene betyr det samme uansett trykk"],
       explanation: "Ved å legge trykk på et bestemt ord framhever vi det som er viktig og kan dermed endre hva setningen vektlegger.",
     },
   ],
@@ -257,12 +257,12 @@ const quizData_komkult_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilket signal har vi en tendens til å «tro mest på» ved motstridende budskap?",
-      options: ["Det nonverbale (kroppsspråket)", "Det verbale (ordene)", "Det verbale, altså selve ordene og innholdet i det som blir sagt til oss", "Ingen av delene"],
+      options: ["Det nonverbale (kroppsspråket)", "Det verbale (ordene)", "Konteksten rundt samtalen", "Ingen av delene"],
       explanation: "Når ord og kropp er i strid, har vi en tendens til å feste mest lit til de nonverbale signalene.",
     },
     {
       question: "Hva betyr det at nonverbal kommunikasjon kan «repetere» den verbale?",
-      options: ["Kroppsspråket gjentar det verbale, som å si «nei» og riste på hodet", "Kroppsspråket erstatter all tale", "At kroppsspråket motsier ordene, som å nikke samtidig som man sier «nei»", "At kroppsspråket er irrelevant og ikke påvirker hvordan budskapet oppfattes"],
+      options: ["Kroppsspråket gjentar det verbale, som å si «nei» og riste på hodet", "At kroppsspråket erstatter talen helt, slik at man ikke trenger å si noe", "At kroppsspråket motsier ordene, som å nikke samtidig som man sier «nei»", "At kroppsspråket er irrelevant og ikke påvirker hvordan budskapet oppfattes"],
       explanation: "Å repetere betyr at kroppsspråket gjentar det verbale, for eksempel å riste på hodet samtidig som man sier «nei».",
     },
     {
@@ -274,34 +274,34 @@ const quizData_komkult_1: Record<string, QuizQuestion[]> = {
   "komkult-1-3-1": [
     {
       question: "Hva er materiell kultur?",
-      options: ["Fysiske gjenstander mennesker lager og bruker", "Verdier og normer vi ikke kan ta på", "Bare det talte og skrevne språket en gruppe mennesker bruker seg imellom", "Religiøse forestillinger"],
+      options: ["Fysiske gjenstander mennesker lager og bruker", "Verdier og normer vi ikke kan ta på", "Bare det talte og skrevne språket", "Religiøse forestillinger"],
       explanation: "Materiell kultur er fysiske gjenstander som bygninger, klær, teknologi og mat.",
     },
     {
       question: "Hva er immateriell kultur?",
-      options: ["Verdier, normer, språk og forestillinger vi ikke kan ta på", "Fysiske bygninger", "Klær, teknologi og redskaper som mennesker lager og bruker i hverdagen", "Mat, drikke og andre konkrete gjenstander vi kan ta og kjenne fysisk på"],
+      options: ["Verdier, normer, språk og forestillinger vi ikke kan ta på", "Fysiske bygninger, monumenter og andre byggverk mennesker reiser", "Klær, teknologi og redskaper som mennesker lager og bruker i hverdagen", "Mat, drikke og andre konkrete gjenstander vi kan ta og kjenne fysisk på"],
       explanation: "Immateriell kultur er det vi ikke kan ta på, som verdier, normer, språk, tradisjoner og forestillinger.",
     },
     {
       question: "Hva kjennetegner en utvidet (vid) kulturdefinisjon?",
-      options: ["Kultur omfatter hele levesettet til en gruppe", "Kultur er kun materielle gjenstander", "At kultur bare er materielle gjenstander som bygninger, klær og teknologi", "Kultur er bare kunst og litteratur"],
+      options: ["Kultur omfatter hele levesettet til en gruppe", "Kultur er kun materielle gjenstander", "At kultur bare er språk og dialekt", "Kultur er bare kunst og litteratur"],
       explanation: "Den utvidede kulturdefinisjonen omfatter hele levesettet til en gruppe – verdier, normer, vaner og uttrykk.",
     },
     {
       question: "Hva kjennetegner en smal (snever) kulturdefinisjon?",
-      options: ["Kultur som kunst, litteratur, musikk og åndsliv", "Kultur som hele levesettet", "Kultur forstått som hele levesettet, vanene og verdiene til en hel gruppe", "Kultur som bare teknologi"],
+      options: ["Kultur som kunst, litteratur, musikk og åndsliv", "Kultur som hele levesettet", "Kultur som normer og verdier", "Kultur som bare teknologi"],
       explanation: "Den smale kulturdefinisjonen avgrenser kultur til kunstneriske og intellektuelle uttrykk som kunst, litteratur og musikk.",
     },
     {
       question: "Hvorfor sies det at kulturbegrepet er sammensatt?",
-      options: ["Det brukes på mange måter og kan defineres både vidt og snevert", "Det er et nytt ord uten historie", "Det har bare én klar og entydig betydning som alle fagfolk er enige om", "Det er et helt nytt ord uten historie som først dukket opp i vår egen tid"],
+      options: ["Det brukes på mange måter og kan defineres både vidt og snevert", "Det betyr nøyaktig det samme på alle språk og i alle faglige sammenhenger", "Det har bare én klar og entydig betydning som alle fagfolk er enige om", "Det er et helt nytt ord uten historie som først dukket opp i vår egen tid"],
       explanation: "Kulturbegrepet er sammensatt fordi det brukes ulikt i ulike sammenhenger og kan defineres både vidt (hele levesettet) og snevert (kunst og åndsliv).",
     },
   ],
   "komkult-1-3-2": [
     {
       question: "Hva er forskjellen mellom verdier og normer?",
-      options: ["Verdier er grunnleggende idealer, normer er konkrete regler for atferd", "Verdier er regler, normer er idealer", "Verdier er konkrete regler for atferd, mens normer er grunnleggende idealer", "Verdier gjelder bare skrevne lover, mens normer gjelder alt annet i et samfunn"],
+      options: ["Verdier er grunnleggende idealer, normer er konkrete regler for atferd", "Verdier finnes bare i religionen, mens normer bare finnes i lovverket til en stat", "Verdier er konkrete regler for atferd, mens normer er grunnleggende idealer", "Verdier gjelder bare skrevne lover, mens normer gjelder alt annet i et samfunn"],
       explanation: "Verdier er grunnleggende idealer om hva som er godt og viktig, mens normer er konkrete regler for hvordan man bør oppføre seg.",
     },
     {
@@ -311,7 +311,7 @@ const quizData_komkult_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en sanksjon i samfunnsfaglig betydning?",
-      options: ["En reaksjon på om en norm følges eller brytes", "En grunnleggende verdi", "En grunnleggende verdi om hva som er godt og viktig i et samfunn", "En type kulturuttrykk som kunst, musikk eller litteratur i en gruppe"],
+      options: ["En reaksjon på om en norm følges eller brytes", "En skriftlig lov som er vedtatt av nasjonalforsamlingen", "En grunnleggende verdi om hva som er godt og viktig i et samfunn", "En type kulturuttrykk som kunst, musikk eller litteratur i en gruppe"],
       explanation: "En sanksjon er en reaksjon (positiv eller negativ) på om en norm blir fulgt eller brutt.",
     },
     {
@@ -321,14 +321,14 @@ const quizData_komkult_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et eksempel på en uformell norm?",
-      options: ["Å la folk gå av bussen før man går på", "Fartsgrensen i trafikken", "Forbudet mot tyveri, som er en formell norm nedfelt i straffelovgivningen", "Frammøteplikt på skolen"],
+      options: ["Å la folk gå av bussen før man går på", "Fartsgrensen i trafikken", "Forbudet mot tyveri i straffeloven", "Frammøteplikt på skolen"],
       explanation: "Uformelle normer er uskrevne regler «alle bare vet», som å la folk gå av bussen før man går på.",
     },
   ],
   "komkult-1-3-3": [
     {
       question: "Hva er forskjellen mellom personlig og sosial identitet?",
-      options: ["Personlig identitet er individuelle trekk, sosial identitet er gruppetilhørighet", "Personlig identitet er gruppetilhørighet, sosial er individuell", "De betyr i praksis det samme og beskriver begge bare vår tilhørighet til grupper", "Personlig identitet er gruppetilhørighet, mens sosial identitet er individuelle trekk"],
+      options: ["Personlig identitet er individuelle trekk, sosial identitet er gruppetilhørighet", "Personlig identitet er noe man velger selv, mens sosial identitet er medfødt og fast", "De betyr i praksis det samme og beskriver begge bare vår tilhørighet til grupper", "Personlig identitet er gruppetilhørighet, mens sosial identitet er individuelle trekk"],
       explanation: "Personlig identitet handler om individuelle egenskaper, mens sosial identitet handler om tilhørighet til grupper.",
     },
     {
@@ -365,7 +365,7 @@ const quizData_komkult_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en sosialiseringsagent?",
-      options: ["En instans som bidrar til sosialisering, som familie, skole eller medier", "En person som motarbeider normer", "En person som bevisst motarbeider og bryter samfunnets normer og verdier", "En type lov eller nedskrevet regel med tydelige sanksjoner knyttet til seg"],
+      options: ["En instans som bidrar til sosialisering, som familie, skole eller medier", "En person som forsker på kulturforskjeller", "En person som bevisst motarbeider og bryter samfunnets normer og verdier", "En type lov eller nedskrevet regel med sanksjoner"],
       explanation: "Sosialiseringsagenter er instanser som familie, skole, venner og medier som former oss gjennom sosialiseringen.",
     },
     {
@@ -382,7 +382,7 @@ const quizData_komkult_1: Record<string, QuizQuestion[]> = {
   "komkult-1-3-5": [
     {
       question: "Hva er et kulturfilter?",
-      options: ["Et sett av verdier og erfaringer som preger hvordan vi tolker budskap", "En teknisk innstilling i et kamera", "En kanal budskapet sendes gjennom, som tale, skrift, telefon eller e-post", "En teknisk innstilling i et kamera som endrer farger og lys i bildet vi tar"],
+      options: ["Et sett av verdier og erfaringer som preger hvordan vi tolker budskap", "En lov som regulerer hvilke kulturuttrykk som er tillatt i et bestemt land", "En kanal budskapet sendes gjennom, som tale, skrift, telefon eller e-post", "En teknisk innstilling i et kamera som endrer farger og lys i bildet vi tar"],
       explanation: "Et kulturfilter er settet av verdier, normer og erfaringer som preger hvordan vi oppfatter og tolker andres budskap.",
     },
     {
@@ -402,7 +402,7 @@ const quizData_komkult_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er kulturrelativisme?",
-      options: ["Å forstå en kultur ut fra dens egne premisser og kontekst", "Å rangere kulturer etter verdi", "Å rangere kulturer etter verdi ut fra hvor nær de ligger ens egen kulturs idealer", "Å se sin egen kultur som den beste målestokken andre kulturer bør vurderes opp mot"],
+      options: ["Å forstå en kultur ut fra dens egne premisser og kontekst", "Å mene at alle kulturer i praksis er helt like hverandre uansett", "Å rangere kulturer etter verdi ut fra hvor nær de ligger ens egen kulturs idealer", "Å se sin egen kultur som den beste målestokken andre kulturer bør vurderes opp mot"],
       explanation: "Kulturrelativisme innebærer å forsøke å forstå en kultur på dens egne premisser, uten å bedømme den ut fra sin egen.",
     },
   ],
@@ -419,7 +419,7 @@ const quizData_komkult_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva innebærer interkulturell kompetanse?",
-      options: ["Evnen til å kommunisere effektivt og hensiktsmessig på tvers av kulturer", "Å kunne mange språk flytende", "Kun teknisk kunnskap om digitale verktøy som brukes i internasjonal kommunikasjon", "Å beherske et stort antall fremmedspråk flytende slik at oversettelse blir overflødig"],
+      options: ["Evnen til å kommunisere effektivt og hensiktsmessig på tvers av kulturer", "Å kunne flest mulig lands flagg, hovedsteder og nasjonaldager utenat på rams", "Kun teknisk kunnskap om digitale verktøy som brukes i internasjonal kommunikasjon", "Å beherske et stort antall fremmedspråk flytende slik at oversettelse blir overflødig"],
       explanation: "Interkulturell kompetanse er evnen til å kommunisere effektivt og passende med mennesker fra andre kulturer.",
     },
     {
@@ -429,7 +429,7 @@ const quizData_komkult_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken mulighet gir interkulturell kommunikasjon?",
-      options: ["Læring, nye perspektiver og berikende møter mellom mennesker", "Garantert konfliktfrihet", "At kulturelle særtrekk gradvis viskes ut slik at mangfoldet forsvinner over tid", "En garanti for at møtene alltid blir helt konfliktfrie og fri for misforståelser"],
+      options: ["Læring, nye perspektiver og berikende møter mellom mennesker", "At man automatisk lærer seg det andre språket uten undervisning", "At kulturelle særtrekk gradvis viskes ut slik at mangfoldet forsvinner over tid", "En garanti for at møtene alltid blir helt konfliktfrie og fri for misforståelser"],
       explanation: "Interkulturell kommunikasjon kan være berikende og gi nye perspektiver og læring gjennom møter mellom mennesker.",
     },
   ],
@@ -446,17 +446,17 @@ const quizData_komkult_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen mellom en stereotypi og en fordom?",
-      options: ["En fordom er en negativ holdning, en stereotypi er en forenklet forestilling", "En stereotypi gjelder bare individer", "En fordom er alltid en positiv holdning, mens en stereotypi alltid er negativt ladet", "De to begrepene betyr nøyaktig det samme og brukes helt om hverandre i faglitteraturen"],
+      options: ["En fordom er en negativ holdning, en stereotypi er en forenklet forestilling", "En stereotypi gjelder bare enkeltindivider, mens en fordom alltid gjelder grupper", "En fordom er alltid en positiv holdning, mens en stereotypi alltid er negativt ladet", "De to begrepene betyr nøyaktig det samme og brukes helt om hverandre i faglitteraturen"],
       explanation: "En stereotypi er en forenklet forestilling om en gruppe, mens en fordom er en (ofte negativ) holdning bygget på utilstrekkelig kunnskap.",
     },
     {
       question: "Hva er en balansert tilnærming til kulturforskjeller?",
-      options: ["Å forstå andre kulturer uten å gi avkall på kritisk refleksjon", "Å alltid se egen kultur som best", "Å unngå kontakt med alle andre kulturer for å bevare sin egen kultur helt uendret", "Å alltid se sin egen kultur som best og vurdere andre kulturer strengt opp mot den"],
+      options: ["Å forstå andre kulturer uten å gi avkall på kritisk refleksjon", "Å godta alle skikker uten unntak, også dem som bryter menneskerettighetene", "Å unngå kontakt med alle andre kulturer for å bevare sin egen kultur helt uendret", "Å alltid se sin egen kultur som best og vurdere andre kulturer strengt opp mot den"],
       explanation: "En balansert tilnærming kombinerer forståelse og respekt for andre kulturer med evnen til kritisk refleksjon.",
     },
     {
       question: "Hvordan kan etnosentrisme påvirke kommunikasjon?",
-      options: ["Den kan skape avvisning og hindre forståelse på tvers av kulturer", "Den styrker alltid kommunikasjonen", "Den har ingen virkning på kommunikasjonen så lenge partene deler et felles talespråk", "Den fjerner alle misforståelser fordi begge parter da måler alt ut fra samme målestokk"],
+      options: ["Den kan skape avvisning og hindre forståelse på tvers av kulturer", "Den styrker alltid kommunikasjonen fordi begge parter blir tryggere på seg selv", "Den har ingen virkning på kommunikasjonen så lenge partene deler et felles talespråk", "Den fjerner alle misforståelser fordi begge parter da måler alt ut fra samme målestokk"],
       explanation: "Etnosentrisme kan føre til avvisning og forakt for det ukjente og dermed hindre god kommunikasjon på tvers av kulturer.",
     },
   ],
@@ -473,7 +473,7 @@ const quizData_komkult_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner en individualistisk kultur?",
-      options: ["Enkeltindividets rettigheter og uavhengighet prioriteres", "Det finnes ingen personlig identitet", "Gruppens felles behov går alltid foran, og fellesskapet bestemmer over den enkelte", "Gruppens behov går alltid foran"],
+      options: ["Enkeltindividets rettigheter og uavhengighet prioriteres", "Det finnes ingen personlig identitet", "Gruppens felles behov går alltid foran, og fellesskapet bestemmer over den enkelte", "Alle avgjørelser tas av en utpekt leder"],
       explanation: "I individualistiske kulturer prioriteres enkeltindividets rettigheter, uavhengighet og selvstendighet.",
     },
     {
@@ -483,14 +483,14 @@ const quizData_komkult_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva handler dimensjonen usikkerhetsunnvikelse om?",
-      options: ["Hvor godt en kultur tåler usikkerhet og tvetydighet", "Forholdet mellom kjønnene", "Forholdet mellom kjønnene og hvor tydelig kjønnsrollene er delt inn i et samfunn", "Hvor mye makt ledere har"],
+      options: ["Hvor godt en kultur tåler usikkerhet og tvetydighet", "Forholdet mellom kjønnene", "Hvor viktig fritid er i en kultur", "Hvor mye makt ledere har"],
       explanation: "Usikkerhetsunnvikelse handler om hvor godt en kultur tåler usikkerhet og uforutsigbarhet, og i hvilken grad man søker faste regler.",
     },
   ],
   "komkult-1-4-4": [
     {
       question: "Hva er kultursjokk?",
-      options: ["De følelsesmessige reaksjonene som kan oppstå i møte med en ny kultur", "En kommunikasjonsmodell", "En kommunikasjonsmodell som forklarer hvordan budskap forvrenges mellom kulturene", "Et nytt og overraskende kulturuttrykk som brått oppstår i møtet mellom to kulturer"],
+      options: ["De følelsesmessige reaksjonene som kan oppstå i møte med en ny kultur", "Et brått skifte i en kulturs verdier etter en stor politisk omveltning", "En kommunikasjonsmodell som forklarer hvordan budskap forvrenges mellom kulturene", "Et nytt og overraskende kulturuttrykk som brått oppstår i møtet mellom to kulturer"],
       explanation: "Kultursjokk beskriver de følelsesmessige reaksjonene som kan oppstå når man flytter til eller møter en ny kultur.",
     },
     {
@@ -500,7 +500,7 @@ const quizData_komkult_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skjer i krisefasen av kultursjokket?",
-      options: ["Kulturforskjellene begynner å irritere, og man kan føle seg fremmed", "Man er fascinert av alt nytt", "Man er fascinert og begeistret over alt det nye, og positive opplevelser dominerer", "Man har full kontroll og oversikt, og mestrer alle sider ved den nye kulturen godt"],
+      options: ["Kulturforskjellene begynner å irritere, og man kan føle seg fremmed", "Man har reist hjem igjen og opplever sin egen hjemkultur som helt fremmed", "Man er fascinert og begeistret over alt det nye, og positive opplevelser dominerer", "Man har full kontroll og oversikt, og mestrer alle sider ved den nye kulturen godt"],
       explanation: "I krisefasen (frustrasjon) begynner kulturforskjellene å irritere, man savner hjemkulturen og kan føle seg fremmed.",
     },
     {
@@ -517,7 +517,7 @@ const quizData_komkult_1: Record<string, QuizQuestion[]> = {
   "komkult-1-4-5": [
     {
       question: "Hva kjennetegner et flerkulturelt samfunn?",
-      options: ["Mennesker med ulik kulturell bakgrunn lever sammen", "Kun én religion er tillatt", "Kun én bestemt religion er tillatt, og alle andre livssyn holdes bevisst utenfor", "Det finnes ingen normer"],
+      options: ["Mennesker med ulik kulturell bakgrunn lever sammen", "Kun én religion er tillatt", "Alle innbyggerne har samme morsmål", "Det finnes ingen normer"],
       explanation: "Et flerkulturelt samfunn kjennetegnes ved at mennesker med ulik kulturell bakgrunn lever sammen.",
     },
     {
@@ -532,12 +532,12 @@ const quizData_komkult_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen mellom integrering og inkludering?",
-      options: ["Integrering vektlegger gjensidig tilpasning, inkludering at alle skal høre til", "Integrering betyr å avvise minoriteter", "De to begrepene betyr nøyaktig det samme og kan brukes helt om hverandre i praksis", "Inkludering betyr å isolere ulike grupper fra hverandre, mens integrering samler dem"],
+      options: ["Integrering vektlegger gjensidig tilpasning, inkludering at alle skal høre til", "Integrering betyr å avvise minoriteter, mens inkludering betyr å ta imot dem alle", "De to begrepene betyr nøyaktig det samme og kan brukes helt om hverandre i praksis", "Inkludering betyr å isolere ulike grupper fra hverandre, mens integrering samler dem"],
       explanation: "Integrering handler om gjensidig tilpasning mellom grupper, mens inkludering legger vekt på at alle skal oppleve tilhørighet og likeverdig deltakelse.",
     },
     {
       question: "Hva er en mulig kritikk av multikulturalisme?",
-      options: ["At det kan føre til parallellsamfunn", "At det forbyr alle kulturer", "At det over tid gjør alle innbyggere helt like og visker ut kulturelle forskjeller", "At det gjør alle helt like"],
+      options: ["At det kan føre til parallellsamfunn", "At det forbyr alle kulturer", "At det svekker felles språk", "At det gjør alle helt like"],
       explanation: "Kritikere av multikulturalisme hevder at det i noen tilfeller kan føre til parallellsamfunn med lite kontakt mellom grupper.",
     },
   ],
@@ -571,7 +571,7 @@ const quizData_komkult_1: Record<string, QuizQuestion[]> = {
   "komkult-1-5-2": [
     {
       question: "Hva er en filterboble?",
-      options: ["En tilstand der algoritmer hovedsakelig viser deg innhold du allerede er enig i", "En personverninnstilling", "En bestemt type målrettet reklame som følger brukeren rundt på ulike nettsteder", "En personverninnstilling som skjuler personlige data fra andre brukere på nettet"],
+      options: ["En tilstand der algoritmer hovedsakelig viser deg innhold du allerede er enig i", "En teknisk feil som gjør at videoer stopper opp og må lastes inn på nytt hele tiden", "En bestemt type målrettet reklame som følger brukeren rundt på ulike nettsteder", "En personverninnstilling som skjuler personlige data fra andre brukere på nettet"],
       explanation: "En filterboble oppstår når algoritmer i hovedsak viser deg innhold som passer dine eksisterende interesser og synspunkter.",
     },
     {
@@ -591,7 +591,7 @@ const quizData_komkult_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan styrer algoritmer innholdet i sosiale medier?",
-      options: ["De velger og prioriterer hva du ser basert på atferd og data", "De viser alt innhold i kronologisk rekkefølge for alle", "De viser alt tilgjengelig innhold i streng kronologisk rekkefølge likt for absolutt alle brukere", "De sletter automatisk alt innhold som ikke er betalt for av annonsører innen kort tid etter deling"],
+      options: ["De velger og prioriterer hva du ser basert på atferd og data", "De viser utelukkende innhold fra kontoer du selv har valgt å følge", "De viser alt tilgjengelig innhold i streng kronologisk rekkefølge likt for absolutt alle brukere", "De sletter automatisk alt innhold som ikke er betalt for av annonsører innen kort tid etter deling"],
       explanation: "Algoritmer velger og prioriterer hvilket innhold du ser, basert på din atferd og innsamlede data, noe som kan forsterke bestemte synspunkter.",
     },
   ],
@@ -603,12 +603,12 @@ const quizData_komkult_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en «prosument»?",
-      options: ["En bruker som både konsumerer og produserer medieinnhold", "En profesjonell journalist", "En reklamefinansør som betaler for annonseplass, men aldri selv lager eller deler eget medieinnhold", "En reklamefinansør"],
+      options: ["En bruker som både konsumerer og produserer medieinnhold", "En profesjonell journalist", "En algoritme som fordeler innhold til brukerne", "En reklamefinansør som kjøper annonseplass"],
       explanation: "En prosument er en sammensetning av «produsent» og «konsument» og beskriver brukere som både konsumerer og produserer innhold.",
     },
     {
       question: "Hva er et eksempel på brukermedvirkning i digitale medier?",
-      options: ["Kommentarfelt under nettartikler", "At redaksjonen skriver alt selv", "At redaksjonen alene skriver og publiserer alt innhold uten noen form for bidrag fra publikum", "At publikum er helt passivt"],
+      options: ["Kommentarfelt under nettartikler", "At redaksjonen skriver alt selv", "At annonsørene velger sakene", "At publikum er helt passivt"],
       explanation: "Kommentarfelt, deling og innsendt innhold er eksempler på brukermedvirkning, der publikum deltar aktivt i medieproduksjonen.",
     },
     {
@@ -618,14 +618,14 @@ const quizData_komkult_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan har digitaliseringen påvirket skillet mellom medieformene?",
-      options: ["Skillene viskes ut etter hvert som mediene smelter sammen", "Bare papiraviser finnes igjen", "Skillene blir stadig tydeligere ettersom hver medieform utvikler seg videre på sin egen separate plattform", "Medieformene forsvinner helt"],
+      options: ["Skillene viskes ut etter hvert som mediene smelter sammen", "Bare papiraviser finnes igjen", "Skillene blir stadig tydeligere mellom medieformene", "Medieformene forsvinner helt"],
       explanation: "Digitaliseringen har gjort at tidligere klare skiller mellom avis, radio og TV viskes ut, ettersom innholdet smelter sammen på samme plattformer.",
     },
   ],
   "komkult-1-5-4": [
     {
       question: "Hva er en sjanger i mediesammenheng?",
-      options: ["Et sett av konvensjoner og forventninger som avsender og mottaker kjenner", "En tilfeldig samling innhold", "En teknisk plattform eller kanal som avgjør hvordan innholdet distribueres, uavhengig av form og forventninger", "En tilfeldig samling innhold uten felles trekk, der mottakeren ikke kan danne seg noen forventninger på forhånd"],
+      options: ["Et sett av konvensjoner og forventninger som avsender og mottaker kjenner", "Det største antallet tegn eller minutter et medieinnhold har lov til å være", "En teknisk plattform eller kanal som avgjør hvordan innholdet distribueres, uavhengig av form og forventninger", "En tilfeldig samling innhold uten felles trekk, der mottakeren ikke kan danne seg noen forventninger på forhånd"],
       explanation: "En sjanger er et sett av konvensjoner og forventninger som både avsendere og mottakere kjenner, og som hjelper oss å tolke innholdet.",
     },
     {
@@ -635,7 +635,7 @@ const quizData_komkult_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen på reklame og propaganda?",
-      options: ["Reklame fremmer varer og tjenester, propaganda fremmer ideer og holdninger systematisk", "Propaganda selger bare produkter", "Propaganda selger bare fysiske produkter og tjenester, mens reklame utelukkende sprer ideer og verdenssyn", "De er i praksis det samme, siden begge former systematisk søker å endre mottakerens holdninger og verdisyn"],
+      options: ["Reklame fremmer varer og tjenester, propaganda fremmer ideer og holdninger systematisk", "Reklame er alltid lovlig, mens propaganda alltid er forbudt ved lov i alle demokratiske land", "Propaganda selger bare fysiske produkter og tjenester, mens reklame utelukkende sprer ideer og verdenssyn", "De er i praksis det samme, siden begge former systematisk søker å endre mottakerens holdninger og verdisyn"],
       explanation: "Reklame har som mål å fremme salg av varer og tjenester, mens propaganda systematisk søker å spre ideer eller påvirke holdninger.",
     },
     {
@@ -645,14 +645,14 @@ const quizData_komkult_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er sjangerforståelse viktig for mottakeren?",
-      options: ["Den hjelper oss å tolke innholdet riktig", "Den er bare relevant for produsenter", "Den er bare relevant for produsentene av innhold, og har ingen praktisk betydning for mottakerens forståelse", "Den fjerner behovet for kildekritikk"],
+      options: ["Den hjelper oss å tolke innholdet riktig", "Den er bare relevant for produsenter", "Den gjør all reklame forbudt", "Den fjerner behovet for kildekritikk"],
       explanation: "Sjangerforståelse hjelper mottakeren å tolke innholdet riktig, for eksempel å skille en nyhetsartikkel fra en annonse.",
     },
   ],
   "komkult-1-5-5": [
     {
       question: "Hva er kildekritikk?",
-      options: ["Å vurdere troverdigheten og hensikten til en kilde", "Å akseptere alt man leser", "Å akseptere alt man leser uten å stille spørsmål ved hvem som står bak eller hva hensikten med teksten er", "Å avvise alle kilder"],
+      options: ["Å vurdere troverdigheten og hensikten til en kilde", "Å akseptere alt man leser", "Å skrive leserinnlegg om saker i media", "Å avvise alle kilder"],
       explanation: "Kildekritikk handler om å vurdere hvem som står bak informasjonen, hva hensikten er og om opplysningene er dokumenterbare.",
     },
     {
@@ -662,24 +662,24 @@ const quizData_komkult_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er falske nyheter?",
-      options: ["Innhold som etterligner nyhetsformatet, men inneholder usann informasjon", "Korrekte nyheter fra store medier", "En bestemt type reklame for varer og tjenester som er kledd i et journalistisk språk for å virke troverdig", "Korrekte og etterrettelige nyheter som produseres av store, etablerte medier med solid redaksjonell kontroll"],
+      options: ["Innhold som etterligner nyhetsformatet, men inneholder usann informasjon", "Nyheter som først blir publisert flere dager etter at selve hendelsen fant sted", "En bestemt type reklame for varer og tjenester som er kledd i et journalistisk språk for å virke troverdig", "Korrekte og etterrettelige nyheter som produseres av store, etablerte medier med solid redaksjonell kontroll"],
       explanation: "Falske nyheter er innhold som bevisst etterligner nyhetsformatet, men som inneholder usann eller villedende informasjon.",
     },
     {
       question: "Hvorfor spres falske nyheter ofte raskt på sosiale medier?",
-      options: ["De kan vekke sterke følelser og genererer klikk og deling", "De inneholder bare fakta", "De er alltid nøkterne og kjedelige, og sprer seg derfor sakte gjennom grundig lesing framfor rask deling", "De er alltid kjedelige"],
+      options: ["De kan vekke sterke følelser og genererer klikk og deling", "De inneholder bare fakta", "De blir spredt av redaksjonene selv", "De er alltid kjedelige"],
       explanation: "Falske nyheter vekker ofte sterke følelser, noe som gir mange klikk og delinger, og kan dessuten gi økonomisk vinning gjennom annonseinntekter.",
     },
     {
       question: "Hva er faktasjekk?",
-      options: ["Systematisk kontroll av om en påstand stemmer mot pålitelige kilder", "Å dele en sak uten å lese den", "Å lage og spre falske nyheter bevisst for å teste hvor kritiske og oppmerksomme mottakerne egentlig er", "Å dele en sak videre uten å lese den, i tillit til at avsenderen allerede har kontrollert opplysningene nøye"],
+      options: ["Systematisk kontroll av om en påstand stemmer mot pålitelige kilder", "Å telle hvor mange ganger en sak har blitt delt videre på sosiale medier", "Å lage og spre falske nyheter bevisst for å teste hvor kritiske og oppmerksomme mottakerne egentlig er", "Å dele en sak videre uten å lese den, i tillit til at avsenderen allerede har kontrollert opplysningene nøye"],
       explanation: "Faktasjekk er systematisk kontroll av om en påstand stemmer, ved å sjekke den mot pålitelige og uavhengige kilder.",
     },
   ],
   "komkult-1-6-1": [
     {
       question: "Hvor og når oppstod retorikk som fag?",
-      options: ["I antikkens Hellas på 400-tallet f.Kr.", "I moderne tid på 1900-tallet", "I moderne tid på 1900-tallet, i takt med framveksten av massemedier som radio, fjernsyn og reklame", "I Romerriket på 1500-tallet"],
+      options: ["I antikkens Hellas på 400-tallet f.Kr.", "I moderne tid på 1900-tallet", "I Egypt før vår tidsregning", "I Romerriket på 1500-tallet"],
       explanation: "Retorikk som fag oppstod i de greske bystatene på 400-tallet f.Kr., der talekunst var viktig i demokratiet.",
     },
     {
@@ -694,7 +694,7 @@ const quizData_komkult_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr aptum i retorikken?",
-      options: ["At ytringen passer til situasjonen, publikum og emnet", "Det rette tidspunktet", "Logisk og saklig argumentasjon der avsenderen bygger på fakta og resonnementer for å overbevise", "Logisk argumentasjon"],
+      options: ["At ytringen passer til situasjonen, publikum og emnet", "Det rette tidspunktet å fremføre en ytring på, det gunstige øyeblikket", "Logisk og saklig argumentasjon der avsenderen bygger på fakta og resonnementer for å overbevise", "Logisk argumentasjon"],
       explanation: "Aptum handler om det passende – at ytringen tilpasses situasjonen, publikum, emnet og taleren.",
     },
     {
@@ -706,12 +706,12 @@ const quizData_komkult_1: Record<string, QuizQuestion[]> = {
   "komkult-1-6-2": [
     {
       question: "Hva handler etos om?",
-      options: ["Avsenderens troverdighet og tillit", "Følelser hos publikum", "Følelsene hos publikum, der avsenderen spiller på sinnsstemning og stemning for å overbevise dem", "Det rette tidspunktet"],
+      options: ["Avsenderens troverdighet og tillit", "Følelser hos publikum", "Argumentets logiske oppbygning", "Det rette tidspunktet"],
       explanation: "Etos handler om avsenderens troverdighet – vi lar oss lettere overbevise av noen vi oppfatter som troverdige.",
     },
     {
       question: "Hva er patos i retorikken?",
-      options: ["Appell til mottakerens følelser", "Talerens troverdighet", "Talerens egen troverdighet og karakter, som gjør at publikum stoler på det avsenderen formidler", "Appell til fornuften"],
+      options: ["Appell til mottakerens følelser", "Talerens troverdighet", "Talens ytre oppbygning", "Appell til fornuften"],
       explanation: "Patos er appell til mottakerens følelser for å overbevise.",
     },
     {
@@ -721,12 +721,12 @@ const quizData_komkult_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen på innledende og avledet etos?",
-      options: ["Innledende bygger på rykte før talen, avledet skapes gjennom selve kommunikasjonen", "Innledende etos skapes underveis", "De betyr i praksis det samme, siden begge formene for etos bygger utelukkende på avsenderens rykte før talen", "Innledende etos skapes gradvis mens talen holdes, mens avledet etos er noe avsenderen har fra rykte på forhånd"],
+      options: ["Innledende bygger på rykte før talen, avledet skapes gjennom selve kommunikasjonen", "Innledende etos gjelder skriftlige tekster, mens avledet etos bare gjelder muntlige taler", "De betyr i praksis det samme, siden begge formene for etos bygger utelukkende på avsenderens rykte før talen", "Innledende etos skapes gradvis mens talen holdes, mens avledet etos er noe avsenderen har fra rykte på forhånd"],
       explanation: "Innledende etos bygger på avsenderens rykte og posisjon før talen, mens avledet etos skapes gjennom selve kommunikasjonen.",
     },
     {
       question: "Hvilke tre faktorer bidrar til etos ifølge Aristoteles?",
-      options: ["Kompetanse (phronesis), god moral (arete) og velvilje (eunoia)", "Følelser, logikk og tid", "Sterke følelser, klar logikk og valg av det rette tidspunktet for når ytringen skal fremføres for publikum", "Volum, tempo og pauser"],
+      options: ["Kompetanse (phronesis), god moral (arete) og velvilje (eunoia)", "Klærne, stemmen og kroppsholdningen til den som fremfører talen", "Sterke følelser, klar logikk og valg av det rette tidspunktet for når ytringen skal fremføres for publikum", "Volum, tempo og pauser"],
       explanation: "Ifølge Aristoteles bygger etos på kompetanse (phronesis), god moral (arete) og velvilje overfor publikum (eunoia).",
     },
   ],
@@ -738,12 +738,12 @@ const quizData_komkult_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en påstand i et argument?",
-      options: ["Det avsenderen hevder og ønsker at mottakeren skal akseptere", "Den konkrete dokumentasjonen", "Den logiske grunnen eller begrunnelsen som forbinder dokumentasjonen med det avsenderen ønsker å hevde", "Den logiske grunnen"],
+      options: ["Det avsenderen hevder og ønsker at mottakeren skal akseptere", "Den konkrete dokumentasjonen", "Motpartens innvending mot argumentet", "Den logiske grunnen bak påstanden"],
       explanation: "Påstanden er det avsenderen hevder og ønsker at mottakeren skal akseptere.",
     },
     {
       question: "Hva er belegg i et argument?",
-      options: ["Konkret dokumentasjon, fakta eller eksempler som underbygger begrunnelsen", "Selve påstanden", "En følelse eller stemning som avsenderen vekker hos mottakeren for å gjøre budskapet mer overbevisende", "Selve påstanden, altså det avsenderen hevder og gjerne vil at mottakeren skal godta som riktig og gyldig"],
+      options: ["Konkret dokumentasjon, fakta eller eksempler som underbygger begrunnelsen", "Den språklige stilen avsenderen velger for å virke mest mulig overbevisende", "En følelse eller stemning som avsenderen vekker hos mottakeren for å gjøre budskapet mer overbevisende", "Selve påstanden, altså det avsenderen hevder og gjerne vil at mottakeren skal godta som riktig og gyldig"],
       explanation: "Belegget er konkret dokumentasjon, fakta eller eksempler som underbygger begrunnelsen.",
     },
     {
@@ -753,14 +753,14 @@ const quizData_komkult_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva mangler et argument som har påstand og begrunnelse, men ikke belegg?",
-      options: ["Dokumentasjon som underbygger begrunnelsen", "En mottaker", "En påstand, altså det argumentet egentlig skal overbevise mottakeren om og som holder resonnementet sammen", "En påstand"],
+      options: ["Dokumentasjon som underbygger begrunnelsen", "En tydelig mottaker", "En motstander å svare på", "En tydelig påstand"],
       explanation: "Uten belegg mangler argumentet konkret dokumentasjon som underbygger begrunnelsen, og blir derfor svakere.",
     },
   ],
   "komkult-1-6-4": [
     {
       question: "Hva er et trikolon (treleddet oppbygning)?",
-      options: ["Å gruppere poenger i tre, som «frihet, likhet, brorskap»", "Å gjenta ett ord tre ganger", "Å gjenta ett og samme ord nøyaktig tre ganger etter hverandre for å innprente og forsterke det hos publikum", "Et retorisk spørsmål"],
+      options: ["Å gruppere poenger i tre, som «frihet, likhet, brorskap»", "Å gjenta ett ord tre ganger", "Å bruke tre ulike bilder om samme sak", "Et retorisk spørsmål"],
       explanation: "Trikolon er en treleddet oppbygning der poenger grupperes i tre, som oppleves som en fullstendig helhet.",
     },
     {
@@ -780,7 +780,7 @@ const quizData_komkult_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er hensikten med gjentakelse (repetisjon) som retorisk virkemiddel?",
-      options: ["Å forsterke budskapet og gjøre det lettere å huske", "Å forvirre mottakeren", "Å forkorte talen ved å kutte gjentatte poeng slik at fremføringen blir mer effektiv og kort", "Å skjule budskapet"],
+      options: ["Å forsterke budskapet og gjøre det lettere å huske", "Å forvirre mottakeren slik at budskapet blir vanskeligere å gjennomskue", "Å forkorte talen ved å kutte gjentatte poeng slik at fremføringen blir mer effektiv og kort", "Å skjule budskapet"],
       explanation: "Gjentakelse forsterker budskapet og gjør det lettere å huske, som i Martin Luther Kings «I have a dream».",
     },
   ],
@@ -792,12 +792,12 @@ const quizData_komkult_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva analyserer man når man ser på appellformene i en tekst?",
-      options: ["Hvordan etos, patos og logos brukes", "Lengden på teksten", "Den samlede lengden på teksten målt i ord og tegn", "Antall setninger"],
+      options: ["Hvordan etos, patos og logos brukes", "Lengden på teksten", "Hvor mange bilder teksten har", "Antall setninger"],
       explanation: "I analysen av appellformene undersøker man hvordan avsenderen bygger etos, bruker patos og appellerer til logos.",
     },
     {
       question: "Hvorfor er kritisk analyse av retorisk kommunikasjon viktig i et demokrati?",
-      options: ["Vi møter daglig budskap som forsøker å overbevise oss", "Retorikk finnes bare i historiebøker", "Kun politikere og maktpersoner tar retoriske grep i bruk", "Retorikk hører fortiden til og finnes bare i historiebøker"],
+      options: ["Vi møter daglig budskap som forsøker å overbevise oss", "Alle vet allerede fra før hvordan de skal gjennomskue overtalelse", "Kun politikere og maktpersoner tar retoriske grep i bruk", "Retorikk hører fortiden til og finnes bare i historiebøker"],
       explanation: "Vi møter daglig budskap som forsøker å overbevise oss, og evnen til kritisk analyse er derfor avgjørende i et demokrati.",
     },
     {
@@ -807,7 +807,7 @@ const quizData_komkult_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er hensikten med å vurdere styrker og svakheter i et overbevisende budskap?",
-      options: ["Å kunne ta kritisk stilling til budskapet", "Å akseptere budskapet uten refleksjon", "Å akseptere budskapet helt uten refleksjon over hvordan det er bygd opp", "Å lage egne falske nyheter"],
+      options: ["Å kunne ta kritisk stilling til budskapet", "Å akseptere budskapet uten refleksjon", "Å finne feil hos avsenderen", "Å lage egne falske nyheter"],
       explanation: "Å vurdere styrker og svakheter gjør at man kan ta kritisk og selvstendig stilling til budskapet i stedet for å la seg overbevise ukritisk.",
     },
   ],
@@ -819,7 +819,7 @@ const quizData_komkult_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner en primærgruppe?",
-      options: ["Nære, langvarige relasjoner med sterke emosjonelle bånd", "Formelle, oppgaveorienterte relasjoner", "Formelle, oppgaveorienterte relasjoner med tydelige roller og regler", "En tilfeldig folkemengde uten felles mål eller innbyrdes samhandling"],
+      options: ["Nære, langvarige relasjoner med sterke emosjonelle bånd", "En stor gruppe mennesker som deler samme yrke og samme fagforening", "Formelle, oppgaveorienterte relasjoner med tydelige roller og regler", "En tilfeldig folkemengde uten felles mål eller innbyrdes samhandling"],
       explanation: "Primærgrupper har nære, langvarige relasjoner og sterke emosjonelle bånd, som familie og nære venner.",
     },
     {
@@ -841,7 +841,7 @@ const quizData_komkult_1: Record<string, QuizQuestion[]> = {
   "komkult-1-7-2": [
     {
       question: "Hva er forskjellen på formelle og uformelle roller i en gruppe?",
-      options: ["Formelle roller tildeles, uformelle vokser frem gjennom samhandling", "Uformelle roller tildeles av organisasjonen", "Det er ingen reell forskjell; begge rolletypene tildeles på nøyaktig samme måte av gruppen", "Uformelle roller tildeles offisielt av organisasjonen, mens formelle vokser frem av seg selv"],
+      options: ["Formelle roller tildeles, uformelle vokser frem gjennom samhandling", "Formelle roller finnes bare i arbeidslivet, uformelle bare i vennegjenger", "Det er ingen reell forskjell; begge rolletypene tildeles på nøyaktig samme måte av gruppen", "Uformelle roller tildeles offisielt av organisasjonen, mens formelle vokser frem av seg selv"],
       explanation: "Formelle roller tildeles av gruppen eller organisasjonen, mens uformelle roller vokser frem gjennom samhandlingen.",
     },
     {
@@ -856,12 +856,12 @@ const quizData_komkult_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor kan rollebevissthet styrke samarbeidet i en gruppe?",
-      options: ["Gruppen kan fordele oppgaver etter styrker og unngå rollekonflikter", "Det fjerner behovet for kommunikasjon", "Det fjerner behovet for kommunikasjon fordi alle uansett vet hva de skal", "Det gjør alle rollene i gruppen helt identiske slik at ingen skiller seg ut"],
+      options: ["Gruppen kan fordele oppgaver etter styrker og unngå rollekonflikter", "Det gjør at gruppen alltid unngår uenighet og kommer raskere til enighet", "Det fjerner behovet for kommunikasjon fordi alle uansett vet hva de skal", "Det gjør alle rollene i gruppen helt identiske slik at ingen skiller seg ut"],
       explanation: "Rollebevissthet gjør at gruppen kan fordele oppgaver etter styrker, utfylle hverandre og unngå unødvendige rollekonflikter.",
     },
     {
       question: "Hva bidrar «djevelens advokat» med i en gruppe?",
-      options: ["Utfordrer gruppens antakelser og motvirker tankeløs enighet", "Demper alle konflikter", "Tar referat fra møtene og noterer hvem som har ansvar for hva", "Demper alle konflikter og sørger for at gruppen raskt blir enige"],
+      options: ["Utfordrer gruppens antakelser og motvirker tankeløs enighet", "Sørger for at møtet holder tiden og at hele sakslisten blir fulgt", "Tar referat fra møtene og noterer hvem som har ansvar for hva", "Demper alle konflikter og sørger for at gruppen raskt blir enige"],
       explanation: "«Djevelens advokat» utfordrer gruppens antakelser og kan dermed motvirke gruppetenkning og tankeløs enighet.",
     },
   ],
@@ -873,7 +873,7 @@ const quizData_komkult_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er gruppetenkning (groupthink)?",
-      options: ["Når ønsket om enighet hindrer kritisk vurdering av beslutninger", "Når gruppen alltid tar gode avgjørelser", "Når hvert medlem tenker helt selvstendig og vurderer alt kritisk på egen hånd", "Når gruppen samlet nesten alltid tar velbegrunnede og gode avgjørelser sammen"],
+      options: ["Når ønsket om enighet hindrer kritisk vurdering av beslutninger", "Når en gruppe deles i to leirer som ikke lenger snakker med hverandre", "Når hvert medlem tenker helt selvstendig og vurderer alt kritisk på egen hånd", "Når gruppen samlet nesten alltid tar velbegrunnede og gode avgjørelser sammen"],
       explanation: "Gruppetenkning oppstår når ønsket om enighet og harmoni hindrer kritisk vurdering av alternativer, og kan føre til dårlige beslutninger.",
     },
     {
@@ -888,7 +888,7 @@ const quizData_komkult_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er tydelig ansvarsfordeling viktig i samarbeid?",
-      options: ["Det blir klart hvem som gjør hva, og innen når", "Det gjør alle ansvarlige for alt", "Det fjerner behovet for felles mål siden alle uansett vet hva de skal gjøre", "Det fjerner behovet for mål"],
+      options: ["Det blir klart hvem som gjør hva, og innen når", "Det gjør alle ansvarlige for alt", "Det gjør at ingen trenger å møtes", "Det fjerner behovet for mål"],
       explanation: "Tydelig ansvarsfordeling gjør det klart hvem som gjør hva og innen når, noe som styrker samarbeidet.",
     },
   ],
@@ -922,7 +922,7 @@ const quizData_komkult_1: Record<string, QuizQuestion[]> = {
   "komkult-1-7-5": [
     {
       question: "Hva bør gjøres før et effektivt møte?",
-      options: ["Sende ut en saksliste og avklare hensikten", "Bestemme alt på forhånd uten møte", "Møte opp helt uten forberedelse og finne ut av innholdet underveis", "Møte opp uten forberedelse"],
+      options: ["Sende ut en saksliste og avklare hensikten", "Bestemme alt på forhånd uten møte", "Invitere flest mulig deltakere", "Møte opp uten forberedelse"],
       explanation: "Før et effektivt møte bør man ha en klar hensikt, sende ut saksliste og invitere de riktige deltakerne.",
     },
     {
@@ -932,7 +932,7 @@ const quizData_komkult_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en saksliste?",
-      options: ["En oversikt over sakene som skal behandles i møtet", "Et sammendrag etter møtet", "En reklame som informerer om at møtet skal finne sted snart", "Et skriftlig sammendrag av det som ble besluttet etter møtet"],
+      options: ["En oversikt over sakene som skal behandles i møtet", "En liste over hvem som var til stede og hvem som meldte forfall", "En reklame som informerer om at møtet skal finne sted snart", "Et skriftlig sammendrag av det som ble besluttet etter møtet"],
       explanation: "En saksliste er en oversikt over sakene som skal behandles, og sendes ut på forhånd.",
     },
     {
@@ -949,7 +949,7 @@ const quizData_komkult_1: Record<string, QuizQuestion[]> = {
   "komkult-1-8-1": [
     {
       question: "Hva er forskjellen mellom etikk og moral?",
-      options: ["Etikk er refleksjon over moral; moral er de konkrete oppfatningene om rett og galt", "Moral er teori, etikk er praksis", "Etikk beskriver hva folk faktisk gjør, mens moral fastsetter hva loven krever av dem", "Etikk gjelder bare religiøse spørsmål, mens moral gjelder juridiske og verdslige forhold"],
+      options: ["Etikk er refleksjon over moral; moral er de konkrete oppfatningene om rett og galt", "Moral er den teoretiske refleksjonen, mens etikk er de konkrete handlingene i praksis", "Etikk beskriver hva folk faktisk gjør, mens moral fastsetter hva loven krever av dem", "Etikk gjelder bare religiøse spørsmål, mens moral gjelder juridiske og verdslige forhold"],
       explanation: "Etikk er den systematiske refleksjonen over moral, mens moral er de konkrete oppfatningene og handlingene knyttet til rett og galt.",
     },
     {
@@ -969,14 +969,14 @@ const quizData_komkult_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er kommunikasjonsetikk?",
-      options: ["Refleksjon over hva som er rett og galt i måten vi kommuniserer på", "Reglene for grammatikk", "Læren om hvilke kanaler og medier som egner seg best for ulike typer budskap", "Studiet av hvordan konflikter oppstår og trappes opp i mellommenneskelig samhandling"],
+      options: ["Refleksjon over hva som er rett og galt i måten vi kommuniserer på", "Reglene for grammatikk og rettskriving som gjelder i offentlig kommunikasjon", "Læren om hvilke kanaler og medier som egner seg best for ulike typer budskap", "Studiet av hvordan konflikter oppstår og trappes opp i mellommenneskelig samhandling"],
       explanation: "Kommunikasjonsetikk handler om refleksjon over hva som er etisk forsvarlig i det vi formidler og måten vi gjør det på.",
     },
   ],
   "komkult-1-8-2": [
     {
       question: "Hva er GDPR?",
-      options: ["EUs personvernforordning som regulerer behandling av personopplysninger", "En sosial medieplattform", "En sosial medieplattform der brukere deler personopplysninger og innhold offentlig", "En form for målrettet reklame som tilpasses den enkelte brukerens nettatferd og data"],
+      options: ["EUs personvernforordning som regulerer behandling av personopplysninger", "En internasjonal standard for hvordan nettsider skal utformes rent teknisk", "En sosial medieplattform der brukere deler personopplysninger og innhold offentlig", "En form for målrettet reklame som tilpasses den enkelte brukerens nettatferd og data"],
       explanation: "GDPR (General Data Protection Regulation) er EUs personvernforordning fra 2018 som gjelder i hele EØS, inkludert Norge.",
     },
     {
@@ -996,7 +996,7 @@ const quizData_komkult_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva menes med at vi legger igjen «digitale spor»?",
-      options: ["Vår nettbruk genererer data som kan samles inn om oss", "Vi etterlater fysiske fotspor", "Vi etterlater fysiske fotspor i omgivelsene som kan følges tilbake til oss senere", "Vi sletter all informasjon"],
+      options: ["Vår nettbruk genererer data som kan samles inn om oss", "Vi etterlater fysiske fotspor", "Vi må logge inn med BankID overalt", "Vi sletter all informasjon"],
       explanation: "Digitale spor er data som genereres og kan samles inn når vi søker, handler eller bruker sosiale medier og digitale tjenester.",
     },
   ],
@@ -1018,7 +1018,7 @@ const quizData_komkult_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva innebærer demokratiprinsippet som begrunnelse for ytringsfrihet?",
-      options: ["Fri meningsutveksling er nødvendig for et fungerende demokrati", "Bare eksperter bør ytre seg", "Et velfungerende demokrati krever ro og enighet, og derfor bør uenige stemmer dempes", "Bare fagfolk og eksperter bør ytre seg, slik at den offentlige debatten holdes opplyst"],
+      options: ["Fri meningsutveksling er nødvendig for et fungerende demokrati", "Ytringsfrihet gjelder bare for pressen, ikke for vanlige borgere", "Et velfungerende demokrati krever ro og enighet, og derfor bør uenige stemmer dempes", "Bare fagfolk og eksperter bør ytre seg, slik at den offentlige debatten holdes opplyst"],
       explanation: "Demokratiprinsippet sier at fri og åpen meningsutveksling er en forutsetning for at borgerne kan delta i et fungerende demokrati.",
     },
     {
@@ -1035,7 +1035,7 @@ const quizData_komkult_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en deepfake?",
-      options: ["Manipulert lyd eller video som ser ekte ut, ofte laget med kunstig intelligens", "En type personvernlov", "En ekte og uredigert nyhetsvideo som dokumenterer en hendelse slik den faktisk skjedde", "En type personvernlov som regulerer hvordan lyd- og videoopptak av personer kan brukes"],
+      options: ["Manipulert lyd eller video som ser ekte ut, ofte laget med kunstig intelligens", "Et fotografi med svært høy oppløsning der man kan zoome helt inn på minste detalj", "En ekte og uredigert nyhetsvideo som dokumenterer en hendelse slik den faktisk skjedde", "En type personvernlov som regulerer hvordan lyd- og videoopptak av personer kan brukes"],
       explanation: "En deepfake er manipulert lyd eller video, ofte laget med kunstig intelligens, som kan se eller høres ekte ut og true tilliten til medieinnhold.",
     },
     {
@@ -1045,12 +1045,12 @@ const quizData_komkult_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken etisk utfordring kan algoritmer og kunstig intelligens reise?",
-      options: ["De kan ta beslutninger om mennesker uten innsyn eller åpenhet", "De er alltid helt nøytrale", "De er alltid helt nøytrale fordi de baserer seg på objektive tall og matematiske regler", "De kan aldri gjøre feil siden de behandler data mer presist enn mennesker noensinne kan"],
+      options: ["De kan ta beslutninger om mennesker uten innsyn eller åpenhet", "De krever så mye strøm at de ikke kan tas i bruk i praksis noe sted", "De er alltid helt nøytrale fordi de baserer seg på objektive tall og matematiske regler", "De kan aldri gjøre feil siden de behandler data mer presist enn mennesker noensinne kan"],
       explanation: "Algoritmer og kunstig intelligens kan ta beslutninger om mennesker på måter som mangler innsyn og åpenhet, noe som reiser etiske spørsmål.",
     },
     {
       question: "Hvorfor er det viktig å være kritisk til informasjon på nett før man deler den?",
-      options: ["For å unngå å spre feilinformasjon videre", "Fordi all nettinformasjon er sann", "Fordi all informasjon på nett er faktasjekket og sann før den blir publisert et sted", "Fordi deling alltid er trygt"],
+      options: ["For å unngå å spre feilinformasjon videre", "Fordi all nettinformasjon er sann", "Fordi deling koster penger", "Fordi deling alltid er trygt"],
       explanation: "Det er viktig å sjekke kilden før man deler, for å unngå å bidra til spredning av feilinformasjon.",
     },
   ],

@@ -4,7 +4,7 @@ const quizData_norsk_10: Record<string, QuizQuestion[]> = {
   "norsk-10-1-1": [
     {
       question: "Hva er en litterær epoke?",
-      options: ["En tidsperiode der mange forfattere deler kjennetegn i stil, tema og syn på verden", "En skriveteknikk forfattere bruker for å skape spenning", "En rangert liste over de mest solgte og mest utlånte bøkene i et bestemt tiår eller århundre", "En felles skriveteknikk forfattere bruker for å bygge opp spenning og overraskelser i handlingen"],
+      options: ["En tidsperiode der mange forfattere deler kjennetegn i stil, tema og syn på verden", "En gruppe forfattere som ga ut alle bøkene sine på det samme forlaget i det samme tiåret", "En rangert liste over de mest solgte og mest utlånte bøkene i et bestemt tiår eller århundre", "En felles skriveteknikk forfattere bruker for å bygge opp spenning og overraskelser i handlingen"],
       explanation: "En litterær epoke er en tidsperiode der mange forfattere deler bestemte kjennetegn i stil, tema og syn på verden — som realismen, naturalismen, nyromantikken og modernismen.",
     },
     {
@@ -14,7 +14,7 @@ const quizData_norsk_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva menes med determinisme i naturalismen?",
-      options: ["At menneskets skjebne er bestemt av arv og miljø, faktorer vi ikke kontrollerer", "At mennesket har fri vilje og kan forme sin egen fremtid", "At mennesket har full fri vilje og selv kan forme sin egen fremtid uansett bakgrunn", "At alle fortellinger i naturalismen alltid må ende lykkelig og med en løsning på konflikten"],
+      options: ["At menneskets skjebne er bestemt av arv og miljø, faktorer vi ikke kontrollerer", "At forfatteren bevisst holder slutten skjult for leseren helt til siste side i romanen", "At mennesket har full fri vilje og selv kan forme sin egen fremtid uansett bakgrunn", "At alle fortellinger i naturalismen alltid må ende lykkelig og med en løsning på konflikten"],
       explanation: "Determinisme er ideen om at handlinger og skjebne er forhåndsbestemt — i naturalismen av biologisk determinisme (arv) og sosial determinisme (miljø).",
     },
     {
@@ -41,7 +41,7 @@ const quizData_norsk_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva undersøker du når du vurderer en kildes troverdighet (T i TONE)?",
-      options: ["Hvem avsenderen er, og om vedkommende har relevant kompetanse", "Hvor mange bilder teksten har", "Hvor lang teksten er, og hvor mange avsnitt og underoverskrifter den er delt inn i", "Om teksten har et pent og profesjonelt design med gode farger og tydelig skrifttype"],
+      options: ["Hvem avsenderen er, og om vedkommende har relevant kompetanse", "Hvor mange bilder og illustrasjoner teksten er utstyrt med i alt", "Hvor lang teksten er, og hvor mange avsnitt og underoverskrifter den er delt inn i", "Om teksten har et pent og profesjonelt design med gode farger og tydelig skrifttype"],
       explanation: "Troverdighet handler om avsenderen: Er det en ekspert, en journalist eller en privatperson? Har avsenderen relevant kompetanse, og er kilden uavhengig?",
     },
     {
@@ -51,14 +51,14 @@ const quizData_norsk_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor må du oppgi kilder når du bruker informasjon fra andre?",
-      options: ["For å gi opphavspersonen ære og la leseren kontrollere informasjonen", "Fordi teksten da blir lengre og ser mer faglig ut", "Fordi teksten da automatisk blir lengre og ser mer faglig og seriøs ut for sensor", "For å skjule for leseren hvor du egentlig fant informasjonen du har brukt i teksten"],
+      options: ["For å gi opphavspersonen ære og la leseren kontrollere informasjonen", "Fordi loven krever at all tekst som publiseres på nett skal ha minst tre kilder", "Fordi teksten da automatisk blir lengre og ser mer faglig og seriøs ut for sensor", "For å skjule for leseren hvor du egentlig fant informasjonen du har brukt i teksten"],
       explanation: "Kildehenvisning gir æren til dem som fortjener det, og gjør at leseren kan finne og kontrollere informasjonen. Uten kildehenvisning kan det regnes som plagiat.",
     },
   ],
   "norsk-10-2-1": [
     {
       question: "Hvilke fire hovedområder vurderer sensorene på skriftlig eksamen?",
-      options: ["Innhold og kildebruk, struktur og tekstbinding, språk, og rettskriving/formverk", "Antall ord, antall avsnitt, antall kilder og antall sitater", "Bare rettskriving og kommaregler, altså hvor mange skrivefeil og feilplasserte komma teksten har", "Håndskrift, tekstens lengde, arbeidstempo og kreativitet, uansett hva selve innholdet handler om"],
+      options: ["Innhold og kildebruk, struktur og tekstbinding, språk, og rettskriving/formverk", "Antall ord, antall avsnitt, antall kilder og antall sitater i den innleverte teksten", "Bare rettskriving og kommaregler, altså hvor mange skrivefeil og feilplasserte komma teksten har", "Håndskrift, tekstens lengde, arbeidstempo og kreativitet, uansett hva selve innholdet handler om"],
       explanation: "Vurderingskriteriene dekker innhold og kildebruk, struktur og tekstbinding, språk, og formelle ferdigheter — ikke bare rettskriving.",
     },
     {
@@ -90,7 +90,7 @@ const quizData_norsk_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor bør du bruke stikkord i stedet for fullt manus når du presenterer?",
-      options: ["Stikkord gjør at du snakker friere og holder kontakt med publikum", "Med manus husker du ingenting etterpå", "Fordi fullt manus er strengt forbudt på alle muntlige eksamener og prøver i skolen", "Fordi du med et fullt manus garantert ikke husker noe av stoffet i det hele tatt etterpå"],
+      options: ["Stikkord gjør at du snakker friere og holder kontakt med publikum", "Fordi stikkord alltid gir høyere karakter enn et gjennomarbeidet manus", "Fordi fullt manus er strengt forbudt på alle muntlige eksamener og prøver i skolen", "Fordi du med et fullt manus garantert ikke husker noe av stoffet i det hele tatt etterpå"],
       explanation: "Med fullt manus leser du opp teksten og mister kontakten med tilhørerne. Stikkord lar deg formulere deg naturlig og fritt.",
     },
     {
@@ -105,14 +105,14 @@ const quizData_norsk_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor lønner det seg å bruke fagbegreper i presentasjon og fagsamtale?",
-      options: ["Det viser faglig forståelse og presisjon overfor sensorene", "Fagbegreper skjuler at du ikke kan stoffet", "Det gjør at selve presentasjonen automatisk varer lenger og fyller mer av tiden", "Det gjør at presentasjonen varer lenger"],
+      options: ["Det viser faglig forståelse og presisjon overfor sensorene", "Fagbegreper skjuler at du ikke kan stoffet", "Det gjør at selve presentasjonen automatisk varer lenger og fyller mer av tiden", "Sensor teller hvor mange fagord du bruker"],
       explanation: "Å bruke fagbegreper som epoke, virkemiddel og determinisme naturlig viser at du behersker faget — noe sensorene ser etter.",
     },
   ],
   "norsk-10-3-1": [
     {
       question: "Hva var norrønt?",
-      options: ["Det felles språket i Skandinavia i vikingtiden og middelalderen, ca. 700–1350", "Et skriftspråk Ivar Aasen laget på 1800-tallet", "Et hemmelig ritualspråk som bare prester og munker fikk lov til å bruke i kirken", "Et helt nytt skriftspråk som Ivar Aasen laget på grunnlag av dialekter på 1800-tallet"],
+      options: ["Det felles språket i Skandinavia i vikingtiden og middelalderen, ca. 700–1350", "Et runespråk som bare ble brukt til å riste innskrifter på steiner og gjenstander", "Et hemmelig ritualspråk som bare prester og munker fikk lov til å bruke i kirken", "Et helt nytt skriftspråk som Ivar Aasen laget på grunnlag av dialekter på 1800-tallet"],
       explanation: "Norrønt var fellesspråket i Skandinavia i vikingtid og middelalder (ca. 700–1350), med rikt bøyningssystem og en rik sagalitteratur.",
     },
     {
@@ -139,12 +139,12 @@ const quizData_norsk_10: Record<string, QuizQuestion[]> = {
   "norsk-10-3-2": [
     {
       question: "Hva er forholdet mellom bokmål og nynorsk i Norge i dag?",
-      options: ["De er to likestilte offisielle skriftspråk for det samme språket, norsk", "De er to helt forskjellige språk som ikke ligner på hverandre", "De er to helt forskjellige og selvstendige språk som ikke ligner på hverandre i det hele tatt", "Nynorsk er det offisielle språket, bokmål er uoffisielt"],
+      options: ["De er to likestilte offisielle skriftspråk for det samme språket, norsk", "Nynorsk brukes bare i skolen, aldri i offentlig forvaltning", "De er to helt forskjellige og selvstendige språk som ikke ligner på hverandre i det hele tatt", "Nynorsk er det offisielle språket, bokmål er uoffisielt"],
       explanation: "Bokmål og nynorsk er to likestilte offisielle skriftspråk — ikke to ulike språk, men to skriftnormer for norsk.",
     },
     {
       question: "Hvordan gikk Ivar Aasen frem da han skapte landsmålet?",
-      options: ["Han reiste rundt i Norge, samlet inn dialekter og bygde et skriftspråk på dem", "Han oversatte det danske skriftspråket ord for ord", "Han oversatte hele det danske skriftspråket ord for ord til en ny og norskere skrivemåte", "Han kopierte den svenske rettskrivningen og bøyningen og tilpasset den litt til norske forhold"],
+      options: ["Han reiste rundt i Norge, samlet inn dialekter og bygde et skriftspråk på dem", "Han bygde språket direkte på skriftspråket i de norrøne sagaene han fant i klostrene", "Han oversatte hele det danske skriftspråket ord for ord til en ny og norskere skrivemåte", "Han kopierte den svenske rettskrivningen og bøyningen og tilpasset den litt til norske forhold"],
       explanation: "Ivar Aasen reiste gjennom store deler av Norge, dokumenterte dialektene og brukte dem som grunnlag for et nytt norsk skriftspråk.",
     },
     {
@@ -159,7 +159,7 @@ const quizData_norsk_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva menes med valgfrihet i norsk rettskrivning?",
-      options: ["At det finnes flere godkjente skrivemåter av samme ord, som «boka» og «boken»", "At lærere velger hvilke regler som gjelder i klassen", "At elevene selv fritt kan velge å droppe sidemålet og bare skrive på hovedmålet sitt", "At den enkelte lærer bestemmer og velger hvilke rettskrivingsregler som skal gjelde i klassen"],
+      options: ["At det finnes flere godkjente skrivemåter av samme ord, som «boka» og «boken»", "At man fritt kan velge om man vil levere teksten sin på bokmål eller på nynorsk", "At elevene selv fritt kan velge å droppe sidemålet og bare skrive på hovedmålet sitt", "At den enkelte lærer bestemmer og velger hvilke rettskrivingsregler som skal gjelde i klassen"],
       explanation: "Valgfrihet betyr at flere skrivemåter er godkjent, for eksempel «boka»/«boken» og «sola»/«solen». Norsk har uvanlig mye valgfrihet.",
     },
   ],
@@ -203,7 +203,7 @@ const quizData_norsk_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er GDPR?",
-      options: ["EUs personvernforordning som gir deg rettigheter over dine egne persondata", "Et sosialt medium for deling av bilder", "En norsk lov som sikrer ytringsfriheten og retten til å si sin mening på nett og i mediene", "Et sikkerhetsprogram som beskytter datamaskinen din mot virus, hacking og skadelig programvare"],
+      options: ["EUs personvernforordning som gir deg rettigheter over dine egne persondata", "Et sosialt medium der brukerne deler bilder og korte videoer med vennene sine", "En norsk lov som sikrer ytringsfriheten og retten til å si sin mening på nett og i mediene", "Et sikkerhetsprogram som beskytter datamaskinen din mot virus, hacking og skadelig programvare"],
       explanation: "GDPR er EUs personvernforordning, gjeldende i Norge gjennom EØS-avtalen fra 2018. Den gir deg blant annet rett til informasjon om hvordan dataene dine brukes.",
     },
     {
@@ -235,12 +235,12 @@ const quizData_norsk_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er komposisjon viktig i sammensatte tekster?",
-      options: ["Plasseringen av elementene påvirker hva vi legger merke til først, og hvordan vi leser teksten", "Komposisjon handler bare om hvilke farger som brukes", "Komposisjonen bestemmer og setter en grense for hvor mange ord og setninger teksten totalt kan inneholde", "Komposisjon er noe som bare har betydning i musikk, der det handler om å sette sammen toner til melodier"],
+      options: ["Plasseringen av elementene påvirker hva vi legger merke til først, og hvordan vi leser teksten", "Komposisjon handler bare om hvilke farger som er valgt, ikke om hvor elementene er plassert i bildet", "Komposisjonen bestemmer og setter en grense for hvor mange ord og setninger teksten totalt kan inneholde", "Komposisjon er noe som bare har betydning i musikk, der det handler om å sette sammen toner til melodier"],
       explanation: "Komposisjon handler om hvordan elementer er plassert. I vestlige kulturer leser vi fra venstre mot høyre og ovenfra og ned — det utnytter designere bevisst.",
     },
     {
       question: "Hvorfor kalles reklame en svært gjennomtenkt sammensatt tekst?",
-      options: ["Fordi hvert element — bilde, tekst, farge og musikk — er valgt bevisst for å påvirke mottakeren", "Fordi reklame er laget av kunstig intelligens", "Fordi reklamer nesten alltid er lange og fulle av mange detaljer som forklarer produktet grundig", "Fordi moderne reklame i dag som regel blir laget helt automatisk av kunstig intelligens og roboter"],
+      options: ["Fordi hvert element — bilde, tekst, farge og musikk — er valgt bevisst for å påvirke mottakeren", "Fordi en reklame alltid inneholder minst ett bilde, én kort tekstlinje og en logo nederst i hjørnet", "Fordi reklamer nesten alltid er lange og fulle av mange detaljer som forklarer produktet grundig", "Fordi moderne reklame i dag som regel blir laget helt automatisk av kunstig intelligens og roboter"],
       explanation: "I reklame er hvert element nøye valgt for å skape en bestemt effekt hos mottakeren — derfor er reklameanalyse en god øvelse i å lese sammensatte tekster.",
     },
   ],
@@ -257,7 +257,7 @@ const quizData_norsk_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en karakterbue (character arc)?",
-      options: ["Utviklingen en karakter gjennomgår fra begynnelsen til slutten av fortellingen", "En liste over karakterens venner og fiender", "En oversikt eller liste over alle karakterens venner, familie og fiender i fortellingen", "En detaljert tegning eller illustrasjon som viser hvordan karakteren ser ut i fortellingen"],
+      options: ["Utviklingen en karakter gjennomgår fra begynnelsen til slutten av fortellingen", "Kurven som viser hvordan spenningen i handlingen stiger og synker gjennom fortellingen", "En oversikt eller liste over alle karakterens venner, familie og fiender i fortellingen", "En detaljert tegning eller illustrasjon som viser hvordan karakteren ser ut i fortellingen"],
       explanation: "Karakterbuen er karakterens utvikling gjennom fortellingen. Den kan være positiv (vekst), negativ (forfall) eller flat.",
     },
     {
@@ -294,7 +294,7 @@ const quizData_norsk_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er tretallsregelen (trikolon)?",
-      options: ["Å liste opp tre elementer for å gjøre budskapet slagkraftig", "Å bruke tre ulike språk i samme tale", "Å holde tre ulike taler etter hverandre om det samme temaet til publikum", "Å veksle mellom tre forskjellige språk i løpet av én og samme tale eller tekst"],
+      options: ["Å liste opp tre elementer for å gjøre budskapet slagkraftig", "Å gjenta det samme ordet nøyaktig tre ganger etter hverandre i en tale", "Å holde tre ulike taler etter hverandre om det samme temaet til publikum", "Å veksle mellom tre forskjellige språk i løpet av én og samme tale eller tekst"],
       explanation: "Trikolon er et retorisk virkemiddel der tre elementer listes opp — tre ledd oppleves som rytmisk og overbevisende.",
     },
   ],
@@ -311,12 +311,12 @@ const quizData_norsk_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et stråmannsargument?",
-      options: ["Å forvrenge motstanderens standpunkt og angripe den forvrengte versjonen", "Å innrømme at motparten har noen gode poenger", "Å innrømme åpent at motparten faktisk har noen gode poenger man må ta på alvor", "Å bygge hele argumentasjonen sin på solid og etterprøvbar forskning fra fagfolk"],
+      options: ["Å forvrenge motstanderens standpunkt og angripe den forvrengte versjonen", "Å angripe personen som fremmer argumentet i stedet for å svare på selve argumentet", "Å innrømme åpent at motparten faktisk har noen gode poenger man må ta på alvor", "Å bygge hele argumentasjonen sin på solid og etterprøvbar forskning fra fagfolk"],
       explanation: "Et stråmannsargument forvrenger det motstanderen faktisk mener, og angriper den forvrengte (svakere) versjonen i stedet.",
     },
     {
       question: "«Alle vennene mine mener det, så det må være sant.» Hvilken feilslutning er dette?",
-      options: ["Appell til flertallet (ad populum)", "Skråplansargument", "Falskt dilemma — at det bare finnes to mulige valg i saken", "Falskt dilemma"],
+      options: ["Appell til flertallet (ad populum)", "Skråplansargument", "Angrep på personen", "Falskt dilemma"],
       explanation: "Ad populum er å bruke at «alle» eller mange mener noe som bevis for at det er sant — men flertallet kan ta feil.",
     },
     {
@@ -338,7 +338,7 @@ const quizData_norsk_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva sier 6-6-6-regelen om lysbilder?",
-      options: ["Maks 6 linjer per lysbilde, maks 6 ord per linje", "Presentasjonen skal vare i 666 sekunder", "At hele presentasjonen til sammen skal vare i nøyaktig 666 sekunder", "Skriftstørrelsen skal være 6 punkter"],
+      options: ["Maks 6 linjer per lysbilde, maks 6 ord per linje", "Presentasjonen skal vare i 666 sekunder", "Hvert lysbilde skal vises i 6 sekunder", "Skriftstørrelsen skal være 6 punkter"],
       explanation: "Regelen om 6-6-6 sier maks 6 linjer per lysbilde og maks 6 ord per linje — lysbildene skal støtte presentasjonen, ikke erstatte den.",
     },
     {
@@ -360,17 +360,17 @@ const quizData_norsk_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er aktiv lytting?",
-      options: ["Å lytte engasjert med hele kroppen og vise at du følger med", "Å vente stille på din tur til å snakke", "Å vente stille og tålmodig på at det skal bli din tur til å si noe", "Å avbryte den andre ofte for tydelig å vise at du er interessert i temaet"],
+      options: ["Å lytte engasjert med hele kroppen og vise at du følger med", "Å gjenta ordrett alt den andre sier, slik at du husker det bedre", "Å vente stille og tålmodig på at det skal bli din tur til å si noe", "Å avbryte den andre ofte for tydelig å vise at du er interessert i temaet"],
       explanation: "Aktiv lytting er ikke passiv venting — du viser med blikk, kroppsspråk, oppfølgingsspørsmål og oppsummeringer at du faktisk følger med.",
     },
     {
       question: "Hva er forskjellen på lukkede og åpne spørsmål?",
-      options: ["Lukkede kan besvares med ja/nei eller kort fakta, åpne inviterer til utdyping", "Lukkede spørsmål stilles skriftlig, åpne muntlig", "Lukkede spørsmål må alltid stilles skriftlig, mens åpne spørsmål stilles muntlig", "Lukkede spørsmål oppleves som uhøflige og pågående, mens åpne spørsmål er høflige"],
+      options: ["Lukkede kan besvares med ja/nei eller kort fakta, åpne inviterer til utdyping", "Lukkede spørsmål stilles av læreren, mens åpne spørsmål bare stilles av elevene", "Lukkede spørsmål må alltid stilles skriftlig, mens åpne spørsmål stilles muntlig", "Lukkede spørsmål oppleves som uhøflige og pågående, mens åpne spørsmål er høflige"],
       explanation: "Lukkede spørsmål («Likte du boka?») gir korte svar, mens åpne spørsmål («Hva syntes du om boka?») inviterer til refleksjon og utdyping.",
     },
     {
       question: "Hvilket spørsmål er et åpent spørsmål?",
-      options: ["«Hvorfor tror du hovedpersonen valgte å dra?»", "«Likte du filmen?»", "«Synes du at slutten på filmen var bra eller dårlig?»", "«Var det egentlig hovedpersonen eller broren som dro?»"],
+      options: ["«Hvorfor tror du hovedpersonen valgte å dra?»", "«Likte du filmen dere så på kino sammen i går kveld?»", "«Synes du at slutten på filmen var bra eller dårlig?»", "«Var det egentlig hovedpersonen eller broren som dro?»"],
       explanation: "Åpne spørsmål begynner ofte med «hvorfor», «hvordan» eller «hva» og kan ikke besvares med bare ja eller nei.",
     },
     {
@@ -424,7 +424,7 @@ const quizData_norsk_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor prioriterer algoritmene i sosiale medier ofte følelsesladet innhold?",
-      options: ["Følelsesladet innhold engasjerer mer og holder deg lenger på plattformen", "Følelsesladet innhold er alltid mest sannferdig", "Følelsesladet innhold er alltid det mest sannferdige og pålitelige på plattformen", "Plattformene er ved lov pålagt å vise mest mulig følelsesladet innhold til brukerne"],
+      options: ["Følelsesladet innhold engasjerer mer og holder deg lenger på plattformen", "Følelsesladet innhold er billigere for plattformene å lagre og distribuere", "Følelsesladet innhold er alltid det mest sannferdige og pålitelige på plattformen", "Plattformene er ved lov pålagt å vise mest mulig følelsesladet innhold til brukerne"],
       explanation: "Algoritmene prioriterer innhold som holder deg engasjert — og følelsesladet innhold engasjerer mer enn nøkternt innhold.",
     },
     {
@@ -456,7 +456,7 @@ const quizData_norsk_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skiller norrøn grammatikk fra moderne norsk?",
-      options: ["Norrønt hadde et rikt kasussystem som senere ble kraftig forenklet", "Norrønt hadde færre bøyningsformer enn moderne norsk", "Norrønt hadde langt færre bøyningsformer og var enklere enn moderne norsk", "Norrønt manglet verbbøyning helt og bøyde verbene likt i alle tider og personer"],
+      options: ["Norrønt hadde et rikt kasussystem som senere ble kraftig forenklet", "Norrønt hadde ingen egne substantiv, bare verb og småord i setningene sine", "Norrønt hadde langt færre bøyningsformer og var enklere enn moderne norsk", "Norrønt manglet verbbøyning helt og bøyde verbene likt i alle tider og personer"],
       explanation: "Norrønt hadde et komplekst kasussystem og rikere bøyning av verb og adjektiv. Gjennom århundrene ble grammatikken kraftig forenklet.",
     },
   ],
@@ -473,7 +473,7 @@ const quizData_norsk_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skjedde med de norske dialektene i dansketiden?",
-      options: ["De overlevde som talespråk, selv om skriftspråket var dansk", "De døde helt ut og ble erstattet av dansk tale", "De ble forbudt ved lov og kunne bare snakkes i hemmelighet på bygdene", "De døde fullstendig ut og ble erstattet av dansk tale over hele landet"],
+      options: ["De overlevde som talespråk, selv om skriftspråket var dansk", "De ble skrevet ned systematisk og brukt i kirke og skole i hele perioden", "De ble forbudt ved lov og kunne bare snakkes i hemmelighet på bygdene", "De døde fullstendig ut og ble erstattet av dansk tale over hele landet"],
       explanation: "Mens dansk var skriftspråket i kirke, skole og administrasjon, fortsatte folk flest å snakke norske dialekter — det var en kløft mellom skrift og tale.",
     },
     {
@@ -483,7 +483,7 @@ const quizData_norsk_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva var «dannet dagligtale» i dansketiden og tiden etter?",
-      options: ["Overklassens talemål: dansk skriftspråk uttalt med norsk tonefall", "Det offisielle skriftspråket i lovtekster", "Et hemmelig kodespråk som embetsmennene brukte seg imellom i byene", "Det offisielle skriftspråket som ble brukt i lovtekster og rettssaker"],
+      options: ["Overklassens talemål: dansk skriftspråk uttalt med norsk tonefall", "En egen dialekt som bare ble snakket av bønder på Vestlandet i perioden", "Et hemmelig kodespråk som embetsmennene brukte seg imellom i byene", "Det offisielle skriftspråket som ble brukt i lovtekster og rettssaker"],
       explanation: "«Dannet dagligtale» var den muntlige språkformen til overklassen og borgerskapet i byene — basert på dansk skrift, men med norsk uttale.",
     },
   ],
@@ -517,7 +517,7 @@ const quizData_norsk_10: Record<string, QuizQuestion[]> = {
   "norsk-10-7-4": [
     {
       question: "Hva er en dialekt?",
-      options: ["En geografisk bestemt variant av et språk", "En språkvariant knyttet til sosial gruppe", "Et eget skriftspråk", "Feil bruk av norsk"],
+      options: ["En geografisk bestemt variant av et språk", "En språkvariant knyttet til sosial gruppe", "Et eget skriftspråk med egen offisiell rettskriving", "Feil bruk av det norske språket"],
       explanation: "En dialekt er en geografisk bestemt språkvariant — preget av hvor du kommer fra — med egen uttale, egne bøyningsformer og egne ord.",
     },
     {
@@ -532,7 +532,7 @@ const quizData_norsk_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er kodeveksling?",
-      options: ["Å veksle mellom språkvarianter avhengig av situasjonen", "Å knekke hemmelige koder i gamle tekster", "Å tyde og knekke hemmelige koder som er skjult i gamle tekster", "Å bytte ut passordene sine regelmessig for å beskytte kontoene"],
+      options: ["Å veksle mellom språkvarianter avhengig av situasjonen", "Å skifte mellom bokmål og nynorsk midt inne i en skriftlig tekst", "Å tyde og knekke hemmelige koder som er skjult i gamle tekster", "Å bytte ut passordene sine regelmessig for å beskytte kontoene"],
       explanation: "Kodeveksling er å bytte mellom språkvarianter etter situasjon — for eksempel dialekt med venner og mer standardnært talemål i jobbintervju.",
     },
     {
@@ -564,7 +564,7 @@ const quizData_norsk_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skjer med nabospråksforståelsen i Skandinavia ifølge forskningen?",
-      options: ["Den er blitt dårligere de siste tiårene, særlig blant unge — mange går heller over til engelsk", "Den er utelukkende et problem for eldre, mens de unge forstår hverandre fint", "Den blir stadig bedre fordi strømmetjenester byr på mye nordisk innhold", "Den har holdt seg helt uendret gjennom de siste hundre årene i Norden"],
+      options: ["Den er blitt dårligere de siste tiårene, særlig blant unge — mange går heller over til engelsk", "Den er utelukkende et problem for eldre, mens de unge i Norden forstår hverandre helt uten problemer", "Den blir stadig bedre fordi strømmetjenester byr på mye nordisk innhold", "Den har holdt seg helt uendret gjennom de siste hundre årene i Norden"],
       explanation: "Forskning viser at nabospråksforståelsen er svekket, særlig blant unge, og at skandinaver oftere tyr til engelsk i møte med naboene.",
     },
   ],
@@ -581,7 +581,7 @@ const quizData_norsk_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen på en deskriptiv og en preskriptiv tilnærming til språk?",
-      options: ["Deskriptiv beskriver hvordan språket faktisk brukes, preskriptiv foreskriver hvordan det bør brukes", "Deskriptiv er en moderne tilnærming, mens preskriptiv er gammeldags og nå forbudt", "Deskriptiv gjelder bare skriftspråket, mens preskriptiv bare gjelder talespråket", "De to begrepene betyr i praksis akkurat det samme og brukes om hverandre"],
+      options: ["Deskriptiv beskriver hvordan språket faktisk brukes, preskriptiv foreskriver hvordan det bør brukes", "Deskriptiv er en moderne tilnærming, mens preskriptiv er en gammeldags tilnærming som nå er forbudt i skolen", "Deskriptiv gjelder bare skriftspråket, mens preskriptiv bare gjelder talespråket", "De to begrepene betyr i praksis akkurat det samme og brukes om hverandre"],
       explanation: "En deskriptiv tilnærming beskriver språket slik det faktisk er, mens en preskriptiv tilnærming setter opp regler for hvordan det bør være.",
     },
     {
@@ -591,14 +591,14 @@ const quizData_norsk_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken parallell trekker kapittelet mellom engelskpåvirkningen i dag og tidligere språkhistorie?",
-      options: ["Situasjonen minner om dansketiden, da et annet språk dominerte viktige områder av samfunnet", "Den ligner på vikingtidens spredning av norrønt til England", "Den svarer til unionstiden med Sverige, da svensk overtok som skriftspråk i norsk offentlighet og skole", "Den ligner innføringen av det latinske alfabetet, da runene ble byttet ut med bokstaver fra kirken og lærde"],
+      options: ["Situasjonen minner om dansketiden, da et annet språk dominerte viktige områder av samfunnet", "Den ligner på vikingtidens spredning av norrønt til England, da norrøne ord gikk inn i engelsk", "Den svarer til unionstiden med Sverige, da svensk overtok som skriftspråk i norsk offentlighet og skole", "Den ligner innføringen av det latinske alfabetet, da runene ble byttet ut med bokstaver fra kirken og lærde"],
       explanation: "Kapittelet sammenligner engelskens dominans på enkelte områder i dag med dansketiden, da dansk dominerte skrift og offentlighet i Norge.",
     },
   ],
   "norsk-10-8-1": [
     {
       question: "Hva betyr ordet «medium»?",
-      options: ["Mellomledd — noe som formidler informasjon mellom avsender og mottaker", "En gjennomsnittlig størrelse", "En trykt avis eller et fjernsyn, altså selve det tekniske apparatet informasjonen kommer ut gjennom", "En person som hevder å kunne spå fremtiden og formidle budskap fra en åndeverden til levende mennesker"],
+      options: ["Mellomledd — noe som formidler informasjon mellom avsender og mottaker", "En gjennomsnittlig størrelse, altså det som ligger midt mellom stor og liten", "En trykt avis eller et fjernsyn, altså selve det tekniske apparatet informasjonen kommer ut gjennom", "En person som hevder å kunne spå fremtiden og formidle budskap fra en åndeverden til levende mennesker"],
       explanation: "Medium betyr «mellomledd» — noe som formidler informasjon mellom en avsender og en mottaker. Flertallsformen er medier.",
     },
     {
@@ -613,7 +613,7 @@ const quizData_norsk_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan endret digitaliseringen kommunikasjonsmodellen i mediene?",
-      options: ["Fra «én-til-mange» til «mange-til-mange», der alle kan publisere", "Fra muntlig til skriftlig kommunikasjon", "Fra «mange-til-mange» til «én-til-én», slik at all kommunikasjon nå foregår privat mellom to personer", "Fra «mange-til-mange» til «én-til-én»"],
+      options: ["Fra «én-til-mange» til «mange-til-mange», der alle kan publisere", "Fra muntlig til skriftlig kommunikasjon", "Fra bilder og lyd til ren tekst på skjerm", "Fra «mange-til-mange» til «én-til-én»"],
       explanation: "Tradisjonelle massemedier sendte fra én avsender til mange mottakere. Med internett og sosiale medier kan alle publisere — «mange-til-mange».",
     },
     {
@@ -625,17 +625,17 @@ const quizData_norsk_10: Record<string, QuizQuestion[]> = {
   "norsk-10-8-2": [
     {
       question: "Hva er en kilde i nyhetssammenheng?",
-      options: ["Opphavet til informasjon — en person, et dokument eller en organisasjon", "Overskriften på en artikkel", "Avisens forside med de viktigste oppslagene, altså den siden som skal fange leserens oppmerksomhet først", "Bare offentlige rapporter og dokumenter fra staten, siden private aktører ikke regnes som troverdige kilder"],
+      options: ["Opphavet til informasjon — en person, et dokument eller en organisasjon", "Overskriften på en artikkel, altså den setningen som står med størst skrift øverst", "Avisens forside med de viktigste oppslagene, altså den siden som skal fange leserens oppmerksomhet først", "Bare offentlige rapporter og dokumenter fra staten, siden private aktører ikke regnes som troverdige kilder"],
       explanation: "En kilde er opphavet til informasjon: vitner, eksperter, dokumenter, statistikk eller organisasjoner som SSB og FN.",
     },
     {
       question: "Hva spør du om under O-en (Objektivitet) i TONE-metoden?",
-      options: ["Om fremstillingen er balansert, eller om den har en vinkling", "Om kilden er gammel eller ny", "Om teksten har skrivefeil og slurv, siden slike feil kan svekke tilliten til det som blir formidlet", "Om teksten har skrivefeil"],
+      options: ["Om fremstillingen er balansert, eller om den har en vinkling", "Om kilden er gammel eller ny", "Om kilden er lett å finne på nettet", "Om teksten har skrivefeil"],
       explanation: "Objektivitet handler om balanse: Er fremstillingen nøytral, eller har avsenderen en agenda eller vinkling?",
     },
     {
       question: "Hva er desinformasjon?",
-      options: ["Usann informasjon som spres med vilje for å villede eller skade", "Usann informasjon som spres ved en feiltakelse", "Usann informasjon som spres ved en feiltakelse, der avsenderen selv tror at innholdet faktisk er sant", "Sann informasjon fra offentlige kilder"],
+      options: ["Usann informasjon som spres med vilje for å villede eller skade", "Usann informasjon som spres ved en feiltakelse", "Informasjon som er gradert og hemmeligholdt av staten", "Sann informasjon fra offentlige kilder"],
       explanation: "Desinformasjon spres bevisst for å villede eller manipulere — i motsetning til feilinformasjon, der avsenderen tror innholdet er sant.",
     },
     {
@@ -652,7 +652,7 @@ const quizData_norsk_10: Record<string, QuizQuestion[]> = {
   "norsk-10-8-3": [
     {
       question: "Hva er oppmerksomhetsøkonomi?",
-      options: ["Et system der plattformene tjener penger på å holde på oppmerksomheten din", "En metode for å konsentrere seg bedre", "En metode for å konsentrere seg bedre, slik at du klarer å holde oppmerksomheten på leksene lenger", "Et skolefag om personlig økonomi, der du lærer å lage budsjett, spare penger og forstå lån og renter"],
+      options: ["Et system der plattformene tjener penger på å holde på oppmerksomheten din", "En beregning av hvor mye reklame det er lov å vise i løpet av en enkelt TV-sending", "En metode for å konsentrere seg bedre, slik at du klarer å holde oppmerksomheten på leksene lenger", "Et skolefag om personlig økonomi, der du lærer å lage budsjett, spare penger og forstå lån og renter"],
       explanation: "I oppmerksomhetsøkonomien er oppmerksomheten din varen: Jo lenger du blir på plattformen, jo mer reklame kan vises — derfor er algoritmene laget for å holde på deg.",
     },
     {
@@ -667,19 +667,19 @@ const quizData_norsk_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen på aktivt og passivt digitalt fotavtrykk?",
-      options: ["Aktivt er det du bevisst publiserer, passivt er spor som samles inn uten at du merker det", "Aktivt er det du gjør på dagtid, passivt om natten", "At aktivt fotavtrykk er det du gjør på dagtid, mens passivt er alt du foretar deg på nettet om natten", "At aktivt fotavtrykk bare gjelder det du gjør på mobilen, mens passivt fotavtrykk gjelder bruken på PC"],
+      options: ["Aktivt er det du bevisst publiserer, passivt er spor som samles inn uten at du merker det", "At aktivt fotavtrykk gjelder det du gjør på jobb, mens passivt gjelder alt du gjør på fritiden", "At aktivt fotavtrykk er det du gjør på dagtid, mens passivt er alt du foretar deg på nettet om natten", "At aktivt fotavtrykk bare gjelder det du gjør på mobilen, mens passivt fotavtrykk gjelder bruken på PC"],
       explanation: "Aktivt fotavtrykk er innlegg, bilder og kommentarer du selv publiserer. Passivt fotavtrykk er data som samles inn automatisk, som posisjon og klikkmønster.",
     },
     {
       question: "Hva baserer algoritmene i sosiale medier anbefalingene sine på?",
-      options: ["Din atferd — hva du liker, deler og hvor lenge du ser på noe", "Et tilfeldig utvalg av alt innhold", "Hva myndighetene til enhver tid anbefaler at borgerne bør lese, se og dele på sosiale medier", "Hva myndighetene anbefaler"],
+      options: ["Din atferd — hva du liker, deler og hvor lenge du ser på noe", "Et tilfeldig utvalg av alt innhold", "Hvor mange venner du har på plattformen", "Hva myndighetene anbefaler"],
       explanation: "Algoritmene analyserer atferden din — likerklikk, kommentarer, delinger og visningstid — og viser deg mer av det du reagerer på.",
     },
   ],
   "norsk-10-8-4": [
     {
       question: "Hva er reklame?",
-      options: ["Betalt kommunikasjon som skal selge et produkt, en tjeneste eller en idé", "Gratis informasjon fra forbrukermyndighetene", "All kommunikasjon som kommer fra bedrifter, uansett om den har som formål å selge noe eller ikke", "Gratis og nøytral informasjon fra forbrukermyndighetene om hvilke produkter som er trygge å kjøpe"],
+      options: ["Betalt kommunikasjon som skal selge et produkt, en tjeneste eller en idé", "Redaksjonelt stoff som journalistene skriver helt uavhengig av annonsørene", "All kommunikasjon som kommer fra bedrifter, uansett om den har som formål å selge noe eller ikke", "Gratis og nøytral informasjon fra forbrukermyndighetene om hvilke produkter som er trygge å kjøpe"],
       explanation: "Reklame er betalt kommunikasjon med kommersielt formål, der avsenderen (et firma eller en organisasjon) er tydelig.",
     },
     {
@@ -689,7 +689,7 @@ const quizData_norsk_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke er klassiske propagandateknikker?",
-      options: ["Forenkling av komplekse saker til slagord og stadig gjentakelse", "Grundige kildehenvisninger og nyanserte motargumenter", "Åpne debatter med flere ulike syn representert, der motparten alltid får komme til orde og svare", "Grundige kildehenvisninger og nyanserte motargumenter, slik at leseren selv kan vurdere ulike sider"],
+      options: ["Forenkling av komplekse saker til slagord og stadig gjentakelse", "Åpen oppgivelse av hvem som har betalt for å få budskapet ut i teksten", "Åpne debatter med flere ulike syn representert, der motparten alltid får komme til orde og svare", "Grundige kildehenvisninger og nyanserte motargumenter, slik at leseren selv kan vurdere ulike sider"],
       explanation: "Sentrale propagandateknikker er blant annet forenkling (komplekse saker blir slagord) og gjentakelse av budskapet.",
     },
     {
@@ -711,7 +711,7 @@ const quizData_norsk_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er nedkjølingseffekten (chilling effect)?",
-      options: ["At folk lar være å ytre seg av frykt for hat, trusler eller andre negative reaksjoner", "At debatter blir roligere når flere deltar", "At sosiale medier automatisk sletter eldre innlegg for å gjøre plass til nyere og mer relevant innhold", "At gamle nyhetssaker gradvis mister aktualitet og oppmerksomhet etter hvert som nye hendelser inntreffer"],
+      options: ["At folk lar være å ytre seg av frykt for hat, trusler eller andre negative reaksjoner", "At debatter blir roligere og mer saklige jo flere personer som deltar i kommentarfeltet", "At sosiale medier automatisk sletter eldre innlegg for å gjøre plass til nyere og mer relevant innhold", "At gamle nyhetssaker gradvis mister aktualitet og oppmerksomhet etter hvert som nye hendelser inntreffer"],
       explanation: "Nedkjølingseffekten er når folk ikke tør å ytre seg av frykt for konsekvensene — den innskrenker ytringsfriheten i praksis, selv om retten består.",
     },
     {
@@ -726,7 +726,7 @@ const quizData_norsk_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva menes med ytringsansvar?",
-      options: ["At du har ansvar for konsekvensene av det du ytrer, selv om du har rett til å ytre deg", "At bare journalister har ansvar for sine ytringer", "At bare utdannede journalister og redaktører har ansvar for sine ytringer, mens vanlige folk går fri", "At ytringer som legges ut anonymt, ikke har noen egentlig avsender og derfor ikke kan holdes ansvarlig"],
+      options: ["At du har ansvar for konsekvensene av det du ytrer, selv om du har rett til å ytre deg", "At redaktøren i en avis alltid må godkjenne hver eneste ytring før den blir publisert et sted", "At bare utdannede journalister og redaktører har ansvar for sine ytringer, mens vanlige folk går fri", "At ytringer som legges ut anonymt, ikke har noen egentlig avsender og derfor ikke kan holdes ansvarlig"],
       explanation: "Ytringsfriheten gir deg rett til å ytre deg — ytringsansvaret innebærer at du også står til ansvar for hvordan ytringene dine rammer andre.",
     },
   ],
@@ -765,7 +765,7 @@ const quizData_norsk_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr affordans i multimodal teori?",
-      options: ["En modalitets muligheter og begrensninger — hva den egner seg til å uttrykke", "En teknikk for å lage overganger i film", "Den samlede prisen på å produsere og distribuere en ferdig medietekst i ulike kanaler", "En redigeringsteknikk for å lage myke og glidende overganger mellom klipp i en filmsekvens"],
+      options: ["En modalitets muligheter og begrensninger — hva den egner seg til å uttrykke", "Antallet ulike modaliteter en sammensatt tekst inneholder, lagt sammen til ett tall", "Den samlede prisen på å produsere og distribuere en ferdig medietekst i ulike kanaler", "En redigeringsteknikk for å lage myke og glidende overganger mellom klipp i en filmsekvens"],
       explanation: "Affordans (etter Gunther Kress) er hva en modalitet egner seg til og ikke egner seg til — skrift, bilde og lyd har ulike styrker.",
     },
     {
@@ -775,7 +775,7 @@ const quizData_norsk_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en semiotisk ressurs?",
-      options: ["Ethvert middel vi bruker for å kommunisere mening, som ord, bilder og lyd", "Penger som brukes til medieproduksjon", "En nettbasert database med bilder som er frigitt til fri bruk i egne medieproduksjoner", "En oppslagsordbok som forklarer betydningen av vanskelige fagbegreper innenfor et fagområde"],
+      options: ["Ethvert middel vi bruker for å kommunisere mening, som ord, bilder og lyd", "Pengene og utstyret som brukes til å produsere og distribuere en medietekst", "En nettbasert database med bilder som er frigitt til fri bruk i egne medieproduksjoner", "En oppslagsordbok som forklarer betydningen av vanskelige fagbegreper innenfor et fagområde"],
       explanation: "En semiotisk ressurs er ethvert middel for å kommunisere mening — verbaltekst, bilder, lyd, farger, typografi og mer.",
     },
     {
@@ -797,7 +797,7 @@ const quizData_norsk_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken effekt har et nærbilde i film?",
-      options: ["Det skaper intimitet og viser følelser i ansiktet", "Det viser hvor mange personer som er i scenen", "Det gir en bred oversikt over landskapet og miljøet handlingen foregår i", "Det gir oversikt over landskapet"],
+      options: ["Det skaper intimitet og viser følelser i ansiktet", "Det viser hvor mange personer som er i scenen", "Det gir en bred oversikt over landskapet og miljøet handlingen foregår i", "Det gjør at handlingen går raskere"],
       explanation: "Bildeutsnittene går fra ekstremt nærbilde til ekstremt totalt — nærbildet skaper intim nærhet og fremhever følelser, mens totalbilder gir oversikt.",
     },
     {
@@ -819,7 +819,7 @@ const quizData_norsk_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er closure i tegneserieteori?",
-      options: ["Den mentale prosessen der leseren fyller inn det som skjer mellom to ruter", "Den siste ruten i en tegneserie", "Den aller siste ruten i en tegneserie, der handlingen får sin endelige avslutning", "Den svarte rammen eller streken som tegnes rundt hver enkelt rute i en tegneserie"],
+      options: ["Den mentale prosessen der leseren fyller inn det som skjer mellom to ruter", "Selve mellomrommet mellom to ruter, altså det hvite feltet som skiller dem fra hverandre", "Den aller siste ruten i en tegneserie, der handlingen får sin endelige avslutning", "Den svarte rammen eller streken som tegnes rundt hver enkelt rute i en tegneserie"],
       explanation: "Closure er at leseren selv fyller inn handling, tid og sammenheng mellom rutene — ifølge Scott McCloud det som gjør tegneserien unik.",
     },
     {
@@ -846,7 +846,7 @@ const quizData_norsk_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er fortellerdriv i en lydfortelling?",
-      options: ["Det som holder lytteren engasjert og lyttende videre", "Hvor fort fortelleren snakker", "Hvor fort fortelleren snakker og leser opp teksten sin", "Den totale lengden på episoden målt i minutter og sekunder"],
+      options: ["Det som holder lytteren engasjert og lyttende videre", "Musikken som ligger under fortellerstemmen gjennom episoden", "Hvor fort fortelleren snakker og leser opp teksten sin", "Den totale lengden på episoden målt i minutter og sekunder"],
       explanation: "Fortellerdriv er det som holder lytteren engasjert — for eksempel et dramatisk spørsmål som ikke besvares med en gang, eller en kliffhenger.",
     },
     {
@@ -873,7 +873,7 @@ const quizData_norsk_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva menes med mediumspesifikke virkemidler?",
-      options: ["Virkemidler som er unike for hvert medium — boken og filmen kan ulike ting", "Virkemidler som fungerer likt i alle medier", "Reklamevirkemidler som særlig brukes for å selge produkter i sosiale medier", "Virkemidler som fungerer på nøyaktig samme måte og gir samme effekt i alle medier"],
+      options: ["Virkemidler som er unike for hvert medium — boken og filmen kan ulike ting", "Virkemidler som bare kan brukes av profesjonelle filmskapere og forfattere i bransjen", "Reklamevirkemidler som særlig brukes for å selge produkter i sosiale medier", "Virkemidler som fungerer på nøyaktig samme måte og gir samme effekt i alle medier"],
       explanation: "Hvert medium har egne virkemidler: Boken kan gå inn i tankene til karakterene, mens filmen har bilder, lyd og klipping. Derfor må noe endres i adaptasjon.",
     },
     {
@@ -915,7 +915,7 @@ const quizData_norsk_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan skiller spillerens rolle seg fra leserens og filmseerens?",
-      options: ["Spilleren er aktiv medskaper som påvirker fortellingen, mens leser og seer følger en fastlagt fortelling", "Spilleren har ikke mulighet til å oppleve ekte følelser gjennom fortellingen", "Det finnes i praksis ingen reell forskjell mellom spiller, leser og filmseer", "Spilleren er langt mer passiv og tilbakelent enn leseren av en bok er"],
+      options: ["Spilleren er aktiv medskaper som påvirker fortellingen, mens leser og seer følger en fastlagt fortelling", "Spilleren har ikke mulighet til å oppleve ekte følelser gjennom fortellingen, siden alt er programmert på forhånd", "Det finnes i praksis ingen reell forskjell mellom spiller, leser og filmseer", "Spilleren er langt mer passiv og tilbakelent enn leseren av en bok er"],
       explanation: "I spill er mottakeren en aktiv medforfatter: Valg og handlinger påvirker forløpet, mens bokens og filmens fortelling ligger fast.",
     },
   ],
@@ -976,7 +976,7 @@ const quizData_norsk_10: Record<string, QuizQuestion[]> = {
   "norsk-10-10-3": [
     {
       question: "Kva er hokjønnsregelen i nynorsk?",
-      options: ["Alle hokjønnsord må bøyast som hokjønn: «boka», ikkje «boken»", "Hokjønnsord kan valfritt bøyast som hankjønn", "Hokjønn finst rett og slett ikkje som eiga bøyingsform i nynorsk grammatikk", "Hokjønnsord kan valfritt bøyast som hankjønn, til dømes både «boka» og «boken»"],
+      options: ["Alle hokjønnsord må bøyast som hokjønn: «boka», ikkje «boken»", "At alle substantiv skal ha den same artikkelen, uansett kva kjønn dei har", "Hokjønn finst rett og slett ikkje som eiga bøyingsform i nynorsk grammatikk", "Hokjønnsord kan valfritt bøyast som hankjønn, til dømes både «boka» og «boken»"],
       explanation: "Hokjønnsregelen er den viktigaste regelen som skil nynorsk frå bokmål: Hokjønnsord MÅ bøyast som hokjønn — boka, jenta, sola.",
     },
     {
@@ -986,7 +986,7 @@ const quizData_norsk_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Kor mange grammatiske kjønn har substantiv på nynorsk?",
-      options: ["Tre: hankjønn (ein), hokjønn (ei) og inkjekjønn (eit)", "To: felleskjønn og inkjekjønn", "Fire ulike grammatiske kjønn med kvar sin artikkel og bøying", "Berre eitt felles kjønn som gjeld for alle substantiv i språket"],
+      options: ["Tre: hankjønn (ein), hokjønn (ei) og inkjekjønn (eit)", "To: felleskjønn og inkjekjønn, slik som i dansk grammatikk", "Fire ulike grammatiske kjønn med kvar sin artikkel og bøying", "Berre eitt felles kjønn som gjeld for alle substantiv i språket"],
       explanation: "Nynorsk brukar tre kjønn konsekvent: hankjønn (ein gut), hokjønn (ei jente) og inkjekjønn (eit hus).",
     },
     {
@@ -1023,7 +1023,7 @@ const quizData_norsk_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er lurt å gjøre hvis du ikke forstår et spørsmål i fagsamtalen?",
-      options: ["Be om at spørsmålet omformuleres, eller tenke høyt rundt det du kan", "Tie helt stille til neste spørsmål kommer", "Svare grundig på noe helt annet som du har øvd godt på og kan fra før av", "Avslutte eksamen med en gang siden du uansett ikke skjønte hva som ble spurt om"],
+      options: ["Be om at spørsmålet omformuleres, eller tenke høyt rundt det du kan", "Tie helt stille og bare vente til sensor går videre til neste spørsmål", "Svare grundig på noe helt annet som du har øvd godt på og kan fra før av", "Avslutte eksamen med en gang siden du uansett ikke skjønte hva som ble spurt om"],
       explanation: "Det er en samtale: Du kan spørre tilbake, be om omformulering og resonnere deg frem — det viser faglig trygghet.",
     },
   ],
@@ -1035,12 +1035,12 @@ const quizData_norsk_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva bør du gjøre de siste 30 minuttene av eksamen?",
-      options: ["Revidere: lese gjennom og forbedre innhold, språk og rettskriving", "Skrive så mange ekstra avsnitt som mulig", "Begynne helt på nytt med en annen tekst om et annet tema enn det du skrev om", "Levere så tidlig som mulig for å vise sensor at du er trygg og har selvtillit"],
+      options: ["Revidere: lese gjennom og forbedre innhold, språk og rettskriving", "Skrive så mange ekstra avsnitt som mulig for å gjøre besvarelsen lengre", "Begynne helt på nytt med en annen tekst om et annet tema enn det du skrev om", "Levere så tidlig som mulig for å vise sensor at du er trygg og har selvtillit"],
       explanation: "Revisjon i tre steg: først innhold og struktur, deretter språk, og til slutt rettskriving og tegnsetting.",
     },
     {
       question: "Hva er en god strategi når du står helt fast under skrivingen?",
-      options: ["Hoppe over det vanskelige punktet og komme tilbake til det senere", "Kopiere fra tekstvedlegget ord for ord", "Gi opp den oppgaven med en gang og levere en helt blank besvarelse til sensor", "Kopiere lange passasjer fra tekstvedlegget ord for ord inn i din egen besvarelse"],
+      options: ["Hoppe over det vanskelige punktet og komme tilbake til det senere", "Slette alt du har skrevet så langt og starte helt på nytt fra begynnelsen", "Gi opp den oppgaven med en gang og levere en helt blank besvarelse til sensor", "Kopiere lange passasjer fra tekstvedlegget ord for ord inn i din egen besvarelse"],
       explanation: "Kapittelet anbefaler strategier som å hoppe over og komme tilbake, skrive «den dårlige versjonen» først, og gå tilbake til oppgaveteksten.",
     },
     {
@@ -1062,12 +1062,12 @@ const quizData_norsk_10: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner essayet som sjanger?",
-      options: ["Personlig perspektiv og utforskende refleksjon rundt et tema", "Oppdiktede karakterer og dramatisk spenningskurve", "Oppdiktede karakterer og en dramatisk spenningskurve som bygger mot en klimaks", "Objektiv nyhetsformidling uten egne meninger"],
+      options: ["Personlig perspektiv og utforskende refleksjon rundt et tema", "Fast oppbygning med innledning, hoveddel og punktliste", "Oppdiktede karakterer og en dramatisk spenningskurve som bygger mot en klimaks", "Objektiv nyhetsformidling uten egne meninger"],
       explanation: "Essayet er en reflekterende tekst der du utforsker et tema med din egen stemme og et personlig perspektiv.",
     },
     {
       question: "Hva menes med «personlig stemme» i en tekst?",
-      options: ["At teksten høres ut som deg — din måte å tenke og formulere deg på", "At du skriver om privatlivet ditt i detalj", "At du bruker mange utropstegn og store bokstaver for å få frem sterke følelser", "At du forteller åpent og detaljert om privatlivet og hemmelighetene dine i teksten"],
+      options: ["At teksten høres ut som deg — din måte å tenke og formulere deg på", "At du bruker flest mulig fremmedord for å virke mer voksen og lærd i teksten", "At du bruker mange utropstegn og store bokstaver for å få frem sterke følelser", "At du forteller åpent og detaljert om privatlivet og hemmelighetene dine i teksten"],
       explanation: "Personlig stemme betyr at teksten har ditt særpreg — den høres ut som deg, ikke som en maskin. Den må balanseres med faglig innhold.",
     },
     {
