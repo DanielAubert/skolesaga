@@ -36,6 +36,7 @@ const files = arg
 // felle — med n=6 er 2 av 6 allerede 33 %, og det er ren støy.
 const RANGTAK = 0.40;
 const RANG_MIN_N = 12;
+const STUBBETAK = 0.40;
 let grandTotal = 0, grandLongest = 0;
 let brudd = 0;
 for (const file of files) {
@@ -49,6 +50,17 @@ for (const file of files) {
   // bøtte som blander 3- og 4-valg er ikke sammenlignbar med sjansenivået 25 %.
   const rang = [0, 0, 0, 0];
   let rangN = 0, annetAntall = 0;
+  // Tredje lekkasjetype, uavhengig av de to andre: et alternativ som er så mye
+  // kortere enn de andre at det kan strykes på form FØR man har lest det.
+  // Rangmålingen ser den ikke — den sier hvilket alternativ fasiten er, ikke om
+  // ett av de andre er åpenbart for tynt til å kunne være svaret. Et spørsmål
+  // med én slik stubbe er i praksis trevalg: gjetteren går fra 25 % til 33 %.
+  //
+  // Målt grunnlinje 10. august 2026 over 190 filer: median 25 % av spørsmålene,
+  // 90-persentil 53 %, verste (sosiologi-full) 83 %. Taket er derfor satt til
+  // 40 % — over medianen, så det ikke feller halve katalogen på én gang, men
+  // godt under det som er tydelig utnyttbart.
+  let stubbe = 0;
   for (const [ch, qs] of Object.entries(data)) {
     if (!Array.isArray(qs)) continue;
     for (const q of qs) {
@@ -83,6 +95,10 @@ for (const file of files) {
         const k = lens.filter((l) => l === correct).length;
         for (let i = 0; i < k; i++) rang[r + i] += 1 / k;
         rangN++;
+
+        const kortest = Math.min(...lens);
+        const snittAndre = (lens.reduce((a, b) => a + b, 0) - kortest) / 3;
+        if (kortest < 0.5 * snittAndre) stubbe++;
       } else annetAntall++;
     }
   }
@@ -90,8 +106,10 @@ for (const file of files) {
   const verstRang = rangN ? Math.max(...rang) / rangN : 0;
   const rangBrudd = rangN >= RANG_MIN_N && verstRang > RANGTAK;
   const yttreBrudd = strict / total > 0.35 || shortest / total > 0.35;
-  if (rangBrudd || yttreBrudd) brudd++;
-  const flag = yttreBrudd ? '  ⚠️ LENGDE-TELL' : rangBrudd ? '  ⚠️ RANGKLYNGE' : '  ✅';
+  const stubbeBrudd = rangN >= RANG_MIN_N && stubbe / rangN > STUBBETAK;
+  if (rangBrudd || yttreBrudd || stubbeBrudd) brudd++;
+  const flag = yttreBrudd ? '  ⚠️ LENGDE-TELL' : rangBrudd ? '  ⚠️ RANGKLYNGE'
+    : stubbeBrudd ? '  ⚠️ STUBBER' : '  ✅';
   console.log(`\n${file}: ${total} spørsmål${flag}`);
   console.log(`  fasit (delt) lengst: ${longest} (${pct(longest)}) · eneste lengst: ${strict} (${pct(strict)}) · korteste: ${shortest} (${pct(shortest)})`);
   if (rangN) {
@@ -100,6 +118,12 @@ for (const file of files) {
       return `rang ${i + 1}: ${p}${n / rangN > RANGTAK && rangN >= RANG_MIN_N ? ' ⚠️' : ''}`;
     });
     console.log(`  lengderang (n=${rangN}${annetAntall ? `, ${annetAntall} ikke-firevalg utelatt` : ''}): ${r.join(' · ')}`);
+    console.log(`  stubbe (ett alternativ < halvparten av snittet til de tre andre): ${stubbe} (${((100 * stubbe) / rangN).toFixed(0)}%)${stubbeBrudd ? ' ⚠️' : ''}`);
+    if (stubbeBrudd) {
+      console.log(`   → så mange spørsmål har et alternativ som kan strykes på form før`);
+      console.log(`     det er lest, at settet i praksis er trevalg. Gjør den gale påstanden`);
+      console.log(`     mer SPESIFIKK — ikke legg på fyllord.`);
+    }
     if (rangBrudd) {
       console.log(`   → fasiten klumper seg på én lengderang. En student som lærer seg`);
       console.log(`     akkurat det mønsteret gjetter riktig i ${(100 * verstRang).toFixed(0)} % av spørsmålene.`);
@@ -112,7 +136,11 @@ for (const file of files) {
   grandTotal += total; grandLongest += strict;
 }
 if (files.length > 1) console.log(`\n===== SUM: ${grandLongest}/${grandTotal} eneste-lengst (${((100 * grandLongest) / grandTotal).toFixed(0)}%) =====`);
-console.log(`\n${brudd} av ${files.length} fil(er) over taket (ytterpunkt 35 %, rang ${100 * RANGTAK} %).`);
+console.log(`\n${brudd} av ${files.length} fil(er) over taket `
+  + `(ytterpunkt 35 %, rang ${100 * RANGTAK} %, stubbe ${100 * STUBBETAK} %).`);
+// Målt 10. august 2026: stubbetaket felte ingen fil som ikke allerede var felt
+// av rang eller ytterpunkt — det utvider ikke dekningen, men sier hvilken av de
+// tre lekkasjene som må rettes i en fil som uansett er rød.
 // Advarende som standard, fellende med --streng. Eksisterende kall i bokløypa
 // forventer exit 0 og skal ikke begynne å feile av at rangmålingen kom til.
 process.exit(streng && brudd ? 1 : 0);
