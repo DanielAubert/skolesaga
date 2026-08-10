@@ -4,12 +4,12 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
   'stv1100-0-1': [
     {
       question: "Hvor lang er den skriftlige skoleeksamenen i STV1100, og hvilket hjelpemiddel er tillatt?",
-      options: ["4 timer, og eneste hjelpemiddel er en forhåndskontrollert ordbok", "6 timer, med alle trykte hjelpemidler og egne håndskrevne notater tillatt", "3 timer, helt uten hjelpemidler av noe slag underveis", "4 timer, med pensumboka som eneste tillatte hjelpemiddel"],
+      options: ["4 timer, og eneste hjelpemiddel er en forhåndskontrollert ordbok", "6 timer, med alle trykte hjelpemidler og egne notater", "3 timer, helt uten hjelpemidler av noe slag underveis", "4 timer, med pensumboka som eneste tillatte hjelpemiddel"],
       explanation: "STV1100 har en 4-timers skriftlig skoleeksamen (Inspera i nyere år). Eneste tillatte hjelpemiddel er en forhåndskontrollert ordbok — ingen pensumbøker, notater eller nett.",
     },
     {
       question: "Hvordan settes karakteren i STV1100?",
-      options: ["Ved helhetlig skjønn (A–F) uten tallfestede poenggrenser", "Ved å summere oppnådde oppgavepoeng med faste grenser for hver bokstavkarakter", "Utelukkende ut fra hvor mange sider besvarelsen fyller", "Bestått/ikke bestått uten noen bokstavkarakter"],
+      options: ["Ved helhetlig skjønn (A–F) uten tallfestede poenggrenser", "Ved å summere oppnådde oppgavepoeng med faste grenser for hver bokstavkarakter", "Utelukkende ut fra hvor mange sider besvarelsen fyller", "Bestått/ikke bestått uten bokstavkarakter, slik det er i emner uten skoleeksamen"],
       explanation: "Det finnes ingen tallfestede poenggrenser. Karakteren A–F settes ved helhetsvurdering, der svakhet ett sted kan veies opp av styrke et annet i fler-dels-sett.",
     },
     {
@@ -19,7 +19,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr mantraet «treff det sentrale poenget»?",
-      options: ["Hvert tema har ett kjernepoeng som må med; et kort korrekt kjernesvar kan gi A", "Man skal alltid skrive så langt og bredt som overhodet mulig for å vise størst kunnskapsbredde", "Man bør begynne hver oppgave med en grundig og velformulert innledning", "Man skal fokusere mest på presise litteraturhenvisninger og kilder"],
+      options: ["Hvert tema har ett kjernepoeng som må med; et kort korrekt kjernesvar kan gi A", "Man skal alltid skrive så langt og bredt som overhodet mulig for å vise størst kunnskapsbredde", "Man bør begynne hver oppgave med en grundig innledning som plasserer temaet i fagets historie", "Man skal fokusere mest på presise litteraturhenvisninger med sidetall til hver enkelt pensumbok"],
       explanation: "Et kort, korrekt svar som treffer kjernepoenget (f.eks. Rawls uten uvitenhetssløret faller til svak) kan gi A, mens et langt svar som mister poenget faller til svak. Presisjon over bredde.",
     },
     {
@@ -39,17 +39,17 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er kjernen i sjangeren sammenligning (SAM)?",
-      options: ["Redegjøre for begge posisjoner OG trekke fram eksplisitte likheter og forskjeller", "Gjengi kun den ene tenkeren grundig og utfyllende, og la den andre posisjonen stå uomtalt", "Tolke ett enkelt sitatutdrag isolert og løsrevet fra argumentet", "Skrive en lang og grundig innledning om begge tenkerne først"],
+      options: ["Redegjøre for begge posisjoner OG trekke fram eksplisitte likheter og forskjeller", "Gjengi kun den ene tenkeren grundig og utfyllende, og la den andre posisjonen stå uomtalt", "Tolke ett enkelt sitatutdrag isolert og løsrevet fra argumentet", "Skrive en lang og grundig innledning om begge tenkerne før selve sammenligningen begynner"],
       explanation: "I SAM er det ikke nok å gjengi begge — du må sammenligne dem langs eksplisitte dimensjoner med både likheter og forskjeller. Her måles selvstendighet.",
     },
     {
       question: "Hva kjennetegner redegjør-og-drøft-hybriden (HYB), den økende sjangeren fra 2023?",
-      options: ["Solid redegjørelse først, deretter en kort, forbeholden selvstendig vurdering", "Kun en fri, personlig og engasjert mening om temaet uten noen forutgående redegjørelse", "Ren gjengivelse av nøyaktig samme teori gjentatt to ganger", "Utelukkende sitattolkning av alle utdragene a) til e)"],
+      options: ["Solid redegjørelse først, deretter en kort, forbeholden selvstendig vurdering", "Kun en fri, personlig og engasjert mening om temaet uten noen forutgående redegjørelse", "Ren gjengivelse av nøyaktig samme teori to ganger, først kortfattet og så i utvidet form", "Utelukkende sitattolkning av alle utdragene a) til e)"],
       explanation: "HYB krever solid redegjørelse etterfulgt av en kort, forbeholden vurdering — gjerne med en innvending forankret i pensum. Sensor bruker skjønn og raushet, siden dette er et innføringsemne.",
     },
     {
       question: "Hvorfor er det direkte eksamensrelevant å trene på gamle oppgavesett i STV1100?",
-      options: ["Fordi oppgaver gjenbrukes nesten uendret (Berlin-vs.-Pettit, Rawls-sitatoppgaven)", "Fordi de gamle settene alltid gir de nøyaktige fasitsvarene på nettopp årets eksamen", "Fordi hele eksamensformen legges fullstendig om fra bunnen hvert eneste år", "Fordi det ikke finnes noe annet tilgjengelig pensum å øve på"],
+      options: ["Fordi oppgaver gjenbrukes nesten uendret (Berlin-vs.-Pettit, Rawls-sitatoppgaven)", "Fordi de gamle settene alltid gir de nøyaktige fasitsvarene på nettopp årets eksamen", "Fordi hele eksamensformen legges om fra bunnen hvert år, slik at gamle sett er utdaterte", "Fordi det ikke finnes noe annet tilgjengelig pensum å øve på"],
       explanation: "Arkivet viser dokumentert oppgavegjenbruk: frihetsoppgaven og Rawls-sitatoppgaven går nesten uendret igjen, så trening på gamle sett er direkte relevant.",
     },
     {
@@ -76,12 +76,12 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
   'stv1100-0-2': [
     {
       question: "Hva er de fire trinnene i firetrinns-redegjørelsen (RED), i riktig rekkefølge?",
-      options: ["Plasser → gjengi posisjonen → rekonstruer trinnvis → illustrer med tekstens eksempel", "Innled bredt → oppsummer kort → konkluder → henvis til relevant litteratur", "Parafraser utdraget → identifiser funksjon → plasser i argumentets helhet → bruk begrepene", "Sammenlign → drøft → anvend teorien → vurder forbeholdent"],
+      options: ["Plasser → gjengi posisjonen → rekonstruer trinnvis → illustrer med tekstens eksempel", "Innled bredt → oppsummer kort → konkluder → henvis til all relevant litteratur til slutt", "Parafraser utdraget → identifiser funksjon → plasser i argumentets helhet → bruk begrepene", "Sammenlign posisjonene → drøft dem → anvend teorien på et tilfelle → vurder forbeholdent"],
       explanation: "RED-oppskriften er: (1) plasser tenker og spørsmål, (2) gjengi posisjonen med kjernebegreper, (3) rekonstruer argumentet trinnvis, (4) illustrer med tekstens eget eksempel.",
     },
     {
       question: "Hva betyr mantraet «treff strukturen, ikke bare konklusjonen» i en redegjørelse?",
-      options: ["Vis premissrekken som leder til konklusjonen, ikke bare selve konklusjonen", "Skriv en fyldig og velformulert innledning før du til slutt konkluderer", "Nevn selve konklusjonen så mange ganger som overhodet mulig", "Fokuser utelukkende på tenkerens endelige sluttsyn og hopp helt over hele begrunnelsen"],
+      options: ["Vis premissrekken som leder til konklusjonen, ikke bare selve konklusjonen", "Skriv en fyldig og velformulert innledning før du til slutt konkluderer med tenkerens syn", "Nevn selve konklusjonen så mange ganger som overhodet mulig", "Fokuser utelukkende på tenkerens endelige sluttsyn og hopp helt over hele begrunnelsen"],
       explanation: "Et svakt svar gjengir bare hva tenkeren konkluderer. Sensor vil se hvorfor — den trinnvise premissrekken (argumentets indre logikk) som leder dit.",
     },
     {
@@ -101,7 +101,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Et utdrag gir et konkret eksempel (barskap-nøkkelen, Odyssevs) som anskueliggjør poenget uten selv å bevise det. Hvilken funksjon har det?",
-      options: ["Illustrasjon", "Konklusjon", "Konklusjon — det punktet resonnementet til slutt fastslår", "Intuisjon"],
+      options: ["Illustrasjon", "Konklusjon", "Premiss", "Intuisjon"],
       explanation: "En illustrasjon anskueliggjør poenget, men vekten ligger i premissene den viser. En vanlig feil er å behandle illustrasjonen som om den var selve argumentet.",
     },
     {
@@ -111,7 +111,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner feil #5 i sitattolkning?",
-      options: ["Å bare parafrasere utdraget løsrevet uten å angi funksjon og plassere det i argumentet", "Å bruke altfor mange innfløkte og innforståtte fagbegreper som ikke hører hjemme i utdraget", "Å behandle for mange av sitatutdragene samtidig i én setning", "Å skrive altfor kort og knapt om hvert enkelt utdrag"],
+      options: ["Å bare parafrasere utdraget løsrevet uten å angi funksjon og plassere det i argumentet", "Å bruke altfor mange innfløkte fagbegreper som ikke hører hjemme i utdraget", "Å behandle for mange av sitatutdragene samtidig i én setning", "Å skrive altfor kort og knapt om hvert enkelt utdrag"],
       explanation: "Feil #5 er å oversette utdraget linje for linje uten å plassere det i det overordnede argumentet. Da mangler trinn 2 (funksjon) og trinn 3 (plassering) av SIT-oppskriften.",
     },
     {
@@ -126,7 +126,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner et E-svar?",
-      options: ["Det sentrale poenget er mistet eller bare antydet, med upresise begreper og utenomsnakk", "Det sentrale poenget er presist og trinnvis truffet, med et subtilt og løftende ekstratillegg", "Svaret er gjennomgående korrekt, men blir stående nokså flatt", "Svaret behandler alle sitatutdragene grundig og plasserer dem"],
+      options: ["Det sentrale poenget er mistet eller bare antydet, med upresise begreper og utenomsnakk", "Det sentrale poenget er presist og trinnvis truffet, med et subtilt og løftende ekstratillegg", "Svaret er gjennomgående korrekt, men blir stående nokså flatt uten det subtile ekstrapoenget", "Svaret behandler alle sitatutdragene grundig og plasserer dem"],
       explanation: "På E-nivå glipper kjernepoenget, begrepene er upresise (feil #7) og svaret brer seg ut i utenomsnakk (feil #1, #2). I SIT hoppes utdrag over (#4) eller parafraseres løsrevet (#5).",
     },
     {
@@ -136,12 +136,12 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Omtrent hvor mye tid bør du sette av per utdrag i en a)–e)-sitattolkningsoppgave?",
-      options: ["Cirka 8–12 minutter per utdrag, slik at alle blir behandlet", "Cirka 40–60 minutter på det viktigste utdraget og null på resten", "Ett minutt per utdrag for å rekke over andre oppgaver", "All tiden på det første utdraget"],
+      options: ["Cirka 8–12 minutter per utdrag, slik at alle blir behandlet", "Cirka 40–60 minutter på det viktigste utdraget og null på resten", "Ett minutt per utdrag for å rekke over andre oppgaver", "All tiden på det første utdraget, slik at de øvrige blir stående ubehandlet"],
       explanation: "Regn ~8–12 min per utdrag og fordel tiden slik at alle behandles — bedre å plassere alle kort enn å utbrodere ett og hoppe over resten.",
     },
     {
       question: "En kandidat skriver om Rawls: «Han mener de dårligst stilte skal prioriteres.» — og stopper der. Hva er hovedmangelen?",
-      options: ["Svaret gir bare konklusjonen; det treffer ikke strukturen (premissrekken bak)", "Svaret er altfor langt og altfor bredt, og drukner hovedpoenget i mye lavrelevant stoff", "Svaret har med altfor mange ulike sitatutdrag på én gang", "Svaret bruker gjennomgående altfor presise fagbegreper"],
+      options: ["Svaret gir bare konklusjonen; det treffer ikke strukturen (premissrekken bak)", "Svaret er altfor langt og altfor bredt, og drukner hovedpoenget i mye lavrelevant stoff", "Svaret har med altfor mange ulike sitatutdrag på én gang, uten å skille dem fra hverandre", "Svaret bruker gjennomgående altfor presise fagbegreper"],
       explanation: "Å gjengi bare konklusjonen uten den trinnvise begrunnelsen (utgangsposisjon → uvitenhetsslør → maximin → forskjellsprinsipp) bryter med «treff strukturen, ikke bare konklusjonen».",
     },
     {
@@ -151,29 +151,29 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "I en SIT-oppgave inneholder et utdrag setningen «Tenk på tjeneren i det store huset som alltid er prisgitt herrens humør.» Hvilken funksjon er dette mest sannsynlig, og hva må du gjøre med det?",
-      options: ["Illustrasjon — du må plassere det i argumentets helhet, ikke bare oversette det", "Premiss — du kan her trygt nøye deg med å parafrasere det ordrett og linje for linje", "Intuisjon — utdraget kan trygt hoppes helt over uten noe tap", "Konklusjon — utdraget trenger overhodet ingen videre tolkning"],
+      options: ["Illustrasjon — du må plassere det i argumentets helhet, ikke bare oversette det", "Premiss — du kan her trygt nøye deg med å parafrasere det ordrett og linje for linje", "Intuisjon — utdraget kan trygt hoppes helt over, siden det ikke bærer noen del av argumentets vekt", "Konklusjon — utdraget trenger overhodet ingen videre tolkning"],
       explanation: "«Tenk på …» signaliserer en illustrasjon som anskueliggjør poenget. Den må plasseres i helheten (den viser at materiell velstand ikke opphever ufrihet), ikke bare oversettes løsrevet (feil #5).",
     },
   ],
   'stv1100-0-3': [
     {
       question: "Hva er de sentrale trinnene i en sammenligning (SAM)?",
-      options: ["Posisjon A → posisjon B → 2–4 eksplisitte dimensjoner (likheter OG forskjeller) → kort vurdering", "Gjengi kun den ene tenkeren grundig og utfyllende, og avslutt der uten mer", "Parafraser hvert utdrag → identifiser funksjonen → plasser det i argumentets helhet → bruk fagbegrepene presist", "Innled → oppsummer begge → konkluder med litteraturhenvisning"],
+      options: ["Posisjon A → posisjon B → 2–4 eksplisitte dimensjoner (likheter OG forskjeller) → kort vurdering", "Gjengi kun den ene tenkeren grundig og utfyllende, og avslutt der uten å nevne den andre posisjonen", "Parafraser hvert utdrag → identifiser funksjonen → plasser det i argumentets helhet → bruk fagbegrepene presist", "Innled bredt → oppsummer begge posisjonene → konkluder → avslutt med en samlet litteraturhenvisning"],
       explanation: "SAM krever begge posisjoner presist redegjort, deretter 2–4 eksplisitte sammenligningsdimensjoner med både likheter og forskjeller, og gjerne en kort forbeholden vurdering.",
     },
     {
       question: "Hva er en sammenligningsdimensjon?",
-      options: ["En eksplisitt akse begge posisjoner måles langs, f.eks. «hva teller som ufrihet?»", "En bred og velformulert innledning som presenterer begge tenkerne før sammenligningen begynner", "Et enkelt sitatutdrag som er merket med bokstaven a)", "Antall sider man velger å bruke på hver av tenkerne"],
+      options: ["En eksplisitt akse begge posisjoner måles langs, f.eks. «hva teller som ufrihet?»", "En bred innledning som presenterer begge tenkerne før sammenligningen", "Et enkelt sitatutdrag som er merket med bokstaven a)", "Antall sider man velger å bruke på hver av tenkerne"],
       explanation: "En dimensjon er en eksplisitt akse der de to posisjonene måles mot hverandre. Egne, treffende dimensjoner er selvstendighet (Akse 4) og A-markøren i SAM.",
     },
     {
       question: "En kandidat skriver en hel side om Tenker F og en hel side om Tenker D, og stopper der. Hvilken feil er dette?",
-      options: ["#8 — ren gjengivelse der oppgaven ber om sammenligning (to referater er ikke en SAM)", "#9 — å overse hele anvendelses-vrien og bare gjengi teorien helt generelt uten å bruke den", "#4 — å hoppe over ett eller flere av sitatutdragene", "#3 — unødig og altfor bred innledning"],
+      options: ["#8 — ren gjengivelse der oppgaven ber om sammenligning (to referater er ikke en SAM)", "#9 — å overse hele anvendelses-vrien og bare gjengi teorien helt generelt uten å bruke den", "#4 — å hoppe over ett eller flere av sitatutdragene", "#3 — unødig og altfor bred innledning som forsinker selve sammenligningen av tenkerne"],
       explanation: "To atskilte redegjørelser ved siden av hverandre er ikke en sammenligning (feil #8). Det mangler eksplisitte dimensjoner som setter posisjonene i forhold til hverandre.",
     },
     {
       question: "Hva kjennetegner en ensidig sammenligning som svekker svaret?",
-      options: ["Den rommer bare forskjeller (eller bare likheter), eller behandler bare den ene tenkeren grundig", "Den bruker altfor mange ulike og overlappende eksplisitte sammenligningsdimensjoner på én og samme gang", "Den gir begge posisjonene nøyaktig like presis behandling", "Den lander til slutt med en kort og forbeholden vurdering"],
+      options: ["Den rommer bare forskjeller (eller bare likheter), eller behandler bare den ene tenkeren grundig", "Den bruker altfor mange ulike og overlappende eksplisitte sammenligningsdimensjoner på én og samme gang", "Den gir begge posisjonene nøyaktig like presis behandling langs hver eneste dimensjon som blir nevnt", "Den lander til slutt med en kort og forbeholden vurdering"],
       explanation: "En fullstendig SAM veier både likheter OG forskjeller langs hver dimensjon og gir begge posisjoner like presis behandling. Ensidighet er en typisk C-svakhet.",
     },
     {
@@ -183,17 +183,17 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva sier ANV-testen «bruk teorien, ikke bare gjengi den»?",
-      options: ["Spør om en leser som ikke kjenner saken ville skjønt hva X mener om nettopp den; hvis du bare gjenga teorien, er svaret nei", "Spør om du har rukket å ta i bruk et tilstrekkelig antall presise og innforståtte fagbegreper fra pensum gjennom hele svaret", "Spør om teksten din er blitt lang nok totalt sett", "Spør om du har husket å ta med en innledning"],
+      options: ["Spør om en leser som ikke kjenner saken ville skjønt hva X mener om nettopp den; hvis du bare gjenga teorien, er svaret nei", "Spør om du har rukket å ta i bruk nok presise fagbegreper fra pensum", "Spør om teksten din er blitt lang nok totalt sett", "Spør om du har husket å ta med en innledning"],
       explanation: "En god ANV nevner situasjonens detaljer og viser hvordan begrepet griper inn i akkurat dem. Å gjengi teorien generelt uten å anvende den er feil #9.",
     },
     {
       question: "Hvilken feil begår en kandidat som på «hva ville Pettit ment om den liberale despoten?» bare gjengir Pettits ikke-dominans-teori generelt?",
-      options: ["#9 — overse anvendelses-vrien (teorien er ikke brukt på despoten)", "#8 — ren gjengivelse i en oppgave som egentlig ber om en full sammenligning", "#4 — å hoppe over ett av sitatutdragene", "#1 — miste det sentrale poenget om struktur"],
+      options: ["#9 — overse anvendelses-vrien (teorien er ikke brukt på despoten)", "#8 — ren gjengivelse i en oppgave som egentlig ber om en full sammenligning", "#4 — å hoppe over ett av sitatutdragene", "#1 — miste det sentrale poenget om struktur og bare gjengi Pettits konklusjon"],
       explanation: "Feil #9 er å gjengi teorien generelt uten å bruke den på den konkrete situasjonen (despoten). ANV krever at begrepet legges på tilfellet.",
     },
     {
       question: "Hvilke er de klassiske anvendelsessituasjonene i STV1100-arkivet?",
-      options: ["Den liberale despoten, privat veldedighet og Foster Wallace-sitatet", "Uvitenhetssløret, maximin-regelen og selve forskjellsprinsippet hos Rawls", "Barskap-nøkkelen, Odyssevs ved masten og refleksiv likevekt", "Machiavelli, Platons idéstat og Nussbaums evneteori"],
+      options: ["Den liberale despoten, privat veldedighet og Foster Wallace-sitatet", "Uvitenhetssløret, maximin-regelen og selve forskjellsprinsippet hos Rawls", "Barskap-nøkkelen, Odyssevs ved masten og refleksiv likevekt", "Machiavellis fyrstelære, Platons idéstat og Nussbaums teori om menneskelige evner"],
       explanation: "Den liberale despoten (→ Pettits dominanspoeng), privat veldedighet (→ velferdsrett vs. veldedighet) og Foster Wallace-sitatet (→ positiv frihet) er de gjennomgående ANV-casene.",
     },
     {
@@ -203,12 +203,12 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en «forbeholden vurdering» i en drøftingsdel?",
-      options: ["En vurdering som veier for og mot uten å felle en skråsikker dom", "En kategorisk og skråsikker konklusjon om at tenkeren rett og slett tar feil", "En ren gjentakelse av det man allerede sa i redegjørelsen", "En fullstendig liste over relevante litteraturhenvisninger"],
+      options: ["En vurdering som veier for og mot uten å felle en skråsikker dom", "En kategorisk og skråsikker konklusjon om at tenkeren rett og slett tar feil", "En ren gjentakelse av redegjørelsens innhold satt inn under overskriften vurdering", "En fullstendig liste over relevante litteraturhenvisninger"],
       explanation: "En forbeholden vurdering veier styrker mot svakheter og lander forsiktig. Forbehold er et tegn på modenhet, ikke usikkerhet.",
     },
     {
       question: "Hvorfor løfter en pensumforankret innvending en drøftingshybrid?",
-      options: ["Den er hentet fra debatten (f.eks. Brison mot Mill, feministisk kritikk mot Rawls) og viser at du kjenner mer enn selve posisjonen", "Den er oppfunnet av kandidaten helt på stedet og viser dermed en imponerende grad av original kreativitet og selvstendig filosofisk tenkning", "Den erstatter fullstendig behovet for en forutgående redegjørelse", "Den gjør uansett svaret lengre, uavhengig av innholdet"],
+      options: ["Den er hentet fra debatten (f.eks. Brison mot Mill, feministisk kritikk mot Rawls) og viser at du kjenner mer enn selve posisjonen", "Den er oppfunnet av kandidaten på stedet og viser original kreativitet", "Den erstatter fullstendig behovet for en forutgående redegjørelse", "Den gjør uansett svaret lengre, uavhengig av innholdet"],
       explanation: "En innvending forankret i pensum/forelesning (Brison mot Mill; den feministiske kritikken av Rawls; syke/svake-innvendingen) viser at du kjenner debatten, ikke bare posisjonen.",
     },
     {
@@ -228,12 +228,12 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er A-markøren (Akse 4) i sammenlignings- og drøftingsdelen?",
-      options: ["Selvstendighet: egne, treffende sammenligningsdimensjoner eller en forbeholden, forankret vurdering", "En svært grundig og velformulert innledning etterfulgt av en tydelig oppsummerende avslutning til slutt", "Den samlede lengden på hele besvarelsen", "Antall sitatutdrag man har fått med i svaret"],
+      options: ["Selvstendighet: egne, treffende sammenligningsdimensjoner eller en forbeholden, forankret vurdering", "En svært grundig innledning etterfulgt av en oppsummerende avslutning", "Den samlede lengden på hele besvarelsen", "Antall sitatutdrag man har fått med i svaret"],
       explanation: "Selvstendighet (Akse 4) — å se en sammenheng eller spenning selv, framfor å referere — skiller A fra C i drøftings-/sammenligningsdelen.",
     },
     {
       question: "En kandidat avslutter en «gjør rede for X og drøft kort»-oppgave med å gjenta Xs posisjon en gang til. Hva er feilen?",
-      options: ["#8 — nytt referat i stedet for en reell vurdering", "#9 — å overse hele anvendelses-vrien og ikke bruke teorien", "#4 — å hoppe over ett av sitatutdragene", "#7 — gjennomgående upresise fagbegreper"],
+      options: ["#8 — nytt referat i stedet for en reell vurdering", "#9 — å overse hele anvendelses-vrien og ikke bruke teorien", "#4 — å hoppe over ett av sitatutdragene i en a)–e)-oppgave", "#7 — gjennomgående upresise fagbegreper"],
       explanation: "Å gjenta redegjørelsen i drøftingsdelen er feil #8 — det er ikke en vurdering. HYB krever at du veier innvendinger og lander forbeholdent, ikke at du refererer på nytt.",
     },
   ],
@@ -245,12 +245,12 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilket av disse ordene hører til Berlins *negative* frihetsbegrep (og ikke til det positive)?",
-      options: ["Forsettlig", "Rasjonelt", "Rasjonelt — den fornuftige delen av selvet råder", "Egentlig"],
+      options: ["Forsettlig", "Rasjonelt", "Selvrealisering", "Egentlig"],
       explanation: "«Forsettlig» hører til den negative siden — en vanlig (Hayek-nær) skjerping av grunnskillet «hindring fra andre vs. manglende egen evne». «Egentlig»/«rasjonelt» hører til positiv frihet.",
     },
     {
       question: "Er fattigdom i seg selv ufrihet i Berlins negative forstand?",
-      options: ["Nei — i utgangspunktet manglende evne, ikke en hindring påført av andre", "Ja — enhver hindring, også manglende evne og ressurser, er en form for ufrihet", "Ja — fordi fattigdommen alltid skyldes statens innblanding", "Bare dersom fattigdommen er helt og holdent selvforskyldt"],
+      options: ["Nei — i utgangspunktet manglende evne, ikke en hindring påført av andre", "Ja — enhver hindring, også manglende evne og ressurser, er en form for ufrihet", "Ja — fordi fattigdommen alltid skyldes statens innblanding i markedet og fordelingen", "Bare dersom fattigdommen er helt og holdent selvforskyldt"],
       explanation: "Fattigdom er i utgangspunktet manglende evne, ikke en hindring fra en annen vilje. Berlin kaller den et onde, men åpner selv for at den *kan* være ufrihet dersom den skyldes menneskeskapte ordninger andre opprettholder — å kalle enhver manglende evne «ufrihet» tømmer likevel begrepet.",
     },
     {
@@ -260,22 +260,22 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilket skille gjør positiv frihet farlig ifølge Berlin?",
-      options: ["Skillet mellom det empiriske og det «egentlige» selv", "Selve skillet mellom negativ og positiv frihet som sådan", "Skillet mellom staten og det enkelte individ", "Skillet mellom lov og moral i samfunnet"],
+      options: ["Skillet mellom det empiriske og det «egentlige» selv", "Selve skillet mellom negativ og positiv frihet som sådan", "Skillet mellom statens myndighet og det enkelte individs rettigheter", "Skillet mellom rettslige lover og moralske normer i samfunnet"],
       explanation: "Deler man personen i et empirisk og et «egentlig» selv, kan andre påberope seg å kjenne ditt sanne jeg og tvinge deg «for ditt eget beste».",
     },
     {
       question: "Hvorfor advarer Berlin mot positiv frihet?",
-      options: ["Fordi den kan brukes til å omdøpe tvang til frigjøring", "Fordi den i bunn og grunn er nøyaktig det samme som negativ frihet", "Fordi den er logisk selvmotsigende i seg selv", "Fordi den nekter folk retten til å eie eiendom"],
+      options: ["Fordi den kan brukes til å omdøpe tvang til frigjøring", "Fordi den i bunn og grunn er nøyaktig det samme som negativ frihet", "Fordi den er logisk selvmotsigende i seg selv", "Fordi den nekter folk retten til å eie og disponere eiendom"],
       explanation: "Når frihet = å realisere det «egentlige» selv, kan tvang fremstilles som frigjøring («vi tvinger deg dit ditt sanne jeg vil»).",
     },
     {
       question: "Hva er «den liberale despoten» et eksempel på?",
-      options: ["At negativ frihet kan finnes uten selvstyre (positiv frihet)", "At den positive friheten alltid følger helt direkte av den negative", "At all frihet i bunn og grunn egentlig er positiv", "At enhver form for tvang alltid gir ufrihet"],
+      options: ["At negativ frihet kan finnes uten selvstyre (positiv frihet)", "At den positive friheten alltid følger helt direkte av den negative", "At all frihet i bunn og grunn egentlig er en form for positiv frihet", "At enhver form for tvang alltid gir ufrihet"],
       explanation: "Despoten gir personlig frihet uten selvstyre — negativ og positiv frihet er logisk uavhengige.",
     },
     {
       question: "Er borgerne under en liberal despot frie i Berlins forstand?",
-      options: ["Negativt kanskje ja (hvis han ikke blander seg inn), men positivt nei", "Ja, borgerne er da fullt ut frie på begge de to måtene samtidig, uansett hersker", "Nei, de er ikke på noen som helst måte frie", "Bare positivt frie, men ikke negativt frie"],
+      options: ["Negativt kanskje ja (hvis han ikke blander seg inn), men positivt nei", "Ja, borgerne er fullt ut frie på begge måter samtidig", "Nei, de er ikke på noen som helst måte frie", "Bare positivt frie, men ikke negativt frie"],
       explanation: "Blander despoten seg faktisk ikke inn, er borgerne negativt ganske frie, men de har intet selvstyre — positivt ufrie.",
     },
     {
@@ -290,7 +290,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva menes med at negativ frihet handler om «hvor mange dører som står åpne»?",
-      options: ["Friheten måles ved handlingsmuligheter ingen andre bevisst har stengt", "Friheten måles ved hva du i praksis faktisk klarer å få gjennomført selv", "Friheten måles ved graden av selvstyre man har oppnådd", "Friheten måles ved hvor mye eiendom man faktisk eier"],
+      options: ["Friheten måles ved handlingsmuligheter ingen andre bevisst har stengt", "Friheten måles ved hva du i praksis faktisk klarer å få gjennomført selv", "Friheten måles ved graden av selvstyre den enkelte faktisk har oppnådd", "Friheten måles ved hvor mye eiendom man faktisk eier"],
       explanation: "Bildet fanger fravær av hindring påført av andre, ikke faktisk evne eller selvstyre.",
     },
     {
@@ -300,17 +300,17 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Avviser Berlin positiv frihet fullstendig?",
-      options: ["Nei — han vil holde den atskilt fra negativ frihet fordi sammenblanding er farlig", "Nei — han foretrekker tvert imot den positive friheten klart framfor den rent negative", "Ja — han mener at den positive friheten er helt meningsløs", "Ja — den positive friheten er i praksis identisk med tvang"],
+      options: ["Nei — han vil holde den atskilt fra negativ frihet fordi sammenblanding er farlig", "Nei — han foretrekker tvert imot den positive friheten framfor den negative", "Ja — han mener at den positive friheten er helt meningsløs", "Ja — den positive friheten er i praksis identisk med tvang"],
       explanation: "Berlin anerkjenner at selvstyre er et ekte gode; han vil bare holde begrepene rene fordi sammenblandingen er politisk farlig.",
     },
     {
       question: "Hva er «det egentlige selv» i positiv frihet?",
-      options: ["Et påstått høyere, rasjonelt jeg som «vet bedre» enn de faktiske ønskene", "Statens offisielle og bindende definisjon av hva det gode liv egentlig består i", "Personens egne faktiske og foreliggende ønsker", "Selve fraværet av ytre innblanding fra andre"],
+      options: ["Et påstått høyere, rasjonelt jeg som «vet bedre» enn de faktiske ønskene", "Statens offisielle og bindende definisjon av hva det gode liv egentlig består i", "Personens egne faktiske og foreliggende ønsker, slik de uttrykkes i øyeblikket", "Selve fraværet av ytre innblanding fra andre"],
       explanation: "Det «egentlige»/sanne selv står mot det empiriske selv (faktiske ønsker) — og er farekilden i positiv frihet.",
     },
     {
       question: "Hvilken feil begår kandidaten som definerer negativ frihet som «fravær av enhver hindring»?",
-      options: ["Feil #1/#7 — mister grunnskillet «andres hindring vs. manglende egen evne»", "Ingen feil i det hele tatt — dette er tvert imot en helt presis og korrekt definisjon", "Feil #3 — en helt unødig og bred innledning", "Feil #6 — besvarer bare halvparten av settet"],
+      options: ["Feil #1/#7 — mister grunnskillet «andres hindring vs. manglende egen evne»", "Ingen feil — dette er tvert imot en presis og korrekt definisjon", "Feil #3 — en helt unødig og bred innledning", "Feil #6 — besvarer bare halvparten av settet"],
       explanation: "«Fravær av enhver hindring» viser bort grunnskillet: da teller også naturlige grenser og manglende evne som ufrihet — kjernefeilen.",
     },
     {
@@ -325,12 +325,12 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva peker den liberale despoten frem mot i frihetsdelen?",
-      options: ["Pettits begrep om dominans/ikke-dominans (kap. 1.2)", "Rawls' berømte uvitenhetsslør bak i selve utgangsposisjonen", "Lockes tanke om den opprinnelige samfunnskontrakten", "Machiavellis råd til den handlekraftige fyrsten"],
+      options: ["Pettits begrep om dominans/ikke-dominans (kap. 1.2)", "Rawls' berømte uvitenhetsslør bak i selve utgangsposisjonen", "Lockes tanke om den opprinnelige samfunnskontrakten", "Machiavellis råd til den handlekraftige fyrsten om maktbruk"],
       explanation: "For Pettit er borgerne likevel ufrie fordi de domineres — despoten *kan* gripe inn. Det er broen til kap. 1.2.",
     },
     {
       question: "Hva er verdipluralisme hos Berlin?",
-      options: ["At det finnes flere ekte, uforenlige goder", "At alle verdier i bunn og grunn egentlig er én og samme", "At bare friheten er et virkelig ekte gode", "At verdiene til slutt bestemmes av staten"],
+      options: ["At det finnes flere ekte, uforenlige goder", "At alle verdier i bunn og grunn egentlig er én og samme", "At bare friheten er et virkelig ekte gode, alt annet er midler", "At verdiene til slutt bestemmes av staten og dens lover"],
       explanation: "Verdipluralismen er bakgrunnen for Berlins skepsis mot at én «sannhet» om det gode liv skal tvinges på alle.",
     },
     {
@@ -340,7 +340,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken funksjon har utdrag b) (empirisk vs. egentlig selv)?",
-      options: ["Kritisk premiss — det avdekker faren i positiv frihet", "Berlins endelige konklusjon om at all frihet i praksis er umulig", "En helt nøytral definisjon av positiv frihet", "En ren illustrasjon av den negative friheten"],
+      options: ["Kritisk premiss — det avdekker faren i positiv frihet", "Berlins endelige konklusjon om at all frihet i praksis er umulig", "En helt nøytral definisjon av positiv frihet uten kritisk brodd", "En ren illustrasjon av hvordan negativ frihet arter seg"],
       explanation: "b) viser mekanismen bak «tvang til frihet» — det er broen fra beskrivelse til advarsel, ikke en nøytral definisjon.",
     },
     {
@@ -350,7 +350,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor sier Berlin at manglende evne ikke er ufrihet?",
-      options: ["Fordi ufrihet krever en annen vilje som bevisst stenger en dør", "Fordi manglende evne i praksis nesten alltid er helt selvforskyldt", "Fordi evne og frihet i bunn og grunn er det samme", "Fordi staten uansett har det hele og fulle ansvaret"],
+      options: ["Fordi ufrihet krever en annen vilje som bevisst stenger en dør", "Fordi manglende evne i praksis nesten alltid er helt selvforskyldt", "Fordi evne og frihet i bunn og grunn er ett og det samme begrepet", "Fordi staten uansett har det hele og fulle ansvaret"],
       explanation: "Uten en hindring påført av en annen aktør er det ingen negativ ufrihet — bare en begrensning i egen evne.",
     },
     {
@@ -362,17 +362,17 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
   'stv1100-1-2': [
     {
       question: "Hva er frihet ifølge Pettit?",
-      options: ["Ikke-dominans — fravær av muligheten for ukontrollert innblanding", "Selve fraværet av all faktisk innblanding fra andre i det man gjør og velger", "Selvrealisering av det egentlige, rasjonelle selv", "Retten til å eie og fritt disponere privat eiendom"],
+      options: ["Ikke-dominans — fravær av muligheten for ukontrollert innblanding", "Selve fraværet av all faktisk innblanding fra andre i det man gjør og velger", "Selvrealisering av det egentlige, rasjonelle selv", "Retten til å eie og fritt disponere privat eiendom uten inngrep fra staten"],
       explanation: "Pettit: frihet = ikke-dominans (fravær av vilkårlig makt over deg). Fravær av faktisk innblanding er Berlin; selvrealisering er positiv frihet (Berlin).",
     },
     {
       question: "Hva er dominans hos Pettit?",
-      options: ["Evne til innblanding uten den andres kontroll", "Manglende ressurser og midler til å bruke friheten sin", "Faktisk innblanding i noens frie valg", "All statlig lovgivning betraktet som sådan"],
+      options: ["Evne til innblanding uten den andres kontroll", "Manglende ressurser og midler til å bruke friheten sin", "Faktisk innblanding i en annens frie valg og handlinger", "All statlig lovgivning betraktet som sådan, uansett innhold"],
       explanation: "Dominans = evne til ukontrollert innblanding; selve *muligheten* er ufrihet, uansett om innblandingen skjer.",
     },
     {
       question: "Er slaven med en snill herre som aldri gir ordre fri, ifølge Pettit?",
-      options: ["Nei — han domineres fordi herren *kan* blande seg vilkårlig inn", "Ja — det skjer jo overhodet ingen faktisk innblanding fra herrens side", "Ja — han har jo full negativ frihet i Berlins forstand", "Bare dersom herren uttrykkelig lover å aldri gripe inn"],
+      options: ["Nei — han domineres fordi herren *kan* blande seg vilkårlig inn", "Ja — det skjer jo overhodet ingen faktisk innblanding fra herrens side", "Ja — han har jo full negativ frihet slik Berlin definerer begrepet", "Bare dersom herren uttrykkelig lover å aldri gripe inn"],
       explanation: "Dominans ligger i muligheten. Friheten avhenger av herrens vilje, og det er selve avhengigheten som er ufrihet.",
     },
     {
@@ -387,12 +387,12 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva illustrerer Odyssevs ved masten?",
-      options: ["At selvpålagt, kontrollert binding ikke berøver frihet", "At absolutt all form for binding uansett er en form for ufrihet", "At staten i praksis alltid dominerer sine egne borgere", "At non-vitiation er et verre frihetstap enn dominans"],
+      options: ["At selvpålagt, kontrollert binding ikke berøver frihet", "At absolutt all form for binding uansett er en form for ufrihet", "At staten i praksis alltid dominerer sine egne borgere gjennom lov", "At non-vitiation er et verre frihetstap enn dominans"],
       explanation: "Bindingen skjer på Odyssevs' egen forhåndsordre — den er kontrollert, ikke ukontrollert innblanding.",
     },
     {
       question: "Hva er non-vitiation hos Pettit?",
-      options: ["Å faktisk ha midlene og ressursene til å utnytte friheten man har", "Frihetsinnskrenkning som skyldes ren ressurssvikt eller manglende egen evne", "Evne til ukontrollert innblanding i en annens frie valg", "Å stå under en annen persons vilkårlige makt"],
+      options: ["Å faktisk ha midlene og ressursene til å utnytte friheten man har", "Frihetsinnskrenkning som skyldes ren ressurssvikt eller manglende egen evne", "Evne til ukontrollert innblanding i en annens frie valg og handlinger", "Å stå under en annen persons vilkårlige makt"],
       explanation: "Non-vitiation er at ressursbetingelsen er oppfylt — man har midlene. Svikter den (*vitiation*: ressurssvikt), svekkes friheten, men det er et svakere frihetstap enn dominans (#7).",
     },
     {
@@ -402,7 +402,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva ville Pettit sagt om den liberale despoten?",
-      options: ["At borgerne er ufrie fordi de domineres — han *kan* gripe inn", "At de er fullt ut frie nettopp fordi han jo faktisk ikke griper inn", "At de har positiv, men ikke negativ frihet", "At hele spørsmålet i grunnen er meningsløst"],
+      options: ["At borgerne er ufrie fordi de domineres — han *kan* gripe inn", "At de er fullt ut frie nettopp fordi han jo faktisk ikke griper inn", "At de har positiv frihet, men mangler negativ frihet under despoten", "At hele spørsmålet i grunnen er meningsløst"],
       explanation: "For Pettit er borgerne dominert fordi despoten kan gripe vilkårlig inn — kontrasten til Berlins «negativt fri».",
     },
     {
@@ -417,7 +417,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken frihetstradisjon henter Pettit fram?",
-      options: ["Den republikanske (romersk-republikanske)", "Den positive selvrealiseringstradisjonen etter Rousseau", "Den liberale tradisjonen etter Berlin", "Den klassiske utilitaristiske tradisjonen"],
+      options: ["Den republikanske (romersk-republikanske)", "Den positive selvrealiseringstradisjonen etter Rousseau", "Den liberale frihetstradisjonen etter Berlin", "Den klassiske utilitaristiske tradisjonen etter Bentham"],
       explanation: "Republikansk frihet = å ikke være underlagt vilkårlig makt; kontrasterer den liberale tradisjonen (faktisk innblanding).",
     },
     {
@@ -427,7 +427,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva illustrerer barskap-nøkkelen?",
-      options: ["At innblanding på egne, endrebare vilkår er kontrollert — ingen dominans", "At absolutt all form for binding uansett alltid ender opp som en form for ufrihet", "At ren ressurssvikt i seg selv utgjør dominans", "At staten i praksis alltid dominerer borgerne"],
+      options: ["At innblanding på egne, endrebare vilkår er kontrollert — ingen dominans", "At absolutt all form for binding uansett alltid ender opp som en form for ufrihet", "At ren ressurssvikt i seg selv utgjør dominans på linje med en herres makt", "At staten i praksis alltid dominerer borgerne"],
       explanation: "Å be en venn holde nøkkelen på vilkår man selv rår over og kan endre, er kontrollert innblanding.",
     },
     {
@@ -437,12 +437,12 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken feil begår kandidaten som definerer ikke-dominans som «fravær av innblanding»?",
-      options: ["Feil #1 — mister kontroll-/dominanspoenget og faller tilbake til Berlin", "Feil #8 — refererer hele teorien på nytt igjen i selve drøftingsdelen til slutt", "Feil #4 — hopper over ett av sitatutdragene", "Ingen feil i det hele tatt her"],
+      options: ["Feil #1 — mister kontroll-/dominanspoenget og faller tilbake til Berlin", "Feil #8 — refererer hele teorien på nytt igjen i selve drøftingsdelen til slutt", "Feil #4 — hopper over ett av sitatutdragene", "Ingen feil i det hele tatt — dette er nettopp Pettits definisjon av ikke-dominans"],
       explanation: "Uten «mulig ukontrollert innblanding» mister man kjernen — det er nettopp dominansbegrepet som skiller Pettit fra Berlin.",
     },
     {
       question: "Hva er «vilkårlig makt» hos Pettit?",
-      options: ["Makt som kan utøves uten den berørtes kontroll, etter innehaverens forgodtbefinnende", "Makt som helt uunngåelig alltid ender opp med å bli utøvd på en dypt urettferdig og vilkårlig måte", "Enhver form for statlig makt betraktet som sådan", "Makt som mangler de nødvendige ressursene bak seg"],
+      options: ["Makt som kan utøves uten den berørtes kontroll, etter innehaverens forgodtbefinnende", "Makt som uunngåelig ender opp med å bli utøvd på en urettferdig måte", "Enhver form for statlig makt betraktet som sådan", "Makt som mangler de nødvendige ressursene bak seg"],
       explanation: "Å stå under vilkårlig makt er ufrihet selv om makten aldri brukes — kjernen i dominans.",
     },
     {
@@ -452,12 +452,12 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "«Deres frihet er en gave han kan ta tilbake» — hva uttrykker dette?",
-      options: ["At avhengigheten av herskerens vilje selv er ufrihet", "At faktisk innblanding alltid er helt nødvendig for at ufrihet skal oppstå", "At despoten egentlig er en god og velvillig hersker", "At non-vitiation i grunnen er det samme som dominans"],
+      options: ["At avhengigheten av herskerens vilje selv er ufrihet", "At faktisk innblanding alltid er helt nødvendig for at ufrihet skal oppstå", "At despoten egentlig er en god og velvillig hersker mot sine borgere", "At non-vitiation i grunnen er det samme som dominans"],
       explanation: "Bildet bærer det sentrale poenget: dominans er mulighet, ikke faktisk innblanding.",
     },
     {
       question: "Kan man dominere noen uten noensinne å utøve tvang?",
-      options: ["Ja — evnen og muligheten til ukontrollert innblanding er nok", "Nei — dominans forutsetter alltid at det faktisk blir utøvd tvang", "Bare dersom offeret selv er klar over at det skjer", "Bare i teorien, men aldri i praksis noen gang"],
+      options: ["Ja — evnen og muligheten til ukontrollert innblanding er nok", "Nei — dominans forutsetter alltid at det faktisk blir utøvd tvang", "Bare dersom offeret selv er klar over at innblandingen finner sted", "Bare i teorien, men aldri i noe praktisk tilfelle av dominans"],
       explanation: "Dette er kjerneinnsikten Berlins negative frihet ikke registrerer: dominans uten faktisk tvang.",
     },
     {
@@ -467,7 +467,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva gjelder ressurskomponentene (non-vitiation)?",
-      options: ["Midler og evne til å *utnytte* friheten man har", "Selve muligheten for ukontrollert innblanding fra andre", "Statens positive plikt til aktivt å gripe inn", "Fravær av absolutt all form for lovgivning"],
+      options: ["Midler og evne til å *utnytte* friheten man har", "Selve muligheten for ukontrollert innblanding fra andre", "Statens positive plikt til aktivt å gripe inn i markedet", "Fravær av absolutt all form for lovgivning og styring"],
       explanation: "Ressurskomponentene handler om å kunne bruke friheten; svikt her er vitiation (ressurssvikt), ikke dominans — non-vitiation er at midlene er i behold.",
     },
     {
@@ -482,12 +482,12 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilket subtilt poeng løfter et Pettit-svar til A i tillegg til dominans-kjernen?",
-      options: ["At (a)/(b) veier tyngre enn (c)/(d), og at ikke-dominans er mer enn fravær av faktisk innblanding", "At non-vitiation (ressurskomponenten) alltid veier atskillig tyngre enn selve dominanskomponenten hos Pettit", "At Pettit i praksis avviser absolutt all frihet", "At staten helt uunngåelig alltid dominerer borgerne"],
+      options: ["At (a)/(b) veier tyngre enn (c)/(d), og at ikke-dominans er mer enn fravær av faktisk innblanding", "At non-vitiation (ressurskomponenten) veier tyngre enn dominanskomponenten hos Pettit", "At Pettit i praksis avviser absolutt all frihet", "At staten helt uunngåelig alltid dominerer borgerne"],
       explanation: "Rangeringen av komponentene og «mer enn faktisk innblanding» er A-markørene (H2022).",
     },
     {
       question: "Hva er Odyssevs' binding et eksempel på i motsetning til en herres vilkårlige binding?",
-      options: ["Kontrollert innblanding (satt på egen forhåndsordre) vs. ukontrollert (dominans)", "Faktisk innblanding kontra bare mulig innblanding, helt uten noen relevant forskjell mellom dem", "Non-vitiation kontra ren dominans hos Pettit", "Negativ frihet kontra positiv frihet hos Berlin"],
+      options: ["Kontrollert innblanding (satt på egen forhåndsordre) vs. ukontrollert (dominans)", "Faktisk innblanding kontra mulig innblanding, uten relevant forskjell", "Non-vitiation kontra ren dominans hos Pettit", "Negativ frihet kontra positiv frihet hos Berlin"],
       explanation: "Det er *kontrollen* (egen forhåndsordre) som gjør bindingen fri fra dominans; en herres vilkårlige binding ville vært ukontrollert.",
     },
   ],
@@ -519,7 +519,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva fjerner dominansen i velferdsspørsmålet ifølge Pettit?",
-      options: ["Å sikre det nødvendige som en rettighet man kan kreve", "Å øke omfanget av den private veldedigheten kraftig og varig", "Å avskaffe absolutt all form for statlig hjelp", "Å gjøre all hjelpen frivillig og behovsprøvd"],
+      options: ["Å sikre det nødvendige som en rettighet man kan kreve", "Å øke omfanget av den private veldedigheten kraftig og varig", "Å avskaffe absolutt all form for statlig hjelp til trengende", "Å gjøre all hjelpen frivillig og behovsprøvd"],
       explanation: "Velferd som *rett* (ikke tigg) fjerner avhengigheten av en annens vilje.",
     },
     {
@@ -534,12 +534,12 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En arbeidsgiver kan si opp ansatte vilkårlig, men gjør det sjelden. Domineres de ansatte?",
-      options: ["Ja — de lever på arbeidsgiverens nåde; muligheten er dominans", "Nei — dette skjer jo tross alt bare svært sjelden i praksis uansett", "Nei — et arbeidsforhold er jo alltid fullstendig frivillig", "Bare dersom noen faktisk ender opp med å bli sagt opp"],
+      options: ["Ja — de lever på arbeidsgiverens nåde; muligheten er dominans", "Nei — dette skjer jo tross alt bare svært sjelden i praksis uansett", "Nei — et arbeidsforhold er jo alltid inngått fullstendig frivillig", "Bare dersom noen faktisk ender opp med å bli sagt opp"],
       explanation: "Dominans ligger i muligheten for vilkårlig makt; stillingsvern fjerner den.",
     },
     {
       question: "Hvilken feil begår kandidaten som behandler Pettit-kontroll som rent samtykke?",
-      options: ["Feil #1 — mister «kan trekkes tilbake»-poenget", "Feil #2 — brer seg ut i altfor mye lavrelevant utenomsnakk", "Feil #4 — hopper over ett av sitatutdragene", "Ingen feil i det hele tatt her"],
+      options: ["Feil #1 — mister «kan trekkes tilbake»-poenget", "Feil #2 — brer seg ut i altfor mye lavrelevant utenomsnakk", "Feil #4 — hopper over ett av sitatutdragene i settet", "Ingen feil — samtykke er nettopp det Pettit krever"],
       explanation: "Kontroll er en løpende, tilbaketrekkbar bemyndigelse, ikke et engangs-ja — kjernen i statskapitlet.",
     },
     {
@@ -554,12 +554,12 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er formelen for skillet velferd/veldedighet hos Pettit?",
-      options: ["Velferd kan *kreves* (rett); veldedighet må *tigges* om (gave)", "Velferden er alltid privat, mens veldedigheten alltid er offentlig", "De to begrepene er egentlig bare to ord for det samme", "Det er veldedigheten som gir aller mest frihet"],
+      options: ["Velferd kan *kreves* (rett); veldedighet må *tigges* om (gave)", "Velferden er alltid privat, mens veldedigheten alltid er offentlig", "De to begrepene er egentlig bare to ulike ord for én og samme ordning", "Det er veldedigheten som gir aller mest frihet"],
       explanation: "Bare det man kan kreve som rett fjerner avhengigheten av en annens vilje.",
     },
     {
       question: "Hvilken struktur deler veldedighetens ufrihet med et tidligere eksempel?",
-      options: ["Slaven med den snille herren — avhengighet av en annens vilje", "Odyssevs bundet til masten — et klart tilfelle av kontrollert binding", "Den liberale despoten som gir stor personlig frihet", "Barskap-nøkkelen holdt av en venn på egne vilkår"],
+      options: ["Slaven med den snille herren — avhengighet av en annens vilje", "Odyssevs bundet til masten — et klart tilfelle av kontrollert binding", "Den liberale despoten som gir sine borgere stor personlig frihet", "Barskap-nøkkelen holdt av en venn på egne vilkår"],
       explanation: "I begge tilfeller er ufriheten avhengigheten (mulig tilbaketrekking), ikke faktisk innblanding.",
     },
     {
@@ -569,49 +569,49 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva følger av ikke-dominans for velferdsstaten?",
-      options: ["At det nødvendige bør sikres som rett, ikke overlates til veldedighet", "At absolutt all velferd i stedet fullstendig bør overlates til det private markedet", "At staten helst ikke bør gi borgerne noe som helst", "At privat veldedighet alene er fullt ut tilstrekkelig"],
+      options: ["At det nødvendige bør sikres som rett, ikke overlates til veldedighet", "At all velferd i stedet bør overlates til det private markedet", "At staten helst ikke bør gi borgerne noe som helst", "At privat veldedighet alene er fullt ut tilstrekkelig"],
       explanation: "Rettighet fjerner dominans; veldedighet gjør mottakeren avhengig/dominert.",
     },
     {
       question: "Hva er A-markøren i en oppgave om Pettits statsteori?",
-      options: ["Å få frem at bemyndigelsen kan trekkes tilbake (kontroll > samtykke)", "Å konkludere skråsikkert med at hele staten egentlig er fullstendig unødvendig", "Å ramse opp så mange tenkere som mulig", "Å skrive et så langt svar som overhodet mulig"],
+      options: ["Å få frem at bemyndigelsen kan trekkes tilbake (kontroll > samtykke)", "Å konkludere skråsikkert med at staten egentlig er unødvendig", "Å ramse opp så mange tenkere som mulig", "Å skrive et så langt svar som overhodet mulig"],
       explanation: "Veiledningene flagger «kan trekkes tilbake» som «veldig bra» — det subtile poenget som løfter svaret.",
     },
     {
       question: "Hva slags innblanding er statlig regulering under borgerkontroll?",
-      options: ["Kontrollert innblanding — den berøver ikke frihet", "Faktisk tvang, som per definisjon alltid ender som ufrihet", "Ukontrollert innblanding, altså ren dominans", "Non-vitiation, altså svikt i selve ressursene"],
+      options: ["Kontrollert innblanding — den berøver ikke frihet", "Faktisk tvang, som per definisjon alltid ender som ufrihet", "Ukontrollert innblanding, altså ren dominans fra statens side", "Non-vitiation, altså svikt i den enkeltes egne ressurser"],
       explanation: "Statlig makt borgerne kontrollerer er kontrollert innblanding (jf. kap. 1.2), forenlig med frihet.",
     },
     {
       question: "Hvilken sjanger passer oppgaven «Hva ville Pettit sagt om privat veldedighet?»",
-      options: ["ANV — bruk dominansbegrepet på den konkrete situasjonen", "RED — en helt ren og generell redegjørelse for hele teorien", "SAM — en sammenligning av to ulike tenkere", "SIT — å tolke et enkelt sitatutdrag"],
+      options: ["ANV — bruk dominansbegrepet på den konkrete situasjonen", "RED — en helt ren og generell redegjørelse for hele teorien", "SAM — en sammenligning av Pettit med en annen frihetstenker", "SIT — å tolke et enkelt sitatutdrag fra Pettits egen tekst"],
       explanation: "ANV krever at man *bruker* teorien på caset (veldedighet = dominans), ikke bare gjengir den.",
     },
     {
       question: "Hva binder Pettits statsteori til Del 2 (Rawls/Locke)?",
-      options: ["Kontrasten mellom løpende borgerkontroll og ren kontraktteori (samtykke)", "Selve grunnspørsmålet om negativ kontra positiv frihet slik Berlin stiller det", "Machiavellis realpolitiske syn på makt", "Nussbaums teori om menneskelige kapabiliteter"],
+      options: ["Kontrasten mellom løpende borgerkontroll og ren kontraktteori (samtykke)", "Selve grunnspørsmålet om negativ kontra positiv frihet slik Berlin stiller det", "Machiavellis realpolitiske syn på makt", "Nussbaums teori om menneskelige kapabiliteter og terskelen for et verdig liv"],
       explanation: "Pettits «kontroll > samtykke» kontrasteres med Rawls' hypotetiske kontrakt og Lockes samtykke.",
     },
     {
       question: "Hvorfor er Pettits stat ikke en ren kontraktteori?",
-      options: ["Fordi legitimiteten ligger i maktens løpende kontrollerbarhet, ikke i opprinnelig samtykke", "Fordi den bygger fullstendig og utelukkende på den ukrenkelige private eiendomsretten som eneste grunnlag", "Fordi den avviser og forkaster absolutt all statlig makt", "Fordi den ikke tillater borgerne noen rettigheter i det hele tatt"],
+      options: ["Fordi legitimiteten ligger i maktens løpende kontrollerbarhet, ikke i opprinnelig samtykke", "Fordi den bygger utelukkende på den ukrenkelige private eiendomsretten", "Fordi den avviser og forkaster absolutt all statlig makt", "Fordi den ikke tillater borgerne noen rettigheter i det hele tatt"],
       explanation: "Tyngdepunktet forskyves fra opprinnelig samtykke til vedvarende, tilbaketrekkbar kontroll.",
     },
     {
       question: "Hva er den kontraintuitive innsikten om veldedighet hos Pettit?",
-      options: ["At veldedighet ikke bare er et gode, men kan være frihetsberøvende", "At veldedighet i praksis alltid er klart å foretrekke framfor rettigheter", "At staten aldri noen gang bør hjelpe borgerne", "At det er mottakeren som ender opp med å dominere giveren"],
+      options: ["At veldedighet ikke bare er et gode, men kan være frihetsberøvende", "At veldedighet i praksis alltid er klart å foretrekke framfor rettigheter", "At staten aldri noen gang bør hjelpe borgerne", "At det er mottakeren av gaven som til slutt ender opp med å dominere giveren"],
       explanation: "Å motta på giverens nåde gjør mottakeren avhengig/dominert — mot intuisjonen om veldedighet som udelt godt.",
     },
   ],
   'stv1100-1-prove': [
     {
       question: "Negativ frihet er fravær av hva?",
-      options: ["Hindring påført av andre mennesker", "Enhver hindring, også de rent naturlige", "Alle ønsker man ikke får oppfylt", "All statlig velferd og omfordeling"],
+      options: ["Hindring påført av andre mennesker", "Enhver hindring, også de rent naturlige", "Alle ønsker man ikke får oppfylt", "All statlig velferd og økonomisk omfordeling"],
       explanation: "Kjernen er hindring påført av andre mennesker (ofte skjerpet Hayek-nært til *forsettlig* innblanding) — ikke enhver hindring.",
     },
     {
       question: "Hvilket begrep eier Berlin?",
-      options: ["Negativ og positiv frihet", "Permanent løpende borgerkontroll", "Begrepet ikke-dominans", "Begrepet non-vitiation"],
+      options: ["Negativ og positiv frihet", "Permanent løpende borgerkontroll", "Begrepet ikke-dominans som frihet", "Begrepet non-vitiation"],
       explanation: "Berlin: to frihetsbegreper. Ikke-dominans/non-vitiation/borgerkontroll er Pettit.",
     },
     {
@@ -636,22 +636,22 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er dominans hos Pettit?",
-      options: ["Evne til innblanding uten den andres kontroll", "All statlig lovgivning betraktet som sådan i seg selv", "Faktisk innblanding i noens frie valg", "Ren ressurssvikt hos den enkelte borger"],
+      options: ["Evne til innblanding uten den andres kontroll", "All statlig lovgivning betraktet som sådan i seg selv", "Faktisk innblanding i en annens frie valg og handlinger", "Ren ressurssvikt hos den enkelte borger"],
       explanation: "Dominans = mulighet for ukontrollert innblanding; selve muligheten er ufrihet.",
     },
     {
       question: "Er slaven med en snill herre fri ifølge Pettit?",
-      options: ["Nei — han domineres fordi herren *kan* gripe inn", "Ja — han har jo full negativ frihet i Berlins forstand", "Ja — det er jo ingen faktisk innblanding", "Nei — han er bare positivt ufri her"],
+      options: ["Nei — han domineres fordi herren *kan* gripe inn", "Ja — han har jo full negativ frihet i Berlins forstand", "Ja — det skjer jo ingen faktisk innblanding fra herren", "Nei — han er bare positivt ufri her"],
       explanation: "Friheten avhenger av herrens vilje; avhengigheten selv er ufrihet.",
     },
     {
       question: "Hva berøver kontrollert innblanding?",
-      options: ["Ingenting — den reduserer ikke friheten", "Absolutt all frihet, i alle tilfeller alltid", "Kun den positive friheten hos Berlin", "Non-vitiation, altså selve ressursene"],
+      options: ["Ingenting — den reduserer ikke friheten", "Absolutt all frihet, i alle tilfeller alltid", "Kun den positive friheten slik Berlin definerer den", "Non-vitiation, altså den enkeltes egne ressurser"],
       explanation: "Kontrollert innblanding (Odyssevs, lov under borgerkontroll) er forenlig med frihet hos Pettit.",
     },
     {
       question: "Hva er non-vitiation?",
-      options: ["Å ha midlene og ressursene til å bruke friheten man har", "Frihetsinnskrenkning som følge av ren ressurssvikt eller manglende egen evne", "Selve evnen til ukontrollert innblanding", "I praksis akkurat det samme som dominans"],
+      options: ["Å ha midlene og ressursene til å bruke friheten man har", "Frihetsinnskrenkning som følge av ren ressurssvikt", "Selve evnen til ukontrollert innblanding", "I praksis akkurat det samme som dominans"],
       explanation: "Non-vitiation er at midlene er i behold; svikt (vitiation: ressurssvikt) er et svakere frihetstap enn dominans — ikke bland dem (#7).",
     },
     {
@@ -661,27 +661,27 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva viser den liberale despoten?",
-      options: ["At negativ frihet kan finnes uten selvstyre", "At den positive friheten alltid følger den negative", "At all frihet i bunn og grunn er positiv", "At enhver form for tvang alltid gir ufrihet"],
+      options: ["At negativ frihet kan finnes uten selvstyre", "At den positive friheten alltid følger den negative", "At all frihet i bunn og grunn er positiv frihet", "At enhver form for tvang alltid gir positiv ufrihet"],
       explanation: "Despoten gir personlig frihet uten selvstyre — negativ og positiv frihet er uavhengige.",
     },
     {
       question: "Hva illustrerer Odyssevs ved masten?",
-      options: ["Kontrollert binding som ikke berøver frihet", "At absolutt all form for binding uansett er ufrihet", "Ren statlig dominans over borgerne", "Non-vitiation, altså ressursene i behold"],
+      options: ["Kontrollert binding som ikke berøver frihet", "At absolutt all form for binding uansett er ufrihet", "Ren statlig dominans utøvd over sine egne borgere", "Non-vitiation, altså ressursene i behold"],
       explanation: "Bindingen skjer på egen forhåndsordre — kontrollert innblanding.",
     },
     {
       question: "Hva svarer Berlin og Pettit på despot-caset?",
-      options: ["Berlin: negativt fri. Pettit: ufri (dominert)", "Berlin sier ufri, mens Pettit tvert imot sier fri", "Begge to sier at borgerne er frie", "Begge to sier at borgerne er ufrie"],
+      options: ["Berlin: negativt fri. Pettit: ufri (dominert)", "Berlin sier ufri, mens Pettit tvert imot sier fri", "Begge to sier at borgerne under despoten er frie", "Begge to sier at borgerne under despoten er ufrie"],
       explanation: "Despoten er testcaset der ikke-dominans skiller seg fra negativ frihet.",
     },
     {
       question: "Hva er kjernedimensjonen i sammenligningen Berlin vs. Pettit?",
-      options: ["Faktisk innblanding (Berlin) vs. mulig ukontrollert innblanding (Pettit)", "Positiv frihet kontra negativ frihet, slik det angivelig gjelder hos begge to", "Rikdom kontra fattigdom i samfunnet", "Forholdet mellom staten og individet"],
+      options: ["Faktisk innblanding (Berlin) vs. mulig ukontrollert innblanding (Pettit)", "Positiv frihet kontra negativ frihet, slik det gjelder hos begge to", "Rikdom kontra fattigdom i samfunnet", "Forholdet mellom staten og individet"],
       explanation: "Berlin måler faktisk innblanding; Pettit muligheten for ukontrollert innblanding.",
     },
     {
       question: "Hva er statens hovedoppgave ifølge Pettit?",
-      options: ["Å beskytte borgerne mot dominans", "Å avstå fra absolutt all innblanding", "Å maksimere den samlede lykken", "Å sikre en absolutt eiendomsrett"],
+      options: ["Å beskytte borgerne mot dominans", "Å avstå fra absolutt all innblanding", "Å maksimere den samlede lykken i samfunnet", "Å sikre en absolutt privat eiendomsrett"],
       explanation: "Pettits stat fjerner aktivt dominans, mer enn den liberale staten.",
     },
     {
@@ -691,7 +691,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor kan privat veldedighet gjøre mottakeren ufri?",
-      options: ["Mottakeren avhenger av giverens nåde, som kan trekkes tilbake", "Fordi den private veldedigheten nesten alltid er altfor liten uansett", "Fordi staten uttrykkelig forbyr all veldedighet", "Fordi det er giveren selv som blir dominert"],
+      options: ["Mottakeren avhenger av giverens nåde, som kan trekkes tilbake", "Fordi den private veldedigheten nesten alltid er altfor liten uansett", "Fordi staten uttrykkelig forbyr enhver form for privat veldedighet", "Fordi det er giveren selv som blir dominert"],
       explanation: "Samme dominansstruktur som slaven med snill herre — avhengighet av en annens vilje.",
     },
     {
@@ -706,17 +706,17 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken feil er det å definere negativ frihet som «fravær av enhver hindring»?",
-      options: ["Feil #1/#7 — mister grunnskillet «andres hindring vs. manglende egen evne»", "Feil #3 — en helt unødig og altfor bred innledning helt i starten av besvarelsen", "Feil #6 — besvarer bare halvparten av settet", "Ingen feil i det hele tatt her"],
+      options: ["Feil #1/#7 — mister grunnskillet «andres hindring vs. manglende egen evne»", "Feil #3 — en helt unødig og altfor bred innledning helt i starten av besvarelsen", "Feil #6 — besvarer bare halvparten av settet", "Ingen feil i det hele tatt — dette er nettopp Berlins egen definisjon av negativ frihet"],
       explanation: "Da viskes grunnskillet ut, og også manglende evne teller som ufrihet — kjernefeilen.",
     },
     {
       question: "Hvilken feil er det å gjengi Pettit uten dominans-/kontrollpoenget?",
-      options: ["Feil #1 — miste det sentrale poenget", "Feil #8 — å referere teorien på nytt i selve drøftingsdelen", "Feil #4 — hoppe over ett av utdragene", "Ingen feil her"],
+      options: ["Feil #1 — miste det sentrale poenget", "Feil #8 — å referere teorien på nytt i selve drøftingsdelen", "Feil #4 — hoppe over ett av utdragene", "Ingen feil — Pettit kan gjengis uten dominansbegrepet"],
       explanation: "Uten «mulig ukontrollert innblanding» faller Pettit tilbake til Berlin.",
     },
     {
       question: "Hvilken feil er det å blande ikke-dominans og non-vitiation?",
-      options: ["Feil #7 — upresise begreper", "Feil #3 — unødig innledning", "Feil #9 — overse anvendelsen", "Ingen feil"],
+      options: ["Feil #7 — upresise begreper", "Feil #3 — unødig innledning", "Feil #9 — overse anvendelsen", "Ingen feil — begrepene er synonymer"],
       explanation: "Dominans (vilkårlig makt) og non-vitiation (å ha ressursene i behold; svikt = vitiation) er ulike kategorier.",
     },
     {
@@ -741,7 +741,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva krever SIT-regelen i frihetsoppgavene?",
-      options: ["At *hvert* utdrag parafraseres, får funksjon og plasseres i argumentet", "At man plukker ut ett enkelt utdrag og hopper fullstendig over alle de andre", "At man bare oversetter alt ordrett linje for linje", "At man helt ignorerer funksjonen til utdraget"],
+      options: ["At *hvert* utdrag parafraseres, får funksjon og plasseres i argumentet", "At man plukker ut ett enkelt utdrag og hopper over alle de andre", "At man bare oversetter alt ordrett linje for linje", "At man helt ignorerer funksjonen til utdraget"],
       explanation: "Å hoppe over utdrag (#4) eller parafrasere løsrevet (#5) svekker svaret.",
     },
     {
@@ -758,7 +758,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
   'stv1100-2-1': [
     {
       question: "Hva mener Rawls med «rettferdighet som rimelighet» (justice as fairness)?",
-      options: ["At rettferdige prinsipper er de som ville blitt valgt i en rimelig anlagt valgsituasjon", "At alle borgere skal få nøyaktig og eksakt like store andeler av alle samfunnets goder og byrder", "At rettferdighet består i lojalt å følge samfunnets faktiske gjeldende lover", "At det er den sterkestes interesser som til slutt bør avgjøre fordelingen"],
+      options: ["At rettferdige prinsipper er de som ville blitt valgt i en rimelig anlagt valgsituasjon", "At alle borgere skal få nøyaktig og eksakt like store andeler av alle samfunnets goder og byrder", "At rettferdighet består i lojalt å følge de lovene og sedvanene som allerede gjelder i samfunnet", "At det er den sterkestes interesser som til slutt bør avgjøre fordelingen"],
       explanation: "Rimeligheten ligger i valgsituasjonen (utgangsposisjonen), ikke i at utfallet er likt. Rawls tillater faktisk ulikhet, jf. forskjellsprinsippet.",
     },
     {
@@ -768,7 +768,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er uvitenhetssløret (veil of ignorance)?",
-      options: ["At partene velger prinsipper uten å vite sin egen klasse, sine evner eller sitt livssyn", "At politikerne bevisst skjuler sine egentlige motiver og hensikter for de intetanende velgerne", "At borgerne generelt mangler kunnskap om samfunnsforhold og økonomi", "At man ikke får vite utfallet av selve valget før lenge etterpå"],
+      options: ["At partene velger prinsipper uten å vite sin egen klasse, sine evner eller sitt livssyn", "At politikerne bevisst skjuler sine egentlige motiver og hensikter for de intetanende velgerne", "At borgerne flest mangler den nødvendige kunnskapen om samfunnsforhold, økonomi og politikk", "At man ikke får vite utfallet av selve valget før lenge etterpå"],
       explanation: "Sløret skjuler partikulær kunnskap om egen posisjon; generell samfunnskunnskap beholdes.",
     },
     {
@@ -778,12 +778,12 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er «trussel-fordel» (threat advantage) hos Rawls?",
-      options: ["Forhandlingsmakt fra tilfeldige fortrinn som styrke, rikdom eller talent", "En uttrykkelig trussel om å bruke vold dersom de foreslåtte prinsippene ikke blir godtatt", "Selve fordelen ved å kjenne det endelige utfallet på forhånd", "Retten til å true seg til flere goder også etter at valget er tatt"],
+      options: ["Forhandlingsmakt fra tilfeldige fortrinn som styrke, rikdom eller talent", "En uttrykkelig trussel om vold dersom prinsippene ikke godtas", "Selve fordelen ved å kjenne det endelige utfallet på forhånd", "Retten til å true seg til flere goder også etter at valget er tatt"],
       explanation: "Sløret nøytraliserer trussel-fordelen fordi ingen vet om de er sterke eller svake.",
     },
     {
       question: "Hvordan behandler uvitenhetssløret trussel-fordelen?",
-      options: ["Det nøytraliserer den, siden ingen vet om de har et fortrinn å presse med", "Det forsterker den tvert imot kraftig for de aller mest talentfulle og ressurssterke partene", "Det overlater den i sin helhet til en ren flertallsavgjørelse", "Det ser helt bort fra den fordi den uansett er irrelevant"],
+      options: ["Det nøytraliserer den, siden ingen vet om de har et fortrinn å presse med", "Det forsterker den tvert imot for de mest ressurssterke partene", "Det overlater den i sin helhet til en ren flertallsavgjørelse", "Det ser helt bort fra den fordi den uansett er irrelevant"],
       explanation: "Tilfeldige fortrinn settes ut av spill; de er moralsk vilkårlige og bør ikke bestemme fordelingen.",
     },
     {
@@ -803,12 +803,12 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen på uvitenhetssløret og maximin-regelen?",
-      options: ["Sløret er en informasjonsbetingelse; maximin er en beslutningsregel", "Sløret er selv en ren beslutningsregel, mens maximin bare er en informasjonsbetingelse", "De er egentlig bare to ulike navn på nøyaktig det samme prinsippet", "Sløret gjelder hos Locke, mens maximin gjelder hos Rawls"],
+      options: ["Sløret er en informasjonsbetingelse; maximin er en beslutningsregel", "Sløret er beslutningsregelen, maximin informasjonsbetingelsen", "De er egentlig bare to ulike navn på nøyaktig det samme prinsippet", "Sløret gjelder hos Locke, mens maximin gjelder hos Rawls"],
       explanation: "Å blande dem — «sløret sier man skal sikre seg mot det verste» — er en typisk presisjonsfeil (#7).",
     },
     {
       question: "Hva er «refleksiv likevekt» hos Rawls?",
-      options: ["Tilstanden der prinsippene og våre veloverveide overbevisninger er brakt i samsvar", "Selve maktbalansen og likevekten mellom statens tre ulike grunnlovsfestede statsmakter", "En avtale som revideres nærmest refleksmessig ved hvert eneste valg", "Selve likevekten mellom tilbud og etterspørsel i det frie markedet"],
+      options: ["Tilstanden der prinsippene og våre veloverveide overbevisninger er brakt i samsvar", "Selve maktbalansen og likevekten mellom statens tre ulike grunnlovsfestede statsmakter", "En avtale som nærmest refleksmessig revideres på nytt ved hvert eneste stortingsvalg", "Selve likevekten mellom tilbud og etterspørsel i det frie markedet"],
       explanation: "Vi justerer prinsipper og intuisjoner mot hverandre til de konvergerer — Rawls' rettferdiggjøringsmetode.",
     },
     {
@@ -823,17 +823,17 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva vet partene bak uvitenhetssløret?",
-      options: ["Generelle forhold om samfunn, økonomi og psykologi, men ikke sin egen plass i dem", "Absolutt ingenting som helst om noe som helst, verken om verden generelt eller om seg selv", "Alt om seg selv og egen posisjon, men ingenting om samfunnet ellers", "Kun den nøyaktige sannsynligheten for å bli enten rik eller fattig"],
+      options: ["Generelle forhold om samfunn, økonomi og psykologi, men ikke sin egen plass i dem", "Absolutt ingenting som helst om noe som helst, verken om verden generelt eller om seg selv", "Alt om seg selv og sin egen posisjon, men ingenting om samfunnet de senere skal leve i", "Kun den nøyaktige sannsynligheten for å bli enten rik eller fattig"],
       explanation: "Uten generell kunnskap kunne partene ikke vurdert konsekvensene av ulike prinsipper.",
     },
     {
       question: "Hva menes med at fortrinn som klasse og talent er «moralsk vilkårlige»?",
-      options: ["At man ikke har fortjent dem — de skyldes det sosiale og naturlige lotteriet", "At de er fullstendig tilfeldige og derfor er helt uten noen som helst betydning for livet", "At det rett og slett er dypt umoralsk i seg selv å ha dem", "At de fritt kan velges bort igjen etter eget ønske og behag"],
+      options: ["At man ikke har fortjent dem — de skyldes det sosiale og naturlige lotteriet", "At de er fullstendig tilfeldige og derfor er helt uten noen som helst betydning for livet", "At det rett og slett er dypt umoralsk i seg selv å ha dem", "At de fritt kan velges bort igjen etter eget ønske og behag når som helst i livet"],
       explanation: "Fordi de er ufortjente, mener Rawls de ikke bør bestemme fordelingen; derfor skjuler sløret dem.",
     },
     {
       question: "Hvilken del av uvitenhetssløret er teoretisk vanskeligst å forsvare?",
-      options: ["At partene ikke kjenner sitt eget livssyn / sin oppfatning av det gode", "At partene ikke kjenner sin egen sosiale klasse eller familiebakgrunn i samfunnet", "At partene ikke kjenner sin egen formue eller inntekt", "At partene ikke kjenner sin egen rase eller etnisitet"],
+      options: ["At partene ikke kjenner sitt eget livssyn / sin oppfatning av det gode", "At partene ikke kjenner sin egen sosiale klasse eller familiebakgrunn i samfunnet", "At partene ikke kjenner sin egen formue, inntekt eller yrkesstilling i samfunnet", "At partene ikke kjenner sin egen rase, etnisitet eller nasjonale tilhørighet"],
       explanation: "Å velge fornuftig uten å vite hva man verdsetter er krevende — dette er det subtile A-poenget.",
     },
     {
@@ -848,12 +848,12 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner en løsrevet parafrase (feil #5) i en sitattolkning?",
-      options: ["At utdraget oversettes linje for linje uten at funksjonen og plassen i argumentet angis", "At utdraget plasseres helt presist og korrekt inn i argumentets store og overordnede helhet", "At man tydelig identifiserer om det er et premiss eller en konklusjon", "At man aktivt kobler utdraget sammen med alle de andre utdragene"],
+      options: ["At utdraget oversettes linje for linje uten at funksjonen og plassen i argumentet angis", "At utdraget plasseres helt presist og korrekt inn i argumentets store og overordnede helhet", "At man tydelig identifiserer om utdraget er et premiss eller en konklusjon i selve argumentet", "At man aktivt kobler utdraget sammen med alle de andre utdragene"],
       explanation: "God SIT: parafraser → identifiser funksjon → plasser i helheten. Bare parafrase er ikke nok.",
     },
     {
       question: "Et Rawls-utdrag som definerer sløret («ingen kjenner sin plass...») har hvilken funksjon?",
-      options: ["Premiss — det er betingelsen som sikrer upartiskhet", "Konklusjon — det er selve rettferdighetsprinsippet", "Illustrasjon — et konkret eksempel uten teoretisk vekt", "Innvending — en kritikk av teorien"],
+      options: ["Premiss — det er betingelsen som sikrer upartiskhet", "Konklusjon — det er selve rettferdighetsprinsippet Rawls ender på", "Illustrasjon — et konkret eksempel uten teoretisk vekt", "Innvending — en kritikk rettet mot Rawls' egen konstruksjon"],
       explanation: "Å navngi funksjonen (premiss) er det som skiller en plassert tolkning fra en løsrevet parafrase.",
     },
     {
@@ -863,7 +863,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan svarer Rawls på innvendingen om at et hypotetisk valg ikke kan forplikte oss?",
-      options: ["Ved at det bindende ikke kommer fra samtykke, men fra at valgbetingelsene er rimelige", "Ved å hevde at selve kontrakten faktisk og historisk ble inngått på et helt bestemt tidspunkt", "Ved å påpeke at det store flertallet har godtatt den i praksis", "Ved rett og slett å innrømme at teorien ikke forplikter noen som helst"],
+      options: ["Ved at det bindende ikke kommer fra samtykke, men fra at valgbetingelsene er rimelige", "Ved å hevde at selve kontrakten faktisk og historisk ble inngått på et helt bestemt tidspunkt", "Ved å påpeke at det store flertallet har godtatt den i praksis", "Ved rett og slett å innrømme at teorien ikke forplikter noen som helst i det virkelige liv"],
       explanation: "Konstruksjonen modellerer upartiskhet; godtar man betingelsene, godtar man resultatet.",
     },
     {
@@ -873,17 +873,17 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er sammenhengen mellom uvitenhetssløret og maximin-regelen?",
-      options: ["Sløret skaper den radikale usikkerheten som gjør maximin til den rasjonelle regelen", "Det er tvert imot maximin-regelen selv som skaper og frembringer hele uvitenhetssløret", "De er helt uavhengige av hverandre og uten noen forbindelse", "Selve sløret opphever og setter til side maximin-regelen"],
+      options: ["Sløret skaper den radikale usikkerheten som gjør maximin til den rasjonelle regelen", "Det er tvert imot maximin-regelen selv som skaper og frembringer hele uvitenhetssløret", "De er helt uavhengige av hverandre og har ingen innbyrdes forbindelse i Rawls' egen teori", "Selve sløret opphever og setter til side maximin-regelen"],
       explanation: "Sløret er årsaken (radikal usikkerhet), maximin er den rasjonelle responsen.",
     },
     {
       question: "Hvilken utdragsfunksjon har et utdrag om at «tilfeldigheter som gir forhandlingsstyrke er satt ut av spill»?",
-      options: ["Virkning av premisset — det viser hva sløret fører til (upartiskhet)", "Et rent premiss som selv definerer og fastlegger hva uvitenhetssløret er", "En beslutningsregel som direkte angir selve maximin-regelen", "En test som sjekker teorien mot våre veloverveide intuisjoner"],
+      options: ["Virkning av premisset — det viser hva sløret fører til (upartiskhet)", "Et rent premiss som selv definerer og fastlegger hva uvitenhetssløret er", "En beslutningsregel som direkte angir og begrunner selve maximin-regelen", "En test som sjekker prinsippene mot våre veloverveide moralske intuisjoner"],
       explanation: "Utdraget kobler informasjonsbetingelsen til at trussel-fordelen faller bort.",
     },
     {
       question: "Hva kjennetegner et E-nivå-svar om Rawls?",
-      options: ["Det mister utgangsposisjonen/sløret, blander sløret og maximin, og brer seg ut i utenomsnakk", "Det treffer selve kjernen helt presist og tilføyer i tillegg minst ett subtilt og løftende ekstrapoeng", "Det plasserer hvert eneste utdrag presist i argumentets helhet", "Det gir en helt korrekt, men samtidig ganske flat gjengivelse"],
+      options: ["Det mister utgangsposisjonen/sløret, blander sløret og maximin, og brer seg ut i utenomsnakk", "Det treffer kjernen presist og tilføyer minst ett subtilt ekstrapoeng", "Det plasserer hvert eneste utdrag presist i argumentets helhet", "Det gir en helt korrekt, men samtidig ganske flat gjengivelse"],
       explanation: "Et korrekt, men flatt svar er C; A tilføyer det subtile ekstra. E mister kjernen.",
     },
     {
@@ -893,12 +893,12 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor skjuler sløret partenes livssyn?",
-      options: ["For at prinsippene skal bli nøytrale mellom ulike oppfatninger av det gode liv", "For at selve prinsippvalget skal gjøre alle partene betydelig mer usikre og engstelige", "Fordi livssynet uansett er helt irrelevant for spørsmålet om rettferdighet", "For at nettopp de religiøse partene skal få et lite fortrinn"],
+      options: ["For at prinsippene skal bli nøytrale mellom ulike oppfatninger av det gode liv", "For at selve prinsippvalget skal gjøre alle partene betydelig mer usikre og engstelige", "Fordi livssynet uansett er helt irrelevant for selve spørsmålet om rettferdighet", "For at nettopp de religiøse partene skal få et lite fortrinn"],
       explanation: "Nøytraliteten er grunnen — men samtidig den mest omstridte delen av sløret.",
     },
     {
       question: "Hva er «likestilling» i utgangsposisjonen?",
-      options: ["At ingen part har mer makt eller bedre informasjon enn andre", "At absolutt alle partene ender opp med nøyaktig samme inntekt etter valget", "At de to kjønnene behandles nøyaktig likt i hele lovverket", "At partene deler alt de eier og har helt likt mellom seg"],
+      options: ["At ingen part har mer makt eller bedre informasjon enn andre", "At absolutt alle partene ender opp med nøyaktig samme inntekt etter valget", "At de to kjønnene behandles nøyaktig likt i hele lovverket og staten", "At partene deler alt de eier og har helt likt seg imellom etterpå"],
       explanation: "Sammen med sløret gjør likestillingen situasjonen rimelig — ingen kan presse gjennom egne prinsipper.",
     },
     {
@@ -915,17 +915,17 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva sier forskjellsprinsippet (2b)?",
-      options: ["Sosiale og økonomiske ulikheter tillates bare hvis de er til størst fordel for de dårligst stilte", "Absolutt all form for ulikhet i inntekt og formue mellom borgerne er strengt forbudt og uakseptabelt", "At ulikheter kan tillates dersom de er til fordel for det store flertallet", "At den som til enhver tid yter aller mest, også alltid skal tjene aller mest"],
+      options: ["Sosiale og økonomiske ulikheter tillates bare hvis de er til størst fordel for de dårligst stilte", "Absolutt all form for ulikhet i inntekt og formue mellom borgerne er strengt forbudt og uakseptabelt", "At ulikheter i inntekt kan tillates så lenge de er til fordel for det store flertallet av befolkningen", "At den som til enhver tid yter aller mest, også alltid skal tjene aller mest"],
       explanation: "Ulikhet er ikke urettferdig i seg selv — den må løfte bunnen. Dette er det sentrale poenget.",
     },
     {
       question: "Hva innebærer «leksikalsk prioritet» mellom prinsippene?",
-      options: ["1 før 2a før 2b — man går ikke videre før det foregående er fullt oppfylt", "At alle prinsippene er fullstendig likestilte og hele tiden veies fritt mot hverandre", "At forskjellsprinsippet har klar forrang foran selve frihetsprinsippet", "At sjanselikheten fritt kan ofres til fordel for økonomisk vekst"],
+      options: ["1 før 2a før 2b — man går ikke videre før det foregående er fullt oppfylt", "At alle prinsippene er fullstendig likestilte og hele tiden veies fritt mot hverandre", "At forskjellsprinsippet (2b) har klar forrang foran selve frihetsprinsippet", "At sjanselikheten fritt kan ofres til fordel for økonomisk vekst"],
       explanation: "Grunnleggende friheter kan ikke handles bort mot velferd; frihet kommer først.",
     },
     {
       question: "Hva er «sjanselikhet» (2a) hos Rawls?",
-      options: ["Rettferdig likhet av muligheter — like talenter og innsats gir like utsikter uansett bakgrunn", "At absolutt alle borgerne til slutt ender opp med nøyaktig og fullstendig den samme inntekten og formuen", "At alle de ulike posisjonene i samfunnet tildeles ved en ren loddtrekning", "At de dårligst stilte alltid skal ha ubetinget forrang til alle stillinger"],
+      options: ["Rettferdig likhet av muligheter — like talenter og innsats gir like utsikter uansett bakgrunn", "At absolutt alle borgerne til slutt ender opp med nøyaktig og fullstendig den samme inntekten og formuen", "At alle de ulike posisjonene i samfunnet tildeles ved en ren loddtrekning", "At de dårligst stilte alltid skal ha ubetinget forrang til alle stillinger og posisjoner i samfunnet"],
       explanation: "2a er mer enn formell åpenhet; den korrigerer for sosial bakgrunn. 2a går foran 2b.",
     },
     {
@@ -965,7 +965,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den feministiske kritikken av Rawls?",
-      options: ["At familien ligger utenfor sløret/prinsippene, så kjønnsulikhet i hjemmet unnslipper rettferdigheten", "At Rawls i sin teori uttrykkelig og aktivt forbyr kvinner å delta i selve utgangsposisjonen bak sløret", "At selve forskjellsprinsippet systematisk favoriserer menn økonomisk", "At uvitenhetssløret i praksis gjør absolutt alle partene til menn"],
+      options: ["At familien ligger utenfor sløret/prinsippene, så kjønnsulikhet i hjemmet unnslipper rettferdigheten", "At Rawls i sin teori uttrykkelig og aktivt forbyr kvinner å delta i selve utgangsposisjonen bak sløret", "At selve forskjellsprinsippet systematisk favoriserer menn økonomisk både i arbeidslivet og i hjemmet", "At uvitenhetssløret i praksis gjør absolutt alle partene til menn"],
       explanation: "Kritikken utnytter en spenning: sjanselikheten krever at oppvekst ikke bestemmer utsikter, men da kan ikke familien være unntatt.",
     },
     {
@@ -975,12 +975,12 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den typiske feilen (#1) i en redegjørelse for prinsippene?",
-      options: ["Å gjengi prinsippene uten forskjellsprinsippets kjerne eller den leksikalske forrangen", "Å nevne både selve sjanselikheten (2a) og hele forskjellsprinsippet (2b) grundig og presist", "Å forklare hele den innbyrdes rangordenen mellom prinsippene", "Å begrunne forskjellsprinsippet med det naturlige lotteriet"],
+      options: ["Å gjengi prinsippene uten forskjellsprinsippets kjerne eller den leksikalske forrangen", "Å nevne både selve sjanselikheten (2a) og hele forskjellsprinsippet (2b) grundig og presist", "Å forklare hele den leksikalske rangordenen mellom prinsippene og begrunne hvorfor den gjelder", "Å begrunne forskjellsprinsippet med det naturlige lotteriet"],
       explanation: "Uten forskjellsprinsippets kjerne (ulikhet til fordel for bunnen) og forrangen faller svaret.",
     },
     {
       question: "Hva er feil #8 i en HYB-oppgave om Rawls?",
-      options: ["Å bare referere teorien om igjen i drøftingsdelen i stedet for å reise en innvending", "Å reise en solid og relevant innvending som er godt forankret i pensum og forelesning", "Å gi Rawls' eget mulige motsvar på selve innvendingen", "Å lande selve drøftingen med en kort og forbeholden vurdering"],
+      options: ["Å bare referere teorien om igjen i drøftingsdelen i stedet for å reise en innvending", "Å reise en solid og relevant innvending som er godt forankret i pensum og forelesning", "Å gi Rawls' eget mulige motsvar på selve innvendingen", "Å lande selve drøftingen med en kort og forbeholden vurdering av teoriens faglige holdbarhet"],
       explanation: "Drøftingsdelen krever selvstendighet — en innvending vurdert, ikke ny gjengivelse.",
     },
     {
@@ -990,57 +990,57 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva løfter en Rawls-drøfting til A-nivå (det subtile ekstra)?",
-      options: ["Å fremheve den leksikalske forrangen og forankre kritikken i pensum (feministisk / syke-svake)", "Å skrive et så langt og bredt og aller mest omfattende svar om hele temaet som det overhodet er mulig", "Å ramse opp samtlige av Rawls' mange ulike verk og artikler", "Å konsekvent unngå enhver form for innvending mot teorien"],
+      options: ["Å fremheve den leksikalske forrangen og forankre kritikken i pensum (feministisk / syke-svake)", "Å skrive et så langt og omfattende svar om temaet som overhodet mulig", "Å ramse opp samtlige av Rawls' mange ulike verk og artikler", "Å konsekvent unngå enhver form for innvending mot teorien"],
       explanation: "Sensor premierer den forankrede drøftingen med Rawls' motsvar, ikke fritt synsing.",
     },
     {
       question: "Hva menes med «rettferdig likhet av muligheter» (fair equality of opportunity)?",
-      options: ["At like talentfulle har samme utsikter uansett hvilken klasse de fødes inn i", "At ingen borger er formelt og juridisk utestengt fra å søke en bestemt stilling", "At absolutt alle får nøyaktig samme utdanning uansett egne anlegg", "At de ulike posisjonene i samfunnet fordeles etter den enkeltes behov"],
+      options: ["At like talentfulle har samme utsikter uansett hvilken klasse de fødes inn i", "At ingen borger er formelt og juridisk utestengt fra å søke en bestemt stilling", "At absolutt alle får nøyaktig samme utdanning uansett egne anlegg og interesser", "At de ulike posisjonene i samfunnet fordeles etter den enkeltes behov og ønsker"],
       explanation: "Det er mer enn formell åpenhet — det stiller krav til utdanning og oppvekstvilkår.",
     },
     {
       question: "Er Rawls en ren likhetsteoretiker som mener alle skal ha like mye?",
-      options: ["Nei — han tillater betinget ulikhet; ulikhet er lov hvis den gagner de dårligst stilte", "Ja — selve forskjellsprinsippet krever tvert imot full og fullstendig materiell likhet mellom alle", "Ja — samtlige sosiale primærgoder skal alltid fordeles fullstendig likt", "Nei — han forbyr tvert imot enhver form for likhet i samfunnet"],
+      options: ["Nei — han tillater betinget ulikhet; ulikhet er lov hvis den gagner de dårligst stilte", "Ja — forskjellsprinsippet krever full materiell likhet mellom alle", "Ja — samtlige sosiale primærgoder skal alltid fordeles fullstendig likt", "Nei — han forbyr tvert imot enhver form for likhet i samfunnet"],
       explanation: "Rawls er teoretiker om rettferdiggjort ulikhet, ikke om lik fordeling av utfall.",
     },
     {
       question: "Hva retter Rawls' rettferdighetsprinsipper seg mot?",
-      options: ["Samfunnets grunnstruktur — de store institusjonene som fordeler rettigheter og livsutsikter", "Enkeltpersoners daglige og private handlinger overfor hverandre i hverdagen og samfunnet ellers", "Utelukkende hele skattesystemet og den økonomiske omfordelingen", "Bare selve familien og det aller mest private privatlivet"],
+      options: ["Samfunnets grunnstruktur — de store institusjonene som fordeler rettigheter og livsutsikter", "Enkeltpersoners daglige og private handlinger overfor hverandre i hverdagen og samfunnet ellers", "Utelukkende hele skattesystemet og den løpende økonomiske omfordelingen mellom landets borgere", "Bare selve familien og det aller mest private privatlivet"],
       explanation: "Prinsippene vurderer institusjoner, ikke enkelthandlinger direkte.",
     },
     {
       question: "Hvorfor kan ikke fortjeneste være grunnlaget for fordeling ifølge Rawls?",
-      options: ["Fordi også flid og arbeidsevne delvis skyldes lotteriet (oppvekst, anlegg)", "Fordi absolutt ingen mennesker i samfunnet noensinne jobber hardere enn noen andre", "Fordi selve fortjenesten i praksis er helt umulig å måle presist", "Fordi det store flertallet av borgerne uansett er imot fortjeneste"],
+      options: ["Fordi også flid og arbeidsevne delvis skyldes lotteriet (oppvekst, anlegg)", "Fordi absolutt ingen mennesker i samfunnet noensinne jobber hardere enn noen andre", "Fordi selve fortjenesten i praksis er helt umulig å måle presist og rettferdig", "Fordi det store flertallet av borgerne uansett er imot fortjeneste som kriterium"],
       explanation: "Fortjeneste-innvendingen forutsetter en fortjeneste-forestilling Rawls avviser.",
     },
     {
       question: "Hvordan identifiseres «de dårligst stilte» (the least advantaged)?",
-      options: ["I termer av sosiale primærgoder — typisk laveste forventede inntekt og formue over et livsløp", "Rett og slett i termer av den enkeltes helt subjektive og selvopplevde livslykke og indre tilfredshet", "Ved at de aller dårligst stilte rett og slett selv melder seg", "I termer av én bestemt og på forhånd fastlagt livsplan"],
+      options: ["I termer av sosiale primærgoder — typisk laveste forventede inntekt og formue over et livsløp", "I termer av den enkeltes subjektive og selvopplevde livslykke", "Ved at de aller dårligst stilte rett og slett selv melder seg", "I termer av én bestemt og på forhånd fastlagt livsplan"],
       explanation: "Den objektive målestokken trengs fordi partene bak sløret ikke kjenner egne preferanser.",
     },
     {
       question: "Hva uttrykker den leksikalske forrangen for frihet moralsk?",
-      options: ["At mennesker er mål i seg selv — grunnleggende friheter kan ikke ofres for kollektiv velstand", "At selve friheten i praksis er atskillig mindre viktig enn den kollektive velferden og velstanden", "At de aller rikeste borgerne i praksis har mer frihet enn de fattige", "At selve friheten fritt kan selges unna dersom prisen bare er høy nok"],
+      options: ["At mennesker er mål i seg selv — grunnleggende friheter kan ikke ofres for kollektiv velstand", "At selve friheten i praksis er atskillig mindre viktig enn den kollektive velferden og velstanden", "At de aller rikeste borgerne i praksis har mer frihet enn de fattige", "At selve de grunnleggende frihetene fritt kan selges unna dersom prisen i penger bare er høy nok"],
       explanation: "En anti-utilitaristisk kjerne: selv stor økonomisk gevinst rettferdiggjør ikke å frata noen stemmeretten.",
     },
     {
       question: "Hva er Rawls' teori formet i motsetning til?",
-      options: ["Utilitarismen, som kan ofre noen for et høyt gjennomsnitt av samlet nytte", "Marxismen, som vil avskaffe all privat eiendomsrett fullstendig i samfunnet", "Anarkismen, som fullstendig avviser selve statens eksistens", "Konservatismen, som først og fremst forsvarer tradisjon og orden"],
+      options: ["Utilitarismen, som kan ofre noen for et høyt gjennomsnitt av samlet nytte", "Marxismen, som vil avskaffe all privat eiendomsrett fullstendig i samfunnet", "Anarkismen, som fullstendig avviser både statens eksistens og dens myndighet", "Konservatismen, som først og fremst vil forsvare nedarvet tradisjon og orden"],
       explanation: "Forskjellsprinsippet + forrangen forbyr å handle bort individets friheter mot større samlet velferd.",
     },
     {
       question: "Hva består listen over sosiale primærgoder av?",
-      options: ["Rettigheter og friheter, muligheter og makt, inntekt og formue, selvrespektens grunnlag", "Utelukkende den helt rene inntekten og den samlede formuen som hver enkelt borger rår over", "Naturressurser, råvarer og andre fysiske goder i naturen", "Ren lykke, glede, velvære og subjektiv tilfredshet"],
+      options: ["Rettigheter og friheter, muligheter og makt, inntekt og formue, selvrespektens grunnlag", "Utelukkende den helt rene inntekten og den samlede formuen som hver enkelt borger rår over", "Naturressurser, råvarer og alle andre fysiske goder som finnes i naturen og under havbunnen", "Ren lykke, glede, velvære og subjektiv tilfredshet"],
       explanation: "De er sosiale fordi de fordeles av grunnstrukturen, og allmenne fordi de er relevante uansett livsplan.",
     },
     {
       question: "Hva kjennetegner et C-nivå-svar om prinsippene?",
-      options: ["Alle tre prinsipper og rangorden korrekt, men flatt og uten drøfting", "Selve kjernen truffet helt presist pluss en solid og forankret innvending", "Prinsippene gjengitt uten selve forskjellsprinsippets kjerne", "En gjennomgående sammenblanding av 2a og 2b i svaret"],
+      options: ["Alle tre prinsipper og rangorden korrekt, men flatt og uten drøfting", "Selve kjernen truffet helt presist pluss en solid og forankret innvending", "Prinsippene gjengitt uten selve forskjellsprinsippets kjerne og rangorden", "En gjennomgående sammenblanding av sjanselikhet (2a) og forskjellsprinsippet (2b)"],
       explanation: "E mister kjernen; A tilføyer forankret drøfting. C er korrekt, men flatt.",
     },
     {
       question: "Hva er insentiv-begrunnelsen for at ulikhet kan være tillatt?",
-      options: ["Høyere belønning kan få talentfulle til å yte mer og øke det samlede produktet, som kan løfte bunnen", "At de aller mest talentfulle borgerne rett og slett har en naturlig og medfødt rett til å få mer enn andre", "At en viss ulikhet rett og slett er helt nødvendig for å straffe de late", "At selve markedet uansett alltid krever en viss grad av ulikhet"],
+      options: ["Høyere belønning kan få talentfulle til å yte mer og øke det samlede produktet, som kan løfte bunnen", "At de mest talentfulle borgerne har en medfødt rett til å få mer enn andre", "At en viss ulikhet rett og slett er helt nødvendig for å straffe de late", "At selve markedet uansett alltid krever en viss grad av ulikhet"],
       explanation: "Ulikheten er instrumentelt begrunnet — lov fordi og i den grad den gagner de dårligst stilte.",
     },
     {
@@ -1052,17 +1052,17 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
   'stv1100-2-3': [
     {
       question: "Hva er det sentrale ved Lockes samfunnskontrakt?",
-      options: ["Den er et faktisk, pågående samtykke med full informasjon", "Den er et hypotetisk prinsippvalg bak et slør", "Den er en historisk engangsavtale man er bundet av for alltid", "Den er en avtale bare mellom de rikeste borgerne"],
+      options: ["Den er et faktisk, pågående samtykke med full informasjon", "Den er et rent hypotetisk prinsippvalg bak et uvitenhetsslør", "Den er en historisk engangsavtale man er bundet av for alltid", "Den er en avtale som inngås bare mellom de rikeste borgerne"],
       explanation: "Motsatt av Rawls' hypotetiske valg bak slør: Lockes kontrakt er virkelig og vedvarende.",
     },
     {
       question: "Hva er «uttrykkelig samtykke» (explicit consent) hos Locke?",
-      options: ["En aktiv, erklært tilslutning til samfunnet, f.eks. en borgerskapsed", "En form for samtykke man gir helt implisitt bare ved å nyte samfunnets goder", "Det samtykket partene gir bak selve uvitenhetssløret hos Rawls", "Et samtykke som selve flertallet gir på vegne av alle borgerne"],
+      options: ["En aktiv, erklært tilslutning til samfunnet, f.eks. en borgerskapsed", "En form for samtykke man gir helt implisitt bare ved å nyte samfunnets goder", "Det samtykket partene gir bak selve uvitenhetssløret i Rawls' egen teori", "Et samtykke som selve flertallet gir på vegne av alle borgerne"],
       explanation: "De færreste gir uttrykkelig samtykke — derfor trenger Locke også det stilltiende.",
     },
     {
       question: "Hva er «stilltiende samtykke» (tacit consent) hos Locke?",
-      options: ["Den implisitte tilslutningen man gir ved å nyte godt av samfunnets goder", "En helt uttrykkelig og skriftlig bindende avtale inngått direkte med selve staten", "Et samtykke som utelukkende gis gjennom en formell folkeavstemning", "Et samtykke man gir helt uten å vite hvem man selv egentlig er"],
+      options: ["Den implisitte tilslutningen man gir ved å nyte godt av samfunnets goder", "En helt uttrykkelig og skriftlig bindende avtale inngått direkte med selve staten", "Et samtykke som utelukkende gis gjennom en formell folkeavstemning i landet", "Et samtykke man gir helt uten å vite hvem man selv egentlig er"],
       explanation: "Ved å ta imot fordelene (veier, eiendom, trygghet) aksepterer man forpliktelsene.",
     },
     {
@@ -1072,7 +1072,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skiller Lockes parter fra Rawls' parter når det gjelder informasjon?",
-      options: ["Lockes parter samtykker med full informasjon om egen situasjon; Rawls' velger bak uvitenhetssløret", "Begge de to tenkernes parter velger tvert imot helt og fullstendig bak et og samme tette uvitenhetsslør", "Lockes parter vet i praksis atskillig mindre om alt enn Rawls' parter", "Ingen av de to tenkernes parter vet noe som helst om seg selv"],
+      options: ["Lockes parter samtykker med full informasjon om egen situasjon; Rawls' velger bak uvitenhetssløret", "Begge de to tenkernes parter velger tvert imot bak ett og samme uvitenhetsslør", "Lockes parter vet i praksis atskillig mindre om alt enn Rawls' parter", "Ingen av de to tenkernes parter vet noe som helst om seg selv"],
       explanation: "Dette er den dypeste sammenligningsdimensjonen — informasjonsbetingelsen.",
     },
     {
@@ -1082,7 +1082,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er Hume-kritikken av stilltiende samtykke?",
-      options: ["At stilltiende samtykke er en fiksjon — de fleste kan ikke reelt forlate samfunnet, så det å bli er ikke et fritt valg", "At det stilltiende samtykket tvert imot gir altfor lite reell og bindende makt til selve staten og dens sentrale myndigheter", "At det utelukkende er de aller rikeste som overhodet kan gi stilltiende samtykke", "At ethvert samtykke i praksis aldri noen gang kan være virkelig bindende"],
+      options: ["At stilltiende samtykke er en fiksjon — de fleste kan ikke reelt forlate samfunnet, så det å bli er ikke et fritt valg", "At det stilltiende samtykket tvert imot gir altfor lite bindende makt til staten", "At det utelukkende er de aller rikeste som overhodet kan gi stilltiende samtykke", "At ethvert samtykke i praksis aldri noen gang kan være virkelig bindende"],
       explanation: "Humes skipsbilde: å «kunne» hoppe i havet gjør ikke at man har samtykket til å bli om bord.",
     },
     {
@@ -1092,17 +1092,17 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er kontraktens formål ifølge Locke?",
-      options: ["Å beskytte menneskenes naturlige rettigheter — liv, frihet og gods", "Å fordele alle samfunnets goder og byrder fullstendig likt mellom alle", "Å maksimere statens samlede makt og myndighet så mye som mulig", "Å velge fordelingsprinsipper bak et tett uvitenhetsslør"],
+      options: ["Å beskytte menneskenes naturlige rettigheter — liv, frihet og gods", "Å fordele alle samfunnets goder og byrder fullstendig likt mellom alle", "Å maksimere statens samlede makt og myndighet så mye som overhodet mulig", "Å velge fordelingsprinsipper bak et tett uvitenhetsslør"],
       explanation: "Staten er et middel til å verne rettigheter man har forut for staten.",
     },
     {
       question: "Hva er «naturlige rettigheter» hos Locke?",
-      options: ["Rettigheter menneskene har forut for staten: liv, frihet og eiendom", "De rettighetene som selve staten aktivt tildeler hver enkelt borger ved fødsel", "De prinsippene som partene til slutt velger bak selve sløret", "Rettigheter som utelukkende de opprinnelige naturfolkene har"],
+      options: ["Rettigheter menneskene har forut for staten: liv, frihet og eiendom", "De rettighetene som selve staten aktivt tildeler hver enkelt borger ved fødsel", "De prinsippene som partene til slutt velger bak selve uvitenhetssløret", "Rettigheter som utelukkende de opprinnelige naturfolkene har"],
       explanation: "De finnes før staten; kontrakten skaper dem ikke, men beskytter dem.",
     },
     {
       question: "Hva hviler en regjerings legitimitet på ifølge Locke?",
-      options: ["De styrtes fortsatte samtykke", "Statens rene militære overlegenhet", "En historisk engangsavtale", "Rawls' to prinsipper"],
+      options: ["De styrtes fortsatte samtykke", "Statens rene militære overlegenhet", "En historisk engangsavtale fra fortiden", "Rawls' to rettferdighetsprinsipper"],
       explanation: "Svikter regjeringen formålet eller blir tyrannisk, kan folket trekke samtykket tilbake.",
     },
     {
@@ -1117,12 +1117,12 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En innvandrer bruker landets veier og rettsvesen i årevis uten borgerskapsed. Er hun forpliktet ifølge Locke?",
-      options: ["Ja — hun har gitt stilltiende samtykke ved å nyte godt av samfunnets goder", "Nei — uten et helt uttrykkelig og erklært samtykke har hun ingen forpliktelser", "Ja — rett og slett fordi Rawls' egne prinsipper krever nettopp det", "Nei — selve Locke gjelder uansett bare for landets innfødte borgere"],
+      options: ["Ja — hun har gitt stilltiende samtykke ved å nyte godt av samfunnets goder", "Nei — uten et helt uttrykkelig og erklært samtykke har hun ingen forpliktelser", "Ja — rett og slett fordi Rawls' egne prinsipper krever nettopp det", "Nei — Lockes teori gjelder uansett bare for dem som er født inn i landet selv"],
       explanation: "Ved å ta imot fordelene aksepterer hun forpliktelsene, «så lenge hun nyter godene».",
     },
     {
       question: "Hva ville Hume innvendt mot at innvandreren har «samtykket»?",
-      options: ["At samtykket er en fiksjon hvis hun ikke reelt kunne dratt et annet sted", "At hun i stedet uttrykkelig og aktivt burde ha gitt et helt erklært samtykke", "At hun i praksis ikke har nytt tilstrekkelig godt av samfunnets goder", "At det uansett bare er selve staten som gyldig kan gi et samtykke"],
+      options: ["At samtykket er en fiksjon hvis hun ikke reelt kunne dratt et annet sted", "At hun i stedet uttrykkelig og aktivt burde ha gitt et helt erklært samtykke", "At hun i praksis ikke har nytt tilstrekkelig godt av samfunnets mange goder", "At det uansett bare er selve staten som gyldig kan gi et samtykke"],
       explanation: "Mangler hun språk, midler eller nettverk andre steder, er det å bli ikke et fritt valg.",
     },
     {
@@ -1137,7 +1137,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva binder det store flertallet som aldri har gitt uttrykkelig samtykke?",
-      options: ["Det stilltiende samtykket — utledet av at de nyter samfunnets goder", "Absolutt ingenting som helst binder dem; de er slett ikke forpliktet", "Rett og slett selve uvitenhetssløret slik det er tenkt hos Rawls", "En helt skriftlig og bindende kontrakt inngått allerede ved fødsel"],
+      options: ["Det stilltiende samtykket — utledet av at de nyter samfunnets goder", "Absolutt ingenting som helst binder dem; de er slett ikke forpliktet", "Rett og slett selve uvitenhetssløret slik det er tenkt hos Rawls selv", "En helt skriftlig og bindende kontrakt inngått allerede ved fødselen"],
       explanation: "Nettopp her setter Hume inn sin kritikk om at samtykket er fiktivt.",
     },
     {
@@ -1152,12 +1152,12 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner et E-nivå-svar på kontrakt-sammenligningen?",
-      options: ["Bare det ene leddet (Locke eller Rawls), eller begge gjengitt uten dimensjoner", "Begge posisjonene presist redegjort pluss to eksplisitte dimensjoner og en kort vurdering", "Begge korrekt gjengitt, men med dimensjonene bare løst antydet", "Selve informasjonsbetingelsen valgt helt presist som dimensjon"],
+      options: ["Bare det ene leddet (Locke eller Rawls), eller begge gjengitt uten dimensjoner", "Begge posisjonene presist redegjort pluss to eksplisitte dimensjoner og en kort vurdering", "Begge posisjonene korrekt gjengitt, men med sammenligningsdimensjonene bare løst antydet", "Selve informasjonsbetingelsen valgt helt presist som dimensjon"],
       explanation: "A har eksplisitte dimensjoner inkl. informasjonsbetingelsen; C er korrekt men løst; E er ensidig.",
     },
     {
       question: "Hvilken likhet bør en balansert Locke↔Rawls-sammenligning også nevne?",
-      options: ["At begge er kontraktteoretikere som begrunner autoritet ved en form for tilslutning og tar individet som utgangspunkt", "At begge de to tenkerne uttrykkelig og gjennomgående bygger hele sin teori på ett og samme tette og ugjennomtrengelige uvitenhetsslør", "At begge de to tenkerne fullstendig avviser og forkaster de naturlige rettighetene", "At begge to mener at selve staten skal maksimere den samlede nytten"],
+      options: ["At begge er kontraktteoretikere som begrunner autoritet ved en form for tilslutning og tar individet som utgangspunkt", "At begge de to tenkerne bygger hele sin teori på ett og samme uvitenhetsslør", "At begge de to tenkerne fullstendig avviser og forkaster de naturlige rettighetene", "At begge to mener at selve staten skal maksimere den samlede nytten"],
       explanation: "Et A-svar behandler både likheter og forskjeller; å bare fremheve forskjeller er ubalansert.",
     },
   ],
@@ -1169,12 +1169,12 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er det *sentrale poenget* man må treffe i en redegjørelse for Platons rettferdighet?",
-      options: ["Koblingen til naturlige anlegg — arbeidsdeling *etter egnethet*", "At selve staten er bygd opp av nøyaktig tre helt atskilte klasser", "At Platon i sin tid skrev den store dialogen Staten", "At vokterne i staten fullstendig mangler all eiendom"],
+      options: ["Koblingen til naturlige anlegg — arbeidsdeling *etter egnethet*", "At selve staten er bygd opp av nøyaktig tre helt atskilte klasser", "At Platon i sin tid skrev den store dialogen Staten om nettopp dette", "At vokterne i staten fullstendig mangler all eiendom"],
       explanation: "Effektiv arbeidsdeling finnes overalt; Platons poeng er at delingen følger medfødt egnethet. Mister man 'etter anlegg', mister man kjernen (feil #1).",
     },
     {
       question: "Hvilken dyd knytter Platon til de styrende (vokterne)?",
-      options: ["Visdom", "Mot", "Måtehold", "Rettferdighet"],
+      options: ["Visdom", "Mot (tapperhet)", "Måtehold", "Rettferdighet"],
       explanation: "Styrende–visdom, krigere–mot, produsenter–måtehold. Rettferdighet er helhetsdyden, ikke én gruppes dyd.",
     },
     {
@@ -1184,7 +1184,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken dyd hører til produsentene (næringsdrivende)?",
-      options: ["Måtehold", "Mot", "Visdom", "Rettferdighet"],
+      options: ["Måtehold", "Mot (tapperhet)", "Visdom", "Rettferdighet"],
       explanation: "Produsentene sørger for det materielle; deres dyd er måtehold.",
     },
     {
@@ -1194,27 +1194,27 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor fratar Platon vokterne privateiendom og familie?",
-      options: ["For å hindre maktmisbruk — fjerne motivet til å styre for egen vinning", "Fordi selve eiendommen i seg selv er dypt umoralsk for absolutt alle borgere", "Rett og slett for å spare inn penger til statens forsvar", "Fordi vokterne skal være fattige som et ideal i seg selv"],
+      options: ["For å hindre maktmisbruk — fjerne motivet til å styre for egen vinning", "Fordi selve eiendommen i seg selv er dypt umoralsk for absolutt alle borgere", "Rett og slett for å spare inn penger til forsvaret av hele bystaten Athen", "Fordi vokterne skal være fattige som et ideal i seg selv"],
       explanation: "Uten personlig formue eller slekt å tilgodese mangler de styrende motivet til å misbruke makten; det er et middel mot maktmisbruk.",
     },
     {
       question: "Hva menes med at Platons rettferdighetsargument bygger på 'deskriptive antagelser + normative premisser'?",
-      options: ["Det utleder rettferdighet fra faktapåstander om anlegg PLUSS verdipåstander om hva som bør være", "At hele argumentet er rent og utelukkende beskrivende, helt uten noen som helst form for verdivurderinger", "At det er ren normativ postulering helt uten noe faktagrunnlag", "At det utelukkende og fullstendig bygger på religiøse premisser"],
+      options: ["Det utleder rettferdighet fra faktapåstander om anlegg PLUSS verdipåstander om hva som bør være", "At hele argumentet er rent beskrivende, helt uten noen form for verdivurderinger", "At det er ren normativ postulering helt uten noe faktagrunnlag", "At det utelukkende og fullstendig bygger på religiøse premisser"],
       explanation: "Deskriptivt: mennesker er ulikt utrustet. Normativt: hver på sin plass er godt. Sammen gir de konklusjonen. Å se dette er et subtilt A-poeng.",
     },
     {
       question: "Et eksempel på en *deskriptiv antagelse* hos Platon er:",
-      options: ["Mennesker er født ulikt utrustet for ulike oppgaver", "At hver enkelt borger bør være nettopp på sin egen rette plass", "At selve enheten i staten er et virkelig gode", "At staten som helhet bør være rettferdig"],
+      options: ["Mennesker er født ulikt utrustet for ulike oppgaver", "At hver enkelt borger bør være nettopp på sin egen rette plass", "At selve enheten i staten er et virkelig gode i seg selv", "At staten som helhet bør være rettferdig og velordnet innad"],
       explanation: "Deskriptivt = hvordan verden faktisk er. Ulike anlegg er en faktapåstand; de øvrige er verdipåstander.",
     },
     {
       question: "Hva menes med 'enhet og enighet' i Platons stat?",
-      options: ["At den velordnede staten er samstemt og 'går av seg selv'", "At absolutt alle borgerne har helt identiske meninger påtvunget ovenfra", "At staten er militært samlet og rustet mot ytre fiender", "At all eiendom i staten er felleseie mellom borgerne"],
+      options: ["At den velordnede staten er samstemt og 'går av seg selv'", "At absolutt alle borgerne har helt identiske meninger påtvunget ovenfra", "At staten er militært samlet og rustet mot alle ytre fiender", "At all eiendom i staten er felleseie mellom borgerne"],
       explanation: "Enhet er resultatet av at arbeidsdelingen holdes ren: ingen strid om plassene, staten henger sammen som en organisme.",
     },
     {
       question: "Hvilken feil begår en kandidat som skriver langt om Platons idélære og hulelignelse i en oppgave om rettferdighet i staten?",
-      options: ["#2 utenomsnakk/bredde i stedet for presisjon", "#8 en ensidig og ubalansert sammenligning av to tenkere", "#1 å miste selve det sentrale poenget", "#7 gjennomgående upresise fagbegreper"],
+      options: ["#2 utenomsnakk/bredde i stedet for presisjon", "#8 en ensidig og ubalansert sammenligning av to tenkere", "#1 å miste selve det sentrale poenget i oppgaven", "#7 gjennomgående upresise og uklare fagbegreper"],
       explanation: "Metafysikken er ikke det oppgaven spør om; å ramse den opp er breddesynsing (#2) som gir null uttelling.",
     },
     {
@@ -1229,7 +1229,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "I en sitattolkning (SIT): hvilken funksjon har utdraget om at 'mennesker er født ulike og egner seg for hver sin oppgave'?",
-      options: ["Premiss — den deskriptive antagelsen arbeidsdelingen utledes fra", "En ren beskrivelse av selve sluttresultatet, nemlig enheten i staten", "En begrunnelse for et middel rettet mot maktmisbruk", "En ren illustrasjon helt uten noen argumentativ funksjon"],
+      options: ["Premiss — den deskriptive antagelsen arbeidsdelingen utledes fra", "En ren beskrivelse av selve sluttresultatet, nemlig enheten i staten", "En begrunnelse for et middel som er rettet mot maktmisbruk hos vokterne", "En ren illustrasjon helt uten noen argumentativ funksjon"],
       explanation: "Utsagnet om ulike anlegg er startpremisset som hele læren bygger på.",
     },
     {
@@ -1239,17 +1239,17 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er hovedskillet mellom Platon og Nussbaum i en sammenligning?",
-      options: ["Forskjell i anlegg (Platon) vs. menneskelig likhet (Nussbaum)", "Universelle prinsipper (Platon) vs. kulturbestemt fordeling (Nussbaum)", "Negativ frihet (Platon) vs. positiv frihet (Nussbaum)", "Hypotetisk kontrakt (Platon) vs. faktisk samtykke (Nussbaum)"],
+      options: ["Forskjell i anlegg (Platon) vs. menneskelig likhet (Nussbaum)", "Universelle prinsipper (Platon) vs. kulturbestemt fordeling (Nussbaum)", "Negativ frihet (Platon) vs. positiv frihet og selvstyre (Nussbaum)", "Hypotetisk kontrakt (Platon) vs. faktisk samtykke (Nussbaum)"],
       explanation: "Platon plasserer ulikt etter anlegg (hierarki); Nussbaum sikrer alle de samme kapabilitetene (likhet).",
     },
     {
       question: "Hvilket *fellespunkt* kan trekkes frem i en Platon–Nussbaum-sammenligning?",
-      options: ["Begge vil at staten skal legge til rette for at menneskelige anlegg/evner utvikles (aristotelisk slektskap)", "At begge de to tenkerne bygger hele sin rettferdighetsteori på en form for helt klassisk og gjensidig samfunnskontrakt", "At begge to fullstendig avviser og benekter at menneskene er ulike", "At begge to i bunn og grunn er rene relativister om alle verdier"],
+      options: ["Begge vil at staten skal legge til rette for at menneskelige anlegg/evner utvikles (aristotelisk slektskap)", "At begge de to tenkerne bygger hele sin rettferdighetsteori på en klassisk samfunnskontrakt", "At begge to fullstendig avviser og benekter at menneskene er ulike", "At begge to i bunn og grunn er rene relativister om alle verdier"],
       explanation: "Det aristoteliske slektskapet — staten skal utvikle menneskelige anlegg — er et presist fellespunkt som løfter sammenligningen.",
     },
     {
       question: "Hva gjør en Platon–Nussbaum-sammenligning *ensidig og svak* (feil #8)?",
-      options: ["Å gjengi begge uten å navngi dimensjonene de skiller lag på", "Å tydelig navngi selve forskjellen i anlegg kontra menneskelig likhet", "Å trekke fram et presist og treffende fellespunkt", "Å holde begge de to posisjonene helt presise"],
+      options: ["Å gjengi begge uten å navngi dimensjonene de skiller lag på", "Å tydelig navngi selve forskjellen i anlegg kontra menneskelig likhet", "Å trekke fram et presist og treffende fellespunkt mellom de to", "Å holde begge de to posisjonene helt presise og etterrettelige"],
       explanation: "En sammenligning uten eksplisitte dimensjoner er bare to redegjørelser satt ved siden av hverandre.",
     },
     {
@@ -1266,17 +1266,17 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
   'stv1100-2-5': [
     {
       question: "Hva måler Nussbaums kapabilitetstilnærming rettferdighet ut fra?",
-      options: ["Hva folk faktisk er i stand til å være og gjøre (kapabiliteter)", "Hvor godt selve makten er fordelt mellom de ulike klassene i samfunnet", "Hvor mye inntekt og formue hver enkelt borger faktisk har", "Hvor mange formelle rettigheter selve loven gir borgerne"],
+      options: ["Hva folk faktisk er i stand til å være og gjøre (kapabiliteter)", "Hvor godt selve makten er fordelt mellom de ulike klassene i samfunnet", "Hvor mye inntekt og formue hver enkelt borger faktisk rår over selv", "Hvor mange formelle rettigheter selve loven gir borgerne"],
       explanation: "Nussbaum flytter målestokken fra ressurser/formelle rettigheter til reelle funksjonsmuligheter.",
     },
     {
       question: "Hva er sosial rettferdighet for Nussbaum?",
-      options: ["At alle borgere har de artsbestemte kapabilitetene på plass over en terskel", "At hver enkelt borger plasseres etter sine egne helt naturlige medfødte anlegg", "At absolutt alle borgerne til slutt har nøyaktig lik inntekt", "At det er selve flertallet som til slutt bestemmer fordelingen"],
+      options: ["At alle borgere har de artsbestemte kapabilitetene på plass over en terskel", "At hver enkelt borger plasseres etter sine egne helt naturlige medfødte anlegg", "At absolutt alle borgerne til slutt har nøyaktig lik inntekt", "At det er selve flertallet som til slutt bestemmer hele fordelingen av godene"],
       explanation: "Sentralt poeng (2025 b): kapabilitetene på plass, ikke bare formell frihet. (Svaret om å plassere hver borger etter medfødte anlegg er Platon.)",
     },
     {
       question: "Hva er forskjellen mellom en kapabilitet og en funksjon?",
-      options: ["Kapabilitet = muligheten til å være/gjøre noe; funksjon = den faktiske utøvelsen", "Kapabiliteten er tvert imot selve utøvelsen, mens funksjonen er den blotte muligheten", "De to begrepene betyr i praksis nøyaktig det samme hos Nussbaum", "Kapabiliteten er økonomisk, mens funksjonen er rent politisk"],
+      options: ["Kapabilitet = muligheten til å være/gjøre noe; funksjon = den faktiske utøvelsen", "Kapabiliteten er tvert imot selve utøvelsen, mens funksjonen er den blotte muligheten", "De to begrepene betyr i praksis nøyaktig det samme, både hos Nussbaum og hos andre", "Kapabiliteten er økonomisk, mens funksjonen er rent politisk"],
       explanation: "Staten sikrer muligheten (kapabilitet); om du bruker den (funksjon) er ditt valg. Skillet verner valgfriheten.",
     },
     {
@@ -1291,17 +1291,17 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en 'terskel' i Nussbaums teori?",
-      options: ["Et minstenivå av hver kapabilitet alle må komme over", "Selve grensen for hvor rike borgerne får lov til å bli", "Det samlede antallet kapabiliteter på hele listen", "Selve skillet mellom borgere og ikke-borgere"],
+      options: ["Et minstenivå av hver kapabilitet alle må komme over", "Selve grensen for hvor rike borgerne får lov til å bli", "Det samlede antallet kapabiliteter oppført på hele listen", "Selve skillet mellom borgere og ikke-borgere i samfunnet"],
       explanation: "Under terskelen på en kapabilitet er man behandlet urettferdig, uansett rikdom ellers.",
     },
     {
       question: "Hvorfor holder det ikke, for Nussbaum, å gi alle formelle rettigheter?",
-      options: ["Fordi rettigheter er tomme hvis folk ikke faktisk kan bruke dem", "Rett og slett fordi selve rettighetene i seg selv er dypt umoralske", "Fordi det utelukkende er staten selv som skal ha rettigheter", "Fordi selve rettighetene uansett alltid er ulikt fordelt"],
+      options: ["Fordi rettigheter er tomme hvis folk ikke faktisk kan bruke dem", "Rett og slett fordi selve rettighetene i seg selv er dypt umoralske", "Fordi det utelukkende er staten selv som skal ha slike rettigheter", "Fordi selve rettighetene uansett alltid er ulikt fordelt"],
       explanation: "Sosial rettferdighet er et positivt krav på reelle muligheter, ikke bare fravær av formelle hindringer.",
     },
     {
       question: "Hva er 'universalisme' i Nussbaums teori?",
-      options: ["At kapabilitetslisten gjelder alle mennesker på tvers av kulturer", "At hvert enkelt samfunn selv lager og fastsetter sin helt egen liste", "At absolutt alle borgerne til slutt skal ha nøyaktig lik inntekt", "At selve staten skal være universelt til stede overalt"],
+      options: ["At kapabilitetslisten gjelder alle mennesker på tvers av kulturer", "At hvert enkelt samfunn selv lager og fastsetter sin helt egen liste", "At absolutt alle borgerne til slutt skal ha nøyaktig lik inntekt og formue", "At selve staten skal være universelt til stede overalt"],
       explanation: "Universalisme = én felles liste for alle; gir et mål på urett, men risikerer verdiimperialisme. IKKE pluralisme.",
     },
     {
@@ -1316,7 +1316,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er det subtile A-poenget om forholdet universalisme–pluralisme?",
-      options: ["At det er en varig spenning Nussbaum forvalter, ikke et rent valg", "At Nussbaum til syvende og sist fullstendig forkaster hele universalismen", "At Nussbaum til slutt helt forkaster og oppgir pluralismen", "At de to begrepene i bunn og grunn betyr det samme"],
+      options: ["At det er en varig spenning Nussbaum forvalter, ikke et rent valg", "At Nussbaum til syvende og sist fullstendig forkaster hele universalismen", "At Nussbaum til slutt helt forkaster og oppgir den lokale pluralismen", "At de to begrepene i bunn og grunn betyr det samme"],
       explanation: "Nussbaum vil ha begge; teorien lever med motsetningen. Å se dette som en spenning løfter til A.",
     },
     {
@@ -1326,22 +1326,22 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skjer hvis man drar for hardt mot universalisme (streng felles liste)?",
-      options: ["Lokal suverenitet presses — teorien risikerer verdiimperialisme", "Da blir tvert imot selve pluralismen enda betydelig sterkere enn før", "Da forsvinner tvert imot alle kapabilitetene helt fra teorien", "Da heves selve terskelen automatisk og helt av seg selv"],
+      options: ["Lokal suverenitet presses — teorien risikerer verdiimperialisme", "Da blir tvert imot selve pluralismen enda betydelig sterkere enn før", "Da forsvinner tvert imot samtlige kapabiliteter helt ut av teorien", "Da heves selve terskelen automatisk og helt av seg selv"],
       explanation: "For streng universalisme påtvinger lokale samfunn en bestemt verdiforståelse.",
     },
     {
       question: "Hvordan begrunner Nussbaum kapabilitetslisten?",
-      options: ["Aristotelisk — staten skal legge til rette for at menneskelige anlegg utvikles", "Rett og slett ved en direkte flertallsavstemning holdt i hvert enkelt lille lokalsamfunn", "Ved en klassisk samfunnskontrakt inngått bak et tett uvitenhetsslør", "Ved en direkte henvisning til Platons berømte idélære"],
+      options: ["Aristotelisk — staten skal legge til rette for at menneskelige anlegg utvikles", "Rett og slett ved en direkte flertallsavstemning i hvert lokalsamfunn", "Ved en klassisk samfunnskontrakt inngått bak et tett uvitenhetsslør", "Ved en direkte henvisning til Platons berømte idélære"],
       explanation: "Den aristoteliske begrunnelsen: kapabilitetene fanger hva menneskelig blomstring krever.",
     },
     {
       question: "Hva er hovedskillet mellom Nussbaum og Platon i en sammenligning?",
-      options: ["Menneskelig likhet (Nussbaum) vs. forskjell i anlegg (Platon)", "Universelle prinsipper (Nussbaum) vs. kulturbestemt fordeling (Platon)", "Negativ (Nussbaum) vs. positiv frihet (Platon)", "Kontrakt (Nussbaum) vs. samtykke (Platon)"],
+      options: ["Menneskelig likhet (Nussbaum) vs. forskjell i anlegg (Platon)", "Universelle prinsipper (Nussbaum) vs. kulturbestemt fordeling (Platon)", "Negativ frihet (Nussbaum) vs. positiv frihet og selvstyre (Platon)", "Hypotetisk kontrakt (Nussbaum) vs. uttrykkelig samtykke (Platon)"],
       explanation: "Nussbaum sikrer alle likt; Platon plasserer ulikt etter anlegg (hierarki).",
     },
     {
       question: "Hvilket fellespunkt har Nussbaum og Platon?",
-      options: ["Begge mener staten skal legge til rette for at menneskelige anlegg/evner utvikles (aristotelisk)", "At begge de to tenkerne bygger hele sin rettferdighetsteori på en form for klassisk samfunnskontrakt", "At begge to fullstendig avviser og benekter at menneskene er ulike", "At begge to i bunn og grunn er rene kulturrelativister om verdier"],
+      options: ["Begge mener staten skal legge til rette for at menneskelige anlegg/evner utvikles (aristotelisk)", "At begge de to tenkerne bygger sin rettferdighetsteori på en samfunnskontrakt", "At begge to fullstendig avviser og benekter at menneskene er ulike", "At begge to i bunn og grunn er rene kulturrelativister om verdier"],
       explanation: "Det aristoteliske slektskapet er det presise fellespunktet i sammenligningen.",
     },
     {
@@ -1351,12 +1351,12 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken feil begår en kandidat som kaller Nussbaum 'pluralist' uten å nevne den universelle listen?",
-      options: ["#7 upresise begreper (universalisme/pluralisme)", "#1 å miste selve det sentrale poenget i hele svaret", "#2 gjennomgående utenomsnakk og bredde", "#8 en ensidig og svak sammenligning"],
+      options: ["#7 upresise begreper (universalisme/pluralisme)", "#1 å miste selve det sentrale poenget i hele svaret", "#2 gjennomgående utenomsnakk og lavrelevant bredde", "#8 en ensidig og svak sammenligning av de to tenkerne"],
       explanation: "Å underslå at listen er universell er den flaggete presisjonsfeilen — Nussbaum holder begge sidene.",
     },
     {
       question: "Hvorfor kritiserer Nussbaum en ren ressurstilnærming?",
-      options: ["Samme ressurser gir ulike reelle muligheter (helse, undertrykkelse osv.) — ressurser er middel, ikke mål", "Rett og slett fordi selve ressursene i praksis er helt umulige å måle på noen som helst presis og pålitelig måte", "Rett og slett fordi selve ressursene i seg selv er dypt umoralske", "Rett og slett fordi det bare er staten selv som bør eie alle ressurser"],
+      options: ["Samme ressurser gir ulike reelle muligheter (helse, undertrykkelse osv.) — ressurser er middel, ikke mål", "Rett og slett fordi selve ressursene i praksis er helt umulige å måle presist", "Rett og slett fordi selve ressursene i seg selv er dypt umoralske", "Rett og slett fordi det bare er staten selv som bør eie alle ressurser"],
       explanation: "Det som teller er hva folk kan GJØRE med ressursene — altså kapabilitetene.",
     },
     {
@@ -1371,7 +1371,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er det sentrale poenget man må treffe om sosial rettferdighet (2025 b)?",
-      options: ["At alle har kapabilitetene på plass — ikke bare formell frihet", "At hele kapabilitetslisten har nøyaktig og eksakt ti ulike punkter", "At Nussbaum i bunn og grunn bygger på Aristoteles", "At selve kapabiliteten skilles klart fra funksjonen"],
+      options: ["At alle har kapabilitetene på plass — ikke bare formell frihet", "At hele kapabilitetslisten har nøyaktig og eksakt ti ulike punkter", "At Nussbaum i bunn og grunn bygger på Aristoteles", "At selve kapabiliteten skilles klart fra den faktiske funksjonen"],
       explanation: "Kjernen i 2025 b: kapabilitetene på plass over en terskel, mer enn formelle rettigheter.",
     },
     {
@@ -1388,22 +1388,22 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
   'stv1100-2-6': [
     {
       question: "Hva bestemmer velferdens omfang for Walzer?",
-      options: ["En kulturbestemt fellesbeslutning i fellesskapet («communal provision»)", "Et helt universelt og allmenngyldig rettferdighetsprinsipp for alle samfunn", "Selve markedet helt alene og uten noen innblanding", "De aller rikeste borgernes frivillige gavmildhet"],
+      options: ["En kulturbestemt fellesbeslutning i fellesskapet («communal provision»)", "Et helt universelt og allmenngyldig rettferdighetsprinsipp for alle samfunn", "Selve markedet helt alene og uten noen form for politisk innblanding overhodet", "De aller rikeste borgernes frivillige gavmildhet"],
       explanation: "Sentralt poeng: velferdens omfang er en kulturbestemt fellesbeslutning, ikke et universelt prinsipp — kontrasten til Rawls.",
     },
     {
       question: "Hva betyr «communal provision» hos Walzer?",
-      options: ["Det fellesskapet i fellesskap sørger for til sine medlemmer", "Privat veldedighet som organiseres og drives i regi av kirken", "En helt universell minsteinntekt lik for alle borgere", "Selve markedets frie fordeling av alle godene"],
+      options: ["Det fellesskapet i fellesskap sørger for til sine medlemmer", "Privat veldedighet som organiseres og drives i regi av kirken", "En helt universell minsteinntekt som er lik for alle landets borgere", "Selve markedets frie fordeling av alle godene"],
       explanation: "Communal provision = fellesskapets felles forsyning, hvis omfang bestemmes kulturbestemt.",
     },
     {
       question: "Hva er det sentrale poenget man må treffe om Walzer?",
-      options: ["At velferdens omfang er en kulturbestemt fellesbeslutning", "At Walzer i sin tid skrev det store verket Spheres of Justice", "Rett og slett at det bør finnes en form for velferd", "Rett og slett at selve markedet er dypt urettferdig"],
+      options: ["At velferdens omfang er en kulturbestemt fellesbeslutning", "At Walzer i sin tid skrev det store verket Spheres of Justice", "Rett og slett at det bør finnes en eller annen form for velferd", "Rett og slett at selve markedet i seg selv er dypt urettferdig"],
       explanation: "Mister man 'kulturbestemt fellesbeslutning', mister man kjernen og kontrasten til Rawls (#1).",
     },
     {
       question: "Hva er hovedkontrasten mellom Rawls og Walzer?",
-      options: ["Universelle prinsipper (Rawls) vs. kulturbestemt fellesforståelse (Walzer)", "Negativ frihet hos Rawls kontra ren positiv frihet hos Walzer i hele samfunnet", "Hypotetisk kontrakt hos Rawls kontra faktisk samtykke hos Walzer", "Ikke-dominans hos Rawls kontra ren dominans hos Walzer"],
+      options: ["Universelle prinsipper (Rawls) vs. kulturbestemt fellesforståelse (Walzer)", "Negativ frihet hos Rawls kontra ren positiv frihet hos Walzer i hele samfunnet", "Hypotetisk kontrakt hos Rawls kontra faktisk og uttrykkelig samtykke hos Walzer", "Ikke-dominans hos Rawls kontra ren dominans hos Walzer"],
       explanation: "Rawls søker prinsipper for alle samfunn bak sløret; Walzer forankrer fordelingen i det enkelte fellesskapets forståelser.",
     },
     {
@@ -1413,7 +1413,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en 'fordelingssfære' hos Walzer?",
-      options: ["Et område der et gode fordeles etter sitt eget prinsipp (helse etter behov, embeter etter dyktighet)", "Rett og slett en helt bestemt og tydelig avgrenset geografisk region innenfor selve landets faste grenser", "En bestemt og klart avgrenset samfunnsklasse i befolkningen", "En bestemt og avgrenset periode i selve verdenshistorien"],
+      options: ["Et område der et gode fordeles etter sitt eget prinsipp (helse etter behov, embeter etter dyktighet)", "Rett og slett en tydelig avgrenset geografisk region innenfor landets faste grenser", "En bestemt og klart avgrenset samfunnsklasse i befolkningen", "En bestemt og avgrenset periode i selve verdenshistorien"],
       explanation: "Hver sfære har sitt fordelingsprinsipp; urett oppstår når ett godes logikk erobrer en annen sfære.",
     },
     {
@@ -1423,12 +1423,12 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva menes med at borgerne 'stadig må diskutere' velferdens omfang?",
-      options: ["Fordelingen er en pågående demokratisk forhandling som kan revideres", "At det ikke finnes noen fast fasit her, rett og slett fordi ingen bryr seg", "At det utelukkende er ekspertene som kan avgjøre spørsmålet", "At omfanget fastsettes én gang for alle bak et uvitenhetsslør"],
+      options: ["Fordelingen er en pågående demokratisk forhandling som kan revideres", "At det ikke finnes noen fast fasit her, rett og slett fordi ingen bryr seg", "At det utelukkende er ekspertene som kan avgjøre spørsmålet om omfanget", "At omfanget fastsettes én gang for alle bak et uvitenhetsslør"],
       explanation: "Fordi omfanget er kulturbestemt og ikke gitt av et fast prinsipp, er det løpende omstridt — kontrast til Rawls' ferdige prinsipper.",
     },
     {
       question: "Hva er 'delte forståelser' (shared understandings) hos Walzer?",
-      options: ["Fellesskapets felles meninger om hva godene er og betyr, som gir fordelingen dens kriterier", "Rett og slett en formell avtale som til slutt er undertegnet av absolutt alle borgerne i landet", "Rett og slett selve Rawls' berømte refleksive likevekt", "Selve markedets rene prissignaler og tilbud og etterspørsel"],
+      options: ["Fellesskapets felles meninger om hva godene er og betyr, som gir fordelingen dens kriterier", "Rett og slett en formell avtale undertegnet av absolutt alle borgerne i landet", "Rett og slett selve Rawls' berømte refleksive likevekt", "Selve markedets rene prissignaler og tilbud og etterspørsel"],
       explanation: "Et gode fordeles rettferdig når fordelingen samsvarer med den delte forståelsen av godet.",
     },
     {
@@ -1438,12 +1438,12 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken feil begår en kandidat som skriver 'Walzer mener staten skal gi velferd' uten mer?",
-      options: ["#1 miste det sentrale poenget (kulturbestemt fellesbeslutning)", "#7 å blande helt sammen selve den negative og den positive friheten", "#4 å hoppe helt over ett av sitatutdragene", "#3 en helt unødig og altfor bred innledning"],
+      options: ["#1 miste det sentrale poenget (kulturbestemt fellesbeslutning)", "#7 å blande helt sammen selve den negative og den positive friheten", "#4 å hoppe helt over ett av sitatutdragene i en a)–e)-oppgave om Walzer", "#3 en helt unødig og altfor bred innledning"],
       explanation: "Alle velferdsteorier sier staten gir velferd; Walzers poeng er HVORDAN omfanget bestemmes.",
     },
     {
       question: "Hvordan kan Walzers communal provision belyse Pettits skille velferd vs. veldedighet (kap. 1.3)?",
-      options: ["Velferd som fellesskapsforankret rettighet (ikke privat gave) fjerner dominansen ved veldedighet", "Rett og slett fordi den tydelig viser at privat veldedighet i praksis alltid er det aller beste valget", "At den fullstendig avviser og forkaster hele Pettits dominansbegrep", "Rett og slett at den til slutt gjør all velferd helt overflødig"],
+      options: ["Velferd som fellesskapsforankret rettighet (ikke privat gave) fjerner dominansen ved veldedighet", "Rett og slett fordi den viser at privat veldedighet alltid er det beste valget", "At den fullstendig avviser og forkaster hele Pettits dominansbegrep", "Rett og slett at den til slutt gjør all velferd helt overflødig"],
       explanation: "Fordi omfanget er en fellesbeslutning, blir velferd en rettighet — ikke privat gavmildhet som gjør mottakeren dominert.",
     },
     {
@@ -1453,7 +1453,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en mulig innvending mot Walzers kulturbestemte fordeling?",
-      options: ["Den kan legitimere urett som fellesskapet selv godtar", "Rett og slett at den i praksis blir altfor universell for alle", "At den fullstendig overser alle kulturforskjeller", "At den til slutt bygger på et tett uvitenhetsslør"],
+      options: ["Den kan legitimere urett som fellesskapet selv godtar", "Rett og slett at den i praksis blir altfor universell for alle", "At den fullstendig overser alle kulturelle forskjeller mellom folk", "At den til slutt bygger på et tett og ugjennomtrengelig uvitenhetsslør"],
       explanation: "En kulturbestemt standard mangler et upartisk ankerpunkt mot urett som er innbakt i fellesskapets egne forståelser.",
     },
     {
@@ -1463,12 +1463,12 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "I hvilken sammenheng dukket Walzer opp i H2016-oppgaven?",
-      options: ["Athenernes «communal provision» som avvik fra Walzer", "Rett og slett Nussbaums teori om menneskelige kapabiliteter", "Selve frihetsoppgaven om Berlin kontra Pettit", "Rett og slett Machiavellis berømte verk Fyrsten"],
+      options: ["Athenernes «communal provision» som avvik fra Walzer", "Rett og slett Nussbaums teori om menneskelige kapabiliteter", "Selve frihetsoppgaven om Berlin kontra Pettits ikke-dominans", "Rett og slett Machiavellis berømte verk om fyrstens maktbruk"],
       explanation: "H2016 c brukte athenernes communal provision som et case knyttet til Walzer.",
     },
     {
       question: "I en sitattolkning: hva er funksjonen til et utdrag der Walzer sier 'ulike goder fordeles etter ulike prinsipper, og urett er når ett erobrer et annet'?",
-      options: ["Å uttrykke den pluralistiske, sfære-baserte teorien (Walzer er ikke ren relativist)", "Rett og slett å innføre og presentere hele selve grunnbegrepet om communal provision", "Rett og slett å beskrive selve den løpende fellesdiskusjonen", "Fullstendig å avvise at all fordeling har noen prinsipper"],
+      options: ["Å uttrykke den pluralistiske, sfære-baserte teorien (Walzer er ikke ren relativist)", "Rett og slett å innføre og presentere hele selve grunnbegrepet om communal provision", "Rett og slett å beskrive selve den løpende fellesdiskusjonen om velferdens rette omfang", "Fullstendig å avvise at all fordeling har noen prinsipper"],
       explanation: "Utdraget viser sfære-pluralismen og presiserer kontrasten til Rawls' ene prinsippsett.",
     },
     {
@@ -1480,7 +1480,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
   'stv1100-2-prove': [
     {
       question: "Hva kaller Rawls sin egen rettferdighetsteori?",
-      options: ["Rettferdighet som rimelighet (justice as fairness)", "Rettferdighet forstått som ren arbeidsdeling etter anlegg", "Selve kapabilitetstilnærmingen hos Nussbaum", "Begrepet om communal provision hos Walzer"],
+      options: ["Rettferdighet som rimelighet (justice as fairness)", "Rettferdighet forstått som ren arbeidsdeling etter anlegg", "Selve kapabilitetstilnærmingen slik Nussbaum utformer den", "Begrepet om communal provision hos Walzer"],
       explanation: "Rimeligheten ligger i valgsituasjonens upartiskhet (utgangsposisjonen bak sløret).",
     },
     {
@@ -1490,7 +1490,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er uvitenhetssløret?",
-      options: ["At partene ikke kjenner egen posisjon, evner eller livssyn", "At selve folket bevisst holdes uvitende og uopplyst av staten", "At man ikke vet hva de andre samfunnene faktisk gjør", "Selve beslutningsregelen man bruker under usikkerhet"],
+      options: ["At partene ikke kjenner egen posisjon, evner eller livssyn", "At selve folket bevisst holdes uvitende og uopplyst av staten", "At man ikke vet hva de andre samfunnene rundt en faktisk gjør", "Selve beslutningsregelen man bruker under usikkerhet"],
       explanation: "Sløret sikrer upartiskhet. Beslutningsregelen er maximin — ikke forveksle.",
     },
     {
@@ -1505,12 +1505,12 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva sier forskjellsprinsippet?",
-      options: ["Ulikheter tillates kun hvis de er til størst fordel for de dårligst stilte", "At absolutt alle borgerne til enhver tid skal ha nøyaktig like mye av absolutt alt", "At enhver form for ulikhet alltid og uansett er urettferdig", "At de aller mest talentfulle borgerne rett og slett fortjener mest"],
+      options: ["Ulikheter tillates kun hvis de er til størst fordel for de dårligst stilte", "At absolutt alle borgerne til enhver tid skal ha nøyaktig like mye av absolutt alt", "At enhver form for ulikhet alltid og uansett er urettferdig", "At de aller mest talentfulle borgerne rett og slett fortjener å tjene aller mest"],
       explanation: "Kjernen i Rawls' fordelingsrettferdighet (prinsipp 2b).",
     },
     {
       question: "Hva betyr den leksikalske forrangen?",
-      options: ["Prinsipp 1 før 2a før 2b — frihet kan ikke ofres for velferd", "At selve prinsippene rett og slett rangeres i alfabetisk rekkefølge", "At det er forskjellsprinsippet som kommer aller først", "At absolutt alle prinsippene til slutt veier nøyaktig likt"],
+      options: ["Prinsipp 1 før 2a før 2b — frihet kan ikke ofres for velferd", "At selve prinsippene rett og slett rangeres i alfabetisk rekkefølge", "At det er forskjellsprinsippet som kommer aller først", "At absolutt alle prinsippene til slutt veier nøyaktig like tungt"],
       explanation: "Frihet før sjanselikhet før forskjellsprinsipp — et subtilt A-poeng.",
     },
     {
@@ -1535,7 +1535,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et subtilt A-poeng om uvitenhetssløret?",
-      options: ["At ulike deler av sløret er ulikt godt teoretisk motivert", "Rett og slett at selve sløret dekker absolutt alt sammen like godt", "Rett og slett at sløret er nøyaktig det samme som maximin", "Rett og slett at sløret er en historisk kjensgjerning"],
+      options: ["At ulike deler av sløret er ulikt godt teoretisk motivert", "Rett og slett at selve sløret dekker absolutt alt sammen like godt", "Rett og slett at sløret er nøyaktig det samme som maximin", "Rett og slett at sløret er en historisk kjensgjerning hos Rawls"],
       explanation: "Det veiledningen flagger som 'veldig bra' — nyansen som løfter til A.",
     },
     {
@@ -1545,7 +1545,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "I Rawls-sitatoppgaven: hva er funksjonen til et utdrag om at 'partene ikke vet hvilken plass de vil få'?",
-      options: ["Uvitenhetssløret — premiss/apparat som sikrer upartiskhet", "Rett og slett selve maximin-regelen brukt under usikkerhet", "Rett og slett selve det naturlige lotteriet hos Rawls", "Rett og slett selve den refleksive likevekten"],
+      options: ["Uvitenhetssløret — premiss/apparat som sikrer upartiskhet", "Rett og slett selve maximin-regelen brukt under usikkerhet", "Rett og slett selve det naturlige lotteriet slik Rawls beskriver det", "Rett og slett selve den refleksive likevekten i Rawls' metode"],
       explanation: "Utdraget beskriver sløret, ikke beslutningsregelen.",
     },
     {
@@ -1560,12 +1560,12 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er kjernekontrasten mellom Rawls og Locke?",
-      options: ["Hypotetisk prinsippvalg bak slør (Rawls) vs. faktisk pågående samtykke med full informasjon (Locke)", "Rett og slett skillet mellom den negative friheten hos Rawls og den helt rene positive friheten hos Locke", "Universelle prinsipper hos Rawls kontra det kulturbestemte hos Locke", "Klok politikk hos Rawls kontra etisk politikk hos Locke"],
+      options: ["Hypotetisk prinsippvalg bak slør (Rawls) vs. faktisk pågående samtykke med full informasjon (Locke)", "Rett og slett skillet mellom negativ frihet hos Rawls og positiv frihet hos Locke", "Universelle prinsipper hos Rawls kontra det kulturbestemte hos Locke", "Klok politikk hos Rawls kontra etisk politikk hos Locke"],
       explanation: "Informasjonsbetingelsen (slør vs. full informasjon) er den presise dimensjonen.",
     },
     {
       question: "Hva er stilltiende (tacit) samtykke hos Locke?",
-      options: ["Den som nyter samfunnets goder har samtykket underforstått", "Rett og slett et helt eksplisitt og formelt undertegnet dokument", "Et samtykke som utelukkende gis bak selve uvitenhetssløret", "Fellesskapets egen kulturbestemte og felles beslutning"],
+      options: ["Den som nyter samfunnets goder har samtykket underforstått", "Rett og slett et helt eksplisitt og formelt undertegnet dokument", "Et samtykke som utelukkende gis bak selve uvitenhetssløret hos Rawls", "Fellesskapets egen kulturbestemte og felles beslutning om godene"],
       explanation: "IKKE bland med uttrykkelig samtykke (#7).",
     },
     {
@@ -1575,7 +1575,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den presise sammenligningsdimensjonen mellom Locke og Rawls?",
-      options: ["Informasjonsbetingelsen: full informasjon (Locke) vs. slør (Rawls)", "Selve antallet ulike rettferdighetsprinsipper hos de to ulike tenkerne", "De to tenkernes ulike syn på selve den private eiendommen", "De to tenkernes ulike syn på selve ytringsfriheten"],
+      options: ["Informasjonsbetingelsen: full informasjon (Locke) vs. slør (Rawls)", "Selve antallet ulike rettferdighetsprinsipper hos de to ulike tenkerne", "De to tenkernes innbyrdes ulike syn på selve den private eiendomsretten", "De to tenkernes ulike syn på selve ytringsfriheten"],
       explanation: "Å velge informasjonsbetingelsen som dimensjon er det presise, A-givende grepet — mer enn bare 'historisk vs. hypotetisk'.",
     },
     {
@@ -1590,12 +1590,12 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor fratar Platon vokterne eiendom og familie?",
-      options: ["For å hindre maktmisbruk — fjerne motivet til å styre for egen vinning", "Rett og slett fordi absolutt all eiendom i seg selv er dypt og grunnleggende umoralsk", "Rett og slett for å spare inn penger til staten", "For å gjøre vokterne fattige som et rent ideal"],
+      options: ["For å hindre maktmisbruk — fjerne motivet til å styre for egen vinning", "Rett og slett fordi all eiendom i seg selv er dypt umoralsk", "Rett og slett for å spare inn penger til staten", "For å gjøre vokterne fattige som et rent ideal"],
       explanation: "Et middel mot maktmisbruk, ikke en asketisk detalj.",
     },
     {
       question: "Hva menes med at Platons argument er 'deskriptivt + normativt'?",
-      options: ["Det utleder rettferdighet fra faktapåstander (ulike anlegg) PLUSS verdipåstander (hver på sin plass er godt)", "Rett og slett at hele argumentet er helt og holdent rent beskrivende, uten noen som helst form for verdivurderinger", "Rett og slett at det bare er ren normativ postulering", "Rett og slett at det utelukkende bygger på religiøse premisser"],
+      options: ["Det utleder rettferdighet fra faktapåstander (ulike anlegg) PLUSS verdipåstander (hver på sin plass er godt)", "Rett og slett at hele argumentet er rent beskrivende, uten noen form for verdivurderinger", "Rett og slett at det bare er ren normativ postulering", "Rett og slett at det utelukkende bygger på religiøse premisser"],
       explanation: "Å se at teorien bygges, ikke bare hevdes, er et subtilt A-poeng.",
     },
     {
@@ -1605,7 +1605,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er sosial rettferdighet for Nussbaum?",
-      options: ["At alle har de artsbestemte kapabilitetene på plass over en terskel", "Rett og slett en kulturbestemt felles beslutning i selve fellesskapet", "Rett og slett at absolutt alle borgerne har nøyaktig lik inntekt", "Rett og slett at hver enkelt plasseres etter sine egne anlegg"],
+      options: ["At alle har de artsbestemte kapabilitetene på plass over en terskel", "Rett og slett en kulturbestemt felles beslutning i selve fellesskapet", "Rett og slett at absolutt alle borgerne har nøyaktig lik inntekt og formue", "Rett og slett at hver enkelt plasseres etter sine egne anlegg"],
       explanation: "Kapabilitetene på plass, ikke bare formell frihet (2025 b).",
     },
     {
@@ -1615,7 +1615,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er det subtile A-poenget om universalisme–pluralisme hos Nussbaum?",
-      options: ["At det er en varig spenning hun forvalter, ikke et rent valg", "Rett og slett at hun til slutt fullstendig forkaster universalismen", "Rett og slett at hun helt forkaster og oppgir pluralismen", "Rett og slett at de to begrepene betyr nøyaktig det samme"],
+      options: ["At det er en varig spenning hun forvalter, ikke et rent valg", "Rett og slett at hun til slutt fullstendig forkaster universalismen", "Rett og slett at hun helt forkaster og oppgir den lokale pluralismen", "Rett og slett at de to begrepene betyr nøyaktig det samme hos henne"],
       explanation: "Å se dette som en spenning viser forståelse av strukturen.",
     },
     {
@@ -1630,12 +1630,12 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva bestemmer velferdens omfang for Walzer?",
-      options: ["En kulturbestemt fellesbeslutning ('communal provision')", "Rett og slett et helt universelt og allmenngyldig prinsipp", "Rett og slett selve markedet helt alene", "De aller rikeste borgernes frivillige gavmildhet"],
+      options: ["En kulturbestemt fellesbeslutning ('communal provision')", "Rett og slett et helt universelt og allmenngyldig prinsipp", "Rett og slett selve markedet helt alene, uten politisk styring", "De aller rikeste borgernes frivillige gavmildhet og veldedighet"],
       explanation: "Kontrasten til Rawls: kulturbestemt, ikke universelt.",
     },
     {
       question: "Hvorfor er Walzer ikke en ren relativist?",
-      options: ["Han gir en pluralistisk, sfære-basert teori med indre kriterier", "Rett og slett fordi han mener at absolutt alt sammen er tilfeldig", "Rett og slett fordi han trofast følger Rawls' prinsipper", "Fordi han fullstendig avviser hele fordelingen"],
+      options: ["Han gir en pluralistisk, sfære-basert teori med indre kriterier", "Rett og slett fordi han mener at absolutt alt sammen er tilfeldig", "Rett og slett fordi han trofast følger Rawls' universelle prinsipper", "Fordi han fullstendig avviser hele fordelingen"],
       explanation: "Ulike goder, ulike sfære-egne prinsipper; urett = sfære-krenkelse.",
     },
     {
@@ -1650,7 +1650,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva gjør en sammenligning ensidig og svak (feil #8)?",
-      options: ["Å gjengi begge tenkerne uten å navngi dimensjonene de skiller lag på", "Rett og slett å navngi alle selve sammenligningsdimensjonene helt tydelig", "Rett og slett å holde begge de to posisjonene helt presise", "Rett og slett å trekke tydelig inn et treffende fellespunkt"],
+      options: ["Å gjengi begge tenkerne uten å navngi dimensjonene de skiller lag på", "Rett og slett å navngi alle selve sammenligningsdimensjonene helt tydelig", "Rett og slett å holde begge de to posisjonene helt presise og tydelige", "Rett og slett å trekke tydelig inn et treffende fellespunkt"],
       explanation: "Uten eksplisitte dimensjoner er det bare to redegjørelser ved siden av hverandre.",
     },
     {
@@ -1660,7 +1660,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "I en HYB-oppgave om forskjellsprinsippet: hva kjennetegner E-nivå?",
-      options: ["Ren gjengivelse uten innvending, eller fri synsing uten forankring", "En solid og pensumforankret innvending pluss en forbeholden vurdering", "En redegjørelse etterfulgt av én enkelt pensum-kritiker", "En helt presis og korrekt bruk av alle fagbegrepene"],
+      options: ["Ren gjengivelse uten innvending, eller fri synsing uten forankring", "En solid og pensumforankret innvending pluss en forbeholden vurdering", "En redegjørelse etterfulgt av én enkelt kritiker hentet rett fra pensum", "En helt presis og korrekt bruk av alle fagbegrepene"],
       explanation: "#8: ren gjengivelse der oppgaven ber om drøfting.",
     },
     {
@@ -1670,44 +1670,44 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner et A-svar i Del 2 ifølge vurderingsaksene?",
-      options: ["Sentrale poeng truffet presist + minst ett subtilt ekstrapoeng og/eller selvstendig sammenligning", "Rett og slett en aller lengst og bredest og mest omfattende besvarelse som det overhodet lar seg gjøre", "Rett og slett en bredest mulig dekning av hele filosofihistorien", "Rett og slett en svært grundig innledning og en tydelig avslutning"],
+      options: ["Sentrale poeng truffet presist + minst ett subtilt ekstrapoeng og/eller selvstendig sammenligning", "Rett og slett den lengst og bredest mulige besvarelsen som lar seg gjøre", "Rett og slett en bredest mulig dekning av hele filosofihistorien", "Rett og slett en svært grundig innledning og en tydelig avslutning"],
       explanation: "Helhetsvurdering: treff kjernen + subtilitet/selvstendighet, ikke lengde.",
     },
     {
       question: "Hva er kalibreringsregelen som gjelder alle Del 2-svar om innledning/avslutning?",
-      options: ["Gå rett på sak — ingen innledning, avslutning eller litteraturhenvisninger", "Man skal alltid ha med en svært fyldig og velformulert innledning aller først", "Man skal avslutte hele svaret med sin egen personlige livsanskuelse", "Man skal sitere pensum direkte og i stor lengde gjennom hele svaret"],
+      options: ["Gå rett på sak — ingen innledning, avslutning eller litteraturhenvisninger", "Man skal alltid ha med en svært fyldig og velformulert innledning aller først", "Man skal avslutte hele svaret med sin egen personlige livsanskuelse til slutt", "Man skal sitere pensum direkte og i stor lengde gjennom hele svaret"],
       explanation: "Oppvarming er bortkastet i et 4-timers essayfag (#3).",
     },
   ],
   'stv1100-3-1': [
     {
       question: "Hva er det *sentrale poenget* i Machiavellis behandling av moral og politikk?",
-      options: ["At han *skiller* to spørsmål: hva som er klok (virksom) politikk og hva som er etisk akseptabel politikk", "At absolutt all politikk uansett og til enhver tid nødvendigvis er dypt og gjennomgående umoralsk i seg selv", "At moral aldri spiller noen rolle i noe menneskelig liv", "At fyrsten alltid bør handle moralsk godt"],
+      options: ["At han *skiller* to spørsmål: hva som er klok (virksom) politikk og hva som er etisk akseptabel politikk", "At absolutt all politikk uansett og til enhver tid nødvendigvis er dypt og gjennomgående umoralsk i seg selv", "At moral aldri spiller noen rolle i noe menneskelig liv", "At fyrsten alltid bør handle moralsk godt, uansett følgene"],
       explanation: "Kjernen er atskillelsen av «virker det?» fra «er det rett?» — ikke en fordømmelse eller avvisning av moral.",
     },
     {
       question: "Hva betyr «klok politikk» hos Machiavelli?",
-      options: ["Instrumentelt rasjonell politikk — handling vurdert etter om midlene virker", "Politikk som til enhver tid er fullt ut moralsk dydig og gjennomgående rettskaffen", "Politikk styrt av religiøse bud", "Politikk som alltid holder løfter"],
+      options: ["Instrumentelt rasjonell politikk — handling vurdert etter om midlene virker", "Politikk som til enhver tid er fullt ut moralsk dydig og gjennomgående rettskaffen", "Politikk som i ett og alt styres av kirkens religiøse bud og påbud om rett handling", "Politikk som alltid holder inngåtte løfter, uansett hva omstendighetene krever"],
       explanation: "Klok politikk er en beskrivelse av det virksomme, ikke en moralsk anbefaling.",
     },
     {
       question: "Hva betyr *virtù* hos Machiavelli?",
-      options: ["Fyrstens handlekraft, mot og evne til å gripe muligheter", "Ren moralsk dyd, godhet og en gjennomgående rettskaffenhet", "Religiøs fromhet", "Fravær av forsettlig innblanding"],
+      options: ["Fyrstens handlekraft, mot og evne til å gripe muligheter", "Ren moralsk dyd, godhet og en gjennomgående rettskaffenhet", "Religiøs fromhet og ubetinget lydighet mot kirkens bud og forbud", "Fravær av forsettlig innblanding fra andre, slik Berlin bruker ordet"],
       explanation: "Virtù er dyktighet/handlekraft — ikke «dyd» i moralsk forstand. «Fravær av forsettlig innblanding» er Berlins negative frihet, ikke Machiavelli.",
     },
     {
       question: "Hva er *Fortuna* hos Machiavelli?",
-      options: ["Tilfeldigheten/skjebnen fyrsten ikke rår over — som virtù forsøker å temme", "Selve fyrstens egen dyktighet, handlekraft og evne til å gripe alle muligheter", "En moralsk plikt", "Statens hovedoppgave"],
+      options: ["Tilfeldigheten/skjebnen fyrsten ikke rår over — som virtù forsøker å temme", "Selve fyrstens egen dyktighet, handlekraft og evne til å gripe alle muligheter", "En moralsk plikt fyrsten har overfor sine undersåtter og overfor sitt eget rike", "Statens fremste hovedoppgave, nemlig å verne alle undersåttene mot ytre fiender"],
       explanation: "Fortuna er det uforutsette; virtù er evnen til å temme den. Ikke bland Fortuna (flaks) med virtù (dyktighet).",
     },
     {
       question: "Hva kjennetegner «god bruk av grusomhet» hos Machiavelli?",
-      options: ["Grusomhet gjort på én gang, samlet, av nødvendighet, og deretter avviklet til undersåttenes nytte", "Grusomhet som er liten og beskjeden i starten, men som gradvis vokser seg større og gjentas igjen og igjen", "Grusomhet begrunnet i religion", "Grusomhet som alltid er moralsk forsvarlig"],
+      options: ["Grusomhet gjort på én gang, samlet, av nødvendighet, og deretter avviklet til undersåttenes nytte", "Grusomhet som er liten og beskjeden i starten, men som gradvis vokser seg større og gjentas igjen og igjen", "Grusomhet begrunnet i religionens bud og kirkens autoritet", "Grusomhet som alltid er moralsk forsvarlig i seg selv"],
       explanation: "God bruk er samlet og engangs; dårlig bruk er stadig og eskalerende. Skillet er instrumentelt (klok politikk).",
     },
     {
       question: "Hva er «dårlig bruk av grusomhet»?",
-      options: ["Grusomhet som er liten i begynnelsen men vokser og gjentas over tid", "Grusomhet som gjøres samlet og på én gang, ut fra en ren nødvendighet", "All grusomhet uansett form", "Grusomhet fyrsten angrer på"],
+      options: ["Grusomhet som er liten i begynnelsen men vokser og gjentas over tid", "Grusomhet som gjøres samlet og på én gang, ut fra en ren nødvendighet", "All grusomhet uansett form og omfang, og uansett hvilken hensikt som ligger bak", "Grusomhet som fyrsten selv kommer til å angre på i ettertid, uansett virkningen"],
       explanation: "Dårlig bruk holder fyrsten i evig utrygghet og undergraver makten; god bruk er avgrenset og fester den.",
     },
     {
@@ -1717,7 +1717,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er *generell* amoralisme — som Machiavelli IKKE forsvarer?",
-      options: ["Påstanden at moral overhodet ikke gjelder, verken i politikk eller privatliv", "Påstanden at statskunsten har sin egen logikk som kan bryte alminnelig moral", "At fyrsten bør fremstå som moralsk", "At grusomhet kan brukes godt"],
+      options: ["Påstanden at moral overhodet ikke gjelder, verken i politikk eller privatliv", "Påstanden at statskunsten har sin egen logikk som kan bryte alminnelig moral", "At fyrsten bør fremstå som moralsk", "At grusomhet kan brukes godt av en fyrste"],
       explanation: "Machiavelli forsvarer *politisk* (avgrenset) amoralisme, ikke generell (universell) amoralisme.",
     },
     {
@@ -1727,12 +1727,12 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er *rendyrket konsekvensialisme* i Machiavelli-sammenheng?",
-      options: ["At handlingen bedømmes kun etter utfallet — målet helliger midlet", "At enkelte handlinger fordømmes i seg selv uansett utfall", "At enkelte handlinger fordømmes i seg selv, uansett hvor godt utfallet blir", "At fyrsten alltid bør holde løftene sine fordi troskap er en ubetinget plikt"],
+      options: ["At handlingen bedømmes kun etter utfallet — målet helliger midlet", "At fyrsten alltid bør velge det mildeste av de midlene som er tilgjengelige", "At enkelte handlinger fordømmes i seg selv, uansett hvor godt utfallet blir", "At fyrsten alltid bør holde løftene sine fordi troskap er en ubetinget plikt"],
       explanation: "Konsekvensialisme = bare utfallet teller. Motsatsen (handlinger forbudt i seg selv) er det deontologiske innslaget.",
     },
     {
       question: "Hva menes med Machiavellis *deontologiske innslag*?",
-      options: ["At enkelte handlinger fordømmes i seg selv, uavhengig av utfallet", "At bare utfallet av handlingen teller", "At all grusomhet er tillatt så lenge fyrsten fester og bevarer sitt herredømme", "At bare det endelige utfallet av handlingen teller, slik at målet helliger midlet"],
+      options: ["At enkelte handlinger fordømmes i seg selv, uavhengig av utfallet", "At handlingene bare kan bedømmes ut fra fyrstens egne motiver og hensikter", "At all grusomhet er tillatt så lenge fyrsten fester og bevarer sitt herredømme", "At bare det endelige utfallet av handlingen teller, slik at målet helliger midlet"],
       explanation: "Utdraget «makt, men ikke ære» viser en dom over handlingen som konsekvensregnestykket ikke opphever.",
     },
     {
@@ -1747,7 +1747,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Utdrag c): «En fyrste bør synes barmhjertig og tro, men ha sinnet beredt til det motsatte når nødvendigheten byder det.» Hva viser utdraget?",
-      options: ["Å *fremstå* som moralsk — klok politikk anvendt på fyrstens omdømme", "At fyrsten faktisk bør være moralsk god", "At fyrsten faktisk bør være moralsk god, ikke bare fremstå slik utad", "At Fortuna styrer alt, slik at fyrstens omdømme til slutt er uten betydning"],
+      options: ["Å *fremstå* som moralsk — klok politikk anvendt på fyrstens omdømme", "At fyrsten bør holde sin barmhjertighet skjult for undersåttene", "At fyrsten faktisk bør være moralsk god, ikke bare fremstå slik utad", "At Fortuna styrer alt, slik at fyrstens omdømme til slutt er uten betydning"],
       explanation: "Dydens *utseende* tjener maktens formål — et tydelig sted der «virker det?» skilles fra «er det rett?».",
     },
     {
@@ -1767,7 +1767,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva innebærer skillet mellom *omdømme* og *realitet* hos Machiavelli?",
-      options: ["At det virksomme er å styre inntrykket av dyd, mens man handler etter nødvendigheten", "At fyrsten alltid må være det han utgir seg for", "At omdømme er uten betydning, siden bare de faktiske handlingene teller for maktens feste", "At fyrsten alltid må være nøyaktig det han utgir seg for, uten sprik mellom skinn og realitet"],
+      options: ["At det virksomme er å styre inntrykket av dyd, mens man handler etter nødvendigheten", "At omdømmet bør bygges utelukkende gjennom offentlig fromhet, gavmildhet og gaver til folket", "At omdømme er uten betydning, siden bare de faktiske handlingene teller for maktens feste", "At fyrsten alltid må være nøyaktig det han utgir seg for, uten sprik mellom skinn og realitet"],
       explanation: "Fordi de fleste dømmer etter det de ser, kan et godt omdømme opprettholdes tross umoralske handlinger.",
     },
     {
@@ -1814,12 +1814,12 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er Mills andre argument (meningsbryting)?",
-      options: ["En avvikende mening er ofte delvis sann; bare kollisjon foredler helheten", "At all sannhet allerede eies av flertallet", "At debatt bare sprer forvirring og svekker de sanne meningenes faste grunnlag", "At bare fageksperter bør ytre seg, siden legfolks meninger forsurer diskusjonen"],
+      options: ["En avvikende mening er ofte delvis sann; bare kollisjon foredler helheten", "At all sannhet allerede eies av flertallet, slik at avvikende meninger er overflødige", "At debatt bare sprer forvirring og svekker de sanne meningenes faste grunnlag", "At bare fageksperter bør ytre seg, siden legfolks meninger forsurer diskusjonen"],
       explanation: "Argument 2 dekker tilfellet der den undertrykte meningen er *delvis* sann.",
     },
     {
       question: "Hva er Mills tredje argument (den anti-dogmatiske funksjonen)?",
-      options: ["Selv en helt sann herskende mening blir et dødt dogme uten motstand", "At staten må beskytte sannheten mot kritikk", "At sannhet aldri kan oppnås, slik at all meningsbryting egentlig er nytteløs", "At falske meninger må høres fordi de kan vise seg å inneholde skjulte sannheter"],
+      options: ["Selv en helt sann herskende mening blir et dødt dogme uten motstand", "At staten må beskytte den etablerte sannheten mot all kritikk utenfra", "At sannhet aldri kan oppnås, slik at all meningsbryting egentlig er nytteløs", "At falske meninger må høres fordi de kan vise seg å inneholde skjulte sannheter"],
       explanation: "Argument 3 gjelder selv når den herskende meningen er *helt sann* — den trenger motstand for å forbli levende.",
     },
     {
@@ -1854,17 +1854,17 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er ett av Brisons hovedpoenger mot markedsplass-bildet?",
-      options: ["Offentligheten drives av profittmaksimering, ikke sannhetssøken", "At sannheten alltid vinner til slutt", "At staten har en plikt til å korrigere feilaktige ytringer for å beskytte offentligheten", "At den frie meningsbrytingen på sikt siler ut usannheter og lar sannheten vinne av seg selv"],
+      options: ["Offentligheten drives av profittmaksimering, ikke sannhetssøken", "At redaktørene i mediene alltid slipper til de mest sannferdige stemmene", "At staten har en plikt til å korrigere feilaktige ytringer for å beskytte offentligheten", "At den frie meningsbrytingen på sikt siler ut usannheter og lar sannheten vinne av seg selv"],
       explanation: "Mediene belønner det som selger/engasjerer, ikke det sanne — så markedet siler ikke ut sannhet.",
     },
     {
       question: "Hva mener Brison med «privat sensur»?",
-      options: ["At ytringsrommet innsnevres av private aktører (plattformer, arbeidsgivere), ikke bare av staten", "At staten sensurerer i hemmelighet", "At staten i det skjulte overvåker og sensurerer borgernes ytringer gjennom hemmelige overvåkingsprogrammer", "At borgerne av hensyn til fellesskapet selv bør legge bånd på hvilke meninger de gir uttrykk for offentlig"],
+      options: ["At ytringsrommet innsnevres av private aktører (plattformer, arbeidsgivere), ikke bare av staten", "At domstolene i all hemmelighet stanser ytringer allerede før de i det hele tatt rekker å bli publisert", "At staten i det skjulte overvåker og sensurerer borgernes ytringer gjennom hemmelige overvåkingsprogrammer", "At borgerne av hensyn til fellesskapet selv bør legge bånd på hvilke meninger de gir uttrykk for offentlig"],
       explanation: "Brison forskyver debatten fra stat-mot-individ til også makt-mot-individ.",
     },
     {
       question: "Hva gjør Brison til en *forankret* (ikke synset) innvending i en HYB-oppgave?",
-      options: ["At hun er pensum — ikke kandidatens egen synsing", "At hun er enig med Mill", "At hun er den mest siterte og anerkjente teoretikeren på feltet", "At hun uttrykkelig stiller seg bak Mills tre sannhetsargumenter"],
+      options: ["At hun er pensum — ikke kandidatens egen synsing", "At hun skriver på engelsk og derfor er lett tilgjengelig for kandidaten", "At hun er den mest siterte og anerkjente teoretikeren på feltet", "At hun uttrykkelig stiller seg bak Mills tre sannhetsargumenter"],
       explanation: "Å bruke en pensumforankret kritiker framfor egen synsing skiller A fra E i drøftingsdelen (mot feil #8/#2).",
     },
     {
@@ -1874,7 +1874,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilket premiss binder Mills tre argumenter sammen — og som Brison angriper?",
-      options: ["At fri meningsbryting faktisk fører til sannhet", "At flertallet alltid tar feil", "At flertallets oppfatning som regel viser seg å være uriktig over tid", "At staten er ufeilbarlig"],
+      options: ["At fri meningsbryting faktisk fører til sannhet", "At flertallet alltid tar feil i slike spørsmål", "At flertallets oppfatning som regel viser seg å være uriktig over tid", "At staten er ufeilbarlig i sine vurderinger av hva som er sant"],
       explanation: "Alle tre argumentene forutsetter at debatten er en sannhetssøkende prosess.",
     },
     {
@@ -1889,12 +1889,12 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva ville Mill si om et forbud mot en demonstrasjon fordi budskapet er «støtende»?",
-      options: ["Han ville motsette seg det — anstøt er ikke skade, så skadeprinsippet gir ingen forbudsgrunn", "Han ville støtte forbudet fordi mange blir støtt", "Han ville forby enhver demonstrasjon fordi offentlig uro alltid innebærer en form for skade på andre", "Han ville overlate spørsmålet til flertallsavgjørelse fordi demokratiet best avgjør hva som er tillatt"],
+      options: ["Han ville motsette seg det — anstøt er ikke skade, så skadeprinsippet gir ingen forbudsgrunn", "Han ville støtte forbudet fordi tilstrekkelig mange blir støtt av budskapet i demonstrasjonen", "Han ville forby enhver demonstrasjon fordi offentlig uro alltid innebærer en form for skade på andre", "Han ville overlate spørsmålet til flertallsavgjørelse fordi demokratiet best avgjør hva som er tillatt"],
       explanation: "Skadeprinsippet tillater tvang kun mot skade på andre — ikke mot anstøt.",
     },
     {
       question: "Hvorfor gjelder Mills argument 3 selv når den herskende meningen er helt sann?",
-      options: ["Fordi sannheten uten motstand blir et dødt dogme — man mister forståelsen av grunnene", "Fordi sanne meninger alltid er falske", "Fordi staten pålegger borgerne å prøve selv sanne meninger mot innvendinger for å sikre orden", "Fordi flertallets tilslutning er det eneste som til syvende og sist kan gjøre en mening gyldig"],
+      options: ["Fordi sannheten uten motstand blir et dødt dogme — man mister forståelsen av grunnene", "Fordi sanne meninger alltid viser seg å være falske når de blir prøvd mot skarpe innvendinger", "Fordi staten pålegger borgerne å prøve selv sanne meninger mot innvendinger for å sikre orden", "Fordi flertallets tilslutning er det eneste som til syvende og sist kan gjøre en mening gyldig"],
       explanation: "Ytringsfrihet trengs selv når vi har rett, for å holde sannheten levende.",
     },
     {
@@ -1909,12 +1909,12 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken feil begår en kandidat som redegjør for Mill men aldri drøfter mot Brison der oppgaven ber om det?",
-      options: ["Feilkode #8 — ren gjengivelse der oppgaven ber om drøfting", "Feilkode #7 — upresise begreper", "Feilkode #4 — han hopper over et av utdragene oppgaven ber ham behandle", "Feilkode #3 — han bruker unødig mye plass på en lang og generell innledning"],
+      options: ["Feilkode #8 — ren gjengivelse der oppgaven ber om drøfting", "Feilkode #7 — gjennomgående upresise og uklare fagbegreper i svaret", "Feilkode #4 — han hopper over et av utdragene oppgaven ber ham behandle", "Feilkode #3 — han bruker unødig mye plass på en lang og generell innledning"],
       explanation: "#8 er å referere i drøftingsdelen i stedet for å drøfte.",
     },
     {
       question: "Hva forutsetter «meningenes markedsplass»-bildet, ifølge Brisons kritikk?",
-      options: ["Likestilte, rasjonelle deltakere — noe den virkelige offentligheten ikke har", "At sannheten er umulig å finne", "At sannheten prinsipielt er umulig å komme fram til gjennom fri meningsbryting alene", "At ingen av deltakerne i offentligheten sitter med makt til å påvirke de andres meninger"],
+      options: ["Likestilte, rasjonelle deltakere — noe den virkelige offentligheten ikke har", "At staten holder seg fullstendig unna og aldri på noe tidspunkt griper inn i debatten", "At sannheten prinsipielt er umulig å komme fram til gjennom fri meningsbryting alene", "At ingen av deltakerne i offentligheten sitter med makt til å påvirke de andres meninger"],
       explanation: "Ulikhet og irrasjonelle krefter forvrenger den frie brytingen Mill forutsatte.",
     },
     {
@@ -1931,7 +1931,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken posisjon har Waldron i hatytringsdebatten?",
-      options: ["For hatytringslovgivning — ut fra et menneskeverd-/skadeargument", "Mot, ut fra prosesshensyn", "Mot hatytringslovgivning — ut fra et prosess- og legitimitetsargument", "Nøytral — han inntar ingen klar posisjon i spørsmålet om hatytringslov"],
+      options: ["For hatytringslovgivning — ut fra et menneskeverd-/skadeargument", "Mot hatytringslovgivning — ut fra hensynet til statens behov for ro og orden", "Mot hatytringslovgivning — ut fra et prosess- og legitimitetsargument", "Nøytral — han inntar ingen klar posisjon i spørsmålet om hatytringslov"],
       explanation: "Waldron argumenterer for loven med et skadeargument forankret i menneskeverd/social standing.",
     },
     {
@@ -1941,7 +1941,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er kjernen i Waldrons argument for hatytringslov?",
-      options: ["Hatretorikk skader ved å undergrave utsatte gruppers menneskeverd / social standing", "Hatytringer krenker folks følelser (anstøt)", "At legitimiteten til den demokratiske prosessen krever at slike ytringer forbys ved lov", "At hatytringer krenker enkeltmenneskers følelser og påfører dem anstøt de har krav på vern mot"],
+      options: ["Hatretorikk skader ved å undergrave utsatte gruppers menneskeverd / social standing", "Hatytringer svekker tilliten til mediene og til hele den offentlige samtalen i samfunnet", "At legitimiteten til den demokratiske prosessen krever at slike ytringer forbys ved lov", "At hatytringer krenker enkeltmenneskers følelser og påfører dem anstøt de har krav på vern mot"],
       explanation: "Waldron lokaliserer skaden i statusen (menneskeverd), ikke i følelsene (anstøt).",
     },
     {
@@ -1951,7 +1951,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er «social standing» hos Waldron?",
-      options: ["Den offentlige statusen som likeverdig medlem av samfunnet", "En indre følelse av verdighet", "Fyrstens omdømme og anseelse i forholdet til sine undersåtter", "En indre og subjektiv følelse av egenverd hos den enkelte person"],
+      options: ["Den offentlige statusen som likeverdig medlem av samfunnet", "Den rangen en person har i samfunnets økonomiske klassesystem", "Fyrstens omdømme og anseelse i forholdet til sine undersåtter", "En indre og subjektiv følelse av egenverd hos den enkelte person"],
       explanation: "Menneskeverd er hos Waldron en sosial/offentlig status, ikke en subjektiv følelse.",
     },
     {
@@ -1966,7 +1966,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Betyr Dworkins standpunkt at han mener hatytringer er harmløse?",
-      options: ["Nei — han kan mene de er avskyelige; poenget er at forbud koster legitimitet", "Ja, han mener de er helt ufarlige", "Ja — han bagatelliserer virkningen av hatytringer og avviser at de kan påføre skade", "Nei — men han tar prinsipielt ikke stilling til hvor skadelige hatytringer faktisk er"],
+      options: ["Nei — han kan mene de er avskyelige; poenget er at forbud koster legitimitet", "Ja — han mener domstolene for lengst har fastslått at slike ytringer er lovlige", "Ja — han bagatelliserer virkningen av hatytringer og avviser at de kan påføre skade", "Nei — men han tar prinsipielt ikke stilling til hvor skadelige hatytringer faktisk er"],
       explanation: "Å lese Dworkin som at han bagatelliserer hatytringer er en feiltolkning.",
     },
     {
@@ -1976,7 +1976,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva står på spill for Dworkin?",
-      options: ["Legitimiteten til den demokratiske beslutningsprosessen", "Utsatte gruppers status", "Fyrstens makt og evne til å opprettholde ro og orden i riket", "Statens økonomiske bæreevne og evne til å håndheve lovene sine"],
+      options: ["Legitimiteten til den demokratiske beslutningsprosessen", "Utsatte gruppers likeverdige status som medlemmer av samfunnet", "Fyrstens makt og evne til å opprettholde ro og orden i riket", "Statens økonomiske bæreevne og evne til å håndheve lovene sine"],
       explanation: "For Dworkin svekkes prosessens legitimitet av utestengning; status er Waldrons anliggende.",
     },
     {
@@ -1991,12 +1991,12 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En kandidat skriver: «Dworkin er for hatytringslov fordi den beskytter menneskeverdet.» Hvilke feil?",
-      options: ["To feil: Dworkin er *mot* loven, og menneskeverd er *Waldrons* begrep (feil #7)", "Bare at han hoppet over et utdrag", "Bare at svaret er for kort til å regnes som en fullverdig redegjørelse (feil #3)", "Ingen feil — posisjonen og begrepsbruken er korrekt gjengitt for Dworkins standpunkt"],
+      options: ["To feil: Dworkin er *mot* loven, og menneskeverd er *Waldrons* begrep (feil #7)", "Bare at han hoppet over ett av de utdragene som oppgaven uttrykkelig ba ham behandle", "Bare at svaret er for kort til å regnes som en fullverdig redegjørelse (feil #3)", "Ingen feil — posisjonen og begrepsbruken er korrekt gjengitt for Dworkins standpunkt"],
       explanation: "Å bytte om posisjonene og begrepene er feil #7 («hvem eier begrepet»).",
     },
     {
       question: "Utdrag: «Loven verner ikke folks følelser, men deres trygge status som likeverdige.» Hvem er dette, og hva viser det?",
-      options: ["Waldron — skaden ligger i statusen (menneskeverd), ikke i følelsene (anstøt)", "Machiavelli — politisk amoralisme", "Mill — skaden ligger i det målbare anstøtet som mange borgere påføres samtidig", "Machiavelli — poenget er at loven verner fyrstens omdømme, ikke borgernes status"],
+      options: ["Waldron — skaden ligger i statusen (menneskeverd), ikke i følelsene (anstøt)", "Machiavelli — poenget er den politiske amoralismen som gjelder i statskunsten", "Mill — skaden ligger i det målbare anstøtet som mange borgere påføres samtidig", "Machiavelli — poenget er at loven verner fyrstens omdømme, ikke borgernes status"],
       explanation: "Utdraget skiller Waldrons argument fra en ren anstøts-begrunnelse.",
     },
     {
@@ -2028,7 +2028,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
   'stv1100-3-prove': [
     {
       question: "Klok politikk hos Machiavelli er vurdert etter:",
-      options: ["Om midlene virker (instrumentell rasjonalitet)", "Om fyrsten holder alle løftene sine til punkt", "Om den følger religiøse og guddommelige bud", "Om handlingen er moralsk god i seg selv"],
+      options: ["Om midlene virker (instrumentell rasjonalitet)", "Om fyrsten holder alle løftene sine til punkt og prikke", "Om den følger religiøse og guddommelige bud", "Om handlingen er moralsk god i seg selv"],
       explanation: "Klok politikk beskriver det virksomme, atskilt fra det moralske spørsmålet.",
     },
     {
@@ -2043,7 +2043,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Fortuna er hos Machiavelli:",
-      options: ["Tilfeldigheten/skjebnen fyrsten ikke rår over", "Statens fremste og viktigste hovedoppgave", "En moralsk plikt fyrsten er bundet av", "Fyrstens dyktighet og handlekraft"],
+      options: ["Tilfeldigheten/skjebnen fyrsten ikke rår over", "Statens fremste og viktigste hovedoppgave i riket", "En moralsk plikt fyrsten alltid er bundet av overfor folket", "Fyrstens dyktighet og handlekraft"],
       explanation: "Virtù er evnen til å temme Fortuna — ikke bland de to.",
     },
     {
@@ -2053,7 +2053,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Machiavellis amoralisme er:",
-      options: ["Politisk — avgrenset til statskunsten", "Generell — moral gjelder ikke i det hele tatt", "Religiøs", "Ren pasifisme"],
+      options: ["Politisk — avgrenset til statskunsten", "Generell — moral gjelder ikke i det hele tatt", "Religiøs — underlagt kirkens bud", "Ren pasifisme — all maktbruk avvises"],
       explanation: "Feil #7: å tillegge ham generell amoralisme karikerer ham.",
     },
     {
@@ -2068,7 +2068,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er feilkode #10?",
-      options: ["Å behandle Machiavelli endimensjonalt (ren amoralist/konsekvensialist uten vekslingen)", "Å skrive et altfor kort svar uten forankring i pensum eller de gitte utdragene", "Å blande sammen Berlins frihetsbegreper og Pettits republikanske frihetsteori", "Å hoppe over et sentralt tekstutdrag som oppgaven eksplisitt ber om å drøfte"],
+      options: ["Å behandle Machiavelli endimensjonalt (ren amoralist/konsekvensialist uten vekslingen)", "Å skrive et altfor kort svar uten noen forankring i pensum eller i de gitte sitatutdragene", "Å blande sammen Berlins frihetsbegreper og Pettits republikanske frihetsteori", "Å hoppe over et sentralt tekstutdrag som oppgaven eksplisitt ber om å drøfte"],
       explanation: "#10 er den machiavelli-spesifikke fellen — å miste vekslingen.",
     },
     {
@@ -2113,22 +2113,22 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva gjør Brison til en *forankret* innvending i en HYB-oppgave?",
-      options: ["At hun er pensum — ikke kandidatens egen synsing", "At hun representerer den nyeste forskningen", "At hun i bunn og grunn er enig med Mill", "At hun er den mest berømte kritikeren"],
+      options: ["At hun er pensum — ikke kandidatens egen synsing", "At hun representerer den aller nyeste forskningen på feltet", "At hun i bunn og grunn er helt enig med Mills eget forsvar", "At hun er den mest berømte kritikeren"],
       explanation: "Forankret pensumkritiker skiller A fra E i drøftingsdelen.",
     },
     {
       question: "En kandidat redegjør for Mill men drøfter aldri mot Brison der oppgaven ber om det. Feil?",
-      options: ["Feilkode #8 — ren gjengivelse der oppgaven ber om drøfting", "Feilkode #3 — å bruke plass på en unødvendig innledning", "Ingen feil, siden redegjørelse alltid er tilstrekkelig", "Feilkode #4 — å hoppe over et utdrag oppgaven ber om"],
+      options: ["Feilkode #8 — ren gjengivelse der oppgaven ber om drøfting", "Feilkode #3 — å bruke plass på en unødvendig og bred innledning", "Ingen feil, siden redegjørelse alltid er tilstrekkelig", "Feilkode #4 — å hoppe over et utdrag oppgaven ber om"],
       explanation: "#8 er å referere i drøftingsdelen.",
     },
     {
       question: "Dworkins posisjon i hatytringsdebatten er:",
-      options: ["Mot loven — ut fra et legitimitetsargument", "For loven — ut fra menneskeverd", "For loven — ut fra et menneskeverdsargument", "Nøytral — han tar ikke stilling for eller mot"],
+      options: ["Mot loven — ut fra et legitimitetsargument", "For loven — ut fra hensynet til offentlig ro og orden", "For loven — ut fra et menneskeverdsargument", "Nøytral — han tar ikke stilling for eller mot"],
       explanation: "Dworkin gir et prosess-/legitimitetsargument mot loven.",
     },
     {
       question: "Waldrons posisjon i hatytringsdebatten er:",
-      options: ["For loven — ut fra menneskeverd/skade", "Mot, ut fra prosesshensyn", "Mot loven — ut fra prosessuelle hensyn", "Mot loven — ut fra et legitimitetshensyn"],
+      options: ["For loven — ut fra menneskeverd/skade", "Mot loven — ut fra hensynet til statens autoritet", "Mot loven — ut fra prosessuelle hensyn", "Mot loven — ut fra et legitimitetshensyn"],
       explanation: "Waldron gir et skadeargument forankret i menneskeverd.",
     },
     {
@@ -2138,7 +2138,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "«Social standing» hos Waldron er:",
-      options: ["Den offentlige statusen som likeverdig medlem av samfunnet", "En indre, subjektiv følelse av verdighet", "Formelt juridisk borgerskap i staten", "Fyrstens rykte og offentlige omdømme"],
+      options: ["Den offentlige statusen som likeverdig medlem av samfunnet", "En indre og subjektiv følelse av egen verdighet og selvrespekt", "Formelt juridisk borgerskap og full statsborgerrett i staten", "Fyrstens rykte og offentlige omdømme"],
       explanation: "Menneskeverd som sosial status — ikke en subjektiv følelse.",
     },
     {
@@ -2158,12 +2158,12 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En kandidat skriver «Dworkin er for loven fordi den beskytter menneskeverdet.» Hvilke feil?",
-      options: ["Dworkin er *mot* loven, og menneskeverd er *Waldrons* begrep (feil #7)", "Bare at et utdrag mangler", "Menneskeverd tilhører Dworkin, mens legitimitetsargumentet egentlig er *Waldrons* poeng om hatytringslov", "Ingen posisjonsfeil, men kandidaten forveksler skadeprinsippet med menneskeverd og tillegger begge tenkerne Mill"],
+      options: ["Dworkin er *mot* loven, og menneskeverd er *Waldrons* begrep (feil #7)", "Bare at kandidaten har utelatt ett av de utdragene som oppgaven uttrykkelig ba om", "Menneskeverd tilhører Dworkin, mens legitimitetsargumentet egentlig er *Waldrons* poeng om hatytringslov", "Ingen posisjonsfeil, men kandidaten forveksler skadeprinsippet med menneskeverd og tillegger begge tenkerne Mill"],
       explanation: "Å bytte om posisjoner og begreper er feil #7.",
     },
     {
       question: "Hva er feilkode #8 i en Dworkin-vs-Waldron-oppgave?",
-      options: ["Ensidig/dimensjonsløs sammenligning", "Å hoppe over et utdrag", "Å hoppe over ett av utdragene i drøftingsdelen", "Å bruke engelsk fagterminologi uten oversettelse"],
+      options: ["Ensidig/dimensjonsløs sammenligning", "Å skrive en altfor lang og bred innledning", "Å hoppe over ett av utdragene i drøftingsdelen", "Å bruke engelsk fagterminologi uten oversettelse"],
       explanation: "SAM krever eksplisitt kontrast langs dimensjoner, ikke to referater.",
     },
   ],
@@ -2180,7 +2180,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er det sentrale poenget som MÅ med i en Rawls-redegjørelse?",
-      options: ["Utgangsposisjonen og uvitenhetssløret", "Arbeidsdeling etter naturlige anlegg", "Arbeidsdeling etter naturlige anlegg der hver har sin rolle", "Communal provision"],
+      options: ["Utgangsposisjonen og uvitenhetssløret", "Arbeidsdeling etter naturlige anlegg", "Arbeidsdeling etter naturlige anlegg der hver har sin rolle", "Communal provision — fellesskapets beslutning"],
       explanation: "Uvitenhetssløret + utgangsposisjonen er kjernen; uten dem faller Rawls-redegjørelsen (feil #1). Communal provision er Walzer, skadeprinsippet Mill, arbeidsdeling Platon.",
     },
     {
@@ -2205,7 +2205,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "I SIT-eksemplet med Rawls-utdrag: hva er funksjonen til et utdrag om refleksiv likevekt (prinsipper må stemme med veloverveide oppfatninger)?",
-      options: ["En metode/intuisjon i rettferdiggjøringen — ikke et steg i selve valget", "Et premiss for hvorfor sløret trengs", "Et bærende premiss som forklarer hvorfor uvitenhetssløret i det hele tatt trengs", "Selve grunngivingen for hvorfor maximin er den rasjonelle valgregelen bak sløret"],
+      options: ["En metode/intuisjon i rettferdiggjøringen — ikke et steg i selve valget", "En begrunnelse for hvorfor partene bak sløret må være gjensidig uinteresserte", "Et bærende premiss som forklarer hvorfor uvitenhetssløret i det hele tatt trengs", "Selve grunngivingen for hvorfor maximin er den rasjonelle valgregelen bak sløret"],
       explanation: "Refleksiv likevekt er den metodiske sjekken der intuisjoner og prinsipper korrigerer hverandre — den hører til rettferdiggjøringen av teorien, ikke til selve valget bak sløret.",
     },
     {
@@ -2215,7 +2215,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva avslører Machiavelli-utdraget om «grusomhet godt brukt — én gang, ikke fortsatt»?",
-      options: ["En veksling: et deontologisk innslag som ikke følger rent av nyttekalkylen", "At Machiavelli er en ren konsekvensialist uten unntak", "At Machiavelli er en ren konsekvensialist uten deontologiske unntak overhodet", "At Machiavelli prinsipielt avviser all politisk vold som illegitimt maktmiddel"],
+      options: ["En veksling: et deontologisk innslag som ikke følger rent av nyttekalkylen", "At Machiavelli fordømmer all grusomhet som umoralsk, uansett hvordan den brukes", "At Machiavelli er en ren konsekvensialist uten deontologiske unntak overhodet", "At Machiavelli prinsipielt avviser all politisk vold som illegitimt maktmiddel"],
       explanation: "Selvbegrensningen «én gang, ikke fortsatt» bærer et deontologisk innslag — den vekslingen som feil #10 (endimensjonal lesning) overser. Amoralismen er nettopp politisk, ikke generell.",
     },
     {
@@ -2225,7 +2225,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er tidsbudsjettet for et enkelt SIT-utdrag?",
-      options: ["Cirka 8–12 minutter per utdrag", "Cirka 40–60 minutter per utdrag", "Under ett minutt per utdrag", "Hele eksamenstiden på ett utdrag"],
+      options: ["Cirka 8–12 minutter per utdrag", "Cirka 40–60 minutter per utdrag", "Under ett minutt per utdrag totalt sett", "Hele eksamenstiden på ett utdrag"],
       explanation: "Et enkelt utdrag tar ~8–12 min; en hel RED-hovedoppgave ~40–60 min. Å bruke uforholdsmessig mye tid på ett utdrag og hoppe over resten er feil #4.",
     },
     {
@@ -2247,12 +2247,12 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er kjernen i en anvendelsesoppgave (ANV)?",
-      options: ["Å bruke tenkerens begrepsapparat på den konkrete situasjonen", "Å skrive en forbeholden konklusjon uten teori", "Å gjengi tenkerens teori generelt uten å knytte den til det konkrete", "Å sammenligne to tenkere langs eksplisitte dimensjoner mot hverandre"],
+      options: ["Å bruke tenkerens begrepsapparat på den konkrete situasjonen", "Å skrive en forbeholden konklusjon helt uten å bruke noen teori", "Å gjengi tenkerens teori generelt uten å knytte den til det konkrete", "Å sammenligne to tenkere langs eksplisitte dimensjoner mot hverandre"],
       explanation: "ANV krever at teorien faktisk *brukes* på situasjonen. Å gjengi teorien generelt uten å ta stilling er feil #9 (overse anvendelses-vrien).",
     },
     {
       question: "Hva er den skarpeste (mest presise) dimensjonen i sammenligningen Rawls vs. Locke?",
-      options: ["Informasjonsbetingelsen — bak slør vs. full informasjon", "At begge bruker ordet «kontrakt»", "At begge to bruker ordet «kontrakt» om grunnlaget for staten", "Antall sider hver av tenkerne skrev om samfunnskontrakten sin"],
+      options: ["Informasjonsbetingelsen — bak slør vs. full informasjon", "At begge to skrev sine hovedverk på engelsk om samfunnskontrakten", "At begge to bruker ordet «kontrakt» om grunnlaget for staten", "Antall sider hver av tenkerne skrev om samfunnskontrakten sin"],
       explanation: "Det subtile A-poenget er at forskjellen ligger i informasjonsbetingelsen (slør vs. full informasjon), ikke bare i «historisk vs. hypotetisk».",
     },
     {
@@ -2287,7 +2287,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den vanligste drøftingsfeilen (feil #8)?",
-      options: ["Ren gjengivelse der oppgaven ber om drøfting/sammenligning", "For mange eksplisitte dimensjoner", "Å levere en for kort redegjørelse før den selvstendige vurderingen", "Å bruke fagbegrepene så presist at drøftingen mister flyt og retning"],
+      options: ["Ren gjengivelse der oppgaven ber om drøfting/sammenligning", "For mange eksplisitte dimensjoner satt opp i sammenligningen", "Å levere en for kort redegjørelse før den selvstendige vurderingen", "Å bruke fagbegrepene så presist at drøftingen mister flyt og retning"],
       explanation: "Feil #8 er å levere referat i (c)-delen i stedet for selvstendig vurdering — den vanligste drøftingsfeilen.",
     },
     {
@@ -2302,7 +2302,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er det subtile poenget i Dworkin vs. Waldron som kobler til Mill?",
-      options: ["At Waldron både bygger på og bryter med Mills skadeprinsipp", "At Mill argumenterer for hatytringslov", "At begge tenkerne ignorerer Mill helt og bygger på menneskeverd i stedet", "At Mill selv argumenterer for hatytringslov ut fra sitt eget skadeprinsipp"],
+      options: ["At Waldron både bygger på og bryter med Mills skadeprinsipp", "At Mill aldri nevner skadeprinsippet i sitt eget forsvar for ytringsfrihet", "At begge tenkerne ignorerer Mill helt og bygger på menneskeverd i stedet", "At Mill selv argumenterer for hatytringslov ut fra sitt eget skadeprinsipp"],
       explanation: "Waldron utvider Mills skadebegrep til å omfatte undergraving av menneskeverd/social standing — han bygger på og bryter med skadeprinsippet (kobling til kap. 3.2).",
     },
     {
@@ -2324,7 +2324,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er feil #1?",
-      options: ["Å miste det sentrale poenget (den diskvalifiserende kjernefeilen)", "Å bruke engelsk fagterminologi", "Å skrive for kort slik at redegjørelsen mangler nødvendig fyldighet", "Å bruke engelsk fagterminologi der norske begreper ville vært klarere"],
+      options: ["Å miste det sentrale poenget (den diskvalifiserende kjernefeilen)", "Å skrive en unødig lang og bred innledning helt før selve redegjørelsen", "Å skrive for kort slik at redegjørelsen mangler nødvendig fyldighet", "Å bruke engelsk fagterminologi der norske begreper ville vært klarere"],
       explanation: "Feil #1 er å miste det sentrale poenget — Rawls uten uvitenhetssløret, Pettit uten kontroll/ikke-dominans. Den rammer Akse 1.",
     },
     {
@@ -2334,7 +2334,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva innebærer helhetsvurderingen (ingen poenggrenser)?",
-      options: ["Karakter settes ved samlet skjønn; svakhet ett sted kan veies opp av styrke et annet", "Hver deloppgave gir et fast antall poeng", "En blank deloppgave utløser automatisk stryk, uansett hvor sterkt kandidaten svarer på de øvrige delene", "Hver deloppgave gir et fast antall poeng, og karakteren følger den samlede poengsummen mekanisk uten sensors skjønn"],
+      options: ["Karakter settes ved samlet skjønn; svakhet ett sted kan veies opp av styrke et annet", "Sensor teller antall sider i besvarelsen og setter karakteren etter hvor lang teksten er", "En blank deloppgave utløser automatisk stryk, uansett hvor sterkt kandidaten svarer på de øvrige delene", "Hver deloppgave gir et fast antall poeng, og karakteren følger den samlede poengsummen mekanisk uten sensors skjønn"],
       explanation: "Ingen tallfestede poenggrenser: helhetsvurdering A–F. Ubesvart del stenger for A men ikke nødvendigvis for bestått; styrke kan veie opp svakhet.",
     },
     {
@@ -2344,42 +2344,42 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken akse rammes av å blande universalisme og pluralisme hos Nussbaum?",
-      options: ["Akse 2 — presis tekst-/begrepsforståelse", "Akse 1 — sentralt poeng", "Akse 3 — det subtile ekstra poenget, fordi nyansen mellom listene bare avgjør A mot toppkarakter", "Akse 3 — subtilt ekstra"],
+      options: ["Akse 2 — presis tekst-/begrepsforståelse", "Akse 1 — sentralt poeng", "Akse 4 — selvstendighet i drøftingen", "Akse 3 — subtilt ekstra"],
       explanation: "Å blande nabobegreper (feil #7) rammer Akse 2 (presis begrepsforståelse). Universalisme = én liste, pluralisme = lokal spesifisering.",
     },
     {
       question: "Hva er feil #10?",
-      options: ["Å behandle Machiavelli endimensjonalt (ren amoralist uten vekslingen)", "Å hoppe over sitatutdrag", "Å skrive for kort og knapt slik at det sentrale poenget aldri kommer tydelig fram i besvarelsen", "Å blande sammen Locke og Rawls sine kontraktsteorier så begrunnelsen for prinsippene blir feil forankret"],
+      options: ["Å behandle Machiavelli endimensjonalt (ren amoralist uten vekslingen)", "Å hoppe over ett eller flere av de sitatutdragene som oppgaveteksten ber om", "Å skrive for kort og knapt slik at det sentrale poenget aldri kommer tydelig fram i besvarelsen", "Å blande sammen Locke og Rawls sine kontraktsteorier så begrunnelsen for prinsippene blir feil forankret"],
       explanation: "Feil #10 er å lese Machiavelli som ren amoralist/konsekvensialist uten vekslingen mot et deontologisk innslag og skillet politisk vs. generell amoralisme.",
     },
     {
       question: "Hva løfter et svar fra C til A (Akse 3)?",
-      options: ["Det subtile ekstra poenget — f.eks. at bemyndigelsen kan trekkes tilbake", "Å legge til en innledning", "Å legge til en fyldig innledning som rammer inn hele drøftingen før man går løs på selve oppgaveteksten", "Å ramse opp flest mulig relevante pensumtenkere for å vise at man behersker hele bredden av teoritilfanget"],
+      options: ["Det subtile ekstra poenget — f.eks. at bemyndigelsen kan trekkes tilbake", "Å gjenta hele redegjørelsen i drøftingsdelen, bare formulert med andre ord", "Å legge til en fyldig innledning som rammer inn hele drøftingen før man går løs på selve oppgaveteksten", "Å ramse opp flest mulig relevante pensumtenkere for å vise at man behersker hele bredden av teoritilfanget"],
       explanation: "Akse 3 (det subtile ekstra poenget) er det som gir A: bemyndigelse kan trekkes tilbake, ulikt motiverte slør, Machiavellis veksling — det sensor flagger som «veldig bra».",
     },
     {
       question: "Hva er feil #3?",
-      options: ["Unødig innledning/avslutning — oppvarming er bortkastet", "Å treffe det sentrale poenget", "Å treffe det sentrale poenget presist tidlig, slik at hovedtesen står klart før drøftingen begynner", "Å bruke presise begreper"],
+      options: ["Unødig innledning/avslutning — oppvarming er bortkastet", "Å treffe det sentrale poenget", "Å bruke for mange sitater fra pensum", "Å bruke presise begreper"],
       explanation: "Feil #3 er unødig innledning/avslutning. I et 4-timers essayfag er oppvarming bortkastet — gå rett på sak.",
     },
     {
       question: "Hva sier helhetsvurderingen om en ubesvart deloppgave (feil #6)?",
-      options: ["Den stenger for A, men ikke nødvendigvis for bestått", "Den gir automatisk stryk", "Den kan aldri veies opp av styrke andre steder, fordi hver deloppgave vurderes helt isolert fra de andre", "Den har ingen betydning"],
+      options: ["Den stenger for A, men ikke nødvendigvis for bestått", "Den gir automatisk stryk", "Den kan aldri veies opp av styrke andre steder", "Den har ingen betydning"],
       explanation: "Ubesvart del stenger for A. Blank del krever ekstraordinær styrke i resten for å ikke trekke mye, men fører ikke automatisk til stryk.",
     },
     {
       question: "Hva er forskjellen mellom feil #4 og feil #5 i sitatoppgaver?",
-      options: ["#4 er å hoppe over utdrag; #5 er å parafrasere et utdrag løsrevet uten å plassere det", "#4 gjelder Machiavelli, #5 gjelder Rawls", "#5 er å behandle alle utdrag helt korrekt og plassert, mens #4 er å parafrasere ett utdrag helt løsrevet", "De er identiske feiltyper som begge handler om at kandidaten unnlater å behandle sitatutdragene i oppgaven"],
+      options: ["#4 er å hoppe over utdrag; #5 er å parafrasere et utdrag løsrevet uten å plassere det", "#4 gjelder bare oppgaver om Machiavelli, mens #5 bare gjelder oppgavene om Rawls' teori", "#5 er å behandle alle utdrag helt korrekt og plassert, mens #4 er å parafrasere ett utdrag helt løsrevet", "De er identiske feiltyper som begge handler om at kandidaten unnlater å behandle sitatutdragene i oppgaven"],
       explanation: "#4 er å hoppe over utdrag (behandle bare noen); #5 er å oversette et utdrag linje for linje uten å identifisere funksjon og plassere det i argumentets helhet.",
     },
     {
       question: "Hvordan tilpasses forventningene når en oppgave er erklært vanskelig (Rawls, Machiavellis etikk)?",
-      options: ["Å komme i nærheten av et treffende svar regnes som en god prestasjon", "Vanskelige oppgaver teller ikke", "Bare et fullt treffende A-svar godtas som bestått; kommer man bare i nærheten, gir det automatisk stryk", "Forventningene heves fordi vanskelige oppgaver skal skille de aller beste kandidatene fra resten skarpere"],
+      options: ["Å komme i nærheten av et treffende svar regnes som en god prestasjon", "Vanskelige oppgaver teller ikke med i den samlede vurderingen av besvarelsen", "Bare et fullt treffende A-svar godtas som bestått; kommer man bare i nærheten, gir det automatisk stryk", "Forventningene heves fordi vanskelige oppgaver skal skille de aller beste kandidatene fra resten skarpere"],
       explanation: "Ved vanskelige oppgaver senkes forventningen — å nærme seg et treffende svar er godt. Helhetsvurderingen tar vanskelighetsgraden med.",
     },
     {
       question: "Hva rammer Akse 4 (selvstendighet)?",
-      options: ["Ren gjengivelse der oppgaven ber om drøfting/sammenligning (feil #8)", "Å miste det sentrale poenget", "Å hoppe over sitatutdragene og drøfte helt fritt uten å plassere tekstpassasjene i argumentets helhet", "Å skrive en unødig lang innledning som varmer opp før kandidaten endelig går løs på selve oppgaveteksten"],
+      options: ["Ren gjengivelse der oppgaven ber om drøfting/sammenligning (feil #8)", "Å miste det sentrale poenget som selve oppgaveteksten uttrykkelig spør etter", "Å hoppe over sitatutdragene og drøfte helt fritt uten å plassere tekstpassasjene i argumentets helhet", "Å skrive en unødig lang innledning som varmer opp før kandidaten endelig går løs på selve oppgaveteksten"],
       explanation: "Akse 4 måler selvstendighet i sammenligning/drøfting. Ren gjengivelse i (c)-delen i stedet for egen vurdering (feil #8) rammer denne aksen.",
     },
   ],
@@ -2391,17 +2391,17 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skiller A- fra C-besvarelsen i modell 1 (Rawls)?",
-      options: ["A er presis og legger til det subtile ekstra; C har poenget på plass men flatt", "C treffer det sentrale poenget bedre", "A dropper redegjørelsen helt og går rett på drøfting, mens C bruker for mye plass på ren gjengivelse", "A er vesentlig lengre og mer utfyllende enn C, og det er nettopp tekstmengden som avgjør karakterløftet"],
+      options: ["A er presis og legger til det subtile ekstra; C har poenget på plass men flatt", "C treffer det sentrale poenget bedre enn A gjør, og er dermed den mest presise av dem", "A dropper redegjørelsen helt og går rett på drøfting, mens C bruker for mye plass på ren gjengivelse", "A er vesentlig lengre og mer utfyllende enn C, og det er nettopp tekstmengden som avgjør karakterløftet"],
       explanation: "A ≈ C i lengde; A navngir apparatet presist, kobler maximin til uvissheten, skiller utdragspremissene og legger til det subtile ekstra. Gapet er presisjon, ikke lengde.",
     },
     {
       question: "I modell 1s SIT-del: hva er forskjellen på utdrag a) og b)?",
-      options: ["a) motiverer sløret (upartiskhet), b) motiverer maximin (rasjonalitet under uvisse)", "a) gjelder Locke, b) gjelder Rawls", "De uttrykker nøyaktig samme poeng, nemlig at partene bak sløret velger prinsipper de er tjent med selv", "Utdrag b) motiverer selve sløret gjennom upartiskhet, mens a) begrunner maximin under radikal uvisshet"],
+      options: ["a) motiverer sløret (upartiskhet), b) motiverer maximin (rasjonalitet under uvisse)", "Utdrag a) gjelder Lockes kontraktteori, mens utdrag b) gjelder Rawls' utgangsposisjon", "De uttrykker nøyaktig samme poeng, nemlig at partene bak sløret velger prinsipper de er tjent med selv", "Utdrag b) motiverer selve sløret gjennom upartiskhet, mens a) begrunner maximin under radikal uvisshet"],
       explanation: "Å skille de to premissene er A-grepet. Å smelte dem sammen er feil #7. a) begrunner hvorfor sløret trengs; b) begrunner valgregelen under sløret.",
     },
     {
       question: "Hvilken akse er tyngst i en Berlin vs. Pettit-sammenligning (modell 2)?",
-      options: ["Akse 4 — selvstendighet (egne eksplisitte dimensjoner + forbeholden vurdering)", "Ingen akse teller i SAM", "Akse 3 alene — det subtile ekstra poenget, siden en SAM primært belønner én finpolert nyanse til slutt", "Akse 2 alene — presis begrepsforståelse, ettersom korrekt gjengivelse av begge teoriene er hele poenget"],
+      options: ["Akse 4 — selvstendighet (egne eksplisitte dimensjoner + forbeholden vurdering)", "Ingen av de fire vurderingsaksene teller i en ren sammenligningsoppgave av typen SAM", "Akse 3 alene — det subtile ekstra poenget, siden en SAM primært belønner én finpolert nyanse til slutt", "Akse 2 alene — presis begrepsforståelse, ettersom korrekt gjengivelse av begge teoriene er hele poenget"],
       explanation: "I en SAM måler sensor selvstendighet tyngst — egne, navngitte dimensjoner og en forbeholden vurdering. Ren parallellframstilling (feil #8) er C i beste fall.",
     },
     {
@@ -2411,7 +2411,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva må A-besvarelsen i modell 3 gjøre med Pettits teori?",
-      options: ["Bruke ikke-dominans på veldedigheten, ikke bare gjengi teorien", "Konkludere at mottakerne er «ganske frie fordi de får hjelp»", "Konkludere at mottakerne er «ganske frie fordi de får hjelp», siden bistanden bedrer deres faktiske kår", "Droppe Pettit til fordel for Berlin"],
+      options: ["Bruke ikke-dominans på veldedigheten, ikke bare gjengi teorien", "Konkludere at mottakerne er «ganske frie fordi de får hjelp»", "Konkludere at mottakerne er «ganske frie fordi de får hjelp», siden bistanden bedrer deres faktiske kår", "Droppe Pettit til fordel for Berlins negative frihetsbegrep"],
       explanation: "Modell 3 er en anvendelse: ikke-dominans må *brukes* på veldedigheten (feil #9-vaksine). Å gjengi teorien generelt og synse er C-svakhetens kjerne.",
     },
     {
@@ -2421,7 +2421,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er sensorblikket?",
-      options: ["Å lese et svar langs de fire vurderingsaksene for å skille A/C/E", "En liste over pensumtenkere", "En sjekkliste over hvilke pensumtenkere kandidaten har nevnt, der flere navn gir høyere uttelling", "En metode for å telle ord og sider slik at besvarelsens omfang kan omregnes direkte til en karakter"],
+      options: ["Å lese et svar langs de fire vurderingsaksene for å skille A/C/E", "En liste over de pensumtenkerne kandidaten helst bør nevne i svaret", "En sjekkliste over hvilke pensumtenkere kandidaten har nevnt, der flere navn gir høyere uttelling", "En metode for å telle ord og sider slik at besvarelsens omfang kan omregnes direkte til en karakter"],
       explanation: "Sensorblikket er å bruke de fire aksene (sentralt poeng, presis tekst/begrep, subtilt ekstra, selvstendighet) til å diagnostisere nivået A/C/E.",
     },
     {
@@ -2431,24 +2431,24 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er A-markøren (Akse 3) i modell 1?",
-      options: ["At ulike deler av uvitenhetssløret er ulikt godt motivert", "At Rawls skrev A Theory of Justice", "At Rawls skrev A Theory of Justice, og at kandidaten plasserer verket riktig i idéhistorien", "At maximin-regelen i det hele tatt nevnes ved navn et sted i redegjørelsen om utgangsposisjonen"],
+      options: ["At ulike deler av uvitenhetssløret er ulikt godt motivert", "At Rawls bygger direkte videre på Lockes egen samfunnskontrakt", "At Rawls skrev A Theory of Justice, og at kandidaten plasserer verket riktig i idéhistorien", "At maximin-regelen i det hele tatt nevnes ved navn et sted i redegjørelsen om utgangsposisjonen"],
       explanation: "Det subtile ekstra som løfter til A er at ulike deler av sløret er ulikt godt teoretisk motivert — det sensor flagger som «veldig bra».",
     },
     {
       question: "Hva er den forbeholdne selvstendige vurderingen (Akse 4) et eksempel på i modell 2?",
-      options: ["Å reise at Pettits «mulighet»-kriterium er vidt, og likevel forbeholdent forsvare det", "Å gjengi begge teoriene uten dimensjoner", "Å gjengi begge frihetsteoriene grundig og korrekt uten å trekke fram egne, navngitte sammenligningsdimensjoner", "Å konkludere kort med at Berlin og Pettit i realiteten er like, siden begge til sist forsvarer individets frihet"],
+      options: ["Å reise at Pettits «mulighet»-kriterium er vidt, og likevel forbeholdent forsvare det", "Å slå skråsikkert fast at Berlins negative frihet er det eneste holdbare frihetsbegrepet", "Å gjengi begge frihetsteoriene grundig og korrekt uten å trekke fram egne, navngitte sammenligningsdimensjoner", "Å konkludere kort med at Berlin og Pettit i realiteten er like, siden begge til sist forsvarer individets frihet"],
       explanation: "A-svaret reiser en reell innvending (nesten alle står i en relasjon der noen kunne gripe inn) og svarer forbeholdent — det er selvstendigheten (Akse 4) sensor belønner.",
     },
     {
       question: "Hvorfor foretrekker Pettit velferd som rettighet framfor privat veldedighet?",
-      options: ["Ytelsen kan ikke trekkes tilbake etter forgodtbefinnende, så dominansen fjernes", "Fordi staten er rikere enn private givere", "Fordi staten er langt rikere enn private givere og derfor kan gi mottakerne en større og mer stabil ytelse", "Fordi mottakerne rett og slett får mer penger gjennom statlig velferd enn gjennom frivillige private gaver"],
+      options: ["Ytelsen kan ikke trekkes tilbake etter forgodtbefinnende, så dominansen fjernes", "Fordi private givere sjelden gir noe til nettopp dem som trenger hjelpen aller mest", "Fordi staten er langt rikere enn private givere og derfor kan gi mottakerne en større og mer stabil ytelse", "Fordi mottakerne rett og slett får mer penger gjennom statlig velferd enn gjennom frivillige private gaver"],
       explanation: "Velferd som rettighet står ikke under giverens luner, men under kontrollerbar rett — bemyndigelsen kan ikke trekkes tilbake fritt, så dominansen forsvinner. Poenget er ikke beløpet.",
     },
   ],
   'stv1100-4-5': [
     {
       question: "Hvilken valgstruktur speiler øvingseksamen A?",
-      options: ["To obligatoriske oppgaver (jf. 2018/2020)", "Én oppgave, deler (a)–(c) (jf. 2025)", "Én samlet oppgave med deler (a)–(c) (jf. 2025), der alle delene henger sammen i én tekst", "Velg 3 av 4 (jf. H2022)"],
+      options: ["To obligatoriske oppgaver (jf. 2018/2020)", "Én oppgave, deler (a)–(c) (jf. 2025)", "Fire likestilte oppgaver der alle må besvares", "Velg 3 av 4 (jf. H2022)"],
       explanation: "Øvingseksamen A speiler «to obligatoriske oppgaver» — frihet + Rawls, begge må svares.",
     },
     {
@@ -2458,52 +2458,52 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er strategien i «velg 3 av 4»?",
-      options: ["Velg de tre der du treffer det sentrale poenget sikrest", "Velg de tre som ser kortest ut", "Velg tilfeldig blant de fire, siden sensor uansett vurderer alle temaene som like tunge på eksamen", "Svar halvveis på alle fire"],
+      options: ["Velg de tre der du treffer det sentrale poenget sikrest", "Velg de tre som ser kortest ut", "Velg tilfeldig blant de fire, siden alle temaene teller likt", "Svar halvveis på alle fire"],
       explanation: "Velg der du treffer kjernepoenget sikrest. Tre gode besvarelser slår fire halve (feil #6).",
     },
     {
       question: "Hvordan bør 4 timer disponeres i (a)–(c)-formatet?",
-      options: ["Vekt (a)/(b) som redegjørelse og spar tid til (c)-sammenligningen", "Skriv likt på alle uansett", "Hopp helt over (c) og lever bare (a) og (b), fordi de to redegjørende delene alene er nok til bestått", "Skriv omtrent like mye på alle tre delene uansett, ettersom sensor fordeler poengene jevnt mellom dem"],
+      options: ["Vekt (a)/(b) som redegjørelse og spar tid til (c)-sammenligningen", "Bruk mest mulig av tiden på nettopp den deloppgaven du kan aller best", "Hopp helt over (c) og lever bare (a) og (b), fordi de to redegjørende delene alene er nok til bestått", "Skriv omtrent like mye på alle tre delene uansett, ettersom sensor fordeler poengene jevnt mellom dem"],
       explanation: "I (a)–(c) er (c) ofte sammenligningen der selvstendigheten testes — spar tid til den. (a)/(b) er redegjørelse.",
     },
     {
       question: "Hva er det sentrale poenget i øvingseksamen A oppgave 1 (Berlin vs. Pettit)?",
-      options: ["Negativ frihet = fravær av hindring fra andre; ikke-dominans = fravær av evne til ukontrollert innblanding", "At begge er opptatt av frihet", "At Pettit levde og skrev etter Berlin og bygger republikanismen sin direkte på Berlins negative frihetsbegrep", "At begge tenkerne grunnleggende er opptatt av frihet, og at de reelle forskjellene mellom dem er små i praksis"],
+      options: ["Negativ frihet = fravær av hindring fra andre; ikke-dominans = fravær av evne til ukontrollert innblanding", "At Berlin og Pettit begge først og fremst skriver om staten og om grensene for dens maktbruk overfor borgerne", "At Pettit levde og skrev etter Berlin og bygger republikanismen sin direkte på Berlins negative frihetsbegrep", "At begge tenkerne grunnleggende er opptatt av frihet, og at de reelle forskjellene mellom dem er små i praksis"],
       explanation: "Begge sentrale poeng må med: Berlins hindring påført av andre (faktisk innblanding) og Pettits evne til ukontrollert innblanding (dominans), med despoten som testcase.",
     },
     {
       question: "I øvingseksamen A oppgave 2: hva er funksjonen til utdraget om at ingen skal ha forhandlingsmakt fra tilfeldige fødselsfortrinn?",
-      options: ["Trussel-fordel — sløret nøytraliserer forhandlingsmakt", "Grunngivingen for maximin", "Refleksiv likevekt — utdraget viser hvordan prinsipper og intuisjoner justeres mot hverandre", "Forskjellsprinsippet"],
+      options: ["Trussel-fordel — sløret nøytraliserer forhandlingsmakt", "Grunngivingen for maximin", "Refleksiv likevekt mellom prinsipper og intuisjoner", "Forskjellsprinsippet hos Rawls"],
       explanation: "Utdraget om forhandlingsmakt fra fødselsfortrinn gjelder trussel-fordel — sløret nøytraliserer den, koblet til det naturlige/sosiale lotteriet.",
     },
     {
       question: "Hva er det sentrale poenget i øvingseksamen B oppgave 2 (Machiavelli)?",
-      options: ["Skillet klok/etisk politikk + at amoralismen er politisk, ikke generell", "At Machiavelli er en ren amoralist", "Virtù alene som styrende dyd, forstått som fyrstens evne til å gripe lykken og bøye omstendighetene", "At målet alltid helliger middelet, slik at enhver metode blir legitim så lenge utfallet tjener staten"],
+      options: ["Skillet klok/etisk politikk + at amoralismen er politisk, ikke generell", "At Machiavelli er en ren amoralist helt uten noen moralske grenser overhodet", "Virtù alene som styrende dyd, forstått som fyrstens evne til å gripe lykken og bøye omstendighetene", "At målet alltid helliger middelet, slik at enhver metode blir legitim så lenge utfallet tjener staten"],
       explanation: "Sentralt poeng: skillet klok/etisk politikk og at amoralismen er politisk (statskunsten), ikke generell. Å lese ham endimensjonalt er feil #10.",
     },
     {
       question: "Hva løfter Dworkin vs. Waldron (øvingseksamen B) til A?",
-      options: ["Eksplisitte dimensjoner + at Waldron utvider Mills skadeprinsipp", "Å blande legitimitet og menneskeverd", "Å gjengi bare Dworkins posisjon grundig og la Waldron stå i bakgrunnen som en enkel kontrast til den", "Å konkludere kort med at Dworkin og Waldron egentlig er enige, siden begge forsvarer ytringsfriheten"],
+      options: ["Eksplisitte dimensjoner + at Waldron utvider Mills skadeprinsipp", "Å blande sammen legitimitetsargumentet og selve menneskeverdargumentet", "Å gjengi bare Dworkins posisjon grundig og la Waldron stå i bakgrunnen som en enkel kontrast til den", "Å konkludere kort med at Dworkin og Waldron egentlig er enige, siden begge forsvarer ytringsfriheten"],
       explanation: "A-svaret navngir dimensjoner og ser det subtile: Waldron bygger på og bryter med Mills skadeprinsipp (kobling til kap. 3.2).",
     },
     {
       question: "Hva er det sentrale poenget i øvingseksamen C del (a) (Platon)?",
-      options: ["Rettferdighet = arbeidsdeling etter naturlige anlegg (tre grupper)", "Kapabiliteter på plass", "Ikke-dominans som kjerne, der rettferdighet betyr fravær av vilkårlig maktutøvelse mellom borgerne i staten", "Kapabilitetstilnærmingen på plass, der rettferdighet består i at borgerne sikres et sett av grunnleggende evner"],
+      options: ["Rettferdighet = arbeidsdeling etter naturlige anlegg (tre grupper)", "Communal provision som kjerne, der fellesskapet selv avgjør fordelingen", "Ikke-dominans som kjerne, der rettferdighet betyr fravær av vilkårlig maktutøvelse mellom borgerne i staten", "Kapabilitetstilnærmingen på plass, der rettferdighet består i at borgerne sikres et sett av grunnleggende evner"],
       explanation: "Platons sentrale poeng er arbeidsdeling etter naturlige anlegg (produsenter/krigere/voktere). Mister du det, faller redegjørelsen (feil #1).",
     },
     {
       question: "Hva er selvstendighetstesten i øvingseksamen C del (c)?",
-      options: ["Å sammenligne Platon og Nussbaum med eksplisitte dimensjoner, ikke gjenta (a)+(b)", "Å gjenta redegjørelsene fra (a) og (b)", "Å velge én av teoretikerne og forsvare hen mot den andre med normative motargumenter", "Å hoppe over selve sammenligningen og i stedet drøfte hvem av dem som har mest rett i dag"],
+      options: ["Å sammenligne Platon og Nussbaum med eksplisitte dimensjoner, ikke gjenta (a)+(b)", "Å gjenta redegjørelsene fra deloppgave (a) og (b) nesten ordrett en gang til i (c)", "Å velge én av teoretikerne og forsvare hen mot den andre med normative motargumenter", "Å hoppe over selve sammenligningen og i stedet drøfte hvem av dem som har mest rett i dag"],
       explanation: "Del (c) måler selvstendighet (Akse 4): navngitte dimensjoner (forskjell i anlegg vs. menneskelig likhet) + forbeholden vurdering — ikke et referat av (a)+(b).",
     },
     {
       question: "Hva skjer med karakteren hvis en obligatorisk oppgave står blank (feil #6)?",
-      options: ["Den stenger for A, men ikke nødvendigvis for bestått", "Den kan alltid veies opp til A", "Den har ingen betydning så lenge de øvrige delene til sammen holder et jevnt godt nivå", "Automatisk stryk"],
+      options: ["Den stenger for A, men ikke nødvendigvis for bestått", "Den kan alltid veies opp til A", "Den har ingen betydning så lenge resten holder nivå", "Automatisk stryk på hele eksamen"],
       explanation: "Ubesvart del stenger for A. Blank del krever ekstraordinær styrke i resten, men fører ikke automatisk til stryk (helhetsvurdering).",
     },
     {
       question: "Hva er tidsbudsjettet for et enkelt SIT-utdrag i eksamen?",
-      options: ["Cirka 8–12 minutter", "Cirka 40–60 minutter", "Under ett minutt", "To timer"],
+      options: ["Cirka 8–12 minutter", "Cirka 40–60 minutter", "Under ett minutt", "To timer per utdrag"],
       explanation: "SIT-utdrag: ~8–12 min hver. RED-hovedoppgave ~40–60 min. Fordel tiden så alle valgte deler behandles.",
     },
     {
@@ -2533,12 +2533,12 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er kjernen i «rettferdighet som rimelighet»?",
-      options: ["Prinsippene frie og likeverdige ville valgt under rimelige vilkår", "En historisk samfunnskontrakt", "En arbeidsdeling ordnet etter borgernes naturlige anlegg og evner", "En historisk samfunnskontrakt inngått av frie borgere i naturtilstanden"],
+      options: ["Prinsippene frie og likeverdige ville valgt under rimelige vilkår", "En fordeling av goder etter den enkeltes fortjeneste", "En arbeidsdeling ordnet etter borgernes naturlige anlegg og evner", "En historisk samfunnskontrakt inngått av frie borgere i naturtilstanden"],
       explanation: "Rawls: rettferdsprinsipper er de frie og likeverdige personer ville valgt under rimelige vilkår — kontraktteori på høyere abstraksjonsnivå.",
     },
     {
       question: "Hva er utgangsposisjonen hos Rawls?",
-      options: ["Den tenkte valgsituasjonen der prinsipper velges", "Det sosiale lotteriet", "Det sosiale lotteriet som fordeler talenter og startposisjoner", "En historisk avtale inngått mellom borgere med full informasjon"],
+      options: ["Den tenkte valgsituasjonen der prinsipper velges", "Den refleksive likevekten mellom prinsipper og intuisjoner", "Det sosiale lotteriet som fordeler talenter og startposisjoner", "En historisk avtale inngått mellom borgere med full informasjon"],
       explanation: "Utgangsposisjonen er den hypotetiske valgsituasjonen. Sammen med uvitenhetssløret er den det sentrale poenget.",
     },
     {
@@ -2638,32 +2638,32 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er skillet klok vs. etisk politikk (Machiavelli)?",
-      options: ["Klok = instrumentelt rasjonell statskunst; etisk = den moralske vurderingen ved siden av", "Klok = moralsk; etisk = umoralsk", "Klok = handling styrt av kristen dyd; etisk = den kyniske maktbruken ved siden av statskunsten", "Klok = ærlig og åpen fyrstestyre; etisk = det skjulte, manipulerende innslaget som fyrsten skjuler"],
+      options: ["Klok = instrumentelt rasjonell statskunst; etisk = den moralske vurderingen ved siden av", "Klok politikk = den moralsk gode politikken; etisk politikk = den umoralske og kyniske maktbruken", "Klok = handling styrt av kristen dyd; etisk = den kyniske maktbruken ved siden av statskunsten", "Klok = ærlig og åpen fyrstestyre; etisk = det skjulte, manipulerende innslaget som fyrsten skjuler"],
       explanation: "Klok politikk er instrumentelt rasjonell (virtù, Fortuna); etisk politikk er den moralske vurderingen. Det sentrale skillet.",
     },
     {
       question: "Hva er virtù hos Machiavelli?",
-      options: ["Fyrstens dyktighet/handlekraft til å mestre omstendighetene", "Moralsk dyd", "Fyrstens hensynsløse grusomhet brukt som mål i seg selv, uavhengig av statens behov", "Fyrstens medfødte moralske godhet og evne til å handle etisk riktig i alle situasjoner"],
+      options: ["Fyrstens dyktighet/handlekraft til å mestre omstendighetene", "Fyrstens samlede rikdom og de militære ressursene han rår over", "Fyrstens hensynsløse grusomhet brukt som mål i seg selv, uavhengig av statens behov", "Fyrstens medfødte moralske godhet og evne til å handle etisk riktig i alle situasjoner"],
       explanation: "Virtù er fyrstens dyktighet og handlekraft. Sammen med Fortuna avgjør den politisk suksess — del av «klok politikk».",
     },
     {
       question: "Hva er Fortuna hos Machiavelli?",
-      options: ["Tilfeldighetens/lykkens rolle i politikken", "Fyrstens dyktighet", "Den italienske bystaten der Machiavelli utviklet sin politiske filosofi", "Et etisk prinsipp"],
+      options: ["Tilfeldighetens/lykkens rolle i politikken", "Fyrstens egen dyktighet og handlekraft", "Den italienske bystaten der Machiavelli utviklet sin politiske filosofi", "Et etisk prinsipp om rett handling"],
       explanation: "Fortuna er tilfeldighetens rolle; fyrsten trenger virtù for å demme opp for den. Del av den kloke politikken.",
     },
     {
       question: "Hva menes med at Machiavelli veksler?",
-      options: ["Mellom rendyrket konsekvensialisme og et deontologisk innslag", "Mellom fred og krig", "Mellom to konkurrerende fyrster som begge gjør krav på den samme tronen", "Mellom to rivaliserende italienske bystater i kampen om regional dominans"],
+      options: ["Mellom rendyrket konsekvensialisme og et deontologisk innslag", "Mellom fred og krig som to helt ulike måter å styre en bystat på", "Mellom to konkurrerende fyrster som begge gjør krav på den samme tronen", "Mellom to rivaliserende italienske bystater i kampen om regional dominans"],
       explanation: "Machiavelli veksler mellom ren konsekvensialisme og et deontologisk innslag — det vanskeligste, A-givende poenget. Å lese ham endimensjonalt er feil #10.",
     },
     {
       question: "Hva er politisk vs. generell amoralisme (Machiavelli)?",
-      options: ["Amoralismen gjelder statskunsten, ikke moralen generelt", "Bare privatmoral gjelder", "All moralsk vurdering avvises helt, både i statskunsten og i privatlivet", "Politisk og generell amoralisme er samme sak: fyrsten er hevet over all moral"],
+      options: ["Amoralismen gjelder statskunsten, ikke moralen generelt", "Bare privatmoralen gjelder, aldri moralen i selve statskunsten", "All moralsk vurdering avvises helt, både i statskunsten og i privatlivet", "Politisk og generell amoralisme er samme sak: fyrsten er hevet over all moral"],
       explanation: "Amoralismen er *politisk* — den gjelder statskunsten, ikke moralen generelt. Å blande dem er feil #7. Fyrsten skal også *fremstå* moralsk.",
     },
     {
       question: "Hva illustrerer Cesare Borgia?",
-      options: ["Klok politikk og «god bruk av grusomhet» i praksis", "Etisk fullkommen politikk", "Den positive frihetens ideal om selvrealisering gjennom aktiv medvirkning", "Den etisk fullkomne politikken der moral og statskunst er fullstendig forent"],
+      options: ["Klok politikk og «god bruk av grusomhet» i praksis", "Fortunas fullstendige overmakt over enhver fyrstes planer", "Den positive frihetens ideal om selvrealisering gjennom aktiv medvirkning", "Den etisk fullkomne politikken der moral og statskunst er fullstendig forent"],
       explanation: "Cesare Borgia er Machiavellis illustrasjon på klok politikk og «god bruk av grusomhet» — konkretiserer skillet klok/etisk.",
     },
     {
@@ -2688,17 +2688,17 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er Dworkins argument mot hatytringslov?",
-      options: ["Legitimitet — alle må få ytre seg for at vedtak skal være legitime", "Menneskeverd/social standing", "At skadeprinsippet allerede dekker hatytringer og gjør egne forbud overflødige", "At menneskeverd som social standing undergraves når hatytringer får stå uimotsagt"],
+      options: ["Legitimitet — alle må få ytre seg for at vedtak skal være legitime", "Ytringsfrihetens verdi for den frie sannhetssøkingen i offentligheten", "At skadeprinsippet allerede dekker hatytringer og gjør egne forbud overflødige", "At menneskeverd som social standing undergraves når hatytringer får stå uimotsagt"],
       explanation: "Dworkin: å forby hatytringer undergraver vedtakets legitimitet, fordi alle må ha fått ytre seg på egne premisser. Prosessargument.",
     },
     {
       question: "Hva er Waldrons argument for hatytringslov?",
-      options: ["Menneskeverd som social standing undergraves av hatretorikk", "At all ytring er skadelig", "At legitimiteten i prosessen krever at alle får ytre seg helt fritt først", "At all ytring uansett innhold er potensielt skadelig og derfor bør reguleres"],
+      options: ["Menneskeverd som social standing undergraves av hatretorikk", "At staten først og fremst må verne mindretallets rett til å ytre seg", "At legitimiteten i prosessen krever at alle får ytre seg helt fritt først", "At all ytring uansett innhold er potensielt skadelig og derfor bør reguleres"],
       explanation: "Waldron: hatretorikk undergraver utsatte gruppers likeverdige anseelse (social standing). Han bygger på og bryter med Mills skadeprinsipp.",
     },
     {
       question: "Hvorfor foretrekker Pettit velferd som rettighet framfor veldedighet?",
-      options: ["Rettigheten kan ikke trekkes tilbake fritt, så dominansen fjernes", "Fordi veldedighet er ulovlig", "Fordi privat veldedighet i seg selv er ulovlig og forbudt i en rettsstat", "Fordi mottakeren rent faktisk får et større beløp gjennom offentlig velferd"],
+      options: ["Rettigheten kan ikke trekkes tilbake fritt, så dominansen fjernes", "Fordi private givere gjennomgående gir langt mindre enn staten gjør", "Fordi privat veldedighet i seg selv er ulovlig og forbudt i en rettsstat", "Fordi mottakeren rent faktisk får et større beløp gjennom offentlig velferd"],
       explanation: "Privat veldedighet gjør mottakeren avhengig av giverens ukontrollerte vilje (dominans); velferd som rettighet står under kontrollerbar rett, ikke luner.",
     },
     {
@@ -2725,7 +2725,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En oppgave lyder «Gjør rede for X og drøft kort i lys av en kritiker». Hvilken sjanger?",
-      options: ["HYB (redegjør+drøft-hybrid)", "RED alene", "RED alene (rendyrket redegjørelse)", "SIT alene (rendyrket sitatanalyse)"],
+      options: ["HYB (redegjør+drøft-hybrid)", "SAM alene (ren sammenligning)", "RED alene (rendyrket redegjørelse)", "SIT alene (rendyrket sitatanalyse)"],
       explanation: "«Gjør rede for X og drøft kort» er HYB (2023→) — solid redegjørelse + forankret innvending + forbeholden vurdering.",
     },
     {
@@ -2755,7 +2755,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr «gå rett på sak» (feil #3-vaksine)?",
-      options: ["Ingen innledning/avslutning — start med tenkeren og det sentrale poenget", "Avslutt alltid med en oppsummering", "Skriv en fyldig innledning som rammer inn tenkeren før du går til poenget", "Referer hele den relevante litteraturen først, før du begynner på selve svaret"],
+      options: ["Ingen innledning/avslutning — start med tenkeren og det sentrale poenget", "Avslutt alltid svaret med en fyldig oppsummering av hele besvarelsen til slutt", "Skriv en fyldig innledning som rammer inn tenkeren før du går til poenget", "Referer hele den relevante litteraturen først, før du begynner på selve svaret"],
       explanation: "Oppvarming er bortkastet i et 4-timers essayfag. Start med tenkeren og treff kjernepoenget i første avsnitt.",
     },
     {
@@ -2765,7 +2765,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "I prøve 2s SIT-del: hva skiller utdrag a) (om at velgerne ikke skal kjenne sin plass) fra b) (om å sikre seg mot det verste)?",
-      options: ["a) motiverer sløret, b) motiverer maximin", "b) motiverer sløret", "De er samme poeng: begge utdragene begrunner uvitenhetssløret på lik linje", "De er samme poeng"],
+      options: ["a) motiverer sløret, b) motiverer maximin", "b) motiverer sløret, a) motiverer maximin", "De er samme poeng: begge begrunner uvitenhetssløret", "De begrunner begge maximin-regelen"],
       explanation: "a) begrunner uvitenhetssløret (upartiskhet); b) begrunner maximin (rasjonalitet under uvisse). Å smelte dem sammen er feil #7.",
     },
     {
@@ -2785,7 +2785,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er det sentrale poenget om Platon (prøve 4a)?",
-      options: ["Rettferdighet = arbeidsdeling etter naturlige anlegg", "Kapabiliteter på plass", "At de artsbestemte kapabilitetene er på plass hos alle borgere i samfunnet", "Uvitenhetssløret som sikrer en upartisk fordeling av samfunnets grunngoder"],
+      options: ["Rettferdighet = arbeidsdeling etter naturlige anlegg", "Communal provision forstått som fellesskapets egen beslutning", "At de artsbestemte kapabilitetene er på plass hos alle borgere i samfunnet", "Uvitenhetssløret som sikrer en upartisk fordeling av samfunnets grunngoder"],
       explanation: "Platons sentrale poeng er arbeidsdeling etter naturlige anlegg (tre grupper). Mister du det, faller redegjørelsen (feil #1).",
     },
     {
@@ -2795,7 +2795,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva rammer Akse 2 (presis tekst-/begrepsforståelse)?",
-      options: ["Å hoppe over utdrag, løsrevet parafrase og upresise nabobegreper", "Å treffe det sentrale poenget", "Å skrive for kort og knapt, slik at svaret mangler den nødvendige fylden", "Å bomme på det sentrale poenget slik at hele redegjørelsen mister forankringen"],
+      options: ["Å hoppe over utdrag, løsrevet parafrase og upresise nabobegreper", "Å treffe det sentrale poenget presist allerede i det første avsnittet", "Å skrive for kort og knapt, slik at svaret mangler den nødvendige fylden", "Å bomme på det sentrale poenget slik at hele redegjørelsen mister forankringen"],
       explanation: "Akse 2 rammes av feil #4 (hoppe over), #5 (løsrevet parafrase) og #7 (blande nabobegreper som universalisme/pluralisme).",
     },
     {
@@ -2805,17 +2805,17 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva sier helhetsvurderingen om en blank deloppgave (feil #6)?",
-      options: ["Den stenger for A, men ikke nødvendigvis for bestått", "Kan alltid veies opp til A", "Den har ingen betydning for karakteren så lenge de andre delene er besvart", "Den fører automatisk til stryk uansett hvor sterkt resten av besvarelsen er"],
+      options: ["Den stenger for A, men ikke nødvendigvis for bestått", "Den kan alltid veies opp til A av de øvrige delene i settet", "Den har ingen betydning for karakteren så lenge de andre delene er besvart", "Den fører automatisk til stryk uansett hvor sterkt resten av besvarelsen er"],
       explanation: "Ubesvart del stenger for A. Blank del krever ekstraordinær styrke i resten, men fører ikke automatisk til stryk.",
     },
     {
       question: "Hva er A-markøren (Akse 3) i en Rawls-redegjørelse?",
-      options: ["At ulike deler av uvitenhetssløret er ulikt godt motivert", "At Rawls skrev en bok", "At maximin-regelen gjelder uavhengig av hvordan sløret er begrunnet", "At sløret først og fremst sikrer nyttemaksimering framfor rettferdighet"],
+      options: ["At ulike deler av uvitenhetssløret er ulikt godt motivert", "At Rawls skrev en berømt bok om rettferdighet så tidlig som i 1971", "At maximin-regelen gjelder uavhengig av hvordan sløret er begrunnet", "At sløret først og fremst sikrer nyttemaksimering framfor rettferdighet"],
       explanation: "Det subtile ekstra som løfter til A: at ulike deler av sløret er ulikt godt teoretisk motivert — det sensor flagger som «veldig bra».",
     },
     {
       question: "Hva er feil #10?",
-      options: ["Å behandle Machiavelli endimensjonalt uten vekslingen", "Å blande Rawls og Locke", "Å tolke fyrsten utelukkende som en satire over samtidens fyrstestyre", "Å lese Machiavelli som en konsekvent moralfilosof i dydsetisk tradisjon"],
+      options: ["Å behandle Machiavelli endimensjonalt uten vekslingen", "Å blande sammen Rawls' og Lockes to ulike kontraktteorier", "Å tolke fyrsten utelukkende som en satire over samtidens fyrstestyre", "Å lese Machiavelli som en konsekvent moralfilosof i dydsetisk tradisjon"],
       explanation: "Feil #10: å lese Machiavelli som ren amoralist/konsekvensialist uten vekslingen mot et deontologisk innslag og skillet politisk vs. generell amoralisme.",
     },
     {
@@ -2825,12 +2825,12 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den vanligste drøftingsfeilen (feil #8)?",
-      options: ["Ren gjengivelse der oppgaven ber om drøfting/sammenligning", "For kort redegjørelse", "Å komme med for mange selvstendige vurderinger uten kildeforankring", "Å skrive en for kort redegjørelse før selve sammenligningen starter"],
+      options: ["Ren gjengivelse der oppgaven ber om drøfting/sammenligning", "For mange eksplisitte dimensjoner satt opp i sammenligningen", "Å komme med for mange selvstendige vurderinger uten kildeforankring", "Å skrive en for kort redegjørelse før selve sammenligningen starter"],
       explanation: "Feil #8: å levere referat i (c)-delen i stedet for selvstendig vurdering — rammer Akse 4 (selvstendighet).",
     },
     {
       question: "Hva er det sentrale poenget i Berlins negative frihet?",
-      options: ["Fravær av hindring påført av andre mennesker", "Fravær av enhver hindring, også manglende evne", "Evne til ukontrollert innblanding", "Selvrealisering"],
+      options: ["Fravær av hindring påført av andre mennesker", "Fravær av enhver hindring, også manglende evne", "Evne til ukontrollert innblanding", "Selvrealisering av det egentlige selv"],
       explanation: "Negativ frihet = fravær av hindring påført av andre (ofte skjerpet Hayek-nært til *forsettlig* innblanding). Å definere den som fravær av enhver hindring mister grunnskillet andres hindring vs. manglende egen evne (feil #1/#7).",
     },
     {
@@ -2845,7 +2845,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor foretrekker Pettit velferd som rettighet framfor privat veldedighet?",
-      options: ["Rettigheten kan ikke trekkes tilbake fritt, så dominansen fjernes", "Fordi mottakeren får mer penger", "Fordi privat veldedighet er ulovlig og strider mot republikansk frihetsideal", "Fordi staten alltid råder over mer ressurser enn private givere kan mobilisere"],
+      options: ["Rettigheten kan ikke trekkes tilbake fritt, så dominansen fjernes", "Fordi rettigheter er enklere for staten å administrere og kontrollere", "Fordi privat veldedighet er ulovlig og strider mot republikansk frihetsideal", "Fordi staten alltid råder over mer ressurser enn private givere kan mobilisere"],
       explanation: "Privat veldedighet gjør mottakeren avhengig av giverens ukontrollerte vilje (dominans); velferd som rettighet står under kontrollerbar rett, ikke luner.",
     },
   ],
