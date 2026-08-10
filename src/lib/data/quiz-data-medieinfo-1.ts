@@ -19,12 +19,12 @@ const quizData_medieinfo_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er et personlig medium?',
-      options: ["Et medium for kommunikasjon mellom enkeltpersoner, som en telefon", "En riksdekkende TV-kanal som sender til alle samtidig", "En offentlig kringkaster som formidler til massene", "En stor nasjonal avis som når hele befolkningen"],
+      options: ["Et medium for kommunikasjon mellom enkeltpersoner, som en telefon", "En riksdekkende TV-kanal som sender det samme innholdet til alle seere samtidig", "En offentlig kringkaster som formidler til massene", "En stor nasjonal avis som når hele befolkningen"],
       explanation: 'Et personlig medium brukes for kommunikasjon mellom enkeltpersoner, for eksempel telefon eller brev.',
     },
     {
       question: 'Hva er felles for alle medier?',
-      options: ["De bærer innhold fra én part til en annen", "De krever alltid tekst", "De er alltid gratis og fullt reklamefinansierte", "De krever alltid skriftlig tekst for å formidle"],
+      options: ["De bærer innhold fra én part til en annen", "De krever alltid tekst, slik at et budskap uten ord ikke kan formidles", "De er alltid gratis og fullt reklamefinansierte", "De krever alltid skriftlig tekst for å formidle"],
       explanation: 'Felles for alle medier er at de bærer innhold fra én part til en annen.',
     },
   ],
@@ -68,7 +68,7 @@ const quizData_medieinfo_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er vaktbikkjefunksjonen?',
-      options: ["At mediene overvåker makthaverne og avdekker kritikkverdige forhold", "At mediene selger annonseplass og reklame til bedrifter", "At mediene styrer politiet og andre offentlige etater", "At mediene først og fremst underholder publikum"],
+      options: ["At mediene overvåker makthaverne og avdekker kritikkverdige forhold", "At mediene finansierer driften ved å selge annonseplass og reklame til bedrifter", "At mediene styrer politiet og andre offentlige etater", "At mediene først og fremst underholder publikum"],
       explanation: 'Vaktbikkjefunksjonen innebærer at mediene overvåker makthaverne og avdekker kritikkverdige forhold.',
     },
     {
@@ -90,7 +90,7 @@ const quizData_medieinfo_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva menes med overgangen «fra lineært til on demand»?',
-      options: ["Fra faste sendetider til at man velger innhold når man vil", "Fra digital strømming tilbake til papirbasert lesing", "Fra fjernsyn som hovedkanal til lytting på radio", "Fra global mediebruk til rent lokalt nyhetsstoff"],
+      options: ["Fra faste sendetider til at man velger innhold når man vil", "Fra digital strømming tilbake til papirbasert lesing av aviser og bøker", "Fra fjernsyn som hovedkanal til lytting på radio", "Fra global mediebruk til rent lokalt nyhetsstoff"],
       explanation: 'Overgangen fra lineært til on demand betyr at mediebruken har gått fra faste sendeskjemaer til at brukeren selv velger innhold når og hvor de vil.',
     },
     {
@@ -100,7 +100,7 @@ const quizData_medieinfo_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hvordan varierer mediebruken i befolkningen?',
-      options: ["Den varierer betydelig mellom ulike aldersgrupper", "Alle aldersgrupper bruker medier helt likt", "Mediebruken holder seg helt konstant over lang tid", "Bare den voksne delen av befolkningen bruker medier"],
+      options: ["Den varierer betydelig mellom ulike aldersgrupper", "Alle aldersgrupper bruker medier like mye og på samme måte", "Mediebruken holder seg helt konstant over lang tid", "Bare den voksne delen av befolkningen bruker medier"],
       explanation: 'Mediebruken varierer betydelig mellom ulike aldersgrupper og endrer seg over tid.',
     },
     {
@@ -186,7 +186,7 @@ const quizData_medieinfo_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hvorfor ble fjernsynets virkning sterkere enn radioens?',
-      options: ["Folk kunne se verden med egne øyne uten å forlate hjemmet", "Fordi TV bare hadde lyd", "Fordi TV krevde at seerne selv leste tekst-tv-sidene høyt for hverandre", "Fordi TV bare formidlet lyd og dermed nådde synshemmede bedre enn radio"],
+      options: ["Folk kunne se verden med egne øyne uten å forlate hjemmet", "Fordi TV bare hadde lyd og derfor ikke kunne vise bilder av hendelser", "Fordi TV krevde at seerne selv leste tekst-tv-sidene høyt for hverandre", "Fordi TV bare formidlet lyd og dermed nådde synshemmede bedre enn radio"],
       explanation: 'Fjernsynet ga en sterkere virkning fordi folk for første gang kunne se verden med egne øyne uten å forlate hjemmet.',
     },
   ],
@@ -198,17 +198,17 @@ const quizData_medieinfo_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva kjennetegner Web 2.0?',
-      options: ["At brukerne selv kan skape og dele innhold, ikke bare lese", "At bare eksperter kunne publisere", "At nettsidene ble statiske og kun kunne leses, aldri kommenteres av brukerne", "At internett gikk tilbake til å være et lukket militært og akademisk nettverk"],
+      options: ["At brukerne selv kan skape og dele innhold, ikke bare lese", "At bare eksperter med teknisk kompetanse kunne publisere på nett", "At nettsidene ble statiske og kun kunne leses, aldri kommenteres av brukerne", "At internett gikk tilbake til å være et lukket militært og akademisk nettverk"],
       explanation: 'Web 2.0 kjennetegnes av at brukerne selv kan skape og dele innhold, ikke bare konsumere det.',
     },
     {
       question: 'Hva betyr disrupsjon i mediesammenheng?',
-      options: ["At ny teknologi grunnleggende forstyrrer og endrer etablerte bransjer", "At medier blir mer stabile", "At all utvikling stopper opp fordi ny teknologi ikke lenger endrer noen bransjer", "At myndighetene forbyr reklame for å beskytte de tradisjonelle mediehusene mot tap"],
+      options: ["At ny teknologi grunnleggende forstyrrer og endrer etablerte bransjer", "At etablerte medier blir mer stabile og beholder markedsposisjonene sine over tid", "At all utvikling stopper opp fordi ny teknologi ikke lenger endrer noen bransjer", "At myndighetene forbyr reklame for å beskytte de tradisjonelle mediehusene mot tap"],
       explanation: 'Disrupsjon betyr at ny teknologi grunnleggende forstyrrer og endrer etablerte bransjer, slik internett har rammet tradisjonelle medier.',
     },
     {
       question: 'Hvordan har digitaliseringen påvirket de tradisjonelle mediene?',
-      options: ["Den har grunnleggende endret dem, ikke bare skapt nye medier", "Den har stoppet all medieutvikling", "Den har gjort avisene og TV rent papirbaserte igjen for å spare på strømmen", "Den har ikke berørt de gamle mediene, men bare lagt til helt nye ved siden av"],
+      options: ["Den har grunnleggende endret dem, ikke bare skapt nye medier", "Den har stoppet all medieutvikling, slik at mediene står stille teknologisk", "Den har gjort avisene og TV rent papirbaserte igjen for å spare på strømmen", "Den har ikke berørt de gamle mediene, men bare lagt til helt nye ved siden av"],
       explanation: 'Digitaliseringen har ikke bare skapt nye medier, men også grunnleggende endret de gamle.',
     },
     {
@@ -230,12 +230,12 @@ const quizData_medieinfo_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er deltakelseskultur?',
-      options: ["En kultur der publikum aktivt deltar i å skape og dele innhold", "En kultur der publikum bare mottar passivt", "En kultur helt uten medier, der informasjon bare spres muntlig mellom mennesker", "En reklamekultur der annonsørene alene bestemmer hva publikum får se og oppleve"],
+      options: ["En kultur der publikum aktivt deltar i å skape og dele innhold", "En kultur der publikum bare mottar innhold passivt uten å bidra selv", "En kultur helt uten medier, der informasjon bare spres muntlig mellom mennesker", "En reklamekultur der annonsørene alene bestemmer hva publikum får se og oppleve"],
       explanation: 'Deltakelseskultur er en kultur der skillet mellom produsent og konsument viskes ut, og publikum aktivt deltar i å skape innhold.',
     },
     {
       question: 'Hvordan har sosiale medier endret maktstrukturene i mediene?',
-      options: ["Vanlige brukere kan nå publisere og spre innhold uten redaksjoner", "Bare store medier kan publisere", "Publikum er blitt langt mer passivt og overlater all publisering til redaksjonene", "Maktstrukturene er helt uendret, fordi redaksjonene fortsatt kontrollerer alt innhold"],
+      options: ["Vanlige brukere kan nå publisere og spre innhold uten redaksjoner", "Bare store mediehus med egen redaksjon kan publisere og spre innhold på nett", "Publikum er blitt langt mer passivt og overlater all publisering til redaksjonene", "Maktstrukturene er helt uendret, fordi redaksjonene fortsatt kontrollerer alt innhold"],
       explanation: 'Sosiale medier har endret maktstrukturene ved at vanlige brukere nå kan publisere og spre innhold uten å gå gjennom tradisjonelle redaksjoner.',
     },
     {
@@ -289,7 +289,7 @@ const quizData_medieinfo_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva innebærer informasjonsfunksjonen i samfunnsoppdraget?',
-      options: ["Å sørge for at innbyggerne har tilgang til korrekt og relevant informasjon", "Å skjule informasjon", "Å selge produkter og tjenester ved å pakke reklame inn som redaksjonelt innhold", "Å skjule vesentlig informasjon fra innbyggerne for å beskytte makthavere og eiere"],
+      options: ["Å sørge for at innbyggerne har tilgang til korrekt og relevant informasjon", "Å skjule informasjon som kan skape uro, og heller formidle det som beroliger publikum", "Å selge produkter og tjenester ved å pakke reklame inn som redaksjonelt innhold", "Å skjule vesentlig informasjon fra innbyggerne for å beskytte makthavere og eiere"],
       explanation: 'Informasjonsfunksjonen innebærer at mediene sørger for at innbyggerne har tilgang til korrekt og relevant informasjon.',
     },
     {
@@ -301,7 +301,7 @@ const quizData_medieinfo_1: Record<string, QuizQuestion[]> = {
   'medieinfo-1-3-2': [
     {
       question: 'Hva står VISA-modellen for i nyhetskriterier?',
-      options: ["Vesentlighet, Identifikasjon, Sensasjon og Aktualitet", "Verifisering, Informasjon, Sannhet og Ansvar", "Viralitet, Inntekt, Salg og Annonse, altså de kommersielle driverne bak en nyhet", "Vinkling, Innhold, Sjanger og Analyse"],
+      options: ["Vesentlighet, Identifikasjon, Sensasjon og Aktualitet", "Verifisering, Informasjon, Sannhet og Ansvar", "Viralitet, Inntekt, Salg og Annonse", "Vinkling, Innhold, Sjanger og Analyse"],
       explanation: 'VISA-modellen står for Vesentlighet, Identifikasjon, Sensasjon og Aktualitet.',
     },
     {
@@ -311,7 +311,7 @@ const quizData_medieinfo_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva handler kriteriet «Aktualitet» om?',
-      options: ["Hvor ny og dagsaktuell hendelsen er", "Hvor mange som er involvert", "Hvor sensasjonell og oppsiktsvekkende hendelsen fremstår for publikum", "Hvor langt unna det skjedde"],
+      options: ["Hvor ny og dagsaktuell hendelsen er", "Hvor mange som er involvert", "Hvor sensasjonell hendelsen er", "Hvor langt unna det skjedde"],
       explanation: 'Aktualitet handler om hvor ny og dagsaktuell en hendelse er.',
     },
     {
@@ -338,7 +338,7 @@ const quizData_medieinfo_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva innebærer redaktøransvaret?',
-      options: ["Redaktøren har det juridiske og etiske ansvaret for det som publiseres", "Leserne har ansvaret for innholdet", "Staten bærer det juridiske ansvaret for alt som publiseres i norske mediehus", "Annonsørene bestemmer det redaksjonelle innholdet mot betaling for annonseplass"],
+      options: ["Redaktøren har det juridiske og etiske ansvaret for det som publiseres", "Leserne har selv ansvaret for det som publiseres på mediehusets plattformer", "Staten bærer det juridiske ansvaret for alt som publiseres i norske mediehus", "Annonsørene bestemmer det redaksjonelle innholdet mot betaling for annonseplass"],
       explanation: 'Redaktøransvaret innebærer at redaktøren har det juridiske og etiske ansvaret for innholdet som publiseres.',
     },
     {
@@ -348,7 +348,7 @@ const quizData_medieinfo_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er et hovedprinsipp i Vær Varsom-plakatens del om pressens samfunnsrolle?',
-      options: ["Pressen skal verne om ytringsfriheten og offentlighetsprinsippet", "Pressen skal unngå kritikk av makthavere", "Pressen skal utelukkende publisere reklame og betalt innhold fra annonsørene", "Pressen skal skjule alle sine kilder for offentligheten uansett samfunnsverdi"],
+      options: ["Pressen skal verne om ytringsfriheten og offentlighetsprinsippet", "Pressen skal unngå kritikk av makthavere for å bevare et godt forhold til dem", "Pressen skal utelukkende publisere reklame og betalt innhold fra annonsørene", "Pressen skal skjule alle sine kilder for offentligheten uansett samfunnsverdi"],
       explanation: 'Et hovedprinsipp er at pressen skal verne om ytringsfriheten og offentlighetsprinsippet og sørge for at ulike syn kommer til uttrykk.',
     },
   ],
@@ -360,7 +360,7 @@ const quizData_medieinfo_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er en sekundærkilde?',
-      options: ["En kilde som videreformidler informasjon fra andre", "En førstehåndskilde", "Et øyenvitne som med egne øyne så hendelsen skje og forteller om den selv", "En førstehåndskilde som selv opplevde eller utførte det som formidles videre"],
+      options: ["En kilde som videreformidler informasjon fra andre", "En førstehåndskilde som journalisten har snakket direkte med", "Et øyenvitne som med egne øyne så hendelsen skje og forteller om den selv", "En førstehåndskilde som selv opplevde eller utførte det som formidles videre"],
       explanation: 'En sekundærkilde videreformidler informasjon fra andre, som en artikkel som gjengir en forskningsrapport.',
     },
     {
@@ -370,7 +370,7 @@ const quizData_medieinfo_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er faktasjekk?',
-      options: ["Å verifisere at informasjon stemmer mot pålitelige kilder", "Å publisere uten kontroll", "Å publisere en sak raskest mulig før den blir kontrollert av redaktøren", "Å skrive velbegrunnede meninger og standpunkter om en aktuell samfunnssak"],
+      options: ["Å verifisere at informasjon stemmer mot pålitelige kilder", "Å publisere opplysninger uten å kontrollere dem mot andre kilder", "Å publisere en sak raskest mulig før den blir kontrollert av redaktøren", "Å skrive velbegrunnede meninger og standpunkter om en aktuell samfunnssak"],
       explanation: 'Faktasjekk er å verifisere at informasjon stemmer ved å kontrollere den mot pålitelige kilder.',
     },
     {
@@ -402,34 +402,34 @@ const quizData_medieinfo_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er de seks nyhetsspørsmålene en nyhetsartikkel bør besvare?',
-      options: ["Hvem, hva, hvor, når, hvorfor og hvordan", "Etos, patos, logos og kairos", "Hvem, hvorfor og hvor mye det koster, som er de tre viktigste momentene", "Tid, sted, pris og avsender"],
+      options: ["Hvem, hva, hvor, når, hvorfor og hvordan", "Etos, patos, logos og kairos", "Hvem, hvorfor og hvor mye det koster", "Tid, sted, pris og avsender"],
       explanation: 'En nyhetsartikkel bør besvare de seks nyhetsspørsmålene: hvem, hva, hvor, når, hvorfor og hvordan.',
     },
   ],
   'medieinfo-1-4-1': [
     {
       question: 'Hva er en sjanger?',
-      options: ["En kategori av tekster med felles kjennetegn og konvensjoner", "En tilfeldig samling tekster", "En tilfeldig samling tekster som er satt sammen uten felles kjennetegn", "En teknisk plattform der ulike medietekster publiseres og distribueres"],
+      options: ["En kategori av tekster med felles kjennetegn og konvensjoner", "En tilfeldig samling tekster som mediene har publisert på samme dag", "En tilfeldig samling tekster som er satt sammen uten felles kjennetegn", "En teknisk plattform der ulike medietekster publiseres og distribueres"],
       explanation: 'En sjanger er en kategori av tekster med felles kjennetegn og konvensjoner som hjelper oss å gjenkjenne og tolke dem.',
     },
     {
       question: 'Hva er sjangerforventninger?',
-      options: ["De forventningene vi har til en tekst basert på sjangeren", "En tilfeldig gjetning", "En helt tilfeldig gjetning om hva en tekst kommer til å handle om", "En betalt reklame som utformes for å ligne på redaksjonelt innhold"],
+      options: ["De forventningene vi har til en tekst basert på sjangeren", "En tilfeldig gjetning som mottakeren gjør før teksten er lest", "En helt tilfeldig gjetning om tekstens innhold", "En betalt reklame som ligner redaksjonelt innhold"],
       explanation: 'Sjangerforventninger er de forventningene vi har til innhold og form basert på hvilken sjanger teksten tilhører.',
     },
     {
       question: 'Hva er en hybridsjanger?',
-      options: ["En sjanger som kombinerer trekk fra flere sjangre", "En ren informasjonssjanger", "En ren informasjonssjanger som utelukkende formidler nøytrale fakta", "En sjanger helt uten kjennetegn som mottakeren kan gjenkjenne den på"],
+      options: ["En sjanger som kombinerer trekk fra flere sjangre", "En ren informasjonssjanger uten innslag av underholdning", "En ren informasjonssjanger som utelukkende formidler nøytrale fakta", "En sjanger helt uten kjennetegn som mottakeren kan gjenkjenne den på"],
       explanation: 'En hybridsjanger kombinerer trekk fra flere sjangre, som infotainment som blander informasjon og underholdning.',
     },
     {
       question: 'Hvorfor blir hybridsjangre stadig vanligere?',
-      options: ["Mediene blander sjangre for å engasjere publikum på nye måter", "Fordi alle sjangre forsvinner", "Fordi bruk av faste sjangre er forbudt etter dagens medielovgivning", "Fordi publikum ikke lenger finnes og mediene skriver kun for seg selv"],
+      options: ["Mediene blander sjangre for å engasjere publikum på nye måter", "Fordi alle tradisjonelle sjangre forsvinner helt fra medielandskapet", "Fordi bruk av faste sjangre er forbudt ved lov", "Fordi publikum ikke lenger finnes og mediene skriver kun for seg selv"],
       explanation: 'Hybridsjangre blir vanligere fordi mediene blander sjangre for å fange og engasjere publikum, særlig i digitale medier.',
     },
     {
       question: 'Hvorfor er sjangre viktige for mottakeren?',
-      options: ["De hjelper oss å gjenkjenne og tolke det vi ser, leser og hører", "De gjelder bare produsenter", "De har ingen egentlig funksjon og er bare tomme merkelapper på tekster", "De forvirrer mottakeren og gjør det vanskeligere å forstå medietekster"],
+      options: ["De hjelper oss å gjenkjenne og tolke det vi ser, leser og hører", "De gjelder bare produsentene som lager tekstene, ikke dem som leser dem", "De har ingen egentlig funksjon og er bare tomme merkelapper på tekster", "De gjør medietekster vanskeligere å forstå"],
       explanation: 'Sjangre er viktige fordi de hjelper oss å gjenkjenne og tolke medietekster på riktig måte.',
     },
   ],
@@ -446,7 +446,7 @@ const quizData_medieinfo_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er funksjonell tyngde i en multimodal tekst?',
-      options: ["Hvor stor del av meningen en bestemt modalitet bærer", "Tekstens fysiske vekt", "Det samlede antallet ord som teksten inneholder fra start til slutt", "Prisen mottakeren må betale for å få tilgang til den ferdige teksten"],
+      options: ["Hvor stor del av meningen en bestemt modalitet bærer", "Tekstens fysiske vekt målt i gram når den er trykt på papir", "Det samlede antallet ord som teksten inneholder fra start til slutt", "Prisen mottakeren må betale for å få tilgang til den ferdige teksten"],
       explanation: 'Funksjonell tyngde handler om hvor stor del av meningen en bestemt modalitet bærer i den multimodale teksten.',
     },
     {
@@ -456,7 +456,7 @@ const quizData_medieinfo_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hvorfor er de fleste medietekster i dag multimodale?',
-      options: ["Digitale plattformer gjør det enkelt å kombinere tekst, bilde, lyd og video", "Fordi bruk av skrift er forbudt på de fleste digitale medieplattformer", "Fordi alle medietekster i dag må være svært korte for å nå fram til publikum", "Fordi bilder ikke lenger kan brukes sammen med tekst i moderne medier"],
+      options: ["Digitale plattformer gjør det enkelt å kombinere tekst, bilde, lyd og video", "Fordi bruk av skrift er forbudt på de fleste digitale medieplattformer", "Fordi alle medietekster i dag må være svært korte", "Fordi bilder ikke lenger kan brukes sammen med tekst i moderne medier"],
       explanation: 'De fleste medietekster er multimodale fordi digitale plattformer gjør det enkelt å kombinere tekst, bilde, lyd og video.',
     },
   ],
@@ -483,7 +483,7 @@ const quizData_medieinfo_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hvorfor kan det samme bildet bety ulike ting for ulike mennesker?',
-      options: ["Fordi konnotasjoner avhenger av kulturell bakgrunn og kontekst", "Fordi denotasjonen alltid varierer", "Fordi alle mennesker tolker et bilde helt likt uansett bakgrunn", "Fordi bilder egentlig ikke har noen mening før de settes i en tekst"],
+      options: ["Fordi konnotasjoner avhenger av kulturell bakgrunn og kontekst", "Fordi denotasjonen alltid varierer", "Fordi alle mennesker tolker et bilde helt likt", "Fordi bilder egentlig ikke har noen mening før de settes i en tekst"],
       explanation: 'Det samme bildet kan bety ulike ting fordi konnotasjonene (medbetydningene) avhenger av mottakerens kulturelle bakgrunn og kontekst.',
     },
   ],
@@ -500,7 +500,7 @@ const quizData_medieinfo_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hvorfor sies det at bilder aldri er nøytrale?',
-      options: ["Hvert valg av utsnitt, vinkel og farger påvirker tolkningen", "Fordi de alltid er objektive", "Fordi de ikke har noen avsender som gjør bevisste valg bak kameraet", "Fordi de aldri kan tolkes og derfor ikke bærer noe budskap i det hele"],
+      options: ["Hvert valg av utsnitt, vinkel og farger påvirker tolkningen", "Fordi de alltid er objektive gjengivelser av virkeligheten slik den er", "Fordi de ikke har noen avsender som gjør bevisste valg bak kameraet", "Fordi de aldri kan tolkes og derfor ikke bærer noe budskap i det hele"],
       explanation: 'Bilder er aldri nøytrale fordi hvert valg fotografen gjør – utsnitt, vinkel, farger, komposisjon – påvirker hvordan vi tolker budskapet.',
     },
     {
@@ -522,7 +522,7 @@ const quizData_medieinfo_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er patos?',
-      options: ["Appell til mottakerens følelser", "Den retoriske situasjonen", "Appell til fornuften gjennom logiske argumenter og fakta", "Avsenderens troverdighet"],
+      options: ["Appell til mottakerens følelser", "Den retoriske situasjonen", "Appell til fornuft og logikk", "Avsenderens troverdighet"],
       explanation: 'Patos er appell til mottakerens følelser.',
     },
     {
@@ -537,14 +537,14 @@ const quizData_medieinfo_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hvorfor er det nyttig å forstå retorikk i mediene?',
-      options: ["Man kan gjennomskue virkemidlene og ta mer bevisste valg", "Fordi retorikk ikke brukes i medier", "Fordi retorikk bare finnes i gamle taler og ikke i moderne medieinnhold vi møter", "Fordi ingen prøver å overbevise oss"],
+      options: ["Man kan gjennomskue virkemidlene og ta mer bevisste valg", "Fordi retorikk ikke brukes i medier", "Fordi retorikk bare hører hjemme i gamle taler", "Fordi ingen prøver å overbevise oss"],
       explanation: 'Ved å forstå retorikk kan vi gjennomskue virkemidlene mediene bruker for å overbevise, og dermed ta mer bevisste valg.',
     },
   ],
   'medieinfo-1-5-1': [
     {
       question: 'Hva er reklame?',
-      options: ["Betalt kommunikasjon som forsøker å påvirke mottakeren", "Nøytral nyhetsformidling", "Nøytral formidling av nyheter uten avsender som ønsker å påvirke mottakeren", "En lovbestemt merkeordning som skal beskytte forbrukerens personopplysninger"],
+      options: ["Betalt kommunikasjon som forsøker å påvirke mottakeren", "Nøytral nyhetsformidling som en redaksjon selv står bak og finansierer", "Nøytral formidling av nyheter uten avsender som ønsker å påvirke mottakeren", "En lovbestemt merkeordning som skal beskytte forbrukerens personopplysninger"],
       explanation: 'Reklame er en form for betalt kommunikasjon der en avsender forsøker å påvirke mottakeren til å handle, tenke eller føle noe bestemt.',
     },
     {
@@ -554,12 +554,12 @@ const quizData_medieinfo_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er informasjonsfunksjonen i reklame?',
-      options: ["Å gjøre forbrukere kjent med produkter, egenskaper og priser", "Å skjule produktinformasjon", "Å avgjøre tvister mellom annonsør og forbruker i en rettslig prosess", "Å forby konkurrerende varer fra å bli solgt i det samme markedssegmentet"],
+      options: ["Å gjøre forbrukere kjent med produkter, egenskaper og priser", "Å skjule opplysninger om produktets egenskaper og pris for forbrukeren", "Å avgjøre tvister mellom annonsør og forbruker i en rettslig prosess", "Å forby konkurrerende varer fra å bli solgt i det samme markedssegmentet"],
       explanation: 'Informasjonsfunksjonen i reklame gjør forbrukere kjent med nye produkter, deres egenskaper, priser og tilgjengelighet.',
     },
     {
       question: 'I hvilken rekkefølge skjer påvirkningen ifølge AIDA-modellen?',
-      options: ["Først oppmerksomhet, så interesse, så begjær, så handling", "Først handling, så oppmerksomhet", "Først handling, deretter oppmerksomhet, så interesse og til slutt begjær", "Først begjær, så oppmerksomhet, deretter handling og til slutt interesse"],
+      options: ["Først oppmerksomhet, så interesse, så begjær, så handling", "Først handling, så oppmerksomhet", "Først handling, deretter oppmerksomhet, så interesse og til slutt begjær", "Først begjær, så oppmerksomhet, så handling og interesse"],
       explanation: 'AIDA beskriver at reklamen først fanger oppmerksomhet, deretter vekker interesse og begjær, og til slutt utløser handling.',
     },
     {
@@ -571,7 +571,7 @@ const quizData_medieinfo_1: Record<string, QuizQuestion[]> = {
   'medieinfo-1-5-2': [
     {
       question: 'Hva er en målgruppe?',
-      options: ["Den bestemte gruppen et budskap er rettet mot", "Konkurrentene til en bedrift", "Selve kanalen eller mediet budskapet blir sendt gjennom", "Alle mennesker i verden som i prinsippet kan se reklamen"],
+      options: ["Den bestemte gruppen et budskap er rettet mot", "Konkurrentene til en bedrift", "Selve kanalen budskapet sendes gjennom", "Alle mennesker som kan se reklamen"],
       explanation: 'En målgruppe er den bestemte gruppen mennesker en annonsør ønsker å nå med budskapet sitt.',
     },
     {
@@ -586,7 +586,7 @@ const quizData_medieinfo_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er et eksempel på et segmenteringskriterium?',
-      options: ["Alder, kjønn, bosted eller interesser", "Avsenderens humør", "Avsenderens humør den dagen reklamen ble laget", "Værmeldingen for stedet der reklamen skal vises"],
+      options: ["Alder, kjønn, bosted eller interesser", "Avsenderens humør og personlige preferanser", "Avsenderens humør den dagen reklamen ble laget", "Værmeldingen for stedet der reklamen skal vises"],
       explanation: 'Segmenteringskriterier kan være demografiske (alder, kjønn, bosted) eller knyttet til interesser og livsstil.',
     },
     {
@@ -598,7 +598,7 @@ const quizData_medieinfo_1: Record<string, QuizQuestion[]> = {
   'medieinfo-1-5-3': [
     {
       question: 'Hva er merkeverdi (brand equity)?',
-      options: ["Den ekstra verdien en merkevare gir et produkt utover de fysiske egenskapene", "Prisen på råvarene som inngår i selve produksjonen av produktet", "Antall ansatte bedriften har som jobber med merkevaren daglig", "Størrelsen på reklamebudsjettet merkevaren bruker hvert år"],
+      options: ["Den ekstra verdien en merkevare gir et produkt utover de fysiske egenskapene", "Prisen på råvarene og emballasjen som inngår i selve produksjonen av produktet", "Antall ansatte bedriften har som jobber med merkevaren daglig", "Størrelsen på reklamebudsjettet merkevaren bruker hvert år"],
       explanation: 'Merkeverdi er den ekstra verdien en merkevare tilfører et produkt utover selve produktets fysiske egenskaper.',
     },
     {
@@ -618,19 +618,19 @@ const quizData_medieinfo_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er merkevareidentitet?',
-      options: ["De elementene som til sammen utgjør hvordan merkevaren fremstår", "Kun prisen på produktet, som forteller alt om merkevaren", "Antall butikker der merkevarens produkter er til salgs", "En tilfeldig valgt logo uten sammenheng med verdiene"],
+      options: ["De elementene som til sammen utgjør hvordan merkevaren fremstår", "Kun prisen på produktet, som alene forteller alt en trenger å vite om merkevaren", "Antall butikker og nettsteder der merkevarens produkter er til salgs", "En tilfeldig valgt logo uten noen sammenheng med verdiene bedriften har"],
       explanation: 'Merkevareidentitet er de samlede elementene – som navn, logo, verdier og uttrykk – som utgjør hvordan merkevaren fremstår og oppfattes.',
     },
   ],
   'medieinfo-1-5-4': [
     {
       question: 'Hva er innholdsmarkedsføring?',
-      options: ["Å lage nyttig innhold for målgruppen i stedet for direkte salgsbudskap", "Å rope «kjøp produktet vårt» mest mulig", "Å forby all annen reklame slik at bare eget innhold når frem til kundene", "Å gjenta budskapet «kjøp produktet vårt» så ofte som mulig i alle kanaler"],
+      options: ["Å lage nyttig innhold for målgruppen i stedet for direkte salgsbudskap", "Å rope «kjøp produktet vårt» mest mulig i overskrifter, bannere og annonser", "Å forby all annen reklame slik at bare eget innhold når frem til kundene", "Å gjenta budskapet «kjøp produktet vårt» så ofte som mulig i alle kanaler"],
       explanation: 'Innholdsmarkedsføring handler om å lage innhold målgruppen har nytte av, i stedet for å gå rett på et direkte salgsbudskap.',
     },
     {
       question: 'Hva er en fordel med digital markedsføring sammenlignet med tradisjonell reklame?',
-      options: ["Muligheten til å måle, personalisere og nå nøyaktige målgrupper", "At den når færre mennesker", "At den alltid når langt færre mennesker enn tradisjonell reklame", "At effekten aldri kan måles, i motsetning til tradisjonell reklame"],
+      options: ["Muligheten til å måle, personalisere og nå nøyaktige målgrupper", "At den når færre mennesker fordi bare de yngste bruker digitale kanaler", "At den alltid når langt færre mennesker enn tradisjonell reklame", "At effekten aldri kan måles, i motsetning til tradisjonell reklame"],
       explanation: 'Digital markedsføring gir muligheten til å måle alt, personalisere budskap og nå nøyaktig de rette menneskene.',
     },
     {
@@ -652,12 +652,12 @@ const quizData_medieinfo_1: Record<string, QuizQuestion[]> = {
   'medieinfo-1-5-5': [
     {
       question: 'Hva er skjult reklame?',
-      options: ["Kommersielle budskap som ikke tydelig fremstår som reklame", "En journalistisk sjanger", "Åpne TV-annonser som er tydelig merket som reklame for seeren", "En personvernlov som verner mottakeren mot uønsket markedsføring"],
+      options: ["Kommersielle budskap som ikke tydelig fremstår som reklame", "En journalistisk sjanger der redaksjonen omtaler produkter kritisk", "Åpne TV-annonser som er tydelig merket som reklame for seeren", "En personvernlov som verner mottakeren mot uønsket markedsføring"],
       explanation: 'Skjult reklame er kommersielle budskap som ikke tydelig fremstår som reklame, og som derfor er vanskeligere å gjennomskue.',
     },
     {
       question: 'Hva er grønnvasking?',
-      options: ["Å fremstille et produkt som mer miljøvennlig enn det er", "Ekte miljøsertifisering", "En journalistisk metode for å avdekke selskapers klimaavtrykk", "En type miljøvennlig rengjøring uten skadelige kjemiske stoffer"],
+      options: ["Å fremstille et produkt som mer miljøvennlig enn det er", "Ekte miljøsertifisering fra et uavhengig organ", "En journalistisk metode for å avdekke selskapers klimaavtrykk", "En type miljøvennlig rengjøring uten skadelige kjemiske stoffer"],
       explanation: 'Grønnvasking er å fremstille et produkt eller selskap som mer miljøvennlig enn det faktisk er, for å villede forbrukere.',
     },
     {
@@ -667,12 +667,12 @@ const quizData_medieinfo_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er forskjellen mellom «puffing» og villeding i reklame?',
-      options: ["Puffing er uskyldig skryt, villeding er usanne påstander", "Puffing er alltid forbudt", "Villeding med usanne påstander er fullt tillatt så lenge det er skryt", "De er helt identiske begreper som beskriver samme lovlige reklameteknikk"],
+      options: ["Puffing er uskyldig skryt, villeding er usanne påstander", "Puffing er alltid forbudt etter reglene i markedsføringsloven", "Villeding med usanne påstander er fullt tillatt så lenge det er skryt", "De er helt identiske begreper som beskriver samme lovlige reklameteknikk"],
       explanation: 'Puffing er uskyldig overdrivelse og skryt, mens villeding innebærer usanne påstander som gir et uriktig bilde av produktet.',
     },
     {
       question: 'Hvorfor er skjult reklame problematisk?',
-      options: ["Mottakeren vet ikke at det er et betalt salgsbudskap", "Fordi den er forbudt å lage", "Fordi den aldri når frem til noen mottakere i det hele tatt", "Fordi det er forbudt å lage reklame som er merket tydelig nok"],
+      options: ["Mottakeren vet ikke at det er et betalt salgsbudskap", "Fordi den er forbudt å lage", "Fordi den aldri når frem til noen mottakere i det hele tatt", "Fordi det er forbudt å merke reklame tydelig"],
       explanation: 'Skjult reklame er problematisk fordi mottakeren ikke vet at det er et betalt salgsbudskap, og dermed kan bli påvirket uten å være klar over det.',
     },
   ],
@@ -684,76 +684,76 @@ const quizData_medieinfo_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er en totalbildeinnstilling typisk brukt til?',
-      options: ["Å vise hele personer eller etablere et miljø", "Å vise et lite detaljutsnitt", "Å skjule motivet slik at seeren ikke ser hva som skjer", "Å fjerne all lyd fra scenen for å skape stillhet i bildet"],
+      options: ["Å vise hele personer eller etablere et miljø", "Å vise et lite detaljutsnitt av en gjenstand eller et ansikt", "Å skjule motivet slik at seeren ikke ser hva som skjer", "Å fjerne all lyd fra scenen for å skape stillhet i bildet"],
       explanation: 'En total innstilling viser hele personer eller miljøet og brukes blant annet for å etablere sted og vise sammenhenger.',
     },
     {
       question: 'Hvordan kan en kameravinkel påvirke opplevelsen?',
-      options: ["Den kan få motivet til å virke mektig eller sårbart", "Den endrer bare lyden", "Den har ingen effekt på hvordan motivet oppleves av seeren", "Den endrer bare lyden i scenen, ikke inntrykket av motivet"],
+      options: ["Den kan få motivet til å virke mektig eller sårbart", "Den endrer bare lyden i klippet", "Den har ingen effekt på hvordan motivet oppleves", "Den endrer bare lyden i scenen, ikke inntrykket av motivet"],
       explanation: 'Kameravinkelen påvirker hvordan vi opplever motivet, for eksempel om en person virker mektig (nedenfra) eller sårbar (ovenfra).',
     },
     {
       question: 'Hva er klipping i film?',
-      options: ["Sammenstillingen av enkeltbilder/scener til en helhet", "Å skrive manus", "Å male bakgrunnen i scenen for å skape riktig stemning", "Å fjerne all lyd fra opptaket før det vises for publikum"],
+      options: ["Sammenstillingen av enkeltbilder/scener til en helhet", "Å skrive manus til filmen før opptak", "Å male bakgrunnen i scenen for å skape riktig stemning", "Å fjerne all lyd fra opptaket før det vises for publikum"],
       explanation: 'Klipping er sammenstillingen av enkeltbilder og scener til en helhet, og styrer rytme og sammenhenger i filmen.',
     },
     {
       question: 'Hvorfor er samspillet mellom lyd og bilde viktig i film?',
-      options: ["Lyd og musikk forsterker og påvirker hvordan bildene oppleves", "Bilder brukes aldri i film, som utelukkende bygger på lyden", "Lyd har ingen betydning for hvordan bildene oppleves av seeren", "Film formidler bare gjennom tekst på skjermen, ikke lyd og bilde"],
+      options: ["Lyd og musikk forsterker og påvirker hvordan bildene oppleves", "Bilder brukes aldri i film, som utelukkende bygger på lyd og tale", "Lyd har ingen betydning for hvordan bildene oppleves av seeren", "Film formidler bare gjennom tekst på skjermen, ikke lyd og bilde"],
       explanation: 'Samspillet mellom lyd og bilde er viktig fordi lyd og musikk forsterker stemningen og påvirker hvordan bildene oppleves.',
     },
   ],
   'medieinfo-1-6-2': [
     {
       question: 'Hva er en filmsjanger?',
-      options: ["En kategori som klassifiserer filmer med felles kjennetegn", "En tilfeldig samling filmer", "En bestemt kameravinkel som brukes gjennomgående i en film", "En teknikk for å klippe sammen scener til en samlet helhet"],
+      options: ["En kategori som klassifiserer filmer med felles kjennetegn", "En tilfeldig samling filmer uten noe felles", "En bestemt kameravinkel som brukes gjennomgående i en film", "En teknikk for å klippe sammen scener til en samlet helhet"],
       explanation: 'En filmsjanger er en kategori som brukes for å klassifisere filmer med felles kjennetegn, som komedie eller thriller.',
     },
     {
       question: 'Hva er sjangerkonvensjoner?',
-      options: ["De forventede trekkene og kjennetegnene innenfor en sjanger", "Tilfeldige valg uten mønster", "De tilfeldige og uforutsigbare valgene som gjør at et verk ikke lar seg plassere i noen sjanger", "De tekniske innstillingene på et kamera som bestemmer bildekvalitet, lys og fargebalanse under opptak"],
+      options: ["De forventede trekkene og kjennetegnene innenfor en sjanger", "Tilfeldige valg uten mønster, gjort av regissøren under innspillingen", "De tilfeldige og uforutsigbare valgene som gjør at et verk ikke lar seg plassere i noen sjanger", "De tekniske innstillingene på et kamera som bestemmer bildekvalitet, lys og fargebalanse under opptak"],
       explanation: 'Sjangerkonvensjoner er de forventede trekkene og kjennetegnene innenfor en sjanger, som spenning i en thriller.',
     },
     {
       question: 'Hva kjennetegner dramasjangeren?',
-      options: ["Fokus på mellommenneskelige konflikter og følelsesmessig utvikling", "Romvesener og fremtidsteknologi", "Fokus på garantert latter, spøkefulle situasjoner og en lett tone som skal underholde publikum", "Fokus på romvesener, fremtidsteknologi og fantasifulle verdener som ikke finnes i virkeligheten"],
+      options: ["Fokus på mellommenneskelige konflikter og følelsesmessig utvikling", "Romvesener og fremtidsteknologi i historier som foregår i framtiden", "Fokus på garantert latter, spøkefulle situasjoner og en lett tone som skal underholde publikum", "Fokus på romvesener, fremtidsteknologi og fantasifulle verdener som ikke finnes i virkeligheten"],
       explanation: 'Drama fokuserer på mellommenneskelige konflikter og følelsesmessig utvikling, med realistisk tone og dype karakterer.',
     },
     {
       question: 'Hvorfor er sjangre nyttige for publikum?',
-      options: ["De hjelper publikum å velge film basert på forventninger", "De gjelder bare filmskapere", "De forvirrer publikum ved å skjule hva slags film det er, slik at ingen vet hva de skal forvente", "De forvirrer publikum"],
+      options: ["De hjelper publikum å velge film basert på forventninger", "De gjelder bare filmskaperne og ikke publikum", "De forvirrer publikum ved å skjule hva slags film det er, slik at ingen vet hva de skal forvente", "De forvirrer publikum og gjør filmvalget vanskeligere"],
       explanation: 'Sjangre er nyttige fordi de bygger på gjenkjennelse og hjelper publikum å velge film basert på hva de forventer.',
     },
     {
       question: 'Hva skjer ofte med sjangre over tid?',
-      options: ["De blandes og utvikler seg", "De forblir helt uendret", "De forsvinner gradvis og blir borte helt", "De forsvinner helt"],
+      options: ["De blandes og utvikler seg", "De forblir helt uendret over tid", "De forsvinner gradvis og blir borte helt", "De forsvinner helt"],
       explanation: 'Sjangre blandes og utvikler seg over tid, slik at filmskapere kan kombinere eller bryte med konvensjonene.',
     },
   ],
   'medieinfo-1-6-3': [
     {
       question: 'Hva er et TV-format?',
-      options: ["En mal for hvordan et program lages, som kan selges på tvers av land", "En enkeltsending uten struktur", "En enkeltstående sending uten fast oppbygning, som lages på nytt fra bunnen for hver eneste gang", "En bestemt type kamera og opptaksutstyr som brukes for å produsere TV-programmer i høy oppløsning"],
+      options: ["En mal for hvordan et program lages, som kan selges på tvers av land", "En enkeltsending uten fast struktur, laget for én bestemt anledning på TV", "En enkeltstående sending uten fast oppbygning, som lages på nytt fra bunnen for hver eneste gang", "En bestemt type kamera og opptaksutstyr som brukes for å produsere TV-programmer i høy oppløsning"],
       explanation: 'Et TV-format er en mal for hvordan programmer lages, og kan selges og tilpasses på tvers av land og kulturer.',
     },
     {
       question: 'Hva kjennetegner en nyhetssending som format?',
-      options: ["Fast struktur med nyhetsanker, innslag og faste konvensjoner", "Helt fri form uten struktur", "En sammenhengende spillefilm i full lengde med skuespillere, manus og en gjennomgående handling", "En sending som utelukkende består av musikk og bilder, uten anker, reportere eller talte innslag"],
+      options: ["Fast struktur med nyhetsanker, innslag og faste konvensjoner", "Helt fri form uten fast struktur eller manus", "En sammenhengende spillefilm i full lengde", "En sending som utelukkende består av musikk og bilder, uten anker, reportere eller talte innslag"],
       explanation: 'Nyhetssendinger har en fast struktur med nyhetsanker som leder fra studio, innslag med reportere og faste konvensjoner.',
     },
     {
       question: 'Hva er forskjellen mellom lineær TV og on-demand?',
-      options: ["Lineær TV har faste sendetider, on-demand lar deg velge når du vil se", "On-demand har faste sendetider", "On-demand har faste sendetider som styres av et sendeskjema, mens lineær TV kan ses når man vil", "De er i praksis identiske, siden begge lar seeren velge fritt når og hvor innholdet skal spilles av"],
+      options: ["Lineær TV har faste sendetider, on-demand lar deg velge når du vil se", "On-demand har faste sendetider som seeren må følge", "On-demand styres av et sendeskjema, mens lineær TV kan ses fritt", "De er i praksis identiske, siden begge lar seeren velge fritt"],
       explanation: 'Lineær TV har faste sendetider, mens on-demand (strømming) lar deg velge innhold når og hvor du vil.',
     },
     {
       question: 'Hvordan har strømming endret TV-bransjen?',
-      options: ["Seerne velger selv hva og når de ser, ikke styrt av sendeskjema", "Alle ser fortsatt på faste tider", "TV som medium har forsvunnet helt, og ingen ser lenger på verken innslag, serier eller filmer", "Alle seere ser fortsatt på nøyaktig faste tider, styrt av det samme sendeskjemaet som tidligere"],
+      options: ["Seerne velger selv hva og når de ser, ikke styrt av sendeskjema", "Alle ser fortsatt på de samme faste tidene", "TV som medium har forsvunnet helt, og ingen ser lenger på verken innslag, serier eller filmer", "Alle seere ser fortsatt på faste tider styrt av sendeskjemaet"],
       explanation: 'Strømming har endret TV-bransjen ved at seerne selv velger hva og når de ser, i stedet for å være styrt av faste sendeskjemaer.',
     },
     {
       question: 'Hva kjennetegner reality-TV som format?',
-      options: ["Det følger virkelige mennesker i (ofte tilrettelagte) situasjoner", "Det er ren fiksjon med skuespillere", "Det er et format helt uten deltakere, der bare landskap og bygninger filmes over lengre tidsrom", "Det er ren fiksjon med profesjonelle skuespillere som følger et ferdig manus fra start til slutt"],
+      options: ["Det følger virkelige mennesker i (ofte tilrettelagte) situasjoner", "Det er ren fiksjon med skuespillere som improviserer helt uten manus", "Det er et format helt uten deltakere, der bare landskap og bygninger filmes over lengre tidsrom", "Det er ren fiksjon med profesjonelle skuespillere som følger et ferdig manus fra start til slutt"],
       explanation: 'Reality-TV følger virkelige mennesker i situasjoner som ofte er tilrettelagt for å skape underholdning og dramatikk.',
     },
   ],
@@ -770,29 +770,29 @@ const quizData_medieinfo_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hvorfor er en dokumentar ikke «objektiv sannhet»?',
-      options: ["Den er formet av filmskaperens valg om hva som filmes og klippes", "Fordi den bruker skuespillere", "Fordi den alltid lyver bevisst og forvrenger fakta for å lure seeren til å tro på noe usant", "Fordi den utelukkende bruker innleide skuespillere som spiller virkelige personer etter et manus"],
+      options: ["Den er formet av filmskaperens valg om hva som filmes og klippes", "Fordi den bruker skuespillere i alle scener", "Fordi den alltid lyver bevisst og forvrenger fakta for å lure seeren til å tro på noe usant", "Fordi den utelukkende bruker innleide skuespillere med manus"],
       explanation: 'En dokumentar er ikke objektiv sannhet fordi den er formet av filmskaperens valg: hva som filmes, hva som klippes bort, og hvordan historien struktureres.',
     },
     {
       question: 'Hva kjennetegner en observerende dokumentar?',
-      options: ["Filmskaperen observerer hendelser med minst mulig innblanding", "Filmskaperen styrer alt som skjer", "Den er bygd utelukkende på tegnet animasjon uten ekte opptak av virkelige mennesker", "Filmskaperen styrer og iscenesetter alt som skjer foran kameraet ned til minste detalj"],
+      options: ["Filmskaperen observerer hendelser med minst mulig innblanding", "Filmskaperen styrer alt som skjer", "Den er bygd utelukkende på tegnet animasjon", "Filmskaperen iscenesetter alt som skjer foran kameraet"],
       explanation: 'En observerende dokumentar søker å observere hendelser med minst mulig innblanding fra filmskaperen.',
     },
     {
       question: 'Hva er en etisk utfordring i dokumentarfilm?',
-      options: ["Hvordan virkelige mennesker fremstilles og om de har gitt samtykke", "Hvilken farge teksten har", "Hvor lang selve filmen er i minutter, og om den passer inn i en fast sendetid på TV", "Hvilken kameramodell og hvilket opptaksutstyr som brukes under innspillingen av filmen"],
+      options: ["Hvordan virkelige mennesker fremstilles og om de har gitt samtykke", "Hvilken skriftfarge teksten har når filmen vises på TV og strømmetjenester", "Hvor lang selve filmen er i minutter, og om den passer inn i en fast sendetid på TV", "Hvilken kameramodell og hvilket opptaksutstyr som brukes under innspillingen av filmen"],
       explanation: 'En etisk utfordring i dokumentar er hvordan virkelige mennesker fremstilles, og om de har gitt samtykke til å være med.',
     },
   ],
   'medieinfo-1-6-5': [
     {
       question: 'Hva er mise-en-scène?',
-      options: ["Alt som er plassert i bildet: scenografi, rekvisitter, lys og personer", "Bare klippingen", "Utelukkende klippingen og redigeringen, altså rekkefølgen og lengden på de ulike bildene", "Kun lyden i filmen, det vil si dialog, musikk og lydeffekter som legges på under etterarbeidet"],
+      options: ["Alt som er plassert i bildet: scenografi, rekvisitter, lys og personer", "Bare klippingen, altså den rekkefølgen de enkelte bildene settes sammen i", "Utelukkende klippingen og redigeringen, altså rekkefølgen og lengden på de ulike bildene", "Kun lyden i filmen, det vil si dialog, musikk og lydeffekter som legges på under etterarbeidet"],
       explanation: 'Mise-en-scène omfatter alt som er plassert innenfor bildet: scenografi, rekvisitter, lyssetting, kostymer og personer.',
     },
     {
       question: 'Hva er et hovedmål med audiovisuell analyse?',
-      options: ["Å forklare hvordan filmen kommuniserer, ikke bare gjenfortelle handlingen", "Å gjengi handlingen ordrett", "Å gjengi handlingen ordrett fra begynnelse til slutt, slik at leseren slipper å se filmen selv", "Å telle nøyaktig antall scener og klipp i filmen, og sette dette opp i en oversiktlig statistikk"],
+      options: ["Å forklare hvordan filmen kommuniserer, ikke bare gjenfortelle handlingen", "Å gjengi handlingen ordrett scene for scene", "Å gjengi handlingen ordrett fra begynnelse til slutt, slik at leseren slipper å se filmen selv", "Å telle antall scener og klipp i filmen"],
       explanation: 'Audiovisuell analyse handler om å forklare hvordan form og innhold samvirker og hvorfor filmskaperen har gjort bestemte valg, ikke bare å gjenfortelle handlingen.',
     },
     {
@@ -807,68 +807,68 @@ const quizData_medieinfo_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva kjennetegner en god audiovisuell analyse?',
-      options: ["Den kombinerer nærlesning av scener med helhetlig forståelse av budskapet", "Den gjenforteller bare handlingen", "Den nøyer seg med å gjenfortelle handlingen kronologisk uten å si noe om virkemidlene som brukes", "Den vurderer utelukkende skuespillernes prestasjoner og ser bort fra regi, foto, lyd og klipping"],
+      options: ["Den kombinerer nærlesning av scener med helhetlig forståelse av budskapet", "Den gjenforteller bare handlingen", "Den nøyer seg med å gjenfortelle handlingen kronologisk", "Den vurderer utelukkende skuespillernes prestasjoner"],
       explanation: 'En god audiovisuell analyse kombinerer nærlesning av enkeltscener med en helhetlig forståelse av verkets budskap.',
     },
   ],
   'medieinfo-1-7-1': [
     {
       question: 'Hvordan tjener de fleste sosiale medier penger når tjenesten er gratis?',
-      options: ["Brukerne betaler med oppmerksomhet og data", "Brukerne betaler full abonnementspris", "Brukerne betaler en full abonnementspris hver måned for å få tilgang til tjenesten", "De tjener ingenting"],
+      options: ["Brukerne betaler med oppmerksomhet og data", "Brukerne betaler full abonnementspris", "Brukerne betaler en full abonnementspris hver måned for å få tilgang til tjenesten", "De tjener ingenting på tjenesten"],
       explanation: 'Mange sosiale medier er gratis fordi brukerne i praksis betaler med sin oppmerksomhet og sine data, som plattformene tjener på.',
     },
     {
       question: 'Hva er den dominerende forretningsmodellen i sosiale medier?',
-      options: ["Annonsefinansiering", "Salg av maskinvare", "Frivillige donasjoner helt alene", "Donasjoner alene"],
+      options: ["Annonsefinansiering", "Salg av maskinvare til brukerne", "Frivillige donasjoner helt alene", "Donasjoner fra brukerne alene"],
       explanation: 'Annonsefinansiering er den dominerende forretningsmodellen: brukerne får tilgang gratis, mens annonsører betaler for å vise reklame.',
     },
     {
       question: 'Hvorfor samler plattformene inn data om brukerne?',
-      options: ["For å målrette annonser mer effektivt", "For å slette all informasjon", "Fordi personvernloven direkte pålegger dem det", "For å kunne fjerne all reklame fra plattformen"],
+      options: ["For å målrette annonser mer effektivt", "For å slette all informasjon", "Fordi personvernloven pålegger det", "For å fjerne reklame fra plattformen"],
       explanation: 'Plattformene samler inn data for å kunne målrette annonser mer effektivt mot brukerne.',
     },
     {
       question: 'Hva er en abonnementsbasert (premium) modell?',
-      options: ["Brukeren betaler for tilgang eller ekstra funksjoner", "All tilgang er alltid gratis", "En modell der all tilgang og alle funksjoner alltid er helt gratis for brukeren", "En modell der staten dekker alle kostnadene og brukeren derfor slipper å betale"],
+      options: ["Brukeren betaler for tilgang eller ekstra funksjoner", "All tilgang er alltid gratis for brukeren", "En modell der all tilgang og alle funksjoner alltid er helt gratis for brukeren", "En modell der staten dekker alle kostnadene og brukeren derfor slipper å betale"],
       explanation: 'En abonnementsbasert modell innebærer at brukeren betaler for tilgang eller for ekstra funksjoner uten reklame.',
     },
     {
       question: 'Hvorfor er det et poeng å forstå plattformenes forretningsmodell?',
-      options: ["Den forklarer hvorfor innhold og data behandles som de gjør", "Fordi plattformene er gratis å drifte", "Forretningsmodellen har ingen egentlig betydning for hvordan innhold og data behandles", "Fordi plattformene er helt gratis å drifte og derfor ikke trenger noen forretningsmodell"],
+      options: ["Den forklarer hvorfor innhold og data behandles som de gjør", "Fordi plattformene er gratis å drifte og ikke koster eierne noe", "Forretningsmodellen har ingen egentlig betydning for hvordan innhold og data behandles", "Fordi plattformene er helt gratis å drifte og derfor ikke trenger noen forretningsmodell"],
       explanation: 'Å forstå forretningsmodellen er viktig fordi den forklarer hvorfor plattformene samler data og utformer innholdet slik de gjør.',
     },
   ],
   'medieinfo-1-7-2': [
     {
       question: 'Hva er hovedmålet til mange anbefalingsalgoritmer i sosiale medier?',
-      options: ["Å holde brukeren på plattformen lengst mulig", "Å gi en balansert nyhetsdekning", "Å gi brukeren en balansert og allsidig nyhetsdekning fra mange ulike kilder", "Å beskytte personvern"],
+      options: ["Å holde brukeren på plattformen lengst mulig", "Å gi en balansert nyhetsdekning", "Å gi brukeren en balansert og allsidig nyhetsdekning fra mange ulike kilder", "Å beskytte brukernes personvern"],
       explanation: 'Mange algoritmer er designet for å velge innhold som holder brukeren på plattformen lengst mulig, fordi det gir mer engasjement og annonseinntekter.',
     },
     {
       question: 'Hva er en filterboble?',
-      options: ["Et personalisert miljø der man hovedsakelig møter innhold man liker", "Et personvernverktøy", "En bestemt type betalt reklame som bobler opp mellom innleggene i brukerens nyhetsstrøm", "Et personvernverktøy som filtrerer bort sporing og hindrer plattformen i å samle inn data"],
+      options: ["Et personalisert miljø der man hovedsakelig møter innhold man liker", "Et personvernverktøy som samler alle innstillingene på ett sted i appen", "En bestemt type betalt reklame som bobler opp mellom innleggene i brukerens nyhetsstrøm", "Et personvernverktøy som filtrerer bort sporing og hindrer plattformen i å samle inn data"],
       explanation: 'En filterboble er et personalisert informasjonsmiljø der algoritmer i hovedsak viser deg innhold som passer dine interesser.',
     },
     {
       question: 'Hva er et ekkokammer?',
-      options: ["Et miljø der man hovedsakelig møter synspunkter man allerede deler", "En personverninnstilling", "En søkemotor som gir treff fra hele verden og viser mange ulike synspunkter på én gang", "Et lydstudio som brukes til opptak av podkaster, der ekko dempes med lydisolerende plater"],
+      options: ["Et miljø der man hovedsakelig møter synspunkter man allerede deler", "En personverninnstilling i appen", "En søkemotor som viser mange ulike synspunkter", "Et lydstudio for podkastopptak der ekko dempes"],
       explanation: 'Et ekkokammer er et miljø der man hovedsakelig møter og får forsterket synspunkter man allerede deler.',
     },
     {
       question: 'Hvilket signal bruker algoritmen for å personalisere innhold?',
-      options: ["Hva du har likt, kommentert og hvor lenge du ser på innhold", "Bare klokkeslettet", "Utelukkende klokkeslettet på døgnet du tilfeldigvis åpner appen på", "Bare den lokale værmeldingen der du befinner deg akkurat i øyeblikket"],
+      options: ["Hva du har likt, kommentert og hvor lenge du ser på innhold", "Bare klokkeslettet i det øyeblikket innlegget først ble publisert", "Utelukkende klokkeslettet på døgnet du tilfeldigvis åpner appen på", "Bare den lokale værmeldingen der du befinner deg akkurat i øyeblikket"],
       explanation: 'Algoritmen bruker signaler som hva du har likt, kommentert og delt, og hvor lenge du ser på ulike typer innhold.',
     },
     {
       question: 'Hvilken konsekvens kan personalisering ha for samfunnet?',
-      options: ["Den kan bidra til polarisering og svekke en felles offentlighet", "Den styrker alltid demokratiet", "Den styrker alltid demokratiet ved å gi alle nøyaktig samme balanserte informasjon", "Den har ingen konsekvenser for samfunnet, verken for offentligheten eller for debatten"],
+      options: ["Den kan bidra til polarisering og svekke en felles offentlighet", "Den styrker alltid demokratiet ved å øke deltakelsen", "Den styrker alltid demokratiet ved å gi alle nøyaktig samme balanserte informasjon", "Den har ingen konsekvenser for samfunnet, verken for offentligheten eller for debatten"],
       explanation: 'Personalisering kan bidra til polarisering og svekke en felles offentlighet, fordi folk møter ulike og bekreftende virkelighetsbilder.',
     },
   ],
   'medieinfo-1-7-3': [
     {
       question: 'Hva er en influenser?',
-      options: ["En person med stor følgerskare som har en posisjon mellom underholdning, journalistikk og reklame", "En tradisjonell avisredaktør", "En tradisjonell avisredaktør som styrer en redaksjon og alene har det fulle redaksjonelle ansvaret", "En konto på sosiale medier som aldri publiserer reklame og utelukkende deler helt private meninger"],
+      options: ["En person med stor følgerskare som har en posisjon mellom underholdning, journalistikk og reklame", "En tradisjonell avisredaktør i et etablert mediehus", "En tradisjonell avisredaktør som styrer en redaksjon og har det fulle ansvaret", "En konto på sosiale medier som aldri publiserer reklame og utelukkende deler helt private meninger"],
       explanation: 'En influenser er en person som har bygget en stor følgerskare og fått en unik posisjon mellom underholdning, journalistikk og reklame.',
     },
     {
@@ -878,24 +878,24 @@ const quizData_medieinfo_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er en inntektskilde for influensere?',
-      options: ["Sponsede poster og samarbeid med merkevarer", "Statlig lisens", "Offentlig kringkastingslisens og statstilskudd", "Bøter, tvangsmulkt og gebyrer utstedt av staten"],
+      options: ["Sponsede poster og samarbeid med merkevarer", "Statlig lisens som hver innbygger betaler hvert år", "Offentlig kringkastingslisens og statstilskudd", "Bøter, tvangsmulkt og gebyrer utstedt av staten"],
       explanation: 'Influensere tjener blant annet på sponsede poster, samarbeid med merkevarer, affiliate-lenker og annonseinntekter.',
     },
     {
       question: 'Hvorfor bruker bedrifter influensere i markedsføring?',
-      options: ["Følgerne har tillit til influenseren, noe som kan smitte over på produktet", "Fordi det er forbudt med vanlig reklame", "Følgerne oppfatter reklamen som statlig godkjent, noe som gir produktet troverdighet", "Reklameloven krever at nye produkter først lanseres gjennom kjente influensere på nett"],
+      options: ["Følgerne har tillit til influenseren, noe som kan smitte over på produktet", "Fordi det er forbudt med vanlig reklame", "Følgerne oppfatter reklamen som statlig godkjent", "Reklameloven krever at nye produkter lanseres gjennom influensere"],
       explanation: 'Bedrifter bruker influensere fordi følgerne ofte har tillit til dem, og denne tilliten kan smitte over på produktene de markedsfører.',
     },
     {
       question: 'Hva handler debatten om autentisitet hos influensere om?',
-      options: ["Om innholdet er ekte eller styrt av kommersielle interesser", "Om influensere har riktig kamera", "Om hvor mange følgere en profil trenger for å kunne kalles en ekte influenser", "Om influenseren bruker profesjonelt utstyr og redigering av høy teknisk kvalitet"],
+      options: ["Om innholdet er ekte eller styrt av kommersielle interesser", "Om influensere har riktig kamera til opptakene sine", "Om hvor mange følgere en profil trenger for å kunne kalles en ekte influenser", "Om influenseren bruker profesjonelt utstyr og redigering av høy teknisk kvalitet"],
       explanation: 'Debatten om autentisitet handler om i hvilken grad innholdet er ekte og personlig, eller styrt av kommersielle interesser og betalte samarbeid.',
     },
   ],
   'medieinfo-1-7-4': [
     {
       question: 'Hva er et meme?',
-      options: ["En kulturell enhet som spres og endres gjennom deling", "En statlig institusjon", "En kameratype som er spesielt egnet for å spre bilder raskt på nett", "En personvernlov som regulerer hvordan bilder kan deles og spres videre"],
+      options: ["En kulturell enhet som spres og endres gjennom deling", "En statlig institusjon som forvalter og bevarer kulturarven", "En kameratype som er spesielt egnet for å spre bilder raskt på nett", "En personvernlov som regulerer hvordan bilder kan deles og spres videre"],
       explanation: 'Et meme er en kulturell enhet (bilde, video eller tekst) som spres og endres gjennom deling på nett.',
     },
     {
@@ -905,61 +905,61 @@ const quizData_medieinfo_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva mener Henry Jenkins med deltakelseskultur?',
-      options: ["En kultur der skillet mellom produsent og konsument er visket ut", "En kultur der publikum er passivt", "En reklamekultur der annonsørene bestemmer alt innholdet som brukerne ser", "En kultur der publikum bare tar imot innhold uten selv å bidra eller publisere"],
+      options: ["En kultur der skillet mellom produsent og konsument er visket ut", "En kultur der publikum er passivt", "En reklamekultur der annonsørene bestemmer alt innholdet", "En kultur der publikum bare tar imot innhold uten å bidra"],
       explanation: 'Henry Jenkins bruker begrepet deltakelseskultur om en kultur der skillet mellom produsent og konsument er visket ut, og hvem som helst kan publisere.',
     },
     {
       question: 'Hva er viralitet?',
-      options: ["At innhold sprer seg svært raskt og bredt gjennom deling", "En type virus på datamaskinen", "En type skadelig programvare som sprer seg mellom datamaskiner på nettet", "At innhold oppleves som kjedelig og derfor bare spres til noen få brukere"],
+      options: ["At innhold sprer seg svært raskt og bredt gjennom deling", "En type virus som ødelegger filer på datamaskinen", "En type skadelig programvare som sprer seg mellom datamaskiner på nettet", "At innhold oppleves som kjedelig og derfor bare spres til noen få brukere"],
       explanation: 'Viralitet beskriver at innhold sprer seg svært raskt og bredt gjennom deling mellom brukere.',
     },
     {
       question: 'Hva er digital aktivisme?',
-      options: ["Bruk av digitale verktøy for å fremme en sak eller skape endring", "Å unngå all teknologi", "En form for betalt reklame der en sak fremmes gjennom kommersielle kampanjer", "Bevisst å unngå all teknologi og sosiale medier for å beskytte en politisk sak"],
+      options: ["Bruk av digitale verktøy for å fremme en sak eller skape endring", "Å unngå all teknologi og heller drive kampanjer med papir og plakater", "En form for betalt reklame der en sak fremmes gjennom kommersielle kampanjer", "Bevisst å unngå all teknologi og sosiale medier for å beskytte en politisk sak"],
       explanation: 'Digital aktivisme er bruk av digitale verktøy og sosiale medier for å fremme en sak, mobilisere og skape samfunnsendring.',
     },
   ],
   'medieinfo-1-7-5': [
     {
       question: 'Hva er personvern?',
-      options: ["Retten til å kontrollere informasjon om deg selv", "Plikten til å dele all informasjon", "En sosial medieplattform som samler og lagrer opplysninger om brukerne", "En form for målrettet reklame basert på informasjon som er samlet om deg"],
+      options: ["Retten til å kontrollere informasjon om deg selv", "Plikten til å dele all informasjon om deg selv med andre", "En sosial medieplattform som samler og lagrer opplysninger om brukerne", "En form for målrettet reklame basert på informasjon som er samlet om deg"],
       explanation: 'Personvern er retten til å kontrollere informasjon om deg selv, en stadig viktigere rettighet i en digital verden.',
     },
     {
       question: 'Hva er digitalt medborgerskap?',
-      options: ["Å være en ansvarlig, kritisk og trygg deltaker i det digitale samfunnet", "Å unngå all digital aktivitet", "Å unngå all digital aktivitet for å slippe å ta ansvar i det digitale samfunnet", "Å spre falske nyheter og villedende innhold for å påvirke andre deltakere på nett"],
+      options: ["Å være en ansvarlig, kritisk og trygg deltaker i det digitale samfunnet", "Å unngå all digital aktivitet", "Å unngå all digital aktivitet for å slippe å ta ansvar", "Å spre falske nyheter for å påvirke andre på nett"],
       explanation: 'Digitalt medborgerskap handler om å være en ansvarlig, kritisk og trygg deltaker i det digitale samfunnet.',
     },
     {
       question: 'Hva regulerer GDPR?',
-      options: ["Hvordan personopplysninger behandles, og gir deg rettigheter over egne data", "Reklame på TV", "Hvordan reklame på TV skal merkes og plasseres i forhold til programinnhold", "Hvilke filmsjangre som er tillatt å distribuere digitalt innenfor EU-området"],
+      options: ["Hvordan personopplysninger behandles, og gir deg rettigheter over egne data", "Reklame på TV, i radio og på kino i Norge", "Hvordan reklame på TV skal merkes og plasseres i forhold til programinnhold", "Hvilke filmsjangre som er tillatt å distribuere digitalt innenfor EU-området"],
       explanation: 'GDPR er personvernforordningen som regulerer behandling av personopplysninger og gir deg rettigheter over dine egne data.',
     },
     {
       question: 'Hva er et godt prinsipp for nettvett ved nettmobbing?',
-      options: ["Tenk før du deler, og vis respekt – det du sier kan skade andre", "Del alt anonymt for å såre andre", "Å dele alt anonymt slik at man kan såre andre uten selv å bli holdt ansvarlig", "Å stole blindt på alt man leser og dele det videre uten å tenke på om det skader"],
+      options: ["Tenk før du deler, og vis respekt – det du sier kan skade andre", "Del alt anonymt, så slipper du selv å stå for det", "Å dele alt anonymt slik at man kan såre andre uten selv å bli holdt ansvarlig", "Å stole blindt på alt man leser og dele det videre uten å tenke på om det skader"],
       explanation: 'Et godt prinsipp er å tenke før man deler og vise respekt, fordi digitale ord kan skade andre like mye som ord ansikt til ansikt.',
     },
     {
       question: 'Hvorfor er kildekritikk en del av digital kompetanse?',
-      options: ["Man må kunne vurdere om informasjon på nett er pålitelig", "Fordi kildekritikk er forbudt", "Fordi alt som publiseres på nett er sant og dermed trygt å dele videre uten sjekk", "Fordi kilder ikke betyr noe når informasjonen først ligger tilgjengelig på nettet"],
+      options: ["Man må kunne vurdere om informasjon på nett er pålitelig", "Fordi kildekritikk er forbudt etter reglene om ytringsfrihet", "Fordi alt som publiseres på nett er sant og dermed trygt å dele videre uten sjekk", "Fordi kilder ikke betyr noe når informasjonen først ligger tilgjengelig på nettet"],
       explanation: 'Kildekritikk er en del av digital kompetanse fordi man må kunne vurdere om informasjon på nett er pålitelig før man stoler på eller deler den.',
     },
   ],
   'medieinfo-1-8-1': [
     {
       question: 'Hva er informasjonslitterasitet?',
-      options: ["Evnen til å finne, vurdere og bruke informasjon effektivt og kritisk", "Evnen til å lese skjønnlitteratur", "En type søkemotor som automatisk vurderer og rangerer informasjon for deg", "Evnen til å lese og tolke skjønnlitteratur på en grundig og innlevende måte"],
+      options: ["Evnen til å finne, vurdere og bruke informasjon effektivt og kritisk", "Evnen til å lese skjønnlitteratur og gjenfortelle handlingen i den etterpå", "En type søkemotor som automatisk vurderer og rangerer informasjon for deg", "Evnen til å lese og tolke skjønnlitteratur på en grundig og innlevende måte"],
       explanation: 'Informasjonslitterasitet er evnen til å finne, vurdere og bruke informasjon effektivt og kritisk.',
     },
     {
       question: 'Hva er et første steg i en god søkeprosess?',
-      options: ["Å definere informasjonsbehovet og formulere spørsmålet presist", "Å publisere uten å søke", "Å unngå å bruke nøkkelord slik at søket blir bredest mulig og fanger opp alt", "Å gjette tilfeldig hva svaret kan være før man setter i gang selve søkeprosessen"],
+      options: ["Å definere informasjonsbehovet og formulere spørsmålet presist", "Å publisere svaret uten å søke først", "Å unngå å bruke nøkkelord slik at søket blir bredest mulig og fanger opp alt", "Å gjette tilfeldig hva svaret kan være før man søker"],
       explanation: 'Et første steg er å definere informasjonsbehovet, formulere spørsmålet presist og identifisere nøkkelord og synonymer.',
     },
     {
       question: 'Hva er boolske søk?',
-      options: ["Søk som bruker operatorer som AND, OR og NOT for å presisere", "Søk uten nøkkelord", "Tilfeldige søk der man taster inn hva som helst for å se hvilke treff man får", "Søk som gjøres helt uten nøkkelord, slik at motoren selv velger relevante treff"],
+      options: ["Søk som bruker operatorer som AND, OR og NOT for å presisere", "Søk uten nøkkelord, der man bare skriver inn hele spørsmålet sitt", "Tilfeldige søk der man taster inn hva som helst for å se hvilke treff man får", "Søk som gjøres helt uten nøkkelord, slik at motoren selv velger relevante treff"],
       explanation: 'Boolske søk bruker operatorer som AND, OR og NOT for å kombinere eller avgrense søkeord og gjøre søket mer presist.',
     },
     {
@@ -969,7 +969,7 @@ const quizData_medieinfo_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er trunkering i søk?',
-      options: ["Å bruke et tegn for å søke på alle ordformer med samme stamme", "Å søke bare på ett bestemt ord", "Å søke bare på ett bestemt ord uten å ta med bøyningsformer eller synonymer", "Å fjerne alle søkeord slik at søkemotoren returnerer så mange treff som mulig"],
+      options: ["Å bruke et tegn for å søke på alle ordformer med samme stamme", "Å søke bare på ett bestemt ord om gangen", "Å søke bare på ett bestemt ord uten å ta med bøyningsformer eller synonymer", "Å fjerne alle søkeord slik at søkemotoren returnerer så mange treff som mulig"],
       explanation: 'Trunkering er å bruke et tegn (ofte *) for å søke på alle ordformer med samme stamme, for eksempel «medie*».',
     },
   ],
@@ -981,22 +981,22 @@ const quizData_medieinfo_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva vurderer «Currency» i CRAAP-testen?',
-      options: ["Når kilden ble publisert eller oppdatert", "Om innholdet er korrekt", "Hvem som står bak kilden, og om avsenderen har autoritet på fagfeltet", "Hvem som står bak"],
+      options: ["Når kilden ble publisert eller oppdatert", "Om innholdet i kilden er korrekt", "Hvem som står bak kilden, og om avsenderen har autoritet på fagfeltet", "Hvem som står bak selve kilden"],
       explanation: 'Currency (aktualitet) handler om når kilden ble publisert eller oppdatert, og om informasjonen er tilstrekkelig oppdatert.',
     },
     {
       question: 'Hva er forskjellen mellom desinformasjon og misinformasjon?',
-      options: ["Desinformasjon spres bevisst, misinformasjon ofte ubevisst", "Misinformasjon er alltid bevisst", "De to begrepene betyr nøyaktig det samme og kan brukes helt om hverandre i praksis", "Desinformasjon er alltid sann informasjon, mens misinformasjon alltid er villedende"],
+      options: ["Desinformasjon spres bevisst, misinformasjon ofte ubevisst", "Misinformasjon spres alltid bevisst, mens desinformasjon spres ubevisst", "De to begrepene betyr nøyaktig det samme og kan brukes helt om hverandre i praksis", "Desinformasjon er alltid sann informasjon, mens misinformasjon alltid er villedende"],
       explanation: 'Desinformasjon er villedende informasjon som spres bevisst, mens misinformasjon er feilinformasjon som ofte spres ubevisst.',
     },
     {
       question: 'Hva skiller satire fra desinformasjon?',
-      options: ["Satire er ment som humor/kritikk, ikke som bevisst villedning", "Satire spres alltid bevisst som løgn", "De er helt identiske, siden begge deler er utformet for å villede publikum bevisst", "Satire er alltid saklig og sann informasjon, mens desinformasjon alltid er humoristisk"],
+      options: ["Satire er ment som humor/kritikk, ikke som bevisst villedning", "Satire spres alltid bevisst som løgn for å villede", "De er helt identiske, siden begge deler er utformet for å villede publikum bevisst", "Satire er alltid saklig og sann informasjon, mens desinformasjon alltid er humoristisk"],
       explanation: 'Satire er ment som humor eller kritikk og ikke som bevisst villedning, selv om den kan misforstås som ekte informasjon.',
     },
     {
       question: 'Hvorfor er kildekritikk en «demokratisk nødvendighet»?',
-      options: ["Borgere må kunne skille pålitelig informasjon fra falsk for å ta informerte valg", "Fordi all informasjon er sann", "Fordi kilder ikke betyr noe i et demokrati så lenge folk får stemme ved frie valg", "Fordi kildekritikk er forbudt i et demokrati og overlatt til uavhengige myndigheter"],
+      options: ["Borgere må kunne skille pålitelig informasjon fra falsk for å ta informerte valg", "Fordi all informasjon som publiseres offentlig i et demokrati allerede er kontrollert og sann", "Fordi kilder ikke betyr noe i et demokrati så lenge folk får stemme ved frie valg", "Fordi kildekritikk er forbudt i et demokrati og overlatt til uavhengige myndigheter"],
       explanation: 'Kildekritikk er en demokratisk nødvendighet fordi borgere må kunne skille pålitelig informasjon fra falsk for å ta informerte valg.',
     },
   ],
@@ -1008,17 +1008,17 @@ const quizData_medieinfo_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er et storyboard?',
-      options: ["En visuell plan som viser de planlagte bildene/scenene", "En ferdig film", "En reklame som lages for å markedsføre produksjonen før den blir publisert", "En ferdig redigert film som viser sluttresultatet av hele medieproduksjonen"],
+      options: ["En visuell plan som viser de planlagte bildene/scenene", "En ferdig film som produsenten viser fram for oppdragsgiveren", "En reklame som lages for å markedsføre produksjonen før den blir publisert", "En ferdig redigert film som viser sluttresultatet av hele medieproduksjonen"],
       explanation: 'Et storyboard er en visuell plan, ofte i tegneserieform, som viser de planlagte bildene og scenene før produksjon.',
     },
     {
       question: 'Hva er et tidlig steg i idéutvikling?',
-      options: ["Brainstorming der man genererer mange ideer uten å sensurere", "Å hoppe over planlegging", "Å publisere den første ideen umiddelbart før den er bearbeidet eller vurdert", "Å velge tilfeldig blant temaer uten å tenke gjennom hva som passer produksjonen"],
+      options: ["Brainstorming der man genererer mange ideer uten å sensurere", "Å hoppe over hele planleggingen", "Å publisere den første ideen umiddelbart", "Å velge tilfeldig blant temaer uten å tenke gjennom det"],
       explanation: 'Et tidlig steg i idéutvikling er brainstorming, der man genererer mange ideer uten å sensurere, før man velger og avgrenser.',
     },
     {
       question: 'Hva er hensikten med en produksjonsplan?',
-      options: ["Å sette opp en realistisk plan for hvordan produksjonen skal gjennomføres", "Å publisere ferdig produkt", "Å vurdere og gi tilbakemelding på andres arbeid før man begynner på sitt eget", "Å publisere det ferdige produktet så raskt som mulig etter at opptakene er gjort"],
+      options: ["Å sette opp en realistisk plan for hvordan produksjonen skal gjennomføres", "Å publisere det ferdige produktet på flest mulig plattformer", "Å vurdere og gi tilbakemelding på andres arbeid før man begynner på sitt eget", "Å publisere det ferdige produktet så raskt som mulig etter at opptakene er gjort"],
       explanation: 'En produksjonsplan setter opp en realistisk oversikt over hvordan produksjonen skal gjennomføres, med oppgaver, tid og ansvar.',
     },
     {
@@ -1030,39 +1030,39 @@ const quizData_medieinfo_1: Record<string, QuizQuestion[]> = {
   'medieinfo-1-8-4': [
     {
       question: 'Hva er tredjedelsregelen i fototeknikk?',
-      options: ["Å plassere hovedmotivet i et krysningspunkt i et tenkt rutenett", "Å plassere motivet helt i midten alltid", "Å plassere hovedmotivet nøyaktig i midten av bildet for å skape best mulig balanse", "Å bruke tre kameraer samtidig for å fange motivet fra tre ulike vinkler på én gang"],
+      options: ["Å plassere hovedmotivet i et krysningspunkt i et tenkt rutenett", "Å plassere motivet helt i midten av bildet, uansett hva slags motiv det er", "Å plassere hovedmotivet nøyaktig i midten av bildet for å skape best mulig balanse", "Å bruke tre kameraer samtidig for å fange motivet fra tre ulike vinkler på én gang"],
       explanation: 'Tredjedelsregelen handler om å plassere hovedmotivet i et av krysningspunktene i et tenkt rutenett som deler bildet i tre.',
     },
     {
       question: 'Hva er ledende linjer i komposisjon?',
-      options: ["Linjer i bildet som leder blikket mot motivet", "En type kamera", "Lydlinjer i produksjonen som styrer hvordan seeren opplever rytmen i bildene", "En kameratype som er spesialbygget for å ta bilder med rette og tydelige linjer"],
+      options: ["Linjer i bildet som leder blikket mot motivet", "En type kamera som har innebygd rutenett i søkeren", "Lydlinjer i produksjonen som styrer hvordan seeren opplever rytmen i bildene", "En kameratype som er spesialbygget for å ta bilder med rette og tydelige linjer"],
       explanation: 'Ledende linjer er linjer i bildet som leder blikket mot hovedmotivet og skaper dybde.',
     },
     {
       question: 'Hva er et godt råd for lys for nybegynnere i foto?',
-      options: ['Naturlig lys er ofte best', 'Bruk alltid hardt blitslys', 'Unngå alt lys', 'Fotografer alltid mot sola'],
+      options: ['Naturlig lys er ofte best', 'Bruk alltid hardt blitslys', 'Unngå alt kunstig lys', 'Fotografer alltid mot sola'],
       explanation: 'For nybegynnere er naturlig lys ofte best, og man bør unngå hardt lys midt på dagen.',
     },
     {
       question: 'Når tar en medieproduksjon ofte virkelig form?',
-      options: ["I redigeringen og etterarbeidet", "Under brainstorming", "Etter at produktet er publisert, når publikum begynner å dele og kommentere det", "Før planleggingen"],
+      options: ["I redigeringen og etterarbeidet", "Under selve brainstormingen", "Etter at produktet er publisert, når publikum begynner å dele og kommentere det", "Før planleggingen starter"],
       explanation: 'Mye av produksjonen tar virkelig form i redigeringen og etterarbeidet, der opptakene settes sammen til et ferdig produkt.',
     },
     {
       question: 'Hva er en vanlig feil ved lydopptak?',
-      options: ["Forstyrrende bakgrunnsstøy eller for lav lyd", "For god lydkvalitet", "At mikrofonen er koblet direkte til kamera med kabel", "For rolig og tydelig tale uten pauser mellom setningene"],
+      options: ["Forstyrrende bakgrunnsstøy eller for lav lyd", "For god lydkvalitet i opptaket", "At mikrofonen er koblet til kamera med kabel", "For rolig og tydelig tale uten pauser"],
       explanation: 'En vanlig feil ved lydopptak er forstyrrende bakgrunnsstøy eller for lavt lydnivå, som svekker kvaliteten.',
     },
   ],
   'medieinfo-1-8-5': [
     {
       question: 'Hva er opphavsrett?',
-      options: ["Skaperens enerett til å råde over sitt åndsverk", "Retten til å kopiere andres verk fritt", "En lov som beskytter personopplysninger mot spredning på nett", "Publikums frie rett til å kopiere og selge andres åndsverk videre"],
+      options: ["Skaperens enerett til å råde over sitt åndsverk", "Retten til å kopiere andres verk fritt uten å spørre skaperen", "En lov som beskytter personopplysninger mot spredning på nett", "Publikums frie rett til å kopiere og selge andres åndsverk videre"],
       explanation: 'Opphavsrett er skaperens enerett til å råde over sitt åndsverk, regulert av åndsverkloven.',
     },
     {
       question: 'Hva regulerer åndsverkloven?',
-      options: ["Opphavsrett til kreative verk", "Reklame på TV", "Innhold og plassering av reklame på TV", "Behandling av personopplysninger på nett"],
+      options: ["Opphavsrett til kreative verk", "Reklame på TV og radio", "Innhold og plassering av reklame på TV", "Behandling av personopplysninger på nett"],
       explanation: 'Åndsverkloven regulerer opphavsrett til kreative verk som tekst, bilder, musikk og film.',
     },
     {
@@ -1072,12 +1072,12 @@ const quizData_medieinfo_1: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva må du vite før du bruker andres innhold i en egen produksjon?',
-      options: ["Hvilke regler og lisenser som gjelder for innholdet", "Ingenting – alt på nett er fritt", "Bare hvilket filformat innholdet er lagret i og hvor stor filstørrelsen er", "Bare hvor du fant det"],
+      options: ["Hvilke regler og lisenser som gjelder for innholdet", "Ingenting – alt på nett er fritt", "Bare hvilket filformat innholdet er lagret i og hvor stor filstørrelsen er", "Bare hvor på nettet du fant det"],
       explanation: 'Før du bruker andres innhold må du vite hvilke regler og lisenser som gjelder, slik at du respekterer opphavsretten.',
     },
     {
       question: 'Hva kjennetegner sosiale medier som publiseringskanal?',
-      options: ["Rask spredning og stor rekkevidde, men kort levetid og algoritmestyrt synlighet", "At innhold aldri kan deles videre av andre brukere når det først er publisert", "Svært begrenset rekkevidde og treg spredning sammenlignet med tradisjonelle medier", "Garantert lang levetid for alt innhold og full kontroll over egen synlighet"],
+      options: ["Rask spredning og stor rekkevidde, men kort levetid og algoritmestyrt synlighet", "At innhold aldri kan deles videre av andre brukere når det først er publisert", "Svært begrenset rekkevidde og treg spredning", "Garantert lang levetid for alt innhold og full kontroll over egen synlighet"],
       explanation: 'Sosiale medier gir rask spredning og stor rekkevidde, men innholdet har ofte kort levetid og synligheten styres av algoritmer.',
     },
   ],

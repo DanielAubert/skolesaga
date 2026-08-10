@@ -9,7 +9,7 @@ const quizData_it_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en klasse i objektorientert programmering?",
-      options: ["En mal eller oppskrift for å lage objekter", "En konkret instans i minnet", "En melding programmet gir når noe går galt under kjøring av koden", "En ferdig instans som allerede ligger i minnet med sine egne verdier"],
+      options: ["En mal eller oppskrift for å lage objekter", "En konkret instans som allerede er laget fra malen", "En melding programmet gir når noe går galt under kjøring av koden", "En ferdig instans som allerede ligger i minnet med sine egne verdier"],
       explanation: "En klasse er en mal eller oppskrift for å lage objekter (som en kakeform), mens et objekt er en konkret instans av klassen.",
     },
     {
@@ -19,12 +19,12 @@ const quizData_it_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilket paradigme brukes når man har en funksjon som tar inn data og returnerer et resultat, uten at data og funksjon er samlet i et objekt?",
-      options: ["Prosedyrell programmering", "Objektorientert programmering", "Funksjonell innkapsling", "Polymorfisme"],
+      options: ["Prosedyrell programmering", "Objektorientert programmering", "Funksjonell innkapsling", "Polymorf programmering"],
       explanation: "Dette er prosedyrell programmering. Data og funksjon er ikke samlet i et objekt, men funksjonen tar inn data og returnerer et resultat.",
     },
     {
       question: "Når er OOP spesielt nyttig?",
-      options: ["Når programmet er stort og komplekst", "Når man bare skal regne ut én enkel formel", "Når man aldri skal gjenbruke kode", "Når man bare bruker tall"],
+      options: ["Når programmet er stort og komplekst", "Når man bare skal regne ut én enkel formel", "Når man aldri har behov for å gjenbruke kode", "Når man bare skal jobbe med enkle tall"],
       explanation: "OOP er kraftig når programmet er stort og komplekst, og når man vil organisere koden i gjenbrukbare moduler. For helt enkle oppgaver kan prosedyrell være bedre.",
     },
   ],
@@ -36,7 +36,7 @@ const quizData_it_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva refererer self til i en Python-klasse?",
-      options: ["Objektet selv som metoden kalles på", "Modulen filen ligger i", "Modulen eller filen som klassen og koden er definert inne i", "Klassen som helhet"],
+      options: ["Objektet selv som metoden kalles på", "Modulen filen ligger i", "Modulen eller filen som klassen og koden er definert inne i", "Selve klassen som helhet"],
       explanation: "self refererer til objektet selv – det objektet som metoden kalles på. Det gir tilgang til objektets egne attributter.",
     },
     {
@@ -51,7 +51,7 @@ const quizData_it_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva gjør en metode som bruker return?",
-      options: ["Den sender en verdi tilbake til koden som kalte den", "Den skriver alltid ut til skjermen", "Den oppretter automatisk en helt ny klasse basert på verdien", "Den skriver alltid verdien ut direkte til skjermen for brukeren"],
+      options: ["Den sender en verdi tilbake til koden som kalte den", "Den skriver alltid ut resultatet direkte til konsollen", "Den oppretter automatisk en helt ny klasse basert på verdien", "Den skriver alltid verdien ut direkte til skjermen for brukeren"],
       explanation: "En metode som bruker return sender en verdi tilbake til stedet den ble kalt fra, akkurat som vanlige funksjoner.",
     },
   ],
@@ -63,7 +63,7 @@ const quizData_it_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan markeres et privat attributt i Python?",
-      options: ["Med to understreker foran navnet, som self.__saldo", "Med nøkkelordet private", "Med nøkkelordet private foran attributtet, slik man gjør i Java og C#", "Med firkantparenteser rundt navnet, for eksempel self.[saldo] i klassen"],
+      options: ["Med to understreker foran navnet, som self.__saldo", "Med nøkkelordet private plassert foran attributtnavnet", "Med nøkkelordet private foran attributtet, slik man gjør i Java og C#", "Med firkantparenteser rundt navnet, for eksempel self.[saldo] i klassen"],
       explanation: "I Python markeres private attributter med understreker foran navnet. To understreker (self.__saldo) gir sterkest beskyttelse.",
     },
     {
@@ -85,7 +85,7 @@ const quizData_it_2: Record<string, QuizQuestion[]> = {
   "it-2-1-4": [
     {
       question: "Hva er arv (inheritance) i OOP?",
-      options: ["Når en subklasse overtar attributter og metoder fra en superklasse", "Når man kopierer en hel kildekodefil og gir den et nytt filnavn", "Når to klasser slettes samtidig fordi de deler de samme attributtene", "Når en variabel automatisk endrer datatype under kjøring av programmet"],
+      options: ["Når en subklasse overtar attributter og metoder fra en superklasse", "Når man kopierer hele kildekodefilen og gir kopien et helt nytt filnavn", "Når to klasser slettes samtidig fordi de deler de samme attributtene", "Når en variabel automatisk endrer datatype under kjøring av programmet"],
       explanation: "Arv er når en klasse (subklassen) overtar attributter og metoder fra en annen klasse (superklassen).",
     },
     {
@@ -100,19 +100,19 @@ const quizData_it_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva gjør isinstance()?",
-      options: ["Sjekker om et objekt er av en bestemt klasse eller arver fra den", "Sletter en klasse og alle objektene som er laget fra den malen", "Lager et nytt objekt av den angitte klassen og legger det i minnet", "Returnerer det totale antallet objekter som er opprettet av klassen"],
+      options: ["Sjekker om et objekt er av en bestemt klasse eller arver fra den", "Sletter en klasse og alle objektene som er laget fra den malen", "Lager et nytt objekt av den angitte klassen og legger det i minnet", "Returnerer antallet objekter som er opprettet av klassen"],
       explanation: "isinstance() brukes til å sjekke om et objekt er av en bestemt klasse, eller arver fra en klasse.",
     },
     {
       question: "Når bør man bruke arv?",
-      options: ["Når det er en klar «is-a»-relasjon, som at en Elbil er en Bil", "Når to klasser ikke har noe til felles", "Når to klasser ikke har noe til felles, men likevel må dele litt data", "Bare når man jobber med rene talloperasjoner og matematiske beregninger"],
+      options: ["Når det er en klar «is-a»-relasjon, som at en Elbil er en Bil", "Når to klasser ikke har noe som helst til felles i data eller oppførsel", "Når to klasser ikke har noe til felles, men likevel må dele litt data", "Bare når man jobber med rene talloperasjoner og matematiske beregninger"],
       explanation: "Arv bør brukes når det er en klar «is-a»-relasjon (en Elbil er en Bil) og subklassen er en spesialisering av superklassen.",
     },
   ],
   "it-2-1-5": [
     {
       question: "Hva er polymorfisme?",
-      options: ["At objekter av ulike klasser kan behandles likt, men oppføre seg forskjellig", "At en klasse bare kan definere én eneste metode som alle må kalle på", "At alle objektene i et program må være helt identiske i oppbygning og verdier", "At data alltid lagres i en fil på disk framfor å ligge i minnet under kjøring"],
+      options: ["At objekter av ulike klasser kan behandles likt, men oppføre seg forskjellig", "At en klasse bare kan definere én eneste metode, som alle objektene må kalle på", "At alle objektene i et program må være helt identiske i oppbygning og verdier", "At data alltid lagres i en fil på disk framfor å ligge i minnet under kjøring"],
       explanation: "Polymorfisme (poly = mange, morph = form) er evnen til at objekter av ulike klasser kan behandles likt – ved å kalle samme metode – men oppføre seg forskjellig.",
     },
     {
@@ -127,12 +127,12 @@ const quizData_it_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva sier åpen/lukket-prinsippet (Open/Closed Principle)?",
-      options: ["Programvare skal være åpen for utvidelse, men lukket for endring", "All kode skal være åpen for alle", "All kildekode skal være åpen og fritt tilgjengelig for alle utviklere", "Ferdige programmer skal aldri endres etter at de er tatt i bruk i drift"],
+      options: ["Programvare skal være åpen for utvidelse, men lukket for endring", "All kode skal være åpen for alle som vil lese den", "All kildekode skal være åpen og fritt tilgjengelig for alle utviklere", "Ferdige programmer skal aldri endres etter at de er tatt i bruk i drift"],
       explanation: "Åpen/lukket-prinsippet sier at programvare skal være åpen for utvidelse, men lukket for endring – man legger til ny funksjonalitet uten å endre eksisterende kode.",
     },
     {
       question: "Hva er dunder-metoder i Python?",
-      options: ["Spesialmetoder med dobbel understrek, som __len__, som gir innebygd polymorfisme", "En egen type feilmelding som oppstår når man bruker doble understreker feil", "Globale variabler som deles mellom alle klassene og objektene i programmet", "Spesielle metoder som bare kan kalles én eneste gang per objekt i minnet"],
+      options: ["Spesialmetoder med dobbel understrek, som __len__, som gir innebygd polymorfisme", "En egen type feilmelding som oppstår når man bruker doble understreker på feil måte", "Globale variabler som deles mellom alle klassene og objektene i programmet", "Spesielle metoder som bare kan kalles én eneste gang per objekt i minnet"],
       explanation: "Dunder-metoder (double underscore) som __len__ lar dine egne klasser fungere med innebygde funksjoner som len(), og gir innebygd polymorfisme i Python.",
     },
   ],
@@ -144,7 +144,7 @@ const quizData_it_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva sier designprinsippet «favor composition over inheritance»?",
-      options: ["Foretrekk å bygge funksjonalitet ved å kombinere objekter framfor å arve oppførsel", "Bruk alltid arv framfor komposisjon, siden arvehierarkier er enklest å endre", "Bruk bare globale funksjoner istedenfor objekter når du kombinerer oppførsel", "Unngå å bruke klasser helt, og bygg heller alt med enkle globale funksjoner"],
+      options: ["Foretrekk å bygge funksjonalitet ved å kombinere objekter framfor å arve oppførsel", "Bruk alltid arv framfor komposisjon, siden dype arvehierarkier er de enkleste å endre", "Bruk bare globale funksjoner istedenfor objekter når du skal kombinere ulik oppførsel", "Unngå å bruke klasser helt, og bygg heller alt med enkle globale funksjoner"],
       explanation: "«Favor composition over inheritance» sier at man bør foretrekke å bygge funksjonalitet ved å kombinere objekter (komposisjon) framfor å arve oppførsel (arv).",
     },
     {
@@ -159,19 +159,19 @@ const quizData_it_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken fordel gir komposisjon framfor arv?",
-      options: ["Mer fleksibilitet, fordi man kan kombinere oppførsel uten dype arvehierarkier", "At koden alltid blir tregere fordi objektene må slå opp hverandre i minnet", "At objektene ikke lenger trenger egne attributter for å oppføre seg riktig", "At man helt slipper å skrive klasser og bare kan bruke løse funksjoner"],
+      options: ["Mer fleksibilitet, fordi man kan kombinere oppførsel uten dype arvehierarkier", "At koden alltid blir tregere fordi objektene stadig må slå opp hverandre i minnet", "At objektene ikke lenger trenger å ha noen egne attributter for å oppføre seg riktig", "At man helt slipper å skrive klasser og i stedet bare kan bruke frittstående funksjoner"],
       explanation: "Komposisjon gir mer fleksibilitet fordi man kan kombinere oppførsel ved å sette sammen objekter, i stedet for å låse seg til dype, stive arvehierarkier.",
     },
   ],
   "it-2-2-2": [
     {
       question: "Hva betyr LIFO i en stakk (stack)?",
-      options: ["Last In, First Out – det siste elementet inn er det første ut", "Least Important, First Out", "List In, File Out – hele listen legges inn og lagres deretter til en fil", "Last In, First Output – det siste elementet skrives alltid ut på skjermen"],
+      options: ["Last In, First Out – det siste elementet inn er det første ut", "Least Important, First Out – det minst viktige elementet tas ut først", "List In, File Out – hele listen legges inn og lagres deretter til en fil", "Last In, First Output – det siste elementet skrives alltid ut på skjermen"],
       explanation: "En stakk er en LIFO-struktur: Last In, First Out. Det siste elementet som legges på, er det første som tas av.",
     },
     {
       question: "Hva betyr FIFO i en kø (queue)?",
-      options: ["First In, First Out – det første elementet inn er det første ut", "First In, Final Output", "Fast In, Fast Out – elementene legges inn og tas ut så raskt som mulig", "File In, File Out – hele filer legges i køen og skrives ut igjen i tur"],
+      options: ["First In, First Out – det første elementet inn er det første ut", "First In, Final Output – det første inn skrives ut sist", "Fast In, Fast Out – elementene legges inn og tas ut så raskt som mulig", "File In, File Out – hele filer legges i køen og skrives ut igjen i tur"],
       explanation: "En kø er en FIFO-struktur: First In, First Out. Det første elementet som legges inn, er det første som tas ut – som en kø i butikken.",
     },
     {
@@ -186,14 +186,14 @@ const quizData_it_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er collections.deque nyttig til i Python?",
-      options: ["En effektiv implementasjon av køer og stakker", "Å koble til en database", "Å sortere tall raskt i stigende eller synkende rekkefølge i en liste", "Å lese innholdet fra tekstfiler på disk og skrive resultatet tilbake"],
+      options: ["En effektiv implementasjon av køer og stakker", "Å koble til en database", "Å sortere tall raskt i en liste", "Å lese og skrive tekstfiler på disk"],
       explanation: "collections.deque er Pythons innebygde, effektive implementasjon som egner seg godt for både køer (enqueue/dequeue) og stakker.",
     },
   ],
   "it-2-2-3": [
     {
       question: "Hva lagrer en ordbok (dictionary)?",
-      options: ["Nøkkel-verdi-par der hver nøkkel er unik", "Bare unike enkeltverdier uten nøkler", "En ordnet sekvens av verdier man henter fram via en tallindeks fra null", "Bare en ordnet liste av tall"],
+      options: ["Nøkkel-verdi-par der hver nøkkel er unik", "Bare unike enkeltverdier uten nøkler", "En ordnet sekvens av verdier med indeks", "Bare en ordnet liste av tall"],
       explanation: "En ordbok lagrer nøkkel-verdi-par der hver nøkkel er unik og brukes til å slå opp verdien.",
     },
     {
@@ -213,19 +213,19 @@ const quizData_it_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvor raskt er oppslag i en ordbok via hashtabell typisk?",
-      options: ["O(1) – konstant tid", "O(n) – lineær tid", "O(n²) – kvadratisk tid", "O(log n)"],
+      options: ["O(1) – konstant tid", "O(n) – lineær tid i antall elementer", "O(n²) – kvadratisk tid", "O(log n) – logaritmisk tid"],
       explanation: "Ordbøker gir typisk O(1)-oppslag (konstant tid) via hashtabeller, noe som gjør dem svært raske for å slå opp data med en nøkkel.",
     },
   ],
   "it-2-2-4": [
     {
       question: "Hva er et designmønster?",
-      options: ["En generell, gjenbrukbar løsning på et vanlig problem i programvaredesign", "Et fast utseende på en nettside", "Et fast visuelt utseende med farger og layout som gjenbrukes på flere nettsider", "En ferdig algoritme som sorterer data effektivt uansett hvilket problem du løser"],
+      options: ["En generell, gjenbrukbar løsning på et vanlig problem i programvaredesign", "Et fast utseende på en nettside som gjentas på alle undersidene i hele løsningen", "Et fast visuelt utseende med farger og layout som gjenbrukes på flere nettsider", "En ferdig algoritme som sorterer data effektivt uansett hvilket problem du løser"],
       explanation: "Et designmønster er en generell, gjenbrukbar løsning på et vanlig problem i programvaredesign – en mal eller oppskrift, ikke ferdig kode.",
     },
     {
       question: "Hva gjør Observer-mønsteret?",
-      options: ["Lar flere objekter varsles automatisk når noe endres, ved at de «abonnerer» på hendelser", "Lager objekter uten å spesifisere klasse", "Lar deg opprette objekter uten å oppgi den eksakte klassen, og skjuler kompleks oppretting", "Lar deg bytte ut hele algoritmen på kjøretid ved å velge blant flere utskiftbare varianter"],
+      options: ["Lar flere objekter varsles automatisk når noe endres, ved at de «abonnerer» på hendelser", "Lager objekter uten å spesifisere klasse", "Lar deg opprette objekter uten å oppgi den eksakte klassen", "Lar deg bytte ut algoritmen på kjøretid blant flere varianter"],
       explanation: "Observer-mønsteret lar flere objekter varsles automatisk når noe endres, ved at de «abonnerer» på hendelser (løs kobling).",
     },
     {
@@ -235,12 +235,12 @@ const quizData_it_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva brukes Factory-mønsteret til?",
-      options: ["Å opprette objekter uten å spesifisere den eksakte klassen", "Å abonnere på hendelser", "Å sortere lister effektivt ved å definere utskiftbare sammenlikningsalgoritmer", "Å skjule klassens attributter bak metoder slik at de ikke endres direkte utenfra"],
+      options: ["Å opprette objekter uten å spesifisere den eksakte klassen", "Å abonnere på hendelser fra andre objekter", "Å sortere lister effektivt ved å definere utskiftbare sammenlikningsalgoritmer", "Å skjule klassens attributter bak metoder"],
       explanation: "Factory-mønsteret brukes til å opprette objekter uten å spesifisere den eksakte klassen, for å skjule kompleks objektoppretting.",
     },
     {
       question: "Hva er en fordel med å bruke designmønstre?",
-      options: ["De gir et felles språk og beprøvde løsninger på gjentakende problemer", "De fjerner behovet for testing", "De garanterer at koden alltid blir kortere fordi ferdige biblioteker gjenbrukes", "De fjerner behovet for testing siden mønstrene allerede er bevist å fungere feilfritt"],
+      options: ["De gir et felles språk og beprøvde løsninger på gjentakende problemer", "De fjerner behovet for testing fordi mønstrene allerede er standardiserte", "De garanterer at koden alltid blir kortere fordi ferdige biblioteker gjenbrukes", "De fjerner behovet for testing siden mønstrene allerede er bevist å fungere feilfritt"],
       explanation: "Designmønstre gir et felles språk mellom utviklere og beprøvde, gjenbrukbare løsninger på problemer som dukker opp igjen og igjen.",
     },
   ],
@@ -252,29 +252,29 @@ const quizData_it_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke tre deler vises i et klassediagram?",
-      options: ["Navn, attributter og metoder", "Header, body og footer", "Inndata, utdata og eventuelle feil", "Input, output og feil"],
+      options: ["Navn, attributter og metoder", "Header, body og footer i klassen", "Inndata, utdata og eventuelle feil", "Input, output og feilhåndtering"],
       explanation: "Et klassediagram viser klassens navn øverst, attributter (variabler) i midten og metoder nederst.",
     },
     {
       question: "Hvordan vises arv i et UML-klassediagram?",
-      options: ["Med en pil med hvit (åpen) trekant", "Med en stiplet sirkel", "Med en stiplet linje som ender i en åpen sirkel mellom de to klassene", "Med et spørsmålstegn"],
+      options: ["Med en pil med hvit (åpen) trekant", "Med en stiplet sirkel", "Med stiplet linje og åpen sirkel", "Med et spørsmålstegn"],
       explanation: "Arv (inheritance) vises i et klassediagram med en pil med hvit (åpen) trekant, for eksempel Student ──▷ Person.",
     },
     {
       question: "Hva viser et use case-diagram?",
-      options: ["Funksjonalitet fra brukerens perspektiv", "Hvordan minnet er organisert", "Hvordan minnet og lagringen er organisert internt i systemet under kjøring", "Hastigheten på algoritmer"],
+      options: ["Funksjonalitet fra brukerens perspektiv", "Hvordan minnet er organisert internt i systemet", "Hvordan minnet og lagringen er organisert internt i systemet under kjøring", "Hastigheten på algoritmene i systemet"],
       explanation: "Et use case-diagram viser funksjonaliteten i et system fra brukerens perspektiv, med aktører og de handlingene de kan utføre.",
     },
     {
       question: "Hva viser et sekvensdiagram?",
-      options: ["Hvordan objekter samhandler over tid gjennom meldinger", "Klassens attributter og metoder", "Klassens navn, attributter og metoder samlet i én statisk boks per klasse", "Hvordan tabeller, kolonner og relasjoner er strukturert i en relasjonsdatabase"],
+      options: ["Hvordan objekter samhandler over tid gjennom meldinger", "Klassens attributter og metoder samlet i én enkelt oversikt", "Klassens navn, attributter og metoder samlet i én statisk boks per klasse", "Hvordan tabeller, kolonner og relasjoner er strukturert i en relasjonsdatabase"],
       explanation: "Et sekvensdiagram viser hvordan objekter samhandler over tid, med objekter øverst, livslinjer nedover og meldinger som piler mellom dem.",
     },
   ],
   "it-2-3-1": [
     {
       question: "Hva beskriver tidskompleksitet?",
-      options: ["Hvor mange operasjoner en algoritme må utføre som funksjon av input-størrelsen n", "Hvor mange linjer kode et program har", "Hvor mange kjente feil og mangler programmet inneholder ved leveringstidspunktet", "Hvor mange linjer kildekode et program totalt består av, målt etter formateringen"],
+      options: ["Hvor mange operasjoner en algoritme må utføre som funksjon av input-størrelsen n", "Hvor mange linjer kode et program har", "Hvor mange kjente feil programmet inneholder ved levering", "Hvor mange linjer kildekode et program totalt består av"],
       explanation: "Tidskompleksitet er et mål på hvor mange operasjoner en algoritme må utføre som funksjon av input-størrelsen (n), uttrykt med Big O-notasjon.",
     },
     {
@@ -289,12 +289,12 @@ const quizData_it_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er plasskompleksitet?",
-      options: ["Et mål på hvor mye minne en algoritme bruker som funksjon av input-størrelsen", "Hvor stor skjerm programmet trenger", "Hvor mange navngitte variabler kildekoden inneholder, uavhengig av datamengden", "Hvor lang kjøretid selve algoritmen bruker som funksjon av input-størrelsen (n)"],
+      options: ["Et mål på hvor mye minne en algoritme bruker som funksjon av input-størrelsen", "Hvor stor skjermflate programmet trenger for å kunne vise alle dataene samtidig", "Hvor mange navngitte variabler kildekoden inneholder, uavhengig av datamengden", "Hvor lang kjøretid selve algoritmen bruker som funksjon av input-størrelsen (n)"],
       explanation: "Plasskompleksitet er et mål på hvor mye minne en algoritme bruker som funksjon av input-størrelsen, også uttrykt med Big O-notasjon.",
     },
     {
       question: "Hva advarte Donald Knuth mot med uttrykket «premature optimization is the root of all evil»?",
-      options: ["Å bruke for mye tid på å optimalisere kode før det er nødvendig", "Å aldri optimalisere kode", "Å optimalisere kode i det hele tatt, fordi rask kode nesten alltid blir uleselig", "Å skrive forklarende kommentarer i koden fordi det gjør programmet tregere å kjøre"],
+      options: ["Å bruke for mye tid på å optimalisere kode før det er nødvendig", "Å aldri optimalisere kode i det hele tatt, uansett hvor treg den blir", "Å optimalisere kode i det hele tatt, fordi rask kode nesten alltid blir uleselig", "Å skrive forklarende kommentarer i koden fordi det gjør programmet tregere å kjøre"],
       explanation: "Prematur optimalisering er å bruke for mye tid på å optimalisere kode før det er nødvendig. Knuth advarte mot dette fordi det kompliserer koden uten klar gevinst.",
     },
   ],
@@ -328,7 +328,7 @@ const quizData_it_2: Record<string, QuizQuestion[]> = {
   "it-2-3-3": [
     {
       question: "Hva er en datastruktur?",
-      options: ["En organisert måte å lagre og håndtere data på som gir effektiv tilgang", "Et programmeringsspråk", "En standardisert feilmelding som forteller hvor og hvorfor et program stoppet", "En fysisk nettverkskabel som overfører data mellom to maskiner i et lokalnett"],
+      options: ["En organisert måte å lagre og håndtere data på som gir effektiv tilgang", "Et programmeringsspråk med egen syntaks", "En standardisert feilmelding om hvor programmet stoppet", "En fysisk nettverkskabel mellom to maskiner"],
       explanation: "En datastruktur er en organisert måte å lagre og håndtere data på, som gir effektiv tilgang og modifikasjon.",
     },
     {
@@ -338,7 +338,7 @@ const quizData_it_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken datastruktur er best for å slå opp en elev raskt basert på elevnummer blant 10 000 elever?",
-      options: ["En ordbok (dict) med elevnummer som nøkkel", "En usortert liste man søker lineært i", "En usortert liste som gjennomsøkes lineært fra første til siste elevnummer", "En stakk der siste innlagte elev alltid ligger øverst og tas ut aller først"],
+      options: ["En ordbok (dict) med elevnummer som nøkkel", "En usortert liste man søker gjennom fra start til slutt", "En usortert liste som gjennomsøkes lineært fra første til siste elevnummer", "En stakk der siste innlagte elev alltid ligger øverst og tas ut aller først"],
       explanation: "En ordbok med elevnummer som nøkkel gir O(1)-oppslag, mye raskere enn å søke lineært gjennom en liste med 10 000 elever.",
     },
     {
@@ -355,7 +355,7 @@ const quizData_it_2: Record<string, QuizQuestion[]> = {
   "it-2-3-4": [
     {
       question: "Hva er de to nødvendige delene i en rekursiv funksjon?",
-      options: ["Et basetilfelle og et rekursivt tilfelle", "En løkke og en betingelse", "En unik nøkkel og en tilhørende verdi som slås opp raskt via nøkkelen", "En klasse og et objekt"],
+      options: ["Et basetilfelle og et rekursivt tilfelle", "En løkke og en betingelse", "En unik nøkkel og en tilhørende verdi som slås opp raskt via nøkkelen", "En klasse og et tilhørende objekt"],
       explanation: "En rekursiv funksjon trenger et basetilfelle (som stopper rekursjonen) og et rekursivt tilfelle (som forenkler problemet og kaller funksjonen på nytt).",
     },
     {
@@ -370,12 +370,12 @@ const quizData_it_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skjer hvis en rekursiv funksjon mangler et fungerende basetilfelle?",
-      options: ["Den kaller seg selv for alltid og forårsaker stack overflow", "Den returnerer alltid 0", "Den gjør ingenting og hopper rett videre til neste linje i programmet", "Den kjører merkbart raskere fordi den slipper å sjekke stoppbetingelsen"],
+      options: ["Den kaller seg selv for alltid og forårsaker stack overflow", "Den returnerer alltid verdien 0 til den som kalte", "Den gjør ingenting og hopper rett videre til neste linje i programmet", "Den kjører merkbart raskere fordi den slipper å sjekke stoppbetingelsen"],
       explanation: "Uten et fungerende basetilfelle kaller funksjonen seg selv uendelig, kall-stakken fylles opp, og programmet krasjer med stack overflow.",
     },
     {
       question: "Hva skjer på kall-stakken hver gang en rekursiv funksjon kaller seg selv?",
-      options: ["Et nytt kall legges på stakken til basetilfellet nås", "Programmet avsluttes umiddelbart", "Programmet avsluttes umiddelbart så snart det andre kallet skal begynne", "Ingenting skjer på stakken; funksjonen erstatter bare det forrige kallet"],
+      options: ["Et nytt kall legges på stakken til basetilfellet nås", "Programmet avsluttes umiddelbart uten å returnere noen verdi", "Programmet avsluttes umiddelbart så snart det andre kallet skal begynne", "Ingenting skjer på stakken; funksjonen erstatter bare det forrige kallet"],
       explanation: "Hver gang en rekursiv funksjon kaller seg selv, legges et nytt kall på kall-stakken. Når basetilfellet nås, avvikles kallene i motsatt rekkefølge.",
     },
   ],
@@ -402,14 +402,14 @@ const quizData_it_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er pandas i Python?",
-      options: ["Et kraftig bibliotek for dataanalyse og manipulasjon av strukturerte data", "En sorteringsalgoritme", "En bestemt filtype med endelsen .pandas som lagrer tabelldata i binærform", "En nettverksprotokoll som overfører strukturerte data mellom klient og server"],
+      options: ["Et kraftig bibliotek for dataanalyse og manipulasjon av strukturerte data", "En sorteringsalgoritme som brukes til å ordne svært store datamengder raskt", "En bestemt filtype med endelsen .pandas som lagrer tabelldata i ren binærform", "En nettverksprotokoll som overfører strukturerte data mellom klient og server"],
       explanation: "pandas er et kraftig Python-bibliotek for dataanalyse og manipulasjon. Det er standardverktøyet for å jobbe med strukturerte data, blant annet via DataFrames.",
     },
   ],
   "it-2-4-1": [
     {
       question: "Hva er et API?",
-      options: ["Et sett av regler og protokoller som lar programmer kommunisere med hverandre", "En programmeringsfeil", "En type maskinvare som kobler datamaskinen til internett via kabel eller trådløst", "En vanlig programmeringsfeil som oppstår når to programmer prøver å kjøre samtidig"],
+      options: ["Et sett av regler og protokoller som lar programmer kommunisere med hverandre", "En programmeringsfeil som gjør at programmet stopper midt under kjøringen av koden", "En type maskinvare som kobler datamaskinen til internett via kabel eller trådløst", "En vanlig programmeringsfeil som oppstår når to programmer prøver å kjøre samtidig"],
       explanation: "Et API (Application Programming Interface) er et sett av regler og protokoller som lar ulike programmer kommunisere med hverandre.",
     },
     {
@@ -419,17 +419,17 @@ const quizData_it_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er JSON i API-sammenheng?",
-      options: ["Et tekstbasert dataformat som er standard for å utveksle data mellom programmer", "Et programmeringsspråk", "En standardisert feilmelding som API-et returnerer når en forespørsel mislykkes", "Et fullverdig programmeringsspråk man skriver hele backend-logikken i API-et med"],
+      options: ["Et tekstbasert dataformat som er standard for å utveksle data mellom programmer", "Et programmeringsspråk som brukes til å lage API-er", "En standardisert feilmelding som API-et returnerer når en forespørsel mislykkes", "Et fullverdig programmeringsspråk man skriver hele backend-logikken i API-et med"],
       explanation: "JSON (JavaScript Object Notation) er et tekstbasert dataformat som er lett å lese og er standard for de fleste moderne API-er.",
     },
     {
       question: "Hva er et API-endepunkt?",
-      options: ["En spesifikk URL som utfører en bestemt funksjon i API-et", "En feil i nettverket", "Et hemmelig passord som brukeren må oppgi for å få lov til å kalle API-et", "En type variabel som lagrer svaret fra API-et mens forespørselen behandles"],
+      options: ["En spesifikk URL som utfører en bestemt funksjon i API-et", "En feil som oppstår i nettverket", "Et hemmelig passord for å få kalle API-et", "En variabel som lagrer svaret fra API-et"],
       explanation: "Et endepunkt (endpoint) er en spesifikk URL i et API som utfører en bestemt funksjon, for eksempel GET /users/123 for å hente en bruker.",
     },
     {
       question: "Hvorfor bruker mange API-er API-nøkler?",
-      options: ["For å sikre at bare autoriserte brukere får tilgang og hindre misbruk", "For å fjerne behovet for HTTP", "For å sortere resultatene automatisk før de sendes tilbake til klienten", "For å fjerne behovet for HTTP, siden nøkkelen erstatter hele protokollen"],
+      options: ["For å sikre at bare autoriserte brukere får tilgang og hindre misbruk", "For å fjerne behovet for HTTP i all kommunikasjon mellom klient og tjener", "For å sortere resultatene automatisk før de sendes tilbake til klienten", "For å fjerne behovet for HTTP, siden nøkkelen erstatter hele protokollen"],
       explanation: "API-nøkler brukes for å autentisere brukere, hindre misbruk (for mange forespørsler) og spore bruk, slik at bare autoriserte får tilgang.",
     },
   ],
@@ -473,12 +473,12 @@ const quizData_it_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr serialisering?",
-      options: ["Å konvertere Python-objekter til et tekstformat som JSON", "Å lese JSON til Python-objekter", "Å sortere elementene i en Python-liste før de skrives til en fil på disk", "Å lese og tolke en JSON-streng tilbake til Python-objekter som dict og list"],
+      options: ["Å konvertere Python-objekter til et tekstformat som JSON", "Å lese JSON og gjøre det om til Python-objekter", "Å sortere elementene i en Python-liste før de skrives til en fil på disk", "Å lese og tolke en JSON-streng tilbake til Python-objekter som dict og list"],
       explanation: "Serialisering betyr å konvertere Python-objekter til et tekstformat (som JSON) – det motsatte av parsing.",
     },
     {
       question: "Hva er en fordel JSON har framfor XML?",
-      options: ["JSON er mer kompakt og mapper naturlig til Python-objekter", "XML er alltid raskere å parse", "JSON støtter ikke nøstede strukturer, mens XML kan nøste elementer i hverandre", "XML kan ikke representere tallverdier og lagrer derfor alt bare som tekststrenger"],
+      options: ["JSON er mer kompakt og mapper naturlig til Python-objekter", "XML er alltid raskere å parse enn JSON, uansett hvor store dataene er", "JSON støtter ikke nøstede strukturer, mens XML kan nøste elementer i hverandre", "XML kan ikke representere tallverdier og lagrer derfor alt bare som tekststrenger"],
       explanation: "JSON er enklere og mer kompakt, lettere å lese og mapper naturlig til Python-objekter (dict og list), og er standard for moderne web-API-er.",
     },
     {
@@ -490,12 +490,12 @@ const quizData_it_2: Record<string, QuizQuestion[]> = {
   "it-2-4-4": [
     {
       question: "Hva er Flask?",
-      options: ["Et lettvekts Python-rammeverk for webutvikling", "Et operativsystem", "Et operativsystem skrevet i Python som kjører webservere i skyen automatisk", "En innebygd Python-nettleser som brukes til å hente og vise nettsider lokalt"],
+      options: ["Et lettvekts Python-rammeverk for webutvikling", "Et helt eget operativsystem", "Et operativsystem som kjører webservere", "En innebygd nettleser som viser nettsider"],
       explanation: "Flask er et enkelt og populært Python-rammeverk for webutvikling, som lar deg lage REST API-er og webapplikasjoner.",
     },
     {
       question: "Hva er en rute (route) i Flask?",
-      options: ["En URL-sti som Flask lytter på, knyttet til en funksjon", "En database-tabell", "En innebygd feilmelding som Flask viser når en URL-sti ikke finnes i appen", "En spesiell type variabel i Flask som lagrer URL-en til den gjeldende siden"],
+      options: ["En URL-sti som Flask lytter på, knyttet til en funksjon", "En tabell i databasen som Flask-appen bruker", "En innebygd feilmelding som Flask viser når en URL-sti ikke finnes i appen", "En spesiell type variabel i Flask som lagrer URL-en til den gjeldende siden"],
       explanation: "En rute (route) er en URL-sti som Flask lytter på. Når noen sender en forespørsel til ruten, kjøres den tilknyttede funksjonen.",
     },
     {
@@ -510,19 +510,19 @@ const quizData_it_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva står CRUD for i et API?",
-      options: ["Create, Read, Update, Delete", "Connect, Run, Update, Download", "Copy, Read, Use, Delete", "Create, Render, Upload, Display"],
+      options: ["Create, Read, Update, Delete", "Connect, Run, Update, Download", "Copy, Read, Use, Delete i databasen", "Create, Render, Upload, Display"],
       explanation: "CRUD står for Create, Read, Update og Delete – de fire grunnleggende operasjonene som tilsvarer HTTP-metodene POST, GET, PUT og DELETE.",
     },
   ],
   "it-2-4-5": [
     {
       question: "Hva er klient-server-modellen?",
-      options: ["Klienten sender forespørsler, og serveren mottar dem og sender svar", "To servere som snakker med hverandre uten klient", "En modell der klient og server alltid kjører som samme prosess på én maskin", "En krypteringsmetode der klienten og serveren deler en felles hemmelig nøkkel"],
+      options: ["Klienten sender forespørsler, og serveren mottar dem og sender svar", "To servere som snakker direkte med hverandre uten noen klient innimellom", "En modell der klient og server alltid kjører som samme prosess på én maskin", "En krypteringsmetode der klienten og serveren deler en felles hemmelig nøkkel"],
       explanation: "I klient-server-modellen sender klienten (nettleser, app) forespørsler, og serveren (webserver, API-server) mottar dem og sender svar tilbake.",
     },
     {
       question: "Hva kjennetegner TCP sammenlignet med UDP?",
-      options: ["TCP er pålitelig og garanterer at data kommer fram i riktig rekkefølge", "TCP er alltid raskere og uten overhead", "TCP er alltid raskere enn UDP fordi det sender data helt uten ekstra overhead", "TCP brukes bare til videostrømming der tap av enkeltpakker ikke spiller noen rolle"],
+      options: ["TCP er pålitelig og garanterer at data kommer fram i riktig rekkefølge", "TCP er alltid raskere og uten overhead", "TCP er alltid raskere enn UDP fordi det sender data helt uten ekstra overhead", "TCP brukes bare til videostrømming der pakketap ikke betyr noe"],
       explanation: "TCP er pålitelig: det garanterer at data kommer fram, i riktig rekkefølge, med feilsjekking. Det gir mer overhead og er litt tregere enn UDP.",
     },
     {
@@ -544,34 +544,34 @@ const quizData_it_2: Record<string, QuizQuestion[]> = {
   "it-2-5-1": [
     {
       question: "Hva er ER-modellering?",
-      options: ["En metode for å visualisere datastrukturen før man lager databasen", "En måte å kryptere data på", "En sorteringsalgoritme som ordner radene i en tabell etter primærnøkkelen sin", "En nettverksprotokoll som overfører databasedata sikkert mellom klient og server"],
+      options: ["En metode for å visualisere datastrukturen før man lager databasen", "En metode for å kryptere data før de lagres i tabellene i databasen", "En sorteringsalgoritme som ordner radene i en tabell etter primærnøkkelen sin", "En nettverksprotokoll som overfører databasedata sikkert mellom klient og server"],
       explanation: "ER-modellering (Entity-Relationship) er en metode for å visualisere datastrukturen i et system før man lager selve databasen, med entiteter og relasjoner.",
     },
     {
       question: "Hva er en primærnøkkel (Primary Key)?",
-      options: ["En unik identifikator for hver rad som ikke kan være NULL", "En kolonne som kan inneholde duplikater", "En spørring som henter ut den første raden i en tabell etter sortering", "Et passord som kreves for å åpne en tilkobling til selve databaseserveren"],
+      options: ["En unik identifikator for hver rad som ikke kan være NULL", "En kolonne som kan inneholde duplikater", "En spørring som henter den første raden i en tabell", "Et passord for å koble til databaseserveren"],
       explanation: "En primærnøkkel er en unik identifikator for hver rad i en tabell. Den kan ikke være NULL og må være unik.",
     },
     {
       question: "Hva er en fremmednøkkel (Foreign Key)?",
-      options: ["Et attributt som refererer til primærnøkkelen i en annen tabell", "En nøkkel som er kryptert", "En primærnøkkel som er kryptert slik at verdien ikke kan leses av uvedkommende", "En kolonne som alltid står tom og bare brukes til å reservere plass i tabellen"],
+      options: ["Et attributt som refererer til primærnøkkelen i en annen tabell", "En nøkkel som blir kryptert med en egen algoritme før den lagres i tabellen", "En primærnøkkel som er kryptert slik at verdien ikke kan leses av uvedkommende", "En kolonne som alltid står tom og bare brukes til å reservere plass i tabellen"],
       explanation: "En fremmednøkkel er et attributt som refererer til primærnøkkelen i en annen tabell, og oppretter dermed en relasjon mellom tabellene.",
     },
     {
       question: "Hva er hovedmålet med normalisering?",
-      options: ["Å minimere redundans og sikre dataintegritet", "Å gjøre databasen så stor som mulig", "Å kryptere alle verdiene i tabellene slik at ingen kan lese dataene direkte", "Å fjerne alle relasjoner"],
+      options: ["Å minimere redundans og sikre dataintegritet", "Å gjøre databasen så stor som mulig", "Å kryptere alle verdiene i tabellene slik at ingen kan lese dataene direkte", "Å fjerne alle relasjoner mellom tabellene"],
       explanation: "Normalisering organiserer data for å minimere redundans (unødvendige duplikater), sikre dataintegritet og gjøre databasen enklere å vedlikeholde.",
     },
     {
       question: "Hva er en entitet i ER-modellering?",
-      options: ["Et objekt vi ønsker å lagre informasjon om, som blir til en tabell", "En relasjon mellom tabeller", "En spørring som henter ut informasjon om objekter som er lagret i databasen", "En relasjon som binder to tabeller sammen ved hjelp av en delt fremmednøkkel"],
+      options: ["Et objekt vi ønsker å lagre informasjon om, som blir til en tabell", "En relasjon mellom to tabeller i databasen", "En spørring som henter ut informasjon om objekter som er lagret i databasen", "En relasjon som binder to tabeller sammen ved hjelp av en delt fremmednøkkel"],
       explanation: "En entitet er et objekt eller konsept vi ønsker å lagre informasjon om. Entiteter blir til tabeller i den ferdige databasen.",
     },
   ],
   "it-2-5-2": [
     {
       question: "Hva gjør en JOIN i SQL?",
-      options: ["Kombinerer rader fra to eller flere tabeller basert på en relatert kolonne", "Sorterer en enkelt tabell", "Sletter en hel tabell fra databasen sammen med alle radene som ligger i den", "Sorterer radene i én enkelt tabell etter verdiene i en valgt kolonne alfabetisk"],
+      options: ["Kombinerer rader fra to eller flere tabeller basert på en relatert kolonne", "Sorterer radene i én enkelt tabell i stigende rekkefølge etter primærnøkkelen", "Sletter en hel tabell fra databasen sammen med alle radene som ligger i den", "Sorterer radene i én enkelt tabell etter verdiene i en valgt kolonne alfabetisk"],
       explanation: "En JOIN kombinerer rader fra to eller flere tabeller basert på en relatert kolonne, slik at man kan hente sammenhengende data på tvers av tabeller.",
     },
     {
@@ -581,12 +581,12 @@ const quizData_it_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva brukes GROUP BY til?",
-      options: ["Å gruppere rader slik at aggregatfunksjoner kan brukes på hver gruppe", "Å slette grupper av rader", "Å slette hele grupper av rader som deler samme verdi i en valgt kolonne", "Å koble sammen to tabeller basert på en felles kolonne slik en JOIN gjør"],
+      options: ["Å gruppere rader slik at aggregatfunksjoner kan brukes på hver gruppe", "Å slette grupper av rader fra en tabell", "Å slette hele grupper av rader som deler samme verdi i en valgt kolonne", "Å koble sammen to tabeller basert på en felles kolonne slik en JOIN gjør"],
       explanation: "GROUP BY grupperer rader, slik at aggregatfunksjoner som COUNT(), SUM() og AVG() kan beregnes for hver gruppe.",
     },
     {
       question: "Hva er en subquery (underspørring)?",
-      options: ["En SQL-spørring inne i en annen SQL-spørring", "En spørring som sletter data", "En midlertidig tabell uten data som brukes til å mellomlagre resultater", "En tabell uten data"],
+      options: ["En SQL-spørring inne i en annen SQL-spørring", "En spørring som sletter data", "En midlertidig tabell for mellomlagring", "En tabell uten data"],
       explanation: "En subquery er en SQL-spørring inne i en annen spørring. Den brukes ofte når du trenger resultatet av én spørring som input til en annen.",
     },
     {
@@ -603,22 +603,22 @@ const quizData_it_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva gjør commit() i en SQLite-tilkobling?",
-      options: ["Lagrer endringene permanent til databasen", "Åpner en ny tilkobling", "Sletter hele databasefilen fra disk sammen med alle tabellene som ligger i den", "Sletter databasen"],
+      options: ["Lagrer endringene permanent til databasen", "Åpner en ny tilkobling til databasen", "Sletter hele databasefilen fra disk sammen med alle tabellene som ligger i den", "Sletter hele databasefilen"],
       explanation: "commit() lagrer endringene (INSERT, UPDATE, DELETE) permanent til databasen. Uten commit() blir ikke endringene lagret.",
     },
     {
       question: "Hvordan unngår man SQL injection ved innsetting av brukerdata?",
-      options: ["Bruke parameteriserte spørringer med plassholdere (?), ikke streng-sammenslåing", "Lagre alle verdiene i klartekst slik at spørringene kan sammenlignes direkte", "Bygge spørringen ved å sette sammen strenger med brukerinput direkte i SQL-koden", "Aldri bruke WHERE-betingelser, siden det er der brukerinput settes inn i spørringen"],
+      options: ["Bruke parameteriserte spørringer med plassholdere (?), ikke streng-sammenslåing", "Lagre alle verdiene i klartekst slik at spørringene kan sammenlignes direkte", "Bygge spørringen ved å sette sammen strenger med brukerinput", "Aldri bruke WHERE-betingelser i spørringene"],
       explanation: "For å unngå SQL injection bruker man parameteriserte spørringer med plassholdere (?), slik at brukerinput aldri tolkes som SQL-kode.",
     },
     {
       question: "Hva er en cursor i sqlite3?",
-      options: ["Et objekt som utfører SQL-kommandoer og henter resultater", "En sikkerhetskopi", "En automatisk sikkerhetskopi som lages hver gang en SQL-kommando kjøres", "En primærnøkkel som unikt identifiserer hver rad i tabellen som spørres mot"],
+      options: ["Et objekt som utfører SQL-kommandoer og henter resultater", "En sikkerhetskopi av tabellen som spørres", "En automatisk sikkerhetskopi som lages hver gang en SQL-kommando kjøres", "En primærnøkkel som unikt identifiserer hver rad i tabellen som spørres mot"],
       explanation: "En cursor er et objekt som utfører SQL-kommandoer og henter resultatene fra databasen.",
     },
     {
       question: "Hvorfor er SQL injection farlig?",
-      options: ["En angriper kan injisere SQL-kode gjennom brukerinput og manipulere databasen", "Det fjerner automatisk alle indekser i databasen slik at oppslag går saktere", "Det er bare et estetisk problem som gjør spørringene vanskeligere å lese for utviklere", "Det gjør databasen betydelig tregere fordi spørringene blir lengre å tolke"],
+      options: ["En angriper kan injisere SQL-kode gjennom brukerinput og manipulere databasen", "Det fjerner automatisk alle indeksene i databasen, slik at alle oppslag går saktere", "Det er bare et estetisk problem som gjør spørringene vanskeligere å lese for utviklere", "Det gjør databasen betydelig tregere fordi spørringene blir mye lengre å tolke og kjøre"],
       explanation: "SQL injection er en av de farligste sårbarhetene: en angriper kan injisere SQL-kode gjennom brukerinput og dermed lese, endre eller slette data uautorisert.",
     },
   ],
@@ -630,120 +630,120 @@ const quizData_it_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan lagrer en dokumentdatabase data?",
-      options: ["Som dokumenter, vanligvis i JSON eller BSON", "Bare i tabeller med rader og kolonner", "Bare som ren tekst i én stor fil uten noen indre struktur eller felter", "Bare som ren tekst"],
+      options: ["Som dokumenter, vanligvis i JSON eller BSON", "Bare i tabeller med rader og kolonner", "Bare som ren tekst uten indre struktur", "Bare som helt ren tekst"],
       explanation: "En dokumentdatabase lagrer data som dokumenter, vanligvis i JSON eller BSON. MongoDB er den mest populære dokumentdatabasen.",
     },
     {
       question: "Hva tilsvarer en SQL-tabell i MongoDB?",
-      options: ["En collection", "En document", "En key, altså en unik identifikator for hele tabellen i MongoDB", "En query"],
+      options: ["En collection", "En document", "En key i MongoDB", "En query"],
       explanation: "I MongoDB tilsvarer en SQL-tabell en collection, en rad tilsvarer et document, og en database er fortsatt en database.",
     },
     {
       question: "Når er det best å bruke en SQL-relasjonsdatabase?",
-      options: ["Når dataene har klare relasjoner og krever sterk dataintegritet", "Når man aldri trenger relasjoner", "Bare når man skal lagre store binærfiler som bilder og video effektivt", "Bare når man håndterer små tekstfiler uten behov for spørringer eller struktur"],
+      options: ["Når dataene har klare relasjoner og krever sterk dataintegritet", "Når man aldri har behov for relasjoner", "Bare når man skal lagre store binærfiler som bilder og video effektivt", "Bare når man håndterer små tekstfiler uten behov for spørringer eller struktur"],
       explanation: "SQL-relasjonsdatabaser passer best når dataene har klare relasjoner (kunder, ordrer, produkter) og man trenger sterk dataintegritet og strukturerte spørringer.",
     },
     {
       question: "Hva er Redis et eksempel på?",
-      options: ["En nøkkel-verdi-database", "Et programmeringsspråk", "En relasjonsdatabase som lagrer data i tabeller med rader, kolonner og nøkler", "En relasjonsdatabase"],
+      options: ["En nøkkel-verdi-database", "Et eget programmeringsspråk", "En relasjonsdatabase som lagrer data i tabeller med rader, kolonner og nøkler", "En klassisk relasjonsdatabase"],
       explanation: "Redis er et eksempel på en nøkkel-verdi-database – den enkleste formen for NoSQL, som fungerer som en gigantisk dictionary.",
     },
   ],
   "it-2-5-5": [
     {
       question: "Hva er et eksempel på en mange-til-mange-relasjon?",
-      options: ["Studenter og kurs – én student tar mange kurs, og ett kurs har mange studenter", "Én klasse har mange elever, men hver elev har bare én klasse", "Én klasse har mange elever, men hver elev tilhører til enhver tid bare én klasse", "Én person har bare ett unikt fødselsnummer, og ett fødselsnummer tilhører kun én person"],
+      options: ["Studenter og kurs – én student tar mange kurs, og ett kurs har mange studenter", "Én klasse har mange elever, men hver elev har bare én klasse", "Én klasse har mange elever, men hver elev tilhører bare én klasse", "Én person har ett fødselsnummer, og ett nummer tilhører én person"],
       explanation: "En mange-til-mange-relasjon er for eksempel studenter og kurs: én student kan ta mange kurs, og ett kurs kan ha mange studenter.",
     },
     {
       question: "Hvordan implementeres en mange-til-mange-relasjon i en relasjonsdatabase?",
-      options: ["Med en koblingstabell (junction table)", "Ved å fjerne alle nøkler", "Med en indeks som gjør oppslag mellom de to relaterte tabellene raskere", "Med én enkelt kolonne"],
+      options: ["Med en koblingstabell (junction table)", "Ved å fjerne alle nøkler", "Med en indeks som gjør oppslag mellom de to relaterte tabellene raskere", "Med én enkelt ekstra kolonne"],
       explanation: "En mange-til-mange-relasjon implementeres med en koblingstabell (junction table) som inneholder fremmednøkler til begge de relaterte tabellene.",
     },
     {
       question: "Hva er en assosiativ entitet?",
-      options: ["En koblingstabell som også har egne attributter, som karakter i StudentKurs", "En tabell uten nøkler", "En sammensatt indeks som fremskynder søk i en koblingstabell med to fremmednøkler", "En vanlig entitet uten fremmednøkler som kun kobler seg til seg selv i samme tabell"],
+      options: ["En koblingstabell som også har egne attributter, som karakter i StudentKurs", "En tabell helt uten nøkler eller relasjoner", "En sammensatt indeks som fremskynder søk i en koblingstabell med to fremmednøkler", "En vanlig entitet uten fremmednøkler som kun kobler seg til seg selv i samme tabell"],
       explanation: "En assosiativ entitet er en koblingstabell som i tillegg har egne attributter, for eksempel kan StudentKurs ha attributtet karakter.",
     },
     {
       question: "Hva er et eksempel på en rekursiv (selvrefererende) relasjon?",
-      options: ["Et organisasjonshierarki der en ansatt har en leder som også er en ansatt", "En relasjon mellom to ulike databaser", "Et arvehierarki der en underentitet arver alle attributtene fra en overordnet entitet", "En relasjon der samme fremmednøkkel peker på to forskjellige tabeller samtidig i basen"],
+      options: ["Et organisasjonshierarki der en ansatt har en leder som også er en ansatt", "En relasjon mellom to ulike databaser", "Et arvehierarki der en underentitet arver fra en overordnet entitet", "En relasjon der samme fremmednøkkel peker på to ulike tabeller"],
       explanation: "En rekursiv relasjon oppstår når en entitet refererer til seg selv, for eksempel et organisasjonshierarki der en ansatt har en leder som også er en ansatt.",
     },
     {
       question: "Hva er en god første beste praksis ved databasedesign?",
-      options: ["Starte med et ER-diagram før man skriver SQL", "Skrive all SQL før man tenker på struktur", "Skrive alle SQL-spørringene ferdig først og deretter tegne ER-diagram i etterkant", "Lagre alt i én tabell"],
+      options: ["Starte med et ER-diagram før man skriver SQL", "Skrive all SQL-koden før man tenker på struktur", "Skrive alle SQL-spørringene ferdig først og deretter tegne ER-diagram i etterkant", "Lagre alle dataene i databasen i én eneste stor tabell"],
       explanation: "En god beste praksis er å starte med et ER-diagram: identifisere entiteter, tegne relasjoner og normalisere til 3NF før man skriver SQL.",
     },
   ],
   "it-2-6-1": [
     {
       question: "Hva er frontend i en webapplikasjon?",
-      options: ["Delen brukeren ser og samhandler med i nettleseren", "Serversiden som håndterer logikk og data", "Databaselaget som lagrer og henter data via SQL-spørringer på vegne av applikasjonen", "Nettverkskabelen"],
+      options: ["Delen brukeren ser og samhandler med i nettleseren", "Serversiden som håndterer logikk og data", "Databaselaget som lagrer og henter data via SQL-spørringer på vegne av applikasjonen", "Nettverkskabelen mellom maskinene"],
       explanation: "Frontend er delen av en webapplikasjon som brukeren ser og samhandler med i nettleseren – HTML, CSS og JavaScript.",
     },
     {
       question: "Hva er backend?",
-      options: ["Serverside-delen som håndterer logikk, data og sikkerhet", "Det brukeren ser i nettleseren", "Et CSS-rammeverk som styrer hvordan knapper, farger og layout vises på nettsiden", "Klientside-delen som brukeren ser og samhandler med direkte i nettleservinduet sitt"],
+      options: ["Serverside-delen som håndterer logikk, data og sikkerhet", "Det brukeren ser i nettleseren, altså HTML og CSS på skjermen", "Et CSS-rammeverk som styrer hvordan knapper, farger og layout vises på nettsiden", "Klientside-delen som brukeren ser og samhandler med direkte i nettleservinduet sitt"],
       explanation: "Backend er serverside-delen av en applikasjon som håndterer logikk, data og sikkerhet.",
     },
     {
       question: "Hva er en SPA (Single Page Application)?",
-      options: ["En webapplikasjon som laster én gang og oppdaterer innhold dynamisk uten full sidelasting", "En nettside som laster hele HTML-dokumentet på nytt fra serveren ved hvert eneste klikk", "En relasjonsdatabase som lagrer alle sidene i applikasjonen som separate rader i tabellen", "En transportprotokoll som overfører nettsidene mellom tjeneren og nettleseren til brukeren"],
+      options: ["En webapplikasjon som laster én gang og oppdaterer innhold dynamisk uten full sidelasting", "En nettside som laster hele HTML-dokumentet på nytt fra serveren ved hvert eneste klikk", "En relasjonsdatabase som lagrer alle sidene i applikasjonen som separate rader i tabellen", "En transportprotokoll som overfører nettsidene mellom tjener og nettleser"],
       explanation: "En SPA (Single Page Application) laster siden én gang og oppdaterer innholdet dynamisk uten full sidelasting.",
     },
     {
       question: "Hva er npm?",
-      options: ["Node Package Manager – verktøy for å installere og håndtere JavaScript-biblioteker", "Et operativsystem", "Et CSS-rammeverk med ferdige stilklasser for responsivt design og komponentbibliotek", "En nettleser som kjører JavaScript-koden og viser HTML-sider for sluttbrukeren direkte"],
+      options: ["Node Package Manager – verktøy for å installere og håndtere JavaScript-biblioteker", "Et operativsystem som kjører JavaScript på serveren", "Et CSS-rammeverk med ferdige stilklasser for responsivt design og komponentbibliotek", "En nettleser som kjører JavaScript-koden og viser HTML-sider for sluttbrukeren direkte"],
       explanation: "npm (Node Package Manager) er verktøyet for å installere og håndtere JavaScript-biblioteker.",
     },
     {
       question: "Hva inneholder filen package.json?",
-      options: ["Oversikt over npm-avhengighetene i et JavaScript-prosjekt", "All HTML-koden", "Selve databasen med tabeller og rader som applikasjonen leser fra og skriver data til", "All HTML-koden og malene som utgjør selve grensesnittet brukeren ser i nettleseren sin"],
+      options: ["Oversikt over npm-avhengighetene i et JavaScript-prosjekt", "All HTML-koden som utgjør startsiden og undersidene i prosjektet", "Selve databasen med tabeller og rader som applikasjonen leser fra og skriver data til", "All HTML-koden og malene som utgjør selve grensesnittet brukeren ser i nettleseren sin"],
       explanation: "package.json holder oversikt over npm-avhengighetene (bibliotekene) som et JavaScript-prosjekt bruker.",
     },
   ],
   "it-2-6-2": [
     {
       question: "Hva er DOM?",
-      options: ["Document Object Model – en trestruktur som representerer HTML-dokumentet", "En nettverksprotokoll", "En ekstern stilarkfil som bestemmer hvordan elementene på nettsiden skal se ut visuelt", "En relasjonsdatabase som lagrer innholdet på nettsiden i tabeller med rader og kolonner"],
+      options: ["Document Object Model – en trestruktur som representerer HTML-dokumentet", "En nettverksprotokoll som overfører HTML-sider mellom tjeneren og nettleseren", "En ekstern stilarkfil som bestemmer hvordan elementene på nettsiden skal se ut visuelt", "En relasjonsdatabase som lagrer innholdet på nettsiden i tabeller med rader og kolonner"],
       explanation: "DOM (Document Object Model) er en trestruktur som representerer HTML-dokumentet, og som JavaScript kan manipulere.",
     },
     {
       question: "Hva er Fetch API?",
-      options: ["Et moderne JavaScript-API for å gjøre HTTP-forespørsler", "En metode for å sortere lister", "En innebygd metode for å sortere og filtrere elementene i en JavaScript-array effektivt", "En avansert CSS-selektor som velger elementer basert på attributter og posisjon i treet"],
+      options: ["Et moderne JavaScript-API for å gjøre HTTP-forespørsler", "En metode for å sortere lister i JavaScript", "En innebygd metode for å sortere og filtrere elementene i en JavaScript-array effektivt", "En avansert CSS-selektor som velger elementer basert på attributter og posisjon i treet"],
       explanation: "Fetch API er et moderne JavaScript-API for å gjøre HTTP-forespørsler, for eksempel for å hente data fra en server.",
     },
     {
       question: "Hva representerer et Promise i JavaScript?",
-      options: ["En asynkron operasjon som vil fullføres senere", "En synkron beregning", "En synkron beregning som fullfører umiddelbart og blokkerer resten av koden mens den kjører", "En CSS-regel"],
+      options: ["En asynkron operasjon som vil fullføres senere", "En synkron beregning i nettleseren", "En synkron beregning som fullfører umiddelbart og blokkerer resten av koden mens den kjører", "En CSS-regel som styrer utseendet"],
       explanation: "Et Promise er et JavaScript-objekt som representerer en asynkron operasjon – et resultat som vil bli tilgjengelig senere.",
     },
     {
       question: "Hva gjør preventDefault()?",
-      options: ["Hindrer standardoppførselen til en hendelse, som at et skjema laster siden på nytt", "Sender skjemaet umiddelbart", "Sender skjemaet til serveren umiddelbart og tvinger nettleseren til å laste siden på nytt", "Fjerner et valgt element fullstendig fra DOM-treet slik at det ikke lenger vises på siden"],
+      options: ["Hindrer standardoppførselen til en hendelse, som at et skjema laster siden på nytt", "Sender skjemaet til serveren umiddelbart uten validering", "Sender skjemaet til serveren umiddelbart og tvinger nettleseren til å laste siden på nytt", "Fjerner et valgt element fullstendig fra DOM-treet slik at det ikke lenger vises på siden"],
       explanation: "preventDefault() hindrer standardoppførselen til en hendelse, for eksempel at et skjema laster siden på nytt når det sendes inn.",
     },
     {
       question: "Hva gjør async/await i JavaScript?",
-      options: ["Gjør asynkron kode lettere å lese og skrive", "Gjør koden synkron og blokkerende", "Gjør asynkron kode om til synkron kode som blokkerer nettleseren til alt er ferdig lastet", "Lager nye HTML-elementer"],
+      options: ["Gjør asynkron kode lettere å lese og skrive", "Gjør koden synkron og blokkerende", "Gjør asynkron kode om til blokkerende kode", "Lager nye HTML-elementer"],
       explanation: "async/await er moderne syntaks som gjør asynkron kode lettere å lese og skrive, ved at man kan vente på et Promise med await.",
     },
   ],
   "it-2-6-3": [
     {
       question: "Hva er Flask?",
-      options: ["Et lettvekts Python-rammeverk for webutvikling", "En JavaScript-database", "En NoSQL-database skrevet i JavaScript for å lagre dokumenter på serversiden effektivt", "Et CSS-rammeverk"],
+      options: ["Et lettvekts Python-rammeverk for webutvikling", "En JavaScript-database", "En NoSQL-database skrevet i JavaScript", "Et CSS-rammeverk for nettsider"],
       explanation: "Flask er et lettvekts Python-rammeverk for webutvikling, perfekt for å lære backend-utvikling.",
     },
     {
       question: "Hva er Jinja2?",
-      options: ["Template-motoren i Flask som genererer dynamisk HTML", "Et JavaScript-bibliotek", "En relasjonsdatabase som lagrer malene og innholdet til Flask-applikasjonen på serveren", "En CSS-modul i Flask som styrer farger, layout og responsivt design på de ferdige sidene"],
+      options: ["Template-motoren i Flask som genererer dynamisk HTML", "Et JavaScript-bibliotek som brukes til å bygge brukergrensesnitt", "En relasjonsdatabase som lagrer malene og innholdet til Flask-applikasjonen på serveren", "En CSS-modul i Flask som styrer farger, layout og responsivt design på de ferdige sidene"],
       explanation: "Jinja2 er template-motoren i Flask som genererer dynamisk HTML, med støtte for variabler, løkker og betingelser.",
     },
     {
       question: "Hva er en session i Flask?",
-      options: ["En mekanisme for å lagre brukerdata mellom HTTP-forespørsler", "En type databasetabell", "En egen databasetabell som lagrer alle innloggede brukere permanent med passord og navn", "En CSS-regel som holder på stilinnstillingene til en bruker mens de navigerer på nettsiden"],
+      options: ["En mekanisme for å lagre brukerdata mellom HTTP-forespørsler", "En egen tabelltype i databasen bak applikasjonen", "En egen databasetabell som lagrer alle innloggede brukere permanent med passord og navn", "En CSS-regel som holder på stilinnstillingene til en bruker mens de navigerer på nettsiden"],
       explanation: "En session er en mekanisme for å lagre brukerdata mellom HTTP-forespørsler, for eksempel om en bruker er innlogget.",
     },
     {
@@ -753,14 +753,14 @@ const quizData_it_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva inneholder Flask-objektet request?",
-      options: ["Data fra HTTP-forespørselen, som skjemadata og parametere", "Hele databasen", "Hele databasen med alle tabeller og rader som applikasjonen har tilgang til på serveren", "Bildefilene og de statiske ressursene som serveren sender tilbake sammen med HTML-siden"],
+      options: ["Data fra HTTP-forespørselen, som skjemadata og parametere", "Hele databasen med alle brukerne som er registrert i systemet", "Hele databasen med alle tabeller og rader som applikasjonen har tilgang til på serveren", "Bildefilene og de statiske ressursene som serveren sender tilbake sammen med HTML-siden"],
       explanation: "request-objektet inneholder data fra HTTP-forespørselen, som skjemadata, query-parametere og innsendte verdier.",
     },
   ],
   "it-2-6-4": [
     {
       question: "Hva er et REST API?",
-      options: ["En arkitekturstil basert på ressurser, HTTP-metoder og statuskoder", "Et programmeringsspråk", "En NoSQL-database som lagrer ressurser som dokumenter identifisert med unike URL-adresser", "Et programmeringsspråk laget spesielt for å definere API-endepunkter og HTTP-forespørsler"],
+      options: ["En arkitekturstil basert på ressurser, HTTP-metoder og statuskoder", "Et programmeringsspråk som brukes til å skrive serverkode for nettjenester", "En NoSQL-database som lagrer ressurser som dokumenter identifisert med unike URL-adresser", "Et programmeringsspråk laget spesielt for å definere API-endepunkter og HTTP-forespørsler"],
       explanation: "REST (Representational State Transfer) er en arkitekturstil for API-er basert på ressurser identifisert med URL-er, HTTP-metoder og statuskoder.",
     },
     {
@@ -770,51 +770,51 @@ const quizData_it_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva utgjør en origin?",
-      options: ["Kombinasjonen av protokoll, domene og port, for eksempel http://localhost:3000", "En IP-adresse alene", "Bare selve domenenavnet, uten hensyn til hvilken protokoll eller portnummer som brukes", "Utelukkende portnummeret som tjenesten kjører på, uavhengig av domene og protokoll ellers"],
+      options: ["Kombinasjonen av protokoll, domene og port, for eksempel http://localhost:3000", "En IP-adresse alene, uten domenenavn eller port", "Bare selve domenenavnet, uten hensyn til hvilken protokoll eller portnummer som brukes", "Utelukkende portnummeret som tjenesten kjører på, uavhengig av domene og protokoll ellers"],
       explanation: "En origin er kombinasjonen av protokoll, domene og port, for eksempel http://localhost:3000. CORS sammenligner origins for å avgjøre tilgang.",
     },
     {
       question: "Hva betyr at en operasjon er idempotent?",
-      options: ["Den gir samme resultat uansett hvor mange ganger den kjøres", "Den endrer alltid resultatet hver gang", "Den kan bare kjøres nøyaktig én gang, og gir feilmelding hvis man forsøker å gjenta den", "Den krasjer alltid serveren dersom den kjøres mer enn én gang på rad mot samme ressurs her"],
+      options: ["Den gir samme resultat uansett hvor mange ganger den kjøres", "Den endrer alltid resultatet hver eneste gang den kjøres", "Den kan bare kjøres nøyaktig én gang, og gir feilmelding hvis man forsøker å gjenta den", "Den krasjer alltid serveren dersom den kjøres mer enn én gang på rad mot samme ressurs her"],
       explanation: "En idempotent operasjon gir samme resultat uansett hvor mange ganger den kjøres. GET, PUT og DELETE er idempotente; POST er det ikke.",
     },
     {
       question: "Hva indikerer en HTTP-statuskode?",
-      options: ["Resultatet av en HTTP-forespørsel", "Hastigheten på nettverket", "Hastigheten på nettverksforbindelsen mellom klienten og serveren under selve forespørselen", "Størrelsen på dataene"],
+      options: ["Resultatet av en HTTP-forespørsel", "Hastigheten på selve nettverket", "Hastigheten på nettverksforbindelsen mellom klienten og serveren under selve forespørselen", "Størrelsen på dataene som sendes"],
       explanation: "En statuskode er et tresifret tall som indikerer resultatet av en HTTP-forespørsel, for eksempel 200 (OK), 404 (Not Found) eller 500 (serverfeil).",
     },
   ],
   "it-2-6-5": [
     {
       question: "Hva er UX (User Experience)?",
-      options: ["Hvordan brukere opplever og samhandler med et produkt", "Den fysiske maskinvaren", "Den fysiske maskinvaren, som skjerm, tastatur og prosessor, som produktet kjører på fysisk", "En nettverksprotokoll"],
+      options: ["Hvordan brukere opplever og samhandler med et produkt", "Den fysiske maskinvaren i enheten", "Den fysiske maskinvaren, som skjerm, tastatur og prosessor, som produktet kjører på fysisk", "En nettverksprotokoll for dataoverføring"],
       explanation: "UX (User Experience) er brukeropplevelsen – hvordan brukere opplever og samhandler med et produkt, ikke bare hvordan det ser ut.",
     },
     {
       question: "Hva er heuristisk evaluering?",
-      options: ["Eksperter evaluerer et brukergrensesnitt mot etablerte brukbarhetsprinsipper", "Brukere tester produktet i flere måneder", "En automatisert enhetstest av koden som sjekker at hver funksjon returnerer riktig verdi", "Vanlige sluttbrukere tester produktet grundig i flere måneder for å avdekke feil over tid"],
+      options: ["Eksperter evaluerer et brukergrensesnitt mot etablerte brukbarhetsprinsipper", "Vanlige brukere tester produktet i flere måneder før det lanseres bredt til alle", "En automatisert enhetstest av koden som sjekker at hver funksjon returnerer riktig verdi", "Vanlige sluttbrukere tester produktet grundig i flere måneder for å avdekke feil over tid"],
       explanation: "Heuristisk evaluering er en metode der eksperter evaluerer et brukergrensesnitt mot etablerte brukbarhetsprinsipper (heuristikker), som Nielsens 10.",
     },
     {
       question: "Hva står POUR for i WCAG?",
-      options: ["Perceivable, Operable, Understandable, Robust", "Powerful, Online, Updated, Rapid", "Private, Open, Useful, Reliable – fire prinsipper for personvern i tilgjengelige nettsider", "Private, Open, Useful, Reliable"],
+      options: ["Perceivable, Operable, Understandable, Robust", "Powerful, Online, Updated, Rapid", "Private, Open, Useful, Reliable i personvern", "Private, Open, Useful, Reliable"],
       explanation: "POUR er de fire prinsippene i WCAG: Perceivable (mulig å oppfatte), Operable (betjenbar), Understandable (forståelig) og Robust.",
     },
     {
       question: "Hva er A/B-testing?",
-      options: ["Å sammenligne to versjoner av en funksjon for å se hvilken som presterer best", "Å teste koden to ganger", "En krypteringsmetode der data sikres i to lag, A og B, før det sendes over nettverket her", "Å kjøre samme test av koden nøyaktig to ganger for å bekrefte at resultatet blir det samme"],
+      options: ["Å sammenligne to versjoner av en funksjon for å se hvilken som presterer best", "Å teste koden to ganger med to ulike sett testdata", "En krypteringsmetode der data sikres i to lag, A og B, før det sendes over nettverket her", "Å kjøre samme test av koden nøyaktig to ganger for å bekrefte at resultatet blir det samme"],
       explanation: "A/B-testing er å sammenligne to versjoner (A og B) av en funksjon med ekte brukere for å se hvilken som presterer best.",
     },
     {
       question: "Hva er brukertesting?",
-      options: ["Å observere ekte brukere mens de bruker produktet for å finne problemer", "Å sjekke nettverkshastighet", "Å kjøre automatiske enhetstester av koden for å sjekke at funksjonene returnerer riktig verdi", "Å måle nettverkshastigheten mellom klient og server for å se om produktet laster raskt nok her"],
+      options: ["Å observere ekte brukere mens de bruker produktet for å finne problemer", "Å sjekke nettverkshastigheten grundig før produktet blir lansert for brukerne", "Å kjøre automatiske enhetstester av koden for å sjekke at funksjonene returnerer riktig verdi", "Å måle nettverkshastigheten mellom klient og server for å se om produktet laster raskt nok her"],
       explanation: "Brukertesting innebærer å observere ekte brukere mens de bruker produktet, ofte mens de «tenker høyt», for å identifisere problemer.",
     },
   ],
   "it-2-7-1": [
     {
       question: "Hva er OWASP Top 10?",
-      options: ["En liste over de ti mest kritiske sikkerhetstruslene i webapplikasjoner", "De ti mest brukte programmeringsspråkene", "En liste over de ti raskeste sorterings- og søkealgoritmene som brukes i webapplikasjoner", "En rangering av de ti beste relasjonsdatabasene målt på ytelse og sikkerhet i webprosjekter"],
+      options: ["En liste over de ti mest kritiske sikkerhetstruslene i webapplikasjoner", "En oversikt over de ti mest brukte programmeringsspråkene innen webutvikling", "En liste over de ti raskeste sorterings- og søkealgoritmene som brukes i webapplikasjoner", "En rangering av de ti beste relasjonsdatabasene målt på ytelse og sikkerhet i webprosjekter"],
       explanation: "OWASP Top 10 er en liste fra Open Web Application Security Project over de ti mest kritiske sikkerhetstruslene i webapplikasjoner.",
     },
     {
@@ -824,17 +824,17 @@ const quizData_it_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en trusselaktør?",
-      options: ["En som forsøker å kompromittere sikkerheten i et system", "En programmeringsfeil", "En vanlig autorisert bruker som logger inn og bruker systemet slik det er ment å brukes", "En programmeringsfeil i koden som ved et uhell åpner for uautorisert tilgang til systemet"],
+      options: ["En som forsøker å kompromittere sikkerheten i et system", "En ren programmeringsfeil i systemets kode", "En vanlig autorisert bruker som logger inn og bruker systemet slik det er ment å brukes", "En programmeringsfeil som åpner for uautorisert tilgang"],
       explanation: "En trusselaktør er en som forsøker å kompromittere sikkerheten i et system, for eksempel script kiddies, hacktivister eller statlige aktører.",
     },
     {
       question: "Hva er trusselmodellering?",
-      options: ["En systematisk kartlegging av verdier, dataflyt og mulige angrep mot et system", "En metode for å gjøre koden raskere", "En metode for å optimalisere databasespørringer ved å indeksere de mest brukte kolonnene", "En krypteringsmetode som beskytter dataflyten mellom klient og server med symmetriske nøkler"],
+      options: ["En systematisk kartlegging av verdier, dataflyt og mulige angrep mot et system", "En metode for å gjøre koden raskere å kjøre i produksjon", "En metode for å optimalisere databasespørringer ved å indeksere de mest brukte kolonnene", "En krypteringsmetode som beskytter dataflyten mellom klient og server med symmetriske nøkler"],
       explanation: "Trusselmodellering er en systematisk prosess der man kartlegger verdifulle ressurser, dataflyt og mulige angrep for å forstå og redusere risiko.",
     },
     {
       question: "Hva kjennetegner en «script kiddie»?",
-      options: ["En uerfaren angriper som bruker eksisterende verktøy uten dyp forståelse", "En statlig etterretningsorganisasjon", "En statlig etterretningsorganisasjon som utvikler avanserte angrepsverktøy for spionasje", "En systemadministrator med hovedansvar for å drifte og oppdatere organisasjonens servere"],
+      options: ["En uerfaren angriper som bruker eksisterende verktøy uten dyp forståelse", "En statlig etterretningsorganisasjon med svært store ressurser og lang erfaring", "En statlig etterretningsorganisasjon som utvikler avanserte angrepsverktøy for spionasje", "En systemadministrator med hovedansvar for å drifte og oppdatere organisasjonens servere"],
       explanation: "En script kiddie er en uerfaren angriper som bruker ferdige verktøy og skript laget av andre, uten dyp teknisk forståelse.",
     },
   ],
@@ -846,12 +846,12 @@ const quizData_it_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan hindrer man SQL injection?",
-      options: ["Bruke parameteriserte spørringer i stedet for å sette sammen strenger med brukerinput", "Vise SQL-feilmeldinger til brukeren", "Vise detaljerte SQL-feilmeldinger til brukeren slik at de kan rette opp ugyldige søk selv", "Lagre all brukerinput i klartekst i databasen slik at spørringene blir enklere å feilsøke"],
+      options: ["Bruke parameteriserte spørringer i stedet for å sette sammen strenger med brukerinput", "Vise rå SQL-feilmeldinger til brukeren i grensesnittet", "Vise detaljerte SQL-feilmeldinger til brukeren slik at de kan rette opp ugyldige søk selv", "Lagre all brukerinput i klartekst i databasen slik at spørringene blir enklere å feilsøke"],
       explanation: "SQL injection hindres ved å bruke parameteriserte spørringer, slik at brukerinput aldri tolkes som SQL-kode.",
     },
     {
       question: "Hva er XSS (Cross-Site Scripting)?",
-      options: ["Når en angriper injiserer skadelig JavaScript i en webside som andre brukere ser", "Når en database slettes", "En krypteringsteknikk som beskytter kommunikasjonen mellom to nettsteder på tvers av domener", "Når en angriper klarer å slette hele databasen ved å sende et ugyldig SQL-spørsmål til serveren"],
+      options: ["Når en angriper injiserer skadelig JavaScript i en webside som andre brukere ser", "Når innholdet i en database blir slettet ved et uhell", "En krypteringsteknikk som beskytter kommunikasjonen mellom to nettsteder på tvers av domener", "Når en angriper klarer å slette hele databasen"],
       explanation: "XSS oppstår når en angriper kan injisere skadelig JavaScript i en webside som andre brukere deretter ser og kjører i nettleseren sin.",
     },
     {
@@ -861,83 +861,83 @@ const quizData_it_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor bør feilmeldinger ikke avsløre sensitive detaljer?",
-      options: ["Fordi detaljerte feilmeldinger kan gi angripere nyttig informasjon om systemet", "Fordi det gjør programmet tregere", "Fordi lange feilmeldinger bruker for mye minne på serveren og kan føre til at applikasjonen krasjer", "Fordi de fleste brukere ikke forstår tekniske detaljer og heller vil ha en fargerik grafisk feilside"],
+      options: ["Fordi detaljerte feilmeldinger kan gi angripere nyttig informasjon om systemet", "Fordi lange feilmeldinger gjør programmet tregere å kjøre", "Fordi lange feilmeldinger bruker for mye minne på serveren og kan føre til at applikasjonen krasjer", "Fordi de fleste brukere ikke forstår tekniske detaljer og heller vil ha en fargerik grafisk feilside"],
       explanation: "Detaljerte feilmeldinger kan avsløre informasjon om systemets oppbygging, databasestruktur eller filsti, som angripere kan utnytte.",
     },
   ],
   "it-2-7-3": [
     {
       question: "Hva er regel nummer én for lagring av passord?",
-      options: ["Aldri lagre passord i klartekst – hash dem alltid", "Lagre passord i klartekst for enkelhets skyld", "Lagre passord i klartekst for enkelhets skyld, slik at brukerstøtte raskt kan hjelpe glemte passord", "Lagre passord i en tekstfil"],
+      options: ["Aldri lagre passord i klartekst – hash dem alltid", "Lagre passord i klartekst for enkelhets skyld", "Lagre passord i klartekst for enkelhets skyld, slik at brukerstøtte raskt kan hjelpe glemte passord", "Lagre passordene i en vanlig tekstfil"],
       explanation: "Regel nummer én er å aldri lagre passord i klartekst. Passord skal hashes (med f.eks. bcrypt) før de lagres i databasen.",
     },
     {
       question: "Hva er forskjellen mellom HTTP og HTTPS?",
-      options: ["HTTPS er kryptert med TLS/SSL, mens HTTP sender data i klartekst", "HTTP er kryptert, HTTPS er det ikke", "HTTPS brukes utelukkende til å overføre bilder og videoer, mens HTTP håndterer all vanlig tekst", "De to protokollene er nøyaktig like og skiller seg kun ved hvilken portadresse serveren lytter på"],
+      options: ["HTTPS er kryptert med TLS/SSL, mens HTTP sender data i klartekst", "HTTP er kryptert med TLS, mens HTTPS alltid sender data i ren klartekst", "HTTPS brukes utelukkende til å overføre bilder og videoer, mens HTTP håndterer all vanlig tekst", "De to protokollene er nøyaktig like og skiller seg kun ved hvilken portadresse serveren lytter på"],
       explanation: "HTTPS krypterer kommunikasjonen med TLS/SSL, mens HTTP sender data i klartekst som kan avlyttes. HTTPS beskytter mot avlytting og manipulasjon.",
     },
     {
       question: "Hva er en god egenskap ved en hash-funksjon for passord?",
-      options: ["Den er enveis – du kan ikke regne deg tilbake til passordet fra hashen", "Den gir ulik hash for samme input hver gang uten salt", "Den kan reverseres lett, slik at systemet raskt kan hente frem det opprinnelige passordet ved innlogging", "Den lagrer passordet i klartekst ved siden av hashen, slik at man har en reserve dersom hashen skulle feile"],
+      options: ["Den er enveis – du kan ikke regne deg tilbake til passordet fra hashen", "Den gir ulik hash for samme input hver gang uten salt", "Den kan reverseres lett, slik at passordet kan hentes fram igjen", "Den lagrer passordet i klartekst ved siden av hashen"],
       explanation: "En hash-funksjon er enveis: du kan ikke regne deg tilbake til passordet fra hash-verdien. Det gjør hashing trygt for passordlagring.",
     },
     {
       question: "Hva er OAuth 2.0?",
-      options: ["En standard for å gi applikasjoner tilgang til brukerdata uten å dele passord", "En krypteringsalgoritme", "En krypteringsalgoritme som brukes til å sikre passord i databasen ved å hashe dem med et tilfeldig salt", "En type relasjonsdatabase spesielt laget for å lagre brukerkontoer, roller og tilgangsrettigheter effektivt"],
+      options: ["En standard for å gi applikasjoner tilgang til brukerdata uten å dele passord", "En krypteringsalgoritme for data som sendes over nettet", "En krypteringsalgoritme som brukes til å sikre passord i databasen ved å hashe dem med et tilfeldig salt", "En type relasjonsdatabase spesielt laget for å lagre brukerkontoer, roller og tilgangsrettigheter effektivt"],
       explanation: "OAuth 2.0 er en standard for å gi applikasjoner tilgang til brukerdata uten å dele passord, slik som ved «Logg inn med Google».",
     },
     {
       question: "Hva er en fordel med token-basert autentisering?",
-      options: ["Serveren trenger ikke lagre sesjonsinformasjon for hver bruker", "Den krever klartekstpassord", "Den fungerer bare lokalt på én enkelt server og kan derfor ikke brukes i systemer med flere tjenere", "Den fungerer bare lokalt"],
+      options: ["Serveren trenger ikke lagre sesjonsinformasjon for hver bruker", "Den krever at passordet sendes i klartekst", "Den fungerer bare lokalt på én enkelt server og kan derfor ikke brukes i systemer med flere tjenere", "Den fungerer bare lokalt på egen maskin"],
       explanation: "Token-basert autentisering lar serveren slippe å lagre sesjonsinformasjon for hver bruker, fordi tokenet selv bærer den nødvendige informasjonen.",
     },
   ],
   "it-2-7-4": [
     {
       question: "Hva er personopplysninger?",
-      options: ["All informasjon som kan knyttes til en identifiserbar person", "Bare offentlig informasjon", "Bare opplysninger som er skrevet ned og lagret fysisk på papir, ikke data som ligger digitalt i et system", "Bare data lagret på papir"],
+      options: ["All informasjon som kan knyttes til en identifiserbar person", "Bare offentlig tilgjengelig informasjon", "Bare opplysninger som er skrevet ned og lagret fysisk på papir, ikke data som ligger digitalt i et system", "Bare data som er lagret fysisk på papir"],
       explanation: "Personopplysninger er all informasjon som kan knyttes til en identifiserbar person, både direkte (navn, fødselsnummer) og indirekte.",
     },
     {
       question: "Hva betyr Privacy by Design?",
-      options: ["Å bygge personvern inn i systemet fra starten, ikke legge det til etterpå", "Å vente med personvern til etter lansering", "Å samle inn så mye brukerdata som mulig fra starten, slik at man har et rikt grunnlag for senere analyser", "Å designe et vakkert og oversiktlig brukergrensesnitt der personverninnstillingene er godt gjemt for brukeren"],
+      options: ["Å bygge personvern inn i systemet fra starten, ikke legge det til etterpå", "Å vente med å tenke på personvern til lenge etter at hele produktet er lansert", "Å samle inn så mye brukerdata som mulig fra starten, slik at man har et rikt grunnlag for senere analyser", "Å designe et vakkert og oversiktlig brukergrensesnitt der personverninnstillingene er godt gjemt for brukeren"],
       explanation: "Privacy by Design betyr å bygge personvern inn i systemet fra starten, ikke legge det til etterpå.",
     },
     {
       question: "Hva må et gyldig samtykke under GDPR være?",
-      options: ["Frivillig, spesifikt, informert og utvetydig", "Permanent og uigjenkallelig", "Permanent og uigjenkallelig, slik at brukeren ikke kan trekke det tilbake når det først er avgitt", "Gitt av en tredjepart"],
+      options: ["Frivillig, spesifikt, informert og utvetydig", "Permanent og uigjenkallelig", "Permanent og umulig å trekke tilbake", "Gitt av en tredjepart"],
       explanation: "Et gyldig samtykke under GDPR må være frivillig, spesifikt (for hvert formål), informert og utvetydig.",
     },
     {
       question: "Hva er «rett til innsyn» under GDPR?",
-      options: ["Brukere kan be om en kopi av alle data du har om dem", "Brukere kan kreve at all data slettes for alltid", "At brukere kan få tilgang til å se personopplysningene som andre brukere av tjenesten har lagret", "Brukere kan endre serverens kode"],
+      options: ["Brukere kan be om en kopi av alle data du har om dem", "Brukere kan kreve at all data slettes for alltid", "At brukere kan få tilgang til å se personopplysningene som andre brukere av tjenesten har lagret", "Brukere kan kreve å få endre koden som kjører på serveren"],
       explanation: "Rett til innsyn betyr at brukere kan be om en kopi av alle personopplysninger du har lagret om dem.",
     },
     {
       question: "Hva er prinsippet om dataminimering?",
-      options: ["Man skal bare samle inn data man faktisk trenger", "Man skal samle inn så mye data som mulig", "Data skal aldri slettes, men i stedet flyttes til et arkiv med lavere tilgang og redusert sikkerhet", "All data skal lagres for alltid"],
+      options: ["Man skal bare samle inn data man faktisk trenger", "Man skal samle inn så mye data om brukerne som overhodet mulig", "Data skal aldri slettes, men i stedet flyttes til et arkiv med lavere tilgang og redusert sikkerhet", "All data skal lagres for alltid og skal aldri slettes"],
       explanation: "Dataminimering betyr at man bare skal samle inn de personopplysningene man faktisk trenger til formålet, og ikke mer.",
     },
   ],
   "it-2-7-5": [
     {
       question: "Hva er algoritmisk bias?",
-      options: ["Når et datasystem systematisk produserer urettferdige resultater", "Når en algoritme kjører raskt", "Når en algoritme kjører uvanlig raskt fordi den er godt optimalisert for maskinvaren den kjører på", "Når nettverket er så tregt at datasystemet bruker lang tid på å hente inn dataene det skal behandle"],
+      options: ["Når et datasystem systematisk produserer urettferdige resultater", "Når en algoritme kjører svært raskt", "Når en algoritme kjører uvanlig raskt etter optimalisering", "Når nettverket er så tregt at systemet bruker lang tid på dataene"],
       explanation: "Algoritmisk bias oppstår når et datasystem systematisk produserer urettferdige resultater, ofte fordi treningsdataene er skjeve.",
     },
     {
       question: "Hva er et eksempel på algoritmisk bias?",
-      options: ["Amazons AI-rekrutteringsverktøy som favoriserte menn på grunn av skjeve treningsdata", "En algoritme som sorterer tall raskt", "Et program som krasjer fordi det prøver å lese fra en minneadresse som ligger utenfor det tildelte området", "En relasjonsdatabase som kan lagre enorme mengder brukerdata og likevel svare på spørringer på millisekunder"],
+      options: ["Amazons AI-rekrutteringsverktøy som favoriserte menn på grunn av skjeve treningsdata", "En algoritme som sorterer store mengder tall svært raskt og med minimalt bruk av minne", "Et program som krasjer fordi det prøver å lese fra en minneadresse som ligger utenfor det tildelte området", "En relasjonsdatabase som kan lagre enorme mengder brukerdata og likevel svare på spørringer på millisekunder"],
       explanation: "Amazons AI-rekrutteringsverktøy (2018) lærte fra historiske data dominert av menn, og begynte å favorisere menn – et klassisk eksempel på algoritmisk bias.",
     },
     {
       question: "Hva betyr åpen kildekode (open source)?",
-      options: ["At kildekoden er fritt tilgjengelig for alle å se, bruke og modifisere", "At koden bare kan kjøres på én datamaskin", "At koden er ferdig låst og ikke kan endres av noen etter at den først er publisert av opphavspersonen", "At programmet bare kan installeres og kjøres på én bestemt datamaskin med en gyldig maskinbundet lisens"],
+      options: ["At kildekoden er fritt tilgjengelig for alle å se, bruke og modifisere", "At koden bare kan kjøres på én datamaskin", "At koden er ferdig låst og ikke kan endres etter publisering", "At programmet bare kan kjøres på én bestemt datamaskin"],
       explanation: "Åpen kildekode betyr at kildekoden er fritt tilgjengelig for alle å se, bruke og modifisere, noe som gir transparens og kunnskapsdeling.",
     },
     {
       question: "Hva er en miljøutfordring knyttet til IT?",
-      options: ["Datasentre bruker store mengder energi (1–2 % av verdens elektrisitet)", "Datamaskiner er alltid karbonnøytrale", "Datamaskiner er alltid karbonnøytrale siden strømmen som driver dem stort sett kommer fra vannkraft", "IT-utstyr bruker praktisk talt ingen energi fordi moderne prosessorer er ekstremt strømgjerrige i drift"],
+      options: ["Datasentre bruker store mengder energi (1–2 % av verdens elektrisitet)", "Datamaskiner er alltid karbonnøytrale i produksjon og drift", "Datamaskiner er alltid karbonnøytrale siden strømmen som driver dem stort sett kommer fra vannkraft", "IT-utstyr bruker praktisk talt ingen energi fordi moderne prosessorer er ekstremt strømgjerrige i drift"],
       explanation: "IT-sektoren har betydelig miljøpåvirkning: datasentre bruker store mengder energi (anslått 1–2 % av verdens elektrisitet), og e-avfall er et voksende problem.",
     },
     {
@@ -949,12 +949,12 @@ const quizData_it_2: Record<string, QuizQuestion[]> = {
   "it-2-8-1": [
     {
       question: "Hva er hovedforskjellen mellom fossefallsmodellen og agile metoder?",
-      options: ["Fossefallsmodellen er sekvensiell, agile er iterativ", "Fossefallsmodellen bruker sprinter, agile bruker faser", "De er nøyaktig like", "Agile har ingen planlegging"],
+      options: ["Fossefallsmodellen er sekvensiell, agile er iterativ", "Fossefall bruker sprinter, agile bruker faser", "De to modellene er nøyaktig like", "Agile har ingen planlegging"],
       explanation: "Fossefallsmodellen er sekvensiell (faser fullføres i rekkefølge), mens agile er iterativ med korte, gjentakende sykluser og hyppige leveranser.",
     },
     {
       question: "Hva kjennetegner fossefallsmodellen?",
-      options: ["Faser som må fullføres i rekkefølge, fra kravspesifikasjon til vedlikehold", "Korte sprinter med hyppige leveranser", "Korte, gjentakende sprinter med hyppige delleveranser der kravene justeres etter tilbakemelding underveis", "Ingen planlegging på forhånd, der teamet begynner å skrive kode med en gang og finner ut retningen løpende"],
+      options: ["Faser som må fullføres i rekkefølge, fra kravspesifikasjon til vedlikehold", "Korte, faste sprinter med hyppige leveranser til kunden omtrent annenhver uke", "Korte, gjentakende sprinter med hyppige delleveranser der kravene justeres etter tilbakemelding underveis", "Ingen planlegging på forhånd, der teamet begynner å skrive kode med en gang og finner ut retningen løpende"],
       explanation: "Fossefallsmodellen er en sekvensiell tilnærming der prosjektet deles i faser (kravspesifikasjon, design, implementering, testing osv.) som fullføres i rekkefølge.",
     },
     {
@@ -964,12 +964,12 @@ const quizData_it_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "I hvilken fase i fossefallsmodellen samles kravene inn?",
-      options: ["Kravspesifikasjon (første fase)", "Implementering", "Implementering, der utviklerne skriver selve programkoden til systemet", "Vedlikehold"],
+      options: ["Kravspesifikasjon (første fase)", "Implementeringsfasen", "Implementering, der utviklerne skriver programkoden", "Vedlikeholdsfasen"],
       explanation: "I fossefallsmodellen samles kravene inn i den første fasen, kravspesifikasjon, før design og implementering.",
     },
     {
       question: "Hvorfor passer agile godt for prosjekter med usikre eller skiftende krav?",
-      options: ["Fordi man kan justere planen mellom hver iterasjon basert på tilbakemeldinger", "Fordi man unngår å snakke med kunden", "Fordi kravene låses helt ved oppstart og aldri kan endres, noe som gir prosjektet stor forutsigbarhet", "Fordi hele produktet leveres samlet helt til slutt, slik at kunden ser resultatet først når alt er ferdig"],
+      options: ["Fordi man kan justere planen mellom hver iterasjon basert på tilbakemeldinger", "Fordi man da helt slipper å snakke med kunden underveis i noen del av prosjektet", "Fordi kravene låses helt ved oppstart og aldri kan endres, noe som gir prosjektet stor forutsigbarhet", "Fordi hele produktet leveres samlet helt til slutt, slik at kunden ser resultatet først når alt er ferdig"],
       explanation: "Agile passer for usikre krav fordi man jobber i korte iterasjoner og kan justere planen mellom hver, basert på tilbakemeldinger og ny innsikt.",
     },
   ],
@@ -981,44 +981,44 @@ const quizData_it_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan er testpyramiden balansert?",
-      options: ["Mange enhetstester nederst, færre integrasjonstester i midten og få E2E-tester øverst", "Flest E2E-tester øverst og få enhetstester", "Utelukkende integrasjonstester i midten, uten enhetstester nederst eller E2E-tester øverst i pyramiden", "Flest trege E2E-tester øverst og bare noen få enhetstester nederst, siden ende-til-ende gir best sikkerhet"],
+      options: ["Mange enhetstester nederst, færre integrasjonstester i midten og få E2E-tester øverst", "Flest E2E-tester øverst og bare noen ganske få enhetstester nederst", "Utelukkende integrasjonstester i midten, uten enhetstester nederst eller E2E-tester øverst i pyramiden", "Flest trege E2E-tester øverst og bare noen få enhetstester nederst, siden ende-til-ende gir best sikkerhet"],
       explanation: "Testpyramiden anbefaler mange raske enhetstester nederst, færre integrasjonstester i midten og få (men viktige) E2E-tester øverst.",
     },
     {
       question: "Hva står TDD for?",
-      options: ["Test-Driven Development", "Type Definition Document", "Total Data Design", "Technical Debug Driver"],
+      options: ["Test-Driven Development", "Type Definition Doc", "Total Data Design", "Technical Debug Driver"],
       explanation: "TDD står for Test-Driven Development, der man skriver testen først (som feiler), deretter koden som får testen til å passere.",
     },
     {
       question: "Hva er rekkefølgen i TDD-syklusen?",
-      options: ["Red (skriv test som feiler), Green (få den til å passere), Refactor (forbedre koden)", "Skriv all kode først, test sist", "Refactor (rydd i koden først), deretter Red (skriv en feilende test) og så Green (få den til å passere)", "Green (skriv koden ferdig først), Red (kjør en test som feiler) og til slutt Delete (fjern testen igjen)"],
+      options: ["Red (skriv test som feiler), Green (få den til å passere), Refactor (forbedre koden)", "Skriv all koden ferdig først, og skriv deretter alle testene helt til slutt i prosjektet", "Refactor (rydd i koden først), deretter Red (skriv en feilende test) og så Green (få den til å passere)", "Green (skriv koden ferdig først), Red (kjør en test som feiler) og til slutt Delete (fjern testen igjen)"],
       explanation: "TDD følger Red-Green-Refactor: først skriver man en test som feiler (Red), deretter kode som får den til å passere (Green), og til slutt forbedrer man koden (Refactor).",
     },
     {
       question: "Hva tester en integrasjonstest?",
-      options: ["Samspillet mellom flere komponenter, for eksempel database og backend", "Bare brukergrensesnittets farger", "Selve nettverkskabelen og maskinvaren, for å kontrollere at signalet kommer trygt frem mellom to maskiner", "Bare fargene og plasseringen av knappene i brukergrensesnittet, for å se at designet ser riktig ut visuelt"],
+      options: ["Samspillet mellom flere komponenter, for eksempel database og backend", "Bare fargene og skrifttypene i brukergrensesnittet", "Selve nettverkskabelen og maskinvaren, for å kontrollere at signalet kommer trygt frem mellom to maskiner", "Bare fargene og plasseringen av knappene i brukergrensesnittet, for å se at designet ser riktig ut visuelt"],
       explanation: "En integrasjonstest tester samspillet mellom flere komponenter, for eksempel om backend og database fungerer riktig sammen.",
     },
   ],
   "it-2-8-3": [
     {
       question: "Hva er formålet med en feature branch?",
-      options: ["Å jobbe på ny funksjonalitet isolert fra main", "Å publisere nye versjoner til produksjon", "Å lagre brukernes passord og hemmeligheter adskilt fra hovedkoden i en egen beskyttet gren", "Å slette hele prosjektet"],
+      options: ["Å jobbe på ny funksjonalitet isolert fra main", "Å publisere nye versjoner til produksjon", "Å lagre brukernes passord og hemmeligheter adskilt fra hovedkoden i en egen beskyttet gren", "Å slette hele prosjektet permanent"],
       explanation: "En feature branch lar deg jobbe på ny funksjonalitet isolert fra main-branchen, slik at hovedkoden ikke påvirkes før funksjonen er ferdig.",
     },
     {
       question: "Hva er en merge conflict?",
-      options: ["Når to utviklere har endret samme del av en fil, og Git ikke kan slå sammen automatisk", "Når nettverket er tregt", "Når en branch slettes ved et uhell, og Git ikke lenger kan finne igjen de endringene som lå der", "Når et program krasjer fordi to tråder prøver å skrive til samme variabel på nøyaktig samme tid"],
+      options: ["Når to utviklere har endret samme del av en fil, og Git ikke kan slå sammen automatisk", "Når nettverket er så tregt at Git ikke rekker å laste ned alle endringene fra fjernlageret", "Når en branch slettes ved et uhell, og Git ikke lenger kan finne igjen de endringene som lå der", "Når et program krasjer fordi to tråder prøver å skrive til samme variabel på nøyaktig samme tid"],
       explanation: "En merge conflict oppstår når to utviklere har endret samme del av en fil. Git kan ikke avgjøre hvilken endring som skal beholdes, så konflikten må løses manuelt.",
     },
     {
       question: "Hva gjør git pull?",
-      options: ["Henter de nyeste endringene fra fjernlageret (remote) og fletter dem inn", "Sletter lokale endringer", "Oppretter en helt ny kopi av hele fjernlageret på maskinen din for første gang", "Sender de lokale commitene dine opp til fjernlageret slik at andre kan hente dem"],
+      options: ["Henter de nyeste endringene fra fjernlageret (remote) og fletter dem inn", "Sletter alle lokale endringer i arbeidskopien", "Oppretter en helt ny kopi av fjernlageret på maskinen din", "Sender de lokale commitene dine opp til fjernlageret"],
       explanation: "git pull henter de nyeste endringene fra fjernlageret (remote) og fletter dem inn i den lokale branchen din.",
     },
     {
       question: "Hva er en commit i Git?",
-      options: ["Et lagringspunkt – et øyeblikksbilde av endringene på et bestemt tidspunkt", "En måte å slette filer permanent", "En sammenslåing av to grener der endringene fra begge blir kombinert til én", "En separat utviklingslinje der du kan jobbe uten å påvirke hovedgrenen (main)"],
+      options: ["Et lagringspunkt – et øyeblikksbilde av endringene på et bestemt tidspunkt", "En måte å slette filer permanent fra prosjektet", "En sammenslåing av to grener der endringene fra begge blir kombinert til én", "En separat utviklingslinje der du kan jobbe uten å påvirke hovedgrenen (main)"],
       explanation: "En commit er et lagringspunkt i Git – et øyeblikksbilde av endringene på et bestemt tidspunkt, med en melding som beskriver hva som ble endret.",
     },
     {
@@ -1030,7 +1030,7 @@ const quizData_it_2: Record<string, QuizQuestion[]> = {
   "it-2-8-4": [
     {
       question: "Hva er hovedformålet med docstrings?",
-      options: ["Å dokumentere hva funksjoner, klasser og moduler gjør", "Å forklare hver eneste linje kode", "Å gjøre kildekoden lengre og mer omfattende slik at den ser mer profesjonell ut", "Å forklare hver eneste linje kode i detalj slik at ingen del av programmet er uklar"],
+      options: ["Å dokumentere hva funksjoner, klasser og moduler gjør", "Å forklare hver eneste linje kode med en egen kommentar over", "Å gjøre kildekoden lengre og mer omfattende slik at den ser mer profesjonell ut", "Å forklare hver eneste linje kode i detalj slik at ingen del av programmet er uklar"],
       explanation: "Docstrings dokumenterer hva funksjoner, klasser og moduler gjør, slik at andre (og du selv senere) forstår koden uten å lese all implementasjonen.",
     },
     {
@@ -1040,7 +1040,7 @@ const quizData_it_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er refaktorering?",
-      options: ["Å forbedre strukturen i koden uten å endre hva den gjør", "Å legge til ny funksjonalitet", "Å bytte til et helt annet programmeringsspråk mens man beholder samme oppførsel", "Å legge til ny funksjonalitet og nye funksjoner slik at programmet gjør flere ting"],
+      options: ["Å forbedre strukturen i koden uten å endre hva den gjør", "Å legge til ny funksjonalitet", "Å bytte til et helt annet programmeringsspråk", "Å legge til ny funksjonalitet så programmet gjør mer"],
       explanation: "Refaktorering er å forbedre strukturen og lesbarheten i koden uten å endre hva den faktisk gjør (oppførselen).",
     },
     {
@@ -1062,22 +1062,22 @@ const quizData_it_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner en god prosjektidé til et avsluttende prosjekt?",
-      options: ["Den løser et reelt problem og har passe omfang", "Den er så stor at den aldri kan fullføres", "Den er så stor og ambisiøs at den umulig kan fullføres innenfor tiden man har", "Den demonstrerer ingen kompetansemål"],
+      options: ["Den løser et reelt problem og har passe omfang", "Den er så stor at den aldri kan fullføres", "Den er så ambisiøs at den ikke kan fullføres", "Den demonstrerer ingen kompetansemål"],
       explanation: "En god prosjektidé løser et reelt problem, har passe omfang (2–6 ukers arbeid) og lar deg demonstrere flere kompetansemål.",
     },
     {
       question: "Hva er en «Must have» i MoSCoW-prioritering?",
-      options: ["En funksjon som er helt nødvendig for at produktet skal fungere", "En funksjon som er fin å ha, men ikke nødvendig", "En funksjon som bevisst utelates fra denne versjonen og kanskje tas med senere", "En funksjon som ikke skal med i denne versjonen"],
+      options: ["En funksjon som er helt nødvendig for at produktet skal fungere", "En funksjon som er fin å ha, men som ikke er nødvendig for produktet", "En funksjon som bevisst utelates fra denne versjonen og kanskje tas med senere", "En funksjon som bevisst ikke skal være med i akkurat denne versjonen"],
       explanation: "En «Must have» er en funksjon som er helt nødvendig for at produktet skal fungere og levere kjerneverdien sin.",
     },
     {
       question: "Hvorfor er det viktig å avgrense omfanget i et avsluttende prosjekt?",
-      options: ["For at prosjektet skal være gjennomførbart innenfor tiden man har", "For å gjøre prosjektet umulig", "Det er egentlig ikke viktig, siden et prosjekt uansett vokser fritt underveis", "For å gjøre prosjektet så stort og komplisert at det blir umulig å bli ferdig med"],
+      options: ["For at prosjektet skal være gjennomførbart innenfor tiden man har", "For å gjøre prosjektet umulig å fullføre i tide", "Det er egentlig ikke viktig, siden et prosjekt uansett vokser fritt underveis", "For å gjøre prosjektet så stort og komplisert at det blir umulig å bli ferdig med"],
       explanation: "Å avgrense omfanget sikrer at prosjektet er gjennomførbart innenfor tilgjengelig tid, slik at man rekker å fullføre kjernen før man legger til ekstra.",
     },
     {
       question: "Hva er en naturlig avsluttende fase i et IT-prosjekt?",
-      options: ["Presentasjon og dokumentasjon av det ferdige produktet", "Å starte et helt nytt prosjekt", "Å ignorere all tilbakemelding fra brukere og veiledere og levere uten endringer", "Å umiddelbart starte et helt nytt prosjekt uten å avslutte det man holder på med"],
+      options: ["Presentasjon og dokumentasjon av det ferdige produktet", "Å starte planleggingen av et helt nytt prosjekt med en gang", "Å ignorere all tilbakemelding fra brukere og veiledere og levere uten endringer", "Å umiddelbart starte et helt nytt prosjekt uten å avslutte det man holder på med"],
       explanation: "En naturlig avsluttende fase er å presentere og dokumentere det ferdige produktet, der man viser fram resultatet og reflekterer over prosessen.",
     },
   ],

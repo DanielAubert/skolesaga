@@ -4,7 +4,7 @@ const quizData_medieinfo: Record<string, QuizQuestion[]> = {
   "medieinfo-1-1": [
     {
       question: "Hva betyr ordet \"medium\" opprinnelig?",
-      options: ["Det som er i mellom / midten", "Kommunikasjon", "Kanalen der reklame og annonser blir plassert", "Informasjon"],
+      options: ["Det som er i mellom / midten", "Selve kommunikasjonen", "Kanalen der reklame og annonser blir plassert", "Informasjon og kunnskap"],
       explanation: "Medium kommer fra latin og betyr \"det som er i mellom\" - et bindeledd mellom avsender og mottaker.",
     },
     {
@@ -14,7 +14,7 @@ const quizData_medieinfo: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen mellom massemedier og personlige medier?",
-      options: ["Massemedier nårmange, personlige medier er en-til-en", "Personlige medier er nyere", "Personlige medier er en nyere oppfinnelse enn massemediene", "Massemedier er alltid gratis, mens personlige medier koster penger"],
+      options: ["Massemedier nårmange, personlige medier er en-til-en", "Personlige medier er nyere", "Personlige medier er en nyere oppfinnelse", "Massemedier er gratis, personlige medier koster"],
       explanation: "Massemedier nårmange mottakere samtidig, mens personlige medier brukes til kommunikasjon mellom enkeltpersoner.",
     },
     {
@@ -31,7 +31,7 @@ const quizData_medieinfo: Record<string, QuizQuestion[]> = {
   "medieinfo-1-2": [
     {
       question: "Hvem utviklet trykkepressen med lose typer rundt 1450?",
-      options: ["Johannes Gutenberg", "Guglielmo Marconi", "Tim Berners-Lee og hans team", "Brodrene Lumiere"],
+      options: ["Johannes Gutenberg", "Guglielmo Marconi fra Italia", "Tim Berners-Lee og hans team", "Brodrene Lumiere fra Frankrike"],
       explanation: "Johannes Gutenberg utviklet trykkepressen med lose, gjenbrukbare typer rundt 1450.",
     },
     {
@@ -41,7 +41,7 @@ const quizData_medieinfo: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvem oppfant World Wide Web i 1991?",
-      options: ["Tim Berners-Lee", "Steve Jobs", "Bill Gates", "Mark Zuckerberg"],
+      options: ["Tim Berners-Lee", "Steve Jobs, grunnlegger av Apple", "Bill Gates, grunnlegger av Microsoft", "Mark Zuckerberg"],
       explanation: "Tim Berners-Lee oppfant World Wide Web i 1991, som la grunnlaget for dagens internett.",
     },
     {
@@ -63,22 +63,22 @@ const quizData_medieinfo: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en sjanger i mediesammenheng?",
-      options: ["En kategori eller type tekst med felles kjennetegn", "Et mediaselskap", "Et stort medieselskap som eier og driver flere aviser og kanaler", "En bestemt type kamera eller opptaksutstyr brukt i medieproduksjon"],
+      options: ["En kategori eller type tekst med felles kjennetegn", "Et mediaselskap som eier flere kanaler i inn- og utland", "Et stort medieselskap som eier og driver flere aviser og kanaler", "En bestemt type kamera eller opptaksutstyr brukt i medieproduksjon"],
       explanation: "En sjanger er en kategori tekst med felles kjennetegn som hjelper oss a forstå og kategorisere medieinnhold.",
     },
     {
       question: "Hva er forskjellen mellom en reportasje og en feature?",
-      options: ["Reportasje er knyttet til aktuelle hendelser, feature er tidlos", "Det er ingen forskjell", "Feature lages kun for tv, mens reportasjen hører hjemme i avisen", "Reportasjen er alltid vesentlig kortere og enklere enn en feature"],
+      options: ["Reportasje er knyttet til aktuelle hendelser, feature er tidlos", "Det er ingen forskjell mellom dem", "Feature lages kun for tv, reportasjen for avis", "Reportasjen er alltid kortere enn en feature"],
       explanation: "Reportasjen er knyttet til aktuelle hendelser, mens feature er tidlost bakgrunnsstoff.",
     },
     {
       question: "Hva er komposisjon i visuell medieproduksjon?",
-      options: ["Hvordan elementer er plassert i bildet", "Lydkvaliteten", "Den totale lengden pa filmen eller det ferdige klippet", "Lydkvaliteten og hvordan opptaket høres ut for publikum"],
+      options: ["Hvordan elementer er plassert i bildet", "Lydkvaliteten i selve opptaket", "Den totale lengden pa filmen eller det ferdige klippet", "Lydkvaliteten og hvordan opptaket høres ut for publikum"],
       explanation: "Komposisjon handler om hvordan elementer er plassert og organisert i et bilde eller en scene.",
     },
     {
       question: "Hva er sjangerblanding?",
-      options: ["Nåren medietekst kombinerer elementer fra flere sjangre", "Nårman blander flere mediaer", "Nar man mikser sammen ulike lydspor og effekter i en produksjon", "Nar man distribuerer samme innhold via flere ulike medier samtidig"],
+      options: ["Nåren medietekst kombinerer elementer fra flere sjangre", "Nårman blander flere ulike medietyper sammen i ett produkt", "Nar man mikser sammen ulike lydspor og effekter i en produksjon", "Nar man distribuerer samme innhold via flere ulike medier samtidig"],
       explanation: "Sjangerblanding betyr at en medietekst kombinerer elementer fra flere sjangre, som romkom eller dokudrama.",
     },
   ],
@@ -90,12 +90,12 @@ const quizData_medieinfo: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en filterboble?",
-      options: ["Nåralgoritmer viser oss innhold basert påtidligere atferd", "Et program som blokkerer reklame", "Et sosialt nettverk der brukerne deler innhold med hverandre", "Et lite nettlesertillegg som filtrerer bort uønsket nettinnhold"],
+      options: ["Nåralgoritmer viser oss innhold basert påtidligere atferd", "Et lite program som blokkerer all reklame i nettleseren din", "Et sosialt nettverk der brukerne deler innhold med hverandre", "Et lite nettlesertillegg som filtrerer bort uønsket nettinnhold"],
       explanation: "En filterboble oppstar nåralgoritmer personaliserer innholdet vi ser basert påvar atferd.",
     },
     {
       question: "Hva kjennetegner informasjonssamfunnet?",
-      options: ["Kunnskap og informasjon er den viktigste ressursen", "Ingen tilgang til internett", "At tungindustri og fabrikkarbeid dominerer arbeidslivet fullstendig", "At jordbruk og matproduksjon er den viktigste naringen for samfunnet"],
+      options: ["Kunnskap og informasjon er den viktigste ressursen", "Ingen tilgang til internett", "At tungindustri og fabrikkarbeid dominerer arbeidslivet fullstendig", "At jordbruk er den viktigste naringen"],
       explanation: "I informasjonssamfunnet er produksjon og formidling av informasjon sentrale økonomiske aktiviteter.",
     },
     {
@@ -105,19 +105,19 @@ const quizData_medieinfo: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er konvergens i mediesammenheng?",
-      options: ["Ulike medier smelter sammen pådigitale plattformer", "At det blir færre medier", "At mediene stadig blir dyrere a produsere og a abonnere pa", "At antallet ulike medier i samfunnet gradvis blir stadig færre"],
+      options: ["Ulike medier smelter sammen pådigitale plattformer", "At det blir færre medier å velge mellom", "At mediene stadig blir dyrere a produsere og a abonnere pa", "At antallet ulike medier i samfunnet gradvis blir stadig færre"],
       explanation: "Konvergens innebærer at ulike medietyper smelter sammen pådigitale plattformer.",
     },
   ],
   "medieinfo-1-5": [
     {
       question: "Hva er de tre hovedfasene i en medieproduksjon?",
-      options: ["Pre-produksjon, produksjon, post-produksjon", "Research, intervju, redigering", "Planlegging, filming og til slutt visning for publikum", "Ideutvikling, opptak og deretter publisering til publikum"],
+      options: ["Pre-produksjon, produksjon, post-produksjon", "Research, intervju, opptak og sluttredigering", "Planlegging, filming og til slutt visning for publikum", "Ideutvikling, opptak og deretter publisering til publikum"],
       explanation: "De tre hovedfasene er pre-produksjon (planlegging), produksjon (opptak) og post-produksjon (redigering).",
     },
     {
       question: "Hva er et storyboard?",
-      options: ["En visuell plan med skisser av hvert bilde/scene", "En tidslinje for redigering", "En tidslinje som viser rekkefolgen for klipp og redigering", "En detaljert liste over alt utstyr som trengs i produksjonen"],
+      options: ["En visuell plan med skisser av hvert bilde/scene", "En tidslinje for redigeringsarbeidet", "En tidslinje som viser rekkefolgen for klipp og redigering", "En detaljert liste over alt utstyr som trengs i produksjonen"],
       explanation: "Et storyboard er en visuell plan som viser produksjonen bilde for bilde med skisser og notater.",
     },
     {
@@ -127,12 +127,12 @@ const quizData_medieinfo: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er trepunktslys?",
-      options: ["Et oppsett med hovedlys, fylllys og bakgrunnslys", "Tre lyskastere i taket", "Bruk av tre ulike farger pa lyset for a skape stemning", "Tre kraftige lyskastere montert rett over motivet i taket"],
+      options: ["Et oppsett med hovedlys, fylllys og bakgrunnslys", "Tre faste lyskastere i taket", "Bruk av tre ulike farger pa lyset", "Tre kraftige lyskastere montert rett over motivet i taket"],
       explanation: "Trepunktslys er et klassisk belysningsoppsett med hovedlys, fylllys og bakgrunnslys.",
     },
     {
       question: "Hva skjer i post-produksjon?",
-      options: ["Redigering, klipping, lydmiksing og ferdigstilling", "Distribusjon til publikum", "Planlegging av opptak, manus og casting av medvirkende", "Selve filmingen og innspillingen av alle scenene i produktet"],
+      options: ["Redigering, klipping, lydmiksing og ferdigstilling", "Distribusjon av produktet til publikum", "Planlegging av opptak, manus og casting av medvirkende", "Selve filmingen og innspillingen av alle scenene i produktet"],
       explanation: "Post-produksjon innebærer redigering, klipping, lydmiksing, fargekorrigering og ferdigstilling av produktet.",
     },
   ],
@@ -154,7 +154,7 @@ const quizData_medieinfo: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er kildevern?",
-      options: ["Journalistens rett og plikt til a beskytte anonyme kilder", "A alltid oppgi og publisere navnet pa kilden i saken", "A grundig sjekke og verifisere kildens bakgrunn og motiver", "A betale kilder for at de skal gi journalisten informasjon"],
+      options: ["Journalistens rett og plikt til a beskytte anonyme kilder", "A alltid oppgi og publisere navnet pa kilden i selve saken", "A grundig sjekke og verifisere kildens bakgrunn og motiver", "A betale kilder for at de skal gi journalisten informasjon"],
       explanation: "Kildevern er journalistens rett og plikt til a beskytte identiteten til anonyme kilder.",
     },
     {
@@ -166,7 +166,7 @@ const quizData_medieinfo: Record<string, QuizQuestion[]> = {
   "medieinfo-1-7": [
     {
       question: "Hva er ethos i retorikken?",
-      options: ["Troverdighetsappell - avsenderens troverdighet og autoritet", "Logisk argumentasjon", "Folelsesappell som taler til publikums folelser og stemninger", "Bevisst gjentakelse av ord og setninger for a forsterke budskapet"],
+      options: ["Troverdighetsappell - avsenderens troverdighet og autoritet", "Logisk argumentasjon som bygger på fakta, tall og sunn fornuft", "Folelsesappell som taler til publikums folelser og stemninger", "Bevisst gjentakelse av ord og setninger for a forsterke budskapet"],
       explanation: "Ethos er troverdighetsappellen som bygger påavsenderens troverdighet og autoritet.",
     },
     {
@@ -176,12 +176,12 @@ const quizData_medieinfo: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er logos i overtalelse?",
-      options: ["Logisk argumentasjon og fakta", "Folelsesmessig appell", "Gjennomtenkt visuell design og layout av selve budskapet", "Bruk av kjendisar"],
+      options: ["Logisk argumentasjon og fakta", "Folelsesmessig appell", "Gjennomtenkt visuell design og layout av selve budskapet", "Bruk av kjente ansikter"],
       explanation: "Logos er den logiske appellen som bruker argumenter, fakta og fornuft.",
     },
     {
       question: "Hva er implisitt budskap i reklame?",
-      options: ["Det skjulte budskapet som formidles indirekte", "Det uttalte budskapet", "Selve prisen pa produktet slik den oppgis i annonsen", "Den rene produktinformasjonen om egenskaper og bruksomrade"],
+      options: ["Det skjulte budskapet som formidles indirekte", "Det uttalte budskapet", "Selve prisen pa produktet i annonsen", "Ren produktinformasjon om egenskaper"],
       explanation: "Implisitt budskap er det som formidles mellom linjene, uten å bli sagt direkte.",
     },
     {
@@ -193,7 +193,7 @@ const quizData_medieinfo: Record<string, QuizQuestion[]> = {
   "medieinfo-1-8": [
     {
       question: "Hva kjennetegner sosiale medier?",
-      options: ["Brukerskapt innhold, nettverksbygging og sosial interaksjon", "Profesjonelt produsert innhold", "Ren enveiskommunikasjon fra en avsender ut til mange mottakere", "Profesjonelt produsert innhold laget av en redaksjon til publikum"],
+      options: ["Brukerskapt innhold, nettverksbygging og sosial interaksjon", "Profesjonelt produsert innhold med gjennomgående høy teknisk kvalitet", "Ren enveiskommunikasjon fra en avsender ut til mange mottakere", "Profesjonelt produsert innhold laget av en redaksjon til publikum"],
       explanation: "Sosiale medier kjennetegnes av brukerskapt innhold, nettverksbygging og sosial interaksjon.",
     },
     {
@@ -203,17 +203,17 @@ const quizData_medieinfo: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan påvirker algoritmer hva vi ser påsosiale medier?",
-      options: ["De analyserer var atferd og viser innhold som holder oss engasjert", "De viser alt i kronologisk rekkefølge", "De prioriterer bare betalt innhold fra annonsører foran alt du følger organisk", "De viser alle innlegg i streng kronologisk rekkefølge slik at nyeste alltid kommer øverst"],
+      options: ["De analyserer var atferd og viser innhold som holder oss engasjert", "De viser alt i kronologisk rekkefølge", "De prioriterer bare betalt innhold fra annonsører", "De viser alle innlegg i streng kronologisk rekkefølge"],
       explanation: "Algoritmer analyserer var atferd og optimaliserer for engasjement - det som holder oss påplattformen lengst.",
     },
     {
       question: "Hva er virale mekanismer?",
-      options: ["Innhold som spres raskt fordi mange deler det", "Datavirus påsosiale medier", "Betalte reklamekampanjer som annonsører kjøper for å nå et bredt og målrettet publikum", "Betalte reklamekampanjer"],
+      options: ["Innhold som spres raskt fordi mange deler det", "Datavirus som sprer seg påsosiale medier", "Betalte reklamekampanjer som annonsører kjøper for å nå et bredt og målrettet publikum", "Betalte reklamekampanjer på nett"],
       explanation: "Virale mekanismer gjør at innhold spres raskt fra person til person gjennom deling.",
     },
     {
       question: "Hvilken bekymring knytter seg til sosiale medier og mental helse?",
-      options: ["Sammenligning, kroppspress og avhengighet", "For mye informasjon", "At man får tilgang til for mye faktainformasjon som gjør folk mer opplyste og kritiske", "For raske nyheter"],
+      options: ["Sammenligning, kroppspress og avhengighet", "For mye informasjon å forholde seg til hver dag", "At man får tilgang til for mye faktainformasjon som gjør folk mer opplyste og kritiske", "For raske nyhetsoppdateringer"],
       explanation: "Sosiale medier kan påvirke mental helse negativt gjennom sammenligning, kroppspress og avhengighetsskapende design.",
     },
   ],
@@ -230,7 +230,7 @@ const quizData_medieinfo: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er Creative Commons?",
-      options: ["Fleksible lisenser der opphavspersoner gir tillatelse påforhand", "En type sosialt medium", "En uavhengig nyhetskanal som spesialiserer seg på kultur- og teknologijournalistikk", "Et populært sosialt medium der brukere deler kreative bilder og videoer med hverandre"],
+      options: ["Fleksible lisenser der opphavspersoner gir tillatelse påforhand", "En type sosialt medium der brukerne deler musikk og lydklipp med hverandre", "En uavhengig nyhetskanal som spesialiserer seg på kultur- og teknologijournalistikk", "Et populært sosialt medium der brukere deler kreative bilder og videoer med hverandre"],
       explanation: "Creative Commons er et system med fleksible lisenser som gjør det enklære a dele og bruke verk lovlig.",
     },
     {
@@ -240,34 +240,34 @@ const quizData_medieinfo: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er PFU?",
-      options: ["Pressens Faglige Utvalg - klageorgan for presseetikk", "Programmet for Faktasjekk", "Presse og Film Utvalget, et organ som tildeler statsstøtte til norsk filmproduksjon", "Presse og Film Utvalget"],
+      options: ["Pressens Faglige Utvalg - klageorgan for presseetikk", "Programmet for Faktasjekk i mediene", "Presse og Film Utvalget, et organ som tildeler statsstøtte til norsk filmproduksjon", "Presse og Film Utvalget i Norge"],
       explanation: "Pressens Faglige Utvalg er klageorganet som behandler brudd pågod presseskikk.",
     },
   ],
   "medieinfo-1-10": [
     {
       question: "Hva er en primarekilde?",
-      options: ["Forstehandsinformasjon, som oyenvitner eller originaldokumenter", "En avisartikkel om hendelsen", "En grundig avisartikkel som journalister har skrevet i etterkant av selve hendelsen", "Et fagleksikon der eksperter har samlet og tolket informasjon fra mange ulike kilder"],
+      options: ["Forstehandsinformasjon, som oyenvitner eller originaldokumenter", "En avisartikkel som er skrevet om hendelsen dagen etter at den skjedde", "En grundig avisartikkel som journalister har skrevet i etterkant av selve hendelsen", "Et fagleksikon der eksperter har samlet og tolket informasjon fra mange ulike kilder"],
       explanation: "Primarkilder gir førstehandskunnskap, som oyenvitner, originaldokumenter eller direkte utsagn.",
     },
     {
       question: "Hva bør man sjekke nårman vurderer en kildes troverdighet?",
-      options: ["Hvem står bak, hva er formalet, nårble det publisert", "Bare om det ser bra ut", "Bare om nettsiden ser profesjonell og tiltalende ut, med et rent og moderne design", "Om artikkelen har mange bilder og illustrasjoner, fordi det gjør innholdet troverdig"],
+      options: ["Hvem står bak, hva er formalet, nårble det publisert", "Bare om nettsiden ser bra ut ved første blikk", "Bare om nettsiden ser profesjonell og tiltalende ut, med et rent og moderne design", "Om artikkelen har mange bilder og illustrasjoner"],
       explanation: "God kildekritikk innebærer a vurdere hvem som står bak, hva formalet er, og nårinformasjonen ble publisert.",
     },
     {
       question: "Hva er falske nyheter?",
-      options: ["Nyhetsliknende innhold som er helt eller delvis usant", "Nyheter man ikke liker", "Gamle nyhetsartikler som fortsatt sirkulerer selv om innholdet ikke lenger er aktuelt", "Nyhetssaker man personlig er uenig i eller misliker fordi de utfordrer eget standpunkt"],
+      options: ["Nyhetsliknende innhold som er helt eller delvis usant", "Nyheter man selv ikke liker å lese", "Gamle nyhetsartikler som ikke lenger er aktuelle", "Nyhetssaker man personlig er uenig i eller misliker"],
       explanation: "Falske nyheter er innhold som ser ut som nyheter, men som bevisst er usant eller villedende.",
     },
     {
       question: "Hva er forskjellen mellom desinformasjon og feilinformasjon?",
-      options: ["Desinformasjon er bevisst villedning, feilinformasjon er utilsiktet feil", "Desinformasjon er bare pånett", "Feilinformasjon er alltid mer skadelig fordi den spres av offisielle myndigheter og medier", "Desinformasjon finnes bare på nett, mens feilinformasjon oppstår i tradisjonelle papiraviser"],
+      options: ["Desinformasjon er bevisst villedning, feilinformasjon er utilsiktet feil", "Desinformasjon finnes bare i sosiale medier og aldri i aviser", "Feilinformasjon er alltid mer skadelig fordi den spres av offisielle myndigheter og medier", "Desinformasjon finnes bare på nett, mens feilinformasjon oppstår i tradisjonelle papiraviser"],
       explanation: "Desinformasjon spres bevisst for a villede, mens feilinformasjon spres uten intensjon om a villede.",
     },
     {
       question: "Hva er laterallesing i kildekritikk?",
-      options: ["A sjekke kilden ved a soke etter informasjon om den i andre kilder", "A lese fra venstre til høyre", "Å lese kommentarfeltet og reaksjonene først for å se hva andre lesere mener om innholdet", "Å lese teksten raskt ved å skumme over avsnittene for å fange opp hovedpoengene effektivt"],
+      options: ["A sjekke kilden ved a soke etter informasjon om den i andre kilder", "A lese teksten fra venstre til høyre, linje for linje gjennom hele saken", "Å lese kommentarfeltet og reaksjonene først for å se hva andre lesere mener om innholdet", "Å lese teksten raskt ved å skumme over avsnittene for å fange opp hovedpoengene effektivt"],
       explanation: "Laterallesing innebærer a åpne nye faner og soke etter informasjon om kilden i andre kilder.",
     },
   ],
@@ -279,7 +279,7 @@ const quizData_medieinfo: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvem regnes som grunnlegger av semiotikken?",
-      options: ["Ferdinand de Saussure og Charles Sanders Peirce", "Roland Barthes og Michel Foucault", "Marshall McLuhan og Neil Postman, sentrale skikkelser innen medieteori og medieøkologi", "Marshall McLuhan og Neil Postman"],
+      options: ["Ferdinand de Saussure og Charles Sanders Peirce", "Roland Barthes og Michel Foucault fra fransk teori", "Marshall McLuhan og Neil Postman, sentrale skikkelser innen medieteori og medieøkologi", "Marshall McLuhan og Neil Postman fra medieøkologien"],
       explanation: "Ferdinand de Saussure og Charles Sanders Peirce regnes begge som grunnleggere av semiotikken.",
     },
     {
@@ -289,24 +289,24 @@ const quizData_medieinfo: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er konnotasjon i semiotikk?",
-      options: ["De kulturelle og emosjonelle assosiasjonene et tegn vekker", "Den bokstavelige betydningen", "Den grammatiske strukturen og setningsoppbygningen som binder tegnene sammen i en ytring", "Tegnets rent fysiske og materielle form, altså selve lyden, bokstavene eller strekene i bildet"],
+      options: ["De kulturelle og emosjonelle assosiasjonene et tegn vekker", "Den bokstavelige og direkte betydningen av tegnet", "Den grammatiske strukturen og setningsoppbygningen som binder tegnene sammen i en ytring", "Tegnets rent fysiske og materielle form, altså selve lyden, bokstavene eller strekene i bildet"],
       explanation: "Konnotasjon er de kulturelle og emosjonelle assosiasjonene et tegn vekker utover den bokstavelige betydningen.",
     },
     {
       question: "Hva er en hegemonisk diskurs?",
-      options: ["Den dominerende maten a forstå et fenomen pa", "En alternativ forståelse som utfordrer makten", "En nøytral vitenskapelig beskrivelse", "En historisk tilnærming"],
+      options: ["Den dominerende maten a forstå et fenomen pa", "En forståelse som utfordrer makten", "En nøytral vitenskapelig beskrivelse", "En historisk tilnærming"],
       explanation: "En hegemonisk diskurs er den dominerende maten a forstå et fenomen pa, som ofte fremstar som naturlig.",
     },
   ],
   "medieinfo-2-2": [
     {
       question: "Hva innebærer horisontal integrasjon i mediesammenheng?",
-      options: ["Nårett selskap eier flere medier av samme type", "Nårett selskap kontrollærer hele verdikjeden", "Når medievirksomheten hovedsakelig finansieres gjennom salg av reklame og annonseplass", "Nårmedier finansieres av reklame"],
+      options: ["Nårett selskap eier flere medier av samme type", "Nårett selskap kontrollærer hele verdikjeden", "Når driften finansieres av reklamesalg", "Nårmedier finansieres av reklame"],
       explanation: "Horisontal integrasjon innebærer at ett selskap eier flere medier av samme type, for eksempel flere aviser.",
     },
     {
       question: "Hva er nettverkseffekter?",
-      options: ["Jo flere som bruker en plattform, jo mer verdifull blir den", "Effekten av digital annonsering", "Den samlede effekten digital annonsering har på salg og merkevarekjennskap over tid", "Måten nyheter og informasjon sprer seg gjennom sosiale nettverk fra person til person"],
+      options: ["Jo flere som bruker en plattform, jo mer verdifull blir den", "Effekten av digital annonsering på salget", "Den samlede effekten digital annonsering har på salg og merkevarekjennskap over tid", "Måten nyheter og informasjon sprer seg gjennom sosiale nettverk fra person til person"],
       explanation: "Nettverkseffekter betyr at en plattforms verdi øker med antall brukere.",
     },
     {
@@ -321,24 +321,24 @@ const quizData_medieinfo: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er freemium som finansieringsmodell?",
-      options: ["Gratis grunninnhold med betaling for premiuminnhold", "Kun reklamefinansiering", "En modell som kun bygger på reklamefinansiering uten noen form for direkte brukerbetaling", "Alt er gratis"],
+      options: ["Gratis grunninnhold med betaling for premiuminnhold", "Kun reklamefinansiering av alt innhold i hele tjenesten", "En modell som kun bygger på reklamefinansiering uten noen form for direkte brukerbetaling", "Alt innholdet i tjenesten er gratis for alle brukerne"],
       explanation: "Freemium kombinerer gratis grunninnhold med betaling for ekstra funksjoner eller innhold.",
     },
   ],
   "medieinfo-2-3": [
     {
       question: "Hva mente Marshall McLuhan med \"mediet er budskapet\"?",
-      options: ["Mediets form påvirker oss mer enn innholdet", "Innholdet i mediene er det viktigste", "At alle medier i praksis har nøyaktig samme effekt på oss uansett hvilken form de har", "Budskapet er viktigere enn avsender"],
+      options: ["Mediets form påvirker oss mer enn innholdet", "Innholdet i mediene er det viktigste", "At alle medier har samme effekt på oss", "Budskapet er viktigere enn avsender"],
       explanation: "McLuhan mente at mediets teknologiske form har større betydning for samfunnet enn innholdet.",
     },
     {
       question: "Hva innebærer dagsordenfunksjonen?",
-      options: ["Mediene påvirker hvilke saker vi oppfatter som viktige", "Mediene bestemmer hva vi skal mene", "At publikum selv fullt ut styrer hvilket innhold mediene velger å prioritere og publisere", "Publikum styrer medienes innhold"],
+      options: ["Mediene påvirker hvilke saker vi oppfatter som viktige", "Mediene bestemmer nøyaktig hva vi skal mene om hver enkelt sak", "At publikum selv fullt ut styrer hvilket innhold mediene velger å prioritere og publisere", "Publikum styrer selv hvilket innhold mediene velger å lage"],
       explanation: "Dagsordenfunksjonen innebærer at mediene ikke bestemmer hva vi skal mene, men hva vi skal mene noe om.",
     },
     {
       question: "Hva er filterbobler ifølge Eli Pariser?",
-      options: ["Algoritmer skaper ekkokamre der vi kun eksponeres for bekreftende innhold", "Fysiske barrierer som hindrer medietilgang", "Fysiske og tekniske barrierer som hindrer enkelte grupper i å få tilgang til digitale medier", "Bevisste redaksjonelle valg om hvilke saker og temaer som skal dekkes og hvilke som utelates"],
+      options: ["Algoritmer skaper ekkokamre der vi kun eksponeres for bekreftende innhold", "Fysiske barrierer som hindrer tilgang til medier", "Fysiske og tekniske barrierer som hindrer enkelte grupper i å få tilgang til digitale medier", "Bevisste redaksjonelle valg om hvilke saker og temaer som skal dekkes og hvilke som utelates"],
       explanation: "Filterbobler oppstar nåralgoritmer personaliserer innholdet slik at vi bare ser bekreftende synspunkter.",
     },
     {
@@ -348,7 +348,7 @@ const quizData_medieinfo: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er kultiveringsteori?",
-      options: ["Langvarig TV-eksponering påvirker virkelighetsoppfatningen", "Mediene skaper umiddelbare effekter", "At det bare er barn og unge som lar seg påvirke av medier, mens voksne er nokså immune", "Bare barn påvirkes av medier"],
+      options: ["Langvarig TV-eksponering påvirker virkelighetsoppfatningen", "Mediene skaper umiddelbare og kortvarige effekter hos publikum", "At det bare er barn og unge som lar seg påvirke av medier, mens voksne er nokså immune", "Bare barn og unge påvirkes av det de ser og hører i mediene hver dag"],
       explanation: "Kultiveringsteori, utviklet av Gerbner, hevder at langvarig medieeksponering påvirker var virkelighetsoppfatning.",
     },
   ],
@@ -360,7 +360,7 @@ const quizData_medieinfo: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva innebærer prinsippet om samtidig imotegaelse?",
-      options: ["Den som anklages skal fa svare i samme sak", "Alle parter skal uttale seg for publisering", "Journalisten måvære til stede", "Kilder måidentifiseres med fullt navn"],
+      options: ["Den som anklages skal fa svare i samme sak", "Alle parter skal uttale seg på forhånd", "Journalisten måvære til stede", "Kilder måidentifiseres med fullt navn"],
       explanation: "Samtidig imotegaelse betyr at den som utsettes for sterke beskyldninger fårsvare i samme artikkel.",
     },
     {
@@ -370,19 +370,19 @@ const quizData_medieinfo: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken institusjon behandler klager påbrudd mot god presseskikk?",
-      options: ["Pressens Faglige Utvalg (PFU)", "Medietilsynet", "Stortinget, som vedtar medielovene og fastsetter rammene for pressens ansvar og rettigheter", "Stortinget"],
+      options: ["Pressens Faglige Utvalg (PFU)", "Medietilsynet, som fører tilsyn med mediene", "Stortinget, som vedtar medielovene og fastsetter rammene for pressens ansvar og rettigheter", "Stortinget som lovgivende forsamling"],
       explanation: "Pressens Faglige Utvalg (PFU) er pressens eget klageorgan for brudd påVar Varsom-plakaten.",
     },
     {
       question: "Hva er nyhetspyramiden?",
-      options: ["En struktur der det viktigste kommer først og detaljer lenger ned", "En pyramideformet bygning", "En pyramideformet bygning som symboliserer redaksjonens interne hierarki og beslutningsvei", "En type grafisk fremstilling som viser fordelingen av lesere på ulike aldersgrupper og kjønn"],
+      options: ["En struktur der det viktigste kommer først og detaljer lenger ned", "En pyramideformet bygning i glass og stål", "En pyramideformet bygning som viser redaksjonens hierarki", "En grafisk fremstilling av leserne fordelt på alder"],
       explanation: "Nyhetspyramiden er en struktur der nyhetsartikler bygges med det viktigste først (omvendt pyramide).",
     },
   ],
   "medieinfo-2-5": [
     {
       question: "Hva mente John Grierson med at dokumentar er \"kreativ behandling av virkelighet\"?",
-      options: ["Dokumentar innebærer kunstneriske valg i fremstillingen av virkeligheten", "Dokumentar skal kun bruke arkivmateriale", "At dokumentar utelukkende skal bygge på arkivmateriale og aldri filme nye opptak selv underveis", "At dokumentar alltid skal være helt objektiv og gjengi virkeligheten uten noen form for tolkning"],
+      options: ["Dokumentar innebærer kunstneriske valg i fremstillingen av virkeligheten", "Dokumentar skal kun bygge på arkivmateriale som andre allerede har filmet", "At dokumentar utelukkende skal bygge på arkivmateriale og aldri filme nye opptak selv underveis", "At dokumentar alltid skal være helt objektiv og gjengi virkeligheten uten noen form for tolkning"],
       explanation: "Grierson pekte påat selv dokumentar innebærer kreative valg om hva som filmes og hvordan det presenteres.",
     },
     {
@@ -392,12 +392,12 @@ const quizData_medieinfo: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en mockumentary?",
-      options: ["Fiksjon som later som den er dokumentar", "En dokumentar som kritiserer andre dokumentarer", "En dokumentar med komisk innhold", "En dokumentar uten voice-over"],
+      options: ["Fiksjon som later som den er dokumentar", "En dokumentar om andre dokumentarer", "En dokumentar med komisk innhold", "En dokumentar uten voice-over"],
       explanation: "Mockumentary er en sjanger der fiktivt innhold presenteres i dokumentarform for komisk effekt.",
     },
     {
       question: "Hva innebærer informert samtykke i dokumentarproduksjon?",
-      options: ["Deltakere måforstå hvordan de vil fremstilles", "Publikum mågodkjenne innholdet", "Publikum må på forhånd godkjenne hvordan de ferdige klippene fremstilles", "Myndighetene mågi tillatelse"],
+      options: ["Deltakere måforstå hvordan de vil fremstilles", "Publikum mågodkjenne innholdet før det publiseres", "Publikum må på forhånd godkjenne hvordan de ferdige klippene fremstilles", "Myndighetene mågi tillatelse til alle opptakene på forhånd"],
       explanation: "Informert samtykke betyr at personer som filmes måfa informasjon om prosjektet for de gir samtykke.",
     },
     {
@@ -409,7 +409,7 @@ const quizData_medieinfo: Record<string, QuizQuestion[]> = {
   "medieinfo-2-6": [
     {
       question: "Hva er forskjellen mellom desinformasjon og misinformasjon?",
-      options: ["Desinformasjon er bevisst villedning, misinformasjon er utilsiktet feil", "Det finnes ingen reell forskjell mellom begrepene, de betyr det samme", "Desinformasjon kan bare spres av etablerte medier, ikke av privatpersoner", "Misinformasjon regnes alltid som mer skadelig og alvorlig enn desinformasjon"],
+      options: ["Desinformasjon er bevisst villedning, misinformasjon er utilsiktet feil", "Det finnes ingen reell forskjell mellom begrepene, de betyr det samme", "Desinformasjon kan bare spres av etablerte medier", "Misinformasjon regnes alltid som mer skadelig enn desinformasjon"],
       explanation: "Desinformasjon er bevisst villedning, mens misinformasjon spres uten intensjon om a villede.",
     },
     {
@@ -419,7 +419,7 @@ const quizData_medieinfo: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er deepfakes?",
-      options: ["AI-genererte videoer som viser personer gjøre ting de aldri har gjørt", "Nyhetsartikler med falsk informasjon", "Nyhetsartikler skrevet med bevisst falsk og villedende informasjon i teksten", "Manipulerte og retusjerte fotografier som er endret i bilderedigeringsprogram"],
+      options: ["AI-genererte videoer som viser personer gjøre ting de aldri har gjørt", "Nyhetsartikler med falsk informasjon som er laget for å lure leserne bevisst", "Nyhetsartikler skrevet med bevisst falsk og villedende informasjon i teksten", "Manipulerte og retusjerte fotografier som er endret i bilderedigeringsprogram"],
       explanation: "Deepfakes er video- eller lydklipp generert med AI som kan fa personer til a se ut som de gjør ting de aldri har gjørt.",
     },
     {
@@ -429,7 +429,7 @@ const quizData_medieinfo: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er svart propaganda?",
-      options: ["Propaganda der kilden er skjult eller falsk, og informasjonen ofte usann", "Propaganda som er tydelig merket", "Enhver form for propaganda uansett hvem avsenderen er, siden all påvirkning er lik", "Propaganda som er tydelig merket med hvem avsenderen egentlig er, og hva formålet er"],
+      options: ["Propaganda der kilden er skjult eller falsk, og informasjonen ofte usann", "Propaganda som er tydelig merket som propaganda", "Enhver form for propaganda uansett hvem avsenderen er, siden all påvirkning er lik", "Propaganda som er tydelig merket med avsender og formål"],
       explanation: "Svart propaganda kjennetegnes av at kilden er skjult eller falsk, og informasjonen ofte er usann.",
     },
   ],
@@ -441,17 +441,17 @@ const quizData_medieinfo: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er GDPR?",
-      options: ["EUs personvernforordning", "En amerikansk mediepolitikk", "Et norsk presseforbund", "En type kryptering"],
+      options: ["EUs personvernforordning", "En amerikansk mediepolitikk", "Et norsk presseforbund for journalister", "En type kryptering av data"],
       explanation: "GDPR er EUs personvernforordning som styrker individets rettigheter over egne personopplysninger.",
     },
     {
       question: "Hva er retten til å bli glemt?",
-      options: ["Mulighet til a fa slettet personopplysninger", "Rett til a slette andres data", "Retten til å opptre helt anonymt på nett uten å oppgi navn", "Retten til å få tilbakestilt et passord man har glemt selv"],
+      options: ["Mulighet til a fa slettet personopplysninger", "Rett til a slette andres data", "Retten til å opptre anonymt på nett", "Retten til å nullstille et glemt passord"],
       explanation: "Retten til å bli glemt gir mulighet til a fa slettet personopplysninger om seg selv fra databaser.",
     },
     {
       question: "Hva er metadata?",
-      options: ["Data om data - hvem som kommuniserer med hvem, nårog hvor", "Falske nyheter påsosiale medier", "Falske nyheter og villedende innhold som spres raskt på sosiale medier", "Sensitive personopplysninger som navn, fødselsnummer og adresse om folk"],
+      options: ["Data om data - hvem som kommuniserer med hvem, nårog hvor", "Falske nyheter som deles påsosiale medier", "Falske nyheter og villedende innhold som spres raskt på sosiale medier", "Sensitive personopplysninger som navn, fødselsnummer og adresse om folk"],
       explanation: "Metadata er data om kommunikasjon - ikke innholdet selv, men hvem, nar, hvor lenge og fra hvilken lokasjon.",
     },
     {
@@ -463,34 +463,34 @@ const quizData_medieinfo: Record<string, QuizQuestion[]> = {
   "medieinfo-2-8": [
     {
       question: "Hva er generativ AI?",
-      options: ["AI som kan skape nytt innhold som tekst, bilder og video", "AI som kun analyserer eksisterende innhold", "AI som styrer anbefalingsalgoritmene som bestemmer hva brukere ser i strømmen", "AI som automatisk oversetter tekst og tale mellom mange ulike verdensspråk raskt"],
+      options: ["AI som kan skape nytt innhold som tekst, bilder og video", "AI som kun analyserer og sorterer innhold som allerede finnes", "AI som styrer anbefalingsalgoritmene som bestemmer hva brukere ser i strømmen", "AI som automatisk oversetter tekst og tale mellom mange ulike verdensspråk raskt"],
       explanation: "Generativ AI er kunstig intelligens som kan skape nytt innhold basert påtekstinstruksjoner.",
     },
     {
       question: "Hva er forskjellen mellom VR og AR?",
-      options: ["VR er fullstendig virtuelt, AR legger digitale elementer over virkeligheten", "VR krever internett, AR fungerer offline", "VR brukes bare til dataspill, mens AR brukes utelukkende til nyhetsformidling", "VR krever alltid stabil internettilkobling, mens AR fungerer helt uten nettverk"],
+      options: ["VR er fullstendig virtuelt, AR legger digitale elementer over virkeligheten", "VR krever internett, AR fungerer offline", "VR brukes bare til dataspill, AR bare til nyheter", "VR krever alltid stabil nettilkobling, AR fungerer uten"],
       explanation: "VR erstatter virkeligheten med en dataskapt verden, mens AR legger digitale elementer over den virkelige verden.",
     },
     {
       question: "Hva menes med AI-hallusinasjoner?",
-      options: ["NårAI produserer overbevisende, men feilaktig informasjon", "Feil i bildegjenkjenning", "Feil som oppstår når bildegjenkjenning tolker et motiv helt galt", "Visuelle glitcher og feilaktige effekter som oppstår i VR-briller"],
+      options: ["NårAI produserer overbevisende, men feilaktig informasjon", "Feil i systemets bildegjenkjenning", "Feil som oppstår når bildegjenkjenning tolker et motiv helt galt", "Visuelle glitcher og feilaktige effekter som oppstår i VR-briller"],
       explanation: "AI-hallusinasjoner er nårstore språkmodeller genererer informasjon som høres troverdig ut, men som er feil.",
     },
     {
       question: "Hva er metaverse?",
-      options: ["En visjon om sammenkoblede, immersive virtuelle verdener", "Et nytt sosialt medium", "Et nytt sosialt medium der brukerne deler bilder og korte videoer", "En bestemt type AI-teknologi som genererer tredimensjonale bilder"],
+      options: ["En visjon om sammenkoblede, immersive virtuelle verdener", "Et nytt sosialt medium som er laget for korte tekstinnlegg", "Et nytt sosialt medium der brukerne deler bilder og korte videoer", "En bestemt type AI-teknologi som genererer tredimensjonale bilder"],
       explanation: "Metaverse er en visjon om fremtidens internett som tredimensjonale virtuelle verdener.",
     },
     {
       question: "Hva er XR (Extended Reality)?",
-      options: ["Samlebegrep for VR, AR og MR", "En type programvare", "En type programvare for 3D-modellering", "En avansert kamerateknologi for opptak"],
+      options: ["Samlebegrep for VR, AR og MR", "En type programvare", "En type programvare for 3D-modellering", "En avansert kamerateknologi"],
       explanation: "XR (Extended Reality) er et samlebegrep som omfatter VR, AR og MR (Mixed Reality).",
     },
   ],
   "medieinfo-2-9": [
     {
       question: "Hva innebærer begrepet mediaimperialisme?",
-      options: ["Teori om at vestlige medier dominerer globalt og sprer vestlige verdier", "Samarbeid mellom medieselskaper", "Tett samarbeid mellom store medieselskaper om felles produksjon og deling", "Rask teknologisk utvikling som gjør at nye medieplattformer stadig oppstår"],
+      options: ["Teori om at vestlige medier dominerer globalt og sprer vestlige verdier", "Samarbeid mellom store medieselskaper på tvers av landegrensene i verden", "Tett samarbeid mellom store medieselskaper om felles produksjon og deling", "Rask teknologisk utvikling som gjør at nye medieplattformer stadig oppstår"],
       explanation: "Mediaimperialisme er en teori om at vestlige, særlig amerikanske, medier dominerer globale mediestremmer.",
     },
     {
@@ -500,29 +500,29 @@ const quizData_medieinfo: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er soft power i mediesammenheng?",
-      options: ["Bruk av kultur og medier for a påvirke andre lands holdninger", "Fysisk kontroll over medieinfrastruktur", "Militær sensur der hæren gransker og stanser innhold før publisering", "Direkte fysisk kontroll over kabler, sendemaster og medieinfrastruktur"],
+      options: ["Bruk av kultur og medier for a påvirke andre lands holdninger", "Fysisk kontroll over medieinfrastruktur", "Militær sensur av innhold før publisering", "Direkte fysisk kontroll over kabler og sendemaster"],
       explanation: "Soft power er evnen til a påvirke andre gjennom tiltrekning via kultur, verdier og medier.",
     },
     {
       question: "Hva kjennetegner Hallyu (den koreanske bolgen)?",
-      options: ["Sor-Koreas globale kultureksport gjennom K-pop, K-drama og film", "Japansk animasjonskultur", "Den indiske filmindustrien i Bollywood med sine musikalske storfilmer", "Kinesiske sosiale medier og appers raske vekst på det globale markedet"],
+      options: ["Sor-Koreas globale kultureksport gjennom K-pop, K-drama og film", "Japansk animasjonskultur med anime og manga", "Den indiske filmindustrien i Bollywood med sine musikalske storfilmer", "Kinesiske sosiale medier og appers raske vekst på det globale markedet"],
       explanation: "Hallyu er betegnelsen påden globale spredningen av sor-koreansk populaerkultur.",
     },
     {
       question: "Hva er kulturell hybridisering?",
-      options: ["Blandingen av kulturelle uttrykk fra ulike deler av verden", "Bevaring av ren nasjonal kultur", "Bevaring av en ren og ublandet nasjonal kultur uten utenlandsk påvirkning", "Bevisst avvisning av all utenlandsk kultur til fordel for det opprinnelige"],
+      options: ["Blandingen av kulturelle uttrykk fra ulike deler av verden", "Bevaring av ren nasjonal kultur", "Bevaring av en ren og ublandet nasjonal kultur", "Bevisst avvisning av all utenlandsk kultur"],
       explanation: "Kulturell hybridisering er blandingen av kulturelle uttrykk fra ulike kulturer til noe nytt.",
     },
   ],
   "medieinfo-2-10": [
     {
       question: "Hva er et storyboard?",
-      options: ["Visuell skisse av scener i video-/filmproduksjon", "En samling av intervjunotater", "En detaljert liste over alt teknisk utstyr som trengs", "En samlet oversikt over budsjettet og kostnadene ved opptak"],
+      options: ["Visuell skisse av scener i video-/filmproduksjon", "En samling av intervjunotater fra hele research-fasen", "En detaljert liste over alt teknisk utstyr som trengs", "En samlet oversikt over budsjettet og kostnadene ved opptak"],
       explanation: "Et storyboard er en visuell skisse av scener som viser hvordan en video eller film skal se ut.",
     },
     {
       question: "Hva er en synopsis?",
-      options: ["Kort sammendrag av prosjektets innhold og struktur", "En detaljert dreiebok", "En systematisk liste over alle kildene og referansene som er brukt", "Et fullstendig budsjett som viser alle utgifter i medieproduksjonen"],
+      options: ["Kort sammendrag av prosjektets innhold og struktur", "En detaljert dreiebok for opptakene", "En systematisk liste over alle kildene og referansene som er brukt", "Et fullstendig budsjett for medieproduksjonen"],
       explanation: "En synopsis er et kort sammendrag som beskriver hovedinnholdet og strukturen i medieprosjektet.",
     },
     {
@@ -532,12 +532,12 @@ const quizData_medieinfo: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er postproduksjon?",
-      options: ["Redigering og ferdigstilling av medieprodukt", "Planlegging for opptak", "Selve opptaksfasen der video og lyd spilles inn på stedet", "Planleggingen og forberedelsene før selve opptaket starter"],
+      options: ["Redigering og ferdigstilling av medieprodukt", "Planleggingen som skjer før opptak", "Selve opptaksfasen der video og lyd spilles inn på stedet", "Planleggingen og forberedelsene før selve opptaket starter"],
       explanation: "Postproduksjon er fasen etter opptak der materialet redigeres, klippes og ferdigstilles.",
     },
     {
       question: "Hva er et treatment i medieproduksjon?",
-      options: ["Utfyllende beskrivelse av konsept, stil og gjennomforing", "En liste over utstyr", "Et kort og komprimert sammendrag av handlingen på et par setninger", "Et fullstendig budsjett som viser kostnadene ved hele produksjonen"],
+      options: ["Utfyllende beskrivelse av konsept, stil og gjennomforing", "En liste over utstyret som trengs", "Et kort og komprimert sammendrag av handlingen på et par setninger", "Et fullstendig budsjett som viser kostnadene ved hele produksjonen"],
       explanation: "Et treatment er en mer utfyllende beskrivelse av prosjektets konsept, stil og planlagt gjennomforing.",
     },
   ],

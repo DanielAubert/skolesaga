@@ -4,88 +4,88 @@ const quizData_medieinfo_2: Record<string, QuizQuestion[]> = {
   'medieinfo-2-1-1': [
     {
       question: 'Hva er semiotikk?',
-      options: ["Vitenskapen om tegn og tegnenes betydning", "Læren om grammatikk", "Vitenskapen om setningsoppbygging og grammatiske regler i språk", "Læren om hvordan lydbølger overføres og oppfattes av mottakeren"],
+      options: ["Vitenskapen om tegn og tegnenes betydning", "Læren om grammatikk og hvordan ord bøyes i ulike former", "Vitenskapen om setningsoppbygging og grammatiske regler i språk", "Læren om hvordan lydbølger overføres og oppfattes av mottakeren"],
       explanation: 'Semiotikk er vitenskapen om tegn og tegnenes betydning, og gir verktøy til å analysere hvordan mening skapes i medietekster.',
     },
     {
       question: 'Hvem er to av de mest innflytelsesrike tenkerne innen semiotikk?',
-      options: ["Ferdinand de Saussure og Charles Sanders Peirce", "Aristoteles og Platon", "Aristoteles og Platon, de klassiske grunnleggerne av gresk retorikk", "Theodor Adorno og Max Horkheimer fra den kritiske Frankfurterskolen"],
+      options: ["Ferdinand de Saussure og Charles Sanders Peirce", "Aristoteles og Platon fra antikkens Hellas", "Aristoteles og Platon, de klassiske grunnleggerne av gresk retorikk", "Theodor Adorno og Max Horkheimer"],
       explanation: 'Ferdinand de Saussure og Charles Sanders Peirce er to av de mest innflytelsesrike tenkerne innen semiotikk.',
     },
     {
       question: 'Hva kan semiotisk analyse avdekke i medieinnhold?',
-      options: ["Skjulte meninger, ideologier og maktstrukturer", "Prisen på innholdet", "Nøyaktig antall ord og setninger som medieteksten totalt består av", "Filstørrelsen og det tekniske formatet som mediefilen er lagret i på server"],
+      options: ["Skjulte meninger, ideologier og maktstrukturer", "Prisen mottakeren må betale for å få tilgang til innholdet", "Nøyaktig antall ord og setninger som medieteksten totalt består av", "Filstørrelsen og formatet mediefilen er lagret i"],
       explanation: 'Semiotisk analyse kan avdekke skjulte meninger, ideologier og maktstrukturer i medieinnhold som ellers kan virke «naturlig».',
     },
     {
       question: 'Hva består tegnet av ifølge Saussure?',
-      options: ["Et uttrykk (signifikant) og et innhold (signifikat)", "En sender og en mottaker", "En aktiv sender og en passiv mottaker som utveksler et budskap i kanalen", "Et visuelt bilde og en tilhørende lyd som til sammen danner en modalitet"],
+      options: ["Et uttrykk (signifikant) og et innhold (signifikat)", "En sender og en mottaker", "En aktiv sender og en passiv mottaker i en kanal", "Et visuelt bilde og en tilhørende lyd"],
       explanation: 'Ifølge Saussure består tegnet av et uttrykk (signifikant) – det vi sanser – og et innhold (signifikat) – begrepet det viser til.',
     },
     {
       question: 'Hvorfor sies det at medieinnhold som virker «naturlig» kan analyseres semiotisk?',
-      options: ["Fordi tegnene bærer betydninger som er konstruert, ikke selvfølgelige", "Fordi medieinnhold aldri har mening", "Fordi medieinnhold i virkeligheten aldri bærer noen form for mening i seg", "Fordi alle mottakere uansett bakgrunn alltid tolker de samme tegnene helt likt"],
+      options: ["Fordi tegnene bærer betydninger som er konstruert, ikke selvfølgelige", "Fordi medieinnhold aldri har mening før det tolkes", "Fordi medieinnhold i virkeligheten aldri bærer noen form for mening i seg", "Fordi alle mottakere uansett bakgrunn alltid tolker de samme tegnene helt likt"],
       explanation: 'Semiotisk analyse viser at tegn bærer konstruerte betydninger; det som virker naturlig og selvfølgelig er egentlig resultat av tegnenes meningsdannelse.',
     },
   ],
   'medieinfo-2-1-2': [
     {
       question: 'Hva er diskursanalyse?',
-      options: ["En metode for å undersøke hvordan språk konstruerer virkelighet og opprettholder makt", "En metode for å telle hvor ofte bestemte ord forekommer i en gitt tekstmengde", "En teknikk for å oversette tekster mellom språk uten å endre det opprinnelige innholdet", "En statistisk modell som måler nøyaktig hvor mange lesere en medietekst faktisk når ut til"],
+      options: ["En metode for å undersøke hvordan språk konstruerer virkelighet og opprettholder makt", "En metode for å telle hvor ofte bestemte ord forekommer i en gitt tekstmengde", "En teknikk for å oversette tekster mellom språk", "En statistisk modell som måler hvor mange lesere en medietekst når"],
       explanation: 'Diskursanalyse er en metode for å undersøke hvordan språk brukes til å konstruere virkeligheten, opprettholde maktstrukturer og fremme ideologier.',
     },
     {
       question: 'Hvordan kan ordvalg påvirke vår forståelse, ifølge diskursanalysen?',
-      options: ["«Flyktningstrøm» versus «mennesker på flukt» former ulik oppfatning av samme fenomen", "Ordvalget har ingen reell betydning så lenge de faktiske opplysningene er korrekte", "Bare konkrete tall og statistikk påvirker forståelsen, mens selve ordvalget er nøytralt", "Alle ord som beskriver samme fenomen betyr nøyaktig det samme og gir identisk oppfatning"],
+      options: ["«Flyktningstrøm» versus «mennesker på flukt» former ulik oppfatning av samme fenomen", "Ordvalget har ingen reell betydning så lenge de faktiske opplysningene er korrekte", "Bare konkrete tall og statistikk påvirker forståelsen, mens selve ordvalget er nøytralt", "Alle ord som beskriver samme fenomen betyr nøyaktig det samme"],
       explanation: 'Diskursanalyse viser at ordvalg som «flyktningstrøm» versus «mennesker på flukt» påvirker hvordan vi forstår og forholder oss til fenomenet.',
     },
     {
       question: 'Hvilke tenkere bygger diskursanalysen blant annet på?',
-      options: ["Michel Foucault og Norman Fairclough", "Aristoteles og Platon", "Richard Dawkins og Henry Jenkins, kjent for memteori og deltakerkultur", "Saussure og Peirce"],
+      options: ["Michel Foucault og Norman Fairclough", "Aristoteles og Platon fra antikken", "Richard Dawkins og Henry Jenkins, kjent for memteori og deltakerkultur", "Saussure og Peirce fra semiotikken"],
       explanation: 'Diskursanalyse bygger blant annet på arbeidene til Michel Foucault og Norman Fairclough.',
     },
     {
       question: 'Hvorfor er diskursanalyse et viktig verktøy i medieanalyse?',
-      options: ["Mediene spiller en sentral rolle i å produsere og reprodusere samfunnets diskurser", "Fordi diskurser ikke finnes", "Fordi språket i seg selv aldri har noen makt over hvordan vi oppfatter virkeligheten", "Fordi mediene er helt nøytrale formidlere som bare videreformidler rå fakta objektivt"],
+      options: ["Mediene spiller en sentral rolle i å produsere og reprodusere samfunnets diskurser", "Fordi diskurser ikke finnes som noe annet enn en teoretisk konstruksjon uten praktisk verdi", "Fordi språket i seg selv aldri har noen makt over hvordan vi oppfatter virkeligheten", "Fordi mediene er helt nøytrale formidlere som bare videreformidler rå fakta objektivt"],
       explanation: 'Diskursanalyse er viktig fordi mediene spiller en sentral rolle i å produsere og reprodusere de diskursene som preger samfunnet.',
     },
     {
       question: 'Hva menes med at språk ikke er nøytralt?',
-      options: ["Språk former vår oppfatning av virkeligheten, ikke bare beskriver den", "At bare bilder former virkelighet", "At absolutt alle ord i språket er forbudt og derfor umulige å ta i bruk i praksis", "At språket aldri under noen omstendighet kan brukes til å kommunisere mening klart"],
+      options: ["Språk former vår oppfatning av virkeligheten, ikke bare beskriver den", "At bare bilder, ikke ord, former vår virkelighet", "At absolutt alle ord i språket er forbudt og derfor umulige å ta i bruk i praksis", "At språket aldri under noen omstendighet kan brukes til å kommunisere mening klart"],
       explanation: 'At språk ikke er nøytralt betyr at det former vår oppfatning av virkeligheten, ikke bare beskriver den objektivt.',
     },
   ],
   'medieinfo-2-1-3': [
     {
       question: 'Hva er en multimodal tekst?',
-      options: ["En tekst som bruker flere modaliteter (uttrykksmåter) samtidig", "En tekst med bare skrift", "En tekst som helt mangler mening og derfor ikke lar seg tolke av leseren", "En tekst som utelukkende består av skrift uten bilder, lyd eller bevegelse"],
+      options: ["En tekst som bruker flere modaliteter (uttrykksmåter) samtidig", "En tekst med bare skrift, satt opp i én enkelt spalte på hele siden", "En tekst som helt mangler mening og derfor ikke lar seg tolke av leseren", "En tekst som utelukkende består av skrift uten bilder, lyd eller bevegelse"],
       explanation: 'En multimodal tekst bruker flere modaliteter – som tekst, bilde, lyd og bevegelse – som samvirker for å skape mening.',
     },
     {
       question: 'Hva er kjernen i multimodal analyse?',
-      options: ["Å undersøke hvordan ulike modaliteter samvirker for å skape mening", "Å telle antall bilder", "Å telle det nøyaktige antallet bilder og illustrasjoner som teksten inneholder", "Å oversette hele teksten til et annet språk uten å endre det opprinnelige budskapet"],
+      options: ["Å undersøke hvordan ulike modaliteter samvirker for å skape mening", "Å telle hvor mange bilder teksten har", "Å telle det nøyaktige antallet bilder og illustrasjoner som teksten inneholder", "Å oversette hele teksten til et annet språk"],
       explanation: 'Multimodal analyse undersøker hvordan ulike modaliteter samvirker for å skape den helhetlige meningen i en tekst.',
     },
     {
       question: 'Hvordan kan en overskrift påvirke tolkningen av et bilde?',
-      options: ["Et bilde betyr noe annet med en dramatisk overskrift enn når det står alene", "Overskriften har ingen effekt", "Overskriften har ingen som helst effekt på hvordan bildet under den blir tolket", "Overskrifter påvirker utelukkende lydsporet i teksten, ikke tolkningen av bildet"],
+      options: ["Et bilde betyr noe annet med en dramatisk overskrift enn når det står alene", "Overskriften har ingen effekt, siden et bilde alltid taler helt for seg selv uansett", "Overskriften har ingen som helst effekt på hvordan bildet under den blir tolket", "Overskrifter påvirker utelukkende lydsporet i teksten, ikke tolkningen av bildet"],
       explanation: 'Samspillet mellom modaliteter er sentralt: et bilde får ulik mening avhengig av om det ledsages av en dramatisk overskrift eller står alene.',
     },
     {
       question: 'Hva er et eksempel på en multimodal medietekst?',
-      options: ["En nettartikkel med tekst, bilder, video og grafikk", "En ren papirtekst uten bilder", "En enkelt lydfil uten tekst, bilde eller video som spilles av for seg selv alene", "En enkelt lyd uten annet"],
+      options: ["En nettartikkel med tekst, bilder, video og grafikk", "En ren papirtekst helt uten bilder", "En enkelt lydfil uten tekst, bilde eller video som spilles av for seg selv alene", "En enkelt lyd uten noe annet innhold rundt seg"],
       explanation: 'En nettartikkel som kombinerer skriftlig tekst, bilder, videoklipp og grafikk er et typisk eksempel på en multimodal tekst.',
     },
     {
       question: 'Hvorfor er moderne medietekster sjelden rent tekstbaserte?',
-      options: ["Digitale plattformer gjør det enkelt å kombinere flere uttrykksmåter", "Fordi bilder ikke kan brukes", "Fordi alle medietekster ifølge reglene må holdes så korte som overhodet mulig", "Fordi bruk av skrift er strengt forbudt på de fleste moderne digitale plattformer"],
+      options: ["Digitale plattformer gjør det enkelt å kombinere flere uttrykksmåter", "Fordi bilder ikke kan brukes i digitale tekster", "Fordi alle medietekster må holdes så korte som mulig", "Fordi bruk av skrift er forbudt på digitale plattformer"],
       explanation: 'Moderne medietekster er sjelden rent tekstbaserte fordi digitale plattformer gjør det enkelt å kombinere tekst, bilde, lyd og bevegelse.',
     },
   ],
   'medieinfo-2-1-4': [
     {
       question: 'Hva er narrativ analyse?',
-      options: ["Å undersøke hvordan fortellinger er bygd opp i medietekster", "Å telle antall ord", "Å telle det totale antallet ord og setninger som medieteksten er bygd opp av", "Å måle lydnivået og volumet i lydsporet som følger med den aktuelle medieteksten"],
+      options: ["Å undersøke hvordan fortellinger er bygd opp i medietekster", "Å telle antall ord for å finne ut hvor lang lesetiden i teksten blir", "Å telle det totale antallet ord og setninger som medieteksten er bygd opp av", "Å måle lydnivået i lydsporet som følger medieteksten"],
       explanation: 'Narrativ analyse undersøker hvordan fortellinger er bygd opp i medietekster – handling, roller og fortellerstemme.',
     },
     {
@@ -95,24 +95,24 @@ const quizData_medieinfo_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hvilken klassisk modell bygger narrativ teori blant annet på?',
-      options: ["Aristoteles' dramaturgiske modell", "AIDA-modellen", "AIDA-modellen, som beskriver oppmerksomhet, interesse, ønske og handling i reklame", "VISA-modellen"],
+      options: ["Aristoteles' dramaturgiske modell", "AIDA-modellen fra reklamefaget", "AIDA-modellen, som beskriver oppmerksomhet, interesse, ønske og handling i reklame", "VISA-modellen fra nyhetsfaget"],
       explanation: 'Narrativ teori bygger på en lang tradisjon fra Aristoteles\' dramaturgiske modell til moderne narratologi.',
     },
     {
       question: 'Hvorfor brukes fortellinger så mye i medier?',
-      options: ["Fortelling er en grunnleggende måte å organisere erfaring og skape mening på", "Fordi de bare brukes i eventyr", "Fordi fortellinger er forbudt i seriøse medier og derfor virker ekstra spennende", "Fordi fortellinger utelukkende hører hjemme i eventyr, ikke i nyheter eller reklame"],
+      options: ["Fortelling er en grunnleggende måte å organisere erfaring og skape mening på", "Fordi de bare brukes i eventyr og i annen litteratur som er skrevet for små barn", "Fordi fortellinger er forbudt i seriøse medier og derfor virker ekstra spennende", "Fordi fortellinger utelukkende hører hjemme i eventyr, ikke i nyheter eller reklame"],
       explanation: 'Fortellinger brukes mye fordi de er en av de mest grunnleggende måtene å organisere erfaring og skape mening på, fra eventyr til nyheter og reklame.',
     },
     {
       question: 'Hva er et typisk spørsmål i en narrativ analyse?',
-      options: ["Hvem er helt og hvem er skurk, og hvilken fortellerstemme styrer opplevelsen?", "Hvor mye koster medieteksten å kjøpe, og hva er den økonomiske avkastningen?", "Hvilken skrifttype og skriftstørrelse er brukt, og hvor bred er linjeavstanden?", "Hvilken farge har papiret teksten er trykt på, og hvor tykt er selve arket?"],
+      options: ["Hvem er helt og hvem er skurk, og hvilken fortellerstemme styrer opplevelsen?", "Hvor mye koster medieteksten å kjøpe, og hva er den økonomiske avkastningen?", "Hvilken skrifttype og skriftstørrelse er brukt i teksten?", "Hvilken farge har papiret teksten er trykt på, og hvor tykt er selve arket?"],
       explanation: 'En narrativ analyse spør blant annet hvordan handlingen er strukturert, hvem som er helt og skurk, og hvilken fortellerstemme som styrer opplevelsen.',
     },
   ],
   'medieinfo-2-1-5': [
     {
       question: 'Hva er retorikk?',
-      options: ["Kunsten å overbevise", "Læren om grammatikk", "Læren om lydbølger og hvordan de oppfattes", "Læren om tall"],
+      options: ["Kunsten å overbevise", "Læren om grammatikk", "Læren om lydbølger og hvordan de oppfattes", "Læren om tall og mengder"],
       explanation: 'Retorikk er kunsten å overbevise, og retorisk analyse brukes for å forstå hvordan medietekster forsøker å påvirke oss.',
     },
     {
@@ -122,7 +122,7 @@ const quizData_medieinfo_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva menes med at medier er «grunnleggende retoriske»?',
-      options: ["De forsøker alltid å overbevise oss om noe, direkte eller indirekte", "De bruker aldri virkemidler", "De er alltid helt nøytrale kanaler som formidler ren informasjon uten vinkling", "De tar aldri i bruk retoriske virkemidler, men gjengir kun objektive og rå fakta"],
+      options: ["De forsøker alltid å overbevise oss om noe, direkte eller indirekte", "De bruker aldri virkemidler, men lar publikum tolke innholdet helt fritt", "De er alltid helt nøytrale kanaler som formidler ren informasjon uten vinkling", "De tar aldri i bruk retoriske virkemidler, men gjengir kun objektive og rå fakta"],
       explanation: 'Medier er grunnleggende retoriske fordi de alltid forsøker å overbevise oss om noe, enten direkte (reklame) eller indirekte (nyhetsvinkling og bildebruk).',
     },
     {
@@ -132,14 +132,14 @@ const quizData_medieinfo_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hvordan kan retorisk analyse gjøre oss til bedre mediebrukere?',
-      options: ["Den gir verktøy til å gjennomskue overtalelsesstrategier", "Den har ingen praktisk nytte", "Den fjerner all reklame fra mediene vi bruker til daglig, helt automatisk", "Den gjør oss mer godtroende og mindre kritiske til budskapene vi utsettes for"],
+      options: ["Den gir verktøy til å gjennomskue overtalelsesstrategier", "Den har ingen praktisk nytte", "Den fjerner all reklame fra mediene automatisk", "Den gjør oss mer godtroende og mindre kritiske"],
       explanation: 'Retorisk analyse gir oss verktøy til å gjennomskue overtalelsesstrategier og dermed bli mer kritiske mediebrukere.',
     },
   ],
   'medieinfo-2-2-1': [
     {
       question: 'Hvilke er de fire viktigste finansieringsmodellene for medier?',
-      options: ["Annonsering, abonnement, lisens og offentlig støtte", "Bare statlig eierskap", "Utelukkende reklame, siden all medievirksomhet i praksis er annonsefinansiert", "Bare frivillige donasjoner fra publikum, som er den eneste bærekraftige modellen"],
+      options: ["Annonsering, abonnement, lisens og offentlig støtte", "Bare statlig eierskap, siden staten dekker all mediedrift", "Utelukkende reklame, siden all medievirksomhet i praksis er annonsefinansiert", "Bare frivillige donasjoner fra publikum"],
       explanation: 'De fire viktigste finansieringsmodellene er annonsering, abonnement (brukerbetaling), lisens og offentlig støtte.',
     },
     {
@@ -149,7 +149,7 @@ const quizData_medieinfo_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hvorfor er medienes finansieringsmodell også et demokratisk spørsmål?',
-      options: ["Den påvirker hva slags innhold som produseres og hvor uavhengig pressen kan være", "Den har ingen betydning for innholdet", "Den har ingen som helst betydning for hva slags innhold mediene faktisk produserer", "Den gjelder utelukkende reklamesalg og har ingenting med redaksjonell frihet å gjøre"],
+      options: ["Den påvirker hva slags innhold som produseres og hvor uavhengig pressen kan være", "Den har ingen betydning for innholdet, som styres av redaksjonen alene uansett hvem som betaler", "Den har ingen som helst betydning for hva slags innhold mediene faktisk produserer", "Den gjelder utelukkende reklamesalg og har ingenting med redaksjonell frihet å gjøre"],
       explanation: 'Finansieringsmodellen er et demokratisk spørsmål fordi den påvirker hva slags innhold som produseres, hvem som når ut, og hvor uavhengig pressen kan være.',
     },
     {
@@ -159,19 +159,19 @@ const quizData_medieinfo_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva innebærer lisensfinansiering og offentlig støtte?',
-      options: ["At medier finansieres helt eller delvis av fellesskapet/staten", "At innholdet er gratis å produsere", "At det utelukkende er annonsører som betaler for hele medieproduksjonen alene", "At publikum aldri på noen måte er med på å finansiere driften av disse mediene"],
+      options: ["At medier finansieres helt eller delvis av fellesskapet/staten", "At innholdet er gratis å produsere", "At det utelukkende er annonsører som betaler for hele medieproduksjonen alene", "At publikum aldri er med på å finansiere disse mediene"],
       explanation: 'Lisensfinansiering og offentlig støtte innebærer at medier finansieres helt eller delvis av fellesskapet, for eksempel NRK over statsbudsjettet.',
     },
   ],
   'medieinfo-2-2-2': [
     {
       question: 'Hvilke tre konserner kontrollerer det store flertallet av norske aviser?',
-      options: ["Schibsted, Amedia og Polaris Media", "Meta, Google og Apple", "NRK, TV 2 og P4 som styrer aviseierskapet", "Meta, Google og Apple som eier norske aviser"],
+      options: ["Schibsted, Amedia og Polaris Media", "Meta, Google og Apple gjennom sine plattformer", "NRK, TV 2 og P4 som styrer aviseierskapet", "Meta, Google og Apple som eier norske aviser"],
       explanation: 'I Norge kontrollerer Schibsted, Amedia og Polaris Media det store flertallet av norske aviser.',
     },
     {
       question: 'Hva er mediekonsentrasjon?',
-      options: ["At eierskapet til mediene samles på færre hender", "At det blir flere uavhengige eiere", "At eierskapet spres på stadig flere uavhengige aktører i markedet", "At all form for reklame og annonsering blir forbudt i redaksjonene"],
+      options: ["At eierskapet til mediene samles på færre hender", "At det blir flere uavhengige eiere", "At eierskapet spres på flere uavhengige aktører", "At all reklame blir forbudt i redaksjonene"],
       explanation: 'Mediekonsentrasjon innebærer at eierskapet til mediene samles på færre hender, noe som kan true mangfoldet.',
     },
     {
@@ -181,46 +181,46 @@ const quizData_medieinfo_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hvorfor kan eierskapskonsentrasjon være et problem for demokratiet?',
-      options: ["Den kan svekke mangfoldet av stemmer og perspektiver", "Den øker alltid mangfoldet", "Den tvinger alle eiere til å publisere de samme nyhetssakene daglig", "Den fjerner behovet for pressestøtte fordi store eiere finansierer alt"],
+      options: ["Den kan svekke mangfoldet av stemmer og perspektiver", "Den øker alltid mangfoldet av stemmer i den offentlige debatten", "Den tvinger alle eiere til å publisere de samme nyhetssakene daglig", "Den fjerner behovet for pressestøtte fordi store eiere finansierer alt"],
       explanation: 'Eierskapskonsentrasjon kan svekke mangfoldet av stemmer og perspektiver i offentligheten, noe som er en utfordring for demokratiet.',
     },
     {
       question: 'Hva regulerer medieeierskapsloven?',
-      options: ["Hvor stor andel av mediemarkedet én aktør kan kontrollere", "Personvern på nett", "Hvilke partier som får sende ut politisk reklame i valgkampen", "Hvor mye reklame en avis maksimalt kan trykke på hver enkelt side"],
+      options: ["Hvor stor andel av mediemarkedet én aktør kan kontrollere", "Personvern og lagring av data på nett", "Hvilke partier som får sende ut politisk reklame i valgkampen", "Hvor mye reklame en avis maksimalt kan trykke på hver enkelt side"],
       explanation: 'Medieeierskapsloven regulerer eierskapskonsentrasjon, blant annet hvor stor andel av mediemarkedet én aktør kan kontrollere.',
     },
   ],
   'medieinfo-2-2-3': [
     {
       question: 'Hva kjennetegner «Big Tech»-selskapenes rolle i medielandskapet?',
-      options: ["De kontrollerer infrastrukturen for mediekonsum uten selv å produsere journalistikk", "De produserer all journalistikk selv", "De produserer selv all den journalistikken som blir delt og lest på plattformene deres", "De er statlig eide allmennkringkastere med et lovfestet samfunnsoppdrag og lisensfinansiering"],
+      options: ["De kontrollerer infrastrukturen for mediekonsum uten selv å produsere journalistikk", "De produserer all journalistikk selv og har egne redaksjoner i alle land de opererer i", "De produserer selv all den journalistikken som blir delt og lest på plattformene deres", "De er statlig eide allmennkringkastere med et lovfestet samfunnsoppdrag og lisensfinansiering"],
       explanation: 'Big Tech-selskaper som Google og Meta har blitt mektige medieaktører ved å kontrollere infrastrukturen for mediekonsum, uten selv å produsere journalistikk.',
     },
     {
       question: 'Hva er oppmerksomhetsøkonomi?',
-      options: ["En økonomi der brukernes oppmerksomhet er den verdifulle ressursen", "En statlig finansieringsmodell", "En finansieringsform der staten kjøper oppmerksomhet på vegne av mediene", "En lovregulering som verner brukernes personopplysninger mot plattformene"],
+      options: ["En økonomi der brukernes oppmerksomhet er den verdifulle ressursen", "En statlig finansieringsmodell", "En finansieringsform der staten kjøper oppmerksomhet", "En lovregulering som verner brukernes personopplysninger"],
       explanation: 'Oppmerksomhetsøkonomi beskriver hvordan brukernes oppmerksomhet er den verdifulle ressursen som plattformene konkurrerer om og selger til annonsører.',
     },
     {
       question: 'Hva er distribusjonsmakt i plattformøkonomien?',
-      options: ["Plattformene kontrollerer hvordan medieinnhold når ut til publikum", "Plattformene produserer alt innhold", "At plattformene fastsetter statens mediepolitikk og fordeler pressestøtten", "At plattformene produserer alt medieinnholdet publikum får tilgang til selv"],
+      options: ["Plattformene kontrollerer hvordan medieinnhold når ut til publikum", "Plattformene produserer alt innhold i egne redaksjoner", "At plattformene fastsetter statens mediepolitikk og fordeler pressestøtten", "At plattformene produserer alt medieinnholdet publikum får tilgang til selv"],
       explanation: 'Distribusjonsmakt innebærer at plattformene kontrollerer hvordan medieinnhold når ut til publikum, gjennom algoritmer og rangering.',
     },
     {
       question: 'Hvilken konsekvens har plattformøkonomien for journalistikken?',
-      options: ["Den har endret maktforholdene og utfordrer medienes inntekter og kontroll", "Den har styrket avisenes monopol", "Den har styrket de etablerte avisenes monopol på distribusjon og annonser", "Den har ingen merkbar konsekvens fordi redaksjonene beholder full kontroll"],
+      options: ["Den har endret maktforholdene og utfordrer medienes inntekter og kontroll", "Den har styrket avisenes monopol på nyhetsformidling", "Den har styrket de etablerte avisenes monopol på distribusjon og annonser", "Den har ingen merkbar konsekvens fordi redaksjonene beholder full kontroll"],
       explanation: 'Plattformøkonomien har fundamentalt endret maktforholdene i mediebransjen og utfordrer journalistikkens inntekter og kontroll over distribusjonen.',
     },
     {
       question: 'Hvordan styrer algoritmer hva vi ser og leser?',
-      options: ["De prioriterer og rangerer innhold basert på brukerdata og engasjement", "De viser alt i tilfeldig rekkefølge", "De fjerner automatisk alt innhold som ikke er betalt for av annonsørene", "De viser alt innhold i tilfeldig rekkefølge uten hensyn til hva brukeren gjør"],
+      options: ["De prioriterer og rangerer innhold basert på brukerdata og engasjement", "De viser alt i tilfeldig rekkefølge etter når det ble lagt ut", "De fjerner automatisk alt innhold som ikke er betalt for av annonsørene", "De viser alt innhold i tilfeldig rekkefølge uten hensyn til hva brukeren gjør"],
       explanation: 'Algoritmer styrer hva vi ser ved å prioritere og rangere innhold basert på brukerdata og hva som skaper engasjement.',
     },
   ],
   'medieinfo-2-2-4': [
     {
       question: 'Hva menes med at mediene opererer i et «tosidig marked»?',
-      options: ["De selger innhold til publikum og tilgang til publikum til annonsører", "De har bare én kundegruppe", "De henter all inntekt fra én enkelt kundegruppe, nemlig de betalende leserne", "De selger utelukkende ferdig innhold til staten som deretter deler det gratis"],
+      options: ["De selger innhold til publikum og tilgang til publikum til annonsører", "De har bare én kundegruppe, og alt salget skjer direkte til denne gruppen", "De henter all inntekt fra én enkelt kundegruppe, nemlig de betalende leserne", "De selger utelukkende ferdig innhold til staten som deretter deler det gratis"],
       explanation: 'Mediene opererer i et tosidig marked: de produserer innhold til publikum og selger samtidig tilgang til publikum til annonsører.',
     },
     {
@@ -230,34 +230,34 @@ const quizData_medieinfo_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er markedssvikt i mediesektoren?',
-      options: ["At markedet alene ikke produserer nok samfunnsviktig innhold", "At markedet fungerer perfekt", "At all form for reklame og annonsering er forbudt i den norske mediesektoren", "At det finnes altfor mange konkurrerende medier til at leserne klarer å velge"],
+      options: ["At markedet alene ikke produserer nok samfunnsviktig innhold", "At markedet fungerer perfekt", "At all reklame er forbudt i mediesektoren", "At det finnes altfor mange konkurrerende medier"],
       explanation: 'Markedssvikt i mediesektoren innebærer at markedet alene ikke produserer nok samfunnsviktig innhold, noe som kan begrunne regulering og støtte.',
     },
     {
       question: 'Hvordan utfordrer global konkurranse norske medier?',
-      options: ["Internasjonale aktører konkurrerer om publikum og annonseinntekter", "Den styrker norske mediers monopol", "Den styrker norske mediers monopol ved å stenge utenlandske aktører helt ute", "Den gjør automatisk alle norske medier gratis fordi utlandet dekker kostnadene"],
+      options: ["Internasjonale aktører konkurrerer om publikum og annonseinntekter", "Den styrker norske mediers monopol i hjemmemarkedet", "Den styrker norske mediers monopol ved å stenge utenlandske aktører helt ute", "Den gjør automatisk alle norske medier gratis fordi utlandet dekker kostnadene"],
       explanation: 'Global konkurranse utfordrer norske medier fordi internasjonale aktører konkurrerer om de samme brukerne og annonseinntektene.',
     },
     {
       question: 'Hvorfor fungerer ikke mediemarkedet som et vanlig marked?',
-      options: ["På grunn av det tosidige markedet og at innhold er et fellesgode", "Fordi medier ikke koster noe", "Fordi all reklame er forbudt og mediene dermed mangler enhver inntektskilde", "Fordi medieinnhold ikke koster noe å lage og derfor prises helt fritt av markedet"],
+      options: ["På grunn av det tosidige markedet og at innhold er et fellesgode", "Fordi medier ikke koster noe å distribuere når nettet først er utbygd", "Fordi all reklame er forbudt og mediene dermed mangler enhver inntektskilde", "Fordi medieinnhold ikke koster noe å lage"],
       explanation: 'Mediemarkedet fungerer ikke som et vanlig marked på grunn av særtrekk som det tosidige markedet og at medieinnhold er et fellesgode.',
     },
   ],
   'medieinfo-2-2-5': [
     {
       question: 'Hva er målet med norsk mediepolitikk?',
-      options: ["Å sikre mediemangfold, ytringsfrihet og en opplyst offentlig debatt", "Å gjøre alle medier statlige", "Å gjøre samtlige medier statseide slik at innholdet blir enhetlig og likt", "Å begrense ytringsfriheten for å hindre spredning av upopulære synspunkter"],
+      options: ["Å sikre mediemangfold, ytringsfrihet og en opplyst offentlig debatt", "Å gjøre alle medier statlige og legge dem direkte under Kulturdepartementet", "Å gjøre samtlige medier statseide slik at innholdet blir enhetlig og likt", "Å begrense ytringsfriheten for å hindre spredning av upopulære synspunkter"],
       explanation: 'Norsk mediepolitikk har som mål å sikre mediemangfold, ytringsfrihet og en opplyst offentlig debatt.',
     },
     {
       question: 'Hva er pressestøtte?',
-      options: ["Statlig økonomisk støtte for å sikre mediemangfold", "En skatt på aviser", "Inntekter mediene får fra annonsører for å trykke kommersiell reklame", "En særskilt avgift avisene betaler til staten for retten til å utgi nyheter"],
+      options: ["Statlig økonomisk støtte for å sikre mediemangfold", "En skatt som legges på aviser", "Inntekter mediene får fra annonsører", "En særskilt avgift avisene betaler til staten"],
       explanation: 'Pressestøtte er statlig økonomisk støtte til medier for å sikre mediemangfold, særlig for mindre aviser.',
     },
     {
       question: 'Hva er NRK-plakaten?',
-      options: ["Et dokument som fastsetter NRKs samfunnsoppdrag", "En personvernforordning", "En kommersiell avtale om salg av reklameplass i NRKs egne sendinger", "En landsdekkende papiravis som NRK utgir ved siden av kringkastingen"],
+      options: ["Et dokument som fastsetter NRKs samfunnsoppdrag", "En personvernforordning som gjelder i hele EU", "En kommersiell avtale om salg av reklameplass i NRKs egne sendinger", "En landsdekkende papiravis som NRK utgir ved siden av kringkastingen"],
       explanation: 'NRK-plakaten er et dokument som fastsetter NRKs samfunnsoppdrag og forpliktelser som allmennkringkaster.',
     },
     {
@@ -267,34 +267,34 @@ const quizData_medieinfo_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hvilke er eksempler på statlig inngripen i mediemarkedet i Norge?',
-      options: ["Pressestøtte, NRK-finansiering, medieeierskapsloven og momsfritak", "Bare reklamefinansiering", "Utelukkende et generelt statlig forbud mot å utgi trykte aviser i Norge", "Kun ren reklamefinansiering uten pressestøtte, momsfritak eller NRK-lisens"],
+      options: ["Pressestøtte, NRK-finansiering, medieeierskapsloven og momsfritak", "Bare reklamefinansiering av alle norske medier", "Utelukkende et generelt statlig forbud mot å utgi trykte aviser i Norge", "Kun ren reklamefinansiering uten pressestøtte, momsfritak eller NRK-lisens"],
       explanation: 'Eksempler på statlig inngripen er pressestøtte, NRK-finansiering, medieeierskapsloven og momsfritak for medier.',
     },
   ],
   'medieinfo-2-3-1': [
     {
       question: 'Hva handler presseetikk om?',
-      options: ["Hva journalister bør gjøre, ikke bare hva de har lov til", "Bare hva loven tillater", "Hvilke priser redaksjonene kan ta betalt for reklame og annonseplass", "Hvordan redaksjonene skal beskytte lesernes personopplysninger på nett"],
+      options: ["Hva journalister bør gjøre, ikke bare hva de har lov til", "Bare hva loven uttrykkelig tillater journalisten å publisere", "Hvilke priser redaksjonene kan ta betalt for reklame og annonseplass", "Hvordan redaksjonene skal beskytte lesernes personopplysninger på nett"],
       explanation: 'Presseetikk handler om hva journalister bør gjøre, ikke bare hva de har lov til, og går lenger enn lovverket.',
     },
     {
       question: 'Hva er kjernen i det norske presseetiske selvreguleringssystemet?',
-      options: ["Vær Varsom-plakaten og klageorganet PFU", "Markedsføringsloven", "Personvernforordningen GDPR som styrer redaksjonenes databehandling", "En statlig domstol"],
+      options: ["Vær Varsom-plakaten og klageorganet PFU", "Markedsføringsloven og forbrukervernet", "Personvernforordningen GDPR som styrer redaksjonenes databehandling", "En statlig domstol for pressen"],
       explanation: 'Kjernen i selvreguleringssystemet er Vær Varsom-plakaten og klageorganet PFU (Pressens Faglige Utvalg).',
     },
     {
       question: 'Hva er selvregulering i pressesammenheng?',
-      options: ["At bransjen selv har utviklet og håndhever etiske retningslinjer", "At staten kontrollerer all presse", "At domstolene styrer redaksjonenes daglige valg og prioriteringer av saker", "At staten kontrollerer og godkjenner alt innhold pressen ønsker å publisere"],
+      options: ["At bransjen selv har utviklet og håndhever etiske retningslinjer", "At staten kontrollerer all presse", "At domstolene styrer redaksjonenes daglige valg", "At staten kontrollerer og godkjenner alt pressen publiserer"],
       explanation: 'Selvregulering betyr at pressen selv har utviklet og håndhever etiske retningslinjer, uavhengig av statlig kontroll.',
     },
     {
       question: 'Når oppstår ofte presseetiske dilemmaer?',
-      options: ["Når ulike hensyn står mot hverandre, som informasjonsbehov mot personvern", "Når det ikke finnes kilder", "Når redaksjonen ikke klarer å finne noen kilder som vil uttale seg i saken", "Når alle kildene og partene i saken er fullstendig enige om hva som er sant"],
+      options: ["Når ulike hensyn står mot hverandre, som informasjonsbehov mot personvern", "Når det ikke finnes kilder som kan bekrefte opplysningene", "Når redaksjonen ikke klarer å finne noen kilder som vil uttale seg i saken", "Når alle kildene og partene i saken er fullstendig enige om hva som er sant"],
       explanation: 'Presseetiske dilemmaer oppstår ofte når ulike hensyn står mot hverandre, for eksempel offentlighetens informasjonsbehov mot personvernet.',
     },
     {
       question: 'Hvilken rolle har PFU?',
-      options: ["Klageinstans som vurderer brudd på god presseskikk", "Produserer nyheter", "Selger og formidler reklameplass i mediene på vegne av annonsørene", "Vedtar bindende lover om presseskikk som redaksjonene plikter å følge"],
+      options: ["Klageinstans som vurderer brudd på god presseskikk", "Produserer nyheter og innslag på vegne av redaksjonene", "Selger og formidler reklameplass i mediene på vegne av annonsørene", "Vedtar bindende lover om presseskikk"],
       explanation: 'PFU fungerer som klageinstans som vurderer om medier har brutt god presseskikk slik den er formulert i Vær Varsom-plakaten.',
     },
   ],
@@ -306,22 +306,22 @@ const quizData_medieinfo_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva gir ytringsfriheten rett til?',
-      options: ["Å publisere informasjon og ytre meninger", "Å skjerme privatlivet fullstendig", "Å avgjøre rettssaker om ærekrenkelse uten å gå veien om domstolene", "Å avgjøre rettssaker"],
+      options: ["Å publisere informasjon og ytre meninger", "Å skjerme privatlivet fullstendig", "Å avgjøre rettssaker om ærekrenkelse uten å gå veien om domstolene", "Å avgjøre rettssaker om injurier"],
       explanation: 'Ytringsfriheten gir rett til å publisere informasjon og ytre meninger, mens personvernet gir rett til å skjerme privatlivet.',
     },
     {
       question: 'Hvilke artikler i EMK regulerer henholdsvis personvern og ytringsfrihet?',
-      options: ["Artikkel 8 (personvern) og artikkel 10 (ytringsfrihet)", "Artikkel 100 og 101", "Artikkel 1 (personvern) og artikkel 2 (ytringsfrihet) i konvensjonen", "Artikkel 5 (personvern) og artikkel 6 (ytringsfrihet) i konvensjonen"],
+      options: ["Artikkel 8 (personvern) og artikkel 10 (ytringsfrihet)", "Artikkel 100 og 101 i Den europeiske menneskerettskonvensjonen", "Artikkel 1 (personvern) og artikkel 2 (ytringsfrihet) i konvensjonen", "Artikkel 5 (personvern) og artikkel 6 (ytringsfrihet) i konvensjonen"],
       explanation: 'EMK artikkel 8 verner om privatlivet (personvern), mens artikkel 10 verner om ytringsfriheten.',
     },
     {
       question: 'Hva er mediefritaket i GDPR?',
-      options: ["Et unntak som lar mediene behandle personopplysninger for journalistiske formål", "Et forbud mot all journalistikk", "En kommersiell avtale om at plattformene betaler mediene for personopplysninger", "Et generelt forbud mot at mediene overhodet driver oppsøkende journalistisk virksomhet"],
+      options: ["Et unntak som lar mediene behandle personopplysninger for journalistiske formål", "Et forbud mot all journalistisk virksomhet i mediene", "En kommersiell avtale om at plattformene betaler mediene for personopplysninger", "Et generelt forbud mot at mediene driver oppsøkende journalistikk"],
       explanation: 'Mediefritaket i GDPR er et unntak som gjør at mediene kan behandle personopplysninger for journalistiske, kunstneriske eller litterære formål.',
     },
     {
       question: 'Hvordan avgjøres det hvilken rettighet som veier tyngst?',
-      options: ["Domstolene veier rettighetene mot hverandre i den konkrete saken", "Ytringsfrihet vinner alltid uansett", "Spørsmålet avgjøres ved loddtrekning mellom de to motstridende rettighetene", "Ytringsfriheten går alltid foran uansett hvor inngripende omtalen måtte være"],
+      options: ["Domstolene veier rettighetene mot hverandre i den konkrete saken", "Ytringsfrihet vinner alltid uansett, fordi den er nedfelt i Grunnloven", "Spørsmålet avgjøres ved loddtrekning mellom de to motstridende rettighetene", "Ytringsfriheten går alltid foran uansett hvor inngripende omtalen måtte være"],
       explanation: 'Når rettighetene kolliderer, må domstolene veie dem mot hverandre i den konkrete saken, basert på blant annet sakens offentlige interesse.',
     },
   ],
@@ -333,61 +333,61 @@ const quizData_medieinfo_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva gir offentleglova rett til?',
-      options: ["Innsyn i dokumenter i offentlig virksomhet", "Å skjule offentlige dokumenter", "Å skjule offentlige dokumenter for pressen når forvaltningen selv ønsker det", "Å publisere reklame"],
+      options: ["Innsyn i dokumenter i offentlig virksomhet", "Å skjule offentlige dokumenter", "Å skjule offentlige dokumenter for pressen når forvaltningen selv ønsker det", "Å publisere reklame for det offentlige"],
       explanation: 'Offentleglova gir enhver rett til å kreve innsyn i dokumenter i offentlig virksomhet, og er et viktig verktøy for journalister.',
     },
     {
       question: 'Hva regulerer åndsverkloven i mediesammenheng?',
-      options: ["Opphavsrett til verk som tekst, bilder og film", "Reklamepriser", "Personvernet til enkeltpersoner som blir omtalt eller avbildet i mediene", "Hvordan valg og folkeavstemninger skal gjennomføres og dekkes av pressen"],
+      options: ["Opphavsrett til verk som tekst, bilder og film", "Hvilke reklamepriser og annonsetariffer mediene kan bruke", "Personvernet til enkeltpersoner som blir omtalt eller avbildet i mediene", "Hvordan valg og folkeavstemninger gjennomføres"],
       explanation: 'Åndsverkloven regulerer opphavsretten til verk som tekst, bilder, musikk og film, noe som er sentralt i mediebruk.',
     },
     {
       question: 'Hva er ærekrenkelse (injurie)?',
-      options: ["En ytring som skader en persons ære eller omdømme på urettmessig vis", "En offentlig debatt", "En sannferdig nyhetssak som avdekker kritikkverdige forhold i samfunnet", "En saklig offentlig debatt der partene fremmer motstridende synspunkter"],
+      options: ["En ytring som skader en persons ære eller omdømme på urettmessig vis", "En offentlig debatt om en kjent persons handlinger", "En sannferdig nyhetssak som avdekker kritikkverdige forhold i samfunnet", "En saklig offentlig debatt der partene fremmer motstridende synspunkter"],
       explanation: 'Ærekrenkelse (injurie) er en ytring som på urettmessig vis skader en persons ære eller omdømme, og er regulert i lovverket.',
     },
     {
       question: 'Hvorfor er offentleglova kalt et av journalistikkens viktigste verktøy?',
-      options: ["Den gir tilgang til offentlige dokumenter som kan avdekke kritikkverdige forhold", "Den gjelder bare private bedrifter", "Den gjelder bare private bedrifter og gir ingen tilgang til offentlige dokumenter", "Den handler utelukkende om reklame og påvirker ikke journalistenes daglige kildearbeid"],
+      options: ["Den gir tilgang til offentlige dokumenter som kan avdekke kritikkverdige forhold", "Den gjelder bare private bedrifter, og journalister må derfor be dem om innsyn selv", "Den gjelder bare private bedrifter og gir ingen tilgang til offentlige dokumenter", "Den handler utelukkende om reklame og påvirker ikke journalistenes daglige kildearbeid"],
       explanation: 'Offentleglova er et viktig verktøy fordi den gir journalister tilgang til offentlige dokumenter som kan avdekke kritikkverdige forhold.',
     },
   ],
   'medieinfo-2-3-4': [
     {
       question: 'Hva er en deepfake?',
-      options: ["Manipulert, syntetisk video eller lyd laget med kunstig intelligens", "En vanlig nyhetsvideo", "Komprimert videoformat som strømmetjenester bruker for å spare båndbredde", "Interaktiv video der seeren selv velger hvordan handlingen skal utvikle seg"],
+      options: ["Manipulert, syntetisk video eller lyd laget med kunstig intelligens", "En helt vanlig nyhetsvideo som er filmet og klippet av en redaksjon selv", "Komprimert videoformat som strømmetjenester bruker for å spare båndbredde", "Interaktiv video der seeren selv velger hvordan handlingen skal utvikle seg"],
       explanation: 'En deepfake er manipulert, syntetisk video eller lyd laget med kunstig intelligens, som kan se eller høres ekte ut.',
     },
     {
       question: 'Hvilken etisk utfordring reiser AI-generert innhold i journalistikk?',
-      options: ["Spørsmål om sannhet, ansvar og åpenhet om hva som er maskinlaget", "Bare prisen på verktøyene", "Spørsmål om hvilke skrifttyper og fargevalg som fungerer best på skjerm", "Spørsmål om hvor raskt maskinene klarer å produsere lange nyhetsartikler"],
+      options: ["Spørsmål om sannhet, ansvar og åpenhet om hva som er maskinlaget", "Bare prisen på de tekniske verktøyene", "Spørsmål om hvilke skrifttyper som fungerer best på skjerm", "Spørsmål om hvor raskt maskinene produserer artikler"],
       explanation: 'AI-generert innhold reiser etiske spørsmål om sannhet, ansvar og åpenhet om hva som er produsert av maskiner snarere enn mennesker.',
     },
     {
       question: 'Hva er algoritmisk kurasjon?',
-      options: ["At algoritmer velger ut og sorterer hvilket innhold vi ser", "At redaksjoner velger alt manuelt", "At innholdet vises i den rekkefølgen det ble lastet opp, helt uten sortering", "At myndighetene godkjenner hvilket innhold plattformene får lov til å vise oss"],
+      options: ["At algoritmer velger ut og sorterer hvilket innhold vi ser", "At redaksjonene velger ut alt innholdet manuelt", "At innholdet vises i den rekkefølgen det ble lastet opp, helt uten sortering", "At myndighetene godkjenner hvilket innhold plattformene får lov til å vise oss"],
       explanation: 'Algoritmisk kurasjon innebærer at algoritmer på plattformer som Facebook og TikTok velger ut og sorterer hvilket innhold hver bruker ser.',
     },
     {
       question: 'Hvorfor er teknologi en etisk utfordring for mediene?',
-      options: ["Ny teknologi skaper dilemmaer raskere enn lovverk og presseetikk klarer å følge", "Fordi teknologi ikke påvirker medier", "Fordi teknologi bare kan brukes av store redaksjoner og aldri av vanlige publikum", "Fordi teknologi gjør at lovverket og presseetikken blir helt overflødige for mediene"],
+      options: ["Ny teknologi skaper dilemmaer raskere enn lovverk og presseetikk klarer å følge", "Fordi teknologi ikke påvirker mediene i det hele tatt", "Fordi teknologi bare kan brukes av store redaksjoner og aldri av vanlige publikum", "Fordi teknologi gjør lovverket og presseetikken overflødige"],
       explanation: 'Teknologi er en etisk utfordring fordi ny teknologi som deepfakes og AI skaper nye dilemmaer raskere enn lovverket og presseetikken klarer å følge.',
     },
     {
       question: 'Hva er mikromålretting (mikromålrettet reklame)?',
-      options: ["Å rette reklame mot svært spesifikke grupper basert på persondata", "Å vise samme reklame til alle", "Å sende samme brede budskap til hele befolkningen gjennom riksdekkende kanaler", "Å samle inn persondata utelukkende for å beskytte brukerne mot uønsket reklame"],
+      options: ["Å rette reklame mot svært spesifikke grupper basert på persondata", "Å vise nøyaktig samme reklame til alle uansett hvem de er og hva de søker på", "Å sende samme brede budskap til hele befolkningen gjennom riksdekkende kanaler", "Å samle inn persondata for å beskytte brukerne mot reklame"],
       explanation: 'Mikromålretting er å rette reklame eller budskap mot svært spesifikke grupper basert på detaljerte persondata, noe som reiser etiske spørsmål.',
     },
   ],
   'medieinfo-2-3-5': [
     {
       question: 'Hva er kildevern?',
-      options: ["Retten til å beskytte anonyme kilders identitet", "Plikten til å oppgi alle kilder", "Plikten til alltid å oppgi kildens fulle navn i saken", "Vern av journalistens eget materiale mot innsyn utenfra"],
+      options: ["Retten til å beskytte anonyme kilders identitet", "Plikten til å oppgi alle kilder overfor sin egen redaktør", "Plikten til alltid å oppgi kildens fulle navn i saken", "Vern av journalistens eget materiale mot innsyn utenfra"],
       explanation: 'Kildevern er en av journalistikkens mest fundamentale rettigheter: retten til å beskytte identiteten til anonyme kilder.',
     },
     {
       question: 'Hvorfor er kildevern så viktig?',
-      options: ["Uten det ville mange viktige avsløringer aldri kommet fram", "Det gjør journalistikken billigere", "Uten det ville journalistene fått betydelig lavere lønn og status", "Uten det ville leserne mistet retten til å kommentere sakene selv"],
+      options: ["Uten det ville mange viktige avsløringer aldri kommet fram", "Det gjør journalistikken billigere", "Uten det ville journalistene fått lavere lønn", "Uten det ville leserne mistet retten til å kommentere"],
       explanation: 'Kildevern er viktig fordi mange av de viktigste avsløringene i pressehistorien aldri ville sett dagens lys uten muligheten til å beskytte anonyme kilder.',
     },
     {
@@ -397,19 +397,19 @@ const quizData_medieinfo_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hvorfor har behovet for faktasjekk økt?',
-      options: ["Sosiale medier og det digitale informasjonslandskapet sprer mer feilinformasjon", "Fordi all informasjon nå er sann", "Fordi antallet uavhengige nyhetskilder har blitt kraftig redusert de siste årene", "Fordi lovverket i dag krever at all informasjon på nett skal godkjennes på forhånd"],
+      options: ["Sosiale medier og det digitale informasjonslandskapet sprer mer feilinformasjon", "Fordi all informasjon på nett nå er kontrollert og sann", "Fordi antallet uavhengige nyhetskilder har blitt kraftig redusert de siste årene", "Fordi lovverket i dag krever at all informasjon på nett skal godkjennes på forhånd"],
       explanation: 'Behovet for faktasjekk har økt dramatisk med fremveksten av sosiale medier og det digitale informasjonslandskapet, der feilinformasjon spres lett.',
     },
     {
       question: 'Hva er forskjellen mellom kildevern og kildekritikk?',
-      options: ["Kildevern beskytter kilders identitet, kildekritikk vurderer kilders pålitelighet", "Kildevern vurderer om informasjonen stemmer, kildekritikk skjuler kildens navn", "Kildevern gjelder trykte medier, mens kildekritikk bare gjelder digitale plattformer", "Kildevern er journalistens plikt til å oppgi kilder, kildekritikk er lesernes ansvar"],
+      options: ["Kildevern beskytter kilders identitet, kildekritikk vurderer kilders pålitelighet", "Kildevern vurderer om informasjonen stemmer, kildekritikk skjuler kildens navn", "Kildevern gjelder trykte medier, mens kildekritikk bare gjelder digitale plattformer", "Kildevern er journalistens plikt til å oppgi kilder"],
       explanation: 'Kildevern handler om å beskytte anonyme kilders identitet, mens kildekritikk handler om å vurdere om informasjonen fra en kilde er pålitelig.',
     },
   ],
   'medieinfo-2-4-1': [
     {
       question: 'Hvorfor er frie medier viktige for demokratiet?',
-      options: ["De gir borgerne informasjon, er debattarena og kontrollerer makthaverne", "De utnevner regjeringen og fordeler statsrådspostene mellom partiene", "De vedtar lovene og setter dem ut i live gjennom forvaltningen", "De avsier dommer og avgjør rettstvister mellom borgere og stat"],
+      options: ["De gir borgerne informasjon, er debattarena og kontrollerer makthaverne", "De utnevner regjeringen og fordeler statsrådspostene mellom partiene på Stortinget", "De vedtar lovene og setter dem ut i live gjennom forvaltningen", "De avsier dommer og avgjør rettstvister mellom borgere og stat"],
       explanation: 'Frie medier er viktige fordi de gir borgerne informasjon, fungerer som arena for debatt og kontrollerer makthaverne på vegne av folket.',
     },
     {
@@ -419,7 +419,7 @@ const quizData_medieinfo_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er informasjonsfunksjonen i medienes demokratiske rolle?',
-      options: ["Å gi borgerne den informasjonen de trenger for å delta i demokratiet", "Å underholde publikum slik at de kobler av fra politikk og samfunn", "Å selge annonseplass til aktørene som ønsker å nå ut til velgerne", "Å velge ut hvilke saker borgerne skal få lov til å mene noe om"],
+      options: ["Å gi borgerne den informasjonen de trenger for å delta i demokratiet", "Å underholde publikum med lett stoff slik at de kobler av fra politikk", "Å selge annonseplass til partier og organisasjoner som vil nå ut til velgerne", "Å velge ut hvilke saker borgerne skal få lov til å mene noe om i valgkampen"],
       explanation: 'Informasjonsfunksjonen innebærer å gi borgerne den informasjonen de trenger for å kunne delta i demokratiske prosesser.',
     },
     {
@@ -429,14 +429,14 @@ const quizData_medieinfo_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hvilken utfordring møter medienes demokratiske rolle i dag?',
-      options: ["Blant annet fallende tillit, plattformøkonomi og desinformasjon", "At ingen lenger bruker medier", "At alt medieinnhold nå produseres og eies direkte av staten alene", "At reklamefinansiering av medier er blitt forbudt ved lov i Norge"],
+      options: ["Blant annet fallende tillit, plattformøkonomi og desinformasjon", "At ingen lenger bruker medier i det hele tatt", "At alt medieinnhold nå produseres og eies direkte av staten alene", "At reklamefinansiering av medier er blitt forbudt ved lov i Norge"],
       explanation: 'Medienes demokratiske rolle utfordres i dag av blant annet fallende tillit, plattformøkonomi og spredning av desinformasjon.',
     },
   ],
   'medieinfo-2-4-2': [
     {
       question: 'Hva er politisk retorikk?',
-      options: ["Bevisste grep politikere bruker for å overbevise publikum", "Nøytral formidling av fakta uten noe forsøk på å påvirke", "En uavhengig tjeneste som kontrollerer politikeres utsagn", "En bindende lovtekst som regulerer politikeres opptreden"],
+      options: ["Bevisste grep politikere bruker for å overbevise publikum", "Nøytral formidling av fakta uten noe forsøk på å påvirke velgerne", "En uavhengig tjeneste som kontrollerer politikeres utsagn i debatter", "En bindende lovtekst som regulerer politikeres opptreden offentlig"],
       explanation: 'Politisk retorikk er de bevisste grepene politikere bruker for å overbevise velgere og vinne debatter.',
     },
     {
@@ -451,19 +451,19 @@ const quizData_medieinfo_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hvor går en sentral grense i politisk kommunikasjon?',
-      options: ["Mellom legitim overbevisning og manipulasjon", "Mellom papir og digitalt", "Mellom kommunikasjon på bokmål og på nynorsk", "Mellom trykte aviser og digitale nyhetsplattformer"],
+      options: ["Mellom legitim overbevisning og manipulasjon", "Mellom trykt papir og digitale medieplattformer", "Mellom kommunikasjon på bokmål og på nynorsk", "Mellom trykte aviser og digitale nyhetsplattformer"],
       explanation: 'En sentral grense går mellom legitim overbevisning (saklig argumentasjon) og manipulasjon (villedning og uærlige grep).',
     },
     {
       question: 'Hva er et eksempel på en retorisk strategi i politikken?',
-      options: ["Forenkling og bruk av slagord", "Å unngå all kommunikasjon", "Å unngå enhver form for kommunikasjon med velgerne", "Å skjule budskapet helt"],
+      options: ["Forenkling og bruk av slagord", "Å unngå all kommunikasjon i valgkampen", "Å unngå enhver form for kommunikasjon med velgerne", "Å skjule budskapet helt for velgerne"],
       explanation: 'Forenkling og bruk av slagord er en vanlig retorisk strategi, der komplekse saker gjøres lette å huske og spre.',
     },
   ],
   'medieinfo-2-4-3': [
     {
       question: 'Hva er agenda-setting i valgkampdekning?',
-      options: ["At mediene påvirker hvilke saker velgerne oppfatter som viktige", "At velgerne fullstendig styrer hvilke saker mediene dekker", "At mediene direkte avgjør hvilket parti som vinner valget", "At all politisk reklame er forbudt i valgkampperioden"],
+      options: ["At mediene påvirker hvilke saker velgerne oppfatter som viktige", "At velgerne fullstendig styrer hvilke saker mediene velger å dekke", "At mediene direkte avgjør hvilket parti som vinner valget", "At all politisk reklame er forbudt i valgkampperioden"],
       explanation: 'Agenda-setting innebærer at mediene påvirker hvilke saker velgerne oppfatter som viktige, ved hva de velger å dekke.',
     },
     {
@@ -473,7 +473,7 @@ const quizData_medieinfo_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er personifisering i valgkampdekning?',
-      options: ["At fokuset legges på enkeltpolitikere fremfor saker og partier", "At redaksjonene dekker valgkampen helt uten egne journalister", "At dekningen kun tar for seg partienes skriftlige programmer", "At velgernes egne synspunkter aldri kommer fram i dekningen"],
+      options: ["At fokuset legges på enkeltpolitikere fremfor saker og partier", "At redaksjonene dekker valgkampen helt uten å bruke egne journalister", "At dekningen kun tar for seg partienes skriftlige partiprogrammer", "At velgernes egne synspunkter aldri kommer fram i mediedekningen"],
       explanation: 'Personifisering innebærer at dekningen fokuserer på enkeltpolitikere og deres personlighet framfor saker og partiprogrammer.',
     },
     {
@@ -483,7 +483,7 @@ const quizData_medieinfo_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er en etisk utfordring ved medienes valgkampdekning?',
-      options: ["At fokus på kappløp og personer kan fortrenge dekningen av viktige saker", "At dekningen alltid er fullstendig balansert og feilfri i valgkampen", "At all politisk reklame er forbudt i mediene under valgkampen", "At velgerne ikke lenger eksisterer som målgruppe for mediene"],
+      options: ["At fokus på kappløp og personer kan fortrenge dekningen av viktige saker", "At dekningen alltid er fullstendig balansert og feilfri i hele valgkampperioden", "At all politisk reklame er forbudt i alle norske medier under valgkampen", "At velgerne ikke lenger eksisterer som en egen målgruppe for norske medier"],
       explanation: 'En etisk utfordring er at fokus på meningsmålinger og personer («horse race» og personifisering) kan fortrenge dekningen av viktige politiske saker.',
     },
   ],
@@ -500,7 +500,7 @@ const quizData_medieinfo_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er et ekkokammer?',
-      options: ["Et miljø der man hovedsakelig møter synspunkter man allerede deler", "En personverninnstilling", "En søkemotor som rangerer treffene etter hvor pålitelige kildene er", "Et lydstudio der stemmen forsterkes og gjentas for spesielle effekter"],
+      options: ["Et miljø der man hovedsakelig møter synspunkter man allerede deler", "En personverninnstilling som styrer hvem som får se innleggene dine på nett", "En søkemotor som rangerer treffene etter hvor pålitelige kildene er", "Et lydstudio der stemmen forsterkes og gjentas for spesielle effekter"],
       explanation: 'Et ekkokammer er et miljø der man hovedsakelig møter og får forsterket synspunkter man allerede deler, mens motforestillinger sjelden slipper inn.',
     },
     {
@@ -510,14 +510,14 @@ const quizData_medieinfo_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hvordan kan desinformasjon true demokratiet via sosiale medier?',
-      options: ["Den kan spre seg raskt og undergrave tillit og en felles virkelighetsforståelse", "Den styrker alltid demokratiet ved å tilføre mer informasjon til debatten", "Den har ingen målbar effekt fordi brukerne alltid gjennomskuer den straks", "Den angår utelukkende kommersiell reklame og ikke politisk informasjon"],
+      options: ["Den kan spre seg raskt og undergrave tillit og en felles virkelighetsforståelse", "Den styrker alltid demokratiet ved å tilføre mer informasjon til den offentlige debatten", "Den har ingen målbar effekt, siden brukerne straks gjennomskuer alle falske påstander", "Den angår utelukkende kommersiell reklame, ikke politikk"],
       explanation: 'Desinformasjon kan spre seg raskt på sosiale medier og undergrave tillit og en felles virkelighetsforståelse, noe som truer demokratiet.',
     },
   ],
   'medieinfo-2-4-5': [
     {
       question: 'Hva kjennetegner undersøkende journalistikk?',
-      options: ["Journalister bruker lang tid på å avdekke forhold noen ønsker å holde skjult", "Journalister lager ren underholdning basert på kjendisstoff og sladder", "Journalister publiserer betalt reklame skjult som redaksjonelt innhold", "Journalister gjengir raskt ferdige pressemeldinger uten egen research"],
+      options: ["Journalister bruker lang tid på å avdekke forhold noen ønsker å holde skjult", "Journalister lager ren underholdning bygd på kjendisstoff og løse rykter fra nettet", "Journalister publiserer betalt reklame skjult som helt vanlig redaksjonelt innhold", "Journalister gjengir raskt ferdige pressemeldinger uten å gjøre egen research"],
       explanation: 'Undersøkende journalistikk kjennetegnes av at journalister bruker uker, måneder eller år på å avdekke forhold som noen ønsker å holde skjult.',
     },
     {
@@ -532,12 +532,12 @@ const quizData_medieinfo_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hvorfor regnes undersøkende journalistikk som viktig i et demokrati?',
-      options: ["Uten den ville korrupsjon og maktmisbruk i større grad forbli skjult", "Fordi den først og fremst fungerer som underholdning for publikum", "Fordi den styrker makthavernes kontroll over informasjonsstrømmen", "Fordi den er en ren formalitet uten reell demokratisk funksjon"],
+      options: ["Uten den ville korrupsjon og maktmisbruk i større grad forbli skjult", "Fordi den først og fremst fungerer som underholdning for et bredt publikum", "Fordi den styrker makthavernes kontroll over hele informasjonsstrømmen", "Fordi den er en ren formalitet uten reell demokratisk funksjon"],
       explanation: 'Undersøkende journalistikk er viktig fordi korrupsjon, maktmisbruk og urett i langt større grad ville forblitt skjult for offentligheten uten den.',
     },
     {
       question: 'Hva skiller undersøkende journalistikk fra daglig nyhetsjournalistikk?',
-      options: ["Den følger en systematisk metode over lang tid for å avdekke skjulte forhold", "Den bruker som regel ingen kilder og baserer seg på journalistens gjetning", "Den gjengir kun ferdige pressemeldinger uten selvstendig gransking", "Den er alltid raskere, mer overflatisk og bygger på løse rykter"],
+      options: ["Den følger en systematisk metode over lang tid for å avdekke skjulte forhold", "Den bruker som regel ingen kilder og baserer seg helt på journalistens gjetning", "Den gjengir kun ferdige pressemeldinger uten noen form for selvstendig gransking", "Den er alltid raskere og mer overflatisk, og bygger som regel på ubekreftede rykter"],
       explanation: 'Undersøkende journalistikk skiller seg fra daglig nyhetsjournalistikk ved å følge en systematisk metode over lang tid for å avdekke skjulte forhold.',
     },
   ],
@@ -559,12 +559,12 @@ const quizData_medieinfo_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva bestemmer i stor grad hvilke nyheter som når oss globalt?',
-      options: ["Store mediekonglomerater og internasjonale nyhetsbyråer", "Bare lokale aviser", "Utelukkende publikum gjennom hva de klikker og deler på nettet", "Utelukkende små lokale aviser og deres redaksjonelle prioriteringer"],
+      options: ["Store mediekonglomerater og internasjonale nyhetsbyråer", "Bare lokale aviser og deres egne journalister ute i felten", "Utelukkende publikum gjennom hva de klikker og deler på nettet", "Utelukkende små lokale aviser og deres redaksjonelle prioriteringer"],
       explanation: 'Store mediekonglomerater og internasjonale nyhetsbyråer påvirker i stor grad hvilke nyheter som når oss i den globale informasjonsstrømmen.',
     },
     {
       question: 'Hvorfor reiser nyheter raskere enn noensinne?',
-      options: ["Digital teknologi gjør at informasjon kan nå milliarder på sekunder", "Fordi nyheter i realiteten ikke spres videre utenfor lokalmiljøet", "Fordi nyheter i hovedsak fraktes fysisk med fly mellom landene", "Fordi nyheter sendes med tradisjonell post og trykte aviser"],
+      options: ["Digital teknologi gjør at informasjon kan nå milliarder på sekunder", "Fordi nyheter i realiteten ikke spres videre utenfor sitt eget lokalmiljø", "Fordi nyheter i hovedsak fraktes fysisk med fly mellom landene i verden", "Fordi nyheter sendes med tradisjonell post og trykte aviser"],
       explanation: 'Nyheter reiser raskere enn noensinne fordi digital teknologi gjør at informasjon kan nå milliarder av mennesker på sekunder.',
     },
   ],
@@ -581,29 +581,29 @@ const quizData_medieinfo_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva kan skje med lokale kulturer når vestlig medieinnhold dominerer?',
-      options: ["Lokale kulturuttrykk kan svekkes, men det finnes også motstand og alternativer", "Ingenting endrer seg, siden lokale kulturer er upåvirkelige av medier", "All lokal kultur forsvinner umiddelbart og fullstendig ved dominansen", "Lokale kulturuttrykk styrkes alltid og blir mer synlige enn før"],
+      options: ["Lokale kulturuttrykk kan svekkes, men det finnes også motstand og alternativer", "Ingenting endrer seg, siden lokale kulturer er helt upåvirkelige av utenlandske medier", "All lokal kultur forsvinner umiddelbart og fullstendig når vestlige medier dominerer", "Lokale kulturuttrykk styrkes alltid og blir langt mer synlige enn de var tidligere"],
       explanation: 'Når vestlig medieinnhold dominerer, kan lokale kulturuttrykk svekkes, men det finnes også motstand og lokale alternativer.',
     },
     {
       question: 'Hva er kulturell globalisering?',
-      options: ["At kulturelle uttrykk sprer seg på tvers av landegrenser", "At all kultur forsvinner", "At all lokal kultur gradvis forsvinner og erstattes av tomrom", "At kun økonomiske varer, og ikke kulturuttrykk, sprer seg globalt"],
+      options: ["At kulturelle uttrykk sprer seg på tvers av landegrenser", "At all kultur forsvinner og erstattes av ett globalt uttrykk", "At all lokal kultur gradvis forsvinner og erstattes av tomrom", "At kun økonomiske varer sprer seg globalt"],
       explanation: 'Kulturell globalisering innebærer at kulturelle uttrykk, verdier og levemåter sprer seg på tvers av landegrenser.',
     },
     {
       question: 'Hva er en kritikk av medieimperialisme-teorien?',
-      options: ["Den undervurderer hvordan lokale kulturer aktivt tolker og tilpasser innhold", "At den fullstendig avviser at global medieutveksling har noen påvirkning", "At den overdriver hvor sterke og motstandsdyktige lokale kulturer er", "At den utelukkende handler om økonomi og overser kulturelle forhold"],
+      options: ["Den undervurderer hvordan lokale kulturer aktivt tolker og tilpasser innhold", "At den fullstendig avviser at global medieutveksling har noen som helst påvirkning", "At den overdriver hvor sterke og motstandsdyktige de lokale kulturene faktisk er", "At den utelukkende handler om økonomi og overser kulturelle forhold"],
       explanation: 'En kritikk er at teorien kan undervurdere hvordan lokale kulturer aktivt tolker, tilpasser og gjør motstand mot vestlig medieinnhold.',
     },
   ],
   'medieinfo-2-5-3': [
     {
       question: 'Hvordan fungerer mediene i et demokratisk system?',
-      options: ["Som «den fjerde statsmakt» som overvåker makthaverne", "Som statlige propagandaorganer", "Som rene reklamekanaler i annonsørenes og næringslivets tjeneste", "Som statlige propagandaorganer styrt direkte av de sittende makthaverne"],
+      options: ["Som «den fjerde statsmakt» som overvåker makthaverne", "Som statlige propagandaorganer med egen sensurmyndighet over innholdet", "Som rene reklamekanaler i annonsørenes og næringslivets tjeneste", "Som statlige propagandaorganer styrt direkte av de sittende makthaverne"],
       explanation: 'I demokratiske systemer fungerer mediene som «den fjerde statsmakt» som overvåker de tre andre statsmaktene.',
     },
     {
       question: 'Hva kjennetegner mediene i totalitære systemer?',
-      options: ["Fullstendig statlig kontroll over informasjon og medier", "Mangfold av perspektiver", "Et bredt mangfold av ulike perspektiver og kritiske stemmer", "Et totalt fravær av medier og informasjonskanaler i samfunnet"],
+      options: ["Fullstendig statlig kontroll over informasjon og medier", "Mangfold av perspektiver og fri konkurranse mellom ulike medier", "Et bredt mangfold av ulike perspektiver og kritiske stemmer", "Et totalt fravær av medier og informasjonskanaler i samfunnet"],
       explanation: 'I totalitære systemer kjennetegnes mediene av fullstendig statlig kontroll over informasjon og innhold.',
     },
     {
@@ -613,7 +613,7 @@ const quizData_medieinfo_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva risikerer journalister i mange land uten pressefrihet?',
-      options: ["Fengsling, forfølgelse eller verre for å gjøre jobben sin", "Ingen konsekvenser", "Høyere lønn og bonus for å avdekke kritikkverdige forhold", "Ingen konsekvenser, siden pressefrihet gjelder likt i alle land"],
+      options: ["Fengsling, forfølgelse eller verre for å gjøre jobben sin", "Ingen konsekvenser utover kritikk fra myndighetene", "Høyere lønn og bonus for å avdekke kritikkverdige forhold", "Ingen konsekvenser, siden pressefrihet gjelder likt i alle land"],
       explanation: 'I mange land risikerer journalister fengsling, forfølgelse, tortur og død for å gjøre jobben sin der pressefriheten er truet.',
     },
     {
@@ -630,7 +630,7 @@ const quizData_medieinfo_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er en trollfabrikk?',
-      options: ["En organisasjon som ansetter folk til å spre koordinert desinformasjon", "En helt vanlig nyhetsredaksjon som følger presseetiske retningslinjer", "En uavhengig faktasjekktjeneste som avdekker og korrigerer falske påstander", "Et reklamebyrå som lager kommersielle kampanjer for kunder på nett"],
+      options: ["En organisasjon som ansetter folk til å spre koordinert desinformasjon", "En helt vanlig nyhetsredaksjon som følger de presseetiske retningslinjene", "En uavhengig faktasjekktjeneste som avdekker og korrigerer falske påstander", "Et reklamebyrå som lager kommersielle kampanjer for kunder på nett og TV"],
       explanation: 'En trollfabrikk er en organisasjon som ansetter folk til å spre koordinert desinformasjon og påvirke offentlig debatt, ofte med falske profiler.',
     },
     {
@@ -640,7 +640,7 @@ const quizData_medieinfo_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hvorfor har digitaliseringen forsterket desinformasjon?',
-      options: ["Den har gjort det enklere, billigere og raskere å spre falsk informasjon", "Den har ingen målbar effekt på hvordan falsk informasjon sprer seg", "Den har gjort spredning av desinformasjon praktisk talt umulig", "Den har i praksis forbudt all informasjonsdeling på nettet"],
+      options: ["Den har gjort det enklere, billigere og raskere å spre falsk informasjon", "Den har ingen målbar effekt på hvordan falsk informasjon sprer seg i samfunnet", "Den har gjort spredning av desinformasjon praktisk talt umulig på nett og i sosiale medier", "Den har i praksis forbudt all deling av informasjon mellom brukere på nettet"],
       explanation: 'Digitaliseringen har gjort det enklere, billigere og raskere å spre falsk informasjon til millioner av mennesker.',
     },
     {
@@ -657,12 +657,12 @@ const quizData_medieinfo_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Omtrent hvor mange mennesker mangler fortsatt internettilgang globalt?',
-      options: ['Rundt 2,6 milliarder', 'Rundt 100 millioner', 'Ingen', 'Hele verdens befolkning'],
+      options: ['Rundt 2,6 milliarder', 'Rundt 100 millioner', 'Ingen mennesker', 'Hele verdens befolkning'],
       explanation: 'Globalt er omtrent 2,6 milliarder mennesker (rundt en tredjedel av verdens befolkning) fortsatt uten internettilgang.',
     },
     {
       question: 'Hva er en konsekvens av den digitale kløften?',
-      options: ["Ulik tilgang til informasjon, utdanning og deltakelse", "At alle får like muligheter", "At digital teknologi gradvis forsvinner fra samfunnet", "At alle får nøyaktig like muligheter uavhengig av teknologi"],
+      options: ["Ulik tilgang til informasjon, utdanning og deltakelse", "At alle får like muligheter til å delta i samfunnslivet digitalt", "At digital teknologi gradvis forsvinner fra hele samfunnet", "At alle får nøyaktig like muligheter uavhengig av teknologi"],
       explanation: 'En konsekvens av den digitale kløften er ulik tilgang til informasjon, utdanning, økonomi og demokratisk deltakelse.',
     },
     {
@@ -672,24 +672,24 @@ const quizData_medieinfo_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hvorfor er den digitale kløften et viktig samfunnsspørsmål?',
-      options: ["Den forsterker eksisterende ulikheter i en stadig mer digital verden", "Den løser seg selv over tid uten politiske eller sosiale tiltak", "Den gjelder utelukkende reklame og kommersielt innhold på nett", "Den har ingen samfunnsmessig betydning i en digital verden"],
+      options: ["Den forsterker eksisterende ulikheter i en stadig mer digital verden", "Den løser seg selv over tid, helt uten politiske eller sosiale tiltak fra staten", "Den gjelder utelukkende reklame og annet kommersielt innhold på nettet", "Den har ingen samfunnsmessig betydning i dag"],
       explanation: 'Den digitale kløften er viktig fordi den forsterker eksisterende ulikheter i en verden der stadig mer informasjon, utdanning og deltakelse er digital.',
     },
   ],
   'medieinfo-2-6-1': [
     {
       question: 'Hva trodde de tidligste medieforskerne om medienes makt?',
-      options: ["At mediene hadde nærmest ubegrenset makt over et passivt publikum", "At mediene ikke påvirket noen mennesker overhodet i noen retning", "At publikum var helt kritisk og fullstendig immunt mot påvirkning", "At publikum selv styrte mediene og bestemte innholdet fullt ut"],
+      options: ["At mediene hadde nærmest ubegrenset makt over et passivt publikum", "At mediene ikke påvirket noen mennesker overhodet, uansett hvor mye de brukte dem", "At publikum var helt kritisk og fullstendig immunt mot påvirkning", "At publikum selv styrte mediene og bestemte innholdet fullt ut"],
       explanation: 'De tidligste medieforskerne trodde at mediene hadde nærmest ubegrenset makt over et passivt publikum.',
     },
     {
       question: 'Hva har nyere medieforskning vist om publikum?',
-      options: ["At publikum er aktive, kritiske og fortolkende mottakere", "At publikum er helt passivt", "At publikum påvirkes likt av mediene uansett bakgrunn, alder og erfaring", "At publikum sjelden reflekterer over eller tolker innholdet de eksponeres for"],
+      options: ["At publikum er aktive, kritiske og fortolkende mottakere", "At publikum er helt passivt og tar imot alt uten motstand", "At publikum påvirkes likt av mediene uansett bakgrunn, alder og erfaring", "At publikum sjelden reflekterer over eller tolker innholdet de eksponeres for"],
       explanation: 'Nyere forskning har vist et mer nyansert bilde der publikum er aktive, kritiske og fortolkende mottakere, ikke passive.',
     },
     {
       question: 'Når vokste medieforskningen fram som fagfelt?',
-      options: ["I løpet av 1900-tallet, parallelt med massemediene", "På 1500-tallet", "På 1500-tallet, i kjølvannet av oppfinnelsen av boktrykkerkunsten", "I antikken, samtidig med de første retoriske og filosofiske skoler"],
+      options: ["I løpet av 1900-tallet, parallelt med massemediene", "På 1500-tallet, da de første trykte flygebladene begynte å spres", "På 1500-tallet, i kjølvannet av oppfinnelsen av boktrykkerkunsten", "I antikken, samtidig med de første retoriske og filosofiske skoler"],
       explanation: 'Medieforskning er et relativt ungt fagfelt som vokste fram i løpet av 1900-tallet, parallelt med utviklingen av massemediene.',
     },
     {
@@ -699,7 +699,7 @@ const quizData_medieinfo_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva utløste tidlig medieforskning på 1900-tallet?',
-      options: ["Studier av propagandaens virkninger under verdenskrigene", "Studier av kunstig intelligens", "Framveksten av sosiale medier og algoritmestyrte nyhetsstrømmer", "Utbredelsen av kommersielle strømmetjenester for film og musikk"],
+      options: ["Studier av propagandaens virkninger under verdenskrigene", "Studier av kunstig intelligens i redaksjonene", "Framveksten av sosiale medier og algoritmestyrte nyhetsstrømmer", "Utbredelsen av kommersielle strømmetjenester for film og musikk"],
       explanation: 'Tidlig medieforskning ble utløst av studier av propagandaens virkninger under verdenskrigene.',
     },
   ],
@@ -716,7 +716,7 @@ const quizData_medieinfo_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er en styrke ved kvantitative metoder?',
-      options: ["De kan studere store mengder data og gi generaliserbare konklusjoner", "De gir alltid resultater som ikke lar seg tallfeste eller analysere", "De går alltid grundig i dybden på enkelttilfeller og fanger mening", "De krever ingen innsamling av data og bygger kun på tolkning"],
+      options: ["De kan studere store mengder data og gi generaliserbare konklusjoner", "De gir alltid resultater som verken lar seg tallfeste eller analysere videre", "De går alltid grundig i dybden på enkelttilfeller og fanger opp mening", "De krever ingen innsamling av data i det hele tatt"],
       explanation: 'En styrke ved kvantitative metoder er at de kan studere store mengder data og gi generaliserbare konklusjoner.',
     },
     {
@@ -726,7 +726,7 @@ const quizData_medieinfo_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er en begrensning ved kvantitative metoder?',
-      options: ["De fanger ikke alltid opp dybde og mening bak tallene", "De gir aldri generaliserbare resultater", "De kan aldri håndtere store datamengder eller mange enheter", "De er alltid preget av forskerens subjektive tolkning av innholdet"],
+      options: ["De fanger ikke alltid opp dybde og mening bak tallene", "De gir aldri generaliserbare resultater om en befolkning", "De kan aldri håndtere store datamengder eller mange enheter", "De er alltid preget av forskerens subjektive tolkning av innholdet"],
       explanation: 'En begrensning ved kvantitative metoder er at de fanger bredden og tallene, men ikke alltid dybden og meningen bak dem.',
     },
   ],
@@ -738,12 +738,12 @@ const quizData_medieinfo_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er et typisk spørsmål i kvalitativ medieforskning?',
-      options: ["Hva betyr denne medieteksten, og hvordan opplever folk den?", "Hvor mange leste artikkelen, og hvor lenge ble den vist?", "Hvilken farge og skrifttype har mediets logo og overskrift?", "Hvor mye koster avisen, og hvor mange annonser inneholder den?"],
+      options: ["Hva betyr denne medieteksten, og hvordan opplever folk den?", "Hvor mange leste artikkelen, og hvor lenge ble den vist på forsiden?", "Hvilken farge og skrifttype har mediets logo og overskrifter?", "Hvor mye koster avisen, og hvor mange annonser inneholder den?"],
       explanation: 'Kvalitative metoder stiller spørsmål som hva en medietekst betyr og hvordan folk opplever og tolker medieinnhold.',
     },
     {
       question: 'Hva er tekstanalyse i kvalitativ medieforskning?',
-      options: ["En nærlesning av hvordan medietekster skaper mening", "Å telle ord statistisk", "En form for reklame tilpasset ulike publikumsgrupper", "En bred spørreundersøkelse om folks holdninger og vaner"],
+      options: ["En nærlesning av hvordan medietekster skaper mening", "Å telle ord og setninger statistisk", "En form for reklame tilpasset ulike publikumsgrupper", "En bred spørreundersøkelse om folks holdninger og vaner"],
       explanation: 'Tekstanalyse er en kvalitativ metode der man nærleser hvordan medietekster skaper mening, ofte med semiotiske eller diskursanalytiske verktøy.',
     },
     {
@@ -753,24 +753,24 @@ const quizData_medieinfo_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er etnografi som metode?',
-      options: ["Å studere mennesker og praksiser i deres naturlige sammenheng", "En bred statistisk spørreundersøkelse i en stor befolkning", "En form for målrettet reklame tilpasset ulike grupper", "En systematisk metode for å faktasjekke medieinnhold"],
+      options: ["Å studere mennesker og praksiser i deres naturlige sammenheng", "En bred statistisk spørreundersøkelse i en stor og variert befolkning", "En form for målrettet reklame som er tilpasset ulike aldersgrupper", "En systematisk metode for å faktasjekke påstander i medieinnhold"],
       explanation: 'Etnografi er en kvalitativ metode der man studerer mennesker og praksiser i deres naturlige sammenheng, for eksempel mediebruk i hverdagen.',
     },
   ],
   'medieinfo-2-6-4': [
     {
       question: 'Hva handler publikumsforskning om?',
-      options: ["Å forstå hvem publikum er, hva de bruker mediene til og hvordan vanene endrer seg", "Bare å lage reklame som er tilpasset ulike publikumsgrupper og plattformer", "Å produsere nyheter og annet redaksjonelt innhold tilpasset ulike kanaler", "Å sensurere og fjerne medieinnhold som anses som upassende for publikum"],
+      options: ["Å forstå hvem publikum er, hva de bruker mediene til og hvordan vanene endrer seg", "Bare å lage reklame som er tilpasset ulike publikumsgrupper, plattformer og kanaler", "Å produsere nyheter og annet redaksjonelt innhold tilpasset ulike kanaler", "Å sensurere og fjerne medieinnhold som anses som upassende for publikum"],
       explanation: 'Publikumsforskning handler om å forstå hvem mediepublikummet er, hva de bruker mediene til, og hvordan mediebruken endrer seg over tid.',
     },
     {
       question: 'Hvorfor er publikumstall viktige for mediebedrifter?',
-      options: ["Annonseinntekter avhenger av publikumstall", "De har ingen betydning", "De avgjør utfallet i rettssaker om medieansvar", "De brukes bare av staten til kringkastingslisenser"],
+      options: ["Annonseinntekter avhenger av publikumstall", "De har ingen betydning for driften", "De avgjør utfallet i rettssaker om medieansvar", "De brukes bare av staten til kringkastingslisenser"],
       explanation: 'Publikumstall er viktige for mediebedrifter fordi annonseinntektene avhenger av hvor mange og hvem som bruker mediene.',
     },
     {
       question: 'Hvilke grunnleggende spørsmål berører publikumsforskning utover tall?',
-      options: ["Spørsmål om demokrati, makt og personvern", "Bare spørsmål om farger", "Bare spørsmål om design, farger og layout", "Ingen andre spørsmål enn de rent tekniske"],
+      options: ["Spørsmål om demokrati, makt og personvern", "Bare spørsmål om farger og grafisk utforming", "Bare spørsmål om design, farger og layout i mediene", "Ingen andre spørsmål enn de rent tekniske og praktiske"],
       explanation: 'Publikumsforskning berører også grunnleggende spørsmål om demokrati, makt og personvern, blant annet hva selskapene vet om oss.',
     },
     {
@@ -780,14 +780,14 @@ const quizData_medieinfo_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hvilken personvernutfordring reiser digital publikumsforskning?',
-      options: ["At store mengder data om enkeltpersoner samles inn og brukes", "At det ikke samles inn noen data om enkeltbrukere", "At innsamlede data alltid er fullstendig anonyme", "At publikum ikke lar seg måle eller kartlegge"],
+      options: ["At store mengder data om enkeltpersoner samles inn og brukes", "At det ikke samles inn noen data om enkeltbrukere i det hele tatt", "At innsamlede data alltid er fullstendig anonyme og uten personspor", "At publikum verken lar seg måle eller kartlegge på digitale flater"],
       explanation: 'En personvernutfordring er at store mengder data om enkeltpersoner samles inn og brukes, og at det reiser spørsmål om hva selskapene vet om oss.',
     },
   ],
   'medieinfo-2-6-5': [
     {
       question: 'Hvorfor må all forskning følge etiske prinsipper?',
-      options: ["For å beskytte dem som deltar i forskningen", "For å gjøre forskningen dyrere", "For å skjule resultatene for offentligheten", "For å unngå å måtte publisere funnene åpent"],
+      options: ["For å beskytte dem som deltar i forskningen", "For å gjøre forskningen dyrere å gjennomføre", "For å skjule resultatene for offentligheten og pressen", "For å unngå å måtte publisere funnene i åpne kanaler"],
       explanation: 'All forskning må følge etiske prinsipper som beskytter dem som deltar, og kvalitetskrav som sikrer pålitelige resultater.',
     },
     {
@@ -802,12 +802,12 @@ const quizData_medieinfo_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hvorfor er kildekritikk viktig også overfor forskningsresultater?',
-      options: ["Resultater bør vurderes kritisk, særlig når de gjengis i mediene", "Fordi all publisert forskning er feilfri og endelig", "Fordi forskning aldri bygger på oppgitte kilder", "Fordi kildekritikk er forbudt overfor forskning"],
+      options: ["Resultater bør vurderes kritisk, særlig når de gjengis i mediene", "Fordi all publisert forskning er feilfri og gir endelige svar på spørsmålet", "Fordi forskning aldri bygger på kilder som er oppgitt i selve teksten", "Fordi kildekritikk er forbudt overfor forskning"],
       explanation: 'Kildekritikk er viktig overfor forskning fordi resultatene bør vurderes kritisk, særlig når de gjengis i mediene der nyanser ofte forsvinner.',
     },
     {
       question: 'Hvorfor har medieforskning egne etiske utfordringer?',
-      options: ["Den studerer ofte menneskers meninger og mediebruk, som kan være privat", "Den handler bare om maskiner og teknologiske systemer", "Den studerer aldri mennesker, bare tekster og tall", "Den har ingen etiske utfordringer i det hele tatt"],
+      options: ["Den studerer ofte menneskers meninger og mediebruk, som kan være privat", "Den handler bare om maskiner og teknologiske systemer, aldri om mennesker", "Den studerer aldri mennesker, men utelukkende ferdige tekster og tallmateriale", "Den har ingen etiske utfordringer, siden ingen enkeltpersoner deltar i den"],
       explanation: 'Medieforskning har egne etiske utfordringer fordi den ofte studerer menneskers meninger, opplevelser og mediebruk, som kan være privat og sensitivt.',
     },
   ],
@@ -819,12 +819,12 @@ const quizData_medieinfo_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hvilke typer artikler bruker nyhetsbyråer ofte KI til?',
-      options: ["Rutinemessige saker som sport, børs og vær", "Personlige kommentarer", "Dyptgående gravesaker som krever kritisk vurdering", "Personlige kommentarer og subjektive betraktninger"],
+      options: ["Rutinemessige saker som sport, børs og vær", "Personlige kommentarer skrevet av redaksjonens egne journalister", "Dyptgående gravesaker som krever kritisk vurdering", "Personlige kommentarer og subjektive betraktninger"],
       explanation: 'Nyhetsbyråer bruker ofte KI til å skrive rutinemessige artikler om sport, børs og vær.',
     },
     {
       question: 'Hvilket grunnleggende spørsmål reiser KI-generert innhold?',
-      options: ["Hvem er ansvarlig, og kan vi stole på det vi ser og hører?", "Hvilken farge og skrifttype teksten skal presenteres i", "Hvor mye strøm og datakraft maskinen forbruker", "Hvor stor skjermen er når innholdet skal vises"],
+      options: ["Hvem er ansvarlig, og kan vi stole på det vi ser og hører?", "Hvilken farge og skrifttype teksten skal presenteres i på skjerm", "Hvor mye strøm og datakraft maskinen forbruker", "Hvor stor skjermen er når innholdet skal vises"],
       explanation: 'KI-generert innhold reiser grunnleggende spørsmål om hvem som er ansvarlig, og om vi kan stole på det vi ser og hører.',
     },
     {
@@ -834,7 +834,7 @@ const quizData_medieinfo_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hvorfor blir grensen mellom menneskeskapt og maskinlaget innhold viktig?',
-      options: ["Den blir stadig vanskeligere å trekke, noe som påvirker tillit", "Den er alltid tydelig og lett å trekke for publikum", "Den gjelder bare reklame og ikke redaksjonelt stoff", "Den har ingen betydning for tilliten til innholdet"],
+      options: ["Den blir stadig vanskeligere å trekke, noe som påvirker tillit", "Den er alltid helt tydelig og lett å trekke for et vanlig publikum", "Den gjelder bare reklame, ikke redaksjonelt stoff i nyhetsmediene", "Den har ingen betydning for den tilliten publikum har til innholdet"],
       explanation: 'Grensen mellom menneskeskapt og maskinlaget innhold blir stadig vanskeligere å trekke, noe som påvirker tilliten til medieinnhold.',
     },
   ],
@@ -851,29 +851,29 @@ const quizData_medieinfo_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er augmented reality (AR)?',
-      options: ["Digital informasjon lagt over den virkelige verden", "En helt digital verden uten virkelighet", "En papiravis der innholdet er trykt på fysiske sider", "En radiosending der innholdet formidles utelukkende med lyd"],
+      options: ["Digital informasjon lagt over den virkelige verden", "En helt digital verden uten noen innslag fra den virkelige verden", "En papiravis der innholdet er trykt på fysiske sider", "En radiosending der innholdet formidles utelukkende med lyd"],
       explanation: 'Augmented reality (AR) legger digital informasjon over den virkelige verden, slik at det fysiske og digitale blandes.',
     },
     {
       question: 'Hva er metaverset?',
-      options: ["Delte digitale rom der mennesker kan møtes og samhandle", "En faktasjekktjeneste", "En type papiravis der innholdet trykkes på fysiske sider", "En radiokanal der innholdet formidles utelukkende med lyd"],
+      options: ["Delte digitale rom der mennesker kan møtes og samhandle", "En faktasjekktjeneste som gransker påstander i norske medier", "En type papiravis der innholdet trykkes på fysiske sider", "En radiokanal der innholdet formidles utelukkende med lyd"],
       explanation: 'Metaverset viser til delte digitale rom der mennesker kan møtes og samhandle gjennom digitale representasjoner.',
     },
     {
       question: 'Hvordan har medier som The New York Times brukt VR?',
-      options: ["Til VR-dokumentarer som plasserer seeren midt i hendelser", "De har ikke brukt VR", "Til å samle inn leserdata for å tilpasse reklamen som vises i nettavisen deres", "Til automatisk oversettelse av utenlandske nyhetsartikler til leserens eget morsmål"],
+      options: ["Til VR-dokumentarer som plasserer seeren midt i hendelser", "De har ikke tatt i bruk VR i det hele tatt", "Til å samle inn leserdata for å tilpasse reklamen som vises i nettavisen deres", "Til automatisk oversettelse av utenlandske nyhetsartikler til leserens eget morsmål"],
       explanation: 'The New York Times har produsert VR-dokumentarer som plasserer seeren midt i hendelser som flyktningleirer og krigsområder.',
     },
   ],
   'medieinfo-2-7-3': [
     {
       question: 'Hvordan var mediekonsumet styrt for tjue år siden?',
-      options: ["Av faste sendetider og programoversikter", "Av strømmetjenester", "Av at seerne selv lastet ned innhold til harddisken i forkant", "Av at hvert program kunne pauses og spoles fritt når som helst"],
+      options: ["Av faste sendetider og programoversikter", "Av strømmetjenester som brukeren selv abonnerte på", "Av at seerne selv lastet ned innhold til harddisken i forkant", "Av at hvert program kunne pauses og spoles fritt når som helst"],
       explanation: 'For tjue år siden var mediekonsumet i stor grad styrt av faste sendetider og programoversikter.',
     },
     {
       question: 'Hva kjennetegner strømmetjenester?',
-      options: ["Brukeren velger selv hva og når de vil se eller høre", "Faste sendetider for alle", "At man må vente på ukentlige sendinger etter en fast tabell", "At innholdet bare er tilgjengelig på papir og fysiske plater"],
+      options: ["Brukeren velger selv hva og når de vil se eller høre", "Faste sendetider som gjelder for alle", "At man må vente på ukentlige sendinger etter en fast tabell", "At innholdet bare er tilgjengelig på papir"],
       explanation: 'Strømmetjenester kjennetegnes av at brukeren selv velger hva og når de vil se eller høre, på hvilken enhet de vil.',
     },
     {
@@ -895,7 +895,7 @@ const quizData_medieinfo_2: Record<string, QuizQuestion[]> = {
   'medieinfo-2-7-4': [
     {
       question: 'Hva er datajournalistikk?',
-      options: ["Å bruke datasett, statistikk og visualisering til å fortelle historier", "En type personvernlov", "Å skrive nyhetsartikler helt uten kilder og kun basert på egne meninger", "Å produsere målrettet reklame ved hjelp av innsamlede persondata om leserne"],
+      options: ["Å bruke datasett, statistikk og visualisering til å fortelle historier", "En type personvernlov som regulerer hvordan mediene kan bruke store datasett", "Å skrive nyhetsartikler helt uten kilder og kun basert på egne meninger", "Å produsere målrettet reklame ved hjelp av innsamlede persondata om leserne"],
       explanation: 'Datajournalistikk handler om å bruke datasett, statistikk og visualisering til å fortelle historier som ellers ville vært skjult i tallmaterialet.',
     },
     {
@@ -905,24 +905,24 @@ const quizData_medieinfo_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er et tidlig steg i datajournalistikkens arbeidsmetode?',
-      options: ["Å formulere en idé eller hypotese om hva dataene kan fortelle", "Å publisere uten å sjekke", "Å unngå å bruke datasett fordi de ofte inneholder skjulte feilkilder", "Å gjette seg fram til en konklusjon og deretter lete etter data som passer"],
+      options: ["Å formulere en idé eller hypotese om hva dataene kan fortelle", "Å publisere tallene uten å sjekke dem", "Å unngå å bruke datasett fordi de ofte inneholder skjulte feilkilder", "Å gjette seg fram til en konklusjon og så lete etter data"],
       explanation: 'Et tidlig steg er å formulere en idé eller hypotese om hva dataene kan fortelle, før innsamling og analyse.',
     },
     {
       question: 'Hvorfor er åpne data viktig for demokratiet?',
-      options: ["De gir innsyn og lar journalister og borgere granske makthavere", "De gjelder bare reklame", "De brukes stort sett til underholdning og har ingen reell samfunnsbetydning", "De gjelder først og fremst reklamemarkedet og har lite med demokrati å gjøre"],
+      options: ["De gir innsyn og lar journalister og borgere granske makthavere", "De gjelder bare reklame og markedsføring", "De brukes stort sett til underholdning", "De gjelder først og fremst reklamemarkedet"],
       explanation: 'Åpne data er viktige for demokratiet fordi de gir innsyn og lar journalister og borgere granske og holde makthavere ansvarlige.',
     },
     {
       question: 'Hva kjennetegner en god datavisualisering?',
-      options: ["Den gjør komplekse data forståelige og fremhever det viktige", "Den er mest mulig forvirrende", "Den bruker mest mulig farger og effekter for å fange oppmerksomheten raskt", "Den pynter på tallene slik at budskapet framstår tydeligere enn dataene tilsier"],
+      options: ["Den gjør komplekse data forståelige og fremhever det viktige", "Den er mest mulig forvirrende for leseren", "Den bruker mest mulig farger og effekter for å fange oppmerksomheten raskt", "Den pynter på tallene slik at budskapet framstår tydeligere enn dataene tilsier"],
       explanation: 'En god datavisualisering gjør komplekse data forståelige og framhever de viktigste mønstrene og funnene på en klar måte.',
     },
   ],
   'medieinfo-2-7-5': [
     {
       question: 'Hva utfordrer etablerte forretningsmodeller i mediebransjen i dag?',
-      options: ["KI, plattformøkonomi, endrede medievaner og fallende tillit", "At ingen bruker medier", "At kringkastingsreklame nå er blitt forbudt ved lov i hele Norden", "At publikum har sluttet helt å bruke både nyheter og underholdning på nett"],
+      options: ["KI, plattformøkonomi, endrede medievaner og fallende tillit", "At ingen lenger bruker medier i det hele tatt, verken på nett eller papir", "At kringkastingsreklame nå er blitt forbudt ved lov i hele Norden", "At publikum har sluttet helt å bruke både nyheter og underholdning på nett"],
       explanation: 'Etablerte forretningsmodeller utfordres av kunstig intelligens, plattformøkonomi, endrede medievaner og fallende tillit.',
     },
     {
@@ -932,51 +932,51 @@ const quizData_medieinfo_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hvorfor er medienes fremtid knyttet til demokratiet?',
-      options: ["Demokratiet trenger en sterk og uavhengig presse for å fungere", "Demokrati trenger ikke medier", "Et moderne demokrati kan fungere godt uten en fri og uavhengig presse", "Det er mediene som styrer og bestemmer over de folkevalgte politikerne"],
+      options: ["Demokratiet trenger en sterk og uavhengig presse for å fungere", "Et demokrati trenger ikke medier i det hele tatt", "Et moderne demokrati kan fungere godt uten en fri og uavhengig presse", "Det er mediene som styrer de folkevalgte politikerne"],
       explanation: 'Medienes fremtid er knyttet til demokratiet fordi et velfungerende demokrati trenger en sterk og uavhengig presse.',
     },
     {
       question: 'Hvilken mulighet åpner ny teknologi for mediene?',
-      options: ["Nye former for formidling, deltakelse og innovasjon", "Bare problemer uten muligheter", "Den fører til at kvalitetsinnhold ikke lenger lar seg produsere lønnsomt", "Utviklingen tvinger tradisjonelle mediehus til å legge ned virksomheten sin"],
+      options: ["Nye former for formidling, deltakelse og innovasjon", "Bare problemer og ingen nye muligheter", "Den fører til at kvalitetsinnhold ikke lenger lar seg produsere lønnsomt", "Utviklingen tvinger tradisjonelle mediehus til å legge ned virksomheten sin"],
       explanation: 'Samtidig som teknologi utfordrer mediene, åpner den nye muligheter for formidling, deltakelse og innovasjon.',
     },
     {
       question: 'Hva er en utfordring knyttet til fallende tillit til mediene?',
-      options: ["Det blir vanskeligere for mediene å fylle sin samfunnsrolle", "Det styrker medienes posisjon", "Fallende tillit styrker medienes posisjon og gir dem mer troverdighet", "Lavere tillit fører til at mediene tvinges til å gjøre innholdet gratis"],
+      options: ["Det blir vanskeligere for mediene å fylle sin samfunnsrolle", "Det styrker medienes posisjon fordi publikum blir mer nysgjerrige", "Fallende tillit styrker medienes posisjon og gir dem mer troverdighet", "Lavere tillit fører til at mediene tvinges til å gjøre innholdet gratis"],
       explanation: 'Fallende tillit er en utfordring fordi det blir vanskeligere for mediene å fylle sin samfunnsrolle når publikum tviler på dem.',
     },
   ],
   'medieinfo-2-8-1': [
     {
       question: 'Hva skiller profesjonelle medieproduksjoner fra amatørprosjekter først og fremst?',
-      options: ["Grundig planlegging i pre-produksjonsfasen", "At de bruker dyrere kameraer alene", "At de unngår å jobbe i team og lar én person gjøre hele produksjonen", "At de aldri planlegger"],
+      options: ["Grundig planlegging i pre-produksjonsfasen", "At de bruker dyrere kameraer alene", "At de unngår å jobbe i team og lar én person gjøre hele produksjonen", "At de aldri planlegger på forhånd"],
       explanation: 'Profesjonelle medieproduksjoner skiller seg fra amatørprosjekter først og fremst i den grundige planleggingen i pre-produksjonsfasen.',
     },
     {
       question: 'Hva er pre-produksjon?',
-      options: ["Planleggingsfasen før selve innspillingen eller produksjonen", "Vurderingen i etterkant", "Publiseringen og distribusjonen av det ferdige produktet til publikum", "Selve redigeringen og klippingen av materialet etter at opptakene er ferdige"],
+      options: ["Planleggingsfasen før selve innspillingen eller produksjonen", "Vurderingen av det ferdige produktet etter at det er publisert", "Publiseringen og distribusjonen av det ferdige produktet til publikum", "Selve redigeringen og klippingen av materialet etter at opptakene er ferdige"],
       explanation: 'Pre-produksjon er planleggingsfasen før selve innspillingen, der prosjektet planlegges i detalj.',
     },
     {
       question: 'Hva inngår i prosjektledelse av en medieproduksjon?',
-      options: ["Å håndtere budsjett, tidslinje og et team med ulike roller", "Å unngå planlegging", "Kun det å filme opptakene, mens budsjett og tidsplan holdes utenfor", "Kun redigering av materialet i etterkant av selve innspillingsfasen"],
+      options: ["Å håndtere budsjett, tidslinje og et team med ulike roller", "Å unngå all form for planlegging", "Kun det å filme opptakene, uten budsjett og tidsplan", "Kun redigering av materialet etter innspillingen"],
       explanation: 'Prosjektledelse av en medieproduksjon innebærer å håndtere budsjett, tidslinje og koordinere et team med ulike roller.',
     },
     {
       question: 'Hvorfor bruker profesjonelle produksjoner mye tid på pre-produksjon?',
-      options: ["Grundig forarbeid er avgjørende for at den ferdige produksjonen lykkes", "Fordi planlegging er bortkastet", "Fordi de mangler nødvendig kamerautstyr og må vente med selve opptaket", "Fordi grundig planlegging regnes som bortkastet tid i profesjonelle miljøer"],
+      options: ["Grundig forarbeid er avgjørende for at den ferdige produksjonen lykkes", "Fordi planlegging er bortkastet arbeid i denne bransjen", "Fordi de mangler nødvendig kamerautstyr og må vente med selve opptaket", "Fordi grundig planlegging regnes som bortkastet tid i profesjonelle miljøer"],
       explanation: 'Profesjonelle produksjoner bruker mye tid på pre-produksjon fordi grundig forarbeid er avgjørende for at det ferdige produktet skal holde mål.',
     },
     {
       question: 'Hva er hensikten med budsjettplanlegging i en produksjon?',
-      options: ["Å sikre at ressursene strekker til og brukes riktig", "Å bruke mest mulig penger", "Å skjule de reelle kostnadene for oppdragsgiveren og publikum", "Å unngå all planlegging slik at teamet står fritt til å ta avgjørelser"],
+      options: ["Å sikre at ressursene strekker til og brukes riktig", "Å bruke mest mulig penger på produksjonen", "Å skjule de reelle kostnadene for oppdragsgiveren og publikum", "Å unngå all planlegging slik at teamet står fritt til å ta avgjørelser"],
       explanation: 'Budsjettplanlegging skal sikre at de økonomiske ressursene strekker til og brukes riktig gjennom produksjonen.',
     },
   ],
   'medieinfo-2-8-2': [
     {
       question: 'Hva er transmedial fortelling?',
-      options: ["En fortelling som strekker seg over flere plattformer og formater", "En fortelling på bare én plattform", "En løsrevet tekst helt uten sammenhengende fortelling eller handling", "En reklameplakat som gjentar det samme budskapet på tvers av kanaler"],
+      options: ["En fortelling som strekker seg over flere plattformer og formater", "En fortelling som holdes til bare én plattform og ett bestemt format", "En løsrevet tekst helt uten sammenhengende fortelling eller handling", "En reklameplakat som gjentar det samme budskapet på tvers av kanaler"],
       explanation: 'Transmedial fortelling er en fortelling som strekker seg over flere plattformer og formater, der hver del bidrar til helheten.',
     },
     {
@@ -986,17 +986,17 @@ const quizData_medieinfo_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva innebærer plattformtilpasning?',
-      options: ["Å tilpasse innholdet til hvert formats styrker", "Å bruke nøyaktig samme form overalt", "Å bruke nøyaktig samme form og format uendret på alle plattformer", "Å unngå å publisere på flere plattformer og heller satse på én kanal"],
+      options: ["Å tilpasse innholdet til hvert formats styrker", "Å bruke nøyaktig samme form overalt", "Å bruke nøyaktig samme form og format uendret på alle plattformer", "Å unngå å publisere på flere plattformer"],
       explanation: 'Plattformtilpasning innebærer å tilpasse innholdet til hvert formats styrker, for eksempel video for TikTok og tekst for en artikkel.',
     },
     {
       question: 'Hvorfor er det å tenke tverrmedielt en viktig kompetanse i dag?',
-      options: ["Moderne fortellinger og nyhetsdekning strekker seg over flere plattformer", "Fordi tverrmedielt arbeid er forbudt", "Fordi det å arbeide på tvers av medier regnes som brudd på god presseskikk", "Fordi det i praksis bare finnes én dominerende plattform å forholde seg til"],
+      options: ["Moderne fortellinger og nyhetsdekning strekker seg over flere plattformer", "Fordi tverrmedielt arbeid er forbudt", "Fordi arbeid på tvers av medier er brudd på god presseskikk", "Fordi det i praksis bare finnes én dominerende plattform"],
       explanation: 'Å tenke tverrmedielt er viktig fordi moderne mediefortellinger og nyhetsdekning ofte strekker seg over flere plattformer samtidig.',
     },
     {
       question: 'Hva er en multimodal tekst?',
-      options: ["En tekst som kombinerer flere uttrykksmåter som tekst, bilde og lyd", "En ren tekst uten bilder", "En lydfil som formidler budskapet uten støtte fra tekst eller bilde", "En tom mal der brukeren selv må fylle inn både tekst og illustrasjoner"],
+      options: ["En tekst som kombinerer flere uttrykksmåter som tekst, bilde og lyd", "En ren tekst helt uten bilder, lyd eller video som støtter budskapet", "En lydfil som formidler hele budskapet uten støtte fra tekst eller bilde", "En tom mal der brukeren selv må fylle inn både tekst og illustrasjoner"],
       explanation: 'En multimodal tekst kombinerer flere uttrykksmåter, som tekst, bilde, video og infografikk, tilpasset hvert formats styrker.',
     },
   ],
@@ -1008,22 +1008,22 @@ const quizData_medieinfo_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er forskjellen mellom formativ og summativ vurdering?',
-      options: ["Formativ skjer underveis for å forbedre, summativ vurderer det ferdige resultatet", "De to vurderingsformene er i praksis helt identiske og brukes om hverandre", "Summativ vurdering skjer utelukkende underveis for å justere arbeidet fortløpende", "Formativ vurdering ser bare på det ferdige sluttproduktet etter lansering"],
+      options: ["Formativ skjer underveis for å forbedre, summativ vurderer det ferdige resultatet", "De to vurderingsformene er i praksis helt identiske og brukes om hverandre i faget", "Summativ vurdering skjer utelukkende underveis for å justere selve arbeidet fortløpende", "Formativ vurdering ser bare på det helt ferdige sluttproduktet etter at det er lansert"],
       explanation: 'Formativ vurdering skjer underveis for å forbedre arbeidet, mens summativ vurdering vurderer det ferdige resultatet.',
     },
     {
       question: 'Hva er kvalitetskriterier i en medieproduksjon?',
-      options: ["Klare mål for hva som kjennetegner et godt produkt", "Tilfeldige meninger", "Antallet personer som deltok i teamet gjennom produksjonsprosessen", "Tilfeldige personlige meninger uten noe felles målestokk å vurdere mot"],
+      options: ["Klare mål for hva som kjennetegner et godt produkt", "Tilfeldige meninger fra dem som ser produktet", "Antallet personer som deltok i teamet gjennom produksjonsprosessen", "Tilfeldige personlige meninger uten noe felles målestokk å vurdere mot"],
       explanation: 'Kvalitetskriterier er klare mål for hva som kjennetegner et godt produkt, og som man kan vurdere arbeidet opp mot.',
     },
     {
       question: 'Hvordan brukes evaluering i profesjonelle medier?',
-      options: ["Som en integrert del av produksjonsprosessen, f.eks. testpublikum og fokusgrupper", "Evaluering brukes aldri, ettersom profesjonelle stoler blindt på sluttproduktet", "Den gjennomføres først lenge etter at prosjektet er glemt av alle involverte", "Den brukes utelukkende for å skjule feil for oppdragsgiver og publikum"],
+      options: ["Som en integrert del av produksjonsprosessen, f.eks. testpublikum og fokusgrupper", "Evaluering brukes aldri, ettersom profesjonelle stoler blindt på sitt eget sluttprodukt", "Den gjennomføres først lenge etter at prosjektet er glemt av alle involverte", "Den brukes utelukkende for å skjule feil for oppdragsgiver og publikum"],
       explanation: 'I profesjonelle medier er evaluering en integrert del av prosessen; filmregissører viser «rough cuts» til testpublikum og reklamebyrå tester i fokusgrupper.',
     },
     {
       question: 'Hva er hensikten med å gi og motta konstruktiv tilbakemelding?',
-      options: ["Å forbedre arbeidet og lære av prosessen", "Å kritisere uten hensikt", "Å hindre at det skjer endringer, slik at produktet forblir uendret", "Å unngå all endring"],
+      options: ["Å forbedre arbeidet og lære av prosessen", "Å kritisere andres arbeid uten noen hensikt", "Å hindre at det skjer endringer, slik at produktet forblir uendret", "Å unngå enhver form for endring i produktet"],
       explanation: 'Hensikten med konstruktiv tilbakemelding er å forbedre arbeidet og lære av prosessen, både for den som gir og den som mottar.',
     },
   ],
@@ -1035,12 +1035,12 @@ const quizData_medieinfo_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er mediekritikk?',
-      options: ["Å analysere medienes rolle og praksis med et kritisk blikk", "Å forby alle medier", "Å sensurere nyheter før de publiseres for å skjerme publikum mot dem", "Å produsere reklame og markedsføring på oppdrag fra mediehus og byråer"],
+      options: ["Å analysere medienes rolle og praksis med et kritisk blikk", "Å forby alle medier som retter kritikk mot myndighetene i landet", "Å sensurere nyheter før de publiseres for å skjerme publikum mot dem", "Å produsere reklame og markedsføring på oppdrag fra mediehus og byråer"],
       explanation: 'Mediekritikk handler om å analysere medienes rolle og praksis med et kritisk blikk, også sosiale medier og influensere.',
     },
     {
       question: 'Hva er gatekeeping (portvaktfunksjon)?',
-      options: ["At redaksjoner velger ut hvilke saker som slippes gjennom", "At alle saker publiseres automatisk", "At annonsørene styrer hvilke nyhetssaker som får plass i sendingen", "At publikum selv bestemmer hele nyhetsbildet gjennom avstemninger på nett"],
+      options: ["At redaksjoner velger ut hvilke saker som slippes gjennom", "At alle saker publiseres automatisk", "At annonsørene styrer hvilke nyhetssaker som får plass i sendingen", "At publikum selv bestemmer nyhetsbildet ved avstemning"],
       explanation: 'Gatekeeping (portvaktfunksjon) er at redaksjoner velger ut hvilke saker som slippes gjennom og publiseres, og hvilke som utelates.',
     },
     {
@@ -1050,34 +1050,34 @@ const quizData_medieinfo_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hvem omfatter mediekritikken i dag, ifølge kapittelet?',
-      options: ["Ikke bare store mediehus, men også sosiale medier og influensere", "Bare papiraviser", "Bare de tradisjonelle papiravisene og deres redaksjonelle ledere med presseansvar", "Bare de store lisensfinansierte allmennkringkasterne som NRK og deres nyhetsredaksjoner"],
+      options: ["Ikke bare store mediehus, men også sosiale medier og influensere", "Bare de papiravisene som fortsatt kommer ut hver eneste dag i hele landet", "Bare de tradisjonelle papiravisene og deres redaksjonelle ledere med presseansvar", "Bare de store lisensfinansierte allmennkringkasterne som NRK og deres nyhetsredaksjoner"],
       explanation: 'Mediekritikken gjelder ikke bare de store mediehusene, men også sosiale medier, influensere og alle som bruker medier til å påvirke.',
     },
   ],
   'medieinfo-2-8-5': [
     {
       question: 'Hva er hensikten med fordypningsprosjektet i medie- og informasjonskunnskap?',
-      options: ["Å kombinere teori og praksis i en større, selvstendig mediefaglig produksjon", "Å kopiere andres arbeid", "Å beskrive et mediefenomen rent teoretisk uten å produsere noe eget medieinnhold", "Å lage en tiltalende forside uten å måtte begrunne de mediefaglige valgene bak den"],
+      options: ["Å kombinere teori og praksis i en større, selvstendig mediefaglig produksjon", "Å kopiere andres arbeid og levere det inn som et helt eget selvstendig prosjekt", "Å beskrive et mediefenomen rent teoretisk uten å produsere noe eget medieinnhold", "Å lage en tiltalende forside uten å måtte begrunne de mediefaglige valgene bak den"],
       explanation: 'Fordypningsprosjektet kombinerer teori og praksis: du skal analysere og reflektere over et mediefenomen og produsere noe eget.',
     },
     {
       question: 'Hva bør et godt fordypningsprosjekt vise at du kan?',
-      options: ["Formulere en problemstilling, bruke teori og produsere medieinnhold av høy kvalitet", "Bare gjengi andres meninger", "Gjengi andres meninger om et tema uten å formulere en egen selvstendig problemstilling", "Følge en fast mal for oppsett uten å måtte begrunne verken metode eller innholdsvalg selv"],
+      options: ["Formulere en problemstilling, bruke teori og produsere medieinnhold av høy kvalitet", "Bare gjengi andres meninger om temaet", "Gjengi andres meninger om et tema uten egen problemstilling", "Følge en fast mal for oppsett uten å begrunne metode eller innholdsvalg"],
       explanation: 'Et godt fordypningsprosjekt viser at du kan formulere en presis problemstilling, bruke fagbegreper og teori, og produsere medieinnhold av høy kvalitet.',
     },
     {
       question: 'Hva er en god problemstilling i prosjektet?',
-      options: ["Et presist spørsmål som styrer undersøkelsen", "En tilfeldig overskrift", "En ferdig konklusjon formulert på forhånd som prosjektet skal bekrefte i etterkant", "En konklusjon"],
+      options: ["Et presist spørsmål som styrer undersøkelsen", "En tilfeldig valgt overskrift", "En ferdig konklusjon formulert på forhånd som prosjektet skal bekrefte i etterkant", "En ferdig konklusjon om temaet"],
       explanation: 'En god problemstilling er et presist spørsmål som styrer hele undersøkelsen og produksjonen.',
     },
     {
       question: 'Hva inngår i fordypningsprosjektet i tillegg til produksjonen?',
-      options: ["Kritisk refleksjon over egne valg og funn", "Ingen refleksjon", "En ren oppsummering av teorien uten å vurdere egne valg og funn kritisk underveis", "Bare en forside"],
+      options: ["Kritisk refleksjon over egne valg og funn", "Ingen refleksjon over egne valg underveis i arbeidet", "En ren oppsummering av teorien uten å vurdere egne valg og funn kritisk underveis", "Bare en forside til prosjektet"],
       explanation: 'I tillegg til selve produksjonen inngår kritisk refleksjon over egne valg og funn i fordypningsprosjektet.',
     },
     {
       question: 'Hvorfor kalles fordypningsprosjektet «kroningen» av mediefaget?',
-      options: ["Det samler og viser kompetansen fra to år med medie- og informasjonskunnskap", "Fordi det er valgfritt å gjøre", "Fordi det tar for seg ett enkelt avgrenset tema uten å trekke inn resten av mediefaget", "Fordi det er den enkleste oppgaven i faget og krever minst teori og forarbeid av eleven"],
+      options: ["Det samler og viser kompetansen fra to år med medie- og informasjonskunnskap", "Fordi det er valgfritt å gjennomføre og ikke teller med på standpunktkarakteren", "Fordi det tar for seg ett enkelt avgrenset tema uten å trekke inn resten av mediefaget", "Fordi det er den enkleste oppgaven i faget og krever minst teori og forarbeid av eleven"],
       explanation: 'Fordypningsprosjektet kalles kroningen av mediefaget fordi det samler og viser kompetansen du har tilegnet deg gjennom to år med faget.',
     },
   ],
