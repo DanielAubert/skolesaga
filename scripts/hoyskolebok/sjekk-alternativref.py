@@ -33,13 +33,27 @@ ROOT = (os.getcwd() if os.path.isdir(_CWD)
         else os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 DATA = os.path.join(ROOT, "src/lib/data")
 
+# ⚠ SUBSTANTIVET MÅ VARIERES, ikke bare «alternativ».
+# Fram til 10. august 2026 sto ordet «alternativ» hardkodet i hvert mønster.
+# EXFAC03-HARK Del 7 hadde 15 forklaringer som sa «den siste distraktoren» og
+# «de to neste» — nøyaktig samme feil, like galt etter stokking, usynlig for
+# porten. Ordet forfatteren velger er tilfeldig; plasseringsreferansen er feilen.
+#
+# «svar» er BEVISST utelatt: «det første svaret» viser like ofte til et
+# resonnementssteg som til et alternativ, og ga falske positive ved prøvekjøring.
+SUBST = r"(?:alternativ|distraktor|svaralternativ)"
 MONSTRE = [
-    (r"[Aa]lternativ\s*(?:nr\.?\s*)?[1-9]\b", "alternativ + siffer"),
-    (r"[Aa]lternativ\s*(?:én|en|to|tre|fire|fem)\b", "alternativ + tallord"),
-    (r"[Dd]et\s+(?:første|andre|tredje|fjerde|femte)\s+alternativet", "det N-te alternativet"),
-    (r"[Dd]e\s+(?:to|tre)\s+(?:første|siste)\s+alternativ", "de N første/siste"),
-    (r"[Ss]iste\s+alternativ", "siste alternativ"),
-    (r"[Øø]verste\s+alternativ|[Nn]ederste\s+alternativ", "øverste/nederste"),
+    (rf"[Aa]lternativ\s*(?:nr\.?\s*)?[1-9]\b", "alternativ + siffer"),
+    (rf"[Aa]lternativ\s*(?:én|en|to|tre|fire|fem)\b", "alternativ + tallord"),
+    # ⚠ «det/den andre» = nummer to (posisjon). «DE andre» = de øvrige, og det
+    # er stabilt under stokking. [Dd]e[tn] holder dem fra hverandre; et forsøk
+    # med [Dd]en? fanget 40+ falske «De andre alternativene».
+    (rf"[Dd]e[tn]\s+(?:første|andre|tredje|fjerde|femte)\s+{SUBST}\w*", "det N-te alternativet"),
+    (rf"[Dd]e\s+(?:to|tre)\s+(?:første|siste|neste|foregående)\s+{SUBST}\w*", "de N første/siste/neste"),
+    (rf"[Dd]e\s+(?:to|tre)\s+neste\b", "de N neste"),
+    (rf"[Ss]iste\s+{SUBST}\w*", "siste alternativ"),
+    (rf"[Nn]este\s+{SUBST}\w*|[Ff]oregående\s+{SUBST}\w*", "neste/foregående"),
+    (rf"[Øø]verste\s+{SUBST}\w*|[Nn]ederste\s+{SUBST}\w*", "øverste/nederste"),
 ]
 
 
