@@ -58,8 +58,26 @@ const verst = rang.indexOf(Math.max(...rang)) + 1;
 const overtall = Math.round(Math.max(...rang) - N * 0.25);
 console.log(`stubber: ${alle.filter((a) => a.stubbe).length}`);
 
+// ⚠ FILNIVÅ ER IKKE NOK — STUDENTEN ØVER KAPITTELVIS.
+// jus1111 kom i mål på filnivå (24/25/28/23) mens seks kapitler fortsatt lå
+// over 60 % på rang 1. En student som øver på ett kapittel møter mønsteret
+// like fullt. Filmålingen kan altså være grønn mens produktet lekker — samme
+// blindsone som ytterpunktmålingen hadde mot rang, bare ett nivå ned.
+const perKap = {};
+for (const a of alle) (perKap[a.kap] ??= [0, 0, 0, 0])[a.rang - 1]++;
+const skjeve = Object.entries(perKap)
+  .map(([k, r]) => { const n = r.reduce((x, y) => x + y, 0); return { k, n, verst: Math.max(...r) / n }; })
+  .filter((x) => x.n >= 8 && x.verst > 0.60)
+  .sort((a, b) => b.verst - a.verst);
+if (skjeve.length) {
+  console.log(`\n⚠ ${skjeve.length} kapittel over 60 % lokalt (minst 8 spørsmål):`);
+  for (const s of skjeve.slice(0, 15)) console.log(`   ${s.k}  n=${s.n}  verste rang ${(100 * s.verst).toFixed(0)} %`);
+}
+
 if (Math.max(...rang) / N <= 0.35) {
-  console.log('\n✅ ingen rang over 35 % — filen er i mål');
+  console.log(skjeve.length
+    ? '\n✅ filen er i mål på filnivå — men kapitlene over lekker fortsatt'
+    : '\n✅ ingen rang over 35 % — filen er i mål, også kapittelvis');
   process.exit(0);
 }
 

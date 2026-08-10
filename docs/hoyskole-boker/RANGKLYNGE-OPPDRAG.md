@@ -89,6 +89,23 @@ kjører `rangmaal.mjs` på nytt. Kjør den etter hver bolk, ikke bare til slutt.
 ⚠ **Stubber og rang henger sammen.** Å skrive ut en stubbe-distraktor forbi
 fasiten fikser begge deler i samme grep. Ta dem samtidig.
 
+## ⚠ Filnivå er ikke nok — studenten øver kapittelvis
+
+Målt 10. august 2026: `jus1111` kom i mål på filnivå (24/25/28/23) mens **seks
+kapitler fortsatt lå over 60 %**, verst `jus1111-4-9` på **92 %**. En student som
+øver på ett kapittel møter mønsteret like fullt. `entrebed` var derimot ren også
+kapittelvis — granulariteten avgjør, og den varierer per fil.
+
+Dette er samme blindsone som ytterpunktmålingen hadde mot rang, bare ett nivå
+ned: målingen kan være grønn mens produktet lekker.
+
+`rangmaal.mjs` rapporterer nå kapitler over 60 % (minst 8 spørsmål).
+**Ferdigkravet gjelder begge nivåer.**
+
+⚠ Med 12–16 spørsmål i et kapittel er eksakt 25 % per rang ikke oppnåelig, og
+tilfeldig variasjon gir lett 40 %. Taket på kapittelnivå er derfor **60 %**, ikke
+35 % — det skiller et utnyttbart mønster fra støy.
+
 ## Ferdigkrav
 
 ```bash
@@ -99,3 +116,4 @@ npx tsx scripts/hoyskolebok/quiz-lengdesjekk.mjs <emne>
 - ytterpunkter (fasit strengt lengst / strengt kortest) under **35 %** hver vei
 - stubber under **40 %**, og helst nær 0
 - fortsatt fire alternativer, ingen duplikater, ingen fasit rørt
+- **ingen kapittel over 60 %** — sjekk med `rangmaal.mjs <emne>`
