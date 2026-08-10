@@ -7,12 +7,14 @@ Oppdatert 6. august 2026. **Alt er committet og pushet, ingenting halvskrevet.**
 | variant | analyse | skjelett | kontrakt | config | bygg |
 |---|---|---|---|---|---|
 | `exfac03-spr` | ✅ | ✅ 47 kap | ✅ | ✅ | ✅ **LIVE** — 57 filer, 857 fc, 894 quiz |
-| `exfac03-hark` | ✅ | ✅ 38 kap | ✅ | ✅ | — byggetre klart |
-| `exfac03-nord` | ✅ | ✅ 48 kap | ✅ | ✅ | — byggetre klart |
-| `exfac03-east` | ✅ | ✅ 40 kap | ✅ | ✅ | — byggetre klart |
+| `exfac03-east` | ✅ | ✅ 40 kap | ✅ | ✅ | ✅ **LIVE** — 48 filer |
+| `exfac03-hark` | ✅ | ✅ 38 kap | ✅ | ✅ | ✅ **LIVE** — 45 filer, 705 fc, 747 quiz |
+| `exfac03-nord` | ✅ | ✅ 48 kap | ✅ | ✅ | ⏳ bygges (6 agenter, 57 filer) |
 
-Byggetrærne finnes allerede: `.claude/worktrees/bok-exfac03-{hark,nord,east}`,
-hver på sin gren `bok/exfac03-*`.
+Katalogen står på **44 live bøker** etter HARK (10. august 2026).
+
+Byggetreet for NORD: `.claude/worktrees/bok-exfac03-nord` på gren
+`bok/exfac03-nord`.
 
 ## Neste steg: bygg de tre gjenstående
 
@@ -28,6 +30,13 @@ Hver byggeagent trenger i briefen:
   en påhengt begrunnelsesklausul mens fasiten står som bar etikett — fjern
   fyllet fra distraktorene. Mål selv på staging; `quiz-lengdesjekk.mjs` virker
   først etter wiring.
+- **LENGDERANG og STUBBER** *(nytt 10. august 2026 — se BYGGEKONTRAKT-MAL)*.
+  Ytterpunktmålingen ser bare rang 1 og rang 4. HARK Del 6 hadde fasiten på
+  rang 3 i 62–95 % av spørsmålene og var grønn på ytterpunktene. Krev at
+  agenten måler rangfordelingen selv og lander nær 25 % på hver rang, og at
+  ingen distraktor er under halvparten av snittet til de tre andre.
+  Rettemåten er ALLTID å heve distraktorene — gjør den gale påstanden mer
+  SPESIFIKK, ikke lengre med fyllord. Fasiten røres aldri.
 - quizforklaringer skal aldri vise til et alternativs plassering
 - `description` ren tekst · «Sist du var her» forbudt · byggespråk forbudt ·
   `difficulty` = `lett|middels|vanskelig` · deloppgaver a), b), c)
