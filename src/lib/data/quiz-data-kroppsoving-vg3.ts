@@ -4,7 +4,7 @@ const quizData_kroppsoving_vg3: Record<string, QuizQuestion[]> = {
   'kroppsoving-vg3-1': [
   {
     question: 'Hva er bevegelsesglede?',
-    options: ["Den indre tilfredsstillelsen og gleden ved fysisk aktivitet", "Å få gode karakterer i gym", "Følelsen av å vinne konkurranser og få anerkjennelse fra andre", "Gleden ved å oppnå gode karakterer og ros fra læreren i gymtimen"],
+    options: ["Den indre tilfredsstillelsen og gleden ved fysisk aktivitet", "Å få gode karakterer i gym, slik at innsatsen teller på vitnemålet", "Følelsen av å vinne konkurranser og få anerkjennelse fra andre", "Gleden ved å oppnå gode karakterer og ros fra læreren i gymtimen"],
     explanation: 'Bevegelsesglede handler om å finne aktiviteter som gir mening og velvære, uavhengig av prestasjoner.',
   },
   {
@@ -14,17 +14,17 @@ const quizData_kroppsoving_vg3: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva kjennetegner indre motivasjon?',
-    options: ["Glede ved aktiviteten, følelse av mestring og personlig mening", "Karakterer og belønninger", "Frykten for straff eller negative konsekvenser dersom man er inaktiv", "Drivkraften som kommer fra andres forventninger og krav om deltakelse"],
+    options: ["Glede ved aktiviteten, følelse av mestring og personlig mening", "Karakterer og belønninger utenfra, som premier, poeng og synlig ros", "Frykten for straff eller negative konsekvenser dersom man er inaktiv", "Drivkraften som kommer fra andres forventninger og krav om deltakelse"],
     explanation: 'Indre motivasjon kommer innenfra og er mer varig enn ytre motivasjon.',
   },
   {
     question: 'Hva er egenaktivitet?',
-    options: ["Fysisk aktivitet du planlegger og gjennomfører på egen hånd", "Trening med personlig trener", "Obligatoriske gymtimer på skolen som er planlagt og ledet av en lærer", "Fysisk trening du gjennomfører sammen med en personlig trener som veileder"],
+    options: ["Fysisk aktivitet du planlegger og gjennomfører på egen hånd", "Trening der en personlig trener setter opp programmet", "Obligatoriske gymtimer på skolen, ledet av en lærer", "Fysisk trening du gjennomfører sammen med en personlig trener som veileder"],
     explanation: 'Egenaktivitet krever selvstendighet og indre motivasjon.',
   },
   {
     question: 'Hvordan kan du bygge gode aktivitetsvaner?',
-    options: ["Start smått, knytt til faste tidspunkter, ha en plan B", "Tren så mye som mulig med en gang", "Bare gjennomføre trening de dagene du kjenner deg spesielt motivert", "Kopiere en annens ferdige treningsprogram uten å tilpasse det til deg"],
+    options: ["Start smått, knytt til faste tidspunkter, ha en plan B", "Tren så mye som overhodet mulig allerede fra den første økta", "Bare gjennomføre trening de dagene du kjenner deg spesielt motivert", "Kopiere en annens ferdige treningsprogram uten å tilpasse det til deg"],
     explanation: 'Gode vaner bygges gradvis og krever konsistens over tid.',
   },
 ],
@@ -38,22 +38,22 @@ const quizData_kroppsoving_vg3: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvordan påvirker fysisk aktivitet psykisk helse?',
-    options: ["Frigjør endorfiner, reduserer stress, bedrer humør og søvn", "Bare fysiske effekter", "Aktivitet har ingen målbar påvirkning på den psykiske helsen vår", "Aktivitet øker stressnivået og gir dårligere humør og søvnkvalitet på sikt"],
+    options: ["Frigjør endorfiner, reduserer stress, bedrer humør og søvn", "Bare fysiske effekter, som sterkere muskler og bedre kondisjon", "Aktivitet har ingen målbar påvirkning på den psykiske helsen vår", "Aktivitet øker stressnivået og gir dårligere humør og søvnkvalitet på sikt"],
     explanation: 'Fysisk aktivitet har dokumentert positiv effekt på mental helse gjennom flere mekanismer.',
   },
   {
     question: 'Hva er salutogenese?',
-    options: ["Fokus på hva som skaper og opprettholder helse", "Studiet av sykdømmer", "En bestemt treningsform med fokus på pust og avslapning", "Vitenskapelig studie av sykdommer og hva som gjør oss syke"],
+    options: ["Fokus på hva som skaper og opprettholder helse", "Studiet av sykdommer og hvordan de behandles", "En bestemt treningsform med fokus på pust og avslapning", "Vitenskapelig studie av sykdommer og hva som gjør oss syke"],
     explanation: 'Salutogenese ser på helsefremmende faktorer fremfor sykdomsårsaker.',
   },
   {
     question: 'Hvor mye fysisk aktivitet anbefales per uke?',
-    options: ["150-300 minutter moderat aktivitet + styrketrening 2+ ganger", "Så mye aktivitet som overhodet mulig hver eneste dag i uken", "Omtrent 30 minutter fysisk aktivitet totalt gjennom hele uken", "Konsentrert fysisk aktivitet kun i helgene med hvile på hverdager"],
+    options: ["150-300 minutter moderat aktivitet + styrketrening 2+ ganger", "Så mye aktivitet som overhodet mulig hver eneste dag i uken", "Omtrent 30 minutter fysisk aktivitet i hele uken", "All aktivitet samlet i helgene, med hvile ellers"],
     explanation: 'Helsemyndighetene anbefaler regelmessig aktivitet fordelt utover uken.',
   },
   {
     question: 'Hvordan kan fysisk aktivitet førebygge livsstilssykdømmer?',
-    options: ["Bedrer hjertehelse, insulinfølsomhet, styrker muskulatur og mental helse", "Aktivitet virker kun forebyggende mot forkjølelse og milde infeksjoner", "Aktivitet har ingen dokumentert forebyggende effekt mot livsstilssykdommer", "Aktivitet øker faktisk risikoen for å utvikle alvorlige livsstilssykdommer"],
+    options: ["Bedrer hjertehelse, insulinfølsomhet, styrker muskulatur og mental helse", "Aktivitet virker kun forebyggende mot forkjølelse og milde infeksjoner", "Aktivitet har ingen forebyggende effekt mot livsstilssykdommer", "Aktivitet øker risikoen for alvorlige livsstilssykdommer"],
     explanation: 'Regelmessig aktivitet er en av de mest effektive førebyggende tiltakene.',
   },
 ],
@@ -62,7 +62,7 @@ const quizData_kroppsoving_vg3: Record<string, QuizQuestion[]> = {
   'kroppsoving-vg3-3': [
   {
     question: 'Hva står SMART for i målsetting?',
-    options: ["Spesifikke, Målbare, Attraktive, Realistiske, Tidsbegrensede", "Seriøse, Moderne, Aktive, Rettferdige, Trygge", "Styrke, Mobilitet, Aerob kapasitet, Rask utførelse og god Teknikk", "Små, Mellomstore, Ambisiøse, Rolige og passende Tunge delmål underveis"],
+    options: ["Spesifikke, Målbare, Attraktive, Realistiske, Tidsbegrensede", "Seriøse, Moderne, Aktive, Rettferdige, Trygge", "Styrke, Mobilitet, Aerob kapasitet, Rask utførelse", "Små, Mellomstore, Ambisiøse, Rolige og Tunge delmål"],
     explanation: 'SMART-mål hjelper deg å sette konkrete og oppnåelige mål.',
   },
   {
@@ -72,17 +72,17 @@ const quizData_kroppsoving_vg3: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er periodisering?',
-    options: ["Systematisk variasjon av treningsvariabler over tid", "Å trene i perioder og pause i perioder", "De korte hvilepausene man tar mellom hvert sett i en styrkeøkt", "Å trene intensivt i noen perioder og ta helt fri i andre perioder"],
+    options: ["Systematisk variasjon av treningsvariabler over tid", "Å trene i perioder og pause i perioder", "Hvilepausene mellom hvert sett i en styrkeøkt", "Å trene intensivt i noen perioder og ta helt fri i andre perioder"],
     explanation: 'Periodisering optimaliserer fremgang og reduserer risiko for overtrenning.',
   },
   {
     question: 'Hva betyr spesifisitetsprinsippet?',
-    options: ["Treningen må ligne aktiviteten du vil bli bedre i", "Bare spesialister kan trene", "At absolutt alle bør trene helt likt uavhengig av mål og aktivitet", "At du trenger spesielt og avansert utstyr for å kunne trene riktig"],
+    options: ["Treningen må ligne aktiviteten du vil bli bedre i", "Bare spesialister innen én bestemt idrett kan trene riktig", "At absolutt alle bør trene helt likt uavhengig av mål og aktivitet", "At du trenger spesielt og avansert utstyr for å kunne trene riktig"],
     explanation: 'Vil du bli bedre i en aktivitet, må du trene den aktiviteten eller lignende bevegelser.',
   },
   {
     question: 'Hvorfor er restitusjon viktig?',
-    options: ["Fremgang skjer i hvilen når kroppen tilpasser seg belastningen", "Bare for profesjonelle utøvere", "Restitusjon har ingen reell betydning for fremgang og tilpasning", "Restitusjon trengs først og fremst for å unngå overdreven svetting"],
+    options: ["Fremgang skjer i hvilen når kroppen tilpasser seg belastningen", "Bare for profesjonelle utøvere som trener flere økter hver eneste dag", "Restitusjon har ingen reell betydning for fremgang og tilpasning", "Restitusjon trengs først og fremst for å unngå overdreven svetting"],
     explanation: 'Uten tilstrekkelig restitusjon blir det ingen positiv tilpasning.',
   },
 ],
@@ -91,7 +91,7 @@ const quizData_kroppsoving_vg3: Record<string, QuizQuestion[]> = {
   'kroppsoving-vg3-4': [
   {
     question: 'Hva er mestring?',
-    options: ["Opplevelsen av å beherske en utfordring gjennom egen innsats", "Å være best i klassen", "Å vinne konkurranser og slå motstanderne man møter langs veien", "Å være den aller beste i klassen og prestere over alle de andre"],
+    options: ["Opplevelsen av å beherske en utfordring gjennom egen innsats", "Å være best i klassen i alle øvelser og aktiviteter", "Å vinne konkurranser og slå motstanderne man møter langs veien", "Å være den aller beste i klassen og prestere over alle de andre"],
     explanation: 'Mestring handler om personlig utvikling og opplevelse av fremgang.',
   },
   {
@@ -106,12 +106,12 @@ const quizData_kroppsoving_vg3: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er mestringsforventning (self-efficacy)?',
-    options: ["Troen på egen evne til å gjennomføre en oppgave", "Forventning om at andre skal hjelpe", "Den generelle selvtilliten man har på tvers av alle livets områder", "Forventningen om at andre skal trå til og hjelpe deg gjennom oppgaven"],
+    options: ["Troen på egen evne til å gjennomføre en oppgave", "Forventning om at andre skal hjelpe", "Generell selvtillit på alle livets områder", "Forventningen om at andre skal trå til og hjelpe deg gjennom oppgaven"],
     explanation: 'Høy mestringsforventning øker innsats og sjansen for suksess.',
   },
   {
     question: 'Hvordan kan du bygge mestringsforventning?',
-    options: ["Mestringsopplevelser, se andre lykkes, positiv tilbakemelding", "Sammenligne seg med de beste", "Å trene helt på egen hånd uten noen gang å motta tilbakemelding", "Stadig å sammenligne egne prestasjoner med de aller beste utøverne"],
+    options: ["Mestringsopplevelser, se andre lykkes, positiv tilbakemelding", "Å sammenligne seg med de beste i treningsgruppa", "Å trene helt på egen hånd uten noen gang å motta tilbakemelding", "Stadig å sammenligne egne prestasjoner med de aller beste utøverne"],
     explanation: 'Den viktigste kilden til mestringsforventning er egne mestringsopplevelser.',
   },
 ],
@@ -130,17 +130,17 @@ const quizData_kroppsoving_vg3: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er fair play?',
-    options: ["Respekt for regler, motstandere og ærlig konkurranse", "Å unngå fysisk kontakt", "Å alltid vinne kampen uansett hvilke midler man må ta i bruk", "Å aldri protestere mot dommeravgjørelser eller motstanderens spill"],
+    options: ["Respekt for regler, motstandere og ærlig konkurranse", "Å unngå all fysisk kontakt med motstanderne under kampen", "Å alltid vinne kampen uansett hvilke midler man må ta i bruk", "Å aldri protestere mot dommeravgjørelser eller motstanderens spill"],
     explanation: 'Fair play er grunnleggende for idrettens verdi og mening.',
   },
   {
     question: 'Hva er positive og negative sider ved kommersialisme i idrett?',
-    options: ["Positivt: finansiering. Negativt: pengene kan styre utviklingen", "Ingen påvirkning", "Kommersialisme er utelukkende positivt fordi det tilfører idretten penger", "Kommersialisme er utelukkende negativt og ødelegger idrettens sanne verdi"],
+    options: ["Positivt: finansiering. Negativt: pengene kan styre utviklingen", "Ingen påvirkning, verken på økonomien eller på utviklingen i idretten", "Kommersialisme er utelukkende positivt fordi det tilfører idretten penger", "Kommersialisme er utelukkende negativt og ødelegger idrettens sanne verdi"],
     explanation: 'Kommersialisme har både fordeler og ulemper for idretten.',
   },
   {
     question: 'Hvilke andre etiske utfordringer finnes i idretten?',
-    options: ["Trakassering, diskriminering, press i barne- og ungdomsidrett, miljø", "Ingen utfordringer", "Idretten møter i praksis ingen andre etiske utfordringer av betydning", "Etiske problemer i idretten dreier seg først og fremst bare om penger"],
+    options: ["Trakassering, diskriminering, press i barne- og ungdomsidrett, miljø", "Ingen utfordringer, verken i barneidretten, breddeidretten eller toppidretten", "Idretten møter i praksis ingen andre etiske utfordringer av betydning", "Etiske problemer i idretten dreier seg først og fremst bare om penger"],
     explanation: 'Idretten står overfor mange etiske utfordringer som krever bevissthet og handling.',
   },
 ],
@@ -149,7 +149,7 @@ const quizData_kroppsoving_vg3: Record<string, QuizQuestion[]> = {
   'kroppsoving-vg3-6': [
   {
     question: 'Hva er bærekraftig friluftsliv?',
-    options: ["Å bruke naturen uten å skade den for fremtidige generasjoner", "Å ikke gå på tur i det hele tatt", "Å avstå helt fra å gå på tur i naturen for å beskytte den fullstendig", "Å bygge hytter og anlegg overalt slik at flere får tilgang til naturen"],
+    options: ["Å bruke naturen uten å skade den for fremtidige generasjoner", "Å ikke gå på tur i naturen i det hele tatt", "Å avstå helt fra å gå på tur i naturen for å beskytte den fullstendig", "Å bygge hytter og anlegg overalt så flere får tilgang"],
     explanation: 'Bærekraftig friluftsliv balanserer bruk og vern av naturen.',
   },
   {
@@ -159,12 +159,12 @@ const quizData_kroppsoving_vg3: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er allemannsretten?',
-    options: ["Retten til å ferdes og oppholde seg i utmark med ansvar", "Rett til å gjøre hva som helst i naturen", "En rettighet som utelukkende gjelder for norske statsborgere i landet", "En ferdselsrett som bare gjelder i sommerhalvåret og ikke om vinteren"],
+    options: ["Retten til å ferdes og oppholde seg i utmark med ansvar", "Rett til å gjøre hva som helst i naturen", "En rettighet som bare gjelder norske statsborgere", "En ferdselsrett som bare gjelder i sommerhalvåret"],
     explanation: 'Allemannsretten er en unik norsk tradisjon som kombinerer rettigheter med ansvar.',
   },
   {
     question: 'Hvilke helsegevinster gir friluftsliv?',
-    options: ["Fysisk aktivitet, stressreduksjon, bedre søvn, sosial tilhørighet", "Ingen helsegevinster", "Friluftsliv gir i praksis ingen målbare helsegevinster av betydning", "Friluftsliv virker bare positivt på mental helse og ikke på kroppen"],
+    options: ["Fysisk aktivitet, stressreduksjon, bedre søvn, sosial tilhørighet", "Ingen helsegevinster, verken fysiske eller psykiske", "Friluftsliv gir i praksis ingen målbare helsegevinster av betydning", "Friluftsliv virker bare positivt på mental helse og ikke på kroppen"],
     explanation: 'Friluftsliv gir helhetlige helsegevinster - fysisk, psykisk og sosialt.',
   },
   {
@@ -178,17 +178,17 @@ const quizData_kroppsoving_vg3: Record<string, QuizQuestion[]> = {
   'kroppsoving-vg3-7': [
   {
     question: 'Hva er estetisk bevegelse?',
-    options: ["Bevegelse som fokuserer på uttrykk og skjønnhet fremfor prestasjon", "Bare profesjonell ballett", "Bevegelse som utelukkende måles ut fra fart, styrke og målbar prestasjon på tid", "Bevegelse som følger faste konkurranseregler med poeng gitt av dommere for teknikk"],
+    options: ["Bevegelse som fokuserer på uttrykk og skjønnhet fremfor prestasjon", "Bare profesjonell ballett, framført på scene av dansere med lang skolering", "Bevegelse som utelukkende måles ut fra fart, styrke og målbar prestasjon på tid", "Bevegelse som følger faste konkurranseregler med poeng gitt av dommere for teknikk"],
     explanation: 'Estetisk bevegelse handler om hvordan bevegelsen ser ut og føles.',
   },
   {
     question: 'Hvilke gevinster kan dans gi?',
-    options: ["Fysisk trening, følelsesuttrykk, sosial tilhørighet og kreativitet", "Bare for profesjonelle", "Først og fremst økt maksimal styrke og eksplosiv kraft i beina, lite ellers", "Kun tekniske ferdigheter som er nyttige for dem som satser på dans profesjonelt"],
+    options: ["Fysisk trening, følelsesuttrykk, sosial tilhørighet og kreativitet", "Bare for profesjonelle dansere med scenen som arbeidsplass", "Først og fremst økt maksimal styrke og eksplosiv kraft i beina, lite ellers", "Kun tekniske ferdigheter som er nyttige for dem som satser på dans profesjonelt"],
     explanation: 'Dans gir helhetlige gevinster - fysisk, psykisk, sosialt og kognitivt.',
   },
   {
     question: 'Hva er koreografi?',
-    options: ["Kunsten å designe og arrangere bevegelser til dans", "Å øve på samme bevegelse", "Kunsten å øve inn den samme bevegelsen om og om igjen til den sitter perfekt", "En teknikk som kun brukes innen klassisk ballett og ikke i andre dansestiler"],
+    options: ["Kunsten å designe og arrangere bevegelser til dans", "Å øve på den samme bevegelsen mange ganger", "Kunsten å øve inn den samme bevegelsen om og om igjen til den sitter perfekt", "En teknikk som kun brukes innen klassisk ballett og ikke i andre dansestiler"],
     explanation: 'Koreografi inkluderer valg av bevegelser, rom, tid og dynamikk.',
   },
   {
@@ -198,7 +198,7 @@ const quizData_kroppsoving_vg3: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva kjennetegner street dance?',
-    options: ["Urban kultur, individuelt uttrykk, improvisasjon og battles", "Bare tradisjonell folkedans", "Klassisk ballett med faste posisjoner og streng teknikk framført på scene", "Utelukkende pardans der to personer følger innøvde trinn i takt til musikk"],
+    options: ["Urban kultur, individuelt uttrykk, improvisasjon og battles", "Bare tradisjonell folkedans med faste trinn som går i arv i bygda", "Klassisk ballett med faste posisjoner og streng teknikk framført på scene", "Utelukkende pardans der to personer følger innøvde trinn i takt til musikk"],
     explanation: 'Street dance inkluderer stiler som hip-hop, breaking og locking med fokus på personlig uttrykk.',
   },
 ],
@@ -207,27 +207,27 @@ const quizData_kroppsoving_vg3: Record<string, QuizQuestion[]> = {
   'kroppsoving-vg3-8': [
   {
     question: 'Hva er sosial kompetanse?',
-    options: ["Evnen til å samhandle effektivt med andre", "Å være best i konkurranse", "Evnen til alltid å vinne og prestere best i konkurranse mot andre", "Å aldri være uenig"],
+    options: ["Evnen til å samhandle effektivt med andre", "Å være best i konkurranse", "Evnen til alltid å vinne i konkurranse mot andre", "Å aldri være uenig med noen i gruppa"],
     explanation: 'Sosial kompetanse inkluderer kommunikasjon, empati og samarbeid.',
   },
   {
     question: 'Hva innebærer fair play?',
-    options: ["Respekt for regler, motstandere, lagkamerater og seg selv", "Å aldri gjøre feil", "Å være best mulig og vise motstanderen at man er overlegen", "Å gjøre alt som skal til for å vinne, også å tøye reglene litt"],
+    options: ["Respekt for regler, motstandere, lagkamerater og seg selv", "Å aldri gjøre en eneste feil, verken teknisk eller i dømmekraft", "Å være best mulig og vise motstanderen at man er overlegen", "Å gjøre alt som skal til for å vinne, også å tøye reglene litt"],
     explanation: 'Fair play handler om verdier og holdninger i konkurransesituasjoner.',
   },
   {
     question: 'Hva er emosjonell intelligens?',
-    options: ["Evnen til å gjenkjenne og håndtere egne og andres følelser", "Å være veldig smart", "Evnen til å løse vanskelige oppgaver raskt og score høyt på IQ-tester", "Evnen til alltid å holde seg rolig og aldri kjenne på sinne eller uro"],
+    options: ["Evnen til å gjenkjenne og håndtere egne og andres følelser", "Å være veldig smart og ha lett for å lære", "Evnen til å løse vanskelige oppgaver raskt og score høyt på IQ-tester", "Evnen til alltid å holde seg rolig og aldri kjenne på sinne eller uro"],
     explanation: 'Emosjonell intelligens er viktig for sosiale relasjoner og samarbeid.',
   },
   {
     question: 'Hvordan bør du håndtere tap og nederlag?',
-    options: ["Gratulære vinner, lære av situasjonen, gå videre", "Bli sint og frustrert", "La sinne og frustrasjon få fritt utløp overfor motstanderen", "Trekke seg helt fra aktiviteten fordi resultatet ble skuffende"],
+    options: ["Gratulære vinner, lære av situasjonen, gå videre", "Bli sint og frustrert og la det prege deg lenge", "La sinne og frustrasjon få fritt utløp overfor motstanderen", "Trekke seg helt fra aktiviteten fordi resultatet ble skuffende"],
     explanation: 'Tap er en del av idretten og gir mulighet for læring og utvikling.',
   },
   {
     question: 'Hva kjennetegner god kommunikasjon i lagaktiviteter?',
-    options: ["Tydelige beskjeder, aktiv lytting, konstruktiv tilbakemelding", "Å holde seg helt taus for ikke å forstyrre konsentrasjonen", "Å rope så høyt som mulig for å bli hørt over de andre på laget", "Å påpeke og kritisere feilene til medspillere så snart de skjer"],
+    options: ["Tydelige beskjeder, aktiv lytting, konstruktiv tilbakemelding", "Å holde seg helt taus for ikke å forstyrre konsentrasjonen", "Å rope så høyt som mulig for å bli hørt av alle", "Å kritisere feilene til medspillere med en gang"],
     explanation: 'God kommunikasjon er tilpasset situasjonen og mottakeren.',
   },
 ],
@@ -266,7 +266,7 @@ const quizData_kroppsoving_vg3: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er funksjonell kapasitet?',
-    options: ["Evnen til å utføre dagliglivets aktiviteter selvstendig", "Maksimal vekt man kan løfte én gang", "Hvor kort tid man bruker på å løpe hundre meter så raskt som mulig", "Den største vekten man klarer å løfte i én enkelt maksimal repetisjon"],
+    options: ["Evnen til å utføre dagliglivets aktiviteter selvstendig", "Maksimal vekt man kan løfte én gang", "Hvor kort tid man bruker på å løpe hundre meter", "Den største vekten man klarer å løfte i én enkelt maksimal repetisjon"],
     explanation: 'Regelmessig aktivitet gjennom livet bevarer funksjonell kapasitet inn i alderdommen.',
   },
   {
@@ -281,7 +281,7 @@ const quizData_kroppsoving_vg3: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er en sentral forutsetning for å være selvstendig aktiv resten av livet?',
-    options: ["Å kunne planlegge egen trening og forstå prinsipper og metoder", "Å kun følge ferdige programmer uten forståelse", "Å bare gjennomføre trening når andre presser eller tvinger deg til det", "Å alltid ha en trener til stede som styrer og bestemmer hver eneste økt"],
+    options: ["Å kunne planlegge egen trening og forstå prinsipper og metoder", "Å kun følge ferdige programmer fra nettet uten å forstå prinsippene", "Å bare gjennomføre trening når andre presser eller tvinger deg til det", "Å alltid ha en trener til stede som styrer og bestemmer hver eneste økt"],
     explanation: 'Selvstendighet betyr å kunne tilpasse trening til egne behov ut fra forståelse av prinsipper.',
   },
 ],
