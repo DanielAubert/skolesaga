@@ -25,6 +25,24 @@
 //    · TALL må stemme       — ulike tall betyr ulike påstander
 //    · REKKEFØLGE bevares   — felles ord må komme i samme orden (fanger «snudd»)
 //    · NEKTELSE må stemme   — «ikke/aldri/uten» på én side gjør dem ulike
+// ── HVA VERKTØYET IKKE FINNER (målt i felt 10. august 2026) ───────────────
+// En agent som ryddet historie/rettslære/norsk fant ~60 ekte tvillinger per fem
+// filer som dette skriptet slipper gjennom. Tre klasser, alle utenfor rekkevidde
+// for leksikalsk sammenligning:
+//
+//   1. ETT ORD BYTTET:  «Den drev handel …» / «Den bygde handel …»
+//      Et bytte er per definisjon ikke en avkorting, og regelen som avviser
+//      bytter er den samme som holder falske positive ute. Kan ikke løsnes uten
+//      å slippe inn «under» mot «på».
+//   2. SYNONYMER:  «Norden» / «de nordiske landene»
+//      Ingen felles ord i det hele tatt. Krever betydningsforståelse.
+//   3. KORTE PAR:  «21 virkedager» / «21 virkedager (om lag fire uker)»
+//      Under minstekravet på 3 tokens, og fanges dessuten av mengdevakten
+//      («fire» er et nytt tallord). Begge grensene er der for å holde
+//      falske positive ute.
+//
+// Verktøyet er altså et GULV, ikke en fasit: det du får er ekte, men det finnes
+// mer. Bruk `--vis` og les — en agent som leser finner omtrent like mange til.
 import fs from 'fs';
 import path from 'path';
 import { pathToFileURL } from 'url';
