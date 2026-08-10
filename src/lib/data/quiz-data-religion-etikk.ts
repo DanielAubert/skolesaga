@@ -11,7 +11,7 @@ const quizData_religion_etikk: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva skiller religionsvitenskap fra teologi?',
-      options: ["Religionsvitenskap studerer religion utenfra som menneskelig fenomen, teologi arbeider ofte innenfra en trosposisjon", "Teologi bruker kilder, religionsvitenskap gjør det ikke", "Religionsvitenskap er et fag som bare finnes ved norske universiteter, mens teologi undervises i hele den vestlige verden", "Teologien studerer utelukkende ikke-kristne religioner utenfra, mens religionsvitenskapen forsvarer kristendommen innenfra"],
+      options: ["Religionsvitenskap studerer religion utenfra som menneskelig fenomen, teologi arbeider ofte innenfra en trosposisjon", "Teologi bruker skriftlige kilder, mens religionsvitenskap ikke gjør det", "Religionsvitenskap er et fag som bare finnes ved norske universiteter, mens teologi undervises i hele den vestlige verden", "Teologien studerer utelukkende ikke-kristne religioner utenfra, mens religionsvitenskapen forsvarer kristendommen innenfra"],
       explanation: 'Teologi undersøker gjerne hva troen betyr ut fra en bestemt religiøs tradisjon, mens religionsvitenskapen studerer religion utenfra med vitenskapelige metoder.',
     },
     {
@@ -44,7 +44,7 @@ const quizData_religion_etikk: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva innebærer Wittgensteins begrep familielikhet brukt om religion?',
-      options: ["At religioner ligner hverandre på ulike måter uten at alle deler ett felles trekk", "At alle religioner stammer fra samme familie", "At tilhørighet til en religion arves genetisk fra foreldre til barn gjennom slektsledd", "At alle religioner egentlig har det samme gudsbegrepet under ulike navn og forestillinger"],
+      options: ["At religioner ligner hverandre på ulike måter uten at alle deler ett felles trekk", "At alle verdens religioner stammer fra samme familie", "At tilhørighet til en religion arves genetisk fra foreldre til barn gjennom slektsledd", "At alle religioner egentlig har det samme gudsbegrepet under ulike navn og forestillinger"],
       explanation: 'Ideen er at religion ikke har én felles essens, men at ulike religioner ligner hverandre på kryss og tvers – slik medlemmer av en familie kan ha likheter uten ett felles trekk.',
     },
     {
@@ -72,7 +72,7 @@ const quizData_religion_etikk: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva betegner begrepsparet sakral og profan?',
-      options: ["Det hellige (sakral) og det verdslige, dagligdagse (profan)", "Det skriftlige og det muntlige", "Det gamle og tradisjonelle (sakral) og det nye og moderne (profan)", "Det moralsk gode (sakral) og det moralsk onde (profan) i tilværelsen"],
+      options: ["Det hellige (sakral) og det verdslige, dagligdagse (profan)", "Det nedskrevne og det muntlig overleverte", "Det gamle og tradisjonelle (sakral) og det nye og moderne (profan)", "Det moralsk gode (sakral) og det moralsk onde (profan) i tilværelsen"],
       explanation: 'Skillet mellom det hellige og det verdslige er grunnleggende i mange religioner, og tabuer markerer ofte grensen mellom dem.',
     },
     {
@@ -118,12 +118,12 @@ const quizData_religion_etikk: Record<string, QuizQuestion[]> = {
   'religion-etikk-1-5': [
     {
       question: 'Hva menes med at Den norske kirke er en folkekirke?',
-      options: ["En kirke med særlig tilknytning til nasjonen som er åpen for alle uten strenge opptakskrav", "En kirke som styres direkte av Stortinget", "En kirke som først og fremst er ment for folk på landsbygda og i distriktene, ikke i byene", "En kirke som formelt er uten registrerte medlemmer og bygger utelukkende på frivillig oppmøte"],
+      options: ["En kirke med særlig tilknytning til nasjonen som er åpen for alle uten strenge opptakskrav", "En kirke som styres direkte av Stortingets flertall", "En kirke som først og fremst er ment for folk på landsbygda og i distriktene", "En kirke som formelt er uten registrerte medlemmer og bygger utelukkende på frivillig oppmøte"],
       explanation: 'Folkekirkebegrepet brukes om Den norske kirke etter at den mistet statskirkestatusen, og innebærer at kirken skal være tilgjengelig for hele befolkningen.',
     },
     {
       question: 'Hva er religiøs pluralisme?',
-      options: ["At mange ulike religioner og livssyn eksisterer side om side i et samfunn", "At alle innbyggere må velge en religion", "At én bestemt religion har fullt monopol i samfunnet og de andre er forbudt ved lov", "At religion i sin helhet er forbudt i det offentlige rom og bare tillates i private hjem"],
+      options: ["At mange ulike religioner og livssyn eksisterer side om side i et samfunn", "At alle innbyggere må velge én bestemt religion", "At én bestemt religion har fullt monopol i samfunnet og de andre er forbudt ved lov", "At religion i sin helhet er forbudt i det offentlige rom og bare tillates i private hjem"],
       explanation: 'Religiøs pluralisme betegner et mangfold av religioner og livssyn i samfunnet, og kan også brukes normativt om at mangfoldet er verdifullt.',
     },
     {
@@ -174,7 +174,7 @@ const quizData_religion_etikk: Record<string, QuizQuestion[]> = {
   'religion-etikk-2-2': [
     {
       question: 'Hvor mange sakramenter anerkjenner den katolske og den ortodokse kirken, sammenlignet med de fleste protestantiske kirker?',
-      options: ["Syv sakramenter, mot to (dåp og nattverd) hos de fleste protestanter", "Alle kirkesamfunn har like mange sakramenter", "Nøyaktig like mange sakramenter i alle kirkesamfunn, siden dette er felles kristen lære", "Tolv sakramenter, ett for hver apostel, mot fem grunnleggende sakramenter hos protestantene"],
+      options: ["Syv sakramenter, mot to (dåp og nattverd) hos de fleste protestanter", "To sakramenter, mot syv hos de fleste protestanter", "Nøyaktig like mange sakramenter i alle kirkesamfunn, siden dette er felles kristen lære", "Tolv sakramenter, ett for hver apostel, mot fem grunnleggende sakramenter hos protestantene"],
       explanation: 'Katolsk og ortodoks tradisjon har syv sakramenter: dåp, konfirmasjon/krismering, nattverd, bot, sykesalving, ordinasjon og ekteskap. Protestantene regner vanligvis dåp og nattverd.',
     },
     {
@@ -184,17 +184,17 @@ const quizData_religion_etikk: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva utløste reformasjonen på 1500-tallet?',
-      options: ["Martin Luthers 95 teser i 1517, der han kritiserte avlatshandelen", "Det store skismaet i 1054", "Romerrikets fall på 400-tallet, som svekket kirkens makt og skapte kaos i Vest-Europa", "Det store skismaet i 1054, da den vestlige og østlige kirken brøt med hverandre i strid"],
+      options: ["Martin Luthers 95 teser i 1517, der han kritiserte avlatshandelen", "Martin Luthers forsvar for avlatshandelen i 1517", "Romerrikets fall på 400-tallet, som svekket kirkens makt og skapte kaos i Vest-Europa", "Det store skismaet i 1054, da den vestlige og østlige kirken brøt med hverandre i strid"],
       explanation: 'Luther kritiserte avlatshandelen og vektla frelse ved tro alene. Reformasjonen førte til fremveksten av protestantiske kirkesamfunn.',
     },
     {
       question: 'Hva betyr prinsippet sola scriptura?',
-      options: ["At Bibelen er den øverste og tilstrekkelige autoriteten i spørsmål om tro og liv", "At kirkens tradisjon står over Bibelen", "At Bibelen alltid må leses høyt på latin for at ordet skal beholde sin fulle kraft", "At bare vigslede prester har rett til å lese og tolke Den hellige skrift for folket"],
+      options: ["At Bibelen er den øverste og tilstrekkelige autoriteten i spørsmål om tro og liv", "At kirkens tradisjon står over Bibelen i autoritet", "At Bibelen alltid må leses høyt på latin for at ordet skal beholde sin fulle kraft", "At bare vigslede prester har rett til å lese og tolke Den hellige skrift for folket"],
       explanation: 'Sola scriptura («Skriften alene») er et sentralt protestantisk prinsipp, formulert som alternativ til den katolske vektleggingen av både Bibel og tradisjon.',
     },
     {
       question: 'Hva er theosis i ortodoks teologi?',
-      options: ["Prosessen der mennesket gjennom Guds nåde gradvis blir delaktig i Guds natur", "Læren om pavens ufeilbarlighet", "Den ortodokse påskefeiringen, som følger den gamle julianske kalenderen hvert år", "Læren om pavens ufeilbarlighet når han uttaler seg i lærespørsmål fra sitt embete"],
+      options: ["Prosessen der mennesket gjennom Guds nåde gradvis blir delaktig i Guds natur", "Kirkens lære om sakramentenes antall og rekkefølge", "Den ortodokse påskefeiringen, som følger den gamle julianske kalenderen hvert år", "Læren om pavens ufeilbarlighet når han uttaler seg i lærespørsmål fra sitt embete"],
       explanation: 'Theosis (guddommeliggjørelse) er et sentralt begrep i ortodoks teologi om menneskets gradvise delaktighet i Guds natur gjennom bønn og sakramenter.',
     },
   ],
@@ -202,12 +202,12 @@ const quizData_religion_etikk: Record<string, QuizQuestion[]> = {
   'religion-etikk-2-3': [
     {
       question: 'Hva betyr tawhid i islamsk teologi?',
-      options: ["Guds absolutte enhet og unikhet – Gud er én, uten partnere eller likemenn", "Pilegrimsreisen til Mekka", "Pilegrimsreisen til Mekka som alle troende bør gjennomføre minst én gang i livet", "Fellesskapet mellom alle profetene som Gud har sendt til menneskene gjennom historien"],
+      options: ["Guds absolutte enhet og unikhet – Gud er én, uten partnere eller likemenn", "Synden shirk, det å sette noe ved siden av Gud", "Pilegrimsreisen til Mekka som alle troende bør gjennomføre minst én gang i livet", "Fellesskapet mellom alle profetene som Gud har sendt til menneskene gjennom historien"],
       explanation: 'Tawhid er det mest grunnleggende begrepet i islamsk teologi. Å sette noe ved siden av Gud – shirk – anses som den alvorligste synden.',
     },
     {
       question: 'Hva er Koranen ifølge islamsk tro?',
-      options: ["Guds ord åpenbart på arabisk til profeten Muhammad gjennom engelen Jibril", "En lovbok skrevet av de første kalifene", "En arabisk oversettelse av Bibelen, tilpasset de troende på Den arabiske halvøya", "En lovbok skrevet av de første kalifene etter Muhammads død for å styre samfunnet"],
+      options: ["Guds ord åpenbart på arabisk til profeten Muhammad gjennom engelen Jibril", "En biografi om profeten Muhammads liv og reiser", "En arabisk oversettelse av Bibelen, tilpasset de troende på Den arabiske halvøya", "En lovbok skrevet av de første kalifene etter Muhammads død for å styre samfunnet"],
       explanation: 'Koranen («resitasjonen») består av 114 kapitler (suraer) og regnes som Guds ord. Den omhandler teologi, etikk, lovgivning og fortellinger.',
     },
     {
@@ -217,7 +217,7 @@ const quizData_religion_etikk: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hvilke kilder bygger sharia på?',
-      options: ["Koranen, hadith, konsensus blant lærde (ijma) og analogislutninger (qiyas)", "Kalifenes personlige avgjørelser alene", "Bare Koranen, som anses for å inneholde alle svar mennesket trenger for livet", "Romersk rett og gresk filosofi, tilpasset det muslimske samfunnets behov over tid"],
+      options: ["Koranen, hadith, konsensus blant lærde (ijma) og analogislutninger (qiyas)", "Kalifenes personlige avgjørelser i enkeltsaker", "Bare Koranen, som anses for å inneholde alle svar mennesket trenger for livet", "Romersk rett og gresk filosofi, tilpasset det muslimske samfunnets behov over tid"],
       explanation: 'Sharia er ikke en enhetlig lovbok, men et system av normer utledet fra disse fire kildene. Ordet betyr bokstavelig «veien til vannkilden».',
     },
     {
@@ -235,12 +235,12 @@ const quizData_religion_etikk: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva var den opprinnelige uenigheten mellom sunni- og shiamuslimer?',
-      options: ["Hvem som skulle lede det muslimske samfunnet etter Muhammads død", "Hvor mange ganger man skulle be daglig", "Hvor mange ganger man skulle be daglig, og om bønnene skulle fremsies på arabisk", "Hvilken by som skulle regnes som islams helligste, og hvor pilegrimene skulle reise"],
+      options: ["Hvem som skulle lede det muslimske samfunnet etter Muhammads død", "Om Koranen skulle skrives ned eller læres utenat", "Hvor mange ganger man skulle be daglig, og om bønnene skulle fremsies på arabisk", "Hvilken by som skulle regnes som islams helligste, og hvor pilegrimene skulle reise"],
       explanation: 'Sunnier anerkjente de fire første kalifene som rettmessige etterfølgere, mens shiaer mente at Ali og hans etterkommere var de rettmessige lederne.',
     },
     {
       question: 'Hva var en kalif?',
-      options: ["Lederen for det muslimske samfunnet etter Muhammads død", "En pilegrim på vei til Mekka", "En bønneleder i moskeen som gikk foran forsamlingen under den daglige fellesbønnen", "En pilegrim på vei til Mekka som utførte de foreskrevne ritualene under hajj-reisen"],
+      options: ["Lederen for det muslimske samfunnet etter Muhammads død", "En dommer som avgjorde religiøse tvister", "En bønneleder i moskeen som gikk foran forsamlingen under den daglige fellesbønnen", "En pilegrim på vei til Mekka som utførte de foreskrevne ritualene under hajj-reisen"],
       explanation: 'Kalif (khalifa) betyr «etterfølger». De fire første kalifene – Abu Bakr, Umar, Uthman og Ali – kalles i sunniislam «de rettledede kalifene».',
     },
     {
@@ -258,7 +258,7 @@ const quizData_religion_etikk: Record<string, QuizQuestion[]> = {
   'religion-etikk-2-5': [
     {
       question: 'Hva er diakoni?',
-      options: ["Kristne kirkers omsorgstjeneste, fra praktisk hjelp til arbeid for rettferdighet", "Læren om sakramentene", "En kirkelig domstol som avgjorde lærestrid og disiplinærsaker mellom geistlige og lekfolk", "Læren om sakramentene og hvordan nåden formidles gjennom dåp, nattverd og de øvrige riter"],
+      options: ["Kristne kirkers omsorgstjeneste, fra praktisk hjelp til arbeid for rettferdighet", "Studiet av kirkens gudstjenesteordninger og liturgi", "En kirkelig domstol som avgjorde lærestrid og disiplinærsaker mellom geistlige og lekfolk", "Læren om sakramentene og hvordan nåden formidles gjennom dåp, nattverd og de øvrige riter"],
       explanation: 'Diakoni kommer fra gresk diakonein, «å tjene», og omfatter alt fra matutdeling og rådgivning til strukturelt arbeid for menneskerettigheter.',
     },
     {
@@ -278,7 +278,7 @@ const quizData_religion_etikk: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hvordan har kristendommens geografiske tyngdepunkt endret seg i nyere tid?',
-      options: ["Kristendommen vokser mest i det globale sør, mens oppslutningen synker i mange vestlige land", "Kristendommen finnes nå praktisk talt bare i Europa, og har forsvunnet fra resten av verden", "Kristendommen har helt sluttet å eksistere overalt utenfor USA og de nordamerikanske landene", "Det har ikke skjedd noen som helst endringer i kristendommens geografiske utbredelse i nyere tid"],
+      options: ["Kristendommen vokser mest i det globale sør, mens oppslutningen synker i mange vestlige land", "Kristendommen finnes nå praktisk talt bare i Europa, og har forsvunnet fra resten av verden", "Kristendommen har helt sluttet å eksistere utenfor USA og de nordamerikanske landene", "Det har ikke skjedd noen som helst endringer i kristendommens geografiske utbredelse i nyere tid"],
       explanation: 'Mens sekulariseringen preger Europa, vokser kristendommen i Afrika, Asia og Latin-Amerika, der flertallet av verdens kristne nå bor.',
     },
   ],
@@ -301,7 +301,7 @@ const quizData_religion_etikk: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er islamofobi?',
-      options: ["Frykt for, fiendtlighet mot eller fordommer overfor islam og muslimer", "Kritisk forskning på islamsk historie", "En egen teologisk retning innenfor islam som legger vekt på mystikk og indre erfaring", "Frykt for høye bygninger og tårn, slik som minareter og andre religiøse konstruksjoner"],
+      options: ["Frykt for, fiendtlighet mot eller fordommer overfor islam og muslimer", "Kritisk forskning på islamsk historie og teologi", "En egen teologisk retning innenfor islam som legger vekt på mystikk og indre erfaring", "Frykt for høye bygninger og tårn, slik som minareter og andre religiøse konstruksjoner"],
       explanation: 'Islamofobi omfatter diskriminering, hatkriminalitet, stereotypier og negativ generalisering rettet mot muslimer som gruppe.',
     },
     {
@@ -370,27 +370,27 @@ const quizData_religion_etikk: Record<string, QuizQuestion[]> = {
   'religion-etikk-3-2': [
     {
       question: 'Hva betyr tittelen buddha?',
-      options: ["Den oppvåknede eller den opplyste", "Den hellige krigeren", "Skaperen som satte hele verden og tiden i gang", "Herskeren over gudene og alle himmelske vesener"],
+      options: ["Den oppvåknede eller den opplyste", "Den hellige krigeren for troen", "Skaperen som satte hele verden og tiden i gang", "Herskeren over gudene og alle himmelske vesener"],
       explanation: 'Tittelen brukes primært om Siddharta Gautama. En buddha er ikke en gud, men et menneske som har oppnådd fullstendig innsikt.',
     },
     {
       question: 'Hva betegner dukkha i buddhismen?',
-      options: ["Lidelse i bred forstand – smerte, uro og erfaringen av at alt er forgjengelig", "Den høyeste lykketilstanden", "Munkenes felles daglige måltid som spises i stillhet før soloppgang hver morgen", "Den høyeste lykketilstanden man kan oppnå gjennom å oppfylle alle begjær fullt ut"],
+      options: ["Lidelse i bred forstand – smerte, uro og erfaringen av at alt er forgjengelig", "Forestillingen om at all lidelse er innbilt", "Munkenes felles daglige måltid som spises i stillhet før soloppgang hver morgen", "Den høyeste lykketilstanden man kan oppnå gjennom å oppfylle alle begjær fullt ut"],
       explanation: 'Dukkha oversettes ofte med «lidelse», men omfatter også utilfredsstillelse og at det forgjengelige ikke kan gi varig lykke. Det er den første av de fire edle sannhetene.',
     },
     {
       question: 'Hva er nirvana?',
-      options: ["Opphøret av begjær, hat og uvitenhet – frihet fra lidelse og gjenfødelsens syklus", "Et paradis i himmelen med evig nytelse", "Navnet på fødebyen der Siddharta Gautama vokste opp som prins før han forlot palasset", "En tilstand av dyp, drømmeløs søvn som meditasjonen sikter mot å oppnå gjennom natten"],
+      options: ["Opphøret av begjær, hat og uvitenhet – frihet fra lidelse og gjenfødelsens syklus", "Et paradis i himmelen med evig nytelse og hvile", "Navnet på fødebyen der Siddharta Gautama vokste opp som prins før han forlot palasset", "En tilstand av dyp, drømmeløs søvn som meditasjonen sikter mot å oppnå gjennom natten"],
       explanation: 'Nirvana betyr bokstavelig «utslukning» og beskriver ikke et sted, men en tilstand av fullstendig frihet fra lidelse og samsara.',
     },
     {
       question: 'Hva er buddhismens lære om anatta?',
-      options: ["At det ikke finnes noen permanent, uforanderlig sjel i noe levende vesen", "At sjelen veier like mye som kroppen", "At sjelen har en fysisk vekt tilsvarende kroppens, og forlater den ved dødsøyeblikket", "At kun innviede munker har en fullverdig sjel, mens legfolk mangler en varig åndelig kjerne"],
+      options: ["At det ikke finnes noen permanent, uforanderlig sjel i noe levende vesen", "At sjelen er udødelig og uforanderlig i all evighet", "At sjelen har en fysisk vekt tilsvarende kroppens, og forlater den ved dødsøyeblikket", "At kun innviede munker har en fullverdig sjel, mens legfolk mangler en varig åndelig kjerne"],
       explanation: 'Anatta (ikke-selv) er et av de tre kjennetegnene ved tilværelsen, sammen med anicca (forgjengelighet) og dukkha. Mennesket er en sammensatt prosess uten permanent kjerne.',
     },
     {
       question: 'Hva er en bodhisattva i mahayana-buddhismen?',
-      options: ["Et vesen som av medfølelse utsetter sin egen endelige frigjøring for å hjelpe alle levende vesener", "En munk som lever i fullstendig isolasjon", "En forgylt statue av Buddha som plasseres i klosterets hovedhall som fremste gjenstand for tilbedelse", "Den øverste åndelige lederen i et stort kloster, med det fulle ansvaret for munkenes daglige disiplin"],
+      options: ["Et vesen som av medfølelse utsetter sin egen endelige frigjøring for å hjelpe alle levende vesener", "En munk som trekker seg helt tilbake fra omverdenen og lever i fullstendig isolasjon for å søke egen frigjøring", "En forgylt statue av Buddha som plasseres i klosterets hovedhall som fremste gjenstand for tilbedelse", "Den øverste åndelige lederen i et stort kloster, med det fulle ansvaret for munkenes daglige disiplin"],
       explanation: 'Bodhisattva-idealet er sentralt i mahayana og står i kontrast til theravadas arhat-ideal, der målet er egen frigjøring.',
     },
   ],
@@ -398,17 +398,17 @@ const quizData_religion_etikk: Record<string, QuizQuestion[]> = {
   'religion-etikk-3-3': [
     {
       question: 'Hva betegner pakten i jødedommen?',
-      options: ["Det særskilte forholdet mellom Gud og det jødiske folket, med gjensidige forpliktelser", "En fredsavtale mellom Israel og nabolandene", "En handelsavtale mellom de tolv stammene om fordeling av jord, buskap og felles ressurser", "En varig fredsavtale som ble inngått mellom staten Israel og alle nabolandene i moderne tid"],
+      options: ["Det særskilte forholdet mellom Gud og det jødiske folket, med gjensidige forpliktelser", "Det bindende løftet hver enkelt troende avlegger om å holde alle Torahens bud gjennom hele livet", "En handelsavtale mellom de tolv stammene om fordeling av jord, buskap og felles ressurser", "En varig fredsavtale som ble inngått mellom staten Israel og alle nabolandene i moderne tid"],
       explanation: 'De viktigste paktene er Abrahams pakt (med omskjæring som tegn) og Sinai-pakten (med Torahen som innhold).',
     },
     {
       question: 'Hva er Torahen?',
-      options: ["De fem Mosebøkene – jødedommens mest sentrale hellige tekst", "En samling profetier om Messias", "En egen samling av profetier som utelukkende handler om den kommende Messias", "Den faste jødiske bønneboken som brukes ved synagogens gudstjenester og høytider"],
+      options: ["De fem Mosebøkene – jødedommens mest sentrale hellige tekst", "Kommentarene og utleggingene som senere lærde skrev til de fem Mosebøkene", "En egen samling av profetier som utelukkende handler om den kommende Messias", "Den faste jødiske bønneboken som brukes ved synagogens gudstjenester og høytider"],
       explanation: 'Ordet torah betyr «veiledning» eller «undervisning». I videre forstand kan torah referere til hele den jødiske lovtradisjonen.',
     },
     {
       question: 'Hva består Talmud av?',
-      options: ["Mishnah (nedskrevet muntlig lov) og Gemara (kommentarer og diskusjoner)", "Brevene til de jødiske menighetene", "De fem Mosebøkene sammen med Salmenes bok og de øvrige poetiske skriftene", "Utelukkende faste bønner og velsignelser som resiteres ved de store årlige høytidene"],
+      options: ["Mishnah (nedskrevet muntlig lov) og Gemara (kommentarer og diskusjoner)", "Brevene til de jødiske menighetene i utlandet, samlet i ett sammenhengende skrift", "De fem Mosebøkene sammen med Salmenes bok og de øvrige poetiske skriftene", "Utelukkende faste bønner og velsignelser som resiteres ved de store årlige høytidene"],
       explanation: 'Talmud er den sentrale teksten i rabbinsk jødedom og inneholder juridiske drøftinger, etiske refleksjoner og fortellinger. Den babylonske Talmud er mest autoritativ.',
     },
     {
@@ -418,7 +418,7 @@ const quizData_religion_etikk: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva betyr tikkun olam?',
-      options: ["«Å reparere verden» – et samlebegrep for sosialt ansvar og etisk engasjement i moderne jødedom", "Feiringen av utgangen fra Egypt", "Den ukentlige hviledagen som holdes fra fredag kveld til lørdag kveld i jødiske hjem og synagoger", "Feiringen av israelittenes utgang fra slaveriet i Egypt, som hvert år markeres under påskemåltidet"],
+      options: ["«Å reparere verden» – et samlebegrep for sosialt ansvar og etisk engasjement i moderne jødedom", "Læren om at verden allerede er skapt fullkommen, og at mennesker derfor ikke har noe ansvar for å forbedre den", "Den ukentlige hviledagen som holdes fra fredag kveld til lørdag kveld i jødiske hjem og synagoger", "Feiringen av israelittenes utgang fra slaveriet i Egypt, som hvert år markeres under påskemåltidet"],
       explanation: 'Begrepet har røtter i kabbalistisk tradisjon og uttrykker tanken om at mennesker har et ansvar for å gjøre verden bedre.',
     },
   ],
@@ -426,7 +426,7 @@ const quizData_religion_etikk: Record<string, QuizQuestion[]> = {
   'religion-etikk-3-4': [
     {
       question: 'Hva betyr guru i sikhismen?',
-      options: ["Den som bringer lys i mørket – tittelen brukes om de ti historiske guruene og om den hellige skriften", "En profesjonell tempelvakt", "En profesjonell tempelvakt som passer nøye på gurdwaraen og de hellige gjenstandene og skriftrullene der", "En kriger i den væpnede hæren som med våpen forsvarer hele trosfellesskapet mot ytre fiender og angripere"],
+      options: ["Den som bringer lys i mørket – tittelen brukes om de ti historiske guruene og om den hellige skriften", "Betegnelsen på selve bygningen der menigheten samles til felles sang og bønn, ikke en tittel som brukes om personer", "En profesjonell tempelvakt som passer nøye på gurdwaraen og de hellige gjenstandene og skriftrullene der", "En kriger i den væpnede hæren som med våpen forsvarer hele trosfellesskapet mot ytre fiender og angripere"],
       explanation: 'Tittelen brukes om de ti guruene fra Guru Nanak til Guru Gobind Singh, samt om Guru Granth Sahib, som regnes som den evige guru.',
     },
     {
@@ -436,17 +436,17 @@ const quizData_religion_etikk: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er sewa?',
-      options: ["Uselvisk, frivillig tjeneste for andre uten forventning om belønning", "Den daglige bønnen i gurdwaraen", "Den faste daglige bønnen som resiteres i gurdwaraen ved soloppgang og solnedgang", "En fastlagt fasteperiode som overholdes i dagene før de store religiøse høytidene"],
+      options: ["Uselvisk, frivillig tjeneste for andre uten forventning om belønning", "En religiøs plikt som bare de innviede lederne i menigheten har lov til å utføre", "Den faste daglige bønnen som resiteres i gurdwaraen ved soloppgang og solnedgang", "En fastlagt fasteperiode som overholdes i dagene før de store religiøse høytidene"],
       explanation: 'Sewa forstås som en vei til åndelig utvikling gjennom å overvinne egoet (haumai) og praktisere Guds kjærlighet i handling.',
     },
     {
       question: 'Hva er khalsa?',
-      options: ["Et innviet fellesskap i sikhismen, opprettet av Guru Gobind Singh i 1699", "Tittelen på sikhenes politiske leder", "Sikhismens eldste og mest ærverdige tempel, som mange pilegrimer valfarter til", "En omfattende samling religiøse dikt og hymner som resiteres ved morgengudstjenesten"],
+      options: ["Et innviet fellesskap i sikhismen, opprettet av Guru Gobind Singh i 1699", "Tittelen på den politiske lederen som taler på vegne av sikhene overfor myndighetene", "Sikhismens eldste og mest ærverdige tempel, som mange pilegrimer valfarter til", "En omfattende samling religiøse dikt og hymner som resiteres ved morgengudstjenesten"],
       explanation: 'Khalsa-sikher gjennomgår innvielsesseremonien amrit sanskar og forplikter seg til å bære de fem K-ene og leve etter strenge etiske retningslinjer.',
     },
     {
       question: 'Hva er Mul Mantar?',
-      options: ["Åpningsversene i Guru Granth Sahib som beskriver Guds grunnleggende egenskaper", "Navnet på den første guruen", "Navnet på den aller første guruen som grunnla sikhismen og forkynte den nye læren", "Den hellige pilegrimsbyen der sikhene reiser for å bade i det hellige tempelbassenget"],
+      options: ["Åpningsversene i Guru Granth Sahib som beskriver Guds grunnleggende egenskaper", "Betegnelsen på hymnene som medlemmene synger i fellesskap når de er samlet til gudstjeneste", "Navnet på den aller første guruen som grunnla sikhismen og forkynte den nye læren", "Den hellige pilegrimsbyen der sikhene reiser for å bade i det hellige tempelbassenget"],
       explanation: 'Mul Mantar kalles ofte «grunnformelen» i sikhismen og beskriver Gud som én, sann, skapende, uten frykt, tidløs og selveksisterende.',
     },
   ],
@@ -464,17 +464,17 @@ const quizData_religion_etikk: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er synkretisme?',
-      options: ["Blanding av elementer fra ulike religiøse og filosofiske tradisjoner til nye helheter", "Synkronisert bønn i store forsamlinger", "Nøye synkronisert felles bønn utført av store forsamlinger på nøyaktig samme tidspunkt", "En bestemt rytmisk musikkform som fremføres under gudstjenester og religiøse seremonier"],
+      options: ["Blanding av elementer fra ulike religiøse og filosofiske tradisjoner til nye helheter", "Kravet om at en religion må holdes helt fri for påvirkning utenfra for å bevare sin opprinnelige form", "Nøye synkronisert felles bønn utført av store forsamlinger på nøyaktig samme tidspunkt", "En bestemt rytmisk musikkform som fremføres under gudstjenester og religiøse seremonier"],
       explanation: 'Synkretisme er et vanlig trekk ved nyreligiøsitet, der den enkelte fritt kombinerer elementer fra blant annet hinduisme, buddhisme og vestlig esoterikk.',
     },
     {
       question: 'Hva betegner begrepet conspirituality?',
-      options: ["Sammensmeltningen av konspirasjonstenkning og nyreligiøsitet", "En kristen vekkelsesbevegelse", "En kristen vekkelsesbevegelse med vekt på personlig omvendelse og karismatiske møter", "En pusteorientert meditasjonsteknikk som brukes for å oppnå indre ro og konsentrasjon"],
+      options: ["Sammensmeltningen av konspirasjonstenkning og nyreligiøsitet", "Et forskningsfelt som kartlegger hvor mange som tilhører ulike trossamfunn", "En kristen vekkelsesbevegelse med vekt på personlig omvendelse og karismatiske møter", "En pusteorientert meditasjonsteknikk som brukes for å oppnå indre ro og konsentrasjon"],
       explanation: 'Conspirituality innebærer at åndelige ideer kobles med konspirasjonsteorier om en skjult elite som styrer verden.',
     },
     {
       question: 'Hva er neopaganisme?',
-      options: ["Moderne bevegelser som lar seg inspirere av førkristne religiøse tradisjoner, som wicca og norrøn hedendom (Åsatru)", "Misjonsbevegelser fra 1800-tallet", "Kristne misjonsbevegelser fra 1800-tallet som reiste ut for å spre evangeliet til stadig nye folkeslag og verdensdeler", "En konservativ fromhetsretning innenfor den katolske kirken som dyrker de gamle helgenene og relikviene fra middelalderen"],
+      options: ["Moderne bevegelser som lar seg inspirere av førkristne religiøse tradisjoner, som wicca og norrøn hedendom (Åsatru)", "Et akademisk fagfelt som studerer antikkens myter og gudetro ut fra arkeologiske funn og bevarte skriftlige kilder fra samtiden", "Kristne misjonsbevegelser fra 1800-tallet som reiste ut for å spre evangeliet til stadig nye folkeslag og verdensdeler", "En konservativ fromhetsretning innenfor den katolske kirken som dyrker de gamle helgenene og relikviene fra middelalderen"],
       explanation: 'Neopaganisme søker å gjenopplive førkristne tradisjoner og omfatter blant annet wicca, druidisme og norrøn hedendom.',
     },
   ],
@@ -492,17 +492,17 @@ const quizData_religion_etikk: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er ahimsa, og hvor står prinsippet sentralt?',
-      options: ["Prinsippet om ikkevold mot alle levende vesener, sentralt i hinduisme, buddhisme, jainisme og sikhisme", "Et offerritual i de abrahamittiske religionene", "Et fastlagt offerritual som utføres i de abrahamittiske religionene ved de aller største høytidene i året", "En kristen fasteperiode der de troende avstår fra kjøtt og faste måltider gjennom førti sammenhengende dager"],
+      options: ["Prinsippet om ikkevold mot alle levende vesener, sentralt i hinduisme, buddhisme, jainisme og sikhisme", "Læren om at sjelen gjenfødes i en ny kropp etter døden, et prinsipp som står sentralt i både hinduisme og jainisme", "Et fastlagt offerritual som utføres i de abrahamittiske religionene ved de aller største høytidene i året", "En kristen fasteperiode der de troende avstår fra kjøtt og faste måltider gjennom førti sammenhengende dager"],
       explanation: 'Ahimsa tolkes ulikt i de ulike tradisjonene – i jainismen fører det til streng vegetarianisme og ekstrem forsiktighet overfor alle organismer.',
     },
     {
       question: 'Hva er mystikk i religiøs sammenheng?',
-      options: ["Strømninger som vektlegger direkte, indre erfaring av det guddommelige", "Hemmelige seremonier kun for prester", "Nøyaktig det samme som overtro og folkelig magi uten grunnlag i den religiøse læren", "Hemmelige seremonier og innvielsesritualer som kun de innviede prestene har adgang til"],
+      options: ["Strømninger som vektlegger direkte, indre erfaring av det guddommelige", "Fortellingene om gudenes gjerninger som forklarer hvordan verden en gang ble til", "Nøyaktig det samme som overtro og folkelig magi uten grunnlag i den religiøse læren", "Hemmelige seremonier og innvielsesritualer som kun de innviede prestene har adgang til"],
       explanation: 'Mystikk finnes i alle store religioner: kristen kontemplasjon, islamsk sufisme, jødisk kabbalah, hinduistisk advaita og buddhistisk meditasjon.',
     },
     {
       question: 'Hva skiller religionsdialog fra debatt og misjon?',
-      options: ["Dialogens mål er gjensidig forståelse, ikke å vinne diskusjonen eller omvende den andre", "Dialog krever at alle blir enige til slutt", "Ekte religionsdialog er utelukkende mulig mellom ulike retninger innenfor kristendommen", "Dialogen krever at alle parter til slutt kommer fram til full enighet om trosspørsmålene"],
+      options: ["Dialogens mål er gjensidig forståelse, ikke å vinne diskusjonen eller omvende den andre", "Dialogens mål er å overbevise den andre om egen tro", "Ekte religionsdialog er bare mulig mellom ulike retninger innenfor kristendommen", "Dialogen krever at alle parter til slutt kommer fram til full enighet om trosspørsmålene"],
       explanation: 'I debatt er målet å «vinne», i misjon å overbevise. Religionsdialog sikter mot gjensidig forståelse og respekt på tvers av tradisjonene.',
     },
   ],
@@ -510,27 +510,27 @@ const quizData_religion_etikk: Record<string, QuizQuestion[]> = {
   'religion-etikk-4-1': [
     {
       question: 'Hva er forskjellen på etikk og moral?',
-      options: ["Moral er de faktiske normene og oppfatningene om rett og galt, etikk er den systematiske refleksjonen over moralen", "Begrepene har nøyaktig samme betydning i faglitteraturen", "Moralske krav og forpliktelser gjelder kun for religiøse mennesker, mens etikken alene er forbeholdt de ikke-troende", "Begrepene har i den akademiske faglitteraturen alltid nøyaktig samme betydning og kan uten videre brukes om hverandre"],
+      options: ["Moral er de faktiske normene og oppfatningene om rett og galt, etikk er den systematiske refleksjonen over moralen", "Etikk er de faktiske normene og oppfatningene folk følger i praksis, mens moral er den systematiske refleksjonen over etikken", "Moralske krav og forpliktelser gjelder kun for religiøse mennesker, mens etikken alene er forbeholdt de ikke-troende", "Begrepene har i den akademiske faglitteraturen alltid nøyaktig samme betydning og kan uten videre brukes om hverandre"],
       explanation: 'Moral er det vi faktisk gjør og mener er riktig, mens etikk er «læren om moralen» – den filosofiske refleksjonen over den.',
     },
     {
       question: 'Hva spør normativ etikk om, i motsetning til deskriptiv etikk?',
-      options: ["Hva vi bør mene er riktig og hvorfor, mens deskriptiv etikk kartlegger hva folk faktisk mener", "Hvordan moral har utviklet seg evolusjonært", "Hva mennesker i ulike kulturer og historiske epoker faktisk har ment er rett og galt i praksis", "Hvor mange mennesker som i dagliglivet faktisk følger de moralske reglene de selv sier de tror på"],
+      options: ["Hva vi bør mene er riktig og hvorfor, mens deskriptiv etikk kartlegger hva folk faktisk mener", "Hvordan moralen har utviklet seg evolusjonært hos mennesket som art, og hvilken nytte den har hatt for arten", "Hva mennesker i ulike kulturer og historiske epoker faktisk har ment er rett og galt i praksis", "Hvor mange mennesker som i dagliglivet faktisk følger de moralske reglene de selv sier de tror på"],
       explanation: 'Deskriptiv etikk beskriver moralske oppfatninger slik de er, mens normativ etikk forsøker å begrunne hva som er moralsk riktig og galt.',
     },
     {
       question: 'Hva hevder moralsk relativisme?',
-      options: ["At moralske normer og verdier er relative til kultur, tid og sted, uten noen objektiv universell moral", "At alle moralske spørsmål har ett riktig svar", "At de moralske normene er evige og fullstendig uforanderlige og aldri endrer seg gjennom historiens løp", "At alle moralske spørsmål har ett bestemt og objektivt riktig svar som gjelder til alle tider og overalt"],
+      options: ["At moralske normer og verdier er relative til kultur, tid og sted, uten noen objektiv universell moral", "At hver enkelt person selv avgjør hva som er rett og galt, uavhengig av hva kulturen og samfunnet omkring mener om saken", "At de moralske normene er evige og fullstendig uforanderlige og aldri endrer seg gjennom historiens løp", "At alle moralske spørsmål har ett bestemt og objektivt riktig svar som gjelder til alle tider og overalt"],
       explanation: 'Moralsk relativisme står i motsetning til moralsk universalisme, som hevder at visse moralske prinsipper gjelder for alle mennesker.',
     },
     {
       question: 'Hva hevder moralsk objektivisme?',
-      options: ["At det finnes moralske sannheter som er uavhengige av individers og kulturers meninger", "At moralske utsagn bare uttrykker følelser", "At moralske spørsmål aldri lar seg diskutere rasjonelt, fordi de fullstendig mangler sannhetsverdi", "At moralske utsagn i bunn og grunn bare gir uttrykk for den enkeltes følelser og subjektive holdninger"],
+      options: ["At det finnes moralske sannheter som er uavhengige av individers og kulturers meninger", "At det som er moralsk riktig, alltid er det flertallet i et samfunn til enhver tid har blitt enige om", "At moralske spørsmål aldri lar seg diskutere rasjonelt, fordi de fullstendig mangler sannhetsverdi", "At moralske utsagn i bunn og grunn bare gir uttrykk for den enkeltes følelser og subjektive holdninger"],
       explanation: 'Objektivismen mener moralske utsagn kan være objektivt sanne eller usanne, mens subjektivismen mener de bare uttrykker individuelle holdninger.',
     },
     {
       question: 'Hva brukes trolley-problemet til i etikken?',
-      options: ["Å utforske moralske intuisjoner og konflikten mellom ulike etiske prinsipper i et dilemma", "Å beregne kostnadene ved kollektivtransport", "Å teste reaksjonsevnen og oppmerksomheten til togførere i uventede og pressede trafikksituasjoner", "Å demonstrere at alle etiske spørsmål i grunnen er meningsløse fordi de aldri får noe endelig svar"],
+      options: ["Å utforske moralske intuisjoner og konflikten mellom ulike etiske prinsipper i et dilemma", "Å beregne kostnadene ved å bygge ut kollektivtransporten i store byer der mange reiser hver eneste dag", "Å teste reaksjonsevnen og oppmerksomheten til togførere i uventede og pressede trafikksituasjoner", "Å demonstrere at alle etiske spørsmål i grunnen er meningsløse fordi de aldri får noe endelig svar"],
       explanation: 'Trolley-problemet er et tankeeksperiment om å ofre én for å redde flere. Det belyser spenningen mellom konsekvensetiske og pliktetiske intuisjoner.',
     },
   ],
@@ -538,27 +538,27 @@ const quizData_religion_etikk: Record<string, QuizQuestion[]> = {
   'religion-etikk-4-2': [
     {
       question: 'Hvordan lyder universaliseringsformuleringen av Kants kategoriske imperativ?',
-      options: ["«Handle bare etter den maksime som du samtidig kan ville skal bli en allmenn lov»", "«Gjør det som gir størst lykke for flest mulig»", "«Handle slik skikk og tradisjon i ditt eget samfunn til enhver tid krever av deg»", "«Handle alltid slik at handlingen gir størst mulig lykke for flest mulig mennesker»"],
+      options: ["«Handle bare etter den maksime som du samtidig kan ville skal bli en allmenn lov»", "«Gjør det som gir størst lykke for flest mulig»", "«Handle alltid slik skikk og tradisjon i ditt eget samfunn krever av deg»", "«Handle alltid slik at handlingen gir størst mulig lykke for flest mulig mennesker»"],
       explanation: 'Før du handler, skal du spørre om du kan ville at alle handlet etter samme regel. En annen formulering krever at mennesker alltid behandles som mål i seg selv, aldri bare som middel.',
     },
     {
       question: 'Hva er forskjellen på fullkomne og ufullkomne plikter hos Kant?',
-      options: ["Fullkomne plikter gjelder uten unntak (som forbudet mot å lyve), ufullkomne gir en viss frihet i oppfyllelsen", "Ufullkomne plikter er plikter man har glemt", "Fullkomne plikter kan settes til side når de kolliderer, ufullkomne må alltid oppfylles uten unntak i enhver situasjon", "Fullkomne plikter gjelder bare mot en selv (som selvutvikling), ufullkomne gjelder utelukkende overfor staten og fellesskapet"],
+      options: ["Fullkomne plikter gjelder uten unntak (som forbudet mot å lyve), ufullkomne gir en viss frihet i oppfyllelsen", "Ufullkomne plikter er plikter man har glemt å oppfylle i tide, og som derfor må gjøres opp så snart man kommer på dem igjen", "Fullkomne plikter kan settes til side når de kolliderer, ufullkomne må alltid oppfylles uten unntak i enhver situasjon", "Fullkomne plikter gjelder bare mot en selv (som selvutvikling), ufullkomne gjelder utelukkende overfor staten og fellesskapet"],
       explanation: 'Fullkomne plikter kan uttrykkes som absolutte forbud, mens ufullkomne plikter (som å hjelpe andre) gir rom for skjønn i hvordan de oppfylles.',
     },
     {
       question: 'Hva er ifølge Kant det eneste som er ubetinget godt?',
-      options: ["Den gode vilje – viljen til å handle av plikt fordi det er riktig", "Lykke og nytelse", "Det medfølende møtet med den andres sårbare ansikt, som ubetinget skaper et moralsk ansvar hos meg", "Trangen til å realisere sitt fulle potensial og blomstre som menneske gjennom et dydig og velbalansert liv"],
+      options: ["Den gode vilje – viljen til å handle av plikt fordi det er riktig", "Lykke og nytelse, forstått som mengden behagelige opplevelser et menneske oppnår", "Det medfølende møtet med den andres sårbare ansikt, som ubetinget skaper et moralsk ansvar hos meg", "Trangen til å realisere sitt fulle potensial og blomstre som menneske gjennom et dydig og velbalansert liv"],
       explanation: 'Kant skiller mellom å handle av plikt og bare i samsvar med plikt. Bare handlinger motivert av plikten har ekte moralsk verdi.',
     },
     {
       question: 'Hva er en prima facie-plikt ifølge W.D. Ross?',
-      options: ["En plikt som gjelder «ved første øyekast», men kan settes til side hvis en annen plikt veier tyngre", "En plikt som bare gjelder i nødssituasjoner", "En plikt som utelukkende utledes fra det kategoriske imperativ og derfor gjelder absolutt uten mulige unntak", "En plikt som alltid går foran alle andre plikter og aldri kan tilsidesettes uansett situasjonens omstendigheter"],
+      options: ["En plikt som gjelder «ved første øyekast», men kan settes til side hvis en annen plikt veier tyngre", "En plikt som bare gjelder i akutte nødssituasjoner, og som ellers ikke legger noen forpliktelser på den enkelte", "En plikt som utelukkende utledes fra det kategoriske imperativ og derfor gjelder absolutt uten mulige unntak", "En plikt som alltid går foran alle andre plikter og aldri kan tilsidesettes uansett situasjonens omstendigheter"],
       explanation: 'Ross innførte begrepet for å håndtere pliktkollisjoner: Den plikten som faktisk gjelder i en konkret situasjon, kalles faktisk plikt (actual duty).',
     },
     {
       question: 'Hva betyr autonomi i Kants etikk?',
-      options: ["Menneskets evne til å gi seg selv moralske lover gjennom fornuften", "Retten til å gjøre hva man vil", "Evnen til å adlyde moralske lover som er gitt utenfra, av Gud eller naturen, gjennom ren fornuft", "Menneskets rett til å følge sine egne lyster fritt uten å måtte ta hensyn til fornuftens moralske krav"],
+      options: ["Menneskets evne til å gi seg selv moralske lover gjennom fornuften", "Statens plikt til å la den enkelte borger velge sin egen livsstil uten innblanding", "Evnen til å adlyde moralske lover som er gitt utenfra, av Gud eller naturen, gjennom ren fornuft", "Menneskets rett til å følge sine egne lyster fritt uten å måtte ta hensyn til fornuftens moralske krav"],
       explanation: 'Autonomi (selvlovgivning) er forutsetningen for moralsk ansvar hos Kant: Mennesket er moralsk lovgiver gjennom sin egen fornuft.',
     },
   ],
@@ -566,17 +566,17 @@ const quizData_religion_etikk: Record<string, QuizQuestion[]> = {
   'religion-etikk-4-3': [
     {
       question: 'Hva er grunnprinsippet i utilitarismen?',
-      options: ["Den handlingen er moralsk riktig som produserer størst mulig lykke for størst mulig antall berørte", "Handlinger skal vurderes ut fra intensjonen alene", "Den handlingen er riktig som springer ut av en god vilje og et rent motiv, uavhengig av konsekvensene", "Den handlingen er riktig som følger en regel man kan ville skal bli en allmenn lov for alle mennesker"],
+      options: ["Den handlingen er moralsk riktig som produserer størst mulig lykke for størst mulig antall berørte", "Den handlingen er moralsk riktig som gir størst mulig fordel for den som utfører den, uansett hva andre taper", "Den handlingen er riktig som springer ut av en god vilje og et rent motiv, uavhengig av konsekvensene", "Den handlingen er riktig som følger en regel man kan ville skal bli en allmenn lov for alle mennesker"],
       explanation: 'Utilitarismen er den viktigste formen for konsekvensetikk, der konsekvensene er det eneste som teller i den moralske vurderingen.',
     },
     {
       question: 'Hva var Benthams nyttekalkyle?',
-      options: ["En metode for å beregne den totale nytelsen en handling produserer, ut fra blant annet intensitet og varighet", "En oversikt over statens skatteinntekter", "En metode for å rangere handlinger etter hvor gode motiver og hensikter de sprang ut fra, uavhengig av utfallet", "En modell for å måle et menneskes moralske utvikling gjennom bestemte trinn fra lydighet til prinsippstyrt tenkning"],
+      options: ["En metode for å beregne den totale nytelsen en handling produserer, ut fra blant annet intensitet og varighet", "En oversikt over statens skatteinntekter og utgifter, satt opp for å vise hvor mye fellesskapet har å rutte med hvert år", "En metode for å rangere handlinger etter hvor gode motiver og hensikter de sprang ut fra, uavhengig av utfallet", "En modell for å måle et menneskes moralske utvikling gjennom bestemte trinn fra lydighet til prinsippstyrt tenkning"],
       explanation: 'Bentham var hedonist: Nytelse er det eneste iboende gode. Nyttekalkylen (felicific calculus) veier faktorer som intensitet, varighet og sannsynlighet.',
     },
     {
       question: 'Hva la John Stuart Mill til i utilitarismen sammenlignet med Bentham?',
-      options: ["At det finnes kvalitative forskjeller mellom nytelser – noen gleder er høyere enn andre", "At bare konger kan oppleve lykke", "At bare handlingens motiv teller moralsk, mens de faktiske konsekvensene for lykken er helt uten betydning", "At nytelse ikke er noe gode i seg selv, og at moral i stedet må bygge på plikt og det kategoriske imperativ"],
+      options: ["At det finnes kvalitative forskjeller mellom nytelser – noen gleder er høyere enn andre", "At bare konger og fyrster kan oppleve virkelig lykke, og at nytten derfor bare skal regnes for dem", "At bare handlingens motiv teller moralsk, mens de faktiske konsekvensene for lykken er helt uten betydning", "At nytelse ikke er noe gode i seg selv, og at moral i stedet må bygge på plikt og det kategoriske imperativ"],
       explanation: 'Mill mente intellektuelle og åndelige gleder står høyere enn rent kroppslige, og utviklet også et frihetsprinsipp og tanker om rettferdighet.',
     },
     {
@@ -586,7 +586,7 @@ const quizData_religion_etikk: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er spesiesisme ifølge Peter Singer?',
-      options: ["Diskriminering basert på artstilhørighet – å gi menneskers interesser forrang bare fordi de er mennesker", "En teori om artenes opprinnelse", "Læren om at bare mennesker har fornuft, og at dyrs interesser derfor med rette må vike for menneskelige behov", "Oppfatningen om at alle levende arter har nøyaktig samme moralske verdi og krav på identisk behandling fra oss"],
+      options: ["Diskriminering basert på artstilhørighet – å gi menneskers interesser forrang bare fordi de er mennesker", "En teori om hvordan artene har oppstått og utviklet seg, og som derfor hører hjemme i biologien og ikke i moralfilosofien", "Læren om at bare mennesker har fornuft, og at dyrs interesser derfor med rette må vike for menneskelige behov", "Oppfatningen om at alle levende arter har nøyaktig samme moralske verdi og krav på identisk behandling fra oss"],
       explanation: 'Singer er preferanseutilitarist og hevder at interessene til alle berørte – også dyr – skal telle likt. Å overse dyrs lidelse på grunn av art er spesiesisme.',
     },
   ],
@@ -604,17 +604,17 @@ const quizData_religion_etikk: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva betyr eudaimonia?',
-      options: ["Å leve godt og blomstre som menneske ved å realisere sitt potensial gjennom et dydig liv", "En kortvarig følelse av glede", "Den ytre anerkjennelsen og æren et menneske oppnår i samfunnet gjennom rikdom, makt og et godt omdømme", "Fraværet av all lidelse og uro, en fullstendig sjelefred som ifølge Aristoteles nås ved å undertrykke følelsene"],
+      options: ["Å leve godt og blomstre som menneske ved å realisere sitt potensial gjennom et dydig liv", "En kortvarig følelse av glede som kommer og går med øyeblikket, og som ikke sier noe om livet som helhet", "Den ytre anerkjennelsen og æren et menneske oppnår i samfunnet gjennom rikdom, makt og et godt omdømme", "Fraværet av all lidelse og uro, en fullstendig sjelefred som ifølge Aristoteles nås ved å undertrykke følelsene"],
       explanation: 'Eudaimonia oversettes ofte med «lykke», men handler om mer enn en subjektiv følelse – det er å realisere sitt potensial som menneske.',
     },
     {
       question: 'Hva er phronesis?',
-      options: ["Praktisk klokskap – evnen til å vurdere hva som er riktig å gjøre i konkrete situasjoner", "Teoretisk kunnskap om matematikk", "Den kontemplative visdommen som utelukkende retter seg mot det guddommelige og hever seg over praktiske valg", "Kunsten å tale klart og overbevisende, slik at man kan vinne tilhørernes tillit og påvirke deres beslutninger"],
+      options: ["Praktisk klokskap – evnen til å vurdere hva som er riktig å gjøre i konkrete situasjoner", "Teoretisk kunnskap om matematikk og andre eksakte fag, altså det å beherske utregninger og bevis riktig", "Den kontemplative visdommen som utelukkende retter seg mot det guddommelige og hever seg over praktiske valg", "Kunsten å tale klart og overbevisende, slik at man kan vinne tilhørernes tillit og påvirke deres beslutninger"],
       explanation: 'Phronesis er ifølge Aristoteles den viktigste dyden, en praktisk visdom som forener kunnskap med erfaring og dømmekraft.',
     },
     {
       question: 'Hva er Alasdair MacIntyre kjent for i moderne etikk?',
-      options: ["Å kritisere moderne moralfilosofi og argumentere for en tilbakevending til Aristoteles' dydsetikk", "Å utvikle det kategoriske imperativ", "Å formulere det kategoriske imperativ og vise at moralen bygger på plikt og fornuft framfor på karakter og dyder", "Å grunnlegge den moderne konsekvensetikken og hevde at handlingens nytte for flest mulig er det eneste avgjørende"],
+      options: ["Å kritisere moderne moralfilosofi og argumentere for en tilbakevending til Aristoteles' dydsetikk", "Å hevde at moderne moralfilosofi er fullkommen slik den er, og at fellesskapets tradisjoner ikke har noe å tilføre", "Å formulere det kategoriske imperativ og vise at moralen bygger på plikt og fornuft framfor på karakter og dyder", "Å grunnlegge den moderne konsekvensetikken og hevde at handlingens nytte for flest mulig er det eneste avgjørende"],
       explanation: 'MacIntyre mente moderne etikk hadde mistet sitt fellesskapsforankrede grunnlag, og argumenterte for en fornyelse av den aristoteliske dydsetikken.',
     },
   ],
@@ -622,22 +622,22 @@ const quizData_religion_etikk: Record<string, QuizQuestion[]> = {
   'religion-etikk-4-5': [
     {
       question: 'Hva hevder nærhetsetikken?',
-      options: ["At moralen begynner i det konkrete møtet med det andre mennesket, ikke i abstrakte prinsipper", "At moral er en privatsak uten forpliktelser", "At en handling er riktig når den skaper størst mulig lykke, slik at nære og fjerne menneskers interesser teller likt", "At moralen først oppstår gjennom samfunnskontrakten, der frie individer blir enige om felles regler for sameksistens"],
+      options: ["At moralen begynner i det konkrete møtet med det andre mennesket, ikke i abstrakte prinsipper", "At moral er en privatsak den enkelte avgjør for seg selv, uten bindende forpliktelser overfor andre mennesker", "At en handling er riktig når den skaper størst mulig lykke, slik at nære og fjerne menneskers interesser teller likt", "At moralen først oppstår gjennom samfunnskontrakten, der frie individer blir enige om felles regler for sameksistens"],
       explanation: 'I nærhetsetikken er det den andres sårbarhet og appell som skaper moralsk ansvar – ikke universelle prinsipper eller kalkyler.',
     },
     {
       question: 'Hva mener Levinas med «ansiktet»?',
-      options: ["Det andre menneskets sårbarhet som møter meg og skaper moralsk ansvar", "En maske man tar på i sosiale sammenhenger", "Den fysiske skjønnheten og de trekkene ved et menneskes utseende som vekker sympati og velvilje hos betrakteren", "Den fysiske utseendet til et menneske"],
+      options: ["Det andre menneskets sårbarhet som møter meg og skaper moralsk ansvar", "En maske man tar på i sosiale sammenhenger", "Den fysiske skjønnheten og de trekkene ved et menneskes utseende som vekker sympati og velvilje hos betrakteren", "Et symbol på menneskets fornuft og verdighet"],
       explanation: 'Ansiktet (le visage) utsier ifølge Levinas en appell: «Du skal ikke drepe meg.» Den andre er alltid mer enn jeg kan forstå eller kontrollere.',
     },
     {
       question: 'Hva er Løgstrups etiske fordring?',
-      options: ["At vi skal ta vare på det av den andres liv som er lagt i våre hender", "At vi skal kreve våre rettigheter oppfylt", "At vi skal maksimere den samlede lykken i fellesskapet ved å ta hensyn til alle berørtes interesser likt", "At vi skal maksimere egen lykke"],
+      options: ["At vi skal ta vare på det av den andres liv som er lagt i våre hender", "At vi skal kreve våre rettigheter oppfylt", "At vi skal maksimere den samlede lykken i fellesskapet ved å ta hensyn til alle berørtes interesser likt", "At vi skal maksimere vår egen lykke først"],
       explanation: 'Fordringen er ifølge Løgstrup radikal (uselvisk), ensidig (uavhengig av gjensidighet), taus (gir ingen instruksjoner) og uoppfyllelig.',
     },
     {
       question: 'Hva kritiserte Carol Gilligan hos Kohlberg?',
-      options: ["At hans teori om moralsk utvikling overså omsorgsperspektivet, som hun kalte en annen moralsk stemme", "At han avviste rettferdighetsbegrepet", "At han bygde teorien sin utelukkende på studier av jenter, og dermed overså guttenes måte å resonnere moralsk på", "At han overdrev omsorgsperspektivet og undervurderte betydningen av rettferdighet og prinsipper i moralsk tenkning"],
+      options: ["At hans teori om moralsk utvikling overså omsorgsperspektivet, som hun kalte en annen moralsk stemme", "At han avviste rettferdighetsbegrepet og hevdet at moralsk utvikling ikke lar seg beskrive i trinn i det hele tatt", "At han bygde teorien sin utelukkende på studier av jenter, og dermed overså guttenes måte å resonnere moralsk på", "At han overdrev omsorgsperspektivet og undervurderte betydningen av rettferdighet og prinsipper i moralsk tenkning"],
       explanation: 'Gilligan hevdet at moralsk tenkning ikke bare handler om rettferdighet og prinsipper, men også om omsorg, relasjoner og ansvar for konkrete andre.',
     },
     {
@@ -650,7 +650,7 @@ const quizData_religion_etikk: Record<string, QuizQuestion[]> = {
   'religion-etikk-4-6': [
     {
       question: 'Hva er anvendt etikk?',
-      options: ["Bruk av etiske teorier og prinsipper til å analysere konkrete moralske problemstillinger", "Reglene for vitenskapelig publisering", "Studiet av selve grunnlaget for moralske begreper, som hva ordet «god» egentlig betyr og om moralske utsagn er sanne", "Den beskrivende undersøkelsen av hvilke moralske normer og verdier ulike kulturer og grupper faktisk følger i praksis"],
+      options: ["Bruk av etiske teorier og prinsipper til å analysere konkrete moralske problemstillinger", "Reglene for vitenskapelig publisering, altså krav om kildehenvisning og forbud mot plagiat i forskning", "Studiet av selve grunnlaget for moralske begreper, som hva ordet «god» egentlig betyr og om moralske utsagn er sanne", "Den beskrivende undersøkelsen av hvilke moralske normer og verdier ulike kulturer og grupper faktisk følger i praksis"],
       explanation: 'Anvendt etikk er etikkens praktiske gren. Bioetikk er anvendt etikk innenfor medisin, biologi og livsvitenskap.',
     },
     {
@@ -660,7 +660,7 @@ const quizData_religion_etikk: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er forskjellen på opt-in- og opt-out-systemer for organdonasjon?',
-      options: ["I opt-in må man aktivt registrere seg som donor, i opt-out er alle donorer med mindre de reserverer seg", "Opt-in gjelder bare barn, opt-out bare voksne", "I opt-in blir alle automatisk registrert som donorer, mens man i opt-out aktivt må melde seg på som organdonor selv", "I opt-in avgjør de pårørende spørsmålet etter dødsfallet, mens det i opt-out alltid er staten som fatter beslutningen"],
+      options: ["I opt-in må man aktivt registrere seg som donor, i opt-out er alle donorer med mindre de reserverer seg", "Opt-in gjelder bare barn, som må registreres av foreldrene, mens opt-out bare gjelder voksne over myndighetsalderen", "I opt-in blir alle automatisk registrert som donorer, mens man i opt-out aktivt må melde seg på som organdonor selv", "I opt-in avgjør de pårørende spørsmålet etter dødsfallet, mens det i opt-out alltid er staten som fatter beslutningen"],
       explanation: 'Opt-in (som i Norge) respekterer autonomien sterkt, men gir færre tilgjengelige organer. Opt-out (presumert samtykke) brukes blant annet i Spania.',
     },
     {
@@ -670,7 +670,7 @@ const quizData_religion_etikk: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva sier føre-var-prinsippet?',
-      options: ["Ved risiko for alvorlig eller uopprettelig skade bør manglende vitenskapelig sikkerhet ikke hindre forebyggende tiltak", "At all ny og uprøvd teknologi bør forbys inntil den er bevist trygg, siden risiko for skade aldri kan aksepteres", "At man alltid skal avvente handling til det foreligger full vitenskapelig sikkerhet om at en aktivitet er helt ufarlig", "At risiko for skade må veies matematisk mot forventet nytte, slik at det tiltaket som gir størst samlet gevinst velges"],
+      options: ["Ved risiko for alvorlig eller uopprettelig skade bør manglende vitenskapelig sikkerhet ikke hindre forebyggende tiltak", "At all ny og uprøvd teknologi bør forbys inntil den er bevist trygg, siden risiko for skade aldri kan aksepteres", "At man alltid skal avvente handling til det foreligger full vitenskapelig sikkerhet om at en aktivitet er helt ufarlig for miljøet", "At risiko for skade må veies mot forventet nytte, slik at det tiltaket som gir størst samlet gevinst velges"],
       explanation: 'Føre-var-prinsippet brukes blant annet i miljø- og teknologispørsmål, men kritiseres av noen for å kunne bremse nyttig innovasjon.',
     },
   ],
@@ -678,27 +678,27 @@ const quizData_religion_etikk: Record<string, QuizQuestion[]> = {
   'religion-etikk-4-7': [
     {
       question: 'Hva skiller religiøs etikk fra sekulær etikk?',
-      options: ["Religiøs etikk henter sin begrunnelse fra en religiøs tradisjon, sekulær etikk begrunner moral uten å henvise til Gud", "Religiøs etikk har regler, sekulær etikk har ingen", "Religiøs etikk gir faste regler man må følge, mens sekulær etikk overlater alle moralske valg til den enkeltes frie følelser", "Religiøs etikk bygger utelukkende på straff og belønning i et etterliv, mens sekulær etikk bygger på samfunnets skrevne lover"],
+      options: ["Religiøs etikk henter sin begrunnelse fra en religiøs tradisjon, sekulær etikk begrunner moral uten å henvise til Gud", "Religiøs etikk består av nedskrevne regler, mens sekulær etikk verken har regler eller normer og derfor ikke kan veilede moralske valg", "Religiøs etikk gir faste regler man må følge, mens sekulær etikk overlater alle moralske valg til den enkeltes frie følelser", "Religiøs etikk bygger utelukkende på straff og belønning i et etterliv, mens sekulær etikk bygger på samfunnets skrevne lover"],
       explanation: 'Religiøs etikk er forankret i Guds vilje, hellige tekster eller åndelig innsikt, mens sekulær etikk bygger på fornuft, erfaring og menneskelige verdier.',
     },
     {
       question: 'Hva er agape i kristen etikk?',
-      options: ["Betingelsesløs, universell kjærlighet til alle mennesker – nestekjærligheten", "En kirkelig høytid", "Ærefrykten og lydigheten mennesket skylder Gud, som er det viktigste budet foran plikten til å elske sin neste", "Den vennskapelige og gjensidige hengivenheten mellom likestilte, slik grekerne beskrev båndet mellom nære venner"],
+      options: ["Betingelsesløs, universell kjærlighet til alle mennesker – nestekjærligheten", "En kirkelig høytid, altså en av festdagene i kirkeåret som menigheten feirer med gudstjeneste", "Ærefrykten og lydigheten mennesket skylder Gud, som er det viktigste budet foran plikten til å elske sin neste", "Den vennskapelige og gjensidige hengivenheten mellom likestilte, slik grekerne beskrev båndet mellom nære venner"],
       explanation: 'Nestekjærligheten (agape) er det viktigste etiske prinsippet i kristendommen, nært knyttet til den gylne regel.',
     },
     {
       question: 'Hva er ijtihad i islamsk etikk?',
-      options: ["Selvstendig moralsk og juridisk resonnering for å anvende islamske prinsipper på nye situasjoner", "En type moskéarkitektur", "Den ordrette og bokstavelige anvendelsen av Koranen og hadith, uten rom for selvstendig tolkning i nye spørsmål", "Enigheten blant de lærde til enhver tid, som ifølge tradisjonen alltid overstyrer den enkeltes egne resonnementer"],
+      options: ["Selvstendig moralsk og juridisk resonnering for å anvende islamske prinsipper på nye situasjoner", "En type moskéarkitektur, altså en bestemt byggestil for moskeer med egne løsninger for kuppelen og minaretene", "Den ordrette og bokstavelige anvendelsen av Koranen og hadith, uten rom for selvstendig tolkning i nye spørsmål", "Enigheten blant de lærde til enhver tid, som ifølge tradisjonen alltid overstyrer den enkeltes egne resonnementer"],
       explanation: 'Ijtihad er en dynamisk tilnærming som gjør det mulig å møte nye utfordringer, sammen med prinsipper som maslaha (fellesskapets beste).',
     },
     {
       question: 'Hva er det mest grunnleggende etiske prinsippet i buddhismen?',
-      options: ["Ahimsa – ikke-vold og skadefrihet overfor alt levende", "Kravet om faste hver uke", "Karma – prinsippet om at gode gjerninger belønnes med rikdom og velstand allerede i dette livet her og nå", "Plikten til å misjonere"],
+      options: ["Ahimsa – ikke-vold og skadefrihet overfor alt levende", "Kravet om faste hver uke", "Karma – at gode gjerninger gir rikdom her og nå", "Plikten til å misjonere"],
       explanation: 'Ahimsa innebærer respekt og medfølelse overfor alt levende, og henger sammen med idealene karuna (medfølelse) og metta (kjærlig vennlighet).',
     },
     {
       question: 'Hva gikk Hans Küngs prosjekt «verdensetos» ut på?',
-      options: ["Å finne felles etiske verdier på tvers av religioner og livssyn som grunnlag for global etikk", "Å oversette Bibelen til alle språk", "Å bevise at bare kristendommens etikk kan danne grunnlag for en felles moral som gjelder for hele menneskeheten", "Å samle verdens religioner til én felles trosbekjennelse, slik at forskjellene mellom dem gradvis kunne viskes ut"],
+      options: ["Å finne felles etiske verdier på tvers av religioner og livssyn som grunnlag for global etikk", "Å oversette Bibelen til alle verdens språk, slik at den samme teksten ble tilgjengelig for hvert folkeslag", "Å bevise at bare kristendommens etikk kan danne grunnlag for en felles moral som gjelder for hele menneskeheten", "Å samle verdens religioner til én felles trosbekjennelse, slik at forskjellene mellom dem gradvis kunne viskes ut"],
       explanation: 'Küng arbeidet for et felles etisk grunnlag (Weltethos) på tvers av religionene, for eksempel varianter av den gylne regel som finnes i mange tradisjoner.',
     },
   ],
@@ -706,17 +706,17 @@ const quizData_religion_etikk: Record<string, QuizQuestion[]> = {
   'religion-etikk-5-1': [
     {
       question: 'Hva er sekulær humanisme?',
-      options: ["Et livssyn som setter mennesket i sentrum og bygger på fornuft, vitenskap og menneskerettigheter", "Læren om menneskets guddommelige opprinnelse", "En religiøs bevegelse som dyrker menneskets egen guddommelighet og indre gudsgnist som veien til frelse og innsikt", "Et livssyn som avviser all etikk og alle moralske normer fordi de mangler forankring i en overnaturlig virkelighet"],
+      options: ["Et livssyn som setter mennesket i sentrum og bygger på fornuft, vitenskap og menneskerettigheter", "Læren om at mennesket stammer fra en guddommelig opprinnelse, og at menneskeverdet derfor må begrunnes religiøst", "En religiøs bevegelse som dyrker menneskets egen guddommelighet og indre gudsgnist som veien til frelse og innsikt", "Et livssyn som avviser all etikk og alle moralske normer fordi de mangler forankring i en overnaturlig virkelighet"],
       explanation: 'Sekulær humanisme avviser overnaturlige forklaringer og bygger etikken på medmenneskelighet, fornuft og menneskerettigheter.',
     },
     {
       question: 'Hva er Human-Etisk Forbund?',
-      options: ["Norges største livssynsorganisasjon utenfor Den norske kirke, stiftet i 1956", "Et statlig tilsynsorgan for trossamfunn", "En luthersk vekkelsesbevegelse innenfor Den norske kirke som arbeider for å styrke kristen tro og misjon i Norge", "Et offentlig tilsynsorgan opprettet av staten for å føre kontroll med tros- og livssynssamfunnenes økonomi og drift"],
+      options: ["Norges største livssynsorganisasjon utenfor Den norske kirke, stiftet i 1956", "En interesseorganisasjon for lærere i religion og etikk som utvikler læremidler til skolen", "En luthersk vekkelsesbevegelse innenfor Den norske kirke som arbeider for å styrke kristen tro og misjon i Norge", "Et offentlig tilsynsorgan opprettet av staten for å føre kontroll med tros- og livssynssamfunnenes økonomi og drift"],
       explanation: 'HEF arbeider for humanistiske verdier og livssynslikestilling og tilbyr seremonier som navnefest, humanistisk konfirmasjon og gravferd.',
     },
     {
       question: 'Hva er forskjellen på ateisme og agnostisisme?',
-      options: ["Ateisme avviser at det finnes noen gud, agnostisisme mener spørsmålet ikke kan avgjøres sikkert", "Ateisme er tvil, agnostisisme er sikkerhet", "Ateisme innebærer tro på flere guder samtidig, mens agnostisisme innebærer tro på én skjult gud", "Ateisme mener spørsmålet ikke kan avgjøres, mens agnostisisme aktivt avviser at det finnes noen gud"],
+      options: ["Ateisme avviser at det finnes noen gud, agnostisisme mener spørsmålet ikke kan avgjøres sikkert", "Ateisme er tvil om Gud, agnostisisme er full sikkerhet", "Ateisme betyr tro på flere guder samtidig, mens agnostisisme betyr tro på én skjult gud", "Ateisme mener spørsmålet ikke kan avgjøres, mens agnostisisme aktivt avviser at det finnes noen gud"],
       explanation: 'Ateisten avviser gudsforestillinger, mens agnostikeren mener at spørsmålet om Guds eksistens er uavklart eller uavklarbart.',
     },
     {
@@ -734,7 +734,7 @@ const quizData_religion_etikk: Record<string, QuizQuestion[]> = {
   'religion-etikk-5-2': [
     {
       question: 'Hva menes med at «eksistensen går forut for essensen»?',
-      options: ["Mennesket har ingen forhåndsgitt natur, men skaper seg selv gjennom sine valg", "Menneskets natur er bestemt før fødselen", "At selve eksistensen er en illusjon fordi bare menneskets iboende essens er virkelig", "At kroppens materielle behov alltid er viktigere enn sjelens åndelige higen etter mening"],
+      options: ["Mennesket har ingen forhåndsgitt natur, men skaper seg selv gjennom sine valg", "Menneskets natur er bestemt før fødselen, slik at valgene bare utfolder det som ligger fast", "At selve eksistensen er en illusjon fordi bare menneskets iboende essens er virkelig", "At kroppens materielle behov alltid er viktigere enn sjelens åndelige higen etter mening"],
       explanation: 'Dette er et sentralt prinsipp i eksistensialismen: Vi eksisterer først, og blir deretter til gjennom valgene vi tar.',
     },
     {
@@ -744,12 +744,12 @@ const quizData_religion_etikk: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva betegner det absurde hos Camus?',
-      options: ["Spenningen mellom menneskets behov for mening og universets taushet og likegyldighet", "Komiske episoder i hverdagen", "De komiske og meningsløse episodene som stadig oppstår i menneskets travle hverdagsliv", "Drømmene som mangler logisk sammenheng og dermed avslører underbevissthetens skjulte innhold"],
+      options: ["Spenningen mellom menneskets behov for mening og universets taushet og likegyldighet", "Den logiske selvmotsigelsen som oppstår når en påstand samtidig hevder noe og sin egen motsetning", "De komiske og meningsløse episodene som stadig oppstår i menneskets travle hverdagsliv", "Drømmene som mangler logisk sammenheng og dermed avslører underbevissthetens skjulte innhold"],
       explanation: 'Det absurde oppstår i møtet mellom mennesket og verden – verken i mennesket alene eller i verden alene, men i forholdet mellom dem.',
     },
     {
       question: 'Hva betegner «den andre» i Simone de Beauvoirs filosofi?',
-      options: ["En posisjon der en gruppe defineres som underordnet og avvikende i forhold til en dominant gruppe", "En idealisert tvillingsjel eller motpart som mennesket søker etter for å bli helt og fullstendig", "Guds motpart eller motstander som representerer det onde prinsippet i tilværelsens store dualisme", "Den nest beste og subsidiære løsningen man velger når den beste løsningen ikke er tilgjengelig"],
+      options: ["En posisjon der en gruppe defineres som underordnet og avvikende i forhold til en dominant gruppe", "En idealisert tvillingsjel eller motpart som mennesket søker etter for å bli helt og fullstendig", "Guds motpart eller motstander, som representerer det onde prinsippet i en dualistisk forståelse av tilværelsen", "Den nest beste og subsidiære løsningen man velger når den beste løsningen ikke er tilgjengelig"],
       explanation: 'De Beauvoir viste hvordan kvinner historisk har vært «den andre» i forhold til mannen, som har vært normen.',
     },
     {
@@ -782,7 +782,7 @@ const quizData_religion_etikk: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er apostasi?',
-      options: ["Frafall fra en religion – å forlate den religionen man har tilhørt", "En kirkelig velsignelse", "En fast form for bønn som fremsies til bestemte tider av døgnet i fellesskap", "Høytidelig opptak i et kloster gjennom avleggelse av munke- eller nonneløfter"],
+      options: ["Frafall fra en religion – å forlate den religionen man har tilhørt", "En kirkelig velsignelse som en prest lyser over en person eller en bestemt handling", "En fast form for bønn som fremsies til bestemte tider av døgnet i fellesskap", "Høytidelig opptak i et kloster gjennom avleggelse av munke- eller nonneløfter"],
       explanation: 'FNs menneskerettighetsorganer har slått fast at retten til å skifte eller forlate sin religion er en del av religionsfriheten, selv om apostasi har vært straffbart i mange rettssystemer.',
     },
   ],
@@ -800,7 +800,7 @@ const quizData_religion_etikk: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva skal KRLE-faget i norsk grunnskole være?',
-      options: ["Objektivt, kritisk og pluralistisk, med kunnskap om religioner, livssyn og etikk", "Et rent filosofifag uten religionsstoff", "Et frivillig valgfag som bare tilbys de elevene som selv tilhører et religiøst trossamfunn", "Et rent filosofisk fag om etikk og livsspørsmål, uten noe innhold om religioner og livssyn"],
+      options: ["Objektivt, kritisk og pluralistisk, med kunnskap om religioner, livssyn og etikk", "Et rent filosofifag uten stoff om religioner", "Et frivillig valgfag som bare tilbys de elevene som selv tilhører et religiøst trossamfunn", "Et forkynnende kristendomsfag der elevene skal oppdras til kristen tro"],
       explanation: 'KRLE (kristendom, religion, livssyn og etikk) er obligatorisk og skal gi kunnskap om ulike religioner og livssyn uten å forkynne.',
     },
     {
@@ -823,12 +823,12 @@ const quizData_religion_etikk: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva var en noaidi?',
-      options: ["Den samiske sjamanen som formidlet mellom menneskenes verden og åndeverdenen", "En samisk konge", "Et hellig fjell der samene la ned offergaver og kom i kontakt med de mektige naturåndene", "En bestemt type joik som ble fremført ved store religiøse seremonier og overgangsritualer"],
+      options: ["Den samiske sjamanen som formidlet mellom menneskenes verden og åndeverdenen", "En samisk konge som styrte over hele folket", "Et hellig fjell der samene la ned offergaver og møtte naturåndene", "En bestemt type joik som ble fremført ved store religiøse seremonier og overgangsritualer"],
       explanation: 'Noaiden brukte runebommen, joik og transe for å kommunisere med ånder, helbrede sykdom og forutsi fremtiden.',
     },
     {
       question: 'Hva er sieidi i samisk tradisjon?',
-      options: ["Hellige steder, typisk steiner eller naturformasjoner, der man la ned offergaver", "Navnet på det samiske språket", "En samisk høytidskalender som fastsatte tidspunktene for offer og religiøse seremonier", "Navnet på det samiske språket slik det tradisjonelt ble brukt i religiøse sammenhenger"],
+      options: ["Hellige steder, typisk steiner eller naturformasjoner, der man la ned offergaver", "Navnet på det samiske språket og skriftspråket", "En samisk høytidskalender som fastsatte tidspunktene for offer og religiøse seremonier", "Betegnelsen på de gamle fortellingene om samisk kontakt med åndeverdenen"],
       explanation: 'Sieidi ble betraktet som steder der den åndelige kraften var særlig sterk og der mennesker kunne komme i kontakt med åndeverdenen.',
     },
     {
@@ -851,7 +851,7 @@ const quizData_religion_etikk: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er toleranse?',
-      options: ["Viljen til å akseptere og tåle synspunkter og levemåter man selv er uenig i", "Å unngå mennesker med annen tro", "Å være fullstendig enig med alle andres synspunkter og levemåter i ett og alt", "Å forholde seg helt likegyldig og uinteressert til alt som skjer rundt en selv"],
+      options: ["Viljen til å akseptere og tåle synspunkter og levemåter man selv er uenig i", "Å unngå å omgås mennesker med en annen tro", "Å være fullstendig enig i alle andres synspunkter og levemåter", "Å forholde seg helt likegyldig og uinteressert til alt som skjer rundt en selv"],
       explanation: 'Toleranse forutsetter reelle uenigheter – den er ikke det samme som enighet eller likegyldighet, og den har grenser.',
     },
     {
@@ -861,7 +861,7 @@ const quizData_religion_etikk: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er målet med religionsdialog?',
-      options: ["Gjensidig forståelse, respekt og samarbeid – ikke å overbevise den andre", "Å avgjøre hvilken religion som er best", "Å avgjøre hvilken av religionene som til slutt viser seg å være den sanne og rette", "Å slå sammen alle religionene til én felles og enhetlig verdensreligion for menneskeheten"],
+      options: ["Gjensidig forståelse, respekt og samarbeid – ikke å overbevise den andre", "Å avgjøre hvilken religion som er den beste", "Å overtale de andre deltakerne til å konvertere til ens egen tro", "Å slå sammen alle religionene til én felles og enhetlig verdensreligion for menneskeheten"],
       explanation: 'Religionsdialog er strukturert samtale mellom representanter for ulike religioner og livssyn der målet er forståelse, ikke omvendelse.',
     },
     {
@@ -874,7 +874,7 @@ const quizData_religion_etikk: Record<string, QuizQuestion[]> = {
   'religion-etikk-6-1': [
     {
       question: 'Hva er religionsdialog?',
-      options: ["En samtale mellom representanter for ulike religioner og livssyn med mål om gjensidig forståelse og respekt", "Organisert misjonsvirksomhet der representanter reiser til andre land for å omvende befolkningen", "Formelle forhandlinger mellom trossamfunn om eierskap og bruk av felles kirkebygg og gudshus", "En strukturert debatt der hovedmålet er å overbevise og vinne over motparten faglig"],
+      options: ["En samtale mellom representanter for ulike religioner og livssyn med mål om gjensidig forståelse og respekt", "Organisert misjonsvirksomhet der utsendte representanter reiser til andre land for å omvende befolkningen til sin egen tro", "Formelle forhandlinger mellom trossamfunn om eierskap og bruk av felles kirkebygg og gudshus", "En strukturert debatt der hovedmålet er å overbevise og vinne over motparten faglig"],
       explanation: 'Målet med religionsdialog er gjensidig forståelse, respekt og samarbeid – ikke å overbevise den andre om at ens egen tro er den rette.',
     },
     {
@@ -889,12 +889,12 @@ const quizData_religion_etikk: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er Nostra Aetate?',
-      options: ["Et dokument fra Det andre vatikankonsil (1965) om Den katolske kirkes forhold til ikke-kristne religioner", "En FN-resolusjon om religionsfrihet", "En islamsk lovsamling som regulerer forholdet mellom muslimer og tilhengere av andre skriftreligioner i et kalifat", "En resolusjon vedtatt av FNs generalforsamling som forplikter alle medlemsland til å innføre religionsfrihet i sin lovgivning"],
+      options: ["Et dokument fra Det andre vatikankonsil (1965) om Den katolske kirkes forhold til ikke-kristne religioner", "Et dokument fra Det andre vatikankonsil om språket i gudstjenesten", "En islamsk lovsamling om forholdet mellom muslimer og tilhengere av andre skriftreligioner", "En resolusjon vedtatt av FNs generalforsamling som forplikter alle medlemsland til å innføre religionsfrihet i sin lovgivning"],
       explanation: 'Nostra Aetate («I vår tid») anerkjenner at det finnes sannhet og hellighet i andre religiøse tradisjoner, og var et vendepunkt for katolsk dialogarbeid.',
     },
     {
       question: 'Hvilken holdning kjennetegner religiøs pluralisme som teologisk posisjon?',
-      options: ["At flere religioner kan være likeverdige veier til sannhet eller frelse", "At sannhet ikke finnes i noen religion", "At bare de eldste og opprinnelige religionene inneholder den fulle sannheten om det guddommelige", "At de ulike religionene til slutt bør slås sammen til én felles verdensreligion med et samlet læregrunnlag"],
+      options: ["At flere religioner kan være likeverdige veier til sannhet eller frelse", "At ingen religion inneholder sannhet om frelse", "At bare de eldste religionene inneholder den fulle sannheten", "At de ulike religionene til slutt bør slås sammen til én felles verdensreligion med et samlet læregrunnlag"],
       explanation: 'Pluralismen ser flere religioner som gyldige veier, i motsetning til eksklusivismen (bare én er sann) og inklusivismen (én er fullest, andre har delvis sannhet).',
     },
   ],
@@ -907,7 +907,7 @@ const quizData_religion_etikk: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva innebærer sakralisering av en konflikt?',
-      options: ["At noe verdslig, som et landområde eller en politisk kamp, tillegges hellig betydning", "At konflikten løses i en religiøs domstol", "At anerkjente religiøse ledere alltid trer inn som nøytrale meglere mellom partene i den aktuelle striden", "At konflikten overføres til en religiøs domstol som avgjør saken ut fra hellige lover framfor verdslig rett"],
+      options: ["At noe verdslig, som et landområde eller en politisk kamp, tillegges hellig betydning", "At partene i konflikten tilhører ulike religioner", "At religiøse ledere trer inn som nøytrale meglere mellom partene i konflikten", "At konflikten overføres til en religiøs domstol som avgjør saken ut fra hellige lover framfor verdslig rett"],
       explanation: 'Sakralisering gjør konflikter vanskeligere å løse, fordi kompromisser kan oppfattes som kompromisser med det hellige.',
     },
     {
@@ -917,12 +917,12 @@ const quizData_religion_etikk: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er radikalisering?',
-      options: ["En prosess der en person gradvis utvikler ekstreme holdninger som kan føre til aksept av vold", "Å delta aktivt i lovlige demonstrasjoner", "Å delta aktivt og regelmessig i lovlige demonstrasjoner for saker man brenner sterkt for i samfunnet", "Å konvertere fra én religion til en annen etter en lengre periode med tvil og personlig søken etter mening"],
+      options: ["En prosess der en person gradvis utvikler ekstreme holdninger som kan føre til aksept av vold", "Å ha sterke politiske meninger om urett i samfunnet", "Å delta aktivt og regelmessig i lovlige demonstrasjoner for saker man er opptatt av", "Å konvertere fra én religion til en annen etter en lengre periode med tvil og personlig søken etter mening"],
       explanation: 'Radikalisering handler spesifikt om bevegelsen mot aksept av eller vilje til å bruke vold – ikke om å ha sterke meninger.',
     },
     {
       question: 'Hvordan brukte Gandhi prinsippet ahimsa?',
-      options: ["Som politisk virkemiddel i en ikkevoldelig motstandskamp", "Som argument for å unngå all politikk", "Utelukkende som en streng regel for vegetarisk kosthold og avhold fra å skade dyr i hverdagen", "Som begrunnelse for væpnet opprør"],
+      options: ["Som politisk virkemiddel i en ikkevoldelig motstandskamp", "Som argument for å unngå all politikk", "Utelukkende som en streng regel for vegetarisk kosthold og avhold fra å skade dyr i hverdagen", "Som begrunnelse for væpnet frigjøring"],
       explanation: 'Ahimsa (ikkevold) har røtter i hinduisme, buddhisme og jainisme. Gandhi gjorde prinsippet til grunnlag for sin ikkevoldelige frigjøringskamp.',
     },
   ],
@@ -940,17 +940,17 @@ const quizData_religion_etikk: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva skjedde med statskirkeordningen i Norge i 2012?',
-      options: ["Grunnlovsendringer avviklet statskirkeordningen som hadde bestått siden reformasjonen", "Statskirken ble innført for første gang", "Statskirkeordningen ble innført for aller første gang og bandt kirken tettere til den norske staten", "Kongen fikk utvidet myndighet over kirken og overtok den øverste geistlige ledelsen av trossamfunnet"],
+      options: ["Grunnlovsendringer avviklet statskirkeordningen som hadde bestått siden reformasjonen", "Kirken ble helt skilt fra staten og mistet all støtte", "Statskirkeordningen ble innført for første gang og bandt kirken til staten", "Kongen fikk utvidet myndighet over kirken og overtok den øverste geistlige ledelsen av trossamfunnet"],
       explanation: 'Den norske kirke var statskirke fra 1537 til grunnlovsendringene i 2012, da båndene mellom stat og kirke ble løsnet.',
     },
     {
       question: 'Hva la Stålsett-utvalget i begrepet «livssynsåpen stat»?',
-      options: ["En stat som verken er religiøst nøytral eller religiøst forankret, men åpen og inkluderende overfor alle tros- og livssynssamfunn", "En stat som helt avstår fra enhver form for religionspolitikk og overlater tros- og livssynsspørsmål til den enkelte", "En stat med én lovfestet og obligatorisk statsreligion som alle borgere formelt forventes å bekjenne seg til", "En stat som av hensyn til likebehandling forbyr organiserte livssynssamfunn adgang til det offentlige rom"],
+      options: ["En stat som verken er religiøst nøytral eller religiøst forankret, men åpen og inkluderende overfor alle tros- og livssynssamfunn", "En stat som helt avstår fra enhver form for religionspolitikk og overlater alle tros- og livssynsspørsmål til den enkelte borgers privatliv", "En stat med én lovfestet og obligatorisk statsreligion som alle borgere formelt forventes å bekjenne seg til", "En stat som av hensyn til likebehandling forbyr organiserte livssynssamfunn adgang til det offentlige rom"],
       explanation: 'Begrepet ble lansert av Tros- og livssynsutvalget i 2013 som et alternativ til både «sekulær stat» og «kristen stat».',
     },
     {
       question: 'Hvordan viser sekulariseringen seg i det norske samfunnet?',
-      options: ["Færre deltar i religiøse ritualer, og religiøse normer har mindre innflytelse på lovgivningen", "Religion har fått større plass i lovverket", "Alle offentlige møter og seremonier i regi av staten innledes fortsatt med kristen bønn og salmesang", "Religiøse normer har fått betydelig større plass i lovverket og preger i økende grad politiske avgjørelser"],
+      options: ["Færre deltar i religiøse ritualer, og religiøse normer har mindre innflytelse på lovgivningen", "Flere melder seg inn i trossamfunn og deltar i ritualer", "Alle offentlige seremonier i regi av staten innledes fortsatt med kristen bønn", "Religiøse normer har fått betydelig større plass i lovverket og preger i økende grad politiske avgjørelser"],
       explanation: 'Sekularisering er en prosess der religionens innflytelse på samfunnslivet gradvis avtar, blant annet i lovgivning og offentlige institusjoner.',
     },
   ],
@@ -958,22 +958,22 @@ const quizData_religion_etikk: Record<string, QuizQuestion[]> = {
   'religion-etikk-6-4': [
     {
       question: 'Hva er eskatologi?',
-      options: ["Læren om de siste ting – døden, dommen, etterlivet og verdens ende", "Studiet av religiøse bygninger", "Læren om verdens skapelse og hvordan universet, jorden og menneskene ble til i tidenes begynnelse", "En bestemt form for religiøs meditasjon der utøveren søker indre ro gjennom pust og konsentrasjon"],
+      options: ["Læren om de siste ting – døden, dommen, etterlivet og verdens ende", "Studiet av religiøse bygninger og kirkekunst", "Læren om verdens skapelse og hvordan universet, jorden og menneskene ble til i tidenes begynnelse", "En bestemt form for religiøs meditasjon der man søker indre ro"],
       explanation: 'Ordet kommer av gresk eschatos, «siste». Alle store religioner har eskatologiske forestillinger, men innholdet varierer.',
     },
     {
       question: 'Hva er forskjellen på reinkarnasjon og oppstandelse?',
-      options: ["Reinkarnasjon er at sjelen fødes inn i en ny kropp, oppstandelse er at den døde kroppen gjenoppvekkes ved tidenes ende", "Reinkarnasjon er en sentral kristen lære, mens oppstandelse hører hjemme i hinduismen og de indiske religionene", "Begge begrepene uttrykker at døden er absolutt endelig, og at det ikke finnes noen form for liv etter døden", "Begge forestillingene gjelder utelukkende dyrenes skjebne etter døden, ikke menneskenes videre eksistens"],
+      options: ["Reinkarnasjon er at sjelen fødes inn i en ny kropp, oppstandelse er at den døde kroppen gjenoppvekkes ved tidenes ende", "Reinkarnasjon er en sentral kristen lære om sjelen, mens oppstandelse hører hjemme i hinduismen og de øvrige indiske religionene", "Begge begrepene uttrykker at døden er absolutt endelig, og at det ikke finnes noen form for liv etter døden", "Begge forestillingene gjelder utelukkende dyrenes skjebne etter døden, ikke menneskenes videre eksistens"],
       explanation: 'Reinkarnasjon er sentral i hinduisme, buddhisme, jainisme og sikhisme, mens oppstandelsestro kjennetegner de abrahamittiske religionene.',
     },
     {
       question: 'Hva spør teodicéproblemet om?',
-      options: ["Hvordan en allmektig, allvitende og god Gud kan tillate lidelse og ondskap i verden", "Hvorfor det finnes flere religioner", "Hvordan verden og alt som finnes ble til, og om skapelsen skjedde ved en bevisst guddommelig handling", "Hvorfor det finnes så mange ulike religioner, og hvordan de forholder seg til hverandres sannhetskrav"],
+      options: ["Hvordan en allmektig, allvitende og god Gud kan tillate lidelse og ondskap i verden", "Hvorfor mennesker i det hele tatt tror på Gud", "Hvordan verden og alt som finnes ble til, og om skapelsen skjedde ved en bevisst guddommelig handling", "Hvorfor det finnes så mange ulike religioner med hvert sitt sannhetskrav"],
       explanation: 'Teodicéproblemet (av gresk theos, «Gud», og dike, «rettferdighet») er særlig aktuelt i monoteistiske religioner.',
     },
     {
       question: 'Hvordan tilnærmer eksistensialismen seg spørsmålet om livets mening?',
-      options: ["Mennesket er ikke forhåndsbestemt, men skaper selv mening gjennom frihet, valg og ansvar", "Meningen finnes bare i religiøse tekster", "Livet er ved nærmere ettersyn påviselig blottet for enhver verdi, og all søken etter mening er forgjeves", "Meningen med tilværelsen er allerede gitt gjennom naturlovene og menneskets biologiske drift mot overlevelse"],
+      options: ["Mennesket er ikke forhåndsbestemt, men skaper selv mening gjennom frihet, valg og ansvar", "Meningen med livet finnes bare i religiøse tekster", "Livet er blottet for enhver verdi, og all søken etter mening er forgjeves", "Meningen med tilværelsen er allerede gitt gjennom naturlovene og menneskets biologiske drift mot overlevelse"],
       explanation: 'Eksistensialister som Sartre, de Beauvoir og Camus vektlegger individets frihet og ansvar: «Eksistensen går forut for essensen.»',
     },
     {
@@ -986,27 +986,27 @@ const quizData_religion_etikk: Record<string, QuizQuestion[]> = {
   'religion-etikk-6-5': [
     {
       question: 'Hva kjennetegner naturvitenskapens tilnærming til kunnskap?',
-      options: ["Observasjon, eksperiment og hypoteser som kan testes empirisk", "Flertallsavgjørelser i vitenskapsakademier", "Personlig intuisjon og umiddelbar innsikt som ikke stiller krav om etterprøving eller systematisk testing", "Intuisjon uten krav til etterprøving"],
+      options: ["Observasjon, eksperiment og hypoteser som kan testes empirisk", "Flertallsavgjørelser i vitenskapsakademier", "Personlig intuisjon og umiddelbar innsikt som ikke stiller krav om etterprøving eller systematisk testing", "Logisk tenkning alene, uten observasjon"],
       explanation: 'Naturvitenskapen søker naturlige forklaringer på fenomener gjennom systematisk observasjon, eksperiment og logisk resonnering.',
     },
     {
       question: 'Hva er naturteologi?',
-      options: ["Forsøket på å finne tegn på Guds eksistens gjennom studiet av naturen, uten å støtte seg på åpenbaring", "Vitenskapen om økosystemer", "Tilbedelse av naturkreftene selv – sol, hav, fjell og vær – som guddommelige makter man ofrer og ber til", "Læren om hellige dyr og deres plass i religiøse forestillinger, ritualer og fortellinger om det guddommelige"],
+      options: ["Forsøket på å finne tegn på Guds eksistens gjennom studiet av naturen, uten å støtte seg på åpenbaring", "Vitenskapen om økosystemer og samspillet mellom artene", "Tilbedelse av naturkreftene – sol, hav, fjell og vær – som guddommelige makter man ofrer til", "Læren om hellige dyr og deres plass i religiøse forestillinger, ritualer og fortellinger om det guddommelige"],
       explanation: 'Det teleologiske gudsbeviset – at naturens orden og kompleksitet peker mot en intelligent skaper – er et klassisk eksempel på naturteologi.',
     },
     {
       question: 'Hva er kreasjonisme?',
-      options: ["Troen på at universet og livet ble skapt direkte av Gud slik religiøse skapelsesfortellinger beskriver", "En retning innenfor evolusjonsbiologien", "En etablert retning innenfor evolusjonsbiologien som forklarer hvordan nye arter oppstår over lang tid", "Læren om menneskets kunstneriske skaperkraft og evne til å frembringe nye verk gjennom fantasi og talent"],
+      options: ["Troen på at universet og livet ble skapt direkte av Gud slik religiøse skapelsesfortellinger beskriver", "En gren av geologien som studerer hvordan jorden ble til", "En etablert retning innenfor evolusjonsbiologien som forklarer hvordan nye arter oppstår", "Læren om menneskets kunstneriske skaperkraft og evne til å frembringe nye verk gjennom fantasi og talent"],
       explanation: 'Ung-jord-kreasjonisme hevder at jorden er ca. 6 000–10 000 år gammel, mens gammel-jord-kreasjonisme aksepterer en eldre jord, men avviser evolusjon.',
     },
     {
       question: 'Hva er evolusjonsteorien?',
-      options: ["Den vitenskapelige forklaringen på artenes utvikling gjennom naturlig utvalg, først formulert av Darwin og Wallace", "En omstridt hypotese uten empirisk støtte som de fleste forskere i dag har forlatt til fordel for nyere modeller", "En religiøs skapelsesfortelling om hvordan Gud formet artene hver for seg i løpet av skapelsens seks dager", "En teori som utelukkende handler om samfunnets og kulturens utvikling gjennom historiske epoker og faser"],
+      options: ["Den vitenskapelige forklaringen på artenes utvikling gjennom naturlig utvalg, først formulert av Darwin og Wallace", "En omstridt hypotese uten empirisk støtte som de fleste forskere i dag har forlatt til fordel for nyere modeller av artsdannelse", "En religiøs skapelsesfortelling om hvordan Gud formet artene hver for seg i løpet av skapelsens seks dager", "En teori som utelukkende handler om samfunnets og kulturens utvikling gjennom historiske epoker og faser"],
       explanation: 'Evolusjonsteorien er i dag den rådende vitenskapelige forklaringen på biologisk mangfold og støttes av omfattende dokumentasjon.',
     },
     {
       question: 'Hva er scientisme?',
-      options: ["Oppfatningen om at naturvitenskapen er den eneste gyldige kilden til kunnskap", "En religiøs bevegelse fra 1800-tallet", "Troen på at naturvitenskapen er verdiløs og at ekte kunnskap bare kan nås gjennom tro og åpenbaring", "En religiøs vekkelsesbevegelse fra 1800-tallet som forente kristen tro med moderne naturvitenskapelig tenkning"],
+      options: ["Oppfatningen om at naturvitenskapen er den eneste gyldige kilden til kunnskap", "Vitenskapelig forskning på religiøse opplevelser", "Troen på at naturvitenskapen er verdiløs og at bare tro gir kunnskap", "En religiøs vekkelsesbevegelse fra 1800-tallet som forente kristen tro med moderne naturvitenskapelig tenkning"],
       explanation: 'Kritikere – både religiøse og sekulære – innvender at vitenskapen ikke kan besvare normative spørsmål om hva som er rett og galt.',
     },
   ],

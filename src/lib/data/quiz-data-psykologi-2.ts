@@ -4,22 +4,22 @@ const quizData_psykologi_2: Record<string, QuizQuestion[]> = {
   'psykologi-2-1-1': [
     {
       question: 'Hva er sosial påvirkning?',
-      options: ["Prosessen der andres tilstedeværelse eller atferd endrer våre tanker, følelser eller handlinger", "En type psykisk lidelse", "En psykisk lidelse kjennetegnet ved at personen påvirkes så sterkt av andre at egen dømmekraft forsvinner helt", "En forskningsmetode der man kartlegger holdninger ved å måle folks fysiologiske reaksjoner på ulike sosiale situasjoner"],
+      options: ["Prosessen der andres tilstedeværelse eller atferd endrer våre tanker, følelser eller handlinger", "En type psykisk lidelse som gjør at man unngår sosiale situasjoner", "En psykisk lidelse kjennetegnet ved at personen påvirkes så sterkt av andre at egen dømmekraft forsvinner helt", "En forskningsmetode der man kartlegger holdninger ved å måle folks fysiologiske reaksjoner på ulike sosiale situasjoner"],
       explanation: 'Sosial påvirkning er prosessen der andres tilstedeværelse eller atferd endrer våre tanker, følelser eller handlinger – gjennom konformitet, etterlevelse eller lydighet.',
     },
     {
       question: 'Hva er normativ sosial påvirkning?',
-      options: ["Å tilpasse seg gruppens normer for å bli likt eller unngå avvisning", "Å se til andre for å vite hva som er riktig", "Å se til andre for å finne ut hva som er riktig når situasjonen er usikker eller uklar for oss", "Å adlyde en tydelig autoritetsperson selv når ordren strider mot ens egne verdier og samvittighet"],
+      options: ["Å tilpasse seg gruppens normer for å bli likt eller unngå avvisning", "Å kopiere andres atferd helt ubevisst og automatisk", "Å se til andre for å finne ut hva som er riktig når situasjonen er usikker eller uklar for oss", "Å adlyde en tydelig autoritetsperson selv når ordren strider mot ens egne verdier og samvittighet"],
       explanation: 'Normativ sosial påvirkning oppstår når vi tilpasser oss gruppens normer fordi vi vil bli likt og unngå avvisning – selv om vi er uenige innerst inne.',
     },
     {
       question: 'Hva viste Asch-eksperimentet (1951)?',
-      options: ["At mennesker konformerer og gir feil svar for å følge gruppen", "At mennesker alltid stoler på egne sanser", "At mennesker nesten alltid stoler på egne sanser og ignorerer gruppen når svaret er åpenbart", "At grupper ikke påvirker individet"],
+      options: ["At mennesker konformerer og gir feil svar for å følge gruppen", "At mennesker alltid stoler på egne sanser", "At mennesker nesten alltid stoler på egne sanser og ignorerer gruppen når svaret er åpenbart", "At grupper ikke påvirker individets valg"],
       explanation: 'Asch-eksperimentet viste at mange deltakere konformerte og ga åpenbart feil svar på en enkel linjeoppgave for å samsvare med gruppens flertall.',
     },
     {
       question: 'Hva undersøkte Milgram-eksperimentet (1961-63)?',
-      options: ["Lydighet mot autoritet", "Konformitet i grupper", "Persepsjon og sansenes pålitelighet", "Hukommelse"],
+      options: ["Lydighet mot autoritet", "Konformitet i grupper", "Persepsjon og sansenes pålitelighet", "Langtidshukommelse"],
       explanation: 'Milgram-eksperimentet undersøkte lydighet mot autoritet – hvor langt deltakere ville gå i å gi det de trodde var elektriske støt på ordre.',
     },
     {
@@ -31,103 +31,103 @@ const quizData_psykologi_2: Record<string, QuizQuestion[]> = {
   'psykologi-2-1-2': [
     {
       question: 'Hva er en holdning?',
-      options: ["En relativt varig evaluering av et objekt, en person eller en idé", "En forbigående følelse", "En kortvarig og forbigående følelse som oppstår i øyeblikket og forsvinner like raskt igjen", "En medfødt refleks som utløses automatisk uten at vurdering eller erfaring spiller noen rolle"],
+      options: ["En relativt varig evaluering av et objekt, en person eller en idé", "En bevisst beslutning man tar i en enkelt situasjon", "En kortvarig og forbigående følelse som oppstår i øyeblikket og forsvinner like raskt igjen", "En medfødt refleks som utløses automatisk uten at vurdering eller erfaring spiller noen rolle"],
       explanation: 'En holdning er en relativt varig evaluering (positiv, negativ eller nøytral) av et objekt, person, gruppe, hendelse eller idé.',
     },
     {
       question: 'Hvilke tre komponenter inngår i ABC-modellen for holdninger?',
-      options: ["Affekt (følelser), Behavior (atferd) og Cognition (tanker)", "Alarm, motstand og utmattelse", "Arv, biologi og kultur som de tre formende faktorene bak menneskets holdninger og verdier", "Id, ego og superego, altså de tre delene av personligheten i Freuds psykodynamiske modell"],
+      options: ["Affekt (følelser), Behavior (atferd) og Cognition (tanker)", "Alarm, motstand og utmattelse, altså stressfasene", "Arv, biologi og kultur som de tre formende faktorene bak menneskets holdninger og verdier", "Id, ego og superego, altså de tre delene av personligheten i Freuds psykodynamiske modell"],
       explanation: 'Trekomponentmodellen (ABC) beskriver holdninger som bestående av Affekt (følelser), Behavior (atferd) og Cognition (tanker/kunnskap).',
     },
     {
       question: 'Hva er kognitiv dissonans?',
-      options: ["Ubehagelig spenning når atferd og holdninger ikke stemmer overens", "Glede over å ha rett", "Den behagelige gleden man føler over å ha fått rett i en diskusjon med andre", "En bestemt type varig holdning som består av både følelser, tanker og atferd"],
+      options: ["Ubehagelig spenning når atferd og holdninger ikke stemmer overens", "Uenighet mellom to personer i en diskusjon", "Den behagelige gleden man føler over å ha fått rett i en diskusjon med andre", "En bestemt type varig holdning som består av både følelser, tanker og atferd"],
       explanation: 'Kognitiv dissonans er den ubehagelige spenningen som oppstår når vi har motstridende tanker, eller når atferd og holdninger ikke stemmer overens.',
     },
     {
       question: 'Hvilke to ruter til overtalelse beskriver ELM (Petty og Cacioppo)?',
-      options: ["Sentral rute (vurdering av argumenter) og perifer rute (overfladiske signaler)", "Bevisst og ubevisst rute", "Indre rute (personlige erfaringer) og ytre rute (påvirkning fra omgivelsene rundt oss)", "Kort rute (rask beslutning) og lang rute (grundig og tidkrevende vurdering av budskapet)"],
+      options: ["Sentral rute (vurdering av argumenter) og perifer rute (overfladiske signaler)", "Bevisst rute (tenkning) og ubevisst rute (instinkt)", "Indre rute (personlige erfaringer) og ytre rute (påvirkning fra omgivelsene rundt oss)", "Kort rute (rask beslutning) og lang rute (grundig og tidkrevende vurdering av budskapet)"],
       explanation: 'Elaboration Likelihood Model (ELM) beskriver to ruter: sentral rute (nøye vurdering av argumenter) og perifer rute (overfladiske signaler som kildens attraktivitet).',
     },
     {
       question: 'Hva viste Festinger og Carlsmiths \\$1/\\$20-eksperiment (1959)?',
-      options: ["De som fikk minst betalt for å lyve, endret holdningen mest (kognitiv dissonans)", "De som fikk mest betalt endret holdningen mest", "Betaling og penger har ingen som helst effekt på hvordan mennesker endrer sine holdninger", "De som fikk mest betalt for å lyve, endret holdningen mest fordi belønningen forsterket dem"],
+      options: ["De som fikk minst betalt for å lyve, endret holdningen mest (kognitiv dissonans)", "Deltakerne som slapp å lyve, endret holdningen mest", "Betaling og penger har ingen som helst effekt på hvordan mennesker endrer sine holdninger", "De som fikk mest betalt for å lyve, endret holdningen mest fordi belønningen forsterket dem"],
       explanation: 'De som fikk bare \\$1 for å lyve, endret holdningen mest – fordi den lave betalingen ga sterkere dissonans de måtte redusere ved å faktisk like oppgaven.',
     },
   ],
   'psykologi-2-1-3': [
     {
       question: 'Hva er forskjellen mellom inngruppe og utgruppe?',
-      options: ["Inngruppe er \"vi\" (gruppen vi tilhører), utgruppe er \"de\"", "Inngruppe er \"de\", utgruppe er \"vi\"", "Inngruppe og utgruppe betyr i praksis det samme og brukes om hverandre i sosialpsykologien", "Inngruppe er alltid større"],
+      options: ["Inngruppe er \"vi\" (gruppen vi tilhører), utgruppe er \"de\"", "Inngruppe er \"de\", utgruppe er \"vi\"", "Inngruppe og utgruppe betyr i praksis det samme og brukes om hverandre i sosialpsykologien", "Inngruppen er alltid størst i antall"],
       explanation: 'Inngruppen er gruppen vi selv tilhører og identifiserer oss med ("vi"), mens utgruppen er grupper vi ikke tilhører ("de").',
     },
     {
       question: 'Hva er gruppetenkning (Janis)?',
-      options: ["Når gruppens ønske om enighet overskygger realistisk vurdering av alternativer", "Når en gruppe tenker svært kritisk", "En kreativ prosess der gruppen sammen utvikler mange nye og originale ideer gjennom idémyldring", "Når medlemmene i en gruppe er sterkt uenige og derfor ikke klarer å komme frem til en beslutning"],
+      options: ["Når gruppens ønske om enighet overskygger realistisk vurdering av alternativer", "Når en gruppe vurderer alle alternativer kritisk", "En kreativ prosess der gruppen sammen utvikler mange nye og originale ideer gjennom idémyldring", "Når medlemmene i en gruppe er sterkt uenige og derfor ikke klarer å komme frem til en beslutning"],
       explanation: 'Gruppetenkning er en tenkemåte der medlemmene i en sammensveiset gruppe er så opptatt av enighet at de feiler i å vurdere alternativene realistisk.',
     },
     {
       question: 'Hva er sosial fasilitering?',
-      options: ["Å prestere bedre på enkle/innlærte oppgaver når andre er til stede", "Å miste selvbevissthet", "Å yte mindre innsats når man er i en gruppe fordi ansvaret fordeles på flere personer", "Å miste selvbevisstheten og følelsen av eget ansvar når man er anonym i en stor folkemengde"],
+      options: ["Å prestere bedre på enkle/innlærte oppgaver når andre er til stede", "Å prestere dårligere på enkle oppgaver med publikum", "Å yte mindre innsats når man er i en gruppe fordi ansvaret fordeles på flere personer", "Å miste selvbevisstheten og følelsen av eget ansvar når man er anonym i en stor folkemengde"],
       explanation: 'Sosial fasilitering er tendensen til å prestere bedre på enkle, godt innlærte oppgaver når andre er til stede, fordi andres nærvær øker aktiveringen.',
     },
     {
       question: 'Hva er sosial loffing (social loafing)?',
-      options: ["Å yte mindre innsats i gruppe, særlig når bidraget ikke kan identifiseres", "Å konkurrere i gruppe", "Å yte mer innsats i en gruppe fordi andres nærvær øker aktiveringen og motivasjonen vår", "Å konkurrere hardt mot de andre i gruppen for å skille seg ut og prestere bedre enn resten"],
+      options: ["Å yte mindre innsats i gruppe, særlig når bidraget ikke kan identifiseres", "Å fordele arbeidsoppgavene likt mellom medlemmene", "Å yte mer innsats i en gruppe fordi andres nærvær øker aktiveringen og motivasjonen vår", "Å konkurrere hardt mot de andre i gruppen for å skille seg ut og prestere bedre enn resten"],
       explanation: 'Sosial loffing er tendensen til å yte mindre innsats i en gruppe enn alene, spesielt når individuelle bidrag ikke kan identifiseres.',
     },
     {
       question: 'Hva er deindividuering?',
-      options: ["Tap av selvbevissthet og individuelt ansvar, ofte ved anonymitet i store grupper", "Sterk selvbevissthet i grupper", "En bestemt type lederskap der én person styrer og tar ansvar for hele gruppens felles atferd", "En sterkt økt selvbevissthet man opplever når man skiller seg ut som enkeltperson i en gruppe"],
+      options: ["Tap av selvbevissthet og individuelt ansvar, ofte ved anonymitet i store grupper", "Å tilpasse atferden til gruppens normer for å bli likt", "En bestemt type lederskap der én person styrer og tar ansvar for hele gruppens felles atferd", "En sterkt økt selvbevissthet man opplever når man skiller seg ut som enkeltperson i en gruppe"],
       explanation: 'Deindividuering er tap av selvbevissthet og følelse av individuelt ansvar, ofte ved anonymitet, som kan føre til impulsiv og ukarakteristisk atferd.',
     },
   ],
   'psykologi-2-1-4': [
     {
       question: 'Hva er en stereotypi?',
-      options: ["En generalisert oppfatning om egenskapene til en gruppe", "En negativ følelse mot en person", "En negativ følelse eller antipati man retter mot en bestemt person eller gruppe mennesker", "En urettferdig handling"],
+      options: ["En generalisert oppfatning om egenskapene til en gruppe", "En medfødt frykt for ukjente mennesker", "En negativ følelse eller antipati man retter mot en bestemt person eller gruppe mennesker", "En urettferdig handling mot en gruppe"],
       explanation: 'Stereotypier er generaliserte oppfatninger om en gruppes egenskaper – kognitive skjemaer som overforenkler og overser individuelle forskjeller.',
     },
     {
       question: 'Hvordan henger stereotypi, fordom og diskriminering sammen med ABC-modellen?',
-      options: ["Stereotypi = tanke, fordom = følelse, diskriminering = handling", "Alle er handlinger", "Fordom er den kognitive tanken, mens stereotypi og diskriminering begge er følelsesmessige", "Alle tre er affektive komponenter og handler først og fremst om følelser rettet mot en gruppe"],
+      options: ["Stereotypi = tanke, fordom = følelse, diskriminering = handling", "Alle tre er handlinger rettet mot andre mennesker", "Fordom er den kognitive tanken, mens stereotypi og diskriminering begge er følelsesmessige", "Alle tre er affektive komponenter og handler først og fremst om følelser rettet mot en gruppe"],
       explanation: 'Stereotypi er den kognitive komponenten (tanker), fordom den affektive (følelser), og diskriminering den atferdsmessige (handlinger).',
     },
     {
       question: 'Hva er utgruppe-homogenitetseffekten?',
-      options: ["Å se utgruppen som mer lik (\"de er alle like\") enn inngruppen", "Å se inngruppen som ensartet", "At det i realiteten ikke finnes noen klare grupper, fordi alle mennesker er unike individer", "Å se inngruppen som svært ensartet og lik, mens utgruppen oppleves som variert og mangfoldig"],
+      options: ["Å se utgruppen som mer lik (\"de er alle like\") enn inngruppen", "Å foretrekke egen gruppe når goder skal fordeles", "At det i realiteten ikke finnes noen klare grupper, fordi alle mennesker er unike individer", "Å se inngruppen som svært ensartet og lik, mens utgruppen oppleves som variert og mangfoldig"],
       explanation: 'Utgruppe-homogenitetseffekten er tendensen til å se medlemmer av utgruppen som mer like hverandre enn de er, mens man ser inngruppen som variert.',
     },
     {
       question: 'Hva viste Tajfels minimal group-studier?',
-      options: ["At selv tilfeldig gruppeinndeling er nok til å skape inngruppe-favorisering", "At man trenger sterk konflikt for favorisering", "At man må ha sterk og langvarig konflikt mellom gruppene før inngruppe-favorisering oppstår", "At fordommer i hovedsak er medfødte og biologiske, og derfor lite påvirket av gruppeinndeling"],
+      options: ["At selv tilfeldig gruppeinndeling er nok til å skape inngruppe-favorisering", "At deltakerne fordelte goder helt likt mellom gruppene", "At man må ha sterk og langvarig konflikt mellom gruppene før inngruppe-favorisering oppstår", "At fordommer i hovedsak er medfødte og biologiske, og derfor lite påvirket av gruppeinndeling"],
       explanation: 'Tajfels minimal group-studier viste at selv inndeling basert på trivielle eller tilfeldige kriterier er nok til å utløse inngruppe-favorisering.',
     },
     {
       question: 'Hvilke betingelser krever kontakthypotesen (Allport) for å redusere fordommer?',
-      options: ["Lik status, felles mål, samarbeid og støtte fra autoriteter", "Konkurranse og ulik status", "Konkurranse mellom gruppene og tydelig ulik status som skaper et klart hierarki mellom dem", "Full anonymitet mellom medlemmene slik at ingen vet hvilken gruppe den andre egentlig tilhører"],
+      options: ["Lik status, felles mål, samarbeid og støtte fra autoriteter", "Kortvarig kontakt uten felles mål eller samarbeid", "Konkurranse mellom gruppene og tydelig ulik status som skaper et klart hierarki mellom dem", "Full anonymitet mellom medlemmene slik at ingen vet hvilken gruppe den andre egentlig tilhører"],
       explanation: 'Kontakthypotesen krever fire betingelser: lik status mellom gruppene, felles mål, samarbeid (ikke konkurranse) og støtte fra autoriteter/normer.',
     },
   ],
   'psykologi-2-1-5': [
     {
       question: 'Hva er sosial identitetsteori (Tajfel og Turner)?',
-      options: ["At vår selvfølelse delvis kommer fra gruppene vi tilhører", "At grupper ikke påvirker selvet", "At vår identitet utelukkende er biologisk bestemt og formet av arv og gener fra fødselen av", "At identitet kun er biologisk"],
+      options: ["At vår selvfølelse delvis kommer fra gruppene vi tilhører", "At grupper ikke påvirker selvet", "At selvfølelsen bare kommer fra egne prestasjoner", "At identitet kun er biologisk"],
       explanation: 'Sosial identitetsteori hevder at vår selvfølelse delvis kommer fra gruppene vi tilhører, og at vi sammenligner egen gruppe med andre for å opprettholde en positiv selvfølelse.',
     },
     {
       question: 'Hva er forskjellen mellom personlig og sosial identitet?',
-      options: ["Personlig er det unike ved deg, sosial kommer fra gruppetilhørighet", "Personlig identitet kommer fra grupper", "Personlig og sosial identitet er identiske begreper og beskriver nøyaktig det samme fenomenet", "Sosial identitet er medfødt fra fødselen, mens personlig identitet utvikles gjennom oppveksten"],
+      options: ["Personlig er det unike ved deg, sosial kommer fra gruppetilhørighet", "Personlig identitet kommer fra gruppene vi tilhører", "Personlig og sosial identitet er identiske begreper og beskriver nøyaktig det samme fenomenet", "Sosial identitet er medfødt fra fødselen, mens personlig identitet utvikles gjennom oppveksten"],
       explanation: 'Personlig identitet er de unike egenskapene ved deg, mens sosial identitet er de delene av selvbildet som kommer fra gruppetilhørighet.',
     },
     {
       question: 'Hva er de tre prosessene i sosial identitetsteori?',
-      options: ["Sosial kategorisering, sosial identifisering og sosial sammenligning", "Persepsjon, hukommelse, læring", "Arv, miljø og kultur, altså de tre samvirkende faktorene som antas å forme et menneskes identitet", "Persepsjon, hukommelse og læring, som er tre sentrale prosesser innenfor den kognitive psykologien"],
+      options: ["Sosial kategorisering, sosial identifisering og sosial sammenligning", "Sosial kontroll, sosial mobilitet og sosial ulikhet", "Arv, miljø og kultur, altså de tre samvirkende faktorene som antas å forme et menneskes identitet", "Persepsjon, hukommelse og læring, som er tre sentrale prosesser innenfor den kognitive psykologien"],
       explanation: 'SIT beskriver tre prosesser: sosial kategorisering (dele inn i grupper), sosial identifisering (knytte seg til inngruppe) og sosial sammenligning.',
     },
     {
       question: 'Hva er multiple identiteter?',
-      options: ["At en person tilhører mange ulike sosiale grupper samtidig", "At man har flere personligheter", "At en person har flere atskilte personligheter som veksler og styrer atferden til ulik tid", "At man bytter navn ofte"],
+      options: ["At en person tilhører mange ulike sosiale grupper samtidig", "At man skjuler sin egentlige identitet", "At en person har flere atskilte personligheter som veksler og styrer atferden til ulik tid", "At man bytter navn flere ganger i livet"],
       explanation: 'Multiple identiteter viser til at enhver person tilhører mange sosiale grupper samtidig, noe som kan være en ressurs og gjøre oss mer fleksible.',
     },
     {
@@ -139,17 +139,17 @@ const quizData_psykologi_2: Record<string, QuizQuestion[]> = {
   'psykologi-2-2-1': [
     {
       question: 'Hva er verbal kommunikasjon?',
-      options: ["All kommunikasjon som bruker ord, muntlig eller skriftlig", "Kun ansiktsuttrykk", "Bare ansiktsuttrykk og mimikk som formidler følelser og reaksjoner uten hjelp av talte ord", "Utelukkende kroppsspråk og bevegelser vi gjør uten å bruke ord, verken muntlig eller skriftlig"],
+      options: ["All kommunikasjon som bruker ord, muntlig eller skriftlig", "Bare tonefall og stemmebruk, ikke ordene selv", "Bare ansiktsuttrykk og mimikk som formidler følelser og reaksjoner uten hjelp av talte ord", "Utelukkende kroppsspråk og bevegelser vi gjør uten å bruke ord, verken muntlig eller skriftlig"],
       explanation: 'Verbal kommunikasjon er all kommunikasjon som bruker ord, enten muntlig eller skriftlig, inkludert skriftbasert digital kommunikasjon.',
     },
     {
       question: 'Hva foreslår Sapir-Whorf-hypotesen?',
-      options: ["At språket vi bruker, påvirker hvordan vi tenker", "At tenkning er uavhengig av språk", "At alle verdens språk i praksis er like og derfor gir oss nøyaktig samme oppfatning av verden", "At språk ikke har betydning"],
+      options: ["At språket vi bruker, påvirker hvordan vi tenker", "At tenkning er uavhengig av språk", "At alle verdens språk i praksis er like og derfor gir oss nøyaktig samme oppfatning av verden", "At språk kun er en nøytral merkelapp"],
       explanation: 'Sapir-Whorf-hypotesen (lingvistisk relativitet) foreslår at språket vårt påvirker hvordan vi tenker og oppfatter verden.',
     },
     {
       question: 'Hva er pragmatikk?',
-      options: ["Læren om hvordan kontekst påvirker betydningen av språklige ytringer", "Læren om kroppsspråk", "Læren om uttale og lyder i språket, altså hvordan de enkelte språklydene formes og oppfattes", "Læren om kroppsspråk og ikke-verbale signaler som utfyller eller erstatter det vi sier med ord"],
+      options: ["Læren om hvordan kontekst påvirker betydningen av språklige ytringer", "Læren om setningsbygningen og grammatiske regler", "Læren om uttale og lyder i språket, altså hvordan de enkelte språklydene formes og oppfattes", "Læren om kroppsspråk og ikke-verbale signaler som utfyller eller erstatter det vi sier med ord"],
       explanation: 'Pragmatikk er studiet av hvordan kontekst, intensjon og sosiale forhold påvirker betydningen – hva taleren mener vs. hva som bokstavelig sies.',
     },
     {
@@ -176,7 +176,7 @@ const quizData_psykologi_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er et mikrouttrykk?',
-      options: ["Et kort, ufrivillig ansiktsuttrykk som varer under 0,5 sekund", "Et langt, bevisst uttrykk", "En innøvd gest eller håndbevegelse som forsterker et verbalt budskap", "Et langt og bevisst kontrollert ansiktsuttrykk som varer flere sekunder"],
+      options: ["Et kort, ufrivillig ansiktsuttrykk som varer under 0,5 sekund", "Et kulturelt innlært ansiktsuttrykk", "En innøvd gest eller håndbevegelse som forsterker et verbalt budskap", "Et langt og bevisst kontrollert ansiktsuttrykk som varer flere sekunder"],
       explanation: 'Mikrouttrykk er korte, ufrivillige ansiktsuttrykk (under 0,5 sekund) som "lekker" en skjult emosjon når noen prøver å skjule den.',
     },
     {
@@ -186,7 +186,7 @@ const quizData_psykologi_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er visningsregler (display rules)?',
-      options: ["Sosialt lærte normer for når og hvordan følelser skal uttrykkes", "Regler for kroppsspråk på nett", "Medfødte ansiktsuttrykk som er de samme i alle kulturer verden over", "Grammatiske regler for hvordan setninger bygges opp i et gitt språk"],
+      options: ["Sosialt lærte normer for når og hvordan følelser skal uttrykkes", "Regler for kroppsspråk på nett og i chat", "Medfødte ansiktsuttrykk som er de samme i alle kulturer verden over", "Grammatiske regler for hvordan setninger bygges opp i et gitt språk"],
       explanation: 'Visningsregler er sosialt lærte normer for når, hvor og hvordan følelser skal uttrykkes – de varierer mellom kulturer selv om grunnfølelsene er universelle.',
     },
   ],
@@ -208,7 +208,7 @@ const quizData_psykologi_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er et ekkokammer?',
-      options: ["Et lukket informasjonssystem der eksisterende synspunkter forsterkes", "Et fysisk rom med spesielt god akustikk der lyden gjenklinger lenge", "En kommunikasjonsmodell for hvordan budskap forsterkes og forvrenges", "En chat-app der brukere kan sende meldinger anonymt til hverandre"],
+      options: ["Et lukket informasjonssystem der eksisterende synspunkter forsterkes", "Et fysisk rom med spesielt god akustikk der lyden gjenklinger lenge", "En kommunikasjonsmodell for forsterkning og forvrengning", "En chat-app der brukere kan sende meldinger anonymt til hverandre"],
       explanation: 'Et ekkokammer oppstår når man bare eksponeres for synspunkter som bekrefter det man allerede mener, slik at egne oppfatninger forsterkes.',
     },
     {
@@ -284,7 +284,7 @@ const quizData_psykologi_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er kognitiv empati (perspektivtaking)?',
-      options: ["Evnen til å forstå og sette seg inn i andres tanker og situasjon", "Å føle andres følelser fysisk", "Å bevisst overse andres tanker og situasjon for å skjerme seg selv", "Å kjenne andres følelser fysisk i egen kropp som om de var ens egne"],
+      options: ["Evnen til å forstå og sette seg inn i andres tanker og situasjon", "Å synes synd på andre som har det vondt", "Å bevisst overse andres tanker og situasjon for å skjerme seg selv", "Å kjenne andres følelser fysisk i egen kropp som om de var ens egne"],
       explanation: 'Kognitiv empati er evnen til å forstå og leve seg inn i andres tanker, følelser og situasjon – å ta andres perspektiv.',
     },
     {
@@ -301,27 +301,27 @@ const quizData_psykologi_2: Record<string, QuizQuestion[]> = {
   'psykologi-2-3-2': [
     {
       question: 'Hvordan påvirker tidlig tilknytning sosial kompetanse?',
-      options: ["Trygg tilknytning legger grunnlaget for senere sosiale ferdigheter", "Tilknytning hindrer sosial utvikling", "Tilknytning i barndommen har ingen påvisbar betydning senere i livet", "Tidlig tilknytning hindrer normal sosial utvikling og skaper avhengighet"],
+      options: ["Trygg tilknytning legger grunnlaget for senere sosiale ferdigheter", "Tilknytning avgjøres først i ungdomsårene", "Tilknytning i barndommen har ingen påvisbar betydning senere i livet", "Tidlig tilknytning hindrer normal sosial utvikling og skaper avhengighet"],
       explanation: 'Tilknytningsteori viser at kvaliteten på tidlige relasjoner legger grunnlaget for senere sosiale ferdigheter – trygg tilknytning fremmer sosial kompetanse.',
     },
     {
       question: 'Hvilken oppdragelsesstil (Baumrind) forbindes med best sosial utvikling?',
-      options: ['Autoritativ (høy varme + høy kontroll)', 'Autoritær (lav varme + høy kontroll)', 'Ettergivende (høy varme + lav kontroll)', 'Forsømmende (lav varme + lav kontroll)'],
+      options: ['Autoritativ (høy varme + høy kontroll)', 'Autoritær (lav varme + høy kontroll)', 'Ettergivende (høy varme + lav kontroll)', 'Forsømmende (lav varme + lave krav)'],
       explanation: 'Autoritativ oppdragelse, med både varme og klare grenser, forbindes med best sosial og emosjonell utvikling hos barn.',
     },
     {
       question: 'Hva er temperament?',
-      options: ["Medfødte forskjeller i atferd, emosjonalitet og reaksjonsmåter", "En holdning man lærer gjennom oppvekst og erfaringer over tid", "En bestemt oppdragelsesstil foreldre bruker for å forme barnet", "En form for empati der man kjenner igjen andres reaksjonsmåter"],
+      options: ["Medfødte forskjeller i atferd, emosjonalitet og reaksjonsmåter", "En holdning man lærer gjennom oppvekst og erfaringer over tid", "En oppdragelsesstil foreldre bruker for å forme barnet", "En form for empati der man gjenkjenner andres reaksjoner"],
       explanation: 'Temperament er den medfødte, biologiske siden av personligheten – forskjeller i aktivitetsnivå, emosjonalitet og reaksjonsmåter vi er født med.',
     },
     {
       question: 'Hvilken rolle spiller jevnaldrende i sosial utvikling?',
-      options: ["De er en horisontal relasjon der man øver likeverdig samhandling", "De erstatter foreldrene helt", "De gir mest overføring av kunnskap gjennom belønning og straff ovenfra", "De fungerer som rene autoritetsfigurer som setter grenser barnet må adlyde"],
+      options: ["De er en horisontal relasjon der man øver likeverdig samhandling", "De erstatter foreldrenes rolle fullstendig", "De gir mest overføring av kunnskap gjennom belønning og straff ovenfra", "De fungerer som rene autoritetsfigurer som setter grenser barnet må adlyde"],
       explanation: 'Jevnaldrende gir en horisontal (likeverdig) relasjon der barn øver på samarbeid, forhandling og konfliktløsning, til forskjell fra den vertikale foreldre-barn-relasjonen.',
     },
     {
       question: 'Hvordan varierer sosial kompetanse mellom kulturer?',
-      options: ["Individualistiske kulturer vektlegger selvhevdelse, kollektivistiske vektlegger harmoni", "Sosial kompetanse handler kun om ferdigheter man arver, ikke om kulturell læring", "Individualistiske kulturer vektlegger harmoni, kollektivistiske vektlegger selvhevdelse", "Alle kulturer belønner den samme selvhevdende og direkte formen for atferd likt"],
+      options: ["Individualistiske kulturer vektlegger selvhevdelse, kollektivistiske vektlegger harmoni", "Sosial kompetanse handler kun om ferdigheter man arver, ikke om kulturell læring", "Individualistiske kulturer vektlegger harmoni, kollektivistiske selvhevdelse", "Alle kulturer belønner den samme selvhevdende og direkte formen for atferd likt"],
       explanation: 'Hva som regnes som god sosial kompetanse varierer kulturelt: individualistiske kulturer vektlegger selvstendighet og selvhevdelse, kollektivistiske vektlegger harmoni og gruppen.',
     },
   ],
@@ -333,22 +333,22 @@ const quizData_psykologi_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hvilke tre sentrale elementer inngår i Olweus\' mobbedefinisjon?',
-      options: ["Negative handlinger, gjentakelse over tid og maktubalanse", "Alarm, motstand og utmattelse", "Tanke, følelse og handling som til sammen former en persons atferdsmønster", "Alarm, motstand og utmattelse slik stress utvikler seg i en belastende fase"],
+      options: ["Negative handlinger, gjentakelse over tid og maktubalanse", "Fysisk vold, verbale trusler og utestenging", "Tanke, følelse og handling som til sammen former en persons atferdsmønster", "Alarm, motstand og utmattelse slik stress utvikler seg i en belastende fase"],
       explanation: 'Olweus\' definisjon inneholder tre elementer: negative handlinger, at de gjentas over tid, og en maktubalanse mellom mobber og offer.',
     },
     {
       question: 'Hva kjennetegner cybermobbing?',
-      options: ["24/7-tilgjengelighet og potensielt stort publikum", "At den alltid er ansikt til ansikt", "At gjerningspersonen alltid er kjent, slik at hendelsen raskt kan stoppes", "At den bare skjer på skolen"],
+      options: ["24/7-tilgjengelighet og potensielt stort publikum", "At den alltid er ansikt til ansikt", "At gjerningspersonen alltid er kjent, slik at hendelsen raskt kan stoppes", "At den bare skjer i skoletiden"],
       explanation: 'Cybermobbing kjennetegnes blant annet av at den følger offeret hjem (24/7), kan ha et stort publikum, og at gjerningspersonen kan være anonym.',
     },
     {
       question: 'Hvilke roller finnes i mobbedynamikken ifølge Olweus?',
-      options: ["Mobbere, ofre, forsvarere, forsterkere og tilskuere", "Bare lærere og elever", "Kun én aktiv mobber og ett passivt offer uten noen andre involverte elever", "Bare tilskuere som ser på, siden mobbing i praksis skjer helt uten pådrivere"],
+      options: ["Mobbere, ofre, forsvarere, forsterkere og tilskuere", "Bare lærere og elever ved samme skole", "Kun én aktiv mobber og ett passivt offer uten noen andre involverte elever", "Bare tilskuere som ser på, siden mobbing i praksis skjer helt uten pådrivere"],
       explanation: 'Mobbedynamikken involverer flere roller: mobbere (aktive/passive), ofre, forsvarere, forsterkere og passive tilskuere.',
     },
     {
       question: 'Hva er konsekvensene av mobbing for ofre?',
-      options: ["Økt risiko for angst, depresjon, lavt selvbilde og søvnproblemer", "Bedre psykisk helse", "Styrket selvbilde og bedre søvn fordi offeret lærer å håndtere motgang", "Ingen målbare effekter, ettersom barn glemmer slike hendelser raskt igjen"],
+      options: ["Økt risiko for angst, depresjon, lavt selvbilde og søvnproblemer", "Bedre psykisk helse og økt motstandskraft", "Styrket selvbilde og bedre søvn fordi offeret lærer å håndtere motgang", "Ingen målbare effekter, ettersom barn glemmer slike hendelser raskt igjen"],
       explanation: 'Mobbing har alvorlige konsekvenser for ofre, som angst, depresjon, lavt selvbilde, søvnproblemer og i alvorlige tilfeller selvmordstanker.',
     },
   ],
@@ -370,24 +370,24 @@ const quizData_psykologi_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hvilke helsekonsekvenser kan langvarig ensomhet ha?',
-      options: ["Økt risiko for depresjon, angst og dårligere fysisk helse", "Kun positive effekter", "Styrket immunforsvar og bedre fysisk helse fordi kroppen får ro og hvile", "Utelukkende positive effekter som økt kreativitet og bedre konsentrasjon"],
+      options: ["Økt risiko for depresjon, angst og dårligere fysisk helse", "Ingen målbare helsemessige konsekvenser", "Styrket immunforsvar og bedre fysisk helse fordi kroppen får ro og hvile", "Utelukkende positive effekter som økt kreativitet og bedre konsentrasjon"],
       explanation: 'Langvarig ensomhet er en sterk risikofaktor for depresjon og angst, og forskning viser også negative effekter på fysisk helse.',
     },
     {
       question: 'Hvor plasserte Maslow behovet for tilhørighet i behovspyramiden?',
-      options: ["På det tredje nivået, etter fysiologiske og trygghetsbehov", "Nederst som det mest grunnleggende", "På det øverste nivået som selvrealisering, det høyeste menneskelige behovet", "Utenfor pyramiden, fordi Maslow så tilhørighet som et rent kulturelt fenomen"],
+      options: ["På det tredje nivået, etter fysiologiske og trygghetsbehov", "Nederst, som det mest grunnleggende behovet", "På det øverste nivået som selvrealisering, det høyeste menneskelige behovet", "Utenfor pyramiden, fordi Maslow så tilhørighet som et rent kulturelt fenomen"],
       explanation: 'Maslow plasserte behovet for tilhørighet og kjærlighet på det tredje nivået, rett etter fysiologiske behov og trygghetsbehov.',
     },
   ],
   'psykologi-2-3-5': [
     {
       question: 'Hva kjennetegner et inkluderende fellesskap?',
-      options: ["At alle opplever tilhørighet, deltakelse og verdsettelse", "At det ikke finnes regler", "At alle medlemmene er helt like og har akkurat de samme egenskapene", "At enkelte bevisst holdes utenfor for å styrke samholdet blant de andre"],
+      options: ["At alle opplever tilhørighet, deltakelse og verdsettelse", "At det ikke finnes regler eller grenser", "At alle medlemmene er helt like og har akkurat de samme egenskapene", "At enkelte bevisst holdes utenfor for å styrke samholdet blant de andre"],
       explanation: 'Et inkluderende fellesskap handler om mer enn å plassere alle i samme rom – det skaper miljøer der alle opplever tilhørighet, deltakelse og verdsettelse.',
     },
     {
       question: 'Hva er Olweus-programmet?',
-      options: ["Et evidensbasert antimobbeprogram utviklet i Norge", "En sosial medieplattform", "En form for individualterapi der mobbeofre bearbeider vonde opplevelser", "En sosial medieplattform utviklet for at elever skal kunne varsle om mobbing"],
+      options: ["Et evidensbasert antimobbeprogram utviklet i Norge", "En nasjonal lov mot mobbing i skolen", "En form for individualterapi der mobbeofre bearbeider vonde opplevelser", "En sosial medieplattform utviklet for at elever skal kunne varsle om mobbing"],
       explanation: 'Olweus-programmet (OBPP) er et av verdens mest brukte og forskningsmessig evaluerte antimobbeprogram, utviklet av Dan Olweus ved Universitetet i Bergen.',
     },
     {
@@ -402,14 +402,14 @@ const quizData_psykologi_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er samfunnspsykologiens (community psychology) tilnærming?',
-      options: ["Å se hvordan systemer og strukturer kan endres for å fremme helse og trivsel", "Å se alle problemer som rent individuelle", "Å behandle bare hjernens kjemi, siden systemer og strukturer ikke kan endres", "Å forstå alle problemer som rent individuelle, uavhengig av omgivelsene rundt"],
+      options: ["Å se hvordan systemer og strukturer kan endres for å fremme helse og trivsel", "Å se alle problemer som rent individuelle", "Å behandle bare hjernens kjemi, siden strukturer ikke kan endres", "Å forstå alle problemer som rent individuelle, uavhengig av omgivelsene rundt"],
       explanation: 'Samfunnspsykologi fokuserer på individets forhold til sosiale systemer og hvordan strukturer kan endres for å fremme helse og trivsel, fremfor å individualisere problemer.',
     },
   ],
   'psykologi-2-4-1': [
     {
       question: 'Hva er statistisk normalitet?',
-      options: ["Det som er vanlig eller typisk i en befolkning", "Det som er moralsk riktig", "Det som er moralsk riktig og i tråd med samfunnets verdier og normer", "Det som er svært sjeldent og bare forekommer hos noen få enkeltpersoner"],
+      options: ["Det som er vanlig eller typisk i en befolkning", "Det som fungerer godt i hverdagen", "Det som er moralsk riktig og i tråd med samfunnets verdier og normer", "Det som er svært sjeldent og bare forekommer hos noen få enkeltpersoner"],
       explanation: 'Det statistiske perspektivet definerer normalitet ut fra hva som er vanlig eller typisk i en befolkning.',
     },
     {
@@ -424,7 +424,7 @@ const quizData_psykologi_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hvorfor er normalitet et komplekst begrep i psykologien?',
-      options: ["Fordi det kan defineres på flere måter (statistisk, sosial, funksjonell osv.)", "Fordi det aldri endrer seg og betyr det samme i alle kulturer til alle tider", "Fordi det er enkelt og opplagt, og alle er alltid enige om hva som er normalt", "Fordi det ikke har noen praktisk betydning for hvordan vi forstår mennesker"],
+      options: ["Fordi det kan defineres på flere måter (statistisk, sosial, funksjonell osv.)", "Fordi det aldri endrer seg og betyr det samme i alle kulturer til alle tider", "Fordi det er enkelt og opplagt, og alle er enige om hva som er normalt", "Fordi det ikke har noen praktisk betydning for hvordan vi forstår mennesker"],
       explanation: 'Normalitet er komplekst fordi det kan defineres på flere måter – statistisk, sosialt, funksjonelt – og hva som regnes som normalt varierer mellom kulturer og over tid.',
     },
     {
@@ -436,17 +436,17 @@ const quizData_psykologi_2: Record<string, QuizQuestion[]> = {
   'psykologi-2-4-2': [
     {
       question: 'Hvordan ble psykisk sykdom ofte forklart i middelalderen?',
-      options: ["Med åndelige eller overnaturlige krefter, som demonisk besettelse", "Med nevrotransmittere", "Med arvelige gener og biologisk sårbarhet som ble kartlagt allerede den gangen", "Med ubalanse i hjernens nevrotransmittere, slik moderne psykiatri forklarer det"],
+      options: ["Med åndelige eller overnaturlige krefter, som demonisk besettelse", "Med sosial ulikhet og fattigdom i samfunnet", "Med arvelige gener og biologisk sårbarhet som ble kartlagt allerede den gangen", "Med ubalanse i hjernens nevrotransmittere, slik moderne psykiatri forklarer det"],
       explanation: 'I middelalderen ble psykisk sykdom ofte forklart med åndelige eller overnaturlige krefter, som demonisk besettelse, og behandlet med blant annet eksorsisme.',
     },
     {
       question: 'Hva var moralbehandling (moral treatment)?',
-      options: ["En mer human behandling av psykisk syke fra slutten av 1700-tallet", "En medisinsk operasjon", "Et religiøst ritual der prester drev ut onde ånder fra de psykisk syke", "En straffemetode der pasienter ble disiplinert hardt for å endre sin atferd"],
+      options: ["En mer human behandling av psykisk syke fra slutten av 1700-tallet", "En medisinsk operasjon på psykisk syke", "Et religiøst ritual der prester drev ut onde ånder fra de psykisk syke", "En straffemetode der pasienter ble disiplinert hardt for å endre sin atferd"],
       explanation: 'Moralbehandling var en reform fra slutten av 1700-tallet (Pinel, Tuke) som la vekt på en mer human, verdig behandling av psykisk syke.',
     },
     {
       question: 'Hva introduserte Freud på slutten av 1800-tallet?',
-      options: ["Psykoanalysen – en ny måte å forstå og behandle psykiske lidelser", "Kognitiv atferdsterapi", "Elektrosjokkbehandling som ble brukt mot dype depresjoner og psykoser", "Antipsykotiske medisiner som dempet symptomer hos alvorlig psykisk syke"],
+      options: ["Psykoanalysen – en ny måte å forstå og behandle psykiske lidelser", "Kognitiv atferdsterapi, der klienten lærer å kjenne igjen og endre negative tanker", "Elektrosjokkbehandling som ble brukt mot dype depresjoner og psykoser", "Antipsykotiske medisiner som dempet symptomer hos alvorlig psykisk syke"],
       explanation: 'Freud introduserte psykoanalysen, med vekt på det ubevisste sinnet, som en helt ny måte å forstå og behandle psykiske lidelser.',
     },
     {
@@ -456,24 +456,24 @@ const quizData_psykologi_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva handler recovery-perspektivet om?',
-      options: ["Å leve et meningsfullt liv til tross for symptomer eller diagnoser", "Å alltid bli fullstendig symptomfri", "Å alltid bli fullstendig symptomfri og helt kurert før man kan leve normalt", "Å bli innlagt på sykehus over lengre tid for å oppnå full bedring av lidelsen"],
+      options: ["Å leve et meningsfullt liv til tross for symptomer eller diagnoser", "Å følge et fast behandlingsopplegg som fagfolk styrer, uten at egne mål teller med", "Å alltid bli fullstendig symptomfri og helt kurert før man kan leve normalt", "Å bli innlagt på sykehus over lengre tid for å oppnå full bedring av lidelsen"],
       explanation: 'Recovery handler ikke nødvendigvis om å bli "kurert", men om å leve et meningsfullt liv til tross for eventuelle symptomer eller diagnoser.',
     },
   ],
   'psykologi-2-4-3': [
     {
       question: 'Hvilket diagnosesystem brukes offisielt i Norge?',
-      options: ['ICD (utgitt av WHO)', 'Kun DSM', 'Et norsk system uten internasjonal kobling', 'Ingen diagnosesystem'],
+      options: ['ICD (utgitt av WHO)', 'Kun DSM, som brukes mest i USA', 'Et norsk system uten internasjonal kobling', 'Ingen diagnosesystem'],
       explanation: 'ICD (International Classification of Diseases), utgitt av WHO, brukes offisielt i Norge og de fleste land. DSM brukes mest i USA og forskning.',
     },
     {
       question: 'Hva er en fordel med diagnoser?',
-      options: ["De gir fagpersoner et felles språk og hjelper med å velge behandling", "De definerer personens identitet", "De gjør pasienten frisk i seg selv, siden selve merkelappen løser problemet", "De definerer hele personens identitet og forteller hvem vedkommende egentlig er"],
+      options: ["De gir fagpersoner et felles språk og hjelper med å velge behandling", "De garanterer at alle med samme diagnose får nøyaktig samme forløp og behandling", "De gjør pasienten frisk i seg selv, siden selve merkelappen løser problemet", "De definerer hele personens identitet og forteller hvem vedkommende egentlig er"],
       explanation: 'Diagnoser gir fagpersoner et felles begrepsapparat (felles språk) og hjelper med å velge riktig behandling og vurdere prognose.',
     },
     {
       question: 'Hva er en ulempe ved diagnostisering?',
-      options: ["Diagnoser er konstruerte kategorier med flytende grenser, og kan stigmatisere", "Diagnoser er alltid helt presise", "Diagnoser er alltid presise naturlige kategorier med skarpe grenser, som benbrudd", "Diagnoser er unødvendige fordi psykiske lidelser er objektive og entydige tilstander"],
+      options: ["Diagnoser er konstruerte kategorier med flytende grenser, og kan stigmatisere", "Diagnoser hindrer fagpersoner i å snakke sammen, fordi hvert fagmiljø bruker sine egne navn", "Diagnoser er alltid presise naturlige kategorier med skarpe grenser, som benbrudd", "Diagnoser er unødvendige fordi psykiske lidelser er objektive og entydige tilstander"],
       explanation: 'En ulempe er at psykiske lidelser ikke er naturlige kategorier som "benbrudd" – grensene er ofte flytende og konstruerte, og diagnoser kan stigmatisere.',
     },
     {
@@ -490,7 +490,7 @@ const quizData_psykologi_2: Record<string, QuizQuestion[]> = {
   'psykologi-2-4-4': [
     {
       question: 'Hva kjennetegner generalisert angstlidelse (GAD)?',
-      options: ["Vedvarende, overdreven og vanskelig kontrollerbar bekymring om mange ting", "Frykt for ett bestemt objekt", "Plutselige, avgrensede panikkanfall med sterk kroppslig frykt uten forvarsel", "Tvangstanker og gjentatte tvangshandlinger som utføres for å dempe uro og ubehag"],
+      options: ["Vedvarende, overdreven og vanskelig kontrollerbar bekymring om mange ting", "Frykt for ett bestemt objekt eller én bestemt situasjon som utløser sterk angst der og da", "Plutselige, avgrensede panikkanfall med sterk kroppslig frykt uten forvarsel", "Tvangstanker og gjentatte tvangshandlinger som utføres for å dempe uro og ubehag"],
       explanation: 'GAD kjennetegnes av vedvarende, overdreven bekymring som er vanskelig å kontrollere, og som ikke er knyttet til én bestemt situasjon.',
     },
     {
@@ -500,12 +500,12 @@ const quizData_psykologi_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er lært hjelpeløshet ifølge Seligman?',
-      options: ["Passivitet som oppstår når man har erfart manglende kontroll", "En medfødt egenskap", "En form for mani der man mister kontroll fordi energien og aktiviteten blir altfor høy", "God mestring som oppstår når man erfarer at innsats faktisk gir kontroll over utfallet"],
+      options: ["Passivitet som oppstår når man har erfart manglende kontroll", "En medfødt egenskap som gjør at enkelte alltid gir opp, uansett hva de erfarer", "En form for mani der man mister kontroll fordi energien og aktiviteten blir altfor høy", "God mestring som oppstår når man erfarer at innsats faktisk gir kontroll over utfallet"],
       explanation: 'Lært hjelpeløshet er passivitet som oppstår etter erfaring med ukontrollerbare negative hendelser, og brukes som en forklaring på depresjon.',
     },
     {
       question: 'Hva kjennetegner en manisk episode ved bipolar lidelse?',
-      options: ["Opphøyet eller irritabelt stemningsleie med økt energi og aktivitet", "Vedvarende nedstemthet", "Vedvarende nedstemthet med tap av interesse, energi og glede over lengre tid", "Et normalt og stabilt stemningsleie uten svingninger i energi eller aktivitetsnivå"],
+      options: ["Opphøyet eller irritabelt stemningsleie med økt energi og aktivitet", "Kortvarige panikkanfall med hjertebank og pustebesvær som gir seg etter minutter", "Vedvarende nedstemthet med tap av interesse, energi og glede over lengre tid", "Et normalt og stabilt stemningsleie uten svingninger i energi eller aktivitetsnivå"],
       explanation: 'En manisk episode kjennetegnes av opphøyet eller irritabelt stemningsleie, økt energi, redusert søvnbehov og ofte impulsiv atferd.',
     },
     {
@@ -517,7 +517,7 @@ const quizData_psykologi_2: Record<string, QuizQuestion[]> = {
   'psykologi-2-4-5': [
     {
       question: 'Hva er stigma knyttet til psykisk helse?',
-      options: ["Negative holdninger, fordommer og diskriminering rettet mot personer med psykiske lidelser", "En behandlingsform", "En anerkjent behandlingsform der terapeut og pasient samarbeider om å endre negative tanker", "En medisinsk diagnose som settes når en person over tid har negative holdninger til seg selv"],
+      options: ["Negative holdninger, fordommer og diskriminering rettet mot personer med psykiske lidelser", "En måleskala som helsepersonell bruker for å vurdere hvor alvorlig en psykisk lidelse er hos den enkelte", "En anerkjent behandlingsform der terapeut og pasient samarbeider om å endre negative tanker", "En medisinsk diagnose som settes når en person over tid har negative holdninger til seg selv"],
       explanation: 'Stigma er negative holdninger, fordommer og diskriminering rettet mot personer med psykiske lidelser, og er en stor barriere for god psykisk helse.',
     },
     {
@@ -527,56 +527,56 @@ const quizData_psykologi_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hvilke tre former for stigma virker sammen?',
-      options: ["Offentlig stigma, selvstigma og strukturelt stigma", "Akutt, kronisk og forbigående stigma", "Stort, lite og middels stigma delt inn etter styrken på fordommene i befolkningen", "Stort, lite og middels stigma"],
+      options: ["Offentlig stigma, selvstigma og strukturelt stigma", "Akutt, kronisk og forbigående stigma", "Stort, lite og middels stigma delt inn etter styrken på fordommene i befolkningen", "Medisinsk, juridisk og sosialt stigma"],
       explanation: 'Stigma har flere former: offentlig stigma (samfunnets fordommer), selvstigma (internalisert skam) og strukturelt stigma (diskriminering i systemer).',
     },
     {
       question: 'Hva er en effektiv strategi for å redusere stigma?',
-      options: ["Kunnskapsformidling om psykiske lidelser", "Å unngå kontakt med berørte", "Å tie helt om psykisk helse slik at lidelser ikke får unødig oppmerksomhet i samfunnet", "Å tie om psykisk helse"],
+      options: ["Kunnskapsformidling om psykiske lidelser", "Å unngå kontakt med berørte", "Å overlate opplysning til mediene alene", "Å tie om psykisk helse"],
       explanation: 'Kunnskapsformidling (education) – å gi folk korrekt informasjon om psykiske lidelser – er en av tre hovedstrategier for å redusere stigma.',
     },
     {
       question: 'Hvordan fremstilles psykisk syke ofte i media?',
-      options: ["Som farlige, voldelige eller uforutsigbare", "Alltid nøyaktig og balansert", "Alltid nøyaktig, nyansert og balansert i tråd med oppdatert psykologisk forskning", "Aldri nevnt"],
+      options: ["Som farlige, voldelige eller uforutsigbare", "Alltid nøyaktig og balansert", "Alltid nøyaktig, nyansert og balansert i tråd med oppdatert psykologisk forskning", "Psykisk sykdom blir aldri nevnt"],
       explanation: 'Medierepresentasjonen er ofte problematisk: psykisk syke fremstilles ofte som farlige, voldelige eller uforutsigbare, noe som forsterker stigma.',
     },
   ],
   'psykologi-2-5-1': [
     {
       question: 'Hva er grunntanken i kognitiv atferdsterapi (KBT)?',
-      options: ["At tanker, følelser og atferd henger sammen og påvirker hverandre", "At barndommen forklarer alt", "At bare medisiner virker, og at samtale og tankearbeid har liten reell betydning", "At følelser er faste og ikke kan endres, uansett hvordan man tenker eller handler"],
+      options: ["At tanker, følelser og atferd henger sammen og påvirker hverandre", "At barndommen forklarer alt, og at tanker og handlinger i nåtiden betyr lite", "At bare medisiner virker, og at samtale og tankearbeid har liten reell betydning", "At følelser er faste og ikke kan endres, uansett hvordan man tenker eller handler"],
       explanation: 'KBT bygger på at tanker, følelser og atferd henger tett sammen, og at endring i ett område kan påvirke de andre.',
     },
     {
       question: 'Hva står ABC for i ABC-modellen i KBT?',
-      options: ["Activating event, Beliefs, Consequences", "Affekt, Behavior, Cognition", "Alarm, Beredskap og Coping, tre trinn i kroppens mestring av en truende situasjon", "Alarm, Beredskap, Coping"],
+      options: ["Activating event, Beliefs, Consequences", "Affekt, Behavior, Cognition", "Analyse, Bearbeiding og Coping", "Alarm, Beredskap, Coping"],
       explanation: 'I KBT står ABC for Activating event (utløsende hendelse), Beliefs (tanker/tolkninger) og Consequences (følelsesmessige og atferdsmessige konsekvenser).',
     },
     {
       question: 'Hva er en typisk "tankefelle" Beck identifiserte?',
-      options: ["Svart-hvitt-tenkning", "Realistisk tenkning", "Kreativ og fleksibel tenkning der man finner mange ulike løsninger på ett og samme problem", "Positiv tenkning"],
+      options: ["Svart-hvitt-tenkning", "Realistisk tenkning", "Kreativ tenkning", "Positiv tenkning"],
       explanation: 'Beck identifiserte tankefeller som svart-hvitt-tenkning (ekstreme kategorier uten nyanser), katastrofetanker og overgeneralisering.',
     },
     {
       question: 'Hvordan virker eksponering i KBT?',
-      options: ["Gradvis konfrontasjon med frykten fører til habituering (angsten avtar over tid)", "Ved å snakke om barndommen", "Ved å gi beroligende medisiner som demper angsten før klienten møter det fryktede", "Ved å samtale grundig om barndommen for å finne den ubevisste årsaken til frykten"],
+      options: ["Gradvis konfrontasjon med frykten fører til habituering (angsten avtar over tid)", "Ved å la klienten slippe å møte det som skaper frykt, slik at angsten aldri blir vekket i timen", "Ved å gi beroligende medisiner som demper angsten før klienten møter det fryktede", "Ved å samtale grundig om barndommen for å finne den ubevisste årsaken til frykten"],
       explanation: 'Eksponering bygger på at unngåelse opprettholder angst, mens gradvis konfrontasjon med frykten fører til habituering – en naturlig reduksjon i angst over tid.',
     },
     {
       question: 'Hva er atferdsaktivering i KBT-behandling av depresjon?',
-      options: ["Å bevisst øke aktivitetsnivået for å bryte den onde sirkelen av passivitet", "Å unngå alle aktiviteter", "Å bare ta antidepressiva og la medisinen alene løfte aktivitetsnivået over tid", "Å hvile mer og skjerme seg, slik at kroppen får ro til å bygge opp energien igjen"],
+      options: ["Å bevisst øke aktivitetsnivået for å bryte den onde sirkelen av passivitet", "Å unngå alle aktiviteter som kan mislykkes, slik at klienten slipper å oppleve nederlag", "Å bare ta antidepressiva og la medisinen alene løfte aktivitetsnivået over tid", "Å hvile mer og skjerme seg, slik at kroppen får ro til å bygge opp energien igjen"],
       explanation: 'Atferdsaktivering går ut på å bevisst øke aktivitetsnivået (særlig meningsfylte aktiviteter) for å bryte depresjonens onde sirkel av passivitet og tilbaketrekning.',
     },
   ],
   'psykologi-2-5-2': [
     {
       question: 'Hva utforsker psykodynamisk terapi?',
-      options: ["Ubevisste konflikter og tidlige relasjoner", "Bare belønning og straff", "Utelukkende hjernekjemi og nevrobiologiske ubalanser som årsak til psykiske vansker", "Bare nåtidens tanker"],
+      options: ["Ubevisste konflikter og tidlige relasjoner", "Bare belønning og straff", "Utelukkende hjernekjemi og nevrobiologi", "Bare nåtidens tanker"],
       explanation: 'Psykodynamisk terapi utforsker ubevisste konflikter, tidlige relasjoner og hvordan disse påvirker nåtiden, med røtter i Freuds psykoanalyse.',
     },
     {
       question: 'Hva er fri assosiasjon i psykodynamisk terapi?',
-      options: ["At klienten sier alt som faller dem inn uten sensur", "At klienten følger en streng plan", "At terapeuten systematisk tolker klientens drømmer for å avdekke skjulte ønsker", "At terapeuten tolker drømmer"],
+      options: ["At klienten sier alt som faller dem inn uten sensur", "At klienten følger en streng plan", "At klienten skriver ned tankene mellom timene", "At terapeuten tolker drømmer"],
       explanation: 'Fri assosiasjon er en teknikk der klienten oppmuntres til å si alt som faller dem inn uten sensur, for å gi tilgang til ubevisst materiale.',
     },
     {
@@ -586,66 +586,66 @@ const quizData_psykologi_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hvilke tre kjernebetingelser la Rogers vekt på i terapi?',
-      options: ["Empati, ubetinget positiv aktelse og kongruens (ekthet)", "Eksponering, aktivering og medisin", "Belønning, straff og systematisk kontroll av klientens atferd gjennom betinging", "Tolkning, analyse og diagnose"],
+      options: ["Empati, ubetinget positiv aktelse og kongruens (ekthet)", "Eksponering, aktivering og medisin", "Belønning, straff og systematisk atferdskontroll", "Tolkning, analyse og diagnose"],
       explanation: 'Rogers la vekt på tre kjernebetingelser for terapeutisk endring: empati, ubetinget positiv aktelse og kongruens (ekthet/genuinitet).',
     },
     {
       question: 'Hva fokuserer eksistensiell terapi på?',
-      options: ["Eksistensielle grunnvilkår som frihet, ansvar, mening og dødelighet", "Bare ubevisste drifter", "Utelukkende ubevisste drifter og fortrengte konflikter fra den tidlige barndommen", "Belønning og straff som former atferd gjennom klassisk og operant betinging over tid"],
+      options: ["Eksistensielle grunnvilkår som frihet, ansvar, mening og dødelighet", "Bare klientens tankefeller og hvordan de kan testes ut i hverdagen mellom timene", "Utelukkende ubevisste drifter og fortrengte konflikter fra den tidlige barndommen", "Belønning og straff som former atferd gjennom klassisk og operant betinging over tid"],
       explanation: 'Eksistensiell terapi (May, Frankl, Yalom) fokuserer på eksistensielle grunnvilkår: frihet, ansvar, ensomhet, mening og dødelighet.',
     },
   ],
   'psykologi-2-5-3': [
     {
       question: 'Hva baserer biologisk behandling seg på?',
-      options: ["At psykiske vansker har biologiske komponenter som kan påvirkes medisinsk", "At psykiske vansker kun er sosiale", "At hjernen er fast og ikke kan påvirkes, verken av medisiner, læring eller erfaringer", "At psykiske vansker kun er sosialt betinget og ikke har noe biologisk grunnlag i hjernen"],
+      options: ["At psykiske vansker har biologiske komponenter som kan påvirkes medisinsk", "At psykiske vansker skyldes ubevisste konflikter fra barndommen og bare kan løses i samtale", "At hjernen er fast og ikke kan påvirkes, verken av medisiner, læring eller erfaringer", "At psykiske vansker kun er sosialt betinget og ikke har noe biologisk grunnlag i hjernen"],
       explanation: 'Biologisk behandling baserer seg på at psykiske vansker har biologiske komponenter (nevrokjemiske ubalanser, gener) som kan påvirkes medisinsk.',
     },
     {
       question: 'Hvilken type medisin er SSRI?',
-      options: ["Antidepressiva (selektive serotonin-reopptakshemmere)", "Smertestillende", "Smertestillende medisin som demper både fysisk og psykisk ubehag over kort tid", "Sovemedisin som brukes kortvarig for å hjelpe personer med alvorlige søvnvansker"],
+      options: ["Antidepressiva (selektive serotonin-reopptakshemmere)", "Antipsykotisk medisin som demper psykotiske symptomer ved schizofreni", "Smertestillende medisin som demper både fysisk og psykisk ubehag over kort tid", "Sovemedisin som brukes kortvarig for å hjelpe personer med alvorlige søvnvansker"],
       explanation: 'SSRI er den mest brukte typen antidepressiva i Norge og virker ved å øke mengden serotonin tilgjengelig i synapsene.',
     },
     {
       question: 'Hva brukes antipsykotika primært mot?',
-      options: ["Psykotiske lidelser som schizofreni", "Vanlig tristhet", "Vanlig, forbigående tristhet som de fleste opplever etter tunge livshendelser", "Mild angst"],
+      options: ["Psykotiske lidelser som schizofreni", "Vanlig tristhet", "Vansker med søvn og innsovning", "Mild angst og uro"],
       explanation: 'Antipsykotika brukes primært mot psykotiske lidelser som schizofreni, og virker ved å blokkere dopamin-reseptorer i hjernen.',
     },
     {
       question: 'Hva er litium mest brukt mot?',
-      options: ["Forebygging av episoder ved bipolar lidelse", "Søvnvansker alene", "Hodepine og migrene der medisinen skal lindre smerten i selve anfallsøyeblikket", "Akutt angst"],
+      options: ["Forebygging av episoder ved bipolar lidelse", "Søvnvansker uten annen lidelse", "Hodepine og migrene der medisinen skal lindre smerten i selve anfallsøyeblikket", "Akutt angst ved panikkanfall"],
       explanation: 'Litium er den eldste og mest brukte stemningsstabilisatoren og brukes primært for å forebygge maniske og depressive episoder ved bipolar lidelse.',
     },
     {
       question: 'Hva viser forskning om kombinasjon av medisiner og terapi?',
-      options: ["Kombinasjon gir ofte best resultat ved moderat til alvorlig depresjon og angst", "Medisiner alene er alltid best", "Medisiner alene er alltid best, fordi psykoterapi gir svært begrenset varig effekt", "Terapi er alltid unødvendig når pasienten allerede står på virksom medikamentell behandling"],
+      options: ["Kombinasjon gir ofte best resultat ved moderat til alvorlig depresjon og angst", "Terapi alene gir alltid bedre resultat enn kombinasjonsbehandling ved alvorlig depresjon", "Medisiner alene er alltid best, fordi psykoterapi gir svært begrenset varig effekt", "Terapi er alltid unødvendig når pasienten allerede står på virksom medikamentell behandling"],
       explanation: 'Forskning viser at kombinasjon av medikamentell behandling og psykoterapi ofte gir best resultat, særlig ved moderat til alvorlig depresjon og angst.',
     },
   ],
   'psykologi-2-5-4': [
     {
       question: 'Hva er en terapeutisk faktor ved gruppeterapi ifølge Yalom?',
-      options: ["Universalitet – å oppdage at man ikke er alene om problemene", "At det ikke trengs terapeut", "At man i gruppen slipper å snakke selv og bare kan lytte til hva de andre deler", "At det ikke lenger trengs en terapeut når gruppedeltakerne kan hjelpe hverandre direkte"],
+      options: ["Universalitet – å oppdage at man ikke er alene om problemene", "At gruppen rangerer deltakerne etter hvor raskt hver enkelt blir bedre", "At man i gruppen slipper å snakke selv og bare kan lytte til hva de andre deler", "At det ikke lenger trengs en terapeut når gruppedeltakerne kan hjelpe hverandre direkte"],
       explanation: 'Yalom beskrev terapeutiske faktorer i grupper, blant annet universalitet – erkjennelsen av at man ikke er alene med sine problemer.',
     },
     {
       question: 'Hva er grunntanken i familieterapi?',
-      options: ["At psykiske vansker forstås i sammenheng med familiens samspill og relasjoner", "At bare individet kan studeres", "At man i hovedsak gir medisiner til den syke og lar familiens samspill være uendret", "At familien er helt irrelevant for psykiske vansker, som utelukkende skyldes indre forhold"],
+      options: ["At psykiske vansker forstås i sammenheng med familiens samspill og relasjoner", "At terapeuten skal avdekke hvem i familien som bærer skylden, og få vedkommende til å endre seg", "At man i hovedsak gir medisiner til den syke og lar familiens samspill være uendret", "At familien er helt irrelevant for psykiske vansker, som utelukkende skyldes indre forhold"],
       explanation: 'Familieterapi bygger på systemisk tenkning: psykiske vansker forstås ikke isolert, men i sammenheng med familiens samspillsmønstre og relasjoner.',
     },
     {
       question: 'Hva er en "identifisert pasient" i familieterapi?',
-      options: ["Den personen i familien som \"bærer\" symptomet, selv om hele systemet sliter", "En person uten problemer", "En person helt uten problemer, som terapeuten bruker som forbilde for resten av familien", "Terapeuten selv, som gjennom egne reaksjoner speiler og bærer familiens skjulte konflikter"],
+      options: ["Den personen i familien som \"bærer\" symptomet, selv om hele systemet sliter", "Den i familien som først tok kontakt med hjelpeapparatet og avtalte timene for de andre", "En person helt uten problemer, som terapeuten bruker som forbilde for resten av familien", "Terapeuten selv, som gjennom egne reaksjoner speiler og bærer familiens skjulte konflikter"],
       explanation: 'I systemisk forståelse er den "identifiserte pasienten" den som bærer det synlige symptomet, men familieterapi ser på hele familiesystemet som påvirket.',
     },
     {
       question: 'Hva kjennetegner miljøterapi?',
-      options: ["At det fysiske og sosiale miljøet brukes som terapeutisk verktøy", "At behandling kun skjer i terapitimer", "At man utelukkende benytter medikamentell behandling for å dempe symptomer i det daglige", "At pasienten holdes isolert fra andre for å skjermes mot ytre påvirkning under behandlingen"],
+      options: ["At det fysiske og sosiale miljøet brukes som terapeutisk verktøy", "At behandlingen bare skjer i avtalte terapitimer, atskilt fra pasientens hverdag", "At man utelukkende benytter medikamentell behandling for å dempe symptomer i det daglige", "At pasienten holdes isolert fra andre for å skjermes mot ytre påvirkning under behandlingen"],
       explanation: 'Miljøterapi bruker det fysiske og sosiale miljøet – rutiner, aktiviteter og samhandling i hverdagen – som et terapeutisk verktøy.',
     },
     {
       question: 'Hva er likemannsarbeid?',
-      options: ["At personer med egenerfaring bruker denne til å hjelpe andre i lignende situasjoner", "At leger behandler hverandre", "En medisinsk behandlingsform der man kombinerer flere legemidler for å oppnå bedre virkning", "En systematisk forskningsmetode der man sammenligner erfaringer mellom grupper av pasienter"],
+      options: ["At personer med egenerfaring bruker denne til å hjelpe andre i lignende situasjoner", "At leger og annet helsepersonell behandler hverandre kollegialt når de selv trenger behandling", "En medisinsk behandlingsform der man kombinerer flere legemidler for å oppnå bedre virkning", "En systematisk forskningsmetode der man sammenligner erfaringer mellom grupper av pasienter"],
       explanation: 'Likemannsarbeid innebærer at personer med egenerfaring bruker sin erfaring til å støtte og hjelpe andre i lignende situasjoner.',
     },
   ],
@@ -657,22 +657,22 @@ const quizData_psykologi_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er den biopsykososiale modellen?',
-      options: ["At psykiske vansker oppstår i samspill mellom biologiske, psykologiske og sosiale faktorer", "At psyken ikke påvirkes av kroppen", "At psykiske vansker utelukkende skyldes biologiske faktorer som gener, hjernekjemi og arvelig sårbarhet", "At psykiske vansker i hovedsak forklares av sosiale forhold som oppvekst, fattigdom og relasjoner alene"],
+      options: ["At psykiske vansker oppstår i samspill mellom biologiske, psykologiske og sosiale faktorer", "At psyken er helt uavhengig av kroppen, slik at kroppslige forhold aldri påvirker den psykiske helsen", "At psykiske vansker utelukkende skyldes biologiske faktorer som gener, hjernekjemi og arvelig sårbarhet", "At psykiske vansker i hovedsak forklares av sosiale forhold som oppvekst, fattigdom og relasjoner alene"],
       explanation: 'Den biopsykososiale modellen ser psykiske vansker som et resultat av samspill mellom biologiske, psykologiske og sosiale faktorer.',
     },
     {
       question: 'Hva handler recovery-tilnærmingen om?',
-      options: ["Å leve et meningsfullt liv til tross for eventuelle psykiske vansker", "Å alltid bli helt symptomfri", "Å bli innlagt på institusjon over lengre tid for å motta intensiv og kontinuerlig behandling", "Å oppnå full symptomfrihet og bli fullstendig frisk i medisinsk forstand før man kan leve normalt"],
+      options: ["Å leve et meningsfullt liv til tross for eventuelle psykiske vansker", "Å følge et fast behandlingsprogram som fagfolk styrer helt på pasientens vegne", "Å bli innlagt på institusjon over lengre tid for å motta intensiv og kontinuerlig behandling", "Å oppnå full symptomfrihet og bli fullstendig frisk i medisinsk forstand før man kan leve normalt"],
       explanation: 'Recovery handler ikke nødvendigvis om å bli "frisk" i medisinsk forstand, men om å leve et meningsfullt og tilfredsstillende liv til tross for vansker.',
     },
     {
       question: 'Hva innebærer trappetrinnsmodellen?',
-      options: ["Behandlingsintensiteten tilpasses alvorlighetsgraden, og man starter på laveste effektive nivå", "Alle får samme intensive behandling", "At alle pasienter tilbys den samme intensive og omfattende behandlingen uavhengig av alvorlighetsgrad", "At pasienten selv må håndtere vansken uten profesjonell hjelp inntil tilstanden eventuelt blir kritisk"],
+      options: ["Behandlingsintensiteten tilpasses alvorlighetsgraden, og man starter på laveste effektive nivå", "At pasienten alltid starter med den mest omfattende behandlingen og trapper ned etter hvert som det bedrer seg", "At alle pasienter tilbys den samme intensive og omfattende behandlingen uavhengig av alvorlighetsgrad", "At pasienten selv må håndtere vansken uten profesjonell hjelp inntil tilstanden eventuelt blir kritisk"],
       explanation: 'Trappetrinnsmodellen tilpasser behandlingsintensiteten til alvorlighetsgraden: pasienten starter på laveste effektive nivå og "trapper opp" ved behov.',
     },
     {
       question: 'Hvilke tre kilder bygger evidensbasert praksis (EBP) på?',
-      options: ["Beste forskning, klinisk erfaring og pasientens preferanser", "Bare forskning", "Etablert klinisk tradisjon, tidligere praksis og vaner ved den enkelte behandlingsinstitusjonen", "Økonomiske hensyn, tilgjengelige ressurser og kostnadseffektivitet som avgjørende styrende faktorer"],
+      options: ["Beste forskning, klinisk erfaring og pasientens preferanser", "Bare beste tilgjengelige forskning, uten erfaring og pasientens ønsker", "Etablert klinisk tradisjon, tidligere praksis og vaner ved den enkelte behandlingsinstitusjonen", "Økonomiske hensyn, tilgjengelige ressurser og kostnadseffektivitet som avgjørende styrende faktorer"],
       explanation: 'Evidensbasert praksis bygger på tre kilder: beste tilgjengelige forskning, klinisk erfaring/skjønn og pasientens verdier og preferanser.',
     },
   ],
@@ -684,76 +684,76 @@ const quizData_psykologi_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva kjennetegner den tradisjonelle biomedisinske modellen?',
-      options: ["Den fokuserer primært på biologiske årsaker og ser kroppen som en maskin", "Den er den samme som biopsykososial modell", "Den er identisk med den biopsykososiale modellen og forener biologi, psyke og miljø i én helhet", "Den ser bort fra biologiske årsaker og forklarer sykdom ut fra psykologiske og kulturelle forhold"],
+      options: ["Den fokuserer primært på biologiske årsaker og ser kroppen som en maskin", "Den legger hovedvekten på pasientens egen opplevelse av sykdom fremfor objektive funn", "Den er identisk med den biopsykososiale modellen og forener biologi, psyke og miljø i én helhet", "Den ser bort fra biologiske årsaker og forklarer sykdom ut fra psykologiske og kulturelle forhold"],
       explanation: 'Den biomedisinske modellen fokuserer primært på biologiske årsaker til sykdom og ser kroppen som en maskin med defekter som virus eller genfeil.',
     },
     {
       question: 'Hva er reduksjonisme i denne sammenhengen?',
-      options: ["Å forklare komplekse fenomener ved å redusere dem til enklere komponenter", "Å vektlegge sosiale faktorer", "Å se hele systemet under ett og forklare fenomener ut fra sammenhengen mellom alle delene samtidig", "Å vektlegge sosiale og kulturelle faktorer fremfor biologiske når man forklarer komplekse fenomener"],
+      options: ["Å forklare komplekse fenomener ved å redusere dem til enklere komponenter", "Å avvise alle forklaringer som ikke lar seg måle med naturvitenskapelige metoder og tall", "Å se hele systemet under ett og forklare fenomener ut fra sammenhengen mellom alle delene samtidig", "Å vektlegge sosiale og kulturelle faktorer fremfor biologiske når man forklarer komplekse fenomener"],
       explanation: 'Reduksjonisme er en tilnærming som forklarer komplekse fenomener ved å redusere dem til enklere komponenter, ofte kritisert for å overse helheten.',
     },
     {
       question: 'Hva betyr holisme?',
-      options: ["Å vektlegge helheten og sammenhengen mellom deler fremfor isolerte enkeltdeler", "Å studere bare én del", "Å studere kun én isolert del av et system om gangen for å forstå den grundig og i detalj", "Å se bort fra kroppens biologiske prosesser og forklare fenomener ut fra psykiske forhold alene"],
+      options: ["Å vektlegge helheten og sammenhengen mellom deler fremfor isolerte enkeltdeler", "Å behandle kropp og sinn som to helt atskilte systemer som må studeres uavhengig av hverandre", "Å studere kun én isolert del av et system om gangen for å forstå den grundig og i detalj", "Å se bort fra kroppens biologiske prosesser og forklare fenomener ut fra psykiske forhold alene"],
       explanation: 'Holisme er et syn som vektlegger helheten og sammenhengen mellom deler – at helheten er mer enn summen av enkeltdelene.',
     },
     {
       question: 'Hvorfor er tverrfaglig samarbeid sentralt i den biopsykososiale modellen?',
-      options: ["Fordi helhetlig behandling krever ulike profesjoner som leger, psykologer og sosionomer", "Fordi modellen er rent biologisk", "Fordi modellen er rent biologisk og derfor primært krever medisinsk og fysiologisk fagkunnskap", "Fordi behandlingen best ivaretas av leger alene, som har den bredeste medisinske fagkompetansen"],
+      options: ["Fordi helhetlig behandling krever ulike profesjoner som leger, psykologer og sosionomer", "Fordi samarbeid mellom flere yrkesgrupper gjør behandlingen billigere og korter ned ventetiden i køen", "Fordi modellen er rent biologisk og derfor primært krever medisinsk og fysiologisk fagkunnskap", "Fordi behandlingen best ivaretas av leger alene, som har den bredeste medisinske fagkompetansen"],
       explanation: 'Den biopsykososiale modellen krever tverrfaglig samarbeid mellom ulike profesjoner (leger, psykologer, sosionomer) for å gi helhetlig behandling.',
     },
   ],
   'psykologi-2-6-2': [
     {
       question: 'Hva er kjernen i Lazarus\' transaksjonsmodell for stress?',
-      options: ["Stress er resultat av samspillet mellom person og miljø, formidlet av kognitiv vurdering", "Stress er det samme for alle", "Stress er en medfødt egenskap som man verken kan påvirke eller mestre gjennom tanker og handling", "Stress oppleves helt likt for alle mennesker fordi det følger et fastlagt fysiologisk reaksjonsmønster"],
+      options: ["Stress er resultat av samspillet mellom person og miljø, formidlet av kognitiv vurdering", "Stress skyldes bare ytre hendelser, og belastningen kan måles direkte i antall krav personen møter", "Stress er en medfødt egenskap som man verken kan påvirke eller mestre gjennom tanker og handling", "Stress oppleves helt likt for alle mennesker fordi det følger et fastlagt fysiologisk reaksjonsmønster"],
       explanation: 'Lazarus\' transaksjonsmodell ser stress som resultat av samspillet mellom person og miljø, der kognitiv vurdering avgjør om noe oppleves som stressende.',
     },
     {
       question: 'Hva skjer i primærvurderingen ifølge Lazarus?',
-      options: ["Man vurderer om situasjonen er truende, utfordrende eller irrelevant", "Man vurderer egne ressurser", "Man setter i gang konkret handling for å endre situasjonen eller regulere følelsene sine umiddelbart", "Man søker hvile og tilbaketrekking for å gjenopprette kroppens energi etter en belastende opplevelse"],
+      options: ["Man vurderer om situasjonen er truende, utfordrende eller irrelevant", "Man vurderer egne ressurser og mulige mestringsstrategier, ikke selve situasjonen", "Man setter i gang konkret handling for å endre situasjonen eller regulere følelsene sine umiddelbart", "Man søker hvile og tilbaketrekking for å gjenopprette kroppens energi etter en belastende opplevelse"],
       explanation: 'I primærvurderingen vurderer man situasjonen: Er den irrelevant, positiv/utfordrende, eller truende/skadelig?',
     },
     {
       question: 'Hva er forskjellen mellom problemfokusert og emosjonsfokusert mestring?',
-      options: ["Problemfokusert endrer situasjonen, emosjonsfokusert regulerer følelsene", "Emosjonsfokusert endrer situasjonen", "Emosjonsfokusert mestring endrer selve situasjonen, mens problemfokusert kun regulerer følelsene", "De er i praksis identiske og retter seg begge mot å endre selve situasjonen gjennom aktiv handling"],
+      options: ["Problemfokusert endrer situasjonen, emosjonsfokusert regulerer følelsene", "Problemfokusert mestring er bevisst, mens emosjonsfokusert mestring foregår ubevisst", "Emosjonsfokusert mestring endrer selve situasjonen, mens problemfokusert kun regulerer følelsene", "De er i praksis identiske og retter seg begge mot å endre selve situasjonen gjennom aktiv handling"],
       explanation: 'Problemfokusert mestring retter seg mot å endre selve situasjonen gjennom handling, mens emosjonsfokusert mestring retter seg mot å regulere følelsene.',
     },
     {
       question: 'Hva er salutogenese (Antonovsky)?',
-      options: ["En tilnærming som fokuserer på hva som skaper og opprettholder helse", "Studiet av hva som forårsaker sykdom", "En diagnostisk kategori som beskriver god helse og robusthet hos personer uten psykiske vansker", "En tilnærming som studerer hva som forårsaker sykdom og hvilke risikofaktorer som utløser lidelse"],
+      options: ["En tilnærming som fokuserer på hva som skaper og opprettholder helse", "En metode for å måle hvor stor stressbelastning en person tåler før helsen svikter", "En diagnostisk kategori som beskriver god helse og robusthet hos personer uten psykiske vansker", "En tilnærming som studerer hva som forårsaker sykdom og hvilke risikofaktorer som utløser lidelse"],
       explanation: 'Salutogenese er Antonovskys tilnærming som fokuserer på hva som skaper og opprettholder helse, snarere enn hva som forårsaker sykdom (patogenese).',
     },
     {
       question: 'Hvilke tre komponenter inngår i "opplevelse av sammenheng" (OAS)?',
-      options: ["Begripelighet, håndterbarhet og meningsfullhet", "Autonomi, kompetanse og tilhørighet", "Alarm, motstand og utmattelse som de tre fasene i kroppens generelle stressreaksjon over tid", "Alarm, motstand og utmattelse"],
+      options: ["Begripelighet, håndterbarhet og meningsfullhet", "Autonomi, kompetanse og tilhørighet", "Forpliktelse, kontroll og utfordring", "Alarm, motstand og utmattelse"],
       explanation: 'Opplevelse av sammenheng (OAS) består av begripelighet, håndterbarhet og meningsfullhet, og fremmer helse og motstandskraft mot stress.',
     },
   ],
   'psykologi-2-6-3': [
     {
       question: 'Hva studerer positiv psykologi?',
-      options: ["Hva som gjør livet verdt å leve, som velvære og karakterstyrker", "En metode for å være alltid glad", "En praktisk metode som lærer folk å opprettholde en konstant positiv og lykkelig sinnsstemning", "Kun hjernekjemi og nevrobiologiske prosesser som ligger til grunn for våre følelser og opplevelser"],
+      options: ["Hva som gjør livet verdt å leve, som velvære og karakterstyrker", "Studiet av hvordan psykiske lidelser kan diagnostiseres og klassifiseres presist", "En praktisk metode som lærer folk å opprettholde en konstant positiv og lykkelig sinnsstemning", "Kun hjernekjemi og nevrobiologiske prosesser som ligger til grunn for våre følelser og opplevelser"],
       explanation: 'Positiv psykologi er den vitenskapelige studien av hva som gjør livet verdt å leve, inkludert positive emosjoner, karakterstyrker og velvære.',
     },
     {
       question: 'Hva står PERMA for i Seligmans modell?',
-      options: ["Positive emotions, Engagement, Relationships, Meaning, Accomplishment", "Persepsjon, Empati, Refleksjon, Mening, Ansvar", "Persepsjon, Empati, Refleksjon, Mening og Ansvar som elementer i modenhet og personlig vekst", "Plan, Evaluering, Resultat, Mål og Analyse som trinn i en systematisk prosess for måloppnåelse"],
+      options: ["Positive emotions, Engagement, Relationships, Meaning, Accomplishment", "Persepsjon, Empati, Refleksjon, Mening, Ansvar", "Positive emotions, Energy, Resilience, Motivation, Achievement", "Plan, Evaluering, Resultat, Mål og Analyse som trinn i en systematisk prosess for måloppnåelse"],
       explanation: 'PERMA-modellen består av Positive emotions, Engagement, Relationships, Meaning og Accomplishment – fem elementer i et blomstrende liv.',
     },
     {
       question: 'Hva er flow (Csikszentmihalyi)?',
-      options: ["Optimal opplevelse av fullstendig absorpsjon når utfordring og ferdighet matcher", "Total kjedsomhet", "En dyp søvnfase preget av fullstendig avspenning der bevisstheten kobler helt av fra omgivelsene", "En tilstand av total kjedsomhet som oppstår når oppgaven er altfor lett i forhold til ferdighetene"],
+      options: ["Optimal opplevelse av fullstendig absorpsjon når utfordring og ferdighet matcher", "En tilstand av uro og angst som oppstår når utfordringen er langt større enn egne ferdigheter", "En dyp søvnfase preget av fullstendig avspenning der bevisstheten kobler helt av fra omgivelsene", "En tilstand av total kjedsomhet som oppstår når oppgaven er altfor lett i forhold til ferdighetene"],
       explanation: 'Flow er en optimal opplevelse av fullstendig absorpsjon i en aktivitet, som oppstår når utfordring og ferdigheter matcher på et høyt nivå.',
     },
     {
       question: 'Hva er broaden-and-build-teorien (Fredrickson)?',
-      options: ["At positive emosjoner utvider tankerepertoaret og bygger varige ressurser", "At negative emosjoner bygger ressurser", "At det er de negative emosjonene som over tid utvider tankerepertoaret og bygger varige ressurser", "En konkret terapiform som bruker positive emosjoner for å behandle angst og depressive tilstander"],
+      options: ["At positive emosjoner utvider tankerepertoaret og bygger varige ressurser", "At positive emosjoner snevrer inn oppmerksomheten slik at man handler raskere i fare", "At det er de negative emosjonene som over tid utvider tankerepertoaret og bygger varige ressurser", "En konkret terapiform som bruker positive emosjoner for å behandle angst og depressive tilstander"],
       explanation: 'Broaden-and-build-teorien sier at positive emosjoner utvider (broaden) vårt tankerepertoar og bygger (build) varige personlige ressurser over tid.',
     },
     {
       question: 'Hva er en signaturstyrke?',
-      options: ["De karakterstyrkene som er mest sentrale for en persons identitet", "En type belønning", "En personlig svakhet eller sårbarhet som hindrer mennesket i å fungere godt i hverdagen", "En form for ytre belønning som forsterker og opprettholder ønsket atferd over lengre tid"],
+      options: ["De karakterstyrkene som er mest sentrale for en persons identitet", "En ferdighet som må trenes opp fra bunnen fordi den ikke finnes hos personen", "En personlig svakhet eller sårbarhet som hindrer mennesket i å fungere godt i hverdagen", "En form for ytre belønning som forsterker og opprettholder ønsket atferd over lengre tid"],
       explanation: 'Signaturstyrker er de 3-7 karakterstyrkene som er mest sentrale for en persons identitet, og som oppleves som autentiske og energigivende å bruke.',
     },
   ],
@@ -765,7 +765,7 @@ const quizData_psykologi_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er cirkadisk rytme?',
-      options: ["Den indre biologiske klokken med ca. 24-timers syklus", "En del av hjernebarken", "En bestemt type drøm som opptrer i den dypeste søvnfasen mot slutten av natten", "Et søvnfremmende hormon som skilles ut i mørke og styrer når vi blir trette om kvelden"],
+      options: ["Den indre biologiske klokken med ca. 24-timers syklus", "Et avgrenset område i hjernebarken som bearbeider sanseinntrykk", "En bestemt type drøm som opptrer i den dypeste søvnfasen mot slutten av natten", "Et søvnfremmende hormon som skilles ut i mørke og styrer når vi blir trette om kvelden"],
       explanation: 'Cirkadisk rytme er den indre biologiske klokken med en ca. 24-timers syklus som styrer søvn-våkenhets-mønsteret.',
     },
     {
@@ -775,88 +775,88 @@ const quizData_psykologi_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er tarm-hjerne-aksen?',
-      options: ["Toveis kommunikasjon mellom tarmen og hjernen som påvirker psykisk helse", "En del av ryggmargen", "En terapiform som gjennom kosthold og tarmflora forsøker å behandle psykiske lidelser", "Et bestemt søvnstadium der fordøyelsessystemet hviler mens hjernen bearbeider inntrykk"],
+      options: ["Toveis kommunikasjon mellom tarmen og hjernen som påvirker psykisk helse", "En avgrenset del av ryggmargen som styrer musklene i fordøyelseskanalen automatisk", "En terapiform som gjennom kosthold og tarmflora forsøker å behandle psykiske lidelser", "Et bestemt søvnstadium der fordøyelsessystemet hviler mens hjernen bearbeider inntrykk"],
       explanation: 'Tarm-hjerne-aksen er en toveis kommunikasjon mellom tarmen og hjernen (via vagusnerven, immunsystemet og mikrobiom) som påvirker nevrotransmitterproduksjon og psykisk helse.',
     },
     {
       question: 'Hva er sosial jetlag, særlig hos ungdom?',
-      options: ["Misforhold mellom biologisk døgnrytme og sosiale krav som tidlige skoletider", "Jetlag etter flyreiser", "En bestemt type mareritt eller drøm som særlig rammer ungdom i perioder med mye sosialt press", "En kronisk søvnsykdom som gjør at ungdom sovner ukontrollert på upassende tidspunkt gjennom dagen"],
+      options: ["Misforhold mellom biologisk døgnrytme og sosiale krav som tidlige skoletider", "Døgnrytmeforstyrrelse som oppstår etter flyreiser over flere tidssoner og går over av seg selv", "En bestemt type mareritt eller drøm som særlig rammer ungdom i perioder med mye sosialt press", "En kronisk søvnsykdom som gjør at ungdom sovner ukontrollert på upassende tidspunkt gjennom dagen"],
       explanation: 'Sosial jetlag er misforholdet mellom kroppens biologiske døgnrytme og sosiale krav (som tidlige skoletider), særlig vanlig hos ungdom hvis døgnrytme er forskjøvet.',
     },
   ],
   'psykologi-2-6-5': [
     {
       question: 'Hva er helsefremming?',
-      options: ["Prosessen som gjør folk i stand til å øke kontrollen over og forbedre sin helse", "Bare behandling av syke", "Kun behandling og lindring av allerede syke mennesker for å gjenopprette normal funksjon", "En diagnostisk vurdering av en persons samlede fysiske og psykiske helsetilstand over tid"],
+      options: ["Prosessen som gjør folk i stand til å øke kontrollen over og forbedre sin helse", "Forbud og påbud fra myndighetene som skal hindre at den enkelte tar usunne valg i hverdagen", "Kun behandling og lindring av allerede syke mennesker for å gjenopprette normal funksjon", "En diagnostisk vurdering av en persons samlede fysiske og psykiske helsetilstand over tid"],
       explanation: 'Helsefremming er prosessen som gjør folk i stand til å øke kontrollen over og forbedre sin helse, med vekt på å styrke positive helsefaktorer.',
     },
     {
       question: 'Hva er empowerment i helsefremmende arbeid?',
-      options: ["At mennesker får økt makt, kontroll og innflytelse over egne liv og helse", "At eksperter bestemmer alt", "En medisinsk behandlingsform som styrker mestringsevnen ved å regulere kroppens egne prosesser", "At fagfolk og eksperter tar avgjørelsene og styrer behandlingen på vegne av den enkelte pasienten"],
+      options: ["At mennesker får økt makt, kontroll og innflytelse over egne liv og helse", "At den enkelte får hele ansvaret for helsen sin, uten støtte fra fellesskap eller tjenester", "En medisinsk behandlingsform som styrker mestringsevnen ved å regulere kroppens egne prosesser", "At fagfolk og eksperter tar avgjørelsene og styrer behandlingen på vegne av den enkelte pasienten"],
       explanation: 'Empowerment er prosessen der mennesker og fellesskap får økt makt, kontroll og innflytelse over egne liv og helsevilkår.',
     },
     {
       question: 'Hva er proporsjonal universalisme?',
-      options: ["Universelle tiltak for alle, med ekstra intensitet for dem med størst behov", "Tiltak kun for de fattigste", "Tiltak rettet utelukkende mot de mest ressurssterke gruppene for å løfte samfunnet som helhet", "Fravær av offentlige tiltak, der ansvaret for helse overlates helt til den enkelte og familien"],
+      options: ["Universelle tiltak for alle, med ekstra intensitet for dem med størst behov", "Tiltak som utelukkende rettes mot de fattigste, mens resten av befolkningen holdes utenfor", "Tiltak rettet utelukkende mot de mest ressurssterke gruppene for å løfte samfunnet som helhet", "Fravær av offentlige tiltak, der ansvaret for helse overlates helt til den enkelte og familien"],
       explanation: 'Proporsjonal universalisme kombinerer universelle tiltak for alle med ekstra intensitet for dem med størst behov, for å redusere sosiale helseforskjeller.',
     },
     {
       question: 'Hva er "folkehelse og livsmestring" i LK20?',
-      options: ["Et tverrfaglig tema som gir elever kompetanse til å håndtere følelser og ta gode valg", "En behandlingsform", "En terapeutisk behandlingsform der skolehelsetjenesten gir elever oppfølging for psykiske vansker", "En medisinsk diagnose som stilles når en elev sliter med å håndtere følelser og relasjoner over tid"],
+      options: ["Et tverrfaglig tema som gir elever kompetanse til å håndtere følelser og ta gode valg", "Et eget skolefag med egen karakter som alle elever har på timeplanen i hele videregående opplæring", "En terapeutisk behandlingsform der skolehelsetjenesten gir elever oppfølging for psykiske vansker", "En medisinsk diagnose som stilles når en elev sliter med å håndtere følelser og relasjoner over tid"],
       explanation: '"Folkehelse og livsmestring" er et tverrfaglig tema i læreplanen LK20 som gir elever kompetanse til å forstå og håndtere følelser, ta gode valg og bygge relasjoner.',
     },
     {
       question: 'Hva er det økologiske perspektivet (Bronfenbrenner) i helsefremmende arbeid?',
-      options: ["Å forstå individet i kontekst av ulike systemnivåer fra familie til samfunn", "Å se bare på individet", "En type medisinsk behandling der miljøet rundt pasienten tilpasses for å fremme god helse", "Å forklare atferd kun ved samfunnets normer, uten å vektlegge familie eller nære relasjoner"],
+      options: ["Å forstå individet i kontekst av ulike systemnivåer fra familie til samfunn", "Å forklare psykisk helse ut fra individets egne egenskaper alene, uten å se på omgivelsene", "En type medisinsk behandling der miljøet rundt pasienten tilpasses for å fremme god helse", "Å forklare atferd kun ved samfunnets normer, uten å vektlegge familie eller nære relasjoner"],
       explanation: 'Det økologiske perspektivet forstår individet i kontekst av ulike systemnivåer – familie, nærmiljø, organisasjoner og samfunn – inspirert av Bronfenbrenner.',
     },
   ],
   'psykologi-2-7-1': [
     {
       question: 'Hva kjennetegner kvantitative forskningsmetoder?',
-      options: ["De samler inn data i form av tall som analyseres statistisk", "De samler kun dyptgående beskrivelser", "De handler kun om åpne intervjuer og deltakende observasjon i naturlige omgivelser", "De bruker aldri statistikk, men bygger utelukkende på forskerens subjektive tolkninger"],
+      options: ["De samler inn data i form av tall som analyseres statistisk", "De samler kun dyptgående beskrivelser", "De handler bare om åpne intervjuer og fri observasjon", "De bruker aldri statistikk, men bygger utelukkende på forskerens subjektive tolkninger"],
       explanation: 'Kvantitative metoder samler inn data i form av tall og mengder som analyseres med statistiske teknikker.',
     },
     {
       question: 'Hvilken metode kan best påvise årsakssammenheng?',
-      options: ["Eksperiment med kontrollgruppe", "En åpen observasjon", "En casestudie som gir grundig innsikt i ett enkelt tilfelle over en lengre tidsperiode", "Et enkelt intervju"],
+      options: ["Eksperiment med kontrollgruppe", "En åpen observasjon", "En grundig enkeltcasestudie", "Et enkelt intervju"],
       explanation: 'Eksperimentet, med manipulasjon av uavhengig variabel og kontroll av andre faktorer, er den metoden som best kan påvise årsakssammenheng.',
     },
     {
       question: 'Hva er et representativt utvalg?',
-      options: ["Et utvalg som speiler populasjonen man vil generalisere til", "Et tilfeldig lite utvalg uansett", "Et tilfeldig og svært lite utvalg som uansett gir gyldige resultater for hele populasjonen", "Bare venner av forskeren"],
+      options: ["Et utvalg som speiler populasjonen man vil generalisere til", "Et tilfeldig lite utvalg uansett", "Et utvalg som er stort nok til å gi presise resultater", "Bare forskerens nærmeste venner"],
       explanation: 'Et representativt utvalg speiler populasjonen man vil generalisere til, slik at funnene kan overføres til en større gruppe.',
     },
     {
       question: 'Hva er en avhengig variabel?',
-      options: ["Variabelen som måles (antatt virkning)", "Variabelen som manipuleres", "En kontrollvariabel som holdes konstant for å utelukke påvirkning fra andre faktorer", "En tilfeldig variabel"],
+      options: ["Variabelen som måles (antatt virkning)", "Variabelen som manipuleres", "En variabel som holdes konstant", "En tilfeldig variabel"],
       explanation: 'Den avhengige variabelen er det som måles i et eksperiment – den antatte virkningen av den uavhengige variabelen.',
     },
     {
       question: 'Hva illustrerer Zimbardos fengselseksperiment som forskningsmetode?',
-      options: ["Hvordan en eksperimentell oppsett kan studere effekten av sosiale roller", "At forskning aldri kan studere atferd", "At statistiske analyser er helt unødvendige når man studerer sosiale fenomener", "At alle eksperimenter med mennesker per definisjon bryter forskningsetiske krav"],
+      options: ["Hvordan en eksperimentell oppsett kan studere effekten av sosiale roller", "At forskning på mennesker aldri kan si noe sikkert om hvordan de faktisk oppfører seg", "At statistiske analyser er helt unødvendige når man studerer sosiale fenomener", "At alle eksperimenter med mennesker per definisjon bryter forskningsetiske krav"],
       explanation: 'Zimbardos eksperiment er et klassisk eksempel på et eksperimentelt design for å studere hvordan tildelte sosiale roller påvirker atferd.',
     },
   ],
   'psykologi-2-7-2': [
     {
       question: 'Hva kjennetegner kvalitative forskningsmetoder?',
-      options: ["De utforsker sosiale fenomener gjennom nærhet og dyptgående, ikke-numeriske data", "De bruker alltid eksperimenter", "De bruker alltid kontrollerte eksperimenter for å påvise klare årsakssammenhenger", "De samler utelukkende inn tall og mengder som analyseres med statistiske teknikker"],
+      options: ["De utforsker sosiale fenomener gjennom nærhet og dyptgående, ikke-numeriske data", "De krever at forskeren holder full avstand til informantene, uten personlig kontakt underveis", "De bruker alltid kontrollerte eksperimenter for å påvise klare årsakssammenhenger", "De samler utelukkende inn tall og mengder som analyseres med statistiske teknikker"],
       explanation: 'Kvalitative metoder utforsker og forstår sosiale fenomener gjennom nærhet til informantene og samler dyptgående, ikke-numeriske data.',
     },
     {
       question: 'Hva er deltakende observasjon?',
-      options: ["At forskeren deltar i situasjonene som studeres, samtidig som hun observerer", "Et laboratorieeksperiment", "En statistisk analyse av tallmateriale samlet inn på avstand fra deltakerne selv", "En spørreundersøkelse med standardiserte svaralternativer som analyseres statistisk"],
+      options: ["At forskeren deltar i situasjonene som studeres, samtidig som hun observerer", "Et laboratorieeksperiment der deltakerne studeres under strengt kontrollerte betingelser", "En statistisk analyse av tallmateriale samlet inn på avstand fra deltakerne selv", "En spørreundersøkelse med standardiserte svaralternativer som analyseres statistisk"],
       explanation: 'Deltakende observasjon er en kvalitativ metode der forskeren deltar aktivt i de sosiale situasjonene som studeres, samtidig som hun observerer og dokumenterer.',
     },
     {
       question: 'Hva er et dybdeintervju?',
-      options: ["Et åpent intervju som utforsker informantens egne opplevelser og perspektiver", "Et standardisert spørreskjema", "En statistisk test som måler styrken på sammenhengen mellom to numeriske variabler", "Et kontrollert eksperiment der informantens reaksjoner måles under styrte betingelser"],
+      options: ["Et åpent intervju som utforsker informantens egne opplevelser og perspektiver", "Et standardisert spørreskjema der alle informantene svarer på de samme faste alternativene", "En statistisk test som måler styrken på sammenhengen mellom to numeriske variabler", "Et kontrollert eksperiment der informantens reaksjoner måles under styrte betingelser"],
       explanation: 'Et dybdeintervju er en kvalitativ metode som gjennom åpne spørsmål utforsker informantens egne opplevelser, tanker og perspektiver i dybden.',
     },
     {
       question: 'Hva var Rosenhans studie (1973) et eksempel på?',
-      options: ["En deltakende observasjonsstudie av psykiatriske institusjoner", "En statistisk spørreundersøkelse", "En laboratoriestudie av dyr der man kartla effekten av innesperring på stressnivå og atferd", "Et kvantitativt eksperiment med kontrollgruppe der friske og syke ble sammenlignet statistisk"],
+      options: ["En deltakende observasjonsstudie av psykiatriske institusjoner", "En statistisk spørreundersøkelse blant ansatte i psykiatriske institusjoner", "En laboratoriestudie av dyr der man kartla effekten av innesperring på stressnivå og atferd", "Et kvantitativt eksperiment med kontrollgruppe der friske og syke ble sammenlignet statistisk"],
       explanation: 'Rosenhans studie "On Being Sane in Insane Places" var en deltakende observasjonsstudie der friske pseudopasienter ble innlagt for å studere psykiatriske institusjoner innenfra.',
     },
     {
@@ -868,61 +868,61 @@ const quizData_psykologi_2: Record<string, QuizQuestion[]> = {
   'psykologi-2-7-3': [
     {
       question: 'Hva er informert samtykke i forskningsetikk?',
-      options: ["At deltakerne får vite hva studien innebærer og frivillig samtykker", "At deltakerne betaler for å delta", "At forskeren alene bestemmer alt deltakerne skal gjøre uten å informere dem på forhånd", "At deltakerne betaler et gebyr for å få lov til å delta i den aktuelle forskningsstudien"],
+      options: ["At deltakerne får vite hva studien innebærer og frivillig samtykker", "At samtykket gis muntlig av en pårørende", "At forskeren bestemmer alt uten å informere deltakerne først", "At deltakerne betaler et gebyr for å få lov til å delta i den aktuelle forskningsstudien"],
       explanation: 'Informert samtykke innebærer at deltakerne får tilstrekkelig informasjon om studien og frivillig sier ja til å delta.',
     },
     {
       question: 'Hvorfor er Milgrams lydighetseksperiment etisk omdiskutert?',
-      options: ["Deltakerne ble utsatt for stor psykisk belastning og villedet", "Det var helt uten risiko", "Det var ingen faktiske deltakere med, slik at hele eksperimentet var rent teoretisk", "Det ble gjennomført helt uten psykisk belastning eller risiko for noen av deltakerne"],
+      options: ["Deltakerne ble utsatt for stor psykisk belastning og villedet", "Deltakerne fikk ikke betalt for å delta", "Det var ingen faktiske deltakere med i eksperimentet", "Det ble gjennomført helt uten psykisk belastning eller risiko for noen av deltakerne"],
       explanation: 'Milgrams eksperiment er etisk omdiskutert fordi deltakerne ble villedet og utsatt for betydelig psykisk belastning ved å tro de skadet en annen person.',
     },
     {
       question: 'Hva betyr konfidensialitet i forskning?',
-      options: ["At forskeren beskytter deltakernes identitet og ikke deler den med uvedkommende", "At deltakerne er anonyme for forskeren", "At forskningsresultatene aldri publiseres, men holdes tilbake av hensyn til deltakerne", "At hele studien holdes hemmelig for offentligheten inntil den er fullstendig avsluttet"],
+      options: ["At forskeren beskytter deltakernes identitet og ikke deler den med uvedkommende", "At deltakerne er helt anonyme også for forskeren", "At forskningsresultatene aldri publiseres, men holdes tilbake av hensyn til deltakerne", "At hele studien holdes hemmelig for offentligheten til den er avsluttet"],
       explanation: 'Konfidensialitet innebærer at forskeren har kjennskap til deltakernes identitet, men forplikter seg til ikke å dele denne informasjonen med uvedkommende.',
     },
     {
       question: 'Hva er retten til å trekke seg i forskningsetikk?',
-      options: ["At deltakere kan avslutte sin deltakelse når som helst uten begrunnelse", "At deltakere må fullføre uansett", "At forskeren kan endre resultatene i etterkant dersom deltakerne ikke er fornøyde", "At forskeren når som helst kan stoppe hele studien dersom resultatene blir uventede"],
+      options: ["At deltakere kan avslutte sin deltakelse når som helst uten begrunnelse", "At deltakere må fullføre hele studien uansett", "At forskeren kan endre resultatene dersom deltakerne klager", "At forskeren når som helst kan stoppe hele studien dersom resultatene blir uventede"],
       explanation: 'Retten til å trekke seg innebærer at deltakere kan avslutte sin deltakelse i en studie når som helst, uten å måtte begrunne det.',
     },
     {
       question: 'Hvorfor er debrief viktig etter et eksperiment med villedning?',
-      options: ["For å informere deltakerne om studiens hensikt og redusere eventuell belastning", "For å fortsette villedningen", "Det er ikke viktig, siden villedningen uansett ikke påvirker deltakerne på noen måte", "For å skjule de egentlige resultatene fra deltakerne slik at studien kan gjentas senere"],
+      options: ["For å informere deltakerne om studiens hensikt og redusere eventuell belastning", "For å holde studiens egentlige hensikt skjult", "Det er ikke viktig, siden villedningen ikke påvirker deltakerne i ettertid", "For å skjule de egentlige resultatene fra deltakerne slik at studien kan gjentas senere"],
       explanation: 'Debrief etter villedning er viktig for å informere deltakerne om studiens egentlige hensikt og motvirke eventuell psykisk belastning de er blitt utsatt for.',
     },
   ],
   'psykologi-2-7-4': [
     {
       question: 'Hva betyr reliabilitet?',
-      options: ["Pålitelighet – at en måling gir konsistente resultater", "Gyldighet – at vi måler det vi tror", "Gyldighet – at vi faktisk måler det fenomenet vi tror og hevder å måle i studien", "At utvalget er stort nok til at resultatene kan generaliseres til hele populasjonen"],
+      options: ["Pålitelighet – at en måling gir konsistente resultater", "Gyldighet – at vi måler det vi tror", "At utvalget er tilfeldig trukket fra populasjonen", "At utvalget er stort nok til at resultatene kan generaliseres til hele populasjonen"],
       explanation: 'Reliabilitet handler om pålitelighet: gir målingen konsistente, stabile resultater under samme forhold?',
     },
     {
       question: 'Hva betyr validitet?',
-      options: ["Gyldighet – at vi faktisk måler det vi er ute etter", "Pålitelighet – at resultatene er stabile", "Pålitelighet – at målingen gir stabile og konsistente resultater ved gjentakelse", "At deltakerne er fornøyde"],
+      options: ["Gyldighet – at vi faktisk måler det vi er ute etter", "Pålitelighet – at resultatene er stabile", "Objektivitet – at forskeren ikke påvirker svaret", "At deltakerne er fornøyde"],
       explanation: 'Validitet handler om gyldighet: måler studien faktisk det den hevder å måle?',
     },
     {
       question: 'Hva handler ekstern validitet om?',
-      options: ["I hvilken grad funnene kan generaliseres til andre personer og situasjoner", "Om resultatene er stabile over tid", "Om måleutstyret og de tekniske hjelpemidlene fungerer slik de er ment å fungere", "Om målingene gir stabile og konsistente resultater dersom studien gjentas over tid"],
+      options: ["I hvilken grad funnene kan generaliseres til andre personer og situasjoner", "Om studiens design utelukker andre forklaringer", "Om måleutstyret og de tekniske hjelpemidlene fungerer som de skal", "Om målingene gir stabile og konsistente resultater dersom studien gjentas over tid"],
       explanation: 'Ekstern validitet handler om i hvilken grad resultatene kan generaliseres utover selve studien – til andre personer, situasjoner og tidspunkter.',
     },
     {
       question: 'Hva er WEIRD-problemet i psykologisk forskning?',
-      options: ["At mye forskning bygger på vestlige, utdannede, rike utvalg som ikke er representative", "At deltakerne er for gamle", "At deltakerne i psykologiske studier ofte er for gamle til å representere befolkningen", "At mange psykologiske studier varer for kort tid til å kunne fange opp reelle endringer"],
+      options: ["At mye forskning bygger på vestlige, utdannede, rike utvalg som ikke er representative", "At deltakerne stort sett er eldre enn befolkningen", "At psykologiske studier ofte bruker for få deltakere til å gi sikre svar", "At mange psykologiske studier varer for kort tid til å kunne fange opp reelle endringer"],
       explanation: 'WEIRD-problemet (Western, Educated, Industrialized, Rich, Democratic) viser at mye psykologisk forskning bygger på et skjevt utvalg som svekker ekstern validitet.',
     },
     {
       question: 'Kan en måling være reliabel uten å være valid?',
-      options: ["Ja – den kan gi stabile resultater uten å måle det rette", "Nei – reliabilitet garanterer validitet", "Nei – dersom en måling er reliabel, garanterer det samtidig at den også er valid", "Bare i eksperimenter kan en måling være reliabel uten samtidig å være valid og gyldig"],
+      options: ["Ja – den kan gi stabile resultater uten å måle det rette", "Nei – reliabilitet garanterer validitet", "Nei – en måling må være valid for å bli reliabel", "Bare i eksperimenter kan en måling være reliabel uten samtidig å være valid og gyldig"],
       explanation: 'Ja – en måling kan være reliabel (gi stabile resultater) uten å være valid, hvis den konsekvent måler noe annet enn det den skal måle.',
     },
   ],
   'psykologi-2-7-5': [
     {
       question: 'Hva er kritisk tenkning?',
-      options: ["Evnen til å analysere, vurdere og tolke informasjon systematisk og rasjonelt", "Å avvise alt man hører", "Å godta alle påstander man møter så lenge de er fremsatt av en person med autoritet", "Å avvise alt man hører på forhånd og systematisk mistro enhver kilde man kommer over"],
+      options: ["Evnen til å analysere, vurdere og tolke informasjon systematisk og rasjonelt", "Å stole på egen intuisjon framfor argumenter", "Å godta alle påstander som er fremsatt av en person med autoritet", "Å avvise alt man hører på forhånd og systematisk mistro enhver kilde man kommer over"],
       explanation: 'Kritisk tenkning er evnen til å analysere, vurdere og tolke informasjon på en systematisk og rasjonell måte, i stedet for å godta påstander ukritisk.',
     },
     {
@@ -932,17 +932,17 @@ const quizData_psykologi_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hvorfor er kildevurdering viktig i en tid med "fake news"?',
-      options: ["For å skille pålitelig informasjon fra desinformasjon", "Fordi alle kilder er like gode", "Det er ikke viktig, siden mengden delinger på nett uansett avgjør hva som er sant", "For å godta all informasjon"],
+      options: ["For å skille pålitelig informasjon fra desinformasjon", "Fordi alle kilder er like gode", "Det er ikke viktig – delinger avgjør sannheten", "For å godta all informasjon"],
       explanation: 'Kildevurdering er avgjørende i en tid med informasjonsoverflod og "fake news" for å skille pålitelig informasjon fra desinformasjon.',
     },
     {
       question: 'Hva bør man vurdere når man leser en psykologisk påstand i media?',
-      options: ["Kvaliteten på bevisene og kilden bak påstanden", "Bare om overskriften er fengende", "Bare om overskriften er fengende nok til å fange oppmerksomheten til de fleste lesere", "Bare hvor mange som deler den"],
+      options: ["Kvaliteten på bevisene og kilden bak påstanden", "Bare om overskriften er fengende", "Bare hvor kjent forskeren bak er fra før", "Bare hvor mange som deler den"],
       explanation: 'Kritisk tenkning innebærer å vurdere kvaliteten på bevisene bak en påstand, identifisere kilden og være oppmerksom på forenklinger og overdrivelser.',
     },
     {
       question: 'Hvorfor er det viktig å skille korrelasjon fra årsakssammenheng?',
-      options: ["Fordi to ting kan henge sammen uten at den ene forårsaker den andre", "Fordi korrelasjon alltid betyr årsak", "Fordi ekte årsakssammenhenger aldri finnes, og alt henger sammen ved ren tilfeldighet", "Fordi en påvist korrelasjon mellom to variabler alltid beviser en klar årsakssammenheng"],
+      options: ["Fordi to ting kan henge sammen uten at den ene forårsaker den andre", "Fordi korrelasjon alltid betyr årsak", "Fordi ekte årsakssammenhenger aldri finnes i forskningen", "Fordi en tredje variabel aldri kan forklare sammenhengen"],
       explanation: 'Et sentralt prinsipp i kritisk tenkning er at korrelasjon ikke beviser årsak – to variabler kan henge sammen på grunn av en tredje faktor eller tilfeldighet.',
     },
   ],
@@ -954,17 +954,17 @@ const quizData_psykologi_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er en styrke ved det biologiske perspektivet?',
-      options: ["Vitenskapelig presisjon og grunnlag for effektive medikamenter", "At det forklarer fri vilje", "At det på en overbevisende måte forklarer menneskets frie vilje og bevisste valg", "At det fullstendig ser bort fra hjernen og nervesystemets rolle i menneskelig atferd"],
+      options: ["Vitenskapelig presisjon og grunnlag for effektive medikamenter", "At det forklarer menneskets frie vilje", "At det forklarer hvordan kulturen former personligheten", "At det fullstendig ser bort fra hjernen og nervesystemets rolle i menneskelig atferd"],
       explanation: 'Det biologiske perspektivet har styrker som vitenskapelig presisjon og har muliggjort utvikling av effektive medikamenter mot psykiske lidelser.',
     },
     {
       question: 'Hva er en styrke ved det kognitive perspektivet?',
-      options: ["Det forklarer kompleks mental aktivitet og er grunnlag for KBT", "Det avviser at læring finnes", "Det ser bort fra tenkning og hukommelse og danner grunnlaget for psykoanalysen", "Det avviser at indre mentale prosesser finnes og forklarer alt gjennom belønning"],
+      options: ["Det forklarer kompleks mental aktivitet og er grunnlag for KBT", "Det avviser at læring og erfaring finnes", "Det danner grunnlaget for psykoanalysen og drømmetydning", "Det avviser at indre mentale prosesser finnes og forklarer alt gjennom belønning"],
       explanation: 'Det kognitive perspektivet forklarer kompleks mental aktivitet (tenkning, hukommelse) og er det vitenskapelige grunnlaget for effektiv terapi som KBT.',
     },
     {
       question: 'Hvordan integrerer den biopsykososiale modellen perspektivene?',
-      options: ["Ved å kombinere biologiske, psykologiske og sosiale faktorer", "Ved å velge bare ett perspektiv", "Ved å avvise biologiens rolle og forklare lidelser kun ut fra sosiale forhold", "Ved å se bort fra det sosiale og vektlegge psykologiske faktorer som avgjørende"],
+      options: ["Ved å kombinere biologiske, psykologiske og sosiale faktorer", "Ved å velge bare ett perspektiv", "Ved å avvise biologien og se kun på sosiale forhold", "Ved å se bort fra det sosiale og bare vektlegge psyken"],
       explanation: 'Den biopsykososiale modellen integrerer perspektivene ved å forklare fenomener (som depresjon) gjennom biologiske, psykologiske OG sosiale faktorer samtidig.',
     },
     {
@@ -976,12 +976,12 @@ const quizData_psykologi_2: Record<string, QuizQuestion[]> = {
   'psykologi-2-8-2': [
     {
       question: 'Hva studerer arbeids- og organisasjonspsykologi?',
-      options: ["Hvordan psykologiske prinsipper kan forbedre arbeidsliv og organisasjoner", "Bare barns utvikling", "Hvordan skader og sykdom i hjernen påvirker tenkning, hukommelse og atferd", "Hvordan psykologisk kunnskap brukes i rettssaker om tilregnelighet og skyld"],
+      options: ["Hvordan psykologiske prinsipper kan forbedre arbeidsliv og organisasjoner", "Bare barns utvikling fra fødsel til skolealder", "Hvordan skader og sykdom i hjernen påvirker tenkning og atferd", "Hvordan psykologisk kunnskap brukes i rettssaker om tilregnelighet og skyld"],
       explanation: 'Arbeids- og organisasjonspsykologi studerer hvordan psykologiske prinsipper kan forbedre arbeidsliv, øke produktivitet og fremme trivsel.',
     },
     {
       question: 'Hva skiller Herzberg mellom som faktorer som påvirker arbeidstilfredshet?',
-      options: ["Hygienefaktorer (forhindrer misnøye) og motivasjonsfaktorer (skaper trivsel)", "Id og ego som drivkrefter bak menneskets bevisste og ubevisste valg på jobb", "Alarmreaksjon og motstand som to faser i kroppens fysiologiske stressrespons", "Indre motivasjon og ytre lønn som to helt uavhengige belønningssystemer"],
+      options: ["Hygienefaktorer (forhindrer misnøye) og motivasjonsfaktorer (skaper trivsel)", "Id og ego som drivkrefter bak menneskets bevisste og ubevisste valg på jobb", "Alarmreaksjon og motstand som to faser i kroppens stressrespons", "Indre motivasjon og ytre lønn som to helt uavhengige belønningssystemer"],
       explanation: 'Herzberg skiller mellom hygienefaktorer (som lønn og arbeidsforhold, som forhindrer misnøye) og motivasjonsfaktorer (som skaper ekte trivsel).',
     },
     {
@@ -991,19 +991,19 @@ const quizData_psykologi_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva kjennetegner demokratisk ledelse?',
-      options: ["At lederen involverer medarbeidere i beslutninger", "At lederen bestemmer alt alene", "At lederen tar alle beslutninger alene og gir klare ordre uten innspill", "At reglene er irrelevante"],
+      options: ["At lederen involverer medarbeidere i beslutninger", "At lederen bestemmer alt alene", "At lederen holder seg helt unna beslutninger", "At reglene er irrelevante"],
       explanation: 'Demokratisk ledelse innebærer at lederen involverer medarbeiderne i beslutninger, noe som ofte fremmer engasjement og kreativitet.',
     },
     {
       question: 'Hva inngår i et godt psykososialt arbeidsmiljø?',
-      options: ["Sosial støtte, rettferdig behandling og balanse mellom krav og kontroll", "Mangel på rolleklarhet", "Høy lønn som viktigste enkeltfaktor for trivsel og forhindring av sykefravær", "Uklare roller og høye krav uten kontroll, som antas å styrke medarbeiderne mest"],
+      options: ["Sosial støtte, rettferdig behandling og balanse mellom krav og kontroll", "Streng kontroll og tett overvåking av ansatte", "Høy lønn som den viktigste enkeltfaktoren for trivsel på jobb", "Uklare roller og høye krav uten kontroll, som antas å styrke medarbeiderne mest"],
       explanation: 'Et godt psykososialt arbeidsmiljø inkluderer sosial støtte, rettferdig behandling, balanse mellom krav og kontroll (Karaseks modell) og klare roller.',
     },
   ],
   'psykologi-2-8-3': [
     {
       question: 'Hva er forskjellen mellom individualistiske og kollektivistiske kulturer?',
-      options: ["Individualistiske vektlegger autonomi, kollektivistiske vektlegger gruppen", "Kollektivistiske vektlegger uavhengighet", "De to kulturtypene er i praksis identiske og skiller seg bare i språk og navn", "Kollektivistiske vektlegger uavhengighet og selvhevdelse framfor forpliktelser"],
+      options: ["Individualistiske vektlegger autonomi, kollektivistiske vektlegger gruppen", "Kollektivistiske vektlegger uavhengighet", "De to kulturtypene er i praksis identiske og bare ulike i navn", "Kollektivistiske vektlegger uavhengighet og selvhevdelse framfor forpliktelser"],
       explanation: 'Individualistiske kulturer (som Norge) vektlegger personlig autonomi og uavhengighet, mens kollektivistiske kulturer vektlegger gruppen, harmoni og forpliktelser.',
     },
     {
@@ -1023,14 +1023,14 @@ const quizData_psykologi_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva viser tverrkulturell psykologi om emosjoner?',
-      options: ["Grunnemosjoner er universelle, men uttrykk og regulering varierer kulturelt", "Emosjoner finnes ikke i alle kulturer", "At alle mennesker uttrykker og regulerer følelsene sine på nøyaktig samme måte", "At grunnleggende emosjoner ikke finnes i alle kulturer og er kulturelt oppfunnet"],
+      options: ["Grunnemosjoner er universelle, men uttrykk og regulering varierer kulturelt", "Emosjoner varierer mest med alder, ikke kultur", "At alle mennesker uttrykker følelsene sine på nøyaktig samme måte", "At grunnleggende emosjoner ikke finnes i alle kulturer og er kulturelt oppfunnet"],
       explanation: 'Tverrkulturell forskning viser at grunnemosjoner er universelle, men at uttrykk og regulering (visningsregler) varierer mellom kulturer.',
     },
   ],
   'psykologi-2-8-4': [
     {
       question: 'Hva studerer helsepsykologi?',
-      options: ["Hvordan tanker, følelser og atferd påvirker fysisk helse og sykdom", "Bare hjernens anatomi", "Bare barns kognitive og motoriske utvikling gjennom de første leveårene", "Bare hjernens anatomiske oppbygning og hvordan nerveceller sender signaler"],
+      options: ["Hvordan tanker, følelser og atferd påvirker fysisk helse og sykdom", "Bare kroppens immunforsvar mot sykdom", "Bare barns kognitive og motoriske utvikling i de første årene", "Bare hjernens anatomiske oppbygning og hvordan nerveceller sender signaler"],
       explanation: 'Helsepsykologi anvender psykologisk kunnskap for å forstå hvordan psykologiske faktorer påvirker fysisk helse, sykdom og helsetjenester.',
     },
     {
@@ -1045,19 +1045,19 @@ const quizData_psykologi_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er motiverende intervju (MI)?',
-      options: ["En klientsentrert samtalemetode for å fremme atferdsendring hos ambivalente", "En diagnostisk test", "En diagnostisk test som måler hvor motivert en klient er for å endre atferd", "En streng metode der terapeuten konfronterer og presser klienten til å endre seg"],
+      options: ["En klientsentrert samtalemetode for å fremme atferdsendring hos ambivalente", "En gruppeterapi med faste øvelser hver uke", "En diagnostisk test som måler hvor motivert klienten er for endring", "En streng metode der terapeuten konfronterer og presser klienten til å endre seg"],
       explanation: 'Motiverende intervju (Miller og Rollnick) er en klientsentrert, men målrettet samtalemetode for å fremme atferdsendring hos mennesker som er ambivalente.',
     },
     {
       question: 'Hva er kjernen i gate control-teorien om smerte?',
-      options: ["At smertesignaler kan moduleres av \"porter\" i ryggmargen", "At smerte ikke kan påvirkes", "At smerte utelukkende er fysisk og styres direkte av vevsskadens omfang", "At smerte hovedsakelig er innbilning uten noe reelt fysiologisk grunnlag"],
+      options: ["At smertesignaler kan moduleres av \"porter\" i ryggmargen", "At smerte ikke kan påvirkes av tanker", "At smerte utelukkende styres av vevsskadens omfang", "At smerte hovedsakelig er innbilning uten noe reelt fysiologisk grunnlag"],
       explanation: 'Gate control-teorien (Melzack og Wall) foreslår at smertesignaler kan moduleres av "porter" i ryggmargen som påvirkes av blant annet fysiske stimuli og psykologiske faktorer.',
     },
   ],
   'psykologi-2-8-5': [
     {
       question: 'Hva anvender pedagogisk psykologi?',
-      options: ["Psykologisk kunnskap for å forbedre læring og undervisning", "Kunnskap om miljøvern alene", "Kunnskap om miljøvern og bærekraft for å endre menneskers forbruksatferd alene", "Kunnskap om hjerneskader og nevrologiske sykdommer for å rehabilitere pasienter"],
+      options: ["Psykologisk kunnskap for å forbedre læring og undervisning", "Kunnskap om markedsføring og reklame", "Kunnskap om miljøvern for å endre folks forbruksatferd", "Kunnskap om hjerneskader og nevrologiske sykdommer for å rehabilitere pasienter"],
       explanation: 'Pedagogisk psykologi anvender psykologisk kunnskap for å forbedre læring og undervisning, basert på ulike læringsteorier.',
     },
     {
@@ -1072,12 +1072,12 @@ const quizData_psykologi_2: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er en mulighet KI (kunstig intelligens) gir psykologifaget?',
-      options: ["Å analysere data som tale og atferd for å identifisere tegn på psykiske vansker", "Å automatisere diagnoser slik at menneskelig vurdering blir helt overflødig", "Å erstatte alle psykologer fullstendig og overta behandlingen av alle pasienter", "Å fjerne behovet for forskning fordi maskiner kan gi endelige svar på alt"],
+      options: ["Å analysere data som tale og atferd for å identifisere tegn på psykiske vansker", "Å automatisere diagnoser slik at menneskelig vurdering blir helt overflødig", "Å erstatte alle psykologer og overta behandlingen av alle pasienter", "Å fjerne behovet for forskning fordi maskiner kan gi endelige svar på alt"],
       explanation: 'KI gir muligheter som å analysere tale, ansiktsuttrykk og smarttelefondata (digital fenotyping) for å identifisere tidlige tegn på psykiske vansker.',
     },
     {
       question: 'Hva adresserer global psykisk helse?',
-      options: ["Psykisk helse som en verdensomspennende utfordring med stort behandlingsgap", "At psykiske lidelser er sjeldne globalt", "At psykiske lidelser er sjeldne globalt og bare rammer noen få rike samfunn", "Kun psykisk helse innenfor Norges grenser og det norske behandlingsapparatet"],
+      options: ["Psykisk helse som en verdensomspennende utfordring med stort behandlingsgap", "At psykiske lidelser er sjeldne globalt", "At psykiske lidelser først og fremst rammer rike, vestlige land", "Kun psykisk helse innenfor Norges grenser og norsk helsetjeneste"],
       explanation: 'Global psykisk helse adresserer psykiske lidelser som en verdensomspennende utfordring, der over 75 % i lavinntektsland ikke mottar behandling ("treatment gap").',
     },
   ],

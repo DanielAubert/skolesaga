@@ -4,7 +4,7 @@ const quizData_markedsforing: Record<string, QuizQuestion[]> = {
   'markedsforing-1': [
   {
     question: 'Hva er markedsforing?',
-    options: ["Aktiviteter for a skape, kommunisere og levere verdi til kunder", "Bare reklame og annonsering", "Aktiviteter for a produsere og distribuere varer sa billig som mulig", "Alt arbeid med a lage reklame og synlige annonser i ulike mediekanaler"],
+    options: ["Aktiviteter for a skape, kommunisere og levere verdi til kunder", "Bare reklame og annonsering i mediene", "Aktiviteter for a produsere og distribuere varer sa billig som mulig", "Alt arbeid med a lage reklame og synlige annonser i ulike mediekanaler"],
     explanation: 'Markedsforing handler om a skape, kommunisere og levere verdi til kunder - det omfatter alt fra produktutvikling til salg og kundeservice.',
   },
   {
@@ -14,12 +14,12 @@ const quizData_markedsforing: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva kjennetegner markedsorientering?',
-    options: ["Fokus påkundens behov - finn ut hva kunden vil ha og lever det", "Fokus påa produsere så mye som mulig", "Fokus pa a produsere storst mulig volum til lavest mulig enhetskostnad", "Fokus pa a selge det bedriften allerede har pa lager gjennom aktivt salg"],
+    options: ["Fokus påkundens behov - finn ut hva kunden vil ha og lever det", "Fokus på å produsere så mye som mulig", "Fokus pa a produsere storst mulig volum til lavest mulig enhetskostnad", "Fokus pa a selge det bedriften allerede har pa lager gjennom aktivt salg"],
     explanation: 'Markedsorientering setter kunden i sentrum - man starter med a forstå kundens behov og utvikler produkter basert pådette.',
   },
   {
     question: 'Hva menes med verdi i markedsforing?',
-    options: ["Det kunden fåri forhold til det kunden gir", "Bedriftens omsetning", "Prisen produsenten setter pa varen for salg", "Kostnaden bedriften har ved a lage produktet"],
+    options: ["Det kunden fåri forhold til det kunden gir", "Bedriftens totale omsetning", "Prisen produsenten setter pa varen for salg", "Kostnaden bedriften har ved a lage produktet"],
     explanation: 'Verdi er forholdet mellom det kunden oppnår(nytte, fordeler) og det kunden mågi (pris, tid, innsats).',
   },
   {
@@ -33,7 +33,7 @@ const quizData_markedsforing: Record<string, QuizQuestion[]> = {
   'markedsforing-2': [
   {
     question: 'Hva er forbrukeratferd?',
-    options: ["Hvordan forbrukere velger, kjøper, bruker og kvitter seg med produkter", "Bare hvordan folk handler i butikker", "Hvordan folk oppforer seg og handler nar de er inne i fysiske butikker", "Studiet av hvilke nettbutikker og digitale plattformer forbrukere foretrekker"],
+    options: ["Hvordan forbrukere velger, kjøper, bruker og kvitter seg med produkter", "Bare hvordan folk betaler for varene sine", "Hvordan folk oppforer seg nar de er inne i fysiske butikker", "Studiet av hvilke nettbutikker og digitale plattformer forbrukere foretrekker"],
     explanation: 'Forbrukeratferd handler om hvordan enkeltpersoner og grupper velger, kjøper, bruker og kvitter seg med varer og tjenester.',
   },
   {
@@ -48,12 +48,12 @@ const quizData_markedsforing: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er referansegrupper?',
-    options: ["Grupper vi bruker som målestokkk for holdninger og atferd", "Grupper som gir oss rabatter", "Segmenter av markedet som deler samme demografiske kjennetegn og behov", "Leverandorer og samarbeidspartnere bedriften refererer til i verdikjeden"],
+    options: ["Grupper vi bruker som målestokkk for holdninger og atferd", "Grupper som gir oss rabatter og tilbud", "Segmenter av markedet som deler samme demografiske kjennetegn og behov", "Leverandorer og samarbeidspartnere bedriften refererer til i verdikjeden"],
     explanation: 'Referansegrupper er grupper vi sammenligner oss med og som påvirker våre holdninger og kjøpsatferd.',
   },
   {
     question: 'Hva er kognitiv dissonans?',
-    options: ["Ubehag nårholdninger og handlinger ikke stemmer overens", "Glede over et godt kjøp", "Glemsel og tap av interesse forbrukeren far en tid etter et kjop", "Den positive gleden og bekreftelsen man foler etter et vellykket kjop"],
+    options: ["Ubehag nårholdninger og handlinger ikke stemmer overens", "Evnen til a huske reklame man har sett", "Glemsel og tap av interesse forbrukeren far en tid etter et kjop", "Den positive gleden og bekreftelsen man foler etter et vellykket kjop"],
     explanation: 'Kognitiv dissonans er ubehag som oppstar nårholdninger og handlinger ikke stemmer overens, f.eks. tvil etter et dyrt kjøp.',
   },
 ],
@@ -72,7 +72,7 @@ const quizData_markedsforing: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er segmentering?',
-    options: ["A dele markedet i distinkte grupper med like behov", "A finne den beste prisen", "A tilby det samme produktet til hele markedet samtidig", "A finne den prisen som gir hoyest mulig salgsvolum totalt"],
+    options: ["A dele markedet i distinkte grupper med like behov", "A finne den beste prisen i markedet", "A tilby det samme produktet til hele markedet samtidig", "A finne den prisen som gir hoyest mulig salgsvolum totalt"],
     explanation: 'Segmentering er a dele markedet i distinkte grupper (segmenter) med like behov og karakteristikker.',
   },
   {
@@ -101,12 +101,12 @@ const quizData_markedsforing: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er merkeverdi (brand equity)?',
-    options: ["Den ekstra verdien en merkevare tilfører et produkt", "Antall solgte enheter", "Den samlede kostprisen bedriften har for a lage produktet", "Det totale antallet enheter en merkevare selger i markedet"],
+    options: ["Den ekstra verdien en merkevare tilfører et produkt", "Summen av de varemerkene og patentene bedriften har registrert", "Den samlede kostprisen bedriften har for a lage produktet", "Det totale antallet enheter en merkevare selger i markedet"],
     explanation: 'Merkeverdi er den ekstra verdien et merkenavn tilfører et produkt utover selve produktets funksjonelle egenskaper.',
   },
   {
     question: 'Hva er merkeutvidelse?',
-    options: ["A bruke et etablert merkenavn pånye produkter", "A gjøre logoen større", "A gjore logo og emballasje storre og mer synlig", "A oke merkevarens synlighet ved a ansette flere selgere"],
+    options: ["A bruke et etablert merkenavn pånye produkter", "A lansere det samme produktet under et helt nytt merkenavn", "A gjore logo og emballasje storre og mer synlig", "A oke merkevarens synlighet ved a ansette flere selgere"],
     explanation: 'Merkeutvidelse er å bruke et etablert merkenavn pånye produkter for a utnytte eksisterende kjennskap og tillit.',
   },
   {
@@ -125,22 +125,22 @@ const quizData_markedsforing: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva måler priselastisitet?',
-    options: ["Hvor sensitiv etterspørselen er for prisendringer", "Hvor ofte prisen endres", "Hvor hoy prisen er sammenlignet med konkurrentene", "Hvor ofte en bedrift justerer prisene sine over tid"],
+    options: ["Hvor sensitiv etterspørselen er for prisendringer", "Hvor stor fortjenesten er", "Hvor hoy prisen er sammenlignet med andre", "Hvor ofte en bedrift justerer prisene sine over tid"],
     explanation: 'Priselastisitet måler hvor mye etterspørselen endres ved prisendringer - elastisk ettersporsel reagerer mye påpris.',
   },
   {
     question: 'Hva er forskjellen mellom intensiv og eksklusiv distribusjon?',
-    options: ["Intensiv = mange utsalgssteder, eksklusiv = fa utvalgte", "Eksklusiv distribusjon betyr flest mulig utsalgssteder", "Intensiv distribusjon er alltid billigere enn eksklusiv", "Begge betyr salg gjennom mange utsalgssteder samtidig"],
+    options: ["Intensiv = mange utsalgssteder, eksklusiv = fa utvalgte", "Eksklusiv distribusjon betyr flest mulig utsalgssteder", "Intensiv distribusjon er alltid den billigste", "Begge betyr salg gjennom mange utsalgssteder samtidig"],
     explanation: 'Intensiv distribusjon betyr produktet i flest mulig utsalgssteder, mens eksklusiv betyr fa utvalgte forhandlære.',
   },
   {
     question: 'Hva er omnikanal-distribusjon?',
-    options: ["Sømloes integrering av alle salgskanaler", "Bare fysiske butikker", "Salg som utelukkende foregar via nettbutikk og app", "Salg som kun skjer gjennom bedriftens fysiske butikker"],
+    options: ["Sømloes integrering av alle salgskanaler", "Salg der kunden ma velge en kanal og holde seg til den", "Salg som utelukkende foregar via nettbutikk og app", "Salg som kun skjer gjennom bedriftens fysiske butikker"],
     explanation: 'Omnikanal er sømløs integrering av alle salgskanaler (butikk, nett, app) slik at kunden fåren helhetlig opplevelse.',
   },
   {
     question: 'Hva er dynamisk prissetting?',
-    options: ["Pris som endres basert på ettersporsel, tid eller kunde", "Fast pris som aldri endres", "En fast pris som er lik for alle kunder og aldri endres", "En pris som utelukkende bestemmes av produktets kostnad"],
+    options: ["Pris som endres basert på ettersporsel, tid eller kunde", "Pris som settes av myndighetene", "En fast pris som er lik for alle kunder hele aret", "En pris som bestemmes av produktets kostnad alene"],
     explanation: 'Dynamisk prising innebærer at prisen endres basert på ettersporsel, tid, kunde eller andre faktorer - vanlig i reiseliv og e-handel.',
   },
 ],
@@ -159,17 +159,17 @@ const quizData_markedsforing: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er PR (Public Relations)?',
-    options: ["Arbeid for a bygge og vedlikeholde et godt omdømme", "Betalt reklame", "Rabattilbud og kampanjer for a oke salget pa kort sikt", "Betalt reklame som bedriften kjoper plass til i mediene"],
+    options: ["Arbeid for a bygge og vedlikeholde et godt omdømme", "Direkte salg til kunder gjennom personlige moter og telefonsamtaler", "Rabattilbud og kampanjer for a oke salget pa kort sikt", "Betalt reklame som bedriften kjoper plass til i mediene"],
     explanation: 'PR handler om a bygge og vedlikeholde et godt omdømme gjennom kommunikasjon med ulike interessenter og medier.',
   },
   {
     question: 'Hva er content marketing?',
-    options: ["A tiltrekke kunder ved a skape og dele verdifullt innhold", "Bare tradisjonell reklame", "Kjop av betalt annonseplass i sokemotorer og pa sosiale medier", "Utsendelse av masse-e-poster med tilbud til en stor kundeliste"],
+    options: ["A tiltrekke kunder ved a skape og dele verdifullt innhold", "Kjop av tradisjonell annonseplass i aviser, pa radio og pa fjernsyn", "Kjop av betalt annonseplass i sokemotorer og pa sosiale medier", "Utsendelse av masse-e-poster med tilbud til en stor kundeliste"],
     explanation: 'Content marketing er a tiltrekke og engasjere kunder ved a skape og dele verdifullt, relevant innhold.',
   },
   {
     question: 'Hva er en integrert markedskommunikasjon (IMC)?',
-    options: ["Koordinert bruk av alle kommunikasjonskanaler med ett budskap", "Bare en kommunikasjonskanal", "Ukoordinert bruk av flere kanaler med ulikt budskap per kanal", "Bruk av én dominerende kommunikasjonskanal med varierte budskap"],
+    options: ["Koordinert bruk av alle kommunikasjonskanaler med ett budskap", "Bruk av bare en kommunikasjonskanal", "Ukoordinert bruk av flere kanaler med ulikt budskap", "Bruk av én dominerende kommunikasjonskanal med varierte budskap"],
     explanation: 'IMC er koordinert bruk av alle kommunikasjonskanaler for a levere et konsistent budskap og maksimere effekt.',
   },
 ],
@@ -183,22 +183,22 @@ const quizData_markedsforing: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er SEO (sokemotoroptimalisering)?',
-    options: ["A optimalisere nettsider for a rangere høyt i organiske søkeresultater", "Sosiale medier-marketing", "Å drive systematisk e-postmarkedsføring for å øke trafikken til nettsiden", "Å kjøpe betalte annonseplasser slik at nettsiden vises øverst mot betaling"],
+    options: ["A optimalisere nettsider for a rangere høyt i organiske søkeresultater", "Å drive markedsføring på sosiale medier for å få flere følgere og delinger av innholdet", "Å drive systematisk e-postmarkedsføring for å øke trafikken til nettsiden", "Å kjøpe betalte annonseplasser slik at nettsiden vises øverst mot betaling"],
     explanation: 'SEO er a optimalisere nettsider for a rangere høyere i organiske (ikke-betalte) søkeresultater i søkemotorer.',
   },
   {
     question: 'Hva er konverteringsrate?',
-    options: ["Andel besøkende som utfører en ønsket handling", "Antall besøkende", "Det totale antallet unike besøkende nettsiden mottar i en gitt periode", "Andelen følgere som deler innholdet ditt videre til sitt eget nettverk"],
+    options: ["Andel besøkende som utfører en ønsket handling", "Gjennomsnittlig tid en besøkende bruker på nettsiden per besøk", "Det totale antallet unike besøkende nettsiden mottar i en gitt periode", "Andelen følgere som deler innholdet ditt videre til sitt eget nettverk"],
     explanation: 'Konverteringsrate er andelen besøkende påen nettside som utfører en ønsket handling, som kjøp eller registrering.',
   },
   {
     question: 'Hva er influencer-markedsforing?',
-    options: ["A bruke personer med stor rekkevidde til a promøtere produkter", "Bare tradisjonell reklame", "Å plassere bannerannonser på nettsider som har mange daglige besøkende", "Å drive målrettet e-postmarkedsføring mot personer med stor følgerskare"],
+    options: ["A bruke personer med stor rekkevidde til a promøtere produkter", "Å kjøpe tradisjonell reklameplass i aviser og på fjernsyn framfor nett", "Å plassere bannerannonser på nettsider som har mange daglige besøkende", "Å drive målrettet e-postmarkedsføring mot personer med stor følgerskare"],
     explanation: 'Influencer-markedsforing er a samarbeide med personer med stor rekkevidde og påvirkning påsosiale medier for a promøtere produkter.',
   },
   {
     question: 'Hva er remarketing?',
-    options: ["A vise annonser til personer som har besøkt nettsiden for", "A sende e-post til nye kunder", "Å oppdatere logo og visuell profil for å tiltrekke tidligere besøkende", "Å utvikle og lansere nye produktvarianter rettet mot eksisterende kunder"],
+    options: ["A vise annonser til personer som har besøkt nettsiden for", "Å sende e-poster med tilbud til nye kunder som ikke har besøkt nettsiden", "Å oppdatere logo og visuell profil for å tiltrekke tidligere besøkende", "Å utvikle og lansere nye produktvarianter rettet mot eksisterende kunder"],
     explanation: 'Remarketing er a vise annonser til personer som allærede har besøkt nettsiden din for a minne dem påproduktene.',
   },
 ],
@@ -207,12 +207,12 @@ const quizData_markedsforing: Record<string, QuizQuestion[]> = {
   'markedsforing-8': [
   {
     question: 'Hva er ledelse i markedsforingskontekst?',
-    options: ["A fa mennesker til a jobbe mot felles mal for virksomheten", "Bare a selge produkter", "Å produsere reklame og kampanjer som gjør virksomheten kjent i markedet", "Å fastsette riktige priser slik at virksomheten oppnår ønsket fortjeneste"],
+    options: ["A fa mennesker til a jobbe mot felles mal for virksomheten", "Å selge produkter direkte til kundene uten å involvere andre ansatte", "Å produsere reklame og kampanjer som gjør virksomheten kjent i markedet", "Å fastsette riktige priser slik at virksomheten oppnår ønsket fortjeneste"],
     explanation: 'Ledelse handler om a fa mennesker til a jobbe sammen mot felles mal, inkludert a motivere, organisere og kontrollære.',
   },
   {
     question: 'Hva er markedsforingsledelse?',
-    options: ["Analyse, planlegging, implementering og kontroll av markedsforingsprogrammer", "Utforming og produksjon av reklame og kampanjer for virksomhetens produkter", "Utvelgelse og oppfølging av leverandører som skal levere varer til bedriften", "Innsamling og analyse av salgstall for å beregne omsetning og lønnsomhet"],
+    options: ["Analyse, planlegging, implementering og kontroll av markedsforingsprogrammer", "Utforming og produksjon av reklame og kampanjer for virksomhetens produkter", "Utvelgelse og oppfølging av leverandører som skal levere varer", "Innsamling og analyse av salgstall for å beregne omsetning og lønnsomhet"],
     explanation: 'Markedsforingsledelse omfatter analyse, planlegging, implementering og kontroll av markedsforingsprogrammer for a skape verdi.',
   },
   {
@@ -222,12 +222,12 @@ const quizData_markedsforing: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er tverrfunksjonelt samarbeid i markedsforing?',
-    options: ["Samarbeid mellom markedsforing og andre avdelinger", "Bare intern konkurranse", "At markedsavdelingen løser alle sine oppgaver alene uten hjelp fra andre", "Samarbeid utelukkende med eksterne partnere og byråer utenfor virksomheten"],
+    options: ["Samarbeid mellom markedsforing og andre avdelinger", "At avdelingene i virksomheten konkurrerer internt om ressursene", "At markedsavdelingen løser alle sine oppgaver alene uten hjelp fra andre", "Samarbeid utelukkende med eksterne partnere og byråer utenfor virksomheten"],
     explanation: 'Tverrfunksjonelt samarbeid innebærer at markedsforing jobber sammen med andre avdelinger som salg, produksjon og økonomi.',
   },
   {
     question: 'Hvorfor er organisasjonsstruktur viktig for markedsforing?',
-    options: ["Pavirker hvordan markedsforingsoppgaver utføres og koordineres", "Bare for store selskaper", "Det spiller bare en rolle for svært store selskaper med mange ansatte", "Det er kun viktig for å oppfylle lovpålagte krav til organisering av bedrift"],
+    options: ["Pavirker hvordan markedsforingsoppgaver utføres og koordineres", "Det har ingen betydning for markedsforingen", "Det spiller bare en rolle for svært store selskaper", "Det er kun viktig for å oppfylle lovpålagte krav til organisering av bedrift"],
     explanation: 'Organisasjonsstruktur påvirker hvordan markedsforingsoppgaver fordeles, koordineres og rapporteres.',
   },
 ],
@@ -236,12 +236,12 @@ const quizData_markedsforing: Record<string, QuizQuestion[]> = {
   'markedsforing-9': [
   {
     question: 'Hva er etisk markedsforing?',
-    options: ["Markedsforing som tar hensyn til moralske prinsipper og samfunnsansvar", "Kun a maksimere profitt", "Markedsføring som etterligner konkurrentenes budskap og kampanjer tett", "Markedsføring som utelukkende går ut på å følge gjeldende lover og regler"],
+    options: ["Markedsforing som tar hensyn til moralske prinsipper og samfunnsansvar", "Kun a maksimere profitten pa kort sikt", "Markedsføring som etterligner konkurrentenes kampanjer tett", "Markedsføring som utelukkende går ut på å følge gjeldende lover og regler"],
     explanation: 'Etisk markedsforing tar hensyn til moralske prinsipper og samfunnsansvar, utover det loven krever.',
   },
   {
     question: 'Hva er grønnvasking (greenwashing)?',
-    options: ["Villedende markedsforing som overdriver miljøfordeler", "Reell miljøvennlig markedsforing", "Å vaske og rengjøre produkter med grønne, miljømerkede rengjøringsmidler", "Reell og dokumentert miljøvennlig markedsføring av bærekraftige produkter"],
+    options: ["Villedende markedsforing som overdriver miljøfordeler", "Reell miljøvennlig markedsforing", "Å vaske produkter med grønne, miljømerkede midler", "Reell og dokumentert miljøvennlig markedsføring av bærekraftige produkter"],
     explanation: 'Gronnvasking er villedende markedsforing som fårprodukter eller selskaper til a fremsta mer miljøvennlige enn de er.',
   },
   {
@@ -251,7 +251,7 @@ const quizData_markedsforing: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er ansvårlig annonsering?',
-    options: ["Reklame som er ærlig, saklig og ikke villedende", "A reklamere så mye som mulig", "Å reklamere så ofte og så mye som mulig gjennom flest mulige kanaler", "Reklame som må være kostbar og påkostet for å virke seriøs og troverdig"],
+    options: ["Reklame som er ærlig, saklig og ikke villedende", "A reklamere så mye som mulig", "Å reklamere gjennom flest mulige kanaler", "Reklame som må være dyr for å virke seriøs"],
     explanation: 'Ansvårlig annonsering er ærlig, saklig og ikke villedende, og tar hensyn til sårbare grupper.',
   },
   {
@@ -265,27 +265,27 @@ const quizData_markedsforing: Record<string, QuizQuestion[]> = {
   'markedsforing-10': [
   {
     question: 'Hva er en markedsplan?',
-    options: ["Et dokument som beskriver markedsforingsstrategier og -aktiviteter", "Bare en liste over produkter", "Et rent budsjettdokument som viser inntekter og kostnader for kommende år", "En fullstendig liste over alle produktene virksomheten har for salg akkurat nå"],
+    options: ["Et dokument som beskriver markedsforingsstrategier og -aktiviteter", "Bare en oversikt over konkurrentenes priser", "Et rent budsjettdokument med inntekter og kostnader for aret", "En fullstendig liste over alle produktene virksomheten har for salg akkurat nå"],
     explanation: 'En markedsplan er et dokument som beskriver malgrupper, posisjonering, strategier, aktiviteter og budsjetter for markedsforing.',
   },
   {
     question: 'Hva bør en markedsplan inneholde?',
-    options: ["Situasjonsanalyse, mal, strategi, tiltak og budsjett", "Bare produktbilder", "Kun bedriftens slagord og visuelle profil som skal brukes i all reklame", "Bare en detaljert prisliste over alle varene bedriften tilbyr sine kunder"],
+    options: ["Situasjonsanalyse, mal, strategi, tiltak og budsjett", "Bare produktbilder og bedriftens logo", "Kun bedriftens slagord som skal brukes i reklamen", "Bare en detaljert prisliste over alle varene bedriften tilbyr sine kunder"],
     explanation: 'En markedsplan bør inneholde situasjonsanalyse, mal, malgruppe, posisjonering, strategi, tiltak, budsjett og malemetoder.',
   },
   {
     question: 'Hva er markedsforingsmal?',
-    options: ["Konkrete, malbare resultater markedsforingen skal oppna", "Tilfeldige tall", "Vage ønsker og generelle intensjoner om at markedsføringen skal gå bra", "Utelukkende oppnådde salgstall som allerede er registrert i regnskapet"],
+    options: ["Konkrete, malbare resultater markedsforingen skal oppna", "Tilfeldige tall uten begrunnelse", "Vage ønsker og generelle intensjoner om at markedsføringen skal gå bra", "Utelukkende salgstall som allerede er registrert"],
     explanation: 'Markedsforingsmal er konkrete, malbare resultater som markedsforingen skal oppna, f.eks. økt kjennskap eller salg.',
   },
   {
     question: 'Hva er KPI i markedsforing?',
-    options: ["Key Performance Indicators - nokkelindikatorer for a male suksess", "Kun personlig innsats", "Antallet kundeklager og reklamasjoner bedriften mottar i løpet av en periode", "Et mål på den personlige innsatsen hver enkelt medarbeider legger ned i jobben"],
+    options: ["Key Performance Indicators - nokkelindikatorer for a male suksess", "Kun bedriftens juridiske selskapsform", "Antallet kundeklager og reklamasjoner bedriften mottar", "Et mål på den personlige innsatsen hver enkelt medarbeider legger ned i jobben"],
     explanation: 'KPI (Key Performance Indicators) er nokkelindikatorer som brukes til a male om markedsforingen nårsine mal.',
   },
   {
     question: 'Hvorfor er evaluering viktig i markedsforingen?',
-    options: ["For a lare hva som fungerer og forbedre fremtidige aktiviteter", "Bare for a tilfredsstille ledelsen", "Evaluering er egentlig ikke viktig så lenge kampanjen ble gjennomført til tiden", "Det gjøres kun for å tilfredsstille ledelsen og dokumentere at arbeidet er gjort"],
+    options: ["For a lare hva som fungerer og forbedre fremtidige aktiviteter", "Bare for a tilfredsstille ledelsen", "Evaluering er ikke viktig så lenge kampanjen ble kjørt", "Det gjøres kun for å dokumentere at arbeidet er gjort"],
     explanation: 'Evaluering er viktig for a lare hva som fungerer og hva som ikke gjør det, og for a forbedre fremtidige markedsforingsaktiviteter.',
   },
 ],
