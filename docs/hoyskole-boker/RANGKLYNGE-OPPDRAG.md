@@ -35,21 +35,32 @@ lengre distraktor — og da ble «fasiten er nest lengst» det nye signalet.
 **Målet er derfor ikke en retning, men variasjon:** antallet distraktorer som er
 lengre enn fasiten skal fordele seg fritt på 0, 1, 2 og 3, ca. 25 % hver.
 
-## Hypotese: tvillingene kan VÆRE årsaken
+## MÅLT: tvillingene ER en hovedårsak til rangklyngen
 
-Flere agenter har uavhengig rapportert samme mønster i filene de retter:
-distraktor `[1]` er ofte en kort utgave av samme påstand som `[2]` eller `[3]`
-— «En vulkansk landform» ved siden av «En vulkansk landform bygget opp av
-størknet lava og aske».
+Ni agenter rapporterte uavhengig samme mønster: distraktor `[1]` er ofte en kort
+utgave av samme påstand som `[2]` eller `[3]` — «En vulkansk landform» ved siden
+av «En vulkansk landform bygget opp av størknet lava og aske».
 
-Ligger den korte tvillingen fast som `[1]` og den lange som `[2]`/`[3]`, får
-spørsmålet automatisk to distraktorer lengre enn fasiten, altså rang 3. Det ville
-forklare hvorfor `sosiologi-full`, `entrebed`, `helseoppvekst` og `geofag` alle
-klumper seg nettopp der.
+Testet per spørsmål mot urørt baseline med `sjekk-tvilling.mjs`:
 
-⚠ **Dette er en hypotese, ikke et målt funn.** Den er ikke etterprøvd mot
-katalogen. `sjekk-tvilling.mjs` kan brukes til å teste den: samvarierer
-tvillingraten med hvilken rang en fil klumper seg på?
+| | rang 1 | rang 2 | rang 3 | rang 4 |
+|---|---|---|---|---|
+| spørsmål **med** tvillingpar (n=2 328) | 3 % | 30 % | **67 %** | 0 % |
+| spørsmål **uten** (n=50 560) | 39 % | 30 % | 22 % | 9 % |
+
+Et tvillingpar **tredobler** raten av rang 3 og gjør rang 4 praktisk talt
+umulig. Mekanismen er mekanisk: den korte tvillingen ligger under fasiten, den
+lange over, og da har fasiten nesten alltid to distraktorer over seg.
+
+**Konsekvens for arbeidsrekkefølgen:** å rydde tvillingene fjerner en stor del av
+rangklyngen ved kilden, i stedet for å justere lengder rundt den. I bøker som
+ikke er rettet ennå, er tvillingrunden derfor det billigste første steget.
+
+⚠ Målt samtidig, mot samme baseline: **fasiten er korteste alternativ i bare
+10 %** av spørsmålene (25 % ved tilfeldighet). Forfatterne skriver systematisk
+fasiten fyldigere enn den korteste distraktoren — det er den vanen «legg inn én
+lengre distraktor»-korreksjonen forsøkte å skjule, og som i stedet flyttet
+signalet fra rang 1 til rang 2.
 
 ## Verktøyet
 
