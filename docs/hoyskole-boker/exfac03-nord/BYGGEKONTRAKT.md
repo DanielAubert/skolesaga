@@ -1160,6 +1160,12 @@ for p in sorted(glob.glob("src/lib/data/chapters/exfac03-nord-*.json")):
             if not RAMME.search(s[max(0, m.start()-V): m.start()+V]):
                 avvik.append(f"{os.path.basename(p)}{sti}: «{m.group(0)}» uten historikk-ramme")
 print(f"PORT T: {n} treff | avvik: {len(avvik)}")
+# ⚠ KJENT FALSK-POSITIV-KLASSE, og porten skal IKKE mykes opp for den:
+# «to deler», «en av de to» om en TEKSTS egne partier er uskyldig, men et
+# unntak måtte listet ord som står overalt i en litteraturbok (tekst, dikt,
+# analyse, avsnitt) og ville dermed gjort porten verdiløs. Skriv i stedet
+# «partier», «ledd» eller «punkter» om tekststruktur. Målt i Del 7+8:
+# ni forekomster, alle uskyldige, alle omskrevet uten tap av mening.
 for a in avvik[:30]: print(" -", a)
 sys.exit(1 if avvik else 0)
 EOF
@@ -1205,6 +1211,12 @@ python3 - <<'EOF'
 # PORT O — EXFAC03-NORD: hvert sidetall står i en omfangsramme.
 import glob, json, os, re, sys
 SIDER = re.compile(r"\b\d+(?:[,.]\d+)?\s*sider?\b|\b(?:én|en|to|tre|fire|fem)\s+sider?\b", re.I)
+# ⚠ Idiomunntak. «to sider av saken», «på én side» om sjangerkortet og
+# «det har to sider» er IKKE omfangsangivelser. Uten dette motsier kontrakten
+# seg selv: §12.1 krever «Sjangerkortet på ÉN side», som porten så forbød.
+IDIOM = re.compile(r"sider?\s+av\b|sjangerkort|oppslagskort|kortet på|"
+                   r"begge sider|den ene siden|den andre siden|"
+                   r"har (?:to|flere) sider|mer enn (?:én|en) side", re.I)
 RAMME = re.compile(r"bokas eget øvingskrav|øvingskrav|har endret seg|varierer mellom|"
                    r"din egen oppgavetekst|ditt eget semester|emnesiden|H2024 og H2025|"
                    r"H2021-oppgavesettet|ikke emnets krav", re.I)
@@ -1220,6 +1232,9 @@ for p in sorted(glob.glob("src/lib/data/chapters/exfac03-nord-*.json")):
     for sti, s in strenger(json.load(open(p, encoding="utf-8"))):
         for m in SIDER.finditer(s):
             n += 1
+            if IDIOM.search(s[max(0, m.start()-60): m.start()+60]):
+                n -= 1
+                continue
             if not RAMME.search(s[max(0, m.start()-V): m.start()+V]):
                 avvik.append(f"{os.path.basename(p)}{sti}: «{m.group(0)}» uten omfangsramme "
                              f"→ …{s[max(0, m.start()-70): m.start()+70]}…")
@@ -2049,7 +2064,7 @@ case-insensitivt; skriptet unntar automatisk kap. 0.1, som skal beskrive
 kildesituasjonen — men malene i denne kontrakten passerer også der):
 
 ```
-Prioritet: perfekt|Sist du var her|som du sikkert husker|du har jo allerede sett|dette kan du fra før|[A-F]-besvarelse|[A-F]-markør|[A-F]-stoff|[A-F]-kandidat|[A-F]-terskel|[A-F]-nivå|karakteren [A-F]\b|karakterskala|gapet til A|\bA–F\b|\bA-F\b|strykprosent|karakterfordeling|sensurstatistikk|\bfire timer\b|\b4 timer\b|tidspress|eksamensdagen|eksamenslokalet|på eksamen får du|slik disponerer du|en god besvarelse ville|en sterk besvarelse ville|en godkjent besvarelse ville|ville ha drøftet|ville her ha|det kan argumenteres begge veier|offisiell fasit|offisielle fasiter|eksamensfasit|arkivets fasit|fasit fra UiO|UiOs fasit|sensorveiledningenes fasit|offisiell løsning|offisielle løsninger|offisielle løsningsforslag|løsningsforslag fra UiO|UiOs løsningsforslag|modellbesvarelse fra UiO|autentiske eksamensoppgaver|hentet fra eksamenssettet|gjengitt fra sensorveiledningen|tidligere flervalgsoppgaver|tidligere flervalgsspørsmål|flervalgsspørsmål fra UiO|flervalgsoppgaver fra UiO|eksamensspørsmål fra UiO|flervalgsdel|alle eksamener|samtlige eksamener|alle terminer|emnet gis bare om høsten|bare om høsten|kun om høsten|erfaringsvis|mange studenter|de fleste studenter|studentene pleier|erfaring viser at|9-punkts-metoden består av|de ni punktene er|\bV20\d\d\b|\bH20(0\d|1[0-8])\b|\bs\. ?\d+|\bside(ne)? \d+|\d\.\s*utgave|omfangskravet er|emnets omfangskrav|kravet i emnet er|gjenbruke (dette |det |stoffet )?(på|i) (LING|EXFAC|EXPHIL|et annet emne)|uttelling (på|i) (LING1100|EXFAC03-SPR|EXPHIL03|et annet emne)|samme stoff som i LING1100|overføringsverdi til
+Prioritet: perfekt|Sist du var her|som du sikkert husker|du har jo allerede sett|dette kan du fra før|\b[A-F]-besvarelse|\b[A-F]-markør|\b[A-F]-stoff|\b[A-F]-kandidat|\b[A-F]-terskel|\b[A-F]-nivå|karakteren [A-F]\b|karakterskala|gapet til A|\bA–F\b|\bA-F\b|strykprosent|karakterfordeling|sensurstatistikk|\bfire timer\b|\b4 timer\b|tidspress|eksamensdagen|eksamenslokalet|på eksamen får du|slik disponerer du|en god besvarelse ville|en sterk besvarelse ville|en godkjent besvarelse ville|ville ha drøftet|ville her ha|det kan argumenteres begge veier|offisiell fasit|offisielle fasiter|eksamensfasit|arkivets fasit|fasit fra UiO|UiOs fasit|sensorveiledningenes fasit|offisiell løsning|offisielle løsninger|offisielle løsningsforslag|løsningsforslag fra UiO|UiOs løsningsforslag|modellbesvarelse fra UiO|autentiske eksamensoppgaver|hentet fra eksamenssettet|gjengitt fra sensorveiledningen|tidligere flervalgsoppgaver|tidligere flervalgsspørsmål|flervalgsspørsmål fra UiO|flervalgsoppgaver fra UiO|eksamensspørsmål fra UiO|flervalgsdel|alle eksamener|samtlige eksamener|alle terminer|emnet gis bare om høsten|bare om høsten|kun om høsten|erfaringsvis|mange studenter|de fleste studenter|studentene pleier|erfaring viser at|9-punkts-metoden består av|de ni punktene er|\bV20\d\d\b|\bH20(0\d|1[0-8])\b|\bs\. ?\d+|\bside(ne)? \d+|\d\.\s*utgave|omfangskravet er|emnets omfangskrav|kravet i emnet er|gjenbruke (dette |det |stoffet )?(på|i) (LING|EXFAC|EXPHIL|et annet emne)|uttelling (på|i) (LING1100|EXFAC03-SPR|EXPHIL03|et annet emne)|samme stoff som i LING1100|overføringsverdi til
 ```
 
 ```bash
