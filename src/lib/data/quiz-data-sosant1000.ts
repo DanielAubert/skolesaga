@@ -4,12 +4,12 @@ const quizData_sosant1000: Record<string, QuizQuestion[]> = {
   'sosant1000-0-1': [
     {
       question: "Hvordan er eksamen i SOSANT1000 satt sammen fra og med høsten 2022?",
-      options: ["Fire timers skoleeksamen med Del 1 kortsvar (fire av seks) og Del 2 langsvar (ett av tre), der begge deler må bestås", "Fire timers skoleeksamen med Del 1 kortsvar (seks av seks) og Del 2 langsvar (to av tre), der de to delene veier likt", "Fire timers skoleeksamen der kandidaten velger fritt mellom kortsvar og langsvar til hun har fylt tiden", "Hjemmeeksamen på 2500 til 3000 ord der kandidaten velger ett av tre oppgavealternativer"],
+      options: ["Fire timers skoleeksamen med Del 1 kortsvar (fire av seks) og Del 2 langsvar (ett av tre), der begge deler må bestås", "Fire timers skoleeksamen med Del 1 kortsvar (seks av seks) og Del 2 langsvar (to av tre), der de to delene veier likt", "Fire timers skoleeksamen der kandidaten velger fritt mellom kortsvar og langsvar helt til de fire timene er brukt opp", "Hjemmeeksamen på 2500 til 3000 ord der kandidaten velger ett av tre oppgavealternativer"],
       explanation: "Riktig er fire timers digital skoleeksamen med fire kortsvar av seks i Del 1 og ett langsvar av tre i Del 2, og begge deler må bestås. Distraktoren om seks kortsvar tester nettopp den vanlige misforståelsen om at man skal svare på alle. Hjemmeeksamensformatet var virkelig i bruk høsten 2020 og 2021, men er ikke dagens form.",
     },
     {
       question: "Hva sier strykregelen i Del 1?",
-      options: ["Står to eller flere av de fire valgte kortsvarene til F, står hele eksamen til F", "Står ett av de fire valgte kortsvarene til F, står hele Del 1 til F", "Står tre av de seks kortsvarene til F, trekkes karakteren ned med ett trinn", "Står halvparten av kortsvarene til F, må kandidaten ta Del 1 på nytt neste semester"],
+      options: ["Står to eller flere av de fire valgte kortsvarene til F, står hele eksamen til F", "Står ett av de fire valgte kortsvarene til F, står hele Del 1 til F, uansett de tre andre", "Står tre av de seks kortsvarene til F, trekkes karakteren ned med ett trinn", "Står halvparten av kortsvarene til F, må kandidaten ta Del 1 på nytt neste semester"],
       explanation: "Riktig er at to eller flere F blant de fire valgte kortsvarene gir F på hele eksamen. Regelen gjelder de fire du faktisk har valgt, ikke alle seks spørsmålene i settet. Sensor gjør likevel en helhetsvurdering, så gode øvrige svar kan veie opp bommer som skyldes at oppgaven ble misforstått.",
     },
     {
@@ -24,17 +24,17 @@ const quizData_sosant1000: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva må stå i et etnografisk eksempel for at det skal telle som forankring?",
-      options: ["Folk eller gruppe, sted og omtrentlig tid, forsker og verk, og hva studien faktisk viste", "Folk eller gruppe, verdensdel og et anslag over hvor mange mennesker praksisen gjelder for", "Forsker, verk og utgivelsesår, slik at leseren kan finne kilden i litteraturlista", "Et fenomen fra et fjernt samfunn som virker fremmed sett fra kandidatens eget"],
+      options: ["Folk eller gruppe, sted og omtrentlig tid, forsker og verk, og hva studien faktisk viste", "Folk eller gruppe, verdensdel og et anslag over hvor mange mennesker praksisen gjelder for", "Forsker, verk og utgivelsesår, slik at leseren kan slå opp kilden i litteraturlista bakerst", "Et fenomen fra et fjernt samfunn som virker fremmed sett fra kandidatens eget"],
       explanation: "Riktig svar er at alle fire leddene må med, og at det siste leddet — hva studien faktisk viste — er det som oftest mangler. En henvisning som bare oppgir forsker og verk er en kildeangivelse, ikke etnografisk forankring. Å nevne en verdensdel er heller ikke et eksempel.",
     },
     {
       question: "Hva regnes som den viktigste enkeltmarkøren for meget god, altså A-markøren?",
-      options: ["Å sette to eller flere pensumtekster eksplisitt i forhold til hverandre", "Å nevne så mange pensumtekster som overhodet mulig innenfor den tiden man har", "Å skrive vesentlig lengre svar enn oppgaven ber om", "Å bruke flest mulig fagtermer fra begrepsbanken i hvert avsnitt"],
+      options: ["Å sette to eller flere pensumtekster eksplisitt i forhold til hverandre", "Å nevne så mange pensumtekster som overhodet mulig", "Å skrive vesentlig lengre svar enn oppgaven ber om", "Å bruke flest mulig fagtermer fra begrepsbanken i hvert avsnitt"],
       explanation: "Riktig er å koble tekstene: si hva de er enige om, hvor de skiller lag, eller hva den ene ser som den andre overser. Veiledningene sier eksplisitt at det er koblingene, ikke antall siterte navn, som løfter fra god til meget god. Å ramse opp tekster side om side uten kobling er tvert imot feil nummer 4.",
     },
     {
       question: "Hva krever 3-referanse-regelen i Del 2?",
-      options: ["Minst tre pensumtekster, og hver av dem skal bære et etnografisk eksempel argumentet hviler på", "Minst tre pensumtekster, som er nok til å oppfylle kravet så lenge de er navngitt i innledningen", "Minst tre etnografiske eksempler, som gjerne kan hentes fra én og samme pensumtekst", "Minst tre avsnitt der kandidaten tar stilling til påstanden i oppgaveteksten"],
+      options: ["Minst tre pensumtekster, og hver av dem skal bære et etnografisk eksempel argumentet hviler på", "Minst tre pensumtekster, som er nok til å oppfylle kravet så lenge de er navngitt i innledningen", "Minst tre etnografiske eksempler, som gjerne kan hentes fra ett og samme kapittel i én pensumtekst", "Minst tre avsnitt der kandidaten tar stilling til påstanden i oppgaveteksten"],
       explanation: "Riktig er at tre tekster skal brukes, ikke bare nevnes: hver av dem må bære et konkret etnografisk eksempel som argumentet faktisk hviler på. Tre eksempler fra samme tekst dekker ikke kravet om kildebredde. Å bare navngi tre tekster i innledningen er nettopp den mekaniske lesningen veiledningene advarer mot.",
     },
     {
@@ -44,12 +44,12 @@ const quizData_sosant1000: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke temaer opptrer hyppigst i de 11 eksamenssettene?",
-      options: ["Økonomi og bytte, deretter globalisering, religion og ritualer, og miljø og natur", "Kjønn, deretter etnisitet og nasjonalisme, og til slutt status og rolle", "Kultur og relativisme, deretter status og rolle, og til slutt slektskap", "Metode og feltarbeid, deretter sosial differensiering, og til slutt politikk og makt"],
+      options: ["Økonomi og bytte, deretter globalisering, religion og ritualer, og miljø og natur", "Kjønn, deretter etnisitet og nasjonalisme, og til slutt status og rolle", "Kultur og relativisme, deretter status og rolle, og til slutt slektskap", "Metode og feltarbeid, deretter sosial differensiering, så politikk og makt"],
       explanation: "Riktig rekkefølge på toppen er økonomi og bytte, globalisering, religion og ritualer, og miljø og natur. Kjønn og etnisitet er derimot blant de mest lavfrekvente som selvstendige spørsmål. Metode, differensiering og politikk er hyppige, men ligger under de fire toppene.",
     },
     {
       question: "En kandidat leser bare ritualkapitlene, svært grundig, og lar de andre temaene ligge. Hvilken feil er dette?",
-      options: ["Feil nummer 12 — ubalansert besvarelse, sterk på ett svar og tynn på resten", "Feil nummer 7 — å svare på flere kortsvar enn de fire som leses", "Feil nummer 2 — bare én eller to pensumkilder i langsvaret", "Feil nummer 1 — begrepet defineres riktig, men uten et eneste konkret eksempel"],
+      options: ["Feil nummer 12 — ubalansert besvarelse, sterk på ett svar og tynn på resten", "Feil nummer 7 — å svare på flere kortsvar enn de fire som blir lest og vurdert", "Feil nummer 2 — bare én eller to pensumkilder i langsvaret", "Feil nummer 1 — begrepet defineres riktig, men uten et eneste konkret eksempel"],
       explanation: "Riktig er feil nummer 12, ubalansert besvarelse: kandidaten bygger ett svært sterkt svar og lar resten stå tynt, noe som er farlig når to svake kortsvar kan velte hele eksamen. Feil 7 handler om antall svar, ikke om fordelingen av lesetid. Feil 1 og 2 gjelder henholdsvis manglende etnografi og for få kilder.",
     },
   ],
@@ -66,7 +66,7 @@ const quizData_sosant1000: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en tilskrevet status?",
-      options: ["En status som tildeles uavhengig av personens egen innsats, som kaste, alder eller slektstilhørighet", "En status som oppnås gjennom personens egne handlinger, som utdanning, yrke eller politisk verv", "En status som følger av biologiske forhold, og som samfunnet omkring derfor ikke har noen mulighet til å endre", "En status som er knyttet til anseelse, og som andre tilskriver personen etter fortjeneste"],
+      options: ["En status som tildeles uavhengig av personens egen innsats, som kaste, alder eller slektstilhørighet", "En status som oppnås gjennom personens egne handlinger, som utdanning, yrke eller politisk verv", "En status som følger av biologiske forhold, og som samfunnet omkring derfor ikke kan endre", "En status som er knyttet til anseelse, og som andre tilskriver personen etter fortjeneste"],
       explanation: "Riktig er at tilskrevet status tildeles uavhengig av egen innsats. Det motsatte, ervervet status, oppnås gjennom handling. Distraktoren om biologi er den viktigste fellen: tilskrevne statuser er sosialt tildelte, ikke naturgitte, og å blande de to er feil nummer 9, å naturalisere det sosiale.",
     },
     {
@@ -76,17 +76,17 @@ const quizData_sosant1000: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor skal etnografi skrives i datid med tidfesting og ikke i presens?",
-      options: ["Presens fastfryser et folk i etnografens feltperiode og fremstiller dem som historieløse", "Presens er grammatisk ukorrekt på norsk når man omtaler forskning som allerede er publisert i bokform", "Presens gjør teksten lengre og bruker opp tid man trenger på de andre kortsvarene", "Presens er forbeholdt teoretiske begreper, mens empiri alltid omtales i preteritum"],
+      options: ["Presens fastfryser et folk i etnografens feltperiode og fremstiller dem som historieløse", "Presens er grammatisk ukorrekt på norsk når man omtaler publisert forskning", "Presens gjør teksten lengre og bruker opp tid man trenger på de andre kortsvarene", "Presens er forbeholdt teoretiske begreper, mens empiri alltid omtales i preteritum"],
       explanation: "Riktig er at presens fremstiller folkegruppen som om den står stille i feltperioden, noe faget kaller etnografisk nåtid og har arbeidet lenge for å komme ut av. Det er en faglig presisjonsfeil, ikke en grammatikkfeil. Presens er greit om praksiser som beviselig pågår, og da med en tidsmarkør som «i dag» eller «fortsatt».",
     },
     {
       question: "Hva kjennetegner et kortsvar som ligger på nivået minimumskrav?",
-      options: ["Korrekt definisjon eller gjengivelse, men uten distinksjon og uten eller med svært tynn etnografi", "Korrekt definisjon med distinksjon og et pensumeksempel, men uten noen kobling til andre pensumtekster", "En sammenhengende drøfting der påstanden prøves mot minst én innvending underveis", "Et svar med flere faktafeil i definisjonen, som likevel har rikt etnografisk materiale"],
+      options: ["Korrekt definisjon eller gjengivelse, men uten distinksjon og uten eller med svært tynn etnografi", "Korrekt definisjon med distinksjon og et pensumeksempel, men uten noen kobling til andre pensumtekster", "En sammenhengende drøfting der påstanden prøves mot minst én innvending og deretter justeres underveis i svaret", "Et svar med flere faktafeil i definisjonen, som likevel har rikt etnografisk materiale"],
       explanation: "Riktig er at minimumskravet er korrekt definisjon eller gjengivelse uten distinksjon og uten reell etnografi. Definisjon med distinksjon og pensumeksempel er derimot beskrivelsen av nivået god. Et minimumssvar er sjelden feil, og det er nettopp det som gjør det farlig for kandidaten.",
     },
     {
       question: "Hva løfter et kortsvar fra god til meget god?",
-      options: ["En selvstendig kobling som setter svaret i forhold til en annen pensumtekst eller til monografien", "En vesentlig lengre besvarelse med flere detaljer om det samme etnografiske eksempelet", "En innledning som gjør rede for hele temaets plass i sosialantropologiens faghistorie fra Malinowski av", "En avslutning der kandidaten tar personlig stilling til om praksisen bør fortsette"],
+      options: ["En selvstendig kobling som setter svaret i forhold til en annen pensumtekst eller til monografien", "En vesentlig lengre besvarelse med enda flere detaljer om nøyaktig det samme etnografiske eksempelet", "En innledning som gjør rede for hele temaets plass i sosialantropologiens faghistorie fra Malinowski av", "En avslutning der kandidaten tar personlig stilling til om praksisen bør fortsette"],
       explanation: "Riktig er den selvstendige koblingen på tvers av tekster, som sensorveiledningene peker på som toppmarkøren også i korte svar. Lengde er ikke skillet — i eksemplene i kapitlet er A-versjonen bare ett avsnitt lengre enn C-versjonen. En personlig moralsk stillingtagen er ikke det oppgaven ber om.",
     },
     {
@@ -106,17 +106,17 @@ const quizData_sosant1000: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den løftende setningen i et kortsvar?",
-      options: ["Én setning som kobler svaret til en annen pensumtekst, til monografien eller til fagets holisme", "Én setning som oppsummerer alt kandidaten allerede har skrevet i svaret ovenfor, bare med andre ord", "Én setning som forklarer hvorfor temaet er relevant for kandidatens eget yrkesvalg", "Én setning som varsler sensor om hvilke av de seks spørsmålene kandidaten har valgt"],
+      options: ["Én setning som kobler svaret til en annen pensumtekst, til monografien eller til fagets holisme", "Én setning som oppsummerer alt kandidaten allerede har skrevet i svaret ovenfor, bare med andre ord", "Én setning som forklarer hvorfor temaet er relevant for kandidatens eget yrkesvalg og videre studieløp", "Én setning som varsler sensor om hvilke av de seks spørsmålene kandidaten har valgt"],
       explanation: "Riktig er koblingen ut av svaret: til en annen tekst, til monografien eller til holismen. En ren oppsummering legger ikke til noe nytt og løfter derfor ikke. Setningen er det eneste valgfrie av de fire trinnene, men også det billigste veien mot meget god.",
     },
     {
       question: "Et svar definerer emisk og etisk perspektiv korrekt, forklarer begge ledd, men har ingen eksempler og ingen navngitt forfatter. Hvor plasseres det?",
-      options: ["På minimumskrav, fordi manglende etnografisk forankring er feil nummer 1", "På god, fordi distinksjonen er komplett og begge leddene er forklart", "På meget god, fordi svaret viser at kandidaten behersker et vanskelig begrepspar", "Det kan ikke vurderes, fordi et svar uten forfatter regnes som ubesvart"],
+      options: ["På minimumskrav, fordi manglende etnografisk forankring er feil nummer 1", "På god, fordi distinksjonen er komplett og begge leddene er forklart hver for seg", "På meget god, fordi svaret viser at kandidaten behersker et vanskelig begrepspar", "Det kan ikke vurderes, fordi et svar uten forfatter regnes som ubesvart"],
       explanation: "Riktig er minimumskrav: alt som står der er korrekt, men et abstrakt og eksempelløst svar kan ifølge veiledningene ikke nå toppen. En komplett distinksjon alene løfter ikke til god når trinn tre mangler helt. Et svar uten navngitt forfatter vurderes selvsagt, det plasseres bare lavt på akse fire.",
     },
     {
       question: "Hva er formålet med at kortsvarsrubrikken er binær?",
-      options: ["At leseren skal kunne krysse av hvert punkt uten skjønn og dermed rette sitt eget svar selv", "At sensor skal kunne bruke den til å sette karakter raskere på hvert enkelt av de fire kortsvarene", "At poengsummen fra de seks punktene skal kunne regnes om til en bokstavkarakter", "At kandidaten skal kunne dokumentere overfor instituttet at kravene er oppfylt"],
+      options: ["At leseren skal kunne krysse av hvert punkt uten skjønn og dermed rette sitt eget svar selv", "At sensor skal kunne bruke den til å sette karakter raskere på hvert enkelt av de fire kortsvarene", "At poengsummen fra de seks punktene skal kunne regnes om til en bokstavkarakter på skalaen A til F", "At kandidaten skal kunne dokumentere overfor instituttet at kravene er oppfylt"],
       explanation: "Riktig er selvrettingen: en binær sjekkliste lar deg avgjøre uten skjønn om et punkt er oppfylt, slik at du finner konkrete grep i stedet for å gjette på en karakter. Rubrikken er bokas verktøy, ikke sensors, og den regnes ikke om til noen karakter. Hvert punkt du ikke kan krysse av, peker på ett bestemt tillegg.",
     },
     {
@@ -126,14 +126,14 @@ const quizData_sosant1000: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva menes med at tilskrevne statuser er sosialt tildelte og ikke naturgitte?",
-      options: ["At de ikke kan velges bort av den enkelte, men likevel er skapt av mennesker og kan endres av dem", "At de er biologisk bestemte og derfor ligger utenfor samfunnets rekkevidde å endre på", "At de bare finnes i samfunn med sterk stat, der myndighetene tildeler dem formelt", "At de kan byttes ut av den enkelte gjennom utdanning, arbeid eller flytting til et helt annet sted i landet"],
+      options: ["At de ikke kan velges bort av den enkelte, men likevel er skapt av mennesker og kan endres av dem", "At de er biologisk bestemte og derfor ligger utenfor både den enkeltes og samfunnets rekkevidde å endre", "At de bare finnes i samfunn med sterk stat, der myndighetene tildeler dem formelt", "At de kan byttes ut av den enkelte gjennom utdanning, arbeid eller flytting til et helt annet sted i landet"],
       explanation: "Riktig er at tilskrevet status er utenfor den enkeltes valg, men innenfor samfunnets: den er menneskeskapt og kan endres, om enn tregt. Å kalle dem biologisk bestemte er feil nummer 9, å naturalisere det sosiale. Statuser man selv kan oppnå gjennom utdanning eller arbeid, er per definisjon ervervede.",
     },
   ],
   'sosant1000-0-3': [
     {
       question: "Hva krever 3-referanse-regelen, og hva skjer om den brytes?",
-      options: ["Minst tre pensumtekster i langsvar; én eller to trekker ned uansett hvor godt svaret ellers er", "Minst tre pensumtekster i hvert av de fire kortsvarene, ellers vurderes hele svaret som ubesvart", "Minst tre etnografiske eksempler i langsvaret, gjerne hentet fra en og samme pensumtekst", "Minst tre henvisninger i litteraturlista, som leveres separat sammen med selve besvarelsen"],
+      options: ["Minst tre pensumtekster i langsvar; én eller to trekker ned uansett hvor godt svaret ellers er", "Minst tre pensumtekster i hvert av de fire kortsvarene, ellers regnes svaret som ubesvart", "Minst tre etnografiske eksempler i langsvaret, gjerne hentet fra en og samme pensumtekst", "Minst tre henvisninger i litteraturlista, som leveres separat sammen med selve besvarelsen"],
       explanation: "Riktig er minst tre pensumtekster i langsvar, og at færre trekker ned uavhengig av øvrig kvalitet. Kravet gjelder Del 2, ikke kortsvarene, der kravet er minst ett etnografisk eksempel. Tre eksempler fra samme tekst dekker ikke kildebredden regelen etterspør.",
     },
     {
@@ -148,7 +148,7 @@ const quizData_sosant1000: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skiller en begrepsavklaring fra en definisjon i innledningen til et langsvar?",
-      options: ["Avklaringen viser at begrepet kan leses på flere måter, og sier hvilken lesning teksten legger til grunn", "Avklaringen er lengre og gir en mer detaljert redegjørelse for hva begrepet betyr i faget", "Avklaringen navngir hvilken pensumforfatter begrepet er hentet fra, noe definisjonen ikke gjør", "Avklaringen plasseres helt til slutt i besvarelsen, mens definisjonen alltid kommer aller først i innledningen"],
+      options: ["Avklaringen viser at begrepet kan leses på flere måter, og sier hvilken lesning teksten legger til grunn", "Avklaringen er lengre og gir en mer detaljert redegjørelse for hva begrepet betyr i faget", "Avklaringen navngir hvilken pensumforfatter begrepet er hentet fra, noe definisjonen ikke gjør", "Avklaringen plasseres helt til slutt i besvarelsen, mens definisjonen kommer først i innledningen"],
       explanation: "Riktig er at avklaringen problematiserer: den viser at begrepet er tvetydig og velger lesning, og dermed at oppgaven er et reelt spørsmål. Lengde og forfatternavn er ikke det som skiller de to. Sensorveiledningene nevner faghistorisk problematisering som en markør for meget god.",
     },
     {
@@ -163,7 +163,7 @@ const quizData_sosant1000: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kreves i en komparativ oppgave som ikke kreves i et vanlig langsvar?",
-      options: ["At begge leddene behandles på hver sammenligningsakse, med etnografisk belegg på begge", "At kandidaten bruker minst fem pensumtekster, siden to fenomener skal dekkes samtidig", "At kandidaten konkluderer med hvilket av de to fenomenene som er viktigst i faget i dag", "At de to fenomenene presenteres hver for seg i hvert sitt avsnitt, uten sammenblanding"],
+      options: ["At begge leddene behandles på hver sammenligningsakse, med etnografisk belegg på begge", "At kandidaten bruker minst fem pensumtekster, siden to ulike fenomener skal dekkes samtidig", "At kandidaten konkluderer med hvilket av de to fenomenene som er viktigst i faget i dag", "At de to fenomenene presenteres hver for seg i hvert sitt avsnitt, uten sammenblanding"],
       explanation: "Riktig er kravet om begge ledd på hver akse, med etnografi på begge. Å presentere de to hver for seg uten å møtes er nettopp det som gjør svaret til to parallelle referater. Å beskrive bare det ene leddet er feil nummer 11, ensidig komparasjon.",
     },
     {
@@ -188,7 +188,7 @@ const quizData_sosant1000: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan bør en egen erfaring fra arbeid eller oppvekst brukes i et langsvar?",
-      options: ["Som illustrasjon av et pensumbegrep, med kobling tilbake til pensumetnografien og drøftingsaksen", "Som selvstendig belegg for påstanden, siden førstehåndskunnskap er sterkere enn andres feltarbeid", "Som innledning til besvarelsen, slik at sensor ser at kandidaten har relevant bakgrunn i temaet", "Den bør holdes helt utenfor, fordi alt materiale i en besvarelse skal komme fra pensumlista"],
+      options: ["Som illustrasjon av et pensumbegrep, med kobling tilbake til pensumetnografien og drøftingsaksen", "Som selvstendig belegg for påstanden, siden førstehåndskunnskap er sterkest", "Som innledning til besvarelsen, slik at sensor ser at kandidaten har relevant bakgrunn i temaet", "Den bør holdes helt utenfor, fordi alt materiale i en besvarelse skal komme fra pensumlista"],
       explanation: "Riktig er å starte i begrepet, bruke erfaringen som illustrasjon og koble tilbake til pensumetnografien. Erfaring som selvstendig belegg er det veiledningene kaller pensumløs synsing. Samtidig er det feil å holde erfaringen helt utenfor: riktig konvertert er den en styrke.",
     },
     {
@@ -198,12 +198,12 @@ const quizData_sosant1000: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er riktig om Marcel Mauss og materialet i «Gaven»?",
-      options: ["Han gjorde ikke feltarbeid selv, men syntetiserte blant annet Malinowskis og Boas' materiale", "Han gjorde feltarbeid på Trobriandøyene og bygde analysen på sitt eget materiale derfra", "Han gjorde feltarbeid på nordvestkysten av Nord-Amerika og beskrev potlatchen ved selvsyn", "Han samlet inn materialet gjennom spørreskjemaer som ble sendt til misjonærer i flere verdensdeler"],
+      options: ["Han gjorde ikke feltarbeid selv, men syntetiserte blant annet Malinowskis og Boas' materiale", "Han gjorde feltarbeid på Trobriandøyene og bygde hele analysen på sitt eget innsamlede materiale", "Han gjorde feltarbeid på nordvestkysten av Nord-Amerika og beskrev potlatchen ved selvsyn", "Han samlet inn materialet gjennom spørreskjemaer som ble sendt til misjonærer i flere verdensdeler"],
       explanation: "Riktig er at Mauss ikke var i felt: han syntetiserte andres etnografi, blant annet Malinowskis Trobriand-materiale og Boas' potlatch-materiale, sammen med rettshistoriske kilder. Å skrive at han fant noe i sitt eget feltarbeid er en faglig feil sensor merker umiddelbart. Trobriand-feltarbeidet var Malinowskis.",
     },
     {
       question: "Hva viste Kathleen Millars studie fra fyllinga Jardim Gramacho i Rio de Janeiro?",
-      options: ["At prekært arbeid er en livsform med egen logikk — rytme og selvstendighet, ikke bare mangel", "At søppelplukkerne manglet alternativer og derfor ble værende på fyllinga mot sin vilje", "At uformelt arbeid gradvis erstattes av vanlig lønnsarbeid når byene vokser og markedene modnes", "At arbeidet på fyllinga var organisert etter et gavebytte styrt av gjensidige forpliktelser"],
+      options: ["At prekært arbeid er en livsform med egen logikk — rytme og selvstendighet, ikke bare mangel", "At søppelplukkerne manglet alternativer på arbeidsmarkedet og derfor ble værende på fyllinga mot sin vilje", "At uformelt arbeid gradvis erstattes av vanlig lønnsarbeid når byene vokser og markedene modnes", "At arbeidet på fyllinga var organisert etter et gavebytte styrt av gjensidige forpliktelser"],
       explanation: "Riktig er at prekaritet hos Millar er en livsform med egen logikk: folk vendte tilbake fordi arbeidets rytme og relative selvstendighet passet et prekært liv. Å lese studien som en ren elendighetsbeskrivelse er den vanligste feillesningen av den. Gavebyttet er Mauss' analyse, ikke Millars.",
     },
   ],
@@ -215,7 +215,7 @@ const quizData_sosant1000: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er holisme i sosialantropologien?",
-      options: ["Prinsippet om at økonomi, slektskap, religion og politikk henger sammen og ikke lar seg skille rent", "Prinsippet om at forskeren skal beskrive absolutt alle sider ved samfunnet hun studerer, uten utelatelser", "Prinsippet om at hvert samfunn må vurderes ut fra sine egne moralske standarder og ikke andres", "Prinsippet om at samfunnet er mer enn summen av individene, og at individet derfor er uinteressant"],
+      options: ["Prinsippet om at økonomi, slektskap, religion og politikk henger sammen og ikke lar seg skille rent", "Prinsippet om at forskeren skal beskrive absolutt alle sider ved samfunnet hun studerer", "Prinsippet om at hvert samfunn må vurderes ut fra sine egne moralske standarder og ikke andres", "Prinsippet om at samfunnet er mer enn summen av individene, og at individet derfor er uinteressant"],
       explanation: "Riktig er at de fire feltene henger sammen og ikke lar seg skille rent fra hverandre; det er et metodisk krav, ikke et krav om fullstendighet. Å vurdere et samfunn ut fra dets egne standarder er kulturrelativisme, et annet begrep. Holismen gjør ikke individet uinteressant, den plasserer det i relasjoner.",
     },
     {
@@ -230,17 +230,17 @@ const quizData_sosant1000: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er segmentær organisering?",
-      options: ["Grupper definert av avstamning som slår seg sammen eller splittes avhengig av konfliktens nivå", "En inndeling av samfunnet i yrkesgrupper med hver sin funksjon og hvert sitt ansvarsområde", "En rangordning av slektsgrupper der de eldste avstamningslinjene har myndighet over de yngre", "En geografisk oppdeling av territoriet i faste segmenter med hver sin lokale leder og forsamling"],
+      options: ["Grupper definert av avstamning som slår seg sammen eller splittes avhengig av konfliktens nivå", "En inndeling av samfunnet i faste yrkesgrupper med hver sin funksjon og hvert sitt ansvarsområde", "En rangordning av slektsgrupper der de eldste avstamningslinjene har myndighet over de yngre", "En geografisk oppdeling av territoriet i faste segmenter med hver sin lokale leder og forsamling"],
       explanation: "Riktig er balansen mellom avstamningsgrupper som fusjonerer og splittes etter hvilket nivå konflikten ligger på. Det er ikke en rangordning og ikke en funksjonsdeling — det er nettopp fraværet av et fast sentrum som gjør ordenen segmentær. Mekanismen er samtidig et sterkt argument for holismen.",
     },
     {
       question: "Hva er et emisk perspektiv?",
-      options: ["Aktørenes eget perspektiv: hvordan menneskene selv forstår og kategoriserer det de gjør", "Analytikerens perspektiv: de kategoriene forskeren bruker for å kunne sammenligne samfunn", "Et moralsk perspektiv der forskeren tar stilling til om praksisen er forsvarlig eller ikke", "Et perspektiv der forskeren beskriver samfunnet slik det så ut før kolonitiden begynte"],
+      options: ["Aktørenes eget perspektiv: hvordan menneskene selv forstår og kategoriserer det de gjør", "Analytikerens perspektiv: de kategoriene forskeren bruker for å kunne sammenligne samfunn", "Et moralsk perspektiv der forskeren tar stilling til om praksisen er forsvarlig eller ikke", "Et perspektiv der forskeren beskriver samfunnet slik det så ut før kolonitiden begynte i området"],
       explanation: "Riktig er aktørenes eget perspektiv, altså beskrivelsen innenfra i deres egne begreper. Analytikerens utenfrakategorier er det etiske perspektivet, og de to må holdes fra hverandre. Å ta det emiske på alvor forplikter ikke forskeren til å være enig i noe.",
     },
     {
       question: "Hva betyr «etisk» i skillet mellom emisk og etisk?",
-      options: ["Utenfra, i analytikerens sammenlignbare kategorier — ordet har ingenting med moral å gjøre", "Moralsk forsvarlig, altså at forskeren vurderer om praksisen kan aksepteres eller ikke", "Etnisk, altså knyttet til den folkegruppen som studeres og til gruppens egen selvforståelse", "Empirisk, altså basert på observerbare data i stedet for på informantenes egne utsagn"],
+      options: ["Utenfra, i analytikerens sammenlignbare kategorier — ordet har ingenting med moral å gjøre", "Moralsk forsvarlig, altså at forskeren vurderer om praksisen kan aksepteres eller må fordømmes", "Etnisk, altså knyttet til den folkegruppen som studeres og til gruppens egen selvforståelse", "Empirisk, altså basert på observerbare data i stedet for på informantenes egne utsagn"],
       explanation: "Riktig er at etisk her betyr utenfrabeskrivelse i sammenlignbare kategorier; termen kommer fra skillet mellom fonemisk og fonetisk i språkvitenskapen. Forvekslingen med moral er den vanligste enkeltfeilen i dette stoffet, og å si i svaret at man er klar over den, viser presisjon. «Segmentær organisering» er et typisk etisk begrep.",
     },
     {
@@ -255,7 +255,7 @@ const quizData_sosant1000: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er riktig om Marcel Mauss og materialet i «Gaven»?",
-      options: ["Han var aldri i felt, men sammenlignet andres etnografi, blant annet Malinowskis og Boas' materiale", "Han gjorde feltarbeid på Trobriandøyene og bygde analysen sin på sitt eget kula-materiale", "Han gjorde feltarbeid blant Nuer og overførte funnene derfra til andre samfunn i Melanesia", "At små samfunn er representative utvalg av verden, slik at funnene derfra kan generaliseres statistisk"],
+      options: ["Han var aldri i felt, men sammenlignet andres etnografi, blant annet Malinowskis og Boas' materiale", "Han gjorde feltarbeid på Trobriandøyene og bygde analysen sin på kula-materiale han hadde samlet inn selv", "Han gjorde feltarbeid blant Nuer og overførte funnene derfra til andre samfunn i Melanesia", "At små samfunn er representative utvalg av verden, slik at funnene derfra kan generaliseres statistisk"],
       explanation: "Riktig er at Mauss syntetiserte andres etnografi sammen med rettshistoriske kilder. Trobriand-feltarbeidet var Malinowskis, og potlatch-materialet kom fra Boas. Å skrive at Mauss fant noe i sitt eget feltarbeid er en faglig feil sensor merker umiddelbart, og den slår ut på presisjonsaksen.",
     },
     {
@@ -265,7 +265,7 @@ const quizData_sosant1000: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skiller kula fra gimwali?",
-      options: ["Kula er seremonielt prestisjebytte i faste partnerskap, gimwali er den prosaiske prutthandelen", "Kula er handel med mat og bruksting, gimwali er utveksling av armbånd og halskjeder mellom øyer", "Kula foregikk mellom slektninger, mens gimwali bare foregikk mellom fremmede fra andre øyer", "Kula var forbeholdt menn med høy status, mens gimwali var åpent for alle uansett posisjon"],
+      options: ["Kula er seremonielt prestisjebytte i faste partnerskap, gimwali er den prosaiske prutthandelen", "Kula er handel med mat og bruksting, gimwali er utveksling av armbånd og halskjeder", "Kula foregikk mellom slektninger, mens gimwali bare foregikk mellom fremmede fra andre øyer", "Kula var forbeholdt menn med høy status, mens gimwali var åpent for alle uansett posisjon"],
       explanation: "Riktig er at kula var seremonielt prestisjebytte gjennom langvarige partnerskap, mens gimwali var prutthandelen ved siden av. De to ble holdt bevisst atskilt, og å oppføre seg som i gimwali under kula var en fornærmelse. Å blande dem, eller å kalle kula «handel», er nøyaktig fellen sensor tester.",
     },
     {
@@ -275,7 +275,7 @@ const quizData_sosant1000: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor passer feltarbeid som metode særlig godt til holismen?",
-      options: ["Fordi langvarig tilstedeværelse i mange sammenhenger avdekker sammenhenger man ikke kom for å studere", "Fordi metoden gir forskeren mulighet til å intervjue et stort antall mennesker om alle temaer", "Forskeren må både gjøre eget feltarbeid og lese seg opp på tidligere etnografier fra det samme området", "Fordi metoden gjør det mulig å måle hvor sterkt de ulike delene av samfunnet påvirker hverandre"],
+      options: ["Fordi langvarig tilstedeværelse i mange sammenhenger avdekker sammenhenger man ikke kom for å studere", "Fordi metoden gir forskeren mulighet til å intervjue et stort antall mennesker om alle temaer i livet deres", "Forskeren må både gjøre eget feltarbeid og lese seg opp på tidligere etnografier fra det samme området", "Fordi metoden gjør det mulig å måle hvor sterkt de ulike delene av samfunnet påvirker hverandre"],
       explanation: "Riktig er at tilstedeværelse over tid og i mange sammenhenger gjør sammenhengene synlige — det var slik Evans-Pritchard oppdaget hva kveg gjorde i alle deler av livet. Metoden handler ikke om antall informanter eller om måling av påvirkning. Språkbeherskelse er viktig, men er ikke det som knytter metoden til holismen.",
     },
     {
@@ -285,12 +285,12 @@ const quizData_sosant1000: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva var forskjellen i tyngdepunkt mellom britisk sosialantropologi og amerikansk kulturantropologi?",
-      options: ["Britisk tradisjon la vekt på sosial organisasjon, amerikansk på kultur som meningssystem", "Britisk tradisjon la vekt på feltarbeid, mens amerikansk tradisjon bygde på arkivstudier", "Britisk tradisjon studerte egne samfunn, mens amerikansk tradisjon studerte andre verdensdeler", "Britisk tradisjon var kvantitativ og statistisk, mens amerikansk tradisjon var rent kvalitativ"],
+      options: ["Britisk tradisjon la vekt på sosial organisasjon, amerikansk på kultur som meningssystem", "Britisk tradisjon la vekt på langvarig feltarbeid, mens amerikansk tradisjon bygde på arkivstudier", "Britisk tradisjon studerte egne samfunn, mens amerikansk tradisjon studerte andre verdensdeler", "Britisk tradisjon var kvantitativ og statistisk, mens amerikansk tradisjon var rent kvalitativ"],
       explanation: "Riktig er skillet mellom sosial organisasjon og kultur som meningssystem, med Malinowski og Evans-Pritchard på den ene siden og Boas og senere Geertz på den andre. Begge tradisjoner bygde på feltarbeid. I dag er skillet langt mindre skarpt, og norsk sosialantropologi bruker begge tilfangene.",
     },
     {
       question: "Hva var den evolusjonistiske rammen faget vokste frem i?",
-      options: ["En trapp der samfunn ble rangert fra enklere til mer siviliserte former, med Europa øverst", "En modell der alle samfunn ble antatt å utvikle seg i utakt, men mot ulike sluttilstander", "En teori om at kulturell variasjon skyldes klimatiske og geografiske forskjeller mellom områder", "En antagelse om at samfunn forandrer seg først når de kommer i kontakt med andre samfunn"],
+      options: ["En trapp der samfunn ble rangert fra enklere til mer siviliserte former, med Europa øverst", "En modell der alle samfunn ble antatt å utvikle seg i utakt, men mot hver sin egen sluttilstand", "En teori om at kulturell variasjon skyldes klimatiske og geografiske forskjeller mellom områder", "En antagelse om at samfunn forandrer seg først når de kommer i kontakt med andre samfunn"],
       explanation: "Riktig er den rangerte trappen fra enkle til siviliserte samfunn med Europa på toppen, en ramme faget senere har forlatt. Spor av den finnes i klassikernes titler og premisser, og å kunne si det kort og faktuelt er faghistorisk presisjon. Klimaforklaringer og kontaktteorier er andre og adskilte posisjoner.",
     },
     {
@@ -312,7 +312,7 @@ const quizData_sosant1000: Record<string, QuizQuestion[]> = {
   'sosant1000-1-2': [
     {
       question: "Hva er metodologisk kulturrelativisme?",
-      options: ["Et forskningsprinsipp om å forstå en praksis i sin egen sammenheng før man vurderer den", "En moralsk påstand om at alle praksiser er like forsvarlige og ikke kan vurderes på tvers", "Et krav om at forskeren skal dele informantenes verdier mens hun er ute i felt hos dem", "En regel om at forskeren aldri skal skrive kritisk om samfunnet hun har studert etterpå"],
+      options: ["Et forskningsprinsipp om å forstå en praksis i sin egen sammenheng før man vurderer den", "En moralsk påstand om at alle praksiser er like forsvarlige og ikke kan vurderes på tvers", "Et krav om at forskeren skal dele informantenes verdier så lenge hun er ute i felt hos dem", "En regel om at forskeren aldri skal skrive kritisk om samfunnet hun har studert etterpå"],
       explanation: "Riktig er forskningsprinsippet om å forstå i kontekst før man vurderer. Påstanden om at alle praksiser er like forsvarlige er etisk kulturrelativisme, en helt annen posisjon som faget ikke forplikter seg på. Prinsippet krever verken at forskeren deler verdiene eller at hun avstår fra kritikk.",
     },
     {
@@ -322,7 +322,7 @@ const quizData_sosant1000: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner Geertz' kulturbegrep?",
-      options: ["Kultur som intersubjektive meningssystemer — mening som ligger mellom mennesker, ikke inne i dem", "Kultur som en avgrenset livsform et folk har, og som skiller dem klart fra alle andre folkegrupper", "Kultur som de nedarvede egenskapene en gruppe fører videre fra en generasjon til den neste", "Kultur som summen av de holdningene den enkelte har tilegnet seg i løpet av oppveksten sin"],
+      options: ["Kultur som intersubjektive meningssystemer — mening som ligger mellom mennesker, ikke inne i dem", "Kultur som en avgrenset livsform et folk har, og som skiller dem klart fra andre", "Kultur som de nedarvede egenskapene en gruppe fører videre fra en generasjon til den neste", "Kultur som summen av de holdningene den enkelte har tilegnet seg i løpet av oppveksten sin"],
       explanation: "Riktig er at meningen er intersubjektiv, altså offentlig og delt, og at den derfor kan tolkes. Beskrivelsen av kultur som en avgrenset livsform er det klassiske kulturbegrepet, som Geertz' tilnærming skiller seg fra. At kultur skulle være nedarvet er direkte feil: kultur er lært, og det er nettopp det som gjør den sosial.",
     },
     {
@@ -332,12 +332,12 @@ const quizData_sosant1000: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva menes med at et symbol er både «modell av» og «modell for» virkeligheten?",
-      options: ["Det beskriver hvordan verden er og foreskriver hvordan man skal handle, samtidig", "Det kan tolkes både av deltagerne selv og av forskeren, men på hver sin måte", "Det har én betydning i dagliglivet og en annen betydning i rituelle sammenhenger", "Det gjengir en tidligere tilstand og peker samtidig frem mot en fremtidig tilstand"],
+      options: ["Det beskriver hvordan verden er og foreskriver hvordan man skal handle, samtidig", "Det kan tolkes både av deltagerne selv og av forskeren, men på hver sin måte og hver for seg", "Det har én betydning i dagliglivet og en annen betydning i rituelle sammenhenger", "Det gjengir en tidligere tilstand og peker samtidig frem mot en fremtidig tilstand"],
       explanation: "Riktig er samtidigheten mellom beskrivelse og foreskrivelse: symbolet sier hvordan verden er, og former dermed den verden det beskriver. Det er samtidigheten som gir symboler kraft, ikke at de veksler mellom to funksjoner. Formuleringen er en av de mest gjenbrukbare koblingene i pensum.",
     },
     {
       question: "Hva er problemet med det klassiske kulturbegrepet, kultur som avgrenset livsform?",
-      options: ["Det gjør kultur til en beholder med skarpe grenser, skjuler uenighet innad og gjør endring til tap", "Det er for løst formulert til å kunne brukes analytisk, og har derfor aldri hatt noen funksjon i faget", "Det legger for stor vekt på materielle forhold og for liten vekt på mening og symbolske uttrykk", "Det forutsetter at alle samfunn utvikler seg gjennom de samme stadiene i den samme rekkefølgen"],
+      options: ["Det gjør kultur til en beholder med skarpe grenser, skjuler uenighet innad og gjør endring til tap", "Det er for løst formulert til å brukes analytisk, og har aldri hatt noen funksjon i faget", "Det legger for stor vekt på materielle forhold og for liten vekt på mening og symbolske uttrykk", "Det forutsetter at alle samfunn utvikler seg gjennom de samme stadiene i den samme rekkefølgen"],
       explanation: "Riktig er beholderproblemet med tre følger: skarpe grenser, skjult uenighet, og endring som fremstår som tap av kultur. Begrepet hadde tvert imot en viktig funksjon, som våpen mot den evolusjonistiske rangeringen av samfunn. Ideen om faste stadier er nettopp evolusjonismen kulturbegrepet ble utviklet mot.",
     },
     {
@@ -347,7 +347,7 @@ const quizData_sosant1000: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva viste Mary Douglas om forestillinger om urenhet?",
-      options: ["At det urene er det som ikke passer inn i klassifikasjonssystemet — «matter out of place»", "At renhetsregler er folkelig smittevern, utviklet fordi visse matvarer lett kunne bli fordervet", "At renhetsregler først og fremst tjener til å opprettholde skillet mellom kvinner og menn", "At renhetsforestillinger oppstår når samfunn kommer i kontakt med andre samfunn utenfra"],
+      options: ["At det urene er det som ikke passer inn i klassifikasjonssystemet — «matter out of place»", "At renhetsregler er folkelig smittevern, utviklet fordi visse matvarer lett kunne bli fordervet", "At renhetsregler først og fremst tjener til å opprettholde skillet mellom kvinner og menn", "At renhetsforestillinger oppstår først når samfunn kommer i kontakt med andre samfunn utenfra"],
       explanation: "Riktig er at det urene er anomalier i en klassifikasjon, det Douglas kaller matter out of place. Hygieneforklaringen er nettopp den hun avviser, og å tilskrive henne den er den mest kjente feillesningen i pensum. Teorien handler om klassifikasjon i sin alminnelighet, ikke om ett bestemt skille.",
     },
     {
@@ -357,7 +357,7 @@ const quizData_sosant1000: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en anomali i Douglas' forstand?",
-      options: ["Noe som ikke lar seg plassere rent i en klassifikasjon, og som derfor oppleves som urent eller farlig", "Et avvik fra normal oppførsel som samfunnet omkring reagerer på med utstøting eller med formell straff", "Et fenomen som forekommer sjelden, og som derfor ikke får noen egen plass i språket", "En praksis som er i strid med de universelle standardene som gjelder på tvers av alle samfunn"],
+      options: ["Noe som ikke lar seg plassere rent i en klassifikasjon, og som derfor oppleves som urent eller farlig", "Et avvik fra normal oppførsel som samfunnet omkring reagerer på med utstøting eller straff", "Et fenomen som forekommer sjelden, og som derfor ikke får noen egen plass i språket", "En praksis som er i strid med de universelle standardene som gjelder på tvers av alle samfunn"],
       explanation: "Riktig er det som faller mellom kategorier eller tilhører flere samtidig, og derfor truer selve inndelingen. Poenget er ikke at fenomenet er sjeldent eller at handlingen er avvikende, men at det ikke lar seg plassere. Begrepet er også brua til liminalitet: den som er i en overgangsfase, er en anomali i den vanlige ordenen.",
     },
     {
@@ -372,12 +372,12 @@ const quizData_sosant1000: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner et prosessuelt kulturbegrep?",
-      options: ["At kultur blir til i samhandling, forhandles om, og bæres i flere versjoner samtidig", "At kultur endrer seg langsomt over lange tidsrom og derfor må studeres historisk", "At kultur overføres i en fast prosess fra foreldre til barn gjennom oppdragelse og skolegang", "At kultur består av prosesser i stedet for gjenstander, og at materiell kultur faller utenfor"],
+      options: ["At kultur blir til i samhandling, forhandles om, og bæres i flere versjoner samtidig", "At kultur endrer seg langsomt over lange tidsrom og derfor bare kan studeres historisk", "At kultur overføres i en fast prosess fra foreldre til barn gjennom oppdragelse og skolegang", "At kultur består av prosesser i stedet for gjenstander, og at materiell kultur faller utenfor"],
       explanation: "Riktig er at kultur blir til i samhandling og bæres i flere versjoner samtidig. Konsekvensen for skrivemåten er merkbar: man skriver ikke lenger at man i et bestemt land gjør slik, men hva bestemte mennesker gjorde og hvorfor det var omstridt. Materiell kultur faller ikke utenfor et prosessuelt begrep.",
     },
     {
       question: "Hvilken av disse setningene er faglig holdbar?",
-      options: ["Blant Adivasi-familiene Shah bodde hos i Jharkhand, var praksisen utbredt, og den var omstridt", "I indisk kultur gjør man gjerne slik, mens man i norsk kultur gjør noe helt annet i samme situasjon", "Kulturen deres er i endring, og de mister derfor mye av sin opprinnelige egenart", "De handler slik fordi tradisjonen deres krever det av dem, uten at de reflekterer over det"],
+      options: ["Blant Adivasi-familiene Shah bodde hos i Jharkhand, var praksisen utbredt, og den var omstridt", "I indisk kultur gjør man gjerne slik, mens man i norsk kultur gjør noe helt annet", "Kulturen deres er i endring, og de mister derfor mye av sin opprinnelige egenart", "De handler slik fordi tradisjonen deres krever det av dem, uten at de reflekterer over det"],
       explanation: "Riktig er formuleringen som navngir konkrete mennesker på et konkret sted og lar uenighet stå. De tre andre bruker alle kultur som en beholder eller som en forklaring, og de gjør uenighet og handling usynlig. Skrivemåten er i seg selv en del av det sensor måler på presisjonsaksen.",
     },
     {
@@ -402,12 +402,12 @@ const quizData_sosant1000: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den historiske grunnen til at det klassiske kulturbegrepet oppsto?",
-      options: ["Det var et motsvar til den evolusjonistiske rangeringen av samfunn på en trapp med Europa øverst", "Det oppsto da faget begynte å studere sine egne samfunn i tillegg til samfunn i andre verdensdeler", "Det oppsto som en følge av at feltarbeid ble innført som fagets sentrale metode på 1900-tallet", "Det var et forsøk på å gjøre antropologien mer lik naturvitenskapene i metode og begrepsbruk"],
+      options: ["Det var et motsvar til den evolusjonistiske rangeringen av samfunn på en trapp med Europa øverst", "Det oppsto da faget begynte å studere sine egne samfunn i tillegg til andre verdensdeler", "Det oppsto som en følge av at feltarbeid ble innført som fagets sentrale metode på 1900-tallet", "Det var et forsøk på å gjøre antropologien mer lik naturvitenskapene i metode og begrepsbruk"],
       explanation: "Riktig er at begrepet var et våpen mot evolusjonismen: å snakke om kulturer i flertall var å nekte å rangere samfunn. Prisen var beholdermodellen, som det prosessuelle kulturbegrepet forsøker å bli kvitt uten å miste likeverdigheten. Å kunne dette er faghistorisk blikk, en markør for meget god.",
     },
     {
       question: "Hvorfor er symboler flertydige, ifølge faget?",
-      options: ["Fordi samme symbol kan bære flere betydninger samtidig, og det er ofte dette som gjør det virksomt", "Det oppsto da faget begynte å studere sine egne samfunn i tillegg til samfunn i andre verdensdeler enn Europa", "Fordi betydningen deres endrer seg helt over tid, slik at gamle symboler mister sin funksjon", "Fordi forskeren aldri kan vite sikkert hva et symbol betyr uten å spørre alle som bruker det"],
+      options: ["Fordi samme symbol kan bære flere betydninger samtidig, og det er ofte dette som gjør det virksomt", "Fordi hvert symbol har én opprinnelig betydning som gradvis blir misforstått av nye brukere", "Fordi betydningen deres endrer seg helt over tid, slik at gamle symboler til slutt mister sin funksjon", "Fordi forskeren aldri kan vite sikkert hva et symbol betyr uten å spørre alle som bruker det"],
       explanation: "Riktig er at flertydigheten er en egenskap ved symbolet selv og en del av kraften dets: kveg blant Nuer var levebrød, brudegave, offerdyr og oppgjørsmiddel på én gang. Individuell variasjon i tolkning finnes, men det er ikke det begrepet peker på. Symbolers mening er offentlig og delt, ikke privat.",
     },
     {
@@ -434,42 +434,42 @@ const quizData_sosant1000: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen på et statussett og et rollesett?",
-      options: ["Statussettet er alle posisjonene én person har, rollesettet er alle relasjonene som følger av én posisjon", "Statussettet er de tilskrevne posisjonene, mens rollesettet er de posisjonene personen selv har ervervet i løpet av livet", "Statussettet gjelder for en gruppe som helhet, mens rollesettet gjelder for det enkelte medlemmet", "Statussettet er de formelle posisjonene, mens rollesettet er de uformelle forventningene rundt dem"],
+      options: ["Statussettet er alle posisjonene én person har, rollesettet er alle relasjonene som følger av én posisjon", "Statussettet er de tilskrevne posisjonene, mens rollesettet er de posisjonene personen selv har ervervet i løpet av livet", "Statussettet gjelder for en gruppe som helhet, mens rollesettet gjelder for det enkelte medlemmet av gruppen", "Statussettet er de formelle posisjonene, mens rollesettet er de uformelle forventningene rundt dem"],
       explanation: "Riktig er skillet mellom alle posisjonene én person har, og alle relasjonene som følger av én enkelt posisjon. Læreren har ett rollesett overfor elever, foreldre, rektor og kolleger. Skillet har ingenting med tilskrevet mot ervervet eller formelt mot uformelt å gjøre.",
     },
     {
       question: "Hva er en tilskrevet status?",
-      options: ["En status som tildeles uavhengig av personens egen innsats, som kaste, alder eller slektstilhørighet", "En status som er biologisk bestemt, og som samfunnet derfor ikke har noen mulighet til å endre", "En status andre tilskriver en person på grunnlag av det de mener hun har prestert i løpet av livet sitt", "En status som er formelt registrert av myndighetene og derfor kan dokumenteres med papirer"],
+      options: ["En status som tildeles uavhengig av personens egen innsats, som kaste, alder eller slektstilhørighet", "En status som er biologisk bestemt, og som samfunnet omkring derfor ikke har noen mulighet til å endre", "En status andre tilskriver en person på grunnlag av det de mener hun har prestert i løpet av livet sitt", "En status som er formelt registrert av myndighetene og derfor kan dokumenteres med papirer"],
       explanation: "Riktig er posisjonen som tildeles uavhengig av egen innsats. Den avgjørende presiseringen er at tilskrevet ikke betyr naturgitt: statusen er sosialt tildelt, og derfor kan den endres, om enn tregt. Å kalle den biologisk bestemt er feil nummer 9, å naturalisere det sosiale.",
     },
     {
       question: "Hva viste Shahs materiale om kaste og lederskap i geriljabevegelsen?",
-      options: ["At kaste fortsatte å strukturere en bevegelse som lovet å oppheve den, mens lederposisjonen selv var ervervet", "At kastetilhørighet mistet all betydning inne i bevegelsen, siden alle deltok på helt like vilkår der uansett bakgrunn", "At bare mennesker fra Adivasi-samfunnene fikk lederposisjoner, siden bevegelsen kjempet deres sak", "At lederne ble valgt ved avstemning blant medlemmene og derfor gjenspeilte medlemsmassen godt"],
+      options: ["At kaste fortsatte å strukturere en bevegelse som lovet å oppheve den, mens lederposisjonen selv var ervervet", "At kastetilhørighet mistet all betydning inne i bevegelsen, siden alle deltok på helt like vilkår der", "At bare mennesker fra Adivasi-samfunnene fikk lederposisjoner, siden bevegelsen kjempet deres sak", "At lederne ble valgt ved avstemning blant medlemmene og derfor gjenspeilte medlemsmassen godt"],
       explanation: "Riktig er at kastelinjene fortsatte å virke inne i bevegelsen: lederskapet var i stor grad rekruttert fra høyere kaster mens Adivasi utgjorde fotfolket. Å lese Shah som om bevegelsen uten videre kjemper Adivasienes sak, er en klassisk ensidig lesning. Poenget er at adgangen til en ervervet posisjon selv var ulikt fordelt.",
     },
     {
       question: "Hva er en rollekonflikt?",
-      options: ["At forventningene til to statuser eller to relasjoner ikke lar seg innfri samtidig", "At en person nekter å innta den rollen omgivelsene forventer at hun skal innta", "At to personer med samme status er dypt uenige om hvordan rollen bør utøves i praksis", "At en person mister en status hun har hatt, og ikke får noen ny i stedet for den"],
+      options: ["At forventningene til to statuser eller to relasjoner ikke lar seg innfri samtidig", "At en person nekter å innta den rollen omgivelsene rundt henne forventer at hun skal innta", "At to personer med samme status er dypt uenige om hvordan rollen bør utøves i praksis", "At en person mister en status hun har hatt, og ikke får noen ny i stedet for den"],
       explanation: "Riktig er at motstridende forventninger ikke lar seg innfri samtidig, enten mellom to statuser i statussettet eller mellom to relasjoner i rollesettet. Poenget er at slike konflikter er systematiske og ikke individuelle: de sier noe om samfunnet, ikke om personen. Det er derfor de kan brukes som data.",
     },
     {
       question: "Hvorfor er alder det klareste eksempelet på at tilskrevet ikke betyr naturgitt?",
-      options: ["Antall leveår er biologisk, men hva de innebærer av plikter og rettigheter er sosialt bestemt og varierer", "Alder kan endres gjennom egen innsats, i motsetning til andre tilskrevne statuser som kaste og kjønn", "Alder er den eneste tilskrevne statusen som alle mennesker i alle kjente samfunn har til felles med hverandre", "Alder blir mindre viktig jo mer moderne et samfunn er, og forsvinner til slutt som sosial kategori"],
+      options: ["Antall leveår er biologisk, men hva de innebærer av plikter og rettigheter er sosialt bestemt og varierer", "Alder kan endres gjennom egen innsats over tid, i motsetning til andre tilskrevne statuser som kaste og kjønn", "Alder er den eneste tilskrevne statusen som alle mennesker i alle kjente samfunn har til felles med hverandre", "Alder blir mindre viktig jo mer moderne et samfunn er, og forsvinner til slutt som sosial kategori"],
       explanation: "Riktig er skillet mellom det biologiske faktum og det sosiale innholdet: alderen er biologisk, aldersstatusen er sosial. Alder kan naturligvis ikke endres ved innsats — det er nettopp derfor den er tilskrevet. At alder skulle forsvinne som kategori i moderne samfunn, er ikke fagets syn.",
     },
     {
       question: "Hva innebærer det at en status er ervervet?",
-      options: ["At den oppnås gjennom personens egne handlinger, som yrke, utdanning, verv eller medlemskap", "At den er åpen for alle i samfunnet, siden ingen er utestengt fra å strebe etter den", "At den kan mistes igjen, i motsetning til tilskrevne statuser, som følger personen hele livet ut", "At den er tildelt av en formell myndighet etter søknad fra den enkelte som det gjelder"],
+      options: ["At den oppnås gjennom personens egne handlinger, som yrke, utdanning, verv eller medlemskap", "At den er åpen for alle i samfunnet, siden ingen formelt er utestengt fra å strebe etter den selv", "At den kan mistes igjen, i motsetning til tilskrevne statuser, som følger personen hele livet ut", "At den er tildelt av en formell myndighet etter søknad fra den enkelte som det gjelder"],
       explanation: "Riktig er at statusen oppnås gjennom egne handlinger. Den viktigste presiseringen er at ervervet ikke betyr åpen for alle: adgangen til ervervede posisjoner er selv ulikt fordelt, ofte etter tilskrevne statuser. Shahs materiale om kastefordelt lederskap er pensumeksempelet på nettopp dette.",
     },
     {
       question: "Hva menes med situasjonell status?",
-      options: ["At det er situasjonen som avgjør hvilken av statusene i statussettet som aktiveres", "At en status bare gjelder i bestemte situasjoner og opphører helt utenfor dem", "At personen selv kan velge fritt hvilken status hun vil bruke i en gitt situasjon", "At statuser endrer innhold fra situasjon til situasjon uten at posisjonen forandres"],
+      options: ["At det er situasjonen som avgjør hvilken av statusene i statussettet som aktiveres", "At en status bare gjelder i bestemte situasjoner og opphører helt å finnes utenfor dem", "At personen selv kan velge fritt hvilken status hun vil bruke i en gitt situasjon", "At statuser endrer innhold fra situasjon til situasjon uten at posisjonen forandres"],
       explanation: "Riktig er at situasjonen avgjør hvilken status som står i forgrunnen; ingen av de andre forsvinner, men bare én er relevant om gangen. Personen velger ikke fritt — det er sammenhengen som aktiverer. Konflikt oppstår først når to statuser aktiveres samtidig, som når læreren møter sin egen sønn som elev.",
     },
     {
       question: "Hvem formulerte de tre fasene separasjon, liminalitet og reintegrasjon?",
-      options: ["Arnold van Gennep, i en sammenlignende syntese fra 1909", "Victor Turner, på grunnlag av feltarbeid blant Ndembu på 1950-tallet", "Émile Durkheim, i «Religionens elementære former» fra 1912", "Mary Douglas, i «Purity and Danger» fra 1966"],
+      options: ["Arnold van Gennep, i en sammenlignende syntese fra 1909", "Victor Turner, på grunnlag av feltarbeid blant Ndembu på 1950-tallet", "Émile Durkheim, i «Religionens elementære former» fra 1912", "Mary Douglas, i renhetsanalysen «Purity and Danger» fra 1966"],
       explanation: "Riktig er van Gennep, som formulerte den tredelte formen i 1909 uten selv å gjøre feltarbeid — arbeidet er en sammenligning av andres materiale. Turner utviklet liminalitetsfasen videre og la til communitas, men fasene er ikke hans. Å slå de to sammen er en av de vanligste presisjonsfeilene i pensum.",
     },
     {
@@ -479,12 +479,12 @@ const quizData_sosant1000: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er sosialisering?",
-      options: ["Prosessen der et menneske lærer å innta og utøve statusene og rollene et samfunn stiller til rådighet", "At initiasjonsritualer først og fremst tjener til å opprettholde de eldres myndighet over de yngre i samfunnet", "Prosessen der en innflytter tilpasser seg det nye samfunnets språk, skikker og forventninger", "Prosessen der samfunnet fordeler goder og byrder mellom sine medlemmer etter faste prinsipper"],
+      options: ["Prosessen der et menneske lærer å innta og utøve statusene og rollene et samfunn stiller til rådighet", "At initiasjonsritualer først og fremst tjener til å opprettholde de eldres myndighet over de yngre", "Prosessen der en innflytter tilpasser seg det nye samfunnets språk, skikker og forventninger", "Prosessen der samfunnet fordeler goder og byrder mellom sine medlemmer etter faste prinsipper"],
       explanation: "Riktig er læringen av statuser og roller, og den fortsetter hele livet — hver gang en person går inn i en ny posisjon. Begrepet er svaret på hvordan tilskrevne statuser blir virkelige: innholdet i dem læres, og derfor kan det endres. Tilpasning for innflyttere er ett tilfelle blant mange, ikke selve begrepet.",
     },
     {
       question: "Hva er rolleforventninger?",
-      options: ["Normene andre knytter til en status: hva man mener en person i posisjonen bør og ikke bør gjøre", "De målene en person selv setter seg for hvordan hun vil utøve sin egen posisjon best mulig", "Prosessen der en innflytter tilpasser seg det nye samfunnets språk, skikker og forventninger til henne", "De forventningene en person har til andre som står i posisjoner over henne i et hierarki"],
+      options: ["Normene andre knytter til en status: hva man mener en person i posisjonen bør og ikke bør gjøre", "De målene en person selv setter seg for hvordan hun vil utøve sin egen posisjon på best mulig måte", "Prosessen der en innflytter tilpasser seg det nye samfunnets språk, skikker og forventninger til henne", "De forventningene en person har til andre som står i posisjoner over henne i et hierarki"],
       explanation: "Riktig er normene omgivelsene knytter til posisjonen; de er ikke den enkeltes egne og de er ofte uuttalte. De merkes tydeligst når de brytes. At ulike grupper kan forvente ulike ting av samme status, og at noens forventninger vinner, gjør begrepet til et maktspørsmål og ikke bare en beskrivelse.",
     },
     {
@@ -494,12 +494,12 @@ const quizData_sosant1000: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er problemet med å skrive at «legen har høyere status enn pasienten»?",
-      options: ["Setningen bruker status i dagligtalens betydning; i faget er de to ulike posisjoner, ikke rangerte trinn", "Setningen er feil fordi pasienten faktisk har flere formelle rettigheter enn legen i behandlingssituasjonen", "Setningen blander sammen status og rolle, siden det er rollene som skiller de to fra hverandre", "Setningen forutsetter at status er tilskrevet, mens både lege og pasient er ervervede posisjoner"],
+      options: ["Setningen bruker status i dagligtalens betydning; i faget er de to ulike posisjoner, ikke rangerte trinn", "Setningen er feil fordi pasienten faktisk har flere formelle rettigheter enn legen", "Setningen blander sammen status og rolle, siden det er rollene som skiller de to fra hverandre", "Setningen forutsetter at status er tilskrevet, mens både lege og pasient er ervervede posisjoner"],
       explanation: "Riktig er at setningen bruker dagligtalens betydning, altså anseelse. I faget er lege og pasient to statuser med hver sine plikter og rettigheter. At det også finnes maktforskjeller mellom dem er sant, men det hører til sosial differensiering og er et annet spørsmål.",
     },
     {
       question: "Hva er den beste innvendingen mot at skillet tilskrevet og ervervet er skarpt?",
-      options: ["Adgangen til ervervede posisjoner er selv fordelt etter tilskrevne, slik Shahs materiale viser", "Ingen samfunn har tilskrevne statuser lenger, siden alle posisjoner formelt er åpne for alle", "Skillet er umulig å bruke fordi ingen kan vite sikkert hvordan en person egentlig fikk sin posisjon", "Alle statuser er egentlig tilskrevne, siden ingen velger hvilket samfunn de blir født inn i"],
+      options: ["Adgangen til ervervede posisjoner er selv fordelt etter tilskrevne, slik Shahs materiale viser", "Ingen samfunn har tilskrevne statuser lenger, siden alle posisjoner formelt er åpne for alle i dag", "Skillet er umulig å bruke fordi ingen kan vite sikkert hvordan en person egentlig fikk sin posisjon", "Alle statuser er egentlig tilskrevne, siden ingen velger hvilket samfunn de blir født inn i"],
       explanation: "Riktig er at fordelingen av ervervede posisjoner selv følger tilskrevne linjer, slik lederskapet i bevegelsen Shah fulgte, gjorde. Landingen som fungerer, er at skillet er analytisk skarpt og empirisk gradert. Å hevde at alle statuser egentlig er tilskrevne, gjør begrepsparet ubrukelig i stedet for mer presist.",
     },
     {
@@ -519,7 +519,7 @@ const quizData_sosant1000: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva må med for at et status-kortsvar skal nå nivået god?",
-      options: ["Definisjon med navngitt avsender, rollebegrepet, begge ledd i distinksjonen, og ett pensumeksempel", "En grundig definisjon av status og en lang liste med eksempler fra kandidatens eget hverdagsliv hjemme", "En drøfting av om skillet tilskrevet og ervervet fortsatt er nyttig i moderne samfunn", "Minst tre pensumtekster, satt eksplisitt i forhold til hverandre gjennom hele svaret"],
+      options: ["Definisjon med navngitt avsender, rollebegrepet, begge ledd i distinksjonen, og ett pensumeksempel", "En grundig definisjon av status og en lang liste med hverdagseksempler", "En drøfting av om skillet tilskrevet og ervervet fortsatt er nyttig i moderne samfunn", "Minst tre pensumtekster, satt eksplisitt i forhold til hverandre gjennom hele svaret"],
       explanation: "Riktig er de fire elementene: avsender, rollebegrepet, begge ledd i distinksjonen, og et etnografisk eksempel fra pensum. Hverdagseksempler uten kilde teller ikke som forankring. Kravet om minst tre pensumtekster gjelder langsvar i Del 2, ikke kortsvar.",
     },
   ],
@@ -536,7 +536,7 @@ const quizData_sosant1000: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er spenningen mellom nærhet og distanse?",
-      options: ["Forskeren må komme nær nok til å forstå innenfra og beholde avstand nok til å analysere", "Forskeren må velge mellom å bo hos informantene sine eller å bo for seg selv i nærheten", "Forskeren må balansere tiden hun bruker i felt mot tiden hun bruker på å skrive hjemme", "Forskeren må avgjøre hvor personlig hun kan bli med informantene uten å bryte etiske regler"],
+      options: ["Forskeren må komme nær nok til å forstå innenfra og beholde avstand nok til å analysere", "Forskeren må velge mellom å bo hos informantene sine eller å bo for seg selv i nærheten", "Forskeren må balansere tiden hun bruker ute i felt mot tiden hun bruker på å skrive hjemme", "Forskeren må avgjøre hvor personlig hun kan bli med informantene uten å bryte etiske regler"],
       explanation: "Riktig er spenningen mellom å forstå innenfra og å analysere med avstand. Poenget som gir uttelling, er at spenningen ikke kan løses, bare håndteres — den følger av at forskeren selv er instrumentet. Praktiske bospørsmål og etiske grenser er andre og adskilte problemer.",
     },
     {
@@ -566,7 +566,7 @@ const quizData_sosant1000: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva menes med at det uventede kan være et funn i feltarbeid?",
-      options: ["At materialet kan endre selve spørsmålet, slik at forskeren finner ut at hun spurte om feil ting", "At forskeren tilfeldigvis kan komme over hendelser som bekrefter hypotesen hun startet med", "At feltarbeidet gir data forskeren ikke hadde planlagt å samle inn, og som kan brukes i senere prosjekter", "At forskeren bør holde flere hypoteser åpne samtidig for å kunne teste dem mot hverandre"],
+      options: ["At materialet kan endre selve spørsmålet, slik at forskeren finner ut at hun spurte om feil ting", "At forskeren tilfeldigvis kan komme over hendelser som bekrefter hypotesen hun startet feltarbeidet med", "At feltarbeidet gir data forskeren ikke hadde planlagt å samle inn, og som kan brukes i senere prosjekter", "At forskeren bør holde flere hypoteser åpne samtidig for å kunne teste dem mot hverandre"],
       explanation: "Riktig er at spørsmålet selv kan endres av materialet: Evans-Pritchard kom ikke for å beskrive kveg som religiøs kategori. De fleste metoder kan bare svare på spørsmål forskeren allerede visste å stille. Den tilhørende svakheten er at åpenheten gjør arbeidet vanskelig å planlegge og å gjenta.",
     },
     {
@@ -586,7 +586,7 @@ const quizData_sosant1000: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er poenget med feltnotater ut over å huske hva som skjedde?",
-      options: ["Notatene er allerede en tolkning, siden hva som skrives ned avhenger av hvem forskeren var i feltet", "Notatene er det eneste materialet som kan legges frem for etterprøving av andre forskere", "Fordi mulighetene gjelder store og åpne felt, mens utfordringene bare gjelder små og lukkede miljøer", "Notatene skiller den delen av materialet som er observert fra den delen som er fortalt"],
+      options: ["Notatene er allerede en tolkning, siden hva som skrives ned avhenger av hvem forskeren var i feltet", "Notatene er det eneste materialet i faget som kan legges frem for etterprøving av andre forskere senere", "Fordi mulighetene gjelder store og åpne felt, mens utfordringene bare gjelder små og lukkede miljøer", "Notatene skiller den delen av materialet som er observert fra den delen som er fortalt"],
       explanation: "Riktig er at notatene allerede er tolkning: det man legger merke til, avhenger av hvem man er i feltet. Det er dette som gjør refleksjon over egen posisjon til en del av metoden. Feltnotater legges normalt ikke frem for etterprøving, blant annet av etiske grunner.",
     },
     {
@@ -626,12 +626,12 @@ const quizData_sosant1000: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva menes med at etnografien også er et produkt?",
-      options: ["Den ferdige teksten er et argument, skrevet av noen med et formål — ikke et vindu inn i et samfunn", "Metoden krever nøytralitet, mens hun måtte ta stilling i konflikten for i det hele tatt å få tilgang", "Materialet må bearbeides før det kan publiseres, og dette arbeidet tar ofte flere år", "Etnografien er resultatet av et samarbeid mellom forskeren og informantene hennes"],
+      options: ["Den ferdige teksten er et argument, skrevet av noen med et formål — ikke et vindu inn i et samfunn", "Metoden krever nøytralitet, mens hun måtte ta stilling i konflikten for å få tilgang", "Materialet må bearbeides før det kan publiseres, og dette arbeidet tar ofte flere år", "Etnografien er resultatet av et samarbeid mellom forskeren og informantene hennes"],
       explanation: "Riktig er at teksten er et argument med en tilblivelseshistorie: mellom det som skjedde og det du leser, ligger flere oversettelser med valg i hvert ledd. Å lese pensum slik er ikke mistenksomhet, men å lese som fagfelle. Konsekvensen for skrivingen er å si hva forskeren viste, ikke bare hva boka handler om.",
     },
     {
       question: "Hvilken feil begår en kandidat som forklarer deltagende observasjon uten å nevne et eneste feltarbeid?",
-      options: ["Feil nummer 1 — teori uten etnografisk forankring", "Feil nummer 8 — å overse begrepets distinksjoner", "Feil nummer 3 — rent referat uten drøfting", "Feil nummer 10 — monografioppgave uten dybde i monografien"],
+      options: ["Feil nummer 1 — teori uten etnografisk forankring", "Feil nummer 8 — å overse distinksjonene i selve begrepet", "Feil nummer 3 — rent referat uten drøfting", "Feil nummer 10 — monografioppgave uten dybde i monografien"],
       explanation: "Riktig er feil nummer 1, den hyppigste enkeltfeilen i faget. Metodespørsmål innbyr særlig til den, fordi stoffet er lett å fremstille generelt. Feil 8 ville vært å behandle bare det ene leddet i begrepet.",
     },
     {
@@ -658,12 +658,12 @@ const quizData_sosant1000: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva menes med «totale sosiale fenomen» hos Mauss?",
-      options: ["Handlinger som er økonomi, slektskap, religion, politikk og moral på én gang", "Handlinger som involverer alle medlemmene av et samfunn samtidig", "Fenomener som finnes i alle kjente samfunn og som derfor kan kalles universelle", "Fenomener som må studeres med flere metoder fordi de er sammensatte"],
+      options: ["Handlinger som er økonomi, slektskap, religion, politikk og moral på én gang", "Handlinger som involverer alle medlemmene av et samfunn samtidig, ingen unntatt", "Fenomener som finnes i alle kjente samfunn og som derfor kan kalles universelle", "Fenomener som må studeres med flere metoder fordi de er sammensatte"],
       explanation: "Riktig er at handlingen ikke lar seg plassere i én kolonne: den er flere samfunnsfelter på samme tid. Det handler ikke om hvor mange mennesker som deltar, og heller ikke om utbredelse i alle samfunn — universalitet er et annet spørsmål.",
     },
     {
       question: "Hva er resiprositet i Mauss' forstand?",
-      options: ["Bytte styrt av gjensidighet, med utsatt og ulik motytelse og moralsk forpliktelse", "Bytte der partene forhandler seg frem til en pris begge kan akseptere", "Bytte der ytelsene er nøyaktig like store og gjøres opp umiddelbart mellom partene", "Bytte som skjer innenfor familien og derfor ikke krever noen motytelse"],
+      options: ["Bytte styrt av gjensidighet, med utsatt og ulik motytelse og moralsk forpliktelse", "Bytte der partene forhandler seg frem til en pris begge kan akseptere før byttet skjer", "Bytte der ytelsene er nøyaktig like store og gjøres opp umiddelbart mellom partene", "Bytte som skjer innenfor familien og derfor ikke krever noen motytelse"],
       explanation: "Riktig er gjensidighet med utsatt og ulik motytelse, sanksjonert moralsk og ikke juridisk. Umiddelbart og likt oppgjør er nettopp det som gjør byttet til en handel og avslutter relasjonen. Bytte uten motytelse ville opphevet forpliktelsen som er hele poenget.",
     },
     {
@@ -673,7 +673,7 @@ const quizData_sosant1000: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva var kula?",
-      options: ["Seremonielt, langsiktig prestisjebytte av halskjeder og armbånd mellom øyer", "Prutthandelen med mat og bruksting som foregikk mellom øyene i Massim", "Den store gaveutdelingen der en høvding delte ut gods for å vinne rang og anseelse", "Byttet av kveg mellom slektsgrupper ved inngåelse av ekteskap"],
+      options: ["Seremonielt, langsiktig prestisjebytte av halskjeder og armbånd mellom øyer", "Prutthandelen med mat og bruksting som foregikk mellom øyene i Massim-området", "Den store gaveutdelingen der en høvding delte ut gods for å vinne rang og anseelse", "Byttet av kveg mellom slektsgrupper ved inngåelse av ekteskap"],
       explanation: "Riktig er det seremonielle prestisjebyttet av halskjeder og armbånd. Prutthandelen ved siden av heter gimwali, og å blande de to er den vanligste kula-fellen. Gaveutdeling for rang er potlatch, og kvegoverføring ved ekteskap hører til Nuer-materialet.",
     },
     {
@@ -723,7 +723,7 @@ const quizData_sosant1000: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva menes med konkurrerende (agonistisk) gavebytte?",
-      options: ["Gavebytte der pliktene er skjerpet til en kamp om rang mellom giverne", "Gavebytte der flere partnere byr på den samme gjenstanden samtidig", "Gavebytte som foregår mellom grupper som er i åpen konflikt med hverandre", "Gavebytte der motytelsen må komme raskere enn i vanlige gaveforhold"],
+      options: ["Gavebytte der pliktene er skjerpet til en kamp om rang mellom giverne", "Gavebytte der flere partnere byr på den samme gjenstanden samtidig, og høyeste bud vinner", "Gavebytte som foregår mellom grupper som er i åpen konflikt med hverandre", "Gavebytte der motytelsen må komme raskere enn i vanlige gaveforhold"],
       explanation: "Riktig er at pliktene skjerpes til en konkurranse om rang, slik i potlatch. Kula er den dempede motsatsen. Byttet forutsetter ikke åpen konflikt — tvert imot skaper det ofte forbindelser mellom grupper som ellers står anspent til hverandre.",
     },
     {
@@ -733,7 +733,7 @@ const quizData_sosant1000: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva viser brudegaven i kveg blant Nuer?",
-      options: ["At én overføring samtidig var økonomi, slektskap, religion og politikk", "At kvinner ble kjøpt av brudgommens slekt mot betaling i kveg", "At kveget ble delt likt mellom de to slektsgruppene like etter bryllupet", "At ekteskapet først var gyldig når hele overføringen var gjort opp"],
+      options: ["At én overføring samtidig var økonomi, slektskap, religion og politikk", "At kvinner ble kjøpt av brudgommens slekt mot en avtalt betaling i kveg, som ved et vanlig kjøp", "At kveget ble delt likt mellom de to slektsgruppene like etter bryllupet", "At ekteskapet først var gyldig når hele overføringen var gjort opp"],
       explanation: "Riktig er at overføringen var flere samfunnsfelter på én gang, altså et totalt sosialt fenomen i et helt annet materiale enn Mauss' eget. Å lese den som et kjøp er å legge en markedsmodell over et gavebytte — overføringen avslutter ingenting, den skaper en varig relasjon mellom grupper.",
     },
     {
@@ -880,7 +880,7 @@ const quizData_sosant1000: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er skillet mellom gavebytte og markedsbytte analytisk og ikke et skille mellom samfunnstyper?",
-      options: ["Fordi begge logikkene finnes side om side i samme samfunn, som kula og gimwali", "Fordi ingen samfunn har rendyrket den ene formen gjennom hele sin historie", "Fordi forskjellen mellom formene er en gradsforskjell og ikke en artsforskjell", "Fordi antropologer i dag mener at alt bytte i bunn og grunn følger samme logikk"],
+      options: ["Fordi begge logikkene finnes side om side i samme samfunn, som kula og gimwali", "Fordi ingen kjente samfunn har rendyrket den ene formen gjennom hele sin historie", "Fordi forskjellen mellom formene er en gradsforskjell og ikke en artsforskjell", "Fordi antropologer i dag mener at alt bytte i bunn og grunn følger samme logikk"],
       explanation: "Riktig er sameksistensen: Trobriandernes gimwali gikk ved siden av kula, og norsk hverdag er full av gavebytte. Forskjellen mellom formene er reell og ikke bare en gradsforskjell — det er plasseringen i samfunn som er feil i utsagnet.",
     },
     {
@@ -932,37 +932,37 @@ const quizData_sosant1000: Record<string, QuizQuestion[]> = {
   'sosant1000-2-3': [
     {
       question: "Hva er kjernen i begrepet prekaritet?",
-      options: ["Usikkerheten — at arbeids- og livsvilkårene er ustabile og uforutsigbare", "Fattigdommen — at inntekten er for lav til å dekke helt nødvendige utgifter", "Utnyttelsen — at arbeidsgiveren tar en større del av verdiskapingen", "Uformaliteten — at arbeidet foregår utenfor myndighetenes registre"],
+      options: ["Usikkerheten — at arbeids- og livsvilkårene er ustabile og uforutsigbare", "Fattigdommen — at inntekten er for lav til å dekke helt nødvendige utgifter", "Utnyttelsen — at arbeidsgiveren tar en stadig større del av verdiskapingen", "Uformaliteten — at arbeidet foregår utenfor myndighetenes registre"],
       explanation: "Riktig er usikkerheten. En fattig person med fast arbeid er ikke prekær, og en prekær person er ikke nødvendigvis blant de fattigste. Uformelt arbeid henger ofte sammen med prekaritet, men er en egen kategori som beskriver reguleringen, ikke usikkerheten.",
     },
     {
       question: "Hva viste Millars studie av søppelplukkerne i Jardim Gramacho?",
-      options: ["At folk vendte tilbake til fyllinga fordi arbeidets rytme og selvstendighet passet et usikkert liv", "At folk ble på fyllinga fordi de ikke hadde noe annet arbeid å gå til", "At arbeidet på fyllinga ga høyere og langt mer forutsigbar inntekt enn regulert lønnsarbeid i området", "At myndighetene hindret søppelplukkerne i å skaffe seg formelt arbeid"],
+      options: ["At folk vendte tilbake til fyllinga fordi arbeidets rytme og selvstendighet passet et usikkert liv", "At folk ble værende på fyllinga fordi de ikke hadde noe annet arbeid å gå til, og derfor ingen annen utvei", "At arbeidet på fyllinga ga høyere og langt mer forutsigbar inntekt enn regulert lønnsarbeid i området", "At myndighetene hindret søppelplukkerne i å skaffe seg formelt arbeid"],
       explanation: "Riktig er at flere hadde hatt regulert lønnsarbeid og likevel vendte tilbake, og at grunnene ikke bare var nød. Lesningen om at de manglet alternativer, er nettopp elendighetslesningen studien motsier — og det var ikke inntekten som trakk.",
     },
     {
       question: "Hvorfor er det en feillesning å beskrive Millars studie som en skildring av nød?",
-      options: ["Fordi den fjerner funnet: at folk vendte tilbake, og at det fantes grunner utover nød", "Fordi forholdene på fyllinga faktisk var både gode og trygge for dem som arbeidet der over tid", "Fordi studien handler om myndighetenes avfallspolitikk og ikke om arbeiderne", "Fordi antropologiske studier aldri skal beskrive materielle levekår"],
+      options: ["Fordi den fjerner funnet: at folk vendte tilbake, og at det fantes grunner utover nød", "Fordi forholdene på fyllinga faktisk var både gode og trygge for dem som arbeidet der over tid", "Fordi studien handler om myndighetenes avfallspolitikk og ikke om arbeiderne på fyllinga", "Fordi antropologiske studier aldri skal beskrive materielle levekår"],
       explanation: "Riktig er at elendighetslesningen fjerner selve funnet og gjør menneskene til ofre uten handlingsrom. Studien sier ikke at arbeidet var trygt eller ønsket — å romantisere er den motsatte og like gale feilen.",
     },
     {
       question: "Hvilke tre trekk ved prekært arbeid gjør det til en livsform i Millars analyse?",
-      options: ["Rytmen, den relative selvstendigheten og relasjonene mellom dem som arbeider der", "Inntekten, arbeidstiden og avstanden til hjemmet", "Tryggheten, forutsigbarheten og de formelle rettighetene som fulgte med arbeidet der", "Fellesskapet, den faglige stoltheten og muligheten for opprykk"],
+      options: ["Rytmen, den relative selvstendigheten og relasjonene mellom dem som arbeider der", "Størrelsen på inntekten, lengden på arbeidstiden og avstanden mellom fyllinga og hjemmet", "Tryggheten, forutsigbarheten og de formelle rettighetene som fulgte med arbeidet der", "Fellesskapet, den faglige stoltheten og muligheten for opprykk"],
       explanation: "Riktig er rytmen, selvstendigheten og relasjonene. Trygghet og forutsigbarhet er nettopp det prekært arbeid mangler, og opprykk finnes ikke i en slik struktur — poenget er at formen likevel har en logikk folk kan leve i.",
     },
     {
       question: "Hva er forskjellen på den svake og den sterke versjonen av påstanden om innvevd økonomi?",
-      options: ["Den svake sier at økonomien påvirkes av annet; den sterke at økonomiske handlinger er sosiale handlinger", "Den svake gjelder småskalasamfunn uten pengeøkonomi; den sterke gjelder også moderne markedsøkonomier i dag", "Den svake er Mauss' posisjon; den sterke er en nyere posisjon i faget", "Den svake handler om produksjon; den sterke handler om bytte og fordeling"],
+      options: ["Den svake sier at økonomien påvirkes av annet; den sterke at økonomiske handlinger er sosiale handlinger", "Den svake gjelder småskalasamfunn uten pengeøkonomi; den sterke gjelder også moderne markedsøkonomier i dag", "Den svake er Mauss' egen posisjon; den sterke er en nyere posisjon som er utviklet av senere antropologer i faget", "Den svake handler om produksjon; den sterke handler om bytte og fordeling"],
       explanation: "Riktig er skillet mellom påvirkning og identitet. Den svake er nesten uomstridt, og et svar som bare viser den, når minimumskravet. Den sterke er Mauss' egen posisjon, og den er den som krever etnografi for å bli troverdig.",
     },
     {
       question: "Hva er den metodiske konsekvensen av tesen om den innvevde økonomien?",
-      options: ["At man ikke kan avgrense «det økonomiske» på forhånd, men må følge handlingene", "At man må bruke kvantitative metoder i tillegg til deltagende observasjon over tid", "At man må studere økonomien over lengre tidsrom enn andre samfunnsforhold", "At man må sammenligne minst to samfunn for å kunne si noe om økonomi"],
+      options: ["At man ikke kan avgrense «det økonomiske» på forhånd, men må følge handlingene", "At man må bruke kvantitative metoder i tillegg til deltagende observasjon over tid", "At man må studere økonomien over vesentlig lengre tidsrom enn andre samfunnsforhold", "At man må sammenligne minst to samfunn for å kunne si noe om økonomi"],
       explanation: "Riktig er at feltet ikke kan avgrenses før man går ut i felt — det er holismen som metodisk krav. Metodevalg og komparasjon er viktige i faget, men de følger ikke av denne bestemte tesen.",
     },
     {
       question: "Hvorfor er Liens lakseoppdrett et godt testtilfelle for tesen om innvevd økonomi?",
-      options: ["Fordi det er en industriell produksjon for et globalt marked, der tesen er mest utsatt", "Fordi det er en norsk studie og derfor lettere å forstå for norske lesere", "Fordi oppdrettsnæringen er lite regulert og dermed viser markedet i ren form", "Fordi laks er en vare uten kulturell betydning i noen av de markedene den til slutt selges i"],
+      options: ["Fordi det er en industriell produksjon for et globalt marked, der tesen er mest utsatt", "Fordi det er en norsk studie og derfor lettere å kjenne igjen for norske lesere av pensum", "Fordi oppdrettsnæringen er lite regulert og dermed viser markedet i ren form", "Fordi laks er en vare uten kulturell betydning i noen av de markedene den til slutt selges i"],
       explanation: "Riktig er at tesen er mest utsatt i en gjennomindustrialisert produksjon: holder den der, holder den bredt. Næringen er tvert imot sterkt regulert, og det er nettopp forvaltningens rolle i prisdannelsen som er en del av poenget.",
     },
     {
@@ -1034,7 +1034,7 @@ const quizData_sosant1000: Record<string, QuizQuestion[]> = {
   'sosant1000-3-1': [
     {
       question: "Hva er avstamning (descent) som organiseringsprinsipp?",
-      options: ["At en person tilhører en gruppe i kraft av hvem hun nedstammer fra", "At grupper knyttes sammen gjennom ekteskap mellom sine medlemmer", "At slektskap regnes fra den eldste levende slektningen og nedover i generasjonene", "At man tilhører den gruppen man vokser opp hos, uansett fødsel"],
+      options: ["At en person tilhører en gruppe i kraft av hvem hun nedstammer fra", "At grupper knyttes sammen gjennom ekteskap mellom sine egne medlemmer", "At slektskap regnes fra den eldste levende slektningen og nedover i generasjonene", "At man tilhører den gruppen man vokser opp hos, uansett fødsel"],
       explanation: "Riktig er arvet gruppetilhørighet gjennom nedstamning. Å knytte grupper sammen gjennom ekteskap er allianse, det andre organiseringsprinsippet — å blande de to er den vanligste begrepsfeilen i dette stoffet.",
     },
     {
@@ -1049,22 +1049,22 @@ const quizData_sosant1000: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva viste Evans-Pritchards studie av Nuer om slektskap og politikk?",
-      options: ["At patrilineære avstamningsgrupper fusjonerte og splittet seg etter konfliktens nivå", "At politisk makt var samlet hos en høvding som ble valgt blant de ulike slektsgruppene", "At slektskap og politikk var atskilte felter med hver sine institusjoner", "At ekteskapsallianser hadde erstattet avstamning som organiseringsprinsipp"],
+      options: ["At patrilineære avstamningsgrupper fusjonerte og splittet seg etter konfliktens nivå", "At politisk makt var samlet hos en høvding som ble valgt blant de ulike slektsgruppene", "At slektskap og politikk var to helt atskilte felter, med hver sine egne institusjoner", "At ekteskapsallianser hadde erstattet avstamning som organiseringsprinsipp"],
       explanation: "Riktig er den segmentære mekanismen som ga orden uten sentralstat. Det fantes ingen høvding med samlet makt, og poenget er nettopp at slektskap og politikk ikke var atskilte felter — det er holismen i praksis.",
     },
     {
       question: "Hva gjorde overføringen av kveg ved ekteskapsinngåelse blant Nuer?",
-      options: ["Den etablerte ekteskapet, fordelte forpliktelser mellom grupper og avgjorde barnas gruppetilhørighet", "Den kompenserte brudens slekt for tapet av hennes arbeidskraft", "Den ga brudgommen eiendomsrett over brudens fremtidige arbeid", "Den markerte offentlig for begge slektsgruppene at brudens slekt hadde langt høyere rang enn brudgommens"],
+      options: ["Den etablerte ekteskapet, fordelte forpliktelser mellom grupper og avgjorde barnas gruppetilhørighet", "Den kompenserte brudens slekt økonomisk for tapet av hennes arbeidskraft, og gjorde dermed opp forholdet", "Den ga brudgommen eiendomsrett over brudens fremtidige arbeid", "Den markerte offentlig for begge slektsgruppene at brudens slekt hadde langt høyere rang enn brudgommens"],
       explanation: "Riktig er at overføringen åpnet et varig forhold mellom to grupper og plasserte barna. Å lese den som kompensasjon eller kjøp er å legge en markedsmodell over et gavebytte: et kjøp avslutter et forhold, brudegaven åpner et.",
     },
     {
       question: "Hva er relatedness hos Carsten?",
-      options: ["Slektskap som skapes over tid gjennom delt mat, delt ildsted og delt bosted", "Den graden av genetisk likhet to personer har med hverandre", "Det nettverket av slektninger en person kan mobilisere når hun har behov for hjelp", "Slektskap som følger av juridiske avgjørelser om foreldreansvar"],
+      options: ["Slektskap som skapes over tid gjennom delt mat, delt ildsted og delt bosted", "Den graden av genetisk likhet to personer har med hverandre, uavhengig av hvordan de lever", "Det nettverket av slektninger en person kan mobilisere når hun har behov for hjelp", "Slektskap som følger av juridiske avgjørelser om foreldreansvar"],
       explanation: "Riktig er beslektethet som blir til gjennom felles liv. Begrepet handler ikke om genetisk likhet, og heller ikke om jussen — poenget er at slektskap vokser frem av hverdagens delte substans over tid.",
     },
     {
       question: "Hva viste Carstens studie fra Langkawi?",
-      options: ["At mennesker som spiste sammen fra samme ildsted over tid, ble gradvis mer beslektede", "At biologisk slektskap ikke hadde noen som helst betydning i den lokale forståelsen av slekt", "At adopsjon var den vanligste måten husholdninger ble dannet på", "At slektskapet ble bestemt av hvilken landsby man var født i"],
+      options: ["At mennesker som spiste sammen fra samme ildsted over tid, ble gradvis mer beslektede", "At biologisk slektskap ikke hadde noen betydning i den lokale forståelsen av slekt", "At adopsjon var den vanligste måten husholdninger ble dannet på", "At slektskapet ble bestemt av hvilken landsby man var født i"],
       explanation: "Riktig er at slektskap vokste gjennom delt mat og felles bosted. At biologi var uten betydning, er en overdrivelse av Carstens posisjon og en klassisk feiltilskrivning — hun viste at skillet biologisk og sosialt ikke lar seg trekke rent.",
     },
     {
@@ -1166,17 +1166,17 @@ const quizData_sosant1000: Record<string, QuizQuestion[]> = {
   'sosant1000-3-2': [
     {
       question: "Hva betegner biologisk kjønn (sex)?",
-      options: ["De kroppslige forholdene som brukes til å dele mennesker inn i kjønnskategorier", "De forventningene og rollene et bestemt samfunn knytter til de to kjønnskategoriene", "Den kjønnsidentiteten en person selv opplever å ha", "Den arbeidsdelingen mellom kjønn som finnes i et samfunn"],
+      options: ["De kroppslige forholdene som brukes til å dele mennesker inn i kjønnskategorier", "De forventningene og rollene et bestemt samfunn knytter til de to kjønnskategoriene", "Den kjønnsidentiteten en person selv opplever å ha og gir uttrykk for overfor andre", "Den arbeidsdelingen mellom kjønn som finnes i et samfunn"],
       explanation: "Riktig er de kroppslige forholdene, altså råstoffet. Forventninger, roller og arbeidsdeling hører til sosialt kjønn, og å bruke de to om hverandre er nettopp den flate definisjonen sensor ser etter i denne oppgavetypen.",
     },
     {
       question: "Hva betegner sosialt kjønn (gender)?",
-      options: ["De forventningene, rollene og verdiene et samfunn knytter til kjønnskategorier", "De kroppslige trekkene som skiller kjønnene fra hverandre", "Den formelle likestillingen mellom kjønnene i lovverket", "Forskjellen mellom hvordan menn og kvinner faktisk oppfører seg i dagliglivet sitt"],
+      options: ["De forventningene, rollene og verdiene et samfunn knytter til kjønnskategorier", "De kroppslige trekkene som skiller kjønnene fra hverandre, som anatomi og hormoner", "Den formelle likestillingen mellom kjønnene i lovverket", "Forskjellen mellom hvordan menn og kvinner faktisk oppfører seg i dagliglivet sitt"],
       explanation: "Riktig er forventningene, rollene og verdiene — kjønn som samfunnsordning. Faktiske atferdsforskjeller er noe man kan observere, men de er ikke definisjonen: poenget er ordningen som frembringer og tolker dem.",
     },
     {
       question: "Hva betyr det at sosialt kjønn er konstruert?",
-      options: ["At ordningen er laget og opprettholdt av mennesker og kunne vært annerledes", "At kjønnsforskjeller er innbilte og forsvinner så snart folk blir opplyst om dem", "At den enkelte fritt kan velge hvilket kjønn hun vil fremstå som", "At kjønn er et begrep uten forbindelse til kroppslige forhold"],
+      options: ["At ordningen er laget og opprettholdt av mennesker og kunne vært annerledes", "At kjønnsforskjeller er innbilte og forsvinner så snart folk blir opplyst om dem", "At den enkelte fritt kan velge fra dag til dag hvilket kjønn hun vil fremstå som", "At kjønn er et begrep uten forbindelse til kroppslige forhold"],
       explanation: "Riktig er at ordningen er menneskeskapt og kunne vært annerledes — som det vises av at den er annerledes andre steder. Konstruert betyr ikke innbilt: virkningene er håndfaste, og man kan ikke tre ut av ordningen ved en beslutning.",
     },
     {
@@ -1196,7 +1196,7 @@ const quizData_sosant1000: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr performativitet hos Butler?",
-      options: ["At kjønn blir til gjennom gjentatte, normstyrte handlinger", "At kjønn er en rolle en ferdig person velger å spille", "At kjønn må bekreftes offentlig av andre for å være gyldig", "At kjønnsuttrykk varierer med hvilken situasjon man befinner seg i"],
+      options: ["At kjønn blir til gjennom gjentatte, normstyrte handlinger", "At kjønn er en rolle en allerede ferdig person velger å spille", "At kjønn må bekreftes offentlig av andre for å være gyldig", "At kjønnsuttrykk varierer med hvilken situasjon man befinner seg i"],
       explanation: "Riktig er gjentakelsen av normstyrte handlinger som frembringer kjønnet. Rollespill-lesningen er den vanligste feiltolkningen og snur poenget: det finnes ingen ferdig person forut for handlingene som velger blant roller.",
     },
     {
@@ -1258,37 +1258,37 @@ const quizData_sosant1000: Record<string, QuizQuestion[]> = {
   'sosant1000-3-3': [
     {
       question: "Hva er vertikal differensiering?",
-      options: ["Inndeling som rangerer, med ulik tilgang til makt, ressurser og anseelse", "Inndeling som skiller mellom grupper uten å plassere noen av dem over hverandre", "Inndeling etter hvor i landet folk bor og arbeider", "Inndeling etter hvilken generasjon folk tilhører"],
+      options: ["Inndeling som rangerer, med ulik tilgang til makt, ressurser og anseelse", "Inndeling som skiller mellom grupper uten å plassere noen av dem over hverandre", "Inndeling etter hvor i landet folk bor og hvor de har arbeidet sitt til daglig", "Inndeling etter hvilken generasjon folk tilhører"],
       explanation: "Riktig er inndelingen som rangerer. Inndeling uten rangering er horisontal differensiering, og å blande de to er den enkeltfeilen dette stoffet tester direkte. Geografi og generasjon kan være grunnlag for begge former.",
     },
     {
       question: "Hva er horisontal differensiering?",
-      options: ["Inndeling som skiller uten å rangere, som yrkesspesialisering", "Inndeling som rangerer, men bare innenfor samme samfunnslag", "Inndeling etter hvor lenge en person har bodd på et sted", "Inndeling som ikke har praktiske konsekvenser for dem som deles inn"],
+      options: ["Inndeling som skiller uten å rangere, som yrkesspesialisering", "Inndeling som rangerer, men bare innenfor ett og samme samfunnslag", "Inndeling etter hvor lenge en person har bodd på et sted", "Inndeling som ikke har praktiske konsekvenser for dem som deles inn"],
       explanation: "Riktig er inndeling uten rangering. Merk at horisontale forskjeller har konsekvenser — de fordeler oppgaver og identiteter — men de plasserer ikke noen over andre. Rangering innenfor et lag er fortsatt vertikal.",
     },
     {
       question: "Hvordan kan en horisontal forskjell bli vertikal?",
-      options: ["Når ressurser, anseelse eller politisk makt legger seg skjevt mellom kategoriene", "Når kategoriene blir formalisert i lovverk og registre", "Når antallet kategorier øker slik at systemet blir mer komplisert", "Når medlemmene i en kategori begynner å gifte seg innenfor sin egen gruppe, generasjon etter generasjon"],
+      options: ["Når ressurser, anseelse eller politisk makt legger seg skjevt mellom kategoriene", "Når kategoriene blir formalisert i lovverk og i offentlige registre, slik at de blir synlige", "Når antallet kategorier øker slik at systemet blir mer komplisert", "Når medlemmene i en kategori begynner å gifte seg innenfor sin egen gruppe, generasjon etter generasjon"],
       explanation: "Riktig er den skjeve fordelingen av goder. Yrkesspesialisering er horisontal i prinsippet og vertikal så snart noen yrker lønnes og respekteres høyere. Endogami opprettholder grenser, men skaper ikke rangeringen i seg selv.",
     },
     {
       question: "Hva kjennetegner kaste som differensieringsform?",
-      options: ["Posisjonen er tilskrevet ved fødselen og begrunnet i et rituelt register om renhet", "Posisjonen følger av inntekt og eiendom, og den kan endres gjennom personens egen innsats", "Posisjonen gjelder bare i religiøse sammenhenger og ikke i arbeidslivet", "Posisjonen tildeles av myndighetene og kan søkes endret administrativt"],
+      options: ["Posisjonen er tilskrevet ved fødselen og begrunnet i et rituelt register om renhet", "Posisjonen følger av inntekt og eiendom, og den kan endres gjennom personens egen innsats", "Posisjonen gjelder bare i religiøse sammenhenger, og ikke i arbeidslivet eller hverdagen", "Posisjonen tildeles av myndighetene og kan søkes endret administrativt"],
       explanation: "Riktig er den tilskrevne posisjonen med rituell begrunnelse. Posisjon som følger av inntekt og kan endres, beskriver klasse. Kastesystemet virker på tvers av livsområder, og statlige kategorier som «Scheduled Tribes» er noe annet enn kastetilhørighet.",
     },
     {
       question: "Hvilken mekanisme holder kastegrensene på plass over generasjoner?",
-      options: ["Endogami — kravet om å gifte seg innenfor sin egen gruppe", "Eksogami — kravet om å gifte seg utenfor sin egen gruppe", "Arv gjennom mors linje i stedet for fars", "Statlige kvoteordninger i utdanning og offentlige stillinger"],
+      options: ["Endogami — kravet om å gifte seg innenfor sin egen gruppe", "Eksogami — kravet om å gifte seg utenfor sin egen gruppe hver gang", "Arv gjennom mors linje i stedet for fars", "Statlige kvoteordninger i utdanning og offentlige stillinger"],
       explanation: "Riktig er endogami, som hindrer at gruppene blandes over generasjoner. Eksogami er det motsatte kravet og virker samtidig på et annet nivå — man kan være pålagt å gifte seg utenfor sin avstamningsgruppe, men innenfor sin kaste.",
     },
     {
       question: "Hva er strukturell rasisme?",
-      options: ["Ulikhet innebygd i institusjoner og praksiser, som virker uten at noen har rasistiske holdninger", "Fordommer og nedsettende holdninger som enkeltmennesker retter mot bestemte grupper i et samfunn i dag", "Åpen diskriminering som er nedfelt i et lands lovverk", "Den økonomiske ulikheten som følger av ulik utdanningsbakgrunn"],
+      options: ["Ulikhet innebygd i institusjoner og praksiser, som virker uten at noen har rasistiske holdninger", "Fordommer og nedsettende holdninger som enkeltmennesker retter mot bestemte grupper i et samfunn i dag", "Åpen diskriminering som er uttrykkelig nedfelt i et lands lovverk og håndheves av myndighetene der", "Den økonomiske ulikheten som følger av ulik utdanningsbakgrunn"],
       explanation: "Riktig er den innebygde ulikheten som virker uavhengig av holdninger. Fordommer er individuelle holdninger — det halve svaret, og det halve som ikke er det oppgaven spør om. Lovfestet diskriminering er én mulig form, men begrepet dekker langt mer.",
     },
     {
       question: "Hvorfor trengs begrepet strukturell rasisme ved siden av holdningsbegrepet?",
-      options: ["Fordi det forklarer hvorfor ulikhet består selv når holdningene endrer seg", "Fordi holdninger er vanskelige å måle i en befolkning", "Fordi individuelle fordommer er sjeldne i moderne samfunn", "Fordi strukturer alltid er viktigere enn holdninger i all slags samfunnsanalyse"],
+      options: ["Fordi det forklarer hvorfor ulikhet består selv når holdningene endrer seg", "Fordi holdninger er vanskelige å måle i en befolkning", "Fordi individuelle fordommer er sjeldne i moderne samfunn", "Fordi strukturer alltid er viktigere enn holdninger i samfunnsanalyse"],
       explanation: "Riktig er stabiliteten i mønstrene: strukturer virker uavhengig av hva den enkelte mener. Begge begreper trengs — holdninger uten strukturer forklarer ikke stabiliteten, og strukturer uten holdninger forklarer ikke hvordan reglene ble slik eller hvorfor de forsvares.",
     },
     {
@@ -1385,7 +1385,7 @@ const quizData_sosant1000: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er communitas?",
-      options: ["Den intense, likestilte fellesskapsfølelsen mellom mennesker i liminalfasen", "Det lokalsamfunnet som samles for å bevitne et overgangsritual", "Den gruppen som gjennomgår initiasjonen sammen og forblir knyttet gjennom livet", "Den fellesskapsfølelsen som oppstår når ritualet er fullført og alle feirer"],
+      options: ["Den intense, likestilte fellesskapsfølelsen mellom mennesker i liminalfasen", "Det lokalsamfunnet som samles for å bevitne at et overgangsritual blir gjennomført", "Den gruppen som gjennomgår initiasjonen sammen og forblir knyttet gjennom livet", "Den fellesskapsfølelsen som oppstår når ritualet er fullført og alle feirer"],
       explanation: "Riktig er fellesskapet uten rang i terskelfasen. Gruppen som forblir knyttet gjennom livet, er en aldersklasse, og feiringen etterpå hører til reintegrasjonen — communitas oppstår nettopp mens posisjonene er opphevet.",
     },
     {
@@ -1480,7 +1480,7 @@ const quizData_sosant1000: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den beste måten å prøve utvidelsen av liminalitetsbegrepet på?",
-      options: ["Å spørre om det finnes en reintegrasjon i tilfellet man beskriver", "Å spørre om tilstanden oppleves som ubehagelig av dem det gjelder", "Å spørre om tilstanden er frivillig valgt eller påtvunget", "Å spørre om det finnes et ritual som markerer inngangen til tilstanden"],
+      options: ["Å spørre om det finnes en reintegrasjon i tilfellet man beskriver", "Å spørre om tilstanden oppleves som ubehagelig av dem det gjelder", "Å spørre om tilstanden er frivillig valgt eller påtvunget av omgivelsene", "Å spørre om det finnes et ritual som markerer inngangen til tilstanden"],
       explanation: "Riktig er spørsmålet om den tredje fasen, fordi det er sekvensen som gir det opprinnelige begrepet dets kraft. Frivillighet er relevant for skillet mellom liminal og liminoid, men det er reintegrasjonen som avgjør om man beskriver en fase eller en varig posisjon.",
     },
     {
@@ -1490,7 +1490,7 @@ const quizData_sosant1000: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den vanligste fasen å utelate i kortsvar om overgangsritualer?",
-      options: ["Reintegrasjonen, fordi den virker minst dramatisk", "Separasjonen, fordi den er kortest", "Liminalfasen, fordi den er vanskeligst å forklare", "Prøvelsesfasen, fordi den ikke finnes i alle ritualer"],
+      options: ["Reintegrasjonen, fordi den virker minst dramatisk", "Separasjonen, fordi den er den korteste av de tre fasene", "Liminalfasen, fordi den er vanskeligst å forklare", "Prøvelsesfasen, fordi den ikke finnes i alle ritualer"],
       explanation: "Riktig er reintegrasjonen. Uten den er overgangen ikke fullført, og hele poenget med ritualet mangler — det er nettopp den fasen som gjør den nye posisjonen kjent og bindende for alle andre. Merk også at det ikke finnes noen egen prøvelsesfase; prøvelser hører til liminalfasen.",
     },
     {
@@ -1502,7 +1502,7 @@ const quizData_sosant1000: Record<string, QuizQuestion[]> = {
   'sosant1000-4-2': [
     {
       question: "Hva menes med «matter out of place»?",
-      options: ["At skitt er materie på feil sted — et forhold mellom tingen og ordenen den er i", "At skitt består av stoffer som er skadelige for helsen", "At noe blir urent når det har vært i berøring med noe forbudt", "At ting helt mister sin verdi når de flyttes ut av den opprinnelige sammenhengen sin"],
+      options: ["At skitt er materie på feil sted — et forhold mellom tingen og ordenen den er i", "At skitt består av stoffer som er skadelige for helsen til dem som kommer i kontakt med dem", "At noe blir urent når det har vært i berøring med noe forbudt", "At ting helt mister sin verdi når de flyttes ut av den opprinnelige sammenhengen sin"],
       explanation: "Riktig er forholdet mellom ting og orden: jord i hagen er jord, den samme jorda på benken er skitt. Helseskade er nettopp hygieneforklaringen Douglas avviser, og berøringssmitte er en annen forestilling enn den om plassering i en klassifikasjon.",
     },
     {
@@ -1517,27 +1517,27 @@ const quizData_sosant1000: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan beskriver Douglas matforbudene i Tredje Mosebok?",
-      options: ["Som et system der dyr som ikke passer i sitt eget domene, er forbudt", "Som en tilfeldig liste av forbud som er blitt hellig gjennom lang tradisjon", "Som praktiske helseregler formulert i religiøse ord", "Som et resultat av at bestemte dyr var knappe ressurser"],
+      options: ["Som et system der dyr som ikke passer i sitt eget domene, er forbudt", "Som en tilfeldig liste av forbud som er blitt hellig gjennom lang tradisjon", "Som praktiske helseregler mot fordervelig mat, formulert i religiøse ord", "Som et resultat av at bestemte dyr var knappe ressurser"],
       explanation: "Riktig er systematikken: hvert element har sitt rette sted og sin rette bevegelsesmåte, og dyr som bryter med kravene i sitt domene eller krysser mellom domener, er de forbudte. Helseforklaringen er den hun avviser, og listen er nettopp ikke tilfeldig.",
     },
     {
       question: "Hva slags arbeid er Douglas' analyse av matforbudene i Tredje Mosebok?",
-      options: ["Tekstanalyse, ikke feltarbeid blant dem som følger forbudene", "Feltarbeid blant jødiske familier på 1960-tallet", "En sammenligning av matforbud i femti samfunn", "En analyse av arkeologisk materiale fra Midtøsten og Nord-Afrika"],
+      options: ["Tekstanalyse, ikke feltarbeid blant dem som følger forbudene", "Feltarbeid blant jødiske familier som fulgte forbudene på 1960-tallet", "En sammenligning av matforbud i femti samfunn", "En analyse av arkeologisk materiale fra Midtøsten og Nord-Afrika"],
       explanation: "Riktig er tekstanalyse. Feltarbeidet hennes var blant Lele i Kasai-området; matforbudsanalysen er en lesning av en skriftlig kilde, og presisjonen om skillet er verdt et pluss i et svar.",
     },
     {
       question: "Hva er et tabu?",
-      options: ["Et forbud begrunnet i noe annet enn praktisk skade", "Et forbud som er nedfelt i et samfunns lovverk", "En handling som er sjelden fordi den er upraktisk", "En religiøs plikt som må oppfylles til bestemte tider"],
+      options: ["Et forbud begrunnet i noe annet enn praktisk skade", "Et forbud som er uttrykkelig nedfelt i et samfunns lovverk", "En handling som er sjelden fordi den er upraktisk", "En religiøs plikt som må oppfylles til bestemte tider"],
       explanation: "Riktig er forbudet uten skadebegrunnelse: det trenger ingen begrunnelse for dem som følger det, og brudd krever gjerne renselse snarere enn unnskyldning. Lovfesting er noe annet, og et tabu er et forbud, ikke en plikt.",
     },
     {
       question: "Hva er skillet mellom det hellige og det profane hos Durkheim?",
-      options: ["Et skille mellom det som settes til side og omgis av forbud, og det alminnelige", "Et skille mellom det overnaturlige og det naturlige", "Et skille mellom det religiøse livet og det verdslige arbeidslivet i ethvert samfunn", "Et skille mellom det som er rent og det som er urent"],
+      options: ["Et skille mellom det som settes til side og omgis av forbud, og det alminnelige", "Et skille mellom det overnaturlige og det naturlige, altså mellom to slags virkelighet", "Et skille mellom det religiøse livet og det verdslige arbeidslivet i ethvert samfunn", "Et skille mellom det som er rent og det som er urent"],
       explanation: "Riktig er skillet mellom to behandlingsmåter, ikke mellom to slags virkelighet. Hva som er hellig varierer fullstendig — en stein, en bok, et flagg — mens det at noe skilles ut og behandles med alvor, er gjennomgående.",
     },
     {
       question: "Hva er Durkheims tese om religion og samfunn?",
-      options: ["At religiøse forestillinger uttrykker og opprettholder samfunnets egen struktur", "At religion oppstår av menneskers frykt for døden og for det ukjente i tilværelsen", "At religion forsvinner etter hvert som samfunn blir mer moderne", "At religion er en privat overbevisning uten sosiale virkninger"],
+      options: ["At religiøse forestillinger uttrykker og opprettholder samfunnets egen struktur", "At religion oppstår av menneskers frykt for døden og for det ukjente i tilværelsen", "At religion gradvis forsvinner av seg selv etter hvert som samfunn blir mer moderne", "At religion er en privat overbevisning uten sosiale virkninger"],
       explanation: "Riktig er at religionen uttrykker sosial struktur, og at det er samfunnet selv menneskene i siste instans forholder seg til. Merk formuleringen: han argumenterte for dette på grunnlag av andres rapporter — han beviste det ikke.",
     },
     {
@@ -1547,7 +1547,7 @@ const quizData_sosant1000: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den kollektive oppstemtheten hos Durkheim?",
-      options: ["Den intense fellesskapsfølelsen som oppstår når mennesker samles i ritualer", "Den gleden som følger av å ha oppfylt en religiøs plikt", "Den enigheten om moralske spørsmål som finnes i små og tette lokalsamfunn i dag", "Den følelsen av trygghet religiøs tro gir den enkelte"],
+      options: ["Den intense fellesskapsfølelsen som oppstår når mennesker samles i ritualer", "Den gleden den enkelte føler over å ha oppfylt en religiøs plikt på rett måte", "Den enigheten om moralske spørsmål som finnes i små og tette lokalsamfunn i dag", "Den følelsen av trygghet religiøs tro gir den enkelte"],
       explanation: "Riktig er energien som frembringes av samlingen, og som deltakerne opplever som noe større enn seg selv. Durkheims poeng er at kraften er samfunnets egen, opplevd i konsentrert form — den tilskrives noe hellig, men frembringes av forsamlingen.",
     },
     {
@@ -1629,7 +1629,7 @@ const quizData_sosant1000: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den viktigste presiseringen om mobilitet som nøkkelord?",
-      options: ["At mobiliteten er ujevnt fordelt, slik at noens bevegelsesfrihet ofte forutsetter at andre holdes i ro", "At mobiliteten er størst blant mennesker og minst blant kapital, siden mennesker flytter oftest oftest av alle", "At mobiliteten først og fremst gjelder varer, mens ideer og bilder beveger seg langsommere enn før", "At mobiliteten har vært jevnt økende siden 1800-tallet og derfor ikke er noe særtrekk ved vår egen tid"],
+      options: ["At mobiliteten er ujevnt fordelt, slik at noens bevegelsesfrihet ofte forutsetter at andre holdes i ro", "At mobiliteten er størst blant mennesker og minst blant kapital, siden mennesker flytter oftest oftest av alle", "At mobiliteten først og fremst gjelder varer, mens ideer og bilder beveger seg langsommere enn de gjorde før", "At mobiliteten har vært jevnt økende siden 1800-tallet og derfor ikke er noe særtrekk ved vår egen tid"],
       explanation: "Riktig er at mobilitet er ujevnt fordelt, og at immobilitet — å bli holdt fast — hører med i samme begrep. Det er kapital og informasjon som beveger seg raskest, mennesker langsomst, ikke omvendt. Ideer og bilder beveger seg tvert imot svært raskt, og at mobiliteten har en lang historie, opphever ikke at fordelingen er selve poenget.",
     },
     {
@@ -1684,7 +1684,7 @@ const quizData_sosant1000: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor kan ikke Eriksens grunnbok alene brukes som etnografisk belegg?",
-      options: ["Fordi den er en syntese og grunnbok uten eget feltmateriale, slik at belegget må hentes fra de andre pensumtekstene", "Fordi den er skrevet for et allment publikum og derfor ikke regnes som pensumlitteratur i emnet på universitetsnivå", "Fordi den er for gammel til at eksemplene i den fortsatt gjelder for dagens globaliserte verden og dens raske endringer", "Fordi den bare behandler norske forhold og dermed ikke gir sammenligningsgrunnlag på tvers av samfunn"],
+      options: ["Fordi den er en syntese og grunnbok uten eget feltmateriale, slik at belegget må hentes fra de andre pensumtekstene", "Fordi den er skrevet for et allment publikum og derfor ikke regnes som pensumlitteratur i emnet på universitetsnivå", "Fordi den er for gammel til at eksemplene i den fortsatt gjelder for dagens globaliserte verden og dens raske endringer", "Fordi den bare behandler norske forhold og dermed ikke gir noe sammenligningsgrunnlag på tvers av ulike samfunn i verden"],
       explanation: "Riktig er at grunnboka er en syntese uten eget feltmateriale, slik at etnografien må hentes fra tekstene den bygger på og fra de øvrige pensumtekstene. Boka er selvsagt pensum og behandler samfunn over hele verden. Å vite forskjellen på en synteserende grunnbok og en etnografi er en presisjon få kandidater viser.",
     },
     {
@@ -1978,7 +1978,7 @@ const quizData_sosant1000: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er formålet med å behandle en sensitiv praksis som dyreofring i kontekst?",
-      options: ["Å vise hvordan praksisen gir mening i sin sammenheng, uten at forståelse forveksles med tilslutning", "Å unngå å støte lesere som tilhører de gruppene praksisen beskrives hos i lærebøker og undervisning", "Å dokumentere at praksisen er mindre utbredt enn den kan virke utenfra, og dermed er et mindre problem", "Å vise at praksisen har en økologisk funksjon som rettferdiggjør den"],
+      options: ["Å vise hvordan praksisen gir mening i sin sammenheng, uten at forståelse forveksles med tilslutning", "Å unngå å støte lesere som tilhører de gruppene praksisen beskrives hos i lærebøker og undervisning", "Å dokumentere at praksisen er mindre utbredt enn den kan virke utenfra, og dermed er et mindre problem", "Å vise at praksisen har en økologisk funksjon som gjør den nyttig, og som dermed rettferdiggjør at den fortsetter"],
       explanation: "Riktig er kontekstualiseringen som får praksisen til å fremstå sammenhengende, kombinert med at forståelse ikke er tilslutning. Å forklare hvordan noe gir mening forplikter deg ikke til noe. Å lete etter en funksjon som rettferdiggjør praksisen, er en helt annen og problematisk framgangsmåte.",
     },
   ],
@@ -2386,7 +2386,7 @@ const quizData_sosant1000: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilket kriterium bør styre hvilke fire av de seks kortsvarene du velger?",
-      options: ["Hvilke fire du kan forankre med et konkret etnografisk eksempel fra pensum", "Hvilke fire som handler om de temaene du har brukt mest lesetid på i pensumboka", "Hvilke fire som har kortest oppgavetekst og dermed er raskest å skrive ferdig", "Hvilke fire som til sammen dekker flest ulike deler av pensum, slik at bredden vises"],
+      options: ["Hvilke fire du kan forankre med et konkret etnografisk eksempel fra pensum", "Hvilke fire som handler om de temaene du har brukt mest lesetid på", "Hvilke fire som har kortest oppgavetekst og dermed er raskest å skrive ferdig", "Hvilke fire som til sammen dekker flest ulike deler av pensum, slik at bredden vises"],
       explanation: "Riktig kriterium er etnografien. Definisjonen kan de fleste rekonstruere i eksamenslokalet, men etnografien er enten pakket ferdig eller ikke. Bredde i temaer er et lesekriterium, ikke et valgkriterium på eksamensdagen.",
     },
     {
@@ -2396,7 +2396,7 @@ const quizData_sosant1000: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva må et etnografisk eksempel inneholde for at det skal telle i et kortsvar?",
-      options: ["Folk eller gruppe, sted og omtrentlig tid, forsker og verk, og hva studien viste", "Folk eller gruppe, sted og forsker, verkets tittel, og et sidetall som viser hvor det står", "Forsker, verk og utgivelsesår, og en kort vurdering av hvor troverdig studien regnes som", "Folk eller gruppe, sted, og en presis gjengivelse av forfatterens egne formuleringer"],
+      options: ["Folk eller gruppe, sted og omtrentlig tid, forsker og verk, og hva studien viste", "Folk eller gruppe, sted og forsker, verkets tittel, og et presist sidetall", "Forsker, verk og utgivelsesår, og en kort vurdering av hvor troverdig studien regnes som", "Folk eller gruppe, sted, og en presis gjengivelse av forfatterens egne formuleringer"],
       explanation: "Riktig er de fire leddene, der det siste — hva studien faktisk viste — er det som oftest mangler. Sidetall brukes ikke i denne boka og er ikke et krav, og ordrette gjengivelser av pensumtekster er verken påkrevd eller ønskelig.",
     },
     {
@@ -2513,7 +2513,7 @@ const quizData_sosant1000: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan bør du velge de tre tekstene til et langsvar?",
-      options: ["Formuler aksen oppgaven handler om som et spørsmål, og velg tekster som svarer ulikt på det", "Velg de tre tekstene du husker best, siden presisjon i gjengivelsen er det viktigste kriteriet", "Velg tre tekster fra tre ulike temadeler, slik at besvarelsen dekker mest mulig av pensum", "Velg de tre nyeste tekstene på pensumlista, siden nyere forskning veier tyngre i drøftingen"],
+      options: ["Formuler aksen oppgaven handler om som et spørsmål, og velg tekster som svarer ulikt på det", "Velg de tre tekstene du husker best, siden presisjon i gjengivelsen er det viktigste kriteriet", "Velg tre tekster fra tre ulike temadeler, slik at besvarelsen dekker mest mulig av pensumlista", "Velg de tre nyeste tekstene på pensumlista, siden nyere forskning veier tyngre i drøftingen"],
       explanation: "Riktig er å formulere aksen som et spørsmål først. Da blir det synlig hvilke tekster som har noe å si til hverandre. Fordelingen som virker er én rammetekst som gir begrepene og to etnografier som gir belegget.",
     },
     {
@@ -2525,12 +2525,12 @@ const quizData_sosant1000: Record<string, QuizQuestion[]> = {
   'sosant1000-9-3': [
     {
       question: "Hva er en sammenligningsakse?",
-      options: ["Et spørsmål som kan stilles til begge fenomenene, og som de to svarer ulikt på", "Et trekk ved det ene fenomenet som det andre fenomenet mangler helt og holdent", "En overskrift som deler besvarelsen i to like store deler, én for hvert fenomen", "En pensumtekst som behandler begge fenomenene og dermed binder dem sammen"],
+      options: ["Et spørsmål som kan stilles til begge fenomenene, og som de to svarer ulikt på", "Et trekk ved det ene fenomenet som det andre fenomenet mangler helt og holdent", "En overskrift som deler besvarelsen i to like store deler, én for hvert fenomen", "En pensumtekst som behandler begge fenomenene og dermed binder dem sammen i teksten"],
       explanation: "Riktig er spørsmålet som kan stilles til begge. Testen er nettopp om spørsmålet lar seg stille til begge ledd. Kan det bare stilles til det ene, er det et trekk ved det ene og hører ikke hjemme i sammenligningen.",
     },
     {
       question: "Hva er forskjellen mellom aksestruktur og blokkstruktur i en komparativ besvarelse?",
-      options: ["Aksestrukturen tar én akse per avsnitt med begge ledd; blokkstrukturen tar alt om det ene først", "Aksestrukturen bruker punktlister og tabeller, mens blokkstrukturen bruker sammenhengende prosa", "Aksestrukturen krever minst tre pensumtekster, mens blokkstrukturen klarer seg godt med to av dem", "Aksestrukturen brukes i Del 2, mens blokkstrukturen er den riktige formen i Del 1"],
+      options: ["Aksestrukturen tar én akse per avsnitt med begge ledd; blokkstrukturen tar alt om det ene først", "Aksestrukturen bruker punktlister og tabeller, mens blokkstrukturen bruker sammenhengende prosa", "Aksestrukturen krever minst tre pensumtekster, mens blokkstrukturen klarer seg godt med to av dem", "Aksestrukturen brukes i langsvaret i Del 2, mens blokkstrukturen er den riktige formen i kortsvarene"],
       explanation: "Riktig er organiseringen: én akse per avsnitt med begge ledd, mot alt om X først og deretter alt om Y. Blokkstrukturen gjør sammenligningen usynlig og gjør det lett å glemme det andre leddet — som er feil nummer 11.",
     },
     {
@@ -2565,7 +2565,7 @@ const quizData_sosant1000: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den viktigste presiseringen i en sammenligning mellom et markedssamfunn og Adivasi-samfunn?",
-      options: ["At Adivasi ikke er utenfor markedsøkonomien, men koblet til den på andres premisser", "At Adivasi lever i en tradisjonell økonomi som ennå ikke er berørt av det indiske markedet", "At sammenligningen først og fremst gjelder forholdet mellom fortid og nåtid i India", "At Adivasi utgjør én folkegruppe med felles språk og felles økonomisk organisering"],
+      options: ["At Adivasi ikke er utenfor markedsøkonomien, men koblet til den på andres premisser", "At Adivasi lever i en tradisjonell økonomi som ennå ikke er berørt av det indiske markedet", "At sammenligningen først og fremst gjelder forholdet mellom fortid og nåtid i India", "At Adivasi utgjør én folkegruppe med ett felles språk og én felles økonomisk organisering"],
       explanation: "Riktig er koblingen på andres premisser — formelen er «utenfor beslutningene, innenfor kretsløpet». Områdene er svært etterspurte for mineraler og prosjekter. Adivasi er dessuten mange folk med ulike språk og historier, ikke én gruppe, og sammenligningen gjelder samtidige forhold.",
     },
     {

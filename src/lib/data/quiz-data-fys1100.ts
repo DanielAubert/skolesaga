@@ -14,17 +14,17 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan fordeles poengene på en avsluttende skoleeksamen i FYS1100?",
-      options: ["Inntil 5 poeng per deloppgave, og alle deloppgaver teller like mye", "Inntil 5 poeng per deloppgave, vektet etter hvor lang deloppgaven er", "Inntil 10 poeng per hovedoppgave, fordelt fritt av den som retter", "Poeng gis kun for helt fullførte hovedoppgaver, ikke for deler"],
+      options: ["Inntil 5 poeng per deloppgave, og alle deloppgaver teller like mye", "Inntil 5 poeng per deloppgave, vektet etter lengden", "Inntil 10 poeng per hovedoppgave, fordelt fritt av den som retter", "Poeng gis kun for helt fullførte hovedoppgaver, ikke for deler"],
       explanation: "Alle deloppgaver teller likt uansett lengde, og det gis poeng for en god løsningsidé selv om den ikke fullføres. Vekting etter lengde er den vanligste misforståelsen, og den fører til feil strategi: nettopp fordi korte og lange deloppgaver teller likt, lønner det seg å ta de innledende i alle oppgavene først.",
     },
     {
       question: "Hvilke hjelpemidler er tillatt på den avsluttende skoleeksamenen?",
-      options: ["Godkjent kalkulator, Rottmann og et fagspesifikt formelark", "Godkjent kalkulator og Rottmann, men ingen formler deles ut", "Kun godkjent kalkulator; alle formler må huskes utenat", "Alle trykte hjelpemidler, inkludert egne notater og lærebok"],
+      options: ["Godkjent kalkulator, Rottmann og et fagspesifikt formelark", "Godkjent kalkulator og Rottmann, men ingen formler deles ut", "Kun godkjent kalkulator uten Rottmann; alle formler må huskes utenat", "Alle trykte hjelpemidler, inkludert egne notater og lærebok"],
       explanation: "Formelarket deles ut bakerst i settet og har vært det samme siden 2023. Alternativet uten formelark er nærmest, men det endrer hele lesestrategien: siden arket finnes, ligger poengene i å velge, begrunne og utlede — ikke i å pugge.",
     },
     {
       question: "Hvilket av disse temaene er testet i alle sju avsluttende settene?",
-      options: ["Rotasjon og stive legemer", "Spesiell relativitet", "Sirkelbevegelse og sentripetalakselerasjon", "Overslagsregning i tierpotenser"],
+      options: ["Rotasjon og stive legemer", "Spesiell relativitet og tidsdilatasjon", "Sirkelbevegelse og sentripetalakselerasjon", "Overslagsregning i tierpotenser"],
       explanation: "Rotasjon er én av de fire søylene på 100 %, sammen med numerisk Python, Newton med krefttegning og arbeid/energi. Spesiell relativitet ligger nærmest med 6 av 7 sett (86 %) og er også nesten sikkert stoff, men den mangler i ett sett.",
     },
     {
@@ -34,7 +34,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva innebærer regelen om at følgefeil ikke straffes?",
-      options: ["En feil forplantes videre uten nytt trekk, hvis mellomregningen er vist", "En feil forplantes videre uten nytt trekk, uansett om mellomregningen er vist", "Alle deloppgaver etter en feil annulleres og gis null poeng", "Feilen trekkes én gang per deloppgave den påvirker videre"],
+      options: ["En feil forplantes videre uten nytt trekk, hvis mellomregningen er vist", "En feil forplantes videre uten nytt trekk, uansett mellomregning", "Alle deloppgaver etter en feil annulleres og gis null poeng", "Feilen trekkes én gang per deloppgave den påvirker videre"],
       explanation: "Du taper poeng der feilen ble gjort, og ikke etterpå — men den som retter må kunne se hvor det gikk galt. Alternativet uten kravet om vist mellomregning ligger nærmest, og det er nettopp det kravet som gjør regelen praktisk: uten synlig regning kan feilen ikke spores.",
     },
     {
@@ -49,7 +49,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken numerisk metode forventer og premierer sensor i kodedeloppgavene?",
-      options: ["Euler–Cromer, der farten oppdateres før posisjonen", "Forward Euler, der posisjonen oppdateres med den gamle farten", "Runge–Kutta av fjerde orden med adaptivt tidssteg", "Trapesmetoden anvendt direkte på bevegelseslikningen"],
+      options: ["Euler–Cromer, der farten oppdateres før posisjonen", "Forward Euler, der posisjonen oppdateres med den gamle farten", "Runge–Kutta av fjerde orden med adaptivt tidssteg og feilkontroll", "Trapesmetoden anvendt direkte på bevegelseslikningen"],
       explanation: "Euler–Cromer er metoden alle løsningsforslagene bruker, og metodevalget skal begrunnes i tekst. Forward Euler ligger nærmest og ser nesten lik ut, men den bruker den gamle farten i posisjonslinja og lekker derfor energi — svingninger vokser og planetbaner spiraler utover. Runge–Kutta er bare beredskap i dette faget og prioriteres ikke.",
     },
     {
@@ -59,7 +59,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den viktigste konsekvensen av at formelarket deles ut på eksamen?",
-      options: ["Poengene ligger i å velge, begrunne og utlede — ikke i å huske formlene", "Alle formler kan slås opp, så ingen utledninger kreves under tidspress", "Formlene på arket kan brukes uten å oppgi hvilken situasjon de gjelder i", "Arket erstatter Rottmann, som derfor ikke trengs på eksamen"],
+      options: ["Poengene ligger i å velge, begrunne og utlede — ikke i å huske formlene", "Alle formler kan slås opp, så ingen utledninger kreves — det holder å sette inn tall", "Formlene på arket kan brukes uten å oppgi hvilken situasjon de gjelder i", "Arket erstatter Rottmann, som derfor ikke trengs på eksamen"],
       explanation: "Siden formlene er tilgjengelige, testes bruken av dem: hvilken som gjelder her, hvorfor den gjelder, og det arket ikke gir. Alternativet om at ingen utledninger kreves ligger nærmest, men er feil — flere sentrale resultater må utledes aktivt, og hele kodehåndverket står ikke på arket i det hele tatt.",
     },
   ],
@@ -86,7 +86,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva sier dimensjonshomogenitet?",
-      options: ["Hvert ledd i en fysisk riktig likning har samme dimensjon", "Hvert ledd i en fysisk riktig likning har samme tallverdi", "En likning er riktig dersom hvert ledd har samme dimensjon", "Alle størrelser i en likning må måles i SI-grunnenheter"],
+      options: ["Hvert ledd i en fysisk riktig likning har samme dimensjon", "Hvert ledd i en fysisk riktig likning har samme tallverdi", "En likning er riktig dersom hvert ledd har samme dimensjon", "Alle størrelser i en likning må måles i SI-grunnenheter som meter og sekund"],
       explanation: "Homogenitet er et krav enhver riktig likning oppfyller, fordi ledd med ulik dimensjon ikke kan legges sammen. Alternativet som gjør det til et tilstrekkelig kriterium ligger nærmest, men er galt: $E = 7mv^{2}$ er homogent og likevel fysisk feil — kontrollen kan avvise, aldri godkjenne.",
     },
     {
@@ -101,7 +101,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kan dimensjonsanalyse ALDRI bestemme?",
-      options: ["Den dimensjonsløse faktoren foran uttrykket, som $2\\pi$ eller $\\tfrac12$", "Hvilke av de gitte størrelsene som skal stå i telleren og hvilke i nevneren", "Hvilken potens hver av størrelsene opptrer med", "Om et gitt uttrykk er dimensjonelt umulig"],
+      options: ["Den dimensjonsløse faktoren foran uttrykket, som $2\\pi$ eller $\\tfrac12$", "Hvilke størrelser som skal stå i telleren og hvilke i nevneren", "Hvilken potens hver av størrelsene opptrer med", "Om et gitt uttrykk er dimensjonelt umulig"],
       explanation: "Et rent tall har eksponent null for alle grunnstørrelsene og setter derfor ingen spor i homogenitetslikningene. Å bestemme potensene ligger nærmest, men det er nettopp det metoden gjør — den finner skjelettet, og bare tallfaktoren blir stående igjen ubestemt.",
     },
     {
@@ -116,17 +116,17 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvor mange gjeldende siffer skal et vanlig tallsvar i FYS1100 oppgis med?",
-      options: ["To til tre, med ett siffer ekstra beholdt i mellomregningen", "Så mange som kalkulatoren viser, for å unngå avrundingsfeil", "Alltid nøyaktig fire, uavhengig av inngangsdataene", "Ett, siden alle fysiske størrelser er beheftet med usikkerhet"],
+      options: ["To til tre, med ett siffer ekstra beholdt i mellomregningen", "Så mange som kalkulatoren viser, for å unngå avrundingsfeil", "Alltid nøyaktig fire, uavhengig av hvor mange siffer inngangsdataene har", "Ett, siden alle fysiske størrelser er beheftet med usikkerhet"],
       explanation: "To til tre gjeldende siffer er standarden, og et ekstra siffer i mellomregningen hindrer at avrundingsfeil hoper seg opp. Å beholde alle kalkulatorens siffer ligger nærmest, men gir falsk presisjon i sluttsvaret — inngangsdataene bærer sjelden mer enn tre siffer.",
     },
     {
       question: "Hva er forskjellen på dimensjon og enhet?",
-      options: ["Dimensjonen sier hva slags størrelse det er, enheten hvilken målestokk", "Dimensjonen gjelder vektorer, mens enheten gjelder skalarer", "Dimensjonen brukes i SI-systemet, mens enheten brukes i alle andre systemer", "De to er samme sak, men skrives med ulike symboler"],
+      options: ["Dimensjonen sier hva slags størrelse det er, enheten hvilken målestokk", "Dimensjonen gjelder vektorstørrelser, mens enheten gjelder skalare størrelser", "Dimensjonen brukes i SI-systemet, mens enheten brukes i alle andre systemer", "De to er samme sak, men skrives med ulike symboler"],
       explanation: "Høyden på et bord er en lengde uansett om den måles i meter eller tommer: $[L]$ er dimensjonen, meter er enheten. Alternativet om at det er samme sak ligger nærmest i praktisk bruk, men skillet er reelt — dimensjonsanalyse føres i dimensjoner, mens et svar alltid oppgis i enheter.",
     },
     {
       question: "En sirkelbane har fart $v \\sim r^{-1/2}$. Hva skjer med farten hvis radien nidobles?",
-      options: ["Farten blir en tredjedel av det den var", "Farten blir en niendedel av det den var", "Farten blir tre ganger så stor", "Farten blir en attendedel av det den var"],
+      options: ["Farten blir en tredjedel av det den var", "Farten blir en niendedel av det den var", "Farten blir tre ganger så stor som før nidoblingen", "Farten blir en attendedel av det den var"],
       explanation: "Med $v \\sim r^{-1/2}$ ganges farten med $9^{-1/2} = 1/3$ når radien ganges med 9. Svaret «en niendedel» ligger nærmest og oppstår hvis man glemmer at eksponenten er en halv og bruker $9^{-1}$ i stedet.",
     },
     {
@@ -163,12 +163,12 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor må vinkler måles i radianer i tilnærmingen $\\sin\\theta \\approx \\theta$?",
-      options: ["Fordi derivasjonsregelen $(\\sin x)' = \\cos x$ bare gjelder i radianer", "Fordi radianer er dimensjonsløse, mens grader har en enhet", "Fordi radianer alltid gir mindre tallverdier enn grader", "Fordi kalkulatoren regner internt i radianer uansett innstilling"],
+      options: ["Fordi derivasjonsregelen $(\\sin x)' = \\cos x$ bare gjelder i radianer", "Fordi radianer er dimensjonsløse, mens grader har en enhet som må regnes om", "Fordi radianer alltid gir mindre tallverdier enn grader", "Fordi kalkulatoren regner internt i radianer uansett innstilling"],
       explanation: "Hele Taylor-rekka bygger på de deriverte, og de har den enkle formen bare når vinkelen måles i radianer; i grader kommer det en faktor $\\pi/180$ inn ved hver derivasjon. Argumentet om dimensjonsløshet ligger nærmest og er delvis riktig, men grader er også dimensjonsløse — det er derivasjonsregelen som er avgjørende.",
     },
     {
       question: "Hva er restleddet $R_n(x)$ i Taylors formel?",
-      options: ["Den eksakte differansen mellom funksjonen og polynomet", "Det første leddet som er tatt med i polynomet", "Summen av alle leddene i polynomet av orden $n$", "Den deriverte av polynomet i utviklingspunktet"],
+      options: ["Den eksakte differansen mellom funksjonen og polynomet", "Det første leddet som er tatt med i polynomet, altså konstantleddet", "Summen av alle leddene i polynomet av orden $n$", "Den deriverte av polynomet i utviklingspunktet"],
       explanation: "Per definisjon er $R_n(x) = f(x) - P_n(x)$, altså feilen man gjør ved å bytte funksjonen med polynomet. Alternativet om det første leddet som er med ligger nærmest i formulering, men restleddet handler tvert imot om det som er utelatt.",
     },
     {
@@ -188,12 +188,12 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er linearisering?",
-      options: ["Å erstatte en funksjon med sitt førsteordens Taylor-polynom om et punkt", "Å erstatte en funksjon med sitt andreordens Taylor-polynom om et punkt", "Å erstatte alle ikke-lineære ledd i en likning med null", "Å velge et utviklingspunkt der funksjonen er tilnærmet rett"],
+      options: ["Å erstatte en funksjon med sitt førsteordens Taylor-polynom om et punkt", "Å erstatte en funksjon med sitt andreordens Taylor-polynom om et valgt punkt", "Å erstatte alle ikke-lineære ledd i en likning med null", "Å velge et utviklingspunkt der funksjonen er tilnærmet rett"],
       explanation: "Resultatet er tangentlinja i punktet, altså $f(a) + f'(a)(x-a)$. Å sette ikke-lineære ledd til null ligger nærmest i virkning, men er ikke det samme: lineariseringen beholder informasjon fra den deriverte i punktet, som ikke er null.",
     },
     {
       question: "Hvorfor forsvinner alltid nullteordensleddet når man lineariserer en kraft om et likevektspunkt?",
-      options: ["Fordi kraften per definisjon er null i et likevektspunkt", "Fordi den deriverte av kraften er null i et likevektspunkt", "Fordi den potensielle energien er null i et likevektspunkt", "Fordi man alltid velger origo i likevektspunktet"],
+      options: ["Fordi kraften per definisjon er null i et likevektspunkt", "Fordi den deriverte av kraften er null i et likevektspunkt", "Fordi den potensielle energien er null i et likevektspunkt", "Fordi man alltid velger origo i likevektspunktet, der posisjonen er null"],
       explanation: "Nullteordensleddet er $F(x_0)$, og et likevektspunkt er nettopp definert ved at summen av kreftene der er null. Alternativet om den deriverte ligger nærmest, men det er den *potensielle energien* som har null derivert der — kraftens deriverte er tvert imot det som blir fjærkonstanten.",
     },
     {
@@ -218,24 +218,24 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor inneholder rekka for $\\gamma$ bare like potenser av $\\beta$?",
-      options: ["Fordi $\\gamma$ avhenger av farten bare gjennom $\\beta^{2}$", "Fordi odde potenser alltid forsvinner i binomialrekker", "Fordi $\\beta$ er dimensjonsløs og derfor alltid opptrer i par", "Fordi rekka bare er gyldig for positive verdier av $\\beta$"],
+      options: ["Fordi $\\gamma$ avhenger av farten bare gjennom $\\beta^{2}$", "Fordi odde potenser alltid forsvinner når en binomialrekke utvikles", "Fordi $\\beta$ er dimensjonsløs og derfor alltid opptrer i par", "Fordi rekka bare er gyldig for positive verdier av $\\beta$"],
       explanation: "Uttrykket $(1-\\beta^{2})^{-1/2}$ inneholder ikke $\\beta$ alene noe sted, så enhver rekke i $\\beta^{2}$ gir bare like potenser tilbake. Påstanden om binomialrekker generelt ligger nærmest, men er gal: $(1+x)^{n}$ har både odde og like potenser av $x$.",
     },
     {
       question: "Hvordan endrer feilen seg når man halverer avstanden til utviklingspunktet i en førsteordens tilnærming?",
-      options: ["Den faller til omtrent en fjerdedel", "Den faller til omtrent en halvdel", "Den faller til omtrent en åttedel", "Den faller til omtrent en sekstendedel"],
+      options: ["Den faller til omtrent en fjerdedel", "Den faller til omtrent en halvdel av det den var", "Den faller til omtrent en åttedel", "Den faller til omtrent en sekstendedel"],
       explanation: "Restleddet i en førsteordens tilnærming er proporsjonalt med $(x-a)^{2}$, så en halvering gir en faktor $\\tfrac14$. Svaret «en halvdel» ligger nærmest og ville vært riktig for en nullteordens tilnærming, der restleddet går lineært.",
     },
   ],
   'fys1100-1-3': [
     {
       question: "Hva kjennetegner et Fermi-problem?",
-      options: ["Svaret skal være riktig størrelsesorden, ikke riktig siffer", "Svaret skal være nøyaktig, men uten oppgitte inngangsdata", "Svaret krever en avansert geometrisk modell av situasjonen", "Svaret finnes bare ved å slå opp tall i en tabell"],
+      options: ["Svaret skal være riktig størrelsesorden, ikke riktig siffer", "Svaret skal være nøyaktig på sifferet, men uten oppgitte inngangsdata", "Svaret krever en avansert geometrisk modell av situasjonen", "Svaret finnes bare ved å slå opp tall i en tabell"],
       explanation: "Et Fermi-problem brytes ned i delspørsmål man kan anslå, og svaret er interessant selv om det bommer med en faktor to. Alternativet om nøyaktighet uten inngangsdata ligger nærmest, men er selvmotsigende: uten data kan man umulig få et nøyaktig svar.",
     },
     {
       question: "Hva er de fire stegene i Fermi-oppskriften, i riktig rekkefølge?",
-      options: ["Forklar tankegangen, velg modell, regn i tierpotenser, vurdér rimeligheten", "Velg modell, forklar tankegangen, regn i tierpotenser, vurdér rimeligheten", "Regn i tierpotenser, velg modell, forklar tankegangen, oppgi svaret", "Slå opp referanseverdier, regn ut, rund av, kontrollér enheten"],
+      options: ["Forklar tankegangen, velg modell, regn i tierpotenser, vurdér rimeligheten", "Velg modell, forklar tankegangen, regn i tierpotenser, vurdér rimeligheten", "Regn i tierpotenser, velg modell, forklar tankegangen, og oppgi svaret helt til slutt", "Slå opp referanseverdier, regn ut, rund av, kontrollér enheten"],
       explanation: "Forklaringen kommer først fordi den styrer modellvalget, og rimelighetsvurderingen sist fordi den kontrollerer resultatet. Rekkefølgen der modellen kommer først ligger nærmest, men da mister man begrunnelsen for hvorfor akkurat den modellen er valgt.",
     },
     {
@@ -280,12 +280,12 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva innebærer min/maks-metoden i en overslagsoppgave?",
-      options: ["Å regne overslaget tre ganger: lavt, høyt og med de mest sannsynlige verdiene", "Å regne overslaget to ganger og oppgi gjennomsnittet av de to", "Å velge de anslagene som gir det mest sannsynlige sluttsvaret", "Å regne ut den absolutt minste og den absolutt største teoretisk mulige verdien"],
+      options: ["Å regne overslaget tre ganger: lavt, høyt og med de mest sannsynlige verdiene", "Å regne overslaget to ganger, med et lavt og et høyt anslag, og oppgi gjennomsnittet", "Å velge de anslagene som gir det mest sannsynlige sluttsvaret", "Å regne ut den absolutt minste og den absolutt største teoretisk mulige verdien"],
       explanation: "Metoden gir et ærlig spenn i tillegg til det beste anslaget, og spennet forteller hvor mye man faktisk vet. Alternativet med gjennomsnitt av to ligger nærmest, men et gjennomsnitt skjuler nettopp den usikkerheten spennet er ment å vise.",
     },
     {
       question: "Hvorfor treffer et produkt av mange usikre anslag likevel ofte innenfor en tierpotens?",
-      options: ["Fordi uavhengige feil ofte opphever hverandre i produktet", "Fordi hvert enkelt anslag som regel er nøyaktig", "Fordi tierpotensregning i seg selv reduserer feilen", "Fordi feilene alltid trekker i samme retning og kan korrigeres"],
+      options: ["Fordi uavhengige feil ofte opphever hverandre i produktet", "Fordi hvert enkelt anslag som regel er nøyaktig, ikke bare rimelig", "Fordi tierpotensregning i seg selv reduserer feilen", "Fordi feilene alltid trekker i samme retning og kan korrigeres"],
       explanation: "En overvurdering med en faktor to ett sted og en undervurdering med en faktor to et annet sted gir null samlet feil. Alternativet om at feilene trekker samme vei ligger nærmest, men det er nettopp det som *ødelegger* metoden — systematiske skjevheter hoper seg opp i stedet for å kansellere.",
     },
     {
@@ -307,7 +307,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En klokke beveger seg forbi deg. Hvordan går den, målt av deg?",
-      options: ["Langsommere enn din egen, med faktoren $\\gamma$", "Fortere enn din egen, med faktoren $\\gamma$", "Like fort som din egen, siden begge er gode klokker", "Langsommere, men bare hvis den akselererer"],
+      options: ["Langsommere enn din egen, med faktoren $\\gamma$", "Fortere enn din egen, med faktoren $\\gamma$", "Like fort som din egen, siden begge er riktige", "Langsommere, men bare hvis den akselererer"],
       explanation: "Tidsdilatasjonen $\\Delta t = \\gamma\\Delta t_0$ sier at tida du måler mellom to hendelser på klokka, er $\\gamma$ ganger egentida den selv viser. Akselerasjon er ikke nødvendig — effekten gjelder for konstant fart, altså mellom to inertialsystemer.",
     },
     {
@@ -322,7 +322,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er egenlengda til en gjenstand?",
-      options: ["Lengden målt i det systemet der gjenstanden er i ro", "Lengden målt i det systemet der gjenstanden beveger seg raskest", "Den korteste lengden noen observatør måler", "Gjennomsnittet av lengdene alle observatører måler"],
+      options: ["Lengden målt i det systemet der gjenstanden er i ro", "Lengden målt der gjenstanden beveger seg raskest", "Den korteste lengden noen observatør måler", "Gjennomsnittet av lengdene alle observatører måler"],
       explanation: "Egenlengda er «den vanlige lengden», målt med en målestokk i ro ved siden av gjenstanden, og den er den **største** av alle målte lengder. Svaret om den korteste lengden forveksler egenlengde med egentid, som nettopp er den korteste tida.",
     },
     {
@@ -332,7 +332,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "I hvilken retning skjer lengdekontraksjonen?",
-      options: ["Bare langs bevegelsesretningen", "Bare på tvers av bevegelsesretningen", "Like mye i alle retninger", "Langs bevegelsesretningen for lengder over én meter"],
+      options: ["Bare langs bevegelsesretningen", "Bare på tvers av bevegelsesretningen", "Like mye i alle retninger, både på langs og på tvers", "Langs bevegelsesretningen for lengder over én meter"],
       explanation: "Tverrmålene er upåvirket: et romskip som farer forbi er kortere, men like tykt. Hadde tverrmålene endret seg, ville to identiske ringer som farer gjennom hverandre gitt uforenlige svar på hvilken som gikk utenpå — og det er noe alle observatører må være enige om.",
     },
     {
@@ -342,7 +342,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skjer hvis du setter $v = c$ inn i hastighetstransformasjonen $v' = (v-u)/(1-uv/c^2)$?",
-      options: ["Du får $v' = c$ uansett hvilken $u$ du velger", "Du får $v' = c - u$, altså mindre enn $c$", "Uttrykket blir udefinert fordi nevneren blir null", "Du får $v' > c$ når $u$ er negativ"],
+      options: ["Du får $v' = c$ uansett hvilken $u$ du velger", "Du får $v' = c - u$, altså mindre enn $c$", "Uttrykket blir udefinert av null i nevneren", "Du får $v' > c$ når $u$ er negativ"],
       explanation: "Innsettingen gir $(c-u)/(1-u/c) = c(c-u)/(c-u) = c$, altså lysfarten i alle systemer — postulat 2 er innebygd i formelen. Nevneren blir bare null hvis $uv = c^2$, som krever at begge går med lysfarten.",
     },
     {
@@ -357,7 +357,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En observatør beveger seg med $\\beta = 0{,}5$. Hvordan ligger samtidighetslinjene hennes i et romtidsdiagram?",
-      options: ["Med stigningstall $0{,}5$, altså skrått oppover mot høyre", "Vannrett, akkurat som for enhver annen observatør i diagrammet", "Loddrett, altså parallelt med hennes egen verdenslinje", "Med stigningstall $2{,}0$, altså brattere enn lyslinja"],
+      options: ["Med stigningstall $0{,}5$, altså skrått oppover mot høyre", "Vannrett, akkurat som for enhver annen observatør", "Loddrett, altså parallelt med hennes egen verdenslinje", "Med stigningstall $2{,}0$, altså brattere enn lyslinja"],
       explanation: "Samtidighetslinjene til et system med fart $\\beta$ har stigningstall $\\beta$ i $(x, ct)$-planet, mens verdenslinja har stigningstall $1/\\beta$ — de to lukker seg symmetrisk om 45-graderslinja. Vannrette linjer hører til den observatøren som er i ro i diagrammet.",
     },
     {
@@ -392,12 +392,12 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva menes med at massen $m$ i $E = \\gamma mc^2$ er en invariant?",
-      options: ["At den har samme verdi i alle referansesystemer", "At den vokser med farten, men på samme måte i alle systemer", "At den er null for partikler uten hvilemasse", "At den bare kan måles når legemet er i ro"],
+      options: ["At den har samme verdi i alle referansesystemer", "At den vokser med farten, men på samme måte i alle systemer", "At den er null for partikler uten hvilemasse, som fotoner", "At den bare kan måles når legemet er i ro"],
       explanation: "Hele fartsavhengigheten sitter i $\\gamma$, mens $m$ er den samme uansett hvem som måler. Den eldre formuleringen om at «massen øker med farten» er ute av bruk nettopp fordi den flytter fartsavhengigheten til feil størrelse.",
     },
     {
       question: "Hvilken kontroll bør du alltid gjøre på slutten av en relativistisk utregning?",
-      options: ["At tida ble lengre, lengden kortere og enhver fart mindre enn $c$", "At alle svarene har fått flere gjeldende siffer enn oppgitt i teksten", "At $\\gamma$ er mindre enn 1", "At egentida er lengre enn den observerte tida"],
+      options: ["At tida ble lengre, lengden kortere og enhver fart mindre enn $c$", "At alle svarene har fått flere gjeldende siffer enn oppgitt i teksten", "At $\\gamma$ er mindre enn 1 for enhver fart under lysfarten", "At egentida er lengre enn tida som måles av en observatør i bevegelse"],
       explanation: "Retningskontrollen fanger den hyppigste feilen i hele delen — at $\\gamma$ er brukt feil vei — og den tar tre sekunder. Påstanden om at egentida skulle være lengst er nettopp den feilen: egentida er alltid den **korteste** målte tida.",
     },
   ],
@@ -414,7 +414,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Når forsvinner samtidighetsforskyvningen helt?",
-      options: ["Når hendelsene skjer på samme sted, eller når den relative farten er null", "Når begge hendelsene skjer på samme tidspunkt i begge systemer", "Når avstanden mellom hendelsene er større enn lysfarten ganger tidsforskjellen", "Når begge systemene akselererer likt"],
+      options: ["Når hendelsene skjer på samme sted, eller når den relative farten er null", "Når begge hendelsene skjer på samme tidspunkt i begge systemer", "Når avstanden mellom hendelsene er større enn lysfarten ganger tida", "Når begge systemene akselererer likt"],
       explanation: "Forskyvningen $-\\gamma u\\Delta x/c^2$ er null nøyaktig når $\\Delta x = 0$ eller $u = 0$. Kriteriet om avstand større enn $c\\Delta t$ handler om noe annet, nemlig om rekkefølgen **kan** snus i det hele tatt.",
     },
     {
@@ -429,12 +429,12 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva gir null poeng i en paradoksoppgave?",
-      options: ["Å skrive opp SR-formlene uten å drøfte samtidighet", "Å bruke flere gjeldende siffer i svaret enn nødvendig", "Å tegne et romtidsdiagram i stedet for å regne", "Å konkludere med at begge observatørene har rett"],
+      options: ["Å skrive opp SR-formlene uten å drøfte samtidighet", "Å bruke flere gjeldende siffer enn nødvendig", "Å tegne et romtidsdiagram i stedet for å regne", "Å konkludere med at begge observatørene har rett"],
       explanation: "Formlene står på det utdelte formelarket, så avskrift viser ingenting — det er drøftingen av den konkrete situasjonen som gir uttelling. At begge observatørene har rett, er tvert imot den riktige konklusjonen og skal stå der.",
     },
     {
       question: "Hvorfor er tvillingparadokset ikke symmetrisk?",
-      options: ["Fordi bare den reisende bytter inertialsystem underveis", "Fordi bare den hjemmeværende befinner seg i et tyngdefelt", "Fordi den reisende beveger seg raskere enn lyset et øyeblikk", "Fordi klokka om bord i romskipet er dårligere justert"],
+      options: ["Fordi bare den reisende bytter inertialsystem underveis", "Fordi bare den hjemmeværende befinner seg i et tyngdefelt", "Fordi den reisende beveger seg raskere enn lyset et øyeblikk", "Fordi klokka om bord i romskipet er dårligere justert enn klokka hjemme"],
       explanation: "Den hjemmeværende er i ett og samme inertialsystem hele tiden, mens den reisende snur og dermed skifter system — og det kan hun måle med et akselerometer. Tyngdefeltet er ikke poenget her; den spesielle relativitetsteorien håndterer dette uten gravitasjon.",
     },
     {
@@ -444,7 +444,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skjer med den hjemmeværendes klokke i den reisendes regnskap ved vendepunktet?",
-      options: ["Den ser ut til å hoppe framover, fordi samtidighetslinja endres brått", "Den stopper helt så lenge akselerasjonen varer", "Den går baklengs i noen sekunder", "Den gjør ingenting spesielt — hele forskjellen kommer av akselerasjonen alene"],
+      options: ["Den ser ut til å hoppe framover, fordi samtidighetslinja endres brått", "Den stopper helt så lenge akselerasjonen varer", "Den går baklengs i noen sekunder mens romskipet snur, og tar igjen etterpå", "Den gjør ingenting spesielt — hele forskjellen kommer av akselerasjonen alene"],
       explanation: "Klokka på jorda tikker jevnt hele tiden; det som endres, er hvilke hendelser den reisende regner som samtidige med seg selv, og derfor hopper avlesningen i hennes regnskap. Akselerasjonen er årsaken til systembyttet, men det er samtidighetsforskyvningen som gjør selve regnskapet.",
     },
     {
@@ -459,17 +459,17 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva ville et signal med fart større enn $c$ ha ført til?",
-      options: ["At mottaket kunne skje før sendingen i noen inertialsystemer", "At signalet ville blitt uendelig svakt underveis", "At Lorentz-faktoren ville blitt negativ", "Ingenting spesielt, bortsett fra at det ville vært teknisk vanskelig"],
+      options: ["At mottaket kunne skje før sendingen i noen inertialsystemer", "At signalet ville blitt uendelig svakt lenge før det nådde mottakeren", "At Lorentz-faktoren ville blitt negativ", "Ingenting spesielt, bortsett fra at det ville vært teknisk vanskelig"],
       explanation: "Sending og mottak ville vært romlik atskilt, og for slike par finnes det systemer der rekkefølgen er snudd — altså der virkningen kommer før årsaken. Lorentz-faktoren for **systemet** blir aldri negativ; den blir imaginær bare for en observatør over lysfarten, som ikke finnes.",
     },
     {
       question: "Hva er alle inertialsystemer alltid enige om?",
-      options: ["Alt som er fysisk avgjørbart, som om noe ble knust", "Hvilke to av hendelsene som var samtidige med hverandre", "Hvor lang en gjenstand i bevegelse er", "Hvor lang tid det gikk mellom to gitte hendelser"],
+      options: ["Alt som er fysisk avgjørbart, som om noe ble knust", "Hvilke to av hendelsene som var samtidige med hverandre", "Hvor lang en gjenstand i bevegelse er, målt med linjal", "Hvor lang tid det gikk mellom to gitte hendelser"],
       explanation: "Lengder, tider og samtidighet er alle systemavhengige, men utfall som «ble stigen truffet av porten?» eller «hvem var eldst da de sto side om side?» har entydige svar. Å peke på denne enigheten er en obligatorisk del av en god paradoksdrøfting.",
     },
     {
       question: "Hvorfor finnes det ikke helt stive legemer i relativitetsteorien?",
-      options: ["Fordi de ville overført påvirkning momentant fra ende til ende", "Fordi alle kjente materialer varmes kraftig opp ved svært høy fart", "Fordi lengdekontraksjonen ville revet dem i stykker underveis", "Fordi massen deres ville blitt uendelig stor"],
+      options: ["Fordi de ville overført påvirkning momentant fra ende til ende", "Fordi alle kjente materialer varmes kraftig opp ved svært høy fart", "Fordi lengdekontraksjonen ville revet dem i stykker under akselerasjonen", "Fordi massen deres ville blitt uendelig stor"],
       explanation: "Et helt stivt legeme ville krevd uendelig signalfart internt, og ingen påvirkning kan gå fortere enn lyset. Lengdekontraksjonen i seg selv river ingenting i stykker — den er ikke en kraft, men en måling.",
     },
     {
@@ -479,34 +479,34 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er første steg i drøftingsmetoden for et relativitetsparadoks?",
-      options: ["Å navngi hendelsene paradokset handler om", "Å regne ut Lorentz-faktoren for situasjonen", "Å avgjøre hvilken observatør som har rett", "Å tegne romtidsdiagrammet ferdig"],
+      options: ["Å navngi hendelsene paradokset handler om", "Å regne ut Lorentz-faktoren for situasjonen", "Å avgjøre hvilken observatør som har rett", "Å tegne romtidsdiagrammet ferdig før noe annet"],
       explanation: "Uten navngitte hendelser blir drøftingen uunngåelig vag, og vaghet er det som trekker mest i denne sjangeren. Spørsmålet om hvem som «har rett» er dessuten feilstilt — begge har rett, og det er selve poenget.",
     },
   ],
   'fys1100-11-1': [
     {
       question: "Hva er første steg i svarmalen for en kvalitativ fysikkoppgave?",
-      options: ["Navngi mekanismen eller loven med fagbegrep", "Skrive ned alle formlene som kan være relevante", "Beskrive situasjonen med egne ord i detalj", "Konkludere med et tall så tidlig som mulig"],
+      options: ["Navngi mekanismen eller loven med fagbegrep", "Skrive ned alle formlene som kan være relevante", "Beskrive situasjonen med egne ord, i detalj og uten fagbegrep", "Konkludere med et tall så tidlig som mulig"],
       explanation: "Malen er mekanisme, kobling, konklusjon — og det er navngivingen av loven som gir poeng. Å liste opp formler uten å bruke dem gir null uttelling, og en detaljert gjenfortelling av oppgaveteksten tilfører ingenting sensor ikke allerede vet.",
     },
     {
       question: "En kloss sendes oppover et skråplan med friksjon. Hvorfor kommer den kortere enn uten friksjon, sett med Newtons 2. lov?",
-      options: ["Friksjonen virker samme vei som tyngdekomponenten og øker retardasjonen", "Friksjonen øker normalkraften, og dermed blir også tyngdens komponent langs planet større", "Friksjonen gjør at klossen mister masse underveis og bremses mer", "Friksjonen endrer helningsvinkelen slik at planet blir brattere"],
+      options: ["Friksjonen virker samme vei som tyngdekomponenten og øker retardasjonen", "Friksjonen øker normalkraften, og dermed blir også tyngdens komponent langs planet større", "Friksjonen sliter av materiale, så klossen mister masse underveis og bremses mer", "Friksjonen endrer helningsvinkelen slik at planet blir brattere"],
       explanation: "På vei oppover motvirker den dynamiske friksjonen bevegelsen og peker nedover langs planet, altså samme vei som tyngdekomponenten. Retardasjonen blir da $g\\sin\\theta + \\mu_d g\\cos\\theta$ i stedet for $g\\sin\\theta$, og strekningen $v_0^2/(2|a|)$ blir kortere. Normalkraften er uendret $mg\\cos\\theta$ og påvirkes ikke av friksjonen.",
     },
     {
       question: "Hvorfor gjør statisk friksjon ikke arbeid på et legeme som ruller uten å gli?",
-      options: ["Kontaktpunktet står momentant stille, så angrepspunktet forflytter seg ikke", "Friksjonskraften står alltid vinkelrett på bevegelsesretningen når legemet ruller uten å gli", "Statisk friksjon er per definisjon null når legemet er i bevegelse", "Rotasjonen opphever arbeidet fra translasjonen, så summen blir null"],
+      options: ["Kontaktpunktet står momentant stille, så angrepspunktet forflytter seg ikke", "Friksjonskraften står alltid vinkelrett på bevegelsesretningen når legemet ruller uten å gli", "Statisk friksjon er per definisjon null når legemets massesenter er i bevegelse", "Rotasjonen opphever arbeidet fra translasjonen, så summen blir null"],
       explanation: "Arbeid er kraft ganger forflytning av angrepspunktet, og rullebetingelsen $v = \\omega R$ betyr nettopp at kontaktpunktet står stille i forhold til underlaget. Friksjonen står langs planet, ikke vinkelrett på bevegelsen, så det er ikke retningen som redder oss — det er at angrepspunktet ikke flytter seg.",
     },
     {
       question: "En kule ruller uten å gli opp en bakke, en annen glir uten friksjon opp samme bakke med samme startfart. Hvem kommer høyest?",
-      options: ["Den rullende, fordi rotasjonsenergien også må omdannes til høyde", "Den glidende, fordi den ikke taper energi til friksjonen underveis", "Begge kommer like høyt, siden startfarten er den samme", "Det avhenger av helningsvinkelen til bakken"],
+      options: ["Den rullende, fordi rotasjonsenergien også må omdannes til høyde", "Den glidende, fordi den ikke taper energi til friksjonen underveis", "Begge kommer like høyt, siden startfarten og dermed bevegelsesenergien er den samme", "Det avhenger av helningsvinkelen til bakken"],
       explanation: "Ved samme fart har den rullende kula $\\tfrac{7}{10}mv^2$ mot den glidendes $\\tfrac12 mv^2$, altså 40 prosent mer kinetisk energi, og alt sammen blir til $mgh$. Den statiske friksjonen ved ren rulling tapper ikke energi, så argumentet om friksjonstap holder ikke — og høydene er uavhengige av helningsvinkelen.",
     },
     {
       question: "Hvorfor er snordraget størst i bunnpunktet av en vertikal sirkelbane?",
-      options: ["Farten er størst der, og snora må i tillegg bære tyngden", "Tyngden peker inn mot sentrum der og legges til snordraget", "Sentripetalkraften er en egen kraft som blir størst nederst", "Snorlengden er effektivt kortest i bunnpunktet"],
+      options: ["Farten er størst der, og snora må i tillegg bære tyngden", "Tyngden peker inn mot sentrum der og legges til snordraget", "Sentripetalkraften er en egen kraft som blir størst nederst", "Snorlengden er effektivt kortest i bunnpunktet, der snora strekkes minst"],
       explanation: "I bunnen gir energibevaring størst fart, og oppsettet er $T - mg = mv^2/R$, altså $T = mg + mv^2/R$. I toppen peker tyngden inn mot sentrum og hjelper til i stedet, så der blir snordraget minst — differansen er alltid nøyaktig $6mg$.",
     },
     {
@@ -516,7 +516,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er galt med å tegne inn en egen pil merket «sentripetalkraft» i et frilegemediagram?",
-      options: ["Den er resultanten av de virkelige kreftene, så den telles dobbelt", "Den peker feil vei og skal alltid tegnes utover fra sentrum", "Den har feil enhet og hører hjemme i et energidiagram i stedet", "Den er riktig, men skal tegnes med stiplet strek for å skille den ut"],
+      options: ["Den er resultanten av de virkelige kreftene, så den telles dobbelt", "Den peker feil vei og skal alltid tegnes utover fra sentrum, som sentrifugalkraften", "Den har feil enhet og hører hjemme i et energidiagram i stedet", "Den er riktig, men skal tegnes med stiplet strek for å skille den ut"],
       explanation: "Sentripetalkraften er ikke en fysisk kraft ved siden av de andre, men navnet på summen av de virkelige kreftene i radiell retning. Tegner du den inn i tillegg til friksjonen eller normalkraften som faktisk leverer den, har du talt samme kraft to ganger, og det koster omtrent ett poeng.",
     },
     {
@@ -526,42 +526,42 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En kule setter seg fast i enden av en stav som er hengslet i den andre enden. Hvilken størrelse er bevart gjennom støtet?",
-      options: ["Spinnet om hengselaksen, fordi hengselkraften har null momentarm der", "Bevegelsesmengden, fordi støtet varer så kort at ytre krefter ikke rekker å virke", "Både bevegelsesmengden og den mekaniske energien, siden støtet er kort", "Den mekaniske energien, fordi hengselen er friksjonsfri"],
+      options: ["Spinnet om hengselaksen, fordi hengselkraften har null momentarm der", "Bevegelsesmengden, fordi støtet varer så kort at ytre krefter ikke rekker å virke", "Både bevegelsesmengden og den mekaniske energien, siden støtet er kort", "Den mekaniske energien, fordi hengselen er friksjonsfri og ikke gjør arbeid"],
       explanation: "Hengselen leverer en stor ytre kraft under støtet, så systemets bevegelsesmengde er ikke bevart. Men den kraften angriper i selve aksen og gir derfor null kraftmoment om den, og da er spinnet om hengselaksen bevart. Energien er heller ikke bevart, siden kula blir sittende fast.",
     },
     {
       question: "En person på en friksjonsfri dreiestol roterer og slipper to håndvekter rett ut til siden. Hva skjer med rotasjonsfarten hennes?",
-      options: ["Den er uendret, fordi vektene tar sitt eget spinn med seg", "Den øker, fordi systemets treghetsmoment blir mindre", "Den synker, fordi hun mister en del av systemets samlede spinn når vektene forlater hendene", "Den øker, fordi energien fordeles på mindre masse"],
+      options: ["Den er uendret, fordi vektene tar sitt eget spinn med seg", "Den øker, fordi systemets treghetsmoment blir mindre når vektene forsvinner", "Den synker, fordi hun mister en del av systemets samlede spinn når vektene forlater hendene", "Den øker, fordi energien fordeles på mindre masse"],
       explanation: "I det øyeblikket vektene slippes, virker det ingen kraft mellom hånd og vekt lenger, og dermed heller ikke noe kraftmoment på personen. Hver vekt farer av gårde med sitt eget spinn, og personens rotasjon er uendret — trakk hun dem derimot inn og holdt på dem, ville treghetsmomentet sunket og farten økt.",
     },
     {
       question: "Hvorfor skrives kvadratisk luftmotstand som $-D|v|v$ og ikke som $-Dv^2$?",
-      options: ["Fortegnet må følge fartsretningen, ellers akselererer kraften legemet på vei ned", "Absoluttverdien gjør at kraften vokser raskere ved høye farter enn et rent kvadrat ville gjort", "Uttrykket $-Dv^2$ får feil enhet når farten måles i meter per sekund", "De to uttrykkene er identiske, men $|v|v$ er raskere å regne ut i kode"],
+      options: ["Fortegnet må følge fartsretningen, ellers akselererer kraften legemet på vei ned", "Absoluttverdien gjør at kraften vokser raskere enn et rent kvadrat", "Uttrykket $-Dv^2$ får feil enhet når farten måles i meter per sekund", "De to uttrykkene er identiske, men $|v|v$ er raskere å regne ut i kode"],
       explanation: "Kvadratet er alltid positivt, så $-Dv^2$ peker samme vei uansett hvilken vei legemet beveger seg, og det ville akselerert i stedet for å bremse når farten snur. Absoluttverdien gir samme tallverdi, men med fortegn som følger farten — i kode skrives det `abs(v[i])*v[i]`.",
     },
     {
       question: "Hvorfor holder Euler–Cromer amplituden stabil i en svingning der Forward Euler lar den vokse?",
-      options: ["Den bruker den oppdaterte farten, så feilen veksler fortegn gjennom perioden", "Den bruker mindre steglengde og får dermed mindre feil per steg", "Den regner ut akselerasjonen to ganger per tidssteg og bruker gjennomsnittet av de to verdiene", "Den korrigerer energien eksplisitt etter hvert steg i løkka"],
+      options: ["Den bruker den oppdaterte farten, så feilen veksler fortegn gjennom perioden", "Den bruker automatisk mindre steglengde og får dermed mindre feil per svingeperiode", "Den regner ut akselerasjonen to ganger per tidssteg og bruker gjennomsnittet av de to verdiene", "Den korrigerer energien eksplisitt etter hvert steg i løkka"],
       explanation: "Forskjellen er én indeks: Euler–Cromer oppdaterer farten først og bruker den nye farten i posisjonslinja. Feilen bommer da vekselvis for høyt og for lavt gjennom en periode og går nesten opp i opp, mens Forward Euler bommer systematisk samme vei — steglengden er den samme i begge.",
     },
     {
       question: "Hva er galt med å «integrere» likningen $m\\,dv/dt = mg - k_v v$ ved å behandle $v$ på høyresiden som konstant?",
-      options: ["$v$ er den ukjente funksjonen, og var den konstant, ville $dv/dt$ vært null", "Integrasjonen mangler bare en integrasjonskonstant, og den kan bestemmes fra initialbetingelsen etterpå", "Metoden er riktig, men gir svaret i feil enhet", "Feilen er at man må derivere begge sider i stedet for å integrere"],
+      options: ["$v$ er den ukjente funksjonen, og var den konstant, ville $dv/dt$ vært null", "Integrasjonen mangler bare en integrasjonskonstant, som bestemmes etterpå", "Metoden er riktig, men gir svaret i feil enhet", "Feilen er at man må derivere begge sider i stedet for å integrere"],
       explanation: "I en differensiallikning står den ukjente funksjonen på begge sider, og å låse den fast på høyresiden gjør likningen selvmotsigende. Riktig teknikk her er separasjon av variablene, som gir $v(t) = v_T(1 - e^{-t/\\tau})$ — feilen gir null uttelling fordi den viser at kandidaten ikke har forstått hva en differensiallikning er.",
     },
     {
       question: "En student modellerer et skrått kast med luftmotstand og integrerer bare den loddrette retningen. Hva er galt?",
-      options: ["Dragkraften har også en vannrett komponent, så $v_x$ er ikke konstant", "Tyngden får en vannrett komponent så snart luftmotstanden blir stor nok til å vippe legemet", "Den vannrette retningen trenger mindre steglengde enn den loddrette", "Ingenting, så lenge startfarten er dekomponert riktig"],
+      options: ["Dragkraften har også en vannrett komponent, så $v_x$ er ikke konstant", "Tyngden får en vannrett komponent når legemet vipper i lufta", "Den vannrette retningen trenger mindre steglengde enn den loddrette", "Ingenting, så lenge startfarten er dekomponert riktig"],
       explanation: "Dragkraften peker motsatt av den fulle hastighetsvektoren og har derfor komponenten $-Dvv_x$ vannrett, som bremser gjennom hele flukten. Uten den blir rekkevidden kraftig overvurdert — og en todimensjonal kode med bare én romlig retning gir maks to av fem poeng.",
     },
     {
       question: "Hvorfor er samtidighet nøkkelen i relativitetsparadoksene?",
-      options: ["Å måle en lengde krever at begge endene noteres samtidig, og «samtidig» er systemavhengig", "Klokkene i de to systemene går ulikt fort, og det gir en systematisk målefeil i lengdemålingen", "Lyset bruker tid på å nå observatøren, og det forsinker den ene enden", "Paradoksene skyldes at akselerasjonen bryter relativitetsprinsippet"],
+      options: ["Å måle en lengde krever at begge endene noteres samtidig, og «samtidig» er systemavhengig", "Klokkene i de to systemene går ulikt fort, og det gir en målefeil i lengden", "Lyset bruker tid på å nå observatøren, og det forsinker den ene enden", "Paradoksene skyldes at akselerasjonen bryter relativitetsprinsippet"],
       explanation: "En lengdemåling er egentlig et par hendelser, og to hendelser som er samtidige i ett system er det ikke i et annet i bevegelse. Effekten er ikke en signalforsinkelse eller en målefeil — observatørene har allerede korrigert for lysets gangtid, og likevel er de uenige om rekkefølgen.",
     },
     {
       question: "En løsning påstår at bevegelsesmengden er bevart når en kule treffer enden av en fritt opphengt stav. Hvordan kritiserer du den best?",
-      options: ["Peke på at hengselen gir en ytre kraft, og at det er spinnet som er bevart", "Si at løsningen er upresis flere steder og bør skrives grundigere om før den kan vurderes", "Regne ut svaret på nytt uten å kommentere framgangsmåten", "Påpeke at både energi og bevegelsesmengde må brukes samtidig"],
+      options: ["Peke på at hengselen gir en ytre kraft, og at det er spinnet som er bevart", "Si at løsningen er upresis flere steder og bør skrives grundigere om", "Regne ut svaret på nytt uten å kommentere framgangsmåten", "Påpeke at både energi og bevegelsesmengde må brukes samtidig"],
       explanation: "Kritikkmetoden krever at du peker på det springende steget, navngir den gale antakelsen og sier hvilket prinsipp som faktisk gjelder. Å skrive at noe «er upresist» eller å bare levere et nytt tall gir liten uttelling — det er koblingen mellom hengselkraften og momentarmen som er svaret.",
     },
     {
@@ -571,14 +571,14 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Et overslagssvar på en estimeringsoppgave består bare av et tall, og tallet er rimelig. Hvorfor blir uttellingen lav?",
-      options: ["Framgangsmåten er hovedpoenget i sjangeren og teller mest av delene", "Et overslag skal alltid oppgis med en usikkerhet i prosent, ellers regnes svaret som ubegrunnet", "Sensor godtar ikke svar som ikke er regnet ut med kalkulator", "Tallet må være innenfor ti prosent av fasiten for å telle"],
+      options: ["Framgangsmåten er hovedpoenget i sjangeren og teller mest av delene", "Et overslag skal alltid oppgis med en usikkerhet i prosent", "Sensor godtar ikke svar som ikke er regnet ut med kalkulator", "Tallet må være innenfor ti prosent av fasiten for å telle"],
       explanation: "I overslagssjangeren premieres resonnementet: typisk to poeng for et rimelig tall og tre for tankegangen, vist i tierpotenser med en enkel modell. Presisjon er derimot ikke poenget — et velbegrunnet anslag som bommer med to tierpotenser gir mer enn et presist tall uten forklaring.",
     },
   ],
   'fys1100-11-2': [
     {
       question: "Hva dekker midtveiseksamenen i FYS1100?",
-      options: ["Del 1 til 7 og Del 9, men verken tung differensiallikningsløsning eller relativitet", "Hele pensum, men med kortere og enklere oppgaver enn den avsluttende skoleeksamenen har", "Bare de numeriske metodene og Python-koden fra Del 8", "Del 1 til 4, altså modelleringsverktøy, kinematikk og Newtons lover"],
+      options: ["Del 1 til 7 og Del 9, men verken tung differensiallikningsløsning eller relativitet", "Hele pensum, men med kortere og enklere oppgaver enn den avsluttende skoleeksamenen har", "Bare de numeriske metodene og den håndskrevne Python-koden fra Del 8, ikke teoristoffet", "Del 1 til 4, altså modelleringsverktøy, kinematikk og Newtons lover"],
       explanation: "Midtveis dekker første halvdel: modelleringsverktøy, kinematikk, Newtons lover, sirkelbevegelse, energi og bevegelsesmengde, rotasjon, gjenkjenning av differensiallikninger og gravitasjon. Håndskrevet Python og spesiell relativitet testes bare på den avsluttende eksamenen.",
     },
     {
@@ -588,22 +588,22 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Et legeme har fart null i et øyeblikk. Hva kan du si om akselerasjonen da?",
-      options: ["Ingenting — den kan være null eller ha en hvilken som helst verdi", "Den må også være null i nøyaktig det samme øyeblikket som farten er det", "Den må være positiv, ellers ville legemet ikke startet igjen", "Den må være lik $g$ hvis legemet er i luften"],
+      options: ["Ingenting — den kan være null eller ha en hvilken som helst verdi", "Den må også være null i nøyaktig det samme øyeblikket som farten er det", "Den må være positiv, ellers ville legemet aldri kommet i bevegelse igjen", "Den må være lik $g$ hvis legemet er i luften"],
       explanation: "Fart og akselerasjon er uavhengige størrelser i samme øyeblikk: i toppunktet av et kast er farten null loddrett mens akselerasjonen er $g$ nedover. Å slutte fra det ene til det andre er en av de vanligste konseptfeilene i kinematikk.",
     },
     {
       question: "Et lodd henger i en fjærvekt i en heis som går oppover og bremser jevnt. Hva viser vekta?",
-      options: ["Mindre enn tyngden, fordi akselerasjonen peker nedover", "Mer enn tyngden, fordi heisen fortsatt beveger seg oppover", "Nøyaktig tyngden, siden farten er på vei mot null", "Null, siden bremsingen opphever tyngden"],
+      options: ["Mindre enn tyngden, fordi akselerasjonen peker nedover", "Mer enn tyngden, fordi heisen fortsatt beveger seg oppover", "Nøyaktig tyngden, siden farten er på vei mot null og heisen snart står", "Null, siden bremsingen opphever tyngden"],
       explanation: "Det er akselerasjonens retning som avgjør, ikke fartsretningen. En heis som går opp og bremser har akselerasjon nedover, og Newtons 2. lov gir $F = m(g-a) < mg$ — samme situasjon som når heisen setter fart nedover.",
     },
     {
       question: "Hvilken vei peker den dynamiske friksjonen på en kloss som sendes oppover et skråplan?",
-      options: ["Nedover langs planet, motsatt av klossens bevegelse", "Oppover langs planet, motsatt av tyngdekomponenten langs planet", "Vinkelrett ut fra planet, sammen med normalkraften", "Loddrett nedover, sammen med tyngden"],
+      options: ["Nedover langs planet, motsatt av klossens bevegelse", "Oppover langs planet, motsatt av tyngdekomponenten langs planet", "Vinkelrett ut fra planet, i samme retning som normalkraften", "Loddrett nedover, sammen med tyngden"],
       explanation: "Dynamisk friksjon motvirker alltid den relative bevegelsen mellom flatene, og klossen glir oppover. Retardasjonen blir dermed $g\\sin\\theta + \\mu_d g\\cos\\theta$ på vei opp, mens den er $g\\sin\\theta - \\mu_d g\\cos\\theta$ på vei ned igjen.",
     },
     {
       question: "En bil dobler farten inn i en sving med samme radius. Hvor mye større må friksjonskraften være?",
-      options: ["Fire ganger så stor, siden kravet går som farten i andre potens", "Dobbelt så stor, siden kravet er proporsjonalt med farten", "Uendret, siden radien er den samme", "Åtte ganger så stor, siden både farten og tiden gjennom svingen endrer seg samtidig"],
+      options: ["Fire ganger så stor, siden kravet går som farten i andre potens", "Dobbelt så stor, siden kravet er proporsjonalt med farten", "Uendret, siden svingens radius er den samme og friksjonen bare avhenger av den", "Åtte ganger så stor, siden både farten og tiden gjennom svingen endrer seg samtidig"],
       explanation: "Kravet i radiell retning er $mv^2/r$, som går som kvadratet av farten. Doblet fart betyr firedoblet krav — og siden friksjonsgrensen $\\mu_s mg$ er uavhengig av farten, er det nettopp derfor svinger har fartsgrenser.",
     },
     {
@@ -618,7 +618,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "To legemer med ulik masse har samme bevegelsesmengde. Hvilket har størst kinetisk energi?",
-      options: ["Det letteste, siden $K = p^2/(2m)$ og massen står i nevneren", "Det tyngste, siden større masse alltid gir mer energi", "De har like stor kinetisk energi når bevegelsesmengden er lik", "Det avhenger av hvilken retning de beveger seg i"],
+      options: ["Det letteste, siden $K = p^2/(2m)$ og massen står i nevneren", "Det tyngste, siden større masse alltid gir mer bevegelsesenergi", "De har like stor kinetisk energi når bevegelsesmengden er lik", "Det avhenger av hvilken retning de beveger seg i"],
       explanation: "Skriver du $K = \\tfrac12 mv^2$ om ved hjelp av $p = mv$, får du $K = p^2/(2m)$, og med samme $p$ er energien størst for den minste massen. Intuisjonen bak: det lette legemet må gå mye fortere for å ha samme bevegelsesmengde, og energien går som farten i andre potens.",
     },
     {
@@ -628,12 +628,12 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En kunstløper trekker armene inn mens hun spinner. Hva skjer med rotasjonsenergien?",
-      options: ["Den øker, og økningen kommer fra muskelarbeidet hun gjør", "Den er uendret, siden spinnet er bevart", "Den synker, siden treghetsmomentet blir mindre når armene kommer nærmere aksen", "Den er uendret, siden ingen ytre krefter virker"],
+      options: ["Den øker, og økningen kommer fra muskelarbeidet hun gjør", "Den er uendret, siden spinnet er bevart gjennom hele bevegelsen", "Den synker, siden treghetsmomentet blir mindre når armene kommer nærmere aksen", "Den er uendret, siden ingen ytre krefter virker"],
       explanation: "Spinnet er bevart, og med $K = L^2/(2I)$ ser man at energien øker når $I$ synker. Energien kommer fra at hun må dra armene innover mot den kraften som skal til for å holde dem i sirkelbane — spinn og energi er to ulike regnskap.",
     },
     {
       question: "Hvilken av disse ruller raskest ned et skråplan uten å gli?",
-      options: ["En massiv kule", "En tynn ring", "En massiv sylinder", "Alle bruker like lang tid"],
+      options: ["En massiv kule", "En tynn ring med massen i randen", "En massiv sylinder", "Alle bruker like lang tid"],
       explanation: "Akselerasjonen er $g\\sin\\theta/(1 + I/(mR^2))$, og den massive kula har den minste verdien av $I/(mR^2)$, nemlig $2/5$. Verken massen eller radien inngår i brøken — det er bare masse**fordelingen** som avgjør.",
     },
     {
@@ -655,54 +655,54 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
   'fys1100-11-3': [
     {
       question: "Hvor mange minutter bør du regne per oppgave i et sett med fem flertrinnsoppgaver på fire timer?",
-      options: ["Omkring 48 minutter, hvorav noe går til lesing og gjennomlesing", "Omkring 60 minutter, slik at du rekker alt i første gjennomgang", "Omkring 30 minutter, så du har god tid til å kontrollere til slutt", "Det spiller ingen rolle, siden oppgavene teller ulikt"],
+      options: ["Omkring 48 minutter, hvorav noe går til lesing og gjennomlesing", "Omkring 60 minutter, slik at du rekker alt i første gjennomgang", "Omkring 30 minutter, så du har god tid til å kontrollere til slutt", "Det spiller ingen rolle, siden oppgavene teller ulikt og må prioriteres"],
       explanation: "Fire timer delt på fem oppgaver gir 48 minutter hver, og av dem går en del til å lese oppgaveteksten, tegne figurer og lese gjennom til slutt. Alle deloppgaver teller likt, så det er ingen oppgaver du kan bruke vesentlig mer tid på uten å tape poeng et annet sted.",
     },
     {
       question: "Hvorfor lønner det seg å ta a-deloppgavene i alle oppgavene før du graver deg ned i én?",
-      options: ["Alle deloppgaver teller likt, så de innledende er like mye verdt", "De innledende deloppgavene er alltid enklere enn de siste og gir derfor raskere poeng", "Sensor retter deloppgavene i den rekkefølgen de er besvart", "Det gis bonuspoeng for å ha svart på alle oppgavene"],
+      options: ["Alle deloppgaver teller likt, så de innledende er like mye verdt", "De innledende deloppgavene er alltid enklere enn de siste", "Sensor retter deloppgavene i den rekkefølgen de er besvart", "Det gis bonuspoeng for å ha svart på alle oppgavene"],
       explanation: "Inntil 5 poeng per deloppgave, og alle teller likt — en a-deloppgave i oppgave 5 er verdt like mye som en e-deloppgave i oppgave 1. Det gis dessuten poeng for en god løsningsidé selv om den ikke fullføres, så bredde lønner seg.",
     },
     {
       question: "Hva bør en løsning inneholde for at et frilegemediagram skal gi full uttelling?",
-      options: ["Alle krefter navngitt med symbol, riktig retning og angrepspunkt, og et inntegnet koordinatsystem", "En pen tegning av situasjonen med alle mål påført", "Alle krefter, inkludert sentripetalkraften der bevegelsen er sirkulær, tegnet inn med hver sin pil og navngitt", "Bare de kreftene som til slutt inngår i regnestykket"],
+      options: ["Alle krefter navngitt med symbol, riktig retning og angrepspunkt, og et inntegnet koordinatsystem", "En pen tegning av situasjonen med alle mål påført", "Alle krefter, inkludert sentripetalkraften der bevegelsen er sirkulær, tegnet inn og navngitt", "Bare de kreftene som til slutt inngår i regnestykket"],
       explanation: "Udefinerte symboler eller uforklarte krefter koster omtrent to poeng, og feil angrepspunkt omtrent ett. En oppdiktet sentripetalkraft skal aldri inn — den er resultanten av de virkelige kreftene, ikke en egen kraft.",
     },
     {
       question: "Hva er det viktigste å få med når en oppgave ber om en Euler–Cromer-løkke skrevet for hånd?",
-      options: ["Initialbetingelser, riktig akselerasjonsuttrykk og riktig oppdateringsrekkefølge", "Riktig Python-syntaks, inkludert import-linjer, utskrift og plotting av resultatet til slutt", "Et fullstendig kjørbart program med plotting av resultatet", "En kommentar på hver eneste linje i koden"],
+      options: ["Initialbetingelser, riktig akselerasjonsuttrykk og riktig oppdateringsrekkefølge", "Riktig Python-syntaks, inkludert import-linjer, utskrift og plotting av resultatet til slutt", "Et fullstendig kjørbart program med plotting av resultatet", "En kommentar på hver eneste kodelinje, slik at hvert steg i løkka er forklart i tekst"],
       explanation: "Poengene fordeler seg typisk med ett for initialbetingelsene, tre for akselerasjonsuttrykket og ett for løkka. Syntaksfeil straffes ikke, og alle programmeringsspråk godtas — det er strukturen, ikke koden som kjører, som gir uttelling.",
     },
     {
       question: "Hva gjør du hvis du oppdager en regnefeil tidlig i en oppgave, men har ført resten ryddig videre?",
-      options: ["Kommenterer feilen og lar mellomregningen stå, siden følgefeil normalt ikke straffes", "Stryker hele oppgaven og begynner helt på nytt hvis det fortsatt er tid igjen på klokka", "Lar det stå uten kommentar, siden sensor ikke ser feilen", "Skriver bare det endelige svaret på nytt uten mellomregning"],
+      options: ["Kommenterer feilen og lar mellomregningen stå, siden følgefeil normalt ikke straffes", "Stryker hele oppgaven og begynner helt på nytt hvis det fortsatt er tid igjen på klokka", "Lar det stå uten kommentar, siden sensor likevel ikke oppdager feilen i mellomregningen", "Skriver bare det endelige svaret på nytt uten mellomregning"],
       explanation: "Følgefeil straffes normalt ikke når mellomregningen er vist så feilen er sporbar — derfor er det å skrive symbolsk så lenge som mulig og vise hvert steg en direkte poengstrategi. Å stryke alt kaster bort både tid og de poengene metoden allerede har gitt.",
     },
   ],
   'fys1100-11-4': [
     {
       question: "Hva er det første du bør gjøre med en oppgave som er pakket inn i en fortelling om en jojo eller en romstige?",
-      options: ["Oversette fortellingen til hvilken standardsjanger den egentlig er", "Lese hele oppgaveteksten to ganger for å få med alle detaljene", "Begynne på deloppgave a) med en gang for å spare tid", "Hoppe over den til sist, siden slike oppgaver pleier å være vanskeligst"],
+      options: ["Oversette fortellingen til hvilken standardsjanger den egentlig er", "Lese hele oppgaveteksten to ganger for å få med hver eneste opplysning", "Begynne på deloppgave a) med en gang for å spare tid", "Hoppe over den til sist, siden slike oppgaver pleier å være vanskeligst"],
       explanation: "Innpakningen varierer, men fysikken under er standard: jojoen er en rotasjonsoppgave med rullebetingelse, stigen i låven er samtidighetens relativitet. Femten sekunder på å navngi sjangeren gir deg oppskriften du allerede har drillet.",
     },
     {
       question: "En jojo faller mens snora rulles av ytterkanten. Hvorfor er farten mindre enn ved fritt fall?",
-      options: ["En del av den frigjorte energien går til rotasjon i stedet for translasjon", "Snordraget gjør negativt arbeid på jojoen og tapper systemet for mekanisk energi underveis", "Luftmotstanden er større fordi jojoen roterer", "Massen som roterer teller dobbelt i energiregnskapet"],
+      options: ["En del av den frigjorte energien går til rotasjon i stedet for translasjon", "Snordraget gjør negativt arbeid på jojoen og tapper systemet for mekanisk energi underveis", "Luftmotstanden er større fordi jojoen roterer og river med seg luft rundt seg", "Massen som roterer teller dobbelt i energiregnskapet"],
       explanation: "Energiregnskapet er $Mgh = \\tfrac12 Mv^2 + \\tfrac12 I\\omega^2$, og med rullebetingelsen havner en tredel av den kinetiske energien i rotasjon. Snordraget gjør derimot ikke arbeid — kontaktpunktet mellom snor og sylinder står momentant stille, akkurat som ved ren rulling.",
     },
     {
       question: "Hva må du gjøre for å linearisere en ikke-lineær kraft om likevekt?",
-      options: ["Finne likevekten der kraften er null, og derivere kraften i det punktet", "Sette alle ikke-lineære ledd lik null og løse resten", "Utvikle kraften om origo og beholde bare det lineære leddet", "Erstatte den ikke-lineære kraften med gjennomsnittsverdien over utslaget"],
+      options: ["Finne likevekten der kraften er null, og derivere kraften i det punktet", "Sette alle ikke-lineære ledd lik null og løse den likningen som blir igjen", "Utvikle kraften om origo og beholde bare det lineære leddet", "Erstatte den ikke-lineære kraften med gjennomsnittsverdien over utslaget"],
       explanation: "Den effektive fjærkonstanten er minus den deriverte av nettokraften i likevektspunktet, og vinkelfrekvensen blir $\\sqrt{k_{\\text{eff}}/m}$. Å utvikle om origo i stedet for om likevekten er en klassisk feil, og gir feil frekvens så snart likevekten ikke ligger i origo.",
     },
     {
       question: "Hvorfor må legemets masse stå i akselerasjonsuttrykket når du legger til et nytt kraftledd i en gravitasjonskode?",
-      options: ["Fordi den nye kraften ikke er proporsjonal med massen slik gravitasjonen er", "Fordi Newtons 2. lov alltid krever at massen står eksplisitt i hver akselerasjonslinje i koden", "Fordi gravitasjonskoden allerede har massen skjult i konstanten $GM$", "Fordi akselerasjonen ellers får feil enhet"],
+      options: ["Fordi den nye kraften ikke er proporsjonal med massen slik gravitasjonen er", "Fordi Newtons 2. lov alltid krever massen eksplisitt i akselerasjonslinja", "Fordi gravitasjonskoden allerede har massen skjult i konstanten $GM$", "Fordi akselerasjonen ellers får feil enhet"],
       explanation: "Gravitasjonskraften er proporsjonal med legemets masse, så massen faller ut når man deler på den for å få akselerasjonen. En kraft som stråletrykk avhenger av tverrsnitt og ikke av masse, og da blir massen stående i nevneren — å glemme det gir feil svar med en faktor lik hele massen.",
     },
     {
       question: "Hva bør en kritikk av en feilaktig løsning inneholde for å gi full uttelling?",
-      options: ["Det springende steget navngitt, riktig prinsipp begrunnet, og en korreksjon", "En fullstendig liste over alt som kunne vært formulert klarere eller mer presist i løsningen", "Et helt nytt løsningsforslag uten kommentar til det gamle", "En vurdering av om svaret er rimelig i størrelsesorden"],
+      options: ["Det springende steget navngitt, riktig prinsipp begrunnet, og en korreksjon", "En fullstendig liste over alt som kunne vært formulert klarere", "Et helt nytt løsningsforslag uten kommentar til det gamle", "En vurdering av om svaret er rimelig i størrelsesorden"],
       explanation: "Nesten alle gale løsninger er riktige de første linjene, så poengene ligger i å peke på den ene overgangen der noe usant introduseres. Å skrive at løsningen «er upresis» eller å levere et nytt tall uten å kommentere feilen gir liten uttelling.",
     },
   ],
@@ -739,7 +739,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken av disse grafene beskriver en bevegelse som er fysisk umulig?",
-      options: ["En posisjon–tid-graf som er loddrett i et punkt", "En fart–tid-graf med en skarp knekk", "En fart–tid-graf som krysser tidsaksen", "En posisjon–tid-graf som synker mot lavere verdier"],
+      options: ["En posisjon–tid-graf som er loddrett i et punkt", "En fart–tid-graf med en skarp knekk der farten snur", "En fart–tid-graf som krysser tidsaksen", "En posisjon–tid-graf som synker mot lavere verdier"],
       explanation: "En loddrett $x(t)$-graf krever uendelig fart, siden legemet da må flytte seg uten at tiden går. En knekk i $v(t)$ er derimot helt vanlig: den betyr bare at akselerasjonen endres brått, for eksempel når bremsene griper.",
     },
     {
@@ -754,7 +754,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En bil kjører i en sving med krumningsradius $50\\ \\text{m}$ og konstant banefart $10\\ \\text{m/s}$. Hvor stor er akselerasjonen?",
-      options: ["$2{,}0\\ \\text{m/s}^2$ inn mot sentrum", "Null, siden farten er konstant", "$0{,}20\\ \\text{m/s}^2$ inn mot sentrum", "$5{,}0\\ \\text{m/s}^2$ langs banen"],
+      options: ["$2{,}0\\ \\text{m/s}^2$ inn mot sentrum", "Null, siden banefarten er konstant hele veien", "$0{,}20\\ \\text{m/s}^2$ inn mot sentrum", "$5{,}0\\ \\text{m/s}^2$ langs banen"],
       explanation: "Normalkomponenten er $a_N = v^2/\\rho = 100/50 = 2{,}0\\ \\text{m/s}^2$, rettet inn mot krumningssentrum. At banefarten er konstant fjerner bare den tangentielle komponenten, ikke normalkomponenten.",
     },
     {
@@ -769,7 +769,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En heis akselererer oppover med konstant $1{,}2\\ \\text{m/s}^2$. Hva kjenner passasjeren?",
-      options: ["Seg tyngre, fordi gulvet må skyve hardere enn ellers", "Seg lettere, fordi heisen løfter en del av vekten", "Ingen forskjell, siden farten er den samme hele tiden", "Seg tyngre bare i det øyeblikket heisen starter"],
+      options: ["Seg tyngre, fordi gulvet må skyve hardere enn ellers", "Seg lettere, fordi heisen løfter en del av kroppsvekten for ham", "Ingen forskjell, siden farten er den samme hele tiden", "Seg tyngre bare i det øyeblikket heisen starter"],
       explanation: "Kroppen registrerer akselerasjon, ikke fart, og en oppadrettet akselerasjon krever at gulvet skyver hardere enn tyngden. Følelsen varer hele akselerasjonsfasen — ikke bare startøyeblikket — og forsvinner når heisen går med konstant fart.",
     },
     {
@@ -784,7 +784,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken påstand om fritt fall uten luftmotstand er riktig?",
-      options: ["Alle legemer får samme akselerasjon, uansett masse", "Tunge legemer får større akselerasjon enn lette", "Akselerasjonen avtar mens legemet faller", "Akselerasjonen er null i det øyeblikket legemet slippes"],
+      options: ["Alle legemer får samme akselerasjon, uansett masse", "Tunge legemer får større akselerasjon enn lette, siden tyngden er større", "Akselerasjonen avtar mens legemet faller", "Akselerasjonen er null i det øyeblikket legemet slippes"],
       explanation: "Dobler du massen, dobler du både tyngden som drar og tregheten som motsetter seg, så akselerasjonen blir uendret $g$. Med luftmotstand blir bildet et annet, men det er en annen modell enn fritt fall.",
     },
     {
@@ -794,7 +794,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er hensikten med en benevningskontroll?",
-      options: ["Å sjekke at begge sider av en likning får samme enhet", "Å gjøre om alle svar til grunnenheter i SI-systemet", "Å avgjøre hvor mange gjeldende siffer svaret skal ha", "Å kontrollere at tallet i svaret har rimelig størrelsesorden"],
+      options: ["Å sjekke at begge sider av en likning får samme enhet", "Å gjøre om alle svar til grunnenheter i SI-systemet før avrunding", "Å avgjøre hvor mange gjeldende siffer svaret skal ha", "Å kontrollere at tallet i svaret har rimelig størrelsesorden"],
       explanation: "Kontrollen setter inn enheter i stedet for tall: stemmer de ikke, er uttrykket sikkert galt. Rimelighetsvurdering av størrelsesorden er en nyttig, men annen kontroll — den fanger ikke en formel med feil potens.",
     },
     {
@@ -811,7 +811,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
   'fys1100-2-2': [
     {
       question: "Hvorfor er den vannrette farten konstant i et kast uten luftmotstand?",
-      options: ["Tyngden peker rett ned og har ingen vannrett komponent", "Fordi den vannrette farten alltid er mindre enn den loddrette", "Fordi luftmotstanden er den eneste vannrette kraften", "Fordi flytiden er for kort til at farten rekker å endres"],
+      options: ["Tyngden peker rett ned og har ingen vannrett komponent", "Fordi den vannrette farten alltid er mindre enn den loddrette", "Fordi luftmotstanden er den eneste kraften med en vannrett komponent", "Fordi flytiden er for kort til at farten rekker å endres"],
       explanation: "Det er kraften som endrer farten, og tyngden virker bare loddrett, så $a_x = 0$ og $v_x$ forblir uendret. At flytiden er kort spiller ingen rolle: med en vannrett kraft ville farten endret seg uansett hvor kort tiden var.",
     },
     {
@@ -826,7 +826,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva gir størst rekkevidde for et kast fra flat bakke uten luftmotstand?",
-      options: ["Utskytingsvinkel $45^\\circ$", "Utskytingsvinkel $60^\\circ$", "Utskytingsvinkel $30^\\circ$", "Så bratt vinkel som mulig"],
+      options: ["Utskytingsvinkel $45^\\circ$", "Utskytingsvinkel $60^\\circ$", "Utskytingsvinkel $30^\\circ$", "Så bratt vinkel som mulig, nær loddrett"],
       explanation: "Rekkevidden $x_1 = v_0^2\\sin 2\\theta/g$ er størst når $\\sin 2\\theta = 1$, altså ved $\\theta = 45^\\circ$. Brattere vinkel gir lengre flytid, men så lav vannrett fart at produktet blir mindre.",
     },
     {
@@ -856,7 +856,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En drone i vannrett flukt slipper en pakke. Hvor er dronen når pakken lander?",
-      options: ["Rett over pakken, dersom dronen flyr uendret", "Et godt stykke bak pakken, siden pakken tar med seg farten", "Et godt stykke foran pakken, siden pakken bremses av tyngden", "Det avhenger av hvor tung pakken er"],
+      options: ["Rett over pakken, dersom dronen flyr uendret", "Et godt stykke bak pakken, siden pakken tar med seg farten", "Et godt stykke foran pakken, siden pakken bremses av tyngden", "Det avhenger av hvor tung pakken er i forhold til dronen"],
       explanation: "Pakken beholder dronens vannrette fart hele veien ned, og begge tilbakelegger derfor like lang vannrett strekning. Tyngden virker bare loddrett og kan ikke bremse pakken framover.",
     },
     {
@@ -886,12 +886,12 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skjer med rekkevidden dersom startfarten dobles og vinkelen holdes fast?",
-      options: ["Den firedobles", "Den dobles", "Den øker med rundt 40 prosent", "Den blir åtte ganger så stor"],
+      options: ["Den firedobles", "Den dobles, som startfarten", "Den øker med rundt 40 prosent", "Den blir åtte ganger så stor"],
       explanation: "Rekkevidden $x_1 = v_0^2\\sin 2\\theta/g$ er proporsjonal med **kvadratet** av startfarten, så dobling gir fire ganger så langt. Samme kvadratavhengighet gjør at bremselengden til en bil firedobles ved dobbel fart.",
     },
     {
       question: "Hvilken feil gjør en kandidat som får $v_x$ forskjellig ved start og ved nedslag i et kast uten luftmotstand?",
-      options: ["Har fått tyngden til å virke i vannrett retning", "Har brukt for få gjeldende siffer i mellomregningen", "Har glemt å gjøre om vinkelen til radianer", "Har regnet flytiden med feil fortegn"],
+      options: ["Har fått tyngden til å virke i vannrett retning", "Har brukt for få gjeldende siffer i mellomregningen", "Har glemt å gjøre om utskytingsvinkelen til radianer", "Har regnet flytiden med feil fortegn"],
       explanation: "Uten luftmotstand er $a_x = 0$, så $v_x$ kan ikke endre seg; et avvik betyr at tyngden er kommet inn i $x$-likningen. Sensor straffer ikke følgefeilen hardt dersom du kommenterer den, men en ukommentert umulig verdi trekker.",
     },
     {
@@ -913,7 +913,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
   'fys1100-3-1': [
     {
       question: "Hva viser et frilegemediagram?",
-      options: ["Alle kreftene som virker på ett bestemt legeme", "Alle kreftene i hele situasjonen, fordelt på legemene", "Kreftene legemet utøver på omgivelsene sine", "Resultantkraften tegnet som én enkelt pil"],
+      options: ["Alle kreftene som virker på ett bestemt legeme", "Alle kreftene i hele situasjonen samlet", "Kreftene legemet utøver på omgivelsene sine", "Resultantkraften tegnet som én enkelt pil"],
       explanation: "Diagrammet isolerer ett legeme og viser bare kreftene som virker PÅ det. Resultanten tegnes ikke inn — den regnes ut etterpå, og å tegne både enkeltkreftene og resultanten teller kreftene dobbelt.",
     },
     {
@@ -923,7 +923,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En kloss ligger i ro på et vannrett bord. Er normalkraften motkraften til tyngden?",
-      options: ["Nei — motkraften til tyngden virker på jorda", "Ja, de er like store og motsatt rettet", "Ja, siden begge er kontaktkrefter", "Nei — normalkraften er alltid større enn tyngden"],
+      options: ["Nei — motkraften til tyngden virker på jorda", "Ja, de er like store og motsatt rettet på samme legeme", "Ja, siden begge er kontaktkrefter", "Nei — normalkraften er alltid større enn tyngden"],
       explanation: "Kraft og motkraft virker alltid på ulike legemer: motkraften til tyngden er klossens gravitasjonskraft på jorda. At $N = mg$ her, følger av Newtons 2. lov med $a = 0$ — i en heis som akselererer er de to ikke like store.",
     },
     {
@@ -998,12 +998,12 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En kloss glir med konstant fart over et bord med friksjon. Hva er riktig?",
-      options: ["Resultantkraften på klossen er null", "Det virker en netto kraft framover", "Bare tyngden og normalkraften virker", "Akselerasjonen peker i fartsretningen"],
+      options: ["Resultantkraften på klossen er null", "Det virker en netto kraft framover i fartsretningen", "Bare tyngden og normalkraften virker", "Akselerasjonen peker i fartsretningen"],
       explanation: "Konstant hastighet betyr $a = 0$, altså $\\sum\\mathbf{F} = 0$ etter Newtons 1. lov. Friksjonen bakover må da balanseres av en like stor drivkraft framover — men summen er fortsatt null.",
     },
     {
       question: "Hvilket koordinatsystem lønner seg på et skråplan?",
-      options: ["Én akse langs planet og én normalt på det", "Alltid vannrett og loddrett", "Én akse langs tyngden og én langs normalkraften", "Aksene bør velges tilfeldig og sjekkes etterpå"],
+      options: ["Én akse langs planet og én normalt på det", "Alltid vannrett og loddrett, uansett helning", "Én akse langs tyngden og én langs normalkraften", "Aksene bør velges tilfeldig og sjekkes etterpå"],
       explanation: "Med én akse langs akselerasjonen blir akselerasjonen null i den andre retningen, og bare tyngden trenger å dekomponeres. Vannrett og loddrett gir riktig svar, men to ukjente akselerasjonskomponenter og mye mer arbeid.",
     },
     {
@@ -1045,7 +1045,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En kloss glir nedover et skråplan. Hvilken vei peker den dynamiske friksjonen?",
-      options: ["Oppover langs planet", "Nedover langs planet", "Vinkelrett ut fra planet", "Loddrett oppover"],
+      options: ["Oppover langs planet", "Nedover langs planet", "Vinkelrett ut fra planet", "Loddrett oppover, mot tyngden"],
       explanation: "Friksjonen motvirker den relative bevegelsen mellom flatene, og klossen glir nedover. Sendes klossen i stedet oppover, snur friksjonen — det gir to ulike akselerasjoner i de to fasene.",
     },
     {
@@ -1105,7 +1105,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En kloss sendes oppover et skråplan med friksjon. Hvordan er akselerasjonen opp sammenlignet med ned?",
-      options: ["Større på vei opp", "Større på vei ned", "Nøyaktig like store", "Null på vei opp"],
+      options: ["Større på vei opp", "Større på vei ned", "Nøyaktig like store", "Null på vei opp, men ikke ned"],
       explanation: "På vei opp bremser både tyngdekomponenten og friksjonen ($a = g(\\sin\\theta + \\mu_d\\cos\\theta)$), på vei ned motvirker de hverandre. Derfor kommer klossen tilbake med lavere fart enn den ble sendt opp med.",
     },
     {
@@ -1142,7 +1142,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skjer med snordraget i systemmetoden?",
-      options: ["Det faller ut, fordi det er en indre kraft", "Det dobles, siden det opptrer i to ender", "Det blir den eneste ytre kraften i regnskapet", "Det må regnes ut før akselerasjonen kan finnes"],
+      options: ["Det faller ut, fordi det er en indre kraft", "Det dobles, siden det opptrer i begge endene av snora", "Det blir den eneste ytre kraften i regnskapet", "Det må regnes ut før akselerasjonen kan finnes"],
       explanation: "De to snordragene er et kraftpar etter Newtons 3. lov og opphever hverandre inne i systemet. Nettopp derfor kan systemmetoden ikke brukes til å finne snordraget — da må systemet splittes.",
     },
     {
@@ -1162,7 +1162,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skal skje med uttrykket for akselerasjonen når du setter $\\mu_d = 0$?",
-      options: ["Friksjonsleddet skal forsvinne helt", "Akselerasjonen skal bli null", "Snordraget skal bli lik summen av tyngdene", "Uttrykket skal bli uavhengig av massene"],
+      options: ["Friksjonsleddet skal forsvinne helt", "Akselerasjonen skal bli null på skråplanet", "Snordraget skal bli lik summen av tyngdene", "Uttrykket skal bli uavhengig av massene"],
       explanation: "Grensen $\\mu_d \\to 0$ skal gi det friksjonsfrie svaret du kjenner fra før. Gjør den ikke det, er fortegnet eller faktoren på friksjonsleddet galt — kontrollen tar ti sekunder og er ofte en egen poenggivende deloppgave.",
     },
     {
@@ -1177,7 +1177,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "To klosser glir nedover samme skråplan, koblet med en snor. Når er snordraget null?",
-      options: ["Når friksjonstallene er like", "Når massene er like", "Når planet er friksjonsfritt og bratt", "Når den øverste klossen er tyngst"],
+      options: ["Når friksjonstallene er like", "Når massene til de to klossene er like", "Når planet er friksjonsfritt og bratt", "Når den øverste klossen er tyngst"],
       explanation: "Hver kloss ville hatt $a = g(\\sin\\theta - \\mu\\cos\\theta)$ på egen hånd, som er masseuavhengig — er $\\mu$-ene like, glir de i takt og snora har ingen jobb. Like masser hjelper ikke, siden massen uansett faller ut av akselerasjonen.",
     },
     {
@@ -1187,12 +1187,12 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva avgjør om et koblet system i ro settes i bevegelse?",
-      options: ["Det statiske friksjonstallet", "Det dynamiske friksjonstallet", "Forholdet mellom de to massene alene", "Snordragets størrelse"],
+      options: ["Det statiske friksjonstallet", "Det dynamiske friksjonstallet", "Forholdet mellom de to massene alene", "Størrelsen på snordraget mellom legemene"],
       explanation: "Hvilefriksjonen har taket $\\mu_s N$, og den drivende kraften må overstige det for at noe skal begynne å bevege seg. Det dynamiske friksjonstallet styrer først hva som skjer etterpå, når legemene faktisk glir.",
     },
     {
       question: "Hvorfor trenger du to frilegemediagram i en to-kloss-oppgave?",
-      options: ["Fordi snordraget er indre for systemet under ett", "Fordi de to klossene som regel har ulik masse", "Fordi friksjonen bare virker på det ene av legemene", "Fordi akselerasjonene peker i ulike retninger i rommet"],
+      options: ["Fordi snordraget er indre for systemet under ett", "Fordi de to klossene som regel har ulik masse og ulik akselerasjon", "Fordi friksjonen bare virker på det ene av legemene", "Fordi akselerasjonene peker i ulike retninger i rommet"],
       explanation: "Snordraget kan bare finnes når legemene behandles hver for seg; i ett felles diagram faller det ut. Ett diagram der snordraget likevel er tegnet inn, teller den samme kraften to ganger.",
     },
     {
@@ -1249,7 +1249,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En kloss ligger oppå en annen som akselereres. Hvilken kraft akselererer den øverste?",
-      options: ["Hvilefriksjonen fra klossen under", "Normalkraften fra klossen under", "Den ytre kraften som trekker i systemet", "Tyngden på den øverste klossen"],
+      options: ["Hvilefriksjonen fra klossen under", "Normalkraften fra klossen under, rettet oppover", "Den ytre kraften som trekker i systemet", "Tyngden på den øverste klossen"],
       explanation: "Friksjonen er den eneste vannrette kraften som berører den øverste klossen — her virker den som drivkraft, ikke bremsekraft. Den ytre kraften berører bare den nederste klossen.",
     },
     {
@@ -1264,7 +1264,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "To klosser står inntil hverandre på et friksjonsfritt gulv og skyves av en kraft på den bakerste. Hva gjelder kontaktkraften?",
-      options: ["Den er mindre enn den ytre kraften", "Den er lik den ytre kraften", "Den er større enn den ytre kraften", "Den er null på et friksjonsfritt gulv"],
+      options: ["Den er mindre enn den ytre kraften", "Den er lik den ytre kraften i størrelse", "Den er større enn den ytre kraften", "Den er null på et friksjonsfritt gulv"],
       explanation: "Kontaktkraften skal bare akselerere den fremste klossen, mens den ytre kraften akselererer begge: $K = m_2F/(m_1+m_2)$. Den er like reell på et friksjonsfritt gulv, siden den fremste klossen fortsatt har masse.",
     },
     {
@@ -1284,12 +1284,12 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En kile med en kloss på skråsiden står på et friksjonsfritt gulv. Hva skjer om kilen får gli?",
-      options: ["Normalkraften blir mindre enn $mg\\cos\\theta$", "Normalkraften blir større enn $mg\\cos\\theta$", "Klossens akselerasjon langs planet blir uendret", "Friksjonen mellom kloss og kile forsvinner"],
+      options: ["Normalkraften blir mindre enn $mg\\cos\\theta$", "Normalkraften blir større enn $mg\\cos\\theta$", "Klossens akselerasjon langs planet blir uendret", "Friksjonen mellom kloss og kile forsvinner når kilen glir"],
       explanation: "Kilen viker unna under klossen, slik at kontakten «slipper opp» og normalkraften synker — samme mekanisme som i en heis som akselererer nedover. Klossens akselerasjon i forhold til bakken er da heller ikke lenger rettet langs skråsiden.",
     },
     {
       question: "Hvor mye av tiden i en flertrinnsoppgave bør gå til frilegemediagrammet?",
-      options: ["Rundt to minutter — best betalte tid i settet", "Så lite som mulig, siden figuren ikke gir poeng", "Omtrent halvparten av tiden på oppgaven", "Bare hvis det er tid til overs etter regningen"],
+      options: ["Rundt to minutter — best betalte tid i settet", "Så lite som mulig, siden figuren ikke gir poeng", "Omtrent halvparten av tiden som er satt av til oppgaven", "Bare hvis det er tid til overs etter regningen"],
       explanation: "Diagrammet er selvstendig poenggivende og tar under to minutter, så avkastningen per minutt er høyest der. Går du tom for tid, er det regningen som skal kuttes — ikke figuren.",
     },
     {
@@ -1316,7 +1316,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "To punkter ligger på samme roterende skive, det ene dobbelt så langt fra aksen som det andre. Hva gjelder?",
-      options: ["Samme vinkelfart, men dobbelt så stor banefart", "Dobbelt så stor vinkelfart, men samme banefart", "Samme vinkelfart og samme banefart", "Halv vinkelfart, men dobbelt så stor banefart"],
+      options: ["Samme vinkelfart, men dobbelt så stor banefart", "Dobbelt så stor vinkelfart, men samme banefart", "Samme vinkelfart og samme banefart i begge punktene", "Halv vinkelfart, men dobbelt så stor banefart"],
       explanation: "Alle punkter på en stiv, roterende skive går rundt like mange ganger per sekund, så vinkelfarten $\\omega$ er felles. Banefarten følger $v = \\omega R$ og vokser derfor med avstanden fra aksen. Påstanden om samme banefart ville krevd at det ytterste punktet gikk kortere vei på samme tid.",
     },
     {
@@ -1331,7 +1331,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan er normalkraften i bunnen av en loop sammenlignet med tyngden?",
-      options: ["Alltid større enn $mg$", "Alltid lik $mg$", "Alltid mindre enn $mg$", "Alltid null"],
+      options: ["Alltid større enn $mg$", "Alltid lik $mg$", "Alltid mindre enn $mg$", "Alltid null i bunnpunktet"],
       explanation: "I bunnen gir Newtons 2. lov $N = m(v^2/R + g)$, og leddet $mv^2/R$ er positivt, så $N > mg$. Å svare $mg$ ville forutsatt at legemet ikke akselererte i det hele tatt, altså at banen var rett.",
     },
     {
@@ -1346,7 +1346,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr det fysisk at det utregnede uttrykket for normalkraften blir negativt?",
-      options: ["At kontakten er brutt og legemet har forlatt banen", "At normalkraften peker motsatt vei av det du antok", "At legemet presses ekstra hardt mot banen", "At du må regne om farten til vinkelfart"],
+      options: ["At kontakten er brutt og legemet har forlatt banen", "At normalkraften peker motsatt vei av det du antok", "At legemet presses ekstra hardt mot banen i det punktet", "At du må regne om farten til vinkelfart"],
       explanation: "En normalkraft kan bare skyve, aldri trekke, så en negativ verdi er fysisk umulig og betyr at modellen ikke lenger gjelder. Å tolke det som at kraften «peker andre veien» er nettopp feilen: underlaget kan ikke holde fast i legemet.",
     },
     {
@@ -1371,7 +1371,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor gjør normalkraften ikke arbeid på en vogn i en friksjonsfri loop?",
-      options: ["Den står vinkelrett på bevegelsen i hvert punkt", "Den er alltid mindre enn tyngden", "Kontaktkrefter gjør per definisjon aldri arbeid", "Den peker mot sentrum, og sentrum står stille"],
+      options: ["Den står vinkelrett på bevegelsen i hvert punkt", "Den er alltid mindre enn tyngden gjennom hele loopen", "Kontaktkrefter gjør per definisjon aldri arbeid", "Den peker mot sentrum, og sentrum står stille"],
       explanation: "Arbeidet er $W = Fd\\cos\\phi$, og med $\\phi = 90^\\circ$ blir det null. Påstanden om at kontaktkrefter aldri gjør arbeid, er gal: friksjon er også en kontaktkraft, og den gjør høyst reelt arbeid.",
     },
     {
@@ -1428,7 +1428,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Når finnes det **ingen** minstefart i en dosert sving?",
-      options: ["Når $\\mu_s \\ge \\tan\\alpha$", "Når $\\mu_s \\le \\tan\\alpha$", "Når $\\mu_s \\tan\\alpha \\ge 1$", "Når radien er stor nok"],
+      options: ["Når $\\mu_s \\ge \\tan\\alpha$", "Når $\\mu_s \\le \\tan\\alpha$", "Når $\\mu_s \\tan\\alpha \\ge 1$", "Når radien i svingen er stor nok"],
       explanation: "Da holder friksjonen bilen på den skrå vegbanen også i ro, og telleren $\\tan\\alpha - \\mu_s$ i uttrykket for $v_{\\min}$ blir negativ. Betingelsen $\\mu_s\\tan\\alpha \\ge 1$ handler derimot om den **øvre** grensen, ikke den nedre.",
     },
     {
@@ -1478,7 +1478,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen på $R$ og $\\rho$ i en spiralbane?",
-      options: ["$R$ er den vannrette radien, mens $\\rho$ er banens virkelige krumningsradius", "De er alltid like store", "$R$ er krumningsradien, mens $\\rho$ er avstanden fra aksen", "$\\rho$ er radien sett ovenfra, mens $R$ måles langs banen"],
+      options: ["$R$ er den vannrette radien, mens $\\rho$ er banens virkelige krumningsradius", "De er to navn på den samme radien, og de er alltid like store uansett stigning", "$R$ er krumningsradien, mens $\\rho$ er avstanden fra aksen", "$\\rho$ er radien sett ovenfra, mens $R$ måles langs banen"],
       explanation: "For en heliks er $\\rho = R/\\cos^2\\theta$, altså større enn $R$. Bruker du den vannrette projeksjonen, regner du med $R$ og farten $v\\cos\\theta$; bruker du banens fulle fart, må du bruke $\\rho$. De to veiene gir samme svar, men må ikke blandes.",
     },
     {
@@ -1488,7 +1488,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken av situasjonene løses med **samme** likningspar som en dosert sving ved ideell fart?",
-      options: ["En konisk pendel med kule i snor", "En kloss som glir ned et skråplan", "En bil som bremser på flat veg", "En vogn i toppen av en vertikal loop"],
+      options: ["En konisk pendel med kule i snor", "En kloss som glir ned et skråplan", "En bil som bremser rett fram på flat veg", "En vogn i toppen av en vertikal loop"],
       explanation: "I begge tilfellene er det én skrå kraft som både bærer legemet loddrett og svinger det vannrett, og begge gir $\\tan(\\text{vinkel}) = v^2/(gR)$. På skråplanet går akselerasjonen derimot langs flaten, ikke vannrett, og likningene får en helt annen struktur.",
     },
   ],
@@ -1510,12 +1510,12 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Når er mekanisk energi bevart?",
-      options: ["Når de eneste kreftene som gjør arbeid, er konservative", "Alltid — bevaring av energi er en av fysikkens grunnleggende naturlover", "Når systemet er lukket", "Når det ikke virker ytre krefter"],
+      options: ["Når de eneste kreftene som gjør arbeid, er konservative", "Alltid — energibevaring er en grunnleggende naturlov", "Når systemet er lukket og ingen energi slipper ut", "Når det ikke virker ytre krefter"],
       explanation: "Betingelsen handler om hvilke krefter som gjør **arbeid**: friksjon og luftmotstand ødelegger bevaringen, mens krefter vinkelrett på bevegelsen er uproblematiske. Det er den **totale** energien som alltid er bevart, ikke den mekaniske delen alene.",
     },
     {
       question: "En bil dobler farten. Bremselengden på samme underlag blir",
-      options: ["Fire ganger så lang", "Dobbelt så lang", "Uendret", "Halvparten så lang"],
+      options: ["Fire ganger så lang", "Dobbelt så lang", "Uendret, siden underlaget er det samme", "Halvparten så lang"],
       explanation: "Fra $\\tfrac12 mv^2 = \\mu_d mgs$ følger $s = v^2/(2\\mu_d g)$, altså proporsjonal med $v^2$. Å svare «dobbelt så lang» er å tenke lineært der sammenhengen er kvadratisk, og det er den vanligste feilslutningen i trafikkfysikk.",
     },
     {
@@ -1560,7 +1560,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken strekning skal brukes i friksjonsleddet $\\mu_d N s$?",
-      options: ["Den tilbakelagte veistrekningen", "Forflytningen fra start til slutt", "Høydeforskjellen", "Den vannrette komponenten av bevegelsen"],
+      options: ["Den tilbakelagte veistrekningen", "Forflytningen fra start til slutt", "Høydeforskjellen mellom start og slutt", "Den vannrette komponenten av bevegelsen"],
       explanation: "Friksjonen gjør negativt arbeid hele veien, uansett retning, så bidragene legges sammen når legemet går fram og tilbake. Bruker du forflytningen, får du null friksjonstap på en tur–retur-bevegelse, noe som åpenbart er galt.",
     },
     {
@@ -1652,7 +1652,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En sammentrykt fjær skyter to klosser fra hverandre på et friksjonsfritt bord. Hvilken kloss får mest kinetisk energi?",
-      options: ["Den letteste", "Den tyngste", "De får like mye", "Det avhenger av hvor mye fjæra var trykt sammen"],
+      options: ["Den letteste", "Den tyngste av de to", "De får like mye", "Det avhenger av fjærkraften"],
       explanation: "De to får like store bevegelsesmengder, og siden $K = p^2/(2m)$, får den letteste mest energi — andelen er $m_{\\text{tung}}/(m_1+m_2)$. Det er nettopp derfor rekylen fra et gevær er til å leve med, mens kula er dødelig.",
     },
     {
@@ -1667,7 +1667,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En kule treffer en like tung kule i ro, elastisk og sentralt. Hva skjer?",
-      options: ["Den første stopper, den andre overtar farten", "Begge går videre med halv fart", "Den første spretter tilbake med samme fart", "Begge stopper"],
+      options: ["Den første stopper, den andre overtar farten", "Begge går videre med halv fart", "Den første spretter tilbake med samme fart", "Begge stopper helt opp og blir liggende i ro på bordet"],
       explanation: "Med $m_1 = m_2$ gir uttrykkene $v_1 = 0$ og $v_2 = u_1$ — biljardtilfellet. At begge går med halv fart, ville bevart bevegelsesmengden, men bare halvparten av energien, og bryter derfor med at støtet er elastisk.",
     },
     {
@@ -1677,12 +1677,12 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor reduserer en kollisjonspute kraften på en passasjer?",
-      options: ["Den forlenger tiden endringen i bevegelsesmengde skjer over", "Den reduserer endringen i passasjerens bevegelsesmengde under støtet", "Den gjør støtet elastisk", "Den reduserer passasjerens masse"],
+      options: ["Den forlenger tiden endringen i bevegelsesmengde skjer over", "Den reduserer endringen i passasjerens bevegelsesmengde", "Den gjør støtet elastisk i stedet for uelastisk", "Den reduserer passasjerens masse"],
       explanation: "Endringen $\\Delta p = m\\Delta v$ er gitt av farten som skal bort og kan ikke endres. Puta virker på $\\Delta t$ i $\\bar F = \\Delta p/\\Delta t$: ti ganger lengre stopptid gir en tidel så stor kraft.",
     },
     {
       question: "Hva er impulsen fra en kraft som varierer i tid?",
-      options: ["Arealet under kraft–tid-grafen", "Toppverdien av kraften", "Kraften ganget med strekningen", "Middelkraften ganget med strekningen"],
+      options: ["Arealet under kraft–tid-grafen", "Toppverdien av kraften under støtet", "Kraften ganget med strekningen", "Middelkraften ganget med strekningen"],
       explanation: "Impulsen er $\\int F\\,dt$, altså arealet under grafen, og det er den som bestemmer fartsendringen. Toppverdien sier ingenting alene: en kort, hard topp kan gi mindre impuls enn en lang, myk kurve.",
     },
     {
@@ -1719,7 +1719,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
   'fys1100-5-3': [
     {
       question: "Hva er første steg i løsningsoppskriften for en bevaringsoppgave?",
-      options: ["Å dele prosessen i faser med tydelige start- og sluttilstander", "Å skrive opp alle formlene du kan komme på for energi og bevegelsesmengde", "Å regne ut den kinetiske energien før", "Å velge en positiv retning"],
+      options: ["Å dele prosessen i faser med tydelige start- og sluttilstander", "Å skrive opp alle formlene du kan komme på for energi og bevegelsesmengde", "Å regne ut den kinetiske energien før", "Å velge en positiv retning langs bevegelsen før noe annet i oppgaven"],
       explanation: "Fase-inndelingen avgjør hvilke lover som er gyldige hvor, og feil inndeling er den vanligste grunnen til at en ellers riktig regnet oppgave ryker. Å skrive opp formler uten å bruke dem gir ingen uttelling i det hele tatt.",
     },
     {
@@ -1739,7 +1739,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva må stå i besvarelsen hver gang du bruker en bevaringslov?",
-      options: ["En setning om hvorfor loven gjelder i akkurat denne fasen", "Formelen for loven skrevet opp i sin mest generelle form, med alle ledd", "En henvisning til formelarket", "En figur av situasjonen"],
+      options: ["En setning om hvorfor loven gjelder i akkurat denne fasen", "Formelen for loven skrevet opp i sin mest generelle form", "En henvisning til formelarket", "En figur av situasjonen med alle krefter tegnet inn"],
       explanation: "Å bruke en bevaringslov uten begrunnelse koster $-1$ poeng, og begrunnelsen er den billigste poengsikringen i faget. Å skrive opp relevante formler uten å bruke dem, gir derimot null.",
     },
     {
@@ -1769,7 +1769,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvor stor del av poengene på en typisk sjanger D-deloppgave henger på begrunnelse og oppsett, før selve regningen?",
-      options: ["Over halvparten", "Omtrent en femdel", "Under en tidel", "Ingen — bare svaret teller"],
+      options: ["Over halvparten", "Omtrent en femdel", "Under en tidel av poengene", "Ingen — bare svaret teller"],
       explanation: "Fordelingen er typisk 1–2 poeng for lovvalg med begrunnelse og 1 poeng for riktig oppsett, av inntil 5. En kandidat som fører fasene og begrunnelsene ryddig uten å rekke å regne ferdig, får derfor mer enn en som regner riktig uten å begrunne.",
     },
     {
@@ -1806,12 +1806,12 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Fire legemer har samme masse og samme ytre radius og roterer om en akse gjennom massesenteret. Hvilket har størst treghetsmoment?",
-      options: ["Den tynne ringa", "Den massive sylinderen", "Den massive kula", "Kuleskallet"],
+      options: ["Den tynne ringa", "Den massive sylinderen", "Den massive kula", "Det tynne kuleskallet"],
       explanation: "Bidraget til $I$ går som avstanden i annen, og i en tynn ring sitter all massen ytterst i avstand $R$, som gir $I = MR^2$. Kuleskallet har også all massen ute, men fordelt over en kuleflate der store deler ligger nærmere aksen, så det gir bare $\\tfrac23 MR^2$.",
     },
     {
       question: "Fire legemer har samme masse og samme ytre radius og roterer om en akse gjennom massesenteret. Hvilket har minst treghetsmoment?",
-      options: ["Den massive kula", "Den massive sylinderen", "Den hule sylinderen", "Den tynne ringa"],
+      options: ["Den massive kula", "Den massive sylinderen", "Den hule sylinderen", "Den tynne ringa med all masse ytterst"],
       explanation: "Kula har $\\tfrac25 MR^2 = 0{,}400\\,MR^2$, mot sylinderens $\\tfrac12 MR^2 = 0{,}500\\,MR^2$. I en kule ligger en større del av massen nær aksen enn i en sylinder, fordi kula smalner av mot polene.",
     },
     {
@@ -1861,7 +1861,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En massiv skive og en tynn ring har samme masse og radius og snurrer med samme vinkelfart. Hva gjelder for rotasjonsenergien?",
-      options: ["Ringa har dobbelt så stor rotasjonsenergi", "Skiva har dobbelt så stor rotasjonsenergi", "De har nøyaktig samme rotasjonsenergi", "Ringa har halvparten så stor rotasjonsenergi"],
+      options: ["Ringa har dobbelt så stor rotasjonsenergi", "Skiva har dobbelt så stor rotasjonsenergi", "De har nøyaktig samme rotasjonsenergi ved samme vinkelfart", "Ringa har halvparten så stor rotasjonsenergi"],
       explanation: "Med $K_{\\text{rot}} = \\tfrac12 I\\omega^2$ og felles $\\omega$ er forholdet mellom energiene lik forholdet mellom treghetsmomentene, altså $MR^2$ mot $\\tfrac12 MR^2$. Samme masse og samme vinkelfart er ikke nok til lik energi — massefordelingen avgjør.",
     },
     {
@@ -1876,7 +1876,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken av disse påstandene om et stivt legeme i rotasjon er umulig?",
-      options: ["To punkter på legemet har ulik vinkelfart", "To punkter på legemet har ulik banefart", "Vinkelfarten er null mens vinkelakselerasjonen ikke er det", "Vinkelakselerasjonen peker motsatt vei av vinkelfarten"],
+      options: ["To punkter på legemet har ulik vinkelfart", "To punkter på legemet har ulik banefart om aksen", "Vinkelfarten er null mens vinkelakselerasjonen ikke er det", "Vinkelakselerasjonen peker motsatt vei av vinkelfarten"],
       explanation: "I et stivt legeme har alle punkter samme $\\omega$ og samme $\\alpha$ — det er nettopp det stivheten betyr. Banefarten $v = \\omega\\rho$ varierer derimot med avstanden fra aksen, og et legeme som bremses ned har $\\alpha$ motsatt $\\omega$.",
     },
     {
@@ -1943,7 +1943,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken kraft gir moment om massesenteret til en sylinder som ruller ned et skråplan?",
-      options: ["Bare friksjonen", "Bare tyngden", "Både tyngden og normalkraften", "Både friksjonen og normalkraften"],
+      options: ["Bare friksjonen", "Bare tyngdekraften", "Både tyngden og normalkraften", "Både friksjonen og normalkraften"],
       explanation: "Tyngden angriper i massesenteret og har momentarm null, og normalkraftens virkelinje går rett gjennom massesenteret. Bare friksjonen har momentarm $R$ — å la tyngden bidra her er felle #15 og koster typisk 2 poeng.",
     },
     {
@@ -1958,7 +1958,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skjer når friksjonstallet er mindre enn kravet for ren rulling?",
-      options: ["Legemet glir, og rullebetingelsen gjelder ikke lenger", "Legemet stopper helt opp", "Legemet ruller fortsatt rent, bare med mindre akselerasjon", "Friksjonen øker til den er stor nok"],
+      options: ["Legemet glir, og rullebetingelsen gjelder ikke lenger", "Legemet stopper helt opp og blir liggende i ro på planet", "Legemet ruller fortsatt rent, bare med mindre akselerasjon", "Friksjonen øker til den er stor nok"],
       explanation: "Hvilefriksjonen kan ikke overskride $\\mu_s N$, så når kravet ikke er oppfylt begynner kontaktflaten å gli og $v \\neq \\omega R$. Friksjonen kan ikke «øke til den er stor nok» — taket er nettopp det som gjør at rullingen svikter.",
     },
     {
@@ -2005,7 +2005,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Når er spinnet til et system bevart?",
-      options: ["Når det ytre kraftmomentet om aksen er null", "Når summen av alle de ytre kreftene på systemet er null", "Når systemets treghetsmoment er konstant", "Når den kinetiske energien er bevart"],
+      options: ["Når det ytre kraftmomentet om aksen er null", "Når summen av alle de ytre kreftene på systemet er null", "Når systemets treghetsmoment om aksen er konstant", "Når den kinetiske energien er bevart"],
       explanation: "Spinnsatsen $\\boldsymbol{\\tau} = d\\mathbf{L}/dt$ sier at det er kraftmomentet, ikke kraften, som endrer spinnet. En stor ytre kraft uten momentarm om aksen — for eksempel fra et hengsel — endrer derfor ikke spinnet.",
     },
     {
@@ -2015,7 +2015,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er hovedgrunnen til at bevegelsesmengden **ikke** er bevart i et kule-i-stav-støt med hengsel?",
-      options: ["Hengselen utøver en ytre kraft på systemet", "Kula setter seg fast i staven", "Staven roterer om hengselet i stedet for å flytte seg", "Tyngden virker på begge legemene"],
+      options: ["Hengselen utøver en ytre kraft på systemet", "Kula setter seg fast i staven og følger den videre", "Staven roterer om hengselet i stedet for å flytte seg", "Tyngden virker på begge legemene"],
       explanation: "Bevegelsesmengdebevaring krever at netto ytre kraft er null, og hengselet leverer nettopp en stor ytre kraft under støtet. At kula setter seg fast avgjør bare om energien er bevart, ikke om bevegelsesmengden er det.",
     },
     {
@@ -2087,7 +2087,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
   'fys1100-6-4': [
     {
       question: "Hvilken rotasjonsakse lønner det seg å velge for en stav som er hengslet i den ene enden?",
-      options: ["Hengselaksen, siden hengselkraften da faller ut", "Massesenteret, siden tyngden angriper nettopp der", "Den frie enden, siden den beveger seg fortest", "Det spiller ingen rolle for regnestykket"],
+      options: ["Hengselaksen, siden hengselkraften da faller ut", "Massesenteret, siden tyngden angriper der", "Den frie enden, siden den beveger seg fortest", "Det spiller ingen rolle for regnestykket"],
       explanation: "Hengselkraften er ukjent i både størrelse og retning, men angriper i aksen og har derfor null momentarm. Massesenteret er en gyldig akse, men da må den ukjente hengselkraften med i momentregnskapet — regningen blir vesentlig lengre.",
     },
     {
@@ -2102,12 +2102,12 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En homogen stav hengslet i den ene enden slippes fra vannrett stilling. Hvilken metode gir vinkelfarten i loddrett stilling?",
-      options: ["Energibevaring, siden $\\alpha$ ikke er konstant", "Bevegelseslikningen $\\omega = \\alpha t$ med $\\alpha = 3g/(2\\ell)$", "Spinnbevaring om hengselaksen gjennom fallet", "Rullebetingelsen $v = \\omega \\ell$ anvendt på enden"],
+      options: ["Energibevaring, siden $\\alpha$ ikke er konstant", "Bevegelseslikningen $\\omega = \\alpha t$ med $\\alpha = 3g/(2\\ell)$", "Spinnbevaring om hengselaksen gjennom hele fallbevegelsen", "Rullebetingelsen $v = \\omega \\ell$ anvendt på enden"],
       explanation: "Momentarmen krymper som $\\cos\\theta$ mens staven faller, så $\\alpha$ avtar og bevegelseslikningene for konstant $\\alpha$ gjelder ikke. Spinnet er heller ikke bevart, siden tyngden gir et ytre moment om hengselen under hele fallet.",
     },
     {
       question: "Hva er den effektive massen til en homogen skive som trinse med radius $R$?",
-      options: ["Halve trinsemassen", "Hele trinsemassen", "En tredjedel av trinsemassen", "To tredjedeler av trinsemassen"],
+      options: ["Halve trinsemassen", "Hele trinsemassen uavkortet", "En tredjedel av trinsemassen", "To tredjedeler av trinsemassen"],
       explanation: "Den effektive massen er $I/R^2$, og for en skive er $I = \\tfrac12 MR^2$, altså $I/R^2 = M/2$. Å bruke hele trinsemassen gir for stor treghet og dermed for liten akselerasjon.",
     },
     {
@@ -2117,7 +2117,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En jojo modellert som en homogen sylinder faller. Hvor stor andel av energien sitter i rotasjonen?",
-      options: ["En tredjedel", "To tredjedeler", "Halvparten", "En fjerdedel"],
+      options: ["En tredjedel", "To tredjedeler", "Halvparten av energien", "En fjerdedel"],
       explanation: "Andelen er $c/(1+c)$, og for en sylinder med $c = 0{,}500$ blir det $1/3$. Andelen en halv hører til en tynn ring, der $c = 1$.",
     },
     {
@@ -2132,7 +2132,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En sylinder ligger på et plan der $\\mu_s$ er mindre enn kravet for ren rulling. Hva gjelder da?",
-      options: ["Friksjonen er dynamisk, og $v \\neq \\omega R$", "Friksjonen er statisk, men mindre enn vanlig", "Rullebetingelsen gjelder fortsatt, med redusert $a$", "Sylinderen blir liggende i ro på planet"],
+      options: ["Friksjonen er dynamisk, og $v \\neq \\omega R$", "Friksjonen er statisk, men mindre enn vanlig", "Rullebetingelsen gjelder fortsatt, med redusert $a$", "Sylinderen blir liggende i ro på det skrå planet"],
       explanation: "Når hvilefriksjonen ikke strekker til, glir kontaktflaten, og friksjonen blir dynamisk med kjent størrelse $\\mu_d N$. Rullebetingelsen gjelder da ikke, og translasjon og rotasjon må regnes hver for seg.",
     },
     {
@@ -2164,7 +2164,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva gjør en differensiallikning inhomogen?",
-      options: ["Et ledd uten den ukjente funksjonen i seg", "At den ukjente opptrer i andre potens", "At koeffisientene endrer seg underveis i bevegelsen", "At den er av andre orden"],
+      options: ["Et ledd uten den ukjente funksjonen i seg", "At den ukjente opptrer i andre potens", "At koeffisientene endrer seg underveis", "At den er av andre orden"],
       explanation: "Samler du alt med den ukjente på venstre side og det står noe igjen på høyre, er likningen inhomogen — typisk en konstant tyngde eller en ytre påkjenning. At den ukjente opptrer i andre potens gjør likningen ikke-lineær, som er en helt annen egenskap.",
     },
     {
@@ -2174,7 +2174,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En student integrerer $m\\,dv/dt = mg - k_v v$ og skriver $mv = mgt - k_v vt$. Hva er galt?",
-      options: ["$\\int v\\,dt$ er ikke $vt$ når $v$ varierer", "Massen skulle ikke stått på venstre side", "Fortegnet på motstandsleddet skulle vært positivt", "Tiden skulle vært kvadrert"],
+      options: ["$\\int v\\,dt$ er ikke $vt$ når $v$ varierer", "Massen skulle ikke stått på venstre side av likningen", "Fortegnet på motstandsleddet skulle vært positivt", "Tiden skulle vært kvadrert"],
       explanation: "Å sette $\\int v\\,dt = vt$ forutsetter at farten er konstant, og hele poenget med likningen er at farten endrer seg. Fortegnet på motstandsleddet er faktisk riktig — motstanden bremser — så feilen ligger i integrasjonen, ikke i oppsettet.",
     },
     {
@@ -2199,7 +2199,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Når er konstant-$a$-formlene $v = v_0 + at$ og $x = x_0 + v_0t + \\tfrac12at^2$ gyldige?",
-      options: ["Bare når resultantkraften er konstant hele veien", "Så lenge legemet beveger seg i én og samme retning", "Når legemet starter fra ro i origo", "Når massen er kjent"],
+      options: ["Bare når resultantkraften er konstant hele veien", "Så lenge legemet beveger seg i én og samme retning", "Når legemet starter fra ro i origo", "Når massen til legemet er kjent og oppgitt i teksten"],
       explanation: "Formlene forutsetter konstant akselerasjon, altså at høyresiden i Newtons 2. lov er en ren konstant. At bevegelsen går i én og samme retning hjelper ikke: en fjærkraft eller en luftmotstand bryter forutsetningen med det samme, selv i rettlinjet bevegelse.",
     },
     {
@@ -2234,7 +2234,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En andreordens likning er oppgitt med bare $y(0)$. Hva er situasjonen?",
-      options: ["Én betingelse mangler, så én konstant blir ubestemt", "Løsningen er entydig bestemt av den ene betingelsen", "Likningen har da ingen løsning", "Ordenen faller til én"],
+      options: ["Én betingelse mangler, så én konstant blir ubestemt", "Løsningen er entydig bestemt av den ene betingelsen", "Likningen har da ingen løsning", "Ordenen på likningen faller til én når en betingelse mangler"],
       explanation: "Andre orden gir to ubestemte konstanter, og hver av dem krever sin egen betingelse. Ofte ligger den manglende opplysningen skjult i oppgaveteksten i en formulering som «slippes fra ro», som er en opplysning om farten.",
     },
   ],
@@ -2341,7 +2341,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En pendel svinger med utslag $45^\\circ$. Hva skjer med perioden sammenliknet med småvinkelformelen?",
-      options: ["Den blir omtrent $4\\ \\%$ lengre", "Den blir omtrent $4\\ \\%$ kortere", "Den er nøyaktig den samme", "Den blir omtrent dobbelt så lang"],
+      options: ["Den blir omtrent $4\\ \\%$ lengre", "Den blir omtrent $4\\ \\%$ kortere", "Den er nøyaktig den samme som ved små utslag", "Den blir omtrent dobbelt så lang"],
       explanation: "Fordi $\\sin\\theta < \\theta$, er den tilbakedrivende kraften svakere enn den lineære modellen sier, og svingningen tar lengre tid. Korreksjonsleddet $\\theta_0^2/16$ gir $3{,}9\\ \\%$ ved $0{,}785\\ \\text{rad}$.",
     },
     {
@@ -2418,7 +2418,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Har den kvadratiske dragmodellen i én dimensjon en lukket løsning når legemet faller fra ro?",
-      options: ["Ja, $v = v_T\\tanh(gt/v_T)$", "Nei, den må alltid løses numerisk", "Bare hvis $D$ er svært liten", "Bare hvis massen er kjent"],
+      options: ["Ja, $v = v_T\\tanh(gt/v_T)$", "Nei, den må alltid løses numerisk", "Bare hvis $D$ er svært liten", "Bare hvis massen til legemet er kjent"],
       explanation: "Likningen er separabel så lenge farten ikke skifter fortegn, og integrasjonen gir en $\\tanh$. Numerikk blir nødvendig først i to dimensjoner, eller når legemet snur og absoluttverdien får betydning.",
     },
     {
@@ -2438,7 +2438,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva blir motstandsleddet $-D\\lvert v\\rvert v$ når farten er negativ?",
-      options: ["Positivt, altså rettet i positiv retning", "Negativt, altså rettet i negativ retning", "Null uansett", "Uendret fra det positive tilfellet"],
+      options: ["Positivt, altså rettet i positiv retning", "Negativt, altså rettet i negativ retning", "Null uansett hvilken retning legemet beveger seg", "Uendret fra det positive tilfellet"],
       explanation: "Med $v < 0$ er $\\lvert v\\rvert v < 0$, og med minustegnet foran blir hele leddet positivt — altså motsatt av bevegelsen, som det skal være. Det er nettopp denne fortegnsvekslingen $-Dv^2$ ikke klarer.",
     },
     {
@@ -2475,7 +2475,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken metode peker klassifiseringen «andre orden, lineær, homogen» på?",
-      options: ["Karakteristisk likning", "Separasjon av variable", "Numerisk integrasjon", "Direkte integrasjon to ganger"],
+      options: ["Karakteristisk likning", "Separasjon av variable", "Numerisk integrasjon steg for steg", "Direkte integrasjon to ganger"],
       explanation: "Prøveløsningen $e^{\\lambda t}$ gjør likningen om til en andregradslikning i $\\lambda$, og oppskriften for de tre rot-tilfellene står i Rottmann. Separasjon fungerer bare på førsteordens likninger.",
     },
     {
@@ -2552,7 +2552,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva menes med at Euler–Cromer er en førsteordens metode?",
-      options: ["Feilen i sluttsvaret er tilnærmet proporsjonal med $dt$", "Metoden løser bare differensiallikninger av første orden", "Bare den første deriverte inngår i oppdateringslinjene", "Feilen i sluttsvaret er tilnærmet proporsjonal med $dt^2$"],
+      options: ["Feilen i sluttsvaret er tilnærmet proporsjonal med $dt$", "Metoden løser bare differensiallikninger av første orden", "Bare den første deriverte inngår i de to oppdateringslinjene", "Feilen i sluttsvaret er tilnærmet proporsjonal med $dt^2$"],
       explanation: "Ordenen sier hvordan den samlede feilen skalerer: halvert steglengde gir omtrent halvert feil. At metoden håndterer andreordens likninger via tilstandsformen, er en annen sak, og feilen per enkeltsteg går som $dt^2$ — det er summen over $t/dt$ steg som gir $dt$.",
     },
     {
@@ -2577,7 +2577,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En pendel med $\\ell = 0{,}800\\ \\text{m}$ svinges med startutslag $0{,}600\\ \\text{rad}$. Hva sier den numeriske løsningen om perioden?",
-      options: ["Den er om lag $2\\ \\%$ lengre enn småvinkelformelen gir", "Den er om lag $2\\ \\%$ kortere enn småvinkelformelen gir", "Den er nøyaktig den samme som småvinkelformelen gir", "Den er om lag $16\\ \\%$ lengre enn småvinkelformelen gir"],
+      options: ["Den er om lag $2\\ \\%$ lengre enn småvinkelformelen gir", "Den er om lag $2\\ \\%$ kortere enn småvinkelformelen gir", "Den er nøyaktig den samme som småvinkelformelen gir for utslaget", "Den er om lag $16\\ \\%$ lengre enn småvinkelformelen gir"],
       explanation: "Kjøringen gir $1{,}8355\\ \\text{s}$ mot $1{,}7943\\ \\text{s}$ fra $2\\pi\\sqrt{\\ell/g}$, altså $2{,}3\\ \\%$ lengre — perioden vokser med utslaget fordi $\\sin\\theta < \\theta$. Avviket $16\\ \\%$ hører til et langt større utslag, om lag $1{,}5\\ \\text{rad}$.",
     },
     {
@@ -2597,7 +2597,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er metodevalget verdt å begrunne i tekst, og ikke bare i koden?",
-      options: ["Sensorveiledningene skiller på om mekanismen er skrevet ut", "Koden alene regnes ikke som en gyldig besvarelse på eksamen", "Begrunnelsen erstatter kravet om riktige initialbetingelser", "Uten begrunnelse godtas ikke andre programmeringsspråk"],
+      options: ["Sensorveiledningene skiller på om mekanismen er skrevet ut", "Koden alene regnes ikke som en gyldig besvarelse på eksamen", "Begrunnelsen erstatter kravet om riktige initialbetingelser", "Uten begrunnelse godtas ikke andre programmeringsspråk enn Python"],
       explanation: "Sensorveiledningene i H2023, V2024 og V2025 trekker fram forskjellen på en kandidat som skriver riktig løkke og en som også sier hvorfor. Alle språk godtas uansett, og begrunnelsen kommer i tillegg til — ikke i stedet for — initialbetingelsene.",
     },
     {
@@ -2689,7 +2689,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Er en sykkel som triller nedover en rett bakke, et endimensjonalt eller todimensjonalt problem?",
-      options: ["Endimensjonalt, siden bevegelsen er bundet til én linje", "Todimensjonalt, siden bevegelsen skjer i et loddrett plan", "Todimensjonalt, siden både tyngde og normalkraft virker", "Endimensjonalt bare hvis luftmotstanden neglisjeres"],
+      options: ["Endimensjonalt, siden bevegelsen er bundet til én linje", "Todimensjonalt, siden bevegelsen skjer i et loddrett plan", "Todimensjonalt, siden både tyngde og normalkraft virker", "Endimensjonalt bare hvis luftmotstanden kan neglisjeres helt"],
       explanation: "Det er antallet frie retninger som avgjør, og sykkelen kan bare bevege seg langs bakken. Kreftene på tvers opphever hverandre, uansett hvor mange de er og uansett om drag er med.",
     },
     {
@@ -2756,7 +2756,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er mekanisk energi et godt måltall for å avsløre feil i en banesimulering?",
-      options: ["Den skal være konstant og bestemmer banens størrelse", "Den er den eneste størrelsen koden regner ut direkte", "Den endrer seg forutsigbart gjennom hvert omløp", "Den er uavhengig av hvilken numerisk metode som brukes"],
+      options: ["Den skal være konstant og bestemmer banens størrelse", "Den er den eneste størrelsen koden regner ut direkte", "Den endrer seg forutsigbart gjennom hvert eneste omløp i banen", "Den er uavhengig av hvilken numerisk metode som brukes"],
       explanation: "Energien er bevart i en ren gravitasjonsmodell, og den store halvaksen følger av den, så et avvik er entydig en feil. Den er nettopp ikke uavhengig av metoden — det er derfor den avslører Forward Euler.",
     },
     {
@@ -2783,7 +2783,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
   'fys1100-9-1': [
     {
       question: "I uttrykket $F = GMm/r^2$ — hva er $r$?",
-      options: ["Avstanden mellom sentrene til de to legemene", "Høyden over overflaten til det tunge legemet", "Radien til det tunge legemet", "Avstanden fra overflaten til det lette legemet"],
+      options: ["Avstanden mellom sentrene til de to legemene", "Høyden over overflaten til det tunge legemet", "Radien til det tunge legemet, målt fra sentrum", "Avstanden fra overflaten til det lette legemet"],
       explanation: "Gravitasjonsloven gjelder mellom sentrene til to kulesymmetriske legemer, så for en satellitt i høyden $h$ er $r = R + h$. Svaret «høyden over overflaten» er den vanligste feilen i sjangeren: for en satellitt i $400\\,\\text{km}$ bane bommer den med en faktor nesten 300.",
     },
     {
@@ -2813,7 +2813,7 @@ const quizData_fys1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva gir dimensjonsanalyse deg når du setter opp $v = C\\,(GM)^a r_0^{\\,b}$?",
-      options: ["Eksponentene $a$ og $b$, men ikke forfaktoren $C$", "Både eksponentene og forfaktoren $C$", "Bare forfaktoren $C$, ikke eksponentene", "Verken eksponentene eller forfaktoren, bare en dimensjonskontroll"],
+      options: ["Eksponentene $a$ og $b$, men ikke forfaktoren $C$", "Både eksponentene og forfaktoren $C$", "Bare forfaktoren $C$, ikke eksponentene", "Verken eksponentene eller forfaktoren"],
       explanation: "Dimensjonshomogenitet gir én likning per grunndimensjon, og det bestemmer eksponentene entydig — her $a = \\tfrac12$ og $b = -\\tfrac12$. Den dimensjonsløse forfaktoren kan metoden aldri gi: for banefarten er $C = 1$, men for omløpstiden er $C = 2\\pi$.",
     },
     {
