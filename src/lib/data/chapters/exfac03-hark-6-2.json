@@ -1,0 +1,347 @@
+{
+ "id": "exfac03-hark-6-2",
+ "courseId": "exfac03-hark",
+ "chapterNumber": "6.2",
+ "title": "N-gram, frekvens og fjernlesning",
+ "description": "Hva en N-gram-graf faktisk viser, hva den ikke viser, og hvordan konkordansanalyse og nærlesning fanger det frekvensen ikke kan fange.",
+ "estimatedMinutes": 60,
+ "competenceGoals": [
+  "kunne skrive én presis setning om hva en frekvensgraf viser og hva den ikke viser",
+  "kunne sette opp tre mulige forklaringer på et utslag i en kurve, og si hvilken undersøkelse som skiller dem",
+  "kunne forklare hva en konkordansanalyse gjør, og hvorfor ordnaboene er svaret på frekvensens grense",
+  "kunne sammenligne en tolkende og en digital lesning slik at den ene endrer hvordan den andre skal forstås"
+ ],
+ "content": [
+  {
+   "id": "exfac03-hark-6-2-tip-eksamensvinkel",
+   "type": "tip",
+   "title": "Eksamensvinkel",
+   "content": "**Dette kapitlet dekker den digitale halvdelen av H2024-2** — den andre mappeoppgaven i den ene dokumenterte mappeeksamenen, og **1 av 11 oppgavetekst-forekomster** i arkivet. Bestillingen der er at kandidaten bruker frekvensverktøyet i Nasjonalbibliotekets DH-lab på det samme fenomenet hun har analysert med tolkning, og **sammenligner funnene**. Sjangeren heter **metodeanvendelsen på egen case (MET)**: slike oppgaver ber om ett avgrenset fenomen, en tolkende analyse, en digital undersøkelse og en sammenligning som faktisk sier noe.\n\n**Nevner-boksen, som gjentas i hvert kapittel i denne delen.** Digitale metoder og digital epistemologi står **1 av 6 terminer** i arkivet, og den terminen er **H2024**. Samtidig innpasser det digitale elementet **2 av mappas 3 oppgaver** i den ene dokumenterte mappeeksamenen, og H2024-veiledningen sier uttrykkelig at dette var nytt av året.\n\n**Forklaringen som gjør sammenligningen ærlig:** en termin i det utgåtte essay-regimet tilbød **én eller to** oppgavetekster å velge mellom, mens H2024 hadde **tre**. Å telle terminer og å telle mappeoppgaver er derfor to forskjellige regnestykker, og de to tallene kan ikke settes opp mot hverandre uten den opplysningen. Tallet 1 av 6 terminer måler i hovedsak at temaet **ikke fantes** i det regimet som er lagt om — ikke hvor tungt det veier i den formen du selv skal levere.\n\n**Derfor er dette kapitlet skrevet i full bredde.** Frekvenstallene viser hva som **har vært prøvd**, aldri hva som kommer, og med seks terminer i arkivet er forskjellen mellom «4 av 6 terminer» og «3 av 6 terminer» én eneste oppgavetekst.\n\n**Formrammen:** alt denne boka sier om hva mappa krever, hviler på én dokumentert termin — H2024. Fem av de seks terminene i arkivet er skrevet til essay-regimet som ble lagt om, og høsten 2023 mangler helt.\n\n**Én ting du bør merke deg mer enn resten:** H2024-veiledningen bruker mest plass på én bestemt felle — at frekvensverktøyet viser hvor ofte ord og uttrykk forekommer over tid, men **ikke** hvordan **betydningen** av dem endres over tid og sted. Veiledningen forventer ikke at du gjør alt arbeidet som skal til for å fange betydning, men den sier uttrykkelig at **en viss refleksjon over forskjellen øker uttellingen**. Det er et av de få eksplisitte uttellingskriteriene i hele arkivet, og det koster deg tre setninger.\n\n**Prioritetsklasse:** bør beherskes — med det forbeholdet at refleksjonen over forskjellen er et eksplisitt uttellingskriterium, og at den derfor er verdt mer enn kapitlets minuttall antyder."
+  },
+  {
+   "id": "exfac03-hark-6-2-forkunnskaper",
+   "type": "text",
+   "content": "## Forkunnskaper\n\nDette kapitlet bygger på [kap. 6.1](/exfac03-hark/exfac03-hark-6-1), som forklarer hva digitalisering er, hva et korpus er, og hvorfor utvalget virker inn på hva som blir forsket på.\n\nTre kapitler til brukes aktivt her, og de er lenket fordi oppgavene i kapitlet hviler på dem:\n\n- [Kap. 4.1](/exfac03-hark/exfac03-hark-4-1) om kildekritikk — fordi en frekvensgraf skal prøves som en kilde, ikke leses som et resultat.\n- [Kap. 4.3](/exfac03-hark/exfac03-hark-4-3) om hermeneutikken som tradisjon, teori og metode — der **nærlesning** er innført.\n- [Kap. 4.4](/exfac03-hark/exfac03-hark-4-4) om Gadamers begreper — **hermeneutisk sirkel, fordom, forståelseshorisont, horisontsammensmeltning og virkningshistorie**. Den siste oppgaven i dette kapitlet ber deg sammenligne en tolkende lesning med en digital, og da må den tolkende lesningen være noe du kan gjennomføre.\n\n**Har du ikke lest Del 4 ennå?** Da kan du lese alt fram til den siste oppgaven, som er den eneste som forutsetter Gadamer. Resten av kapitlet står på egne bein."
+  },
+  {
+   "id": "exfac03-hark-6-2-anker",
+   "type": "text",
+   "content": "## Hva et søketall faktisk teller (~8 min)\n\nFør apparatet: et helt hverdagslig eksempel. Du søker i en nettbutikk etter «jakke» og får 412 treff. Hva har du fått vite?\n\nDu har fått vite at 412 varer er **merket** med ordet jakke, i denne butikken, akkurat nå. Du har ikke fått vite hvor mange jakker som finnes i verden, hvor mange butikken har på lager, eller hvor mange varer som er jakker uten å være merket som det — anorakker, boblere, vindjakker. Og dersom butikken sist måned utvidet sortimentet med et helt nytt merke, kan tallet ha steget uten at noen ting ved jakker har endret seg.\n\n**Tre ting kan altså få tallet til å stige:** at ordet brukes om flere ting enn før, at det du søker i, er blitt større eller annerledes, eller at det faktisk finnes flere jakker. Tallet i seg selv skiller ikke mellom dem. Det er den som søker, som må gjøre det.\n\n**Hele dette kapitlet er den innsikten, gjort faglig.** Når du søker i et historisk tekstmateriale, gjelder nøyaktig det samme — bare med den forskjellen at ingen kan sjekke lageret.\n\n— naturlig pausepunkt —"
+  },
+  {
+   "id": "exfac03-hark-6-2-a-innledning",
+   "type": "text",
+   "content": "## Hva en frekvensgraf viser (~10 min)\n\nNasjonalbibliotekets DH-lab har en app som gjør én ting: den teller hvor ofte en ordsekvens forekommer i digitalisert tekst, år for år, og tegner det som en kurve. Kurven ser ut som et resultat. Den er egentlig en observasjon, og som alle observasjoner må den forklares."
+  },
+  {
+   "id": "exfac03-hark-6-2-def-ngram",
+   "type": "definition",
+   "title": "N-gram — en ordsekvens av lengde N",
+   "content": "En sammenhengende følge av N ord. «Kaffe» er et 1-gram, «sterk kaffe» et 2-gram, «en kopp sterk kaffe» et 4-gram. Det er hele fagordet: en ordsekvens av en bestemt lengde, som kan telles.\n\nDen norske knaggen er «ordfølge». Grunnen til at lengden får et eget navn, er at den avgjør hva du teller: ett ord alene fanger alle sammenhengene ordet står i, mens en lengre sekvens fanger et bestemt uttrykk.\n\n**Distinksjonen mot søkeord i dagligtale:** et søkeord finner dokumenter. Et N-gram telles i tekst. Resultatet av det første er en liste; resultatet av det andre er et tall per år.\n\n**Hvor det gjør arbeid:** når du skal si nøyaktig hva du undersøkte. «Jeg søkte på begrepet» er upresist; «jeg telte ordfølgen X, som ett-ords og som to-ords sekvens» er etterprøvbart."
+  },
+  {
+   "id": "exfac03-hark-6-2-def-frekvensgrafen",
+   "type": "definition",
+   "title": "Frekvensgrafen — hva den viser",
+   "content": "En kurve over hvor ofte en ordsekvens forekommer i et digitalisert tekstmateriale, fordelt over tid.\n\n**Det grafen viser, er dette og ikke mer:** hvor ofte sekvensen forekommer, i det materialet som er med, i de årene som er dekket.\n\n**Det grafen ikke viser:** hva ordet betydde, hvem som brukte det, i hvilken hensikt, eller om betydningen skiftet underveis. Dette er den setningen H2024-veiledningen bruker mest plass på, og den er verdt å kunne i den formen den har: appen viser **frekvens** av ord og uttrykk over tid — den viser **ikke** hvordan **betydningen** av ord og uttrykk endres over tid og sted.\n\n**Hvor det gjør arbeid:** i den eksplisitte setningen i besvarelsen din om hva grafen viser og ikke viser. Den setningen er et av punktene i anvendelsesrubrikken fra [kap. 7.5](/exfac03-hark/exfac03-hark-7-5)."
+  },
+  {
+   "id": "exfac03-hark-6-2-def-frekvens",
+   "type": "definition",
+   "title": "Frekvens som mål",
+   "content": "Hvor ofte noe forekommer. I denne sammenhengen: antall ganger en ordsekvens opptrer i et materiale i løpet av et gitt tidsrom.\n\nFrekvens er et **mengdemål**. Det sier hvor mye, ikke hva. Det er en styrke — mengder kan sammenlignes og telles av en maskin, og de kan avdekke mønstre ingen leser rekker å se — og det er samtidig grensen for hva målet kan brukes til.\n\n**Distinksjonen mot betydning:** betydning er hva ordet gjør i en sammenheng. Det er ikke et mengdemål og lar seg ikke telle. To tekster kan bruke samme ord like ofte og mene helt ulike ting med det.\n\n**Hvor det gjør arbeid:** i det metodiske forbeholdet ditt — den setningen som skiller en kandidat som har forstått verktøyet, fra en som bare har brukt det."
+  },
+  {
+   "id": "exfac03-hark-6-2-def-absolutt-mot-andel",
+   "type": "definition",
+   "title": "Absolutt antall mot andel av korpuset",
+   "content": "**Absolutt antall** er hvor mange ganger sekvensen forekommer. **Andel** er hvor mange ganger den forekommer i forhold til hvor mye tekst som finnes fra det året.\n\nForskjellen er ikke teknisk pedanteri, den avgjør hva kurven kan bety. Er det digitalisert dobbelt så mye tekst fra 1950-tallet som fra 1920-tallet, vil et absolutt antall stige selv om ordet brukes nøyaktig like hyppig i begge tiår.\n\n**Hovedregelen som følger av det:** en kurve over andeler kan sammenlignes over tid. En kurve over absolutte antall kan det bare hvis mengden tekst er noenlunde jevn — og det er den nesten aldri i historisk materiale.\n\n**Hvor det gjør arbeid:** i den første kontrollen du gjør av din egen kurve, før du forklarer den."
+  },
+  {
+   "id": "exfac03-hark-6-2-def-frekvensfall",
+   "type": "definition",
+   "title": "Frekvensfall — hva det kan og ikke kan bety",
+   "content": "At kurven synker. Det er lett å lese som «fenomenet gikk tilbake», og det er én av flere mulige forklaringer.\n\n**Andre forklaringer på det samme fallet:** at man begynte å bruke et annet ord om den samme tingen; at teksttypene som brukte ordet, forsvant ut av det digitaliserte materialet; at stavemåten endret seg, slik at tellingen ikke lenger fanger ordet; eller at ordet ble så selvsagt at det ikke lenger måtte nevnes.\n\n**Distinksjonen mot bevis:** et fall er et **funn som skal forklares**, ikke en konklusjon. Behandler du det som en konklusjon, har du hoppet over hele det faglige arbeidet.\n\n**Hvor det gjør arbeid:** i drøftingsleddet — det er her du viser vurderingsevne ved å sette opp flere forklaringer og si hva som skiller dem."
+  },
+  {
+   "id": "exfac03-hark-6-2-opg-1",
+   "type": "exercise",
+   "exercise": {
+    "id": "exfac03-hark-6-2-opg-1-o",
+    "number": "1",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Eksamenssjanger metodeanvendelsen på egen case — MET; slike oppgaver ber om ett avgrenset fenomen analysert både med tolkning og digitalt, og en sammenligning av de to lesningene. Denne oppgaven trener bare den ene setningen som skal stå i metodeleddet.)\n\nSkriv med egne ord, i to til fire setninger, hva en frekvensgraf over en ordfølge **viser** og hva den **ikke viser**. Skriv setningene slik at de kunne stått rett inn i en besvarelse.",
+    "solution": "**Et fullgodt svar sier begge deler, og sier dem konkret:**\n\n«Grafen viser hvor ofte ordfølgen forekommer i det digitaliserte materialet, fordelt over år. Den viser ikke hva ordet betydde, hvem som brukte det eller om betydningen endret seg underveis. Et utslag i kurven er derfor et funn som skal forklares, ikke en konklusjon.»\n\n**Hva som gjør svaret godt nok:** at «ikke viser»-leddet er med, og at det nevner **betydning**. Det er nøyaktig den refleksjonen H2024-veiledningen sier øker uttellingen.\n\n**En vanlig, unødvendig svakhet:** å skrive bare «grafen viser bruken av ordet over tid». Det er sant, men det halve svaret — og det er det halve svaret veiledningen advarer mot.",
+    "hints": [
+     "Del setningen i to: hva som telles, og hva som ikke telles.",
+     "Ordet «betydning» bør stå i «ikke viser»-leddet.",
+     "Avslutt med hva et utslag i kurven da er: et funn, ikke et svar."
+    ]
+   }
+  },
+  {
+   "id": "exfac03-hark-6-2-b-innledning",
+   "type": "text",
+   "content": "## Hvorfor frekvens ikke er betydning (~12 min)\n\nHer ligger kapitlets viktigste distinksjon, og den er verdt å gjøre helt konkret før den gjøres abstrakt. Tenk på ordet **«blad»**. Det kan være noe som vokser på et tre, noe som ligger i postkassa, og noe som sitter i en kniv. Maskinen som teller, ser bare fire tegn i rekkefølge.\n\nStiger kurven for «blad» kraftig i et tiår, kan det bety at det ble utgitt flere tidsskrifter, at botanisk litteratur ble digitalisert, eller at knivproduksjonen økte. **Tellingen kan ikke skille mellom dem, fordi den ikke leser.** Skal du vite hvilken av dem det er, må du se ordet sammen med ordene rundt det."
+  },
+  {
+   "id": "exfac03-hark-6-2-def-ordform",
+   "type": "definition",
+   "title": "Ordform mot ord",
+   "content": "En **ordform** er tegnrekken slik den står: «blad», «bladet», «blader». Et **ord** er den enheten av form og betydning vi mener når vi sier at det er samme ord.\n\nTellingen arbeider på ordformer. Den vet ikke at «blad» og «bladene» hører sammen, med mindre noen har bygget den kunnskapen inn, og den vet ikke at «blad» i 1870-tekster ofte skrives annerledes.\n\n**Konsekvensen for en undersøkelse:** en kurve som ser ut som et fall, kan være en stavereform. Historisk norsk materiale er fullt av rettskrivingsendringer, og de faller ikke jevnt over tidsrommet — de kommer på bestemte år.\n\n**Hvor det gjør arbeid:** når du forklarer et brått hopp i kurven. Brå hopp har oftere en teknisk enn en historisk forklaring, og et svar som sjekker det først, viser metodisk selvstendighet."
+  },
+  {
+   "id": "exfac03-hark-6-2-def-flertydighet",
+   "type": "definition",
+   "title": "Samme ordform, flere betydninger",
+   "content": "At én og samme tegnrekke brukes om flere ting: «blad» om plante, publikasjon og knivdel; «rett» om måltid, retning, rettighet og domstol.\n\nDette er grunnen til at frekvens og betydning er to forskjellige ting — ikke en teknisk svakhet ved verktøyet, men et trekk ved språket selv.\n\n**Distinksjonen mot betydningsendring:** flertydighet er at ordet har flere betydninger samtidig. Betydningsendring er at fordelingen mellom dem, eller innholdet i dem, forskyver seg over tid. En kurve kan bevege seg av begge grunner, og den viser ingen av dem.\n\n**Hvor det gjør arbeid:** i valget av hvilket fenomen du undersøker. Et flertydig ord krever mer forklaring, og det er lov å velge et mindre flertydig — men da skal valget begrunnes."
+  },
+  {
+   "id": "exfac03-hark-6-2-def-betydningsendring",
+   "type": "definition",
+   "title": "Betydningsendring",
+   "content": "At innholdet i et ord forskyver seg over tid eller mellom steder: hva det viser til, hvilke assosiasjoner det bærer, hvilken vurdering som ligger i det.\n\nBetydningsendring er et av humanioras klassiske undersøkelsesobjekter, fordi den forteller om endringer i samfunnet som ikke uten videre er synlige andre steder. Et ord som endrer verdiladning, er et spor etter noe som har skjedd med det ordet viser til.\n\n**Distinksjonen mot bruksendring:** at et ord brukes oftere, er en bruksendring. At det brukes om noe annet, er en betydningsendring. De to har ingen fast sammenheng — et ord kan bli hyppigere uten å skifte innhold, og skifte innhold fullstendig uten å bli hyppigere.\n\n**Hvor det gjør arbeid:** i den hermeneutiske delen av en besvarelse, og i sammenligningen med den digitale."
+  },
+  {
+   "id": "exfac03-hark-6-2-def-frekvens-mot-betydning",
+   "type": "definition",
+   "title": "Frekvensendring mot betydningsendring — kapitlets kjernedistinksjon",
+   "content": "**Frekvensendring** er at ordet forekommer oftere eller sjeldnere. Det kan telles av en maskin, og det er det frekvensgrafen viser.\n\n**Betydningsendring** er at ordet brukes om noe annet, eller bærer en annen vurdering. Det kan ikke telles, og det er ikke det frekvensgrafen viser.\n\n**Å lese det ene som det andre er feil #7 i bokas feilregister** — å lese N-gram-frekvens som betydningsendring. Dette kapitlet er feilens hovedhjem, og feilen er hjemlet direkte i H2024-veiledningen, som bruker mer plass på den enn på noe annet metodisk punkt.\n\n**Hvordan feilen ser ut i en tekst:** «Kurven viser at ordet fikk en ny betydning på 1930-tallet.» Kurven kan ikke vise det. Den kan vise at ordet ble hyppigere, og hyppigheten kan **være et spor** etter en betydningsendring — men da er sporet noe som skal undersøkes videre, ikke noe grafen har vist.\n\n**Hvordan setningen skal se ut i stedet:** «Kurven viser at ordet ble klart hyppigere på 1930-tallet. En konkordans over de samme årene viser at ordnaboene skifter fra X til Y, og det er den undersøkelsen — ikke kurven — som gir grunnlag for å si noe om betydningen.»"
+  },
+  {
+   "id": "exfac03-hark-6-2-ex-kurve",
+   "type": "example",
+   "title": "En kurve som stiger, og de tre forklaringene",
+   "problem": "En nyskrevet undersøkelse: kurven for ordfølgen «friluftsliv» stiger kraftig gjennom 1930-tallet i et digitalisert avismateriale, og flater ut igjen etter krigen. Hva kan utslaget bety?",
+   "solution": "**Forklaring 1 — betydningsendring.** Ordet kan ha begynt å brukes om noe annet eller noe bredere. Var det tidligere forbeholdt organisert turvirksomhet og senere brukt om all fritid utendørs, vil kurven stige uten at flere gikk tur. **Hvorfor akkurat denne forklaringen er nærliggende her:** ord som beskriver et samfunnsområde i vekst, får ofte utvidet bruksområde nettopp mens området vokser.\n\n**Forklaring 2 — korpusendring.** Materialet kan ha endret seg. Ble det digitalisert flere lokalaviser fra 1930-tallet enn fra 1920-tallet, eller kom det til aviser med egne friluftsspalter, stiger tallet fordi grunnlaget er blitt større eller annerledes. **Hvorfor den må sjekkes først:** den har ingenting med historien å gjøre, og den er den eneste av de tre som kan avvises med en enkel kontroll.\n\n**Forklaring 3 — faktisk endring i det ordet viser til.** Det kan ha vært flere som drev med friluftsliv, flere organisasjoner, flere arrangementer å skrive om. **Hvorfor den er den mest interessante og den vanskeligste:** den krever kilder utenfor kurven — medlemstall, organisasjonsarkiver, reiselivsstatistikk — og kurven alene kan ikke skille den fra de to andre.\n\n**Undersøkelsen som skiller dem, ledd for ledd:**\n\n(1) Mot korpusendringen: sjekk om kurven er regnet som andel av tekstmengden per år, og se om andre, urelaterte ord stiger like mye i samme periode. Stiger «kaffe» og «vær» og «søndag» også, er det materialet som har vokst.\n(2) Mot betydningsendringen: se ordet med sine naboer i en konkordans, i begynnelsen og slutten av tiåret. Skifter naboordene fra «forening» og «lag» til «familie» og «ferie», har bruksområdet forskjøvet seg.\n(3) Mot den faktiske endringen: hent én kilde utenfor tekstmaterialet som kan si noe om omfanget.\n\n**Legg merke til hva som er poenget med hele oppstillingen.** Den gir ikke ett svar. Den gjør kurven om til et spørsmål — og det er nøyaktig den bevegelsen H2024-veiledningen belønner når den sier at refleksjon over forskjellen mellom metodene øker uttellingen."
+  },
+  {
+   "id": "exfac03-hark-6-2-thm-tre-forklaringer",
+   "type": "theorem",
+   "title": "Tre forklaringer på ethvert utslag i en frekvenskurve",
+   "content": "Enhver bevegelse i en frekvenskurve — opp eller ned — har minst tre mulige forklaringer, og kurven alene skiller ikke mellom dem.\n\n(1) **Betydningsendring** — ordet brukes om noe annet eller noe bredere enn før.\n(2) **Korpusendring** — det digitaliserte materialet er blitt større, mindre eller annerledes sammensatt.\n(3) **Faktisk endring i det ordet viser til** — det har skjedd noe i verden.\n\n**Rekkefølgen på kontrollene er ikke tilfeldig.** Korpusendringen sjekkes først, fordi den er den eneste som kan avvises uten nye kilder. Betydningsendringen undersøkes deretter, med en konkordans. Den faktiske endringen krever kilder utenfor tekstmaterialet, og er derfor den siste — og den som oftest må stå igjen som en mulighet, ikke som en konklusjon.\n\n**Denne oppstillingen er kapitlets viktigste redskap.** Den gjør deg i stand til å skrive tre avsnitt der andre skriver ett, og hvert av dem viser vurderingsevne."
+  },
+  {
+   "id": "exfac03-hark-6-2-def-forkl-betydning",
+   "type": "definition",
+   "title": "Betydningsendring som forklaring på en kurve",
+   "content": "Den forklaringen som sier at utslaget skyldes at ordet har skiftet innhold eller bruksområde.\n\n**Hva som taler for den:** at ordnaboene endrer seg over den samme perioden; at ordet begynner å opptre i nye teksttyper; at eldre og nyere forekomster ikke lar seg bytte om uten at meningen skifter.\n\n**Hva som taler mot:** at ordnaboene er stabile, og at ordet brukes i de samme sammenhengene før og etter utslaget.\n\n**Undersøkelsen som prøver den:** konkordansanalyse på begge sider av utslaget.\n\n**Hvor det gjør arbeid:** i det første av de tre avsnittene i drøftingen av kurven."
+  },
+  {
+   "id": "exfac03-hark-6-2-def-forkl-korpus",
+   "type": "definition",
+   "title": "Korpusendring som forklaring på en kurve",
+   "content": "Den forklaringen som sier at utslaget skyldes materialet og ikke fenomenet: at det er digitalisert mer tekst fra noen år enn fra andre, eller tekst av en annen type.\n\n**Hva som taler for den:** at flere urelaterte ord beveger seg likt i samme periode; at kurven er regnet i absolutte tall; at det er kjent at bestemte teksttyper kom inn i materialet på det tidspunktet.\n\n**Hvorfor den skal sjekkes først:** den er den eneste av de tre som kan avvises uten å hente nye kilder, og den er den eneste som ikke handler om historie i det hele tatt.\n\n**Hvor det gjør arbeid:** i den innledende kontrollen — og i den setningen som gjør at leseren stoler på resten av analysen din."
+  },
+  {
+   "id": "exfac03-hark-6-2-def-forkl-faktisk",
+   "type": "definition",
+   "title": "Faktisk endring i det ordet viser til",
+   "content": "Den forklaringen som sier at det har skjedd noe i verden: flere av det ordet betegner, mer oppmerksomhet om det, en hendelse som utløste omtale.\n\n**Hva som taler for den:** at endringen faller sammen med kjente hendelser, og at kilder utenfor tekstmaterialet peker samme vei.\n\n**Hvorfor den er den vanskeligste:** kurven kan aldri vise den alene. Den krever minst én kilde utenfor det digitaliserte tekstmaterialet, og den blir derfor ofte stående som en mulighet, ikke som et resultat.\n\n**Distinksjonen mot de to andre:** dette er den eneste av de tre forklaringene som handler om fenomenet selv. De to andre handler om språket og om materialet. Et svar som bare vurderer denne, har hoppet over metodekritikken.\n\n**Hvor det gjør arbeid:** i landingen, der du sier hva undersøkelsen faktisk gir grunnlag for å hevde."
+  },
+  {
+   "id": "exfac03-hark-6-2-opg-2",
+   "type": "exercise",
+   "exercise": {
+    "id": "exfac03-hark-6-2-opg-2-o",
+    "number": "2",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "Under står tre nyskrevne funn fra tre ulike undersøkelser. Skriv for **hvert** av dem de tre mulige forklaringene, og si hvilken **undersøkelse** som ville skilt dem fra hverandre.\n\n**a)** Ordfølgen «husmor» faller jevnt gjennom hele etterkrigstiden.\n**b)** Ordfølgen «vitenskapelig metode» hopper brått i ett enkelt år og faller tilbake året etter.\n**c)** Ordfølgen «kulturarv» stiger sakte og sammenhengende gjennom flere tiår.",
+    "solution": "**a) «Husmor» faller.**\nBetydningsendring: ordet kan ha fått en verdiladning som gjorde at folk begynte å bruke andre ord om det samme arbeidet — «hjemmeværende» eller ingen betegnelse i det hele tatt. Korpusendring: teksttypene der ordet hørte hjemme, kan ha fått mindre plass i det digitaliserte materialet. Faktisk endring: det kan ha blitt færre som var det. **Undersøkelsen som skiller:** konkordans i begynnelsen og slutten av perioden viser om naboordene skifter fra beskrivende til vurderende; en kontroll av andre yrkesbetegnelser viser om alt faller likt; yrkesstatistikk avgjør det siste.\n\n**b) «Vitenskapelig metode» hopper i ett år.**\nHer er svaret mindre åpent, og det skal sies: **et enkeltårshopp med umiddelbart fall tilbake er nesten alltid en materialeffekt eller en enkelthendelse**, ikke en betydningsendring. Betydningsendringer er trege. Korpusendring: ett stort verk eller én årgang med mange forekomster kan ha kommet inn i materialet det året. Faktisk endring: en offentlig debatt eller en enkeltbegivenhet kan ha utløst omtale. **Undersøkelsen som skiller:** se hvilke tekster treffene kommer fra. Kommer de fra én publikasjon, er det materialet; er de spredt på mange, er det en debatt.\n\n**c) «Kulturarv» stiger sakte over tiår.**\nBetydningsendring: ordet kan ha gått fra å betegne noe smalt til å betegne noe bredt, og dermed bli brukbart i flere sammenhenger. Korpusendring: materialet kan ha vokst jevnt. Faktisk endring: det kan ha kommet flere institusjoner, ordninger og ordskifter som handler om det. **Undersøkelsen som skiller:** en kurve over andel i stedet for antall fjerner den andre; konkordans over tiårene prøver den første.\n\n**Det generelle poenget, som er verdt mer enn de tre svarene:** kurvens **form** gir et hint om hvilken forklaring som er mest sannsynlig. Brå enkeltårshopp peker mot materialet eller en hendelse; trege, jevne bevegelser peker mot språk eller samfunn. Formen beviser ingenting, men den forteller deg hvilken kontroll du skal gjøre først.",
+    "hints": [
+     "Sett opp de tre forklaringene i samme rekkefølge hver gang — det gjør svaret lettere å lese.",
+     "Se på kurvens form: er utslaget brått eller tregt?",
+     "Undersøkelsen som skiller, skal være noe man faktisk kan gjøre, ikke «mer forskning»."
+    ]
+   }
+  },
+  {
+   "id": "exfac03-hark-6-2-c-innledning",
+   "type": "text",
+   "content": "## Fjernlesning og nærlesning (~12 min)\n\nDe to lesemåtene har hvert sitt blindfelt, og det er derfor mappeoppgaven ber om begge.\n\n**Fjernlesning** ser mange tekster ovenfra og spør etter mønstre. Den kan svare på spørsmål ingen leser rekker: hva skjedde med bruken av dette uttrykket i alle norske aviser gjennom hundre år? Prisen er at den ikke leser noen av dem.\n\n**Nærlesning** går tett på én tekst og spør hva den gjør. Den kan svare på hva et uttrykk betyr i en bestemt sammenheng, hvordan det er ladet, hva det står i motsetning til. Prisen er at den ikke kan si om teksten er typisk.\n\n**Ingen av dem er den fine.** En av de vanligste innrammingene i besvarelser er å la den ene være det ordentlige arbeidet og den andre et tillegg, og den innrammingen svekker nettopp den sammenligningen som er selve bestillingen."
+  },
+  {
+   "id": "exfac03-hark-6-2-def-fjernlesning",
+   "type": "definition",
+   "title": "Fjernlesning",
+   "content": "Å undersøke mange tekster samlet, ovenfra, med mål om å finne mønstre som ikke er synlige i enkelttekster. Frekvenstelling er den enkleste formen.\n\nStyrken er rekkevidden: fjernlesning kan dekke mer materiale enn noen kan lese, og den finner mønstre og unntak som ingen leter etter fordi ingen visste at de fantes.\n\n**Distinksjonen mot nærlesning:** fjernlesning spør «hvor mye, hvor og når». Nærlesning spør «hva gjør denne teksten, og hvordan». De to spørsmålene har ulike svar, og de kan ikke erstatte hverandre.\n\n**Hvor det gjør arbeid:** i det tredje leddet av metodeanvendelsen, der den digitale undersøkelsen skal gjennomføres og forklares."
+  },
+  {
+   "id": "exfac03-hark-6-2-def-naerlesning",
+   "type": "definition",
+   "title": "Nærlesning",
+   "content": "Å lese én tekst eller et lite utvalg tett, med oppmerksomhet mot ordvalg, sammenheng, motsetninger og hva teksten forutsetter. Det er hermeneutikkens arbeidsmåte, innført i [kap. 4.3](/exfac03-hark/exfac03-hark-4-3).\n\nStyrken er dybden: nærlesning kan fange mening, ladning og hensikt, altså nettopp det tellingen ikke kan.\n\n**Distinksjonen mot fjernlesning:** nærlesning kan ikke si om det den finner, er representativt. Finner du en bestemt bruk i tre tekster, vet du ikke om den er utbredt eller sjelden — og det er nøyaktig det fjernlesningen kan svare på.\n\n**Hvor det gjør arbeid:** i det andre leddet av metodeanvendelsen, og i selve sammenligningen."
+  },
+  {
+   "id": "exfac03-hark-6-2-def-naer-mot-fjern",
+   "type": "definition",
+   "title": "Nærlesning mot fjernlesning — hva forskjellen gjør",
+   "content": "**Nærlesning** gir mening uten omfang. **Fjernlesning** gir omfang uten mening.\n\n**Det som følger av det, og som er selve poenget i mappeoppgaven:** de to lesningene kan si noe om hverandre. Nærlesningen kan si hva et mønster i kurven kan bety; fjernlesningen kan si om det nærlesningen fant, er utbredt eller enestående.\n\n**Hvordan sammenligningen ser ut når den er gjort dårlig:** to atskilte avsnitt, ett om hva teksten sier og ett om hva grafen viser, uten noen setning som knytter dem sammen. Det er feil #11 — det digitale som pynt.\n\n**Hvordan den ser ut når den er gjort godt:** minst én setning av formen «nærlesningen viste X; kurven viser at X er typisk eller utypisk, og det endrer hvordan X skal forstås».\n\n**Hvor det gjør arbeid:** i det fjerde leddet av metodeanvendelsen — sammenligningen, som er det leddet oppgaven faktisk ber om."
+  },
+  {
+   "id": "exfac03-hark-6-2-def-representativitet",
+   "type": "definition",
+   "title": "Representativitet — om det du fant, er typisk",
+   "content": "Spørsmålet om et funn gjelder mer enn de tekstene du faktisk leste.\n\nNærlesning kan ikke svare på det. Finner du en bestemt bruk i fire artikler, vet du at den finnes — ikke om den er utbredt, sjelden eller enestående.\n\n**Dette er den ene tjenesten fjernlesningen kan gjøre for nærlesningen**, og det er derfor sammenligningen mellom de to er noe annet enn å gjøre to undersøkelser. Kurven kan si om mønsteret du fant, følger materialet som helhet eller bryter med det — og et brudd er ofte mer interessant enn en bekreftelse.\n\n**Distinksjonen mot sikkerhet:** representativitet handler om rekkevidde, ikke om at funnet er riktig. En bruk kan være helt marginal og likevel den viktigste i en analyse, hvis du kan begrunne hvorfor.\n\n**Hvor det gjør arbeid:** i sammenligningsleddet, som den ene retningen — fra kurven mot nærlesningen."
+  },
+  {
+   "id": "exfac03-hark-6-2-def-konkordans",
+   "type": "definition",
+   "title": "Konkordans — ordet vist med sine naboer",
+   "content": "En oppstilling som viser hver forekomst av et ord sammen med et stykke tekst på hver side, slik at du ser hvilke ord det opptrer sammen med. DH-labben har en egen app for dette.\n\nDen norske knaggen er «ordet i sine sammenhenger». Grunnlaget for metoden er en enkel og sterk antakelse: et ords mening bestemmes i stor grad av hvilke ord det står sammen med.\n\n**Distinksjonen mot frekvenstelling:** frekvenstellingen svarer på hvor ofte. Konkordansen svarer på i hvilke sammenhenger. Det er konkordansen, ikke kurven, som kan gi grunnlag for å si noe om betydning — og det er derfor den er metodens svar på feil #7.\n\n**Distinksjonen mot nærlesning:** konkordansen er fortsatt en form for fjernlesning. Den viser mange korte utsnitt, ikke hele tekster, og den ser ikke sammenhengen i den enkelte teksten.\n\n**Hvor det gjør arbeid:** i den setningen der du sier hvordan du undersøkte betydning, og ikke bare mengde."
+  },
+  {
+   "id": "exfac03-hark-6-2-def-ordnaboer",
+   "type": "definition",
+   "title": "Ordnaboer — den meningsskapende konteksten",
+   "content": "Ordene som står rundt et ord i en tekst. Tanken bak konkordansanalysen er at disse naboene bærer meningen: det er selskapet ordet holder, som avgjør hvilken av flere mulige betydninger som er i spill.\n\nStår «blad» sammen med «grønt», «tre» og «høst», er betydningen én. Står det sammen med «redaktør», «abonnement» og «utgave», er den en annen. Tellingen ser ingen av delene; konkordansen ser begge.\n\n**Distinksjonen mot sammenheng i vid forstand:** ordnaboene er den nære, språklige sammenhengen. Den historiske sammenhengen — hvem som skrev, til hvem, i hvilken situasjon — får du ikke av en konkordans, og det er nettopp den nærlesningen skal levere.\n\n**Hvor det gjør arbeid:** i den konkrete beskrivelsen av hva som skiftet, når du hevder at betydningen forskjøv seg."
+  },
+  {
+   "id": "exfac03-hark-6-2-opg-3",
+   "type": "exercise",
+   "exercise": {
+    "id": "exfac03-hark-6-2-opg-3-o",
+    "number": "3",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "Et nyskrevet funn: i et digitalisert avismateriale stiger ordfølgen «det moderne» jevnt gjennom 1920-tallet. Du har også nærlest fire lederartikler fra samme tiår, og finner at uttrykket der brukes både rosende og advarende, og at den advarende bruken er vanligst i de to siste.\n\n**a)** Skriv én setning der du sier hva kurven viser, og én der du sier hva den ikke viser.\n**b)** Skriv to til fire setninger der de to lesningene faktisk sier noe om hverandre. Det holder ikke å beskrive dem hver for seg.\n**c)** Foreslå én konkret undersøkelse som ville prøvd om det nærlesningen fant, er typisk.",
+    "solution": "**a) De to setningene.** «Kurven viser at uttrykket forekommer stadig oftere i avismaterialet gjennom 1920-tallet.» «Kurven viser ikke om uttrykket brukes rosende eller advarende, og heller ikke om ladningen forskjøv seg i løpet av tiåret.»\n\n**b) Sammenligningen, skrevet ut.** «Nærlesningen viser at uttrykket bærer to motsatte ladninger i det samme tiåret, og at den advarende blir vanligere mot slutten. Kurven kan ikke skille de to ladningene, men den viser at uttrykket samtidig blir langt hyppigere — og det gjør funnet mer interessant enn hver av lesningene alene: det er ikke slik at uttrykket forsvinner når skepsisen kommer, det er slik at det blir mer brukt av begge parter. Uttrykket blir altså et omstridt ord, ikke et ord på vei ut.»\n\n**Merk hva som gjør b) til en sammenligning og ikke to beskrivelser:** setningen «det gjør funnet mer interessant enn hver av lesningene alene» etterfølges av et innhold. Uten det innholdet er sammenligningen bare påstått.\n\n**c) Undersøkelsen.** En konkordans over uttrykket, tiåret delt i to halvdeler, der du ser om naboordene forskyver seg fra ord som «framskritt» og «utvikling» til ord som «oppløsning» og «tap». Det ville prøvd om ladningsskiftet du fant i fire artikler, finnes i materialet som helhet.\n\n**Én ærlig merknad:** dette er mer arbeid enn H2024-veiledningen forventer at studentene faktisk gjør. Veiledningen sier at en **viss refleksjon over forskjellen** mellom metodene øker uttellingen — den krever ikke en fullstendig konkordansanalyse. Kan du beskrive undersøkelsen du **ville** gjort, og hvorfor den ville avgjort spørsmålet, har du levert refleksjonen.",
+    "hints": [
+     "I a): den ene setningen handler om mengde, den andre om ladning.",
+     "I b): finn den setningen der den ene lesningen forandrer hvordan den andre skal forstås.",
+     "I c): tenk konkordans, og tenk på hvilke naboord du ville forventet på hver side."
+    ]
+   }
+  },
+  {
+   "id": "exfac03-hark-6-2-d-innledning",
+   "type": "text",
+   "content": "## Grafen som kilde (~9 min)\n\nKapitlets andre drøftingsakse: **er en frekvensgraf en kilde, og i så fall hva slags?**\n\nSpørsmålet er ikke ordkløveri. Behandler du grafen som et resultat, er den noe du kan referere til. Behandler du den som en kilde, er den noe du kan prøve — og kildekritikken fra [kap. 4.1](/exfac03-hark/exfac03-hark-4-1) har allerede spørsmålene ferdige: hvem har laget den, av hva, med hvilket formål, og hva er utelatt?"
+  },
+  {
+   "id": "exfac03-hark-6-2-def-grafen-som-kilde",
+   "type": "definition",
+   "title": "Frekvensgrafen som kilde",
+   "content": "En graf er ikke en observasjon av fortiden. Den er et produkt av et materiale, et utvalg, en avskrift og en tellemåte — altså en gjenstand med en tilblivelseshistorie, akkurat som et dokument.\n\n**Kildekritikkens spørsmål oversatt til en graf:**\n\n(1) Hva er den laget av — hvilket materiale er med, fra hvilke år, av hvilken type?\n(2) Hvordan er den laget — telles absolutte antall eller andeler, og hvilke ordformer er med?\n(3) Hva er utelatt — hva finnes ikke i materialet, og faller det systematisk?\n\n**Distinksjonen mot en kilde fra fortiden:** grafen er laget i dag, av oss. Den er en **representasjon vi selv har produsert**, og det gjør oss ansvarlige for den på en annen måte enn for et arkivdokument.\n\n**Hvor det gjør arbeid:** i den metodiske delen av en besvarelse — og som det grepet som gjør et digitalt ledd faglig i stedet for illustrerende."
+  },
+  {
+   "id": "exfac03-hark-6-2-def-korpusskjevhet",
+   "type": "definition",
+   "title": "Korpusskjevhet",
+   "content": "At det digitaliserte materialet ikke speiler det som en gang fantes, men det som er bevart, valgt ut og gjort maskinlesbart.\n\nSkjevheten er systematisk og går i kjente retninger: trykt materiale er bedre representert enn håndskrevet, offentlig bedre enn privat, det som er bevart i store institusjoner bedre enn det som lå hos enkeltpersoner, og materiale uten rettighetsspørsmål bedre enn materiale med.\n\n**Distinksjonen mot tilfeldig støy:** støy jevner seg ut når materialet blir stort nok. Skjevhet gjør det ikke — den blir bare mer presis. Et større korpus med samme skjevhet gir et sikrere tall om et skjevt utvalg.\n\n**Hvorfor dette henger sammen med [kap. 6.1](/exfac03-hark/exfac03-hark-6-1):** korpusskjevheten er digitaliseringsutvalget, sett fra den andre siden. Rekkefølgen noen valgte i et arkiv, dukker opp igjen som en bøy i kurven din.\n\n**Hvor det gjør arbeid:** i forbeholdet — den setningen som sier hva undersøkelsen ikke kunne se."
+  },
+  {
+   "id": "exfac03-hark-6-2-def-korpus-6-2",
+   "type": "definition",
+   "title": "Korpus — grensen som del av redskapet",
+   "content": "En avgrenset mengde tekst gjort søkbar. Begrepet er innført i [kap. 6.1](/exfac03-hark/exfac03-hark-6-1); her er det den **grensen** som betyr noe.\n\nEt korpus har alltid en ytterkant: hvilke tekster, fra hvilke år, av hvilken type. Den ytterkanten er ikke en mangel som kan fjernes med mer arbeid — den er en del av redskapet, på samme måte som utsnittet er en del av et fotografi.\n\n**Distinksjonen mot språket, som er den avgjørende:** korpuset er ikke språket, og heller ikke fortiden. Sier du «ordet ble mindre brukt», har du strengt tatt sagt «ordet forekommer sjeldnere i dette korpuset». Det er ingen pedantisk presisering — det er forskjellen på en påstand du kan forsvare og en du ikke kan.\n\n**Hvor det gjør arbeid:** i den setningen der du sier hva undersøkelsen bygger på, og dermed hva den ikke kan uttale seg om."
+  },
+  {
+   "id": "exfac03-hark-6-2-def-sammenligningen",
+   "type": "definition",
+   "title": "Sammenligningen — det leddet oppgaven faktisk ber om",
+   "content": "Det stedet i en besvarelse der de to lesningene møtes, og der den ene endrer hvordan den andre skal forstås.\n\n**Den enkle prøven på om sammenligningen finnes:** finn setningen der ordet «men», «likevel» eller «det endrer» binder de to lesningene sammen med et innhold etter seg. Finnes den ikke, er det ingen sammenligning i teksten, uansett hvor mye plass hver av lesningene har fått.\n\n**Distinksjonen mot sammenstilling:** å legge to funn ved siden av hverandre er en sammenstilling. Å si hva det ene gjør med det andre, er en sammenligning. Bare den siste er bestilt.\n\n**Hvor det gjør arbeid:** i det fjerde leddet av metodeanvendelsen, og det er der uttellingen ligger."
+  },
+  {
+   "id": "exfac03-hark-6-2-def-pynt-mot-metode",
+   "type": "definition",
+   "title": "Det digitale som pynt mot det digitale som metode",
+   "content": "**Som pynt** står den digitale undersøkelsen som et vedlegg: et funn nevnes, og resten av teksten ville stått uendret om det ble strøket.\n\n**Som metode** brukes funnet til noe: det prøver en påstand fra den andre lesningen, eller det reiser et spørsmål teksten deretter besvarer.\n\n**Dette er feil #11 i bokas feilregister** — å la det digitale bli pynt i stedet for metode. Feilen har sitt hovedhjem her, fordi det er her undersøkelsen faktisk skal gjennomføres.\n\n**Prøven, i to trinn:** stryk det digitale avsnittet og les teksten på nytt. Står konklusjonen uendret, var det pynt. Stryk deretter den tolkende analysen og gjør det samme — står konklusjonen fortsatt, har du bare rapportert et tall.\n\n**Hvor det gjør arbeid:** i disponeringen. Sammenligningen skal ha plass i ordbudsjettet, ikke være en avslutningssetning."
+  },
+  {
+   "id": "exfac03-hark-6-2-def-dhlab-6-2",
+   "type": "definition",
+   "title": "Nasjonalbibliotekets DH-lab — verktøy, ikke pensumlitteratur",
+   "content": "Tjenestene som gjør de to undersøkelsene i dette kapitlet mulige: en app som teller ordfølger over tid, og en app for konkordansanalyse som viser ordet med sine naboer.\n\n**Distinksjonen som skal holdes fast:** DH-lab er et **verktøy**. Det bærer ingen teori, har ingen posisjon, og er ikke en avsender du kan gjøre rede for slik du gjør rede for Gadamer eller Ingvarsson.\n\n**Hva som følger av det for en besvarelse:** beskriv **hva metoden gjør** — hva som telles, hva som vises, hva som ikke vises. Ikke bruk plass på grensesnittet, og ikke framstill verktøyet som pensum. En detaljert beskrivelse av et verktøy er ikke faglig arbeid; det er en bruksanvisning.\n\n**Hvor det gjør arbeid:** i metodeleddet — kort, presist, og med plassen spart til funnene."
+  },
+  {
+   "id": "exfac03-hark-6-2-opg-4",
+   "type": "exercise",
+   "exercise": {
+    "id": "exfac03-hark-6-2-opg-4-o",
+    "number": "4",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Flerleddet oppgave i mappeformat, sjangeren metodeanvendelsen på egen case. Ordbudsjett: om lag 600 ord til sammen. Avgrensningen i a) vurderes for seg, og du skal gjennom en revisjonsrunde i e) før du leser fasiten. Denne oppgaven forutsetter Gadamers begreper fra [kap. 4.4](/exfac03-hark/exfac03-hark-4-4).)\n\n**a) Avgrensning og problemstilling (~80 ord).** Velg ett ord eller uttrykk fra ditt eget hjemsted, din egen slekt eller ditt eget interessefelt, som du tror har endret bruk eller innhold. Formuler **ett** åpent spørsmål om det, avgrens i tid, og si hva du **ikke** dekker.\n\n**b) Den tolkende lesningen (~180 ord).** Analyser uttrykket i én konkret sammenheng du kjenner. La minst to av Gadamers begreper gjøre et **konkret arbeid**: hva var din egen forforståelse, og hva i materialet motsa den?\n\n**c) Den digitale undersøkelsen (~120 ord).** Beskriv hvordan du ville undersøkt det samme uttrykket med en frekvenskurve, og skriv **eksplisitt** hva kurven ville vist og hva den ikke ville vist.\n\n**d) Sammenligningen (~180 ord).** Hva ville den ene lesningen sett som den andre ikke ser? Skriv minst én setning der det ene funnet endrer hvordan det andre skal forstås.\n\n**e) Revisjonsrunde (~40 ord).** Gå gjennom teksten mot revisjonsrubrikken fra [kap. 0.3](/exfac03-hark/exfac03-hark-0-3), og noter de to punktene du selv mener er svakest.",
+    "solution": "**Om nivåene under:** de er **utledet** av karakterbeskrivelsen i H2020 og av belønningskriteriene i de fire sensorveiledningene — **ikke observert**. Arkivet inneholder ingen eksempler på besvarelser på et gitt nivå. Momentlisten er skrevet av oss.\n\n**Minimumskrav — uten disse når svaret ikke E-terskelen:** ett avgrenset uttrykk og ett åpent spørsmål står i første avsnitt; minst to gadamerske begreper er brukt på noe konkret, ikke bare nevnt; det står eksplisitt hva kurven ville vist og ikke vist; det finnes et sammenligningsledd.\n\n**Gode besvarelser:** avgrensningen sier også hva teksten ikke dekker; de gadamerske begrepene gjør et arbeid som teksten ville merket om de ble strøket; den digitale delen nevner minst én av de tre forklaringene på et utslag; sammenligningsleddet er lengre enn metodebeskrivelsen.\n\n**Sterke besvarelser:** sammenligningen går begge veier — den tolkende lesningen forklarer hva kurven kan bety, **og** kurven prøver om det nærlesningen fant, er typisk. Et eksempel på en slik setning, skrevet ut: «Nærlesningen viste at uttrykket i bygda var knyttet til én bestemt arbeidsplass, mens kurven viser at det er i bruk i hele landet gjennom de samme årene — det svekker den lokale forklaringen min og gjør at forforståelsen jeg begynte med, må skrives om.» I tillegg plasserer sterke svar fenomenet i en faghistorisk, politisk eller kulturell sammenheng utenfor selve casen, og de sier hva undersøkelsen **ikke** gir grunnlag for å hevde.\n\n**Feller, med feilkode:** **feil #7** — å lese frekvens som betydningsendring: her ser den ut som setningen «kurven viser at uttrykket fikk en ny betydning». **Feil #11** — det digitale som pynt: her ser den ut som et c)-ledd som ikke nevnes igjen i d). **Feil #8** — å behandle fordommen som noe negativt: her ser den ut som «jeg måtte legge fra meg fordommene mine», når poenget hos Gadamer er at forforståelsen er det som gjør at materialet i det hele tatt sier deg noe. **Feil #5** — å reprodusere pensum i stedet for å løse et problem: her ser den ut som en b)-del som forklarer Gadamers begreper i stedet for å bruke dem.\n\n**Selvdiagnose (kryss av) — anvendelsesrubrikken fra [kap. 7.5](/exfac03-hark/exfac03-hark-7-5):**\n☐ Er fenomenet valgt og avgrenset, med en setning om hvorfor det egner seg?\n☐ Gjør hvert av de gadamerske begrepene du bruker, et konkret arbeid i teksten?\n☐ Står det eksplisitt hva frekvensgrafen viser og hva den ikke viser?\n☐ Er de to lesningene faktisk sammenlignet, ikke bare lagt ved siden av hverandre?\n☐ Er fenomenet plassert i faghistoriske, politiske eller kulturelle strømninger?\n☐ Er ordbudsjettet holdt?",
+    "hints": [
+     "Velg et uttrykk du har hørt brukt på to måter — det gir deg noe å sammenligne.",
+     "I b): begynn med din egen forforståelse. Den er startpunktet, ikke feilkilden.",
+     "I c): skriv «kurven ville vist … den ville ikke vist …» som to atskilte setninger.",
+     "I d): let etter setningen der det ene funnet gjør det andre mindre sikkert. Den setningen er oppgavens kjerne."
+    ]
+   }
+  },
+  {
+   "id": "exfac03-hark-6-2-opg-5",
+   "type": "exercise",
+   "exercise": {
+    "id": "exfac03-hark-6-2-opg-5-o",
+    "number": "5",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "Under står fire nyskrevne setninger fra fire ulike besvarelser. Avgjør for hver av dem om den er **forsvarlig** eller om den begår feil #7 — å lese frekvens som betydningsendring — og skriv om de som ikke holder.\n\n(i) «Kurven viser at ordet ble langt hyppigere i mellomkrigstiden.»\n(ii) «Grafen viser at begrepet skiftet innhold rundt 1950.»\n(iii) «Ordet forekommer sjeldnere etter 1970, noe som kan skyldes at et annet ord tok over funksjonen. Det ville en konkordans kunne prøve.»\n(iv) «Frekvensen faller, og det viser at fenomenet mistet betydning i samfunnet.»",
+    "solution": "**(i) Forsvarlig.** Setningen sier bare det kurven faktisk viser — mengde over tid. Den påstår ingenting om betydning, og den trenger ikke flere forbehold enn den har.\n\n**(ii) Feil #7.** En graf kan ikke vise at et begrep skiftet innhold; den kan bare vise at det ble hyppigere eller sjeldnere. **Omskrevet:** «Grafen viser et markert skifte i hyppighet rundt 1950. En konkordans på hver side av skiftet ville kunne prøve om ordnaboene — og dermed bruken — endrer seg i samme periode.»\n\n**(iii) Forsvarlig, og et godt eksempel.** Den holder påstanden på mengdenivå, foreslår en forklaring som en mulighet, og navngir undersøkelsen som ville prøvd den. Dette er nøyaktig den refleksjonen H2024-veiledningen sier øker uttellingen — og den koster to setninger.\n\n**(iv) Feil #7, i en ekstra fristende form.** Her er det to sprang på én linje: fra frekvens til betydning, og videre fra betydning til samfunnsmessig viktighet. **Omskrevet:** «Frekvensen faller gjennom perioden. Det kan skyldes at fenomenet ble mindre omtalt, at det ble omtalt med andre ord, eller at teksttypene som omtalte det, er mindre representert i det digitaliserte materialet. Hvilken av delene det er, kan ikke avgjøres av kurven alene.»\n\n**Merk at to av de fire er forsvarlige.** Poenget med drillen er ikke at alle digitale påstander er gale — det er at grensen går ved hva grafen kan bære.",
+    "hints": [
+     "Spør av hver setning: påstår den noe om mengde, eller noe om mening?",
+     "En setning som foreslår en forklaring som en mulighet, er ikke feil — det er metode.",
+     "I omskrivingene: behold funnet, flytt påstanden ned til det kurven kan bære."
+    ]
+   }
+  },
+  {
+   "id": "exfac03-hark-6-2-warn-feil",
+   "type": "warning",
+   "title": "Typiske feil",
+   "content": "**Feil #7 — å lese N-gram-frekvens som betydningsendring.** Dette kapitlet er feilens hovedhjem, og den er hjemlet direkte i H2024-veiledningen, som bruker mer plass på den enn på noe annet metodisk punkt. Feilen består i å la kurven bære en påstand den ikke kan bære: at ordet fikk et nytt innhold, en ny ladning eller en ny funksjon. **Motgiften er én setning:** si hva grafen viser og hva den ikke viser, og navngi undersøkelsen som ville prøvd betydningen — en konkordans, der ordet vises med sine naboer.\n\n**Feil #11 — å la det digitale bli pynt i stedet for metode.** Den digitale undersøkelsen legges ved, men brukes ikke. Bestillingen i den andre mappeoppgaven i H2024 er uttrykkelig at funnene skal **sammenlignes** med den tolkende analysen, ikke legges ved siden av den. **Prøven:** stryk det digitale avsnittet. Står konklusjonen uendret, var det pynt.\n\n**Å beskrive verktøyet i stedet for undersøkelsen.** Nasjonalbibliotekets DH-lab er et verktøy og ikke pensumlitteratur. En detaljert framstilling av grensesnittet er en bruksanvisning, ikke et faglig ledd — og den tar plass fra sammenligningen, som er det som gir uttelling.\n\n**Å lese kurven i absolutte tall.** Et av de vanligste og enkleste feilgrepene: det er digitalisert ulike mengder tekst fra ulike tiår, og en kurve over absolutte antall følger derfor til dels bare materialets vekst.\n\n**Å gjøre den digitale delen til en tapshistorie.** Det motsatte av å overvurdere kurven er å avfeie den. Fjernlesning kan svare på spørsmål ingen leser rekker, og et svar som bare oppregner metodens svakheter, har verken brukt den eller drøftet den."
+  },
+  {
+   "id": "exfac03-hark-6-2-tip-amarkor",
+   "type": "tip",
+   "title": "A-markør",
+   "content": "**Grepet som løfter svaret i akkurat dette temaet:** å la de to lesningene si noe **om hverandre**. De aller fleste klarer å gjøre begge undersøkelsene. Det som skiller, er om det finnes en setning der funnet fra den ene endrer hvordan funnet fra den andre skal forstås — for eksempel at kurven viser at det nærlesningen fant, var utypisk, og at forklaringen derfor må skrives om.\n\n**Kapitlets drøftingsakser, navngitt:** kan fjernlesning gi **ny kunnskap**, eller bare nye illustrasjoner av kunnskap man allerede har? Og: er en frekvensgraf en **kilde** — og hvordan ville kildekritikken fra [kap. 4.1](/exfac03-hark/exfac03-hark-4-1) prøvd den? Begge aksene har seriøse argumenter på begge sider, og et sterkt svar sier for hvilke spørsmål hver posisjon holder.\n\n**Det som gjør denne A-markøren uvanlig konkret:** refleksjonen over forskjellen mellom nærlesning og digital fjernlesning er et **eksplisitt uttellingskriterium** i H2024-veiledningen, som er den eneste veiledningen vi har fra mappeformatet. Det er sjelden en veiledning sier så tydelig hva som gir uttelling.\n\n**Bokas gjennomgangsmelodi hører hjemme her også:** karakterskalaen måler **vurderingsevne og selvstendighet** langs hele lengden fra A til F, og **kunnskapsmengde er ikke nevnt i en eneste av de seks karakterbeskrivelsene**. Det er ikke mengden, det er hva du gjør med den. Og et begrep du bare nevner, har du ikke brukt: skriver du «konkordans» uten å si hva du ville sett etter i den, har ordet stått der uten å utrette noe."
+  },
+  {
+   "id": "exfac03-hark-6-2-coll-pensumkart",
+   "type": "collapsible",
+   "title": "Pensumkart for kapitlet",
+   "buttonText": "Vis pensumkartet",
+   "content": [
+    {
+     "id": "exfac03-hark-6-2-pensumkart-tekst",
+     "type": "text",
+     "content": "Begrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.\n\n| Avsender eller verk | Begrep de «eier» | Distinksjonen | Hvor det brukes på eksamen |\n|---|---|---|---|\n| Gadamer | hermeneutisk sirkel, fordom, forståelseshorisont, horisontsammensmeltning, virkningshistorie | tolkning innenfra, mot historismens ideal om fortiden på egne premisser | den tolkende halvdelen av metodeanvendelsen |\n| Jordheim m.fl., «Humaniora» | hermeneutikk som tradisjon, teori og metode | hermeneutikk som mer enn en metode, mot hermeneutikk som verktøykasse | rammen rundt nærlesningen |\n| Ingvarsson | digital epistemologi ⚠ | hva digitale representasjoner gjør med kunnskapen, mot hva de gjør med tilgangen | drøftingsleddet, som et uttellingsgrep |\n| Bastiansen | objektet som numerisk verdi ⚠ | objektet som forvandles, mot konteksten som forsvinner | setningen om hva slags kilde det digitale er |\n| Nasjonalbibliotekets DH-lab | ⚠ **verktøy, ikke pensumlitteratur** — frekvensapp og app for konkordansanalyse | verktøy som gjør noe, mot avsender som mener noe | metodeleddet, kort |\n\n⚠ **Merk hva som ikke står i arkivet:** de to pensumartiklene om digitalisering av norsk kulturarv som H2024-veiledningen nevner, er ikke navngitt. Ingvarsson og Bastiansen kan være dem, men det står ikke."
+    }
+   ]
+  },
+  {
+   "id": "exfac03-hark-6-2-coll-repetisjon",
+   "type": "collapsible",
+   "title": "Repetisjon",
+   "buttonText": "Vis repetisjonsspørsmål",
+   "content": [
+    {
+     "id": "exfac03-hark-6-2-repetisjon-tekst",
+     "type": "text",
+     "content": "Fem korte spørsmål fra forkunnskapene, med svar.\n\n**1. Hva er et korpus, fra [kap. 6.1](/exfac03-hark/exfac03-hark-6-1)?**\nEn avgrenset mengde tekster gjort maskinlesbar og søkbar, samlet for å undersøkes som helhet. Grensene er en del av redskapet.\n\n**2. Hva er forskjellen på et skannet bilde og maskinlesbar tekst?**\nI bildet ser maskinen en flate, ikke ord. I den maskinlesbare teksten finnes tegnene, og materialet kan søkes i og telles.\n\n**3. Hvorfor virker utvalget inn på hva som blir forsket på?**\nFordi det som er tilgjengelig, blir brukt, sitert og bygget videre på — og etter noen år ser feltet ut som om det handler om nettopp de kildene.\n\n**4. Hva er nærlesning, fra [kap. 4.3](/exfac03-hark/exfac03-hark-4-3)?**\nÅ lese én tekst eller et lite utvalg tett, med oppmerksomhet mot ordvalg, sammenheng og hva teksten forutsetter. Det er hermeneutikkens arbeidsmåte.\n\n**5. Hva er fordommen hos Gadamer, fra [kap. 4.4](/exfac03-hark/exfac03-hark-4-4)?**\nDen forforståelsen som gjør at teksten i det hele tatt sier deg noe — en positiv veiviser, ikke en feilkilde som skal fjernes."
+    }
+   ]
+  },
+  {
+   "id": "exfac03-hark-6-2-coll-begrepsliste",
+   "type": "collapsible",
+   "title": "Begreps- og avsenderliste",
+   "buttonText": "Vis begrepslisten",
+   "content": [
+    {
+     "id": "exfac03-hark-6-2-begrepsliste-tekst",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\nBegrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.\n\n| Begrep | Betydning |\n|---|---|\n| N-gram | en sammenhengende ordfølge av lengde N, som kan telles |\n| frekvensgraf | kurve over hvor ofte en ordfølge forekommer i et materiale, fordelt over tid |\n| frekvens | et mengdemål: hvor ofte noe forekommer |\n| absolutt antall | hvor mange ganger sekvensen forekommer |\n| andel av korpuset | forekomster sett i forhold til hvor mye tekst som finnes fra året |\n| frekvensfall | at kurven synker; et funn som skal forklares, ikke en konklusjon |\n| ordform | tegnrekken slik den står, uavhengig av bøyning og stavemåte |\n| flertydighet | at samme ordform brukes om flere ting |\n| betydningsendring | at innholdet i et ord forskyver seg over tid eller sted |\n| korpus | avgrenset mengde tekst gjort søkbar; ikke det samme som språket |\n| korpusskjevhet | at materialet speiler det bevarte og digitaliserte, ikke det som fantes |\n| fjernlesning | å undersøke mange tekster samlet, ovenfra, etter mønstre |\n| nærlesning | å lese én tekst tett, etter mening, ladning og forutsetninger |\n| konkordans | ordet vist med tekst på hver side, slik at naboordene blir synlige |\n| ordnaboer | ordene rundt ordet — den meningsskapende konteksten |\n| sammenligningen | leddet der den ene lesningen endrer hvordan den andre skal forstås |\n\n**Avsendere i dette delkapitlet**\n\n- **Gadamer** — hermeneutisk sirkel, fordom, forståelseshorisont, horisontsammensmeltning og virkningshistorie; grunnlaget for den tolkende halvdelen.\n- **Jordheim m.fl., «Humaniora»** — hermeneutikk som tradisjon, teori og metode.\n- **Ingvarsson** — digital epistemologi.\n- **Bastiansen** — objektet som numerisk verdi.\n- **Nasjonalbibliotekets DH-lab** — ⚠ verktøy, ikke pensumlitteratur og ikke en avsender med en faglig posisjon."
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}

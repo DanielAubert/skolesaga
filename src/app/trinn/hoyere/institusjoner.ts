@@ -39,6 +39,7 @@ export const INSTITUSJONER: Institusjon[] = [
     subjects: [
       { courseId: 'exfac03-spr', name: 'EXFAC03-SPR Examen facultatum, språkvitenskap', icon: '🗣️', color: 'from-slate-500 to-slate-700' },
       { courseId: 'exfac03-east', name: 'EXFAC03-EAST Examen facultatum for Øst-Asia-studier', icon: '🌏', color: 'from-slate-500 to-slate-700' },
+      { courseId: 'exfac03-hark', name: 'EXFAC03-HARK Examen facultatum for historie, arkeologi og konservering', icon: '🏺', color: 'from-slate-500 to-slate-700' },
       { courseId: 'svexfac03', name: 'SVEXFAC03 Examen facultatum, samfunnsvitenskapelig variant', icon: '🧭', color: 'from-slate-500 to-slate-700' },
       { courseId: 'juroff1500', name: 'JUROFF1500 Strafferett — juridisk innføring for ikke-jurister', icon: '📕', color: 'from-slate-500 to-slate-700' },
       { courseId: 'svmet1010', name: 'SVMET1010 Kvalitative metoder', icon: '🔍', color: 'from-slate-500 to-slate-700' },

@@ -225,6 +225,7 @@ import quizData_svexfac03 from './quiz-data-svexfac03';
 import quizData_juroff1500 from './quiz-data-juroff1500';
 import quizData_exfac03spr from './quiz-data-exfac03-spr';
 import quizData_exfac03east from './quiz-data-exfac03-east';
+import quizData_exfac03hark from './quiz-data-exfac03-hark';
 
 // Merged quiz data from all subject files
 export const quizData: Record<string, QuizQuestion[]> = {
@@ -418,6 +419,7 @@ export const quizData: Record<string, QuizQuestion[]> = {
   ...quizData_juroff1500,
   ...quizData_exfac03spr,
   ...quizData_exfac03east,
+  ...quizData_exfac03hark,
 };
 
 /**
