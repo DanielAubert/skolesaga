@@ -121,10 +121,16 @@ function lcs(a, b) {
 // bedømme notasjon skal SI det, ikke gjette. Par der minst ett alternativ ikke
 // er prosa, telles som «ikke vurdert» og rapporteres for seg.
 const NOTASJON = /[$\\`]|^\s*[[{(]/;
+// Kompleksitetsnotasjon har verken $ eller backtick, men er notasjon: «O(log n)»
+// mot «O(n log n)» er to ULIKE kompleksiteter, ikke to formuleringer av samme.
+// Funnet i `it` av en agent som prøvde å bryte paret og endte med å lage en
+// stubbe av `O(n)` — å røre notasjonen mer enn det endrer faglig innhold.
+const KOMPLEKSITET = /\b[OΘΩo]\s*\([^)]*\)/;
 const erProsa = (s) => {
   const t = String(s).trim();
   if (!t) return false;
   if (NOTASJON.test(t)) return false;               // formel, kode eller literal
+  if (KOMPLEKSITET.test(t)) return false;           // O(n), Θ(n log n) …
   const bokstaver = (t.match(/[a-zæøåA-ZÆØÅ]/g) ?? []).length;
   return bokstaver / t.length >= 0.6;               // ellers er det tall/tegn, ikke språk
 };
