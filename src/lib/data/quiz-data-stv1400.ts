@@ -14,12 +14,12 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den høyeste karakteren en besvarelse uten spor av drøfting kan oppnå?",
-      options: ["D — drøfting kreves for C eller bedre, uansett hvor grundig redegjørelsen er.", "C — en svært grundig og velordnet redegjørelse regnes som likeverdig med drøfting.", "B — dersom redegjørelsen er presis og har rikelig med norske eksempler.", "E — en besvarelse uten drøfting regnes alltid som helt under minstekravet."],
+      options: ["D — drøfting kreves for C eller bedre, uansett hvor grundig redegjørelsen er.", "C — en grundig og velordnet redegjørelse veier opp for drøfting.", "B — dersom redegjørelsen er presis og har rikelig med norske eksempler.", "E — en besvarelse uten drøfting regnes alltid som helt under minstekravet."],
       explanation: "Drøftingsterskelen er regelen om at en besvarelse må inneholde drøfting for å nå C eller bedre; uten spor av drøfting havner den på D eller lavere. Grundighet og mengde norske eksempler flytter altså ikke besvarelsen over terskelen, selv om de teller på de andre aksene. At karakteren alltid skulle bli E, er heller ikke riktig: E er beskrivelsen av den informative redegjørelsen uten reell drøfting, og D ligger over.",
     },
     {
       question: "Hva skiller D-nivået fra E-nivået i dette emnet?",
-      options: ["På D faller drøftingsforsøket tilbake i gjengivelse; på E mangler drøftingen.", "På D mangler de norske eksemplene helt, mens de er godt til stede på E-nivået.", "På D er fagbegrepene brukt feil, mens de er korrekt brukt på E-nivået.", "På D er besvarelsen for kort, mens den på E-nivået er utfyllende og lang nok."],
+      options: ["På D faller drøftingsforsøket tilbake i gjengivelse; på E mangler drøftingen.", "På D mangler de norske eksemplene helt, mens de er godt til stede på E-nivået.", "På D er fagbegrepene gjennomgående brukt feil, mens de er korrekt brukt på E-nivået.", "På D er besvarelsen for kort, mens den på E-nivået er utfyllende og lang nok."],
       explanation: "E beskriver en utfyllende og informativ redegjørelse med lite eller ingen reell drøfting, mens D beskriver en drøftingsdel som mest ligner en ny redegjørelse. Skillet går altså på om bestillingen er adressert, ikke på empiri, begrepsbruk eller lengde. Det er kontraintuitivt at D ligger over E selv om D-besvarelsen kan inneholde mindre korrekt kunnskap.",
     },
     {
@@ -34,7 +34,7 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken sjanger bestiller formuleringen «Drøft påstanden om at …»?",
-      options: ["Påstandsdrøfting, kalt PÅ, der tesen skal prøves og ikke bare bekreftes.", "Komparativ redegjørelse, kalt KMP, der to størrelser skal stilles opp mot hverandre.", "Anvendelse, kalt ANV, der en gitt modell skal brukes på konkrete norske forhold.", "Kortsvar, kalt KS, der en presis definisjon og et kort eksempel er nok."],
+      options: ["Påstandsdrøfting, kalt PÅ, der tesen skal prøves og ikke bare bekreftes.", "Komparativ redegjørelse, kalt KMP, der to størrelser skal stilles opp mot hverandre.", "Anvendelse, kalt ANV, der en gitt modell skal brukes på konkrete norske forhold.", "Kortsvar, kalt KS, der en presis definisjon og ett kort eksempel er nok til full uttelling."],
       explanation: "PÅ er sjangeren der oppgaven leverer en ferdig tese, og uttellingen ligger i motforestillingen som redder påstanden fra å bli et ja eller nei. KMP kjennes på at oppgaven navngir to størrelser som skal stilles opp mot hverandre, og ANV på at analyseverktøyet er gitt på forhånd. KS er den gamle kortsvarsformen, som ikke lenger er en eksamensdel.",
     },
     {
@@ -76,7 +76,7 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er det sikreste kjennetegnet på at en tekst faktisk drøfter?",
-      options: ["Den setter noe opp mot noe og sier hva utfallet avhenger av.", "Den bruker flere fagbegreper enn redegjørelsesdelen gjør.", "Den viser til flere pensumforfattere enn resten av besvarelsen.", "Den er lengre enn redegjørelsen og står i siste del av teksten."],
+      options: ["Den setter noe opp mot noe og sier hva utfallet avhenger av.", "Den bruker flere fagbegreper per avsnitt enn redegjørelsesdelen gjør.", "Den viser til flere pensumforfattere enn resten av besvarelsen.", "Den er lengre enn redegjørelsen og står i siste del av teksten."],
       explanation: "En drøfting kjennes på bevegelsen: to størrelser settes opp mot hverandre, og svaret gjøres avhengig av noe konkret. Verken antall fagbegreper, antall forfattere eller plassering i teksten avgjør dette — et langt sluttavsnitt kan godt være en komprimert redegjørelse, og det er nettopp den varianten som havner på D. Lengde er heller ikke et kriterium: en kort avveining teller mer enn en lang gjengivelse.",
     },
     {
@@ -101,12 +101,12 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skal de første femten minuttene av eksamen brukes til?",
-      options: ["Å lese alle tre oppgavene, velge de to du kan drøfte, og disponere begge.", "Å skrive innledningen til det første essayet mens du fortsatt er uthvilt.", "Å skrive ned alt du husker om temaene, slik at du ikke glemmer noe underveis.", "Å lese gjennom alle tre oppgavene og begynne på den som ser kortest ut."],
+      options: ["Å lese alle tre oppgavene, velge de to du kan drøfte, og disponere begge.", "Å skrive innledningen til det første essayet mens du fortsatt er uthvilt.", "Å skrive ned alt du husker om temaene, så du ikke glemmer noe.", "Å lese gjennom alle tre oppgavene og begynne på den som ser kortest ut."],
       explanation: "De første femten minuttene går til settlesing, valg og stikkordsdisposisjon for begge de valgte oppgavene. Valgkriteriet er hvilke to du kan drøfte, ikke hvilke du kan mest om eller hvilken som ser enklest ut — det er drøftingen som avgjør om besvarelsen kommer over terskelen. Å skrive før disposisjonen er klar, er nettopp det som gir en overdimensjonert redegjørelse og en klemt drøfting.",
     },
     {
       question: "To ganger rundt 1 time og 45 minutter er 210 minutter, men eksamen varer 240. Hva er differansen?",
-      options: ["Settlesing og valg i starten, og en sluttkontroll av begge svarene til slutt.", "En reservetid som kan legges til den ene besvarelsen hvis den blir vanskeligere.", "Tiden det tar å logge inn i eksamenssystemet og laste opp de ferdige svarene.", "En pause midt i eksamen som kandidaten kan velge å ta eller å droppe."],
+      options: ["Settlesing og valg i starten, og en sluttkontroll av begge svarene til slutt.", "En reservetid som kan legges til den ene besvarelsen ved behov.", "Tiden det tar å logge inn i eksamenssystemet og laste opp de ferdige svarene.", "En pause midt i eksamen som kandidaten kan velge å ta eller å droppe."],
       explanation: "De 30 minuttene som mangler i regnestykket, er de rundt femten første til settlesing, valg og disponering, og de rundt femten siste til gjennomlesing av begge besvarelsene. Anslaget på 1 time og 45 minutter per essay er skrivetid inkludert disponering og kontroll av det ene essayet. Å bruke differansen som reserve for favorittoppgaven er nettopp den skjeve fordelingen strykregelen straffer.",
     },
     {
@@ -116,22 +116,22 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva mangler en C-besvarelse sammenlignet med en A-besvarelse?",
-      options: ["Noe som tilføres ut over det oppgaven ba om, og som belyser den.", "En drøfting — C-besvarelsen har bare en redegjørelse med god struktur.", "Korrekt bruk av fagbegreper, som først er på plass på A-nivået.", "Tilstrekkelig mengde fagstoff, siden A-besvarelser dekker mer av pensum."],
+      options: ["Noe som tilføres ut over det oppgaven ba om, og som belyser den.", "En drøfting — C-besvarelsen har bare en redegjørelse med god struktur.", "Korrekt bruk av fagbegreper, som først er på plass på A-nivået og ikke på C.", "Tilstrekkelig mengde fagstoff, siden A-besvarelser dekker mer av pensum."],
       explanation: "C betyr god redegjørelse og god drøfting uten den selvstendigheten som løfter høyere, så drøftingen og begrepsbruken er allerede på plass. Det som mangler, er en gradering, en kobling eller en nyansering som ikke sto i oppgaven. Forskjellen er ikke faktamengde: en A-besvarelse kan bygge på nøyaktig det samme stoffet som en C-besvarelse.",
     },
     {
       question: "Hva er indre fristilling?",
-      options: ["At en oppgave skilles ut fra departementet, men blir innenfor forvaltningsorganformen.", "At en statlig virksomhet omdannes til aksjeselskap med eget styre og egen regnskapsplikt.", "At staten selger seg helt ut av en virksomhet den tidligere eide og drev selv.", "At en kommunal tjeneste settes ut på anbud til en privat leverandør på kontrakt."],
+      options: ["At en oppgave skilles ut fra departementet, men blir innenfor forvaltningsorganformen.", "At en statlig virksomhet omdannes til aksjeselskap med eget styre.", "At staten selger seg helt ut av en virksomhet den tidligere eide og drev selv.", "At en kommunal tjeneste settes ut på anbud til en privat leverandør på kontrakt."],
       explanation: "Ved indre fristilling flyttes oppgaven typisk fra departement til direktorat, men forvaltningsorganformen beholdes: instruksjonsmyndigheten består, og styringen skjer gjennom mål og resultatkrav i stedet for enkeltsaksinstrukser. Omdanning til aksjeselskap er ytre fristilling, og å selge seg ut er privatisering. Å sette en tjeneste ut på anbud er konkurranseutsetting, som er noe annet igjen.",
     },
     {
       question: "Hva skjer med statsrådens instruksjonsmyndighet når en statlig virksomhet omdannes til aksjeselskap?",
-      options: ["Den faller bort, og staten står overfor virksomheten som eier, ikke som overordnet.", "Den består uendret, siden staten fortsatt er den som har opprettet virksomheten.", "Den overføres til Stortinget, som da overtar den løpende styringen av selskapet.", "Den utvides, fordi selskapsformen gir staten flere formelle styringsvirkemidler enn før."],
+      options: ["Den faller bort, og staten står overfor virksomheten som eier, ikke som overordnet.", "Den består uendret, siden staten fortsatt er den som har opprettet virksomheten.", "Den overføres til Stortinget, som da overtar den løpende styringen av selskapet.", "Den utvides, fordi selskapsformen gir staten flere styringsvirkemidler."],
       explanation: "Et aksjeselskap er et eget rettssubjekt med eget styre, så instruksjonsmyndigheten bortfaller og styringen må gå gjennom generalforsamling, styrevalg og eierskapsforventninger. Det er likevel ikke det samme som at styringen forsvinner — eierstyring er reell styring, og svekkelsen graderes videre når staten bare er minoritetseier. Stortinget overtar ingen løpende styring; ministeransvaret rekker heller ikke inn i selskapets drift.",
     },
     {
       question: "Hva går feil nummer 4 i feilregisteret ut på?",
-      options: ["Teori uten norsk empirisk forankring — modellen anvendes ikke på noe konkret.", "Å blande redegjørelsen og drøftingen slik at leseren ikke ser hvor skillet går.", "Å ramse opp begreper uten å fylle dem med innhold leseren kan forstå.", "Å bruke plass på stoff som er faglig interessant, men som oppgaven ikke ber om."],
+      options: ["Teori uten norsk empirisk forankring — modellen anvendes ikke på noe konkret.", "Å blande redegjørelsen og drøftingen slik at leseren ikke ser hvor skillet går.", "Å ramse opp fagbegreper uten å fylle et eneste av dem med innhold leseren kan forstå.", "Å bruke plass på stoff som er faglig interessant, men som oppgaven ikke ber om."],
       explanation: "Feil nummer fire er teori uten norsk empirisk forankring, og varsellampen er at teksten kunne stått uendret i en lærebok om et hvilket som helst land. Sammenblanding av de to delene er feil nummer tre, oppramsing uten innhold er nummer to, og irrelevant utenomsnakk er nummer seks. De fire ligner på hverandre ved at ingen av dem er kunnskapshull — alle fire er ting kandidaten gjør med teksten.",
     },
     {
@@ -141,7 +141,7 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Når skal en besvarelse lande skarpt, og når skal den lande betinget?",
-      options: ["Skarpt i faglige spørsmål med belegg, betinget i politiske verdispørsmål.", "Alltid betinget — et toppsvar tar aldri tydelig stilling til noe som helst.", "Alltid skarpt — forbehold leses som usikkerhet og trekker ned vurderingen.", "Skarpt der pensum er entydig, betinget der pensumbidragene er uenige."],
+      options: ["Skarpt i faglige spørsmål med belegg, betinget i politiske verdispørsmål.", "Alltid betinget — et toppsvar tar aldri tydelig stilling til noe som helst.", "Alltid skarpt — forbehold leses som usikkerhet og trekker ned vurderingen.", "Skarpt der pensum er entydig, og betinget der pensumbidragene er uenige med hverandre."],
       explanation: "Et faglig spørsmål som om indirekte styring fortsatt er styring, har et svar, og en skarp og empiriforankret konklusjon er en fullgod toppform der. Et verdispørsmål som om velferdsordninger bør være universelle, avgjøres ikke av faget, og skal landes betinget med vektingen synlig. Forbehold er altså et verktøy, ikke obligatorisk garnityr — og å skjule et verdivalg i faglig språk er svakere enn å si det åpent.",
     },
   ],
@@ -153,7 +153,7 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den avgjørende forskjellen mellom en enhetsstat og en føderal stat?",
-      options: ["Hvem som eier den lokale friheten, ikke hvor stor den er", "Hvor mye handlefrihet de lokale enhetene faktisk har i praksis", "Hvor mange forvaltningsnivåer landet er delt inn i", "Om de lokale enhetene har folkevalgte organer eller ikke"],
+      options: ["Hvem som eier den lokale friheten, ikke hvor stor den er", "Hvor mye handlefrihet de lokale enhetene faktisk har", "Hvor mange forvaltningsnivåer landet er delt inn i", "Om de lokale enhetene har folkevalgte organer eller ikke"],
       explanation: "Skillet går på om lokal frihet er delegert eller grunnlovsbeskyttet. En norsk kommune kan ha stor faktisk handlefrihet og likevel stå svakere prinsipielt. Antall nivåer og folkevalgte organer varierer i begge statsformer og skiller dem ikke.",
     },
     {
@@ -163,7 +163,7 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva sier nærhetsprinsippet?",
-      options: ["At oppgaver fortrinnsvis bør legges til nivået nærmest innbyggerne", "At oppgaver bør styres med færrest mulig detaljerte krav fra staten", "At kommunen skal lokalisere tjenestene sine nær der innbyggerne bor", "At staten skal høre kommunene før den vedtar nye plikter for dem"],
+      options: ["At oppgaver fortrinnsvis bør legges til nivået nærmest innbyggerne", "At oppgaver bør styres med færrest mulig detaljerte krav fra staten", "At kommunen skal lokalisere tjenestene sine nær der innbyggerne bor", "At staten skal høre kommunene før den vedtar nye plikter for kommunesektoren"],
       explanation: "Nærhetsprinsippet handler om hvilket forvaltningsnivå en oppgave bør ligge på. Det sier ikke noe om hvor detaljert oppgaven kan styres etterpå, ikke noe om den geografiske plasseringen av tjenestesteder, og ikke noe om høringsplikt.",
     },
     {
@@ -173,12 +173,12 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke to ledd består organiseringsdelen av redegjørelsen om statlig styring av?",
-      options: ["Territoriell inndeling og funksjonsfordeling", "Juridiske, økonomiske og pedagogiske virkemidler", "Detaljstyring og rammestyring av kommunene", "Kommunalt selvstyre og statlig tilsynsmyndighet"],
+      options: ["Territoriell inndeling og funksjonsfordeling", "Juridiske, økonomiske og pedagogiske virkemidler", "Detaljstyring og rammestyring av kommunene og fylkene", "Kommunalt selvstyre og statlig tilsynsmyndighet"],
       explanation: "Organiseringen er inndeling pluss funksjonsfordeling. Juridiske og økonomiske virkemidler hører til redegjørelsens andre hoveddel, og detaljstyring mot rammestyring er en akse for å beskrive styringens form, ikke organiseringen.",
     },
     {
       question: "Hva innebærer generalistkommuneprinsippet?",
-      options: ["At alle kommuner har samme oppgaveportefølje uansett størrelse", "At kommunene selv velger hvilke oppgaver de vil påta seg", "At store kommuner får flere oppgaver enn små kommuner", "At kommunen skal løse alle oppgaver i egen regi, uten samarbeid"],
+      options: ["At alle kommuner har samme oppgaveportefølje uansett størrelse", "At kommunene selv velger hvilke oppgaver de vil påta seg", "At store kommuner får flere oppgaver enn små kommuner", "At kommunen skal løse alle oppgaver i egen regi"],
       explanation: "Prinsippet innebærer samme oppgaver, lovverk og finansiering for alle kommuner uansett størrelse. At store kommuner får mer er oppgavedifferensiering, altså det motsatte, og prinsippet sier ingenting om at kommunen må løse oppgavene alene.",
     },
     {
@@ -188,7 +188,7 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den vanligste forvekslingen knyttet til ordet generalistkommune?",
-      options: ["At prinsippbetydningen blandes med lokalstyreordningen", "At det blandes med begrepet interkommunalt samarbeid", "At det blandes med kommunens plikt til å utrede sammenslåing", "At det blandes med skillet mellom kommune og fylkeskommune"],
+      options: ["At prinsippbetydningen blandes med lokalstyreordningen", "At det blandes med begrepet interkommunalt samarbeid om oppgaver", "At det blandes med kommunens plikt til å utrede sammenslåing", "At det blandes med skillet mellom kommune og fylkeskommune"],
       explanation: "Ordet betyr enten at alle kommuner har samme oppgaver uansett størrelse, eller en multifunksjonell og folkevalgt lokal enhet i firfeltstabellen over lokalstyreordninger. Forvekslingen er en dokumentert trekkgrunn; de tre andre blandingene er ikke det samme problemet.",
     },
     {
@@ -203,7 +203,7 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilket forvaltningsnivå har ansvaret for videregående opplæring?",
-      options: ["Fylkeskommunen", "Kommunen", "Staten gjennom et direktorat", "Staten gjennom helseforetakene"],
+      options: ["Fylkeskommunen", "Kommunen der eleven bor", "Staten gjennom et direktorat", "Staten gjennom helseforetakene"],
       explanation: "Videregående opplæring ligger hos fylkeskommunen, fordi et bredt programtilbud krever større elevgrunnlag enn en kommune gir. Kommunen har grunnskolen, mens helseforetakene driver sykehusene og ikke skoler.",
     },
     {
@@ -218,7 +218,7 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er statsforvalterens rolle overfor kommunene?",
-      options: ["Klageinstans, tilsynsmyndighet og statlig veileder", "Overordnet folkevalgt organ for alle kommunene i fylket", "Fylkeskommunens øverste administrative leder", "Sekretariat for kommunestyrene i hele fylket"],
+      options: ["Klageinstans, tilsynsmyndighet og statlig veileder", "Overordnet folkevalgt organ for alle kommunene i fylket", "Fylkeskommunens øverste administrative leder og budsjettansvarlige", "Sekretariat for kommunestyrene i hele fylket"],
       explanation: "Statsforvalteren er statens representant i fylket, med klagebehandling, tilsyn og veiledning som hovedroller. Embetet er ikke folkevalgt, ikke en del av fylkeskommunen og ikke et sekretariat for kommunene.",
     },
     {
@@ -228,17 +228,17 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilket problem er interkommunalt samarbeid først og fremst et svar på?",
-      options: ["At små kommuner mangler fagmiljø til lovpålagte oppgaver", "At staten krever at flere kommuner slår seg sammen", "At kommunene har for mange folkevalgte organer i drift", "At fylkeskommunen har mistet oppgaver over tid til staten"],
+      options: ["At små kommuner mangler fagmiljø til lovpålagte oppgaver", "At staten krever at flere kommuner slår seg sammen", "At kommunene har for mange folkevalgte organer i drift", "At fylkeskommunen har mistet oppgaver til staten"],
       explanation: "Samarbeidet løser kapasitetsproblemet generalistkommuneprinsippet skaper: alle skal levere det samme, men ikke alle har fagmiljøet alene. Det er ikke et svar på statlige sammenslåingskrav, og har ingenting med antallet folkevalgte organer eller fylkeskommunens rolle å gjøre.",
     },
     {
       question: "Hva er den demokratiske kostnaden ved omfattende interkommunalt samarbeid?",
-      options: ["Beslutninger flyttes til organer utenfor kommunestyret", "Kommunestyret mister retten til å vedta eget budsjett", "Staten overtar ansvaret for tjenesten som settes ut på anbud", "Innbyggerne mister klageretten på vedtak i saken"],
+      options: ["Beslutninger flyttes til organer utenfor kommunestyret", "Kommunestyret mister retten til å vedta eget budsjett", "Staten overtar ansvaret for tjenesten det gjelder", "Innbyggerne mister klageretten på vedtak i saken"],
       explanation: "Kostnaden er at avgjørelser havner i styrer og representantskap utenfor kommunestyret. Budsjettmyndigheten består, ansvaret forblir kommunalt og ikke statlig, og klageretten faller ikke bort fordi oppgaven løses i samarbeid.",
     },
     {
       question: "Hvorfor er selve inndelingen et statlig styringsvirkemiddel?",
-      options: ["Fordi enhetenes størrelse avgjør hva staten kan delegere til dem", "Fordi staten fastsetter kommunegrensene i statsbudsjettet hvert år", "Fordi større kommuner får høyere rammetilskudd per innbygger", "Fordi inndelingen bestemmer hvem som er klageinstans"],
+      options: ["Fordi enhetenes størrelse avgjør hva staten kan delegere til dem", "Fordi staten fastsetter kommunegrensene i statsbudsjettet", "Fordi større kommuner får høyere rammetilskudd per innbygger", "Fordi inndelingen bestemmer hvem som er klageinstans"],
       explanation: "Ved å endre enhetenes størrelse endrer staten hva som i det hele tatt kan delegeres, og dermed hvor mye detaljstyring som blir nødvendig. Grensene fastsettes ikke gjennom budsjettet, og verken tilskuddsnivå per innbygger eller klageordningen følger av inndelingen på denne måten.",
     },
     {
@@ -260,17 +260,17 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
   'stv1400-1-2': [
     {
       question: "Hvilke tre kategorier grupperes statens styringsvirkemidler i?",
-      options: ["Juridiske, økonomiske og pedagogiske virkemidler", "Lovpålagte, frivillige og anbefalte virkemidler", "Statlige, regionale og kommunale virkemidler", "Bindende, delvis bindende og rådgivende ordninger"],
+      options: ["Juridiske, økonomiske og pedagogiske virkemidler", "Lovpålagte, frivillige og anbefalte statlige virkemidler", "Statlige, regionale og kommunale virkemidler", "Bindende, delvis bindende og rådgivende ordninger"],
       explanation: "Tredelingen juridiske, økonomiske og pedagogiske er den sensor leter etter i redegjørelsen. De andre inndelingene finnes ikke i pensums apparat, og et svar som bygger på dem, mister strukturen oppgaven ber om.",
     },
     {
       question: "Hvorfor må staten styre kommunene indirekte?",
-      options: ["Kommunen er et eget rettssubjekt med folkevalgt ledelse", "Kommunen ligger under statsforvalteren og ikke departementet", "Grunnloven forbyr staten å gi pålegg til kommunene", "Kommunen finansierer virksomheten sin med egne skatteinntekter"],
+      options: ["Kommunen er et eget rettssubjekt med folkevalgt ledelse", "Kommunen ligger under statsforvalteren og ikke departementet", "Grunnloven forbyr staten å gi pålegg direkte til den enkelte kommunen", "Kommunen finansierer virksomheten sin med egne skatteinntekter"],
       explanation: "Kommunen er ikke en etat under departementet, men et eget rettssubjekt med et eget folkevalgt organ, og kan derfor ikke instrueres direkte. Grunnloven forbyr ikke statlige pålegg, og kommunens egne skatteinntekter er bare én av flere inntektskilder.",
     },
     {
       question: "Hva skiller generelle lover fra særlover i styringen av kommunene?",
-      options: ["Generelle lover regulerer formen, særlover regulerer tjenestens innhold", "Generelle lover er bindende, mens særlover bare er anbefalinger", "Generelle lover gjelder staten, mens særlover gjelder kommunene", "Generelle lover vedtas av Stortinget, særlover av departementene"],
+      options: ["Generelle lover regulerer formen, særlover regulerer tjenestens innhold", "Generelle lover er bindende, mens særlover bare er anbefalinger", "Generelle lover gjelder staten, mens særlover gjelder kommunene", "Generelle lover vedtas av Stortinget, mens særlovene vedtas av departementene"],
       explanation: "Kommuneloven og forvaltningsloven regulerer hvordan kommunen organiserer seg og treffer vedtak; særlovene regulerer innholdet i den enkelte tjenesten. Begge lovtypene er bindende og vedtas av Stortinget, og begge retter seg mot kommunene.",
     },
     {
@@ -280,7 +280,7 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva gjør individuelle rettigheter til et særlig kraftig styringsvirkemiddel?",
-      options: ["Håndhevingen flyttes til innbyggeren, som selv kan klage", "De gir staten adgang til å instruere kommunen i enkeltsaker", "De gjør at kommunen mister retten til å vedta eget budsjett", "De gir kommunen større rammetilskudd for å dekke kravet"],
+      options: ["Håndhevingen flyttes til innbyggeren, som selv kan klage", "De gir staten adgang til å instruere kommunen i enkeltsaker", "De gjør at kommunen mister retten til å vedta eget budsjett", "De gir kommunen større rammetilskudd for å dekke det nye kravet"],
       explanation: "En rettighet gir innbyggeren et rettskrav som kan påklages, slik at staten slipper å føre tilsyn med hver enkelt sak. Staten får ikke instruksjonsrett i enkeltsaker, kommunen beholder budsjettmyndigheten, og en rettighet følges ikke automatisk av penger.",
     },
     {
@@ -300,7 +300,7 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor sier man at øremerkede tilskudd virker prisvridende?",
-      options: ["De gjør ett formål billigere for kommunen enn alle andre", "De gjør at kommunen må betale mer for tjenesten enn før", "De påvirker prisnivået i markedet der kommunen kjøper inn", "De gjør at kommunen får mindre penger totalt sett"],
+      options: ["De gjør ett formål billigere for kommunen enn alle andre", "De gjør at kommunen må betale mer for tjenesten enn den gjorde før", "De påvirker prisnivået i markedet der kommunen kjøper inn", "De gjør at kommunen får mindre penger totalt sett"],
       explanation: "Når staten dekker deler av kostnaden ved ett bestemt formål, koster det formålet mindre av kommunens egne midler enn alle andre, og prioriteringen vris dit. Tilskuddet gjør tjenesten billigere og ikke dyrere for kommunen, og virkningen gjelder kommunens valg, ikke markedsprisene.",
     },
     {
@@ -350,7 +350,7 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en forsøksordning i kommunal sammenheng?",
-      options: ["Adgang til å avvike fra regler i en avgrenset periode", "En permanent unntaksregel for de minste kommunene", "En ordning der kommunen slipper statlig tilsyn en periode", "En avtale om at staten overtar en oppgave midlertidig"],
+      options: ["Adgang til å avvike fra regler i en avgrenset periode", "En permanent unntaksregel for kommunene under en viss størrelse", "En ordning der kommunen slipper statlig tilsyn en periode", "En avtale om at staten overtar en oppgave midlertidig"],
       explanation: "Forsøket gir tidsavgrenset adgang til å prøve en annen løsning, etter statlig godkjenning, og erfaringene kan føre til regelendring. Det er verken permanent, en fritakelse fra tilsyn eller en overføring av oppgaven til staten.",
     },
     {
@@ -370,7 +370,7 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan henger virkemiddelkategoriene og styringsformene sammen?",
-      options: ["Hver kategori kan brukes både til detalj- og til rammestyring", "Juridiske virkemidler er detaljstyring, økonomiske er rammestyring", "Pedagogiske virkemidler er den eneste formen for rammestyring", "Styringsformen følger av hvilket departement som styrer"],
+      options: ["Hver kategori kan brukes både til detalj- og til rammestyring", "Juridiske virkemidler er detaljstyring, økonomiske er rammestyring", "Pedagogiske virkemidler er den eneste formen for rammestyring", "Styringsformen følger av hvilket departement som styrer den enkelte sektoren"],
       explanation: "Dimensjonene er uavhengige: en rammebestemmelse i særlov er juridisk rammestyring, mens et standardkrav er juridisk detaljstyring. Å knytte hver kategori til én form gir en ryddig, men gal modell.",
     },
     {
@@ -380,17 +380,17 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen på formell og reell handlefrihet for en kommune?",
-      options: ["Reell frihet er det som er igjen når bundne krav er trukket fra", "Formell frihet gjelder budsjettet, reell frihet gjelder personalet", "Formell frihet gjelder små kommuner, reell frihet gjelder store", "Reell frihet er den friheten statsforvalteren godkjenner"],
+      options: ["Reell frihet er det som er igjen når bundne krav er trukket fra", "Formell frihet gjelder budsjettet, reell frihet gjelder personalet", "Formell frihet gjelder små kommuner, reell frihet gjelder store", "Reell frihet er den friheten statsforvalteren har godkjent på forhånd"],
       explanation: "Formell frihet er retten til å prioritere på papiret; reell frihet er det som gjenstår etter lovpålagte oppgaver, normer, rettigheter og bundne driftskostnader. Skillet følger verken kommunestørrelse, saksområde eller statsforvalterens godkjenning.",
     },
     {
       question: "Hvorfor kan andelen frie inntekter være et misvisende mål på kommunalt handlingsrom?",
-      options: ["Mye av de frie midlene er allerede bundet av lovkrav", "Frie inntekter varierer sterkt fra år til år i alle kommuner", "Frie inntekter regnes ulikt fra kommune til kommune", "Staten kan trekke tilbake frie inntekter i løpet av året"],
+      options: ["Mye av de frie midlene er allerede bundet av lovkrav", "Frie inntekter varierer sterkt fra år til år i alle kommuner", "Frie inntekter regnes ulikt fra kommune til kommune i statistikken", "Staten kan trekke tilbake frie inntekter i løpet av året"],
       explanation: "Friheten er formell før den er reell: lovpålagte oppgaver, standardkrav og individuelle rettigheter disponerer store deler av budsjettet før kommunestyret møtes. Beregningen er ensartet, og midlene trekkes ikke tilbake underveis.",
     },
     {
       question: "Hvordan fastsettes de økonomiske rammene for kommunesektoren?",
-      options: ["Rammene varsles i en egen proposisjon og vedtas i statsbudsjettet", "Rammene forhandles fram med kommunesektoren og undertegnes som avtale", "Rammene fastsettes av statsforvalteren for kommunene i hvert fylke", "Rammene følger automatisk av kommunenes egne budsjettvedtak"],
+      options: ["Rammene varsles i en egen proposisjon og vedtas i statsbudsjettet", "Rammene forhandles fram med kommunesektoren og undertegnes som avtale", "Rammene fastsettes av statsforvalteren for kommunene i hvert fylke", "Rammene følger automatisk av de budsjettvedtakene kommunene selv fatter"],
       explanation: "Regjeringen legger fram rammene i god tid før statsbudsjettet, og bevilgningen vedtas i budsjettet om høsten. Konsultasjonene med kommunesektoren gir ingen bindende avtale, og verken statsforvalteren eller kommunene fastsetter totalrammen.",
     },
     {
@@ -410,24 +410,24 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilket argument brukes mot omfattende statlig detaljstyring?",
-      options: ["Det svekker den lokale prioriteringsretten og tilpasningen", "Det gjør at staten må ansette flere i departementene", "Det fører til at kommunene mister retten til å kreve inn skatt", "Det gjør at innbyggerne mister klageretten på vedtak"],
+      options: ["Det svekker den lokale prioriteringsretten og tilpasningen", "Det gjør at staten må ansette flere saksbehandlere i departementene", "Det fører til at kommunene mister retten til å kreve inn skatt", "Det gjør at innbyggerne mister klageretten på vedtak"],
       explanation: "Innvendingen er at bindinger legger beslag på budsjettet, slik at lokalvalget blir et valg om lite, og at normer dimensjonert for gjennomsnittet ikke passer alle. Verken skatteretten eller klageretten berøres.",
     },
     {
       question: "Hvilket pensumbidrag bærer apparatet for statens økonomiske styringsvirkemidler?",
-      options: ["Fiva, Hagen og Sørensen om kommunal organisering", "Christensen mfl. om forvaltning og politisk styring", "Jacobsen om lokaldemokrati og deltakelse i kommunen", "Olsen mfl. om Norges tilknytning til EU og EØS"],
+      options: ["Fiva, Hagen og Sørensen om kommunal organisering", "Christensen mfl. om forvaltning og politisk styring", "Jacobsen om lokaldemokrati og deltakelse i kommunen", "Olsen mfl. om Norges tilknytning til EU og EØS-avtalen"],
       explanation: "Fiva, Hagen og Sørensen bærer tilskuddstypene, prisvridningen, inntektssystemet og skillet mellom detalj- og rammestyring, med Stigen mfl. som utfyllende på kommunal styring. De øvrige eier andre deler av emnet.",
     },
   ],
   'stv1400-1-3': [
     {
       question: "Hva er et strukturvirkemiddel?",
-      options: ["Statlig styring gjennom å endre selve enhetene som skal styres", "Statlig styring gjennom lovfestede krav til tjenestens innhold", "Kommunens egen omorganisering av administrasjonen sin", "Statens fordeling av oppgaver mellom departementer og direktorater"],
+      options: ["Statlig styring gjennom å endre selve enhetene som skal styres", "Statlig styring gjennom lovfestede krav til tjenestens innhold", "Kommunens egen omorganisering av administrasjonen og enhetene sine", "Statens fordeling av oppgaver mellom departementer og direktorater"],
       explanation: "Strukturvirkemidlet endrer kommune- og fylkesgrenser og antall nivåer, altså hva kommunen er i stand til å gjøre. Lovfestede innholdskrav er juridiske virkemidler innenfor gitt struktur, og intern omorganisering i kommune eller stat er noe annet.",
     },
     {
       question: "Hva skiller strukturvirkemidlet fra de tre virkemiddelkategoriene?",
-      options: ["Det virker på hva kommunen kan gjøre, ikke på hva den gjør", "Det er det eneste virkemidlet som krever vedtak i Stortinget", "Det brukes bare overfor fylkeskommunene og ikke mot kommunene", "Det er frivillig for kommunen, mens de andre er bindende"],
+      options: ["Det virker på hva kommunen kan gjøre, ikke på hva den gjør", "Det er det eneste virkemidlet som krever vedtak i Stortinget", "Det brukes bare overfor fylkeskommunene og ikke mot kommunene", "Det er frivillig for den enkelte kommunen, mens de andre er bindende"],
       explanation: "De tre kategoriene virker innenfor en gitt struktur; strukturvirkemidlet endrer rammen selv. Også lover krever stortingsvedtak, grepet brukes på begge nivåer, og strukturendring kan i siste instans vedtas mot lokale vedtak.",
     },
     {
@@ -442,27 +442,27 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan virket utredningsplikten under kommunereformen?",
-      options: ["Den flyttet bevisbyrden over på dem som ville stå alene", "Den påla kommunene å slå seg sammen innen en gitt frist", "Den ga staten adgang til å overprøve de lokale vedtakene", "Den fritok små kommuner fra enkelte lovpålagte oppgaver"],
+      options: ["Den flyttet bevisbyrden over på dem som ville stå alene", "Den påla kommunene å slå seg sammen innen en gitt frist", "Den ga staten adgang til å overprøve lokale vedtak", "Den fritok små kommuner fra enkelte lovpålagte oppgaver"],
       explanation: "Uten plikten kunne en kommune la spørsmålet ligge; med den måtte hver kommune aktivt begrunne hvorfor den ville stå alene. Plikten påla ingen å slå seg sammen, ga ingen overprøvingsrett og endret ingen oppgaver.",
     },
     {
       question: "Hva gjorde kompensasjonsordningen for sammenslåtte kommuner?",
-      options: ["Lot kommunen beholde tilskudd som før i en overgangsperiode", "Ga kommunen varig høyere rammetilskudd etter sammenslåing", "Dekket alle driftsutgiftene til den nye kommunen det første året", "Ga innbyggerne lavere skatt i kommuner som slo seg sammen"],
+      options: ["Lot kommunen beholde tilskudd som før i en overgangsperiode", "Ga den nye kommunen varig høyere rammetilskudd etter sammenslåingen", "Dekket alle driftsutgiftene til den nye kommunen det første året", "Ga innbyggerne lavere skatt i kommuner som slo seg sammen"],
       explanation: "Ordningen fjernet det umiddelbare inntektstapet ved å bli færre kommuner, men bare midlertidig, og beløpet trappes ned. Den var verken varig, en full driftsdekning eller en skattelettelse for innbyggerne.",
     },
     {
       question: "Hva viser reverseringene av enkelte sammenslåinger?",
-      options: ["At strukturvedtak uten lokal forankring har lav holdbarhet", "At kommunereformen samlet sett ble reversert", "At Stortinget ikke har myndighet til å endre kommunegrenser", "At sammenslåing alltid gir dårligere tjenester enn før"],
+      options: ["At strukturvedtak uten lokal forankring har lav holdbarhet", "At kommunereformen samlet sett ble reversert", "At Stortinget ikke har myndighet til å endre kommunegrenser", "At sammenslåing alltid gir innbyggerne dårligere tjenester enn før"],
       explanation: "Det som kan vedtas med ett flertall, kan vedtas om med et annet, og lokal motstand overlever et vedtak. Flertallet av sammenslåingene står, Stortinget har full myndighet over grensene, og reverseringene sier ingenting om tjenestekvalitet.",
     },
     {
       question: "Hva er styrbarhet?",
-      options: ["Hvor godt staten får gjennomført politikken gjennom kommunene", "Hvor mye staten styrer kommunene, målt i antall bindinger", "Hvor stor andel av kommunens samlede inntekter som er øremerket", "Hvor raskt en kommune kan gjennomføre egne vedtak"],
+      options: ["Hvor godt staten får gjennomført politikken gjennom kommunene", "Hvor mye staten styrer kommunene, målt i antallet bindinger og krav", "Hvor stor andel av kommunens samlede inntekter som er øremerket", "Hvor raskt en kommune kan gjennomføre egne vedtak"],
       explanation: "Styrbarhet er et mål på virkning, ikke på mengde: detaljerte krav kan gi høy etterlevelse og likevel dårlig måloppnåelse. Antall bindinger og andelen øremerkede midler måler styringens omfang, ikke dens virkning.",
     },
     {
       question: "Hvorfor kan kommunereformen leses som et styringsgrep og ikke bare en strukturreform?",
-      options: ["Mer kapable enheter reduserer behovet for detaljstyring", "Reformen overførte oppgaver fra kommunene til staten", "Reformen erstattet rammetilskuddet med øremerkede tilskudd", "Reformen fjernet fylkeskommunen som forvaltningsnivå"],
+      options: ["Mer kapable enheter reduserer behovet for detaljstyring", "Reformen overførte en rekke oppgaver fra kommunene til staten", "Reformen erstattet rammetilskuddet med øremerkede tilskudd", "Reformen fjernet fylkeskommunen som forvaltningsnivå"],
       explanation: "Jo mer kapable enhetene er, jo mindre detaljerte krav trengs for samme styrbarhet, og det er koblingen mellom struktur og styringsform. Reformen flyttet verken oppgaver oppover, endret tilskuddssystemet eller avviklet noe forvaltningsnivå.",
     },
     {
@@ -472,7 +472,7 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er det beste svaret på om den statlige styringen har økt?",
-      options: ["At den har skiftet form, og at svaret avhenger av målet", "At den har økt entydig, målt i antall nye bindinger", "At den har avtatt entydig, målt i andelen frie inntekter", "At spørsmålet ikke lar seg besvare uten helt nye undersøkelser"],
+      options: ["At den har skiftet form, og at svaret avhenger av målet", "At den har økt entydig, målt i antall nye bindinger på kommunene", "At den har avtatt entydig, målt i andelen frie inntekter", "At spørsmålet ikke lar seg besvare uten helt nye undersøkelser"],
       explanation: "Styringen har gått mot mer juridisk og mindre økonomisk detaljstyring, så konklusjonen avhenger av hvilket mål man legger til grunn. Begge de entydige svarene måler bare én akse, og å avvise spørsmålet er å unnvike drøftingen.",
     },
     {
@@ -492,7 +492,7 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr allokeringseffektivitet i denne sammenhengen?",
-      options: ["At ressursene brukes på det innbyggerne verdsetter høyest", "At tjenestene produseres til lavest mulig kostnad per enhet", "At alle kommuner får like mye midler per innbygger", "At staten fordeler midlene raskt og uten administrasjon"],
+      options: ["At ressursene brukes på det innbyggerne verdsetter høyest", "At tjenestene produseres til lavest mulig kostnad", "At alle kommuner får like mye midler per innbygger", "At staten fordeler midlene raskt og uten administrasjon"],
       explanation: "Allokeringseffektivitet handler om at ressursene går dit de gir størst verdi for innbyggerne. Lavest mulig produksjonskostnad er kostnadseffektivitet, og lik fordeling eller rask utbetaling er helt andre hensyn.",
     },
     {
@@ -507,7 +507,7 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en ekstern virkning i kommunal sammenheng?",
-      options: ["At en kommunes beslutning får følger utenfor egne grenser", "At staten pålegger kommunen oppgaver den ikke har bedt om", "At kommunen kjøper tjenester fra private leverandører", "At innbyggere flytter til nabokommunen for å få bedre tjenester"],
+      options: ["At en kommunes beslutning får følger utenfor egne grenser", "At staten pålegger kommunen oppgaver den ikke har bedt om", "At kommunen kjøper tjenester fra private leverandører i markedet", "At innbyggere flytter til nabokommunen for å få bedre tjenester"],
       explanation: "Eksterne virkninger oppstår når gevinsten eller kostnaden helt eller delvis tilfaller andre enn kommunens egne innbyggere, som når utdannede flytter ut. Statlige pålegg og kjøp fra private er andre fenomener.",
     },
     {
@@ -517,12 +517,12 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er demokratikostnaden ved rettighetsfesting?",
-      options: ["Politiske prioriteringer blir rettsspørsmål i klageorganer", "Innbyggerne mister muligheten til å klage på vedtak", "Kommunestyret mister retten til å vedta eget budsjett", "Kommunen må betale erstatning når rettigheten ikke oppfylles"],
+      options: ["Politiske prioriteringer blir rettsspørsmål i klageorganer", "Innbyggerne mister muligheten til å klage på vedtak", "Kommunestyret mister retten til å vedta eget budsjett", "Kommunen må betale erstatning når retten ikke oppfylles"],
       explanation: "Makt flyttes ikke bare fra kommunestyret til Stortinget, men også fra politiske organer til forvaltning og klageinstans. Klageretten styrkes snarere enn svekkes, og budsjettmyndigheten består.",
     },
     {
       question: "Hva er robusthetsargumentet i kommunestrukturdebatten?",
-      options: ["At enhetene må være store nok til å ha holdbare fagmiljøer", "At kommunene må ha nok inntekter til å tåle økonomiske svingninger", "At kommunene må ha flere folkevalgte for å sikre bred representasjon", "At kommunene må ha reserver til å håndtere kriser og uvær"],
+      options: ["At enhetene må være store nok til å ha holdbare fagmiljøer", "At kommunene må ha nok inntekter til å tåle økonomiske svingninger", "At kommunene må ha flere folkevalgte for å sikre bred representasjon", "At kommunene må ha økonomiske reserver til å håndtere kriser og uvær"],
       explanation: "Argumentet gjelder fagmiljøer som tåler utskiftning, sykdom og krevende enkeltsaker. Merk grensen: det taler for større fagmiljøer, ikke nødvendigvis for større kommuner, siden samarbeid gir det samme.",
     },
     {
@@ -532,7 +532,7 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan skal en påstandsdrøfting bygges?",
-      options: ["Avklar påstanden, finn målestokken, prøv den, og land begrunnet", "Presenter påstanden, gjengi pensum om temaet, og konkluder", "Argumenter først for påstanden, deretter mot, uten å konkludere", "Avvis påstanden innledningsvis, og bygg svaret på motargumentene"],
+      options: ["Avklar påstanden, finn målestokken, prøv den, og land begrunnet", "Presenter påstanden, gjengi alt pensum om temaet, og konkluder til slutt", "Argumenter først for påstanden, deretter mot, uten å konkludere", "Avvis påstanden innledningsvis, og bygg svaret på motargumentene"],
       explanation: "Uttellingen ligger i motforestillingen som redder påstanden fra å bli et ja eller nei, og målestokken er det som gjør drøftingen etterprøvbar. Å gjengi pensum er redegjørelse, og å utelate landingen eller avvise påstanden på forhånd er ikke å prøve den.",
     },
     {
@@ -554,7 +554,7 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner ytre fristilling?",
-      options: ["Virksomheten blir et eget rettssubjekt utenfor forvaltningen", "Virksomheten flyttes fra departementet til et eget direktorat", "Virksomheten får et eget budsjettkapittel i statsbudsjettet", "Virksomheten får utvidet fullmakt til å ansette folk selv"],
+      options: ["Virksomheten blir et eget rettssubjekt utenfor forvaltningen", "Virksomheten flyttes fra departementet til et eget direktorat", "Virksomheten får et eget budsjettkapittel i det årlige statsbudsjettet", "Virksomheten får utvidet fullmakt til å ansette folk selv"],
       explanation: "Ved ytre fristilling skifter virksomheten tilknytningsform og blir et eget rettssubjekt, typisk statsforetak eller aksjeselskap. Utskilling til direktorat, eget budsjettkapittel og utvidede fullmakter skjer alt sammen innenfor forvaltningen og er indre fristilling.",
     },
     {
@@ -574,7 +574,7 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er omgjøringsmyndighet?",
-      options: ["Retten til å endre eller oppheve et vedtak som er truffet", "Retten til å gi pålegg før et vedtak i saken er truffet", "Retten til å omorganisere et underordnet organ ved instruks", "Retten til å overføre en sak til et annet forvaltningsorgan"],
+      options: ["Retten til å endre eller oppheve et vedtak som er truffet", "Retten til å gi pålegg om utfallet før vedtaket i saken er truffet", "Retten til å omorganisere et underordnet organ ved instruks", "Retten til å overføre en sak til et annet forvaltningsorgan"],
       explanation: "Omgjøringsmyndigheten virker etter at vedtaket er truffet, typisk gjennom klagebehandling. Pålegg før avgjørelsen er instruksjonsmyndighet, og omorganisering eller overføring av saker er organisatoriske grep av en annen art.",
     },
     {
@@ -584,22 +584,22 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva overtar styringen ved indre fristilling?",
-      options: ["Mål- og resultatstyring gjennom tildelingsbrev og rapportering", "Eierstyring gjennom generalforsamling og valg av styremedlemmer", "Kontraktsstyring gjennom anbud og konkurranse mellom tilbydere", "Klagebehandling i en uavhengig nemnd utenfor departementet"],
+      options: ["Mål- og resultatstyring gjennom tildelingsbrev og rapportering", "Eierstyring gjennom generalforsamling og valg av styremedlemmer", "Kontraktsstyring gjennom anbud og konkurranse mellom tilbydere", "Klagebehandling i en uavhengig nemnd utenfor departementet og direktoratet"],
       explanation: "Når departementet slutter å behandle enkeltsakene, overtar mål- og resultatstyringen med tildelingsbrev, styringsmøter og rapportering. Eierstyring hører til ytre fristilling, kontraktsstyring til konkurranseutsetting, og en uavhengig klagenemnd fjerner styring i stedet for å erstatte den.",
     },
     {
       question: "Hva er et tildelingsbrev?",
-      options: ["Departementets årlige brev med bevilgning, mål og resultatkrav", "Direktoratets årlige rapport om måloppnåelse til departementet", "Stortingets eget vedtak om bevilgning til den enkelte etaten", "Departementets instruks i en enkeltsak til et underordnet organ"],
+      options: ["Departementets årlige brev med bevilgning, mål og resultatkrav", "Direktoratets årlige rapport om måloppnåelse til departementet", "Stortingets eget vedtak om bevilgning til den enkelte etaten i budsjettet", "Departementets instruks i en enkeltsak til et underordnet organ"],
       explanation: "Tildelingsbrevet går fra departementet til virksomheten og samler bevilgning, mål, resultatkrav og rapporteringskrav for året. Rapporten går motsatt vei, budsjettvedtaket treffes i Stortinget, og en instruks i enkeltsak er et helt annet redskap.",
     },
     {
       question: "Hva betyr uttrykket «armlengdes avstand»?",
-      options: ["Politisk ledelse setter rammene, men holder seg unna enkeltsakene", "Politisk ledelse har gitt fra seg all styring med hele saksområdet", "Virksomheten er flyttet ut av staten som juridisk person", "Virksomheten rapporterer til Stortinget og ikke til statsråden"],
+      options: ["Politisk ledelse setter rammene, men holder seg unna enkeltsakene", "Politisk ledelse har gitt fra seg all styring med hele saksområdet", "Virksomheten er flyttet ut av staten som juridisk person", "Virksomheten rapporterer direkte til Stortinget i stedet for til statsråden"],
       explanation: "Uttrykket beskriver en arbeidsdeling: politikken bestemmer regelverk og budsjett, fagorganet avgjør den enkelte saken. Det er altså ikke fravær av styring, det sier ingenting om tilknytningsformen, og rapporteringslinjen går fortsatt til departementet.",
     },
     {
       question: "Hva er en forvaltningsbedrift?",
-      options: ["Statlig forretningsdrift innenfor staten som juridisk person", "Et heleid statlig selskap opprettet med hjemmel i en egen lov", "Et aksjeselskap der staten eier alle aksjene og velger hele styret", "Et kommunalt foretak med eget styre underlagt kommunestyret"],
+      options: ["Statlig forretningsdrift innenfor staten som juridisk person", "Et heleid statlig selskap opprettet med hjemmel i en egen lov", "Et aksjeselskap der staten eier alle aksjene og velger hele styret", "Et kommunalt foretak med eget styre underlagt kommunestyrets vedtekter"],
       explanation: "Forvaltningsbedriften driver forretningspreget produksjon, men er fortsatt del av staten som juridisk person, og instruksjonsmyndigheten består. Statsforetaket og aksjeselskapet er egne rettssubjekter, og det kommunale foretaket hører hjemme i kommunesektoren.",
     },
     {
@@ -609,7 +609,7 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan styrer staten et heleid statlig aksjeselskap?",
-      options: ["Gjennom generalforsamlingen, valg av styre og vedtektene", "Gjennom instruks fra statsråden til selskapets daglige leder", "Gjennom et årlig tildelingsbrev med mål og resultatkrav", "Gjennom omgjøring av selskapets beslutninger etter klage"],
+      options: ["Gjennom generalforsamlingen, valg av styre og vedtektene", "Gjennom instruks fra statsråden til selskapets daglige leder", "Gjennom et årlig tildelingsbrev med mål, resultatkrav og rapportering", "Gjennom omgjøring av selskapets beslutninger etter klage"],
       explanation: "Eierstyringen skjer i generalforsamlingen, ved valg av styre og gjennom vedtektene. Instruks og omgjøring forutsetter et forvaltningshierarki som ikke finnes her, og tildelingsbrevet er etatsstyringens redskap overfor forvaltningsorganer.",
     },
     {
@@ -624,7 +624,7 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilket av disse er et eksempel på indre fristilling?",
-      options: ["Mattilsynet, som er et forvaltningsorgan under departementsnivå", "Bane NOR, som forvalter jernbaneinfrastrukturen som statsforetak", "Avinor, som driver lufthavnene som et statlig aksjeselskap", "Posten Bring, som driver posttjenesten som eget rettssubjekt"],
+      options: ["Mattilsynet, som er et forvaltningsorgan under departementsnivå", "Bane NOR, som forvalter jernbanen som statsforetak", "Avinor, som driver lufthavnene som et statlig aksjeselskap", "Posten Bring, som driver posttjenesten som eget rettssubjekt"],
       explanation: "Mattilsynet er skilt ut fra departementet, men fortsatt et forvaltningsorgan med statsansatte, og det er indre fristilling. De tre andre er egne rettssubjekter utenfor forvaltningen og hører hjemme i den ytre kategorien.",
     },
     {
@@ -711,7 +711,7 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken kritikk av byråkratiet begrunnet New Public Management?",
-      options: ["At det var kostbart, tregt og lite opptatt av brukerens behov", "At det var for lite regelbundet og derfor uforutsigbart for brukeren", "At det ga for stor makt til politisk ledelse i enkeltsaker", "At det manglet faglig kompetanse i saksbehandlingen sin"],
+      options: ["At det var kostbart, tregt og lite opptatt av brukerens behov", "At det var for lite regelbundet og derfor uforutsigbart for brukeren", "At det ga for stor makt til den politiske ledelsen i den enkelte saken", "At det manglet faglig kompetanse i saksbehandlingen sin"],
       explanation: "Diagnosen var at regelstyringen ga kostbar og treg saksbehandling med for lite oppmerksomhet om resultat og bruker. Kritikken gjaldt altså ikke for lite regelbinding, ikke politisk innblanding og ikke fagkompetansen.",
     },
     {
@@ -721,17 +721,17 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skiller regelstyring fra resultatstyring?",
-      options: ["Regelstyring binder framgangsmåten, resultatstyring binder utfallet", "Regelstyring binder utfallet, resultatstyring binder framgangsmåten", "Regelstyring gjelder staten, resultatstyring gjelder kommunesektoren", "Regelstyring er bindende, mens resultatstyring bare er veiledende"],
+      options: ["Regelstyring binder framgangsmåten, resultatstyring binder utfallet", "Regelstyring binder utfallet, resultatstyring binder framgangsmåten", "Regelstyring gjelder staten, resultatstyring gjelder kommunesektoren", "Regelstyring er rettslig bindende, mens resultatstyring bare er veiledende"],
       explanation: "Regelstyring sier hvordan oppgaven skal løses, resultatstyring hva som skal komme ut av den. Begge er bindende, og begge brukes på alle forvaltningsnivåer — skillet går på hva styringen treffer.",
     },
     {
       question: "Hva er målforskyvning?",
-      options: ["At det som måles blir prioritert framfor det som ikke lar seg telle", "At målene i tildelingsbrevet endres i løpet av budsjettåret", "At virksomheten setter seg mål som er lettere enn de departementet ga", "At ansvaret for måloppnåelsen flyttes fra etaten til departementet"],
+      options: ["At det som måles blir prioritert framfor det som ikke lar seg telle", "At målene i tildelingsbrevet endres i løpet av budsjettåret", "At virksomheten setter seg mål som er lettere enn de departementet ga", "At ansvaret for måloppnåelsen flyttes fra etaten og opp til departementet"],
       explanation: "Målforskyvning er den systematiske innvendingen mot resultatstyring: innsatsen trekkes mot det tellbare, mens forebygging og sammensatte oppgaver nedprioriteres. De øvrige beskriver budsjettendringer, forhandling om ambisjonsnivå og ansvarsforhold.",
     },
     {
       question: "Hva er konkurranseutsetting?",
-      options: ["Produksjonen settes i konkurranse, men finansieringen er offentlig", "Eierskapet i en offentlig virksomhet selges til private kjøpere", "Det offentlige slutter å tilby tjenesten og overlater den til markedet", "Brukeren velger fritt blant leverandører det offentlige har godkjent"],
+      options: ["Produksjonen settes i konkurranse, men finansieringen er offentlig", "Eierskapet i en offentlig virksomhet selges i sin helhet til private kjøpere", "Det offentlige slutter å tilby tjenesten og overlater den til markedet", "Brukeren velger fritt blant leverandører det offentlige har godkjent"],
       explanation: "Ved konkurranseutsetting settes produksjonen ut på anbud, mens finansieringen og ansvaret forblir offentlige. Salg av eierskap og uttrekk fra et felt er privatisering, og brukerstyrt valg blant godkjente tilbydere er fritt brukervalg.",
     },
     {
@@ -741,7 +741,7 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En kommune setter drift av et sykehjem ut på anbud. Hva har den gjort?",
-      options: ["Konkurranseutsatt tjenesten, men beholdt ansvar og finansiering", "Privatisert tjenesten ved å overføre ansvaret til en privat aktør", "Innført fritt brukervalg for beboerne ved sykehjemmet", "Fristilt sykehjemmet ved å gjøre det til et kommunalt foretak"],
+      options: ["Konkurranseutsatt tjenesten, men beholdt ansvar og finansiering", "Privatisert tjenesten ved å overføre ansvaret til en privat aktør", "Innført fritt brukervalg for beboerne ved sykehjemmet", "Fristilt sykehjemmet ved å gjøre det om til et kommunalt foretak med eget styre"],
       explanation: "Anbud på driften er konkurranseutsetting: kommunen betaler fortsatt og svarer fortsatt for at beboeren får tjenesten. Privatisering ville flyttet ansvaret ut, brukervalg lar brukeren velge fortløpende, og foretaksdannelse er et organisatorisk grep.",
     },
     {
@@ -751,12 +751,12 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er bestiller–utfører-modellen?",
-      options: ["En deling i én enhet som definerer behovet og én som leverer", "En avtale mellom to kommuner om å løse en oppgave sammen", "En ordning der brukeren bestiller tjenesten direkte hos leverandøren", "En modell der kommunestyret vedtar hver enkelt bestilling selv"],
+      options: ["En deling i én enhet som definerer behovet og én som leverer", "En avtale mellom to kommuner om å løse en lovpålagt oppgave sammen", "En ordning der brukeren bestiller tjenesten direkte hos leverandøren", "En modell der kommunestyret vedtar hver enkelt bestilling selv"],
       explanation: "Modellen deler organisasjonen i en bestillerrolle og en utførerrolle, og den kan brukes også når all produksjon er i egen regi. Interkommunalt samarbeid, brukerstyrt bestilling og politisk enkeltsaksbehandling er andre ordninger.",
     },
     {
       question: "Hva kjennetegner fritt brukervalg?",
-      options: ["Brukeren velger blant godkjente leverandører, og det offentlige betaler", "Kommunen velger én leverandør på forhånd etter en åpen anbudskonkurranse", "Brukeren betaler selv og velger fritt i et privat marked", "Kommunen lar enhetene sine konkurrere om brukerne seg imellom"],
+      options: ["Brukeren velger blant godkjente leverandører, og det offentlige betaler", "Kommunen velger én leverandør på forhånd etter en åpen anbudskonkurranse", "Brukeren betaler selv og velger fritt i et privat marked", "Kommunen lar sine egne enheter konkurrere om brukerne seg imellom, uten private"],
       explanation: "Ved fritt brukervalg skjer konkurransen i markedet: brukeren velger fortløpende, og det offentlige betaler. Ved konkurranseutsetting skjer konkurransen om markedet, og at brukeren betaler selv, ville vært privatisering av ansvaret.",
     },
     {
@@ -771,17 +771,17 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er brukerorientering?",
-      options: ["Å legge tjenesten til rette etter brukerens behov og erfaring", "Å la brukeren betale en egenandel som dekker deler av kostnaden", "Å overlate til brukeren å velge mellom flere leverandører", "Å måle de ansattes innsats ut fra hvor mange brukere de betjener"],
+      options: ["Å legge tjenesten til rette etter brukerens behov og erfaring", "Å la brukeren betale en egenandel som dekker deler av kostnaden", "Å overlate til brukeren å velge mellom flere godkjente leverandører", "Å måle de ansattes innsats ut fra hvor mange brukere de betjener"],
       explanation: "Brukerorientering handler om å utforme tjenesten ut fra brukerens perspektiv, gjennom undersøkelser, serviceerklæringer og klarere informasjon. Egenandeler, valgfrihet og produktivitetsmåling er tre andre grep.",
     },
     {
       question: "Hva er egenregi?",
-      options: ["At det offentlige produserer tjenesten med egne ansatte", "At tjenesten drives av et selskap det offentlige eier alene", "At kommunen kjøper tjenesten av en annen kommune", "At brukeren selv organiserer og betaler for tjenesten"],
+      options: ["At det offentlige produserer tjenesten med egne ansatte", "At tjenesten drives av et selskap det offentlige eier alene", "At kommunen kjøper tjenesten av en annen kommune", "At brukeren selv organiserer og betaler for tjenesten i sin helhet"],
       explanation: "Egenregi er produksjon i egen organisasjon, og det er utgangspunktet enhver konkurranseutsetting måles mot. Selskapsdrift er fristilling, kjøp fra nabokommunen er interkommunalt samarbeid, og brukerfinansiering er noe helt annet.",
     },
     {
       question: "Hva kjennetegner tonivåmodellen i kommunene?",
-      options: ["Etatsnivået fjernes, og enhetene rapporterer til kommunedirektøren", "Kommunen deles i to selskaper med hvert sitt styre og eget regnskap", "Kommunestyret og formannskapet deler ansvaret for driften mellom seg", "Tjenestene organiseres i to nivåer med hvert sitt kommunestyre"],
+      options: ["Etatsnivået fjernes, og enhetene rapporterer til kommunedirektøren", "Kommunen deles i to selskaper med hvert sitt styre og eget regnskap", "Kommunestyret og formannskapet deler ansvaret for driften mellom seg", "Tjenestene organiseres i to nivåer med hvert sitt folkevalgte kommunestyre"],
       explanation: "Tonivåmodellen fjerner mellomnivået av etatssjefer og gir enhetslederne utvidet ansvar for budsjett, personale og fag. De øvrige beskriver selskapsdannelse, politisk arbeidsdeling og en kommunestruktur som ikke finnes.",
     },
     {
@@ -806,7 +806,7 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva gjør konkurranseutsetting med ansvarsplasseringen?",
-      options: ["Kjeden får flere ledd: leverandør, bestiller og avtalens ordlyd", "Ansvaret flyttes i sin helhet fra kommunen til leverandøren", "Ansvaret flyttes fra kommunestyret til statsforvalteren", "Ansvaret bortfaller så lenge avtalen er inngått etter regelverket"],
+      options: ["Kjeden får flere ledd: leverandør, bestiller og avtalens ordlyd", "Ansvaret flyttes i sin helhet fra kommunen over til den private leverandøren", "Ansvaret flyttes fra kommunestyret til statsforvalteren", "Ansvaret bortfaller så lenge avtalen er inngått etter regelverket"],
       explanation: "Ansvarsplasseringen blir mer sammensatt, siden svikten kan ligge hos leverandøren, i kravspesifikasjonen eller i oppfølgingen. Kommunen beholder likevel ansvaret overfor innbyggeren, uansett hvem som utfører oppgaven.",
     },
     {
@@ -816,7 +816,7 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er hovedargumentet for at markedsmekanismer svekker politisk styring?",
-      options: ["Avtalen binder i avtaleperioden, og nye flertall arver bindingene", "Leverandørene får rett til å bestemme innholdet i tjenesten", "Kommunestyret mister retten til å vedta budsjettet for tjenesten", "Statsforvalteren overtar kontrollen med hvordan avtalen følges opp"],
+      options: ["Avtalen binder i avtaleperioden, og nye flertall arver bindingene", "Leverandørene får rett til å bestemme innholdet i tjenesten", "Kommunestyret mister retten til å vedta budsjettet for den aktuelle tjenesten", "Statsforvalteren overtar kontrollen med hvordan avtalen følges opp"],
       explanation: "Innvendingen gjelder bindingstiden: styringen flyttes fram til anskaffelsestidspunktet og låses deretter, slik at et nytt flertall arver valg det ikke har tatt. Leverandøren bestemmer ikke innholdet, og verken budsjettmyndighet eller kontrollansvar flyttes.",
     },
     {
@@ -831,14 +831,14 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er hovedforskjellen mellom effektivitet og allokeringseffektivitet?",
-      options: ["Den ene gjelder ressursbruken, den andre hva ressursene brukes på", "Den ene gjelder staten, den andre gjelder kommunesektoren", "Den ene gjelder kostnader, den andre gjelder kvaliteten på tjenesten", "Den ene måles av etaten selv, den andre måles av Riksrevisjonen"],
+      options: ["Den ene gjelder ressursbruken, den andre hva ressursene brukes på", "Den ene gjelder staten, den andre gjelder kommunesektoren", "Den ene gjelder kostnader, den andre gjelder kvaliteten på tjenesten", "Den ene måles av etaten selv, mens den andre bare måles av Riksrevisjonen"],
       explanation: "Effektivitet i New Public Managements forstand spør om vi gjør tingene riktig; allokeringseffektivitet spør om vi gjør de riktige tingene, altså om tilbudet svarer til innbyggernes ønsker. Skillet går ikke på forvaltningsnivå eller på hvem som måler.",
     },
   ],
   'stv1400-2-3': [
     {
       question: "Hva er post-NPM?",
-      options: ["Reformer som svarer på fragmenteringen med samordning og helhet", "Reformer som viderefører oppsplittingen i enda mindre enheter", "Reformer som overfører offentlige oppgaver til private aktører", "Reformer som avvikler mål- og resultatstyringen i statsforvaltningen"],
+      options: ["Reformer som svarer på fragmenteringen med samordning og helhet", "Reformer som viderefører oppsplittingen i enda mindre enheter", "Reformer som overfører offentlige oppgaver til private aktører", "Reformer som avvikler mål- og resultatstyringen i staten"],
       explanation: "Post-NPM er reaksjonen på at oppsplittingen kostet helhet, og grepene er sammenslåing, koordinering og felles mål. Videre oppsplitting er den forrige bølgen, overføring til private er privatisering, og mål- og resultatstyringen består.",
     },
     {
@@ -848,7 +848,7 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er det upresist å si at post-NPM avløste New Public Management?",
-      options: ["Post-NPM legger seg oppå; det gamle laget blir liggende", "Post-NPM ble aldri gjennomført i norsk statsforvaltning", "Post-NPM gjelder bare kommunesektoren og ikke staten", "Post-NPM er et rent akademisk begrep uten praktiske grep"],
+      options: ["Post-NPM legger seg oppå; det gamle laget blir liggende", "Post-NPM ble aldri gjennomført i norsk statsforvaltning", "Post-NPM gjelder bare kommunesektoren og ikke statsforvaltningen", "Post-NPM er et rent akademisk begrep uten praktiske grep"],
       explanation: "Mål- og resultatstyringen og de fristilte enhetene består, og samordningsgrepene kommer i tillegg — det kalles lagdeling. Post-NPM er gjennomført i Norge, gjelder begge nivåer og har svært konkrete virkemidler.",
     },
     {
@@ -858,7 +858,7 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er horisontal samordning?",
-      options: ["Koordinering på tvers av sektorer og etater på samme nivå", "Koordinering mellom departement, direktorat og ytre etat", "Koordinering mellom staten og kommunene om felles oppgaver", "Koordinering mellom Norge og andre land i internasjonale organer"],
+      options: ["Koordinering på tvers av sektorer og etater på samme nivå", "Koordinering mellom departement, direktorat og ytre etat i linjen", "Koordinering mellom staten og kommunene om felles oppgaver", "Koordinering mellom Norge og andre land i internasjonale organer"],
       explanation: "Horisontal samordning går sidelengs, på tvers av sektorgrensene. Linjen fra departement til underliggende virksomhet er vertikal samordning, mens de to øvrige beskriver forvaltningsnivåer og mellomstatlig samarbeid.",
     },
     {
@@ -868,7 +868,7 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er gjenstridige tverrsektorielle problemer, «wicked issues»?",
-      options: ["Problemer uten entydig løsning som går på tvers av sektorene", "Problemer som er tekniske og krever spesialisert fagkompetanse", "Problemer som oppstår fordi et regelverk er uklart formulert", "Problemer som krever store bevilgninger over lang tid"],
+      options: ["Problemer uten entydig løsning som går på tvers av sektorene", "Problemer som er tekniske og krever spesialisert fagkompetanse", "Problemer som oppstår fordi et regelverk er uklart formulert", "Problemer som krever store bevilgninger over lang tid for å bli løst"],
       explanation: "Slike problemer lar seg beskrive på flere måter, har ingen entydig løsning, og ingen enkelt etat har mandat eller budsjett til hele problemet. Tekniske spørsmål, uklare regler og kostbare tiltak er andre slags utfordringer.",
     },
     {
@@ -883,7 +883,7 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken rolle har Statsministerens kontor i samordningen?",
-      options: ["Det forbereder og avklarer saker som berører flere departementer", "Det instruerer den enkelte statsråden i saker på tvers av sektorer", "Det overprøver vedtak departementene har truffet i enkeltsaker", "Det fordeler budsjettmidler mellom departementene hvert år"],
+      options: ["Det forbereder og avklarer saker som berører flere departementer", "Det instruerer den enkelte statsråden i saker på tvers av sektorer", "Det overprøver de vedtakene departementene har truffet i den enkelte saken", "Det fordeler budsjettmidler mellom departementene hvert år"],
       explanation: "Kontoret styrer prosessen fram mot regjeringsbehandling og påser at berørte departementer er hørt. Det har ingen instruksjonsmyndighet over statsråder, ingen omgjøringsrett og ingen egen budsjettmyndighet.",
     },
     {
@@ -893,22 +893,22 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er tverrsektorielle mål som samordningsgrep?",
-      options: ["Mål som skrives inn i flere tildelingsbrev samtidig", "Mål som Stortinget vedtar i stedet for regjeringen", "Mål som gjelder både statlige og kommunale virksomheter", "Mål som erstatter de sektorspesifikke målene helt"],
+      options: ["Mål som skrives inn i flere tildelingsbrev samtidig", "Mål som Stortinget vedtar i stedet for at regjeringen gjør det", "Mål som gjelder både statlige og kommunale virksomheter", "Mål som erstatter de sektorspesifikke målene helt"],
       explanation: "Grepet bruker mål- og resultatstyringen til å rette flere etater mot samme sak, uten organisasjonsendring. Målene kommer i tillegg til de sektorspesifikke, og hvem som vedtar dem og hvilke nivåer de gjelder, er andre spørsmål.",
     },
     {
       question: "Hva er svakheten ved tverrsektorielle mål?",
-      options: ["Delte mål taper mot målene hver etat måles på alene", "Delte mål kan bare brukes i kommunesektoren, ikke i staten", "Delte mål krever at etatene slås sammen på forhånd", "Delte mål kan ikke rapporteres på i årsrapporten"],
+      options: ["Delte mål taper mot målene hver etat måles på alene", "Delte mål kan bare brukes i kommunesektoren, ikke i staten", "Delte mål krever at etatene slås sammen organisatorisk først", "Delte mål kan ikke rapporteres på i årsrapporten"],
       explanation: "Når et mål deles, blir ansvaret uklart, og det taper i konkurransen med de målene virksomheten måles på alene. Grepet krever ingen sammenslåing, gjelder alle nivåer og kan rapporteres på som andre mål.",
     },
     {
       question: "Hva beskriver pendelbevegelsen i reformlogikken?",
-      options: ["At reformene svinger mellom spesialisering og samordning", "At reformene gradvis gjør forvaltningen mer effektiv over tid", "At reformene veksler mellom statlig og kommunalt ansvar", "At reformene følger skiftende flertall i Stortinget"],
+      options: ["At reformene svinger mellom spesialisering og samordning", "At reformene gradvis gjør forvaltningen mer effektiv over tid", "At reformene veksler mellom statlig og kommunalt ansvar for oppgavene", "At reformene følger skiftende flertall i Stortinget"],
       explanation: "Pendelen svinger fordi begge hensynene er ekte og ikke kan maksimeres samtidig: spesialisering gir dybde og grenseflater, samordning gir helhet og diffust ansvar. Det er verken lineær framgang, nivåveksling eller ren flertallseffekt.",
     },
     {
       question: "Hva menes med lagdeling av reformer?",
-      options: ["Nye reformer legger seg oppå de gamle uten å fjerne dem", "Reformene innføres først i staten og deretter i kommunene", "Reformene gjennomføres trinnvis over flere budsjettår", "Reformene rammer ledernivået før de når de ansatte"],
+      options: ["Nye reformer legger seg oppå de gamle uten å fjerne dem", "Reformene innføres først i staten og deretter i kommunene", "Reformene gjennomføres trinnvis over flere påfølgende budsjettår", "Reformene rammer ledernivået før de når de ansatte"],
       explanation: "Forvaltningen bærer flere reformlogikker samtidig: klassisk regelstyring, mål- og resultatstyring og samordningskrav. Rekkefølge mellom nivåer, innfasing over år og hvem som berøres først, er andre forhold.",
     },
     {
@@ -918,7 +918,7 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er sektorgrensene vanskelige å viske ut i Norge?",
-      options: ["Fordi grensene følger av ministeransvaret overfor Stortinget", "Fordi Grunnloven fastsetter hvilke departementer som skal finnes", "Fordi etatene motsetter seg endringer i sine egne mandater", "Fordi EØS-avtalen krever en bestemt inndeling av forvaltningen"],
+      options: ["Fordi grensene følger av ministeransvaret overfor Stortinget", "Fordi Grunnloven fastsetter hvilke departementer som skal finnes", "Fordi etatene selv motsetter seg alle endringer i sine egne mandater", "Fordi EØS-avtalen krever en bestemt inndeling av forvaltningen"],
       explanation: "Skal én statsråd kunne stilles til ansvar for et område, må området ha en grense — og den grensen er samtidig siloveggen. Grunnloven fastsetter ingen departementsstruktur, og EØS stiller ingen slike krav.",
     },
     {
@@ -955,12 +955,12 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken autoritetstype hører byråkratiet til hos Weber?",
-      options: ["Legal-rasjonell autoritet, der lydigheten hviler på regelen", "Tradisjonell autoritet, der lydigheten hviler på sedvane og arv", "Karismatisk autoritet, der lydigheten hviler på personen", "Kollegial autoritet, der lydigheten hviler på flertallet"],
+      options: ["Legal-rasjonell autoritet, der lydigheten hviler på regelen", "Tradisjonell autoritet, der lydigheten hviler på sedvane og arv", "Karismatisk autoritet, der lydigheten hviler på personen som leder", "Kollegial autoritet, der lydigheten hviler på flertallet"],
       explanation: "Byråkratiet er organisasjonsformen som hører til legal-rasjonell autoritet: man adlyder fordi ordren er gitt av noen som har myndighet etter en regel man aksepterer. Ved tradisjonell autoritet hviler plikten på sedvane, ved karismatisk på personen selv — og det er nettopp derfor autoriteten i byråkratiet følger stillingen.",
     },
     {
       question: "Hva innebærer det at autoriteten er knyttet til posisjonen?",
-      options: ["Myndigheten følger stillingen og faller bort når man går ut av den", "Myndigheten følger personen og kan tas med til en ny stilling", "Myndigheten hviler på personlige egenskaper hos den som leder", "Myndigheten må delegeres på nytt fra den politiske ledelsen i hver enkelt sak"],
+      options: ["Myndigheten følger stillingen og faller bort når man går ut av den", "Myndigheten følger personen og kan tas med over i en ny stilling i etaten", "Myndigheten hviler på personlige egenskaper hos den som leder", "Myndigheten må delegeres på nytt fra den politiske ledelsen i hver enkelt sak"],
       explanation: "Myndigheten skifter hender samme dag som stillingen gjør det, og det er dette som gjør organisasjonen uavhengig av enkeltpersoner. At myndigheten skulle følge personen eller hvile på personlige egenskaper, er tvert imot kjennetegnet ved den karismatiske autoriteten Weber setter opp som motstykke.",
     },
     {
@@ -970,7 +970,7 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er meritokrati i Webers byråkratimodell?",
-      options: ["At stillinger tildeles etter formelle kvalifikasjoner", "At de ansatte belønnes etter målte resultater i stillingen", "At stillinger fordeles etter tjenestetid og ansiennitet alene", "At de ansatte velges av dem de fatter vedtak om"],
+      options: ["At stillinger tildeles etter formelle kvalifikasjoner", "At de ansatte belønnes etter målte resultater i stillingen", "At stillinger fordeles etter tjenestetid og ansiennitet alene", "At de ansatte velges ved avstemning av dem de fatter vedtak om"],
       explanation: "Meritokratiet er rekruttering og forfremmelse etter utdanning, prøve og erfaring, som vern mot at stillinger fylles etter slekt, vennskap eller partibok. Belønning etter målte resultater er prestasjonslønn — et New Public Management-element som nettopp utfordrer Webers punkt om fast lønn til stillingen.",
     },
     {
@@ -980,7 +980,7 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva peker formelen «organisasjon uten mennesker» på?",
-      options: ["At systemet av stillinger og regler er det avgjørende, ikke hvem som fyller dem", "At forvaltningen bør ha færrest mulig ansatte målt mot antall innbyggere", "At avgjørelsene i forvaltningen bør automatiseres og i stedet treffes av datasystemer", "At de ansatte i forvaltningen ikke bør ha direkte kontakt med publikum"],
+      options: ["At systemet av stillinger og regler er det avgjørende, ikke hvem som fyller dem", "At forvaltningen bør ha færrest mulig ansatte målt mot antallet innbyggere den betjener", "At avgjørelsene i forvaltningen bør automatiseres og i stedet treffes av datasystemer", "At de ansatte i forvaltningen ikke bør ha direkte kontakt med publikum"],
       explanation: "Formelen er en tilspisset måte å si at idealtypen beskriver et system av stillinger og regler der det er likegyldig hvem som sitter i dem. Den handler verken om bemanningstall, automatisering eller publikumskontakt — og speilvendingen «mennesker uten organisasjon» brukes om den motsatte modellen.",
     },
     {
@@ -1005,12 +1005,12 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er det viktigste avviket fra ren regelstyring i statlig etatsstyring i dag?",
-      options: ["At etatene styres gjennom mål og resultatkrav i tildelingsbrev", "At statsråden griper inn og instruerer etatene i enkeltsaker", "At klagesakene er flyttet fra forvaltningen over til domstolene", "At etatene har fått myndighet til å fastsette lover på eget felt"],
+      options: ["At etatene styres gjennom mål og resultatkrav i tildelingsbrev", "At statsråden løpende griper inn og instruerer etatene i enkeltsaker", "At klagesakene er flyttet fra forvaltningen over til domstolene", "At etatene har fått myndighet til å fastsette lover på eget felt"],
       explanation: "Tildelingsbrevet samler bevilgning, mål, resultatkrav og rapporteringskrav for året, og binder dermed resultatet i stedet for framgangsmåten. Instruks i enkeltsaker ville vært mer direkte styring og ikke mindre, og de to andre alternativene beskriver ordninger som ikke er den generelle styringsformen.",
     },
     {
       question: "Hva menes med at forvaltningen har skjønn?",
-      options: ["At regelverket lar et handlingsrom stå åpent som noen må fylle", "At forvaltningen kan se bort fra regelverket i særlig vanskelige saker", "At forvaltningen kan avslå en søknad uten å gi noen begrunnelse", "At politisk ledelse avgjør de vanskeligste enkeltsakene selv"],
+      options: ["At regelverket lar et handlingsrom stå åpent som noen må fylle", "At forvaltningen kan se bort fra regelverket i særlig vanskelige saker", "At forvaltningen kan avslå en søknad uten å gi noen begrunnelse", "At politisk ledelse selv avgjør de vanskeligste enkeltsakene i etaten"],
       explanation: "Skjønnet oppstår der loven sier «etter en samlet vurdering» eller «når særlige grunner foreligger». Det er ikke rett til å fravike regelverket eller til å slippe begrunnelsen — skjønnet er rammet inn av krav om saklighet, likebehandling og forsvarlig begrunnelse, og kan overprøves.",
     },
     {
@@ -1020,7 +1020,7 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skiller instruksjonsmyndighet fra omgjøringsmyndighet?",
-      options: ["Den første virker før avgjørelsen faller, den andre etter", "Den første gjelder statlige organer, den andre kommunale", "Den første gjelder selskaper, den andre forvaltningsorganer", "Den første må være skriftlig, den andre kan være muntlig"],
+      options: ["Den første virker før avgjørelsen faller, den andre etter", "Den første gjelder statlige organer, den andre gjelder kommunale", "Den første gjelder selskaper, den andre forvaltningsorganer", "Den første må være skriftlig, den andre kan være muntlig"],
       explanation: "Instruksjonsmyndigheten er retten til å gi pålegg om hvordan et underordnet organ skal opptre, mens omgjøringsmyndigheten er retten til å endre eller oppheve et vedtak som allerede er truffet. Skillet er tidspunktet — ikke forvaltningsnivået, organisasjonsformen eller formkravet.",
     },
     {
@@ -1035,12 +1035,12 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen på regelstyring og mål- og resultatstyring?",
-      options: ["Den ene binder framgangsmåten, den andre binder resultatet", "Den ene gjelder i staten, den andre gjelder i kommunene", "Den ene er lovfestet, den andre bygger på frivillige avtaler", "Den ene gjelder ledere, den andre gjelder saksbehandlere"],
+      options: ["Den ene binder framgangsmåten, den andre binder resultatet", "Den ene gjelder i staten, den andre gjelder i kommunene", "Den ene er lovfestet, den andre bygger på frivillige avtaler", "Den ene gjelder lederne, den andre gjelder saksbehandlerne under dem"],
       explanation: "Regelstyringen prioriterer likebehandling og forutsigbarhet i hver enkelt sak, mens resultatstyringen prioriterer måloppnåelse og lar virksomheten velge veien. I norsk forvaltning ligger de i hvert sitt lag: regler i enkeltvedtak mot borgeren, resultatkrav i styringen av etaten.",
     },
     {
       question: "Hva er regelrytteri?",
-      options: ["At regelen følges så bokstavelig at formålet med den går tapt", "At saksbehandleren ser bort fra regelen i vanskelige saker", "At regelverket endres så ofte at praksis ikke rekker å sette seg", "At politisk ledelse instruerer etaten i strid med regelverket"],
+      options: ["At regelen følges så bokstavelig at formålet med den går tapt", "At saksbehandleren ser helt bort fra regelen i de vanskeligste sakene", "At regelverket endres så ofte at praksis ikke rekker å sette seg", "At politisk ledelse instruerer etaten i strid med regelverket"],
       explanation: "Regelrytteri er en utilsiktet virkning av at modellen fungerer etter hensikten, ikke et avvik fra den. Sammen med målforskyvning er dette den faglige byråkratikritikken, i motsetning til dagligtalens bruk av «byråkrati» som skjellsord, som ikke gir uttelling i en besvarelse.",
     },
     {
@@ -1085,7 +1085,7 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er A-markøren i en oppgave om Webers modell målt mot norsk forvaltning?",
-      options: ["Å skille rettighetslaget fra styringslaget i stedet for å si «delvis»", "Å gjengi alle åtte kjennetegnene i riktig rekkefølge og med presise ord", "Å konkludere med at modellen er utdatert etter reformene i forvaltningen", "Å bruke størst mulig plass på redegjørelsen før drøftingen begynner"],
+      options: ["Å skille rettighetslaget fra styringslaget i stedet for å si «delvis»", "Å gjengi alle åtte kjennetegnene i riktig rekkefølge og med presise ord", "Å konkludere med at modellen er utdatert etter reformene i forvaltningen", "Å bruke størst mulig plass på redegjørelsen av modellen før drøftingen begynner"],
       explanation: "Lagdelingen er grepet: regelstyringen står uendret der borgerens rettigheter avgjøres, mens resultatstyringen har overtatt der etaten styres som organisasjon. De fleste besvarelser lander på at modellen «delvis» gjelder, og det er nettopp der graderingen skiller god fra beste.",
     },
   ],
@@ -1107,12 +1107,12 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forholdet mellom passiv og aktiv representasjon?",
-      options: ["Sammenhengen er en hypotese som må prøves, ikke en definisjon", "Aktiv representasjon følger av passiv representasjon per definisjon", "De to begrepene beskriver samme forhold med to ulike fagord", "Passiv representasjon forutsetter at aktiv allerede er oppnådd"],
+      options: ["Sammenhengen er en hypotese som må prøves, ikke en definisjon", "Aktiv representasjon følger av passiv representasjon per definisjon", "De to begrepene beskriver nøyaktig samme forhold med to ulike fagord", "Passiv representasjon forutsetter at aktiv allerede er oppnådd"],
       explanation: "Spranget forutsetter tre ting samtidig: at stillingen har skjønnsrom, at byråkraten identifiserer seg med gruppen på jobb, og at gruppen er stor nok til å ha gjennomslag. Faller én av dem bort, kan speilingen være reell uten at noen avgjørelser endres.",
     },
     {
       question: "Hva peker formelen «mennesker uten organisasjon» på?",
-      options: ["At det avgjørende er hvem de ansatte er, ikke strukturen de sitter i", "At de ansatte i forvaltningen mangler faglig ledelse og oppfølging", "At forvaltningen er organisert flatt og uten hierarkiske nivåer", "At innbyggerne deltar i politikken uten å være organisert i foreninger"],
+      options: ["At det avgjørende er hvem de ansatte er, ikke strukturen de sitter i", "At de ansatte i forvaltningen mangler faglig ledelse og oppfølging", "At forvaltningen er organisert flatt og uten hierarkiske nivåer", "At innbyggerne deltar i politikken uten å være organisert"],
       explanation: "Formelen er en bevisst speilvending av Webers «organisasjon uten mennesker», der systemet av stillinger og regler var det avgjørende. Å bytte om på de to formlene er en dokumentert forvekslingsfelle, og ingen av dem er ment helt bokstavelig.",
     },
     {
@@ -1229,7 +1229,7 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er hovedoppgaven til et direktorat?",
-      options: ["Å iverksette politikken, forvalte regelverk og gi faglige råd", "Å utforme politikken og forberede saker for regjeringen og Stortinget", "Å kontrollere at private og offentlige aktører følger regelverket", "Å samordne regjeringens arbeid på tvers av alle sektorene i staten"],
+      options: ["Å iverksette politikken, forvalte regelverk og gi faglige råd", "Å utforme politikken og forberede saker for regjeringen og Stortinget", "Å kontrollere at aktørene i sektoren følger regelverket", "Å samordne regjeringens arbeid på tvers av alle sektorene i staten"],
       explanation: "Direktoratet er det utøvende fagorganet: det forvalter regelverk og tilskudd, treffer enkeltvedtak og bygger kunnskap som går oppover som faglige råd. Politikkutforming hører til departementet, kontrollfunksjonen til tilsynet, og tverrgående samordning til Statsministerens kontor.",
     },
     {
@@ -1254,17 +1254,17 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skjer med den politiske styringen når klageveien legges til en uavhengig nemnd?",
-      options: ["Omgjøringsmyndigheten forsvinner selv om organformen er uendret", "Instruksjonsmyndigheten utvides, fordi departementet får friere hender", "Organet blir et eget rettssubjekt og forlater dermed forvaltningen", "Ministeransvaret for saksfeltet faller bort sammen med klagesakene"],
+      options: ["Omgjøringsmyndigheten forsvinner selv om organformen er uendret", "Instruksjonsmyndigheten utvides, fordi departementet får friere hender", "Organet blir et eget rettssubjekt utenfor forvaltningen", "Ministeransvaret for saksfeltet faller bort sammen med klagesakene"],
       explanation: "Da er en del av fristillingen gjennomført uten at organisasjonsformen er endret: departementet kan ikke lenger nå saken langs klageveien. Instruksjonsmyndigheten utvides ikke, organet er fortsatt et forvaltningsorgan, og statsråden svarer fortsatt for feltet.",
     },
     {
       question: "Hva menes med lovfestet uavhengighet i et forvaltningsorgan?",
-      options: ["At loven avskjærer instruksjon i den enkelte saken organet avgjør", "At organet er skilt ut av staten og gjort til et eget rettssubjekt", "At organet rapporterer direkte til Stortinget i stedet for til statsråden", "At organet selv bestemmer hvilket regelverk det skal håndheve på feltet"],
+      options: ["At loven avskjærer instruksjon i den enkelte saken organet avgjør", "At organet er skilt ut av staten som eget rettssubjekt", "At organet rapporterer direkte til Stortinget i stedet for til statsråden", "At organet selv bestemmer hvilket regelverk det skal håndheve på feltet"],
       explanation: "Lovgiveren setter hovedregelen om instruksjonsmyndighet til side for bestemte sakstyper, slik at avgjørelsen treffes ut fra faglige eller rettslige kriterier alene. Organet er fortsatt et forvaltningsorgan under en statsråd, og politikken fastsetter fortsatt regelverket og budsjettet.",
     },
     {
       question: "Hva er etatsstyring?",
-      options: ["Departementets løpende styring gjennom mål og resultatkrav", "Direktoratets faglige rådgivning oppover til den politiske ledelsen", "Stortingets kontroll med hvordan bevilgningene er brukt i etatene", "Tilsynets kontroll med at underliggende virksomheter følger regelverket"],
+      options: ["Departementets løpende styring gjennom mål og resultatkrav", "Direktoratets faglige rådgivning oppover til den politiske ledelsen", "Stortingets kontroll med bruken av bevilgningene", "Tilsynets kontroll med at underliggende virksomheter følger regelverket"],
       explanation: "Etatsstyringen skjer gjennom det årlige tildelingsbrevet og faste styringsmøter, og er mål- og resultatstyring anvendt på forvaltningen. Faglige råd går motsatt vei, Stortingets kontroll er en annen relasjon, og tilsyn er en oppgavetype, ikke en styringsform.",
     },
     {
@@ -1279,12 +1279,12 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er ministeransvarets to former?",
-      options: ["Konstitusjonelt ansvar med riksrett og parlamentarisk med mistillit", "Faglig ansvar for etatene og økonomisk ansvar for budsjettet i sektoren", "Personlig ansvar for egne vedtak og kollektivt ansvar for regjeringens", "Rettslig ansvar overfor domstolene og administrativt ansvar overfor SMK"],
+      options: ["Konstitusjonelt ansvar med riksrett og parlamentarisk med mistillit", "Faglig ansvar for etatene og økonomisk ansvar for budsjettet i sektoren", "Personlig ansvar for egne vedtak og kollektivt for regjeringens", "Rettslig ansvar overfor domstolene og administrativt ansvar overfor SMK"],
       explanation: "Det konstitusjonelle ansvaret er rettslig og håndheves gjennom riksrett som en sjelden brukt sikkerhetsventil, mens det parlamentariske ansvaret virker gjennom Stortingets mulighet til å vedta mistillit. De øvrige inndelingene er ikke ministeransvarets to former.",
     },
     {
       question: "Hva skjer med ministeransvaret når en oppgave legges til et organ med lovfestet uavhengighet?",
-      options: ["Statsråden svarer for feltet, men kan ikke gripe inn i saken", "Ansvaret følger med myndigheten over til det uavhengige organet", "Ansvaret deles likt mellom statsråden og organets øverste leder", "Ansvaret bortfaller for hele sektoren så lenge ordningen består"],
+      options: ["Statsråden svarer for feltet, men kan ikke gripe inn i saken", "Ansvaret følger med myndigheten over til organet", "Ansvaret deles likt mellom statsråden og organets øverste leder", "Ansvaret bortfaller for hele sektoren så lenge ordningen består"],
       explanation: "Ansvaret ligger fast mens styringsredskapene flyttes, og nettopp gapet mellom ansvar og redskap er den demokratiske kostnaden ved spesialisering. Ansvaret følger verken med myndigheten, deles eller bortfaller.",
     },
     {
@@ -1610,12 +1610,12 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
   'stv1400-5-1': [
     {
       question: "Hva er et velferdsregime hos Esping-Andersen?",
-      options: ["Et mønster for hvordan ansvaret for velferd er fordelt mellom stat, marked og familie", "En samling enkeltordninger som et land har vedtatt over tid, uten noe felles mønster mellom dem", "Et mål på hvor mye et land bruker på velferd målt mot samlet verdiskaping", "En rangering av land etter hvor godt velferdsordningene deres fungerer i praksis"],
+      options: ["Et mønster for hvordan ansvaret for velferd er fordelt mellom stat, marked og familie", "En løs samling enkeltordninger uten noe felles mønster mellom dem", "Et mål på hvor mye et land bruker på velferd målt mot samlet verdiskaping", "En rangering av land etter hvor godt velferdsordningene deres fungerer i praksis"],
       explanation: "Regimebegrepet fanger et sammenhengende mønster: hvem som bærer ansvaret, hva som utløser retten, og hvilke skiller ordningene skaper. Det er verken en løs samling ordninger, et utgiftsmål eller en rangering — at ordningene henger sammen, er selve poenget.",
     },
     {
       question: "Hvorfor er det galt å si at Esping-Andersen rangerte velferdsstatene?",
-      options: ["Fordi de tre regimene er en typologi som sorterer etter logikk, ikke en skala som måler kvalitet", "Fordi han bare undersøkte et fåtall nordiske land og derfor manglet grunnlag for å sammenligne systemer", "Fordi rangeringen hans senere ble trukket tilbake av forskere som fant motstridende data", "Fordi han mente at alle velferdsstater i praksis fungerer omtrent like godt for innbyggerne"],
+      options: ["Fordi de tre regimene er en typologi som sorterer etter logikk, ikke en skala som måler kvalitet", "Fordi han bare undersøkte et fåtall nordiske land og manglet sammenligningsgrunnlag", "Fordi rangeringen hans senere ble trukket tilbake av forskere som fant motstridende data", "Fordi han mente at alle velferdsstater i praksis fungerer omtrent like godt for innbyggerne"],
       explanation: "En typologi sorterer tilfeller etter hvilke trekk de deler, og hvert regime har sine egne avveininger. Modellen sier hva et land ligner på, ikke hva som er best, og den bygger på sammenligning av mange rike land.",
     },
     {
@@ -1625,22 +1625,22 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner det angelsaksisk-liberale regimet?",
-      options: ["Markedet bærer hovedansvaret, og de offentlige ytelsene er residuale og behovsprøvde", "Staten bærer hovedansvaret, og ytelsene omfatter alle bosatte uten behovsprøving", "Yrkesgruppenes egne kasser bærer hovedansvaret, og retten følger av innbetalte premier", "Kommunene bærer hovedansvaret, og tjenestene finansieres av lokale skatteinntekter"],
+      options: ["Markedet bærer hovedansvaret, og de offentlige ytelsene er residuale og behovsprøvde", "Staten bærer hovedansvaret, og ytelsene omfatter alle bosatte uten behovsprøving", "Yrkesgruppenes egne kasser bærer hovedansvaret, og retten følger av premier", "Kommunene bærer hovedansvaret, og tjenestene finansieres av lokale skatteinntekter"],
       explanation: "I det liberale regimet forutsettes markedet å dekke det meste, mens det offentlige trer inn for dem som ikke klarer seg — og da etter behovsprøving. Universelle rettigheter og yrkesbaserte kasser hører til de to andre regimene.",
     },
     {
       question: "Hva kjennetegner det kontinentalt-konservative regimet?",
-      options: ["Retten følger av yrkestilknytning og innbetaling, og ordningene er ofte delt per yrkesgruppe", "Retten følger av bosetting i landet, og ordningene omfatter hele befolkningen på samme vilkår", "Retten følger av en behovsprøving der inntekt og formue avgjør om du får noe", "Retten følger av at du har kjøpt en privat forsikring i det åpne markedet"],
+      options: ["Retten følger av yrkestilknytning og innbetaling, og ordningene er ofte delt per yrkesgruppe", "Retten følger av bosetting i landet, og ordningene omfatter hele befolkningen på samme vilkår", "Retten følger av en behovsprøving der inntekt, formue og forsørgeransvar avgjør om du får noe", "Retten følger av at du har kjøpt en privat forsikring i det åpne markedet"],
       explanation: "Det kontinentale regimet bygger på et prestasjons- og forsikringsprinsipp: nivået speiler tidligere inntekt og innbetaling, og ordningene er ofte organisert per yrkesgruppe. Bosetting som utløsende vilkår hører til det nordiske, behovsprøving til det liberale.",
     },
     {
       question: "Hva betyr det at «konservativ» brukes i navnet på det kontinentale regimet?",
-      options: ["At ordningene bevarer eksisterende sosiale skiller inn i velferdssystemet", "At regimet i hovedsak er innført av konservative partier i de landene det finnes", "At regimet motsetter seg enhver endring i velferdsordningene over tid", "At regimet legger vekt på å bevare et lavt nivå på offentlige utgifter"],
+      options: ["At ordningene bevarer eksisterende sosiale skiller inn i velferdssystemet", "At regimet i hovedsak er innført av konservative partier", "At regimet motsetter seg enhver endring i velferdsordningene over tid", "At regimet legger vekt på å bevare et lavt nivå på offentlige utgifter"],
       explanation: "Merkelappen viser til at yrkesbaserte ordninger fører skillene fra arbeidslivet videre inn i velferden. Den er en analytisk karakteristikk av virkningen, ikke en beskrivelse av hvilke partier som innførte ordningene.",
     },
     {
       question: "Hva er de-kommodifisering?",
-      options: ["Graden av at du kan opprettholde levestandarden uten å selge arbeidskraften din i markedet", "Graden av at du kan klare deg uten å være avhengig av familiens omsorg og forsørgelse", "Graden av at offentlige tjenester produseres av det offentlige og ikke av private", "Graden av at ytelsene fastsettes politisk i stedet for gjennom forhandlinger i arbeidslivet"],
+      options: ["Graden av at du kan opprettholde levestandarden uten å selge arbeidskraften din i markedet", "Graden av at du kan klare deg uten å være avhengig av familiens omsorg og forsørgelse", "Graden av at offentlige tjenester produseres av det offentlige og ikke av private", "Graden av at ytelsene fastsettes politisk og ikke gjennom forhandlinger"],
       explanation: "De-kommodifisering måler uavhengighet av markedet: hvor mye ytelsen dekker, hvor lenge den varer og om den er en rettighet. Uavhengighet av familien heter de-familisering, og å bytte om på de to er den mest dokumenterte forvekslingen i dette stoffet.",
     },
     {
@@ -1650,7 +1650,7 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor kom de-familisering inn som en egen akse i typologien?",
-      options: ["Fordi den første versjonen ble kritisert for å måle for lite av familiens rolle i velferden", "Fordi de-kommodifisering viste seg umulig å måle med tilgjengelig statistikk", "Fordi flere land innførte kontantytelser til familier i samme periode som modellen ble laget", "Fordi aksen var nødvendig for å kunne plassere de nordiske landene i et eget regime"],
+      options: ["Fordi den første versjonen ble kritisert for å måle for lite av familiens rolle i velferden", "Fordi de-kommodifisering viste seg umulig å måle med tilgjengelig statistikk", "Fordi flere land innførte kontantytelser til familier i samme periode", "Fordi aksen var nødvendig for å kunne plassere de nordiske landene i et eget regime"],
       explanation: "Kritikken var at en modell som bare måler uavhengighet av markedet, overser at velferdssystemer også fordeler ubetalt omsorgsarbeid — som i praksis oftest har falt på kvinner. Aksen er svaret på den innvendingen og er i dag en del av modellen.",
     },
     {
@@ -1665,7 +1665,7 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen på en behovsprøvd ytelse og en inntektsavhengig ytelse?",
-      options: ["Behovsprøvingen avgjør om du har rett, mens inntektsavhengigheten bare avgjør beløpet", "Behovsprøvingen gjelder statlige ytelser, mens inntektsavhengighet gjelder kommunale", "Behovsprøvingen skjer i ettertid, mens inntektsavhengigheten avgjøres ved søknaden", "Behovsprøvingen gjelder tjenester, mens inntektsavhengigheten gjelder pengeoverføringer"],
+      options: ["Behovsprøvingen avgjør om du har rett, mens inntektsavhengigheten bare avgjør beløpet", "Behovsprøvingen gjelder de statlige ytelsene, mens inntektsavhengigheten gjelder de kommunale", "Behovsprøvingen skjer i ettertid, mens inntektsavhengigheten avgjøres ved søknaden", "Behovsprøvingen gjelder tjenester, mens inntektsavhengigheten gjelder pengeoverføringer"],
       explanation: "En universell ytelse kan godt beregnes ut fra tidligere inntekt uten at retten er behovsprøvd. Skillet går mellom retten og beløpet, ikke mellom forvaltningsnivåer, tidspunkter eller ytelsesformer.",
     },
     {
@@ -1752,17 +1752,17 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
   'stv1400-5-2': [
     {
       question: "Hva kjennetegner en universell ytelse?",
-      options: ["Den omfatter alle i en gruppe som er definert uten en behovsvurdering", "Den utbetales med nøyaktig samme beløp til alle som mottar den", "Den tildeles etter en vurdering av søkerens inntekt, formue og forsørgeransvar", "Den finansieres av innbetalte premier fra mottakerne selv"],
+      options: ["Den omfatter alle i en gruppe som er definert uten en behovsvurdering", "Den utbetales med nøyaktig samme beløp til alle som mottar den, uansett inntekt", "Den tildeles etter en vurdering av søkerens inntekt, formue og forsørgeransvar", "Den finansieres av innbetalte premier fra mottakerne selv"],
       explanation: "Det avgjørende er at retten ikke er behovsprøvd — gruppen defineres av noe annet enn behov, som bosetting eller det å ha barn. En universell ytelse kan godt være inntektsavhengig i beløpet, og forvekslingen av rett og beløp er en dokumentert felle.",
     },
     {
       question: "Hva vil det si at en ytelse er behovsprøvd?",
-      options: ["At retten avhenger av en vurdering av søkerens inntekt og formue", "At beløpet beregnes ut fra hvor mye søkeren tidligere har tjent", "At ytelsen bare utbetales i en begrenset periode etter søknad", "At ytelsen kan trekkes tilbake dersom mottakeren flytter fra kommunen"],
+      options: ["At retten avhenger av en vurdering av søkerens inntekt og formue", "At beløpet beregnes ut fra hvor mye søkeren har tjent i årene før søknaden", "At ytelsen bare utbetales i en begrenset periode etter søknad", "At ytelsen kan trekkes tilbake dersom mottakeren flytter fra kommunen"],
       explanation: "Behovsprøving gjelder retten: økonomiske forhold avgjør om og hvor mye du får. At beløpet beregnes ut fra tidligere inntekt, er noe annet — det finnes i universelle ordninger også, og der er retten fortsatt ikke behovsprøvd.",
     },
     {
       question: "Hva er treffsikkerhet i denne sammenhengen?",
-      options: ["Hvor stor andel av pengene som når fram til den gruppen ordningen er ment for", "Hvor stor andel av dem som har rett til ytelsen, som faktisk søker og mottar den", "Hvor presist saksbehandlerne følger regelverket når de fatter vedtak", "Hvor raskt ordningen kommer i gang etter at Stortinget har vedtatt den"],
+      options: ["Hvor stor andel av pengene som når fram til den gruppen ordningen er ment for", "Hvor stor andel av dem som har rett til ytelsen, som faktisk mottar den", "Hvor presist saksbehandlerne følger regelverket når de fatter vedtak", "Hvor raskt ordningen kommer i gang etter at Stortinget har vedtatt den"],
       explanation: "Treffsikkerhet måles per utbetalt krone. Hvor stor andel av målgruppen som faktisk mottar ytelsen, er dekningsgrad — og den mest treffsikre ordningen kan ha den laveste dekningsgraden på grunn av terskler.",
     },
     {
@@ -1772,7 +1772,7 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor svekker ikke-bruk argumentet om behovsprøvingens treffsikkerhet?",
-      options: ["Fordi en ordning kan treffe presist for sine mottakere og likevel nå få av dem som trenger den", "Fordi ikke-bruk gjør at administrasjonskostnadene per utbetalt krone stiger kraftig i ordningen", "Fordi ikke-bruk fører til at ordningen må behovsprøves enda strengere over tid", "Fordi ikke-bruk betyr at pengene i stedet utbetales til feil mottakergruppe"],
+      options: ["Fordi en ordning kan treffe presist for sine mottakere og likevel nå få av dem som trenger den", "Fordi ikke-bruk gjør at administrasjonskostnadene per utbetalt krone stiger kraftig i ordningen", "Fordi ikke-bruk over tid fører til at ordningen må behovsprøves enda strengere for å holde budsjettet", "Fordi ikke-bruk betyr at pengene i stedet utbetales til feil mottakergruppe"],
       explanation: "Treffsikkerhet måles per utbetalt krone, mens ikke-bruk gjelder hvor mange av dem som har rett, som faktisk får noe. En behovsprøvd ordning kan derfor jevne ut mindre samlet enn en bredere ordning som utbetales automatisk.",
     },
     {
@@ -1787,17 +1787,17 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er poenget med å skille bruttokostnad fra nettokostnad ved en universell ytelse?",
-      options: ["At en del av utbetalingen kommer tilbake gjennom skatt når ytelsen er skattepliktig", "At administrasjonen av ordningen koster mer enn selve utbetalingene gjør", "At kommunene dekker en del av utgiften uten at den synes i statsbudsjettets egne tall", "At mottakere med høy inntekt som regel ikke tar ut ytelsen de har krav på"],
+      options: ["At en del av utbetalingen kommer tilbake gjennom skatt når ytelsen er skattepliktig", "At administrasjonen av ordningen koster mer enn selve utbetalingene gjør", "At kommunene dekker en del av utgiften uten at den synes i statsbudsjettet", "At mottakere med høy inntekt som regel ikke tar ut ytelsen de har krav på"],
       explanation: "I et progressivt skattesystem kommer en del av en skattepliktig ytelse tilbake, slik at ordningen er mindre dyr enn bruttotallet antyder. Argumentet nyanserer kostnadsinnvendingen, men opphever den ikke, siden bruttokostnaden bestemmer hvor stort budsjettet må være.",
     },
     {
       question: "Hva peker formuleringen om at «tjenester til fattige blir fattige tjenester» på?",
-      options: ["At ordninger som bare gjelder dem med minst, har færre forsvarere når budsjettene strammes", "At ordninger for dem med minst er dyrere å administrere enn brede ordninger", "At ordninger for dem med minst gir svakere insentiver til å søke arbeid", "At ordninger for dem med minst treffer dårligere fordi det faktiske behovet er vanskelig å måle"],
+      options: ["At ordninger som bare gjelder dem med minst, har færre forsvarere når budsjettene strammes", "At ordninger for dem med minst er dyrere å administrere per utbetalt krone enn de brede ordningene", "At ordninger for dem med minst gir svakere insentiver til å søke arbeid", "At ordninger for dem med minst treffer dårligere fordi det faktiske behovet er vanskelig å måle"],
       explanation: "Formuleringen handler om legitimitet: brede ordninger har mange som forsvarer dem, smale få, og over tid risikerer de smale å bli dårligere finansiert. De tre andre påstandene er reelle innvendinger, men de er ikke det denne formuleringen sier.",
     },
     {
       question: "Hvilke to kanaler jevner den norske velferdsstaten ut gjennom?",
-      options: ["Skatt og overføringer på den ene siden, offentlige tjenester på den andre", "Statlige ordninger på den ene siden, kommunale ordninger på den andre", "Pengeoverføringer på den ene siden, lettelser i avgifter på den andre siden", "Folketrygden på den ene siden, private forsikringsordninger på den andre"],
+      options: ["Skatt og overføringer på den ene siden, offentlige tjenester på den andre", "Statlige ordninger på den ene siden, kommunale ordninger på den andre", "Pengeoverføringer på den ene siden, avgiftslettelser på den andre", "Folketrygden på den ene siden, private forsikringsordninger på den andre"],
       explanation: "Den ene kanalen fanges av inntektsstatistikken, den andre ikke: verdien av gratis skolegang og subsidiert barnehageplass endrer ikke inntekten, men utgjør mest for dem som har minst. En drøfting som bare ser på overføringer, har målt halve modellen.",
     },
     {
@@ -1894,7 +1894,7 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
   'stv1400-5-3': [
     {
       question: "Hva er bærekraftsutfordringen for velferdsstaten?",
-      options: ["At avstanden mellom framtidige utgifter og inntekter vokser med dagens innretning", "At oppslutningen om ordningene faller blant dem som betaler aller mest inn i systemet", "At tjenestene ikke holder god nok kvalitet i alle deler av landet", "At de offentlige utgiftene er høyere enn i sammenlignbare naboland i dag"],
+      options: ["At avstanden mellom framtidige utgifter og inntekter vokser med dagens innretning", "At oppslutningen om ordningene faller blant dem som betaler mest inn", "At tjenestene ikke holder god nok kvalitet i alle deler av landet", "At de offentlige utgiftene er høyere enn i sammenlignbare naboland i dag"],
       explanation: "Utfordringen er et regnestykke over tid: utgiftene vokser med andelen eldre, mens inntektene avhenger av hvor mange som er i arbeid. Fallende oppslutning er legitimitetsutfordringen, som er noe annet — et system kan være finansierbart og likevel miste støtte.",
     },
     {
@@ -2006,7 +2006,7 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
   'stv1400-6-1': [
     {
       question: "Hva er den demokratiske styringskjeden?",
-      options: ["Linjen av fullmakt og ansvar fra folket via Storting og regjering til forvaltningen", "Kommandolinjen fra departementet og nedover til den enkelte saksbehandleren i etaten", "Rekkefølgen en sak følger fra forslag til vedtak i Stortingets komitéarbeid", "Ordningen der berørte interesser høres før forvaltningen treffer en avgjørelse"],
+      options: ["Linjen av fullmakt og ansvar fra folket via Storting og regjering til forvaltningen", "Kommandolinjen fra departementet ned til den enkelte saksbehandleren", "Rekkefølgen en sak følger fra forslag til vedtak i Stortingets komitéarbeid", "Ordningen der berørte interesser høres før forvaltningen treffer en avgjørelse"],
       explanation: "Kjeden begynner i valglokalet og ender hos den som treffer avgjørelsen. Forvaltningshierarkiet er bare kjedens nederste ledd, saksgangen i Stortinget er en prosedyre inne i ett ledd, og høringsordningen er en kanal som går utenom kjeden.",
     },
     {
@@ -2026,7 +2026,7 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen mellom ansvar og kontroll i styringskjeden?",
-      options: ["Ansvar er plikten til å svare for noe, kontroll er midlene til å undersøke det", "Ansvar gjelder statsråden alene, kontroll gjelder embetsverket under hen", "Ansvar er rettslig og følger av loven, kontroll er politisk og følger av flertallet", "Ansvar virker før handlingen er utført, kontroll virker mens den pågår"],
+      options: ["Ansvar er plikten til å svare for noe, kontroll er midlene til å undersøke det", "Ansvar gjelder statsråden alene, mens kontroll gjelder embetsverket under statsråden", "Ansvar er rettslig og følger av loven, kontroll er politisk og følger av flertallet", "Ansvar virker før handlingen er utført, kontroll virker mens den pågår"],
       explanation: "Ansvaret er plikten til å stå til rette, kontrollen er undersøkelsesmidlene. Begge deler kan ramme både politisk ledelse og apparatet, begge har politiske og rettslige former, og begge virker etter at handlingen er utført.",
     },
     {
@@ -2163,7 +2163,7 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan behandles statsbudsjettet i Stortinget?",
-      options: ["Først vedtas rammene for hvert utgiftsområde, deretter fordeler fagkomiteene innenfor", "Først fordeler fagkomiteene alle midlene, og deretter vedtas den samlede rammen helt til slutt", "Hver fagkomité vedtar sitt eget budsjett uten at en samlet ramme fastsettes", "Finanskomiteen vedtar hele budsjettet alene, uten behandling i fagkomiteene"],
+      options: ["Først vedtas rammene for hvert utgiftsområde, deretter fordeler fagkomiteene innenfor", "Først fordeler fagkomiteene alle midlene, deretter vedtas den samlede rammen", "Hver fagkomité vedtar sitt eget budsjett uten at en samlet ramme fastsettes", "Finanskomiteen vedtar hele budsjettet alene, uten behandling i fagkomiteene"],
       explanation: "Rekkefølgen binder helheten før detaljene og gjør det vanskelig å øke ett formål uten å ta fra et annet. Det er ikke en teknikalitet, men en styringsmekanisme.",
     },
     {
@@ -2173,7 +2173,7 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner en rammelov?",
-      options: ["Den fastsetter formål og hovedregler og overlater utfyllingen til forskrift", "Den gjelder bare for en avgrenset periode og må fornyes med jevne mellomrom av Stortinget", "Den gir kommunene adgang til å fastsette egne regler på sitt område", "Den vedtas uten forutgående høring blant de berørte fagmiljøene"],
+      options: ["Den fastsetter formål og hovedregler og overlater utfyllingen til forskrift", "Den gjelder for en avgrenset periode og må fornyes av Stortinget", "Den gir kommunene adgang til å fastsette egne regler på sitt område", "Den vedtas uten forutgående høring blant de berørte fagmiljøene"],
       explanation: "Rammeloven flytter innhold ned til forvaltningsleddet gjennom forskriftshjemmel. Forskriften er likevel ikke noe forvaltningen finner på selv: den krever hjemmel fra Stortinget, og det er delegasjon, ikke avståelse.",
     },
     {
@@ -2275,12 +2275,12 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
   'stv1400-7-1': [
     {
       question: "Hva er kommunal autonomi?",
-      options: ["Den reelle handlefriheten kommunen har igjen når lovkrav, rettigheter og bundne midler er trukket fra", "Kommunens rettslige stilling som eget forvaltningsnivå med egne direkte valgte organer og egen rettslig kompetanse", "Kommunens adgang til å avgjøre saker uten at staten i ettertid kan overprøve vedtakene", "Kommunens rett til å fastsette nivået på de skattene innbyggerne betaler til kommunen"],
+      options: ["Den reelle handlefriheten kommunen har igjen når lovkrav, rettigheter og bundne midler er trukket fra", "Kommunens rettslige stilling som eget forvaltningsnivå med direkte valgte organer", "Kommunens adgang til å avgjøre saker uten at staten i ettertid kan overprøve vedtakene", "Kommunens rett til å fastsette nivået på de skattene innbyggerne betaler til kommunen"],
       explanation: "Autonomi måles etter fratrekk for alt som allerede er bundet, og er derfor et gradsspørsmål. Den rettslige stillingen er selvstyre, uoverprøvbarhet ville vært suverenitet, og skattefastsettelse er bare én dimensjon av friheten.",
     },
     {
       question: "Hva er forskjellen på selvstyre og autonomi?",
-      options: ["Selvstyre er en rettslig posisjon, mens autonomi er hvor mye handlingsrom posisjonen gir i praksis", "Selvstyre gjelder kommuner, mens autonomi gjelder fylkeskommuner og regionale organer", "Selvstyre er grunnlovsfestet, mens autonomi følger av kommuneloven og av særlovgivningen", "Selvstyre gjelder økonomiske spørsmål, mens autonomi gjelder organisering og oppgaveløsing, altså hvordan oppgavene faktisk løses"],
+      options: ["Selvstyre er en rettslig posisjon, mens autonomi er hvor mye handlingsrom posisjonen gir i praksis", "Selvstyre gjelder kommuner, mens autonomi gjelder fylkeskommuner og regionale organer", "Selvstyre er grunnlovsfestet, mens autonomi følger av kommuneloven og av særlovgivningen", "Selvstyre gjelder økonomiske spørsmål, mens autonomi gjelder organisering og oppgaveløsing"],
       explanation: "Skillet går mellom rett og faktisk handlingsrom: en kommune kan ha selvstyret i behold og likevel ha lite autonomi igjen på et sterkt regulert område. Begge begrepene gjelder både kommuner og fylkeskommuner.",
     },
     {
@@ -2295,12 +2295,12 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva menes med at oppgavebredde og beslutningsfrihet ikke følger hverandre?",
-      options: ["At en kommune kan ha ansvar for svært mye og likevel ha lite å bestemme, fordi oppgavene er tett regulert", "At store kommuner har flere oppgaver enn små, men mindre frihet til å prioritere mellom dem", "At kommunene får flere oppgaver i takt med at de statlige overføringene til sektoren øker", "At oppgavene er fordelt ulikt mellom kommuner, slik at generalistkommuneprinsippet ikke gjelder fullt ut lenger for alle kommuner"],
+      options: ["At en kommune kan ha ansvar for svært mye og likevel ha lite å bestemme, fordi oppgavene er tett regulert", "At store kommuner har flere oppgaver enn små kommuner, men mindre frihet til å prioritere mellom oppgavene sine", "At kommunene får flere oppgaver i takt med at de statlige overføringene til sektoren øker", "At oppgavene er fordelt ulikt mellom kommuner, slik at generalistkommuneprinsippet ikke gjelder fullt ut lenger for alle kommuner"],
       explanation: "Norske kommuner er lærebokeksempelet: bredt ansvar for de viktigste tjenestene, men rettighetsfesting, kompetansekrav og tilsyn som innsnevrer skjønnsrommet. Poenget gjelder uavhengig av kommunestørrelse og av hvor mye staten overfører.",
     },
     {
       question: "Hvilken skatt rår norske kommunestyrer selv over?",
-      options: ["Eiendomsskatten, som kommunestyret avgjør om skal skrives ut og på hvilket nivå innenfor lovens rammer", "Inntektsskatten, der kommunestyret fastsetter den kommunale skattøren innenfor et statlig maksimum fastsatt i statsbudsjettet", "Formuesskatten, som kommunen krever inn og beholder for den delen som gjelder egne innbyggere", "Merverdiavgiften på kommunale tjenester, der kommunestyret fastsetter satsen for hver tjeneste"],
+      options: ["Eiendomsskatten, som kommunestyret avgjør om skal skrives ut og på hvilket nivå innenfor lovens rammer", "Inntektsskatten, der kommunestyret fastsetter den kommunale skattøren innenfor et statlig maksimum fastsatt i statsbudsjettet", "Formuesskatten, som kommunen krever inn og beholder for den delen som gjelder egne innbyggere", "Merverdiavgiften på kommunale tjenester, der kommunestyret fastsetter satsen for hver enkelt tjeneste det tilbyr"],
       explanation: "Eiendomsskatten er den ene skatten kommunestyret selv avgjør. Skattøren for inntektsskatt fastsettes av Stortinget, og formuesskatt og merverdiavgift er statlige skatter kommunen ikke rår over.",
     },
     {
@@ -2315,7 +2315,7 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan skal Kjellbergs to modeller brukes i en besvarelse?",
-      options: ["Som analyseakser til å lese begge sider av et konkret statlig krav, ikke som politiske standpunkter", "Som to konkurrerende teorier der den ene må velges og den andre forkastes med begrunnelse", "Som en beskrivelse av hvordan norsk kommunepolitikk har utviklet seg fra den ene til den andre gjennom hele etterkrigstiden", "Som en rangering av hvilke land som gir kommunene mest og minst frihet i oppgaveløsingen"],
+      options: ["Som analyseakser til å lese begge sider av et konkret statlig krav, ikke som politiske standpunkter", "Som to konkurrerende teorier der den ene må velges og den andre forkastes med en begrunnelse i besvarelsen", "Som en beskrivelse av hvordan norsk kommunepolitikk har utviklet seg fra den ene til den andre gjennom hele etterkrigstiden", "Som en rangering av hvilke land som gir kommunene mest og minst frihet i oppgaveløsingen"],
       explanation: "Modellene gir to fullstendige lesninger av det samme vedtaket, og norsk kommunepolitikk har trekk fra begge samtidig. Å behandle dem som partipolitiske syn eller som en rangering er en dokumentert forveksling.",
     },
     {
@@ -2325,7 +2325,7 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen på en minstestandard og et krav om ensartet tilbud?",
-      options: ["Minstestandarden setter et gulv og lar kommuner gi mer, mens ensartet tilbud setter både gulv og tak", "Minstestandarden er fastsatt i forskrift, mens ensartet tilbud må vedtas av Stortinget i lovs form", "Minstestandarden gjelder tjenestens kvalitet, mens ensartet tilbud gjelder hvor mye den skal koste", "Minstestandarden gjelder lovpålagte tjenester, mens ensartet tilbud også omfatter frivillige tilbud kommunen ikke er pålagt å ha"],
+      options: ["Minstestandarden setter et gulv og lar kommuner gi mer, mens ensartet tilbud setter både gulv og tak", "Minstestandarden er fastsatt i forskrift, mens et krav om ensartet tilbud må vedtas av Stortinget i lovs form", "Minstestandarden gjelder tjenestens kvalitet, mens ensartet tilbud gjelder hvor mye den skal koste", "Minstestandarden gjelder lovpålagte tjenester, mens ensartet tilbud også omfatter frivillige tilbud kommunen ikke er pålagt å ha"],
       explanation: "Skillet gjelder hvor mye variasjon som fjernes. De fleste norske statlige krav er utformet som gulv, og en påstand om at likhetskrav uthuler selvstyret blir for grov uten dette skillet.",
     },
     {
@@ -2417,12 +2417,12 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor ligger fordelingsfunksjonen i hovedsak hos staten?",
-      options: ["Fordi en kommune som omfordeler kraftig alene, mister skattytere og tiltrekker seg mottakere over tid", "Fordi kommunene ikke har rettslig adgang til å omfordele mellom sine egne innbyggere", "Fordi kommunene mangler den administrative kapasiteten til å beregne omfordeling korrekt", "Fordi omfordeling forutsetter et progressivt skattesystem, og bare staten har skattemyndighet, som kommunene mangler"],
+      options: ["Fordi en kommune som omfordeler kraftig alene, mister skattytere og tiltrekker seg mottakere over tid", "Fordi kommunene ikke har rettslig adgang til å omfordele mellom sine egne innbyggere", "Fordi kommunene mangler den administrative kapasiteten til å beregne omfordeling korrekt", "Fordi omfordeling forutsetter et progressivt skattesystem, og bare staten har skattemyndighet"],
       explanation: "Argumentet er økonomisk før det er rettslig: omfordeling krever et fellesskap ingen enkelt kan flytte ut av. Kommunene driver reell fordeling gjennom tjenesteproduksjonen og har også egne skatteinntekter.",
     },
     {
       question: "Hva er markedssvikt?",
-      options: ["Tilfeller der et fritt marked ikke gir effektiv ressursbruk fordi prismekanismen ikke virker som forutsatt", "Tilfeller der fordelingen av goder oppleves som urettferdig av et flertall av innbyggerne", "Tilfeller der et marked bryter sammen fordi tilbyderne går konkurs samtidig i en nedgangsperiode med svikt i etterspørselen", "Tilfeller der offentlige aktører konkurrerer med private og dermed presser prisene kunstig ned"],
+      options: ["Tilfeller der et fritt marked ikke gir effektiv ressursbruk fordi prismekanismen ikke virker som forutsatt", "Tilfeller der fordelingen av goder oppleves som urettferdig av et flertall av innbyggerne", "Tilfeller der et marked bryter sammen fordi tilbyderne går konkurs samtidig i en nedgangsperiode med svikt i etterspørselen", "Tilfeller der offentlige aktører konkurrerer med private tilbydere og presser prisene kunstig ned under kostnad"],
       explanation: "De tre hovedformene er kollektive goder, eksterne virkninger og informasjonssvikt. At et utfall oppleves som urettferdig, er et fordelingsargument og ikke markedssvikt — den forvekslingen er vanlig og upresis.",
     },
     {
@@ -2442,17 +2442,17 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er gratispassasjerproblemet?",
-      options: ["At hver enkelt har god grunn til å la andre betale for et gode hun får uansett hva hun gjør", "At noen brukere benytter offentlige tjenester uten å ha rett til dem etter regelverket, og som dermed belaster fellesskapet", "At kommuner lar nabokommunene bygge ut tilbud som deres egne innbyggere så bruker", "At private aktører henter ut overskudd fra tjenester det offentlige har finansiert"],
+      options: ["At hver enkelt har god grunn til å la andre betale for et gode hun får uansett hva hun gjør", "At noen brukere benytter offentlige tjenester uten å ha rett til dem etter regelverket, og som dermed belaster fellesskapet", "At kommuner lar nabokommunene bygge ut tilbud som deres egne innbyggere så bruker", "At private aktører henter ut overskudd fra tjenester det offentlige har finansiert over skatteseddelen"],
       explanation: "Problemet forklarer hvorfor tvungen finansiering gjennom skatt er løsningen og ikke bare en praktisk ordning: den fjerner valget om å la være. Det handler om finansieringen, ikke om misbruk av ordninger.",
     },
     {
       question: "Hva er en ekstern virkning?",
-      options: ["En konsekvens av en handling som rammer eller gagner andre enn den som handler, uten å være priset inn", "En konsekvens av et vedtak som først viser seg lenge etter at vedtaket er fattet", "En virkning av statlig styring som kommunen ikke hadde forutsett da den planla tjenesten og som først viser seg senere", "En uenighet mellom kommuner om hvordan en felles oppgave skal finansieres og fordeles"],
+      options: ["En konsekvens av en handling som rammer eller gagner andre enn den som handler, uten å være priset inn", "En konsekvens av et vedtak som først viser seg lenge etter at vedtaket er fattet", "En virkning av statlig styring som kommunen ikke hadde forutsett da den planla tjenesten", "En uenighet mellom kommuner om hvordan en felles oppgave skal finansieres og fordeles"],
       explanation: "Følgen er systematisk: det blir for mye av det som har negative eksterne virkninger og for lite av det som har positive. Uenighet eller uforutsette følger er noe annet enn en virkning for tredjepart.",
     },
     {
       question: "Hvorfor produserer det offentlige goder som i økonomisk forstand er private?",
-      options: ["På grunn av eksterne virkninger, fordelingshensyn, informasjonssvikt og stordriftsfordeler", "Fordi private goder må finansieres over skatteseddelen for å nå fram til alle innbyggerne", "Fordi godene skifter kategori og blir kollektive når det offentlige overtar produksjonen", "Fordi private aktører ikke har adgang til å levere tjenester det offentlige har ansvaret for"],
+      options: ["På grunn av eksterne virkninger, fordelingshensyn, informasjonssvikt og stordriftsfordeler", "Fordi private goder må finansieres over skatteseddelen for å nå fram til alle innbyggerne", "Fordi godene skifter kategori og blir kollektive når det offentlige overtar produksjonen", "Fordi private aktører ikke har adgang til å levere slike tjenester"],
       explanation: "Skole, helse og omsorg er både ekskluderende og rivaliserende, og begrunnelsen ligger i de fire hensynene. Et gode skifter ikke kategori av at leverandøren skifter — det er selve premisset for spørsmålet.",
     },
     {
@@ -2534,7 +2534,7 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skjedde med fylkeskommunen midt på 1970-tallet?",
-      options: ["Fylkestinget ble valgt direkte, og nivået fikk egne inntekter og egen administrasjon", "Fylkeskommunen overtok ansvaret for grunnskolen fra kommunene i hele landet", "Fylkeskommunen ble underlagt fylkesmannsembetet som statens regionale ledd", "Fylkesgrensene ble endret for første gang siden formannskapslovene ble innført på 1800-tallet"],
+      options: ["Fylkestinget ble valgt direkte, og nivået fikk egne inntekter og egen administrasjon", "Fylkeskommunen overtok ansvaret for både grunnskolen og den videregående opplæringen fra kommunene", "Fylkeskommunen ble underlagt fylkesmannsembetet som statens regionale ledd", "Fylkesgrensene ble endret for første gang siden formannskapslovene ble innført på 1800-tallet"],
       explanation: "Fasen gjorde fylkeskommunen til et selvstendig folkevalgt forvaltningsnivå, og båndet til fylkesmannsembetet ble kuttet. Grunnskolen har hele tiden ligget hos kommunene.",
     },
     {
@@ -2544,7 +2544,7 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er 2002 et vendepunkt i fylkeskommunens historie?",
-      options: ["Sykehusene ble overført til statlige helseforetak, og nivåets rolle ble omdefinert", "Fylkeskommunen fikk ansvaret for videregående opplæring overført fra staten", "Direkte valg til fylkestinget ble innført for første gang i hele landet", "Antallet fylker ble redusert, og de første storfylkene ble opprettet gjennom sammenslåing"],
+      options: ["Sykehusene ble overført til statlige helseforetak, og nivåets rolle ble omdefinert", "Fylkeskommunen fikk ansvaret for den videregående opplæringen overført fra staten dette året", "Direkte valg til fylkestinget ble innført for første gang i hele landet", "Antallet fylker ble redusert, og de første storfylkene ble opprettet gjennom sammenslåing"],
       explanation: "Med overføringen forsvant den mest håndfaste begrunnelsen for nivået, og rollen ble omdefinert fra tjenesteprodusent til regional utviklingsaktør.",
     },
     {
@@ -2554,7 +2554,7 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skjedde med fylkesinndelingen fra 2020 og fra 2024?",
-      options: ["Antallet gikk fra atten til elleve fra 2020, og tre storfylker ble delt opp igjen fra 2024", "Antallet gikk fra nitten til femten fra 2020 og har ligget uendret siden reformen", "Alle sammenslåingene fra 2020 ble reversert etter vedtak i Stortinget fra og med 2024 med virkning for hele landet", "Inndelingen var uendret, men fylkeskommunene fikk overført nye oppgaver fra staten"],
+      options: ["Antallet gikk fra atten til elleve fra 2020, og tre storfylker ble delt opp igjen fra 2024", "Antallet gikk fra nitten til femten fra 2020 og har ligget uendret siden reformen", "Alle sammenslåingene fra 2020 ble reversert etter vedtak i Stortinget fra og med 2024 med virkning for hele landet", "Inndelingen var uendret i begge årene, men fylkeskommunene fikk overført nye oppgaver fra staten"],
       explanation: "Regionreformen tok antallet fra atten til elleve, og oppdelingen fra 2024 tok landet til femten fylker. Bare tre storfylker ble delt, og oppgaveoverføringene ble ikke reversert sammen med grensene.",
     },
     {
@@ -2646,22 +2646,22 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner innbyggerinitiert deltakelse?",
-      options: ["Den er ofte enkeltsaksorientert, oppstår når noe angår deltakerne, og forsvinner når saken er avgjort", "Den er regulert i kommuneloven og må gjennomføres innen bestemte frister i saksbehandlingen i den enkelte saken", "Den er organisert av kommunen, men innbyggerne bestemmer selv hvilke saker som tas opp", "Den er forbeholdt registrerte organisasjoner som har et etablert forhold til kommunen"],
+      options: ["Den er ofte enkeltsaksorientert, oppstår når noe angår deltakerne, og forsvinner når saken er avgjort", "Den er regulert i kommuneloven og må gjennomføres innen bestemte frister", "Den er organisert av kommunen, men innbyggerne bestemmer selv hvilke saker som tas opp", "Den er forbeholdt registrerte organisasjoner som har et etablert forhold til kommunen"],
       explanation: "Formen er ikke bundet av noen dagsorden kommunen har satt, og det er dens styrke. Svakheten er at den er skjevt fordelt, siden den krever tid, nettverk og kjennskap til systemet.",
     },
     {
       question: "Hva er den viktigste svakheten ved deltakelse mellom valg sett fra et demokratisk synspunkt?",
-      options: ["Den er skjevt fordelt etter utdanning, inntekt og organisasjonstilknytning", "Den er ulovlig med mindre kommunen har vedtatt en egen medvirkningsordning", "Den kan bare rette seg mot saker kommunen allerede har satt på dagsordenen", "Den gir ingen påvirkning, siden kommunestyret ikke plikter å svare på henvendelser"],
+      options: ["Den er skjevt fordelt etter utdanning, inntekt og organisasjonstilknytning", "Den er ulovlig med mindre kommunen har vedtatt en egen medvirkningsordning", "Den kan bare rette seg mot saker kommunen allerede har satt på dagsordenen", "Den gir ingen påvirkning, siden kommunestyret ikke plikter å svare"],
       explanation: "Valget er utformet slik at én stemme teller like mye; deltakelse mellom valg har ingen slik mekanisme. Jo mer innflytelse som flyttes dit, jo mer får skjevheten å si for utfallet.",
     },
     {
       question: "Hvilke tre medvirkningsorganer pålegger kommuneloven hver kommune å ha?",
-      options: ["Eldreråd, råd for personer med funksjonsnedsettelse og ungdomsråd eller tilsvarende organ", "Eldreråd, innvandrerråd og et rådgivende utvalg for idrett og frivillige organisasjoner", "Ungdomsråd, foreldreutvalg for grunnskolen og brukerutvalg for helse- og omsorgstjenestene", "Eldreråd, ungdomsråd og et partssammensatt utvalg med representanter for de ansatte"],
+      options: ["Eldreråd, råd for personer med funksjonsnedsettelse og ungdomsråd eller tilsvarende organ", "Eldreråd, innvandrerråd og et rådgivende utvalg for idretten og for de frivillige organisasjonene", "Ungdomsråd, foreldreutvalg for grunnskolen og brukerutvalg for helse- og omsorgstjenestene", "Eldreråd, ungdomsråd og et partssammensatt utvalg med representanter for de ansatte"],
       explanation: "De tre rådene er rådgivende og har rett til å uttale seg i saker som gjelder gruppen. De er begrunnet i at nettopp disse gruppene deltar lite gjennom de åpne kanalene.",
     },
     {
       question: "Hva slags myndighet har de lovpålagte rådene?",
-      options: ["De er rådgivende og har uttalerett, men kommunestyret er ikke bundet av uttalelsene", "De har vedtaksmyndighet i saker som gjelder gruppen de representerer i kommunen i kommunen og fylkeskommunen", "De kan stanse en sak til den er tilstrekkelig utredet for den aktuelle gruppen", "De kan påklage kommunestyrets vedtak til statsforvalteren på vegne av gruppen"],
+      options: ["De er rådgivende og har uttalerett, men kommunestyret er ikke bundet av uttalelsene", "De har vedtaksmyndighet i saker som gjelder gruppen de representerer i kommunen i kommunen og fylkeskommunen", "De kan stanse en sak i kommunestyret til den er tilstrekkelig utredet for den aktuelle gruppen", "De kan påklage kommunestyrets vedtak til statsforvalteren på vegne av gruppen"],
       explanation: "Det rådene har, er en lovfestet rett til å bli hørt før vedtaket fattes. Å tilskrive dem vedtaksmyndighet eller klagerett er en begrepsforveksling mellom uttalerett og myndighet.",
     },
     {
@@ -2768,12 +2768,12 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr det at EØS-avtalen er tidsubegrenset?",
-      options: ["Den løper til en av partene sier den opp, uten fornyelse med jevne mellomrom", "Den kan ikke sies opp av noen av partene så lenge markedet består", "Den gjelder helt til EU vedtar et nytt regelverk som erstatter avtalen i sin helhet", "Den fornyes ved en ny beslutning i EØS-komiteen hvert femte år"],
+      options: ["Den løper til en av partene sier den opp, uten fornyelse med jevne mellomrom", "Den kan ikke sies opp av noen av partene så lenge markedet består", "Den gjelder helt til EU vedtar et regelverk som erstatter avtalen", "Den fornyes ved en ny beslutning i EØS-komiteen hvert femte år"],
       explanation: "Tidsubegrenset betyr fravær av utløpsdato, ikke fravær av oppsigelsesadgang. Avtalen kan sies opp, og den fornyes ikke gjennom faste vedtak — det er nettopp derfor reforhandling ikke er et politisk vedtakspunkt.",
     },
     {
       question: "Hva sier homogenitetsprinsippet?",
-      options: ["Reglene i EØS-området skal være like og tolkes likt i hele området", "Statene i området skal ha lik stemmevekt når nytt regelverk vedtas", "Nasjonale særkrav er tillatt så lenge de gjelder likt for alle aktører", "EFTA-statene skal ha likt regelverk seg imellom, uavhengig av EU"],
+      options: ["Reglene i EØS-området skal være like og tolkes likt i hele området", "Statene i området skal ha lik stemmevekt når nytt regelverk vedtas", "Nasjonale særkrav er tillatt så lenge de gjelder likt for alle aktører", "EFTA-statene skal ha likt regelverk seg imellom, uavhengig av hva EU vedtar"],
       explanation: "Prinsippet gjelder regelinnholdet og tolkningen av det. Det er begrunnelsen for at avtalen må være dynamisk, og for at organene i EFTA-pilaren er innrettet for å komme til samme resultat som EUs egne.",
     },
     {
@@ -2905,12 +2905,12 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen på innenfor/utenfor-paradokset og demokratisk underskudd?",
-      options: ["Paradokset beskriver posisjonen, mens underskuddet vurderer hva den betyr", "Paradokset gjelder markedet, mens underskuddet gjelder rettsreglene", "Paradokset gjelder Norge, mens underskuddet bare gjelder EU-statene", "Paradokset er et fagbegrep, mens underskuddet er hentet fra den norske debatten"],
+      options: ["Paradokset beskriver posisjonen, mens underskuddet vurderer hva den betyr", "Paradokset gjelder markedet, mens underskuddet gjelder rettsreglene", "Paradokset gjelder Norge, mens underskuddet bare gjelder EU-statene", "Paradokset er et fagbegrep, mens underskuddet er hentet fra debatten"],
       explanation: "Å skille beskrivelse fra vurdering er selve grepet: først si hvor Norge står, deretter drøfte hva det betyr for folkestyret. Begge er fagbegreper, og begge gjelder Norge.",
     },
     {
       question: "Hva er demokratisk underskudd i EØS-sammenheng?",
-      options: ["At bindende regler blir til uten en representasjonskanal for de som bindes", "At avtalen ble inngått uten at spørsmålet var til folkeavstemning", "At Stortinget har færre representanter enn Europaparlamentet har", "At norske velgere har lavere valgdeltakelse ved valg enn velgerne i EU-statene"],
+      options: ["At bindende regler blir til uten en representasjonskanal for de som bindes", "At avtalen ble inngått uten at spørsmålet var til folkeavstemning", "At Stortinget har færre representanter enn Europaparlamentet har", "At norske velgere har lavere valgdeltakelse enn velgerne i EU"],
       explanation: "Innvendingen gjelder kanalen fra velger til beslutning for den delen av regelverket som vedtas i Rådet og Europaparlamentet. Den handler ikke om representantantall eller valgdeltakelse.",
     },
     {
@@ -2997,12 +2997,12 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
   'stv1400-9-1': [
     {
       question: "Hva er kjernen i feil #1, manglende drøfting?",
-      options: ["At besvarelsen redegjør grundig og korrekt, men aldri setter noe opp mot noe", "At besvarelsen drøfter grundig, men gjengir fagstoffet upresist underveis", "At besvarelsen bruker for mye plass på stoff som er relevant for temaet, men ikke for spørsmålet", "At besvarelsen behandler bare det ene leddet i en oppgave som ber om to"],
+      options: ["At besvarelsen redegjør grundig og korrekt, men aldri setter noe opp mot noe", "At besvarelsen drøfter grundig, men gjengir fagstoffet upresist underveis i drøftingen", "At besvarelsen bruker for mye plass på stoff som er relevant for temaet, men ikke for spørsmålet", "At besvarelsen behandler bare det ene leddet i en oppgave som ber om to"],
       explanation: "Feil #1 er at drøftingen mangler helt, ofte fordi drøftingsdelen er en ny redegjørelse i komprimert form. Upresis gjengivelse er feil #2 eller #8, plassbruk på uspurt stoff er feil #6, og halv behandling av et par er feil #7.",
     },
     {
       question: "Hvorfor er feil #1 den mest kostbare feilen i registeret?",
-      options: ["Fordi drøfting er en terskel: uten den stopper svaret på D eller lavere uansett", "Fordi den nesten alltid opptrer sammen med flere av de andre ti feilene i registeret", "Fordi den er den eneste feilen sensorveiledningene for H2024 og H2025 nevner", "Fordi den koster mest tid å rette når besvarelsen først er skrevet ferdig"],
+      options: ["Fordi drøfting er en terskel: uten den stopper svaret på D eller lavere uansett", "Fordi den nesten alltid opptrer sammen med flere av de andre ti feilene", "Fordi den er den eneste feilen sensorveiledningene for H2024 og H2025 nevner", "Fordi den koster mest tid å rette når besvarelsen først er skrevet ferdig"],
       explanation: "Akse 1 virker som en terskel, ikke som en kvalitetsdimensjon: fravær av drøfting stopper besvarelsen under C uansett hvor godt den skårer ellers. Veiledningene nevner flere feil, og retting av manglende drøfting er faktisk billig — fire setninger kan holde.",
     },
     {
@@ -3109,7 +3109,7 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
   'stv1400-9-2': [
     {
       question: "Hvor stor del av essayalternativene i arkivet har formen «redegjør for X, drøft deretter Y»?",
-      options: ["Alle 39, gjennom fire ulike eksamensformer fra H2010 til H2025", "Rundt to tredeler, mens resten har vært rene drøftingsoppgaver", "Bare de som ligger i dagens format, altså de 18 fra H2020 og senere", "Alle unntatt de komparative, som utgjør 11 av oppgaveplassene"],
+      options: ["Alle 39, gjennom fire ulike eksamensformer fra H2010 til H2025", "Rundt to tredeler, mens resten har vært rene drøftingsoppgaver", "Bare de 18 som ligger i dagens format, fra H2020 og senere", "Alle unntatt de komparative, som utgjør 11 av oppgaveplassene"],
       explanation: "Den todelte formen er konstant gjennom hele korpuset uten unntak. De 11 komparative oppgaveplassene er ikke et unntak fra formen, men en variant der redegjørelsesdelen selv er et par.",
     },
     {
@@ -3124,7 +3124,7 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva sier disponeringsregelen om forholdet mellom redegjørelse og drøfting?",
-      options: ["Drøftingen bør fylle rundt to tredeler, men halvparten holder når redegjørelsen krever mye plass", "Redegjørelsen bør fylle rundt to tredeler, siden den er grunnlaget drøftingen hviler på", "De to delene bør være omtrent like lange i alle oppgavetyper, uavhengig av hvor stor redegjørelsen er", "Forholdet er fritt, siden emnet ikke har noen ordgrense i det hele tatt"],
+      options: ["Drøftingen bør fylle rundt to tredeler, men halvparten holder når redegjørelsen krever mye plass", "Redegjørelsen bør fylle rundt to tredeler av besvarelsen, siden den er grunnlaget drøftingen hviler på", "De to delene bør være omtrent like lange i alle oppgavetyper, uavhengig av hvor stor redegjørelsen er", "Forholdet er fritt, siden emnet ikke har noen ordgrense i det hele tatt"],
       explanation: "H2025-veiledningen gjengir en tommelfingerregel fra forelesning om to tredeler drøfting, med et uttrykkelig unntak der redegjørelsen selv er stor. At det ikke finnes ordgrense, gjelder lengden på besvarelsen, ikke fordelingen mellom delene.",
     },
     {
@@ -3303,7 +3303,7 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke to bolker har redegjørelsesskjelettet for virkemiddeloppgaven?",
-      options: ["Organiseringen og de tre styringsvirkemidlene", "De juridiske og de økonomiske virkemidlene", "Kommunens oppgaver og kommunens inntekter", "Detaljstyring og rammestyring som to atskilte former"],
+      options: ["Organiseringen og de tre styringsvirkemidlene", "De juridiske virkemidlene og de økonomiske virkemidlene i hver sin bolk", "Kommunens oppgaver og kommunens inntekter", "Detaljstyring og rammestyring som to atskilte former"],
       explanation: "Bolk 1 er territoriell inndeling, antall styringsnivåer og oppgavefordeling; bolk 2 er juridiske, økonomiske og pedagogiske virkemidler. De pedagogiske virkemidlene faller ut hvis man bare tar med de to første, og detaljstyring mot rammestyring er en skala virkemidlene plasseres på.",
     },
     {
@@ -3323,7 +3323,7 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor ble C-versjonen av oppgave 1 ikke en B?",
-      options: ["Den manglet egen rangering, forankring i drøftingsdelen og en spesifisert variabel", "Den manglet en reell drøfting og stoppet derfor allerede under terskelen mot karakteren C", "Den forvekslet rammetilskudd med øremerkede tilskudd i redegjørelsen", "Den svarte bare på det ene av oppgavens to instruksjonsledd"],
+      options: ["Den manglet egen rangering, forankring i drøftingsdelen og en spesifisert variabel", "Den manglet en reell drøfting og stoppet derfor under terskelen mot C", "Den forvekslet rammetilskudd med øremerkede tilskudd i redegjørelsen", "Den svarte bare på det ene av oppgavens to instruksjonsledd"],
       explanation: "C-versjonen har en reell drøfting, korrekte begreper og begge instruksjonsledd besvart. Det den mangler, er tre bevegelser: en rangering den selv har begrunnet, et norsk holdepunkt som bærer et argument i drøftingsdelen, og en variabel siste setning kunne festet seg i.",
     },
     {
@@ -3385,12 +3385,12 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er A-markøren i byråkratioppgaven?",
-      options: ["Å vise at avvikene er vedtatt, hvert med begrunnelse i et hensyn modellen ikke veier", "Å vise at avvikene har oppstått gradvis over tid, uten at noen har besluttet noe av det", "Å vise at idealtypen er for gammel til å fange dagens forvaltning", "Å gjengi alle seks kjennetegnene med hvert sitt norske eksempel"],
+      options: ["Å vise at avvikene er vedtatt, hvert med begrunnelse i et hensyn modellen ikke veier", "Å vise at avvikene har oppstått gradvis over tid, uten at noen har besluttet noe av det", "Å vise at idealtypen er for gammel til å fange dagens forvaltning, og derfor bør byttes ut", "Å gjengi alle seks kjennetegnene med hvert sitt norske eksempel"],
       explanation: "Fristillingen ble innført for å gi armlengdes avstand, mål- og resultatstyringen fordi en utskilt enhet ikke lar seg instruere sak for sak. At avvikene er valg og ikke forfall, flytter svaret fra beskrivelse til analyse.",
     },
     {
       question: "Hva skiller B-besvarelsen i dette kapitlet fra C-besvarelsen?",
-      options: ["At den ser et mønster i dommene sine, ikke at den kan mer eller skriver bedre", "At den er skrevet i et mer presist og akademisk språk hele veien gjennom besvarelsen", "At den bruker flere navngitte norske eksempler i vurderingsdelen", "At den gjengir modellen mer utfyllende før anvendelsen begynner"],
+      options: ["At den ser et mønster i dommene sine, ikke at den kan mer eller skriver bedre", "At den er skrevet i et mer presist og akademisk språk hele veien gjennom besvarelsen", "At den bruker flere navngitte norske eksempler i vurderingsdelen enn C-besvarelsen gjør", "At den gjengir modellen mer utfyllende før anvendelsen begynner"],
       explanation: "B-versjonen er skrevet upolert, med «jeg vil si at», og har omtrent samme empiri som C. Den ene forskjellen er at den ser sammenhengen mellom funnene sine — og det er verdt et helt nivå.",
     },
     {
@@ -3400,22 +3400,22 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den spesielle fellen i anvendelsesoppgaver, slik E-besvarelsen i oppgave 1 viser?",
-      options: ["Å beskrive modellen og virkeligheten hver for seg uten å måle den ene mot den andre", "Å bruke for lite plass på modellen, slik at leseren ikke forstår hva som måles mot hva", "Å kritisere modellen i stedet for å anvende den på norske forhold", "Å anvende modellen på et annet land enn det oppgaven gjelder"],
+      options: ["Å beskrive modellen og virkeligheten hver for seg uten å måle den ene mot den andre", "Å bruke for lite plass på modellen, slik at leseren ikke forstår hva som måles mot hva", "Å kritisere modellens svakheter i stedet for å anvende den på de norske forholdene oppgaven gjelder", "Å anvende modellen på et annet land enn det oppgaven gjelder"],
       explanation: "E-versjonen har to korrekte halvdeler og tror den er ferdig. Å beskrive begge sider er ikke å anvende den ene på den andre, og «på mange måter» er ikke et svar på spørsmålet «i hvilken grad».",
     },
     {
       question: "Hvorfor endrer relativ måling drøftingen av universelle mot behovsprøvde ordninger?",
-      options: ["Fordi en universell ytelse hever både inntekten under grensen og medianen som grensen måles mot", "Fordi relativ måling bare fanger opp dem som har ligget under lavinntektsgrensen i flere år på rad", "Fordi behovsprøvde ytelser er unntatt fra beregningen av lavinntekt", "Fordi universelle ytelser ikke regnes som inntekt i statistikken"],
+      options: ["Fordi en universell ytelse hever både inntekten under grensen og medianen som grensen måles mot", "Fordi relativ måling bare fanger opp dem som har ligget under lavinntektsgrensen i flere år", "Fordi behovsprøvde ytelser er unntatt fra beregningen av lavinntekt", "Fordi universelle ytelser ikke regnes som inntekt i statistikken"],
       explanation: "Skal måltallet ned, må inntekten under grensen løftes mer enn medianen løftes. Behovsprøvde overføringer treffer derfor bedre på nettopp denne indikatoren — et faglig og ikke et politisk poeng.",
     },
     {
       question: "Hva er motstykket til det argumentet, i A-besvarelsen av velferdsoppgaven?",
-      options: ["At universelle tjenester ikke senker måltallet, men reduserer det måltallet er ment å fange", "At behovsprøvde ytelser er vesentlig dyrere å administrere enn universelle overføringer og tjenester", "At relativ fattigdom er en dårligere indikator enn absolutt fattigdom", "At universelle ordninger uansett når flere fordi terskelen er lavere"],
+      options: ["At universelle tjenester ikke senker måltallet, men reduserer det måltallet er ment å fange", "At behovsprøvde ytelser er vesentlig dyrere å administrere enn universelle", "At relativ fattigdom er en dårligere indikator enn absolutt fattigdom", "At universelle ordninger uansett når flere fordi terskelen er lavere"],
       explanation: "Barnehage, skole og helsetjenester tilgjengelig uavhengig av inntekt senker ikke inntektsmåltallet, men reduserer at lav inntekt slår ut i dårligere liv og går i arv. De to formene svarer altså ikke på samme spørsmål.",
     },
     {
       question: "Hva er den vanligste grunnen til at en godt skrevet velferdsbesvarelse stopper på C?",
-      options: ["At den drøfter en generell versjon av oppgaven i stedet for den som ble stilt", "At den forveksler de-kommodifisering med de-familisering flere steder i redegjørelsen", "At den mangler en av Esping-Andersens tre velferdsregimer", "At den lander betinget i stedet for å ta et klart standpunkt"],
+      options: ["At den drøfter en generell versjon av oppgaven i stedet for den som ble stilt", "At den forveksler de-kommodifisering med de-familisering flere steder i redegjørelsen", "At den mangler en av Esping-Andersens tre velferdsregimer", "At den lander betinget i stedet for å ta et klart og entydig standpunkt i verdispørsmålet"],
       explanation: "C-versjonen nevner vedvarende lavinntekt i første setning og bruker det aldri. Betinget landing er riktig form i et verdispørsmål, og regimene hører til redegjørelsen, ikke til drøftingsleddet.",
     },
     {
@@ -3425,7 +3425,7 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke tre betydninger av «svekkes» skiller A-besvarelsen i styringskjedeoppgaven mellom?",
-      options: ["Kanalskifte, reell svekkelse og brudd", "Delegasjon, kontroll og ansvar", "Formell svekkelse, reell svekkelse og symbolsk svekkelse", "Svekkelse i ledd 1, ledd 2 og ledd 3"],
+      options: ["Kanalskifte, reell svekkelse og brudd", "Delegasjon, kontroll og ansvar", "Formell svekkelse, reell svekkelse og symbolsk svekkelse", "Svekkelse i første, andre og tredje ledd av styringskjeden"],
       explanation: "Kanalskifte er at styringen skjer på en annen måte mens fullmakt og ansvar følger hverandre; reell svekkelse er at de skiller lag; brudd er at et ledd faller bort. Graderingen gjør dommen presis i stedet for omtrentlig.",
     },
     {
@@ -3472,7 +3472,7 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skal styre valget mellom de tre alternativene?",
-      options: ["Om du kan navngi to hensyn som trekker i hver sin retning i oppgaven", "Hvilke to temaer du har lest mest om i pensumlitteraturen", "Hvilke to oppgaver som har den korteste og mest oversiktlige oppgaveteksten", "Hvilke to oppgaver som ligger nærmest hverandre i tema"],
+      options: ["Om du kan navngi to hensyn som trekker i hver sin retning i oppgaven", "Hvilke to temaer du har lest mest om i pensumlitteraturen, målt i antall sider", "Hvilke to oppgaver som har den korteste og mest oversiktlige oppgaveteksten", "Hvilke to oppgaver som ligger nærmest hverandre i tema"],
       explanation: "Kunnskap uten drøfting stopper på D uansett mengde, mens en oppgave du kan litt mindre om, men har en reell avveining til, kan bære en C eller bedre. Testen tar to minutter per alternativ.",
     },
     {
@@ -3482,17 +3482,17 @@ const quizData_stv1400: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva sier nivåregelen om sammensetningen av oppgavesettet?",
-      options: ["Minst ett alternativ er forankret kommunalt eller regionalt og minst ett i statsforvaltningen", "Minst ett alternativ er en påstandsdrøfting og minst ett er en komparativ redegjørelse av to begreper", "Minst to av de tre alternativene kommer fra de høyest prioriterte temaene", "Minst ett alternativ gjentar en oppgave fra de siste tre terminene"],
+      options: ["Minst ett alternativ er forankret kommunalt eller regionalt og minst ett i statsforvaltningen", "Minst ett alternativ er en påstandsdrøfting og minst ett er en komparativ redegjørelse av to begreper", "Minst to av de tre alternativene er hentet fra de temaene som har gått igjen oftest i tidligere sett", "Minst ett alternativ gjentar en oppgave fra de siste tre terminene"],
       explanation: "Mønsteret gjelder i alle 6 terminene i dagens format og er korpusets mest robuste strukturregel. Behersker du bare det ene forvaltningsnivået, risikerer du å stå igjen med ett brukbart alternativ av tre.",
     },
     {
       question: "Hva viser funnet om utsatt eksamen i arkivet?",
-      options: ["Det utsatte settet gjenbrukte i stor grad oppgaver fra året før, ikke fra årets ordinære", "Det utsatte settet var en lett omskrevet variant av det ordinære settet fra den samme terminen", "Det utsatte settet hadde færre oppgavealternativer enn det ordinære", "Det utsatte settet brukte samme oppgaver i en annen rekkefølge"],
+      options: ["Det utsatte settet gjenbrukte i stor grad oppgaver fra året før, ikke fra årets ordinære", "Det utsatte settet var en lett omskrevet variant av det ordinære fra samme termin", "Det utsatte settet hadde færre oppgavealternativer enn det ordinære", "Det utsatte settet brukte samme oppgaver i en annen rekkefølge"],
       explanation: "H2017 og H2018 utsatt eksamen deler fire av åtte oppgaveplasser ordrett, mens H2018 ordinær og H2018 utsatt eksamen deler ingen. Funnet hviler på ett tilfelle, siden H2018 er den eneste terminen med begge.",
     },
     {
       question: "Hvilket forbehold skal alltid følge funnet om utsatt eksamen?",
-      options: ["At det hviler på ett tilfelle, siden H2018 er eneste termin med både ordinær og utsatt eksamen", "At det bare gjelder for de terminene som ble avholdt som hjemmeeksamen med alle hjelpemidler tillatt", "At det bygger på sensorveiledningene og ikke på selve oppgavesettene", "At det gjaldt før valgregelen ble innført og derfor er utdatert"],
+      options: ["At det hviler på ett tilfelle, siden H2018 er eneste termin med både ordinær og utsatt eksamen", "At det bare gjelder de terminene som ble avholdt som hjemmeeksamen", "At det bygger på sensorveiledningene og ikke på selve oppgavesettene", "At det gjaldt før valgregelen ble innført og derfor er utdatert"],
       explanation: "Funnet er godt dokumentert i det ene tilfellet, men et enkelttilfelle kan ikke bære en generell regel om hvordan UiO bygger sett. Det skal formuleres som «i det ene tilfellet arkivet dokumenterer».",
     },
     {

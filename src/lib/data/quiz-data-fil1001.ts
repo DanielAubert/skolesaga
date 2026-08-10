@@ -4,7 +4,7 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
   'fil1001-0-1': [
     {
       question: "Hvilken vurderingsform har FIL1001?",
-      options: ["Én 4-timers digital skoleeksamen uten hjelpemidler, karakter A–F", "Én 4-timers digital skoleeksamen med alle hjelpemidler, karakter A–F", "En mappevurdering av to innleveringer, karakter A–F", "En 6-timers hjemmeeksamen med kildebruk, bestått/ikke bestått"],
+      options: ["Én 4-timers digital skoleeksamen uten hjelpemidler, karakter A–F", "Én 4-timers skoleeksamen med alle hjelpemidler, karakter A–F", "En mappevurdering av to innleveringer, karakter A–F", "En 6-timers hjemmeeksamen med kildebruk, bestått/ikke bestått"],
       explanation: "Vurderingen er én digital skoleeksamen på fire timer i Inspera, uten hjelpemidler, med karakterskala A–F. De obligatoriske arbeidskravene må godkjennes, men teller ikke på karakteren, så mappevurdering er feil. Hjelpemiddelfriheten er verdt å merke seg: alt du skal bruke, må sitte i hodet.",
     },
     {
@@ -19,12 +19,12 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner settformatet «fire av N, fritt valg», som er brukt fra våren 2017?",
-      options: ["Én blandet liste der fire oppgaver velges fritt av kandidaten", "To adskilte lister der to oppgaver må velges fra hver av dem", "En fast liste på fire oppgaver som alle kandidater må besvare", "Én liste der de fire første oppgavene er obligatoriske for alle"],
+      options: ["Én blandet liste der fire oppgaver velges fritt av kandidaten", "To adskilte lister der to av oppgavene må velges fra hver av listene", "En fast liste på fire oppgaver som alle kandidater må besvare", "Én liste der de fire første oppgavene er obligatoriske for alle"],
       explanation: "I dagens format står alle oppgavene i én blandet liste på sju eller åtte, og kandidaten velger fritt fire. Formatet med to adskilte lister er det eldre delte settet, der begge delene må besvares — en forskjell som avgjør hvordan du planlegger valget ditt.",
     },
     {
       question: "Hva krever det eldre «delte» settformatet, som fortsatt brukes i utsatte prøver?",
-      options: ["At både Del I Metafysikk og Del II Bevissthetsfilosofi besvares", "At kandidaten velger den ene av de to delene og svarer grundig der", "At alle oppgavene i begge deler besvares kort", "At Del I besvares skriftlig og Del II som flervalg"],
+      options: ["At både Del I Metafysikk og Del II Bevissthetsfilosofi besvares", "At kandidaten velger den ene av de to delene og svarer grundig der", "At alle oppgavene i begge deler besvares kort", "At Del I Metafysikk besvares skriftlig og Del II som flervalgsoppgaver"],
       explanation: "I delte sett er begge delene obligatoriske, og man velger et fåtall oppgaver innenfor hver del. Å samle alle svarene i den ene delen er ikke tillatt, og er en av de dyreste feilene i faget fordi den koster poeng uavhengig av kunnskapsnivå.",
     },
     {
@@ -34,7 +34,7 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken sjanger er grunnformen som ligger under så godt som hvert spørsmål i FIL1001?",
-      options: ["S1 — redegjør for X, diskuter kritisk, ta stilling", "S2 — sammenlign to posisjoner langs flere dimensjoner", "S3 — rekonstruer et navngitt tankeeksperiment", "S5 — åpen problemstilling forankret i pensumtekstene"],
+      options: ["S1 — redegjør for X, diskuter kritisk, ta stilling", "S2 — sammenlign to posisjoner langs flere dimensjoner", "S3 — rekonstruer og vurder et navngitt tankeeksperiment", "S5 — åpen problemstilling forankret i pensumtekstene"],
       explanation: "Grunnformen er tredelt: redegjørelse, kritisk drøfting og begrunnet standpunkt. De øvrige sjangrene er varianter som legger til et krav (sammenligning, eksperimentanalyse, egen mobilisering av posisjoner), men tredelingen ligger under dem alle.",
     },
     {
@@ -44,7 +44,7 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner sjanger S5, den åpne pensumforankrede problemstillingen?",
-      options: ["Kandidaten må selv mobilisere de mest relevante posisjonene fra pensum", "Oppgaven navngir posisjonene som skal drøftes, og ber om en sammenligning", "Oppgaven er delt i deloppgaver som fører kandidaten trinnvis gjennom problemet", "Oppgaven ber om en ren redegjørelse uten krav om egen stillingtaken"],
+      options: ["Kandidaten må selv mobilisere de mest relevante posisjonene fra pensum", "Oppgaven navngir posisjonene som skal drøftes, og ber om en sammenligning", "Oppgaven er delt i deloppgaver som fører kandidaten trinnvis gjennom problemet", "Oppgaven ber om en ren redegjørelse uten noe krav om egen kritisk stillingtaken"],
       explanation: "I S5 er spørsmålet vidt («har mennesker fri vilje?»), og selve prøven er om du finner fram til de to–tre posisjonene som faktisk er relevante. At oppgaven navngir posisjonene, er derimot typisk for sammenligningssjangeren, og trinnvis føring er den flerdelte oppgavens kjennetegn.",
     },
     {
@@ -54,7 +54,7 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken lærebok eier uttrykkene «soft determinism», «the Space-Time Theory of Time» og «the psychological continuity view»?",
-      options: ["Conee og Siders «Riddles of Existence», emnets metafysikkanker", "Kims «Philosophy of Mind», emnets bevissthetsanker", "Descartes' «Meditasjoner over filosofiens grunnlag»", "Berkeleys «Three Dialogues», emnets viktigste primærtekst om idealisme"],
+      options: ["Conee og Siders «Riddles of Existence», emnets metafysikkanker", "Kims «Philosophy of Mind», emnets bevissthetsanker", "Descartes' «Meditasjoner over filosofiens grunnlag», emnets klassiske primærtekst", "Berkeleys «Three Dialogues», emnets viktigste primærtekst om idealisme"],
       explanation: "De tre uttrykkene er Conee og Siders, og oppgavene siterer dem direkte, så terminologien deres må brukes ordrett når den etterspørres. Kim eier de tilsvarende uttrykkene i bevissthetsfilosofien — minimal fysikalisme, reduksjonsmodellene og eksklusjonsargumentet — mens de to andre er primærtekster, ikke lærebøker.",
     },
     {
@@ -71,12 +71,12 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva vil det si å rekonstruere et argument, i motsetning til å referere det?",
-      options: ["Å sette det opp som premisser som fører fram til en konklusjon", "Å gjengi tenkerens formuleringer så ordrett som mulig", "Å oppsummere hva tenkeren mener, i én kort setning", "Å plassere tenkeren i sin historiske og faglige sammenheng i tiden"],
+      options: ["Å sette det opp som premisser som fører fram til en konklusjon", "Å gjengi tenkerens egne formuleringer så ordrett som overhodet mulig", "Å oppsummere hva tenkeren mener, i én kort setning", "Å plassere tenkeren i sin historiske og faglige sammenheng i tiden"],
       explanation: "Rekonstruksjon betyr å vise argumentets ledd: premiss, premiss, konklusjon. Ordrett gjengivelse og historisk plassering kan være riktig og relevant, men viser ikke hva argumentet hviler på — og det er nettopp den innsikten som gjør drøftingen etterpå mulig.",
     },
     {
       question: "Hvilket av de fem kjennetegnene i sensorveiledningen for høsten 2018 kaller boka «A-aksen»?",
-      options: ["At svaret påviser sammenhenger mellom argumentene rundt ett tema", "At svaret er klart skrevet og ryddig strukturert", "At svaret viser god kunnskap om de filosofiske teoriene i pensum", "At svaret formulerer og argumenterer effektivt for et eget standpunkt"],
+      options: ["At svaret påviser sammenhenger mellom argumentene rundt ett tema", "At svaret er klart skrevet og ryddig strukturert", "At svaret viser god kunnskap om de filosofiske teoriene i pensum", "At svaret argumenterer effektivt for et eget standpunkt"],
       explanation: "Kjennetegn 3 — påviste sammenhenger — er det grepet som oftest skiller A fra C, og det er det flest kandidater lar ligge. De tre andre kjennetegnene er selvsagt også krav, men de er som regel oppfylt i et jevnt C-svar.",
     },
     {
@@ -91,7 +91,7 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skiller ifølge boka først og fremst et A-svar fra et C-svar?",
-      options: ["Drøftingskvaliteten og de påviste sammenhengene, ikke mengden stoff", "Antall posisjoner og filosofer som blir nevnt i løpet av svaret", "Lengden på besvarelsen og antall fagtermer som brukes", "Om kandidaten lander på den konklusjonen sensor selv mener er riktig"],
+      options: ["Drøftingskvaliteten og de påviste sammenhengene, ikke mengden stoff", "Antall posisjoner og navngitte filosofer som blir nevnt i løpet av svaret", "Lengden på besvarelsen og antall fagtermer som brukes", "Om kandidaten lander på den konklusjonen sensor selv mener er riktig"],
       explanation: "A-nivået kjennetegnes av at kandidaten behandler stoffet: rekonstruerer, veier og kobler argumenter på tvers. Standpunktet er fritt — alle utfall kan gi toppkarakter med stringent begrunnelse — og et A-svar kan dekke færre posisjoner enn et C-svar.",
     },
     {
@@ -106,12 +106,12 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En besvarelse avsluttes med «jeg mener Lewis har rett». Hvilken av de ti feilene er dette?",
-      options: ["Feil #4 — påstand uten argument i ta-stilling-delen", "Feil #1 — referat uten drøfting av posisjonen", "Feil #9 — ensidig drøfting uten innvendinger", "Feil #10 — manglende sammenhenger mellom argumentene"],
+      options: ["Feil #4 — påstand uten argument i ta-stilling-delen", "Feil #1 — referat uten noen drøfting av posisjonen som gjengis", "Feil #9 — ensidig drøfting uten innvendinger", "Feil #10 — manglende sammenhenger mellom argumentene"],
       explanation: "Et standpunkt er en konklusjon, og konklusjoner må hvile på premisser fra drøftingen foran. Referat uten drøfting gjelder svar som stopper etter redegjørelsen, ensidig drøfting gjelder svar som aldri møter motstand, og manglende sammenhenger gjelder svar som behandler argumentene isolert.",
     },
     {
       question: "Hva er dialektikk i bokas forstand?",
-      options: ["At innvendingen får posisjonens eget svar før du vurderer hvem som vinner", "At du legger fram flere ulike innvendinger etter hverandre mot samme posisjon", "At du veksler mellom to posisjoner uten å konkludere til slutt", "At du gjengir debatten slik den historisk har utviklet seg"],
+      options: ["At innvendingen får posisjonens eget svar før du vurderer hvem som vinner", "At du legger fram flere ulike innvendinger etter hverandre mot samme posisjon", "At du veksler fram og tilbake mellom to posisjoner uten å konkludere til slutt", "At du gjengir debatten slik den historisk har utviklet seg"],
       explanation: "Dialektikk er bevegelsen innvending, forsvar, vurdering — det er den som viser kritiske ferdigheter. Én innvending med svar og vurdering er sterkere enn tre innvendinger som står ubesvarte, og historisk framstilling er noe annet enn argumentativ behandling.",
     },
     {
@@ -121,12 +121,12 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Oppgaven lyder: «Gjør rede for X, forklar hvordan X motiveres, drøft innvendinger, og ta stilling.» Hva er det første grepet?",
-      options: ["Telle instruksjonsverbene og planlegge én del av svaret for hvert av dem", "Begynne på redegjørelsen med én gang for å sikre grunnpoengene", "Bestemme standpunktet først, slik at drøftingen kan bygge opp mot nettopp det", "Skrive ned alt du husker om temaet, og rydde i det etterpå"],
+      options: ["Telle instruksjonsverbene og planlegge én del av svaret for hvert av dem", "Begynne på redegjørelsen med én gang for å sikre grunnpoengene tidlig i svaret", "Bestemme standpunktet først, slik at drøftingen kan bygge opp mot nettopp det", "Skrive ned alt du husker om temaet, og rydde i det etterpå"],
       explanation: "Verbtellingen avgjør hvor mange deler svaret skal ha, og er den billigste forsikringen mot å levere et halvt svar. Å skrive alt du husker gir dessuten ingen uttelling i seg selv — det er behandlingen av stoffet, ikke mengden, som vurderes.",
     },
     {
       question: "Hva krever instruksjonsverbet «sammenlign X og Y» ifølge instruksjonsverb-tabellen?",
-      options: ["Begge posisjonene redegjort for, deretter eksplisitte sammenligningspunkter og vurdering", "En redegjørelse for hver av de to posisjonene, presentert etter hverandre i hver sin bolk", "En vurdering av hvilken posisjon som er mest utbredt blant filosofer i dag", "En rekonstruksjon av det springende premisset i den sterkeste av de to"],
+      options: ["Begge posisjonene redegjort for, deretter eksplisitte sammenligningspunkter og vurdering", "En redegjørelse for hver av de to posisjonene, presentert etter hverandre i hver sin bolk", "En vurdering av hvilken av de to posisjonene som i dag er mest utbredt blant fagfilosofer", "En rekonstruksjon av det springende premisset i den sterkeste av de to"],
       explanation: "Sammenligningen må skje langs to til fire navngitte dimensjoner med en kort vurdering på hver akse. To referater etter hverandre er den vanligste måten å tape poeng i denne sjangeren, og springende premiss hører hjemme i tankeeksperimentanalysen.",
     },
     {
@@ -143,17 +143,17 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
   'fil1001-1-1': [
     {
       question: "Hva er en primær substans hos Aristoteles?",
-      options: ["Det konkrete enkeltindividet, som dette mennesket eller denne hesten", "Arten eller slekten individet tilhører, som menneske eller dyr", "Egenskapen som gjør at vi kan gjenkjenne en ting som nettopp den den er", "Materien tingen består av, uavhengig av formen den har fått"],
+      options: ["Det konkrete enkeltindividet, som dette mennesket eller denne hesten", "Arten eller slekten det enkelte individet tilhører, som menneske eller dyr", "Egenskapen som gjør at vi kan gjenkjenne en ting som nettopp den den er", "Materien tingen består av, uavhengig av formen den har fått"],
       explanation: "Primær substans er enkeltindividet — det som verken er i et subjekt eller sies om et subjekt. Arten er derimot sekundær substans, og materien er én av to sider ved enkelttinget i den videre analysen, ikke det primære i kategorilæren.",
     },
     {
       question: "Hva er en sekundær substans hos Aristoteles?",
-      options: ["Arten og slekten et enkeltindivid tilhører, som menneske og dyr", "En egenskap som en substans ikke kan miste uten å opphøre", "Det konkrete enkeltindividet betraktet som en enhet av materie og form", "En relasjon mellom to enkeltindivider, som «større enn»"],
+      options: ["Arten og slekten et enkeltindivid tilhører, som menneske og dyr", "En egenskap som en substans ikke kan miste uten å opphøre", "Det konkrete enkeltindividet av materie og form", "En relasjon mellom to enkeltindivider, som «større enn»"],
       explanation: "Sekundære substanser er arter og slekter, og de kalles substanser fordi de svarer på hva noe er. De er sekundære fordi de sies om de primære substansene og ikke omvendt — avhengigheten går bare én vei.",
     },
     {
       question: "Hva menes med at en egenskap er «i et subjekt» hos Aristoteles?",
-      options: ["At den ikke kan eksistere atskilt fra det den er i", "At den er en fysisk del av tingen, slik en gren er del av et tre", "At den sier hva tingen er, og inngår i definisjonen av den", "At den kan sies om mange enkeltting av samme slag"],
+      options: ["At den ikke kan eksistere atskilt fra det den er i", "At den er en fysisk del av tingen, slik en gren er del av et tre", "At den sier hva tingen er, og inngår i definisjonen av den", "At den kan sies om mange ulike enkeltting av det samme slaget"],
       explanation: "Inherens betyr avhengig eksistens, ikke deltilhørighet: Sokrates' blekhet kan ikke flyttes ut og eksistere alene. Å si hva tingen er, hører til predikasjon av sekundære substanser, og en fysisk del er nettopp ikke det Aristoteles mener med å være i et subjekt.",
     },
     {
@@ -198,32 +198,32 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en definisjon ved slekt og artsforskjell?",
-      options: ["Å angi slekten og legge til trekket som skiller arten fra de andre", "Å angi alle kjennetegn som tilfeldigvis passer på tingen", "Å angi hva tingen består av og hva den brukes til", "Å angi et eksempel som alle er enige om at faller inn under begrepet"],
+      options: ["Å angi slekten og legge til trekket som skiller arten fra de andre", "Å angi alle de kjennetegnene som tilfeldigvis passer på nettopp den tingen", "Å angi hva tingen består av og hva den brukes til", "Å angi et eksempel som alle er enige om at faller inn under begrepet"],
       explanation: "Oppskriften er slekt pluss artsforskjell, som i «mennesket er et fornuftig dyr», og kravet er at definisjonen fanger essensen. Et kjennetegn som tilfeldigvis passer — «det eneste dyret som lager verktøy» — kan være sant og likevel være en dårlig definisjon.",
     },
     {
       question: "Treet felles og skjæres opp til plank. Hva slags endring er dette?",
-      options: ["Substansiell endring — substansen opphører, mens materien består", "Aksidentell endring — substansen består, mens en egenskap skifter", "Substansiell endring — materien opphører, mens formen består", "Aksidentell endring — både materien og formen består uendret"],
+      options: ["Substansiell endring — substansen opphører, mens materien består", "Aksidentell endring — substansen består, egenskapen skifter", "Substansiell endring — materien opphører, mens formen består", "Aksidentell endring — både materien og formen består uendret"],
       explanation: "Formen som gjorde materien til dette treet, er borte, mens veden består som materie — derfor opphører substansen. Ved aksidentell endring er det motsatt: bæreren består mens en egenskap som farge eller høyde skifter.",
     },
     {
       question: "Hva er materie (hyle) hos Aristoteles?",
-      options: ["Det en ting er laget av, alltid som materie for en form", "Den fysiske grunnsubstansen alle ting til slutt kan reduseres til", "Summen av de sansbare egenskapene en ting har", "Det som gjør at en ting hører til en bestemt art"],
+      options: ["Det en ting er laget av, alltid som materie for en form", "Den fysiske grunnsubstansen alle ting til slutt kan reduseres til", "Summen av de sansbare egenskapene en ting har", "Det som gjør at en ting hører til en bestemt art og ikke en annen"],
       explanation: "Materien er alltid materie for en form: en haug bronse er ikke en statue før den er formet. Å lese begrepet som moderne fysikalsk grunnstoff er å bytte ut Aristoteles' posisjon, og det som gir arten, er formen.",
     },
     {
       question: "Hva er form (morfé) hos Aristoteles?",
-      options: ["Organiseringen som gjør materien til denne typen ting", "Den ytre fasongen eller omrisset en ting har", "Den kategorien av kvalitet som gjelder utseende", "Idéen om tingen slik den framstår for oss i vår egen bevissthet"],
+      options: ["Organiseringen som gjør materien til denne typen ting", "Den ytre fasongen eller omrisset en ting har", "Den kategorien av kvalitet som gjelder utseende", "Idéen om tingen slik den framstår i bevisstheten"],
       explanation: "Formen er et organiserende prinsipp, ikke et ytre omriss lagt oppå materien — den forklarer hvorfor treet vokser og setter blader. Den er heller ikke en kvalitet blant andre, og den finnes i tingen, ikke bare i vår tanke om den.",
     },
     {
       question: "Hva er hylemorfisme?",
-      options: ["Læren om at en konkret ting er en enhet av materie og form", "Læren om at bare materien er virkelig, og formen er noe vi legger til", "Læren om at formen finnes atskilt fra tingene den former", "Læren om at alle ting består av de samme fire grunnstoffene"],
+      options: ["Læren om at en konkret ting er en enhet av materie og form", "Læren om at bare materien er virkelig, og formen er noe vi legger til", "Læren om at formen eksisterer atskilt fra de tingene den gir form", "Læren om at alle ting består av de samme fire grunnstoffene"],
       explanation: "Materie og form er to sider ved én ting, som bare kan skilles i analysen, og nettopp dette gjør forandring forståelig. En lære der formen eksisterer atskilt fra tingene, er en annen posisjon enn Aristoteles', og grunnstofflæren er et helt annet spørsmål.",
     },
     {
       question: "Hvilken av de fire årsakene svarer på spørsmålet om hva noe er?",
-      options: ["Formalårsaken — formen eller vesenet tingen har", "Materialårsaken — det tingen er laget av", "Den virkende årsaken — det som frambrakte tingen", "Formålsårsaken — det tingen er til for"],
+      options: ["Formalårsaken — formen eller vesenet tingen har", "Materialårsaken — det materialet tingen er laget av", "Den virkende årsaken — det som frambrakte tingen", "Formålsårsaken — det tingen er til for"],
       explanation: "Formalårsaken knytter formen til essensen og dermed til definisjonen, og er derfor den viktigste for substanslæren. De tre andre svarer på hva tingen består av, hvem som lagde den, og hva den er til for.",
     },
     {
@@ -243,47 +243,47 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en nominell essens hos Locke?",
-      options: ["Samlingen observerbare egenskaper vi knytter til et artsbegrep", "Den indre konstitusjonen som frambringer de observerbare egenskapene", "Navnet vi gir tingen, uavhengig av hvilke egenskaper den har", "Den delen av essensen som er felles for alle levende vesener"],
+      options: ["Samlingen observerbare egenskaper vi knytter til et artsbegrep", "Den indre konstitusjonen som frambringer egenskapene", "Navnet vi gir tingen, uavhengig av hvilke egenskaper den har", "Den delen av essensen som er felles for alle levende vesener"],
       explanation: "Den nominelle essensen er egenskapssamlingen vi selv har trukket grensen rundt — gult, tungt, smibart for gull. Den indre konstitusjonen er den reelle essensen, som Locke mener finnes, men som vi ikke kjenner.",
     },
     {
       question: "Hva er en reell essens hos Locke?",
-      options: ["Den indre konstitusjonen som frambringer tingens egenskaper", "Den samlingen egenskaper vi bruker når vi klassifiserer tingen", "Den definisjonen som fanger tingens vesen ved slekt og artsforskjell", "Det underlaget som bærer egenskapene uten selv å ha noen"],
+      options: ["Den indre konstitusjonen som frambringer tingens egenskaper", "Den samlingen egenskaper vi bruker når vi klassifiserer tingen", "Den definisjonen som fanger tingens vesen ved slekt og artsforskjell", "Det underlaget som bærer alle egenskapene uten selv å ha noen av dem"],
       explanation: "Den reelle essensen er tingens indre konstitusjon, som forklarer hvorfor gullet oppfører seg som gull — men den ligger utenfor vår rekkevidde. Definisjon ved slekt og artsforskjell er Aristoteles' oppskrift, og det bærende underlaget er substratet.",
     },
     {
       question: "På hvilken akse er forskjellen mellom Aristoteles og Locke om substans størst?",
-      options: ["Om substansen kan kjennes, og dermed om essensene er tilgjengelige", "Om substansen finnes i det hele tatt, eller bare er et ord", "Om substansen består av materie, eller er noe helt uten stofflighet", "Om substansen kan forandre seg, eller alltid forblir uendret"],
+      options: ["Om substansen kan kjennes, og dermed om essensene er tilgjengelige", "Om substansen finnes i det hele tatt, eller bare er et ord", "Om substansen består av materie, eller er noe helt uten stofflighet", "Om substansen kan forandre seg over tid, eller alltid forblir helt uendret"],
       explanation: "Aristoteles mener essensen er tilgjengelig og gjør vitenskap mulig; Locke mener idéen om substratet er tom og de reelle essensene utilgjengelige. Begge mener at substanser finnes, og begge kan forklare forandring — så de to andre aksene skiller dem ikke.",
     },
     {
       question: "Hvorfor hviler artsinndelingen på nominelle essenser hos Locke?",
-      options: ["Fordi vi ikke kjenner de reelle essensene og må gruppere etter det vi ser", "Fordi han mener at artene ikke finnes utenfor språket vårt", "Fordi han mener at alle egenskaper ved en ting er like grunnleggende for oss", "Fordi han mener at naturen selv ikke har noen indre struktur"],
+      options: ["Fordi vi ikke kjenner de reelle essensene og må gruppere etter det vi ser", "Fordi han mener at artene ikke finnes utenfor språket vårt", "Fordi han mener at alle egenskaper ved en ting er like grunnleggende for oss", "Fordi han mener at naturen selv ikke har noen indre struktur vi kan inndele etter"],
       explanation: "Locke antar at det finnes indre konstitusjoner, men at vi ikke har tilgang til dem, så inndelingen må hvile på observerbare egenskapssamlinger. Han benekter altså ikke at naturen har struktur — bare at vi kjenner den.",
     },
     {
       question: "En kandidat skriver at «menneske» er primær substans og «Sokrates» sekundær. Hva er feilen?",
-      options: ["Avhengighetsforholdet snus: arten sies om individet, ikke omvendt", "Ingenting — Aristoteles bruker begge rekkefølgene om hverandre", "Bare terminologien er feil; poenget om avhengighet er likevel riktig", "Feilen ligger i at «menneske» er en kvalitet og ikke en substans"],
+      options: ["Avhengighetsforholdet snus: arten sies om individet, ikke omvendt", "Ingenting — Aristoteles bruker begge rekkefølgene om hverandre", "Bare terminologien er feil; poenget om avhengighet er likevel riktig", "Feilen ligger i at «menneske» er en kvalitet og ikke en substans i det hele tatt"],
       explanation: "Individet er primært fordi arten sies om det, mens det selv ikke sies om noe — snus dette, kollapser hele argumentet for at enkelttingene er grunnleggende. «Menneske» er dessuten en sekundær substans, ikke en kvalitet.",
     },
     {
       question: "Hvilken spenning finnes mellom kategorilæren og materie–form-analysen?",
-      options: ["Kategorilæren gjør enkelttinget primært, mens formen får forrang i analysen", "Kategorilæren regner form som en kvalitet, mens analysen gjør den til materie", "Kategorilæren har ti kategorier, mens analysen bare opererer med fire", "Kategorilæren gjelder levende vesener, mens analysen gjelder gjenstander"],
+      options: ["Kategorilæren gjør enkelttinget primært, mens formen får forrang i analysen", "Kategorilæren regner form som en kvalitet, mens analysen gjør den til materie", "Kategorilæren har ti kategorier, mens analysen bare opererer med fire", "Kategorilæren gjelder levende vesener, mens analysen gjelder de livløse gjenstandene"],
       explanation: "I kategorilæren er enkeltindividet den primære substansen, mens Aristoteles i den videre analysen argumenterer for at formen har best krav på å være substans i mest egentlig forstand. Hvordan de henger sammen, er et levende tolkningsspørsmål som en god besvarelse nevner i stedet for å skjule.",
     },
     {
       question: "Hva er det springende premisset i slutningen «materien består gjennom endring, altså er materien den egentlige substansen»?",
-      options: ["At det som består gjennom endring, er det mest egentlig virkelige", "At materien kan eksistere uten noen form i det hele tatt", "At all endring i naturen er substansiell endring og ikke aksidentell", "At formen er noe vi tillegger tingene, ikke noe de har"],
+      options: ["At det som består gjennom endring, er det mest egentlig virkelige", "At materien kan eksistere for seg selv, uten noen form i det hele tatt", "At all endring i naturen er substansiell endring og ikke aksidentell", "At formen er noe vi tillegger tingene, ikke noe de har"],
       explanation: "Slutningen står og faller med antakelsen om at varighet gir grunnleggendehet, og det er nettopp den Aristoteles avviser: ren materie uten form er ikke noen bestemt ting å telle eller definere. De øvrige alternativene er påstander som ikke kreves for at slutningen skal gå gjennom.",
     },
     {
       question: "Hvorfor holder Aristoteles' formkriterium bare et stykke på vei i skipet som får byttet alle plankene?",
-      options: ["Det sier ikke hvor mye utskifting formen tåler, og er stumt ved to kandidater", "Det forutsetter at materien er viktigere enn formen når identitet skal avgjøres", "Det gjelder bare levende vesener, og ikke gjenstander som skip", "Det gjør enhver reparasjon til en substansiell endring"],
+      options: ["Det sier ikke hvor mye utskifting formen tåler, og er stumt ved to kandidater", "Det forutsetter at materien er viktigere enn formen når identitet skal avgjøres", "Det gjelder bare levende vesener, og ikke sammensatte gjenstander som skip og hus", "Det gjør enhver reparasjon til en substansiell endring"],
       explanation: "Kriteriet gir et prinsipielt svar — identitet følger formen — men er underbestemt både om graden av utskifting og om tilfellet der de gamle plankene settes sammen igjen. Å si dette ærlig er sterkere enn å tillegge Aristoteles et svar han ikke ga.",
     },
     {
       question: "Hvilken sammenheng kan løfte en besvarelse om sekundære substanser mot toppkarakter?",
-      options: ["At striden om sekundære substanser fortsetter i spørsmålet om allmennbegreper", "At Aristoteles levde før Locke og derfor ikke kjente empirismen", "At kategoriene kan telles opp i en bestemt rekkefølge", "At substansbegrepet også brukes i dagligtalen om stoffer, væsker og materialer"],
+      options: ["At striden om sekundære substanser fortsetter i spørsmålet om allmennbegreper", "At Aristoteles levde lenge før Locke og derfor ikke kunne kjenne den britiske empirismen", "At kategoriene kan telles opp i en bestemt rekkefølge", "At substansbegrepet også brukes i dagligtalen om stoffer, væsker og materialer"],
       explanation: "Å vise at spørsmålet om arter er den samme striden som spørsmålet om allmennbegreper finnes som virkelige entiteter, er å påvise en sammenheng — sensorveiledningens punkt 3. Kronologi og dagligtale gir ingen argumentativ kobling.",
     },
     {
@@ -300,7 +300,7 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner et partikular?",
-      options: ["Det finnes ett sted om gangen og kan ikke gjentas", "Det kan instansieres av mange ting samtidig", "Det er en egenskap som deles av flere gjenstander", "Det eksisterer utenfor tid og rom, som tall og mengder"],
+      options: ["Det finnes ett sted om gangen og kan ikke gjentas", "Det kan instansieres av mange ulike ting på én og samme tid", "Det er en egenskap som deles av flere gjenstander", "Det eksisterer utenfor tid og rom, som tall og mengder"],
       explanation: "Partikularier — denne skruen, Sokrates — er ikke gjentakbare, i motsetning til universalier. Å eksistere utenfor tid og rom er kjennetegnet på abstrakte entiteter, som den platonske realisten regner universaliene blant.",
     },
     {
@@ -330,17 +330,17 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er hovedinnvendingen mot predikatnominalismen?",
-      options: ["Den snur forklaringsretningen mellom språk og verden", "Den krever at klasser eksisterer i tillegg til tingene", "Den tar likhet som et uforklart grunnbegrep", "Den gjør egenskapene til partikulære enkeltforekomster"],
+      options: ["Den snur forklaringsretningen mellom språk og verden", "Den krever at klasser eksisterer i tillegg til tingene", "Den tar likhet mellom enkeltting som et uforklart grunnbegrep", "Den gjør egenskapene til partikulære enkeltforekomster"],
       explanation: "Vi kaller eplet rødt fordi det er rødt, ikke omvendt — og farger fantes før noen hadde ord for dem. Klasser hører til klassenominalismen, likhet som grunnbegrep til likhetsnominalismen, og partikulære egenskaper til tropeteorien.",
     },
     {
       question: "Hva er innvendingen om sammenfallende klasser mot klassenominalismen?",
-      options: ["To ulike egenskaper med nøyaktig samme medlemmer blir én egenskap", "Klasser kan ikke inneholde uendelig mange medlemmer", "Klasser finnes bare i språket og ikke i verden selv", "Klasser kan ikke forklare at ting ligner hverandre i større og mindre grad"],
+      options: ["To ulike egenskaper med nøyaktig samme medlemmer blir én egenskap", "Klasser kan ikke inneholde uendelig mange medlemmer", "Klasser finnes bare i språket og ikke i verden selv", "Klasser kan ikke forklare grader av likhet mellom ting"],
       explanation: "Har alle og bare vesener med hjerte også nyrer, blir de to egenskapene identiske på denne teorien, noe de åpenbart ikke er. Innvendingen handler altså om ekstensjonen, ikke om klassers størrelse eller om hvor de befinner seg.",
     },
     {
       question: "Hvorfor regnes likhetsnominalismen som nominalismens sterkeste variant?",
-      options: ["Den forankrer grupperingen i tingene selv uten å innføre universalier", "Den forklarer likhet uten å ta noe begrep som uforklart", "Den kan gjøre rede for uinstansierte egenskaper", "Den gjør egenskaper til virkelige, men partikulære bestanddeler i verden"],
+      options: ["Den forankrer grupperingen i tingene selv uten å innføre universalier", "Den forklarer likhet uten å ta noe begrep som uforklart", "Den kan gjøre rede for uinstansierte egenskaper", "Den gjør egenskaper til virkelige, men partikulære bestanddeler"],
       explanation: "Likhetsvarianten unngår både språkavhengigheten og klasseproblemet ved å forankre grupperingen i hvordan tingene faktisk er. Den slipper likevel ikke unna et uforklart grunnbegrep, nemlig likheten selv — og partikulære egenskaper er tropeteoriens grep, ikke nominalistens.",
     },
     {
@@ -350,7 +350,7 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er det en presisjonsfeil å kalle tropeteorien «bare en form for nominalisme»?",
-      options: ["Tropeteorien regner egenskaper som virkelige bestanddeler i verden", "Tropeteorien hevder at egenskaper er gjentakbare på tvers av ting", "Tropeteorien benekter at enkeltting finnes uavhengig av egenskapene", "Tropeteorien forklarer likhet uten å bruke noe grunnbegrep"],
+      options: ["Tropeteorien regner egenskaper som virkelige bestanddeler i verden", "Tropeteorien hevder at egenskaper er fullt gjentakbare på tvers av ulike ting", "Tropeteorien benekter at enkeltting finnes uavhengig av egenskapene", "Tropeteorien forklarer likhet uten å bruke noe grunnbegrep"],
       explanation: "Tropeteoretikeren er enig med realisten i at egenskaper finnes, og med nominalisten i at ingenting er gjentakbart — det er en tredje posisjon. Den bruker dessuten likhet som grunnbegrep, i tillegg til samlokalisering.",
     },
     {
@@ -385,12 +385,12 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er det springende premisset i Blacks argument?",
-      options: ["At scenarioet virkelig beskriver to kuler og ikke én", "At kulene er laget av metall og ikke av et annet materiale", "At universet er endelig i utstrekning", "At ingen observatør befinner seg i universet"],
+      options: ["At scenarioet virkelig beskriver to kuler og ikke én", "At kulene er laget av metall og ikke av et annet materiale", "At universet er endelig i utstrekning", "At ingen observatør noen gang befinner seg inne i universet"],
       explanation: "Kan motstanderen omtolke situasjonen til ett objekt, uteblir moteksempelet — hele argumentet hviler på tellingen. Materialet, universets størrelse og fraværet av observatør er detaljer som ikke bærer slutningen.",
     },
     {
       question: "Hva er den beste innvendingen mot Blacks tankeeksperiment?",
-      options: ["At beskrivelsen med to kuler ikke lar seg begrunne innenfra scenarioet", "At helt like gjenstander aldri forekommer i den virkelige verden vi kjenner", "At et univers med bare to gjenstander er fysisk umulig", "At vi ikke kan vite hvilken kule som er hvilken"],
+      options: ["At beskrivelsen med to kuler ikke lar seg begrunne innenfra scenarioet", "At helt like gjenstander aldri forekommer i den virkelige verden vi kjenner", "At et univers som bare inneholder to gjenstander, er fysisk umulig å tenke seg", "At vi ikke kan vite hvilken kule som er hvilken"],
       explanation: "Den sterke innvendingen angriper beskrivelsen, ikke stipulasjonene: alt som kan sies kvalitativt om den ene, gjelder også den andre, så tellingen kan være noe vi legger til utenfra. De to neste alternativene omgår premissene, og det siste blander epistemisk uskjelnbarhet med antallet ting.",
     },
     {
@@ -400,7 +400,7 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva vil det si å lese premissene i et tankeeksperiment som stipulasjoner?",
-      options: ["Å ta dem som fastsatte vilkår, ikke som påstander om faktiske forhold", "Å behandle dem som empiriske hypoteser som kan testes", "Å godta konklusjonen så lenge premissene virker rimelige", "Å erstatte urealistiske premisser med mer sannsynlige og realistiske varianter"],
+      options: ["Å ta dem som fastsatte vilkår, ikke som påstander om faktiske forhold", "Å behandle dem som empiriske hypoteser som kan testes", "Å godta konklusjonen så lenge premissene virker rimelige ved første øyekast", "Å erstatte urealistiske premisser med mer sannsynlige og realistiske varianter"],
       explanation: "Stipulasjonene definerer hva vi skal tenke oss, og et svar som endrer dem, har byttet ut oppgaven. Vil du angripe eksperimentet, må du bestride at situasjonen er mulig, eller at den viser det den skal vise.",
     },
     {
@@ -410,17 +410,17 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er Lowes innvending mot rom-tid-individuasjon?",
-      options: ["Posisjoner må selv identifiseres ved tingene som opptar dem", "To ting kan aldri befinne seg på samme sted samtidig", "Rom og tid er relasjoner mellom ting og ikke selvstendige størrelser", "Posisjon er en aksidentell egenskap og kan derfor endres"],
+      options: ["Posisjoner må selv identifiseres ved tingene som opptar dem", "To ting kan aldri befinne seg på samme sted samtidig", "Rom og tid er relasjoner mellom ting og ikke selvstendige størrelser", "Posisjon er en aksidentell egenskap og kan derfor endres over tid"],
       explanation: "Sirkularitetsfaren er kjernen: i et ellers tomt univers finnes ingen uavhengige koordinater, så individuasjon ved posisjon forutsetter de individene den skulle forklare. Spørsmålet om rommets natur hører til Newton-og-Leibniz-debatten, som er et annet tema.",
     },
     {
       question: "Hva rammer Blacks moteksempel ikke?",
-      options: ["Det identiskes uskjelnbarhet, som brukes ellers i emnet", "De uskjelnbares identitet i kvalitativ form", "Forslaget om at posisjon alene individuerer partikularier", "Tanken om at et partikular er mer enn summen av kvalitetene sine"],
+      options: ["Det identiskes uskjelnbarhet, som brukes ellers i emnet", "De uskjelnbares identitet, altså prinsippet i kvalitativ form", "Forslaget om at posisjon alene individuerer partikularier", "Tanken om at et partikular er mer enn summen av kvalitetene sine"],
       explanation: "Den ukontroversielle retningen av Leibniz' lov står uberørt, og det er nettopp den som bærer argumentene i bevissthetsfilosofien senere i boka. De tre andre er ting eksperimentet enten angriper eller taler for.",
     },
     {
       question: "Hvilket uforklart grunnbegrep sitter realisten igjen med?",
-      options: ["Instansiering — forholdet mellom universale og ting", "Likhet mellom enkeltting, tatt som et primitivt grunnbegrep", "Samlokalisering av partikulære egenskaper", "Klassemedlemskap for grupper av gjenstander"],
+      options: ["Instansiering — forholdet mellom universale og ting", "Likhet mellom enkeltting, tatt som et primitivt grunnbegrep", "Samlokalisering av partikulære egenskaper", "Klassemedlemskap for grupper av innbyrdes like gjenstander"],
       explanation: "Realisten forklarer likhet ved instansiering, men instansieringen selv forblir en grunnrelasjon. Likhet er nominalistens primitiv, samlokalisering tropeteoretikerens, og klassemedlemskap hører til klassenominalismen.",
     },
   ],
@@ -442,12 +442,12 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva slags rekke avviser Aquinas som uendelig i argumentet fra virkende årsak?",
-      options: ["En rekke av samtidige avhengigheter, der hvert ledd bare formidler", "En rekke av hendelser bakover i tid, som fedre, bestefedre og oldefedre", "En rekke av logiske slutninger fra premiss til konklusjon", "En rekke av formål der hvert mål tjener et høyere mål"],
+      options: ["En rekke av samtidige avhengigheter, der hvert ledd bare formidler", "En rekke av hendelser bakover i tid, som fedre og bestefedre", "En rekke av logiske slutninger fra premiss til konklusjon", "En rekke av formål der hvert mål tjener et høyere mål"],
       explanation: "Argumentet gjelder rekker der hvert ledd virker bare i kraft av det foregående, som hånden, staven og steinen. Aquinas mente at fornuften alene ikke kan avgjøre om verden har en begynnelse i tid, så innvendinger om uendelige tidsrekker treffer ikke argumentet slik det er ment.",
     },
     {
       question: "Hva er det springende premisset i argumentet fra virkende årsak?",
-      options: ["At en rekke av avhengige årsaker ikke kan være uendelig", "At ingenting kan være årsak til seg selv", "At det finnes årsaker og virkninger i verden", "At den første årsaken selv må være allmektig og fullkomment god"],
+      options: ["At en rekke av avhengige årsaker ikke kan være uendelig", "At ingenting kan være årsak til seg selv", "At det finnes årsaker og virkninger i verden", "At den første årsaken selv må være allmektig og god"],
       explanation: "De to første premissene er lite kontroversielle, mens hele slutningen hviler på at avhengighetsrekken må ha et første ledd. Påstanden om at første årsak er allmektig og god, er ikke et premiss i argumentet — det er en ekstra påstand argumentet ikke leverer.",
     },
     {
@@ -467,7 +467,7 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva slags slutning er den klassiske urverkversjonen av designargumentet?",
-      options: ["En analogislutning fra likhet i virkning til likhet i årsak", "En deduktiv slutning der konklusjonen følger med nødvendighet", "En induktiv generalisering fra mange observerte univers", "En slutning fra begrepet om Gud til Guds eksistens"],
+      options: ["En analogislutning fra likhet i virkning til likhet i årsak", "En deduktiv slutning der konklusjonen følger med nødvendighet", "En induktiv generalisering fra mange observerte tilfeller av univers", "En slutning fra begrepet om Gud til Guds eksistens"],
       explanation: "Analogien er bare så sterk som likheten den hviler på, og det er nettopp der Hume angriper. Vi har ikke observert mange univers, argumentet er ikke deduktivt gyldig, og slutning fra begrep til eksistens er en helt annen argumenttype.",
     },
     {
@@ -477,7 +477,7 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er fine-tuning-argumentet?",
-      options: ["At livstillatende verdier på naturkonstantene best forklares av design", "At naturens organer er tilpasset sine formål som et urverk", "At universet må ha en første årsak som ikke selv er forårsaket", "At moralske verdier bare kan forankres i en guddommelig lovgivers vilje"],
+      options: ["At livstillatende verdier på naturkonstantene best forklares av design", "At naturens organer er tilpasset sine formål som et urverk", "At universet må ha en første årsak som ikke selv er forårsaket av noe annet", "At moralske verdier bare kan forankres i en guddommelig lovgivers vilje"],
       explanation: "Fine-tuning er en slutning til beste forklaring om konstantenes verdier, ikke en analogi mellom naturen og et apparat. Derfor rammer Humes analogikritikk den ikke direkte, men poenget om at konklusjonen er større enn premissene bærer, gjelder fortsatt.",
     },
     {
@@ -492,12 +492,12 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den viktigste kostnaden ved multivers-svaret?",
-      options: ["Det postulerer et enormt antall uobserverbare universer", "Det bryter med prinsippet om tilstrekkelig grunn", "Det forutsetter at naturkonstantene er nødvendige", "Det gjør det umulig å forklare at vi finnes i det hele tatt"],
+      options: ["Det postulerer et enormt antall uobserverbare universer", "Det bryter med prinsippet om tilstrekkelig grunn", "Det forutsetter at naturkonstantene er nødvendige og ikke kunne vært annerledes", "Det gjør det umulig å forklare at vi finnes i det hele tatt"],
       explanation: "Prisen er ontologisk: svært mange entiteter vi ikke kan observere. Om det er dyrere enn å postulere én aktør, er nettopp den avveiningen en drøfting bør ta stilling til, og her er litteraturen delt.",
     },
     {
       question: "Hva er innvendingen «hvem designet designeren?» rettet mot?",
-      options: ["Prinsippet om at kompleks orden krever en forklaring utenfra", "Premisset om at naturkonstantene kunne hatt andre verdier", "Analogien mellom naturens organer og menneskeskapte apparater", "Påstanden om at Gud er allmektig, allvitende og fullkomment god"],
+      options: ["Prinsippet om at kompleks orden krever en forklaring utenfra", "Premisset om at naturkonstantene like gjerne kunne hatt andre verdier", "Analogien mellom naturens organer og menneskeskapte apparater", "Påstanden om at Gud er allmektig, allvitende og fullkomment god"],
       explanation: "Innvendingen tar designargumentets eget prinsipp og vender det mot konklusjonen. Designerens svar må gjøre et unntak for Gud, og det unntaket koster noe, siden argumentet startet med å behandle orden som noe som krever forklaring.",
     },
     {
@@ -507,12 +507,12 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er den evidensielle formen av det ondes problem vanskeligere å avvise?",
-      options: ["Den krever at forklaringen er rimelig, ikke bare logisk mulig", "Den bygger på premisser som ingen teist med rimelighet kan bestride", "Den handler bare om moralsk onde, som er ubestridelig", "Den påstår en motsigelse som må oppløses logisk"],
+      options: ["Den krever at forklaringen er rimelig, ikke bare logisk mulig", "Den bygger på premisser som ingen teist med rimelighet kan bestride", "Den handler bare om det moralsk onde, som ingen kan bestride finnes", "Den påstår en motsigelse som må oppløses logisk"],
       explanation: "Et forsvar som viser at Gud og ondskap er logisk forenlige, er nok mot den logiske formen, men ikke mot den evidensielle — der må teisten gjøre forklaringen troverdig. Motsigelsespåstanden hører til den logiske formen.",
     },
     {
       question: "Hvilken type onde dekker fri vilje-forsvaret?",
-      options: ["Moralsk onde — lidelse som følger av frie handlinger", "Naturlig onde — lidelse som ikke skyldes menneskelige valg", "Både moralsk og naturlig onde, uten videre tillegg", "Verken moralsk eller naturlig onde, bare dyrs lidelse"],
+      options: ["Moralsk onde — lidelse som følger av frie handlinger", "Naturlig onde — lidelse som ikke skyldes menneskelige valg", "Både moralsk og naturlig onde, uten behov for tilleggsargument", "Verken moralsk eller naturlig onde, bare dyrs lidelse"],
       explanation: "Forsvaret begrunner hvorfor Gud lar mennesker velge galt, men ingen fri handling forklarer en flodbølge. Å utvide det til naturlig onde krever et tilleggsargument om at stabile naturlover er nødvendige — og det er da et annet argument.",
     },
     {
@@ -522,7 +522,7 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den hardeste innvendingen mot den sjelsbyggende teodicéen?",
-      options: ["Mye lidelse rammer vesener som ikke kan utvikle noe av den", "Den forutsetter at mennesker har fri vilje", "Den kan ikke forklare hvorfor mennesker gjør onde handlinger", "Den strider mot prinsippet om tilstrekkelig grunn"],
+      options: ["Mye lidelse rammer vesener som ikke kan utvikle noe av den", "Den forutsetter at mennesker har fri vilje", "Den kan ikke forklare hvorfor mennesker gjør onde handlinger", "Den strider mot prinsippet om tilstrekkelig grunn slik Leibniz formulerte det"],
       explanation: "Spedbarn som dør i søvne og dyr som lider uten tilskuere, bygger ingen sjel — og forsvares lidelsen ved at andre utvikler dyder, brukes de rammede som midler. Fri vilje er ikke et krav i denne teodicéen, som nettopp er laget for å dekke mer enn de frie handlingene.",
     },
     {
@@ -532,7 +532,7 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva hevder Leibniz med «den beste av alle mulige verdener»?",
-      options: ["At helheten er den beste tilgjengelige kombinasjonen, tross lidelse", "At alt som skjer i verden er godt når man ser det riktig", "At Gud kunne valgt helt fritt, men tilfeldigvis valgte en god verden", "At lidelse ikke egentlig finnes, men bare oppleves slik"],
+      options: ["At helheten er den beste tilgjengelige kombinasjonen, tross lidelse", "At alt som skjer i verden er godt, når man bare ser det på den riktige måten", "At Gud kunne valgt helt fritt, men tilfeldigvis valgte en god verden", "At lidelse ikke egentlig finnes, men bare oppleves slik"],
       explanation: "Påstanden gjelder den samlede kombinasjonen, ikke hver enkelt hendelse isolert, og den følger av Guds egenskaper pluss prinsippet om tilstrekkelig grunn. Å framstille den som naiv optimisme eller som benektelse av lidelse er en stråmann.",
     },
     {
@@ -547,12 +547,12 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan omformulerer Parfit spørsmålet om hvorfor det finnes noe?",
-      options: ["Som et spørsmål om hvorfor én kosmisk mulighet er realisert", "Som et spørsmål om hva som var universets første årsak i tid", "Som et spørsmål om hvorvidt Gud kunne latt være å skape", "Som et spørsmål om hvorvidt ingenting er logisk mulig"],
+      options: ["Som et spørsmål om hvorfor én kosmisk mulighet er realisert", "Som et spørsmål om hva som var universets første årsak i tid", "Som et spørsmål om hvorvidt Gud kunne latt være å skape noe som helst", "Som et spørsmål om hvorvidt ingenting er logisk mulig"],
       explanation: "Omformuleringen flytter problemet fra årsak i tid til utvalg blant muligheter: ingenting i det hele tatt, alle verdener, akkurat én. Det er denne rammen selektor-begrepet gir mening innenfor.",
     },
     {
       question: "Hva er en selektor hos Parfit?",
-      options: ["Et trekk som gjør at en bestemt kosmisk mulighet er realisert", "En aktør som velger hvilken verden som skal bli virkelig", "Et naturvitenskapelig prinsipp for hvordan universer oppstår", "En egenskap ved oss som gjør at vi bare kan observere ett univers"],
+      options: ["Et trekk som gjør at en bestemt kosmisk mulighet er realisert", "En aktør som velger hvilken verden som skal bli virkelig", "Et naturvitenskapelig prinsipp for hvordan nye universer oppstår av intet", "En egenskap ved oss som gjør at vi bare kan observere ett univers"],
       explanation: "En selektor er ikke en aktør — det er ikke noen som velger. Kandidatene inkluderer at virkeligheten er den beste, den enkleste eller den fyldigste, eller at det ikke finnes noen selektor i det hele tatt.",
     },
     {
@@ -562,7 +562,7 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den mest presise måten å omtale Parfits forhold til den aksiarkiske hypotesen?",
-      options: ["Han framsetter og undersøker den som én kandidat blant flere", "Han forsvarer den som den eneste holdbare forklaringen vi har", "Han avviser den til fordel for en teistisk forklaring", "Han bruker den som et argument for at Gud finnes"],
+      options: ["Han framsetter og undersøker den som én kandidat blant flere", "Han forsvarer den som den eneste holdbare forklaringen vi har", "Han avviser den til fordel for en teistisk forklaring av universet", "Han bruker den som et argument for at Gud finnes"],
       explanation: "Hypotesen presenteres innenfor en systematisk undersøkelse av mulige selektorer, ved siden av enkelhet, fylde og fravær av selektor. Å skrive at han mener godhet skapte universet, er en tilskrivning man ikke bør gjøre.",
     },
     {
@@ -572,14 +572,14 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken sammenheng mellom to argumenter er verdt å påvise i en oppgave om gudsbevisene?",
-      options: ["Teistens forsvar mot det ondes problem svekker designargumentet", "Aquinas' fem veier bygger alle på prinsippet om tilstrekkelig grunn", "Fine-tuning-argumentet forutsetter den sjelsbyggende teodicéen", "Multivers-svaret følger av Parfits aksiarkiske hypotese"],
+      options: ["Teistens forsvar mot det ondes problem svekker designargumentet", "Aquinas' fem veier bygger alle på prinsippet om tilstrekkelig grunn", "Fine-tuning-argumentet forutsetter den sjelsbyggende teodicéen for å virke", "Multivers-svaret følger av Parfits aksiarkiske hypotese"],
       explanation: "Sier teisten at vi ikke kan bedømme Guds grunner, kan vi heller ikke lese hensikt ut av naturens orden — de to argumentene kan ikke kjøres på fullt trykk samtidig. Å påvise en slik spenning er nettopp det sensorveiledningens punkt om sammenhenger etterspør.",
     },
   ],
   'fil1001-1-4': [
     {
       question: "Hva benekter Berkeley?",
-      options: ["Materiell substans — et underlag som finnes uavhengig av persepsjon", "At trær, steiner og andre hverdagsting i det hele tatt finnes i verden", "At vi kan ha sikker kunnskap om tingene rundt oss", "At naturen følger faste og forutsigbare mønstre"],
+      options: ["Materiell substans — et underlag som finnes uavhengig av persepsjon", "At trær, steiner og andre hverdagsting i det hele tatt finnes i verden", "At vi i det hele tatt kan ha sikker kunnskap om de tingene som omgir oss", "At naturen følger faste og forutsigbare mønstre"],
       explanation: "Posisjonen kalles immaterialisme fordi det er materien som selvstendig bærer som avvises, ikke de persiperte tingene. Berkeley mener tvert imot at vi har sikker kunnskap om tingene, nettopp fordi de er idéene våre og ikke noe skjult bakenfor.",
     },
     {
@@ -589,7 +589,7 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er master-argumentet?",
-      options: ["At du ikke kan forestille deg en ting uten dermed å tenke på den", "At sekundære kvaliteter er sinnsavhengige på samme måte som primære", "At Gud må persipere tingene for at de skal bestå over tid", "At vi ikke kan sammenligne idéene våre med tingene selv"],
+      options: ["At du ikke kan forestille deg en ting uten dermed å tenke på den", "At sekundære kvaliteter er sinnsavhengige på samme måte som primære", "At Gud må persipere tingene for at de skal bestå når ingen andre ser dem", "At vi ikke kan sammenligne idéene våre med tingene selv"],
       explanation: "Master-argumentet skal vise at begrepet om en upersipert ting ikke lar seg tenke. De andre alternativene er Berkeleys øvrige argumenter og Lockes problem — de virker sammen, men er tre ulike ledd.",
     },
     {
@@ -604,12 +604,12 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan angriper Berkeley skillet mellom primære og sekundære kvaliteter?",
-      options: ["Han viser at Lockes egne argumenter rammer de primære like hardt", "Han hevder at bare de primære kvalitetene er virkelige", "Han hevder at ingen kvaliteter i det hele tatt kan sanses", "Han viser at skillet forutsetter at Gud ikke finnes i det hele tatt"],
+      options: ["Han viser at Lockes egne argumenter rammer de primære like hardt", "Han hevder at bare de primære kvalitetene er virkelige", "Han hevder at ingen av kvalitetene i det hele tatt lar seg sanse direkte", "Han viser at skillet forutsetter at Gud ikke finnes i det hele tatt"],
       explanation: "Angrepet er internt: relativitet og uatskillelighet gjelder også form, størrelse og bevegelse, så enten er begge slags kvaliteter sinnsavhengige eller ingen. Det er nettopp fordi kritikken bruker motpartens premisser at den veier tungt.",
     },
     {
       question: "Hva er representasjonalismen (den kausale persepsjonsteorien)?",
-      options: ["At vi persiperer idéer forårsaket av ting, ikke tingene direkte", "At tingene er identiske med idéene vi har av dem", "At all kunnskap om verden stammer fra fornuften alene", "At sanseinntrykk aldri kan gi kunnskap om noe som er utenfor oss"],
+      options: ["At vi persiperer idéer forårsaket av ting, ikke tingene direkte", "At tingene er identiske med idéene vi har av dem", "At all kunnskap om verden stammer fra fornuften alene og ikke fra sansene", "At sanseinntrykk aldri kan gi kunnskap om noe som er utenfor oss"],
       explanation: "Lockes posisjon plasserer idéene mellom oss og tingene, og det er dette som skaper sløret av persepsjoner. At tingene er idéene, er Berkeleys svar på problemet, ikke Lockes utgangspunkt.",
     },
     {
@@ -624,7 +624,7 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er det for raskt å si at «idealismen er enklere, altså bedre»?",
-      options: ["Berkeley legger en tung forklaringsbyrde på Gud i stedet for på materien", "Berkeley postulerer flere typer entiteter enn realisten faktisk gjør", "Sparsommelighet er et prinsipp som ikke gjelder i metafysikken", "Berkeley benekter at naturen har noen orden som må forklares i det hele tatt"],
+      options: ["Berkeley legger en tung forklaringsbyrde på Gud i stedet for på materien", "Berkeley postulerer flere typer entiteter enn realisten faktisk gjør i sin teori", "Sparsommelighet er et prinsipp som ikke gjelder i metafysikken", "Berkeley benekter at naturen har noen orden som må forklares i det hele tatt"],
       explanation: "Prinsippet avgjør bare når to teorier forklarer like mye, og hos Berkeley må all regelmessighet i naturen skyldes direkte guddommelig virksomhet. Berkeley antar riktignok færre typer ting, men det er nettopp det som ikke er nok til å avgjøre saken.",
     },
     {
@@ -639,7 +639,7 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er Kants transcendentale idealisme?",
-      options: ["At vi ikke kjenner tingene slik de er uavhengig av våre erkjennelsesformer", "At det ikke finnes noe utenfor sinnet og dets idéer", "At hverdagsgjenstander ikke eksisterer når ingen sanser dem", "At all kunnskap om verden stammer fra sanseerfaringen alene og ikke fra fornuften"],
+      options: ["At vi ikke kjenner tingene slik de er uavhengig av våre erkjennelsesformer", "At det ikke finnes noe utenfor sinnet og dets idéer", "At hverdagsgjenstander slutter å eksistere i det øyeblikket ingen lenger sanser dem", "At all kunnskap om verden stammer fra sanseerfaringen alene og ikke fra fornuften"],
       explanation: "Kant benekter ikke at noe finnes uavhengig av oss — han benekter at vi kan kjenne det slik det er i seg selv. Å gjøre ham til Berkeley er den vanligste feilen når dette randtemaet dukker opp.",
     },
     {
@@ -649,12 +649,12 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en «ting i seg selv» hos Kant?",
-      options: ["Tingen slik den er uavhengig av våre erkjennelsesformer", "Tingen slik den framtrer for oss i erfaringen", "Tingens essens, fanget i en definisjon ved slekt og artsforskjell", "Den delen av tingen som sansene ikke rekker, men fornuften når"],
+      options: ["Tingen slik den er uavhengig av våre erkjennelsesformer", "Tingen slik den framtrer for oss i den sanselige erfaringen vår", "Tingens essens, fanget i en definisjon ved slekt og artsforskjell", "Den delen av tingen som sansene ikke rekker, men fornuften når"],
       explanation: "Tingen i seg selv står i motsetning til fenomenet, som er tingen slik den framtrer. At fornuften skulle nå den, er nettopp det Kant avviser — og kritikere har spurt hvordan han da kan vite at den finnes.",
     },
     {
       question: "Hvorfor avviser Berkeley abstrakte allmenne idéer?",
-      options: ["Alt vi faktisk forestiller oss, er bestemt — og materiebegrepet er en abstraksjon", "Abstrakte idéer forutsetter at universalier finnes utenfor tid og rom som egne entiteter", "Abstrakte idéer kan ikke uttrykkes i språket vårt", "Abstrakte idéer stammer fra fornuften og ikke fra sansene"],
+      options: ["Alt vi faktisk forestiller oss, er bestemt — og materiebegrepet er en abstraksjon", "Abstrakte idéer forutsetter at universalier finnes utenfor tid og rom som egne entiteter", "Abstrakte idéer kan ikke uttrykkes i språket vårt", "Abstrakte idéer stammer fra fornuften alene og ikke fra sansene, som Berkeley bygger på"],
       explanation: "Poenget inngår i hovedargumentet: begrepet om materie er nettopp noe utstrakt uten farge, tekstur eller annen sansbar bestemmelse. Innvendingen er at Berkeley forveksler å forestille seg noe med å begripe noe — vi kan tenke om trekanter i sin alminnelighet uten et bilde som passer på alle.",
     },
     {
@@ -674,7 +674,7 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva går queerness-argumentet ut på?",
-      options: ["Objektive verdier måtte både beskrive og motivere, og krevde en egen evne", "Objektive verdier ville vært umulige å uttrykke i vanlig språk", "Objektive verdier ville gjort dyp moralsk uenighet mellom kulturer umulig", "Objektive verdier ville krevd at det finnes en guddommelig lovgiver bak dem"],
+      options: ["Objektive verdier måtte både beskrive og motivere, og krevde en egen evne", "Objektive verdier ville vært helt umulige å uttrykke i vanlig dagligdags språk", "Objektive verdier ville gjort dyp moralsk uenighet mellom kulturer umulig", "Objektive verdier ville krevd at det finnes en guddommelig lovgiver bak dem"],
       explanation: "Argumentet peker på to underligheter: en metafysisk, at verdien i seg selv skulle motivere, og en epistemisk, at vi måtte ha en særegen evne til å oppfatte den. Realistens beste svar er at matematisk erkjennelse har samme problem uten at vi avviser matematikken.",
     },
     {
@@ -684,12 +684,12 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen på error theory og moralsk relativisme?",
-      options: ["Relativisten beholder sannhet i relativisert form, Mackie fjerner den", "Relativisten mener alle moralske påstander er usanne, Mackie at de er sanne", "Relativisten benekter at moral finnes, Mackie at den er objektiv", "Relativisten er antirealist, mens Mackie er moralsk realist"],
+      options: ["Relativisten beholder sannhet i relativisert form, Mackie fjerner den", "Relativisten mener alle moralske påstander er usanne, Mackie at de er sanne", "Relativisten benekter at moralen finnes i det hele tatt, Mackie at den er objektiv", "Relativisten er antirealist, mens Mackie er moralsk realist"],
       explanation: "Relativisten sier at påstandene er sanne i forhold til en kultur eller et individ; Mackie sier at de er usanne, alle sammen. Å kalle Mackie relativist er å bomme på den navngitte tenkeren — begge er antirealister, men på ulik måte.",
     },
     {
       question: "Trakk Mackie den konsekvens at moralen bør oppgis?",
-      options: ["Nei — han mente vi fortsatt har grunn til å opprettholde en moral", "Ja — han mente at moralsk praksis er meningsløs og derfor bør avvikles", "Ja — men bare for moralske regler som varierer mellom kulturer", "Nei — han mente at moralen er objektiv i praksis, om ikke i teorien"],
+      options: ["Nei — han mente vi fortsatt har grunn til å opprettholde en moral", "Ja — han mente at moralsk praksis er meningsløs og derfor bør avvikles", "Ja — men bare for de moralske reglene som varierer fra kultur til kultur", "Nei — han mente at moralen er objektiv i praksis, om ikke i teorien"],
       explanation: "Error theory er en påstand om moralens metafysiske status, ikke en oppfordring til å slutte å moralisere. Å tillegge Mackie den praktiske konklusjonen er en tilskrivning teksten hans ikke bærer.",
     },
     {
@@ -701,17 +701,17 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
   'fil1001-2-1': [
     {
       question: "Hva hevder absolutismen (substantivalismen) om rommet?",
-      options: ["At rommet er en selvstendig entitet som ville eksistert også uten ting i seg", "At rommet er systemet av avstander og retninger mellom legemer", "At rommet ikke er noe i seg selv, men systemet av avstander og retninger mellom legemer", "At rommet er identisk med den samlede materien universet består av"],
+      options: ["At rommet er en selvstendig entitet som ville eksistert også uten ting i seg", "At rommet er systemet av avstander og retninger mellom legemer", "At rommet ikke er noe i seg selv, men systemet av avstander og retninger mellom legemer", "At rommet er identisk med den samlede materien universet til enhver tid består av"],
       explanation: "Absolutismen sier at rommet er en selvstendig eksisterende beholder, uavhengig av innholdet. Å definere rommet som systemet av avstander er relasjonismen, altså motposisjonen. De to øvrige forslagene er andre teorier om rom som ikke er Newtons.",
     },
     {
       question: "Hva hevder relasjonismen om et univers helt uten legemer?",
-      options: ["At det heller ikke har noe rom, siden det ikke finnes relasjoner igjen", "At det har et rom som står tomt, men som er like fullt til stede som før", "At det har et rom hvis og bare hvis det har en tidsdimensjon", "At det har et rom vi ikke kan observere, men kan slutte oss til"],
+      options: ["At det heller ikke har noe rom, siden det ikke finnes relasjoner igjen", "At det har et rom som står tomt, men som er like fullt til stede som før", "At det har et rom hvis og bare hvis det har en tidsdimensjon", "At det har et rom vi ikke kan observere, men som vi likevel kan slutte oss til"],
       explanation: "For relasjonisten er rom ikke annet enn relasjoner mellom legemer, så uten legemer er det ingenting igjen å kalle rom. At beholderen står tom igjen, er absolutistens svar. De to andre forslagene tilskriver relasjonisten en beholder han nettopp benekter.",
     },
     {
       question: "I hvilken av bøttas faser er vannoverflaten krum samtidig som den relative bevegelsen mellom vann og bøtte er null?",
-      options: ["Når vannet er dratt med og roterer i takt med bøtta", "Når bøtta akkurat er sluppet og vannet ennå henger etter", "Når både bøtte og vann står helt i ro fra starten", "Når bøtta er stoppet og vannet fortsatt roterer videre"],
+      options: ["Når vannet er dratt med og roterer i takt med bøtta", "Når bøtta akkurat er sluppet og vannet ennå henger etter", "Når både bøtta og vannet står helt i ro før forsøket starter", "Når bøtta er stoppet og vannet fortsatt roterer videre"],
       explanation: "Det er i fasen der vannet roterer i takt med bøtta at den relative bevegelsen er null og overflaten likevel er krum. Når bøtta akkurat er sluppet, er den relative bevegelsen stor og overflaten flat. Sammenligningen av disse to fasene er hele argumentets motor.",
     },
     {
@@ -721,7 +721,7 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilket premiss i bøtteargumentet angriper det Machianske svaret?",
-      options: ["Premisset om at det ikke finnes flere kandidater til å forklare krumningen", "Premisset om at krumningen er en observerbar fysisk virkning", "Premisset om at krumningen ikke følger vannets bevegelse i forhold til selve bøtta", "Premisset om at treghetseffekter finnes i en roterende beholder"],
+      options: ["Premisset om at det ikke finnes flere kandidater til å forklare krumningen", "Premisset om at krumningen er en observerbar fysisk virkning", "Premisset om at krumningen ikke følger vannets bevegelse mot bøtta", "Premisset om at treghetseffekter finnes i en roterende beholder"],
       explanation: "Det Machianske svaret legger til en tredje kandidat — universets øvrige materie — og rammer dermed påstanden om at lista over forklaringer er uttømmende. De øvrige premissene er nesten rene observasjonspåstander som ingen av partene bestrider.",
     },
     {
@@ -731,12 +731,12 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva sier prinsippet om tilstrekkelig grunn hos Leibniz?",
-      options: ["At ingenting er tilfelle uten en grunn til at det er slik og ikke annerledes", "At ingenting i verden kan observeres uten at det står i en relasjon til noe annet", "At enhver bevegelse må ha en årsak i en tidligere bevegelse", "At enhver egenskap ved en ting må kunne måles av en observatør"],
+      options: ["At ingenting er tilfelle uten en grunn til at det er slik og ikke annerledes", "At ingenting i verden kan observeres uten en relasjon til noe annet", "At enhver bevegelse må ha en årsak i en tidligere bevegelse", "At enhver egenskap ved en ting må kunne måles av en observatør"],
       explanation: "Prinsippet krever at det finnes en grunn til at noe er slik og ikke annerledes, og Leibniz bruker det mot absolutt rom fordi plasseringen av universet ville vært et valg uten mulig grunn. De øvrige forslagene beskriver andre prinsipper som ikke er det Leibniz påberoper seg her.",
     },
     {
       question: "Hva er det statiske skiftet i Leibniz' argument?",
-      options: ["At hele universet tenkes forskjøvet i det absolutte rommet uten indre endring", "At én gjenstand tenkes flyttet mens alle andre blir liggende i ro", "At universet tenkes å bevege seg med en jevn hastighet gjennom det absolutte rommet", "At rommet tenkes forskjøvet mens universet blir liggende i ro"],
+      options: ["At hele universet tenkes forskjøvet i det absolutte rommet uten indre endring", "At én enkelt gjenstand tenkes flyttet mens alle de andre blir liggende i ro der de var", "At universet tenkes å bevege seg med en jevn hastighet gjennom det absolutte rommet", "At rommet tenkes forskjøvet mens universet blir liggende i ro"],
       explanation: "Det statiske skiftet forskyver hele det materielle universet uten å endre noen innbyrdes avstand, slik at forskjellen blir prinsipielt uobserverbar. Varianten med jevn hastighet er det kinematiske skiftet, en beslektet men annen figur. Å flytte én gjenstand ville endret avstandene og gitt en observerbar forskjell.",
     },
     {
@@ -816,7 +816,7 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan endrer den firedimensjonale rom-tid-rammen den klassiske romdebatten?",
-      options: ["Den gjør at valget mellom beholder og relasjoner må formuleres på nytt", "Den avgjør debatten til Newtons fordel ved å gjøre rommet til en substans", "Den avgjør debatten til Leibniz' fordel ved å fjerne alle absolutte størrelser", "Den gjør spørsmålet om rommets natur til et rent språklig spørsmål"],
+      options: ["Den gjør at valget mellom beholder og relasjoner må formuleres på nytt", "Den avgjør debatten til Newtons fordel ved å gjøre rommet til en substans", "Den avgjør debatten til Leibniz' fordel ved å fjerne alle absolutte størrelser", "Den gjør spørsmålet om rommets natur til et rent språklig valg av beskrivelse"],
       explanation: "Når rom og tid behandles som én firedimensjonal helhet, er det ikke lenger opplagt at alternativene er Newtons beholder eller Leibniz' rene relasjoner, og spørsmålet må stilles på nytt. Å hevde at rammen avgjør debatten den ene eller andre veien, er å bruke fysikken som autoritet i stedet for som argument.",
     },
     {
@@ -1005,7 +1005,7 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den kjente svakheten ved kontinuitetssvaret?",
-      options: ["Det gir feil svar når en gjenstand demonteres og settes sammen igjen", "Det gjør alle organismer til nye gjenstander hver gang materialet skiftes", "Det forutsetter at gjenstander har temporale deler i tillegg til romlige", "Det kan bare anvendes på artefakter, aldri på naturlige gjenstander"],
+      options: ["Det gir feil svar når en gjenstand demonteres og settes sammen igjen", "Det gjør alle organismer til nye gjenstander hver gang materialet skiftes", "Det forutsetter at gjenstander har temporale deler i tillegg til romlige", "Det kan bare anvendes på artefakter, aldri på naturlige gjenstander som trær"],
       explanation: "En klokke som tas fra hverandre for reparasjon, har brutt bane gjennom rom og tid, men er åpenbart samme klokke etterpå. At organismer stadig skifter materiale, er derimot innvendingen mot materiesvaret, ikke mot kontinuitetssvaret.",
     },
     {
@@ -1020,7 +1020,7 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva innebærer tidsindeksering som løsning på forandringsproblemet?",
-      options: ["At egenskapene gjøres relative til tidspunkt, som «rett-klokka-ti»", "At gjenstanden deles i temporale deler som har hver sin egenskap", "At bare det som er nå eksisterer, så det finnes ingenting å sammenligne med", "At Leibniz' lov begrenses til å gjelde bare på ett og samme tidspunkt"],
+      options: ["At egenskapene gjøres relative til tidspunkt, som «rett-klokka-ti»", "At gjenstanden deles i temporale deler som har hver sin egenskap for seg", "At bare det som er nå eksisterer, så det finnes ingenting å sammenligne med", "At Leibniz' lov begrenses til å gjelde bare på ett og samme tidspunkt"],
       explanation: "Indekseringen gjør at egenskapene ikke lenger er uforenlige, og Leibniz' lov er reddet. Oppdeling i temporale deler er perdurantistens løsning, og at bare nåtiden finnes, er presentistens. De tre er tre ulike svar på samme problem.",
     },
     {
@@ -1040,7 +1040,7 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan løser perdurantisten problemet med iboende forandring?",
-      options: ["Ved at ulike temporale deler har de uforenlige egenskapene", "Ved at egenskapene gjøres relative til tidspunkt de gjelder på", "Ved at bare den nåværende egenskapen faktisk eksisterer", "Ved å begrense Leibniz' lov til gjenstander som ikke endrer seg"],
+      options: ["Ved at ulike temporale deler har de uforenlige egenskapene", "Ved at egenskapene gjøres relative til tidspunkt de gjelder på", "Ved at bare den egenskapen gjenstanden har nå, faktisk eksisterer", "Ved å begrense Leibniz' lov til gjenstander som ikke endrer seg"],
       explanation: "Formiddagsdelen er rett og ettermiddagsdelen er bøyd, så ingen enkelt ting har uforenlige egenskaper — akkurat som en vei kan være smal ett sted og bred et annet. Tidsindeksering er endurantistens løsning, ikke perdurantistens.",
     },
     {
@@ -1122,7 +1122,7 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor avviser Locke sjelskriteriet?",
-      options: ["Fordi en utskiftet sjel ikke ville merkes av noen, heller ikke personen selv", "Fordi han benekter at immaterielle sjeler kan eksistere i verden i det hele tatt", "Fordi sjelen forandrer seg for mye i løpet av et menneskeliv", "Fordi sjelen tilhører teologien og ikke filosofien som fagfelt"],
+      options: ["Fordi en utskiftet sjel ikke ville merkes av noen, heller ikke personen selv", "Fordi han benekter at immaterielle sjeler kan eksistere", "Fordi sjelen forandrer seg for mye i løpet av et menneskeliv", "Fordi sjelen tilhører teologien og ikke filosofien som fagfelt"],
       explanation: "Lockes poeng er at kriteriet er ubrukelig: alt vi bryr oss om ved en person ville fulgt bevisstheten og ikke sjelen. Han benekter ikke at sjeler finnes — han benekter at de gjør jobben. Innvendingen er altså funksjonell, ikke ontologisk.",
     },
     {
@@ -1132,7 +1132,7 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke tre begreper holder Locke fra hverandre?",
-      options: ["Person, menneske og substans", "Sjel, kropp og bevissthet", "Minne, intensjon og karakter", "Identitet, likhet og kontinuitet"],
+      options: ["Person, menneske og substans", "Sjelen, kroppen og bevisstheten", "Minne, intensjon og karakter", "Identitet, likhet og kontinuitet"],
       explanation: "Locke skiller person (ansvarsbæreren), menneske (den biologiske organismen) og substans (det underliggende stoffet). Skillet er grunnen til at han kan la personen følge bevisstheten mens mennesket følger kroppen. De øvrige trippelene er ikke Lockes inndeling.",
     },
     {
@@ -1167,7 +1167,7 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er psykologisk forbindelse hos Parfit?",
-      options: ["De direkte båndene, som å q-huske en bestemt hendelse", "Kjeder av overlappende bånd fra tidspunkt til tidspunkt", "Den samlede likheten i personlighet mellom to livsfaser", "Båndet mellom en person og den kroppen personen har"],
+      options: ["De direkte båndene, som å q-huske en bestemt hendelse", "Kjeder av overlappende bånd fra tidspunkt til tidspunkt", "Den samlede likheten i personlighet mellom to livsfaser", "Båndet mellom en person og den kroppen personen til enhver tid har"],
       explanation: "Forbindelse er de direkte båndene, og de svekkes over tid — du har svært få direkte bånd til deg selv som femåring. Kjeder av overlappende forbindelser er derimot kontinuitet, som er noe annet. Å blande de to er den vanligste feilen i temaet.",
     },
     {
@@ -1259,47 +1259,47 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
   'fil1001-3-1': [
     {
       question: "Hva består kausalitet i ifølge Humes regularitetsteori?",
-      options: ["Nærhet i rom og tid, temporal suksesjon og konstant konjunksjon mellom hendelsestypene", "Nærhet i rom og tid, en observerbar nødvendig forbindelse og konstant konjunksjon mellom hendelsene", "Kontrafaktisk avhengighet mellom to hendelser som begge faktisk inntraff i den aktuelle verden", "En kraft som overføres fra den ene hendelsen til den andre ved berøring"],
+      options: ["Nærhet i rom og tid, temporal suksesjon og konstant konjunksjon mellom hendelsestypene", "Nærhet i rom og tid, en observerbar nødvendig forbindelse og konstant konjunksjon mellom hendelsene", "Kontrafaktisk avhengighet mellom to hendelser som begge faktisk inntraff i den aktuelle verden", "En kraft som overføres fra den ene hendelsen til den andre ved direkte berøring mellom dem"],
       explanation: "Humes analyse består av tre observerbare vilkår: nærhet, suksesjon og konstant konjunksjon. Forslaget med en observerbar nødvendig forbindelse snur analysen på hodet — nettopp den mener Hume at vi ikke ser. Kontrafaktisk avhengighet er Lewis' analyse, ikke Humes.",
     },
     {
       question: "Hva er det Hume benekter når det gjelder kausalitet?",
-      options: ["At vi observerer en nødvendig forbindelse mellom årsak og virkning", "At det finnes årsaksforhold mellom hendelser i den fysiske verden omkring oss", "At vi har noen idé om nødvendighet i det hele tatt", "At årsaken kommer før virkningen i tid"],
+      options: ["At vi observerer en nødvendig forbindelse mellom årsak og virkning", "At det finnes årsaksforhold mellom hendelser i den fysiske verden omkring oss", "At vi i det hele tatt har noen idé om nødvendig forbindelse mellom hendelser", "At årsaken kommer før virkningen i tid"],
       explanation: "Hume analyserer kausalitet og benekter at nødvendigheten er noe vi observerer. Han benekter ikke at det finnes årsaker — det er den tyngste feillesningen i temaet — og han benekter heller ikke at vi har ideen om nødvendighet; hele prosjektet hans er å forklare hvor den kommer fra.",
     },
     {
       question: "Hvor kommer ideen om nødvendig forbindelse fra ifølge Hume?",
-      options: ["Fra vanen: sinnet går av seg selv fra det ene til det andre etter gjentatt erfaring", "Fra en direkte sansning av den kraften som virker mellom hendelsene når de berører hverandre", "Fra en slutning vi gjør ut fra naturlovene vi allerede kjenner", "Fra en medfødt kategori som strukturerer all vår erfaring"],
+      options: ["Fra vanen: sinnet går av seg selv fra det ene til det andre etter gjentatt erfaring", "Fra en direkte sansning av den kraften som virker mellom hendelsene når de berører hverandre", "Fra en slutning vi trekker ut fra de naturlovene vi allerede kjenner fra tidligere erfaring", "Fra en medfødt kategori som strukturerer all vår erfaring"],
       explanation: "Hume forklarer ideen psykologisk: gjentakelse skaper en vane, og inntrykket av sinnets egen overgang projiseres ut på verden. En direkte sansning av kraften er nettopp det han benekter at vi har, og forklaringene med naturlover eller medfødte kategorier hører andre posisjoner til.",
     },
     {
       question: "Hva er konstant konjunksjon?",
-      options: ["At hendelser av én type i all vår erfaring har vært fulgt av hendelser av en annen type", "At to hendelser inntreffer på nøyaktig samme tidspunkt og på nøyaktig samme sted i rommet", "At virkningen ville uteblitt dersom årsaken ikke hadde inntruffet", "At to hendelser har en felles årsak som forklarer samvariasjonen mellom dem"],
+      options: ["At hendelser av én type i all vår erfaring har vært fulgt av hendelser av en annen type", "At to hendelser inntreffer på nøyaktig samme tidspunkt og på nøyaktig samme sted i rommet", "At virkningen ville uteblitt dersom årsaken ikke hadde inntruffet", "At to hendelser har en felles bakenforliggende årsak som forklarer samvariasjonen mellom dem"],
       explanation: "Konstant konjunksjon er et mønster mellom hendelsestyper: hver gang det ene, så det andre. Formuleringen om hva som ville uteblitt, er Lewis' kontrafaktiske test, og felles årsak er nettopp det som skaper samvariasjon uten årsaksforhold.",
     },
     {
       question: "Hva er problemet med tilfeldige regulariteter for Humes analyse?",
-      options: ["De oppfyller alle tre vilkårene uten at det foreligger et årsaksforhold", "De bryter kravet om konstant konjunksjon ved å ha sjeldne, men fullt reelle unntak", "De gjelder bare enkelttilfeller og gir derfor ingen regularitet", "De forutsetter en nødvendig forbindelse Hume ikke kan godta"],
+      options: ["De oppfyller alle tre vilkårene uten at det foreligger et årsaksforhold", "De bryter kravet om konstant konjunksjon ved å ha sjeldne, men fullt reelle unntak", "De gjelder bare enkelttilfeller og gir derfor ingen regularitet å bygge på", "De forutsetter en nødvendig forbindelse Hume ikke kan godta"],
       explanation: "Fabrikkfløyta i én by og arbeidsslutt i nabobyen oppfyller nærhet, suksesjon og konstant konjunksjon uten at det ene forårsaker det andre. Poenget er at vilkårene ikke er tilstrekkelige; det er ikke at regulariteten er ufullstendig eller mangler gjentakelse.",
     },
     {
       question: "Hva er en felles årsak?",
-      options: ["En tredje faktor som frambringer to hendelser og dermed får dem til å samvariere", "En årsak som deles av to virkninger fordi den ene forårsaker den andre", "En årsak som er nødvendig, men ikke tilstrekkelig, for at virkningen skal inntreffe", "En årsak som virker på flere tidspunkter gjennom en lang kjede av mellomledd"],
+      options: ["En tredje faktor som frambringer to hendelser og dermed får dem til å samvariere", "En årsak som deles av to virkninger fordi den ene forårsaker den andre", "En årsak som er nødvendig, men ikke tilstrekkelig, for at virkningen skal inntreffe", "En årsak som virker på flere ulike tidspunkter gjennom en lang kjede av mellomliggende ledd"],
       explanation: "Lufttrykket frambringer både barometerfallet og uværet, og det er derfor de to samvarierer uten at det ene forårsaker det andre. Forslaget om at den ene virkningen forårsaker den andre, er nettopp det felles årsak skal forklare bort.",
     },
     {
       question: "Hvorfor har regularitetsteorien et retningsproblem?",
-      options: ["Konstant konjunksjon er symmetrisk, så rekkefølgen må legges inn som en egen regel", "Konstant konjunksjon utelukker at årsaken kan komme før virkningen", "Konstant konjunksjon gjelder bare i tilfeller der virkningen kommer først", "Konstant konjunksjon kan ikke observeres uten at retningen allerede er kjent på forhånd"],
+      options: ["Konstant konjunksjon er symmetrisk, så rekkefølgen må legges inn som en egen regel", "Konstant konjunksjon utelukker at årsaken kan komme før virkningen", "Konstant konjunksjon gjelder bare i de tilfellene der virkningen kommer først i rekkefølgen", "Konstant konjunksjon kan ikke observeres uten at retningen allerede er kjent på forhånd"],
       explanation: "Et mønster mellom A og B består like fullt lest baklengs, så Hume må stipulere at årsaken kommer først. Kritikken er at retningen dermed postuleres i stedet for å forklares — ikke at regulariteten utelukker eller snur rekkefølgen.",
     },
     {
       question: "Hva gjelder Humes induksjonsskepsis?",
-      options: ["Vår kunnskap om årsaksforhold, ikke spørsmålet om årsaker finnes", "Spørsmålet om kausale forhold overhodet eksisterer ute i naturen selv", "Om nærhet i rom og tid virkelig er et nødvendig krav for at noe skal kalles en årsak", "Om konstant konjunksjon kan observeres i enkelttilfeller"],
+      options: ["Vår kunnskap om årsaksforhold, ikke spørsmålet om årsaker finnes", "Spørsmålet om kausale forhold overhodet eksisterer ute i naturen selv", "Om nærhet i rom og tid virkelig er et nødvendig krav for at noe skal kalles en årsak", "Om konstant konjunksjon i det hele tatt kan observeres i enkelttilfeller"],
       explanation: "Induksjonsskepsisen sier at slutningen fra observerte mønstre til framtiden ikke lar seg begrunne uten sirkularitet. Det er et epistemisk poeng om hva vi kan vite, og å gjøre det om til en påstand om at årsaker ikke finnes, er en presisjonsfeil.",
     },
     {
       question: "Hva er Humes andre definisjon av årsak, og hvorfor er den viktig?",
-      options: ["Den er kontrafaktisk, og Lewis bygger analysen sin på nettopp den", "Den er regularitetsbasert, og Lewis forkaster nettopp den", "Den er psykologisk, og den forklarer hvorfor vi tror på nødvendighet", "Den er teologisk, og den knytter kausalitet til naturens orden"],
+      options: ["Den er kontrafaktisk, og Lewis bygger analysen sin på nettopp den", "Den er regularitetsbasert, og Lewis forkaster nettopp den", "Den er psykologisk, og den forklarer hvorfor vi tror på nødvendighet", "Den er teologisk, og den knytter kausalitet til en gudgitt orden i naturen"],
       explanation: "Humes andre formulering sier at hadde den første hendelsen ikke vært, ville den andre aldri eksistert. Den er kontrafaktisk, og det er den Lewis gjør til hele analysen sin — derfor er Lewis Humes arvtaker og ikke bare hans motstander.",
     },
     {
@@ -1309,12 +1309,12 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor definerer Lewis kausalitet som kjeder av kausal avhengighet?",
-      options: ["Fordi virkningen ikke alltid avhenger direkte av årsaken", "Fordi kausalrelasjonen må være symmetrisk for å kunne analyseres", "Fordi enhver hendelse i praksis har flere enn én årsak", "Fordi kontrafaktiske setninger mangler bestemte sannhetsverdier"],
+      options: ["Fordi virkningen ikke alltid avhenger direkte av årsaken", "Fordi kausalrelasjonen må være symmetrisk for å kunne analyseres", "Fordi enhver hendelse i praksis har flere enn én årsak bak seg i tid", "Fordi kontrafaktiske setninger mangler bestemte sannhetsverdier"],
       explanation: "Kjedegrepet er innført for tilfeller der den direkte avhengigheten mangler, slik som ved foregripelse. Det er ikke motivert av symmetri eller av at hendelser har mange årsaker, og Lewis mener nettopp at kontrafaktiske setninger har bestemte sannhetsverdier.",
     },
     {
       question: "Hvordan vurderes en kontrafaktisk setning i Lewis' analyse?",
-      options: ["Ved å se på de verdenene som ligner mest på vår blant dem der årsaken uteblir", "Ved å se på alle mulige verdener der årsaken uteblir, uten noe videre utvalg blant dem", "Ved å se på hvor ofte virkningen har uteblitt i vår egen erfaring", "Ved å se på hvilke naturlover som gjelder i den aktuelle verden alene"],
+      options: ["Ved å se på de verdenene som ligner mest på vår blant dem der årsaken uteblir", "Ved å se på alle mulige verdener der årsaken uteblir", "Ved å se på hvor ofte virkningen har uteblitt i vår egen erfaring", "Ved å se på hvilke naturlover som gjelder i den aktuelle verden alene"],
       explanation: "Setningen er sann dersom virkningen uteblir i de nærmeste verdenene der årsaken uteblir. Å se på alle verdener uten utvalg ville gjort nesten alle slike setninger usanne, og å telle erfaringer er regularitetsteoriens metode.",
     },
     {
@@ -1324,12 +1324,12 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er asymmetrien i kontrafaktisk avhengighet?",
-      options: ["Virkninger avhenger av sine årsaker, men årsaker avhenger ikke av sine virkninger", "Årsaker avhenger av sine virkninger, men ikke omvendt", "Både årsak og virkning avhenger gjensidig av hverandre i nøyaktig like stor grad overalt", "Avhengigheten forsvinner når årsak og virkning er nære hverandre i tid"],
+      options: ["Virkninger avhenger av sine årsaker, men årsaker avhenger ikke av sine virkninger", "Årsaker avhenger av sine virkninger, men ikke omvendt", "Både årsak og virkning avhenger gjensidig av hverandre", "Avhengigheten forsvinner når årsak og virkning er nære hverandre i tid"],
       explanation: "Hadde brannen uteblitt, hadde det ikke vært røyk, mens en verden uten røyk ikke er en verden uten brann. Denne skjevheten lar Lewis utlede kausalitetens retning i stedet for å postulere den, slik regularitetsteorien må.",
     },
     {
       question: "Hva kjennetegner foregripelse (preemption)?",
-      options: ["Bare den ene av to potensielle årsaker gjør jobben; den andre står i reserve", "Begge årsakene virker faktisk, og hver av dem er alene tilstrekkelig for virkningen", "Ingen av de to årsakene er alene tilstrekkelig for virkningen", "Virkningen inntreffer tidligere enn den årsaken som faktisk frambringer den"],
+      options: ["Bare den ene av to potensielle årsaker gjør jobben; den andre står i reserve", "Begge årsakene virker, og hver av dem er alene tilstrekkelig", "Ingen av de to årsakene er alene tilstrekkelig for virkningen", "Virkningen inntreffer tidligere enn den årsaken som faktisk frambringer den"],
       explanation: "Ved foregripelse trer reserveårsaken aldri i funksjon — som når den ene skarpskytteren holder igjen. Beskrivelsen der begge faktisk virker, er overdeterminering, og det å bytte om de to er den hyppigste feilen i kausalitetsoppgaver.",
     },
     {
@@ -1374,7 +1374,7 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva mener Davidson at årsaker er?",
-      options: ["Begivenheter, altså hendelser med tidspunkt og sted", "Aktører som selv bringer fram sine egne handlinger uten noen mellomliggende hendelse", "Egenskaper ved gjenstander på et gitt tidspunkt", "Sanne beskrivelser av det som faktisk fant sted på stedet"],
+      options: ["Begivenheter, altså hendelser med tidspunkt og sted", "Aktører som selv bringer fram sine egne handlinger uten noen mellomliggende hendelse", "Egenskaper ved gjenstander på et bestemt tidspunkt og sted", "Sanne beskrivelser av det som faktisk fant sted på stedet"],
       explanation: "For Davidson holder kausalrelasjonen mellom hendelser: kortslutningen, ikke elektrikeren, forårsaket brannen. At aktører kan være årsaker, er nettopp aktørkausaliteten han skriver imot, og beskrivelser hører til forklaringssiden.",
     },
     {
@@ -1399,7 +1399,7 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er anomalisk monisme?",
-      options: ["Hver mentale hendelse er en fysisk hendelse, men det finnes ingen strenge psyko-fysiske lover", "Mentale hendelser lar seg redusere til fysiske ved hjelp av broprinsipper som knytter nivåene sammen", "Mentale og fysiske hendelser tilhører to atskilte substanser som ikke overlapper med hverandre", "Mentale hendelser har ingen fysiske virkninger i det hele tatt"],
+      options: ["Hver mentale hendelse er en fysisk hendelse, men det finnes ingen strenge psyko-fysiske lover", "Mentale hendelser lar seg redusere til fysiske ved hjelp av broprinsipper som knytter nivåene sammen", "Mentale og fysiske hendelser tilhører to atskilte substanser som ikke overlapper med hverandre", "Mentale hendelser finnes, men har ingen fysiske virkninger i det hele tatt, verken på atferd eller kropp"],
       explanation: "Anomalisk monisme er en ikke-reduktiv fysikalisme: identitet på enkelthendelsesnivå uten strenge lover som knytter det mentale til det fysiske. Reduksjon ved broprinsipper er nettopp det posisjonen avviser, og derfor er det galt å kalle Davidson reduksjonist.",
     },
     {
@@ -1421,7 +1421,7 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
   'fil1001-3-2': [
     {
       question: "Hva vil det si at en påstand er nødvendig, analysert med mulige verdener?",
-      options: ["At den er sann i alle mulige verdener, uten et eneste unntak", "At den er sann i minst én mulig verden ved siden av vår", "At den er sann i den aktuelle verden og i alle verdener som ligner den", "At den er sann uansett hva vi måtte komme til å oppdage om verden"],
+      options: ["At den er sann i alle mulige verdener, uten et eneste unntak", "At den er sann i minst én mulig verden ved siden av vår egen verden", "At den er sann i den aktuelle verden og i alle verdener som ligner den", "At den er sann uansett hva vi måtte komme til å oppdage om verden"],
       explanation: "Nødvendighet analyseres som sannhet i alle mulige verdener. Sannhet i minst én verden er analysen av mulighet, og innskrenkningen til verdener som ligner vår, hører hjemme i vurderingen av kontrafaktiske setninger, ikke i analysen av nødvendighet.",
     },
     {
@@ -1568,7 +1568,7 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den beste grunnen som taler for hard determinisme?",
-      options: ["Ingen har valgt den karakteren og de ønskene handlingene springer ut av", "Ingen kan i praksis forutsi hva et menneske kommer til å gjøre i en gitt situasjon", "Ingen fysisk teori har til nå klart å vise at naturen inneholder tilfeldigheter", "Ingen har noen gang observert en handling som ikke hadde en ytre årsak"],
+      options: ["Ingen har valgt den karakteren og de ønskene handlingene springer ut av", "Ingen kan i praksis forutsi hva et menneske kommer til å gjøre i en gitt situasjon", "Ingen fysisk teori har til nå klart å vise at naturen inneholder tilfeldigheter", "Ingen har noen gang observert en handling som ikke hadde en ytre årsak bak seg"],
       explanation: "Argumentet er at gener, oppvekst og hjernekjemi var på plass før du kunne velge noe, og at valget derfor ikke er genuint ditt. Argumentet handler om opphavet til karakteren, ikke om hva vi kan forutsi eller observere.",
     },
     {
@@ -1685,32 +1685,32 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er res extensa hos Descartes?",
-      options: ["En utstrakt, ikke-tenkende substans der alt er form, størrelse og bevegelse", "En uutstrakt substans der alt er tvil, vilje, forestilling og annen bevisst aktivitet", "Den delen av mennesket der tanken og nervesystemet møtes og påvirker hverandre", "En beskrivelsesmåte vi bruker på kroppen når vi driver naturvitenskap"],
+      options: ["En utstrakt, ikke-tenkende substans der alt er form, størrelse og bevegelse", "En uutstrakt substans der alt er tvil, vilje, forestilling og annen bevisst aktivitet", "Den delen av mennesket der tanken og nervesystemet møtes og påvirker hverandre", "En beskrivelsesmåte vi velger å bruke på kroppen når vi driver naturvitenskap om den"],
       explanation: "Res extensa er legemet forstått som ren geometri og bevegelse — utstrakt og uten tenkning. Beskrivelsen med tvil og vilje passer på res cogitans. Merk at res extensa er en påstand om hva kroppen er, ikke om hvordan vi velger å beskrive den.",
     },
     {
       question: "Hvor hører hjernen hjemme i Descartes' inndeling?",
-      options: ["Helt på res extensa-siden, som en utstrakt del av kroppsmaskinen", "Helt på res cogitans-siden, siden det er der tenkningen foregår", "På begge sider samtidig, siden den har både utstrekning og tenkning", "Utenfor inndelingen, som en tredje substans mellom de to andre"],
+      options: ["Helt på res extensa-siden, som en utstrakt del av kroppsmaskinen", "Helt på res cogitans-siden, siden det er i hjernen tenkningen foregår", "På begge sider samtidig, siden den har både utstrekning og tenkning", "Utenfor inndelingen, som en tredje substans mellom de to andre"],
       explanation: "Hjernen er utstrakt og hører derfor fullt og helt til res extensa. Dualismen setter ikke sinn mot kropp med hjernen som noe midt imellom, og ingen del av kroppen kan ha to prinsipalattributter. Å plassere hjernen på sinnets side gjør posisjonen uforståelig.",
     },
     {
       question: "Hva er et prinsipalattributt hos Descartes?",
-      options: ["Den ene egenskapen som utgjør en substans' natur, og som alle dens øvrige egenskaper er måter å være på", "Den viktigste av de egenskapene en substans tilfeldigvis har i et gitt tidsrom, og som den kan miste igjen", "En egenskap som to ulike substanser kan dele med hverandre når de er nært forbundet i én enhet", "Den egenskapen ved en ting som vi kan observere klarest med sansene og beskrive mest presist"],
+      options: ["Den ene egenskapen som utgjør en substans' natur, og som alle dens øvrige egenskaper er måter å være på", "Den viktigste av de egenskapene en substans tilfeldigvis har i et gitt tidsrom, og som den kan miste igjen", "En egenskap som to ulike substanser kan dele med hverandre så lenge de er nært forbundet i én og samme enhet", "Den egenskapen ved en ting som vi kan observere klarest med sansene og beskrive mest presist"],
       explanation: "Prinsipalattributtet konstituerer substansens natur: utstrekning for kroppen, tenkning for sinnet, og alt annet er måter å være utstrakt eller tenkende på. Det er ikke bare den mest framtredende egenskapen, og det er ikke noe to substanser kan dele — deling ville opphevet skillet mellom dem.",
     },
     {
       question: "Hva er en modus i Descartes' terminologi?",
-      options: ["En bestemt måte prinsipalattributtet opptrer på, som en bestemt form eller et bestemt ønske", "En substans som er avhengig av en annen substans for å kunne eksistere i det hele tatt", "En egenskap en ting kan miste uten dermed å slutte å være det slaget ting den er, slik farge er for en kropp", "Overgangen fra én tilstand til en annen i én og samme utstrakte kropp, slik bevegelse er overgang mellom steder"],
+      options: ["En bestemt måte prinsipalattributtet opptrer på, som en bestemt form eller et bestemt ønske", "En substans som er avhengig av en annen substans for i det hele tatt å kunne eksistere selvstendig", "En egenskap en ting kan miste uten dermed å slutte å være det slaget ting den er, slik farge er for en kropp", "Overgangen fra én tilstand til en annen i én og samme utstrakte kropp, slik bevegelse er overgang mellom steder"],
       explanation: "En modus er en bestemt måte å være utstrakt eller tenkende på — en form er en modus av utstrekning, et ønske en modus av tenkning. Begrepet forklarer hvorfor Descartes mener at ingen tanke kan være en tilstand i noe utstrakt: den måtte da være modus av to uforenlige attributter.",
     },
     {
       question: "Hva menes med at «tenkning» hos Descartes skal leses vidt?",
-      options: ["At det dekker alt som foregår bevisst — tvil, vilje, forestilling og det å ha en sanseopplevelse", "At det dekker all informasjonsbehandling, også den ubevisste i nervesystemet og i kroppens øvrige organer", "At det dekker både menneskers og dyrs mentale liv, og at de to skiller seg fra hverandre bare i grad", "At det dekker resonnering, men bare når den følger logikkens regler for gyldig slutning"],
+      options: ["At det dekker alt som foregår bevisst — tvil, vilje, forestilling og det å ha en sanseopplevelse", "At det dekker all informasjonsbehandling, også den ubevisste i nervesystemet og i kroppens øvrige organer", "At det dekker både menneskers og dyrs mentale liv, og at de to skiller seg fra hverandre bare i grad", "At det dekker resonnering, men bare i de tilfellene der den følger logikkens regler for gyldig slutning"],
       explanation: "Tenkning i Descartes' forstand er alt bevisst: tvil, bekreftelse, vilje, forestilling og sanseopplevelse. Å lese det snevert som resonnering gjør posisjonen langt mer sårbar enn den er, og er derfor en stråmann. Ubevisst informasjonsbehandling er ikke tenkning i denne forstand.",
     },
     {
       question: "Hva er substansdualisme?",
-      options: ["Synet at det finnes to grunnleggende slag skapt substans, og at mennesket består av én av hvert slag", "Synet at det finnes bare én slags substans, men to grunnleggende og ureduserbare slag egenskaper ved den", "Synet at ordene for det mentale og det fysiske ikke lar seg oversette til hverandre", "Synet at psykologi og nevrologi beskriver samme virkelighet på to nivåer"],
+      options: ["Synet at det finnes to grunnleggende slag skapt substans, og at mennesket består av én av hvert slag", "Synet at det finnes bare én slags substans, men to grunnleggende og ureduserbare slag egenskaper ved den", "Synet at ordene for det mentale og ordene for det fysiske ikke lar seg oversette til hverandre uten tap av mening", "Synet at psykologi og nevrologi beskriver samme virkelighet på to nivåer"],
       explanation: "Substansdualismen er en påstand om hva som finnes: to selvstendige slag ting. Posisjonen med én substans og to slag egenskaper er egenskapsdualisme, og påstandene om ord og fagnivåer er langt svakere teser som dualismen ikke uttømmes av. Å forveksle dem er den vanligste kategorifeilen i temaet.",
     },
     {
@@ -1720,22 +1720,22 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den metodiske tvilen hos Descartes?",
-      options: ["En framgangsmåte der alt som kan betviles forkastes midlertidig, for å se om noe blir stående", "En posisjon der man hevder at sikker kunnskap om den ytre verden er umulig å oppnå for mennesker", "En regel om at man aldri bør stole på andres vitnesbyrd i filosofi", "En metode for å teste hypoteser ved å lete etter moteksempler til dem"],
+      options: ["En framgangsmåte der alt som kan betviles forkastes midlertidig, for å se om noe blir stående", "En posisjon der man hevder at sikker kunnskap om den ytre verden er umulig å oppnå for mennesker", "En regel om at man aldri bør stole på andres vitnesbyrd i filosofi", "En metode for å teste hypoteser ved systematisk å lete etter moteksempler til hver enkelt av dem"],
       explanation: "Tvilen er et verktøy i jakten på et fundament, ikke en skeptisk posisjon: Descartes tviler for å finne noe som ikke lar seg betvile. Å lese den som skepsis gjør hele prosjektet uforståelig, siden han bruker resultatet til å bygge opp kunnskap igjen.",
     },
     {
       question: "Hva etablerer cogito i seg selv?",
-      options: ["At noe tenkende finnes, siden selve tvilen er en tanke", "At sinnet er en annen substans enn den utstrakte kroppen", "At kroppen ikke finnes, siden den lar seg betvile", "At alt jeg oppfatter klart og tydelig er sant"],
+      options: ["At noe tenkende finnes, siden selve tvilen er en tanke", "At sinnet er en annen substans enn den utstrakte kroppen", "At kroppen ikke finnes, siden den uten videre lar seg betvile", "At alt jeg oppfatter klart og tydelig er sant"],
       explanation: "Cogito viser bare at noe tenkende finnes så lenge tvilen pågår. Dualismen kommer først når Descartes spør hva dette tenkende er, og kriteriet om klare og tydelige oppfatninger er et senere trinn. At kroppen kan betviles, betyr ikke at den ikke finnes.",
     },
     {
       question: "Hva er kravet om en «klar og tydelig» forestilling?",
-      options: ["At innholdet ligger åpent for oppmerksomheten og er skarpt avgrenset fra alt annet", "At forestillingen er så levende at den kan beskrives i detalj for andre mennesker i ord", "At forestillingen er delt av alle som tenker grundig over saken", "At forestillingen kan bekreftes ved en observasjon vi kan gjenta"],
+      options: ["At innholdet ligger åpent for oppmerksomheten og er skarpt avgrenset fra alt annet", "At forestillingen er så levende at den kan beskrives i detalj for andre mennesker i ord", "At forestillingen er delt av alle som tenker grundig over saken", "At forestillingen kan bekreftes ved en observasjon vi kan gjenta så mange ganger vi vil"],
       explanation: "«Klart» betyr at innholdet ligger åpent for oppmerksomheten, «tydelig» at det er skarpt avgrenset fra alt annet. Kravet er strengere enn at noe bare lar seg tenke, og svakere enn et krav om observasjon eller enighet — det er derfor angrepene på argumentet ofte settes inn nettopp her.",
     },
     {
       question: "Hva er kløargumentets tredje premiss?",
-      options: ["At det jeg klart og tydelig kan forestille meg som atskilt, også kan eksistere atskilt", "At det som kan eksistere hver for seg og uavhengig, er to ting og ikke én og samme", "At jeg har en klar og tydelig forestilling av meg selv som en ren tenkende ting uten utstrekning", "At enhver kropp er delbar i deler, mens sinnet ikke lar seg dele på noen måte"],
+      options: ["At det jeg klart og tydelig kan forestille meg som atskilt, også kan eksistere atskilt", "At det som kan eksistere hver for seg og uavhengig av hverandre, er to ting og ikke én og samme", "At jeg har en klar og tydelig forestilling av meg selv som en ren tenkende ting uten utstrekning", "At enhver kropp er delbar i deler, mens sinnet ikke lar seg dele på noen måte"],
       explanation: "Premisset som bærer argumentet, er broen fra klar og tydelig forestilling til mulighet. At det atskilt eksisterende er to ting, er argumentets neste og nesten definitoriske trinn; forestillingen om et rent tenkende jeg er utgangspunktet; og delbarheten hører til Descartes' andre, selvstendige argument.",
     },
     {
@@ -1745,27 +1745,27 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er kjeden «tenkelighet → mulighet → atskilthet»?",
-      options: ["Argumentkjeden fra at noe kan tenkes klart, til at det er mulig, til at de tenkte tingene er to", "Kjeden fra at noe er mulig, til at det finnes en verden der det er aktuelt, til at det er nødvendig", "Kjeden fra at noe er tvilbart, til at det er usikkert, til at det bør forkastes", "Kjeden fra at noe er begrepslig sant, til at det er empirisk sant, til at det er bevist"],
+      options: ["Argumentkjeden fra at noe kan tenkes klart, til at det er mulig, til at de tenkte tingene er to", "Kjeden fra at noe er mulig, til at det finnes en verden der det er aktuelt, til at det er nødvendig", "Kjeden fra at noe er tvilbart, til at det er usikkert, til at det bør forkastes", "Kjeden fra at noe er begrepslig sant, til at det også er empirisk sant, til at det dermed er bevist"],
       explanation: "Kjeden går fra hva som lar seg tenke, via hva som er mulig, til hva som faktisk er to ting. Hvert av de to skrittene er omstridt, og det første er det springende premisset i så godt som all dualisme-diskusjon — det går igjen både hos Kripke og i zombie-argumentet.",
     },
     {
       question: "Hva sier udelelighetsargumentet?",
-      options: ["At kroppen alltid kan tenkes delt, mens sinnet ikke kan det, og at de derfor er to ting", "At sinnet ikke kan deles fordi det ikke har noen plassering i rommet", "At kroppen består av deler som hver for seg kunne hatt et eget sinn", "At sinnet er enkelt og derfor udødelig, siden bare sammensatte ting kan gå til grunne ved oppløsning"],
+      options: ["At kroppen alltid kan tenkes delt, mens sinnet ikke kan det, og at de derfor er to ting", "At sinnet ikke kan deles fordi det verken har noen plassering eller noen utstrekning i rommet", "At kroppen består av deler som hver for seg kunne hatt et eget sinn", "At sinnet er enkelt og derfor udødelig, siden bare sammensatte ting kan gå til grunne ved oppløsning"],
       explanation: "Argumentet peker på en egenskapsforskjell — delbarhet mot udelelighet — og bruker Leibniz' lov til å slutte at de er to. Konklusjonen om udødelighet er en helt annen, senere påstand, og at sinnet mangler plassering, er en del av utgangspunktet snarere enn argumentets poeng.",
     },
     {
       question: "Hva er standardsvaret på udelelighetsargumentet?",
-      options: ["Å bestride at sinnet er udelelig, med henvisning til delt oppmerksomhet og til hjerneskade", "Å bestride at kroppen er delelig, siden materiens aller minste deler ikke kan deles videre i noen retning", "Å påpeke at Leibniz' lov ikke gjelder for fysiske gjenstander", "Å påpeke at Descartes forveksler numerisk og kvalitativ identitet"],
+      options: ["Å bestride at sinnet er udelelig, med henvisning til delt oppmerksomhet og til hjerneskade", "Å bestride at kroppen er delelig, siden materiens minste deler ikke kan deles videre", "Å påpeke at Leibniz' lov ikke gjelder for fysiske gjenstander", "Å påpeke at Descartes forveksler numerisk og kvalitativ identitet"],
       explanation: "Innvendingen angriper premisset om sinnets udelelighet: mentalt liv ser ut til å kunne komme i deler. Kroppens delbarhet er ukontroversiell i denne sammenhengen, Leibniz' lov gjelder for alle ting, og identitetsskillet er ikke det argumentet hviler på.",
     },
     {
       question: "Hva går det maskerte manns-innvendingen ut på?",
-      options: ["At «noe jeg kan tvile på» beskriver min kunnskapstilstand og ikke tingen, så Leibniz' lov ikke gjelder for det", "At tvil om ens egen eksistens er selvmotsigende, siden selve tvilen er en tanke som forutsetter en tenker bak seg", "At vi ikke kan vite om andre mennesker har et sinn bak sin ytre atferd", "At forestillingen om en ren tenkende ting ikke er klar og tydelig nok"],
+      options: ["At «noe jeg kan tvile på» beskriver min kunnskapstilstand og ikke tingen, så Leibniz' lov ikke gjelder for det", "At tvil om ens egen eksistens er selvmotsigende, siden selve tvilen er en tanke", "At vi ikke kan vite om andre mennesker har et sinn bak sin ytre atferd", "At forestillingen om en ren tenkende ting ikke er klar og tydelig nok"],
       explanation: "Innvendingen viser at man kan tvile på at den maskerte mannen er faren min uten at de dermed er to. Slike egenskaper beskriver mitt forhold til tingen, ikke tingen selv, og Leibniz' lov gjelder ikke for dem. Innvendingen om at forestillingen er utilstrekkelig klar, rammer den modne versjonen, ikke tvilsversjonen.",
     },
     {
       question: "Hvilken versjon av Descartes' argument rammes hardest av det maskerte manns-innvendingen?",
-      options: ["Tvilsversjonen, som bygger på hva Descartes kan og ikke kan betvile", "Den modne versjonen, som bygger på klare og tydelige forestillinger om tingenes natur", "Udelelighetsargumentet, som bygger på at kroppen alltid kan tenkes delt", "Ingen av dem, siden innvendingen gjelder språk og ikke metafysikk"],
+      options: ["Tvilsversjonen, som bygger på hva Descartes kan og ikke kan betvile", "Den modne versjonen, som bygger på klare og tydelige forestillinger om tingenes natur", "Udelelighetsargumentet, som bygger på at kroppen alltid kan tenkes delt", "Ingen av dem, siden innvendingen bare gjelder språket og ikke metafysikken"],
       explanation: "Innvendingen treffer tvilsversjonen, fordi den bruker tvilbarhet som om det var en egenskap ved tingen. Den modne versjonen unngår problemet ved å hevde noe om tingenes natur i stedet, og det er nettopp derfor Descartes går over til den.",
     },
     {
@@ -1810,7 +1810,7 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken posisjon forsvarer Chalmers?",
-      options: ["Egenskapsdualisme, som han kaller naturalistisk dualisme", "Substansdualisme, i en modernisert utgave av Descartes", "Reduktiv fysikalisme, der bevissthet forklares fullt ut av nevrovitenskapen", "Epifenomenalisme, der bevisste tilstander ikke har noen årsaker"],
+      options: ["Egenskapsdualisme, som han kaller naturalistisk dualisme", "Substansdualisme, i en modernisert utgave av Descartes' posisjon", "Reduktiv fysikalisme, der bevissthet forklares fullt ut av nevrovitenskapen", "Epifenomenalisme, der bevisste tilstander ikke har noen årsaker"],
       explanation: "Chalmers forsvarer egenskapsdualisme og kaller den naturalistisk dualisme — å skrive at han er substansdualist, er en dokumentert feil. Han er heller ikke reduktiv fysikalist, og epifenomenalisme er noe annet: der har bevisste tilstander årsaker, men ingen virkninger.",
     },
     {
@@ -1927,7 +1927,7 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er Kripkes egen beskrivelse av hva argumentet oppnår?",
-      options: ["At han ikke har bevist dualismen, men vist at materialisten har en bevisbyrde han ikke har innfridd", "At han har gitt et fullstendig bevis for at sinnet er en substans atskilt fra kroppen som sådan", "At han har vist at spørsmålet ikke lar seg avgjøre, siden begge sider hviler på sine egne intuisjoner", "At han har vist at identitetsteorien er selvmotsigende og derfor kan avvises uten videre undersøkelse"],
+      options: ["At han ikke har bevist dualismen, men vist at materialisten har en bevisbyrde han ikke har innfridd", "At han har gitt et fullstendig og endelig bevis for at sinnet er en substans atskilt fra kroppen som sådan", "At han har vist at spørsmålet ikke lar seg avgjøre, siden begge sider hviler på sine egne intuisjoner", "At han har vist at identitetsteorien er selvmotsigende og derfor kan avvises uten videre undersøkelse"],
       explanation: "Kripke formulerer seg forsiktig: bevisbyrden er flyttet, ikke saken avgjort. Han hevder verken å ha bevist dualismen, å ha vist at spørsmålet er uavgjørbart, eller at teorien er selvmotsigende — den er ikke selvmotsigende, den er usann om identiteten ikke kan være nødvendig.",
     },
     {
@@ -1952,7 +1952,7 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva deler Descartes og Kripke?",
-      options: ["Skrittet fra hva som lar seg forestille, til hva som er metafysisk mulig", "Antakelsen om at sinnet er en substans som kan eksistere uten kroppen", "Bruken av rigide designatorer og skillet mellom epistemisk og metafysisk mulighet", "Overbevisningen om at naturvitenskapen aldri kan si noe om bevissthetens natur"],
+      options: ["Skrittet fra hva som lar seg forestille, til hva som er metafysisk mulig", "Antakelsen om at sinnet er en substans som kan eksistere helt uten kroppen sin", "Bruken av rigide designatorer og skillet mellom epistemisk og metafysisk mulighet", "Overbevisningen om at naturvitenskapen aldri kan si noe om bevissthetens natur"],
       explanation: "Begge trenger broen fra tenkelighet til mulighet, og en god sammenligning nevner den før den skiller dem. Substanspåstanden er bare Descartes', det modal-semantiske apparatet bare Kripkes, og ingen av dem hevder at naturvitenskapen er irrelevant.",
     },
     {
@@ -2034,12 +2034,12 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er multippel realiserbarhet?",
-      options: ["At samme mentale tilstand kan realiseres av helt ulike fysiske tilstander i ulike vesener", "At samme fysiske tilstand kan gi opphav til helt ulike mentale tilstander hos ulike vesener", "At samme mentale tilstand kan opptre flere ganger hos samme person i løpet av et liv", "At samme mentale tilstand kan beskrives på flere ulike måter avhengig av hvilket fag man bruker"],
+      options: ["At samme mentale tilstand kan realiseres av helt ulike fysiske tilstander i ulike vesener", "At samme fysiske tilstand kan gi opphav til helt ulike mentale tilstander hos ulike vesener", "At samme mentale tilstand kan opptre mange ganger hos den samme personen i løpet av et helt liv", "At samme mentale tilstand kan beskrives på flere ulike måter avhengig av hvilket fag man bruker"],
       explanation: "Innvendingen gjelder ulike fysiske realiserere av samme mentale tilstand — blekksprut, menneske, kanskje maskin. Den motsatte påstanden ville brutt med supervenience, og innvendingen handler verken om gjentakelse over tid eller om beskrivelsesnivåer.",
     },
     {
       question: "Hvilken form for identitet rammer multippel realiserbarhet?",
-      options: ["Typeidentitet, siden den hevder at samme mentale slag er samme fysiske slag overalt", "Tokenidentitet, siden den hevder at hver enkelt hendelse er en bestemt fysisk hendelse", "Begge like hardt, siden begge hevder en kobling mellom det mentale og det fysiske", "Ingen av dem, siden innvendingen bare gjelder funksjonalismen og ikke identitetsteorien"],
+      options: ["Typeidentitet, siden den hevder at samme mentale slag er samme fysiske slag overalt", "Tokenidentitet, siden den hevder at hver enkelt hendelse er en bestemt fysisk hendelse", "Begge like hardt, siden begge hevder en fast kobling mellom det mentale og det fysiske", "Ingen av dem, siden innvendingen bare gjelder funksjonalismen og ikke identitetsteorien"],
       explanation: "Innvendingen felles ved ett moteksempel den universelle påstanden om slag. Tokenidentiteten er upåvirket: hver enkelt smerte kan godt være en eller annen fysisk hendelse uten at det er samme slag hendelse hver gang.",
     },
     {
@@ -2079,7 +2079,7 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er Kims hovedinnvending mot ikke-reduktiv fysikalisme?",
-      options: ["At en ureduserbar mental egenskap ikke har noe kausalt arbeid igjen å gjøre", "At supervenience er en for sterk tese til at noen fysikalist kan godta den", "At posisjonen ikke kan gjøre rede for hvorfor to arter kan ha samme opplevelse", "At posisjonen forutsetter at det finnes strenge psyko-fysiske lover i naturen"],
+      options: ["At en ureduserbar mental egenskap ikke har noe kausalt arbeid igjen å gjøre", "At supervenience er en altfor sterk tese til at noen fysikalist kan godta den fullt ut", "At posisjonen ikke kan gjøre rede for hvorfor to arter kan ha samme opplevelse", "At posisjonen forutsetter at det finnes strenge psyko-fysiske lover i naturen"],
       explanation: "Er det fysiske kausalt lukket, har enhver fysisk virkning allerede en tilstrekkelig fysisk årsak, og den ureduserbare mentale egenskapen står igjen uten oppgave. Innvendingen gjelder kausalitet, ikke supervenience i seg selv, og den forutsetter ikke psyko-fysiske lover.",
     },
     {
@@ -2136,27 +2136,27 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor rammer problemet med mental kausalitet også fysikalister?",
-      options: ["Fordi en mental egenskap som bare supervenierer, fortsatt er noe annet enn den fysiske", "Fordi fysikalister må benekte at det finnes mentale tilstander eller egenskaper i det hele tatt", "Fordi fysikalister ikke kan godta at det fysiske er kausalt lukket i naturen", "Fordi fysikalister mangler et begrep om årsak som kan brukes på hjernen"],
+      options: ["Fordi en mental egenskap som bare supervenierer, fortsatt er noe annet enn den fysiske", "Fordi fysikalister må benekte at det finnes mentale tilstander eller egenskaper i det hele tatt", "Fordi fysikalister ikke kan godta premisset om at det fysiske er kausalt lukket i naturen", "Fordi fysikalister mangler et begrep om årsak som kan brukes på hjernen"],
       explanation: "Så lenge den mentale egenskapen ikke er identisk med den fysiske, er den en kandidat til å konkurrere med den. Bare den som hevder identitet eller reduksjon, slipper unna. Fysikalister benekter ikke at mentale tilstander finnes, og de godtar tvert imot kausal lukkethet.",
     },
     {
       question: "Hva er selvkunnskapsargumentet for mental kausalitet?",
-      options: ["At ytringen «jeg har vondt» er en fysisk hendelse som må handle om smerten for å være sann", "At vi kjenner vårt eget sinn langt bedre enn vi kjenner noen annen del av virkeligheten omkring oss", "At vi ikke kan ta feil om våre egne opplevelser slik vi kan ta feil om verden utenfor", "At vi lærer ordene for mentale tilstander ved å observere vår egen atferd innenfra"],
+      options: ["At ytringen «jeg har vondt» er en fysisk hendelse som må handle om smerten for å være sann", "At vi kjenner vårt eget sinn langt bedre enn vi kjenner noen annen del av virkeligheten omkring oss", "At vi umulig kan ta feil om våre egne opplevelser, slik vi kan ta feil om verden utenfor oss", "At vi lærer ordene for mentale tilstander ved å observere vår egen atferd innenfra"],
       explanation: "Argumentet er at det blir uforklarlig hvordan ytringen kan handle om nettopp min smerte, hvis smerten som sådan ikke gjør noe kausalt. Det handler ikke om innsiktens sikkerhet eller om hvordan vi lærer ordene, men om hva som skal til for at ytringen skal ha rett gjenstand.",
     },
     {
       question: "Hva er premiss 2 i Kims eksklusjonsargument?",
-      options: ["At den fysiske virkningen har en tilstrekkelig fysisk årsak (kausal lukkethet)", "At den mentale hendelsen forårsaker den fysiske virkningen (mental kausalitet)", "At den mentale hendelsen ikke er identisk med den fysiske (ikke-reduktiv fysikalisme)", "At virkningen ikke er systematisk overdeterminert av to tilstrekkelige årsaker"],
+      options: ["At den fysiske virkningen har en tilstrekkelig fysisk årsak (kausal lukkethet)", "At den mentale hendelsen forårsaker den fysiske virkningen (mental kausalitet)", "At den mentale hendelsen ikke er identisk med den fysiske (ikke-reduktiv)", "At virkningen ikke er systematisk overdeterminert av to tilstrekkelige årsaker"],
       explanation: "Premiss 2 er kausal lukkethet av det fysiske. De øvrige er premiss 1, 3 og 4 i argumentet — å blande rekkefølgen gjør det vanskelig å si hvilket premiss en innvending rammer, og det er nettopp det oppgavene spør etter.",
     },
     {
       question: "Hva er konklusjonen i eksklusjonsargumentet?",
-      options: ["At den mentale årsaken ekskluderes, slik at man må gi opp minst ett av de fire premissene", "At det ikke finnes mentale tilstander overhodet, siden bare fysiske tilstander har noen kausal kraft", "At det fysiske ikke kan være kausalt lukket, siden vi vet at tanker påvirker handling", "At mentale og fysiske årsaker samvirker i et parti der begge bidrar med hver sin del"],
+      options: ["At den mentale årsaken ekskluderes, slik at man må gi opp minst ett av de fire premissene", "At det ikke finnes mentale tilstander overhodet, siden bare fysiske tilstander har noen kausal kraft", "At det fysiske ikke kan være kausalt lukket, siden vi vet at tankene våre påvirker handlingene", "At mentale og fysiske årsaker samvirker i et parti der begge bidrar med hver sin del"],
       explanation: "Argumentet viser at de fire premissene ikke kan holdes sammen, slik at minst ett må gis opp. Det konkluderer verken med at mentale tilstander ikke finnes, med at lukketheten er usann, eller med noen samvirke-modell — hvilket premiss man ofrer, er nettopp det som skal drøftes.",
     },
     {
       question: "Hvilken utvei foretrekker Kim selv?",
-      options: ["Å gi opp ikke-identiteten, altså å redusere det mentale til det fysiske", "Å gi opp mental kausalitet og godta en full epifenomenalisme om alt det mentale", "Å gi opp kausal lukkethet og godta at det fysiske kan påvirkes utenfra", "Å gi opp forbudet mot systematisk overdeterminering av mentale årsaker"],
+      options: ["Å gi opp ikke-identiteten, altså å redusere det mentale til det fysiske", "Å gi opp mental kausalitet og godta en full epifenomenalisme om alt det mentale", "Å gi opp kausal lukkethet og godta at det fysiske kan påvirkes fra noe ikke-fysisk", "Å gi opp forbudet mot systematisk overdeterminering av mentale årsaker"],
       explanation: "Kim foretrekker reduksjon, helst funksjonell reduksjon: er den mentale egenskapen redusert, er den ikke lenger en konkurrent til den fysiske. De tre andre utveiene er dem han argumenterer imot — særlig epifenomenalismen, som han ser som prisen ikke-reduktiv fysikalisme risikerer å måtte betale.",
     },
     {
@@ -2166,22 +2166,22 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er ordet «systematisk» viktig i premiss 4?",
-      options: ["Fordi premisset ikke benekter at overdeterminering finnes, bare at den kan være gjennomgående", "Fordi premisset bare gjelder for handlinger som gjentas ofte hos den samme personen over tid i sitt eget liv", "Fordi premisset krever at overdetermineringen kan formuleres som en streng naturlov", "Fordi premisset bare gjelder for virkninger som lar seg måle med vitenskapelige metoder"],
+      options: ["Fordi premisset ikke benekter at overdeterminering finnes, bare at den kan være gjennomgående", "Fordi premisset bare gjelder for handlinger som gjentas ofte hos den samme personen over tid i sitt eget liv", "Fordi premisset krever at overdetermineringen kan formuleres som en streng naturlov", "Fordi premisset bare gjelder for virkninger som lar seg måle presist med naturvitenskapelige metoder"],
       explanation: "Overdeterminering finnes, men er sjelden og tilfeldig — som når to snikskyttere skyter samtidig. Kims premiss utelukker at hver eneste handling hos hvert eneste menneske skulle være overdeterminert, siden et sammentreff som gjentas milliarder av ganger, selv krever forklaring.",
     },
     {
       question: "Hva er kausal lukkethet av det fysiske?",
-      options: ["At enhver fysisk hendelse som har en årsak, har en tilstrekkelig fysisk årsak", "At enhver fysisk hendelse er entydig fastlagt av naturlovene og fortidens tilstand", "At det fysiske universet verken mottar eller avgir energi fra noe utenfor seg selv", "At alle hendelser som finnes, er fysiske hendelser og ikke noe annet enn det"],
+      options: ["At enhver fysisk hendelse som har en årsak, har en tilstrekkelig fysisk årsak", "At enhver fysisk hendelse er entydig fastlagt av naturlovene og fortidens tilstand", "At det fysiske universet verken mottar eller avgir energi fra noe utenfor seg selv", "At alle hendelser som overhodet finnes, er fysiske hendelser og ikke noe annet enn det"],
       explanation: "Prinsippet gjelder tilstrekkelige fysiske årsaker til fysiske virkninger. Det er ikke determinisme — en indeterministisk fysikk kan være like lukket — og det er heller ikke i seg selv tesen om at alt er fysisk.",
     },
     {
       question: "Hva er den beste begrunnelsen for kausal lukkethet?",
-      options: ["At fysikken har lett etter hull i den fysiske årsakskjeden i hundrevis av år uten å finne noen", "At det er logisk selvmotsigende å tenke seg en fysisk virkning uten noen fysisk årsak bak seg i noen som helst forstand", "At begrepet «fysisk» er definert slik at bare fysiske ting kan påvirke fysiske ting i verden", "At vi har målt hjernen presist nok til å utelukke enhver påvirkning fra noe ikke-fysisk"],
+      options: ["At fysikken har lett etter hull i den fysiske årsakskjeden i hundrevis av år uten å finne noen", "At det er logisk selvmotsigende å tenke seg en fysisk virkning uten noen fysisk årsak bak seg i noen som helst forstand", "At begrepet «fysisk» allerede er definert slik at bare fysiske ting kan påvirke fysiske ting i verden", "At vi har målt hjernen presist nok til å utelukke enhver påvirkning fra noe ikke-fysisk"],
       explanation: "Begrunnelsen er en induksjon fra vitenskapelig praksis, støttet av bevaringslovene. Den er verken en logisk sannhet eller en definisjon, og det er nettopp poenget at målingen som ville avgjort saken, ikke er utført.",
     },
     {
       question: "Hva er den skarpeste innvendingen mot kausal lukkethet som premiss?",
-      options: ["At et metodologisk prinsipp om alltid å lete etter fysiske årsaker er gjort om til en metafysisk påstand", "At prinsippet motsies av forsøk som viser at beslutninger kommer etter den nevrale aktiviteten de skal styre", "At prinsippet er uforenlig med at fysikken beskriver noen hendelser som rent tilfeldige", "At prinsippet ikke lar seg formulere presist nok til å kunne prøves i det hele tatt"],
+      options: ["At et metodologisk prinsipp om alltid å lete etter fysiske årsaker er gjort om til en metafysisk påstand", "At prinsippet motsies av forsøk som viser at beslutninger kommer etter den nevrale aktiviteten de skal styre", "At prinsippet er uforenlig med at fysikken selv beskriver noen hendelser som rent tilfeldige og uten årsak", "At prinsippet ikke lar seg formulere presist nok til å kunne prøves i det hele tatt"],
       explanation: "Glidningen fra en god forskningsregel til en påstand om hva som alltid finnes, er den mest presise innvendingen. Prinsippet er forenlig med indeterminisme, det lar seg formulere presist, og eksperimentene om beslutningers timing er et annet spørsmål.",
     },
     {
@@ -2191,17 +2191,17 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er Davidsons løsning på spenningen mellom de tre prinsippene?",
-      options: ["Kausalitet gjelder mellom hendelser, og én hendelse kan beskrives både mentalt og fysisk", "Kausalitet gjelder mellom beskrivelser, og mentale beskrivelser har sine egne lover", "Kausalitet krever ikke lover, så det tredje prinsippet skaper ikke noe problem", "Kausalitet mellom mentalt og fysisk er tilsynelatende og skyldes en forhåndsbestemt harmoni"],
+      options: ["Kausalitet gjelder mellom hendelser, og én hendelse kan beskrives både mentalt og fysisk", "Kausalitet gjelder mellom beskrivelser, og de mentale beskrivelsene har sine egne strenge lover", "Kausalitet krever ikke lover, så det tredje prinsippet skaper ikke noe problem", "Kausalitet mellom mentalt og fysisk er tilsynelatende og skyldes en forhåndsbestemt harmoni"],
       explanation: "Løsningen er ekstensjonalitet: relasjonen holder mellom hendelser uansett beskrivelse, og under den fysiske beskrivelsen faller hendelsen under strenge lover. Davidson gir verken opp lovkravet, innfører mentale lover eller postulerer noen harmoni.",
     },
     {
       question: "Hva er resultatet av Davidsons løsning?",
-      options: ["Token-identitet uten typeidentitet — en ikke-reduktiv fysikalisme", "Typeidentitet uten token-identitet — en reduktiv fysikalisme", "Både type- og token-identitet — den klassiske identitetsteorien", "Verken type- eller token-identitet — en form for egenskapsdualisme"],
+      options: ["Token-identitet uten typeidentitet — en ikke-reduktiv fysikalisme", "Typeidentitet uten token-identitet — en reduktiv fysikalisme", "Både type- og token-identitet — den klassiske identitetsteorien om sinnet", "Verken type- eller token-identitet — en form for egenskapsdualisme"],
       explanation: "Hver enkelt mental hendelse er en fysisk hendelse, men det finnes ingen lovmessig kobling mellom mentale og fysiske slag. Det er derfor posisjonen er ikke-reduktiv — og derfor Kim angriper den. Typeidentitet uten token-identitet er dessuten umulig.",
     },
     {
       question: "Er Davidson reduksjonist?",
-      options: ["Nei — anomalisk monisme er token-identitet uten strenge psyko-fysiske lover, altså ikke-reduktiv", "Ja — token-identitet mellom enkelthendelser er nettopp det reduksjon av det mentale betyr, ifølge de fleste framstillinger", "Ja — han identifiserer mentale egenskaper med fysiske egenskaper i hvert enkelt tilfelle", "Nei — han benekter at mentale hendelser er fysiske hendelser i det hele tatt"],
+      options: ["Nei — anomalisk monisme er token-identitet uten strenge psyko-fysiske lover, altså ikke-reduktiv", "Ja — token-identitet mellom enkelthendelser er nettopp det reduksjon av det mentale betyr, ifølge de fleste framstillinger", "Ja — han identifiserer de mentale egenskapene med fysiske egenskaper i hvert eneste enkelttilfelle", "Nei — han benekter at mentale hendelser er fysiske hendelser i det hele tatt"],
       explanation: "Å skrive at Davidson er reduksjonist er en dokumentert feil: uten strenge psyko-fysiske lover er det ingen reduksjon, og det er nettopp derfor Kim angriper ham. Han identifiserer hendelser, ikke egenskaper, og han benekter ikke at mentale hendelser er fysiske.",
     },
     {
@@ -2268,12 +2268,12 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke tre ledd inngår i en kausalrolle slik funksjonalismen spesifiserer den?",
-      options: ["Sanseinput, indre forbindelser til andre mentale tilstander og atferdsoutput", "Sanseinput, nevral realisering og atferdsoutput i det aktuelle systemet", "Atferdsdisposisjon, verbal rapport og observerbar kroppslig reaksjon på stimulus", "Tro, ønske og hensikt slik de opptrer i en vanlig handlingsforklaring"],
+      options: ["Sanseinput, indre forbindelser til andre mentale tilstander og atferdsoutput", "Sanseinput, nevral realisering i hjernen og atferdsoutput i det aktuelle systemet", "Atferdsdisposisjon, verbal rapport og observerbar kroppslig reaksjon på stimulus", "Tro, ønske og hensikt slik de opptrer i en vanlig handlingsforklaring"],
       explanation: "Rollen har input, indre forbindelser og output. Forslaget med nevral realisering bytter ut midtleddet med realisereren, og forslaget om atferdsdisposisjoner beskriver behaviorismen — begge stryker nettopp det leddet som er funksjonalismens særpreg.",
     },
     {
       question: "Hvilket ledd i kausalrollen er den viktigste avgrensningen mot behaviorismen?",
-      options: ["De indre forbindelsene mellom mentale tilstander", "Sanseinput fra omgivelsene og fra kroppens indre", "Den observerbare atferdsoutputen tilstanden gir", "Den nevrale realisereren som fyller rollen hos mennesker"],
+      options: ["De indre forbindelsene mellom mentale tilstander", "Sanseinput fra omgivelsene og fra kroppens indre", "Den observerbare atferdsoutputen tilstanden gir opphav til", "Den nevrale realisereren som fyller rollen hos mennesker"],
       explanation: "Behaviorismen tillater bare input og atferd; funksjonalismen legger til indre tilstander som samvirker med hverandre. Realisereren er ikke et ledd i rollen i det hele tatt, men det som fyller den.",
     },
     {
@@ -2303,7 +2303,7 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor rammer ikke multippel realiserbarhet tokenidentitet?",
-      options: ["Fordi tokenidentitet bare gjelder enkelttilfeller, ikke slag av tilstander", "Fordi tokenidentitet bare gjelder mennesker og ikke andre arter av dyr", "Fordi tokenidentitet er en påstand om språket og ikke om verden selv", "Fordi tokenidentitet allerede forutsetter at rollene kan fylles på ulike måter"],
+      options: ["Fordi tokenidentitet bare gjelder enkelttilfeller, ikke slag av tilstander", "Fordi tokenidentitet bare gjelder mennesker og ikke andre arter av tenkende vesener", "Fordi tokenidentitet er en påstand om språket og ikke om verden selv", "Fordi tokenidentitet allerede forutsetter at rollene kan fylles på ulike måter"],
       explanation: "Tokenidentitet sier ingenting om at samme slag mental tilstand må ha samme slag realiserer, og innvendingen handler nettopp om slag. Den er heller ikke begrenset til mennesker og er en påstand om hva hendelser er, ikke om ord.",
     },
     {
@@ -2430,22 +2430,22 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er metodologisk behaviorisme?",
-      options: ["Et forskningsprogram om at psykologien bare skal bruke observerbare data", "En tese om at mentale ord betyr det samme som ord om atferdsdisposisjoner", "En tese om at det ikke finnes indre opplevelser i det hele tatt noe sted", "Et program for å redusere psykologiske lover til nevrologiske lover"],
+      options: ["Et forskningsprogram om at psykologien bare skal bruke observerbare data", "En tese om at mentale ord betyr det samme som ord om atferdsdisposisjoner", "En tese om at det ikke finnes indre opplevelser i det hele tatt noe sted", "Et program for å redusere psykologiske lover til nevrologiske lover om hjernen"],
       explanation: "Metodologisk behaviorisme sier noe om vitenskapelig metode, ikke om hva sinnet er, og en tilhenger kan godt mene at indre opplevelser finnes. Tesen om betydning er den logiske varianten.",
     },
     {
       question: "Hva er en atferdsdisposisjon?",
-      options: ["En tilbøyelighet til å oppføre seg på en bestemt måte under gitte betingelser", "En atferd som faktisk vises i det øyeblikket tilstanden foreligger hos personen", "En indre tilstand som samvirker med andre indre tilstander i systemet", "En nevral prosess som frambringer den observerbare atferden hos personen"],
+      options: ["En tilbøyelighet til å oppføre seg på en bestemt måte under gitte betingelser", "En atferd som faktisk vises i det øyeblikket tilstanden foreligger hos personen", "En indre tilstand som samvirker med andre indre tilstander i systemet", "En nevral prosess i hjernen som frambringer den observerbare atferden hos personen"],
       explanation: "En disposisjon er et mønster av «hvis, så», og det er derfor behavioristen kan si at du har vondt mens du sitter stille. Indre tilstander som samvirker, er nettopp det behaviorismen ikke tillater.",
     },
     {
       question: "Hva skal skjørhetsanalogien vise?",
-      options: ["At en disposisjon ikke er noen skjult indre gjenstand, bare betingede sannheter", "At mentale tilstander er svake og lett kan forstyrres av ytre påvirkning", "At disposisjoner alltid må realiseres av en bestemt fysisk struktur i gjenstanden", "At en gjenstand kan ha egenskaper den aldri får anledning til å vise fram"],
+      options: ["At en disposisjon ikke er noen skjult indre gjenstand, bare betingede sannheter", "At mentale tilstander er svake og lett kan forstyrres av ytre påvirkning", "At disposisjoner alltid må realiseres av en bestemt fysisk struktur i gjenstanden", "At en gjenstand kan ha egenskaper den aldri i sin levetid får anledning til å vise fram"],
       explanation: "Analogien skal gjøre disposisjonsbegrepet ufarlig: skjørhet er ikke en skjult ingrediens, men et mønster av hva som ville skjedd. Den handler verken om sårbarhet eller om hvilken struktur som ligger under.",
     },
     {
       question: "Hva er sirkularitetsproblemet for logisk behaviorisme?",
-      options: ["At en disposisjon ikke kan spesifiseres uten å nevne andre mentale tilstander", "At behaviorismen definerer atferd ved hjelp av atferd i en uendelig kjede", "At mentale tilstander forklares ved nevrale tilstander som selv må forklares videre", "At atferdsbeskrivelser forutsetter at vi allerede har observert atferden"],
+      options: ["At en disposisjon ikke kan spesifiseres uten å nevne andre mentale tilstander", "At behaviorismen definerer atferd ved hjelp av annen atferd i en uendelig lang kjede", "At mentale tilstander forklares ved nevrale tilstander som selv må forklares videre", "At atferdsbeskrivelser forutsetter at vi allerede har observert atferden"],
       explanation: "Tro gir bare atferd sammen med ønske, og ønske bare sammen med tro, så oversettelsen kan aldri fullføres uten mentale termer. Funksjonalismen unngår problemet ved å definere alle termene samtidig.",
     },
     {
@@ -2455,17 +2455,17 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva viser skuespiller-tilfellet, der noen har alle disposisjonene uten å ha vondt?",
-      options: ["At atferdsdisposisjoner ikke er tilstrekkelige for å ha en mental tilstand", "At atferdsdisposisjoner ikke er nødvendige for å kunne ha en mental tilstand", "At mentale tilstander kan skjules helt for andre observatører", "At behaviorismen bare gjelder for uerfarne og utrente personer"],
+      options: ["At atferdsdisposisjoner ikke er tilstrekkelige for å ha en mental tilstand", "At atferdsdisposisjoner ikke er nødvendige for en mental tilstand", "At mentale tilstander kan skjules helt for andre observatører", "At behaviorismen bare gjelder for uerfarne og utrente personer"],
       explanation: "Her er disposisjonene til stede uten tilstanden, og det rammer tilstrekkeligheten. Nødvendigheten rammes av det motsatte tilfellet, der tilstanden foreligger uten disposisjonene.",
     },
     {
       question: "Hvordan løser funksjonalismen stoiker-tilfellet?",
-      options: ["Ved å tillate indre tilstander som kan foreligge uten at output utløses", "Ved å benekte at personen virkelig mangler disposisjonene til smerteatferd", "Ved å identifisere smerten med den nevrale tilstanden som ligger under", "Ved å hevde at smerte uten atferd er en logisk umulig situasjon"],
+      options: ["Ved å tillate indre tilstander som kan foreligge uten at output utløses", "Ved å benekte at personen virkelig mangler disposisjonene til smerteatferd", "Ved å identifisere smerten med den nevrale tilstanden som ligger under i hjernen", "Ved å hevde at smerte uten atferd er en logisk umulig situasjon"],
       explanation: "Funksjonalismens midtledd gjør at rollen kan være fylt uten at atferden utløses. Å benekte premisset ville vært å omgå tilfellet, og å peke på nevrale tilstander er identitetsteoriens grep.",
     },
     {
       question: "Hvilket av behaviorismens problemer arver funksjonalismen i modifisert form?",
-      options: ["Førstepersonsproblemet — hvorfor du kjenner din egen tilstand umiddelbart", "Sirkularitetsproblemet, som funksjonalismen heller ikke har noe redskap mot", "Problemet med indre tilstander uten tilhørende observerbar atferd", "Problemet med atferd uten noen tilsvarende indre mental tilstand"],
+      options: ["Førstepersonsproblemet — hvorfor du kjenner din egen tilstand umiddelbart", "Sirkularitetsproblemet, som funksjonalismen ikke har redskap mot", "Problemet med indre tilstander uten tilhørende observerbar atferd", "Problemet med atferd uten noen tilsvarende indre mental tilstand"],
       explanation: "Funksjonalismen løser sirkulariteten med Ramsey-Lewis-metoden og begge atferdstilfellene med midtleddet. Det som blir igjen, er den følte, umiddelbare siden — og det er nettopp der Block setter inn.",
     },
     {
@@ -2881,7 +2881,7 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
   'fil1001-6-3': [
     {
       question: "Hva er intensjonalitet?",
-      options: ["Mentale tilstanders rettethet mot objekter eller saksforhold", "Mentale tilstanders egenskap av å være villet av personen selv", "Den følte kvaliteten ved en opplevelse, slik den er innenfra", "Evnen til å danne planer og handle etter dem over tid"],
+      options: ["Mentale tilstanders rettethet mot objekter eller saksforhold", "Mentale tilstanders egenskap av å være villet av personen selv", "Den følte kvaliteten ved en opplevelse, slik den er innenfra", "Evnen til å danne langsiktige planer og handle etter dem over tid"],
       explanation: "Intensjonalitet er om-het: at en tro, et ønske eller en frykt alltid er om noe. Hensikt heter intensjon uten t-en foran, og er bare én av mange intensjonale tilstander. Den følte kvaliteten er qualia, som er et annet trekk ved det mentale.",
     },
     {
@@ -2891,32 +2891,32 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er det intensjonale objektet et problem for en fysisk analyse av rettethet?",
-      options: ["Fordi det ikke behøver å finnes, mens fysiske relasjoner krever to virkelige ledd", "Fordi det alltid er noe fysisk, mens tanken om det er noe ikke-fysisk", "Fordi det bare kan beskrives av den som har tilstanden, og ikke av andre", "Fordi det skifter fra person til person, slik at ingen tenker på nøyaktig det samme"],
+      options: ["Fordi det ikke behøver å finnes, mens fysiske relasjoner krever to virkelige ledd", "Fordi det alltid er noe fysisk, mens tanken om det er noe ikke-fysisk", "Fordi det bare kan beskrives av den som selv har tilstanden, og ikke av andre observatører", "Fordi det skifter fra person til person, slik at ingen tenker på nøyaktig det samme"],
       explanation: "Du kan frykte et monster som ikke finnes, men ingenting kan stå til venstre for et monster som ikke finnes. En vanlig fysisk relasjon krever at begge leddene er der, og det er dette kravet rettethet bryter — ikke noe krav om at objektet skal være privat eller skiftende.",
     },
     {
       question: "Hva sier den kausal-informasjonelle teorien om mental representasjon?",
-      options: ["At en tilstand handler om noe fordi den lovmessig frambringes av det", "At en tilstand handler om noe fordi personen tolker den slik bevisst", "At en tilstand handler om noe fordi den ligner på det den handler om", "At en tilstand handler om noe fordi språket vårt tilordner den et innhold"],
+      options: ["At en tilstand handler om noe fordi den lovmessig frambringes av det", "At en tilstand handler om noe fordi personen tolker den slik bevisst", "At en tilstand handler om noe fordi den ligner på det den handler om", "At en tilstand handler om noe fordi språket tilordner den innhold"],
       explanation: "Modellen er røyk som indikerer ild og årringer som indikerer alder: en pålitelig kausal korrelasjon. Teorien er attraktiv nettopp fordi den ikke låner noe mentalt, slik en analyse via tolkning eller via språklig tilordning ville gjort.",
     },
     {
       question: "Hva er feilrepresentasjonsproblemet?",
-      options: ["At representasjoner kan være usanne, mens korrelasjoner ikke kan være det", "At vi ofte husker feil hva vi trodde og mente på et tidligere tidspunkt", "At to personer kan representere den samme tingen på ulike måter", "At en representasjon kan mangle den fenomenale kvaliteten den egentlig burde hatt"],
+      options: ["At representasjoner kan være usanne, mens korrelasjoner ikke kan være det", "At vi ofte husker feil hva vi selv trodde og mente på et tidligere tidspunkt i livet", "At to personer kan representere den samme tingen på ulike måter", "At en representasjon kan mangle den fenomenale kvaliteten den egentlig burde hatt"],
       explanation: "En tanke kan bomme, men røyk indikerer ild bare når det faktisk brenner. En ren korrelasjonsanalyse mister dermed selve muligheten for feil. Problemet gjelder ikke hukommelsessvikt, perspektivforskjeller eller qualia.",
     },
     {
       question: "Hva er disjunksjonsproblemet?",
-      options: ["At korrelasjonen ikke skiller «ku, av og til feil» fra «ku eller hest, alltid rett»", "At en tilstand kan handle om flere ting samtidig og dermed bli tvetydig", "At en teori om innhold må velge mellom å forklare tro eller å forklare ønske", "At samme fysiske tilstand kan realiseres på flere ulike måter i ulike vesener og systemer"],
+      options: ["At korrelasjonen ikke skiller «ku, av og til feil» fra «ku eller hest, alltid rett»", "At en tilstand kan handle om flere ting samtidig og dermed bli tvetydig", "At en teori om innhold må velge mellom å forklare troen og å forklare ønsket hos personen", "At samme fysiske tilstand kan realiseres på flere ulike måter i ulike vesener og systemer"],
       explanation: "Problemet er at to beskrivelser av innholdet passer like godt til den samme korrelasjonen, og at det derfor ikke finnes noen feil å gjøre. Svaret om at samme tilstand kan realiseres på flere måter i ulike systemer, beskriver multippel realiserbarhet — et annet problem.",
     },
     {
       question: "Hva er standardsvaret på disjunksjonsproblemet, og hva koster det?",
-      options: ["Å legge til hva tilstanden er der for; prisen er et funksjonsbegrep som selv må analyseres", "Å legge til at tilstanden må være bevisst; prisen er at dyr mister alt innhold", "Å legge til at korrelasjonen må være unntaksfri; prisen er at ingen tanker består den testen", "Å legge til at innholdet fastsettes av språket; prisen er at spedbarn ikke kan tenke"],
+      options: ["Å legge til hva tilstanden er der for; prisen er et funksjonsbegrep som selv må analyseres", "Å legge til at tilstanden må være bevisst; prisen er at dyr mister alt innhold", "Å legge til at korrelasjonen må være unntaksfri; prisen er at ingen tanker består den testen", "Å legge til at innholdet fastsettes av språket vårt; prisen er at spedbarn og dyr ikke kan tenke"],
       explanation: "Svaret er at systemet er formet for å registrere kuer, slik at tåketilfellene er sammenbrudd. Det er ikke ad hoc, siden funksjonsbegrepet alt brukes i biologien, men naturaliseringen hviler nå på et begrep om normal funksjon som er vanskelig å gjøre presist.",
     },
     {
       question: "Hva er skillet mellom original og avledet intensjonalitet hos Searle?",
-      options: ["Original rettethet har en tilstand av seg selv, avledet fordi noen tolker den", "Original rettethet gjelder persepsjon og sansning, avledet gjelder tro og ønske", "Original rettethet er medfødt, avledet er tilegnet gjennom språklæring", "Original rettethet er bevisst, avledet er lagret utenfor bevisstheten"],
+      options: ["Original rettethet har en tilstand av seg selv, avledet fordi noen tolker den", "Original rettethet gjelder persepsjon og sansning, avledet gjelder tro og ønske", "Original rettethet er medfødt, mens avledet rettethet er tilegnet gjennom språklæring", "Original rettethet er bevisst, avledet er lagret utenfor bevisstheten"],
       explanation: "Tanken din om melk handler om melk av seg selv; ordet «melk» gjør det bare fordi vi leser det slik. Skillet er ikke et skille mellom sansning og tanke, og heller ikke mellom medfødt og lært.",
     },
     {
@@ -3177,7 +3177,7 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
   'fil1001-7-3': [
     {
       question: "Hva vil det si å lese premissene i et tankeeksperiment som stipulasjoner?",
-      options: ["Å ta oppsettet som fastsatt av forfatteren og svare på det som stilles", "Å kontrollere om oppsettet er forenlig med det vi vet om verden", "Å gjengi oppsettet så nær forfatterens egne ord som mulig", "Å anta at oppsettet er sant, men bare innenfor rammene av den aktuelle teorien"],
+      options: ["Å ta oppsettet som fastsatt av forfatteren og svare på det som stilles", "Å kontrollere om oppsettet er forenlig med det vi ellers vet om den virkelige verden", "Å gjengi oppsettet så nær forfatterens egne ord som mulig", "Å anta at oppsettet er sant, men bare innenfor rammene av den aktuelle teorien"],
       explanation: "Stipulasjoner er vilkår forfatteren har fastsatt: Mary vet alt fysisk, zombien er fysisk identisk. Å måle oppsettet mot hva vi vet om verden er nettopp å omgå eksperimentet, og ordrett gjengivelse har ingenting med premissenes status å gjøre.",
     },
     {
@@ -3187,7 +3187,7 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er det springende premisset i zombie-argumentet?",
-      options: ["At det som er tenkelig på denne måten, er metafysisk mulig", "At zombien er fysisk og funksjonelt identisk med en person", "At fysikalismen krever at det mentale supervenierer på det fysiske", "At zombien rapporterer om opplevelser den ikke har"],
+      options: ["At det som er tenkelig på denne måten, er metafysisk mulig", "At zombien er fysisk og funksjonelt identisk med en person", "At fysikalismen krever supervenience på det fysiske", "At zombien rapporterer om opplevelser den ikke har"],
       explanation: "Argumentet står og faller med broen fra tenkelighet til metafysisk mulighet. De øvrige leddene er enten stipulasjoner om zombien eller nærmest definisjoner av hva fysikalismen innebærer.",
     },
     {
@@ -3197,7 +3197,7 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken posisjon er Searles kinesiske rom rettet mot?",
-      options: ["Sterk kunstig intelligens — at riktig program er nok for et sinn", "Funksjonalismen — at kausalrollen er nok for opplevelse", "Identitetsteorien — at mentale tilstander er identiske med hjernetilstander", "Behaviorismen — at mentale utsagn handler om atferd"],
+      options: ["Sterk kunstig intelligens — at riktig program er nok for et sinn", "Funksjonalismen — at kausalrollen alene er nok for bevisst opplevelse", "Identitetsteorien — at mentale tilstander er identiske med hjernetilstander", "Behaviorismen — at mentale utsagn handler om atferd"],
       explanation: "Målskiven er sterk kunstig intelligens og påstanden om at syntaks er tilstrekkelig for semantikk. Det er Blocks Chinese Nation som er rettet mot funksjonalismen og opplevelse, og hverken identitetsteorien eller behaviorismen er temaet.",
     },
     {
@@ -3326,17 +3326,17 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er varsellampen for påstand uten argument?",
-      options: ["Siste avsnitt kan byttes med motsatt standpunkt uten andre endringer", "Siste avsnitt er kortere enn resten av besvarelsen", "Siste avsnitt inneholder ordet «jeg» flere ganger", "Siste avsnitt gjentar det som allerede er sagt tidligere i besvarelsen"],
+      options: ["Siste avsnitt kan byttes med motsatt standpunkt uten andre endringer", "Siste avsnitt er merkbart kortere enn de øvrige avsnittene i besvarelsen", "Siste avsnitt inneholder ordet «jeg» flere ganger", "Siste avsnitt gjentar det som allerede er sagt tidligere i besvarelsen"],
       explanation: "Testen er om konklusjonen henger sammen med teksten foran: kan den snus uten at noe annet må endres, hviler den ikke på drøftingen. Lengde og bruk av «jeg» sier ingenting om begrunnelsen.",
     },
     {
       question: "Hvorfor koster stråmannsfeilen dobbelt?",
-      options: ["Du taper på kunnskapskravet, og drøftingen feller noe ingen har hevdet", "Du taper tid, og du får dermed mindre plass til de andre argumentene dine", "Du taper på strukturkravet, og svaret blir vanskelig å følge", "Du taper på språkkravet, og framstillingen blir upresis"],
+      options: ["Du taper på kunnskapskravet, og drøftingen feller noe ingen har hevdet", "Du taper tid, og du får dermed mindre plass til de andre argumentene dine", "Du taper på strukturkravet, og hele svaret blir vanskelig for sensor å følge", "Du taper på språkkravet, og framstillingen blir upresis"],
       explanation: "En feilframstilt posisjon rammer både kjennetegnet om kunnskap og selve drøftingen, siden innvendingen treffer noe posisjonen ikke hevder. Tids- og strukturproblemer kan følge med, men er ikke det som gjør feilen dyr.",
     },
     {
       question: "Hvilken av disse er en riktig framstilling av Kripkes posisjon?",
-      options: ["Han angriper identitetspåstanden med modal-semantiske midler", "Han forsvarer substansdualismen med moderne modallogiske midler", "Han hevder at sinnet og kroppen er to atskilte substanser", "Han viderefører Descartes' tvilsargument i en oppdatert form"],
+      options: ["Han angriper identitetspåstanden med modal-semantiske midler", "Han forsvarer substansdualismen med modallogiske midler", "Han hevder at sinnet og kroppen er to atskilte substanser", "Han viderefører Descartes' tvilsargument i en oppdatert form"],
       explanation: "Kripke angriper påstanden om at smerte er identisk med en hjernetilstand, ved hjelp av rigide betegnelser og nødvendig identitet. Han slutter ikke derfra til to substanser, og argumentet hans er ikke en oppdatering av tvilsargumentet, men et annet slags argument.",
     },
     {
@@ -3393,7 +3393,7 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
   'fil1001-7-6': [
     {
       question: "Hvordan henger Lewis' analyse sammen med Humes?",
-      options: ["Lewis utvikler Humes andre definisjon, den kontrafaktiske, og bryter med den første", "Lewis forkaster Humes prosjekt og postulerer en nødvendig forbindelse i tingene selv", "Lewis gjentar Humes regularitetsteori med en mer presis matematisk formulering", "Lewis er uavhengig av Hume og kom fram til analysen ut fra et helt annet utgangspunkt i logikken"],
+      options: ["Lewis utvikler Humes andre definisjon, den kontrafaktiske, og bryter med den første", "Lewis forkaster Humes prosjekt og postulerer en nødvendig forbindelse i tingene selv", "Lewis gjentar Humes regularitetsteori, men med en mer presis og matematisk formulering", "Lewis er uavhengig av Hume og kom fram til analysen ut fra et helt annet utgangspunkt i logikken"],
       explanation: "Hume gir årsaksbegrepet to formuleringer, og den andre er kontrafaktisk i formen. Lewis tar den på alvor og bryter bare med regularitetsdefinisjonen; begge er humeanere i den forstand at ingen av dem postulerer en observerbar nødvendig forbindelse. Å skrive at Lewis forkaster Hume er stråmann, og å kalle analysen en presisering av regularitetsteorien blander de to.",
     },
     {
@@ -3462,7 +3462,7 @@ const quizData_fil1001: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilket premiss bærer vekten i Descartes' kløargument?",
-      options: ["At det jeg klart og tydelig kan forestille meg som atskilt, kan eksistere atskilt", "At jeg kan tvile på at kroppen min finnes, men ikke på at jeg selv tenker og tviler", "At to ting som kan eksistere hver for seg, er to ting og ikke én", "At kroppen er delbar mens sinnet ikke lar seg dele i to"],
+      options: ["At det jeg klart og tydelig kan forestille meg som atskilt, kan eksistere atskilt", "At jeg kan tvile på at kroppen min finnes, men ikke på at jeg tenker", "At to ting som kan eksistere hver for seg, er to ting og ikke én", "At kroppen er delbar mens sinnet ikke lar seg dele i to"],
       explanation: "Riktig svar er broen fra hva jeg kan forestille meg til hva som kan være tilfelle. Tvilspremisset hører til den tidligere versjonen av argumentet, den som er sårbar for det maskerte manns-innvendingen. At to atskillbare ting er to, er nesten en definisjon, og delbarheten er et eget tilleggsargument.",
     },
     {

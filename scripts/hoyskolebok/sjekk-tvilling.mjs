@@ -111,6 +111,23 @@ const erProsa = (s) => {
   return bokstaver / t.length >= 0.6;               // ellers er det tall/tegn, ikke språk
 };
 
+// ⚠ OPPLISTINGER ER IKKE TVILLINGER — ET LEDD TIL ER EN ANNEN PÅSTAND.
+// Funnet i stv1400: fasit «Norge, Island og Liechtenstein» mot distraktor
+// «Norge, Island, Sveits og Liechtenstein». Den korte ER en delsekvens av den
+// lange, men Sveits er den klassiske EFTA-fella — to ulike påstander, ikke to
+// formuleringer av samme. Samme feil som kodeliteralene («[0,1,2,3]» mot
+// «[0,1,2,3,4]»), bare i prosaform.
+//
+// En opplisting er en rekke korte ledd skilt av komma/«og», uten verb. Er BEGGE
+// alternativene opplistinger og antall ledd er ulikt, er de ikke tvillinger.
+const LEDD = /,\s*|\s+og\s+/;
+const erOpplisting = (s) => {
+  const t = String(s).trim();
+  if (!/,|\sog\s/.test(t)) return false;
+  const ledd = t.split(LEDD).filter(Boolean);
+  return ledd.length >= 2 && ledd.every((x) => x.trim().split(/\s+/).length <= 3);
+};
+
 // Returnerer null, 'sikker', 'mulig' eller 'matte' (ikke vurdert).
 //
 // SIKKER krever at det korte alternativet er en FULLSTENDIG delsekvens av det
@@ -123,6 +140,9 @@ const erProsa = (s) => {
 // «rad i i A mot kolonne j i B» / «kolonne i i A mot rad j i B» gjennom.
 function tvilling(x, y) {
   if (!erProsa(x) || !erProsa(y)) return 'matte';
+  if (erOpplisting(x) && erOpplisting(y)
+      && String(x).split(LEDD).filter(Boolean).length !== String(y).split(LEDD).filter(Boolean).length)
+    return null;
   const a = tokens(x), b = tokens(y);
   const [kort, lang] = a.length <= b.length ? [a, b] : [b, a];
   if (kort.length < 3) return null;                       // for kort til å avgjøre
