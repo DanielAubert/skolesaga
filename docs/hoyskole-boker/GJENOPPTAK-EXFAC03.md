@@ -1,6 +1,7 @@
 # Gjenopptak: de fire EXFAC03-variantene
 
-Oppdatert 6. august 2026. **Alt er committet og pushet, ingenting halvskrevet.**
+Oppdatert 10. august 2026. **Arbeidet er FULLFØRT — alle fire er live.**
+Dokumentet beholdes som oppskrift for neste flervariant-familie.
 
 ## Hvor vi står
 
@@ -20,12 +21,16 @@ uten en eneste rettrunde fra koordinatoren. HARK trengte tre.
 
 
 
-## Neste steg: bygg de tre gjenstående
+## Oppskriften som virket — gjenbruk den
 
 **Én bok om gangen, 4–6 agenter.** 22 agenter samtidig staller på API-overlast.
-SPR ble bygget med fem agenter fordelt på deler, og det fungerte.
+SPR ble bygget med fem, NORD med seks, og begge deler fungerte.
 
-Filantall: HARK 38+7 = 45 · NORD 48+9 = 57 · EAST 40+8 = 48.
+⚠ **Øktgrensen tar agenter midt i sluttverifiseringen.** To NORD-agenter stanset
+nøyaktig der, etter at quizbankene var grønne. Filene lå på disk, og
+koordinatoren kunne måle og gateste ferdig selv — fordi hver agent committet
+underveis og rapporterte hva den hadde målt. Bygg alltid slik at arbeidet er
+gjenopptakbart av en annen enn den som startet det.
 
 Hver byggeagent trenger i briefen:
 - kontrakt + skjelett + analyse som lesning, og en ferdig bok som strukturmal
