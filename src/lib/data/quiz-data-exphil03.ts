@@ -9,7 +9,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva tester delspørsmålene (a) og (b) typisk i et EXPHIL03-sett?",
-      options: ["Presis pensumkunnskap forankret i navngitte kapitler", "Selvstendig drøfting, egen refleksjon og et tydelig personlig standpunkt til stoffet", "Kildehenvisninger og litteraturliste", "Ren biografi om filosofen"],
+      options: ["Presis pensumkunnskap forankret i navngitte kapitler", "Selvstendig drøfting, egen refleksjon og et tydelig personlig standpunkt til stoffet", "Kildehenvisninger og en fullstendig litteraturliste med sidetall til hver pensumtekst", "Ren biografi om filosofen: fødselsår, læremestere og livsløp, uten argumentene"],
       explanation: "(a) og (b) er kunnskapsspørsmål: trinnvis argumentrekonstruksjon eller sitattolkning fra navngitt pensum. Selvstendig drøfting hører til den siste delen.",
     },
     {
@@ -19,12 +19,12 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva stenger for C-nivå selv om én av delene i besvarelsen er svært sterk?",
-      options: ["En blank eller tynn del et annet sted — C krever jevnhet i alle delspørsmål", "At besvarelsen mangler en formell litteraturliste med sidetall til hver pensumtekst til slutt", "At drøftingsdelen er lengre enn kunnskapsdelene", "At du bruker bokas eksempler i stedet for egne"],
+      options: ["En blank eller tynn del et annet sted — C krever jevnhet i alle delspørsmål", "At besvarelsen mangler en formell litteraturliste med sidetall til hver pensumtekst til slutt", "At drøftingsdelen fyller flere sider enn kunnskapsdelene (a) og (b) til sammen", "At du bruker bokas eksempler i stedet for egne"],
       explanation: "C-porten er en jevnhetsterskel: god på både kunnskap og forståelse/analyse i alle delene. Én sterk og én blank del holder ikke (feil #4, #9).",
     },
     {
       question: "Hvilken oppgavetype er den dominerende fra 2021 og framover?",
-      options: ["Sitattolkning — et kort pensumutdrag som springbrett", "Ren flervalgsprøve", "Muntlig framføring", "Oversettelse av originalteksten fra gresk eller latin til norsk"],
+      options: ["Sitattolkning — et kort pensumutdrag som springbrett", "Ren flervalgsprøve der du krysser av på ferdig oppsatte svaralternativer", "Muntlig framføring for sensor, med oppfølgingsspørsmål underveis", "Oversettelse av originalteksten fra gresk eller latin til norsk"],
       explanation: "Den dominerende oppgavetypen åpner med et kort utdrag fra en pensumtekst, ofte med sidetall, som du skal tolke og plassere i tenkerens argument.",
     },
     {
@@ -44,19 +44,19 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den dyreste feilen når settet har tre bolker (A/B/C) i H2025-formatet?",
-      options: ["Å la en hel bolk eller et delspørsmål stå tynn/blank", "Å skrive for kort i drøftingsdelen", "Å bruke engelske fagtermer", "Å starte rett på tenkeren i stedet for med en bred historisk innledning"],
+      options: ["Å la en hel bolk eller et delspørsmål stå tynn/blank", "Å skrive for kort i drøftingsdelen, slik at veiingen bare blir antydet", "Å bruke engelske fagtermer i stedet for de norske pensumbegrepene", "Å starte rett på tenkeren i stedet for med en bred historisk innledning"],
       explanation: "C-porten er jevnhet: én sterk bolk kompenserer ikke for en svak (feil #4). Blank del stenger for C uansett styrken ellers.",
     },
     {
       question: "Hvorfor er det direkte eksamensrelevant å trene på gamle EXPHIL03-sett?",
-      options: ["Fordi oppgaver gjenbrukes nesten uendret fra semester til semester", "Fordi eksamen alltid er identisk hvert år", "Fordi sensorene retter strengt etter en fast, forhåndsbestemt fasit med faste poenggrenser", "Fordi pensum aldri endres"],
+      options: ["Fordi oppgaver gjenbrukes nesten uendret fra semester til semester", "Fordi eksamen alltid er identisk hvert år", "Fordi sensorene retter strengt etter en fast, forhåndsbestemt fasit med faste poenggrenser", "Fordi pensum aldri endres, verken listen over tenkere eller tekstutvalget"],
       explanation: "Arkivet viser dokumentert gjenbruk: Foot-oppgaven H2023→V2024, Dawkins/teleologi tre sett på rad, Locke-triaden fire sett, Wikforss-vilkårene i minst seks varianter. Å trene på mønstrene er derfor direkte relevant.",
     },
   ],
   'exphil03-0-2': [
     {
       question: "Hvilke to av IFIKKs fem karakterkrav veier tyngst?",
-      options: ["Kunnskap og Forståelse/analyse", "Struktur og etterrettelig kildebruk gjennom hele besvarelsen", "Relevans og Struktur", "Etterrettelighet og Relevans"],
+      options: ["Kunnskap og Forståelse/analyse", "Struktur og etterrettelig kildebruk gjennom hele besvarelsen", "Relevans og Struktur i framstillingen", "Etterrettelig kildebruk og Relevans"],
       explanation: "Sensorveiledningene sier eksplisitt at Kunnskap og Forståelse/analyse veier tyngst. Pen språkføring (Struktur) veier opp for lite dersom disse svikter.",
     },
     {
@@ -66,17 +66,17 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr gjenbruksbonusen?",
-      options: ["Å føre poeng fra kunnskapsdelene (a)/(b) inn i drøftingen", "Å gjenta hovedkonklusjonen flere ganger gjennom hele besvarelsen for å feste den hos sensor", "Å bruke samme sitat i alle delene", "Å kopiere en modellbesvarelse"],
+      options: ["Å føre poeng fra kunnskapsdelene (a)/(b) inn i drøftingen", "Å gjenta hovedkonklusjonen flere ganger gjennom hele besvarelsen for å feste den hos sensor", "Å bruke det samme sitatet om igjen i alle delene av besvarelsen", "Å kopiere formuleringer fra en modellbesvarelse man har lest"],
       explanation: "Sensor premierer at poenger fra (a)/(b) brukes videre i drøftingen med eksplisitt kobling. En drøfting som starter «på nytt» uten kobling straffes (feil #5).",
     },
     {
       question: "Hva kjennetegner C-porten (C-nivå) i EXPHIL03?",
-      options: ["Jevnt god på kunnskap OG analyse i alle delspørsmål", "Én strålende og svært grundig del som veier opp for en blank del et annet sted i settet", "Flest mulig sitater fra pensum", "Lengst mulig besvarelse"],
+      options: ["Jevnt god på kunnskap OG analyse i alle delspørsmål", "Én strålende og svært grundig del som veier opp for en blank del et annet sted i settet", "Flest mulig direkte sitater fra pensumtekstene i hver enkelt del", "Lengst mulig besvarelse innenfor den oppgitte tidsrammen"],
       explanation: "C-porten er en jevnhetsterskel: god på både kunnskap og forståelse/analyse i alle delene. Én sterk og én blank del holder ikke (feil #4, #9).",
     },
     {
       question: "Hva sier mantraet «Gjengivelse uten drøfting er D-stoff»?",
-      options: ["Et korrekt referat som aldri behandler stoffet, stopper på D", "At all gjengivelse er forbudt", "At drøfting alltid er viktigere enn kunnskap", "At D er en bestått karakter så lenge besvarelsen inneholder noe drøfting"],
+      options: ["Et korrekt referat som aldri behandler stoffet, stopper på D", "At all gjengivelse av pensumstoff er forbudt i en eksamensbesvarelse", "At drøfting alltid teller mer enn presis pensumkunnskap hos sensor", "At D er en bestått karakter så lenge besvarelsen inneholder noe drøfting"],
       explanation: "Et teknisk feilfritt referat som aldri veier, innvender eller tar stilling, stopper på D uansett presisjon. Kunnskap må kombineres med selvstendig behandling.",
     },
     {
@@ -86,12 +86,12 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva innebærer relevanskravet (krav c)?",
-      options: ["Å svare på det oppgaven spør om, ikke vise alt du kan", "Å skrive mest mulig om temaet", "Å inkludere alle pensumtenkere", "Å alltid innlede med en bred historisk oversikt over epoken og tenkeren"],
+      options: ["Å svare på det oppgaven spør om, ikke vise alt du kan", "Å skrive mest mulig om temaet på den tida du har", "Å inkludere alle pensumtenkere som har skrevet om temaet, uansett spørsmål", "Å alltid innlede med en bred historisk oversikt over epoken og tenkeren"],
       explanation: "Relevans handler om å treffe spørsmålet. Å øse ut alt man husker (bredde uten treff) er lavrelevant kunnskap som nulles (feil #3).",
     },
     {
       question: "Hva nulles ifølge sensorveiledningene 2024–2025?",
-      options: ["Generisk oppslagsverk-kunnskap med lav relevans (leksikonsvar)", "All bruk av engelske fagtermer", "Korte besvarelser", "Bruk av tekstens egne eksempler i stedet for selvvalgte illustrasjoner"],
+      options: ["Generisk oppslagsverk-kunnskap med lav relevans (leksikonsvar)", "All bruk av engelske fagtermer i stedet for de norske pensumbegrepene", "Besvarelser som er kortere enn det oppgitte ordantallet i oppgaveteksten", "Bruk av tekstens egne eksempler i stedet for selvvalgte illustrasjoner"],
       explanation: "Leksikonsvar — allmenne fakta med lav relevans for spørsmålet — gir null uttelling (feil #3). Det står i hver eneste veiledning 2024–2025.",
     },
     {
@@ -106,7 +106,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er feil #2 i drøftingsdelen?",
-      options: ["Mening uten grunner — synsing uten pensumforankrede argumenter", "For mange sitater", "For presis begrepsbruk", "Å ta stilling altfor tidlig, allerede før noen argumenter er lagt fram"],
+      options: ["Mening uten grunner — synsing uten pensumforankrede argumenter", "For mange direkte sitater fra pensumtekstene i selve drøftingsdelen", "For presis begrepsbruk, slik at framstillingen blir for tung å lese", "Å ta stilling altfor tidlig, allerede før noen argumenter er lagt fram"],
       explanation: "Feil #2 er å ta stilling («jeg synes …», «mange mener …») uten argumenter forankret i pensum. Det er synsing, ikke drøfting.",
     },
     {
@@ -116,7 +116,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er gyldig forankring i en drøftingsbesvarelse?",
-      options: ["Både innledningskapitlene i «Vite, være, gjøre» og originaltekstene", "Kun originaltekstene", "Kun egne meninger", "Tenkere utenfor pensum som Hume, Singer og Beauvoir når de er tematisk relevante"],
+      options: ["Både innledningskapitlene i «Vite, være, gjøre» og originaltekstene", "Kun originaltekstene, ikke innledningskapitlene i «Vite, være, gjøre»", "Kun egne meninger om temaet, uten støtte i tekstene", "Tenkere utenfor pensum som Hume, Singer og Beauvoir når de er tematisk relevante"],
       explanation: "Sensorveiledningene sier at gyldig forankring er både VVGs innledningskapitler og originaltekstene. Forankring utenfor pensum (feil #14) teller ikke.",
     },
     {
@@ -126,7 +126,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den viktigste forskjellen mellom et C-svar og et A-svar på et drøftingsspørsmål?",
-      options: ["A-svaret veier argumenter og reflekterer selvstendig; C-svaret gjengir korrekt men flatt", "A-svaret er lengre", "C-svaret mangler enhver forankring i en navngitt pensumtenker eller i originaltekstene fra pensum", "A-svaret dropper kunnskapsdelen helt"],
+      options: ["A-svaret veier argumenter og reflekterer selvstendig; C-svaret gjengir korrekt men flatt", "A-svaret er rett og slett lengre enn et typisk C-svar", "C-svaret mangler enhver forankring i en navngitt pensumtenker eller i originaltekstene fra pensum", "A-svaret dropper kunnskapsdelen helt og bruker hele besvarelsen på selvstendig refleksjon"],
       explanation: "Et C-svar er korrekt og forankret, men uten reell veiing og selvstendig refleksjon. A-svaret behandler stoffet: tar stilling, bygger inn innvending, veier, og gjenbruker (a)/(b).",
     },
   ],
@@ -163,7 +163,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva trekker drømmeargumentet i tvil?",
-      options: ["Hele sanseverdenen, siden jeg ikke sikkert kan skille våken fra drømmende", "Bare enkelte utvalgte sanseinntrykk, som synet og hørselen, men ikke resten", "Matematiske sannheter som at to og tre er fem", "Min egen eksistens"],
+      options: ["Hele sanseverdenen, siden jeg ikke sikkert kan skille våken fra drømmende", "Bare enkelte utvalgte sanseinntrykk, som synet og hørselen, men ikke resten", "Matematiske og logiske sannheter, for eksempel at to og tre til sammen blir fem", "Min egen eksistens som tenkende vesen, altså selve cogito-innsikten hos Descartes"],
       explanation: "Drømmen kan føles helt virkelig, så jeg kan ikke være sikker på at jeg er våken nå. Dermed betviles hele sanseverdenen — men fornuftssannhetene ser ut til å overleve.",
     },
     {
@@ -183,7 +183,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor overlever matematikk og logikk drømmeargumentet, men ikke den onde ånd?",
-      options: ["Fordi to og tre virker lik fem selv i en drøm, men en allmektig bedrager kan tenkes å lure meg selv i regnestykker", "Fordi matematikk ikke finnes i drømmer i det hele tatt", "Fordi den onde ånd bare rammer sansene", "Fordi drømmen i virkeligheten er en langt sterkere og mer omfattende tvilshypotese enn hypotesen om den allmektige onde ånd"],
+      options: ["Fordi to og tre virker lik fem selv i en drøm, men en allmektig bedrager kan tenkes å lure meg selv i regnestykker", "Fordi matematikk ikke finnes i drømmer i det hele tatt, og derfor aldri kan bli gjenstand for tvilen i drømmeargumentet", "Fordi den onde ånd bare rammer sansene, ikke fornuftssannhetene", "Fordi drømmen i virkeligheten er en langt sterkere og mer omfattende tvilshypotese enn hypotesen om den allmektige onde ånd"],
       explanation: "Drømmen rammer det jeg sanser, ikke det jeg regner. Den onde ånd går lenger og kan lure meg hver gang jeg regner — det er skillet mellom de to trinnene.",
     },
     {
@@ -203,32 +203,32 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor overlever cogito hele tvilstrappen?",
-      options: ["Fordi de andre trinnene rammer innholdet i erkjennelsen, mens cogito handler om selve det at det tenkes", "Fordi Descartes bestemte at det skulle overleve", "Fordi cogito er en ren matematisk sannhet som verken drømmen eller den onde ånd noen gang klarer å rokke ved", "Fordi sansene bekrefter det"],
+      options: ["Fordi de andre trinnene rammer innholdet i erkjennelsen, mens cogito handler om selve det at det tenkes", "Fordi Descartes rett og slett bestemte at det skulle overleve tvilen", "Fordi cogito er en ren matematisk sannhet som verken drømmen eller den onde ånd noen gang klarer å rokke ved", "Fordi sansene selv bekrefter det: jeg ser og kjenner at jeg finnes, og det holder tvilen unna cogito-innsikten"],
       explanation: "Sansebedrag, drøm og ond ånd angriper *hva* jeg tenker. Cogito hviler på *at* jeg tenker — og der biter tvilen ikke.",
     },
     {
       question: "Hva er res cogitans hos Descartes?",
-      options: ["En «tenkende ting» — det Descartes er sikrest på at han er", "Den utstrakte, materielle kroppen som Descartes er aller sikrest på at han faktisk har", "Den onde ånd i legemlig form", "Sanseverdenen slik den fremstår"],
+      options: ["En «tenkende ting» — det Descartes er sikrest på at han er", "Den utstrakte, materielle kroppen som Descartes er aller sikrest på at han faktisk har", "Den onde ånd i legemlig form, altså bedrageren gjort til en kropp", "Sanseverdenen slik den fremstår for meg før tvilen har satt inn"],
       explanation: "Når Descartes har slått fast at han finnes, spør han hva han er. Svaret han er sikrest på, er at han er en tenkende ting; at han har kropp, kan fortsatt betviles.",
     },
     {
       question: "Hvilket skille peker res cogitans frem mot (og utfoldes i kapittel 2.4)?",
-      options: ["Res cogitans (tenkende, uutstrakt) mot res extensa (utstrakt, ikke-tenkende)", "Skillet mellom sansebedrag og drøm", "Det grunnleggende skillet mellom fallibilisme og skeptisisme slik Wikforss trekker det opp", "Skillet mellom analytisk og syntetisk"],
+      options: ["Res cogitans (tenkende, uutstrakt) mot res extensa (utstrakt, ikke-tenkende)", "Skillet mellom sansebedraget og drømmeargumentet i tvilstrappens to første trinn", "Det grunnleggende skillet mellom fallibilisme og skeptisisme slik Wikforss trekker det opp", "Skillet mellom analytiske og syntetiske dommer slik Kant senere trekker det opp"],
       explanation: "I kapittel 2.4 utvikles cogito-tanken til full substansdualisme, med skillet res cogitans / res extensa og Elisabeths interaksjonsinnvending.",
     },
     {
       question: "I en S2-oppgave om Descartes' åpningsutdrag: hva er den typiske feilen å unngå (#7)?",
-      options: ["Å tolke utdraget løsrevet fra tvilstrappens overordnede argument", "Å nevne at Descartes var fransk", "Å bruke egne ord og parafrase i stedet for å sitere selve utdraget direkte", "Å skrive for langt svar"],
+      options: ["Å tolke utdraget løsrevet fra tvilstrappens overordnede argument", "Å nevne at Descartes var fransk og regnes som den moderne filosofis far", "Å bruke egne ord og parafrase i stedet for å sitere selve utdraget direkte", "Å skrive et for langt svar, slik at du ikke rekker de andre delspørsmålene"],
       explanation: "Feil #7 er å behandle utdraget isolert. Cogito-utdraget må plasseres som svaret på hva som overlever den maksimale tvilen — ikke parafraseres løsrevet.",
     },
     {
       question: "Et utdrag der Descartes sier han «må rive alt ned til grunnen og begynne på nytt» — hvilken funksjon har det i argumentet?",
-      options: ["Det begrunner startpunktet: hvorfor tvilen må være radikal", "Det er konklusjonen (cogito)", "Det beviser at Gud finnes", "Det fungerer som et konkret eksempel på hvordan sansene kan bedra oss"],
+      options: ["Det begrunner startpunktet: hvorfor tvilen må være radikal", "Det er konklusjonen i meditasjonen, altså selve cogito-innsikten", "Det beviser at Gud finnes og derfor garanterer sansene våre", "Det fungerer som et konkret eksempel på hvordan sansene kan bedra oss"],
       explanation: "Utdraget uttrykker bildet «riv grunnmuren, ikke husene» og motiverer den metodiske tvilen. Det hører hjemme helt i starten av argumentet.",
     },
     {
       question: "Hva er den faste kontrastdrøftingen Descartes' sikkerhetskrav settes opp mot?",
-      options: ["Wikforss' fallibilisme (vi kan ta feil og likevel vite)", "Aristoteles' teleologi og læren om alle tings naturlige formål", "Haslangers sosiale konstruksjon", "Mills nytteprinsipp"],
+      options: ["Wikforss' fallibilisme (vi kan ta feil og likevel vite)", "Aristoteles' teleologi og læren om alle tings naturlige formål", "Haslangers analyse av kjønn og rase som sosiale konstruksjoner", "Mills nytteprinsipp om størst mulig lykke for flest mulig"],
       explanation: "Descartes krever sikkerhet; Wikforss (kapittel 1.3) forsvarer fallibilisme. Å veie disse mot hverandre, koblet til cogito-redegjørelsen, løfter svaret til A.",
     },
     {
@@ -238,47 +238,47 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er innvendingen om at den metodiske tvilen er «selvunderminerende»?",
-      options: ["At Descartes tviler med den fornuften han også trekker i tvil", "At Descartes ikke tviler nok", "At tvilen til slutt fører til den konklusjonen at Gud umulig kan finnes", "At sansene motbeviser cogito"],
+      options: ["At Descartes tviler med den fornuften han også trekker i tvil", "At Descartes ikke tviler grundig nok, siden han lar cogito stå urørt", "At tvilen til slutt fører til den konklusjonen at Gud umulig kan finnes", "At sansene motbeviser cogito ved å vise at jeg kan ta feil om meg selv"],
       explanation: "Hvis den onde ånd kan lure fornuften, hvordan kan Descartes stole på resonnementet frem til cogito? Ett svar: cogito er en umiddelbar innsikt, ikke en slutning fra premisser.",
     },
     {
       question: "Hvordan bør en simuleringshypotese («lever jeg i en datasimulering?») plasseres med Descartes' begreper?",
-      options: ["Som en moderne drakt på den onde ånd, siden den også kan forfalske det jeg regner meg frem til", "Som identisk med sansebedraget", "Som en form for cogito", "Som en ren variant av drømmeargumentet, siden en simulering på samme måte lar fornuftssannhetene stå urørt"],
+      options: ["Som en moderne drakt på den onde ånd, siden den også kan forfalske det jeg regner meg frem til", "Som identisk med sansebedraget, siden begge bare handler om at enkelte sanseinntrykk kan være falske", "Som en form for cogito, altså en innsikt jeg ikke kan betvile", "Som en ren variant av drømmeargumentet, siden en simulering på samme måte lar fornuftssannhetene stå urørt"],
       explanation: "En fullkommen simulering kan ramme også fornuftssannhetene, akkurat som den onde ånd. Cogito overlever den på samme måte: en simulert tviler er fremdeles en tviler.",
     },
     {
       question: "Hva gir cogito oss i møte med simuleringshypotesen?",
-      options: ["At jeg finnes, men ikke at verden utenfor er ekte", "At verden utenfor meg garantert er ekte og eksisterer uavhengig av meg", "At datamaskinen finnes", "At fortiden min er virkelig"],
+      options: ["At jeg finnes, men ikke at verden utenfor er ekte", "At verden utenfor meg garantert er ekte og eksisterer uavhengig av meg", "At datamaskinen som kjører simuleringen, faktisk finnes", "At fortiden min er virkelig og har funnet sted slik jeg husker den"],
       explanation: "For å bli simulert-bedratt om egen eksistens må jeg allerede eksistere. Men cogito redder bare eksistensen min, ikke verden — det viser hvor smalt punktet er.",
     },
     {
       question: "Hvilken type stoff om Descartes «nulles» som utenompensum (#3)?",
-      options: ["Biografi og epokestoff: fødselsår, at han var fransk, «den moderne filosofis far»", "Rekonstruksjonen av tvilstrappen", "Forklaringen av hvorfor cogito overlever", "Koblingen til Wikforss' fallibilisme og drøftingen av terskelen for hva som teller som kunnskap"],
+      options: ["Biografi og epokestoff: fødselsår, at han var fransk, «den moderne filosofis far»", "Rekonstruksjonen av tvilstrappen trinn for trinn", "Forklaringen av hvorfor nettopp cogito overlever alle de tre trinnene i tvilstrappen", "Koblingen til Wikforss' fallibilisme og drøftingen av terskelen for hva som teller som kunnskap"],
       explanation: "Sensor vil ha argumentet, ikke konteksten. Biografi- og epokestoff er generisk oppslagsverk-kunnskap med lav relevans, og gir null uttelling.",
     },
     {
       question: "Hva er «gjenbruksbonusen» i en Descartes-drøfting?",
-      options: ["Å føre poengene fra redegjørelsen (a/b) eksplisitt inn i drøftingsdelen (c)", "Å bruke samme oppgave to ganger", "Å sitere selve sensorveiledningen ordrett flere steder i din egen besvarelse", "Å gjenta innledningen i konklusjonen"],
+      options: ["Å føre poengene fra redegjørelsen (a/b) eksplisitt inn i drøftingsdelen (c)", "Å bruke den samme oppgaven om igjen to ganger", "Å sitere selve sensorveiledningen ordrett flere steder i din egen besvarelse", "Å gjenta innledningen nesten ordrett i konklusjonen, slik at svaret virker helstøpt"],
       explanation: "Sensorveiledningene 2024–2025 premierer at redegjørelsen brukes i drøftingen («som vist over …»). Å starte drøftingen «på nytt» uten kobling straffes (feil #5).",
     },
     {
       question: "Hvilken feil begår en kandidat som skriver et sterkt redegjørelsessvar, men gjengir trinnene uten å bruke dem i drøftingen?",
-      options: ["#1 gjengivelse uten drøfting — det stopper på D", "#6 upresise begreper", "#13 å ignorere premissene i selve tankeeksperimentet fullstendig", "#12 svare på begge valgfrie oppgaver"],
+      options: ["#1 gjengivelse uten drøfting — det stopper på D", "#6 upresise begreper, som å blande metodisk tvil og skeptisisme", "#13 å ignorere premissene i selve tankeeksperimentet fullstendig", "#12 å svare på begge de valgfrie oppgavene i stedet for å velge én"],
       explanation: "«Gjengivelse uten drøfting er D-stoff.» Redegjørelsen må kobles inn i drøftingen for å løfte svaret.",
     },
     {
       question: "En kandidat skriver: «Descartes mente at vi aldri kan vite noe sikkert.» Hvilken feil er dette?",
-      options: ["#6 — å blande metodisk tvil med skeptisisme", "#3 — leksikonsvar", "#7 — tolke sitatet løsrevet", "#4 — å hoppe helt over ett av de obligatoriske delspørsmålene"],
+      options: ["#6 — å blande metodisk tvil med skeptisisme", "#3 — leksikonsvar med allmenne fakta uten relevans for spørsmålet", "#7 — å tolke sitatet løsrevet fra argumentet det står i", "#4 — å hoppe helt over ett av de obligatoriske delspørsmålene"],
       explanation: "Descartes tviler for å *nå* sikker kunnskap. Å gjøre ham til skeptiker (kunnskap er umulig) snur argumentet på hodet — den vanligste presisjonsfeilen.",
     },
     {
       question: "Hva er riktig «gå rett på sak»-disiplin i en Descartes-oppgave?",
-      options: ["Plasser tenkeren i én setning, drill tvilstrappen, vis hvorfor cogito overlever", "Begynn med en lang og grundig innledning om hele filosofiens historie og Descartes' plass i den", "Bruk halve svaret på Descartes' biografi", "Nevn så mange tenkere som mulig"],
+      options: ["Plasser tenkeren i én setning, drill tvilstrappen, vis hvorfor cogito overlever", "Begynn med en lang og grundig innledning om hele filosofiens historie og Descartes' plass i den", "Bruk halvparten av svaret på Descartes' biografi og samtidens vitenskapshistorie", "Nevn så mange pensumtenkere som mulig underveis"],
       explanation: "Ingen innledning om epoke eller biografi (nulles, #3). Gå rett på argumentet: tvilstrappen og hvorfor cogito står fast.",
     },
     {
       question: "Hvilket verk henter Descartes-stoffet sitt fra?",
-      options: ["«Meditasjoner over filosofiens grunnlag»", "«Kritikk av den rene fornuft» av Immanuel Kant", "«Kunnskapsresistens»", "«Forsvarstalen»"],
+      options: ["«Meditasjoner over filosofiens grunnlag»", "«Kritikk av den rene fornuft» av Immanuel Kant", "«Kunnskapsresistens» av filosofen Åsa Wikforss", "«Forsvarstalen», Platons gjengivelse av Sokrates"],
       explanation: "Den metodiske tvilen, det skeptiske argumentet og cogito står i «Meditasjonene» (1.–2. meditasjon), Vite-delens tyngste sitattekst.",
     },
   ],
@@ -290,12 +290,12 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor forundret orakelets utsagn Sokrates?",
-      options: ["Fordi han selv mente han ikke visste noe av verdi", "Fordi han visste at han var den viseste", "Fordi han ikke trodde orakelet fantes", "Fordi han hadde bedt om et annet svar"],
+      options: ["Fordi han selv mente han ikke visste noe av verdi", "Fordi han visste at han selv var den viseste av alle", "Fordi han ikke trodde orakelet fantes", "Fordi han hadde bedt om et annet svar"],
       explanation: "Sokrates var overbevist om at han ikke var vis, så orakelet skapte en gåte. I stedet for å avvise det, satte han det på prøve.",
     },
     {
       question: "Hva gjorde Sokrates for å forstå orakelet?",
-      options: ["Han oppsøkte folk med ry for visdom og prøvde kunnskapen deres", "Han ba orakelet om et tydeligere svar", "Han trakk seg tilbake for å meditere alene", "Han skrev ned sin egen visdom i en bok"],
+      options: ["Han oppsøkte folk med ry for visdom og prøvde kunnskapen deres", "Han ba orakelet i Delfi om å gi ham et tydeligere og klarere svar", "Han trakk seg tilbake i ensomhet for å meditere alene over gåten", "Han skrev ned all sin egen visdom i en omfattende bok for ettertiden"],
       explanation: "Sokrates satte orakelet på prøve ved å undersøke de vise — og fant at de trodde de visste mer enn de gjorde.",
     },
     {
@@ -310,7 +310,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er dikternes feil hos Sokrates?",
-      options: ["De forveksler evnen til å skape vakkert med å ha kunnskap", "De har ekte fagkunnskap, men overskrider sitt felt", "De er likegyldige til sannheten", "De vet at de ikke vet"],
+      options: ["De forveksler evnen til å skape vakkert med å ha kunnskap", "De har ekte fagkunnskap, men overskrider sitt felt", "De er fullstendig likegyldige til om det de sier er sant eller usant", "De vet allerede at de ikke vet, og har dermed sokratisk visdom"],
       explanation: "Dikterne skaper i inspirasjon, ikke av innsikt, og kan ikke gjøre rede for egne verk — men tror på grunn av diktekunsten at de er vise også om annet.",
     },
     {
@@ -320,12 +320,12 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken gruppe er ifølge kapitlet nærmest ekte visdom?",
-      options: ["Håndverkerne, fordi de faktisk har genuin kunnskap på sitt felt", "Politikerne, fordi de har størst ry", "Dikterne, fordi de skaper vakkert", "Ingen — alle var like uvitende"],
+      options: ["Håndverkerne, fordi de faktisk har genuin kunnskap på sitt felt", "Politikerne, fordi de har det største ryktet og den største innflytelsen", "Dikterne, fordi de skaper vakkert og derfor må ha innsikt i det gode", "Ingen av dem — alle de tre gruppene var like uvitende om det gode"],
       explanation: "Bare håndverkerne har ekte kunnskap, så de er nærmest visdom — men snubler i overskridelsen. Denne graderingen er et A-differensierende poeng.",
     },
     {
       question: "Hva er sokratisk visdom?",
-      options: ["Å vite at man ikke vet — å kjenne grensen for egen kunnskap", "Å vite mer enn alle andre", "Å benekte at kunnskap finnes", "Å kunne mange fag samtidig"],
+      options: ["Å vite at man ikke vet — å kjenne grensen for egen kunnskap", "Å vite mer enn alle andre om alle de virkelig viktige spørsmålene", "Å benekte at sikker kunnskap i det hele tatt er mulig for mennesker", "Å kunne mange fag samtidig og beherske dem alle på ekspertnivå"],
       explanation: "«Jeg vet at jeg ikke vet» er en epistemisk innsikt om forholdet mellom hva man vet og hva man tror man vet.",
     },
     {
@@ -340,7 +340,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er «skinnkunnskap» hos Sokrates?",
-      options: ["Å tro man vet noe man ikke vet", "Ekte fagkunnskap på et smalt felt", "Kunnskap som holdes hemmelig", "Kunnskap som bare gudene har"],
+      options: ["Å tro man vet noe man ikke vet", "Ekte fagkunnskap på et smalt felt", "Kunnskap som med vilje holdes hemmelig for andre", "Kunnskap som bare gudene kan ha, ikke mennesker"],
       explanation: "Det er skinnkunnskapen — den innbilte kunnskapen — Sokrates' undersøkelse avslører, ikke uvitenheten i seg selv.",
     },
     {
@@ -350,7 +350,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En taler gjentar et tall han ikke aner om stemmer, bare fordi det høres bra ut. Hva er dette?",
-      options: ["Bullshit — likegyldighet til om det er sant", "Løgn — bevisst usannhet", "Sokratisk visdom", "Epistemisk kritikk"],
+      options: ["Bullshit — likegyldighet til om det er sant", "Løgn — en bevisst usannhet han vet ikke stemmer", "Sokratisk visdom — å kjenne grensen for egen kunnskap", "Epistemisk kritikk — å prøve andres kunnskapskrav"],
       explanation: "Bullshitteren bryr seg ikke om sannheten, bare om virkningen. Løgn krever derimot at han vet hva som er sant.",
     },
     {
@@ -365,7 +365,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er orakel-konteksten viktig når man tolker den sokratiske visdommen (S2)?",
-      options: ["Fordi visdommen er svaret på orakel-gåten — uten konteksten mister utsagnet sin funksjon", "Fordi orakelet beviser at Sokrates var den viseste", "Fordi orakelet var en løgn", "Fordi orakelet handler om dikterne"],
+      options: ["Fordi visdommen er svaret på orakel-gåten — uten konteksten mister utsagnet sin funksjon", "Fordi orakelsvaret beviser at Sokrates faktisk var den aller viseste av alle grekerne i Athen", "Fordi orakelet i Delfi var en ren løgn prestinnen fant på", "Fordi orakelet handler om dikterne, og det er deres feil Sokrates egentlig ønsker å avdekke"],
       explanation: "Å tolke visdoms-passasjen løsrevet fra orakelet er feil #7. Den sokratiske visdommen er nettopp resultatet av orakel-undersøkelsen.",
     },
     {
@@ -375,7 +375,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den faste tverrdrøftingen Sokrates inngår i?",
-      options: ["Kunnskap og demokrati — hvem eller hva truer kunnskapssamfunnet mest", "Sinn og kropp — dualismens interaksjonsproblem", "Lykke og dyd — eudaimonia mot nytte", "Ren og anvendt geometri"],
+      options: ["Kunnskap og demokrati — hvem eller hva truer kunnskapssamfunnet mest", "Sinn og kropp — dualismens interaksjonsproblem", "Lykke og dyd — Aristoteles' eudaimonia mot Mills nytteprinsipp om lykke", "Ren og anvendt geometri — forholdet mellom matematiske bevis og erfaring"],
       explanation: "På tvers av Sokrates, Wikforss (kapittel 1.3) og Kant (kapittel 1.4) drøftes hvem som truer kunnskapssamfunnet mest, og hva som er motgiften.",
     },
     {
@@ -427,7 +427,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilket vilkår utelukker «heldig gjetning» fra å telle som kunnskap?",
-      options: ["Gode grunner (evidens)", "Overbevisning", "Sannhet", "Sikkerhet"],
+      options: ["Gode grunner (evidens)", "Overbevisning (at man faktisk tror det)", "Sannhet (at det faktisk er slik)", "Sikkerhet (at all tvil er utelukket)"],
       explanation: "Den som gjetter riktig uten grunnlag har en sann overbevisning, men visste det ikke — hun var bare heldig. Det mangler gode grunner.",
     },
     {
@@ -452,17 +452,17 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "«Ingen påstand kan bevises helt sikkert, så egentlig vet vi ingenting.» Hvilket syn er dette?",
-      options: ["Skeptisisme — ikke fallibilisme", "Fallibilisme", "Wikforss' egen posisjon", "Descartes' cogito"],
+      options: ["Skeptisisme — ikke fallibilisme", "Fallibilisme — vi kan ta feil, men vet likevel", "Wikforss' egen posisjon om gode grunner", "Descartes' cogito — det ene sikre punktet"],
       explanation: "Utsagnet slutter fra «kan ikke bevises» til «vet ingenting» — skeptikerens slutning. Fallibilisten avviser denne konklusjonen.",
     },
     {
       question: "Hva er uenigheten mellom Wikforss og Descartes (kapittel 1.1)?",
-      options: ["Terskelen for kunnskap: sikkerhet (Descartes) mot gode grunner (Wikforss)", "Om sansene finnes", "Om cogito er sant", "Om matematikk er kunnskap"],
+      options: ["Terskelen for kunnskap: sikkerhet (Descartes) mot gode grunner (Wikforss)", "Om sansene i det hele tatt gir oss tilgang til en ytre verden", "Om cogito virkelig er sant, altså om jeg må finnes i det øyeblikket jeg tenker", "Om matematikken i det hele tatt kan regnes som sikker og uomtvistelig kunnskap"],
       explanation: "Descartes krever ufeilbarhet; Wikforss krever gode grunner. Det faste S3-paret i Vite-delen.",
     },
     {
       question: "Hva blir konsekvensen av Descartes' sikkerhetskrav for vanlig kunnskap?",
-      options: ["Nesten all vanlig kunnskap faller utenfor, siden den kan betviles", "All vanlig kunnskap blir bekreftet", "Bare matematikk blir usikkert", "Ingenting endres"],
+      options: ["Nesten all vanlig kunnskap faller utenfor, siden den kan betviles", "All vanlig kunnskap blir tvert imot bekreftet og styrket", "Bare matematikken blir usikker, mens hele den ytre sanseverdenen står fast", "Ingenting endres — vanlig kunnskap står like støtt som den gjorde før"],
       explanation: "Descartes godtar bare det ufeilbare. Wikforss senker terskelen til gode grunner nettopp for å redde vanlig kunnskap.",
     },
     {
@@ -477,32 +477,32 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den andre («type b») typen evidensresistens?",
-      options: ["Å tolke evidensen slik at den bekrefter det man alt tror", "Å avvise all evidens fullstendig og benekte at fakta i det hele tatt finnes", "Å gjette i stedet for å undersøke", "Å kreve bevis for alt"],
+      options: ["Å tolke evidensen slik at den bekrefter det man alt tror", "Å avvise all evidens fullstendig og benekte at fakta i det hele tatt finnes", "Å gjette i stedet for å undersøke hva evidensen faktisk viser", "Å kreve fullstendig bevis for alt før man tror noe som helst"],
       explanation: "Type b er mer subtil: man tar informasjonen inn, men vrir den til å passe forhåndsoppfatningen, slik at selv motstridende fakta blir «bevis».",
     },
     {
       question: "Hvorfor er type b-resistens vanskeligst å motvirke?",
-      options: ["Fordi mer informasjon bare gir mer stoff å omtolke", "Fordi den bare rammer eksperter og aldri vanlige folk", "Fordi den er sjelden", "Fordi den løses lett med fakta"],
+      options: ["Fordi mer informasjon bare gir mer stoff å omtolke", "Fordi den bare rammer eksperter og aldri vanlige folk", "Fordi den er så sjelden at det ikke lønner seg med tiltak", "Fordi den løses lett så snart man legger fram nye fakta"],
       explanation: "Omtolkende resistens vrir ny evidens til bekreftelse. Derfor mener Wikforss at fakta alene ikke løser resistens.",
     },
     {
       question: "«De sier det er trygt, og nettopp det viser at de skjuler noe.» Hvilken resistens-type er dette?",
-      options: ["Type b — omtolke evidensen til å bekrefte forhåndsoppfatningen", "Type a — å avvise selve evidensen og mistenkeliggjøre kilden helt", "Fallibilisme", "Sokratisk visdom"],
+      options: ["Type b — omtolke evidensen til å bekrefte forhåndsoppfatningen", "Type a — å avvise selve evidensen og mistenkeliggjøre kilden helt", "Fallibilisme — at vi kan vite noe selv om vi i prinsippet kunne tatt feil", "Sokratisk visdom — å vite at man ikke vet, og kjenne grensen for egen kunnskap"],
       explanation: "Her tas informasjonen inn, men vris: selv en betryggende måling blir «bevis» for skjult fare. Det er den omtolkende typen.",
     },
     {
       question: "Hva menes med kunnskapens instrumentelle verdi?",
-      options: ["At kunnskap er nyttig — for individet og for demokratiet", "At kunnskap utelukkende har verdi i seg selv, aldri som et middel", "At kunnskap kan kjøpes og selges", "At kunnskap er verdiløs"],
+      options: ["At kunnskap er nyttig — for individet og for demokratiet", "At kunnskap utelukkende har verdi i seg selv, aldri som et middel", "At kunnskap kan kjøpes og selges som en hvilken som helst vare", "At kunnskap i seg selv er verdiløs så lenge den ikke gir penger"],
       explanation: "Wikforss fremhever nytten: individet navigerer bedre, og demokratiet forutsetter at borgerne kan skille sant fra usant.",
     },
     {
       question: "Hvorfor er kunnskapsresistens et samfunnsproblem, ikke bare et individuelt?",
-      options: ["Fordi demokratisk selvstyre forutsetter at borgerne kan skille sant fra usant", "Fordi det først og fremst gjør de enkelte borgerne triste og mismodige i hverdagen", "Fordi det koster penger", "Fordi det bare rammer politikere"],
+      options: ["Fordi demokratisk selvstyre forutsetter at borgerne kan skille sant fra usant", "Fordi det først og fremst gjør de enkelte borgerne triste og mismodige i hverdagen", "Fordi det koster samfunnet store summer penger hvert år", "Fordi det bare rammer politikerne og andre maktpersoner, ikke vanlige borgere i samfunnet"],
       explanation: "Når kunnskap ikke fester seg, undergraves grunnlaget for gode felles beslutninger. Det er kunnskapens instrumentelle verdi for demokratiet.",
     },
     {
       question: "Hva er «symmetri-poenget» som løfter en Wikforss-drøfting til A?",
-      options: ["At resistens-mekanismene rammer også «vår side», ikke bare motstanderne", "At det utelukkende er de politiske motstanderne våre som er kunnskapsresistente", "At all kunnskap er relativ", "At Wikforss selv er resistent"],
+      options: ["At resistens-mekanismene rammer også «vår side», ikke bare motstanderne", "At det utelukkende er de politiske motstanderne våre som er kunnskapsresistente", "At all kunnskap i bunn og grunn er relativ", "At Wikforss selv er kunnskapsresistent i sin egen beskrivelse av mekanismene"],
       explanation: "Mekanismene (avvise, omtolke) er symmetriske. Å anvende analysen på seg selv — spørre om jeg selv avviser eller omtolker — er motgiften og et A-differensierende poeng.",
     },
     {
@@ -517,7 +517,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er kjernen i Wikforss' advarsel om «ydmykhet mot lammende skepsis»?",
-      options: ["Å erkjenne at vi kan ta feil er sunt, men å slutte til at vi ikke vet er å gli over i skepsis", "At vi aldri bør tvile på noe", "At ydmykhet alltid fører til kunnskap", "At all sunn skepsis alltid er av det gode og bør drives så langt som overhodet mulig i erkjennelsen"],
+      options: ["Å erkjenne at vi kan ta feil er sunt, men å slutte til at vi ikke vet er å gli over i skepsis", "At vi aldri bør tvile på det vi allerede har god grunn til å tro", "At ydmykhet overfor egen feilbarlighet alltid fører til mer og sikrere kunnskap hos den enkelte", "At all sunn skepsis alltid er av det gode og bør drives så langt som overhodet mulig i erkjennelsen"],
       explanation: "Fallibilismen holder ydmykheten (feil er mulig) uten å ta steget til skeptisismen (vi vet ingenting).",
     },
     {
@@ -527,12 +527,12 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva må gjelde for at alle tre kunnskapsvilkårene er oppfylt?",
-      options: ["Overbevisning, sannhet og gode grunner må være til stede samtidig", "Det er tilstrekkelig at minst to av de tre vilkårene er oppfylt samtidig", "Bare sannhet er nødvendig", "Bare overbevisning og sikkerhet"],
+      options: ["Overbevisning, sannhet og gode grunner må være til stede samtidig", "Det er tilstrekkelig at minst to av de tre vilkårene er oppfylt samtidig", "Bare sannhetsvilkåret er nødvendig; de to andre vilkårene er valgfrie", "Det er nok med overbevisning og full sikkerhet, gode grunner trengs ikke"],
       explanation: "Faller ett vilkår (usann tro, eller sann gjetning uten grunner), er det ikke kunnskap. Alle tre kreves på én gang.",
     },
     {
       question: "Hvorfor er ikke en velbegrunnet, men usann overbevisning kunnskap?",
-      options: ["Fordi sannhetsvilkåret ikke er oppfylt — man kan ikke vite noe usant", "Fordi den mangler gode grunner og tilstrekkelig evidens til å kunne telle", "Fordi man ikke tror på den", "Fordi ingen er enige"],
+      options: ["Fordi sannhetsvilkåret ikke er oppfylt — man kan ikke vite noe usant", "Fordi den mangler gode grunner og tilstrekkelig evidens til å kunne telle", "Fordi man i virkeligheten ikke tror på den overbevisningen man selv har", "Fordi ingen andre er enige i den overbevisningen man selv holder fast ved"],
       explanation: "Selv med gode grunner og overbevisning: hvis det man tror er usant, er det ikke kunnskap. Alle tre vilkårene må oppfylles.",
     },
     {
@@ -547,7 +547,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken feil begår en kandidat som skriver at Wikforss «mener vi ikke kan være sikre, så vi vet egentlig ikke»?",
-      options: ["#6 — å blande fallibilisme med skeptisisme", "#3 — leksikonsvar", "#13 — ignorere premisser", "#12 — å svare på begge de valgfrie oppgavene samtidig"],
+      options: ["#6 — å blande fallibilisme med skeptisisme", "#3 — leksikonsvar uten relevans for spørsmålet", "#13 — å ignorere premissene i tankeeksperimentet", "#12 — å svare på begge de valgfrie oppgavene samtidig"],
       explanation: "Fallibilismen forsvarer tvert imot at kunnskap finnes tross feilmuligheten. Å gjøre Wikforss til skeptiker bommer på hele poenget.",
     },
     {
@@ -564,7 +564,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
   'exphil03-1-4': [
     {
       question: "Hva er opplysning ifølge Kant?",
-      options: ["Menneskets utgang av sin selvforskyldte umyndighet", "En historisk epoke preget av fornuftstro", "Statens plikt til å utdanne borgerne", "Et fast sett vitenskapelige sannheter som alle mennesker plikter å godta"],
+      options: ["Menneskets utgang av sin selvforskyldte umyndighet", "En historisk epoke preget av fornuftstro og framskritt", "Statens plikt til å sørge for utdanning til alle borgere", "Et fast sett vitenskapelige sannheter som alle mennesker plikter å godta"],
       explanation: "Kant definerer opplysning som en prosess — utgang av selvforskyldt umyndighet — ikke som en epoke (#3) eller et fast sett meninger.",
     },
     {
@@ -574,7 +574,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr «sapere aude» hos Kant?",
-      options: ["Ha mot til å bruke din egen forstand", "Kunnskap er makt", "Tvil på alt du kan tvile på", "Adlyd alltid øvrigheten lydig i alle ting"],
+      options: ["Ha mot til å bruke din egen forstand", "Kunnskap er makt over naturen og over andre", "Tvil på alt det du overhodet kan tvile på", "Adlyd alltid øvrigheten lydig i alle ting"],
       explanation: "«Sapere aude» = «våg å vite» / «ha mot til å bruke din egen forstand». Formelen viser at umyndighet er et mots-problem.",
     },
     {
@@ -594,7 +594,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken av de to fornuftsbrukene mener Kant må alltid være fri?",
-      options: ["Den offentlige (som lærd overfor publikum)", "Den private (i embetet)", "Begge, uten unntak", "Ingen av dem — både offentlig og privat fornuftsbruk kan bindes av staten"],
+      options: ["Den offentlige (som lærd overfor publikum)", "Den private (fornuftsbruken i et betrodd embete)", "Begge fornuftsbrukene, uten noe unntak overhodet", "Ingen av dem — både offentlig og privat fornuftsbruk kan bindes av staten"],
       explanation: "Den offentlige fornuftsbruken bærer opplysningen og må være fri; den private kan bindes fordi rollen krever lydighet mot oppgaven.",
     },
     {
@@ -614,12 +614,12 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor ville «bli klokere» vært et dårlig valgspråk for opplysning hos Kant?",
-      options: ["Fordi det plasserer feilen i evnen, ikke i viljen", "Fordi Kant mener kunnskap er umulig", "Fordi det er altfor lite ambisiøst som et opplysningsprogram", "Fordi klokskap ikke finnes"],
+      options: ["Fordi det plasserer feilen i evnen, ikke i viljen", "Fordi Kant mener at sikker kunnskap er umulig for oss", "Fordi det er altfor lite ambisiøst som et opplysningsprogram", "Fordi klokskap ikke finnes som en egenskap hos mennesker"],
       explanation: "Umyndigheten er et mots-problem, ikke et kunnskaps-problem. «Bli klokere» ville feilaktig gjøre den til mangel på forstand.",
     },
     {
       question: "Hva er opplysningens betingelse ifølge Kant?",
-      options: ["Frihet — særlig fri offentlig bruk av fornuften", "Sikker kunnskap som fundament", "En sterk og opplyst stat som aktivt opplyser alle borgerne sine", "Avskaffelse av alle embeter og roller"],
+      options: ["Frihet — særlig fri offentlig bruk av fornuften", "Sikker kunnskap som et fundament å bygge alt annet på", "En sterk og opplyst stat som aktivt opplyser alle borgerne sine", "Avskaffelse av alle embeter og alle betrodde roller"],
       explanation: "Kant ber om frihet til fri offentlig fornuftsbruk — ikke opprør i rollen, men at ingen kan hindre fritt resonnement som lærd.",
     },
     {
@@ -629,12 +629,12 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "I «hvem truer det opplyste samfunnet»-drøftingen, hva advarer Kant mot?",
-      options: ["Dem som ikke tør å vite (selvforskyldt umyndighet)", "Dem som tror de vet uten å vite (skinnkunnskap)", "Dem som ikke lar seg lære (resistens)", "Dem som helt bevisst lyver om fakta for å villede andre"],
+      options: ["Dem som ikke tør å vite (selvforskyldt umyndighet)", "Dem som tror at de vet uten å vite noe (skinnkunnskap)", "Dem som ikke lar seg lære av ny evidens (kunnskapsresistens)", "Dem som helt bevisst lyver om fakta for å villede andre"],
       explanation: "Kant: de som ikke tør å tenke selv. Sokrates: de som tror de vet (skinnkunnskap). Wikforss: de som ikke lar seg lære (resistens). Tre komplementære diagnoser.",
     },
     {
       question: "Hvorfor er det en feil å behandle opplysning som «opplysningstiden» på eksamen?",
-      options: ["Fordi det gir leksikonsvar uten å rekonstruere Kants argument (#3)", "Fordi opplysningstiden aldri fant sted", "Fordi Kant selv levde lenge etter at hele opplysningstiden var over og forbi", "Fordi epoker ikke finnes i filosofi"],
+      options: ["Fordi det gir leksikonsvar uten å rekonstruere Kants argument (#3)", "Fordi opplysningstiden som historisk epoke i virkeligheten aldri fant sted", "Fordi Kant selv levde lenge etter at hele opplysningstiden var over og forbi", "Fordi epoker ikke finnes som kategori i filosofien"],
       explanation: "Å skrive idéhistorie om epoken i stedet for å rekonstruere Kants argument er et leksikonsvar med lav relevans — det nulles (#3).",
     },
     {
@@ -644,22 +644,22 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er poenget med at umyndigheten sitter i viljen og ikke i evnen?",
-      options: ["At hvert menneske selv kan gå ut av den ved å ta motet til å tenke selv", "At bare de mest intelligente kan bli opplyste", "At staten må tvinge folk til opplysning", "At sann opplysning i praksis er umulig å oppnå for de aller fleste mennesker"],
+      options: ["At hvert menneske selv kan gå ut av den ved å ta motet til å tenke selv", "At det bare er de mest intelligente menneskene som kan bli virkelig opplyste", "At staten må tvinge folk til å bli opplyste", "At sann opplysning i praksis er umulig å oppnå for de aller fleste mennesker"],
       explanation: "Fordi problemet er manglende mot, ikke manglende forstand, er kuren noe hver enkelt selv kan velge — det er hele poenget med «selvforskyldt».",
     },
     {
       question: "Hvem er «formynderne» i Kants tekst?",
-      options: ["De som gjerne overtar tenkningen for oss og holder oss umyndige", "Foreldre til mindreårige barn", "De statlige sensurmyndighetene alene", "Vitenskapsmennene og de lærde som produserer all den nye kunnskapen i samfunnet"],
+      options: ["De som gjerne overtar tenkningen for oss og holder oss umyndige", "Foreldre til mindreårige barn som ennå ikke har nådd myndighetsalder", "Utelukkende de statlige sensurmyndighetene, og ingen andre i samfunnet", "Vitenskapsmennene og de lærde som produserer all den nye kunnskapen i samfunnet"],
       explanation: "Formynderne (bøker, prester, leger) gjør umyndigheten lettvint ved å tenke for oss — de utnytter latskapen og feigheten.",
     },
     {
       question: "Hva er det subtile A-poenget om sammenhengen mellom Kants to skiller?",
-      options: ["Fri offentlig fornuftsbruk er samfunnsbetingelsen som gjør at den enkelte kan ta motet til å tenke selv", "De to skillene motsier hverandre", "Den frie offentlige fornuftsbruken gjør i virkeligheten den selvforskyldte umyndigheten enda verre og dypere", "Privat fornuftsbruk er viktigst for opplysning"],
+      options: ["Fri offentlig fornuftsbruk er samfunnsbetingelsen som gjør at den enkelte kan ta motet til å tenke selv", "De to skillene motsier hverandre og kan ikke gjelde samtidig", "Den frie offentlige fornuftsbruken gjør i virkeligheten den selvforskyldte umyndigheten enda verre og dypere", "Privat fornuftsbruk er det viktigste for opplysningen, siden den enkelte tenker best når ingen andre ser på"],
       explanation: "A-svaret binder de to skillene: umyndigheten er en viljesak, men friheten til offentlig fornuftsbruk er samfunnsbetingelsen som gjør motet mulig. Opplysning er både individuell og kollektiv.",
     },
     {
       question: "En lærers faglige Facebook-post om læreplanen leses av elever, foreldre og arbeidsgiver samtidig. Hva er komplikasjonen for Kants skille?",
-      options: ["Én ytring kan tilhøre både offentlig og privat fornuftsbruk på én gang", "Facebook fantes ikke i Kants tid, så skillet er ugyldig", "Alt som ytres på sosiale medier regnes automatisk som privat fornuftsbruk", "Alt på sosiale medier er offentlig fornuftsbruk"],
+      options: ["Én ytring kan tilhøre både offentlig og privat fornuftsbruk på én gang", "Facebook fantes ikke i Kants tid, så skillet er ugyldig", "Alt som ytres på sosiale medier regnes automatisk som privat fornuftsbruk", "Alt som legges ut på sosiale medier er uten videre offentlig fornuftsbruk"],
       explanation: "Kants kriterium er rollen, ikke plattformen — men i sammensmeltede kanaler kan samme ytring være fritt resonnement (offentlig) og rolle-relevant (privat) samtidig. Skillet testes, ikke oppheves.",
     },
   ],
@@ -671,7 +671,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er vurderingsenheten hos Lakatos?",
-      options: ["Et forskningsprogram (en serie teorier over tid)", "En enkelt hypotese", "En enkelt observasjon", "Den enkelte forskerens personlige integritet og ærlighet"],
+      options: ["Et forskningsprogram (en serie teorier over tid)", "En enkelt hypotese, vurdert isolert fra resten av teorien", "En enkelt observasjon som enten bekrefter eller motbeviser", "Den enkelte forskerens personlige integritet og ærlighet"],
       explanation: "Lakatos' grunngrep er å flytte fokus fra enkelthypoteser til hele forskningsprogrammer over tid.",
     },
     {
@@ -686,12 +686,12 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner et progressivt forskningsprogram?",
-      options: ["Justeringer som gir nye, dristige forutsigelser som slår til", "At det aldri møter motstand", "At det bare demper og bortforklarer alle anomalier i etterkant", "At det er matematisk elegant"],
+      options: ["Justeringer som gir nye, dristige forutsigelser som slår til", "At det aldri møter motstand fra nye observasjoner i det hele tatt", "At det bare demper og bortforklarer alle anomalier i etterkant", "At det er matematisk elegant og enkelt bygd opp av få prinsipper"],
       explanation: "Et progressivt program vokser i kunnskap ved å våge nye forutsigelser som bekreftes — det er kjernen i demarkasjonskriteriet.",
     },
     {
       question: "Hva kjennetegner et degenerert forskningsprogram?",
-      options: ["At det bare redder seg med ad hoc-justeringer uten nye forutsigelser", "At det stadig gir svært mange nye og dristige forutsigelser som slår til", "At det aldri justerer beltet", "At det har for få tilhengere"],
+      options: ["At det bare redder seg med ad hoc-justeringer uten nye forutsigelser", "At det stadig gir svært mange nye og dristige forutsigelser som slår til", "At det aldri justerer beskyttelsesbeltet når det møter motstand fra data", "At det har for få tilhengere blant de aktive forskerne innenfor faget"],
       explanation: "Et degenerert program lever av ad hoc-lapping: det redder kjernen, men lærer oss ikke noe nytt.",
     },
     {
@@ -701,7 +701,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er Lakatos' demarkasjonskriterium?",
-      options: ["Om programmet gir nye, dristige forutsigelser som slår til", "Om teorien kan motbevises av én observasjon", "Om teorien lar seg bekrefte av svært mange enkeltobservasjoner", "Om teorien er matematisk elegant"],
+      options: ["Om programmet gir nye, dristige forutsigelser som slår til", "Om teorien kan motbevises av én eneste avgjørende observasjon", "Om teorien lar seg bekrefte av svært mange enkeltobservasjoner", "Om teorien er matematisk elegant og enkel å regne med i praksis"],
       explanation: "Kriteriet er progressivitet: dristige, testbare forutsigelser — ikke motbevisbarhet på ett punkt, og ikke bekreftelser alene.",
     },
     {
@@ -721,17 +721,17 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En elegant fysikkteori forklarer alt vi vet, men har ikke gitt én ny testbar forutsigelse. Hvordan bør man vurdere den med Lakatos?",
-      options: ["Som ennå ikke vist progressiv — den avgjørende testen er en ny, dristig forutsigelse", "Som helt sikkert ren pseudovitenskap, ettersom den ennå ikke har gitt noen forutsigelser", "Som progressiv, fordi den er elegant", "Som utenfor demarkasjonsspørsmålet"],
+      options: ["Som ennå ikke vist progressiv — den avgjørende testen er en ny, dristig forutsigelse", "Som helt sikkert ren pseudovitenskap, ettersom den ennå ikke har gitt noen forutsigelser", "Som progressiv, fordi den er elegant og forklarer alt", "Som utenfor demarkasjonsspørsmålet, siden Lakatos bare vurderer hele forskningsprogrammer"],
       explanation: "Kriteriet er diakront: å forklare det vi vet er ikke å forutsi noe nytt, men et stagnerende program kan bli progressivt senere — ikke stemple på stående fot.",
     },
     {
       question: "Hva menes med at Lakatos' kriterium er «diakront»?",
-      options: ["At demarkasjonen er en dom over utvikling over tid, ikke et øyeblikksbilde", "At kriteriet strengt tatt bare gjelder to direkte konkurrerende teorier samtidig", "At det avviser all historie", "At det er uavhengig av observasjoner"],
+      options: ["At demarkasjonen er en dom over utvikling over tid, ikke et øyeblikksbilde", "At kriteriet strengt tatt bare gjelder to direkte konkurrerende teorier samtidig", "At det avviser hele vitenskapshistorien som helt irrelevant for vurderingen", "At det er helt uavhengig av observasjoner og utelukkende gjelder teoriens form"],
       explanation: "Diakront = over tid. Et program kan stagnere midlertidig og bli progressivt senere — derfor kan man ikke felle dommen på ett øyeblikk.",
     },
     {
       question: "Hva er forskjellen på en progressiv og en ad hoc-justering?",
-      options: ["Den progressive gir en ny, testbar forutsigelse; ad hoc demper bare anomalien i etterkant", "Den progressive justeringen endrer selve den harde kjernen, mens en ad hoc-justering bare endrer beskyttelsesbeltet", "De er identiske", "Ad hoc gir nye forutsigelser; progressiv gjør ikke"],
+      options: ["Den progressive gir en ny, testbar forutsigelse; ad hoc demper bare anomalien i etterkant", "Den progressive justeringen endrer selve den harde kjernen, mens en ad hoc-justering bare endrer beskyttelsesbeltet", "De to er i realiteten identiske og lar seg ikke skille fra hverandre", "Ad hoc-justeringen gir nye forutsigelser, mens den progressive bare demper anomalien i etterkant"],
       explanation: "Begge redder kjernen; forskjellen er om justeringen forutsier noe nytt (progressiv) eller bare lapper i etterkant (ad hoc).",
     },
     {
@@ -741,7 +741,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er det en feil å fortelle historien om Galilei og kirken i stedet for å rekonstruere Lakatos' argument?",
-      options: ["Fordi det gir leksikonsvar med lav relevans, som nulles (#3)", "Fordi Galilei ikke er en ekte historisk person", "Fordi historien er hemmelig", "Fordi Lakatos selv aldri nevner Galilei med så mye som ett eneste ord"],
+      options: ["Fordi det gir leksikonsvar med lav relevans, som nulles (#3)", "Fordi Galilei ikke er en ekte historisk person, men en oppdiktet figur", "Fordi historien om Galilei og kirken fortsatt er hemmeligstemplet", "Fordi Lakatos selv aldri nevner Galilei med så mye som ett eneste ord"],
       explanation: "Vitenskapshistorie-generalia uten argumentrekonstruksjon er et leksikonsvar (#3) — det gir null uttelling.",
     },
     {
@@ -751,22 +751,22 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan forsterker teoriavhengig observasjon Lakatos' poeng om motbevis?",
-      options: ["Hvis observasjon selv er teoriladet, kan et «motbevis» også bestrides og tolkes", "Den viser at motbevis alltid er endelige", "Den beviser til slutt en gang for alle at alle vitenskapelige teorier i bunn og grunn er falske", "Den gjør demarkasjon umulig"],
+      options: ["Hvis observasjon selv er teoriladet, kan et «motbevis» også bestrides og tolkes", "Den viser at et motbevis alltid er endelig og aldri lar seg bestride av forskerne", "Den beviser til slutt en gang for alle at alle vitenskapelige teorier i bunn og grunn er falske", "Den gjør enhver demarkasjon mellom vitenskap og pseudovitenskap fullstendig umulig"],
       explanation: "Er observasjon teoriladet, blir det enda tydeligere hvorfor ett motbevis ikke uten videre feller et program — motbeviset må også tolkes.",
     },
     {
       question: "Hva utfordrer Jaggar (bør kjenne til)?",
-      options: ["Myten om den lidenskapsløse forskeren", "Lakatos' demarkasjonskriterium og læren om progressive forskningsprogrammer", "Teorien om at jorda er rund", "Kants opplysningsbegrep"],
+      options: ["Myten om den lidenskapsløse forskeren", "Lakatos' demarkasjonskriterium og læren om progressive forskningsprogrammer", "Teorien om at jorda er rund og ikke flat", "Kants opplysningsbegrep og valgspråket sapere aude"],
       explanation: "Jaggar utfordrer idealet om at ekte kunnskap krever at følelsene legges til side — hun hevder emosjoner virker i all observasjon.",
     },
     {
       question: "Hva er Jaggars tvetydige poeng om emosjoner?",
-      options: ["At de både kan fremme og hindre kunnskap", "At de i alle tilfeller ødelegger muligheten for sann kunnskap", "At de alltid gir sann kunnskap", "At de er irrelevante for erkjennelse"],
+      options: ["At de både kan fremme og hindre kunnskap", "At de i alle tilfeller ødelegger muligheten for sann kunnskap", "At de alltid gir sann og pålitelig kunnskap", "At de er helt irrelevante for erkjennelsen"],
       explanation: "Følelser kan fordreie (fordommer) MEN også åpne for innsikt (indignasjon som avdekker urett) — derfor blir verdifri vitenskap problematisk.",
     },
     {
       question: "Hvorfor blir idealet om verdifri vitenskap problematisk ifølge Jaggar?",
-      options: ["Fordi fravær av bevisste følelser kan skjule hvilke følelser som allerede styrer forskningen", "Fordi vitenskap ikke bør ha noen mål", "Fordi følelser og emosjoner aldri under noen omstendighet påvirker den vitenskapelige forskningen", "Fordi verdier alltid er objektive"],
+      options: ["Fordi fravær av bevisste følelser kan skjule hvilke følelser som allerede styrer forskningen", "Fordi vitenskapen ikke bør ha noen mål eller formål utover det å beskrive verden nøyaktig slik den er", "Fordi følelser og emosjoner aldri under noen omstendighet påvirker den vitenskapelige forskningen", "Fordi verdier alltid er objektive størrelser man kan måle"],
       explanation: "Jaggar snur idealet: å fjerne bevisste følelser garanterer ikke objektivitet — det kan bare skjule de emosjonene som styrer valg av spørsmål.",
     },
     {
@@ -776,24 +776,24 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er statusen til Galileo- og Jaggar-stoffet i dette kapitlet?",
-      options: ["«Bør kjenne til» — nyttig i drøfting, men skal ikke fortrenge Lakatos-kjernen", "Kjernestoff som veier tyngst på eksamen", "Fullstendig utenfor det gjeldende pensumet og gir derfor null uttelling på eksamen", "Viktigere enn Lakatos"],
+      options: ["«Bør kjenne til» — nyttig i drøfting, men skal ikke fortrenge Lakatos-kjernen", "Kjernestoff som veier aller tyngst på eksamen, tyngre enn selve Lakatos-stoffet", "Fullstendig utenfor det gjeldende pensumet og gir derfor null uttelling på eksamen", "Viktigere enn Lakatos selv, og bør derfor fylle mesteparten av hele besvarelsen"],
       explanation: "Galileo (1/24) og Jaggar (2-3/24) er «bør kjenne til»: de dekkes etter Lakatos-kjernen og er ekstra drøftingsdimensjoner, ikke hovedstoffet.",
     },
     {
       question: "Hva er en styrke og en svakhet ved at Lakatos ikke gir en skarp beslutningsregel for når et program er degenerert?",
-      options: ["Styrke: tålmodighet med lovende programmer; svakhet: dommen kan først felles i etterpåklokskap", "Styrke: kriteriet gir svært rask forkasting av svake programmer; svakhet: det er samtidig altfor strengt", "Det er bare en svakhet, ingen styrke", "Det er bare en styrke, ingen svakhet"],
+      options: ["Styrke: tålmodighet med lovende programmer; svakhet: dommen kan først felles i etterpåklokskap", "Styrke: kriteriet gir svært rask forkasting av svake programmer; svakhet: det er samtidig altfor strengt", "Det er bare en svakhet og ingen styrke — mangelen på en klar regel gjør hele kriteriet ubrukelig", "Det er bare en styrke, og ingen svakhet i det hele tatt"],
       explanation: "Mangelen på klokke tvinger fram tålmodighet (styrke) men gir ingen skarp regel — man ser ofte først i etterkant at et program var degenerert (svakhet).",
     },
     {
       question: "Hva er det subtile A-poenget i drøftingen om Lakatos «løser» demarkasjonsproblemet?",
-      options: ["At han gjør grensen fruktbar snarere enn skarp — vitenskap er en levende praksis, ikke en formel", "At han løser problemet endelig og mekanisk", "At demarkasjon er umulig og bør oppgis", "At det i aller siste instans bare er Poppers falsifikasjonsprinsipp som virkelig kan trekke opp grensen"],
+      options: ["At han gjør grensen fruktbar snarere enn skarp — vitenskap er en levende praksis, ikke en formel", "At han løser problemet endelig og rent mekanisk, med en fast regel som avgjør hvert eneste tilfelle", "At demarkasjon er umulig og derfor bør oppgis fullstendig", "At det i aller siste instans bare er Poppers falsifikasjonsprinsipp som virkelig kan trekke opp grensen"],
       explanation: "A-drøftingen ser at Lakatos gir et fruktbart, men ikke mekanisk skarpt kriterium; om det er en løsning eller en elegant utsettelse er selvstendig stillingtagen.",
     },
   ],
   'exphil03-2-1': [
     {
       question: "Hva er kjernen i Menons paradoks?",
-      options: ["At man verken kan søke det man kjenner (unødvendig) eller det man ikke kjenner (umulig), slik at søken etter kunnskap ser ut til å være umulig", "At det er svært vanskelig å lære nye og kompliserte ting", "At sansene alltid bedrar oss, så vi kan ikke vite noe sikkert", "At læring alltid forutsetter en dyktig og svært kunnskapsrik lærer som direkte overfører hele sin egen kunnskap til den tomme og uvitende eleven"],
+      options: ["At man verken kan søke det man kjenner (unødvendig) eller det man ikke kjenner (umulig), slik at søken etter kunnskap ser ut til å være umulig", "At det er svært vanskelig å lære nye og kompliserte ting uten en dyktig lærer til å hjelpe seg", "At sansene alltid bedrar oss, slik at vi verken kan vite noe sikkert om verden rundt oss eller om oss selv, og at all søken etter kunnskap derfor er forgjeves", "At læring alltid forutsetter en dyktig og svært kunnskapsrik lærer som direkte overfører hele sin egen kunnskap til den tomme og uvitende eleven"],
       explanation: "Paradokset er et dilemma med to horn: kjenner du svaret, er søken overflødig; kjenner du det ikke, kan du ikke lete etter det. Konklusjonen er at søken tilsynelatende er umulig uansett — ikke bare vanskelig.",
     },
     {
@@ -813,7 +813,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er ideene hos Platon?",
-      options: ["Evige, uforanderlige og selvstendig eksisterende forbilder som sansetingene er ufullkomne etterligninger av", "Tanker, begreper og forestillinger som utelukkende finnes inne i det enkelte menneskets egen bevissthet og hode", "Praktiske regler for hvordan man bør leve", "Sanseinntrykk som er lagret i hukommelsen"],
+      options: ["Evige, uforanderlige og selvstendig eksisterende forbilder som sansetingene er ufullkomne etterligninger av", "Tanker, begreper og forestillinger som utelukkende finnes inne i det enkelte menneskets egen bevissthet og hode", "Praktiske regler for hvordan man bør leve livet sitt, altså moralske forskrifter som Platon gir leserne sine", "Sanseinntrykk som ligger lagret i hukommelsen vår fra tidligere"],
       explanation: "Ideene eksisterer uavhengig av om noen tenker dem, og er tilgjengelige for fornuften, ikke sansene. Å gjøre dem til «tanker i hodet» er feil #6.",
     },
     {
@@ -833,7 +833,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den sterkeste innvendingen mot gjenerindringslæren?",
-      options: ["At den bare flytter problemet: hvordan fikk sjelen kunnskapen i utgangspunktet? En uendelig regress truer", "At slavegutter ikke kan geometri", "At Sokrates faktisk fortalte gutten svaret", "At gjenerindring i realiteten er nøyaktig det samme som helt vanlig hukommelse om ting man selv har opplevd"],
+      options: ["At den bare flytter problemet: hvordan fikk sjelen kunnskapen i utgangspunktet? En uendelig regress truer", "At slavegutter overhodet ikke kan geometri, og at hele scenen derfor må være ren diktning fra Platons hånd", "At Sokrates i realiteten fortalte gutten hele svaret gjennom de ledende spørsmålene sine underveis i samtalen", "At gjenerindring i realiteten er nøyaktig det samme som helt vanlig hukommelse om ting man selv har opplevd"],
       explanation: "Læren forklarer denne læringen ved en tidligere kunnskap, men da kan man spørre hvordan sjelen lærte det da — og regressen truer. Platons forsvar er at sjelens berøring med ideene er evig, ikke ervervet i tid.",
     },
     {
@@ -843,12 +843,12 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den empiristiske innvendingen mot idélæren?",
-      options: ["At vi danner begreper som «likhet» ved abstraksjon fra erfaring, uten å trenge en egen idéverden eller forhåndsviten", "At ideene er for kompliserte til å forstå", "At sansene i grunnen alltid bedrar oss fullstendig, slik at ingen sikker kunnskap noen gang kan bygges på ren sanseerfaring alene", "At Platon aldri beviste sjelens udødelighet"],
+      options: ["At vi danner begreper som «likhet» ved abstraksjon fra erfaring, uten å trenge en egen idéverden eller forhåndsviten", "At ideene er for kompliserte til at mennesker kan forstå dem, og at teorien derfor er ubrukelig som forklaring på læring", "At sansene i grunnen alltid bedrar oss fullstendig, slik at ingen sikker kunnskap noen gang kan bygges på ren sanseerfaring alene", "At Platon aldri klarte å bevise at sjelen i det hele tatt er udødelig"],
       explanation: "Empiristen hevder at «fullkommen likhet» er en grensebetraktning vi selv konstruerer fra sammenligninger, ikke en målestokk vi husker. Stridspunktet er om det ufullkomne kan gi en fullkommen standard.",
     },
     {
       question: "Hvordan oppløser gjenerindringen egentlig Menons paradoks?",
-      options: ["Ved å innføre en mellomtilstand: sjelen kjenner sannheten latent, så søken er verken overflødig eller umulig", "Ved å benekte at læring finnes i det hele tatt", "Ved å vise at man alltid har en lærer tilgjengelig", "Ved rett og slett å hevde at absolutt all menneskelig kunnskap i bunn og grunn kommer fra sanseerfaringen og ikke fra sjelen"],
+      options: ["Ved å innføre en mellomtilstand: sjelen kjenner sannheten latent, så søken er verken overflødig eller umulig", "Ved rett og slett å benekte at læring finnes i det hele tatt, slik at paradokset aldri kommer opp som et problem", "Ved å vise at man alltid har en dyktig lærer tilgjengelig som kan overføre nettopp den kunnskapen man mangler", "Ved rett og slett å hevde at absolutt all menneskelig kunnskap i bunn og grunn kommer fra sanseerfaringen og ikke fra sjelen"],
       explanation: "Paradokset hviler på et skarpt skille mellom å kjenne og ikke kjenne. Gjenerindringen innfører en mellomtilstand (latent kunnskap), og da forsvinner dilemmaet.",
     },
     {
@@ -863,7 +863,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "I sammenligningen Platon–Aristoteles: hvor plasserer de formene?",
-      options: ["Platon i en egen, atskilt idéverden; Aristoteles i tingene selv", "Begge i en egen idéverden", "Begge i tingene selv", "Platon plasserer formene i tingene; Aristoteles i en egen atskilt idéverden"],
+      options: ["Platon i en egen, atskilt idéverden; Aristoteles i tingene selv", "Begge plasserer formene i en egen idéverden atskilt fra sansetingene", "Begge plasserer formene i sansetingene selv, ikke i noen egen idéverden", "Platon plasserer formene i tingene; Aristoteles i en egen atskilt idéverden"],
       explanation: "Kontrasten går både på virkelighet (atskilt idéverden vs. form i tingene) og kunnskapskilde (gjenerindring vs. erfaring). Dette er det faste sammenligningsparet i emnet.",
     },
     {
@@ -873,17 +873,17 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en typisk feil når man skal tolke et Platon-utdrag om slavegutten?",
-      options: ["Å gjengi hva som skjer i scenen uten å si hva den beviser (at læring er gjenerindring)", "Å nevne at gutten var ulært", "Å knytte scenen til geometri", "Å koble scenen altfor tett og detaljert til Menons paradoks i stedet for til selve gjenerindringslæren"],
+      options: ["Å gjengi hva som skjer i scenen uten å si hva den beviser (at læring er gjenerindring)", "Å nevne at gutten var helt ulært og aldri tidligere hadde fått noen undervisning i geometri", "Å knytte scenen til selve geometrifaget i stedet for til sjelens gjenerindring av ideene", "Å koble scenen altfor tett og detaljert til Menons paradoks i stedet for til selve gjenerindringslæren"],
       explanation: "Å behandle beviset som en anekdote er feil #7 (løsrevet tolkning). Nøkkelspørsmålet i en S2-oppgave er alltid: hva VISER utdraget i tekstens argument?",
     },
     {
       question: "Hva skiller kunnskap fra mening hos Platon?",
-      options: ["Kunnskap gjelder de stabile, evige ideene og nås med fornuften; mening gjelder den skiftende sanseverdenen", "Kunnskap er det flertallet tror; mening er det den enkelte tror", "Kunnskap kommer utelukkende fra de bedragerske sansene, mens ren mening derimot springer ut av den sikre fornuften", "Det er ingen forskjell hos Platon"],
+      options: ["Kunnskap gjelder de stabile, evige ideene og nås med fornuften; mening gjelder den skiftende sanseverdenen", "Kunnskap er det hele flertallet i samfunnet tror på, mens mening er det den enkelte tror på helt egen hånd", "Kunnskap kommer utelukkende fra de bedragerske sansene, mens ren mening derimot springer ut av den sikre fornuften", "Det er ingen forskjell hos Platon; kunnskap og mening er bare to ulike ord for én og samme tilstand i sjelen"],
       explanation: "Mening kan være tilfeldig riktig uten å være forankret. Slavegutten går fra mening (tilfeldige svar) til noe fastere når han ser HVORFOR svaret må stemme.",
     },
     {
       question: "Hvorfor er hulelignelsen og «Staten» problematisk å trekke inn i en Menon/Faidon-oppgave?",
-      options: ["Det er ikke de pensumtekstene det spørres fra, og bred gjengivelse teller som utenompensum-generalia", "Hulelignelsen motsier idélæren", "«Staten» er skrevet av en annen filosof", "Hulelignelsen handler egentlig ikke om Platon selv i det hele tatt, men om en helt annen filosof i antikken"],
+      options: ["Det er ikke de pensumtekstene det spørres fra, og bred gjengivelse teller som utenompensum-generalia", "Hulelignelsen motsier idélæren, ettersom den gjør ideene til noe som bare finnes inne i menneskets hode", "«Staten» er skrevet av en helt annen filosof enn den som står bak de to pensumdialogene Menon og Faidon", "Hulelignelsen handler egentlig ikke om Platon selv i det hele tatt, men om en helt annen filosof i antikken"],
       explanation: "Oppgaver om læring og ideene spør fra Menon og Faidon. Å fylle på med hulelignelsen er feil #3 — leksikonsvar med lav relevans gir null uttelling.",
     },
     {
@@ -893,34 +893,34 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan henger forhåndsvitenen om det like sammen med gjenerindringen?",
-      options: ["Forhåndsvitenen er nettopp det sjelen gjenerindrer — kjennskapen til ideene fra før sanseerfaringen", "De er to helt uavhengige argumenter uten sammenheng", "Forhåndsvitenen motbeviser gjenerindringen", "Gjenerindringen gjelder utelukkende kroppen og dens sanser, mens forhåndsvitenen bare gjelder den udødelige sjelen"],
+      options: ["Forhåndsvitenen er nettopp det sjelen gjenerindrer — kjennskapen til ideene fra før sanseerfaringen", "De er to helt uavhengige argumenter uten noen som helst sammenheng, og bygger på hver sine forutsetninger", "Forhåndsvitenen motbeviser gjenerindringen, siden sjelen i så fall måtte ha husket absolutt alt fra før", "Gjenerindringen gjelder utelukkende kroppen og dens sanser, mens forhåndsvitenen bare gjelder den udødelige sjelen"],
       explanation: "Faidons argument fra det like viser at vi har kjent ideene forut for sansene — og det er akkurat denne forhåndskunnskapen Menons gjenerindring henter fram.",
     },
     {
       question: "Hva er Platons svar på hvordan de atskilte ideene henger sammen med sanseverdenen?",
-      options: ["Delaktighet: sansetingene har del i ideene og får sine egenskaper derfra", "Ideene forsvinner og opphører fullstendig i det øyeblikket sansetingene oppstår", "Sansetingene skaper ideene", "Det finnes ingen forbindelse i det hele tatt"],
+      options: ["Delaktighet: sansetingene har del i ideene og får sine egenskaper derfra", "Ideene forsvinner og opphører fullstendig i det øyeblikket sansetingene oppstår", "Sansetingene skaper ideene, som dermed blir avledet av selve sanseverdenen", "Det finnes ingen forbindelse i det hele tatt mellom de to virkelighetsområdene"],
       explanation: "Delaktighet er Platons løsning, men hvordan den fungerer, er noe han selv strever med — et naturlig drøftingspunkt og et springbrett til Aristoteles' innvending.",
     },
     {
       question: "Hva kjennetegner et A-svar om Platons læring og virkelighet, ifølge det sensor belønner?",
-      options: ["Å skille Menons «hvordan» fra Faidons «hva», vise sammenhengen, og drøfte en innvending forbeholdent", "Å gjengi flest mulig detaljer fra dialogene", "Å trekke inn og gjengi så mye som mulig fra hele Platons samlede forfatterskap gjennom alle dialogene hans", "Å konkludere skråsikkert uten forbehold"],
+      options: ["Å skille Menons «hvordan» fra Faidons «hva», vise sammenhengen, og drøfte en innvending forbeholdent", "Å gjengi flest mulig detaljer fra begge dialogene, slik at sensor kan se hvor grundig du har lest dem", "Å trekke inn og gjengi så mye som mulig fra hele Platons samlede forfatterskap gjennom alle dialogene hans", "Å konkludere skråsikkert og helt uten forbehold, slik at ditt eget standpunkt framstår tydelig for sensor"],
       explanation: "Kjernen er koblingene (slavegutt som belegg, gjenerindring som svar på paradokset, forhåndsviten som bro til ideene), og A-nivået legger til drøfting av regress- eller empirist-innvendingen.",
     },
     {
       question: "En elev «ser» plutselig hvorfor Pytagoras' setning må stemme. Hvordan ville Platon beskrevet dette?",
-      options: ["Som gjenerindring: hun henter fram en nødvendig, evig sannhet sjelen alt kjente, ikke noe sansene ga henne", "Som ren sanseerfaring av trekanter", "Som ren kunnskapsoverføring, altså noe læreren direkte og aktivt overførte og formidlet til den passive eleven", "Som en tilfeldig gjetning"],
+      options: ["Som gjenerindring: hun henter fram en nødvendig, evig sannhet sjelen alt kjente, ikke noe sansene ga henne", "Som ren sanseerfaring av trekanter: hun har sett så mange trekanter at selve mønsteret til slutt har festet seg", "Som ren kunnskapsoverføring, altså noe læreren direkte og aktivt overførte og formidlet til den passive eleven", "Som en tilfeldig gjetning som tilfeldigvis viste seg å stemme"],
       explanation: "At innsikten er nødvendig og allmenn og føles å komme innenfra, tyder for Platon på gjenerindring. En empirist ville i stedet forklart det som abstraksjon fra tidligere erfaring.",
     },
     {
       question: "Hvorfor bygger ikke Platon kunnskap på sanseerfaring alene?",
-      options: ["Fordi sansene bare gir det skiftende og ufullkomne, mens sikker kunnskap gjelder de evige, fullkomne ideene", "Fordi sansene ikke finnes", "Fordi det i grunnen bare er trente matematikere som har sanser som fungerer godt nok til å gi virkelig kunnskap", "Fordi erfaring alltid er raskere enn tanken"],
+      options: ["Fordi sansene bare gir det skiftende og ufullkomne, mens sikker kunnskap gjelder de evige, fullkomne ideene", "Fordi sansene ikke finnes som selvstendig kilde til kunnskap", "Fordi det i grunnen bare er trente matematikere som har sanser som fungerer godt nok til å gi virkelig kunnskap", "Fordi erfaringen alltid går raskere enn tanken, og derfor aldri rekker å gi oss noen virkelig sikker kunnskap om verden"],
       explanation: "Sanseverdenen oppstår og forgår og er ufullkommen. Derfor må sikker kunnskap gjelde noe stabilt — ideene — som nås med fornuften og gjenerindringen.",
     },
   ],
   'exphil03-2-2': [
     {
       question: "Hva mener Aristoteles med en substans?",
-      options: ["Det selvstendig eksisterende enkeltværende — en ting som er noe i seg selv", "En egenskap som «rødt» eller «stort»", "En idé i en atskilt idéverden", "Selve det rå stoffet eller materialet en ting er laget av, tenkt helt uten formen"],
+      options: ["Det selvstendig eksisterende enkeltværende — en ting som er noe i seg selv", "En egenskap som «rødt» eller «stort», altså noe som bare kan tilkomme en ting", "En idé som finnes i en egen, atskilt idéverden, slik Platon plasserer formene", "Selve det rå stoffet eller materialet en ting er laget av, tenkt helt uten formen"],
       explanation: "En substans er en konkret enkeltting (denne hesten), ikke en egenskap. For Aristoteles er substansene de primære virkelighetene — motsatt av Platon, som lot ideene være mest virkelige.",
     },
     {
@@ -935,7 +935,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr aitia hos Aristoteles?",
-      options: ["Svar på et «hvorfor»-spørsmål i vid forstand — en forklaringsfaktor", "En forutgående hendelse som frembringer en virkning", "Stoffet en ting er laget av", "Selve det endelige målet eller hensikten som en ting av natur streber mot"],
+      options: ["Svar på et «hvorfor»-spørsmål i vid forstand — en forklaringsfaktor", "En forutgående hendelse som frembringer en bestemt virkning senere i tid", "Selve stoffet eller materialet som en ting i siste instans er laget av", "Selve det endelige målet eller hensikten som en ting av natur streber mot"],
       explanation: "Aitia er bredere enn moderne «årsak». Bare virkeårsaken ligner det moderne begrepet. Å lese aitia som moderne kausalitet er feil #6, som oppgaveteksten selv advarer mot.",
     },
     {
@@ -960,12 +960,12 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skiller et iboende formål fra et pålagt formål?",
-      options: ["Et iboende formål ligger i tingens egen natur; et pålagt formål er gitt utenfra av en formålsgiver", "Et iboende formål gis alltid utenfra av en snekker eller håndverker, mens et pålagt formål tvert imot oppstår helt av seg selv", "Det er ingen forskjell", "Iboende formål gjelder bare artefakter"],
+      options: ["Et iboende formål ligger i tingens egen natur; et pålagt formål er gitt utenfra av en formålsgiver", "Et iboende formål gis alltid utenfra av en snekker eller håndverker, mens et pålagt formål tvert imot oppstår helt av seg selv", "Det er ingen forskjell — de to uttrykkene betyr nøyaktig det samme", "Iboende formål gjelder bare artefakter, mens naturting utelukkende har formål som er pålagt utenfra"],
       explanation: "En stol fikk formålet «å sitte på» av en snekker (pålagt). Aristoteles hevder treet har et iboende formål — i sin egen natur, uten formålsgiver. Skillet bærer teleologi-drøftingen.",
     },
     {
       question: "Hvorfor er firårsaks-skjemaet mer omstridt for naturting enn for artefakter?",
-      options: ["Fordi formålsårsaken for naturting bærer en filosofisk påstand: at tingen har et iboende mål uten formålsgiver", "Fordi naturting ikke har stoff", "Fordi artefakter og menneskeskapte gjenstander i motsetning til naturting fullstendig mangler både form og noe iboende formål", "Fordi naturting ikke kan forklares i det hele tatt"],
+      options: ["Fordi formålsårsaken for naturting bærer en filosofisk påstand: at tingen har et iboende mål uten formålsgiver", "Fordi naturting ikke har noe stoff som de kan forklares ut fra", "Fordi artefakter og menneskeskapte gjenstander i motsetning til naturting fullstendig mangler både form og noe iboende formål", "Fordi naturting overhodet ikke lar seg forklare, verken med de fire årsakene eller på noen som helst annen måte"],
       explanation: "For en bil ga noen den et formål. For en eikenøtt er stoff, form og virke greie, men hvem ga den formålet? Aristoteles svarer «det er iboende» — og det er det stridspunktet.",
     },
     {
@@ -975,32 +975,32 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva innebærer det å «platonisere» Aristoteles' former?",
-      options: ["Å plassere formene i en atskilt idéverden i stedet for i tingene selv", "Å si at formen er i tingen", "Å bruke bil-eksemplet på de fire årsakene", "Å skille begrepet aitia altfor skarpt fra det moderne kausalitetsbegrepet"],
+      options: ["Å plassere formene i en atskilt idéverden i stedet for i tingene selv", "Å si at formen ligger i selve tingen, akkurat slik Aristoteles faktisk gjør", "Å bruke bil-eksemplet når man skal forklare hvert av de fire årsaksleddene", "Å skille begrepet aitia altfor skarpt fra det moderne kausalitetsbegrepet"],
       explanation: "Hele poenget hos Aristoteles er at formen er I tingen, uatskillelig fra stoffet. Å plassere den i en idéverden er en presisjonsfeil (feil #6-variant).",
     },
     {
       question: "Hva er kunnskapens kilde ifølge Aristoteles?",
-      options: ["Erfaringen — vi undersøker tingene, sanser dem og ser hva de har felles", "Sjelens gjenerindring av ideene", "Den rene fornuften helt alene, fullstendig uavhengig av alle de bedragerske sansene", "Autoriteter og tradisjon"],
+      options: ["Erfaringen — vi undersøker tingene, sanser dem og ser hva de har felles", "Sjelens gjenerindring av de ideene som den kjente lenge før den fikk kropp", "Den rene fornuften helt alene, fullstendig uavhengig av alle de bedragerske sansene", "Autoriteter og tradisjon, altså det de lærde før oss allerede har slått fast"],
       explanation: "Fordi formen er i tingene, må vi studere tingene for å finne den. Dette er den direkte motsatsen til Platons gjenerindring, og henger sammen med Aristoteles' virkelighetssyn.",
     },
     {
       question: "Hvordan henger Aristoteles' virkelighetssyn og kunnskapssyn sammen?",
-      options: ["Fordi formen er i tingene, kommer kunnskapen fra å studere tingene (erfaring)", "Fordi formen er i en atskilt verden, må kunnskap komme innenfra", "De to henger ikke sammen", "Fordi sansene i bunn og grunn alltid bedrar oss, må all sikker kunnskap i stedet være sjelens gjenerindring"],
+      options: ["Fordi formen er i tingene, kommer kunnskapen fra å studere tingene (erfaring)", "Fordi formen ligger i en atskilt idéverden, må all sikker kunnskap komme innenfra", "De to sidene av filosofien hans henger overhodet ikke sammen med hverandre hos ham", "Fordi sansene i bunn og grunn alltid bedrar oss, må all sikker kunnskap i stedet være sjelens gjenerindring"],
       explanation: "Virkelighetssyn og kunnskapssyn følges ad: form i tingen gir erfaring som kilde (Aristoteles), mens form i atskilt verden gir gjenerindring (Platon).",
     },
     {
       question: "Hva er formårsaken til et bord?",
-      options: ["Konstruksjonen som gjør det til et bord — den flate platen på ben", "Treet det er laget av", "Snekkeren som lagde det", "Selve den endelige hensikten: å ha en stabil flate å spise og arbeide ved"],
+      options: ["Konstruksjonen som gjør det til et bord — den flate platen på ben", "Treet det er laget av, altså selve materialet i både platen og bena", "Snekkeren som lagde det og som festet platen fast på de fire bena", "Selve den endelige hensikten: å ha en stabil flate å spise og arbeide ved"],
       explanation: "Formårsaken er det som gjør stoffet til nettopp denne slags ting. (Treet er stoffårsak, snekkeren virkeårsak, spiseflaten formålsårsak.)",
     },
     {
       question: "Hva er den mekanistiske innvendingen mot Aristoteles' teleologi?",
-      options: ["At naturting ikke HAR formål, men bare oppfører seg som de gjør av fysiske og biologiske årsaker", "At naturting ikke har stoff", "At Aristoteles selv i virkeligheten aldri klarte å skille tydelig mellom en tings form og dens underliggende stoff", "At de fire årsakene er for mange"],
+      options: ["At naturting ikke HAR formål, men bare oppfører seg som de gjør av fysiske og biologiske årsaker", "At naturting ikke har noe stoff som de er bygd opp av i det hele tatt", "At Aristoteles selv i virkeligheten aldri klarte å skille tydelig mellom en tings form og dens underliggende stoff", "At de fire årsakene rett og slett er for mange, og at tre av dem kan strykes uten tap for forklaringen"],
       explanation: "Et moderne syn sier at å tilskrive naturen mål er å lese menneskelig hensikt inn i det som bare skjer. At et organ gagner organismen, kan forklares uten mål — noe evolusjonen aktualiserer (kap. 2.3).",
     },
     {
       question: "Hva er en mulig mellomposisjon i teleologi-drøftingen?",
-      options: ["At formålsspråk er en nyttig måte å beskrive funksjon på, uten å forplikte seg til at naturen HAR mål metafysisk", "At hele naturen og alt som finnes i den har fått sitt formål gitt utenfra av en guddommelig skaper og formålsgiver", "At de fire årsakene må forkastes helt", "At bare virkeårsaken er en ekte årsak"],
+      options: ["At formålsspråk er en nyttig måte å beskrive funksjon på, uten å forplikte seg til at naturen HAR mål metafysisk", "At hele naturen og alt som finnes i den har fått sitt formål gitt utenfra av en guddommelig skaper og formålsgiver", "At hele læren om de fire årsakene må forkastes fullstendig, siden ingen av dem holder mål i møte med moderne naturvitenskap", "At bare virkeårsaken kan regnes som en ekte årsak i moderne forstand"],
       explanation: "Man kan beholde funksjonsforståelsen («øyet er til for å se») som beskrivelse, men slippe den kontroversielle metafysiske teleologien. En god A-nyanse.",
     },
     {
@@ -1015,12 +1015,12 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr det at Aristoteles var elev av Platon, for hans metafysikk?",
-      options: ["Hans posisjon er en gjennomtenkt korreksjon av læreren, ikke en tilfeldig uenighet", "Han var helt enig med Platon", "Han kjente ikke til Platons idélære", "Han levde i virkeligheten lenge før Platon og kunne dermed umulig ha kjent til hele idélæren"],
+      options: ["Hans posisjon er en gjennomtenkt korreksjon av læreren, ikke en tilfeldig uenighet", "Han var i ett og alt enig med læreren sin i spørsmålet om hvor formene skal plasseres", "Han kjente overhodet ikke til Platons idélære da han selv utformet sin egen metafysikk", "Han levde i virkeligheten lenge før Platon og kunne dermed umulig ha kjent til hele idélæren"],
       explanation: "Der Platon skilte formene ut i en egen verden, henter Aristoteles dem inn i tingene. Å nevne lærer–elev-forholdet gir S3-kontrasten historisk dybde uten å falle i biografi-generalia.",
     },
     {
       question: "Hva er telos?",
-      options: ["Målet eller hensikten en ting er rettet mot — kjernen i formålsårsaken", "Stoffet en ting er laget av", "Det som frembrakte tingen", "Selve formen eller den ytre konstruksjonen som gjør stoffet til nettopp denne tingen"],
+      options: ["Målet eller hensikten en ting er rettet mot — kjernen i formålsårsaken", "Det rå stoffet eller materialet som en ting i siste instans er laget av", "Det som en gang frembrakte tingen, altså håndverkeren eller hendelsen i tid", "Selve formen eller den ytre konstruksjonen som gjør stoffet til nettopp denne tingen"],
       explanation: "Telos er det eikenøtten strever mot (eiketreet), det øyet er innrettet for (syn). Hos Aristoteles har også naturting sitt telos, i kraft av sin egen natur.",
     },
     {
@@ -1045,22 +1045,22 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner et A-svar om Aristoteles' metafysikk, ifølge det sensor belønner?",
-      options: ["Å skille artefakt fra naturting (formålsårsaken som stridspunkt) og binde virkelighets- og kunnskapssyn sammen i Platon-kontrasten", "Å gjengi og ramse opp så mange biografiske detaljer som overhodet mulig om Aristoteles' eget liv, oppvekst, læretid og virke i antikkens Hellas", "Å regne bare virkeårsaken som ekte årsak", "Å konkludere skråsikkert at teleologien er sann"],
+      options: ["Å skille artefakt fra naturting (formålsårsaken som stridspunkt) og binde virkelighets- og kunnskapssyn sammen i Platon-kontrasten", "Å gjengi og ramse opp så mange biografiske detaljer som overhodet mulig om Aristoteles' eget liv, oppvekst, læretid og virke i antikkens Hellas", "Å regne bare virkeårsaken som en ekte årsak, og dermed forklare både artefakter og naturting utelukkende ut fra det som frembrakte dem", "Å konkludere skråsikkert med at teleologien er sann, uten å veie den mekanistiske innvendingen"],
       explanation: "Kjernen er de fire årsakene og teleologien; A-nivået legger til at skjemaet er intuitivt for artefakter men omstridt for naturting, og drøfter teleologien forbeholdent.",
     },
     {
       question: "Hva menes med at «naturen gjør intet forgjeves»?",
-      options: ["At alt i naturen har en funksjon eller et mål, ingenting er formålsløst", "At naturen er full av unyttige ting", "At bare mennesker har formål", "At hele naturen utelukkende styres av rene, blinde og formålsløse tilfeldigheter"],
+      options: ["At alt i naturen har en funksjon eller et mål, ingenting er formålsløst", "At naturen er full av unyttige ting som ikke tjener noe formål i det hele tatt", "At bare menneskene har et formål, mens resten av naturen er helt formålsløs", "At hele naturen utelukkende styres av rene, blinde og formålsløse tilfeldigheter"],
       explanation: "Setningen er Aristoteles' kondenserte formulering av det teleologiske verdenssynet: det som vokser, streber mot sin fulle skikkelse. Nettopp denne påstanden avviser en mekanistisk naturforståelse.",
     },
     {
       question: "Hvorfor er egenskaper som «rødt» ikke substanser hos Aristoteles?",
-      options: ["Fordi de ikke eksisterer i seg selv, men bare ved å tilhøre en substans", "Fordi de er ideer i en idéverden", "Fordi egenskaper som «rødt» i virkeligheten selv fungerer som formålsårsaker for tingen", "Fordi de ikke kan sanses"],
+      options: ["Fordi de ikke eksisterer i seg selv, men bare ved å tilhøre en substans", "Fordi de er ideer som i virkeligheten hører hjemme i en atskilt idéverden", "Fordi egenskaper som «rødt» i virkeligheten selv fungerer som formålsårsaker for tingen", "Fordi de ikke lar seg sanse i det hele tatt, men bare gripes med fornuften"],
       explanation: "«Rødt» må tilhøre noe rødt for å finnes; det er ikke noe selvstendig eksisterende. Bare enkelttingene (substansene) er noe i seg selv — de er de primære virkelighetene.",
     },
     {
       question: "Hva er den mest markerte fellen i Aristoteles-stoffet på eksamen?",
-      options: ["Å lese aitia (årsak) som moderne kausalitet og dermed miste tre av fire ledd", "Å bruke et eksempel på de fire årsakene", "Å nevne altfor mye biografisk om at Aristoteles i sin tid var Platons elev og lærling", "Å skille form fra stoff"],
+      options: ["Å lese aitia (årsak) som moderne kausalitet og dermed miste tre av fire ledd", "Å bruke et konkret eksempel når man forklarer de fire årsakene i redegjørelsen", "Å nevne altfor mye biografisk om at Aristoteles i sin tid var Platons elev og lærling", "Å skille formen fra stoffet i stedet for å holde dem samlet i én og samme ting"],
       explanation: "Oppgaveteksten advarer selv mot dette (feil #6). Regner man bare virkeårsaken som «egentlig årsak», presser man Aristoteles inn i et kausalitetsbegrep han ikke deler.",
     },
     {
@@ -1077,7 +1077,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva menes med «tilsynelatende design» hos Dawkins?",
-      options: ["At levende ting ser formålsrettet konstruert ut uten at det finnes en formålsgiver eller et forutgående mål", "At funksjonene i naturen er rene illusjoner som ikke finnes", "At Gud som en bevisst og allmektig formålsgiver bokstavelig talt har designet og formet hele naturen slik den fremstår", "At naturen er tilfeldig og uten struktur"],
+      options: ["At levende ting ser formålsrettet konstruert ut uten at det finnes en formålsgiver eller et forutgående mål", "At funksjonene i naturen er rene illusjoner som ikke finnes", "At Gud som en bevisst og allmektig formålsgiver bokstavelig talt har designet og formet hele naturen slik den fremstår", "At naturen er helt tilfeldig og uten struktur, slik at det ikke finnes funksjoner i levende organismer i det hele tatt"],
       explanation: "«Tilsynelatende» betyr ikke illusorisk — øyet ser virkelig — men at funksjonen ikke krever et mål. Den er forklart bakfra, av seleksjon, ikke forfra, av en hensikt.",
     },
     {
@@ -1087,12 +1087,12 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen på «sterk» og «svak» teleologi i drøftingen mot Dawkins?",
-      options: ["Sterk teleologi krever et forutgående mål/formålsgiver; svak teleologi hevder bare at organer har funksjoner", "Sterk teleologi gjelder planter; svak teleologi gjelder dyr", "Sterk teleologi tilhører opprinnelig Aristoteles, mens den svakere formen egentlig stammer fra Platons idélære om formene", "Det er ingen reell forskjell"],
+      options: ["Sterk teleologi krever et forutgående mål/formålsgiver; svak teleologi hevder bare at organer har funksjoner", "Sterk teleologi gjelder planter; svak teleologi gjelder dyr", "Sterk teleologi tilhører opprinnelig Aristoteles, mens den svakere formen egentlig stammer fra Platons idélære om formene", "Det er ingen reell forskjell mellom dem; sterk og svak teleologi er bare to ulike navn på én og samme posisjon"],
       explanation: "Naturlig utvalg treffer den sterke teleologien (iboende mål) hardt, men er forenlig med den svake (funksjon). En god drøfting sier tydelig hvilken teleologi den drøfter mot.",
     },
     {
       question: "Hva er kjernepremisset i Streets evolusjonære debunking-argument?",
-      options: ["At seleksjonen formet verdiene våre fordi de var nyttige for overlevelse, ikke fordi de var moralsk sanne", "At alle moralske verdier er objektivt sanne", "At selve evolusjonen og det naturlige utvalget entydig beviser at helt bestemte moralske verdier er objektivt riktige", "At mennesket ikke har noen verdier i det hele tatt"],
+      options: ["At seleksjonen formet verdiene våre fordi de var nyttige for overlevelse, ikke fordi de var moralsk sanne", "At absolutt alle moralske verdier er objektivt sanne, helt uavhengig av hvordan de har oppstått hos oss mennesker", "At selve evolusjonen og det naturlige utvalget entydig beviser at helt bestemte moralske verdier er objektivt riktige", "At mennesket ikke har noen moralske verdier i det hele tatt, og at hele moralen derfor bare er en illusjon"],
       explanation: "Seleksjonen sporer nytte, ikke sannhet. Hadde en usann verdi tjent overlevelsen like godt, ville den blitt like utbredt — derfor er moralsk sannhet irrelevant for hva seleksjonen frembrakte.",
     },
     {
@@ -1102,27 +1102,27 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er skillet mellom genese og gyldighet?",
-      options: ["Genese er hvor en verdi kommer fra (opphavet); gyldighet er om den er sann/riktig", "Genese er om verdien er sann; gyldighet er hvor den kommer fra", "De betyr det samme", "Genese er noe som utelukkende gjelder moralen, mens gyldighet på sin side bare gjelder vitenskapen"],
+      options: ["Genese er hvor en verdi kommer fra (opphavet); gyldighet er om den er sann/riktig", "Genese er spørsmålet om verdien er sann, mens gyldighet er spørsmålet om hvor den kommer fra", "De to uttrykkene betyr nøyaktig det samme og kan uten videre byttes ut med hverandre", "Genese er noe som utelukkende gjelder moralen, mens gyldighet på sin side bare gjelder vitenskapen"],
       explanation: "De er logisk forskjellige: lavt opphav utelukker ikke riktighet, edelt opphav sikrer den ikke. Å holde de to fra hverandre er A-differensiatoren i dette stoffet.",
     },
     {
       question: "Hva er den klassiske feilen når man drøfter Streets argument?",
-      options: ["Å gli fra at evolusjonen «forklarer» en verdi til at den «rettferdiggjør» eller «motbeviser» den", "Å skille genese fra gyldighet", "Å påpeke at det naturlige utvalget og seleksjonen først og fremst sporer nytte og overlevelse, ikke sannhet", "Å koble Dawkins og Street"],
+      options: ["Å gli fra at evolusjonen «forklarer» en verdi til at den «rettferdiggjør» eller «motbeviser» den", "Å skille genese fra gyldighet, altså opphavet til en verdi fra spørsmålet om verdien faktisk er sann", "Å påpeke at det naturlige utvalget og seleksjonen først og fremst sporer nytte og overlevelse, ikke sannhet", "Å koble Dawkins og Street sammen, siden begge to forklarer et opphav evolusjonært og ikke en gyldighet"],
       explanation: "At noe ER slik (vi har verdien fordi den gagnet overlevelse) sier ikke uten videre noe om hva som BØR være tilfellet. Å forklare et opphav er verken å begrunne eller å oppheve en norm — en er/bør-glidning.",
     },
     {
       question: "Retter Streets argument seg mot moralen som sådan, eller mot noe mer bestemt?",
-      options: ["Mot den moralske realismen — synet at verdiene er objektive — ikke mot moralen i seg selv", "Mot all moral, som argumentet viser er meningsløs", "Mot selve det at mennesker i det hele tatt har moralske følelser og emosjonelle reaksjoner", "Mot evolusjonsteorien"],
+      options: ["Mot den moralske realismen — synet at verdiene er objektive — ikke mot moralen i seg selv", "Mot all moral overhodet, siden argumentet ifølge Street viser at hele moralen er meningsløs", "Mot selve det at mennesker i det hele tatt har moralske følelser og emosjonelle reaksjoner", "Mot selve evolusjonsteorien, som argumentet etter Streets eget syn er ment å svekke og undergrave"],
       explanation: "Debunking-argumentet er en utfordring til objektiviteten. Å lese det som «alt er tillatt» eller at moral er meningsløst, er en feil — det fører snarere mot ydmykhet eller antirealisme enn mot nihilisme.",
     },
     {
       question: "Hva er gjenbruksbonusen (sensorbonus) i drøftingsdelen om evolusjon?",
-      options: ["Å føre Dawkins-redegjørelsen eksplisitt inn i Street-drøftingen, siden de to deler logikk (opphav vs. status)", "Å svare på begge de valgfrie oppgavene", "Å gjenta redegjørelsen ordrett i konklusjonen", "Å bevisst unngå å nevne Dawkins og det naturlige utvalget i det hele tatt når man drøfter Streets verdi-argument"],
+      options: ["Å føre Dawkins-redegjørelsen eksplisitt inn i Street-drøftingen, siden de to deler logikk (opphav vs. status)", "Å svare på begge de to valgfrie oppgavene i settet i stedet for å velge én", "Å gjenta hele redegjørelsen ordrett en gang til i konklusjonen, slik at sensor tydelig ser at poengene henger sammen", "Å bevisst unngå å nevne Dawkins og det naturlige utvalget i det hele tatt når man drøfter Streets verdi-argument"],
       explanation: "De to halvdelene deler logikk: evolusjonen gir et opphav, og spørsmålet er hva opphavet innebærer. Å ikke koble dem er feil #5; å vise parallellen henter bonusen.",
     },
     {
       question: "Kan aristotelikeren svare på Dawkins' utfordring mot teleologien?",
-      options: ["Ja, ved å hevde at Dawkins forklarer HVORDAN formålsrettetheten oppstod, ikke at funksjonen ikke finnes", "Nei, teleologien er fullstendig motbevist", "Ja, men bare ved fullstendig å benekte at det naturlige utvalget og hele evolusjonen i det hele tatt finnes", "Nei, fordi Aristoteles ikke kjente til evolusjon"],
+      options: ["Ja, ved å hevde at Dawkins forklarer HVORDAN formålsrettetheten oppstod, ikke at funksjonen ikke finnes", "Nei, hele teleologien er fullstendig motbevist av det naturlige utvalget, og bør derfor forlates for godt", "Ja, men bare ved fullstendig å benekte at det naturlige utvalget og hele evolusjonen i det hele tatt finnes", "Nei, fordi Aristoteles ikke kjente til evolusjonen og derfor umulig kan svare på en innvending av dette slaget"],
       explanation: "En «myk» teleologi som bare fastholder at organer HAR funksjoner (uten formålsgiver) kan leve videre ved siden av evolusjonen. Om Dawkins tilbakeviser teleologien, avhenger av hvor sterk teleologi man tilskriver Aristoteles.",
     },
     {
@@ -1137,17 +1137,17 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilket av utfallene ligger nærmest konklusjonen av Streets argument?",
-      options: ["Skeptisisme/antirealisme om moralsk objektivitet — vi mangler grunn til å tro vi har truffet en objektiv sannhet", "Full og gjennomført moralsk relativisme — det finnes overhodet ingen objektiv sannhet i etikken som man i det hele tatt kan ta feil om", "Moralsk dogmatisme — vi vet sikkert hva som er rett", "Nihilisme — alt er tillatt"],
+      options: ["Skeptisisme/antirealisme om moralsk objektivitet — vi mangler grunn til å tro vi har truffet en objektiv sannhet", "Full og gjennomført moralsk relativisme — det finnes overhodet ingen objektiv sannhet i etikken som man i det hele tatt kan ta feil om", "Moralsk dogmatisme — vi vet sikkert hva som er rett, og evolusjonsforklaringen rokker ikke ved det i det hele tatt", "Nihilisme — alt er tillatt, og ingen handling kan kritiseres moralsk"],
       explanation: "Argumentet angriper vår TILGANG til moralsk sannhet (kilden er upålitelig som sannhetsspor). Det beviser ikke full relativisme; i mildere form fører det til ydmykhet.",
     },
     {
       question: "Hva er de to leddene i naturlig utvalg, og hvordan skiller de seg?",
-      options: ["Variasjon (blind, tilfeldig) og seleksjon (retningsgivende uten å sikte mot et mål)", "Variasjon (målrettet) og seleksjon (tilfeldig)", "Tilfeldig genetisk mutasjon og sjelens platonske gjenerindring av de evige og fullkomne formene", "Form og stoff"],
+      options: ["Variasjon (blind, tilfeldig) og seleksjon (retningsgivende uten å sikte mot et mål)", "Variasjon (målrettet mot et bestemt mål) og seleksjon (som virker fullstendig tilfeldig)", "Tilfeldig genetisk mutasjon og sjelens platonske gjenerindring av de evige og fullkomne formene", "Form og stoff, altså de to leddene Aristoteles deler enhver ting i etter hylemorfismen"],
       explanation: "Variasjonen er råmaterialet (tilfeldige ulikheter); seleksjonen er filteret (de best tilpassede overlever oftere). Å gjøre seleksjonen målrettet er en typisk upresishet.",
     },
     {
       question: "Hva er en typisk feil når man redegjør for Dawkins i en drøftingsoppgave?",
-      options: ["Å gjengi naturlig utvalg uten å ta stilling til hva det betyr for Aristoteles' teleologi", "Å nevne både variasjon og seleksjon", "Å forklare at mekanismen er formålsløs", "Å bruke øyet og dets tilsynelatende komplekse design som det gjennomgående hovedeksempelet"],
+      options: ["Å gjengi naturlig utvalg uten å ta stilling til hva det betyr for Aristoteles' teleologi", "Å nevne både variasjonen og seleksjonen som de to nødvendige leddene i det naturlige utvalget", "Å forklare at hele mekanismen er formålsløs og ikke sikter mot noe som helst mål i naturen", "Å bruke øyet og dets tilsynelatende komplekse design som det gjennomgående hovedeksempelet"],
       explanation: "Redegjørelsen skal tjene drøftingen (feil #1-vaksine). Å gjengi mekanismen uten å koble den til teleologi-spørsmålet svarer ikke på oppgaven.",
     },
     {
@@ -1184,7 +1184,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er res extensa?",
-      options: ["Den utstrakte, ikke-tenkende substansen — kroppen og materien", "Den tenkende, uutstrakte substansen — sinnet", "En egenskap ved tanken", "Egentlig bare et annet navn på selve den metodiske tvilen hos Descartes"],
+      options: ["Den utstrakte, ikke-tenkende substansen — kroppen og materien", "Den tenkende, uutstrakte substansen — altså sinnet hos Descartes", "En egenskap ved selve tanken, og altså ikke noen selvstendig substans", "Egentlig bare et annet navn på selve den metodiske tvilen hos Descartes"],
       explanation: "Res extensa («utstrakt ting») har utstrekning (lengde, bredde, dybde) og tenker ikke. Res cogitans er den tenkende substansen.",
     },
     {
@@ -1199,7 +1199,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan begrunner Descartes at sinn og kropp er ulike substanser (argumentet fra tvilbarhet)?",
-      options: ["Jeg kan tvile på at jeg har en kropp, men ikke på at jeg tenker; ulike egenskaper gir ulike ting", "Kroppen er synlig, sinnet er usynlig", "Sinnet er evig, kroppen forgjengelig", "Den moderne naturvitenskapen har gjennom nøyaktige målinger og eksperimenter fastslått at sinn og kropp er to ulike ting"],
+      options: ["Jeg kan tvile på at jeg har en kropp, men ikke på at jeg tenker; ulike egenskaper gir ulike ting", "Kroppen er synlig for alle, mens sinnet er usynlig, og synlige og usynlige ting kan umulig være det samme", "Sinnet er evig, mens kroppen er forgjengelig og går til grunne", "Den moderne naturvitenskapen har gjennom nøyaktige målinger og eksperimenter fastslått at sinn og kropp er to ulike ting"],
       explanation: "Argumentet fra tvilbarhet: kroppen er tvilbar, tanken ikke; ting med ulike vesentlige egenskaper er ulike ting; altså er de ulike substanser. Det bygger på cogito.",
     },
     {
@@ -1214,27 +1214,27 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er Descartes' svar til Elisabeth?",
-      options: ["At sjel og legeme er nært forent, kjent gjennom livets erfaring", "At interaksjon ikke finnes", "At sinnet egentlig er utstrakt", "At det i virkeligheten er den fysiske kroppen selv som gjør all tenkningen"],
+      options: ["At sjel og legeme er nært forent, kjent gjennom livets erfaring", "At det ikke finnes noen virkelig interaksjon mellom sinnet og kroppen", "At sinnet egentlig er utstrakt i rommet, akkurat som kroppen er det", "At det i virkeligheten er den fysiske kroppen selv som gjør all tenkningen"],
       explanation: "Descartes svarer med foreningen av sjel og legeme. Elisabeths motsvar: dette forklarer ikke mekanismen, det gjentar bare at samvirket skjer.",
     },
     {
       question: "Hvorfor tilfredsstiller ikke «sjelens forening med legemet» Elisabeth?",
-      options: ["Det gjentar bare at samvirket skjer uten å forklare hvordan", "Det er selvmotsigende på et logisk nivå", "Det strider mot Bibelen", "Det forutsetter i det stille at selve sinnet egentlig er utstrakt i rommet"],
+      options: ["Det gjentar bare at samvirket skjer uten å forklare hvordan", "Det er selvmotsigende på et rent logisk nivå og kan avvises straks", "Det strider mot Bibelen og mot kirkens egen lære om den udødelige sjelen", "Det forutsetter i det stille at selve sinnet egentlig er utstrakt i rommet"],
       explanation: "Elisabeth krevde en mekanisme. Foreningen er et navn på problemet, ikke en løsning — den forklarer ikke hvordan noe uutstrakt kan virke på noe utstrakt.",
     },
     {
       question: "Hva er fysikalisme?",
-      options: ["Posisjonen at alt som finnes er fysisk, også sinnet", "Posisjonen at bare sinnet er virkelig", "Descartes' egen posisjon", "Selve læren om at sinn og kropp utgjør to helt ulike substanser"],
+      options: ["Posisjonen at alt som finnes er fysisk, også sinnet", "Posisjonen at bare sinnet er virkelig, og ikke materien", "Descartes' egen posisjon i spørsmålet om sinn og kropp", "Selve læren om at sinn og kropp utgjør to helt ulike substanser"],
       explanation: "Fysikalismen sier at alt er fysisk. Den unngår interaksjonsproblemet fordi den ikke har to ulike substanser som må samvirke — men problemet beviser den ikke.",
     },
     {
       question: "Hvorfor er det et A-poeng å skille «argument mot Descartes» fra «argument for fysikalisme»?",
-      options: ["At interaksjonsproblemet rammer Descartes' variant, viser ikke at fysikalismen er sann", "Fordi begrepene fysikalisme og substansdualisme i bunn og grunn betyr nøyaktig det samme i filosofien", "Fordi Descartes selv var fysikalist", "Fordi Elisabeth argumenterte for fysikalisme"],
+      options: ["At interaksjonsproblemet rammer Descartes' variant, viser ikke at fysikalismen er sann", "Fordi begrepene fysikalisme og substansdualisme i bunn og grunn betyr nøyaktig det samme i filosofien", "Fordi Descartes selv i realiteten var fysikalist på dette punktet", "Fordi Elisabeth selv argumenterte for fysikalismen da hun reiste innvendingen mot Descartes"],
       explanation: "Å svekke Descartes' dualisme viser bare at *denne* dualismen har en vanske. Å hoppe rett til «altså er alt fysisk» er ensidig drøfting (#8).",
     },
     {
       question: "Hva ville en cartesianer si om en robot som hevder å føle smerte?",
-      options: ["At roboten er ren res extensa og mangler den tenkende substansen føleevnen forutsetter", "At roboten helt sikkert virkelig føler smerte, ganske enkelt fordi den selv sier og hevder at den gjør det", "At roboten er en tredje substans", "At spørsmålet er meningsløst"],
+      options: ["At roboten er ren res extensa og mangler den tenkende substansen føleevnen forutsetter", "At roboten helt sikkert virkelig føler smerte, ganske enkelt fordi den selv sier og hevder at den gjør det", "At roboten er en tredje substans ved siden av sinn og kropp", "At spørsmålet i seg selv er meningsløst, siden vi aldri kan få vite noe om robotens indre liv"],
       explanation: "Roboten er ren utstrakt materie (res extensa). Å føle krever res cogitans. Cartesianeren ville være skeptisk uansett hvor overbevisende roboten snakker.",
     },
     {
@@ -1249,7 +1249,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken feil begår den som sier «dualisme betyr bare at hjerne og sinn er to ord for det samme»?",
-      options: ["En kategorifeil (#6) — dualismen handler om substanser, ikke om ord", "En regnefeil", "En kildefeil", "Ingen feil i det hele tatt — dette er en helt riktig beskrivelse av dualismen"],
+      options: ["En kategorifeil (#6) — dualismen handler om substanser, ikke om ord", "En regnefeil, altså en rent teknisk glipp i framstillingen av teorien", "En kildefeil, altså at det er vist til feil pensumtekst for påstanden", "Ingen feil i det hele tatt — dette er en helt riktig beskrivelse av dualismen"],
       explanation: "«To ord for det samme» er nærmest identitetstesen — det motsatte av dualisme. Descartes hevder to selvstendig eksisterende substanser (#6).",
     },
     {
@@ -1259,22 +1259,22 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva menes med at sinnet er «uutstrakt»?",
-      options: ["At det er uten romlig utstrekning og ingen overflate har", "At det er svært lite", "At det beveger seg raskt", "At det er fullstendig usynlig for det blotte øyet, men likevel fyller rom"],
+      options: ["At det er uten romlig utstrekning og ingen overflate har", "At det er svært lite, mindre enn den minste cellen i kroppen", "At det beveger seg raskere enn noe annet vi kjenner i naturen", "At det er fullstendig usynlig for det blotte øyet, men likevel fyller rom"],
       explanation: "Uutstrakt betyr uten romlig utstrekning. Nettopp dette gjør interaksjonsproblemet skarpt: hvordan skal noe uten overflate ta kontakt med noe utstrakt?",
     },
     {
       question: "Hva er «kontaktkravet» i interaksjonsproblemet?",
-      options: ["Antagelsen om at påvirkning krever kontakt mellom utstrakte ting", "Kravet om at studenten må ta kontakt med sensor", "At sinnet må berøre Gud", "At selve kroppen alltid må hvile fullstendig for at sinnet skal kunne tenke"],
+      options: ["Antagelsen om at påvirkning krever kontakt mellom utstrakte ting", "Kravet om at studenten må ta kontakt med sensor i forkant av eksamen", "At sinnet må være i direkte berøring med Gud for i det hele tatt å virke", "At selve kroppen alltid må hvile fullstendig for at sinnet skal kunne tenke"],
       explanation: "Elisabeth bygger på at påvirkning krever kontakt — den ene utstrakte tingen skyver den andre. Et mulig dualist-motsvar er at kravet ikke må gjelde sinn-kropp-forholdet.",
     },
     {
       question: "Hva er en substans hos Descartes?",
-      options: ["Noe som eksisterer selvstendig, ved seg selv", "Et kjemisk stoff", "En egenskap ved en ting", "En enkelt tanke eller forestilling inne i sinnet"],
+      options: ["Noe som eksisterer selvstendig, ved seg selv", "Et kjemisk stoff, slik ordet brukes i naturvitenskapen", "En egenskap ved en ting, for eksempel farge eller form", "En enkelt tanke eller forestilling inne i sinnet"],
       explanation: "En substans er grunnenheten som eksisterer ved seg selv. Dualismen hevder to slike: res cogitans og res extensa.",
     },
     {
       question: "På hvilket tidligere resultat bygger argumentet fra tvilbarhet?",
-      options: ["Cogito — at tanken overlever den metodiske tvilen (kap. 1.1)", "Den onde ånds fullstendige allmakt over både sansene og fornuften", "Gudsbeviset", "Idélæren"],
+      options: ["Cogito — at tanken overlever den metodiske tvilen (kap. 1.1)", "Den onde ånds fullstendige allmakt over både sansene og fornuften", "Gudsbeviset i den tredje meditasjonen om ideen om det fullkomne", "Idélæren hos Platon om de evige, fullkomne formene bak sansetingene"],
       explanation: "Cogito viste at tanken overlever tvilen mens kroppen kan betviles. Det brukes til å skille sinnet fra den tvilbare kroppen.",
     },
     {
@@ -1294,24 +1294,24 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan bør gjenbruksbonusen brukes i en sinn-kropp-drøfting?",
-      options: ["Føre redegjørelsen av dualismen og interaksjonsproblemet inn i drøftingen med eksplisitt kobling", "Starte drøftingen helt på nytt uten å bruke redegjørelsen", "Kopiere andres besvarelse", "Utelate hele redegjørelsen fullstendig for å spare mest mulig tid til den avsluttende drøftingsdelen"],
+      options: ["Føre redegjørelsen av dualismen og interaksjonsproblemet inn i drøftingen med eksplisitt kobling", "Starte drøftingen helt på nytt uten å bruke redegjørelsen", "Kopiere andres besvarelse og sette den inn som sin egen drøfting av dualismen og interaksjonsproblemet", "Utelate hele redegjørelsen fullstendig for å spare mest mulig tid til den avsluttende drøftingsdelen"],
       explanation: "Poeng fra redegjørelsen skal føres inn i drøftingen («som vist i rekonstruksjonen …»). Å starte «på nytt» uten kobling straffes (#5).",
     },
   ],
   'exphil03-2-5': [
     {
       question: "Hva kjennetegner en analytisk dom?",
-      options: ["Predikatet ligger allerede i subjektet — sann i kraft av begrepene alene", "Predikatet tilføyer noe nytt om verden", "Den lar seg utelukkende kjenne og bekrefte gjennom konkret empirisk sanseerfaring", "Den er alltid usikker"],
+      options: ["Predikatet ligger allerede i subjektet — sann i kraft av begrepene alene", "Predikatet tilføyer noe helt nytt om verden ut over det som ligger i begrepet", "Den lar seg utelukkende kjenne og bekrefte gjennom konkret empirisk sanseerfaring", "Den er alltid usikker, siden den når som helst kan motbevises av ny erfaring"],
       explanation: "En analytisk dom («ungkarer er ugifte») utvider ikke kunnskapen; predikatet er allerede tenkt med i subjektet. Skillet gjelder innhold, ikke kilde.",
     },
     {
       question: "Hva kjennetegner en syntetisk dom?",
-      options: ["Predikatet tilføyer noe nytt til subjektet og utvider kunnskapen", "Predikatet ligger allerede i subjektet", "Den er sann per definisjon", "Den er alltid a priori og dermed fullstendig uavhengig av all erfaring"],
+      options: ["Predikatet tilføyer noe nytt til subjektet og utvider kunnskapen", "Predikatet ligger allerede i selve subjektbegrepet og tilføyer ingenting", "Den er sann rent per definisjon, altså i kraft av begrepene helt alene", "Den er alltid a priori og dermed fullstendig uavhengig av all erfaring"],
       explanation: "En syntetisk dom sier noe nytt om verden («kaffekoppen står til venstre»). Den kan være enten a priori eller a posteriori.",
     },
     {
       question: "Hva betyr at kunnskap er a priori?",
-      options: ["Den kjennes uavhengig av erfaring, ved fornuften alene", "Den kjennes gjennom erfaring", "Den er alltid analytisk", "Den er per definisjon alltid usann og logisk selvmotsigende"],
+      options: ["Den kjennes uavhengig av erfaring, ved fornuften alene", "Den kjennes gjennom erfaring og observasjon av verden rundt oss", "Den er alltid analytisk, og dermed helt tom for nytt innhold", "Den er per definisjon alltid usann og logisk selvmotsigende"],
       explanation: "A priori-kunnskap innses uten erfaring. Skillet a priori/a posteriori gjelder kunnskapens kilde — ikke det samme som analytisk/syntetisk.",
     },
     {
@@ -1326,12 +1326,12 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor mener Kant at «7+5=12» er syntetisk?",
-      options: ["Tallet 12 ligger ikke i begrepene 7, 5 og pluss — man må konstruere summen", "Fordi selve summen alltid må telles opp helt konkret med epler eller fingrene", "Fordi det er sant per definisjon", "Fordi det er lært av erfaring"],
+      options: ["Tallet 12 ligger ikke i begrepene 7, 5 og pluss — man må konstruere summen", "Fordi selve summen alltid må telles opp helt konkret med epler eller fingrene", "Fordi det er sant per definisjon, i kraft av tallbegrepene alene", "Fordi det er lært av erfaring, ved at vi har talt opp mengder mange ganger før"],
       explanation: "For Kant tilføyer summen noe nytt: 12 er ikke «tenkt med» i 7, 5 og addisjon. Likevel er det a priori — vi vet det uten erfaring.",
     },
     {
       question: "Hva er Kants andre eksempel på syntetisk a priori, ved siden av matematikk?",
-      options: ["Årsakssetningen: «alt som skjer, har en årsak»", "«Alle ungkarer er ugifte»", "«Det regner ute»", "Relativitetsprinsippet fra Einsteins moderne fysikk"],
+      options: ["Årsakssetningen: «alt som skjer, har en årsak»", "«Alle ungkarer er ugifte», som er sann per definisjon", "«Det regner ute», som bare kan avgjøres ved erfaring", "Relativitetsprinsippet fra Einsteins moderne fysikk"],
       explanation: "Årsakssetningen er syntetisk (sier noe substansielt om verden) og a priori (forutsettes, ikke avlest fra enkelterfaringer). Den viser at tesen også gjelder fysikkens grunnsetninger.",
     },
     {
@@ -1341,7 +1341,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er ren (aksiomatisk) geometri ifølge Einstein?",
-      options: ["Geometri som følger logisk av aksiomer — sikker, men sier intet om virkeligheten", "Geometri som utelukkende handler om det faktiske fysiske rommet der ute, og som derfor er usikker", "En geometri uten aksiomer", "Kants navn på matematikken"],
+      options: ["Geometri som følger logisk av aksiomer — sikker, men sier intet om virkeligheten", "Geometri som utelukkende handler om det faktiske fysiske rommet der ute, og som derfor er usikker", "En geometri som er bygd opp helt uten noen aksiomer i bunnen", "Kants eget navn på matematikken som helhet, både på aritmetikken og på geometrien"],
       explanation: "Ren geometri er sann per definisjon (følger av aksiomene), men nettopp derfor tom om verden. Den ene halvdelen av Einsteins skille.",
     },
     {
@@ -1356,7 +1356,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor gjorde ikke-euklidsk geometri Einsteins innvending akutt?",
-      options: ["Den viser at rommets faktiske geometri er et empirisk spørsmål, ikke noe fornuften avgjør a priori", "Den beviser at Euklid tok feil om alt", "Den viser i siste instans at all ren matematikk i bunn og grunn faktisk er logisk umulig og selvmotsigende", "Den bekrefter Kants tese"],
+      options: ["Den viser at rommets faktiske geometri er et empirisk spørsmål, ikke noe fornuften avgjør a priori", "Den beviser at Euklid tok feil om absolutt alt han skrev", "Den viser i siste instans at all ren matematikk i bunn og grunn faktisk er logisk umulig og selvmotsigende", "Den bekrefter Kants tese, ettersom den viser at fornuften alene fastlegger hvilken geometri rommet har"],
       explanation: "Flere logisk konsistente geometrier finnes; hvilken som beskriver rommet, må måles. Dermed er a priori-kunnskap om det fysiske rommet vanskelig å forsvare.",
     },
     {
@@ -1371,14 +1371,14 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er kjerneaksen i en Kant-mot-Einstein-sammenligning (S3)?",
-      options: ["Om det finnes syntetisk a priori-kunnskap om det fysiske rommet", "Om matematikken er praktisk nyttig i den moderne naturvitenskapen", "Om Gud finnes", "Om sinn og kropp er ulike"],
+      options: ["Om det finnes syntetisk a priori-kunnskap om det fysiske rommet", "Om matematikken er praktisk nyttig i den moderne naturvitenskapen", "Om Gud i det hele tatt finnes, og om fornuften alene kan bevise det", "Om sinnet og kroppen er to ulike substanser eller én og samme ting"],
       explanation: "Kant sier ja (fornuften alene gir informativ, nødvendig kunnskap om rommet), Einstein nei (ren/anvendt-skillet). Å navngi aksen løfter sammenligningen.",
     },
   ],
   'exphil03-2-6': [
     {
       question: "Hva er skillet mellom biologisk kjønn (sex) og sosialt kjønn (gender) hos Haslanger?",
-      options: ["Sex er de biologiske kjennetegnene; gender er de sosiale rollene og posisjonene", "Sex betegner de sosiale rollene og forventningene, mens gender betegner de rent biologiske kjennetegnene", "De betyr det samme", "Sex gjelder dyr, gender gjelder mennesker"],
+      options: ["Sex er de biologiske kjennetegnene; gender er de sosiale rollene og posisjonene", "Sex betegner de sosiale rollene og forventningene, mens gender betegner de rent biologiske kjennetegnene", "De to uttrykkene betyr nøyaktig det samme og kan brukes helt om hverandre i teksten", "Sex gjelder dyrene, mens gender utelukkende gjelder mennesker og samfunnslivet deres"],
       explanation: "Sex = kropp/anatomi; gender = sosial posisjon (roller, forventninger, hierarki). Å blande dem er den mest målte presisjonsfeilen (#6).",
     },
     {
@@ -1388,12 +1388,12 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er konstruksjon av begreper hos Haslanger?",
-      options: ["At våre kategorier er formet av sosiale praksiser", "At tingene selv formes fysisk av kategoriene", "At begreper ikke finnes", "At all sikker menneskelig kunnskap i grunnen er umulig å oppnå"],
+      options: ["At våre kategorier er formet av sosiale praksiser", "At tingene selv formes fysisk av kategoriene vi bruker", "At begreper ikke finnes utenfor det språket vi bruker", "At all sikker menneskelig kunnskap i grunnen er umulig å oppnå"],
       explanation: "Begrepskonstruksjon gjelder hvordan vi klassifiserer — hva vi teller som en kategori avhenger av praksis (mat-eksemplet). Det er en påstand om kategoriene, ikke tingene.",
     },
     {
       question: "Hva er konstruksjon av objekter hos Haslanger?",
-      options: ["At tingene selv formes av at kategoriene brukes på dem", "At kategoriene i bunn og grunn bare er tomme ord helt uten virkning", "At objekter ikke finnes", "At biologi bestemmer alt"],
+      options: ["At tingene selv formes av at kategoriene brukes på dem", "At kategoriene i bunn og grunn bare er tomme ord helt uten virkning", "At objekter i det hele tatt ikke finnes utenfor kategoriene", "At biologien bestemmer alt, også de sosiale rollene og posisjonene"],
       explanation: "Objektkonstruksjon: mennesker formes faktisk (atferd, muligheter, posisjon) av at de behandles som tilhørende en kategori. Kategorien «lager mennesker som passer navnet».",
     },
     {
@@ -1413,12 +1413,12 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen på eliminativistisk og ikke-eliminativistisk konstruksjonisme?",
-      options: ["Eliminativisme vil avskaffe kategorien; ikke-eliminativisme vil reformere den", "Eliminativisme vil reformere og forbedre kategorien, mens ikke-eliminativisme tvert imot vil avskaffe den helt", "De handler om biologi", "De betyr det samme"],
+      options: ["Eliminativisme vil avskaffe kategorien; ikke-eliminativisme vil reformere den", "Eliminativisme vil reformere og forbedre kategorien, mens ikke-eliminativisme tvert imot vil avskaffe den helt", "De handler begge to om biologien, og ikke om sosiale kategorier i det hele tatt", "De betyr nøyaktig det samme, og er bare to forskjellige navn på én og samme posisjon"],
       explanation: "Etter genealogien oppstår et normativt valg: avskaffe kategorien (eliminativisme) eller omdanne den til noe rettferdig (ikke-eliminativisme).",
     },
     {
       question: "Hva betyr det at «konstruert ikke er uvirkelig»?",
-      options: ["At en konstruert kategori kan ha høyst reelle virkninger — penger er konstruert, fattigdom er ikke innbilt", "At konstruerte ting er innbilte", "At det utelukkende er de naturgitte og biologisk bestemte tingene som er virkelige og har reelle virkninger", "At kjønn ikke finnes"],
+      options: ["At en konstruert kategori kan ha høyst reelle virkninger — penger er konstruert, fattigdom er ikke innbilt", "At alle konstruerte ting er innbilte og uten reell virkning", "At det utelukkende er de naturgitte og biologisk bestemte tingene som er virkelige og har reelle virkninger", "At kjønn ikke finnes i det hele tatt, og at hele kategorien derfor bør fjernes fra språket vårt en gang for alle"],
       explanation: "Det konstruerte kan være både virkelig og urettferdig. Å avvise slutningen «konstruert, altså uvirkelig» er en tydelig A-markør.",
     },
     {
@@ -1428,12 +1428,12 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken feil begår den som sier «men øyboeren husker jo samfunnet» i øde øy-testen?",
-      options: ["#13 — å ignorere/normalisere bort tankeeksperimentets premiss (at hun er alene)", "#6 — blande sex og gender", "#2 — mening uten grunner", "#14 — å trekke inn tenkere og posisjoner fra gammelt, utgått og fjernet pensum etter 2021"],
+      options: ["#13 — å ignorere/normalisere bort tankeeksperimentets premiss (at hun er alene)", "#6 — å blande sammen sex og gender i selve analysen av tankeeksperimentet på øya", "#2 — mening uten grunner, altså ren synsing uten noen argumenter forankret i pensum", "#14 — å trekke inn tenkere og posisjoner fra gammelt, utgått og fjernet pensum etter 2021"],
       explanation: "Eksperimentet fjerner den sosiale konteksten. Å smugle den inn igjen bryter premissdisiplinen (#13) — poenget er nettopp hva kategorien krever når konteksten er borte.",
     },
     {
       question: "Hvordan kan også biologisk kjønn (sex) være konstruert, ifølge H2025-vrien?",
-      options: ["Begrepet «sex» kan være begrepskonstruert — grensedragningen er formet av oss, uten at kroppene er innbilte", "Kroppene er innbilte", "Biologisk kjønn (sex) er i bunn og grunn fullstendig identisk med og nøyaktig det samme som sosialt kjønn (gender)", "Biologi finnes ikke"],
+      options: ["Begrepet «sex» kan være begrepskonstruert — grensedragningen er formet av oss, uten at kroppene er innbilte", "Kroppene er innbilte og finnes ikke utenfor forestillingene våre", "Biologisk kjønn (sex) er i bunn og grunn fullstendig identisk med og nøyaktig det samme som sosialt kjønn (gender)", "Biologien finnes ikke i det hele tatt, og kroppene våre er i sin helhet et produkt av rene sosiale praksiser"],
       explanation: "Poenget er begrepskonstruksjon: hvordan biologene trekker grensene og hvilke trekk som teller, er formet av begreper og formål. Kroppene benektes ikke — begrep/objekt-skillet holder det presist.",
     },
     {
@@ -1443,12 +1443,12 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken feil begår den som gjengir «kjønn er konstruert» uten å si hva som konstrueres?",
-      options: ["En #6-variant — å miste mekanismen (begreper mot objekter)", "#14 — å bruke tenkere og eksempler fra det gamle, utgåtte pensumet", "#11 — sitatslurv", "Ingen feil"],
+      options: ["En #6-variant — å miste mekanismen (begreper mot objekter)", "#14 — å bruke tenkere og eksempler fra det gamle, utgåtte pensumet", "#11 — sitatslurv og upresis gjengivelse av selve originalteksten", "Ingen feil — utsagnet er en dekkende gjengivelse av Haslanger"],
       explanation: "Mekanismen (hva som konstrueres og hvordan) er selve vurderingspunktet. Å hoppe over den mister det H2025-sensor premierte.",
     },
     {
       question: "Hvorfor gjør objektkonstruksjonen sosial konstruksjon til mer enn en påstand om ord?",
-      options: ["Fordi den sier at klassifiseringen former virkeligheten — hvem folk faktisk blir", "Fordi hele fenomenet i bunn og grunn utelukkende handler om språket og ordene vi bruker", "Fordi den benekter at kategorier finnes", "Fordi den er biologisk"],
+      options: ["Fordi den sier at klassifiseringen former virkeligheten — hvem folk faktisk blir", "Fordi hele fenomenet i bunn og grunn utelukkende handler om språket og ordene vi bruker", "Fordi den benekter at kategoriene i det hele tatt finnes utenfor selve språket vårt", "Fordi den er biologisk og handler om selve kroppene våre, ikke om samfunnet rundt"],
       explanation: "Objektkonstruksjon: kategorien former faktiske mennesker (vaner, muligheter, posisjon). Det er en påstand om virkeligheten, ikke bare om hvordan vi omtaler folk.",
     },
     {
@@ -1458,7 +1458,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva avdekker genealogien ofte om sosialt konstruerte kategorier?",
-      options: ["At de fremstår som naturgitte, og at nettopp denne illusjonen gjør dem virkningsfulle", "At de alltid er nyttige", "At de i bunn og grunn nesten alltid viser seg å være biologisk bestemt og naturgitt likevel", "At de ikke har noen funksjon"],
+      options: ["At de fremstår som naturgitte, og at nettopp denne illusjonen gjør dem virkningsfulle", "At de alltid er nyttige for dem som tar dem i bruk", "At de i bunn og grunn nesten alltid viser seg å være biologisk bestemt og naturgitt likevel", "At de ikke har noen funksjon i samfunnet i det hele tatt, og derfor kan avskaffes uten videre"],
       explanation: "Konstruerte kategorier framstår gjerne som uforanderlige/naturlige. Å avsløre at det «naturlige» er konstruert er det kritiske grepet.",
     },
     {
@@ -1468,17 +1468,17 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan viser «ungdom» samme mekanikk som kjønnsanalysen?",
-      options: ["Begrepskonstruksjon (aldersgrensene varierer) og objektkonstruksjon (institusjoner former faktiske ungdommer)", "Bare biologisk konstruksjon", "Overhodet ingen form for sosial konstruksjon i det hele tatt, verken av selve begrepene eller av de faktiske objektene", "Bare eliminativisme"],
+      options: ["Begrepskonstruksjon (aldersgrensene varierer) og objektkonstruksjon (institusjoner former faktiske ungdommer)", "Bare biologisk konstruksjon av selve aldersgruppen ungdom", "Overhodet ingen form for sosial konstruksjon i det hele tatt, verken av selve begrepene eller av de faktiske objektene", "Bare eliminativisme, altså utelukkende det at hele kategorien «ungdom» bør avskaffes og aldri reformeres i stedet"],
       explanation: "«Ungdom» er konstruert i begge forstander: kategoriens grenser varierer historisk (begrep), og skole/lovverk/marked former faktiske ungdommer (objekt).",
     },
     {
       question: "Hva sier verkstittelen «Kjønn og andre sosiale kategorier» om apparatets rekkevidde?",
-      options: ["At samme mekanisme kan anvendes på flere kategorier enn kjønn", "At bare kjønn kan analyseres", "At kategorier ikke finnes", "At biologien er fullstendig irrelevant på absolutt alle samfunnsområder"],
+      options: ["At samme mekanisme kan anvendes på flere kategorier enn kjønn", "At det bare er kjønn som lar seg analysere med dette begrepsapparatet", "At kategorier overhodet ikke finnes utenfor de sosiale praksisene", "At biologien er fullstendig irrelevant på absolutt alle samfunnsområder"],
       explanation: "Apparatet er generelt: sex/gender-logikken, begrep/objekt og genealogi kan brukes på race, «ungdom», «mat» osv. Kjønn er hovedeksemplet, ikke det eneste.",
     },
     {
       question: "Hva er det sentrale poenget en Haslanger-redegjørelse ikke får mangle?",
-      options: ["Mekanismen — hva som konstrueres (begreper eller objekter) og hvordan", "Haslangers biografi", "En politisk konklusjon om likestilling", "En grundig gjennomgang av Aristoteles' lære om de fire årsakene fra metafysikken"],
+      options: ["Mekanismen — hva som konstrueres (begreper eller objekter) og hvordan", "Haslangers biografi og hele den akademiske karrieren hennes som filosof", "En tydelig politisk konklusjon om likestillingen mellom kjønnene i samfunnet", "En grundig gjennomgang av Aristoteles' lære om de fire årsakene fra metafysikken"],
       explanation: "Uten mekanismen (begrep/objekt) mister redegjørelsen det H2025-sensor premierte. Å bare gjengi konklusjonen holder ikke.",
     },
     {
@@ -1488,7 +1488,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor egner kjønnstemaet seg til S5-anvendelsesoppgaver?",
-      options: ["Fordi apparatet er generelt og kan settes på nye caser (ungdom, mat, race)", "Fordi det til hver slik oppgave alltid bare finnes ett eneste riktig fasitsvar", "Fordi det ikke krever begreper", "Fordi biologien avgjør alt"],
+      options: ["Fordi apparatet er generelt og kan settes på nye caser (ungdom, mat, race)", "Fordi det til hver slik oppgave alltid bare finnes ett eneste riktig fasitsvar", "Fordi det ikke krever noen begreper eller presise skiller overhodet i svaret", "Fordi biologien avgjør alt, slik at svaret uansett case alltid blir det samme"],
       explanation: "Siden mekanismen er allmenn, kan eksamen be deg anvende den på en ny kategori — noe som tester forståelse, ikke pugg.",
     },
     {
@@ -1498,7 +1498,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan bør gjenbruksbonusen brukes i en kjønnsdrøfting?",
-      options: ["Føre sex/gender- og begrep/objekt-skillet fra redegjørelsen inn i drøftingen med eksplisitt kobling", "Starte drøftingen på nytt uten redegjørelsen", "Utelate redegjørelsen helt", "Kopiere og gjengi Haslangers egne formuleringer helt ordrett gjennom hele besvarelsen fra start til slutt"],
+      options: ["Føre sex/gender- og begrep/objekt-skillet fra redegjørelsen inn i drøftingen med eksplisitt kobling", "Starte drøftingen helt på nytt, uten å bruke noe som helst av det som allerede står i selve redegjørelsen", "Utelate redegjørelsen helt og gå rett på selve drøftingen", "Kopiere og gjengi Haslangers egne formuleringer helt ordrett gjennom hele besvarelsen fra start til slutt"],
       explanation: "H2025-vrien om biologisk kjønn hviler på begrepskonstruksjonen du allerede har gjort rede for. Å starte «på nytt» uten kobling straffes (#5).",
     },
   ],
@@ -1515,12 +1515,12 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er det første trinnet i funksjonsargumentet?",
-      options: ["Alt som har en funksjon har sitt gode i å utføre funksjonen godt", "Mennesket har en udødelig sjel", "Lykke er i grunnen bare en behagelig og forbigående følelse av tilfredshet", "Alle streber etter nytelse"],
+      options: ["Alt som har en funksjon har sitt gode i å utføre funksjonen godt", "Mennesket har en udødelig sjel som fortsetter å leve etter kroppens død", "Lykke er i grunnen bare en behagelig og forbigående følelse av tilfredshet", "Alle mennesker streber etter nytelse og forsøker å unngå all smerte"],
       explanation: "Argumentet starter med at en tings gode ligger i å utføre funksjonen godt (god fløytespiller = spiller godt), og bygger derfra til menneskets funksjon.",
     },
     {
       question: "Hva er menneskets særegne funksjon ifølge funksjonsargumentet?",
-      options: ["Fornuftsvirksomhet — sjelens virksomhet i samsvar med fornuften", "Vekst og ernæring", "Sansing, bevegelse og evnen til å oppfatte og reagere på omgivelsene", "Forplantning"],
+      options: ["Fornuftsvirksomhet — sjelens virksomhet i samsvar med fornuften", "Vekst og ernæring, altså den virksomheten mennesket deler med plantene", "Sansing, bevegelse og evnen til å oppfatte og reagere på omgivelsene", "Forplantningen og videreføringen av arten fram til neste generasjon"],
       explanation: "Vekst deler vi med planter og sansing med dyr; fornuftsvirksomheten er særegen for mennesket. Derfor knyttes det gode livet til den.",
     },
     {
@@ -1530,17 +1530,17 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en dyd (areté) for Aristoteles?",
-      options: ["En innøvd karakteregenskap som gjør at man virker godt i samsvar med fornuften", "En helt medfødt og uforanderlig egenskap i karakteren som man aldri kan endre gjennom øvelse", "En regel gitt av samfunnet", "En følelse av tilfredshet"],
+      options: ["En innøvd karakteregenskap som gjør at man virker godt i samsvar med fornuften", "En helt medfødt og uforanderlig egenskap i karakteren som man aldri kan endre gjennom øvelse", "En regel gitt av samfunnet som hver enkelt borger plikter å rette seg lojalt etter", "En vedvarende følelse av tilfredshet med sitt eget liv slik det etter hvert har blitt"],
       explanation: "Dyd er en fast disposisjon i karakteren, ervervet ved øvelse — ikke medfødt og ikke bare en regel.",
     },
     {
       question: "Dyden mot er midten mellom hvilke to laster?",
-      options: ["Feighet (for lite) og dumdristighet (for mye)", "Gjerrighet (for lite) og sløseri (for mye)", "Dovenskap (for lite) og overdreven flittighet (for mye)", "Ydmykhet og stolthet"],
+      options: ["Feighet (for lite) og dumdristighet (for mye)", "Gjerrighet (for lite) og sløseri (for mye penger)", "Dovenskap (for lite) og overdreven flittighet (for mye)", "Ydmykhet (for lite) og overdreven stolthet (for mye)"],
       explanation: "Mot ligger mellom for lite dristighet (feighet) og for mye (dumdristighet). Gjerrighet/sløseri er ytterpunktene for gavmildhet.",
     },
     {
       question: "Hva betyr det at dydens midte er «relativ, ikke aritmetisk»?",
-      options: ["Midten er det som passer for personen og situasjonen, ikke gjennomsnittet av ytterpunktene", "Midten er alltid nøyaktig halvveis mellom for mye og for lite", "Midten mellom lastene er nøyaktig den samme faste verdien for alle mennesker i alle situasjoner", "Midten kan regnes ut med en formel"],
+      options: ["Midten er det som passer for personen og situasjonen, ikke gjennomsnittet av ytterpunktene", "Midten er alltid nøyaktig halvveis mellom for mye og for lite", "Midten mellom lastene er nøyaktig den samme faste verdien for alle mennesker i alle situasjoner", "Midten kan regnes ut med en fast formel som gjelder likt for alle mennesker i alle situasjoner"],
       explanation: "Riktig mengde mat for en idrettsutøver er ikke gjennomsnittet — midten treffes ved klokskap, ikke regnestykke.",
     },
     {
@@ -1550,7 +1550,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva gjør en handling rett i dydsetikken?",
-      options: ["At den er slik en dydig, klok person ville handlet i situasjonen", "At den følger det kategoriske imperativ", "At den maksimerer den samlede nytten og lykken for flest mulig mennesker", "At den er tillatt av loven"],
+      options: ["At den er slik en dydig, klok person ville handlet i situasjonen", "At den følger det kategoriske imperativet nøyaktig slik Kant formulerer det", "At den maksimerer den samlede nytten og lykken for flest mulig mennesker", "At den er tillatt av loven i det samfunnet man tilfeldigvis lever i"],
       explanation: "Rett handling defineres via karakter, ikke en formel. Den kloke *ser* hva situasjonen krever, som en erfaren lege.",
     },
     {
@@ -1565,7 +1565,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den omdiskuterte siden ved å definere rett handling via «den dydige personen»?",
-      options: ["At det kan virke sirkulært — den rette handling er den den dydige gjør, og den dydige gjør det rette", "At det gir for presise regler", "At det ignorerer karakter helt", "At hele denne definisjonen egentlig bare gjelder for skolerte filosofer og ikke for vanlige mennesker"],
+      options: ["At det kan virke sirkulært — den rette handling er den den dydige gjør, og den dydige gjør det rette", "At det gir altfor presise regler for hva man skal gjøre", "At det ignorerer karakteren fullstendig og utelukkende ser på den enkelte handlingen isolert fra personen", "At hele denne definisjonen egentlig bare gjelder for skolerte filosofer og ikke for vanlige mennesker"],
       explanation: "Kritikeren spør om dette gir reell handlingsveiledning når man står i valget, eller bare flytter problemet. En typisk S4-innvending.",
     },
     {
@@ -1590,37 +1590,37 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken feil begår en kandidat som oversetter eudaimonia med «lykkefølelse»?",
-      options: ["Feil #6 — upresist begrep, som dessuten får kontrasten mot Mill til å kollapse", "Feil #10 — en ren formal- og oppsettsfeil i selve besvarelsens struktur og layout", "Feil #12 — svare på begge oppgaver", "Feil #11 — sitatslurv"],
+      options: ["Feil #6 — upresist begrep, som dessuten får kontrasten mot Mill til å kollapse", "Feil #10 — en ren formal- og oppsettsfeil i selve besvarelsens struktur og layout", "Feil #12 — å svare på begge de to valgfrie oppgavene i stedet for å velge én av dem", "Feil #11 — sitatslurv og upresis gjengivelse av selve originalteksten hos Aristoteles"],
       explanation: "Å gjøre eudaimonia til en subjektiv følelse er en presisjonsfeil (#6) som ødelegger sammenligningen med Mills nytelsesbegrep.",
     },
     {
       question: "Hva sier utdraget om sinne («på rett person, i rett grad, til rett tid …») egentlig?",
-      options: ["At dyden er en midte som treffes ved klokskap, relativ til situasjonen", "At man aldri bør bli sint", "At alle sterke følelser alltid bør undertrykkes fullstendig av fornuften", "At sinne er en dyd i seg selv"],
+      options: ["At dyden er en midte som treffes ved klokskap, relativ til situasjonen", "At man aldri i noen situasjon bør bli sint, uansett hva andre måtte gjøre", "At alle sterke følelser alltid bør undertrykkes fullstendig av fornuften", "At sinnet er en dyd i seg selv, og ikke en følelse som må styres av fornuften"],
       explanation: "Poenget er ikke å fjerne følelsen, men å rette den riktig — midten er relativ til situasjonen (rett grad, rett tid).",
     },
     {
       question: "Hva innebærer det at den fullt dydige gjør det rette «med glede»?",
-      options: ["Gode vaner gjør at han vil det gode og setter pris på det, ikke gjør det motvillig", "At han utelukkende gjør det rette i de tilfellene der han faktisk har lyst og føler for det", "At følelser er irrelevante for dyd", "At dyd er medfødt"],
+      options: ["Gode vaner gjør at han vil det gode og setter pris på det, ikke gjør det motvillig", "At han utelukkende gjør det rette i de tilfellene der han faktisk har lyst og føler for det", "At følelsene er fullstendig irrelevante for dyden og bare må overstyres av fornuften", "At dyden er noe medfødt, og derfor ikke lar seg endre gjennom verken øvelse eller vane"],
       explanation: "For Aristoteles kjennetegner det den dydige at han gleder seg over det rette — moralsk oppdragelse former nettopp dette.",
     },
     {
       question: "Hvorfor er dydsetikken forankret i Aristoteles og ikke i Hursthouse i denne boka?",
-      options: ["Fordi pensum kalibreres mot «Vite, være, gjøre»; Hursthouse er ute av pensum og gir null uttelling", "Fordi Hursthouse tar feil om dydene", "Fordi Hursthouse ikke skrev om etikk", "Fordi Aristoteles' framstilling rett og slett er langt lettere og mer tilgjengelig å forstå enn Hursthouse sin"],
+      options: ["Fordi pensum kalibreres mot «Vite, være, gjøre»; Hursthouse er ute av pensum og gir null uttelling", "Fordi Hursthouse tar feil om både dydene og midtenlæren", "Fordi Hursthouse ikke skrev om etikk i det hele tatt, men utelukkende om helt andre filosofiske spørsmål", "Fordi Aristoteles' framstilling rett og slett er langt lettere og mer tilgjengelig å forstå enn Hursthouse sin"],
       explanation: "Kalibreringsregelen: gammelt galleri gir null uttelling (feil #14). Dydsetikk forankres i Aristoteles og Foot.",
     },
     {
       question: "Hva er gjerrighet i Aristoteles' skjema?",
-      options: ["Lasten «for lite», der gavmildhet er midten og sløseri er «for mye»", "Midten mellom to laster", "En dyd i seg selv", "I bunn og grunn nøyaktig det samme som selve dyden besindighet og måtehold"],
+      options: ["Lasten «for lite», der gavmildhet er midten og sløseri er «for mye»", "Midten mellom de to lastene, altså selve dydens plass i hele skjemaet", "En dyd i seg selv, som står fullt på linje med både mot og gavmildhet", "I bunn og grunn nøyaktig det samme som selve dyden besindighet og måtehold"],
       explanation: "Gavmildhet er midten; gjerrighet er mangelen (for lite) og sløseri overskuddet (for mye).",
     },
     {
       question: "Hva er gjenbruksbonusen når du drøfter «er lykken moralens mål?»",
-      options: ["Å føre funksjonsargumentet fra (a) inn i drøftingen for å vise at Aristoteles' lykke ikke er nytelse", "Å gjenta oppgaveteksten ordrett", "Å skrive en helt ny redegjørelse i drøftingen", "Å bevisst unngå å nevne eller vise tilbake til redegjørelsen i (a) i det hele tatt gjennom hele drøftingsdelen"],
+      options: ["Å føre funksjonsargumentet fra (a) inn i drøftingen for å vise at Aristoteles' lykke ikke er nytelse", "Å gjenta hele oppgaveteksten ordrett i innledningen til svaret", "Å skrive en helt ny redegjørelse i selve drøftingsdelen, uten å bruke noe av det som allerede står i (a)", "Å bevisst unngå å nevne eller vise tilbake til redegjørelsen i (a) i det hele tatt gjennom hele drøftingsdelen"],
       explanation: "Gjenbruksbonusen premierer å bære (a)-poenget videre. Å starte drøftingen på nytt straffes (feil #5).",
     },
     {
       question: "Hva er forskjellen mellom å velge noe «i seg selv» og «for noe annet»?",
-      options: ["Det i seg selv verdifulle velges for sin egen skyld; det andre er bare middel", "Det er ingen forskjell for Aristoteles", "Uttrykket «i seg selv» betyr egoistisk og selvsentrert, mens «for noe annet» betyr uselvisk og altruistisk", "Begge betyr at noe er et middel"],
+      options: ["Det i seg selv verdifulle velges for sin egen skyld; det andre er bare middel", "Det er ingen forskjell for Aristoteles; alle mål blir valgt på nøyaktig samme måte", "Uttrykket «i seg selv» betyr egoistisk og selvsentrert, mens «for noe annet» betyr uselvisk og altruistisk", "Begge uttrykkene betyr at noe bare er et middel til noe annet man ønsker å oppnå"],
       explanation: "Skillet bærer argumentet for at lykken er det endelige målet: bare den velges alltid for sin egen skyld.",
     },
     {
@@ -1630,7 +1630,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den korrekte lesningen av «funksjonen» i funksjonsargumentet?",
-      options: ["Menneskets ergon: den virksomheten som er særegen for mennesket, nemlig fornuftsvirksomhet", "En jobb eller et yrke man har", "En biologisk drift man deler med dyr", "En bestemt sosial rolle eller samfunnsposisjon som fellesskapet tildeler hver enkelt av oss"],
+      options: ["Menneskets ergon: den virksomheten som er særegen for mennesket, nemlig fornuftsvirksomhet", "En jobb eller et yrke man har i samfunnet man lever i", "En biologisk drift man deler med dyrene, for eksempel sult, tørst og trangen til forplantning", "En bestemt sosial rolle eller samfunnsposisjon som fellesskapet tildeler hver enkelt av oss"],
       explanation: "Ergon er det særegent menneskelige — fornuftsvirksomhet — ikke et yrke eller en drift vi deler med dyr.",
     },
     {
@@ -1645,12 +1645,12 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er styrken ved å definere rett handling via den dydige personen?",
-      options: ["Det fanger at moralsk kompetanse er som en ferdighet — den kloke ser det rette i det konkrete tilfellet", "Det gir til slutt en enkel og mekanisk regel som absolutt alle mennesker uten videre kan følge helt uten skjønn", "Det gjør moralen uavhengig av karakter", "Det fjerner behovet for klokskap"],
+      options: ["Det fanger at moralsk kompetanse er som en ferdighet — den kloke ser det rette i det konkrete tilfellet", "Det gir til slutt en enkel og mekanisk regel som absolutt alle mennesker uten videre kan følge helt uten skjønn", "Det gjør moralen fullstendig uavhengig av karakteren, slik at det bare er den enkelte handlingen som teller", "Det fjerner behovet for klokskap i den enkelte situasjonen"],
       explanation: "Styrken er sensitivitet for det konkrete, der en stiv regel ville feilet — mens svakheten er faren for sirkularitet.",
     },
     {
       question: "Hva er «den vellykkede kynikeren» et eksempel på?",
-      options: ["At man kan ha velvære og ytre goder uten å ha eudaimonia, fordi han mangler dyd", "At nytelse er nok for det gode livet", "At rikdom garanterer eudaimonia", "At Aristoteles i bunn og grunn mener at alle rike og velstående mennesker automatisk er lykkelige"],
+      options: ["At man kan ha velvære og ytre goder uten å ha eudaimonia, fordi han mangler dyd", "At nytelsen alene er nok for det gode livet, helt uten dyd og fornuftsvirksomhet", "At rikdommen i seg selv garanterer eudaimonia, så lenge man bare har rikelig av den", "At Aristoteles i bunn og grunn mener at alle rike og velstående mennesker automatisk er lykkelige"],
       explanation: "Casen skiller subjektivt velvære fra eudaimonia: uten dyd realiserer han ikke menneskets funksjon, uansett hvor behagelig han har det.",
     },
   ],
@@ -1662,7 +1662,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er den gode viljen god ifølge Kant?",
-      options: ["I kraft av viljen til å gjøre det rette fordi det er rett, ikke på grunn av følgene", "Fordi den alltid gir gode resultater", "Fordi den til syvende og sist maksimerer den samlede lykken for flest mulig mennesker", "Fordi samfunnet belønner den"],
+      options: ["I kraft av viljen til å gjøre det rette fordi det er rett, ikke på grunn av følgene", "Fordi den alltid fører til gode resultater for alle dem som blir berørt av handlingen", "Fordi den til syvende og sist maksimerer den samlede lykken for flest mulig mennesker", "Fordi samfunnet rundt oss belønner enhver som handler slik, med anerkjennelse og ære"],
       explanation: "Selv om den ved uflaks ikke utretter noe, beholder den sin verdi — den «stråler som en juvel». Dette er bruddet med konsekvensetikken.",
     },
     {
@@ -1677,7 +1677,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en maksime hos Kant?",
-      options: ["Det subjektive prinsippet du faktisk handler etter — handling pluss hensikt", "En allmenn lov gitt av staten", "En følelse som driver handlingen", "De faktiske, målbare følgene og de samlede konsekvensene av en enkelt handling"],
+      options: ["Det subjektive prinsippet du faktisk handler etter — handling pluss hensikt", "En allmenn lov gitt av staten, som samtlige borgere plikter å rette seg etter", "En sterk følelse som driver handlingen fram i det enkelte tilfellet man står i", "De faktiske, målbare følgene og de samlede konsekvensene av en enkelt handling"],
       explanation: "Det kategoriske imperativ prøver maksimen, ikke handlingen isolert. Derfor må maksimen formuleres presist før testen.",
     },
     {
@@ -1687,7 +1687,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner det kategoriske imperativ?",
-      options: ["Det er ubetinget og gjelder uansett hvilke mål du har: handle bare etter en maksime du kan ville som allmenn lov", "Det gjelder bare hvis du vil oppnå et bestemt mål", "Det er i bunn og grunn bare en praktisk tommelfingerregel som er utledet av menneskehetens samlede erfaring gjennom historien", "Det måler følgene av handlingen"],
+      options: ["Det er ubetinget og gjelder uansett hvilke mål du har: handle bare etter en maksime du kan ville som allmenn lov", "Det gjelder bare hvis du vil oppnå et bestemt mål, og ellers ikke", "Det er i bunn og grunn bare en praktisk tommelfingerregel som er utledet av menneskehetens samlede erfaring gjennom historien", "Det måler de samlede følgene av handlingen, og avgjør ut fra dem alene om handlingen er moralsk rett eller gal i hvert tilfelle"],
       explanation: "Moralen er kategorisk fordi en plikt ikke kan avhenge av hva du tilfeldigvis ønsker. Å blande det med det hypotetiske er feil #6.",
     },
     {
@@ -1697,12 +1697,12 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor stryker maksimen «gi løfter du ikke akter å holde» i universaliseringstesten?",
-      options: ["Fordi institusjonen løfte ville bryte sammen om alle gjorde det — maksimen opphever sin egen mulighetsbetingelse", "Fordi selve løftebruddet i praksis nesten alltid fører til dårlige og uheldige følger for alle de involverte partene", "Fordi de fleste synes det er ubehagelig", "Fordi loven forbyr det"],
+      options: ["Fordi institusjonen løfte ville bryte sammen om alle gjorde det — maksimen opphever sin egen mulighetsbetingelse", "Fordi selve løftebruddet i praksis nesten alltid fører til dårlige og uheldige følger for alle de involverte partene", "Fordi de aller fleste mennesker synes det er svært ubehagelig å bli lovet noe som den andre parten ikke akter å holde", "Fordi loven i de fleste land forbyr en å bryte inngåtte avtaler"],
       explanation: "Selvmotsigelsen er logisk, ikke konsekvensbasert: hvis ingen stolte på løfter, kunne man ikke oppnå vinningen ved å love falskt.",
     },
     {
       question: "Hva menes med at mennesket er et «formål i seg selv»?",
-      options: ["At man alltid også skal behandle mennesket som formål, aldri bare som middel", "At man aldri under noen omstendighet kan bruke andre mennesker til noe som helst", "At mennesket er det viktigste dyret", "At alle har samme mål i livet"],
+      options: ["At man alltid også skal behandle mennesket som formål, aldri bare som middel", "At man aldri under noen omstendighet kan bruke andre mennesker til noe som helst", "At mennesket er det aller viktigste dyret i naturens store rangordning av arter", "At alle mennesker i bunn og grunn har ett og samme endelige mål i livet å strebe mot"],
       explanation: "Å bruke noen som middel er tillatt (bakeren gir deg brød); å bruke dem bare som middel — som rent redskap — er forbudt. Ordet «bare» er avgjørende.",
     },
     {
@@ -1712,7 +1712,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilket motiv gir en handling moralsk verdi ifølge Kant?",
-      options: ["Aktelse for moralloven (plikt)", "Kjærlighet, medfølelse og oppriktig sympati", "Ønsket om et godt utfall", "Frykt for straff"],
+      options: ["Aktelse for moralloven (plikt)", "Kjærlighet, medfølelse og oppriktig sympati", "Ønsket om et godt utfall for alle", "Frykt for straff og for sanksjoner"],
       explanation: "Bare pliktmotivet — respekt for den loven fornuften gir seg selv — gir moralsk verdi. Følelser kan ledsage, men garanterer ikke rett handling.",
     },
     {
@@ -1722,7 +1722,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Langs hvilken akse står Kant og Mill i klarest motsetning?",
-      options: ["Sinnelag (Kant) mot konsekvenser (Mill)", "Den rene fornuften mot de subjektive følelsene", "Individ mot samfunn", "Teori mot praksis"],
+      options: ["Sinnelag (Kant) mot konsekvenser (Mill)", "Den rene fornuften mot de subjektive følelsene", "Det enkelte individet mot samfunnet som helhet", "Ren teori (Kant) mot praktisk anvendelse (Mill)"],
       explanation: "Kant lar den gode vilje og maksimens form avgjøre; Mill lar følgene avgjøre. Samme utfall kan vurderes ulikt av de to.",
     },
     {
@@ -1732,7 +1732,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken feil begår en kandidat som fremstiller Kants morallov som «regler fra samfunnet»?",
-      options: ["Feil #6 — moralloven er fornuftens egen lov (autonomi), ikke normer påført utenfra", "Feil #10 — formalfeil", "Feil #12 — svare på begge oppgaver", "Feil #3 — et rent leksikonsvar med generell fakta og lav relevans for selve spørsmålet"],
+      options: ["Feil #6 — moralloven er fornuftens egen lov (autonomi), ikke normer påført utenfra", "Feil #10 — en ren formalfeil i selve besvarelsens oppsett, struktur og ytre utforming", "Feil #12 — å svare på begge de to valgfrie oppgavene i stedet for å velge én av dem", "Feil #3 — et rent leksikonsvar med generell fakta og lav relevans for selve spørsmålet"],
       explanation: "Kants poeng er autonomi: fornuften gir seg selv loven. Å gjøre den til autoritet utenfra er en presisjonsfeil (#6).",
     },
     {
@@ -1742,17 +1742,17 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor må moralloven være kategorisk og ikke hypotetisk?",
-      options: ["Fordi en moralsk plikt ikke kan avhenge av hvilke mål du tilfeldigvis har", "Fordi kategoriske bud er lettere å huske", "Fordi samfunnet krever det", "Fordi de samlede følgene av selve handlingen da til slutt blir bedre for alle involverte"],
+      options: ["Fordi en moralsk plikt ikke kan avhenge av hvilke mål du tilfeldigvis har", "Fordi kategoriske bud er lettere å huske og langt enklere å anvende i praksis", "Fordi samfunnet krever at moralen skal gjelde likt for alle borgerne i staten", "Fordi de samlede følgene av selve handlingen da til slutt blir bedre for alle involverte"],
       explanation: "Var «du skal ikke lyve» hypotetisk, ville bare den med et bestemt mål være forpliktet. Moralen ville da ikke være ubetinget forpliktende.",
     },
     {
       question: "Hva er drøftingsråstoffet i at universaliseringstesten forbyr velmenende hvite løgner?",
-      options: ["At testen av og til gir kontraintuitive svar — er det en styrke eller svakhet at den ikke ser på følgene?", "At testen alltid tar feil", "At det i bunn og grunn tross alt alltid er de faktiske følgene av handlingen som burde avgjøre om den er rett eller gal", "At hvite løgner er tillatt hos Kant"],
+      options: ["At testen av og til gir kontraintuitive svar — er det en styrke eller svakhet at den ikke ser på følgene?", "At testen rett og slett alltid tar feil i tilfeller av denne typen", "At det i bunn og grunn tross alt alltid er de faktiske følgene av handlingen som burde avgjøre om den er rett eller gal", "At hvite løgner uten videre er tillatt hos Kant, ettersom hensikten med dem jo er å skåne den andre parten"],
       explanation: "Falske positive/negative er en reell innvending mot testens presisjon, og godt materiale for en S4-drøfting.",
     },
     {
       question: "Hva er hensikten med å formulere maksimen presist før testen?",
-      options: ["Fordi en upresis maksime gir en misvisende test — det kategoriske imperativ prøver nettopp maksimen", "Fordi lengre maksimer alltid består", "Fordi maksimen skal skjule hensikten", "Fordi de faktiske og forventede følgene av handlingen alltid skal formuleres med som en del av selve maksimen"],
+      options: ["Fordi en upresis maksime gir en misvisende test — det kategoriske imperativ prøver nettopp maksimen", "Fordi lengre og mer utførlige maksimer alltid består testen", "Fordi maksimen skal skjule den egentlige hensikten bak handlingen, slik at testen ikke skal få tak i den", "Fordi de faktiske og forventede følgene av handlingen alltid skal formuleres med som en del av selve maksimen"],
       explanation: "Maksimen må inneholde både handling og hensikt. Formulerer man den upresist, tester man noe annet enn det man faktisk gjør.",
     },
     {
@@ -1767,27 +1767,27 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor ser Kant bort fra følgene når han vurderer moralsk verdi?",
-      options: ["Fordi to identiske utfall kan ha helt ulik moralsk verdi alt etter sinnelaget bak", "Fordi følgene aldri kan forutses", "Fordi følgene alltid er dårlige", "Fordi det i bunn og grunn bare er Gud alene som fullt ut kjenner de framtidige følgene"],
+      options: ["Fordi to identiske utfall kan ha helt ulik moralsk verdi alt etter sinnelaget bak", "Fordi følgene aldri lar seg forutse sikkert på det tidspunktet der man faktisk handler", "Fordi følgene alltid blir dårlige når mennesker handler ut fra sin egen egeninteresse", "Fordi det i bunn og grunn bare er Gud alene som fullt ut kjenner de framtidige følgene"],
       explanation: "Kremmerens ærlighet og den ekte pliktoppfyllerens ærlighet har samme utfall, men ulik verdi. Derfor må verdien ligge i motivet.",
     },
     {
       question: "Hvordan henger Kants verdighetsbegrep sammen med Velleman (kap. 3.5)?",
-      options: ["Vellemans skille mellom personens verdi (verdighet, ubetinget) og gode (velferd, betinget) bygger på Kants verdighet/pris-skille", "Velleman avviser Kants verdighetsbegrep helt", "De har ingenting med hverandre å gjøre", "Velleman snur i realiteten fullstendig om på hele Kant og gjør i stedet menneskets ukrenkelige verdighet om til nettopp en målbar markedspris"],
+      options: ["Vellemans skille mellom personens verdi (verdighet, ubetinget) og gode (velferd, betinget) bygger på Kants verdighet/pris-skille", "Velleman avviser Kants verdighetsbegrep fullstendig, og bygger i stedet hele skillet sitt på en rent økonomisk forståelse av verdi", "De to har ingenting med hverandre å gjøre; Velleman bygger på helt andre kilder enn Kant", "Velleman snur i realiteten fullstendig om på hele Kant og gjør i stedet menneskets ukrenkelige verdighet om til nettopp en målbar markedspris"],
       explanation: "Verdighet/pris-skillet er broen: Velleman argumenterer for at verdigheten ikke kan veies mot velferd i eutanasidebatten.",
     },
     {
       question: "Hva er den korrekte lesningen av «den gode viljen stråler som en juvel»?",
-      options: ["At den gode viljens verdi er iboende og uavhengig av om den får utrettet noe", "At gode handlinger alltid belønnes", "At viljen må være vakker", "At det egentlig er de gode følgene av handlingen som til slutt gjør selve viljen verdifull"],
+      options: ["At den gode viljens verdi er iboende og uavhengig av om den får utrettet noe", "At gode handlinger alltid blir belønnet til slutt, om ikke straks, så i det lange løp", "At selve viljen må være vakker og tiltalende for alle dem som betrakter den utenfra", "At det egentlig er de gode følgene av handlingen som til slutt gjør selve viljen verdifull"],
       explanation: "Bildet uttrykker at nytten eller unytten verken legger til eller trekker fra verdien — den er god i seg selv.",
     },
     {
       question: "Hva må til for at en handling skal ha moralsk verdi hos Kant?",
-      options: ["At den er gjort av plikt — av aktelse for moralloven, ikke av tilbøyelighet", "At den til syvende og sist fører til mest mulig samlet lykke for alle de berørte", "At den gjøres med sterk følelse", "At den blir belønnet av samfunnet"],
+      options: ["At den er gjort av plikt — av aktelse for moralloven, ikke av tilbøyelighet", "At den til syvende og sist fører til mest mulig samlet lykke for alle de berørte", "At den gjøres med sterk følelse og med oppriktig medfølelse for den andre parten", "At den blir belønnet av samfunnet og anerkjent av alle de andre menneskene rundt"],
       explanation: "Moralsk verdi krever rett motiv (plikt). Handling som bare er i samsvar med plikt, men av egeninteresse, teller ikke.",
     },
     {
       question: "Hva sier maksime-verkstedet om maksimen «jeg gir villedende komplimenter for å glede»?",
-      options: ["Den stryker: universalisert mister komplimenter sin troverdighet, så hensikten kan ikke lenger oppnås", "Den består lett fordi den er velmenende", "Den lar seg overhodet ikke teste med selve universaliseringstesten, siden den utelukkende handler om velmenende følelser", "Den er et hypotetisk imperativ"],
+      options: ["Den stryker: universalisert mister komplimenter sin troverdighet, så hensikten kan ikke lenger oppnås", "Den består testen uten videre, nettopp fordi den er velmenende", "Den lar seg overhodet ikke teste med selve universaliseringstesten, siden den utelukkende handler om velmenende følelser", "Den er et hypotetisk imperativ, og faller dermed helt utenfor området til selve det kategoriske imperativet"],
       explanation: "Selv en velmenende usannhet stryker, fordi allmenn løgn for å glede undergraver komplimentets funksjon. Et strengt, drøftingsverdig resultat.",
     },
     {
@@ -1819,27 +1819,27 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva innebærer upartiskheten hos Mill?",
-      options: ["Hver enkelts lykke teller likt — egen lykke veier ikke tyngre enn en fremmeds", "Man skal fremme sin egen lykke først", "Det er utelukkende de flittige og arbeidsomme menneskenes egen lykke som teller med", "Følelser skal holdes utenfor"],
+      options: ["Hver enkelts lykke teller likt — egen lykke veier ikke tyngre enn en fremmeds", "Man skal alltid fremme sin egen lykke først, og først i neste omgang andres lykke", "Det er utelukkende de flittige og arbeidsomme menneskenes egen lykke som teller med", "Alle følelser skal holdes fullstendig utenfor når den samlede nytten skal beregnes"],
       explanation: "Utilitaristen skal være «like upartisk som en velvillig og uinteressert tilskuer». Dette gir teorien både styrke og dens omdiskuterte side.",
     },
     {
       question: "Hva er Mills svar på «fornøyd gris»-innvendingen?",
-      options: ["Gleder skiller seg i kvalitet, ikke bare mengde — de høyere rangeres over de lavere", "At nytelse er alt som betyr noe", "At følelser er onde", "At man i stedet for å søke nytelse alltid heller bør følge sin plikt, slik Kant hevder i etikken"],
+      options: ["Gleder skiller seg i kvalitet, ikke bare mengde — de høyere rangeres over de lavere", "At nytelsen er alt som betyr noe, og at selve mengden nytelse er det eneste som teller", "At følelsene i seg selv er onde, og at de derfor må holdes fullstendig utenfor moralen", "At man i stedet for å søke nytelse alltid heller bør følge sin plikt, slik Kant hevder i etikken"],
       explanation: "Kvalitetsskillet gjør utilitarismen til noe mer enn en lære for svin. Dette gjør Mill til kvalitativ, ikke ren kvantitativ, hedonist.",
     },
     {
       question: "Hvem avgjør hvilken glede som er «høyere» ifølge Mill?",
-      options: ["Det kompetente flertall — de som har erfart begge slags gleder", "Filosofene alene", "Flertallet i befolkningen uansett erfaring", "Den personen som til enhver tid opplever aller mest samlet nytelse"],
+      options: ["Det kompetente flertall — de som har erfart begge slags gleder", "Filosofene alene, siden det bare er de som kan bedømme de ulike gledene", "Flertallet i hele befolkningen, uansett hvilken erfaring de selv har", "Den personen som til enhver tid opplever aller mest samlet nytelse"],
       explanation: "Bare den som kjenner både høyere og lavere gleder kan dømme. «Bedre en misfornøyd Sokrates enn en fornøyd dåre.»",
     },
     {
       question: "Hva betyr «bedre en misfornøyd Sokrates enn en fornøyd dåre»?",
-      options: ["Den kompetente dommer velger den høyere gleden selv om den gir mindre samlet tilfredshet", "At kunnskap gjør ulykkelig", "At man alltid bør være misfornøyd", "At uvitende dårer og enkle mennesker i grunnen ikke fortjener å oppnå noen form for ekte lykke i livet"],
+      options: ["Den kompetente dommer velger den høyere gleden selv om den gir mindre samlet tilfredshet", "At kunnskapen gjør mennesket ulykkelig, og at uvitenheten derfor alltid er å foretrekke framfor den", "At man alltid bør holde seg misfornøyd med sin egen situasjon, uansett hvor godt man har det", "At uvitende dårer og enkle mennesker i grunnen ikke fortjener å oppnå noen form for ekte lykke i livet"],
       explanation: "Poenget er kvalitetsskillet: Sokrates kjenner begge slags gleder, dåren bare den ene — derfor teller Sokrates' dom.",
     },
     {
       question: "Hva er beregnings-innvendingen mot utilitarismen?",
-      options: ["At man ikke rekker å kalkulere følgene på den allmenne lykke før hver handling", "At lykke ikke kan måles i det hele tatt", "At de samlede følgene av en enkelt handling nesten alltid ender opp med å bli dårlige", "At bare egen lykke teller"],
+      options: ["At man ikke rekker å kalkulere følgene på den allmenne lykke før hver handling", "At lykken ikke lar seg måle i det hele tatt, verken etter mengde eller etter kvalitet", "At de samlede følgene av en enkelt handling nesten alltid ender opp med å bli dårlige", "At det bare er den handlende personens egen lykke som teller med i regnestykket"],
       explanation: "Innvendingen er praktisk: kravet om å regne ut samlet nytte før hver handling virker umulig.",
     },
     {
@@ -1849,12 +1849,12 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er forskjellen på handlings- og regelutilitarisme?",
-      options: ["Handlingsutilitarisme vurderer den enkelte handlingen; regelutilitarisme vurderer regelen den faller inn under", "Handlingsutilitarisme gjelder store valg, regelutilitarisme små", "De er to navn på det samme", "Handlingsutilitarisme ser utelukkende på selve motivet bak handlingen, mens regelutilitarisme derimot bare ser på de faktiske følgene"],
+      options: ["Handlingsutilitarisme vurderer den enkelte handlingen; regelutilitarisme vurderer regelen den faller inn under", "Handlingsutilitarisme gjelder store valg, regelutilitarisme små", "De er bare to ulike navn på én og samme posisjon, og skillet har ingen praktisk betydning når nytten skal vurderes", "Handlingsutilitarisme ser utelukkende på selve motivet bak handlingen, mens regelutilitarisme derimot bare ser på de faktiske følgene"],
       explanation: "Skillet avgjør hvor hardt rettferdighetsinnvendingen biter. Å blande de to nivåene er en målt feil (#6).",
     },
     {
       question: "Hva er rettferdighetsinnvendingen mot utilitarismen?",
-      options: ["At teorien, siden bare summen teller, kan se ut til å tillate å ofre den ene for de mange", "At teorien er for streng mot enkeltmennesket", "At hele teorien fullstendig ser bort fra og ignorerer de faktiske følgene av de handlingene vi utfører", "At teorien krever for mye beregning"],
+      options: ["At teorien, siden bare summen teller, kan se ut til å tillate å ofre den ene for de mange", "At teorien er altfor streng mot enkeltmennesket og krever altfor store ofre av den enkelte", "At hele teorien fullstendig ser bort fra og ignorerer de faktiske følgene av de handlingene vi utfører", "At teorien krever altfor mye beregning før hver eneste lille handling man kommer til å utføre"],
       explanation: "Fordi bare den samlede lykken teller, kan enkeltmenneskets krav overkjøres. Slaveri-testen er den skarpeste formen (kap. 3.4).",
     },
     {
@@ -1864,7 +1864,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er Mills kritikk av Kants imperativ-utledning?",
-      options: ["At Kant egentlig viser at umoralske maksimer får uheldige *følger*, og dermed smugler inn nytte", "At Kants imperativ er for enkelt", "At Kant i virkeligheten overhodet ikke bryr seg om verken plikten eller selve moralloven i hele sin egen etikk", "At Kant har rett på alle punkter"],
+      options: ["At Kant egentlig viser at umoralske maksimer får uheldige *følger*, og dermed smugler inn nytte", "At Kants imperativ er altfor enkelt til å kunne avgjøre virkelig vanskelige moralske spørsmål i praksis", "At Kant i virkeligheten overhodet ikke bryr seg om verken plikten eller selve moralloven i hele sin egen etikk", "At Kant har rett på hvert eneste punkt, slik at hele nytteprinsippet til Mill dermed blir overflødig"],
       explanation: "Ifølge Mill er det ikke en logisk motsigelse Kant påviser, men uheldige konsekvenser — så pliktetikken hviler skjult på nytte.",
     },
     {
@@ -1874,7 +1874,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva teller i nytteprinsippet — motiv eller følger?",
-      options: ["Følgene — en handling med dårlig motiv, men gode følger, er ikke gal av den grunn", "Motivet — bare handling av plikt teller", "Både selve motivet bak handlingen og de faktiske følgene av den teller nøyaktig like mye", "Verken motiv eller følger"],
+      options: ["Følgene — en handling med dårlig motiv, men gode følger, er ikke gal av den grunn", "Motivet — det er bare en handling gjort av ren plikt som har moralsk verdi hos Mill", "Både selve motivet bak handlingen og de faktiske følgene av den teller nøyaktig like mye", "Verken motivet eller følgene, men utelukkende den ytre formen på handlingen som utføres"],
       explanation: "Utilitarismen er konsekvensetikk: følgene avgjør. Dette er motsatsen til Kant, som lar sinnelaget avgjøre.",
     },
     {
@@ -1894,17 +1894,17 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva sier utdraget om Bibelen og beregning?",
-      options: ["At man ikke trenger å regne følger før hver handling, like lite som man leser hele Bibelen først — reglene er lært", "At utilitarismen er en religion", "At man alltid må regne før hver handling", "At hele den kristne etikken og moralen i bunn og grunn er fullstendig ubrukelig som grunnlag for et moderne samfunn"],
+      options: ["At man ikke trenger å regne følger før hver handling, like lite som man leser hele Bibelen først — reglene er lært", "At utilitarismen i seg selv er en religion på linje med kristendommen", "At man alltid må regne ut alle følgene før hver eneste handling, akkurat slik man må lese hele Bibelen før man handler", "At hele den kristne etikken og moralen i bunn og grunn er fullstendig ubrukelig som grunnlag for et moderne samfunn"],
       explanation: "Sammenligningen viser at nytteprinsippet er et kriterium, ikke en prosedyre — menneskeheten har allerede lært hvilke handlinger som fremmer lykke.",
     },
     {
       question: "Hvordan gir regelnivået utilitaristen et svar på rettferdighetsinnvendingen?",
-      options: ["Praksiser som å straffe uskyldige gir sjelden mest nytte på sikt (frykt, tap av tillit), så regelen forbyr dem", "Regelnivået ignorerer følgene helt", "Regelnivået i utilitarismen gjør i praksis det enkelte individet og dets ukrenkelige rettigheter aller viktigst av alt", "Regelnivået avviser nytte"],
+      options: ["Praksiser som å straffe uskyldige gir sjelden mest nytte på sikt (frykt, tap av tillit), så regelen forbyr dem", "Regelnivået ignorerer følgene helt og ser bare på selve regelen", "Regelnivået i utilitarismen gjør i praksis det enkelte individet og dets ukrenkelige rettigheter aller viktigst av alt", "Regelnivået avviser nytten som målestokk fullstendig, og bygger i stedet hele moralen på ukrenkelige rettigheter alene"],
       explanation: "På regelnivå vurderes regelen alle skulle følge; regler som verner den enkelte gir mest samlet nytte over tid. Dette demper innvendingen.",
     },
     {
       question: "Hva er innvendingen mot Mills kvalitetsskille?",
-      options: ["At hvis kvalitet ikke er en mengde nytelse, har Mill smuglet inn et ikke-nytelsesgode og er ikke lenger hedonist", "At kvalitet er lettere å måle enn mengde", "At Mill overser lavere gleder helt", "At hele kvalitetsskillet mellom de høyere og de lavere gledene i praksis gjør hele moralteorien altfor enkel og naiv"],
+      options: ["At hvis kvalitet ikke er en mengde nytelse, har Mill smuglet inn et ikke-nytelsesgode og er ikke lenger hedonist", "At kvalitet er langt lettere å måle enn ren mengde, og at Mill derfor burde ha holdt seg til kvalitetsskillet alene", "At Mill overser de lavere gledene helt i sin egen framstilling", "At hele kvalitetsskillet mellom de høyere og de lavere gledene i praksis gjør hele moralteorien altfor enkel og naiv"],
       explanation: "Dette er godt drøftingsråstoff: redder kvalitetsskillet Mill, eller forlater han hedonismen? Mills forsvar er at det fortsatt er *gleder* som rangeres.",
     },
     {
@@ -1914,12 +1914,12 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor forankres utilitarismen i Mill og ikke i Smart i denne boka?",
-      options: ["Fordi pensum kalibreres mot «Vite, være, gjøre»; Smart er ute av pensum og gir null uttelling", "Fordi Smart tok feil om nytte", "Fordi Smart ikke skrev om etikk", "Fordi John Stuart Mill rett og slett levde og skrev tidligere i historien enn det J.J.C. Smart gjorde"],
+      options: ["Fordi pensum kalibreres mot «Vite, være, gjøre»; Smart er ute av pensum og gir null uttelling", "Fordi Smart tok feil om nytten og om hvordan den samlede lykken egentlig skal beregnes i praksis", "Fordi Smart ikke skrev om etikk i det hele tatt, men utelukkende om helt andre filosofiske spørsmål", "Fordi John Stuart Mill rett og slett levde og skrev tidligere i historien enn det J.J.C. Smart gjorde"],
       explanation: "Kalibreringsregelen: gammelt galleri gir null uttelling (feil #14). Utilitarismen forankres i Mills «Utilitarisme».",
     },
     {
       question: "Hva er slaveri-testen?",
-      options: ["Den skarpeste formen av rettferdighetsinnvendingen: kan slaveri rettferdiggjøres hvis nok mange nyter godt av det?", "En enkel test man kan bruke for å avgjøre om en gitt person i det hele tatt er en overbevist tilhenger av utilitarismen eller ikke", "Mills argument for slaveri", "En historisk hendelse Mill beskriver"],
+      options: ["Den skarpeste formen av rettferdighetsinnvendingen: kan slaveri rettferdiggjøres hvis nok mange nyter godt av det?", "En enkel test man kan bruke for å avgjøre om en gitt person i det hele tatt er en overbevist tilhenger av utilitarismen eller ikke", "Mills eget argument for at slaveri kan forsvares når nytten er stor nok", "En historisk hendelse Mill selv beskriver i teksten sin, og som han bruker som eksempel på hvordan nytten kan feilberegnes"],
       explanation: "Slaveri-testen presser rettferdighetsinnvendingen til sitt ytterste og behandles fullt i kap. 3.4. Den utfordrer om summen kan overkjøre den enkelte.",
     },
     {
@@ -1929,7 +1929,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan skiller Mills syn seg fra Kants på «hva gjør en handling rett»?",
-      options: ["Mill: følgene (samlet lykke); Kant: sinnelaget (god vilje, maksimens form)", "Mill: plikt; Kant: nytelse", "Begge: følgene", "Begge to legger utelukkende avgjørende vekt på selve sinnelaget bak handlingen"],
+      options: ["Mill: følgene (samlet lykke); Kant: sinnelaget (god vilje, maksimens form)", "Mill legger avgjørende vekt på plikten, mens Kant legger vekt på selve nytelsen", "Begge to legger utelukkende avgjørende vekt på de faktiske følgene av handlingen", "Begge to legger utelukkende avgjørende vekt på selve sinnelaget bak handlingen"],
       explanation: "Der Kant måler innsiden (viljen), måler Mill utsiden (utfallet). Dette er kjerneaksen i den vanligste sammenligningen.",
     },
     {
@@ -1939,7 +1939,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er upartiskhetens omdiskuterte konsekvens?",
-      options: ["At hensynet til flertallet kan overkjøre den enkelte, siden bare summen teller", "At man som utilitarist alltid og i alle situasjoner må ofre seg selv fullstendig", "At egen lykke teller mest", "At følelser blir irrelevante"],
+      options: ["At hensynet til flertallet kan overkjøre den enkelte, siden bare summen teller", "At man som utilitarist alltid og i alle situasjoner må ofre seg selv fullstendig", "At det er ens egen lykke som til syvende og sist teller aller mest i regnestykket", "At alle følelser blir fullstendig irrelevante for selve den moralske vurderingen"],
       explanation: "Upartiskhet gir teorien styrke (ingen særbehandles), men også dens mest omdiskuterte side: den enkelte kan telles ned mot summen.",
     },
     {
@@ -1961,7 +1961,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
   'exphil03-3-4': [
     {
       question: "Hva er en teoris «rett-gjørende egenskap»?",
-      options: ["Det teorien sier avgjør om en handling er rett — dyd, plikt eller nytte", "Egenskapen som gjør teorien mest populær", "Teoriens forfatter", "Det historiske og idéhistoriske opphavet til selve moralteorien og dens grunnlegger"],
+      options: ["Det teorien sier avgjør om en handling er rett — dyd, plikt eller nytte", "Den egenskapen som gjør at teorien blir mest populær blant filosofene i samtiden", "Teoriens forfatter og den posisjonen han er kommet til å stå for i hele faget", "Det historiske og idéhistoriske opphavet til selve moralteorien og dens grunnlegger"],
       explanation: "Første trinn i firetrinnmetoden er å identifisere den rett-gjørende egenskapen: dyd/karakter (Aristoteles), plikt/maksime (Kant), nytte (Mill).",
     },
     {
@@ -1971,12 +1971,12 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er premissdisiplin?",
-      options: ["Å lese casens premisser som stipulasjoner, ikke som empiri man kan bestride", "Å alltid være enig i premissene moralsk", "Å legge til egne premisser i casen", "Å forkaste og se fullstendig bort fra alle caser som har urealistiske eller usannsynlige premisser"],
+      options: ["Å lese casens premisser som stipulasjoner, ikke som empiri man kan bestride", "Å alltid være moralsk enig i alle de premissene som casen selv stipulerer opp", "Å legge til sine egne ekstra premisser i casen mens man holder på med analysen", "Å forkaste og se fullstendig bort fra alle caser som har urealistiske eller usannsynlige premisser"],
       explanation: "Tankeeksperimentets premisser ER poenget. Å svare «men i virkeligheten ville …» er å rømme fra det casen tester (feil #13).",
     },
     {
       question: "Hvorfor presses utilitarismen mest av slaveri-casen (den snille slaveeieren)?",
-      options: ["Fordi velferden stipuleres høyere enn i frihet, så den følge-avhengige teorien mangler et vern mot å bruke mennesker som midler", "Fordi Mill var tilhenger av slaveri", "Fordi utilitarismen ignorerer velferd", "Fordi hele den utilitaristiske moralteorien i bunn og grunn viser seg å være fullstendig logisk selvmotsigende og inkonsekvent når man tenker godt etter"],
+      options: ["Fordi velferden stipuleres høyere enn i frihet, så den følge-avhengige teorien mangler et vern mot å bruke mennesker som midler", "Fordi Mill selv var en uttalt tilhenger av slaveriet slik det fantes i hans egen samtid", "Fordi utilitarismen ignorerer velferden fullstendig, og derfor overhodet ikke har noe å si om en ordning der velferden stipuleres høy", "Fordi hele den utilitaristiske moralteorien i bunn og grunn viser seg å være fullstendig logisk selvmotsigende og inkonsekvent når man tenker godt etter"],
       explanation: "Når velferdsregnestykket snus (velferden er høy), biter rettferdighetsinnvendingen hardt: bare summen teller, og enkeltmennesket kan overkjøres.",
     },
     {
@@ -1986,7 +1986,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er divergens i case-analysen?",
-      options: ["Der teoriene gir ulikt svar, eller samme svar av ulike grunner", "Der teoriene alltid er enige", "Der en teori tar feil", "Der selve casen fullstendig mangler klare, entydige premisser å arbeide ut fra"],
+      options: ["Der teoriene gir ulikt svar, eller samme svar av ulike grunner", "Der de ulike moralteoriene alltid ender opp med samme svar på casen", "Der en av de tre moralteoriene tar direkte feil i analysen av casen", "Der selve casen fullstendig mangler klare, entydige premisser å arbeide ut fra"],
       explanation: "Divergensen er det oppgavene oftest er ute etter — den avslører teorienes ulike rett-gjørende egenskaper.",
     },
     {
@@ -1996,7 +1996,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken feil begår en kandidat som svarer «men i virkeligheten ville slaver blitt mishandlet»?",
-      options: ["Feil #13 — å ignorere tankeeksperimentets premisser", "Feil #10 — formalfeil", "Feil #6 — upresist begrep", "Feil #12 — å svare på begge de valgfrie oppgavene i settet samtidig"],
+      options: ["Feil #13 — å ignorere tankeeksperimentets premisser", "Feil #10 — en ren formalfeil i selve besvarelsens oppsett", "Feil #6 — et upresist begrep i selve analysen av casen", "Feil #12 — å svare på begge de valgfrie oppgavene i settet samtidig"],
       explanation: "Casen stipulerer at slavene behandles godt. Å bestride det er å rømme fra det casen tester — feil #13.",
     },
     {
@@ -2006,12 +2006,12 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Langs hvilken dimensjon skiller Kant og Mill seg klarest?",
-      options: ["Hva gjør handlingen rett — sinnelag (Kant) mot konsekvenser (Mill)", "Hvem forfatteren var", "Hvilket århundre de levde i", "Nøyaktig hvor lange og omfattende de skriftlige hovedverkene deres faktisk er"],
+      options: ["Hva gjør handlingen rett — sinnelag (Kant) mot konsekvenser (Mill)", "Hvem forfatteren bak den enkelte moralteorien var, og når han faktisk levde", "Hvilket århundre de to tenkerne levde i og skrev hovedverkene sine i", "Nøyaktig hvor lange og omfattende de skriftlige hovedverkene deres faktisk er"],
       explanation: "Kant mot Mill er det vanligste paret; kjerneaksen er om sinnelaget eller følgene avgjør handlingens verdi.",
     },
     {
       question: "Hva er den rasistiske ytringen-casen (ingen påviselig skade) ment å avdekke?",
-      options: ["At en følge-avhengig teori (utilitarisme) mister taket når skaden fjernes, mens Kant fordømmer uavhengig av følger", "At rasisme er tillatt hvis ingen skades", "At samtlige tre moralteorier i akkurat denne casen viser seg å være fullstendig enige med hverandre om selve konklusjonen", "At følgene alltid er avgjørende"],
+      options: ["At en følge-avhengig teori (utilitarisme) mister taket når skaden fjernes, mens Kant fordømmer uavhengig av følger", "At rasisme er tillatt så lenge ingen kan påvise at noen ble skadet", "At samtlige tre moralteorier i akkurat denne casen viser seg å være fullstendig enige med hverandre om selve konklusjonen", "At det alltid er følgene som er avgjørende, slik at en ytring helt uten påviselig skade uten videre må være moralsk tillatt"],
       explanation: "Premisset fjerner skaden nettopp for å teste hva som gjenstår: Kant fordømmer via verdighet, utilitaristen må ty til regelnivå.",
     },
     {
@@ -2031,7 +2031,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva sier handlingsutilitarismen om å bryte et dødsleie-løfte som gagner alle?",
-      options: ["At bruddet kan være rett, siden den døende ikke lenger kan skades og midlene gjør mer nytte annensteds", "At bruddet alltid er galt", "At løfter ikke betyr noe", "At det i bunn og grunn utelukkende er Kants pliktetikk som er i stand til å avgjøre denne vanskelige saken"],
+      options: ["At bruddet kan være rett, siden den døende ikke lenger kan skades og midlene gjør mer nytte annensteds", "At bruddet alltid er galt, uansett hvor mye nytte det gir", "At løfter ikke betyr noe som helst når den som mottok dem ikke lenger er i live og dermed ikke kan skades", "At det i bunn og grunn utelukkende er Kants pliktetikk som er i stand til å avgjøre denne vanskelige saken"],
       explanation: "På handlingsnivå tilsier nytteprinsippet at bruddet er rett når det gagner alle — mens Kant forbyr det via universaliseringstesten. Her divergerer teoriene.",
     },
     {
@@ -2041,12 +2041,12 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er kjernen i divergensen på slaveri-casen?",
-      options: ["Hva som teller *utover* velferd — pliktetikken og dydsetikken fordømmer uavhengig av velferden, Mill presses av den", "Om slavene i selve casen egentlig selv faktisk opplever og erfarer hele livssituasjonen sin som god eller som dårlig alt i alt", "Hvor mange mennesker ordningen omfatter i casen", "Hvilke historiske samfunn casen er ment å ligne på"],
+      options: ["Hva som teller *utover* velferd — pliktetikken og dydsetikken fordømmer uavhengig av velferden, Mill presses av den", "Om slavene i selve casen egentlig selv faktisk opplever og erfarer hele livssituasjonen sin som god eller som dårlig alt i alt", "Hvor mange mennesker ordningen i casen faktisk omfatter til sammen", "Hvilke konkrete historiske samfunn casen er ment å ligne på, og hvor godt den faktisk treffer dem rent historisk sett"],
       explanation: "Pliktetikken (verdighet) og dydsetikken (karakter) er uavhengige av velferden; Mill er følge-avhengig og presses når velferden stipuleres høy.",
     },
     {
       question: "Hva er dimensjon 2 i sammenligningskartet?",
-      options: ["Konsekvensenes rolle — en viss (Aristoteles), ingen for moralsk verdi (Kant), alt (Mill)", "Forfatterens fødselsår", "Hvor lang teorien er", "Hvorvidt selve den aktuelle moralteorien i bunn og grunn har et religiøst eller et sekulært grunnlag"],
+      options: ["Konsekvensenes rolle — en viss (Aristoteles), ingen for moralsk verdi (Kant), alt (Mill)", "Fødselsåret til forfatteren og hvilken historisk periode han levde og virket i som filosof", "Hvor omfattende selve moralteorien er, målt i antall sider i det hovedverket den er utviklet i", "Hvorvidt selve den aktuelle moralteorien i bunn og grunn har et religiøst eller et sekulært grunnlag"],
       explanation: "Dimensjon 2 skiller teoriene skarpt: for Mill teller bare følgene, for Kant ingen for den moralske verdien, for Aristoteles en viss (det gode livet er målet).",
     },
     {
@@ -2056,7 +2056,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et A-tegn i behandlingen av konvergens?",
-      options: ["Å se at begrunnelsene betyr noe selv når svarene møtes, fordi de skiller i randtilfellene", "Å hevde at konvergens gjør teorivalget likegyldig", "Å ignorere konvergens helt", "Å hardnakket påstå at de ulike moralteoriene i praksis aldri noen gang kan konvergere mot samme svar"],
+      options: ["Å se at begrunnelsene betyr noe selv når svarene møtes, fordi de skiller i randtilfellene", "Å hevde at konvergens uten videre gjør hele valget mellom de ulike moralteoriene likegyldig", "Å ignorere konvergensen fullstendig og bare skrive om de punktene der de tre teoriene skiller lag", "Å hardnakket påstå at de ulike moralteoriene i praksis aldri noen gang kan konvergere mot samme svar"],
       explanation: "Å se at konvergens i ett tilfelle skjuler divergens i randtilfellene signaliserer selvstendighet — et subtilt A-poeng.",
     },
   ],
@@ -2068,7 +2068,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor gjør Foots definisjonsavgrensning så mye arbeid?",
-      options: ["Den snevrer diskusjonen inn til tilfeller der døden faktisk gagner den som dør", "Den beviser at eutanasi alltid er tillatt", "Den gjør samtykke overflødig", "Den fjerner i praksis fullstendig ethvert behov for i det hele tatt å trekke inn dydene"],
+      options: ["Den snevrer diskusjonen inn til tilfeller der døden faktisk gagner den som dør", "Den beviser at eutanasi alltid er moralsk tillatt", "Den gjør kravet om samtykke fullstendig overflødig i hele den moralske vurderingen", "Den fjerner i praksis fullstendig ethvert behov for i det hele tatt å trekke inn dydene"],
       explanation: "Ved å kreve at døden tjener personen, faller drap av andre grunner utenfor, og spørsmålet blir «når kan en død som tjener personen forsvares?»",
     },
     {
@@ -2083,22 +2083,22 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva handler barmhjertighetsskranken hos Foot om?",
-      options: ["Personens gode — at handlingen faktisk tjener personen", "Retten til liv", "Samfunnets interesser", "Legens og helsepersonellets plikt til alltid å adlyde den gjeldende loven"],
+      options: ["Personens gode — at handlingen faktisk tjener personen", "Retten til liv og kravet om at det må foreligge et gyldig samtykke", "Samfunnets interesser og de samlede kostnadene ved behandling", "Legens og helsepersonellets plikt til alltid å adlyde den gjeldende loven"],
       explanation: "Barmhjertighet gjelder personens gode. Samtykke uten at døden tjener personen er ikke barmhjertig.",
     },
     {
       question: "Hvorfor kaller vi Foots to dyder «doble skranker»?",
-      options: ["Fordi begge må tilfredsstilles; ett hensyn alene er ikke nok", "Fordi de betyr det samme", "Fordi den ene alltid overstyrer den andre", "Fordi de to skrankene utelukkende gjelder for leger og annet autorisert helsepersonell"],
+      options: ["Fordi begge må tilfredsstilles; ett hensyn alene er ikke nok", "Fordi de to skrankene i realiteten betyr nøyaktig det samme hos Foot", "Fordi den ene skranken alltid overstyrer den andre i alle tilfeller", "Fordi de to skrankene utelukkende gjelder for leger og annet autorisert helsepersonell"],
       explanation: "Eutanasi kan bare være tillatelig når både rettferdighet (samtykke) og barmhjertighet (personens gode) er innfridd. Faller én, faller tillatelsen.",
     },
     {
       question: "Hva innfrir samtykke i Foots analyse?",
-      options: ["Rettferdighetsskranken — personen gir avkall på sitt krav mot oss", "Barmhjertighetsskranken", "Både rettferdighets- og barmhjertighetsskranken samtidig, på én og samme gang", "Ingen av skrankene"],
+      options: ["Rettferdighetsskranken — personen gir avkall på sitt krav mot oss", "Barmhjertighetsskranken, altså kravet om at det tjener personens eget gode", "Både rettferdighets- og barmhjertighetsskranken samtidig, på én og samme gang", "Ingen av de to skrankene blir innfridd av et samtykke fra pasienten"],
       explanation: "Samtykke gjelder rettferdigheten: personen gir avkall på retten til liv som krav mot oss. Barmhjertigheten må innfris i tillegg.",
     },
     {
       question: "Hva argumenterer Velleman egentlig imot?",
-      options: ["At det bør innføres en rett til å avslutte eget liv", "At et enkelt menneske noen gang overhodet kan ha en gyldig grunn til å dø", "At lidelse er vondt", "At leger skal hjelpe pasienter"],
+      options: ["At det bør innføres en rett til å avslutte eget liv", "At et enkelt menneske noen gang overhodet kan ha en gyldig grunn til å dø", "At lidelse er vondt for den som rammes", "At leger i det hele tatt skal hjelpe pasienter som ber om det"],
       explanation: "Velleman er ikke uten videre mot at et enkeltmenneske kan ha grunn til å dø; han er mot en *rett* som ordning.",
     },
     {
@@ -2108,7 +2108,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er skillet mellom personens verdi og personens gode hos Velleman?",
-      options: ["Verdi = verdighet, ubetinget; gode = velferd, betinget", "Verdi = velferd; gode = verdighet", "De er to ord for det samme", "Personens verdi gjelder utelukkende de friske, mens godet på sin side bare gjelder de syke"],
+      options: ["Verdi = verdighet, ubetinget; gode = velferd, betinget", "Verdien er velferden, mens godet er den ubetingede verdigheten", "De to uttrykkene er bare to ulike ord for én og samme ting", "Personens verdi gjelder utelukkende de friske, mens godet på sin side bare gjelder de syke"],
       explanation: "Personens verdi er verdigheten (ubetinget, uavhengig av hvordan man har det); personens gode er velferden (betinget, kan bli negativ).",
     },
     {
@@ -2133,12 +2133,12 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er Foot og Velleman et skarpt sammenligningspar (S3)?",
-      options: ["De kan behandle samme sak og dra i motsatt retning fordi metoden er ulik", "De er enige om alt", "De skrev samme tekst", "De tilhører samme etiske teori"],
+      options: ["De kan behandle samme sak og dra i motsatt retning fordi metoden er ulik", "De er enige om alt, og kommer alltid fram til nøyaktig samme konklusjon i saken", "De skrev samme tekst, og teksten står oppført under begge navnene i pensum", "De tilhører samme etiske teori, og bruker derfor nøyaktig den samme metoden"],
       explanation: "Uenigheten er metodisk, ikke faktisk: dydsetisk avveining av to skranker mot ett ubetinget kantiansk prinsipp.",
     },
     {
       question: "Hvilken feil begår den som drøfter «er det greit å ta liv?» uten Foots avgrensning?",
-      options: ["#6 — upresist begrep; man drøfter drap generelt, ikke eutanasi i Foots forstand", "#14 — gammelt pensum-spøkelse", "#11 — sitatslurv", "#4 — å hoppe helt over ett av de obligatoriske delspørsmålene"],
+      options: ["#6 — upresist begrep; man drøfter drap generelt, ikke eutanasi i Foots forstand", "#14 — gammelt pensum-spøkelse, altså tenkere som er tatt ut av pensum etter 2021", "#11 — sitatslurv og upresis gjengivelse av originalteksten", "#4 — å hoppe helt over ett av de obligatoriske delspørsmålene i selve eksamenssettet"],
       explanation: "Uten «til personens eget beste» drøfter man et annet spørsmål. Avgrensningen er premisset hele Foots analyse hviler på (#6).",
     },
     {
@@ -2148,7 +2148,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva mener Foot skjer med rettferdighetsskranken når en pasient gir vedvarende, informert samtykke?",
-      options: ["Den er innfridd — pasienten gir avkall på sitt krav mot oss", "Den skjerpes", "Den blir irrelevant for alltid", "Den erstattes av barmhjertighet"],
+      options: ["Den er innfridd — pasienten gir avkall på sitt krav mot oss", "Den skjerpes, slik at kravet pasienten har mot oss blir enda sterkere", "Den blir irrelevant for alltid, også i alle framtidige tilfeller", "Den erstattes av barmhjertighetsskranken, som da overtar helt"],
       explanation: "Samtykke innfrir rettferdigheten. Men barmhjertigheten (at døden tjener personen) må fortsatt innfris for at eutanasi skal være tillatelig.",
     },
     {
@@ -2168,7 +2168,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken av teoritrekantens tenkere står Vellemans argument nærmest?",
-      options: ["Kant — verdighet som ubetinget, mennesket som formål i seg selv", "Mill — nytteprinsippet", "Aristoteles — eudaimonia", "Ingen av dem"],
+      options: ["Kant — verdighet som ubetinget, mennesket som formål i seg selv", "Mill — nytteprinsippet og den samlede lykken for flest mulig", "Aristoteles — eudaimonia og læren om dyden som midte mellom to laster", "Ingen av dem — Vellemans argument står helt og fullt for seg selv"],
       explanation: "Velleman bygger på Kants verdighetsbegrep: mennesket er et formål i seg selv, prisløst og uerstattelig. Verdigheten kan derfor ikke veies mot velferd.",
     },
     {
@@ -2190,12 +2190,12 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
   'exphil03-3-6': [
     {
       question: "Hva kjennetegner Lockes naturtilstand?",
-      options: ["Frihet og likhet under naturens lov", "En lovløs krig av alle mot alle", "Fullstendig kaos uten moral", "Absolutt kongemakt"],
+      options: ["Frihet og likhet under naturens lov", "En lovløs krig av alle mot alle mennesker", "Fullstendig kaos uten moral", "Absolutt kongemakt uten grenser"],
       explanation: "Lockes naturtilstand er ordnet av naturens lov: frihet og likhet, ikke lovløs krig. Det som mangler er en upartisk håndhever (feil #6).",
     },
     {
       question: "Hva er naturens lov hos Locke?",
-      options: ["Fornuftens lov om at ingen skal skade en annens liv, frihet eller eiendom", "Den sterkestes rett", "Statens vedtatte lover", "Et guddommelig påbud uten innhold"],
+      options: ["Fornuftens lov om at ingen skal skade en annens liv, frihet eller eiendom", "Den sterkestes rett, altså at makt gir rett i naturtilstanden", "Statens vedtatte lover, slik de gjelder i et allerede etablert borgerlig samfunn", "Et guddommelig påbud uten nærmere innhold, gitt av Gud direkte til menneskene"],
       explanation: "Naturens lov er fornuftens lov som forplikter alle også før statens lover. Den gjør naturtilstanden ordnet, ikke lovløs.",
     },
     {
@@ -2225,7 +2225,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor blir Lockes eiendomsforbehold kritiske i en verden med knapphet?",
-      options: ["Fordi én persons tilegnelse da kan gjøre at andre står uten «nok og like godt igjen»", "Fordi ingen da eier noe", "Fordi arbeid da blir umulig", "Fordi staten da overtar all eiendom"],
+      options: ["Fordi én persons tilegnelse da kan gjøre at andre står uten «nok og like godt igjen»", "Fordi ingen da eier noe som helst i det hele tatt", "Fordi arbeidet da blir umulig å utføre for alle dem som kommer sist til de knappe ressursene", "Fordi staten da overtar all eiendommen og fordeler den på nytt mellom samtlige borgere"],
       explanation: "På en tom øy er forbeholdene lette å innfri, men når ressursene er knappe, kan tilegnelse ramme andre og bryte nok-og-like-godt-forbeholdet.",
     },
     {
@@ -2245,7 +2245,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er de tre trekkene ved mor-barn-relasjonen hos Held?",
-      options: ["Ikke valgt, ikke mellom likeverdige, ikke egeninteressert", "Fri, lik, uavhengig", "Kortvarig, betinget, gjensidig", "Juridisk, økonomisk, politisk"],
+      options: ["Ikke valgt, ikke mellom likeverdige, ikke egeninteressert", "Fri, lik og fullstendig uavhengig av andre", "Kortvarig, betinget og gjensidig forpliktende for begge parter", "Juridisk, økonomisk og politisk regulert gjennom statens lover"],
       explanation: "Ingen valgte den andre, partene er dypt ulike i makt, og omsorgen gis uten krav om gjenytelse — motsatt av kontraktens frie, like, egeninteresserte parter.",
     },
     {
@@ -2260,12 +2260,12 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken feil begår den som gjør Lockes naturtilstand til en lovløs krigstilstand?",
-      options: ["#6 — upresist begrep; Lockes naturtilstand er ordnet av naturens lov", "#14 — gammelt pensum-spøkelse", "#11 — sitatslurv", "#4 — å hoppe helt over ett av de obligatoriske delspørsmålene"],
+      options: ["#6 — upresist begrep; Lockes naturtilstand er ordnet av naturens lov", "#14 — gammelt pensum-spøkelse fra pensum før 2021", "#11 — sitatslurv og upresis gjengivelse av selve originalteksten hos Locke", "#4 — å hoppe helt over ett av de obligatoriske delspørsmålene i settet"],
       explanation: "Å forveksle Lockes naturtilstand med et hobbesiansk «alles krig mot alle» er en presisjonsfeil (#6). Den er frihet og likhet under naturens lov.",
     },
     {
       question: "Hvilken feil begår den som gjengir Held som «kvinneperspektiv» uten det filosofiske argumentet?",
-      options: ["#1 — gjengivelse uten det egentlige innholdet (fiksjonskritikken + alternativmodellen)", "#6 — upresist begrep", "#13 — ignorere premisser", "#2 — mening uten grunner"],
+      options: ["#1 — gjengivelse uten det egentlige innholdet (fiksjonskritikken + alternativmodellen)", "#6 — et upresist begrep i framstillingen av Helds argument", "#13 — å ignorere premissene i selve tankeeksperimentet som hele oppgaveteksten bygger på", "#2 — mening uten grunner, altså ren synsing helt uten noen argumenter forankret i pensum"],
       explanation: "Held har et filosofisk poeng: fiksjonskritikken og mor-barn-modellen. Å bare merke henne «feministisk» dropper argumentet (#1).",
     },
     {
@@ -2280,7 +2280,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er Locke-triaden i eksamensarkivet?",
-      options: ["Sekvensen kontrakt → eiendomsrett → Helds innvending, gjenbrukt nesten uendret i fire sett", "De tre naturlige rettighetene", "Tre bøker Locke skrev", "Locke, Kant og Mill sammen"],
+      options: ["Sekvensen kontrakt → eiendomsrett → Helds innvending, gjenbrukt nesten uendret i fire sett", "De tre naturlige rettighetene liv, frihet og eiendom hos Locke", "De tre bøkene Locke skrev om henholdsvis staten, eiendomsretten og den religiøse toleransen", "Locke, Kant og Mill behandlet under ett som én samlet politisk-filosofisk tradisjon i faget"],
       explanation: "Locke-triaden er arkivets mest gjenbrukte etikk-sekvens: kontrakt, eiendomsrett og Helds kritikk, ofte i samme oppgave.",
     },
     {
@@ -2290,7 +2290,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva vil Held si om påstanden om at avhengighet er et unntak fra normalmennesket?",
-      options: ["At avhengighet tvert imot er en grunnbetingelse for alle, ikke et unntak", "At bare syke er avhengige", "At avhengighet ikke finnes", "At avhengighet er et valg"],
+      options: ["At avhengighet tvert imot er en grunnbetingelse for alle, ikke et unntak", "At det bare er syke og skadde mennesker som er virkelig avhengige av andre", "At avhengighet ikke finnes som noe moralsk relevant forhold i det hele tatt", "At avhengighet er et valg den enkelte selv tar, og derfor kan velges bort"],
       explanation: "Held snur bildet: vi fødes hjelpeløse og er avhengige som barn, syke og gamle. Den uavhengige voksne er ikke normen, men en fase.",
     },
     {
@@ -2300,7 +2300,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er det sentrale poenget en redegjørelse for Lockes eiendomsrett ikke får mangle?",
-      options: ["Arbeidsargumentet MED de to forbeholdene", "At Locke var engelsk", "At eiendom er hellig", "At jorden er rund"],
+      options: ["Arbeidsargumentet MED de to forbeholdene", "At Locke var engelsk og levde på 1600-tallet", "At eiendomsretten er hellig og ukrenkelig", "At jorden er rund, slik man visste i samtiden"],
       explanation: "Mister du forbeholdene, forsvinner grensen som gjør teorien omdiskutert. Biografi er utenompensum (#3).",
     },
     {
@@ -2310,7 +2310,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er Locke og Held et fast sammenligningspar (S3)?",
-      options: ["Locke forsvarer kontraktsmodellen, Held angriper dens grunnbilde med et alternativt menneskesyn", "De var samtidige venner", "De skrev samme bok", "De var enige om alt"],
+      options: ["Locke forsvarer kontraktsmodellen, Held angriper dens grunnbilde med et alternativt menneskesyn", "De var samtidige venner og diskuterte filosofi direkte med hverandre", "De skrev en og samme bok, og den står oppført under begge de to forfatternavnene i pensumlisten", "De var enige om alt, og kommer derfor alltid fram til nøyaktig den samme konklusjonen i alle saker"],
       explanation: "Paret er skarpt fordi Held angriper nøyaktig det menneskesynet Lockes kontraktsteori hviler på. En S3-oppgave krever begge presise og en navngitt akse.",
     },
   ],
@@ -2332,7 +2332,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er det avgjørende premisset i det siste menneske-tankeeksperimentet?",
-      options: ["At ingen mennesker skades — heller ikke fremtidige, for det finnes ingen igjen", "At det siste mennesket angrer", "At naturen kommer tilbake", "At noen ser på"],
+      options: ["At ingen mennesker skades — heller ikke fremtidige, for det finnes ingen igjen", "At det siste mennesket angrer på det han har gjort mot naturen", "At naturen uansett vokser fram igjen av seg selv når menneskene er borte for godt", "At noen fortsatt ser på, slik at selve handlingen kan bedømmes moralsk av et vitne"],
       explanation: "Premisset er at ingen mennesker skades. Å svare «det skader fremtidige generasjoner» endrer premisset og bommer på testen (feil #13).",
     },
     {
@@ -2342,12 +2342,12 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor mener Sylvan at hensyn til fremtidige generasjoner ikke er nok?",
-      options: ["Fordi naturen da fortsatt bare teller instrumentelt — for menneskers skyld", "Fordi fremtidige generasjoner ikke finnes", "Fordi det er for dyrt", "Fordi Sylvan ikke bryr seg om fremtiden"],
+      options: ["Fordi naturen da fortsatt bare teller instrumentelt — for menneskers skyld", "Fordi fremtidige generasjoner ikke finnes ennå", "Fordi tiltak som gjøres for naturens egen skyld blir altfor dyre for samfunnet", "Fordi Sylvan ikke bryr seg om framtiden i det hele tatt, bare om naturen slik den er nå"],
       explanation: "Å verne natur *fordi* fremtidige mennesker trenger den, forblir menneskesjåvinistisk. En full miljøetikk må anerkjenne naturens egenverdi.",
     },
     {
       question: "Hvorfor behandler kapitlet dyrs moralske status teorinøytralt?",
-      options: ["Fordi en egen spesiesisme-tenker er ute av pensum (feil #14); trekanten brukes i stedet", "Fordi teoriene er enige om dyr", "Fordi dyr ikke teller moralsk", "Fordi Sylvan forbød det"],
+      options: ["Fordi en egen spesiesisme-tenker er ute av pensum (feil #14); trekanten brukes i stedet", "Fordi de tre teoriene er helt enige om dyrs moralske status", "Fordi dyr ikke teller moralsk i det hele tatt, verken på en direkte eller en indirekte måte", "Fordi Sylvan uttrykkelig forbød at de tre moralteoriene brukes på spørsmålet om dyrs status"],
       explanation: "Pensumregimet utelukker en dyreetikk-tenker som er ute. Dyrs status prøves derfor mot nytte, verdighet og dyder.",
     },
     {
@@ -2367,22 +2367,22 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er drøftingsaksen for Sylvan på eksamen?",
-      options: ["Trenger vi en ny miljøetikk, eller strekker de gamle teoriene til?", "Bør kjøtt forbys ved lov?", "Hvor mange dyrearter finnes?", "Er naturen vakker?"],
+      options: ["Trenger vi en ny miljøetikk, eller strekker de gamle teoriene til?", "Bør produksjon av kjøtt forbys ved lov?", "Hvor mange ulike dyrearter er det egentlig som finnes på jorda i dag?", "Er naturen i seg selv vakker, og hvem er det i så fall som avgjør det?"],
       explanation: "Aksen gjelder om egenverdi krever et brudd med tradisjonen (Sylvan) eller om en utvidet nyttetenkning holder.",
     },
     {
       question: "Hva er stridsspørsmålet mellom Sylvan og en instrumentalist?",
-      options: ["Om noe kan ha verdi uten at noen verdsetter det", "Om dyr kan snakke", "Om naturen er skapt", "Om mennesker er dyr"],
+      options: ["Om noe kan ha verdi uten at noen verdsetter det", "Om dyr kan snakke og uttrykke sine egne interesser", "Om naturen er skapt av en gud", "Om mennesker selv er dyr"],
       explanation: "Sylvans egenverdi-krav forutsetter at ja; instrumentalisten svarer at verdi alltid er verdi *for* noen. Det er det uavklarte punktet.",
     },
     {
       question: "Hvilken feil begår den som svarer «men det skader fremtidige generasjoner» på det siste menneske-eksperimentet?",
-      options: ["#13 — ignorere tankeeksperimentets premisser", "#14 — gammelt pensum-spøkelse", "#7 — løsrevet sitat", "#2 — mening uten grunner"],
+      options: ["#13 — ignorere tankeeksperimentets premisser", "#14 — gammelt pensum-spøkelse fra før 2021", "#7 — å tolke sitatet løsrevet fra hele argumentet", "#2 — mening uten grunner, altså bare ren synsing"],
       explanation: "Premisset er at ingen mennesker finnes igjen, heller ikke fremtidige. Å innføre fremtidige generasjoner endrer casen og bommer på testen (#13).",
     },
     {
       question: "Hvilken feil begår den som forankrer dyreetikk i en spesiesisme-tenker som er ute av pensum?",
-      options: ["#14 — gammelt pensum-spøkelse (null uttelling)", "#6 — upresist begrep", "#4 — hoppe over delspørsmål", "#11 — sitatslurv"],
+      options: ["#14 — gammelt pensum-spøkelse (null uttelling)", "#6 — et upresist begrep i selve framstillingen av teorien", "#4 — å hoppe over ett av delspørsmålene i settet", "#11 — sitatslurv og upresis gjengivelse av teksten"],
       explanation: "Tenkere ute av pensum gir null uttelling. Dyrs status skal behandles teorinøytralt via teoritrekanten (#14).",
     },
     {
@@ -2394,12 +2394,12 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
   'exphil03-3-8': [
     {
       question: "Hva er Benatars hovedtese om livskvalitet?",
-      options: ["At vi systematisk overvurderer hvor god egen livskvalitet er", "At livet objektivt sett er elendig for alle", "At lykke ikke finnes", "At bare rike har god livskvalitet"],
+      options: ["At vi systematisk overvurderer hvor god egen livskvalitet er", "At livet objektivt sett er elendig for alle mennesker", "At lykke ikke finnes i det hele tatt, verken for rike eller fattige", "At bare de rike har god livskvalitet, mens alle de andre lider"],
       explanation: "Benatar hevder at vurderingen vår er systematisk skjev oppover. Det er en påstand om målefeil, ikke om at livet er elendig.",
     },
     {
       question: "Hvilke tre mekanismer bruker Benatar for å forklare overvurderingen?",
-      options: ["Optimisme-bias, tilpasning og sammenligning med andre", "Tvil, sikkerhet og bevis", "Frihet, likhet og brorskap", "Nytelse, smerte og likegyldighet"],
+      options: ["Optimisme-bias, tilpasning og sammenligning med andre", "Tvil, sikkerhet og fullgodt bevis", "Frihet, likhet og brorskap", "Nytelse, smerte og fullstendig likegyldighet til begge deler"],
       explanation: "De tre mekanismene er optimisme-bias (lysere framtid), tilpasning (venne seg til det dårlige) og sammenligning med andre snarere enn med det mulige.",
     },
     {
@@ -2409,7 +2409,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er Benatar en utfordring for Mills utilitarisme?",
-      options: ["Fordi nyttekalkylen forutsetter målbar lykke, men målingen er systematisk for høy", "Fordi Mill benektet at lykke finnes", "Fordi Mill var pessimist", "Fordi Benatar avviser all matematikk"],
+      options: ["Fordi nyttekalkylen forutsetter målbar lykke, men målingen er systematisk for høy", "Fordi Mill benektet at lykke finnes i det hele tatt", "Fordi Mill selv var en uttalt pessimist og mente at livet stort sett er vondt å leve", "Fordi Benatar avviser all matematikk og dermed hele den utilitaristiske nyttekalkylen"],
       explanation: "Utilitarismen bygger på at lykke kan måles. Er selvrapporten skjev oppover, regner nyttekalkylen med gale tall.",
     },
     {
@@ -2439,7 +2439,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er Appiahs positive kulturbegrep?",
-      options: ["Kultur som praksis — noe man gjør, ikke en essens man arver ubrutt", "Kultur som en fast, nedarvet essens", "Kultur som ren økonomi", "Kultur som noe bare eksperter har"],
+      options: ["Kultur som praksis — noe man gjør, ikke en essens man arver ubrutt", "Kultur som en fast, nedarvet essens man får ved fødselen", "Kultur som ren økonomi, altså utelukkende et spørsmål om marked og penger", "Kultur som noe bare spesialister og eksperter har virkelig tilgang til"],
       explanation: "Appiah erstatter arv/essens med praksis: kultur er levende og foranderlig, omformet av hver generasjon.",
     },
     {
@@ -2449,17 +2449,17 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er slektskapet mellom Appiah og Haslanger?",
-      options: ["Begge bruker genealogisk metode — de avdekker en kategoris historiske tilblivelse og funksjon", "Begge skrev om kjønn", "Begge var utilitarister", "De var samtidige kolleger"],
+      options: ["Begge bruker genealogisk metode — de avdekker en kategoris historiske tilblivelse og funksjon", "Begge to skrev først og fremst om kjønn og om kjønnskategorienes rolle i det moderne samfunnet", "Begge to var utilitarister og bygde hele analysen sin på nytteprinsippet slik Mill formulerte det", "De var samtidige kolleger ved det samme universitetet og samarbeidet om flere av de sentrale tekstene"],
       explanation: "Appiah bruker samme genealogiske grep på «vestlig kultur» som Haslanger på kjønn. Å se dette gir S3-uttelling.",
     },
     {
       question: "Hvilken feil begår den som gjengir Benatar uten koblingen til lykketeoriene?",
-      options: ["#1 — gjengivelse uten relevans; koblingen til Mill/Aristoteles ER eksamensbruken", "#14 — gammelt pensum-spøkelse", "#13 — ignorere premisser", "#11 — sitatslurv"],
+      options: ["#1 — gjengivelse uten relevans; koblingen til Mill/Aristoteles ER eksamensbruken", "#14 — gammelt pensum-spøkelse fra pensumet før 2021", "#13 — å ignorere premissene i det tankeeksperimentet som hele oppgaveteksten bygger på", "#11 — sitatslurv og upresis gjengivelse av selve originalteksten fra Benatar-utdraget"],
       explanation: "Benatar er eksamensrelevant gjennom koblingen til lykketeoriene. Uten den blir mekanismene en løsrevet kuriositet (#1).",
     },
     {
       question: "Hvilken feil begår den som gjør Appiah til ren relativist?",
-      options: ["#6 — upresist; Appiah erstatter essens med praksis, ikke med «alt er likegyldig»", "#4 — hoppe over delspørsmål", "#2 — mening uten grunner", "#7 — løsrevet sitat"],
+      options: ["#6 — upresist; Appiah erstatter essens med praksis, ikke med «alt er likegyldig»", "#4 — å hoppe over ett av de obligatoriske delspørsmålene i settet", "#2 — mening uten grunner, altså ren synsing uten noen forankring i pensumtekstene", "#7 — å tolke selve sitatet løsrevet fra det argumentet det står i hos Appiah selv"],
       explanation: "Poenget er genealogi + praksis, ikke oppløsning av all kultur. Å lese ham som relativist mister det positive kulturbegrepet (#6).",
     },
     {
@@ -2471,7 +2471,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
   'exphil03-4-1': [
     {
       question: "Hva er den korrekte rekkefølgen i Descartes' tvilstrapp fram mot cogito?",
-      options: ["Sansebedrag → drømmeargument → ond ånd → cogito", "Ond ånd → drømmeargument → sansebedrag → cogito", "Drømmeargument → cogito → sansebedrag → ond ånd", "Sansebedrag → cogito → ond ånd → drømmeargument"],
+      options: ["Sansebedrag → drømmeargument → ond ånd → cogito", "Ond ånd → drømmeargument → sansebedrag → så cogito", "Drømmeargument → cogito → sansebedrag → ond ånd", "Sansebedrag → cogito → ond ånd → drømmeargument"],
       explanation: "Tvilen skjerpes trinnvis: først sansebedraget, så drømmeargumentet, så den onde ånden som sterkeste tvilshypotese — og cogito er det ene som overlever, fordi selve tvilen forutsetter en som tviler.",
     },
     {
@@ -2496,7 +2496,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En kandidat parafraserer et Mill-utdrag linje for linje, men angir aldri hvilken funksjon det har i argumentet. Hvilken feil er dette?",
-      options: ["Feil #7 — å tolke sitatet løsrevet fra tekstens overordnede argument", "Feil #4 — å hoppe over et delspørsmål", "Feil #14 — gammelt pensum-spøkelse", "Feil #2 — mening uten grunner"],
+      options: ["Feil #7 — å tolke sitatet løsrevet fra tekstens overordnede argument", "Feil #4 — å hoppe over et helt delspørsmål i settet", "Feil #14 — gammelt pensum-spøkelse, altså tenkere som er ute av pensum", "Feil #2 — mening uten grunner, altså ren synsing uten pensumforankring"],
       explanation: "S2 krever at du identifiserer funksjonen (premiss/innvending/eksempel/svar) og plasserer utdraget i helheten. Ren løsrevet parafrase gir «delvis rett» = D/E-nivå (feil #7).",
     },
     {
@@ -2521,7 +2521,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En Haslanger-passasje viser at «hva som telles som mat» er sosialt bestemt OG at kategorien over tid former hva vi faktisk dyrker. Hvilke to fenomener illustrerer dette?",
-      options: ["Begrepskonstruksjon (kategorien) og objektkonstruksjon (tingene selv)", "Sex og gender", "Eliminativisme og ikke-eliminativisme", "Sannhet og overbevisning"],
+      options: ["Begrepskonstruksjon (kategorien) og objektkonstruksjon (tingene selv)", "Skillet mellom sex og gender hos Haslanger", "Eliminativisme og ikke-eliminativisme om hvordan kategorien bør håndteres", "Sannhet og overbevisning, altså to av de tre kunnskapsvilkårene hos Wikforss"],
       explanation: "Begrepskonstruksjon = våre kategorier er sosialt formet; objektkonstruksjon = tingene selv formes av at kategoriene brukes på dem. H2025 premierte forståelsen av nettopp denne mekanismen.",
     },
     {
@@ -2531,17 +2531,17 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En kandidat svarer på en Descartes-oppgave med detaljert biografi og epokehistorie, men lite om selve tvilsargumentet. Hva er problemet?",
-      options: ["Feil #3 — leksikonsvar: generisk oppslagsverk-kunnskap med lav relevans nulles", "Feil #6 — begrepsglidning mellom nabobegreper", "Feil #5 — drøfting uten kobling til (a)/(b)", "Feil #10 — formalfeil i semesteroppgaven"],
+      options: ["Feil #3 — leksikonsvar: generisk oppslagsverk-kunnskap med lav relevans nulles", "Feil #6 — begrepsglidning mellom nabobegreper i framstillingen", "Feil #5 — en drøfting helt uten noen kobling tilbake til kunnskapsdelene (a) og (b)", "Feil #10 — en ren formalfeil i oppsettet, strukturen og layouten i semesteroppgaven"],
       explanation: "Relevanskravet krever at du svarer på det oppgaven spør om (argumentet), ikke viser bredde om epoke og liv. Biografi- og epokestoff med lav relevans nulles (feil #3).",
     },
     {
       question: "Hvor lang tid bør du typisk bruke per delspørsmål (a/b) i kunnskapsdelene?",
-      options: ["15 til 25 minutter", "5 til 8 minutter", "45 til 60 minutter", "Hele eksamenstiden fordelt likt uansett antall spørsmål"],
+      options: ["15 til 25 minutter", "Rundt 5 til 8 minutter", "45 til 60 minutter", "Hele eksamenstiden fordelt likt uansett antall spørsmål"],
       explanation: "Kunnskapsdelene har et budsjett på 15–25 minutter hver; drøftingsdelen får mer (30–45 min). Ved flere sitatutdrag fordeles tiden så alle behandles.",
     },
     {
       question: "Hva løfter typisk en redegjørelse fra C til A i disse sjangrene?",
-      options: ["Det subtile ekstra: presise nabobegreper og en dypere strukturell innsikt (f.eks. at aitia ikke er moderne kausalitet)", "Å skrive dobbelt så langt", "Å legge til en historisk innledning om tenkerens liv", "Å nevne så mange tenkere som mulig"],
+      options: ["Det subtile ekstra: presise nabobegreper og en dypere strukturell innsikt (f.eks. at aitia ikke er moderne kausalitet)", "Å skrive dobbelt så langt som det de andre kandidatene gjør på samme oppgave", "Å legge til en fyldig historisk innledning om tenkerens liv, samtid og virke før man i det hele tatt begynner på redegjørelsen", "Å nevne så mange av pensumtenkerne som overhodet mulig, slik at sensor kan se hele bredden i det du faktisk har lest gjennom semesteret"],
       explanation: "Et korrekt kjernesvar er C-stoff; A krever i tillegg presise nabobegreper og subtile strukturelle poeng (metode vs. skeptisisme, aitia vs. kausalitet, begreps- vs. objektkonstruksjon).",
     },
   ],
@@ -2553,7 +2553,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en «dimensjon» (akse) i en sammenligningsoppgave?",
-      options: ["Et felles spørsmål begge tenkere svarer på, som gjør sammenligning mulig", "En liste over fakta om den ene tenkeren", "Tenkerens fødselsår og verk", "Antall argumenter hver tenker har"],
+      options: ["Et felles spørsmål begge tenkere svarer på, som gjør sammenligning mulig", "En liste over faktaopplysninger om bare den ene av de to tenkerne i oppgaven", "Tenkerens fødselsår og hovedverk", "Antall argumenter hver tenker har"],
       explanation: "En dimensjon er et felles spørsmål — «hva gjør en handling rett?», «hva er kunnskapens kilde?» — som begge svarer på, slik at forskjellen kan vises.",
     },
     {
@@ -2563,7 +2563,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Langs hvilken dimensjon ligger hovedbruddet mellom Kant og Mill?",
-      options: ["Hva gjør en handling rett: sinnelag/maksime (Kant) vs. konsekvenser (Mill)", "Om Gud finnes", "Hvor formene befinner seg", "Om kunnskap krever sikkerhet"],
+      options: ["Hva gjør en handling rett: sinnelag/maksime (Kant) vs. konsekvenser (Mill)", "Om Gud i det hele tatt finnes, og om det lar seg bevise", "Spørsmålet om hvor de platonske formene egentlig befinner seg i virkeligheten", "Spørsmålet om kunnskap krever full sikkerhet, eller om det holder med gode grunner"],
       explanation: "Kant er deontolog (sinnelaget/maksimen avgjør), Mill konsekvensialist (følgene avgjør). Det er selve bruddflaten mellom de to.",
     },
     {
@@ -2573,7 +2573,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er selvstendighetsbonusen i en S3-oppgave?",
-      options: ["En kort, begrunnet vurdering av hvem som står sterkest på hvert punkt", "Å skrive lengre enn andre kandidater", "Å nevne flere tenkere enn oppgaven ber om", "Å konkludere med at begge har helt rett"],
+      options: ["En kort, begrunnet vurdering av hvem som står sterkest på hvert punkt", "Å skrive lengre enn de andre kandidatene gjør", "Å trekke inn langt flere tenkere enn det oppgaveteksten faktisk ber om", "Å konkludere med at begge tenkerne i grunnen har helt rett på alle punkter"],
       explanation: "H2024-veiledningen honorerer selvstendighet: den korte vurderingen av hvem som står sterkest der, med grunner. Uten grunner blir det feil #2 (mening uten grunner).",
     },
     {
@@ -2583,7 +2583,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er kjernen i Elisabeths innvending mot Descartes' dualisme?",
-      options: ["Interaksjonsproblemet: hvordan kan en uutstrakt sjel bevege en utstrakt kropp?", "At Descartes ikke trodde på Gud", "At sansene alltid bedrar oss", "At cogito er et sirkelargument"],
+      options: ["Interaksjonsproblemet: hvordan kan en uutstrakt sjel bevege en utstrakt kropp?", "At Descartes ikke trodde på Gud, og at hele systemet hans derfor mangler garanti", "At sansene alltid bedrar oss, slik at ingen sikker kunnskap om kroppen blir mulig", "At cogito er et rent sirkelargument som allerede forutsetter det som skal bevises"],
       explanation: "Elisabeth presser dualismen innenfra: hvis sjelen er uutstrakt, mangler Descartes en mekanisme for hvordan den kan sette en utstrakt kropp i bevegelse. Det er det presise interaksjonspoenget, ikke generell skepsis (feil #7).",
     },
     {
@@ -2593,7 +2593,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Oppgaven lyder «gjør rede for begge og sammenlign». En kandidat redegjør grundig, men sammenligner ikke. Hva er problemet?",
-      options: ["Feil #4 — å svare på halve oppgaven; den har tre ledd (rede for A, rede for B, sammenlign)", "Feil #2 — mening uten grunner", "Feil #6 — begrepsglidning", "Feil #3 — et rent leksikonsvar med generell fakta og lav relevans for selve spørsmålet"],
+      options: ["Feil #4 — å svare på halve oppgaven; den har tre ledd (rede for A, rede for B, sammenlign)", "Feil #2 — mening uten grunner, altså ren synsing uten pensumforankrede argumenter", "Feil #6 — en begrepsglidning mellom to nære nabobegreper underveis i hele sammenligningsdelen", "Feil #3 — et rent leksikonsvar med generelle fakta og altfor lav relevans for selve spørsmålet"],
       explanation: "«Gjør rede for begge og sammenlign» har tre ledd. Å hoppe over sammenligningsdelen bryter jevnhetsregelen (feil #4).",
     },
     {
@@ -2603,7 +2603,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva må selvstendighetsbonusen alltid ha for å telle?",
-      options: ["Grunner — en vurdering uten argument er bare mening (feil #2)", "En klar vinner som får rett på alle punkter", "Minst fire dimensjoner", "En historisk innledning om begge tenkere"],
+      options: ["Grunner — en vurdering uten argument er bare mening (feil #2)", "En klar vinner som får rett på alle punkter", "Minst fire ulike dimensjoner å sammenligne de to tenkerne langs", "En historisk innledning om begge tenkerne og om samtiden deres"],
       explanation: "Vurderingen av hvem som står sterkest må begrunnes. En påstand om at «X har rett» uten argument er mening uten grunner (feil #2), ikke selvstendighet.",
     },
   ],
@@ -2625,7 +2625,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En kandidat kopierer hele redegjørelsen fra (a) inn i drøftingsdelen (c) i stedet for å drøfte. Hva er feilen?",
-      options: ["Feil #1 — mer redegjørelse i (c) (referatforlengelse gir D/E-profil)", "Feil #8 — ensidig drøfting uten innvending", "Feil #6 — begrepsglidning", "Feil #10 — formalfeil i semesteroppgaven"],
+      options: ["Feil #1 — mer redegjørelse i (c) (referatforlengelse gir D/E-profil)", "Feil #8 — ensidig drøfting uten noen innvending", "Feil #6 — en begrepsglidning mellom to nære nabobegreper i besvarelsen", "Feil #10 — en ren formalfeil i oppsettet og strukturen i semesteroppgaven"],
       explanation: "Drøftingsdelen skal behandle stoffet, ikke gjengi det på nytt. Å forlenge referatet er feil #1. Gjenbruk betyr å bruke poenget som byggestein, ikke å kopiere det.",
     },
     {
@@ -2640,12 +2640,12 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skiller «veiing» fra «listing» i en drøfting?",
-      options: ["Veiing viser hvorfor ett argument veier tyngst; listing setter bare for og mot ved siden av hverandre", "Veiing er lengre enn listing", "Veiing bruker flere tenkere enn listing", "De er det samme, men veiing er det formelle ordet"],
+      options: ["Veiing viser hvorfor ett argument veier tyngst; listing setter bare for og mot ved siden av hverandre", "Veiing er rett og slett lengre og mer omstendelig enn listing", "Veiing bruker flere pensumtenkere enn listing gjør, og trekker dermed inn langt mer av selve pensumstoffet", "De to er i realiteten nøyaktig det samme; veiing er bare det formelle faguttrykket man bruker om listing"],
       explanation: "Veiing (firepunktslistens punkt 2) er å begrunne hvorfor det ene argumentet er sterkere. Å bare stille argumentene opp uten å avveie dem er drøftingens vanligste svakhet.",
     },
     {
       question: "En kandidat bygger bare for-siden av en påstand og tar aldri med noen innvending. Hvilken feil er dette?",
-      options: ["Feil #8 — ensidig drøfting uten innvendinger", "Feil #1 — gjenfortelling uten drøfting", "Feil #5 — drøfting uten kobling til (a)/(b)", "Feil #3 — et rent leksikonsvar med generell fakta og lav relevans for selve spørsmålet"],
+      options: ["Feil #8 — ensidig drøfting uten innvendinger", "Feil #1 — gjenfortelling uten drøfting", "Feil #5 — drøfting uten kobling tilbake til (a)/(b)", "Feil #3 — et rent leksikonsvar med generell fakta og lav relevans for selve spørsmålet"],
       explanation: "En drøfting uten en innvending tatt på alvor er ikke en drøfting. Bruk motargument-generatoren for å hente en forankret innvending (feil #8).",
     },
     {
@@ -2665,17 +2665,17 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "I drøftingen «kan biologisk kjønn være konstruert?», hva er det avgjørende presise poenget?",
-      options: ["At kategorien (begrepskonstruksjon) kan være sosialt formet uten at kroppslige forskjeller blir uvirkelige", "At biologisk kjønn ikke finnes", "At sosialt kjønn er det eneste virkelige", "At all biologi er en illusjon"],
+      options: ["At kategorien (begrepskonstruksjon) kan være sosialt formet uten at kroppslige forskjeller blir uvirkelige", "At biologisk kjønn ikke finnes i det hele tatt, verken som kategori eller som kroppslig realitet", "At sosialt kjønn er det eneste virkelige, mens biologisk kjønn utelukkende er en illusjon uten noe grunnlag", "At all biologi bare er en illusjon, og at kroppene våre i sin helhet utelukkende er sosiale konstruksjoner vi har laget"],
       explanation: "Konstruert kategori betyr at grensen og vektleggingen er sosialt bestemt, ikke at kroppene er oppfunnet. Å blande begrepskonstruksjon med at kroppene selv er konstruert er feil #6.",
     },
     {
       question: "Hva kjennetegner en stillingtagen som holder mål i en drøfting?",
-      options: ["Den tas tidlig OG begrunnes med argumenter forankret i pensum", "Den spares til siste linje for å virke balansert", "Den bygger bare på personlig magefølelse", "Den unngås helt for ikke å ta feil"],
+      options: ["Den tas tidlig OG begrunnes med argumenter forankret i pensum", "Den spares til siste linje for å virke balansert", "Den bygger bare på personlig magefølelse og egne umiddelbare inntrykk", "Den unngås helt, slik at man ikke risikerer å ta feil overfor sensor"],
       explanation: "Ta stilling tidlig (femtrinnenes trinn 1) og begrunn den. Stillingtagen uten grunner er mening uten grunner (feil #2); ingen stillingtagen gir en drøfting uten retning.",
     },
     {
       question: "Hvorfor er punkt 3 i firepunktslisten (kobling til pensum) så viktig?",
-      options: ["Det gjør drøftingen filosofisk og forankret i stedet for løs mening", "Det gjør drøftingen lengre", "Det erstatter behovet for veiing", "Det lar deg unngå å ta stilling"],
+      options: ["Det gjør drøftingen filosofisk og forankret i stedet for løs mening", "Det gjør drøftingen lengre, slik at hele besvarelsen fyller flere sider", "Det erstatter behovet for å veie argumentene opp mot hverandre til slutt", "Det lar deg helt unngå å ta stilling i det hele tatt i selve drøftingen"],
       explanation: "Uten forankring i navngitte pensumtenkere blir drøftingen synsing. «Forankring uten avsender er C-stoff»; helt uten forankring blir det feil #2.",
     },
     {
@@ -2697,7 +2697,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En kandidat svarer: «Men i virkeligheten ville en slaveeier aldri behandlet folk godt.» Hvilken feil er dette?",
-      options: ["#13 — å normalisere bort tankeeksperimentets premisser", "#1 — gjenfortelling uten drøfting", "#7 — tolke sitatet løsrevet", "#12 — svare på begge valgfrie oppgaver"],
+      options: ["#13 — å normalisere bort tankeeksperimentets premisser", "#1 — gjenfortelling uten noen egentlig drøfting", "#7 — å tolke sitatet løsrevet fra det argumentet det står i", "#12 — å svare på begge de to valgfrie oppgavene i settet"],
       explanation: "Premisset stipulerer at herren behandler dem godt. Å bestride det er å omgå casen, som er konstruert for å isolere spørsmålet om noe utover velferd betyr noe (feil #13).",
     },
     {
@@ -2707,12 +2707,12 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er trinn 2 (anvend mekanisk) ment å hindre?",
-      options: ["At man bare gjengir teorien i generelle vendinger uten å røre casen (feil #1)", "At man tar stilling for tidlig i drøftingen", "At man bruker mer enn én teori", "At man siterer primærteksten løsrevet"],
+      options: ["At man bare gjengir teorien i generelle vendinger uten å røre casen (feil #1)", "At man tar stilling altfor tidlig i selve drøftingen", "At man tar i bruk mer enn én moralteori på én og samme case i én og samme besvarelse", "At man siterer fra primærteksten løsrevet fra det argumentet selve sitatet står i"],
       explanation: "En teori man bare refererer, har ikke rørt tankeeksperimentet. Trinn 2 krever at man kjører teoriens avgjørende egenskap konkret på det gitte tilfellet.",
     },
     {
       question: "Hva avgjør ifølge Lakatos om et forskningsprogram er progressivt snarere enn degenerert?",
-      options: ["Om programmet gir nye, dristige forutsigelser som kunne slått feil", "Om teorien er matematisk elegant og indre konsistent", "Om teorien forklarer alt vi allerede vet", "Om en enkelthypotese blir motbevist"],
+      options: ["Om programmet gir nye, dristige forutsigelser som kunne slått feil", "Om teorien er matematisk elegant og indre konsistent i hele oppbygningen", "Om teorien forklarer alt vi allerede vet", "Om en enkelthypotese blir motbevist"],
       explanation: "Lakatos vurderer programmer over tid. Et progressivt program forutsier noe nytt og testbart; et degenerert reddes bare med ad hoc-justeringer. Eleganse og bekreftelser av det kjente skiller ikke vitenskap fra pseudovitenskap.",
     },
     {
@@ -2722,12 +2722,12 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "På en Wikforss-case: hva må holdes presist fra hverandre?",
-      options: ["Fallibilisme (gode grunner holder, vi kan ta feil og likevel vite) og skeptisisme (vi vet ingenting)", "Overbevisning og sannhet", "Begrepskonstruksjon og objektkonstruksjon", "Progressivt og degenerert program"],
+      options: ["Fallibilisme (gode grunner holder, vi kan ta feil og likevel vite) og skeptisisme (vi vet ingenting)", "Overbevisning og sannhet som to av de tre kunnskapsvilkårene", "Begrepskonstruksjon og objektkonstruksjon, altså de to konstruksjonsmekanismene Haslanger skiller mellom", "Progressivt og degenerert forskningsprogram, altså de to kategoriene Lakatos deler alle programmene inn i"],
       explanation: "Å blande fallibilisme og skeptisisme er den hyppigste presisjonsfeilen i Vite-caser (feil #6). Fallibilisme sier at gode grunner holder selv om vi kan ta feil; skeptisisme benekter at vi vet noe.",
     },
     {
       question: "På en Haslanger-case skiller man begrepskonstruksjon fra objektkonstruksjon. Hva er objektkonstruksjon?",
-      options: ["At tingene selv (menneskene) formes av at kategorien brukes på dem", "At kategorien vår er formet av sosiale praksiser", "At kategorien er oppdiktet og derfor uvirkelig", "At kategorien avleses direkte av naturen"],
+      options: ["At tingene selv (menneskene) formes av at kategorien brukes på dem", "At selve kategorien vår er formet av sosiale praksiser gjennom lang tid", "At kategorien er oppdiktet og derfor helt uten noen virkelighet bak seg", "At kategorien uten videre kan avleses direkte av naturen slik den er"],
       explanation: "Begrepskonstruksjon gjelder kategorien (grensene og vektleggingen er sosialt valgt); objektkonstruksjon gjelder tingene selv (institusjoner former faktiske mennesker via kategoribruken).",
     },
     {
@@ -2742,7 +2742,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En kandidat avslutter en to-teori-analyse med «begge har noe for seg» uten å veie. Hva mangler?",
-      options: ["Den begrunnede vurderingen (trinn 4) — å vise med grunner hvilken analyse som treffer best", "Premissdisiplinen", "Den mekaniske anvendelsen", "Identifiseringen av den avgjørende egenskapen"],
+      options: ["Den begrunnede vurderingen (trinn 4) — å vise med grunner hvilken analyse som treffer best", "Premissdisiplinen i lesningen av casens stipulasjoner", "Den mekaniske anvendelsen av hver enkelt av de to teoriene direkte på premissene i selve casen", "Identifiseringen av den avgjørende, rett-gjørende egenskapen i hver enkelt av de to teoriene"],
       explanation: "Metodens fjerde trinn er selvstendighetsleddet: det holder ikke å si hva du mener — vis grunnene. Å hoppe over veiingen dropper det sensor kaller vurderingsevne.",
     },
   ],
@@ -2769,12 +2769,12 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan bør ordbudsjettet fordeles i disposisjonsmalen?",
-      options: ["Innledning ~100 · redegjørelse ~350 · drøfting ~400 · konklusjon ~100", "Innledning ~400 · redegjørelse ~100 · drøfting ~100 · konklusjon ~400", "Alt likt fordelt på fire deler à ~250", "Redegjørelse ~700 · drøfting ~200 · konklusjon ~100"],
+      options: ["Innledning ~100 · redegjørelse ~350 · drøfting ~400 · konklusjon ~100", "Innledning ~400 · redegjørelse ~100 · drøfting ~100 · konklusjon ~400 ord", "Alt likt fordelt på fire deler à ~250", "Redegjørelse ~700 · drøfting ~200 · konklusjon ~100"],
       explanation: "Hoveddelen er drøftingen (~400). Redegjørelsen (~350) skal likevel være solid, siden kunnskap og argumentasjon vektes likt.",
     },
     {
       question: "Blir teksten for lang, hvor bør du kutte først?",
-      options: ["I redegjørelse og bakgrunnsstoff — behold bare det drøftingen faktisk bruker", "I veiingen, siden den tar mest plass", "I litteraturlisten", "I konklusjonen"],
+      options: ["I redegjørelse og bakgrunnsstoff — behold bare det drøftingen faktisk bruker", "I veiingen, siden den tar mest plass i teksten", "I litteraturlisten, ved å stryke flere av de kildene som allerede står oppført", "I konklusjonen, slik at hele avslutningen blir så kort som det overhodet går an"],
       explanation: "Ordgrense-økonomi: kutt aldri i veiingen, som er der karakteren avgjøres. Bakgrunn og redegjørelse ut over det drøftingen bruker, ryddes vekk først.",
     },
     {
@@ -2784,12 +2784,12 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor stilles høyere krav til akademisk form i semesteroppgaven enn i eksamensdrøftingen?",
-      options: ["Fordi du har tid til å revidere, mens eksamen skjer under tidspress", "Fordi semesteroppgaven er kortere", "Fordi eksamen har strengere ordgrense", "Fordi semesteroppgaven ikke teller i helhetsvurderingen"],
+      options: ["Fordi du har tid til å revidere, mens eksamen skjer under tidspress", "Fordi semesteroppgaven er kortere", "Fordi hjemmeeksamenen har en langt strengere ordgrense enn semesteroppgaven", "Fordi semesteroppgaven ikke teller med i helhetsvurderingen av hele emnet"],
       explanation: "Tid til revisjon skjerper kravene til stedfestede henvisninger, sitatpresisjon og litteraturliste — og skjerper redelighetskravet, ikke motsatt.",
     },
     {
       question: "En semesteroppgave er faglig utmerket, men mangler litteraturliste. Hva blir utfallet?",
-      options: ["F — manglende litteraturliste er en av de tre formalfellene som gir stryk uansett innhold", "C — trekk for form, men bestått på faglig kvalitet", "Ingen konsekvens hvis henvisningene i teksten er på plass", "Bestått, men uten mulighet for A"],
+      options: ["F — manglende litteraturliste er en av de tre formalfellene som gir stryk uansett innhold", "C — trekk for form, men bestått på faglig kvalitet", "Ingen konsekvens i det hele tatt, så lenge alle henvisningene inne i selve teksten er på plass", "Bestått, men uten mulighet for toppkarakteren A, ettersom formmangelen trekker karakteren ned"],
       explanation: "Uten litteraturliste er teksten uetterrettelig som akademisk arbeid og gis F, selv om henvisningene i brødteksten er korrekte.",
     },
     {
@@ -2811,7 +2811,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er kjerneforskjellen mellom feil #1 og feil #2?",
-      options: ["#1 er kunnskap uten stillingtagen; #2 er stillingtagen uten kunnskap/grunner", "#1 er upresise begreper; #2 er løsrevet sitat", "#1 gjelder kunnskapsdelen; #2 gjelder semesteroppgaven", "De er samme feil under to navn"],
+      options: ["#1 er kunnskap uten stillingtagen; #2 er stillingtagen uten kunnskap/grunner", "#1 er upresise begreper, mens #2 er et løsrevet sitat", "#1 gjelder utelukkende kunnskapsdelen, mens #2 utelukkende gjelder semesteroppgaven", "De to er i realiteten samme feil, bare oppført under to ulike navn i feillisten"],
       explanation: "#1 og #2 er speilbilder: #1 refererer men drøfter ikke, #2 drøfter men forankrer ikke. Reparasjonen er å slå kunnskap og begrunnet stillingtagen sammen.",
     },
     {
@@ -2821,7 +2821,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Drøftingsdelen (c) starter helt forfra uten å bruke ett eneste poeng fra (a) eller (b). Hvilken feil?",
-      options: ["Feil #5 — ikke koble drøftingen til (a)/(b)", "Feil #4 — hoppe over et delspørsmål", "Feil #1 — gjenfortelling uten drøfting", "Feil #3 — et rent leksikonsvar med generell fakta og lav relevans for selve spørsmålet"],
+      options: ["Feil #5 — ikke koble drøftingen til (a)/(b)", "Feil #4 — hoppe over et delspørsmål", "Feil #1 — ren gjenfortelling helt uten drøfting", "Feil #3 — et rent leksikonsvar med generell fakta og lav relevans for selve spørsmålet"],
       explanation: "#5 kaster bort gjenbruksbonusen. Alle delspørsmål ER besvart (så ikke #4), men (c) vokser ikke ut av kunnskapsdelene.",
     },
     {
@@ -2831,12 +2831,12 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "«Det kategoriske imperativet sier at hvis du vil bli respektert, må du respektere andre.» Hvilket nabobegrep glir kandidaten over i?",
-      options: ["Det hypotetiske imperativet (betinget «hvis du vil X, gjør Y»)", "Universaliseringstesten", "Den gode vilje", "Aktelse for moralloven"],
+      options: ["Det hypotetiske imperativet (betinget «hvis du vil X, gjør Y»)", "Universaliseringstesten i det kategoriske imperativet", "Den gode vilje, som ifølge Kant er det eneste gode uten forbehold", "Aktelsen for moralloven, altså selve pliktmotivet som gir moralsk verdi"],
       explanation: "Feil #6: «hvis … så» er formen på et hypotetisk (betinget) imperativ. Det kategoriske imperativet er ubetinget — det gjelder uansett dine mål.",
     },
     {
       question: "I en sitattolkning parafraserer kandidaten utdraget riktig, men sier aldri hva utdraget GJØR i argumentet. Hvilken feil?",
-      options: ["Feil #7 — tolke sitatet løsrevet", "Feil #6 — upresise begreper", "Feil #2 — mening uten grunner", "Feil #10 — formalfeil"],
+      options: ["Feil #7 — tolke sitatet løsrevet", "Feil #6 — upresise begreper i framstillingen", "Feil #2 — mening uten grunner", "Feil #10 — formalfeil i semesteroppgaven"],
       explanation: "#7: et utdrag har en funksjon (premiss, innvending, eksempel eller svar på innvending). Uten å plassere det i tekstens overordnede argument blir tolkningen «delvis rett» = D/E.",
     },
     {
@@ -2871,19 +2871,19 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er kjernediagnosen i feilvaksinen — hvorfor havner besvarelser med god kunnskap likevel på C eller D?",
-      options: ["Fordi kunnskapen ikke behandles riktig (drøftes, forankres, presiseres) — ikke fordi den mangler", "Fordi besvarelsene er for korte", "Fordi kandidatene mangler faktakunnskap om tenkerne", "Fordi sensor krever originalforskning av førsteårsstudenter"],
+      options: ["Fordi kunnskapen ikke behandles riktig (drøftes, forankres, presiseres) — ikke fordi den mangler", "Fordi besvarelsene rett og slett er altfor korte til å nå opp", "Fordi kandidatene rett og slett mangler den nødvendige faktakunnskapen om pensumtenkerne og verkene deres", "Fordi sensorene krever helt selvstendig og original forskning av vanlige førsteårsstudenter på bachelornivå"],
       explanation: "De fleste karaktertap skyldes behandling, ikke innhold: gjengivelse uten drøfting (#1), mening uten grunner (#2), presisjonsglipp (#6) eller ensidighet (#8). En jevn, feilfri C slår en briljant, men ujevn besvarelse.",
     },
   ],
   'exphil03-4-7': [
     {
       question: "Hva er funksjonen til Mill-utdraget i (b) i 4.7-modellen — hvilken jobb gjør det i argumentet?",
-      options: ["Det svarer på «fornøyd gris»-innvendingen ved å innføre kvalitetsskillet mellom høyere og lavere gleder", "Det beviser at all nytelse er like mye verdt", "Det innfører nytteprinsippet for første gang", "Det argumenterer for at plikt går foran lykke"],
+      options: ["Det svarer på «fornøyd gris»-innvendingen ved å innføre kvalitetsskillet mellom høyere og lavere gleder", "Det beviser at all nytelse i bunn og grunn er like mye verdt", "Det innfører selve nytteprinsippet for aller første gang i hele Mills egen framstilling av utilitarismen", "Det argumenterer for at plikten alltid går foran lykken, akkurat slik Kant selv hevder i sin egen pliktetikk"],
       explanation: "S2-kjernen er å identifisere funksjonen først: utdraget er Mills forsvar mot innvendingen om at utilitarismen reduserer moralen til nytelsesjag. Det innfører det kvalitative skillet og gir kriteriet — det kompetente flertalls dom.",
     },
     {
       question: "Hva er kriteriet Mill gir for hvilke gleder som er de høyeste, ifølge (b) i modellen?",
-      options: ["Dommen til den som har erfart begge slags gleder", "Mengden nytelse gleden gir", "Hva flertallet i samfunnet stemmer for", "Hva som gir minst smerte på kort sikt"],
+      options: ["Dommen til den som har erfart begge slags gleder", "Mengden nytelse gleden gir", "Hva flertallet i samfunnet ender opp med å stemme for", "Hva som gir minst smerte på kort sikt"],
       explanation: "Den som kjenner både tankens og sansenes gleder, foretrekker varig de høyere — og det er den kompetente dommen, ikke nytelsesmengden, som avgjør. Uten kriteriet er kvalitetsskillet bare en påstand.",
     },
     {
@@ -2893,7 +2893,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er rettferdighetsinnvendingen mot utilitarismen, slik (d) i modellen bruker den?",
-      options: ["Fordi bare summen av lykke teller, kan prinsippet i teorien rettferdiggjøre å ofre én uskyldig for de mange", "At utilitarismen er for vanskelig å regne ut i praksis", "At Mill ikke definerte lykke presist nok", "At teorien er for gammel til å brukes i dag"],
+      options: ["Fordi bare summen av lykke teller, kan prinsippet i teorien rettferdiggjøre å ofre én uskyldig for de mange", "At utilitarismen er altfor vanskelig å regne ut i praksis, siden ingen kan overskue alle følgene av en handling", "At Mill aldri definerte lykkebegrepet presist nok til å kunne brukes", "At teorien er for gammel til å kunne brukes på dagens samfunn"],
       explanation: "Innvendingen følger av den konsekvensialistiske strukturen fra (a) og hentes med Kant-forankring fra (c): mennesket brukes bare som middel. Det er slik A-besvarelsen bygger motstemmen — ikke som ekstern synsing.",
     },
     {
@@ -2918,19 +2918,19 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva viser sensorblikkets poeng «kort + korrekt = fullgodt» i 4.7?",
-      options: ["A-besvarelsen er knapt lengre enn C-en — forskjellen er at (d) veier og kobler, ikke at den er lang", "Jo kortere besvarelsen er, desto bedre karakter", "Lange besvarelser trekkes automatisk i karakter", "Lengden avgjør karakteren når innholdet er likt"],
+      options: ["A-besvarelsen er knapt lengre enn C-en — forskjellen er at (d) veier og kobler, ikke at den er lang", "Jo kortere besvarelsen er, desto bedre blir karakteren", "Lange besvarelser trekkes automatisk ned i karakter, helt uansett hvor godt selve innholdet måtte være", "Det er lengden som avgjør karakteren i de tilfellene der innholdet ellers er helt likt i to besvarelser"],
       explanation: "A ≈ C i lengde: gapet ligger i drøftingskvalitet og (a)/(b)/(c)→(d)-kobling. Å skrive mer uten å treffe er ikke veien til A.",
     },
     {
       question: "Tenk deg at (c) i 4.7-oppgaven hadde stått blank, mens (a), (b) og (d) var gode. Hva skjer med helheten, og hvorfor?",
-      options: ["Helheten faller under C — jevnhetsregelen krever «god» på alle delspørsmålene", "Ingenting — de tre gode delene kompenserer", "Karakteren blir B fordi gjennomsnittet er høyt", "Sensor ser bort fra (c) hvis resten er sterkt"],
+      options: ["Helheten faller under C — jevnhetsregelen krever «god» på alle delspørsmålene", "Ingenting — de tre gode delene kompenserer", "Karakteren blir B, ettersom gjennomsnittet av alle delene fortsatt ligger ganske høyt", "Sensor ser bort fra (c) hvis resten er sterkt"],
       explanation: "C-porten er en jevnhetsterskel: én blank del stenger for C uansett hvor sterke de andre er (feil #4). Derfor slår en kort men korrekt del alltid en tom.",
     },
   ],
   'exphil03-4-8': [
     {
       question: "I 4.8-modellen: hva er den avgjørende presisjonsfeilen C-besvarelsen begår i (b)?",
-      options: ["Den lar fallibilismen gli over i skeptisisme («egentlig vet vi aldri noe»)", "Den bytter om på sansebedrag og drømmeargumentet", "Den kaller cogito en slutning i stedet for en bekreftelse", "Den glemmer å nevne den onde ånd"],
+      options: ["Den lar fallibilismen gli over i skeptisisme («egentlig vet vi aldri noe»)", "Den bytter om på sansebedrag og drømmeargumentet", "Den kaller cogito en slutning i stedet for en umiddelbar og selvbekreftende innsikt", "Den glemmer helt å nevne hypotesen om den onde ånd som siste trinn i tvilstrappen"],
       explanation: "Fallibilisme (vi kan ta feil, men vet likevel) er nettopp ikke skeptisisme (vi vet ingenting). Å la det ene gli over i det andre er feil #6, den hyppigst målte presisjonsfeilen i Vite-oppgaver.",
     },
     {
@@ -2940,12 +2940,12 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor overlever cogito selv den onde ånd, ifølge (a) i modellen?",
-      options: ["For at jeg skal kunne bedras, må jeg være — tvilen bekrefter min egen eksistens", "Fordi den onde ånd ikke er mektig nok til å lure oss i matematikk", "Fordi sansene alltid gir noe sikkert å bygge på", "Fordi Gud garanterer at klare og tydelige ideer er sanne"],
+      options: ["For at jeg skal kunne bedras, må jeg være — tvilen bekrefter min egen eksistens", "Fordi den onde ånd ikke er mektig nok til å lure oss i matematikk", "Fordi sansene alltid gir oss noe helt sikkert som vi kan bygge hele kunnskapen på", "Fordi Gud selv innestår for at alle klare og tydelige ideer nødvendigvis er sanne"],
       explanation: "Bedrageren kan ikke lure meg til å tro at jeg finnes hvis jeg ikke gjør det. I selve tvilsakten bekrefter jeg eksistensen min — cogito er derfor det arkimediske punktet.",
     },
     {
       question: "Hva er funksjonen til Wikforss-utdraget i (b) — hvilken jobb gjør det i argumentet?",
-      options: ["Det avviser sikkerhetskravet og avgrenser fallibilismen mot skeptisismen", "Det beviser at sansene aldri kan stoles på", "Det innfører de tre vilkårene for første gang", "Det argumenterer for at kunnskap er umulig"],
+      options: ["Det avviser sikkerhetskravet og avgrenser fallibilismen mot skeptisismen", "Det beviser at sansene aldri kan stoles på", "Det innfører de tre vilkårene for kunnskap for aller første gang i teksten", "Det argumenterer for at kunnskap er umulig"],
       explanation: "S2-kjernen er å identifisere funksjonen først. Utdraget forsvarer fallibilismen mot innvendingen om at feilbarlighet gjør kunnskap umulig, og knytter an til det tredje vilkåret: gode grunner, ikke bevis.",
     },
     {
@@ -2955,7 +2955,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor når ikke C-besvarelsens (c) A-nivå, selv om (a) er solid?",
-      options: ["Den forlenger referatet (#1), starter «på nytt» uten å bruke (a)/(b) (#5) og ender i ubegrunnet mening (#2)", "Den bruker for avanserte begreper og blir uklar", "Den tar for tydelig stilling for tidlig", "Den siterer Wikforss ordrett og for langt"],
+      options: ["Den forlenger referatet (#1), starter «på nytt» uten å bruke (a)/(b) (#5) og ender i ubegrunnet mening (#2)", "Den bruker altfor avanserte begreper, og blir dermed uklar for leseren gjennom hele den lange framstillingen", "Den tar for tydelig stilling altfor tidlig i selve drøftingen", "Den siterer Wikforss ordrett og altfor langt, slik at plassen går med til sitatet i stedet for til egen behandling"],
       explanation: "Jevnhetsregelen: C-porten krever «god» på Kunnskap OG Forståelse/analyse i ALLE delspørsmål. En solid (a) kompenserer ikke for en upresis (b) og en flat, ukoblet (c).",
     },
     {
@@ -2977,7 +2977,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
   'exphil03-4-9': [
     {
       question: "Hva er det H2025-formatet tester hardere enn den gamle a–d-oppgaven?",
-      options: ["Jevnhet på tvers av de tre feltene Vite/Være/Gjøre og tidsdisiplin", "Evnen til å skrive én svært lang besvarelse", "Utenatlæring av sidetall i VVG", "Ferdighet i å sitere originaltekster ordrett"],
+      options: ["Jevnhet på tvers av de tre feltene Vite/Være/Gjøre og tidsdisiplin", "Evnen til å skrive én svært lang besvarelse", "Utenatlæring av sidetall i pensumboka VVG", "Ferdighet i å gjengi originaltekstene helt ordrett etter hukommelsen"],
       explanation: "Formatet gir tre selvstendige minioppgaver på fire timer. Man kan ikke lene seg på ett sterkt felt — C-porten krever «god» på alle tre, så jevnhet og tidsfordeling blir avgjørende.",
     },
     {
@@ -2997,7 +2997,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva mangler helt i C-besvarelsens tynne del C (Locke/Held), slik at Lockes rett fremstår ubetinget?",
-      options: ["De to forbeholdene (nok og like godt igjen til andre; ikke la noe råtne)", "Selve arbeidsargumentet", "Navnet på verket «Om borgerstyret»", "Påstanden om at man eier egen kropp"],
+      options: ["De to forbeholdene (nok og like godt igjen til andre; ikke la noe råtne)", "Selve arbeidsargumentet om at man blander sitt eget arbeid sammen med tingen", "Navnet på selve verket «Om borgerstyret», som hele passasjen er hentet fra", "Påstanden om at hvert eneste menneske eier sin egen kropp og sitt eget arbeid"],
       explanation: "Uten de to forbeholdene fremstår eiendomsretten som ubetinget (feil #6). A-besvarelsen bruker dessuten forbeholdene aktivt: de innrømmer allerede at eieren står i forhold til andre, noe Held radikaliserer.",
     },
     {
@@ -3007,7 +3007,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvor mange oppgaver besvarer du totalt i H2025-formatet, og hvordan velges de?",
-      options: ["Tre — én av to valgfrie oppgaver i hver av delene A (Vite), B (Være) og C (Gjøre)", "Seks — begge oppgavene i alle tre delene", "Én — du velger den delen du kan best", "To — Vite og Gjøre er obligatoriske, Være er valgfri"],
+      options: ["Tre — én av to valgfrie oppgaver i hver av delene A (Vite), B (Være) og C (Gjøre)", "Seks — du besvarer begge oppgavene i hver av de tre delene", "Én eneste oppgave — du velger selv ut den delen du kan aller best, og svarer bare på den", "To — Vite og Gjøre er obligatoriske deler, mens delen Være er helt valgfri å svare på"],
       explanation: "Formatet speiler bokas tredeling: ett valg per del, tre kortere besvarelser på fire timer. Å svare på begge alternativene i en del er feil #12 og sprer svaret for tynt.",
     },
     {
@@ -3017,7 +3017,7 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva bør du gjøre FØR du begynner å skrive i H2025-formatet, ifølge modellen?",
-      options: ["Sette en tidsplan — om lag 75 minutter per del — og holde den", "Skrive en lang innledning om filosofiens historie", "Besvare den letteste delen dobbelt så grundig", "Lese bare den første delen og begynne umiddelbart"],
+      options: ["Sette en tidsplan — om lag 75 minutter per del — og holde den", "Skrive en lang innledning om filosofiens historie", "Besvare den letteste delen dobbelt så grundig som begge de andre", "Lese bare gjennom den første delen og begynne å skrive umiddelbart"],
       explanation: "Tidsbudsjettet er strategien: fordi jevnhet er karakterporten, må ingen del sultes ut for å pynte på en annen. Planen settes før skrivingen, ikke underveis.",
     },
   ],

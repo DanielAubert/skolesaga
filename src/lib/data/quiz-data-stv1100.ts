@@ -1722,7 +1722,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er det vanskeligste, mest A-givende poenget i en Machiavelli-oppgave?",
-      options: ["Å se at han *veksler* mellom rendyrket konsekvensialisme og et deontologisk innslag", "Å datere Fyrsten korrekt og plassere den i renessansens italienske bystatspolitikk", "Å fordømme Machiavelli moralsk som en samvittighetsløs og kynisk maktforsvarer", "Å gjengi flest mulig av de harde maktrådene i Fyrsten ordrett og oppramsende"],
+      options: ["Å se at han *veksler* mellom rendyrket konsekvensialisme og et deontologisk innslag", "Å datere Fyrsten korrekt og plassere verket i renessansens italienske bystatspolitikk", "Å fordømme Machiavelli moralsk som en samvittighetsløs og kynisk maktforsvarer", "Å gjengi flest mulig av de harde maktrådene i Fyrsten ordrett og oppramsende"],
       explanation: "Vekslingen (ikke en endimensjonal lesning) er det subtile ekstra poenget som løfter til A.",
     },
     {
@@ -1737,7 +1737,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Utdrag b): «Den som når makten ved svik og grusomhet mot venner kan vinne herredømme, men ikke ære.» Hvilken funksjon har utdraget?",
-      options: ["Det viser det deontologiske innslaget — en moralsk grense i seg selv som utfallet ikke opphever", "Det viser ren konsekvensialisme — bare utfallet teller, og målet helliger midlet fullt ut", "Det viser at Machiavelli er generelt amoralsk og avviser enhver moralsk grense overhodet", "Det er en tom retorisk floskel uten reell funksjon i argumentet om makt og statskunst"],
+      options: ["Det viser det deontologiske innslaget — en moralsk grense i seg selv som utfallet ikke opphever", "Det viser en ren konsekvensialisme — bare utfallet teller, slik at målet helliger midlet fullt ut", "Det viser at Machiavelli er generelt amoralsk og avviser enhver moralsk grense, også i privatlivet", "Det er en tom retorisk floskel uten reell funksjon i argumentet om makt og statskunst"],
       explanation: "«Makt, men ikke ære» er nøkkelutdraget mot feilkode #10 — beviset på vekslingen.",
     },
     {
@@ -1762,7 +1762,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvem er Cesare Borgia i *Fyrsten*?",
-      options: ["Fyrsteeksemplet på stor virtù og «god bruk av grusomhet» — felt til slutt av Fortuna", "En filosof Machiavelli kritiserer for naiv og virkelighetsfjern politisk moralisme", "Forfatteren av Fyrsten, som Machiavelli senere skrev sine kommentarer og råd til", "En fyrste som var ren pasifist og vant makt uten vold, list eller god grusomhet"],
+      options: ["Fyrsteeksemplet på stor virtù og «god bruk av grusomhet» — felt til slutt av Fortuna", "En samtidig filosof som Machiavelli kritiserer for naiv og virkelighetsfjern moralisme", "Forfatteren av Fyrsten, som Machiavelli senere skrev sine kommentarer og råd til", "En fyrste som var ren pasifist og vant makt uten vold, list eller god grusomhet"],
       explanation: "Borgia illustrerer både klok politikk (virtù, god grusomhet i Romagna) og virtùs grense mot tilfeldigheten (sykdom).",
     },
     {
@@ -2257,7 +2257,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skiller Dworkins fra Waldrons argument om hatytringslov?",
-      options: ["Dworkin bygger på legitimitet i prosessen; Waldron på menneskeverd/social standing", "Begge argumenterer mot hatytringslov, bare med hvert sitt begrep", "Begge bygger på menneskeverd, men vektlegger prosessen ulikt", "Dworkin argumenterer for lov, mens Waldron argumenterer imot"],
+      options: ["Dworkin bygger på legitimitet i prosessen; Waldron på menneskeverd/social standing", "Begge argumenterer mot en hatytringslov, bare med hvert sitt begrepsapparat i bunnen", "Begge bygger på menneskeverd, men vektlegger prosessen ulikt", "Dworkin argumenterer for lov, mens Waldron argumenterer imot"],
       explanation: "Dworkin (mot lov) = legitimitetsargument; Waldron (for lov) = menneskeverd/social standing. Å blande dem er feil #7.",
     },
     {
@@ -2267,7 +2267,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva ville Pettit sagt om utstrakt privat veldedighet?",
-      options: ["At den gjør mottakeren dominert; velferd som rettighet fjerner dominansen", "At den er helt irrelevant for frihet siden den ikke gjelder staten", "At den alltid er et rent gode fordi den øker mottakerens velferd", "At den er identisk med statlig velferd som rettighet i praksis"],
+      options: ["At den gjør mottakeren dominert; velferd som rettighet fjerner dominansen", "At den er helt irrelevant for frihet siden den ikke gjelder statens handlinger", "At den alltid er et rent gode fordi den øker mottakerens velferd", "At den er identisk med statlig velferd som rettighet i praksis"],
       explanation: "Anvendt: den som er avhengig av en givers godvilje er dominert (giveren kan trekke støtten ukontrollert). Velferd som rettighet (kan ikke trekkes tilbake fritt) fjerner dominansen.",
     },
     {
@@ -2277,7 +2277,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er A-markøren i drøftingsdelen av en HYB om Mill?",
-      options: ["En forankret (pensum-)innvending som Brison, ikke et tilfeldig eget innfall", "Å gjengi Mills tre argumenter for ytringsfrihet to ganger etter hverandre", "Å skrive en lang og grundig innledning før man går løs på Mills posisjon", "Å hoppe helt over drøftingsdelen og nøye seg med selve redegjørelsen"],
+      options: ["En forankret (pensum-)innvending som Brison, ikke et tilfeldig eget innfall", "Å gjengi Mills tre argumenter for ytringsfrihet to ganger rett etter hverandre", "Å skrive en lang og grundig innledning før man går løs på Mills egen posisjon", "Å hoppe helt over drøftingsdelen og nøye seg med selve redegjørelsen"],
       explanation: "Å bruke Brison som forankret innvending (profitt/privat sensur forvrenger ideenes marked) framfor synsing løfter HYB til A. Ren gjengivelse er feil #8.",
     },
     {
@@ -2324,7 +2324,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er feil #1?",
-      options: ["Å miste det sentrale poenget (den diskvalifiserende kjernefeilen)", "Å skrive en unødig lang og bred innledning helt før selve redegjørelsen", "Å skrive for kort slik at redegjørelsen mangler nødvendig fyldighet", "Å bruke engelsk fagterminologi der norske begreper ville vært klarere"],
+      options: ["Å miste det sentrale poenget (den diskvalifiserende kjernefeilen)", "Å skrive en unødig lang innledning før redegjørelsen", "Å skrive for kort slik at redegjørelsen mangler nødvendig fyldighet", "Å bruke engelsk fagterminologi der norske begreper ville vært klarere"],
       explanation: "Feil #1 er å miste det sentrale poenget — Rawls uten uvitenhetssløret, Pettit uten kontroll/ikke-dominans. Den rammer Akse 1.",
     },
     {
@@ -2374,7 +2374,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan tilpasses forventningene når en oppgave er erklært vanskelig (Rawls, Machiavellis etikk)?",
-      options: ["Å komme i nærheten av et treffende svar regnes som en god prestasjon", "Vanskelige oppgaver teller ikke med i den samlede vurderingen av besvarelsen", "Bare et fullt treffende A-svar godtas som bestått; kommer man bare i nærheten, gir det automatisk stryk", "Forventningene heves fordi vanskelige oppgaver skal skille de aller beste kandidatene fra resten skarpere"],
+      options: ["Å komme i nærheten av et treffende svar regnes som en god prestasjon", "Vanskelige oppgaver teller ikke med i den samlede vurderingen", "Bare et fullt treffende A-svar godtas som bestått; kommer man bare i nærheten, gir det automatisk stryk", "Forventningene heves fordi vanskelige oppgaver skal skille de aller beste kandidatene fra resten skarpere"],
       explanation: "Ved vanskelige oppgaver senkes forventningen — å nærme seg et treffende svar er godt. Helhetsvurderingen tar vanskelighetsgraden med.",
     },
     {
@@ -2391,7 +2391,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skiller A- fra C-besvarelsen i modell 1 (Rawls)?",
-      options: ["A er presis og legger til det subtile ekstra; C har poenget på plass men flatt", "C treffer det sentrale poenget bedre enn A gjør, og er dermed den mest presise av dem", "A dropper redegjørelsen helt og går rett på drøfting, mens C bruker for mye plass på ren gjengivelse", "A er vesentlig lengre og mer utfyllende enn C, og det er nettopp tekstmengden som avgjør karakterløftet"],
+      options: ["A er presis og legger til det subtile ekstra; C har poenget på plass men flatt", "C treffer det sentrale poenget bedre enn A, og er dermed den mest presise", "A dropper redegjørelsen helt og går rett på drøfting, mens C bruker for mye plass på ren gjengivelse", "A er vesentlig lengre og mer utfyllende enn C, og det er nettopp tekstmengden som avgjør karakterløftet"],
       explanation: "A ≈ C i lengde; A navngir apparatet presist, kobler maximin til uvissheten, skiller utdragspremissene og legger til det subtile ekstra. Gapet er presisjon, ikke lengde.",
     },
     {
@@ -2431,7 +2431,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er A-markøren (Akse 3) i modell 1?",
-      options: ["At ulike deler av uvitenhetssløret er ulikt godt motivert", "At Rawls bygger direkte videre på Lockes egen samfunnskontrakt", "At Rawls skrev A Theory of Justice, og at kandidaten plasserer verket riktig i idéhistorien", "At maximin-regelen i det hele tatt nevnes ved navn et sted i redegjørelsen om utgangsposisjonen"],
+      options: ["At ulike deler av uvitenhetssløret er ulikt godt motivert", "At Rawls bygger videre på Lockes samfunnskontrakt", "At Rawls skrev A Theory of Justice, og at kandidaten plasserer verket riktig i idéhistorien", "At maximin-regelen i det hele tatt nevnes ved navn et sted i redegjørelsen om utgangsposisjonen"],
       explanation: "Det subtile ekstra som løfter til A er at ulike deler av sløret er ulikt godt teoretisk motivert — det sensor flagger som «veldig bra».",
     },
     {
@@ -2441,7 +2441,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor foretrekker Pettit velferd som rettighet framfor privat veldedighet?",
-      options: ["Ytelsen kan ikke trekkes tilbake etter forgodtbefinnende, så dominansen fjernes", "Fordi private givere sjelden gir noe til nettopp dem som trenger hjelpen aller mest", "Fordi staten er langt rikere enn private givere og derfor kan gi mottakerne en større og mer stabil ytelse", "Fordi mottakerne rett og slett får mer penger gjennom statlig velferd enn gjennom frivillige private gaver"],
+      options: ["Ytelsen kan ikke trekkes tilbake etter forgodtbefinnende, så dominansen fjernes", "Fordi private givere sjelden gir noe til dem som trenger hjelpen mest", "Fordi staten er langt rikere enn private givere og kan gi en mer stabil ytelse", "Fordi mottakerne får mer penger gjennom statlig velferd enn gjennom gaver"],
       explanation: "Velferd som rettighet står ikke under giverens luner, men under kontrollerbar rett — bemyndigelsen kan ikke trekkes tilbake fritt, så dominansen forsvinner. Poenget er ikke beløpet.",
     },
   ],
