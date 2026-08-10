@@ -403,7 +403,25 @@ def main():
                              f"(escap dollartegnene som \\$ — de er valuta/kode, ikke matte)")
 
     katex_feil = None
-    if os.path.isdir(os.path.join(ROOT, "node_modules", "katex")):
+    # Bøker BYGGES i git-arbeidstrær (.claude/worktrees/bok-*), og de har ikke
+    # node_modules — bare hovedtreet har det. Fram til 10. august 2026 hoppet
+    # porten derfor stille over KaTeX-rendringen nøyaktig der bøkene skrives,
+    # og meldte «matteuttrykk kontrollert» som om alt var sjekket.
+    # Faller nå tilbake på hovedtreets node_modules, funnet via git.
+    nm = os.path.join(ROOT, "node_modules")
+    if not os.path.isdir(os.path.join(nm, "katex")):
+        try:
+            felles = subprocess.run(
+                ["git", "rev-parse", "--path-format=absolute", "--git-common-dir"],
+                capture_output=True, text=True, cwd=ROOT, timeout=20)
+            if felles.returncode == 0:
+                kandidat = os.path.join(
+                    os.path.dirname(felles.stdout.strip()), "node_modules")
+                if os.path.isdir(os.path.join(kandidat, "katex")):
+                    nm = kandidat
+        except Exception:
+            pass
+    if os.path.isdir(os.path.join(nm, "katex")):
         with tempfile.NamedTemporaryFile("w", suffix=".json", delete=False, encoding="utf-8") as f:
             json.dump([[n, t.strip(), d] for n, t, d in uttrykk], f, ensure_ascii=False)
             tmp = f.name
@@ -412,7 +430,7 @@ def main():
             js = f.name
         # NODE_PATH må settes: node løser `require` relativt til SKRIPTFILA, ikke cwd,
         # så en temp-fil utenfor prosjektet finner ikke katex uten dette.
-        miljø = dict(os.environ, NODE_PATH=os.path.join(ROOT, "node_modules"))
+        miljø = dict(os.environ, NODE_PATH=nm)
         r = subprocess.run(["node", js, tmp], capture_output=True, text=True, cwd=ROOT, env=miljø)
         os.unlink(tmp)
         os.unlink(js)
