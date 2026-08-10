@@ -19,7 +19,7 @@ const quizData_2py: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er forskjellen mellom faste og variable utgifter?',
-    options: ['Faste er like hver måned, variable varierer', 'Variable er like hver måned', 'Det er ingen forskjell', 'Faste betales årlig'],
+    options: ['Faste er like hver måned, variable varierer', 'Variable utgifter er like store hver eneste måned', 'Det er ingen forskjell', 'Faste betales årlig'],
     explanation: 'Faste utgifter (husleie, forsikring) er like hver måned. Variable utgifter (mat, fritid) varierer.',
   },
   {
@@ -72,7 +72,7 @@ const quizData_2py: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva går mva-inntektene til?',
-    options: ['Finansiere fellesgoder som skoler og helsetjenester', 'Bedriftenes overskudd', 'Kun veier', 'Kun forsvar'],
+    options: ['Finansiere fellesgoder som skoler og helsetjenester', 'Bedriftenes overskudd, siden selgeren beholder avgiften', 'Kun veier', 'Kun forsvaret og politiet, ikke skoler eller helse i landet'],
     explanation: 'Mva (merverdiavgift) er skatt som finansierer offentlige tjenester som skoler, helse, veier osv.',
   },
   {
@@ -91,7 +91,7 @@ const quizData_2py: Record<string, QuizQuestion[]> = {
   '2py-2-1': [
   {
     question: 'I funksjonen $f(x) = 3x + 50$, hva representerer 3?',
-    options: ['Stigningstallet', 'Konstantleddet', 'Nullpunktet', '$y$-verdien'],
+    options: ['Stigningstallet', 'Konstantleddet, verdien når $x = 0$', 'Nullpunktet', '$y$-verdien'],
     explanation: 'I $f(x) = ax + b$ er $a$ stigningstallet. Her er 3 stigningstallet som viser økning per enhet.',
   },
   {
@@ -111,7 +111,7 @@ const quizData_2py: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Konstantleddet i en lineær funksjon viser:',
-    options: ['Hvor grafen krysser $y$-aksen', 'Stigningen på linjen', 'Nullpunktet', 'Maksimumsverdien'],
+    options: ['Hvor grafen krysser $y$-aksen', 'Stigningen på linjen, altså hvor bratt den er', 'Nullpunktet på $x$-aksen', 'Maksimumsverdien funksjonen kan ha'],
     explanation: 'Konstantleddet $b$ i $f(x) = ax + b$ er $y$-verdien når $x = 0$, altså hvor grafen krysser $y$-aksen.',
   },
 ],
@@ -159,7 +159,7 @@ const quizData_2py: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'I modellering, hva gjør vi etter å ha løst problemet matematisk?',
-    options: ['Vurderer om svåret er rimelig', 'Starter på nytt', 'Ignorer svåret', 'Alltid runder opp'],
+    options: ['Vurderer om svåret er rimelig', 'Starter hele modelleringen på nytt', 'Ignorer svåret', 'Alltid runder opp'],
     explanation: 'Etter beregning må vi alltid vurdere om svåret gir mening i den praktiske situasjonen.',
   },
   {
@@ -169,7 +169,7 @@ const quizData_2py: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvilken type kostnader endres med produksjonsmengden?',
-    options: ['Variable kostnader', 'Faste kostnader', 'Begge', 'Ingen'],
+    options: ['Variable kostnader', 'Faste kostnader', 'Begge typene kostnader', 'Ingen av kostnadstypene'],
     explanation: 'Variable kostnader (materialer, arbeid per enhet) endres med mengden. Faste kostnader er konstante.',
   },
 ],
@@ -265,7 +265,7 @@ const quizData_2py: Record<string, QuizQuestion[]> = {
   '2py-4-1': [
   {
     question: 'Hva er en frekvenstabell?',
-    options: ['Tabell som viser hvor ofte hver verdi førekommer', 'Tabell med alle målæresultater', 'Tabell med kun gjennomsnittet', 'Tabell med standardavvik'],
+    options: ['Tabell som viser hvor ofte hver verdi førekommer', 'Tabell med alle enkeltmålinger i den rekkefølgen de kom', 'Tabell med kun gjennomsnittet', 'Tabell med standardavvik'],
     explanation: 'En frekvenstabell organiserer data og viser frekvensen (antall ganger) hver verdi eller klasse førekommer.',
   },
   {
@@ -285,7 +285,7 @@ const quizData_2py: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er forskjellen mellom søyle- og stolpediagram?',
-    options: ['Søylediagram har horisontale søyler, stolpediagram har vertikale', 'De er like', 'Søylediagram brukes kun for prosent', 'Stolpediagram viser bare to verdier'],
+    options: ['Søylediagram har horisontale søyler, stolpediagram har vertikale', 'De er like', 'Søylediagram brukes kun for prosenttall, aldri for antall eller kroner', 'Stolpediagram kan bare vise to verdier om gangen, aldri flere enn det'],
     explanation: 'I praksis brukes begrepene ofte om hverandre, men søylediagram har ofte horisontale søyler.',
   },
 ],
@@ -304,7 +304,7 @@ const quizData_2py: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva måler variasjonsbredden?',
-    options: ['Største verdi minus minste verdi', 'Gjennomsnittet', 'Medianen', 'Standardavviket'],
+    options: ['Største verdi minus minste verdi', 'Gjennomsnittet av alle observasjonene', 'Medianen', 'Standardavviket rundt gjennomsnittet'],
     explanation: 'Variasjonsbredde $= \\max - \\min$. Det er et enkelt spredningsmål.',
   },
   {
@@ -343,7 +343,7 @@ const quizData_2py: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva betyr relativ frekvens?',
-    options: ['Antall ganger delt på totalt antall forsøk', 'Antall gunstige utfall', 'Sannsynlighet ganger 100', 'Medianen av utfallene'],
+    options: ['Antall ganger delt på totalt antall forsøk', 'Antall gunstige utfall i forsøket, uten å dele på noe', 'Sannsynligheten for hendelsen ganget med 100 prosent', 'Medianen av utfallene i forsøksrekken'],
     explanation: 'Relativ frekvens $= \\frac{\\text{Antall ganger hendelsen skjer}}{\\text{Totalt antall forsøk}}$.',
   },
 ],
@@ -372,7 +372,7 @@ const quizData_2py: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvorfor brukes risikovurdering i HMS-arbeid?',
-    options: ['For å identifisere og prioritere farer', 'For å øke produksjonen', 'For å spare penger', 'Det er ikke nødvendig'],
+    options: ['For å identifisere og prioritere farer', 'For å øke produksjonen uten å stanse arbeidet', 'For å spare penger', 'Det er ikke nødvendig'],
     explanation: 'Risikovurdering hjelper med å identifisere farer og prioritere tiltak for å førebygge ulykker.',
   },
 ],
@@ -401,7 +401,7 @@ const quizData_2py: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvorfor legger vi til svinn i materialberegninger?',
-    options: ['For å dekke kapp, feil og spill', 'For å få rabatt', 'For å redusere kostnadene', 'Det er ikke nødvendig'],
+    options: ['For å dekke kapp, feil og spill', 'For å få mengderabatt hos leverandøren', 'For å redusere kostnadene', 'Det er ikke nødvendig'],
     explanation: 'Svinn dekker materiale som går tapt ved kapping, målefeil og spill under arbeidet.',
   },
 ],
@@ -411,7 +411,7 @@ const quizData_2py: Record<string, QuizQuestion[]> = {
   '2py-1-4': [
   {
     question: 'Hva kjennetegner faste kostnader i en bedrift?',
-    options: ['De er like store uansett hvor mye bedriften produserer eller selger', 'De øker når produksjonen øker', 'De betales bare én gang', 'De gjelder bare råvarer'],
+    options: ['De er like store uansett hvor mye bedriften produserer eller selger', 'De øker i takt med hvor mange enheter bedriften produserer i måneden', 'De betales bare én gang, ved oppstart av bedriften', 'De gjelder bare råvarer og annet materiell som brukes opp i produksjonen'],
     explanation: 'Faste kostnader som husleie og forsikring er de samme uavhengig av aktiviteten.',
   },
   {
@@ -455,7 +455,7 @@ const quizData_2py: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva menes med halveringstid?',
-    options: ['Tiden det tar før en mengde er redusert til halvparten', 'Tiden det tar før en mengde er borte', 'Halvparten av fordoblingstiden', 'Tiden det tar å telle halve mengden'],
+    options: ['Tiden det tar før en mengde er redusert til halvparten', 'Tiden det tar før hele mengden er helt borte fra prøven', 'Halvparten av fordoblingstiden', 'Tiden det tar å telle opp halvparten av mengden manuelt'],
     explanation: 'Halveringstiden er tiden en eksponentielt avtagende mengde bruker på å bli halvert.',
   },
   {
@@ -469,7 +469,7 @@ const quizData_2py: Record<string, QuizQuestion[]> = {
   '2py-3-4': [
   {
     question: 'Hva betyr målestokken $1 : 100$ på en byggetegning?',
-    options: ['$1$ cm på tegningen tilsvarer $100$ cm ($1$ m) i virkeligheten', '$1$ m på tegningen tilsvarer $100$ m i virkeligheten — alltid', 'Tegningen er $100$ ganger større enn virkeligheten', 'Tegningen viser $100$ rom'],
+    options: ['$1$ cm på tegningen tilsvarer $100$ cm ($1$ m) i virkeligheten', '$1$ m på tegningen tilsvarer $100$ m i virkeligheten — alltid', 'Tegningen er $100$ ganger større enn virkeligheten, altså en forstørring', 'Tegningen viser $100$ rom'],
     explanation: 'Ved forminskning $1 : n$ er virkeligheten $n$ ganger større enn tegningen.',
   },
   {
@@ -503,7 +503,7 @@ const quizData_2py: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er kumulativ frekvens?',
-    options: ['Summen av frekvensene til og med den aktuelle klassen', 'Frekvensen i den største klassen', 'Antall klasser i tabellen', 'Gjennomsnittet av frekvensene'],
+    options: ['Summen av frekvensene til og med den aktuelle klassen', 'Frekvensen i den klassen som har flest observasjoner av alle', 'Antall klasser i tabellen til sammen', 'Gjennomsnittet av frekvensene i alle klassene i tabellen'],
     explanation: 'Kumulativ frekvens forteller hvor mange observasjoner som ligger i klassen og alle klassene under.',
   },
   {
@@ -513,7 +513,7 @@ const quizData_2py: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er frekvensen til en klasse?',
-    options: ['Antall observasjoner som havner i klassen', 'Klassens bredde', 'Den største verdien i klassen', 'Hvor ofte tabellen oppdateres'],
+    options: ['Antall observasjoner som havner i klassen', 'Klassens bredde', 'Den største verdien som er registrert i klassen', 'Hvor ofte hele tabellen blir oppdatert med nye tall'],
     explanation: 'Frekvensen teller hvor mange av dataverdiene som ligger i klassen.',
   },
   {
@@ -527,7 +527,7 @@ const quizData_2py: Record<string, QuizQuestion[]> = {
   '2py-5-3': [
   {
     question: 'Hva sier multiplikasjonsprinsippet?',
-    options: ['Totalt antall muligheter er produktet av antall muligheter i hvert trinn', 'Totalt antall muligheter er summen av mulighetene', 'Vi må alltid telle opp alle muligheter én for én', 'Antall muligheter dobles for hvert trinn'],
+    options: ['Totalt antall muligheter er produktet av antall muligheter i hvert trinn', 'Totalt antall muligheter er summen av mulighetene i hvert trinn, ikke produktet', 'Vi må alltid telle opp alle muligheter én for én, uten å kunne bruke noen regnemetode', 'Antall muligheter dobles for hvert trinn'],
     explanation: 'Med $n_1$ valg i trinn 1 og $n_2$ valg i trinn 2 er det $n_1 \\cdot n_2$ kombinasjoner totalt.',
   },
   {
@@ -547,7 +547,7 @@ const quizData_2py: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva brukes et valgtre til?',
-    options: ['Å vise alle mulige kombinasjoner systematisk, trinn for trinn', 'Å finne gjennomsnittet av flere tall', 'Å sortere data i klasser', 'Å regne ut prosent'],
+    options: ['Å vise alle mulige kombinasjoner systematisk, trinn for trinn', 'Å finne gjennomsnittet av flere tall', 'Å sortere observasjoner i klasser med lik bredde i en frekvenstabell', 'Å regne ut prosentandelen hver mulighet utgjør av totalen til slutt'],
     explanation: 'Valgtreet visualiserer alle valgmulighetene i hvert trinn og hjelper oss å telle systematisk.',
   },
 ],
@@ -571,7 +571,7 @@ const quizData_2py: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva menes med akkordarbeid?',
-    options: ['Betaling per utført enhet i stedet for per time', 'Arbeid med fast månedslønn', 'Arbeid uten betaling', 'Overtidsarbeid om natten'],
+    options: ['Betaling per utført enhet i stedet for per time', 'Arbeid med fast månedslønn', 'Arbeid uten betaling som lærlingen gjør i opplæringen', 'Overtidsarbeid om natten'],
     explanation: 'Ved akkord får arbeideren betalt for det som produseres, f.eks. per m² lagt flis.',
   },
   {
@@ -595,7 +595,7 @@ const quizData_2py: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er et påslag?',
-    options: ['Beløpet som legges på innkjøpsprisen for å dekke faste kostnader og gi fortjeneste', 'Rabatten kunden får', 'De variable kostnadene', 'Merverdiavgiften alene'],
+    options: ['Beløpet som legges på innkjøpsprisen for å dekke faste kostnader og gi fortjeneste', 'Rabatten kunden får', 'De variable kostnadene som går med til å produsere varen, uten noe påslag for fortjeneste', 'Merverdiavgiften alene'],
     explanation: 'Påslaget legges på innkjøpspris/selvkost slik at salgsprisen dekker øvrige kostnader og fortjeneste.',
   },
   {
@@ -643,7 +643,7 @@ const quizData_2py: Record<string, QuizQuestion[]> = {
   '2py-7-2': [
   {
     question: 'Hva angir toleransen til et mål?',
-    options: ['Hvor mye målet kan avvike fra spesifikasjonen', 'Hvor nøyaktig måleverktøyet er produsert', 'Den største verdien verktøyet kan måle', 'Hvor mange ganger målet skal kontrolleres'],
+    options: ['Hvor mye målet kan avvike fra spesifikasjonen', 'Hvor nøyaktig selve måleverktøyet er produsert fra fabrikken', 'Den største verdien verktøyet kan måle', 'Hvor mange ganger målet skal kontrolleres'],
     explanation: 'Toleransen er det tillatte avviket, f.eks. $12$ mm $\\pm 0{,}1$ mm.',
   },
   {
@@ -658,7 +658,7 @@ const quizData_2py: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'En bolt med krav $12$ mm $\\pm 0{,}1$ mm måles til $11{,}85$ mm. Hva er konklusjonen?',
-    options: ['Bolten må vrakes — den er under nedre toleransegrense på $11{,}9$ mm', 'Bolten er godkjent', 'Bolten er over øvre grense', 'Målingen må rundes opp til $11{,}9$ mm'],
+    options: ['Bolten må vrakes — den er under nedre toleransegrense på $11{,}9$ mm', 'Bolten er godkjent', 'Bolten er over øvre toleransegrense, altså større enn $12{,}1$ mm i diameter', 'Målingen må rundes opp til $11{,}9$ mm, og da er bolten godkjent likevel'],
     explanation: '$11{,}85 < 11{,}9$, så målet ligger utenfor toleransen.',
   },
   {
@@ -701,17 +701,17 @@ const quizData_2py: Record<string, QuizQuestion[]> = {
   '2py-8-1': [
   {
     question: 'Hva er det første steget i en systematisk problemløsning?',
-    options: ['Forstå problemet — hva er det egentlig som skal finnes ut?', 'Begynne å regne med en gang', 'Kjøpe inn materialer', 'Skrive svaret'],
+    options: ['Forstå problemet — hva er det egentlig som skal finnes ut?', 'Begynne å regne med en gang, med de tallene som står i teksten', 'Kjøpe inn materialer før du vet hvor mye du faktisk trenger', 'Skrive svaret'],
     explanation: 'Uten å forstå hva som spørres om, vet vi ikke hvilke beregninger som trengs.',
   },
   {
     question: 'Hvordan angriper du best et stort, sammensatt prosjekt, f.eks. å beregne kostnaden for et helt baderom?',
-    options: ['Del problemet opp i mindre delproblemer og løs dem hver for seg', 'Gjett en totalsum basert på erfaring', 'Regn alt i én eneste stor utregning', 'Vent til prosjektet er ferdig og tell opp'],
+    options: ['Del problemet opp i mindre delproblemer og løs dem hver for seg', 'Gjett en totalsum basert på erfaring fra lignende jobber du har gjort', 'Regn alt i én eneste stor utregning, fra første til siste post uten mellomsvar', 'Vent til prosjektet er ferdig og tell opp'],
     explanation: 'Oppdeling i deler (fliser, rør, arbeidstid osv.) gjør et sammensatt problem håndterbart og lett å kontrollere.',
   },
   {
     question: 'Hvorfor lønner det seg å gjøre et overslag før den nøyaktige beregningen?',
-    options: ['For å kunne vurdere om det nøyaktige svaret er rimelig', 'Fordi overslaget alltid er nøyaktig nok', 'For å slippe å regne nøyaktig', 'Det har ingen hensikt'],
+    options: ['For å kunne vurdere om det nøyaktige svaret er rimelig', 'Fordi overslaget alltid er nøyaktig nok', 'For å slippe å regne nøyaktig', 'Det har ingen hensikt når du likevel skal regne nøyaktig'],
     explanation: 'Et overslag gir en fasit å sammenligne med — store avvik avslører regnefeil.',
   },
   {
@@ -735,12 +735,12 @@ const quizData_2py: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva gjør formelen =B2*C2 i et regneark?',
-    options: ['Ganger innholdet i celle B2 med innholdet i celle C2', 'Legger sammen B2 og C2', 'Skriver teksten B2*C2 i cellen', 'Flytter innholdet fra B2 til C2'],
+    options: ['Ganger innholdet i celle B2 med innholdet i celle C2', 'Legger sammen tallene i cellene B2 og C2 og viser summen', 'Skriver teksten B2*C2 i cellen', 'Flytter innholdet fra B2 til C2'],
     explanation: 'Stjernen er gangetegnet i regneark, så formelen beregner produktet, f.eks. antall · pris.',
   },
   {
     question: 'Hva er den største fordelen med å bruke formler i stedet for å regne for hånd i et regneark?',
-    options: ['Resultatene oppdateres automatisk når du endrer tallene', 'Formler kan ikke inneholde feil', 'Regnearket blir penere', 'Du slipper å skrive inn tall'],
+    options: ['Resultatene oppdateres automatisk når du endrer tallene', 'Formler kan aldri inneholde feil, i motsetning til håndregning', 'Regnearket blir penere å se på for kunden', 'Du slipper å skrive inn tallene i regnearket i det hele tatt'],
     explanation: 'Endrer du f.eks. en pris, regnes alle formler som bruker cellen ut på nytt automatisk.',
   },
   {
@@ -750,7 +750,7 @@ const quizData_2py: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'En snekker har laget et regneark for materialberegning. Hva er nytten når kunden endrer bestillingen?',
-    options: ['Han kan endre antall og priser og straks se ny totalkostnad', 'Han må lage hele regnearket på nytt', 'Regnearket gir rabatt automatisk', 'Det er ingen nytte — alt må regnes på nytt for hånd'],
+    options: ['Han kan endre antall og priser og straks se ny totalkostnad', 'Han må lage hele regnearket på nytt fra bunnen av for hver endring', 'Regnearket gir rabatt automatisk', 'Det er ingen nytte — alt må regnes på nytt for hånd hver gang'],
     explanation: 'Med formler på plass gir nye inndata umiddelbart oppdaterte summer — det er styrken til regneark.',
   },
 ],
@@ -779,7 +779,7 @@ const quizData_2py: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva vil det si at et tall er en løsning av en likning?',
-    options: ['Setter vi inn tallet, blir venstre og høyre side like', 'Tallet står på høyre side av likningen', 'Tallet er alltid positivt', 'Tallet gjør venstre side størst'],
+    options: ['Setter vi inn tallet, blir venstre og høyre side like', 'Tallet står alltid på høyre side av likhetstegnet i likningen', 'Tallet er alltid et positivt heltall', 'Tallet gjør venstre side større enn høyre side av likningen'],
     explanation: 'En løsning er en verdi for den ukjente som gjør likningen sann.',
   },
 ],
@@ -808,7 +808,7 @@ const quizData_2py: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva betyr det å sette inn verdier i en formel?',
-    options: ['Å erstatte variablene med tallene vi kjenner', 'Å skrive formelen på nytt', 'Å fjerne alle variablene', 'Å løse formelen for alle ukjente samtidig'],
+    options: ['Å erstatte variablene med tallene vi kjenner', 'Å skrive formelen på nytt med andre bokstavnavn', 'Å fjerne alle variablene', 'Å løse formelen for alle ukjente samtidig'],
     explanation: 'Vi bytter ut bokstavene med kjente tall og regner ut den størrelsen vi er ute etter.',
   },
 ],
@@ -817,7 +817,7 @@ const quizData_2py: Record<string, QuizQuestion[]> = {
   '2py-9-3': [
   {
     question: 'Hva kjennetegner to størrelser som er rett proporsjonale?',
-    options: ['Dobles den ene, dobles også den andre — $y = k \\cdot x$', 'Dobles den ene, halveres den andre', 'De er alltid like store', 'Summen av dem er konstant'],
+    options: ['Dobles den ene, dobles også den andre — $y = k \\cdot x$', 'Dobles den ene, halveres den andre', 'De er alltid nøyaktig like store', 'Summen $x + y$ er konstant, uansett hvilken verdi $x$ har'],
     explanation: 'Ved rett proporsjonalitet er forholdet $\\frac{y}{x} = k$ konstant.',
   },
   {
@@ -837,7 +837,7 @@ const quizData_2py: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvilken situasjon beskriver rett proporsjonalitet?',
-    options: ['Prisen på drivstoff når du betaler en fast literpris', 'Totalpris med fastbeløp pluss timepris', 'Tiden en jobb tar når flere arbeider sammen', 'Verdien av en bil som taper seg over tid'],
+    options: ['Prisen på drivstoff når du betaler en fast literpris', 'Totalpris med et fast oppmøtebeløp pluss timepris for arbeidet', 'Tiden en jobb tar når stadig flere arbeidere jobber sammen', 'Verdien av en bil som taper seg over tid'],
     explanation: 'Pris $=$ literpris $\\cdot$ antall liter er på formen $y = kx$. De andre har fastledd eller omvendt sammenheng.',
   },
 ],
@@ -846,7 +846,7 @@ const quizData_2py: Record<string, QuizQuestion[]> = {
   '2py-9-4': [
   {
     question: 'Når må du snu ulikhetstegnet?',
-    options: ['Når du ganger eller deler begge sider med et negativt tall', 'Når du legger til et tall på begge sider', 'Hver gang du flytter et ledd', 'Aldri'],
+    options: ['Når du ganger eller deler begge sider med et negativt tall', 'Når du legger til det samme tallet på begge sider av tegnet', 'Hver gang du flytter et ledd over til den andre siden av tegnet', 'Aldri'],
     explanation: 'Multiplikasjon eller divisjon med negativt tall snur ulikheten. Addisjon og subtraksjon gjør det ikke.',
   },
   {
@@ -885,7 +885,7 @@ const quizData_2py: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva menes med renters rente?',
-    options: ['Du får rente også på renten fra tidligere år', 'Renten halveres hvert år', 'Banken tar dobbel rente', 'Renten utbetales kontant hvert år'],
+    options: ['Du får rente også på renten fra tidligere år', 'Renten halveres for hvert år pengene står i banken', 'Banken tar dobbel rente', 'Renten utbetales kontant hvert år'],
     explanation: 'Rentene legges til saldoen, og neste års rente beregnes av hele det nye beløpet.',
   },
   {
@@ -904,7 +904,7 @@ const quizData_2py: Record<string, QuizQuestion[]> = {
   '2py-10-2': [
   {
     question: 'Hva er salgskurs i valutaveksling?',
-    options: ['Kursen banken bruker når den selger valuta til deg — den er høyere enn kjøpskursen', 'Kursen banken bruker når den kjøper valuta av deg', 'Gjennomsnittskursen for dagen', 'Kursen uten gebyr'],
+    options: ['Kursen banken bruker når den selger valuta til deg — den er høyere enn kjøpskursen', 'Kursen banken bruker når den kjøper valuta av deg, og den er lavere enn salgskursen', 'Gjennomsnittskursen for dagen', 'Kursen uten gebyr'],
     explanation: 'Banken selger dyrt og kjøper billig: salgskursen er høyere enn kjøpskursen.',
   },
   {
@@ -919,7 +919,7 @@ const quizData_2py: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva måler konsumprisindeksen (KPI)?',
-    options: ['Prisutviklingen på varer og tjenester husholdningene kjøper', 'Lønnsnivået i industrien', 'Valutakursen mot euro', 'Bankenes utlånsrente'],
+    options: ['Prisutviklingen på varer og tjenester husholdningene kjøper', 'Lønnsnivået i industrien og andre næringer over tid i hele landet', 'Valutakursen mot euro og dollar slik den endrer seg gjennom året', 'Bankenes gjennomsnittlige utlånsrente på boliglån'],
     explanation: 'KPI viser hvordan det generelle prisnivået endrer seg over tid og brukes til å justere for prisstigning.',
   },
   {
@@ -933,7 +933,7 @@ const quizData_2py: Record<string, QuizQuestion[]> = {
   '2py-11-1': [
   {
     question: 'Hva er medianen i et datasett?',
-    options: ['Verdien som deler det sorterte datasettet i to like store deler', 'Den vanligste verdien', 'Gjennomsnittet av alle verdiene', 'Den største verdien'],
+    options: ['Verdien som deler det sorterte datasettet i to like store deler', 'Den verdien som går igjen flest ganger i datasettet som er samlet inn', 'Gjennomsnittet av alle verdiene, altså summen delt på antall verdier', 'Den største verdien'],
     explanation: 'Medianen (Q2) ligger i midten når dataene er sortert — halvparten under og halvparten over.',
   },
   {
