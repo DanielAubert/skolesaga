@@ -9,22 +9,22 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er superkompensasjon?',
-    options: ["Prosessen der kroppen bygger seg sterkere etter trening og hvile", "Å trene flere ganger om dagen", "Prosessen der musklene brytes gradvis ned uten å bygge seg opp igjen etter belastning", "En treningsmetode der man øker vekten litt for hver eneste repetisjon man gjennomfører"],
+    options: ["Prosessen der kroppen bygger seg sterkere etter trening og hvile", "Å trene flere ganger hver eneste dag for å få aller raskest framgang", "Prosessen der musklene brytes gradvis ned uten å bygge seg opp igjen etter belastning", "En treningsmetode der man øker vekten litt for hver eneste repetisjon man gjennomfører"],
     explanation: 'Superkompensasjon skjer når kroppen restituerer etter trening og bygger seg opp til et høyere funksjonsnivå enn før treningen.',
   },
   {
     question: 'Hva måler Borg-skalaen?',
-    options: ["Opplevd anstrengelse under trening", "Maksimal styrke", "Den maksimale kraften en muskelgruppe klarer å produsere i én kontraksjon", "Kroppsvekt"],
+    options: ["Opplevd anstrengelse under trening", "Den maksimale styrken din", "Den maksimale kraften en muskelgruppe klarer å produsere i én kontraksjon", "Kroppsvekten din i kilo"],
     explanation: 'Borg-skalaen (6-20) brukes til å måle subjektiv opplevelse av hvor hard treningen føles. 12-14 er moderat intensitet, 15-17 er høy intensitet.',
   },
   {
     question: 'Hva sier 10%-regelen i trening?',
-    options: ["Ikke øk treningsbelastningen med mer enn 10% per uke", "Bruk 10% av maksimal styrke", "At man aldri skal trene med mer enn 10 prosent av sin maksimale løftestyrke", "At man bør bruke nøyaktig 10 prosent av treningstiden på oppvarming før hver økt"],
+    options: ["Ikke øk treningsbelastningen med mer enn 10% per uke", "Bruk bare 10 % av din maksimale styrke", "At man aldri skal trene med mer enn 10 prosent av sin maksimale løftestyrke", "At man bør bruke nøyaktig 10 prosent av treningstiden på oppvarming før hver økt"],
     explanation: '10%-regelen er en tømmelfingerregel for progresjon som hjelper å unngå overbelastning og skader ved gradvis økning.',
   },
   {
     question: 'Hvorfor er variasjon viktig i trening?',
-    options: ["For å førebygge skader, unngå platåer og holde motivasjonen oppe", "Variasjon er ikke viktig for fremgang", "For å kunne bruke betydelig kortere tid på hver treningsøkt gjennom hele uka", "Variasjon har ingen effekt på fremgangen så lenge intensiteten holdes jevnt høy"],
+    options: ["For å førebygge skader, unngå platåer og holde motivasjonen oppe", "Variasjon er ikke viktig for fremgangen i treningen i det hele tatt", "For å kunne bruke betydelig kortere tid på hver treningsøkt gjennom hele uka", "Variasjon har ingen effekt på fremgangen så lenge intensiteten holdes jevnt høy"],
     explanation: 'Variasjonsprinsippet sier at man bør variere treningsformer, øvelser og intensitet for å gi allsidig utvikling og førebygge overbelastningsskader.',
   },
 ],
@@ -33,22 +33,22 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   'kroppsoving-vg1-2': [
   {
     question: 'Hva består bevegelsesapparatet av?',
-    options: ["Skjelett, muskler, ledd, sener og leddbånd", "Hjerte, lunger og blodårer", "Bare de store musklene i lår og rygg, siden det er de som gir mest kraft", "Bare muskler og skjelett"],
+    options: ["Skjelett, muskler, ledd, sener og leddbånd", "Hjerte, lunger og blodårer", "Bare de store musklene i lår og rygg", "Bare muskler og skjelett"],
     explanation: 'Bevegelsesapparatet er et samspill mellom passive strukturer (skjelett, ledd) og aktive strukturer (muskler) forbundet med sener og leddbånd.',
   },
   {
     question: 'Hva kjennetegner et kuleledd?',
-    options: ["Stor bevegelighet i alle retninger, som skulder og hofte", "Bevegelse i bare én retning", "At leddflatene glir sidelengs mot hverandre uten å kunne roteres i noen retning", "At leddet er helt stivt og ikke tillater noen bevegelse mellom knoklene som møtes"],
+    options: ["Stor bevegelighet i alle retninger, som skulder og hofte", "Bevegelse i bare én retning, som i albuen", "At leddflatene glir sidelengs mot hverandre uten å kunne roteres i noen retning", "At leddet er helt stivt og ikke tillater noen bevegelse mellom knoklene som møtes"],
     explanation: 'Kuleledd har en kuleformet leddflate som passer i en skålformet grop, noe som gir bevegelse i alle retninger.',
   },
   {
     question: 'Hva er forskjellen på Type I og Type II muskelfibre?',
-    options: ["Type I er langsomme og utholdende, Type II er raske og eksplosive", "Type I finnes bare i hjertet", "Type I gir kraftig kontraksjon i korte rykk, mens Type II jobber jevnt i lang tid", "Type I er raske og eksplosive, mens Type II er langsomme og bygget for utholdenhet"],
+    options: ["Type I er langsomme og utholdende, Type II er raske og eksplosive", "Type I finnes bare inne i hjertet", "Type I gir kraftige rykk, Type II jobber jevnt lenge", "Type I er raske og eksplosive, mens Type II er utholdende"],
     explanation: 'Type I-fibre (røde) er spesialisert for langvarig, aerob aktivitet. Type II-fibre (hvite) gir rask, kraftfull kontraksjon.',
   },
   {
     question: 'Hva betyr fleksjon?',
-    options: ["Bøying av et ledd som reduserer vinkelen", "Strekking av et ledd", "Strekking av et ledd slik at vinkelen mellom kroppsdelene blir større", "Rotasjon av et ledd"],
+    options: ["Bøying av et ledd som reduserer vinkelen", "Strekking av et ledd utover", "Strekking av et ledd slik at vinkelen mellom kroppsdelene blir større", "Rotasjon av et ledd rundt sin akse"],
     explanation: 'Fleksjon er bøying som gjør vinkelen mellom to kroppsdeler mindre, for eksempel å bøye albuen.',
   },
   {
@@ -62,27 +62,27 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   'kroppsoving-vg1-3': [
   {
     question: 'Hva er makronæringsstoffer?',
-    options: ["Karbohydrater, proteiner og fett", "Vitaminer og mineraler", "Vitaminer og mineraler som kroppen trenger i små mengder for å fungere", "Bare proteiner"],
+    options: ["Karbohydrater, proteiner og fett", "Vitaminer og mineraler", "Vitaminer og mineraler som kroppen trenger i små mengder for å fungere", "Bare proteiner fra maten"],
     explanation: 'Makronæringsstoffer er de tre hovedgruppene av næring som gir energi: karbohydrater, proteiner og fett.',
   },
   {
     question: 'Hvor mye protein anbefales for aktive personer?',
-    options: ["1,2-2,0 gram per kg kroppsvekt", "0,5 gram per kg kroppsvekt", "Minst 5 gram protein per kg kroppsvekt for å få optimal muskelvekst", "5 gram per kg kroppsvekt"],
+    options: ["1,2-2,0 gram per kg kroppsvekt", "0,5 gram protein per kg kroppsvekt", "Minst 5 gram protein per kg kroppsvekt for å få optimal muskelvekst", "5 gram protein per kg kroppsvekt"],
     explanation: 'Aktive personer trenger 1,2-2,0 gram protein per kg kroppsvekt for optimal muskelbygging og restitusjon.',
   },
   {
     question: 'Hva bør du spise etter trening for optimal restitusjon?',
-    options: ['Kombinasjon av karbohydrater og protein', 'Bare protein', 'Bare fett', 'Ingenting - faste etter trening er best'],
+    options: ['Kombinasjon av karbohydrater og protein', 'Bare protein alene', 'Bare fett alene', 'Ingenting - faste er best etterpå'],
     explanation: 'Etter trening trenger kroppen karbohydrater for å fylle glykogenlagrene og protein for muskelreparasjon.',
   },
   {
     question: 'Hvor mye søvn anbefales for ungdom?',
-    options: ['8-10 timer per natt', '5-6 timer per natt', '12-14 timer per natt', 'Søvn er ikke viktig for restitusjon'],
+    options: ['8-10 timer per natt', '5-6 timer søvn per natt', '12-14 timer per natt', 'Søvn er ikke viktig for restitusjon'],
     explanation: 'Ungdom trenger 8-10 timer søvn for optimal restitusjon, vekst og mental funksjon.',
   },
   {
     question: 'Hva er aktiv restitusjon?',
-    options: ["Lett aktivitet dagen etter hard trening for å fremme gjenoppretting", "Å hvile helt uten bevegelse", "Å trene ekstra hardt dagen etter en økt for å tvinge frem raskere fremgang", "Å innta store mengder kosttilskudd i stedet for å bevege seg etter trening"],
+    options: ["Lett aktivitet dagen etter hard trening for å fremme gjenoppretting", "Å hvile helt uten noen form for bevegelse", "Å trene ekstra hardt dagen etter en økt for å tvinge frem raskere fremgang", "Å innta store mengder kosttilskudd i stedet for å bevege seg etter trening"],
     explanation: 'Aktiv restitusjon betyr lett bevegelse som øker blodsirkulasjonen og fremmer raskere gjenoppretting.',
   },
 ],
@@ -91,12 +91,12 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   'kroppsoving-vg1-4': [
   {
     question: 'Hva kjennetegner diagonalgang i langrenn?',
-    options: ["Motsatt arm og bein arbeider sammen, som ved naturlig gange", "Samme arm og bein arbeider sammen", "At bare beina arbeider mens armene henger passivt ned langs siden av kroppen", "At bare armene driver deg fremover mens beina holdes helt stille under staken"],
+    options: ["Motsatt arm og bein arbeider sammen, som ved naturlig gange", "Samme arm og bein arbeider sammen i takt", "At bare beina arbeider mens armene henger passivt ned langs siden av kroppen", "At bare armene driver deg fremover mens beina holdes helt stille under staken"],
     explanation: 'Diagonalgang er den grunnleggende klassiske teknikken der høyre arm og venstre bein beveger seg frem samtidig, og omvendt.',
   },
   {
     question: 'Hvilken svømmestil regnes som raskest?',
-    options: ["Crawl (fristil)", "Brystsvømming", "Ryggcrawl der man ligger på ryggen i vannet", "Butterfly"],
+    options: ["Crawl (fristil)", "Brystsvømming", "Ryggcrawl på ryggen", "Butterfly"],
     explanation: 'Crawl er den raskeste svømmeteknikken og brukes i fristilkonkurranser på alle distanser.',
   },
   {
@@ -106,7 +106,7 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er en negativ split i løping?',
-    options: ["Å løpe andre halvdel av distansen raskere enn første", "Å løpe saktere og saktere", "Å starte i full fart og deretter måtte gå de siste kilometerne til mål", "Å legge inn ekstra motbakker underveis for å gjøre løpet tyngre mot slutten"],
+    options: ["Å løpe andre halvdel av distansen raskere enn første", "Å løpe saktere og saktere gjennom hele distansen fram til mål", "Å starte i full fart og deretter måtte gå de siste kilometerne til mål", "Å legge inn ekstra motbakker underveis for å gjøre løpet tyngre mot slutten"],
     explanation: 'Negativ split betyr at du disponerer kreftene slik at du løper raskere mot slutten. Dette regnes som smart løping.',
   },
   {
@@ -120,27 +120,27 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   'kroppsoving-vg1-5': [
   {
     question: 'Hva betyr spillforståelse?',
-    options: ["Evnen til å lese spillet og ta gode beslutninger", "Å være raskest på banen", "Å være den aller raskeste og mest utholdende spilleren ute på banen", "Å kunne alle reglene og paragrafene i idretten helt utenat under kamp"],
+    options: ["Evnen til å lese spillet og ta gode beslutninger", "Å være den aller raskeste på banen", "Å være den aller raskeste og mest utholdende spilleren ute på banen", "Å kunne alle reglene og paragrafene i idretten helt utenat under kamp"],
     explanation: 'Spillforståelse handler om å forstå situasjoner, forutse hva som skjer, og velge riktig handling i spillet.',
   },
   {
     question: 'Hva er pick and roll i basketball?',
-    options: ["En spiller setter skjerm for ballholder, så ruller mot kurven", "En forsvarsformasjon", "En fast forsvarsformasjon der spillerne dekker hver sin sone på banen", "Et fritt kast fra straffelinjen etter at motstanderen har gjort en feil"],
+    options: ["En spiller setter skjerm for ballholder, så ruller mot kurven", "En fast forsvarsformasjon på banen", "En fast forsvarsformasjon der spillerne dekker hver sin sone på banen", "Et fritt kast fra straffelinjen etter at motstanderen har gjort en feil"],
     explanation: 'Pick and roll er en klassisk samhandling der én spiller skjermer (pick) og så beveger seg mot kurven (roll) for pasning.',
   },
   {
     question: 'Hva er 6-0 forsvar i håndball?',
-    options: ["Alle seks utespillære står på linje foran mål", "Bare én forsvarer", "Et forsvar der bare én spiller står igjen bak mens resten presser høyt", "Et system helt uten forsvarere der alle seks feltspillere blir i angrep"],
+    options: ["Alle seks utespillære står på linje foran mål", "Bare én enkelt forsvarer igjen bak", "Et forsvar der bare én spiller står igjen bak mens resten presser høyt", "Et system helt uten forsvarere der alle seks feltspillere blir i angrep"],
     explanation: '6-0 forsvar er et kompakt forsvarssystem der alle seks utespillære danner en tett linje foran målet.',
   },
   {
     question: 'Hva er baggerslag i volleyball?',
-    options: ["Mottak med underarmene samlet, brukes til å ta imot harde baller", "Fingerslag over hodet", "Et kraftig smashslag der man hopper og slår ballen hardt ned over nettet", "Et fingerslag der ballen styres presist over hodet med begge håndflatene"],
+    options: ["Mottak med underarmene samlet, brukes til å ta imot harde baller", "Fingerslag over hodet med håndflatene", "Et kraftig smashslag der man hopper og slår ballen hardt ned over nettet", "Et fingerslag der ballen styres presist over hodet med begge håndflatene"],
     explanation: 'Baggerslag utføres med underarmene samlet og strak arm. Det gir stabil plattform for mottak av serve og harde baller.',
   },
   {
     question: 'Hvorfor er bredde viktig i fotballangrep?',
-    options: ["Det strekker motstanderens forsvar og skaper rom", "Det er enklære å forsvare", "Det gjør forsvaret enklere fordi spillerne da samler seg tett på ett område", "Det er penere å se på"],
+    options: ["Det strekker motstanderens forsvar og skaper rom", "Det er enklære å forsvare", "Det gjør forsvaret enklere fordi spillerne da samler seg tett på ett område", "Det er mye penere å se på"],
     explanation: 'Bredde i angrep tvinger forsvåret til å dekke større områder, noe som skaper rom i midten og mellom forsvarerne.',
   },
 ],
@@ -149,27 +149,27 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   'kroppsoving-vg1-6': [
   {
     question: 'Hva er koreografi?',
-    options: ["Kunsten å komponere dans ved å sette sammen bevegelser", "Kostymene i en førestilling", "En bestemt sjanger innen musikk som styrer takten og rytmen i en dans", "Utformingen av kostymer og scenebilde som brukes under en danseforestilling"],
+    options: ["Kunsten å komponere dans ved å sette sammen bevegelser", "Kostymene og draktene som brukes i selve danseforestillingen", "En bestemt sjanger innen musikk som styrer takten og rytmen i en dans", "Utformingen av kostymer og scenebilde som brukes under en danseforestilling"],
     explanation: 'Koreografi er prosessen med å skape dans ved å sette sammen bevegelser, rombruk og dynamikk til musikk.',
   },
   {
     question: 'Hva menes med nivåer i dans?',
-    options: ["Høyden i rommet: lavt (gulv), mellom (stående), høyt (hopp)", "Hvor vanskelig dansen er", "Antallet dansere som deltar samtidig i en oppsetning på scenen eller gulvet", "Hvor teknisk krevende og vanskelig selve dansen er å gjennomføre for utøveren"],
+    options: ["Høyden i rommet: lavt (gulv), mellom (stående), høyt (hopp)", "Hvor vanskelig selve dansen er å utføre", "Antallet dansere som deltar samtidig i en oppsetning på scenen eller gulvet", "Hvor teknisk krevende og vanskelig selve dansen er å gjennomføre for utøveren"],
     explanation: 'Nivåer refererer til hvor i rommet bevegelsene utføres - fra gulvnivå til stående til hopp i luften.',
   },
   {
     question: 'Hva kjennetegner hiphop-dans?',
-    options: ["Grooves, isolasjoner og rytmisk bevegelse til beats", "Klassiske ballettbevegelser", "Klassiske ballettbevegelser med strake linjer, tåspiss og elegant holdning", "Utelukkende partnerarbeid der to dansere holder i hverandre gjennom hele dansen"],
+    options: ["Grooves, isolasjoner og rytmisk bevegelse til beats", "Klassiske ballettbevegelser på tåspiss", "Klassiske ballettbevegelser med strake linjer, tåspiss og elegant holdning", "Utelukkende partnerarbeid der to dansere holder i hverandre gjennom hele dansen"],
     explanation: 'Hiphop kjennetegnes av rytmiske grooves, isolasjoner av kroppsdeler og uttrykk tilpasset hip hop-musikk.',
   },
   {
     question: 'Hvorfor er spotter viktig i turn?',
-    options: ["Å sikre og hjelpe utøveren for å unngå skader", "Å telle repetisjoner", "Å dele ut poeng til utøveren etter hvor godt øvelsen ble gjennomført", "Å telle antall repetisjoner utøveren klarer av hver enkelt turnøvelse"],
+    options: ["Å sikre og hjelpe utøveren for å unngå skader", "Å telle repetisjoner for utøveren", "Å dele ut poeng til utøveren etter hvor godt øvelsen ble gjennomført", "Å telle antall repetisjoner utøveren klarer av hver enkelt turnøvelse"],
     explanation: 'Spotteren sikrer at utøveren ikke skader seg ved å gi støtte og veiledning, spesielt ved nye eller vanskelige øvelser.',
   },
   {
     question: 'Hva er halling?',
-    options: ["En norsk folkedans med akrobatiske elementer", "En moderne dansestil", "En rolig pardans der to personer holder i hverandre gjennom hele dansen", "En oppvarmingsøvelse"],
+    options: ["En norsk folkedans med akrobatiske elementer", "En moderne dansestil fra byen", "En rolig pardans der to personer holder i hverandre gjennom hele dansen", "En vanlig oppvarmingsøvelse"],
     explanation: 'Halling er en tradisjonell norsk folkedans der man viser styrke og smidighet gjennom akrobatiske bevegelser.',
   },
 ],
@@ -178,7 +178,7 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   'kroppsoving-vg1-7': [
   {
     question: 'Hva er allemannsretten?',
-    options: ["Retten til å ferdes fritt i utmark", "Retten til å bygge hytter overalt", "Retten til å sette opp hytter og faste bygg hvor som helst i utmarka", "Retten til å kjøre bil i naturen"],
+    options: ["Retten til å ferdes fritt i utmark", "Retten til å bygge hytter overalt i utmark", "Retten til å sette opp hytter og faste bygg hvor som helst i utmarka", "Retten til å kjøre bil fritt i naturen"],
     explanation: 'Allemannsretten gir alle rett til å ferdes i utmark (skog, fjell, kyst), men med ansvar for å ta hensyn til natur og grunneier.',
   },
   {
@@ -188,7 +188,7 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvilken fjellvettregel handler om å endre planer?',
-    options: ["Vend i tide - det er ingen skam å snu", "Ta med nødvendig utstyr", "Bruk kart og kompass slik at du alltid vet nøyaktig hvor du befinner deg", "Bruk kart og kompass"],
+    options: ["Vend i tide - det er ingen skam å snu", "Ta med nødvendig utstyr", "Bruk kart og kompass slik at du alltid vet nøyaktig hvor du befinner deg", "Bruk kart og kompass på tur"],
     explanation: '"Vend i tide" handler om å være villig til å snu eller endre planer hvis forholdene tilsier det.',
   },
   {
@@ -198,7 +198,7 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvor sjekker du snøskredvarselet?',
-    options: ['varsom.no', 'yr.no', 'ut.no', 'wikipedia.no'],
+    options: ['varsom.no', 'Værsiden yr.no', 'Turportalen ut.no', 'wikipedia.no'],
     explanation: 'Varsom.no gir daglige snøskredvarsler fra NVE for alle fjellområder i Norge.',
   },
 ],
@@ -217,17 +217,17 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvorfor er doping problematisk?',
-    options: ["Det bryter med fair konkurranse og kan være helseskadelig", "Det gjør utøveren så sterk at konkurrentene mister motet", "Det er svært dyrt og bare tilgjengelig for de rikeste utøverne", "Det er kun forbudt i enkelte land, men tillatt i andre idretter"],
+    options: ["Det bryter med fair konkurranse og kan være helseskadelig", "Det gjør utøveren så sterk at konkurrentene mister motet helt", "Det er svært dyrt og bare tilgjengelig for de rikeste utøverne", "Det er kun forbudt i enkelte land, men tillatt i andre idretter"],
     explanation: 'Doping undergraver rettferdig konkurranse ved å gi kunstige fordeler, og mange dopingmidler har alvorlige helsemessige bivirkninger.',
   },
   {
     question: 'Hvordan kan du bidra til et mer inkluderende aktivitetsmiljø?',
-    options: ["Invitere alle med, tilpasse aktiviteter og gi positiv feedback", "La de som strever finne på noe annet mens de flinke trener", "Rette all oppmerksomhet mot resultat og seier i hver aktivitet", "Velge ut de dyktigste spillerne slik at laget vinner mest mulig"],
+    options: ["Invitere alle med, tilpasse aktiviteter og gi positiv feedback", "La de som strever finne på noe annet mens de flinke trener", "Rette all oppmerksomhet mot resultat og seier", "Velge ut de dyktigste spillerne slik at laget vinner mest mulig"],
     explanation: 'Inkludering handler om å se alle, tilpasse når nødvendig, og skape et miljø der alle føler seg velkomne.',
   },
   {
     question: 'Hva bør du gjøre hvis du ser mobbing i idretten?',
-    options: ["Si fra til en voksen eller ta tak i situasjonen", "Le med de andre", "Overse det slik at situasjonen kan løse seg av seg selv", "Le sammen med de andre for ikke å skille deg negativt ut"],
+    options: ["Si fra til en voksen eller ta tak i situasjonen", "Le med på det de andre gjør", "Overse det slik at situasjonen kan løse seg av seg selv", "Le sammen med de andre for ikke å skille deg negativt ut"],
     explanation: 'Alle har et ansvar for å bidra til et trygt miljø, og mobbing må stoppes ved at noen sier fra.',
   },
 ],
@@ -236,27 +236,27 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   'kroppsoving-vg1-9': [
   {
     question: 'Hva er livsstilssykdømmer?',
-    options: ["Sykdømmer som skyldes levevaner som inaktivitet og usunt kosthold", "Sykdømmer som bare rammer eldre", "Sykdommer man arver genetisk og som overføres mellom generasjoner", "Sykdommer man pådrar seg av hard fysisk trening og overbelastning"],
+    options: ["Sykdømmer som skyldes levevaner som inaktivitet og usunt kosthold", "Sykdømmer som bare rammer eldre", "Sykdommer man arver genetisk fra foreldrene", "Sykdommer man pådrar seg av hard fysisk trening"],
     explanation: 'Livsstilssykdømmer er sykdømmer som i stor grad skyldes levevaner, spesielt inaktivitet, usunt kosthold og røyking.',
   },
   {
     question: 'Hvor mye fysisk aktivitet anbefales daglig for ungdom?',
-    options: ["Minst 60 minutter daglig med moderat til høy intensitet", "Rundt 30 minutter én gang i måneden med høy intensitet", "Kun i helgene, gjerne med moderat til høy intensitet da", "Omtrent 15 minutter per uke med rolig og lett intensitet"],
+    options: ["Minst 60 minutter daglig med moderat til høy intensitet", "Rundt 30 minutter én gang i måneden med høy intensitet", "Kun i helgene, gjerne med høy intensitet da", "Omtrent 15 minutter per uke med rolig og lett intensitet"],
     explanation: 'Ungdom anbefales minst 60 minutter daglig fysisk aktivitet med moderat til høy intensitet.',
   },
   {
     question: 'Hvilke mentale effekter kan fysisk aktivitet gi?',
-    options: ["Bedre humør, redusert stress og bedre søvnkvalitet", "Ingen mentale effekter", "Utelukkende fysiske effekter på muskler og kondisjon", "Ingen mentale effekter, bare rene fysiske forbedringer"],
+    options: ["Bedre humør, redusert stress og bedre søvnkvalitet", "Ingen mentale effekter i det hele tatt", "Utelukkende fysiske effekter på muskler og kondisjon", "Ingen mentale effekter, bare rene fysiske forbedringer"],
     explanation: 'Fysisk aktivitet frigjør endorfiner som gir bedre humør, reduserer stress og forbedrer søvnkvalitet.',
   },
   {
     question: 'Hva menes med helhetlig helse?',
-    options: ["Fysisk, mental og sosial velvære", "Bare fravær av sykdom", "Å trene så mye som mulig for å prestere på topp", "Bare fysisk helse"],
+    options: ["Fysisk, mental og sosial velvære", "Bare fravær av sykdom og plager i kroppen", "Å trene så mye som mulig for å prestere på topp", "Bare den rent fysiske helsen i kroppen"],
     explanation: 'Helhetlig helse omfatter fysisk, mental og sosial velvære - ikke bare fravær av sykdom.',
   },
   {
     question: 'Hvorfor er balanse viktig i livet?',
-    options: ["For å opprettholde god helse og unngå utbrenthet", "Man bør bare fokusere på trening", "Det er egentlig ikke viktig så lenge du trener hardt nok", "Balanse gjør deg svakere fordi hvile bryter ned framgangen"],
+    options: ["For å opprettholde god helse og unngå utbrenthet", "Man bør bare fokusere på selve treningen og ingenting annet", "Det er egentlig ikke viktig så lenge du trener hardt nok", "Balanse gjør deg svakere fordi hvile bryter ned framgangen"],
     explanation: 'Balanse mellom aktivitet og hvile, arbeid og fritid er viktig for å opprettholde god helse over tid.',
   },
 ],
@@ -273,7 +273,7 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva beskriver reversibilitetsprinsippet?',
-    options: ["At treningseffekten gradvis forsvinner hvis man slutter å trene", "At skader alltid blir gradvis verre uansett hvordan man trener", "At treningseffekten varer evig selv om man slutter helt å trene", "At man blir sterkere av å hvile lenge helt uten å trene"],
+    options: ["At treningseffekten gradvis forsvinner hvis man slutter å trene", "At skader alltid blir gradvis verre uansett hvordan man trener", "At treningseffekten varer evig selv om man slutter å trene", "At man blir sterkere av å hvile lenge helt uten å trene"],
     explanation: '«Use it or lose it» – uten vedlikehold går formen tilbake.',
   },
   {
@@ -290,7 +290,7 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   'kroppsoving-vg1-1-2': [
   {
     question: 'Hva kjennetegner aerob trening?',
-    options: ["Trening med oksygen ved moderat intensitet over tid", "Trening uten oksygen ved maksimal intensitet", "Kun helt korte spurter med maksimal fart og full innsats", "Trening uten at pulsen øker nevneverdig over hvilenivået"],
+    options: ["Trening med oksygen ved moderat intensitet over tid", "Trening uten tilgang på oksygen ved maksimal intensitet", "Kun helt korte spurter med maksimal fart og full innsats", "Trening uten at pulsen øker nevneverdig over hvilenivået"],
     explanation: 'Aerob trening foregår på 60-80 % av maks puls, og man kan snakke mens man trener.',
   },
   {
@@ -327,7 +327,7 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvilket repetisjonsområde brukes typisk for å utvikle maksimal styrke?',
-    options: ['1-5 repetisjoner med tung belastning', '15-20 repetisjoner med lett belastning', '50+ repetisjoner', '8-12 lette repetisjoner'],
+    options: ['1-5 repetisjoner med tung belastning', '15-20 repetisjoner med lett belastning', '50 eller flere repetisjoner med lett vekt', '8-12 repetisjoner med lett belastning'],
     explanation: 'Få repetisjoner med høy belastning gir nevral tilpasning og maksimal styrke.',
   },
   {
@@ -337,7 +337,7 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvilke av disse regnes som store grunnøvelser i styrketrening?',
-    options: ["Knebøy, markløft og benkpress", "Bicepscurl og leggpress", "Kun isolasjonsøvelser som trener én muskel om gangen", "Kun isolasjonsøvelser"],
+    options: ["Knebøy, markløft og benkpress", "Bicepscurl og leggpress i maskin", "Kun isolasjonsøvelser som trener én muskel om gangen", "Kun isolasjonsøvelser i maskin"],
     explanation: 'Grunnøvelsene aktiverer store muskelgrupper og flere ledd samtidig.',
   },
 ],
@@ -354,7 +354,7 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er bevegelighet?',
-    options: ["Bevegelsesutslaget i et ledd", "Hvor lenge man kan trene", "Hvor raskt man klarer å løpe over en gitt avstand", "Hvor sterk en muskel er"],
+    options: ["Bevegelsesutslaget i et ledd", "Hvor lenge man klarer å trene", "Hvor raskt man klarer å løpe over en gitt avstand", "Hvor sterk en enkelt muskel er"],
     explanation: 'Bevegelighet handler om hvor stort utslag leddet har.',
   },
   {
@@ -364,14 +364,14 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er spenst?',
-    options: ["Evnen til å utvikle stor kraft på kort tid, for eksempel i hopp", "Evnen til å holde pusten lenge under fysisk anstrengelse", "Evnen til å tøye musklene lenge og oppnå stort bevegelsesutslag", "Evnen til å løpe langt i moderat tempo uten å bli sliten"],
+    options: ["Evnen til å utvikle stor kraft på kort tid, for eksempel i hopp", "Evnen til å holde pusten lenge under fysisk anstrengelse", "Evnen til å tøye musklene og få stort bevegelsesutslag", "Evnen til å løpe langt i moderat tempo uten å bli sliten"],
     explanation: 'Spenst er eksplosiv kraftutvikling og trenes blant annet med plyometri.',
   },
 ],
   'kroppsoving-vg1-1-5': [
   {
     question: 'Hva står bokstaven M for i SMART-mål?',
-    options: ['Målbart', 'Motiverende', 'Maksimalt', 'Moderat'],
+    options: ['Målbart', 'Motiverende', 'Maksimalt', 'Moderat nivå'],
     explanation: 'SMART = Spesifikt, Målbart, Akseptert/Attraktivt, Realistisk, Tidsbestemt.',
   },
   {
@@ -381,24 +381,24 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er en mikrosyklus i periodisering?',
-    options: ["Den korteste planleggingsenheten, ofte én uke", "En enkelt øvelse", "Et helt treningsår sett under ett fra start til slutt", "En enkelt øvelse som utføres i løpet av én treningsøkt"],
+    options: ["Den korteste planleggingsenheten, ofte én uke", "En enkelt øvelse i treningsøkta", "Et helt treningsår sett under ett fra start til slutt", "En enkelt øvelse som utføres i løpet av én treningsøkt"],
     explanation: 'Mikro- (uke), meso- (uker/måneder) og makrosyklus (sesong/år) bygger planen.',
   },
   {
     question: 'Hvorfor legges det inn restitusjonsuker i en treningsplan?',
-    options: ["For å la kroppen tilpasse seg og unngå overtrening", "Fordi hvile aldri er nødvendig", "For at kroppen skal miste all opparbeidet framgang og form", "For å øke skaderisikoen slik at kroppen blir hardere trent"],
+    options: ["For å la kroppen tilpasse seg og unngå overtrening", "Fordi hvile aldri er nødvendig i noen treningsperiode", "For at kroppen skal miste all opparbeidet framgang og form", "For å øke skaderisikoen slik at kroppen blir hardere trent"],
     explanation: 'Redusert belastning gir superkompensasjon og forebygger overtrening.',
   },
   {
     question: 'Hva kjennetegner overtrening?',
-    options: ["Stagnasjon eller tilbakegang, tretthet og dårligere prestasjon over tid", "At man føler seg uthvilt", "God nattesøvn, høyt energinivå og stabil hvilepuls gjennom hele treningsperioden", "En følelse av å være uthvilt og opplagt før hver økt, med raskere restitusjon enn før"],
+    options: ["Stagnasjon eller tilbakegang, tretthet og dårligere prestasjon over tid", "At man føler seg uthvilt og godt opplagt", "God nattesøvn, høyt energinivå og stabil hvilepuls gjennom hele treningsperioden", "En følelse av å være uthvilt og opplagt før hver økt, med raskere restitusjon enn før"],
     explanation: 'Overtrening oppstår når belastningen overstiger restitusjonsevnen over tid.',
   },
 ],
   'kroppsoving-vg1-1-6': [
   {
     question: 'Hva måler Cooper-testen?',
-    options: ["Hvor langt du klarer å løpe på 12 minutter (aerob utholdenhet)", "Bevegelighet i hofta", "Reaksjonstiden din når du skal fange en fallende linjal så raskt som mulig", "Bevegeligheten i hofteleddet ved å måle hvor langt du når mot tærne sittende"],
+    options: ["Hvor langt du klarer å løpe på 12 minutter (aerob utholdenhet)", "Bevegeligheten i hofteleddet ved framoverbøy", "Reaksjonstiden din når du skal fange en fallende linjal så raskt som mulig", "Bevegeligheten i hofteleddet ved å måle hvor langt du når mot tærne sittende"],
     explanation: 'Distansen på 12 minutter brukes til å anslå VO₂maks.',
   },
   {
@@ -413,12 +413,12 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er viktig for at en test skal være pålitelig (reliabel)?',
-    options: ["At den gjennomføres på samme standardiserte måte hver gang", "At man tester forskjellig hver gang", "At du varierer testmetoden fra gang til gang for å gjøre den mer spennende", "At du hopper over oppvarming slik at kroppen er i samme utgangspunkt hver gang"],
+    options: ["At den gjennomføres på samme standardiserte måte hver gang", "At man velger en helt forskjellig testmetode hver eneste gang", "At du varierer testmetoden fra gang til gang for å gjøre den mer spennende", "At du hopper over oppvarming slik at kroppen er i samme utgangspunkt hver gang"],
     explanation: 'Standardiserte forhold gjør at resultatene kan sammenlignes over tid.',
   },
   {
     question: 'En elev løper 2800 meter på Cooper-testen. Hva sier dette mest direkte noe om?',
-    options: ['Den aerobe utholdenheten', 'Den maksimale styrken', 'Bevegeligheten i skuldrene', 'Reaksjonstiden'],
+    options: ['Den aerobe utholdenheten', 'Den maksimale styrken i beina', 'Bevegeligheten i skuldrene', 'Reaksjonstiden din på et signal'],
     explanation: 'Cooper-testen er en utholdenhetstest, og distansen reflekterer aerob kapasitet.',
   },
 ],
@@ -430,12 +430,12 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva menes med alternativ deltakelse i kroppsøving?',
-    options: ["At en elev som ikke kan delta fullt ut, får tilpassede oppgaver eller roller", "At alle må gjøre nøyaktig det samme", "At alle elevene må utføre nøyaktig de samme øvelsene uansett skade eller forutsetninger", "At eleven sitter helt passiv på sidelinjen uten noen form for oppgave eller rolle i timen"],
+    options: ["At en elev som ikke kan delta fullt ut, får tilpassede oppgaver eller roller", "At alle må gjøre nøyaktig det samme uansett", "At alle elevene må utføre nøyaktig de samme øvelsene uansett skade eller forutsetninger", "At eleven sitter helt passiv på sidelinjen uten noen form for oppgave eller rolle i timen"],
     explanation: 'Alternativ deltakelse gir mestring og læring også ved skade eller funksjonsvariasjon.',
   },
   {
     question: 'Hvorfor er tilpasset trening viktig?',
-    options: ["Fordi alle har ulike forutsetninger, mål og behov", "Fordi tilpasning reduserer mestring", "Fordi bare prestasjonsnivået teller, og mål og behov ikke spiller noen rolle", "Fordi alle er helt like"],
+    options: ["Fordi alle har ulike forutsetninger, mål og behov", "Fordi tilpasning reduserer mestring", "Fordi bare prestasjonsnivået teller, og mål og behov ikke spiller noen rolle", "Fordi alle elever er helt like"],
     explanation: 'Tilpassing gir mestring og utvikling for alle, uansett utgangspunkt.',
   },
   {
@@ -452,54 +452,54 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   'kroppsoving-vg1-2-1': [
   {
     question: 'Hva er en hovedfunksjon til skjelettet?',
-    options: ["Å gi kroppen støtte, beskytte organer og fungere som festepunkt for muskler", "Å produsere oksygen som kroppens celler trenger under aktivitet og hvile", "Å regulere kroppstemperaturen helt på egen hånd uten hjelp fra andre organer", "Å transportere maten fra munnen videre ned til magesekk og tarm for fordøyelse"],
+    options: ["Å gi kroppen støtte, beskytte organer og fungere som festepunkt for muskler", "Å produsere oksygen som kroppens celler trenger under aktivitet og hvile", "Å regulere kroppstemperaturen helt på egen hånd", "Å transportere maten fra munnen ned til magesekken"],
     explanation: 'Skjelettet gir struktur, beskyttelse og muliggjør bevegelse sammen med musklene.',
   },
   {
     question: 'Hva forbinder en sene?',
-    options: ['Muskel til ben', 'Ben til ben', 'Nerve til hud', 'Blodåre til muskel'],
+    options: ['Muskel til ben', 'Ben til ben direkte', 'Nerve til huden', 'Blodåre til muskel'],
     explanation: 'Sener fester muskel til ben, mens leddbånd forbinder ben til ben.',
   },
   {
     question: 'Hva er funksjonen til leddbånd (ligamenter)?',
-    options: ["Å binde ben til ben og stabilisere ledd", "Å feste muskel til ben", "Å produsere nye blodceller inne i den røde beinmargen ved behov", "Å lede nervesignaler"],
+    options: ["Å binde ben til ben og stabilisere ledd", "Å feste muskel til ben", "Å produsere nye blodceller inne i den røde beinmargen ved behov", "Å lede nervesignaler videre"],
     explanation: 'Leddbånd holder leddene stabile og styrer bevegelsesretningen.',
   },
   {
     question: 'Hvordan skaper muskler bevegelse i et ledd?',
-    options: ["Ved å trekke seg sammen og dra i skjelettet via sener", "Ved å skyve benet fra hverandre", "Ved å skyve knoklene fra hverandre og dermed presse leddet i bevegelse", "Ved å produsere leddvæske som glir og drar skjelettet i riktig retning"],
+    options: ["Ved å trekke seg sammen og dra i skjelettet via sener", "Ved å skyve knoklene fra hverandre", "Ved å skyve knoklene fra hverandre og dermed presse leddet i bevegelse", "Ved å produsere leddvæske som glir og drar skjelettet i riktig retning"],
     explanation: 'Muskelkontraksjon overføres gjennom sener og beveger skjelettet.',
   },
   {
     question: 'Hva kalles muskler som virker mot hverandre, som biceps og triceps?',
-    options: ['Antagonister', 'Synergister', 'Agonister alene', 'Stabilisatorer'],
+    options: ['Antagonister', 'Synergister alene', 'Agonister alene', 'Stabilisatorer'],
     explanation: 'Når den ene (agonist) trekker seg sammen, slapper motspilleren (antagonist) av.',
   },
 ],
   'kroppsoving-vg1-2-2': [
   {
     question: 'Hva er hjertets hovedoppgave?',
-    options: ["Å pumpe blod rundt i kroppen", "Å produsere oksygen", "Å lagre energi i form av fett og sukker til senere bruk", "Å filtrere luft"],
+    options: ["Å pumpe blod rundt i kroppen", "Å produsere oksygen til kroppen", "Å lagre energi i form av fett og sukker til senere bruk", "Å filtrere luften vi puster inn"],
     explanation: 'Hjertet pumper oksygenrikt blod ut til kroppen og oksygenfattig blod til lungene.',
   },
   {
     question: 'Hvor skjer gassutvekslingen i lungene?',
-    options: ["I lungeblærene (alveolene)", "I luftrøret", "I magesekken sammen med maten vi spiser", "I selve luftrøret på vei ned mot lungene"],
+    options: ["I lungeblærene (alveolene)", "I luftrøret nedover", "I magesekken sammen med maten vi spiser", "I selve luftrøret på vei ned mot lungene"],
     explanation: 'Oksygen tas opp og CO₂ avgis gjennom alveolenes tynne vegger.',
   },
   {
     question: 'Hva skjer med hvilepulsen etter en lang periode med god utholdenhetstrening?',
-    options: ["Den synker fordi hjertet pumper mer effektivt per slag", "Den forblir alltid helt uendret", "Den blir uregelmessig og hopper opp og ned uten noe fast mønster i hvile", "Den øker kraftig fordi hjertet må jobbe hardere hele døgnet etter treningen"],
+    options: ["Den synker fordi hjertet pumper mer effektivt per slag", "Den forblir alltid helt uendret", "Den blir uregelmessig og hopper opp og ned", "Den øker kraftig fordi hjertet må jobbe hardere"],
     explanation: 'Et veltrent hjerte pumper mer blod per slag (større slagvolum) og trenger færre slag.',
   },
   {
     question: 'Hva er slagvolum?',
-    options: ["Mengden blod hjertet pumper ut per hjerteslag", "Mengden oksygen i lufta", "Mengden oksygen som finnes i lufta vi puster inn under aktivitet", "Hvor høyt du klarer å hoppe rett opp fra stående utgangsstilling"],
+    options: ["Mengden blod hjertet pumper ut per hjerteslag", "Mengden oksygen i lufta rundt oss", "Mengden oksygen som finnes i lufta vi puster inn under aktivitet", "Hvor høyt du klarer å hoppe rett opp fra stående utgangsstilling"],
     explanation: 'Minuttvolum = slagvolum × hjertefrekvens.',
   },
   {
     question: 'Hva transporterer de røde blodcellene?',
-    options: ['Oksygen', 'Næring kun i form av fett', 'Nervesignaler', 'Lyd'],
+    options: ['Oksygen', 'Bare fett som næring', 'Nervesignaler', 'Lydbølger'],
     explanation: 'Hemoglobin i de røde blodcellene binder og frakter oksygen til vevet.',
   },
 ],
@@ -511,49 +511,49 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvilket energisystem dominerer ved maksimal innsats i under 10 sekunder?',
-    options: ["Kreatinfosfatsystemet", "Proteinforbrenning", "Aerob forbrenning der oksygen brukes til å frigjøre energi over lang tid", "Aerob forbrenning"],
+    options: ["Kreatinfosfatsystemet", "Proteinforbrenning", "Aerob forbrenning med oksygen over lang tid", "Aerob forbrenning"],
     explanation: 'Kreatinfosfatsystemet gir umiddelbar energi, men lagrene tømmes etter 6-10 sekunder.',
   },
   {
     question: 'Hva er laktat (melkesyre) et biprodukt av?',
-    options: ['Anaerob glykolyse', 'Aerob fettforbrenning', 'Proteinsyntese', 'Oksygenopptak i lungene'],
+    options: ['Anaerob glykolyse', 'Aerob fettforbrenning', 'Proteinsyntesen i muskler', 'Oksygenopptak i lungene'],
     explanation: 'Når energi produseres uten nok oksygen, dannes laktat fra glykolysen.',
   },
   {
     question: 'Hvilken energikilde brukes mest ved lav til moderat intensitet over lang tid?',
-    options: ["Fett (i økende grad)", "Bare kreatinfosfat", "Bare kreatinfosfat som tømmes etter noen få sekunder med hardt arbeid", "Ingen energikilde"],
+    options: ["Fett (i økende grad)", "Bare kreatinfosfat", "Bare kreatinfosfat som tømmes etter få sekunder", "Ingen energikilde"],
     explanation: 'Ved lav intensitet bidrar fettforbrenning aerobt mye til energien.',
   },
   {
     question: 'Hvilket energisystem krever oksygen og dominerer ved langvarig aktivitet?',
-    options: ['Aerob forbrenning', 'Kreatinfosfatsystemet', 'Anaerob glykolyse', 'Det fosfagene systemet'],
+    options: ['Aerob forbrenning', 'Kreatinfosfatsystemet', 'Den anaerobe glykolysen', 'Det fosfagene systemet'],
     explanation: 'Aerob forbrenning er mest effektiv og dominerer ved aktivitet over noen minutter.',
   },
 ],
   'kroppsoving-vg1-2-4': [
   {
     question: 'Hva er en forstuing (distorsjon)?',
-    options: ["En skade på leddbånd når et ledd vris utover normalt bevegelsesutslag", "En betennelse i en sene", "Et brudd i selve benet som følge av et hardt slag eller fall mot underlaget", "En betennelse i en sene som utvikler seg gradvis ved gjentatt overbelastning"],
+    options: ["En skade på leddbånd når et ledd vris utover normalt bevegelsesutslag", "En betennelse i en sene i kroppen", "Et brudd i selve benet som følge av et hardt slag eller fall mot underlaget", "En betennelse i en sene som utvikler seg gradvis"],
     explanation: 'Forstuing rammer ofte ankel og kne når leddet overbelastes i feil retning.',
   },
   {
     question: 'Hva er en akutt muskelstrekk?',
-    options: ["En overstrekking eller rift i muskelfibre", "En betennelse i et leddbånd", "Et brudd i et av kroppens ben etter et kraftig fall eller sammenstøt", "En dyp kuttskade i huden der det oppstår blødning fra et skarpt objekt"],
+    options: ["En overstrekking eller rift i muskelfibre", "En betennelse i et leddbånd i kroppen", "Et brudd i et av kroppens ben etter et kraftig fall eller sammenstøt", "En dyp kuttskade i huden der det oppstår blødning fra et skarpt objekt"],
     explanation: 'Muskelstrekk skjer ofte ved rask, kraftig belastning uten god oppvarming.',
   },
   {
     question: 'Hva er senebetennelse (tendinopati) ofte forårsaket av?',
-    options: ["Overbelastning og gjentatte bevegelser over tid", "For god oppvarming", "For mye hvile mellom øktene slik at senen blir svak og lett skades", "Ett enkelt kraftig fall eller sammenstøt som skader senen momentant"],
+    options: ["Overbelastning og gjentatte bevegelser over tid", "For god oppvarming før hver eneste økt", "For mye hvile mellom øktene slik at senen blir svak og lett skades", "Ett enkelt kraftig fall eller sammenstøt som skader senen momentant"],
     explanation: 'Belastningsskader som tendinopati utvikles gradvis ved repetert belastning.',
   },
   {
     question: 'Hva er et viktig tiltak for å forebygge idrettsskader?',
-    options: ["God oppvarming og gradvis økning av belastning", "Å øke belastningen brått", "Å hoppe over oppvarmingen for å spare tid og komme raskere i gang med økta", "Å hoppe over oppvarming"],
+    options: ["God oppvarming og gradvis økning av belastning", "Å øke belastningen brått", "Å hoppe over oppvarmingen for å spare tid", "Å hoppe over oppvarming"],
     explanation: 'Oppvarming og progresjon reduserer risikoen for både akutte skader og belastningsskader.',
   },
   {
     question: 'Hva skiller en akutt skade fra en belastningsskade?',
-    options: ["Akutt skade oppstår plutselig, belastningsskade utvikles gradvis", "Belastningsskade oppstår alltid plutselig", "De er egentlig det samme, siden begge oppstår plutselig under aktivitet", "Akutt skade utvikles langsomt over flere måneder med gjentatt belastning"],
+    options: ["Akutt skade oppstår plutselig, belastningsskade utvikles gradvis", "Belastningsskade oppstår alltid plutselig", "De er egentlig det samme, begge oppstår plutselig", "Akutt skade utvikles langsomt over flere måneder"],
     explanation: 'Akutte skader (f.eks. forstuing) skjer momentant, belastningsskader over tid.',
   },
 ],
@@ -565,17 +565,17 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvorfor brukes is (Ice) like etter en akutt skade?',
-    options: ["For å redusere hevelse og smerte", "For å øke blodtilførselen", "For å øke blodtilførselen til skadestedet raskt", "For å varme opp muskelen"],
+    options: ["For å redusere hevelse og smerte", "For å øke blodtilførselen til området", "For å øke blodtilførselen til skadestedet raskt", "For å varme opp den skadde muskelen"],
     explanation: 'Kjøling trekker sammen blodårer og demper blødning og hevelse.',
   },
   {
     question: 'Hva er hensikten med stabilt sideleie?',
-    options: ["Å holde luftveiene åpne hos en bevisstløs person som puster", "Å starte hjertekompresjoner", "Å stoppe en kraftig ytre blødning ved å legge press på såret", "Å starte brystkompresjoner umiddelbart på personen som ligger"],
+    options: ["Å holde luftveiene åpne hos en bevisstløs person som puster", "Å starte hjertekompresjoner straks", "Å stoppe en kraftig ytre blødning ved å legge press på såret", "Å starte brystkompresjoner umiddelbart på personen som ligger"],
     explanation: 'Sideleie hindrer at en bevisstløs person som puster, kveles av oppkast eller tunge.',
   },
   {
     question: 'Hva er hovedkomponentene i hjerte-lunge-redning (HLR)?',
-    options: ["Brystkompresjoner og innblåsninger", "Bare innblåsninger", "Bare innblåsninger av luft uten å gjøre noen brystkompresjoner", "Å løfte beina opp"],
+    options: ["Brystkompresjoner og innblåsninger", "Bare innblåsninger", "Bare innblåsninger av luft, uten kompresjoner", "Å løfte beina opp"],
     explanation: 'HLR kombinerer kompresjoner (30) og innblåsninger (2) for å holde sirkulasjonen i gang.',
   },
   {
@@ -587,39 +587,39 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   'kroppsoving-vg1-2-6': [
   {
     question: 'Hva er hovedhensikten med oppvarming?',
-    options: ["Å forberede kropp og sinn på aktivitet og redusere skaderisiko", "Å slite ut musklene før trening", "Å senke kroppstemperaturen og pulsen så kroppen er mest mulig uthvilt før start", "Å slite ut musklene fullstendig slik at man sparer krefter til selve konkurransen"],
+    options: ["Å forberede kropp og sinn på aktivitet og redusere skaderisiko", "Å slite ut musklene helt før trening", "Å senke kroppstemperaturen og pulsen så kroppen er mest mulig uthvilt før start", "Å slite ut musklene fullstendig før konkurransen"],
     explanation: 'Oppvarming øker temperatur, blodgjennomstrømning og bevegelighet før hovedøkta.',
   },
   {
     question: 'Hva skjer i kroppen under en god oppvarming?',
-    options: ["Kroppstemperatur og puls øker, og musklene blir mer elastiske", "Pulsen synker til hvilenivå", "Blodtilførselen til musklene reduseres så kroppen kan holde på varmen sin lenger", "Musklene blir stivere og mindre tøyelige fordi de bruker opp energilagrene tidlig"],
+    options: ["Kroppstemperatur og puls øker, og musklene blir mer elastiske", "Pulsen synker til hvilenivå", "Blodtilførselen til musklene reduseres kraftig", "Musklene blir stivere og mindre tøyelige"],
     explanation: 'Økt temperatur gjør musklene mer elastiske og reaksjonene raskere.',
   },
   {
     question: 'Hvilken type tøying egner seg best i oppvarming?',
-    options: ['Dynamisk tøying med bevegelse', 'Langvarig statisk tøying', 'Ingen bevegelse i det hele tatt', 'Maksimale tunge løft'],
+    options: ['Dynamisk tøying med bevegelse', 'Langvarig statisk tøying holdt i ro', 'Ingen bevegelse i det hele tatt', 'Maksimale og tunge løft med vekter'],
     explanation: 'Dynamiske bevegelser holder musklene varme og aktive, ulikt langvarig statisk tøying.',
   },
   {
     question: 'Hva er hensikten med nedvarming (cool-down)?',
-    options: ["Å gradvis senke pulsen og hjelpe kroppen tilbake mot hvile", "Å hoppe rett fra hard trening til ro", "Å unngå all bevegelse etterpå fordi enhver aktivitet vil forsinke restitusjonen", "Å øke intensiteten kraftig helt på slutten for å presse kroppen til sitt ytterste"],
+    options: ["Å gradvis senke pulsen og hjelpe kroppen tilbake mot hvile", "Å hoppe rett fra hard trening til full ro", "Å unngå all bevegelse etterpå fordi enhver aktivitet vil forsinke restitusjonen", "Å øke intensiteten kraftig helt på slutten for å presse kroppen til sitt ytterste"],
     explanation: 'Rolig aktivitet etter trening gir en jevn overgang og kan dempe stivhet.',
   },
   {
     question: 'Hvorfor bør oppvarmingen være spesifikk for aktiviteten som følger?',
-    options: ["For å forberede de musklene og bevegelsene som skal brukes", "For å bruke andre muskler enn dem man trener", "For å spare tid ved å hoppe over de bevegelsene som faktisk skal brukes i økta", "For å spare tid ved å hoppe over bevegelser"],
+    options: ["For å forberede de musklene og bevegelsene som skal brukes", "For å bruke andre muskler enn dem man trener", "For å spare tid ved å hoppe over de bevegelsene som brukes", "For å spare tid ved å hoppe over bevegelser"],
     explanation: 'Spesifikk oppvarming aktiverer de relevante musklene og bevegelsesmønstrene.',
   },
 ],
   'kroppsoving-vg1-3-1': [
   {
     question: 'Hvilke tre stoffer er makronæringsstoffer?',
-    options: ["Karbohydrater, fett og protein", "Vitaminer, mineraler og vann", "Vitaminer, mineraler og vann som gir kroppen mesteparten av energien den trenger", "Fiber, salt og sukker"],
+    options: ["Karbohydrater, fett og protein", "Vitaminer, mineraler og rent vann", "Vitaminer, mineraler og vann som gir kroppen mesteparten av energien den trenger", "Fiber, salt og raske sukkerarter"],
     explanation: 'Makronæringsstoffene gir energi, mens mikronæringsstoffer (vitaminer/mineraler) ikke gir energi.',
   },
   {
     question: 'Hva forteller glykemisk indeks (GI) om et matvare?',
-    options: ["Hvor raskt karbohydratene hever blodsukkeret", "Hvor mye protein den inneholder", "Hvor mye vann og væske matvaren inneholder og hvor godt den slukker tørsten", "Hvor mye vann den inneholder"],
+    options: ["Hvor raskt karbohydratene hever blodsukkeret", "Hvor mye protein den inneholder", "Hvor mye vann og væske matvaren inneholder", "Hvor mye vann den inneholder"],
     explanation: 'Høy GI gir raskt blodsukker-stigning, lav GI en jevnere stigning.',
   },
   {
@@ -634,7 +634,7 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er hensikten med tallerkenmodellen?',
-    options: ["Å gi en enkel veiledning for å sette sammen et balansert måltid", "Å telle alle kalorier nøyaktig", "Å spise nesten bare protein slik at man bygger mest mulig muskelmasse over tid", "Å fjerne karbohydrater helt fra kostholdet fordi de regnes som unødvendig energi"],
+    options: ["Å gi en enkel veiledning for å sette sammen et balansert måltid", "Å telle alle kalorier helt nøyaktig i hvert eneste måltid hver dag", "Å spise nesten bare protein slik at man bygger mest mulig muskelmasse over tid", "Å fjerne karbohydrater helt fra kostholdet fordi de regnes som unødvendig energi"],
     explanation: 'Modellen viser hvor stor andel grønnsaker, karbohydrater og protein bør utgjøre.',
   },
 ],
@@ -651,51 +651,51 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvorfor er væskeinntak viktig under langvarig aktivitet?',
-    options: ["For å erstatte væsketap og opprettholde prestasjon og temperaturregulering", "For å øke kroppsvekten varig", "For å slippe å puste like mye siden vann kan dekke noe av kroppens oksygenbehov", "For å redusere svettingen helt slik at kroppen ikke taper viktige salter og væske"],
+    options: ["For å erstatte væsketap og opprettholde prestasjon og temperaturregulering", "For å øke kroppsvekten varig over tid", "For å slippe å puste like mye siden vann kan dekke noe av kroppens oksygenbehov", "For å redusere svettingen helt under aktivitet"],
     explanation: 'Svette kjøler kroppen, men taper væske som må erstattes for å holde prestasjonen oppe.',
   },
   {
     question: 'Hva er et tidlig tegn på dehydrering?',
-    options: ['Tørste og mørk urin', 'Klar urin og god energi', 'Lavere puls i hvile', 'Økt muskelmasse'],
+    options: ['Tørste og mørk urin', 'Klar urin og god energi', 'Lavere puls under hvile', 'Økt muskelmasse i kroppen'],
     explanation: 'Mørk urin og tørste er vanlige varseltegn på at man trenger mer væske.',
   },
   {
     question: 'Hva er hyperhydrering?',
-    options: ["Å innta så mye væske at det fortynner kroppens elektrolytter", "Å spise for mye salt", "Å spise for mye salt slik at kroppen holder tilbake ekstra væske i vevet sitt", "Å svette så mye under aktivitet at kroppen mister både væske og viktige mineraler"],
+    options: ["Å innta så mye væske at det fortynner kroppens elektrolytter", "Å spise altfor mye salt over lengre tid", "Å spise for mye salt slik at kroppen holder tilbake ekstra væske i vevet sitt", "Å svette så mye under aktivitet at kroppen mister både væske og viktige mineraler"],
     explanation: 'Overdrevent vanninntak kan gi farlig lavt natriumnivå (hyponatremi).',
   },
 ],
   'kroppsoving-vg1-3-3': [
   {
     question: 'Hva er restitusjon?',
-    options: ["Kroppens gjenoppbygging og tilpasning etter trening", "En type kosttilskudd", "Selve treningsøkta der man belaster kroppen for å skape framgang og tilpasning", "En type kosttilskudd man tar for å bygge muskler raskere enn ved vanlig trening"],
+    options: ["Kroppens gjenoppbygging og tilpasning etter trening", "En bestemt type kosttilskudd i pulverform", "Selve treningsøkta der man belaster kroppen for å skape framgang og tilpasning", "En type kosttilskudd man tar for å bygge muskler raskere enn ved vanlig trening"],
     explanation: 'God restitusjon er en forutsetning for at trening skal gi framgang.',
   },
   {
     question: 'Hva er superkompensasjon?',
-    options: ["At kroppen etter restitusjon blir litt sterkere enn før treningen", "At man blir svakere av trening", "At man hviler så lenge etter en økt at treningseffekten forsvinner helt igjen", "At man trener kontinuerlig uten pauser for å holde kroppen i konstant framgang"],
+    options: ["At kroppen etter restitusjon blir litt sterkere enn før treningen", "At man alltid blir svakere av trening, uansett hvor mye man hviler", "At man hviler så lenge etter en økt at treningseffekten forsvinner helt igjen", "At man trener kontinuerlig uten pauser for å holde kroppen i konstant framgang"],
     explanation: 'Treningseffekten kommer i restitusjonsfasen når kroppen overkompenserer.',
   },
   {
     question: 'Hvorfor er søvn viktig for restitusjon?',
-    options: ["Mye av kroppens reparasjon og hormonproduksjon skjer under søvn", "Søvn har ingen betydning for trening", "Søvn øker skaderisikoen fordi musklene blir stive og kalde av å ligge helt i ro", "Søvn bryter ned muskelvev fordi kroppen står uten næring i mange timer om natten"],
+    options: ["Mye av kroppens reparasjon og hormonproduksjon skjer under søvn", "Søvn har ingen som helst betydning for trening og framgang i det hele tatt", "Søvn øker skaderisikoen fordi musklene blir stive og kalde av å ligge helt i ro", "Søvn bryter ned muskelvev fordi kroppen står uten næring i mange timer om natten"],
     explanation: 'Under dyp søvn frigjøres veksthormon og vevet repareres.',
   },
   {
     question: 'Hva er DOMS?',
-    options: ["Forsinket muskelømhet som kommer 1-2 dager etter uvant eller hard trening", "En akutt forstuing", "En bestemt pulssone man trener i for å bygge god grunnleggende utholdenhet", "En form for oppvarming der man gradvis øker intensiteten før den harde økta"],
+    options: ["Forsinket muskelømhet som kommer 1-2 dager etter uvant eller hard trening", "En akutt forstuing i ankelen som oppstår umiddelbart etter et vridd tråkk i landing", "En bestemt pulssone man trener i for å bygge god grunnleggende utholdenhet", "En form for oppvarming der man gradvis øker intensiteten før den harde økta"],
     explanation: 'DOMS (Delayed Onset Muscle Soreness) skyldes mikroskader, særlig etter eksentrisk arbeid.',
   },
   {
     question: 'Hva skjer hvis man trener hardt uten tilstrekkelig restitusjon over tid?',
-    options: ["Man risikerer stagnasjon, tretthet og overtrening", "Man får alltid raskere framgang", "Skaderisikoen synker gradvis fordi musklene og sener blir sterkere av mye bruk", "Kroppen blir aldri sliten"],
+    options: ["Man risikerer stagnasjon, tretthet og overtrening", "Man får alltid raskere framgang", "Skaderisikoen synker gradvis fordi musklene og sener blir sterkere av mye bruk", "Kroppen blir aldri sliten av trening"],
     explanation: 'Uten restitusjon overstiger belastningen kroppens evne til å tilpasse seg.',
   },
 ],
   'kroppsoving-vg1-3-4': [
   {
     question: 'Hva handler «nutrient timing» om?',
-    options: ["Når man inntar næringsstoffer i forhold til trening", "Hvor mye man trener totalt", "Hvor mye man trener totalt i løpet av en uke fordelt på antall økter og timer", "Hvilke øvelser man velger"],
+    options: ["Når man inntar næringsstoffer i forhold til trening", "Hvor mye man trener til sammen", "Hvor mye man trener totalt i løpet av en uke fordelt på antall økter og timer", "Hvilke øvelser man velger å gjøre"],
     explanation: 'Tidspunktet for inntak av karbohydrat og protein kan påvirke restitusjon og energi.',
   },
   {
@@ -705,83 +705,83 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er hensikten med karbohydratlading (carb loading)?',
-    options: ["Å fylle opp glykogenlagrene før langvarig utholdenhetsaktivitet", "Å unngå all karbohydrat", "Å gå raskt ned i vekt ved å tømme kroppen for både glykogen og lagret væske", "Å unngå all karbohydrat i dagene før start slik at kroppen forbrenner mer fett"],
+    options: ["Å fylle opp glykogenlagrene før langvarig utholdenhetsaktivitet", "Å unngå all karbohydrat helt i kosten", "Å gå raskt ned i vekt ved å tømme kroppen for både glykogen og lagret væske", "Å unngå all karbohydrat i dagene før start slik at kroppen forbrenner mer fett"],
     explanation: 'Fulle glykogenlagre gir energi til lange konkurranser som maraton.',
   },
   {
     question: 'Hvorfor er protein viktig etter styrketrening?',
-    options: ["Det gir byggesteiner til reparasjon og oppbygging av muskelvev", "Det gir mest energi under selve økta", "Det senker pulsen raskere etter økta slik at kroppen kommer fortere til hvile", "Det gir mest tilgjengelig energi under selve økta og utsetter dermed trøttheten"],
+    options: ["Det gir byggesteiner til reparasjon og oppbygging av muskelvev", "Det gir mest energi under selve treningsøkta", "Det senker pulsen raskere etter økta slik at kroppen kommer fortere til hvile", "Det gir mest tilgjengelig energi under selve økta og utsetter dermed trøttheten"],
     explanation: 'Aminosyrer fra protein brukes til muskelproteinsyntese.',
   },
   {
     question: 'Hva er et godt prinsipp for kosthold ved hard trening?',
-    options: ["Tilstrekkelig energi og variert kost tilpasset treningsmengden", "Å kutte ut alle karbohydrater", "Å basere seg mest på kosttilskudd fordi de gir renere næring enn vanlig mat gjør", "Å kutte ut alle karbohydrater slik at kroppen tvinges til å hente energi fra fett"],
+    options: ["Tilstrekkelig energi og variert kost tilpasset treningsmengden", "Å kutte ut alle karbohydrater", "Å basere seg mest på kosttilskudd i stedet for mat", "Å kutte ut alle karbohydrater fra kostholdet"],
     explanation: 'Et variert kosthold med nok energi støtter både prestasjon og restitusjon.',
   },
 ],
   'kroppsoving-vg1-3-5': [
   {
     question: 'Hva menes med kroppsidealer?',
-    options: ["Samfunnets og medienes forestillinger om hvordan en kropp «bør» se ut", "Den faktiske kroppen man har", "En bestemt treningsmetode som former kroppen mot en fastsatt fasong over tid", "Den faktiske kroppen man selv har med sine egne styrker, mål og begrensninger"],
+    options: ["Samfunnets og medienes forestillinger om hvordan en kropp «bør» se ut", "Den faktiske kroppen du går rundt med", "En bestemt treningsmetode som former kroppen over tid", "Den faktiske kroppen man selv har med sine begrensninger"],
     explanation: 'Kroppsidealer er kulturelt skapte og endrer seg over tid.',
   },
   {
     question: 'Hvorfor er kritisk mediekompetanse viktig når det gjelder kroppsbilder?',
-    options: ["Fordi mange bilder er redigerte og gir et urealistisk bilde av kroppen", "Fordi medier aldri påvirker oss", "Fordi kroppsidealer aldri endrer seg og derfor alltid gir et sant bilde av kroppen", "Fordi mediene aldri påvirker hvordan vi opplever oss selv og vår egen kropp over tid"],
+    options: ["Fordi mange bilder er redigerte og gir et urealistisk bilde av kroppen", "Fordi medier aldri påvirker oss", "Fordi kroppsidealer aldri endrer seg over tid", "Fordi mediene aldri påvirker hvordan vi ser oss selv"],
     explanation: 'Retusjerte og iscenesatte bilder kan skape urealistiske forventninger.',
   },
   {
     question: 'Hva kjennetegner en spiseforstyrrelse?',
-    options: ["Et alvorlig, usunt forhold til mat, kropp og vekt", "Å spise variert og nok", "Å drikke nok vann gjennom dagen slik at kroppen holder en god væskebalanse", "Å spise variert og tilstrekkelig mat som er tilpasset kroppens behov for energi"],
+    options: ["Et alvorlig, usunt forhold til mat, kropp og vekt", "Å spise variert og nok mat hver dag", "Å drikke nok vann gjennom dagen slik at kroppen holder en god væskebalanse", "Å spise variert og tilstrekkelig mat som er tilpasset kroppens behov for energi"],
     explanation: 'Spiseforstyrrelser er alvorlige tilstander som ofte krever behandling.',
   },
   {
     question: 'Hva handler body positivity om?',
-    options: ["Å akseptere og verdsette kropper i alle former og størrelser", "Å følge ett bestemt kroppsideal", "Å følge ett fastsatt kroppsideal som alle bør tilpasse seg for å bli akseptert", "At bare én bestemt kroppstype er sunn og verdt å strebe etter for alle mennesker"],
+    options: ["Å akseptere og verdsette kropper i alle former og størrelser", "Å følge ett bestemt kroppsideal for alle", "Å følge ett fastsatt kroppsideal som alle bør tilpasse seg for å bli akseptert", "At bare én bestemt kroppstype er sunn og verdt å strebe etter for alle mennesker"],
     explanation: 'Body positivity utfordrer snevre kroppsidealer og fremmer aksept.',
   },
   {
     question: 'Hvordan kan sosiale medier påvirke unges kroppsbilde negativt?',
-    options: ["Gjennom stadig sammenligning med redigerte og iscenesatte bilder", "Ved å gi realistiske bilder av alle", "Ved å gjøre alle brukerne mer fornøyde med egen kropp jo mer tid de bruker der", "Ved å gi et realistisk og ærlig bilde av hvordan de fleste kropper egentlig ser ut"],
+    options: ["Gjennom stadig sammenligning med redigerte og iscenesatte bilder", "Ved å gi realistiske bilder av alle kropper", "Ved å gjøre alle brukerne mer fornøyde med egen kropp jo mer tid de bruker der", "Ved å gi et realistisk og ærlig bilde av hvordan de fleste kropper egentlig ser ut"],
     explanation: 'Konstant eksponering for «perfekte» bilder kan øke misnøye med egen kropp.',
   },
 ],
   'kroppsoving-vg1-3-6': [
   {
     question: 'Hva er et kosttilskudd?',
-    options: ["Et konsentrert tilskudd av næringsstoffer som tas i tillegg til vanlig kost", "En vanlig hovedrett", "En form for oppvarming som forbereder kroppen på den harde delen av treningen", "En vanlig hovedrett som dekker mesteparten av kroppens daglige behov for næring"],
+    options: ["Et konsentrert tilskudd av næringsstoffer som tas i tillegg til vanlig kost", "En helt vanlig hovedrett i et måltid", "En form for oppvarming før den harde delen av økta", "En vanlig hovedrett som dekker mesteparten av næringsbehovet"],
     explanation: 'Kosttilskudd skal supplere, ikke erstatte, et variert kosthold.',
   },
   {
     question: 'Hva er en mulig ulempe med energidrikker?',
-    options: ["Høyt innhold av koffein og sukker som kan gi uro, søvnproblemer og kariesrisiko", "At de inneholder for lite koffein", "At de kan erstatte vanlige måltider fordi de dekker alt kroppen trenger av energi", "At de inneholder altfor lite koffein til å ha noen virkning på kropp og prestasjon"],
+    options: ["Høyt innhold av koffein og sukker som kan gi uro, søvnproblemer og kariesrisiko", "At de inneholder alt for lite koffein", "At de kan erstatte vanlige måltider fordi de dekker alt kroppen trenger av energi", "At de inneholder altfor lite koffein til å virke"],
     explanation: 'Mye koffein og sukker kan gi bivirkninger, særlig for unge.',
   },
   {
     question: 'Hva bør man tenke på før man bruker kosttilskudd?',
-    options: ["Om man faktisk har behov, og om produktet er trygt og fritt for forbudte stoffer", "At alle tilskudd alltid er nødvendige", "At tilskudd kan erstatte selve treningen fordi de gir kroppen den samme effekten", "At alle typer tilskudd alltid er nødvendige for å dekke kroppens behov ved trening"],
+    options: ["Om man faktisk har behov, og om produktet er trygt og fritt for forbudte stoffer", "At alle tilskudd alltid er nødvendige", "At tilskudd kan erstatte selve treningen helt", "At alle typer tilskudd alltid er nødvendige for å dekke kroppens behov ved trening"],
     explanation: 'De fleste får nok næring fra et variert kosthold; noen tilskudd kan også være forurenset.',
   },
   {
     question: 'Hva er doping?',
-    options: ["Bruk av forbudte stoffer eller metoder for å forbedre prestasjon", "Vanlig sunt kosthold", "Et vanlig og sunt kosthold som er tilpasset treningsmengden og kroppens behov", "Bruk av lovlige kosttilskudd som gir kroppen ekstra næring i tillegg til maten"],
+    options: ["Bruk av forbudte stoffer eller metoder for å forbedre prestasjon", "Et helt vanlig og sunt kosthold i hverdagen", "Et vanlig og sunt kosthold som er tilpasset treningsmengden og kroppens behov", "Bruk av lovlige kosttilskudd som gir kroppen ekstra næring i tillegg til maten"],
     explanation: 'Doping er forbudt, helseskadelig og i strid med fair play.',
   },
   {
     question: 'Hvorfor kan kosttilskudd være en risiko for utøvere som testes for doping?',
-    options: ["Fordi noen tilskudd kan inneholde forbudte stoffer som ikke står på innholdslisten", "Fordi tilskudd ikke kan forurenses", "Fordi kosttilskudd fjerner forbudte stoffer som allerede finnes naturlig i kroppen", "Fordi ethvert kosttilskudd er ulovlig å bruke innen konkurranseidrett uansett innhold"],
+    options: ["Fordi noen tilskudd kan inneholde forbudte stoffer som ikke står på innholdslisten", "Fordi tilskudd aldri kan bli forurenset", "Fordi kosttilskudd fjerner forbudte stoffer fra kroppen", "Fordi ethvert kosttilskudd er ulovlig å bruke innen konkurranseidrett uansett innhold"],
     explanation: 'Forurensede tilskudd kan gi positiv dopingtest – utøveren er selv ansvarlig.',
   },
 ],
   'kroppsoving-vg1-4-1': [
   {
     question: 'Hvilket energisystem er viktigst i en kort sprint (100 m)?',
-    options: ["Det anaerobe systemet (kreatinfosfat og glykolyse)", "Det aerobe systemet", "Proteinforbrenning fra musklene som hovedkilde til rask energi", "Det aerobe systemet med oksygenkrevende fettforbrenning i musklene"],
+    options: ["Det anaerobe systemet (kreatinfosfat og glykolyse)", "Det aerobe systemet med oksygen", "Proteinforbrenning fra musklene som hovedkilde til rask energi", "Det aerobe systemet med oksygenkrevende fettforbrenning i musklene"],
     explanation: 'Sprint krever rask, eksplosiv energi uten å vente på oksygentilførsel.',
   },
   {
     question: 'Hva er sentralt i god sprintteknikk?',
-    options: ["Kraftig frasparkk, høy frekvens og avslappet overkropp", "Lange steg med lav frekvens og armene holdt helt i ro", "Å lande hardt på hælene og bremse farten mellom hvert skritt", "Rolige, langsomme steg med tung og anspent overkropp hele veien"],
+    options: ["Kraftig frasparkk, høy frekvens og avslappet overkropp", "Lange steg med lav frekvens og armene holdt helt i ro langs siden", "Å lande hardt på hælene og bremse farten mellom hvert skritt", "Rolige, langsomme steg med tung og anspent overkropp hele veien"],
     explanation: 'Effektiv kraftoverføring og høy skrittfrekvens gir fart.',
   },
   {
@@ -791,12 +791,12 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er viktig for et godt lengdehopp?',
-    options: ["Fart i tilløpet kombinert med et kraftig og presist sats", "Å løpe sakte fram til satsen", "Å hoppe helt uten tilløp og heller satse på ren beinstyrke", "Å lande bakover på ryggen for å oppnå ekstra lengde i hoppet"],
+    options: ["Fart i tilløpet kombinert med et kraftig og presist sats", "Å løpe sakte fram til satsen hver gang", "Å hoppe helt uten tilløp og heller satse på ren beinstyrke", "Å lande bakover på ryggen for å oppnå ekstra lengde i hoppet"],
     explanation: 'Horisontal fart omsettes til lengde gjennom et godt timet sats.',
   },
   {
     question: 'Hvorfor er teknikk viktig i kastøvelser som kulestøt?',
-    options: ["God teknikk overfører kroppens kraft effektivt til redskapen", "Teknikk har ingen betydning", "Redskapen skal støtes ut helt uten bruk av kraft fra bein og hofte", "Teknikk har ingen betydning så lenge utøveren er sterk nok i armene"],
+    options: ["God teknikk overfører kroppens kraft effektivt til redskapen", "Teknikk har ingen betydning i kast", "Redskapen skal støtes ut helt uten bruk av kraft fra bein og hofte", "Teknikk har ingen betydning så lenge utøveren er sterk nok i armene"],
     explanation: 'Riktig bevegelseskjede gir lengre kast med samme styrke.',
   },
 ],
@@ -835,17 +835,17 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er rollen til en spotter i turn?',
-    options: ["Å sikre og hjelpe utøveren slik at øvelsen kan gjøres trygt", "Å filme øvelsen slik at utøveren kan se den igjen etterpå", "Å lede oppvarmingen slik at musklene blir klare før øvingen", "Å dømme øvelsen og gi utøveren poeng ut fra teknisk utførelse"],
+    options: ["Å sikre og hjelpe utøveren slik at øvelsen kan gjøres trygt", "Å filme øvelsen slik at utøveren kan se den igjen etterpå", "Å lede oppvarmingen slik at musklene blir klare", "Å dømme øvelsen og gi utøveren poeng ut fra teknisk utførelse"],
     explanation: 'En spotter står klar til å støtte og forhindre fall under øving.',
   },
   {
     question: 'Hva er viktig når man lærer en ny turnferdighet som håndstående?',
-    options: ["Gradvis progresjon med trygge øvelser og god sikring", "Å prøve den vanskeligste varianten først", "Å hoppe over oppvarmingen for å ha mer tid til selve øvelsen", "Å aldri bruke sikring slik at man venner seg til å stå alene"],
+    options: ["Gradvis progresjon med trygge øvelser og god sikring", "Å prøve den aller vanskeligste varianten helt med en gang", "Å hoppe over oppvarmingen for å ha mer tid til selve øvelsen", "Å aldri bruke sikring slik at man venner seg til å stå alene"],
     explanation: 'Trinnvis progresjon og sikring gir mestring og reduserer skaderisiko.',
   },
   {
     question: 'Hva trener en bro (bridge) særlig?',
-    options: ["Bevegelighet i rygg og skuldre samt kroppsspenning", "Maksimal beinstyrke alene", "Maksimal beinstyrke alene uten krav til bevegelighet i ryggen", "Aerob utholdenhet gjennom langvarig og jevn belastning i vevet"],
+    options: ["Bevegelighet i rygg og skuldre samt kroppsspenning", "Maksimal beinstyrke helt alene", "Maksimal beinstyrke alene uten krav til bevegelighet i ryggen", "Aerob utholdenhet gjennom langvarig og jevn belastning i vevet"],
     explanation: 'Broen krever og utvikler god bevegelighet kombinert med spenning.',
   },
   {
@@ -857,12 +857,12 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   'kroppsoving-vg1-4-4': [
   {
     question: 'Hva er en kata i kampsport?',
-    options: ["En fastlagt sekvens av bevegelser som øves for teknikk", "En fri og uforutsigbar kamp mot en levende motstander", "En rolig oppvarmingsøvelse som gjøres før selve treningen", "En type belte som viser hvilket ferdighetsnivå utøveren har"],
+    options: ["En fastlagt sekvens av bevegelser som øves for teknikk", "En fri og uforutsigbar kamp mot en levende motstander i ringen", "En rolig oppvarmingsøvelse som gjøres før selve treningen", "En type belte som viser hvilket ferdighetsnivå utøveren har"],
     explanation: 'Kata er en koreografert form som utvikler teknikk, balanse og konsentrasjon.',
   },
   {
     question: 'Hva er sparring?',
-    options: ["Kontrollert øvingskamp mot en partner", "En fastlagt soloøvelse", "En meditasjonsform som styrker konsentrasjon og pust", "En rolig tøyeøvelse som gjøres for å øke bevegeligheten"],
+    options: ["Kontrollert øvingskamp mot en partner", "En fastlagt soloøvelse man øver på alene", "En meditasjonsform som styrker konsentrasjon og pust", "En rolig tøyeøvelse som gjøres for å øke bevegeligheten"],
     explanation: 'Sparring lar utøverne øve teknikker i en mer realistisk, men kontrollert, situasjon.',
   },
   {
@@ -872,7 +872,7 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva symboliserer beltegradering i mange kampsporter?',
-    options: ['Nivå av ferdighet og erfaring', 'Hvor sterk man er fysisk alene', 'Alderen til utøveren', 'Hvor mange kamper man har vunnet'],
+    options: ['Nivå av ferdighet og erfaring', 'Hvor sterk man er fysisk alene', 'Alderen til den enkelte utøveren', 'Hvor mange kamper man har vunnet'],
     explanation: 'Beltefarger markerer progresjon i teknisk og mental utvikling.',
   },
   {
@@ -884,7 +884,7 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   'kroppsoving-vg1-4-5': [
   {
     question: 'Hva viser høydekurver på et orienteringskart?',
-    options: ["Terrengets høydeforhold og bratthet", "Avstanden til mål i meter", "Hvor det går veier og stier gjennom terrenget", "Hvor det finnes vann, myr og andre våte områder"],
+    options: ["Terrengets høydeforhold og bratthet", "Avstanden fram til selve målet i meter", "Hvor det går veier og stier gjennom terrenget", "Hvor det finnes vann, myr og andre våte områder"],
     explanation: 'Tette kurver betyr bratt terreng, glisne kurver slakt terreng.',
   },
   {
@@ -904,7 +904,7 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvorfor bør man kunne kart og kompass selv om man har GPS?',
-    options: ["Fordi GPS kan gå tom for batteri eller miste signal", "Fordi kompass er raskere enn alt annet", "Fordi GPS aldri brukes i norsk natur og bare fungerer i byene", "Fordi papirkart alltid er morsommere å bruke enn digitale løsninger"],
+    options: ["Fordi GPS kan gå tom for batteri eller miste signal", "Fordi kompasset alltid er raskere enn alt annet utstyr", "Fordi GPS aldri brukes i norsk natur og bare fungerer i byene", "Fordi papirkart alltid er morsommere å bruke enn digitale løsninger"],
     explanation: 'Tradisjonelle navigasjonsferdigheter er en viktig sikkerhet når teknologien svikter.',
   },
 ],
@@ -916,7 +916,7 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvordan kan man bruke SMART-mål i individuelle utfordringer?',
-    options: ["Sette spesifikke, målbare og realistiske mål for egen progresjon", "Sette helt vage mål uten tidsfrist så man ikke føler press", "Bare kopiere andres mål uten å ta hensyn til egne forutsetninger", "Unngå å sette mål i det hele tatt for å slippe skuffelser"],
+    options: ["Sette spesifikke, målbare og realistiske mål for egen progresjon", "Sette helt vage mål uten tidsfrist slik at man ikke føler noe press", "Bare kopiere andres mål uten å ta hensyn til egne forutsetninger i det hele tatt", "Unngå å sette mål i det hele tatt for å slippe å bli skuffet senere"],
     explanation: 'Tydelige mål gjør det enklere å følge og oppleve egen framgang.',
   },
   {
@@ -926,7 +926,7 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva menes med mental styrke i møte med utfordringer?',
-    options: ["Evnen til å holde ut, fokusere og takle motgang", "Å unngå alle utfordringer", "Å gi opp med en gang ved første feil for å spare på kreftene", "Bare fysisk muskelstyrke som avgjør hvor mye du orker å trene"],
+    options: ["Evnen til å holde ut, fokusere og takle motgang", "Å unngå alle utfordringer som kan bli vanskelige", "Å gi opp med en gang ved første feil for å spare på kreftene", "Bare fysisk muskelstyrke som avgjør hvor mye du orker å trene"],
     explanation: 'Mental styrke hjelper deg å fortsette selv når noe er vanskelig.',
   },
   {
@@ -938,54 +938,54 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   'kroppsoving-vg1-4-7': [
   {
     question: 'Hva kjennetegner klassisk langrennsteknikk?',
-    options: ["Skiene går i parallelle spor, blant annet med diagonalgang", "Skiene skyves ut til sidene som i skøyting", "Man bruker utelukkende dobbeltak og lar staveisettet gi all framdriften i løypa", "Man holder skiene helt parallelle men uten spor, og glir framover kun ved å presse ned"],
+    options: ["Skiene går i parallelle spor, blant annet med diagonalgang", "Skiene skyves ut til sidene som i skøyting", "Man bruker utelukkende dobbeltak og lar staveisettet gi all framdriften i løypa", "Man holder skiene helt parallelle men uten spor"],
     explanation: 'Klassisk stil følger sporet, mens skøyting bruker fraspark ut til siden.',
   },
   {
     question: 'Hva skiller skøyteteknikk fra klassisk teknikk på ski?',
-    options: ["Skøyting bruker fraspark ut til siden, omtrent som på skøyter", "Skøyting følger alltid sporet", "Skøyting gir framdrift kun ved dobbeltak, uten at beina bidrar med noe fraspark", "Skøyting følger alltid det oppkjørte sporet og bruker vekslende diagonalgang framover"],
+    options: ["Skøyting bruker fraspark ut til siden, omtrent som på skøyter", "Skøyting følger alltid det oppkjørte sporet", "Skøyting gir framdrift kun ved dobbeltak, uten at beina bidrar med noe fraspark", "Skøyting følger alltid det oppkjørte sporet og bruker vekslende diagonalgang framover"],
     explanation: 'Skøyting (fristil) gir fart gjennom sidelengs fraspark fra skikanten.',
   },
   {
     question: 'Hvorfor er balanse viktig i både ski og skøyter?',
-    options: ["Fordi man glir på et smalt underlag og må kontrollere tyngdepunktet", "Fordi man står stille hele tiden", "Fordi et bredt og stabilt underlag under fotbladet gjør at man aldri kan miste balansen", "Fordi man alltid har begge føtter godt plantet i bakken og tyngdepunktet lavt hele tiden"],
+    options: ["Fordi man glir på et smalt underlag og må kontrollere tyngdepunktet", "Fordi man står helt stille hele tiden", "Fordi et bredt og stabilt underlag under fotbladet gjør at man aldri kan miste balansen", "Fordi man alltid har begge føtter godt plantet i bakken"],
     explanation: 'God balanse gir kontroll, fart og reduserer fallrisiko.',
   },
   {
     question: 'Hva er viktig for sikker ferdsel på ski i vinterfjellet?',
-    options: ["Riktig bekledning, planlegging og vurdering av vær og skredfare", "Å ignorere værmeldingen", "Å stole på at været holder seg fint, og heller la værmeldingen ligge igjen hjemme", "Å kle seg lett og bomullsnært uansett forhold, siden man blir varm av å gå uansett"],
+    options: ["Riktig bekledning, planlegging og vurdering av vær og skredfare", "Å ignorere værmeldingen helt før tur", "Å stole på at været holder seg fint, og heller la værmeldingen ligge igjen hjemme", "Å kle seg lett og bomullsnært uansett forhold"],
     explanation: 'God forberedelse og risikovurdering er avgjørende på vinterturer.',
   },
   {
     question: 'Hva trener langrenn særlig godt?',
-    options: ["Aerob utholdenhet og hele kroppen", "Reaksjonstid alene", "Nesten bare grovmotorisk armstyrke i overkroppen og skuldrene", "Bare bevegelighet"],
+    options: ["Aerob utholdenhet og hele kroppen", "Reaksjonstiden alene", "Nesten bare grovmotorisk armstyrke i overkroppen og skuldrene", "Bare god bevegelighet"],
     explanation: 'Langrenn er en utholdenhetsidrett som aktiverer store muskelgrupper.',
   },
 ],
   'kroppsoving-vg1-5-1': [
   {
     question: 'Hva betyr «å gjøre andre gode» i lagspill?',
-    options: ["Å spille slik at medspillerne får gode muligheter", "Å beholde ballen lengst mulig alene", "Å overlate alt ansvar til medspillerne mens man selv holder seg helt i ro", "Å ta ballen selv i alle situasjoner og score flest mulige mål på egen hånd"],
+    options: ["Å spille slik at medspillerne får gode muligheter", "Å beholde ballen lengst mulig helt alene uten å sentre", "Å overlate alt ansvar til medspillerne mens man selv holder seg helt i ro", "Å ta ballen selv i alle situasjoner og score flest mulige mål på egen hånd"],
     explanation: 'Godt samspill handler om å skape muligheter for hele laget.',
   },
   {
     question: 'Hva er en kontring (kontra)?',
-    options: ["Et raskt angrep rett etter at man har vunnet ballen, mens motstanderen er ubalansert", "En bestemt type frispark som tildeles etter grovt regelbrudd nær eget straffeområde", "En organisert forsvarsformasjon i ro der alle spillerne står lavt og venter på angrepet", "Et rolig oppbyggingsspill der laget flytter ballen langsomt bakover for å berolige tempoet"],
+    options: ["Et raskt angrep rett etter at man har vunnet ballen, mens motstanderen er ubalansert", "En bestemt type frispark som tildeles etter grovt regelbrudd nær eget straffeområde i kampen", "En organisert forsvarsformasjon i ro der alle spillerne står lavt og venter på angrepet", "Et rolig oppbyggingsspill der laget flytter ballen langsomt bakover for å berolige tempoet"],
     explanation: 'Kontring utnytter at motstanderen er ute av posisjon etter eget angrep.',
   },
   {
     question: 'Hva er en avspillsmulighet i ballspill?',
-    options: ["En medspiller som er fri til å motta pasning", "En motspiller som dekker deg", "En kort pause i spillet der ballen er død og laget kan reorganisere seg helt", "En pause i spillet"],
+    options: ["En medspiller som er fri til å motta pasning", "En motspiller som dekker deg", "En kort pause i spillet der ballen er død og laget kan reorganisere seg helt", "En kort pause i selve spillet"],
     explanation: 'Spilleren med ball ser etter åpne medspillere å spille til.',
   },
   {
     question: 'Hva er førsteberøring i fotball?',
-    options: ["Den første kontakten man får med ballen når man mottar den", "Den siste pasningen i et angrep", "Et hjørnespark som slås inn i feltet etter at ballen har gått ut over dødlinja", "En bestemt type takling der man vinner ballen tilbake fra motstanderen med kroppen"],
+    options: ["Den første kontakten man får med ballen når man mottar den", "Den aller siste pasningen i et angrep før selve avslutningen", "Et hjørnespark som slås inn i feltet etter at ballen har gått ut over dødlinja", "En bestemt type takling der man vinner ballen tilbake fra motstanderen med kroppen"],
     explanation: 'God førsteberøring legger ballen til rette for neste handling.',
   },
   {
     question: 'Hva er et trinnfeil (steg) i håndball?',
-    options: ["Å ta flere skritt enn tillatt uten å sprette ballen", "Å sentre for langt", "Å stå som keeper i eget målfelt og gripe skudd som kommer mot buret", "Å score et regulært mål ved å kaste ballen forbi keeperen og inn i målburet"],
+    options: ["Å ta flere skritt enn tillatt uten å sprette ballen", "Å sentre ballen altfor langt bortover banen til en medspiller", "Å stå som keeper i eget målfelt og gripe skudd som kommer mot buret", "Å score et regulært mål ved å kaste ballen forbi keeperen og inn i målburet"],
     explanation: 'Reglene begrenser hvor mange skritt man kan ta med ballen i hånda.',
   },
 ],
@@ -997,39 +997,39 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er pivoting i basketball?',
-    options: ["Å dreie rundt på ett standfot mens den andre kan flyttes", "Å kaste fra distanse", "Å kaste ballen mot kurven fra lang distanse for å score tre poeng utenfra", "Å sprette ballen kontrollert mot gulvet mens man forflytter seg over banen"],
+    options: ["Å dreie rundt på ett standfot mens den andre kan flyttes", "Å kaste ballen mot kurven fra distanse", "Å kaste ballen mot kurven fra lang distanse for å score tre poeng utenfra", "Å sprette ballen kontrollert mot gulvet mens man forflytter seg over banen"],
     explanation: 'Pivotfoten må holdes i ro mens man dreier for å unngå skritt.',
   },
   {
     question: 'Hva er tre-berøringsregelen i volleyball?',
-    options: ["Et lag kan berøre ballen høyst tre ganger før den sendes over nettet", "Man må berøre ballen nøyaktig tre ganger", "Bare én og samme spiller får berøre ballen tre ganger etter hverandre før angrepet", "Ballen må berøres minst fem ganger av laget før den lovlig kan spilles over nettet"],
+    options: ["Et lag kan berøre ballen høyst tre ganger før den sendes over nettet", "Laget må berøre ballen nøyaktig tre ganger før den kan sendes over nettet", "Bare én og samme spiller får berøre ballen tre ganger etter hverandre før angrepet", "Ballen må berøres minst fem ganger av laget før den lovlig kan spilles over nettet"],
     explanation: 'Vanligvis brukes mottak, pasning og angrep – maks tre berøringer.',
   },
   {
     question: 'Hva er en assist i basketball?',
-    options: ["En pasning som direkte fører til at en medspiller scorer", "Et eget scoringsforsøk", "Et eget scoringsforsøk der man selv fører ballen fram og avslutter mot kurven", "En takling der man vinner ballen tilbake fra motstanderen midt i deres angrep"],
+    options: ["En pasning som direkte fører til at en medspiller scorer", "Et eget scoringsforsøk rett mot kurven", "Et eget scoringsforsøk der man selv fører ballen fram og avslutter mot kurven", "En takling der man vinner ballen tilbake fra motstanderen midt i deres angrep"],
     explanation: 'Assist belønner det gode samspillet som skaper scoringer.',
   },
   {
     question: 'Hva er rotasjon i volleyball?',
-    options: ["At spillerne bytter posisjon med klokka når laget vinner serveretten", "At ballen roterer i lufta", "En bestemt forsvarsteknikk der bakerste spiller kaster seg for å redde harde angrep", "At selve ballen settes i rask rotasjon i lufta for at serven skal skru uforutsigbart"],
+    options: ["At spillerne bytter posisjon med klokka når laget vinner serveretten", "At ballen snurrer rundt i lufta", "En forsvarsteknikk der bakerste spiller redder harde angrep", "At selve ballen settes i rask rotasjon i lufta"],
     explanation: 'Rotasjon sørger for at spillerne dekker ulike posisjoner i tur.',
   },
 ],
   'kroppsoving-vg1-5-3': [
   {
     question: 'Hva kjennetegner smålagsspill?',
-    options: ["Færre spillere på hvert lag, som gir flere ballberøringer og mer aktivitet", "Mange spillere som står stille", "At bare én utvalgt spiller er aktiv om gangen mens de øvrige på laget ser passivt på", "Mange spillere på hvert lag som stort sett står i ro og venter på at ballen skal komme"],
+    options: ["Færre spillere på hvert lag, som gir flere ballberøringer og mer aktivitet", "Mange spillere som bare står stille", "At bare én utvalgt spiller er aktiv om gangen mens de øvrige på laget ser passivt på", "Mange spillere på hvert lag som stort sett står i ro"],
     explanation: 'Færre spillere gir mer involvering og læring for den enkelte.',
   },
   {
     question: 'Hva er forskjellen på forehand og backhand i innebandy?',
-    options: ["Hvilken side av kølla ballen spilles fra", "Antall spillere på banen", "Hvor mange spillere hvert lag har ute på banen samtidig under spillet", "Hvilken farge kølla har"],
+    options: ["Hvilken side av kølla ballen spilles fra", "Antall spillere som hvert lag har ute på banen", "Hvor mange spillere hvert lag har ute på banen samtidig under spillet", "Hvilken farge kølla til den enkelte spilleren har"],
     explanation: 'Forehand spilles fra «forsiden» av kølleblaadet, backhand fra baksiden.',
   },
   {
     question: 'Hvorfor egner smålagsspill seg godt i undervisning?',
-    options: ["Alle blir mer involvert og får øvd ferdigheter oftere", "Det gir minst mulig aktivitet", "Fordi det gir minst mulig aktivitet per elev og lar de fleste hvile mellom øktene", "Det er bare for de beste"],
+    options: ["Alle blir mer involvert og får øvd ferdigheter oftere", "Det gir minst mulig aktivitet", "Fordi det gir minst mulig aktivitet per elev og lar de fleste hvile mellom øktene", "Det er bare noe for de beste"],
     explanation: 'Med få spillere får hver elev mange ballberøringer og mestringssituasjoner.',
   },
   {
@@ -1039,68 +1039,68 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er spilleintelligens?',
-    options: ["Evnen til å lese spillet og ta gode valg", "Hvor raskt man løper alene", "Hvor sterk og muskuløs man er rent fysisk i dueller mot motstanderne", "Hvor sterk man er fysisk"],
+    options: ["Evnen til å lese spillet og ta gode valg", "Hvor raskt man klarer å løpe helt på egen hånd", "Hvor sterk og muskuløs man er rent fysisk i dueller mot motstanderne", "Hvor sterk man er rent fysisk i hele kroppen"],
     explanation: 'Spilleintelligens handler om beslutninger, plassering og timing i spillet.',
   },
 ],
   'kroppsoving-vg1-5-4': [
   {
     question: 'Hva er spillforståelse?',
-    options: ["Evnen til å lese spillsituasjoner og ta gode taktiske valg", "Hvor høyt man kan hoppe", "Hvor høyt man kan hoppe opp i lufta for å vinne ballen i hodedueller", "Hvor raskt man greier å løpe strekninger uten ball i full fart over banen"],
+    options: ["Evnen til å lese spillsituasjoner og ta gode taktiske valg", "Hvor høyt man klarer å hoppe rett opp", "Hvor høyt man kan hoppe opp i lufta for å vinne ballen i hodedueller", "Hvor raskt man greier å løpe strekninger uten ball i full fart over banen"],
     explanation: 'Spillforståelse handler om å forstå hva som lønner seg i ulike situasjoner.',
   },
   {
     question: 'Hva menes med romforståelse i lagspill?',
-    options: ["Å oppfatte og utnytte ledig plass på banen", "Å holde seg på samme sted", "Å holde seg på nøyaktig samme sted hele kampen uansett hvor ballen befinner seg", "Å bare se på ballen"],
+    options: ["Å oppfatte og utnytte ledig plass på banen", "Å holde seg på samme sted", "Å holde seg på nøyaktig samme sted hele kampen uansett hvor ballen befinner seg", "Å bare se på selve ballen"],
     explanation: 'God romforståelse gjør at man skaper og utnytter åpne rom.',
   },
   {
     question: 'Hva kjennetegner et kompakt forsvar?',
-    options: ["Spillerne står tett og dekker rommene mellom seg", "Spillerne sprer seg maksimalt utover", "Spillerne sprer seg maksimalt utover hele banen for å dekke alle sonene samtidig", "Ingen markerer motstanderne"],
+    options: ["Spillerne står tett og dekker rommene mellom seg", "Spillerne sprer seg maksimalt utover", "Spillerne sprer seg maksimalt utover hele banen", "Ingen markerer motstanderne"],
     explanation: 'Et kompakt forsvar gjør det vanskelig for motstanderen å spille gjennom.',
   },
   {
     question: 'Hvorfor er overgangsspill (omstilling) viktig taktisk?',
-    options: ["Fordi det å utnytte øyeblikket rett etter ballerobring kan gi store sjanser", "Fordi man bør stå stille etter ballerobring", "Fordi forsvarsarbeidet aldri er viktig, så lenge man selv har ballen mest av tiden", "Fordi taktikk og valg i overgangene ikke betyr noe, bare de individuelle ferdighetene"],
+    options: ["Fordi det å utnytte øyeblikket rett etter ballerobring kan gi store sjanser", "Fordi man bør stå stille etter ballerobring", "Fordi forsvarsarbeidet aldri er viktig, så lenge man selv har ballen mest av tiden", "Fordi taktikk og valg i overgangene ikke betyr noe"],
     explanation: 'Rask omstilling fra forsvar til angrep (kontring) overrumpler motstanderen.',
   },
   {
     question: 'Hva er en mellomromsspiller?',
-    options: ["En spiller som finner og utnytter rommene mellom motstanderens ledd/linjer", "En spiller som bare står i mål", "En passiv tilskuer på tribunen som følger kampen uten selv å delta i selve spillet", "En spiller som befinner seg helt utenfor banen og venter på å bli byttet inn i laget"],
+    options: ["En spiller som finner og utnytter rommene mellom motstanderens ledd/linjer", "En spiller som bare står nede i målet og aldri deltar i selve angrepsspillet", "En passiv tilskuer på tribunen som følger kampen uten selv å delta i selve spillet", "En spiller som befinner seg helt utenfor banen og venter på å bli byttet inn i laget"],
     explanation: 'Mellomromsspilleren skaper farlige angrep ved å motta ball mellom motstanderens linjer.',
   },
 ],
   'kroppsoving-vg1-5-5': [
   {
     question: 'Hva er psykologisk trygghet i et lag?',
-    options: ["At medlemmene tør å si meninger og gjøre feil uten frykt for negativ reaksjon", "At bare lederen bestemmer alt", "At ingen på laget våger å si noe i det hele tatt, slik at det blir helt stille i gruppa", "At bare lederen eller treneren bestemmer alt, og de øvrige må følge ordre uten innspill"],
+    options: ["At medlemmene tør å si meninger og gjøre feil uten frykt for negativ reaksjon", "At bare lederen bestemmer alt i gruppa", "At ingen på laget våger å si noe i det hele tatt, slik at det blir helt stille i gruppa", "At bare lederen eller treneren bestemmer alt"],
     explanation: 'Psykologisk trygghet gir bedre samarbeid, læring og prestasjon.',
   },
   {
     question: 'Hva er konstruktiv tilbakemelding?',
-    options: ["Tilbakemelding som er konkret og hjelper mottakeren å bli bedre", "Bare ros uansett innsats", "Ren ros uansett hva mottakeren har prestert, uten å peke på noe som kan forbedres", "Personangrep som retter seg mot personen framfor selve prestasjonen eller handlingen"],
+    options: ["Tilbakemelding som er konkret og hjelper mottakeren å bli bedre", "Bare ros uansett hvilken innsats", "Ren ros uansett hva mottakeren har prestert", "Personangrep som retter seg mot personen selv"],
     explanation: 'Konstruktiv feedback peker på hva som kan forbedres, på en respektfull måte.',
   },
   {
     question: 'Hvorfor er god kommunikasjon viktig i lag?',
-    options: ["Det styrker samspill, koordinering og tillit mellom spillerne", "Det erstatter ferdigheter helt", "Det kan fullstendig erstatte tekniske og fysiske ferdigheter dersom man bare snakker nok", "Det skaper stort sett bare forvirring på banen, siden for mange stemmer forstyrrer spillet"],
+    options: ["Det styrker samspill, koordinering og tillit mellom spillerne", "Det erstatter ferdigheter helt", "Det kan fullstendig erstatte tekniske ferdigheter", "Det skaper stort sett bare forvirring på banen"],
     explanation: 'Tydelig kommunikasjon gjør at laget jobber mer samordnet.',
   },
   {
     question: 'Hva er feedforward?',
-    options: ["Tilbakemelding rettet framover mot hva man bør gjøre neste gang", "Kritikk av tidligere feil", "En fast oppvarmingsøvelse man gjør før økta for å forberede kroppen på hard aktivitet", "Ren kritikk av tidligere feil som allerede er begått, uten forslag til hva man bør gjøre"],
+    options: ["Tilbakemelding rettet framover mot hva man bør gjøre neste gang", "Kritikk av tidligere feil", "En fast oppvarmingsøvelse man gjør før økta", "Ren kritikk av feil som allerede er begått"],
     explanation: 'Feedforward fokuserer på løsninger og forbedring framover, ikke bare fortidens feil.',
   },
   {
     question: 'Hva menes med rollefleksibilitet i et lag?',
-    options: ["At spillere kan ta ulike roller ved behov", "At alle har nøyaktig samme rolle alltid", "At hver spiller alltid har nøyaktig samme faste rolle og aldri kan bytte plass i laget", "At bare én spiller bestemmer"],
+    options: ["At spillere kan ta ulike roller ved behov", "At alle alltid har nøyaktig samme rolle i laget", "At hver spiller alltid har nøyaktig samme faste rolle og aldri kan bytte plass i laget", "At bare én av spillerne bestemmer alt i laget"],
     explanation: 'Fleksible roller gjør laget mer robust og tilpasningsdyktig.',
   },
 ],
   'kroppsoving-vg1-5-6': [
   {
     question: 'Hva er en fordel med lekbasert læring i kroppsøving?',
-    options: ["Det gir bevegelsesglede og læring i en motiverende ramme", "Det passer bare for de yngste", "Det gjør konkurranse til det viktigste og premierer bare vinnerne", "Det egner seg utelukkende for de yngste og har ingen verdi på VGS"],
+    options: ["Det gir bevegelsesglede og læring i en motiverende ramme", "Det passer bare for de aller yngste", "Det gjør konkurranse til det viktigste og premierer bare vinnerne", "Det egner seg utelukkende for de yngste og har ingen verdi på VGS"],
     explanation: 'Lek gjør at elever er aktive og lærer ferdigheter på en engasjerende måte.',
   },
   {
@@ -1110,24 +1110,24 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvordan kan man gjøre et spill mer inkluderende?',
-    options: ["Ved å tilpasse regler og roller slik at alle får delta og mestre", "Ved å gjøre reglene strengere for nybegynnere", "Ved å skjerpe reglene ekstra for nybegynnere så de raskt lærer alvoret", "Ved å bytte ut elever som gjør feil, så laget alltid presterer på topp"],
+    options: ["Ved å tilpasse regler og roller slik at alle får delta og mestre", "Ved å gjøre reglene strengere for nybegynnere", "Ved å skjerpe reglene ekstra for nybegynnere", "Ved å bytte ut elever som gjør feil"],
     explanation: 'Tilpassede regler senker terskelen og gir alle mestringsopplevelser.',
   },
   {
     question: 'Hva er en hybrid-idrett?',
-    options: ["En idrett som kombinerer elementer fra flere idretter", "En tradisjonell enkeltidrett", "En form for tung styrketrening som bygger muskler før man spiller kamp", "En tradisjonell enkeltidrett med ett fast regelsett fra én bestemt gren"],
+    options: ["En idrett som kombinerer elementer fra flere idretter", "En tradisjonell enkeltidrett alene", "En form for tung styrketrening som bygger muskler før man spiller kamp", "En tradisjonell enkeltidrett med ett fast regelsett fra én bestemt gren"],
     explanation: 'Hybrid-idretter blander regler og ferdigheter fra ulike spill.',
   },
   {
     question: 'Hva menes med overføringsverdi i lek og spill?',
-    options: ["At ferdigheter man lærer i én aktivitet, kan brukes i andre", "At ferdighetene bare gjelder ett spill", "At man glemmer det meste igjen så snart selve leken eller spillet er over", "At ferdighetene man øver kun fungerer i akkurat det ene spillet de læres i"],
+    options: ["At ferdigheter man lærer i én aktivitet, kan brukes i andre", "At ferdighetene bare gjelder ett spill", "At man glemmer det meste når spillet er over", "At ferdighetene kun fungerer i det ene spillet"],
     explanation: 'Generelle bevegelsesferdigheter kan overføres mellom ulike aktiviteter.',
   },
 ],
   'kroppsoving-vg1-5-7': [
   {
     question: 'Hva betyr fair play?',
-    options: ["Å spille rettferdig, følge reglene og respektere med- og motspillere", "Å vinne for enhver pris", "Å gjøre alt for å vinne, selv om det betyr å bøye reglene når man kan", "Å se bort fra reglene når de står i veien for eget lags sjanse til seier"],
+    options: ["Å spille rettferdig, følge reglene og respektere med- og motspillere", "Å vinne for absolutt enhver pris, uansett hvordan man oppfører seg mot andre", "Å gjøre alt for å vinne, selv om det betyr å bøye reglene når man kan", "Å se bort fra reglene når de står i veien for eget lags sjanse til seier"],
     explanation: 'Fair play handler om respekt, ærlighet og rettferdig konkurranse.',
   },
   {
@@ -1137,17 +1137,17 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er «filming» (diving) i fotball?',
-    options: ["Å late som man blir felt for å lure dommeren", "Å ta opp kampen på video", "Å filme kampen på video for å analysere spillet i etterkant på skjerm", "En lovlig takling"],
+    options: ["Å late som man blir felt for å lure dommeren", "Å ta opp hele kampen på video", "Å filme kampen på video for å analysere spillet i etterkant på skjerm", "En helt lovlig takling i spillet"],
     explanation: 'Filming er usportslig fordi man forsøker å skaffe en urettferdig fordel.',
   },
   {
     question: 'Hvorfor er fair play viktig også i skolens kroppsøving?',
-    options: ["Det skaper trygghet, inkludering og glede for alle som deltar", "Det gjør bare de beste glade", "Det gjør all konkurranse umulig fordi ingen lenger tør å prøve å vinne", "Det gleder bare de aller beste utøverne og har lite å si for de svakere"],
+    options: ["Det skaper trygghet, inkludering og glede for alle som deltar", "Det gjør bare de beste glade", "Det gjør all konkurranse umulig", "Det gleder bare de aller beste utøverne"],
     explanation: 'Fair play bidrar til et godt læringsmiljø der alle tør delta.',
   },
   {
     question: 'Hva er rollemodelleffekten i idrett?',
-    options: ["At idrettsutøvere påvirker hvordan andre, særlig unge, oppfører seg", "At rollemodeller ikke betyr noe", "At kun dommerne fungerer som forbilder, mens utøverne selv ikke betyr noe", "At kjente rollemodeller egentlig ikke påvirker andres oppførsel noe særlig"],
+    options: ["At idrettsutøvere påvirker hvordan andre, særlig unge, oppfører seg", "At rollemodeller ikke betyr noe", "At kun dommerne fungerer som forbilder", "At kjente rollemodeller egentlig ikke påvirker andre"],
     explanation: 'Forbilder som viser fair play, kan inspirere god oppførsel hos andre.',
   },
 ],
@@ -1159,34 +1159,34 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er forskjellen på downbeat og offbeat?',
-    options: ["Downbeat er hovedslaget, offbeat ligger mellom hovedslagene", "Offbeat er alltid sterkere enn downbeat", "De betegner nøyaktig det samme slaget og brukes helt om hverandre i musikk", "Downbeat finnes ikke i vanlig musikk og er kun et begrep som brukes i dans"],
+    options: ["Downbeat er hovedslaget, offbeat ligger mellom hovedslagene", "Offbeat er alltid mye sterkere enn selve downbeatet i musikken", "De betegner nøyaktig det samme slaget og brukes helt om hverandre i musikk", "Downbeat finnes ikke i vanlig musikk og er kun et begrep som brukes i dans"],
     explanation: 'Å danse på offbeat gir ofte en mer «groovy» følelse.',
   },
   {
     question: 'Hva betyr musikalitet i dans?',
-    options: ["Evnen til å tolke og uttrykke musikken gjennom bevegelse", "Å spille et instrument", "Evnen til å danse helt uten musikk og likevel holde en jevn indre rytme", "Ferdigheten i å spille et instrument samtidig som man selv danser til det"],
+    options: ["Evnen til å tolke og uttrykke musikken gjennom bevegelse", "Å kunne spille et instrument godt selv", "Evnen til å danse helt uten musikk og likevel holde en jevn indre rytme", "Ferdigheten i å spille et instrument samtidig som man selv danser til det"],
     explanation: 'Musikalitet handler om hvordan bevegelsene henger sammen med musikken.',
   },
   {
     question: 'Hva menes med dynamikk i dans?',
-    options: ["Variasjon i kraft, tempo og energi i bevegelsene", "Å danse i ett tempo hele tiden", "Utelukkende det å bevege seg hardt og kraftig gjennom hele hele dansen", "Å holde nøyaktig samme tempo og energi fra start til slutt i hele dansen"],
+    options: ["Variasjon i kraft, tempo og energi i bevegelsene", "Å danse i ett tempo hele tiden", "Utelukkende det å bevege seg hardt og kraftig gjennom hele hele dansen", "Å holde nøyaktig samme tempo fra start til slutt"],
     explanation: 'Dynamikk gir uttrykk og kontrast i en dans.',
   },
   {
     question: 'Hvorfor er rytmefølelse viktig for nybegynnere i dans?',
-    options: ["Det gjør det lettere å bevege seg i takt og lære koreografi", "Det gjør dansen vanskeligere", "Det har egentlig ingen betydning så lenge man husker selve trinnene", "Det erstatter all teknikk, slik at man slipper å øve på selve bevegelsene"],
+    options: ["Det gjør det lettere å bevege seg i takt og lære koreografi", "Det gjør bare dansen mye vanskeligere", "Det har egentlig ingen betydning så lenge man husker selve trinnene", "Det erstatter all teknikk, slik at man slipper å øve på selve bevegelsene"],
     explanation: 'God rytmefølelse er grunnlaget for å danse koordinert til musikk.',
   },
 ],
   'kroppsoving-vg1-6-2': [
   {
     question: 'Hva kjennetegner pardans?',
-    options: ["To dansere danser sammen med en fører og en følger", "En stor gruppe uten samspill", "At to personer danser ved siden av hverandre helt uten fysisk kontakt", "At én danser danser helt alene og tolker musikken på egen hånd på gulvet"],
+    options: ["To dansere danser sammen med en fører og en følger", "En stor gruppe dansere som danser helt uten samspill", "At to personer danser ved siden av hverandre helt uten fysisk kontakt", "At én danser danser helt alene og tolker musikken på egen hånd på gulvet"],
     explanation: 'I pardans samarbeider partnerne, der den ene fører og den andre følger.',
   },
   {
     question: 'Hva er rollen til føreren i pardans?',
-    options: ["Å lede bevegelsene og signalisere hva som skal skje", "Å danse i utakt med partneren", "Å bare se på partneren danse uten selv å bidra med egne bevegelser", "Å stå helt stille og la følgeren ta alle initiativ og bestemme bevegelsene"],
+    options: ["Å lede bevegelsene og signalisere hva som skal skje", "Å danse helt i utakt med partneren gjennom hele dansen", "Å bare se på partneren danse uten selv å bidra med egne bevegelser", "Å stå helt stille og la følgeren ta alle initiativ og bestemme bevegelsene"],
     explanation: 'Føreren tar initiativ, mens følgeren reagerer på signalene.',
   },
   {
@@ -1196,7 +1196,7 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva handler dans-etikette og floorcraft om?',
-    options: ["Å vise hensyn og unngå kollisjoner på dansegulvet", "Å danse mest mulig aggressivt", "Å bestemme hvilken musikk som spilles og hvilket tempo den skal ha", "Å se helt bort fra de andre danserne og bare tenke på sin egen dans"],
+    options: ["Å vise hensyn og unngå kollisjoner på dansegulvet", "Å danse mest mulig aggressivt og plasskrevende på gulvet", "Å bestemme hvilken musikk som spilles og hvilket tempo den skal ha", "Å se helt bort fra de andre danserne og bare tenke på sin egen dans"],
     explanation: 'God floorcraft betyr å navigere trygt og hensynsfullt på gulvet.',
   },
   {
@@ -1208,17 +1208,17 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   'kroppsoving-vg1-6-3': [
   {
     question: 'Hva er freestyle i hiphop-dans?',
-    options: ["Improvisert dans uten fast koreografi", "En innøvd, fast sekvens", "En form for pardans der fører og følger samarbeider gjennom bevegelse", "En type pardans"],
+    options: ["Improvisert dans uten fast koreografi", "En innøvd, fast sekvens", "En form for pardans der fører og følger samarbeider gjennom bevegelse", "En bestemt type pardans"],
     explanation: 'Freestyle handler om å skape bevegelser spontant til musikken.',
   },
   {
     question: 'Hva er en battle i hiphop-kultur?',
-    options: ["En vennskapelig konkurranse der dansere viser ferdigheter mot hverandre", "En nøye innøvd gruppedans der alle utfører nøyaktig de samme trinnene", "En form for tradisjonell folkedans som er overlevert gjennom generasjoner", "En rolig oppvarmingsøvelse som gjøres i fellesskap før den egentlige dansen"],
+    options: ["En vennskapelig konkurranse der dansere viser ferdigheter mot hverandre", "En nøye innøvd gruppedans der alle utfører nøyaktig de samme trinnene samtidig", "En form for tradisjonell folkedans som er overlevert gjennom generasjoner", "En rolig oppvarmingsøvelse som gjøres i fellesskap før den egentlige dansen"],
     explanation: 'Battles er sentrale i hiphop og handler om kreativitet og uttrykk.',
   },
   {
     question: 'Hva er en cypher i hiphop-dans?',
-    options: ["En sirkel der dansere bytter på å danse i midten", "En type koreografi på papir", "En soloøvelse man gjør alene hjemme foran speilet for å pusse på trinnene", "En type koreografi som er skrevet ned på papir før den øves inn på gulvet"],
+    options: ["En sirkel der dansere bytter på å danse i midten", "En type koreografi skrevet på papir", "En soloøvelse man gjør alene hjemme foran speilet for å pusse på trinnene", "En type koreografi som er skrevet ned på papir før den øves inn på gulvet"],
     explanation: 'I en cypher samles dansere i ring og deler scenen etter tur.',
   },
   {
@@ -1228,19 +1228,19 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er en fordel med å lære improvisasjon i dans?',
-    options: ["Det utvikler kreativitet og egen bevegelsesidentitet", "Det gjør at man bare kopierer andre", "Det fjerner all kreativitet fordi man må følge faste, innlærte mønstre", "Det krever ingen ferdigheter i det hele tatt og gir derfor lite læring"],
+    options: ["Det utvikler kreativitet og egen bevegelsesidentitet", "Det gjør at man bare ender opp med å kopiere andre dansere", "Det fjerner all kreativitet fordi man må følge faste, innlærte mønstre", "Det krever ingen ferdigheter i det hele tatt og gir derfor lite læring"],
     explanation: 'Improvisasjon lar danseren utforske og uttrykke seg fritt.',
   },
 ],
   'kroppsoving-vg1-6-4': [
   {
     question: 'Hva er koreografi?',
-    options: ["En planlagt sammensetning av bevegelser til en dans", "En type musikkinstrument", "Helt tilfeldig bevegelse uten noen plan eller sammenheng gjennom dansen", "En fast oppvarmingsrutine man gjør før man begynner med selve dansingen"],
+    options: ["En planlagt sammensetning av bevegelser til en dans", "En bestemt type musikkinstrument som brukes til dansemusikk", "Helt tilfeldig bevegelse uten noen plan eller sammenheng gjennom dansen", "En fast oppvarmingsrutine man gjør før man begynner med selve dansingen"],
     explanation: 'Koreografi strukturerer bevegelser til et helhetlig uttrykk.',
   },
   {
     question: 'Hva er et bevegelsesmotiv i skapende dans?',
-    options: ["En grunnbevegelse som gjentas og varieres gjennom dansen", "En pause i dansen", "En bevisst pause i dansen der danseren står stille før neste sekvens", "En regel for hvilket kostyme danseren skal ha på seg under framføringen"],
+    options: ["En grunnbevegelse som gjentas og varieres gjennom dansen", "En bevisst pause midt inne i dansen", "En bevisst pause i dansen der danseren står stille før neste sekvens", "En regel for hvilket kostyme danseren skal ha på seg under framføringen"],
     explanation: 'Et motiv kan utvikles og varieres for å bygge en koreografi.',
   },
   {
@@ -1262,12 +1262,12 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   'kroppsoving-vg1-6-5': [
   {
     question: 'Hva er aerobics?',
-    options: ["Kondisjonstrening med rytmiske bevegelser til musikk", "Maksimal styrketrening med tunge vekter", "Statisk tøying av muskler holdt i ro over lengre tid", "Maksimal styrketrening med tunge vekter og få repetisjoner"],
+    options: ["Kondisjonstrening med rytmiske bevegelser til musikk", "Maksimal styrketrening med tunge vekter", "Statisk tøying av muskler holdt i ro lenge", "Maksimal styrketrening med tunge vekter og få repetisjoner"],
     explanation: 'Aerobics kombinerer kardiovaskulær trening med dans-pregede bevegelser.',
   },
   {
     question: 'Hva betyr BPM i forbindelse med treningsmusikk?',
-    options: ["Beats Per Minute – antall taktslag per minutt", "Body Position Movement", "Beats Per Mile – antall taktslag fordelt på løpsdistanse", "Best Possible Move – det mest effektive treningsvalget der"],
+    options: ["Beats Per Minute – antall taktslag per minutt", "Body Position Movement i dans", "Beats Per Mile – antall taktslag fordelt på løpsdistanse", "Best Possible Move – det mest effektive treningsvalget der"],
     explanation: 'BPM angir tempoet i musikken og styrer intensiteten i økta.',
   },
   {
@@ -1304,7 +1304,7 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvorfor er det verdifullt å lære danser fra ulike kulturer?',
-    options: ["Det gir forståelse, respekt og innsikt i kulturelt mangfold", "Det fjerner og svekker ens egen kulturelle bakgrunn helt", "Det har ingen verdi og gir verken kunnskap eller forståelse", "Det gjør dansingen kjedelig og mindre meningsfull for utøveren"],
+    options: ["Det gir forståelse, respekt og innsikt i kulturelt mangfold", "Det fjerner og svekker ens egen kulturelle bakgrunn helt", "Det har ingen verdi og gir verken kunnskap eller nytte", "Det gjør dansingen kjedelig og mindre meningsfull for utøveren"],
     explanation: 'Møte med ulike dansetradisjoner utvider forståelsen for andre kulturer.',
   },
   {
@@ -1331,7 +1331,7 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvorfor er det viktig å «snu i tide» på fjellet?',
-    options: ["For å unngå å havne i fare når vær eller forhold forverres", "Fordi man alltid bør gi opp turen ved minste motstand", "Fordi fjellturen er en konkurranse man taper ved å fortsette", "Fordi det uansett ikke spiller noen rolle når man snur på turen"],
+    options: ["For å unngå å havne i fare når vær eller forhold forverres", "Fordi man alltid bør gi opp turen ved den aller minste motstand", "Fordi fjellturen er en konkurranse man taper ved å fortsette", "Fordi det uansett ikke spiller noen rolle når man snur på turen"],
     explanation: 'Det er ingen skam å snu – det kan redde liv når forholdene blir farlige.',
   },
   {
@@ -1343,12 +1343,12 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   'kroppsoving-vg1-7-2': [
   {
     question: 'Hva viser tette høydekurver på et kart?',
-    options: ['Bratt terreng', 'Slakt terreng', 'Vann', 'En sti'],
+    options: ['Bratt terreng', 'Slakt og flatt terreng', 'Vann i terrenget', 'En sti i terrenget'],
     explanation: 'Jo tettere kurvene er, desto brattere er terrenget.',
   },
   {
     question: 'Hva er en grunnleggende bruk av kompasset?',
-    options: ["Å finne retning og orientere kartet etter nord", "Å beregne kaloriforbruk", "Å måle hvilepulsen og treningspulsen underveis på turen", "Å vise nøyaktig klokkeslett slik at man holder tidsskjema"],
+    options: ["Å finne retning og orientere kartet etter nord", "Å beregne kaloriforbruket ditt underveis på turen", "Å måle hvilepulsen og treningspulsen underveis på turen", "Å vise nøyaktig klokkeslett slik at man holder tidsskjema"],
     explanation: 'Kompasset peker mot nord og brukes til å sette riktig kurs.',
   },
   {
@@ -1358,7 +1358,7 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvorfor bør man ikke stole fullt og helt på digital navigasjon?',
-    options: ["Batteriet kan ta slutt eller signalet forsvinne", "Den er for tung å bære", "Den er altfor tung og upraktisk å bære med seg på lang tur", "Den er forbudt å bruke på tur i norsk natur og verneområder"],
+    options: ["Batteriet kan ta slutt eller signalet forsvinne", "Den er for tung å bære med seg", "Den er altfor tung og upraktisk å bære med seg på lang tur", "Den er forbudt å bruke på tur i norsk natur og verneområder"],
     explanation: 'Tradisjonelle kart og kompass er en viktig backup når teknologien svikter.',
   },
   {
@@ -1370,12 +1370,12 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   'kroppsoving-vg1-7-3': [
   {
     question: 'Hva er hypotermi?',
-    options: ["Nedkjøling der kroppstemperaturen synker farlig lavt", "For høy kroppstemperatur som følge av overoppheting", "En type frostskade som kun rammer huden på overflaten", "Væsketap og dehydrering ved for lite drikke under aktivitet"],
+    options: ["Nedkjøling der kroppstemperaturen synker farlig lavt", "For høy kroppstemperatur som følge av kraftig overoppheting", "En type frostskade som kun rammer huden på overflaten", "Væsketap og dehydrering ved for lite drikke under aktivitet"],
     explanation: 'Hypotermi oppstår når kroppen mister mer varme enn den klarer å produsere.',
   },
   {
     question: 'Hva er et tidlig tegn på hypotermi?',
-    options: ["Skjelving og nedsatt finmotorikk", "Økt svetting og varmefølelse", "Høyere energinivå og overskudd enn man vanligvis har", "Bedre koordinasjon"],
+    options: ["Skjelving og nedsatt finmotorikk", "Økt svetting og varmefølelse", "Høyere energinivå og overskudd enn man vanligvis har", "Bedre koordinasjon enn før"],
     explanation: 'Skjelving er kroppens forsøk på å produsere varme – et tidlig varseltegn.',
   },
   {
@@ -1390,19 +1390,19 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er fordelen med å kunne bygge en snøhule?',
-    options: ["Den gir ly og isolasjon mot kulde i en nødsituasjon", "Den varmer mer enn et bål", "Den varmer mer effektivt enn et bål gjør i samme situasjon", "Den er bare et morsomt tidsfordriv uten noen praktisk nytte"],
+    options: ["Den gir ly og isolasjon mot kulde i en nødsituasjon", "Den varmer mer enn et vanlig bål", "Den varmer mer effektivt enn et bål gjør i samme situasjon", "Den er bare et morsomt tidsfordriv uten noen praktisk nytte"],
     explanation: 'En snøhule kan beskytte mot vind og kulde og være livreddende.',
   },
 ],
   'kroppsoving-vg1-7-4': [
   {
     question: 'Hva er en viktig sikkerhetsregel ved aktivitet på og ved vann?',
-    options: ["Bruk flytevest og vurder forholdene før du legger ut", "Hopp uti uten å kjenne dybden", "Ignorer vær og strøm siden forholdene sjelden betyr noe på vann", "Padle alltid alene og uten flytevest for å øve på selvstendighet"],
+    options: ["Bruk flytevest og vurder forholdene før du legger ut", "Hopp uti vannet uten å kjenne dybden eller strømforholdene", "Ignorer vær og strøm siden forholdene sjelden betyr noe på vann", "Padle alltid alene og uten flytevest for å øve på selvstendighet"],
     explanation: 'Flytevest og god vurdering av forholdene forebygger drukningsulykker.',
   },
   {
     question: 'Hva er SUP?',
-    options: ["Stand Up Paddleboard – padling stående på et brett", "En fjellvettregel", "En type lett telt man tar med på padle- og kajakkturer", "En bestemt svømmeart man bruker i konkurranser i basseng"],
+    options: ["Stand Up Paddleboard – padling stående på et brett", "En av de kjente fjellvettreglene man bør følge på tur", "En type lett telt man tar med på padle- og kajakkturer", "En bestemt svømmeart man bruker i konkurranser i basseng"],
     explanation: 'SUP er en populær vannaktivitet der man padler stående på et brett.',
   },
   {
@@ -1412,7 +1412,7 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er en god regel hvis du havner i kaldt vann uventet?',
-    options: ["Hold roen, behold klærne for isolasjon og kom deg raskt opp", "Gi opp med en gang siden det uansett er umulig å komme opp", "Svøm langt ut fra land for å finne roligere og varmere vann", "Ta av deg klærne i vannet så de ikke tynger deg ned"],
+    options: ["Hold roen, behold klærne for isolasjon og kom deg raskt opp", "Gi opp med en gang siden det uansett er umulig å komme opp", "Svøm langt ut fra land for å finne roligere vann", "Ta av deg klærne i vannet så de ikke tynger deg ned"],
     explanation: 'Klær gir noe isolasjon, og det er viktig å komme seg ut av kaldt vann fort.',
   },
   {
@@ -1424,7 +1424,7 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   'kroppsoving-vg1-7-5': [
   {
     question: 'Hva er en grunnregel ved soppsanking?',
-    options: ["Bare plukk og spis sopp du er helt sikker på er spiselig", "Spis ukjent sopp i små mengder for å teste om den tåles", "Plukk all sopp du finner og smak deg fram til hva som er godt", "Spis alltid rikelig av hver sopp for å få god næring av turen"],
+    options: ["Bare plukk og spis sopp du er helt sikker på er spiselig", "Spis ukjent sopp i små mengder for å teste om du tåler den", "Plukk all sopp du finner og smak deg fram til hva som er godt", "Spis alltid rikelig av hver sopp for å få god næring av turen"],
     explanation: 'Noen sopper er svært giftige – sikker artsbestemmelse er avgjørende.',
   },
   {
@@ -1434,17 +1434,17 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvorfor bør man være forsiktig med ukjent sopp?',
-    options: ["Flere arter er giftige og kan ligne spiselige sopper", "Bare farget sopp er farlig", "Fargen på hatten avslører alltid om en sopp er trygg å spise", "All sopp blir helt ufarlig så snart den er varmebehandlet lenge nok"],
+    options: ["Flere arter er giftige og kan ligne spiselige sopper", "Bare sopp med sterke farger på hatten er farlig å spise", "Fargen på hatten avslører alltid om en sopp er trygg å spise", "All sopp blir helt ufarlig så snart den er varmebehandlet lenge nok"],
     explanation: 'Forveksling med giftige arter kan få alvorlige konsekvenser.',
   },
   {
     question: 'Hva kjennetegner friluftsliv om høsten i Norge?',
-    options: ["Tid for høsting som bær og sopp, og varierende, ofte vått vær", "Ingen muligheter for aktivitet", "Stabil sommervarme og tørt, solrikt vær gjennom hele årstiden", "Kun mulighet for skigåing og andre rene vinteraktiviteter på snø"],
+    options: ["Tid for høsting som bær og sopp, og varierende, ofte vått vær", "Ingen muligheter for aktivitet", "Stabil sommervarme og tørt, solrikt vær hele tiden", "Kun mulighet for skigåing og andre rene vinteraktiviteter på snø"],
     explanation: 'Høsten gir gode muligheter for høsting, men krever god bekledning.',
   },
   {
     question: 'Hva bør man tenke på med bekledning på høstturer?',
-    options: ["Kle seg etter skiftende vær med lag som tåler vått og kjølig klima", "Kle seg lett uansett vær", "Droppe regntøy helt siden nedbør nesten aldri forekommer på høstturer", "Kle seg lett og luftig uansett vær, siden temperaturen holder seg stabil"],
+    options: ["Kle seg etter skiftende vær med lag som tåler vått og kjølig klima", "Kle seg lett og tynt uansett hvilket vær", "Droppe regntøy helt siden nedbør nesten aldri forekommer på høstturer", "Kle seg lett og luftig uansett vær, siden temperaturen holder seg stabil"],
     explanation: 'Høstvær kan skifte raskt, så lag-på-lag og regntøy er smart.',
   },
 ],
@@ -1456,7 +1456,7 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er et godt opptenningsmateriell til bål?',
-    options: ["Tørt, fint materiale som never, tørt gress eller fnøsk", "Store, fuktige kubber først", "Store, fuktige kubber som legges på først for varig glød", "Vått, friskt løv og nyplukket, saftig gress som ryker mye"],
+    options: ["Tørt, fint materiale som never, tørt gress eller fnøsk", "Store, fuktige kubber helt først", "Store, fuktige kubber som legges på først for varig glød", "Vått, friskt løv og nyplukket, saftig gress som ryker mye"],
     explanation: 'Tørt, fint materiale tar lett fyr og hjelper bålet i gang.',
   },
   {
@@ -1498,24 +1498,24 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er en konkret handling for å verne naturen på tur?',
-    options: ["Ta med eget søppel hjem og følge merkede stier", "Tråkke ned vegetasjon utenfor stien", "Kaste matrester og annet søppel rett i naturen når man er ferdig", "Forstyrre og jage dyrelivet for å få bedre bilder og opplevelser"],
+    options: ["Ta med eget søppel hjem og følge merkede stier", "Tråkke ned vegetasjonen utenfor de merkede stiene", "Kaste matrester og annet søppel rett i naturen når man er ferdig", "Forstyrre og jage dyrelivet for å få bedre bilder og opplevelser"],
     explanation: 'Små handlinger som å ta med søppel reduserer belastningen på naturen.',
   },
 ],
   'kroppsoving-vg1-7-8': [
   {
     question: 'Hva menes med tradisjonell økologisk kunnskap?',
-    options: ["Kunnskap om naturen som er bygd opp og overført gjennom generasjoner", "Helt ny vitenskapelig forskning", "Moderne teknologi og digitale verktøy for å overvåke naturen presist", "Faste konkurranseregler for organisert idrett og friluftsaktiviteter"],
+    options: ["Kunnskap om naturen som er bygd opp og overført gjennom generasjoner", "Helt ny vitenskapelig forskning", "Moderne teknologi og digitale verktøy for å overvåke naturen", "Faste konkurranseregler for organisert idrett"],
     explanation: 'Slik kunnskap omfatter blant annet bruk av naturressurser på en bærekraftig måte.',
   },
   {
     question: 'Hva er et kulturlandskap?',
-    options: ["Et landskap som er formet av menneskelig bruk over tid", "Et kunstig museum", "Helt urørt villmark som aldri har vært påvirket av mennesker", "Et kunstig oppbygd museumsområde som viser gamle gjenstander"],
+    options: ["Et landskap som er formet av menneskelig bruk over tid", "Et kunstig oppbygd museumsbygg", "Helt urørt villmark som aldri har vært påvirket av mennesker", "Et kunstig oppbygd museumsområde som viser gamle gjenstander"],
     explanation: 'Kulturlandskap viser samspillet mellom mennesker og natur, som setergrender og beitemarker.',
   },
   {
     question: 'Hvorfor er det verdifullt å kjenne lokale friluftslivstradisjoner?',
-    options: ["De gir tilhørighet, identitet og kunnskap om naturen i nærområdet", "De gjelder bare i utlandet", "De gjelder utelukkende i andre land og har ingen betydning i Norge", "De hindrer og begrenser folks muligheter til å drive med friluftsliv"],
+    options: ["De gir tilhørighet, identitet og kunnskap om naturen i nærområdet", "De gjelder bare i andre land enn Norge", "De gjelder utelukkende i andre land og har ingen betydning i Norge", "De hindrer og begrenser folks muligheter til å drive med friluftsliv"],
     explanation: 'Lokale tradisjoner knytter mennesker til stedet og naturen rundt.',
   },
   {
@@ -1532,7 +1532,7 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   'kroppsoving-vg1-8-1': [
   {
     question: 'Hva er en dokumentert helsegevinst av regelmessig fysisk aktivitet?',
-    options: ["Redusert risiko for hjerte- og karsykdom og type 2-diabetes", "Økt risiko for livsstilssykdommer", "Svekket immunforsvar som gjør kroppen mer utsatt for infeksjoner", "Økt risiko for å utvikle livsstilssykdommer og tidlig hjertesvikt"],
+    options: ["Redusert risiko for hjerte- og karsykdom og type 2-diabetes", "Økt risiko for livsstilssykdommer og dårligere helse over tid", "Svekket immunforsvar som gjør kroppen mer utsatt for infeksjoner", "Økt risiko for å utvikle livsstilssykdommer og tidlig hjertesvikt"],
     explanation: 'Aktivitet styrker hjerte, kretsløp og stoffskifte og forebygger sykdom.',
   },
   {
@@ -1542,7 +1542,7 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva kjennetegner moderat intensitet?',
-    options: ["Du blir litt andpusten, men kan fortsatt snakke", "Du kan ikke snakke i det hele tatt", "Du blir så andpusten at du ikke får sagt et eneste ord", "Du sitter helt i ro uten at pust eller puls øker merkbart"],
+    options: ["Du blir litt andpusten, men kan fortsatt snakke", "Du kan ikke snakke i det hele tatt mens du holder på", "Du blir så andpusten at du ikke får sagt et eneste ord", "Du sitter helt i ro uten at pust eller puls øker merkbart"],
     explanation: 'Ved moderat intensitet er pust og puls forhøyet, men man kan føre en samtale.',
   },
   {
@@ -1552,7 +1552,7 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvorfor er fysisk aktivitet viktig for folkehelsen?',
-    options: ["Det forebygger sykdom og bedrer livskvalitet i befolkningen", "Det har ingen samfunnsmessig betydning", "Det er kun relevant for toppidrettsutøvere, ikke vanlige folk", "Det har ingen samfunnsmessig betydning og angår kun den enkelte"],
+    options: ["Det forebygger sykdom og bedrer livskvalitet i befolkningen", "Det har ingen som helst samfunnsmessig betydning for folkehelsen", "Det er kun relevant for toppidrettsutøvere, ikke vanlige folk", "Det har ingen samfunnsmessig betydning og angår kun den enkelte"],
     explanation: 'Aktiv befolkning gir mindre sykdom og lavere kostnader for samfunnet.',
   },
 ],
@@ -1591,7 +1591,7 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva kjennetegner en flytopplevelse (flow)?',
-    options: ["Full konsentrasjon og glede når utfordring og ferdighet er i balanse", "Total passivitet og likegyldighet uten noen form for engasjement", "Sterk kjedsomhet fordi oppgaven er altfor lett for ferdighetene dine", "Kraftig angst og uro fordi utfordringen langt overgår det du mestrer"],
+    options: ["Full konsentrasjon og glede når utfordring og ferdighet er i balanse", "Total passivitet og likegyldighet uten noen form for engasjement", "Sterk kjedsomhet fordi oppgaven er altfor lett", "Kraftig angst fordi utfordringen langt overgår det du mestrer"],
     explanation: 'Flow oppstår når oppgaven er passe utfordrende i forhold til ferdighetene.',
   },
   {
@@ -1601,7 +1601,7 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er bevegelsesglede?',
-    options: ["Den positive opplevelsen og lysten knyttet til å være i bevegelse", "Smerte under trening", "Den fysiske smerten og ubehaget som oppstår i musklene under hard trening", "Konkurranseinstinktet som driver en utøver til å prestere bedre enn motstanderne"],
+    options: ["Den positive opplevelsen og lysten knyttet til å være i bevegelse", "Smerten og ubehaget man kjenner under trening", "Den fysiske smerten og ubehaget som oppstår i musklene under hard trening", "Konkurranseinstinktet som driver en utøver til å prestere bedre enn motstanderne"],
     explanation: 'Bevegelsesglede er en viktig drivkraft for livslang aktivitet.',
   },
   {
@@ -1613,54 +1613,54 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   'kroppsoving-vg1-8-4': [
   {
     question: 'Hva er fair play?',
-    options: ["Å konkurrere rettferdig med respekt for regler og motstandere", "Å ignorere motstanderen", "Å utnytte hull i regelverket så smart som mulig for å få et fortrinn", "Å legge all oppmerksomhet på egen prestasjon uten å bry seg om motstanderen"],
+    options: ["Å konkurrere rettferdig med respekt for regler og motstandere", "Å ignorere motstanderen sin fullstendig gjennom hele konkurransen", "Å utnytte hull i regelverket så smart som mulig for å få et fortrinn", "Å legge all oppmerksomhet på egen prestasjon uten å bry seg om motstanderen"],
     explanation: 'Fair play er en grunnpilar i idrettens verdigrunnlag.',
   },
   {
     question: 'Hva er kjernen i idealene fra det olympiske charteret?',
-    options: ["Vennskap, respekt og fremragende innsats (excellence)", "Vinne for enhver pris", "Å vinne for enhver pris så lenge man holder seg innenfor reglene", "Å oppnå økonomisk gevinst og berømmelse gjennom sportslig suksess"],
+    options: ["Vennskap, respekt og fremragende innsats (excellence)", "Å vinne for absolutt enhver pris", "Å vinne for enhver pris så lenge man holder seg innenfor reglene", "Å oppnå økonomisk gevinst og berømmelse gjennom sportslig suksess"],
     explanation: 'Den olympiske ånd vektlegger deltakelse, vennskap og respekt.',
   },
   {
     question: 'Hva er et eksempel på NIFs verdier (idrettens verdigrunnlag)?',
-    options: ["Glede, fellesskap, helse og ærlighet", "Juks og egoisme", "Konkurranseinstinkt, personlig vinning og streben etter egen suksess", "Penger over alt"],
+    options: ["Glede, fellesskap, helse og ærlighet", "Juks og grov egoisme i spill", "Konkurranseinstinkt, personlig vinning og streben etter egen suksess", "Penger over alt annet i idretten"],
     explanation: 'Norsk idrett bygger på verdier som glede, fellesskap, helse og ærlighet.',
   },
   {
     question: 'Hvorfor er idrettskultur og verdier viktige?',
-    options: ["De skaper trygge, inkluderende og rettferdige rammer for alle utøvere", "De handler bare om å vinne", "De er kun symbolske idealer uten reell betydning for utøvernes hverdag", "De handler først og fremst om å sikre seier og resultater på øverste nivå"],
+    options: ["De skaper trygge, inkluderende og rettferdige rammer for alle utøvere", "De handler bare om det å vinne", "De er kun symbolske idealer uten reell betydning", "De handler først og fremst om å sikre seier"],
     explanation: 'Gode verdier bidrar til en idrett der flere trives og blir værende.',
   },
   {
     question: 'Hva betyr det å vise sportsånd?',
-    options: ["Å respektere med- og motspillere, dommere og spillets regler", "Å protestere på alle avgjørelser", "Å håne og psyke ut motstanderen for å svekke prestasjonen deres", "Å utnytte enhver anledning til å jukse så lenge man ikke blir oppdaget"],
+    options: ["Å respektere med- og motspillere, dommere og spillets regler", "Å protestere høylytt på hver eneste avgjørelse som dommeren tar", "Å håne og psyke ut motstanderen for å svekke prestasjonen deres", "Å utnytte enhver anledning til å jukse så lenge man ikke blir oppdaget"],
     explanation: 'Sportsånd handler om respekt og verdighet i konkurransen.',
   },
 ],
   'kroppsoving-vg1-8-5': [
   {
     question: 'Hva er doping?',
-    options: ["Bruk av forbudte prestasjonsfremmende stoffer eller metoder", "Vanlig sunn trening", "Et lovlig og balansert kosthold med tilskudd som er godkjent for utøvere", "En strukturert oppvarmingsform som forbereder kroppen på hard belastning"],
+    options: ["Bruk av forbudte prestasjonsfremmende stoffer eller metoder", "Vanlig sunn trening kombinert med et godt og variert kosthold hver dag", "Et lovlig og balansert kosthold med tilskudd som er godkjent for utøvere", "En strukturert oppvarmingsform som forbereder kroppen på hard belastning"],
     explanation: 'Doping er forbudt, helseskadelig og i strid med fair play.',
   },
   {
     question: 'Hva er en mulig helserisiko ved bruk av anabole steroider?',
-    options: ["Hjerteproblemer, leverskade og psykiske bivirkninger", "Bedre helse på alle måter", "En generell forbedring av helsen på alle måter over lang tid", "Fravær av bivirkninger så lenge man doserer stoffene fornuftig"],
+    options: ["Hjerteproblemer, leverskade og psykiske bivirkninger", "Bedre helse på absolutt alle måter", "En generell forbedring av helsen på alle måter over lang tid", "Fravær av bivirkninger så lenge man doserer stoffene fornuftig"],
     explanation: 'Doping kan gi alvorlige og varige helseskader.',
   },
   {
     question: 'Hva er WADAs rolle?',
-    options: ["Det internasjonale antidopingbyrået som bekjemper doping i idrett", "Et selskap som selger kosttilskudd", "En stor idrettsklubb som organiserer konkurranser på tvers av landegrenser", "Et internasjonalt selskap som produserer og selger kosttilskudd til utøvere"],
+    options: ["Det internasjonale antidopingbyrået som bekjemper doping i idrett", "Et selskap som selger kosttilskudd", "En stor idrettsklubb som arrangerer konkurranser", "Et internasjonalt selskap som selger kosttilskudd"],
     explanation: 'WADA (World Anti-Doping Agency) utarbeider regler og dopinglister.',
   },
   {
     question: 'Hva er en sosial konsekvens av å bli tatt for doping?',
-    options: ["Utestengelse, tap av tillit og skadet omdømme", "Mer respekt fra andre", "Økt respekt og beundring fra medutøvere og publikum", "Fravær av sosiale følger så lenge man ikke innrømmer det"],
+    options: ["Utestengelse, tap av tillit og skadet omdømme", "Mer respekt fra andre utøvere", "Økt respekt og beundring fra medutøvere og publikum", "Fravær av sosiale følger så lenge man ikke innrømmer det"],
     explanation: 'En dopingdom kan ødelegge karriere, omdømme og relasjoner.',
   },
   {
     question: 'Hvorfor er rusmidler et problem i idrettssammenheng?',
-    options: ["De skader helse, prestasjon og strider mot idrettens verdier", "De forbedrer alltid prestasjonen trygt", "De regnes som en akseptert del av fair play i moderne idrett", "De forbedrer alltid prestasjonen på en helsemessig trygg måte"],
+    options: ["De skader helse, prestasjon og strider mot idrettens verdier", "De forbedrer alltid prestasjonen trygt", "De regnes som en akseptert del av fair play", "De forbedrer alltid prestasjonen på en helsemessig trygg måte"],
     explanation: 'Rusmidler er helseskadelige og uforenlige med en sunn idrettskultur.',
   },
 ],
@@ -1677,12 +1677,12 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva kjennetegner et mestringsklima?',
-    options: ["Et miljø som vektlegger egen framgang og innsats framfor å være best", "Et miljø der bare de som vinner og presterer best får anerkjennelse", "Et miljø helt uten tydelige mål, retning eller struktur for arbeidet", "Et miljø preget av konstant kritikk og negativ oppmerksomhet mot feil"],
+    options: ["Et miljø som vektlegger egen framgang og innsats framfor å være best", "Et miljø der bare de som vinner og presterer best får anerkjennelse", "Et miljø helt uten tydelige mål eller struktur", "Et miljø preget av konstant kritikk og negativ oppmerksomhet mot feil"],
     explanation: 'Mestringsklima fremmer motivasjon, trygghet og læring for alle.',
   },
   {
     question: 'Hvorfor er mangfold en styrke i kroppsøving?',
-    options: ["Ulike erfaringer og ferdigheter beriker fellesskapet og læringen", "Mangfold skaper bare problemer", "Mangfold skaper først og fremst problemer og konflikter i gruppa", "Alle elever bør helst være helt like for at læringen skal fungere godt"],
+    options: ["Ulike erfaringer og ferdigheter beriker fellesskapet og læringen", "Mangfold skaper bare problemer i gruppa", "Mangfold skaper først og fremst problemer i gruppa", "Alle elever bør helst være helt like for at læringen skal fungere godt"],
     explanation: 'Et mangfoldig miljø gir flere perspektiver og muligheter for læring.',
   },
   {
@@ -1699,7 +1699,7 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvorfor er indre motivasjon viktig for livslang aktivitet?',
-    options: ["Fordi glede ved aktiviteten gjør at man fortsetter over tid", "Fordi den varer kortest av alle motivasjonsformer over tid", "Fordi den hele tiden krever ytre belønning for å opprettholdes", "Fordi den i praksis hindrer og bremser videre fysisk aktivitet"],
+    options: ["Fordi glede ved aktiviteten gjør at man fortsetter over tid", "Fordi den varer kortest av alle motivasjonsformer over tid og forsvinner", "Fordi den hele tiden krever ytre belønning for å opprettholdes", "Fordi den i praksis hindrer og bremser videre fysisk aktivitet"],
     explanation: 'Når man liker aktiviteten i seg selv, holder man lettere ut hele livet.',
   },
   {
@@ -1709,19 +1709,19 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva kan fremme livslang bevegelsesglede?',
-    options: ["Å finne aktiviteter man trives med og opplever mestring i", "Å bare trene det man hater", "Å konkurrere hele tiden slik at prestasjon alltid er i fokus", "Å bare trene de aktivitetene man egentlig mistrives med og misliker"],
+    options: ["Å finne aktiviteter man trives med og opplever mestring i", "Å bare trene på det man hater mest", "Å konkurrere hele tiden slik at prestasjon alltid er i fokus", "Å bare trene de aktivitetene man egentlig mistrives med og misliker"],
     explanation: 'Mestring og trivsel er nøkkelen til å holde seg aktiv gjennom hele livet.',
   },
   {
     question: 'Hvordan kan en aktiv livsstil bygges inn i hverdagen?',
-    options: ["Ved å gå eller sykle til skole/jobb og være aktiv i dagliglivet", "Ved å sitte mest mulig stille og redusere unødvendig bevegelse", "Ved bare å gjennomføre én hard treningsøkt i løpet av hele året", "Ved å unngå all bevegelse i hverdagen og heller hvile mest mulig"],
+    options: ["Ved å gå eller sykle til skole/jobb og være aktiv i dagliglivet", "Ved å sitte mest mulig stille og redusere unødvendig bevegelse", "Ved bare å gjennomføre én hard treningsøkt i året", "Ved å unngå all bevegelse i hverdagen og heller hvile mest mulig"],
     explanation: 'Hverdagsaktivitet som å gå og sykle bidrar mye til samlet aktivitetsnivå.',
   },
 ],
   'kroppsoving-vg1-8-8': [
   {
     question: 'Hva er kroppspress?',
-    options: ["Opplevd press om å se ut på en bestemt måte for å passe inn i idealer", "En type kosthold som legger vekt på å presse frem raskt vekttap", "En bestemt pulssone man bør holde seg innenfor under kondisjonstrening", "Trykket fra en vekt eller stang som hviler mot kroppen under styrkeløft"],
+    options: ["Opplevd press om å se ut på en bestemt måte for å passe inn i idealer", "En type kosthold som legger stor vekt på å presse fram et raskt vekttap", "En bestemt pulssone man bør holde seg innenfor under kondisjonstrening", "Trykket fra en vekt eller stang som hviler mot kroppen under styrkeløft"],
     explanation: 'Kroppspress kan komme fra medier, sosiale medier og omgivelser.',
   },
   {
@@ -1731,7 +1731,7 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva menes med kommersialisering av kroppen?',
-    options: ["At kroppen og kroppsidealer brukes til å selge produkter og tjenester", "At det alltid er gratis og uten kostnad å bruke kroppen kommersielt", "At kroppen og kroppsidealer ikke kan brukes i reklame og markedsføring", "At kroppsidealer aldri påvirker forbrukernes kjøp av produkter og tjenester"],
+    options: ["At kroppen og kroppsidealer brukes til å selge produkter og tjenester", "At det alltid er helt gratis og uten kostnad å bruke kroppen kommersielt", "At kroppen og kroppsidealer ikke kan brukes i reklame og markedsføring", "At kroppsidealer aldri påvirker forbrukernes kjøp av produkter og tjenester"],
     explanation: 'Reklame og industri tjener på å skape og forsterke kroppsidealer.',
   },
   {
@@ -1741,7 +1741,7 @@ const quizData_kroppsoving_vg1: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvordan henger kropp og identitet sammen i samfunnet?',
-    options: ["Kroppen er en del av hvordan vi ser oss selv og blir sett av andre", "Samfunnet og kulturen påvirker aldri hvordan vi ser på egen kropp", "Identitet handler først og fremst om klær, stil og ytre fremtoning alene", "Kroppen har egentlig ingenting med vår identitet og selvforståelse å gjøre"],
+    options: ["Kroppen er en del av hvordan vi ser oss selv og blir sett av andre", "Samfunnet og kulturen påvirker aldri hvordan vi ser på vår egen kropp", "Identitet handler først og fremst om klær, stil og ytre fremtoning alene", "Kroppen har egentlig ingenting med vår identitet og selvforståelse å gjøre"],
     explanation: 'Samfunnets normer for kropp påvirker selvbilde og identitet.',
   },
 ],
